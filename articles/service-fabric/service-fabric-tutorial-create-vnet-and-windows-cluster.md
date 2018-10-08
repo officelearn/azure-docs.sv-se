@@ -12,15 +12,15 @@ ms.devlang: dotNet
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 01/22/2018
+ms.date: 09/27/2018
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: f795333e8af2f09800dedc0b65030c42165d6bbb
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.openlocfilehash: 1ee3000ab26dbb0eea33de828812959fe709aaa2
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39068911"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47410025"
 ---
 # <a name="tutorial-deploy-a-service-fabric-windows-cluster-into-an-azure-virtual-network"></a>Självstudie: Distribuera ett Service Fabric Windows-kluster till ett virtuellt Azure-nätverk
 
@@ -43,7 +43,7 @@ I den här självstudieserien får du lära du dig att:
 > * skapa ett säkert kluster i Azure
 > * [skala upp eller ned ett kluster](service-fabric-tutorial-scale-cluster.md)
 > * [uppgradera körningen för ett kluster](service-fabric-tutorial-upgrade-cluster.md)
-> * [distribuera API Management med Service Fabric](service-fabric-tutorial-deploy-api-management.md).
+> * [Ta bort ett kluster](service-fabric-tutorial-delete-cluster.md)
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
@@ -81,10 +81,10 @@ I den här självstudien visas ett kluster med fem noder i en enda nodtyp. Vid d
 
 Ladda ned följande mallfiler för Resource Manager:
 
-* [vnet-cluster.json][template]
-* [vnet-cluster.parameters.json][parameters]
+* [azuredeploy.json][template]
+* [azuredeploy.parameters.json][parameters]
 
-[vnet-cluster.json][template] distribuerar ett antal resurser, däribland följande.
+Den här mallen distribuerar ett säkert kluster med fem virtuella datorer och en enda nodtyp till ett virtuellt nätverk och en nätverkssäkerhetsgrupp.  Andra exempelmallar finns på [GitHub](https://github.com/Azure-Samples/service-fabric-cluster-templates).  [azuredeploy.json][template] distribuerar ett antal resurser, däribland följande.
 
 ### <a name="service-fabric-cluster"></a>Service Fabric-kluster
 
@@ -97,7 +97,7 @@ Ett Windows-kluster distribueras med följande egenskaper:
 * [omvänd proxy](service-fabric-reverseproxy.md) är aktiverat
 * [DNS-tjänsten](service-fabric-dnsservice.md) är aktiverad
 * [Hållbarhetsnivå](service-fabric-cluster-capacity.md#the-durability-characteristics-of-the-cluster) Brons (kan konfigureras i mallparametrarna)
- * [Tillförlitlighetsnivå](service-fabric-cluster-capacity.md#the-reliability-characteristics-of-the-cluster) Silver (kan konfigureras i mallparametrarna)
+* [Tillförlitlighetsnivå](service-fabric-cluster-capacity.md#the-reliability-characteristics-of-the-cluster) Silver (kan konfigureras i mallparametrarna)
 * slutpunkt för klientanslutning: 19000 (kan konfigureras i mallparametrarna)
 * slutpunkt för HTTP-gateway: 19080 (kan konfigureras i mallparametrarna)
 
@@ -135,15 +135,15 @@ Om du behöver andra programportar måste du justera resursen Microsoft.Network/
 
 ## <a name="set-template-parameters"></a>Ställa in mallparametrar
 
-Parameterfilen [vnet-cluster.parameters.json][parameters] deklarerar många värden som används till att distribuera klustret och associerade resurser. Här är några av parametrarna du kan behöva ändra för distributionen:
+Parameterfilen [azuredeploy.parameters.json][parameters] deklarerar många värden som används till att distribuera klustret och associerade resurser. Här är några av parametrarna du kan behöva ändra för distributionen:
 
 |Parameter|Exempelvärde|Anteckningar|
 |---|---||
-|adminUserName|vmadmin| Administratörsanvändarnamnet för virtuella klusterdatorer. [Användarnamnkrav för virtuell dator](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/faq#what-are-the-username-requirements-when-creating-a-vm) |
-|adminPassword|Password#1234| Administratörslösenord för virtuella datorer i klustret. [Lösenordskrav för virtuell dator](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/faq#what-are-the-password-requirements-when-creating-a-vm)|
+|adminUserName|vmadmin| Administratörsanvändarnamnet för virtuella klusterdatorer. [Användarnamnkrav för virtuell dator](https://docs.microsoft.com/azure/virtual-machines/windows/faq#what-are-the-username-requirements-when-creating-a-vm) |
+|adminPassword|Password#1234| Administratörslösenord för virtuella datorer i klustret. [Lösenordskrav för virtuell dator](https://docs.microsoft.com/azure/virtual-machines/windows/faq#what-are-the-password-requirements-when-creating-a-vm)|
 |clusterName|mysfcluster123| Namnet på klustret. Får endast innehålla bokstäver och siffror. Längden ska vara mellan 3 och 23 tecken.|
 |location|southcentralus| Klustrets placering. |
-|certificateThumbprint|| <p>Värdet ska vara tomt om du skapar ett självsignerat certifikat eller tillhandahåller en certifikatfil.</p><p>Om du vill använda ett befintligt certifikat som tidigare har laddats upp till ett nyckelvalv fyller du i certifikatets tumavtrycksvärde. Till exempel ”6190390162C988701DB5676EB81083EA608DCCF3”</p>. |
+|certificateThumbprint|| <p>Värdet ska vara tomt om du skapar ett självsignerat certifikat eller tillhandahåller en certifikatfil.</p><p>Om du vill använda ett befintligt certifikat som tidigare har laddats upp till ett nyckelvalv fyller du i certifikatets SHA1-tumavtrycksvärde. Till exempel ”6190390162C988701DB5676EB81083EA608DCCF3”</p>. |
 |certificateUrlValue|| <p>Värdet ska vara tomt om du skapar ett självsignerat certifikat eller tillhandahåller en certifikatfil. </p><p>Om du vill använda ett befintligt certifikat som tidigare har laddats upp till ett nyckelvalv fyller du i certifikatets webbadress. Exempel: "https://mykeyvault.vault.azure.net:443/secrets/mycertificate/02bea722c9ef4009a76c5052bcbf8346".</p>|
 |sourceVaultValue||<p>Värdet ska vara tomt om du skapar ett självsignerat certifikat eller tillhandahåller en certifikatfil.</p><p>Om du vill använda ett befintligt certifikat som tidigare har laddats upp till ett nyckelvalv fyller du i källans nyckelvärde. Till exempel ”/subscriptions/333cc2c84-12fa-5778-bd71-c71c07bf873f/resourceGroups/MyTestRG/providers/Microsoft.KeyVault/vaults/MYKEYVAULT”.</p>|
 
@@ -151,7 +151,7 @@ Parameterfilen [vnet-cluster.parameters.json][parameters] deklarerar många vär
 
 ## <a name="deploy-the-virtual-network-and-cluster"></a>Distribuera det virtuella nätverket och klustret
 
-Konfigurera sedan nätverkstopologin och distribuera Service Fabric-klustret. Resource Manager-mallen [vnet-cluster.json][template] skapar ett virtuellt nätverk (VNET), ett undernät och en nätverkssäkerhetsgrupp (NSG) för Service Fabric. Mallen distribuerar också ett kluster med certifikatsäkerhet aktiverad.  För produktionskluster ska du använda ett certifikat från en certifikatutfärdare som klustercertifikat. Ett självsignerat certifikat kan användas för att skydda testkluster.
+Konfigurera sedan nätverkstopologin och distribuera Service Fabric-klustret. Resource Manager-mallen [azuredeploy.json][template] skapar ett virtuellt nätverk (VNET), ett undernät och en nätverkssäkerhetsgrupp (NSG) för Service Fabric. Mallen distribuerar också ett kluster med certifikatsäkerhet aktiverad.  För produktionskluster ska du använda ett certifikat från en certifikatutfärdare som klustercertifikat. Ett självsignerat certifikat kan användas för att skydda testkluster.
 
 ### <a name="create-a-cluster-using-an-existing-certificate"></a>Skapa ett kluster med ett befintligt certifikat
 
@@ -178,8 +178,8 @@ Set-AzureRmContext -SubscriptionId <guid>
 New-AzureRmResourceGroup -Name $groupname -Location $clusterloc
 
 # Create the Service Fabric cluster.
-New-AzureRmServiceFabricCluster  -ResourceGroupName $groupname -TemplateFile "$templatepath\vnet-cluster.json" `
--ParameterFile "$templatepath\vnet-cluster.parameters.json" -CertificatePassword $certpwd `
+New-AzureRmServiceFabricCluster  -ResourceGroupName $groupname -TemplateFile "$templatepath\azuredeploy.json" `
+-ParameterFile "$templatepath\azuredeploy.parameters.json" -CertificatePassword $certpwd `
 -KeyVaultName $vaultname -KeyVaultResouceGroupName $vaultgroupname -CertificateFile $certpath
 ```
 
@@ -209,8 +209,8 @@ Set-AzureRmContext -SubscriptionId <guid>
 New-AzureRmResourceGroup -Name $groupname -Location $clusterloc
 
 # Create the Service Fabric cluster.
-New-AzureRmServiceFabricCluster  -ResourceGroupName $groupname -TemplateFile "$templatepath\vnet-cluster.json" `
--ParameterFile "$templatepath\vnet-cluster.parameters.json" -CertificatePassword $certpwd `
+New-AzureRmServiceFabricCluster  -ResourceGroupName $groupname -TemplateFile "$templatepath\azuredeploy.json" `
+-ParameterFile "$templatepath\azuredeploy.parameters.json" -CertificatePassword $certpwd `
 -CertificateOutputFolder $certfolder -KeyVaultName $vaultname -KeyVaultResouceGroupName $vaultgroupname -CertificateSubjectName $subname
 
 ```
@@ -228,7 +228,7 @@ Import-PfxCertificate -Exportable -CertStoreLocation Cert:\CurrentUser\My `
 
 Du är nu redo att ansluta till det säkra klustret.
 
-PowerShell-modulen **Service Fabric** har många cmdletar för hantering av Service Fabric-kluster, program och tjänster.  Använd cmdleten [Connect-ServiceFabricCluster](/powershell/module/servicefabric/connect-servicefabriccluster) till att ansluta till det säkra klustret. Certifikatets tumavtryck och information om slutpunkten för anslutning finns i utdata från föregående steg.
+PowerShell-modulen **Service Fabric** har många cmdletar för hantering av Service Fabric-kluster, program och tjänster.  Använd cmdleten [Connect-ServiceFabricCluster](/powershell/module/servicefabric/connect-servicefabriccluster) till att ansluta till det säkra klustret. Certifikatets SHA1-tumavtryck och information om slutpunkten för anslutning finns i utdata från föregående steg.
 
 ```powershell
 Connect-ServiceFabricCluster -ConnectionEndpoint mysfcluster123.southcentralus.cloudapp.azure.com:19000 `
@@ -246,14 +246,7 @@ Get-ServiceFabricClusterHealth
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-Klustret du skapade används i de andra artiklarna i självstudieserien. Om du inte genast fortsätter till nästa artikel kanske du vill ta bort klustret och nyckelvalvet för att undvika kostnader. Det enklaste sättet att ta bort klustret och alla de resurser det använder är att ta bort resursgruppen.
-
-Ta bort resursgruppen och alla klusterresurser med cmdleten [Remove-AzureRMResourceGroup](/en-us/powershell/module/azurerm.resources/remove-azurermresourcegroup).  Ta också bort resursgruppen som innehåller nyckelvalvet.
-
-```powershell
-Remove-AzureRmResourceGroup -Name $groupname -Force
-Remove-AzureRmResourceGroup -Name $vaultgroupname -Force
-```
+De andra artiklarna i självstudieserien använder klustret du nyss skapade. Om du inte genast fortsätter till nästa artikel kanske du vill [ta bort klustret](service-fabric-cluster-delete.md) för att undvika kostnader.
 
 ## <a name="next-steps"></a>Nästa steg
 
@@ -271,5 +264,5 @@ Fortsätt sedan till följande självstudie för att lära dig att skala klustre
 > [!div class="nextstepaction"]
 > [Skala ett kluster](service-fabric-tutorial-scale-cluster.md)
 
-[template]:https://github.com/Azure/service-fabric-scripts-and-templates/blob/master/templates/cluster-tutorial/vnet-cluster.json
-[parameters]:https://github.com/Azure/service-fabric-scripts-and-templates/blob/master/templates/cluster-tutorial/vnet-cluster.parameters.json
+[template]:https://github.com/Azure-Samples/service-fabric-cluster-templates/blob/master/5-VM-Windows-1-NodeTypes-Secure-NSG/azuredeploy.json
+[parameters]:https://github.com/Azure-Samples/service-fabric-cluster-templates/blob/master/5-VM-Windows-1-NodeTypes-Secure-NSG/azuredeploy.parameters.json

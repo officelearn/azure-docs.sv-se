@@ -1,27 +1,27 @@
 ---
-title: Python-Snabbstart för API för Bing Visual Search | Microsoft Docs
-titleSuffix: Bing Web Search APIs - Cognitive Services
-description: Visar hur du överför en bild till Bing Visual Search-API och få tillbaka insikter om avbildningen.
+title: 'Snabbstart: Skapa en visuell sökfråga, Python – Visuell sökning i Bing'
+titleSuffix: Azure Cognitive Services
+description: Visar hur du laddar upp en bild till API för visuell sökning i Bing och får tillbaka information om bilden.
 services: cognitive-services
 author: swhite-msft
-manager: rosh
+manager: cgronlun
 ms.service: cognitive-services
 ms.technology: bing-visual-search
-ms.topic: article
+ms.topic: quickstart
 ms.date: 5/16/2018
 ms.author: scottwhi
-ms.openlocfilehash: 96bd94e37c75d10726245fbcea7044d4ae2ed07e
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
-ms.translationtype: MT
+ms.openlocfilehash: 145749f52f64adf565eb33ab7fe92dd5494f9354
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39070383"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47223734"
 ---
-# <a name="your-first-bing-visual-search-query-in-python"></a>Din första Bing Visual Search-fråga i Python
+# <a name="quickstart-your-first-bing-visual-search-query-in-python"></a>Snabbstart: Din första fråga i Visuell sökning i Bing i Python
 
-Bing Visual Search API returnerar information om en avbildning som du anger. Du kan ange avbildningen med hjälp av URL till bild, ett insights token, eller genom att överföra en avbildning. Information om alternativen finns i [vad är Bing Visual Search API?](../overview.md) Den här artikeln visar att ladda upp en avbildning. Ladda upp en avbildning kan vara användbart i mobila scenarier där du kan ta en bild av en välkänd landmärken och få tillbaka information om den. Insikterna kan exempelvis omfatta kunskap om landmärken. 
+API för visuell sökning i Bing returnerar information om en bild som du anger. Du kan ange bilden med hjälp av dess URL, en insiktstoken eller genom att ladda upp en bild. Information om alternativen finns i [Vad är API för visuell sökning i Bing?](../overview.md) Den här artikeln visar hur du laddar upp en bild. Att ladda upp en bild kan vara användbart i mobila scenarier, där du kan ta en bild av ett välkänt landmärke och få tillbaka information om det. Informationen kan exempelvis vara fakta om landmärket. 
 
-Om du laddar upp en lokal avbildning visas nedan formulärdata måste du inkludera i brödtexten i INLÄGGET. Formulärdata måste innehålla Content-Disposition-huvudet. Dess `name` parametern måste anges till ”bild” och `filename` parameter kan anges till valfri sträng. Innehållet i formuläret är den binära filen på avbildningen. Maximal avbildningens storlek kan du överföra är 1 MB. 
+Om du laddar upp en lokal bild måste du inkludera de formulärdata som visas nedan i brödtexten i POST. Formulärdatan måste innehålla rubriken för innehållsdispositionen. Parametern `name` måste anges till ”image” och parametern `filename` kan anges till valfri sträng. Innehållet i formuläret är binärt för bilden. Den maximala bildstorlek som du kan ladda upp är 1 MB. 
 
 ```
 --boundary_1234-abcd
@@ -32,27 +32,27 @@ Content-Disposition: form-data; name="image"; filename="myimagefile.jpg"
 --boundary_1234-abcd--
 ```
 
-Den här artikeln innehåller ett enkelt konsolprogram som skickar en begäran om Bing Visual Search-API och visar JSON-sökresultat. Det här programmet är skrivet i Python är API: et en RESTful-webb-tjänst som är kompatibel med alla programmeringsspråk som kan göra HTTP-begäranden och parsa JSON. 
+Artikeln innehåller ett enkelt konsolprogram som skickar en begäran till API för visuell sökning i Bing och visar JSON-sökresultatet. Det här programmet är skrivet i Python, men API:et är en RESTful-webbtjänst som är kompatibel med alla programmeringsspråk som kan göra HTTP-begäranden och parsa JSON. 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
-Du behöver [Python 3](https://www.python.org/) att köra den här koden.
+Du behöver [Python 3](https://www.python.org/) för att köra koden.
 
-Den här snabbstarten kan du använda en [kostnadsfri utvärderingsversion](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) prenumerationsnyckel eller en betald prenumeration-nyckel.
+I snabbstarten kan du använda en prenumerationsnyckel för en [kostnadsfri utvärderingsversion](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) eller en betald prenumerationsnyckel.
 
-## <a name="running-the-walkthrough"></a>Kör den här genomgången
+## <a name="running-the-walkthrough"></a>Köra genomgången
 
-Följ dessa steg om du vill köra det här programmet:
+Följ dessa steg om du vill köra programmet:
 
-1. Skapa ett nytt Python-projekt i din favorit-IDE eller redigerare.
-2. Skapa en fil med namnet visualsearch.py och Lägg till koden som visas i den här snabbstarten.
-3. Ersätt den `SUBSCRIPTION_KEY` värdet med din prenumerationsnyckel.
-3. Ersätt den `imagePath` värdet med sökvägen för att ladda upp avbildningen.
+1. Skapa ett nytt Python-projekt i valfri IDE eller redigeringsprogram.
+2. Skapa en fil med namnet visualsearch.py och lägg till den kod som visas i den här snabbstarten.
+3. Ersätt värdet `SUBSCRIPTION_KEY` med din prenumerationsnyckel.
+3. Ersätt värdet `imagePath` med sökvägen till den bild som ska laddas upp.
 4. Kör programmet.
 
 
 
-Nedan visas hur du skickar meddelandet med flera delar formulärdata i Python.
+Nedan visas hur du skickar meddelandet med hjälp av multipart-formulärdata i Python.
 
 ```python
 """Bing Visual Search upload image example"""
@@ -99,10 +99,10 @@ if __name__ == '__main__':
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Få insyn om en avbildning med hjälp av en token för insikter](../use-insights-token.md)  
-[Bing Visual Search bild uppladdning självstudien](../tutorial-visual-search-image-upload.md)
-[Bing Visual Search-självstudiekursen som ensidesapp](../tutorial-bing-visual-search-single-page-app.md)  
-[Bing Visual Search-översikt](../overview.md)  
+[Få insikter om en bild med hjälp av en insiktstoken](../use-insights-token.md)  
+[Självstudie om bilduppladdning i Visuell sökning i Bing](../tutorial-visual-search-image-upload.md)
+[Självstudie om ensidesapplikationer i Visuell sökning i Bing](../tutorial-bing-visual-search-single-page-app.md)  
+[Översikt för Visuell sökning i Bing](../overview.md)  
 [Prova](https://aka.ms/bingvisualsearchtryforfree)  
-[Hämta en kostnadsfri utvärderingsversion åtkomstnyckel](https://azure.microsoft.com/try/cognitive-services/?api=bing-visual-search-api)  
-[Bing Visual Search API-referens](https://aka.ms/bingvisualsearchreferencedoc)
+[Skaffa en åtkomstnyckel för en kostnadsfri utvärderingsversion](https://azure.microsoft.com/try/cognitive-services/?api=bing-visual-search-api)  
+[Referens till API för visuell sökning i Bing](https://aka.ms/bingvisualsearchreferencedoc)

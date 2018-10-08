@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: quickstart
 ms.date: 01/08/2018
 ms.author: lbosq
-ms.openlocfilehash: 905873a695635ba80de258cbf458c8dd3e18d443
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: e73b0e88a98c1b06216378078626b4338c598816
+ms.sourcegitcommit: 42405ab963df3101ee2a9b26e54240ffa689f140
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43700346"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47422974"
 ---
 # <a name="azure-cosmos-db-create-query-and-traverse-a-graph-in-the-gremlin-console"></a>Azure Cosmos DB: Skapa, ställ frågor och bläddra i grafen i Gremlin-konsolen
 
@@ -90,21 +90,16 @@ serializer: { className: org.apache.tinkerpop.gremlin.driver.ser.GraphSONMessage
 
 5. Kör sedan `:remote console` för att omdirigera alla kommandon till fjärrservern.
 
+   > [!NOTE]
+   > Om du inte kör kommandot `:remote console` men vill omdirigera alla konsolkommandon till fjärrservern bör du lägga till prefixet `:>` till kommandot och till exempel köra kommandot som `:> g.V().count()`. Det här prefixet är en del av kommandot och är viktigt när du använder Gremlin-konsolen med Azure Cosmos DB. Om du utesluter det här prefixet instrueras konsolen att köra kommandot lokalt, ofta mot en InMemory-graf. Med det här prefixet beordrar `:>` konsolen att köra fjärrkommandon, i det här fallet mot Azure Cosmos DB (antingen localhost-emulatorn eller en Azure-instans).
+
 Bra! Konfigurationen är slutförd, så vi kan börja köra några konsolkommandon.
 
 Prova med ett enkelt count()-kommando. Skriv följande i konsolen:
-```
-:> g.V().count()
-```
 
-> [!TIP]
-> Observera `:>` som föregår texten`g.V().count()`? 
->
-> Detta är en del av kommandot som du måste ange. Det är viktigt när du använder Gremlin-konsolen med Azure Cosmos DB.  
->
-> Om du utesluter `:>` instrueras konsolen att köra kommandot lokalt, ofta mot en InMemory-graf.
-> Med `:>` talar du om för konsolen att den ska köra fjärrkommandon, i det här fallet mot Cosmos DB (antingen localhost-emulatorn eller en > Azure-instans).
-
+```
+g.V().count()
+```
 
 ## <a name="create-vertices-and-edges"></a>Skapa hörn och gränser
 
@@ -113,7 +108,7 @@ Vi börjar med att lägga till fem personhörn för *Thomas*, *Mary Kay*, *Robin
 Indata (Thomas):
 
 ```
-:> g.addV('person').property('firstName', 'Thomas').property('lastName', 'Andersen').property('age', 44).property('userid', 1)
+g.addV('person').property('firstName', 'Thomas').property('lastName', 'Andersen').property('age', 44).property('userid', 1)
 ```
 
 Resultat:
@@ -124,7 +119,7 @@ Resultat:
 Indata (Mary Kay):
 
 ```
-:> g.addV('person').property('firstName', 'Mary Kay').property('lastName', 'Andersen').property('age', 39).property('userid', 2)
+g.addV('person').property('firstName', 'Mary Kay').property('lastName', 'Andersen').property('age', 39).property('userid', 2)
 
 ```
 
@@ -138,7 +133,7 @@ Resultat:
 Indata (Robin):
 
 ```
-:> g.addV('person').property('firstName', 'Robin').property('lastName', 'Wakefield').property('userid', 3)
+g.addV('person').property('firstName', 'Robin').property('lastName', 'Wakefield').property('userid', 3)
 ```
 
 Resultat:
@@ -150,7 +145,7 @@ Resultat:
 Indata (Ben):
 
 ```
-:> g.addV('person').property('firstName', 'Ben').property('lastName', 'Miller').property('userid', 4)
+g.addV('person').property('firstName', 'Ben').property('lastName', 'Miller').property('userid', 4)
 
 ```
 
@@ -163,7 +158,7 @@ Resultat:
 Indata (Jack):
 
 ```
-:> g.addV('person').property('firstName', 'Jack').property('lastName', 'Connor').property('userid', 5)
+g.addV('person').property('firstName', 'Jack').property('lastName', 'Connor').property('userid', 5)
 ```
 
 Resultat:
@@ -178,7 +173,7 @@ Nu ska vi lägga till gränser för personernas relationer.
 Indata (Thomas -> Mary Kay):
 
 ```
-:> g.V().hasLabel('person').has('firstName', 'Thomas').addE('knows').to(g.V().hasLabel('person').has('firstName', 'Mary Kay'))
+g.V().hasLabel('person').has('firstName', 'Thomas').addE('knows').to(g.V().hasLabel('person').has('firstName', 'Mary Kay'))
 ```
 
 Resultat:
@@ -190,7 +185,7 @@ Resultat:
 Indata (Thomas -> Robin):
 
 ```
-:> g.V().hasLabel('person').has('firstName', 'Thomas').addE('knows').to(g.V().hasLabel('person').has('firstName', 'Robin'))
+g.V().hasLabel('person').has('firstName', 'Thomas').addE('knows').to(g.V().hasLabel('person').has('firstName', 'Robin'))
 ```
 
 Resultat:
@@ -202,7 +197,7 @@ Resultat:
 Indata (Robin -> Ben):
 
 ```
-:> g.V().hasLabel('person').has('firstName', 'Robin').addE('knows').to(g.V().hasLabel('person').has('firstName', 'Ben'))
+g.V().hasLabel('person').has('firstName', 'Robin').addE('knows').to(g.V().hasLabel('person').has('firstName', 'Ben'))
 ```
 
 Resultat:
@@ -217,7 +212,7 @@ Nu ska vi uppdatera *Thomas* hörn med den nya åldern *45*.
 
 Indata:
 ```
-:> g.V().hasLabel('person').has('firstName', 'Thomas').property('age', 45)
+g.V().hasLabel('person').has('firstName', 'Thomas').property('age', 45)
 ```
 Resultat:
 
@@ -234,7 +229,7 @@ Vi försöker först fråga med ett filter för att endast returnera personer so
 Indata (filterfråga):
 
 ```
-:> g.V().hasLabel('person').has('age', gt(40))
+g.V().hasLabel('person').has('age', gt(40))
 ```
 
 Resultat:
@@ -248,7 +243,7 @@ Sedan projicerar vi förnamnet på personerna som är över 40 år.
 Indata (filter + projektionsfråga):
 
 ```
-:> g.V().hasLabel('person').has('age', gt(40)).values('firstName')
+g.V().hasLabel('person').has('age', gt(40)).values('firstName')
 ```
 
 Resultat:
@@ -264,7 +259,7 @@ Vi bläddrar i grafen för att returnera alla Thomas vänner.
 Indata (Thomas vänner):
 
 ```
-:> g.V().hasLabel('person').has('firstName', 'Thomas').outE('knows').inV().hasLabel('person')
+g.V().hasLabel('person').has('firstName', 'Thomas').outE('knows').inV().hasLabel('person')
 ```
 
 Resultat: 
@@ -279,7 +274,7 @@ Nu ska vi hämta nästa lager med hörn. Bläddra i grafen för att returnera al
 Indata (Thomas vänners vänner):
 
 ```
-:> g.V().hasLabel('person').has('firstName', 'Thomas').outE('knows').inV().hasLabel('person').outE('knows').inV().hasLabel('person')
+g.V().hasLabel('person').has('firstName', 'Thomas').outE('knows').inV().hasLabel('person').outE('knows').inV().hasLabel('person')
 ```
 Resultat:
 
@@ -294,7 +289,7 @@ Vi ska nu ta bort ett hörn från Graph-databasen.
 Indata (drop Jack vertex):
 
 ```
-:> g.V().hasLabel('person').has('firstName', 'Jack').drop()
+g.V().hasLabel('person').has('firstName', 'Jack').drop()
 ```
 
 ## <a name="clear-your-graph"></a>Rensa diagrammet
@@ -304,8 +299,8 @@ Slutligen ska vi rensa databasen från alla hörn och gränser.
 Indata:
 
 ```
-:> g.E().drop()
-:> g.V().drop()
+g.E().drop()
+g.V().drop()
 ```
 
 Grattis! Du har slutfört den här självstudien om Azure Cosmos DB: Gremlin API!

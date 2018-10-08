@@ -3,21 +3,21 @@ title: ta med fil
 description: ta med fil
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: luis
 ms.topic: include
 ms.custom: include file
 ms.date: 08/16/2018
 ms.author: diberry
-ms.openlocfilehash: e14f29593d588a8b13162b374372b723c50db8e9
-ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
-ms.translationtype: MT
+ms.openlocfilehash: ec178827a2f27a4566f509fe76b58e451329efd4
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42920606"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47044178"
 ---
-Den `response` matrisen för att lägga till exempel yttranden anger lyckad eller misslyckad för varje exempel uttryck med den `hasError` egenskapen. Följande JSON-svar visar båda yttranden lades till. 
+Matrisen `response` för att lägga till exempelyttranden indikerar om varje yttrande har lyckats eller misslyckats med egenskapen `hasError`. Följande JSON-svar visar att båda yttrandena lades till. 
 
 ```json
     "response": [
@@ -50,7 +50,7 @@ Följande JSON visar resultatet av en lyckad begäran om att träna:
 }
 ```
 
-Följande JSON visar resultatet av en lyckad begäran för utbildning-status. Varje modelID är en avsikt. Varje avsikt måste utbildas på alla talade att korrekt identifiera yttranden till hör till avsikten samt yttranden som inte tillhör avsikten. 
+Följande JSON visar resultatet av en lyckad begäran om träningsstatus. Varje modelID är en avsikt. Varje avsikt måste tränas upp på samtliga yttranden så att det både går att identifiera yttranden som hör till avsikten om de yttranden som inte gör det. 
 
 ```JSON
 [

@@ -2,30 +2,26 @@
 title: PowerShell-exempel – övervaka, skala elastisk SQL-pool – Azure SQL Database | Microsoft Docs
 description: Azure PowerShell-exempelskript till att övervaka och skala en elastisk SQL-pool i Azure SQL Database
 services: sql-database
-documentationcenter: sql-database
-author: CarlRabeler
-manager: craigg
-editor: carlrab
-tags: azure-service-management
-ms.assetid: ''
 ms.service: sql-database
-ms.custom: monitor & tune, mvc
+ms.subservice: performance
+ms.custom: ''
 ms.devlang: PowerShell
 ms.topic: sample
-ms.tgt_pltfrm: sql-database
-ms.workload: database
-ms.date: 09/07/2018
+author: CarlRabeler
 ms.author: carlrab
-ms.openlocfilehash: 9f05713e38278e9033d6e1e9c9f1c2791bcd8f52
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.reviewer: ''
+manager: craigg
+ms.date: 09/14/2018
+ms.openlocfilehash: 3e4bbef18da224e41646e583e3cec0197dd00eba
+ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44054873"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47056428"
 ---
 # <a name="use-powershell-to-monitor-and-scale-a-sql-elastic-pool-in-azure-sql-database"></a>Använda PowerShell till att övervaka och skala en elastisk SQL-pool i Azure SQL Database
 
-Det här PowerShell-skriptet övervakar prestandavärden för en elastisk pool, skalar den till en högre prestandanivå och skapar en varningsregel för ett av prestandavärdena. 
+Det här PowerShell-skriptet övervakar prestandavärden för en elastisk pool, skalar ut den till en högre beräkningsstorlek och skapar en varningsregel för ett av prestandamåtten. 
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 [!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]

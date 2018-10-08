@@ -1,26 +1,32 @@
 ---
-title: Distribuera en Python-app i Azure Web App for Containers
-description: Så här distribuerar du en Docker-avbildning som kör ett Python-program till Web App for Containers.
-keywords: azure app service, web app, python, docker, container
-services: app-service
+title: Skapa en Python-webbapp i Azure App Service i Linux | Microsoft Docs
+description: Distribuera din Hello World-app skriven i Python med Azure App Service i Linux på bara några minuter.
+services: app-service\web
+documentationcenter: ''
 author: cephalin
 manager: jeconnoc
-ms.service: app-service
-ms.devlang: python
+editor: ''
+ms.assetid: ''
+ms.service: app-service-web
+ms.workload: web
+ms.tgt_pltfrm: na
+ms.devlang: na
 ms.topic: quickstart
-ms.date: 07/13/2018
+ms.date: 09/13/2018
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: 6d328d8a3556f565e7eac8ee079bd191b7dcadef
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: c3089ad11dc951d3105b25b6857b7697f8c38d1a
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39433450"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47432077"
 ---
-# <a name="deploy-a-python-web-app-in-web-app-for-containers"></a>Distribuera en Python-webbapp i Web App for Containers
+# <a name="create-a-python-web-app-in-azure-app-service-on-linux-preview"></a>Skapa en Python-webbapp i Azure App Service i Linux (förhandsversion)
 
-Med [App Service i Linux](app-service-linux-intro.md) får du en mycket skalbar och automatiskt uppdaterad webbvärdtjänst som utgår från operativsystemet Linux. I den här snabbstarten får du lära dig hur man skapar en webbapp och distribuerar en enkel Flask-app till den med hjälp av en anpassad Docker Hub-avbildning. Du skapar webbappen med [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli).
+Med [App Service i Linux](app-service-linux-intro.md) får du en mycket skalbar och automatiskt uppdaterad webbvärdtjänst som utgår från operativsystemet Linux. Den här snabbstarten visar hur du distribuerar en Python-app ovanpå den inbyggda Python-avbildningen (förhandsversion) i App Service i Linux med hjälp av [Azure-CLI:t](/cli/azure/install-azure-cli).
+
+Du kan följa stegen i den här artikeln på en Mac-, Windows- eller Linux-dator.
 
 ![Exempelapp som körs i Azure](media/quickstart-python/hello-world-in-browser.png)
 
@@ -28,67 +34,50 @@ Med [App Service i Linux](app-service-linux-intro.md) får du en mycket skalbar 
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
-För att slutföra den här självstudien behöver du:
+För att slutföra den här snabbstarten behöver du:
 
+* <a href="https://www.python.org/downloads/" target="_blank">Installera Python 3.7</a>
 * <a href="https://git-scm.com/" target="_blank">Installera Git</a>
-* <a href="https://www.docker.com/community-edition" target="_blank">Installera Docker Community Edition</a>
-* <a href="https://hub.docker.com/" target="_blank">Registrera dig för ett Docker Hub-konto</a>
 
 ## <a name="download-the-sample"></a>Hämta exemplet
 
-I terminalfönstret kör du följande kommandon för att klona exempelappen till din lokala dator och navigerar till katalogen som innehåller exempelkoden.
+I terminalfönstret kör du följande kommandon för att klona exempelappen till din lokala dator. Navigera sedan till katalogen som innehåller exempelkoden.
 
 ```bash
 git clone https://github.com/Azure-Samples/python-docs-hello-world
 cd python-docs-hello-world
 ```
 
-Den här lagringsplatsen innehåller ett enkelt Flask-program i mappen _/app_ och en _Dockerfile_ som anger tre saker:
-
-- Använd basavbildningen [tiangolo/uwsgi-nginx-flask:python3.6-alpine3.7](https://hub.docker.com/r/tiangolo/uwsgi-nginx-flask/).
-- Containern ska lyssna på port 8000.
-- Kopiera katalogen `/app` till containers katalog `/app`.
-
-Konfigurationen följer [anvisningarna för basavbildningen](https://hub.docker.com/r/tiangolo/uwsgi-nginx-flask/).
-
 ## <a name="run-the-app-locally"></a>Köra appen lokalt
 
-Kör appen i en Docker-container.
+Kör programmet lokalt så att du ser hur det ska se ut när du distribuerar det till Azure. Öppna ett terminalfönster och använd kommandona nedan till att installera de nödvändiga beroendena och starta den inbyggda utvecklingsservern. 
 
 ```bash
-docker build --rm -t flask-quickstart .
-docker run --rm -it -p 8000:8000 flask-quickstart
+# In Bash
+python3 -m venv venv
+source venv/bin/activate
+pip install -r requirements.txt
+FLASK_APP=application.py flask run
+
+# In PowerShell
+py -3 -m venv env
+env\scripts\activate
+pip install -r requirements.txt
+Set-Item Env:FLASK_APP ".\application.py"
+flask run
 ```
 
-Öppna en webbläsare och navigera till exempelappen på `http://localhost:8000`.
+Öppna en webbläsare och navigera till exempelappen på `http://localhost:5000/`.
 
-Nu kan du se **Hello World**-meddelandet från exempelappen på sidan.
+Du ser meddelandet **Hello World!** från exempelappen på sidan.
 
-![Exempelapp som körs lokalt](media/quickstart-python/localhost-hello-world-in-browser.png)
+![Exempelapp som körs lokalt](media/quickstart-python/hello-world-in-browser.png)
 
-I terminalfönstret trycker du på **Ctrl+C** för att stoppa containern.
-
-## <a name="deploy-image-to-docker-hub"></a>Distribuera avbildningen till Docker Hub
-
-Logga in på ditt Docker Hub-konto. Följ uppmaningen om att ange dina autentiseringsuppgifter för Docker Hub.
-
-```bash
-docker login
-```
-
-Tagga avbildningen och push-överför den till en ny _offentlig_ lagringsplats för ditt Docker Hub-konto, till en lagringsplats med namnet `flask-quickstart`. Ersätt *\<dockerhub_id>* med ditt Docker Hub-ID.
-
-```bash
-docker tag flask-quickstart <dockerhub_id>/flask-quickstart
-docker push <dockerhub_id>/flask-quickstart
-```
-
-> [!NOTE]
-> `docker push` skapar en offentlig lagringsplats om det gick inte att hitta den angivna lagringsplatsen. Den här snabbstarten förutsätter att det finns en offentlig lagringsplats i Docker Hub. Om du föredrar att push-överföra till en privat lagringsplats behöver du konfigurera dina autentiseringsuppgifter för Docker Hub i Azure App Service senare. Se [Skapa en webbapp](#create-a-web-app).
-
-När push-överföringen av avbildningen är klar är du redo att använda den i Azure-webbappen.
+Tryck på **Ctrl+C** i terminalfönstret för att avsluta webbservern.
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
+
+[!INCLUDE [Configure deployment user](../../../includes/configure-deployment-user.md)]
 
 [!INCLUDE [Create resource group](../../../includes/app-service-web-create-resource-group-linux.md)]
 
@@ -96,99 +85,100 @@ När push-överföringen av avbildningen är klar är du redo att använda den i
 
 ## <a name="create-a-web-app"></a>Skapa en webbapp
 
-Skapa en [webbapp](../app-service-web-overview.md) i `myAppServicePlan` App Service-planen med kommandot [az webapp create](/cli/azure/webapp?view=azure-cli-latest#az-webapp-create). Ersätt *\<app name>* med ett globalt unikt appnamn och ersätt *\<dockerhub_id>* med ditt Docker Hub-ID.
+[!INCLUDE [Create app service plan](../../../includes/app-service-web-create-web-app-python-linux-no-h.md)]
 
-```azurecli-interactive
-az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app name> --deployment-container-image-name <dockerhub_id>/flask-quickstart
+Gå till webbplatsen för att se din nya webbapp med den inbyggda avbildningen. Ersätt _&lt;app name>_ med namnet på din webbapp.
+
+```bash
+http://<app_name>.azurewebsites.net
 ```
 
-När webbappen har skapats visar Azure CLI utdata liknande den i följande exempel:
+Så här bör din nya webbapp se ut:
 
-```json
-{
-  "availabilityState": "Normal",
-  "clientAffinityEnabled": true,
-  "clientCertEnabled": false,
-  "cloningInfo": null,
-  "containerSize": 0,
-  "dailyMemoryTimeQuota": 0,
-  "defaultHostName": "<app name>.azurewebsites.net",
-  "deploymentLocalGitUrl": "https://<username>@<app name>.scm.azurewebsites.net/<app name>.git",
-  "enabled": true,
-  < JSON data removed for brevity. >
-}
-```
+![Sida för tom webbapp](media/quickstart-php/app-service-web-service-created.png)
 
-Om du tidigare laddade upp till en privat lagringsplats måste du även konfigurera autentiseringsuppgifterna för Docker Hub i App Service. Mer information finns i [Använda en privat avbildning från Docker Hub](tutorial-custom-docker-image.md#use-a-private-image-from-docker-hub-optional).
+[!INCLUDE [Push to Azure](../../../includes/app-service-web-git-push-to-azure.md)] 
 
-### <a name="specify-container-port"></a>Ange containerport
-
-Som angetts i _Dockerfile_ lyssnar din container på port 8000. För att App Service ska dirigera din begäran till rätt port måste du ange appinställningen *WEBSITES_PORT*.
-
-I Cloud Shell kör du kommandot [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set).
-
-
-```azurecli-interactive
-az webapp config appsettings set --name <app_name> --resource-group myResourceGroup --settings WEBSITES_PORT=8000
-```
+```bash
+Counting objects: 42, done.
+Delta compression using up to 8 threads.
+Compressing objects: 100% (39/39), done.
+Writing objects: 100% (42/42), 9.43 KiB | 0 bytes/s, done.
+Total 42 (delta 15), reused 0 (delta 0)
+remote: Updating branch 'master'.
+remote: Updating submodules.
+remote: Preparing deployment for commit id 'c40efbb40e'.
+remote: Generating deployment script.
+remote: Generating deployment script for python Web Site
+.
+.
+.
+remote: Finished successfully.
+remote: Running post deployment command(s)...
+remote: Deployment successful.
+remote: App container will begin restart within 10 seconds.
+To https://user2234@cephalin-python.scm.azurewebsites.net/cephalin-python.git
+ * [new branch]      master -> master
+ ```
 
 ## <a name="browse-to-the-app"></a>Bläddra till appen
 
+Bläddra till den distribuerade appen via webbläsaren.
+
 ```bash
-http://<app_name>.azurewebsites.net/
+http://<app_name>.azurewebsites.net
 ```
+
+Python-exempelkoden körs i en webbapp med en inbyggd avbildning.
 
 ![Exempelapp som körs i Azure](media/quickstart-python/hello-world-in-browser.png)
 
-> [!NOTE]
-> Webbappen tar lite tid att starta eftersom Docker Hub-avbildningen måste laddas ned och köras när appen begärs för första gången. Om du först ser ett fel efter en lång tid kan du bara uppdatera sidan.
+**Grattis!** Du har distribuerat din första Python-app till App Service i Linux.
 
-**Grattis!** Du har distribuerat en anpassad Docker-avbildning som kör en Python-app i Web App for Containers.
+## <a name="update-locally-and-redeploy-the-code"></a>Uppdatera lokalt och distribuera om koden
 
-## <a name="update-locally-and-redeploy"></a>Uppdatera lokalt och distribuera om
-
-Öppna filen `app/main.py` i Python-appen med ett lokalt textredigeringsprogram och gör små ändringar i texten i strängen bredvid `return`-instruktionen:
+Öppna filen `application.py` i den lokala katalogen och gör en liten ändring i texten på den sista raden:
 
 ```python
-return 'Hello, Azure!'
+return "Hello Azure!"
 ```
 
-Återskapa avbildningen och push-överför den till Docker Hub igen.
+Spara ändringarna på Git och skicka sedan kodändringarna till Azure.
 
 ```bash
-docker build --rm -t flask-quickstart .
-docker tag flask-quickstart <dockerhub_id>/flask-quickstart
-docker push <dockerhub_id>/flask-quickstart
+git commit -am "updated output"
+git push azure master
 ```
 
-I Cloud Shell startar du om appen. Om du startar om appen garanteras att alla inställningar tillämpas och att den senaste containern hämtas från registret.
-
-```azurecli-interactive
-az webapp restart --resource-group myResourceGroup --name <app_name>
-```
-
-Vänta ungefär 15 sekunder för att App Service ska hämta den uppdaterade avbildningen. Gå tillbaka till webbläsarfönstret som öppnades när du skulle **söka efter appen** och klicka på knappen för att uppdatera sidan.
+När distributionen är klar går du tillbaka till webbläsarfönstret som öppnades när du skulle **söka efter appen** och klickar på knappen för att uppdatera sidan.
 
 ![Uppdaterad exempelapp som körs i Azure](media/quickstart-python/hello-azure-in-browser.png)
 
-## <a name="manage-your-azure-web-app"></a>Hantera din Azure-webbapp
+## <a name="manage-your-new-azure-web-app"></a>Hantera din nya Azure-webbapp
 
-Gå till [Azure Portal](https://portal.azure.com) för att se den webbapp du skapade.
+Gå till <a href="https://portal.azure.com" target="_blank">Azure Portal</a> för att hantera den webbapp som du skapade.
 
-Klicka på **App Services** på menyn till vänster och klicka sedan på namnet på din Azure-webbapp.
+Klicka på **App Services** i menyn till vänster och sedan på namnet på din Azure-webbapp.
 
 ![Navigera till webbappen på Azure Portal](./media/quickstart-python/app-service-list.png)
 
-Som standard visar portalen dina webbappar på sidan **Översikt**. På den här sidan får du en översikt över hur det går för appen. Här kan du också utföra grundläggande hanteringsåtgärder som att bläddra, stoppa, starta, starta om och ta bort. På flikarna till vänster på sidan kan du se olika konfigurationssidor som du kan öppna.
+Nu visas sidan Översikt för din webbapp. Här kan du utföra grundläggande hanteringsåtgärder som att bläddra, stoppa, starta, starta om och ta bort.
 
-![App Service-sidan på Azure Portal](./media/quickstart-python/app-service-detail.png)
+![App Service-sidan på Azure Portal](media/quickstart-python/app-service-detail.png)
 
-[!INCLUDE [Clean-up section](../../../includes/cli-script-clean-up.md)]
+Menyn till vänster innehåller olika sidor för att konfigurera appen. 
+
+[!INCLUDE [cli-samples-clean-up](../../../includes/cli-samples-clean-up.md)]
 
 ## <a name="next-steps"></a>Nästa steg
 
+Den inbyggda Python-avbildningen i App Service i Linux är för närvarande i förhandsversion. Du kan skapa Python-appar för produktion med en anpassad container istället.
+
 > [!div class="nextstepaction"]
-> [Python med PostgreSQL](tutorial-docker-python-postgresql-app.md)
+> [Python med PostgreSQL](tutorial-python-postgresql-app.md)
+
+> [!div class="nextstepaction"]
+> [Konfigurera den inbyggda Python-avbildningen](how-to-configure-python.md)
 
 > [!div class="nextstepaction"]
 > [Använda anpassade avbildningar](tutorial-custom-docker-image.md)

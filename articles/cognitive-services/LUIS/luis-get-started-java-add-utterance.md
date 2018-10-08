@@ -1,20 +1,21 @@
 ---
-title: 'Snabbstart: Ändra modell och träna LUIS-app med Java – Azure Cognitive Services | Microsoft Docs'
+title: Java-snabbstart – ändra modellen och träna upp LUIS-appen
+titleSuffix: Azure Cognitive Services
 description: I den här Java-snabbstarten lägger du till exempelyttranden till en app för hemautomatisering och tränar appen. Exempelyttranden är konversationstext från användare som mappas till en avsikt. Genom att tillhandahålla exempelyttranden för avsikter lär du LUIS vilka typer av text från användare som tillhör vilken avsikt.
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: quickstart
-ms.date: 08/24/2018
+ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: ddb22bce77dda55ad6e83efa8c0ca2c476f78836
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: 8500dfdd639b4f1de46a0b79b87a8564d338b6ab
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44161126"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47042032"
 ---
 # <a name="quickstart-change-model-using-java"></a>Snabbstart: Ändra modell med hjälp av Java 
 

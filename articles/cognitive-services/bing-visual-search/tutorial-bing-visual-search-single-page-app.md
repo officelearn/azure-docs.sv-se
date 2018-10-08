@@ -1,36 +1,36 @@
 ---
-title: Webbprogram för Bing Image-sökning sida | Microsoft Docs
-titleSuffix: Bing Web Search APIs - Cognitive Services
-description: Visar hur du använder Bing avbildningen Sök API i en enda sida webbprogram.
+title: 'Självstudie: Skapa en webbapp med enda sida – Visuell sökning i Bing'
+titleSuffix: Azure Cognitive Services
+description: Visar hur du använder API för visuell sökning i Bing i ett enkelsidigt webbprogram.
 services: cognitive-services
 author: brapel
-manager: ehansen
+manager: cgronlun
 ms.service: cognitive-services
-ms.component: bing-image-search
-ms.topic: article
+ms.component: bing-visual-search
+ms.topic: tutorial
 ms.date: 10/04/2017
 ms.author: v-brapel
-ms.openlocfilehash: 303d7745167d2ea25fda083ed99881ac4e0a7ec7
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
-ms.translationtype: MT
+ms.openlocfilehash: e3cd36d799256406b3ae12f35303bd2406468b3c
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35354138"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47227188"
 ---
-# <a name="tutorial-visual-search-single-page-web-app"></a>Självstudier: Visual Sök Single-page-Webbapp
+# <a name="tutorial-visual-search-single-page-web-app"></a>Självstudie: Visuell sökning med en webbapp med en enda sida
 
-Bing Visual Sök API ger en upplevelse som liknar bilden uppgifterna på Bing.com/images. Med Visual Search du anger en avbildning och få tillbaka insikter om avbildningen som visuellt liknande bilder, shopping källor, webbsidor som innehåller bilden och mycket mer. 
+API:t Bing Visual Search ger en upplevelse som liknar avbildningsdetaljerna som visas på Bing.com/images. Med visuell sökning kan du ange en bild och få tillbaka insikter om bilden som visuellt likartade bilder, shoppingkällor, webbsidor som innehåller bilden och mycket mer. 
 
-Den här självstudiekursen utökar webbprogram sida från Bing Image-sökning kursen (finns [Single-page webbprogrammet](../Bing-Image-Search/tutorial-bing-image-search-single-page-app.md)). Fullständig källkod för att starta den här självstudiekursen, se [Single-page webbapp (källkod)](../Bing-Image-Search/tutorial-bing-image-search-single-page-app-source.md). Läs slutlig källkoden för den här självstudiekursen, [Visual Sök Single-page webbprogrammet](tutorial-bing-visual-search-single-page-app-source.md).
+Den här självstudiekursen kompletterar appen med en sida från självstudien Bildsökning i Bing (se [Enkelsidig webbapp](../Bing-Image-Search/tutorial-bing-image-search-single-page-app.md)). Den fullständiga källkoden för att starta den här självstudien finns i [Enkelsidig webbapp (källkod)](../Bing-Image-Search/tutorial-bing-image-search-single-page-app-source.md). Den slutliga källkoden för den här självstudien finns i [Visuell sökning med en webbapp med en enda sida](tutorial-bing-visual-search-single-page-app-source.md).
 
-Uppgifter som beskrivs är:
+Här är några av uppgifterna:
 
 > [!div class="checklist"]
-> * Anropa API för Visual Sök i Bing med en avbildning insikter token
+> * Anropa API för visuell sökning i Bing med en bildinsiktstoken
 > * Visa liknande bilder
 
-## <a name="call-bing-visual-search"></a>Anropa Bing Visual sökning
-Redigera kursen Bing Image-sökning och Lägg till följande kod i slutet av elementet skript på rad 409. Den här koden Bing-API: n för Visual Sök och visar resultatet.
+## <a name="call-bing-visual-search"></a>Anropa visuell sökning i Bing
+Redigera självstudien Bildsökning i Bing och lägg till följande kod i slutet av skriptelementet på rad 409. Den här koden anropar API för visuell sökning i Bing och visar resultatet.
 
 ``` javascript
 function handleVisualSearchResponse(){
@@ -94,15 +94,15 @@ function bingVisualSearch(insightsToken){
 }
 ```
 
-## <a name="capture-insights-token"></a>Avbilda insikter token
-Lägg till följande kod i den `searchItemsRenderer` objektet vid rad 151. Den här koden lägger till en **hitta liknande** länk som anropar den `bingVisualSearch` fungera när du klickar på. Funktionen får imageInsightsToken som ett argument.
+## <a name="capture-insights-token"></a>Samla in insikter token
+Lägg till följande kod till objektet `searchItemsRenderer` på rad 151. Den här koden lägger till en **find similar**-länk (sök efter liknande) som anropar `bingVisualSearch`-funktionen när du klickar på den. Funktionen tar emot imageInsightsToken som ett argument.
 
 ``` javascript
 html.push("<a href='javascript:bingVisualSearch(\"" + item.imageInsightsToken + "\");'>find similar</a><br>");
 ```
 
 ## <a name="display-similar-images"></a>Visa liknande bilder
-Lägg till följande HTML-kod på rad 601. Den här koden markup lägger till ett element som används för att visa resultatet av Bing Visual Sök-API-anrop.
+Lägg till följande HTML-kod på rad 601. Den här markeringskoden lägger till ett element som används för att visa resultatet för API för Bing Visual Search-anropet.
 
 ``` html
 <div id="insights">
@@ -111,10 +111,10 @@ Lägg till följande HTML-kod på rad 601. Den här koden markup lägger till et
 </div>
 ```
 
-Med alla nya JavaScript-kod och HTML-element för sökresultat visas med en **hitta liknande** länk. Klicka på länken för att fylla i **liknar** avsnitt med bilder som liknar det du valt. Du kan behöva expandera den **liknar** avsnittet bilderna ska visas.
+Med all ny JavaScript-kod och HTML-element på plats visas sökresultatet med en **find similar**-länk (sök efter liknande). Klicka på länken för att fylla i avsnittet **Similar** (Liknande) med bilder som liknar dem du valt. Du kan behöva expandera avsnittet **Similar** (Liknande) för att visa bilderna.
 
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Visual Sök Single-page app webbadress](tutorial-bing-visual-search-single-page-app-source.md)
-> [Bing Visual Sök API-referens](https://aka.ms/bingvisualsearchreferencedoc)
+> [Källa för Visuell sökning med en webbapp med en enda sida](tutorial-bing-visual-search-single-page-app-source.md)
+> [Referens till API för visuell sökning i Bing](https://aka.ms/bingvisualsearchreferencedoc)

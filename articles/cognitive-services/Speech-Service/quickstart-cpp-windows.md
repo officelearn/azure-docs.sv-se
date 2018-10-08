@@ -1,98 +1,108 @@
 ---
-title: 'Snabbstart: Känna igen tal i C++ Windows-skrivbordet med hjälp av Cognitive Services tal SDK'
+title: 'Snabbstart: Identifiera tal i C++ på Windows med hjälp av tal-API för Cognitive Services'
 titleSuffix: Microsoft Cognitive Services
-description: Lär dig att känna igen tal i C++ Windows-skrivbordet med hjälp av Cognitive Services tal SDK
+description: Lär dig hur du känner igen tal i C++ på Windows Desktop med hjälp av tal-API för Cognitive Services
 services: cognitive-services
 author: wolfma61
 ms.service: cognitive-services
 ms.technology: Speech
-ms.topic: article
-ms.date: 07/16/2018
+ms.topic: quickstart
+ms.date: 09/24/2018
 ms.author: wolfma
-ms.openlocfilehash: 9fae855de2a746084f4775f194e04c6dbe09f684
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
-ms.translationtype: MT
+ms.openlocfilehash: e6f8b8f2a3bcdf78de28bddc73502872e851da12
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43127299"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47434304"
 ---
-# <a name="quickstart-recognize-speech-in-c-on-windows-desktop-using-the-speech-sdk"></a>Snabbstart: Känna igen tal i C++ Windows-skrivbordet med hjälp av tal-SDK
+# <a name="quickstart-recognize-speech-in-c-on-windows-by-using-the-speech-sdk"></a>Snabbstart: Identifiera tal i C++ på Windows med hjälp av tal-API
 
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
-Vi beskriver hur du skapar en C++-baserad konsol-program för Windows-skrivbord som använder SDK: N för tal.
-Programmet är baserad på den [Microsoft Cognitive Services tal SDK NuGet-paketet](https://aka.ms/csspeech/nuget) och Microsoft Visual Studio 2017.
+I den här artikeln får skapa du ett C++-konsolprogram för Windows. Du använder Cognitive Services [Speech SDK](speech-sdk.md) för att transkribera tal till text i realtid från datorns mikrofon. Programmet har skapats med [Speech SDK NuGet-paketet](https://aka.ms/csspeech/nuget) och Microsoft Visual Studio 2017 (alla versioner).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
-* En prenumerationsnyckel för Speech-tjänsten. Se [prova speech-tjänsten utan kostnad](get-started.md).
-* En Windows-dator med en fungerande mikrofon.
-* [Microsoft Visual Studio 2017](https://www.visualstudio.com/), Community Edition eller senare.
-* Den **skrivbordsutveckling med C++** arbetsbelastningen i Visual Studio och **NuGet-Pakethanteraren** komponenten i Visual Studio.
-  Du kan aktivera både i **verktyg** \> **hämta verktyg och funktioner**under den **arbetsbelastningar** och **enskilda komponenter** flikar , respektive:
-
-  ![Aktivera skrivbordsutveckling med C++ arbetsbelastning](media/sdk/vs-enable-cpp-workload.png)
-
-  ![Aktivera NuGet-Pakethanteraren i Visual Studio ](media/sdk/vs-enable-nuget-package-manager.png)
+Du behöver en prenumerationsnyckel för Speech-tjänsten för att slutföra den här snabbstarten. Du kan skaffa en utan kostnad. Mer information finns i [Prova Speech-tjänsten kostnadsfritt](get-started.md).
 
 ## <a name="create-a-visual-studio-project"></a>Skapa ett Visual Studio-projekt
 
-Skapa en ny Visual C++ Windows Desktop Windows-konsolprogram i Visual Studio 2017. I den **nytt projekt** dialogrutan i den vänstra rutan expanderar **installerad** \> **Visual C++** \> **Windows Desktop** och välj sedan **Windows-konsolprogram**. Projektnamnet, ange *helloworld*.
+1. Starta Visual Studio 2017.
 
-![Skapa Visual C++ Windows stationära Windows-konsolprogram](media/sdk/qs-cpp-windows-01-new-console-app.png)
+1. Kontrollera att arbetsbelastningen **Desktop development with C++** (Skrivbordsutveckling med C++) är tillgänglig. Välj **Verktyg** > **Get Tools and Features** (Hämta verktyg och funktioner) på menyraden i Visual Studio för att öppna installationsprogrammet för Visual Studio. Om den här arbetsbelastningen redan är aktiverad går du direkt till nästa steg. 
 
-Om du kör på en 64-bitars Windows-installation, du kan också växla build-plattformen för att `x64`:
+    ![Skärmbild av fliken för arbetsbelastningar i Visual Studio](media/sdk/vs-enable-cpp-workload.png)
 
-![Växla build-plattform till x64](media/sdk/qs-cpp-windows-02-switch-to-x64.png)
+    Annars markerar du kryssrutan intill **Desktop development with C++** (Skrivbordsutveckling med C++). 
 
-## <a name="install-and-reference-the-speech-sdk-nuget-package"></a>Installera och referera till tal SDK NuGet-paketet
+1. Kontrollera att komponenten **NuGet-pakethanteraren** är tillgänglig. Växla sedan till fliken **Enskilda komponenter** i installationsdialogrutan för Visual Studio och välj fliken **NuGet-pakethanteraren** om den inte redan är aktiverad.
 
-Högerklicka på lösningen i Solution Explorer och klicka på **hantera NuGet-paket för lösningen**.
+      ![Skärmbild av fliken Enskilda komponenter i Visual Studio](media/sdk/vs-enable-nuget-package-manager.png)
 
-![Högerklicka på Hantera NuGet-paket för lösningen](media/sdk/qs-cpp-windows-03-manage-nuget-packages.png)
+1. Om du behöver aktivera antingen C++-arbetsbelastning eller NuGet väljer du **Ändra** (i det nedre högra hörnet av dialogrutan). Installationen av de nya funktionerna tar en stund. Om båda funktionerna redan har aktiverats stänger du dialogrutan.
 
-I det övre högra hörnet i den **Paketkällan** , Välj ”Nuget.org”.
-Från den **Bläddra** fliken, Sök efter ”Microsoft.CognitiveServices.Speech”-paketet, markera den och kontrollera den **projekt** och **helloworld** rutorna till höger och välj **Installera** att installera den till helloworld-projekt.
+1. Skapa ett nytt Windows-konsolprogram för Visual C++ i Windows Desktop. Börja med att välja **Arkiv** > **Nytt** > **Projekt** på menyn. I dialogrutan **Nytt projekt** expanderar du **Installerat** > **Visual C++** > **Windows Desktop** i den vänstra fönsterrutan. Välj sedan **Windows-konsolprogram**. För projektnamnet anger du *helloworld*.
 
-> [!NOTE]
-> Den aktuella versionen av Cognitive Services tal SDK är `0.6.0`.
+    ![Skärmbild av dialogrutan Nytt projekt](media/sdk/qs-cpp-windows-01-new-console-app.png)
 
-![Installera Microsoft.CognitiveServices.Speech NuGet-paketet](media/sdk/qs-cpp-windows-04-nuget-install-0.5.0.png)
+1. Om du använder 64-bitars Windows kan du byta utvecklingsplattform till `x64` med hjälp av den nedrullningsbara menyn i Visual Studio-verktygsfältet. (64-bitars versioner av Windows kan köra 32-bitars program, så det inte är ett krav.)
 
-Acceptera licensvillkoren på skärmen som visas för licens:
+    ![Skärmbild av Visual Studio-verktygsfältet med x64-alternativet markerat](media/sdk/qs-cpp-windows-02-switch-to-x64.png)
 
-![Acceptera licensvillkoren](media/sdk/qs-cpp-windows-05-nuget-license.png)
+1. Högerklicka på lösningen i Solution Explorer och välj sedan **Hantera NuGet-paket för lösningen**.
 
-## <a name="add-the-sample-code"></a>Lägg till exempelkoden
+    ![Skärmbild av Solution Explorer, med alternativet Hantera NuGet-paket för lösningen markerat](media/sdk/qs-cpp-windows-03-manage-nuget-packages.png)
 
-1. Ersätt Koden standard starter med följande:
+1. I det övre högra hörnet väljer du **nuget.org** i fältet **Package Source** (Paketkälla). Sök efter `Microsoft.CognitiveServices.Speech`-paketet och installera det i **helloworld**-projektet.
+
+    ![Skärmbild av dialogrutan Hantera paket för lösningen](media/sdk/qs-cpp-windows-04-nuget-install-1.0.0.png)
+
+    > [!NOTE]
+    > Den aktuella versionen av Cognitive Services Speech SDK är `1.0.0`.
+
+1. Acceptera licensvillkoren som visas för att påbörja installationen av NuGet-paketet.
+
+    ![Skärmbild av dialogrutan för att acceptera licensvillkoren](media/sdk/qs-cpp-windows-05-nuget-license.png)
+
+När paketet har installerats visas en bekräftelse i Package Manager-konsolen.
+
+## <a name="add-sample-code"></a>Lägga till exempelkod
+
+1. Öppna källfilen *helloworld.cpp*. Ersätt all kod under den första include-instruktionen (`#include "stdafx.h"` eller `#include "pch.h"`) med följande:
 
    [!code-cpp[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/cpp-windows/helloworld/helloworld.cpp#code)]
 
-1. Ersätt strängen `YourSubscriptionKey` med din prenumerationsnyckel.
+1. Ersätt strängen `YourSubscriptionKey` i samma fil med din prenumerationsnyckel.
 
-1. Ersätt strängen `YourServiceRegion` med den [region](regions.md) som är associerade med din prenumeration (till exempel `westus` för en kostnadsfri provprenumeration).
+1. Ersätt strängen `YourServiceRegion` med den [region](regions.md) som är associerad med din prenumeration (till exempel `westus` för en kostnadsfri provprenumeration).
 
-1. Spara ändringar i projektet.
+1. Spara ändringarna i projektet.
 
-## <a name="build-and-run-the-sample"></a>Skapa och köra exempelappen
+## <a name="build-and-run-the-app"></a>Skapa och kör appen
 
-1. Skapa programmet. Från menyraden väljer **skapa** > **skapa lösning**. Koden ska kompilera utan fel nu:
+1. Skapa programmet. I menyraden väljer du **Skapa** > **Skapa lösning**. Koden ska kompileras utan fel.
 
-   ![Version](media/sdk/qs-cpp-windows-06-build.png)
+   ![Skärmbild av Visual Studio-programmet med Skapa lösning markerat](media/sdk/qs-cpp-windows-06-build.png)
 
-1. Starta programmet. Från menyraden väljer **felsöka** > **Starta felsökning**, eller tryck på **F5**.
+1. Starta programmet. I menyraden väljer du **Felsök** > **Starta felsökning**, eller tryck på **F5**.
 
-   ![Starta appen into-felsökning](media/sdk/qs-cpp-windows-07-start-debugging.png)
+   ![Skärmbild av Visual Studio-programmet med Starta felsökning markerat](media/sdk/qs-cpp-windows-07-start-debugging.png)
 
-1. Ett konsolfönster öppnas, där du uppmanas att säga något (på engelska).
-   Resultatet av erkännande visas på skärmen.
+1. Ett konsolfönster öppnas där du uppmanas att säga något. Säg en engelsk fras eller en mening. Ditt tal överförs till Speech-tjänsten och transkriberas till text som visas i samma fönster.
 
-   ![Konsolens utdata efter lyckad taligenkänning](media/sdk/qs-cpp-windows-08-console-output-release.png)
+   ![Skärmbild av konsolutdata efter lyckad taligenkänning](media/sdk/qs-cpp-windows-08-console-output-release.png)
 
-[!INCLUDE [Download the sample](../../../includes/cognitive-services-speech-service-speech-sdk-sample-download-h2.md)]
-Leta efter det här exemplet i den `quickstart/cpp-windows` mapp.
+[!INCLUDE [Download this sample](../../../includes/cognitive-services-speech-service-speech-sdk-sample-download-h2.md)]
+Leta efter det här exemplet i mappen `quickstart/cpp-windows`.
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Hämta våra exempel](speech-sdk.md#get-the-samples)
+> [!div class="nextstepaction"]
+> [Identifiera avsikter från tal med hjälp av Speech SDK för C++](how-to-recognize-intents-from-speech-cpp.md)
+
+## <a name="see-also"></a>Se även
+
+- [Översätta tal](how-to-translate-speech-csharp.md)
+- [Anpassa akustiska modeller](how-to-customize-acoustic-models.md)
+- [Anpassa språkmodeller](how-to-customize-language-model.md)

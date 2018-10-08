@@ -3,8 +3,8 @@ title: Skapa en Node.js-webbapp i Azure | Microsoft Docs
 description: Distribuera din första Node.js-Hello World-app i Azure App Service Web Apps på bara några minuter.
 services: app-service\web
 documentationcenter: ''
-author: cephalin
-manager: cfowler
+author: msangapu
+manager: jeconnoc
 editor: ''
 ms.assetid: 582bb3c2-164b-42f5-b081-95bfcb7a502a
 ms.service: app-service-web
@@ -12,15 +12,15 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 08/24/2018
-ms.author: cephalin;cfowler
+ms.date: 09/27/2018
+ms.author: cephalin;msangapu
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 63e65ffc17ba71a5d2cf00cb5f04e3e0f87c1bfe
-ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
+ms.openlocfilehash: 05dd53fdfda5446cf848a7b8503a09bc5e5c2d20
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43184388"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47433471"
 ---
 # <a name="create-a-nodejs-web-app-in-azure"></a>Skapa en Node.js-webbapp i Azure
 
@@ -28,7 +28,7 @@ ms.locfileid: "43184388"
 > I den här artikeln distribueras en app till App Service i Windows. Om du vill distribuera en app till App Service i _Linux_ kan du läsa [Skapa en Node.js-webbapp i Azure App Service på Linux](./containers/quickstart-nodejs.md).
 >
 
-Med [Azure Web Apps](app-service-web-overview.md) får du en mycket skalbar och automatiskt uppdaterad webbvärdtjänst.  Den här snabbstarten visar hur du distribuerar en Node.js-app till Azure Web Apps. Du skapar webbappen med [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) och använder Git för att distribuera Node.js-exempelkoden till webbappen.
+Med [Azure Web Apps](app-service-web-overview.md) får du en mycket skalbar och automatiskt uppdaterad webbvärdtjänst.  Den här snabbstarten visar hur du distribuerar en Node.js-app till Azure Web Apps. Du skapar webbappen med [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) och använder ZipDeploy för att distribuera Node.js-exempelkoden till webbappen.
 
 ![Exempelapp som körs i Azure](media/app-service-web-get-started-nodejs-poc/hello-world-in-browser.png)
 
@@ -47,6 +47,9 @@ För att slutföra den här snabbstarten behöver du:
 Ladda ned exempelprojektet för Node.js från [https://github.com/Azure-Samples/nodejs-docs-hello-world/archive/master.zip](https://github.com/Azure-Samples/nodejs-docs-hello-world/archive/master.zip) och extrahera ZIP-arkivet.
 
 Navigera till rotkatalogen för Node.js-exempelprojektet i ett terminalfönster (det som innehåller _index.js_).
+
+> [!NOTE]
+> Du behöver inte använda vår exempelapp. Du kan använda din egen Node-kod om du vill. Kom dock ihåg att PORTEN för din app anges vid körning av Azure och är tillgänglig som `process.env.PORT`. Om du använder Express ska du ha en kontroll vid start (`app.listen`) för `process.env.PORT || 3000`. Om du inte gör detta och porten inte matchar det som anges vid körning av Azure visas meddelandet `Service Unavailable`. 
 
 ## <a name="run-the-app-locally"></a>Köra appen lokalt
 
@@ -71,21 +74,19 @@ Tryck på **Ctrl+C** i terminalfönstret för att avsluta webbservern.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-[!INCLUDE [Create resource group](../../includes/app-service-web-create-resource-group.md)] 
+[!INCLUDE [Create resource group](../../includes/app-service-web-create-resource-group-scus.md)] 
 
-[!INCLUDE [Create app service plan](../../includes/app-service-web-create-app-service-plan.md)] 
+[!INCLUDE [Create app service plan](../../includes/app-service-web-create-app-service-plan-scus.md)] 
 
 ## <a name="create-a-web-app"></a>Skapa en webbapp
 
 Skapa i Cloud Shell en webbapp i `myAppServicePlan` App Service-planen med kommandot [`az webapp create`](/cli/azure/webapp?view=azure-cli-latest#az-webapp-create). 
 
-Ersätt `<app_name>` med ett globalt unikt appnamn (giltiga tecken är `a-z`, `0-9` och `-`) i följande exempel. Körningen har angetts till `NODE|6.9`. Om du vill se alla körningar som stöds ska du köra [`az webapp list-runtimes`](/cli/azure/webapp?view=azure-cli-latest#az-webapp-list-runtimes). 
+Ersätt `<app_name>` med ett globalt unikt appnamn (giltiga tecken är `a-z`, `0-9` och `-`) i följande exempel.
 
 ```azurecli-interactive
-# Bash
-az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app_name> --runtime "NODE|6.9"
-# PowerShell
-az --% webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app_name> --runtime "NODE|6.9"
+# Bash and Powershell
+az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app_name>
 ```
 
 När webbappen har skapats visar Azure CLI utdata liknande den i följande exempel:
@@ -104,6 +105,15 @@ När webbappen har skapats visar Azure CLI utdata liknande den i följande exemp
 }
 ```
 
+### <a name="set-nodejs-runtime"></a>Ange Node.js-körning
+
+Ange Node-körningen till 8.11.1. <!-- To see all supported runtimes, run [`az webapp list-runtimes`](/cli/azure/webapp?view=azure-cli-latest#az-webapp-list-runtimes). -->
+
+```azurecli-interactive
+# Bash and Powershell
+az webapp config appsettings set --resource-group myResourceGroup --name <app_name> --settings WEBSITE_NODE_DEFAULT_VERSION=8.11.1
+```
+
 Bläddra till webbappen som precis skapades. Ersätt _&lt;appnamn >_ med ett unikt appnamn.
 
 ```bash
@@ -112,7 +122,7 @@ http://<app name>.azurewebsites.net
 
 Så här bör din nya webbapp se ut:
 
-![Sida för tom webbapp](media/app-service-web-get-started-php/app-service-web-service-created.png)
+![Sida för tom webbapp](media/app-service-web-get-started-nodejs-poc/app-service-web-service-created.png)
 
 [!INCLUDE [Deploy ZIP file](../../includes/app-service-web-deploy-zip.md)]
 
@@ -148,7 +158,7 @@ zip -r myUpdatedAppFiles.zip .
 Compress-Archive -Path * -DestinationPath myUpdatedAppFiles.zip
 ``` 
 
-Distribuera den nya ZIP-filen till App Service med samma steg som i [Ladda upp ZIP-filen](#upload-the-zip-file).
+Distribuera den nya ZIP-filen till App Service med samma steg som i [Distribuera ZIP-fil](#deploy-zip-file).
 
 Gå tillbaka till webbläsarfönstret som öppnades när du skulle **söka efter appen** och klicka på knappen för att uppdatera sidan.
 

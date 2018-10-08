@@ -6,89 +6,86 @@ services: cognitive-services
 author: fmegen
 ms.service: cognitive-services
 ms.technology: Speech
-ms.topic: article
-ms.date: 08/16/2018
+ms.topic: quickstart
+ms.date: 09/24/2018
 ms.author: fmegen
-ms.openlocfilehash: 923ab3378d5e2d833e11c5111d4dd9964fea6dc4
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
-ms.translationtype: MT
+ms.openlocfilehash: 00603c467ec96e52fc2b7745263153a68d20f584
+ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43126621"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47053970"
 ---
-# <a name="quickstart-recognize-speech-in-java-windows-or-linux"></a>Snabbstart: Känna igen tal i Java (Windows eller Linux)
+# <a name="quickstart-recognize-speech-in-java-on-windows-or-linux-by-using-the-speech-sdk"></a>Snabbstart: Känna igen tal i Java i Windows eller Linux med hjälp av Speech SDK
 
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
-Det här dokumentet beskriver hur du skapar ett Java-baserade konsolprogram för körning miljö JRE (Java) som använder SDK: N för tal.
-Programmet är baserad på Microsoft Cognitive Services SDK Maven-paketet.
-Vi använder Eclipse som ett Integrated Development Environment (IDE).
+I den här artikeln ska du skapa ett Java-konsolprogram med hjälp av [Speech SDK](speech-sdk.md). Du transkriberar tal till text i realtid från datorns mikrofon. Programmet baseras på Maven-paketet för Speech SDK och Eclipse Java IDE (v4.8) i 64-bitars Windows eller Ubuntu Linux 16.04. Det körs i en 64-bitars Java 8-körningsmiljö (JRE).
 
-## <a name="prerequisites"></a>Förutsättningar
+> [!NOTE]
+> Information om Speech Devices SDK och Roobo-enheten finns i [Speech Devices SDK](speech-devices-sdk.md).
 
-* En prenumerationsnyckel för Speech-tjänsten. Se [prova speech-tjänsten utan kostnad](get-started.md).
-* En dator (Windows x64, Ubuntu 16.04 x64) kapacitet att köra Eclipse, med en fungerande mikrofon.
-* 64-bitars JRE/JDK för Java 8.
-* 4.8-versionen av [Eclipse](https://www.eclipse.org), 64-bitarsversionen.
-* Kör följande kommandon för att installera nödvändiga paket på Ubuntu 16.04:
+## <a name="prerequisites"></a>Nödvändiga komponenter
+
+Du behöver en prenumerationsnyckel för Speech-tjänsten för att slutföra den här snabbstarten. Du kan skaffa en utan kostnad. Mer information finns i [Prova Speech-tjänsten kostnadsfritt](get-started.md).
+
+
+## <a name="create-and-configure-project"></a>Skapa och konfigurera projektet
+
+Om du använder Ubuntu 16.04 kör du följande kommandon innan du startar Eclipse för att se till att nödvändiga paket är installerade.
 
   ```sh
   sudo apt-get update
   sudo apt-get install build-essential libssl1.0.0 libcurl3 libasound2 wget
   ```
 
-## <a name="create-and-configure-your-project"></a>Skapa och konfigurera ditt projekt
-
 1. Starta Eclipse.
 
-1. Ange namnet på en ny katalog i i Eclipse-starta den **arbetsytan** fält.
-   Klicka sedan på **starta**.
+1. I fältet **Arbetsyta** i Eclipse-startfönstret anger du namnet på en ny katalog för arbetsytan. Välj sedan **Starta**.
 
-   ![Skapa Eclipse-arbetsyta](media/sdk/qs-java-jre-01-create-new-eclipse-workspace.png)
+   ![Skärmbild av Eclipse-startfönstret](media/sdk/qs-java-jre-01-create-new-eclipse-workspace.png)
 
-1. Efter ett tag visas huvudfönstret i Eclipse IDE.
-   Om det finns en välkomstskärm i den, stänga den.
+1. Efter en liten stund visas huvudfönstret i Eclipse IDE. Stäng välkomstskärmen om en sådan visas.
 
-1. Välj **filen** \> **nya** \> **projekt**.
+1. På Eclipse-menyraden skapar du ett nytt projekt genom att välja **Arkiv** > **Nytt** > **Projekt**.
 
-1. I den **nytt projekt** guiden som visas väljer **Java-projekt**, och klicka på **nästa**.
+1. Dialogrutan **Nytt projekt** visas. Välj **Java-projekt** och välj **Nästa**.
 
-   ![Välj en guide](media/sdk/qs-java-jre-02-select-wizard.png)
+   ![Skärmbild av dialogrutan Nytt projekt, med Java-projekt markerat](media/sdk/qs-java-jre-02-select-wizard.png)
 
-1. I fönstret nästa anger **snabbstarten** som ett projekt servernamnet och **JavaSE 1.8** (eller upp) som körningsmiljö.
-   Klicka på **Slutför**.
+1. Guiden Nytt Java-projekt startar. I fältet **Projektnamn** anger du **quickstart** (snabbstart) och väljer **JavaSE 1.8** som körningsmiljö. Välj **Slutför**.
 
-   ![Välj en guide](media/sdk/qs-java-jre-03-create-java-project.png)
+   ![Skärmbild av guiden Nytt Java-projekt](media/sdk/qs-java-jre-03-create-java-project.png)
 
-1. Om ett fönster med rubriken **öppna associerat perspektiv?** POP upp väljer **öppna perspektiv**.
+1. Om fönstret **Open Associated Perspective?** (Vill du öppna associerat perspektiv?) visas väljer du **Open Perspective** (Öppna perspektiv).
 
-1. I den **Package explorer**, högerklicka på den **snabbstarten** projektet och välj **konfigurera** \> **konvertera till Maven-projekt**.
+1. I **Paketutforskaren** högerklickar du på projektet **quickstart** (snabbstart). Välj **Konfigurera** > **Convert to Maven Project** (Konvertera till Maven-projekt) från snabbmenyn.
 
-   ![Konvertera till Maven-projekt](media/sdk/qs-java-jre-04-convert-to-maven-project.png)
+   ![Skärmbild av Paketutforskaren](media/sdk/qs-java-jre-04-convert-to-maven-project.png)
 
-1. I fönstret som visas, ange **com.microsoft.cognitiveservices.speech.samples** som **grupp-Id** och **snabbstarten** som **artefakt-Id**. Välj **Slutför**.
+1. Fönstret **Create new POM** (Skapa ny POM) visas. I fältet **Grupp-ID** anger du **com.microsoft.cognitiveservices.speech.samples** och i fältet **Artifact Id** (Artefakt-ID) anger du **quickstart**. Välj sedan **Slutför**.
 
-   ![Konfigurera Maven POM](media/sdk/qs-java-jre-05-configure-maven-pom.png)
+   ![Skärmbild av fönstret Create new POM (Skapa ny POM)](media/sdk/qs-java-jre-05-configure-maven-pom.png)
 
-1. Redigera den **pom.xml** fil.
+1. Öppna filen **pom.xml** och redigera den.
 
-  * I slutet av filen, före sluttaggen `</project>`, skapa ett avsnitt för databaser med en referens till Maven-centrallagret för tal-SDK:
+   * I slutet av filen, före sluttaggen `</project>`, skapar du ett databasavsnitt med en referens till Maven-databasen för Speech SDK, som du ser här:
 
-    [!code-xml[POM Repositories](~/samples-cognitive-services-speech-sdk/quickstart/java-jre/pom.xml#repositories)]
+     [!code-xml[POM Repositories](~/samples-cognitive-services-speech-sdk/quickstart/java-jre/pom.xml#repositories)]
 
-  * Lägg även till därefter ett beroenden avsnitt med tal SDK version 0.6.0 som ett beroende:
+  * Efter avsnittet lägger du även till ett avsnitt för beroenden, med Speech SDK version 1.0.0 som ett beroende:
 
-    [!code-xml[POM Dependencies](~/samples-cognitive-services-speech-sdk/quickstart/java-jre/pom.xml#dependencies)]
+     [!code-xml[POM Dependencies](~/samples-cognitive-services-speech-sdk/quickstart/java-jre/pom.xml#dependencies)]
 
-  * Spara ändringarna.
+   * Spara ändringarna.
 
-## <a name="add-the-sample-code"></a>Lägg till exempelkoden
+## <a name="add-sample-code"></a>Lägg till exempelkod
 
-1. Välj **filen** \> **New** \> **klass** att lägga till en ny tom klass i Java-projekt.
+1. Du lägger till en ny tom klass i Java-projektet genom att välja **Arkiv** > **Nytt** > **Klass**.
 
-1. I fönstret **ny Java-klass** ange **speechsdk.quickstart** till den **paketet** fält, och **Main** till den **namn**  fält.
+1. I fönstret **New Java Class** (Ny Java-klass) anger du **speechsdk.quickstart** i fältet **Paket** och anger **Main** i fältet **Namn**.
 
-   ![Skapa en Main-klass](media/sdk/qs-java-jre-06-create-main-java.png)
+   ![Skärmbild av fönstret New Java Class (Ny Java-klass)](media/sdk/qs-java-jre-06-create-main-java.png)
 
 1. Ersätt all kod i `Main.java` med följande kodavsnitt:
 
@@ -96,20 +93,27 @@ Vi använder Eclipse som ett Integrated Development Environment (IDE).
 
 1. Ersätt strängen `YourSubscriptionKey` med din prenumerationsnyckel.
 
-1. Ersätt strängen `YourServiceRegion` med den [region](regions.md) som är associerade med din prenumeration (till exempel `westus` för en kostnadsfri provprenumeration).
+1. Ersätt strängen `YourServiceRegion` med den [region](regions.md) som är associerad med din prenumeration (till exempel `westus` för en kostnadsfri provprenumeration).
 
-1. Spara ändringar i projektet.
+1. Spara ändringarna i projektet.
 
-## <a name="build-and-run-the-sample"></a>Skapa och köra exempelappen
+## <a name="build-and-run-the-app"></a>Skapa och kör appen
 
-Tryck på F11 eller välj **kör** \> **felsöka**.
-Nästa 15 sekunder av talindata från mikrofonen ska identifieras och loggas i konsolfönstret.
+Tryck på F11 eller välj **Kör** > **Felsök**.
+Följande 15 sekunder av talindata från mikrofonen identifieras och loggas i konsolfönstret.
 
-![Konsolens utdata efter lyckad taligenkänning](media/sdk/qs-java-jre-07-console-output.png)
+![Skärmbild av konsolutdata efter lyckad taligenkänning](media/sdk/qs-java-jre-07-console-output.png)
 
-[!INCLUDE [Download the sample](../../../includes/cognitive-services-speech-service-speech-sdk-sample-download-h2.md)]
-Leta efter det här exemplet i den `quickstart/java-jre` mapp.
+[!INCLUDE [Download this sample](../../../includes/cognitive-services-speech-service-speech-sdk-sample-download-h2.md)]
+Leta efter det här exemplet i mappen `quickstart/java-jre`.
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Hämta våra exempel](speech-sdk.md#get-the-samples)
+> [!div class="nextstepaction"]
+> [Identifiera avsikter från tal med hjälp av Speech SDK för Java](how-to-recognize-intents-from-speech-java.md)
+
+## <a name="see-also"></a>Se även
+
+- [Översätta tal](how-to-translate-speech-csharp.md)
+- [Anpassa akustiska modeller](how-to-customize-acoustic-models.md)
+- [Anpassa språkmodeller](how-to-customize-language-model.md)

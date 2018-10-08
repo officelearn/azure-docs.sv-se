@@ -1,20 +1,21 @@
 ---
-title: 'Snabbstart: Skapa en ny kunskapsbas i Go för Microsoft QnA Maker API (v4) med Azure Cognitive Services | Microsoft Docs'
-description: Skapa en kunskapsbas i Go för att lagra vanliga frågor och svar eller produkthandböcker, så att du kan komma igång med QnA Maker.
+title: 'Snabbstart: API Go – Skapa kunskapsbas – QnA Maker'
+titlesuffix: Azure Cognitive Services
+description: Den här snabbstarten går igenom skapandet av ett exempel på QnA Maker-kunskapsbas, programmässigt, som visas i Azure-instrumentpanelen för ditt Cognitive Services-API-konto.
 services: cognitive-services
-author: noellelacharite
-manager: nolachar
+author: diberry
+manager: cgronlun
 ms.service: cognitive-services
 ms.technology: qna-maker
 ms.topic: quickstart
-ms.date: 06/15/2018
-ms.author: nolachar
-ms.openlocfilehash: fe763dada6d40822148423443be12df7c1626687
-ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
+ms.date: 09/12/2018
+ms.author: diberry
+ms.openlocfilehash: 17d4a03966b1d6e3f278d5a507e46f9f6fcafa05
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "43770783"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47034067"
 ---
 # <a name="create-a-new-knowledge-base-in-go"></a>Skapa en ny kunskapsbas i Go
 

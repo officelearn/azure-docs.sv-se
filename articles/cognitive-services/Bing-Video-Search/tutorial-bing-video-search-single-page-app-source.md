@@ -1,24 +1,25 @@
 ---
-title: Videosökning i Bing Web ensidesapp (källkoden) | Microsoft Docs
-description: Källkoden för genomgång som visar hur du använder den Videosökning i Bing i ett enkelsidigt program.
+title: 'Självstudie: Skapa en webbapp med enda sida – Videosökning i Bing'
+titlesuffix: Azure Cognitive Services
+description: Källkod för självstudie som visar hur du använder API:et för videosökning i Bing i ett webbprogram med en enda sida.
 services: cognitive-services
 author: mikedodaro
-manager: rosh
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-video-search
-ms.topic: article
+ms.topic: tutorial
 ms.date: 11/01/2017
-ms.author: v-gedod
-ms.openlocfilehash: bed17c1df2b7c8dff9f874e43be8d67900fd7836
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
-ms.translationtype: MT
+ms.author: rosh
+ms.openlocfilehash: b0856be88382e1bb7a4cc65f5fd05910b814e152
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39112468"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47223295"
 ---
-# <a name="tutorial-single-page-video-search-app"></a>Självstudie: Single-page Videosökning app
+# <a name="tutorial-single-page-bing-video-search-app"></a>Självstudie: Skapa en app med en enda sida med Videosökning i Bing
 
-Det här är den fullständiga källkoden som beskrivs i den [ensidesapp självstudien](tutorial-bing-video-search-single-page-app.md) för Videosökning i Bing. Kör appen genom att kopiera källkoden i anteckningar eller något annat textredigeringsprogram och spara den som `bing.html`. Öppna den sparade filen i Microsoft Edge eller en annan populära webbläsare.
+Det här är den fullständiga källkoden som beskrivs i [självstudien om appar med en enda sida](tutorial-bing-video-search-single-page-app.md) för Videosökning i Bing. Om du vill köra appen kopierar du källkoden till Anteckningar eller ett annat textredigeringsprogram och sparar den som `bing.html`. Öppna sedan den sparade filen i Microsoft Edge eller en annan populär webbläsare.
 
 ```html
 <!DOCTYPE html>

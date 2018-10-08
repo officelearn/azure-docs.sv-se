@@ -1,50 +1,50 @@
 ---
-title: Azure innehåll kontrollant-kodexempel | Microsoft Docs
-description: Använda innehåll kontrollant i dina program
+title: Kodexempel – Content Moderator, .NET
+description: Använda Content Moderator i dina program
 services: cognitive-services
 author: sanjeev3
-manager: mikemcca
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: content-moderator
-ms.topic: article
+ms.topic: sample
 ms.date: 01/10/2018
 ms.author: sajagtap
-ms.openlocfilehash: a7f5b0a7433631e303de47667871cc1354053c08
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
-ms.translationtype: MT
+ms.openlocfilehash: c5465a2de0924037eb93b9de652e93e85f166737
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35352569"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47223159"
 ---
 # <a name="net-sdk-samples"></a>.NET SDK-exempel
 
-Följande lista innehåller länkar till kodexempel som skapats med Azure innehåll kontrollant SDK för .NET.
+Följande lista innehåller länkar till kodexemplen som skapats med Azure Content Moderator SDK för .NET.
 
-- **Hjälpbibliotek**: [skapa en innehåll kontrollant klient för användning i andra exempel](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/blob/master/ContentModerator/ModeratorHelper/Clients.cs). Se [quickstart](content-moderator-helper-quickstart-dotnet.md).
+- **Hjälpbibliotek**: [Skapa en Content Moderator-klient för användning i andra exempel](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/blob/master/ContentModerator/ModeratorHelper/Clients.cs). Se [snabbstarten](content-moderator-helper-quickstart-dotnet.md).
 
-## <a name="moderation"></a>Avbrottsmoderering
+## <a name="moderation"></a>Moderering
 
-- **Bild av avbrottsmoderering**: [utvärdera en bild för innehåll för vuxna och dyr, text och ytor](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/blob/master/ContentModerator/ImageModeration/Program.cs). Se [quickstart](image-moderation-quickstart-dotnet.md).
-- **Anpassade avbildningar**: [måttlig med anpassad avbildning listor](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/blob/master/ContentModerator/ImageListManagement/Program.cs). Se [quickstart](image-lists-quickstart-dotnet.md).
-
-> [!NOTE]
-> Det finns en övre gräns för **5 bild visar** med varje lista till **inte överstiga 10 000 bilder**.
->
-
-- **Text avbrottsmoderering**: [skärmen för svordomar och personligt identifierbar information (PII)](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/blob/master/ContentModerator/TextModeration/Program.cs). Se [quickstart](text-moderation-quickstart-dotnet.md).
-- **Anpassade villkor**: [måttlig med anpassade termen listor](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/blob/master/ContentModerator/TermListManagement/Program.cs). Se [quickstart](term-lists-quickstart-dotnet.md).
+- **Bildmoderering**: [Utvärdera en bild och se om den innehåller olämpligt innehåll, text eller ansikten](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/blob/master/ContentModerator/ImageModeration/Program.cs). Se [snabbstarten](image-moderation-quickstart-dotnet.md).
+- **Anpassade bilder**: [Moderera med anpassade bildlistor](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/blob/master/ContentModerator/ImageListManagement/Program.cs). Se [snabbstarten](image-lists-quickstart-dotnet.md).
 
 > [!NOTE]
-> Det finns en övre gräns för **5 termen visar** med varje lista till **inte överstiga 10 000 villkoren**.
+> Det finns en maxgräns på **5 bildlistor** där varje lista **inte får överstiga 10 000 bilder**.
 >
 
-- **Video avbrottsmoderering**: [skanna en video för innehåll för vuxna och dyr och få resultat](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/blob/master/ContentModerator/VideoModeration/Program.cs). Se [quickstart](video-moderation-api.md).
+- **Textmoderering**: [Sök igenom text efter svordomar och personligt identifierbar information (PII)](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/blob/master/ContentModerator/TextModeration/Program.cs). Se [snabbstarten](text-moderation-quickstart-dotnet.md).
+- **Anpassade termer**: [Moderera med anpassade termlistor](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/blob/master/ContentModerator/TermListManagement/Program.cs). Se [snabbstarten](term-lists-quickstart-dotnet.md).
+
+> [!NOTE]
+> Det finns en maxgräns på **5 termlistor** där varje lista kan innehålla **högst 10 000 termer**.
+>
+
+- **Videomoderering**: [Sök igenom en video efter olämpligt innehåll och visa resultatet](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/blob/master/ContentModerator/VideoModeration/Program.cs). Se [snabbstarten](video-moderation-api.md).
 
 ## <a name="review"></a>Granska
 
-- **Bild jobb**: [starta ett jobb med måtta som genomsöker och skapar granskningar](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/blob/master/ContentModerator/ImageJobs/Program.cs). Se [quickstart](moderation-jobs-quickstart-dotnet.md).
-- **Bild granskningar**: [skapa granskning av hr-i-the-loop](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/blob/master/ContentModerator/ImageReviews/Program.cs). Se [quickstart](moderation-reviews-quickstart-dotnet.md).
-- **Video granskar**: [skapa video granskar hr-i-the-slingan](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/blob/master/ContentModerator/VideoReviews/Program.cs). Se [Snabbstart](video-reviews-quickstart-dotnet.md)
-- **Video betyg granskar**: [skapa video betyg granskar hr-i-the-slingan](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/blob/master/ContentModerator/VideoTranscriptReviews/Program.cs) finns [Snabbstart](video-reviews-quickstart-dotnet.md)
+- **Bildjobb**: [Starta ett modereringsjobb som söker av och skapar omdömen](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/blob/master/ContentModerator/ImageJobs/Program.cs). Se [snabbstarten](moderation-jobs-quickstart-dotnet.md).
+- **Bildomdömen**: [Skapa omdömen för HITL (Human-In-The-Loop)](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/blob/master/ContentModerator/ImageReviews/Program.cs). Se [snabbstarten](moderation-reviews-quickstart-dotnet.md).
+- **Videoomdömen**: [Skapa videoomdömen för HITL (Human-In-The-Loop)](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/blob/master/ContentModerator/VideoReviews/Program.cs). Se [snabbstarten](video-reviews-quickstart-dotnet.md).
+- **Videoavskriftsomdömen**: [Skapa videoavskriftsomdömen för HITL (Human-In-The-Loop)](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/blob/master/ContentModerator/VideoTranscriptReviews/Program.cs) Se [snabbstarten](video-reviews-quickstart-dotnet.md)
 
-Se alla .NET-exempel på den [innehåll kontrollant .NET-exemplen på GitHub](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/ContentModerator).
+Se alla .NET-exempel i [Content Moderator .NET-exemplen på GitHub](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/ContentModerator).

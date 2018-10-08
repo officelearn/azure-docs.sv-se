@@ -13,12 +13,12 @@ ms.topic: reference
 ms.date: 08/09/2018
 ms.author: glenga
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 7168db80593426977e238fa2b8a5f09638cf0fdf
-ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
+ms.openlocfilehash: 4585b6d4e9e3f6c64e1c583b947f979b8edc5a74
+ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/13/2018
-ms.locfileid: "45542167"
+ms.lasthandoff: 10/06/2018
+ms.locfileid: "48830267"
 ---
 # <a name="azure-functions-scale-and-hosting"></a>Azure Functions skalar och som är värd för
 
@@ -124,7 +124,7 @@ Skala är funktionsappen. När funktionsappen har skalats ut, tilldelas ytterlig
 
 Skalning kan variera på ett antal faktorer och skala på olika sätt beroende på utlösaren och den valda språket. Det finns dock några aspekter av skalning som finns i systemet idag:
 
-* En enda funktionsapp skalar bara upp till högst 100 instanser. En enda instans kan bearbeta flera meddelande eller begäran i taget dock så det finns en set-gränsen för antalet samtidiga körningar.
+* En enda funktionsapp skalar bara upp till högst 200 instanser. En enda instans kan bearbeta flera meddelande eller begäran i taget dock så det finns en set-gränsen för antalet samtidiga körningar.
 * Nya instanser allokeras endast högst en gång var tionde sekund.
 
 Olika utlösare kan också ha olika skalningsgränser samt dokumenterade nedan:

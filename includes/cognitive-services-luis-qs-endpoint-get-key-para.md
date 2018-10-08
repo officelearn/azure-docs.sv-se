@@ -3,32 +3,32 @@ title: ta med fil
 description: ta med fil
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: luis
 ms.topic: include
 ms.custom: include file
 ms.date: 08/16/2018
 ms.author: diberry
-ms.openlocfilehash: 25a70d314ecb690a34e89a3dff7d2c4fad8b7a00
-ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
-ms.translationtype: MT
+ms.openlocfilehash: fcf3bf29e2cdf89bdc93c7ebac313e5d9a9c18f0
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42819876"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47044042"
 ---
-Åtkomst till slutpunkten för förutsägelse anges med en slutpunktsnyckel som. I den här snabbstarten, använda kostnadsfria startprogrammet nyckeln som associeras med ditt Understanding Intelligent Service-konto. 
+Du kommer åt slutpunkten för förutsägelser med en slutpunktsnyckel. I den här snabbstarten kan du använda den kostnadsfria startnyckeln som medföljde LUIS-kontot. 
  
-1. Logga in med ditt Understanding Intelligent Service-konto. 
+1. Logga in med ditt LUIS-konto. 
 
-    [![Skärmbild av Språkförståelse (LUIS) applista](media/cognitive-services-luis/app-list.png "skärmbild för Språkförståelse (LUIS) app-lista")](media/cognitive-services-luis/app-list.png)
+    [![Skärmbild av applistan i LUIS](media/cognitive-services-luis/app-list.png "Skärmbild av applistan i LUIS")](media/cognitive-services-luis/app-list.png)
 
-2. Välj ditt namn i övre högra menyn och välj sedan **inställningar**.
+2. Välj ditt namn på menyn uppe till höger och välj sedan **Inställningar**.
 
-    ![LUIS användaråtkomst inställningarna menyn](media/cognitive-services-luis/get-user-settings-in-luis.png)
+    ![Åtkomst till menyn för användarinställningar i LUIS](media/cognitive-services-luis/get-user-settings-in-luis.png)
 
-3. Kopiera värdet för den **redigering nyckeln**. Du kan använda den senare i snabbstarten. 
+3. Kopiera värdet för **Authoring key** (Redigeringsnyckel). Du kommer att använda den senare i snabbstarten. 
 
-    [![Skärmbild av Språkförståelse (LUIS) användarinställningar](media/cognitive-services-luis/get-user-authoring-key.png "användarinställningar för skärmbild för Språkförståelse (LUIS)")](media/cognitive-services-luis/get-user-authoring-key.png)
+    [![Skärmbild av användarinställningarna i LUIS](media/cognitive-services-luis/get-user-authoring-key.png "Skärmbild av användarinställningarna i LUIS")](media/cognitive-services-luis/get-user-authoring-key.png)
 
-    Redigering nyckel kan kostnadsfria obegränsat antal förfrågningar till redigering API och upp till 1000 frågor till slutpunkten för förutsägelse API per månad för alla dina LUIS-appar. <!--Once the prediction endpoint quota from the authoring key is used for the month, you need to create a **Language Understanding** key from the Azure portal. The key created in the portal is known as the endpoint key. The endpoint key is used _only_ for prediction endpoint queries.-->
+    Med redigeringsnyckeln kan du göra ett obegränsat antal kostnadsfria förfrågningar till redigerings-API:t och köra upp till 1 000 frågor mot slutpunkts-API:t för förutsägelser per månad för alla dina LUIS-appar. <!--Once the prediction endpoint quota from the authoring key is used for the month, you need to create a **Language Understanding** key from the Azure portal. The key created in the portal is known as the endpoint key. The endpoint key is used _only_ for prediction endpoint queries.-->

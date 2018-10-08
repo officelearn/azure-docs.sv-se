@@ -1,20 +1,21 @@
 ---
-title: 'Snabbstart: Ändra modell och träna LUIS-app med Ruby – Azure Cognitive Services | Microsoft Docs'
+title: Ruby-snabbstart – ändra en modell och träna LUIS-appen
+titleSuffix: Azure Cognitive Services
 description: I den här Ruby-snabbstarten lägger du till exempelyttranden till en app för hemautomatisering och tränar appen. Exempelyttranden är konversationstext från användare som mappas till en avsikt. Genom att tillhandahålla exempelyttranden för avsikter lär du LUIS vilka typer av text från användare som tillhör vilken avsikt.
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: quickstart
-ms.date: 08/24/2018
+ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: 537ebe2d008e313d2fb29d05143804c3478567e8
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: 2d4633592742bd81cc6972884a0c4f5141aa9943
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44159460"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47030919"
 ---
 # <a name="quickstart-change-model-using-ruby"></a>Snabbstart: Ändra modell med hjälp av Ruby
 

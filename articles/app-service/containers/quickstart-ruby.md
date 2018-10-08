@@ -1,7 +1,7 @@
 ---
-title: Skapa en Ruby-app och distribuera till App Service on Linux | Microsoft Docs
-description: Lär dig skapa Ruby-appar med App Service on Linux.
-keywords: azure app service, linux, oss, ruby
+title: Skapa en Ruby on Rails-app och distribuera den till App Service i Linux | Microsoft Docs
+description: Lär dig att skapa en Ruby on Rails-app med App Service i Linux.
+keywords: azure app service, linux, oss, ruby, rails
 services: app-service
 documentationcenter: ''
 author: SyntaxC4
@@ -16,16 +16,19 @@ ms.topic: quickstart
 ms.date: 08/24/2018
 ms.author: cfowler
 ms.custom: mvc
-ms.openlocfilehash: 729ed8ac4568f5f39fd62fadbc8d4d0e4595f7b8
-ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
+ms.openlocfilehash: 04025998f78843b1cc69acd663681b9563a531bc
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42885297"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47431236"
 ---
-# <a name="create-a-ruby-app-in-app-service-on-linux"></a>Skapa en Ruby-app i App Service on Linux
+# <a name="create-a-ruby-on-rails-app-in-app-service-on-linux"></a>Skapa en Ruby on Rails-app med App Service i Linux
 
 Med [Azure App Service on Linux](app-service-linux-intro.md) får du en automatiskt uppdaterad webbvärdtjänst med hög skalbarhet. Den här snabbstarten visar hur du skapar en grundläggande [Ruby on Rails](https://rubyonrails.org/)-app som sedan kan distribueras till Azure som en Web App on Linux.
+
+> [!NOTE]
+> Ruby-utvecklingsstacken har bara stöd för Ruby on Rails just nu. Om du vill använda en annan plattform, som Sinatra, ska du gå igenom snabbstarten för [Web App for Containers](https://docs.microsoft.com/azure/app-service/containers/).
 
 ![Hello-world](./media/quickstart-ruby/hello-world-updated.png)
 
@@ -48,9 +51,16 @@ git clone https://github.com/Azure-Samples/ruby-docs-hello-world
 
 Kör programmet lokalt så att du ser hur det ska se ut när du distribuerar det till Azure. Öppna ett terminalfönster, ändra till katalogen `hello-world` och använd kommandot `rails server` för att starta servern.
 
+Första steget är att installera de gems du behöver. Det finns en `Gemfile` i exemplet, så du behöver inte ange vilka gems som ska installeras. Vi använder bundler till det här:
+
+```
+bundle install
+```
+
+När dina gems är installerade använder vi bundler till att starta appen:
+
 ```bash
-cd hello-world\bin
-rails server
+bundle exec rails server
 ```
 
 Navigera till `http://localhost:3000` i webbläsaren om du vill testa appen lokalt.

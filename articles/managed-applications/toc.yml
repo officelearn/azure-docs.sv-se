@@ -7,14 +7,16 @@ items:
     href: overview.md
 - name: Snabbstarter
   items:
-  - name: Skapa hanterat program
-    href: managed-apps-quickstart-cli.md
+  - name: Publicera programdefinition
+    href: publish-managed-app-definition-quickstart.md
+  - name: Distribuera tjänstkatalogapp
+    href: deploy-service-catalog-quickstart.md
   expanded: true
 - name: Självstudier
   items:
-  - name: Skapa hanterade programfiler
+  - name: Skapa definitionsfiler
     href: publish-service-catalog-app.md
-  - name: Använda marknadsplatsprogram
+  - name: Publicera marknadsplatsprogram
     href: publish-marketplace-app.md
 - name: Exempel
   items:
@@ -26,16 +28,22 @@ items:
     href: sample-projects.md
 - name: Instruktionsguider
   items:
-  - name: Skapa portalgränssnitt
-    href: create-uidefinition-overview.md
-  - name: Testa portalgränssnitt
-    href: test-createuidefinition.md
-  - name: Uppdatera hanterade resurser
-    href: update-managed-resources.md
-  - name: Använda portalen för att publicera
-    href: publish-portal.md
-  - name: Använda en hemlighet från Key Vault
-    href: key-vault-access.md
+  - name: Utgivare
+    items:
+    - name: Skapa portalgränssnitt
+      href: create-uidefinition-overview.md
+    - name: Testa portalgränssnitt
+      href: test-createuidefinition.md
+    - name: Uppdatera hanterade resurser
+      href: update-managed-resources.md
+    - name: Använd portalen och publicera definition av program
+      href: publish-portal.md
+    - name: Använda en hemlighet från Key Vault
+      href: key-vault-access.md
+  - name: Konsumenter
+    items:
+    - name: Övervaka hanterat program
+      href: monitor-managed-application-portal.md
 - name: Referens
   items:
   - name: Azure CLI
@@ -97,9 +105,9 @@ items:
     href: https://azure.microsoft.com/pricing/calculator/
   - name: Stack Overflow
     href: http://stackoverflow.com/questions/tagged/azure-managedapps
-ms.openlocfilehash: 03a385046c0f30932e6ba99fdce46fbdc9849eb6
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.openlocfilehash: b74cfed4f0208a1b70980d34284fd7f9ff207ca4
+ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46365306"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48801565"

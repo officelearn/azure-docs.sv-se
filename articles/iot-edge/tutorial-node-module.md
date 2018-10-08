@@ -5,16 +5,16 @@ services: iot-edge
 author: shizn
 manager: timlt
 ms.author: xshi
-ms.date: 06/26/2018
+ms.date: 09/21/2018
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 6c47deebfe9617cdb21f473b282dd6ea2b912dc0
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.openlocfilehash: 016c221a2f864ecfd4bb96b076a32ed1ae639c6b
+ms.sourcegitcommit: 42405ab963df3101ee2a9b26e54240ffa689f140
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41919604"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47422804"
 ---
 # <a name="tutorial-develop-and-deploy-a-nodejs-iot-edge-module-to-your-simulated-device"></a>Självstudie: Utveckla och distribuera en Node.js IoT Edge-modul till din simulerade enhet
 
@@ -39,7 +39,7 @@ En Azure IoT Edge-enhet:
 
 Molnresurser:
 
-* En [IoT Hub](../iot-hub/iot-hub-create-through-portal.md) på standardnivå i Azure. 
+* En [IoT-hubb](../iot-hub/iot-hub-create-through-portal.md) på kostnadsfri nivå i Azure. 
 
 Utvecklingsresurser:
 
@@ -188,7 +188,7 @@ I föregående avsnitt skapade du en IoT Edge-lösning och lade till kod till No
         }
     ```
 5. Spara filen.
-6. Högerklicka på filen **deployment.template.json** och välj **Build and Push IoT Edge solution** (Skapa och skicka IoT Edge-lösning) i VS Code-utforskaren. 
+6. I VS Code-utforskaren högerklickar du på filen **deployment.template.json** och väljer **Build and Push IoT Edge solution** (Skapa och skicka IoT Edge-lösning). 
 
 När du ger Visual Studio Code kommando att skapa din lösning hämtar den först information i distributionsmallen och genererar en `deployment.json`-fil i en ny **config**-mapp. Sedan körs två kommandon i en integrerad terminal: `docker build` och `docker push`. Dessa två kommandon skapar koden, lägger din Node.js-kod i behållare och push-överför till det containerregister som du angav när du initierade lösningen. 
 
@@ -196,17 +196,17 @@ Den fullständiga adressen med tagg för containeravbildningen i `docker build`-
 
 ## <a name="deploy-and-run-the-solution"></a>Distribuera och kör lösningen
 
-I snabbstartsartikeln som du använde för att ställa in din IoT Edge-enhet distribuerade du en modul med hjälp av Azure Portal. Du kan också distribuera moduler med Azure IoT Toolkit-tillägget för Visual Studio Code. Du har redan ett distributionsmanifest som är förberett för ditt scenario, filen **deployment.json**. Allt du behöver göra nu är att välja en enhet som ska ta emot distributionen.
+I stegen i snabbstartsartikeln som du följde för att konfigurera IoT Edge-enheten distribuerade du en modul med hjälp av Azure Portal. Du kan även distribuera moduler med Azure IoT Toolkit-tillägget för Visual Studio Code. Du har redan ett distributionsmanifest som är förberett för ditt scenario, filen **deployment.json**. Allt du behöver göra nu är att välja en enhet som ska ta emot distributionen.
 
-1. Kör **Azure IoT Hub: Välj IoT Hub** i kommandopaletten för VS Code. 
+1. I kommandopaletten i VS Code kör du **Azure IoT Hub: Select IoT Hub** (Azure IoT Hub: Välj IoT Hub). 
 
 2. Välj den prenumeration och IoT-hubb som innehåller den IoT Edge-enhet som du vill konfigurera. 
 
 3. I VS Code-utforskaren expanderar du avsnittet **Azure IoT Hub-enheter**. 
 
-4. Högerklicka på namnet för din IoT Edge-enhet och välj sedan **Create Deployment for Single Device** (Skapa distribution för en enda enhet). 
+4. Högerklicka på namnet för din IoT Edge-enhet och välj sedan **Create Deployment for Single Device** (Skapa distribution för en enskild enhet). 
 
-   ![Skapa distribution för en enda enhet](./media/tutorial-node-module/create-deployment.png)
+   ![Skapa distribution för en enskild enhet](./media/tutorial-node-module/create-deployment.png)
 
 5. Välj filen **deployment.json** i mappen **config** och klicka sedan på **Select Edge Deployment Manifest** (Välj distributionsmanifest för Edge). Använd inte filen deployment.template.json. 
 
@@ -223,7 +223,7 @@ I snabbstartsartikeln som du använde för att ställa in din IoT Edge-enhet dis
 
 ## <a name="clean-up-resources"></a>Rensa resurser 
 
-Om du planerar att fortsätta med nästa rekommenderade artikel kan du behålla de resurser och konfigurationer som du skapat och använda dem igen. Du kan också fortsätta att använda samma IoT Edge-enhet som en testenhet. 
+Om du planerar att fortsätta med nästa rekommenderade artikel kan du behålla de resurser och konfigurationer som du skapat och använda dem igen. Du kan även fortsätta att använda samma IoT Edge-enhet som en testenhet. 
 
 Annars kan du ta bort de lokala konfigurationerna och de Azure-resurser som du har skapat i den här artikeln för att därigenom undvika kostnader. 
 

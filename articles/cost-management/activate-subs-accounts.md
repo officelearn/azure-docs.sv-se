@@ -5,23 +5,23 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 08/29/2018
+ms.date: 09/27/2018
 ms.topic: quickstart
 ms.service: cost-management
 manager: dougeby
 ms.custom: ''
-ms.openlocfilehash: ec56f9fdf21459857c8115222da921b6681a3ac5
-ms.sourcegitcommit: 2b2129fa6413230cf35ac18ff386d40d1e8d0677
+ms.openlocfilehash: 304a52f5571790ea49587a5aeda433f003f0e0bd
+ms.sourcegitcommit: 42405ab963df3101ee2a9b26e54240ffa689f140
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43247244"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47423076"
 ---
-# <a name="activate-azure-subscriptions-and-accounts-with-azure-cost-management"></a>Aktivera Azure-prenumerationer och -konton med Azure Cost Management
+# <a name="activate-azure-subscriptions-and-accounts-with-cloudyn"></a>Aktivera Azure-prenumerationer och konton med Cloudyn
 
-Genom att lägga till eller uppdatera dina Azure Resource Manager-autentiseringsuppgifter kan Azure Cost Management identifiera alla konton och prenumerationer i din Azure-klientorganisation. Om du även har Azure Diagnostics-tillägget aktiverat på dina virtuella datorer kan Azure Cost Management samla in utökade mått som CPU och minne. Den här artikeln beskriver hur du aktiverar åtkomst med Azure Resource Manager-API:er för nya och befintliga konton. Här beskrivs även hur du löser vanliga kontoproblem.
+Genom att lägga till eller uppdatera dina Azure Resource Manager-autentiseringsuppgifter kan Cloudyn identifiera alla konton och prenumerationer i din Azure-klientorganisation. Om du även har Azures diagnostiktillägg aktiverat på dina virtuella datorer kan Cloudyn samla in utökade mått som CPU och minne. Den här artikeln beskriver hur du aktiverar åtkomst med Azure Resource Manager-API:er för nya och befintliga konton. Här beskrivs även hur du löser vanliga kontoproblem.
 
-Azure Cost Management kan inte komma åt de mesta av dina Azure-prenumerationsdata när prenumerationen är _inaktiverad_. Du måste redigera _inaktiverade_ konton så att Azure Cost Management kan komma åt dem.
+Cloudyn har ingen åtkomst till flertalet av dina Azure-prenumerationsdata när prenumerationen är _inaktiverad_. Du måste redigera _inaktiverade_ konton så att Cloudyn kan komma åt dem.
 
 ## <a name="required-azure-permissions"></a>Azure-behörigheter som krävs
 
@@ -40,24 +40,24 @@ Om ditt konto har tilldelats rollen **Deltagare** har du inte tillräcklig behö
 2. Välj **Azure Active Directory** i Azure Portal.
 3. Välj **Användarinställningar** i Azure Active Directory.
 4. Kontrollera alternativet **Appregistreringar**.
-    - Om det är inställt på **Ja** kan användare som inte är administratörer registrera AD-appar. Den här inställningen innebär att alla användare i Azure AD-klientorganisationen kan registrera en app. Du kan fortsätta till Behörigheter som krävs för Azure-prenumeration.  
+    - Om det är inställt på **Ja** kan användare som inte är administratörer registrera AD-appar. Den här inställningen innebär att alla användare i Azure AD-klientorganisationen kan registrera en app.  
     ![Appregistreringar](./media/activate-subs-accounts/app-register.png)
     - Om alternativet **Appregistreringar** är inställt på **Nej** kan bara administratörsanvändare i klientorganisationen registrera Azure Active Directory-appar. Klientadministratören måste registrera CloudynCollector-programmet.
 
 
 ## <a name="add-an-account-or-update-a-subscription"></a>Lägg till ett konto eller uppdatera en prenumeration
 
-När du lägger till en uppdatering av en prenumeration beviljar du åtkomst för Azure Cost Management till dina Azure-data.
+När du lägger till en prenumeration till en kontouppdatering beviljar du åtkomst för Cloudyn till dina Azure-data.
 
 ### <a name="add-a-new-account-subscription"></a>Lägga till ett nytt konto (prenumeration)
 
-1. I Azure Cost Management klickar du på kugghjulsikonen uppe till höger och väljer **Molnkonton**.
+1. Klicka på kugghjulssymbolen uppe till höger i Cloudyn-portalen och välj **Molnkonton**.
 2. Klicka på **Lägg till nytt konto** så visas rutan **Lägg till nytt konto**. Ange informationen som krävs.  
     ![Rutan Lägg till nytt konto](./media/activate-subs-accounts//add-new-account.png)
 
 ### <a name="update-a-subscription"></a>Uppdatera en prenumeration
 
-1. Om du vill uppdatera en _inaktiverad_ prenumeration som redan finns i Azure Cost Management går du till Kontohantering, klickar på pennsymbolen för redigering till höger om överordnad _klient-GUID_. Prenumerationerna är grupperade under en överordnad klientorganisation, så undvik att aktivera prenumerationer individuellt.
+1. Om du vill uppdatera en _inaktiverad_ prenumeration som redan finns i Cloudyn går du till Kontohantering och klickar på pennsymbolen för redigering till höger om överordnad _klientorganisations-GUID_. Prenumerationerna är grupperade under en överordnad klientorganisation, så undvik att aktivera prenumerationer individuellt.
     ![Identifiera prenumerationer igen](./media/activate-subs-accounts/existing-sub.png)
 2. Ange klient-ID om det behövs. Om du inte vet klient-ID kan du söka efter det genom att göra följande:
     1. Logga in på [Azure Portal](https://portal.azure.com).
@@ -71,39 +71,40 @@ När du lägger till en uppdatering av en prenumeration beviljar du åtkomst fö
     3. Under **Mina prenumerationer** väljer du prenumerationen.
     4. Ditt pris-ID visas under **ID för erbjudande**. Kopiera ID för erbjudande för prenumerationen.
 4. I rutan Lägg till nytt konto (eller Redigera prenumeration) klickar du på **Spara** (eller **Nästa**). Du omdirigeras till Azure Portal.
-5. Logga in på portalen. Klicka på **Acceptera** för att ge Azure Cost Management Collector åtkomst till ditt Azure-konto.
+5. Logga in på portalen. Klicka på **Acceptera** för att ge Cloudyn åtkomst till ditt Azure-konto.
 
-    Du omdirigeras till sidan Kontohantering i Azure Cost Management och din prenumeration uppdateras med **aktiv** kontostatus. En grön bockmarkering bör visas under Resource Manager-kolumnen.
+    Du omdirigeras till sidan Kontohantering i Cloudyn och din prenumeration uppdateras med **aktiv** kontostatus. En grön bockmarkering bör visas under Resource Manager-kolumnen.
 
     Om du inte ser en grön bock för en eller flera av prenumerationerna betyder det att du inte har behörighet att skapa läsarappen (CloudynCollector) för prenumerationen. En användare med högre behörighet för prenumerationen måste upprepa den här processen.
 
-Titta på videon [Connecting to Azure Resource Manager with Azure Cost Management](https://youtu.be/oCIwvfBB6kk) (Ansluta till Azure Resource Manager med Azure Cost Management), som går igenom processen.
+Titta på videon [Connecting to Azure Resource Manager with Cloudyn](https://youtu.be/oCIwvfBB6kk) (Ansluta till Azure Resource Manager med Cloudyn), som går igenom processen.
 
 >[!VIDEO https://www.youtube.com/embed/oCIwvfBB6kk?ecver=1]
 
 ## <a name="resolve-common-indirect-enterprise-set-up-problems"></a>Lösa vanliga indirekta Enterprise-konfigurationsproblem
 
-När du först använder Azure Cost Management-portalen kan du se följande meddelanden, om du har ett Enterprise-avtal eller en användare av molnlösningsleverantör:
+När du använder Cloudyn-portalen första gången kan du se följande meddelanden, om du har ett Enterprise-avtal eller är en molnlösningsleverantör:
 
-- *The specified API key is not a top level enrollment key* (Den angivna API-nyckeln är inte en registreringsnyckel på toppnivå) visas i **installationsguiden för Azure Cost Management**.
+- *The specified API key is not a top level enrollment key* (Den angivna API-nyckeln är inte en registreringsnyckel på toppnivå) visas i **installationsguiden för Cloudyn**.
 - *Direct Enrollment – No* (Direktregistrering – nej) visas i Enterprise-avtalsportalen.
-- *No usage data was found for the last 30 days. Please contact your distributor to make sure markup was enabled for your Azure account* (Inga användningsdata hittades för de senaste 30 dagarna. Kontakta återförsäljaren för att kontrollera om pålägg har aktiverats för ditt Azure-konto) visas i Azure Cost Management-portalen.
+- *No usage data was found for the last 30 days. Please contact your distributor to make sure markup was enabled for your Azure account* (Inga användningsdata hittades för de senaste 30 dagarna. Kontakta återförsäljaren för att kontrollera om pålägg har aktiverats för ditt Azure-konto) visas i Cloudyn-portalen.
 
-Föregående meddelanden indikerar att du har köpt ett Azure Enterprise-avtal genom en återförsäljare eller molntjänstleverantör. Återförsäljaren eller molntjänstleverantören måste aktivera _pålägg_ för ditt Azure-konto så att du kan visa dina data i Azure Cost Management.
+Föregående meddelanden indikerar att du har köpt ett Azure Enterprise-avtal genom en återförsäljare eller molntjänstleverantör. Återförsäljaren eller molntjänstleverantören måste aktivera _pålägg_ för ditt Azure-konto för att du ska kunna se dina data i Cloudyn.
 
 Så här löser du problemen:
 
 1. Återförsäljaren måste aktivera _pålägg_ för ditt konto. Mer information finns i [guiden för indirekt kundregistrering](https://ea.azure.com/api/v3Help/v2IndirectCustomerOnboardingGuide).
-2. Du genererar Azure Enterprise-avtalsnyckeln för användning med Azure Cost Management. Instruktioner finns i [Registrera ett Azure Enterprise-avtal och visa kostnadsdata](https://docs.microsoft.com/azure/cost-management/quick-register-ea).
+2. Du genererar Azure-nyckeln för Enterprise-avtal för användning med Cloudyn. Instruktioner finns i [Registrera ett Azure Enterprise-avtal och visa kostnadsdata](https://docs.microsoft.com/azure/cost-management/quick-register-ea).
 
-Innan du kan generera API-nyckeln för Azure Enterprise-avtal för att konfigurera Azure Cost Management måste du aktivera fakturerings-API:et för Azure genom att följa instruktionerna i:
+Innan du kan generera API-nyckeln för Azures Enterprise-avtal för att konfigurera Cloudyn, måste du aktivera fakturerings-API:n för Azure genom att följa anvisningarna i:
 
 - [Overview of Reporting APIs for Enterprise customers](../billing/billing-enterprise-api.md) (Översikt över rapporterings-API:er för Enterprise-kunder)
 - [Microsoft Azure enterprise portal Reporting API](https://ea.azure.com/helpdocs/reportingAPI) (Rapporterings-API för Microsoft Azure Enterprise Portal) under **Enabling data access to the API** (Aktivera dataåtkomst till API:et)
 
 Du kanske även behöver ge avdelningsadministratörer, kontoägare och Enterprise-administratörer behörigheter att _visa debiteringar_ med fakturerings-API:et.
 
-Endast en Azure-tjänstadministratör kan aktivera Cost Management. Det räcker inte att vara medadministratör. Du kan dock kringgå administratörskravet. Du kan begära att din Azure Active Directory-administratör beviljar dig behörighet att godkänna **CloudynAzureCollector** med ett PowerShell-skript. Följande skript ger behörighet att registrera tjänstens huvudnamn **CloudynAzureCollector** i Azure Active Directory. När det har körts avslutas åtgärden med att webbläsaren visar webbadressen http://localhost:8080/CloudynJava.
+Det är bara Azure-tjänstadministratörer som kan aktivera Cloudyn. Det räcker inte att vara medadministratör. Du kan dock kringgå administratörskravet. Du kan begära att din Azure Active Directory-administratör beviljar dig behörighet att godkänna **CloudynAzureCollector** med ett PowerShell-skript. Följande skript ger behörighet att registrera tjänstens huvudnamn **CloudynAzureCollector** i Azure Active Directory.
+
 
 ```
 #THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
@@ -132,4 +133,4 @@ $url = "https://login.windows.net/"+$tenant+"/oauth2/authorize?api-version=1&res
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Om du inte redan har slutfört den första kursen för Cost Management kan du läsa den i [Granska användning och kostnader](tutorial-review-usage.md).
+- Om du inte redan har slutfört den första självstudien för Cloudyn kan du läsa den i [Granska användning och kostnader](tutorial-review-usage.md).

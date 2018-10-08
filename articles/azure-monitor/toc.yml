@@ -700,14 +700,6 @@ items:
       items:
       - name: Skapa aviseringsregler
         items:
-        - name: Konfigurera nya mått eller loggaviseringar i Azure Portal
-          href: ../monitoring-and-diagnostics/monitor-alerts-unified-usage.md?toc=/azure/azure-monitor/toc.json
-        - name: Konfigurera klassiska aviseringar i Azure Portal
-          href: ../monitoring-and-diagnostics/insights-alerts-portal.md?toc=/azure/azure-monitor/toc.json
-        - name: Konfigurera klassiska aviseringar med CLI
-          href: ../monitoring-and-diagnostics/insights-alerts-command-line-interface.md?toc=/azure/azure-monitor/toc.json
-        - name: Konfigurera klassiska aviseringar med Azure PowerShell
-          href: ../monitoring-and-diagnostics/insights-alerts-powershell.md?toc=/azure/azure-monitor/toc.json
         - name: Kopiera aviseringar från OMS-portalen till Azure Portal
           href: ../monitoring-and-diagnostics/monitoring-alerts-extend-tool.md?toc=/azure/azure-monitor/toc.json
       - name: Använda måttaviseringar
@@ -977,9 +969,9 @@ items:
     href: https://stackoverflow.com/search?q=monitoring
   - name: Kodexempel
     href: https://azure.microsoft.com/resources/samples/?service=monitor
-ms.openlocfilehash: ecb930a1dc50b1a613533068846be2d7cfaeb748
-ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
+ms.openlocfilehash: 7b26143e0fa2acc44636eb30afc6d3a76a05c2ec
+ms.sourcegitcommit: 4edf9354a00bb63082c3b844b979165b64f46286
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48018901"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48784924"

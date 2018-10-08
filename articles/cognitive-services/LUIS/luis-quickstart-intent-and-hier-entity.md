@@ -1,76 +1,73 @@
 ---
-title: Självstudie om att skapa en LUIS-app för att hämta platsdata – Azure | Microsoft Docs
-description: I den här självstudien skapar du en enkel LUIS-app med hjälp av avsikter och en hierarkisk entitet för att extrahera data.
+title: 'Självstudiekurs 5: Överordnade/underordnade relationer – LUIS-hierarkisk entitet för sammanhangsmässigt inlärda data'
+titleSuffix: Azure Cognitive Services
+description: Hitta relaterade datadelar baserat på kontext. Till exempel är ett ursprung och målplatser för en fysisk flytt från en byggnad och ett kontor till en annan byggnad och ett annat kontor relaterade.
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
-ms.component: luis
+ms.component: language-understanding
 ms.topic: tutorial
-ms.date: 08/02/2018
+ms.date: 09/09/2018
 ms.author: diberry
-ms.openlocfilehash: 65c7aabb984ad0a6b3e77d0f98003803821e06cc
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: 92b6327cbb97ed871cd4b10977bcd73a81494e20
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44158627"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47042133"
 ---
-# <a name="tutorial-5-add-hierarchical-entity"></a>Självstudie: 5. Lägg till hierarkisk entitet
-I den här självstudien skapar du en app som visar hur det går till att hitta relaterade datadelar baserat på kontext. 
+# <a name="tutorial-5-extract-contextually-related-data"></a>Självstudiekurs 5: Extrahera sammanhangsbaserade data
+I den här självstudien hittar du relaterade datadelar baserat på kontext. Till exempel är ett ursprung och målplatser för en fysisk flytt från en byggnad och ett kontor till en annan byggnad och ett annat kontor relaterade. För att generera en arbetsorder kan båda datadelarna krävas, och de är relaterade till varandra.  
 
-<!-- green checkmark -->
-> [!div class="checklist"]
-> * Förstå hierarkiska entiteter och underordnade element med kontextuell inlärning 
-> * Använda LUIS-appen i HR-domänen (Human Resources) 
-> * Lägg till platshierarkisk entitet med ursprung och underordnade destinationselement
-> * Träna och publicera app
-> * Skicka en fråga till appens slutpunkt för att se LUIS JSON-svar inklusive hierarkiska underordnade element 
-
-[!INCLUDE [LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
-
-## <a name="before-you-begin"></a>Innan du börjar
-Om du inte har appen Human Resources (Personalfrågor) från självstudien om [list entities](luis-quickstart-intent-and-list-entity.md) (listentiteter) ska du [importera](luis-how-to-start-new-app.md#import-new-app) JSON till en ny app på [LUIS-webbplatsen](luis-reference-regions.md#luis-website). Importeringsappen finns på [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-list-HumanResources.json)-GitHub-lagringsplatsen.
-
-Om du vill behålla den ursprungliga Human Resources-appen (Personalfrågor) klonar du versionen på sidan [Settings](luis-how-to-manage-versions.md#clone-a-version) (Inställningar) och ger den namnet `hier`. Kloning är ett bra sätt att prova på olika LUIS-funktioner utan att påverka originalversionen. 
-
-## <a name="purpose-of-the-app-with-this-entity"></a>Syftet med appen med den här entiteten
-Den här appen bestämmer var en medarbetare ska flyttas från (byggnad och kontor) och till (byggnad och kontor). Den använder den hierarkiska entiteten för att urskilja platser i yttrandet. 
+Den här appen bestämmer var en medarbetare ska flyttas från (byggnad och kontor) och till (byggnad och kontor). Den använder den hierarkiska entiteten för att urskilja platser i yttrandet. Syftet med den **hierarkiska** entiteten är att hitta relaterade data inom yttrandet baserat på kontext. 
 
 Den hierarkiska entiteten passar bra för den här typen av data eftersom följande gäller för de två datadelarna:
 
+* De är enkla entiteter.
 * De är relaterade till varandra i yttrandet.
 * Specifika ord används för att ange varje plats. Exempel på sådana ord: från/till, lämnar/ska till, bort från/till.
 * Båda platserna förekommer ofta i samma yttrande. 
+* Båda måste grupperas och bearbetas av klientappen som en informationsenhet.
 
-Syftet med den **hierarkiska** entiteten är att hitta relaterade data inom yttrandet baserat på kontext. Ta följande yttrande som exempel:
+**I den här självstudiekursen får du lära du dig att:**
 
-```JSON
-mv Jill Jones from a-2349 to b-1298
-```
-I yttrandet finns två angivna platser: `a-2349` och `b-1298`. Anta att bokstaven motsvarar ett byggnadsnamn och numret indikerar kontoret i byggnaden. Båda dessa är underordnade den hierarkiska entiteten `Locations` eftersom båda datadelar behöver extraheras från yttrandet och de är relaterade till varandra. 
- 
-Om endast ett underordnat element (ursprung eller destination) för en hierarkisk entitet finns extraheras det ändå. Det är inte nödvändigt att hitta alla underordnade element för att endast ett eller några element ska kunna extraheras. 
+<!-- green checkmark -->
+> [!div class="checklist"]
+> * Använda en befintlig självstudieapp
+> * Lägga till avsikt 
+> * Lägg till platshierarkisk entitet med ursprung och underordnade destinationselement
+> * Träna
+> * Publicera
+> * Hämta avsikter och entiteter från slutpunkt
+
+[!INCLUDE [LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
+
+## <a name="use-existing-app"></a>Använda befintlig app
+Fortsätta med den app som skapades i den senaste självstudien med namnet **HumanResources**. 
+
+Om du inte har HumanResources-appen från den tidigare självstudiekursen använder du följande steg:
+
+1.  Ladda ned och spara [app JSON-filen](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/tutorials/custom-domain-list-HumanResources.json).
+
+2. Importera JSON till en ny app.
+
+3. Från avsnittet **Hantera** går du till fliken **Versioner**, klonar versionen och ger den namnet `hier`. Kloning är ett bra sätt att prova på olika LUIS-funktioner utan att påverka originalversionen. Eftersom versionsnamnet används som en del av URL-vägen får namnet inte innehålla några tecken som inte är giltiga i en URL. 
 
 ## <a name="remove-prebuilt-number-entity-from-app"></a>Ta bort fördefinierad nummerentitet från appen
 Om du vill se hela yttrandet och märka de underordnade delarna i hierarkin kan du ta bort den fördefinierade nummerentiteten tillfälligt.
 
-1. Kontrollera att Human Resources-appen (Personalfrågor) finns i avsnittet **Build** (Skapa) i LUIS. Du kan ändra till det här avsnittet genom att välja **Build** (Skapa) i menyraden längst upp till höger. 
+1. [!include[Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
 
 2. Välj **Entities** (Entiteter) på den vänstra menyn.
 
 3. Välj ellipsknappen (***...***) till höger om nummerentiteten i listan. Välj **Ta bort**. 
-
-    [ ![Skärmbild på LUIS-appen med sidan för entitetslistan, och borttagningsknappen för den fördefinierade nummerentiteten markerad](./media/luis-quickstart-intent-and-hier-entity/hr-delete-number-prebuilt.png)](./media/luis-quickstart-intent-and-hier-entity/hr-delete-number-prebuilt.png#lightbox)
-
 
 ## <a name="add-utterances-to-moveemployee-intent"></a>Lägga till yttranden till avsikten MoveEmployee
 
 1. Välj **Intents** (Avsikter) på den vänstra menyn.
 
 2. Välj **MoveEmployee** i listan med avsikter.
-
-    [ ![Skärmbild på LUIS-appen med avsikten MoveEmployee markerad på menyn till vänster](./media/luis-quickstart-intent-and-hier-entity/hr-intents-list-moveemployee.png)](./media/luis-quickstart-intent-and-hier-entity/hr-intents-list-moveemployee.png#lightbox)
 
 3. Lägg till följande exempelyttranden:
 
@@ -84,10 +81,22 @@ Om du vill se hela yttrandet och märka de underordnade delarna i hierarkin kan 
 
     [ ![Skärmbild på LUIS-appen med nya yttranden i avsikten MoveEmployee](./media/luis-quickstart-intent-and-hier-entity/hr-enter-utterances.png)](./media/luis-quickstart-intent-and-hier-entity/hr-enter-utterances.png#lightbox)
 
-    I enlighet med självstudien om [listentitet](luis-quickstart-intent-and-list-entity.md) kan en medarbetare anges med namn, e-postadress, telefonanknytning, mobilnummer eller amerikanskt socialförsäkringsnummer. Dessa medarbetarnummer används i yttranden. Föregående exempelyttranden innehåller olika sätt att ange ursprungs- och målplatser, markerade i fetstil. I några av yttrandena ingår endast målplatser. Detta hjälper LUIS-appen att förstå hur dessa platser placeras i yttranden när ursprungsplats inte anges.     
+    I enlighet med självstudien om [listentitet](luis-quickstart-intent-and-list-entity.md) anges en medarbetare med namn, e-postadress, telefonanknytning, mobilnummer eller amerikanskt socialförsäkringsnummer. Dessa medarbetarnummer används i yttranden. Föregående exempelyttranden innehåller olika sätt att ange ursprungs- och målplatser, markerade i fetstil. I några av yttrandena ingår endast målplatser. Detta hjälper LUIS-appen att förstå hur dessa platser placeras i yttranden när ursprungsplats inte anges.     
+
+    [!include[Do not use too few utterances](../../../includes/cognitive-services-luis-too-few-example-utterances.md)]  
 
 ## <a name="create-a-location-entity"></a>Skapa en platsentitet
 LUIS-appen behöver förstå vad en plats är genom att märka ursprungs- och målplatser i yttranden. Om du behöver se ett yttrande i tokenvyn (obearbetad) väljer du växlingsknappen i fältet ovanför yttrandena som är märkta **Entities View** (Entitetsvy). När du byter läge är kontrollen märkt **Tokens View** (Tokenvy).
+
+Ta följande yttrande som exempel:
+
+```JSON
+mv Jill Jones from a-2349 to b-1298
+```
+
+I yttrandet finns två angivna platser: `a-2349` och `b-1298`. Anta att bokstaven motsvarar ett byggnadsnamn och numret indikerar kontoret i byggnaden. Båda dessa är underordnade den hierarkiska entiteten `Locations` eftersom båda datadelar behöver extraheras från yttrandet för att slutföra begäran i klientprogrammet och de är relaterade till varandra. 
+ 
+Om endast ett underordnat element (ursprung eller destination) för en hierarkisk entitet finns extraheras det ändå. Det är inte nödvändigt att hitta alla underordnade element för att endast ett eller några element ska kunna extraheras. 
 
 1. I yttrandet `Displace 425-555-0000 away from g-2323 toward hh-2345` väljer du ordet `g-2323`. En listrutemeny visas med en textruta längst upp. Ange entitetsnamnet `Locations` i textrutan och välj sedan **Create new entity** (Skapa ny entitet) i listrutan. 
 
@@ -112,8 +121,6 @@ Lägg till den fördefinierade nummerentiteten i appen.
 
 2. Välj knappen **Manage prebuilt entities** (Hantera fördefinierade entiteter).
 
-    [ ![Skärmbild på listan Entities (Entiteter) med Manage prebuilt entities (Hantera fördefinierade entiteter) markerad](./media/luis-quickstart-intent-and-hier-entity/hr-manage-prebuilt-button.png)](./media/luis-quickstart-intent-and-hier-entity/hr-manage-prebuilt-button.png#lightbox)
-
 3. Välj **number** (nummer) i listan över fördefinierade entiteter och sedan **Done** (Klar).
 
     ![Skärmbild på dialogrutan för fördefinierade entiteter med nummer markerat](./media/luis-quickstart-intent-and-hier-entity/hr-add-number-back-ddl.png)
@@ -133,124 +140,117 @@ Lägg till den fördefinierade nummerentiteten i appen.
 
 2. Gå till slutet av webbadressen i adressfältet och ange `Please relocation jill-jones@mycompany.com from x-2345 to g-23456`. Den sista frågesträngsparametern är `q`, yttrande**frågan**. Det här yttrandet är inte samma som någon av de märkta yttrandena. Därför är det ett bra test och bör returnera avsikten `MoveEmployee` med den hierarkiska entiteten extraherad.
 
-  ```JSON
-  {
-    "query": "Please relocation jill-jones@mycompany.com from x-2345 to g-23456",
-    "topScoringIntent": {
-      "intent": "MoveEmployee",
-      "score": 0.9966052
-    },
-    "intents": [
-      {
+    ```JSON
+    {
+      "query": "Please relocation jill-jones@mycompany.com from x-2345 to g-23456",
+      "topScoringIntent": {
         "intent": "MoveEmployee",
         "score": 0.9966052
       },
-      {
-        "intent": "Utilities.Stop",
-        "score": 0.0325253047
-      },
-      {
-        "intent": "FindForm",
-        "score": 0.006137873
-      },
-      {
-        "intent": "GetJobInformation",
-        "score": 0.00462633232
-      },
-      {
-        "intent": "Utilities.StartOver",
-        "score": 0.00415637763
-      },
-      {
-        "intent": "ApplyForJob",
-        "score": 0.00382325822
-      },
-      {
-        "intent": "Utilities.Help",
-        "score": 0.00249120337
-      },
-      {
-        "intent": "None",
-        "score": 0.00130756292
-      },
-      {
-        "intent": "Utilities.Cancel",
-        "score": 0.00119622645
-      },
-      {
-        "intent": "Utilities.Confirm",
-        "score": 1.26910036E-05
-      }
-    ],
-    "entities": [
-      {
-        "entity": "jill - jones @ mycompany . com",
-        "type": "Employee",
-        "startIndex": 18,
-        "endIndex": 41,
-        "resolution": {
-          "values": [
-            "Employee-45612"
-          ]
+      "intents": [
+        {
+          "intent": "MoveEmployee",
+          "score": 0.9966052
+        },
+        {
+          "intent": "Utilities.Stop",
+          "score": 0.0325253047
+        },
+        {
+          "intent": "FindForm",
+          "score": 0.006137873
+        },
+        {
+          "intent": "GetJobInformation",
+          "score": 0.00462633232
+        },
+        {
+          "intent": "Utilities.StartOver",
+          "score": 0.00415637763
+        },
+        {
+          "intent": "ApplyForJob",
+          "score": 0.00382325822
+        },
+        {
+          "intent": "Utilities.Help",
+          "score": 0.00249120337
+        },
+        {
+          "intent": "None",
+          "score": 0.00130756292
+        },
+        {
+          "intent": "Utilities.Cancel",
+          "score": 0.00119622645
+        },
+        {
+          "intent": "Utilities.Confirm",
+          "score": 1.26910036E-05
         }
-      },
-      {
-        "entity": "x - 2345",
-        "type": "Locations::Origin",
-        "startIndex": 48,
-        "endIndex": 53,
-        "score": 0.8520272
-      },
-      {
-        "entity": "g - 23456",
-        "type": "Locations::Destination",
-        "startIndex": 58,
-        "endIndex": 64,
-        "score": 0.974032
-      },
-      {
-        "entity": "-2345",
-        "type": "builtin.number",
-        "startIndex": 49,
-        "endIndex": 53,
-        "resolution": {
-          "value": "-2345"
+      ],
+      "entities": [
+        {
+          "entity": "jill - jones @ mycompany . com",
+          "type": "Employee",
+          "startIndex": 18,
+          "endIndex": 41,
+          "resolution": {
+            "values": [
+              "Employee-45612"
+            ]
+          }
+        },
+        {
+          "entity": "x - 2345",
+          "type": "Locations::Origin",
+          "startIndex": 48,
+          "endIndex": 53,
+          "score": 0.8520272
+        },
+        {
+          "entity": "g - 23456",
+          "type": "Locations::Destination",
+          "startIndex": 58,
+          "endIndex": 64,
+          "score": 0.974032
+        },
+        {
+          "entity": "-2345",
+          "type": "builtin.number",
+          "startIndex": 49,
+          "endIndex": 53,
+          "resolution": {
+            "value": "-2345"
+          }
+        },
+        {
+          "entity": "-23456",
+          "type": "builtin.number",
+          "startIndex": 59,
+          "endIndex": 64,
+          "resolution": {
+            "value": "-23456"
+          }
         }
-      },
-      {
-        "entity": "-23456",
-        "type": "builtin.number",
-        "startIndex": 59,
-        "endIndex": 64,
-        "resolution": {
-          "value": "-23456"
-        }
-      }
-    ]
-  }
-  ```
+      ]
+    }
+    ```
+    
+    Den rätta avsikten förutsägs och entitetsmatrisen har både ursprunget och målvärdena i motsvarande **entitetsegenskap**.
+    
 
 ## <a name="could-you-have-used-a-regular-expression-for-each-location"></a>Går det att använda ett reguljärt uttryck för varje plats?
-Ja, skapa det reguljära uttrycket med ursprungs- och målroller och använd det i ett mönster.
+Ja, skapa enheten för reguljära uttryck med ursprungs- och målroller och använd den i ett mönster.
 
-Platserna i det här exemplet, som `a-1234`, har ett visst format med en eller två bokstäver följt av ett bindestreck, och sedan ett nummer med 4–5 tal. Dessa data kan beskrivas som en entitet för reguljära uttryck med en roll för varje plats. Roller är tillgängliga för mönster. Du kan skapa mönster baserade på dessa yttranden och sedan skapa ett reguljärt uttryck för platsformatet och lägga till det i mönster. <!-- Go to this tutorial to see how that is done -->
-
-## <a name="patterns-with-roles"></a>Mönster med roller
-
-[!INCLUDE [LUIS Compare hierarchical entities to patterns with roles](../../../includes/cognitive-services-luis-hier-roles.md)]
-
-## <a name="what-has-this-luis-app-accomplished"></a>Vad har den här LUIS-appen åstadkommit?
-Med hjälp av endast några få avsikter och en hierarkisk entitet har den här appen identifierat en frågeavsikt i naturligt språk och returnerat extraherade data. 
-
-Din chattrobot har nu tillräckligt med information för att bestämma den primära åtgärden, `MoveEmployee`, och den platsinformation som hittades i yttrandet. 
-
-## <a name="where-is-this-luis-data-used"></a>Var används dessa LUIS-data? 
-LUIS är klar med den här begäran. Det anropande programmet, till exempel en chattrobot, kan använda topScoringIntent-resultatet och data från entiteten för att gå vidare. LUIS utför inte detta programmässiga arbete för roboten eller det anropande programmet. LUIS tar endast reda på vad användarens avsikt är. 
+Platserna i det här exemplet, som `a-1234`, har ett visst format med en eller två bokstäver följt av ett bindestreck, och sedan ett nummer med 4–5 tal. Dessa data kan beskrivas som en entitet för reguljära uttryck med en roll för varje plats. Roller är endast tillgängliga för mönster. Du kan skapa mönster baserade på dessa yttranden och sedan skapa ett reguljärt uttryck för platsformatet och lägga till det i mönster. 
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
 [!INCLUDE [LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]
 
 ## <a name="next-steps"></a>Nästa steg
+Den här självstudien skapade en ny avsikt och lade till exempelyttranden för sammanhangsmässigt inlärda data för ursprungs- och målplatser. När appen har tränats och publicerats kan ett klientprogram använda den informationen för att skapa en flyttningsbiljett med relevant information.
+
 > [!div class="nextstepaction"] 
 > [Lär dig hur du lägger till en sammansatt entitet](luis-tutorial-composite-entity.md) 

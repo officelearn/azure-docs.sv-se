@@ -2,23 +2,22 @@
 title: Azure PowerShell-exempelskript för SQL Database | Microsoft Docs
 description: Azure PowerShell-exempelskript för att skapa och hantera Azure SQL Database-servrar, elastiska pooler, databaser och brandväggar.
 services: sql-database
-documentationcenter: sql-database
-author: CarlRabeler
-manager: craigg
-editor: tysonn
-tags: azure-service-management
 ms.service: sql-database
-ms.custom: overview-samples, mvc
+ms.subservice: development
+ms.custom: ''
 ms.devlang: PowerShell
 ms.topic: sample
-ms.date: 07/16/2018
+author: CarlRabeler
 ms.author: carlrab
-ms.openlocfilehash: 81f39c2ecc014ee53dcff2fab88ff0f890e1a610
-ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
+ms.reviewer: ''
+manager: craigg
+ms.date: 09/14/2018
+ms.openlocfilehash: 87b020e74e9eaee9a5e20acd3bb84d48e40273c6
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39091906"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47163706"
 ---
 # <a name="azure-powershell-samples-for-azure-sql-database"></a>Azure PowerShell-exempel för Azure SQL Database
 
@@ -28,14 +27,15 @@ Följande tabell innehåller länkar till Azure PowerShell-exempelskript för Az
 |---|---|
 |**Skapa en databas och en elastisk pool**||
 | [Skapa en databas och konfigurera en brandväggsregel](scripts/sql-database-create-and-configure-database-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Det här PowerShell-exempelskriptet skapar en Azure SQL-databas och konfigurerar en brandväggsregel på servernivå. |
-| [Skapa elastiska pooler och flytta databaser i pooler](scripts/sql-database-move-database-between-pools-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Det här PowerShell-exempelskriptet skapar elastiska Azure SQL Database-pooler och flyttar databaser i pooler och ändrar prestandanivåer.|
+| [Skapa elastiska pooler och flytta databaser i pooler](scripts/sql-database-move-database-between-pools-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Det här PowerShell-exempelskriptet skapar elastiska Azure SQL Database-pooler, flyttar databaserna i poolerna och ändrar beräkningsstorlekar.|
+| [Skapa och hantera en hanterad instans](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/06/27/quick-start-script-create-azure-sql-managed-instance-using-powershell/) | Dessa CLI-skript visar hur du skapar och hanterar en hanterad instans med hjälp av Azure PowerShell |
 |**Konfigurera geo-replikering och redundans**||
 | [Konfigurera och redundansväxla en enskild databas med aktiv geo-replikering](scripts/sql-database-setup-geodr-and-failover-database-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Det här PowerShell-skriptet konfigurerar en aktiv geo-replikering för en enskild Azure SQL-databas och redundansväxlar den till en sekundär replik. |
 | [Konfigurera och redundansväxla en databas i pool med aktiv geo-replikering](scripts/sql-database-setup-geodr-and-failover-pool-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Det här PowerShell-skriptet konfigurerar en aktiv geo-replikering för en enskild Azure SQL-databas i en elastisk SQL-pool och redundansväxlar den till en sekundär replik. |
 | [Konfigurera och redundansväxla en redundansgrupp för en enskild databas](scripts/sql-database-setup-geodr-failover-database-failover-group-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Det här PowerShell-skriptet konfigurerar en redundansgrupp för en Azure SQL Database-serverinstans, lägger till en databas i redundansgruppen och redundansväxlar den till den sekundära servern |
 |**Skala en databas och en elastisk pool**||
-| [Skala en databas](scripts/sql-database-monitor-and-scale-database-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Det här PowerShell-skriptet övervakar prestandavärden för en Azure SQL-databas, skalar den till en högre prestandanivå och skapar en varningsregel för ett av prestandavärdena. |
-| [Skala en elastisk pool](scripts/sql-database-monitor-and-scale-pool-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Det här PowerShell-skriptet övervakar prestandavärden för en elastisk Azure SQL Database-pool, skalar den till en högre prestandanivå och skapar en varningsregel för ett av prestandavärdena.  |
+| [Skala en databas](scripts/sql-database-monitor-and-scale-database-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Det här PowerShell-skriptet övervakar prestandavärden för en Azure SQL-databas, skalar ut den till en större beräkningsstorlek och skapar en varningsregel för ett av prestandamåtten. |
+| [Skala en elastisk pool](scripts/sql-database-monitor-and-scale-pool-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Det här PowerShell-skriptet övervakar prestandavärden för en elastisk Azure SQL Database-pool, skalar ut den till en större beräkningsstorlek och skapar en varningsregel för ett av prestandamåtten.  |
 | **Granskning och hotidentifiering** |
 | [Konfigurera granskning och identifiering av hot](scripts/sql-database-auditing-and-threat-detection-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Det här PowerShell-skriptet konfigurerar principer för granskning och hotidentifiering för en Azure SQL-databas. |
 | **Återställa, kopiera och importera en databas**||

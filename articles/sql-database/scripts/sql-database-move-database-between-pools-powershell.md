@@ -2,30 +2,26 @@
 title: PowerShell-exempel – flytta Azure SQL-databas – elastisk SQL-databaspool | Microsoft Docs
 description: Azure PowerShell-exempelskript för att flytta en SQL-databas mellan elastiska pooler med hjälp av PowerShell
 services: sql-database
-documentationcenter: sql-database
-author: CarlRabeler
-manager: craigg
-editor: carlrab
-tags: azure-service-management
-ms.assetid: ''
 ms.service: sql-database
-ms.custom: monitor & tune, mvc
+ms.subservice: data-movement
+ms.custom: ''
 ms.devlang: PowerShell
 ms.topic: sample
-ms.tgt_pltfrm: sql-database
-ms.workload: database
-ms.date: 09/07/2018
+author: CarlRabeler
+ms.reviewer: ''
 ms.author: carlrab
-ms.openlocfilehash: 55ba42bda592652b7921df5f25f9b5747fc9baf2
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+manager: craigg
+ms.date: 09/14/2018
+ms.openlocfilehash: e71c1b1f184fe5c240e258295c144db405e25527
+ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44049479"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47054837"
 ---
 # <a name="use-powershell-to-create-elastic-pools-and-move-databases-between-elastic-pools"></a>Använd PowerShell för att skapa elastiska pooler och flytta databaser mellan elastiska pooler
 
-Det här skriptexemplet för PowerShell skapar två elastiska pooler och flyttar en databas från en elastisk pool till en annan elastisk pool. Därefter flyttas databasen ut ur den elastiska poolen till en prestandanivå av typen enskild databas. 
+Det här skriptexemplet för PowerShell skapar två elastiska pooler och flyttar en databas från en elastisk pool till en annan elastisk pool. Därefter flyttas databasen ut ur den elastiska poolen till en beräkningsstorlek av typen enskild databas. 
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 [!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]

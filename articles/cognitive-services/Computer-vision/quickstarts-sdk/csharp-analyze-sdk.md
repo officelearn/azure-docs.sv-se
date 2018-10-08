@@ -1,25 +1,27 @@
 ---
-title: 'Snabbstart: Analysera en bild med SDK och API:et för visuellt innehåll med C# | Microsoft Docs'
-titleSuffix: Microsoft Cognitive Services
-description: I den här snabbstarten ska du analysera en bild med hjälp av Windows C#-klientbiblioteket för Visuellt innehåll i Cognitive Services.
+title: 'Snabbstart: Analysera en bild – SDK, C# – Visuellt innehåll'
+titleSuffix: Azure Cognitive Services
+description: I den här snabbstarten ska du analysera en bild med hjälp av Windows C#-klientbiblioteket för visuellt innehåll.
 services: cognitive-services
 author: noellelacharite
-manager: nolachar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: computer-vision
 ms.topic: quickstart
-ms.date: 08/28/2018
-ms.author: v-deken
-ms.openlocfilehash: 3ff3a4702ab0b1fb663ee896f268065caf043809
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.date: 09/14/2018
+ms.author: nolachar
+ms.openlocfilehash: 0315b1c90eeae27d30a237aea76e66465818fba4
+ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43772325"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47056095"
 ---
-# <a name="quickstart-analyze-an-image---sdk-c35"></a>Snabbstart: Analysera en bild – SDK, C&#35;
+# <a name="quickstart-analyze-an-image-using-the-computer-vision-sdk-and-c"></a>Snabbstart: Analysera en bild med Computer Vision SDK och C#
 
 I den här snabbstarten ska du analysera både en lokal bild och en fjärrbild för att extrahera visuella funktioner med hjälp av Windows-klientbiblioteket för Visuellt innehåll.
+
+Källkoden till det här exemplet finns på [GitHub](https://github.com/Azure-Samples/cognitive-services-vision-csharp-sdk-quickstarts/tree/master/ComputerVision).
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
@@ -36,7 +38,7 @@ Metoderna `AnalyzeImageAsync` och `AnalyzeImageInStreamAsync` omsluter [API:et f
 * Koordinater, kön och ålder för ansikten som finns i bilden.
 * Bildtyp (ClipArt eller en linjeteckning).
 * Den mest framträdande färgen, accentfärgen eller huruvida en bild är svartvit.
-* Kategorin som definierats i det här [taxonomin](../Category-Taxonomy.md).
+* Kategorin som definierats i den här [taxonomin](../Category-Taxonomy.md).
 * Innehåller bilden innehåll som inte är lämpligt för barn?
 
 För att köra exemplet följer du dessa steg:
@@ -48,7 +50,7 @@ För att köra exemplet följer du dessa steg:
     1. Välj **Microsoft.Azure.CognitiveServices.Vision.ComputerVision** när det visas. Klicka på kryssrutan bredvid namnet på ditt projekt och sedan på **Installera**.
 1. Ersätt `Program.cs` med följande kod.
 1. Ersätt `<Subscription Key>` med en giltig prenumerationsnyckel.
-1. Ändra `computerVision.AzureRegion = AzureRegions.Westcentralus` till den plats där du hämtade dina prenumerationsnycklar om det behövs.
+1. Om det behövs ändrar du `computerVision.Endpoint` till den Azure-region som är associerad med dina prenumerationsnycklar.
 1. Ersätt `<LocalImage>` med sökvägen och filnamnet för en lokal bild.
 1. Du kan också ange `remoteImageUrl` till en annan bild om du vill.
 1. Kör programmet.
@@ -86,33 +88,33 @@ namespace ImageAnalyze
 
         static void Main(string[] args)
         {
-            ComputerVisionAPI computerVision = new ComputerVisionAPI(
-                new ApiKeyServiceClientCredentials(subscriptionKey), 
+            ComputerVisionClient computerVision = new ComputerVisionClient(
+                new ApiKeyServiceClientCredentials(subscriptionKey),
                 new System.Net.Http.DelegatingHandler[] { });
 
             // You must use the same region as you used to get your subscription
             // keys. For example, if you got your subscription keys from westus,
-            // replace "Westcentralus" with "Westus".
+            // replace "westcentralus" with "westus".
             //
             // Free trial subscription keys are generated in the westcentralus
             // region. If you use a free trial subscription key, you shouldn't
             // need to change the region.
 
             // Specify the Azure region
-            computerVision.AzureRegion = AzureRegions.Westcentralus;
+            computerVision.Endpoint = "https://westcentralus.api.cognitive.microsoft.com";
 
             Console.WriteLine("Images being analyzed ...");
             var t1 = AnalyzeRemoteAsync(computerVision, remoteImageUrl);
             var t2 = AnalyzeLocalAsync(computerVision, localImagePath);
 
             Task.WhenAll(t1, t2).Wait(5000);
-            Console.WriteLine("Press any key to exit");
+            Console.WriteLine("Press ENTER to exit");
             Console.ReadLine();
         }
 
         // Analyze a remote image
         private static async Task AnalyzeRemoteAsync(
-            ComputerVisionAPI computerVision, string imageUrl)
+            ComputerVisionClient computerVision, string imageUrl)
         {
             if (!Uri.IsWellFormedUriString(imageUrl, UriKind.Absolute))
             {
@@ -128,7 +130,7 @@ namespace ImageAnalyze
 
         // Analyze a local image
         private static async Task AnalyzeLocalAsync(
-            ComputerVisionAPI computerVision, string imagePath)
+            ComputerVisionClient computerVision, string imagePath)
         {
             if (!File.Exists(imagePath))
             {
@@ -159,9 +161,9 @@ namespace ImageAnalyze
 
 Om åtgärden lyckades visas den mest relevanta beskrivningen för varje bild.
 
-Ett exempel på JSON-råutdata finns i [API Quickstarts: Analyze a local image with C#](../QuickStarts/CSharp-analyze.md#analyze-image-response) (API-snabbstarter: Analysera en lokal bild med C#).
+Ett exempel på JSON-råutdata finns i [API Quickstarts: Analyze a local image with C#](../QuickStarts/CSharp-analyze.md#examine-the-response) (API-snabbstarter: Analysera en lokal bild med C#).
 
-```cmd
+```
 http://upload.wikimedia.org/wikipedia/commons/3/3c/Shaki_waterfall.jpg
 a large waterfall over a rocky cliff
 ```

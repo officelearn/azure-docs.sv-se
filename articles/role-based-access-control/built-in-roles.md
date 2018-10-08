@@ -15,12 +15,12 @@ ms.date: 09/27/2018
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: it-pro
-ms.openlocfilehash: 6fe9a106975a03fabc9d674ede694e683dc3cd94
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: 88667749d9cdf5239be33f3aca52d1a614556a41
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47410280"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48816628"
 ---
 # <a name="built-in-roles-for-azure-resources"></a>Inbyggda roller för Azure-resurser
 [Rollbaserad åtkomstkontroll (RBAC)](overview.md) har flera inbyggda rolldefinitioner som du kan tilldela till användare, grupper och tjänstens huvudnamn. Rolltilldelningar är det sätt som du styr åtkomst till resurser i Azure. Om de inbyggda rollerna inte uppfyller organisationens specifika krav kan du skapa egna, [anpassade roller](custom-roles.md).
@@ -786,14 +786,14 @@ I följande tabell innehåller korta beskrivningar av de inbyggda rollerna. Klic
 > | **Beskrivning** | Låter dig hantera datafabriker, men ger dig inte tillgång till dem. |
 > | **Id** | 673868aa-7521-48A0-acc6-0f60742d39f5 |
 > | **Åtgärder** |  |
-> | Microsoft.Authorization/*/read | Läs roller och rollen tilldelningar |
+> | Microsoft.Authorization/*/read | Läsa roller och rolltilldelningar. |
 > | Microsoft.DataFactory/dataFactories/* | Skapa och hantera datafabriker och underordnade resurser. |
 > | Microsoft.DataFactory/factories/* | Skapa och hantera datafabriker och underordnade resurser. |
-> | Microsoft.Insights/alertRules/* | Skapa och hantera aviseringsregler |
-> | Microsoft.ResourceHealth/availabilityStatuses/read | Hämtar tillgänglighetsstatusarna för alla resurser i det angivna området |
-> | Microsoft.Resources/deployments/* | Skapa och hantera distribution av resursgrupper |
-> | Microsoft.Resources/subscriptions/resourceGroups/read | Hämtar eller listar resursgrupper. |
-> | Microsoft.Support/* | Skapa och hantera supportärenden |
+> | Microsoft.Insights/alertRules/* | Skapa och hantera aviseringsregler. |
+> | Microsoft.ResourceHealth/availabilityStatuses/read | Hämta tillgänglighetsstatusarna för alla resurser i det specificerade omfånget. |
+> | Microsoft.Resources/deployments/* | Skapa och hantera distribution av resursgrupper. |
+> | Microsoft.Resources/subscriptions/resourceGroups/read | Hämta eller visa en lista över resursgrupper. |
+> | Microsoft.Support/* | Skapa och hantera supportärenden. |
 
 ## <a name="data-lake-analytics-developer"></a>Data Lake Analytics-utvecklare
 > [!div class="mx-tableFixed"]

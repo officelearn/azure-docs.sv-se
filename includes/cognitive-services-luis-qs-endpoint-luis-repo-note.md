@@ -3,19 +3,19 @@ title: ta med fil
 description: ta med fil
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: luis
 ms.topic: include
 ms.custom: include file
 ms.date: 08/16/2018
 ms.author: diberry
-ms.openlocfilehash: 1aa9d61d57849831860e6358119ebde8e4bc5e14
-ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
-ms.translationtype: MT
+ms.openlocfilehash: f9b057a54ad71d8e2a1e1fc8ee7593d9c7adc0d7
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42820164"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47044052"
 ---
 > [!NOTE] 
-> Den fullständiga lösningen är tillgänglig från den [ **LUIS-Samples** Github-lagringsplatsen](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/analyze-text/).
+> Den fullständiga lösningen finns på Github-lagringsplatsen [**LUIS-Samples** ](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/analyze-text/).

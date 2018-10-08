@@ -1,46 +1,46 @@
 ---
-title: Bing Visual Search SDK beskärningsområdet resulterar självstudien | Microsoft Docs
-description: 'Så här använder Bing Visual Search SDK för att hämta URL: er för avbildningar liknar beskära tänkbara uppladdade bilden.'
+title: 'Självstudie: Bildbeskärningsområde och resultat – API för visuell sökning i Bing'
+description: Använd SDK:n för Visuell sökning i Bing till att hämta URL:er för bilder som liknar beskärningsområdet i en uppladdad bild.
 services: cognitive-services
 author: mikedodaro
-manager: ronakshah
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-visual-search
-ms.topic: article
+ms.topic: tutorial
 ms.date: 06/20/2018
 ms.author: rosh
-ms.openlocfilehash: dd51ed7c710cc51a9fe0e63e55aa0d2c4ea24bee
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
-ms.translationtype: MT
+ms.openlocfilehash: 66e17c00da898e575bb858dbe16a35d1c44a2780
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45574497"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47226918"
 ---
-# <a name="tutorial-bing-visual-search-sdk-image-crop-area-and-results"></a>Självstudie: Bing Visual Search SDK bild Beskär område och resultat
-Visual Search SDK innehåller ett alternativ att välja ett område i en bild och hitta avbildningar online som liknar beskärningsområdet större bild.  Det här exemplet anger Beskär område som visar en person från en avbildning som innehåller flera personer.  Koden skickar beskärningsområdet och större bildens URL och returnerar resultat som innehåller URL: er för Bing-sökning och URL: er av liknande bilder som finns online.
+# <a name="tutorial-bing-visual-search-sdk-image-crop-area-and-results"></a>Självstudie: SDK för visuell sökning i Bing, bildbeskärningsområde och resultat
+SDK för visuell sökning innehåller ett alternativ för att välja ett område i en bild och hitta bilder online som liknar beskärningsområdet i den större bilden.  Det här exemplet anger ett beskärningsområde som visar en person från en bild som innehåller flera personer.  Koden skickar beskärningsområdet och URL:en för den större bilden och returnerar resultat som innehåller URL:er för Bing-sökning och URL:er till liknande bilder som finns online.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
-Du behöver [Visual Studio 2017](https://www.visualstudio.com/downloads/) att hämta den här koden som körs på Windows. (Den kostnadsfria Community Edition fungerar.)
+Du behöver [Visual Studio 2017](https://www.visualstudio.com/downloads/) för att köra den här koden på Windows. (Den kostnadsfria Community Edition fungerar.)
 
-Du måste ha en [Cognitive Services API-konto](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) med API: er för Bing-sökresultat. Den [kostnadsfri utvärderingsversion](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) är tillräcklig för den här snabbstarten. Du behöver åtkomstnyckel som tillhandahållits när du aktiverar din kostnadsfria utvärderingsversion eller du kan använda en betald prenumerationsnyckel från instrumentpanelen i Azure.
+Du måste ha ett [API-konto för Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) med API:er för Bing-sökresultat. Det räcker med en [kostnadsfri utvärderingsversion](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) för den här snabbstarten. Du behöver den åtkomstnyckel som du fick när du aktiverade din kostnadsfria utvärderingsversion, eller så kan du använda en betald prenumerationsnyckel från instrumentpanelen i Azure.
 
 ## <a name="application-dependencies"></a>Programberoenden
-Om du vill konfigurera ett konsolprogram med Bing Web Search SDK, bläddrar du till alternativet hantera NuGet-paket från Solution Explorer i Visual Studio. Lägg till Microsoft.Azure.CognitiveServices.Search.VisualSearch-paketet.
+Om du vill konfigurera ett konsolprogram med hjälp av SDK:n för Webbsökning i Bing, bläddrar du till alternativet Hantera NuGet Packages från Solution Explorer i Visual Studio. Add the Microsoft.Azure.CognitiveServices.Search.VisualSearch package.
 
-Installera NuGet Web Search SDK-paketet installerar även beroenden, inklusive:
+När du installerar SDK-paketet för NuGet-webbsökning installeras även beroenden, inklusive:
 
 * Microsoft.Rest.ClientRuntime
 * Microsoft.Rest.ClientRuntime.Azure
 * Newtonsoft.Json
 
-## <a name="image-and-crop-area"></a>Bilden och Beskär område
-Följande bild visar företagsledningen för Microsoft-teamet.  Med hjälp av Visual Search SDK, vi överför en Beskär delar av bilden och hitta andra avbildningar och på webbsidor som innehåller entiteten i markerat område för större bild.  I det här fallet är entiteten en person.
+## <a name="image-and-crop-area"></a>Bild och beskärningsområde
+Följande bild visar Microsofts chefsteam.  Med hjälp av SDK för visuell sökning överför vi ett beskärningsområde av bilden och hittar andra bilder och webbplatser som innehåller entiteten i det markerade området i den större bilden.  I det här fallet är entiteten en person.
 
-![Microsoft företagsledningen-teamet](./media/MS_SrLeaders.jpg)
+![Microsofts chefsteam](./media/MS_SrLeaders.jpg)
 
 ## <a name="specify-the-crop-area-as-imageinfo-in-visualsearchrequest"></a>Ange beskärningsområdet som ImageInfo i VisualSearchRequest
-Det här exemplet används ett Beskär område i föregående bild som anger längst upp till vänster och sänka rätt koordinater med procent av hela bilden.  Följande kod skapar ett `ImageInfo` objekt från Beskär område och belastning på `ImageInfo` objekt i en `VisualSearchRequest`.  Den `ImageInfo` objekt innehåller också URL till bild online.
+Det här exemplet använder ett beskärningsområde i föregående bild som anger övre vänster och nedre höger koordinater som en procentandel av hela bilden.  Följande kod skapar ett `ImageInfo`-objekt från beskärningsområdet och läser in `ImageInfo`-objektet till en `VisualSearchRequest`.  `ImageInfo`-objektet innehåller även URL:en till bilden online.
 
 ```
 CropArea CropArea = new CropArea(top: (float)0.01, bottom: (float)0.30, left: (float)0.01, right: (float)0.20);
@@ -49,8 +49,8 @@ ImageInfo imageInfo = new ImageInfo(cropArea: CropArea, url: imageURL);
 
 VisualSearchRequest visualSearchRequest = new VisualSearchRequest(imageInfo: imageInfo);
 ```
-## <a name="search-for-images-similar-to-crop-area"></a>Sök efter bilder som liknar beskära området
-Den `VisualSearchRequest` innehåller Beskär områdesinformation om avbildningen och dess URL.  Den `VisualSearchMethodAsync` metoden hämtar resultaten.
+## <a name="search-for-images-similar-to-crop-area"></a>Söka efter bilder som liknar beskärningsområdet
+`VisualSearchRequest` innehåller beskärningsområdesinformation om bilden och dess URL.  `VisualSearchMethodAsync`-metoden hämtar resultatet.
 ```
 Console.WriteLine("\r\nSending visual search request with knowledgeRequest that contains URL and crop area");
 var visualSearchResults = client.Images.VisualSearchMethodAsync(knowledgeRequest: visualSearchRequest).Result; 
@@ -58,30 +58,30 @@ var visualSearchResults = client.Images.VisualSearchMethodAsync(knowledgeRequest
 ```
 
 ## <a name="get-the-url-data-from-imagemoduleaction"></a>Hämta URL-data från ImageModuleAction
-Visuella sökresultat `ImageTag` objekt.  Varje tagg innehåller en lista över `ImageAction` objekt.  Varje `ImageAction` innehåller en `Data` fält som är en lista med värden som beror på vilken typ av åtgärd:
+Resultaten från Visuell sökning är `ImageTag`-objekt.  Varje tagg innehåller en lista med `ImageAction`-objekt.  Varje `ImageAction` innehåller ett `Data`-fält, vilket är en lista med värden som beror på åtgärdstypen:
 
-Du kan få de olika typerna med följande kod:
+Du kan hämta de olika typerna med följande kod:
 ```
 Console.WriteLine("\r\n" + "ActionType: " + i.ActionType + " -> WebSearchUrl: " + i.WebSearchUrl);
 
 ```
-Hela appen returnerar:
+Hela programmet returnerar:
 
-* Åtgärdstyp: PagesIncluding WebSearchURL:
-* Åtgärdstyp: MoreSizes WebSearchURL:
-* Åtgärdstyp: VisualSearch WebSearchURL:
-* Åtgärdstyp: ImageById WebSearchURL: 
-* Åtgärdstyp: RelatedSearches WebSearchURL:
-* Åtgärdstyp: Entitet -> WebSearchUrl: https://www.bing.com/cr?IG=E40D0E1A13404994ACB073504BC937A4&CID=03DCF882D7386A442137F49BD6596BEF&rd=1&h=BvvDoRtmZ35Xc_UZE4lZx6_eg7FHgcCkigU1D98NHQo&v=1&r=https%3a%2f%2fwww.bing.com%2fsearch%3fq%3dSatya%2bNadella&p=DevEx, 5380.1
-* Åtgärdstyp: TopicResults -> WebSearchUrl: https://www.bing.com/cr?IG=E40D0E1A13404994ACB073504BC937A4&CID=03DCF882D7386A442137F49BD6596BEF&rd=1&h=3QGtxPb3W9LemuHRxAlW4CW7XN4sPkUYCUynxAqI9zQ&v=1&r=https%3a%2f%2fwww.bing.com%2fdiscover%2fnadella%2bsatya&p=DevEx, 5382.1
-* Åtgärdstyp: ImageResults -> WebSearchUrl: https://www.bing.com/cr?IG=E40D0E1A13404994ACB073504BC937A4&CID=03DCF882D7386A442137F49BD6596BEF&rd=1&h=l-WNHO89Kkw69AmIGe2MhlUp6MxR6YsJszgOuM5sVLs&v=1&r=https%3a%2f%2fwww.bing.com%2fimages%2fsearch%3fq%3dSatya%2bNadella&p=DevEx, 5384.1
+* ActionType: PagesIncluding WebSearchURL:
+* ActionType: MoreSizes WebSearchURL:
+* ActionType: VisualSearch WebSearchURL:
+* ActionType: ImageById WebSearchURL: 
+* ActionType: RelatedSearches  WebSearchURL:
+* ActionType: Entity -> WebSearchUrl: https://www.bing.com/cr?IG=E40D0E1A13404994ACB073504BC937A4&CID=03DCF882D7386A442137F49BD6596BEF&rd=1&h=BvvDoRtmZ35Xc_UZE4lZx6_eg7FHgcCkigU1D98NHQo&v=1&r=https%3a%2f%2fwww.bing.com%2fsearch%3fq%3dSatya%2bNadella&p=DevEx,5380.1
+* ActionType: TopicResults -> WebSearchUrl: https://www.bing.com/cr?IG=E40D0E1A13404994ACB073504BC937A4&CID=03DCF882D7386A442137F49BD6596BEF&rd=1&h=3QGtxPb3W9LemuHRxAlW4CW7XN4sPkUYCUynxAqI9zQ&v=1&r=https%3a%2f%2fwww.bing.com%2fdiscover%2fnadella%2bsatya&p=DevEx,5382.1
+* ActionType: ImageResults -> WebSearchUrl: https://www.bing.com/cr?IG=E40D0E1A13404994ACB073504BC937A4&CID=03DCF882D7386A442137F49BD6596BEF&rd=1&h=l-WNHO89Kkw69AmIGe2MhlUp6MxR6YsJszgOuM5sVLs&v=1&r=https%3a%2f%2fwww.bing.com%2fimages%2fsearch%3fq%3dSatya%2bNadella&p=DevEx,5384.1
 
-Enligt föregående lista de `Entity` `ActionType` innehåller en sökning i Bing-fråga som returnerar information om en identifierbara person, plats eller sak.  Den `TopicResults` och `ImageResults` typer innehåller frågor om relaterade bilder. URL: er i listlänk till Bing-sökresultat.
+Enligt det som visas i föregående lista innehåller `Entity` `ActionType` en Bing-sökningsfråga som returnerar information om en identifierbar person, plats eller sak.  `TopicResults`- och `ImageResults`-typerna innehåller frågor om relaterade bilder. URL:erna i listan länkar till Bings sökresultat.
 
 
-## <a name="pagesincluding-actiontype-urls-of-images-found-by-visual-search"></a>URL: er i PagesIncluding ActionType av avbildningar som upptäckts av Visual Search
+## <a name="pagesincluding-actiontype-urls-of-images-found-by-visual-search"></a>PagesIncluding ActionType URL:er till bilder som hittats med Visuell sökning
 
-De faktiska bild-URL: er kräver en typkonvertering som läser en `ActionType` som `ImageModuleAction`, som innehåller en `Data` element med en lista med värden.  Varje värde är Webbadressen till en bild.  Följande sändningar den `PagesIncluding` åtgärdstyp till `ImageModuleAction` och läser värdena.
+Att hämta de faktiska bild-URL:erna kräver en omvandling som läser en `ActionType` som `ImageModuleAction`, vilken innehåller ett `Data`-element med en lista med värden.  Varje värde är URL:en till en bild.  Nedanstående omvandlar `PagesIncluding`-åtgärdstypen till `ImageModuleAction` och läser värdena.
 ```
     if (i.ActionType == "PagesIncluding")
     {
@@ -92,9 +92,9 @@ De faktiska bild-URL: er kräver en typkonvertering som läser en `ActionType` s
     }
 ```
 
-## <a name="complete-code"></a>Fullständiga koden
+## <a name="complete-code"></a>Fullständig kod
 
-Följande kod körs föregående exempel. Den skickar en bild binära i brödtexten i post-begäran, tillsammans med ett cropArea-objekt och visar Bing söka i URL: er för varje åtgärdstypen. Om åtgärdstypen är PagesIncluding, hämtar koden ImageObject objekt i ImageObject Data.  Data innehåller en lista med värden för URL: er för bilder på webbsidor.  Kopiera och klistra in resulterande Visual Search URL: er till webbläsare för att visa resultat. Kopiera och klistra in ContentUrl objekt till webbläsare om du vill visa bilder.
+Följande kod kör föregående exempel. Den skickar en binär bildfil i brödtexten i POST-begäran, tillsammans med ett cropArea-objekt och skriver ut Bing-söknings-URL:er för varje ActionType. Om ActionType är PagesIncluding hämtar koden ImageObject-objektet i ImageObject Data.  Data innehåller en lista med värden som är URL:er till bilder på webbsidor.  Kopiera och klistra in de URL:er som Visuell sökning returnerade i webbläsaren om du vill se resultatet. Kopiera och klistra in ContentUrl-objekt i webbläsaren om du vill se bilderna.
 
 ```
 using System;
@@ -182,4 +182,4 @@ namespace VisualSearchFeatures
 
 ```
 ## <a name="next-steps"></a>Nästa steg
-[Visual Search-svar](https://docs.microsoft.com/azure/cognitive-services/bing-visual-search/overview#the-response)
+[Svar från Visuell sökning](https://docs.microsoft.com/azure/cognitive-services/bing-visual-search/overview#the-response)

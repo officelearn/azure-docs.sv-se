@@ -8,18 +8,18 @@ ms.topic: include
 ms.date: 03/20/2018
 ms.author: marsma
 ms.custom: include file
-ms.openlocfilehash: 95a8cf4eca7969631d069a31c9d08ba52c8b02b4
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: be61695cc57eca3ddf2c03aeb4912348e9535741
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/23/2018
-ms.locfileid: "30193490"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47060826"
 ---
 Du måste uppfylla följande krav för att kunna slutföra den här självstudiekursen:
 
-**Azure CLI**: Du måste ha Azure CLI version 2.0.29 eller senare installerat på den lokala datorn. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI 2.0][azure-cli-install].
+**Azure CLI**: Du måste ha Azure CLI version 2.0.29 eller senare installerat på den lokala datorn. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa informationen i [Installera Azure CLI][azure-cli-install].
 
-**Docker**: Den här självstudiekursen förutsätter grundläggande kunskaper om grundläggande Docker-begrepp som behållare, behållaravbildningar och grundläggande `docker`-kommandon. En introduktion till grunderna för Docker och behållare finns i [Docker-översikt][docker-get-started].
+**Docker**: Den här självstudiekursen förutsätter grundläggande kunskaper om grundläggande Docker-begrepp som containrar, containeravbildningar och grundläggande `docker`-kommandon. En introduktion till grunderna för Docker och containrar finns i [Docker-översikt][docker-get-started].
 
 **Docker-motorn**: Om du ska kunna genomföra den här kursen måste Docker-motorn ha installerats lokalt. Docker innehåller paket som konfigurerar Docker-miljön på [macOS][docker-mac], [Windows][docker-windows] och [Linux] [docker-linux].
 

@@ -51,15 +51,16 @@ items:
         href: quickstart-v1-dotnet.md
       - name: Xamarin
         href: quickstart-v1-xamarin.md
-    - name: Tjänst till tjänst
+    - name: Tjänst-till-tjänst
       href: sample-v1-code.md#daemon-applications-accessing-web-apis-with-the-applications-identity
   - name: Exempel
     href: sample-v1-code.md
   - name: Begrepp
     items:
     - name: Programtyper
-      href: app-types.md
       items:
+      - name: Typer av program
+        href: app-types.md
       - name: Enkelsidig app
         href: single-page-application.md
       - name: Webbapp
@@ -71,26 +72,27 @@ items:
       - name: Daemon- eller serverprogram
         href: service-to-service.md
     - name: Autentisering
-      href: authentication-scenarios.md
       items:
-      - name: Protokoll
+      - name: Grundläggande om autentisering
+        href: authentication-scenarios.md
+      - name: OAuth 2.0 och OpenID Connect-protokoll
         items:
-        - name: OAuth och OpenID Connect-protokoll
-          items:
-          - name: Implicit flöde för beviljande av OAuth 2.0
-            href: v1-oauth2-implicit-grant-flow.md
-          - name: Beviljande av OAuth 2.0-auktoriseringkod
-            href: v1-protocols-oauth-code.md
-          - name: On-Behalf-Of-flöde för OAuth 2.0
-            href: v1-oauth2-on-behalf-of-flow.md
-          - name: Beviljande av autentiseringsuppgifter för OAuth 2.0-klient
-            href: v1-oauth2-client-creds-grant-flow.md
-        - name: SAML 2.0
-          items:
-          - name: Enkel inloggning
-            href: single-sign-on-saml-protocol.md
-          - name: Utloggning
-            href: single-sign-out-saml-protocol.md
+        - name: OpenID Connect
+          href: v1-protocols-openid-connect-code.md
+        - name: Implicit flöde för beviljande av OAuth 2.0
+          href: v1-oauth2-implicit-grant-flow.md
+        - name: Beviljande av OAuth 2.0-auktoriseringkod
+          href: v1-protocols-oauth-code.md
+        - name: On-Behalf-Of-flöde för OAuth 2.0
+          href: v1-oauth2-on-behalf-of-flow.md
+        - name: Beviljande av autentiseringsuppgifter för OAuth 2.0-klient
+          href: v1-oauth2-client-creds-grant-flow.md
+      - name: SAML 2.0-protokoll
+        items:
+        - name: Enkel inloggning
+          href: single-sign-on-saml-protocol.md
+        - name: Utloggning
+          href: single-sign-out-saml-protocol.md
         - name: WS-Federation
           items:
           - name: Federationsmetadata
@@ -106,16 +108,18 @@ items:
       - name: SAML-token
         href: reference-saml-tokens.md
     - name: Tillämpningskonfiguration
-      href: app-objects-and-service-principals.md
       items:
+      - name: Program och tjänsternas huvudnamn
+        href: app-objects-and-service-principals.md
       - name: Hur och varför program läggs till i Azure AD
         href: active-directory-how-applications-are-added.md
       - name: Appar för enskild klient eller flera klienter
         href: single-and-multi-tenant-apps.md
     - name: Behörigheter och samtycke
       displayName: Scopes
-      href: v1-permissions-and-consent.md
       items:
+      - name: Olika typer av behörigheter och samtycke
+        href: v1-permissions-and-consent.md
       - name: Ramverk för medgivande
         href: consent-framework.md
       - name: Upplevelse för programmedgivande
@@ -143,6 +147,8 @@ items:
           href: ../active-directory-enterprise-app-role-management.md
         - name: Anpassa anspråk
           href: active-directory-saml-claims-customization.md
+      - name: ADAL-regelverk för felhantering
+        href: active-directory-devhowto-adal-error-handling.md
     - name: Tillämpningskonfiguration
       items:
       - name: Konvertera en app för en enda klient till en app för flera klienter
@@ -185,7 +191,7 @@ items:
       href: https://docs.microsoft.com/windows-server/identity/ad-fs/overview/ad-fs-scenarios-for-developers
   - name: Referenser
     items:
-    - name: Azure AD-autentiseringsbibliotek
+    - name: Autentiseringsbibliotek
       displayName: ADAL
       href: active-directory-authentication-libraries.md
     - name: Azure AD Graph API
@@ -276,20 +282,21 @@ items:
     - name: Programtyper
       href: v2-app-types.md
     - name: Autentisering
-      href: authentication-scenarios.md
       items:
-      - name: Protokoll
+      - name: Grundläggande om autentisering
+        href: authentication-scenarios.md
+      - name: OAuth 2.0 och OpenID Connect-protokoll
         items:
-        - name: OAuth och OpenID Connect-protokoll
-          items:
-          - name: Implicit flöde för beviljande av OAuth 2.0
-            href: v2-oauth2-implicit-grant-flow.md
-          - name: Beviljande av OAuth 2.0-auktoriseringkod
-            href: v2-oauth2-auth-code-flow.md
-          - name: On-Behalf-Of-flöde för OAuth 2.0
-            href: v2-oauth2-on-behalf-of-flow.md
-          - name: Beviljande av autentiseringsuppgifter för OAuth 2.0-klient
-            href: v2-oauth2-client-creds-grant-flow.md
+        - name: OpenID Connect
+          href: v2-protocols-oidc.md
+        - name: Implicit flöde för beviljande av OAuth 2.0
+          href: v2-oauth2-implicit-grant-flow.md
+        - name: Beviljande av OAuth 2.0-auktoriseringkod
+          href: v2-oauth2-auth-code-flow.md
+        - name: On-Behalf-Of-flöde för OAuth 2.0
+          href: v2-oauth2-on-behalf-of-flow.md
+        - name: Beviljande av autentiseringsuppgifter för OAuth 2.0-klient
+          href: v2-oauth2-client-creds-grant-flow.md
       - name: ID-tokens
         href: id-tokens.md
       - name: Åtkomsttokens
@@ -297,14 +304,16 @@ items:
       - name: Autentiseringsuppgifter för certifikat
         href: active-directory-certificate-credentials.md
     - name: Tillämpningskonfiguration
-      href: app-objects-and-service-principals.md
       items:
+      - name: Program och tjänsternas huvudnamn
+        href: app-objects-and-service-principals.md
       - name: Appar för enskild klient eller flera klienter
         href: single-and-multi-tenant-apps.md
     - name: Behörigheter och samtycke
       displayName: Scopes
-      href: v2-permissions-and-consent.md
       items:
+      - name: Olika typer av behörigheter och samtycke
+        href: v2-permissions-and-consent.md
       - name: Ramverk för medgivande
         href: consent-framework.md
       - name: Upplevelse för programmedgivande
@@ -347,7 +356,7 @@ items:
         href: vs-active-directory-error.md
   - name: Referenser
     items:
-    - name: Microsofts autentiseringsbibliotek
+    - name: Autentiseringsbibliotek
       displayName: MSAL
       href: reference-v2-libraries.md
     - name: Azure AD API:er i Microsoft Graph
@@ -373,9 +382,9 @@ items:
     href: developer-support-help-options.md
   - name: Hanterad tjänstidentitet (MSI) för Azure-resurser
     href: https://docs.microsoft.com/azure/active-directory/managed-service-identity/overview
-ms.openlocfilehash: 180b7962d6083887a25f582471b6b3e405f3f8f9
-ms.sourcegitcommit: 3150596c9d4a53d3650cc9254c107871ae0aab88
+ms.openlocfilehash: 139d80313bb663a45e476e90812ce7772beccc19
+ms.sourcegitcommit: 4edf9354a00bb63082c3b844b979165b64f46286
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47419686"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48785009"

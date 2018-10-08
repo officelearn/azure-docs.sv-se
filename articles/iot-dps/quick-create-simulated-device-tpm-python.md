@@ -10,12 +10,12 @@ services: iot-dps
 manager: timlt
 ms.devlang: python
 ms.custom: mvc
-ms.openlocfilehash: 46c25e19fbf8882779e7334da69f74ef0fa79272
-ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
+ms.openlocfilehash: c65df33fae3f65de8b9b09fbee5e5c06c01109a4
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "42023782"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47040677"
 ---
 # <a name="create-and-provision-a-simulated-tpm-device-using-python-device-sdk-for-iot-hub-device-provisioning-service"></a>Skapa och etablera en simulerad TPM-enhet med Python-enhets-SDK för IoT Hub Device Provisioning-tjänsten
 
@@ -74,9 +74,9 @@ Om du inte känner till processen för automatisk etablering, bör du också gå
 
 1. Logga in på Azure-portalen, klicka på knappen **Alla resurser** i den vänstra menyn och öppna Device Provisioning-tjänsten.
 
-1. På sammanfattningsbladet för Device Provisioning-tjänsten väljer du **Manage enrollments** (Hantera registreringar). Välj fliken **Individual Enrollments** (Enskilda registreringar) och klicka på knappen **Lägg till** längst upp. 
+1. På sammanfattningsbladet för Device Provisioning-tjänsten väljer du **Manage enrollments** (Hantera registreringar). Välj fliken **Enskilda registreringar** och klicka på knappen **Lägg till enskild registrering** längst upp. 
 
-1. Under posten för att **lägga till registreringslista** anger du följande information:
+1. Under **Lägg till registrering** anger du följande information:
     - Välj **TPM** som identitet för bestyrkande *mekanism*.
     - Ange *registrerings-ID* och *bekräftelsenyckel* för din TPM-enhet. 
     - Välj en IoT hub som är länkad till din etableringstjänst.
@@ -84,7 +84,7 @@ Om du inte känner till processen för automatisk etablering, bör du också gå
     - Uppdatera **inledande enhetstvillingstatus** med önskad inledande konfiguration för enheten.
     - Klicka på knappen **Spara** när det är klart. 
 
-    ![Ange information för enhetsregistrering på portalbladet](./media/python-quick-create-simulated-device/enter-device-enrollment.png)  
+    ![Ange information för enhetsregistrering på portalbladet](./media/python-quick-create-simulated-device/enterdevice-enrollment.png)  
 
    Vid lyckad registrering visas *Registrerings-ID* för enheten i listan under fliken *Individual Enrollments* (Enskilda registreringar). 
 
@@ -131,7 +131,7 @@ Om du inte känner till processen för automatisk etablering, bör du också gå
 
 1. Vid lyckad etablering av den simulerade enheten på IoT-hubben som är kopplad till etableringstjänsten visas enhets-ID på hubbens blad **Device Explorer**.
 
-    ![Enheten är registrerad på IoT-hubben](./media/python-quick-create-simulated-device/hub-registration.png) 
+    ![Enheten är registrerad på IoT-hubben](./media/python-quick-create-simulated-device/hubregistration.png) 
 
     Om du ändrade din *inledande enhetstvillingstatus* från standardvärdet i registreringsposten för din enhet kan den hämta önskad tvillingstatus från hubben och agera utifrån det. Mer information finns i [Understand and use device twins in IoT Hub](../iot-hub/iot-hub-devguide-device-twins.md) (Förstå och använda enhetstvillingar i IoT Hub)
 

@@ -1,30 +1,30 @@
 ---
-title: Bing Video Sök SDK Java quickstart | Microsoft Docs
-description: Lär dig hur du ställer in konsolprogram Bing Video Sök SDK.
+title: 'Snabbstart: SDK för videosökning i Bing, Java'
 titleSuffix: Azure Cognitive Services
+description: Lär dig att konfigurera konsolprogrammet för SDK för videosökning i Bing.
 services: cognitive-services
 author: mikedodaro
-manager: rosh
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-video-search
-ms.topic: article
+ms.topic: quickstart
 ms.date: 02/18/2018
-ms.author: v-gedod
-ms.openlocfilehash: 1d9ccd88de4b91060861c39ab20f6a203c820384
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
-ms.translationtype: MT
+ms.author: rosh
+ms.openlocfilehash: b0e083a7397378956d9fe0d0ae2257aaf0bbdf1e
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35355278"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47223438"
 ---
-# <a name="bing-video-search-sdk-java-quickstart"></a>Bing Video Sök SDK Java-Snabbstart
+# <a name="quickstart-bing-video-search-sdk-java"></a>Snabbstart: SDK för videosökning i Bing, Java
 
-Bing Video Sök SDK innehåller REST API-funktioner för video frågor och resultaten för tolkning.
+SDK:t för videosökning i Bing tillhandhåller REST API-funktionerna för videofrågor och parsning av resultat.
 
-Den [källkoden för Java Bing Video Sök SDK-exempel](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples/tree/master/Search/BingVideoSearch) är tillgänglig på Git-hubben.
+[Källkoden till exemplen med SDK:t för videosökning i Bing med Java](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples/tree/master/Search/BingVideoSearch) är tillgänglig på Git Hub.
 
 ## <a name="application-dependencies"></a>Programberoenden
-Hämta en [kognitiva åtkomstnyckeln](https://azure.microsoft.com/try/cognitive-services/) under **Sök**. Installera beroenden Bing Video Sök SDK via Maven, Gradle eller ett annat hanteringssystem för beroendet. Filen Maven POM kräver deklarationen:
+Hämta en [Cognitive Services-åtkomstnyckel](https://azure.microsoft.com/try/cognitive-services/) under **Sök**. Installera SDK för videosökning i Bing med hjälp av Maven eller Gradle eller något annat beroendehanteringssystem. Maven POM-filen kräver deklarationen:
 ```
   <dependencies>
     <dependency>
@@ -34,8 +34,8 @@ Hämta en [kognitiva åtkomstnyckeln](https://azure.microsoft.com/try/cognitive-
     </dependency>
   </dependencies> 
 ```
-## <a name="video-search-client"></a>Video Sök-klient
-Lägg till import till klassen implementeringen.
+## <a name="video-search-client"></a>Klient för videosökning
+Lägg till importen i implementeringen av klassen.
 ```
 import com.microsoft.azure.cognitiveservices.videosearch.*;
 import com.microsoft.azure.cognitiveservices.videosearch.Freshness;
@@ -54,7 +54,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 ```
-Implementera den **VideoSearchAPIImpl** klienten, vilket kräver en instans av den **ServiceClientCredentials** klass.
+Implementera klienten **VideoSearchAPIImpl**, som kräver en instans av klassen **ServiceClientCredentials**.
 ```
 public static VideoSearchAPIImpl getClient(final String subscriptionKey) {
     return new VideoSearchAPIImpl("https://api.cognitive.microsoft.com/bing/v7.0/",
@@ -78,7 +78,7 @@ public static VideoSearchAPIImpl getClient(final String subscriptionKey) {
             });
 }
 ```
-Sök efter videor om ”SwiftKey”. Kontrollera antalet resultat. Skriv ut ID, namn och URL för det första video resultatet.
+Sök efter videor om ”SwiftKey”. Verifiera antalet resultat. Skriv ut ID, namn och webbadress för det första videoresultatet.
 ```
 public static void VideoSearch(String subscriptionKey)
 {
@@ -120,7 +120,7 @@ public static void VideoSearch(String subscriptionKey)
 
 
 ```
-Sök efter videor om ”Bellevue släpvagn”. Filtrera sökningen med den *ledigt*, *kort*, och *1080p upplösning* parametrar. Kontrollera antalet resultat. Skriv ut ID, namn och URL för det första video resultatet.
+Sök efter videor om ”Bellevue Trailer”. Filtrera sökningen med parametrarna *kostnadsfri*, *kort* och *1080p-upplösning*. Verifiera antalet resultat. Skriv ut ID, namn och webbadress för det första videoresultatet.
 ```
 public static void VideoSearchWithFilters(String subscriptionKey)
 {
@@ -160,7 +160,7 @@ public static void VideoSearchWithFilters(String subscriptionKey)
 }
 
 ```
-Sök efter trender videor. Kontrollera den **bannerTiles** och **kategorier** parametrar.
+Sök efter populära videor. Verifiera parametrarna **bannerTiles** och **categories**.
 ```
 public static void VideoTrending(String subscriptionKey)
 {
@@ -245,7 +245,7 @@ public static void VideoTrending(String subscriptionKey)
 }
 
 ```
-Sök efter videor om ”Bellevue släpvagn” och sedan söker du efter information om det första video resultatet.
+Sök efter videor om ”Bellevue Trailer” och sök sedan efter information om det första videoresultatet.
 ```
 public static void VideoDetail(String subscriptionKey)
 {
@@ -315,7 +315,7 @@ public static void VideoDetail(String subscriptionKey)
     }
 }
 ```
-Lägg till de metoder som beskrivs i den här artikeln till en klass med en huvudsakliga funktion för att köra koden.
+Lägg till de metoder som beskrivs i den här artikeln till en klass med en huvudsaklig funktion för att köra koden.
 ```
 package videoSDK;
 import com.microsoft.azure.cognitiveservices.videosearch.*;
@@ -337,4 +337,4 @@ public class VideoSDK {
 ```
 ## <a name="next-steps"></a>Nästa steg
 
-[Kognitiva Services SDK för Java-exempel](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples)
+[Exempel med Cognitive Services SDK för Java](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples)

@@ -1,137 +1,143 @@
 ---
-title: 'Snabbstart: Känna igen tal i C++ på Linux med hjälp av Cognitive Services tal SDK'
+title: 'Snabbstart: Känna igen tal i C++ på Linux med hjälp av Speech SDK för Cognitive Services'
 titleSuffix: Microsoft Cognitive Services
-description: Lär dig att känna igen tal i C++ på Linux med hjälp av Cognitive Services tal SDK
+description: Lär dig att känna igen tal i C++ på Linux med hjälp av Speech SDK för Cognitive Services
 services: cognitive-services
 author: wolfma61
 ms.service: cognitive-services
 ms.technology: Speech
-ms.topic: article
-ms.date: 07/16/2018
+ms.topic: quickstart
+ms.date: 09/24/2018
 ms.author: wolfma
-ms.openlocfilehash: 92bd5980ac2e6befbe352df6ddf8644f04d37d34
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
-ms.translationtype: MT
+ms.openlocfilehash: 98007a11ceadcdddbcd881607f7dda1222d90bc4
+ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43126873"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47055925"
 ---
-# <a name="quickstart-recognize-speech-in-c-on-linux-using-the-speech-sdk"></a>Snabbstart: Känna igen tal i C++ i Linux med hjälp av tal-SDK
+# <a name="quickstart-recognize-speech-in-c-on-linux-by-using-the-speech-sdk"></a>Snabbstart: Känna igen tal i C++ på Linux med hjälp av Speech SDK
 
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
-I den här artikeln lär du dig att skapa ett C++-konsolprogram i Linux (Ubuntu 16.04) med hjälp av Cognitive Services tal SDK för att transkribera tal till text.
+I den här artikeln får skapa du ett C++-konsolprogram för Ubuntu Linux 16.04. Du använder Cognitive Services [Speech SDK](speech-sdk.md) att transkribera tal till text i realtid från datorns mikrofon. Programmet har skapat med [Speech SDK för Linux](https://aka.ms/csspeech/linuxbinary) och Linux-distributionens C++-kompilerare (till exempel `g++`).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
-* En prenumerationsnyckel för Speech-tjänsten. Se [prova speech-tjänsten utan kostnad](get-started.md).
-* En Ubuntu 16.04 dator med en fungerande mikrofon.
-* Om du vill installera kör paket som behövs för att skapa och köra det här exemplet du följande:
+Du behöver en Speech-tjänstprenumerationsnyckel för att slutföra den här snabbstarten. Du kan skaffa en utan kostnad. Mer information finns i [Prova Speech Service kostnadsfritt](get-started.md).
 
-  ```sh
-  sudo apt-get update
-  sudo apt-get install build-essential libssl1.0.0 libcurl3 libasound2 wget
-  ```
-
-## <a name="get-the-speech-sdk"></a>Hämta tal SDK
+## <a name="install-speech-sdk"></a>Installera Speech SDK
 
 [!INCLUDE [License Notice](../../../includes/cognitive-services-speech-service-license-notice.md)]
 
-Den aktuella versionen av Cognitive Services tal SDK är `0.6.0`.
+Den aktuella versionen av Cognitive Services Speech SDK är `1.0.0`.
 
-Cognitive Services tal SDK för Linux är tillgänglig för att bygga för 64-bitars och 32-bitars program.
-De nödvändiga filerna kan hämtas som tar-filen från https://aka.ms/csspeech/linuxbinary.
-Hämta och installera SDK: N på följande sätt:
+Speech SDK för Linux kan användas för att bygga både 64-bitars och 32-bitars program. De nödvändiga biblioteken och huvudfilerna kan laddas ned som en tar-fil från https://aka.ms/csspeech/linuxbinary.
 
-1. Välj en katalog (absolut sökväg) där du vill placera tal SDK-binärfilerna och rubriker.
-   Välj till exempel sökvägen `speechsdk` under arbetskatalogen:
+Ladda ned och installera SDK enligt följande:
+
+1. Kontrollera att SDK-beroenden är installerade.
+
+   ```sh
+   sudo apt-get update
+   sudo apt-get install build-essential libssl1.0.0 libcurl3 libasound2 wget
+   ```
+
+1. Välj en katalog som Speech SDK-filerna ska extraheras till och ange miljövariabeln `SPEECHSDK_ROOT` så att den pekar på den katalogen. Den här variabeln gör det enkelt att referera till katalogen i framtida kommandon. Exempel: Om du vill använda katalogen `speechsdk` i arbetskatalogen använder du ett kommando som liknar följande:
 
    ```sh
    export SPEECHSDK_ROOT="$HOME/speechsdk"
    ```
 
-1. Skapa katalogen om den inte finns:
+1. Skapa katalogen om den inte redan finns.
 
    ```sh
    mkdir -p "$SPEECHSDK_ROOT"
    ```
 
-1. Ladda ned och extrahera den `.tar.gz` Arkiv med tal SDK-binärfilerna:
+1. Ladda ned och extrahera arkivet `.tar.gz` som innehåller Speech SDK-binärfilerna:
 
    ```sh
    wget -O SpeechSDK-Linux.tar.gz https://aka.ms/csspeech/linuxbinary
    tar --strip 1 -xzf SpeechSDK-Linux.tar.gz -C "$SPEECHSDK_ROOT"
    ```
 
-1. Validera innehållet i katalogen på den högsta nivån av extraherade paketet:
+1. Validera innehållet i toppnivåkatalogen i det extraherade paketet:
 
    ```sh
    ls -l "$SPEECHSDK_ROOT"
    ```
 
-   Du bör se meddelande från tredje part och licensfiler, såväl som `include` katalog för rubriker och en `lib` katalogen för bibliotek.
+   Kataloglistan ska innehålla meddelande från tredje part och licensfiler, samt en `include`-katalog som innehåller huvudfiler (`.h`) och en `lib`-katalog som innehåller bibliotek.
 
    [!INCLUDE [Linux Binary Archive Content](../../../includes/cognitive-services-speech-service-linuxbinary-content.md)]
 
-## <a name="add-the-sample-code"></a>Lägg till exempelkoden
+## <a name="add-sample-code"></a>Lägg till exempelkod
 
-1. Lägg till följande kod i en fil med namnet `helloworld.cpp`:
+1. Skapa en C++-källfil med namnet `helloworld.cpp` och klistra in följande kod i den.
 
-  [!code-cpp[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/cpp-linux/helloworld.cpp#code)]
+   [!code-cpp[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/cpp-linux/helloworld.cpp#code)]
 
-1. Ersätt strängen `YourSubscriptionKey` med din prenumerationsnyckel.
+1. Ersätt strängen `YourSubscriptionKey` i den nya filen med din prenumerationsnyckel för Speech-tjänsten.
 
-1. Ersätt strängen `YourServiceRegion` med den [region](regions.md) som är associerade med din prenumeration (till exempel `westus` för en kostnadsfri provprenumeration).
+1. Ersätt strängen `YourServiceRegion` med den [region](regions.md) som är associerad med din prenumeration (till exempel `westus` för en kostnadsfri provprenumeration).
 
-## <a name="building"></a>Skapar
+## <a name="build-the-app"></a>Skapa appen
 
 > [!NOTE]
-> Se till att kopiera och klistra in build-kommandot nedan som en _enskild rad_.
+> Se till att ange kommandon nedan som en _enda kommandorad_. Det enklaste sättet att göra det är att kopiera kommandot med hjälp av **kopieringsknappen** bredvid varje kommando och klistra in den i gränssnittsprompten.
 
-* På en **x64** dator, kör följande kommando för att skapa programmet:
+* Kör följande kommando för att skapa programmet i ett **x64**-system (64-bitars).
 
   ```sh
   g++ helloworld.cpp -o helloworld -I "$SPEECHSDK_ROOT/include/cxx_api" -I "$SPEECHSDK_ROOT/include/c_api" --std=c++14 -lpthread -lMicrosoft.CognitiveServices.Speech.core -L "$SPEECHSDK_ROOT/lib/x64" -l:libssl.so.1.0.0 -l:libcurl.so.4 -l:libasound.so.2
   ```
 
-* På en **x86** dator, kör följande kommando för att skapa programmet:
+* Kör följande kommando för att skapa programmet i ett **x86**-system (32-bitars).
 
   ```sh
   g++ helloworld.cpp -o helloworld -I "$SPEECHSDK_ROOT/include/cxx_api" -I "$SPEECHSDK_ROOT/include/c_api" --std=c++14 -lpthread -lMicrosoft.CognitiveServices.Speech.core -L "$SPEECHSDK_ROOT/lib/x86" -l:libssl.so.1.0.0 -l:libcurl.so.4 -l:libasound.so.2
   ```
 
-## <a name="run-the-sample"></a>Kör exemplet
+## <a name="run-the-app"></a>Kör appen
 
-1. Konfigurera konfigurera inläsarens bibliotekssökväg så att den pekar till tal SDK-biblioteket.
+1. Konfigurera inläsarens bibliotekssökväg så att den pekar på Speech SDK-biblioteket.
 
-   * På en **x64** dator, kör:
+   * På ett **x64**-system (64-bitars) anger du följande kommando.
 
      ```sh
      export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:$SPEECHSDK_ROOT/lib/x64"
      ```
 
-   * På en **x86** dator, kör:
+   * På ett **x86**-system (32-bitars) anger du följande kommando.
 
      ```sh
      export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:$SPEECHSDK_ROOT/lib/x86"
      ```
 
-1. Kör programmet på följande sätt:
+1. Kör appen.
 
    ```sh
    ./helloworld
    ```
 
-1. Du bör se utdata som liknar detta:
+1.  I konsolfönstret visas en uppmaning som ber dig säga något. Säg en engelsk fras eller en mening. Ditt tal överförs till Speech-tjänsten och transkriberas till text som visas i samma fönster.
 
    ```text
    Say something...
-   We recognized: What's the weather
+   We recognized: What's the weather like?
    ```
 
-[!INCLUDE [Download the sample](../../../includes/cognitive-services-speech-service-speech-sdk-sample-download-h2.md)]
-Leta efter det här exemplet i den `quickstart/cpp-linux` mapp.
+[!INCLUDE [Download this sample](../../../includes/cognitive-services-speech-service-speech-sdk-sample-download-h2.md)]
+Leta efter det här exemplet i mappen `quickstart/cpp-linux`.
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Hämta våra exempel](speech-sdk.md#get-the-samples)
+> [!div class="nextstepaction"]
+> [Identifiera avsikter från tal med hjälp av Speech SDK för C++](how-to-recognize-intents-from-speech-cpp.md)
+
+## <a name="see-also"></a>Se även
+
+- [Översätta tal](how-to-translate-speech-csharp.md)
+- [Anpassa akustiska modeller](how-to-customize-acoustic-models.md)
+- [Anpassa språkmodeller](how-to-customize-language-model.md)

@@ -1,24 +1,27 @@
 ---
-title: 'Snabbstart: Skapa en ny kunskapsbas i C# för Microsoft QnA Maker API (V4) med Azure Cognitive Services | Microsoft Docs'
-description: Skapa en kunskapsbas i C# för att lagra vanliga frågor och svar eller produkthandböcker, så att du kan komma igång med QnA Maker.
+title: 'Snabbstart: API C# – Skapa kunskapsbas – QnA Maker'
+titlesuffix: Azure Cognitive Services
+description: Den här snabbstarten går igenom skapandet av ett exempel på QnA Maker-kunskapsbas, programmässigt, som visas i Azure-instrumentpanelen för ditt Cognitive Services-API-konto.
 services: cognitive-services
-author: noellelacharite
-manager: nolachar
+author: diberry
+manager: cgronlun
 ms.service: cognitive-services
 ms.technology: qna-maker
 ms.topic: quickstart
-ms.date: 06/15/2018
-ms.author: nolachar
-ms.openlocfilehash: 16d17a335bb84212497010b3eeb930582fa86dc4
-ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
+ms.date: 09/12/2018
+ms.author: diberry
+ms.openlocfilehash: 8a0840a96f21f76f3a742d973c86dd02929b8e30
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/28/2018
-ms.locfileid: "43771275"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47039454"
 ---
 # <a name="create-a-new-knowledge-base-in-c"></a>Skapa en ny kunskapsbas i C#
 
 Den här snabbstarten går igenom skapandet av ett exempel på QnA Maker-kunskapsbas, programmässigt, som visas i Azure-instrumentpanelen för ditt Cognitive Services-API-konto.
+
+[!INCLUDE [Code is available in Azure-Samples Github repo](../../../../includes/cognitive-services-qnamaker-csharp-repo-note.md)]
 
 Två exempel på webbadresser till vanliga frågor och svar anges nedan ('urls' i strängen kb). QnA Maker extraherar automatiskt frågor och svar från delvis strukturerat innehåll, som vanliga frågor och svar, enligt den utförligare beskrivningen i det här dokumentet om [datakällor](../Concepts/data-sources-supported.md). Du kan också använda egna URL:er för vanliga frågor och svar i den här snabbstarten.
 

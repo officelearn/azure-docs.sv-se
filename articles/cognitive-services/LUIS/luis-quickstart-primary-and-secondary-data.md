@@ -1,54 +1,71 @@
 ---
-title: Självstudie om att skapa en LUIS-app för att extrahera data – Azure | Microsoft Docs
-description: I den här självstudien skapar du en enkel LUIS-app med hjälp av avsikter och en enkel entitet för att extrahera maskininlärningsdata.
+title: 'Självstudie 7: Enkel entitet med fraslista i LUIS'
+titleSuffix: Azure Cognitive Services
+description: Extrahera data från ett uttryck via maskininlärning
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
-ms.component: luis
+ms.component: language-understanding
 ms.topic: tutorial
-ms.date: 08/02/2018
+ms.date: 09/09/2018
 ms.author: diberry
-ms.openlocfilehash: a69ea8ea45a02399b7c6ad22f0dc514ad8537e06
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: 941c29506aa8f17dcb6262495b28dd26e78194d5
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44159664"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47036073"
 ---
-# <a name="tutorial-7-add-simple-entity-and-phrase-list"></a>Självstudie: 7. Lägg till en enkel entitet och fraslista
-I den här självstudien skapar du en app som visar hur det går till att extrahera maskininlärningsdata från ett yttrande med hjälp av entiteten **Simple** (Enkel).
+# <a name="tutorial-7-extract-names-with-simple-entity-and-phrase-list"></a>Självstudie 7: Extrahera namn med en enkel entitet och en fraslista
+
+I den här självstudien extraherar du data med jobbnamn via maskininlärning ur ett yttrande med hjälp av en **enkel** entitet. Om du vill öka noggrannheten i extraheringen lägger du till en fraslista med villkor som är specifika för den enkla entiteten.
+
+I den här självstudien lägger du till en ny enkel entitet för att extrahera jobbnamnet. Syftet med den enkla entiteten är att lära LUIS vad ett jobbnamn är och var det kan hittas i ett yttrande. Den del av yttrandet som utgör jobbnamnet kan variera mellan olika yttranden baserat på ordval och yttrandets längd. LUIS behöver exempel på jobbnamn i alla typer av avsikter där jobbnamn används.  
+
+En enkel entitet passar bra till den här typen av data i följande fall:
+
+* Data har ett enda koncept.
+* Data är inte välformade som i reguljära uttryck.
+* Data är inte enhetliga som i en fördefinierad entitet med telefonnummer eller data.
+* Data kan inte matchas exakt mot en lista med kända ord, som i en listentitet.
+* Data innehåller inte andra dataobjekt, som med sammansatta entiteter eller en hierarkisk entitet.
+
+**I den här självstudiekursen får du lära du dig att:**
 
 <!-- green checkmark -->
 > [!div class="checklist"]
-> * Förstå enkla entiteter 
-> * Skapa en ny LUIS-app för HR-domänen (Human Resources) 
+> * Använda en befintlig självstudieapp
 > * Lägga till en enkel entitet för att extrahera jobb från appen
-> * Träna och publicera app
-> * Skicka en fråga till appens slutpunkt för att se LUIS JSON-svar
 > * Lägga till en fraslista för att förbättra extraheringen av jobbord
-> * Träna, publicera appen och skicka om fråga till slutpunkten
+> * Träna 
+> * Publicera 
+> * Hämta avsikter och entiteter från en slutpunkt
 
 [!INCLUDE [LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
 
-## <a name="before-you-begin"></a>Innan du börjar
-Om du inte har appen Human Resources (Personalfrågor) från självstudien om [composite entity](luis-tutorial-composite-entity.md) (sammansatt entitet) ska du [importera](luis-how-to-start-new-app.md#import-new-app) JSON till en ny app på [LUIS-webbplatsen](luis-reference-regions.md#luis-website). Importeringsappen finns på [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-composite-HumanResources.json)-GitHub-lagringsplatsen.
+## <a name="use-existing-app"></a>Använda en befintlig app
 
-Om du vill behålla den ursprungliga Human Resources-appen (Personalfrågor) klonar du versionen på sidan [Settings](luis-how-to-manage-versions.md#clone-a-version) (Inställningar) och ger den namnet `simple`. Kloning är ett bra sätt att prova på olika LUIS-funktioner utan att påverka originalversionen.  
+Fortsätt med appen du skapade i föregående självstudie med namnet **HumanResources**. 
 
-## <a name="purpose-of-the-app"></a>Syftet med appen
-Den här appen visar hur det går till att hämta data från ett yttrande. Ta följande yttrande från en chattrobot som exempel:
+Om du inte har appen HumanResources från föregående självstudie gör du så här:
+
+1.  Ladda ned och spara [JSON-filen för appen](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/tutorials/custom-domain-composite-HumanResources.json).
+
+2. Importera JSON-koden till en ny app.
+
+3. I avsnittet **Hantera** går du till fliken **Versioner**, klonar versionen och ger den namnet `simple`. Kloning är ett bra sätt att prova på olika LUIS-funktioner utan att påverka originalversionen. Eftersom versionsnamnet används i webbadressen får namnet inte innehålla några tecken som är ogiltiga i webbadresser.
+
+## <a name="simple-entity"></a>Enkel entitet
+Den enkla entiteten identifierar ett datakoncept i ord eller fraser.
+
+Ta till exempel följande yttranden från en chattrobot:
 
 |Yttrande|Jobbnamn som kan extraheras|
 |:--|:--|
 |Jag vill söka det nya jobbet inom redovisning.|redovisning|
 |Jag skickar härmed mitt cv för att söka tjänsten inom teknik.|teknik|
 |Fyll i ansökan till jobbet 123456|123456|
-
-I den här självstudien lägger du till en ny entitet för att extrahera jobbnamnet. 
-
-## <a name="purpose-of-the-simple-entity"></a>Syftet med den enkla entiteten
-Syftet med den enkla entiteten är att lära LUIS vad ett jobbnamn är och var det kan hittas i ett yttrande. Den del av yttrandet som utgör jobbet kan variera från yttrande till yttrande baserat på ordval och yttrandets längd. LUIS behöver exempel på jobb i yttranden över alla avsikter.  
 
 Jobbnamnet är svårt att urskilja eftersom ett namn kan vara ett substantiv, verb eller en fras med flera ord. Exempel:
 
@@ -65,15 +82,13 @@ Jobbnamnet är svårt att urskilja eftersom ett namn kan vara ett substantiv, ve
 |maskinoperatör|
 |montör|
 
-Den här LUIS-appen har jobbnamn i flera avsikter. Genom att märka orden i en avsikts alla yttranden lär sig LUIS mer om de olika jobben och var de finns i yttrandena.
+Den här LUIS-appen har jobbnamn i flera avsikter. Genom att märka ut orden i en avsikts alla yttranden lär sig LUIS mer om vad ett jobbnamn är och var det kan förekomma i yttrandena.
 
-## <a name="create-job-simple-entity"></a>Skapa en enkel jobbentitet
+När entiteterna har märkts ut i exempelyttrandena är det viktigt att du lägger till en fraslista som förbättrar extraheringen. En fraslista används **inte** för exakta matchningar och behöver inte innehålla alla möjliga värden du förväntar dig. 
 
-1. Kontrollera att Human Resources-appen (Personalfrågor) finns i avsnittet **Build** (Skapa) i LUIS. Du kan ändra till det här avsnittet genom att välja **Build** (Skapa) i menyraden längst upp till höger. 
+1. [!include[Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
 
 2. På sidan **Intents** (Avsikter) väljer du avsikten **ApplyForJob**. 
-
-    [![](media/luis-quickstart-primary-and-secondary-data/hr-select-applyforjob.png "Skärmbild på LUIS-appen med avsikten ApplyForJob markerad")](media/luis-quickstart-primary-and-secondary-data/hr-select-applyforjob.png#lightbox)
 
 3. I yttrandet `I want to apply for the new accounting job` väljer du `accounting` och anger `Job` i det översta fältet på snabbmenyn. Välj sedan **Create new entity** (Skapa ny entitet) på snabbmenyn. 
 
@@ -110,7 +125,10 @@ Den här LUIS-appen har jobbnamn i flera avsikter. Genom att märka orden i en a
     |Mitt curriculum vitae är bifogat för att söka tjänsten som professor i biologi.|professor i biologi|
     |Jag vill ansöka om jobbet som fotograf.|fotograf|git 
 
-## <a name="label-entity-in-example-utterances-for-getjobinformation-intent"></a>Märka entitet i exempelyttranden för avsikten GetJobInformation
+## <a name="label-entity-in-example-utterances"></a>Märka ut entiteter i exempelyttranden
+
+När du _märker ut_ entiteten visar du för LUIS var entiteten förekommer i exempelyttrandena.
+
 1. Välj **Intents** (Avsikter) på den vänstra menyn.
 
 2. Välj **GetJobInformation** i listan med avsikter. 
@@ -125,80 +143,83 @@ Den här LUIS-appen har jobbnamn i flera avsikter. Genom att märka orden i en a
 
     Det finns andra exempelyttranden som inte innehåller jobbrelaterade ord.
 
-## <a name="train-the-luis-app"></a>Träna LUIS-appen
+## <a name="train"></a>Träna
 
 [!INCLUDE [LUIS How to Train steps](../../../includes/cognitive-services-luis-tutorial-how-to-train.md)]
 
-## <a name="publish-the-app-to-get-the-endpoint-url"></a>Publicera appen för att få slutpunkts-URL
+## <a name="publish"></a>Publicera
 
 [!INCLUDE [LUIS How to Publish steps](../../../includes/cognitive-services-luis-tutorial-how-to-publish.md)]
 
-## <a name="query-the-endpoint-with-a-different-utterance"></a>Skicka fråga till slutpunkten med ett annat yttrande
+## <a name="get-intent-and-entities-from-endpoint"></a>Hämta avsikter och entiteter från slutpunkten 
 
 1. [!INCLUDE [LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)]
 
 2. Gå till slutet av URL:en i adressen och ange `Here is my c.v. for the programmer job`. Den sista frågesträngsparametern är `q`, yttrande**frågan**. Det här yttrandet är inte samma som någon av de märkta yttrandena. Därför är det ett bra test och bör returnera yttrandena `ApplyForJob`.
 
-```JSON
-{
-  "query": "Here is my c.v. for the programmer job",
-  "topScoringIntent": {
-    "intent": "ApplyForJob",
-    "score": 0.9826467
-  },
-  "intents": [
+    ```JSON
     {
-      "intent": "ApplyForJob",
-      "score": 0.9826467
-    },
-    {
-      "intent": "GetJobInformation",
-      "score": 0.0218927357
-    },
-    {
-      "intent": "MoveEmployee",
-      "score": 0.007849265
-    },
-    {
-      "intent": "Utilities.StartOver",
-      "score": 0.00349470088
-    },
-    {
-      "intent": "Utilities.Confirm",
-      "score": 0.00348804821
-    },
-    {
-      "intent": "None",
-      "score": 0.00319909188
-    },
-    {
-      "intent": "FindForm",
-      "score": 0.00222647213
-    },
-    {
-      "intent": "Utilities.Help",
-      "score": 0.00211193133
-    },
-    {
-      "intent": "Utilities.Stop",
-      "score": 0.00172086991
-    },
-    {
-      "intent": "Utilities.Cancel",
-      "score": 0.00138010911
+      "query": "Here is my c.v. for the programmer job",
+      "topScoringIntent": {
+        "intent": "ApplyForJob",
+        "score": 0.9826467
+      },
+      "intents": [
+        {
+          "intent": "ApplyForJob",
+          "score": 0.9826467
+        },
+        {
+          "intent": "GetJobInformation",
+          "score": 0.0218927357
+        },
+        {
+          "intent": "MoveEmployee",
+          "score": 0.007849265
+        },
+        {
+          "intent": "Utilities.StartOver",
+          "score": 0.00349470088
+        },
+        {
+          "intent": "Utilities.Confirm",
+          "score": 0.00348804821
+        },
+        {
+          "intent": "None",
+          "score": 0.00319909188
+        },
+        {
+          "intent": "FindForm",
+          "score": 0.00222647213
+        },
+        {
+          "intent": "Utilities.Help",
+          "score": 0.00211193133
+        },
+        {
+          "intent": "Utilities.Stop",
+          "score": 0.00172086991
+        },
+        {
+          "intent": "Utilities.Cancel",
+          "score": 0.00138010911
+        }
+      ],
+      "entities": [
+        {
+          "entity": "programmer",
+          "type": "Job",
+          "startIndex": 24,
+          "endIndex": 33,
+          "score": 0.5230502
+        }
+      ]
     }
-  ],
-  "entities": [
-    {
-      "entity": "programmer",
-      "type": "Job",
-      "startIndex": 24,
-      "endIndex": 33,
-      "score": 0.5230502
-    }
-  ]
-}
-```
+    ```
+    
+    LUIS hittade rätt avsikt, **ApplyForJob**, och extraherade rätt entitet, **Job**, med värdet `programmer`.
+
 
 ## <a name="names-are-tricky"></a>Namn kan vara svårhanterade
 LUIS-appen hittade rätt avsikt med hög exakthet och extraherade jobbnamnet, men namn är svårare. Prova yttrandet `This is the lead welder paperwork`.  
@@ -260,18 +281,15 @@ I följande JSON svarar LUIS-appen med rätta avsikten `ApplyForJob`, men extrah
 
 Eftersom ett namn kan vara vad som helst förutsäger LUIS-appen entiteter mer korrekt om den har en lista med ordfraser för att förbättra extraheringen.
 
-## <a name="to-boost-signal-add-jobs-phrase-list"></a>Lägg till jobb i fraslistan för att förbättra extraheringen
+## <a name="to-boost-signal-add-phrase-list"></a>Lägg till en fraslista för att förbättra extraheringen
+
 Öppna filen [jobs-phrase-list.csv](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/job-phrase-list.csv) från LUIS-Samples-GitHub-lagringsplatsen. Listan innehåller mer än tusen jobbrelaterade ord och fraser. Titta igenom listan efter ord som kan vara till nytta för dig. Om ord eller fraser som du behöver inte finns med i listan kan du lägga till egna.
 
 1. I avsnittet **Build** (Skapa) i LUIS-appen väljer du **Phrase lists** (Fraslistor) under menyn **Improve app performance** (Förbättra appens prestanda).
 
-    [![](media/luis-quickstart-primary-and-secondary-data/hr-select-phrase-list-left-nav.png "Skärmbild på Phrase lists (Fraslistor) med den vänstra navigeringsknappen markerad")](media/luis-quickstart-primary-and-secondary-data/hr-select-phrase-list-left-nav.png#lightbox)
-
 2. Välj **Create new phrase list** (Skapa ny fraslista). 
 
-    [![](media/luis-quickstart-primary-and-secondary-data/hr-create-new-phrase-list.png "Skärmbild på markerad knapp för att skapa nya fraslistor")](media/luis-quickstart-primary-and-secondary-data/hr-create-new-phrase-list.png#lightbox)
-
-3. Namnge den nya fraslistan `Jobs` och kopiera listan från jobs-phrase-list.csv till textrutan **Values** (Värden). Välj Retur. 
+3. Namnge den nya fraslistan `Job` och kopiera listan från jobs-phrase-list.csv till textrutan **Values** (Värden). Välj Retur. 
 
     [![](media/luis-quickstart-primary-and-secondary-data/hr-create-phrase-list-1.png "Skärmbild på dialogrutan för att skapa en ny fraslista")](media/luis-quickstart-primary-and-secondary-data/hr-create-phrase-list-1.png#lightbox)
 
@@ -348,22 +366,13 @@ Eftersom ett namn kan vara vad som helst förutsäger LUIS-appen entiteter mer k
     }
     ```
 
-## <a name="phrase-lists"></a>Fraslistor
-Genom att lägga till fraslistan förbättrades listordens extrahering, men de är **inte** exakta matchningar. Fraslistan har flera jobb med det första ordet `lead` och med jobbet `welder`, men inte jobbet `lead welder`. Den här fraslistan över jobb behöver kanske kompletteras. Allt eftersom du [granskar slutpunktsyttranden](luis-how-to-review-endoint-utt.md) och hittar andra jobbord, lägger du till dem i fraslistan. Träna sedan appen igen och publicera om.
-
-## <a name="what-has-this-luis-app-accomplished"></a>Vad har den här LUIS-appen åstadkommit?
-Med hjälp av en enkel entitet och en fraslista har den här appen identifierat en frågeavsikt i naturligt språk och returnerat jobbdata. 
-
-Din chattrobot har nu tillräckligt med information för att bestämma den primära åtgärden vid jobbansökan och en parameter för åtgärden, vilket jobb det gäller. 
-
-## <a name="where-is-this-luis-data-used"></a>Var används dessa LUIS-data? 
-LUIS är klar med den här begäran. Det anropande programmet, till exempel en chattrobot, kan använda topScoringIntent-resultatet och data från entiteten för att skicka jobbinformation till någon på personalavdelningen via ett tredjeparts-API. Om det finns andra programmässiga alternativ för roboten eller det anropande programmet utför inte LUIS det arbetet. LUIS tar endast reda på vad användarens avsikt är. 
-
 ## <a name="clean-up-resources"></a>Rensa resurser
 
 [!INCLUDE [LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]
 
 ## <a name="next-steps"></a>Nästa steg
+
+I den här självstudien använder appen Human Resources en maskininlärd enkel entitet till att hitta jobbnamn i yttranden. Eftersom jobbnamn kan vara så olika ord och fraser behöver appen en fraslista för att kunna hitta orden med jobbnamnen. 
 
 > [!div class="nextstepaction"]
 > [Lägg till en fördefinierad keyPhrase-entitet](luis-quickstart-intent-and-key-phrase.md)

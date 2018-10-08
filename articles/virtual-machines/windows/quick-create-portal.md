@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 07/03/2018
+ms.date: 09/14/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: f5a92d421bbf7bfe485252c148d5f64ae2fb8e23
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 692d8c0a1a427fa65a94d474f78792b1a071de46
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37916123"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47219727"
 ---
 # <a name="quickstart-create-a-windows-virtual-machine-in-the-azure-portal"></a>Snabbstart: Skapa en virtuell Windows-dator i Azure Portal
 
@@ -37,23 +37,28 @@ Logga in på Azure Portal på https://portal.azure.com.
 
 1. Välj **Skapa en resurs** längst upp till vänster i Azure Portal.
 
-2. I sökrutan ovanför listan över resurser i Azure Marketplace, söker di efter och väljer **Windows Server 2016 Datacenter** och därefter **Dkapa**.
+1. I sökrutan ovanför listan över resurser i Azure Marketplace, söker di efter och väljer **Windows Server 2016 Datacenter** och därefter **Dkapa**.
 
-3. Ange ett namn på den virtuella datorn, till exempel *myVM*, lämna disktypen som *SSD* och ange sedan ett användarnamn, som *azureuser*. Lösenordet måste vara minst 12 tecken långt och uppfylla [de definierade kraven på komplexitet](faq.md#what-are-the-password-requirements-when-creating-a-vm).
+1. På fliken **Grundläggande inställningar** går du till **Projektinformation**, kontrollerar att korrekt prenumeration har valts och väljer sedan **Skapa ny** för resursgruppen. Ange namnet *myResourceGroup*. 
 
-    ![Ange grundläggande information om de virtuella datorerna på portalens blad](./media/quick-create-portal/create-windows-vm-portal-basic-blade.png)
+    ![Skapa en ny resursgrupp för din virtuella dator](./media/quick-create-portal/project-details.png)
 
-5. Välj att **Skapa ny** resursgrupp och ange sedan ett namn, till exempel *myResourceGroup*. Välj din **Plats** och välj sedan **OK**.
+1. Under **Instansinformation** skriver du *myVM* för **Namn på virtuell dator** och väljer *USA, östra* som **Plats**. Låt de övriga standardvärdena vara som de är.
 
-4. Välj en storlek för den virtuella datorn. Du kan till exempel filtrera efter *Beräkningstyp* eller *Disktyp*. En föreslagen virtuell datorstorlek är *D2s_v3*. Klicka på **Välj** när du har valt en storlek.
+    ![Avsnittet Instansinformation](./media/quick-create-portal/instance-details.png)
 
-    ![Skärmbild som visar storlekar på virtuella datorer](./media/quick-create-portal/create-windows-vm-portal-sizes.png)
+1. Under **Administratörskonto**, anger du ett användarnamn, som *azureuser*, och ett lösenord. Lösenordet måste vara minst 12 tecken långt och uppfylla [de definierade kraven på komplexitet](faq.md#what-are-the-password-requirements-when-creating-a-vm).
 
-5. På sidan **Inställningar** går du till **Nätverk** > **Nätverkssäkerhetsgrupp** > **Välj offentliga ingående portar** och väljer **HTTP** och **RDP (3389)** i listrutan. Lämna resten av standardinställningarna och välj **OK**.
+    ![Ange ditt användarnamn och lösenord](./media/quick-create-portal/administrator-account.png)
 
-6. På sammanfattningssidan klickar du på **Skapa** för att starta distributionen av den virtuella datorn.
+1. Under **Regler för inkommande portar** väljer du **Tillåt valda portar** och sedan **RDP (3389)** och **HTTP** från listrutan.
 
-7. Den virtuella datorn fästs på Azure Portals instrumentpanel. När distributionen är klar öppnas sammanfattningen för den virtuella datorn automatiskt.
+    ![Öppna portar för RDP och HTTP](./media/quick-create-portal/inbound-port-rules.png)
+
+1. Låt de återstående standardinställningarna vara och välj sedan knappen **Granska + skapa** längst ned på sidan.
+
+    ![Granska och skapa](./media/quick-create-portal/review-create.png)
+
 
 ## <a name="connect-to-virtual-machine"></a>Ansluta till den virtuella datorn
 
@@ -61,7 +66,7 @@ Skapa en fjärrskrivbordsanslutning till den virtuella datorn. Dessa instruktion
 
 1. Klicka på knappen **Anslut** på den virtuella datorns egenskapssida. 
 
-    ![Ansluta till en virtuell Azure-dator från portalen](./media/quick-create-portal/quick-create-portal/portal-quick-start-9.png)
+    ![Ansluta till en virtuell Azure-dator från portalen](./media/quick-create-portal/portal-quick-start-9.png)
     
 2. På sidan **Anslut till den virtuella datorn** behåller du standardalternativen för att ansluta med DNS-namn via port 3389 och klickar på **Hämta RDP-filen**.
 

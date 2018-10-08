@@ -1,71 +1,81 @@
 ---
-title: Självstudie om att granska slutpunktsyttranden i Language Understanding (LUIS) – Azure | Microsoft Docs
-description: I den här självstudien lär du dig hur du granskar slutpunktsyttranden i HR-domänen i LUIS.
+title: 'Självstudie 1: Granska yttranden vid slutpunkter med aktiv inlärning'
+titleSuffix: Azure Cognitive Services
+description: Förbättra förutsägelserna i dina appar genom att verifiera eller korrigera yttranden som tas emot via HTTP-slutpunkten för LUIS och som LUIS inte kan fastställa säkert. I vissa yttranden kan avsikten behöva verifieras och i vissa kan du behöva verifiera entiteter. Du bör granska yttranden vid slutpunkter inom ramen för det schemalagda underhållet av LUIS.
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
-ms.component: luis
+ms.component: language-understanding
 ms.topic: tutorial
-ms.date: 08/03/2018
+ms.date: 09/09/2018
 ms.author: diberry
-ms.openlocfilehash: db44bfad5ece59ed3373699c10d6134201bf1879
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: 1047c117228b57f7361a1e386bc6cde7acbfdde8
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44160089"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47042286"
 ---
-# <a name="tutorial-review-endpoint-utterances"></a>Självstudie: Granska slutpunktsyttranden
-I den här självstudien förbättrar du appförutsägelser genom att verifiera eller korrigera yttranden som tas emot via LUIS HTTP-slutpunkt. 
+# <a name="tutorial-1-fix-unsure-predictions"></a>Självstudie 1: Åtgärda osäkra förutsägelser
+I den här självstudien kommer vi att förbättra förutsägelserna i dina appar genom att verifiera eller korrigera yttranden som tas emot via HTTP-slutpunkten för LUIS och som LUIS inte kan fastställa säkert. I vissa yttranden kan avsikten behöva verifieras och i vissa kan du behöva verifiera entiteter. Du bör granska yttranden vid slutpunkter inom ramen för det schemalagda underhållet av LUIS. 
 
-<!-- green checkmark -->
-> [!div class="checklist"]
-> * Förstå granskning av slutpunktsyttranden 
-> * Använda LUIS-appen för HR-domänen 
-> * Granska slutpunktsyttranden
-> * Träna och publicera app
-> * Skicka en fråga till appens slutpunkt för att se LUIS JSON-svar
-
-[!INCLUDE [LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
-
-## <a name="before-you-begin"></a>Innan du börjar
-Om du inte har HR-appen från självstudien om [sentiment](luis-quickstart-intent-and-sentiment-analysis.md) importerar du appen från Github-lagringsplatsen för [LUIS-exempel](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-sentiment-HumanResources.json). Om du använder den här självstudien som en ny, importerad app måste du även träna, publicera och sedan lägga till yttrandena till slutpunkten med ett [skript](https://github.com/Microsoft/LUIS-Samples/blob/master/examples/demo-upload-endpoint-utterances/endpoint.js) eller från slutpunkten i en webbläsare. De yttranden som ska läggas till är:
-
-   [!code-nodejs[Node.js code showing endpoint utterances to add](~/samples-luis/examples/demo-upload-endpoint-utterances/endpoint.js?range=15-26)]
-
-Om du vill behålla den ursprungliga Human Resources-appen (Personalfrågor) klonar du versionen på sidan [Settings](luis-how-to-manage-versions.md#clone-a-version) (Inställningar) och ger den namnet `review`. Kloning är ett bra sätt att prova på olika LUIS-funktioner utan att påverka originalversionen. 
-
-Om du har alla versioner av appen kan det verka förvånande att i serien med självstudier se att listan över **yttranden för slutpunktsgranskning** inte ändras, baserat på version. Det finns en enstaka pool med yttranden att granska, oavsett versionen av de yttranden du aktivt redigerar eller versionen av den app som publicerades på slutpunkten. 
-
-## <a name="purpose-of-reviewing-endpoint-utterances"></a>Syftet med att granska slutpunktsyttranden
-Den här granskningsprocessen är ett annat sätt för LUIS för att lära sig din appdomän. LUIS valde yttrandena i granskningslistan. Följande gäller för listan:
+Den här granskningsprocessen är ett annat sätt för LUIS för att lära sig din appdomän. LUIS valde yttrandena som visas i granskningslistan. Följande gäller för listan:
 
 * Den är specifik för appen.
 * Den är avsedd att förbättra noggrannheten hos appens förutsägelse. 
 * Den bör granskas regelbundet. 
 
-Genom att granska slutpunktsyttranden verifierar eller korrigerar du det yttrandets förutsagda avsikt. Du märker även anpassade entiteter som inte förutsades. 
+Genom att granska slutpunktsyttranden verifierar eller korrigerar du det yttrandets förutsagda avsikt. Du märker även ut anpassade entiteter som inte förutsagts eller som förutsagts felaktigt. 
+
+**I den här självstudiekursen får du lära du dig att:**
+
+<!-- green checkmark -->
+> [!div class="checklist"]
+> * Använda en befintlig självstudieapp
+> * Granska slutpunktsyttranden
+> * Uppdatera fraslistan
+> * Träna appen
+> * Publicera appen
+> * Skicka en fråga till appens slutpunkt för att se LUIS JSON-svar
+
+[!INCLUDE [LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
+
+## <a name="use-existing-app"></a>Använda en befintlig app
+
+Fortsätt med appen du skapade i föregående självstudie med namnet **HumanResources**. 
+
+Om du inte har appen HumanResources från föregående självstudie gör du så här:
+
+1.  Ladda ned och spara [JSON-filen för appen](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/tutorials/custom-domain-sentiment-HumanResources.json).
+
+2. Importera JSON-koden till en ny app.
+
+3. I avsnittet **Hantera** går du till fliken **Versioner**, klonar versionen och ger den namnet `review`. Kloning är ett bra sätt att prova på olika LUIS-funktioner utan att påverka originalversionen. Eftersom versionsnamnet används i webbadressen får namnet inte innehålla några tecken som är ogiltiga i webbadresser.
+
+    Om du använder den här självstudien som en ny, importerad app måste du även träna, publicera och sedan lägga till yttrandena till slutpunkten med ett [skript](https://github.com/Microsoft/LUIS-Samples/blob/master/examples/demo-upload-endpoint-utterances/endpoint.js) eller från slutpunkten i en webbläsare. De yttranden som ska läggas till är:
+
+   [!code-nodejs[Node.js code showing endpoint utterances to add](~/samples-luis/examples/demo-upload-endpoint-utterances/endpoint.js?range=15-26)]
+
+    Om du har alla versioner av appen kan det verka förvånande att i serien med självstudier se att listan över **yttranden för slutpunktsgranskning** inte ändras, baserat på version. Det finns en enda pool med yttranden att granska, oavsett vilken version du aktivt redigerar eller vilken version av appen som publicerades vid slutpunkten. 
 
 ## <a name="review-endpoint-utterances"></a>Granska slutpunktsyttranden
 
-1. Kontrollera att Human Resources-appen (Personalfrågor) finns i avsnittet **Build** (Skapa) i LUIS. Du kan ändra till det här avsnittet genom att välja **Build** (Skapa) i menyraden längst upp till höger. 
+1. [!include[Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
 
 2. Välj **Granska slutpunktsyttranden** i det vänstra navigeringsfönstret. Listan filtreras efter avsikten **ApplyForJob**. 
 
-    [ ![Skärmbild av knappen Granska slutpunktsyttranden i det vänstra navigeringsfönstret](./media/luis-tutorial-review-endpoint-utterances/entities-view-endpoint-utterances.png)](./media/luis-tutorial-review-endpoint-utterances/entities-view-endpoint-utterances.png#lightbox)
+    [ ![Skärmbild av knappen Granska slutpunktsyttranden i det vänstra navigeringsfönstret](./media/luis-tutorial-review-endpoint-utterances/review-endpoint-utterances-with-entity-view.png)](./media/luis-tutorial-review-endpoint-utterances/review-endpoint-utterances-with-entity-view.png#lightbox)
 
 3. Växla **entitetsvyn** för att visa de märkta entiteterna. 
     
-    [ ![Skärmbild av Granska slutpunktsyttranden med växeln Entitetsvy markerad](./media/luis-tutorial-review-endpoint-utterances/select-entities-view.png)](./media/luis-tutorial-review-endpoint-utterances/select-entities-view.png#lightbox)
+    [ ![Skärmbild av Granska slutpunktsyttranden med växeln Entitetsvy markerad](./media/luis-tutorial-review-endpoint-utterances/review-endpoint-utterances-with-token-view.png)](./media/luis-tutorial-review-endpoint-utterances/review-endpoint-utterances-with-token-view.png#lightbox)
 
     |Yttrande|Rätt avsikt|Saknade entiteter|
     |:--|:--|:--|
     |Jag letar efter ett jobb med naturlig språkbearbetning|GetJobInfo|Jobb – ”Natural Language Process”|
 
     Den här yttrandet är inte i rätt avsikt och har en poäng som är mindre än 50 %. Avsikten **ApplyForJob** har 21 yttranden jämfört med 7 yttranden i **GetJobInformation**. Utöver korrekt justering av slutpunktsyttrandena bör fler yttranden läggas till i avsikten **GetJobInformation**. Det kvarstår som en övning som du kan slutföra på egen hand. Varje avsikt, förutom avsikten **Ingen**, bör ha ungefär samma antal exempelyttranden. Avsikten **Ingen** bör ha 10 % av de totala yttrandena i appen. 
-
-    När du är i **Tokens View** (Tokenvy) kan du hovra över blå text för yttranden för att se det förutsedda entitetsnamnet. 
 
 4. För avsikten `I'm looking for a job with Natual Language Processing` väljer du rätt avsikt, **GetJobInformation**, i kolumnen **Aligned intent** (Justerad avsikt). 
 
@@ -87,11 +97,13 @@ Genom att granska slutpunktsyttranden verifierar eller korrigerar du det yttrand
 
     [ ![Skärmbild av slutförande av återstående yttranden till justerad avsikt](./media/luis-tutorial-review-endpoint-utterances/finalize-utterance-alignment.png)](./media/luis-tutorial-review-endpoint-utterances/finalize-utterance-alignment.png#lightbox)
 
-9. Listan bör inte längre ha dessa yttranden. Om flera yttranden visas kan du fortsätta att gå igenom listan, korrigera avsikter och märka eventuella saknade entiteter tills listan är tom. Välj nästa avsikt i listan Filter och fortsätt sedan korrigera yttranden och märka entiteter. Kom ihåg att det sista steget för varje avsikt är att antingen välja **Add to aligned intent** (Lägg till i justerad avsikt) på yttrandets rad eller markera kryssrutan bredvid varje avsikt och välja **Add selected** (Lägg till valda) ovanför tabellen. 
+9. Listan bör inte längre ha dessa yttranden. Om du ser flera yttranden fortsätter du att gå igenom listan, korrigera avsikter och märka ut eventuella saknade entiteter tills listan är tom. 
 
-    Det här är en mycket liten app. Granskningsprocessen tar bara några minuter.
+10. Välj nästa avsikt i listan Filter och fortsätt sedan korrigera yttranden och märka entiteter. Kom ihåg att det sista steget för varje avsikt är att antingen välja **Add to aligned intent** (Lägg till i justerad avsikt) på yttrandets rad eller markera kryssrutan bredvid varje avsikt och välja **Add selected** (Lägg till valda) ovanför tabellen.
 
-## <a name="add-new-job-name-to-phrase-list"></a>Lägga till nytt jobbnamn till fraslistan
+    Fortsätt tills alla avsikter och entiteter i filterlistan har en tom lista. Det här är en mycket liten app. Granskningsprocessen tar bara några minuter. 
+
+## <a name="update-phrase-list"></a>Uppdatera fraslistan
 Håll fraslistan uppdaterad med nyligen identifierade jobbnamn. 
 
 1. Välj **Fraslistor** i det vänstra navigeringsfönstret.
@@ -100,19 +112,19 @@ Håll fraslistan uppdaterad med nyligen identifierade jobbnamn.
 
 3. Lägg till `Natural Language Processing` som ett värde och välj sedan **Spara**. 
 
-## <a name="train-the-luis-app"></a>Träna LUIS-appen
+## <a name="train"></a>Träna
 
 LUIS känner inte till ändringarna förrän den tränas. 
 
 [!INCLUDE [LUIS How to Train steps](../../../includes/cognitive-services-luis-tutorial-how-to-train.md)]
 
-## <a name="publish-the-app-to-get-the-endpoint-url"></a>Publicera appen för att få slutpunkts-URL
+## <a name="publish"></a>Publicera
 
 Om du har importerat den här appen måste du välja **Sentimentanalys**.
 
 [!INCLUDE [LUIS How to Publish steps](../../../includes/cognitive-services-luis-tutorial-how-to-publish.md)]
 
-## <a name="query-the-endpoint-with-an-utterance"></a>Skicka fråga till slutpunkten med ett yttrande
+## <a name="get-intent-and-entities-from-endpoint"></a>Hämta avsikter och entiteter från slutpunkten
 
 Prova ett yttrande som liknar det korrigerade yttrandet. 
 
@@ -223,16 +235,14 @@ Prova ett yttrande som liknar det korrigerade yttrandet.
 Du undrar kanske varför man inte bara kan lägga till fler exempelyttranden. Vad är syftet med att granska slutpunktsyttranden? I en riktig LUIS-app kommer slutpunktsyttranden från användare med ordval och ordningsföljd som du inte har använt än. Om du hade använt samma ordval och ordningsföljd skulle den ursprungliga förutsägelsen ha haft ett högre procenttal. 
 
 ## <a name="why-is-the-top-intent-on-the-utterance-list"></a>Varför är den högsta avsikten på yttrandelistan? 
-Några av slutpunktsyttrandena har ett högt procenttal granskningslistan. Du behöver ändå granska och kontrollera de yttrandena. De finns med i listan eftersom nästföljande högsta avsikt hade en poäng som var för nära avsikten med högst poäng. 
-
-## <a name="what-has-this-tutorial-accomplished"></a>Vad har den här självstudien åstadkommit?
-Den här appens förutsägelsenoggrannhet har ökat genom granskning av yttranden från slutpunkten. 
+Vissa av slutpunktsyttrandena har en hög förutsägelsepoäng i granskningslistan. Du behöver ändå granska och kontrollera de yttrandena. De finns med i listan eftersom nästföljande högsta avsikt hade en poäng som var för nära avsikten med högst poäng. Du vill ha en skillnad på ungefär 15 % mellan de två översta avsikterna.
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
 [!INCLUDE [LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]
 
 ## <a name="next-steps"></a>Nästa steg
+I den här självstudien har du granskat yttranden som skickats vid slutpunkten och som LUIS inte kunnat tolka säkert. När de här yttrandena har verifierats och flyttas till rätt avsikter som exempelyttranden blir förutsägelserna i LUIS bättre.
 
 > [!div class="nextstepaction"]
 > [Lär dig hur du använder mönster](luis-tutorial-pattern.md)

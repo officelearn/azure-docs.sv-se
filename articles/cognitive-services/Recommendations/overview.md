@@ -1,26 +1,27 @@
 ---
-title: Rekommendationer API | Microsoft Docs
-description: Förhandsgranska API är nu inte längre, ersatts av rekommendationer lösningsmall.
+title: Vad är API för rekommendationer?
+titlesuffix: Azure Cognitive Services
+description: Förhandsversionen av API har nu upphört och ersatts av mallen för rekommendationslösningar.
 services: cognitive-services
 author: LuisCabrer
-manager: mwinkle
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: recommendations
-ms.topic: article
+ms.topic: overview
 ms.date: 02/15/2018
 ms.author: luisca
-ms.openlocfilehash: 2224a44c76ce7b04ab6705babbe9fa4f3bfa1c04
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
-ms.translationtype: MT
+ms.openlocfilehash: 59529806c322176c1d85c273a99682eaa7c13e41
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35352158"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47222680"
 ---
-# <a name="recommendations-api-discontinued"></a>Rekommendationer för API (upphöra att gälla)
+# <a name="recommendations-api-discontinued"></a>Förhandsversion av API för rekommendationer (inaktuell)
 
-Förhandsversionen av rekommendationer API inte längre är aktiva färdiga och officiellt dragits tillbaka den 15 februari. 
+Förhandsversionen av API för rekommendationer utvecklas inte längre aktivt och togs officiellt ur bruk den 15 februari. 
 
-Ett alternativ kan du överväga att nya öppen källkod [rekommendationer lösningsmall](http://aka.ms/recopcs), vilket gör att du är värd för en rekommendationer motorn i din egen Azure-prenumeration. Den stöder huvudscenarier rekommendationer-API när också vilket gör att du kan distribuera till Azure-region och mer styrning noggrann datorresurserna som används för att träna modeller och ger rekommendationer. 
+Ett alternativ är den nya [mallen för rekommendationslösningar](http://aka.ms/recopcs) med öppen källkod, som gör att du kan hantera en rekommendationsmotor i din egen Azure-prenumeration. Den stöder huvudscenarierna i API för rekommendationer, och du får även friheten att distribuera till valfri Azure-region, mer kontroll över de dataresurser som används för att träna modeller samt rekommendationer. 
 
-Mer information om rekommendationer lösningsmall genom att läsa [dokumentationen](https://github.com/Microsoft/Product-Recommendations). 
+Du hittar mer information om mallen för rekommendationslösningar i [dokumentationen](https://github.com/Microsoft/Product-Recommendations). 
 

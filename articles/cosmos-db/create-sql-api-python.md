@@ -9,14 +9,14 @@ ms.component: cosmosdb-sql
 ms.custom: quick start connect, mvc, devcenter
 ms.devlang: python
 ms.topic: quickstart
-ms.date: 04/13/2018
+ms.date: 09/24/2018
 ms.author: sngun
-ms.openlocfilehash: d03b890bc0ffda41c1059e216382d79f4b35c5a5
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 666b99bcca460e3dd756c9d94912d01945c68909
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 09/24/2018
-ms.locfileid: "46995405"
+ms.locfileid: "47035937"
 ---
 # <a name="azure-cosmos-db-build-a-sql-api-app-with-python-and-the-azure-portal"></a>Azure Cosmos DB: Skapa en SQL API-app med Python och Azure Portal
 
@@ -30,7 +30,7 @@ ms.locfileid: "46995405"
 
 Azure Cosmos DB är Microsofts globalt distribuerade databastjänst för flera datamodeller. Du kan snabbt skapa och ställa frågor mot databaser med dokument, nyckel/värde-par och grafer. Du får fördelar av den globala distributionen och den horisontella skalningsförmågan som ligger i grunden hos Azure Cosmos DB. 
 
-Den här snabbstarten visar hur du skapar ett Azure Cosmos DB [SQL API](sql-api-introduction.md)-konto, dokumentdatabas och samling med Azure Portal. Sedan skapar du och kör en konsolapp som är byggd med [SQL Python API](sql-api-sdk-python.md).
+Den här snabbstarten visar hur du skapar ett [SQL API](sql-api-introduction.md)-konto i Azure Cosmos DB, en dokumentdatabas och en container med Azure-portalen. Sedan skapar du och kör en konsolapp som är byggd med Python SDK för [SQL API](sql-api-sdk-python.md). Den här snabbstarten använder version 3.0 av [Python SDK].(https://pypi.org/project/azure-cosmos)
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)] [!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]
 
@@ -58,7 +58,7 @@ Den här snabbstarten visar hur du skapar ett Azure Cosmos DB [SQL API](sql-api-
 
 ## <a name="clone-the-sample-application"></a>Klona exempelprogrammet
 
-Nu ska vi klona en SQL API-app från github, ange anslutningssträngen och köra appen. Du kommer att se hur lätt det är att arbeta med data programmässigt. 
+Nu ska vi klona vi en SQL API-app från GitHub, ange anslutningssträngen och köra appen.
 
 1. Öppna en kommandotolk, skapa en ny mapp som heter git-samples och stäng sedan kommandotolken.
 
@@ -75,27 +75,29 @@ Nu ska vi klona en SQL API-app från github, ange anslutningssträngen och köra
 3. Klona exempellagringsplatsen med följande kommando. Detta kommando skapar en kopia av exempelappen på din dator. 
 
     ```bash
-    git clone https://github.com/Azure-Samples/azure-cosmos-db-documentdb-python-getting-started.git
+    git clone https://github.com/Azure-Samples/azure-cosmos-db-python-getting-started.git
     ```  
     
 ## <a name="review-the-code"></a>Granska koden
 
 Det här steget är valfritt. Om du vill lära dig hur databasresurserna skapas i koden kan du granska följande kodavsnitt. Annars kan du gå vidare till [Uppdatera din anslutningssträng](#update-your-connection-string). 
 
-Följande kodfragment har hämtats från filen DocumentDBGetStarted.py.
+Observera att om du är bekant med den tidigare versionen av Python SDK så är du kanske van vid att se termerna ”samling” och ”dokument”. Eftersom Azure Cosmos DB stöder flera API-modeller använder version 3.0+ av Python SDK de allmänna termerna ”container”, vilket kan vara en samling, ett diagram eller en tabell, och ”objekt” för att beskriva innehållet i containern.
 
-* DocumentClient initieras.
+Följande kodavsnitt är alla hämtade från filen `CosmosGetStarted.py`.
+
+* CosmosClient initieras.
 
     ```python
-    # Initialize the Python client
-    client = document_client.DocumentClient(config['ENDPOINT'], {'masterKey': config['MASTERKEY']})
+    # Initialize the Cosmos client
+    client = cosmos_client.CosmosClient(url_connection=config['ENDPOINT'], auth={'masterKey': config['MASTERKEY']})
     ```
 
 * En ny databas skapas.
 
     ```python
     # Create a database
-    db = client.CreateDatabase({ 'id': config['SQL_DATABASE'] })
+    db = client.CreateDatabase({ 'id': config['DATABASE'] })
     ```
 
 * En ny samling skapas.
@@ -103,64 +105,69 @@ Följande kodfragment har hämtats från filen DocumentDBGetStarted.py.
     ```python
     # Create collection options
     options = {
-        'offerEnableRUPerMinuteThroughput': True,
-        'offerVersion': "V2",
         'offerThroughput': 400
     }
 
-    # Create a collection
-    collection = client.CreateCollection(db['_self'], { 'id': config['SQL_COLLECTION'] }, options)
+    # Create a container
+    container = client.CreateContainer(db['_self'], container_definition, options)
     ```
 
-* Vissa dokument skapas.
+* Vissa objekt läggs till i containern.
 
     ```python
-    # Create some documents
-    document1 = client.CreateDocument(collection['_self'],
-        { 
-            'id': 'server1',
-            'Web Site': 0,
-            'Cloud Service': 0,
-            'Virtual Machine': 0,
-            'name': 'some' 
-        })
+    # Create and add some items to the container
+    item1 = client.CreateItem(container['_self'], {
+        'serverId': 'server1',
+        'Web Site': 0,
+        'Cloud Service': 0,
+        'Virtual Machine': 0,
+        'message': 'Hello World from Server 1!'
+        }
+    )
+
+    item2 = client.CreateItem(container['_self'], {
+        'serverId': 'server2',
+        'Web Site': 1,
+        'Cloud Service': 0,
+        'Virtual Machine': 0,
+        'message': 'Hello World from Server 2!'
+        }
+    )
     ```
 
 * En fråga utförs med hjälp av SQL
 
     ```python
-    # Query them in SQL
-    query = { 'query': 'SELECT * FROM server s' }    
-            
-    options = {} 
+    query = {'query': 'SELECT * FROM server s'}
+
+    options = {}
     options['enableCrossPartitionQuery'] = True
     options['maxItemCount'] = 2
 
-    result_iterable = client.QueryDocuments(collection['_self'], query, options)
-    results = list(result_iterable);
-
-    print(results)
+    result_iterable = client.QueryItems(container['_self'], query, options)
+    for item in iter(result_iterable):
+        print(item['message'])
     ```
 
 ## <a name="update-your-connection-string"></a>Uppdatera din anslutningssträng
 
 Gå nu tillbaka till Azure-portalen för att hämta information om din anslutningssträng och kopiera den till appen.
 
-1. Gå till [Azure-portalen](http://portal.azure.com/). Gå till ditt Azure Cosmos DB-konto och klicka på **Nycklar** i den vänstra navigeringspanelen. Använd kopieringsknapparna till höger på skärmen och kopiera **URI** och **Primärnyckel** till filen DocumentDBGetStarted.py i nästa steg.
+1. Gå till [Azure-portalen](http://portal.azure.com/). Gå till ditt Azure Cosmos DB-konto och klicka på **Nycklar** i den vänstra navigeringspanelen. Använd kopieringsknapparna till höger för att kopiera **URI** och **Primärnyckel** till filen `CosmosGetStarted.py` i nästa steg.
 
     ![Visa och kopiera åtkomstnyckeln i Azure Portal, bladet Nycklar](./media/create-sql-api-dotnet/keys.png)
 
-2. Öppna filen C:\git-samples\azure-cosmos-db-documentdb-python-getting-startedDocumentDBGetStarted.py i Visual Studio-koden. 
+2. Öppna filen `CosmosGetStarted.py` i C:\git-samples\azure-cosmos-db-python-getting-started i Visual Studio Code.
 
-3. Kopiera ditt **URI**-värde från portalen (med kopieringsknappen) och gör det till värdet för **slutpunkts**nyckeln i DocumentDBGetStarted.py. 
+3. Kopiera ditt **URI**-värde från portalen (med kopieringsknappen) och gör det till värdet för **slutpunktsnyckeln** i ``CosmosGetStarted.py``. 
 
     `'ENDPOINT': 'https://FILLME.documents.azure.com',`
 
-4. Kopiera sedan värdet för **PRIMÄRNYCKEL** från portalen och gör det till värdet för **config.MASTERKEY** i DocumentDBGetStarted.py. Du har nu uppdaterat din app med all information den behöver för att kommunicera med Azure Cosmos DB. 
+4. Kopiera sedan värdet för **PRIMÄRNYCKEL** från portalen och gör det till värdet för **config.PRIMARYKEY** i ``CosmosGetStarted.py``. Du har nu uppdaterat din app med all information den behöver för att kommunicera med Azure Cosmos DB. 
 
-    `'MASTERKEY': 'FILLME',`
+    `'PRIMARYKEY': 'FILLME',`
 
-5. Spara filen DocumentDBGetStarted.py.
+5. Spara filen ``CosmosGetStarted.py``.
     
 ## <a name="run-the-app"></a>Kör appen
 
@@ -172,27 +179,27 @@ Gå nu tillbaka till Azure-portalen för att hämta information om din anslutnin
 
 3. Välj **Visa** > **Integrerad terminal** så att den integrerade Visual Studio Code-terminalen öppnas.
 
-4. I fönstret för den integrerade terminalen kontrollerar du att du befinner dig i mappen azure-cosmos-db-documentdb-python-getting-started. Om du inte är det kör du följande kommando för att växla till exempelmappen. 
+4. I fönstret för den integrerade terminalen kontrollerar du att du befinner dig i mappen azure-cosmos-db-python-getting-started. Om du inte är det kör du följande kommando för att växla till exempelmappen. 
 
     ```
-    cd "C:\git-samples\azure-cosmos-db-documentdb-python-getting-started"`
+    cd "C:\git-samples\azure-cosmos-db-python-getting-started"`
     ```
 
-5. Kör följande kommando för att installera paketet pydocumentdb: 
+5. Kör följande kommando för att installera paketet azure-cosmos. 
 
     ```
-    pip3 install pydocumentdb
+    pip3 install azure-cosmos
     ```
 
-    Om du får ett felmeddelande om nekad åtkomst när du försöker installera pydocumentdb måste dur [köra VS Code som administratör](https://stackoverflow.com/questions/37700536/visual-studio-code-terminal-how-to-run-a-command-with-administrator-rights).
+    Om du får ett felmeddelande om nekad åtkomst när du försöker installera azure-cosmos måste du [köra VS Code som administratör](https://stackoverflow.com/questions/37700536/visual-studio-code-terminal-how-to-run-a-command-with-administrator-rights).
 
 6. Kör följande kommando för att köra exemplet och skapa och lagra nya dokument i Azure Cosmos dB.
 
     ```
-    python DocumentDBGetStarted.py
+    python CosmosGetStarted.py
     ```
 
-7. Bekräfta att nya dokument har skapats och sparats i Azure-portalen: välj **Data Explorer**, expandera **coll**, expandera **Dokument** och välj sedan dokumentet **server1**. Innehållet i dokumentet server1 matchar det innehåll som returneras i fönstret för den integrerade terminalen. 
+7. Bekräfta att de nya objekten har skapats och sparats i Azure-portalen: välj **Datautforskaren**, expandera **coll**, expandera **Dokument** och välj sedan dokumentet **server1**. Innehållet i dokumentet server1 matchar det innehåll som returneras i fönstret för den integrerade terminalen. 
 
     ![Visa de nya dokument i Azure-portalen](./media/create-sql-api-python/azure-cosmos-db-confirm-documents.png)
 

@@ -9,12 +9,12 @@ ms.service: iot-dps
 services: iot-dps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 40d6d149d07f55784e8428eb0faa943814195a47
-ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
+ms.openlocfilehash: 9eb80b085f979208999b6764d6e4014cdbcfd2a0
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "42023898"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47159133"
 ---
 # <a name="quickstart-provision-an-x509-simulated-device-using-the-azure-iot-c-sdk"></a>Snabbstart: Etablera en simulerad X.509-enhet med Azure IoT C SDK
 
@@ -39,12 +39,20 @@ Om du inte känner till processen för automatisk etablering bör du gå igenom 
 
 I det här avsnittet förbereder du en utvecklingsmiljö som används för att skapa [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c) som innehåller exempelkoden för X.509-startsekvensen.
 
-1. Ladda ned den senaste versionen av [CMake-byggesystemet](https://cmake.org/download/). Från samma webbplats söker du fram den kryptografiska hashen för den version av binär distribution som du valde. Kontrollera den hämta binära filen med hjälp av det motsvarande kryptografiska hashvärdet. I följande exempel används Windows PowerShell för att verifiera den kryptografisk hashen för version 3.11.4 av x64 MSI-distributionen:
+1. Ladda ned version 3.11.4 av [CMake-buildsystemet](https://cmake.org/download/). Kontrollera den hämta binära filen med hjälp av det motsvarande kryptografiska hashvärdet. I följande exempel används Windows PowerShell för att verifiera den kryptografisk hashen för version 3.11.4 av x64 MSI-distributionen:
 
     ```PowerShell
-    PS C:\Users\wesmc\Downloads> $hash = get-filehash .\cmake-3.11.4-win64-x64.msi
-    PS C:\Users\wesmc\Downloads> $hash.Hash -eq "56e3605b8e49cd446f3487da88fcc38cb9c3e9e99a20f5d4bd63e54b7a35f869"
+    PS C:\Downloads> $hash = get-filehash .\cmake-3.11.4-win64-x64.msi
+    PS C:\Downloads> $hash.Hash -eq "56e3605b8e49cd446f3487da88fcc38cb9c3e9e99a20f5d4bd63e54b7a35f869"
     True
+    ```
+    
+    Följande hash-värden för version 3.11.4 stod på CMake-webbplatsen när detta skrevs:
+
+    ```
+    6dab016a6b82082b8bcd0f4d1e53418d6372015dd983d29367b9153f1a376435  cmake-3.11.4-Linux-x86_64.tar.gz
+    72b3b82b6d2c2f3a375c0d2799c01819df8669dc55694c8b8daaf6232e873725  cmake-3.11.4-win32-x86.msi
+    56e3605b8e49cd446f3487da88fcc38cb9c3e9e99a20f5d4bd63e54b7a35f869  cmake-3.11.4-win64-x64.msi
     ```
 
     Det är viktigt att förutsättningarna för Visual Studio (Visual Studio och arbetsbelastningen ”Desktop development with C++” (Skrivbordsutveckling med C++)) är installerade på datorn **innan** installationen av `CMake` påbörjas. När förutsättningarna är uppfyllda och nedladdningen har verifierats installerar du CMake-byggesystemet.
@@ -65,7 +73,7 @@ I det här avsnittet förbereder du en utvecklingsmiljö som används för att s
     cd cmake
     ```
 
-4. I kodexemplet används ett X.509-certifikat för att tillhandahålla attestering via X.509-autentisering. Kör följande kommando som skapar en version av SDK:t som är specifik för plattformen för din utvecklingsklient. En Visual Studio-lösning för den simulerade enheten genereras i `cmake`-katalogen. 
+4. I kodexemplet används ett X.509-certifikat för att tillhandahålla attestering via X.509-autentisering. Kör följande kommando som skapar en version av SDK:t som är specifik för plattformen i din utvecklingsklient. En Visual Studio-lösning för den simulerade enheten genereras i `cmake`-katalogen. 
 
     ```cmd
     cmake -Duse_prov_client:BOOL=ON ..
@@ -95,10 +103,10 @@ I det här avsnittet förbereder du en utvecklingsmiljö som används för att s
 
 ## <a name="create-a-self-signed-x509-device-certificate"></a>Skapa ett självsignerat X.509-enhetscertifikat
 
-I det här avsnittet använder du ett självsignerat X.509-certifikat. Det är viktigt att tänka på följande:
+I det här avsnittet använder du ett självsignerat X.509-certifikat. Då måste du tänka på det här:
 
 * Självsignerade certifikat är endast till för testning och ska inte användas i produktion.
-* Standardutgångsdatumet för ett självsignerat certifikat är 1 år.
+* Standardutgångsdatumet för ett självsignerat certifikat är ett år.
 
 Du kommer att använda exempelkoden från Azure IoT C SDK för att skapa det certifikat som ska användas med posten för enskild registrering för den simulerade enheten.
 
@@ -110,9 +118,9 @@ Du kommer att använda exempelkoden från Azure IoT C SDK för att skapa det cer
 
 4. I Visual Studio-menyn väljer du **Felsökning** > **Starta utan felsökning** för att köra lösningen. I utdatafönstret anger du **i** för individuell registrering när du blir uppmanad till det. 
 
-    I utdatafönstret visas ett lokalt genererat, självsignerat X.509-certifikat för din simulerade enhet. Kopiera utdata till Urklipp som börjar på **-----BEGIN CERTIFICATE-----** och slutar på den första **-----END CERTIFICATE-----**, och se till att du får med båda raderna. Observera att du behöver bara det första certifikatet från fönstret Utmatning.
+    I utdatafönstret visas ett lokalt genererat, självsignerat X.509-certifikat för din simulerade enhet. Kopiera utdata till Urklipp som börjar på **-----BEGIN CERTIFICATE-----** och slutar på den första **-----END CERTIFICATE-----**, och se till att du får med båda raderna. Du behöver bara det första certifikatet från utdatafönstret.
  
-5. Använd en textredigerare och spara certifikatet till en ny fil med namnet **_X509testcert.pem_**. 
+5. Använd en textredigerare och spara certifikatet i en ny fil med namnet **_X509testcert.pem_**. 
 
 
 ## <a name="create-a-device-enrollment-entry-in-the-portal"></a>Skapa en post för enhetsregistrering i portalen
@@ -127,7 +135,7 @@ Du kommer att använda exempelkoden från Azure IoT C SDK för att skapa det cer
     - **Primär .pem- eller .cer-fil:** klicka på **Välj en fil** för att välja certifikatfilen X509testcert.pem, som du skapade tidigare.
     - **Enhets-ID för IoT Hub:** ange **test-docs-cert device** för att ge enheten ett ID.
 
-    [![Lägga till en enskild registrering för X.509-attestering i portalen](./media/quick-create-simulated-device-x509/individual-enrollment.png)](./media/quick-create-simulated-device-x509/individual-enrollment.png#lightbox)
+    [![Lägga till en enskild registrering för X.509-attestering i portalen](./media/quick-create-simulated-device-x509/device-enrollment.png)](./media/quick-create-simulated-device-x509/device-enrollment.png#lightbox)
 
     Om registreringen har lyckats visas din X.509-enhet som **riot-device-cert** under kolumnen *Registrerings-ID* på fliken *Enskilda registreringar*. 
 
@@ -180,7 +188,7 @@ I det här avsnittet uppdaterar du exempelkoden för att skicka enhetens startse
     test-docs-hub.azure-devices.net, deviceId: test-docs-cert-device    
     ```
 
-7. I portalen går du till den IoT-hubb som är kopplad till din etableringstjänst och klickar på fliken **IoT-enheter**. Vid lyckad etablering av den simulerade X.509-enheten till hubben visas dess enhets-ID på bladet **IoT-enheter** med *STATUS* **aktiverad**. Observera att du kan behöva klicka på knappen **Uppdatera** längst upp. 
+7. I portalen går du till den IoT-hubb som är kopplad till din etableringstjänst och klickar på fliken **IoT-enheter**. Vid lyckad etablering av den simulerade X.509-enheten till hubben visas dess enhets-ID på bladet **IoT-enheter** med *STATUS* **aktiverad**. Du kan behöva klicka på knappen **Uppdatera** längst upp. 
 
     ![Enheten är registrerad på IoT-hubben](./media/quick-create-simulated-device/hub-registration.png) 
 

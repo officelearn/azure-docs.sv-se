@@ -1,35 +1,37 @@
 ---
-title: Python Snabbstartsguide för Azure kognitiva-tjänster, Bing Video Sök API | Microsoft Docs
-description: Hämta information och exempel på kod för att snabbt komma igång med Bing Video Sök API i kognitiva Microsoft-tjänster i Azure.
+title: 'Snabbstart: Videosökning i Bing, Python'
+titlesuffix: Azure Cognitive Services
+description: Hämta information och kodexempel som hjälper dig att snabbt komma igång med API:et för videosökning i Bing.
 services: cognitive-services
 author: v-jerkin
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-video-search
-ms.topic: article
+ms.topic: quickstart
 ms.date: 9/21/2017
 ms.author: v-jerkin
-ms.openlocfilehash: ce4356f05e69540bc3bc3241e2ec1751ff7a7276
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
-ms.translationtype: MT
+ms.openlocfilehash: 797eb476aa3386949b08efb957edf48a97e40d6b
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35352341"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47220030"
 ---
-# <a name="quickstart-for-bing-video-search-api-with-python"></a>Snabbstart för Bing Video sökning API med Python
+# <a name="quickstart-bing-video-search-api-with-python"></a>Snabbstart: API för videosökning i Bing med Python
 
-Den här genomgången visar hur du använder API Bing Video sökning, en del av Microsoft kognitiva Services på Azure. Referera till den [API-referens](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference) teknisk information om API: erna.
+Den här genomgången beskriver hur du använder API:et för videosökning i Bing, som är en del av Microsoft Cognitive Services i Azure. Teknisk information om API:erna finns i [API-referensen](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference).
 
-Du kan köra det här exemplet som en Jupyter-anteckningsbok på [MyBinder](https://mybinder.org) genom att klicka på Starta Binder badge: 
+Du kan köra det här exemplet som en Jupyter Notebook på [MyBinder](https://mybinder.org) genom att klicka på ikonen för att starta Binder: 
 
 [![Binder](https://mybinder.org/badge.svg)](https://mybinder.org/v2/gh/Microsoft/cognitive-services-notebooks/master?filepath=BingVideoSearchAPI.ipynb)
 
 
-## <a name="prerequisites"></a>Förutsättningar
-Du måste ha en [kognitiva Services API-konto](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) med **API: er för Bing Search**. Den [kostnadsfri utvärderingsversion](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) är tillräcklig för den här snabbstarten. Du måste åtkomstnyckel som tillhandahållits när du aktiverar din kostnadsfria utvärderingsversion eller du kan använda en betald prenumeration nyckel från instrumentpanelen i Azure.
+## <a name="prerequisites"></a>Nödvändiga komponenter
+Du måste ha ett [API-konto för Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) med **API:er för Bing-sökresultat**. Det räcker med en [kostnadsfri utvärderingsversion](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) för den här snabbstarten. Du behöver den åtkomstnyckel som du fick när du aktiverade din kostnadsfria utvärderingsversion, eller så kan du använda en betald prenumerationsnyckel från instrumentpanelen i Azure.
 
-## <a name="running-the-walkthrough"></a>Kör den här genomgången
+## <a name="running-the-walkthrough"></a>Köra genomgången
 
-Ange först `subscription_key` till API-nyckel för Bing-API-tjänsten.
+Ställ först in `subscription_key` till din API-nyckel för Bing API-tjänsten.
 
 
 ```python
@@ -37,21 +39,21 @@ subscription_key = None
 assert subscription_key
 ```
 
-Därefter kontrollerar du att den `search_url` slutpunkten är korrekt. När detta skrivs används endast en slutpunkt för Bing search API: er. Om du stöter på fel auktorisering, kontrollera det här värdet mot Bing search slutpunkten i instrumentpanelen i Azure.
+Därefter kontrollerar du att `search_url`-slutpunkten är korrekt. När detta skrivs är används endast en slutpunkt för API:er för Bing-sökresultat. Om du stöter på auktoriseringsfel kontrollerar du detta värde mot slutpunkten för Bing-sökmotorn i Azure-instrumentpanelen.
 
 
 ```python
 search_url = "https://api.cognitive.microsoft.com/bing/v7.0/videos/search"
 ```
 
-Ange `search_term` att leta efter videor för kattungar
+Ange `search_term` till att söka efter videor med kattungar
 
 
 ```python
 search_term = "kittens"
 ```
 
-Följande blockera använder den `requests` bibliotek i Python att anropa till API: er för Bing-sökningen och returnerar resultatet som ett JSON-objekt. Observera att vi skicka in API-nyckel via den `headers` ordlista och sökningen term via den `params` ordlistan. Om du vill se en fullständig lista över alternativ som kan användas för att filtrera sökresultaten avser den [REST API](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference) dokumentation.
+Följande blocket använder `requests`-biblioteket i Python för att anropa API:er för Bing-sökresultat och returnera resultatet som ett JSON-objekt. Observera att vi skickar in API-nyckeln via `headers`-ordlistan och söktermen via `params`-ordlistan. En fullständig lista över alternativ som kan användas för att filtrera sökresultaten läser finns i dokumentation till [REST API](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference).
 
 
 ```python
@@ -64,7 +66,7 @@ response.raise_for_status()
 search_results = response.json()
 ```
 
-Den `search_results` objektet innehåller de relevanta videorna tillsammans med omfattande metadata. Visa en videor, använda dess `embedHtml` egenskapen och infoga det i en `IFrame`.
+`search_results`-objektet innehåller de relevanta videorna tillsammans med omfattande metadata. Visa ett videoklipp genom att använda dess `embedHtml`-egenskap och infoga den i en `IFrame`.
 
 
 ```python
@@ -75,9 +77,9 @@ HTML(search_results["value"][0]["embedHtml"].replace("autoplay=1","autoplay=0"))
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Sidindelning videor](paging-videos.md)
-> [Resizing och Beskär miniatyrbilder](resize-and-crop-thumbnails.md)
+> [Sidindelning av videor](paging-videos.md)
+> [Ändra storlek på och beskära miniatyrbilder](resize-and-crop-thumbnails.md)
 
-## <a name="see-also"></a>Se också 
+## <a name="see-also"></a>Se även 
 
- [Söka på webben efter videor](search-the-web.md) [prova](https://azure.microsoft.com/services/cognitive-services/bing-video-search-api/)
+ [Söka på webben efter videor](search-the-web.md) [Prova](https://azure.microsoft.com/services/cognitive-services/bing-video-search-api/)

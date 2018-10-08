@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 07/03/2018
+ms.date: 09/14/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: f659c424f7d5e705343c113d2ba0971164ca622a
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: fcc9f338ad69322091199ce9d5d2d1d6f9f2165e
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43108814"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47227290"
 ---
 # <a name="quickstart-create-a-linux-virtual-machine-in-the-azure-portal"></a>Snabbstart: Skapa en virtuell Linux-dator i Azure Portal
 
@@ -49,26 +49,27 @@ Logga in på Azure Portal på http://portal.azure.com
 
 1. Välj **Skapa en resurs** längst upp till vänster i Azure Portal.
 
-2. I sökrutan ovanför listan över Azure Marketplace-resurser, söker du efter och väljer **Ubuntu Server 16.04 LTS** av Canonical och väljer sedan **Skapa**.
+1. I sökrutan ovanför listan över Azure Marketplace-resurser, söker du efter och väljer **Ubuntu Server 16.04 LTS** av Canonical och väljer sedan **Skapa**.
 
-3. Ange ett namn på den virtuella datorn, till exempel *myVM*, lämna disktypen som *SSD* och ange sedan ett användarnamn, som *azureuser*.
+1. På fliken **Grundläggande inställningar** går du till **Projektinformation**, kontrollerar att korrekt prenumeration har valts och väljer sedan **Skapa ny** under **Resursgrupp**. I popup-fönstret skriver du *myResourceGroup* för namnet på resursgruppen och väljer sedan **OK*. 
 
-4. Som **autentiseringstyp** väljer du **offentlig SSH-nyckel** och klistrar in den offentliga nyckeln i textrutan. Var noga med att ta bort eventuella inledande eller avslutande blanksteg i din offentliga nyckel.
+    ![Skapa en ny resursgrupp för din virtuella dator](./media/quick-create-portal/project-details.png)
 
-    ![Ange grundläggande information om de virtuella datorerna på portalens blad](./media/quick-create-portal/create-vm-portal-basic-blade.png)
+1. Under **Instansinformation** skriver du *myVM* för **Namn på virtuell dator** och väljer *USA, östra* som **Region**. Låt de övriga standardvärdena vara som de är.
 
-5. Välj att **Skapa ny** resursgrupp och ange sedan ett namn, till exempel *myResourceGroup*. Välj din önskade **Plats** och välj **OK**.
+    ![Avsnittet Instansinformation](./media/quick-create-portal/instance-details.png)
 
-4. Välj en storlek för den virtuella datorn. Du kan till exempel filtrera efter *Beräkningstyp* eller *Disktyp*. En föreslagen virtuell datorstorlek är *D2s_v3*.
+1. Under **Administratörskonto** väljer du **Offentlig SSH-nyckel**, skriver ditt användarnamn och klistrar sedan in den offentliga nyckeln i textrutan. Ta bort eventuella inledande eller avslutande blanksteg i din offentliga nyckel.
 
-    ![Skärmbild som visar storlekar på virtuella datorer](./media/quick-create-portal/create-linux-vm-portal-sizes.png)
+    ![Administratörskonto](./media/quick-create-portal/administrator-account.png)
 
-5. På sidan **Inställningar** går du till **Nätverk** > **Nätverkssäkerhetsgrupp** > **Välj offentliga ingående portar** och väljer **HTTP** och **SSH (22)**. Lämna resten av standardinställningarna och välj **OK**.
+1. Under **Regler för inkommande portar** > **Offentliga inkommande portar** väljer du **Tillåt valda portar** och väljer sedan **SSH (22)** och **HTTP (80)** från listrutan. 
 
-6. På sammanfattningssidan klickar du på **Skapa** för att starta distributionen av den virtuella datorn.
+    ![Öppna portar för RDP och HTTP](./media/quick-create-portal/inbound-port-rules.png)
 
-7. Den virtuella datorn fästs på Azure Portals instrumentpanel. När distributionen är klar öppnas sammanfattningen för den virtuella datorn automatiskt.
+1. Låt de återstående standardinställningarna vara och välj sedan knappen **Granska + skapa** längst ned på sidan.
 
+    
 ## <a name="connect-to-virtual-machine"></a>Ansluta till den virtuella datorn
 
 Skapa en SSH-anslutning med den virtuella datorn.

@@ -1,22 +1,23 @@
 ---
-title: Analysera text med naturligt språk i Language Understanding Intelligent Service (LUIS) med hjälp av C# – Azure Cognitive Services | Microsoft Docs
+title: Snabbstart i C# – förutspå avsikter – LUIS
+titleSuffix: Azure Cognitive Services
 description: I den här snabbstarten använder du en tillgänglig offentlig LUIS-app för att fastställa användarens avsikt i konversationstext. Skicka med hjälp av C# användarens avsikt som text till den offentliga appens HTTP-slutpunkt för förutsägelse. Vid slutpunkten tillämpar LUIS den offentliga appens modell för att analysera betydelsen av text med naturligt språk, och fastställa den övergripande avsikten och extrahera data som är relevanta för appens ämnesdomän.
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: quickstart
-ms.date: 08/23/2018
+ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: b6ddd48fc6bfa5c099e42f3717a2113f871b4f9a
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: 51c23029cc771db5351575ce329944a9f06dd286
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44163268"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47035852"
 ---
-# <a name="quickstart-analyze-text-using-c"></a>Snabbstart: Analysera text med hjälp av C#
+# <a name="quickstart-get-intent-using-c"></a>Snabbstart: Hämta avsikter med hjälp av C#
 
 [!INCLUDE [Quickstart introduction for endpoint](../../../includes/cognitive-services-luis-qs-endpoint-intro-para.md)]
 
@@ -35,11 +36,11 @@ ms.locfileid: "44163268"
 
 [!INCLUDE [Use authoring key for endpoint](../../../includes/cognitive-services-luis-qs-endpoint-get-key-para.md)]
 
-## <a name="analyze-text-with-browser"></a>Analysera text med webbläsare
+## <a name="get-intent-with-browser"></a>Hämta avsikter i en webbläsare
 
 [!INCLUDE [Use authoring key for endpoint](../../../includes/cognitive-services-luis-qs-endpoint-browser-para.md)]
 
-## <a name="analyze-text-with-c"></a>Analysera text med C# 
+## <a name="get-intent-programmatically"></a>Hämta avsikter programmatiskt
 
 Använd C# för att fråga förutsägelseslutpunktens GET-[API](https://westus.dev.cognitive.microsoft.com/docs/services/5819c76f40a6350ce09de1ac/operations/5819c77140a63516d81aee78) för att få samma resultat som du såg i webbläsarfönstret i det föregående avsnittet. 
 

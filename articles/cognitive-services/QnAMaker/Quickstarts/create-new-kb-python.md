@@ -1,24 +1,27 @@
 ---
-title: Skapa en ny kunskapsbas – Python-snabbstart – för Microsoft QnA Maker API (V4) – Azure Cognitive Services | Microsoft Docs
-description: Skapa en kunskapsbas i Python för att lagra vanliga frågor och svar eller produkthandböcker, så att du kan komma igång med QnA Maker.
+title: 'Snabbstart: API Python – Skapa kunskapsbas – QnA Maker'
+titlesuffix: Azure Cognitive Services
+description: Den här snabbstarten går igenom skapandet av ett exempel på QnA Maker-kunskapsbas, programmässigt, som visas i Azure-instrumentpanelen för ditt Cognitive Services-API-konto.
 services: cognitive-services
-author: noellelacharite
-manager: nolachar
+author: diberry
+manager: cgronlun
 ms.service: cognitive-services
 ms.technology: qna-maker
 ms.topic: quickstart
-ms.date: 06/15/2018
-ms.author: nolachar
-ms.openlocfilehash: a8e3ae73c76c13d44267f221d37a07eea721a608
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.date: 09/12/2018
+ms.author: diberry
+ms.openlocfilehash: 9a3b801058a2614b9b484a3ebf414a9225c5371e
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "43771387"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47033302"
 ---
 # <a name="create-a-new-knowledge-base-in-python"></a>Skapa en ny kunskapsbas i Python
 
 Den här snabbstarten går igenom skapandet av ett exempel på QnA Maker-kunskapsbas, programmässigt, som visas i Azure-instrumentpanelen för ditt Cognitive Services-API-konto.
+
+[!INCLUDE [Code is available in Azure-Samples Github repo](../../../../includes/cognitive-services-qnamaker-python-repo-note.md)]
 
 Två exempel på URL:er för vanliga frågor och svar (i **req**-katalogobjektet ”urls”). QnA Maker extraherar automatiskt frågor och svar från delvis strukturerat innehåll, som vanliga frågor och svar, enligt den utförligare beskrivningen i det här dokumentet om [datakällor](../Concepts/data-sources-supported.md). Du kan också använda egna URL:er för vanliga frågor och svar i den här snabbstarten.
 

@@ -1,63 +1,63 @@
 ---
-title: Skapa en enkel app med två avsikter – Azure | Microsoft Docs
-description: I den här självstudien får du lära dig hur du skapar du en enkel LUIS-app med två avsikter (inga entiteter) för att identifiera användaryttranden.
+title: 'Självstudie 1: Hitta avsikter i anpassade LUIS-appar'
+titleSuffix: Azure Cognitive Services
+description: Skapa en anpassad app som förutspår en användares avsikt. Den här appen är den enklaste typen av LUIS-app eftersom den inte extraherar olika dataelement från yttranden, som e-postadresser eller datum.
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: tutorial
-ms.date: 08/02/2018
+ms.date: 09/09/2018
 ms.author: diberry
-ms.openlocfilehash: 3f23ade2b0256c72c344e2a619227a79e3c79a47
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: b229dbc90f3f6ecc226c88ee393114f233bcf1a2
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44160123"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47035417"
 ---
-# <a name="tutorial-1-build-app-with-custom-domain"></a>Självstudie: 1. Skapa en app med en anpassad domän
-I den här självstudien skapar du en app som visar hur du använder **avsikter** för att ta reda på användarens _avsikt_ baserat på yttrandet (texten) de skickar till appen. När du är klar har du en LUIS-slutpunkt som körs i molnet.
+# <a name="tutorial-1-build-custom-app-to-determine-user-intentions"></a>Självstudie 1: Skapa en anpassad app som identifierar vad en användare vill
 
-Den här appen är den enklaste typen av LUIS-app eftersom den inte extraherar data från yttranden. Den bestämmer bara användarens avsikt med yttrandet.
+I den här självstudien skapar du en anpassad Human Resources-app som förutspår vad en användare vill baserat på yttrandet (text). När du är klar har du en LUIS-slutpunkt som körs i molnet.
 
-<!-- green checkmark -->
+Syftet med appen är att avgöra syftet med en konversationsbaserad text på naturligt språk. Dessa syften är indelade i **avsikter**. Den här appen innehåller ett par avsikter. Den första avsikten, **`GetJobInformation`**, identifierar när en användare vill ha information om lediga tjänster i ett företag. Den andra avsikten **`None`** används för yttranden från användaren som ligger utanför appens _domän_ (omfattning). Senare läggs en tredje avsikt, **`ApplyForJob`**, till för yttranden om att söka ett jobb. Den här tredje avsikten skiljer sig från `GetJobInformation` eftersom jobbinformationen redan bör vara känd när någon söker jobbet. Beroende på ordval kan det dock vara svårt att avgöra vad avsikten är eftersom båda handlar om ett jobb.
+
+När LUIS returnerar JSON-svaret är LUIS färdig med förfrågningen. LUIS svarar inte på användarnas yttranden utan identifierar bara vilken typ av information som efterfrågas på det naturliga språket. 
+
+**I den här självstudiekursen får du lära du dig att:**
+
 > [!div class="checklist"]
-> * Skapa en ny app för en HR-domän (Human Resources) 
-> * Lägga till avsikten GetJobInformation
-> * Lägga till exempelyttranden i avsikten GetJobInformation 
-> * Träna och publicera appen
-> * Skicka en fråga till appens slutpunkt för att se LUIS JSON-svar
-> * Lägga till avsikten ApplyForJob
-> * Lägga till exempelyttranden i avsikten ApplyForJob 
-> * Träna, publicera och fråga slutpunkten igen 
+> * Skapa en ny app 
+> * Skapa avsikter
+> * Lägga till exempelyttranden
+> * Träna appen
+> * Publicera app
+> * Hämta avsikter från en slutpunkt
 
 [!INCLUDE [LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
 
-## <a name="purpose-of-the-app"></a>Syftet med appen
-Den här appen innehåller ett par avsikter. Den första avsikten, **`GetJobInformation`**, identifierar när en användare vill ha information om lediga tjänster i ett företag. Den andra avsikten, **`None`**, identifierar alla andra typer av yttranden. Senare i snabbstarten lägger vi till en tredje avsikt, `ApplyForJob`. 
-
 ## <a name="create-a-new-app"></a>Skapa en ny app
-1. Logga in på [LUIS](luis-reference-regions.md#luis-website)-webbplatsen. Se till att logga in på den [region](luis-reference-regions.md#publishing-regions) där du behöver få LUIS-slutpunkterna publicerade.
 
-2. På [LUIS](luis-reference-regions.md#luis-website)-webbplatsen väljer du **Create new app** (Skapa ny app).  
+1. Logga in på LUIS-portalen med webbadressen [https://www.luis.ai](https://www.luis.ai). 
 
-    [![](media/luis-quickstart-intents-only/app-list.png "Skärmbild av sidan Mina appar")](media/luis-quickstart-intents-only/app-list.png#lightbox)
+2. Välj **Create new app** (Skapa ny app).  
 
-3. I popup-dialogrutan anger du namnet `HumanResources`. Den här appen hanterar frågor om ditt företags HR-avdelning. Avdelningen hanterar anställningsfrågor, till exempel lediga tjänster i företaget.
+    [![](media/luis-quickstart-intents-only/app-list.png "Skärmbild av LUIS-sidan Mina appar")](media/luis-quickstart-intents-only/app-list.png#lightbox)
+
+3. I dialogrutan anger du namnet `HumanResources` och behåller standardkulturen **Engelska**. Lämna beskrivningen tom.
 
     ![Ny LUIS-app](./media/luis-quickstart-intents-only/create-app.png)
 
-4. När processen är klar visar appen sidan **Intents** (Avsikter) med avsikten **None** (Ingen). 
+    Appen visar sedan sidan **Avsikter** med avsikten **Ingen**.
 
-## <a name="create-getjobinformation-intention"></a>Skapa avsikten GetJobInformation
-1. Välj **Create new intent** (Skapa ny avsikt). Ange det nya avsiktsnamnet `GetJobInformation`. Den här avsikten förväntas varje gång en användare vill ha information om lediga tjänster på ditt företag.
+## <a name="getjobinformation-intent"></a>Avsikten GetJobInformation
 
-    ![](media/luis-quickstart-intents-only/create-intent.png "Skärmbild på dialogrutan New intent (Ny avsikt)")
+1. Välj **Create new intent** (Skapa ny avsikt). Ange det nya avsiktsnamnet `GetJobInformation`. Den här avsikten förväntas varje gång en användare vill ha information om lediga tjänster på företaget.
 
-    Genom att skapa en avsikt skapar du en kategori för information som du vill identifiera. Tack vare att kategorin får ett namn kan andra program som använder LUIS-frågeresultaten använda det kategorinamnet för att hitta ett lämpligt svar. LUIS svarar inte på de här frågorna, utan identifierar bara vilken typ av information som efterfrågas på ett naturligt språk. 
+    ![](media/luis-quickstart-intents-only/create-intent.png "Skärmbild av LUIS-sidan Ny avsikt")
 
-2. Lägg till sju yttranden till avsikten som du förväntar dig att en användare begär, till exempel:
+2. Genom att tillhandahålla _exempelyttranden_ tränar du LUIS i vilka typer av yttranden som ska förväntas i samband med den här avsikten. Lägg till flera exempelyttranden till den här avsikten som du förväntar dig att en användare kan fråga, till exempel:
 
     | Exempel på yttranden|
     |--|
@@ -71,9 +71,17 @@ Den här appen innehåller ett par avsikter. Den första avsikten, **`GetJobInfo
 
     [![](media/luis-quickstart-intents-only/utterance-getstoreinfo.png "Skärmbild av hur du anger nya yttranden för avsikten MyStore (MittArkiv)")](media/luis-quickstart-intents-only/utterance-getstoreinfo.png#lightbox)
 
-3. LUIS-appen har för närvarande inga yttranden för avsikten **None** (Ingen). Den måste ha yttranden som appen inte besvarar. Lämna den inte tom. Välj **Intents** (Avsikter) på den vänstra panelen. 
+    [!include[Do not use too few utterances](../../../includes/cognitive-services-luis-too-few-example-utterances.md)]    
 
-4. Välj avsikten **None** (Ingen). Lägg till tre yttranden som din användare kan tänkas ange men som inte är relevanta för appen. Exempel på bra yttranden för avsikten **None** (Ingen) om appen används för jobbannonser:
+
+## <a name="none-intent"></a>Avsikten Ingen 
+Klientprogrammet behöver veta om ett yttrande ligger utanför appens domän. Om LUIS returnerar avsikten **Ingen** för ett yttrande kan klientprogrammet fråga om användaren vill avsluta konversationen. Klientprogrammet kan även ge fler anvisningar för att fortsätta konversationen om användaren inte vill avsluta den. 
+
+Dessa exempelyttranden, som ligger utanför ämnesområdet, samlas under avsikten **Ingen**. Lämna den inte tom. 
+
+1. Välj **Intents** (Avsikter) på den vänstra panelen.
+
+2. Välj avsikten **None** (Ingen). Lägg till tre yttranden som användarna kan tänkas ange men som inte är relevanta för Human Resources-appen. Exempel på yttranden för avsikten **Ingen** om appen används för jobbannonser:
 
     | Exempel på yttranden|
     |--|
@@ -81,25 +89,24 @@ Den här appen innehåller ett par avsikter. Den första avsikten, **`GetJobInfo
     |Beställ en pizza åt mig|
     |Pingviner i havet|
 
-    I det LUIS-anropande programmet, till exempel en chattrobot, kan roboten, om LUIS returnerar avsikten **None** (Ingen) för ett yttrande, fråga om användaren vill avsluta konversationen. Chattroboten kan även ge fler anvisningar för att fortsätta konversationen om användaren inte vill avsluta den. 
 
-## <a name="train-and-publish-the-app"></a>Träna och publicera appen
+## <a name="train"></a>Träna 
 
 [!INCLUDE [LUIS How to Train steps](../../../includes/cognitive-services-luis-tutorial-how-to-train.md)]
 
-## <a name="publish-app-to-endpoint"></a>Publicera app till slutpunkt
+## <a name="publish"></a>Publicera
 
 [!INCLUDE [LUIS How to Publish steps](../../../includes/cognitive-services-luis-tutorial-how-to-publish.md)] 
 
-## <a name="query-endpoint-for-getjobinformation-intent"></a>Fråga slutpunkten om avsikten GetJobInformation
+## <a name="get-intent"></a>Hämta avsikt
 
 1. [!INCLUDE [LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)]
 
-2. Gå till slutet av URL:en i adressen och ange `I'm looking for a job with Natual Language Processing`. Den sista frågesträngsparametern är `q`, yttrande**frågan**. Det här yttrandet är inte samma som något av exempelyttrandena i steg 4. Därför är det ett bra test och bör returnera avsikten `GetJobInformation` som den avsikt som har högst poäng. 
+2. Gå till slutet av webbadressen i adressfältet och ange `I'm looking for a job with Natural Language Processing`. Den sista frågesträngsparametern är `q`, yttrande**frågan**. Det här yttrandet är inte identiskt med något av exempelyttrandena. Det är ett bra test och bör returnera avsikten `GetJobInformation` som avsikten med högst poäng. 
 
-    ```
+    ```JSON
     {
-      "query": "I'm looking for a job with Natual Language Processing",
+      "query": "I'm looking for a job with Natural Language Processing",
       "topScoringIntent": {
         "intent": "GetJobInformation",
         "score": 0.8965092
@@ -118,8 +125,12 @@ Den här appen innehåller ett par avsikter. Den första avsikten, **`GetJobInfo
     }
     ```
 
-## <a name="create-applyforjob-intention"></a>Skapa avsikten ApplyForJob
-Gå tillbaka till webbläsarfliken för LUIS-webbplatsen och skapa en ny avsikt för att söka ett jobb.
+    Resultatet innehåller **alla avsikter** i appen, för närvarande 2. Entitetsmatrisen är tom eftersom appen för närvarande inte har några entiteter. 
+
+    I JSON-resultatet identifieras avsikten med högst poäng i egenskapen **`topScoringIntent`**. Alla poäng är mellan 1 och 0, ju närmare 1 desto bättre. 
+
+## <a name="applyforjob-intent"></a>Avsikten ApplyForJob
+Gå tillbaka till LUIS-webbplatsen och skapa en ny avsikt för att avgöra om användarens yttrande handlar om att söka ett jobb.
 
 1. Välj **Build** (Skapa) på menyn längst upp till höger för att återgå till sidan för att skapa appen.
 
@@ -143,15 +154,21 @@ Gå tillbaka till webbläsarfliken för LUIS-webbplatsen och skapa en ny avsikt 
 
     Den märkta avsikten är markerad i rött eftersom LUIS för närvarande är osäker på om avsikten är korrekt. Genom träning av appen informeras LUIS om att yttrandena gäller rätt avsikt. 
 
-    [Träna och publicera](#train-and-publish-the-app) igen. 
+## <a name="train-again"></a>Träna igen
 
-## <a name="query-endpoint-for-applyforjob-intent"></a>Fråga slutpunkten om avsikten ApplyForJob
+[!include[LUIS How to Train steps](../../../includes/cognitive-services-luis-tutorial-how-to-train.md)]
+
+## <a name="publish-again"></a>Publicera igen
+
+[!include[LUIS How to Publish steps](../../../includes/cognitive-services-luis-tutorial-how-to-publish.md)] 
+
+## <a name="get-intent-again"></a>Hämta avsikt igen
 
 1. [!INCLUDE [LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)]
 
 2. I det nya webbläsarfönstret anger du `Can I submit my resume for job 235986` i slutet av URL:en. 
 
-    ```
+    ```JSON
     {
       "query": "Can I submit my resume for job 235986",
       "topScoringIntent": {
@@ -176,19 +193,15 @@ Gå tillbaka till webbläsarfliken för LUIS-webbplatsen och skapa en ny avsikt 
     }
     ```
 
-## <a name="what-has-this-luis-app-accomplished"></a>Vad har den här LUIS-appen åstadkommit?
-Den här appen har med bara några få avsikter identifierat en fråga på ett naturligt språk som har samma avsikt, men som använder andra ord. 
-
-JSON-resultatet identifierar avsikten med högst poäng. Alla poäng är mellan 1 och 0, ju närmare 1 desto bättre. Poängen för avsikterna `GetJobInformation` och `None` är mycket närmare noll. 
-
-## <a name="where-is-this-luis-data-used"></a>Var används dessa LUIS-data? 
-LUIS är klar med den här begäran. Det anropande programmet, till exempel en chattrobot, kan ta topScoringIntent-resultatet och antingen hitta information (som inte lagras i LUIS) för att besvara frågan eller avsluta konversationen. Det här är programmatiska alternativ för roboten eller det anropande programmet. LUIS utför inte det arbetet. LUIS tar endast reda på vad användarens avsikt är. 
+    Resultatet innehåller den nya avsikten **ApplyForJob** samt befintliga avsikter. 
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
 [!INCLUDE [LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]
 
 ## <a name="next-steps"></a>Nästa steg
+
+I den här självstudien har du skapat appen Human Resources, skapat 2 avsikter, lagt till exempelyttranden för varje avsikt, lagt till exempelyttranden för avsikten Ingen samt tränat upp, publicerat och testat vid slutpunkten. Det här är de grundläggande stegen i att skapa en LUIS-modell. 
 
 > [!div class="nextstepaction"]
 > [Lägga till fördefinierade avsikter och entiteter i appen](luis-tutorial-prebuilt-intents-entities.md)

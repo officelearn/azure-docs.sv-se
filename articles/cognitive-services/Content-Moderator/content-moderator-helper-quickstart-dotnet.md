@@ -1,45 +1,46 @@
 ---
-title: Azure innehåll kontrollant SDK för .NET hjälpmetod | Microsoft Docs
-description: Hur du återställer en innehåll kontrollant-klient som använder Azure innehåll kontrollant SDK för .NET
+title: 'Snabbstart: Content Moderator-SDK för .NET-hjälpmetoden'
+titlesuffix: Azure Cognitive Services
+description: Skicka tillbaka en Content Moderator-klient med hjälp av Azure Content Moderator-SDK för .NET
 services: cognitive-services
 author: sanjeev3
-manager: mikemcca
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: content-moderator
-ms.topic: article
+ms.topic: quickstart
 ms.date: 01/04/2018
 ms.author: sajagtap
-ms.openlocfilehash: 36f2124708731f78f34849d8210ed39ea8f59140
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
-ms.translationtype: MT
+ms.openlocfilehash: 0c167de3af8aea6820962e7cc8d0c21f5ba61807
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35351468"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47223278"
 ---
-# <a name="helper-code-to-return-a-content-moderator-client"></a>Helper-kod för att returnera en innehåll kontrollant-klient
+# <a name="quickstart-helper-code-to-return-a-content-moderator-client"></a>Snabbstart: Hjälpkod för att returnera en Content Moderator-klient
 
-Den här artikeln innehåller information och kodexempel som hjälper dig att komma igång med innehåll kontrollant SDK för .NET för att skapa en innehåll kontrollant klient för din prenumeration.
+Den här artikeln innehåller information och kodexempel som hjälper dig att komma igång med Content Moderator-SDK:n för .NET, så att du kan skapa en Content Moderator-klient till din prenumeration.
 
-Biblioteket används av andra Snabbstart i det här avsnittet.
+Biblioteket används av andra snabbstarter i det här avsnittet.
 
 Den här artikeln förutsätter att du redan är bekant med Visual Studio och C#.
 
 > [!IMPORTANT]
-> Den här Klassbiblioteket innehåller koden avsedd endast i demonstrationssyfte.
-> Om du anpassa den här koden för användning i produktion ska du använda en säker metod för att lagra och med din prenumeration innehåll kontrollant-nyckel.
+> Klassbiblioteket innehåller kod som endast är avsedd att användas i demonstrationssyfte.
+> Om du anpassar koden för användning i produktion, bör du använda en säker metod för att lagra och använda prenumerationsnyckeln till Content Moderator.
 
-## <a name="sign-up-for-content-moderator-services"></a>Registrera dig för innehåll kontrollant services
+## <a name="sign-up-for-content-moderator-services"></a>Registrera dig för Content Moderator-tjänster
 
-Innan du kan använda innehåll kontrollant tjänster via REST API eller SDK behöver du en prenumeration för.
-Referera till den [Quickstart](quick-start.md) att lära dig hur du kan hämta nyckeln.
+Innan du kan använda Content Moderator-tjänster via REST-API:n eller SDK:n behöver du en prenumerationsnyckel.
+Information om hur du hämtar nyckeln finns i [Snabbstart](quick-start.md).
 
 ## <a name="create-your-visual-studio-project"></a>Skapa ett Visual Studio-projekt
 
-1. Skapa en ny **Class Library (.NET Framework)** projekt.
+1. Skapa ett nytt projekt för **Klassbibliotek (.NET Framework)**.
 
-   I exempelkoden är namnet I projektet **ModeratorHelper**.
+   I exempelkoden har jag döpt projektet till **ModeratorHelper**.
 
-1. Lägg till en referens till den **System.Configuration** Framework-sammansättning.
+1. Lägg till en referens i Framework-sammansättningen **System.Configuration**.
 
 ### <a name="install-required-packages"></a>Installera de paket som krävs
 
@@ -49,9 +50,9 @@ Installera följande NuGet-paket:
 - Microsoft.Rest.ClientRuntime
 - Newtonsoft.Json
 
-### <a name="create-the-content-moderator-client"></a>Skapa innehåll kontrollant-klient
+### <a name="create-the-content-moderator-client"></a>Skapa Content Moderator-klienten
 
-Ersätt innehållet i filen ModeratorHelper.cs med följande kod:
+Ersätt innehållet i ModeratorHelper.cs-filen med följande kod:
 
     using Microsoft.CognitiveServices.ContentModerator;
 
@@ -102,10 +103,10 @@ Ersätt innehållet i filen ModeratorHelper.cs med följande kod:
 
 
 > [!IMPORTANT]
-> Uppdatering av **AzureRegion** och **CMSubscriptionKey** fält med värdena i din region identifierare och prenumeration nyckel.
+> Uppdatera fälten **AzureRegion** och **CMSubscriptionKey** med värdena för din regionsidentifierare och prenumerationsnyckel.
 
-Nu har du ett snabbt sätt att skapa en innehåll kontrollant klient för din prenumeration.
+Du har nu snabbt skapat en Content Moderator-klient för din prenumeration.
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Hämta Visual Studio-lösningen](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/ContentModerator) för denna och andra innehåll kontrollant Snabbstart för .NET, och komma igång med din integrering.
+[Ladda ned Visual Studio-lösningen](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/ContentModerator) för den här och andra Content Moderator-snabbstarter för .NET och sätt igång med din integrering.

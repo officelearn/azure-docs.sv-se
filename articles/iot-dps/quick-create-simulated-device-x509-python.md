@@ -10,12 +10,12 @@ services: iot-dps
 manager: timlt
 ms.devlang: python
 ms.custom: mvc
-ms.openlocfilehash: c058d991d2655985d24b66cc1c6f30da3ddb7785
-ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
+ms.openlocfilehash: b2346276def178461a04eed008cc21fb22dc8464
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "42022489"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47040558"
 ---
 # <a name="create-and-provision-a-simulated-x509-device-using-python-device-sdk-for-iot-hub-device-provisioning-service"></a>Skapa och etablera en simulerad X.509-enhet med Python-enhets-SDK för IoT Hub Device Provisioning-tjänsten
 [!INCLUDE [iot-dps-selector-quick-create-simulated-device-x509](../../includes/iot-dps-selector-quick-create-simulated-device-x509.md)]
@@ -57,26 +57,38 @@ Om du inte känner till processen för automatisk etablering, bör du också gå
 
 ## <a name="create-a-self-signed-x509-device-certificate-and-individual-enrollment-entry"></a>Skapa ett självsignerat X.509-enhetscertifikat och en post för enskild registrering
 
-I det här avsnittet använder du ett självsignerat X.509-certifikat. Då måste du tänka på det här:
+I det här avsnittet använder du ett självsignerat X.509-certifikat. Det är viktigt att tänka på följande punkter:
 
 * Självsignerade certifikat är endast till för testning och ska inte användas i produktion.
-* Standardutgångsdatumet för ett självsignerat certifikat är 1 år.
+* Standardutgångsdatumet för ett självsignerat certifikat är ett år.
 
 Du kommer att använda exempelkoden från Azure IoT C SDK för att skapa det certifikat som ska användas med posten för enskild registrering för den simulerade enheten.
 
 1. Öppna den lösning som har genererats i mappen *cmake* med namnet `azure_iot_sdks.sln`, och skapa den i Visual Studio.
 
-2. Högerklicka på projektet **dice\_device\_enrollment** i mappen **Provision\_Tools** och välj **Set as Startup Project** (Ange som startprojekt). Kör lösningen. I utdatafönstret anger du `i` för individuell registrering när du blir uppmanad till det. I utdatafönstret visas ett lokalt genererat X.509-certifikat för din simulerade enhet. Kopiera utdata till Urklipp som börjar på *-----BEGIN CERTIFICATE-----* och slutar på *-----END CERTIFICATE-----*, och se till att du får med båda raderna. 
+2. Högerklicka på projektet **dice\_device\_enrollment** i mappen **Provision\_Tools** och välj **Set as Startup Project** (Ange som startprojekt). Kör lösningen. 
+
+3. I utdatafönstret anger du `i` för individuell registrering när du blir uppmanad till det. I utdatafönstret visas ett lokalt genererat X.509-certifikat för din simulerade enhet. 
+    
+    Kopiera det första certifikatet till Urklipp. Börja med den första förekomsten av:
+    
+        -----BEGIN CERTIFICATE----- 
+        
+    Avsluta kopieringen efter den första förekomsten av:
+    
+        -----END CERTIFICATE-----
+        
+    Se till att inkludera båda dessa rader också. 
 
     ![Program för DICE-enhetsregistrering](./media/python-quick-create-simulated-device-x509/dice-device-enrollment.png)
  
-3. Skapa en fil med namnet **_X509testcertificate.pem_** på din Windows-dator, öppna den i valfritt redigeringsprogram och kopiera urklippsinnehållet till filen. Spara filen. 
+4. Skapa en fil med namnet **_X509testcertificate.pem_** på din Windows-dator, öppna den i valfritt redigeringsprogram och kopiera urklippsinnehållet till filen. Spara filen. 
 
-4. Logga in på Azure-portalen, klicka på knappen **Alla resurser** i den vänstra menyn och öppna din distributionstjänst.
+5. Logga in på Azure-portalen, klicka på knappen **Alla resurser** i den vänstra menyn och öppna din distributionstjänst.
 
-5. På sammanfattningsbladet för Device Provisioning-tjänsten väljer du **Manage enrollments** (Hantera registreringar). Välj fliken **Individual Enrollments** (Enskilda registreringar) och klicka på knappen **Lägg till** längst upp. 
+6. På sammanfattningsbladet för Device Provisioning-tjänsten väljer du **Manage enrollments** (Hantera registreringar). Välj fliken **Enskilda registreringar** och klicka på knappen **Lägg till enskild registrering** längst upp. 
 
-6. Under panelen **Lägg till registrering** anger du följande information:
+7. Under panelen **Lägg till registrering** anger du följande information:
     - Välj **X.509** som identitet för bestyrkande *mekanism*.
     - Under *den primära .pem- eller .cer-certifikatfilen* klickar du på *Välj en fil* för att välja certifikatfilen **X509testcertificate.pem** som skapades i föregående steg.
     - Du kan även ange följande information:
@@ -85,7 +97,7 @@ Du kommer att använda exempelkoden från Azure IoT C SDK för att skapa det cer
       - Uppdatera **inledande enhetstvillingstatus** med önskad inledande konfiguration för enheten.
     - Klicka på knappen **Spara** när det är klart. 
 
-    [![Lägga till en enskild registrering för X.509-attestering i portalen](./media/python-quick-create-simulated-device-x509/individual-enrollment.png)](./media/python-quick-create-simulated-device-x509/individual-enrollment.png#lightbox)
+    [![Lägga till en enskild registrering för X.509-attestering i portalen](./media/python-quick-create-simulated-device-x509/device-enrollment.png)](./media/python-quick-create-simulated-device-x509/device-enrollment.png#lightbox)
 
    Om registreringen har lyckats visas din X.509-enhet som **riot-device-cert** under kolumnen *Registrerings-ID* på fliken *Enskilda registreringar*. 
 
@@ -132,7 +144,7 @@ Du kommer att använda exempelkoden från Azure IoT C SDK för att skapa det cer
 
 8. I portalen går du till den IoT-hubb som är kopplad till din etableringstjänst och öppnar bladet **Device Explorer**. Vid lyckad etablering av den simulerade X.509-enheten till hubben visas dess enhets-ID på bladet **Device Explorer** med *STATUS* **aktiverad**. Du kan behöva klicka på **uppdateringsknappen** högst upp om du redan har öppnat bladet innan du kör programmet på exempelenheten. 
 
-    ![Enheten är registrerad på IoT-hubben](./media/python-quick-create-simulated-device-x509/hub-registration.png) 
+    ![Enheten är registrerad på IoT-hubben](./media/python-quick-create-simulated-device-x509/registration.png) 
 
 > [!NOTE]
 > Om du ändrade din *inledande enhetstvillingstatus* från standardvärdet i registreringsposten för din enhet kan den hämta önskad tvillingstatus från hubben och agera utifrån det. Mer information finns i [Understand and use device twins in IoT Hub](../iot-hub/iot-hub-devguide-device-twins.md) (Förstå och använda enhetstvillingar i IoT Hub).

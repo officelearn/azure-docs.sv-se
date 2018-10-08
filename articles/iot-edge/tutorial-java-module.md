@@ -5,16 +5,16 @@ services: iot-edge
 author: kgremban
 manager: timlt
 ms.author: kgremban
-ms.date: 08/30/2018
+ms.date: 09/21/2018
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 370fe646ca23ad5f364536ef9d9e05d042d2ed15
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: 9c4ad2275339b3aeb21258041a96840c76732687
+ms.sourcegitcommit: 42405ab963df3101ee2a9b26e54240ffa689f140
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43337371"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47423471"
 ---
 # <a name="tutorial-develop-a-java-iot-edge-module-and-deploy-to-your-simulated-device"></a>Självstudie: Utveckla en IoT Edge-modul i Java och distribuera till den simulerade enheten
 
@@ -36,11 +36,12 @@ IoT Edge-modulen du skapar i den här självstudien filtrerar temperaturdata som
 
 En Azure IoT Edge-enhet:
 
-* Du kan använda utvecklingsdatorn eller en virtuell dator som en gränsenhet genom att följa stegen i snabbstarten för [Linux-](quickstart-linux.md) eller [Windows-enheter](quickstart.md).
+* Du kan använda utvecklingsdatorn eller en virtuell dator som en gränsenhet genom att följa stegen i snabbstarten för [Linux-](quickstart-linux.md).
+* Java-moduler för IoT Edge har inte stöd för Windows-enheter.
 
 Molnresurser:
 
-* En [IoT Hub](../iot-hub/iot-hub-create-through-portal.md) på standardnivå i Azure. 
+* En [IoT-hubb](../iot-hub/iot-hub-create-through-portal.md) på kostnadsfri nivå i Azure. 
 
 Utvecklingsresurser:
 

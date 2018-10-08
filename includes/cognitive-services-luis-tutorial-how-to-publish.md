@@ -3,26 +3,34 @@ title: ta med fil
 description: ta med fil
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: luis
 ms.topic: include
 ms.custom: include file
-ms.date: 07/26/2018
+ms.date: 08/17/2018
 ms.author: diberry
-ms.openlocfilehash: 0d72cde105ad7043f1c063151a667298d50962df
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: 29332f7f43932c115a4e80b9c66f747555c9c298
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44163800"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47105880"
 ---
-För att få en LUIS-förutsägelse i en chattrobot eller i ett annat program måste du publicera appen. 
-
-Du behöver inte skapa en LUIS-slutpunktsnyckel i Azure-portalen innan du publicerar eller testar slutpunktens URL. Varje LUIS-app har en kostnadsfri startnyckel för redigering. Det ger dig obegränsad redigering och [några slutpunktsanrop](../articles/cognitive-services/luis/luis-boundaries.md#key-limits). 
+För att få en LUIS-förutsägelse i en chattrobot eller i ett annat klientprogram, måste du publicera appen på slutpunkten. 
 
 1. Välj **Publish** (Publicera) i det övre högra navigeringsfältet.
 
-2. Välj platsen Production (Produktionsplats) och knappen **Publish** (Publicera).
+    ![Knappen för LUIS-publicering till en slutpunkt i den övre högra menyn](./media/cognitive-services-luis/publish-button.png)
+
+2. Välj platsen **Produktion** och knappen **Publicera**.
+
+    ![LUIS-publicering till slutpunkt](./media/cognitive-services-luis/publish-this-app-popup.png)
 
 3. Publiceringen är klar när du ser det gröna statusfältet som bekräftar att det är klart längst upp på webbplatsen.
+
+    ![LUIS-publicering till slutpunkt](./media/cognitive-services-luis/publish-to-endpoint-success.png)
+
+4. Välj länken för **slutpunkter** i det gröna statusfältet för att gå till sidan **Nycklar och slutpunkter**. Slutpunktens URL:er finns längst ned.
+
+    <!-- TBD: add image -->

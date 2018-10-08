@@ -9,14 +9,14 @@ ms.topic: tutorial
 ms.date: 12/14/2017
 ms.author: rogarana
 ms.component: common
-ms.openlocfilehash: bb3df82e66024b49e399ab2f7795a27932f7559e
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: bfc87a30250dd98c1b26616f680b5981070623f5
+ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46953981"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47182560"
 ---
-#  <a name="migrate-on-premises-data-to-cloud-storage-by-using-azcopy"></a>Migrera lokala data till molnlagring med AzCopy
+#  <a name="tutorial-migrate-on-premises-data-to-cloud-storage-by-using-azcopy"></a>Självstudie: Migrera lokala data till molnlagring med AzCopy
 
 AzCopy är ett kommandoradsverktyg med vilket du kan kopiera data till eller från Azure Blob Storage, Azure Files och Azure Table Storage med hjälp av enkla kommandon. Kommandona är utformade för att ge optimala prestanda. Du kan kopiera data mellan ett filsystem och ett lagringskonto, eller mellan lagringskonton.  
 

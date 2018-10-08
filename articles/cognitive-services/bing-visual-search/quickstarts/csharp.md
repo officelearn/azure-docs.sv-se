@@ -1,27 +1,27 @@
 ---
-title: C#-Snabbstart för API för Bing Visual Search | Microsoft Docs
-titleSuffix: Bing Web Search APIs - Cognitive Services
-description: Visar hur du överför en bild till Bing Visual Search-API och få tillbaka insikter om avbildningen.
+title: 'Snabbstart: Skapa en visuell sökfråga, C# – Visuell sökning i Bing'
+titleSuffix: Azure Cognitive Services
+description: Visar hur du laddar upp en bild till API för visuell sökning i Bing och får tillbaka information om bilden.
 services: cognitive-services
 author: swhite-msft
-manager: rosh
+manager: cgronlun
 ms.service: cognitive-services
 ms.technology: bing-visual-search
-ms.topic: article
+ms.topic: quickstart
 ms.date: 5/16/2018
 ms.author: scottwhi
-ms.openlocfilehash: 930a89e3b1996c44f12bd3773565eda40e93ca9c
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
-ms.translationtype: MT
+ms.openlocfilehash: e6e969d9ff0556211ca6080645888d44554b286c
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39070934"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47218775"
 ---
-# <a name="your-first-bing-visual-search-query-in-c"></a>Din första Bing Visual Search-fråga i C#
+# <a name="quickstart-your-first-bing-visual-search-query-in-c"></a>Snabbstart: Din första fråga i Visuell sökning i Bing i C#
 
-Bing Visual Search API returnerar information om en avbildning som du anger. Du kan ange avbildningen med hjälp av URL till bild, ett insights token, eller genom att överföra en avbildning. Information om alternativen finns i [vad är Bing Visual Search API?](../overview.md) Den här artikeln visar att ladda upp en avbildning. Ladda upp en avbildning kan vara användbart i mobila scenarier där du kan ta en bild av en välkänd landmärken och få tillbaka information om den. Insikterna kan exempelvis omfatta kunskap om landmärken. 
+API för visuell sökning i Bing returnerar information om en bild som du anger. Du kan ange bilden med hjälp av dess URL, en insiktstoken eller genom att ladda upp en bild. Information om alternativen finns i [Vad är API för visuell sökning i Bing?](../overview.md) Den här artikeln visar hur du laddar upp en bild. Att ladda upp en bild kan vara användbart i mobila scenarier, där du kan ta en bild av ett välkänt landmärke och få tillbaka information om det. Informationen kan exempelvis vara fakta om landmärket. 
 
-Om du laddar upp en lokal avbildning visas nedan formulärdata måste du inkludera i brödtexten i INLÄGGET. Formulärdata måste innehålla Content-Disposition-huvudet. Dess `name` parametern måste anges till ”bild” och `filename` parameter kan anges till valfri sträng. Innehållet i formuläret är den binära filen på avbildningen. Maximal avbildningens storlek kan du överföra är 1 MB. 
+Om du laddar upp en lokal bild måste du inkludera de formulärdata som visas nedan i brödtexten i POST. Formulärdatan måste innehålla rubriken för innehållsdispositionen. Parametern `name` måste anges till ”image” och parametern `filename` kan anges till valfri sträng. Innehållet i formuläret är binärt för bilden. Den maximala bildstorlek som du kan ladda upp är 1 MB. 
 
 ```
 --boundary_1234-abcd
@@ -32,27 +32,27 @@ Content-Disposition: form-data; name="image"; filename="myimagefile.jpg"
 --boundary_1234-abcd--
 ```
 
-Den här artikeln innehåller ett enkelt konsolprogram som skickar en begäran om Bing Visual Search-API och visar JSON-sökresultat. Det här programmet är skriven i C# är API: et en RESTful-webb-tjänst som är kompatibel med alla programmeringsspråk som kan göra HTTP-begäranden och parsa JSON. 
+Artikeln innehåller ett enkelt konsolprogram som skickar en begäran till API för visuell sökning i Bing och visar JSON-sökresultatet. Det här programmet är skrivet i C#, API:n är en RESTful-webbtjänst som är kompatibel med alla programmeringsspråk som kan göra HTTP-begäranden och parsa JSON. 
 
-Exemplet används .NET Core-klasser och körs på Windows med hjälp av .NET CLR eller på Linux eller macOS med hjälp av [Mono](http://www.mono-project.com/).
+Exempelprogrammet använder endast .NET Core-klasser och körs på Windows med hjälp av .NET CLR eller på Linux eller macOS med hjälp av [Mono](http://www.mono-project.com/).
 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
-Du behöver [Visual Studio 2017](https://www.visualstudio.com/downloads/) att hämta den här koden som körs på Windows. (Den kostnadsfria versionen av communityn fungerar).
+Du behöver [Visual Studio 2017](https://www.visualstudio.com/downloads/) för att köra den här koden på Windows. (Den kostnadsfria Community Edition fungerar.)
 
-Den här snabbstarten kan du använda en [kostnadsfri utvärderingsversion](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) prenumerationsnyckel eller en betald prenumeration-nyckel.
+I snabbstarten kan du använda en prenumerationsnyckel för en [kostnadsfri utvärderingsversion](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) eller en betald prenumerationsnyckel.
 
 ## <a name="running-the-application"></a>Köra programmet
 
-Nedan visas hur du skickar meddelandet med i HttpWebRequest. Ett exempel som använder HttpClient, HttpRequestMessage och MultipartFormDataContent, finns i [med hjälp av HttpClient](#using-httpclient).
+Nedan visas hur du skickar meddelandet med HttpWebRequest. Ett exempel som använder HttpClient, HttpRequestMessage och MultipartFormDataContent finns i [Använda HttpClient](#using-httpclient).
 
-Följ dessa steg om du vill köra det här programmet:
+Följ dessa steg om du vill köra programmet:
 
-1. Skapa en ny konsol-lösning i Visual Studio.
-1. Ersätt innehållet i `Program.cs` med koden som visas i den här snabbstarten.
-2. Ersätt den `accessKey` värdet med din prenumerationsnyckel.
-2. Ersätt den `imagePath` värdet med sökvägen för att ladda upp avbildningen.
+1. Skapa en ny konsollösning i Visual Studio.
+1. Ersätt innehållet i `Program.cs` med den kod som visas i den här snabbstarten.
+2. Ersätt värdet `accessKey` med din prenumerationsnyckel.
+2. Ersätt värdet `imagePath` med sökvägen till den bild som ska laddas upp.
 3. Kör programmet.
 
 
@@ -303,9 +303,9 @@ namespace VisualSearchUpload
 ```
 
 
-## <a name="using-httpclient"></a>Med hjälp av HttpClient
+## <a name="using-httpclient"></a>Använda HttpClient
 
-Om du använder HttpClient kan använda du MultipartFormDataContent för att skapa formuläret. Använd bara följande delar av kod ska ersättas samma namngivna metoder i föregående exempel.
+Om du använder HttpClient kan du använda MultipartFormDataContent för att skapa formulärdata. Använd följande kodavsnitt och ersätt metoderna med samma namn i föregående exempel.
 
 Ersätt Main-metoden med den här koden:
 
@@ -347,7 +347,7 @@ Ersätt Main-metoden med den här koden:
         }
 ```
 
-Ersätt metoden BingImageSearch med den här koden:
+Ersätt BingImageSearch-metoden med den här koden:
 
 ```csharp
         /// <summary>
@@ -386,10 +386,10 @@ Ersätt metoden BingImageSearch med den här koden:
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Få insyn om en avbildning med hjälp av en token för insikter](../use-insights-token.md)  
-[Bing Visual Search bild uppladdning självstudien](../tutorial-visual-search-image-upload.md)
-[Bing Visual Search-självstudiekursen som ensidesapp](../tutorial-bing-visual-search-single-page-app.md)
-[Bing Visual Search-översikt](../overview.md)  
+[Få insikter om en bild med hjälp av en insiktstoken](../use-insights-token.md)  
+[Självstudie om bilduppladdning i Visuell sökning i Bing](../tutorial-visual-search-image-upload.md)
+[Självstudie om ensidesapplikationer i Visuell sökning i Bing](../tutorial-bing-visual-search-single-page-app.md)
+[Översikt över Visuell sökning i Bing](../overview.md)  
 [Prova](https://aka.ms/bingvisualsearchtryforfree)  
-[Hämta en kostnadsfri utvärderingsversion åtkomstnyckel](https://azure.microsoft.com/try/cognitive-services/?api=bing-visual-search-api)  
-[Bing Visual Search API-referens](https://aka.ms/bingvisualsearchreferencedoc)
+[Skaffa en åtkomstnyckel för en kostnadsfri utvärderingsversion](https://azure.microsoft.com/try/cognitive-services/?api=bing-visual-search-api)  
+[Referens till API för visuell sökning i Bing](https://aka.ms/bingvisualsearchreferencedoc)

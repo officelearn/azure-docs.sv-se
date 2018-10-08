@@ -1,60 +1,61 @@
 ---
-title: Talare Recognition API | Microsoft Docs
-description: Använd avancerade algoritmer för talare verifiering och talare identifiering med talare Recognition API i kognitiva Services.
+title: Vad är talarigenkänning?
+titlesuffix: Azure Cognitive Services
+description: Använd avancerade algoritmer för talarverifiering och talaridentifiering med API för talarigenkänning.
 services: cognitive-services
 author: dwlin
-manager: zhang
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: speaker-recognition
-ms.topic: article
+ms.topic: overview
 ms.date: 03/20/2016
 ms.author: dwlin
-ms.openlocfilehash: 6d5e4e4bbe0cb5e57d2556f680ffcf8d16ee1818
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
-ms.translationtype: MT
+ms.openlocfilehash: 13a95aff8b2b0d5dad0574e6107958a20576702a
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35352167"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47227341"
 ---
 # <a name="speaker-recognition-api"></a>Talarigenkännings-API
 
-Välkommen till Microsoft talare Recognition-API: er. API: er för talarverifiering Recognition är molnbaserad API: er som ger de mest avancerade algoritmerna för talare verifiering och talare identifiering. Talare Recognition kan delas in i två kategorier: talare verifiering och talare identifiering.
+Välkommen till API:erna för talarigenkänning. API:erna för talarigenkänning är molnbaserade API:er som ger de mest avancerade algoritmerna för talarverifiering och talaridentifiering. API för talarigenkänning kan delas in i två kategorier: talarverifiering och talaridentifiering.
 
 
 ## <a name="speaker-verification"></a>Talarverifiering
 
 
-Röst har unika egenskaper som kan användas för att identifiera en person, precis som ett fingeravtryck.  Med röst som en signal för scenarier med åtkomst kontroll och verifiering är här som en ny innovativa verktyg – i princip erbjuder en nivå i säkerhet som förenklar autentisering för kunder.
+Människans röst har unika egenskaper som kan användas för att identifiera en person, precis som ett fingeravtryck.  Användningen av rösten som en signal för åtkomstkontroll och autentiseringsscenarier har blivit ett nytt, innovativt verktyg som uppgraderar säkerheten med enklare autentisering för kunderna.
 
-API: er för talaridentifiering kan automatiskt kontrollera och autentisera användare som använder sin röst eller tal.
+API:er för talarverifiering kan automatiskt verifiera och autentisera användare med hjälp av deras röst eller tal.
 
 ### <a name="enrollment"></a>Registrering
 
-Registreringen för talare verifiering är text-beroende vilket innebär högtalare måste du välja en specifik lösenordet ska användas under både registrering och verifiering. 
+Registrering för talarverifiering är textberoende, vilket innebär att talare måste välja en specifik lösenfras som ska användas under både registrerings- och verifieringsfaserna. 
 
-I registreringen på högtalaren röst registreras om en specifik fras, och sedan ett antal funktioner har extraherats och valda frasen känns. Både extraherade funktioner och valt fras tillsammans formuläret en unik röst-signatur.
+Under registreringen spelas talarens röst in med en specifik fras. Sedan extraheras ett antal egenskaper, och den valda frasen identifieras. Tillsammans utgör både de extraherade egenskaperna och den valda frasen en unik röstsignatur.
 
 ### <a name="verification"></a>Verifiering
 ###
-Verifieringen, en inkommande röst och frasen jämförs registreringen röst signatur och frasen – för att kontrollera huruvida de är från samma person, och om de säger rätt frasen.
+Under verifieringen jämförs en inmatningsröst och -fras med registreringens röstsignatur och fras så att det kan verifieras huruvida de kommer från samma person och om frasen är korrekt.
 
-Mer information om verifiering av talare finns i API: et [talare - verifiering](https://westus.dev.cognitive.microsoft.com/docs/services/563309b6778daf02acc0a508/operations/563309b7778daf06340c9652).
+Mer information om talarverifiering finns i API:et för [talare – verifiering](https://westus.dev.cognitive.microsoft.com/docs/services/563309b6778daf02acc0a508/operations/563309b7778daf06340c9652).
 
 ## <a name="speaker-identification"></a>Talaridentifiering
 
-API: er för talaridentifiering kan automatiskt identifiera tal i en ljudfil, anges en grupp av potentiella högtalare. Inkommande ljuduppspelningen paras ihop mot den angivna gruppen högtalare och om det finns en matchning hittas på högtalaren identitet returneras.
+API:er för talaridentifiering kan automatiskt identifiera den person som talar i en ljudfil givet en grupp med presumtiva talare. Det inmatade ljudet paras mot den angivna gruppen med talare och om det görs en matchning returneras talarens identitet.
 
-Alla högtalare ska gå igenom en registreringsprocess först få rösten registreras i systemet och har en röst utskrift skapas.
+Alla talare bör först genomgå en registreringsprocess så att deras röster registreras i systemet och det skapas ett röstavtryck.
 
 
 ### <a name="enrollment"></a>Registrering
 
-Registreringen för identifiering av talare är text oberoende, vilket innebär att det inte finns några begränsningar på högtalaren står i ljuduppspelningen. På högtalaren röst registreras och ett antal funktioner extraheras för att skapa en unik röst-signatur. 
+Registrering för talaridentifiering är textoberoende, vilket innebär att det inte finns några begränsningar på vad talaren säger i ljudfilen. Talarens röst registreras och ett antal egenskaper extraheras för att skapa en unik röstsignatur. 
 
 
-### <a name="recognition"></a>Bekräftelse
+### <a name="recognition"></a>Igenkänning
 
-Ljud av okänd högtalaren tillsammans med talar, potentiell grupp anges under igenkänning. Inkommande röst jämförs i alla högtalare för att kunna fastställa vars röst är det, och om det finns en matchning hittas på högtalaren identitet returneras.
+Ljudet från den okända talaren tillhandahålls tillsammans med gruppen med presumtiva talare under igenkänningen. Den inmatade rösten jämförs med alla talarna i syfte att bestämma vems röst den är, och om det sker en matchning returneras talarens identitet.
 
 
-Mer information om identifiering av talare finns i API: et [talare - identifiering](https://westus.dev.cognitive.microsoft.com/docs/services/563309b6778daf02acc0a508/operations/5645c068e597ed22ec38f42e).
+Mer information om talaridentifiering finns i API:et för [talare – identifiering](https://westus.dev.cognitive.microsoft.com/docs/services/563309b6778daf02acc0a508/operations/5645c068e597ed22ec38f42e).

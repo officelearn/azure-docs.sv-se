@@ -1,42 +1,44 @@
 ---
-title: Azure Content Moderator – måttlig bilder med hjälp av .NET | Microsoft Docs
-description: Så här måttlig bilder med hjälp av Azure Content Moderator-SDK för .NET
+title: 'Snabbstart: Moderera bilder med hjälp av .NET – Content Moderator'
+titlesuffix: Azure Cognitive Services
+description: Så modererar du bilder med hjälp av Content Moderator SDK för .NET
 services: cognitive-services
 author: sanjeev3
-manager: mikemcca
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: content-moderator
-ms.topic: article
+ms.topic: quickstart
 ms.date: 09/10/2018
 ms.author: sajagtap
-ms.openlocfilehash: 9c662558d21bf52b6e9e5c9e781fee7121493ea2
-ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
-ms.translationtype: MT
+ms.openlocfilehash: d89d9b8a2e3b00155e82cc28105007ab39fc549c
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.translationtype: HT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 09/26/2018
-ms.locfileid: "47182016"
+ms.locfileid: "47226172"
 ---
-# <a name="moderate-images-using-net"></a>Måttlig bilder med hjälp av .NET
+# <a name="quickstart-moderate-images-using-net"></a>Snabbstart: Moderera bilder med hjälp av .NET
 
-Den här artikeln innehåller information och kodexempel som hjälper dig att komma igång med den [Content Moderator-SDK för .NET](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/) till: 
-- Kontrollera en avbildning för vuxet eller olämpligt innehåll
-- Identifiera och extrahera text från en avbildning
+Den här artikeln innehåller information och kodexempel som hjälper dig att komma igång med [Content Moderator SDK för .NET](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/). Du lär dig bland annat att: 
+
+- Kontrollera om en bild har vuxet eller olämpligt innehåll
+- Identifiera och extrahera text från en bild
 - Identifiera ansikten i en bild
 
 Den här artikeln förutsätter att du redan är bekant med Visual Studio och C#.
 
 ## <a name="sign-up-for-content-moderator-services"></a>Registrera dig för Content Moderator-tjänster
 
-Innan du kan använda Content Moderator-tjänster via REST-API: et eller SDK: N, behöver du en API-nyckel och regionen som din API-konto.
-Referera till den [snabbstarten](quick-start.md) att lära dig hur du registrerar dig för Content Moderator att hämta båda.
+Innan du kan använda Content Moderator-tjänster via REST-API:n eller SDK:n behöver du en API-nyckel samt regionen för ditt API-konto.
+I [snabbstarten](quick-start.md) kan du lära dig hur du registrerar dig för Content Moderator och för att skaffa båda dessa.
 
 ## <a name="create-your-visual-studio-project"></a>Skapa ett Visual Studio-projekt
 
-1. Lägga till en ny **konsolapp (.NET Framework)** projekt i lösningen.
+1. Lägg till ett nytt projekt för en **konsolapp (.NET Framework)** i lösningen.
 
-   Namnge projektet i exempelkoden **ImageModeration**.
+   I exempelkoden ger du projektet namnet **ImageModeration**.
 
-1. Välj det här projektet som enda Startprojekt för lösningen.
+1. Välj det här projektet som det enda startprojektet för lösningen.
 
 
 ### <a name="install-required-packages"></a>Installera de paket som krävs
@@ -47,9 +49,9 @@ Installera följande NuGet-paket:
 - Microsoft.Rest.ClientRuntime
 - Newtonsoft.Json
 
-### <a name="update-the-programs-using-statements"></a>Uppdatera programmet använder uttryck
+### <a name="update-the-programs-using-statements"></a>Uppdatera programmets using-instruktioner
 
-Ändra programmet är med hjälp av uttryck.
+Ändra programmets using-instruktioner.
 
     using Microsoft.Azure.CognitiveServices.ContentModerator;
     using Microsoft.CognitiveServices.ContentModerator;
@@ -65,7 +67,7 @@ Installera följande NuGet-paket:
 Lägg till följande kod för att skapa en Content Moderator-klient för din prenumeration.
 
 > [!IMPORTANT]
-> Uppdatera den **AzureRegion** och **CMSubscriptionKey** fält med värdena för din region identifierare och prenumeration nyckel.
+> Uppdatera fälten **AzureRegion** och **CMSubscriptionKey** med värdena för din regionsidentifierare och prenumerationsnyckel.
 
     /// <summary>
     /// Wraps the creation and configuration of a Content Moderator client.
@@ -111,7 +113,7 @@ Lägg till följande kod för att skapa en Content Moderator-klient för din pre
 
 ### <a name="initialize-application-specific-settings"></a>Initiera programspecifika inställningar
 
-Lägg till följande statiska fält i den **programmet** klassen i Program.cs.
+Lägg till följande statiska fält till klassen **Program** i Program.cs.
 
     ///<summary>
     ///The name of the file that contains the image URLs to evaluate.
@@ -134,9 +136,9 @@ Lägg till följande statiska fält i den **programmet** klassen i Program.cs.
 > - https://moderatorsampleimages.blob.core.windows.net/samples/sample2.jpg
 > - https://moderatorsampleimages.blob.core.windows.net/samples/sample5.png
 
-## <a name="store-the-analysis-results"></a>Store analysresultaten
+## <a name="store-the-analysis-results"></a>Lagra analysresultaten
 
-Lägg till följande klass till den **programmet** klass. Använda en instans av den här klassen för att registrera resultaten för de granskade avbildningarna.
+Lägg till följande klass till **Program**-klassen. Använd en instans av den här klassen för att registrera modereringsresultatet för de granskade bilderna.
 
     /// <summary>
     /// Contains the image moderation results for an image, 
@@ -167,12 +169,12 @@ Lägg till följande klass till den **programmet** klass. Använda en instans av
 
 ## <a name="evaluate-an-individual-image"></a>Utvärdera en enskild bild
 
-Lägg till följande metod i klassen **Program**. Den här metoden utvärderar en enda avbildning och returnerar utvärderingsresultatet.
+Lägg till följande metod i klassen **Program**. Den här metoden utvärderar en enskild bild och returnerar utvärderingsresultatet.
 
 > [!NOTE]
-> Din nyckel för Content Moderator-tjänsten har en begäranden per sekund (RPS) hastighetsbegränsning, och om du överskrider gränsen SDK: N genereras ett undantag med en 429 felkod. 
+> Content Moderator-tjänstnyckeln har en gräns för antal begäranden per sekund (RPS). Om du överskrider gränsen genererar SDK:t ett undantag med en 429-felkod. 
 >
-> En nyckel för kostnadsfria nivån har en hastighetsbegränsning för en RPS.
+> En nyckel på den kostnadsfria nivån har en gräns på en RPS.
 
 
     /// <summary>
@@ -213,18 +215,18 @@ Lägg till följande metod i klassen **Program**. Den här metoden utvärderar e
         return imageData;
     }
 
-Den **EvaluateUrlInput** metoden är en Omslutning för Image Moderering REST API.
-Returvärdet innehåller objektet som returnerades från API-anrop.
+Metoden **EvaluateUrlInput** är en adapter för Image Moderation REST API.
+Returvärdet innehåller det objekt som returneras från API-anropet.
 
-Den **OCRUrlInput** metoden är en Omslutning för Image OCR REST API.
-Returvärdet innehåller objektet som returnerades från API-anrop.
+Metoden **OCRUrlInput** är en adapter för Image OCR REST API.
+Returvärdet innehåller det objekt som returneras från API-anropet.
 
-Den **FindFacesUrlInput** metoden är en Omslutning för avbildning hitta ansikten REST API.
-Returvärdet innehåller objektet som returnerades från API-anrop.
+Metoden **FindFacesUrlInput** är en adapter för Image Find Faces REST API.
+Returvärdet innehåller det objekt som returneras från API-anropet.
 
-## <a name="process-the-image-urls-in-your-code"></a>Bearbeta bild-URL: er i din kod
+## <a name="process-the-image-urls-in-your-code"></a>Bearbeta bild-URL:erna i din kod
 
-Lägg till följande kod till den **Main** metod.
+Lägg till följande kod i metoden **Main**.
 
     // Create an object to store the image moderation results.
     List<EvaluationData> evaluationData = new List<EvaluationData>();
@@ -262,8 +264,8 @@ Lägg till följande kod till den **Main** metod.
 Följande JSON-objekt innehåller utdata för programmet.
 
 > [!NOTE]
-> `isImageAdultClassified` representerar potentiella förekomsten av avbildningar som kan uppfattas som sexuellt explicit eller är olämpligt för barn i vissa situationer.
-> `isImageRacyClassified` representerar potentiella förekomsten av avbildningar som kan uppfattas som sexuellt något eller mogen i vissa situationer.
+> `isImageAdultClassified` representerar den potentiella förekomsten av bilder som kan uppfattas som sexuellt explicita eller ämnade för vuxna.
+> `isImageRacyClassified` representerar den potentiella förekomsten av bilder som kan uppfattas som sexuellt laddade eller ämnade för vuxna.
 >
 
     [
@@ -449,6 +451,6 @@ Följande JSON-objekt innehåller utdata för programmet.
     ]
 
 
-## <a name="next-steps---get-the-source-code"></a>Hämta källkoden för nästa steg:
+## <a name="next-steps---get-the-source-code"></a>Kommande steg – hämta källkoden
 
-Hämta den [Content Moderator .NET SDK](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/) och [Visual Studio-lösning](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/ContentModerator) för denna och andra Content Moderator-Snabbstart för .NET, och kom igång med din integrering.
+Hämta [Content Moderator .NET SDK](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/) och [Visual Studio-lösningen](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/ContentModerator) för den här och andra Content Moderator-snabbstarter för .NET, och kom igång med din integrering.

@@ -9,14 +9,14 @@ ms.date: 03/26/2018
 ms.author: tamram
 ms.custom: mvc
 ms.component: blobs
-ms.openlocfilehash: b3916fb0de48f30bd4809d1fc42dde6ac78c07b6
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: d50291a33a9456fad20382d8e646bf6a19d6179e
+ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44023274"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47180889"
 ---
-# <a name="make-your-application-data-highly-available-with-azure-storage"></a>Ge programdata hög tillgänglighet med Azure Storage
+# <a name="tutorial-make-your-application-data-highly-available-with-azure-storage"></a>Självstudie: Ge programdata hög tillgänglighet med Azure Storage
 
 Den här kursen är första delen i en serie som visar hur du ger dina programdata hög tillgänglighet i Azure. När du är klar har du ett konsolprogram som överför och hämtar en blob till ett [Read-Access Geo Redundant](../common/storage-redundancy-grs.md#read-access-geo-redundant-storage)-lagringskonto (RA-GRS). Med RA-GRS replikeras transaktioner från den primära regionen till den sekundära. Replikeringsprocessen garanterar att data i den sekundära regionen blir konsekventa. I programmet används [kretsbrytarmönstret](/azure/architecture/patterns/circuit-breaker) för att avgöra vilken slutpunkt programmet ska ansluta till. Programmet växlar till den sekundära slutpunkten när ett fel simuleras.
 

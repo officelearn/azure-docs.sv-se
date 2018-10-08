@@ -1,5 +1,5 @@
 1. Logga in på [Azure Portal][Azure portal].
-2. Välj **+ Skapa en resurs** på menyn till vänster. Välj sedan **Enterprise-integration** > **Relay**.
+2. Välj **+ Skapa en resurs** på menyn till vänster. Välj sedan **Integrering** > **Relay**. Om du inte ser **Relay** i listan väljer du **Visa alla** i det övre högra hörnet. 
 3. Under **Skapa namnområde** anger du ett namn för namnområdet. Systemet kontrollerar omedelbart om namnet är tillgängligt.
 4. I rutan **Prenumeration** väljer du en Azure-prenumeration för vilken du vill skapa namnområdet.
 5. I rutan [Resursgrupp](../articles/azure-resource-manager/resource-group-portal.md) väljer du en befintlig resursgrupp där namnområdet ska placeras eller skapar en ny.  

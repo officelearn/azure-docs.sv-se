@@ -1,24 +1,27 @@
 ---
-title: Skapa en ny kunskapsbas – Java-snabbstart – för Microsoft QnA Maker API (v4) – Azure Cognitive Services | Microsoft Docs
-description: Skapa en kunskapsbas i Java för att lagra vanliga frågor och svar eller produkthandböcker, så att du kan komma igång med QnA Maker.
+title: 'Snabbstart: API Java – Skapa kunskapsbas – QnA Maker'
+titlesuffix: Azure Cognitive Services
+description: Den här snabbstarten går igenom skapandet av ett exempel på QnA Maker-kunskapsbas, programmässigt, som visas i Azure-instrumentpanelen för ditt Cognitive Services-API-konto.
 services: cognitive-services
-author: noellelacharite
-manager: nolachar
+author: diberry
+manager: cgronlun
 ms.service: cognitive-services
 ms.technology: qna-maker
 ms.topic: quickstart
-ms.date: 06/15/2018
-ms.author: nolachar
-ms.openlocfilehash: 3d637a4a046318a95eeeb532cbb7a9938cb1004d
-ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
+ms.date: 09/12/2018
+ms.author: diberry
+ms.openlocfilehash: 5dfea3a8b4b5a79585b910fd2fad4ffbda4729fd
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "43771373"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47037617"
 ---
 # <a name="create-a-new-knowledge-base-in-java"></a>Skapa en ny kunskapsbas i Java
 
 Den här snabbstarten går igenom skapandet av ett exempel på QnA Maker-kunskapsbas, programmässigt, som visas i Azure-instrumentpanelen för ditt Cognitive Services-API-konto.
+
+[!INCLUDE [Code is available in Azure-Samples Github repo](../../../../includes/cognitive-services-qnamaker-java-repo-note.md)]
 
 Två exempel på URL:er för vanliga frågor och svar ges nedan (i ”kb.urls” för **getKB()**) som ger innehåll. QnA Maker extraherar automatiskt frågor och svar från delvis strukturerat innehåll, som vanliga frågor och svar, enligt den utförligare beskrivningen i det här dokumentet om [datakällor](../Concepts/data-sources-supported.md). Du kan också använda egna URL:er för vanliga frågor och svar i den här snabbstarten.
 

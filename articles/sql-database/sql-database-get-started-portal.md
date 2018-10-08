@@ -1,25 +1,27 @@
 ---
 title: 'Azure Portal: Skapa en SQL-databas | Microsoft Docs'
 description: Skapa en logisk server, brandväggsregel på servernivå och databas för SQL Database på Azure Portal, och ställ frågor.
-keywords: sql database-självstudier, skapa en sql-databas
 services: sql-database
-author: CarlRabeler
-manager: craigg
 ms.service: sql-database
-ms.custom: mvc,DBs & servers
+ms.subservice: security
+ms.custom: ''
+ms.devlang: ''
 ms.topic: quickstart
-ms.date: 07/16/2018
+author: sachinpMSFT
 ms.author: sachinp
-ms.openlocfilehash: 172ee6c2200334a57ebaa073d7ff530d19b2f07d
-ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
+ms.reviewer: carlrab
+manager: craigg
+ms.date: 09/07/2018
+ms.openlocfilehash: 0e7ea33fa775bfba934d68d7cbcdd754880c3e55
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39090538"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47165015"
 ---
 # <a name="create-an-azure-sql-database-in-the-azure-portal"></a>Skapa en Azure SQL-databas på Azure Portal
 
-Den här snabbstarten visar hur du skapar en SQL-databas i Azure med den [DTU-baserade inköpsmodellen](sql-database-service-tiers-dtu.md). Azure SQL Database är en ”databas som erbjuds som en tjänst”. Tjänsten innebär att du kan köra och skala SQL Server-databaser med hög tillgänglighet i molnet. Snabbstarten visar hur du kommer igång genom att skapa en SQL-databas med Azure Portal.
+Den här snabbstarten visar hur du skapar en SQL-databas i Azure med den [DTU-baserade inköpsmodellen](sql-database-service-tiers-dtu.md). Azure SQL Database är en ”databas som erbjuds som en tjänst”. Tjänsten innebär att du kan köra och skala SQL Server-databaser med hög tillgänglighet i molnet. Snabbstarten visar hur du kommer igång genom att skapa och sedan köra frågor mot en SQL-databas med Azure-portalen.
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/) konto innan du börjar.
 
@@ -96,36 +98,6 @@ Följ de här stegen om du vill skapa en SQL-databas som innehåller Adventure W
 
      ![avisering](./media/sql-database-get-started-portal/notification.png)
 
-## <a name="create-a-server-level-firewall-rule"></a>Skapa en brandväggsregel på servernivå
-
-SQL Database-tjänsten skapar en brandvägg på servernivå som hindrar externa program och verktyg från att ansluta till servern eller databaser på servern, såvida inte en brandväggsregel konfigureras som öppnar brandväggen för specifika IP-adresser. Följ de här stegen om du vill skapa en [brandväggsregel på SQL Database-servernivå](sql-database-firewall-configure.md) för din klients IP-adress och aktivera extern anslutning genom SQL Database-brandväggen endast för din IP-adress.
-
-> [!NOTE]
-> SQL Database kommunicerar via port 1433. Om du försöker ansluta inifrån ett företagsnätverk, kan utgående trafik via port 1433 nekas av nätverkets brandvägg. I så fall kommer du inte att kunna ansluta till din Azure SQL Database-server om inte din IT-avdelning öppnar port 1433.
->
-
-1. När distributionen är klar klickar du på **SQL-databaser** på menyn till vänster och klickar sedan på **mySampleDatabase** på sidan **SQL-databaser**. Översiktssidan för databasen öppnas, där du kan se det fullständigt kvalificerade servernamnet (som **mynewserver-20170824.database.windows.net**) och alternativ för ytterligare konfiguration.
-
-2. Kopiera det här fullständigt kvalificerade servernamnet. Du behöver det när du ansluter till servern och dess databaser i efterföljande snabbstarter.
-
-   ![servernamn](./media/sql-database-get-started-portal/server-name.png)
-
-3. Klicka på **Konfigurera serverns brandvägg** i verktygsfältet (se föregående bild). Sidan **Brandväggsinställningar** för SQL Database-servern öppnas.
-
-   ![brandväggsregler för server](./media/sql-database-get-started-portal/server-firewall-rule.png)
-
-4. Klicka på **Lägg till klient-IP** i verktygsfältet och lägg till din aktuella IP-adress i en ny brandväggsregel. Med en brandväggsregel kan du öppna port 1433 för en enskild IP-adress eller för IP-adressintervall.
-
-5. Klicka på **Spara**. En brandväggsregel på servernivå för att öppna port 1433 på den logiska servern skapas för din aktuella IP-adress.
-
-6. Klicka på **OK** och stäng sedan sidan **Brandväggsinställningar**.
-
-Nu kan du ansluta till SQL Server Database-servern och dess databaser med SQL Server Management Studio eller något annat verktyg från den här IP-adressen med det Server-administratörskonto som skapades tidigare.
-
-> [!IMPORTANT]
-> Som standard är åtkomst genom SQL Database-brandväggen aktiverad för alla Azure-tjänster. Klicka på **AV** på den här sidan om du vill inaktivera åtkomsten för alla Azure-tjänster.
->
-
 ## <a name="query-the-sql-database"></a>Söka i SQL-databasen
 
 Nu när du har skapat en exempeldatabas i Azure kan vi använda det inbyggda frågeverktyget på Azure Portal till att bekräfta att du kan ansluta till databasen och fråga efter data.
@@ -161,7 +133,9 @@ Spara de här resurserna om du vill gå till [nästa steg](#next-steps) och lär
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Nu när du har en databas kan du [ansluta och fråga](sql-database-connect-query.md) med dina favoritverktyg och språk. 
-- I följande självstudier lär du dig hur du utformar din första databas, skapar tabeller och infogar data:
- - [Utforma din första Azure SQL-databas med SSMS](sql-database-design-first-database.md)
-  - [Utforma en Azure SQL databas och ansluta med C# och ADO.NET](sql-database-design-first-database-csharp.md)
+- Nu när du har en databas behöver du skapa en brandväggsregel på servernivå för att ansluta till den från dina lokala verktyg. Se [Skapa brandväggsregel på servernivå](sql-database-get-started-portal-firewall.md)
+- Om du skapar en brandväggsregel på servernivå kan du [ansluta och köra frågor](sql-database-connect-query.md) med önskat verktyg och språk, inklusive
+  - [Ansluta och köra frågor med hjälp av SQL Server Management Studio](sql-database-connect-query-ssms.md)
+  - [Ansluta och köra frågor med hjälp av Azure Data Studio](https://docs.microsoft.com/sql/azure-data-studio/quickstart-sql-database?toc=/azure/sql-database/toc.json)
+- Information om hur du skapar databaser med hjälp av Azure CLI finns i [Azure CLI-exempel](sql-database-cli-samples.md)
+- Information om hur du skapar databaser med hjälp av Azure PowerShell finns i [Azure PowerShell-exempel](sql-database-powershell-samples.md)

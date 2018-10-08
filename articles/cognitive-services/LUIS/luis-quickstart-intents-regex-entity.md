@@ -1,71 +1,69 @@
 ---
-title: Självstudie om att skapa en LUIS-app för att hämta data som matchas med reguljära uttryck – Azure | Microsoft Docs
-description: I den här självstudien skapar du en enkel LUIS-app med hjälp av avsikter och en entitet för reguljära uttryck för att extrahera data.
+title: 'Självstudie 3: Data som matchar reguljära uttryck – extrahera välformade data'
+titleSuffix: Azure Cognitive Services
+description: Extrahera data med ett enhetligt format från ett yttrande med entiteten för reguljära uttryck.
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
-ms.component: luis
+ms.component: language-understanding
 ms.topic: tutorial
-ms.date: 08/02/2018
+ms.date: 09/09/2018
 ms.author: diberry
-ms.openlocfilehash: 9672215c8cc5f95775e3b7fba74b27379a58ff49
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: 06e212ef756fda9224b38b41c69c7c4eccfb9796
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44162938"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47159864"
 ---
-# <a name="tutorial-3-add-regular-expression-entity"></a>Självstudie: 3. Lägg till entitet för reguljära uttryck
-I den här självstudien skapar du en app som visar hur det går till att extrahera konsekvent formaterade data från ett yttrande med hjälp av entiteten **Regular Expression** (Reguljärt uttryck).
+# <a name="tutorial-3-extract-well-formatted-data"></a>Självstudie 3: Extrahera välformade data
+I den här självstudien ska du ändra Human Resources-appen så att den extraherar data med ett enhetligt format från yttranden med entiteten **Regular Expression**.
 
+Syftet med en entitet är att extrahera viktiga data från yttrandet. I den här appen används entiteten för reguljära uttryck till att hämta formaterade HR-formulärnummer (Human Resources) från ett yttrande. Även om avsikten med yttrandet alltid fastställs med maskininlärning är just den här entitetstypen inte maskininlärd. 
 
-<!-- green checkmark -->
-> [!div class="checklist"]
-> * Förstå entiteter för reguljära uttryck 
-> * Använda en LUIS-app för en HR-domän (Human Resources) med avsikten FindForm
-> * Lägga till entitet för reguljära uttryck för att extrahera formulärnummer från yttrande
-> * Träna och publicera app
-> * Skicka en fråga till appens slutpunkt för att se LUIS JSON-svar
-
-[!INCLUDE [LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
-
-## <a name="before-you-begin"></a>Innan du börjar
-Om du inte har appen Human Resources (Personalfrågor) från självstudien om [fördefinierade entiteter](luis-tutorial-prebuilt-intents-entities.md) ska du [importera](luis-how-to-start-new-app.md#import-new-app) JSON till en ny app på [LUIS-webbplatsen](luis-reference-regions.md#luis-website) från [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-prebuilts-HumanResources.json)-GitHub-lagringsplatsen.
-
-Om du vill behålla den ursprungliga Human Resources-appen (Personalfrågor) klonar du versionen på sidan [Settings](luis-how-to-manage-versions.md#clone-a-version) (Inställningar) och ger den namnet `regex`. Kloning är ett bra sätt att prova på olika LUIS-funktioner utan att påverka originalversionen. 
-
-
-## <a name="purpose-of-the-regular-expression-entity"></a>Syftet med entitet för reguljära uttryck
-Syftet med en entitet är att hämta viktiga data som finns i yttrandet. Appens användning av entiteten för reguljära uttryck är att hämta formaterade Human Resources-formulärnummer (Personalfrågor) från ett yttrande. Den är inte maskininlärd. 
-
-Enkla exempel på yttranden innefattar:
+**Här är några exempelyttranden:**
 
 ```
 Where is HRF-123456?
 Who authored HRF-123234?
 HRF-456098 is published in French?
-```
-
-Förkortade versioner av eller slangvarianter på yttranden innefattar:
-
-```
 HRF-456098
 HRF-456098 date?
 HRF-456098 title?
 ```
  
-Entiteten för reguljära uttryck för att matcha formulärnumret är `hrf-[0-9]{6}`. Den här reguljära uttrycket matchar de exakta tecknen `hrf -` men ignorerar konjugationer och kulturella varianter. Det matchar siffrorna 0–9 för exakt 6 siffror.
+Ett reguljärt uttryck passar bra för den här typen av data i följande fall:
 
-HRF står för Human Resources Form (formulär för personalfrågor).
+* data är välformade.
 
-### <a name="tokenization-with-hyphens"></a>Tokenisering med bindestreck
-LUIS tokeniserar yttrandet när yttrandet läggs till i en avsikt. Tokeniseringen för de här yttrandena lägger till blanksteg före och efter bindestrecket, `Where is HRF - 123456?`  Det reguljära uttrycket tillämpas på yttrandet i obearbetat format, innan det tokeniseras. Eftersom det tillämpas i _obearbetat_ format behöver det reguljära uttrycket inte hantera ordgränser. 
+**I den här självstudiekursen får du lära du dig att:**
 
+<!-- green checkmark -->
+> [!div class="checklist"]
+> * Använda en befintlig självstudieapp
+> * Lägg till avsikten FindForm
+> * Lägg till entitet för reguljära uttryck 
+> * Träna
+> * Publicera
+> * Hämta avsikter och entiteter från en slutpunkt
 
-## <a name="add-findform-intent"></a>Lägg till avsikten FindForm
+[!include[LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
 
-1. Kontrollera att Human Resources-appen (Personalfrågor) finns i avsnittet **Build** (Skapa) i LUIS. Du kan ändra till det här avsnittet genom att välja **Build** (Skapa) i menyraden längst upp till höger. 
+## <a name="use-existing-app"></a>Använda en befintlig app
+Fortsätt med appen du skapade i föregående självstudie med namnet **HumanResources**. 
+
+Om du inte har appen HumanResources från föregående självstudie gör du så här:
+
+1. Ladda ned och spara [JSON-filen för appen](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/tutorials/custom-domain-prebuilts-HumanResources.json).
+
+2. Importera JSON-koden till en ny app.
+
+3. I avsnittet **Hantera** går du till fliken **Versioner**, klonar versionen och ger den namnet `regex`. Kloning är ett bra sätt att prova på olika LUIS-funktioner utan att påverka originalversionen. Eftersom versionsnamnet används i webbadressen får namnet inte innehålla några tecken som är ogiltiga i webbadresser. 
+
+## <a name="findform-intent"></a>Avsikten FindForm
+
+1. [!include[Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
 
 2. Välj **Create new intent** (Skapa ny avsikt). 
 
@@ -92,38 +90,46 @@ LUIS tokeniserar yttrandet när yttrandet läggs till i en avsikt. Tokeniseringe
 
     Programmet har en fördefinierad nummerentitet som lagts till från den föregående självstudien. Därför är varje formulärnummer taggat. Det här kan vara tillräckligt för klientprogrammet, men numret kommer inte att märkas med den typen av nummer. Om en ny entitet med ett lämpligt namn skapas kan klientprogrammet bearbeta entiteten på rätt sätt när den returneras från LUIS.
 
-## <a name="create-an-hrf-number-regular-expression-entity"></a>Skapa en entitet för reguljära uttryck för HRF-nummer 
+    [!include[Do not use too few utterances](../../../includes/cognitive-services-luis-too-few-example-utterances.md)]  
+
+## <a name="regular-expression-entity"></a>Entitet för reguljära uttryck 
+Entiteten för reguljära uttryck för att matcha formulärnumret är `hrf-[0-9]{6}`. Den här reguljära uttrycket matchar de exakta tecknen `hrf-` men ignorerar konjugationer och kulturella varianter. Det matchar siffrorna 0–9 för exakt 6 siffror.
+
+HRF står för `human resources form`.
+
+LUIS tokeniserar yttrandet när det läggs till i en avsikt. Tokeniseringen för de här yttrandena lägger till blanksteg före och efter bindestrecket, `Where is HRF - 123456?`  Det reguljära uttrycket tillämpas på yttrandet i obearbetat format, innan det tokeniseras. Eftersom det tillämpas i _obearbetat_ format behöver det reguljära uttrycket inte hantera ordgränser. 
+
 Skapa en entitet för reguljära uttryck för att ange för LUIS vad ett HRF-nummerformat är med följande steg:
 
 1. Välj **Entities** (Entiteter) på den vänstra panelen.
 
 2. Välj knappen **Create new entity** (Skapa ny entitet) på sidan Entities (Entiteter). 
 
-3. I popop-dialogrutan anger du det nya entitetsnamnet `HRF-number`, väljer **RegEx** som enhetstyp, anger `hrf-[0-9]{6}` som Regex och väljer sedan **Done** (Klar).
+3. Ange det nya entitetsnamnet `HRF-number` i dialogrutan, välj **RegEx** som entitetstyp, ange `hrf-[0-9]{6}` som **Regex**-värde och välj sedan **Klar**.
 
     ![Skärmbild på inställning för popup-dialogruta med egenskaper för ny entitet](./media/luis-quickstart-intents-regex-entity/create-regex-entity.png)
 
-4. Välj **Intents** (Avsikter) och sedan avsikten **FindForm** för att se det reguljära uttrycket märkt i yttrandena. 
+4. Välj **Avsikter** i menyn till vänster och sedan avsikten **FindForm** för att se det reguljära uttrycket uppmärkt i yttrandena. 
 
     [![Skärmbild på yttrandet Label (Etikett) med befintlig entitet och regexmönster](./media/luis-quickstart-intents-regex-entity/labeled-utterances-for-entity.png)](./media/luis-quickstart-intents-regex-entity/labeled-utterances-for-entity.png#lightbox)
 
     Eftersom entiteten inte är en maskininlärd entitet tillämpas etiketten på yttrandena och visas på LUIS-webbplatsen så snart den skapas.
 
-## <a name="train-the-luis-app"></a>Träna LUIS-appen
+## <a name="train"></a>Träna
 
 [!INCLUDE [LUIS How to Train steps](../../../includes/cognitive-services-luis-tutorial-how-to-train.md)]
 
-## <a name="publish-the-app-to-get-the-endpoint-url"></a>Publicera appen för att få slutpunkts-URL
+## <a name="publish"></a>Publicera
 
 [!INCLUDE [LUIS How to Publish steps](../../../includes/cognitive-services-luis-tutorial-how-to-publish.md)]
 
-## <a name="query-the-endpoint-with-a-different-utterance"></a>Skicka fråga till slutpunkten med ett annat yttrande
+## <a name="get-intent-and-entities-from-endpoint"></a>Hämta avsikter och entiteter från slutpunkten
 
 1. [!INCLUDE [LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)]
 
 2. Gå till slutet av URL:en i adressen och ange `When were HRF-123456 and hrf-234567 published in the last year?`. Den sista frågesträngsparametern är `q`, yttrande**frågan**. Det här yttrandet är inte samma som någon av de märkta yttrandena. Därför är det ett bra test och bör returnera avsikten `FindForm` med de två formulärnumren `HRF-123456` och `hrf-234567`.
 
-    ```
+    ```JSON
     {
       "query": "When were HRF-123456 and hrf-234567 published in the last year?",
       "topScoringIntent": {
@@ -221,19 +227,13 @@ Skapa en entitet för reguljära uttryck för att ange för LUIS vad ett HRF-num
 
     Numren i yttrandet returneras två gånger, en gång som den nya entiteten `hrf-number`, och en gång som en fördefinierad entitet, `number`. Ett yttrande kan ha mer än en entitet och mer än en av samma typ av enhet, vilket det här exemplet visar. När en entitet för reguljära uttryck används extraherar LUIS namngivna data, vilket är programmässigt mer användbart för det klientprogram som tar emot JSON-svaret.
 
-## <a name="what-has-this-luis-app-accomplished"></a>Vad har den här LUIS-appen åstadkommit?
-Den här appen identifierade avsikten och returnerade extraherade data. 
-
-Din chattrobot har nu tillräckligt med information för att bestämma den primära åtgärden, `FindForm`, och de formulärnummer som fanns i sökningen. 
-
-## <a name="where-is-this-luis-data-used"></a>Var används dessa LUIS-data? 
-LUIS är klar med den här begäran. Det anropande programmet, till exempel en chattrobot, kan använda topScoringIntent-resultatet och formulärnumren för att söka ett tredjeparts-API. LUIS utför inte det arbetet. LUIS tar endast reda på vad användarens avsikt är och extraherar data om den avsikten. 
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
 [!INCLUDE [LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]
 
 ## <a name="next-steps"></a>Nästa steg
+I den här självstudien har du skapat en ny avsikt, lagt till exempelyttranden och sedan skapat en entitet för ett reguljärt uttryck för att extrahera välformade data från yttranden. När appen har tränats upp och publicerats identifierade en fråga till slutpunkten aktuell avsikt och extraherade data returnerades.
 
 > [!div class="nextstepaction"]
 > [Lär dig mer om listentiteten](luis-quickstart-intent-and-list-entity.md)

@@ -1,51 +1,51 @@
 ---
-title: Video Sök SDK Python quickstart | Microsoft Docs
-description: Installationsprogrammet för Video Sök SDK-konsolprogram.
-titleSuffix: Azure Video Search SDK Python quickstart
+title: 'Snabbstart: SDK för videosökning, Python'
+titleSuffix: Azure Cognitive Services
+description: Konfiguration av konsolprogrammet för SDK för videosökning.
 services: cognitive-services
 author: mikedodaro
-manager: rosh
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-video-search
-ms.topic: article
+ms.topic: quickstart
 ms.date: 02/15/2018
-ms.author: v-gedod
-ms.openlocfilehash: 1c4769a6ca3391fa595cc078651beff330bbfd60
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
-ms.translationtype: MT
+ms.author: rosh
+ms.openlocfilehash: 9784894ea9a9deb350171e0d19042eb65644093b
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35355281"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47225658"
 ---
-# <a name="video-search-sdk-python-quickstart"></a>Video Sök SDK Python-Snabbstart
+# <a name="quickstart-bing-video-search-sdk-with-python"></a>Snabbstart: SDK för videosökning i Bing med Python
 
-Bing avbildningen Sök SDK innehåller funktionerna i REST API för webb-frågor och tolkning resultat.
+SDK för bildsökning i Bing innehåller funktionerna i REST API:et för webbfrågor och parsning av resultat.
 
-Den [källkoden för Python Bing Video Sök SDK-exempel](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples/blob/master/samples/search/video_search_samples.py) är tillgänglig på Git-hubben.
+[Källkoden till exempel med SDK:t för videosökning i Bing med Python](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples/blob/master/samples/search/video_search_samples.py) är tillgänglig på Git Hub.
 
 
 ## <a name="application-dependencies"></a>Programberoenden
-Om du inte redan har det installera Python. SDK är kompatibelt med Python 2.7, 3.3, 3.4, 3.5 och 3,6.
+Installera Python om du inte redan har det. SDK är kompatibelt med Python 2.7, 3.3, 3.4, 3.5 och 3.6.
 
-Allmänna rekommendationer för utveckling av Python är att använda en [virtuell miljö](https://docs.python.org/3/tutorial/venv.html). Installera och starta den virtuella miljön med den [venv modulen](https://pypi.python.org/pypi/virtualenv). Installera virtuell miljö för Python 2.7.
+Den allmänna rekommendationen för Python-utveckling är att använda en [virtuell miljö](https://docs.python.org/3/tutorial/venv.html). Installera och initiera den virtuella miljön med [venv-modulen](https://pypi.python.org/pypi/virtualenv). Installera virtualenv för Python 2.7.
 ```
 python -m venv mytestenv
 ```
-Installera Bing videor Sök SDK beroenden:
+Installera beroenden för SDK för videosökning i Bing:
 ```
 cd mytestenv
 python -m pip install azure-cognitiveservices-search-videosearch
 ```
-## <a name="video-search-client"></a>Video Sök-klient
-Hämta en [kognitiva åtkomstnyckeln](https://azure.microsoft.com/try/cognitive-services/) under *Sök*. Lägg till importen:
+## <a name="video-search-client"></a>Klient för videosökning
+Hämta en [Cognitive Services-åtkomstnyckel](https://azure.microsoft.com/try/cognitive-services/) under *Sök*. Lägg till importer:
 ```
 subscription_key = "YOUR-SUBSCRIPTION-KEY"
 ```
-Skapa en instans av den `CognitiveServicesCredentials`, och skapa en instans av klienten:
+Skapa en instans av `CognitiveServicesCredentials` och instantiera klienten:
 ```
 client = VideoSearchAPI(CognitiveServicesCredentials(subscription_key))
 ```
-Söker videor för (SwiftKey) och kontrollera antalet resultat. Skriva ut `ID`, `name` och `URL` första video resultat.
+Kör en videosökning efter (SwiftKey) och kontrollera sedan antalet resultat. Skriv ut `ID`, `name` och `URL` för det första videoresultatet.
 ```
 client = VideoSearchAPI(CognitiveServicesCredentials(subscription_key))
 
@@ -66,7 +66,7 @@ except Exception as err:
     print("Encountered exception. {}".format(err))
 
 ```
-Sök videor för (Bellevue släpvagnen) som är ledigt, kort sagt och 1080p-lösning. Kontrollera antalet resultat och skriva ut `ID`, `name` och `URL` första video resultat.
+Kör en videosökning efter (Bellevue Trailer) som är kostnadsfri, kort och har en upplösning på 1080 bildpunkter. Kontrollera antalet resultat och skriv ut `ID`, `name` och `URL` för det första videoresultatet.
 ```
 def video_search_with_filtering(subscription_key):
 
@@ -95,7 +95,7 @@ def video_search_with_filtering(subscription_key):
 
 ```
 
-Hämta trender resultat. Kontrollera banderoll paneler och kategorier:
+Få populära resultat. Kontrollera kategorier och paneler för banderoller:
 ```
 def video_trending(subscription_key):
 
@@ -139,7 +139,7 @@ def video_trending(subscription_key):
         print("Encountered exception. {}".format(err))
 
 ```
-Sök videor för (Bellevue släpvagnen) och sök sedan efter detaljerad information för den första videon.
+Kör en videosökning efter (Bellevue Trailer) och sök sedan efter detaljerad information om den första videon.
 ```
 def video_detail(subscription_key):
 
@@ -181,5 +181,5 @@ def video_detail(subscription_key):
 ```
 ## <a name="next-steps"></a>Nästa steg
 
-[Kognitiva Services Python SDK-exempel](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples)
+[Exempel med Cognitive Services SDK för Python](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples)
 

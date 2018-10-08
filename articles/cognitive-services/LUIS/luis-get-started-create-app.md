@@ -1,20 +1,21 @@
 ---
-title: Skapa din första LUIS-app på 10 minuter – Cognitive Services LUIS | Microsoft Docs
-description: I den här snabbstarten skapar du en LUIS-app som använder den fördefinierade domänen `HomeAutomation` för att släcka lampor och stänga av apparater. Den fördefinierade domänen ger dig avsikter, entiteter och exempelyttranden. När du är klar har du en LUIS-slutpunkt som körs i molnet.
+title: Skapa din första LUIS-app på 10 minuter
+titleSuffix: Azure Cognitive Services
+description: Skapa en LUIS-app där den fördefinierade domänen `HomeAutomation` används till att släcka lampor och stänga av apparater. Den fördefinierade domänen ger dig avsikter, entiteter och exempelyttranden. När du är klar har du en LUIS-slutpunkt som körs i molnet.
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: quickstart
-ms.date: 08/22/2018
+ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: 457f23936dec0cf85e9aebbf3e54bba37c2f3ca3
-ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
+ms.openlocfilehash: 12a660b49d1a81865c34ceda38f041de9be31eb1
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/23/2018
-ms.locfileid: "43771642"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47037481"
 ---
 # <a name="quickstart-use-prebuilt-home-automation-app"></a>Snabbstart: Använda en färdig hemautomatiseringsapp
 
@@ -54,11 +55,7 @@ När domänen har lagts till visar rutan för den fördefinierade domänen knapp
 
 ## <a name="intents-and-entities"></a>Avsikter och entiteter
 
-Välj **Intents** i navigeringsfönstret till vänster för att granska avsikter för domänen HomeAutomation. 
-
-[![](media/luis-quickstart-new-app/home-automation-intents.png "Skärmbild av lista över avsikter med avsikternas namn markerade")](media/luis-quickstart-new-app/home-automation-intents.png)
-
-Varje avsikt har exempelyttranden.
+Välj **Intents** i navigeringsfönstret till vänster för att granska avsikter för domänen HomeAutomation. Varje avsikt har exempelyttranden.
 
 > [!NOTE]
 > **None** (Ingen) är en avsikt som tillhandahålls av alla LUIS-appar. Du kan använda den till att hantera yttranden som inte motsvarar funktioner som finns i din app. 
@@ -67,11 +64,9 @@ Välj avsikten **HomeAutomation.TurnOff** (stänga av). Du kan se att avsikten i
 
 [![](media/luis-quickstart-new-app/home-automation-turnon.png "Skärmbild av avsikten HomeAutomation.TurnOff")](media/luis-quickstart-new-app/home-automation-turnon.png)
 
-## <a name="train-your-app"></a>Träna appen
+## <a name="train-the-luis-app"></a>Träna LUIS-appen
 
-Välj **Train** (Träna) i det övre navigeringsfältet.
-
-[![](media/luis-quickstart-new-app/trained.png "Skärmbild av avsikten HomeAutomation.TurnOff med grönt meddelande om lyckad åtgärd")](media/luis-quickstart-new-app/trained.png)
+[!include[LUIS How to Train steps](../../../includes/cognitive-services-luis-tutorial-how-to-train.md)]
 
 ## <a name="test-your-app"></a>Testa din app
 När du har tränat appen kan du testa den. Välj **Test** i det övre navigeringsfältet. Skriv ett testyttrande som ”Turn off the lights” (Släck lamporna) i fönstret Interactive Testing (Interaktiv testning) och tryck på RETUR. 
@@ -89,29 +84,23 @@ I den här exemplet identifieras ”Turn off the lights” (Släck lamporna) som
 
 Välj **Test** igen för att dölja testfönstret. 
 
-## <a name="publish-your-app"></a>Publicera appen
-Välj **Publish** (Publicera) i det övre navigeringsfältet. 
+<a name="publish-your-app"></a>
 
-[![](media/luis-quickstart-new-app/publish.png "Skärmbild av app med publiceringsknappen markerad")](media/luis-quickstart-new-app/publish.png)
+## <a name="publish-the-app-to-get-the-endpoint-url"></a>Publicera appen för att få slutpunkts-URL
 
-Välj platsen Production (Produktionsplats) och knappen **Publish** (Publicera).
+[!include[LUIS How to Publish steps](../../../includes/cognitive-services-luis-tutorial-how-to-publish.md)]
 
-Det gröna meddelandefältet högst upp anger att appen har publicerats.
+## <a name="query-the-endpoint-with-a-different-utterance"></a>Skicka fråga till slutpunkten med ett annat yttrande
 
-[![](media/luis-quickstart-new-app/published.png "Skärmbild av app med utförd publicering")](media/luis-quickstart-new-app/published.png)
+1. [!include[LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)] 
 
-När du har publicerat kan du använda slutpunkts-URL:en som visas på sidan **Publish app** (Publicera appen).
+2. Gå till slutet av webbadressen, skriv `turn off the living room light` och tryck på Retur. I webbläsaren visas JSON-svaret för HTTP-slutpunkten.
 
-[![](media/luis-quickstart-new-app/endpoint.png "Skärmbild på sidan Publish (Publicera) med slutpunkts-URL markerad")](media/luis-quickstart-new-app/endpoint.png)
-
-## <a name="use-your-app"></a>Använda appen
-Du kan testa din publicerade slutpunkt i en webbläsare med hjälp av den genererade URL:en. Öppna URL:en i webbläsaren, ange URL-parametern ”&q” för att testa frågan. Lägg till exempel till `turn off the living room light` i slutet av URL:en och tryck sedan på RETUR. I webbläsaren visas JSON-svaret för HTTP-slutpunkten.
-
-
-[![](media/luis-quickstart-new-app/turn-off-living-room.png "Skärmbild av webbläsare med JSON-resultat som identifierar avsikten TurnOff")](media/luis-quickstart-new-app/turn-off-living-room.png)
-
+    [![](media/luis-quickstart-new-app/turn-off-living-room.png "Skärmbild av webbläsare med JSON-resultat som identifierar avsikten TurnOff")](media/luis-quickstart-new-app/turn-off-living-room.png)
+    
 ## <a name="clean-up-resources"></a>Rensa resurser
-Ta bort LUIS-appen när den inte längre behövs. För att göra det väljer du ellipsknappen (***...***) till höger om appnamnet i applistan och väljer **Delete** (Ta bort). På popup-dialogrutan **Delete app?** (Ta bort appen?) väljer du **Ok**.
+
+[!include[LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]
 
 ## <a name="next-steps"></a>Nästa steg
 

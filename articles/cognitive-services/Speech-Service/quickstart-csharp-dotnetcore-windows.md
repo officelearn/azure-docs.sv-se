@@ -1,89 +1,98 @@
 ---
-title: 'Snabbstart: Känna igen tal i C# under .NET Core för Windows med hjälp av Cognitive Services tal SDK'
+title: 'Snabbstart: Känna igen tal i C# under .NET Core i Windows med hjälp av Speech SDK för Cognitive Services'
 titleSuffix: Microsoft Cognitive Services
-description: Lär dig att känna igen tal i C# under .NET Core för Windows med hjälp av Cognitive Services tal SDK
+description: Lär dig att känna igen tal i C# under .NET Core i Windows med hjälp av tal-SDK för Cognitive Services
 services: cognitive-services
 author: wolfma61
 ms.service: cognitive-services
 ms.component: speech-service
-ms.topic: article
-ms.date: 07/16/2018
+ms.topic: quickstart
+ms.date: 09/24/2018
 ms.author: wolfma
-ms.openlocfilehash: ee83443c76851506fffbfcaaa12e72790d077cb0
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
-ms.translationtype: MT
+ms.openlocfilehash: 2cb89606986645d567136655d5ab3f07223ba70d
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43128510"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47434780"
 ---
-# <a name="quickstart-recognize-speech-in-c-under-net-core-on-windows-using-the-speech-sdk"></a>Snabbstart: Känna igen tal i C# under .NET Core för Windows med hjälp av tal-SDK
+# <a name="quickstart-recognize-speech-in-c-under-net-core-on-windows-by-using-the-speech-sdk"></a>Snabbstart: Känna igen tal i C# under .NET Core i Windows med hjälp av Speech SDK
 
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
-I den här artikeln får du lära dig hur du skapar ett C#-konsolprogram för .NET Core för Windows med hjälp av Cognitive Services tal SDK för att transkribera tal till text.
-Programmet har skapats med den [Microsoft Cognitive Services tal SDK NuGet-paketet](https://aka.ms/csspeech/nuget) och Microsoft Visual Studio 2017.
+I den här artikeln skapar du ett C#-konsolprogram för .NET Core på Windows med hjälp av Cognitive Services [Speech SDK](speech-sdk.md). Du transkriberar tal till text i realtid från datorns mikrofon. Programmet har skapats med [NuGet-paketets tal-SDK](https://aka.ms/csspeech/nuget) och Microsoft Visual Studio 2017 (alla versioner).
 
 > [!NOTE]
-> .NET core är en plattform med öppen källkod, plattformsoberoende .NET implementera den [.NET Standard](https://docs.microsoft.com/dotnet/standard/net-standard) specifikationen.
+> .NET Core är en plattformsoberoende plattform med öppen källkod som implementerar [.NET Standard](https://docs.microsoft.com/dotnet/standard/net-standard)-specifikationen.
 
-## <a name="prerequisites"></a>Förutsättningar
+Du behöver en Speech-tjänstprenumerationsnyckel för att slutföra den här snabbstarten. Du kan skaffa en utan kostnad. Mer information finns i [Prova Speech Service kostnadsfritt](get-started.md).
 
-* En prenumerationsnyckel för Speech-tjänsten. Se [prova speech-tjänsten utan kostnad](get-started.md).
-* En Windows-dator med en fungerande mikrofon.
-* [Microsoft Visual Studio 2017](https://www.visualstudio.com/), Community Edition eller senare.
-* Den **.NET Core plattformsoberoende utveckling** arbetsbelastningen i Visual Studio. Du kan aktivera den i **verktyg** \> **hämta verktyg och funktioner**.
-
-  ![Aktivera .NET Core plattformsoberoende utveckling](media/sdk/vs-enable-net-core-workload.png)
 
 ## <a name="create-a-visual-studio-project"></a>Skapa ett Visual Studio-projekt
 
-1. Skapa en ny Visual C# .NET Core-Konsolapp i Visual Studio 2017. I den **nytt projekt** dialogrutan i den vänstra rutan expanderar **installerad** \> **Visual C#** \> **.NET Core**och välj sedan **Konsolapp (.NET Core)**. Projektnamnet, ange *helloworld*.
+1. Starta Visual Studio 2017.
 
-    ![Skapa Visual C#-Konsolapp (.NET Core)](media/sdk/qs-csharp-dotnetcore-windows-01-new-console-app.png "skapar Visual C#-Konsolapp (.NET Core)")
+1. Kontrollera att arbetsbelastningen  **.NET cross-platform development** (Plattformsoberoende .NET-utveckling) är tillgänglig. Välj **Verktyg** > **Get Tools and Features** (Hämta verktyg och funktioner) på menyraden i Visual Studio för att öppna installationsprogrammet för Visual Studio. Om den här arbetsbelastningen redan är aktiverad stänger du dialogrutan.
 
-1. Installera och referera till den [tal NuGet-paketet SDK](https://aka.ms/csspeech/nuget). Högerklicka på lösningen i Solution Explorer och välj **hantera NuGet-paket för lösningen**.
+    ![Skärmbild av Visual Studio-installationsprogrammet med fliken Arbetsbelastningar markerad](media/sdk/vs-enable-net-core-workload.png)
 
-    ![Högerklicka på Hantera NuGet-paket för lösningen](media/sdk/qs-csharp-dotnetcore-windows-02-manage-nuget-packages.png "hantera NuGet-paket för lösningen")
+    Annars markerar du rutan bredvid **.NET Core cross-platform development** (Plattformsoberoende .NET-utveckling) och väljer **Ändra** i det nedre högra hörnet av dialogrutan. Installationen av den nya funktionen tar en stund.
 
-1. I det övre högra hörnet i den **Paketkällan** väljer **Nuget.org**. Sök efter och installera den `Microsoft.CognitiveServices.Speech` paketera och installera den i den **helloworld** projekt.
+1. Skapa en ny Visual C# .NET-konsolapp. I dialogrutan **Nytt projekt** expanderar du **Installerat** > **Visual C#** > **.NET Core** i den vänstra rutan. Välj sedan **Console App (.NET Core)**. För projektnamnet anger du *helloworld*.
 
-    ![Installera NuGet-paketet för Microsoft.CognitiveServices.Speech](media/sdk/qs-csharp-dotnetcore-windows-03-nuget-install-0.5.0.png "installera Nuget-paketet")
+    ![Skärmbild av dialogrutan Nytt projekt](media/sdk/qs-csharp-dotnetcore-windows-01-new-console-app.png "Skapa Visual C#-konsolapp (.NET Core)")
 
-1. Acceptera visas licensvillkoren.
+1. Installera och referera till [NuGet-paketet för Speech SDK](https://aka.ms/csspeech/nuget). Högerklicka på lösningen i Solution Explorer och välj sedan **Hantera NuGet-paket för lösningen**.
 
-    ![Acceptera licensvillkoren](media/sdk/qs-csharp-dotnetcore-windows-04-nuget-license.png "acceptera licensvillkoren")
+    ![Skärmbild av Solution Explorer, med alternativet Hantera NuGet-paket för lösningen markerat](media/sdk/qs-csharp-dotnetcore-windows-02-manage-nuget-packages.png "Hantera NuGet-paket för lösning")
 
-## <a name="add-the-sample-code"></a>Lägg till exempelkoden
+1. I fältet för **paketkälla** uppe till höger väljer du **nuget.org**. Sök efter `Microsoft.CognitiveServices.Speech`-paketet och installera det i projektet **helloworld**.
+
+    ![Skärmbild av dialogrutan Hantera paket för lösningen](media/sdk/qs-csharp-dotnetcore-windows-03-nuget-install-1.0.0.png "Installera NuGet-paket")
+
+1. Acceptera licensvillkoren som visas för att påbörja installationen av NuGet-paketet.
+
+    ![Skärmbild av dialogrutan för att acceptera licensvillkoren](media/sdk/qs-csharp-dotnetcore-windows-04-nuget-license.png "Acceptera licensen")
+
+När paketet har installerats visas en bekräftelse i Package Manager-konsolen.
+
+
+## <a name="add-sample-code"></a>Lägg till exempelkod
 
 1. Öppna `Program.cs` och ersätt all kod i den med följande.
 
     [!code-csharp[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/csharp-dotnetcore-windows/helloworld/Program.cs#code)]
 
-1. Ersätt strängen `YourSubscriptionKey` med din prenumerationsnyckel.
+1. Ersätt strängen `YourSubscriptionKey` i samma fil med din prenumerationsnyckel.
 
-1. Ersätt strängen `YourServiceRegion` med den [region](regions.md) som är associerade med din prenumeration (till exempel `westus` för en kostnadsfri provprenumeration).
+1. Ersätt även strängen `YourServiceRegion` med den [region](regions.md) som är associerad med din prenumeration (till exempel `westus` för en kostnadsfri provprenumeration).
 
-1. Spara ändringar i projektet.
+1. Spara ändringarna i projektet.
 
-## <a name="build-and-run-the-sample"></a>Skapa och köra exempelappen
+## <a name="build-and-run-the-app"></a>Skapa och kör appen
 
-1. Skapa programmet. På menyraden väljer **skapa** > **skapa lösning**. Koden ska kompilera utan fel nu.
+1. Skapa programmet. I menyraden väljer du **Skapa** > **Skapa lösning**. Koden ska kompileras utan fel.
 
-    ![Version](media/sdk/qs-csharp-dotnetcore-windows-05-build.png "version")
+    ![Skärmbild av Visual Studio-programmet med Skapa lösning markerat](media/sdk/qs-csharp-dotnetcore-windows-05-build.png "Skapandet lyckades")
 
-1. Starta programmet. På menyraden väljer **felsöka** > **Starta felsökning**, eller tryck på **F5**.
+1. Starta programmet. I menyraden väljer du **Felsök** > **Starta felsökning**, eller tryck på **F5**.
 
-    ![Starta appen i felsökning](media/sdk/qs-csharp-dotnetcore-windows-06-start-debugging.png "starta appen into-felsökning")
+    ![Skärmbild av Visual Studio-programmet, med Starta felsökning markerat](media/sdk/qs-csharp-dotnetcore-windows-06-start-debugging.png "Starta appen i felsökningsläge")
 
-1. Ett konsolfönster visas där du uppmanas att säga något (på engelska). Den tolkade texten visas sedan i samma fönster.
+1. Ett konsolfönster öppnas där du uppmanas att säga något. Säg en engelsk fras eller en mening. Ditt tal överförs till Speech-tjänsten och transkriberas till text som visas i samma fönster.
 
-    ![Konsolens utdata efter lyckad erkännande](media/sdk/qs-csharp-dotnetcore-windows-07-console-output.png "konsolens utdata efter lyckad taligenkänning")
+    ![Skärmbild av konsolens utdata efter lyckad igenkänning](media/sdk/qs-csharp-dotnetcore-windows-07-console-output.png "Konsolens utdata efter lyckad taligenkänning")
 
-[!INCLUDE [Download the sample](../../../includes/cognitive-services-speech-service-speech-sdk-sample-download-h2.md)]
-Leta efter det här exemplet i den `quickstart/csharp-dotnetcore-windows` mapp.
+[!INCLUDE [Download this sample](../../../includes/cognitive-services-speech-service-speech-sdk-sample-download-h2.md)]
+Leta efter det här exemplet i mappen `quickstart/csharp-dotnetcore-windows`.
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Omvandla tal](how-to-translate-speech-csharp.md)
+> [!div class="nextstepaction"]
+> [Identifiera avsikter från tal med hjälp av tal-SDK för C#](how-to-recognize-intents-from-speech-csharp.md)
+
+## <a name="see-also"></a>Se även
+
+- [Översätta tal](how-to-translate-speech-csharp.md)
 - [Anpassa akustiska modeller](how-to-customize-acoustic-models.md)
 - [Anpassa språkmodeller](how-to-customize-language-model.md)

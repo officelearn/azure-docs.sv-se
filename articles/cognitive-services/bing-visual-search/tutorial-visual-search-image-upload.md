@@ -1,32 +1,32 @@
 ---
-title: Bing Visual Search ladda upp avbildningen självstudien | Microsoft Docs
-titleSuffix: Bing Web Search APIs - Cognitive Services
-description: Delar upp processen att överföra en avbildning till Bing och få insikter om den och parsning och visa svaret.
+title: 'Självstudie: Så här laddar du upp en bild – Visuell sökning i Bing'
+titleSuffix: Azure Cognitive Services
+description: Delar upp processen att ladda upp en bild till Bing för att få information om den, samt parsar och visar svaret.
 services: cognitive-services
 author: swhite-msft
-manager: rosh
+manager: cgronlun
 ms.service: cognitive-services
 ms.technology: bing-visual-search
-ms.topic: article
+ms.topic: tutorial
 ms.date: 07/10/2018
 ms.author: scottwhi
-ms.openlocfilehash: 1352ccbcda35c693c5ac0b36156af199ae46bee9
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
-ms.translationtype: MT
+ms.openlocfilehash: a5bc5197ecd1f35b4d0026caa076a844c9d57c40
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39068676"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47221337"
 ---
-# <a name="tutorial-breaking-down-bing-visual-search-upload"></a>Självstudie: Bryta ned Bing Visual Search uppladdning
+# <a name="tutorial-breaking-down-bing-visual-search-upload"></a>Självstudie: Dela upp uppladdningen i Visuell sökning i Bing
 
-Den här självstudien delar upp processen med att ladda upp en avbildning till Bing och få tillbaka insikter. Den visar även hur att komma åt och visa insikter i JSON-svar. Det fullständiga exemplet HTML och JavaScript, se [slutföra kod](#complete-code).
+Den här självstudien delar upp processen för att ladda upp en bild till Bing och få tillbaka information. Den visar även hur du kommer åt och visar informationen i JSON-svaret. Det fullständiga exemplet för HTML och JavaScript finns i [Fullständig kod](#complete-code).
 
-Den här självstudiekursen har angetts för utvecklare som vill utforska innehållet i Bing Visual Search-svaret. Det inte gäller all användning och visa kraven (till exempel det ger inte en länk till Microsofts sekretesspolicy). Alla användningskrav finns i [Bing Använd och visa krav](./use-and-display-requirements.md).
+Självstudien är avsedd för utvecklare som vill utforska innehållet i svaret från Visuell sökning i Bing. Den visar inte alla användnings- och visningskrav (till exempel finns det inte någon länk till Microsofts sekretesspolicy). Alla användningskrav finns i [Användnings- och visningskrav för Bing](./use-and-display-requirements.md).
 
 
-## <a name="where-to-start"></a>Var du ska börja?
+## <a name="where-to-start"></a>Var ska vi börja?
 
-Låt oss börja med en HTML-sida som skickar Bing en bild och får tillbaka insikter och visar dem. I redigeringsprogram du föredrar, skapar du en fil med namnet uploaddemo.html. Lägg till följande grundläggande HTML-strukturen i filen.
+Låt oss börja med en HTML-sida som skickar en bild till Bing, får tillbaka information och visar den. Använd det redigeringsprogram du föredrar och skapa en fil med namnet uploaddemo.html. Lägg till nedanstående grundläggande HTML-struktur i filen.
 
 ```html
 <!DOCTYPE html>
@@ -40,7 +40,7 @@ Låt oss börja med en HTML-sida som skickar Bing en bild och får tillbaka insi
 </html>      
 ```
 
-Börja genom att vi dela upp sidan i en begäran, där användaren tillhandahåller all information som behövs för att utföra begäran, och ett svar avsnitt där insikterna som visas. Lägg till följande \<div\> etiketter till den \<brödtext\>. Den \<hr\> taggen filservernätverket visuellt avsnittet begäran från svarsavsnittet.
+Vi börjar med att dela upp sidan i en begäran, där användaren ger all information som behövs för att utföra begärandet, och ett svar där informationen visas. Lägg till följande \<div\>-taggar i \<brödtexten\>. Taggen \<hr\> visar begärandet visuellt från svarsdelen.
 
 ```html
         <div id="requestSection"></div>
@@ -50,13 +50,13 @@ Börja genom att vi dela upp sidan i en begäran, där användaren tillhandahål
         <div id="responseSection"></div>
 ```
 
-## <a name="get-the-file-to-upload"></a>Hämta filen som ska överföras
+## <a name="get-the-file-to-upload"></a>Hämta filen som ska laddas upp
 
-Om du vill att användaren kan välja att överföra avbildningen demonstrationen använder den \<inkommande\> taggen med attributet typen till filen. Användargränssnittet måste göra det Rensa att demon använder Bing för att hämta sökresultaten. 
+För att användaren ska kunna välja vilken bild som ska laddas upp, använder demonstrationen taggen \<input\> med typattributet angett som en fil. Användargränssnittet måste visa tydligt att demonstrationen använder Bing till att hämta sökresultaten. 
 
-Lägg till följande \<div\> till requestSection div. Den fil som indata accepterar en fil av valfri bildtyp (till exempel .jpg, GIF, PNG). Den `onchange` händelsen anger hanteraren som anropas när en användare väljer en fil.
+Lägg till följande \<div\> i requestSection div. Filens indata godkänner en enskild fil av valfri bildtyp (till exempel .jpg, .gif, .png). `onchange`-händelsen anger vilken hanterare som anropas när en användare väljer en fil.
 
-Den \<utdata\> indatatagg används för att visa en miniatyrbild för den valda avbildningen.
+Taggen \<output\> används för att visa en miniatyr av den valda bilden.
 
 
 ```html
@@ -69,14 +69,14 @@ Den \<utdata\> indatatagg används för att visa en miniatyrbild för den valda 
             </div>
 ```
 
-Innan du lägger till hanteraren, lägger du till en \<skriptet\> tagg i \<head\> tagg.
+Innan du lägger till hanteraren, lägger du till taggen \<script\> i taggen \<head\>.
 
 ```html
         <script>
         <\script>
 ```
 
-Nedan visas hanteraren som samlar in den valda avbildningen. Hanteraren innehåller logik för att kontrollera att den valda filen är en bildfil och att dess storlek är 1 MB eller mindre. Du kan tillåta användaren att välja större filer men du behöver att minska bildstorleken till mindre än 1 MB innan du skickar den till Bing. Det sista hanteraren har är visas en miniatyr av avbildningen, så att användaren har en visuell påminnelse för de valda filen.
+Nedan visas hanteraren som hämtar den valda bilden. Hanteraren innehåller logik för att kunna kontrollera att den valda filen är en bildfil och att dess storlek är högst 1 MB. Du kan tillåta att användaren väljer större filer, men du måste minska bildstorleken till högst 1 MB innan den laddas upp till Bing. Det sista hanteraren gör är att visa en miniatyr av bilden, så att användaren får en visuell påminnelse om vilken fil som valts.
 
 ```javascript
         function handleFileSelect(selector) {
@@ -126,9 +126,9 @@ Nedan visas hanteraren som samlar in den valda avbildningen. Hanteraren innehål
 ```
 
 
-## <a name="what-else-is-needed-before-making-the-call-to-bing"></a>Vad som krävs innan du gör anropet till Bing?
+## <a name="what-else-is-needed-before-making-the-call-to-bing"></a>Krävs det något mer innan du anropar Bing?
 
-Demon fortfarande ha en prenumerationsnyckel. Du skulle förmodligen hämta prenumerationsnyckeln från säker lagring i praktiken, men för enkelheten med den här demon, måste du ange den i Användargränssnittet. Lägg till följande \<inkommande\> tagga (med attributet type inställd text) till den \<brödtext\> nedanför filens \<utdata\> taggen.
+Demon måste fortfarande ha en prenumerationsnyckel. I praktiken skulle du förmodligen hämta prenumerationsnyckeln från en säker lagringsplats, men för att göra demon enkel anger du den i användargränssnittet. Lägg till följande \<input\>-tagg (med typattributet angivet som text) i \<brödtexten\>, strax nedanför filens \<output\>-tagg.
 
 ```html
         <div>
@@ -138,9 +138,9 @@ Demon fortfarande ha en prenumerationsnyckel. Du skulle förmodligen hämta pren
         </div>
 ```
 
-Med avbildningen och prenumerationsnyckeln i hand kan göra du anrop till Bing Visual Search för att få insikter om avbildningen. Anropet använder standard marknaden och värden för säker sökning (en-us och måttlig, respektive).
+Nu när du har bilden och prenumerationsnyckeln kan du anropa Visuell sökning i Bing för att få information om bilden. Anropet använder värden för standardmarknad och säker sökning (en-us respektive medel).
 
-Denna demo ger användaren möjlighet att ändra dessa värden. Lägg till följande \<div\> nedan prenumeration viktiga div. Demon använder en \<Välj\> taggen för att tillhandahålla en nedrullningsbar listruta för marknaden och säker sökning värden. Båda listorna visas Bings standardvärdet.
+I den här demon kan användaren ändra dessa värden. Lägg till följande \<div\> nedanför prenumerationsnyckelns div. Demon använder en \<select\>-tagg för att visa en listruta med värden för marknad och säker sökning. Båda listorna visas Bings standardvärde.
 
  
 ```html
@@ -203,7 +203,7 @@ Denna demo ger användaren möjlighet att ändra dessa värden. Lägg till följ
         </div>
 ```
 
-Demon döljer listor i ett komprimerbart div som styrs av länken fråga. När du klickar på länken frågan utökar div så att du kan se och ändra frågealternativ. Om du klickar på Frågealternativ igen, länka div minimeras och är dold. Nedan visas fråga alternativ länkens onclick hanterare. Hanteraren styr om div visas eller döljs. Lägg till denna hanterare den \<skriptet\> avsnittet. Hanteraren används av alla komprimerbart Divar i demon.
+Demon döljer listorna i en komprimerbar div som styrs av länken Frågealternativ. När du klickar på länken Frågealternativ expanderas div så att du kan se och ändra frågealternativen. Om du klickar på Frågealternativ igen, minimeras div och är därefter dold. Nedan visas onclick-hanteraren för länken Frågealternativ. Hanteraren styr om div ska expanderas eller minimeras. Lägg till denna hanterare i \<script\>-delen. Hanteraren används av alla komprimerbara div-taggar i demon.
 
 ```javascript
         // Contains the toggle state of divs.
@@ -226,15 +226,15 @@ Demon döljer listor i ett komprimerbart div som styrs av länken fråga. När d
 ```
 
 
-## <a name="making-the-call"></a>Att göra anropet
+## <a name="making-the-call"></a>Anropa
 
-Lägg till följande Get insikter knappen under Alternativ-div i brödtexten. Knappen användaren kan initiera ett samtal. När användaren klickar på knappen markören ändras till att vänta markören och onclick hanteraren kallas.
+Lägg till följande knapp för att hämta insikter under alternativens div i brödtexten. Med knappen kan användaren initiera anropet. När användaren klickar på knappen ändras markören till en snurrande väntemarkör och onclick-hanteraren anropas.
 
 ```html
         <p><input type="button" id="query" value="Get insights" onclick="document.body.style.cursor='wait'; handleQuery()" /></p>
 ```
 
-Lägg till knappens onclick hanterare till den \<skriptet\> tagg. Hanteraren ser till att prenumerationsnyckeln finns och är 32 tecken långt och att en avbildning har valts. Det tar också några insikter från en tidigare fråga. Om du är nöjd, anropar funktionen sendRequest som anropar.
+Lägg till knappens onclick-hanterare i \<script\>-taggen. Hanteraren kontrollerar att ett det finns en prenumerationsnyckel som är 32 tecken lång och att en bild har valts. Den rensar också bort eventuella insikter från tidigare frågor. Om allt är som det ska anropas funktionen sendRequest för att göra anropet.
 
 ```javascript
         function handleQuery() {
@@ -271,7 +271,7 @@ Lägg till knappens onclick hanterare till den \<skriptet\> tagg. Hanteraren ser
         }
 ```
 
-Funktionen sendRequest formaterar slutpunkts-URL, anger Ocp-Apim-Subscription-Key-rubriken till prenumerationsnyckeln, lägger till den binära filen för avbildningen som ska ladda upp, anger svarshanteraren och gör anropet. 
+Funktionen sendRequest formaterar slutpunktens URL, anger Ocp-Apim-Subscription-Key-rubriken till prenumerationsnyckeln, lägger till den binära filen för bilden som ska laddas upp, anger svarshanteraren och gör anropet. 
 
 ```javascript
         function sendRequest(file, key) {
@@ -291,13 +291,13 @@ Funktionen sendRequest formaterar slutpunkts-URL, anger Ocp-Apim-Subscription-Ke
         }
 ```
 
-## <a name="handling-the-response"></a>Hantering av svaret
+## <a name="handling-the-response"></a>Hantera svaret
 
-Funktionen handleResponse hanterar svar från anropet till Bing Visual Search. Om anropet lyckas, tolkar JSON-svar till enskilda taggar, som innehåller insikterna. Därefter läggs sträng, Bing, internet sökresultaten till sidan om du vill att de vet data ifrån Bing.
+Funktionen handleResponse hanterar svaret från anropet till Visuell sökning i Bing. Om anropet lyckas parsas JSON-svaret till separata taggar som innehåller insikterna. Därefter läggs strängen för Bings Internet-sökresultat till på sidan för att visa användaren att datan kom från Bing.
 
-Demon kunde dumpa alla insikter till sidan men vissa bilder returnera stora mängder data, vilket gör det svårt att använda. I stället skapar demon ett komprimerbart div för varje tagg, så att användaren kan hantera hur mycket data som visas.
+Demon skulle kunna dumpa alla insikter på sidan, men vissa bilder returnerar stora mängder data som kan vara svårhanterliga. I stället skapar demon en komprimerbar div för varje tagg, så att användaren kan hantera hur mycket data som ska visas.
 
-Lägg till hanteraren den \<skriptet\> avsnittet.
+Lägg till hanteraren i \<script\>-delen.
 
 ```javascript
         function handleResponse() {
@@ -334,7 +334,7 @@ Lägg till hanteraren den \<skriptet\> avsnittet.
         }
 ```
 
-Funktionen buildTagSections upprepas Analyserad JSON-taggar och anropar funktionen buildDiv för att skapa en div för varje tagg. Precis som med alternativet visas varje tagg som en länk. När användaren klickar på länken, expanderar taggen som visar de insikter som är associerade med taggen. Om användaren klickar på länken igen, döljer avsnittet dölja information från användaren.
+Funktionen buildTagSections itereras via de parsade JSON-taggarna och anropar buildDiv-funktionen för att skapa en div för varje tagg. Precis som i frågealternativet visas varje tagg som en länk. När användaren klickar på länken expanderas taggen med de insikter som är associerade med den. Om användaren klickar på länken igen minimeras insikterna.
 
 ```javascript
         function buildTagSections(tags) {
@@ -372,11 +372,11 @@ Funktionen buildTagSections upprepas Analyserad JSON-taggar och anropar funktion
         }
 ```
 
-Funktionen buildDiv anropar funktionen addDivContent för att skapa innehållet i varje tagg komprimerbart div.
+Funktionen buildDiv anropar addDivContent-funktionen för att skapa innehållet i varje taggs komprimerbara div.
 
-En tagg-innehållet innehåller JSON från svaret för taggen. Demon innehåller JSON för dessa utvecklare som vill se JSON bakom svaret. Till en början visas endast de första 100 tecknen i JSON, men du kan klicka på JSON-sträng för att visa alla JSON. Om du klickar på den igen, döljer JSON-sträng till 100 tecken.
+Ett tagginnehåll inkluderar JSON från taggsvaret. Demon innehåller JSON för de utvecklare som vill se JSON bakom svaret. Till en början visas endast de första 100 tecknen i JSON, men om du klickar på JSON-strängen ser du hela JSON. Om du klickar på den igen minimeras JSON-strängen till 100 tecken.
 
-Lägg sedan till åtgärdstyper som hittades i taggen. Anropa olika funktioner för att lägga till dess insikter för varje åtgärdstyp.
+Lägg sedan till de åtgärdstyper som hittades i taggen. För varje åtgärdstyp anropar du de olika funktionerna för att lägga till dess insikter.
 
 ```javascript
         function addDivContent(div, tag, json) {
@@ -451,9 +451,9 @@ Lägg sedan till åtgärdstyper som hittades i taggen. Anropa olika funktioner f
         }
 ```
 
-Följande är de funktioner som visar insikter för olika åtgärder. De flesta av dessa funktioner är enkelt &mdash; de antingen ge en klickbar bild eller en klickbar länk som leder användaren till en webbsida där de kan få mer information om avbildningen (Bing.com eller avbildningens värd webbsidan). Självstudien visar inte alla data som hör till insikter. Du hittar alla fält som är tillgängliga för en insikt i [Bing Visual Search referens](https://aka.ms/bingvisualsearchreferencedoc).
+Nedan visas de funktioner som innehåller insikter för de olika åtgärderna. De flesta av dessa funktioner är enkla &mdash; de visar antingen en klickbar bild eller en klickbar länk som leder användaren till en webbsida där de kan få mer information om bilden (Bing.com eller bildens värdwebbsida). Självstudien visar inte alla data som hör till insikten. Du hittar alla fält som är tillgängliga för en insikt i [Referens för Visuell sökning i Bing](https://aka.ms/bingvisualsearchreferencedoc).
 
-Kom ihåg att det finns en minimal mängd data som du måste visa, resten är upp till dig. Om du vill kontrollera att du befinner dig i efterlevnad, se [Bing Använd och visa krav](./use-and-display-requirements.md).
+Kom ihåg att det finns en minsta mängd data som du måste visa, resten är upp till dig. Om du vill kontrollera att du följer kraven kan du läsa mer i [Användnings- och visningskrav för Bing](./use-and-display-requirements.md).
 
 
 ```javascript
@@ -676,9 +676,9 @@ Kom ihåg att det finns en minimal mängd data som du måste visa, resten är up
 
 
 
-## <a name="adding-styles-to-make-the-page-display-correctly"></a>Att lägga till format för att göra sidan visas korrekt
+## <a name="adding-styles-to-make-the-page-display-correctly"></a>Lägga till format för att sidan ska visas korrekt
 
-Lägg till följande \<style\> avsnitt i den \<head\> tagg.
+Lägg till följande \<style\>-del i \<head\>-taggen.
 
 ```html
         <style>
@@ -713,9 +713,9 @@ Lägg till följande \<style\> avsnitt i den \<head\> tagg.
 
 
 
-## <a name="complete-code"></a>Fullständiga koden
+## <a name="complete-code"></a>Fullständig kod
 
-Här är det fullständiga exemplet som HTML och JavaScript.
+Här visas det fullständiga exemplet för HTML och JavaScript.
 
 ```html
 <!DOCTYPE html>
@@ -1331,4 +1331,4 @@ Här är det fullständiga exemplet som HTML och JavaScript.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Och se hur informationshämtning fungerar med hjälp av och insikter token, se [Bing Visual Search SDK ImageInsightsToken självstudien](.\tutorial-visual-search-insights-token.md).
+Om du vill se hur informationshämtning fungerar med hjälp av insiktstoken, kan du gå till [Självstudie om SDK för Visuell sökning i Bing och ImageInsightsToken](.\tutorial-visual-search-insights-token.md).

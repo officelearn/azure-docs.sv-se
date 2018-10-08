@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: overview
 ms.date: 10/27/2017
 ms.author: gokuma
-ms.openlocfilehash: 661c757cda2f70b03d136f3726c7afe633fbbe04
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.openlocfilehash: 62c8ff225b9c649afa7532ad5edfdd627e573d81
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42023253"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47032248"
 ---
 # <a name="introduction-to-azure-data-science-virtual-machine-for-linux-and-windows"></a>Introduktion till Azure Data Science Virtual Machine för Linux och Windows
 
@@ -137,3 +137,5 @@ Många populära datavetenskaps- och deep learning-verktyg har redan installerat
 * Mer information om hur du skapar en Ubuntu-DSVM och använder den finns i [Etablera den virtuella datorn för datavetenskap för Linux (Ubuntu)](dsvm-ubuntu-intro.md). Mer information om hur du skapar en CentOS-DSVM och använder den finns i [Etablera en virtuell Linux CentOS-dator för datavetenskap på Azure](linux-dsvm-intro.md).
 * En genomgång som visar hur du utför flera vanliga datavetenskapsuppgifter med den virtuella Linux-datorn, både CentOS och Ubuntu, finns i [Datavetenskap på den virtuella Linux-datorn för datavetenskap](linux-dsvm-walkthrough.md).
 
+## <a name="next-steps"></a>Nästa steg
+[R-utvecklarens guide till Azure](../r-developers-guide.md)

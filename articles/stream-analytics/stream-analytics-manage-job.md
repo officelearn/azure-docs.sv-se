@@ -10,12 +10,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 04/04/2018
-ms.openlocfilehash: 6b924e0555ea7a57f8d5e5309a266b6d2fb44f44
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: 1955fc033e0351be9da89bbee11dc41d6281a63a
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43702535"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47433998"
 ---
 # <a name="create-a-stream-analytics-job-to-analyze-phone-call-data-and-visualize-results-in-a-power-bi-dashboard"></a>Skapa ett Stream Analytics-jobb för att analysera telefonsamtalsdata och visualisera resultat i en Power BI-instrumentpanel
  
@@ -101,12 +101,12 @@ Innan du startar appen TelcoGenerator ska du konfigurera den så att den skickar
 5. Öppna sedan ett kommandofönster, ändra till mappen där du har packat upp programmet TelcoGenerator och ange följande kommando:
 
    ```
-   telcodatagen.exe 1000 .2 2
+   telcodatagen.exe 1000 0.2 2
    ```
 
    Kommandot stöder följande parametrar:
    * **Antal anropsdataposter per timme**.  
-   * **Procentandel för sannolikhet för bedrägeri** – hur ofta appen ska simulera ett bedrägligt samtal. Värdet .2 betyder att cirka 20 % av anropsposterna ser bedrägliga ut.  
+   * **Procentandel för sannolikhet för bedrägeri** – hur ofta appen ska simulera ett bedrägligt samtal. Värdet 0.2 betyder att cirka 20 % av anropsposterna ser bedrägliga ut.  
    * **Längd i timmar** – antalet timmar som appen ska köras. Du kan också stoppa appen när som helst genom att avsluta processen (Ctrl+C) på kommandoraden.
 
    Efter några sekunder börjar appen visa telefonsamtalsposter på skärmen och skickar dem till en händelsehubb. Telefonsamtalsdata innehåller följande fält:
@@ -228,7 +228,7 @@ Du kan testa en fråga från frågeredigeraren, och du behöver exempeldata för
 
 3. Ställ in **Minuter** på 3 och välj **OK**. Tre minuters data samplas från indataströmmen och meddelar dig när exempeldata är klara. Du kan visa status för exemplet från meddelandefältet. 
 
-   Exempeldata lagras tillfälligt och är tillgängliga medan du har frågefönstret öppet. Om du stänger frågefönstret ignoreras exempeldata och du måste skapa en ny uppsättning exempeldata. Som ett alternativ kan du hämta en .json-fil som innehåller exempeldata från [GitHub](https://github.com/Azure/azure-stream-analytics/blob/master/Sample Data/telco.json) och sedan ladda upp .json-filen och använda den som exempeldata för CallStream-indata.  
+   Exempeldata lagras tillfälligt och är tillgängliga medan du har frågefönstret öppet. Om du stänger frågefönstret ignoreras exempeldata och du måste skapa en ny uppsättning exempeldata. Som ett alternativ kan du hämta en .json-fil som innehåller exempeldata från [GitHub](https://github.com/Azure/azure-stream-analytics/blob/master/Sample%20Data/telco.json) och sedan ladda upp .json-filen och använda den som exempeldata för CallStream-indata.  
 
 4. Välj **Test** för att testa frågan. Du bör se utdataresultat som visas i den här skärmbilden:  
 
@@ -262,7 +262,7 @@ Du kan testa en fråga från frågeredigeraren, och du behöver exempeldata för
 
 För den här delen av självstudien använder du ett [ASP.NET](http://asp.net/)-exempelwebbprogram som skapats av PowerBI-teamet för att bädda in instrumentpanelen. Mer information om att bädda in instrumentpaneler finns i artikeln [inbäddning med Power BI](https://docs.microsoft.com/power-bi/developer/embedding).
 
-I den här självstudiekursen kommer vi följa instruktionerna för användaren som äger dataprogrammet. För att konfigurera programmet går du till Github-lagringsplatsen [PowerBI-Developer-Samples](https://github.com/Microsoft/PowerBI-Developer-Samples) och följer instruktionerna under avsnittet om **användarägda data** (använd URL:erna för omdirigering och startsida i underavsnittet **integrate-dashboard-web-app**). Eftersom vi använder exemplet med instrumentpanelen ska du använda exempelkoden integrate-dashboard-web-app som finns på [GitHub-lagringsplatsen](https://github.com/Microsoft/PowerBI-Developer-Samples/tree/master/User Owns Data/integrate-dashboard-web-app).
+I den här självstudiekursen kommer vi följa instruktionerna för användaren som äger dataprogrammet. För att konfigurera programmet går du till Github-lagringsplatsen [PowerBI-Developer-Samples](https://github.com/Microsoft/PowerBI-Developer-Samples) och följer instruktionerna under avsnittet om **användarägda data** (använd URL:erna för omdirigering och startsida i underavsnittet **integrate-dashboard-web-app**). Eftersom vi använder exemplet med instrumentpanelen ska du använda exempelkoden integrate-dashboard-web-app som finns på [GitHub-lagringsplatsen](https://github.com/Microsoft/PowerBI-Developer-Samples/tree/master/User%20Owns%20Data/integrate-dashboard-web-app).
 När du har fått igång programmet i webbläsaren följer du anvisningarna för att bädda in instrumentpanelen du skapade tidigare på webbsidan:
 
 1. Välj **Logga in till Power BI**, som ger programmet åtkomst till instrumentpanelerna i ditt PowerBI-konto.  

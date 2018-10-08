@@ -1,46 +1,46 @@
 ---
-title: Video Sök quickstart SDK C# | Microsoft Docs
-description: Installationsprogrammet för Sök Video SDK-konsolprogram.
-titleSuffix: Azure cognitive services setup News search SDK C# console application
+title: 'Snabbstart: SDK för visuell sökning i Bing, C#'
+titleSuffix: Azure Cognitive Services
+description: Konfiguration av konsolprogrammet för SDK för videosökning i Bing.
 services: cognitive-services
 author: mikedodaro
-manager: rosh
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-video-search
-ms.topic: article
+ms.topic: quickstart
 ms.date: 01/29/2018
-ms.author: v-gedod
-ms.openlocfilehash: f53e2d0f0052ccfabb6d750556cb532f069c9121
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
-ms.translationtype: MT
+ms.author: rosh
+ms.openlocfilehash: 6cf7a16fa28602e5e3733741db8bfb7296882487
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35355293"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47219948"
 ---
-# <a name="video-search-sdk-c-quickstart"></a>Video Sök SDK C# Snabbstart
+# <a name="quickstart-bing-video-search-sdk-with-c"></a>Snabbstart: SDK för videosökning i Bing med C# 
 
-Bing Video Sök SDK innehåller funktionerna i REST API för webbegäranden och tolkning resultat.
+SDK för videosökning i Bing innehåller funktionen för REST API för webbbegäranden och parsning av resultat.
 
-Den [källkoden för C# Bing Video Sök SDK-exempel](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/BingSearchv7/BingVideoSearch) är tillgänglig på Git-hubben.
+[Källkoden till exemplen med SDK:t för videosökning i Bing med C#](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/BingSearchv7/BingVideoSearch) är tillgänglig på Git Hub.
 
 ## <a name="application-dependencies"></a>Programberoenden
 
-Om du vill konfigurera ett konsolprogram med Bing Video Sök SDK, bläddra till den `Manage NuGet Packages` alternativet från Solution Explorer i Visual Studio.  Lägg till den `Microsoft.Azure.CognitiveServices.Search.VideoSearch` paketet.
+Om du vill konfigurera ett konsolprogram med hjälp av SDK för videosökning i Bing bläddrar du till alternativet `Manage NuGet Packages` från Solution Explorer i Visual Studio.  Lägg till paketet `Microsoft.Azure.CognitiveServices.Search.VideoSearch`.
 
-Installera den [[NuGet Video Sök SDK-paketet]](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Search.VideoSearch/1.2.0) installeras även beroenden, inklusive:
+När du installerar [[SDK-paketet för NuGet-videosökning]](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Search.VideoSearch/1.2.0) installeras även beroenden, inklusive:
 * Microsoft.Rest.ClientRuntime
 * Microsoft.Rest.ClientRuntime.Azure
 * Newtonsoft.Json
 
 
-## <a name="video-search-client"></a>Video Sök-klient
-Att skapa en instans av den `VideoSearchAPI` klienten, lägger till med direktiven:
+## <a name="video-search-client"></a>Klient för videosökning
+För att skapa en instans av `VideoSearchAPI`-klienten lägger du till med hjälp av direktiv:
 ```
 using Microsoft.Azure.CognitiveServices.Search.VideoSearch;
 using Microsoft.Azure.CognitiveServices.Search.VideoSearch.Models;
 
 ```
-Sedan skapa en instans av klienten:
+Instansiera sedan klienten:
 ```
 var client = new VideoSearchAPI(new ApiKeyServiceClientCredentials("YOUR-ACCESS-KEY"));
 
@@ -53,7 +53,7 @@ Console.WriteLine("Search videos for query \"SwiftKey\"");
 
 ```
 
-Tolka resultatet och sedan kontrollera antalet resultat och skriva ut ID, namn och webbadress för första video resultatet.
+Tolka resultaten och kontrollera därefter antalet resultat och skriv ut ID, namn och webbadress för det första videoresultatet.
 ```
 if (videoResults == null)
 {
@@ -77,9 +77,9 @@ else
 }
 
 ```
-## <a name="complete-console-application"></a>Fullständig konsolprogram
+## <a name="complete-console-application"></a>Slutföra konsolprogram
 
-Följande konsolprogrammet utförs tidigare definierade frågan och Parsar resultat.
+Följande konsolprogram kör den tidigare definierade frågan och parsar resultatet.
 
 ```
 using System;
@@ -142,7 +142,7 @@ namespace VideoSrchSDK
 ```
 ## <a name="url-parameters"></a>URL-parametrar
 
-Sök efter ”Bellevue släpvagn” frågetexten för videor som är oförändrade, kort och 1080p-lösning.  Kontrollera antalet resultat och skriva ut ID, namn och webbadress för första video resultatet.
+Sök på frågetexten ”Bellevue Trailer” för videor som är oförändrade och korta och har 1080p-upplösning.  Kontrollera antalet resultat och skriv ut ID, namn och webbadress för det första videoresultatet.
 
 ```
         public static void VideoSearchWithFilters(VideoSearchAPI client)
@@ -184,7 +184,7 @@ Sök efter ”Bellevue släpvagn” frågetexten för videor som är oförändra
 
 ```
 ## <a name="trending-videos"></a>Populära videor
-Sök efter trender videor och sedan kontrollera banderoll paneler och kategorier.
+Sök efter populära videor och kontrollera sedan banderollpaneler och -kategorier.
 ```
         public static void VideoTrending(VideoSearchAPI client)
         {
@@ -259,7 +259,7 @@ Sök efter trender videor och sedan kontrollera banderoll paneler och kategorier
 
 ```
 ## <a name="details"></a>Information
-Sök videor för ”Bellevue släpfordonet” och sök sedan efter detaljerad information för den första videon.
+Kör en videosökning efter ”Bellevue Trailer” och sök sedan efter detaljerad information om den första videon.
 ```
         public static void VideoDetail(VideoSearchAPI client)
         {
@@ -323,4 +323,4 @@ Sök videor för ”Bellevue släpfordonet” och sök sedan efter detaljerad in
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Kognitiva services .NET SDK-exempel](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/BingSearchv7)
+[Exempel med Cognitive Services SDK för .NET](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/BingSearchv7)

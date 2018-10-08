@@ -9,12 +9,12 @@ ms.service: iot-dps
 services: iot-dps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: ef3cfb77a47face18ea5f3b75cbbf08d3e275d2e
-ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
+ms.openlocfilehash: 956bdf4770bd2a42a9ede6f59c2aa80d44d9429a
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "42023853"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47041599"
 ---
 # <a name="create-and-provision-a-simulated-tpm-device-using-nodejs-device-sdk-for-iot-hub-device-provisioning-service"></a>Skapa och etablera en simulerad TPM-enhet med Node.js-enhetens SDK för IoT Hub Device Provisioning-tjänsten
 
@@ -132,9 +132,9 @@ Om du inte känner till processen för automatisk etablering, bör du också gå
 
 1. Logga in på Azure-portalen, klicka på knappen **Alla resurser** i den vänstra menyn och öppna Device Provisioning-tjänsten.
 
-1. På sammanfattningsbladet för Device Provisioning-tjänsten väljer du **Manage enrollments** (Hantera registreringar). Välj fliken **Individual Enrollments** (Enskilda registreringar) och klicka på knappen **Lägg till** längst upp. 
+1. På sammanfattningsbladet för Device Provisioning-tjänsten väljer du **Manage enrollments** (Hantera registreringar). Välj fliken **Enskilda registreringar** och klicka på knappen **Lägg till enskild registrering** längst upp. 
 
-1. Under posten för att **lägga till registreringslista** anger du följande information:
+1. Under **Lägg till registrering** anger du följande information:
     - Välj **TPM** som identitet för bestyrkande *mekanism*.
     - Ange *registrerings-ID* och *bekräftelsenyckel* för din TPM-enhet.
     - Du kan även ange följande information:

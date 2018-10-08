@@ -1,44 +1,45 @@
 ---
-title: Bing Visual Search SDK ImageInsightsToken självstudien | Microsoft Docs
-description: 'Så här använder Bing Visual Search SDK för att hämta URL: er för bilder som anges av ImageInsightsToken.'
+title: 'Självstudie: ImageInsightsToken – Visuell sökning i Bing'
+titlesuffix: Azure Cognitive Services
+description: Använd SDK:n för Visuell sökning i Bing till att hämta URL:er för bilder som anges av ImageInsightsToken.
 services: cognitive-services
 author: mikedodaro
-manager: ronakshah
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-visual-search
-ms.topic: article
+ms.topic: tutorial
 ms.date: 06/21/2018
 ms.author: rosh
-ms.openlocfilehash: 8f6e7f7e88ae78fe7e8a9be4adefd689dd26d0f9
-ms.sourcegitcommit: 7b845d3b9a5a4487d5df89906cc5d5bbdb0507c8
-ms.translationtype: MT
+ms.openlocfilehash: bda4bdeea019d8cf3ae677d5eaf81e631ca38d16
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/14/2018
-ms.locfileid: "41987540"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47222581"
 ---
-# <a name="tutorial-bing-visual-search-sdk-imageinsightstoken-and-results"></a>Självstudie: Bing Visual Search SDK ImageInsightsToken och resultat
-Visual Search SDK innehåller ett alternativ för att hitta avbildningar online från en tidigare sökning som returnerar en `ImageInsightsToken`.  Det här exemplet hämtar en `ImageInsightsToken` och använder token i en efterföljande sökning.  Koden skickar den `ImageInsightsToken` till Bing och returnerar resultat som innehåller URL: er för Bing-sökning och URL: er av liknande bilder som finns online.
+# <a name="tutorial-bing-visual-search-sdk-imageinsightstoken-and-results"></a>Självstudie: SDK för Visuell sökning i Bing, ImageInsightsToken och resultat
+SDK:n för Visuell sökning innehåller ett alternativ för att hitta bilder på nätet från en tidigare sökning som returnerar en `ImageInsightsToken`.  Det här exemplet hämtar en `ImageInsightsToken` och använder token i en efterföljande sökning.  Koden skickar `ImageInsightsToken` till Bing och returnerar resultat som innehåller URL:er för Bing-sökning och URL:er till liknande bilder som finns online.
 
-## <a name="prerequisites"></a>Förutsättningar
-Visual Studio 2017. Om behövs kan du hämta kostnadsfria community-versionen härifrån: https://www.visualstudio.com/vs/community/.
-En cognitive services API-nyckel krävs för att autentisera SDK-anrop. Registrera dig för en kostnadsfri utvärderingsversion nyckel. Nyckeln utvärderingsversion är bra för sju dagar med ett anrop per sekund. Köp en åtkomstnyckel för produktionsscenarier. Se även information om priser.
-Möjligheten att köra .NET core SDK, .net core 1.1-appar. Du kan ta CORE, ramverk och Runtime härifrån: https://www.microsoft.com/net/download/.
+## <a name="prerequisites"></a>Nödvändiga komponenter
+Visual Studio 2017. Om det behövs kan du hämta den kostnadsfria community-versionen härifrån: https://www.visualstudio.com/vs/community/.
+En API-nyckel för Cognitive Services krävs för att autentisera SDK-anrop. Registrera dig för att få en nyckel till en kostnadsfri utvärderingsversion. Utvärderingsnyckeln gäller i sju dagar med ett anrop per sekund. Om du har produktionsscenarier köper du en åtkomstnyckel. Se även prisinformationen.
+Möjlighet att köra .NET Core SDK, .Net Core 1.1-appar. Du kan hämta CORE, Framework och Runtime härifrån: https://www.microsoft.com/net/download/.
 
 ##<a name="application-dependencies"></a>Programberoenden
-Om du vill konfigurera ett konsolprogram med Bing Web Search SDK, bläddrar du till alternativet hantera NuGet-paket från Solution Explorer i Visual Studio. Lägg till:
+Om du vill konfigurera ett konsolprogram med hjälp av SDK:n för Webbsökning i Bing, bläddrar du till alternativet Hantera NuGet Packages från Solution Explorer i Visual Studio. Lägg till:
 * Microsoft.Azure.CognitiveServices.Search.VisualSearch
-* Microsoft.Azure.CognitiveServices.Search.ImageSearchpackage paket.
+* Microsoft.Azure.CognitiveServices.Search.ImageSearchpackage-paket.
 
-Installera NuGet Web Search SDK-paketet installerar även beroenden, inklusive:
+När du installerar SDK-paketet för NuGet-webbsökning installeras även beroenden, inklusive:
 
 * Microsoft.Rest.ClientRuntime
 * Microsoft.Rest.ClientRuntime.Azure
 * Newtonsoft.Json
 
-## <a name="get-the-imageinsightstoken-from-image-search"></a>Hämta ImageInsightsToken från bildsökning
-Det här exemplet används en `ImageInsightsToken` erhålls av följande metod.  Läs mer om det här anropet [bild Search SDK C# Snabbstart](https://docs.microsoft.com/en-us/azure/cognitive-services/bing-image-search/image-search-sdk-quickstart).
+## <a name="get-the-imageinsightstoken-from-image-search"></a>Hämta ImageInsightsToken från Bildsökning
+I det här exemplet används en `ImageInsightsToken` som erhålls med följande metod.  Läs mer om det här anropet i [Snabbstart för SDK för bildsökning i C#](https://docs.microsoft.com/en-us/azure/cognitive-services/bing-image-search/image-search-sdk-quickstart).
 
-Koden söker efter resultat på en fråga för 'Kanadensiska Rockies ”och hämtar en ImageInsightsToken. Den skriver ut den första bilden insights token, miniatyr-url och innehåll bild-url.  Metoden returnerar den `ImageInsightsToken`för användning i en efterföljande Visual Search-begäran.
+Koden söker efter resultat för en fråga om ”Canadian Rockies”och hämtar en ImageInsightsToken. Den skriver ut den första bildens insiktstoken, miniatyr-URL och bildinnehålls-URL.  Metoden returnerar `ImageInsightsToken` för användning i en efterföljande begäran för Visuell sökning.
 
 ```
         private static String ImageResults(String subKey)
@@ -84,14 +85,14 @@ Koden söker efter resultat på en fråga för 'Kanadensiska Rockies ”och häm
         }
 ```
 
-## <a name="specify-the-imageinsightstoken-for-visual-search-request"></a>Ange ImageInsightsToken för Visual Search begäran
-Det här exemplet används insights-token som returneras av den tidigare metoden. Följande kod skapar ett `ImageInfo` objekt från den `ImageInsightsToken` och läser in objektet ImageInfo i en `VisualSearchRequest`. Ange `ImageInsightsToken` i en `ImageInfo` för den `VisualSearchRequest`
+## <a name="specify-the-imageinsightstoken-for-visual-search-request"></a>Ange ImageInsightsToken för Visuell sökning-begärandet
+I det här exemplet används den insiktstoken som returnerades av föregående metod. Följande kod skapar ett `ImageInfo`-objekt från `ImageInsightsToken` och läser in objektet ImageInfo i en `VisualSearchRequest`. Ange `ImageInsightsToken` i en `ImageInfo` för `VisualSearchRequest`
 
 ```
 ImageInfo ImageInfo = new ImageInfo(imageInsightsToken: insightsTok);
 ```
-## <a name="use-visual-search-to-find-images-from-an-imageinsightstoken"></a>Använd Visual Search för att hitta bilder från en ImageInsightsToken
-Den `VisualSearchRequest` innehåller information om avbildningen som ska söka efter i den `ImageInfo` objekt.  Den `VisualSearchMethodAsync` metoden hämtar resultaten.
+## <a name="use-visual-search-to-find-images-from-an-imageinsightstoken"></a>Använd Visuell sökning till att hitta bilder från en ImageInsightsToken
+`VisualSearchRequest` innehåller information om bilden som söks efter i `ImageInfo`-objektet.  `VisualSearchMethodAsync`-metoden hämtar resultaten.
 ```
 // An image binary is not necessary here, as the image is specified by insights token.
 VisualSearchRequest VisualSearchRequest = new VisualSearchRequest(ImageInfo);
@@ -102,29 +103,29 @@ Console.WriteLine("\r\nVisual search request with knowledgeRequest");
 ```
 
 ## <a name="get-the-url-data-from-imagemoduleaction"></a>Hämta URL-data från ImageModuleAction
-Visuella sökresultat `ImageTag` objekt.  Varje tagg innehåller en lista över `ImageAction` objekt.  Varje `ImageAction` innehåller en `Data` fält som är en lista med värden som beror på vilken typ av åtgärd:
+Resultaten från Visuell sökning är `ImageTag`-objekt.  Varje tagg innehåller en lista med `ImageAction`-objekt.  Varje `ImageAction` innehåller ett `Data`-fält, vilket är en lista med värden som beror på åtgärdstypen:
 
-Du kan få de olika typerna med följande kod:
+Du kan hämta de olika typerna med följande kod:
 ```
 Console.WriteLine("\r\n" + "ActionType: " + i.ActionType + " -> WebSearchUrl: " + i.WebSearchUrl);
 
 ```
-Hela appen returnerar:
+Hela programmet returnerar:
 
-* Åtgärdstyp: MoreSizes WebSearchUrl ->:
-* Åtgärdstyp: VisualSearch -> WebSearchUrl:
-* Åtgärdstyp: ImageById -> WebSearchUrl:
-* Åtgärdstyp: RelatedSearches -> WebSearchUrl:
-* Åtgärdstyp: DocumentLevelSuggestions -> WebSearchUrl:
-* Åtgärdstyp: TopicResults -> WebSearchUrl: https://www.bing.com/cr?IG=3E32CC6CA5934FBBA14ABC3B2E4651F9&CID=1BA795A21EAF6A63175699B71FC36B7C&rd=1&h=BcQifmzdKFyyBusjLxxgO42kzq1Geh7RucVVqvH-900&v=1&r=https%3a%2f%2fwww.bing.com%2fdiscover%2fcanadian%2brocky&p=DevEx, 5823.1
-* Åtgärdstyp: ImageResults -> WebSearchUrl: https://www.bing.com/cr?IG=3E32CC6CA5934FBBA14ABC3B2E4651F9&CID=1BA795A21EAF6A63175699B71FC36B7C&rd=1&h=PV9GzMFOI0AHZp2gKeWJ8DcveSDRE3fP2jHDKMpJSU8&v=1&r=https%3a%2f%2fwww.bing.com%2fimages%2fsearch%3fq%3doutdoor&p=DevEx, 5831.1
+* ActionType: MoreSizes -> WebSearchUrl:
+* ActionType: VisualSearch -> WebSearchUrl:
+* ActionType: ImageById -> WebSearchUrl:
+* ActionType: RelatedSearches -> WebSearchUrl:
+* ActionType: DocumentLevelSuggestions -> WebSearchUrl:
+* ActionType: TopicResults -> WebSearchUrl: https://www.bing.com/cr?IG=3E32CC6CA5934FBBA14ABC3B2E4651F9&CID=1BA795A21EAF6A63175699B71FC36B7C&rd=1&h=BcQifmzdKFyyBusjLxxgO42kzq1Geh7RucVVqvH-900&v=1&r=https%3a%2f%2fwww.bing.com%2fdiscover%2fcanadian%2brocky&p=DevEx,5823.1
+* ActionType: ImageResults -> WebSearchUrl: https://www.bing.com/cr?IG=3E32CC6CA5934FBBA14ABC3B2E4651F9&CID=1BA795A21EAF6A63175699B71FC36B7C&rd=1&h=PV9GzMFOI0AHZp2gKeWJ8DcveSDRE3fP2jHDKMpJSU8&v=1&r=https%3a%2f%2fwww.bing.com%2fimages%2fsearch%3fq%3doutdoor&p=DevEx,5831.1
 
-Enligt föregående lista de `TopicResults` och `ImageResults` typer innehåller frågor om relaterade bilder. URL: er i listlänk till Bing-sökresultat.
+Enligt föregående lista innehåller `TopicResults`- och `ImageResults`-typer frågor om relaterade bilder. URL:erna i listan länkar till Bings sökresultat.
 
 
-## <a name="pagesincluding-actiontype-urls-of-images-found-by-visual-search"></a>URL: er i PagesIncluding ActionType av avbildningar som upptäckts av Visual Search
+## <a name="pagesincluding-actiontype-urls-of-images-found-by-visual-search"></a>PagesIncluding ActionType URL:er till bilder som hittats med Visuell sökning
 
-De faktiska bild-URL: er kräver en typkonvertering som läser en `ActionType` som `ImageModuleAction`, som innehåller en `Data` element med en lista med värden.  Varje värde är Webbadressen till en bild.  Följande sändningar den `PagesIncluding` åtgärdstyp till `ImageModuleAction` och läser värdena.
+Att hämta de faktiska bild-URL:erna kräver en omvandling som läser en `ActionType` som `ImageModuleAction`, vilken innehåller ett `Data`-element med en lista med värden.  Varje värde är URL:en till en bild.  Nedanstående omvandlar `PagesIncluding`-åtgärdstypen till `ImageModuleAction` och läser värdena.
 ```
     if (i.ActionType == "PagesIncluding")
     {
@@ -134,10 +135,10 @@ De faktiska bild-URL: er kräver en typkonvertering som läser en `ActionType` s
         }
     }
 ```
-Mer information om dessa datatyper finns i [avbildningar - Visual Search](https://docs.microsoft.com/en-us/rest/api/cognitiveservices/bingvisualsearch/images/visualsearch).
-## <a name="complete-code"></a>Fullständiga koden
+Mer information om dessa datatyper finns i [Bilder – Visuell sökning](https://docs.microsoft.com/en-us/rest/api/cognitiveservices/bingvisualsearch/images/visualsearch).
+## <a name="complete-code"></a>Fullständig kod
 
-Följande kod körs föregående exempel. Den skickar den `ImageInsightsToken` i en post-begäran. Sedan den skriver ut Bing Sök URL: er för varje åtgärdstypen. Om åtgärdstypen är `PagesIncluding`, koden hämtar den `ImageObject` objekt i `Data`.  Den `Data` innehåller en lista med värden för URL: er för bilder på webbsidor.  Kopiera och klistra in resulterande Visual Search URL: er till webbläsare för att visa resultat. Kopiera och klistra in ContentUrl objekt till webbläsare om du vill visa bilder.
+Följande kod kör föregående exempel. Den skickar `ImageInsightsToken` i en POST-begäran. Sedan skriver den ut Bing-sökningens URL:er för varje ActionType. Om ActionType är `PagesIncluding`, hämtar koden `ImageObject`-objekt i `Data`.  `Data` innehåller en lista med värden som är URL:er till bilder på webbsidor.  Kopiera och klistra in de URL:er som Visuell sökning returnerade i webbläsaren om du vill se resultatet. Kopiera och klistra in ContentUrl-objekt i webbläsaren om du vill se bilderna.
 
 ```
 using System;
@@ -283,4 +284,4 @@ namespace VisualSearchFeatures
 
 ```
 ## <a name="next-steps"></a>Nästa steg
-[Visual Search-svar](https://docs.microsoft.com/azure/cognitive-services/bing-visual-search/overview#the-response)
+[Svar från Visuell sökning](https://docs.microsoft.com/azure/cognitive-services/bing-visual-search/overview#the-response)

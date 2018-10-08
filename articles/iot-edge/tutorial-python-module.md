@@ -5,16 +5,16 @@ services: iot-edge
 author: shizn
 manager: timlt
 ms.author: xshi
-ms.date: 06/26/2018
+ms.date: 09/21/2018
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 6cf3a721dfd601fc4d4beb122f56b4a4de5fe426
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.openlocfilehash: 0a32f925aa1ff4066a893fb107f4d785bd1fd8f8
+ms.sourcegitcommit: 42405ab963df3101ee2a9b26e54240ffa689f140
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41917608"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47423569"
 ---
 # <a name="tutorial-develop-and-deploy-a-python-iot-edge-module-to-your-simulated-device"></a>Självstudie: Utveckla och distribuera en Python IoT Edge-modul till din simulerade enhet
 
@@ -41,7 +41,7 @@ En Azure IoT Edge-enhet:
 
 Molnresurser:
 
-* En [IoT Hub](../iot-hub/iot-hub-create-through-portal.md) på standardnivå i Azure. 
+* En [IoT-hubb](../iot-hub/iot-hub-create-through-portal.md) på kostnadsfri nivå i Azure. 
 
 Utvecklingsresurser:
 

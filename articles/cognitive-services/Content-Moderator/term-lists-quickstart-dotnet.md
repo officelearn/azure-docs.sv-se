@@ -1,66 +1,67 @@
 ---
-title: Måttlig med anpassade termlistor i Azure Content Moderator | Microsoft Docs
-description: Så här måttlig med anpassade termen visas med hjälp av Azure Content Moderator-SDK för .NET.
+title: 'Snabbstart: Moderera med anpassade termlistor – Content Moderator'
+titlesuffix: Azure Cognitive Services
+description: Moderera med anpassade termlistor med hjälp av Content Moderator SDK för .NET.
 services: cognitive-services
 author: sanjeev3
-manager: mikemcca
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: content-moderator
-ms.topic: article
+ms.topic: quickstart
 ms.date: 09/10/2018
 ms.author: sajagtap
-ms.openlocfilehash: 55233198c4553f9838036e4eb91cff380af1988d
-ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
-ms.translationtype: MT
+ms.openlocfilehash: c7a9e98444b47b058a17b18ba7d9a7c6b2249ba4
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.translationtype: HT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 09/26/2018
-ms.locfileid: "47182305"
+ms.locfileid: "47223227"
 ---
-# <a name="moderate-with-custom-term-lists-in-net"></a>Måttlig med anpassade termlistor i .NET
+# <a name="quickstart-moderate-with-custom-term-lists-in-net"></a>Snabbstart: Moderera med anpassade termlistor i .NET
 
-Global standardlistan med villkor i Azure Content Moderator räcker för de flesta moderering behov. Du kan dock behöva mallarnas termer som är specifika för din organisation. Du kanske exempelvis vill konkurrent taggnamn för vidare undersökning. 
+Den standardmässiga globala listan med termer i Azure Content Moderator räcker för de flesta modereringsbehov. Du kan dock behöva kontrollera termer som är specifika för din organisation. Till exempel vill du kanske tagga namn på konkurrenter för vidare granskning. 
 
-Du kan använda den [Content Moderator-SDK för .NET](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/) att skapa anpassade listor av termer som du använder med Moderering av Text-API.
+Du kan använda [Content Moderator-SDK för .NET](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/) för att skapa anpassade listor med termer för användning med Text Moderation API.
 
 > [!NOTE]
-> Det finns en maxgräns på **5 termen visar en lista över** med varje lista till **inte överstiga 10 000 villkoren**.
+> Det finns en maxgräns på **5 termlistor** där varje lista kan innehålla **högst 10 000 termer**.
 >
 
-Den här artikeln innehåller information och kodexempel som hjälper dig att komma igång med Content Moderator-SDK för .NET för att:
+Den här artikeln innehåller information och kodexempel som hjälper dig att komma igång med Content Moderator SDK för .NET. Du lär dig bland annat att:
 - Skapa en lista.
-- Lägga till villkor i en lista.
-- Skärmen villkor mot villkoren i en lista.
-- Ta bort villkor från en lista.
+- Lägga till termer i en lista.
+- Kontrollera termer mot termer i en lista.
+- Ta bort termer från en lista.
 - Ta bort en lista.
 - Redigera listinformation.
-- Uppdatera indexet så att ändringarna i listan som ingår i en ny genomsökning.
+- Uppdatera indexet så att ändringar i listan inkluderas i en ny genomsökning.
 
 Den här artikeln förutsätter att du redan är bekant med Visual Studio och C#.
 
 ## <a name="sign-up-for-content-moderator-services"></a>Registrera dig för Content Moderator-tjänster
 
-Innan du kan använda Content Moderator-tjänster via REST-API: et eller SDK: N, måste en prenumerationsnyckel.
+Innan du kan använda Content Moderator-tjänster via REST-API:n eller SDK:n behöver du en prenumerationsnyckel.
 
-Du kan hitta din prenumerationsnyckel i instrumentpanelen för Content Moderator **inställningar** > **autentiseringsuppgifter** > **API**  >  **Utvärderingsversion Ocp-Apim-Subscription-Key**. Mer information finns i [översikt](overview.md).
+På instrumentpanelen för Content Moderator hittar du din prenumerationsnyckel i **Inställningar** > **Autentiseringsuppgifter** > **API** > **Trial Ocp-Apim-Subscription-Key**. Mer information finns i [Översikt](overview.md).
 
 ## <a name="create-your-visual-studio-project"></a>Skapa ett Visual Studio-projekt
 
-1. Lägga till en ny **konsolapp (.NET Framework)** projekt i lösningen.
+1. Lägg till ett nytt projekt för en **konsolapp (.NET Framework)** i lösningen.
 
-1. Ge projektet namnet **TermLists**. Välj det här projektet som enda Startprojekt för lösningen.
+1. Namnge projektet **TermLists**. Välj det här projektet som det enda startprojektet för lösningen.
 
 ### <a name="install-required-packages"></a>Installera de paket som krävs
 
-Installera följande NuGet-paket för TermLists projektet:
+Installera följande NuGet-paket för projektet TermLists:
 
 - Microsoft.Azure.CognitiveServices.ContentModerator
 - Microsoft.Rest.ClientRuntime
 - Microsoft.Rest.ClientRuntime.Azure
 - Newtonsoft.Json
 
-### <a name="update-the-programs-using-statements"></a>Uppdatera programmet använder uttryck
+### <a name="update-the-programs-using-statements"></a>Uppdatera programmets using-instruktioner
 
-Ändra programmet är med hjälp av uttryck.
+Ändra programmets using-instruktioner.
 
     using Microsoft.Azure.CognitiveServices.ContentModerator;
     using Microsoft.CognitiveServices.ContentModerator;
@@ -76,7 +77,7 @@ Installera följande NuGet-paket för TermLists projektet:
 Lägg till följande kod för att skapa en Content Moderator-klient för din prenumeration.
 
 > [!IMPORTANT]
-> Uppdatera den **AzureRegion** och **CMSubscriptionKey** fält med värdena för din region identifierare och prenumeration nyckel.
+> Uppdatera fälten **AzureRegion** och **CMSubscriptionKey** med värdena för din regionsidentifierare och prenumerationsnyckel.
 
 
     /// <summary>
@@ -121,9 +122,9 @@ Lägg till följande kod för att skapa en Content Moderator-klient för din pre
         }
     }
 
-### <a name="add-private-properties"></a>Lägga till egenskaper
+### <a name="add-private-properties"></a>Lägga till privata egenskaper
 
-Lägg till följande privata egenskaper till namnområdet TermLists, klassen Program.
+Lägg till följande privata egenskaper till namnrymden TermLists, klassen Program.
 
     /// <summary>
     /// The language of the terms in the term lists.
@@ -144,14 +145,14 @@ Lägg till följande privata egenskaper till namnområdet TermLists, klassen Pro
 
 ## <a name="create-a-term-list"></a>Skapa en termlista
 
-Du skapar en termlista med **ContentModeratorClient.ListManagementTermLists.Create**. Den första parametern för **skapa** är en sträng som innehåller en mimetyp som ska vara ”application/json”. Mer information finns i den [API-referens](https://westus2.dev.cognitive.microsoft.com/docs/services/57cf755e3f9b070c105bd2c2/operations/57cf755e3f9b070868a1f67f). Den andra parametern är en **brödtext** objekt som innehåller ett namn och beskrivning för en ny term-lista.
+Du skapar en termlista med **ContentModeratorClient.ListManagementTermLists.Create**. Den första parametern för **Create** (Skapa) är en sträng som innehåller en MIME-typ som ska vara ”application/json”. Mer information finns i [API-referensen](https://westus2.dev.cognitive.microsoft.com/docs/services/57cf755e3f9b070c105bd2c2/operations/57cf755e3f9b070868a1f67f). Den andra parametern är en **Body**-objekt som innehåller ett namn och beskrivning för den nya termlistan.
 
-Lägg till följande metoddefinitionen i namnområdet TermLists, klassen Program.
+Lägg till följande metoddefinition till namnrymden TermLists, klassen Program.
 
 > [!NOTE]
-> Din nyckel för Content Moderator-tjänsten har en begäranden per sekund (RPS) hastighetsbegränsning, och om du överskrider gränsen SDK: N genereras ett undantag med en 429 felkod. 
+> Content Moderator-tjänstnyckeln har en gräns för antal begäranden per sekund (RPS). Om du överskrider gränsen genererar SDK:t ett undantag med en 429-felkod. 
 >
-> En nyckel för kostnadsfria nivån har en hastighetsbegränsning för en RPS.
+> En nyckel på den kostnadsfria nivån har en gräns på en RPS.
 
     /// <summary>
     /// Creates a new term list.
@@ -177,11 +178,11 @@ Lägg till följande metoddefinitionen i namnområdet TermLists, klassen Program
         }
     }
 
-## <a name="update-term-list-name-and-description"></a>Uppdatera termen lista namn och beskrivning
+## <a name="update-term-list-name-and-description"></a>Uppdatera termlistans namn och beskrivning
 
-Du uppdaterar termen listinformation med **ContentModeratorClient.ListManagementTermLists.Update**. Den första parametern för **uppdatering** är termen list-ID. Den andra parametern är en mimetyp som ska vara ”application/json”. Mer information finns i den [API-referens](https://westus2.dev.cognitive.microsoft.com/docs/services/57cf755e3f9b070c105bd2c2/operations/57cf755e3f9b070868a1f685). Den tredje parametern är en **brödtext** objekt som innehåller ett nytt namn och en beskrivning.
+Du uppdaterar termlistans information med **ContentModeratorClient.ListManagementTermLists.Update**. Den första parametern för **Update** (Uppdatera) är termlist-ID. Den andra parametern är en MIME-typ som ska vara ”application/json”. Mer information finns i [API-referensen](https://westus2.dev.cognitive.microsoft.com/docs/services/57cf755e3f9b070c105bd2c2/operations/57cf755e3f9b070868a1f685). Den tredje parametern är ett **Body**-objekt som innehåller det nya namnet och en beskrivning.
 
-Lägg till följande metoddefinitionen i namnområdet TermLists, klassen Program.
+Lägg till följande metoddefinition till namnrymden TermLists, klassen Program.
 
     /// <summary>
     /// Update the information for the indicated term list.
@@ -198,9 +199,9 @@ Lägg till följande metoddefinitionen i namnområdet TermLists, klassen Program
         Thread.Sleep(throttleRate);
     }
 
-## <a name="add-a-term-to-a-term-list"></a>Lägga till ett villkor till ett termlista
+## <a name="add-a-term-to-a-term-list"></a>Lägga till en term i en termlista
 
-Lägg till följande metoddefinitionen i namnområdet TermLists, klassen Program.
+Lägg till följande metoddefinition till namnrymden TermLists, klassen Program.
 
     /// <summary>
     /// Add a term to the indicated term list.
@@ -215,9 +216,9 @@ Lägg till följande metoddefinitionen i namnområdet TermLists, klassen Program
         Thread.Sleep(throttleRate);
     }
 
-## <a name="get-all-terms-in-a-term-list"></a>Hämta alla villkor i en termlista
+## <a name="get-all-terms-in-a-term-list"></a>Hämta alla termer i en termlista
 
-Lägg till följande metoddefinitionen i namnområdet TermLists, klassen Program.
+Lägg till följande metoddefinition till namnrymden TermLists, klassen Program.
 
     /// <summary>
     /// Get all terms in the indicated term list.
@@ -236,13 +237,13 @@ Lägg till följande metoddefinitionen i namnområdet TermLists, klassen Program
         Thread.Sleep(throttleRate);
     }
 
-## <a name="add-code-to-refresh-the-search-index"></a>Lägg till kod för att uppdatera search-index
+## <a name="add-code-to-refresh-the-search-index"></a>Lägg till kod för att uppdatera sökindexet
 
-När du gör ändringar i en termlista, kan du uppdatera dess search-index för att ändringarna ska tas med nästa gång du använder termlista till Skärmtext. Detta liknar hur en sökmotor på skrivbordet (om aktiverat) eller en sökmotor för kontinuerligt uppdaterar dess index med nya filer eller sidor.
+När du gör ändringar i en termlista kan du uppdatera dess sökindex för att ändringarna ska tas med nästa gång du använder termlistan för att kontrollera text. Detta liknar det sätt som en sökmotor på skrivbordet (om det är aktiverat) eller en webbsökmotor kontinuerligt uppdaterar sitt index för att inkludera nya filer och sidor.
 
-Du uppdaterar en term lista search-index med **ContentModeratorClient.ListManagementTermLists.RefreshIndexMethod**.
+Du uppdaterar sökindex för en termlista med **ContentModeratorClient.ListManagementTermLists.RefreshIndexMethod**.
 
-Lägg till följande metoddefinitionen i namnområdet TermLists, klassen Program.
+Lägg till följande metoddefinition till namnrymden TermLists, klassen Program.
 
     /// <summary>
     /// Refresh the search index for the indicated term list.
@@ -256,22 +257,22 @@ Lägg till följande metoddefinitionen i namnområdet TermLists, klassen Program
         Thread.Sleep((int)(latencyDelay * 60 * 1000));
     }
 
-## <a name="screen-text-using-a-term-list"></a>Skärmtext med en termlista
+## <a name="screen-text-using-a-term-list"></a>Kontrollera text med hjälp av en termlista
 
-Skärmbild av text med en termlista med **ContentModeratorClient.TextModeration.ScreenText**, som använder följande parametrar.
+Du kontrollerar text med hjälp av en termlista med **ContentModeratorClient.TextModeration.ScreenText**, som använder följande parametrar.
 
-- Språk med villkor i listan över termen.
+- Språket för termerna i termlistan.
 - En MIME-typ som kan vara ”text/html”, ”text/xml”, ”text/markdown” eller ”text/plain”.
-- Texten som skärmen.
-- Ett booleskt värde. Ange fältet till **SANT** till Autokorrigering text före styrning den.
-- Ett booleskt värde. Ange fältet till **SANT** att identifiera personligt identifierbar Information (PII) i texten.
-- Termen list-ID.
+- Den text som ska kontrolleras.
+- Ett booleskt värde. Ange det här fältet till **true** (sant) för att autokorrigera texten innan du kontrollerar den.
+- Ett booleskt värde. Ange det här fältet till **true** (sant) för att identifiera personligt identifierbar information (PII) i texten.
+- Termlistans ID.
 
-Mer information finns i den [API-referens](https://westus2.dev.cognitive.microsoft.com/docs/services/57cf753a3f9b070c105bd2c1/operations/57cf753a3f9b070868a1f66f).
+Mer information finns i [API-referensen](https://westus2.dev.cognitive.microsoft.com/docs/services/57cf753a3f9b070c105bd2c1/operations/57cf753a3f9b070868a1f66f).
 
-**ScreenText** returnerar en **skärmen** objekt som har en **villkoren** egenskap som visar en lista över alla villkor som Content Moderator som identifierats i kontrollen. Observera att om Content Moderator inte lyckades identifiera alla villkor under kontrollen, den **villkoren** egenskapen har värdet **null**.
+**ScreenText** returnerar ett **Screen**-objekt som har en **Terms**-egenskap som visar en lista över alla termer som Content Moderator identifierade i kontrollen. Observera att om Content Moderator inte identifierade några termer under kontrollen har egenskapen **Terms** värdet **null**.
 
-Lägg till följande metoddefinitionen i namnområdet TermLists, klassen Program.
+Lägg till följande metoddefinition till namnrymden TermLists, klassen Program.
 
     /// <summary>
     /// Screen the indicated text for terms in the indicated term list.
@@ -297,17 +298,17 @@ Lägg till följande metoddefinitionen i namnområdet TermLists, klassen Program
         read.Sleep(throttleRate);
     }
 
-## <a name="delete-terms-and-lists"></a>Ta bort villkor och listor
+## <a name="delete-terms-and-lists"></a>Ta bort termer och listor
 
-Det är enkelt att ta bort en term eller en lista. Du kan använda SDK för att utföra följande uppgifter:
+Det är enkelt att ta bort en term eller en lista. Du använder SDK:n för att utföra följande uppgifter:
 
 - Ta bort en term. (**ContentModeratorClient.ListManagementTerm.DeleteTerm**)
-- Ta bort alla villkor i en lista utan att ta bort i listan. (**ContentModeratorClient.ListManagementTerm.DeleteAllTerms**)
-- Ta bort en lista och dess innehåll. (**ContentModeratorClient.ListManagementTermLists.Delete**)
+- Ta bort alla termer i en lista utan att ta bort listan. (**ContentModeratorClient.ListManagementTerm.DeleteAllTerms**)
+- Ta bort en lista och allt dess innehåll. (**ContentModeratorClient.ListManagementTermLists.Delete**)
 
 ### <a name="delete-a-term"></a>Ta bort en term
 
-Lägg till följande metoddefinitionen i namnområdet TermLists, klassen Program.
+Lägg till följande metoddefinition till namnrymden TermLists, klassen Program.
 
     /// <summary>
     /// Delete a term from the indicated term list.
@@ -322,9 +323,9 @@ Lägg till följande metoddefinitionen i namnområdet TermLists, klassen Program
         Thread.Sleep(throttleRate);
     }
 
-### <a name="delete-all-terms-in-a-term-list"></a>Ta bort alla villkor i en termlista
+### <a name="delete-all-terms-in-a-term-list"></a>Ta bort alla termer i en termlista
 
-Lägg till följande metoddefinitionen i namnområdet TermLists, klassen Program.
+Lägg till följande metoddefinition till namnrymden TermLists, klassen Program.
 
     /// <summary>
     /// Delete all terms from the indicated term list.
@@ -340,7 +341,7 @@ Lägg till följande metoddefinitionen i namnområdet TermLists, klassen Program
 
 ### <a name="delete-a-term-list"></a>Ta bort en termlista
 
-Lägg till följande metoddefinitionen i namnområdet TermLists, klassen Program.
+Lägg till följande metoddefinition till namnrymden TermLists, klassen Program.
 
     /// <summary>
     /// Delete the indicated term list.
@@ -354,9 +355,9 @@ Lägg till följande metoddefinitionen i namnområdet TermLists, klassen Program
         Thread.Sleep(throttleRate);
     }
 
-## <a name="putting-it-all-together"></a>Sätter samman allt
+## <a name="putting-it-all-together"></a>Färdigställa allt
 
-Lägg till den **Main** metoddefinitionen namnområde TermLists, klassen Program. Stäng i programklassen och TermLists-namnområdet.
+Lägg till **Main**-metoddefinitionen till namnrymden TermLists, klassen Program. Slutligen stänger du Program-klassen och namnrymden TermLists.
 
     static void Main(string[] args)
     {
@@ -392,9 +393,9 @@ Lägg till den **Main** metoddefinitionen namnområde TermLists, klassen Program
         }
     }
 
-## <a name="run-the-application-to-see-the-output"></a>Kör programmet för att se utdata
+## <a name="run-the-application-to-see-the-output"></a>Visa resultatet genom att köra programmet
 
-Dina utdata blir följande rader men data kan variera.
+Dina utdata hamnar på följande rader, men data kan variera.
 
     Creating term list.
     Term list created. ID: 252.
@@ -426,4 +427,4 @@ Dina utdata blir följande rader men data kan variera.
     
 ## <a name="next-steps"></a>Nästa steg
 
-Hämta den [Content Moderator .NET SDK](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/) och [Visual Studio-lösning](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/ContentModerator) för denna och andra Content Moderator-Snabbstart för .NET, och kom igång med din integrering.
+Hämta [Content Moderator .NET SDK](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/) och [Visual Studio-lösningen](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/ContentModerator) för den här och andra Content Moderator-snabbstarter för .NET, och kom igång med din integrering.

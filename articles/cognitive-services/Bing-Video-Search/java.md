@@ -1,41 +1,42 @@
 ---
-title: Java Snabbstartsguide för Azure kognitiva-tjänster, Bing Video Sök API | Microsoft Docs
-description: Hämta information och exempel på kod för att snabbt komma igång med Bing Video Sök API i kognitiva Microsoft-tjänster i Azure.
+title: 'Snabbstart: API för videosökning i Bing, Java'
+titlesuffix: Azure Cognitive Services
+description: Hämta information och kodexempel som hjälper dig att snabbt komma igång med API:n för videosökning i Bing.
 services: cognitive-services
-documentationcenter: ''
 author: v-jerkin
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-video-search
-ms.topic: article
+ms.topic: quickstart
 ms.date: 9/21/2017
 ms.author: v-jerkin
-ms.openlocfilehash: db9bc353c86565956881c90ce3a3b6275e1b8771
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
-ms.translationtype: MT
+ms.openlocfilehash: 8ec5aa9e832a24fcd3b029727217bffb3b4d94e0
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35354540"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47223244"
 ---
-# <a name="quickstart-for-bing-video-search-api-with-java"></a>Snabbstart för Bing Video sökning API med Java
+# <a name="quickstart-bing-video-search-api-with-java"></a>Snabbstart: API för videosökning i Bing med Java
 
-Den här artikeln visar hur använda Bing Search API, en del av Microsoft kognitiva Services på Azure. Den här artikeln använder Java, är API: et en RESTful webbtjänst som är kompatibel med alla programmeringsspråk som kan göra HTTP-begäranden och parsa JSON. 
+Den här artikeln visar hur använder API:n för Bing-sökning, som ingår i Microsoft Cognitive Services i Azure. Även om den här artikeln använder Java, är API:n en RESTful-webbtjänst som är kompatibel med alla programmeringsspråk som kan göra HTTP-begäranden och parsa JSON. 
 
-Exempelkoden skrivs ska köras under Java 7 som ett konsolprogram.
+Exempelkoden skrivs att köras under Java 7 som ett konsolprogram.
 
-Referera till den [API-referens](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference) teknisk information om API: erna.
+Se [API-referensen](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference) för teknisk information om API:erna.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
-Du måste ha en [kognitiva Services API-konto](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) med **API: er för Bing Search**. Den [kostnadsfri utvärderingsversion](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) är tillräcklig för den här snabbstarten. Du behöver åtkomstnyckel som tillhandahållits när du aktiverar din kostnadsfria utvärderingsversion eller du kan använda en betald prenumeration nyckel från instrumentpanelen i Azure.
+Du måste ha ett [API-konto för Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) med **API:er för Bing-sökresultat**. Det räcker med en [kostnadsfri utvärderingsversion](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) för den här snabbstarten. Du behöver den åtkomstnyckel som du fick när du aktiverade din kostnadsfria utvärderingsversion, eller så kan du använda en betald prenumerationsnyckel från instrumentpanelen i Azure.
 
-## <a name="bing-video-search"></a>Bing video sökning
+## <a name="bing-video-search"></a>Videosökning i Bing
 
-Den [Bing Video Sök API](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference) returnerar video resultat från Bing sökmotor.
+[API:n för videosökning i Bing](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference) returnerar videoresultat från Bings sökmotor.
 
-1. Hämtar eller installerar den [gson biblioteket](https://github.com/google/gson).
-2. Skapa ett nytt Java-projekt i din favorit IDE eller -redigeraren.
+1. Hämta eller installera [gson-biblioteket](https://github.com/google/gson).
+2. Skapa ett nytt Java-projekt i dem IDE eller det redigeringsprogram som du föredrar.
 3. Lägg till koden nedan.
-4. Ersätt den `subscriptionKey` värde med en giltig snabbtangent för din prenumeration.
+4. Ersätt värdet `subscriptionKey` med en giltig åtkomstnyckel för din prenumeration.
 5. Kör programmet.
 
 ```java
@@ -148,7 +149,7 @@ class SearchResults{
 
 **Svar**
 
-Ett lyckat svar returneras i JSON, som visas i följande exempel:
+Ett svar som anger att åtgärden lyckades returneras i JSON, som du ser i följande exempel:
 
 ```json
 {
@@ -259,9 +260,9 @@ Ett lyckat svar returneras i JSON, som visas i följande exempel:
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Sidindelning videor](paging-videos.md)
-> [Resizing och Beskär miniatyrbilder](resize-and-crop-thumbnails.md)
+> [Sidindelning av videor](paging-videos.md)
+> [Ändra storlek på och beskära miniatyrbilder](resize-and-crop-thumbnails.md)
 
-## <a name="see-also"></a>Se också 
+## <a name="see-also"></a>Se även 
 
- [Söka på webben efter videor](search-the-web.md) [prova](https://azure.microsoft.com/services/cognitive-services/bing-video-search-api/)
+ [Söka på webben efter videor](search-the-web.md) [Prova](https://azure.microsoft.com/services/cognitive-services/bing-video-search-api/)

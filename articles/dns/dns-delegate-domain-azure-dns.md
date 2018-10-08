@@ -8,12 +8,12 @@ ms.service: dns
 ms.topic: tutorial
 ms.date: 6/13/2018
 ms.author: victorh
-ms.openlocfilehash: 44f5bf9a28d56e85bae1d50136c50868ec96eb4e
-ms.sourcegitcommit: 30221e77dd199ffe0f2e86f6e762df5a32cdbe5f
+ms.openlocfilehash: ea0dc257d691326bc073b4cbff37e847a6990f02
+ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39205449"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47452314"
 ---
 # <a name="tutorial-host-your-domain-in-azure-dns"></a>Självstudie: Använda Azure DNS som värd för din domän
 
@@ -70,6 +70,9 @@ Azure DNS skapar automatiskt auktoritativa NS-poster i din zon för de tilldelad
 Nu när du har namnservrar och DNS-zonen är skapad måste den överordnade domänen uppdateras med Azure DNS-namnservrarna. Varje registrator har sina egna DNS-hanteringsverktyg för att ändra namnserverposterna för en domän. På registratorns DNS-hanteringssida redigerar du NS-posterna och ersätter NS-posterna med Azure DNS-namnservrarna.
 
 När du delegerar en domän till Azure DNS måste du använda namnservernamnen som tillhandahålls av Azure DNS. Vi rekommenderar att du använder alla fyra namnservernamn, oavsett vilket namn din domän har. Domändelegering kräver inte att namnservern använder samma toppnivådomän som din domän.
+
+> [!NOTE]
+> När du kopierar varje namnserveradress, bör du kontrollera att du kopierar den efterföljande punkten i slutet av adressen. En efterföljande punkt anger slutet av ett fullständigt domännamn. Vissa registratorer kan lägga till punkten om NS-namnet inte har någon i slutet. Men för att vara kompatibel med DNS-RFC bör du inkludera den efterföljande punkten, eftersom du inte kan förutsätta att varje registrator lägger till den åt dig.
 
 Delegering med hjälp av namnservrar i din egen zon, även kallat *vanity name servers*, stöds inte i Azure DNS.
 

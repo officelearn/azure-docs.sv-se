@@ -1,56 +1,57 @@
 ---
-title: Azure Content Moderator – skapa granskningar med hjälp av .NET | Microsoft Docs
-description: Så här skapar du granskar med Azure Content Moderator-SDK för .NET
+title: 'Snabbstart: Skapa granskningar med hjälp av .NET – Content Moderator'
+titlesuffix: Azure Cognitive Services
+description: Så här skapar du granskningar med SDK för Azure Content Moderator för .NET.
 services: cognitive-services
 author: sanjeev3
-manager: mikemcca
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: content-moderator
-ms.topic: article
+ms.topic: quickstart
 ms.date: 09/10/2018
 ms.author: sajagtap
-ms.openlocfilehash: c5f301e7ed15100c39f0af77942147275b966ed9
-ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
-ms.translationtype: MT
+ms.openlocfilehash: ce90c5f691a0a8a333161f3135856d720d1de310
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.translationtype: HT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 09/26/2018
-ms.locfileid: "47180781"
+ms.locfileid: "47226593"
 ---
-# <a name="create-reviews-using-net"></a>Skapa granskningar med hjälp av .NET
+# <a name="quickstart-create-reviews-using-net"></a>Snabbstart: Skapa granskningar med hjälp av .NET
 
-Den här artikeln innehåller information och kodexempel som hjälper dig att komma igång med den [Content Moderator-SDK för .NET](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/) till:
+Den här artikeln innehåller information och kodexempel som hjälper dig att komma igång med [Content Moderator SDK för .NET](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/) för att:
  
 - Skapa en uppsättning granskningar för mänskliga moderatorer
 - Hämta status för befintliga granskningar för mänskliga moderatorer
 
-I allmänhet går innehåll igenom vissa automatiserad moderering före schemalagda för mänsklig granskning. Den här artikeln beskriver bara hur du skapar granskningen för mänskliga moderering. Ett scenario med fullständig finns den [Facebook innehållsmoderering](facebook-post-moderation.md) och [katalogmoderering](ecommerce-retail-catalog-moderation.md) självstudier.
+I allmänhet går innehåll igenom viss automatiserad moderering innan de schemaläggs för mänsklig granskning. Den här artikeln beskriver bara hur du skapar granskningen för mänsklig moderering. Ett mer fullständigt scenario finns i självstudierna [Innehållsmoderering på Facebook](facebook-post-moderation.md) och [Katalogmoderering för eCommerce](ecommerce-retail-catalog-moderation.md).
 
 Den här artikeln förutsätter att du redan är bekant med Visual Studio och C#.
 
 ## <a name="sign-up-for-content-moderator"></a>Registrera dig för Content Moderator
 
-Innan du kan använda Content Moderator-tjänster via REST-API: et eller SDK: N, måste en prenumerationsnyckel.
-Referera till den [snabbstarten](quick-start.md) att lära dig hur du kan hämta nyckeln.
+Innan du kan använda Content Moderator-tjänster via REST-API:et eller SDK:t behöver du en prenumerationsnyckel.
+Information om hur du hämtar nyckeln finns i [snabbstarten](quick-start.md).
 
-## <a name="sign-up-for-a-review-tool-account-if-not-completed-in-the-previous-step"></a>Registrera dig för ett konto för granskning-verktyget om inte slutförts i föregående steg
+## <a name="sign-up-for-a-review-tool-account-if-not-completed-in-the-previous-step"></a>Registrera dig för ett konto för granskningsverktyget om du inte har gjort det i föregående steg
 
-Om du har fått din Content Moderator från Azure-portalen, även [registrera granska verktyget konto](https://contentmoderator.cognitive.microsoft.com/) och skapa en granskningsteam. Du behöver Id-teamet och granskningsverktyget att anropa granska API för att starta ett jobb och visa granskningarna i granskningsverktyget.
+Om du har fått din Content Moderator från Azure-portalen ska du även [registrera dig för ett konto för granskningsverktyget](https://contentmoderator.cognitive.microsoft.com/) och skapa ett granskningsteam. Du behöver Id-teamet och granskningsverktyget för att anropa gransknings-API:et för att starta ett jobb och visa granskningarna i granskningsverktyget.
 
-## <a name="ensure-your-api-key-can-call-the-review-api-for-review-creation"></a>Se till att din API-nyckel kan anropa API: et för granskning för att skapa en granskning
+## <a name="ensure-your-api-key-can-call-the-review-api-for-review-creation"></a>Se till att din API-nyckel kan anropa gransknings-API:et för att skapa en granskning
 
-När du har slutfört föregående steg, kan det sluta med två Content Moderator-nycklar om du utgick från Azure-portalen. 
+När du har slutfört föregående steg kan det hända att du har två Content Moderator-nycklar om du startade från Azure-portalen. 
 
-Om du planerar att använda Azure-tillhandahållna API-nyckeln i SDK-exempel, följer du stegen som beskrivs i den [med hjälp av Azure-nyckel med granska API: et](review-tool-user-guide/credentials.md#use-the-azure-account-with-the-review-tool-and-review-api) avsnittet så att dina program kan anropa API: et för granskning och skapa granskningar.
+Om du planerar att använda den Azure-tillhandahållna API-nyckeln i ditt SDK-exempel följer du de steg som beskrivs i avsnittet om att [använda Azure-nyckel med API:et för granskning](review-tool-user-guide/credentials.md#use-the-azure-account-with-the-review-tool-and-review-api) så att ditt program kan anropa API:et för granskning och skapa granskningar.
 
-Om du använder den kostnadsfria utvärderingsversionen nyckeln som genererats av granskningsverktyget granska verktyget kontot redan vet om nyckeln och därför inga ytterligare åtgärder krävs.
+Om du använder den nyckeln för den kostnadsfria utvärderingsversionen som genererades av granskningsverktyget känner ditt granskningsverktygskonto redan till nyckeln, och därför krävs inga ytterligare steg.
 
 ## <a name="create-your-visual-studio-project"></a>Skapa ett Visual Studio-projekt
 
-1. Lägga till en ny **konsolapp (.NET Framework)** projekt i lösningen.
+1. Lägg till ett nytt **konsolappsprojekt (.NET Framework)** i lösningen.
 
-   Namnge projektet i exempelkoden **CreateReviews**.
+   I exempelkoden ger du projektet namnet **CreateReviews**.
 
-1. Välj det här projektet som enda Startprojekt för lösningen.
+1. Välj det här projektet som det enda startprojektet för lösningen.
 
 ### <a name="install-required-packages"></a>Installera de paket som krävs
 
@@ -60,9 +61,9 @@ Installera följande NuGet-paket:
 - Microsoft.Rest.ClientRuntime
 - Newtonsoft.Json
 
-### <a name="update-the-programs-using-statements"></a>Uppdatera programmet använder uttryck
+### <a name="update-the-programs-using-statements"></a>Uppdatera programmets using-instruktioner
 
-Ändra programmet är med hjälp av uttryck.
+Ändra programmets using-instruktioner.
 
     using Microsoft.Azure.CognitiveServices.ContentModerator;
     using Microsoft.CognitiveServices.ContentModerator;
@@ -78,7 +79,7 @@ Installera följande NuGet-paket:
 Lägg till följande kod för att skapa en Content Moderator-klient för din prenumeration.
 
 > [!IMPORTANT]
-> Uppdatera den **AzureRegion** och **CMSubscriptionKey** fält med värdena för din region identifierare och prenumeration nyckel.
+> Uppdatera fälten **AzureRegion** och **CMSubscriptionKey** med värdena för din regionsidentifierare och prenumerationsnyckel.
 
 
     /// <summary>
@@ -123,10 +124,10 @@ Lägg till följande kod för att skapa en Content Moderator-klient för din pre
         }
     }
 
-## <a name="create-a-class-to-associate-internal-content-information-with-a-review-id"></a>Skapa en klass för att associera interna innehållsinformation med en åtkomstgransknings-ID
+## <a name="create-a-class-to-associate-internal-content-information-with-a-review-id"></a>Skapa en klass för att associera intern innehållsinformation med ett gransknings-ID
 
-Lägg till följande klass till den **programmet** klass.
-Använd den här klassen för att associera åtkomstgransknings-ID till ditt interna innehålls-ID för objektet.
+Lägg till följande klass till **Program**-klassen.
+Använd den här klassen för att associera gransknings-ID:t till ditt interna innehålls-ID för objektet.
 
     /// <summary>
     /// Associates the review ID (assigned by the service) to the internal
@@ -158,11 +159,11 @@ Använd den här klassen för att associera åtkomstgransknings-ID till ditt int
 ### <a name="initialize-application-specific-settings"></a>Initiera programspecifika inställningar
 
 > [!NOTE]
-> Din nyckel för Content Moderator-tjänsten har en begäranden per sekund (RPS) hastighetsbegränsning, och om du överskrider gränsen SDK: N genereras ett undantag med en 429 felkod. 
+> Din Content Moderator-tjänstnyckel har en frekvensgräns för antal begäranden per sekund (RPS), och om du överskrider gränsen genererar SDK:t ett undantag med en 429-felkod. 
 >
-> En nyckel för kostnadsfria nivån har en hastighetsbegränsning för en RPS.
+> En nyckel på kostnadsfri nivå har en gräns på en RPS.
 
-#### <a name="add-the-following-constants-to-the-program-class-in-programcs"></a>Lägg till följande konstanter i den **programmet** klassen i Program.cs.
+#### <a name="add-the-following-constants-to-the-program-class-in-programcs"></a>Lägg till följande konstanter till klassen **Program** i Program.cs.
     
     /// <summary>
     /// The minimum amount of time, in milliseconds, to wait between calls
@@ -182,14 +183,14 @@ Använd den här klassen för att associera åtkomstgransknings-ID till ditt int
     /// <remarks>Relative paths are relative to the execution directory.</remarks>
     private const string OutputFile = "OutputLog.txt";
 
-#### <a name="add-the-following-constants-and-static-fields-to-the-program-class-in-programcs"></a>Lägg till följande konstanter och statiska fält till den **programmet** klassen i Program.cs.
+#### <a name="add-the-following-constants-and-static-fields-to-the-program-class-in-programcs"></a>Lägg till följande konstanter och statiska fält till klassen **Program** i Program.cs.
 
-Uppdatera dessa värden så att den innehåller information som är specifika för din prenumeration och dina team.
+Uppdatera dessa värden så att de innehåller information som är specifika för din prenumeration och ditt team.
 
 > [!NOTE]
-> Du ställer in TeamName konstanten till det namn som du använde när du skapade din [Content Moderator-granskningsverktyget](https://contentmoderator.cognitive.microsoft.com/) prenumeration. Du kan hämta TeamName från den **autentiseringsuppgifter** i avsnittet den **inställningar** (kugghjulet)-menyn.
+> Du kan ange konstanten TeamName till det namn som du använde när du skapade prenumerationen på [Content Moderator-granskningsverktyget](https://contentmoderator.cognitive.microsoft.com/). Du kan hämta TeamName från avsnittet **Autentiseringsuppgifter** på menyn **Inställningar** (kugghjulet).
 >
-> Ditt Teamnamn är värdet för den **Id** i den **API** avsnittet.
+> Teamnamnet är värdet för **Id**-fältet i avsnittet **API**.
 
     /// <summary>
     /// The name of the team to assign the review to.
@@ -237,7 +238,7 @@ Uppdatera dessa värden så att den innehåller information som är specifika f�
     /// </summary>
     private const string MetadataValue = "true";
 
-#### <a name="add-the-following-static-fields-to-the-program-class-in-programcs"></a>Lägg till följande statiska fält i den **programmet** klassen i Program.cs.
+#### <a name="add-the-following-static-fields-to-the-program-class-in-programcs"></a>Lägg till följande statiska fält till klassen **Program** i Program.cs.
 
 Du kan använda de här fälten för att spåra programmets tillstånd.
 
@@ -274,7 +275,7 @@ Lägg till följande metod i klassen **Program**.
 
 ## <a name="create-a-method-to-create-a-set-of-reviews"></a>Skapa en metod för att skapa en uppsättning granskningar
 
-Normalt kan du har några affärslogik för att identifiera inkommande bilder, text, eller video som behöver granskas. Men här bara använda en fast lista med avbildningar.
+Normalt kan du använda affärslogik för att identifiera inkommande bilder, text, eller video som behöver granskas. Men används bara en fast lista med avbildningar.
 
 Lägg till följande metod i klassen **Program**.
 
@@ -344,7 +345,7 @@ Lägg till följande metod i klassen **Program**.
 Lägg till följande metod i klassen **Program**. 
 
 > [!Note]
-> I praktiken, anger du Webbadressen för återanrop `CallbackEndpoint` till den URL som ska få resultatet av manuell granskning (via en HTTP POST-begäran).
+> I praktiken ställer du in motringnings-URL:ens `CallbackEndpoint` till den URL som tar emot resultatet av den manuella granskningen (via en HTTP POST-begäran).
 > Du kan ändra den här metoden för att kontrollera statusen för väntande granskningar.
 
     /// <summary>
@@ -372,9 +373,9 @@ Lägg till följande metod i klassen **Program**.
 
 ## <a name="add-code-to-create-a-set-of-reviews-and-check-its-status"></a>Lägg till kod för att skapa en uppsättning granskningar och kontrollera status
 
-Lägg till följande kod till den **Main** metod.
+Lägg till följande kod i metoden **Main**.
 
-Den här koden simulerar många av de åtgärder som du utför i definiera och hantera listan över samt med hjälp av listan för att skärmbilder. Loggningsfunktionerna kan du se svarsobjekt som genereras av SDK-anrop till tjänsten Content Moderator.
+Den här koden simulerar många av de åtgärder som du utför när du definierar och hanterar listan, samt när du använder listan för att söka av bilder. Med loggningsfunktionerna kan du se svarsobjekten som genereras av SDK-anropen till Content Moderator-tjänsten.
 
     using (TextWriter outputWriter = new StreamWriter(OutputFile, false))
     {
@@ -415,11 +416,11 @@ Du kan se följande exempel på utdata:
     Getting review details:
     Review 201712i46950138c61a4740b118a43cac33f434 for item ID 0 is Pending.
 
-Logga in på Content Moderator-granskningsverktyget om du vill se den väntande avbildningen granska med den **sc** etiketten inställd **SANT**. Du kan också se standard **en** och **r** taggar och eventuella anpassade taggar som du har definierat i granskningsverktyget. 
+Logga in på Content Moderator-granskningsverktyget för att se den väntande bildgranskningen med etiketten **sc** inställd på **true**. Du kan också se standardtaggarna **a** och **r** och eventuella anpassade taggar som du har definierat i granskningsverktyget. 
 
-Använd den **nästa** knapp för att skicka.
+Använd knappen **Nästa** för att skicka.
 
-![Bild granskning för mänskliga moderatorer](images/moderation-reviews-quickstart-dotnet.PNG)
+![Bildgranskning för mänskliga moderatorer](images/moderation-reviews-quickstart-dotnet.PNG)
 
 Tryck på valfri tangent för att fortsätta.
 
@@ -433,9 +434,9 @@ Tryck på valfri tangent för att fortsätta.
 ## <a name="check-out-the-following-output-in-the-log-file"></a>Kolla in följande resultat i loggfilen.
 
 > [!NOTE]
-> I utdatafilen, strängarna ”\{teamname}” och ”\{callbackUrl}” värden för den `TeamName` och `CallbackEndpoint` respektive fält.
+> I utdatafilen återspeglar strängarna ”\{teamname}” och ”\{callbackUrl}” värdena för fälten `TeamName` respektive `CallbackEndpoint`.
 
-Granska ID: N och image innehåll URL: er är olika varje gång du kör programmet, och när en granskning är slutfört kan den `reviewerResultTags` fältet visar hur granskaren taggade objektet.
+Gransknings-ID:na och webbadresserna för bildinnehållet är olika varje gång du kör programmet, och när en granskning är slutförd kan fältet `reviewerResultTags` visa hur granskaren taggade objektet.
 
     Creating reviews for the following images:
         - https://moderatorsampleimages.blob.core.windows.net/samples/sample1.jpg; with id = 0.
@@ -496,9 +497,9 @@ Granska ID: N och image innehåll URL: er är olika varje gång du kör programm
         "callbackEndpoint": "{callbackUrl}"
     }
 
-## <a name="your-callback-url-if-provided-receives-this-response"></a>Motringnings-Url om som tar emot det här svaret
+## <a name="your-callback-url-if-provided-receives-this-response"></a>Motringnings-URL tar emot det här svaret om det finns
 
-Du ser ett svar som i följande exempel:
+Ett svar liknande följande returneras:
 
     {
         "ReviewId": "201801i48a2937e679a41c7966e838c92f5e649",
@@ -519,4 +520,4 @@ Du ser ett svar som i följande exempel:
 
 ## <a name="next-steps"></a>Nästa steg
 
-Hämta den [Content Moderator .NET SDK](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/) och [Visual Studio-lösning](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/ContentModerator) för denna och andra Content Moderator-Snabbstart för .NET, och kom igång med din integrering.
+Hämta [Content Moderator .NET SDK](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/) och [Visual Studio-lösningen](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/ContentModerator) för den här och andra Content Moderator-snabbstarter för .NET, och kom igång med din integrering.

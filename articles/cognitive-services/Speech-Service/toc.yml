@@ -150,7 +150,7 @@ items:
     - name: Vanliga frågor och svar om tal till text
       displayName: recognize speech, speech recognition, speech to text, stt
       href: faq-stt.md
-    - name: Vanliga frågor och svar om Text till tal
+    - name: Vanliga frågor och svar om text till tal
       displayName: synthesize speech, speech synthesis, text to speech, tts
       href: faq-text-to-speech.md
     - name: Vanliga frågor och svar om Translator
@@ -185,10 +185,10 @@ items:
     - name: Licens
       displayName: roobo, speech devices sdk
       href: speech-devices-sdk-license.md
-    - name: Meddelanden om tredje part
+    - name: Meddelanden från tredje part
       displayName: roobo, speech devices sdk
       href: devices-sdk-third-party-notices.md
-  - name: Felsökning
+  - name: Felsöka Speech SDK
     href: troubleshooting.md
   - name: Support
     href: support.md
@@ -198,9 +198,9 @@ items:
     href: https://azure.microsoft.com/roadmap/?category=ai-machine-learning
   - name: Sekretess och cookies
     href: https://privacy.microsoft.com/privacystatement
-ms.openlocfilehash: 11faf3ac6bbe7578e0bd642aef87421cbb53ff08
-ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
+ms.openlocfilehash: a9379eb84ba103f90136965c0077c5e1b32fbe4e
+ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48248218"
+ms.lasthandoff: 10/06/2018
+ms.locfileid: "48829525"

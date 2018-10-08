@@ -1,21 +1,21 @@
 ---
-title: Självstudie om Ansikts-API C# | Microsoft Docs
-titleSuffix: Microsoft Cognitive Services
-description: I den här självstudien skapar du en Windows-app som använder Ansiktstjänsten för Cognitive Services för att identifiera och rama in ansikten i en bild.
+title: 'Självstudie: Identifiera och rama in ansikten i en bild – Ansiktsigenkänning, C#'
+titleSuffix: Azure Cognitive Services
+description: I den här självstudien skapar du en Windows-app som använder Ansiktsigenkänning till att identifiera och rama in ansikten i en bild.
 services: cognitive-services
 author: noellelacharite
-manager: nolachar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: face-api
 ms.topic: tutorial
-ms.date: 06/29/2018
+ms.date: 09/24/2018
 ms.author: nolachar
-ms.openlocfilehash: e4f2192c40f0b650b31ed59642dee89e42eca703
-ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
+ms.openlocfilehash: 657c471761c36de5095763623210909308f55c2a
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39125957"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47162620"
 ---
 # <a name="tutorial-create-a-wpf-app-to-detect-and-frame-faces-in-an-image"></a>Självstudie: Skapa en WPF-app för att upptäcka och rama in ansikten i en bild
 
@@ -36,7 +36,7 @@ I den här självstudiekursen lär du dig att:
 
 - Du behöver en prenumerationsnyckel för att köra exemplet. Du kan hämta nycklar för kostnadsfri utvärderingsprenumeration från [Testa Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=face-api).
 - Valfri version av [Visual Studio 2015 eller 2017](https://www.visualstudio.com/downloads/). För Visual Studio 2017 krävs arbetsbelastningen för .NET Desktop-programutveckling. I den här självstudien används Visual Studio 2017 Community Edition.
-- NuGet-paketet för klientbiblioteket [Microsoft.Azure.CognitiveServices.Vision.Face 2.0.0-preview](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.Face/2.0.0-preview). Du behöver inte ladda ned paketet. Installationsinstruktioner finns nedan.
+- NuGet-paketet för klientbiblioteket [Microsoft.Azure.CognitiveServices.Vision.Face 2.2.0-preview](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.Face/2.2.0-preview). Du behöver inte ladda ned paketet. Installationsinstruktioner finns nedan.
 
 ## <a name="create-the-visual-studio-solution"></a>Skapa Visual Studio-lösningen
 
@@ -54,7 +54,7 @@ Följ dessa instruktioner för att installera klientbiblioteket.
 1. Öppna menyn **Verktyg**. Välj **NuGet-pakethanterare** och sedan **Package Manager-konsolen**.
 1. I **Package Manager-konsolen** klistrar du in följande och trycker sedan på **Retur**.
 
-    `Install-Package Microsoft.Azure.CognitiveServices.Vision.Face -Version 2.0.0-preview`
+    `Install-Package Microsoft.Azure.CognitiveServices.Vision.Face -Version 2.2.0-preview`
 
 ## <a name="add-the-initial-code"></a>Lägg till den första koden
 
@@ -122,8 +122,8 @@ namespace FaceTutorial
         // NOTE: Free trial subscription keys are generated in the westcentralus
         // region, so if you are using a free trial subscription key, you should
         // not need to change this region.
-        private const string baseUri =
-            "https://westcentralus.api.cognitive.microsoft.com/face/v1.0";
+        private const string faceEndpoint =
+            "https://westcentralus.api.cognitive.microsoft.com";
 
         private readonly IFaceClient faceClient = new FaceClient(
             new ApiKeyServiceClientCredentials(subscriptionKey),
@@ -137,13 +137,13 @@ namespace FaceTutorial
         {
             InitializeComponent();
 
-            if (Uri.IsWellFormedUriString(baseUri, UriKind.Absolute))
+            if (Uri.IsWellFormedUriString(faceEndpoint, UriKind.Absolute))
             {
-                faceClient.BaseUri = new Uri(baseUri);
+                faceClient.Endpoint = faceEndpoint;
             }
             else
             {
-                MessageBox.Show(baseUri,
+                MessageBox.Show(faceEndpoint,
                     "Invalid URI", MessageBoxButton.OK, MessageBoxImage.Error);
                 Environment.Exit(0);
             }
@@ -197,8 +197,8 @@ namespace FaceTutorial
 - Lägg till följande rad i *MainWindow.xaml.cs* och ersätt eller verifiera den Azure-region som är associerad med din prenumerationsnyckel:
 
     ```csharp
-    private const string baseUri =
-        "https://westcentralus.api.cognitive.microsoft.com/face/v1.0";
+    private const string Endpoint =
+        "https://westcentralus.api.cognitive.microsoft.com";
     ```
 
     Se till att platsen är samma som där du skaffade din prenumerationsnycklar. Om du till exempel skaffade prenumerationsnycklarna från regionen **westus** (USA, västra) ersätter du `Westcentralus` med `Westus`.

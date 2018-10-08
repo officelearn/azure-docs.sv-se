@@ -1,75 +1,63 @@
 ---
-title: Självstudie om att skapa en LUIS-app för att få exakt textmatchning i listdata – Azure | Microsoft Docs
-description: I den här självstudien skapar du en enkel LUIS-app med hjälp av avsikter och listentiteter för att extrahera data i den här snabbstarten.
+title: 'Självstudie 4: Exakta textmatchningar – entiteten LUIS-lista'
+titleSuffix: Azure Cognitive Services
+description: Hämta data som matchar en fördefinierad lista med objekt. Varje objekt i listan kan ha synonymer som också matchar exakt
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
-ms.component: luis
+ms.component: language-understanding
 ms.topic: tutorial
-ms.date: 08/02/2018
+ms.date: 09/09/2018
 ms.author: diberry
-ms.openlocfilehash: 04411f415b7cfe07d893c43e758bd2a4a226472a
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: b4fdf094653a4b16dead6397fe8e1a9f1a0258b9
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44162206"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47162091"
 ---
-# <a name="tutorial-4-add-list-entity"></a>Självstudie: 4. Lägg till listentitet
-I den här självstudien skapar du en app som visar hur det går till att hämta data som matchar en fördefinierad lista. 
+# <a name="tutorial-4-extract-exact-text-matches"></a>Självstudie 4: Extrahera exakta textmatchningar
+I den här självstudien får du lära dig hur du hämtar data som matchar en fördefinierad lista med objekt. Varje objekt i listan kan innehålla en lista med synonymer. I Human Resources-appen kan medarbetare identifieras med flera olika uppgifter, som namn, e-post, telefonnummer och skatte-id. 
 
-<!-- green checkmark -->
-> [!div class="checklist"]
-> * Förstå listentiteter 
-> * Skapa en ny LUIS-app för personalfrågedomänen med avsikten MoveEmployee
-> * Lägga till listentitet för att extrahera medarbetare från yttrande
-> * Träna och publicera app
-> * Skicka en fråga till appens slutpunkt för att se LUIS JSON-svar
+Human Resources-appen måste fastställa vilken medarbetare som flyttar från en byggnad till en annan. I ett yttrande om en medarbetarflytt fastställer LUIS avsikten och extraherar medarbetaren så att klientappen kan skapa en standardorder om att flytta medarbetaren.
 
-[!INCLUDE [LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
-
-## <a name="before-you-begin"></a>Innan du börjar
-Om du inte har appen Human Resources (Personalfrågor) från självstudien om [regex-entiteten](luis-quickstart-intents-regex-entity.md) ska du [importera](luis-how-to-start-new-app.md#import-new-app) JSON till en ny app på [LUIS-webbplatsen](luis-reference-regions.md#luis-website). Importeringsappen finns på [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-regex-HumanResources.json)-GitHub-lagringsplatsen.
-
-Om du vill behålla den ursprungliga Human Resources-appen (Personalfrågor) klonar du versionen på sidan [Settings](luis-how-to-manage-versions.md#clone-a-version) (Inställningar) och ger den namnet `list`. Kloning är ett bra sätt att prova på olika LUIS-funktioner utan att påverka originalversionen. 
-
-## <a name="purpose-of-the-list-entity"></a>Syftet med listentiteten
-Den här appen förutsäger yttranden om att flytta en medarbetare från en byggnad till en annan. Appen använder en listentitet för att extrahera en medarbetare. Medarbetaren kan refereras till med hjälp av namn, telefonnummer, e-postadress eller amerikanskt socialförsäkringsnummer. 
-
-En listentitet kan innehålla flera objekt med synonymer för varje objekt. I små till medelstora företag används en listentitet till att extrahera information om medarbetare. 
-
-Det kanoniska namnet för varje objekt är medarbetarens nummer. Exempel på synonymer för den här domänen: 
-
-|Synonymsyfte|Synonymvärde|
-|--|--|
-|Namn|John W. Smith|
-|E-postadress|john.w.smith@mycompany.com|
-|Telefonanknytning|x12345|
-|Personligt mobilnummer|425-555-1212|
-|Amerikanskt socialförsäkringsnummer|123-45-6789|
+I den här appen används en listentitet till att extrahera medarbetaren. Medarbetaren kan identifieras med hjälp av namn, anknytning, mobiltelefonnummer, e-postadress eller amerikanskt socialförsäkringsnummer. 
 
 En listentitet är ett bra alternativ för den här typen av data när:
 
 * Datavärdena är en känd uppsättning.
 * Uppsättningen inte överskrider de högsta [gränserna](luis-boundaries.md) för LUIS för den här entitetstypen.
-* Texten i yttrandet stämmer exakt med ett synonym. 
+* Texten i yttrandet stämmer exakt med en synonym eller det kanoniska namnet. 
 
-LUIS extraherar medarbetare på ett sätt så att en standardorder för att flytta medarbetare kan skapas av klientprogrammet.
-<!--
-## Example utterances
-Simple example utterances for a `MoveEmployee` inent:
+**I den här självstudiekursen får du lära du dig att:**
 
-```
-move John W. Smith from B-1234 to H-4452
-mv john.w.smith@mycompany from office b-1234 to office h-4452
+<!-- green checkmark -->
+> [!div class="checklist"]
+> * Använda en befintlig självstudieapp
+> * Lägga till avsikten MoveEmployee
+> * Lägg till listentitet 
+> * Träna 
+> * Publicera
+> * Hämta avsikter och entiteter från en slutpunkt
 
-```
--->
+[!include[LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
 
-## <a name="add-moveemployee-intent"></a>Lägga till avsikten MoveEmployee
+## <a name="use-existing-app"></a>Använda en befintlig app
+Fortsätt med appen du skapade i föregående självstudie med namnet **HumanResources**. 
 
-1. Kontrollera att Human Resources-appen (Personalfrågor) finns i avsnittet **Build** (Skapa) i LUIS. Du kan ändra till det här avsnittet genom att välja **Build** (Skapa) i menyraden längst upp till höger. 
+Om du inte har appen HumanResources från föregående självstudie gör du så här:
+
+1.  Ladda ned och spara [JSON-filen för appen](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/tutorials/custom-domain-regex-HumanResources.json).
+
+2. Importera JSON-koden till en ny app.
+
+3. I avsnittet **Hantera** går du till fliken **Versioner**, klonar versionen och ger den namnet `list`. Kloning är ett bra sätt att prova på olika LUIS-funktioner utan att påverka originalversionen. Eftersom versionsnamnet används i webbadressen får namnet inte innehålla några tecken som är ogiltiga i webbadresser. 
+
+
+## <a name="moveemployee-intent"></a>Avsikten MoveEmployee
+
+1. [!include[Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
 
 2. Välj **Create new intent** (Skapa ny avsikt). 
 
@@ -94,8 +82,23 @@ mv john.w.smith@mycompany from office b-1234 to office h-4452
 
     [ ![Skärmbild på sidan Intent (Avsikt) med nya yttranden markerade](./media/luis-quickstart-intent-and-list-entity/hr-enter-utterances.png) ](./media/luis-quickstart-intent-and-list-entity/hr-enter-utterances.png#lightbox)
 
-## <a name="create-an-employee-list-entity"></a>Skapa en listentitet för medarbetare
-Avsikten **MoveEmployee** innehåller nu yttranden, och LUIS behöver förstå vad en medarbetare är. 
+    Kom ihåg att number och datetimeV2 lades till i en tidigare självstudie och automatiskt märks ut när de identifieras i yttranden.
+
+    [!include[Do not use too few utterances](../../../includes/cognitive-services-luis-too-few-example-utterances.md)]  
+
+## <a name="employee-list-entity"></a>Listentitet för medarbetare
+Avsikten **MoveEmployee** innehåller nu exempelyttranden, och LUIS behöver förstå vad en medarbetare är. 
+
+Det primära, _kanoniska_ namnet för varje objekt är medarbetarens anställningsnummer. Här är några exempel på synonymer för den här domänen: 
+
+|Synonymsyfte|Synonymvärde|
+|--|--|
+|Namn|John W. Smith|
+|E-postadress|john.w.smith@mycompany.com|
+|Telefonanknytning|x12345|
+|Personligt mobilnummer|425-555-1212|
+|Amerikanskt socialförsäkringsnummer|123-45-6789|
+
 
 1. Välj **Entities** (Entiteter) på den vänstra panelen.
 
@@ -133,15 +136,15 @@ Avsikten **MoveEmployee** innehåller nu yttranden, och LUIS behöver förstå v
     |Personligt mobilnummer|425-555-0000|
     |Amerikanskt socialförsäkringsnummer|234-56-7891|
 
-## <a name="train-the-luis-app"></a>Träna LUIS-appen
+## <a name="train"></a>Träna
 
 [!INCLUDE [LUIS How to Train steps](../../../includes/cognitive-services-luis-tutorial-how-to-train.md)]
 
-## <a name="publish-the-app-to-get-the-endpoint-url"></a>Publicera appen för att få slutpunkts-URL
+## <a name="publish"></a>Publicera
 
 [!INCLUDE [LUIS How to Publish steps](../../../includes/cognitive-services-luis-tutorial-how-to-publish.md)]
 
-## <a name="query-the-endpoint-with-a-different-utterance"></a>Skicka fråga till slutpunkten med ett annat yttrande
+## <a name="get-intent-and-entities-from-endpoint"></a>Hämta avsikter och entiteter från slutpunkten
 
 1. [!INCLUDE [LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)] 
 
@@ -259,22 +262,12 @@ Avsikten **MoveEmployee** innehåller nu yttranden, och LUIS behöver förstå v
 
   Medarbetaren hittades och returnerades som typen `Employee` med lösningsvärdet `Employee-24612`.
 
-## <a name="where-is-the-natural-language-processing-in-the-list-entity"></a>Var är bearbetningen av naturligt språk i listentiteten? 
-Eftersom listentiteten är en exakt matchning förlitar den sig inte på bearbetning av naturligt språk (eller maskininlärning). LUIS använder bearbetning av naturligt språk (eller maskininlärning) för att välja rätt avsikt med högst poäng. Dessutom kan ett yttrande vara en blandning av mer än en entitet eller mer än en typ av entitet. Varje yttrande bearbetas för alla entiteter i appen, inklusive entiteter för bearbetning av naturligt språk (eller maskininlärning).
-
-## <a name="what-has-this-luis-app-accomplished"></a>Vad har den här LUIS-appen åstadkommit?
-Med hjälp av en listentitet har appen extraherat rätt medarbetare. 
-
-Din chattrobot har nu tillräckligt med information för att bestämma den primära åtgärden, `MoveEmployee`, och vilken medarbetare som ska flyttas. 
-
-## <a name="where-is-this-luis-data-used"></a>Var används dessa LUIS-data? 
-LUIS är klar med den här begäran. Det anropande programmet, till exempel en chattrobot, kan använda topScoringIntent-resultatet och data från entiteten för att gå vidare. LUIS utför inte detta programmässiga arbete för roboten eller det anropande programmet. LUIS tar endast reda på vad användarens avsikt är. 
-
 ## <a name="clean-up-resources"></a>Rensa resurser
 
 [!INCLUDE [LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]
 
 ## <a name="next-steps"></a>Nästa steg
+I den här självstudien har du skapat en ny avsikt, lagt till exempelyttranden och sedan skapat en listentitet för att extrahera exakta textmatchningar från yttranden. När appen har tränats upp och publicerats identifierade en fråga till slutpunkten aktuell avsikt och extraherade data returnerades.
 
 > [!div class="nextstepaction"]
 > [Lägg till en hierarkisk enhet i appen](luis-quickstart-intent-and-hier-entity.md)

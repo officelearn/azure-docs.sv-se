@@ -15,12 +15,12 @@ ms.topic: quickstart
 ms.date: 05/24/2018
 ms.author: v-deasim
 ms.custom: mvc
-ms.openlocfilehash: 05ce8c932e9d3d812e34e23c082d459c3193ea40
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 1f720c8921a9a49e76465cce1c8226232fdb12ea
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34608509"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47096249"
 ---
 # <a name="quickstart-integrate-an-azure-storage-account-with-azure-cdn"></a>Snabbstart: Integrera ett Azure Storage-konto med Azure CDN
 I den här snabbstarten aktiverar du [Azure Content Delivery Network (CDN)](cdn-overview.md) för att cachelagra innehåll från Azure Storage. Azure CDN ger utvecklarna en global lösning när det gäller att leverera innehåll med hög bandbredd. Det kan cachelagra blobbar och statiskt innehåll för beräkningsinstanser på fysiska noder i USA, Europa, Asien, Australien och Sydamerika.
@@ -53,7 +53,7 @@ Du kan använda flera metoder för att skapa ett lagringskonto, bl.a. Azure Port
 
 3. Ange ett underdomänsnamn i rutan **Namn**. Den här posten kan innehålla 3-24 gemena bokstäver och siffror.
    
-    Det här värdet blir värdnamnet i den URI som används för att adressera prenumerationens blobb-, kö- eller tabellresurser. När du vill adressera en behållarresurs i Blob Storage så använd en URI i följande format:
+    Det här värdet blir värdnamnet i den URI som används för att adressera prenumerationens blobb-, kö- eller tabellresurser. När du vill adressera en containerresurs i Blob Storage så använd en URI i följande format:
    
     http://*&lt;StorageAcountLabel&gt;*.blob.core.windows.net/*&lt;mycontainer&gt;*
 
@@ -84,7 +84,7 @@ Du kan använda flera metoder för att skapa ett lagringskonto, bl.a. Azure Port
 
 ## <a name="enable-azure-cdn-for-the-storage-account"></a>Aktivera Azure CDN för lagringskontot
 
-Du kan aktivera Azure CDN för ditt lagringskonto direkt från ditt lagringskonto. Om du vill ange avancerade konfigurationsinställningar för CDN-slutpunkten, t.ex. optimeringstyp, kan du i stället använda [Azure CDN-tillägget](cdn-create-new-endpoint.md) för att skapa en CDN-profil eller en CDN-slutpunkt.
+Du kan aktivera Azure CDN för ditt lagringskonto direkt från ditt lagringskonto. Om du vill ange avancerade konfigurationsinställningar för din CDN-slutpunkt, som [optimering av nedladdning av stora filer](cdn-optimization-overview.md#large-file-download), kan du istället använda [Azure CDN-tillägget](cdn-create-new-endpoint.md) till att skapa en CDN-profil och en slutpunkt.
 
 1. Välj ett lagringskonto på instrumentpanelen och välj sedan **Azure CDN** i den vänstra rutan. Om knappen **Azure CDN** inte visas direkt kan du ta fram den genom att ange CDN i rutan **Sök** i det vänstra fönstret.
     
@@ -96,9 +96,9 @@ Du kan aktivera Azure CDN för ditt lagringskonto direkt från ditt lagringskont
 
     | Inställning  | Värde |
     | -------- | ----- |
-    | **CDN-profil** | Välj **Skapa ny** och ange *my-cdn-profile-123* som profilnamn. Det här namnet måste vara globalt unikt. Om det redan används kan du ange ett annat namn.  |
+    | **CDN-profil** | Välj **Skapa ny** och ange *my-cdn-profile-123* som profilnamn. Namnet måste vara globalt unikt. Om det redan används kan du ange ett annat namn.  |
     | **prisnivå** | Välj **Standard Verizon** i listrutan. |
-    | **CDN-slutpunktsnamn** | Ange *my-endpoint-123* som slutpunktens värdnamn. Det här namnet måste vara globalt unikt. Om det redan används kan du ange ett annat namn. Namnet används för att komma åt cachelagrade resurser på domänen _&lt;slutpunktens namn&gt;_.azureedge.net. En ny CDN-slutpunkt använder som standard lagringskontots värdnamn som ursprunglig server.|
+    | **CDN-slutpunktsnamn** | Ange *my-endpoint-123* som slutpunktens värdnamn. Namnet måste vara globalt unikt. Om det redan används kan du ange ett annat namn. Namnet används för att komma åt cachelagrade resurser på domänen _&lt;slutpunktens namn&gt;_.azureedge.net. En ny CDN-slutpunkt använder som standard lagringskontots värdnamn som ursprunglig server.|
 
 3. Välj **Skapa**. När slutpunkten har skapats visas den i listan med slutpunkter.
 
@@ -109,6 +109,9 @@ Du kan aktivera Azure CDN för ditt lagringskonto direkt från ditt lagringskont
 Öppna CDN slutpunktens konfigurationssida genom att välja CDN-slutpunkten i listan på lagringskontots **Azure CDN**-sida. Från den här sidan kan du aktivera ytterligare CDN-funktioner, t.ex. [komprimering](cdn-improve-performance.md), [cachelagring av frågesträngar](cdn-query-string.md) och [geofiltrering](cdn-restrict-access-by-country.md). 
     
 ![Slutpunktskonfiguration av lagrings-CDN](./media/cdn-create-a-storage-account-with-cdn/cdn-storage-endpoint-configuration.png)
+
+## <a name="enable-sas"></a>Aktivera SAS
+Om du vill ge begränsad åtkomst till privata lagringscontainrar kan du använda funktionen SAS (signatur för delad åtkomst) för Azure-lagringskontot. En SAS är en URI som ger begränsad åtkomst till dina Azure-lagringsresurser utan att du exponerar din kontonyckel. Mer information finns i [Använda Azure CDN med SAS](cdn-sas-storage-support.md).
 
 ## <a name="access-cdn-content"></a>Åtkomst till CDN-innehåll
 Använd CDN-URL som anges i portalen om du vill få åtkomst till cachelagrat innehåll på CDN. Adressen för en cachelagrad blobb har följande format:
@@ -121,7 +124,7 @@ http://<*EndpointName*\>.azureedge.net/<*myPublicContainer*\>/<*BlobName*\>
 ## <a name="remove-content-from-azure-cdn"></a>Ta bort innehåll från Azure CDN
 Om du inte längre vill cachelagra ett objekt i Azure CDN kan du vidta något av följande steg:
 
-* Gör behållaren privat i stället för offentlig. Mer information finns i [Hantera anonym läsbehörighet till behållare och blobbar](../storage/blobs/storage-manage-access-to-resources.md).
+* Gör containern privat i stället för offentlig. Mer information finns i [Hantera anonym läsbehörighet till containrar och blobbar](../storage/blobs/storage-manage-access-to-resources.md).
 * Inaktivera eller ta bort CDN-slutpunkten med hjälp av Azure Portal.
 * Ändra din värdbaserade tjänst så att den inte längre svarar på förfrågningar för objektet.
 
@@ -139,8 +142,8 @@ I föregående steg skapade du en CDN-profil och en CDN-slutpunkt i en resursgru
 3. Om du vill ta bort ditt lagringskonto markerar du det på instrumentpanelen och väljer sedan **Ta bort** på den översta menyn.
 
 ## <a name="next-steps"></a>Nästa steg
-Mer information om hur du lägger till en anpassad domän i din CDN-slutpunkt finns i följande självstudiekurs:
+Mer information om hur du lägger till en anpassad domän och aktiverar HTTPS för din CDN-slutpunkt finns i följande självstudie:
 
 > [!div class="nextstepaction"]
-> [Självstudier: Lägga till en anpassad domän i Azure CDN-slutpunkten](cdn-map-content-to-custom-domain.md)
+> [Självstudie: Använda lagringsblobar via en anpassad Azure CDN-domän och HTTPS](cdn-storage-custom-domain-https.md)
 

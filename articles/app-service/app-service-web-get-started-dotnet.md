@@ -12,15 +12,15 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 08/29/2018
+ms.date: 09/05/2018
 ms.author: cephalin
 ms.custom: mvc, devcenter, vs-azure
-ms.openlocfilehash: d7b93c28bf83e468d1470b0962dcf9d87a52adb2
-ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
+ms.openlocfilehash: 00a1f7edfb24d9bd44e48161f3cd2e69cba36bfc
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43189584"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44052130"
 ---
 # <a name="create-an-aspnet-core-web-app-in-azure"></a>Skapa en ASP.NET Core-webbapp i Azure
 
@@ -36,11 +36,12 @@ Med [Azure Web Apps](app-service-web-overview.md) får du en mycket skalbar och 
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
-För att slutföra den här självstudien behöver du:
+För att slutföra självstudien installerar du <a href="https://www.visualstudio.com/downloads/" target="_blank">Visual Studio 2017</a> med arbetsbelastningen **ASP.NET och webbutveckling**.
 
-Installera <a href="https://www.visualstudio.com/downloads/" target="_blank">Visual Studio 2017</a> med arbetsbelastningen **ASP.NET och webbutveckling**.
+Om du redan har installerat Visual Studio 2017:
 
-Om du redan har installerat Visual Studio lägger du till arbetsbelastningen i Visual Studio genom att klicka på **Tools (Verktyg)** > **Get Tools and Features (Skaffa verktyg och funktioner)**.
+- Installera de senaste uppdateringarna i Visual Studio genom att klicka på **Hjälp** > **Sök efter uppdateringar**.
+- Lägg till arbetsbelastningen genom att klicka på **Verktyg** > **Skaffa verktyg och funktioner**.
 
 ## <a name="create-an-aspnet-core-web-app"></a>Skapa en ASP.NET Core-webbapp
 
@@ -52,7 +53,7 @@ Ge programmet namnet _myFirstAzureWebApp_ och välj **OK**.
    
 ![Dialogrutan Nytt projekt](./media/app-service-web-get-started-dotnet/new-project.png)
 
-Du kan distribuera alla typer av ASP.NET Core-webbappar till Azure. I den här snabbstarten väljer du mallen **Webbprogram** och ser till att autentiseringen är inställd på **Ingen autentisering**.
+Du kan distribuera alla typer av ASP.NET Core-webbappar till Azure. I den här snabbstarten väljer du mallen **Webbprogram** och ser till att autentiseringen är inställd på **Ingen autentisering** och att inget annat alternativ har valts.
       
 Välj **OK**.
 
@@ -62,21 +63,19 @@ På menyn väljer du **Felsöka > Starta utan felsökning** för att köra webba
 
 ![Kör appen lokalt](./media/app-service-web-get-started-dotnet/razor-web-app-running-locally.png)
 
-## <a name="publish-to-azure"></a>Publicera till Azure
+## <a name="launch-the-publish-wizard"></a>Starta publiceringsguiden
 
 Högerklicka på projektet **myFirstAzureWebApp** i **Solution Explorer** och välj **Publicera**.
 
 ![Publicera från Solution Explorer](./media/app-service-web-get-started-dotnet/right-click-publish.png)
 
-Se till att **Microsoft Azure App Service** är markerat och välj **Publicera**.
+Publiceringsguiden startas automatiskt. Välj **App Service** > **Publicera** och öppna dialogrutan **Skapa App Service**.
 
 ![Publicera från projektöversiktssidan](./media/app-service-web-get-started-dotnet/publish-to-app-service.png)
 
-Dialogrutan **Create App Service** (Skapa apptjänst) öppnas, där du kan skapa alla Azure-resurser som du behöver för att köra ASP.NET Core-webbappen i Azure.
-
 ## <a name="sign-in-to-azure"></a>Logga in på Azure
 
-I dialogrutan **Skapa App Service** klickar du på **Lägg till ett konto** och loggar in till din Azure-prenumeration. Välj det konto som innehåller den önskade prenumerationen i listrutan om du redan är inloggad.
+I dialogrutan **Skapa App Service** klickar du på **Lägg till ett konto** och loggar in till din Azure-prenumeration. Välj det konto du vill ha i listrutan om du redan är inloggad.
 
 > [!NOTE]
 > Välj inte **Skapa** ännu om du redan är inloggad.
@@ -96,9 +95,9 @@ Ge resursgruppen namnet **myResourceGroup** och välj **OK**.
 
 [!INCLUDE [app-service-plan](../../includes/app-service-plan.md)]
 
-Välj **Ny** bredvid **App Service-plan**. 
+Bredvid **Värdplan** väljer du **Ny**. 
 
-I dialogrutan **Configure App Service Plan** (Konfigurera App Service-plan) använder du inställningarna i tabellen som följer skärmbilden.
+I dialogrutan **Konfigurera värdplan** använder du inställningarna i tabellen som följer skärmbilden.
 
 ![Skapa apptjänstplan](./media/app-service-web-get-started-dotnet/configure-app-service-plan.png)
 
@@ -112,17 +111,17 @@ Välj **OK**.
 
 ## <a name="create-and-publish-the-web-app"></a>Skapa och publicera webbappen
 
-I **Webbprogramnamnet** skriver du ett unikt appnamn (giltiga tecken är `a-z`, `0-9` och `-`) eller acceptera det automatiskt genererade unika namnet. Webbadressen till webbappen är `http://<app_name>.azurewebsites.net`, där `<app_name>` är webbappens namn.
+I **Appnamn** skriver du ett unikt appnamn (giltiga tecken är `a-z`, `0-9` och `-`) eller accepterar det automatiskt genererade unika namnet. Webbadressen till webbappen är `http://<app_name>.azurewebsites.net`, där `<app_name>` är appens namn.
 
 Välj **Skapa** för att börja skapa Azure-resurser.
 
-![Ange webbappnamn](./media/app-service-web-get-started-dotnet/web-app-name.png)
+![Konfigurera appnamn](./media/app-service-web-get-started-dotnet/web-app-name.png)
 
 När guiden slutförs publiceras ASP.NET Core-webbappen till Azure och sedan öppnas appen i standardwebbläsaren.
 
 ![Publicerad ASP.NET-webbapp i Azure](./media/app-service-web-get-started-dotnet/web-app-running-live.png)
 
-Webbprogramnamnet som anges i steget [skapa och publicera](#create-and-publish-the-web-app) används som URL-prefixet i formatet `http://<app_name>.azurewebsites.net`.
+Appnamnet som anges i steget [skapa och publicera](#create-and-publish-the-web-app) används som URL-prefixet i formatet `http://<app_name>.azurewebsites.net`.
 
 Grattis, din ASP.NET Core-webbapp körs live i Azure App Service.
 
@@ -130,7 +129,7 @@ Grattis, din ASP.NET Core-webbapp körs live i Azure App Service.
 
 Öppna _Pages/Index.cshtml_ från **Solution Explorer**.
 
-Leta reda på HTML-taggen `<div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="6000">` längst upp på sidan och ersätt hela elementet med följande kod:
+Ersätt de två `<div>`-taggarna med följande kod:
 
 ```HTML
 <div class="jumbotron">

@@ -22,6 +22,7 @@
 #### [2 – Grupputveckling](team-development-nodejs.md)
 
 ## Gör så här för att
+### [Skapa ett Kubernetes-kluster med Azure Cloud Shell](how-to/create-cluster-cloud-shell.md)
 ### [Dela Azure Dev Spaces](how-to/share-dev-spaces.md)
 ### [Hantera hemligheter](how-to/manage-secrets.md)
 ### [Använda en anpassad NuGet-feed](how-to/use-custom-nuget-feed.md)

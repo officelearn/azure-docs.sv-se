@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/28/2018
 ms.author: tomfitz
-ms.openlocfilehash: d06a450595a53fdc65fba74791345abe3a1b3db4
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.openlocfilehash: c3e8c99f6648f0f4927140f3215978566afb9eb8
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37109577"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48868912"
 ---
 # <a name="microsoftnetworkpublicipaddresscombo-ui-element"></a>Microsoft.Network.PublicIpAddressCombo UI-element
 En grupp av kontroller för att välja en ny eller befintlig offentlig IP-adress.
@@ -26,9 +26,9 @@ En grupp av kontroller för att välja en ny eller befintlig offentlig IP-adress
 ## <a name="ui-sample"></a>UI-exempel
 ![Microsoft.Network.PublicIpAddressCombo](./media/managed-application-elements/microsoft.network.publicipaddresscombo.png)
 
-- Om användaren väljer ”Ingen” för den offentliga IP-adress, döljs textrutan domän etikett.
-- Om användaren väljer en befintlig offentlig IP-adress, inaktiveras domän etikett namnrutan. Dess värde är domännamnet för den valda IP-adressen.
-- De domain name suffix (till exempel westus.cloudapp.azure.com) uppdateringar automatiskt baserat på den valda platsen.
+- Om användaren väljer ”Ingen” för offentlig IP-adress, döljs textrutan domän namn etikett.
+- Om användaren väljer en befintlig offentlig IP-adress, är textrutan domän namn etiketten inaktiverad. Värdet är domännamnsetiketten för den valda IP-adressen.
+- De domän namn suffix (till exempel westus.cloudapp.azure.com) uppdateringar automatiskt baserat på den valda platsen.
 
 ## <a name="schema"></a>Schema
 ```json
@@ -63,14 +63,14 @@ En grupp av kontroller för att välja en ny eller befintlig offentlig IP-adress
 ```
 
 ## <a name="remarks"></a>Kommentarer
-- Om `constraints.required.domainNameLabel` är inställd på **SANT**, måste användaren ange en domännamnet när du skapar en ny offentlig IP-adress. Befintliga offentliga IP-adresser utan en etikett inte väljas.
-- Om `options.hideNone` är inställd på **SANT**, sedan alternativet **ingen** för den offentliga IP-adress är dolt. Standardvärdet är **FALSKT**.
-- Om `options.hideDomainNameLabel` är inställd på **SANT**, och sedan textrutan för domännamnet är dolt. Standardvärdet är **FALSKT**.
-- Om `options.hideExisting` är true tas användaren inte kan välja en befintlig offentlig IP-adress. Standardvärdet är **FALSKT**.
-- För `zone`, endast offentliga IP-adresser för den angivna zonen eller zonen flexibel offentliga IP-adresser som är tillgängliga.
+- Om `constraints.required.domainNameLabel` är inställd på **SANT**, måste användaren ange en etikett med domän när du skapar en ny offentlig IP-adress. Befintliga offentliga IP-adresser utan en etikett inte väljas.
+- Om `options.hideNone` är inställd på **SANT**, sedan möjlighet att välja **ingen** för den offentliga IP-adressen är dold. Standardvärdet är **FALSKT**.
+- Om `options.hideDomainNameLabel` är inställd på **SANT**, och sedan textrutan för domännamnets etikett är dold. Standardvärdet är **FALSKT**.
+- Om `options.hideExisting` är true tas radbrytningstecknen användaren inte kan välja en befintlig offentlig IP-adress. Standardvärdet är **FALSKT**.
+- För `zone`, endast offentliga IP-adresser för den angivna zonen eller zon elastiska offentliga IP-adresser som är tillgängliga.
 
 ## <a name="sample-output"></a>Exempel på utdata
-Om användaren väljer Ingen offentlig IP-adress, resultat kontrollen följande:
+Om användaren väljer Ingen offentlig IP-adress, returnerar kontrollen följande utdata:
 
 ```json
 {
@@ -78,7 +78,7 @@ Om användaren väljer Ingen offentlig IP-adress, resultat kontrollen följande:
 }
 ```
 
-Om användaren väljer en ny eller befintlig IP-adress, resultat kontrollen följande:
+Om användaren väljer en ny eller befintlig IP-adress, returnerar kontrollen följande utdata:
 
 ```json
 {
@@ -86,13 +86,14 @@ Om användaren väljer en ny eller befintlig IP-adress, resultat kontrollen föl
   "resourceGroup": "rg01",
   "domainNameLabel": "mydomain",
   "publicIPAllocationMethod": "Dynamic",
+  "sku": "Basic",
   "newOrExistingOrNone": "new"
 }
 ```
 
-- När `options.hideNone` har angetts som **SANT**, `newOrExistingOrNone` har bara ett värde av **nya** eller **befintliga**.
+- När `options.hideNone` har angetts som **SANT**, `newOrExistingOrNone` kommer endast att ha ett värde av **nya** eller **befintliga**.
 - När `options.hideDomainNameLabel` har angetts som **SANT**, `domainNameLabel` har inte deklarerats.
 
 ## <a name="next-steps"></a>Nästa steg
-* En introduktion till att skapa UI-definitioner, se [komma igång med CreateUiDefinition](create-uidefinition-overview.md).
-* En beskrivning av gemensamma egenskaper i UI-element, se [CreateUiDefinition element](create-uidefinition-elements.md).
+* En introduktion till att skapa UI-definitioner finns i [komma igång med CreateUiDefinition](create-uidefinition-overview.md).
+* En beskrivning av gemensamma egenskaper i UI-element som finns i [CreateUiDefinition element](create-uidefinition-elements.md).

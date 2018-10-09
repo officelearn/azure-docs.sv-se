@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 08/07/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 013fd019771fb9994c87e363c78eae36431f91de
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 32a887d54a239db0c1e40458e1b304d899befff5
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46953233"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48870561"
 ---
 # <a name="azure-ad-b2c-use-the-azure-ad-graph-api"></a>Azure AD B2C: Använd Azure AD Graph API
 
@@ -38,7 +38,7 @@ Innan du kan skapa program eller användare, behöver du en Azure AD B2C-klient.
 När du har en B2C-klient kan du behöva registrera ditt program med hjälp av den [Azure-portalen](https://portal.azure.com).
 
 > [!IMPORTANT]
-> Om du vill använda Graph API med din B2C-klient som du behöver registrera ett program med hjälp av den *Appregistreringar* tjänsten på Azure-portalen **inte** Azure AD B2C *program*menyn. Följande instruktioner för att leda till rätt-menyn. Du kan inte återanvända befintliga B2C-program som du registrerade i Azure AD B2C *program* menyn.
+> Om du vill använda Graph API med din B2C-klient som du behöver registrera ett program med hjälp av den *Appregistreringar* tjänsten på Azure-portalen **inte** Azure AD B2C *program*menyn. Följande instruktioner för att leda till lämplig menyn. Du kan inte återanvända befintliga B2C-program som du registrerade i Azure AD B2C *program* menyn.
 
 1. Logga in på [Azure Portal](https://portal.azure.com).
 2. Välj din Azure AD B2C-klient genom att välja kontot i det övre högra hörnet på sidan.

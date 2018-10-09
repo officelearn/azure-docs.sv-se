@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2018
 ms.author: juluk
-ms.openlocfilehash: 51dc1280dcc8c47c3cb3ad46fc720e0a38e04b69
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.openlocfilehash: 9a6f7aeea799787becf0bb99cdfa08bed4e9d355
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48814448"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48867467"
 ---
 # <a name="features--tools-for-azure-cloud-shell"></a>Funktioner och verktyg för Azure Cloud Shell
 
@@ -33,12 +33,12 @@ Azure Cloud Shell som körs på `Ubuntu 16.04 LTS`.
 
 Cloudshell autentiserar på ett säkert sätt och automatiskt kontoåtkomst för Azure CLI och Azure PowerShell.
 
-### <a name="home-persistence-across-sessions"></a>$Home bevarad mellan sessioner
+### <a name="home-persistence-across-sessions"></a>$HOME bevarad mellan sessioner
 
 För att spara filer mellan sessioner, vägleder dig genom att koppla en Azure-filresurs vid första start i Cloud Shell.
-När klar koppla Cloud Shell automatiskt din lagring (monterats som `$Home\clouddrive`) för alla framtida sessioner.
-Dessutom kan din `$Home` directory sparas som en .img i din Azure-filresurs.
-Filer utanför `$Home` och datorn är inte beständiga mellan sessioner. Följ rekommenderade säkerhetsmetoder när du lagrar hemligheter som SSH-nycklar. Tjänster såsom [Azure Key Vault har självstudier för installation](https://docs.microsoft.com/azure/key-vault/key-vault-manage-with-cli2#prerequisites).
+När klar koppla Cloud Shell automatiskt din lagring (monterats som `$HOME\clouddrive`) för alla framtida sessioner.
+Dessutom kan din `$HOME` directory sparas som en .img i din Azure-filresurs.
+Filer utanför `$HOME` och datorn är inte beständiga mellan sessioner. Följ rekommenderade säkerhetsmetoder när du lagrar hemligheter som SSH-nycklar. Tjänster såsom [Azure Key Vault har självstudier för installation](https://docs.microsoft.com/azure/key-vault/key-vault-manage-with-cli2#prerequisites).
 
 [Läs mer om bevara filer i Cloud Shell.](persisting-shell-storage.md)
 
@@ -61,7 +61,7 @@ Cloudshell innehåller förkonfigurerade autentisering för open source-verktyg 
 |---|---|
 |Linux-verktyg            |Bash<br> zsh<br> SH<br> tmux<br> fördjupa<br>               |
 |Azure-verktyg            |[Azure CLI](https://github.com/Azure/azure-cli) och [Azure klassiskt CLI](https://github.com/Azure/azure-xplat-cli)<br> [AzCopy](https://docs.microsoft.com/azure/storage/storage-use-azcopy)<br> [Service Fabric CLI](https://docs.microsoft.com/azure/service-fabric/service-fabric-cli)<br> [Batch Shipyard](https://github.com/Azure/batch-shipyard)<br> [blobxfer](https://github.com/Azure/blobxfer)|
-|Textredigerare           |VIM<br> nano<br> emacs       |
+|Textredigerare           |VIM<br> nano<br> emacs<br> Kod       |
 |Källkontroll         |git                    |
 |Skapa verktyg            |Kontrollera<br> Maven<br> npm<br> PIP         |
 |Containrar             |[Docker CLI](https://github.com/docker/cli)/[Docker Machine](https://github.com/docker/machine)<br> [Kubectl](https://kubernetes.io/docs/user-guide/kubectl-overview/)<br> [Helm](https://github.com/kubernetes/helm)<br> [DC/OS CLI](https://github.com/dcos/dcos-cli)         |
@@ -76,7 +76,7 @@ Cloudshell innehåller förkonfigurerade autentisering för open source-verktyg 
 |Go         |1.9        |
 |Java       |1.8        |
 |Node.js    |8.9.4      |
-|PowerShell |[6.1.0-Preview.4](https://github.com/PowerShell/powershell/releases)       |
+|PowerShell |[6.1.0](https://github.com/PowerShell/powershell/releases)       |
 |Python     |2.7 och 3.5 (standard)|
 
 ## <a name="next-steps"></a>Nästa steg

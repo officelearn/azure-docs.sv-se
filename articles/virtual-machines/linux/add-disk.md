@@ -15,12 +15,12 @@ ms.devlang: azurecli
 ms.date: 06/13/2018
 ms.author: cynthn
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 578488163482dd0b7b486ca152455ff9686f1a43
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 93ff349eb14823784ca574a70279cd623c720872
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46949221"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48853733"
 ---
 # <a name="add-a-disk-to-a-linux-vm"></a>Lägg till en disk till en virtuell Linux-dator
 Den här artikeln visar hur du kopplar en permanent disk till den virtuella datorn så att du kan behålla dina data, även om den virtuella datorn är nätverkskonfigurationsinställningar på grund av underhåll eller ändra storlek på. 
@@ -169,7 +169,7 @@ sudo mount /dev/sdc1 /datadrive
 För att säkerställa att disken monteras automatiskt efter en omstart, måste du lägga till den */etc/fstab* fil. Det rekommenderas också starkt att UUID (universellt Unik identifierare) används i */etc/fstab* att referera till enheten i stället för bara namnet på enheten (t.ex, */dev/sdc1*). Om Operativsystemet upptäcker ett diskfel under Start, undviker med hjälp av UUID den felaktiga disken monteras på en viss plats. Återstående datadiskar sedan tilldelas dessa samma enhets-ID. Använd för att hitta UUID för den nya enheten i `blkid` verktyget:
 
 ```bash
-sudo -i blkid
+sudo blkid
 ```
 
 Utdata ser ut ungefär så här:

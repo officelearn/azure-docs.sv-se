@@ -11,15 +11,16 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 manager: craigg
-ms.date: 04/01/2018
-ms.openlocfilehash: e277e2fa5ca7062cde1c0061e585dfb092337d4a
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.date: 10/05/2018
+ms.openlocfilehash: 6fb001f3df78e5f85d8f89e3a45df59c0aec98a1
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47159354"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48869219"
 ---
-# <a name="deploy-a-split-merge-service"></a>Distribuera en tjänst för att dela/sammanslå
+# <a name="deploy-a-split-merge-service-to-move-data-between-sharded-databases"></a>Distribuera en tjänst för dela / sammanslå som flyttar data mellan shardade databaser
+
 Dela / sammanslå-verktyget kan du flytta data mellan shardade databaser. Se [flytta data mellan utskalade molndatabaser](sql-database-elastic-scale-overview-split-and-merge.md)
 
 ## <a name="download-the-split-merge-packages"></a>Ladda ned paket för dela / Sammanslå

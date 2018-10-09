@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/07/2018
 ms.author: harijay
-ms.openlocfilehash: e1884048d0f02de1b3a354bc4dac2b3e98dcccc9
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: 17fec61e73298a6250cf6805bb9a713ff3d3a488
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47414879"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48858017"
 ---
 # <a name="virtual-machine-serial-console"></a>Virtual Machine Serial Console
 
@@ -28,8 +28,8 @@ Virtual Machine Serial Console i Azure ger åtkomst till en textbaserad konsol f
 
 Seriell konsol dokumentation för virtuella Linux-datorer [Klicka här](serial-console-linux.md).
 
-> [!Note] 
-> Seriekonsol för virtuella datorer är allmänt tillgängligt i globala Azure-regioner. I det här läget ännu seriekonsolen inte finns tillgänglig i Azure Government eller Azure Kina moln.
+> [!NOTE] 
+> Seriekonsol för virtuella datorer är allmänt tillgängligt i globala Azure-regioner. I det här läget ännu Seriekonsolen inte finns tillgänglig i Azure Government eller Azure Kina moln.
 
  
 
@@ -83,9 +83,12 @@ Om du måste aktivera Windows boot loader uppmanas du för att visa i seriekonso
 1. Ansluta till din Windows-dator via fjärrskrivbord
 2. Kör följande kommandon från en administrativ kommandotolk 
 * `bcdedit /set {bootmgr} displaybootmenu yes`
-* `bcdedit /set {bootmgr} timeout 5`
+* `bcdedit /set {bootmgr} timeout 30`
 * `bcdedit /set {bootmgr} bootems yes`
 3. Starta om datorn för Start-menyn är aktiverat
+
+> [!NOTE] 
+> Timeout-värdet som du anger för startmenyn manager visas påverkar din OS-Start i framtiden. Det kan vara godtagbar för vissa att lägga till en andra 30 tidsgräns för att se till att boot manager visas via seriekonsolen, kanske andra en kortare tidsgräns. Ange timeout-värdet till ett värde som du är nöjd med.
 
 ## <a name="use-serial-console-for-nmi-calls-in-windows-vms"></a>Använd Seriekonsol för NMI anrop i Windows-datorer
 Ett icke-maskable avbrott (NMI) är utformad för att skapa en signal som inte kommer att ignorera programvara på en virtuell dator. Historiskt sett använts NMIs för att övervaka maskinvarufel på system som krävs för specifika svarstider.  Idag, programmerare och systemadministratörer använder ofta NMI som en mekanism för att felsöka eller felsöka system som har hängt.
@@ -99,7 +102,7 @@ Information om hur du konfigurerar Windows för att skapa en kraschdumpfil när 
 ## <a name="disable-serial-console"></a>Inaktivera Seriekonsol
 Som standard har alla prenumerationer seriell konsolåtkomst är aktiverad för alla virtuella datorer. Du kan inaktivera seriekonsolen på prenumerationsnivån eller VM-nivå.
 
-> [!Note]       
+> [!NOTE]       
 > För att aktivera eller inaktivera seriekonsol för en prenumeration, måste du ha skrivbehörighet till prenumerationen. Detta omfattar, men är inte begränsat till administratörer eller ägare. Anpassade roller kan också ha skrivbehörighet.
 
 ### <a name="subscription-level-disable"></a>Prenumerationsnivå inaktivera

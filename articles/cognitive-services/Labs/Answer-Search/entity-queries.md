@@ -1,37 +1,38 @@
 ---
-title: Projektet svaret Sök entitet fråga - kognitiva Microsoft-tjänster | Microsoft Docs
-description: Frågor för entiteter som projektet svaret sökning
+title: 'Snabbstart: Projektet svar Search Entity query'
+titlesuffix: Azure Cognitive Services
+description: Frågor för entiteter med hjälp av projektet Svarssökning
 services: cognitive-services
 author: mikedodaro
-manager: rosh
+manager: cgronlun
 ms.service: cognitive-services
-ms.technology: project-answer-search
+ms.component: project-answer-search
 ms.topic: article
 ms.date: 04/16/2018
-ms.author: rosh, v-gedod
-ms.openlocfilehash: 2b8382b791c02514e5110097700e223d98fafd6a
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.author: rosh
+ms.openlocfilehash: efb46fc7064bcad69b5ea84f9bdfe923d95ccbe6
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35353979"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48867586"
 ---
-# <a name="query-for-entities"></a>Frågan för entiteter
+# <a name="quickstart-query-for-entities"></a>Snabbstart: Fråga efter entiteter
 
 Om frågan begär information om en person, plats eller sak, svaret kan innehålla en `entities` svar.  Frågor returnerar alltid webbsidor, [fakta](fact-queries.md) och/eller [entiteter](entity-queries.md) är frågan beroende.
 
-Enheter som stöder tre scenarier för frågan: 
--   DominantEntity – det är bara en entitet som matchar användarens fråga och avsikt. Frågan utrymme nålen är till exempel ett DominantEntity scenario. 
--   Disambiguation – det är mer än en entitet som matchar användarens fråga och avsikt och upp till användaren att välja rätt enhet. Frågan spelet Thrones är till exempel ett Disambiguation scenario som returnerar TV-programmet och book-serien. 
--   Lista – det finns flera entiteter som matchar användarens fråga och avsikt. Frågan ”lista över hotade” är till exempel ett scenario med listan som returnerar tabellform värden formaterad för att visa rader och celler. 
+Entiteter har stöd för tre fråga scenarier: 
+-   DominantEntity – det finns endast en entitet som matchar användarens fråga och avsikt. Frågan, utrymme nålen är till exempel ett DominantEntity scenario. 
+-   Tvetydigheter – det finns mer än en entitet som matchar användarens fråga och avsikten och det är upp till att användaren kan välja rätt enhet. Frågan spel Thrones är till exempel ett scenario med tvetydigheter returnerar TV-programmet och bok-serien. 
+-   Lista – det finns flera enheter som matchar användarens fråga och avsikt. Frågan ”lista över hotade” är exempelvis ett scenario i listan som returnerar tabellform värden formateras för visning i rader och celler. 
  
-Använd för att fastställa scenariot för frågan i `queryScenario` i den `entities` objekt. De data som innehåller entiteten är beroende av den enhetstyp. Även om enheter som innehåller samma grundläggande information, innehåller vissa entiteter, till exempel turistattraktioner eller books ytterligare egenskaper. Enheter som innehåller ytterligare egenskaper som innehåller den `_type` som innehåller ett tips som används av serialiseraren. Följande enheter inkluderar ytterligare egenskaper: 
--   Book 
+Använd för att fastställa scenariot fråga den `queryScenario` i den `entities` objekt. Data som entiteten innehåller beror på dess typ. Även om entiteter innehåller samma grundläggande information, innehålla vissa entiteter, till exempel turistattraktioner eller böcker ytterligare egenskaper. Entiteter som innehåller ytterligare egenskaper som innehåller den `_type` fält som innehåller ett tips som används av serialiserare. Följande entiteter är ytterligare egenskaper: 
+-   Bok 
 -   MusicRecording 
 -   Person 
 -   Finns 
  
-Använd för att avgöra vilken typ av enhet som innehåller svaret på `entityTypeHints` fält som visas i frågan för Bill Gates.
+Du avgör vilken typ av enhet som svaret innehåller den `entityTypeHints` fältet som visas i frågan för Bill Gates.
 ````
         },
         "description": "Bill Gates is an American business man and philanthropist, co-founder of Microsoft",
@@ -44,11 +45,11 @@ Använd för att avgöra vilken typ av enhet som innehåller svaret på `entityT
         "bingId": "6d7d66a7-2cb8-0ae9-637c-f81fd749dc9a"
       }
 ````
-Följande är en fråga om utrymme nålen:
+Följande är en fråga för utrymme nålen:
 ````
 https://api.labs.cognitive.microsoft.com/answerSearch/v7.0/search?q=space+needle&mkt=en-us
 ````
-Svaret innehåller den `entities` svar. Observera den `entityScenario` och `entityTypeHints` fält. 
+Svaret innehåller den `entities` svar. Obs den `entityScenario` och `entityTypeHints` fält. 
 ````
   "entities": {
     "value": [
@@ -109,16 +110,16 @@ Svaret innehåller den `entities` svar. Observera den `entityScenario` och `enti
   },
 ````
 
-En fråga kan returnera en lista om det är relevanta.
+En fråga kan returnera en lista om den inte är relevant.
 
-**Fråga:** följande fråga hittar en lista över hotade:
+**Fråga:** följande fråga söker efter en lista över hotade:
 
 ````
 https://api.labs.cognitive.microsoft.com/answerSearch/v7.0/search?q=list+of+endangered+species
 
 ````
 
-**Svar:** svaret innehåller en lista som formateras för visning som tabellform värden:
+**Svar:** svaret innehåller en lista för att visa formaterat tabellform värden:
 ````
   "facts": {
     "id": "https://www.bingapis.com/api/v7/#Facts",
@@ -220,7 +221,7 @@ https://api.labs.cognitive.microsoft.com/answerSearch/v7.0/search?q=list+of+enda
 
 
 ## <a name="next-steps"></a>Nästa steg
-- [C#-Snabbstart](c-sharp-quickstart.md)
-- [Java-Snabbstart](java-quickstart.md)
-- [Noden Snabbstart](node-quickstart.md)
+- [Snabbstart för C#](c-sharp-quickstart.md)
+- [Snabbstart för Java](java-quickstart.md)
+- [Snabbstart för noden](node-quickstart.md)
 - [Python-Snabbstart](python-quickstart.md)

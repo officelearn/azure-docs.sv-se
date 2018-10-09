@@ -1,39 +1,38 @@
 ---
-title: Kör kommandon i behållare som körs i Azure Container instanser
-description: Lär dig hur köra ett kommando i en behållare som för närvarande körs i Azure Container instanser
+title: Kör kommandon i behållare som körs i Azure Container Instances
+description: Lär dig hur köra ett kommando i en behållare som körs i Azure Container Instances
 services: container-instances
-author: mmacy
-manager: jeconnoc
+author: dlepow
 ms.service: container-instances
 ms.topic: article
 ms.date: 03/30/2018
-ms.author: marsma
-ms.openlocfilehash: 43211f620efb16cbcd722d3d386b1bb862fc6280
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.author: danlep
+ms.openlocfilehash: 577e2386c352798bc21a2c78b22726128ac7cf0a
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32165654"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48854096"
 ---
-# <a name="execute-a-command-in-a-running-azure-container-instance"></a>Köra ett kommando i en instans av körs Azure-behållaren
+# <a name="execute-a-command-in-a-running-azure-container-instance"></a>Köra ett kommando i en aktiva Azure container-instans
 
-Azure Container-instanser har stöd för ett kommando körs i en behållare som körs. Ett kommando körs i en behållare som du redan har börjat är särskilt användbart vid utveckling av program och felsökning. Den vanligaste användningen av den här funktionen är att starta en interaktiv shell så att du kan felsöka problem i en behållare som körs.
+Azure Container Instances stöder ett kommando körs i en behållare som körs. Köra ett kommando i en behållare som du redan har börjat är särskilt användbart under utveckling och felsökning. Den vanligaste tillämpningen av den här funktionen är att starta ett interaktivt gränssnitt så att du kan felsöka problem i en behållare som körs.
 
 ## <a name="run-a-command-with-azure-cli"></a>Köra ett kommando med Azure CLI
 
-Köra ett kommando i en behållare som körs med [az behållaren exec] [ az-container-exec] i den [Azure CLI][azure-cli]:
+Köra ett kommando i en behållare som körs med [az container exec] [ az-container-exec] i den [Azure CLI][azure-cli]:
 
 ```azurecli
 az container exec --resource-group <group-name> --name <container-group-name> --exec-command "<command>"
 ```
 
-Till exempel att starta ett Bash-gränssnitt i en Nginx-behållare:
+Till exempel vill starta ett Bash-gränssnitt i en Nginx-behållare:
 
 ```azurecli
 az container exec --resource-group myResourceGroup --name mynginx --exec-command "/bin/bash"
 ```
 
-I de exempel på utdata nedan Bash-gränssnitt har startats i en behållare för körs Linux, vilket ger en terminal där `ls` körs:
+I de exempel på utdata nedan Bash-gränssnittet har startats i en fungerande Linux-behållare, att tillhandahålla en terminal där `ls` körs:
 
 ```console
 $ az container exec --resource-group myResourceGroup --name mynginx --exec-command "/bin/bash"
@@ -45,7 +44,7 @@ exit
 Bye.
 ```
 
-I det här exemplet startas Kommandotolken i en pågående Nanoserver-behållare:
+I det här exemplet öppnas kommandotolk i en fungerande Nanoserver-behållare:
 
 ```console
 $ az container exec --resource-group myResourceGroup --name myiis --exec-command "cmd.exe"
@@ -75,7 +74,7 @@ Bye.
 
 ## <a name="multi-container-groups"></a>Grupper med flera behållare
 
-Om din [behållargruppen](container-instances-container-groups.md) har flera behållare, till exempel en behållare för program och loggning sidvagn, ange namnet på behållaren där du kör kommandot med `--container-name`.
+Om din [behållargruppen](container-instances-container-groups.md) har flera behållare, till exempel en programbehållare och loggning sidvagn, ange namnet på behållaren där du kan köra kommandot med `--container-name`.
 
 Till exempel i behållargruppen *mynginx* är två behållare *nginx-app* och *loggaren*. Starta ett skal i den *nginx-app* behållare:
 
@@ -85,11 +84,11 @@ az container exec --resource-group myResourceGroup --name mynginx --container-na
 
 ## <a name="restrictions"></a>Begränsningar
 
-Azure Behållarinstanser stöder för närvarande starta en process med [az behållaren exec][az-container-exec], och du kan inte skicka kommandoargumenten. Du kan till exempel kedja kommandon som i `sh -c "echo FOO && echo BAR"`, eller kör `echo FOO`.
+Azure Container Instances stöder för närvarande starta en enda process med [az container exec][az-container-exec], och du kan inte skicka kommandoargumenten. Exempel: du kan inte länka kommandon som i `sh -c "echo FOO && echo BAR"`, eller kör `echo FOO`.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Lär dig mer om andra verktyg för felsökning och vanliga distributionsproblem med i [felsökning av behållaren och distribution problem i Azure Behållarinstanser](container-instances-troubleshooting.md).
+Läs mer om andra verktyg för felsökning och vanliga distributionsproblem i [felsökning av problem med behållare och distribution i Azure Container Instances](container-instances-troubleshooting.md).
 
 <!-- LINKS - internal -->
 [az-container-create]: /cli/azure/container#az-container-create

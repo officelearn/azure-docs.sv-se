@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 09/26/2018
 ms.author: sethm
 ms.reviewer: justini
-ms.openlocfilehash: 7cf3e08caad93bb7fb7fd221b6fdb9b2fc39397a
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.openlocfilehash: b6cb095736bbf41d53359bf7d07206703de5335c
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48816743"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48870018"
 ---
 # <a name="azure-stack-1805-update"></a>Uppdatering av Azure Stack 1805
 
@@ -72,8 +72,8 @@ Den här uppdateringen innehåller följande förbättringar för Azure Stack.
 ## <a name="before-you-begin"></a>Innan du börjar    
 
 ### <a name="prerequisites"></a>Förutsättningar
-- Installera Azure Stack [1804 uppdatera](azure-stack-update-1804.md) innan du installerar Azure Stack 1805 uppdateringen.  
-- Installera den senaste tillgängliga [uppdatering eller snabbkorrigering för version 1804](azure-stack-update-1804.md#post-update-steps).   
+- Installera Azure Stack 1804 uppdateringen innan du installerar Azure Stack 1805 uppdateringen.  
+- Installera den senaste tillgängliga uppdateringen eller snabbkorrigeringen för version 1804.   
 - Innan du påbörjar installationen av uppdateringen 1805 kör [Test AzureStack](azure-stack-diagnostic-test.md) att verifiera statusen för din Azure Stack och lösa alla operativa problem hittades. Även granska aktiva aviseringar och lösningar som kräver åtgärd. 
 
 ### <a name="known-issues-with-the-update-process"></a>Kända problem med uppdateringen   
@@ -117,7 +117,7 @@ Här följer efter installation kända problem för den här build-versionen.
   Lösning: Lös problemet när du har installerat uppdateringen med steg 3 i den [utlösa automatisering för att konfigurera anspråk providern förtroende i Azure Stack](azure-stack-integrate-identity.md#trigger-automation-to-configure-claims-provider-trust-in-azure-stack-1) proceduren för att återställa standard-providern Prenumerationens ägare.   
 
 <!-- TBD - IS ASDK --> 
-- Vissa typer av administrativa prenumerationer är inte tillgängliga.  När du uppgraderar Azure Stack i den här versionen, två prenumerationstyper som var [introducerades i version 1804](azure-stack-update-1804.md#new-features) visas inte i konsolen. Detta är normalt. Typerna som inte tillgänglig prenumeration är *Avläsning av prenumeration*, och *förbrukning prenumeration*. Dessa typer av prenumerationer visas i den nya Azure Stack miljöer från och med version 1804 men ännu inte är redo att användas. Du bör fortsätta att använda den *Standard Provider* prenumerationstyp.  
+- Vissa typer av administrativa prenumerationer är inte tillgängliga. När du uppgraderar Azure Stack i den här versionen visas inte de två prenumerationstyper som introducerades med version 1804 i konsolen. Detta är normalt. Typerna som inte tillgänglig prenumeration är *Avläsning av prenumeration*, och *förbrukning prenumeration*. Dessa typer av prenumerationer visas i den nya Azure Stack miljöer från och med version 1804 men ännu inte är redo att användas. Du bör fortsätta att använda den *Standard Provider* prenumerationstyp.  
 
 <!-- 2403291 - IS ASDK --> 
 - Du kanske inte användning av den vågräta rullningslisten längst ned på administratörs- och portaler. Om du inte kommer åt den vågräta rullningslisten, Använd spåret och navigera till ett tidigare blad i portalen genom att välja namn på bladet du vill visa i dynamiska länkar på listan som finns längst upp till vänster i portalen.

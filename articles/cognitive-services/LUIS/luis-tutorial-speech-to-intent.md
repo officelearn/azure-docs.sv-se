@@ -10,12 +10,12 @@ ms.technology: language-understanding
 ms.topic: article
 ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: 1625bb9e9f51f8460db4e7ccbaf6e5eada3f8180
-ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
+ms.openlocfilehash: fb17e2d8c0ef1df5a6d4965730d3ddd3764d58f5
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/06/2018
-ms.locfileid: "48831067"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48868759"
 ---
 # <a name="integrate-speech-service"></a>Integrera Speech service
 Den [taltjänst](https://docs.microsoft.com/azure/cognitive-services/Speech-Service/) kan du använda en enskild begäran att ta emot ljud och returnera LUIS förutsägelse JSON-objekt. I den här artikeln får du hämta och använda ett C#-projekt i Visual Studio ska säga ett uttryck i en mikrofon och ta emot information om LUIS förutsägelse. Projektet använder tal [NuGet](https://www.nuget.org/packages/Microsoft.CognitiveServices.Speech/) paketet, som redan ingår som en referens. 
@@ -26,7 +26,7 @@ I den här artikeln behöver du en kostnadsfri [LUIS] [ LUIS] webbplats-konto f�
 I Azure-portalen [skapa](luis-how-to-azure-subscription.md#create-luis-endpoint-key) en **Språkförståelse** (LUIS)-nyckel. 
 
 ## <a name="import-human-resources-luis-app"></a>Importera personalfrågor LUIS app
-Avsikter och yttranden för den här artikeln kommer från den personal LUIS-app som är tillgängliga från den [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples) Github-lagringsplatsen. Ladda ned den [HumanResources.json](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/HumanResources.json) fil, spara den med tillägget *.json och [importera](luis-how-to-start-new-app.md#import-new-app) den i LUIS. 
+Avsikter och yttranden för den här artikeln kommer från den personal LUIS-app som är tillgängliga från den [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples) Github-lagringsplatsen. Ladda ned den [HumanResources.json](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/tutorials/HumanResources.json) fil, spara den med den `.json` -tillägget och [importera](luis-how-to-start-new-app.md#import-new-app) den i LUIS. 
 
 Den här appen har avsikter, entiteter och yttranden som rör personal-domänen. Exempel yttranden är:
 
@@ -68,52 +68,24 @@ Tal-SDK ingår redan som en referens.
 [![](./media/luis-tutorial-speech-to-intent/nuget-package.png "Skärmbild av Visual Studio 2017 med Microsoft.CognitiveServices.Speech NuGet-paketet")](./media/luis-tutorial-speech-to-intent/nuget-package.png#lightbox)
 
 ## <a name="modify-the-c-code"></a>Ändra C#-kod
-Öppna den **LUIS_samples.cs** filen och ändra följande variabler:
+Öppna den `Program.cs` filen och ändra följande variabler:
 
 |Variabelnamn|Syfte|
 |--|--|
-|luisSubscriptionKey|Motsvarar slutpunkts-URL-prenumeration-key-värde från publiceringssidan|
-|luisRegion|Motsvarar slutpunkts-URL första underdomän|
-|luisAppId|Motsvarar slutpunkts-URL-väg följa **appar /**|
+|LUIS_assigned_endpoint_key|Motsvarar endpoint URL: er tilldelas prenumeration-key-värde från publiceringssidan|
+|LUIS_endpoint_key_region|Motsvarar första underdomänen för slutpunkts-URL, till exempel `westus`|
+|LUIS_app_ID|Motsvarar slutpunkts-URL-väg följa **appar /**|
 
-[![](./media/luis-tutorial-speech-to-intent/change-variables.png "Skärmbild av Visual Studio 2017 visar LUIS_samples.cs variabler")](./media/luis-tutorial-speech-to-intent/change-variables.png#lightbox)
-
-Filen har redan personalfrågor avsikter mappad.
-
-[![](./media/luis-tutorial-speech-to-intent/intents.png "Skärmbild av Visual Studio 2017 visar LUIS_samples.cs avsikter")](./media/luis-tutorial-speech-to-intent/intents.png#lightbox)
+Den `Program.cs` filen har redan personalfrågor avsikter mappad.
 
 Skapa och köra appen. 
 
 ## <a name="test-code-with-utterance"></a>Testa kod med uttryck
-Välj **1** och talar i mikrofonen ”som är chef John Smith”.
+Tala i mikrofonen ”som är godkända tandläkare i Redmond”?.
 
-```cmd
-1. Speech recognition of LUIS intent.
-0. Stop.
-Your choice: 1
-LUIS...
-Say something...
-ResultId:cc83cebc9d6040d5956880bcdc5f5a98 Status:Recognized IntentId:<GetEmployeeOrgChart> Recognized text:<Who is the manager of John Smith?> Recognized Json:{"DisplayText":"Who is the manager of John Smith?","Duration":25700000,"Offset":9200000,"RecognitionStatus":"Success"}. LanguageUnderstandingJson:{
-  "query": "Who is the manager of John Smith?",
-  "topScoringIntent": {
-    "intent": "GetEmployeeOrgChart",
-    "score": 0.617331
-  },
-  "entities": [
-    {
-      "entity": "manager of john smith",
-      "type": "builtin.keyPhrase",
-      "startIndex": 11,
-      "endIndex": 31
-    }
-  ]
-}
+[!code-console[Command line response from spoken utterance](~/samples-luis/documentation-samples/tutorial-speech-intent-recognition/console-output.txt "Command line response from spoken utterance")]
 
-Recognition done. Your Choice:
-
-```
-
-Rätt avsikten **GetEmployeeOrgChart**, hittades med 61%. Entiteten keyPhrase returnerades. 
+Rätt avsikten **GetEmployeeBenefits**, hittades med 85%. Entiteten keyPhrase returnerades. 
 
 Tal-SDK: N Returnerar hela LUIS-svaret. 
 

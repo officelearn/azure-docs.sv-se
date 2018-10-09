@@ -3,7 +3,7 @@ title: Azure Seriekonsol för GRUB och enanvändarläge | Microsoft Docs
 description: Med hjälp av Seriekonsol för grub på Azure virtuella datorer.
 services: virtual-machines-linux
 documentationcenter: ''
-author: alsin
+author: asinn826
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -14,19 +14,40 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 08/14/2018
 ms.author: alsin
-ms.openlocfilehash: 47a97d842822ed3d6c8c1583808552c1b2d1d53e
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: 411c743421af79ea066df3a5fc07f71b8b6cb993
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47414656"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48855875"
 ---
 # <a name="use-serial-console-to-access-grub-and-single-user-mode"></a>Använd Seriekonsol för att komma åt GRUB och enanvändarläge
-Enanvändarläge är en minimal miljö med minimal funktioner. Det kan vara användbara för att undersöka problem eller nätverksproblem som färre tjänsterna kan köras i bakgrunden och, beroende på är ett filsystem kan inte ens att automatiskt montera. Detta är användbart att undersöka situationer, till exempel ett skadat filsystem, en bruten fstab eller nätverksanslutning (felaktig iptables-konfiguration).
+GRUB är GRand Unified startprogrammet. Från GRUB kan du ändra din startkonfiguration starta i enanvändarläge, bland annat.
 
-Vissa distributioner förlorar automatiskt du i enanvändarläge eller nödläge om den virtuella datorn inte att starta. Andra, men kräver ytterligare konfiguration innan de kan släpper du i enanvändarläge eller nödläge läge automatiskt.
+Enanvändarläge är en minimal miljö med minimal funktioner. Det kan vara praktiskt för att undersöka problem, filsystem problem eller nätverksproblem. Färre tjänsterna kan köras i bakgrunden och, beroende på är ett filsystem kan inte ens att automatiskt montera.
 
-Du vill kontrollera att GRUB är aktiverat på den virtuella datorn för att få åtkomst till enanvändarläge. Beroende på din distribution, kan det finnas vissa installationen fungerar för att kontrollera att GRUB är aktiverat. 
+Enanvändarläge är också användbart i situationer där den virtuella datorn endast kan konfigureras för att acceptera SSH-nycklar för inloggning. I det här fallet kan du att kunna använda enanvändarläge för att skapa ett konto med lösenordsautentisering.
+
+Om du vill ange enanvändarläge, behöver du ange GRUB när den virtuella datorn startas och ändra startkonfigurationen i GRUB. Detta kan göras med den virtuella datorn från seriell konsolen. 
+
+## <a name="general-grub-access"></a>Allmän GRUB-åtkomst
+För att komma åt GRUB, behöver du starta om den virtuella datorn samtidigt som det öppna bladet Seriell konsol. Vissa distributioner kräver tangentbordsinmatning att visa GRUB, medan andra automatiskt visa GRUB under några sekunder och tillåter indata från användaren tangentbord annullera timeout-värdet. 
+
+Du vill kontrollera att GRUB är aktiverat på den virtuella datorn för att få åtkomst till enanvändarläge. Beroende på din distribution, kan det finnas vissa installationen fungerar för att kontrollera att GRUB är aktiverat. Distribution-specifik information finns nedan.
+
+### <a name="reboot-your-vm-to-access-grub-in-serial-console"></a>Starta om den virtuella datorn för att komma åt GRUB i Seriekonsol
+Starta om den virtuella datorn med bladet Seriell konsol är öppen kan göras med en SysRq `'b'` kommandot om [SysRq](./serial-console-nmi-sysrq.md) är aktiverad, eller genom att klicka på omstarten knappen i bladet översikt (öppna den virtuella datorn i en ny webbläsarflik ska startas om utan att stänga bladet Seriell konsol). Följ distribution-specifika anvisningarna nedan för att lära dig vad som händer GRUB när du startar om.
+
+## <a name="general-single-user-mode-access"></a>Allmän enanvändarläge åtkomst
+Manuell åtkomst till enanvändarläge kan behövas i situationer där du inte har konfigurerat ett konto med autentisering med lösenord. Du behöver ändra GRUB-konfigurationen för att manuellt ange enanvändarläge. När du har gjort det, se [Använd läget för enskild användare kan återställa eller lägger till ett lösenord](#-Use-Single-User-Mode-to-reset-or-add-a-password) för ytterligare instruktioner.
+
+I fall där den virtuella datorn är det går inte att starta kommer distributioner ofta automatiskt släpper du i enanvändarläge eller nödläge. Andra, men kräver ytterligare konfiguration innan de kan släpper du i enanvändarläge eller nödläge läge automatiskt (till exempel ställa in ett rotlösenord).
+
+### <a name="use-single-user-mode-to-reset-or-add-a-password"></a>Använd enanvändarläge för att återställa eller lägger till ett lösenord
+När du är i enanvändarläge kan du göra följande för att lägga till en ny användare med sudo-behörighet:
+1. Kör `useradd <username>` lägga till en användare
+1. Kör `sudo usermod -a -G sudo <username>` och ge den nya användaren rotprivilegier
+1. Använd `passwd <username>` ställa in lösenordet för den nya användaren. Du kommer sedan att kunna logga in som den nya användaren
 
 
 ## <a name="access-for-red-hat-enterprise-linux-rhel"></a>Åtkomst för Red Hat Enterprise Linux (RHEL)
@@ -64,7 +85,7 @@ Om du har ställt in GRUB nätverksenheter och rotcertifikatutfärdarcertifikat 
 1. Tryck på Ctrl + X om du vill avbryta och starta om med inställningarna som används
 1. Du uppmanas att administratörslösenordet innan du kan ange enanvändarläge – detta är samma lösenord som du skapade i anvisningarna ovan    
 
-    ![](/media/virtual-machines-serial-console/virtual-machine-linux-serial-console-rhel-enter-emergency-shell.gif)
+    ![](../media/virtual-machines-serial-console/virtual-machine-linux-serial-console-rhel-enter-emergency-shell.gif)
 
 ### <a name="enter-single-user-mode-without-root-account-enabled-in-rhel"></a>Ange enanvändarläge utan rotkontot aktiverat i RHEL
 Om du inte går igenom stegen ovan för att aktivera rotanvändaren kan återställa du fortfarande rotlösenordet. Använd följande instruktioner:
@@ -81,7 +102,7 @@ Om du inte går igenom stegen ovan för att aktivera rotanvändaren kan återst�
 1. När du startar i enanvändarläge, skriva i `chroot /sysroot` byter du till den `sysroot` upplåsta
 1. Du kan nu rot. Du kan återställa rotlösenordet med `passwd` och använder anvisningarna ovan för att ange enanvändarläge. Typ `reboot -f` ska startas om när du är klar.
 
-![](/media/virtual-machines-serial-console/virtual-machine-linux-serial-console-rhel-emergency-mount-no-root.gif)
+![](../media/virtual-machines-serial-console/virtual-machine-linux-serial-console-rhel-emergency-mount-no-root.gif)
 
 > Obs: Kör via anvisningarna ovan förlorar du i nödfall shell, så du kan också utföra uppgifter som att redigera `fstab`. Allmänt vedertagna förslag är dock att återställa rotlösenordet och använda den för att ange enanvändarläge. 
 
@@ -100,6 +121,13 @@ Ubuntu-avbildningar kräver inte ett rotlösenord. Du kan använda det utan ytte
 
 ### <a name="grub-access-in-ubuntu"></a>GRUB-åtkomst i Ubuntu
 Tryck och håll ner 'Esc' medan den virtuella datorn startar upp för att komma åt GRUB.
+
+Som standard kan Ubuntu-avbildningar automatiskt visar inte GRUB-skärmen. Detta kan ändras med följande instruktioner:
+1. Öppna `/etc/default/grub.d/50-cloudimg-settings.cfg` i en textredigerare valfri
+1. Ändra den `GRUB_TIMEOUT` värdet till ett annat värde än noll
+1. Öppna `/etc/default/grub` i en textredigerare valfri
+1. Kommentera ut den `GRUB_HIDDEN_TIMEOUT=1` rad
+1. Kör `sudo update-grub`
 
 ### <a name="single-user-mode-in-ubuntu"></a>Enanvändarläge i Ubuntu
 Ubuntu förlorar du i enanvändarläge automatiskt om den inte kan starta på vanligt sätt. Använd följande instruktioner för att ange enanvändarläge manuellt:
@@ -136,7 +164,7 @@ GRUB-åtkomst i SLES kräver startprogrammet konfiguration via YaST. Om du vill 
 1. Om du vill ange GRUB, starta om den virtuella datorn och tryck på valfri tangent startsekvens att göra GRUB stanna kvar på skärmen
     - Standardvärdet för timeout för GRUB är 1s. Du kan ändra detta genom att ändra den `GRUB_TIMEOUT` variabel i `/etc/default/grub`
 
-![](/media/virtual-machines-serial-console/virtual-machine-linux-serial-console-sles-yast-grub-config.gif)
+![](../media/virtual-machines-serial-console/virtual-machine-linux-serial-console-sles-yast-grub-config.gif)
 
 ### <a name="single-user-mode-in-suse-sles"></a>Enanvändarläge i SUSE SLES
 Du tas automatiskt bort i nödfall shell om SLES inte kan starta på vanligt sätt. Om du vill ange manuellt i nödfall gränssnittet, Använd följande instruktioner:

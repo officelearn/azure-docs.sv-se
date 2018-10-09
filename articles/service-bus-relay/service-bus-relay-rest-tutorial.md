@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/06/2017
 ms.author: spelluru
-ms.openlocfilehash: fa5b4ba02eda75d16243c9aebbf38dfb30afe53d
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: d4ecbb7101e7b1f0f3dd6978ae7d35bb5066126d
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43695416"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48854940"
 ---
 # <a name="azure-wcf-relay-rest-tutorial"></a>Självstudie för Azure WCF-relä REST
 
@@ -561,7 +561,6 @@ Gör följande för att köra appen när du har skapat lösningen:
 ## <a name="next-steps"></a>Nästa steg
 Nu när du har skapat ett program som använder Azure Relay-tjänsten kan du se följande artiklar för att lära dig mer:
 
-* [Azure Service Bus översikt över arkitekturen](../service-bus-messaging/service-bus-fundamentals-hybrid-solutions.md)
 * [Översikt över Azure Relay](relay-what-is-it.md)
 * [Hur du använder tjänsten WCF relay med .NET](relay-wcf-dotnet-get-started.md)
 

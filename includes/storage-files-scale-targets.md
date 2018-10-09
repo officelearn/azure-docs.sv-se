@@ -1,4 +1,4 @@
-| Resurs | Standard-filresurser resurser | Premium-filresurser (förhandsversion) |
+| Resurs | Standard-filresurser | Premium-filresurser (förhandsversion) |
 |----------|---------------|------------------------------------------|
 | Minsta storlek på en filresurs | (någon lägsta gräns, betala efter användning) | 100 giB |
 | Maxstorlek på en filresurs | 5 TiB | 5 TiB |

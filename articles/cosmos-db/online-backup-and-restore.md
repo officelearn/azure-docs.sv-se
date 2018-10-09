@@ -10,15 +10,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/15/2017
 ms.author: govindk
-ms.openlocfilehash: 77f22201b897703f6e74a5a3626a2ccc04a814f4
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: 580c7410119a26ed3601c7c6ee020a13029339fe
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48043234"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48867807"
 ---
 # <a name="automatic-online-backup-and-restore-with-azure-cosmos-db"></a>Automatisk online säkerhetskopiering och återställning med Azure Cosmos DB
-Azure Cosmos DB tar automatiskt säkerhetskopior av dina data med jämna mellanrum. Automatisk säkerhetskopiering är hämtade utan att påverka prestanda eller tillgänglighet för dina databasåtgärder. Alla säkerhetskopior lagras separat i en annan lagringstjänst och säkerhetskopieringarna replikeras globalt för återhämtning mot regionala problem. Automatisk säkerhetskopiering är avsett för scenarion med när du av misstag tar bort din Cosmos DB-behållare och senare kräver återställning av data eller en lösning för haveriberedskap.  
+Azure Cosmos DB tar automatiskt säkerhetskopior av dina data med jämna mellanrum. Automatisk säkerhetskopiering är hämtade utan att påverka prestanda eller tillgänglighet för dina databasåtgärder. Alla säkerhetskopior lagras separat i en annan lagringstjänst och säkerhetskopieringarna replikeras globalt för återhämtning mot regionala problem. Automatisk säkerhetskopiering är avsett för scenarion med när du av misstag tar bort din Cosmos DB-behållare och senare behöver återställa data.  
 
 Den här artikeln börjar med en snabb sammanfattning av dataredundans och tillgänglighet i Cosmos DB och beskriver säkerhetskopieringar. 
 
@@ -67,14 +67,17 @@ Om du vill återställa databasen på grund av data felärende (inklusive fall d
 
 Azure Cosmos DB behåller de senaste två säkerhetskopiorna av varje partition i databaskontot. Den här modellen fungerar bra när en behållare (samling av dokument, diagram, tabell) eller en databas tas bort av misstag eftersom en av de senaste versionerna kan återställas. Men i fallet när användarna kan införa en data-felärende, Azure Cosmos DB kan vara ovetande om skadade data och det är möjligt att skadan kan ha över befintliga säkerhetskopior. 
 
-När felaktiga data upptäcks, kontakta Kundsupport med information för databas konto och en behållare med ungefärliga tid om felet. En annan åtgärd som användaren kan göra i händelse av skadad (data tas bort/uppdatering) användaren bör ta bort den skadade behållaren (samling/diagram/tabell) så att säkerhetskopieringar skyddas från att skrivas över med skadade data.  
+När felaktiga data upptäcks användaren bör ta bort den skadade behållaren (samling/diagram/tabell) så att säkerhetskopieringar skyddas från att skrivas över med skadade data. Och viktigast av allt kontaktar du Microsoft Support och generera en biljett med specifik allvarlighetsgrad 2-begäran. 
 
 Följande bild illustrerar skapandet stöd för återställning av container(collection/graph/table) via Azure portal för oavsiktlig borttagning eller uppdatering av data i en behållare
 
 ![Återställa en behållare för felaktiga uppdatera eller ta bort data i Cosmos DB](./media/online-backup-and-restore/backup-restore-support.png)
 
-När återställningen är klar för den här typen av scenarier – återställa data till ett annat konto (med suffixet ”-återställts”) och en behållare. Den här återställningen görs inte på plats för att tillhandahålla en chans till kunder för att utföra verifiering av data och flytta data vid behov. Återställda behållaren är i samma region med samma ru: er och indexering principer. 
+När återställningen är klar för den här typen av scenarier – återställa data till ett annat konto (med suffixet ”-återställts”) och en behållare. Den här återställningen görs inte på plats för att tillhandahålla en chans till kunder för att utföra verifiering av data och flytta data vid behov. Återställda behållaren är i samma region med samma ru: er och indexering principer. Användare som är prenumerationsadministratör eller en medadministratör kan se det här återställda kontot.
 
+
+> [!NOTE]
+> Om du återställer data för att åtgärda problemet med skadan eller för att testa, planerar du att ta bort dem snart som din uppgift görs som återställts behållare eller en databas kommer att kosta extra – baserat på etablerat dataflöde. 
 ## <a name="next-steps"></a>Nästa steg
 
 Om du vill replikera din databas i flera datacenter, se [distribuera dina data globalt med Cosmos DB](distribute-data-globally.md). 

@@ -11,16 +11,18 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 manager: craigg
-ms.date: 04/01/2018
-ms.openlocfilehash: 5af6779bfb6075aa3606cc32939ae715241afe8d
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.date: 10/05/2018
+ms.openlocfilehash: 93408b266a239e897b49ab2482818a5221742685
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47166324"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48870410"
 ---
-# <a name="multi-shard-querying"></a>Multi-shard-frågor
+# <a name="multi-shard-querying-using-elastic-database-tools"></a>Multi-shard-frågor med hjälp av verktyg för elastiska databaser
+
 ## <a name="overview"></a>Översikt
+
 Med den [elastiska Databasverktyg](sql-database-elastic-scale-introduction.md), du kan skapa shardad databaslösningar. **Multi-shard-frågor** används för uppgifter som samling/rapportering som kräver att du kör en fråga som sträcker sig över flera shard. (Skiljer sig från detta till [databeroende routning](sql-database-elastic-scale-data-dependent-routing.md), som utför allt arbete på en enda shard.) 
 
 1. Hämta en **RangeShardMap** ([Java](/java/api/com.microsoft.azure.elasticdb.shard.map._range_shard_map), [.NET](https://msdn.microsoft.com/library/azure/dn807318.aspx)) eller **ListShardMap** ([Java](/java/api/com.microsoft.azure.elasticdb.shard.map._list_shard_map), [.NET ](https://msdn.microsoft.com/library/azure/dn807370.aspx)) med hjälp av den **TryGetRangeShardMap** ([Java](/java/api/com.microsoft.azure.elasticdb.shard.mapmanager._shard_map_manager.trygetrangeshardmap), [.NET](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.trygetrangeshardmap.aspx)), **TryGetListShardMap** ([ Java](/java/api/com.microsoft.azure.elasticdb.shard.mapmanager._shard_map_manager.trygetlistshardmap), [.NET](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.trygetlistshardmap.aspx)), eller **GetShardMap** ([Java](/java/api/com.microsoft.azure.elasticdb.shard.mapmanager._shard_map_manager.getshardmap), [.NET](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.getshardmap.aspx)) metoden. Se **[konstruera en ShardMapManager](sql-database-elastic-scale-shard-map-management.md#constructing-a-shardmapmanager)** och  **[hämta en RangeShardMap eller ListShardMap](sql-database-elastic-scale-shard-map-management.md#get-a-rangeshardmap-or-listshardmap)**.
@@ -31,6 +33,7 @@ Med den [elastiska Databasverktyg](sql-database-elastic-scale-introduction.md), 
 6. Visa resultatet med hjälp av den **MultiShardResultSet eller MultiShardDataReader** ([Java](/java/api/com.microsoft.azure.elasticdb.query.multishard._multi_shard_result_set), [.NET](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.query.multisharddatareader.aspx)) klass. 
 
 ## <a name="example"></a>Exempel
+
 Följande kod visar användningen av Multi-shard frågor med hjälp av en viss **ShardMap** med namnet *myShardMap*. 
 
 ```csharp
@@ -63,8 +66,7 @@ Observera anropet till **myShardMap.GetShards()**. Den här metoden hämtar alla
 En begränsning med Multi-shard-frågor finns för närvarande bristen på validering av fragment och shardletar som efterfrågas. Databeroende routning verifierar att en viss shard är en del av fragmentkartan vid tidpunkten för fråga, men Multi-shard-frågor utför inte den här kontrollen. Detta kan leda till Multi-shard-frågor som körs på databaser som har tagits bort från fragmentkartan.
 
 ## <a name="multi-shard-queries-and-split-merge-operations"></a>Multi-shard-frågor och åtgärder för dela / sammanslå
+
 Multi-shard-frågor verifierar inte om shardletar på databasen deltar i pågående dela / sammanslå åtgärder. (Se [skala med verktyget elastiska databaser dela och slå samman](sql-database-elastic-scale-overview-split-and-merge.md).) Detta kan leda till inkonsekvenser där rader från samma shardlet visar för flera databaser i samma Multi-shard-fråga. Tänk på dessa begränsningar och Överväg tömning pågående åtgärder för dela / sammanslå och ändringar i fragmentkartan när du utför Multi-shard-frågor.
 
 [!INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
-
-

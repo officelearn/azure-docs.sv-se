@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/24/2018
 ms.author: jdial;anavin
-ms.openlocfilehash: 8ce550fcd9756286488d17ac5cad258aaf1682ba
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: bde451a2a01a8baa347f093a1b56525dcead00f3
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46946872"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48855314"
 ---
 # <a name="create-change-or-delete-a-virtual-network-peering"></a>Skapa, ändra eller ta bort en virtuell nätverkspeering
 
@@ -116,7 +116,7 @@ Om du vill att virtuella nätverk kan kommunicera ibland, men inte alltid, i st�
 - När du skapar en global peering, kan de peer-kopplade virtuella nätverken finnas i alla regioner för offentliga Azure-molnet, men inte i nationella Azure-moln. Du kan bara peerkoppla virtuella nätverk i samma region i nationella moln.
 - Resurser i ett virtuellt nätverk kan inte kommunicera med frontend IP-adressen för en Azure intern belastningsutjämnare i ett globalt peer-kopplade virtuella nätverk. Belastningsutjämnaren och de resurser som kommunicerar med det måste finnas i ett virtuellt nätverk i samma region. Om de peerkopplade virtuella nätverken är i samma region men kan kan resurser i de virtuella nätverken kommunicera med frontend IP-adressen för en Azure intern belastningsutjämnare i de virtuella nätverken i peer-kopplingen.
 - Du kan inte Använd fjärrgateway eller Tillåt gatewayöverföring i globalt peer-kopplade virtuella nätverk. Du kan Använd fjärrgateway eller Tillåt gatewayöverföring genom måste peer-kopplade virtuella nätverk vara i samma region.
-- De virtuella nätverken kan finnas i samma eller olika prenumerationer. När du peerkoppla virtuella nätverk i olika prenumerationer, kommer båda prenumerationerna kan vara kopplade till samma eller en annan Azure Active Directory-klient. Om du inte redan har en AD-klient, kan du snabbt [skapar ett](../active-directory/develop/quickstart-create-new-tenant.md?toc=%2fazure%2fvirtual-network%2ftoc.json#create-a-new-azure-ad-tenant). Stöd för peering mellan virtuella nätverk från prenumerationer som är kopplad till olika Azure Aztuve Directory-klienter är inte tillgängligt i portalen. Du kan använda CLI, PowerShell eller mallar.
+- De virtuella nätverken kan finnas i samma eller olika prenumerationer. När du peerkoppla virtuella nätverk i olika prenumerationer, kommer båda prenumerationerna kan vara kopplade till samma eller en annan Azure Active Directory-klient. Om du inte redan har en AD-klient, kan du snabbt [skapar ett](../active-directory/develop/quickstart-create-new-tenant.md?toc=%2fazure%2fvirtual-network%2ftoc.json#create-a-new-azure-ad-tenant). Stöd för peering mellan virtuella nätverk från prenumerationer som är kopplad till olika Azure Active Directory-klienter är inte tillgängligt i portalen. Du kan använda CLI, PowerShell eller mallar.
 - Virtuella nätverk som peer-du måste ha icke-överlappande IP-adressutrymmen.
 - Du kan inte lägga till adressintervall till eller ta bort-adressintervall från adressutrymmet för ett virtuellt nätverk när ett virtuellt nätverk är peerkopplat med ett annat virtuellt nätverk. Om du vill lägga till eller ta bort adressintervall, ta bort peer-kopplingen, lägga till eller ta bort adressintervallen, sedan återskapa peeringen. Om du vill lägga till adressintervall till eller ta bort-adressintervall från virtuella nätverk, se [hantera virtuella nätverk](manage-virtual-network.md).
 - Peerkoppling kan upprättas mellan två virtuella nätverk som distribueras via Resource Manager eller ett virtuellt nätverk som distribuerats via Resource Manager med ett virtuellt nätverk som distribueras via den klassiska distributionsmodellen. Du kan inte peerkoppla två virtuella nätverk som skapats via den klassiska distributionsmodellen. Om du inte är bekant med Azures distributionsmodeller läsa den [distributionsmodeller](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json) artikeln. Du kan använda [VPN Gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%2ftoc.json#V2V) för att ansluta två virtuella nätverk som har skapats via den klassiska distributionsmodellen.

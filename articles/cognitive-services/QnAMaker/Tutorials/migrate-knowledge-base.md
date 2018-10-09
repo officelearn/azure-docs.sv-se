@@ -10,12 +10,12 @@ ms.component: qna-maker
 ms.topic: article
 ms.date: 09/12/2018
 ms.author: tulasim
-ms.openlocfilehash: 0cb8a185407c7b180a170f1f9b9d76aa28a24de5
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: a06a04ba992c8d7e9691e4838d38faaafd48de7a
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47031636"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48853920"
 ---
 # <a name="migrate-a-knowledge-base-using-export-import"></a>Migrera en kunskapsbas med hjälp av export-import
 QnA Maker meddelat allmän tillgänglighet den 7 maj 2018 på den \\\build\ konferensen. QnA har Maker en ny arkitektur som bygger på Azure. Kunskapsbaser som skapats med QnA Maker kostnadsfri förhandsversion måste migreras till QnA Maker GA. QnA Maker förhandsversionen kommer att inaktualiseras i November 2018. Mer information om ändringar i QnA Maker GA finns i QnA Maker allmänheten [blogginlägget](https://aka.ms/qnamakerga-blog).
@@ -38,9 +38,7 @@ Förutsättningar
 
     ![Ladda ned kunskapsbas](../media/qnamaker-how-to-migrate-kb/preview-download.png)
 
-4. Logga in på att den [QnA Maker portal](https://qnamaker.ai) med dina autentiseringsuppgifter för azure och klicka på **Skapa ny tjänst**.
-
-    ![Skapa KB ](../media/qnamaker-how-to-create-kb/create-new-service.png)
+4. Logga in på att den [QnA Maker portal](https://qnamaker.ai) med dina autentiseringsuppgifter för azure och klicka på **skapa en kunskapsbas**.
     
 5. Om du inte redan har skapat en QnA Maker-tjänsten väljer **skapar du en tjänst för frågor och svar om**. Annars väljer du en QnA Maker-tjänsten från listrutor i steg 2. Välj QnA Maker-tjänsten som är värd för Knowledge Base.
 

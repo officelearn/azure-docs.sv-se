@@ -10,12 +10,12 @@ ms.component: speech-service
 ms.topic: article
 ms.date: 10/01/2018
 ms.author: panosper
-ms.openlocfilehash: b5f23cf5a9dc3a675d9103bb32f686d387fda837
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.openlocfilehash: 4b5d0b66c4d39320a082cb9e76252bfc00db6c3a
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48239955"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48854147"
 ---
 # <a name="migrate-from-the-custom-speech-service-to-the-speech-service"></a>Migrera från Custom Speech-tjänsten till Speech-tjänsten
 
@@ -48,7 +48,7 @@ Prismodellen är enklare flytta till en timme-baserade prismodellen för Speech-
 
 ## <a name="migration-for-existing-customers"></a>Migrering för befintliga kunder
 
-Befintliga kunder måste migrera sina befintliga resursnycklar till den nya tjänsten på Speech Service-portalen. Använd följande steg: 
+Befintliga kunder måste migrera sina befintliga resursnycklar till tal-tjänsten på Speech Service-portalen. Använd följande steg: 
 
 > [!NOTE] 
 > Resursnycklar kan bara migreras inom samma region. 

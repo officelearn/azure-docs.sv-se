@@ -2,18 +2,18 @@
 title: ta med fil
 description: ta med fil
 services: storage
-author: rogara
+author: roygara
 ms.service: storage
 ms.topic: include
 ms.date: 04/09/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 26c3e8a096a3ee7bc5146759f8de62e5c1c7fed1
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 796614a9e60ccb7ab155bc986b39c04c781224e8
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47389976"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48874015"
 ---
 ## <a name="about-vhds"></a>Om virtuella hårddiskar
 
@@ -34,11 +34,11 @@ Innan du kan ta bort en .vhd-fil som används som källa måste du ta bort livsl
 
 Azure-diskar har en tillförlitlighet på 99,999 %. Azure-diskar har konsekvent levereras tillförlitlighet i företagsklass, med en branschledande noll % Annualized Felfrekvens.
 
-Det finns tre prestandanivåer för lagring som du kan välja mellan när du skapar diskar – Premium SSD-diskar, Standard SSD (förhandsversion) och Standard HDD-lagring. Dessutom finns två typer av diskar, ohanterade och hanterade.
+Det finns tre prestandanivåer för lagring som du kan välja mellan när du skapar diskar – Premium SSD-diskar, Standard SSD och HDD standardlagring. Dessutom finns två typer av diskar, ohanterade och hanterade.
 
 ### <a name="standard-hdd-disks"></a>Standard HDD-diskar
 
-HDD-standarddiskar backas upp av hårddiskar och levererar kostnadseffektiv lagring. Standard HDD-lagring kan replikeras lokalt i ett datacenter eller vara geo-redundant med primära och sekundära datacenter. Mer information om storage-replikering finns i [Azure Storage-replikering](../articles/storage/common/storage-redundancy.md). 
+HDD-standarddiskar backas upp av hårddiskar och levererar kostnadseffektiv lagring. Standard HDD-lagring kan replikeras lokalt i ett datacenter eller vara geo-redundant med primära och sekundära datacenter. Mer information om storage-replikering finns i [Azure Storage-replikering](../articles/storage/common/storage-redundancy.md).
 
 Mer information om hur du använder Standard HDD-diskar finns i [Standard Storage och diskar](../articles/virtual-machines/windows/standard-storage.md).
 

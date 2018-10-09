@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/14/2018
+ms.date: 10/03/2018
 ms.author: sethm
-ms.reviewer: jeffgo
-ms.openlocfilehash: 9e579123124615df83483e244ef11810ca590844
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.reviewer: avishwan
+ms.openlocfilehash: 40ecb474b4faa4031cb364dfc1151c6fe6f09dd6
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45633971"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48856462"
 ---
 # <a name="create-and-publish-a-marketplace-item"></a>Skapa och publicera ett Marketplace-objekt
 
@@ -29,12 +29,15 @@ ms.locfileid: "45633971"
 1. [Ladda ned](http://www.aka.ms/azurestackmarketplaceitem) verktyget Azure-galleriet Packager och exemplet Azure Stack Marketplace-objekt.
 2. Öppna exemplet Marketplace-objekt och Byt namn på den **SimpleVMTemplate** mapp. (Använd samma namn som din Marketplace-objekt – till exempel **Contoso.TodoList**.) Den här mappen innehåller:
    
-       /Contoso.TodoList/
-       /Contoso.TodoList/Manifest.json
-       /Contoso.TodoList/UIDefinition.json
-       /Contoso.TodoList/Icons/
-       /Contoso.TodoList/Strings/
-       /Contoso.TodoList/DeploymentTemplates/
+   ```shell
+   /Contoso.TodoList/
+   /Contoso.TodoList/Manifest.json
+   /Contoso.TodoList/UIDefinition.json
+   /Contoso.TodoList/Icons/
+   /Contoso.TodoList/Strings/
+   /Contoso.TodoList/DeploymentTemplates/
+   ```
+
 3. [Skapa en Azure Resource Manager-mall](../azure-resource-manager/resource-group-authoring-templates.md) eller välj en mall från GitHub. Marketplace-objekt använder den här mallen för att skapa en resurs.
 
     > [!Note]  
@@ -52,22 +55,30 @@ ms.locfileid: "45633971"
 8. I den **manifest.json** filen, ändra **namn** till namnet på din Marketplace-objekt. Även ändra **publisher** till ditt namn eller organisation.
 9. Under **artefakter**, ändra **namn** och **sökväg** till rätt information för Azure Resource Manager-mall som du har lagt till.
    
-         "artifacts": [
-            {
-                "name": "Type your template name",
-                "type": "Template",
-                "path": "DeploymentTemplates\\Type your path",
-                "isDefault": true
-            }
+   ```json
+   "artifacts": [
+      {
+          "name": "Type your template name",
+          "type": "Template",
+          "path": "DeploymentTemplates\\Type your path",
+          "isDefault": true
+      }
+   ```
+
 10. Ersätt **Mina Marketplace-objekt** med en lista med de kategorier som var din Marketplace-objekt ska visas.
     
-             "categories":[
-                 "My Marketplace Items"
-              ],
+   ```json
+   "categories":[
+   "My Marketplace Items"
+   ],
+   ```
+
 11. Alla ytterligare ändringar till manifest.json finns [referens: Marketplace objekt manifest.json](#reference-marketplace-item-manifestjson).
 12. Om du vill paketera mapparna i en .azpkg-fil, öppna en kommandotolk och kör följande kommando:
     
-        AzureGalleryPackager.exe package –m <path to manifest.json> -o <output location for the package>
+   ```shell
+   AzureGalleryPackager.exe package –m <path to manifest.json> -o <output location for the package>
+   ```
     
     > [!NOTE]
     > Den fullständiga sökvägen till utdata-paketet måste finnas. Exempelvis om sökvägen för utdata är C:\MarketPlaceItem\yourpackage.azpkg, måste mappen C:\MarketPlaceItem finnas.
@@ -79,8 +90,10 @@ ms.locfileid: "45633971"
 2. Kontrollera att din PowerShell-session har ställts in med dina autentiseringsuppgifter för tjänsten på den virtuella klientdatorn i Microsoft Azure Stack-miljön. Du hittar anvisningar för hur du autentiserar PowerShell i Azure Stack i [distribuera en mall med PowerShell](user/azure-stack-deploy-template-powershell.md).
 3. När du använder [PowerShell 1.3.0]( azure-stack-powershell-install.md) eller senare, kan du använda den **Lägg till AzsGalleryItem** PowerShell-cmdlet för att publicera Marketplace-objekt till Azure Stack. Innan du använder PowerShell 1.3.0, använder du cmdlet **Lägg till AzureRMGalleryitem** i stället för **Lägg till AzsGalleryItem**.  Till exempel när du använder PowerShell 1.3.0 eller senare:
    
-       Add-AzsGalleryItem -GalleryItemUri `
-       https://sample.blob.core.windows.net/gallerypackages/Microsoft.SimpleTemplate.1.0.0.azpkg –Verbose
+   ```powershell
+   Add-AzsGalleryItem -GalleryItemUri `
+   https://sample.blob.core.windows.net/gallerypackages/Microsoft.SimpleTemplate.1.0.0.azpkg –Verbose
+   ```
    
    | Parameter | Beskrivning |
    | --- | --- |
@@ -102,7 +115,9 @@ ms.locfileid: "45633971"
 
 6. Du kan ta bort ett Marketplace-objekt med hjälp av den **Remove-AzureRMGalleryItem** cmdlet. Exempel:
    
-        Remove-AzsGalleryItem -Name Microsoft.SimpleTemplate.1.0.0  –Verbose
+   ```powershell
+   Remove-AzsGalleryItem -Name Microsoft.SimpleTemplate.1.0.0  –Verbose
+   ```
    
    > [!NOTE]
    > Marketplace-Användargränssnittet kan indikera ett fel när du har tagit bort ett objekt. Åtgärda felet genom att klicka på **inställningar** i portalen. Välj **ta bort ändringar** under **Portal anpassning**.

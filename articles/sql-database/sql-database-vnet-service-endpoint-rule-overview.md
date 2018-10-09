@@ -12,12 +12,12 @@ ms.author: dmalik
 ms.reviewer: vanto, genemi
 manager: craigg
 ms.date: 09/18/2018
-ms.openlocfilehash: 90138664e5eab9110f51bbd3d3755dec0ed59ea8
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: 0e14a00cbd7f38f7409a6551ac6f29c9f54a7434
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47166817"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48870850"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-azure-sql-database-and-sql-data-warehouse"></a>Använda tjänstslutpunkter i virtuella nätverk och regler för Azure SQL Database och SQL Data Warehouse
 
@@ -187,7 +187,7 @@ PolyBase är vanligt att läsa in data i Azure SQLDW från Storage-konton. Om la
 #### <a name="azure-sqldb-blob-auditing"></a>Azure SQLDB Blob granskning
 Blobbgranskning skickar granskningsloggar till ditt eget lagringskonto. Om det här lagringskontot använder funktionen VNet Service slutpunkter bryts anslutningar från Azure SQLDB till lagringskontot.
 
-## <a name="adding-a-vnet-firewall-rule-to-your-server-without-turning-on-vnet-service-endpoints"></a>Att lägga till en brandväggsregel för virtuellt nätverk till din server utan att slå på VNET-tjänstslutpunkter
+## <a name="adding-a-vnet-firewall-rule-to-your-server-without-turning-on-vnet-service-endpoints"></a>Att lägga till en brandväggsregel för virtuellt nätverk till din server utan att slå på VNet-tjänstslutpunkter
 
 Innan den här funktionen har förbättrats tvungen du länge sedan att aktivera tjänstslutpunkter i virtuella nätverk innan du kan implementera en levande VNet-regel i brandväggen. Ett särskilt VNet-undernät till en Azure SQL Database-relaterade slutpunkterna. Men nu från och med januari 2018, du kan kringgå det här kravet genom att ange den **IgnoreMissingServiceEndpoint** flaggan.
 

@@ -9,12 +9,12 @@ ms.component: acoustics
 ms.topic: article
 ms.date: 08/17/2018
 ms.author: kegodin
-ms.openlocfilehash: a82472ccd5524e7cbe3d92070a6d2b583d8eb4d5
-ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
+ms.openlocfilehash: 7a409b1ecdd693a0f28d2303d55a27b177644eb0
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48249306"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48855416"
 ---
 # <a name="bake-acoustics"></a>Skapa Akustik
 
@@ -230,25 +230,25 @@ Om du vill beräkna vad en viss ändamålet kostar måste ta värdet som visas f
 När ändamålet har slutförts kan du kontrollera att voxels och avsökning punkter är i deras förväntade platser genom att köra runtime-plugin-programmet. Mer information finns i [Design processöversikt för Akustik](design-process.md).
 
 ## <a name="Local-bake"></a>Lokala ändamålet
-Lokala ändamålet körs Akustik simulering på din lokala dator i stället för att överföra det till Azure Batch-kluster. Detta kan vara ett bra alternativ för att experimentera med Akustik utan att kräva en Azure-prenumeration men Observera att Akustik simulering beräkningsmässigt krävande och kan ta lång tid beroende på storleken på scenen simulering konfiguration, och raw datorkraft för bearbetning av datorn.
+Lokala ändamålet körs Akustik simulering på din dator i stället för att överföra det till Azure Batch-kluster. Detta kan vara ett bra alternativ för att experimentera med Akustik utan att kräva en Azure-prenumeration. Observera att Akustik simuleringen beräkningsmässigt krävande och kan ta lång tid beroende på storleken på scen, simulering konfiguration och raw datorkraft för bearbetning av datorn.
 
 ### <a name="minimum-hardware-requirements"></a>Minsta maskinvarukrav
 64-bitars Intel-processor med minst 8 kärnor och 32 GB RAM-minne eller högre.
 
-Till exempel på en dator 8 kärnor med Intel Xeon E5-1660 @ 3 GHz och 32 GB minne:
+Till exempel på en dator med 8 kärnor med Intel Xeon E5-1660 @ 3 GHz och 32 GB RAM-
 * Liten scen med 100 avsökningar tar ~ 2 timmar för en grov ändamålet och ~ 32 timmar för en bra lösning ändamålet.
 * Större scen med 1000 avsökningar kan ta upp till ~ 20 timmar för en grov upplösning och ~ 21 dagar för en bra lösning ändamålet.
 
 ### <a name="setup-docker"></a>Konfigurera Docker
 Installera och konfigurera Docker på den dator som kommer att bearbeta simuleringen-
 1. Installera den [Docker verktygsuppsättningen](https://www.docker.com/products/docker-desktop).
-2. Starta Docker-inställningar, navigera till ”avancerat”-alternativ och konfigurera resurser enligt nedan. ![Docker-resurser](media/DockerSettings.png)
-3. Navigera till ”delade enheter” alternativ och aktivera delning av enheten som används för bearbetning.![DockerDriveSharing](media/DockerSharedDrives.png)
+2. Starta Docker-inställningar, navigera till ”avancerat” alternativ och konfigurera resurser om du vill ha på minst 8 GB RAM-minne. Fler processorer som du kan allokera till Docker, desto snabbare ändamålet slutförs. ![Exempel på Docker-inställningar](media/DockerSettings.png)
+3. Navigera till ”delade enheter” och aktivera delning av enheten som används för bearbetning.![DockerDriveSharing](media/DockerSharedDrives.png)
 
 ### <a name="run-local-bake"></a>Kör lokala ändamålet
-1. Klicka på ”förbereda lokala skapa” ändamålet-fliken och välj en mapp där inkommande filer och skript för körning ska sparas. Du kan sedan köra ändamålet på valfri dator så länge som den uppfyller minimikraven på maskinvara och har Docker installerat genom att kopiera mappen till den datorn.
-2. Starta simuleringen med hjälp av ”runlocalbake.bat” skript som ska hämta projektet Akustik Docker-avbildning med verktyg som behövs för simulering bearbetning och starta simuleringen. 
-3. När simuleringen har slutförts kan du kopiera den resulterande .ace filen tillbaka till dina Unity-projekt på samma plats som har angetts i fliken avsökningar. Se till att Målfilnamnet överensstämmer med kraven för Unitys genom att lägga till ”.bytes” till filnamnstillägget. Detaljerade loggar för simuleringen lagras i filen ”AcousticsLog.txt”. Om du stöter på problem, kan du dela den här filen som hjälper till med diagnos.
+1. Klicka på ”förbereda lokala skapa” ändamålet-fliken och välj en mapp där indatafiler och köra skript kommer att sparas. Du kan sedan köra ändamålet på valfri dator så länge som den uppfyller minimikraven på maskinvara och har Docker installerat genom att kopiera mappen till den datorn.
+2. Starta simuleringen med hjälp av ”runlocalbake.bat”-skriptet. Det här skriptet ska hämta projektet Akustik Docker-avbildning med verktyg som behövs för simulering bearbetning och starta simuleringen. 
+3. När simuleringen har slutförts kan du kopiera den resulterande filen .ace tillbaka till ditt Unity-projekt. Kontrollera Unity tolkas som en binär fil genom att lägga till ”.bytes” filnamnstillägget (till exempel ”Scene1.ace.bytes”). Detaljerade loggar för simuleringen lagras i ”AcousticsLog.txt”. Om du stöter på problem, kan du dela den här filen som hjälper till med diagnos.
 
 ## <a name="Data-Files"></a>Datafiler
 

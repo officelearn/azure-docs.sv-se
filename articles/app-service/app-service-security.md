@@ -1,7 +1,7 @@
 ---
 title: Säkerhet i Azure App Service och Azure Functions | Microsoft Docs
 description: Läs mer om hur Apptjänst hjälper att säkra din app och hur du kan ytterligare låsa appen från hot.
-keywords: Azure apptjänst, webbapp, mobilapp, api-app, funktionsapp, säkerhet, säker och skyddad, efterlevnad, kompatibla, certifikat, certifikat, https, ftps tls, förtroende, kryptering, kryptera, krypterad ip-begränsning, autentisering, auktorisering, authn, autho, msi, hanterad tjänstidentitet, hemligheter, hemlighet, korrigering, uppdatering, korrigeringar, version, isolering, isolering av nätverk, ddos, mitm
+keywords: Azure apptjänst, webbapp, mobilapp, api-app, funktionsapp, säkerhet, säker och skyddad, efterlevnad, kompatibla, certifikat, certifikat, https, ftps tls, förtroende, kryptering, kryptera, krypterad ip-begränsning, autentisering, auktorisering, authn, autho, msi, hanterad tjänstidentitet, hanterad identitet, hemligheter, hemlighet, korrigering, uppdatering, korrigeringar, version, isolering, isolering av nätverk, ddos, mitm
 services: app-service
 documentationcenter: ''
 author: cephalin
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/24/2018
 ms.author: cephalin
-ms.openlocfilehash: 40fdd22bdbb3fc0676688430069d58c0422a7ca2
-ms.sourcegitcommit: a3a0f42a166e2e71fa2ffe081f38a8bd8b1aeb7b
+ms.openlocfilehash: 3bacc2bf253a6b8c3b869b7a6d4952d982de3ee6
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/01/2018
-ms.locfileid: "43382124"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48857507"
 ---
 # <a name="security-in-azure-app-service-and-azure-functions"></a>Säkerhet i Azure App Service och Azure Functions
 
@@ -69,7 +69,7 @@ App Service-autentisering och auktorisering stöd för flera autentiseringsprovi
 
 Vid autentisering mot en backend tjänst, tillhandahåller App Service två olika sätt beroende på dina behov:
 
-- **Tjänsten identitet** -inloggning på fjärransluten resurs med hjälp av identiteten för själva appen. App Service kan du enkelt skapa en [hanterad tjänstidentitet](app-service-managed-service-identity.md), som du kan använda för att autentisera med andra tjänster, till exempel [Azure SQL Database](/azure/sql-database/) eller [Azure Key Vault](/azure/key-vault/). En självstudiekurs om slutpunkt till slutpunkt på den här metoden finns i [skydda Azure SQL Database-anslutningar från App Service med hanterade tjänstidentiteter](app-service-web-tutorial-connect-msi.md).
+- **Tjänsten identitet** -inloggning på fjärransluten resurs med hjälp av identiteten för själva appen. App Service kan du enkelt skapa en [hanterad identitet](app-service-managed-service-identity.md), som du kan använda för att autentisera med andra tjänster, till exempel [Azure SQL Database](/azure/sql-database/) eller [Azure Key Vault](/azure/key-vault/). En självstudiekurs om slutpunkt till slutpunkt på den här metoden finns i [skydda Azure SQL Database-anslutningar från App Service med en hanterad identitet](app-service-web-tutorial-connect-msi.md).
 - **On-behalf-of (OBO)** -gör delegerad åtkomst till fjärresurser för användarens räkning. Med Azure Active Directory som autentiseringsprovider, App Service-appen kan utföra delegerad inloggning till en fjärrtjänst som [Azure Active Directory Graph API](../active-directory/develop/active-directory-graph-api.md) eller en fjärransluten API-app i App Service. En självstudiekurs om slutpunkt till slutpunkt på den här metoden finns i [autentisera och auktorisera användare slutpunkt till slutpunkt i Azure App Service](app-service-web-tutorial-auth-aad.md).
 
 ## <a name="connectivity-to-remote-resources"></a>Anslutningen till fjärranslutna resurser
@@ -106,13 +106,13 @@ Du kan på ett säkert sätt komma åt lokala resurser, till exempel databaser p
 
 Lagra programhemligheter som Databasautentiseringsuppgifter, API-token och privata nycklar i filerna kodning eller inte. Allmänt accepterade metod är att komma åt dem som [miljövariabler](https://wikipedia.org/wiki/Environment_variable) med hjälp av Standardmönstret i valfritt språk. I App Service är sättet att definiera miljövariabler via [appinställningar](web-sites-configure.md#app-settings) (och särskilt för .NET-program, [anslutningssträngar](web-sites-configure.md#connection-strings)). Appinställningar och anslutningssträngar lagras krypterade i Azure och de är dekrypteras endast innan som införs i din app processminne när appen startar. Krypteringsnycklarna roteras regelbundet.
 
-Du kan också integrera din App Service-app med [Azure Key Vault](/azure/key-vault/) för hantering av avancerade hemligheter. Genom att [åtkomst till Nyckelvalv med hanterade tjänstidentiteter](../key-vault/tutorial-web-application-keyvault.md), App Service-appen på ett säkert sätt kan komma åt hemligheter som du behöver.
+Du kan också integrera din App Service-app med [Azure Key Vault](/azure/key-vault/) för hantering av avancerade hemligheter. Genom att [åtkomst till Nyckelvalv med en hanterad identitet](../key-vault/tutorial-web-application-keyvault.md), App Service-appen på ett säkert sätt kan komma åt hemligheter som du behöver.
 
 ## <a name="network-isolation"></a>Isolering av nätverk
 
 Undantag för den **isolerad** prisnivå, alla nivåerna kör dina appar i den delade nätverksinfrastrukturen i App Service. Till exempel delas den offentliga IP-adresser och front-end belastningsutjämnare med andra klienter. Den **isolerad** nivån ger dig fullständig nätverksisolering genom att köra appar i en dedikerad [apptjänstmiljö](environment/intro.md). App Service environment som körs i en egen instans av [Azure Virtual Network](/azure/virtual-network/). Du kan: 
 
-- Begränsa nätverksåtkomst med [nätverkssäkerhetsgrupper](../virtual-network/virtual-networks-nsg.md). 
+- Begränsa nätverksåtkomst med [nätverkssäkerhetsgrupper](../virtual-network/virtual-networks-dmz-nsg.md). 
 - Ge dina appar via en dedikerad offentlig slutpunkt med dedikerad klientdelar.
 - Hantera internt program med en intern belastningsutjämnare (ILB), vilket ger åtkomst från i ditt virtuella Azure-nätverk. Den interna Belastningsutjämnaren har en IP-adress från ditt privata undernät, vilket ger totalt isolering av dina appar från internet.
 - [Använda en ILB bakom en brandvägg för webbaserade program (WAF)](environment/integrate-with-application-gateway.md). WAF erbjuder företagsnivå skydd för dina offentliga program, till exempel DDoS-skydd, URI-filtrering och SQL-inmatning dataförlustskydd.

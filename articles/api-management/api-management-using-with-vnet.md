@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/05/2017
 ms.author: apimpm
-ms.openlocfilehash: 1a02fd604d08e87c84a73657b7204ecb42b3498b
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: c94d4d4beea22e68a581cd208a25f915e4217614
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47393187"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48870884"
 ---
 # <a name="how-to-use-azure-api-management-with-virtual-networks"></a>Hur du använder Azure API Management med virtuella nätverk
 Azure-nätverk (Vnet) kan du placera någon av dina Azure-resurser i ett icke-internet-dirigerbara nätverk som du styr åtkomst till. Dessa nätverk kan sedan anslutas till ditt lokala nätverk med olika VPN-teknologier. Läs mer om Azure Virtual Networks börjar med den här informationen: [Azure översikt över Virtual Network](../virtual-network/virtual-networks-overview.md).
@@ -106,19 +106,21 @@ Följande är en lista över vanliga felkonfigurationsproblem som kan uppstå n�
 
 När en instans för API Management finns i ett virtuellt nätverk, används portarna i följande tabell.
 
-| Källa / målportar | Riktning | Transport-protokoll | Källa / mål | Syfte (*) | Typ av virtuellt nätverk |
-| --- | --- | --- | --- | --- | --- |
-| * / 80, 443 |Inkommande |TCP |INTERNET / VIRTUAL_NETWORK|Klientkommunikation till API Management|Extern |
-| * / 3443 |Inkommande |TCP |APIMANAGEMENT / VIRTUAL_NETWORK|Hanteringsslutpunkten för Azure-portalen och Powershell |Externa och interna |
-| * / 80, 443 |Utgående |TCP |VIRTUAL_NETWORK / Storage|**Beroende på Azure Storage**|Externa och interna |
-| * / 80, 443 |Utgående |TCP |VIRTUAL_NETWORK / INTERNET| Azure Active Directory (om tillämpligt)|Externa och interna |
-| * / 1433 |Utgående |TCP |VIRTUAL_NETWORK / SQL|**Åtkomst till Azure SQL-slutpunkter** |Externa och interna |
-| * / 5672 |Utgående |TCP |VIRTUAL_NETWORK / EventHub |Beroende för logg till Event Hub-principen och övervakningsagent |Externa och interna |
-| * / 445 |Utgående |TCP |VIRTUAL_NETWORK / Storage |Beroende på Azure-filresurs för GIT |Externa och interna |
-| * / 1886 |Utgående |TCP |VIRTUAL_NETWORK / INTERNET|Krävs för att publicera hälsostatus till Resource Health |Externa och interna |
-| * / 25028 |Utgående |TCP |VIRTUAL_NETWORK / INTERNET|Ansluta till SMTP-relä för att skicka e-postmeddelanden |Externa och interna |
-| * / 6381 - 6383 |Inkommande och utgående |TCP |VIRTUAL_NETWORK / VIRTUAL_NETWORK|Åtkomst till Redis Cache-instanser mellan RoleInstances |Externa och interna |
-| * / \* | Inkommande |TCP |AZURE_LOAD_BALANCER / VIRTUAL_NETWORK| Belastningsutjämnare för Azure-infrastrukturen |Externa och interna |
+| Källa / målportar | Riktning          | Transport-protokoll | Källa / mål                  | Syfte (*)                                                 | Typ av virtuellt nätverk |
+|------------------------------|--------------------|--------------------|---------------------------------------|-------------------------------------------------------------|----------------------|
+| * / 80, 443                  | Inkommande            | TCP                | INTERNET / VIRTUAL_NETWORK            | Klientkommunikation till API Management                      | Extern             |
+| * / 3443                     | Inkommande            | TCP                | APIMANAGEMENT / VIRTUAL_NETWORK       | Hanteringsslutpunkten för Azure-portalen och Powershell         | Externa och interna  |
+| * / 80, 443                  | Utgående           | TCP                | VIRTUAL_NETWORK / Storage             | **Beroende på Azure Storage**                             | Externa och interna  |
+| * / 80, 443                  | Utgående           | TCP                | VIRTUAL_NETWORK / INTERNET            | Azure Active Directory (om tillämpligt)                   | Externa och interna  |
+| * / 1433                     | Utgående           | TCP                | VIRTUAL_NETWORK / SQL                 | **Åtkomst till Azure SQL-slutpunkter**                           | Externa och interna  |
+| * / 5672                     | Utgående           | TCP                | VIRTUAL_NETWORK / EventHub            | Beroende för logg till Event Hub-principen och övervakningsagent | Externa och interna  |
+| * / 445                      | Utgående           | TCP                | VIRTUAL_NETWORK / Storage             | Beroende på Azure-filresurs för GIT                      | Externa och interna  |
+| * / 1886                     | Utgående           | TCP                | VIRTUAL_NETWORK / INTERNET            | Krävs för att publicera hälsostatus till Resource Health          | Externa och interna  |
+| * / 25                       | Utgående           | TCP                | VIRTUAL_NETWORK / INTERNET            | Ansluta till SMTP-relä för att skicka e-post                    | Externa och interna  |
+| * / 587                      | Utgående           | TCP                | VIRTUAL_NETWORK / INTERNET            | Ansluta till SMTP-relä för att skicka e-post                    | Externa och interna  |
+| * / 25028                    | Utgående           | TCP                | VIRTUAL_NETWORK / INTERNET            | Ansluta till SMTP-relä för att skicka e-post                    | Externa och interna  |
+| * / 6381 - 6383              | Inkommande och utgående | TCP                | VIRTUAL_NETWORK / VIRTUAL_NETWORK     | Åtkomst till Redis Cache-instanser mellan RoleInstances          | Externa och interna  |
+| * / \*                        | Inkommande            | TCP                | AZURE_LOAD_BALANCER / VIRTUAL_NETWORK | Belastningsutjämnare för Azure-infrastrukturen                          | Externa och interna  |
 
 >[!IMPORTANT]
 > Portar som de *syfte* är **fetstil** krävs för API Management-tjänsten ska distribueras. Blockera andra portar men medför försämring i möjligheten att använda och övervaka tjänsten som körs.
@@ -129,11 +131,13 @@ När en instans för API Management finns i ett virtuellt nätverk, används por
 
 * **Mått och hälsoövervakning**: utgående nätverksanslutning till Azure Monitoring slutpunkter, vilket löser under följande domäner: 
 
-    | Azure-miljön | Slutpunkter |
-    | --- | --- |
-    | Azure Public | <ul><li>Prod.warmpath.msftcloudes.com</li><li>shoebox2.Metrics.nsatc.NET</li><li>prod3.Metrics.nsatc.NET</li><li>prod3 black.prod3.metrics.nsatc.net</li><li>prod3 red.prod3.metrics.nsatc.net</li><li>Prod.warm.ingestion.msftcloudes.com</li><li>`azure region`. warm.ingestion.msftcloudes.com där `East US 2` är eastus2.warm.ingestion.msftcloudes.com</li></ul> |
-    | Azure Government | <ul><li>fairfax.warmpath.usgovcloudapi.NET</li><li>shoebox2.Metrics.nsatc.NET</li><li>prod3.Metrics.nsatc.NET</li></ul> |
-    | Azure Kina | <ul><li>mooncake.warmpath.chinacloudapi.CN</li><li>shoebox2.Metrics.nsatc.NET</li><li>prod3.Metrics.nsatc.NET</li></ul> |
+    | Azure-miljön | Slutpunkter                                                                                                                                                                                                                                                                                                                                                              |
+    |-------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+    | Azure Public      | <ul><li>Prod.warmpath.msftcloudes.com</li><li>shoebox2.Metrics.nsatc.NET</li><li>prod3.Metrics.nsatc.NET</li><li>prod3 black.prod3.metrics.nsatc.net</li><li>prod3 red.prod3.metrics.nsatc.net</li><li>Prod.warm.ingestion.msftcloudes.com</li><li>`azure region`. warm.ingestion.msftcloudes.com där `East US 2` är eastus2.warm.ingestion.msftcloudes.com</li></ul> |
+    | Azure Government  | <ul><li>fairfax.warmpath.usgovcloudapi.NET</li><li>shoebox2.Metrics.nsatc.NET</li><li>prod3.Metrics.nsatc.NET</li></ul>                                                                                                                                                                                                                                                |
+    | Azure Kina       | <ul><li>mooncake.warmpath.chinacloudapi.CN</li><li>shoebox2.Metrics.nsatc.NET</li><li>prod3.Metrics.nsatc.NET</li></ul>                                                                                                                                                                                                                                                |
+
+* **SMTP-relä**: utgående nätverksanslutning för SMTP-relä som matchar under värden `ies.global.microsoft.com`.
 
 * **Azure-portalen diagnostik**: aktivera flödet av diagnostikloggar från Azure-portalen när du använder API Management-tillägget från i ett virtuellt nätverk, utgående åtkomst till `dc.services.visualstudio.com` på port 443 krävs. Det underlättar vid felsökning av problem kan du står inför när du använder tillägget.
 

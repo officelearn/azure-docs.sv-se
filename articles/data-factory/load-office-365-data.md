@@ -9,18 +9,22 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 09/18/2018
+ms.date: 10/08/2018
 ms.author: jingwang
-ms.openlocfilehash: db002f152fb792ab1327cba3487021c567f39260
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.openlocfilehash: e2b441e0266ac397226b783c66df4ca54e0b3f71
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46368891"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48870170"
 ---
 # <a name="load-data-from-office-365-by-using-azure-data-factory"></a>Läsa in data från Office 365 med hjälp av Azure Data Factory
 
 Den här artikeln visar hur du använder Data Factory _läser in data från Office 365 i Azure Blob storage_. Du kan följa liknande steg för att kopiera data till Azure Data Lake Gen1 och Gen2. Referera till [Office 365 connector artikeln](connector-office-365.md) om hur du kopierar data från Office 365 i allmänhet.
+
+Titta på följande videoklipp för en nio minuters introduktion och demonstration om hur du ansluter Data Factory till Office 365-data:
+
+> [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Get-cloud-scale-analytics-of-Office-365-data-with-Azure-Data-Factory/player]
 
 ## <a name="create-a-data-factory"></a>Skapa en datafabrik
 

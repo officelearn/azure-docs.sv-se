@@ -12,30 +12,20 @@ ms.workload: ''
 ms.tgt_pltfrm: ''
 ms.devlang: ''
 ms.topic: article
-ms.date: 09/20/2018
+ms.date: 10/05/2018
 ms.author: yijenj
-ms.openlocfilehash: 0b971535120e51a9aeec7b57da133c6b8db6a09e
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 383f16bf0671e0bdec840afe1abe85e37ed32ce2
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47219422"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48855365"
 ---
 # <a name="azure-marketplace-listing-guidelines"></a>Riktlinjer för Azure Marketplace-lista
 
 Det här dokumentet innehåller riktlinjer för krav samt en checklista för granskare för nya erbjudanden och tjänster som visas på Azure Marketplace.
 
-Alla erbjudanden uppfylla ”alla lista krav”. Ytterligare krav och checklistor tillhandahålls för specifika lista typer, inklusive: erbjuder med anslutna utvärderingsversioner, consulting erbjudanden, SaaS-appar och behållare.
-
-**Se bästa praxis lista exemplen här:**
-| Erbjudandetyp | Erbjudandet länk
-|:--- |:--- |
-| Allmänt | <br> https://azuremarketplace.microsoft.com/en-us/marketplace/apps/barracudanetworks.waf?tab=Overview <br> https://azuremarketplace.microsoft.com/en-us/marketplace/apps/netapp.netapp-altavault-cloud-integrated-storage-solution?tab=Overview |
-| Utvärdering | https://azuremarketplace.microsoft.com/en-us/marketplace/apps/intigua.intigua-agent-manager-trial?tab=Overview |
-| SaaS-appar | https://azuremarketplace.microsoft.com/en-us/marketplace/apps/apptimized.isvtesting?tab=Overview |
-| Containrar |https://azuremarketplace.microsoft.com/en-us/marketplace/apps/couchbase.couchbase-server-enterprise-containercouchbase-enterprise-server-container-byol?tab=Overview |
-| Konsulttjänster | https://azuremarketplace.microsoft.com/en-us/marketplace/consulting-services/wipro-ltd.cmp-wipro?page=1 |
-
+Alla erbjudanden måste uppfylla de [alla lista krav](https://docs.microsoft.com/azure/marketplace/marketplace-criteria-content-validation#all-listing-requirements) anges nedan. Ytterligare krav och checklistor tillhandahålls för specifika lista typer, inklusive: erbjudanden med anslutna [utvärderingsversioner](https://docs.microsoft.com/azure/marketplace/marketplace-criteria-content-validation#trial-offer-requirements), [SaaS-appar](https://docs.microsoft.com/azure/marketplace/marketplace-criteria-content-validation#saas-apps-requirements), [behållare](https://docs.microsoft.com/azure/marketplace/marketplace-criteria-content-validation#container-offer-requirements), och [consulting erbjudanden](https://docs.microsoft.com/azure/marketplace/marketplace-criteria-content-validation#consulting-offer-requirements).
 
 
 ## <a name="all-listing-requirements"></a>Alla krav för lista
@@ -69,7 +59,7 @@ Alla erbjudanden uppfylla ”alla lista krav”. Ytterligare krav och checklisto
 |:--- |:--- |:--- |:--- |
 | 1 | Erbjudandet rubrik |<br>• Måste består endast av gemener, alfanumeriska tecken, bindestreck eller understreck. Kan inte ändras när den väl publicerats. <br>• Beskriva som erbjuder.<br>• Matchar online befordran av lösningen i partnerns webbplats. | Innehåller viktiga sökord |
 | 2 | Teknisk information: konfiguration |<br>• För SaaS-appen, Välj om du bara vill ta med din app eller om du vill att kunder kan köpa din app via Azure.<br>• Välj aktuella texten som du vill ha på ditt erbjudande förvärv knappen: kostnadsfri, kostnadsfri utvärderingsversion eller kontakta mig<br>• Endast Välj (popup) – en av produkterna gäller om din app använder tekniken: Cortana Intelligence, Power BI-Lösningsmallar Power Apps |  |
-| 3 | Provkör | Välj: Ja eller Nej | Kunderna kan lätt att förstå vad nästa steg som är tillgängliga är: <br>1. Prova en utvärderingsversion <br>2. Köp nu <br>3. Kontakta via e-post eller telefon talet att ordna PoC, utvärdering och genomgång. |
+| 3 | Test Drive | Välj: Ja eller Nej | Kunderna kan lätt att förstå vad nästa steg som är tillgängliga är: <br>1. Prova en utvärderingsversion <br>2. Köp nu <br>3. Kontakta via e-post eller telefon talet att ordna PoC, utvärdering och genomgång. |
 | 4 | Storefront information: erbjuder sammanfattning | Det kommer att visas på din Apps söksidan med högst 100 tecken | |
 | 5 | Storefront information: branscher | Branscher (Max 2): Välj branscher att dina appar är det bästa justerade och gäller för. | |
 | 6 | Beskrivning av erbjudande | <br>• Enkel HTML-kod tillåts, inklusive p, em, ul, li, ol och huvud-taggar. Maximalt 3000 tecken. <br>• 2 – 3 punkterna <br>Är lätt att förstå • som erbjuder en snabbtitt <br>• Beskrivning är omfattande och avbildar: mål målgrupp *, typ av användare, varför det är värdefullt (värdet prop) <br>• Erbjudandet beskrivning finns i punkt berättelseform med korta meningar som är lätt att förstå. | <br>• Target bransch beskrivs (om det behövs) <br>• Bra formatering med varje punkt sidhuvud som att ha en mening eller frasen sammanfatta innehåll som följer och inklusive punkten pekar (när det är lämpligt) för att betona viktiga fördelar. Målet är för läsaren att förstå erbjudandet i korthet i ett enkelt att visa format och inte behöver läsa stycken. <br>• Det finns avståndet mellan varje punkt och läsningar som en bil broschyr. Vilket innebär inte tekniska funktioner eller code språk men beskrivande av erbjudandet enkelt uttryckt och är fullständig. | 
@@ -106,8 +96,6 @@ Alla erbjudanden uppfylla ”alla lista krav”. Ytterligare krav och checklisto
 | 10 | Produkter | Måste vara Azure | |
 | 11 | Land/region | Se till att land och region matchningar valt valuta | |
 | 12 | Läs mer  | <br>• Länkarna längst ned (under Beskrivning inte marketplace länkarna till vänster) leder till mer information om lösningen och är offentligt tillgängliga och visas korrekt. <br>• Länkar måste ha ett ”namn” och visas inte som namnet på alla nedladdningar | |
-
-
 
 
 ## <a name="next-steps"></a>Nästa steg

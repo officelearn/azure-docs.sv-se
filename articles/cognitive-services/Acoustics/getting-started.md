@@ -9,12 +9,12 @@ ms.component: acoustics
 ms.topic: article
 ms.date: 08/17/2018
 ms.author: kegodin
-ms.openlocfilehash: 72a9d476b5e5dfc55c6a28dff7e09a20faab332c
-ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
+ms.openlocfilehash: f07fa60555f1bf866d39cb69c4824cfd93dc54f8
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48246998"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48869456"
 ---
 # <a name="getting-started-with-project-acoustics"></a>Komma igång med projektet Akustik
 Den här snabbstartsguiden visar hur du integrerar plugin-programmet i dina Unity-projekt, skapa din scen och tillämpa Akustik till ljud källor. Den här snabbstarten måste du först skapa en [Azure batch-kontot](create-azure-account.md). Den här guiden förutsätter bekant med Unity.
@@ -93,9 +93,9 @@ Skapa en ljudkälla. Klicka på kryssrutan längst ned på panelen för den Audi
 ![Ljudkälla](media/AudioSource.png)
 
 ## <a name="apply-post-bake-design"></a>Tillämpa efter ändamålet design
-Du kan koppla skriptet **AcousticsDesign** till en bra källa på scenen att aktivera ytterligare design källparametrar, genom att klicka på **Lägg till komponent** och välja **skript > Akustik Design**:
+Du kan koppla skriptet **AcousticsAdjust** till en bra källa på scenen att aktivera ytterligare design källparametrar, genom att klicka på **Lägg till komponent** och välja **skript > Akustik Justera**:
 
-![Käll-anpassning](media/AcousticsDesign.png)
+![AcousticsAdjust](media/AcousticsAdjust.png)
 
 Det finns också parametrar på den **Microsoft Akustik Mixer**. Läs mer om efter ändamålet design, [utforma parametrar](design-process.md).
 

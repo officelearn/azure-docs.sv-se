@@ -11,15 +11,16 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 manager: craigg
-ms.date: 04/01/2018
-ms.openlocfilehash: 25bb665d9ea9166d099ab7f3f9696d92da8314e9
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.date: 10/05/2018
+ms.openlocfilehash: c54a644b140d65ccad1a3cba6c5a07a8e201cddb
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47161833"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48869626"
 ---
-# <a name="data-dependent-routing"></a>Databeroende Routning
+# <a name="use-data-dependent-routing-to-route-a-query-to-appropriate-database"></a>Använda databeroende routning för att dirigera en fråga till lämplig databas
+
 **Databeroende routning** är möjligheten att använda data i en fråga för att dirigera begäran till en lämplig databas. Data beroende routning är ett grundläggande mönster när du arbetar med shardade databaser. Kontext för begäran kan också användas för att dirigera begäran, särskilt om nyckeln för horisontell partitionering inte är en del av frågan. Varje specifik fråga eller en transaktion i ett program med databeroende routning är begränsad till åtkomst till en databas per begäran. För Azure SQL Database elastiska verktyg, den här routning åstadkoms med den **ShardMapManager** ([Java](/java/api/com.microsoft.azure.elasticdb.shard.mapmanager._shard_map_manager), [.NET](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.aspx)) klass.
 
 Programmet behöver inte spåra olika anslutningssträngar eller DB-platser som är associerade med olika datasegment i shardade miljön. I stället den [Karthanteraren](sql-database-elastic-scale-shard-map-management.md) öppnas anslutningar till rätt databas vid behov, baserat på data i fragmentkartan och värdet för nyckeln för horisontell partitionering som är mål för programmets begäran. Nyckeln är vanligtvis den *customer_id*, *tenant_id*, *date_key*, eller vissa specifika identifierare som är en grundläggande parameter för databasbegäran. 

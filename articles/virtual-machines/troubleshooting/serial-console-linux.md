@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 09/11/2018
 ms.author: harijay
-ms.openlocfilehash: 642bf03ecef7f6db25c51671635d96ef7baed91a
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: ce799f4201a560077c5bb1b943a9e587a71806f2
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47414323"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48856351"
 ---
 # <a name="virtual-machine-serial-console"></a>Virtual Machine Serial Console
 
@@ -29,7 +29,7 @@ Virtual Machine Serial Console i Azure ger åtkomst till en textbaserad konsol f
 Seriell konsol dokumentation för Windows-datorer samt [Klicka här](../windows/serial-console.md).
 
 > [!Note] 
-> Seriekonsol för virtuella datorer är allmänt tillgängligt i globala Azure-regioner. I det här läget ännu seriekonsolen inte finns tillgänglig i Azure Government eller Azure Kina moln.
+> Seriekonsol för virtuella datorer är allmänt tillgängligt i globala Azure-regioner. I det här läget ännu Seriekonsolen inte finns tillgänglig i Azure Government eller Azure Kina moln.
 
 
 ## <a name="prerequisites"></a>Förutsättningar 
@@ -49,7 +49,7 @@ Seriell konsol dokumentation för Windows-datorer samt [Klicka här](../windows/
 
 
 ## <a name="get-started-with-serial-console"></a>Kom igång med Seriekonsol
-Seriekonsol för virtuella datorer bara kan nås via [Azure-portalen](https://portal.azure.com). Nedan visas stegen för att komma åt seriekonsol för virtuella datorer via portalen 
+Seriekonsol för virtuella datorer bara kan nås via [Azure-portalen](https://portal.azure.com). Se till att du har uppfyllt de [krav](#prerequisites) ovan. Nedan följer du stegen för att komma åt seriekonsol för virtuella datorer via portalen:
 
   1. Öppna Azure portal
   1. (Hoppa över detta om den virtuella datorn har en användare som använder lösenordsautentisering) Lägg till en användare med autentisering med användarnamn/lösenord genom att klicka på bladet ”Återställ lösenord”

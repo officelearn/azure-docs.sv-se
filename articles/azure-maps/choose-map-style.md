@@ -3,17 +3,17 @@ title: Mappa style funktioner i Azure Maps | Microsoft Docs
 description: Lär dig mer om Azure Maps style relaterade funktioner.
 author: walsehgal
 ms.author: v-musehg
-ms.date: 08/31/2018
+ms.date: 10/05/2018
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 73ea3c7c3cbb10beedb7ff64c47ebdbd908bd522
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: d0614f55b9666f6d5d7e95529fd78fdf1c19e615
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46123512"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48857626"
 ---
 # <a name="choose-a-map-style-in-azure-maps"></a>Välja en karta i Azure Maps
 
@@ -24,14 +24,14 @@ Azure Maps har fyra olika kartor format att välja bland. Mer information om Kop
 <iframe height='500' scrolling='no' title='Ange formatet på kartan belastningen' src='//codepen.io/azuremaps/embed/WKOQRq/?height=265&theme-id=0&default-tab=js,result&embed-version=2' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Se pennan <a href='https://codepen.io/azuremaps/pen/WKOQRq/'>Ange formatet på kartan belastningen</a> genom Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) på <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
-Koden ovan skapar en Kartobjekt med formatet inställd gråskala. Se [skapa en karta](./map-create.md) anvisningar om hur du skapar en karta.
+Kodblocket ovan anger prenumerationsnyckeln och skapar en Kartobjekt med formatet inställd gråskala. Se [skapa en karta](./map-create.md) anvisningar om hur du skapar en karta.
 
 ## <a name="update-the-style"></a>Uppdatera format
 
 <iframe height='500' scrolling='no' title='Uppdatera formatmallen' src='//codepen.io/azuremaps/embed/yqXYzY/?height=265&theme-id=0&default-tab=js,result&embed-version=2' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Se pennan <a href='https://codepen.io/azuremaps/pen/yqXYzY/'>uppdatera formatmallen</a> genom Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) på <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
-Första blockeringen av kod i koden ovan skapar en Kartobjekt utan att ange formatet före. Se [skapa en karta](./map-create.md) anvisningar om hur du skapar en karta.
+Kodblocket ovan anger prenumerationsnyckeln och skapar en Kartobjekt utan att ange förväg format. Se [skapa en karta](./map-create.md) anvisningar om hur du skapar en karta.
 
 Andra kod klockan ska använda på kartan [setStyle](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#setstyle) metoden för att ange formatmallen karta till satellit.
 
@@ -40,11 +40,11 @@ Andra kod klockan ska använda på kartan [setStyle](https://docs.microsoft.com/
 <iframe height='500' scrolling='no' title='Att lägga till style-väljare' src='//codepen.io/azuremaps/embed/OwgyvG/?height=265&theme-id=0&default-tab=js,result&embed-version=2' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Se pennan <a href='https://codepen.io/azuremaps/pen/OwgyvG/'>att lägga till style-väljaren</a> genom Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) på <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
-Första kodblock i koden ovan skapar en Kartobjekt utan att ange formatet före. Se [skapa en karta](./map-create.md) anvisningar om hur du skapar en karta.
+Det första kodblocket i koden ovan anger prenumerationsnyckeln och skapar en Kartobjekt, formatmallen kartan är redan inställd på grayscale_dark. Se [skapa en karta](./map-create.md) anvisningar om hur du skapar en karta.
 
 Andra kodblocket konstruerar en style väljare med hjälp av atlas [StyleControl](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.control.stylecontrol?view=azure-iot-typescript-latest#stylecontrol) konstruktor.
 
-En style Väljaren kan style val för kartan. Det tredje kodblocket lägger till style-väljare på kartan med hjälp av kartans [addControl](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#addcontrol) metod.
+En style Väljaren kan style val för kartan. Det tredje kodblocket lägger till style-väljare på kartan med hjälp av kartans [control.add](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#addcontrol) metod. Alla kontroller är inom den karta händelselyssnaren för att se till att alla kontroller har lästs in när kartorna har lästs in helt.
 
 ## <a name="next-steps"></a>Nästa steg
 

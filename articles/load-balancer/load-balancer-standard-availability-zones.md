@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/29/2018
+ms.date: 10/08/2018
 ms.author: kumud
-ms.openlocfilehash: 308e085bf98dea179a81b3ac28c14de2994b5927
-ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
+ms.openlocfilehash: 1f34a9319b8bbfba3f4a6f7446f949fc576aa4fa
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44390860"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48869065"
 ---
 # <a name="standard-load-balancer-and-availability-zones"></a>Standard Load Balancer och tillgänglighetszoner
 
@@ -54,7 +54,7 @@ När du använder flera klienter, granska [flera klienter för belastningsutjäm
 
 #### <a name="zone-redundant-by-default"></a>Zonredundant som standard
 
-I en region med Azure Availability Zones är en Standard Load Balancer-klientdel zonredundant som standard.  En enda frontend IP-adress kan överleva zon fel och kan användas för att nå alla medlemmar i serverdelspool oavsett zonen. Detta innebär inte hitless datasökväg, men alla återförsök eller reestablishment lyckas. DNS-redundans scheman inte behövs. Den frontend IP-adress hanteras samtidigt av oberoende infrastruktur distributioner i varje Tillgänglighetszon.  Zonredundant innebär att alla inkommande eller utgående flöden betjänas av alla Tillgänglighetszoner i en region samtidigt med hjälp av en IP-adress.
+I en region med Azure Availability Zones är en Standard Load Balancer-klientdel zonredundant som standard.  En enda frontend IP-adress kan överleva zon fel och kan användas för att nå alla medlemmar i serverdelspool oavsett zonen. Detta innebär inte hitless datasökväg, men alla återförsök eller reestablishment lyckas. DNS-redundans scheman inte behövs. Den frontend IP-adress hanteras samtidigt av flera oberoende infrastruktur distributioner i flera Tillgänglighetszoner.  Zonredundant innebär att alla inkommande eller utgående flöden betjänas av flera Tillgänglighetszoner i en region samtidigt med hjälp av en IP-adress.
 
 En eller flera Tillgänglighetszoner kan misslyckas och datasökvägen kvarstår så länge som en zon i regionen förblir felfritt. Zonredundant konfigurationen är standard och kräver inga ytterligare åtgärder.  När en region får möjlighet att stöd för Tillgänglighetszoner, blir en befintlig klientdel zonredundant automatiskt.
 
@@ -99,7 +99,7 @@ Använd följande skript för att skapa en zonredundant frontend IP-adress för 
 
 #### <a name="optional-zone-guarantee"></a>Valfritt zon garanti
 
-Du kan välja att ha en klientdel att garantera att en zon, vilket kallas en *zonindelad klientdel*.  Det innebär att alla inkommande eller utgående flöden hanteras av en enskild zon i en region.  Dina klientdelsservrar delar öde med hälsotillståndet för zonen.  Datasökvägen påverkas inte av fel i zoner än där det var säkert. Du kan använda zonindelad klienter för att exponera en IP-adress per Tillgänglighetszon.  Dessutom du kan använda zonindelad klienter direkt eller, när klientdelen består av offentliga IP-adresser, integrera dem med en produkt som för DNS av belastningsutjämning [Traffic Manager](../traffic-manager/traffic-manager-overview.md) och använda en enda DNS-namn som matchar en klient med flera zonindelad IP-adresser.  Du kan också använda det för att exponera per zon belastningsutjämnade slutpunkter individuellt övervaka varje zon.  Om du vill att blanda dessa koncept (zonredundant och zonindelade för samma serverdel) kan du granska [flera klienter för Azure Load Balancer](load-balancer-multivip-overview.md).
+Du kan välja att ha en klientdel att garantera att en zon, vilket kallas en *zonindelad klientdel*.  Det innebär att alla inkommande eller utgående flöden hanteras av en enskild zon i en region.  Dina klientdelsservrar delar öde med hälsotillståndet för zonen.  Datasökvägen påverkas inte av fel i zoner än där det var säkert. Du kan använda zonindelad klienter för att exponera en IP-adress per Tillgänglighetszon.  Dessutom du kan använda zonindelad klienter direkt eller, när klientdelen består av offentliga IP-adresser, integrera dem med en DNS-belastningsutjämning produkt som [Traffic Manager](../traffic-manager/traffic-manager-overview.md) och använda en enda DNS-namn som matchar en klient med flera zonindelad IP-adresser.  Du kan också använda det för att exponera per zon belastningsutjämnade slutpunkter individuellt övervaka varje zon.  Om du vill att blanda dessa koncept (zonredundant och zonindelade för samma serverdel) kan du granska [flera klienter för Azure Load Balancer](load-balancer-multivip-overview.md).
 
 En offentlig Load Balancer-klientdel, lägger du till en *zoner* parametern till den offentliga IP-Adressen som refereras av klientdelens IP-konfiguration.  
 
@@ -148,9 +148,9 @@ Om du använder befintliga Resource Manager-mallar i din konfiguration, lägger 
                 ],
 ```
 
-### <a name="cross-zone-load-balancing"></a>Belastningsutjämning mellan zoner
+### <a name="cross-zone-load-balancing"></a>Mellan zoner belastningsutjämning
 
-Belastningsutjämning mellan zoner är möjligheten för Load Balancer att nå en serverdelens slutpunkt i alla zoner och är oberoende av klient- och dess zonality.
+Mellan zoner belastningsutjämning är möjligheten för Load Balancer att nå en serverdelens slutpunkt i alla zoner och är oberoende av klient- och dess zonality.
 
 Om du vill justera och garantera din distribution inom en enskild zon justera zonindelad klient- och zonindelade serverdelsresurser till samma zon. Ingen ytterligare åtgärd krävs.
 
@@ -201,7 +201,7 @@ Undvika att introducera oönskade mellan zoner beroenden, som kommer upphäver t
   - Behöver du ha skydd i tjänsten framtvingar en redundansväxling till en regionparet vid behov?
   - Hur ska du övervaka, identifiera och minimera sådant scenario? Du kan använda Standard Load Balancer diagnostik för att utöka övervakning av tjänstens slutpunkt till slutpunkt prestanda. Fundera över vad som är tillgängligt och kanske behöver tokenomvandling för en bild.
 
-- Zoner kan göra fel lättare att förstå och som finns.  Zon fel är dock inte skiljer sig från andra fel när det gäller begrepp som tidsgränser, omförsök och backoff algoritmer. Även om Azure Load Balancer ger zonredundant sökvägar och försöker att återställa snabbt, på en paketnivå i realtid, begäranden som skickats eller reestablishments kan uppstå under utbrott av ett fel och det är viktigt att förstå hur ditt program copes med fel. Belastningsutjämning schema överlever, men du måste planera för följande:
+- Zoner kan göra fel lättare att förstå och som finns.  Zon fel är dock inte skiljer sig från andra fel när det gäller begrepp som tidsgränser, omförsök och backoff algoritmer. Även om Azure Load Balancer ger zonredundant sökvägar och försöker att återställa snabbt, på en paketnivå i realtid, begäranden som skickats eller reestablishments kan uppstå under utbrott av ett fel och det är viktigt att förstå hur ditt program copes med fel. Ett schema för Utjämning av nätverksbelastning överlever, men du måste planera för följande:
   - När en zon inte din slutpunkt till slutpunkt-tjänst förstår detta och om tillståndet är borttappad, hur ska du återställa?
   - När en zon returnerar programmets förstår hur att Konvergera på ett säkert sätt?
 

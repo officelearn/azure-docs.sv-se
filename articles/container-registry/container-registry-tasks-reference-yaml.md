@@ -2,17 +2,17 @@
 title: Referens för Azure Container Registry uppgifter - YAML
 description: Referens för att definiera aktiviteter i YAML för ACR-aktiviteter, inklusive Aktivitetsegenskaper, stegtyper, stegegenskaper och inbyggda variabler.
 services: container-registry
-author: mmacy
+author: dlepow
 ms.service: container-registry
 ms.topic: article
 ms.date: 09/24/2018
-ms.author: marsma
-ms.openlocfilehash: a40c05b2775e32bd0932122245914951d42cf712
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.author: danlep
+ms.openlocfilehash: a26b766c18ea2b14796af796abe7f36aa4fc1c66
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47048085"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48854957"
 ---
 # <a name="acr-tasks-reference-yaml"></a>ACR uppgifter referens: YAML
 

@@ -10,12 +10,12 @@ ms.devlang: nodejs
 ms.topic: conceptual
 ms.date: 01/08/2018
 ms.author: sclyon
-ms.openlocfilehash: aa178a24f0c36a1c5fb56b342141b066c150c7c3
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: 8cfa53a1792d8e01c05aad8e4a1a0b5239a092c1
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "42057601"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48857418"
 ---
 # <a name="azure-cosmos-db-using-the-mongoose-framework-with-azure-cosmos-db"></a>Azure Cosmos DB: Använda Mongoose-ramverket med Azure Cosmos DB
 
@@ -50,7 +50,11 @@ Nu ska vi skapa ett Azure Cosmos DB-konto. Om du redan har ett konto som du vill
 
 1. Lägg till en ny fil och ge den namnet ```index.js```.
 1. Installera de paket som behövs med något av ```npm install```-alternativen:
-    * Mongoose: ```npm install mongoose --save```
+    * Mongoose: ```npm install mongoose@5 --save```
+
+    > [!Note]
+    > Mongoose exempel anslutningen nedan baseras på Mongoose 5 +, som har ändrats sedan tidigare versioner.
+    
     * Dotenv (om du vill läsa in dina hemligheter från en .env-fil): ```npm install dotenv --save```
 
     >[!Note]
@@ -65,19 +69,21 @@ Nu ska vi skapa ett Azure Cosmos DB-konto. Om du redan har ett konto som du vill
 1. Lägg till Cosmos DB-anslutningssträngen och Cosmos DB-namnet till filen ```.env```.
 
     ```JavaScript
-    COSMOSDB_CONNSTR={Your MongoDB Connection String Here}
-    COSMOSDB_DBNAME={Your DB Name Here}
+    COSMOSDB_CONNSTR=mongodb://{cosmos-user}.documents.azure.com:10255/{dbname}
+    COSMODDB_USER=cosmos-user
+    COSMOSDB_PASSWORD=cosmos-secret
     ```
 
 1. Anslut till Azure Cosmos DB med Mongoose-ramverket genom att lägga till följande kod till slutet av index.js.
     ```JavaScript
-    mongoose.connect(process.env.COSMOSDB_CONNSTR+process.env.COSMOSDB_DBNAME+"?ssl=true&replicaSet=globaldb"); //Creates a new DB, if it doesn't already exist
-
-    var db = mongoose.connection;
-    db.on('error', console.error.bind(console, 'connection error:'));
-    db.once('open', function() {
-    console.log("Connected to DB");
-    });
+    mongoose.connect(process.env.COSMOSDB_CONNSTR+"?ssl=true&replicaSet=globaldb", {
+      auth: {
+        user: process.env.COSMODDB_USER,
+        password: process.env.COSMOSDB_PASSWORD
+      }
+    })
+    .then(() => console.log('Connection to CosmosDB successful'))
+    .catch((err) => console.error(err));
     ```
     >[!Note]
     > Här läses miljövariablerna in med process.env.{variableName} med hjälp av ”dotenv”-npm-paketet.

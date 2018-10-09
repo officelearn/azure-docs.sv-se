@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 07/26/2018
 ms.author: andrl
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c35082d107b538e7e908162c00facafecc406bc6
-ms.sourcegitcommit: 4edf9354a00bb63082c3b844b979165b64f46286
+ms.openlocfilehash: 9b7d9a0dd439b7c25180c8f250a87ae5ee184139
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48785655"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48870578"
 ---
 # <a name="partition-and-scale-in-azure-cosmos-db"></a>Partitionera och skala i Azure Cosmos DB
 
@@ -119,6 +119,8 @@ Om du har skapat en **fast** behållare utan partitions nyckel eller dataflöde 
 
 - **Graph-frågor ska ange en partitionsnyckel**. Om du vill dra full nytta av horisontell partitionering i Azure Cosmos DB, när det är möjligt i diagrammet ska frågor inkludera partitionsnyckel. Till exempel när en enskild brytpunkt är markerad. Följande exempelfrågor visar hur du inkluderar partitionsnyckel när du väljer en eller flera hörn i en partitionerad graph:
 
+    - **Du inte kan använda för närvarande `/id` som partitionsnyckel för en behållare i Gremlin-API: et**.
+
     - Att välja ett hörn med ID: T, sedan **använder den `.has()` steg för att ange egenskapen partitions**: 
     
         ```
@@ -147,7 +149,7 @@ Om du har skapat en **fast** behållare utan partitions nyckel eller dataflöde 
 
 * **Använda utgående riktning vid fråga kanter** när det är möjligt. Kanter lagras med deras källkod hörn i den utgående riktningen. Det innebär att minimeras risken för tillgripa till flera partitioner frågor när data och frågor som är utformade med det här mönstret i åtanke.
 
-## <a name="designing-for-partitioning"></a> Skapa partitionsnyckel 
+## <a name="designing-for-partitioning"></a> Skapa en partitionsnyckel 
 Du kan använda Azure portal eller Azure CLI för att skapa behållare och skala dem när som helst. Det här avsnittet visar hur du skapar behållare och ange den etablerade dataflöde och partition nyckeln med hjälp av varje API.
 
 
@@ -225,6 +227,9 @@ Mer information finns i [utveckla med tabell-API](tutorial-develop-table-dotnet.
 ### <a name="gremlin-api"></a>Gremlin-API
 
 Med Gremlin-API kan du använda Azure portal eller Azure CLI för att skapa en behållare som representerar ett diagram. Eftersom Azure Cosmos DB är flera modeller, kan du också använda en av de andra API: er att skapa och skala din graph-behållare.
+
+> [!NOTE]
+> Du kan inte använda `/id` som partitionsnyckel för en behållare i Gremlin-API. 
 
 Du kan läsa alla hörn eller edge med hjälp av partitionsnyckel och ID i Gremlin. För ett diagram med region (”USA”) som partitionsnyckel och ”Seattle” som radnyckel, kan du hitta ett hörn med hjälp av följande syntax:
 

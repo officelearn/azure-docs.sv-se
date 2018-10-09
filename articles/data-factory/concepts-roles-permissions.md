@@ -4,7 +4,7 @@ description: Beskriver de roller och behörigheter som krävs för att skapa Dat
 author: douglaslMS
 ms.author: douglasl
 manager: craigg
-ms.date: 10-04/2018
+ms.date: 10/08/2018
 ms.topic: conceptual
 ms.service: data-factory
 services: data-factory
@@ -12,12 +12,12 @@ documentationcenter: ''
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.openlocfilehash: cd6e28298b773f466ea317b7217af7709802aa12
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.openlocfilehash: 0c915c6b102f3aeedb316048fad1c6dc238fa0ad
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48817530"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48868624"
 ---
 # <a name="roles-and-permissions-for-azure-data-factory"></a>Roller och behörigheter för Azure Data Factory
 
@@ -50,6 +50,9 @@ Mer information om den här rollen, se [Data Factory-deltagarrollen](../role-bas
 ### <a name="resource-manager-template-deployment"></a>Resource Manager för malldistribution
 
 Den **Data Factory-deltagare** rollen, på resursgruppsnivå eller senare, kan användarna distribuera Resource Manager-mallar. Medlemmar i rollen kan därmed använda Resource Manager-mallar för att distribuera både datafabriker och deras underordnade resurser, inklusive datauppsättningar, länkade tjänster, pipelines, utlösare och integreringskörningar. Medlemskap i den här rollen kan inte skapa andra resurser, men användaren.
+
+> [!WARNING]
+> Resource Manager för malldistribution med den **Data Factory-deltagare** rollen inte öka din behörighet. Om du distribuerar en mall som skapar en Azure virtuell dator och du har inte behörighet att skapa virtuella datorer, till exempel misslyckas distributionen med ett auktoriseringsfel.
 
 ### <a name="custom-scenarios-and-custom-roles"></a>Anpassade scenarier och anpassade roller
 

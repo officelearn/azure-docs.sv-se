@@ -1,27 +1,28 @@
 ---
-title: Projektet URL förhandsgranskningsslutpunkten - kognitiva Microsoft-tjänster | Microsoft Docs
-description: 'Sammanfattning av URL: en förhandsgranskningsslutpunkten.'
+title: Slutpunkten för projekt-URL-förhandsgranskning
+titlesuffix: Azure Cognitive Services
+description: Sammanfattning av URL-förhandsgranskning-slutpunkten.
 services: cognitive-services
 author: mikedodaro
-manager: rosh
+manager: cgronlun
 ms.service: cognitive-services
-ms.technology: project-url-preview
-ms.topic: article
+ms.component: project-url-preview
+ms.topic: reference
 ms.date: 03/29/2018
 ms.author: rosh, v-gedod
-ms.openlocfilehash: ddd53aa49db01d7a6db397eb285d0854edc59388
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 0464ac80c451ada46561de78b5ba0860c59a9e34
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35353997"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48868657"
 ---
-# <a name="project-url-preview-endpoint"></a>Project URL förhandsgranskningsslutpunkten
+# <a name="project-url-preview-endpoint"></a>Slutpunkten för projekt-URL-förhandsgranskning
 
-API för Certifikatwebbadress Preview inkluderar en slutpunkt.
+URL: en förhandsversion API innehåller en slutpunkt.
 
 ## <a name="endpoint"></a>Slutpunkt
-Skicka en begäran till följande slutpunkt för att få en URL-förhandsgranskning. Använd rubriker och URL-parametrarna för andra specifikationer.
+För att få en URL-förhandsgranskning kan du skicka en begäran till följande slutpunkt. Använd rubriker och URL-parametrar för andra specifikationer.
 
 GET:
 ````
@@ -32,12 +33,12 @@ https://api.labs.cognitive.microsoft.com/urlpreview/v7.0/search?q=https://swiftk
 ### <a name="query-parameters"></a>Frågeparametrar
 |Namn|Värde|Typ|Krävs|  
 |----------|-----------|----------|--------------|  
-|Q|URL för förhandsgranskning|Sträng |Ja|
-|säker sökning|Ogiltigt innehåll för vuxna eller oäkta innehåll blockeras med felkoden 400, och *isFamilyFriendly* flaggan returneras inte. <p>För juridiska vuxet innehåll, görs nedan. Statuskoden returnerar 200, och *isFamilyFriendly* -flaggan inställd på false.<ul><li>säker sökning = strict: rubrik, beskrivning, URL och image kommer inte att returneras.</li><li>säker sökning = måttlig; Hämta rubrik, URL och beskrivning, men inte beskrivande avbildningen.</li><li>säker sökning = off; Hämta alla svar objekt/element – namn, URL, beskrivning, bild.</li></ul> |Sträng|Krävs inte. </br> Standardinställningen är säker sökning = strikt.| 
+|frågor och|URL: en för att förhandsgranska|Sträng |Ja|
+|säker sökning|Ogiltig vuxet innehåll eller oäkta innehåll har blockerats med felkoden 400, och *isFamilyFriendly* flaggan returneras inte. <p>Är det som gäller för juridiska vuxna nedan. Statuskod returnerar 200, och *isFamilyFriendly* flaggan är inställd på false.<ul><li>safeSearch = strikt: rubrik, beskrivning, URL: en och avbildningen kommer inte att returneras.</li><li>safeSearch = måttlig; Hämta rubrik, URL: en och beskrivning, men inte beskrivande avbildningen.</li><li>safeSearch =. Få svar objekt/allt – namn, URL: en, beskrivning, bild.</li></ul> |Sträng|Krävs inte. </br> Som standard safeSearch = strikt.| 
 
-## <a name="response-object"></a>Objektet Response
+## <a name="response-object"></a>-Svarsobjekt
 
-Svaret innehåller HTTP-huvuden och webbsidan objekt har attribut som visas i följande exempel: `name`, `url`, `description`, `isFamilyFriendly`, och `primaryImageOfPage`.
+Svaret innehåller HTTP-huvuden och webbsidan objekt med attribut som visas i följande exempel: `name`, `url`, `description`, `isFamilyFriendly`, och `primaryImageOfPage`.
 
 ````
 BingAPIs-TraceId: 15AFE52A97AA422F960433A94803F6CE
@@ -59,8 +60,8 @@ X-MSEdge-Ref: Ref A: 15AFE52A97AA422F960433A94803F6CE Ref B: PAOEDGE0418 Ref C: 
 ````
 
 ## <a name="next-steps"></a>Nästa steg
-- [C#-Snabbstart](csharp.md)
-- [Java-Snabbstart](java-quickstart.md)
-- [JavaScript-Snabbstart](javascript.md)
-- [Noden Snabbstart](node-quickstart.md)
+- [Snabbstart för C#](csharp.md)
+- [Snabbstart för Java](java-quickstart.md)
+- [Snabbstart för JavaScript](javascript.md)
+- [Snabbstart för noden](node-quickstart.md)
 - [Python-Snabbstart](python-quickstart.md)

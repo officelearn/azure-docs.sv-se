@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 12/20/2017
 ms.author: spelluru
-ms.openlocfilehash: b9701eae026522238424a21ae3ecf2baa40334fa
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: 6c8498a43b127fecc02473177ac955ae51a647d6
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43701773"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48854124"
 ---
 # <a name="how-to-use-azure-relay-wcf-relays-with-net"></a>Hur du använder Azure Relay WCF-reläer med .NET
 Den här artikeln beskriver hur du använder Azure Relay-tjänsten. Exemplen är skrivna i C# och använder API:et Windows Communication Foundation (WCF) med tillägg som finns i Service Bus-sammansättningen. Mer information om Azure relay finns i den [översikt över Azure Relay](relay-what-is-it.md).
@@ -220,7 +220,6 @@ Slutpunktsdefinitionerna flyttas till filen App.config. I följande exempel, som
 Nu när du har lärt dig grunderna i Azure Relay, kan du följa dessa länkar om du vill veta mer.
 
 * [Vad är Azure Relay?](relay-what-is-it.md)
-* [Azure Service Bus översikt över arkitekturen](../service-bus-messaging/service-bus-fundamentals-hybrid-solutions.md)
 * Hämta Service Bus-exempel från [Azure-exempel] [ Azure samples] eller finns i den [översikt över Service Bus-exempel][overview of Service Bus samples].
 
 [Shared Access Signature Authentication with Service Bus]: ../service-bus-messaging/service-bus-shared-access-signature-authentication.md

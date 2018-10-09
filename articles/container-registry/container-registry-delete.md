@@ -2,18 +2,17 @@
 title: Ta bort avbildningen resurser i Azure Container Registry
 description: Information om hur du effektivt hantera registrets storlek genom att ta bort behållaren bilddata.
 services: container-registry
-author: mmacy
-manager: jeconnoc
+author: dlepow
 ms.service: container-registry
 ms.topic: article
 ms.date: 07/27/2018
-ms.author: marsma
-ms.openlocfilehash: 6ab667a01eddd84d1145868a3ae499e7497035c9
-ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
+ms.author: danlep
+ms.openlocfilehash: a1644f68465cffa8cce27257bb91100c111af8a1
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39266049"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48857779"
 ---
 # <a name="delete-container-images-in-azure-container-registry"></a>Ta bort avbildningar i Azure Container Registry
 

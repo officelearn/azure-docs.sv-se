@@ -2,18 +2,17 @@
 title: Schemareferens i Azure Container Registry webhook
 description: Webhook-begäran JSON-nyttolast referens för Azure Container Registry.
 services: container-registry
-author: mmacy
-manager: jeconnoc
+author: dlepow
 ms.service: container-registry
 ms.topic: article
 ms.date: 12/02/2017
-ms.author: marsma
-ms.openlocfilehash: 87fe978416c29b50abeef0e0a6624d7440dd87ef
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.author: danlep
+ms.openlocfilehash: 8bae44215cdc17e9f1617c909ef197f2757fc114
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47096901"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48857762"
 ---
 # <a name="azure-container-registry-webhook-reference"></a>Referens för Azure Container Registry-webhook
 

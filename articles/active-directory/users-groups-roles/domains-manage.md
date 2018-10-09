@@ -10,19 +10,19 @@ ms.service: active-directory
 ms.workload: identity
 ms.component: users-groups-roles
 ms.topic: article
-ms.date: 10/04/2018
+ms.date: 10/05/2018
 ms.author: curtand
 ms.reviewer: elkuzmen
-ms.openlocfilehash: 65c3fa4c667fdb2d670ff259b190db140b4d968f
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: d5f926ac41bb90ba716e0c52b790a60fd74e0631
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48803927"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48854923"
 ---
 # <a name="managing-custom-domain-names-in-your-azure-active-directory"></a>Hantera anpassade domännamn i Azure Active Directory
 
-Ett domännamn är en viktig del av identifieraren för många katalogresurser: det är en del av ett användarnamn eller e-postadress för en användare, en del av adressen för en grupp, och kan vara en del av app-ID-URI för ett program. En resurs i Azure Active Directory (Azure AD) kan innehålla ett domännamn som redan har verifierats som ägs av katalogen som innehåller resursen. Endast en global administratör kan utföra hanteringsåtgärder för domänen i Azure AD.
+Ett domännamn är en viktig del av identifieraren för många katalogresurser: det är en del av ett användarnamn eller e-postadress för en användare, en del av adressen för en grupp, och ibland är en del av app-ID-URI för ett program. En resurs i Azure Active Directory (Azure AD) kan innehålla ett domännamn som ägs av den katalog som innehåller resursen. Endast en Global administratör kan hantera domäner i Azure AD.
 
 ## <a name="set-the-primary-domain-name-for-your-azure-ad-directory"></a>Ange namnet på primär domän för din Azure AD-katalog
 
@@ -38,19 +38,19 @@ När katalogen har skapats är det ursprungliga domännamnet, t.ex contoso.onmic
   
    ![Göra ett domännamn primärt](./media/domains-manage/make-primary-domain.png)
 
-Du kan ändra det primära domännamnet för din katalog är en verifierad anpassad domän som inte är federerat. Ändra den primära domänen för din katalog ändras inte användarnamnen för alla befintliga användare.
+Du kan ändra det primära domännamnet för din katalog är en verifierad anpassad domän som inte är federerat. Ändra den primära domänen för din katalog, ändras inte användarnamnet för alla befintliga användare.
 
 ## <a name="add-custom-domain-names-to-your-azure-ad-tenant"></a>Lägger till anpassade domännamn i Azure AD-klienten
 
-Du kan lägga till upp till 900 hanterade domännamn. Om du konfigurerar alla domäner för federering med lokala Active Directory kan du lägga till till högst 450 domännamn i varje katalog. 
+Du kan lägga till upp till 900 hanterade domännamn. Om du konfigurerar alla domäner för federering med lokala Active Directory, kan du lägga till upp till 450 domännamn i varje katalog.
 
 ## <a name="add-subdomains-of-a-custom-domain"></a>Lägg till underdomäner i en anpassad domän
 
-Om du vill lägga till en tredje nivån domännamn, till exempel 'europe.contoso.com' i katalogen ska du först lägga till och verifiera domänen på den andra nivån, till exempel contoso.com. Underdomänen verifieras automatiskt av Azure AD. Uppdatera sidan i webbläsaren som visar domänerna om du vill se att underdomänen som du just lade till har verifierats.
+Om du vill lägga till en tredje nivån domännamn, till exempel 'europe.contoso.com' i katalogen ska du först lägga till och verifiera domänen på den andra nivån, till exempel contoso.com. Underdomänen verifieras automatiskt av Azure AD. Uppdatera domänlistan i webbläsaren för att se att du har lagt till underdomänen är verifierad.
 
 ## <a name="what-to-do-if-you-change-the-dns-registrar-for-your-custom-domain-name"></a>Vad du gör om du ändrar DNS-registratorns för ditt anpassade domännamn
 
-Om du ändrar DNS-registratorns för ditt anpassade domännamn kan du fortsätta att använda ditt anpassade domännamn med själva Azure AD utan avbrott och utan ytterligare konfigurationsåtgärder. Om du använder ett anpassat domännamn med Office 365, Intune eller andra tjänster som förlitar sig på anpassade domännamn i Azure AD finns i dokumentationen för dessa tjänster.
+Om du ändrar DNS-registratorer, finns det inga ytterligare konfigurationer i Azure AD. Du kan fortsätta med domännamnet med Azure AD utan avbrott. Om du använder ett anpassat domännamn med Office 365, Intune eller andra tjänster som förlitar sig på anpassade domännamn i Azure AD finns i dokumentationen för dessa tjänster.
 
 ## <a name="delete-a-custom-domain-name"></a>Ta bort ett anpassat domännamn
 
@@ -83,7 +83,7 @@ Ett fel returneras när:
 
 * Antalet objekt som ska byta namn är fler än 1 000
 * En av de program som ska ändras är en app för flera klienter
-  
+
 ### <a name="frequently-asked-questions"></a>Vanliga frågor och svar
 
 **F: Varför misslyckas domänborttagning med ett fel som anger att jag har lärt dig att Exchange-grupper på det här domännamnet?** <br>

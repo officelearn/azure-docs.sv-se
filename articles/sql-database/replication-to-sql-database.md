@@ -12,38 +12,40 @@ ms.author: xiwu
 ms.reviewer: mathoma
 manager: craigg
 ms.date: 09/25/2018
-ms.openlocfilehash: 360aa53a02beabccc685df97ad8549dfb88ff5c8
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: eae7f97799e38d5a4b09e3f193a84b423dced780
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47228511"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48869337"
 ---
 # <a name="replication-to-sql-database-single-and-pooled-databases"></a>Replikering till SQL Database enkel och delade databaser
 
 SQL Server-replikering kan konfigureras för enkel och delade databaser på en [logisk server](sql-database-logical-servers.md) i Azure SQL Database.  
- 
- ### <a name="supported-configurations"></a>**Konfigurationer som stöds:**  
- -  SQL Server kan vara en instans av SQL Server som körs lokalt eller en instans av SQL Server som körs i Azure-datorer i molnet. Mer information finns i [SQL Server på Azure virtuella datorer – översikt](https://azure.microsoft.com/documentation/articles/virtual-machines-sql-server-infrastructure-services/).  
- - Azure SQL-databasen måste vara en push-prenumerant för en SQL Server-utgivare.  
- -  Distributionsdatabasen och replikeringsagenter kan inte placeras i en Azure SQL database.  
- - Ögonblicksbild och enkelriktad Transaktionsreplikering stöds. Peer-to-peer Transaktionsreplikering och Sammanslagningsreplikering stöds inte.
- - Replikering är tillgänglig i offentlig förhandsversion på Azure SQL Database Managed Instance. Hanterad instans kan vara värd för utgivaren och distributören prenumerant databaser. Mer information finns i [replikering med SQL Database Managed Instance](replication-with-sql-database-managed-instance.md).
- 
+
+## <a name="supported-configurations"></a>**Konfigurationer som stöds:**
+  
+- SQL Server kan vara en instans av SQL Server som körs lokalt eller en instans av SQL Server som körs i Azure-datorer i molnet. Mer information finns i [SQL Server på Azure virtuella datorer – översikt](https://azure.microsoft.com/documentation/articles/virtual-machines-sql-server-infrastructure-services/).  
+- Azure SQL-databasen måste vara en push-prenumerant för en SQL Server-utgivare.  
+- Distributionsdatabasen och replikeringsagenter kan inte placeras i en Azure SQL database.  
+- Ögonblicksbild och enkelriktad Transaktionsreplikering stöds. Peer-to-peer Transaktionsreplikering och Sammanslagningsreplikering stöds inte.
+- Replikering är tillgänglig i offentlig förhandsversion på Azure SQL Database Managed Instance. Hanterad instans kan vara värd för utgivaren och distributören prenumerant databaser. Mer information finns i [replikering med SQL Database Managed Instance](replication-with-sql-database-managed-instance.md).
+
 ## <a name="versions"></a>Versioner  
+
 - Utgivaren och distributören måste innehålla minst en av följande versioner:  
- - SQLServer 2017 (14.x) 
- - SQLServer 2016 (13.x) 
- - SQL Server 2014 (12.x) SP1 CU3 
- - SQL Server 2014 (12.x) RTM CU10 
- - SQL Server 2012 (11.x) SP2 CU8 eller SP3 
-   
+- SQLServer 2017 (14.x)
+- SQLServer 2016 (13.x)
+- SQL Server 2014 (12.x) SP1 CU3
+- SQL Server 2014 (12.x) RTM CU10
+- SQL Server 2012 (11.x) SP2 CU8 eller SP3
 - Försök att konfigurera replikering med en äldre version kan resultera i fel antal MSSQL_REPL20084 (processen inte kunde ansluta till prenumeranten.) och MSSQL_REPL40532 (det går inte att öppna servern \<namn > begärdes vid inloggningen. Inloggningen misslyckades.).  
 - Om du vill använda alla funktioner i Azure SQL Database, måste du använda de senaste versionerna av [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) och [SQL Server Data Tools](https://docs.microsoft.com//sql/ssdt/download-sql-server-data-tools-ssdt?view=sql-server-2017).  
-   
- ## <a name="remarks"></a>Kommentarer  
+  
+## <a name="remarks"></a>Kommentarer
+
 - Replikering kan konfigureras med hjälp av [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) eller genom att köra Transact-SQL-uttryck på utgivaren. Du kan inte konfigurera replikering med hjälp av Azure portal.  
-- Replikering kan bara använda SQL Server-autentiseringsinloggningar för att ansluta till en Azure SQL database. 
+- Replikering kan bara använda SQL Server-autentiseringsinloggningar för att ansluta till en Azure SQL database.
 - Replikerade tabeller måste ha en primärnyckel.  
 - Du måste ha en befintlig prenumeration.  
 - Azure SQL database-prenumerant kan vara i alla regioner.  
@@ -51,64 +53,66 @@ SQL Server-replikering kan konfigureras för enkel och delade databaser på en [
 - Replikeringshantering, övervakning och felsökning måste utföras från en lokal SQL Server.  
 - Endast push-prenumerationer till Azure SQL Database stöds.  
 - Endast `@subscriber_type = 0` stöds i **till sp_addsubscription** för SQL-databas.  
-- Azure SQL Database stöder inte dubbelriktad, direkt, uppdateras eller peer-to-peer-replikering.      
-   
- ## <a name="replication-architecture"></a>Arkitektur för replikering  
- ![replikering till sql database](./media/replication-to-sql-database/replication-to-sql-database.png)  
-   
- ## <a name="scenarios"></a>Scenarier  
-   
- ### <a name="typical-replication-scenario"></a>Vanliga Replikeringsscenario  
-   
- 1.  Skapa en Transaktionsreplikering publikation på en lokal SQL Server-databas.  
-   
- 2.  På en lokal SQL Server använder du den **New Subscription Wizard** eller Transact-SQL-uttryck för att skapa en distribution till Azure SQL Database-prenumeration.  
-   
- 3.  Den initiala datauppsättningen är vanligtvis en ögonblicksbild som skapats av Ögonblicksbildagenten och distribueras och tillämpas av Distributionsagenten. Den första datauppsättningen kan också anges via en säkerhetskopia eller på annat sätt, till exempel SQL Server Integration Services.  
-   
- ### <a name="data-migration-scenario"></a>Data Migreringsscenario  
-   
- 1.  Använda Transaktionsreplikering för att replikera data från en lokal SQL Server-databas till Azure SQL Database.  
-   
- 2.  Omdirigera klienten eller mellannivå program att uppdatera kopian på Azure SQL-databas.  
-   
- 3.  Stoppa uppdaterar SQL Server-versionen av tabellen och ta bort publikationen.  
-   
-## <a name="limitations"></a>Begränsningar  
-Följande alternativ stöds inte för Azure SQL Database-prenumerationer:  
--   Kopiera filassociation för grupper  
--   Kopiera tabell partitionering scheman  
--   Kopiera index partitionering scheman  
--   Kopiera användardefinierade statistik  
--   Kopiera standard-bindningar  
--   Kopiera regel bindningar  
--   Kopiera fulltext-index  
--   Kopiera XML-XSD  
--   Kopiera XML-index  
--   Kopiera behörigheter  
--   Kopiera spatialindex  
--   Kopiera filtrerade index  
--   Kopiera data komprimering attribut  
--   Kopiera attribut för null-optimerad kolumn  
--   Konvertera filestream till MAX-datatyper  
--   Konvertera hierarchyid till MAX-datatyper  
--   Konvertera spatial till MAX-datatyper  
--   Kopiera utökade egenskaper  
--   Kopiera behörigheter  
-   
-### <a name="limitations-to-be-determined"></a>Begränsningar för att fastställa 
--   Kopiera sortering  
--   Körning i en serialiserade transaktion av SP  
-   
-## <a name="examples"></a>Exempel  
-Skapa en publikation och en utgivarinitierad prenumeration. Mer information finns i:  
--   [Skapa en publikation](https://docs.microsoft.com/sql/relational-databases/replication/publish/create-a-publication)  
-   
--   [Skapa en Push-prenumeration](https://docs.microsoft.com/sql/relational-databases/replication/create-a-push-subscription/create-a-push-subscription) genom att använda Azure SQL-databasnamn för logisk server som prenumeranten (till exempel **N'azuresqldbdns.database.windows.net'**) och Azure SQL-databasnamn som mål-databasen ( till exempel **AdventureWorks**).  
-   
- ## <a name="see-also"></a>Se även  
- - [Skapa en publikation](https://docs.microsoft.com/sql/relational-databases/replication/publish/create-a-publication)   
- - [Skapa en utgivarinitierad prenumeration](https://docs.microsoft.com/sql/relational-databases/replication/create-a-push-subscription/create-a-push-subscription)   
- - [Typer av replikering](https://docs.microsoft.com/sql/relational-databases/replication/types-of-replication)   
- - [Övervaka &#40;replikering&#41;](https://docs.microsoft.com/sql/relational-databases/replication/monitor/monitoring-replication)   
- - [Initiera en prenumeration](https://docs.microsoft.com/sql/relational-databases/replication/initialize-a-subscription)  
+- Azure SQL Database stöder inte dubbelriktad, direkt, uppdateras eller peer-to-peer-replikering.
+
+## <a name="replication-architecture"></a>Arkitektur för replikering  
+
+![replikering till sql database](./media/replication-to-sql-database/replication-to-sql-database.png)  
+
+## <a name="scenarios"></a>Scenarier  
+
+### <a name="typical-replication-scenario"></a>Vanliga Replikeringsscenario  
+
+1. Skapa en Transaktionsreplikering publikation på en lokal SQL Server-databas.  
+2. På en lokal SQL Server använder du den **New Subscription Wizard** eller Transact-SQL-uttryck för att skapa en distribution till Azure SQL Database-prenumeration.  
+3. Den initiala datauppsättningen är vanligtvis en ögonblicksbild som skapats av Ögonblicksbildagenten och distribueras och tillämpas av Distributionsagenten. Den första datauppsättningen kan också anges via en säkerhetskopia eller på annat sätt, till exempel SQL Server Integration Services.  
+
+### <a name="data-migration-scenario"></a>Data Migreringsscenario  
+
+1. Använda Transaktionsreplikering för att replikera data från en lokal SQL Server-databas till Azure SQL Database.  
+2. Omdirigera klienten eller mellannivå program att uppdatera kopian på Azure SQL-databas.  
+3. Stoppa uppdaterar SQL Server-versionen av tabellen och ta bort publikationen.  
+
+## <a name="limitations"></a>Begränsningar
+
+Följande alternativ stöds inte för Azure SQL Database-prenumerationer:
+
+- Kopiera filassociation för grupper  
+- Kopiera tabell partitionering scheman  
+- Kopiera index partitionering scheman  
+- Kopiera användardefinierade statistik  
+- Kopiera standard-bindningar  
+- Kopiera regel bindningar  
+- Kopiera fulltext-index  
+- Kopiera XML-XSD  
+- Kopiera XML-index  
+- Kopiera behörigheter  
+- Kopiera spatialindex  
+- Kopiera filtrerade index  
+- Kopiera data komprimering attribut  
+- Kopiera attribut för null-optimerad kolumn  
+- Konvertera filestream till MAX-datatyper  
+- Konvertera hierarchyid till MAX-datatyper  
+- Konvertera spatial till MAX-datatyper  
+- Kopiera utökade egenskaper  
+- Kopiera behörigheter  
+
+### <a name="limitations-to-be-determined"></a>Begränsningar för att fastställa
+
+- Kopiera sortering  
+- Körning i en serialiserade transaktion av SP  
+
+## <a name="examples"></a>Exempel
+
+Skapa en publikation och en utgivarinitierad prenumeration. Mer information finns i:
+  
+- [Skapa en publikation](https://docs.microsoft.com/sql/relational-databases/replication/publish/create-a-publication)
+- [Skapa en Push-prenumeration](https://docs.microsoft.com/sql/relational-databases/replication/create-a-push-subscription/) genom att använda Azure SQL-databasnamn för logisk server som prenumeranten (till exempel **N'azuresqldbdns.database.windows.net'**) och Azure SQL-databasnamn som mål-databasen ( till exempel **AdventureWorks**).  
+
+## <a name="see-also"></a>Se även  
+
+- [Skapa en publikation](https://docs.microsoft.com/sql/relational-databases/replication/publish/create-a-publication)
+- [Skapa en utgivarinitierad prenumeration](https://docs.microsoft.com/sql/relational-databases/replication/create-a-push-subscription/)
+- [Typer av replikering](https://docs.microsoft.com/sql/relational-databases/replication/types-of-replication)
+- [Övervakning (replikering)](https://docs.microsoft.com/sql/relational-databases/replication/monitor/monitoring-replication)
+- [Initiera en prenumeration](https://docs.microsoft.com/sql/relational-databases/replication/initialize-a-subscription)  

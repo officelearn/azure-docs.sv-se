@@ -3,7 +3,7 @@ title: Stöd för Azure Marketplace och AppSource | Azure
 description: Supportinformation och länkar till Azure Marketplace och AppSource
 services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
 documentationcenter: ''
-author: ellacroi
+author: yijenj
 manager: nunoc
 editor: ''
 ms.assetid: ''
@@ -12,27 +12,27 @@ ms.workload: ''
 ms.tgt_pltfrm: ''
 ms.devlang: ''
 ms.topic: article
-ms.date: 07/02/2018
-ms.author: ellacroi
-ms.openlocfilehash: 55f66203c7d84a41e6c060dd6ae5241b4a719f1c
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.date: 10/05/2018
+ms.author: yijenj
+ms.openlocfilehash: 884432d5604868ad2307a7d7ababa3e5a004a982
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44049039"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48854074"
 ---
 # <a name="support-for-the-marketplace"></a>Stöd för Marketplace  
 Supportalternativ för Marketplace.  
 
 ## <a name="onboarding"></a>Publicering
 
-[Öppna en biljett](https://support.microsoft.com/en-us/getsupport?wf=0&tenant=classiccommercial&oaspworkflow=start_1.0.0.0&locale=en-us&supportregion=en-us&pesid=16230&forceorigin=esmc&ccsid=636595105151894820) för ”Onboarding för Marketplace” med Microsoft för att lösa alla problem med att komma igång.
+Öppna en biljett för med Microsoft [marketplace publisher stöd](https://support.microsoft.com/en-us/getsupport?wf=0&tenant=classiccommercial&oaspworkflow=start_1.0.0.0&locale=en-us&supportregion=en-us&pesid=16230&forceorigin=esmc&ccsid=636595105151894820) för alla problem med registrering och komma igång.
 
 ## <a name="cloud-partner-portal"></a>Partnerportalen i molnet  
 
 | Supportkanal | Beskrivning | Tillgänglighet |  
 |:--- |:--- |:--- |  
-| Support<ul> <li>Om du behöver hjälp finns i avsnittet Skapa en incident sida finns på [go.microsoft.com/fwlink/?linkid=844975](https://go.microsoft.com/fwlink/?linkid=844975)</li> </ul> | Stöd för partnerportalen i molnet. | Support tillhandahålls på hela tiden under dagen och natten. |  
+| Om du behöver hjälp finns i avsnittet Skapa en incident sida finns på [Marketplace-stöd](https://go.microsoft.com/fwlink/?linkid=844975)</li> </ul> | Stöd för partnerportalen i molnet. | Support tillhandahålls mellan 06: 00 – 6 pm PST. |  
 
 ## <a name="technical"></a>Teknik  
 

@@ -14,12 +14,12 @@ ms.date: 09/20/2018
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
-ms.openlocfilehash: 16826ddb2dd76629454137f8ae3d9476b0126e52
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: e8f0077bf5a1a2911b3aec032fadacf31ad75463
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48804590"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48855280"
 ---
 # <a name="dynamic-membership-rules-for-groups-in-azure-active-directory"></a>Regler för dynamiskt medlemskap för grupper i Azure Active Directory
 
@@ -139,6 +139,20 @@ Om du vill jämföra värdet för ett användarattribut mot ett antal olika vär
 ```
    user.department -in ["50001","50002","50003",“50005”,“50006”,“50007”,“50008”,“50016”,“50020”,“50024”,“50038”,“50039”,“51100”]
 ```
+
+
+### <a name="using-the--match-operator"></a>Med hjälp av operatorn - matchning 
+Den **-matchar** operator används för att matcha ett reguljärt uttryck. Exempel:
+
+```
+user.displayName -match "Da.*"   
+```
+DA, Dav, David utvärderas till SANT, aDa utvärderas till false.
+
+```
+user.displayName -match ".*vid"
+```
+David utvärderas till SANT, Da utvärderas till false.
 
 ## <a name="supported-values"></a>Värden som stöds
 

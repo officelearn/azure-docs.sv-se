@@ -9,12 +9,12 @@ ms.technology: Speech
 ms.topic: article
 ms.date: 10/01/2018
 ms.author: gracez
-ms.openlocfilehash: 432a17b1e3cd065bd6189ffa9f80ca5985629bb7
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.openlocfilehash: 2dc034ea28075019b74fe9d9be548cf9d355d20e
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48239965"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48857490"
 ---
 # <a name="migrate-from-bing-speech-to-the-speech-service"></a>Migrera från Bing-tal till Taltjänst
 
@@ -49,7 +49,7 @@ Få en 24-kHz | : heavy_minus_sign: | : heavy_check_mark:
 Igenkänning av talavsikt | Kräver separat LUIS-API-anrop | Integrerat (SDK) |  En LUIS-nyckel kan användas med Speech-tjänsten.
 Enkel avsiktsigenkänning | : heavy_minus_sign: | : heavy_check_mark: 
 Batch transkription av länge ljudfiler | : heavy_minus_sign: | : heavy_check_mark:
-Igenkänning av läge | Manuell via slutpunkt URI | Automatisk | Igenkänning av läge är inte tillgänglig i Speech Service
+Igenkänningsläge | Manuell via slutpunkt URI | Automatisk | Igenkänning av läge är inte tillgänglig i Speech Service
 Slutpunkten ort | Global | Regionala | Regionala slutpunkter förbättra svarstiden. En slutpunkt för global är beaktas för Speech-tjänsten.
 REST API:er | : heavy_check_mark: | : heavy_check_mark: | REST API för taligenkänning är kompatibel med Bing-tal (olika slutpunkt). REST API: er stöd för text till tal och begränsade funktioner för tal till text.
 WebSockets protokoll | : heavy_check_mark: | : heavy_check_mark: | API för taligenkänning Service WebSockets är kompatibel med Bing-tal (olika slutpunkt). Migrera till tal SDK: N om det är möjligt att förenkla din kod.
@@ -74,11 +74,11 @@ Speech-tjänsten tillhandahåller inte för närvarande en global slutpunkt. Du 
 
 Om ditt program använder långlivade anslutningar och kan inte använda en tillgängliga SDK: N, kan du använda en WebsSockets-anslutning och hantera 10 minuters timeout-gränsen genom att ansluta vid lämplig tidpunkter.
 
-Du kommer igång med SDK: N för nya tal:
+Kom igång med tal-SDK:
 
 1. Ladda ned den [tal SDK](speech-sdk.md).
 1. Gå igenom Taltjänsten [snabbstartguider](quickstart-csharp-dotnet-windows.md), [självstudier](how-to-recognize-intents-from-speech-csharp.md), och titta på den [kodexempel](samples.md) att få med de nya API: er.
-1. Uppdatera programmet så att ny tal-tjänst och API: er.
+1. Uppdatera appen till tal-tjänst och API: er.
 
 ## <a name="support"></a>Support
 

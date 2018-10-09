@@ -11,21 +11,20 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 05/08/2018
-ms.openlocfilehash: a9a3d696f1c503969b89795f8c6d86a77bd353e8
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.date: 10/05/2018
+ms.openlocfilehash: 499689e4d36f368746e5e0ea9e6bc3f3bf0ec0d9
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47160732"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48868245"
 ---
-# <a name="configure-and-restore-from-azure-sql-database-long-term-backup-retention-using-azure-recovery-services-vault"></a>Konfigurera och återställa från Azure SQL Database långsiktig kvarhållning av säkerhetskopior med hjälp av Azure Recovery Services-valv
+# <a name="configure-long-term-backup-retention-using-azure-recovery-services-vault"></a>Konfigurera långsiktig kvarhållning av säkerhetskopior med hjälp av Azure Recovery Services-valv
 
 Du kan konfigurera Azure Recovery Services-valvet för att lagra säkerhetskopior av Azure SQL-databasen och sedan återställa en databas med hjälp av säkerhetskopior som finns kvar i valvet med hjälp av Azure portal eller PowerShell.
 
 > [!NOTE]
-> Som en del av den första versionen av förhandsversionen av långsiktig kvarhållning av säkerhetskopior i oktober 2016 lagrades säkerhetskopieringar i Azure-tjänster Recovery Service-valv. Uppdateringen tar bort det här beroendet, men den ursprungliga API stöds för bakåtkompatibilitet till den 31 maj 2018. Om du vill interagera med säkerhetskopior i Azure-tjänster Recovery-valvet kan se [långsiktig kvarhållning av säkerhetskopior med hjälp av Azure-tjänster Recovery Service-valv](sql-database-long-term-backup-retention-configure-vault.md). 
-
+> Som en del av den första versionen av förhandsversionen av långsiktig kvarhållning av säkerhetskopior i oktober 2016 lagrades säkerhetskopieringar i Azure-tjänster Recovery Service-valv. Uppdateringen tar bort det här beroendet, men den ursprungliga API stöds för bakåtkompatibilitet till den 31 maj 2018. Om du vill interagera med säkerhetskopior i Azure-tjänster Recovery-valvet kan se [långsiktig kvarhållning av säkerhetskopior med hjälp av Azure-tjänster Recovery Service-valv](sql-database-long-term-backup-retention-configure-vault.md).
 
 ## <a name="azure-portal"></a>Azure Portal
 
@@ -33,7 +32,7 @@ I följande avsnitt visas hur du använder Azure-portalen för att konfigurera A
 
 ### <a name="configure-the-vault-register-the-server-and-select-databases"></a>Konfigurera valvet, registrera servern och välj databaser
 
-Du konfigurerar ett Azure Recovery Services-valv till [automatiska säkerhetskopieringar bevaras](sql-database-long-term-retention.md) under längre tid än kvarhållningsperioden för din tjänstnivå. 
+Du konfigurerar ett Azure Recovery Services-valv till [automatiska säkerhetskopieringar bevaras](sql-database-long-term-retention.md) under längre tid än kvarhållningsperioden för din tjänstnivå.
 
 1. Öppna den **SQL Server** för din server.
 
@@ -62,7 +61,7 @@ Du konfigurerar ett Azure Recovery Services-valv till [automatiska säkerhetskop
 7. På den **Recovery Services-valv** klickar du på **Lägg till**.
 
    ![Lägg till valvet länk](./media/sql-database-get-started-backup-recovery/add-new-vault-link.png)
-   
+
 8. På den **Recovery Services-valv** anger du ett giltigt namn för Recovery Services-valvet.
 
    ![namn på nytt valv](./media/sql-database-get-started-backup-recovery/new-vault-name.png)
@@ -73,7 +72,6 @@ Du konfigurerar ett Azure Recovery Services-valv till [automatiska säkerhetskop
 
    > [!IMPORTANT]
    > Valvet måste finnas i samma region som den logiska Azure SQL-servern och måste använda samma resursgrupp som den logiska servern.
-   >
 
 10. När det nya valvet har skapats följer du stegen för att återgå till den **Recovery services-valv** sidan.
 
@@ -84,9 +82,9 @@ Du konfigurerar ett Azure Recovery Services-valv till [automatiska säkerhetskop
 12. På den **konfigurera** sidan, ange ett giltigt namn för den nya kvarhållningsprincipen, ändrar principen efter behov och klicka sedan på **OK**.
 
    ![definiera kvarhållningsprincip](./media/sql-database-get-started-backup-recovery/define-retention-policy.png)
-   
-   >[!NOTE]
-   >Namnen för kvarhållning av säkerhetskopior principen tillåter inte vissa tecken inklusive blanksteg.
+
+   > [!NOTE]
+   > Namnen för kvarhållning av säkerhetskopior principen tillåter inte vissa tecken inklusive blanksteg.
 
 13. På den **långsiktig kvarhållning av säkerhetskopior** för din databas och klicka på **spara** och klicka sedan på **OK** att tillämpa principen för långsiktig kvarhållning av säkerhetskopior på alla valda databaser.
 
@@ -98,11 +96,10 @@ Du konfigurerar ett Azure Recovery Services-valv till [automatiska säkerhetskop
 
 > [!IMPORTANT]
 > När de har konfigurerats visas säkerhetskopiorna i valvet inom sju dagar. Fortsätt inte den här självstudiekursen förrän säkerhetskopiorna visas i valvet.
->
 
 ### <a name="view-backups-in-long-term-retention-using-azure-portal"></a>Visa säkerhetskopior i långsiktig kvarhållning av säkerhetskopior med Azure-portalen
 
-Visa information om databassäkerhetskopiorna i [långsiktig kvarhållning av säkerhetskopior](sql-database-long-term-retention.md). 
+Visa information om databassäkerhetskopiorna i [långsiktig kvarhållning av säkerhetskopior](sql-database-long-term-retention.md).
 
 1. Öppna Azure Recovery Services-valvet av dina databassäkerhetskopior i Azure-portalen (Gå till **alla resurser** och markera den i listan över resurser för din prenumeration) att visa mängden lagringsutrymme som används av din databassäkerhetskopior i den valvet.
 
@@ -167,7 +164,7 @@ Använd den [New-AzureRmRecoveryServicesVault](/powershell/module/azurerm.recove
 $serverLocation = (Get-AzureRmSqlServer -ServerName $serverName -ResourceGroupName $resourceGroupName).Location
 $recoveryServiceVaultName = "{new-vault-name}"
 
-$vault = New-AzureRmRecoveryServicesVault -Name $recoveryServiceVaultName -ResourceGroupName $ResourceGroupName -Location $serverLocation 
+$vault = New-AzureRmRecoveryServicesVault -Name $recoveryServiceVaultName -ResourceGroupName $ResourceGroupName -Location $serverLocation
 Set-AzureRmRecoveryServicesBackupProperties -BackupStorageRedundancy LocallyRedundant -Vault $vault
 ```
 
@@ -176,18 +173,17 @@ Set-AzureRmRecoveryServicesBackupProperties -BackupStorageRedundancy LocallyRedu
 Använd den [Set-AzureRmSqlServerBackupLongTermRetentionVault](/powershell/module/azurerm.sql/set-azurermsqlserverbackuplongtermretentionvault) cmdlet för att associera tidigare skapade recovery services-valvet med en specifik Azure SQL-server.
 
 ```PowerShell
-# Set your server to use the vault to for long-term backup retention 
+# Set your server to use the vault to for long-term backup retention
 
 Set-AzureRmSqlServerBackupLongTermRetentionVault -ResourceGroupName $resourceGroupName -ServerName $serverName -ResourceId $vault.Id
 ```
 
 ### <a name="create-a-retention-policy"></a>Skapa en kvarhållningsprincip
 
-I en kvarhållningsprincip anger du hur länge en säkerhetskopia av databasen ska bevaras. Använd den [Get-AzureRmRecoveryServicesBackupRetentionPolicyObject](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices.backup/get-azurermrecoveryservicesbackupretentionpolicyobject) cmdlet för att hämta den standardkvarhållningsprincip att använda som mall för att skapa principer. I den här mallen anges kvarhållningsperioden i 2 år. Kör den [New-AzureRmRecoveryServicesBackupProtectionPolicy](/powershell/module/azurerm.recoveryservices.backup/new-azurermrecoveryservicesbackupprotectionpolicy) att slutligen skapa principen. 
+I en kvarhållningsprincip anger du hur länge en säkerhetskopia av databasen ska bevaras. Använd den [Get-AzureRmRecoveryServicesBackupRetentionPolicyObject](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices.backup/get-azurermrecoveryservicesbackupretentionpolicyobject) cmdlet för att hämta den standardkvarhållningsprincip att använda som mall för att skapa principer. I den här mallen anges kvarhållningsperioden i 2 år. Kör den [New-AzureRmRecoveryServicesBackupProtectionPolicy](/powershell/module/azurerm.recoveryservices.backup/new-azurermrecoveryservicesbackupprotectionpolicy) att slutligen skapa principen.
 
 > [!NOTE]
-> Vissa cmdlets kräver att du anger valvkontexten innan du kör ([Set-AzureRmRecoveryServicesVaultContext](/powershell/module/azurerm.recoveryservices/set-azurermrecoveryservicesvaultcontext)) så att du ser denna cmdlet i några relaterade fragment. Du anger kontexten eftersom principen är en del av valvet. Du kan skapa flera kvarhållningsprinciper för varje valv och sedan använda önskad princip för specifika databaser. 
-
+> Vissa cmdlets kräver att du anger valvkontexten innan du kör ([Set-AzureRmRecoveryServicesVaultContext](/powershell/module/azurerm.recoveryservices/set-azurermrecoveryservicesvaultcontext)) så att du ser denna cmdlet i några relaterade fragment. Du anger kontexten eftersom principen är en del av valvet. Du kan skapa flera kvarhållningsprinciper för varje valv och sedan använda önskad princip för specifika databaser.
 
 ```PowerShell
 # Retrieve the default retention policy for the AzureSQLDatabase workload type
@@ -218,7 +214,7 @@ Set-AzureRmSqlDatabaseBackupLongTermRetentionPolicy -ResourceGroupName $resource
 
 ### <a name="view-backup-info-and-backups-in-long-term-retention"></a>Visa information om säkerhetskopiering och säkerhetskopieringar i långsiktig kvarhållning
 
-Visa information om databassäkerhetskopiorna i [långsiktig kvarhållning av säkerhetskopior](sql-database-long-term-retention.md). 
+Visa information om databassäkerhetskopiorna i [långsiktig kvarhållning av säkerhetskopior](sql-database-long-term-retention.md).
 
 Använd följande cmdlets för att visa information om säkerhetskopiering:
 
@@ -264,18 +260,17 @@ $restoredDb = Restore-AzureRmSqlDatabase -FromLongTermRetentionBackup -ResourceI
 $restoredDb
 ```
 
-
 > [!NOTE]
 > Härifrån kan du ansluta till den återställda databasen med SQL Server Management Studio för att utföra nödvändiga åtgärder, exempelvis genom att extrahera en del data från den återställda databasen och kopiera dem till den befintliga databasen eller ta bort den befintliga databasen och byta namn på den återställda databasen till det befintliga databasnamnet. Se [punkt återställning till tidpunkt](sql-database-recovery-using-backups.md#point-in-time-restore).
 
 ## <a name="how-to-cleanup-backups-in-recovery-services-vault"></a>Hur du rensa säkerhetskopior i Recovery Services-valv
 
-Från och med 1 juli 2018 LTR V1 API: et är inaktuellt och alla befintliga säkerhetskopior i Recovery Service-valv har migrerats till LTR-storage-behållare som hanteras av SQL-databas. För att säkerställa att du inte längre debiteras för de ursprungliga säkerhetskopiorna, har de tagits bort från valv efter migreringen. Om det finns ett lås i ditt valv förblir dock säkerhetskopieringar där. För att undvika onödiga kostnader kan du manuellt ta bort de gamla säkerhetskopiorna från Recovery Service-valv med hjälp av följande skript. 
+Från och med 1 juli 2018 LTR V1 API: et är inaktuellt och alla befintliga säkerhetskopior i Recovery Service-valv har migrerats till LTR-storage-behållare som hanteras av SQL-databas. För att säkerställa att du inte längre debiteras för de ursprungliga säkerhetskopiorna, har de tagits bort från valv efter migreringen. Om det finns ett lås i ditt valv förblir dock säkerhetskopieringar där. För att undvika onödiga kostnader kan du manuellt ta bort de gamla säkerhetskopiorna från Recovery Service-valv med hjälp av följande skript.
 
 ```PowerShell
 <#
 .EXAMPLE
-    .\Drop-LtrV1Backup.ps1 -SubscriptionId “{vault_sub_id}” -ResourceGroup “{vault_resource_group}” -VaultName “{vault_name}” 
+    .\Drop-LtrV1Backup.ps1 -SubscriptionId “{vault_sub_id}” -ResourceGroup “{vault_resource_group}” -VaultName “{vault_name}”
 #>
 [CmdletBinding()]
 Param (
@@ -302,14 +297,14 @@ $containers = Get-AzureRmRecoveryServicesBackupContainer -ContainerType AzureSQL
 
 ForEach ($container in $containers)
 {
-   $canDeleteContainer = $true  
+   $canDeleteContainer = $true
    $ItemCount = 0
    Write-Host "Working on container" $container.Name
    $items = Get-AzureRmRecoveryServicesBackupItem -container $container -WorkloadType AzureSQLDatabase
    ForEach ($item in $items)
    {
-          write-host "Deleting item" $item.name
-          Disable-AzureRmRecoveryServicesBackupProtection -RemoveRecoveryPoints -item $item -Force
+    write-host "Deleting item" $item.name
+    Disable-AzureRmRecoveryServicesBackupProtection -RemoveRecoveryPoints -item $item -Force
    }
 
    Write-Host "Deleting container" $container.Name

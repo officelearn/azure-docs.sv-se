@@ -8,20 +8,20 @@ ms.technology: speech
 ms.topic: article
 ms.date: 05/09/2018
 ms.author: v-jerkin
-ms.openlocfilehash: cc73be09cec4ef963a496687d112f98e05d98802
-ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
+ms.openlocfilehash: 8a441f43a5d7ab3daa3c430dc715fab9ff8c63bb
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48018527"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48868317"
 ---
 # <a name="speech-service-rest-apis"></a>Taltjänst REST API: er
 
-REST-API: er för Azure Cognitive Services enhetliga Speech service liknar API: er som tillhandahålls av den [taligenkänning för Bing](https://docs.microsoft.com/azure/cognitive-services/Speech). Slutpunkterna skiljer sig från de slutpunkter som används av tjänsten för Bing-tal. Regionala slutpunkter är tillgängliga och du måste använda en prenumerationsnyckel som motsvarar den slutpunkt som du använder.
+REST-API: er för tjänsten Azure Cognitive Services tal liknar API: er som tillhandahålls av den [taligenkänning för Bing](https://docs.microsoft.com/azure/cognitive-services/Speech). Slutpunkterna skiljer sig från de slutpunkter som används av tjänsten för Bing-tal. Regionala slutpunkter är tillgängliga och du måste använda en prenumerationsnyckel som motsvarar den slutpunkt som du använder.
 
 ## <a name="speech-to-text"></a>Tal till text
 
-Slutpunkter för tal till Text REST API visas i följande tabell. Använd det som matchar din region för prenumerationen.
+Slutpunkter för tal till Text REST API visas i följande tabell. Använd det som matchar din region för prenumerationen. Referens för den **erkännande lägen** nedan för att ersätta `conversation` med antingen `interactive` eller `dictation` för din önskade sceanrio i ett visst API-anrop.
 
 [!INCLUDE [](../../../includes/cognitive-services-speech-service-endpoints-speech-to-text.md)]
 
@@ -29,6 +29,53 @@ Slutpunkter för tal till Text REST API visas i följande tabell. Använd det so
 > Om du har anpassat den akustiska modellen eller språkmodell eller uttal, använder du din anpassade slutpunkt.
 
 Detta API stöder endast kort yttranden. Begäranden kan innehålla upp till 10 sekunder ljud och de senaste 14 sekunder övergripande maximalt. REST API: et returnerar endast slutresultat inte partiell eller mellanliggande resultat. Speech-tjänsten har också en [batch avskrift](batch-transcription.md) API som kan transkribera längre ljud.
+
+### <a name="recognition-modes"></a>Igenkänning av lägen
+
+När du använder REST API eller WebSocket-protokoll direkt, den måste ange läget för taligenkänning: `interactive`, `conversation`, eller `dictation`. Igenkänning av läge justerar taligenkänning baserat på hur användarna är sannolikt att tala. Välj lämplig erkännande läge för ditt program.
+
+> [!NOTE]
+> Igenkänning av lägen kan ha olika beteenden i REST-protokoll än i WebSocket-protokoll. REST API stöder till exempel inte kontinuerlig erkännande, även i konversationen eller diktering läge.
+> [!NOTE]
+> Dessa lägen gäller när du använder REST- eller WebSocket-protokollet direkt. Den [tal SDK](speech-sdk.md) använder olika parametrar för att ange erkännande Adressreferens. Mer information finns i klientbiblioteket för ditt val.
+
+Microsoft Speech Service returnerar endast en fras igenkänningsresultatet för alla erkännande lägen. Det finns en gräns på 15 sekunder för en enda uttryck när du använder REST API eller WebSocket-protokollet direkt.
+
+#### <a name="interactive-mode"></a>Interaktivt läge
+
+I `interactive` läge, en användare gör kort begäranden och förväntar sig programmet att utföra en åtgärd som svar.
+
+Följande egenskaper är typiska för interaktivt läge program:
+
+- Användarna vet de talar till en dator och inte till en annan personal.
+- Programanvändare redan i förväg vet vad de vill säga baserat på vad de vill att programmet utför.
+- Vanligtvis räcker yttranden om 2-3 sekunder.
+
+#### <a name="conversation-mode"></a>Konversationen läge
+
+I `conversation` läge, användare bedriver en mänskliga människor konversation.
+
+Följande egenskaper är typiska för konversationen läge program:
+
+- Användarna vet att de pratar till en annan person.
+- Taligenkänning förbättrar mänskliga konversationer genom att låta en eller båda deltagarna ser talade texten.
+- Användare planerar alltid inte att säga.
+- Användare har ofta använder för att hitta slang och andra informell tal.
+
+#### <a name="dictation-mode"></a>Dikteringsläge
+
+I `dictation` läge, användare kunna räkna upp längre yttranden till programmet för vidare bearbetning.
+
+Följande egenskaper är typiska för diktering läge program:
+
+- Användarna vet att de pratar till en dator.
+- Text för tal igenkänningsresultat visas för användarna.
+- Användare har ofta planerar vad de vill säga och mer formella språk.
+- Användare utsträckning fullständiga meningar som senaste 5 – 8 sekunder.
+
+> [!NOTE]
+> Microsoft Speech Service returnerar inte ofullständiga resultat i lägena diktering och konversationen. I stället returnerar tjänsten stabil frasen resultaten efter tystnad gränser i ljudströmmen. Microsoft kan förbättra tal-protokollet för att förbättra användarupplevelsen i dessa lägen för kontinuerlig erkännande.
+
 
 ### <a name="query-parameters"></a>Frågeparametrar
 
@@ -44,7 +91,7 @@ Följande parametrar kan ingå i frågesträngen för REST-begäran.
 
 Följande fält skickas i HTTP-frågehuvudet.
 
-|Sidhuvud|Betydelse|
+|Huvud|Betydelse|
 |------|-------|
 |`Ocp-Apim-Subscription-Key`|Speech service prenumerationsnyckeln. Antingen den här rubriken eller `Authorization` måste anges.|
 |`Authorization`|En autentiseringstoken föregås av ordet `Bearer`. Antingen den här rubriken eller `Ocp-Apim-Subscription-Key` måste anges. Se [autentisering](#authentication).|
@@ -55,13 +102,19 @@ Följande fält skickas i HTTP-frågehuvudet.
 
 ### <a name="audio-format"></a>Ljudformatet
 
-Ljudet skickas i brödtexten i HTTP `PUT` begäran. Det bör vara 16-bitars WAV format med det enda PCM-kanal (mono) på 16 KHz.
+Ljudet skickas i brödtexten i HTTP `PUT` begäran. Det bör vara 16-bitars WAV format med PCM en kanal (mono) på 16 KHz av följande format/kodningen.
+
+* WAV format med PCM-codec
+* OGG format med OPUS codec
+
+>[!NOTE]
+>Formaten ovan stöds via REST-API och WebSocket i Speech-tjänsten. Den [tal SDK](/index.yml) för närvarande endast stöd för WAV formatera med PCM-codec. 
 
 ### <a name="chunked-transfer"></a>Segmentvis överföring
 
 Segmentvis överföring (`Transfer-Encoding: chunked`) kan hjälpa dig att minska svarstiden för igenkänning av eftersom den tillåter Speech-tjänsten ska börja bearbeta ljudfilen medan den överförs. REST API: et tillhandahåller inte partiell eller mellanliggande resultat. Det här alternativet är avsedd endast för att förbättra svarstiden.
 
-Följande kod visar hur du skickar ljud i segment. `request` ett objekt i HTTPWebRequest är ansluten till rätt REST-slutpunkten. `audioFile` är sökvägen till en ljudfil på disken.
+Följande kod visar hur du skickar ljud i segment. Endast det första segmentet ska innehålla ljud filens huvud. `request` ett objekt i HTTPWebRequest är ansluten till rätt REST-slutpunkten. `audioFile` är sökvägen till en ljudfil på disken.
 
 ```csharp
 using (fs = new FileStream(audioFile, FileMode.Open, FileAccess.Read))
@@ -208,7 +261,7 @@ En fullständig lista över tillgängliga röster är tillgängliga i [språk so
 
 Följande fält skickas i HTTP-frågehuvudet.
 
-|Sidhuvud|Betydelse|
+|Huvud|Betydelse|
 |------|-------|
 |`Authorization`|En autentiseringstoken föregås av ordet `Bearer`. Krävs. Se [autentisering](#authentication).|
 |`Content-Type`|Inkommande innehållstyp: `application/ssml+xml`.|

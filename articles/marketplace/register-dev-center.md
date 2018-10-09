@@ -12,14 +12,14 @@ ms.workload: ''
 ms.tgt_pltfrm: ''
 ms.devlang: ''
 ms.topic: article
-ms.date: 06/05/2018
+ms.date: 10/05/2018
 ms.author: ellacroi
-ms.openlocfilehash: 7416a6ccbb734c031f09bd4185b2674dead71dc8
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.openlocfilehash: cc4e128cab3cad235462e29e65fa58002a103bcd
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48816811"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48855909"
 ---
 # <a name="register-in-dev-center"></a>Registrera i Dev Center  
 För att kontrollera att du inte är inloggad på ett konto för personliga webbläsaren kan öppna en ny Internet Explorer InPrivate- eller Chrome Incognito-webbläsarsession.  
@@ -102,6 +102,44 @@ Följ stegen nedan för att skicka in ett supportärende om du har problem med r
 2.  Fyll i information om problemet.  
 3.  Klicka på knappen Skicka för att du skickar biljetten. 
 
+
+## <a name="issue-add-bank-and-tax-information-for-publisher-payouts"></a>Problem: Lägga till information om bank och skatt för utgivaren payouts  
+Bank-och skatt krävs för alla kommersiella erbjudanden med hjälp av transact listtyp.  
+*   Om du publicerar kommersiella erbjudanden för inköp, sedan du måste lägga till betalnings-och skatteinformation och begärandevalideringen i Dev Center.  
+    >[!IMPORTANT]
+    >För kommersiella erbjudanden (transact), måste du slutföra bank-och skatt innan du kan skicka dina erbjudanden till produktion.  
+
+*   Om du är publicering endast kostnadsfria eller BYOL-erbjudanden och du behöver inte lägga till informationen. Du kan lägga till information om senare, men verifiering av skatteinformationen tar lite tid. Om du planerar att erbjuda kommersiella erbjudanden för inköp, bör du lägga till information så snart som möjligt.  
+
+## <a name="add-bank-information"></a>Lägg till bankinformation  
+1.  Logga in på Dev Center med hjälp av ditt Microsoft-ID.  
+    *   Gå till sidan finns på Windows Dev Center för att logga in på Dev Center, [dev.windows.com](https://dev.windows.com).  
+2.  Välj betalnings-konto på den vänstra menyn.
+3.  På den `Choose payment method` väljer `Bank account` eller `PayPal`.  
+    >[!IMPORTANT]
+    >Om du har kommersiella erbjudanden att kunder programvaruköp på Marketplace och sedan ditt betalnings-konto är där du får payout för inköp.  
+
+4.  Ange informationen. När du har kontrollerat att informationen är korrekt kan du klicka på knappen Spara.  
+    >[!IMPORTANT]
+    >Om du uppdaterar eller ändra ditt betalnings-konto, måste du följa samma steg som ersätter den aktuella informationen med den nya informationen. Ändringar i ditt konto betalnings fördröjer betalningar upp till en betalning cykel. Den här fördröjningen beror på att Microsoft måste verifiera ändringen av tjänstkontot, det här är samma som när du första konfiguration betalnings-konto. Du får betalat hela beloppet när ditt konto har verifierats. Alla utbetalning från den aktuella betalningen cykel läggs till i nästa cykel.  
+
+4.  Klicka på knappen Nästa. 
+
+---   
+
+## <a name="add-tax-information"></a>Lägg till skatteinformation  
+1.  Logga in på Dev Center med hjälp av ditt Microsoft-ID.  
+    *   Gå till sidan finns på Windows Dev Center för att logga in på Dev Center, [dev.windows.com](https://dev.windows.com).  
+2.  Välj skatt profil på den vänstra menyn. 
+3.  På den `Set up your tax form` väljer du land eller region där du har permanent datahemvist.  
+    
+    Välj land eller region där du håller primära medborgarskap.  
+    
+    Klicka på knappen Nästa. 
+4.  Ange dina skatteuppgifter.  
+5.  Klicka på knappen Nästa.  
+
+
 ## <a name="frequently-asked-questions"></a>Vanliga frågor och svar: 
 
 *   **Vilken utgivare kräver Kontoregistrering för en Dev Center?** 
@@ -153,42 +191,6 @@ Följ stegen nedan för att skicka in ett supportärende om du har problem med r
 
 *   **Där kontaktar jag support för frågor om Dev Center registrering?**
 Att få tillgång till support finns på Windows developer support-sidan finns på [developer.microsoft.com/windows/support](https://developer.microsoft.com/windows/support). 
-
-## <a name="issue-add-bank-and-tax-information-for-publisher-payouts"></a>Problem: Lägga till information om bank och skatt för utgivaren payouts  
-Bank-och skatt krävs för alla kommersiella erbjudanden med hjälp av transact listtyp.  
-*   Om du publicerar kommersiella erbjudanden för inköp, sedan du måste lägga till betalnings-och skatteinformation och begärandevalideringen i Dev Center.  
-    >[!IMPORTANT]
-    >För kommersiella erbjudanden (transact), måste du slutföra bank-och skatt innan du kan skicka dina erbjudanden till produktion.  
-
-*   Om du är publicering endast kostnadsfria eller BYOL-erbjudanden och du behöver inte lägga till informationen. Du kan lägga till information om senare, men verifiering av skatteinformationen tar lite tid. Om du planerar att erbjuda kommersiella erbjudanden för inköp, bör du lägga till information så snart som möjligt.  
-
-## <a name="add-bank-information"></a>Lägg till bankinformation  
-1.  Logga in på Dev Center med hjälp av ditt Microsoft-ID.  
-    *   Gå till sidan finns på Windows Dev Center för att logga in på Dev Center, [dev.windows.com](https://dev.windows.com).  
-2.  Välj betalnings-konto på den vänstra menyn.
-3.  På den `Choose payment method` väljer `Bank account` eller `PayPal`.  
-    >[!IMPORTANT]
-    >Om du har kommersiella erbjudanden att kunder programvaruköp på Marketplace och sedan ditt betalnings-konto är där du får payout för inköp.  
-
-4.  Ange informationen. När du har kontrollerat att informationen är korrekt kan du klicka på knappen Spara.  
-    >[!IMPORTANT]
-    >Om du uppdaterar eller ändra ditt betalnings-konto, måste du följa samma steg som ersätter den aktuella informationen med den nya informationen. Ändringar i ditt konto betalnings fördröjer betalningar upp till en betalning cykel. Den här fördröjningen beror på att Microsoft måste verifiera ändringen av tjänstkontot, det här är samma som när du första konfiguration betalnings-konto. Du får betalat hela beloppet när ditt konto har verifierats. Alla utbetalning från den aktuella betalningen cykel läggs till i nästa cykel.  
-
-4.  Klicka på knappen Nästa. 
-
----   
-
-## <a name="add-tax-information"></a>Lägg till skatteinformation  
-1.  Logga in på Dev Center med hjälp av ditt Microsoft-ID.  
-    *   Gå till sidan finns på Windows Dev Center för att logga in på Dev Center, [dev.windows.com](https://dev.windows.com).  
-2.  Välj skatt profil på den vänstra menyn. 
-3.  På den `Set up your tax form` väljer du land eller region där du har permanent datahemvist.  
-    
-    Välj land eller region där du håller primära medborgarskap.  
-    
-    Klicka på knappen Nästa. 
-4.  Ange dina skatteuppgifter.  
-5.  Klicka på knappen Nästa.  
 
 ## <a name="next-steps"></a>Nästa steg
 *   Gå till den [Azure Marketplace och AppSource Publiceringsguiden](./marketplace-publishers-guide.md) sidan.  

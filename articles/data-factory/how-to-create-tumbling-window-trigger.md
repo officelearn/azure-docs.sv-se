@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/27/2018
 ms.author: shlo
-ms.openlocfilehash: c42d6235af8a5ab27fbd550b63c301fd9c6f15b1
-ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
+ms.openlocfilehash: 1a24079292ce8fdd6a514a85484fc10b77491ba6
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39325041"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48868355"
 ---
 # <a name="create-a-trigger-that-runs-a-pipeline-on-a-tumbling-window"></a>Skapa en utlösare som kör en pipeline på ett rullande fönster
 Den här artikeln innehåller steg för att skapa, starta och övervaka en utlösare för rullande fönster. Allmän information om utlösare och typerna som stöds finns i [Pipelinekörning och utlösare](concepts-pipeline-execution-triggers.md).
@@ -80,7 +80,7 @@ Följande tabell innehåller en översikt över de viktigaste JSON-element som �
 |:--- |:--- |:--- |:--- |:--- |
 | **typ** | Typ av utlösaren. Typen är det fasta värdet ”TumblingWindowTrigger”. | Sträng | "TumblingWindowTrigger" | Ja |
 | **runtimeState** | Körningstiden för det aktuella tillståndet för utlösaren.<br/>**Obs**: det här elementet har \<readOnly >. | Sträng | ”Started”, Stoppad ”” ”inaktiverad” | Ja |
-| **frequency** | En sträng som representerar frekvens (minuter eller timmar) att utlösaren ska återkomma. Om den **startTime** datumvärden är större än den **frekvens** värde, den **startTime** datum anses när fönstret gränserna beräknas. Till exempel om den **frekvens** värdet är per timme och **startTime** värdet är 2016-04-01T10:10:10Z, det första fönstret är (2017-09-01T10:10:10Z, 2017-09-01T11:10:10Z). | Sträng | ”minut”, ”hour”  | Ja |
+| **frequency** | En sträng som representerar frekvens (minuter eller timmar) att utlösaren ska återkomma. Om den **startTime** datumvärden är större än den **frekvens** värde, den **startTime** datum anses när fönstret gränserna beräknas. Till exempel om den **frekvens** värdet är per timme och **startTime** värdet är 2017-09-01T10:10:10Z, det första fönstret är (2017-09-01T10:10:10Z, 2017-09-01T11:10:10Z). | Sträng | ”minut”, ”hour”  | Ja |
 | **interval** | Ett positivt heltal som anger intervallet för värdet för **frequency** och som avgör hur ofta utlösaren körs. Till exempel om den **intervall** är 3 och **frekvens** är ”hour” utlösaren återkommer var tredje timme. | Integer | Ett positivt heltal. | Ja |
 | **startTime**| Den första förekomsten, vilket kan vara i förflutna. Den första utlösaren är (**startTime**, **startTime** + **intervall**). | DateTime | Ett DateTime-värde. | Ja |
 | **endTime**| Den sista förekomsten, vilket kan vara i förflutna. | DateTime | Ett DateTime-värde. | Ja |

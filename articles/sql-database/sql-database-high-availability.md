@@ -11,13 +11,13 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: carlrab, sashan
 manager: craigg
-ms.date: 09/14/2018
-ms.openlocfilehash: dfb1e218218a44aafd318acb53750c875bdf1263
-ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
+ms.date: 10/05/2018
+ms.openlocfilehash: 1c6fb3660f395e709207e788b4ef648a69cae48d
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48247727"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48868583"
 ---
 # <a name="high-availability-and-azure-sql-database"></a>Hög tillgänglighet och Azure SQL-databas
 
@@ -31,9 +31,9 @@ Azure SQL Database är baserad på SQL Server Database Engine-arkitektur som jus
 
 Azure uppgraderar och korrigerar underliggande operativsystemet, drivrutiner och SQL Server Database Engine transparent med minimalt driftstopp för slutanvändare. Azure SQL-databas som körs på den senaste stabila versionen av SQL Server Database Engine och Windows OS och de flesta användarna skulle inte lägger märke till att uppgraderingen utförs kontinuerligt.
 
-## <a name="standardgeneral-purpose-availability"></a>Standard/generell användning tillgänglighet
+## <a name="basic-standard-and-general-purpose-service-tier-availability"></a>Basic, Standard och generell användning tjänsttillgänglighet nivå
 
-Standard tillgänglighet syftar på 99,99% serviceavtal (SLA) som används för nivåerna Standard/Basic/generell användning. Hög tillgänglighet i den här arkitekturen modellen uppnås genom uppdelning av beräknings- och lager och replikeringen av data på lagringsnivå.
+Standard tillgänglighet syftar på 99,99% serviceavtal (SLA) som tillämpas på tjänstnivåerna Basic, Standard och generell användning. Hög tillgänglighet i den här arkitekturen modellen uppnås genom uppdelning av beräknings- och lager och replikeringen av data på lagringsnivå.
 
 Följande bild visar fyra noder i arkitekturen standardmodell med avgränsas lagren för beräkning och lagring.
 
@@ -46,9 +46,9 @@ Det finns två nivåer i modellen standard tillgänglighet:
 
 När databasmotorn eller operativsystemet uppgraderas, en del av underliggande den infrastrukturen misslyckas eller om vissa viktiga problem har identifierats i Sql Server-processen, tillståndslösa SQL Server-processen Azure Service Fabric flyttas till en annan tillståndslösa compute-nod. Det finns en uppsättning ledig noder som väntar på att köra nya beräkningstjänst vid redundans för att minimera tiden för växling vid fel. Data i Azure Storage-skiktet påverkas inte och data/loggfiler är kopplade till nyligen initierad SQL Server-processen. Den här processen garanterar 99,99% tillgänglighet, men det kan ha vissa prestandaeffekter på arbetsbelastning som körs på grund av övergångstid och faktumet den nya SQL Server-noden börjar med kalla cache.
 
-## <a name="premiumbusiness-critical-availability"></a>Premium/affärskritisk tillgänglighet
+## <a name="premium-and-business-critical-service-tier-availability"></a>Premium och affärskritisk nivå tjänsttillgänglighet
 
-Premium-tillgänglighet är aktiverat i Premium-nivån av Azure SQL Database och den är utformad för intensiva arbetsbelastningar som inte tolererar en prestandaförsämring på grund av pågående underhållsåtgärder.
+Premium-tillgänglighet är aktiverat på Premium och affärskritisk tjänstnivåer i Azure SQL Database och den är utformad för intensiva arbetsbelastningar som inte tolererar en prestandaförsämring på grund av pågående underhållsåtgärder.
 
 I premium-modellen integreras Azure SQL-databas beräkning och lagring på en enda nod. Hög tillgänglighet i den här arkitekturen modellen uppnås genom att replikeringen av beräkning (SQL Server Database Engine-processen) och lagring (lokalt anslutna SSD) som distribuerats i 4-noders [ständigt aktiverade Tillgänglighetsgrupper](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/overview-of-always-on-availability-groups-sql-server) kluster.
 

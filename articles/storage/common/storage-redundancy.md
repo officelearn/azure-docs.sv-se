@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 10/02/2018
 ms.author: tamram
 ms.component: common
-ms.openlocfilehash: bca75f9efa1614c4fa719b21007c827494ecd8f0
-ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
+ms.openlocfilehash: b266bc11f32d8621b6819b695af42cb14908bc05
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/06/2018
-ms.locfileid: "48830718"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48870799"
 ---
 # <a name="azure-storage-replication"></a>Azure Storage-replikering
 
@@ -40,10 +40,12 @@ I följande tabell ger en snabb överblick över omfånget för hållbarhet och 
 | Läsåtkomst till dina data (på en fjärransluten, geo-replikerad region) i händelse av hela otillgänglighet | Nej                              | Nej                               | Nej                                   | Ja                                  |
 | Utformad för att ge ___ objektshållbarhet under ett givet år                                          | minst 99,999999999% (11 9) | minst 99,9999999999% (12 9) | minst 99,99999999999999% (16 9) | minst 99,99999999999999% (16 9) |
 | Stöds storage-kontotyper                                                                   | GPv1, GPv2, Blob                | GPv2                             | GPv1, GPv2, Blob                     | GPv1, GPv2, Blob                     |
-| Tillgänglighet för läsbegäranden | Minst 99,9% (99% för lågfrekvent åtkomstnivå)
+| Tillgänglighet för läsbegäranden | Minst 99,9% (99% för lågfrekvent åtkomstnivå) | Minst 99,9% (99% för lågfrekvent åtkomstnivå) | Minst 99,9% (99% för lågfrekvent åtkomstnivå) | Minst 99,99% (99,9% för kalla åtkomstnivåer) |
+| Tillgänglighet för skrivbegäranden | Minst 99,9% (99% för lågfrekvent åtkomstnivå) | Minst 99,9% (99% för lågfrekvent åtkomstnivå) | Minst 99,9% (99% för lågfrekvent åtkomstnivå) | Minst 99,9% (99% för lågfrekvent åtkomstnivå) |
 
+Information om priser för varje alternativ för dataredundans, finns i [priser för Azure Storage](https://azure.microsoft.com/pricing/details/storage/). 
 
-Se [priser för Azure Storage](https://azure.microsoft.com/pricing/details/storage/) information om de olika redundansalternativ om priser.
+Information om Azure Storage-garantier för hållbarhet och tillgänglighet, finns i den [serviceavtal för Azure Storage](https://azure.microsoft.com/support/legal/sla/storage/).
 
 > [!NOTE]
 > Premium Storage stöder endast lokalt redundant lagring (LRS). Information om Premium-lagring finns i [Premium Storage: lagring med höga prestanda för Azure-Datorbelastningar](../../virtual-machines/windows/premium-storage.md).

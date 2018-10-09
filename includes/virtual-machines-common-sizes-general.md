@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/06/2018
 ms.author: azcspmt;jonbeck;cynthn
 ms.custom: include file
-ms.openlocfilehash: eac6c6d76bcc3b3d9cfeda7d8ca4e52e28ba9d8f
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: 2d1a6bdb0cb53e3e58b4b4e8fed4bf29957d6489
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44369282"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48858085"
 ---
 VM-storlekar för generell användning ger balanserat förhållande mellan processor och minne. Utmärkt för tester och utveckling, små till mellanstora databaser och webbservrar med låg till medelhög trafik. Den här artikeln innehåller information om hur många virtuella processorer, diskar och nätverkskort samt genomflödet för storlekar i den här grupperingen. 
 
@@ -26,6 +26,8 @@ VM-storlekar för generell användning ger balanserat förhållande mellan proce
 - Dv3-serien har 2,4 GHz Intel Xeon® E5-2673 v3 (Haswell)-processor eller senaste 2,3 GHz Intel XEON® E5-2673 v4-processorn processorn (Broadwell) i en hyper-threaded konfiguration som ger ett mer prisvärt för arbetsbelastningar för de flesta allmänt syfte.  Minne har expanderats (från ~3.5 GiB/Vcpu(:er) för 4 GiB/vCPU) medan disk- och gränser har justerats på basis av per kärna för att anpassas till flytten till hypertrådning.  Dv3 inte längre har extra minne VM-storlekar av D/Dv2-familjer, de som har flyttats till nya Ev3-familjen.
 
   Exemplen i D-serien omfattar program, relationsdatabaser, minnesintern cachelagring och analys. 
+  
+- Den [DC-serien](#dc-series) är en ny serie av virtuella datorer i Azure som kan hjälpa att skydda sekretessen och integriteten hos dina data och code medan den bearbetas i det offentliga molnet. Dessa datorer backas upp av den senaste generationen i 3,7 GHz Intel XEON E - 2176G-Processor med SGX-teknik. Dessa datorer kan gå upp till 4.7 GHz med Intel Turbo Boost Technology. DC-serieinstanser ger kunderna möjlighet att skapa säkra enklav-baserade program kan skydda sin kod och data när den inte används
 
 ## <a name="b-series"></a>B-serien
 
@@ -138,6 +140,7 @@ Premium-lagring: Stöds inte
 
 Premium Storage cachelagring: Stöds inte
 
+
 | Storlek            | Virtuell processor | Minne: GiB | Temporär lagring (SSD) GiB | Maximalt genomflöde för temporär lagring: IOPS / Mbit/s för läsning / M/bit/s för skrivning | Maximalt antal datadiskar/dataflöde: IOPS | Maximalt antal nätverkskort / förväntade nätverksbandbredd (Mbit/s) | 
 |-----------------|-----------|-------------|----------------|----------------------------------------------------------|-----------------------------------|------------------------------|
 | Standard_A1_v2  | 1         | 2           | 10             | 1 000 / 20 / 10                                           | 2 / 2 x 500               | 2/250                 |
@@ -149,6 +152,22 @@ Premium Storage cachelagring: Stöds inte
 | Standard_A8m_v2 | 8         | 64          | 80             | 8 000 / 160 / 80                                          | 16 / 16 x 500             | 8/2 000                     |
 
 <br>
+
+
+## <a name="dc-series"></a>DC-serien
+
+Premium Storage: stöds
+
+Cachelagring för Premium Storage: stöds
+
+
+
+| Storlek          | Virtuell processor | Minne: GiB | Temporär lagring (SSD) GiB | Maximalt antal datadiskar | Maximalt genomflöde för cachelagring och temporär lagring: IOPS / Mbit/s (cachestorlek i GiB) | Maximalt icke cachelagrat diskgenomflöde: IOPS / Mbit/s | Maximalt antal nätverkskort / förväntade nätverksbandbredd (Mbit/s) |
+|---------------|------|-------------|------------------------|----------------|-------------------------------------------------------------------------|-------------------------------------------|----------------------------------------------|
+| Standard_DC2s | 2    | 8           | 100                    | 2              | 4000 / 32 (43)                                                          | 3200 /48                                  | 2/1 500                                     |
+| Standard_DC4s | 4    | 16          | 200                    | 4              | 8000 / 64 (86)                                                          | 6400 /96                                  | 2 / 3000                                     |
+
+
 
 
 

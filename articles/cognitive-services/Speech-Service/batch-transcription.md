@@ -8,16 +8,16 @@ ms.technology: Speech to Text
 ms.topic: article
 ms.date: 04/26/2018
 ms.author: panosper
-ms.openlocfilehash: 860b58a18fbc14532a8591fc753453d60492d3c0
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: e702cb6da3378e460ebb68542d82e736b9f57a52
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46981380"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48857796"
 ---
 # <a name="batch-transcription"></a>Batch-transkription
 
-Batch avskrift är perfekt om du har stora mängder ljud. Du kan peka på ljudfiler och få tillbaka avskrifter i asynkron läge.
+Batch avskrift är perfekt om du har stora mängder ljud. Du kan peka på ljudfiler av URI: N och få tillbaka avskrifter i asynkron läge.
 
 ## <a name="batch-transcription-api"></a>Batch avskrift API
 
@@ -59,7 +59,7 @@ Delar upp kanalen vänster och höger under utskrift för stereo ljudströmmar B
 
 ## <a name="authorization-token"></a>Autentiseringstoken
 
-Som med alla funktioner i enhetliga Speech-tjänsten skapar du en prenumerationsnyckel från den [Azure-portalen](https://portal.azure.com) följande vår [Get-Started guide](get-started.md). Om du planerar att hämta avskrifter från våra basmodeller sedan det här är allt du behöver göra. 
+Som med alla funktioner i Speech-tjänsten skapar du en prenumerationsnyckel från den [Azure-portalen](https://portal.azure.com) följande vår [Get-Started guide](get-started.md). Om du planerar att hämta avskrifter från våra basmodeller sedan det här är allt du behöver göra. 
 
 Om du planerar att anpassa och använda en anpassad modell måste du lägga till den här nyckeln subscritpion i portal för anpassat tal på följande sätt:
 

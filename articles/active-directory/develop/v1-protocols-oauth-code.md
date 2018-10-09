@@ -16,12 +16,12 @@ ms.date: 07/23/2018
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: bd9d3a677d9fea54331200258d4b9b8e07a54312
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: e896392404c23e88d697d45146f802576d6045d3
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46956905"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48870833"
 ---
 # <a name="authorize-access-to-azure-active-directory-web-applications-using-the-oauth-20-code-grant-flow"></a>Bevilja åtkomst till Azure Active Directory-webbprogram med hjälp av kod grant-flöde för OAuth 2.0
 
@@ -274,7 +274,7 @@ Specifikationen RFC 6750 definierar följande fel för resurser som använder WW
 
 ## <a name="refreshing-the-access-tokens"></a>Uppdatera åtkomsttoken
 
-Åtkomsttoken är tillfällig och måste uppdateras när de går ut om du vill fortsätta få åtkomst till resurser. Du kan uppdatera den `access_token` genom att skicka in en annan `POST` begäran till den `/token` slutpunkt, men den här tiden att tillhandahålla den `refresh_token` i stället för den `code`.
+Åtkomsttoken är tillfällig och måste uppdateras när de går ut om du vill fortsätta få åtkomst till resurser. Du kan uppdatera den `access_token` genom att skicka in en annan `POST` begäran till den `/token` slutpunkt, men den här tiden att tillhandahålla den `refresh_token` i stället för den `code`.  Uppdateringstoken är giltig för alla resurser som klienten redan har fått samtycka till att komma åt - därför en uppdateringstoken som skickats vid en begäran om `resource=https://graph.microsoft.com` kan användas för att begära en ny åtkomsttoken för `resource=https://contoso.com/api`. 
 
 Uppdatera token har inte angiven livslängd. Livslängd för uppdateringstoken är oftast relativt lång. Men i vissa fall kan uppdaterings-tokens upphör att gälla, har återkallats eller saknar tillräcklig behörighet för den önskade åtgärden. Programmet behöver för att förvänta sig och hantera fel som returneras av utfärdande-slutpunkten på rätt sätt.
 

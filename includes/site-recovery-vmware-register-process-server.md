@@ -1,5 +1,5 @@
 * Anslut till den virtuella processerverdatorn via Anslutning till fjärrskrivbord.
-* Du kan starta cspsconfigtool.exe genom att klicka på genvägen på skrivbordet. (Verktyget startas automatiskt om det är första gången du loggar in på processervern).
+* Du kan starta cspsconfigtool.exe genom att klicka på genvägen på skrivbordet. (Verktyget startas automatiskt om det första gången du loggar in processervern).
   - Konfigurationsserverns fullständiga domännamn eller IP-adress
   - Porten som konfigurationsservern lyssnar på. Värdet bör vara 443
   - Lösenfras för anslutningen till konfigurationsservern.

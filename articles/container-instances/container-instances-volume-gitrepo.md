@@ -2,18 +2,17 @@
 title: Montera en gitRepo volym Azure Container Instances
 description: Lär dig hur du monterar en gitRepo volym för att klona en Git-lagringsplats till dina behållarinstanser
 services: container-instances
-author: mmacy
-manager: jeconnoc
+author: dlepow
 ms.service: container-instances
 ms.topic: article
 ms.date: 06/15/2018
-ms.author: marsma
-ms.openlocfilehash: 86d85f9f84b8d3ae3c31ff59089ce264d5e3192e
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.author: danlep
+ms.openlocfilehash: 9f693299d2466b560e0957a77e898e1b10433fb0
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44304347"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48857417"
 ---
 # <a name="mount-a-gitrepo-volume-in-azure-container-instances"></a>Montera en gitRepo volym i Azure Container Instances
 

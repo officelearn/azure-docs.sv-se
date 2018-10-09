@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
 ms.author: jeconnoc
-ms.openlocfilehash: 6af4533a4ab374071b904cc4b03ca239a3e83364
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 309c7275a1e775ed2bd689520ac39501e8bd6052
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39008967"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48857830"
 ---
 # <a name="overview-of-azure-cloud-services"></a>Översikt över Azure Cloud Services
 Azure Cloud Services är ett exempel på en [plattform som en tjänst](https://azure.microsoft.com/overview/what-is-paas/) (PaaS). Som [Azure App Service](../app-service/app-service-web-overview.md), den här tekniken är utformad för att stödja program som är skalbara, tillförlitliga och billiga att hantera. På samma sätt som att App Service finns på virtuella datorer (VM), så är för Azure Cloud Services. Du kan dock mer kontroll över de virtuella datorerna. Du kan installera din egen programvara på virtuella datorer som använder Azure Cloud Services och du kan komma åt dem via en fjärranslutning.
@@ -33,7 +33,7 @@ Det finns två typer av Azure Cloud Services-roller. Den enda skillnaden mellan 
 
 * **Arbetsroll**: inte använder IIS och kör din app fristående.
 
-Ett enkelt program kan exempelvis använda bara en enda web-roll, som en webbplats. Ett mer komplext program kan använda en webbroll för att hantera inkommande begäranden från användare och skicka dessa begäranden till en arbetsroll för bearbetning. (Den här kommunikationen kan använda [Azure Service Bus](../service-bus-messaging/service-bus-fundamentals-hybrid-solutions.md) eller [Azure Queue storage](../storage/common/storage-introduction.md).)
+Ett enkelt program kan exempelvis använda bara en enda web-roll, som en webbplats. Ett mer komplext program kan använda en webbroll för att hantera inkommande begäranden från användare och skicka dessa begäranden till en arbetsroll för bearbetning. (Den här kommunikationen kan använda [Azure Service Bus](../service-bus-messaging/service-bus-messaging-overview.md) eller [Azure Queue storage](../storage/common/storage-introduction.md).)
 
 Som bilden ovan antyder kör alla virtuella datorer i ett enda program i samma molntjänst. Användare åtkomst till programmet via en enda offentlig IP-adress med begäranden läsa in balanserade över programmets virtuella datorer. Plattformen [kan skalas och distribuerar](cloud-services-how-to-scale-portal.md) de virtuella datorerna i ett Azure Cloud Services-program på ett sätt som förhindrar en enskild felpunkt maskinvara.
 

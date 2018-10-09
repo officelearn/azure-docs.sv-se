@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/14/2018
 ms.author: pbutlerm
-ms.openlocfilehash: b15224a5be6c3c1df0778c35680836cbbfee2e48
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: 8c432146d33db992a0ae612dfc56ace9460ade17
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48811649"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48870867"
 ---
 # <a name="configure-lead-management-for-dynamics-crm-online"></a>Konfigurera lead-hantering för Dynamics CRM online
 
@@ -95,7 +95,7 @@ Använd följande steg för att konfigurera Azure Active Directory för Dynamics
 
 ### <a name="office-365"></a>Office 365
 
-Om du inte vill använda Azure Active Directory, kan du registrera en ny användare på administrationsportalen för Office 365. Du kommer att bli ombedd att uppdatera ditt användarnamn/lösenord var 90: e dag för att fortsätta få leads.
+Om du inte vill använda Azure Active Directory, kan du registrera en ny användare på administrationsportalen för Office 365. Du kommer att behöva uppdatera ditt användarnamn/lösenord var 90: e dag för att fortsätta få leads.
 
 Använd följande steg för att konfigurera Office 365 för Dynamics CRM.
 

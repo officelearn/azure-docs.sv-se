@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/23/2018
 ms.author: douglasl
-ms.openlocfilehash: 53ea7425f0497eca7c95ddefeaa09aa40259672b
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.openlocfilehash: 38fbb62de60bc5604210c8ad7339368a04967c27
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39216284"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48867060"
 ---
 # <a name="create-a-trigger-that-runs-a-pipeline-in-response-to-an-event"></a>Skapa en utlösare som kör en pipeline som svar på en händelse
 
@@ -58,11 +58,11 @@ När filen tas emot i din lagringsplats och motsvarande blob skapas den här hä
 
 ### <a name="map-trigger-properties-to-pipeline-parameters"></a>Mappa egenskaper för utlösare till pipeline-parametrar
 
-När en händelseutlösare utlöses för en specifik blob händelsen fångar mappnamn för sökvägen och filnamnet för bloben till egenskaperna `@triggerBody().folderPath` och `@triggerBody().fileName`. Om du vill använda värdena för dessa egenskaper i en pipeline måste du mappa egenskaperna till pipeline-parametrar. När du mappar egenskaperna till parametrar, du kan komma åt de värden som avbildas av utlösaren via den `@pipeline.parameters.parameterName` uttryck i hela pipelinen.
+När en händelseutlösare utlöses för en specifik blob händelsen fångar mappnamn för sökvägen och filnamnet för bloben till egenskaperna `@triggerBody().folderPath` och `@triggerBody().fileName`. Om du vill använda värdena för dessa egenskaper i en pipeline måste du mappa egenskaperna till pipeline-parametrar. När du mappar egenskaperna till parametrar, du kan komma åt de värden som avbildas av utlösaren via den `@pipeline().parameters.parameterName` uttryck i hela pipelinen.
 
 ![Mappa egenskaper till pipeline-parametrar](media/how-to-create-event-trigger/event-based-trigger-image4.png)
 
-Till exempel på föregående skärmbild. utlösaren har konfigurerats för att utlöses när en blobbsökväg som slutar på `.csv` skapas i Lagringskontot. Resultatet blir att, när en blob med det `.csv` tillägget skapas var som helst i Storage-konto i `folderPath` och `fileName` egenskaper avbilda platsen för den nya bloben. Till exempel `@triggerBody().folderPath` har ett värde som `/containername/foldername/nestedfoldername` och `@triggerBody().fileName` har ett värde som `filename.csv`. De här värdena mappas i exemplet till pipeline-parametrar `sourceFolder` och `sourceFile`. Du kan använda dem i hela pipelinen som `@pipeline.parameters.sourceFolder` och `@pipeline.parameters.sourceFile` respektive.
+Till exempel på föregående skärmbild. utlösaren har konfigurerats för att utlöses när en blobbsökväg som slutar på `.csv` skapas i Lagringskontot. Resultatet blir att, när en blob med det `.csv` tillägget skapas var som helst i Storage-konto i `folderPath` och `fileName` egenskaper avbilda platsen för den nya bloben. Till exempel `@triggerBody().folderPath` har ett värde som `/containername/foldername/nestedfoldername` och `@triggerBody().fileName` har ett värde som `filename.csv`. De här värdena mappas i exemplet till pipeline-parametrar `sourceFolder` och `sourceFile`. Du kan använda dem i hela pipelinen som `@pipeline().parameters.sourceFolder` och `@pipeline().parameters.sourceFile` respektive.
 
 ## <a name="json-schema"></a>JSON-schema
 

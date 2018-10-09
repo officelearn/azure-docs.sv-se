@@ -11,13 +11,13 @@ author: joesackmsft
 ms.author: josack
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 09/14/2018
-ms.openlocfilehash: 6dd4aacddfbce3e06c1ea9a356a559cc8cd8049c
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.date: 10/05/2018
+ms.openlocfilehash: fd32a00fe83e731321cb5e365f64d0f6acf8732d
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47166494"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48870986"
 ---
 # <a name="new-dba-in-the-cloud--managing-your-database-in-azure-sql-database"></a>Ny DBA i molnet – hantera din databas i Azure SQL Database
 
@@ -89,7 +89,7 @@ Traditionella windows-autentisering stöds inte. Azure Active Directory (AD) är
 ### <a name="how-do-i-limit-or-control-connectivity-access-to-my-database"></a>Hur jag begränsa eller kontrollera anslutning åtkomst till min databas?
 Det finns flera metoder till ditt förfogande som du kan använda för att uppnå optimal anslutning organisation för ditt program. 
 - Brandväggsregler
-- VNET-tjänstslutpunkter
+- Tjänstslutpunkter i virtuella nätverk
 - Reserverade ip-adresser
 
 #### <a name="firewall"></a>Brandvägg
@@ -98,11 +98,11 @@ En brandvägg förhindrar åtkomst till din server från en extern entitet genom
 Du kan skapa brandväggsregler på servernivå eller på databasnivå. Nivån brandväggsregler för servern kan antingen skapas via portalen eller genom SSMS. För mer information om hur du anger en server och databas på brandväggsregel, se: [skapa brandväggsregler i SQL Database](sql-database-security-tutorial.md#create-a-server-level-firewall-rule-in-the-azure-portal).
 
 #### <a name="service-endpoints"></a>Tjänstslutpunkter
-Som standard SQL-databasen är konfigurerad att ”Tillåt Azure-tjänster åtkomst till servern” – vilket innebär att alla virtuella datorer i Azure kan försöka ansluta till databasen. Dessa försök fortfarande behöver autentiserad. Men om du inte vill din databas för att vara tillgängliga för alla Azure-IP-adresser, kan du inaktivera ”Tillåt Azure-tjänster åtkomst till servern”. Du kan också konfigurera [VNET-tjänstslutpunkter](sql-database-vnet-service-endpoint-rule-overview.md).
+Som standard SQL-databasen är konfigurerad att ”Tillåt Azure-tjänster åtkomst till servern” – vilket innebär att alla virtuella datorer i Azure kan försöka ansluta till databasen. Dessa försök fortfarande behöver autentiserad. Men om du inte vill din databas för att vara tillgängliga för alla Azure-IP-adresser, kan du inaktivera ”Tillåt Azure-tjänster åtkomst till servern”. Du kan också konfigurera [VNet-tjänstslutpunkter](sql-database-vnet-service-endpoint-rule-overview.md).
 
 Tjänsteslutpunkter (SE) kan du exponera dina kritiska Azure-resurser endast till ditt eget privata virtuella nätverk i Azure. Då kan att du i princip offentlig åtkomst till resurser. Trafiken mellan ditt virtuella nätverk till Azure ligger i Azure-stamnätverket. Utan att SE få du Tvingad tunneltrafik routningen av datapaket. Det virtuella nätverket tvingar Internettrafik till din organisation och Azure-tjänsttrafiken att gå via samma väg. Med tjänstslutpunkter kan optimera du detta eftersom paket flödet direkt från ditt virtuella nätverk till tjänsten på Azure-stamnätverket.
 
-![VNET-tjänstslutpunkter](./media/sql-database-manage-after-migration/vnet-service-endpoints.png) 
+![VNet-tjänstslutpunkter](./media/sql-database-manage-after-migration/vnet-service-endpoints.png) 
 
 #### <a name="reserved-ips"></a>Reserverade ip-adresser
 Ett annat alternativ är att etablera [reserverade IP-adresser](../virtual-network/virtual-networks-reserved-public-ip.md) för virtuella datorer och godkänna de specifika VM-IP-adresser i servern brandväggsinställningar. Genom att tilldela reserverade IP-adresser kan spara du besväret med att uppdatera brandväggsreglerna ändrar IP-adresser.

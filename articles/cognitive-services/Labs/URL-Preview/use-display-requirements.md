@@ -1,23 +1,25 @@
 ---
-title: Projektet URL Preview användning och visa krav - kognitiva Microsoft-tjänster | Microsoft Docs
-description: Använd och visa krav för Project URL Preview API-slutpunkt.
+title: Använd och visa kraven - projektet URL-förhandsgranskning
+titlesuffix: Azure Cognitive Services
+description: 'Använd och visa kraven för projektet URL: en förhandsversion av API-slutpunkten.'
 services: cognitive-services
 author: mikedodaro
+manager: cgronlun
 ms.service: cognitive-services
-ms.technology: project-url-preview
-ms.topic: article
+ms.component: project-url-preview
+ms.topic: conceptual
 ms.date: 03/16/2018
-ms.author: rosh, v-gedod
-ms.openlocfilehash: 4aee9207c4f1bd4f0e36aae42985096544dc19d7
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.author: rosh
+ms.openlocfilehash: a1aaf5f4c273e2eb42110d11cd3c28f8cf322750
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35353967"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48868368"
 ---
-# <a name="project-url-preview-use-and-display-requirements"></a>Project URL Preview använder och visa krav
+# <a name="project-url-preview-use-and-display-requirements"></a>URL-förhandsgranskning för projektet använder och visa krav
 
-Bara använda data från Project URL: en förhandsgranskning för att visa förhandsgranskning kodavsnitt och miniatyrbilder som är länkade till sina källplatser i initierats av slutanvändaren URL delning på sociala medier, chatt bot eller liknande erbjudanden. Du måste inte kopiera, spara eller cachelagra alla data som du får från Project URL Preview. Du måste respektera alla begäranden om att inaktivera förhandsversioner som du kan få från webbplatsen eller innehållsägare.
+Bara använda data från Project URL-förhandsgranskning för att visa förhandsgranskning kodfragment och miniatyrbilder som är länkade till sina källplatser i slutet användarinitierad URL delning på sociala medier, chattrobot eller liknande erbjudanden. Du måste inte kopiera, lagra eller cachelagra alla data som du får från URL-förhandsgranskning för projektet. Du måste respektera ett begärande om att inaktivera förhandsversioner som kan visas från webbplats eller innehållsägare.
 
 ## <a name="next-steps"></a>Nästa steg
-- [URL: en Preview: översikt](overview.md)
+- [Översikt över URL-förhandsgranskning](overview.md)

@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 09/06/2017
 ms.author: diberry
-ms.openlocfilehash: b0a02d2e5e0a1f1765098e1b1e258424b6443878
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 42bd8ef95ac1b55e76fe1cf0702b79de91832741
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47039589"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48870187"
 ---
 # <a name="usage-data-for-luis-service-from-azure-cloud-shell"></a>Användningsdata för LUIS-tjänsten från Azure Cloud Shell
 Azure-portalen kan du använda PowerShell-cmdlets för att arbeta med LUIS-resurser. 
@@ -23,7 +23,7 @@ Azure-portalen kan du använda PowerShell-cmdlets för att arbeta med LUIS-resur
 Dessa cmdletar kan du [skapa](https://docs.microsoft.com/powershell/module/azurerm.cognitiveservices/new-azurermcognitiveservicesaccount?view=azurermps-6.0.0) en LUIS-prenumeration, hämta information om prenumerationen, inklusive [användning](https://docs.microsoft.com/powershell/module/azurerm.cognitiveservices/get-azurermcognitiveservicesaccountusage?view=azurermps-6.0.0), och [ta bort](https://docs.microsoft.com/powershell/module/azurerm.cognitiveservices/remove-azurermcognitiveservicesaccount?view=azurermps-6.0.0) prenumerationen. 
 
 ## <a name="cloud-shell-storage-account-and-authentication"></a>Cloud shell storage-konto och autentisering
-För att kunna använda PowerShell i Azure-portalen [cloud shell](https://docs.microsoft.com/azure/cloud-shell/quickstart-powershell), måste du ha ett Azure storage-konto. Om du inte har en [lagringskonto](https://docs.microsoft.com/azure/cloud-shell/persisting-shell-storage#set-up-a-clouddrive-file-share), uppmanas du att skapa en. Storage-konto kan du spara PowerShell-skript i cloudshell.  
+För att kunna använda PowerShell i Azure-portalen [cloud shell](https://docs.microsoft.com/azure/cloud-shell/quickstart-powershell), måste du ha ett Azure storage-konto. Om du inte har en [lagringskonto](https://docs.microsoft.com/azure/cloud-shell/persisting-shell-storage), uppmanas du att skapa en. Storage-konto kan du spara PowerShell-skript i cloudshell.  
 
 Du måste också autentisera till Azure i cloudshell för att komma åt några resurser. 
 

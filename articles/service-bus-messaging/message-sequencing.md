@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2018
 ms.author: spelluru
-ms.openlocfilehash: a15e726e237bcdbd9d380aaf9232e5d16a2e648f
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: 631c4334b1e2ca37dfc87709718b6639c2762c5c
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47409143"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48857694"
 ---
 # <a name="message-sequencing-and-timestamps"></a>Ordningsföljd och tidsstämplar för meddelanden
 
@@ -26,7 +26,7 @@ Ordningsföljd och tidsstämplar finns två funktioner som alltid är aktiverade
 
 För de fall där absolut ordningen för meddelanden är betydande och/eller som behöver en konsument en tillförlitlig Unik identifierare för meddelanden, broker stämplar meddelanden med en lucka är kostnadsfria, öka sekvensnummer i förhållande till kön eller ämnet. Sekvensnumret utfärdas för partitionerade enheter i förhållande till partitionen.
 
-Den **SequenceNumber** värdet är ett unikt 64-bitars heltal som tilldelas ett meddelande när den accepteras och lagras av broker och funktioner som dess interna ID: t. För partitionerade enheter visas de översta 16 bitarna partitions-ID. Sekvensnummer som förnyar noll när 48/64-bitars-intervallet är slut.
+Den **SequenceNumber** värdet är ett unikt 64-bitars heltal som tilldelas ett meddelande när den accepteras och lagras av broker och funktioner som dess interna ID: t. För partitionerade enheter visas de översta 16 bitarna partitions-ID. Sekvensnummer som förnyas till noll när 48/64-bitars-intervallet är slut.
 
 Sekvensnumret kan vara betrodda som en unik identifierare eftersom den är tilldelad av en utfärdare av central och neutral, inte av klienter. Det också representerar SANT ordningen på ankomst och är bättre än en tidsstämpel som ett kriterium i ordning, eftersom tidsstämplar inte kanske har tillräckligt hög upplösning extrem Meddelandefrekvens och kan vara föremål för (men minimal) klockan skeva i situationer där den asynkrona meddelandekön ägarskap övergångar mellan noder.
 
@@ -50,7 +50,6 @@ Eftersom funktionen är fäst på enskilda meddelanden och meddelanden kan bara 
 
 Om du vill veta mer om Service Bus-meddelanden, finns i följande avsnitt:
 
-* [Service Bus-grunder](service-bus-fundamentals-hybrid-solutions.md)
 * [Service Bus-köer, ämnen och prenumerationer](service-bus-queues-topics-subscriptions.md)
 * [Komma igång med Service Bus-köer](service-bus-dotnet-get-started-with-queues.md)
 * [Använd Service Bus ämnen och prenumerationer](service-bus-dotnet-how-to-use-topics-subscriptions.md)

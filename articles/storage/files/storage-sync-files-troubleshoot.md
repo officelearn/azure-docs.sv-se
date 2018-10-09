@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 09/06/2018
 ms.author: jeffpatt
 ms.component: files
-ms.openlocfilehash: 2b2d817c85528ef56fd0baef80d17c7cd6eae543
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: 8c6736d52ea0854a83bb213077c21946dc23141f
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48802244"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48857439"
 ---
 # <a name="troubleshoot-azure-file-sync"></a>Felsök Azure File Sync
 Använd Azure File Sync för att centralisera din organisations filresurser i Azure Files, samtidigt som den flexibilitet, prestanda och kompatibilitet för en lokal filserver. Azure File Sync omvandlar Windows Server till ett snabbt cacheminne för din Azure-filresurs. Du kan använda alla protokoll som är tillgänglig på Windows Server för att komma åt dina data lokalt, inklusive SMB, NFS och FTPS. Du kan ha så många cacheminnen som du behöver över hela världen.
@@ -780,11 +780,11 @@ Om du vill övervaka lagringsnivåer på en server, använder du händelse-ID 90
 <a id="monitor-recall-activity"></a>**Så här övervakar du återställningar på en server**  
 Du övervakar återställningar på en server med händelse-ID 9005, 9006, 9007 i händelseloggen telemetri (finns under program och Services\Microsoft\FileSync\Agent i Loggboken). Observera att dessa händelser loggas per timme.
 
-- Händelse-ID 9005 ger återkallande tillförlitlighet för en slutpunkt för servern. Till exempel Total unika filer som används, totalt antal unika filer med misslyckade åtkomst osv.
+- Händelse-ID 9005 ger återkallande tillförlitligheten hos en serverslutpunkt. Till exempel Total unika filer som används, totalt antal unika filer med misslyckade åtkomst osv.
 
 - Händelse-ID 9006 ger återkallande felfördelningen för en serverslutpunkt. Exempel: Totalt antal misslyckade begäranden, ErrorCode, osv. Observera att en händelse loggas per felkod.
 
-- Händelse-ID 9007 ger återkallande prestanda för en slutpunkt för servern. Till exempel TotalRecallIOSize, TotalRecallTimeTaken, osv.
+- Händelse-ID 9007 ger återkallande prestanda för en serverslutpunkt. Till exempel TotalRecallIOSize, TotalRecallTimeTaken, osv.
 
 <a id="files-fail-tiering"></a>**Felsökning av filer som misslyckas till tier**  
 Om filerna inte nivå till Azure Files:

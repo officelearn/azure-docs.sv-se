@@ -9,12 +9,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: 401c4fb8942aee73c036ae2b248a030eaea4917a
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 55af0559c98c9fc63fd6902d80b4e6f2f0a7d2da
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47031262"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48870123"
 ---
 # <a name="create-an-app"></a>Skapa en app
 Det finns ett par olika sätt att skapa en LUIS-app. Du kan skapa en LUIS-app i den [LUIS](https://www.luis.ai) portal, eller via LUIS redigering [API: er](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c2f).
@@ -22,9 +22,9 @@ Det finns ett par olika sätt att skapa en LUIS-app. Du kan skapa en LUIS-app i 
 ## <a name="using-the-luis-portal"></a>Med LUIS-portalen
 Du kan skapa en ny app i portalen LUIS på flera olika sätt:
 
-* [Starta](#create-new-app) med en tom app och skapa avsikter och yttranden entiteter.
-* [Starta](#create-new-app) med en tom app och lägga till en [fördefinierade domän](luis-how-to-use-prebuilt-domains.md).
-* [Importera en LUIS-app](#import-new-app) från en JSON-fil som innehåller redan avsikter och yttranden entiteter.
+* Börja med en tom app och skapa avsikter och yttranden entiteter.
+* Börja med en tom app och lägga till en [fördefinierade domän](luis-how-to-use-prebuilt-domains.md).
+* Importera en LUIS-app från en JSON-fil som redan innehåller avsikter och yttranden entiteter.
 
 ## <a name="using-the-authoring-apis"></a>Med redigering API: er
 Du kan skapa en ny app med redigering API: er på ett par olika sätt:

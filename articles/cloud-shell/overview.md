@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/04/2018
 ms.author: juluk
-ms.openlocfilehash: ea7393584e77b51073ca8938ec03e9d6f6ad6fc0
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: 85d054be6b72c736ec66384b9caec71208f36802
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47166681"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48869371"
 ---
 # <a name="overview-of-azure-cloud-shell"></a>Översikt över Azure Cloudshell
 Azure Cloud Shell är en interaktiv, tillgängligt via webbläsaren gränssnitt för att hantera Azure-resurser.
@@ -78,7 +78,7 @@ Läs mer om du vill veta hur du monterar en [nytt eller befintligt lagringskonto
 * Cloudshell kräver en Azure-filresurs som ska monteras
 * Cloudshell använder samma Azure-filresurs för både Bash och PowerShell
 * Cloudshell tilldelas en dator per användarkonto
-* Cloudshell kvarstår $Home med en avbildning för 5 GB som lagras i filresursen
+* Cloudshell kvarstår $HOME med en avbildning för 5 GB som lagras i filresursen
 * Behörigheter har angetts som en vanlig Linux-användare i Bash
 
 Läs mer om funktionerna i [Bash i Cloud Shell](features.md) och [PowerShell i Cloud Shell](features-powershell.md).

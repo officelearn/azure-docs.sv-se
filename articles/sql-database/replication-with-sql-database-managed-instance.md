@@ -12,12 +12,12 @@ ms.author: xiwu
 ms.reviewer: mathoma
 manager: craigg
 ms.date: 09/25/2018
-ms.openlocfilehash: 95c27bcc99f08cb1e4998e43a6a2abd508bee0ac
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 25d13ba53eb5a8b411a557b5eaf05d278faa3733
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47228435"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48869320"
 ---
 # <a name="replication-with-sql-database-managed-instance"></a>Replikering med SQL Database Managed Instance
 
@@ -76,21 +76,22 @@ Stöder:
 
 ## <a name="configure-publishing-and-distribution-example"></a>Konfigurera publicering och distribution av exempel
 
-1. [Skapa en Azure SQL Database Managed Instance](http://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-create-tutorial-portal) i portalen.
+1. [Skapa en Azure SQL Database Managed Instance](sql-database-managed-instance-create-tutorial-portal.md) i portalen.
+2. [Skapa ett Azure Storage-konto](http://docs.microsoft.com/azure/storage/common/storage-create-storage-account#create-a-storage-account) för arbetskatalogen.
 
-1. [Skapa ett Azure Storage-konto](http://docs.microsoft.com/azure/storage/common/storage-create-storage-account#create-a-storage-account) för arbetskatalogen. Glöm inte att kopiera storage-nycklar. Se [visa och kopiera åtkomstnycklar för lagring](http://docs.microsoft.com/azure/storage/common/storage-create-storage-account#manage-your-storage-access-keys).
-
-1. Skapa en databas för utgivaren.
+   Glöm inte att kopiera storage-nycklar. Se [visa och kopiera åtkomstnycklar för lagring](../storage/common/storage-account-manage.md#access-keys
+).
+3. Skapa en databas för utgivaren.
 
    I exemplet skripten nedan ersätter `<Publishing_DB>` med namnet på den här databasen.
 
-1. Skapa en databasanvändare med SQL-autentisering för distributören. Se, [skapa databasanvändare](http://docs.microsoft.com/azure/sql-database/sql-database-security-tutorial#creating-database-users). Använd ett säkert lösenord.
+4. Skapa en databasanvändare med SQL-autentisering för distributören. Se, [skapa databasanvändare](http://docs.microsoft.com/azure/sql-database/sql-database-security-tutorial#creating-database-users). Använd ett säkert lösenord.
 
    I exemplet skripten nedan använder `<SQL_USER>` och `<PASSWORD>` med det här kontot för SQL Server-databas användare och lösenord.
 
-1. [Ansluta till SQL Database Managed Instance](http://docs.microsoft.com/azure/sql-database/sql-database-connect-query-ssms).
+5. [Ansluta till SQL Database Managed Instance](http://docs.microsoft.com/azure/sql-database/sql-database-connect-query-ssms).
 
-1. Kör följande fråga för att lägga till distributören och distributionsdatabasen.
+6. Kör följande fråga för att lägga till distributören och distributionsdatabasen.
 
    ```sql
    USE [master]
@@ -99,7 +100,7 @@ Stöder:
    EXEC sp_adddistributiondb @database = N'distribution';
    ```
 
-1. Om du vill konfigurera en utgivare för att använda en angiven distributionsplatsgrupp-databas, uppdatera och kör följande fråga.
+7. Om du vill konfigurera en utgivare för att använda en angiven distributionsplatsgrupp-databas, uppdatera och kör följande fråga.
 
    Ersätt `<SQL_USER>` och `<PASSWORD>` med SQL Server-konto och lösenord.
 
@@ -107,7 +108,7 @@ Stöder:
 
    Ersätt `<STORAGE_CONNECTION_STRING>` med anslutningssträngen från den **åtkomstnycklar** fliken för Microsoft Azure storage-kontot.
 
-   När du har uppdaterat följande fråga kan du köra den. 
+   När du har uppdaterat följande fråga kan du köra den.
 
    ```sql
    USE [master]
@@ -121,7 +122,7 @@ Stöder:
    GO
    ```
 
-1. Konfigurera utgivaren för replikering. 
+8. Konfigurera utgivaren för replikering.
 
     I följande fråga ersätter `<Publishing_DB>` med namnet på publisher-databasen.
 
@@ -155,15 +156,13 @@ Stöder:
                 @job_password = N'<PASSWORD>'
    ```
 
-1. Lägg till den artikeln, prenumeration och push-Prenumerationsagent. 
+9. Lägg till den artikeln, prenumeration och push-Prenumerationsagent.
 
    Uppdatera följande skript för att lägga till dessa objekt.
 
-   Ersätt `<Object_Name>` med namnet på objektet publikationen.
-
-   Ersätt `<Object_Schema>` med namnet på källans schema. 
-
-   Ersätt de andra parametrarna i vinkelparenteser `<>` att matcha värdena i de föregående skript. 
+   - Ersätt `<Object_Name>` med namnet på objektet publikationen.
+   - Ersätt `<Object_Schema>` med namnet på källans schema.
+   - Ersätt de andra parametrarna i vinkelparenteser `<>` att matcha värdena i de föregående skript.
 
    ```sql
    EXEC sp_addarticle @publication = N'<Publication_Name>',
@@ -183,7 +182,7 @@ Stöder:
                 @subscriber_security_mode = 0,
                 @subscriber_login = N'<SQL_USER>',
                 @subscriber_password = N'<PASSWORD>',
-                @job_login = N'<SQL_USER>', 
+                @job_login = N'<SQL_USER>',
                 @job_password = N'<PASSWORD>'
    GO
    ```

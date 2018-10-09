@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: yshoukry, LADocs
 ms.topic: article
 ms.date: 07/20/2018
-ms.openlocfilehash: daeb0c5436d851b6e234c1b97583df526192659e
-ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
+ms.openlocfilehash: 5fc4ccacaaedfc3fe6c77fa9a0ad693530bdde93
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48018782"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48855433"
 ---
 # <a name="install-on-premises-data-gateway-for-azure-logic-apps"></a>Installera en lokal datagateway för Azure Logic Apps
 
@@ -211,7 +211,7 @@ För att tillhandahålla proxyinformation för din gateway, se [konfigurera prox
 > [!NOTE]
 > Det här kommandot testar endast nätverksanslutningen och anslutning till Azure Service Bus. Kommandot göra inte något med gatewayen eller gateway-Molntjänsten som krypterar och lagrar dina autentiseringsuppgifter och gateway-informationen. 
 >
-> Dessutom det här kommandot är endast tillgänglig på Windows Server 2012 R2 eller senare, och Windows 8.1 eller senare. Du kan använda Telnet på tidigare OS-versioner för att testa anslutningen. Läs mer om [lösningar för Azure Service Bus och hybrid](../service-bus-messaging/service-bus-fundamentals-hybrid-solutions.md).
+> Dessutom det här kommandot är endast tillgänglig på Windows Server 2012 R2 eller senare, och Windows 8.1 eller senare. Du kan använda Telnet på tidigare OS-versioner för att testa anslutningen. Läs mer om [lösningar för Azure Service Bus och hybrid](../service-bus-messaging/service-bus-messaging-overview.md).
 
 Resultaten bör likna det här exemplet med **TcpTestSucceeded** inställd **SANT**:
 
@@ -232,7 +232,7 @@ Brandväggen kan även blockera anslutningarna som Azure Service Bus gör att Az
 
 ## <a name="configure-ports"></a>Konfigurera portar
 
-Gatewayen skapar en utgående anslutning till [Azure Service Bus](https://azure.microsoft.com/services/service-bus/) och kommunicerar via utgående portar: TCP 443 (standard), 5671, 5672, 9350 till 9354. Gatewayen behöver inga ingående portar. Läs mer om [lösningar för Azure Service Bus och hybrid](../service-bus-messaging/service-bus-fundamentals-hybrid-solutions.md).
+Gatewayen skapar en utgående anslutning till [Azure Service Bus](https://azure.microsoft.com/services/service-bus/) och kommunicerar via utgående portar: TCP 443 (standard), 5671, 5672, 9350 till 9354. Gatewayen behöver inga ingående portar. Läs mer om [lösningar för Azure Service Bus och hybrid](../service-bus-messaging/service-bus-messaging-overview.md).
 
 Gatewayen använder de här fullständigt kvalificerade domännamn:
 

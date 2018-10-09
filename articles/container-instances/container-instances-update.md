@@ -2,18 +2,17 @@
 title: Uppdatera behållare i Azure Container Instances
 description: Lär dig hur du uppdaterar behållare som körs i dina grupper för Azure Container Instances-behållare.
 services: container-instances
-author: mmacy
-manager: jeconnoc
+author: dlepow
 ms.service: container-instances
 ms.topic: article
 ms.date: 08/01/2018
-ms.author: marsma
-ms.openlocfilehash: 5a42b0983b0f754b119fa304317e758a976fb4f6
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.author: danlep
+ms.openlocfilehash: 2df6a2724cbdcd6bbb6c6ca6636256b7e399da8e
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39432624"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48854549"
 ---
 # <a name="update-containers-in-azure-container-instances"></a>Uppdatera behållare i Azure Container Instances
 
@@ -23,7 +22,7 @@ Under normal drift av dina behållarinstanser kan det vara nödvändigt att uppd
 
 Uppdatera behållare i en behållargrupp genom att omdistribuera en befintlig grupp med minst en ändrad egenskap. När du uppdaterar en behållargrupp alla behållare som körs i gruppen har startats om på plats.
 
-Distribuera om en befintlig behållargrupp genom att utfärda kommandot för att skapa (eller Använd Azure portal) och ange namnet på en befintlig grupp. Ändra minst en giltig egenskap i gruppen när du utfärdar kommandot create att utlösa omdistributionen. Inte alla egenskaperna för behållargruppen är giltiga för omdistribution. Se [egenskaper som kräver delete](#properties-that-require-delete) en lista över egenskaper som inte stöds.
+Distribuera om en befintlig behållargrupp genom att utfärda kommandot för att skapa (eller Använd Azure portal) och ange namnet på en befintlig grupp. Ändra minst en giltig egenskap i gruppen när du utfärdar kommandot create att utlösa omdistributionen. Inte alla egenskaperna för behållargruppen är giltiga för omdistribution. Se [egenskaper som kräver delete](#properties-that-require-container-delete) en lista över egenskaper som inte stöds.
 
 I följande Azure CLI-exempel uppdaterar en behållargrupp med en ny DNS-namnetikett. Eftersom etikettegenskapen för DNS-namn för gruppen ändras behållargruppen omdistribueras och dess behållare startas om.
 

@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 2/22/2018
+ms.date: 10/09/2018
 ms.author: patricka
 ms.reviewer: ''
-ms.openlocfilehash: 84ab374c95f3e77b2897ff142c3cacef3df87140
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 1bc4fcda360a899fb2f58e2ac26270d160227a65
+ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44718924"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48902849"
 ---
 # <a name="overview-of-identity-for-azure-stack"></a>Översikt över identitet för Azure Stack
 
@@ -59,7 +59,7 @@ Hur du skapar och hanterar användare och grupper är beroende av ID-lösning so
 
 I Azure Stack, användarkonton:
 
-- Skapas i den *username@domain* format. Även om AD FS mappar användarkonton till en Active Directory-instans, AD FS inte stöd för användning av den  *\<domän >\<alias >* format.
+- Skapas i den *username@domain* format. Även om AD FS mappar användarkonton till en Active Directory-instans, AD FS inte stöd för användning av den  *\\ \<domän >\\\<alias >* format.
 - Kan ställas in för att använda multifaktorautentisering.
 - Är begränsade till den katalog där de först registrera, vilket är sin organisations katalog.
 - Du kan importera från dina lokala kataloger. Mer information finns i [integrerar dina lokala kataloger med Azure Active Directory](/azure/active-directory/connect/active-directory-aadconnect).

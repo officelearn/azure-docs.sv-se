@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: glenga
-ms.openlocfilehash: 52330d9f999676301e3a92487c0106f2fa59bc76
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.openlocfilehash: e77e81624c93bf1189afd556a8257362197c6b60
+ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48237956"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48902968"
 ---
 # <a name="work-with-azure-functions-core-tools"></a>Arbeta med Azure Functions Core Tools
 
@@ -180,7 +180,7 @@ Mer information finns i [Azure Functions-utlösare och bindningar begrepp](funct
 
 ## <a name="local-settings-file"></a>Fil för lokala inställningar
 
-Filen local.settings.json lagrar appinställningar, anslutningssträngar och inställningar för Azure Functions Core Tools. Den har följande struktur:
+Filen local.settings.json lagrar appinställningar, anslutningssträngar och inställningar för Azure Functions Core Tools. Inställningarna i filen local.settings.json används endast av Functions tools när du kör lokalt. Som standard dessa inställningar migreras inte automatiskt när projektet har publicerats till Azure. Använd den `--publish-local-settings` växla [när du publicerar](#publish) att kontrollera att dessa inställningar har lagts till funktionsappen i Azure. Observera att värdena i **ConnectionStrings** aldrig har publicerats. Filen har följande struktur:
 
 ```json
 {
@@ -214,11 +214,9 @@ Funktionen appen inställningsvärden kan också läsa i koden som miljövariabl
 
 + [C#-förkompilerad version](functions-dotnet-class-library.md#environment-variables)
 + [C#-skript (.csx)](functions-reference-csharp.md#environment-variables)
-+ [F#](functions-reference-fsharp.md#environment-variables)
++ [F #-skript (.fsx)](functions-reference-fsharp.md#environment-variables)
 + [Java](functions-reference-java.md#environment-variables) 
 + [JavaScript](functions-reference-node.md#environment-variables)
-
-Inställningarna i filen local.settings.json används endast av Functions tools när du kör lokalt. Som standard dessa inställningar migreras inte automatiskt när projektet har publicerats till Azure. Använd den `--publish-local-settings` växla [när du publicerar](#publish) att kontrollera att dessa inställningar har lagts till funktionsappen i Azure. Värdena i **ConnectionStrings** aldrig har publicerats.
 
 När ingen giltig lagringsanslutningssträng har angetts för **AzureWebJobsStorage** och emulatorn inte används, visas följande felmeddelande visas:  
 
@@ -425,7 +423,7 @@ func run MyHttpTrigger -c '{\"name\": \"Azure\"}'
 
 ## <a name="publish"></a>Publicera till Azure
 
-Core Tools stöder två typer av distribution, distribuera funktionen projektfilerna direkt till din funktionsapp och distribuera en anpassad Linux-behållare, vilket stöds bara i version 2.x.
+Core Tools stöder två typer av distribution, distribuera funktionen projektfilerna direkt till din funktionsapp och distribuera en anpassad Linux-behållare, vilket stöds bara i version 2.x. Du måste redan ha [skapat en funktionsapp i Azure-prenumerationen](functions-cli-samples.md#create).
 
 I version 2.x, måste du ha [registrerad dina tillägg](#register-extensions) i projektet innan du publicerar. Projekt som kräver kompilering ska byggas så att binärfilerna som kan distribueras.
 
@@ -444,13 +442,8 @@ Det här kommandot publicerar till en befintlig funktionsapp i Azure. Ett fel up
 Den `publish` kommando laddar upp innehållet i projektkatalogen funktioner. Om du tar bort filer lokalt, den `publish` kommandot tar inte bort dem från Azure. Du kan ta bort filer i Azure med hjälp av den [Kudu-verktyget](functions-how-to-use-azure-function-app-settings.md#kudu) i den [Azure Portal].  
 
 >[!IMPORTANT]  
-> När du skapar en funktionsapp i Azure används version 2.x av funktionskörningen som standard. Att göra funktionen app Använd version 1.x av körning, Lägg till inställningen `FUNCTIONS_EXTENSION_VERSION=~1`.  
-Använd följande kod för Azure CLI för att lägga till den här inställningen till din funktionsapp:
-
-```azurecli-interactive
-az functionapp config appsettings set --name <function_app> \
---resource-group myResourceGroup --settings FUNCTIONS_EXTENSION_VERSION=~1
-```
+> När du skapar en funktionsapp i Azure-portalen används version 2.x av funktionskörningen som standard. Att göra funktionen app Använd version 1.x av körning, följer du anvisningarna i [kör version 1.x](functions-versions.md#creating-1x-apps).  
+> Du kan inte ändra runtime-versionen för en funktionsapp som har befintliga funktioner.
 
 Du kan använda följande publicera alternativ som gäller för både versioner, 1.x och 2.x:
 

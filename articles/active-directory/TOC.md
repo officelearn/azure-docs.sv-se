@@ -25,7 +25,7 @@
 # Gör så här för att
 ## Planera och designa
 ### [Förstå Azure AD-arkitektur](fundamentals/active-directory-architecture.md)
-### [Anspråksmappning i Azure Active Directory](active-directory-claims-mapping.md)
+### [Anspråksmappning i Azure Active Directory](develop/active-directory-claims-mapping.md)
 ### [Distribuera en hybrididentitetslösning](hybrid/plan-hybrid-identity-design-considerations-overview.md)
 #### Fastställa krav
 ##### [Identitet](hybrid/plan-hybrid-identity-design-considerations-business-needs.md)
@@ -200,7 +200,7 @@
 #### [Klientrestriktioner](manage-apps/tenant-restrictions.md)
 #### [Använd SCIM-etablering av användare](manage-apps/use-scim-to-provision-users-and-groups.md)
 
-### [Förstå medgivande i Azure AD-program](application-consent-experience.md)
+### [Förstå medgivande i Azure AD-program](develop/application-consent-experience.md)
 
 ### Felsöka
 
@@ -323,7 +323,7 @@
 
 ### [Integrera lokala identiteter med Azure AD Connect](hybrid/whatis-hybrid-identity.md)
 
-### [Konfigurera livslängd för token](active-directory-configurable-token-lifetimes.md)
+### [Konfigurera livslängd för token](develop/active-directory-configurable-token-lifetimes.md)
 
 ## Skydda dina identiteter
 

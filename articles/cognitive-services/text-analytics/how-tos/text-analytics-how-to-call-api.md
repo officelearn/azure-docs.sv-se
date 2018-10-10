@@ -1,21 +1,21 @@
 ---
-title: Anropa REST API för textanalys
-titleSuffix: Azure Cognitive Services
+title: Anropa API:t för textanalys
+titlesuffix: Azure Cognitive Services
 description: Lär dig hur du anropar den REST API för textanalys.
 services: cognitive-services
 author: ashmaka
 manager: cgronlun
 ms.service: cognitive-services
-ms.technology: text-analytics
+ms.component: text-analytics
 ms.topic: conceptual
-ms.date: 09/12/2018
+ms.date: 10/01/2018
 ms.author: ashmaka
-ms.openlocfilehash: 5293aaf6083dc832f7fe96fd6656fc8d1c30060e
-ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
+ms.openlocfilehash: a70ef893019264ffc0eb3cb2982b05b15ebd0acf
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45603268"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48884376"
 ---
 # <a name="how-to-call-the-text-analytics-rest-api"></a>Hur du anropar den REST API för textanalys
 
@@ -40,7 +40,7 @@ Du måste ha den [slutpunkt och åtkomstnyckel](text-analytics-how-to-access-key
 
 Indata måste vara JSON i raw ostrukturerad text. XML stöds inte. Schemat är enkel, som består av de delar som beskrivs i följande lista. 
 
-För närvarande kan du skicka samma dokumenten för alla åtgärder för textanalys: sentiment, diskussionsämne, språkidentifiering och entitetslänkning. (Schemat är kan variera för varje analys i framtiden.)
+För närvarande kan du skicka samma dokumenten för alla åtgärder för textanalys: sentiment, diskussionsämne, språkidentifiering och enhetens identifiering. (Schemat är kan variera för varje analys i framtiden.)
 
 | Element | Giltiga värden | Krävs? | Användning |
 |---------|--------------|-----------|-------|
@@ -65,7 +65,7 @@ Tjänsten tar emot begäran upp till 1 MB i storlek. Om du använder Postman (el
    + `https://westus.api.cognitive.microsoft.com/text/analytics/v2.0/sentiment`
    + `https://westus.api.cognitive.microsoft.com/text/analytics/v2.0/keyPhrases`
    + `https://westus.api.cognitive.microsoft.com/text/analytics/v2.0/languages`
-   + `https://westus.api.cognitive.microsoft.com/text/analytics/v2.0/entities`
+   + `https://westus.api.cognitive.microsoft.com/text/analytics/v2.1-preview/entities`
 
 2. Ställ in tre begärandehuvuden:
 
@@ -86,7 +86,7 @@ Tjänsten tar emot begäran upp till 1 MB i storlek. Om du använder Postman (el
   + [Språkidentifiering](text-analytics-how-to-language-detection.md)  
   + [Extrahering av diskussionsämne](text-analytics-how-to-keyword-extraction.md)  
   + [Attitydanalys](text-analytics-how-to-sentiment-analysis.md)  
-  + [Entitetslänkning](text-analytics-how-to-entity-linking.md)  
+  + [Igenkänning av entiteter (förhandsversion)](text-analytics-how-to-entity-linking.md)  
 
 
 6. Klicka på **skicka** att skicka begäran. Du kan skicka upp till 100 begäranden per minut. 

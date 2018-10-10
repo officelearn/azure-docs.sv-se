@@ -6,16 +6,16 @@ description: >
 services: cognitive-services
 author: wolfma61
 ms.service: cognitive-services
-ms.technology: Speech
+ms.component: Speech
 ms.topic: article
 ms.date: 09/24/2018
 ms.author: wolfma
-ms.openlocfilehash: 7e4ef6fd9dff0da061eb526e87973ba9616da22a
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: bbcea97918d377a6d40b95fe61592f7a79e8f5f4
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46981186"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48883796"
 ---
 # <a name="recognize-intents-from-speech-by-using-the-speech-sdk-for-c"></a>Identifiera avsikter från tal med hjälp av tal-SDK för C++
 
@@ -44,5 +44,5 @@ Leta efter den kod som används i den här artikeln i mappen samples/cpp/windows
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Hur du känna igen tal](how-to-recognize-speech-cpp.md)
+- [Så identifierar du tal](how-to-recognize-speech-cpp.md)
 - [Så här att översätta tal](how-to-translate-speech-cpp.md)

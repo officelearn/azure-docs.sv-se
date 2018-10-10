@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 10/05/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 403c52cb2de61f1c2d02ad72e9067da09b40a814
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.openlocfilehash: 8cdff34078c759379b5b939bdcdbc55155b51251
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48816046"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48887463"
 ---
 # <a name="update-management-solution-in-azure"></a>Lösningen för uppdateringshantering i Azure
 
@@ -515,7 +515,7 @@ Läs hur du integrerar hanteringslösningen med System Center Configuration Mana
 
 ## <a name="inclusion-behavior"></a>Inkludering beteende
 
-Uppdatera inkludering kan du ange specifika uppdateringar tillämpas. Korrigeringsfiler eller paket som är inställda att ingå installeras oavsett klassificeringar som valts för distributionen.
+Uppdatera inkludering kan du ange specifika uppdateringar tillämpas. Korrigeringsfiler eller paket som är inställda som ska tas med är installerade. När korrigeringsfiler eller paket har angetts att ingå och en klassificering har markerats, installeras både inkluderade objekt och objekt som uppfyller klassificeringen.
 
 För Linux-datorer om ett paket som ingår men innehåller ett beroende paket som har undantagits är specifcally installeras paketet inte.
 

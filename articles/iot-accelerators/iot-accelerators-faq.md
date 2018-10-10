@@ -8,12 +8,12 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 02/15/2018
 ms.author: dobett
-ms.openlocfilehash: 66494ca6bd9b4d8276469e85f4c6bb435ae245f7
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 154d82ab5e309631df0bfa40df7fe14902327f46
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44716408"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48884283"
 ---
 # <a name="frequently-asked-questions-for-iot-solution-accelerators"></a>Vanliga frågor om IoT-Lösningsacceleratorer
 
@@ -41,6 +41,10 @@ För närvarande använder endast av lösningen för fjärrövervakning arkitekt
 ### <a name="what-advantages-does-the-new-open-sourced-microservices-based-architecture-provide-in-the-new-update"></a>Vilka fördelar ger den nya öppen källkod bygger på mikrotjänster-arkitekturen i den nya uppdateringen?
 
 Molnarkitektur har avsevärt utvecklats under de senaste två åren. Mikrotjänster har utsågs till ett bra mönster för att uppnå skalbarhet och flexibilitet, utan att offra utvecklingshastigheten. Den här arkitekturmönster används internt i flera Microsoft-tjänster med fantastiska tillförlitlighet och skalbarhet resultat. Vi använder dessa utbildning i praktiken så att våra kunder att dra nytta av dem.
+
+### <a name="where-can-i-find-information-about-the-previous-version-of-the-remote-monitoring-solution"></a>Var hittar jag information om den tidigare versionen av lösningen för fjärrövervakning
+
+Den tidigare versionen av lösningsacceleratorn för fjärrövervakning kallades IoT Suite av den förkonfigurerade lösningen för fjärrövervakning. Du kan hitta arkiverad dokumentation på [ https://docs.microsoft.com/previous-versions/azure/iot-suite/ ](https://docs.microsoft.com/previous-versions/azure/iot-suite/).
 
 ### <a name="is-the-new-solution-accelerator-available-in-the-same-geographic-region-as-the-existing-solution"></a>Är den senaste solution acceleratorn tillgänglig i samma geografiska region som den befintliga lösningen?
 

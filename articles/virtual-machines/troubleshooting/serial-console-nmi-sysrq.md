@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 08/14/2018
 ms.author: alsin
-ms.openlocfilehash: ba42c3cc50466f9b5bf46cd1eef8f0d4e48bf89a
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: 9dcec525adf7676b23c6dec14dff07c6d419c085
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48856011"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48884650"
 ---
 # <a name="use-serial-console-for-sysrq-and-nmi-calls"></a>Använd Seriekonsol för SysRq och NMI anrop
 
@@ -30,11 +30,11 @@ När de SysRq levereras, ska kernel-konfigurationen styra hur systemet svarar. I
 
 Azure Seriekonsol kan användas för att skicka en SysRq till en Azure virtuell dator med hjälp av tangentbordsikonen i kommandofältet visas nedan.
 
-![](/media/virtual-machines-serial-console/virtual-machine-serial-console-command-menu.jpg)
+![](../media/virtual-machines-serial-console/virtual-machine-serial-console-command-menu.jpg)
 
 När du väljer ”Skicka SysRq kommandot” öppnas en dialogruta som ska innehålla vanliga SysRq alternativ eller acceptera en sekvens med SysRq kommandon som anges i dialogrutan.  Detta gör att för serie SysRq: er för att utföra en avancerad åtgärd, till exempel en säker omstart med hjälp av: `REISUB`.
 
-![](/media/virtual-machines-serial-console/virtual-machine-serial-console-sysreq_UI.png)
+![](../media/virtual-machines-serial-console/virtual-machine-serial-console-sysreq_UI.png)
 
 Kommandot SysRq kan inte användas på virtuella datorer som har stoppats eller vars kerneln är i ett tillstånd som inte svarar. (till exempel en kernel panic-meddelande).
 
@@ -103,8 +103,9 @@ Ett icke-maskable avbrott (NMI) är utformad för att skapa en signal som inte k
 
 Seriekonsol kan användas för att skicka en NMI till en Azure virtuell dator med hjälp av tangentbordsikonen i kommandofältet visas nedan. När NMI levereras, ska konfigurationen av virtuella datorn styra hur systemet svarar.  Linux-operativsystem kan konfigureras kraschar och skapa en minnesdump operativsystemet tar emot en NMI.
 
-![](/media/virtual-machines-serial-console/virtual-machine-serial-console-command-menu.jpg) <br>
+![](../media/virtual-machines-serial-console/virtual-machine-serial-console-command-menu.jpg) <br>
 
+### <a name="enable-nmi"></a>Aktivera NMI
 Linux-system som stöder sysctl för att konfigurera kernel parametrar, kan du aktivera en panik när du tar emot den här NMI med hjälp av följande:
 1. Att lägga till den här raden till */etc/sysctl.conf* <br>
     `kernel.panic_on_unrecovered_nmi=1`

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.date: 03/02/2018
 ms.author: barbkess
-ms.openlocfilehash: 8d5f31f09d51794f9ad3c126edf2fd935f379221
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: fa19c932a18102107068303e1474abd992df3161
+ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46296487"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48903036"
 ---
 # <a name="migrate-ad-fs-on-premises-apps-to-azure"></a>Migrera AD FS på lokala appar till Azure 
 
@@ -151,7 +151,7 @@ Appar som går att migrera enkelt i dag är bl.a. SAML 2.0-appar som använder s
 - Förnamn.
 - Efternamn.
 - Alternativa attribut som SAML **NameID**, inklusive e-postattribut för Azure AD, e-postprefix, anställnings-ID, tilläggsattribut 1–15 eller lokalt **SamAccountName**-attribut. Mer information finns i [Redigera NameIdentifier-anspråket](../develop/active-directory-saml-claims-customization.md).
-- Anpassade anspråk. Information om anspråksmappningar som stöds finns i [Anspråksmappning i Azure Active Directory](../active-directory-claims-mapping.md) och [Anpassa anspråk som utfärdas i SAML-token för företagsprogram i Azure Active Directory](../develop/active-directory-saml-claims-customization.md).
+- Anpassade anspråk. Information om anspråksmappningar som stöds finns i [Anspråksmappning i Azure Active Directory](../develop/active-directory-claims-mapping.md) och [Anpassa anspråk som utfärdas i SAML-token för företagsprogram i Azure Active Directory](../develop/active-directory-saml-claims-customization.md).
 
 Utöver anpassade anspråk och **NameID**-element, är de konfigurationer som kräver extra konfigurationssteg i Azure AD som en del av migreringen följande:
 - Anpassad auktorisering eller Multi-Factor Authentication-regler i AD FS. Du kan konfigurera dem med hjälp av funktionen [Villkorlig åtkomst i Azure AD](../active-directory-conditional-access-azure-portal.md).
@@ -171,7 +171,7 @@ Appar som kräver följande funktioner kan inte migreras idag. Ge feedback i kom
 - Anspråk i tokenfunktioner:
     - Utfärdande av lokala gruppnamn som anspråk.
     - Anspråk från andra lager än Azure AD.
-    - Transformeringsregler för utfärdande av komplexa anspråk. Information om anspråksmappningar som stöds finns i [Anspråksmappning i Azure Active Directory](../active-directory-claims-mapping.md) och [Anpassa anspråk som utfärdats i SAML-token för företagsprogram i Azure Active Directory](../develop/active-directory-saml-claims-customization.md).
+    - Transformeringsregler för utfärdande av komplexa anspråk. Information om anspråksmappningar som stöds finns i [Anspråksmappning i Azure Active Directory](../develop/active-directory-claims-mapping.md) och [Anpassa anspråk som utfärdats i SAML-token för företagsprogram i Azure Active Directory](../develop/active-directory-saml-claims-customization.md).
     - Utfärdande av katalogtillägg som anspråk.
     - Anpassad specifikation av **NameID**-formatet.
     - Utfärdande av flervärdesattribut.

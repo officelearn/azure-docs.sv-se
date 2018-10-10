@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: jdial
-ms.openlocfilehash: ef902f58f37cd0d09195aa5d1ff03847906ef414
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.openlocfilehash: 163a8f318608ba980d98209277371fb4d148c4ff
+ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48238905"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48902781"
 ---
 # <a name="virtual-network-integration-for-azure-services"></a>Virtual network-integration för Azure-tjänster
 
@@ -46,9 +46,6 @@ Distribuera tjänster inom ett virtuellt nätverk innehåller följande funktion
 - Du kan också tjänster kan kräva en [delegerad undernät](virtual-network-manage-subnet.md#add-a-subnet) explicit identifierare att ett undernät kan vara värd för en viss tjänst. Undernät delegering ger behörighet till tjänsten för att skapa tjänstspecifika resurser i undernätet.
 
 ### <a name="services-that-can-be-deployed-into-a-virtual-network"></a>Tjänster som kan distribueras till ett virtuellt nätverk
-
-Alla tjänster som distribueras direkt till virtuellt nätverk har särskilda krav för Routning och vilka typer av trafik som måste tillåtas till och från undernät. De olika tjänsterna som kan distribueras till ett virtuellt nätverk kategoriseras nedan. Välj den specifika tjänsten i tabellen för mer information om den och hur du integrerar med det virtuella nätverket. 
-
 
 |Kategori|Tjänst|
 |-|-|

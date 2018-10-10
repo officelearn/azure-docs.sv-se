@@ -10,12 +10,12 @@ ms.component: custom-vision
 ms.topic: conceptual
 ms.date: 03/16/2018
 ms.author: anroth
-ms.openlocfilehash: 53884cfc2683832d9df2b215c92b6b683ba29d2c
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.openlocfilehash: ce06effbce12abb6271e050829d3218f4fbbfbf4
+ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46363471"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48902870"
 ---
 # <a name="limits-and-quotas"></a>Begränsningar och kvoter
 
@@ -26,7 +26,8 @@ Begränsad utvärderingsversion projektresurser som är kopplade till din Custom
 ||**Begränsad utvärderingsversion**|**F0 (Azure)**|**S0 (Azure)**|
 |-----|-----|-----|-----|
 |Projekt|2|2|100|
-|Inlärningsbilder per projekt|5 000|5 000|50,000|
+|Inlärningsbilder per projekt, klassificering|5 000|5 000|50,000|
+|Inlärningsbilder per projekt, objektidentifiering|5 000|5 000|10 000|
 |Förutsägelser / månad|10 000 |10 000|Obegränsat|
 |Taggar / project|50|50|250|
 |Iterationer |10|10|10|

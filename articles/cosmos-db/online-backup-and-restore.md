@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/15/2017
 ms.author: govindk
-ms.openlocfilehash: 580c7410119a26ed3601c7c6ee020a13029339fe
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.openlocfilehash: 657b75e5e3bb5c35bb23221235e62298fc797046
+ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48867807"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48902681"
 ---
 # <a name="automatic-online-backup-and-restore-with-azure-cosmos-db"></a>Automatisk online säkerhetskopiering och återställning med Azure Cosmos DB
 Azure Cosmos DB tar automatiskt säkerhetskopior av dina data med jämna mellanrum. Automatisk säkerhetskopiering är hämtade utan att påverka prestanda eller tillgänglighet för dina databasåtgärder. Alla säkerhetskopior lagras separat i en annan lagringstjänst och säkerhetskopieringarna replikeras globalt för återhämtning mot regionala problem. Automatisk säkerhetskopiering är avsett för scenarion med när du av misstag tar bort din Cosmos DB-behållare och senare behöver återställa data.  
@@ -47,12 +47,18 @@ Följande bild illustrerar regelbundna fullständiga säkerhetskopieringar för 
 ## <a name="backup-retention-period"></a>Kvarhållningsperiod för säkerhetskopiering
 Enligt beskrivningen ovan, tar Azure Cosmos DB ögonblicksbilder av dina data var fjärde timme på nivån partition. Endast de två sista ögonblicksbilderna bevaras vid en given tidpunkt. Men om behållare/databasen tas bort, behåller Azure Cosmos DB befintliga ögonblicksbilder för alla borttagna partitioner inom den angivna behållaren/databasen i 30 dagar.
 
-SQL-API: t, om du vill ha kvar din egen ögonblicksbilder, du kan använda export till JSON-alternativet i Azure Cosmos DB [datamigreringsverktyget](import-data.md#export-to-json-file) att schemalägga ytterligare säkerhetskopieringar.
+För SQL-API om du vill ha kvar din egen ögonblicksbilder, kan du göra det med hjälp av följande alternativ:
+
+* Använd export till JSON-alternativet i Azure Cosmos DB [datamigreringsverktyget](import-data.md#export-to-json-file) att schemalägga ytterligare säkerhetskopieringar.
+
+* Använd [Azure Data Factory](../data-factory/connector-azure-cosmos-db.md) att flytta data med jämna mellanrum.
+
+* Använd Azure Cosmos DB [ändringsflödet](change-feed.md) att läsa data med jämna mellanrum för fullständig säkerhetskopiering och särskilt för stegvis ändring och flytta till ditt mål för blob. 
+
+* För att hantera frekventa säkerhetskopieringar, går det att läsa data med jämna mellanrum från ändringsfeed och fördröjning dess skrivning till en annan samling. Detta säkerställer du har inte att återställa data och omedelbart kan du titta på data för problemet. 
 
 > [!NOTE]
-> Om du ”etablera dataflöde för en uppsättning behållare på databasnivå –” Kom ihåg sker återställningen på fullständig kontonivå för databasen. Du måste också se till att kontakta dig inom 8 timmar supportteamet om du råkar ta bort behållaren. Data kan inte återställas om du inte kontaktar supporten inom 8 timmar. 
-
-
+> Om du ”etablera dataflöde för en uppsättning behållare på databasnivå –” Kom ihåg sker återställningen på fullständig kontonivå för databasen. Du måste också se till att kontakta dig inom 8 timmar supportteamet om du råkar ta bort behållaren. Data kan inte återställas om du inte kontaktar supporten inom 8 timmar.
 
 ## <a name="restoring-a-database-from-an-online-backup"></a>Återställa en databas från en onlinesäkerhetskopiering
 
@@ -61,7 +67,7 @@ Om du råkar ta bort din databas eller en behållare kan du [öppna ett support�
 Om du vill återställa databasen på grund av data felärende (inklusive fall där dokument i en behållare tas bort), se [hantering av skadade data](#handling-data-corruption) eftersom du måste vidta ytterligare åtgärder för att förhindra skadade data skriver över befintliga säkerhetskopior. Cosmos DB kräver att data som var tillgängliga under hela säkerhetskopieringscykel för denna ögonblicksbild för en specifik ögonblicksbild av säkerhetskopian ska återställas.
 
 > [!NOTE]
-> Samlingar eller databaser kan återställas först efter en kund-begäranden för att återställa. Det är kundens responsbility att ta bort behållare eller databasen omedelbart efter att återställa data. Om du inte tar bort den återställda databaser eller samlingar, kommer de resultera i kostnader enligt taxan återställda samling eller databasen. Det är därför viktigt att ta bort dem direkt. 
+> Samlingar eller databaser kan återställas bara på explicit kundernas önskemål. Det är kundens ansvar att ta bort behållare eller databasen omedelbart efter att stämma av data. Om du inte tar bort den återställda databaser eller samlingar, kommer de resultera i kostnader för programbegäran, lagring och utgående trafik.
 
 ## <a name="handling-data-corruption"></a>Hantering av skadade data
 
@@ -73,7 +79,7 @@ Följande bild illustrerar skapandet stöd för återställning av container(col
 
 ![Återställa en behållare för felaktiga uppdatera eller ta bort data i Cosmos DB](./media/online-backup-and-restore/backup-restore-support.png)
 
-När återställningen är klar för den här typen av scenarier – återställa data till ett annat konto (med suffixet ”-återställts”) och en behållare. Den här återställningen görs inte på plats för att tillhandahålla en chans till kunder för att utföra verifiering av data och flytta data vid behov. Återställda behållaren är i samma region med samma ru: er och indexering principer. Användare som är prenumerationsadministratör eller en medadministratör kan se det här återställda kontot.
+När återställningen är klar för den här typen av scenarier – återställa data till ett annat konto (med suffixet ”-återställts”) och en behållare. Den här återställningen görs inte på plats för att tillhandahålla en chans till kunder för att utföra verifiering av data och flytta data vid behov. Återställda behållaren är i samma region med samma ru: er och indexering principer. Användare som är prenumerationsadministratör eller coadmin kan se det här återställda kontot.
 
 
 > [!NOTE]

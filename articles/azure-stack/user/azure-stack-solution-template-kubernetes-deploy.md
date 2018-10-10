@@ -11,15 +11,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/26/2018
+ms.date: 10/08/2018
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.openlocfilehash: 82d99f575837b47a29bd6d8330ee58f442b6110a
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: 71fdf609badd6c8a9f4db5a5a1d2aa70c8c2e5f5
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47409362"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48887480"
 ---
 # <a name="deploy-kubernetes-to-azure-stack"></a>Distribuera Kubernetes till Azure Stack
 
@@ -165,6 +165,9 @@ Ge tjänstens huvudnamn åtkomst till din prenumeration så att huvudkontot kan 
 2. Granska dina inställningar.
 
 3. Välj **OK** att distribuera klustret.
+
+> [!TIP]  
+>  Om du har frågor om distributionen kan du publicera din fråga eller se om någon redan har besvarat frågan i den [Azure Stack-forumet](https://social.msdn.microsoft.com/Forums/azure/home?forum=azurestack). 
 
 ## <a name="connect-to-your-cluster"></a>Ansluta till ditt kluster
 

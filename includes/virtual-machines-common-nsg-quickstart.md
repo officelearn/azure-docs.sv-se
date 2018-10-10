@@ -5,26 +5,36 @@ services: virtual-machines-windows
 author: cynthn
 ms.service: virtual-machines-windows
 ms.topic: include
-ms.date: 05/17/2018
+ms.date: 09/12/2018
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: d9c8a0e6a3bd6d79a11ee0d0dab0500a209e5571
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: ec6cbcbc93fe87634c87caeb0041b75ec916a22f
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38940734"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48888569"
 ---
-Du öppnar en port eller skapa en slutpunkt för att en virtuell dator (VM) i Azure genom att skapa ett filter för nätverk på ett undernät eller Virtuella nätverksgränssnitt. Du kan placera dessa filter som styr både inkommande och utgående trafik på en Nätverkssäkerhetsgrupp som är kopplade till den resurs som tar emot trafiken.
+Du öppnar en port eller skapa en slutpunkt för att en virtuell dator (VM) i Azure genom att skapa ett filter för nätverk på ett undernät eller ett VM-nätverksgränssnitt. Du kan placera dessa filter som styr både inkommande och utgående trafik på en nätverkssäkerhetsgrupp som är kopplade till den resurs som tar emot trafiken.
 
-Nu ska vi använda ett vanligt exempel på Internet-trafik på port 80. När du har en virtuell dator som är konfigurerad för att leverera webbförfrågningar på standard-TCP port 80 (Glöm inte att starta rätt tjänster och öppna OS brandväggsregler på den virtuella datorn samt), du:
+Exemplet i den här artikeln visar hur du skapar ett filter för nätverk som använder standard TCP-port 80 (förutsätts du har redan igång rätt tjänster och öppnas OS brandväggsregler på den virtuella datorn).
 
-1. Skapa en Nätverkssäkerhetsgrupp.
-2. Skapa en inkommande regel som tillåter trafik med:
-   * Målportintervall ”80”
-   * Källportintervall av ”*” (så att alla källportar)
-   * ett prioritetsvärde för mindre 65 500 (för att vara högre i prioritet än standard allomfattande att neka inkommande regel)
-3. Associera Nätverkssäkerhetsgruppen med VM-nätverksgränssnitt eller undernät.
+När du har skapat en virtuell dator som är konfigurerad för att hantera webbegäranden på standard TCP-port 80, kan du:
 
-Du kan skapa komplexa konfigurationer för att skydda din miljö med Nätverkssäkerhetsgrupper och regler. Vårt exempel använder bara en eller två regler som tillåter HTTP-trafik eller för fjärrhantering. Mer information finns i följande [”mer Information”](#more-information-on-network-security-groups) avsnittet eller [vad är en Nätverkssäkerhetsgrupp?](../articles/virtual-network/security-overview.md)
+1. Skapa en nätverkssäkerhetsgrupp.
+
+2. Skapa en inkommande säkerhetsregel som tillåter trafik och tilldela värden med följande inställningar:
+
+   - **Målportsintervall**: 80
+
+   - **Käll-portintervall**: * (tillåter alla källportar)
+
+   - **Prioritetsvärdet**: Ange ett värde som är mindre än 65,500 och högre upp i prioritet än standardvärdet allomfattande neka inkommande regel.
+
+3. Associera nätverkssäkerhetsgruppen med VM-nätverksgränssnitt eller undernät.
+
+Även om det här exemplet använder en enkel regel för att tillåta HTTP-trafik, kan du också använda nätverkssäkerhetsgrupper och regler för att skapa mer komplexa konfigurationer. 
+
+
+
 

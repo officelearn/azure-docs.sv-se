@@ -6,16 +6,16 @@ author: rayne-wiselman
 manager: carmonm
 ms.topic: conceptual
 ms.service: site-recovery
-ms.date: 08/30/2018
+ms.date: 10/09/2018
 ms.author: raynew
-ms.openlocfilehash: c71f683355a09c8ba2381db406eeb1ccabdb7afa
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: 802c2223a72a89dbe2a97404aab4b0fc85c391ed
+ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43697704"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48902832"
 ---
-# <a name="replicate-azure-stack-vms-to-azure-preview"></a>Replikera virtuella Azure Stack-datorer till Azure (förhandsversion)
+# <a name="replicate-azure-stack-vms-to-azure"></a>Replikera Azure Stack-datorer till Azure
 
 Den här artikeln visar hur du konfigurerar haveriberedskap till Azure för virtuella Azure Stack-datorer med hjälp av den [Azure Site Recovery-tjänsten](https://docs.microsoft.com/azure/site-recovery/site-recovery-overview).
 
@@ -25,10 +25,6 @@ Site Recovery bidrar till din affärskontinuitet och haveriberedskap (BCDR) stra
 - När ett eventuellt strömavbrott på din primära plats använder du Site Recovery för att växla över till Azure.
 - Azure virtuella datorer skapas från lagrad VM-data på växling vid fel, och användarna kan fortsätta använda arbetsbelastningar som körs på de virtuella Azure-datorer.
 - När allt är igång igen kan du växla tillbaka Azure virtuella datorer till din primära platsen och börja replikera till Azure storage igen.
-
-
-> [!NOTE]
-> Site Recovery för Azure Stack är för närvarande i offentlig förhandsversion.
 
 
 I den här artikeln kan du se hur du:

@@ -1,6 +1,6 @@
 ---
-title: Anpassa anspråk som utfärdats i SAML-token för företagsprogram i Azure Active Directory | Microsoft Docs
-description: Lär dig att anpassa anspråk som utfärdats i SAML-token för företagsprogram i Azure Active Directory
+title: Anpassa anspråk som utfärdats i SAML-token för företagsprogram i Azure AD | Microsoft Docs
+description: Lär dig hur du anpassar de anspråk som utfärdats i SAML-token för företagsprogram i Azure AD.
 services: active-directory
 documentationcenter: ''
 author: CelesteDG
@@ -17,20 +17,20 @@ ms.date: 09/11/2018
 ms.author: celested
 ms.reviewer: jeedes
 ms.custom: aaddev
-ms.openlocfilehash: 80842f7e99ee0c58f1615892f3c3c4adf03119b6
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 5633dfbf59396e79226b196c2b699981409092ab
+ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46956980"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48902033"
 ---
-# <a name="how-to-customize-claims-issued-in-the-saml-token-for-enterprise-applications-in-azure-ad"></a>Så här: anpassa anspråk som utfärdats i SAML-token för företagsprogram i Azure AD
+# <a name="how-to-customize-claims-issued-in-the-saml-token-for-enterprise-applications"></a>Så här: anpassa anspråk som utfärdats i SAML-token för företagsprogram
 
-Idag Azure Active Directory har stöd för enkel inloggning på med de flesta företagsprogram, inklusive båda programmen som är förintegrerade i appgalleriet för Azure AD samt anpassade program. När en användare autentiseras till ett program via Azure AD med hjälp av protokollet SAML 2.0, skickar Azure AD en token till programmet (via en HTTP-POST). Och sedan programmet validerar och använder token för att logga in användaren i stället för att fråga om ett användarnamn och lösenord. Dessa SAML-token innehåller uppgifter om den användare som kallas ”anspråk”.
+Idag Azure Active Directory (Azure AD) har stöd för enkel inloggning på med de flesta företagsprogram, inklusive båda programmen som är förintegrerade i appgalleriet för Azure AD samt anpassade program. När en användare autentiseras till ett program via Azure AD med hjälp av protokollet SAML 2.0, skickar Azure AD en token till programmet (via en HTTP-POST). Och sedan programmet validerar och använder token för att logga in användaren i stället för att fråga om ett användarnamn och lösenord. Dessa SAML-token innehåller uppgifter om den användare som kallas ”anspråk”.
 
-I identity-talar, ett ”anspråk” är information som en identitetsprovider som anger om en användare i de token som de utfärda för användaren. I [SAML-token](http://en.wikipedia.org/wiki/SAML_2.0), dessa data finns vanligtvis i instruktionen SAML-attribut. Användarens unika ID: T är vanligtvis representeras i SAML-ämne som även kallas för namnidentifierare.
+En *anspråk* är information som en identitetsprovider som anger om en användare i de token som de utfärda för användaren. I [SAML-token](http://en.wikipedia.org/wiki/SAML_2.0), dessa data finns vanligtvis i instruktionen SAML-attribut. Användarens unika ID: T är vanligtvis representeras i SAML-ämne som även kallas för namnidentifierare.
 
-Som standard utfärdar en SAML-token till ditt program som innehåller en NameIdentifier-anspråket, med ett värde på användarens användarnamn (AKA användarens huvudnamn) i Azure AD i Azure Active Directory. Det här värdet kan unikt identifiera användaren. SAML-token innehåller också ytterligare anspråk som innehåller användarens e-postadress, Förnamn och efternamn.
+Azure AD utfärdar en SAML-token i ditt program som innehåller en NameIdentifier-anspråket, med ett värde på användarens användarnamn (AKA användarens huvudnamn) i Azure AD som standard. Det här värdet kan unikt identifiera användaren. SAML-token innehåller också ytterligare anspråk som innehåller användarens e-postadress, Förnamn och efternamn.
 
 Om du vill visa eller redigera de anspråk som utfärdats i SAML-token till programmet genom att öppna programmet i Azure-portalen. Välj sedan den **visa och redigera alla andra användarattribut** kryssrutan i den **användarattribut** avsnittet av programmet.
 
@@ -38,7 +38,7 @@ Om du vill visa eller redigera de anspråk som utfärdats i SAML-token till prog
 
 Det finns två möjliga orsaker till varför du kan behöva redigera anspråk som utfärdats i SAML-token:
 * Programmet har skrivits för att kräva en annan uppsättning anspråk URI: er eller anspråksvärden.
-* Programmet har distribuerats på ett sätt som kräver NameIdentifier-anspråket ska vara något annat än användarnamnet (AKA användarens huvudnamn) lagras i Azure Active Directory.
+* Programmet har distribuerats på ett sätt som kräver NameIdentifier-anspråket ska vara något annat än användarnamnet (AKA användarens huvudnamn) lagras i Azure AD.
 
 Du kan redigera standardvärdena för anspråk. Välj raden anspråk i SAML-tokenattribut tabellen. Då öppnas det **redigera attributet** avsnittet och sedan du kan redigera anspråkets namn, värde och namnområde som är associerade med anspråket.
 
@@ -130,8 +130,9 @@ Det finns vissa begränsade anspråk i SAML. Om du lägger till dessa anspråk s
     | http://schemas.microsoft.com/identity/claims/scope |
 
 ## <a name="next-steps"></a>Nästa steg
-* [Programhantering i Azure Active Directory](../manage-apps/what-is-application-management.md)
-* [Konfigurera enkel inloggning för program som inte ingår i Azure Active Directory-programgalleriet](../manage-apps/configure-federated-single-sign-on-non-gallery-applications.md)
+
+* [Programhantering i Azure AD](../manage-apps/what-is-application-management.md)
+* [Konfigurera enkel inloggning till program som inte ingår i Azure AD-programgalleriet](../manage-apps/configure-federated-single-sign-on-non-gallery-applications.md)
 * [Felsöka SAML-baserad enkel inloggning](howto-v1-debug-saml-sso-issues.md)
 
 <!--Image references-->

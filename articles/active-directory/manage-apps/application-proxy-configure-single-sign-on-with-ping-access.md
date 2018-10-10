@@ -15,12 +15,12 @@ ms.date: 10/11/2017
 ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: aae73816b883fe782eff27c56174c71f14c253c4
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: 53d613052713e5144cb9d96aeeb937392fd4736a
+ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39577194"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48902934"
 ---
 # <a name="header-based-authentication-for-single-sign-on-with-application-proxy-and-pingaccess"></a>Rubrikbaserad autentisering för enkel inloggning med Application Proxy och PingAccess
 
@@ -162,10 +162,10 @@ Det här exemplet används den [Azure-portalen](https://portal.azure.com) till t
 >[!NOTE]
 >Om du vill använda ett anpassat anspråk måste du också ha en anpassad princip definieras och tilldelas programmet.  Den här principen ska inkludera alla nödvändiga anpassade attribut.
 >
->Principdefinitionen och tilldelningen kan göras via PowerShell, Azure AD Graph Explorer eller MS Graph.  Om du vill göra detta i PowerShell, kan du behöva använda först `New-AzureADPolicy `och tilldela den till programmet med `Set-AzureADServicePrincipalPolicy`.  Mer information finns i den [dokumentation om Azure AD-Policy](../active-directory-claims-mapping.md#claims-mapping-policy-assignment).
+>Principdefinitionen och tilldelningen kan göras via PowerShell, Azure AD Graph Explorer eller MS Graph.  Om du vill göra detta i PowerShell, kan du behöva använda först `New-AzureADPolicy `och tilldela den till programmet med `Set-AzureADServicePrincipalPolicy`.  Mer information finns i den [dokumentation om Azure AD-Policy](../develop/active-directory-claims-mapping.md#claims-mapping-policy-assignment).
 
 ### <a name="optional---use-a-custom-claim"></a>Valfritt – Använd ett anpassat anspråk
-För att göra ditt program använder ett anpassat anspråk och ta med ytterligare fält, bör du se till att även [skapas en anpassad princip för Anspråksmappning och den tilldelas programmet](../active-directory-claims-mapping.md#claims-mapping-policy-assignment).
+För att göra ditt program använder ett anpassat anspråk och ta med ytterligare fält, bör du se till att även [skapas en anpassad princip för Anspråksmappning och den tilldelas programmet](../develop/active-directory-claims-mapping.md#claims-mapping-policy-assignment).
 
 ## <a name="download-pingaccess-and-configure-your-app"></a>Hämta PingAccess och konfigurera din app
 

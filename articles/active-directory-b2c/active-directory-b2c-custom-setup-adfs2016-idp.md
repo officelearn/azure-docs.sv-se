@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 09/20/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 39b9c2d9eb982eaffa7cb6246fd0b22375939f52
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.openlocfilehash: e8737e379dc69385b2bd5ac2b2af89bf8d38b63a
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48868708"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48886882"
 ---
 # <a name="add-adfs-as-a-saml-identity-provider-using-custom-policies-in-azure-active-directory-b2c"></a>Lägg till AD FS som en SAML-identitetsprovider med anpassade principer i Azure Active Directory B2C
 
@@ -32,7 +32,7 @@ Den här artikeln visar hur du aktiverar inloggning för ett användarkonto i AD
 
 Du behöver lagra certifikatet AD FS i din Azure AD B2C-klient.
 
-1. Logga in på [Azure-portalen](https://portal.azure.com/).
+1. Logga in på [Azure Portal](https://portal.azure.com/).
 2. Kontrollera att du använder den katalog som innehåller din Azure AD B2C-klient genom att klicka på den **katalog- och prenumerationsfilter** i den översta menyn och välja den katalog som innehåller din klient.
 3. Välj **alla tjänster** i det övre vänstra hörnet av Azure-portalen och Sök efter och välj **Azure AD B2C**.
 4. På sidan Översikt väljer **Identitetsupplevelse – FÖRHANDSVERSION**.
@@ -170,6 +170,18 @@ Ersätt följande värden:
 13. I Serverhanteraren väljer **verktyg**, och välj sedan **AD FS Management**.
 14. Välj det förlitande partsförtroendet som du har skapat, Välj **uppdateringen från Federationsmetadata**, och klicka sedan på **uppdatering**. 
 
+## <a name="create-an-azure-ad-b2c-application"></a>Skapa ett Azure AD B2C-program
+
+Kommunikation med Azure AD B2c sker via ett program som du skapar i din klient. Det här avsnittet innehåller valfria steg som du kan utföra för att skapa ett testprogram om du inte redan gjort det.
+
+1. Logga in på [Azure Portal](https://portal.azure.com).
+2. Kontrollera att du använder den katalog som innehåller din Azure AD B2C-klient genom att klicka på den **katalog- och prenumerationsfilter** i den översta menyn och välja den katalog som innehåller din klient.
+3. Välj **alla tjänster** i det övre vänstra hörnet av Azure-portalen och Sök efter och välj **Azure AD B2C**.
+4. Välj **program**, och välj sedan **Lägg till**.
+5. Ange ett namn för programmet, till exempel *testapp1*.
+6. För **Webbapp / webb-API**väljer `Yes`, och ange sedan `https://jwt.ms` för den **svars-URL**.
+7. Klicka på **Skapa**.
+
 ### <a name="update-and-test-the-relying-party-file"></a>Uppdatera och testa filen förlitande part
 
 Uppdatera filen för förlitande part (RP) som initierar användarresa som du skapade.
@@ -178,4 +190,6 @@ Uppdatera filen för förlitande part (RP) som initierar användarresa som du sk
 2. Öppna den nya filen och uppdatera värdet för den **PolicyId** attributet för **TrustFrameworkPolicy** med ett unikt värde. Till exempel `SignUpSignInADFS`.
 3. Uppdatera värdet för **PublicPolicyUri** med URI: N för principen. Till exempel ”http://contoso.com/B2C_1A_signup_signin_adfs” >
 4. Uppdatera värdet för den **ReferenceId** attributet i **DefaultUserJourney** att matcha ID för den nya användarresa som du skapade (SignUpSignInADFS).
-5. Spara dina ändringar, överföra filen och testa den genom att öppna den och klicka på **kör nu**.
+5. Spara dina ändringar, överföra filen och välj sedan den nya principen i listan.
+6. Se till att Azure AD B2C-program som du skapat är markerad i den **Välj program** fältet och sedan testa den genom att klicka på **kör nu**.
+

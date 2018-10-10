@@ -1,31 +1,32 @@
 ---
-title: Konferens serien entitetsattribut i Academic Knowledge API | Microsoft Docs
-description: Lär dig mer om de attribut som du kan använda med entiteten konferens serien i kognitiva Services.
+title: Konferensen serien entitetsattribut – Academic Knowledge API
+titlesuffix: Azure Cognitive Services
+description: Läs mer om de attribut som du kan använda med entitet som Konferensserie.
 services: cognitive-services
 author: alch-msft
-manager: kuansanw
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: academic-knowledge
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/23/2017
 ms.author: alch
-ms.openlocfilehash: 332736c927bdaa00334546f626a6eabb8e11d3b5
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: f9f28afd7005d7a61aa0d2f4dba69ca598034b52
+ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35351363"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48900756"
 ---
-# <a name="conference-series-entity"></a>Konferens serien entitet
+# <a name="conference-series-entity"></a>Konferensen serien entitet
 
-<sub> * Följande attribut är specifika för konferens serien entitet. (Ty = ”3”) </sub>
+<sub> * Följande attribut är specifika för konferensen serien entitet. (Ty = ”3”) </sub>
 
 Namn    |Beskrivning                            |Typ       | Åtgärder
 ------- | ------------------------------------- | --------- | ----------------------------
 Id      |Enhets-id                              |Int64      |Lika med
-CN      |Konferens normaliserade serienamn      |Sträng     |Lika med
-DCN     |Visningsnamn för konferens serien         |Sträng     |inga
-Kopia      |Konferens serien totalt antalet källhänvisningar         |Int32      |inga  
-ECC     |Antalet för konferens serien totala uppskattade källhänvisningar   |Int32      |inga
-F.FId   |Fältet för undersökning enhets-ID som är associerade med konferens-serien |Int64  | Lika med
-F.FN    |Fältet för undersökning namnet som associeras med konferens-serien  | Är lika med,<br/>StartsWith
+CN      |Konferensserie normalized namn      |Sträng     |Lika med
+DCN     |Visningsnamn för konferens-serien         |Sträng     |inga
+Kopia      |Konferensserie totala antalet källhänvisningar         |Int32      |inga  
+ECC     |Antalet för konferensen serien totala uppskattade källhänvisningar   |Int32      |inga
+F.FId   |Fältet för studier entitets-ID som är associerade med konferensserie |Int64  | Lika med
+F.FN    |Fältet för studier namnet som associeras med konferensserie  | Är lika med,<br/>StartsWith

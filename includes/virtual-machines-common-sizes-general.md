@@ -5,17 +5,19 @@ services: virtual-machines
 author: jonbeck7
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 07/06/2018
+ms.date: 10/08/2018
 ms.author: azcspmt;jonbeck;cynthn
 ms.custom: include file
-ms.openlocfilehash: 2d1a6bdb0cb53e3e58b4b4e8fed4bf29957d6489
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: 8297e324f03d263acaa30dfa2147f7ee713bd265
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48858085"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48904517"
 ---
 VM-storlekar för generell användning ger balanserat förhållande mellan processor och minne. Utmärkt för tester och utveckling, små till mellanstora databaser och webbservrar med låg till medelhög trafik. Den här artikeln innehåller information om hur många virtuella processorer, diskar och nätverkskort samt genomflödet för storlekar i den här grupperingen. 
+
+- Den [DC-serien](#dc-series) är en ny serie av virtuella datorer i Azure som kan hjälpa att skydda sekretessen och integriteten hos dina data och code medan den bearbetas i det offentliga molnet. Dessa datorer backas upp av den senaste generationen i 3,7 GHz Intel XEON E - 2176G-Processor med SGX-teknik. Dessa datorer kan gå upp till 4.7 GHz med Intel Turbo Boost Technology. DC-serieinstanser kan kunder skapa säkra enklav-baserade program kan skydda sin kod och data medan det används.
 
 - Virtuella datorer i Av2-serien kan distribueras på en rad olika maskinvarutyper och processorer. Virtuella datorer i A-serien har CPU-prestanda och minneskonfigurationer som är bäst lämpade för arbetsbelastningar på ingångsnivån som utveckling och testning. Storleken begränsas, baserat på maskinvaran, för att erbjuda enhetliga processorprestanda på instansen som körs, oavsett vilken maskinvara instansen har distribuerats på. Du kan kontrollera vilken fysisk maskinvara som storleken har distribuerats på genom att köra en fråga mot den virtuella maskinvaran från den virtuella datorn.
 
@@ -27,7 +29,6 @@ VM-storlekar för generell användning ger balanserat förhållande mellan proce
 
   Exemplen i D-serien omfattar program, relationsdatabaser, minnesintern cachelagring och analys. 
   
-- Den [DC-serien](#dc-series) är en ny serie av virtuella datorer i Azure som kan hjälpa att skydda sekretessen och integriteten hos dina data och code medan den bearbetas i det offentliga molnet. Dessa datorer backas upp av den senaste generationen i 3,7 GHz Intel XEON E - 2176G-Processor med SGX-teknik. Dessa datorer kan gå upp till 4.7 GHz med Intel Turbo Boost Technology. DC-serieinstanser ger kunderna möjlighet att skapa säkra enklav-baserade program kan skydda sin kod och data när den inte används
 
 ## <a name="b-series"></a>B-serien
 

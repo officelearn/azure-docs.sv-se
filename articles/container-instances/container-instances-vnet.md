@@ -7,12 +7,12 @@ ms.service: container-instances
 ms.topic: article
 ms.date: 09/24/2018
 ms.author: danlep
-ms.openlocfilehash: 6d319c09b8a935b5ca81a6d5815daa5d2f706f45
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: feb9547b004141a3c1d02ef4b356b9d00b74fc95
+ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48854631"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48902380"
 ---
 # <a name="deploy-container-instances-into-an-azure-virtual-network"></a>Distribuera behållarinstanser till en Azure-nätverk
 
@@ -174,15 +174,85 @@ index.html           100% |*******************************|  1663   0:00:00 ETA
 
 Till loggutdata ska visa som `wget` kunde ansluta och ladda ned indexfilen från den första behållaren med hjälp av dess privata IP-adress på det lokala undernätet. Nätverkstrafiken mellan de två behållargrupper som finns kvar i det virtuella nätverket.
 
+## <a name="deploy-to-existing-virtual-network---yaml"></a>Distribuera till befintligt virtuellt nätverk – YAML
+
+Du kan också distribuera en behållargrupp till ett befintligt virtuellt nätverk med hjälp av en YAML-fil. Om du vill distribuera till ett undernät i ett virtuellt nätverk måste ange du flera ytterligare egenskaper i YAML:
+
+* `ipAddress`: IP-adressinställningarna för behållargruppen.
+  * `ports`: Portarna som ska öppnas, om sådana.
+  * `protocol`: Protokollet (TCP eller UDP) för porten som öppnade.
+* `networkProfile`: Anger nätverksinställningar som det virtuella nätverk och undernät för en Azure-resurs.
+  * `id`: Den fullständiga resurs-ID för Resource Manager för den `networkProfile`.
+
+Om du vill distribuera en behållargrupp till ett virtuellt nätverk med en YAML-fil, måste du först hämta ID för nätverksprofilen. Kör den [az nätverket Profillista] [ az-network-profile-list] kommando och ange namnet på resursgruppen som innehåller ditt virtuella nätverk och delegerad undernät.
+
+``` azurecli
+az network profile list --resource-group myResourceGroup --query [0].id --output tsv
+```
+
+Kommandots utdata visar fullständigt resurs-ID för nätverksprofilen:
+
+```console
+$ az network profile list --resource-group myResourceGroup --query [0].id --output tsv
+/subscriptions/<Subscription ID>/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkProfiles/aci-network-profile-aci-vnet-aci-subnet
+```
+
+När du har network profil-ID, kopiera följande YAML till en ny fil med namnet *vnet distribuera aci.yaml*. Under `networkProfile`, ersätter den `id` värdet med ID som du just hämtade, spara filen. Den här YAML skapar en behållargrupp med namnet *appcontaineryaml* i det virtuella nätverket.
+
+```YAML
+apiVersion: '2018-09-01'
+location: westus
+name: appcontaineryaml
+properties:
+  containers:
+  - name: appcontaineryaml
+    properties:
+      image: microsoft/aci-helloworld
+      ports:
+      - port: 80
+        protocol: TCP
+      resources:
+        requests:
+          cpu: 1.0
+          memoryInGB: 1.5
+  ipAddress:
+    type: Private
+    ports:
+    - protocol: tcp
+      port: '80'
+  networkProfile:
+    id: /subscriptions/<Subscription ID>/resourceGroups/container/providers/Microsoft.Network/networkProfiles/aci-network-profile-aci-vnet-subnet
+  osType: Linux
+  restartPolicy: Always
+tags: null
+type: Microsoft.ContainerInstance/containerGroups
+```
+
+Distribuera behållargrupp med den [az container skapa] [ az-container-create] kommando och ange namnet på YAML-filen för den `--file` parameter:
+
+```azurecli
+az container create --resource-group myResourceGroup --file vnet-deploy-aci.yaml
+```
+
+När distributionen är klar, köra den [az container show] [ az-container-show] kommando för att visa dess status:
+
+```console
+$ az container show --resource-group myResourceGroup --name appcontaineryaml --output table
+Name              ResourceGroup    Status    Image                     IP:ports     Network    CPU/Memory       OsType    Location
+----------------  ---------------  --------  ------------------------  -----------  ---------  ---------------  --------  ----------
+appcontaineryaml  myResourceGroup  Running   microsoft/aci-helloworld  10.0.0.5:80  Private    1.0 core/1.5 gb  Linux     westus
+```
+
 ## <a name="clean-up-resources"></a>Rensa resurser
 
 ### <a name="delete-container-instances"></a>Ta bort behållarinstanser
 
-När du är klar du arbetar med behållarinstanserna skapade, ta bort både med följande kommandon:
+När du är klar du arbetar med behållarinstanserna skapade, ta bort dem med följande kommandon:
 
 ```azurecli
 az container delete --resource-group myResourceGroup --name appcontainer -y
 az container delete --resource-group myResourceGroup --name commchecker -y
+az container delete --resource-group myResourceGroup --name appcontaineryaml -y
 ```
 
 ### <a name="delete-network-resources"></a>Ta bort nätverksresurser
@@ -239,4 +309,6 @@ Flera virtuella nätverksresurser och funktioner beskrivs i den här artikeln, �
 
 <!-- LINKS - Internal -->
 [az-container-create]: /cli/azure/container#az-container-create
+[az-container-show]: /cli/azure/container#az-container-show
 [az-network-vnet-create]: /cli/azure/network/vnet#az-network-vnet-create
+[az-network-profile-list]: /cli/azure/network/profile#az-network-profile-list

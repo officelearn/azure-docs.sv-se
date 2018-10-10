@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 8/22/2018
 ms.author: adigan
-ms.openlocfilehash: 873e7066bcf51b32c3a7a54e845ffd5a744f407f
-ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
+ms.openlocfilehash: 2da5b04f56a5746fb77de6bc954bb5971eb4664b
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/23/2018
-ms.locfileid: "42745443"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48885178"
 ---
 # <a name="preparing-to-back-up-workloads-to-azure-with-dpm"></a>Förbereder för att säkerhetskopiera arbetsbelastningar till Azure med DPM
 > [!div class="op_single_selector"]
@@ -93,7 +93,7 @@ Valvautentiseringen används endast under registreringsarbetsflödet. Det är an
 
 Valvautentiseringsfilen hämtas via en säker kanal från Azure-portalen. Azure Backup-tjänsten är inte medveten om certifikatets privata nyckel och den privata nyckeln är inte tillgänglig i portalen eller tjänsten. Använd följande steg för att hämta valvautentiseringsfilen till en lokal dator.
 
-1. Logga in på [Azure-portalen](https://portal.azure.com/).
+1. Logga in på [Azure Portal](https://portal.azure.com/).
 
 2. Öppna Recovery Services-valvet som du vill registrera en DPM-server.
 
@@ -103,11 +103,11 @@ Valvautentiseringsfilen hämtas via en säker kanal från Azure-portalen. Azure 
 
 4. På sidan Egenskaper under **säkerhetskopiering autentiseringsuppgifter** klickar du på **hämta**. Portalen genererar valvautentiseringsfilen som gjorts tillgänglig för hämtning.
 
-    ![Hämta](./media/backup-azure-dpm-introduction/vault-credentials.png)
+    ![Ladda ned](./media/backup-azure-dpm-introduction/vault-credentials.png)
 
 Portalen genererar en valvautentiseringen med hjälp av en kombination av valvnamnet och det aktuella datumet. Klicka på **spara** att hämta autentiseringsuppgifterna för valvet till det lokala kontot mapp eller välja Spara som från menyn Spara för att ange en plats för autentiseringsuppgifterna för valvet. Det kan ta upp till en minut för filen som ska genereras.
 
-### <a name="note"></a>Observera
+### <a name="note"></a>Obs!
 * Se till att valvautentiseringsfilen sparas på en plats som kan nås från din dator. Om den är lagrad i en resurs/SMB i filen, söka efter åtkomstbehörigheterna.
 * Valvautentiseringsfilen används endast under registreringsarbetsflödet.
 * Valvautentiseringsfilen upphör att gälla efter 48hrs och kan laddas ned från portalen.
@@ -121,7 +121,7 @@ När du har skapat Azure Backup-valvet, bör en agent installeras på var och en
     ![Öppna menyn för valvet](./media/backup-azure-dpm-introduction/vault-settings-dpm.png)
 3. På sidan Inställningar **hämta** under **Azure Backup-agenten**.
 
-    ![Hämta](./media/backup-azure-dpm-introduction/azure-backup-agent.png)
+    ![Ladda ned](./media/backup-azure-dpm-introduction/azure-backup-agent.png)
 
    När agenten har hämtats, kör du MARSAgentInstaller.exe för att starta installationen av Azure Backup-agenten. Välj installationsmappen och temporära mappen som krävs för agenten. Cachelagringsplatsen måste ha ledigt utrymme som är minst 5% av säkerhetskopierade data.
 
@@ -170,7 +170,7 @@ När du har skapat Azure Backup-valvet, bör en agent installeras på var och en
 14. När du använder Data Protection Manager kan du ändra de inställningar som anges under registreringsarbetsflödet genom att klicka på den **konfigurera** alternativet genom att välja **Online** under den **Management**  Fliken.
 
 ## <a name="requirements-and-limitations"></a>Krav (och begränsningar)
-* DPM kan köras som en fysisk server eller en Hyper-V virtuell dator som är installerade på System Center 2012 SP1 eller System Center 2012 R2. Det kan också köras som en Azure-dator som körs på System Center 2012 R2 med minst DPM 2012 R2 Samlad uppdatering 3 eller en Windows-dator i VMWare som körs på System Center 2012 R2 med minst Samlad uppdatering 5.
+* DPM kan köras som en fysisk server eller en Hyper-V virtuell dator som är installerade på System Center 2012 SP1 eller System Center 2012 R2. Det kan också köras som en Azure-dator som körs på System Center 2012 R2 med minst DPM 2012 R2 Samlad uppdatering 3 eller en Windows-dator i VMware som körs på System Center 2012 R2 med minst Samlad uppdatering 5.
 * Om du kör DPM med System Center 2012 SP1 bör du installera Samlad uppdatering 2 för System Center Data Protection Manager SP1. Detta krävs innan du kan installera Azure Backup-agenten.
 * DPM-servern bör ha Windows PowerShell och .net Framework 4.5 installerat.
 * DPM kan säkerhetskopiera de flesta arbetsbelastningar till Azure Backup. En fullständig lista över vad har som stöds finns i stöd Azure Backup för objekten nedan.

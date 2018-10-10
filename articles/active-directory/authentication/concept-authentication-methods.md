@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry, michmcla
-ms.openlocfilehash: 7776ca63dd5c02e470ead35e3dad73c051731fd1
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: a8bcbc37ffba2caace0934c5414e1ccfd6fbb558
+ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "42056297"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48901999"
 ---
 # <a name="what-are-authentication-methods"></a>Vad är autentiseringsmetoder?
 
@@ -31,6 +31,7 @@ Microsoft rekommenderar starkt att administratörer aktivera användare att väl
 | Säkerhetsfrågor | Endast SSPR |
 | E-postadress | Endast SSPR |
 | Microsoft Authenticator-appen | MFA och förhandsversion för SSPR |
+| OATH-token för maskinvara | Offentlig förhandsversion för MFA och SSPR |
 | SMS | MFA och SSPR |
 | Röstsamtal | MFA och SSPR |
 | Applösenord | MFA endast i vissa fall |
@@ -39,7 +40,7 @@ Microsoft rekommenderar starkt att administratörer aktivera användare att väl
 
 |     |
 | --- |
-| Mobilapp-meddelande och kod för mobilapp som metoder för lösenord för självbetjäning i Azure AD lösenordsåterställning är allmänt tillgänglig förhandsversionsfunktioner i Azure Active Directory. Mer information om förhandsversioner finns [kompletterande användningsvillkor för förhandsversioner av Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)|
+| OATH-maskinvarutoken för MFA- och SSPR- och Mobile app-meddelanden eller kod för mobilapp som metoder för lösenord för självbetjäning i Azure AD lösenordsåterställning är allmänt tillgänglig förhandsversionsfunktioner i Azure Active Directory. Mer information om förhandsversioner finns [kompletterande användningsvillkor för förhandsversioner av Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)|
 |     |
 
 ## <a name="password"></a>Lösenord
@@ -146,6 +147,28 @@ Microsoft Authenticator-appen eller andra appar från tredje part kan användas 
 > [!WARNING]
 > För lösenordsåterställning via självbetjäning när bara en metod krävs för återställning av verifieringskoden är det enda alternativet som är tillgängliga för användare **att säkerställa högsta säkerhetsnivå**.
 >
+
+## <a name="oath-hardware-tokens"></a>OATH-token för maskinvara
+
+OATH är en öppen standard som anger hur enstaka lösenord (OTP) koder genereras. Azure AD stöder användning av OATH-TOTP SHA-1-token på 30 sekunder eller 60-sekunders olika. Kunder kan skaffa dessa token från leverantören av valfri. Observera att hemliga nycklar är begränsad till 128 tecken, vilket inte kanske är kompatibel med alla token.
+
+![Ladda upp OATH-token till bladet MFA Server OATH-token i Azure portal](media/concept-authentication-methods/oath-tokens-azure-ad.png)
+
+När token är upptagna måste de laddas upp i en fil med kommaavgränsade värden (CSV)-filformat, inklusive UPN, serienummer, hemlig nyckel, tidsintervall, tillverkare och modell som exemplet nedan visar.
+
+```
+upn,serial number,secret key,timeinterval,manufacturer,model
+Helga@contoso.com,1234567,1234567890abcdef1234567890abcdef,60,Contoso,HardwareKey
+```
+
+> [!NOTE]
+> Kontrollera att du inkluderar rubrikraden i CSV-filen enligt ovan.
+
+En gång korrekt formaterade som en CSV-fil, en administratör kan logga in på Azure-portalen och gå till **Azure Active Directory**, **MFA Server**, **OATH-token**, och ladda upp den resulterande CSV-filen.
+
+Beroende på storleken på CSV-filen kan dröja det några minuter att bearbeta. Klicka på den **uppdatera** för att visa aktuell status. Om det finns några fel i filen, kommer du har möjlighet att hämta en CSV-fil som innehåller alla fel för dig att lösa.
+
+När du har åtgärdat eventuella fel administratören kan aktivera varje nyckel genom att klicka på **aktivera** för token som ska aktiveras och anger OTP visas i token.
 
 ## <a name="mobile-phone"></a>Mobiltelefon
 

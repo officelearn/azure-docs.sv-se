@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 07/26/2018
 ms.author: andrl
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 9b7d9a0dd439b7c25180c8f250a87ae5ee184139
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.openlocfilehash: d7c1c28b3d7b2f51c31f5f05cdef66cc8d71e192
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48870578"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48886391"
 ---
 # <a name="partition-and-scale-in-azure-cosmos-db"></a>Partitionera och skala i Azure Cosmos DB
 
@@ -104,50 +104,6 @@ Följande är förutsättningar för att tänka på för partitionering och skal
 * Alla behållare som är konfigurerad för att dela dataflöde som en del av en uppsättning behållare behandlas som **obegränsad** behållare.
 
 Om du har skapat en **fast** behållare utan partitions nyckel eller dataflöde mindre än 1 000 RU/s, behållaren kommer inte automatisk skalning. Om du vill migrera data från en fast behållare till en obegränsad behållare, måste du använda den [datamigreringsverktyget](import-data.md) eller [biblioteket Change Feed](change-feed.md). 
-
-## <a name="PartitionedGraph"></a>Krav för partitionerade graph
-
-Överväg följande information när du skapar en partitionerad grafbehållare:
-
-- **Det är nödvändigt att konfigurera partitionering** om behållaren förväntas vara större än 10 GB i storlek och/eller om tilldelning av över 10 000 enheter för programbegäran per sekund (RU/s) kommer att krävas.
-
-- **Hörn och kanter lagras som JSON-dokument** i serverdelen av en Azure Cosmos DB Gremlin-API.
-
-- **Hörn kräver en partitionsnyckel**. Den här nyckeln avgör vilken partition som används för att lagra hörnet och den här processen använder en hash-algoritm. Namnet på den här partitionsnyckel är ett enstaka ord sträng utan blanksteg eller specialtecken och definieras när du skapar en ny behållare i formatet `/partitioning-key-name`.
-
-- **Kanter lagras med sina källvertex**. Med andra ord för varje brytpunkt definierar sin partitionsnyckel där hörnet och kanterna utgående lagras. Detta görs för att undvika flera partitioner frågor när du använder den `out()` kardinalitet i graph-frågor.
-
-- **Graph-frågor ska ange en partitionsnyckel**. Om du vill dra full nytta av horisontell partitionering i Azure Cosmos DB, när det är möjligt i diagrammet ska frågor inkludera partitionsnyckel. Till exempel när en enskild brytpunkt är markerad. Följande exempelfrågor visar hur du inkluderar partitionsnyckel när du väljer en eller flera hörn i en partitionerad graph:
-
-    - **Du inte kan använda för närvarande `/id` som partitionsnyckel för en behållare i Gremlin-API: et**.
-
-    - Att välja ett hörn med ID: T, sedan **använder den `.has()` steg för att ange egenskapen partitions**: 
-    
-        ```
-        g.V('vertex_id').has('partitionKey', 'partitionKey_value')
-        ```
-    
-    - Att välja ett hörn av **att ange en tuppel inklusive partitionsnyckelvärde och ID**: 
-    
-        ```
-        g.V(['partitionKey_value', 'vertex_id'])
-        ```
-        
-    - Att välja en brytpunkt genom att ange en **mängd tupplar som innehåller partitionsnyckelvärdena och ID: N**:
-    
-        ```
-        g.V(['partitionKey_value0', 'verted_id0'], ['partitionKey_value1', 'vertex_id1'], ...)
-        ```
-        
-    - Att välja en uppsättning hörn av **att ange en lista över partitionsnyckelvärdena**: 
-    
-        ```
-        g.V('vertex_id0', 'vertex_id1', 'vertex_id2', …).has('partitionKey', within('partitionKey_value0', 'partitionKey_value01', 'partitionKey_value02', …)
-        ```
-
-* **Ange alltid partitionsnyckelvärdet vid frågor till en brytpunkt**. Skaffa ett hörn från en känd partition är det effektivaste sättet i termer av prestanda.
-
-* **Använda utgående riktning vid fråga kanter** när det är möjligt. Kanter lagras med deras källkod hörn i den utgående riktningen. Det innebär att minimeras risken för tillgripa till flera partitioner frågor när data och frågor som är utformade med det här mönstret i åtanke.
 
 ## <a name="designing-for-partitioning"></a> Skapa en partitionsnyckel 
 Du kan använda Azure portal eller Azure CLI för att skapa behållare och skala dem när som helst. Det här avsnittet visar hur du skapar behållare och ange den etablerade dataflöde och partition nyckeln med hjälp av varje API.

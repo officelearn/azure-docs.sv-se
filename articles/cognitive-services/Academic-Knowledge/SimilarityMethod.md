@@ -1,24 +1,25 @@
 ---
-title: Likhet metod i Academic Knowledge API | Microsoft Docs
-description: Använd metoden likhet för att beräkna academic likheten mellan två strängar i kognitiva Microsoft-tjänster.
+title: Likhet metoden – Academic Knowledge API
+titlesuffix: Azure Cognitive Services
+description: Du kan använda metoden likheter för att beräkna akademiska likheten mellan två strängar.
 services: cognitive-services
 author: alch-msft
-manager: kuansanw
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: academic-knowledge
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/18/2017
 ms.author: alch
-ms.openlocfilehash: 472498d6bfe06ae4477a30f892d44e79c901acf5
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 76e86eb78a06d98e3d5c6c54b244add3c0c245d2
+ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35351393"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48900469"
 ---
 # <a name="similarity-method"></a>Likhet metod
 
-Den **likhet** REST API för att beräkna academic likheten mellan två strängar. 
+Den **likheter** REST-API används för att beräkna academic-likheten mellan två strängar. 
 <br>
 
 **REST-slutpunkt:**
@@ -26,38 +27,38 @@ Den **likhet** REST API för att beräkna academic likheten mellan två stränga
 https://westus.api.cognitive.microsoft.com/academic/v1.0/similarity?
 ```
 
-## <a name="request-parameters"></a>Begäranparametrar
+## <a name="request-parameters"></a>Parametrar för begäran
 Parameter        |Datatyp      |Krävs | Beskrivning
 ----------|----------|----------|------------
 **S1**        |Sträng   |Ja  |Sträng * som ska jämföras
 **S2**        |Sträng   |Ja  |Sträng * som ska jämföras
-<sub> * Strängar som jämför har en största längd på 1MB. </sub>
+<sub> * Strängar att jämföra har en högsta längd på 1MB. </sub>
 <br>
 ## <a name="response"></a>Svar
 Namn | Beskrivning
 --------|---------
-**SimilarityScore**        |En flytande peka värdet som representerar cosinus liknande s1 och s2 med värden närmare 1.0 betydelse mer liknande och värden närmare-1.0 vilket innebär att mindre
+**SimilarityScore**        |En flytande peka värde som representerar cosinus-likheten för s1 och s2 med värden närmare 1.0 betydelsen mer liknande och värden för närmare att-1.0 vilket innebär att mindre
 <br>
 
 ## <a name="successerror-conditions"></a>Lyckade/felvillkor
 HTTP-Status | Orsak | Svar
 -----------|----------|--------
-**200**         |Lyckades | Flyttal
-**400**         | Felaktig begäran eller är ogiltig för begäran | Felmeddelande      
+**200**         |Lyckades | Flyttalsnummer
+**400**         | Felaktig begäran eller är ogiltigt för begäran | Felmeddelande      
 **500**         |Internt serverfel | Felmeddelande
 **Tidsgränsen uppnåddes**     | Förfrågan uppnådde sin tidsgräns.  | Felmeddelande
 <br>
-## <a name="example-calculate-similarity-of-two-partial-abstracts"></a>Exempel: Beräkna likhet av två delar sammanfattningar
+## <a name="example-calculate-similarity-of-two-partial-abstracts"></a>Exempel: Beräkna likheten mellan två partiella sammanfattningar
 #### <a name="request"></a>Begäran:
 ```
 https://westus.api.cognitive.microsoft.com/academic/v1.0/similarity?s1=Using complementary priors, we derive a fast greedy algorithm that can learn deep directed belief networks one layer at a time, provided the top two layers form an undirected associative memory
 &s2=Deepneural nets with a large number of parameters are very powerful machine learning systems. However, overfitting is a serious problem in such networks
 ```
-I det här exemplet vi generera poängsättningen likheten mellan två delar sammanfattningar med hjälp av den **likhet** API.
+I det här exemplet vi genererar poängen likheter mellan två partiella sammanfattningar med hjälp av den **likheter** API.
 #### <a name="response"></a>Svar:
 ```
 0.520
 ```
 #### <a name="remarks"></a>Anmärkning:
-Poängsättningen likhet bestäms av bedöma academic begrepp via word bädda in. I det här exemplet innebär 0.52 att två delar sammanfattningar påminner.
+Likhet poängen bestäms genom att uppskatta akademiska begreppen via word bädda in. I det här exemplet innebär 0.52 att två partiella sammanfattningar något liknande.
 <br>

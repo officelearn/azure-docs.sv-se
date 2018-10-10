@@ -1,6 +1,6 @@
 ---
 title: Snabbstart – kräver användningsvillkor godkännas före åtkomst till molnappar som skyddas av Azure Active Directory villkorlig åtkomst | Microsoft Docs
-description: I den här snabbstarten får du lära dig hur du kan kräva att dina användningsvillkor accepteras innan åtkomst till valda molnappar som ska beviljas av villkorlig åtkomst i Azure Active Directory.
+description: I den här snabbstarten får du lära dig hur du kan kräva att dina användningsvillkor accepteras innan beviljas åtkomst till valda molnappar genom villkorlig åtkomst i Azure Active Directory.
 services: active-directory
 keywords: villkorlig åtkomst till appar, villkorlig åtkomst med Azure AD, säker åtkomst till företagets resurser, principer för villkorlig åtkomst, användningsvillkor
 documentationcenter: ''
@@ -16,12 +16,12 @@ ms.workload: identity
 ms.date: 06/13/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: 2b06dcfd4bdeb68d114c0c6dd57134fadfef57b5
-ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
+ms.openlocfilehash: e121cfddf8dc598771d630e011b4410217f5e92b
+ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45605852"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48901897"
 ---
 # <a name="quickstart-require-terms-of-use-to-be-accepted-before-accessing-cloud-apps"></a>Snabbstart: Kräv användningsvillkor godkännas före åtkomst till molnappar 
 
@@ -193,7 +193,7 @@ Ange i din princip:
 
 ## <a name="evaluate-a-simulated-sign-in"></a>Utvärdera en simulerad inloggning
 
-Nu när du har konfigurerat principer för villkorlig åtkomst kan vill du förmodligen veta om den fungerar som förväntat. Använd villkorlig åtkomst som ett första steg, vad händer om principen för att simulera en inloggning av din testanvändare. Simuleringen beräknar inverkan detta inloggning har på dina principer och genererar en simuleringsrapport.  
+Nu när du har konfigurerat din princip för villkorsstyrd åtkomst vill du förmodligen veta om den fungerar som förväntat. Använd villkorlig åtkomst som ett första steg, vad händer om principen för att simulera en inloggning av din testanvändare. Simuleringen uppskattar inloggningens inverkan på dina principer och genererar en simuleringsrapport.  
 
 Initiera vad om utvärderingsverktyg för principen, Ställ in:
 

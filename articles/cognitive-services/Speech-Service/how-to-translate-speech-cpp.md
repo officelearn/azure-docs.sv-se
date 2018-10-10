@@ -5,16 +5,16 @@ description: Lär dig mer om att översätta tal med Speech-SDK för C++.
 services: cognitive-services
 author: wolfma61
 ms.service: cognitive-services
-ms.technology: Speech
+ms.component: Speech
 ms.topic: article
 ms.date: 09/24/2018
 ms.author: wolfma
-ms.openlocfilehash: c4a30553dc7782bcb9622cf48c3071cd83b40000
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 27e7fac33ce03895adcf97bf5d1a9022173dd431
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46974705"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48883457"
 ---
 # <a name="translate-speech-with-the-cognitive-services-speech-sdk-for-c"></a>Omvandla tal med Cognitive Services tal SDK för C++
 
@@ -35,5 +35,5 @@ Leta efter den kod som används i den här artikeln i mappen samples/cpp/windows
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Hur du känna igen tal](how-to-recognize-speech-cpp.md)
+- [Så identifierar du tal](how-to-recognize-speech-cpp.md)
 - [Förstå avsikter från tal](how-to-recognize-intents-from-speech-cpp.md)

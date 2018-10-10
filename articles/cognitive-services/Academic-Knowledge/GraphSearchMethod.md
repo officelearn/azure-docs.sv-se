@@ -1,24 +1,25 @@
 ---
-title: Diagram över Search-metoden i Academic Knowledge API | Microsoft Docs
-description: Använd diagram Search-metoden i Academic Knowledge API för att returnera en uppsättning academic enheter baserat på specifika diagram mönster i kognitiva Microsoft-tjänster.
+title: Graph sökmetoden – Academic Knowledge API
+titlesuffix: Azure Cognitive Services
+description: Använd metoden Grafsökning i Academic Knowledge API för att returnera en uppsättning akademiska enheter baserat på specifika grafmönster.
 services: cognitive-services
 author: alch-msft
-manager: kuansanw
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: academic-knowledge
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/23/2017
 ms.author: alch
-ms.openlocfilehash: d811db117c934c0d41fbfea1220d241cc022e4a8
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 83f29106d72f564f894c968102b703ab6bb5d8c2
+ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35351390"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48902391"
 ---
-# <a name="graph-search-method"></a>Diagrammet Search-metoden
+# <a name="graph-search-method"></a>Sökmetod
 
-Den **diagram Sök** REST-API används för att returnera en uppsättning av academic enheter baserat på diagrammet mönster.  Svaret är en uppsättning diagrammet sökvägar som uppfyller begränsningarna som angetts av användaren. Ett diagram sökvägen är en överlagrad sekvens med diagramnoder och kanter i form av _v0, e0, v1,..., e1 vn_, där _v0_ är den första noden i sökvägen.
+Den **grafsökning** REST-API används för att returnera en uppsättning akademiska enheter baserat på de angivna graph-mönster.  Svaret är en uppsättning graph-sökvägar som uppfyller de användardefinierade begränsningarna. En sökväg för graph är en överlagrad sekvens av graph-noder och kanter i form av _v0, e0, v1, e1, …, vn_, där _v0_ är den första noden i sökvägen.
 <br>
 
 **REST-slutpunkt:**  
@@ -27,31 +28,31 @@ https://westus.api.cognitive.microsoft.com/academic/v1.0/graph/search?
 ```   
 <br>
 
-## <a name="request-parameters"></a>Begäranparametrar  
+## <a name="request-parameters"></a>Parametrar för begäran  
 Namn     | Värde | Krävs?  | Beskrivning
 -----------|-----------|---------|--------
-**läge**       | Textsträng | Ja | Namnet på det läge som du vill använda. Värdet är antingen *json* eller *lambda*.
+**läge**       | Textsträngen | Ja | Namnet på det läge som du vill använda. Värdet är antingen *json* eller *lambda*.
 
-Diagrammet search-metoden måste anropas via en HTTP POST-begäran. Post-begäran ska innehålla content-type-huvud: **application/json**.
+Sökmetoden måste anropas via en HTTP POST-begäran. Post-begäran bör innehålla rubriken innehållstyp: **application/json**.
 
 ##### <a name="json-search"></a>JSON-sökning 
 
-För den *json* Sök efter brödtext är en JSON-objekt. JSON-objekt som beskriver en sökvägar med användardefinierade begränsningar (finns i [specificering av JSON-objekt](JSONSearchSyntax.md) för *json* Sök).
+För den *json* search, brödtexten INLÄGGET är ett JSON-objekt. JSON-objektet beskriver ett sökvägsmönster med användardefinierade begränsningar (se den [specifikation av JSON-objekt](JSONSearchSyntax.md) för *json* Sök).
 
 
 ##### <a name="lambda-search"></a>Lambda-sökning
 
-För den *lambda* Sök efter brödtext är en sträng som oformaterad text. POST-meddelandetexten är en LIKQ lambda frågesträng, vilket är en enskild C#-instruktion (finns i [specificering av frågesträngen](LambdaSearchSyntax.md) för *lambda* Sök). 
+För den *lambda* search, POST brödtexten är en vanlig textsträng. Brödtexten för POST är en LIKQ lambda frågesträng, vilket är en enda C#-instruktion (se den [specifikation av frågesträngen](LambdaSearchSyntax.md) för *lambda* Sök). 
 
 <br>
 ## <a name="response-json"></a>Svar (JSON)
 Namn | Beskrivning
 -------|-----   
-**resultat** | En matris med 0 eller fler entiteter som matchar frågeuttrycket. Varje entitet innehåller värdena i begärda attribut. Det här fältet är tillgänglig om begäran har bearbetats.
-**Fel** | Statuskoder för HTTP. Det här fältet är tillgänglig om begäran misslyckas.
+**Resultat** | En matris med 0 eller fler entiteter som matchar frågeuttrycket. Varje entitet innehåller värdena för attribut som begärs. Det här fältet är tillgänglig om begäran har behandlats.
+**Fel** | HTTP-statuskoder. Det här fältet är tillgänglig om begäran misslyckas.
 **meddelande** | Felmeddelande. Det här fältet är tillgänglig om begäran misslyckas.
 
-Om en fråga inte kan bearbetas i _800 ms_, _timeout_ fel returneras. 
+Om en fråga inte kan bearbetas inom _800 ms_, ett _timeout_ fel returneras. 
 
 <br>
 #### <a name="example"></a>Exempel:
@@ -61,7 +62,7 @@ Om en fråga inte kan bearbetas i _800 ms_, _timeout_ fel returneras.
 https://westus.api.cognitive.microsoft.com/academic/v1.0/graph/search?mode=json
 ```
 <br>
-För den *json* söka, om vi vill hämta rapporter med titlar som innehåller ”kurva motorn” och skrivits av ”bin shao” vi kan ange frågan på följande sätt.
+För den *json* söka, om vi vill hämta rapporter med titlar som innehåller ”graph motorn” och skrivits av ”bin shao”, vi kan ange frågan på följande sätt.
 
 ```JSON
 {
@@ -82,7 +83,7 @@ För den *json* söka, om vi vill hämta rapporter med titlar som innehåller �
 }
 ```
 
-Utdata från en fråga är en matris med diagrammet sökvägar. En graph-sökväg är en matris med nod-objekt som motsvarar de noder som anges i sökvägen till fråga. Dessa noder har minst en egenskap *CellID*, som representerar entitets-ID. Andra egenskaper som kan hämtas genom att ange egenskapsnamn via operatorn väljer av en [ *Traversal åtgärdsobjektet*](JSONSearchSyntax.md).
+Utdata från en fråga är en matris med sökvägar för diagrammet. En sökväg för graph är en matris med nod-objekt som motsvarar de noder som anges i frågan sökväg. Dessa noder har minst en egenskap *CellID*, som representerar entitets-ID. Andra egenskaper som kan hämtas genom att ange egenskapsnamn via operatorn väljer av en [ *Edge Traversal åtgärdsobjektet*](JSONSearchSyntax.md).
 
 ```JSON
 {
@@ -133,7 +134,7 @@ Utdata från en fråga är en matris med diagrammet sökvägar. En graph-sökvä
 https://westus.api.cognitive.microsoft.com/academic/v1.0/graph/search?mode=lambda
 ```
 <br>
-För den *lambda* sökning, om vi vill hämta författaren ID på en viss papper vi kan skriva en fråga som det nedanstående.
+För den *lambda* sökning, om vi vill hämta författaren ID på en viss dokumentet, vi kan skriva en fråga som det nedanstående.
 
 ```
 MAG.StartFrom(@"{
@@ -144,7 +145,7 @@ MAG.StartFrom(@"{
 }").FollowEdge("AuthorIDs").VisitNode(Action.Return)
 ```
 
-Utdata från en *lambda* sökfråga också är en matris med diagrammet sökvägar:
+Utdata från en *lambda* sökfråga är också en matris med graph sökvägar:
 
 ```JSON
 {
@@ -177,8 +178,8 @@ Utdata från en *lambda* sökfråga också är en matris med diagrammet sökväg
 }
 ```
  
-## <a name="graph-schema"></a>Schemat för diagram
+## <a name="graph-schema"></a>Diagramscheman
 
-Diagrammet schemat är användbart för att skriva diagrammet sökfrågor. Den visas i följande bild.
+Diagramscheman är användbart för att skriva graph sökfrågor. Den visas i följande bild.
 
-![Academic Microsoft Graph Schema](./Images/AcademicGraphSchema.png)
+![Microsoft Academic Graph Schema](./Images/AcademicGraphSchema.png)

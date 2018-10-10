@@ -1,5 +1,5 @@
 ---
-title: Autentisera med Azure AD och få en JWT-Token med hjälp av OAuth 2.0
+title: Autentisera med Azure AD och få en JWT-token med hjälp av OAuth 2.0
 description: 'Exempelkod som visar hur du autentiserar med Azure Active Directory med OAuth 2.0 för att få åtkomst till skyddade webbprogram och webb-API: er i din organisation.'
 services: active-directory
 author: rloutlaw
@@ -13,14 +13,14 @@ ms.topic: article
 ms.date: 06/12/2018
 ms.author: routlaw
 ms.custom: aaddev
-ms.openlocfilehash: d77af898d5baef4fa7970132b0eb8deddb8f68cb
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: f4bcbb2064a8f7fcdfd2002d2e8d6e0c4f679ffc
+ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46981805"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48902917"
 ---
-# <a name="request-an-access-token-using-oauth-20-to-access-web-apis-and-applications-secured-by-azure-active-directory"></a>Begär en åtkomsttoken med hjälp av OAuth 2.0 till åtkomst till webb-API: er och program som skyddas av Azure Active Directory
+# <a name="how-to-request-an-access-token-using-oauth-20-to-access-web-apis-and-applications-secured-by-azure-ad"></a>Så här: begär en åtkomsttoken med hjälp av OAuth 2.0 till åtkomst till webb-API: er och program som skyddas av Azure AD
 
 Den här artikeln visar hur du hämtar en JSON Web Token (JWT) att komma åt resurser som skyddas av Azure AD. Det förutsätter att du har en [auktoriseringstoken](/azure/active-directory/develop/active-directory-protocols-oauth-code#request-an-authorization-code) antingen från en användare har beviljats behörighet eller via en [tjänstens huvudnamn](/azure/active-directory/develop/active-directory-application-objects).
 
@@ -45,7 +45,6 @@ Följande huvuden krävs:
 |--------------------|-----------------|  
 | *Värden:* | https://login.microsoftonline.com |
 | *Content-Type:*| Application/x--www-form-urlencoded |
- 
 
 ### <a name="uri-parameters"></a>URI-parametrar
 
@@ -59,6 +58,7 @@ Följande huvuden krävs:
 | redirect_uri  | obligatorisk              | Samma redirect_uri värde som används för att hämta authorization_code.                                                                                                                                                                                                                                                                                                                                                             |
 | client_secret | krävs för web apps | Programhemlighet som du skapade i portalen för registrering av app för din app. Använd inte i en inbyggd app eftersom client_secrets inte lagras på ett tillförlitligt sätt på enheter. Det krävs för webbappar och webb-API: er som har möjlighet att lagra client_secret på ett säkert sätt på serversidan.  Klienten hemligheter måste vara URL-kodat innan de skickas.                                                                                 |
 | code_verifier | valfri              | Den samma code_verifier som användes för att hämta authorization_code. Krävs om PKCE har använts i auktoriseringsbegäran kod bevilja. Mer information finns i den [PKCE RFC](https://tools.ietf.org/html/rfc7636)                                                                                                                                                                                                                                                                                             |
+
 ## <a name="handle-the-response"></a>Hantera svaret
 
 Ett lyckat svar för token innehåller en JWT-token och ser ut:
@@ -81,6 +81,3 @@ Ett lyckat svar för token innehåller en JWT-token och ser ut:
 | omfång         | Scope som gäller för access_token.                                                                                                                                                                                                                                                                                                                                                                                                         |
 | refresh_token | OAuth 2.0-uppdateringstoken. Appen kan använda den här token skaffa ytterligare åtkomsttoken när den aktuella åtkomst-token upphör att gälla. Refresh_tokens är långlivade och kan användas för att behålla åtkomst till resurser i längre tid. Mer information finns i den [v2.0 kod bevilja referens](v2-oauth2-auth-code-flow.md#refresh-the-access-token). <br> **Obs:** endast angivna om `offline_access` omfång begärdes.                                               |
 | id_token      | En osignerad JSON Web Token (JWT). Appen kan avkoda segmenten i den här token för att begäraninformation om den användare som loggat in. Appen kan cachelagra värdena och visa dem, men det bör inte förlita dig på dem för auktorisering eller säkerhetsgränser. Mer information om id_tokens finns i den [ `id_token reference` ](id-tokens.md). <br> **Obs:** endast angivna om `openid` omfång begärdes. |
-
-
-

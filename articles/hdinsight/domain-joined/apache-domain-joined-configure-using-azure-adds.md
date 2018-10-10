@@ -3,17 +3,17 @@ title: Konfigurera ett HDInsight-kluster med Enterprise Security Package med hj�
 description: Lär dig mer om att installera och konfigurera ett Enterprise-säkerhetspaketet för HDInsight-kluster med hjälp av Azure Active Directory Domain Services.
 services: hdinsight
 ms.service: hdinsight
-author: omidm1
-ms.author: omidm
+author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: hrasheed
 ms.topic: conceptual
-ms.date: 10/3/2018
-ms.openlocfilehash: 84ee24b9002237d0993a30190944dbd6dd190ac8
-ms.sourcegitcommit: 4edf9354a00bb63082c3b844b979165b64f46286
+ms.date: 10/9/2018
+ms.openlocfilehash: c56158a5e8df2e8781ec8e4431c75beadd154297
+ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48784959"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48901659"
 ---
 # <a name="configure-a-hdinsight-cluster-with-enterprise-security-package-by-using-azure-active-directory-domain-services"></a>Konfigurera ett HDInsight-kluster med Enterprise Security Package med hjälp av Azure Active Directory Domain Services
 
@@ -25,6 +25,9 @@ I den här artikeln får du lära dig hur du konfigurerar ett HDInsight-kluster 
 >ESP är allmänt tillgänglig i HDI 3.6 för Spark, interaktiv och Hadoop. ESP för HBase- och Kafka-kluster finns i förhandsversion.
 
 ## <a name="enable-azure-ad-ds"></a>Aktivera Azure AD DS
+
+> [!NOTE]
+> Endast klientadministratörer ha behörighet att skapa en Azure AD-DS-instans. Om klusterlagring är Azure Data Lake Store (ADLS) Gen1 och Gen2, inaktiverar du Multi-Factor Authentication (MFA) endast för användare som ska ha åtkomst till klustret. Om klusterlagring är Azure Blob Storage (WASB) kan du inte inaktivera MFA.
 
 Aktivera AzureAD DS är en förutsättning innan du kan skapa ett HDInsight-kluster med ESP. Mer information finns i [aktivera Azure Active Directory Domain Services med Azure portal](../../active-directory-domain-services/active-directory-ds-getting-started.md). 
 
@@ -40,8 +43,7 @@ När du har aktiverat Azure AD-DS körs en lokal tjänst DNS (Domain Name)-serve
 
 ![Uppdaterar virtuellt nätverk DNS-konfiguration](./media/apache-domain-joined-configure-using-azure-adds/hdinsight-aadds-vnet-configuration.png)
 
-> [!NOTE]
-> Endast klientadministratörer ha behörighet att skapa en Azure AD-DS-instans. Multifaktorautentisering måste inaktiveras endast för användare som ska få åtkomst till klustret.
+
 
 När du aktiverar säker LDAP, placera domännamnet i ämnesnamnet eller det alternativa certifikatmottagarnamnet i certifikatet. Exempel: om ditt domännamn är *contoso.com*, kontrollera exakt samma namn finns i certifikatets ämnesnamn eller Alternativt ämnesnamn. Mer information finns i [konfigurera säkert LDAP för en Azure AD DS-domän hanterad](../../active-directory-domain-services/active-directory-ds-admin-guide-configure-secure-ldap.md).
 

@@ -2,7 +2,7 @@
 title: Vanliga frågor och svar om hur du använder Azure Database Migration Service | Microsoft Docs
 description: Läs vanliga frågor och svar om hur du använder Azure Database Migration Service för att utföra migrering av databaser.
 services: database-migration
-author: HJToland3
+author: pochiraju
 ms.author: rajpo
 manager: ''
 ms.reviewer: ''
@@ -10,13 +10,13 @@ ms.service: database-migration
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
-ms.date: 06/19/2018
-ms.openlocfilehash: 08158843d0dfb3e5eb0635b5f5b5d015938d895e
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.date: 10/09/2018
+ms.openlocfilehash: f1f67921e7eadded4292f244f5754c8f00341a15
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48804420"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48887112"
 ---
 # <a name="faq-about-using-the-azure-database-migration-service"></a>Vanliga frågor och svar om hur du använder Azure Database Migration Service
 Den här artikeln innehåller vanliga frågor om hur du använder Azure Database Migration Service tillsammans med tillhörande svar.
@@ -28,7 +28,7 @@ Azure Database Migration Service är en fullständigt hanterad tjänst som utfor
 - Fortsatt investeringar i problemfri migrering.
 
 ### <a name="q-what-source-target-pairs-does-the-azure-database-migration-service-currently-support"></a>F. Vilken källa / mål-par Azure Database Migration Service stöder för närvarande?
-Tjänsten stöder för närvarande migreringar från SQL Server till Azure SQL Database och du kan gå till Azure-portalen nu att börja använda Azure Database Migration Service för det här scenariot. Andra källa / mål-par, som t.ex Oracle till Azure SQL Database är tillgängliga via en begränsad privat förhandsversion. Registrera dig för en möjlighet att delta i begränsad privat förhandsgranskning av dessa scenarier [här](https://aka.ms/dms-preview/).
+Tjänsten stöder för närvarande migreringar från SQL Server till Azure SQL Database och du kan gå till Azure-portalen nu att börja använda Azure Database Migration Service för det här scenariot. Andra källa / mål-par, som t.ex Oracle till Azure SQL Database, är tillgängliga via en begränsad privat förhandsversion. Registrera dig för en möjlighet att delta i begränsad privat förhandsgranskning av dessa scenarier [här](https://aka.ms/dms-preview/).
 
 ### <a name="q-how-does-the-azure-database-migration-service-compare-to-other-microsoft-database-migration-tools-such-as-the-database-migration-assistant-dma-or-sql-server-migration-assistant-ssma"></a>F. Hur Azure Database Migration Service jämfört med andra Microsoft-databasmigreringsverktyg, till exempel Database Migration Assistant (DMA) eller SQL Server Migration Assistant (SSMA)?
 Azure Database Migration Service är den bästa metoden för Databasmigreringen till Microsoft Azure i skala. Mer information om hur Azure Database Migration Service Jämför med andra Microsoft-databasen Migreringsverktyg och rekommendationer om hur du använder tjänsten för olika scenarier finns i bloggen bokföring [särskiljer Microsofts databas Migreringsverktyg och tjänster](https://blogs.msdn.microsoft.com/datamigration/2017/10/13/differentiating-microsofts-database-migration-tools-and-services/).
@@ -59,9 +59,9 @@ Krav för Azure Database Migration Service som är gemensamma för alla migrerin
 En lista över alla förutsättningar som krävs för att tävla specifika migreringsscenarier som använder Azure Database Migration Service, finns i de relaterade guider i Azure Database Migration Service [dokumentation](https://docs.microsoft.com/azure/dms/dms-overview) på docs.microsoft.com.
 
 ### <a name="q-how-do-i-find-the-ip-address-for-the-azure-database-migration-service-so-that-i-can-create-an-allow-list-for-the-firewall-rules-used-to-access-my-source-database-for-migration"></a>F. Hur hittar jag IP-adressen för Azure Database Migration Service så att jag kan skapa en lista över tillåtna för brandväggsregler som används för att komma åt min källdatabasen för migrering?
-Du kan behöva lägga till brandväggsregler som tillåter Azure Database Migration Service får tillgång till källdatabasen för migrering. IP-adressen för tjänsten är dynamisk, men om du använder Express Route kan den här adressen tilldelas privat av företagets nätverk. Det enklaste sättet att identifiera lämplig IP-adress som det är att titta i samma resursgrupp som ditt etablerade Azure Database Migration Service-resurs att hitta det associerade nätverksgränssnittet. Vanligtvis namnet på nätverksgränssnittet resursen börjar med prefixet NIC och följt av ett tecken och nummerserie, exempel NIC-jj6tnztnmarpsskr82rbndyp. Du kan se IP-adressen som måste tas med i listan över tillåtna på Resursöversikt Azure-portalen sidan genom att välja det här gränssnittet nätverksresurs.
+Du kan behöva lägga till brandväggsregler som tillåter Azure Database Migration Service får tillgång till källdatabasen för migrering. IP-adressen för tjänsten är dynamisk, men om du använder Express Route kan den här adressen tilldelas privat av företagets nätverk. Det enklaste sättet att identifiera lämplig IP-adress som det är att titta i samma resursgrupp som ditt etablerade Azure Database Migration Service-resurs att hitta det associerade nätverksgränssnittet. Vanligtvis namnet på nätverksgränssnittet resursen börjar med prefixet NIC och följt av ett tecken och nummerserie, till exempel NIC-jj6tnztnmarpsskr82rbndyp. Du kan se IP-adressen som måste tas med i listan över tillåtna på Resursöversikt Azure-portalen sidan genom att välja det här gränssnittet nätverksresurs.
 
-Du kan också behöva innehåller källan för porten som SQL Server lyssnar på listan över tillåtna. Det är port 1433 som standard, men SQL Server-källans kan konfigureras för att lyssna på samt andra portar. Du måste i så fall inkluderar dessa portar på listan Tillåt. Du kan bestämma den port som SQL Server lyssnar på med hjälp av en dynamisk hanteringsvy-fråga.
+Du kan också behöva innehåller källan för porten som SQL Server lyssnar på listan över tillåtna. Som standard är den port 1433, men källan SQL Server kan konfigureras för att lyssna på samt andra portar. Du måste i så fall inkluderar dessa portar på listan Tillåt. Du kan bestämma den port som SQL Server lyssnar på med hjälp av en dynamisk hanteringsvy-fråga.
 
 ```sql
     SELECT DISTINCT 

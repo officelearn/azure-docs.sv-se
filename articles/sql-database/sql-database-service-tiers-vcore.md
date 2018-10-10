@@ -11,13 +11,13 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: sashan, moslake
 manager: craigg
-ms.date: 10/04/2018
-ms.openlocfilehash: 6321c1dab0ae9db231a5ba494c981f47aee3ee6b
-ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
+ms.date: 10/09/2018
+ms.openlocfilehash: e93de9b3642e0b01bf65b6761d8832b0d4c2a431
+ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/06/2018
-ms.locfileid: "48831361"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48901693"
 ---
 # <a name="vcore-service-tiers-azure-hybrid-use-benefit-and-migration"></a>vCore-tjänstnivåer, Azure Hybrid Use Benefit och migrering
 
@@ -33,7 +33,7 @@ vCore-modellen kan du använda [Azure Hybrid Use-förmånen för SQL Server](htt
 
 ## <a name="service-tier-characteristics"></a>Tjänstens nivån egenskaper
 
-VCore-modellen innehåller två tjänstnivåer generell användning och affärskritisk. Tjänstnivåer särskiljs med hjälp av olika storlekar, design för hög tillgänglighet, felisolering, typer av lagring och i/o-intervallet. Kunden måste separat konfigurera nödvändiga lagring och kvarhållning för säkerhetskopior.
+VCore-modellen innehåller två tjänstnivåer generell användning och affärskritisk. Tjänstnivåer särskiljs med hjälp av olika storlekar, design för hög tillgänglighet, felisolering, typer av lagring och i/o-intervallet. Kunden måste separat konfigurera nödvändiga lagring och kvarhållning för säkerhetskopior. Du måste separat konfigurera nödvändiga lagring och kvarhållning för säkerhetskopior. I Azure-portalen går du till servern (inte databasen) > hanterade säkerhetskopior > Konfigurera en princip > punkt i tiden Återställ konfiguration > 7-35 dagar.
 
 Tabellen nedan hjälper dig att förstå skillnaderna mellan dessa två nivåer:
 

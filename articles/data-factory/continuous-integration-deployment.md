@@ -10,14 +10,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/04/2018
+ms.date: 10/09/2018
 ms.author: douglasl
-ms.openlocfilehash: 8027b167481fd4e48e03b3c1ad3ed8c6adcb853e
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.openlocfilehash: 5da9d4b33951e14df251fe4939c54cff822843aa
+ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48815451"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48901965"
 ---
 # <a name="continuous-integration-and-delivery-cicd-in-azure-data-factory"></a>Kontinuerlig integrering och leverans (CI/CD) i Azure Data Factory
 
@@ -182,6 +182,9 @@ Distributionen kan misslyckas om du försöker uppdatera active utlösare. För 
     ![](media/continuous-integration-deployment/continuous-integration-image11.png)
 
 Du kan följa liknande steg och använda liknande kod (med den `Start-AzureRmDataFactoryV2Trigger` funktionen) starta om utlösarna efter distributionen.
+
+> [!IMPORTANT]
+> Integration Runtime-typen i olika miljöer som i kontinuerlig integrering och distributionsscenarier, måste vara samma. Exempel: Om du har en *Egenvärdbaserade* Integration Runtime (IR) i utvecklingsmiljön, samma IR måste vara av typen *Egenvärdbaserade* i andra miljöer, till exempel testning och produktion också. På samma sätt, om du delar integreringskörningar i flera steg kan du behöva konfigurera IRs som *länkade Egenvärdbaserade* i alla miljöer som utveckling, testning och produktion.
 
 ## <a name="sample-deployment-template"></a>Exempelmall för distribution
 

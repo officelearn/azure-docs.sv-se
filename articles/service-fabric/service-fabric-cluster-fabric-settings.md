@@ -12,14 +12,14 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 08/27/2018
+ms.date: 10/08/2018
 ms.author: aljo
-ms.openlocfilehash: 69f29eac17ecdf5381a550bc182c547fa0c25278
-ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
+ms.openlocfilehash: 7a80693090b92db55ad2feed52fdbb2a455e3c39
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48018986"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48884501"
 ---
 # <a name="customize-service-fabric-cluster-settings"></a>Anpassa inställningar för Service Fabric-kluster
 Den här artikeln beskriver hur du anpassar olika fabric inställningarna för Service Fabric-klustret. För kluster i Azure kan du anpassa inställningar via den [Azure-portalen](https://portal.azure.com) eller genom att använda en Azure Resource Manager-mall. Fristående kluster kan anpassa du inställningarna genom att uppdatera filen ClusterConfig.json och utför en uppgradering av konfigurationen på ditt kluster. 
@@ -361,6 +361,7 @@ Följande är en lista över Fabric inställningar som du kan anpassa, ordnade e
 |DeploymentMaxFailureCount|Int, standardvärdet är 20| Dynamisk|Programdistribution görs DeploymentMaxFailureCount gånger innan distributionen av programmet på noden.| 
 |DeploymentMaxRetryInterval| TimeSpan, standardvärdet är Common::TimeSpan::FromSeconds(3600)|Dynamisk| Ange tidsintervall i sekunder. Max återförsöksintervallet för distributionen. Vid varje kontinuerlig fel beräknas återförsöksintervallet som Min (DeploymentMaxRetryInterval; Kontinuerlig Felberäkning * DeploymentRetryBackoffInterval) |
 |DeploymentRetryBackoffInterval| TimeSpan, standardvärdet är Common::TimeSpan::FromSeconds(10)|Dynamisk|Ange tidsintervall i sekunder. Backoffintervall för distributionsfel. På varje kontinuerlig distributionsfel försöker systemet distributionen för upp till MaxDeploymentFailureCount. Intervallet är en produkt för misslyckad kontinuerlig distribution och distribution backoff intervall. |
+|DisableDockerRequestRetry|bool, standard är FALSKT |Dynamisk| Som standard kommunicerar SF med DD (docker dameon) med en tidsgräns på 'DockerRequestTimeout' för varje http-begäran som skickats till den. Om DD inte svarar inom denna tidsperiod; SF skickar begäran om övre nivå åtgärden fortfarande har remining tid.  Med Hyper-v-behållaren. DD ta mycket längre tid att ta fram behållaren eller inaktivera den. I sådana fall DD begäran tidsgränsen ut från SF perspektiv och SF försöker igen. Ibland verkar det här lägger till flera trycket på DD. Den här konfigurationen kan du inaktivera den här nya försöket och vänta tills DD att svara. |
 |EnableActivateNoWindow| bool, standard är FALSKT|Dynamisk| Aktiverad process skapas i bakgrunden utan någon konsol. |
 |EnableContainerServiceDebugMode|bool, standard är SANT|Statisk|Aktivera/inaktivera loggning för docker-behållare.  Windows.|
 |EnableDockerHealthCheckIntegration|bool, standard är SANT|Statisk|Låter dig integrera docker HEALTHCHECK händelser med Service Fabric systemets hälsorapport |
@@ -422,6 +423,7 @@ Följande är en lista över Fabric inställningar som du kan anpassa, ordnade e
 |SharedLogId |sträng, standardvärdet är ”” |Statisk|Unikt guid för delade log-behållare. Använd ”” om du använder standardsökvägen under fabric-dataroten. |
 |SharedLogPath |sträng, standardvärdet är ”” |Statisk|Sökvägen och filnamnet för plats för delade log behållare. Använd ”” för att använda standardsökvägen under fabric-dataroten. |
 |SharedLogSizeInMB |Int, standardvärdet är 8192 |Statisk|Antal MB för att allokera i delade log-behållaren. |
+|SharedLogThrottleLimitInPercentUsed|int, standardvärdet är 0 | Statisk | Procentandelen av användningen av delade loggen som ska ge upphov till begränsning. Värdet ska vara mellan 0 och 100. Värdet 0 innebär att med hjälp av standardvärdet för procent. Ett värde på 100 innebär ingen begränsning alls. Ett värde mellan 1 och 99 anger hur stor procentandel av logganvändning ovanstående begränsning av vilka sker; till exempel om delade loggen är 10GB och värdet är 90 sker throttleing när 9GB är i användning. Du bör använda standardvärdet.|
 |WriteBufferMemoryPoolMaximumInKB | int, standardvärdet är 0 |Dynamisk|Antal KB att tillåta skrivna minne buffertpoolen att växa upp till. Använd 0 för att ange någon gräns. |
 |WriteBufferMemoryPoolMinimumInKB |Int, standard är 8388608 |Dynamisk|Antal KB tilldelas inledningsvis för skrivna minne buffertpooltillägget. Använd 0 för att visa obegränsat standard bör överensstämma med SharedLogSizeInMB nedan. |
 

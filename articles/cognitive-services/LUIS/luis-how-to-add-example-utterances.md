@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 09/06/2018
 ms.author: diberry
-ms.openlocfilehash: 387668263a6bab6e12a21adf04aebfbbf108a006
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: adb44dcc8c41b1a7846ff346d141dc0c4b028e96
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47036499"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48888296"
 ---
 # <a name="add-example-utterances-and-label-with-entities"></a>Lägg till exempel yttranden och en etikett med entiteter
 
@@ -92,12 +92,12 @@ Lägg till en synonym till entiteten listan genom att välja ord eller fraser i 
 
 I uttryck, välja synonyma ord, till exempel `aqua` för vatten, välj sedan namnet på entiteten i listrutan, som **dricka**och välj sedan **som synonymen**, välj sedan listan objekt som det är synonyma med, till exempel **water**.
 
-![Skärmbild av avsikter detaljsidan med att skapa en ny synonym markerat](./media/luis-how-to-add-example-utterances/set-agua-as-synonym.png)
+![Skärmbild av avsikter detaljsidan med att skapa en ny normaliserade vy markerat](./media/luis-how-to-add-example-utterances/set-agua-as-synonym.png)
 
 ## <a name="create-new-item-for-list-entity"></a>Skapa en ny lista entitet
-Skapa ett nytt objekt för en befintlig entitet i listan genom att välja ord eller fraser i uttryck. Om du har en dryck listan och vill lägga till `tea` som ett nytt objekt, följer du stegen:
+Skapa ett nytt objekt för en befintlig entitet i listan genom att välja ord eller fraser i uttryck. Om du har en anställd listan och vill lägga till `Bob Smith` som ett nytt objekt, följer du stegen:
 
-I uttryck, välja till word för det nya listobjektet, till exempel `tea`, välj sedan namnet på entiteten i i listrutan, **dricka**och välj sedan **skapa en ny synonym**. 
+I uttryck, välja ordet eller frasen för det nya listobjektet, till exempel `Bob Smith`, välj sedan namnet på entiteten i i listrutan, **medarbetare**och välj sedan **skapar en ny normaliserade vy**. 
 
 ![Skärmbild för att lägga till nya listobjekt](./media/luis-how-to-add-example-utterances/list-entity-create-new-item.png)
 

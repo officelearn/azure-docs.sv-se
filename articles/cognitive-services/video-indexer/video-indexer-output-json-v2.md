@@ -8,19 +8,19 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: video-indexer
 ms.topic: conceptual
-ms.date: 09/15/2018
+ms.date: 10/08/2018
 ms.author: juliako
-ms.openlocfilehash: 76f83e7ad70e3e1906bc1aa90c74d600053aeb6f
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.openlocfilehash: 27f24d588cf1cac5f580a41cc0901a8907b66652
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45985651"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48884298"
 ---
 # <a name="examine-the-video-indexer-output-produced-by-v2-api"></a>Granska Video Indexer-utdata som genereras av v2 API
 
 > [!Note]
-> Video Indexer V1 API upphörde den 1 augusti 2018. Nu bör du använda Video Indexer v2 API: et. <br/>Om du vill utveckla med API: er för Video Indexer-v2, se instruktionerna [här](https://api-portal.videoindexer.ai/). 
+> Video Indexer-API:t v1 blev inaktuellt den 1 augusti 2018. Nu bör du använda Video Indexer-API:t v2. <br/>Om du vill utveckla med Video Indexer-API:er v2 läser du instruktionerna [här](https://api-portal.videoindexer.ai/). 
 
 När du anropar den **hämta Video Index** API och svarsstatusen är OK, du får detaljerad JSON-utdata som svarsinnehållet. JSON-innehållet innehåller information om de angivna videoinsikter. Insikterna som inkluderar dimensioner som: avskrifter, ocrs, ansikten, ämnen, block, osv. Dimensionerna har instanser av tidsintervall som visar när varje dimension som visades i videon.  
 
@@ -115,7 +115,7 @@ Det här avsnittet visas en sammanfattning av insikterna.
 |publishedUrlProxy|En url som används för att strömma video från (för Apple-enheter).|
 |viewToken|En kort livslängd visa token för strömning av videon.|
 |sourceLanguage|Videons källspråk.|
-|Språk|Videons språkspecifika (translation).|
+|language|Videons språkspecifika (translation).|
 |indexingPreset|Den förinställning som används för att indexera videon.|
 |streamingPreset|Den förinställning som används för att publicera videon.|
 |linguisticModelId|CRIS modellen används för att transkribera videon.|
@@ -155,7 +155,7 @@ Ett ansikte kan ha ett ID, ett namn, en miniatyrbild, andra metadata och en list
 |Version|Code-versionen|
 |---|---|
 |sourceLanguage|Videons källspråk (förutsatt att ett master språk). I form av en [BCP-47](https://tools.ietf.org/html/bcp47) sträng.|
-|Språk|Insights-språk (översätts från källspråk). I form av en [BCP-47](https://tools.ietf.org/html/bcp47) sträng.|
+|language|Insights-språk (översätts från källspråk). I form av en [BCP-47](https://tools.ietf.org/html/bcp47) sträng.|
 |avskrift|Den [avskrift](#transcript) dimension.|
 |OCR|Den [ocr](#ocr) dimension.|
 |nyckelord|Den [nyckelord](#keywords) dimension.|
@@ -205,7 +205,7 @@ instanser|En lista över tidsintervall i det här blocket.|
 |---|---|
 |id|Rad-ID.|
 |text|Avskriften.|
-|Språk|Avskriften-språk. Avser att stödja avskrift där varje rad kan ha ett annat språk.|
+|language|Avskriften-språk. Avser att stödja avskrift där varje rad kan ha ett annat språk.|
 |instanser|En lista över tidsintervall där den här raden visas. Om-instansen är avskrift, har endast 1 instans.|
 
 Exempel:
@@ -244,7 +244,7 @@ Exempel:
 |id|OCR rad-ID.|
 |text|OCR-text.|
 |förtroende|Igenkänning av förtroende.|
-|Språk|OCR-språk.|
+|language|OCR-språk.|
 |instanser|En lista över tidsintervall där den här OCR visades (samma OCR kan visas flera gånger).|
 
 ```json
@@ -287,7 +287,7 @@ Exempel:
 |id|Nyckelordet-ID.|
 |text|Nyckelordstexten.|
 |förtroende|Den nyckelordet igenkänning av förtroende.|
-|Språk|Nyckelordet språk (vid översättning).|
+|language|Nyckelordet språk (vid översättning).|
 |instanser|En lista över tidsintervall där det här nyckelordet visas (ett nyckelord kan visas flera gånger).|
 
 ```json
@@ -332,7 +332,7 @@ Exempel:
 |Namn|Beskrivning|
 |---|---|
 |id|Ansikts-ID.|
-|namn|Ansikts-namnet. Det kan vara ”okänt #0”, en identifierade kändisar eller en kund utbildad person.|
+|namn|Namnet på ansiktet. Det kan vara ”okänt #0, en identifierade kändisar eller en kund utbildad person.|
 |förtroende|Face ID förtroende.|
 |beskrivning|En beskrivning av kändisar. |
 |thumbnalId|ID för miniatyrbilden för den sida.|
@@ -378,7 +378,7 @@ Exempel:
 |---|---|
 |id|Etikett-ID.|
 |namn|Etikettnamn (till exempel ”dator”, ”TV”).|
-|Språk|Etiketten namn språk (vid översättning). BCP-47|
+|language|Etiketten namn språk (vid översättning). BCP-47|
 |instanser|En lista över tidsintervall där den här etiketten visas (en etikett kan visas flera gånger). Varje instans har ett förtroende-fält. |
 
 
@@ -678,7 +678,7 @@ Video Indexer identifierar känslor baserat på tal- och ljud tips. Identifierad
 |Namn|Beskrivning|
 |---|---|
 |id|Känslo-ID.|
-|typ|Känslo-och som har identifierats utifrån tal- och ljud. Känslo kan vara: nu ett, sorg, ilska eller behöva betala.|
+|typ|Känslo-och som har identifierats utifrån tal- och ljud. Känslan kan vara: glädje, sorg, ilska eller rädsla.|
 |instanser|En lista över tidsintervall där den här känslor visades.|
 
 ```json
@@ -771,7 +771,7 @@ Video Indexer gör inferens av viktigaste avsnitten från avskrifter. Om det är
 |namn|Avsnittet namnet, till exempel: ”Pharmaceuticals”.|
 |Tjänsten|Spår återger ämnen-hierarkin. Till exempel ”: hälsa och välbefinnande / medicin och healthcare / Pharmaceuticals”.|
 |förtroende|Förtroendepoäng i intervallet [0,1]. Är högre tryggare.|
-|Språk|Språket som används i avsnittet.|
+|language|Språket som används i avsnittet.|
 |iptcName|IPTC media koda namn, om identifieras.|
 |instanser |Video Indexer för närvarande inte indexera ett ämne därför att tidsintervall, så att hela videon används som intervall.|
 

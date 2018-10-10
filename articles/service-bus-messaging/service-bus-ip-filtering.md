@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/26/2018
 ms.author: clemensv
-ms.openlocfilehash: ccb759a9151d734aa99a6f6b9c68e6072874dd84
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: c6e9eef762d4a9eb95685d94c61ce10d499bb155
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47394836"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48884811"
 ---
 # <a name="use-ip-filters"></a>IP-filter
 
@@ -48,6 +48,8 @@ Om du vill acceptera adresserna i intervallet 70.37.104.0/24 och avvisa allt ann
 > Avvisa IP-adresser kan det förhindra att interagera med Service Bus andra Azure-tjänster (till exempel Azure Stream Analytics, Azure Virtual Machines eller Device Explorer i portalen).
 
 ### <a name="creating-a-virtual-network-rule-with-azure-resource-manager-templates"></a>Skapa en regel för virtuella nätverk med Azure Resource Manager-mallar
+
+> ! [VIKTIGT] Virtuella nätverk stöds bara i den **premium** nivån av Service Bus.
 
 Följande Resource Manager-mallen gör det möjligt att lägga till en regel för virtuella nätverk i en befintlig Service Bus-namnrymd.
 

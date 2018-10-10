@@ -1,22 +1,23 @@
 ---
-title: JSON-söksyntax i Academic Knowledge API | Microsoft Docs
-description: 'Läs mer om JSON-söksyntax som du kan använda i Academic Knowledge API: et i kognitiva Microsoft-tjänster.'
+title: Söksyntax för JSON - Academic Knowledge API
+titlesuffix: Azure Cognitive Services
+description: Läs mer om söksyntax för JSON som du kan använda i Academic Knowledge API.
 services: cognitive-services
 author: alch-msft
-manager: kuansanw
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: academic-knowledge
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/23/2017
 ms.author: alch
-ms.openlocfilehash: a4b9cf535dae60258d71c43bba6f9eec1444bd41
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 5ece028f89ad9e93840211383db97a5d8a80069a
+ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35351366"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48900418"
 ---
-# <a name="json-search-syntax"></a>JSON-Söksyntax
+# <a name="json-search-syntax"></a>Söksyntax för JSON
 
 ```javascript
 /* Query Object:
@@ -32,9 +33,9 @@ ms.locfileid: "35351366"
 }
 ```
 
-Nod-namn i en fråga sökväg (_v0 v1..._ ) fungerar som noden identifierare som kan refereras i frågeobjektet. edge-namn (_e0 e1..._ ) representerar typerna av motsvarande kanter i sökvägen. Vi kan använda en asterisk _*_ som en nod eller kant namn (utom den första noden, som måste anges) för att deklarera som det finns inga begränsningar på sådana element. Till exempel en sökväg frågan `/v0/*/v1/e1/*/` hämtar sökvägar från diagrammet utan att begränsa typ av kanten _(v0 v1)_. Under tiden kan har frågan inte begränsningar för målet (den sista noden) sökvägen antingen.
+Nod-namn i en fråga sökväg (_v0, v1..._ ) fungerar som noden identifierare som kan refereras i frågeobjektet. edge-namn (_e0, e1 och..._ ) representerar typerna av motsvarande kanter i sökvägen. Vi kan använda en asterisk _*_ som en nod eller kanttabell namn (förutom från noden som måste anges) för att deklarera att det finns inga begränsningar på sådana element. Exempelvis kan en fråga sökväg `/v0/*/v1/e1/*/` hämtar sökvägar från diagrammet utan att begränsa typ av gränsen _(v0 v1)_. Under tiden kan har frågan inte begränsningar på målet (den sista noden) sökvägens antingen.
 
-När en sökväg innehåller bara en nod, säg _v0_, bara returneras alla enheter som uppfyller villkoren. En begränsning-objektet som tillämpas på den första noden kallas en *startar frågeobjekt*, vars har inte angetts på följande sätt.
+När en sökväg innehåller bara en nod, säger _v0_, helt enkelt returnerar frågan alla enheter som uppfyller begränsningarna. En begränsning-objektet som tillämpas på noden från kallas en *startar frågeobjektet*, vars har inte angetts på följande sätt.
 
 ```javascript
 /* Starting Query Object:
@@ -63,7 +64,7 @@ När en sökväg innehåller bara en nod, säg _v0_, bara returneras alla enhete
 }
 ```
 
-När en sökväg innehåller mer än bara startnoden, utför frågeprocessorn ett diagram traversal enligt den angivna sökvägen. När den når en nod, användardefinierade traversal åtgärder ska utlösas, det vill säga om du vill stoppa på den aktuella noden och returnera eller fortsätta att utforska diagrammet. Om du har angett något traversal ska standardåtgärder vidtas. En mellanliggande nod är standardåtgärden att fortsätta att utforska diagrammet. För den sista noden på en sökväg är standardåtgärden att stoppa och returnera. En begränsning-objekt som anger traversal åtgärder kallas en *Traversal åtgärdsobjektet*. Specifikation ges på följande sätt:
+När en sökväg innehåller mer än bara en från nod, utför frågeprocessorn en genomgång av diagram enligt den angivna sökvägen. När den når en nod, användardefinierade edge traversal åtgärder utlöses, det vill säga om du vill avsluta när den aktuella noden och returnera eller fortsätta att utforska i diagrammet. När du anger ingen edge traversal-åtgärd vidtas standardåtgärder. För ett mellanliggande nod är standardåtgärden att fortsätta att utforska i diagrammet. För den sista noden på en sökväg är standardåtgärden att stoppa och returnera. En begränsning-objekt som anger edge traversal åtgärder kallas en *Edge Traversal åtgärdsobjektet*. Specifikation ges på följande sätt:
 
 ```javascript
 /* Traversal Action Object:
@@ -106,7 +107,7 @@ När en sökväg innehåller mer än bara startnoden, utför frågeprocessorn et
 }
 ```
 
-EFTER innehållet i en *json* sökfråga ska innehålla minst en *sökväg* mönster. Bläddra åtgärd objekt är valfria. Här är två exempel.
+POST brödtexten i en *json* sökfrågan måste innehålla minst en *sökväg* mönster. Bläddra åtgärd objekt är valfria. Här följer två exempel.
 
 ```JSON
 {

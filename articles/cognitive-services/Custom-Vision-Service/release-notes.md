@@ -9,14 +9,21 @@ ms.component: custom-vision
 ms.topic: conceptual
 ms.date: 08/28/2018
 ms.author: anroth
-ms.openlocfilehash: 61fa0b1d2fc40daed8b3b99a0ab0d36de802ce3d
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.openlocfilehash: 8b4ba1601a7c5a9f523f7f8145a032861aac5d8c
+ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46367992"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48901336"
 ---
 # <a name="custom-vision-service-release-notes"></a>Custom Vision Service viktig information
+
+## <a name="october-9-2018"></a>9 oktober 2018
+- Objektidentifiering försätts betalad förhandsversion. Du kan nu skapa objektidentifiering projekt med en Azure-resurs.
+- Har lagts till ”Flytta till Azure”-funktion till webbplatsen för att göra det enklare att uppgradera en begränsad utvärderingsversion-projektet för att länka till en Azure. resursen länkade projektet (F0 eller S0.) Du hittar den på inställningssidan för din produkt.  
+- Har lagts till export till ONNX 1.2, att stödja Windows 2018 oktober uppdaterad version av Windows-ML.
+Bugfixes, inklusive för ONNX exporten med specialtecken. 
+
 
 ## <a name="august-14-2018"></a>Den 14 augusti 2018
 - Har lagts till ”Kom igång” widget till customvision.ai plats som leder användarna genom utbildning. 
@@ -24,12 +31,12 @@ ms.locfileid: "46367992"
 
 ## <a name="june-28-2018"></a>28 juni 2018
 - Förbättringar av Bugfixes & serverdel.
-- Enabeled Multiclass klassificering för projekt där bilder har exakt en etikett. I förutsägelser för multiklass-baserad läge summera sannolikhet till en (alla avbildningar klassificeras bland angivna taggarna).
+- Aktivera multiklass-baserad klassificering för projekt där bilder har exakt en etikett. I förutsägelser för multiklass-baserad läge summera sannolikhet till en (alla avbildningar klassificeras bland angivna taggarna).
 
 ## <a name="june-13-2018"></a>13 juni 2018
 - UX-uppdatering, fokuserar på enkel användning och hjälpmedel. 
 - Förbättringar för machine learning-pipeline som gynnar multilabel projekt med ett stort antal taggar.
-- En bugg har åtgärdats i TensorFlow export. Enabeled exporteras modellen versionshantering, så iterationer kan exporteras mer än en gång. 
+- En bugg har åtgärdats i TensorFlow export. Aktiverad exporterade modellen versionshantering, så iterationer kan exporteras mer än en gång. 
 
 ## <a name="may-7-2018"></a>7 maj, 2018
 - Introducerade förhandsfunktion för objektidentifiering för begränsad utvärderingsversion-projekt.
@@ -38,7 +45,7 @@ ms.locfileid: "46367992"
 - Betydande serverförbättringar av maskininlärningspipeline för bildklassificeringsprojekt. Projekt som tränas efter den 27 april 2018 kan dra nytta av dessa uppdateringar.
 - Lade till modellexport för ONNX, för användning med Windows ML.
 - Lade till modellexport till DockerFile. På så sätt kan du ladda ned artefakter för att skapa dina egna Windows- och Linux-containrar, till exempel DockerFile, TensorFlow-modell och tjänstkod. 
-- För nyligen tränade modeller som exporteras till TensorFlow i allmänna domäner (kompakta) och Landmark-domäner (kompakta) [är medelvärden nu (0,0,0)](https://github.com/azure-samples/cognitive-services-android-customvision-sample) – konsekvent för alla projekt. 
+- För nyligen utbildade modeller som exporteras till TensorFlow i Allmänt (CD) och landmärken (CD)-domäner, [innebär att värden är nu (0,0,0)](https://github.com/azure-samples/cognitive-services-android-customvision-sample), konsekvent på alla projekt. 
 
 ## <a name="march-1-2018"></a>1 mars 2018
 - Publicerade förhandsversion på Azure-portalen. Projekt kan nu bifogas till Azure-resurser med nivå F0 (kostnadsfritt) eller S0 (standard). Introducerade S0-nivån projekt, som tillåter upp till 100 taggar och 25 000 bilder. 

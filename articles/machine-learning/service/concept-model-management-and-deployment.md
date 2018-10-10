@@ -9,12 +9,12 @@ ms.reviewer: jmartens
 author: hjerez
 ms.author: hjerez
 ms.date: 09/24/2018
-ms.openlocfilehash: afba483172bc34b9d54afc3af755f0967affc875
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.openlocfilehash: b09ef259d73744612c41adc4fc40ea0235da9bcb
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48239174"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48885075"
 ---
 # <a name="manage-deploy-and-monitor-models-with-azure-machine-learning-service"></a>Hantera, distribuera och övervaka modeller med Azure Machine Learning-tjänsten
 
@@ -71,7 +71,7 @@ Du kan distribuera dina avbildningar för följande [distributionskanaler](how-t
 * Azure FPGA-datorer
 * Azure IoT Edge-enheter
 
-När tjänsten har distribuerats inferensjobb-begäran är automatiskt Utjämning av nätverksbelastning och klustret skalas för att uppfylla eventuella toppar på begäran. [Telemetri om din tjänst](https://docs.microsoft.com/python/api/azureml-telemetry/azureml.telemetry?view=azure-ml-py) kan samlas in på Azure Application Insights-tjänsten som är associerade med din arbetsyta.
+När tjänsten har distribuerats inferensjobb-begäran är automatiskt Utjämning av nätverksbelastning och klustret skalas för att uppfylla eventuella toppar på begäran. [Telemetri om din tjänst kan läsas in](how-to-enable-app-insights.md) i Azure Application Insights-tjänsten som är associerade med din arbetsyta.
 
 ## <a name="step-4-monitor-models-and-collect-data"></a>Steg 4: Övervaka modeller och samla in data
 

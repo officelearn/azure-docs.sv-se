@@ -4,16 +4,16 @@ description: 'Referens för REST API: er för tal-tjänst.'
 services: cognitive-services
 author: v-jerkin
 ms.service: cognitive-services
-ms.technology: speech
+ms.component: speech
 ms.topic: article
 ms.date: 05/09/2018
 ms.author: v-jerkin
-ms.openlocfilehash: 8a441f43a5d7ab3daa3c430dc715fab9ff8c63bb
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.openlocfilehash: dd43aff91568ba4bd93f27e88cc63a50b9d8e4bd
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48868317"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48886444"
 ---
 # <a name="speech-service-rest-apis"></a>Taltjänst REST API: er
 

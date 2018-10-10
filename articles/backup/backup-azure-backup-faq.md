@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 8/2/2018
 ms.author: markgal
-ms.openlocfilehash: efe08eddaceb5a764dbd5393e79644eac1e2e106
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: 9168a67366664f50a49ae04ef8ddc2f7aa9d665b
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47406166"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48886523"
 ---
 # <a name="questions-about-the-azure-backup-service"></a>Frågor om Azure Backup-tjänsten
 Den här artikeln innehåller vanliga frågor och svar om Azure Backup-komponenterna. I vissa svar finns det länkar till artiklar som har omfattande information. Du kan ställa frågor om Azure Backup genom att klicka på **Kommentarer** (till höger). Kommentarerna visas längst ned i den här artikeln. Ett Livefyre-konto krävs för att lämna kommentarer. Du kan också ställa frågor om Azure Backup-tjänsten i [diskussionsforumet](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup).
@@ -43,10 +43,10 @@ Nej. Valvet skapas på prenumerationsnivå och kan inte tilldelas till en annan 
 Nej. Säkerhetskopierade data lagras i ett valv kan inte flyttas till ett annat valv.
 
 ### <a name="can-i-change-from-grs-to-lrs-after-a-backup-br"></a>Kan jag ändra från GRS till LRS när du har en säkerhetskopia? <br/>
-Nej. Recovery Services-valvet kan bara ändra lagringsalternativ innan eventuella säkerhetskopior som har lagrats. 
+Nej. Recovery Services-valvet kan bara ändra lagringsalternativ innan eventuella säkerhetskopior som har lagrats.
 
 ### <a name="recovery-services-vaults-are-resource-manager-based-are-backup-vaults-still-supported-br"></a>Recovery Services-valv är baserade på resurshanteraren. Backup-valv stöds fortfarande? <br/>
-Säkerhetskopieringsvalv har konverterats till Recovery Services-valv. Om du inte har konverterat Backup-valv till ett Recovery Services-valv, har Backup-valvet konverterats till ett Recovery Services-valv för dig. 
+Säkerhetskopieringsvalv har konverterats till Recovery Services-valv. Om du inte har konverterat Backup-valv till ett Recovery Services-valv, har Backup-valvet konverterats till ett Recovery Services-valv för dig.
 
 ### <a name="can-i-migrate-a-backup-vault-to-a-recovery-services-vault-br"></a>Kan jag migrera ett Backup-valv till ett Recovery Services-valv? <br/>
 Alla säkerhetskopieringsvalv har konverterats till Recovery Services-valv. Om du inte har konverterat Backup-valv till ett Recovery Services-valv, har Backup-valvet konverterats till ett Recovery Services-valv för dig.
@@ -60,7 +60,6 @@ En detaljerad lista med frågor finns i avsnittet [Vanliga frågor och svar om s
 ## <a name="back-up-vmware-servers"></a>Säkerhetskopiera VMware-servrar
 
 ### <a name="can-i-back-up-vmware-vcenter-servers-to-azure"></a>Kan jag säkerhetskopiera VMware vCenter-servrar till Azure?
-
 Ja. Du kan använda Azure Backup Server för att säkerhetskopiera VMware vCenter och ESXi till Azure. Information om VMware-versionen som stöds finns i artikeln om [Azure Backup Server-skyddsmatrisen](backup-mabs-protection-matrix.md). Stegvisa instruktioner finns i artikeln om att [använda Azure Backup Server för att säkerhetskopiera en VMware-server](backup-azure-backup-server-vmware.md).
 
 ### <a name="do-i-need-a-separate-license-to-recover-a-full-on-premises-vmwarehyper-v-cluster-from-dpm-or-azure-backup-serverbr"></a>Behöver jag en separat licens för att återställa en fullständig lokala VMware/Hyper-V-kluster från DPM eller Azure Backup Server?<br/>
@@ -74,17 +73,14 @@ Ja.
 Nej. En DPM- eller MABS-server kan bara registreras för ett enda valv.
 
 ### <a name="which-version-of-system-center-data-protection-manager-is-supported"></a>Vilken version av System Center Data Protection Manager stöds?
-
-Vi rekommenderar att du installerar den [senaste](http://aka.ms/azurebackup_agent) Azure Backup-agenten med den senaste samlade uppdateringen (UR) för System Center Data Protection Manager (DPM). 
+Vi rekommenderar att du installerar den [senaste](http://aka.ms/azurebackup_agent) Azure Backup-agenten med den senaste samlade uppdateringen (UR) för System Center Data Protection Manager (DPM).
 - För System Center DPM 2012 R2 [uppdatera samlad 14](https://support.microsoft.com/help/4043315/update-rollup-14-for-system-center-2012-r2-data-protection-manager) är den senaste uppdateringen.
 - För System Center DPM 2016 [Samlad uppdatering 2](https://support.microsoft.com/en-us/help/3209593) är den senaste uppdateringen.
 
 ### <a name="i-have-installed-azure-backup-agent-to-protect-my-files-and-folders-can-i-install-system-center-dpm-to-protect-on-premises-applicationvm-workloads-to-azure"></a>Jag har installerat Azure Backup-agenten för att skydda mina filer och mappar. Kan jag installera System Center DPM för att skydda lokala program/VM-arbetsbelastningar till Azure?
-
 Ja. Men om du vill använda Azure Backup med System Center Data Protection Manager (DPM), installerar du först DPM och installera Azure Backup-agenten. Genom att installera Azure Backup-komponenterna i den här ordningen säkerställer du att Azure Backup-agenten fungerar med DPM. Installera inte Azure Backup-agenten innan du installerar DPM. Detta varken rekommenderas eller stöds.
 
 ### <a name="can-i-use-dpm-to-back-up-apps-in-azure-stack"></a>Kan jag använda DPM för säkerhetskopiering av appar i Azure Stack?
-
 Nej. Även om du kan använda Azure Backup för att skydda Azure Stack, stöder Azure Backup för närvarande inte använder DPM för att säkerhetskopiera appar i Azure Stack.
 
 ## <a name="how-azure-backup-works"></a>Så här fungerar Azure Backup
@@ -115,7 +111,7 @@ Azure Backup stöder följande lista över operativsystem för säkerhetskopieri
 | Windows Server 2016 |64-bitars |Standard, Datacenter, Essentials |
 | Windows Server 2012 R2 och senaste Service Pack |64-bitars |Standard, Datacenter, Foundation |
 | Windows Server 2012 och senaste Service Pack |64-bitars |Datacenter, Foundation, Standard |
-| Windows Storage Server 2016 och senaste Service Pack |64-bitars |Standard, Workgroup | 
+| Windows Storage Server 2016 och senaste Service Pack |64-bitars |Standard, Workgroup |
 | Windows Storage Server 2012 R2 och senaste Service Pack |64-bitars |Standard, Workgroup |
 | Windows Storage Server 2012 och senaste Service Pack |64-bitars |Standard, Workgroup |
 | Windows Server 2012 R2 och senaste Service Pack |64-bitars |Essential |
@@ -192,7 +188,7 @@ Ja. Data krypteras på den lokala server-/klient-/SCDPM-datorn med hjälp av AES
 Ja. Data som skickas till Azure förblir krypterade (i vila). Microsoft dekrypterar aldrig dina säkerhetskopierade data. När du säkerhetskopierar en virtuell Azure-dator använder Azure Backup kryptering för den virtuella datorn. Om den virtuella datorn till exempel har krypterats med Azure Disk Encryption, eller en annan krypteringsteknik, använder Azure Backup den krypteringen för att skydda dina data.
 
 ### <a name="what-is-the-minimum-length-of-encryption-key-used-to-encrypt-backup-data-br"></a>Vilken är den minsta längden på krypteringsnyckeln som används för att kryptera säkerhetskopierade data? <br/>
-Krypteringsnyckeln ska innehålla minst 16 tecken när du använder Azure-säkerhetskopieringsagenten. För virtuella Azure-datorer finns det ingen begränsning av längden på de nycklar som används av Azure KeyVault. 
+Krypteringsnyckeln ska innehålla minst 16 tecken när du använder Azure-säkerhetskopieringsagenten. För virtuella Azure-datorer finns det ingen begränsning av längden på de nycklar som används av Azure KeyVault.
 
 ### <a name="what-happens-if-i-misplace-the-encryption-key-can-i-recover-the-data-or-can-microsoft-recover-the-data-br"></a>Vad händer om jag tappar bort krypteringsnyckeln? Kan jag (eller Microsoft) återställa mina data? <br/>
 Nyckeln som används för att kryptera säkerhetskopierade data finns bara hos kunden. Microsoft sparar ingen kopia i Azure och har inte åtkomst till nyckeln. Om du tappar bort nyckeln kan inte Microsoft återställa dina säkerhetskopierade data.

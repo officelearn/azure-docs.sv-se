@@ -5,16 +5,16 @@ description: Lär dig att känna igen tal i JavaScript i en webbläsare med hjä
 services: cognitive-services
 author: fmegen
 ms.service: cognitive-services
-ms.technology: Speech
+ms.component: Speech
 ms.topic: article
 ms.date: 09/24/2018
 ms.author: fmegen
-ms.openlocfilehash: 9ac48bd77087a8dc050ccd1ee8fe63ec5c25a643
-ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
+ms.openlocfilehash: 75dcda643741e3aeb1238f82128e4c5b058be840
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48018392"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48883673"
 ---
 # <a name="quickstart-recognize-speech-in-javascript-in-a-browser-using-the-cognitive-services-speech-sdk"></a>Snabbstart: Känna igen tal i JavaScript i en webbläsare med hjälp av Cognitive Services tal SDK
 
@@ -103,7 +103,7 @@ Starta appen genom att dubbelklicka på filen index.html eller öppna index.html
 Om du vill starta din app, öppna valfri webbläsare och gå till den offentliga URL som du vara värd för mappen på, ange din [region](regions.md), och utlöser en bokföring med hjälp av mikrofonen. Om konfigurerat, hämtas en token från token källan.
 
 [!INCLUDE [Download the sample](../../../includes/cognitive-services-speech-service-speech-sdk-sample-download-h2.md)]
-Leta efter det här exemplet i den `quickstart/js-browser` mapp.
+Leta efter det här exemplet i mappen `quickstart/js-browser`.
 
 ## <a name="next-steps"></a>Nästa steg
 

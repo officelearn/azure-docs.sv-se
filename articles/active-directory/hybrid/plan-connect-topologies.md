@@ -12,18 +12,21 @@ ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.topic: article
-ms.date: 02/27/2018
+ms.date: 10/09/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: bab18c5c36cf4ffbbe6268910bf9121bc351fdca
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 26049b1e7283d53be7214130ff64cf830935708c
+ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46311999"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48901810"
 ---
 # <a name="topologies-for-azure-ad-connect"></a>Topologier för Azure AD Connect
 Den här artikeln beskrivs olika lokala och Azure Active Directory (Azure AD)-topologier som använder Azure AD Connect-synkronisering som viktiga integrationslösning. Den här artikeln innehåller konfigurationer för både stöds och som inte stöds.
+
+>[!IMPORTANT]
+>Med hjälp av en lösning än Azure AD Connect för att synkronisera Active Directory med Azure AD kan resultera i ett tillstånd som inkonsekventa eller som inte stöds. Därför kan tillhandahålla Microsoft inte teknisk support för sådana distributioner.
 
 Här är förklaringen för bilder i artikeln:
 

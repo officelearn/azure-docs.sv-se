@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/26/2018
+ms.date: 10/08/2018
 ms.author: kumud
-ms.openlocfilehash: bf55f4f4aa91efaf1c4512339a6d54f893788bae
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.openlocfilehash: 9aa3811eb03d38a4c6ab8203512f3e6699098122
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48816760"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48883643"
 ---
 # <a name="load-balancer-with-tcp-reset-on-idle-public-preview"></a>Belastningsutjämnare med TCP-återställning på inaktiv (offentlig förhandsversion)
 
@@ -43,7 +43,7 @@ Granska noggrant hela slutpunkt till slutpunkt-scenariot för att bestämma om d
 
 ## <a name="enabling-tcp-reset-on-idle-timeout"></a>Att aktivera TCP-återställning på timeout för inaktivitet
 
-Med API-versionen 2018-08-01 kan aktivera du utskick av dubbelriktad TCP återställer på timeout för inaktivitet på basis av per regel:
+Med API-versionen 2018-07-01 kan aktivera du utskick av dubbelriktad TCP återställer på timeout för inaktivitet på basis av per regel:
 
 ```json
       "loadBalancingRules": [

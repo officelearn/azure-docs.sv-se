@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/07/2018
 ms.author: harijay
-ms.openlocfilehash: 17fec61e73298a6250cf6805bb9a713ff3d3a488
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: 705366dbb055679a2d0adc628938fa419609f6ed
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48858017"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48885127"
 ---
 # <a name="virtual-machine-serial-console"></a>Virtual Machine Serial Console
 
@@ -222,7 +222,7 @@ A. Du måste ha deltagarbehörighet inom nivå eller högre till en virtuell dat
 
 **FRÅGOR OCH. Min seriekonsolen inte visas allt, hur gör jag?**
 
-A. Avbildningen är antagligen felkonfigurerad för seriell konsolåtkomst. Se [aktiverar Seriekonsol i anpassade eller äldre bilder](#Enable-Serial-Console-in-custom-or-older-images) mer information om hur du konfigurerar din avbildning om du vill aktivera Seriell konsol.
+A. Avbildningen är antagligen felkonfigurerad för seriell konsolåtkomst. Se [aktiverar Seriekonsol i anpassade eller äldre bilder](#enable-serial-console-in-custom-or-older-images) mer information om hur du konfigurerar din avbildning om du vill aktivera Seriell konsol.
 
 **FRÅGOR OCH. Är seriell konsol för Virtual Machine Scale Sets?**
 

@@ -6,12 +6,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 09/05/2018
 ms.author: raynew
-ms.openlocfilehash: 49667251cbce4a3f71d71a6508793a2d4c7aac38
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: f6c877a182395d12ee46e9fd9b7892a4a3e5cdb8
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44300418"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48887793"
 ---
 # <a name="contoso-migration-rehost-an-on-premises-linux-app-to-azure-vms-and-azure-mysql"></a>Contoso-migrering: Rehost en lokala Linux-app på Azure virtuella datorer och Azure MySQL
 
@@ -53,7 +53,7 @@ IT-ledning har haft ett nära samarbete med affärspartners att förstå vad de 
 
 Contoso cloud-teamet har fästs ned mål för den här migreringen för att avgöra den bästa migreringsmetoden:
 
-- Efter migreringen ska app i Azure ha samma prestandafunktioner som idag i sina lokala VMWare-miljön.  Appen finns kvar som kritiskt i molnet eftersom det är på plats. 
+- Efter migreringen ska app i Azure ha samma prestandafunktioner som idag i sina lokala VMware-miljön.  Appen finns kvar som kritiskt i molnet eftersom det är på plats. 
 - Contoso vill inte investera i den här appen.  Det är viktigt att verksamheten, men i sin nuvarande form Contoso bara vill flytta på ett säkert sätt till molnet.
 - När du har utfört några Windows app migreringar, vill Contoso lära dig hur du använder en Linux-baserade infrastruktur i Azure.
 - Contoso vill minimera databasen administrativa uppgifter när programmet flyttas till molnet.

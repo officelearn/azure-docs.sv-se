@@ -8,20 +8,14 @@ ms.topic: conceptual
 ms.date: 09/17/2017
 ms.author: vitaly.gorbenko
 ms.component: metrics
-ms.openlocfilehash: 21b0029ff12915c8416ad2366fbf6c45ddfaa288
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: f82b4dff20e2b26e62889c41b3ff3c27bc86066a
+ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46978436"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48901423"
 ---
 # <a name="azure-monitor-metrics-explorer"></a>Azure Monitor Metrics Explorer
-
-Den här anvisningen beskriver nästa generations Azure Monitor Metrics kartläggning upplevelse som för närvarande i offentlig förhandsversion. Återge diagram för både flerdimensionella mått och basmått med inga dimensioner har stöd för den nya upplevelsen. Du kan rita diagram som överlägg mått från olika resurstyper, flera resursgrupper och prenumerationer. Diagram för flerdimensionella mått kan anpassas genom att använda dimensionsfilter samt gruppering. Ett diagram, inklusive anpassade diagram kan fästas på instrumentpaneler.
-
-Om du letar efter information om den gamla upplevelsen som endast stöder basmått med inga dimensioner finns i avsnittet berättigade ”åt mätvärden via portalen” i den [översikt över Microsoft Azure-mått guiden](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-metrics).
-
-## <a name="what-is-azure-monitor-metrics-explorer"></a>Vad är Azure Monitor Metrics Explorer?
 
 Azure Monitor Metrics Explorer är en komponent i Microsoft Azure-portalen som tillåter ritning diagram, visuellt korrelera trender och undersöka toppar och dalar mått '. Metrics Explorer är ett viktigt startpunkt för att undersöka olika prestanda och tillgänglighetsproblem med dina program och infrastruktur i Azure eller övervakas av Azure Monitor-tjänster. 
 
@@ -29,34 +23,29 @@ Azure Monitor Metrics Explorer är en komponent i Microsoft Azure-portalen som t
 
 Mått i Microsoft Azure är serien med mätvärden och antal som samlas in och lagras över tid. Det finns mått för standard (eller ”plattformen”) och anpassade mått. Standardmått tillhandahålls till dig av själva Azure-plattformen. Standardmått visas statistik för hälsa och användning av dina Azure-resurser. Medan anpassade mått som ska skickas till Azure genom att dina program med den [Application Insights API för anpassade händelser](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics). Anpassade mått lagras i Application Insights-resurser tillsammans med andra program specifika mått.
 
-
-
 ## <a name="how-do-i-create-a-new-chart"></a>Hur gör jag för att skapa ett nytt diagram?
 
-   > [!NOTE]
-   > Några av funktionerna i den gamla mått-upplevelsen är inte ännu tillgängliga i nya Metrics Explorer. Den nya upplevelsen är i förhandsversion, kan du fortsätta använda den gamla (icke-dimensionell) måttvyn över Azure Monitor. 
-
 1. Öppna Azure portal
-2. Gå till den nya **övervakaren** fliken och välj sedan **mått (förhandsgranskning)**.
+2. Gå till den nya **övervakaren** fliken och välj sedan **mått**.
 
-   ![Förhandsgranskningsavbildning av mått](./media/monitoring-metric-charts/0001.png)
+   ![Bild av mått](./media/monitoring-metric-charts/0001.png)
 
 3. Den **mått väljare** kommer automatiskt att vara öppen åt dig. Välj en resurs från listan för att visa dess tillhörande mått. Endast resurser med mått visas i listan.
 
-   ![Förhandsgranskningsavbildning av mått](./media/monitoring-metric-charts/0002.png)
+   ![Bild av mått](./media/monitoring-metric-charts/0002.png)
 
    > [!NOTE]
    >Om du har mer än en Azure-prenumeration, Metrics Explorer-hämtningar i resurser i alla prenumerationer som har valts i Portal-inställningar -> Filter av prenumerationslista. Om du vill ändra den, klicka på kugghjulsikonen Portal inställningar på skärmen och välj vilka prenumerationer som du vill använda.
 
-4. För vissa resurstyper (t.ex. Storage-konton och virtuella datorer) innan du väljer ett mått måste du välja en **Namespace**. Varje namnområde har en egen uppsättning mått som är relevanta till endast det här namnområdet och inte till andra namnområden.
+4. För vissa resurstyper (Storage-konton och virtuella datorer) innan du väljer ett mått måste du välja en **Namespace**. Varje namnområde har en egen uppsättning mått som är relevanta till endast det här namnområdet och inte till andra namnområden.
 
    Varje Azure Storage har till exempel mått för subservices ”BLOB”, ”filer”, ”Queues” och ”tabeller”, som är alla delar av storage-konto. Dock gäller mått ”Antal Kömeddelanden” naturligt till deltjänst ”kö” och inte till några andra subservices med lagring.
 
-   ![Förhandsgranskningsavbildning av mått](./media/monitoring-metric-charts/0003.png)
+   ![Bild av mått](./media/monitoring-metric-charts/0003.png)
 
 5. Välj ett mått i listan. Om du vet att en del av namnet på det mått som du vill kan du börja skriva den i att se en filtrerad lista över tillgängliga mått:
 
-   ![Förhandsgranskningsavbildning av mått](./media/monitoring-metric-charts/0004.png)
+   ![Bild av mått](./media/monitoring-metric-charts/0004.png)
 
 6. När du har valt ett mått återges i diagrammet med standardaggregeringen för det valda måttet. Klicka nu bara bort från den **mått väljare** att stänga den. Du kan även växla diagrammet till en annan aggregering. För vissa mått kan växlar aggregering du välja vilket värde som du vill visa i diagrammet. Exempelvis kan du växla mellan genomsnittlig, minsta och högsta värden. 
 

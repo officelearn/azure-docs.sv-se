@@ -1,20 +1,21 @@
 ---
-title: Översikt över designen för Akustik - Cognitive Services
+title: Översikt över designen för projektet Akustik
+titlesuffix: Azure Cognitive Services
 description: Det här dokumentet beskriver hur du express design avsikt i alla tre faser av projektet Akustik arbetsflödet.
 services: cognitive-services
 author: kegodin
-manager: noelc
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: acoustics
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/17/2018
 ms.author: kegodin
-ms.openlocfilehash: bb3e5010f1839f7b18396cc8e177ed07e52ea98a
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.openlocfilehash: 46e2e276086f836ff881fde1db6462f6e7788e22
+ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48867657"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48901370"
 ---
 # <a name="design-process-overview"></a>Processöversikt för design
 Du kan uttrycka design avsikt i alla tre faser av projektet Akustik arbetsflödet: förväg skapa scen konfiguration, ljudkälla placering och efter ändamålet design. Processen kräver mindre markup som är associerade med placera eko volymer samtidigt som du behåller designer kontroll över hur en scen låter.

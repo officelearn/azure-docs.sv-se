@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 9/10/2018
 ms.author: markgal
-ms.openlocfilehash: ebfd879fcd619dab48e4a08130f86afc68f91207
-ms.sourcegitcommit: 4edf9354a00bb63082c3b844b979165b64f46286
+ms.openlocfilehash: 7ab88ce3565ccf79f20847a3a5e744c495d5fcb1
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48785434"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48884941"
 ---
 # <a name="prepare-your-environment-to-back-up-resource-manager-deployed-virtual-machines"></a>Förbereda din miljö för att säkerhetskopiera Resource Manager-distribuerade virtuella datorer
 
@@ -63,12 +63,15 @@ Innan du förbereder din miljö måste du förstå följande begränsningar:
   * Virtuella datorer med flera reserverade IP-adresser
   * Virtuella datorer med flera nätverkskort
 
+  > [!NOTE]
+  > Azure Backup stöder [Standard SSD Managed Disks](https://azure.microsoft.com/blog/announcing-general-availability-of-standard-ssd-disks-for-azure-virtual-machine-workloads/), en ny typ av beständig lagring för Microsoft Azure-datorer. Det finns stöd för hanterade diskar på [säkerhetskopiering för Azure stack V2](backup-upgrade-to-vm-backup-stack-v2.md).
+
 ## <a name="create-a-recovery-services-vault-for-a-vm"></a>Skapa ett Recovery Services-valv för en virtuell dator
 Ett Recovery Services-valv är en entitet som lagrar säkerhetskopior och återställningspunkter som har skapats med tiden. Recovery Services-valvet innehåller även säkerhetskopieringspolicyerna som är kopplade till de skyddade virtuella datorerna.
 
 Så här skapar du ett Recovery Services-valv:
 
-1. Logga in på [Azure-portalen](https://portal.azure.com/).
+1. Logga in på [Azure Portal](https://portal.azure.com/).
 1. På den **Hub** menyn och välj **Bläddra**, och skriv sedan **återställningstjänster**. När du börjar skriva, filtrerar listan över resurser i dina indata. Välj **Recovery Services-valv**.
 
     ![Att skriva i rutan och välja ”Recovery Services-valv” i resultaten](./media/backup-azure-arm-vms-prepare/browse-to-rs-vaults-updated.png) <br/>

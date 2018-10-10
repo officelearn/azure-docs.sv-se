@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 09/20/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: a17b2dda2df87121843c1533122df66f9d352a8f
-ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
+ms.openlocfilehash: 75d26387c8a9db1fa9acdc9d6b71bde63453c22d
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47181285"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48887365"
 ---
 # <a name="set-up-sign-in-with-a-twitter-account-by-using-custom-policies-in-azure-active-directory-b2c"></a>Ställ in logga in med ett Twitter-konto med hjälp av anpassade principer i Azure Active Directory B2C
 
@@ -45,7 +45,7 @@ Om du vill använda Twitter som identitetsprovider i Azure AD B2C måste du skap
 
 Du behöver lagra den hemliga nyckeln som du antecknade tidigare i din Azure AD B2C-klient.
 
-1. Logga in på [Azure-portalen](https://portal.azure.com/).
+1. Logga in på [Azure Portal](https://portal.azure.com/).
 2. Kontrollera att du använder den katalog som innehåller din Azure AD B2C-klient genom att klicka på den **katalog- och prenumerationsfilter** i den översta menyn och välja den katalog som innehåller din klient.
 3. Välj **alla tjänster** i det övre vänstra hörnet av Azure-portalen och Sök efter och välj **Azure AD B2C**.
 4. På sidan Översikt väljer **Identitetsupplevelse – FÖRHANDSVERSION**.
@@ -152,6 +152,18 @@ Nu när du har en knapp på plats kan behöva du länka den till en åtgärd. Å
 
 3. Spara den *TrustFrameworkExtensions.xml* fil och ladda upp den igen för att bekräfta.
 
+## <a name="create-an-azure-ad-b2c-application"></a>Skapa ett Azure AD B2C-program
+
+Kommunikation med Azure AD B2c sker via ett program som du skapar i din klient. Det här avsnittet innehåller valfria steg som du kan utföra för att skapa ett testprogram om du inte redan gjort det.
+
+1. Logga in på [Azure Portal](https://portal.azure.com).
+2. Kontrollera att du använder den katalog som innehåller din Azure AD B2C-klient genom att klicka på den **katalog- och prenumerationsfilter** i den översta menyn och välja den katalog som innehåller din klient.
+3. Välj **alla tjänster** i det övre vänstra hörnet av Azure-portalen och Sök efter och välj **Azure AD B2C**.
+4. Välj **program**, och välj sedan **Lägg till**.
+5. Ange ett namn för programmet, till exempel *testapp1*.
+6. För **Webbapp / webb-API**väljer `Yes`, och ange sedan `https://jwt.ms` för den **svars-URL**.
+7. Klicka på **Skapa**.
+
 ## <a name="update-and-test-the-relying-party-file"></a>Uppdatera och testa filen förlitande part
 
 Uppdatera filen för förlitande part (RP) som initierar användarresa som du skapade.
@@ -160,4 +172,5 @@ Uppdatera filen för förlitande part (RP) som initierar användarresa som du sk
 2. Öppna den nya filen och uppdatera värdet för den **PolicyId** attributet för **TrustFrameworkPolicy** med ett unikt värde. Till exempel `SignUpSignInTwitter`.
 3. Uppdatera värdet för **PublicPolicyUri** med URI: N för principen. Exempel:`http://contoso.com/B2C_1A_signup_signin_twitter`
 4. Uppdatera värdet för den **ReferenceId** attributet i **DefaultUserJourney** att matcha ID för den nya användarresa som du skapade (SignUpSignTwitter).
-5. Spara dina ändringar, överföra filen och testa den genom att öppna den och klicka på **kör nu**.
+5. Spara dina ändringar, överföra filen och välj sedan den nya principen i listan.
+6. Se till att Azure AD B2C-program som du skapat är markerad i den **Välj program** fältet och sedan testa den genom att klicka på **kör nu**.

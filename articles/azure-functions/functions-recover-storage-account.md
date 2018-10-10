@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/05/2018
 ms.author: alkarche
-ms.openlocfilehash: f5e23a5734f8451b99823f238b577a21a4752c18
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: babad23743a0a3c9631c0bcf406de3521174264a
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47047816"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48887226"
 ---
 # <a name="how-to-troubleshoot-functions-runtime-is-unreachable"></a>Så här felsöker du ”functions-körning kan inte nås”
 
@@ -28,7 +28,7 @@ Det här dokumentet är avsett att felsöka följande fel när det visas i Funct
 `Error: Azure Functions Runtime is unreachable. Click here for details on storage configuration`
 
 ### <a name="summary"></a>Sammanfattning
-Det här problemet inträffar när Azure unctions körning inte kan starta. Den vanligaste orsaken till felet är funktionsappen att förlora åtkomsten till lagringskontot. [Läs mer om kontot lagringskraven här](https://docs.microsoft.com/azure/azure-functions/functions-create-function-app-portal#storage-account-requirements)
+Det här problemet inträffar när Azure Functions-körning inte kan starta. Den vanligaste orsaken till felet är funktionsappen att förlora åtkomsten till lagringskontot. [Läs mer om kontot lagringskraven här](https://docs.microsoft.com/azure/azure-functions/functions-create-function-app-portal#storage-account-requirements)
 
 ### <a name="troubleshooting"></a>Felsökning
 Vi går via de fyra vanligaste fel fall, så här identifierar du och hur du löser varje fall.

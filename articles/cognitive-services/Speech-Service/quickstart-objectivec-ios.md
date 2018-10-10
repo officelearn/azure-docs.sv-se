@@ -5,16 +5,16 @@ description: Lär dig att känna igen tal i Objective-C på iOS med hjälp av Co
 services: cognitive-services
 author: chlandsi
 ms.service: cognitive-services
-ms.technology: Speech
+ms.component: Speech
 ms.topic: article
 ms.date: 09/24/2018
 ms.author: chlandsi
-ms.openlocfilehash: e343c24a5ef223e1fd6dc618f41d4acf89fc2f5d
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 3945bf0ae6edc0af0db90efca6811aeb22494592
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47226032"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48883440"
 ---
 # <a name="quickstart-recognize-speech-in-objective-c-on-ios-using-the-cognitive-services-speech-sdk"></a>Snabbstart: Känna igen tal i Objective-C på iOS med hjälp av Cognitive Services tal SDK
 
@@ -31,7 +31,7 @@ I den här artikeln lär du dig att skapa en iOS-app i Objective-C med hjälp av
 
 [!INCLUDE [License Notice](../../../includes/cognitive-services-speech-service-license-notice.md)]
 
-Den aktuella versionen av Cognitive Services tal SDK är `1.0.0`.
+Den aktuella versionen av Cognitive Services Speech SDK är `1.0.0`.
 
 Cognitive Services tal SDK för Mac och iOS är för närvarande distribueras som ett Cocoa ramverk.
 Den kan hämtas från https://aka.ms/csspeech/iosbinary. Ladda ned filen till arbetskatalogen.
@@ -84,7 +84,7 @@ Klicka på **Slutför** i följande dialogruta utan att ändra inställningarna.
     <string>Need microphone access for speech recognition from microphone.</string>
     ```
 1. Ersätt strängen `YourSubscriptionKey` med din prenumerationsnyckel.
-1. Ersätt strängen `YourServiceRegion` med den [region](regions.md) som är associerade med din prenumeration (till exempel `westus` för en kostnadsfri provprenumeration).
+1. Ersätt strängen `YourServiceRegion` med den [region](regions.md) som är associerad med din prenumeration (till exempel `westus` för en kostnadsfri provprenumeration).
 
 
 ## <a name="building-and-running-the-sample"></a>Bygga och köra exemplet
@@ -96,7 +96,7 @@ Klicka på **Slutför** i följande dialogruta utan att ändra inställningarna.
  ![Simulerade iOS-App](media/sdk/qs-objectivec-simulated-app.png)
 
 [!INCLUDE [Download the sample](../../../includes/cognitive-services-speech-service-speech-sdk-sample-download-h2.md)]
-Leta efter det här exemplet i den `quickstart/objectivec-ios` mapp.
+Leta efter det här exemplet i mappen `quickstart/objectivec-ios`.
 
 ## <a name="next-steps"></a>Nästa steg
 

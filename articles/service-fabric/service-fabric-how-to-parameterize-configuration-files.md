@@ -1,6 +1,6 @@
 ---
-title: Konfigurationsfiler i Azure Service Fabric parameteriserar | Microsoft Docs
-description: Visar hur du parameterstyra konfigurationsfiler i Service Fabric
+title: Parameterisera konfigurationsfiler i Azure Service Fabric | Microsoft Docs
+description: Lär dig mer om att Parameterisera konfigurationsfiler i Service Fabric.
 documentationcenter: .net
 author: mikkelhegn
 manager: msfussell
@@ -10,70 +10,59 @@ ms.devlang: dotNet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 12/06/2017
+ms.date: 10/09/2018
 ms.author: mikhegn
-ms.openlocfilehash: e5bb2f270cc5a6f288e1e995f4bfa74f4e3551b7
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 9057cdc22e277e4e12e9f439f3fbe0c5a5cda2a2
+ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34207826"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48900521"
 ---
-# <a name="how-to-parameterize-configuration-files-in-service-fabric"></a>Parameteriserar konfigurationsfiler i Service Fabric
+# <a name="how-to-parameterize-configuration-files-in-service-fabric"></a>Så här Parameterisera konfigurationsfiler i Service Fabric
 
-Den här artikeln visar hur du parameterstyra en konfigurationsfil i Service Fabric.
+Den här artikeln visar hur du Parameterisera en konfigurationsfil i Service Fabric.  Om du inte redan är bekant med grundläggande begrepp för att hantera program för flera miljöer kan du läsa [hantera program för flera miljöer](service-fabric-manage-multiple-environment-app-configuration.md).
 
 ## <a name="procedure-for-parameterizing-configuration-files"></a>Proceduren för Parameterisera konfigurationsfiler
 
 I det här exemplet kan du åsidosätta ett konfigurationsvärde med parametrar i programdistributionen.
 
-1. Öppna filen Config\Settings.xml.
-1. Ange en konfigurationsparameter genom att lägga till följande XML-filen:
+1. Öppna den  *<MyService>\PackageRoot\Config\Settings.xml* filen i ditt tjänstprojekt.
+1. Ställ in parameternamn och värde, till exempel cachestorleken som är lika med 25, genom att lägga till följande XML:
 
-    ```xml
-      <Section Name="MyConfigSection">
-        <Parameter Name="CacheSize" Value="25" />
-      </Section>
-    ```
+  ```xml
+    <Section Name="MyConfigSection">
+      <Parameter Name="CacheSize" Value="25" />
+    </Section>
+  ```
 
 1. Spara och stäng filen.
-1. Öppna filen `ApplicationManifest.xml`.
-1. Lägg till en `ConfigOverride` element som refererar till konfigurationspaketet, avsnittet och parametern.
+1. Öppna den  *<MyApplication>\ApplicationPackageRoot\ApplicationManifest.xml* fil.
+1. I filen applicationmanifest.XML deklarera ett värde för parametern och standard i den `Parameters` element.  Vi rekommenderar att parametern innehåller namnet på tjänsten (till exempel ”Mintjänst”).
 
-      ```xml
-        <ConfigOverrides>
-          <ConfigOverride Name="Config">
-              <Settings>
-                <Section Name="MyConfigSection">
-                    <Parameter Name="CacheSize" Value="[Stateless1_CacheSize]" />
-                </Section>
-              </Settings>
-          </ConfigOverride>
-        </ConfigOverrides>
-      ```
+  ```xml
+    <Parameters>
+      <Parameter Name="MyService_CacheSize" DefaultValue="80" />
+    </Parameters>
+  ```
+1. I den `ServiceManifestImport` avsnitt i filen applicationmanifest.XML lägger du till en `ConfigOverride` element som refererar till konfigurationspaketet och avsnittet parametern.
 
-1. Fortfarande i filen ApplicationManifest.xml du ange parametern i den `Parameters` element
-
-    ```xml
-      <Parameters>
-        <Parameter Name="Stateless1_CacheSize" />
-      </Parameters>
-    ```
-
-1. Och definiera en `DefaultValue`
-
-    ```xml
-      <Parameters>
-        <Parameter Name="Stateless1_CacheSize" DefaultValue="80" />
-      </Parameters>
-    ```
+  ```xml
+    <ConfigOverrides>
+      <ConfigOverride Name="Config">
+          <Settings>
+            <Section Name="MyConfigSection">
+                <Parameter Name="CacheSize" Value="[MyService_CacheSize]" />
+            </Section>
+          </Settings>
+      </ConfigOverride>
+    </ConfigOverrides>
+  ```
 
 > [!NOTE]
-> I de fall där du lägger till en ConfigOverride, väljer alltid Service Fabric applikationsparametrarna eller standardvärdet som angetts i applikationsmanifestet.
+> I fall där du lägger till en ConfigOverride väljer Service Fabric alltid applikationsparametrarna eller standardvärde som angetts i manifestet.
 >
 >
 
 ## <a name="next-steps"></a>Nästa steg
-Mer information om några grundläggande begrepp som diskuteras i den här artikeln finns det [hantera program för flera miljöer artiklar](service-fabric-manage-multiple-environment-app-configuration.md).
-
-Information om andra app-hanteringsfunktioner som är tillgängliga i Visual Studio finns [hantera din Service Fabric-program i Visual Studio](service-fabric-manage-application-in-visual-studio.md).
+Information om andra funktioner för hantering av appen som är tillgängliga i Visual Studio finns i [hantera dina Service Fabric-program i Visual Studio](service-fabric-manage-application-in-visual-studio.md).

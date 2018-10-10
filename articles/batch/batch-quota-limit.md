@@ -12,15 +12,15 @@ ms.workload: big-compute
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/24/2018
+ms.date: 09/10/2018
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b3f4907d99b25df31ac7f081282cebe700f55b62
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 25a8150a2fcf7cdd4e3c82478c0b3db3dad870b4
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39423750"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48887572"
 ---
 # <a name="batch-service-quotas-and-limits"></a>Kvoter och begränsningar för Batch-tjänsten
 
@@ -53,7 +53,9 @@ Om du har skapat ett Batch-konto med poolallokeringsläget inställt **användar
 | [Program](batch-application-packages.md) per Batch-konto |20 |
 | Programpaket per program |40 |
 | Maximal aktiviteternas livslängd | 7 dagar<sup>1</sup> |
-| Compute-noder i kommunikation mellan noder aktiverat pool | 100 |
+| Compute-noder i [mellan noder kommunikation aktiverat pool](batch-mpi.md) | 100 |
+| Dedikerade beräkningsnoder i [poolen som skapats med en anpassad virtuell datoravbildning](batch-custom-images.md) | 2500 |
+| Beräkningsnoder med låg prioritet i [poolen som skapats med en anpassad virtuell datoravbildning](batch-custom-images.md) | 1000 |
 
 <sup>1</sup> högsta livstid för en uppgift, från när den läggs till i jobbet tills den slutförs, är 7 dagar. Slutförda uppgifter finns kvar på obestämd tid. Data för uppgifter som inte slutförts inom den maximala livstiden är inte tillgängliga.
 

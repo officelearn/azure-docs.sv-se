@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/13/2018
+ms.date: 10/08/2018
 ms.author: jeedes
-ms.openlocfilehash: fc4ea2538ebe5876e8f3572ab8ad76c4b3b44b8c
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.openlocfilehash: 050a5a210ab10a557b149513a0416b188f4618ba
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45634344"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48885911"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-huddle"></a>Självstudier: Azure Active Directory-integration med Huddle
 
@@ -61,7 +61,7 @@ Om du vill konfigurera integreringen av Huddle i Azure AD, som du behöver lägg
 
 **Utför följande steg för att lägga till Huddle från galleriet:**
 
-1. I den **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon. 
+1. I den **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon.
 
     ![Active Directory][1]
 
@@ -73,11 +73,7 @@ Om du vill konfigurera integreringen av Huddle i Azure AD, som du behöver lägg
 
     ![Program][3]
 
-4. I sökrutan skriver **Huddle**.
-
-    ![Skapa en Azure AD-användare för testning](./media/huddle-tutorial/tutorial_huddle_search.png)
-
-5. I resultatpanelen väljer **Huddle**, och klicka sedan på **Lägg till** för att lägga till programmet.
+4. I sökrutan skriver **Huddle**. Välj **Huddle** i resultatrutan och klicka sedan på den **Lägg till** för att lägga till programmet.
 
     ![Skapa en Azure AD-användare för testning](./media/huddle-tutorial/tutorial_huddle_addfromgallery.png)
 
@@ -105,34 +101,43 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     ![Konfigurera enkel inloggning][4]
 
-2. På den **enkel inloggning** dialogrutan **läge** som **SAML-baserad inloggning** att aktivera enkel inloggning.
+2. Klicka på **ändra enkel inloggningsläge** på skärmen för att välja den **SAML** läge.
 
-    ![Konfigurera enkel inloggning](./media/huddle-tutorial/tutorial_huddle_samlbase.png)
+    ![Konfigurera enkel inloggning](./media/huddle-tutorial/tutorial_general_300.png)
 
-3. På den **Huddle domän och URL: er** avsnittet, utför följande steg om du vill konfigurera programmet i **IDP** initierade läge:
+3. På den **väljer du en metod för enkel inloggning** dialogrutan klickar du på **Välj** för **SAML** läge för att aktivera enkel inloggning.
+
+    ![Konfigurera enkel inloggning](./media/huddle-tutorial/tutorial_general_301.png)
+
+4. På den **ange in enkel inloggning med SAML** klickar du på **redigera** ikonen för att öppna **SAML grundkonfiguration** dialogrutan.
+
+    ![Konfigurera enkel inloggning](./media/huddle-tutorial/tutorial_general_302.png)
+
+5. På den **SAML grundkonfiguration** avsnittet utför följande steg om du vill konfigurera programmet i **IDP** intiated läge:
 
     > [!NOTE]
     > Din instans av huddle identifieras automatiskt från den domän som du anger nedan.
 
     ![Huddle domän och URL: er enkel inloggning för information](./media/huddle-tutorial/tutorial_huddle_url.png)
 
-    a. I den **identifierare** textrutan skriver du en av URL-Adressen med följande mönster:
+    a. I den **identifierare** textrutan anger du ett URL:
 
     | | |
     |--|--|
-    | `https://<customsubdomain>.huddle.net`|
-    | `https://my.huddle.net` |
+    | `https://login.huddle.net`|
+    | `https://login.huddle.com`|
     | |
 
-    b. I den **svars-URL** textrutan skriver du en av URL-Adressen med följande mönster:
+    b. I den **svars-URL** textrutan anger du ett URL:
 
     | | |
     |--|--|
-    | `https://<customsubdomain>.huddle.net/saml/idp-initiated-sso`|
-    | `https://my.huddle.net/saml/idp-initiated-sso`|
+    | `https://login.huddle.net/saml/browser-sso`|
+    | `https://login.huddle.com/saml/browser-sso`|
+    | `https://login.huddle.com/saml/idp-initiated-sso`|
     | |
 
-4. Kontrollera **visa avancerade URL-inställningar** och utföra följande steg om du vill konfigurera programmet i **SP** initierade läge:
+    c. Klicka på **ange ytterligare webbadresser** och utföra följande steg om du vill konfigurera programmet i **SP** initierade läge:
 
     ![Huddle domän och URL: er enkel inloggning för information](./media/huddle-tutorial/tutorial_huddle_url1.png)
 
@@ -140,62 +145,51 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     | | |
     |--|--|
-    | `https://<customsubdomain>.huddle.net`|
+    | `https://<customsubdomain>.huddle.com`|
+    | `https://us.huddle.com`|
     | |
 
     > [!NOTE]
-    > Dessa värden är inte verkliga. Uppdatera dessa värden med faktiska identifierare, svars-URL och inloggnings-URL. Kontakta [Huddle klienten supportteamet](https://huddle.zendesk.com) att hämta dessa värden.
+    > Inloggnings-URL-värdet är inte verkliga. Uppdatera det här värdet med faktiska inloggnings-URL: en. Kontakta [Huddle klienten supportteamet](https://huddle.zendesk.com) att hämta det här värdet.
 
-5. På den **SAML-signeringscertifikat** klickar du på **Certificate(Base64)** och spara certifikatfilen på datorn.
+6. På den **ange in enkel inloggning med SAML** sidan den **SAML-signeringscertifikat** klickar du på **hämta** att ladda ned rätt certifikat som uppfyller dina krav och spara den på din dator.
 
-    ![Konfigurera enkel inloggning](./media/huddle-tutorial/tutorial_huddle_certificate.png) 
+    ![Konfigurera enkel inloggning](./media/huddle-tutorial/tutorial_huddle_certificate.png)
 
-6. Klicka på **spara** knappen.
+7. På den **konfigurera Huddle** avsnittet, kopiera den lämpliga URL: er enligt dina behov.
 
-    ![Konfigurera enkel inloggning](./media/huddle-tutorial/tutorial_general_400.png)
+    ![Konfigurera enkel inloggning](./media/huddle-tutorial/tutorial_huddle_configure.png)
 
-7. På den **Huddle Configuration** klickar du på **konfigurera Huddle** att öppna **konfigurera inloggning** fönster. Kopiera den **SAML entitets-ID och SAML enkel inloggning för tjänst-URL** från den **Snabbreferens avsnittet.**
-
-    ![Konfigurera enkel inloggning](./media/huddle-tutorial/tutorial_huddle_configure.png) 
-
-8. Om du vill konfigurera enkel inloggning på Huddle sida, du behöver skicka de hämtade **certifikat**, **SAML enkel inloggning för tjänst-URL**, och **SAML entitets-ID** till [ Huddle klienten supportteamet](https://huddle.zendesk.com). De ställer du in SAML SSO ansluta till korrekt inställda på båda sidorna.  
+8. Att konfigurera enkel inloggning på **Huddle** sida, som du behöver skicka det certifikat som du har hämtat och URL: er som du har kopierat från **konfigurera** **Huddle** avsnittet från Azure portal för att [Huddle klienten supportteamet](https://huddle.zendesk.com). De ställer du in SAML SSO ansluta till korrekt inställda på båda sidorna.
 
     >[!NOTE]
     > Enkel inloggning måste aktiveras av Huddle support-teamet. Du får ett meddelande när konfigurationen har slutförts.
-    >
 
 ### <a name="creating-an-azure-ad-test-user"></a>Skapa en Azure AD-användare för testning
 
 Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen kallas Britta Simon.
 
-![Skapa en Azure AD-användare][100]
+1. I Azure-portalen, i den vänstra rutan väljer **Azure Active Directory**väljer **användare**, och välj sedan **alla användare**.
 
-**Utför följande steg för att skapa en testanvändare i Azure AD:**
+    ![Skapa en Azure AD-användare][100]
 
-1. I den **Azure-portalen**, i det vänstra navigeringsfönstret klickar du på **Azure Active Directory** ikon.
+2. Välj **ny användare** överst på skärmen.
 
     ![Skapa en Azure AD-användare för testning](./media/huddle-tutorial/create_aaduser_01.png) 
 
-2. Om du vill visa en lista över användare, gå till **användare och grupper** och klicka på **alla användare**.
-    
-    ![Skapa en Azure AD-användare för testning](./media/huddle-tutorial/create_aaduser_02.png) 
+3. Utför följande steg i egenskaperna för användaren.
 
-3. Öppna den **användaren** dialogrutan klickar du på **Lägg till** överst i dialogrutan.
- 
-    ![Skapa en Azure AD-användare för testning](./media/huddle-tutorial/create_aaduser_03.png) 
+    ![Skapa en Azure AD-användare för testning](./media/huddle-tutorial/create_aaduser_02.png)
 
-4. På den **användaren** dialogrutan utför följande steg:
- 
-    ![Skapa en Azure AD-användare för testning](./media/huddle-tutorial/create_aaduser_04.png) 
+    a. I den **namn** ange **BrittaSimon**.
+  
+    b. I den **användarnamn** fälttyp **brittasimon@yourcompanydomain.extension**  
+    Till exempel, BrittaSimon@contoso.com
 
-    a. I den **namn** textrutan typ **BrittaSimon**.
+    c. Välj **egenskaper**väljer den **Show lösenord** kryssrutan och sedan skriva ned det värde som visas i rutan lösenord.
 
-    b. I den **användarnamn** textrutan skriver den **e-postadress** av BrittaSimon.
+    d. Välj **Skapa**.
 
-    c. Välj **visa lösenord** och anteckna värdet för den **lösenord**.
-
-    d. Klicka på **Skapa**.
- 
 ### <a name="creating-a-huddle-test-user"></a>Skapa en Huddle testanvändare
 
 Om du vill aktivera Azure AD-användare att logga in på Huddle, måste de etableras i Huddle. När det gäller Huddle är etablering en manuell aktivitet.
@@ -207,38 +201,32 @@ Om du vill aktivera Azure AD-användare att logga in på Huddle, måste de etabl
 2. Klicka på **arbetsytan**.
 
 3. Klicka på **personer \> bjuda in människor**.
-   
+
     ![Personer](./media/huddle-tutorial/IC787838.png "personer")
 
 4. I den **skapa en ny inbjudan** avsnittet, utför följande steg:
-   
+  
     ![Ny inbjudan](./media/huddle-tutorial/IC787839.png "ny inbjudan")
-   
+  
     a. I den **Välj ett team för att bjuda in människor att ansluta till** väljer **team**.
 
     b. Typen i **e-postadress** av en giltig Azure AD-konto som du vill etablera i att **RETUR e-postadress för personer som du vill bjuda in** textrutan.
 
-    c. Klicka på **bjuda in**.   
-   
+    c. Klicka på **bjuda in**.
+
     >[!NOTE]
-    > Azure AD-kontoinnehavare får ett e-postmeddelande med en länk för att bekräfta kontot innan det blir aktiv. 
-    > 
+    > Azure AD-kontoinnehavare får ett e-postmeddelande med en länk för att bekräfta kontot innan det blir aktiv.
 
 >[!NOTE]
->Du kan använda andra verktyg för Huddle att skapa användaren-konto eller API: er som tillhandahålls av Huddle för att etablera användarkonton i Azure AD. 
-> 
+>Du kan använda andra verktyg för Huddle att skapa användaren-konto eller API: er som tillhandahålls av Huddle för att etablera användarkonton i Azure AD.
 
 ### <a name="assigning-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
 
 I det här avsnittet ska aktivera du Britta Simon att använda Azure enkel inloggning genom att bevilja åtkomst till Huddle.
 
-![Tilldela användare][200] 
+1. I Azure-portalen väljer du **företagsprogram**väljer **alla program**.
 
-**Om du vill tilldela Britta Simon Huddle, utför du följande steg:**
-
-1. Öppna vyn program i Azure-portalen och gå till vyn directory och gå till **företagsprogram** klickar **alla program**.
-
-    ![Tilldela användare][201] 
+    ![Tilldela användare][201]
 
 2. I listan med program väljer **Huddle**.
 
@@ -246,18 +234,16 @@ I det här avsnittet ska aktivera du Britta Simon att använda Azure enkel inlog
 
 3. I menyn till vänster, klickar du på **användare och grupper**.
 
-    ![Tilldela användare][202] 
+    ![Tilldela användare][202]
 
 4. Klicka på **Lägg till** knappen. Välj sedan **användare och grupper** på **Lägg till tilldelning** dialogrutan.
 
     ![Tilldela användare][203]
 
-5. På **användare och grupper** dialogrutan **Britta Simon** på listan användare.
+5. I den **användare och grupper** dialogrutan Välj **Britta Simon** i listan över användare och klicka på den **Välj** längst ned på skärmen.
 
-6. Klicka på **Välj** knappen **användare och grupper** dialogrutan.
+6. I den **Lägg till tilldelning** dialogrutan Välj den **tilldela** knappen.
 
-7. Klicka på **tilldela** knappen **Lägg till tilldelning** dialogrutan.
-    
 ### <a name="testing-single-sign-on"></a>Testa enkel inloggning
 
 I det här avsnittet ska testa du Azure AD enkel inloggning för konfigurationen med hjälp av åtkomstpanelen.

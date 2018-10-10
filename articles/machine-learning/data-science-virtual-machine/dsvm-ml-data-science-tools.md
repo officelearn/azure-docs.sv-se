@@ -15,93 +15,93 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/16/2018
 ms.author: gokuma
-ms.openlocfilehash: 9a9dc868c4f22f95ca5027e3c95513d176c69eac
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: 9308c51c0ff5fc7278eab632f9d23f23cf016a2a
+ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47392412"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48901676"
 ---
 # <a name="machine-learning-and-data-science-tools"></a>Machine learning och data science-verktyg
-Den virtuella datorn på datavetenskap (DSVM) har en omfattande uppsättning verktyg och bibliotek för machine learning som är tillgängliga i populära språk som Python, R, Julia. 
+Azure virtuella datorer för datavetenskap har en omfattande uppsättning verktyg och bibliotek för machine learning (ML) tillgänglig för populära språk, till exempel Python, R och Julia. 
 
-Här är några av de machine learning-verktyg och bibliotek på DSVM. 
+Här är några av ML-verktyg och bibliotek på virtuella datorer för datavetenskap. 
 
-## <a name="azure-machine-learning-servicehttpsdocsmicrosoftcomazuremachine-learningserviceoverview-what-is-azure-ml-sdk"></a>[Azure Machine Learning-tjänsten](https://docs.microsoft.com/azure/machine-learning/service/overview-what-is-azure-ml) SDK
+## <a name="azure-machine-learninghttpsdocsmicrosoftcomazuremachine-learningserviceoverview-what-is-azure-ml-sdk"></a>[Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/service/overview-what-is-azure-ml) SDK
 |    |           |
 | ------------- | ------------- |
-| Vad är det?   |   Azure Machine Learning-tjänsten är en molnbaserad tjänst som du kan använda för att utveckla och distribuera machine learning-modeller.  Du kan spåra dina modeller som du skapa, träna, skala och hantera dem med hjälp av Python SDK. Distribuera modeller som behållare och kör dem i molnet, onprem eller IoT Edge.   |
-| Stöds DSVM-versioner     | Windows (Conda-miljö: AzureML), Linux (Conda-miljö: py36)    |
-| Vanliga användningsområden      | Allmänna ML-plattformen      |
-| Hur är det konfigurerade / installerad på DSVM?      |  Installeras med GPU-stöd   |
-| Hur du använder / köra den?      | SDK för Python och Azure kommandoradsverktyget (AZ CLI). Aktivera conda miljö `AzureML` på Windows-version eller till `py36` på Linux-versionen.      |
-| Innehåller länkar till exempel      | Exempel Jupyter-anteckningsböcker som ingår i den `AzureML` katalogen under anteckningsböcker  |
-| Relaterade verktyg på DSVM      | Visual Studio Code, Jupyter   |
+| Vad är det?   |   Azure Machine Learning är en molnbaserad tjänst som du kan använda för att utveckla och distribuera maskininlärningsmodeller. Du kan spåra dina modeller som du skapa, träna, skala och hantera dem med hjälp av Python-SDK. Distribuera modeller som behållare och köra dem i molnet, lokalt eller på Azure IoT Edge.   |
+| Versioner som stöds     | Windows (conda-miljö: AzureML), Linux (conda-miljö: py36)    |
+| Vanliga användningsområden      | Allmän ML-plattform      |
+| Hur är det konfigurerade eller installerad?      |  Installeras med GPU-stöd   |
+| Hur du använder eller köra den      | Som Python SDK och Azure CLI. Aktivera conda-miljö `AzureML` på Windows-version *eller* till `py36` på Linux-versionen.      |
+| Länka till exempel      | Exempel Jupyter-anteckningsböcker som ingår i den `AzureML` katalogen under anteckningsböcker.  |
+| Relaterade verktyg      | Visual Studio Code, Jupyter   |
 
 ## <a name="xgboost"></a>XGBoost 
 |    |           |
 | ------------- | ------------- |
-| Vad är det?   |    Snabb, portabla och distribuerade Gradient Boosting (GBDT, GBRT eller GBM) bibliotek för Python, R, Java, Scala, C++ med mera. Körs på enskild dator, Hadoop, Spark    |
-| Stöds DSVM-versioner     | Windows, Linux     |
+| Vad är det?   |    XGBoost är en snabb, bärbar och distribuerade övertoning boosting (GBDT, GBRT eller GBM) bibliotek för Python, R, Java, Scala, C++ och mer. Den körs på en enskild dator, Hadoop och Spark.    |
+| Versioner som stöds     | Windows, Linux     |
 | Vanliga användningsområden      | Allmän ML-biblioteket      |
-| Hur är det konfigurerade / installerad på DSVM?      |  Installeras med GPU-stöd   |
-| Hur du använder / köra den?      | Som bibliotek för Python 2.7 och 3.5, R-paket och på sökvägen kommandoradsverktyget (`C:\dsvm\tools\xgboost\bin\xgboost.exe` för Windows, `/dsvm/tools/xgboost/xgboost` för Linux)    |
-| Innehåller länkar till exempel      | Exempel som ingår på den virtuella datorn i `/dsvm/tools/xgboost/demo` på Linux och `C:\dsvm\tools\xgboost\demo` på Windows   |
-| Relaterade verktyg på DSVM      | LightGBM MXNet   |
+| Hur är det konfigurerade eller installerad?      |  Installeras med GPU-stöd   |
+| Hur du använder eller köra den      | Som Python-biblioteket (2.7 och 3.5), R-paket och på sökvägen kommandoradsverktyget (`C:\dsvm\tools\xgboost\bin\xgboost.exe` för Windows, `/dsvm/tools/xgboost/xgboost` för Linux)    |
+| Innehåller länkar till exempel      | Exempel som ingår på den virtuella datorn i `/dsvm/tools/xgboost/demo` på Linux, och `C:\dsvm\tools\xgboost\demo` på Windows.   |
+| Relaterade verktyg      | LightGBM MXNet   |
 
 
 
 ## <a name="vowpal-wabbit"></a>Vowpal Wabbit
 |    |           |
 | ------------- | ------------- |
-| Vad är det?   |   Vowpal Wabbit (även kallat ”VW”) är ett snabbt out-för-core learning-systembiblioteket med öppen källkod    |
-| Stöds DSVM-versioner     | Windows, Linux     |
+| Vad är det?   |   Vowpal Wabbit (även kallat ”VW”) är en öppen källkod, snabba, learning systembibliotek out-för-kärna.    |
+| Versioner som stöds     | Windows, Linux     |
 | Vanliga användningsområden      | Allmän ML-biblioteket      |
-| Hur är det konfigurerade / installerad på DSVM?      |  Windows - msi-installationsprogrammet, Linux - apt-get |
-| Hur du använder / köra den?      | Som ett kommandoradsverktyg för på sökvägen (`C:\Program Files\VowpalWabbit\vw.exe` på Windows, `/usr/bin/vw` på Linux)    |
-| Innehåller länkar till exempel      | [VowPal Wabbit-exempel](https://github.com/JohnLangford/vowpal_wabbit/wiki/Examples) |
-| Relaterade verktyg på DSVM      |LightGBM, MXNet, XGBoost   |
+| Hur är det konfigurerade eller installerad?      |  Windows – msi-installationsprogrammet, Linux – apt-get |
+| Hur du använder eller köra den      | Som ett-path-kommandoradsverktyget (`C:\Program Files\VowpalWabbit\vw.exe` på Windows, `/usr/bin/vw` på Linux)    |
+| Länka till exempel      | [VowPal Wabbit-exempel](https://github.com/JohnLangford/vowpal_wabbit/wiki/Examples) |
+| Relaterade verktyg      |LightGBM, MXNet, XGBoost   |
 
 
 ## <a name="weka"></a>Weka
 |    |           |
 | ------------- | ------------- |
-| Vad är det?   |  Weka är en samling av machine learning-algoritmer för datautvinning uppgifter som rör. Algoritmerna kan antingen används direkt i en datauppsättning eller anropas från din egen Java-kod. Weka innehåller verktyg för förbearbetning av data, klassificering, regression, klustring, association regler och visualisering. |
-| Stöds DSVM-versioner     | Windows, Linux     |
-| Vanliga användningsområden      | Allmänna ML-verktyget     |
-| Hur du använder / köra den?      | På Windows, söka efter Weka på Start-menyn. Logga in med X2Go på Linux, och gå till program -> utveckling Weka ->. |
-| Innehåller länkar till exempel      | [Weka-exempel](http://www.cs.waikato.ac.nz/ml/weka/documentation.html) |
-| Relaterade verktyg på DSVM      |LightGBM spännen, XGBooost   |
+| Vad är det?   |  Weka är en samling av ML-algoritmer för datautvinning uppgifter som rör. Algoritmerna kan antingen används direkt i en uppsättning data eller anropas från din egen Java-kod. Weka innehåller verktyg för förbearbetning av data, klassificering, regression, klustring, association regler och visualisering. |
+| Versioner som stöds     | Windows, Linux     |
+| Vanliga användningsområden      | Allmänt ML-verktyg     |
+| Hur du använder eller köra den      | På Windows, Sök efter Weka på Start-menyn. Logga in med X2Go på Linux, och gå sedan till **program** > **utveckling** > **Weka**. |
+| Länka till exempel      | [Weka-exempel](http://www.cs.waikato.ac.nz/ml/weka/documentation.html) |
+| Relaterade verktyg      |LightGBM spännen, XGBoost   |
 
 ## <a name="rattle"></a>Spännen
 |    |           |
 | ------------- | ------------- |
-| Vad är det?   |   Ett grafiskt användargränssnitt för datautvinning med R   |
-| Stöds DSVM-versioner     | Windows, Linux     |
-| Vanliga användningsområden      | Allmänna UI datautvinning-verktyget för R    |
-| Hur du använder / köra den?      | UI-verktyget. På Windows, starta en kommandotolk genom att köra R, sedan i R kör `rattle()`. På Linux, Anslut med X2Go, starta en terminal, kör R, sedan i R kör `rattle()`. |
-| Innehåller länkar till exempel      | [Spännen](https://togaware.com/onepager/) |
-| Relaterade verktyg på DSVM      |LightGBM, Weka, XGBoost   |
+| Vad är det?   |   Spännen är ett grafiskt användargränssnitt för datautvinning med R.   |
+| Versioner som stöds     | Windows, Linux     |
+| Vanliga användningsområden      | Allmänna UI verktyg för datautvinning för R    |
+| Hur du använder eller köra den      | UI-verktyget. Starta en kommandotolk på Windows, kör R och kör sedan följande i R `rattle()`. Träffa på Linux, X2Go, starta en terminal, köra R och kör sedan följande i R `rattle()`. |
+| Länka till exempel      | [Spännen](https://togaware.com/onepager/) |
+| Relaterade verktyg      |LightGBM, Weka, XGBoost   |
 
 ## <a name="lightgbm"></a>LightGBM
 |    |           |
 | ------------- | ------------- |
-| Vad är det?   | En snabb, distribuerad, högpresterande gradient boosting (GBDT, GBRT, GBM eller MART) framework baserat på beslut algoritmer, används för rankning, klassificering och många andra machine learning-aktiviteter.    |
-| Stöds DSVM-versioner      | Windows, Linux    |
+| Vad är det?   | LightGBM är en snabb, distribuerad, högpresterande gradient boosting (GBDT, GBRT, GBM eller MART) framework baserat på beslut algoritmer. Den används för rankning, klassificering och många andra ML-aktiviteter.    |
+| Versioner som stöds      | Windows, Linux    |
 | Vanliga användningsområden      | Allmänna gradient boosting framework      |
-| Hur är det konfigurerade / installerad på DSVM?      | På Windows installeras LightGBM som ett Python-paket. På Linux, är den kommandorad körbara filen i `/opt/LightGBM/lightgbm`R-paketet har installerats och Python-paket installeras.     |
-| Innehåller länkar till exempel      | [LightGBM Guide](https://github.com/Microsoft/LightGBM/tree/master/examples/python-guide)   |
-| Relaterade verktyg på DSVM      | MXNet XgBoost  |
+| Hur är det konfigurerade eller installerad?      | På Windows installeras LightGBM som ett Python-paket. På Linux, är den kommandorad körbara filen i `/opt/LightGBM/lightgbm`R-paketet har installerats och Python-paket installeras.     |
+| Länka till exempel      | [LightGBM Guide](https://github.com/Microsoft/LightGBM/tree/master/examples/python-guide)   |
+| Relaterade verktyg      | MXNet XgBoost  |
 
 ## <a name="h2o"></a>H2O
 |    |           |
 | ------------- | ------------- |
-| Vad är det?   | En öppen källkod AI-plattform som stöder i minnet, distribuerad, snabb och skalbar machine learning  |
-| Stöds DSVM-versioner      | Linux   |
-| Vanliga användningsområden      | Generell användning distribuerade, skalbara ML   |
-| Hur är det konfigurerade / installerad på DSVM?      | H2O är installerat i `/dsvm/tools/h2o`.      |
-| Hur du använder / köra den?      | Anslut till den virtuella datorn med X2Go. Starta en ny terminal och kör `java -jar /dsvm/tools/h2o/current/h2o.jar`. Starta en webbläsare och Anslut till sedan `http://localhost:54321`.      |
-| Innehåller länkar till exempel      | Exempel finns på den virtuella datorn i Jupyter under `h2o` directory.      |
-| Relaterade verktyg på DSVM      | Apache Spark, MXNet, XGBoost, mousserande vatten, djup Water    |
+| Vad är det?   | H2O är en öppen källkod AI-plattform som stöder i minnet, distribuerad, snabb och skalbar ML.  |
+| Versioner som stöds      | Linux   |
+| Vanliga användningsområden      | Allmänna distribuerade och skalbara ML   |
+| Hur är det konfigurerade eller installerad?      | H2O är installerat i `/dsvm/tools/h2o`.      |
+| Hur du använder eller köra den      | Ansluta till den virtuella datorn med hjälp av X2Go. Starta en ny terminal och kör `java -jar /dsvm/tools/h2o/current/h2o.jar`. Starta en webbläsare och Anslut till sedan `http://localhost:54321`.      |
+| Länka till exempel      | Exempel finns på den virtuella datorn i Jupyter under den `h2o` directory.      |
+| Relaterade verktyg      | Apache Spark, MXNet, XGBoost, mousserande vatten, djup Water    |
 
-Det finns flera andra ML-bibliotek på DSVM som populära `scikit-learn` paket som ingår i den Anaconda Python-distribution som är installerad på DSVM. Glöm inte att checka ut listan över paket som är tillgängliga i Python, R och Julia genom att köra respektive pakethanterare. 
+Det finns flera andra ML-bibliotek på virtuella datorer för datavetenskap, för, till exempel populära `scikit-learn` paket som ingår i den Anaconda Python-distribution som installeras på virtuella datorer för datavetenskap. Kontrollera listan över paket som är tillgängliga i Python, R och Julia att köra respektive pakethanterare.

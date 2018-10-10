@@ -8,17 +8,17 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/27/2018
+ms.date: 10/09/2018
 author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
-ms.openlocfilehash: a9a4b7728eff3057b9677d12df51cc8c477744ca
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: e6950c38db83efb57e5f3b1809aa6baa56532cd0
+ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46953947"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48903053"
 ---
 # <a name="join-an-azure-ssis-integration-runtime-to-a-virtual-network"></a>Ansluta en Azure-SSIS integration runtime till ett virtuellt nätverk
 Anslut till din Azure-SSIS integration runtime (IR) till en Azure-nätverk i följande scenarier: 
@@ -57,6 +57,8 @@ I följande avsnitt innehåller mer information.
 ## <a name="requirements-for-virtual-network-configuration"></a>Krav för konfiguration av virtuellt nätverk
 -   Se till att `Microsoft.Batch` är en registrerad provider i prenumeration för ditt virtuella nätverksundernät som är värd för Azure-SSIS IR. Om du använder klassiskt virtuellt nätverk kan även ansluta `MicrosoftAzureBatch` till rollen klassisk virtuell Datordeltagare för det virtuella nätverket. 
 
+-   Kontrollera att du har behörigheterna som krävs. Se [behörigheter som krävs för](#perms).
+
 -   Välj rätt undernät som värd för Azure-SSIS IR. Se [Välj undernätet](#subnet). 
 
 -   Om du använder egna Domain Name Services (DNS)-server i det virtuella nätverket, se [Domain Name Services server](#dns_server). 
@@ -66,6 +68,16 @@ I följande avsnitt innehåller mer information.
 -   Om du använder Azure Express Route eller konfigurera användardefinierad väg (UDR), se [Använd Azure ExpressRoute eller användaren användardefinierade vägen](#route). 
 
 -   Kontrollera att resursgruppen för det virtuella nätverket kan skapa och ta bort vissa Azure-nätverksresurser. Se [krav för resursgruppen](#resource-group). 
+
+### <a name="perms"></a> Behörigheter som krävs
+
+- Om du kopplar SSIS IR till ett Azure-nätverk av den aktuella versionen, har du två alternativ:
+
+  - Använd den inbyggda rollen *Nätverksdeltagare*. Den här rollen ingår den *Microsoft.Network/\**  behörigheter, men som har ett mycket större område.
+
+  - Skapa en anpassad roll som inkluderar behörigheten *Microsoft.Network/virtualNetworks/\*/join/åtgärd*. 
+
+- Om du kopplar SSIS IR till ett klassiskt Azure virtuellt nätverk, rekommenderar vi att du använder den inbyggda rollen *klassisk virtuell Datordeltagare*. Annars måste du definiera en anpassad roll med behörighet att ansluta det virtuella nätverket.
 
 ### <a name="subnet"></a> Välj undernätet
 -   Markera inte GatewaySubnet för att distribuera en Azure-SSIS Integration Runtime, eftersom den är avsedda för virtuella nätverksgatewayer. 

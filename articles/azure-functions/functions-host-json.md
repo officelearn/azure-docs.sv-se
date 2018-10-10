@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 09/08/2018
 ms.author: glenga
-ms.openlocfilehash: a477554c836a7f84e1694c5d00abd6373f544aa6
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 704a41ec840e2a252a1bbb5c20688f722bd0cdfd
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47036209"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48887044"
 ---
 # <a name="hostjson-reference-for-azure-functions"></a>Host.JSON-referens för Azure Functions
 
@@ -49,7 +49,7 @@ I följande exempel *host.json* filer har alla möjliga alternativ som har anget
         },
         "http": {
             "routePrefix": "api",
-            "maxConcurrentRequests": 5,
+            "maxConcurrentRequests": 100,
             "maxOutstandingRequests": 30
         },
         "queues": {

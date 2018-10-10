@@ -13,19 +13,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/27/2018
+ms.date: 10/9/2018
 ms.author: Kumud
-ms.openlocfilehash: 43945dc8810151eb701aa9e1aa1be47d4fbb0491
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: 0711b52b76a22e32d05f27e6aae6c981bd2c148a
+ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43125652"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48902611"
 ---
 # <a name="metrics-and-health-diagnostics-for-standard-load-balancer"></a>Mått och hälsotillstånd diagnostik för Standard Load Balancer
 
-Azure Standard Load Balancer ger dina resurser följande diagnostiska funktioner:
-* **Flerdimensionella mått**: ger nya funktioner för flerdimensionella diagnostik för både offentliga och interna load balancer konfigurationer. Du kan övervaka, hantera och felsöka dina resurser för belastningsutjämning.
+Azure Standard Load Balancer exponerar Azure Standard Load Balancer ger dina resurser följande diagnostiska funktioner:
+* **Flerdimensionella mått**: ger nya funktioner för flerdimensionella diagnostiska via [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/overview) för både offentliga och interna laddar belastningsutjämnaren konfigurationer. Du kan övervaka, hantera och felsöka dina resurser för belastningsutjämning.
 
 * **Resurshälsa**: The Load Balancer-sidan på Azure portal och Resource Health-sidan (under övervakning) exponerar avsnittet Resource Health för den offentliga belastningsutjämningskonfigurationen för Standard Load Balancer.
 
@@ -219,6 +219,7 @@ Olika resource health statusvärden och deras beskrivningar finns i följande ta
 
 - Mer information finns i [Standard Load Balancer](load-balancer-standard-overview.md).
 - Läs mer om din [läsa in belastningsutjämnare utgående anslutning](https://aka.ms/lboutbound).
+- Lär dig mer om [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/overview).
 - Lär dig mer om den [Azure Monitor Metrics REST-API](https://docs.microsoft.com/rest/api/monitor/metrics/).
 
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 09/11/2018
 ms.author: harijay
-ms.openlocfilehash: ce799f4201a560077c5bb1b943a9e587a71806f2
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: bccf53ed5554579f4ff0a864c38562b7b7f0d3ca
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48856351"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48885297"
 ---
 # <a name="virtual-machine-serial-console"></a>Virtual Machine Serial Console
 
@@ -44,7 +44,7 @@ Seriell konsol dokumentation för Windows-datorer samt [Klicka här](../windows/
 
     ![](./media/virtual-machines-serial-console/virtual-machine-serial-console-reset-password.png)
 
-* Inställningar som är specifika för Linux-distributioner, se [komma åt seriekonsolen för Linux](#Serial-Console-Linux-distro-availability)
+* Inställningar som är specifika för Linux-distributioner, se [seriella konsolen Linux-distribution tillgänglighet](#serial-console-linux-distro-availability)
 
 
 
@@ -206,7 +206,7 @@ A. Du måste ha deltagarbehörighet inom nivå eller högre till en virtuell dat
 
 **FRÅGOR OCH. Min seriekonsolen inte visas allt, hur gör jag?**
 
-A. Avbildningen är antagligen felkonfigurerad för seriell konsolåtkomst. Se [åtkomst Seriekonsol för Linux](#Access-Serial-Console-for-Linux) mer information om hur du konfigurerar din avbildning om du vill aktivera Seriell konsol.
+A. Avbildningen är antagligen felkonfigurerad för seriell konsolåtkomst. Se [seriella konsolen Linux-distribution tillgänglighet](#serial-console-linux-distro-availability) mer information om hur du konfigurerar din avbildning om du vill aktivera Seriell konsol.
 
 **FRÅGOR OCH. Är seriell konsol för Virtual Machine Scale Sets?**
 

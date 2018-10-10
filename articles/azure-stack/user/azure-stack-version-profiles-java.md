@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 09/28/2018
 ms.author: sethm
 ms.reviewer: sijuman
-ms.openlocfilehash: ffd22f3612d55258737cb9c004b2b0f4e9326f07
-ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
+ms.openlocfilehash: 5a97a683e7f25029199ba68ce3d5cee410c3cf29
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47452521"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48886832"
 ---
 # <a name="use-api-version-profiles-with-java-in-azure-stack"></a>Använd API-versionsprofiler med Java i Azure Stack
 
@@ -40,7 +40,7 @@ En API-profil är en kombination av resursprovidrar och API-versioner. Du kan an
     
       - Det här är anges i Pom.xml-filen som ett beroende som läser in moduler automatiskt om du väljer rätt klassen från den nedrullningsbara listan precis som med .NET.
         
-          - Upp i varje modul visas på följande sätt:         
+      - Upp i varje modul visas på följande sätt:         
            `Import com.microsoft.azure.management.resources.v2018_03_01.ResourceGroup`
              
 
@@ -93,11 +93,11 @@ Om du vill använda Azure Java SDK med Azure Stack, måste du ange följande vä
 
 | Värde                     | Miljövariabler | Beskrivning                                                                                                                                                                                                          |
 | ------------------------- | --------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Klient-ID:t                 | TENANT_ID            | Värdet för Azure Stack [ <span class="underline">klient-ID</span>](../azure-stack-identity-overview.md).                                                          |
-| Klientorganisations-ID                 | CLIENT_ID             | Tjänsten huvudnamn program-ID sparas när tjänstens huvudnamn har skapats i föregående avsnitt i det här dokumentet.                                                                                              |
-| Prenumerations-ID:t           | SUBSCRIPTION_ID      | Den [ <span class="underline">prenumerations-ID</span> ](../azure-stack-plan-offer-quota-overview.md#subscriptions) är hur du kommer åt erbjudanden i Azure Stack.                |
-| Klienthemlighet             | CLIENT_SECRET        | Huvudnamn tjänstprogrammet hemlighet sparas när tjänstens huvudnamn har skapats.                                                                                                                                   |
-| Resource Manager-slutpunkten | SLUTPUNKT              | Se [ <span class="underline">Azure Stack resource manager-slutpunkten</span>](../user/azure-stack-version-profiles-ruby.md#the-azure-stack-resource-manager-endpoint). |
+| Klient-ID:t                 | AZURE_TENANT_ID            | Värdet för Azure Stack [ <span class="underline">klient-ID</span>](../azure-stack-identity-overview.md).                                                          |
+| Klientorganisations-ID                 | AZURE_CLIENT_ID             | Tjänsten huvudnamn program-ID sparas när tjänstens huvudnamn har skapats i föregående avsnitt i det här dokumentet.                                                                                              |
+| Prenumerations-ID:t           | AZURE_SUBSCRIPTION_ID      | Den [ <span class="underline">prenumerations-ID</span> ](../azure-stack-plan-offer-quota-overview.md#subscriptions) är hur du kommer åt erbjudanden i Azure Stack.                |
+| Klienthemlighet             | AZURE_CLIENT_SECRET        | Huvudnamn tjänstprogrammet hemlighet sparas när tjänstens huvudnamn har skapats.                                                                                                                                   |
+| Resource Manager-slutpunkten | ARM_ENDPOINT              | Se [ <span class="underline">Azure Stack resource manager-slutpunkten</span>](../user/azure-stack-version-profiles-ruby.md#the-azure-stack-resource-manager-endpoint). |
 | Plats                  | RESOURCE_LOCATION    | Lokal för Azure Stack                                                                                                                                                                                                |
 
 Du hittar klient-ID för Azure Stack, följer du instruktionerna [här](../azure-stack-csp-ref-operations.md). Ange din miljövariabler genom att göra följande:
@@ -107,7 +107,7 @@ Du hittar klient-ID för Azure Stack, följer du instruktionerna [här](../azure
 Om du vill ange miljövariabler i en kommandotolk i Windows, använder du följande format:
 
 ```shell
-Set Azure_Tenant_ID=<Your_Tenant_ID>
+Set AZURE_TENANT_ID=<Your_Tenant_ID>
 ```
 
 ### <a name="macos-linux-and-unix-based-systems"></a>macOS, Linux och Unix-baserade system
@@ -115,7 +115,7 @@ Set Azure_Tenant_ID=<Your_Tenant_ID>
 I Unix-baserat system, kan du använda följande kommando:
 
 ```shell
-Export Azure_Tenant_ID=<Your_Tenant_ID>
+Export AZURE_TENANT_ID=<Your_Tenant_ID>
 ```
 
 ### <a name="the-azure-stack-resource-manager-endpoint"></a>Azure Stack resource manager-slutpunkt
@@ -162,7 +162,8 @@ Följande kod autentiserar tjänstens huvudnamn i Azure Stack. Skapas en token g
 ```java
 AzureTokenCredentials credentials = new ApplicationTokenCredentials(client, tenant, key, AZURE_STACK)
                     .withDefaultSubscriptionId(subscriptionId);
-            Azure azureStack = Azure.configure().withLogLevel(com.microsoft.rest.LogLevel.BASIC)
+Azure azureStack = Azure.configure()
+                    .withLogLevel(com.microsoft.rest.LogLevel.BASIC)
                     .authenticate(credentials, credentials.defaultSubscriptionId());
 ```
 
@@ -182,7 +183,7 @@ AzureEnvironment AZURE_STACK = new AzureEnvironment(new HashMap<String, String>(
                     put("activeDirectoryResourceId", settings.get("audience"));
                     put("activeDirectoryGraphResourceId", settings.get("graphEndpoint"));
                     put("storageEndpointSuffix", armEndpoint.substring(armEndpoint.indexOf('.')));
-                    put("keyVaultDnsSuffix", ".adminvault" + armEndpoint.substring(armEndpoint.indexOf('.')));
+                    put("keyVaultDnsSuffix", ".vault" + armEndpoint.substring(armEndpoint.indexOf('.')));
                 }
             });
 ```
@@ -205,8 +206,7 @@ HttpGet getRequest = new
 HttpGet(String.format("%s/metadata/endpoints?api-version=1.0",
 armEndpoint));
 
-// Add additional header to getRequest which accepts application/xml
-data
+// Add additional header to getRequest which accepts application/xml data
 getRequest.addHeader("accept", "application/xml");
 
 // Execute request and catch response
@@ -217,37 +217,37 @@ HttpResponse response = httpClient.execute(getRequest);
 
 Du kan använda följande GitHub-exempel som referens för att skapa lösningar med .NET och Azure Stack-API-profiler:
 
-  - [Hantera resursgrupper](https://github.com/viananth/resources-java-manage-resource-group/tree/stack/Hybrid)
+  - [Hantera resursgrupper](https://github.com/Azure-Samples/Hybrid-resources-java-manage-resource-group)
 
-  - [Hantera Lagringskonton](https://github.com/viananth/storage-java-manage-storage-accounts/tree/stack/Hybrid)
+  - [Hantera Lagringskonton](https://github.com/Azure-Samples/hybrid-storage-java-manage-storage-accounts)
 
-  - [Hantera en virtuell dator](https://github.com/viananth/compute-java-manage-vm/tree/stack/Hybrid)
+  - [Hantera en virtuell dator](https://github.com/Azure-Samples/hybrid-compute-java-manage-vm)
 
 ### <a name="sample-unit-test-project"></a>Exempelprojektet enhet Test 
 
 1.  Klona databasen med hjälp av följande kommando:
     
-    `git clone https://github.com/viananth/resources-java-manage-resource-group/tree/stack/Hybrid`
+    `git clone https://github.com/Azure-Samples/Hybrid-resources-java-manage-resource-group.git`
 
 2.  Skapa en Azure-tjänstens huvudnamn och tilldela en roll får åtkomst till prenumerationen. Anvisningar om hur du skapar ett huvudnamn för tjänsten finns i [med Azure PowerShell för att skapa ett huvudnamn för tjänsten med ett certifikat](../azure-stack-create-service-principals.md).
 
 3.  Hämta de följande obligatoriska värdena för miljövariabler:
     
-   1.  TENANT_ID
-   2.  CLIENT_ID
-   3.  CLIENT_SECRET
-   4.  SUBSCRIPTION_ID
-   5.  ARM_ENDPOINT
-   6.  RESOURCE_LOCATION
+    -  AZURE_TENANT_ID
+    -  AZURE_CLIENT_ID
+    -  AZURE_CLIENT_SECRET
+    -  AZURE_SUBSCRIPTION_ID
+    -  ARM_ENDPOINT
+    -  RESOURCE_LOCATION
 
 4.  Ange följande miljövariabler med hjälp av informationen som du hämtade från tjänstens huvudnamn du skapat med hjälp av Kommandotolken:
     
-   1. Exportera TENANT_ID = {ditt klient-id}
-   2. Exportera CLIENT_ID = {din klient-id}
-   3. Exportera CLIENT_SECRET = {klienthemlighet}
-   4. Exportera SUBSCRIPTION_ID = {ditt prenumerations-id}
-   5. Exportera ARM_ENDPOINT = {din Azure Stack Resource manager-URL}
-   6. Exportera RESOURCE_LOCATION = {platsen för Azure Stack}
+    - Exportera AZURE_TENANT_ID = {ditt klient-id}
+    - Exportera AZURE_CLIENT_ID = {din klient-id}
+    - Exportera AZURE_CLIENT_SECRET = {klienthemlighet}
+    - Exportera AZURE_SUBSCRIPTION_ID = {ditt prenumerations-id}
+    - Exportera ARM_ENDPOINT = {din Azure Stack Resource manager-URL}
+    - Exportera RESOURCE_LOCATION = {platsen för Azure Stack}
 
    I Windows, använder **ange** i stället för **exportera**.
 

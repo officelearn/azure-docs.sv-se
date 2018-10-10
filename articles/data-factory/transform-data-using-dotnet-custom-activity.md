@@ -10,14 +10,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/01/2018
+ms.date: 10/18/2018
 ms.author: douglasl
-ms.openlocfilehash: fa13b6509052438a0f59c4610f250d0b88b41f2b
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: 77e5d6c278436a1fc192421c9867106409389a66
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48043087"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48888229"
 ---
 # <a name="use-custom-activities-in-an-azure-data-factory-pipeline"></a>Use custom activities in an Azure Data Factory pipeline (Använda anpassade aktiviteter i en Azure Data Factory-pipeline)
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -293,6 +293,23 @@ Om du vill använda innehåll för stdout.txt i underordnade aktiviteter kan du 
   > [!IMPORTANT]
   > - Den activity.json och linkedServices.json datasets.json lagras i mappen körning av Batch-aktiviteter. I det här exemplet lagras den activity.json och linkedServices.json datasets.json i ”https://adfv2storage.blob.core.windows.net/adfjobs/<GUID>/runtime/” sökväg. Om det behövs kan behöva du rensa dem separat. 
   > - För länkade tjänster använder lokal Integration Runtime, känslig information som t.ex. nycklar eller lösenord krypteras med den lokala Integration Runtime för att se till att autentiseringsuppgifterna definierats är kvar i kundens privat nätverksmiljö. Vissa känsliga fält kan vara saknas när de refereras av din anpassade programkoden i det här sättet. Använd SecureString i extendedProperties istället för att använda länkade tjänstreferensen om det behövs. 
+
+## <a name="retrieve-securestring-outputs"></a>Hämta SecureString-utdata
+
+Känsliga egenskapsvärden som är utsedd till typen *SecureString*, enligt vissa av exemplen i den här artikeln maskeras ut på fliken övervakning i Data Factory-användargränssnittet.  I faktiska pipeline-åtgärd, men en *SecureString* egenskap serialiserad som JSON inom den `activity.json` filen som oformaterad text. Exempel:
+
+```json
+"extendedProperties": {
+    "connectionString": {
+        "type": "SecureString",
+        "value": "aSampleSecureString"
+    }
+}
+```
+
+Den här serialiseringen är inte helt säkert och är inte avsedd att vara säkra. Avsikten är att tips till Data Factory för att maskera värdet i fliken övervakning.
+
+Komma åt egenskaper av typen *SecureString* från en anpassad aktivitet läsa den `activity.json` -fil som placeras i samma mapp som din. EXE, deserialisera JSON och öppna JSON-egenskap (extendedProperties = > [egenskapsnamn] = > värde).
 
 ## <a name="compare-v2-v1"></a> Jämför v2 anpassad aktivitet och version 1 (anpassad) DotNet-aktivitet
 

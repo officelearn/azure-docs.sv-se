@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 02/26/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 7ae235ea52c5c505e535cc3fad2306167d349ee9
-ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
+ms.openlocfilehash: 8f4b1c1c66243c06d46ef3fddec8ea495163fa07
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43782268"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46999621"
 ---
 # <a name="azure-container-service-tutorial---manage-dcos"></a>Självstudie för Azure Container Service – Hantera DC/OS
 
@@ -30,7 +30,7 @@ DC/OS tillhandahåller en distribuerad plattform för att köra moderna och cont
 > * Grundläggande DC/OS-hantering
 > * Ta bort DC/OS-klustret
 
-För den här självstudien krävs Azure CLI-version 2.0.4 eller senare. Kör `az --version` för att hitta versionen. Om du behöver uppgradera kan du läsa [Installera Azure CLI 2.0]( /cli/azure/install-azure-cli). 
+För den här självstudien krävs Azure CLI-version 2.0.4 eller senare. Kör `az --version` för att hitta versionen. Om du behöver uppgradera kan du läsa [Installera Azure CLI]( /cli/azure/install-azure-cli). 
 
 ## <a name="create-dcos-cluster"></a>Skapa DC/OS-kluster
 

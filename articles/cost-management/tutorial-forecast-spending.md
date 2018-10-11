@@ -1,25 +1,25 @@
 ---
-title: Självstudie – Skapa prognoser för utgifter i Azure Cost Management | Microsoft Docs
+title: Självstudie – Skapa prognoser för utgifter i Cloudyn i Azure | Microsoft Docs
 description: I den här självstudien lär du dig att skapa prognoser för utgifter med hjälp av historiska data om användning och utgifter.
 services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 04/26/2018
+ms.date: 09/18/2018
 ms.topic: tutorial
 ms.service: cost-management
 ms.custom: ''
 manager: dougeby
-ms.openlocfilehash: 411b4797510b26dec43ea7f2232457199808c857
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 587459be69fe250b3e73fb9eb9d5cd08cf2e7a42
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32162202"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46953692"
 ---
 # <a name="tutorial-forecast-future-spending"></a>Självstudie: Skapa prognoser för framtida utgifter
 
-Azure Cost Management hjälper dig att förutse framtida kostnader med hjälp av förbrukningshistorik och information om utgifter. Du kan använda Cloudyn-rapporter till att visa alla data om prognostiserade kostnader. I exemplen i den här självstudien får du lära dig att granska kostnadsprognoser med hjälp av rapporterna. I den här guiden får du lära dig att:
+Cloudyn hjälper dig att förutse framtida kostnader med hjälp av förbrukningshistorik och information om utgifter. Du kan använda Cloudyn-rapporter till att visa alla data om prognostiserade kostnader. I exemplen i den här självstudien får du lära dig att granska kostnadsprognoser med hjälp av rapporterna. I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
 > * Skapa prognoser för framtida utgifter
@@ -29,7 +29,7 @@ Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto]
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
 - Du måste ha ett Azure-konto.
-- Du måste antingen ha en utvärderingsregistrering eller en betald prenumeration för Azure Cost Management.
+- Du måste antingen ha en utvärderingsregistrering eller en betald prenumeration för Cloudyn.
 
 ## <a name="forecast-future-spending"></a>Skapa prognoser för framtida utgifter
 
@@ -37,7 +37,7 @@ Cloudyn innehåller rapporter för kostnadsprognoser som hjälper dig att göra 
 
 I rapporten Current Month Projected Cost visas kostnaderna för dina tjänster. Kostnaderna från början av månaden samt föregående månad används till att visa den beräknade kostnaden. Gå till rapportmenyn överst i portalen och klicka på **Cost** (Kostnad)  >  **Projection and Budget** (Planering och budget)  >  **Current Month Projected Cost**. I följande bild visas ett exempel.
 
-![beräknad kostnad aktuell månad](./media/tutorial-forecast-spending/project-month01.png)
+![Beräknad kostnad aktuell månad](./media/tutorial-forecast-spending/project-month01.png)
 
 I det här exemplet ser du vilka tjänster som kostat mest. Kostnaderna för Azure var lägre än kostnaderna för AWS. Om du vill se detaljer om de beräknade kostnaderna för virtuella Azure-datorer går du till listan **Filter** och väljer **Azure/VM**.
 
@@ -49,11 +49,11 @@ I rapporten Annual Projected Cost visas extrapolerade kostnader för dina tjäns
 
 Gå till rapportmenyn överst i portalen och klicka på **Cost** (Kostnad)  >  **Projection and Budget** (Planering och budget)  >  **Annual Projected Cost**. I följande bild visas ett exempel.
 
-![rapporten annual projected cost](./media/tutorial-forecast-spending/project-annual01.png)
+![Rapporten årlig beräknad kostnad](./media/tutorial-forecast-spending/project-annual01.png)
 
 I det här exemplet ser du vilka tjänster som kostat mest. Precis som i det månatliga exemplet var Azure-kostnaderna lägre än AWS-kostnaderna. Om du vill se detaljer om de beräknade kostnaderna för virtuella Azure-datorer går du till listan **Filter** och väljer **Azure/VM**.
 
-![årlig beräknad kostnad för virtuella datorer](./media/tutorial-forecast-spending/project-annual02.png)
+![Årlig beräknad kostnad för virtuella datorer](./media/tutorial-forecast-spending/project-annual02.png)
 
 I bilden ovan är den årliga beräknade kostnaden för virtuella Azure-datorer 28 374 USD.
 

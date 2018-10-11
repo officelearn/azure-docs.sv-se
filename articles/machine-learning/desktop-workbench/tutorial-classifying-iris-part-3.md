@@ -1,6 +1,6 @@
 ---
-title: Distribuera en självstudie om modeller i Azure Machine Learning
-description: I den här kompletta självstudien får du lära dig att använda Azure Machine Learning från slutpunkt till slutpunkt. Detta är en del tre som beskriver hur du distribuerar modellen.
+title: Distribuera en modellsjälvstudie för Azure Machine Learning-tjänsten
+description: I den här kompletta självstudien får du lära dig att använda Azure Machine Learning-tjänsten från början till slut. Detta är en del tre som beskriver hur du distribuerar modellen.
 services: machine-learning
 author: aashishb
 ms.author: aashishb
@@ -12,14 +12,18 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: tutorial
 ms.date: 3/13/2018
-ms.openlocfilehash: de0c93ef5b907b56e6ad66a04bb728b5b9aabb9a
-ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ROBOTS: NOINDEX
+ms.openlocfilehash: 2eb6eb5090b0a68a189e2d4f1148d3238bc3ee0d
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "41918710"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46946620"
 ---
 # <a name="tutorial-3-classify-iris-deploy-a-model"></a>Självstudie 3: Klassificera Iris – distribuera en modell
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)]
+
 Azure Machine Learning (förhandsversionen) är en integrerad, avancerad lösning för datavetenskap och analys för datatekniker. Datatekniker kan använda den för att förbereda data, utveckla experiment och distribuera modeller i molnskala.
 
 Den här självstudien är **del tre i en serie med tre delar**. I den här delen av självstudien använder du Machine Learning (förhandsversion) för att:
@@ -38,7 +42,7 @@ Den här självstudien använder den tidlösa [Iris-datauppsättningen](https://
 
 För att slutföra den här kursen behöver du:
 - En Azure-prenumeration. Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar. 
-- Ett experimentkonto och Azure Machine Learning Workbench installerad enligt anvisningarna i denna [snabbstart](../service/quickstart-installation.md)
+- Ett experimentkonto och Azure Machine Learning Workbench installerad enligt anvisningarna i denna [snabbstart](quickstart-installation.md)
 - Klassificeringsmodellen från [del 2 av självstudiekursen](tutorial-classifying-iris-part-2.md)
 - En Docker-motor måste vara installerad och köras lokalt
 
@@ -224,9 +228,9 @@ Nu är du redo att skapa realtidswebbtjänsten.
 1. Använd följande kommando för att skapa en realtidswebbtjänst:
 
    ```azurecli
-   az ml service create realtime -f score_iris.py --model-file model.pkl -s service_schema.json -n irisapp -r python --collect-model-data true -c aml_config\conda_dependencies.yml
+   az ml service create realtime -f score_iris.py --model-file model.pkl -s ./output/service_schema.json -n irisapp -r python --collect-model-data true -c aml_config\conda_dependencies.yml
    ```
-   Det här kommandot genererar ett webbtjänst-ID som du kan använda senare.
+   Det här kommandot genererar ett webbtjänst-ID som du kan använda senare. Utelämna utdatakatalogen om du är på en bärbar dator.
 
    Följande växlar används med kommandot **az ml service create realtime**:
 
@@ -276,9 +280,9 @@ Registrera först modellen. Generera sedan manifestet, skapa Docker-avbildningen
    Använd följande kommando för att skapa ett manifest och ange modell-ID:t från föregående steg:
 
    ```azurecli
-   az ml manifest create --manifest-name <new manifest name> -f score_iris.py -r python -i <model ID> -s service_schema.json -c aml_config\conda_dependencies.yml
+   az ml manifest create --manifest-name <new manifest name> -f score_iris.py -r python -i <model ID> -s ./output/service_schema.json -c aml_config\conda_dependencies.yml
    ```
-   Det här kommandot genererar ett manifest-ID.
+   Det här kommandot genererar ett manifest-ID.  Utelämna utdatakatalogen om du är på en bärbar dator.
 
 1. Skapa en Docker-avbildning.
 

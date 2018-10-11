@@ -12,12 +12,12 @@ ms.date: 12/15/2017
 ms.author: glenga
 ms.reviewer: sunayv
 ms.custom: mvc, cc996988-fb4f-47
-ms.openlocfilehash: f2f4e7d96c4d8725d9d34314854665440d86ce8d
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: a085d7e25854a928778802d2b4ef50cf9e57eff9
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44095087"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46960931"
 ---
 # <a name="create-an-openapi-definition-for-a-function"></a>Skapa en OpenAPI-definition för en funktion
 REST-API:er beskrivs ofta med hjälp av en OpenAPI-definition (kallades tidigare för en [Swagger](http://swagger.io/)-fil). Den här definitionen innehåller information om vilka åtgärder som är tillgängliga i API:t och hur data om förfrågningar och svar för API:t ska vara strukturerade.
@@ -31,6 +31,9 @@ I den här guiden får du lära dig att:
 > * genererar en OpenAPI-definition med hjälp av OpenAPI-verktyg
 > * ändrar definitionen för att tillhandahålla ytterligare metadata
 > * testar definitionen genom att anropa funktionen.
+
+> [!IMPORTANT]
+> Förhandsgranskningsfunktionen OpenAPI är i dag endast tillgänglig i 1.x-körningen. Information om hur du skapar en 1.x-funktionsapp [hittar du här](./functions-versions.md#creating-1x-apps).
 
 ## <a name="create-a-function-app"></a>Skapa en funktionsapp
 

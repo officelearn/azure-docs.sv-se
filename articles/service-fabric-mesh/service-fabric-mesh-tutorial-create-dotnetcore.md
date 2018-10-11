@@ -1,5 +1,5 @@
 ---
-title: Självstudie – Skapa, felsöka och distribuera en webbapp för flera tjänster till Service Fabric Mesh | Microsoft Docs
+title: Självstudie – Skapa, felsök och distribuera en webbapp för flera tjänster till Service Fabric Mesh | Microsoft Docs
 description: I den här självstudien skapar du ett Azure Service Fabric Mesh-program för flera tjänster som består av en ASP.NET Core-webbplats som kommunicerar med en serversidewebbtjänst, felsöker lokalt och publicerar till Azure.
 services: service-fabric-mesh
 documentationcenter: .net
@@ -12,26 +12,28 @@ ms.devlang: dotNet
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 07/17/2018
+ms.date: 09/18/2018
 ms.author: twhitney
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 59ff3434e7b984f4530ad4f8b03b27991d3a9c1c
-ms.sourcegitcommit: 1aedb52f221fb2a6e7ad0b0930b4c74db354a569
+ms.openlocfilehash: 09112aafdbabf0cda2b3ae13af73a9223533a6e1
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "41918960"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46979202"
 ---
-# <a name="tutorial-create-debug-and-deploy-a-multi-service-web-application-to-service-fabric-mesh"></a>Självstudie: Skapa, felsöka och distribuera en webbapp för flera tjänster till Service Fabric Mesh
+# <a name="tutorial-create-debug-deploy-and-upgrade-a-multi-service-service-fabric-mesh-app"></a>Självstudie: skapa, felsök, distribuera och uppgradera en webbapp för flera tjänster till Service Fabric Mesh
 
-Den här självstudien ingår i en serie. Vi visar hur du skapar ett Azure Service Fabric Mesh-program som har en ASP.NET-webbklientdels- och en ASP.NET Core webb-API-serverdelstjänst. Du felsöker sedan programmet i det lokala utvecklingsklustret och publicerar i Azure. När du är klar har du skapat ett enkelt program som visar ett tjänst-till-tjänst-anrop i Service Fabric Mesh-programmet som körs i Azure Service Fabric Mesh.
+Den här självstudien ingår i en serie. Du får lära dig att använda Visual Studio för att skapa en Azure Service Fabric Mesh-app som har en ASP.NET-webbklientdels- och en ASP.NET Core webb-API-serverdelstjänst. Därefter felsöker du appen i det lokala utvecklingsklustret. Du publicerar appen i Azure och gör därefter konfigurations- och kodändringar och uppgraderar appen. Slutligen rensar du upp oanvända Azure-resurser så att du inte debiteras för vad du inte använder.
+
+När du är klar, kommer du att ha gått igenom de flesta faser i en apps livscykelhantering och har skapat en app som visar ett tjänst-till-tjänst-anrop i en Service Fabric Mesh-app.
 
 Om du inte vill skapa programmet manuellt kan du [ladda ned källkoden för det färdiga programmet](https://github.com/azure-samples/service-fabric-mesh) och gå vidare för att [felsöka programmet lokalt](service-fabric-mesh-tutorial-debug-service-fabric-mesh-app.md).
 
 I del ett i den här serien lärde du dig att:
 
 > [!div class="checklist"]
-> * Skapa ett Service Fabric Mesh-program bestående av en ASP.NET-webbklientdel.
+> * Använd Visual Studio för att skapa en Service Fabric Mesh-app som består av en ASP.NET-webbklientdel.
 > * Skapa en modell för att representera att göra-objekt.
 > * Skapa en serverdelstjänst och hämta data från den.
 > * Lägga till en kontrollant och DataContext som del i MVC-mönstret (Model View Controller) för serverdelstjänsten.
@@ -40,9 +42,11 @@ I del ett i den här serien lärde du dig att:
 
 I den här självstudieserien får du lära du dig att:
 > [!div class="checklist"]
-> * Skapa ett Service Fabric Mesh-program
-> * [Felsöka programmet lokalt](service-fabric-mesh-tutorial-debug-service-fabric-mesh-app.md)
-> * [Publicera appen i Azure](service-fabric-mesh-tutorial-deploy-service-fabric-mesh-app.md)
+> * Skapa en Service Fabric Mesh-app i Visual Studio
+> * [Felsök en Service Fabric Mesh-app som körs i ditt lokala utvecklingskluster](service-fabric-mesh-tutorial-debug-service-fabric-mesh-app.md)
+> * [Distribuera en Service Fabric Mesh-app](service-fabric-mesh-tutorial-deploy-service-fabric-mesh-app.md)
+> * [Uppgradera en Service Fabric Mesh-app](service-fabric-mesh-tutorial-upgrade.md)
+> * [Rensa Service Fabric Mesh-resurser](service-fabric-mesh-tutorial-cleanup-resources.md)
 
 [!INCLUDE [preview note](./includes/include-preview-note.md)]
 
@@ -54,9 +58,7 @@ Innan du börjar den här självstudien:
 
 * Se till att du har [skapat utvecklingsmiljön](service-fabric-mesh-howto-setup-developer-environment-sdk.md) vilket omfattar att installera Service Fabric-runtime, SDK, Docker, och Visual Studio 2017.
 
-* För tillfället måste appen för den här självstudien skapas med engelska som nationella inställningar.
-
-## <a name="create-a-service-fabric-mesh-project"></a>Skapa ett Service Fabric Mesh-projekt
+## <a name="create-a-service-fabric-mesh-project-in-visual-studio"></a>Skapa ett Service Fabric Mesh-projekt i Visual Studio
 
 Kör Visual Studio och välj **File** > **New** > **Project...** (Arkiv > Nytt > Projekt...).
 
@@ -212,10 +214,7 @@ public static class DataContext
 
     static DataContext()
     {
-        ToDoList = new Model.ToDoList("Main List");
-
         // Seed to-do list
-
         ToDoList.Add(Model.ToDoItem.Load("Learn about microservices", 0, true));
         ToDoList.Add(Model.ToDoItem.Load("Learn about Service Fabric", 1, true));
         ToDoList.Add(Model.ToDoItem.Load("Learn about Service Fabric Mesh", 2, false));
@@ -368,6 +367,7 @@ Lägg till följande variabler under `environmentVariables` i service.yaml-filen
 
 > [!IMPORTANT]
 > Blanksteg måste användas, inte tabbar, för att dra in variabler i filen service.yaml. Annars kompileras den inte. Visual Studio kan infoga tabbar när du skapar miljövariablerna. Ersätt alla tabbar med blanksteg. Programmet startar även om du ser fel i felsökningsutdata för **build** (version). Det fungerar dock inte förrän du gör om tabbarna till blanksteg. För att säkerställa att inga tabbar finns i filen service.yaml kan du synliggöra blanksteg i Visual Studio-redigeraren med **Edit**  > **Advanced**  > **View White Space** (Redigera > Avancerat > Visa blanksteg).
+> Observera att service.yaml-filer bearbetas på engelska.  Om du till exempel behöver använda en decimalavgränsare så används en punkt i stället för ett kommatecken.
 
 **WebFrontEnd**-projektets **service.yaml**-fil ska se ut ungefär så här, även om värdet `ApiHostPort` förmodligen är ett annat:
 
@@ -380,7 +380,7 @@ Nu är du redo att skapa och distribuera avbildningen för Service Fabric Mesh-p
 I den här självstudiedelen lärde du dig att:
 
 > [!div class="checklist"]
-> * Skapa ett Service Fabric Mesh-program bestående av en ASP.NET-webbklientdel.
+> * Skapa en Service Fabric Mesh-app bestående av en ASP.NET-webbklientdel.
 > * Skapa en modell för att representera att göra-objekt.
 > * Skapa en serverdelstjänst och hämta data från den.
 > * Lägga till en kontrollant och DataContext som del i MVC-mönstret (Model View Controller) för serverdelstjänsten.
@@ -389,4 +389,4 @@ I den här självstudiedelen lärde du dig att:
 
 Gå vidare till nästa kurs:
 > [!div class="nextstepaction"]
-> [Felsöka ett Service Fabric Mesh-program som körs lokalt](service-fabric-mesh-tutorial-debug-service-fabric-mesh-app.md)
+> [Felsök ett Service Fabric Mesh-program som körs i ditt lokala utvecklingskluster](service-fabric-mesh-tutorial-debug-service-fabric-mesh-app.md)

@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 11/29/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017, mvc
-ms.openlocfilehash: 1ac55b728a29ff1bb8129087da5992ffe5f23df9
-ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
+ms.openlocfilehash: 6ed1ef6019e339768c4ba6a62d8b4d99d844f254
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42820298"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46949541"
 ---
 # <a name="azure-and-linux"></a>Azure och Linux
 Microsoft Azure är en växande samling integrerade offentliga molntjänster som omfattar analyser, virtuella datorer, databaser, mobil, nätverk, lagring och webb – perfekt som värd för dina lösningar.  Microsoft Azure tillhandahåller en skalbar plattform som gör att du bara betalar för vad du använder, när du behöver det – utan att behöva investera i lokal maskinvara.  Azure är klar när du är klar att skala upp och ut lösningar oavsett vilken skala du behöver för dina klienter.
@@ -37,7 +37,7 @@ Azure har tillkännagivit ett branschledande serviceavtal på 99,9 % för virtue
 
 ## <a name="managed-disks"></a>Managed Disks
 
-Managed Disks hanterar skapande och hantering av Azure-lagringskontot i bakgrunden och säkerställer att du inte behöver bekymra dig om lagringskontots skalbarhetsgränser. Du anger diskens storlek och prestandanivå (Standard eller Premium) och sedan skapar och hanterar Azure disken. Om du lägger till diskar eller skalar upp eller ned den virtuella datorn behöver du inte oroa dig om lagringsutrymmet som används. Om du skapar nya virtuella datorer ska du [använda Azure CLI 2.0](quick-create-cli.md) eller Azure-portalen för att skapa virtuella datorer med hanterade OS- och datadiskar. Om du har virtuella datorer med ohanterade diskar kan du [konvertera de virtuella datorerna så att de stöds av Managed Disks](convert-unmanaged-to-managed-disks.md).
+Managed Disks hanterar skapande och hantering av Azure-lagringskontot i bakgrunden och säkerställer att du inte behöver bekymra dig om lagringskontots skalbarhetsgränser. Du anger diskens storlek och prestandanivå (Standard eller Premium) och sedan skapar och hanterar Azure disken. Om du lägger till diskar eller skalar upp eller ned den virtuella datorn behöver du inte oroa dig om lagringsutrymmet som används. Om du skapar nya virtuella datorer ska du [använda Azure CLI](quick-create-cli.md) eller Azure-portalen för att skapa virtuella datorer med hanterade OS- och datadiskar. Om du har virtuella datorer med ohanterade diskar kan du [konvertera de virtuella datorerna så att de stöds av Managed Disks](convert-unmanaged-to-managed-disks.md).
 
 Du kan även hantera dina anpassade avbildningar i ett lagringskonto per Azure-region och använda dem för att skapa hundratals virtuella datorer i samma prenumeration. Mer information om Managed Disks finns i [översikten över Managed Disks](../linux/managed-disks-overview.md).
 
@@ -91,7 +91,7 @@ Om du vill börja använda Azure behöver du ett Azure-konto, Azure CLI installe
 Det första steget i att använda Azure Cloud är att registrera dig för ett Azure-konto.  Gå till sidan [Azure-kontoinloggning](https://azure.microsoft.com/pricing/free-trial/) för att komma igång.
 
 ### <a name="install-the-cli"></a>Installera CLI
-Med ditt nya Azure-konto kan du komma igång direkt med att använda Azure-portalen, som är en webbaserad administrationspanel.  Om du vill hantera Azure Cloud via kommandoraden installerar du `azure-cli`.  Installera [Azure CLI 2.0](/cli/azure/install-azure-cli) på Mac- eller Linux-arbetsstationen.
+Med ditt nya Azure-konto kan du komma igång direkt med att använda Azure-portalen, som är en webbaserad administrationspanel.  Om du vill hantera Azure Cloud via kommandoraden installerar du `azure-cli`.  Installera [Azure CLI](/cli/azure/install-azure-cli) på Mac- eller Linux-arbetsstationen.
 
 ### <a name="create-an-ssh-key-pair"></a>Skapa ett SSH-nyckelpar
 Nu har du ett Azure-konto, Azure-webbportalen och Azure CLI.  Nästa steg är att skapa ett SSH-nyckelpar som används för SSH i Linux utan att behöva använda ett lösenord.  [Skapa SSH-nycklar på Linux och Mac](mac-create-ssh-keys.md) om du vill möjliggöra lösenordsfri inloggning och bättre säkerhet.

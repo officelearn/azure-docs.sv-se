@@ -1,29 +1,29 @@
 ---
-title: Självstudie – Tilldela åtkomst i Azure Cost Management | Microsoft Docs
-description: I den här självstudien lärde du dig att tilldela åtkomst till kostnadshanteringsdata med användarkonton som definierar åtkomstnivåer till entiteter.
+title: Självstudie – tilldela åtkomst med Cloudyn i Azure | Microsoft Docs
+description: I den här självstudien lärde du dig att tilldela åtkomst till Cloudyn-data med användarkonton som definierar åtkomstnivåer till entiteter.
 services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 07/10/2018
+ms.date: 09/18/2018
 ms.topic: tutorial
 ms.service: cost-management
 ms.custom: ''
 manager: dougeby
-ms.openlocfilehash: 4b45d917118d5be1252c3bb232e4b24e68d7857f
-ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
+ms.openlocfilehash: b3dcfc1756932d75f9885490baa8d09af54d111c
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39188190"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46957482"
 ---
-# <a name="tutorial-assign-access-to-cost-management-data"></a>Självstudie: Tilldela åtkomst till kostnadshanteringsdata
+# <a name="tutorial-assign-access-to-cloudyn-data"></a>Självstudie: tilldela åtkomst till Cloudyn-data
 
-Åtkomsten till Cost Management-data hanteras med hjälp av användare och entiteter. Cloudyn-användarkontot avgör åtkomsten till *entiteter* och administrativa funktioner. Det finns två typer av åtkomst: administratör och användare. Om administratörsåtkomsten inte modifieras per användare så ger den obegränsad tillgång till alla funktioner i Cloudyn-portalen, inklusive användarhantering, hantering av mottagarlistor och rotåtkomst till alla entitetsdata. Användaråtkomsten är avsedd för slutanvändare som vill visa och skapa rapporter för de entitetsdata de har åtkomst till.
+Åtkomsten till Cloudyn-data hanteras med hjälp av användare och entiteter. Cloudyn-användarkontot avgör åtkomsten till *entiteter* och administrativa funktioner. Det finns två typer av åtkomst: administratör och användare. Om administratörsåtkomsten inte modifieras per användare så ger den obegränsad tillgång till alla funktioner i Cloudyn-portalen, inklusive användarhantering, hantering av mottagarlistor och rotåtkomst till alla entitetsdata. Användaråtkomsten är avsedd för slutanvändare som vill visa och skapa rapporter för de entitetsdata de har åtkomst till.
 
 Entiteter används till att återspegla affärsorganisationens hierarkiska struktur. De identifierar organisationens avdelningar och team i Cloudyn. Med entitetshierarkin kan du noggrant spåra olika utgifter per entitet.
 
-När du registrerade ditt Azure-avtal eller -konto skapades ett konto med administratörsbehörighet i Cloudyn, så att du kan utföra alla steg i den här självstudien. Den här självstudien tar upp åtkomsten till Cost Management-data samt hantering av användare och entiteter. Lär dig att:
+När du registrerade ditt Azure-avtal eller -konto skapades ett konto med administratörsbehörighet i Cloudyn, så att du kan utföra alla steg i den här självstudien. Den här självstudien omfattar åtkomst till Cloudyn-data inklusive användar- och entitetshantering. Lär dig att:
 
 > [!div class="checklist"]
 > * Skapa en användare med administratörsåtkomst
@@ -38,7 +38,7 @@ Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto]
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
 - Du måste ha ett Azure-konto.
-- Du måste antingen ha en utvärderingsregistrering eller en betald prenumeration för Azure Cost Management.
+- Du måste antingen ha en utvärderingsregistrering eller en betald prenumeration för Cloudyn.
 
 ## <a name="create-a-user-with-admin-access"></a>Skapa en användare med administratörsåtkomst
 
@@ -47,10 +47,10 @@ Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto]
 Ange nödvändig information om användaren. **Inloggnings-ID:t** måste vara en giltig e-postadress. Välj behörigheter och tillåt User Management (Användarhantering) så att användaren kan skapa och ändra andra användare. Med hanteringen av mottagarlistor kan användaren redigera mottagarlistor. En länk med inloggningsinformation skickas till användaren via e-post från Cloudyn när du väljer **Notify user by email** (Meddela användaren via e-post). Användaren anger ett lösenord vid sin första inloggning.
 
 Under **User has admin access** (Användaren har administratörsåtkomst) är rotentiteten i din organisation vald. Lämna root valt och spara användarinformationen. När rotentiteten är vald har användaren inte bara administratörsbehörighet för rotentiteten i trädet utan även alla enheter under den.  
-  ![lägg till en ny användare med administratörsåtkomst](.\media\tutorial-user-access\new-admin-access.png)
+  ![Lägg till en ny användare med administratörsåtkomst](.\media\tutorial-user-access\new-admin-access.png)
 
 ## <a name="create-a-user-with-user-access"></a>Skapa en användare med användaråtkomst
-Vanliga användare som behöver åtkomst till Cost Management-data som instrumentpaneler och rapporter ska ha användaråtkomst för att visa dem. Skapa en ny användare med användaråtkomst ungefär som när du skapade användaren med administratörsåtkomst, med följande skillnader:
+Vanliga användare som behöver åtkomst till Cloudyn-data som instrumentpaneler och rapporter ska ha användaråtkomst för att visa dem. Skapa en ny användare med användaråtkomst ungefär som när du skapade användaren med administratörsåtkomst, med följande skillnader:
 
 - Avmarkera **Allow User Management**, **Allow Recipient lists Management** och allt i listan **User has admin access**.
 - Välj de entiteter som användaren behöver åtkomst till i listan **User has user access** (Användaren har användaråtkomst).
@@ -58,7 +58,7 @@ Vanliga användare som behöver åtkomst till Cost Management-data som instrumen
 
 ![lägg till en ny användare med användaråtkomst](.\media\tutorial-user-access\new-user-access.png)
 
-Om du vill se en självstudievideo om att lägga till användare kan du titta på [Adding Users to Azure Cost Management ](https://youtu.be/Nzn7GLahx30) (Lägga till användare i Azure Cost Management).
+Om du vill se en självstudievideo om att lägga till användare, se [Lägg till användare till Cloudyn](https://youtu.be/Nzn7GLahx30).
 
 ## <a name="delete-a-user"></a>Ta bort en användare
 
@@ -88,11 +88,11 @@ När du registrerade ditt Azure-avtal eller -konto hos Cloudyn kopierades dina A
 
 Klicka på kugghjulssymbolen uppe till höger i Cloudyn-portalen och välj **Molnkonton**. Du börjar med en enda entitet (roten) och skapar entitetsträdet under roten. Här är ett exempel på en entitetshierarki som liknar många IT-organisationer när trädet är färdigt:
 
-![entitetsträd](.\media\tutorial-user-access\entity-tree.png)
+![Entitetsträd](.\media\tutorial-user-access\entity-tree.png)
 
 Bredvid **Entities** (Entiteter) klickar du på **Add Entity** (Lägg till entitet). Ange information om personen eller avdelningen du vill lägga till. Fälten **Full Name** (Fullständigt namn) och **Email** (E-post) behöver inte matcha befintliga användare. Om du vill visa en lista med åtkomstnivåer kan du söka i hjälpen efter *Lägga till en entitet*.
 
-![lägg till entitet](.\media\tutorial-user-access\add-entity.png)
+![Lägg till entitet](.\media\tutorial-user-access\add-entity.png)
 
 När du är färdig sparar du entiteten med **Save** (Spara).
 
@@ -114,9 +114,9 @@ Klicka på kugghjulssymbolen uppe till höger i Cloudyn-portalen och välj **Mol
 
 Du kan också associera flera konton med en entitet. Markera kontona och klicka sedan på **Flytta**. I rutan Flytta konton väljer du den entitet som du vill flytta kontot till och klickar sedan på **Spara**. Rutan Flytta konton uppmanar dig att bekräfta att du vill flytta kontona. Klicka på **Ja** och sedan på **OK**.
 
-Om du vill se en självstudievideo om hur du skapar en entitetshierarki för kostnader kan du titta på [Creating a Cost Entity Hierarchy in Azure Cost Management](https://youtu.be/dAd9G7u0FmU) (Skapa en enhetshierarki i Azure Cost Management).
+Om du vill se en självstudievideo om hur du skapar en entitetshierarki för kostnader kan du titta på [Skapa en entitetshierarki för kostnader i Cloudyn](https://youtu.be/dAd9G7u0FmU).
 
-Om du är en Azure Enterprise Agreement-användare kan du titta på en självstudievideo om hur du kopplar konton och prenumerationer till entiteter i [Connecting to Azure Resource Manager with Azure Cost Management](https://youtu.be/oCIwvfBB6kk) (Ansluta till Azure Resource Manager med Azure Cost Management).
+Om du är en Azure Enterprise-avtalsanvändare kan du titta på en självstudievideo om hur du kopplar konton och prenumerationer till entiteter i [Anslut Azure Resource Manager till Cloudyn](https://youtu.be/oCIwvfBB6kk).
 
 ## <a name="next-steps"></a>Nästa steg
 

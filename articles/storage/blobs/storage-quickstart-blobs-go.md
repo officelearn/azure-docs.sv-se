@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: quickstart
 ms.date: 04/09/2018
 ms.author: seguler
-ms.openlocfilehash: 90858501cbf20af032c98ca8703f9e74b475e9c1
-ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
+ms.openlocfilehash: 93dc651767fc2be815fb706f71386ce72b382a37
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39398584"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46981734"
 ---
 # <a name="quickstart-upload-download-and-list-blobs-using-go"></a>Snabbstart: Ladda upp, ladda ned och lista blobar med Go
 
@@ -23,11 +23,14 @@ I den här snabbstarten får du lära dig att använda Go-programmeringsspråket
 
 För att slutföra den här snabbstarten behöver du: 
 * Installera [Go 1.8 eller senare](https://golang.org/dl/)
-* Ladda ned och installera [Azure Storage Blob SDK for Go](https://github.com/azure/azure-storage-blob-go/) med `go get -u github.com/azure/azure-storage-blob-go/2016-05-31/azblob`. 
+* Ladda ned och installera [Azure Storage Blob SDK for Go](https://github.com/azure/azure-storage-blob-go/) med `go get -u github.com/Azure/azure-storage-blob-go/2016-05-31/azblob`. 
+
+> [!WARNING]
+> Kontrollera att du använder versaler för Azure i webbadressen. Om du inte gör det kan det orsaka importproblem när du arbetar med SDK. Du måste även använda versaler för Azure i importinstruktioner.
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-[!INCLUDE [storage-quickstart-tutorial-create-account-portal](../../../includes/storage-quickstart-tutorial-create-account-portal.md)]
+[!INCLUDE [storage-create-account-portal-include](../../../includes/storage-create-account-portal-include.md)]
 
 ## <a name="download-the-sample-application"></a>Hämta exempelprogrammet
 [Exempelprogrammet](https://github.com/Azure-Samples/storage-blobs-go-quickstart.git) som används i den här snabbstarten är ett enkelt Go-program.  

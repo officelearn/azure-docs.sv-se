@@ -1,43 +1,45 @@
 ---
-title: Python-Snabbstart för Azure Cognitive Services och Microsoft Translator-API för Talöversättning | Microsoft Docs
-description: Hämta information och exempel på kod som hjälper dig att snabbt komma igång med Microsoft Translator Speech API i Microsoft Cognitive Services på Azure.
+title: 'Snabbstart: Translator Speech API Python'
+titlesuffix: Azure Cognitive Services
+description: Hämta information och kodexempel som hjälper dig att snabbt komma igång med Translator Speech API.
 services: cognitive-services
-documentationcenter: ''
 author: v-jaswel
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-speech
-ms.topic: article
+ms.topic: quickstart
 ms.date: 07/17/2018
 ms.author: v-jaswel
-ms.openlocfilehash: a24ccd456df533542e7cbd2315fc1050cd82afbf
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
-ms.translationtype: MT
+ROBOTS: NOINDEX
+ms.openlocfilehash: 601e8473482cf6d90151b221309aef4d48d368d0
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "41987462"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46979023"
 ---
-# <a name="quickstart-for-microsoft-translator-speech-api-with-python"></a>Snabbstart för Microsoft Translator Speech API med Python 
+# <a name="quickstart-translator-speech-api-with-python"></a>Snabbstart: Translator Speech API med Python
 <a name="HOLTop"></a>
 
-Den här artikeln visar hur du använder Microsoft Translator Speech API för att översätta ord som sägs i en WAV-fil.
+Den här artikeln visar hur du använder Translator Speech API för att översätta ord som sägs i en .wav-fil.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
-Du behöver [Python 3.x](https://www.python.org/downloads/) att köra den här koden.
+Du behöver [Python 3.x](https://www.python.org/downloads/) för att köra koden.
 
-Du måste installera den [websocket-client-paketet](https://pypi.python.org/pypi/websocket-client) för Python.
+Du måste installera [websocket-client-paketet](https://pypi.python.org/pypi/websocket-client) för Python.
 
-Du behöver en WAV-fil med namnet ”speak.wav” i samma mapp som den körbara filen som du kompilera från koden nedan. Den här .wav-filen ska vara i standard PCM, 16-bitars, 16kHz mono format. 
+Du behöver ha en WAV-fil med namnet ”speak.wav” i samma mapp som den körbara filen som du kompilerar från koden nedan. Den här .wav-filen ska vara i 16-bitars, 16 kHz PCM-standardformat. 
 
-Du måste ha en [Cognitive Services API-konto](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) med **Microsoft Translator Speech API**. Du behöver en betald prenumerationsnyckel från din [Azure-instrumentpanelen](https://portal.azure.com/#create/Microsoft.CognitiveServices).
+Du behöver ett [Cognitive Services API-konto](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) med **Microsoft Translator Speech API**. Du behöver prenumerationsnyckeln för en betalprenumeration från din [Azure-instrumentpanel](https://portal.azure.com/#create/Microsoft.CognitiveServices).
 
 ## <a name="translate-speech"></a>Översätt tal
 
 Följande kod omvandlar tal från ett språk till ett annat.
 
-1. Skapa ett nytt Python-projekt i din favorit-IDE.
+1. Skapa ett nytt Python-projekt i valfri IDE.
 2. Lägg till koden nedan.
-3. Ersätt den `key` värde med en giltig åtkomstnyckel för din prenumeration.
+3. Ersätt värdet `key` med en giltig åtkomstnyckel för din prenumeration.
 4. Kör programmet.
 
 ```python
@@ -118,18 +120,18 @@ print ("Connecting...")
 client.run_forever()
 ```
 
-**Omvandla tal svar**
+**Talöversättningssvar**
 
-En lyckad resultatet är att skapa en fil med namnet ”speak2.wav”. Filen innehåller översättningen av ord som sägs i ”speak.wav”.
+Om du lyckas skapas en fil med namnet ”speak2.wav”. Filen innehåller översättningen av ord som sägs i ”speak.wav”.
 
 [Överst på sidan](#HOLTop)
 
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Translator Speech självstudien](../tutorial-translator-speech-csharp.md)
+> [Translator Speech-självstudie](../tutorial-translator-speech-csharp.md)
 
-## <a name="see-also"></a>Se också 
+## <a name="see-also"></a>Se även 
 
-[Översikt över Translator Speech](../overview.md)
+[Translator Speech-översikt](../overview.md)
 [API-referens](https://docs.microsoft.com/azure/cognitive-services/translator-speech/reference)

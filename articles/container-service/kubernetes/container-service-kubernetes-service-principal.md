@@ -9,12 +9,12 @@ ms.topic: get-started-article
 ms.date: 02/26/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: efedb7cde06ed03ec330027a18b00bcc897919cf
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: e3e3a981daf1273b8b2387cb1c665317f860b1d2
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39576927"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46974875"
 ---
 # <a name="set-up-an-azure-ad-service-principal-for-a-kubernetes-cluster-in-container-service"></a>Konfigurera ett Azure AD-tjänstobjekt för ett Kubernetes-kluster i Container Service
 
@@ -23,7 +23,7 @@ ms.locfileid: "39576927"
 I Azure Container Service kräver ett Kubernetes-kluster ett [Azure Active Directory-tjänstobjekt](../../active-directory/develop/app-objects-and-service-principals.md) för att kunna interagera med Azure-API:er. Tjänstens huvudnamn krävs för att dynamiskt hantera resurser som [användardefinierade vägar](../../virtual-network/virtual-networks-udr-overview.md) och [lager 4 för Azure Load Balancer](../../load-balancer/load-balancer-overview.md).
 
 
-Den här artikeln beskriver hur du konfigurerar ett tjänstobjekt för ett Kubernetes-kluster på olika sätt. Om du till exempel har installerat och konfigurerat [Azure CLI 2.0](/cli/azure/install-az-cli2) kan du köra kommandot [`az acs create`](/cli/azure/acs#az-acs-create) för att skapa Kubernetes-klustret och tjänstobjektet samtidigt.
+Den här artikeln beskriver hur du konfigurerar ett tjänstobjekt för ett Kubernetes-kluster på olika sätt. Om du till exempel har installerat och konfigurerat [Azure CLI](/cli/azure/install-az-cli2) så kan du köra kommandot [`az acs create`](/cli/azure/acs#az_acs_create) för att skapa Kubernetes-klustret och huvudkontot samtidigt.
 
 
 ## <a name="requirements-for-the-service-principal"></a>Krav för tjänstens huvudnamn
@@ -44,7 +44,7 @@ Du kan använda ett befintligt Azure AD-tjänstobjekt som uppfyller kraven nedan
 
 Om du vill skapa ett Azure AD-tjänstobjekt innan du distribuerar Kubernetes-klustret kan du välja mellan flera metoder i Azure.
 
-Kommandona i följande exempel visar hur du gör detta med [Azure CLI 2.0](../../azure-resource-manager/resource-group-authenticate-service-principal-cli.md). Du kan också skapa ett tjänstobjekt med [Azure PowerShell](../../azure-resource-manager/resource-group-authenticate-service-principal.md), [portalen](../../azure-resource-manager/resource-group-create-service-principal-portal.md) eller andra metoder.
+Följande exempelkommandon visar hur du gör detta med [Azure CLI](../../azure-resource-manager/resource-group-authenticate-service-principal-cli.md). Du kan också skapa ett tjänstobjekt med [Azure PowerShell](../../azure-resource-manager/resource-group-authenticate-service-principal.md), [portalen](../../azure-resource-manager/resource-group-create-service-principal-portal.md) eller andra metoder.
 
 ```azurecli
 az login
@@ -67,13 +67,13 @@ De **klient-ID** (`appId`) och **klienthemligheten** (`password`) som du använd
 
 Ange **klient-ID:t** (kallas även `appId`, dvs. program-ID) och **klienthemligheten** (`password`) för ett befintligt tjänstobjekt som parametrar när du skapar Kubernetes-klustret. Kontrollera att tjänstobjektet uppfyller kraven som anges i början av den här artikeln.
 
-Du kan ange dessa parametrar när du distribuerar Kubernetes-klustret med hjälp av [Azure Command-Line Interface (CLI) 2.0](container-service-kubernetes-walkthrough.md), [Azure Portal](../dcos-swarm/container-service-deployment.md) eller andra metoder.
+Du kan ange dessa parametrar när du distribuerar Kubernetes-klustret med hjälp av [Azure-kommandoradsgränssnittet (CLI)](container-service-kubernetes-walkthrough.md), [Azure Portal](../dcos-swarm/container-service-deployment.md) eller andra metoder.
 
 >[!TIP]
 >När du anger **klient-ID**, måste du använda `appId`, och inte `ObjectId`, av huvudnamnet för tjänsten.
 >
 
-Följande exempel beskriver ett sätt att överföra parametrarna med Azure CLI 2.0. I det här exemplet används [mallen Kubernetes-snabbstart](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-kubernetes).
+Följande exempel beskriver ett sätt att överföra parametrarna med Azure CLI. I det här exemplet används [mallen Kubernetes-snabbstart](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-kubernetes).
 
 1. [Hämta](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-acs-kubernetes/azuredeploy.parameters.json) filen med mallparametrar `azuredeploy.parameters.json` från GitHub.
 
@@ -167,7 +167,6 @@ Uppdatera sedan `/etc/kubernetes/azure.json` med de nya autentiseringsuppgiftern
 
 ## <a name="next-steps"></a>Nästa steg
 
-* 
-  [Kom igång med Kubernetes](container-service-kubernetes-walkthrough.md) i containern för tjänsteklustret.
+* [Kom igång med Kubernetes](container-service-kubernetes-walkthrough.md) i containern för tjänsteklustret.
 
 * Information om hur du felsöker tjänstobjektet för Kubernetes finns i [ACS Engine-dokumentationen](https://github.com/Azure/acs-engine/blob/master/docs/kubernetes.md#troubleshooting).

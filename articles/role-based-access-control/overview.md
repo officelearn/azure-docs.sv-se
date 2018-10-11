@@ -11,15 +11,15 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 08/07/2018
+ms.date: 09/24/2018
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: d0d140a1656719b406567fee431d8e48a51852c5
-ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
+ms.openlocfilehash: 37498394bc163852d397337cf5728b4941ae45a7
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39714459"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46956514"
 ---
 # <a name="what-is-role-based-access-control-rbac"></a>Vad är rollbaserad åtkomstkontroll (Role-based access control, RBAC)?
 
@@ -89,7 +89,7 @@ När du beviljar åtkomst i ett överordnat omfång ärvs dessa behörigheter av
 - Om du tilldelar rollen [Läsare](built-in-roles.md#reader) till en grupp i prenumerationsomfånget kan medlemmarna i den gruppen visa alla resursgrupper och resurser i prenumerationen.
 - Om du tilldelar rollen [Deltagare](built-in-roles.md#contributor) till ett program i resursgruppomfånget kan den hantera resurser av alla typer i den resursgruppen, men inte i andra resursgrupper i prenumerationen.
 
-### <a name="role-assignment"></a>Rolltilldelning
+### <a name="role-assignments"></a>Rolltilldelningar
 
 En *rolltilldelning* är processen att binda en rolldefinition till en användare, grupp eller tjänstens huvudnamn i ett visst omfång för att bevilja åtkomst. Åtkomst beviljas genom att en rolltilldelning skapas, och åtkomst återkallas genom att en rolltilldelning tas bort.
 
@@ -98,6 +98,32 @@ Följande diagram visar ett exempel på en rolltilldelning. I det här exemplet 
 ![Rolltilldelning för att kontrollera åtkomst](./media/overview/rbac-overview.png)
 
 Du kan skapa rolltilldelningar med hjälp av Azure-portalen, Azure CLI, Azure PowerShell, Azure-SDK:er eller REST-API:er. Du kan ha upp till 2 000 rolltilldelningar i varje prenumeration. För att kunna skapa och ta bort rolltilldelningar behöver du ha `Microsoft.Authorization/roleAssignments/*`-behörighet. Den här behörigheten beviljas via rollerna [Ägare](built-in-roles.md#owner) eller [Administratör för användaråtkomst](built-in-roles.md#user-access-administrator).
+
+## <a name="deny-assignments"></a>Avvisa tilldelning
+
+Tidigare var RBAC en tillåt endast-modell med inga nekanden, men nu har RBAC stöd för tilldelningsnekanden begränsad utsträckning. På samma sätt som en rolltilldelning binder ett *tilldelningsnekande* en uppsättning nekandeåtgärder till en användare, grupp eller tjänstens huvudnamn i ett visst omfång för att neka åtkomst. En rolltilldelning definierar en uppsättning åtgärder som är *tillåtna*, medan ett tilldelningsnekande definierar en uppsättning åtgärder som *inte tillåtna*. Med andra ord blockerar tilldelningsnekanden användare från att utföra angivna åtgärder, även om en rolltilldelning ger dem åtkomst. Tilldelningsnekanden åsidosätter rolltilldelningar.
+
+För närvarande är tilldelningsnekanden **skrivskyddade** och kan bara ställas in av Azure. Även om det går inte att skapa egna tilldelningsnekanden kan du lista tilldelningsnekanden eftersom de kan påverka din gällande behörigheter. Om du vill hämta information om tilldelningsnekande måste du ha `Microsoft.Authorization/denyAssignments/read`-behörighet, vilket ingår i de flesta [inbyggda roller](built-in-roles.md#owner). Mer information finns i [Förstå tilldelningsnekanden](deny-assignments.md).
+
+## <a name="how-rbac-determines-if-a-user-has-access-to-a-resource"></a>Hur RBAC avgör om en användare har åtkomst till en resurs
+
+Följande är de övergripande stegen som RBAC använder för att avgöra om du har åtkomst till en resurs på hanteringsplanet. Det här är bra att förstå om du vill felsöka ett problem med åtkomst.
+
+1. En användare (eller tjänstens huvudnamn) hämtar en token för Azure Resource Manager.
+
+    Token innehåller användarens gruppmedlemskap (inklusive transitiva gruppmedlemskap).
+
+1. Användaren gör ett REST API-anrop till Azure Resource Manager med den token som är ansluten.
+
+1. Azure Resource Manager hämtar alla rolltilldelningar och avvisar tilldelningar som tillämpas på resursen som åtgärden som utförs på.
+
+1. Azure Resource Manager begränsar rolltilldelningarna som gäller för den här användaren eller gruppen och avgör vilka roller som användaren har för den här resursen.
+
+1. Azure Resource Manager anger om åtgärden i API-anropet ingår i de roller som användaren har för den här resursen.
+
+1. Om användaren inte har någon roll med åtgärden i det begärda omfånget beviljas inte åtkomst. I annat fall kontrollerar Azure Resource Manager om det gäller ett tilldelningsnekande.
+
+1. Om det gäller ett tilldelningsnekanden blockeras åtkomsten. Annars beviljas åtkomst.
 
 ## <a name="next-steps"></a>Nästa steg
 

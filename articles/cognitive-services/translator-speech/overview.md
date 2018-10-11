@@ -1,68 +1,69 @@
 ---
-title: Tal översättning API-dokumentationen | Microsoft Docs
-titleSuffix: Cognitive Services
-description: Använd Microsoft översättare tal översättning API för att lägga till tal tal och tal text översättning till dina program.
+title: Vad är Translator Speech-tjänsten?
+titleSuffix: Azure Cognitive Services
+description: Använd tjänsten Translator Speech API för att lägga till tal till tal- och tal till text-översättning till dina program.
 services: cognitive-services
 author: Jann-Skotdal
-manager: chriswendt1
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-speech
-ms.topic: article
+ms.topic: overview
 ms.date: 3/5/2018
 ms.author: v-jansko
-ms.openlocfilehash: 15f27e6b5b2fd7384958a660156855fc65f4e558
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
-ms.translationtype: MT
+ROBOTS: NOINDEX
+ms.openlocfilehash: fd974d153e9db48b25c1b732b9719c21b16b5e01
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35352431"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46948782"
 ---
-# <a name="microsoft-translator-speech-api"></a>Microsoft Translator-API för talöversättning
-Microsoft översättare tal-API kan användas för att lägga till slutpunkt till slutpunkt, realtid, tal översättningar till program, verktyg eller en lösning som flerspråkig tal översättning oavsett måloperativsystem eller programmeringsspråk. API: et kan användas för både tal tal och tal översättning av text.
+# <a name="what-is-translator-speech-api"></a>Vad är Translator Speech API?
+Translator Speech API kan användas för att lägga till talöversättning, heltäckande och i realtid, program, verktyg och lösningar som kräver talöversättning på flera språk oberoende av måloperativsystem och utvecklingsspråk. API:et kan användas för både tal till tal- och tal till text-översättning.
 
-Microsoft översättare Text API är en Azure-tjänst, en del av den [Microsoft kognitiva Services API-samlingen](https://docs.microsoft.com/azure/#pivot=products&panel=cognitive) av machine learning och AI algoritmer i molnet, lätt att använda i din utvecklingsprojekt.
+Translator Text API är en del av Microsofts [Azure Cognitive Services-API-samling](https://docs.microsoft.com/azure/#pivot=products&panel=cognitive). Det här är en samling algoritmer för maskininlärning och AI i molnet som är enkla att använda i utvecklingsprojekt.
 
-Med Microsoft översättare tal-API klientprogram strömma tal ljud till tjänsten och få tillbaka en dataström med text - och ljud-baserade resultat, bland annat den tolkade texten i käll-språk och dess översättning på språket som mål. Textresultat produceras genom att använda automatisk Speech Recognition (ASR) tillhandahålls av djupa neurala nätverk till inkommande ljudström. Rådata ASR utdata ytterligare förbättras av en ny teknik som kallas Sanntext för att återspegla närmare användaravsikt. Till exempel Sanntext tar bort disfluencies (hmms och coughs), upprepade ord och återställer rätt skiljetecken och versaler. Möjligheten att maskera med eller undanta profanities ingår också. Redovisning och översättning motorer är särskilt utbildade för att hantera vardagliga samtalsuttryck tal. 
+Med Translator Speech API kan klientprogram strömma talat ljud till tjänsten och få tillbaka en dataström med text- och ljudbaserade resultat, som inkluderar den tolkade texten på källspråket och en översättning som visas på målspråket. Textresultatet produceras genom automatisk taligenkänning (ASR) som drivs av djupa neurala nätverk för den inkommande ljudströmmen. ASR-råutdata förbättras ytterligare av en ny teknik som kallas TrueText som återspeglar användaravsikten närmare. Till exempel tar TrueText bort avbrott (hummanden och hostningar), upprepade ord och återställer till rätt användning av interpunktion och versaler. Möjligheten att maskera eller undanta svordomar ingår också. Igenkänningsmotorn och översättningsmotorn är särskilt tränade för att hantera samtal. 
 
-Tjänsten tal översättning använder identifiering av tystnad för att avgöra i slutet av en utterance. Efter en paus i röst aktivitet direktuppspelas tjänsten tillbaka ett slutresultat för slutförda utterance. Tjänsten kan också skicka tillbaka ofullständiga resultat som ger mellanliggande erkännanden och översättningar för en utterance pågår. 
+Translator Speech-tjänsten använder identifiering av tystnad för att avgöra slutet av ett påstående. Efter en paus i röstaktiviteten återger tjänsten ett slutresultat för slutförda påståenden. Tjänsten kan också skicka tillbaka ofullständiga resultat, som ger mellanliggande igenkänningar och översättningar av ett pågående påstående. 
 
-För taligenkänning tal översättning möjligheten tjänsten att syntetisera tal (text till tal) från talade texten i språk som mål. Text till tal-ljud har skapats i det format som anges av klienten. WAV och MP3 format är tillgängliga.
+För tal till tal-översättning ger tjänsten möjlighet att syntetisera tal (text till tal) från talad text på målspråket. Text till tal-ljud skapas i det format som anges av klienten. WAV- och MP3-format är tillgängliga.
 
-Tal översättning API använder WebSocket-protokollet för att tillhandahålla en full duplex kommunikationskanalen mellan klienten och servern. 
+Translator Speech API använder WebSocket-protokoll för att tillhandahålla en full duplex-kommunikationskanal mellan klienten och servern. 
 
 ## <a name="about-microsoft-translator"></a>Om Microsoft Translator
-Microsoft Translator är en molnbaserad maskinöversättning-tjänst. Är kärnan i den här tjänsten [översättare Text API] (https://www.microsoft.com/en-us/translator/translatorapi.aspx) och översättare Speech API power olika Microsoft-produkter och tjänster som används av tusentals företag över hela världen i sina program och arbetsflöden, så att deras innehåll till nå en global publik.
+Microsoft Translator är en molnbaserad maskinöversättningstjänst. Kärnan i tjänsten är [Translator Text API] och (https://www.microsoft.com/en-us/translator/translatorapi.aspx)Translator Speech API. De finns i olika Microsoft-produkter och tjänster och används av tusentals företag över hela världen i program och arbetsflöden i syfte att nå en världsomspännande publik.
 
-Lär dig mer om den [tjänsten Microsoft Translator](https://www.microsoft.com/en-us/translator/home.aspx)
+Läs mer om [Microsoft Translator-tjänsten](https://www.microsoft.com/en-us/translator/home.aspx)
 
-## <a name="microsoft-translator-neural-machine-translation-nmt"></a>Microsoft Translator Neural maskinöversättning (NMT)
-Microsoft översättare tal-API används både äldre statistiska maskinöversättning (SMT) och nyare neural maskinöversättning (NMT) för att tillhandahålla översättningar.
+## <a name="microsoft-translator-neural-machine-translation-nmt"></a>Neural maskinöversättning med Microsoft Translator (NMT)
+Translator Speech API använder både äldre statistisk maskinöversättning (SMT) och nyare neural maskinöversättning (NMT) för att tillhandahålla översättningar.
 
-Statistisk maskinöversättning har nått en nivå vad gäller förbättring av prestanda. Översättningen inte längre förbättra alls betydande för allmän system med SMT. En ny teknik för AI-baserade översättning har blivit momentum baserat på Neurala nätverk (NN).
+Statistisk maskinöversättning har nått en platå när det gäller förbättring av prestanda. Det går inte längre att förbättra översättningskvaliteten på något bra sätt för allmänna system med SMT. En ny teknik för AI-baserad översättning vinner mark baserat på neurala nätverk (NN).
 
-NMT ger bättre översättningar inte bara från en rå översättningen bedömningen synvinkel utan även eftersom låter mer flytande, mänsklig än SMT de. Viktiga orsaken till det här flytbarhet är att NMT använder fullständig kontexten för en mening för att översätta ord. SMT tar bara några ord omedelbar kontexten före och efter varje ord.
+Neural maskinöversättning ger bättre översättningar än den statistiska varianten. Den ger bättre överensstämmelse betydelsemässigt och låter dessutom mer mänsklig. Den viktigaste orsaken till det är att hela meningskontexten används när ord översätts. I den statistiska översättningen användes bara direkta samband med några få ord före och efter varje ord.
 
-NMT modeller är kärnan i API: et och är inte synliga för användare. Endast märkbar skillnaderna är:
-* Förbättrad översättningen, särskilt för språk, till exempel kinesiska, japanska och arabiska
-* Inkompatibilitet med befintliga hubb anpassningsfunktionerna (för användning med Microsoft översättare Text API)
+Neurala modeller är kärnan i API:et och visas inte för slutanvändaren. De enda märkbara skillnaderna är:
+* Förbättrad översättning, och särskilt för språk som arabiska, kinesiska och japanska
+* Inkompatibilitet med befintliga hubbanpassningsfunktioner (för användning med Microsoft Translator Text API)
 
-Alla språk som stöds tal översättning drivs av NMT. Därför använder alla tal tal översättning NMT. 
+Alla språk för talöversättning som stöds drivs av NMT. Därför använder all tal till tal-översättning NMT. 
 
-Tal text översättning kan använda en kombination av NMT och SMT beroende på språkparet. Om mål-språk stöds av NMT är fullständig översättningen NMT påslagen. Om mål-språk inte stöds av NMT, är översättningen en kombination av NMT och SMT använda engelska som ”pivot” mellan de två språk. 
+Tal till text-översättning kan använda en kombination av NMT och SMT beroende på språkparet. Om målspråket stöds av NMT är hela översättningen NMT-baserad. Om målspråket inte stöds av NMT är översättningen en kombination av NMT och SMT och använder engelska som en ”medelpunkt” mellan de två språken. 
 
 Visa stöds språk på [Microsoft.com](https://www.microsoft.com/en-us/translator/languages.aspx). 
 
-Lär dig mer om [hur NMT fungerar](https://www.microsoft.com/en-us/translator/mt.aspx#nnt)
+Läs mer om [hur neural maskinöversättning fungerar](https://www.microsoft.com/en-us/translator/mt.aspx#nnt)
 
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Registrera sig](translator-speech-how-to-signup.md)
+> [Registrera dig](translator-speech-how-to-signup.md)
 
 > [!div class="nextstepaction"]
 > [Börja koda](quickstarts/csharp.md)
 
-## <a name="see-also"></a>Se också
-- [Kognitiva dokumentationssidan för tjänster](https://docs.microsoft.com/azure/#pivot=products&panel=cognitive)
-- [Kognitiva produktsidan för tjänster](https://azure.microsoft.com/services/cognitive-services/)
-- [Lösningen och information om priser](https://www.microsoft.com/en-us/translator/home.aspx) 
+## <a name="see-also"></a>Se även
+- [Dokumentationssida om Cognitive Services](https://docs.microsoft.com/azure/#pivot=products&panel=cognitive)
+- [Produktsida om Cognitive Services](https://azure.microsoft.com/services/cognitive-services/)
+- [Information om lösningar och prissättning](https://www.microsoft.com/en-us/translator/home.aspx) 

@@ -1,6 +1,6 @@
 ---
-title: Självstudie – skapa och använd diskar för skalningsuppsättningar med Azure CLI 2.0 | Microsoft Docs
-description: Läs hur du använder Azure CLI 2.0 för att skapa och använda hanterade diskar med en VM-skalningsuppsättning, inklusive hur du lägger till, förbereder, listar och kopplar från diskarna.
+title: Självstudie – Skapa och använd diskar för skalningsuppsättningar med Azure CLI | Microsoft Docs
+description: Läs om hur du använder Azure CLI för att skapa och använda hanterade diskar med en VM-skalningsuppsättning, inklusive hur du lägger till, förbereder, listar och kopplar från diskarna.
 services: virtual-machine-scale-sets
 documentationcenter: ''
 author: cynthn
@@ -16,14 +16,14 @@ ms.topic: tutorial
 ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 3c34ebda3700bb34952fb067bc965069004aee75
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: ae26e851e60f654a502779fe2a8b41e13dc47915
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38719487"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46993637"
 ---
-# <a name="tutorial-create-and-use-disks-with-virtual-machine-scale-set-with-the-azure-cli-20"></a>Självstudie: Skapa och använd diskar med en VM-skalningsuppsättning med Azure CLI 2.0
+# <a name="tutorial-create-and-use-disks-with-virtual-machine-scale-set-with-the-azure-cli"></a>Självstudie: Skapa och använd diskar med en VM-skalningsuppsättning med Azure CLI
 VM-skalningsuppsättningar använder diskar för att lagra den virtuella datorinstansens operativsystem, program och data. När du skapar och hanterar en skalningsuppsättning, är det viktigt att välja en diskstorlek och konfiguration som lämpar sig för den förväntade arbetsbelastningen. Den här självstudien beskriver hur du skapar och hanterar virtuella datordiskar. I den här självstudiekursen får du lära du dig att:
 
 > [!div class="checklist"]
@@ -37,7 +37,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Om du väljer att installera och använda CLI lokalt, måste du köra Azure CLI version 2.0.29 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI 2.0]( /cli/azure/install-azure-cli).
+Om du väljer att installera och använda CLI lokalt, måste du köra Azure CLI version 2.0.29 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI]( /cli/azure/install-azure-cli).
 
 
 ## <a name="default-azure-disks"></a>Azure-standarddiskar
@@ -298,7 +298,7 @@ az group delete --name myResourceGroup --no-wait --yes
 
 
 ## <a name="next-steps"></a>Nästa steg
-I den här självstudien fick du läsa om hur du skapar och använder diskar med skalningsuppsättningar med Azure CLI 2.0:
+I den här självstudien har du fått lära dig hur du skapar och använder diskar med skalningsuppsättningar med Azure CLI:
 
 > [!div class="checklist"]
 > * OS-diskar och temporära diskar

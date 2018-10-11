@@ -1,6 +1,6 @@
 ---
 title: Självstudier – Skapa en VM-skalningsuppsättning för Linux i Azure | Microsoft Docs
-description: I den här självstudiekursen lär du dig hur du använder Azure CLI 2.0 för att skapa och distribuera ett program med hög tillgänglighet på virtuella Linux-datorer med hjälp av en skalningsuppsättning för virtuella datorer
+description: I den här självstudien lär du dig hur du använder Azure CLI för att skapa och distribuera ett program med hög tillgänglighet på virtuella Linux-datorer med hjälp av en skalningsuppsättning för virtuella datorer
 services: virtual-machine-scale-sets
 documentationcenter: ''
 author: cynthn
@@ -16,14 +16,14 @@ ms.topic: tutorial
 ms.date: 06/01/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: b8e25934dfd1bfa9d94d3452044443e7a5002534
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.openlocfilehash: e3354abb400530bc5aa18288408b1052cd3575c4
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37932678"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46992243"
 ---
-# <a name="tutorial-create-a-virtual-machine-scale-set-and-deploy-a-highly-available-app-on-linux-with-the-azure-cli-20"></a>Självstudier: Skapa en VM-skalningsuppsättning och distribuera en app med hög tillgänglighet i Linux med Azure CLI 2.0
+# <a name="tutorial-create-a-virtual-machine-scale-set-and-deploy-a-highly-available-app-on-linux-with-the-azure-cli"></a>Självstudie: Skapa en VM-skalningsuppsättning och distribuera en app med hög tillgänglighet i Linux med Azure CLI
 
 Med en VM-skalningsuppsättning kan du distribuera och hantera en uppsättning identiska, virtuella datorer med automatisk skalning. Du kan skala antalet virtuella datorer i skalningsuppsättningen manuellt eller definiera regler för automatisk skalning baserat på resursanvändning, till exempel CPU, minneskrav eller nätverkstrafik. I självstudien distribuerar du en VM-skalningsuppsättning i Azure. Lär dig att:
 
@@ -37,7 +37,7 @@ Med en VM-skalningsuppsättning kan du distribuera och hantera en uppsättning i
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Om du väljer att installera och använda CLI lokalt krävs Azure CLI version 2.0.30 eller senare för att du ska kunna genomföra den här självstudiekursen. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI 2.0]( /cli/azure/install-azure-cli).
+Om du väljer att installera och använda CLI lokalt krävs Azure CLI version 2.0.30 eller senare för att du ska kunna genomföra den här självstudiekursen. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI]( /cli/azure/install-azure-cli).
 
 ## <a name="scale-set-overview"></a>Översikt över skalningsuppsättning
 Med en VM-skalningsuppsättning kan du distribuera och hantera en uppsättning identiska, virtuella datorer med automatisk skalning. Virtuella datorer i en skalningsuppsättning är distribuerade över logiska fel- och uppdateringsdomäner i en eller flera *placeringsgrupper*. Detta är grupper med virtuella datorer som har en liknande konfiguration, vilket liknar [tillgänglighetsuppsättningar](tutorial-availability-sets.md).
@@ -121,7 +121,7 @@ Det tar några minuter att skapa och konfigurera alla skalningsuppsättningsresu
 
 
 ## <a name="allow-web-traffic"></a>Tillåt webbtrafik
-En belastningsutjämnare har skapats automatiskt som en del av den virtuella datorns skalningsuppsättning. Belastningsutjämnaren distribuerar trafik över en uppsättning definierade virtuella datorer med hjälp av regler för belastningsutjämnaren. Du kan lära dig mer om belastningsutjämnarens koncept och konfiguration i nästa självstudie [Så här utjämnar du belastningen för virtuella datorer i Azure](tutorial-load-balancer.md).
+En lastbalanserare har skapats automatiskt som en del av den virtuella datorns skalningsuppsättning. Lastbalanseraren distribuerar trafik över en uppsättning definierade virtuella datorer med hjälp av regler för lastbalanseraren. Du kan lära dig mer om lastbalanserarens koncept och konfiguration i nästa självstudie [Så här lastbalanserar du virtuella datorer i Azure](tutorial-load-balancer.md).
 
 Skapa en regel med [az network lb rule create](/cli/azure/network/lb/rule#az-network-lb-rule-create) för att tillåta trafik till webbappen. I följande exempel skapas en regel med namnet *myLoadBalancerRuleWeb*:
 
@@ -138,7 +138,7 @@ az network lb rule create \
 ```
 
 ## <a name="test-your-app"></a>Testa din app
-Om du vill se Node.js-appen hämtar du den offentliga IP-adressen för belastningsutjämnaren med [az network public-ip show](/cli/azure/network/public-ip#az-network-public-ip-show). I följande exempel hämtas IP-adressen för *myScaleSetLBPublicIP* som skapas som en del av skalningsuppsättningen:
+Om du vill se Node.js-appen hämtar du den offentliga IP-adressen för lastbalanseraren med [az network public-ip show](/cli/azure/network/public-ip#az-network-public-ip-show). I följande exempel hämtas IP-adressen för *myScaleSetLBPublicIP* som skapas som en del av skalningsuppsättningen:
 
 ```azurecli-interactive
 az network public-ip show \
@@ -148,15 +148,15 @@ az network public-ip show \
     --output tsv
 ```
 
-Ange den offentliga IP-adressen i en webbläsare. Programmet visas med värddatornamnet för den virtuella dator som belastningsutjämnaren distribuerade trafik till:
+Ange den offentliga IP-adressen i en webbläsare. Programmet visas med värddatornamnet för den virtuella dator som lastbalanseraren distribuerade trafik till:
 
 ![Köra Node.js-app](./media/tutorial-create-vmss/running-nodejs-app.png)
 
-Om du vill se när skalningsuppsättningen används kan du framtvinga en uppdatering av webbläsaren. Då visas hur belastningsutjämnaren distribuerar trafik över alla virtuella datorer som kör programmet.
+Om du vill se när skalningsuppsättningen används kan du framtvinga en uppdatering av webbläsaren. Då visas hur lastbalanseraren distribuerar trafik över alla virtuella datorer som kör programmet.
 
 
 ## <a name="management-tasks"></a>Administrativa uppgifter
-Du kan behöva köra en eller flera administrativa uppgifter i hela livscykeln för skalningsuppsättningen. Dessutom kanske du vill skapa skript som automatiserar olika livscykeluppgifter. Azure CLI 2.0 innehåller ett snabbt sätt att utföra dessa uppgifter på. Här följer några vanliga uppgifter.
+Du kan behöva köra en eller flera administrativa uppgifter i hela livscykeln för skalningsuppsättningen. Dessutom kanske du vill skapa skript som automatiserar olika livscykeluppgifter. Azure CLI ger dig ett snabbt sätt att utföra de här uppgifterna. Här följer några vanliga uppgifter.
 
 ### <a name="view-vms-in-a-scale-set"></a>Visa virtuella datorer i en skalningsuppsättning
 Du kan visa en lista med de virtuella datorer som körs i din skalningsuppsättning med hjälp av [az vmss list-instances](/cli/azure/vmss#az-vmss-list-instances) på följande sätt:

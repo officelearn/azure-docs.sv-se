@@ -234,8 +234,9 @@ items:
         - name: Felsöka Linux-agent för Logs
           href: ../log-analytics/log-analytics-agent-linux-support.md?toc=/azure/azure-monitor/toc.json
     - name: Agentdatakällor
-      href: ../log-analytics/log-analytics-data-sources.md?toc=/azure/azure-monitor/toc.json
       items:
+      - name: Översikt
+        href: ../log-analytics/log-analytics-data-sources.md?toc=/azure/azure-monitor/toc.json
       - name: Windows-händelser
         href: ../log-analytics/log-analytics-data-sources-windows-events.md?toc=/azure/azure-monitor/toc.json
       - name: Anpassade JSON-data
@@ -670,10 +671,12 @@ items:
           href: ../log-analytics/query-language/sql-cheatsheet.md?toc=/azure/azure-monitor/toc.json
         - name: Splunk
           href: ../log-analytics/query-language/splunk-cheatsheet.md?toc=/azure/azure-monitor/toc.json
-      - name: Språkreferens
+      - name: Frågespråk
         items:
         - name: Språkreferens
-          href: ../log-analytics/query-language/kusto.md
+          href: ../log-analytics/query-language/kusto.md?toc=/azure/azure-monitor/toc.json
+        - name: Exempel
+          href: ../log-analytics/query-language/examples.md?toc=/azure/azure-monitor/toc.json
         - name: uttryck för app
           href: ../log-analytics/query-language/app-expression.md?toc=/azure/azure-monitor/toc.json
         - name: uttryck för arbetsyta
@@ -983,9 +986,9 @@ items:
     href: https://stackoverflow.com/search?q=monitoring
   - name: Kodexempel
     href: https://azure.microsoft.com/resources/samples/?service=monitor
-ms.openlocfilehash: d34f0051e05ed01535d57786f74208d611bf64d3
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: ac610e912e0d1cc8cbf7f8b5ff63f58ce650f599
+ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48884268"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49079366"

@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: da4f06ff4e1478043bc147c2c08083e118bccbe4
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 4532355130fff987e25c5c804630fb6bdd7699df
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38723127"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46959843"
 ---
 # <a name="tutorial-automatically-scale-a-virtual-machine-scale-set-with-an-azure-template"></a>Självstudie: Skala en VM-skalningsuppsättning automatiskt med en Azure-mall
 När du skapar en skalningsuppsättning, definierar du antalet virtuella datorinstanser som du vill köra. När ditt program behöver ändras, kan du automatiskt öka eller minska antalet virtuella datorinstanser. Möjligheten att skala automatiskt låter dig hålla dig uppdaterad med kundernas behov eller svara på ändringar i programprestandan under hela livscykeln för din app. I den här självstudiekursen får du lära du dig att:
@@ -36,7 +36,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Om du väljer att installera och använda CLI lokalt, måste du köra Azure CLI version 2.0.29 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI 2.0]( /cli/azure/install-azure-cli). 
+Om du väljer att installera och använda CLI lokalt, måste du köra Azure CLI version 2.0.29 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI]( /cli/azure/install-azure-cli). 
 
 
 ## <a name="define-an-autoscale-profile"></a>Definiera en autoskalningsprofil
@@ -65,7 +65,7 @@ Du definierar en profil för automatisk skalning i en Azure-mall med resursprovi
 
 
 ## <a name="define-a-rule-to-autoscale-out"></a>Definiera en regel för att automatiskt skala ut
-Om dina programkrav ökar, ökar även belastningen på de virtuella datorinstanserna i din skalningsuppsättning. Om den här ökade belastningen är konsekvent istället för bara en kortsiktig efterfrågan, kan du konfigurera regler för automatisk skalning för att öka antalet virtuella datorinstanser i skalningsuppsättningen. När dessa virtuella datorinstanser skapas och dina program distribueras, börjar skalningsuppsättningen att distribuera trafik till dem via belastningsutjämnaren. Du kan styra vilka mått som ska övervakas, som CPU eller disk, hur länge programbelastningen måste uppfylla ett visst tröskelvärde och hur många virtuella datorinstanser som ska läggas till skalningsuppsättningen.
+Om dina programkrav ökar, ökar även belastningen på de virtuella datorinstanserna i din skalningsuppsättning. Om den här ökade belastningen är konsekvent istället för bara en kortsiktig efterfrågan, kan du konfigurera regler för automatisk skalning för att öka antalet virtuella datorinstanser i skalningsuppsättningen. När dessa virtuella datorinstanser skapas och dina program distribueras, börjar skalningsuppsättningen att distribuera trafik till dem via lastbalanseraren. Du kan styra vilka mått som ska övervakas, som CPU eller disk, hur länge programbelastningen måste uppfylla ett visst tröskelvärde och hur många virtuella datorinstanser som ska läggas till skalningsuppsättningen.
 
 I följande exempel, definieras en regel som ökar antalet virtuella datorinstanser i en skalningsuppsättning när den genomsnittliga CPU-belastningen är större än 70% över en 5 minutersperiod. När regeln utlöses, ökar antalet virtuella datorinstanser med tre.
 
@@ -172,7 +172,7 @@ az vmss list-instance-connection-info \
   --name myScaleSet
 ```
 
-Följande exempelutdata visar instansnamnet, den offentliga IP-adressen för belastningsutjämnaren och portnummer som NAT (Network Address Translation)-regler vidarebefordrar trafik till:
+Följande exempelutdata visar instansnamnet, den offentliga IP-adressen för lastbalanseraren och portnummer som NAT (Network Address Translation)-regler vidarebefordrar trafik till:
 
 ```json
 {
@@ -272,7 +272,7 @@ az group delete --name myResourceGroup --yes --no-wait
 
 
 ## <a name="next-steps"></a>Nästa steg
-I den här självstudien läste du om hur du automatiskt kan skala in eller ut en skalningsuppsättning med Azure CLI 2.0:
+I den här självstudien läste du om hur du automatiskt kan skala in eller ut en skalningsuppsättning med Azure CLI:
 
 > [!div class="checklist"]
 > * Använd automatisk skalning med en skalningsuppsättning
@@ -280,7 +280,7 @@ I den här självstudien läste du om hur du automatiskt kan skala in eller ut e
 > * Belastningstesta virtuella datorinstanser och utlös regler för automatisk skalning
 > * Skala tillbaka automatiskt när efterfrågan minskar
 
-Fler exempel på VM-skalningsuppsättningar i praktiken finns i följande exempelskript för Azure CLI 2.0:
+Fler exempel på VM-skalningsuppsättningar i praktiken finns i följande exempelskript för Azure CLI:
 
 > [!div class="nextstepaction"]
-> [Skriptexempel på skalningsuppsättningar för Azure CLI 2.0](cli-samples.md)
+> [Skriptexempel på skalningsuppsättningar för Azure CLI](cli-samples.md)

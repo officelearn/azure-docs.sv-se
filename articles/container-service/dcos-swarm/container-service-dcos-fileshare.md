@@ -1,6 +1,6 @@
 ---
-title: Filresurs för Azure DC/OS-klustret
-description: Skapa och montera en filresurs på en DC/OS-klustret i Azure Container Service
+title: Filresurs för Azure DC/OS-kluster
+description: Skapa och montera en filresurs till ett DC/OS-kluster i Azure Container Service
 services: container-service
 author: julienstroheker
 manager: dcaro
@@ -9,31 +9,31 @@ ms.topic: tutorial
 ms.date: 06/07/2017
 ms.author: juliens
 ms.custom: mvc
-ms.openlocfilehash: c1c318f4204efd24a2d9d3d83bb1cb71f5775bdb
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
+ms.openlocfilehash: 4e03a0b450c9806edfb81a867fba97052659ec44
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2017
-ms.locfileid: "26331210"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46973515"
 ---
-# <a name="create-and-mount-a-file-share-to-a-dcos-cluster"></a>Skapa och montera en filresurs på en DC/OS-klustret
+# <a name="create-and-mount-a-file-share-to-a-dcos-cluster"></a>Skapa och montera en filresurs till ett DC/OS-kluster
 
-Den här självstudiekursen beskrivs hur du skapar en filresurs i Azure och montera på varje agent och huvudserver för DC/OS-klustret. Skapa en filresurs gör det enklare att dela filer på ditt kluster som konfiguration, access, loggar och mycket mer. Följande åtgärder har utförts i den här självstudiekursen:
+Den här självstudien förklarar hur du skapar en filresurs i Azure och monterar den på varje agent och original av DC/OS-klustret. Om du konfigurerar en filresurs så blir det enklare att dela filer på ditt kluster, till exempel konfiguration, åtkomst, loggar och mycket mer. I den här självstudien slutför du följande uppgifter:
 
 > [!div class="checklist"]
 > * Skapa ett Azure-lagringskonto
 > * Skapa en filresurs
 > * Montera filresursen i DC/OS-klustret
 
-Du behöver en ACS DC/OS-klustret för att slutföra stegen i den här självstudiekursen. Om det behövs, [detta skriptexempel](./../kubernetes/scripts/container-service-cli-deploy-dcos.md) kan skapa en åt dig.
+Du behöver ett ACS DC/OS-klustret när du ska utföra stegen i den här självstudien. Om det behövs kan du skapa ett sådant med [detta skriptexempel](./../kubernetes/scripts/container-service-cli-deploy-dcos.md).
 
-För den här självstudien krävs Azure CLI-version 2.0.4 eller senare. Kör `az --version` för att hitta versionen. Om du behöver uppgradera kan du läsa [Installera Azure CLI 2.0]( /cli/azure/install-azure-cli). 
+För den här självstudien krävs Azure CLI-version 2.0.4 eller senare. Kör `az --version` för att hitta versionen. Om du behöver uppgradera kan du läsa [Installera Azure CLI]( /cli/azure/install-azure-cli). 
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
 ## <a name="create-a-file-share-on-microsoft-azure"></a>Skapa en filresurs på Microsoft Azure
 
-Storage-konto och filresursen måste skapas innan du använder en Azure-filresursen med en ACS DC/OS-klustret. Kör följande skript för att skapa lagring och filresursen. Uppdatera parametrar med thoes från din miljö.
+Innan du använder en Azure-filresurs med ett ACS DC/OS-kluster så måste du skapa lagringskontot och filresursen. Kör följande skript för att skapa lagrings- och filresursen. Uppdatera parametrarna med de från din miljö.
 
 ```azurecli-interactive
 # Change these four parameters
@@ -52,48 +52,48 @@ export AZURE_STORAGE_CONNECTION_STRING=`az storage account show-connection-strin
 az storage share create -n $DCOS_PERS_SHARE_NAME
 ```
 
-## <a name="mount-the-share-in-your-cluster"></a>Montera filresursen i klustret
+## <a name="mount-the-share-in-your-cluster"></a>Montera resursen i ditt kluster
 
-Därefter måste filresursen vara monterad på varje virtuell dator i klustret. Den här åtgärden har slutförts med verktyget cifs/protokollet. Monteringen kan utföras manuellt på varje nod i klustret eller genom att köra ett skript mot varje nod i klustret.
+Därefter behöver filresursen monteras på varje virtuell dator i ditt kluster. Den här åtgärden har slutförts med verktyget/protokollet cifs. Monteringsåtgärden kan utföras manuellt på varje nod i klustret eller genom att köra ett skript mot varje nod i klustret.
 
-I det här exemplet två skript körs, en för att montera Azure-filresursen och en andra köra skriptet på varje nod i DC/OS-klustret.
+I det här exemplet körs två skript, en för att montera Azure-filresursen och ett andra för att köra det skriptet på varje nod i DC/OS-klustret.
 
-Först krävs Azure lagringskontonamnet och åtkomstnyckeln. Kör följande kommandon för att hämta informationen. Notera vardera, dessa värden används i ett senare steg.
+Först krävs Azure lagringskontonamn och åtkomstnyckel. Kör följande kommandon för att få den här informationen. Skriv ner vart och ett av de här värdena som används i ett senare steg.
 
-Lagringskontonamn:
+Lagringskontots namn:
 
 ```azurecli-interactive
 STORAGE_ACCT=$(az storage account list --resource-group $DCOS_PERS_RESOURCE_GROUP --query "[?contains(name, '$DCOS_PERS_STORAGE_ACCOUNT_NAME')].[name]" -o tsv)
 echo $STORAGE_ACCT
 ```
 
-Åtkomstnyckeln för lagringskontot:
+Lagringskontots åtkomstnyckel:
 
 ```azurecli-interactive
 az storage account keys list --resource-group $DCOS_PERS_RESOURCE_GROUP --account-name $STORAGE_ACCT --query "[0].value" -o tsv
 ```
 
-Sedan hämta det fullständiga Domännamnet för DC/OS-hanteraren och lagrar den i en variabel.
+Därefter hämtar du FQDN för DC/OS-originalet och lagrar det i en variabel.
 
 ```azurecli-interactive
 FQDN=$(az acs list --resource-group $DCOS_PERS_RESOURCE_GROUP --query "[0].masterProfile.fqdn" --output tsv)
 ```
 
-Kopiera din privata nyckel till huvudnoden. Den här nyckeln behövs för att skapa en ssh-anslutning med alla noder i klustret. Uppdatera användarnamnet om ett standardvärde används när klustret skapas. 
+Kopiera din privata nyckel till huvudnoden. Den här nyckeln behövs för att skapa en ssh-anslutning med alla noder i klustret. Uppdatera användarnamnet om du använde något annat än standardvärdet när du skapade klustret. 
 
 ```azurecli-interactive
 scp ~/.ssh/id_rsa azureuser@$FQDN:~/.ssh
 ```
 
-Skapa en SSH-anslutning med huvudservern (eller den första huvudservern) på ditt DC/OS-baserade kluster. Uppdatera användarnamnet om ett standardvärde används när klustret skapas.
+Skapa en SSH-anslutning med huvudservern (eller den första huvudservern) i ditt DC/OS-baserade kluster. Uppdatera användarnamnet om du använde något annat än standardvärdet när du skapade klustret.
 
 ```azurecli-interactive
 ssh azureuser@$FQDN
 ```
 
-Skapa en fil med namnet **cifsMount.sh**, och kopiera följande innehåll till den. 
+Skapa en fil med namnet **nginx-public.json** och kopiera följande innehåll till den. 
 
-Det här skriptet för att montera Azure-filresursen. Uppdatering av `STORAGE_ACCT_NAME` och `ACCESS_KEY` variabler med informationen som samlas in tidigare.
+Det här skriptet används för att montera Azure-filresursen. Uppdatera variablerna `STORAGE_ACCT_NAME` och `ACCESS_KEY` med informationen som samlats in tidigare.
 
 ```azurecli-interactive
 #!/bin/bash
@@ -112,9 +112,9 @@ if [ ! -d "/mnt/share/$SHARE_NAME" ]; then sudo mkdir -p "/mnt/share/$SHARE_NAME
 # Mount the share under the previous local folder created
 sudo mount -t cifs //$STORAGE_ACCT_NAME.file.core.windows.net/$SHARE_NAME /mnt/share/$SHARE_NAME -o vers=3.0,username=$STORAGE_ACCT_NAME,password=$ACCESS_KEY,dir_mode=0777,file_mode=0777
 ```
-Skapa en andra fil som heter **getNodesRunScript.sh** och kopiera följande innehåll i filen. 
+Skapa en andra fil med namnet **getNodesRunScript.sh** och kopiera följande innehåll till filen. 
 
-Det här skriptet identifierar alla noder i klustret och kör sedan den **cifsMount.sh** skript för att montera filresursen på varje.
+Det här skriptet identifierar alla klusternoder och kör sedan skriptet **cifsMount.sh** för att montera filresursen på var och en.
 
 ```azurecli-interactive
 #!/bin/bash
@@ -132,24 +132,24 @@ do
   done
 ```
 
-Kör skriptet för att ansluta till Azure-filresursen på alla noder i klustret.
+Kör skriptet för att montera Azure-filresursen på alla noder i klustret.
 
 ```azurecli-interactive
 sh ./getNodesRunScript.sh
 ```  
 
-Filresursen är nu tillgänglig på `/mnt/share/dcosshare` på varje nod i klustret.
+Filresursen är nu tillgänglig på `/mnt/share/dcosshare` för varje nod i klustret.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Filresursen har gjorts tillgängliga för ett DC/OS-kluster med hjälp av stegen i den här självstudiekursen en Azure:
+I den här självstudien gjordes en Azure-filresurs tillgänglig till ett DC/OS-kluster med hjälp av stegen:
 
 > [!div class="checklist"]
 > * Skapa ett Azure-lagringskonto
 > * Skapa en filresurs
 > * Montera filresursen i DC/OS-klustret
 
-Gå vidare till nästa kurs att lära dig om att integrera en registret för Azure-behållare med DC/OS i Azure.  
+Gå vidare till nästa självstudie för att lära dig om hur du integrerar en Azure Container Registry med DC/OS i Azure.  
 
 > [!div class="nextstepaction"]
 > [Belastningsutjämna program](container-service-dcos-acr.md)

@@ -1,6 +1,6 @@
 ---
-title: Skapa en intern lastbalanserare – Azurer CLI 2.0 | Microsoft Docs
-description: Lär dig hur du skapar en intern lastbalanserare med hjälp av Azure CLI 2.0
+title: Skapa en intern lastbalanserare – Azurer CLI | Microsoft Docs
+description: Läs hur du skapar en intern lastbalanserare med hjälp av Azure CLI
 services: load-balancer
 documentationcenter: na
 author: KumudD
@@ -15,20 +15,20 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/27/2018
 ms.author: kumud
-ms.openlocfilehash: bd4dda835279a21509f77814f4d5f9e30e8a42c1
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 7e556d3900d257410050e37b714d2005675e185d
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39439206"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46967718"
 ---
-# <a name="create-an-internal-load-balancer-to-load-balance-vms-using-azure-cli-20"></a>Skapa en intern lastbalanserare som lastbalanserar virtuella datorer med Azure CLI 2.0
+# <a name="create-an-internal-load-balancer-to-load-balance-vms-using-azure-cli"></a>Skapa en intern lastbalanserare som lastbalanserar virtuella datorer med Azure CLI
 
 Den här artikeln visar hur du skapar en intern lastbalanserare för att lastbalansera virtuella datorer. Om du vill testa lastbalanseraren så distribuerar du två virtuella datorer (VM:ar) som kör Ubuntu-server för att lastbalansera en webbapp.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)] 
 
-Om du väljer att installera och använda CLI lokalt så kräver den här självstudiekursen att du kör Azure CLI version 2.0.28 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI 2.0]( /cli/azure/install-azure-cli).
+Om du väljer att installera och använda CLI lokalt så kräver den här självstudiekursen att du kör Azure CLI version 2.0.28 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI]( /cli/azure/install-azure-cli).
 
 ## <a name="create-a-resource-group"></a>Skapa en resursgrupp
 

@@ -1,45 +1,40 @@
 ---
 title: Skapa en Node.js-webbapp för Azure Cosmos DB | Microsoft Docs
 description: I den här självstudiekursen för Node.js lär du dig hur du använder Microsoft Azure Cosmos DB för att lagra och komma åt data från ett Node.js Express-webbprogram på Azure Websites.
-keywords: Application development, database tutorial, learn node.js, node.js tutorial
 services: cosmos-db
 author: SnehaGunda
-manager: kfile
 ms.service: cosmos-db
 ms.component: cosmosdb-sql
 ms.devlang: nodejs
 ms.topic: tutorial
-ms.date: 03/23/2018
+ms.date: 09/24/2018
 ms.author: sngun
-ms.openlocfilehash: f7f41e9d77e0687c6c8b25a4163348a7310aa40c
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: 82711ea96f6b3f8544a411ed1b6636c8473ed7e9
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43697331"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46957354"
 ---
-# <a name="_Toc395783175"></a>Skapa ett Node.js-webbprogram med Azure Cosmos DB
+# <a name="_Toc395783175"></a>Skapa en Node.js-webbapp med JavaScript SDK för att hantera Azure Cosmos DB SQL API-data
 
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-dotnet-application.md)
 > * [Java](sql-api-java-application.md)
 > * [Node.js](sql-api-nodejs-application.md)
-> * [Node.js- v2](sql-api-nodejs-application-preview.md)
 > * [Python](sql-api-python-application.md)
 > * [Xamarin](mobile-apps-with-xamarin.md)
 > 
 
-Den här självstudiekursen om Node.js beskriver hur du kan använda Azure Cosmos DB och SQL API för lagring av och åtkomst till data från ett Node.js Express-program på Azure Websites. Du bygger ett enkelt webbaserat aktivitetshanteringsprogram, en ToDo-app, där du kan skapa, hämta och slutföra aktiviteter. Uppgifterna lagras som JSON-dokument i Azure Cosmos DB. Den här självstudien vägleder dig genom skapandet och distributionen av appen och förklarar vad som händer i varje kodfragment.
+Den här självstudien om Node.js beskriver hur du kan använda Azure Cosmos DB SQL API-kontot för lagring av och åtkomst till data från ett Node.js Express-program som finns på Azure Websites. I den här självstudien skapar du ett enkelt webbaserat program (att göra-app) där du kan skapa, hämta och slutföra uppgifter. Uppgifterna lagras som JSON-dokument i Azure Cosmos DB. Följande bild visar en skärmbild av att göra-programmet:
 
 ![Skärmdump av programmet My Todo List som skapas genom stegen i den här självstudien om Node.js](./media/sql-api-nodejs-application/cosmos-db-node-js-mytodo.png)
 
-Har du inte tid att gå igenom självstudien, men vill ha hela lösningen? Inga problem, du kan hämta den fullständiga exempellösningen från [GitHub][GitHub]. Läs bara [Viktigt](https://github.com/Azure-Samples/documentdb-node-todo-app/blob/master/README.md)-filen för instruktioner om hur du kör appen.
+Den här självstudien visar hur du skapar ett Azure Cosmos DB SQL API-konto med hjälp av Azure-portalen. Du skapar och kör sedan en webbapp som bygger på Node.js SDK för att skapa en databas och en container samt lägga till objekt i containern. Den här självstudien använder version 2.0 av JavaScript SDK.
+
+Du kan även hämta det färdiga exemplet från [GitHub][GitHub]. Läs bara [Viktigt](https://github.com/Azure-Samples/documentdb-node-todo-app/blob/master/README.md)-filen för instruktioner om hur du kör appen.
 
 ## <a name="_Toc395783176"></a>Förhandskrav
-> [!TIP]
-> Den här Node.js-självstudien förutsätter att du har tidigare erfarenhet av Node.js och Azure Websites.
-> 
-> 
 
 Innan du följer anvisningarna i den här artikeln bör du se till att du har följande:
 
@@ -47,7 +42,7 @@ Innan du följer anvisningarna i den här artikeln bör du se till att du har f�
 
   [!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]
 
-* [Node.js][Node.js] version v0.10.29 eller högre. Vi rekommenderar Node.js 6.10 eller högre.
+* [Node.js][Node.js] version 6.10 eller senare.
 * [Express generator](http://www.expressjs.com/starter/generator.html) (kan installeras via `npm install express-generator -g`)
 * [Git][Git].
 
@@ -71,425 +66,365 @@ Nu ska vi skapa ett grundläggande Hello World Node.js-projekt med [Express](htt
 4. Öppna din nya **todo**-katalog och installera beroenden.
 
    ```bash
-    cd todo
-    npm install
+   cd todo
+   npm install
    ```
 5. Kör det nya programmet.
 
    ```bash
    npm start
    ```
+
 6. Du kan visa det nya programmet genom att öppna [http://localhost:3000](http://localhost:3000) i webbläsaren.
    
     ![Lär dig använda Node.js – Skärmdump av programmet Hello World i ett webbläsarfönster](./media/sql-api-nodejs-application/cosmos-db-node-js-express.png)
 
-    Om du vill stoppa programmet trycker du på CTRL+C i terminalfönstret och sedan (endast för Windows-datorer) på **y** för att avbryta batch-jobbet.
+ Stoppa programmet genom att trycka på CTRL+C i terminalfönstret och klicka på **Y** för att avbryta batchjobbet.
 
-## <a name="_Toc395783179"></a>Steg 3: Installera ytterligare moduler
+## <a name="_Toc395783179"></a>Steg 3: Installera de nödvändiga modulerna
+
 Filen **package.json** är en av filerna som skapas i projektets rot. Den här filen innehåller en lista över ytterligare moduler som krävs för Node.js-programmet. Senare, när du distribuerar programmet till Azure Websites, används den här filen för att avgöra vilka moduler som behöver installeras på Azure som stöd för ditt program. Vi behöver installera två paket till för den här självstudien.
 
-1. Gå tillbaka till terminalen och installera modulen **async** via npm.
+1. Öppna terminalen och installera modulen **async** via npm.
 
    ```bash
    npm install async --save
    ```
-2. Installera modulen **documentdb** via npm. Det här är modulen där Azure Cosmos DB-magin händer.
+
+2. Installera modulen **@azure/cosmos** via npm. 
 
    ```bash
-   npm install documentdb --save
+   npm install @azure/cosmos
    ```
 
-## <a name="_Toc395783180"></a>Steg 4: Använda Azure Cosmos DB-tjänsten i ett nodprogram
-Nu när vi har slutfört den första installationen och konfigurationen är det dags att ta itu med vårt verkliga syfte: att skriva kod med Azure Cosmos DB.
+## <a name="_Toc395783180"></a>Steg 4: Använda Azure Cosmos DB-tjänsten i ett Node-program
+Nu när du har slutfört den första installationen och konfigurationen kommer du att skriva kod som krävs av att göra-programmet för att kommunicera med Azure Cosmos DB.
 
 ### <a name="create-the-model"></a>Skapa modellen
-1. Skapa en ny katalog i projektkatalogen med namnet **models**, i samma katalog som package.json-filen.
-2. I katalogen **models** skapar du en ny fil med namnet **task-model.js**. Den här filen innehåller modellen för de aktiviteter som skapats av vårt program.
-3. I samma **models**-katalog skapar du ytterligare en ny fil med namnet **cosmosdb-manager.js**. Den här filen innehåller användbar och återanvändbar kod som vi ska använda i programmet. 
-4. Kopiera följande kod till **cosmosdb-manager.js**
-    ```nodejs
-    let DocumentDBClient = require('documentdb').DocumentClient;
+1. Vid roten i projektkatalogen skapar du en ny katalog med namnet **models**  
 
-    module.exports = {
-    getOrCreateDatabase: (client, databaseId, callback) => {
-        let querySpec = {
-        query: 'SELECT * FROM root r WHERE r.id = @id',
-        parameters: [{ name: '@id', value: databaseId }]
-        };
+2. I katalogen **models** skapar du en ny fil med namnet **taskDao.js**. Den här filen innehåller den kod som krävs för att skapa databasen och containern, och definierar metoder för att läsa, uppdatera, skapa och hitta uppgifter i Azure Cosmos DB. 
 
-        client.queryDatabases(querySpec).toArray((err, results) => {
-        if (err) {
-            callback(err);
-        } else {
-            if (results.length === 0) {
-            let databaseSpec = { id: databaseId };
-            client.createDatabase(databaseSpec, (err, created) => {
-                callback(null, created);
-            });
-            } else {
-            callback(null, results[0]);
-            }
-        }
-        });
-    },
+3. Kopiera följande kod till filen **taskDao.js**
 
-    getOrCreateCollection: (client, databaseLink, collectionId, callback) => {
-        let querySpec = {
-        query: 'SELECT * FROM root r WHERE r.id=@id',
-        parameters: [{ name: '@id', value: collectionId }]
-        };
+   ```nodejs
+   // @ts-check
+   const CosmosClient = require("@azure/cosmos").CosmosClient;
+   const debug = require("debug")("todo:taskDao");
+   class TaskDao {
+     /**
+      * Manages reading, adding, and updating Tasks in Cosmos DB
+      * @param {CosmosClient} cosmosClient
+      * @param {string} databaseId
+      * @param {string} containerId
+      */
+     constructor(cosmosClient, databaseId, containerId) {
+       this.client = cosmosClient;
+       this.databaseId = databaseId;
+       this.collectionId = containerId;
 
-        client.queryCollections(databaseLink, querySpec).toArray((err, results) => {
-        if (err) {
-            callback(err);
-        } else {
-            if (results.length === 0) {
-            let collectionSpec = { id: collectionId };
-            client.createCollection(databaseLink, collectionSpec, (err, created) => {
-                callback(null, created);
-            });
-            } else {
-            callback(null, results[0]);
-            }
-        }
-        });
-    }
-    };
-    ```
-5. Spara och stäng filen **cosmosdb-manager.js**.
-6. I början av filen **task-model.js** lägger du till följande kod för att referera till **DocumentDBClient** och **cosmosdb-manager.js** som vi skapade ovan: 
+       this.database = null;
+       this.container = null;
+     }
 
-    ```nodejs
-    let DocumentDBClient = require('documentdb').DocumentClient;
-    let docdbUtils = require('./cosmosdb-manager.js');
-    ```
-7. Sedan lägger du till kod för att definiera och exportera aktivitetsobjektet. Den ansvarar för att initiera vårt aktivitetsobjekt och konfigurera databasen och dokumentsamlingen som vi ska använda.  
+     async init() {
+       debug("Setting up the database...");
+       const dbResponse = await this.client.databases.createIfNotExists({
+         id: this.databaseId
+       });
+       this.database = dbResponse.database;
+       debug("Setting up the database...done!");
+       debug("Setting up the container...");
+       const coResponse = await this.database.containers.createIfNotExists({
+         id: this.collectionId
+       });
+       this.container = coResponse.container;
+       debug("Setting up the container...done!");
+     }
 
-    ```nodejs
-    function TaskModel(documentDBClient, databaseId, collectionId) {
-      this.client = documentDBClient;
-      this.databaseId = databaseId;
-      this.collectionId = collectionId;
-   
-      this.database = null;
-      this.collection = null;
-    }
-   
-    module.exports = TaskModel;
-    ```
-8. Lägg sedan till följande kod för att definiera ytterligare metoder för aktivitetsobjektet, som gör att det går att interagera med data som lagras i Azure Cosmos DB.
-
-    ```nodejs
-    let DocumentDBClient = require('documentdb').DocumentClient;
-    let docdbUtils = require('./cosmosdb-manager');
-
-    function TaskModel(documentDBClient, databaseId, collectionId) {
-    this.client = documentDBClient;
-    this.databaseId = databaseId;
-    this.collectionId = collectionId;
-
-    this.database = null;
-    this.collection = null;
+     async find(querySpec) {
+       debug("Querying for items from the database");
+       if (!this.container) {
+         throw new Error("Collection is not initialized.");
+       }
+       const { result: results } = await this.container.items
+        .query(querySpec)
+        .toArray();
+      return results;
     }
 
-    TaskModel.prototype = {
-    init: function(callback) {
-        let self = this;
-
-        docdbUtils.getOrCreateDatabase(self.client, self.databaseId, function(err, db) {
-        if (err) {
-            callback(err);
-        } else {
-            self.database = db;
-            docdbUtils.getOrCreateCollection(self.client, self.database._self, self.collectionId, function(err, coll) {
-            if (err) {
-                callback(err);
-            } else {
-                self.collection = coll;
-            }
-            });
-        }
-        });
-    },
-
-    find: function(querySpec, callback) {
-        let self = this;
-
-        self.client.queryDocuments(self.collection._self, querySpec).toArray(function(err, results) {
-        if (err) {
-            callback(err);
-        } else {
-            callback(null, results);
-        }
-        });
-    },
-
-    addItem: function(item, callback) {
-        let self = this;
-
-        item.date = Date.now();
-        item.completed = false;
-
-        self.client.createDocument(self.collection._self, item, function(err, doc) {
-        if (err) {
-            callback(err);
-        } else {
-            callback(null, doc);
-        }
-        });
-    },
-
-    updateItem: function(itemId, callback) {
-        let self = this;
-
-        self.getItem(itemId, function(err, doc) {
-        if (err) {
-            callback(err);
-        } else {
-            doc.completed = true;
-
-            self.client.replaceDocument(doc._self, doc, function(err, replaced) {
-            if (err) {
-                callback(err);
-            } else {
-                callback(null, replaced);
-            }
-            });
-        }
-        });
-    },
-
-    getItem: function(itemId, callback) {
-        let self = this;
-        let querySpec = {
-        query: 'SELECT * FROM root r WHERE r.id = @id',
-        parameters: [{ name: '@id', value: itemId }]
-        };
-
-        self.client.queryDocuments(self.collection._self, querySpec).toArray(function(err, results) {
-        if (err) {
-            callback(err);
-        } else {
-            callback(null, results[0]);
-        }
-        });
+    async addItem(item) {
+      debug("Adding an item to the database");
+      item.date = Date.now();
+      item.completed = false;
+      const { body: doc } = await this.container.items.create(item);
+      return doc;
     }
-    };
 
-    module.exports = TaskModel;
-    ```
-9. Spara och stäng filen **task-model.js**. 
+    async updateItem(itemId) {
+      debug("Update an item in the database");
+      const doc = await this.getItem(itemId);
+      doc.completed = true;
+
+      const { body: replaced } = await this.container.item(itemId).replace(doc);
+      return replaced;
+    }
+
+    async getItem(itemId) {
+      debug("Getting an item from the database");
+      const { body } = await this.container.item(itemId).read();
+      return body;
+    }
+  }
+
+   module.exports = TaskDao;
+   ```
+4. Spara och stäng filen **taskDao.js**.  
 
 ### <a name="create-the-controller"></a>Skapa styrningen
-1. I projektets **routes**-katalog skapar du en ny fil med namnet **tasklist.js**. 
-2. Lägg till följande kod i **tasklist.js**. Den läser in DocumentDBClient och async-moduler som används av **tasklist.js**. Detta definieras även i funktionen **TaskList**, som mottar en instans av **Task**-objektet som vi definierade tidigare:
-   
-    ```nodejs
-    let DocumentDBClient = require('documentdb').DocumentClient;
-    let async = require('async');
 
-    function TaskList(taskModel) {
-    this.taskModel = taskModel;
-    }
+1. I projektets **routes**-katalog skapar du en ny fil med namnet **tasklist.js**.  
 
-    module.exports = TaskList;
-    ```
-3. Fortsätt att lägga till kod i filen **tasklist.js** genom att lägga till metoderna **showTasks, addTask** och **completeTasks**:
+2. Lägg till följande kod i **tasklist.js**. Detta läser in modulerna CosmosClient och async, som används av **tasklist.js**. Detta definierar även klassen **TaskList**, som skickas som en instans av det **TaskDao**-objekt som vi definierade tidigare:
    
    ```nodejs
-    TaskList.prototype = {
-    showTasks: function(req, res) {
-        let self = this;
+   const TaskDao = require("../models/TaskDao");
 
-        let querySpec = {
-        query: 'SELECT * FROM root r WHERE r.completed=@completed',
-        parameters: [
-            {
-            name: '@completed',
-            value: false
-            }
-        ]
-        };
-
-        self.taskModel.find(querySpec, function(err, items) {
-        if (err) {
-            throw err;
-        }
-
-        res.render('index', {
-            title: 'My ToDo List ',
-            tasks: items
-        });
-        });
-    },
-
-    addTask: function(req, res) {
-        let self = this;
-        let item = req.body;
-
-        self.taskModel.addItem(item, function(err) {
-        if (err) {
-            throw err;
-        }
-
-        res.redirect('/');
-        });
-    },
-
-    completeTask: function(req, res) {
-        let self = this;
-        let completedTasks = Object.keys(req.body);
-
-        async.forEach(
-        completedTasks,
-        function taskIterator(completedTask, callback) {
-            self.taskModel.updateItem(completedTask, function(err) {
-            if (err) {
-                callback(err);
-            } else {
-                callback(null);
-            }
-            });
-        },
-        function goHome(err) {
-            if (err) {
-            throw err;
-            } else {
-            res.redirect('/');
-            }
-        }
-        );
+   class TaskList {
+     /**
+      * Handles the various APIs for displaying and managing tasks
+      * @param {TaskDao} taskDao
+     */
+    constructor(taskDao) {
+    this.taskDao = taskDao;
     }
-    };
-    ```        
-4. Spara och stäng filen **tasklist.js**.
+    async showTasks(req, res) {
+      const querySpec = {
+        query: "SELECT * FROM root r WHERE r.completed=@completed",
+        parameters: [
+          {
+            name: "@completed",
+            value: false
+          }
+        ]
+      };
+
+      const items = await this.taskDao.find(querySpec);
+      res.render("index", {
+        title: "My ToDo List ",
+        tasks: items
+      });
+    }
+
+    async addTask(req, res) {
+      const item = req.body;
+
+      await this.taskDao.addItem(item);
+      res.redirect("/");
+    }
+
+    async completeTask(req, res) {
+      const completedTasks = Object.keys(req.body);
+      const tasks = [];
+
+      completedTasks.forEach(task => {
+        tasks.push(this.taskDao.updateItem(task));
+      });
+
+      await Promise.all(tasks);
+
+      res.redirect("/");
+    }
+  }
+
+  module.exports = TaskList;
+   ```
+
+3. Spara och stäng filen **tasklist.js**.
 
 ### <a name="add-configjs"></a>Lägg till config.js
-1. Skapa en ny fil med namnet **config.js** i projektkatalogen.
-2. Lägg till följande i **config.js**. Det definierar konfigurationsinställningar och värden som behövs i appen.
+
+1. Vid roten av projektkatalogen skapar du en ny fil med namnet **config.js**. 
+
+2. Lägg till följande kod i filen **config.js**. Den här koden definierar konfigurationsinställningar och värden som behövs i appen.
    
-    ```nodejs
-    let config = {}
-   
-    config.host = process.env.HOST || "[the URI value from the Azure Cosmos DB Keys page on http://portal.azure.com]";
-    config.authKey = process.env.AUTH_KEY || "[the PRIMARY KEY value from the Azure Cosmos DB Keys page on http://portal.azure.com]";
-    config.databaseId = "ToDoList";
-    config.collectionId = "Items";
-   
-    module.exports = config;
-    ```
-3. I filen **config.js** uppdaterar du värdet för HOST och AUTH_KEY med värdena på sidan Nycklar för ditt Azure Cosmos DB-konto på [Microsoft Azure-portalen](https://portal.azure.com).
+   ```nodejs
+   const config = {};
+
+   config.host = process.env.HOST || "[the endpoint URI of your Azure Cosmos DB account]";
+   config.authKey =
+     process.env.AUTH_KEY || "[the PRIMARY KEY value of your Azure Cosmos DB account";
+   config.databaseId = "ToDoList";
+   config.containerId = "Items";
+
+   if (config.host.includes("https://localhost:")) {
+     console.log("Local environment detected");
+     console.log("WARNING: Disabled checking of self-signed certs. Do not have this code in production.");
+     process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";
+     console.log(`Go to http://localhost:${process.env.PORT || '3000'} to try the sample.`);
+   }
+
+   module.exports = config;
+   ```
+
+3. I filen **config.js** uppdaterar du värdet för HOST och AUTH_KEY med värdena på sidan Nycklar för ditt Azure Cosmos DB-konto på [Microsoft Azure-portalen](https://portal.azure.com). 
+
 4. Spara och stäng filen **config.js**.
 
 ### <a name="modify-appjs"></a>Ändra app.js
-1. Öppna filen **app.js** i projektkatalogen. Den här filen skapades tidigare när Express-webbappen skapades.
-2. Lägg till följande kod högst upp i **app.js**:
+1. Öppna filen **app.js** i projektkatalogen. Den här filen skapades tidigare när Express-webbappen skapades.  
+
+2. Lägg till följande kod i filen **app.js**. Den här koden definierar vilken konfigurationsfil som ska användas och läser sedan värden från denna fil till några variabler som vi snart ska använda. 
    
-    ```nodejs
-    var DocumentDBClient = require('documentdb').DocumentClient;
-    var config = require('./config');
-    var TaskList = require('./routes/tasklist');
-    var TaskModel = require('./models/task-model');
-    ```
-3. Den här koden definierar vilken konfigurationsfil som ska användas och läser sedan värden från denna fil till några variabler som vi snart ska använda.
-4. Ersätt följande två rader i filen **app.js**:
-   
-    ```nodejs
-    app.use('/', index);
-    app.use('/users', users); 
-    ```
-   
-    med följande utdrag:
-   
-    ```nodejs
-    let docDbClient = new DocumentDBClient(config.host, {
-        masterKey: config.authKey
-    });
-    let taskModel = new TaskModel(docDbClient, config.databaseId, config.collectionId);
-    let taskList = new TaskList(taskModel);
-    taskModel.init();
-   
-    app.get('/', taskList.showTasks.bind(taskList));
-    app.post('/addtask', taskList.addTask.bind(taskList));
-    app.post('/completetask', taskList.completeTask.bind(taskList));
-    app.set('view engine', 'jade');
-    ```
-5. Dessa rader definierar en ny instans av **TaskModel**-objektet med en ny anslutning till Azure Cosmos DB (med de värden som lästs in från **config.js**), initierar aktivitetsobjektet och binder formuläråtgärder till metoder i **TaskList**-styrenheten. 
-6. Avsluta med att spara och stänga filen **app.js**. Vi är nästan klara.
+   ```nodejs
+   const CosmosClient = require("@azure/cosmos").CosmosClient;
+   const config = require("./config");
+   const TaskList = require("./routes/tasklist");
+   const TaskDao = require("./models/taskDao");
+
+   const express = require("express");
+   const path = require("path");
+   const logger = require("morgan");
+   const cookieParser = require("cookie-parser");
+   const bodyParser = require("body-parser");
+
+   const app = express();
+
+   // view engine setup
+   app.set("views", path.join(__dirname, "views"));
+   app.set("view engine", "jade");
+
+   // uncomment after placing your favicon in /public
+   //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
+   app.use(logger("dev"));
+   app.use(bodyParser.json());
+   app.use(bodyParser.urlencoded({ extended: false }));
+   app.use(cookieParser());
+   app.use(express.static(path.join(__dirname, "public")));
+
+   //Todo App:
+   const cosmosClient = new CosmosClient({
+     endpoint: config.host,
+     auth: {
+       masterKey: config.authKey
+     }
+   });
+   const taskDao = new TaskDao(cosmosClient, config.databaseId, config.containerId);
+   const taskList = new TaskList(taskDao);
+   taskDao
+     .init(err => {
+       console.error(err);
+     })
+     .catch(err => {
+       console.error(err);
+       console.error("Shutting down because there was an error settinig up the database.");
+       process.exit(1);
+     });
+
+   app.get("/", (req, res, next) => taskList.showTasks(req, res).catch(next));
+   app.post("/addtask", (req, res, next) => taskList.addTask(req, res).catch(next));
+   app.post("/completetask", (req, res, next) => taskList.completeTask(req, res).catch(next));
+   app.set("view engine", "jade");
+
+   // catch 404 and forward to error handler
+   app.use(function(req, res, next) {
+     const err = new Error("Not Found");
+     err.status = 404;
+     next(err);
+   });
+
+   // error handler
+   app.use(function(err, req, res, next) {
+     // set locals, only providing error in development
+     res.locals.message = err.message;
+     res.locals.error = req.app.get("env") === "development" ? err : {};
+
+     // render the error page
+     res.status(err.status || 500);
+     res.render("error");
+   });
+
+   module.exports = app;
+   ```
+
+3. Avsluta med att spara och stänga filen **app.js**. Vi är nästan klara.
 
 ## <a name="_Toc395783181"></a>Steg 5: Skapa ett användargränssnitt
 Nu är det dags att skapa användargränssnittet, så att användaren faktiskt kan samverka med vår app. Express-appen som vi skapade använder **Jade** som visningsmotor. Mer information om Jade finns på [http://jade-lang.com/](http://jade-lang.com/).
 
-1. Filen **layout.jade** i katalogen **views** används som en global mall för andra **.jade**-filer. I det här steget ändrar du den så att den använder [Twitter Bootstrap](https://github.com/twbs/bootstrap), vilket är en verktygslåda som gör det enkelt att utforma en snygg webbplats. 
+1. Filen **layout.jade** i katalogen **views** används som en global mall för andra **.jade**-filer. I det här steget ändrar du den så att den använder [Twitter Bootstrap](https://github.com/twbs/bootstrap), vilket är en verktygslåda som gör det enkelt att utforma en snygg webbplats.  
+
 2. Öppna filen **layout.jade** i mappen **views** och ersätt innehållet med följande:
 
-    ```
-    doctype html
-    html
-      head
-        title= title
-        link(rel='stylesheet', href='//ajax.aspnetcdn.com/ajax/bootstrap/3.3.2/css/bootstrap.min.css')
-        link(rel='stylesheet', href='/stylesheets/style.css')
-      body
-        nav.navbar.navbar-inverse.navbar-fixed-top
-          div.navbar-header
-            a.navbar-brand(href='#') My Tasks
-        block content
-        script(src='//ajax.aspnetcdn.com/ajax/jQuery/jquery-1.11.2.min.js')
-        script(src='//ajax.aspnetcdn.com/ajax/bootstrap/3.3.2/bootstrap.min.js')
-    ```
+   ```html
+   doctype html
+   html
+     head
+       title= title
+       link(rel='stylesheet', href='//ajax.aspnetcdn.com/ajax/bootstrap/3.3.2/css/bootstrap.min.css')
+       link(rel='stylesheet', href='/stylesheets/style.css')
+     body
+       nav.navbar.navbar-inverse.navbar-fixed-top
+         div.navbar-header
+           a.navbar-brand(href='#') My Tasks
+       block content
+       script(src='//ajax.aspnetcdn.com/ajax/jQuery/jquery-1.11.2.min.js')
+       script(src='//ajax.aspnetcdn.com/ajax/bootstrap/3.3.2/bootstrap.min.js')
+   ```
 
     Det säger åt **Jade**-motorn att rendera en del HTML för vårt program och skapar ett **block** kallat **content** där vi kan tillhandahålla layout för våra innehållssidor.
 
     Spara och stäng filen **layout.jade**.
 
 3. Öppna nu filen **index.jade**, den vy som ska användas av vårt program, och ersätt innehållet i filen med följande:
-   
-        extends layout
-        block content
-           h1 #{title}
-           br
+
+   ```html
+   extends layout
+   block content
+        h1 #{title}
+        br
         
-           form(action="/completetask", method="post")
-             table.table.table-striped.table-bordered
-               tr
-                 td Name
-                 td Category
-                 td Date
-                 td Complete
-               if (typeof tasks === "undefined")
-                 tr
-                   td
-               else
-                 each task in tasks
-                   tr
-                     td #{task.name}
-                     td #{task.category}
-                     - var date  = new Date(task.date);
-                     - var day   = date.getDate();
-                     - var month = date.getMonth() + 1;
-                     - var year  = date.getFullYear();
-                     td #{month + "/" + day + "/" + year}
-                     td
-                       input(type="checkbox", name="#{task.id}", value="#{!task.completed}", checked=task.completed)
-             button.btn.btn-primary(type="submit") Update tasks
-           hr
-           form.well(action="/addtask", method="post")
-             .form-group
-               label(for="name") Item Name:
-               input.form-control(name="name", type="textbox")
-             .form-group
-               label(for="category") Item Category:
-               input.form-control(name="category", type="textbox")
-             br
-             button.btn(type="submit") Add item
-   
+        form(action="/completetask", method="post")
+         table.table.table-striped.table-bordered
+            tr
+              td Name
+              td Category
+              td Date
+              td Complete
+            if (typeof tasks === "undefined")
+              tr
+                td
+            else
+              each task in tasks
+                tr
+                  td #{task.name}
+                  td #{task.category}
+                  - var date  = new Date(task.date);
+                  - var day   = date.getDate();
+                  - var month = date.getMonth() + 1;
+                  - var year  = date.getFullYear();
+                  td #{month + "/" + day + "/" + year}
+                  td
+                   if(task.completed) 
+                    input(type="checkbox", name="#{task.id}", value="#{!task.completed}", checked=task.completed)
+                   else
+                    input(type="checkbox", name="#{task.id}", value="#{!task.completed}", checked=task.completed)
+          button.btn.btn-primary(type="submit") Update tasks
+        hr
+        form.well(action="/addtask", method="post")
+          label Item Name:
+          input(name="name", type="textbox")
+          label Item Category:
+          input(name="category", type="textbox")
+          br
+          button.btn(type="submit") Add item
+   ```
 
 Det utökar layouten och ger innehåll för platshållaren **content** som vi såg i filen **layout.jade**.
    
 I den här layouten skapade vi två HTML-formulär.
 
-Det första formuläret innehåller en tabell för våra data och en knapp som gör att vi kan uppdatera objekt genom att publicera till metoden **/completetask** i styrningen.
+Det första formuläret innehåller en tabell för våra data och en knapp som gör att vi kan uppdatera objekt genom att publicera till metoden **/completeTask** i styrningen.
     
 Det andra formuläret innehåller två inmatningsfält och en knapp som gör att vi kan skapa ett nytt objekt genom att publicera till metoden **/addtask** i styrningen.
 
@@ -534,5 +469,5 @@ Det här ska vara allt som behövs för att appen ska fungera.
 
 [Node.js]: http://nodejs.org/
 [Git]: http://git-scm.com/
-[GitHub]: https://github.com/Azure-Samples/documentdb-node-todo-app
+[GitHub]: https://github.com/Azure-Samples/azure-cosmos-db-sql-api-nodejs-todo-app
 

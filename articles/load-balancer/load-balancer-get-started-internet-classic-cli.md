@@ -1,6 +1,6 @@
 ---
-title: Skapa en Internetaktiverad belastningsutjämnare – klassiska Azure CLI | Microsoft Docs
-description: Lär dig hur du skapar en Internetuppkopplad belastningsutjämnare i den klassiska distributionsmodellen med hjälp av Azure CLI
+title: Skapa en Internetriktad lastbalanserare – klassisk Azure CLI | Microsoft Docs
+description: Läs hur du skapar en Internetriktad lastbalanserare i den klassiska distributionsmodellen med hjälp av den klassiska Azure CLI
 services: load-balancer
 documentationcenter: na
 author: genlin
@@ -12,34 +12,36 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/23/2017
+ms.date: 06/18/2018
 ms.author: genli
-ms.openlocfilehash: bacf135da25a5315e61922179db9a29fa8a152f1
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: a91a53070985a24ccd87f16254f652fe48c42c5a
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38540016"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46988163"
 ---
-# <a name="get-started-creating-an-internet-facing-load-balancer-classic-in-the-azure-cli"></a>Komma igång med att skapa en Internetuppkopplad belastningsutjämnare (klassisk) i Azure CLI
+# <a name="get-started-creating-an-internet-facing-load-balancer-classic-in-the-azure-classic-cli"></a>Kom igång med att skapa en Internetriktad lastbalanserare (klassisk) på den klassiska Azure CLI
 
 > [!div class="op_single_selector"]
 > * [PowerShell](../load-balancer/load-balancer-get-started-internet-classic-ps.md)
-> * [Azure CLI](../load-balancer/load-balancer-get-started-internet-classic-cli.md)
+> * [Klassisk Azure CLI](../load-balancer/load-balancer-get-started-internet-classic-cli.md)
 > * [Azure Cloud Services](../load-balancer/load-balancer-get-started-internet-classic-cloud.md)
 
 [!INCLUDE [load-balancer-get-started-internet-intro-include.md](../../includes/load-balancer-get-started-internet-intro-include.md)]
 
 > [!IMPORTANT]
-> Innan du börjar arbeta med Azure-resurser är det viktigt att du vet att Azure för närvarande har två distributionsmodeller: Azure Resource Manager och klassisk. Se till att du förstår [distributionsmodeller och verktyg](../azure-classic-rm.md) innan du börjar arbeta med Azure-resurser. Du kan granska dokumentationen för olika verktyg genom att klicka på flikarna överst i den här artikeln. Den här artikeln beskriver hur du gör om du använder den klassiska distributionsmodellen. Du kan också läsa artikeln om [hur du skapar en Internetuppkopplad belastningsutjämnare med hjälp av Azure Resource Manager](load-balancer-get-started-internet-arm-ps.md).
+> Innan du börjar arbeta med Azure-resurser är det viktigt att du vet att Azure för närvarande har två distributionsmodeller: Azure Resource Manager och klassisk. Se till att du förstår [distributionsmodeller och verktyg](../azure-classic-rm.md) innan du börjar arbeta med Azure-resurser. Du kan granska dokumentationen för olika verktyg genom att klicka på flikarna överst i den här artikeln. Den här artikeln beskriver hur du gör om du använder den klassiska distributionsmodellen. Du kan också läsa artikeln om [hur du skapar en Internetuppkopplad lastbalanserare med hjälp av Azure Resource Manager](load-balancer-get-started-internet-arm-ps.md).
+
+[!INCLUDE [requires-classic-cli](../../includes/contains-classic-cli-content.md)]
 
 [!INCLUDE [load-balancer-get-started-internet-scenario-include.md](../../includes/load-balancer-get-started-internet-scenario-include.md)]
 
-## <a name="create-an-internet-facing-load-balancer-using-cli"></a>Skapa en Internetuppkopplad belastningsutjämnare med CLI
+## <a name="create-an-internet-facing-load-balancer-using-cli"></a>Skapa en Internetuppkopplad lastbalanserare med CLI
 
-Den här guiden beskriver hur du skapar en Internetuppkopplad belastningsutjämnare baserat på scenariot ovan.
+Den här guiden beskriver hur du skapar en Internetuppkopplad lastbalanserare baserat på scenariot ovan.
 
-1. Om du aldrig har använt Azure CLI, se [installera och konfigurera Azure CLI](../cli-install-nodejs.md) och följ instruktionerna upp till den punkt där du väljer Azure-konto och prenumeration.
+1. Om du aldrig har använt klassisk Azure CLI, se [Installera och konfigurera klassisk Azure CLI](../cli-install-nodejs.md) och följ instruktionerna upp till den punkt där du väljer ditt Azure-konto och prenumeration.
 2. Kör kommandot **azure config mode** för att växla till klassiskt läge, som du ser nedan.
 
     ```azurecli
@@ -50,14 +52,14 @@ Den här guiden beskriver hur du skapar en Internetuppkopplad belastningsutjämn
 
         info:    New mode is asm
 
-## <a name="create-endpoint-and-load-balancer-set"></a>Skapa slutpunkt och belastningsutjämningsuppsättning
+## <a name="create-endpoint-and-load-balancer-set"></a>Skapa slutpunkt och lastbalanseringsuppsättning
 
 I det här scenariot förutsätter vi att de virtuella datorerna ”web1” och ”web2” har skapats.
-I den här guiden skapar vi en belastningsutjämningsuppsättning som använder port 80 som offentlig port och port 80 som lokal port. En avsökningsport konfigureras också på port 80 och belastningsutjämningsuppsättningen tilldelas namnet ”lbset”.
+I den här guiden skapar vi en lastbalanseringsuppsättning som använder port 80 som offentlig port och port 80 som lokal port. En avsökningsport konfigureras också på port 80 och lastbalanseringsuppsättningen tilldelas namnet ”lbset”.
 
 ### <a name="step-1"></a>Steg 1
 
-Skapa den första slutpunkten och belastningsutjämningsuppsättningen med hjälp av `azure network vm endpoint create` för den virtuella datorn ”web1”.
+Skapa den första slutpunkten och lastbalanseringsuppsättningen med hjälp av `azure network vm endpoint create` för den virtuella datorn ”web1”.
 
 ```azurecli
 azure vm endpoint create web1 80 --local-port 80 --protocol tcp --probe-port 80 --load-balanced-set-name lbset
@@ -65,7 +67,7 @@ azure vm endpoint create web1 80 --local-port 80 --protocol tcp --probe-port 80 
 
 ### <a name="step-2"></a>Steg 2
 
-Lägg till en andra virtuell dator, ”web2”, i belastningsutjämningsuppsättningen.
+Lägg till en andra virtuell dator, ”web2”, i lastbalanseringsuppsättningen.
 
 ```azurecli
 azure vm endpoint create web2 80 --local-port 80 --protocol tcp --probe-port 80 --load-balanced-set-name lbset
@@ -73,7 +75,7 @@ azure vm endpoint create web2 80 --local-port 80 --protocol tcp --probe-port 80 
 
 ### <a name="step-3"></a>Steg 3
 
-Kontrollera belastningsutjämnarens konfiguration med hjälp av `azure vm show` .
+Kontrollera lastbalanserarens konfiguration med hjälp av `azure vm show` .
 
 ```azurecli
 azure vm show web1
@@ -131,11 +133,11 @@ Du kan skapa en fjärrskrivbordsslutpunkt för att vidarebefordra nätverkstrafi
 azure vm endpoint create web1 54580 -k 3389
 ```
 
-## <a name="remove-virtual-machine-from-load-balancer"></a>Ta bort en virtuell dator från belastningsutjämnaren
+## <a name="remove-virtual-machine-from-load-balancer"></a>Ta bort en virtuell dator från lastbalanseraren
 
-Du måste ta bort slutpunkten som är kopplad till belastningsutjämningsuppsättningen från den virtuella datorn. När slutpunkten har tagits bort tillhör inte den virtuella datorn belastningsutjämningsuppsättningen längre.
+Du måste ta bort slutpunkten som är kopplad till lastbalanseringsuppsättningen från den virtuella datorn. När slutpunkten har tagits bort tillhör inte den virtuella datorn lastbalanseringsuppsättningen längre.
 
-I ovanstående exempel kan du ta bort slutpunkten som skapades för den virtuella datorn ”web1” från belastningsutjämnaren ”lbset” med hjälp av kommandot `azure vm endpoint delete`.
+I ovanstående exempel kan du ta bort slutpunkten som skapades för den virtuella datorn ”web1” från lastbalanseraren ”lbset” med hjälp av kommandot `azure vm endpoint delete`.
 
 ```azurecli
 azure vm endpoint delete web1 tcp-80-80
@@ -146,8 +148,8 @@ azure vm endpoint delete web1 tcp-80-80
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Komma igång med att konfigurera en intern belastningsutjämnare](load-balancer-get-started-ilb-arm-ps.md)
+[Komma igång med att konfigurera en intern lastbalanserare](load-balancer-get-started-ilb-arm-ps.md)
 
-[Konfigurera ett distributionsläge för belastningsutjämnare](load-balancer-distribution-mode.md)
+[Konfigurera ett distributionsläge för lastbalanserare](load-balancer-distribution-mode.md)
 
-[Konfigurera timeout-inställningar för inaktiv TCP för en belastningsutjämnare](load-balancer-tcp-idle-timeout.md)
+[Konfigurera timeout-inställningar för inaktiv TCP för en lastbalanserare](load-balancer-tcp-idle-timeout.md)

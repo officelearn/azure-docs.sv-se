@@ -1,36 +1,40 @@
 ---
-title: 'Snabbstart: Cassandra API med Python – Azure Cosmos DB | Microsoft Docs'
-description: Den här snabbstarten visar hur du använder Apache Cassandra API i Azure Cosmos DB för att skapa ett profilprogram med Python
+title: 'Snabbstart: Cassandra API med Python – Azure Cosmos DB'
+description: Den här snabbstarten visar hur du använder Apache Cassandra API i Azure Cosmos DB för att skapa ett profilprogram med Python.
 services: cosmos-db
 author: SnehaGunda
-manager: kfile
+ms.author: sngun
 ms.service: cosmos-db
 ms.component: cosmosdb-cassandra
 ms.custom: quick start connect, mvc
 ms.devlang: python
 ms.topic: quickstart
-ms.date: 11/15/2017
-ms.author: sngun
-ms.openlocfilehash: 8f662f1d7b39e1757786193911e9fd2623b0a09a
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.date: 09/24/2018
+ms.openlocfilehash: 4712c0b40209cd6d40703176f95a80f491d0364c
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39214600"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46979108"
 ---
 # <a name="quickstart-build-a-cassandra-app-with-python-and-azure-cosmos-db"></a>Snabbstart: Skapa en Cassandra-app med Python och Azure Cosmos DB
 
-Den här snabbstarten visar hur du använder [Cassandra API](cassandra-introduction.md) i Python och Azure Cosmos DB för att skapa en profilapp genom att klona ett exempel från GitHub. Denna snabbstart visar dig också hur man skapar ett Azure Cosmos DB-konto med hjälp av den webbaserade Azure-portalen.
+> [!div class="op_single_selector"]
+> * [.NET](create-cassandra-dotnet.md)
+> * [Java](create-cassandra-java.md)
+> * [Node.js](create-cassandra-nodejs.md)
+> * [Python](create-cassandra-python.md)
+>  
 
-Azure Cosmos DB är Microsofts globalt distribuerade databastjänst för flera datamodeller. Du kan snabbt skapa och ställa frågor mot databaser med dokument, tabeller, nyckel/värde-par och grafer. Du får fördelar av den globala distributionen och den horisontella skalningsförmågan som ligger i grunden hos Azure Cosmos DB.   
+Den här snabbstarten visar hur du använder [Cassandra API](cassandra-introduction.md) i Python och Azure Cosmos DB för att skapa en profilapp genom att klona ett exempel från GitHub. Den här snabbstarten visar även hur du använder den webbaserade Azure-portalen för att skapa ett Azure Cosmos DB-konto.
+
+Azure Cosmos DB är Microsofts globalt distribuerade databastjänst för flera datamodeller. Du kan snabbt skapa och ställa frågor mot databaser med dokument, tabeller, nyckel/värde-par och grafer. Du får fördelar av den globala distributionen och den horisontella skalningsförmågan som ligger i grunden hos Azure Cosmos DB.
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)] Du kan även [Testa Azure Cosmos DB kostnadsfritt](https://azure.microsoft.com/try/cosmosdb/) utan en Azure-prenumeration, utan kostnad och åtaganden.
 
-Åtkomst till förhandsgranskningsprogrammet för Azure Cosmos DB Cassandra-API. Om du inte har ansökt om åtkomst än kan du [registrera dig nu](cassandra-introduction.md#sign-up-now).
-
-Följande gäller också:
+Dessutom behöver du:
 * [Python](https://www.python.org/downloads/) version v2.7.14
 * [Git](http://git-scm.com/)
 * [Python-drivrutin för Apache Cassandra](https://github.com/datastax/python-driver)
@@ -45,7 +49,7 @@ Innan du kan börja skapa en dokumentdatabas måste du skapa ett Cassandra-konto
 
 Nu ska vi klona en Cassandra API-app från github, ange anslutningssträngen och köra appen. Du kommer att se hur lätt det är att arbeta med data programmässigt. 
 
-1. Öppna en kommandotolk, skapa en ny mapp som heter git-samples och stäng sedan kommandotolken.
+1. Öppna en kommandotolk. Skapa en ny mapp som heter `git-samples`. Stäng kommandotolken.
 
     ```bash
     md "C:\git-samples"
@@ -67,7 +71,7 @@ Nu ska vi klona en Cassandra API-app från github, ange anslutningssträngen och
 
 Det här steget är valfritt. Om du vill lära dig hur databasresurserna skapas i koden kan du granska följande kodavsnitt. Alla kodavsnitten kommer från filen pyquickstart.py. Annars kan du gå vidare till [Uppdatera din anslutningssträng](#update-your-connection-string). 
 
-* Användarnamn och lösenord anges med hjälp av anslutningssträngsidan i Azure-portalen. Du ersätter path\to\cert med sökvägen till ditt X509-certifikat.
+* Användarnamnet och lösenordet angavs med hjälp av anslutningssträngsidan i Azure-portalen. `path\to\cert` tillhandahåller en sökväg till X509-certifikatet. 
 
    ```python
     ssl_opts = {
@@ -132,9 +136,9 @@ Det här steget är valfritt. Om du vill lära dig hur databasresurserna skapas 
 
 ## <a name="update-your-connection-string"></a>Uppdatera din anslutningssträng
 
-Gå nu tillbaka till Azure-portalen för att hämta information om din anslutningssträng och kopiera den till appen. På så vis kan appen kommunicera med den värdbaserade databasen.
+Gå nu tillbaka till Azure-portalen för att hämta information om din anslutningssträng och kopiera den till appen. Anslutningssträngen gör det möjligt för appen att kommunicera med den värdbaserade databasen.
 
-1. I [Azure-portalen](http://portal.azure.com/) klickar du på **Anslutningssträng**. 
+1. I [Azure-portalen](http://portal.azure.com/) väljer du **Anslutningssträng**. 
 
     Använd ![Knappen Kopiera](./media/create-cassandra-python/copy.png) knappen på höger sida av skärmen för att kopiera det övre värdet, KONTAKTPUNKT.
 
@@ -162,17 +166,19 @@ Gå nu tillbaka till Azure-portalen för att hämta information om din anslutnin
 
 6. Spara filen config.py.
     
-## <a name="use-the-x509-certificate"></a>Använd X509-certifikatet
+## <a name="use-the-x509-certificate"></a>Använda X509-certifikatet
 
-1. Om du behöver lägga till Baltimore CyberTrust Root så har det serienummer 02:00:00:b9 och SHA1 fingeravtrycket d4🇩🇪20:d0:5e:66:fc:53:fe:1a:50:88:2 c: 78:db:28:52:ca:e4:74. Den kan hämtas från https://cacert.omniroot.com/bc2025.crt och sparas till en lokal fil med filtillägget .cer
+1. Ladda ned Baltimore CyberTrust-rotcertifikatet lokalt från [https://cacert.omniroot.com/bc2025.crt](https://cacert.omniroot.com/bc2025.crt). Byt namn på filen med filnamnstillägget `.cer`.
 
-2. Öppna pyquickstart.py och ändra ”path\to\cert” så att det leder till det nya certifikatet.
+   Certifikatet har serienummer `02:00:00:b9` och SHA1-fingeravtryck `d4🇩🇪20:d0:5e:66:fc:53:fe:1a:50:88:2c:78:db:28:52:ca:e4:74`.
 
-3. Spara pyquickstart.py.
+2. Öppna `pyquickstart.py` och ändra `path\to\cert` så att den pekar på det nya certifikatet.
 
-## <a name="run-the-app"></a>Kör appen
+3. Spara `pyquickstart.py`.
 
-1. Använd cd-kommandot i git-terminalen för att ändra till mappen azure-cosmos-db-cassandra-python-getting-started. 
+## <a name="run-the-python-app"></a>Köra Python-appen
+
+1. Använd cd-kommandot i git-terminalen för att ändra till den `azure-cosmos-db-cassandra-python-getting-started`-mappen. 
 
 2. Installera modulerna som krävs med hjälp av följande kommandon:
 
@@ -189,13 +195,13 @@ Gå nu tillbaka till Azure-portalen för att hämta information om din anslutnin
     python pyquickstart.py
     ```
 
-3. Kontrollera att resultatet är som förväntat från kommandoraden.
+3. Kontrollera att resultatet blir det man kan förvänta sig från kommandoraden.
 
     Tryck på CTRL + C om du vill stoppa körning av programmet och stänga konsolfönstret. 
 
-    ![Granska och verifiera utdata.](./media/create-cassandra-python/output.png)
+    ![Visa och verifiera utdata](./media/create-cassandra-python/output.png)
     
-    Du kan nu öppna Datautforskaren i Azure-portalen och se frågan, ändra och arbeta med dessa nya data. 
+4. I **Datautforskaren** i Azure-portalen kan du fråga, ändra och arbeta med dessa nya data. 
 
     ![Visa data i Datautforskaren](./media/create-cassandra-python/data-explorer.png)
 

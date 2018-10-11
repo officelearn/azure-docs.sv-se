@@ -1,30 +1,30 @@
 ---
-title: Självstudie – Optimera reserverade instanskostnader med Azure Cost Management | Microsoft Docs
+title: Självstudie – Optimera reserverad instanskostnad med Cloudyn i Azure | Microsoft Docs
 description: I den här självstudien får du lära dig hur du optimerar dina reserverade instanskostnader för Azure och Amazon Web Services (AWS).
 services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 04/26/2018
+ms.date: 09/18/2018
 ms.topic: tutorial
 ms.service: cost-management
 ms.custom: ''
 manager: dougeby
-ms.openlocfilehash: f0edad58256ecc29e2fd215095e8b5ab13d69ce8
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: c50259f0df955c3a22edc979dfebc8bfb2059e16
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32177331"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46987799"
 ---
 <!-- Intent: As a cloud-consuming administrator, I need to ensure that my reserved instances are optimized for cost and usage
 -->
 
 # <a name="tutorial-optimize-reserved-instances"></a>Självstudie: Optimera reserverade instanser
 
-I den här självstudiekursen får du lära dig hur Cost Management kan hjälpa dig att optimera dina reserverade instanskostnader och din användning för Azure och Amazon Web Services (AWS). En reserverad instans hos en molntjänstleverantör är ett åtagande om ett långsiktigt avtal där du binder dig i förväg att använda den virtuella datorn. Avtalet kan ibland ge betydande besparingar jämfört med VM-prismodeller av standardtyp där du betalar per användning. Potentiella besparingar realiseras bara när du utnyttjar dina reserverade instansers kapacitet fullt ut.
+I den här självstudien får du lära dig hur Cloudyn kan hjälpa dig att optimera dina reserverade instanskostnader och din användning för Azure och Amazon Web Services (AWS). En reserverad instans hos en molntjänstleverantör är ett åtagande om ett långsiktigt avtal där du binder dig i förväg att använda den virtuella datorn. Avtalet kan ibland ge betydande besparingar jämfört med VM-prismodeller av standardtyp där du betalar per användning. Potentiella besparingar realiseras bara när du utnyttjar dina reserverade instansers kapacitet fullt ut.
 
-I den här självstudiekursen beskrivs hur Azure och AWS reserverade instanser (RI) stöds av Cost Management. Kursen beskriver också hur du kan optimera reserverade instanskostnader. Det gör du främst genom att säkerställa att du utnyttjar dina resurser fullt ut. I den här kursen ska du:
+I den här självstudien beskrivs hur Azure och AWS reserverade instanser (RI) stöds av Cloudyn. Kursen beskriver också hur du kan optimera reserverade instanskostnader. Det gör du främst genom att säkerställa att du utnyttjar dina resurser fullt ut. I den här kursen ska du:
 
 > [!div class="checklist"]
 > * Lära dig mer om Azure RI-kostnader
@@ -41,7 +41,7 @@ Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto]
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
 - Du måste ha ett Azure-konto.
-- Du måste antingen ha en utvärderingsregistrering eller en betald prenumeration för Azure Cost Management.
+- Du måste antingen ha en utvärderingsregistrering eller en betald prenumeration för Cloudyn.
 - Du måste ha köpt dina RI i Azure eller AWS.
 
 ## <a name="understand-azure-ri-costs"></a>Lära dig mer om Azure RI-kostnader
@@ -85,7 +85,7 @@ Omfattningen för det delade köpet är den mest flexibla och rekommenderas allt
 
 ## <a name="optimize-azure-ri-costs"></a>Optimera kostnader för Azure RI
 
-Azure Cost Management stödjer reserverade instanser och Hybrid-förmåner genom att:
+Cloudyn stödjer reserverade instanser och Hybrid-förmåner genom att:
 
 - Visa vilka kostnader som är förknippade med prissättningsmodellerna
 - Spåra RI-användning
@@ -116,7 +116,7 @@ Om den däremot bara körs 50 % av tiden blir brytpunkten vid 10 månader och b
 
 ## <a name="view-ri-costs"></a>Visa RI-kostnader
 
-När du köper en reservation gör du en engångsbetalning. Det finns två sätt att visa betalningen i Cost Management:
+När du köper en reservation gör du en engångsbetalning. Det finns två sätt att visa betalningen i Cloudyn:
 
 - Verklig kostnad
 - Amorterad kostnad

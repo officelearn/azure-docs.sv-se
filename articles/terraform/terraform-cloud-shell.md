@@ -9,12 +9,12 @@ manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 10/19/2017
-ms.openlocfilehash: 107a6dd82465ce1455a3c2922c8f9cba6b73dd64
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.openlocfilehash: a5f44edf201ce9a2e2c0da6b5da9031958a11fdc
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43667970"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46959317"
 ---
 # <a name="terraform-cloud-shell-development"></a>Terraform Cloud Shell-utveckling 
 
@@ -45,7 +45,7 @@ Cloud Shell skickar värden som krävs för `azurerm`-providern via miljövariab
 
 Filer och shelltillstånd finns kvar i Azure Storage mellan Cloud Shell-sessioner. Använd [Azure Storage Explorer](/azure/vs-azure-tools-storage-manage-with-storage-explorer) för att kopiera och ladda upp filer till Cloud Shell från din lokala dator.
 
-Azure CLI 2.0 är tillgängligt i Cloud Shell och är ett bra verktyg för att testa konfigurationer och kontrollera ditt arbete när `terraform apply` eller `terraform destroy` har slutförts.
+Azure CLI är tillgängligt i Cloud Shell och är ett bra verktyg för att testa konfigurationer och kontrollera ditt arbete när `terraform apply` eller `terraform destroy` har slutförts.
 
 
 ## <a name="next-steps"></a>Nästa steg

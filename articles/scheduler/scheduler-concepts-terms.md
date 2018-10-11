@@ -1,200 +1,323 @@
 ---
-title: Scheduler - begrepp, terminologi och enheter | Microsoft-dokument
-description: Begrepp, terminologi och entitetshierarki, inklusive jobb och jobbsamlingar, relaterade till Azure Scheduler.  Innehåller ett omfattande exempel på ett schemalagt jobb.
+title: Begrepp, terminologi och entiteter – Azure Scheduler | Microsoft Docs
+description: Läs om begrepp, terminologi och entitetshierarki inklusive jobb och jobbsamlingar i Azure Scheduler
 services: scheduler
-documentationcenter: .NET
-author: derek1ee
-manager: kevinlam1
-editor: ''
-ms.assetid: 3ef16fab-d18a-48ba-8e56-3f3e0a1bcb92
 ms.service: scheduler
-ms.workload: infrastructure-services
-ms.tgt_pltfrm: na
-ms.devlang: dotnet
+ms.suite: infrastructure-services
+author: derek1ee
+ms.author: deli
+ms.reviewer: klam
+ms.assetid: 3ef16fab-d18a-48ba-8e56-3f3e0a1bcb92
 ms.topic: get-started-article
 ms.date: 08/18/2016
-ms.author: deli
-ms.openlocfilehash: 91302d57c43a6c9d14aeeee95df3d61fa6f73172
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 07b7cce4b026464ba34296b54c4ae90d6d2b1afa
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31418850"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46981169"
 ---
-# <a name="scheduler-concepts-terminology--entity-hierarchy"></a>Begrepp, terminologi och entitetshierarki relaterade till Azure Scheduler
-## <a name="scheduler-entity-hierarchy"></a>Entitetshierarki i Scheduler
-I följande tabell beskrivs de viktigaste resurserna som exponeras eller används av Scheduler-API:et:
+# <a name="concepts-terminology-and-entities-in-azure-scheduler"></a>Begrepp, terminologi och entiteter i Azure Scheduler
 
-| Resurs | Beskrivning |
-| --- | --- |
-| **Jobbsamling** |En jobbsamling innehåller en grupp med jobb och hanterar inställningar, kvoter och begränsningar som delas av jobb i samlingen. En jobbsamling skapas av en prenumerationsägare och grupperar jobb baserat på användnings- eller programgränser. Den är begränsad till en region. Den gör också att du kan tillämpa kvoter för att begränsa användningen av alla jobb i samlingen. Exempel på kvoter är MaxJobs och MaxRecurrence. |
-| **Jobb** |Ett jobb definierar en enskild återkommande åtgärd med enkla eller komplexa strategier för körning. Exempel på åtgärder är HTTP, lagringskö, Service Bus-kö eller Service Bus-ämnesförfrågningar. |
-| **Jobbhistorik** |En jobbhistorik representerar information om körningen av ett jobb. Den innehåller information om huruvida jobbet lyckades eller misslyckades, samt eventuell svarsinformation. |
+> [!IMPORTANT]
+> [Azure Logic Apps](../logic-apps/logic-apps-overview.md) ersätter Azure Scheduler, som dras tillbaka. Om du vill schemalägga jobb kan du [testa Azure Logic Apps istället](../scheduler/migrate-from-scheduler-to-logic-apps.md). 
 
-## <a name="scheduler-entity-management"></a>Entitetshantering i Scheduler
-På hög nivå exponerar Scheduler och tjänsthanterings-API:et följande åtgärder för resurserna:
+## <a name="entity-hierarchy"></a>Entitetshierarki
 
-| Funktion | Beskrivning och URI-adress |
-| --- | --- |
-| **Hantering av jobbsamlingar** |Stöd för GET, PUT och DELETE för att skapa och ändra jobbsamlingar och jobben som de innehåller. En jobbsamling är en behållare för jobb och mappar till kvoter och delade inställningar. Exempel på kvoter, som beskrivs senare, är högsta antal jobb och minsta intervall. <p>PUT och DELETE: `https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Scheduler/jobCollections/{jobCollectionName}`</p><p>GET: `https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Scheduler/jobCollections/{jobCollectionName}`</p> |
-| **Jobbhantering** |Stöd för GET, PUT, POST, PATCH och DELETE för att skapa och ändra jobb. Alla jobb måste tillhöra en jobbsamling som redan finns. Ingen implicit generering utförs. <p>`https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Scheduler/jobCollections/{jobCollectionName}/jobs/{jobName}`</p> |
-| **Hantering av jobbhistorik** |Stöd för GET för att hämta 60 dagars jobbkörningshistorik, t.ex. förfluten tid och körningsresultat. Lägger till parameterstöd för frågesträngar för filtrering baserat på tillstånd och status. <P>`https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Scheduler/jobCollections/{jobCollectionName}/jobs/{jobName}/history`</p> |
+Azure Scheduler REST API:et visar och använder de här huvudsakliga entiteterna eller resurserna:
+
+| Entitet | Beskrivning |
+|--------|-------------|
+| **Jobb** | Definierar en enskild återkommande åtgärd med enkla eller komplexa strategier för körning. Exempel på åtgärder kan vara HTTP, Storage-kö, Service Bus-kö eller Service Bus-ämnesbegäranden. | 
+| **Jobbsamling** | Innehåller en grupp med jobb och hanterar inställningar, kvoter och begränsningar som delas av jobb i samlingen. Som en Azure-prenumerationsägare kan du skapa jobbsamlingar och gruppera jobb tillsammans baserat på deras användning eller programgränser. En jobbsamling har dessa attribut: <p>– begränsad till en region. <br>– låter dig framtvinga kvoter så att du kan begränsa användningen för alla jobb i en samling. <br>– kvoter inkluderar MaxJobs och MaxRecurrence. | 
+| **Jobbhistorik** | Innehåller information om en jobbkörning, till exempel status och eventuell svarsinformation. |
+||| 
+
+## <a name="entity-management"></a>Entitetshantering
+
+Vid en hög nivå exponerar Scheduler REST API de här åtgärderna för hantering av entiteter.
+
+### <a name="job-management"></a>Jobbhantering
+
+Stöder åtgärder för att skapa och redigera jobb. Alla jobb måste tillhöra en befintlig jobbsamling. Ingen implicit generering utförs. Mer information finns i [Scheduler REST API – jobb](https://docs.microsoft.com/rest/api/scheduler/jobs). Här är URI-adressen för de här åtgärderna:
+
+`https://management.azure.com/subscriptions/{subscriptionID}/resourceGroups/{resourceGroupName}/providers/Microsoft.Scheduler/jobCollections/{jobCollectionName}/jobs/{jobName}`
+
+### <a name="job-collection-management"></a>Hantering av jobbsamlingar
+
+Stöder åtgärder för att skapa och redigera jobb och jobbsamlingar, som mappar till kvoter och delade inställningar. Till exempel kvoter som anger maximalt antal jobb och minsta upprepningsintervall. Mer information finns i [Scheduler REST API – jobbsamlingar](https://docs.microsoft.com/rest/api/scheduler/jobcollections). Här är URI-adressen för de här åtgärderna:
+
+`https://management.azure.com/subscriptions/{subscriptionID}/resourceGroups/{resourceGroupName}/providers/Microsoft.Scheduler/jobCollections/{jobCollectionName}`
+
+### <a name="job-history-management"></a>Hantering av jobbhistorik
+
+Stöder GET-åtgärden för att hämta 60 dagars jobbkörningshistorik, till exempel förfluten tid och jobbkörningsresultat. Inkluderar parameterstöd för frågesträngar för filtrering baserat på tillstånd och status. Mer information finns i [Scheduler REST API – Jobb – Lista jobbhistorik](https://docs.microsoft.com/rest/api/scheduler/jobs/listjobhistory). Här är URI-adressen för de här åtgärderna:
+
+`https://management.azure.com/subscriptions/{subscriptionID}/resourceGroups/{resourceGroupName}/providers/Microsoft.Scheduler/jobCollections/{jobCollectionName}/jobs/{jobName}/history`
 
 ## <a name="job-types"></a>Jobbtyper
-Det finns flera typer av jobb: HTTP-jobb (inklusive HTTPS-jobb som stöder SSL), jobb för lagringsköer, Service Bus-köjobb och Service Bus-ämnesjobb. HTTP-jobben är idealiska om du har en slutpunkt för en befintlig arbetsbelastning eller tjänst. Du kan använda köjobb för att publicera meddelanden till lagringsköer, vilket gör dessa jobb idealiska för arbetsbelastningar som använder lagringsköer. På liknande sätt är Service Bus-jobb idealiska för arbetsbelastningar som använder Service Bus-köer och Service Bus-ämnen.
 
-## <a name="the-job-entity-in-detail"></a>Jobbentiteten i detalj
-På en grundläggande nivå har ett schemalagt jobb flera delar:
+Azure Scheduler stöder flera jobbtyper: 
 
-* Åtgärden som ska utföras när jobbet utlöses  
-* (Valfritt) Tiden då jobbet ska köras  
-* (Valfritt) När och hur ofta jobbet ska upprepas  
-* (Valfritt) En åtgärd som ska utlösas om den primära åtgärden misslyckas  
+* HTTP-jobb, inklusive HTTPS-jobb som stöder SSL, för när du har slutpunkten för en befintlig tjänst eller arbetsbelastning
+* Storage-köjobb för arbetsbelastningar som använder Storage-köer, som att publicera meddelanden till Storage-köer
+* Service Bus-köjobb för arbetsbelastningar som använder Service Bus-köer
+* Service Bus-ämnesjobb för arbetsbelastningar som använder Service Bus-ämnen
 
-Internt innehåller ett schemalagt jobb även systembaserade data, till exempel nästa schemalagda körningstid.
+## <a name="job-definition"></a>Jobbdefinition
 
-Följande kod är ett komplett exempel på ett schemalagt jobb. Information finns i de efterföljande avsnitten.
+På hög nivå har ett Scheduler-jobb de här grundläggande delarna:
 
-    {
-        "startTime": "2012-08-04T00:00Z",               // optional
-        "action":
-        {
-            "type": "http",
-            "retryPolicy": { "retryType":"none" },
-            "request":
-            {
-                "uri": "http://contoso.com/foo",        // required
-                "method": "PUT",                        // required
-                "body": "Posting from a timer",         // optional
-                "headers":                              // optional
+* Åtgärden som körs när jobbets timer utlöses
+* Valfritt: tiden då jobbet ska köras
+* Valfritt: när och hur ofta jobbet ska upprepas
+* Valfritt: En felåtgärd som körs om den primära åtgärden misslyckas
 
-                {
-                    "Content-Type": "application/json"
-                },
-            },
-           "errorAction":
-           {
-               "type": "http",
-               "request":
-               {
-                   "uri": "http://contoso.com/notifyError",
-                   "method": "POST",
-               },
-           },
-        },
-        "recurrence":                                   // optional
-        {
-            "frequency": "week",                        // can be "year" "month" "day" "week" "minute"
-            "interval": 1,                              // optional, how often to fire (default to 1)
-            "schedule":                                 // optional (advanced scheduling specifics)
-            {
-                "weekDays": ["monday", "wednesday", "friday"],
-                "hours": [10, 22]
-            },
-            "count": 10,                                 // optional (default to recur infinitely)
-            "endTime": "2012-11-04",                     // optional (default to recur infinitely)
-        },
-        "state": "disabled",                           // enabled or disabled
-        "status":                                       // controlled by Scheduler service
-        {
-            "lastExecutionTime": "2007-03-01T13:00:00Z",
-            "nextExecutionTime": "2007-03-01T14:00:00Z ",
-            "executionCount": 3,
-                                                "failureCount": 0,
-                                                "faultedCount": 0
-        },
-    }
+Jobbet innehåller även systemangivna data, till exempel jobbets nästa schemalagda körning. Jobbets koddefinition är ett objekt i JavaScript Object Notation (JSON)-format, vilket har dessa element:
 
-Som du ser i det schemalagda exempeljobbet ovan har en jobbdefinition flera delar:
+| Element | Krävs | Beskrivning | 
+|---------|----------|-------------| 
+| [**startTime**](#start-time) | Nej | Starttid för jobbet med en tidszonsförskjutning i [ISO 8601-format](http://en.wikipedia.org/wiki/ISO_8601) | 
+| [**åtgärd**](#action) | Ja | Information om den primära åtgärden, vilket kan inkludera ett **errorAction**-objekt | 
+| [**errorAction**](#error-action) | Nej | Information om den sekundära åtgärd som körs om den primära åtgärden misslyckas |
+| [**recurrence**](#recurrence) | Nej | Information som frekvens och intervall för ett återkommande jobb | 
+| [**retryPolicy**](#retry-policy) | Nej | Information om hur ofta en åtgärd ska göras om | 
+| [**state**](#state) | Ja | Information om jobbets aktuella tillstånd |
+| [**status**](#status) | Ja | Information om jobbets aktuella status som kontrolleras av tjänsten |
+||||
 
-* Starttid (”startTime”)  
-* Åtgärd (”action”), som även omfattar en felåtgärd (”errorAction”)
-* Upprepning (”recurrence”)  
-* Tillstånd (”state”)  
-* Status (”status”)  
-* Återförsöksprincip (”retryPolicy”)  
+Här är ett exempel som visar en heltäckande jobbdefinition för en HTTP-åtgärd med mer fullständig elementinformation som beskrivs i senare avsnitt: 
 
-Nu ska vi titta närmare på var och en av dessa delar:
+```json
+"properties": {
+   "startTime": "2012-08-04T00:00Z",
+   "action": {
+      "type": "Http",
+      "request": {
+         "uri": "http://contoso.com/some-method", 
+         "method": "PUT",          
+         "body": "Posting from a timer",
+         "headers": {
+            "Content-Type": "application/json"
+         },
+         "retryPolicy": { 
+             "retryType": "None" 
+         },
+      },
+      "errorAction": {
+         "type": "Http",
+         "request": {
+            "uri": "http://contoso.com/notifyError",
+            "method": "POST"
+         }
+      }
+   },
+   "recurrence": {
+      "frequency": "Week",
+      "interval": 1,
+      "schedule": {
+         "weekDays": ["Monday", "Wednesday", "Friday"],
+         "hours": [10, 22]
+      },
+      "count": 10,
+      "endTime": "2012-11-04"
+   },
+   "state": "Disabled",
+   "status": {
+      "lastExecutionTime": "2007-03-01T13:00:00Z",
+      "nextExecutionTime": "2007-03-01T14:00:00Z ",
+      "executionCount": 3,
+      "failureCount": 0,
+      "faultedCount": 0
+   }
+}
+```
+
+<a name="start-time"></a>
 
 ## <a name="starttime"></a>startTime
-”startTime” är starttiden och låter anroparen ange en tidszonsförskjutning för anslutningen i [ISO 8601-format](http://en.wikipedia.org/wiki/ISO_8601).
 
-## <a name="action-and-erroraction"></a>action och errorAction
-”action” är den åtgärd som anropas för varje förekomst och beskriver en typ av tjänstanrop. Åtgärden är den handling som utförs enligt det angivna schemat. Scheduler stöder HTTP, lagringskö, Service Bus-ämne och Service Bus-köåtgärder.
+I objektet **startTime** kan du ange starttid och en tidszonsförskjutning i [ISO 8601-format](http://en.wikipedia.org/wiki/ISO_8601).
 
-Åtgärden i exemplet ovan är en HTTP-åtgärd. Nedan är ett exempel på en åtgärd för lagringskön:
+<a name="action"></a>
 
-    {
-            "type": "storageQueue",
-            "queueMessage":
-            {
-                "storageAccount": "myStorageAccount",  // required
-                "queueName": "myqueue",                // required
-                "sasToken": "TOKEN",                   // required
-                "message":                             // required
-                    "My message body",
-            },
+## <a name="action"></a>åtgärd
+
+Ditt Scheduler-jobb kör en primär **åtgärd** baserat på det angivna schemat. Scheduler stöder HTTP, Storage-kö, Service Bus-kö och Service Bus-ämnesåtgärder. Om den primära **åtgärden** misslyckas, kan Scheduler köra en sekundär [**errorAction**](#errorAction) som hanterar felet. Objektet **åtgärd** beskriver dessa element:
+
+* Åtgärdens tjänsttyp
+* Åtgärdens information
+* Ett alternativ **errorAction**
+
+Föregående exempel beskriver en HTTP-åtgärd. Här är ett exempel på en Storage-köåtgärd:
+
+```json
+"action": {
+   "type": "storageQueue",
+   "queueMessage": {
+      "storageAccount": "myStorageAccount",  
+      "queueName": "myqueue",                
+      "sasToken": "TOKEN",                   
+      "message": "My message body"
     }
+}
+```
 
-Nedan är ett exempel på en Service Bus-ämnesåtgärd.
+Här är ett exempel på en Service Bus-köåtgärd:
 
-  "action": { "type": "serviceBusTopic", "serviceBusTopicMessage": { "topicPath": "t1",  
-      "namespace": "mySBNamespace", "transportType": "netMessaging", // Kan vara antingen netMessaging eller AMQP "authentication": { "sasKeyName": "QPolicy", "type": "sharedAccessKey" }, "message": "Some message", "brokeredMessageProperties": {}, "customMessageProperties": { "appname": "FromScheduler" } }, }
+```json
+"action": {
+   "type": "serviceBusQueue",
+   "serviceBusQueueMessage": {
+      "queueName": "q1",  
+      "namespace": "mySBNamespace",
+      "transportType": "netMessaging", // Either netMessaging or AMQP
+      "authentication": {  
+         "sasKeyName": "QPolicy",
+         "type": "sharedAccessKey"
+      },
+      "message": "Some message",  
+      "brokeredMessageProperties": {},
+      "customMessageProperties": {
+         "appname": "FromScheduler"
+      }
+   }
+},
+```
 
-Nedan är ett exempel på en Service Bus-köåtgärd:
+Här är ett exempel på en Service Bus-ämnesåtgärd:
 
-  "action": { "serviceBusQueueMessage": { "queueName": "q1",  
-      "namespace": "mySBNamespace", "transportType": "netMessaging", // Kan vara antingen netMessaging eller AMQP "authentication": {  
-        "sasKeyName": "QPolicy", "type": "sharedAccessKey" }, "message": "Some message",  
-      "brokeredMessageProperties": {}, "customMessageProperties": { "appname": "FromScheduler" } }, "type": "serviceBusQueue" }
+```json
+"action": {
+   "type": "serviceBusTopic",
+   "serviceBusTopicMessage": {
+      "topicPath": "t1",  
+      "namespace": "mySBNamespace",
+      "transportType": "netMessaging", // Either netMessaging or AMQP
+      "authentication": {
+         "sasKeyName": "QPolicy",
+         "type": "sharedAccessKey"
+      },
+      "message": "Some message",
+      "brokeredMessageProperties": {},
+      "customMessageProperties": {
+         "appname": "FromScheduler"
+      }
+   }
+},
+```
 
-”errorAction” är felhanteraren, dvs. åtgärden som anropas när den primära åtgärden misslyckas. Du kan använda den här variabeln för att anropa en slutpunkt för felhantering eller skicka ett meddelande till användaren. Detta kan användas för att ansluta till en sekundär slutpunkt om den primära inte är tillgänglig (t.ex. i händelse av fel på platsen för slutpunkten) eller för att avisera en slutpunkt för felhantering. Precis som den primära åtgärden kan felåtgärden ha enkel eller sammansatt logik baserat på andra åtgärder. Mer information om hur du skapar en SAS-token finns i [Skapa och använda en signatur för delad åtkomst](https://msdn.microsoft.com/library/azure/jj721951.aspx).
+Mer information om SAS-tokens (signaturer för delad åtkomst) finns i [auktorisera med signaturer för delad åtkomst](../storage/common/storage-dotnet-shared-access-signature-part-1.md).
+
+<a name="error-action"></a>
+
+## <a name="erroraction"></a>errorAction
+
+Om ditt jobbs primära **åtgärd** misslyckas, kan Scheduler köra en **errorAction** som hanterar felet. I den primära **åtgärden** kan du ange ett **errorAction** objekt så att Scheduler kan anropa en slutpunkt för felhantering eller skicka ett användarmeddelande. 
+
+Om en katastrof till exempel inträffar på den primära slutpunkten så kan du använda **errorAction** för att anropa en sekundär slutpunkt eller för att meddela en slutpunkt för felhantering. 
+
+Precis som den primärra **åtgärden** så kan du låta felåtgärden använda enkel eller sammansatt logik baserat på andra åtgärder. 
+
+<a name="recurrence"></a>
 
 ## <a name="recurrence"></a>recurrence
-Upprepningskomponenten har flera delar:
 
-* Frekvens: Minut, timme, dag, vecka, månad eller år.  
-* Intervall: Intervallet för den angivna frekvensen för upprepningen.  
-* Föreskrivet schema: Minuter, timmar, veckodagar, månader och dagar i månaden för upprepningen.  
-* Antal: Antal förekomster.  
-* Sluttid: Inga jobb körs efter den angivna sluttiden.  
+Ett jobb återkommer om jobbets JSON-definition innehåller objektet **upprepning**, till exempel:
 
-Ett jobb är återkommande om ett återkommande objekt har angetts i jobbets JSON-definition. Om både count och endTime anges tillämpas slutföranderegeln som inträffar först.
+```json
+"recurrence": {
+   "frequency": "Week",
+   "interval": 1,
+   "schedule": {
+      "hours": [10, 22],
+      "minutes": [0, 30],
+      "weekDays": ["Monday", "Wednesday", "Friday"]
+   },
+   "count": 10,
+   "endTime": "2012-11-04"
+},
+```
 
-## <a name="state"></a>state
-Jobbets tillstånd representeras av något av fyra värden: enabled (aktiverat), disabled (inaktiverat), completed (slutfört) eller faulted (har fel). Du kan använda PUT eller PATCH om du vill uppdatera jobbets tillstånd till enabled eller disabled. Om ett jobb har tillståndet completed eller faulted så är det ett slutgiltigt tillstånd som inte kan uppdateras (även om jobbet fortfarande kan tas bort). Ett exempel på tillståndsegenskapen är följande:
+| Egenskap | Krävs | Värde | Beskrivning | 
+|----------|----------|-------|-------------| 
+| **frequency** | Ja, när **upprepning** används | Minut, timme, dag, vecka, månad, år | Tidsenheten mellan förekomster | 
+| **interval** | Nej | 1 till och med 1 000 | Ett positivt heltal som anger antalet tidsenheter mellan varje förekomst utifrån **frekvens** | 
+| **schedule** | Nej | Varierar | Information för mer komplicerade och avancerade scheman. Se **timmar**, **minuter**, **weekDays**, **månader** och **monthDays** | 
+| **hours** | Nej | 1 till 24 | En matris med timmesmarkeringarrna för när jobbet ska köras | 
+| **minutes** | Nej | 1 till 24 | En matris med minutmarkeringarrna för när jobbet ska köras | 
+| **månader** | Nej | 1 till 12 | En matris med månaderna då jobbet ska köras | 
+| **monthDays** | Nej | Varierar | En matris med dagarna i månaden då jobbet ska köras | 
+| **weekDays** | Nej | Måndag, tisdag, onsdag, torsdag, fredag, lördag och söndag | En matris med veckodagarna när jobbet ska köras | 
+| **antal** | Nej | <*ingen*> | Antal upprepningar. Standardvärdet är oändlig upprepning. Du kan inte använda både **antal** och **endTime** men regeln som slutar först gäller. | 
+| **endTime** | Nej | <*ingen*> | Datum och tid när du vill stoppa upprepningen. Standardvärdet är oändlig upprepning. Du kan inte använda både **antal** och **endTime** men regeln som slutar först gäller. | 
+||||
 
-        "state": "disabled", // enabled, disabled, completed, or faulted
-Jobb med tillståndet completed eller faulted tas bort efter 60 dagar.
+Mer information om dessa element finns i [Skapa komplexa scheman och avancerad upprepningar](../scheduler/scheduler-advanced-complexity.md).
 
-## <a name="status"></a>status
-När ett Scheduler-jobb har startat returneras information om jobbets aktuella status. Det här objektet kan inte anges av användaren – det definieras av systemet. Det är dock en del av jobbobjektet (i stället för en separat länkad resurs) så att det är lätt att hämta statusen för ett jobb.
-
-Jobbstatusen innehåller tiden för den föregående körningen (i förekommande fall), tiden för nästa schemalagda körning (för pågående jobb) och antalet körningar av jobbet.
+<a name="retry-policy"></a>
 
 ## <a name="retrypolicy"></a>retryPolicy
-Om ett Scheduler-jobb kan du definiera en återförsöksprincip för att ange om och hur nya åtgärdsförsök ska göras. Detta definieras av **retryType**-objektet – det är inställt på **none** om det inte finns någon återförsöksprincip (se ovan). Ändra inställningen till **fixed** om det finns en återförsöksprincip.
 
-Om du vill ange en återförsöksprincip kan du ange ytterligare två inställningar: ett återförsöksintervall (**retryInterval**) och antalet återförsök (**retryCount**).
+För fallet när ett Scheduler-jobb misslyckas, kan du ställa in en återförsöksprincip som avgör om och hur Scheduler försöker åtgärden igen. Som standard försöker Scheduler köra om jobbet fyra gånger med 30 sekunders mellanrum. Du kan göra den här principen mer eller mindre aggressiv, till exempel försöker den här principen en åtgärd två gånger per dag:
 
-Återförsöksintervall, som anges med **retryInterval**-objektet, är intervallet mellan återförsöken. Standardvärdet är 30 sekunder. Det minsta konfigurerbara värdet är 15 sekunder och det högsta värdet är 18 månader. Det definieras i ISO 8601-formatet. På liknande sätt anges värdet för antalet återförsök med objektet **retryCount**, som representerar det antal gånger som ett nytt försök görs. Standardvärdet är 4 och maxvärdet är 20\. Både **retryInterval** och **retryCount** är valfria. De tilldelas sina standardvärden om **retryType** har angetts till **fixed** och inga värden anges.
+```json
+"retryPolicy": { 
+   "retryType": "Fixed",
+   "retryInterval": "PT1D",
+   "retryCount": 2
+},
+```
+
+| Egenskap | Krävs | Värde | Beskrivning | 
+|----------|----------|-------|-------------| 
+| **retryType** | Ja | **Fast**, **Ingen** | Avgör om du anger en återförsöksprincip (**fast**) eller inte (**ingen**). | 
+| **retryInterval** | Nej | PT30S | Anger intervall och frekvens mellan omförsök i [ISO 8601-format](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations). Minimivärdet är 15 sekunder medan det högsta värdet är 18 månader. | 
+| **retryCount** | Nej | 4 | Anger antalet återförsök. Maxvärdet är 20. | 
+||||
+
+Mer information finns i [Hög tillgänglighet och tillförlitlighet](../scheduler/scheduler-high-availability-reliability.md).
+
+<a name="status"></a>
+
+## <a name="state"></a>state
+
+Ett jobbs tillstånd är antingen **aktiverat**, **inaktiverat**, **slutfört** eller **fel**, till exempel: 
+
+`"state": "Disabled"`
+
+Ändra jobb till **aktiverat** eller **inaktiverat** tillstånd genom att använda PUT- eller PATCH-åtgärden på de jobben.
+Men om ett jobb har tillståndet **slutfört** eller **fel** så kan du inte uppdatera tillståndet, även om du kan utföra DELETE-åtgärden på jobbet. Scheduler tar bort slutförda och feljobb efter 60 dagar. 
+
+<a name="status"></a>
+
+## <a name="status"></a>status
+
+När ett jobb startar så returnerar Scheduler information om jobbets status med hjälp av **status**-objektet, som bara Scheduler styr. Du kan dock hitta **status**-objektet i **jobb**objektet. Här är den information som ett jobbs status innehåller:
+
+* Tid för den föregående körningen, om någon
+* Tid för nästa schemalagda körning för pågående jobb
+* Antalet jobbkörningar
+* Antal misslyckanden om några
+* Antal fel om några
+
+Exempel:
+
+```json
+"status": {
+   "lastExecutionTime": "2007-03-01T13:00:00Z",
+   "nextExecutionTime": "2007-03-01T14:00:00Z ",
+   "executionCount": 3,
+   "failureCount": 0,
+   "faultedCount": 0
+}
+```
 
 ## <a name="see-also"></a>Se även
- [Vad är Scheduler?](scheduler-intro.md)
 
- [Komma igång med Scheduler på Azure-portalen](scheduler-get-started-portal.md)
-
- [Prenumerationer och fakturering i Azure Scheduler](scheduler-plans-billing.md)
-
- [Skapa komplexa scheman och avancerad upprepning med Azure Scheduler](scheduler-advanced-complexity.md)
-
- [Referens för REST-API:et för Azure Scheduler](https://msdn.microsoft.com/library/mt629143)
-
- [Referens för PowerShell-cmdlets för Azure Scheduler](scheduler-powershell-reference.md)
-
- [Hög tillgänglighet och tillförlitlighet i Azure Scheduler](scheduler-high-availability-reliability.md)
-
- [Gränser, standardinställningar och felkoder i Azure Scheduler](scheduler-limits-defaults-errors.md)
-
- [Utgående autentisering i Azure Scheduler](scheduler-outbound-authentication.md)
-
+* [Vad är Azure Scheduler?](scheduler-intro.md)
+* [Begrepp, terminologi och entitetshierarki](scheduler-concepts-terms.md)
+* [Skapa komplexa scheman och avancerad upprepning](scheduler-advanced-complexity.md)
+* [Gränser, kvoter, standardvärden och felkoder](scheduler-limits-defaults-errors.md)
+* [Referens för REST-API:et för Azure Scheduler](https://docs.microsoft.com/rest/api/schedule)
+* [Referens för PowerShell-cmdlets för Azure Scheduler](scheduler-powershell-reference.md)

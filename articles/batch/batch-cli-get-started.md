@@ -15,18 +15,18 @@ ms.workload: big-compute
 ms.date: 07/24/2018
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 2360c5a672975cec48f5c17b098125b8287799c3
-ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
+ms.openlocfilehash: 9b5c1df8776b63fc8ceecfa0377e74c757ba503c
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39493704"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46950156"
 ---
 # <a name="manage-batch-resources-with-azure-cli"></a>Hantera Batch-resurser med Azure CLI
 
-Azure CLI 2.0 är Azures kommandoradsmiljö för att hantera Azure-resurser. Den kan användas i Mac OS, Linux och Windows. Azure CLI 2.0 är optimerat för att hantera och administrera Azure-resurser från kommandoraden. Du kan använda Azure CLI till att hantera Azure Batch-konton och hantera resurser, som pooler, jobb och aktiviteter. Med Azure CLI kan du skripta många av de uppgifter som du utför med Batch-API:erna, Azure Portal och Batch PowerShell-cmdletarna.
+Azure CLI är Azures kommandoradsmiljö för att hantera Azure-resurser. Den kan användas i Mac OS, Linux och Windows. Azure CLI är optimerat för att hantera och administrera Azure-resurser från kommandoraden. Du kan använda Azure CLI till att hantera Azure Batch-konton och hantera resurser, som pooler, jobb och aktiviteter. Med Azure CLI kan du skripta många av de uppgifter som du utför med Batch-API:erna, Azure Portal och Batch PowerShell-cmdletarna.
 
-Den här artikeln innehåller en översikt över hur du använder [Azure CLI version 2.0](https://docs.microsoft.com/cli/azure) med Batch. I [Kom igång med Azure CLI 2.0](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) ges en översikt över hur du använder CLI:t med Azure.
+Den här artikeln innehåller en översikt över hur du använder [Azure CLI version 2.0](https://docs.microsoft.com/cli/azure) med Batch. I [Kom igång med Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) ges en översikt över hur du använder CLI:t med Azure.
 
 ## <a name="set-up-the-azure-cli"></a>Konfigurera Azure CLI
 
@@ -47,12 +47,9 @@ Du kan visa hjälptext för alla kommandon i Azure CLI genom att lägga till `-h
 
 Om du är tveksam ska du använda kommandoradsalternativet `-h` för att få hjälp med samtliga Azure CLI-kommandon.
 
-> [!NOTE]
-> I tidigare versioner av Azure CLI användes `azure` som prefix till ett CLI-kommando. I version 2.0 har alla kommandon nu `az` som prefix. Glöm inte att uppdatera dina skript med den nya syntaxen i version 2.0.
->
->  
 
-Dessutom kan du läsa mer om [Azure CLI-kommandon för Batch](https://docs.microsoft.com/cli/azure/batch) i referensdokumentationen för Azure CLI. 
+
+Dessutom kan du läsa mer om [Azure CLI-kommandon för Batch](/cli/azure/batch) i referensdokumentationen för Azure CLI. 
 
 ## <a name="log-in-and-authenticate"></a>Logga in och autentisera
 
@@ -63,7 +60,7 @@ När du ska använda Azure CLI med Batch måste du logga in och autentisera. Det
 
 ### <a name="log-in-to-azure"></a>Logga in på Azure
 
-Det finns några olika sätt att logga in på Azure, läs mer i [Logga in med Azure CLI 2.0](https://docs.microsoft.com/cli/azure/authenticate-azure-cli):
+Det finns några olika sätt att logga in på Azure, läs mer i [Logga in med Azure CLI](/cli/azure/authenticate-azure-cli):
 
 1. [Logga in interaktivt](https://docs.microsoft.com/cli/azure/authenticate-azure-cli#az-authenticate-azure-cli-interactive-log-in). Logga in interaktivt när du själv kör Azure CLI-kommandon från kommandoraden.
 2. [Logga in med ett huvudnamn för tjänsten](https://docs.microsoft.com/cli/azure/authenticate-azure-cli#az-authenticate-azure-cli-logging-in-with-a-service-principal). Logga in med ett huvudnamn för tjänsten när du använder Azure CLI-kommandon från ett skript eller ett program.
@@ -87,7 +84,7 @@ Om du vill använda Azure CLI till att hantera Batch-resurser, som pooler, jobb 
 
 Det finns två alternativ för att autentisera mot Batch-kontot:
 
-- **Med autentisering via Azure Active Directory (Azure AD).** 
+- **Med autentisering via Azure Active Directory (Azure AD)** 
 
     Autentisering med Azure AD är standard när du använder Azure CLI med Batch, och rekommenderas i de flesta situationer. 
     
@@ -101,9 +98,9 @@ Det finns två alternativ för att autentisera mot Batch-kontot:
     az batch account login -g myresource group -n mybatchaccount
     ```
 
-- **Autentisering med delad nyckel.**
+- **Autentisering med delad nyckel**
 
-    Vid [autentisering med delad nyckel](https://docs.microsoft.com/rest/api/batchservice/authenticate-requests-to-the-azure-batch-service#authentication-via-shared-key) används dina åtkomstnycklar för kontot till att autentisera Azure CLI-kommandon för Batch-tjänsten.
+    Vid [autentisering med delad nyckel](/rest/api/batchservice/authenticate-requests-to-the-azure-batch-service#authentication-via-shared-key) används dina åtkomstnycklar för kontot till att autentisera Azure CLI-kommandon för Batch-tjänsten.
 
     Om du skapar Azure CLI-skript för att automatisera anrop av Batch-kommandon kan du använda antingen autentisering med delad nyckel eller ett huvudnamn för tjänsten i Azure AD. I vissa situationer kan det vara enklare att använda autentisering med delad nyckel än att skapa ett huvudnamn för tjänsten.  
 
@@ -173,7 +170,6 @@ Följande tips kan vara till hjälp när du felsöker problem med Azure CLI:
 * Använd `-v` och `-vv` till att visa **utförliga** utdata från kommandon. När du tar med flaggan `-vv` visas faktiska REST-begäranden och -svar i Azure CLI. Växlarna är användbara för att visa fullständiga utdata vid fel.
 * Du kan visa **-kommandoutdata som JSON-** med `--json`-alternativet. Till exempel visar `az batch pool show pool001 --json` pool001:s egenskaper i JSON-format. Du kan sedan kopiera och ändra dessa utdata och använda dem i en `--json-file` (se [JSON-filer](#json-files) tidigare i den här artikeln).
 <!---Loc Comment: Please, check link [JSON files] since it's not redirecting to any location.--->
-
 
 ## <a name="next-steps"></a>Nästa steg
 

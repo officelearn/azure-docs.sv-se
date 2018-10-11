@@ -1,6 +1,6 @@
 ---
-title: Skapa en modellsjälvstudie för Azure Machine Learning (förhandsversion) | Microsoft Docs
-description: I den här kompletta självstudien får du lära dig att använda Azure Machine Learning (förhandsversionen) från slutpunkt till slutpunkt. Det här är del två som beskriver experimentering.
+title: Skapa en modellsjälvstudie för Azure Machine Learning-tjänsten (förhandsversion) | Microsoft Docs
+description: I den här kompletta självstudien får du lära dig att använda Azure Machine Learning-tjänsten (förhandsversion) från början till slut. Det här är del två som beskriver experimentering.
 services: machine-learning
 author: hning86
 ms.author: haining
@@ -12,17 +12,21 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: tutorial
 ms.date: 3/15/2018
-ms.openlocfilehash: 4f9b14762332bd11fd69a855d8fabdb206e34919
-ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
+ROBOTS: NOINDEX
+ms.openlocfilehash: 6faabc3003048c93c08451c537496e762352b50b
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "41918558"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46997337"
 ---
 # <a name="tutorial-2-classify-iris---build-a-model"></a>Självstudie 2: Klassificera Iris – bygga en modell
-Azure Machine Learning-tjänsterna (förhandsversionen) är en integrerad lösning för datavetenskap och analys som datatekniker kan använda för att förbereda data, utveckla experiment och distribuera modeller i molnskala.
 
-Den här självstudien är **del två i en serie med tre delar**. I den här delen av självstudien använder du Azure Machine Learning för att göra följande:
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)]
+
+Azure Machine Learning-tjänsten (förhandsversion) är en integrerad lösning för datateknik och analys som datatekniker kan använda för att förbereda data, utveckla experiment och distribuera modeller i molnskala.
+
+Den här självstudien är **del två i en serie med tre delar**. I den här delen av självstudien använder du Azure Machine Learning-tjänsten för att:
 
 > [!div class="checklist"]
 > * Öppna skript och granskar kod
@@ -39,7 +43,7 @@ Den här självstudien använder den tidlösa [Iris-datauppsättningen](https://
 
 För att slutföra den här kursen behöver du:
 - En Azure-prenumeration. Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar. 
-- Ett experimentkonto och Azure Machine Learning Workbench installerad enligt anvisningarna i denna [snabbstart](../service/quickstart-installation.md)
+- Ett experimentkonto och Azure Machine Learning Workbench installerad enligt anvisningarna i denna [snabbstart](quickstart-installation.md)
 - Projektet och förberedda Iris-data från [del 1 av självstudiekursen](tutorial-classifying-iris-part-1.md)
 - En Docker-motor måste vara installerad och köras lokalt. Det räcker med Docker Community Edition. Mer information om hur du installerar Docker finns här: https://docs.docker.com/engine/installation/.
 

@@ -1,5 +1,5 @@
 ---
-title: 'Självstudie: Felsöka ett Azure Service Fabric Mesh-webbprogram | Microsoft Docs'
+title: Självstudie – felsök ett Azure Service Fabric Mesh-program som körs i ditt lokala utvecklingskluster | Microsoft Docs
 description: I den här självstudien får du felsöka ett Azure Service Fabric Mesh-program som körs i ett lokalt kluster.
 services: service-fabric-mesh
 documentationcenter: .net
@@ -12,19 +12,19 @@ ms.devlang: dotNet
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 07/17/2018
+ms.date: 09/18/2018
 ms.author: twhitney
 ms.custom: mvc, devcenter
-ms.openlocfilehash: c519d24a8401823039f3d6598276890ec6498bbc
-ms.sourcegitcommit: 1aedb52f221fb2a6e7ad0b0930b4c74db354a569
+ms.openlocfilehash: 27e4c8f6ac24d40a6afacf10175413745f5151d9
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "41920794"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46997020"
 ---
-# <a name="tutorial-debug-a-service-fabric-mesh-web-application"></a>Självstudie: Felsöka ett Service Fabric Mesh-webbprogram
+# <a name="tutorial-debug-a-service-fabric-mesh-application-running-in-your-local-development-cluster"></a>Självstudie: felsök ett Service Fabric Mesh-program som körs i ditt lokala utvecklingskluster
 
-Den här självstudiekursen är del två i en serie. Här får du se hur du felsöker ett Azure Service Fabric Mesh-program i ett lokalt utvecklingskluster.
+Den här självstudien är del två i en serie och visar hur du skapar och felsöker ett Azure Service Fabric Mesh-program på ditt lokala utvecklingskluster.
 
 I den här självstudien lär du dig:
 
@@ -34,9 +34,11 @@ I den här självstudien lär du dig:
 
 I den här självstudieserien får du lära du dig att:
 > [!div class="checklist"]
-> * [Skapa ett Service Fabric Mesh-program](service-fabric-mesh-tutorial-create-dotnetcore.md)
-> * Felsöka programmet lokalt
-> * [Publicera appen i Azure](service-fabric-mesh-tutorial-deploy-service-fabric-mesh-app.md)
+> * [Skapa en Service Fabric Mesh-app i Visual Studio](service-fabric-mesh-tutorial-create-dotnetcore.md)
+> * Felsök en Service Fabric Mesh-app som körs i ditt lokala utvecklingskluster
+> * [Distribuera en Service Fabric Mesh-app](service-fabric-mesh-tutorial-deploy-service-fabric-mesh-app.md)
+> * [Uppgradera en Service Fabric Mesh-app](service-fabric-mesh-tutorial-upgrade.md)
+> * [Rensa Service Fabric Mesh-resurser](service-fabric-mesh-tutorial-cleanup-resources.md)
 
 [!INCLUDE [preview note](./includes/include-preview-note.md)]
 
@@ -105,4 +107,4 @@ I den här självstudiedelen lärde du dig:
 
 Gå vidare till nästa kurs:
 > [!div class="nextstepaction"]
-> [Publicera ett Service Fabric Mesh-webbprogram](service-fabric-mesh-tutorial-deploy-service-fabric-mesh-app.md)
+> [Distribuera en Service Fabric Mesh-app](service-fabric-mesh-tutorial-deploy-service-fabric-mesh-app.md)

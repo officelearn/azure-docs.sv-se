@@ -1,6 +1,6 @@
 ---
-title: Skapa en intern belastningsutjämnare – klassiska Azure CLI | Microsoft Docs
-description: Lär dig hur du skapar en intern belastningsutjämnare med hjälp av Azure CLI i den klassiska distributionsmodellen
+title: Skapa en intern lastbalanserare – klassisk Azure CLI | Microsoft Docs
+description: Lär dig hur du skapar en intern lastbalanserare med Azure CLI i den klassiska distributionsmodellen
 services: load-balancer
 documentationcenter: na
 author: genlin
@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/23/2017
+ms.date: 06/18/2018
 ms.author: genli
-ms.openlocfilehash: 8f0ac03ff7b749e47692d03d65502df0a19bb758
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: fb8929b31fa4325b996ddf4c5ec48e4acb0b930a
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38539525"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46966936"
 ---
-# <a name="get-started-creating-an-internal-load-balancer-classic-using-the-azure-cli"></a>Komma igång med att skapa en intern belastningsutjämnare (klassisk) med hjälp av Azure CLI
+# <a name="get-started-creating-an-internal-load-balancer-using-the-azure-classic-cli"></a>Kom igång med att skapa en intern lastbalanserare med klassisk Azure CLI
 
 > [!div class="op_single_selector"]
 > * [PowerShell](../load-balancer/load-balancer-get-started-ilb-classic-ps.md)
@@ -36,19 +36,19 @@ ms.locfileid: "38539525"
 
 [!INCLUDE [load-balancer-get-started-ilb-scenario-include.md](../../includes/load-balancer-get-started-ilb-scenario-include.md)]
 
-## <a name="to-create-an-internal-load-balancer-set-for-virtual-machines"></a>Så här skapar du en intern belastningsutjämningsuppsättning för virtuella datorer
+## <a name="to-create-an-internal-load-balancer-set-for-virtual-machines"></a>Så här skapar du en intern lastbalanseringsuppsättning för virtuella datorer
 
-Följ dessa steg för att skapa en intern belastningsutjämningsuppsättning och de servrar som ska skicka sin trafik till den:
+Följ dessa steg för att skapa en intern lastbalanseringsuppsättning och de servrar som ska skicka sin trafik till den:
 
 1. Skapa en instans för intern belastningsutjämning som ska vara slutpunkten för inkommande trafik som ska belastningsutjämnas mellan servrarna i en belastningsutjämnad uppsättning.
 2. Lägg till slutpunkter som motsvarar de virtuella datorerna som kan ta emot den inkommande trafiken.
 3. Konfigurera servrarna så att de skickar trafiken till den virtuella IP-adressen för instansen för intern belastningsutjämning.
 
-## <a name="step-by-step-creating-an-internal-load-balancer-using-cli"></a>Stegvisa anvisningar som beskriver hur du skapar en intern belastningsutjämnare med hjälp av CLI
+## <a name="step-by-step-creating-an-internal-load-balancer-using-classic-cli"></a>Stegvisa anvisningar för att skapa en intern lastbalanserare med klassisk CLI
 
-Den här guiden beskriver hur du skapar en intern belastningsutjämnare baserat på scenariot ovan.
+Den här guiden beskriver hur du skapar en intern lastbalanserare baserat på scenariot ovan.
 
-1. Om du aldrig har använt Azure CLI, se [installera och konfigurera Azure CLI](../cli-install-nodejs.md) och följ instruktionerna upp till den punkt där du väljer Azure-konto och prenumeration.
+1. Om du aldrig har använt klassisk CLI, se [Installera och konfigurera Azure CLI](../cli-install-nodejs.md) och följ instruktionerna upp till den punkt där du väljer ditt Azure-konto och -prenumeration.
 2. Kör kommandot **azure config mode** för att växla till klassiskt läge, som du ser nedan.
 
     ```azurecli
@@ -59,17 +59,17 @@ Den här guiden beskriver hur du skapar en intern belastningsutjämnare baserat 
 
         info:    New mode is asm
 
-## <a name="create-endpoint-and-load-balancer-set"></a>Skapa slutpunkt och belastningsutjämningsuppsättning
+## <a name="create-endpoint-and-load-balancer-set"></a>Skapa slutpunkt och lastbalanseringsuppsättning
 
 I det här scenariot förutsätter vi att de virtuella datorerna ”DB1” och ”DB2” i en molntjänst med namnet ”mytestcloud” redan finns. Båda de virtuella datorerna använder ett virtuellt nätverk med namnet ”testvnet” med undernätet ”subnet-1”.
 
-I den här guiden skapar vi en intern belastningsutjämningsuppsättning som använder port 1433 som privat port och 1433 som lokal port.
+I den här guiden skapar vi en intern lastbalanseringsuppsättning som använder port 1433 som privat port och 1433 som lokal port.
 
-Det här är ett vanligt scenario där du har virtuella SQL-datorer på backend-servern som använder en intern belastningsutjämnare för att säkerställa att databasservrarna inte exponeras direkt genom användningen av en offentlig IP-adress.
+Det här är ett vanligt scenario där du har virtuella SQL-datorer på backend-servern som använder en intern lastbalanserare för att säkerställa att databasservrarna inte exponeras direkt genom användningen av en offentlig IP-adress.
 
 ### <a name="step-1"></a>Steg 1
 
-Skapa en intern belastningsutjämningsuppsättning med hjälp av `azure network service internal-load-balancer add`.
+Skapa en intern lastbalanseringsuppsättning med hjälp av `azure network service internal-load-balancer add`.
 
 ```azurecli
 azure service internal-load-balancer add --serviceName mytestcloud --internalLBName ilbset --subnet-name subnet-1 --static-virtualnetwork-ipaddress 192.168.2.7
@@ -77,7 +77,7 @@ azure service internal-load-balancer add --serviceName mytestcloud --internalLBN
 
 Mer information finns i `azure service internal-load-balancer --help`.
 
-Du kan kontrollera egenskaperna för den interna belastningsutjämnaren med hjälp av kommandot `azure service internal-load-balancer list` *molntjänstens namn*.
+Du kan kontrollera egenskaperna för den interna lastbalanseraren med hjälp av kommandot `azure service internal-load-balancer list`*molntjänstens namn*.
 
 Här är ett exempel på utdata som kan returneras:
 
@@ -92,7 +92,7 @@ Här är ett exempel på utdata som kan returneras:
 
 ### <a name="step-2"></a>Steg 2
 
-Du konfigurerar den interna belastningsutjämningsuppsättningen när du lägger till den första slutpunkten. Du associerar slutpunkten, den virtuella datorn och avsökningsporten till den interna belastningsutjämningsuppsättningen i det här steget.
+Du konfigurerar den interna lastbalanseringsuppsättningen när du lägger till den första slutpunkten. Du associerar slutpunkten, den virtuella datorn och avsökningsporten till den interna lastbalanseringsuppsättningen i det här steget.
 
 ```azurecli
 azure vm endpoint create db1 1433 --local-port 1433 --protocol tcp --probe-port 1433 --probe-protocol tcp --probe-interval 300 --probe-timeout 600 --internal-load-balancer-name ilbset
@@ -100,7 +100,7 @@ azure vm endpoint create db1 1433 --local-port 1433 --protocol tcp --probe-port 
 
 ### <a name="step-3"></a>Steg 3
 
-Kontrollera belastningsutjämnarens konfiguration med hjälp av `azure vm show` *namn på virtuell dator*
+Kontrollera lastbalanserarens konfiguration med hjälp av `azure vm show`*namn på virtuell dator*
 
 ```azurecli
 azure vm show DB1
@@ -163,11 +163,11 @@ Du kan skapa en fjärrskrivbordsslutpunkt för att vidarebefordra nätverkstrafi
 azure vm endpoint create web1 54580 -k 3389
 ```
 
-## <a name="remove-virtual-machine-from-load-balancer"></a>Ta bort en virtuell dator från belastningsutjämnaren
+## <a name="remove-virtual-machine-from-load-balancer"></a>Ta bort en virtuell dator från lastbalanseraren
 
-Du kan ta bort en virtuell dator från en intern belastningsutjämningsuppsättning genom att ta bort den associerade slutpunkten. När slutpunkten har tagits bort tillhör inte den virtuella datorn belastningsutjämningsuppsättningen längre.
+Du kan ta bort en virtuell dator från en intern lastbalanseringsuppsättning genom att ta bort den associerade slutpunkten. När slutpunkten har tagits bort tillhör inte den virtuella datorn lastbalanseringsuppsättningen längre.
 
-Om du följer exemplet ovan kan du ta bort slutpunkten som skapats för den virtuella datorn ”DB1” från den intern belastningsutjämningsuppsättningen ”ilbset” med hjälp av kommandot `azure vm endpoint delete`.
+Om du följer exemplet ovan kan du ta bort slutpunkten som skapats för den virtuella datorn ”DB1” från den interna lastbalanseringsuppsättningen ”ilbset” med hjälp av kommandot `azure vm endpoint delete`.
 
 ```azurecli
 azure vm endpoint delete DB1 tcp-1433-1433
@@ -177,6 +177,6 @@ Mer information finns i `azure vm endpoint --help`.
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Konfigurera ett distributionsläge för belastningsutjämnare med hjälp av käll-IP-tilldelning](load-balancer-distribution-mode.md)
+[Konfigurera ett distributionsläge för lastbalanserare med hjälp av käll-IP-tilldelning](load-balancer-distribution-mode.md)
 
-[Konfigurera timeout-inställningar för inaktiv TCP för en belastningsutjämnare](load-balancer-tcp-idle-timeout.md)
+[Konfigurera timeout-inställningar för inaktiv TCP för en lastbalanserare](load-balancer-tcp-idle-timeout.md)

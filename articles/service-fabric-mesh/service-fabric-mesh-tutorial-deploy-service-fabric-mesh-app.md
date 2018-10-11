@@ -1,6 +1,6 @@
 ---
-title: Självstudie – Distribuera ett Service Fabric Mesh-program i Service Fabric Mesh | Microsoft Docs
-description: Lär dig hur du publicerar ett Azure Service Fabric Mesh-program bestående av en ASP.NET Core-webbplats som kommunicerar med en serversidewebbtjänst.
+title: Självstudie – Distribuera ett Service Fabric Mesh-program | Microsoft Docs
+description: Lär dig hur du använder Visual Studio för att publicera ett Azure Service Fabric Mesh-program bestående av en ASP.NET Core-webbplats som kommunicerar med en serversidewebbtjänst.
 services: service-fabric-mesh
 documentationcenter: .net
 author: TylerMSFT
@@ -12,35 +12,35 @@ ms.devlang: dotNet
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 07/26/2018
+ms.date: 09/18/2018
 ms.author: twhitney
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 350749161260768071afbb47b854cb2e9184bd9d
-ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
+ms.openlocfilehash: 467484824ec3a3ceffb6dfa692953406ed6acc1b
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39284735"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46963329"
 ---
-# <a name="tutorial-deploy-a-service-fabric-mesh-web-application"></a>Självstudie: Distribuera ett Service Fabric Mesh-webbprogram
+# <a name="tutorial-deploy-a-service-fabric-mesh-application"></a>Självstudie: Distribuera ett Service Fabric Mesh-program
 
 Den här självstudien är del tre i en serie. Här får du se hur du publicerar ett Azure Service Fabric Mesh-webbprogram direkt från Visual Studio.
 
 I den här självstudiekursen får du lära du dig att:
 > [!div class="checklist"]
-> * Publicera programmet i Azure.
+> * Publicera programmet till Azure med Visual Studio.
 > * Kontrollera programmets distributionsstatus
 > * Se alla program som för närvarande distribueras till din prenumeration
-> * Se programloggarna
-> * Rensa de resurser som används av programmet.
 
 I den här självstudieserien får du lära du dig att:
 > [!div class="checklist"]
-> * [Bygga ett Service Fabric Mesh-webbprogram](service-fabric-mesh-tutorial-create-dotnetcore.md)
-> * [Felsöka programmet lokalt](service-fabric-mesh-tutorial-debug-service-fabric-mesh-app.md)
-> * Publicera appen i Azure
+> * [Skapa en Service Fabric Mesh-app i Visual Studio](service-fabric-mesh-tutorial-create-dotnetcore.md)
+> * [Felsöka en Service Fabric Mesh-app som körs i ditt lokala utvecklingskluster](service-fabric-mesh-tutorial-debug-service-fabric-mesh-app.md)
+> * Distribuera en Service Fabric Mesh-app
+> * [Uppgradera en Service Fabric Mesh-app](service-fabric-mesh-tutorial-upgrade.md)
+> * [Rensa Service Fabric Mesh-resurser](service-fabric-mesh-tutorial-cleanup-resources.md)
 
-Vi visar hur du skapar ett Azure Service Fabric Mesh-program som har en ASP.NET-webbklientdels- och en ASP.NET Core webb-API-serverdelstjänst. Du felsöker sedan programmet i det lokala utvecklingsklustret och publicerar i Azure. När du är klar har du ett enkelt program som visar hur du genomför tjänst-till-tjänst-anrop i Service Fabric Mesh-webbprogrammet.
+[!INCLUDE [preview note](./includes/include-preview-note.md)]
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
@@ -62,7 +62,7 @@ Programmet ligger under katalogen `src\todolistapp`.
 
 ## <a name="publish-to-azure"></a>Publicera till Azure
 
-Om du vill publicera Service Fabric Mesh-projektet till Azure högerklickar du på **ServiceFabricMeshApp** i Visual Studio och väljer **Publish...** (publicera).
+Om du vill publicera Service Fabric Mesh-projektet till Azure högerklickar du på **todolistapp** i Visual Studio och väljer **Publish...** (publicera).
 
 Därefter visas dialogrutan **Publish Service Fabric Application** (Publicera Service Fabric-program).
 
@@ -74,9 +74,9 @@ Under **Resursgrupp** väljer du **\<Skapa ny resursgrupp...>**. En dialogruta v
 
 ![Visual Studio, dialogruta för ny Service Fabric Mesh-resursgrupp](./media/service-fabric-mesh-tutorial-deploy-dotnetcore/visual-studio-publish-new-resource-group-dialog.png)
 
-Återgå till dialogrutan **Publicera Service Fabric-program**. Under **Azure Container Registry** väljer du **\<Skapa nytt containerregister...>**. I dialogrutan **Create Container Registry** (Skapa containerregister) använder du ett unikt namn för **Container registry name** (Containerregisternamn). Ange en **plats** (den här självstudien använder **USA, östra**). Välj den **resursgrupp** som du skapade i föregående steg i listrutan, exempelvis **sfmeshTutorial1RG**. Ställ in **SKU** till **Basic** och tryck sedan på **Create** (Grundläggande > Skapa) för att återgå till publiceringsdialogrutan.
+Återgå till dialogrutan **Publicera Service Fabric-program**. Under **Azure Container Registry** väljer du **\<Skapa nytt containerregister...>**. I dialogrutan **Create Container Registry** (Skapa containerregister) använder du ett unikt namn för **Container registry name** (Containerregisternamn). Ange en **plats** (den här självstudien använder **USA, östra**). Välj den **resursgrupp** som du skapade i föregående steg i listrutan, exempelvis **sfmeshTutorial1RG**. Ställ in **SKU** på **Basic** och tryck på **Skapa** för att skapa det privata Azure-containerregistret och återvänd till publiceringsdialogrutan.
 
-![Visual Studio, dialogruta för ny Service Fabric Mesh-resursgrupp](./media/service-fabric-mesh-tutorial-deploy-dotnetcore/visual-studio-publish-new-container-registry-dialog.png)
+![Visual Studio, dialogruta för nytt Service Fabric Mesh-containerregister](./media/service-fabric-mesh-tutorial-deploy-dotnetcore/visual-studio-publish-new-container-registry-dialog.png)
 
 Om du får ett felmeddelande om att resursprovidern inte har registrerats för prenumerationen kan du registrera den. Se först om resursprovidern är tillgänglig för din prenumeration:
 
@@ -109,7 +109,6 @@ The application was deployed successfully and it can be accessed at http://10.00
 ## <a name="set-up-service-fabric-mesh-cli"></a>Konfigurera Service Fabric Mesh CLI 
 Du kan använda Azure Cloud Shell eller en lokal installation av Azure CLI för återstående steg. Installera Azure Service Fabric Mesh CLI-tilläggsmodulen genom att följa de här [instruktionerna](service-fabric-mesh-howto-setup-cli.md).
 
-
 ## <a name="check-application-deployment-status"></a>Kontrollera programmets distributionsstatus
 
 Nu har programmet distribuerats. Du kan kontrollera statusen med kommandot `app show`. 
@@ -124,46 +123,20 @@ az mesh app show --resource-group $rg --name ServiceMeshApp
 
 Med kommandot "app list" kan du hämta en lista över program som du har distribuerat till prenumerationen.
 
-```cli
+```azurecli-interactive
 az mesh app list --output table
 ```
 
-## <a name="see-the-application-logs"></a>Se programloggarna
-
-Granska loggarna för det distribuerade programmet:
-
-```azurecli-interactive
-az mesh code-package-log get --resource-group $rg --application-name ServiceMeshApp --service-name todoservice --replica-name 0 --code-package-name ServiceMeshApp
-```
-
-## <a name="clean-up-resources"></a>Rensa resurser
-
-När de inte längre behövs kan du ta bort alla skapade resurser. Eftersom du har skapat en ny resursgrupp som fungerar som värd för både ACR och Service Fabric går det bra att ta bort den här resursgruppen, vilket tar bort alla till den kopplade resurser.
-
-```azurecli
-az group delete --resource-group sfmeshTutorial1RG
-```
-
-```powershell
-Remove-AzureRmResourceGroup -Name sfmeshTutorial1RG
-```
-
-Du kan också ta bort resursgruppen [från portalen](../azure-resource-manager/resource-group-portal.md#delete-resource-group-or-resources). 
-
 ## <a name="next-steps"></a>Nästa steg
 
-I den här självstudiedelen lärde du dig:
+I den här självstudiedelen lärde du dig att:
 > [!div class="checklist"]
 > * Publicera programmet i Azure.
 > * Kontrollera programmets distributionsstatus
 > * Se alla program som för närvarande distribueras till din prenumeration
-> * Se programloggarna
-> * Rensa de resurser som används av programmet.
 
-Nu när du har slutfört publiceringen av Service Fabric Mesh-programmet till Azure kan du prova följande:
-
-* Titta närmare på [exempelröstningsprogrammet](https://github.com/Azure-Samples/service-fabric-mesh/tree/master/src/votingapp) och se ännu ett exempel på tjänst-till-tjänst-kommunikation.
-* Läs [Service Fabric-resurser](service-fabric-mesh-service-fabric-resources.md)
-* Läs mer om [Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview)
+Gå vidare till nästa kurs:
+> [!div class="nextstepaction"]
+> [Uppgradera en Service Fabric Mesh-app](service-fabric-mesh-tutorial-upgrade.md)
 
 [azure-cli-install]: https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest

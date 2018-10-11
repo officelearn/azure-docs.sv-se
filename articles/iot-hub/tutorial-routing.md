@@ -6,21 +6,21 @@ manager: timlt
 ms.service: iot-hub
 services: iot-hub
 ms.topic: tutorial
-ms.date: 05/01/2018
+ms.date: 09/11/2018
 ms.author: robinsh
 ms.custom: mvc
-ms.openlocfilehash: a52ab4ff65312088e65d56006b6f99a7470b88f6
-ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
+ms.openlocfilehash: 575c8a5bec4c7763c75154835830ba350f009e93
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43287258"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46946949"
 ---
 # <a name="tutorial-configure-message-routing-with-iot-hub"></a>Självstudie: Konfigurera meddelandedirigering med IoT Hub
 
-Meddelanderoutning gör det möjligt att skicka telemetridata från dina IoT-enheter till inbyggda Event Hub-kompatibla slutpunkter eller anpassade slutpunkter som Blob Storage, Service Bus Queue, Service Bus Topic och Event Hubs. När du konfigurerar meddelanderoutning kan du skapa hanteringsregler för att anpassa vägen så att den matchar en viss regel. Därefter dirigeras inkommande data automatiskt till slutpunkterna av IoT Hub. 
+[Meddelanderoutning](iot-hub-devguide-messages-d2c.md) låter dig skicka telemetridata från dina IoT-enheter till inbyggda händelsehubbkompatibla slutpunkter som Blob-lagring, Service Bus-kö, Service Bus-ämne och Event Hubs. När du konfigurerar meddelanderoutning så kan du skapa [routningsfrågor](iot-hub-devguide-routing-query-syntax.md) för att anpassa den väg som matchar ett visst villkor. Därefter dirigeras inkommande data automatiskt till slutpunkterna av IoT Hub. 
 
-I den här självstudien får du lära dig att konfigurera och använda dirigeringsregler med IoT Hub. Du kommer att dirigera meddelanden från en IoT-enhet till en av flera tjänster, däribland Blob Storage och en Service Bus-kö. Meddelanden till Service Bus-kön hämtas av en logikapp och skickas via e-post. Meddelanden som inte har konfigurerade inställningar för routning skickas till standardslutpunkten och visas i en Power BI-visualisering.
+I den här självstudien får du lära dig att konfigurera och använda routningsfrågor med IoT Hub. Du kommer att dirigera meddelanden från en IoT-enhet till en av flera tjänster, däribland Blob Storage och en Service Bus-kö. Meddelanden till Service Bus-kön hämtas av en logikapp och skickas via e-post. Meddelanden som inte har konfigurerade inställningar för routning skickas till standardslutpunkten och visas i en Power BI-visualisering.
 
 I den här självstudien utför du följande åtgärder:
 
@@ -39,58 +39,35 @@ I den här självstudien utför du följande åtgärder:
 
 - En Azure-prenumeration. Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-- Installera [Visual Studio för Windows](https://www.visualstudio.com/). 
+- Installera [Visual Studio](https://www.visualstudio.com/). 
 
 - Ett Power BI-konto för att analysera Stream Analytics för standardslutpunkten. ([Prova Power BI utan kostnad](https://app.powerbi.com/signupredirect?pbi_source=web).)
 
 - Ett Office 365-konto för att skicka e-postmeddelanden. 
 
-Du behöver antingen Azure CLI eller Azure PowerShell för att göra konfigurationsstegen för den här självstudien. 
-
-Om du använder Azure CLI rekommenderar vi att du använder Azure Cloud Shell även om du kan installera Azure CLI lokalt. Azure Cloud Shell är ett kostnadsfritt, interaktivt gränssnitt som du kan använda för att köra Azure CLI-skript. Vanliga Azure-verktyg förinstalleras och konfigureras i Cloud Shell och kan användas med kontot, så du måste inte installera dem lokalt. 
-
-För att använda PowerShell installerar du det lokalt med hjälp av instruktionerna nedan. 
-
-### <a name="azure-cloud-shell"></a>Azure Cloud Shell
-
-Det finns flera olika sätt att öppna Cloud Shell:
-
-|  |   |
-|-----------------------------------------------|---|
-| Välj **Prova** i det övre högra hörnet av ett kodblock. | ![Cloud Shell i den här artikeln](./media/tutorial-routing/cli-try-it.png) |
-| Öppna Cloud Shell i din webbläsare. | [![https://shell.azure.com/bash](./media/tutorial-routing/launchcloudshell.png)](https://shell.azure.com) |
-| Välj knappen **Cloud Shell** på menyn längst upp till höger i [Azure Portal](https://portal.azure.com). |    ![Cloud Shell i portalen](./media/tutorial-routing/cloud-shell-menu.png) |
-|  |  |
-
-### <a name="using-azure-cli-locally"></a>Använda Azure CLI lokalt
-
-Om du hellre använder CLI lokalt istället för att använda Cloud Shell måste du ha Azure CLI-modul version 2.0.30.0 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI 2.0](/cli/azure/install-azure-cli). 
-
-### <a name="using-powershell-locally"></a>Använda PowerShell lokalt
-
-För den här självstudien krävs Azure PowerShell-modul version 5.7 eller senare. Kör `Get-Module -ListAvailable AzureRM` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps) (Installera Azure PowerShell-modul).
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 ## <a name="set-up-resources"></a>Konfigurera resurser
 
-För den är självstudien använder du en IoT-hubb, ett lagringskonto och en Service Bus-kö. Alla resurser kan skapas med Azure CLI eller Azure PowerShell. Använd samma resursgrupp och plats för alla resurser. I slutet kan du ta bort allt i ett steg genom att ta bort resursgruppen.
+För den är självstudien använder du en IoT-hubb, ett lagringskonto och en Service Bus-kö. De här resurserna kan skapas med Azure CLI eller Azure PowerShell. Använd samma resursgrupp och plats för alla resurser. I slutet kan du ta bort allt i ett steg genom att ta bort resursgruppen.
 
 Följande avsnitt beskriver hur du utför stegen som krävs. Följ instruktionerna för CLI *eller* PowerShell.
 
 1. Skapa en [resursgrupp](../azure-resource-manager/resource-group-overview.md). 
 
-    <!-- When they add the Basic tier, change this to use Basic instead of Standard. -->
+2. Skapa en IoT-hubb på S1-nivån. Lägg till en konsumentgrupp till din IoT-hubb. Konsumentgruppen används av Azure Stream Analytics när data hämtas.
 
-1. Skapa en IoT-hubb på S1-nivån. Lägg till en konsumentgrupp till din IoT-hubb. Konsumentgruppen används av Azure Stream Analytics när data hämtas.
+3. Skapa ett V1-standardlagringskonto med Standard_LRS-replikering.
 
-1. Skapa ett V1-standardlagringskonto med Standard_LRS-replikering.
+4. Skapa ett namnområde och en kö för Service Bus. 
 
-1. Skapa ett namnområde och en kö för Service Bus. 
+5. Skapa en enhetsidentitet för den simulerade enheten som skickar meddelanden till din hubb. Spara nyckeln för testfasen.
 
-1. Skapa en enhetsidentitet för den simulerade enheten som skickar meddelanden till din hubb. Spara nyckeln för testfasen.
+### <a name="set-up-your-resources-using-azure-cli"></a>Konfigurera resurser med Azure CLI
 
-### <a name="azure-cli-instructions"></a>Azure CLI-instruktioner
+Kopiera och klistra in det här skriptet i Cloud Shell. Skriptet körs en rad i taget, förutsatt att du redan är inloggad. 
 
-Det lättaste sättet att använda det här skriptet är att kopiera det och klistra in det i Cloud Shell. Förutsatt att du redan är inloggad körs skriptet på en rad i taget. 
+`$RANDOM` har sammanfogats med de variabler som måste vara globalt unika. När skriptet körs och variablerna har angetts genereras en slumpmässig numerisk sträng som sammanfogas i slutet av den fasta strängen så att den blir unik.
 
 ```azurecli-interactive
 
@@ -182,9 +159,11 @@ az iot hub device-identity show --device-id $iotDeviceName \
 
 ```
 
-### <a name="powershell-instructions"></a>PowerShell-instruktioner
+### <a name="set-up-your-resources-using-azure-powershell"></a>Konfigurera resurser med Azure PowerShell
 
-Det lättaste sättet att använda det här skriptet är att öppna [PowerShell ISE](https://docs.microsoft.com/powershell/scripting/core-powershell/ise/introducing-the-windows-powershell-ise?view=powershell-6), kopiera skriptet till Urklipp och sedan klistra in hela skriptet i skriptfönstret. Du kan därefter ändra värdena för resursnamnen (om du vill) och köra hela skriptet. 
+Kopiera och klistra in det här skriptet i Cloud Shell. Skriptet körs en rad i taget, förutsatt att du redan är inloggad.
+
+`$(Get-Random)` har sammanfogats med de variabler som måste vara globalt unika. När skriptet körs och variablerna har angetts genereras en slumpmässig numerisk sträng som sammanfogas i slutet av den fasta strängen så att den blir unik.
 
 ```azurepowershell-interactive
 # Log into Azure account.
@@ -265,15 +244,15 @@ Skapa sedan en enhetsidentitet och spara nyckeln för framtida bruk. Den är enh
 
 1. Öppna [Azure Portal](https://portal.azure.com) och logga in på ditt Azure-konto.
 
-1. Klicka på **Resursgrupper** och välj din resursgrupp. I den här självstudien används **ContosoResources**.
+2. Klicka på **Resursgrupper** och välj din resursgrupp. I den här självstudien används **ContosoResources**.
 
-1. I listan över resurser klickar du på din IoT-hubb. I självstudien används **ContosoTestHub**. Välj **IoT-enheter** från hubbfönstret.
+3. I listan över resurser klickar du på din IoT-hubb. I självstudien används **ContosoTestHub**. Välj **IoT-enheter** från hubbfönstret.
 
-1. Klicka på **+ Lägg till**. I rutan Lägg till enhet fyller du i enhets-ID. I den här självstudien används **Contoso-Test-Device**. Lämna nycklarna tomma och markera **Generera nycklar automatiskt**. Kontrollera att **Connect device to IoT hub** (Anslut enhet till IoT-hubb) är aktiverat. Klicka på **Spara**.
+4. Klicka på **+ Lägg till**. I rutan Lägg till enhet fyller du i enhets-ID. I den här självstudien används **Contoso-Test-Device**. Lämna nycklarna tomma och markera **Generera nycklar automatiskt**. Kontrollera att **Connect device to IoT hub** (Anslut enhet till IoT-hubb) är aktiverat. Klicka på **Spara**.
 
    ![Skärmbild som visar skärmen Lägg till enhet.](./media/tutorial-routing/add-device.png)
 
-1. Nu när den har skapats klickar du på enheten för att se de genererade nycklarna. Klicka på ikonen Kopiera på primärnyckeln och spara den någonstans, till exempel i Anteckningar, för testfasen i den här självstudien.
+5. Nu när den har skapats klickar du på enheten för att se de genererade nycklarna. Klicka på ikonen Kopiera på primärnyckeln och spara den någonstans, till exempel i Anteckningar, för testfasen i den här självstudien.
 
    ![Skärmbild som visar information om enheten, som nycklarna.](./media/tutorial-routing/device-details.png)
 
@@ -289,69 +268,85 @@ Du kommer att dirigera meddelanden till olika resurser baserat på egenskaper so
 
 ### <a name="routing-to-a-storage-account"></a>Dirigera till ett lagringskonto 
 
-Konfigurera nu routning för lagringskontot. Definiera en slutpunkt och konfigurera en väg för den slutpunkten. Meddelanden där **nivåegenskapen** är inställd på **lagring** skrivs till ett lagringskonto automatiskt.
+Konfigurera nu routning för lagringskontot. Du gå till fönstret meddelanderoutning och lägger till en väg. När du lägger till vägen, definierar du en ny slutpunkt för den. Meddelanden där egenskapen **nivå** är inställd på **lagring** skrivs automatiskt till ett lagringskonto.
 
-1. I [Azure Portal](https://portal.azure.com) klickar du på **Resursgrupper** och väljer resursgruppen. I den här självstudien används **ContosoResources**. Klicka på IoT-hubben i listan över resurser. I självstudien används **ContosoTestHub**. Klicka på **Slutpunkter**. I rutan **Slutpunkter** klickar du på **+Lägg till**. Ange följande information:
+1. I [Azure Portal](https://portal.azure.com) klickar du på **Resursgrupper** och väljer resursgruppen. I den här självstudien används **ContosoResources**. 
 
-   **Namn**: Ange ett namn på slutpunkten. I den här självstudien används **StorageContainer**.
+2. Klicka på IoT-hubben i listan över resurser. I självstudien används **ContosoTestHub**. 
+
+3. Klicka på **Meddelanderoutning**. I fönstret **Meddelanderoutning**, klickar du på +**Lägg till**. På fönstret **Lägg till en väg**, klickar du på +**Lägg till** bredvid fältet slutpunkt som visas i följande bild:
+
+   ![Skärmbild som visar hur du börjar lägga till en slutpunkt till en väg.](./media/tutorial-routing/message-routing-add-a-route-w-storage-ep.png)
+
+4. Välj **Blob-lagring**. Du får fram fönstret **Lägg till slutpunkt för lagring**. 
+
+   ![Skärmbild som visar hur du lägger till en slutpunkt.](./media/tutorial-routing/message-routing-add-storage-ep.png)
+
+5. Ange ett namn på slutpunkten. I den här självstudien används **StorageContainer**.
+
+6. Klicka på **Välj en container**. Det tar dig till en lista över dina lagringskonton. Välj det som du skapade i förberedelsesteget. I den här självstudiekursen används **contosostorage**. Den visar en lista över containrar i det lagringskontot. Välj den container som du skapade i förberedelsesteget. I självstudien används **contosoresults**. Klicka på **Välj**. Du kommer tillbaka till fönstret **Lägg till slutpunkt**. 
+
+7. Använd standardvärdena för resten av fälten. Klicka på **Skapa** för att skapa slutpunkten för lagring och lägga till den till vägen. Du kommer tillbaka till fönstret **Lägg till en väg**.
+
+8.  Nu slutför du resten av informationen för routningsfrågan. Den här frågan anger kriterier för att skicka meddelanden till den lagringscontainer du just lade till som en slutpunkt. Fyll i fälten på skärmen. 
+
+   **Namn**: Ange ett namn för din routningsfråga. I den här självstudien används **StorageRoute**.
+
+   **Slutpunkt**: visar den slutpunkt som du nyss skapade. 
    
-   **Typ av slutpunkt**: Välj **Container för Azure Storage** från listrutan.
+   **Datakälla**: Välj **Enhetstelemetrimeddelanden** från listrutan.
 
-   Klicka på **Pick a container** (Välj en behållare) för att se en lista över lagringskonton. Välj ditt lagringskonto. I den här självstudiekursen används **contosostorage**. Välj sedan containern. I självstudien används **contosoresults**. Klicka på **Välj** för att återgå till fönstret **Lägg till slutpunkt**. 
+   **Aktivera väg**: se till att detta är aktiverat.
    
-   ![Skärmbild som visar hur du lägger till en slutpunkt.](./media/tutorial-routing/add-endpoint-storage-account.png)
-   
-   Klicka på **OK** för att sluta att lägga till slutpunkten.
-   
-1. Klicka på **Vägar** på din IoT-hubb. Du ska skapa en hanteringsregel som dirigerar meddelanden till lagringscontainern du just lade till som slutpunkt. Klicka på **+Lägg till** överst i rutan Vägar. Fyll i fälten på skärmen. 
+   **Routningsfråga**: Ange `level="storage"` som frågesträng. 
 
-   **Namn**: Ange ett namn på routningsregeln. I den här självstudien används **StorageRule**.
-
-   **Datakälla**: Välj **Enhetsmeddelanden** i listrutan.
-
-   **Slutpunkt**: Välj den slutpunkt som du nyss skapade. I den här självstudien används **StorageContainer**. 
+   ![Skärmbild som visar hur du skapar en hanteringsregel för lagringskontot.](./media/tutorial-routing/message-routing-finish-route-storage-ep.png)  
    
-   **Frågesträng**: Ange `level="storage"` som frågesträng. 
-
-   ![Skärmbild som visar hur du skapar en hanteringsregel för lagringskontot.](./media/tutorial-routing/create-a-new-routing-rule-storage.png)
-   
-   Klicka på **Spara**. När den är klar returneras den till rutan Vägar, där du kan se din nya hanteringsregel för lagring. Stäng rutan Vägar så att du kommer tillbaka till sidan Resursgrupp.
+   Klicka på **Spara**. När den är klar returneras den till fönstret meddelanderoutning där du kan se din nya routningsfråga för lagring. Stäng rutan Vägar så att du kommer tillbaka till sidan Resursgrupp.
 
 ### <a name="routing-to-a-service-bus-queue"></a>Dirigera till en Service Bus-kö 
 
-Konfigurera nu routning för Service Bus-kön. Definiera en slutpunkt och konfigurera en väg för den slutpunkten. Meddelanden där **nivåegenskapen** är inställd på **kritisk** är skrivna till Service Bus-kön, som utlöser en logikapp som i sin tur skickar ett e-postmeddelande med informationen. 
+Konfigurera nu routning för Service Bus-kön. Du gå till fönstret meddelanderoutning och lägger till en väg. När du lägger till vägen, definierar du en ny slutpunkt för den. Efter att det här har konfigurerats så skrivs meddelanden där egenskapen **nivå** är inställd på **kritisk** till Service Bus-kön, som utlöser en Logic App som i sin tur skickar ett e-postmeddelande med informationen. 
 
-1. På sidan Resursgrupp klickar du på din IoT-hubb och sedan på **Slutpunkter**. I rutan **Slutpunkter** klickar du på **+Lägg till**. Ange följande information.
+1. På Resursgruppsidan klickar du på din IoT-hubb och sedan på **Meddelanderoutning**. 
 
-   **Namn**: Ange ett namn på slutpunkten. Den här självstudien använder **CriticalQueue**. 
+2. I fönstret **Meddelanderoutning**, klickar du på +**Lägg till**. 
 
-   **Typ av slutpunkt**: Välj **Service Bus-kö** i listrutan.
+3. På fönstret **Lägg till en väg**, klickar på +**Lägg till** bredvid fältet slutpunkt. Välj **Service Bus-kö**. Du får fram fönstret **Lägg till Service Bus-slutpunkt**. 
 
-   **Service Bus-namnrymd**: Välj Service Bus-namnrymden för den här självstudien i listrutan. I den här självstudien används **ContosoSBNamespace**.
+   ![Skärmbild lägga till en service bus-slutpunkt](./media/tutorial-routing/message-routing-add-sbqueue-ep.png)
 
-   **Service Bus-kö**: Välj Service Bus-kön i listrutan. I den här självstudien används **contososbqueue**.
+4. Fyll i fälten:
 
-   ![Skärmbild som visar tillägg av en slutpunkt för Service Bus-kön.](./media/tutorial-routing/add-endpoint-sb-queue.png)
-
-   Spara slutpunkten genom att klicka på **OK**. När det är klart stänger du rutan Slutpunkter. 
-    
-1. Klicka på **Vägar** på din IoT-hubb. Du ska skapa en hanteringsregel som dirigerar meddelanden till Service Bus-kön du just lade till som slutpunkt. Klicka på **+Lägg till** överst i rutan Vägar. Fyll i fälten på skärmen. 
-
-   **Namn**: Ange ett namn på routningsregeln. I den här självstudien används **SBQueueRule**. 
-
-   **Datakälla**: Välj **Enhetsmeddelanden** i listrutan.
-
-   **Slutpunkt**: Välj den slutpunkt som du nyss skapade, **CriticalQueue**.
-
-   **Frågesträng**: Ange `level="critical"` som frågesträng. 
-
-   ![Skärmbild som visar hur du skapar en hanteringsregel för Service Bus-kön.](./media/tutorial-routing/create-a-new-routing-rule-sbqueue.png)
+   **Slutpunktsnamn**: Ange ett namn på slutpunkten. Den här självstudien använder **CriticalQueue**.
    
-   Klicka på **Spara**. När den återgår till rutan Vägar ser du dina båda nya hanteringsregler som de visas här.
+   **Service Bus-namnområde**: Klicka på fältet för att visa listmenyn, välj det service bus-namnområde som du skapade i förberedelsesteget. I den här självstudien används **ContosoSBNamespace**.
 
-   ![Skärmbild som visar de vägar du just konfigurerade.](./media/tutorial-routing/show-routing-rules-for-hub.png)
+   **Service Bus-kö**: Klicka på fältet för att visa listmenyn, välj service bus-kö från listmenyn. I den här självstudien används **contososbqueue**.
 
-   Stäng rutan Vägar så att du kommer tillbaka till sidan Resursgrupp.
+5. Klicka på **Skapa** för att lägga till slutpunkten för Service Bus-kön. Du kommer tillbaka till fönstret **Lägg till en väg**. 
+
+6.  Nu slutför du resten av routningsfrågeinformationen. Den här frågan anger kriterierna för att skicka meddelanden till den Service Bus-kö du just lade till som en slutpunkt. Fyll i fälten på skärmen. 
+
+   **Namn**: Ange ett namn för din routningsfråga. Den här självstudien använder **SBQueueRoute**. 
+
+   **Slutpunkt**: visar den slutpunkt som du nyss skapade.
+
+   **Datakälla**: Välj **Enhetstelemetrimeddelanden** från listrutan.
+
+   **Routningsfråga**: Ange `level="critical"` som frågesträng. 
+
+   ![Skärmbild som visar hur du skapar en routningsfråga för Service Bus-kön.](./media/tutorial-routing/message-routing-finish-route-sbq-ep.png)
+
+7. Klicka på **Spara**. När den återgår till Vägar-fönstret så ser du båda dina nya vägar som de visas här.
+
+   ![Skärmbild som visar de vägar du just konfigurerade.](./media/tutorial-routing/message-routing-show-both-routes.png)
+
+8. Du kan se de anpassade slutpunkter som du har konfigurerat genom att klicka på fliken **Anpassade slutpunkter**.
+
+   ![Skärmbild som visar de anpassade slutpunkter du just konfigurerade.](./media/tutorial-routing/message-routing-show-custom-endpoints.png)
+
+9. Stäng fönstret Meddelanderoutning så att du kommer tillbaka till Resursgruppfönstret.
 
 ## <a name="create-a-logic-app"></a>Skapa en logikapp  
 

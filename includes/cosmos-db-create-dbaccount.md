@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 04/13/2018
 ms.author: sngun
 ms.custom: include file
-ms.openlocfilehash: f8ef3070c318293af59a8f22d271b9c836c06f69
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: e07de7ca55a5725fdaf32ee300e8068a1d3d8fce
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38725911"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47021075"
 ---
 1. Logga in på [Azure Portal](https://portal.azure.com/) i ett nytt webbläsarfönster.
 2. Klicka på **Skapa en resurs** > **Databaser** > **Azure Cosmos DB**.
@@ -25,7 +25,7 @@ ms.locfileid: "38725911"
     Inställning|Värde|Beskrivning
     ---|---|---
     ID|*Ange ett unikt namn*|Ange ett unikt namn som identifierar Azure Cosmos DB-kontot. Eftersom*documents.azure.com* läggs till det ID du anger för att skapa din URI ska du använda ett unikt men identifierbart ID.<br><br>Ditt id får bara innehålla gemener, siffror och bindestreck och måste innehålla mellan 3 och 50 tecken.
-    API|SQL|API:n avgör vilken typ av konto som skapas. Azure Cosmos DB innehåller fem API:er för ditt program: SQL (dokumentdatabas), Gremlin (grafdatabas), MongoDB (dokumentdatabas), Azure-tabell och Cassandra, där var och en för närvarande kräver ett separat konto. <br><br>Du väljer **SQL** eftersom du i den här snabbstarten ska skapa en dokumentdatabas som är frågningsbar med SDL-syntax och tillgänglig med SQL-API:et.<br><br>[Läs mer om SQL-API:et](../articles/cosmos-db/documentdb-introduction.md)|
+    API|SQL|API:n avgör vilken typ av konto som skapas. Azure Cosmos DB innehåller fem API:er: SQL (dokumentdatabas), Gremlin (grafdatabas), MongoDB (dokumentdatabas), Azure Table och Cassandra. Varje API kräver för närvarande att du skapar ett separat konto. <br><br>Du väljer **SQL** eftersom du i den här snabbstarten ska skapa en dokumentdatabas som är frågningsbar med SDL-syntax och tillgänglig med SQL-API:et.<br><br>[Läs mer om SQL-API:et](../articles/cosmos-db/documentdb-introduction.md)|
     Prenumeration|*Din prenumeration*|Välj den Azure-prenumeration som ska användas för det här Azure Cosmos DB-kontot. 
     Resursgrupp|Skapa ny<br><br>*Ange sedan samma unika namn som angavs ovan i ID:t*|Välj **Skapa ny** och ange sedan ett nytt resursgruppsnamn för ditt konto. För enkelhetens skull kan du använda samma namn som för ditt ID. 
     Plats|*Välj den region som är närmast dina användare*|Välj den geografiska plats som ska vara värd för ditt Azure Cosmos DB-konto. Använd den plats som är närmast dina användare så att de får så snabb åtkomst till data som möjligt.

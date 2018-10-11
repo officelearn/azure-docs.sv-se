@@ -12,14 +12,17 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: tutorial
 ms.date: 3/7/2018
-ms.openlocfilehash: 56f1d26d5d687982366b9a8fb20235ff338a9573
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ROBOTS: NOINDEX
+ms.openlocfilehash: 272b8250a80fee42780311dec92f6d47c221c160
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38722991"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46990169"
 ---
 # <a name="tutorial-1-classify-iris---preparing-the-data"></a>Självstudie 1: Klassificera Iris – förbereda data
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)]
 
 Azure Machine Learning (förhandsversionen) är en integrerad, avancerad lösning för datavetenskap och analys som datatekniker kan använda för att förbereda data, utveckla experiment och distribuera modeller i molnskala.
 
@@ -32,6 +35,8 @@ Den här självstudien är **del ett i en serie med tre delar**. I den här sjä
 
 Den här självstudien använder den tidlösa [Iris-datauppsättningen](https://en.wikipedia.org/wiki/Iris_flower_data_set). 
 
+[!INCLUDE [aml-preview-note](../../../includes/aml-preview-note.md)]
+
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
@@ -40,11 +45,11 @@ Du behöver följande för att kunna slutföra den här självstudiekursen:
 - Ett konto för Machine Learning-experimentering
 - Azure Machine Learning Workbench installerat
 
-Om du inte redan uppfyller dessa krav kan du följa stegen i artikeln [Snabbstart: Installera och starta](../service/quickstart-installation.md) för att konfigurera det här kontot och installera Azure Machine Learning Workbench-programmet. 
+Om du inte redan uppfyller dessa krav kan du följa stegen i artikeln [Snabbstart: Installera och starta](quickstart-installation.md) för att konfigurera det här kontot och installera Azure Machine Learning Workbench-programmet. 
 
 ## <a name="create-a-new-project-in-workbench"></a>Skapa ett nytt projekt i Workbench
 
-Om du följde stegen i artikeln [Snabbstart: Installera och starta](../service/quickstart-installation.md) bör du redan ha det här projektet och kan gå vidare till nästa avsnitt.
+Om du följde stegen i artikeln [Snabbstart: Installera och starta](quickstart-installation.md) bör du redan ha det här projektet och kan gå vidare till nästa avsnitt.
 
 1. Öppna appen Azure Machine Learning Workbench och logga in om det behövs. 
    
@@ -62,7 +67,7 @@ Om du följde stegen i artikeln [Snabbstart: Installera och starta](../service/q
    Projektnamn | myIris |Ange ett unikt namn som identifierar kontot. Du kan till exempel använda ditt eget namn eller namnet på din avdelning eller ditt projekt. Välj det som bäst identifierar experimentet. Namnet ska bestå av 2 till 32 tecken. Det får endast innehålla alfanumeriska tecken och streck (-). 
    Projektkatalog | c:\Temp\ | Ange i vilken katalogen projektet ska skapas.
    Projektbeskrivning | _lämna tomt_ | Valfritt fält som kan användas för att beskriva projekten.
-   URL till GIT-lagringsplats för Visualstudio.com |_lämna tomt_ | Valfritt fält. Du kan associera ett projekt med en Git-lagringsplats i Visual Studio Team Services för källkontroll och samarbete. [Lär dig hur det konfigureras](https://docs.microsoft.com/azure/machine-learning/desktop-workbench/using-git-ml-project#step-3-set-up-a-machine-learning-project-and-git-repo). 
+   URL till GIT-lagringsplats för Visualstudio.com |_lämna tomt_ | Valfritt fält. Du kan associera ett projekt med en Git-lagringsplats i Azure DevOps för källkontroll och samarbete. [Lär dig hur det konfigureras](https://docs.microsoft.com/azure/machine-learning/desktop-workbench/using-git-ml-project#step-3-set-up-a-machine-learning-project-and-git-repo). 
    Vald arbetsyta | IrisGarden (om det finns) | Välj en arbetsyta som du har skapat för ditt experimenteringskonto i Azure Portal. <br/>Om du följde snabbstarten bör du ha en arbetsyta med namnet IrisGarden. Om inte väljer du den som du skapade när du skapade ditt experimenteringskonto eller något annan som du vill använda.
    Projektmall | Klassificera Iris | Mallar innehåller skript och data som du kan använda för att utforska produkten. Den här mallen innehåller de skript och data som behövs för den här snabbstarten och andra självstudier på den här på dokumentationsplatsen. 
 
@@ -75,7 +80,7 @@ Om du följde stegen i artikeln [Snabbstart: Installera och starta](../service/q
 
 ## <a name="create-a-data-preparation-package"></a>Skapa ett databearbetningspaket
 
-Du kan därefter utforska och börja förbereda data i Azure Machine Learning Workbench. Varje transformering du utför i Workbench lagras i JSON-format i ett paket för förberedelse av lokala data (*.dprep-fil). Det här paketet för förberedelse av data är den primära behållaren för förberedelse av data i Workbench.
+Du kan därefter utforska och börja förbereda data i Azure Machine Learning Workbench. Varje transformering du utför i Workbench lagras i JSON-format i ett paket för förberedelse av lokala data (*.dprep-fil). Det här paketet för förberedelse av data är den primära containern för förberedelse av data i Workbench.
 
 Det här paketet för förberedelse av data kan lämnas senare till en runtime, till exempel local-C#/CoreCLR, Scala/Spark eller Scala/HDI. 
 

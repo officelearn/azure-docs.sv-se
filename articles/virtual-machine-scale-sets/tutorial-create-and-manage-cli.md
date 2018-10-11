@@ -1,6 +1,6 @@
 ---
 title: Självstudie – Skapa och hantera en VM-skalningsuppsättning i Azure | Microsoft Docs
-description: Läs hur du använder Azure CLI 2.0 för att skapa en VM-skalningsuppsättning, tillsammans med vissa vanliga hanteringsuppgifter, till exempel att starta och stoppa en instans, eller ändra kapaciteten för en skalningsuppsättning.
+description: Läs hur du använder Azure CLI för att skapa en VM-skalningsuppsättning, tillsammans med vissa vanliga hanteringsuppgifter, till exempel att starta och stoppa en instans, eller ändra kapaciteten för en skalningsuppsättning.
 services: virtual-machine-scale-sets
 documentationcenter: ''
 author: cynthn
@@ -16,14 +16,14 @@ ms.topic: tutorial
 ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: a076603519cdce5a16881e0f0703d8187001e058
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: f00f7934bfb78c16f9e93dc2fcd94025e5f806a1
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38452557"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46993303"
 ---
-# <a name="tutorial-create-and-manage-a-virtual-machine-scale-set-with-the-azure-cli-20"></a>Självstudie: Skapa och hantera en VM-skalningsuppsättning med Azure CLI 2.0
+# <a name="tutorial-create-and-manage-a-virtual-machine-scale-set-with-the-azure-cli"></a>Självstudie: Skapa och hantera en VM-skalningsuppsättning med Azure CLI
 Med en VM-skalningsuppsättning kan du distribuera och hantera en uppsättning identiska, virtuella datorer med automatisk skalning. Under livscykeln för en VM-skalningsuppsättning kan du behöva köra en eller flera hanteringsuppgifter. I den här självstudiekursen får du lära du dig att:
 
 > [!div class="checklist"]
@@ -37,11 +37,11 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Om du väljer att installera och använda CLI lokalt, måste du köra Azure CLI version 2.0.29 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI 2.0]( /cli/azure/install-azure-cli). 
+Om du väljer att installera och använda CLI lokalt, måste du köra Azure CLI version 2.0.29 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI]( /cli/azure/install-azure-cli). 
 
 
 ## <a name="create-a-resource-group"></a>Skapa en resursgrupp
-En Azure-resursgrupp är en logisk behållare där Azure-resurser distribueras och hanteras. En resursgrupp måste skapas före en VM-skalningsuppsättning. Skapa en resursgrupp med kommandot [az group create](/cli/azure/group#az_group_create). I det här exemplet skapas en resursgrupp med namnet *myResourceGroup* i regionen *eastus*. 
+En Azure-resursgrupp är en logisk container där Azure-resurser distribueras och hanteras. En resursgrupp måste skapas före en VM-skalningsuppsättning. Skapa en resursgrupp med kommandot [az group create](/cli/azure/group#az_group_create). I det här exemplet skapas en resursgrupp med namnet *myResourceGroup* i regionen *eastus*. 
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location eastus
@@ -62,7 +62,7 @@ az vmss create \
   --generate-ssh-keys
 ```
 
-Det tar några minuter att skapa och konfigurera alla skalningsuppsättningsresurser och virtuella datorinstanser. För att distribuera trafik till flera virtuella datorinstanser så skapas även en belastningsutjämnare.
+Det tar några minuter att skapa och konfigurera alla skalningsuppsättningsresurser och virtuella datorinstanser. För att distribuera trafik till flera virtuella datorinstanser så skapas även en lastbalanserare.
 
 
 ## <a name="view-the-vm-instances-in-a-scale-set"></a>Visa de virtuella datorinstanserna i en skalningsuppsättning
@@ -96,7 +96,7 @@ az vmss get-instance-view \
 
 
 ## <a name="list-connection-information"></a>Lista anslutningsinformation
-En offentlig IP-adress är tilldelad till belastningsutjämnaren som dirigerar trafik till de enskilda virtuella datorinstanserna. Som standard läggs NAT (Network Address Translation)-regler till Azure-belastningsutjämnaren som vidarebefordrar fjärranslutningstrafik till varje virtuell dator på en viss port. Om du vill ansluta till de virtuella datorinstanserna i en skalningsuppsättning, kan du skapa en fjärranslutning till en tilldelad offentlig IP-adress och portnummer.
+En offentlig IP-adress är tilldelad till lastbalanseraren som dirigerar trafik till de enskilda virtuella datorinstanserna. Som standard läggs NAT (Network Address Translation)-regler till Azure-lastbalanseraren som vidarebefordrar fjärranslutningstrafik till varje virtuell dator på en viss port. Om du vill ansluta till de virtuella datorinstanserna i en skalningsuppsättning, kan du skapa en fjärranslutning till en tilldelad offentlig IP-adress och portnummer.
 
 Lista adressen och portarna för att ansluta till virtuella datorinstanser i en skalningsuppsättning med [az vmss list-instance-connection-info](/cli/azure/vmss#az_vmss_list_instance_connection_info):
 
@@ -106,7 +106,7 @@ az vmss list-instance-connection-info \
   --name myScaleSet
 ```
 
-Följande exempelutdata visar instansnamnet, den offentliga IP-adressen för belastningsutjämnaren och portnummer som NAT-regler vidarebefordrar trafik till:
+Följande exempelutdata visar instansnamnet, den offentliga IP-adressen för lastbalanseraren och portnummer som NAT-regler vidarebefordrar trafik till:
 
 ```bash
 {
@@ -241,7 +241,7 @@ az vmss create \
 
 
 ## <a name="change-the-capacity-of-a-scale-set"></a>Ändra kapaciteten för en skalningsuppsättning
-När du skapade en skalningsuppsättning i början av självstudien, distribuerades två virtuella datorinstanser som standard. Du kan ange parametern `--instance-count` med [az vmss create](/cli/azure/vmss#az_vmss_create) för att ändra antalet instanser som skapas med en skalningsuppsättning. Om du vill öka eller minska antalet virtuella datorinstanser i din befintliga skalningsuppsättning, kan du manuellt ändra kapaciteten. Skalningsuppsättningen skapar eller tar bort antalet virtuella datorinstanser som krävs och konfigurerar sedan belastningsutjämnaren att distribuera trafiken.
+När du skapade en skalningsuppsättning i början av självstudien, distribuerades två virtuella datorinstanser som standard. Du kan ange parametern `--instance-count` med [az vmss create](/cli/azure/vmss#az_vmss_create) för att ändra antalet instanser som skapas med en skalningsuppsättning. Om du vill öka eller minska antalet virtuella datorinstanser i din befintliga skalningsuppsättning, kan du manuellt ändra kapaciteten. Skalningsuppsättningen skapar eller tar bort antalet virtuella datorinstanser som krävs och konfigurerar sedan lastbalanseraren att distribuera trafiken.
 
 Om du vill öka eller minska antalet virtuella datorinstanser manuellt i skalningsuppsättningen, använder du [az vmss scale](/cli/azure/vmss#az_vmss_scale). Följande exempel anger antalet virtuella datorinstanser i din skalningsuppsättning till *3*:
 
@@ -303,7 +303,7 @@ az group delete --name myResourceGroup --no-wait --yes
 
 
 ## <a name="next-steps"></a>Nästa steg
-I den här självstudien beskrivs hur du utför vissa grundläggande skapande och hanteringsåtgärder för skalningsuppsättningar med Azure CLI 2.0:
+I den här självstudien beskrivs hur du utför vissa grundläggande skapande och hanteringsåtgärder för skalningsuppsättningar med Azure CLI:
 
 > [!div class="checklist"]
 > * Skapa och anslut till en VM-skalningsuppsättning

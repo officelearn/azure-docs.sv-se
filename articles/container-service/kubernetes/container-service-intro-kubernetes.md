@@ -9,18 +9,18 @@ ms.topic: overview
 ms.date: 07/21/2017
 ms.author: gamonroy
 ms.custom: mvc
-ms.openlocfilehash: f12fc0baa055e62d4f15c0e42eb7add3661ea6fc
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 3e019f02d13ade6a42f4739eacae55f5bf6ac2af
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32162117"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46973600"
 ---
 # <a name="introduction-to-azure-container-service-for-kubernetes"></a>Introduktion till Azure Container Service för Kubernetes
 
 [!INCLUDE [aks-preview-redirect.md](../../../includes/aks-preview-redirect.md)]
 
-Azure Container Service för Kubernetes gör det enkelt för dig att skapa, konfigurera och hantera av ett kluster på virtuella datorer som är förkonfigurerade för att köra program i behållare. På så sätt kan du använda dina befintliga kunskaper eller använda en stor och växande mängd communityexpertis för att distribuera och hantera behållarbaserade program i Microsoft Azure.
+Azure Container Service för Kubernetes gör det enkelt för dig att skapa, konfigurera och hantera av ett kluster på virtuella datorer som är förkonfigurerade för att köra program i behållare. På så sätt kan du använda dina befintliga kunskaper eller använda en stor och växande mängd communityexpertis för att distribuera och hantera containerbaserade program i Microsoft Azure.
 
 Genom att använda Azure Container Service kan du dra nytta av Azures funktioner på företagsnivå samtidigt som programmen fortsätter att vara bärbara via Kubernetes och Docker-avbildningsformatet.
 
@@ -28,10 +28,10 @@ Genom att använda Azure Container Service kan du dra nytta av Azures funktioner
 Vårt mål med Azure Container Service är att tillhandahålla en behållarvärdmiljö genom att använda verktyg och teknik med öppen källkod som är populära bland kunderna idag. Därför tillgängliggör vi Kubernetes API-standardslutpunkter. Genom att använda dessa standardslutpunkter kan du använda all programvara som kan kommunicera till ett Kubernetes-kluster. Du kan till exempel välja [kubectl](https://kubernetes.io/docs/user-guide/kubectl-overview/), [helm](https://helm.sh/) eller [draft](https://github.com/Azure/draft).
 
 ## <a name="creating-a-kubernetes-cluster-using-azure-container-service"></a>Skapa ett Kubernetes-kluster med Azure Container Service
-Om du vill börja använda Azure Container Service distribuerar du ett Azure Container Service-kluster med [Azure CLI 2.0](container-service-kubernetes-walkthrough.md) eller via portalen (sök på Marketplace efter **Azure Container Service**). Om du är en avancerad användare som behöver mer kontroll över Azure Resource Manager-mallarna kan du öppna projektet [acs-engine](https://github.com/Azure/acs-engine) med öppen källkod för att bygga ett eget anpassat Kubernetes-kluster och distribuera det via `az` CLI.
+Om du vill börja använda Azure Container Service distribuerar du ett Azure Container Service-kluster med [Azure CLI](container-service-kubernetes-walkthrough.md) eller via portalen (sök på Marketplace efter **Azure Container Service**). Om du är en avancerad användare som behöver mer kontroll över Azure Resource Manager-mallarna kan du öppna projektet [acs-engine](https://github.com/Azure/acs-engine) med öppen källkod för att bygga ett eget anpassat Kubernetes-kluster och distribuera det via `az` CLI.
 
 ### <a name="using-kubernetes"></a>Använda Kubernetes
-Kubernetes automatiserar distributionen, skalningen och hanteringen av program som använder behållare. Det har en omfattande uppsättning funktioner. Till exempel:
+Kubernetes automatiserar distributionen, skalningen och hanteringen av program som använder containrar. Det har en omfattande uppsättning funktioner. Till exempel:
 * Automatisk paketering
 * Självåterställning
 * Horisontell skalning

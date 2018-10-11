@@ -8,12 +8,12 @@ manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 07/31/2018
-ms.openlocfilehash: b1af82060d316a18cd6427f70695ca4fa982064d
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: 81959159d4860512c184ada25930da814b5ae044
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43106805"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46946586"
 ---
 # <a name="set-up-continuous-integration-and-deployment-to-azure-app-service-with-jenkins"></a>Konfigurera kontinuerlig integrering och distribution till Azure App Service med Jenkins
 
@@ -35,7 +35,7 @@ För att slutföra den här kursen behöver du:
 
 * [Jenkins](https://jenkins.io/) med JDK och Maven-verktyg konfigurerade. Om du inte har ett Jenkins-system kan du skapa ett nu i Azure från [Jenkins-lösningsmallen](/azure/jenkins/install-jenkins-solution-template).
 * Ett [GitHub](https://github.com)-konto.
-* [Azure CLI 2.0](/cli/azure), antingen från din lokala kommandoraden eller i [Azure Cloud Shell](/azure/cloud-shell/overview)
+* [Azure CLI](/cli/azure), antingen från den lokala kommandoraden eller i [Azure Cloud Shell](/azure/cloud-shell/overview)
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 

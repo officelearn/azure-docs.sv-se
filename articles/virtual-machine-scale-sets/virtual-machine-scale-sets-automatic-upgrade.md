@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2018
 ms.author: rajraj
-ms.openlocfilehash: 1ca0ec7185707d9b9f9712c2ace8dacb361f7b5b
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: cf25d08fc9a0e1ae458d350be93af31447928ecb
+ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47394377"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49069462"
 ---
 # <a name="azure-virtual-machine-scale-set-automatic-os-image-upgrades"></a>Azure VM-skalningsuppsättningen automatisk operativsystemuppgradering för avbildning
 
@@ -92,7 +92,12 @@ PUT or PATCH on `/subscriptions/subscription_id/resourceGroups/myResourceGroup/p
 } 
 ```
 
-Stöd för att konfigurera den här egenskapen via Azure PowerShell och CLI 2.0 kommer att lanseras på 10/09.
+I följande exempel används Azure CLI (2.0.47 eller senare) att konfigurera automatiska uppgraderingar för skalningsuppsättningen *myVMSS* i resursgruppen med namnet *myResourceGroup*:
+
+```azurecli
+az vmss update --name myVMSS --resource-group myResourceGroup --set UpgradePolicy.AutomaticOSUpgradePolicy.EnableAutomaticOSUpgrade=true
+```
+Stöd för att konfigurera den här egenskapen via Azure PowerShell kommer att lanseras snart.
 
 ## <a name="using-application-health-probes"></a>Med hjälp av programmets hälsotillstånd avsökningar 
 
@@ -139,10 +144,10 @@ Get-AzureRmVmss -ResourceGroupName myResourceGroup -VMScaleSetName myVMSS -OSUpg
 ```
 
 ### <a name="azure-cli-20"></a>Azure CLI 2.0
-I följande exempel används Azure CLI (2.0.20 eller senare) att kontrollera status för skalningsuppsättningen *myVMSS* i resursgruppen med namnet *myResourceGroup*:
+I följande exempel används Azure CLI (2.0.47 eller senare) att kontrollera status för skalningsuppsättningen *myVMSS* i resursgruppen med namnet *myResourceGroup*:
 
 ```azurecli
-az vmss rolling-upgrade get-latest --resource-group myResourceGroup --name myVMSS
+az vmss get-os-upgrade-history --resource-group myResourceGroup --name myVMSS
 ```
 
 ### <a name="rest-api"></a>REST-API
@@ -192,10 +197,18 @@ GET-anrop returnerar egenskaperna som liknar följande Exempelutdata:
 
 ## <a name="how-to-get-the-latest-version-of-a-platform-os-image"></a>Hur du hämtar den senaste versionen av en plattformsavbildning OS? 
 
-Du får versionerna som bild för automatisk operativsystemuppgradering godkända SKU: er med hjälp av de följande PowerShell-cmdlets: 
+Du får versionerna som bild för automatisk operativsystemuppgradering godkända SKU: er med hjälp av den exemplen nedan: 
+
+```
+GET on `/subscriptions/subscription_id/providers/Microsoft.Compute/locations/{location}/publishers/{publisherName}/artifacttypes/vmimage/offers/{offer}/skus/{skus}/versions?api-version=2018-10-01`
+```
 
 ```powershell
 Get-AzureRmVmImage -Location "westus" -PublisherName "Canonical" -Offer "UbuntuServer" -Skus "16.04-LTS"
+```
+
+```azurecli
+az vm image list --location "westus" --publisher "Canonical" --offer "UbuntuServer" --sku "16.04-LTS" --all
 ```
 
 ## <a name="deploy-with-a-template"></a>Distribuera med en mall

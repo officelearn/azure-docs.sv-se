@@ -1,22 +1,25 @@
 ---
 title: Skapa en statisk volym för poddar i Azure Kubernetes Service (AKS)
-description: Lär dig hur du manuellt skapa en volym med Azure-diskar för användning med poddar i Azure Kubernetes Service (AKS)
+description: Lär dig hur du manuellt skapa en volym med Azure-diskar för användning med en pod i Azure Kubernetes Service (AKS)
 services: container-service
 author: iainfoulds
 ms.service: container-service
 ms.topic: article
-ms.date: 09/26/2018
+ms.date: 10/08/2018
 ms.author: iainfou
-ms.openlocfilehash: 20c7d20399392e653668953029bcb81886863ce4
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: 9c5879474568885d9a705e7bfd16e2a4e2304b96
+ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47404627"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49068193"
 ---
-# <a name="manually-create-and-use-kubernetes-volume-with-azure-disks-in-azure-kubernetes-service-aks"></a>Manuellt skapa och använda Kubernetes-volym med Azure-diskar i Azure Kubernetes Service (AKS)
+# <a name="manually-create-and-use-a-volume-with-azure-disks-in-azure-kubernetes-service-aks"></a>Manuellt skapa och använda en volym med Azure-diskar i Azure Kubernetes Service (AKS)
 
-Behållarbaserade program behöver ofta åtkomst till och bevara data i en extern datavolym. Azure-diskar som kan användas som den här externa datalager. I AKS, volymer kan skapas dynamiskt med permanent volym anspråk eller du kan manuellt skapa och koppla en Azure-disk direkt. Den här artikeln visar hur du manuellt skapa en Azure-disk och koppla den till en pod i AKS.
+Behållarbaserade program behöver ofta åtkomst till och bevara data i en extern datavolym. Om en enda pod behöver åtkomst till lagring, kan du använda Azure-diskar för att presentera en inbyggd volym för programmet. Den här artikeln visar hur du manuellt skapa en Azure-disk och koppla den till en pod i AKS.
+
+> [!NOTE]
+> En Azure-disk kan endast monteras till en enda pod i taget. Om du vill dela en permanent volym över flera poddar kan använda [Azure Files][azure-files-volume].
 
 Mer information om Kubernetes volymer finns i [Kubernetes volymer][kubernetes-volumes].
 
@@ -65,15 +68,22 @@ Om du vill montera Azure-disken till din pod, konfigurerar du volymen i containe
 apiVersion: v1
 kind: Pod
 metadata:
- name: azure-disk-pod
+  name: mypod
 spec:
- containers:
-  - image: microsoft/sample-aks-helloworld
-    name: azure
+  containers:
+  - image: nginx:1.15.5
+    name: mypod
+    resources:
+      requests:
+        cpu: 100m
+        memory: 128Mi
+      limits:
+        cpu: 250m
+        memory: 256Mi
     volumeMounts:
       - name: azure
         mountPath: /mnt/azure
- volumes:
+  volumes:
       - name: azure
         azureDisk:
           kind: Managed
@@ -87,7 +97,32 @@ Använd den `kubectl` kommando för att skapa en pod.
 kubectl apply -f azure-disk-pod.yaml
 ```
 
-Nu har du en aktiv pod med en Azure-disk monterad på `/mnt/azure`. Du kan använda `kubectl describe pod azure-disk-pod` att kontrollera att disken är monterad har.
+Nu har du en aktiv pod med en Azure-disk monterad på `/mnt/azure`. Du kan använda `kubectl describe pod mypod` att kontrollera att disken är monterad har. Följande komprimerade exempel på utdata visar volym monteras i behållaren:
+
+```
+[...]
+Volumes:
+  azure:
+    Type:         AzureDisk (an Azure Data Disk mount on the host and bind mount to the pod)
+    DiskName:     myAKSDisk
+    DiskURI:      /subscriptions/<subscriptionID/resourceGroups/MC_myResourceGroupAKS_myAKSCluster_eastus/providers/Microsoft.Compute/disks/myAKSDisk
+    Kind:         Managed
+    FSType:       ext4
+    CachingMode:  ReadWrite
+    ReadOnly:     false
+  default-token-z5sd7:
+    Type:        Secret (a volume populated by a Secret)
+    SecretName:  default-token-z5sd7
+    Optional:    false
+[...]
+Events:
+  Type    Reason                 Age   From                               Message
+  ----    ------                 ----  ----                               -------
+  Normal  Scheduled              1m    default-scheduler                  Successfully assigned mypod to aks-nodepool1-79590246-0
+  Normal  SuccessfulMountVolume  1m    kubelet, aks-nodepool1-79590246-0  MountVolume.SetUp succeeded for volume "default-token-z5sd7"
+  Normal  SuccessfulMountVolume  41s   kubelet, aks-nodepool1-79590246-0  MountVolume.SetUp succeeded for volume "azure"
+[...]
+```
 
 ## <a name="next-steps"></a>Nästa steg
 
@@ -107,3 +142,4 @@ Mer information om AKS kluster interagera med Azure-diskar, finns i den [Kuberne
 [aks-quickstart-portal]: kubernetes-walkthrough-portal.md
 [az-aks-show]: /cli/azure/aks#az-aks-show
 [install-azure-cli]: /cli/azure/install-azure-cli
+[azure-files-volume]: azure-files-volume.md

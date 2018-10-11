@@ -7,12 +7,12 @@ ms.service: storage
 ms.date: 10/04/2018
 ms.author: renash
 ms.component: files
-ms.openlocfilehash: 7cab1d0594792437c03427177159b193765aa92e
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.openlocfilehash: b3aca33bea8f7847b7069bba3f2a6dcd143cf29c
+ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48871003"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49079144"
 ---
 # <a name="frequently-asked-questions-faq-about-azure-files"></a>Vanliga frågor (och svar FAQ) om Azure Files
 [Azure Files](storage-files-introduction.md) erbjuder fullständigt hanterade filresurser i molnet som är tillgängliga via vanliga [Server Message Block (SMB) protokollet](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx). Du kan montera Azure-filresurser samtidigt på molnet eller lokala distributioner av Windows, Linux och macOS. Du kan också cachelagra Azure-filresurser på Windows Server-datorer med hjälp av Azure File Sync för snabb åtkomst nära där data används.
@@ -149,7 +149,7 @@ Den här artikeln innehåller vanliga frågor och svar om Azure Files och funkti
 
 * <a id="afs-tiered-files-out-of-endpoint"></a>
 **Varför finns nivåindelade filer utanför den slutpunkten namnrymden?**  
-    Innan Azure File Sync-agentversion 3 blockeras Azure File Sync flytt av nivåindelade filer utanför Serverslutpunkten men på samma volym som Serverslutpunkten. Kopieringsåtgärder, flyttas av icke-nivåindelade filer och flyttas av nivåindelade andra volymer har påverkas inte. Orsaken till detta var det underförstådda antagandet som Utforskaren och andra Windows-API: er har som flyttar åtgärder på samma volym är (nästan) instanenous Byt namn på åtgärder. Det innebär att flytta gör Utforskaren eller andra move-metoder (till exempel från kommandoraden eller PowerShell) visas inte svarar medan Azure File Sync återställer data från molnet. Från och med [Azure File Sync-agentversion 3.0.12.0](storage-files-release-notes.md#agent-version-30120), Azure File Sync kan du flytta en nivåindelad fil utanför Serverslutpunkten. Vi undvika negativa effekter som vi nämnde tidigare genom att nivåindelade filen finns som en nivåindelad fil utanför Serverslutpunkten och sedan återställa filen i bakgrunden. Det innebär som flyttas på samma volym är instaneous och vi gör allt arbete för att återställa filen till disk när förflyttningen har slutförts. 
+    Innan Azure File Sync-agentversion 3 blockeras Azure File Sync flytt av nivåindelade filer utanför Serverslutpunkten men på samma volym som Serverslutpunkten. Kopieringsåtgärder, flyttas av icke-nivåindelade filer och flyttas av nivåindelade andra volymer har påverkas inte. Orsaken till detta var det underförstådda antagandet som Utforskaren och andra Windows-API: er har som flyttar åtgärder på samma volym är (nästan) instanenous Byt namn på åtgärder. Det innebär att flytta gör Utforskaren eller andra move-metoder (till exempel från kommandoraden eller PowerShell) visas inte svarar medan Azure File Sync återställer data från molnet. Från och med [Azure File Sync-agentversion 3.0.12.0](storage-files-release-notes.md#supported-versions), Azure File Sync kan du flytta en nivåindelad fil utanför Serverslutpunkten. Vi undvika negativa effekter som vi nämnde tidigare genom att nivåindelade filen finns som en nivåindelad fil utanför Serverslutpunkten och sedan återställa filen i bakgrunden. Det innebär som flyttas på samma volym är instaneous och vi gör allt arbete för att återställa filen till disk när förflyttningen har slutförts. 
 
 * <a id="afs-do-not-delete-server-endpoint"></a>
 **Jag har problem med Azure File Sync på Min server (sync molnet lagringsnivåer, etc). Ta bort och återskapa min serverslutpunkt**  

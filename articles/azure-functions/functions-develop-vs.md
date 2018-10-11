@@ -8,14 +8,14 @@ manager: jeconnoc
 ms.service: azure-functions
 ms.custom: vs-azure
 ms.topic: conceptual
-ms.date: 09/12/2018
+ms.date: 10/08/2018
 ms.author: glenga
-ms.openlocfilehash: 63a2d5a62cf2cdfa2a1a08c56ef5a87aaaa13529
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: 3ba8919a499da0db8e2deb626d8cf4d5067c1c25
+ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47395551"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49069185"
 ---
 # <a name="develop-azure-functions-using-visual-studio"></a>Utveckla Azure-funktioner med hjälp av Visual Studio  
 
@@ -198,6 +198,20 @@ Du kan också hantera programinställningar i någon av dessa andra sätt:
 * [Med Azure portal](functions-how-to-use-azure-function-app-settings.md#settings).
 * [Med hjälp av den `--publish-local-settings` alternativet Publicera i Azure Functions Core Tools](functions-run-local.md#publish).
 * [Med hjälp av Azure CLI](/cli/azure/functionapp/config/appsettings#az-functionapp-config-appsettings-set). 
+
+## <a name="monitoring-functions"></a>Övervakningsfunktioner
+
+Det är det rekommenderade sättet att övervaka körning av funktionen i Azure genom att integrera med Azure Application Insights. När du skapar en funktionsapp i Azure portal görs den här integreringen för dig som standard. Integrering i din funktionsapp i Azure är inte dock utföras när du skapar funktionsappen vid publicering av Visual Studio. I stället får du inbyggd loggning, vilket inte rekommenderas.
+
+Aktivera Application Insights för din funktionsapp i Azure:
+
+1. Skapa en Application Insights-instans i den [Azure-portalen](https://portal.azure.com) och kopiera dess instrumenteringsnyckeln. Läs hur genom att läsa [manuellt ansluta en App Insights-resurs](functions-monitoring.md#manually-connect-an-app-insights-resource).  
+
+1. Lägg till en app som inställning med namnet `APPINSIGHTS_INSTRUMENTATIONKEY` till funktionsappinställningarna i Azure, enligt beskrivningen i [fungera appinställningar](#function-app-settings). Den här appinställningen innehåller instrumenteringsnyckeln som du skapade i föregående steg.
+
+1. Ta bort den `AzureWebJobsDashboard` appinställningen från funktionsappen i Azure, vilket inaktiverar inbyggd loggning.  
+
+Mer information finns i [övervaka Azure Functions](functions-monitoring.md).
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -16,12 +16,12 @@ ms.date: 10/05/2018
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 56b0f0ce39d421e80890ad0dbad9b7cfe0812cdb
-ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
+ms.openlocfilehash: c42e8978a94730669f3c3f879d1d26c4426bd9da
+ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/10/2018
-ms.locfileid: "48902883"
+ms.locfileid: "49079148"
 ---
 # <a name="how-to-provide-optional-claims-to-your-azure-ad-app-public-preview"></a>Så här: Ange valfria anspråk till din Azure AD-app (förhandsversion)
 
@@ -35,18 +35,22 @@ Den här funktionen används av programutvecklare för att ange vilka anspråk s
 
 Lista över standard anspråk och hur de används i token, finns i den [grunderna för token som utfärdas av Azure AD](v1-id-and-access-tokens.md). 
 
-Ett av målen med den [v2.0 Azure AD-slutpunkten](active-directory-appmodel-v2-overview.md) är token är mindre säkerställa optimala prestanda av klienter.  Därför kan flera anspråk som tidigare ingår i åtkomst- och ID-token finns inte längre i v2.0-token och måste be dig om särskilt på basis av per program.  
+Ett av målen med den [v2.0 Azure AD-slutpunkten](active-directory-appmodel-v2-overview.md) är token är mindre säkerställa optimala prestanda av klienter.  Därför kan flera anspråk som tidigare ingår i åtkomst- och ID-token finns inte längre i v2.0-token och måste be dig om särskilt på basis av per program.
+
+  
 
 **Tabell 1: tillämplighet**
 
 | Kontotyp | V1.0 slutpunkt | V2.0-slutpunkten  |
 |--------------|---------------|----------------|
 | Personligt Microsoft-konto  | Ej tillämpligt – RPS biljetter som används i stället | Stöd kommer |
-| Azure AD-konto            | Stöds                          | Stöds      |
+| Azure AD-konto          | Stöds                          | Stöds med varningar      |
+
+> [!Important]
+> Appar som stöder både personliga konton och Azure AD för närvarande (registrerad via den [app registreringsportalen](https://apps.dev.microsoft.com)) kan inte använda valfria anspråk.  Appar som är registrerade för bara Azure AD med v2.0-slutpunkten får valfria anspråk som begärts i manifestet.
 
 ## <a name="standard-optional-claims-set"></a>Standard valfria anspråk set
-
-Uppsättningen med valfria anspråk som är tillgängliga som standard att användas av program finns nedan.  Om du vill lägga till anpassade valfria anspråk för ditt program, se [Katalogtillägg](active-directory-optional-claims.md#Configuring-custom-claims-via-directory-extensions)nedan. 
+Uppsättningen med valfria anspråk som är tillgängliga som standard att användas av program finns nedan.  Om du vill lägga till anpassade valfria anspråk för ditt program, se [Katalogtillägg](active-directory-optional-claims.md#Configuring-custom-claims-via-directory-extensions)nedan.  Observera att när du lägger till anspråk till den **åtkomsttoken**, den här ändringen träder åtkomsttoken begärs *för* programmet (ett webb-API), inte de *av* programmet.  Detta säkerställer att oavsett klienten åtkomst till ditt API, rätt data finns i den åtkomsttoken som de använder för att autentisera mot ditt API.
 
 > [!Note]
 >Flesta av dessa anspråk kan tas med i JWTs för v1.0 och v2.0 token, men inte SAML-tokens, utom där annat anges i kolumnen tokentypen.  Dessutom valfria anspråk finns endast stöd för AAD-användare för närvarande, har MSA-stöd lagts till.  När MSA har valfria anspråk som har stöd för på v2.0-slutpunkten, anger kolumnen användartyp om ett anspråk är tillgänglig för en AAD eller MSA-användare.  
@@ -241,7 +245,7 @@ Det finns flera alternativ för att uppdatera egenskaperna på ett programs iden
             ]
       }
       ```
-      I det här fallet har olika valfria anspråk lagts till varje typ av token som programmet kan ta emot. ID-token ska nu innehålla UPN-namnet för federerade användare i fullständig form (`<upn>_<homedomain>#EXT#@<resourcedomain>`). Åtkomsttoken får nu auth_time anspråket. SAML-token innehåller nu skypeId directory-schematillägget (i det här exemplet är det app-ID för den här appen ab603c56068041afb2f6832e2a17e237).  Skype-ID som visas i SAML-tokens `extension_skypeId`.
+      I det här fallet har olika valfria anspråk lagts till varje typ av token som programmet kan ta emot. ID-token ska nu innehålla UPN-namnet för federerade användare i fullständig form (`<upn>_<homedomain>#EXT#@<resourcedomain>`). Åtkomsttoken som andra klienter begär för det här programmet innehåller nu auth_time anspråket. SAML-token innehåller nu skypeId directory-schematillägget (i det här exemplet är det app-ID för den här appen ab603c56068041afb2f6832e2a17e237).  Skype-ID som visas i SAML-tokens `extension_skypeId`.
 
 1. När du är klar uppdaterar manifestet klickar du på **spara** att spara manifestet
 

@@ -1,6 +1,6 @@
 ---
-title: Apptjänst på Azure-stacken uppdatering 1 viktig information | Microsoft Docs
-description: Lär dig mer om vad som finns i en uppdatering för Apptjänst Azure stacken kända problem och var du kan hämta uppdateringen.
+title: App Service i Azure Stack update 1 viktig information | Microsoft Docs
+description: Lär dig mer om vad som finns i en uppdatering för App Service i Azure Stack, kända problem och var du kan hämta uppdateringen.
 services: azure-stack
 documentationcenter: ''
 author: apwestgarth
@@ -14,51 +14,51 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2018
 ms.author: anwestg
-ms.reviewer: brenduns
-ms.openlocfilehash: 80bd865b7a08d9488c0fb6a1a5b60445b9c6eaaa
-ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
+ms.reviewer: sethm
+ms.openlocfilehash: ee6e4397345b4cb169e7e22d951d4c4fdff5b7b7
+ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "34358089"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49078723"
 ---
-# <a name="app-service-on-azure-stack-update-1-release-notes"></a>Apptjänst på Azure-stacken uppdatering 1 viktig information
+# <a name="app-service-on-azure-stack-update-1-release-notes"></a>App Service i Azure Stack update 1 viktig information
 
-*Gäller för: Azure Stack integrerat system och Azure-stacken Development Kit*
+*Gäller för: integrerade Azure Stack-system och Azure Stack Development Kit*
 
-Följande versionsinformation innehåller förbättringar och korrigeringar i Azure App Service på Azure-stacken uppdatering 1 och kända problem. Kända problem är indelade i problem som är direkt relaterade till distribution, uppdateringsprocessen och problem med build (efter installationen).
+Följande versionsinformation innehåller förbättringar och korrigeringar i Azure App Service på Azure Stack Update 1 och kända problem. Kända problem är indelade i problem som är direkt relaterade till distribution, uppdateringsprocessen och problem med build (efter installationen).
 
 > [!IMPORTANT]
-> Uppdateringen är 1802 Azure Stack integrerade systemet eller distribuera den senaste Azure Stack development kit innan du distribuerar Azure App Service.
+> Uppdateringen är 1802 integrerade Azure Stack-system eller distribuera den senaste Azure Stack development kit innan du distribuerar Azure App Service.
 >
 >
 
 ## <a name="build-reference"></a>Skapa referens
 
-Tjänsten App på Azure-stacken uppdatering 1 build-nummer är **69.0.13698.9**
+App Service på Azure Stack Update 1 build-nummer är **69.0.13698.9**
 
 ### <a name="prerequisites"></a>Förutsättningar
 
 > [!IMPORTANT]
-> Nya distributioner av Azure App Service på Azure-stacken kräver en [tre ämne jokerteckencertifikat](azure-stack-app-service-before-you-get-started.md#get-certificates) på grund av förbättringar i hanteringen av där enkel inloggning för Kudu är nu i Azure App Service. Det nya ämnet är  **\*. sso.appservice.\< region\>.\< DomainName\>.\< tillägg\>**
+> Nya distributioner av Azure App Service i Azure Stack nu kräver en [tre ämne jokerteckencertifikat](azure-stack-app-service-before-you-get-started.md#get-certificates) tack vare förbättringar i hanteringen av där enkel inloggning för Kudu är nu i Azure App Service. Det nya ämnet är  **\*. sso.appservice.\< region\>.\< DomainName\>.\< tillägget\>**
 >
 >
 
-Referera till den [innan du börjar dokumentationen](azure-stack-app-service-before-you-get-started.md) innan du påbörjar distributionen.
+Referera till den [innan du börjar dokumentation](azure-stack-app-service-before-you-get-started.md) innan du påbörjar distributionen.
 
 ### <a name="new-features-and-fixes"></a>Nya funktioner och korrigeringar
 
-Azure App Service på Azure-stacken uppdatering 1 innehåller följande förbättringar och korrigeringar:
+Azure App Service i Azure Stack uppdatering 1 innehåller följande förbättringar och korrigeringar:
 
-- **Hög tillgänglighet i Azure App Service** -det Azure-stacken 1802 update har aktiverats arbetsbelastningar som ska distribueras över fault-domäner. Därför kan Apptjänst infrastruktur vara feltolerant som kommer att distribueras över feldomäner. Som standard har alla nya distributioner av Azure App Service funktionen men distributioner som har slutförts innan Azure Stack 1802 som uppdateringen finns i den [Feldomän för App Service-dokumentation](azure-stack-app-service-fault-domain-update.md)
+- **Hög tillgänglighet för Azure App Service** – The Azure Stack 1802 uppdatering aktiverat arbetsbelastningar som ska distribueras över feldomäner. App Service-infrastrukturen är därför att vara feltolerant som kommer att distribueras över feldomäner. Som standard har alla nya distributioner i Azure App Service med den här funktionen men för distributioner som har slutförts innan Azure Stack 1802 uppdateringen tillämpas avser den [Feldomän för App Service-dokumentation](azure-stack-app-service-fault-domain-update.md)
 
-- **Distribuera i befintligt virtuellt nätverk** -kunder kan nu distribuera Apptjänst Azure stacken inom ett befintligt virtuellt nätverk. Distribution i ett befintligt virtuellt nätverk ger kunder möjlighet att ansluta till SQL Server och filserver, krävs för Azure App Service via privata portar. Under distributionen kan kunder kan välja för att distribuera i ett befintligt virtuellt nätverk, men [skapa undernät för användning av App Service](azure-stack-app-service-before-you-get-started.md#virtual-network) före distributionen.
+- **Distribuera i befintliga virtuella nätverket** -kunder kan nu distribuera App Service i Azure Stack i ett befintligt virtuellt nätverk. Distribuera i ett befintligt virtuellt nätverk ger kunder möjlighet att ansluta till SQL Server och filserver, krävs för Azure App Service över privata portar. Under distributionen meddelar kunderna kan välja för att distribuera i ett befintligt virtuellt nätverk, men [måste skapa undernät för användning av App Service](azure-stack-app-service-before-you-get-started.md#virtual-network) före distributionen.
 
-- Uppdateringar för **App Service-klient, Admin funktioner portaler och Kudu verktyg**. Konsekvent med Azure-stacken Portal SDK-version.
+- Uppdaterar till **App Service-klient, Admin, portaler för funktioner och verktyg för Kudu**. Konsekvent med Azure Stack Portal SDK-version.
 
-- **Uppdateringar för följande ramverk för programmet och verktyg**:
-    - Lägga till **.Net Core 2.0** stöd
-    - Lägga till **Node.JS** versioner:
+- **Uppdateringar till följande ramverk för programmet och verktyg**:
+    - Lagt till **.Net Core 2.0** stöd
+    - Lagt till **Node.JS** versioner:
         - 6.11.2
         - 6.11.5
         - 7.10.1
@@ -69,7 +69,7 @@ Azure App Service på Azure-stacken uppdatering 1 innehåller följande förbät
         - 8.7.0
         - 8.8.1
         - 8.9.0
-    - Lägga till **NPM** versioner:
+    - Lagt till **NPM** versioner:
         - 3.10.10
         - 4.2.0
         - 5.0.0
@@ -77,52 +77,52 @@ Azure App Service på Azure-stacken uppdatering 1 innehåller följande förbät
         - 5.3.0
         - 5.4.2
         - 5.5.1
-    - Lägga till **PHP** uppdateringar:
+    - Lagt till **PHP** uppdateringar:
         - 5.6.32
         - 7.0.26 (x86 och x64)
         - 7.1.12 (x86 och x64)
-    - Uppdatera **Git för Windows** v 2.14.1
-    - Uppdatera **ett** till v4.5.0
+    - Uppdatera **Git för Windows** till v 2.14.1
+    - Uppdatera **Mercurial** till v4.5.0
 
-  - Tillagt stöd för **endast HTTPS** funktion inom anpassad domän funktion i App Service-klient-portalen. 
+  - Lagt till stöd för **endast HTTPS** funktion inom Custom Domain-funktionen i App Service-klient-Portal. 
 
-  - Tillagda verifiering av anslutning till lagringsplatsen i Väljaren anpassad lagring för Azure Functions 
+  - Har lagts till verifiering av lagringsanslutning i väljaren för anpassad lagring för Azure Functions 
 
 #### <a name="fixes"></a>Korrigeringar
 
-- När du skapar ett offline distributionspaket får kunder inte längre ett åtkomst nekad när öppna mappen från installationsprogrammet för App Service
+- När du skapar ett offline distributionspaket kan får kunder inte längre ett felmeddelande om nekad när du öppnar mappen från App Service-installationsprogrammet
 
-- Lösa problem när du arbetar i funktionen anpassade domäner i App Service-klient-portalen.
+- Löst problem när du arbetar i funktionen anpassade domäner i App Service-klient-Portal.
 
 - Förhindra att kunder som använder reserverade administratör namn under installationen
 
 - Aktiverad App Service-distributionen med **domänanslutna** filserver
 
-- Förbättrad hämtning av Azure-stacken root certifikat i skript och nu Validera cert rot i installationsprogrammet för App Service.
+- Förbättrad hämtning av Azure Stack-rot-certifikatet i skriptet och verifiera nu rotcertifikatet i installationsprogrammet för App Service.
 
-- Fast felaktig status som returneras till Azure Resource Manager när en prenumeration är ta bort de befintliga resurserna i namnområdet Microsoft.Web.
+- Fast felaktig status som returneras till Azure Resource Manager när en prenumeration har tagits bort de inneslutna resurserna i namnområdet Microsoft.Web.
 
-### <a name="known-issues-with-the-deployment-process"></a>Kända problem med distributionen
+### <a name="known-issues-with-the-deployment-process"></a>Kända problem med distributionsprocessen
 
-- Validering av certifikatfel
+- Verifieringsfel för certifikat
 
-Vissa kunder ha uppstått problem när de tillhandahåller certifikat till installationsprogrammet för App Service när du distribuerar på ett integrerat system på grund av mycket begränsad verifiering i installationsprogrammet. Installationsprogrammet för App Service har publicerats igen, kunder bör [hämta uppdaterade installationsprogrammet](https://aka.ms/appsvconmasinstaller). Kontakta supporten om du fortsätter att ha problem med att verifiera certifikat med uppdaterade installationsprogrammet.
+Vissa kunder ha uppstått problem när de tillhandahåller certifikat till App Service-installationsprogram när du distribuerar på ett integrerat system på grund av mycket begränsad verifiering i installationsprogrammet. App Service-installationsprogrammet har publicerats igen, bör kunderna [ladda ned installationsprogrammet till uppdaterade](https://aka.ms/appsvconmasinstaller). Kontakta supporten om du fortfarande har problem som verifierar certifikat med uppdaterade installationsprogrammet.
 
-- Problem som hämtar Azure Stack rotcertifikat från integrerade systemet.
+- Problem med att hämta Azure Stack-rotcertifikat från integrerade system.
 
-Ett fel i Get-AzureStackRootCert.ps1 orsakade kunder misslyckas att hämta rotcertifikatet Azure Stack när du kör skriptet på en dator som inte har rotcertifikatet installerat. Skriptet har nu också publicerats igen, hur du löser det här problemet och begäran kunder [hämta uppdaterade helper skripten](https://aka.ms/appsvconmashelpers). Kontakta supporten om du fortsätter att ha problem med att hämta rotcertifikatet med det uppdaterade skriptet.
+Ett fel i Get-AzureStackRootCert.ps1 gjorde kunder inte kan hämta Azure Stack-rotcertifikat när du kör skriptet på en dator som inte har rotcertifikatet installerat. Skriptet har nu även publicerats igen, hur du löser det här problemet och begäran kunder [ladda ned de uppdaterade hjälpskript](https://aka.ms/appsvconmashelpers). Kontakta supporten om du fortfarande har problem med att hämta rotcertifikat med det uppdaterade skriptet.
 
 ### <a name="known-issues-with-the-update-process"></a>Kända problem med uppdateringen
 
-- Det finns inga kända problem för uppdatering av Azure App Service på Azure-stacken uppdatering 1.
+- Det finns inga kända problem för uppdatering av Azure App Service i Azure Stack uppdatering 1.
 
 ### <a name="known-issues-post-installation"></a>Kända problem (efter installationen)
 
-- Fack växlingen fungerar inte
+- Växling fungerar inte
 
-Platsen fack växlingen delas upp i den här versionen. Om du vill återställa funktionerna måste du utföra följande steg:
+Plats-växling är uppdelad i den här versionen. För att återställa funktioner, gör du följande:
 
-1. Ändra ControllersNSG Nätverkssäkerhetsgruppen till **Tillåt** fjärrskrivbordsanslutningar till App controller tjänstinstanser. Ersätt AppService.local med namnet på resursgruppen som du har distribuerat Apptjänst i.
+1. Ändra ControllersNSG Nätverkssäkerhetsgrupp till **Tillåt** anslutningar till fjärrskrivbord till instanser för App Service-domänkontrollant. Ersätt AppService.local med namnet på resursgruppen som du har distribuerat App Service i.
 
     ```powershell
       Add-AzureRmAccount -EnvironmentName AzureStackAdmin
@@ -147,7 +147,7 @@ Platsen fack växlingen delas upp i den här versionen. Om du vill återställa 
       Set-AzureRmNetworkSecurityGroup -NetworkSecurityGroup $nsg
       ```
 
-2. Bläddra till den **CN0 VM** under virtuella datorer i Azure Stack-administratörsportalen och **Klicka på Anslut** att öppna en fjärrskrivbordssession med controller-instans. Använd de autentiseringsuppgifter som anges under distributionen av App Service.
+2. Bläddra till den **CN0 VM** under virtuella datorer i Azure Stack-administratörsportalen och **Klicka på Anslut** att öppna en fjärrskrivbordssession med nätverksstyrenhetens instans. Använd autentiseringsuppgifterna som angetts under distributionen av App Service.
 3. Starta **PowerShell som administratör** och kör följande skript
 
     ```powershell
@@ -171,8 +171,8 @@ Platsen fack växlingen delas upp i den här versionen. Om du vill återställa 
         
     ```
 
-4. Stäng fjärrskrivbords-sessionen.
-5. Återställa ControllersNSG Nätverkssäkerhetsgruppen till **neka** fjärrskrivbordsanslutningar till App controller tjänstinstanser. Ersätt AppService.local med namnet på resursgruppen som du har distribuerat Apptjänst i.
+4. Stäng fjärrskrivbordssessionen.
+5. Återställ ControllersNSG Nätverkssäkerhetsgrupp till **neka** anslutningar till fjärrskrivbord till instanser för App Service-domänkontrollant. Ersätt AppService.local med namnet på resursgruppen som du har distribuerat App Service i.
 
     ```powershell
 
@@ -197,11 +197,11 @@ Platsen fack växlingen delas upp i den här versionen. Om du vill återställa 
         # Commit the changes back to NSG
         Set-AzureRmNetworkSecurityGroup -NetworkSecurityGroup $nsg
     ```
-- Anställda kan inte nå filserver när Apptjänst distribueras i ett befintligt virtuellt nätverk och filservern är endast tillgängligt i det privata nätverket.
+- Arbetare är inte nå filserver när App Service har distribuerats i ett befintligt virtuellt nätverk och servern är endast tillgänglig i det privata nätverket.
  
-Om du vill distribuera till ett befintligt virtuellt nätverk och en intern IP-adress för att ansluta till servern, du måste lägga till utgående säkerhetsregel aktivera SMB-trafik mellan worker-undernät och filservern. Gör detta genom att gå till WorkersNsg i Admin Portal och Lägg till utgående säkerhetsregel med följande egenskaper:
+Om du väljer att distribuera till ett befintligt virtuellt nätverk och en intern IP-adress för att ansluta till filservern, du måste lägga till en utgående säkerhetsregel att aktivera SMB-trafik mellan worker-undernät och filservern. Gör detta genom att gå till WorkersNsg i Admin Portal och Lägg till en utgående säkerhetsregel med följande egenskaper:
  * Källa: alla
- * Datakällan portintervall: *
+ * Käll-portintervall: *
  * Mål: IP-adresser
  * Mål-IP-adressintervall: intervall av IP-adresser för din filserver
  * Målportintervall: 445
@@ -210,11 +210,11 @@ Om du vill distribuera till ett befintligt virtuellt nätverk och en intern IP-a
  * Prioritet: 700
  * Namn: Outbound_Allow_SMB445
 
-### <a name="known-issues-for-cloud-admins-operating-azure-app-service-on-azure-stack"></a>Kända problem för molnet administratörer fungerar Azure App Service på Azure-stacken
+### <a name="known-issues-for-cloud-admins-operating-azure-app-service-on-azure-stack"></a>Kända problem med Cloud administratörerna fungerar Azure App Service i Azure Stack
 
-Dokumentationen i det [Azure Stack 1802 viktig information](azure-stack-update-1802.md)
+Finns i dokumentationen i den [viktig information om Azure Stack 1802](azure-stack-update-1802.md)
 
 ## <a name="next-steps"></a>Nästa steg
 
-- En översikt över Azure App Service finns [Azure App Service på Azure-stacken översikt](azure-stack-app-service-overview.md).
-- Mer information om hur du distribuerar Apptjänst Azure stacken finns [innan du börjar med App Service på Azure-stacken](azure-stack-app-service-before-you-get-started.md).
+- En översikt över Azure App Service finns i [Azure App Service i Azure Stack-översikt](azure-stack-app-service-overview.md).
+- Mer information om hur du förbereder att distribuera App Service i Azure Stack finns i [innan du sätter igång med App Service i Azure Stack](azure-stack-app-service-before-you-get-started.md).

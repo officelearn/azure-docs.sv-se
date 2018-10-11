@@ -3,32 +3,33 @@ title: Skapa en intern belastningsutjämnare i Azure Kubernetes Service (AKS)
 description: Lär dig hur du skapar och använder en intern belastningsutjämnare för att exponera dina tjänster med Azure Kubernetes Service (AKS).
 services: container-service
 author: iainfoulds
-manager: jeconnoc
 ms.service: container-service
 ms.topic: article
-ms.date: 07/12/2018
+ms.date: 10/08/2018
 ms.author: iainfou
-ms.custom: mvc
-ms.openlocfilehash: 123fc08995416e0ff9c7e12a526deadc34b3a4a2
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 75530c38ec3ecc5719ac5759d31bc38e7e886329
+ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39001403"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49069343"
 ---
 # <a name="use-an-internal-load-balancer-with-azure-kubernetes-service-aks"></a>Använda en intern belastningsutjämnare med Azure Kubernetes Service (AKS)
 
-Intern belastningsutjämning gör en Kubernetes-tjänst som är tillgängligt för program som körs i samma virtuella nätverk som Kubernetes-klustret. Den här artikeln visar hur du skapar och använder en intern belastningsutjämnare med Azure Kubernetes Service (AKS). Azure Load Balancer är tillgängliga i två SKU: er: Basic och Standard. AKS använder en grundläggande SKU.
+Om du vill begränsa åtkomsten till dina program i Azure Kubernetes Service (AKS), kan du skapa och använda en intern belastningsutjämnare. En intern belastningsutjämnare gör en Kubernetes-tjänst som är tillgängligt endast för program som körs i samma virtuella nätverk som Kubernetes-klustret. Den här artikeln visar hur du skapar och använder en intern belastningsutjämnare med Azure Kubernetes Service (AKS).
 
-## <a name="create-an-internal-load-balancer"></a>Skapa en intern belastningsutjämnare
+> [!NOTE]
+> Azure Load Balancer är tillgängliga i två SKU: er - *grundläggande* och *Standard*. Mer information finns i [Azure load balancer SKU jämförelse][azure-lb-comparison]. AKS stöder för närvarande den *grundläggande* SKU. Om du vill använda den *Standard* SKU, kan du använda den överordnade [acs-engine][acs-engine].
 
-För att skapa en intern belastningsutjämnare, skapar du ett tjänstmanifest tjänsttypen *LoadBalancer* och *-load-balancer – intern azure* anteckning som du ser i följande exempel:
+## <a name="create-an-internal-load-balancer"></a>Skapa en intern lastbalanserare
+
+För att skapa en intern belastningsutjämnare, skapar du ett service manifest med namnet `internal-lb.yaml` tjänsttypen *LoadBalancer* och *-load-balancer – intern azure* anteckning som du ser i följande Exempel:
 
 ```yaml
 apiVersion: v1
 kind: Service
 metadata:
-  name: azure-vote-front
+  name: internal-app
   annotations:
     service.beta.kubernetes.io/azure-load-balancer-internal: "true"
 spec:
@@ -36,31 +37,29 @@ spec:
   ports:
   - port: 80
   selector:
-    app: azure-vote-front
+    app: internal-app
 ```
 
-När den har distribuerats med `kubetctl apply`, en Azure belastningsutjämnare skapas och blir tillgängligt på samma virtuella nätverk som AKS-klustret.
+När den har distribuerats med `kubectl apply -f internal-lb.yaml`, en Azure belastningsutjämnare skapas och blir tillgängligt på samma virtuella nätverk som AKS-klustret.
 
-![Bild av AKS intern belastningsutjämnare](media/internal-lb/internal-lb.png)
-
-När du visar information om tjänsten, IP-adressen i den *extern IP-adress* kolumnen är IP-adressen för den interna belastningsutjämnaren som visas i följande exempel:
+När du visar information om tjänsten, IP-adressen för den interna belastningsutjämnaren visas i den *extern IP-adress* kolumn. Det kan ta en minut eller två IP-adressen ska ändras från *\<väntande\>* en faktiska interna IP-adress, som visas i följande exempel:
 
 ```
-$ kubectl get service azure-vote-front
+$ kubectl get service internal-app
 
-NAME               TYPE           CLUSTER-IP    EXTERNAL-IP   PORT(S)        AGE
-azure-vote-front   LoadBalancer   10.0.248.59   10.240.0.7    80:30555/TCP   10s
+NAME           TYPE           CLUSTER-IP    EXTERNAL-IP   PORT(S)        AGE
+internal-app   LoadBalancer   10.0.248.59   10.240.0.7    80:30555/TCP   2m
 ```
 
 ## <a name="specify-an-ip-address"></a>Ange en IP-adress
 
-Om du vill använda en specifik IP-adress med den interna belastningsutjämnaren, lägga till den *loadBalancerIP* egenskap load balancer-specifikationen. Den angivna IP-adressen måste finnas i samma undernät som AKS-klustret och måste inte redan tilldelats en resurs.
+Om du vill använda en specifik IP-adress med den interna belastningsutjämnaren, lägga till den *loadBalancerIP* egenskap i load balancer YAML-manifest. Den angivna IP-adressen måste finnas i samma undernät som AKS-klustret och måste inte redan tilldelats en resurs.
 
 ```yaml
 apiVersion: v1
 kind: Service
 metadata:
-  name: azure-vote-front
+  name: internal-app
   annotations:
     service.beta.kubernetes.io/azure-load-balancer-internal: "true"
 spec:
@@ -69,16 +68,16 @@ spec:
   ports:
   - port: 80
   selector:
-    app: azure-vote-front
+    app: internal-app
 ```
 
-När du visar information om tjänsten, IP-adressen på den *extern IP-adress* återspeglar den angivna IP-adressen:
+När du visar information om tjänsten, IP-adressen i den *extern IP-adress* kolumnen visar din angivna IP-adress:
 
 ```
-$ kubectl get service azure-vote-front
+$ kubectl get service internal-app
 
-NAME               TYPE           CLUSTER-IP     EXTERNAL-IP   PORT(S)        AGE
-azure-vote-front   LoadBalancer   10.0.184.168   10.240.0.25   80:30225/TCP   4m
+NAME           TYPE           CLUSTER-IP     EXTERNAL-IP   PORT(S)        AGE
+internal-app   LoadBalancer   10.0.184.168   10.240.0.25   80:30225/TCP   4m
 ```
 
 ## <a name="use-private-networks"></a>Använda privata nätverk
@@ -88,10 +87,10 @@ När du skapar AKS-kluster kan ange du avancerade nätverksinställningar. Den h
 Inga ändringar i föregående steg behövs för att distribuera en intern belastningsutjämnare i ett AKS-kluster som använder ett privat nätverk. Belastningsutjämnaren skapas i samma resursgrupp som ditt AKS-kluster, men är ansluten till ditt privata virtuella nätverk och undernät, som visas i följande exempel:
 
 ```
-$ kubectl get service azure-vote-front
+$ kubectl get service internal-app
 
-NAME               TYPE           CLUSTER-IP    EXTERNAL-IP   PORT(S)        AGE
-azure-vote-front   LoadBalancer   10.1.15.188   10.0.0.35     80:31669/TCP   1m
+NAME           TYPE           CLUSTER-IP    EXTERNAL-IP   PORT(S)        AGE
+internal-app   LoadBalancer   10.1.15.188   10.0.0.35     80:31669/TCP   1m
 ```
 
 > [!NOTE]
@@ -105,7 +104,7 @@ Om du vill ange ett undernät för belastningsutjämnaren, lägger du till den *
 apiVersion: v1
 kind: Service
 metadata:
-  name: azure-vote-front
+  name: internal-app
   annotations:
     service.beta.kubernetes.io/azure-load-balancer-internal: "true"
     service.beta.kubernetes.io/azure-load-balancer-internal-subnet: "apps-subnet"
@@ -114,12 +113,14 @@ spec:
   ports:
   - port: 80
   selector:
-    app: azure-vote-front
+    app: internal-app
 ```
 
 ## <a name="delete-the-load-balancer"></a>Ta bort belastningsutjämnaren
 
 När alla tjänster som använder den interna belastningsutjämnaren har tagits bort, raderas också själva belastningsutjämnaren på.
+
+Du kan också direkt ta bort en tjänst som med Kubernetes-resurser, till exempel `kubectl delete service internal-app`, som också sedan tar bort underliggande Azure-belastningsutjämnaren.
 
 ## <a name="next-steps"></a>Nästa steg
 
@@ -127,9 +128,11 @@ Mer information om Kubernetes-tjänster på den [dokumentation för Kubernetes s
 
 <!-- LINKS - External -->
 [kubernetes-services]: https://kubernetes.io/docs/concepts/services-networking/service/
+[acs-engine]: https://github.com/Azure/acs-engine
 
 <!-- LINKS - Internal -->
 [advanced-networking]: networking-overview.md
 [deploy-advanced-networking]: networking-overview.md#configure-networking---cli
 [az-aks-show]: /cli/azure/aks#az-aks-show
 [az-role-assignment-create]: /cli/azure/role/assignment#az-role-assignment-create
+[azure-lb-comparison]: ../load-balancer/load-balancer-overview.md#skus

@@ -8,18 +8,18 @@ ms.topic: article
 ms.date: 10/25/2017
 ms.author: cbrooks
 ms.component: common
-ms.openlocfilehash: ff382becb71f187ac38b0ef5d31c1b29c43f3fe7
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: bcb772185f0a16183b8a6c9674419781ef41be3e
+ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46972564"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49068544"
 ---
 # <a name="configure-azure-storage-firewalls-and-virtual-networks"></a>Konfigurera Azure Storage-brandväggar och virtuella nätverk
 Azure Storage tillhandahåller en skiktbaserad säkerhetsmodell som gör att du kan skydda dina storage-konton till en specifik uppsättning tillåtna nätverk.  Om Nätverksregler har konfigurerats endast program från tillåtna nätverk kan komma åt ett storage-konto.  När du anropar från ett tillåtna nätverk programmen kräver rätt auktorisering (en giltig åtkomstnyckel eller SAS-token) att komma åt lagringskontot.
 
 > [!IMPORTANT]
-> Aktivera brandväggsregler för ditt lagringskonto ska blockera inkommande begäranden för data, inklusive från andra Azure-tjänster.  Detta inkluderar med hjälp av portalen skriver loggar osv.  För deltagande-tjänster som du kan återaktivera funktioner via de [undantag](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions) nedan.  Om du vill få åtkomst till portalen skulle du behöva göra det från en dator i den betrodda gränsen (IP eller virtuellt nätverk) som du har ställt in.
+> Aktivera brandväggsregler för ditt lagringskonto ska blockera inkommande begäranden för data, inklusive från andra Azure-tjänster.  Detta inkluderar med hjälp av portalen skriver loggar osv.  Azure-tjänster som fungerar från inom ett virtuellt nätverk kan beviljas åtkomst genom att tillåta att undernätet för tjänstinstansen.  Azure-tjänster som inte följer riktlinjerna från inom ett virtuellt nätverk kommer att blockeras av brandväggen.  Ett begränsat antal scenarier kan aktiveras via den [undantag](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions) mekanism som beskrivs nedan.  Om du vill få åtkomst till portalen skulle du behöva göra det från en dator i den betrodda gränsen (IP eller virtuellt nätverk) som du har ställt in.
 >
 
 ## <a name="scenarios"></a>Scenarier

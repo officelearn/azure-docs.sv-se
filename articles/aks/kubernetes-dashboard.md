@@ -1,32 +1,32 @@
 ---
-title: Hantera Azure Kubernetes-kluster med webbgränssnitt
-description: Lär dig hur du använder den inbyggda Kubernetes-instrumentpanelen för Webbgränssnitt med Azure Kubernetes Service (AKS)
+title: Hantera ett Azure Kubernetes Service-kluster med web-instrumentpanelen
+description: Lär dig hur du använder den inbyggda Kubernetes-instrumentpanelen för Webbgränssnitt för att hantera ett kluster i Azure Kubernetes Service (AKS)
 services: container-service
 author: iainfoulds
-manager: jeconnoc
 ms.service: container-service
 ms.topic: article
-ms.date: 07/09/2018
+ms.date: 10/08/2018
 ms.author: iainfou
-ms.custom: mvc
-ms.openlocfilehash: af48af596e86e0eb09fe45deabe13beedef57cd2
-ms.sourcegitcommit: cfff72e240193b5a802532de12651162c31778b6
+ms.openlocfilehash: 9d953cdb82412c07fe0ed4bef75dece4a929cad9
+ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39307933"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49067598"
 ---
-# <a name="access-the-kubernetes-dashboard-with-azure-kubernetes-service-aks"></a>Komma åt Kubernetes-instrumentpanelen med Azure Kubernetes Service (AKS)
+# <a name="access-the-kubernetes-web-dashboard-in-azure-kubernetes-service-aks"></a>Komma åt Kubernetes web-instrumentpanelen i Azure Kubernetes Service (AKS)
 
-Kubernetes innehåller en webbinstrumentpanel som kan användas för grundläggande hanteringsåtgärder. Den här artikeln visar hur du kommer åt Kubernetes-instrumentpanelen med hjälp av Azure CLI och hjälper dig att vissa grundläggande instrumentpanel-åtgärder. Mer information om Kubernetes-instrumentpanelen finns i [Kubernetes-instrumentpanel för Webbgränssnitt][kubernetes-dashboard].
+Kubernetes innehåller en webbinstrumentpanel som kan användas för grundläggande hanteringsåtgärder. Den här instrumentpanelen kan du visa grundläggande hälsostatus och mått för dina program, skapa och distribuera tjänster och redigera befintliga program. Den här artikeln visar hur du kommer åt Kubernetes-instrumentpanelen med hjälp av Azure CLI och hjälper dig att vissa grundläggande instrumentpanel-åtgärder.
+
+Mer information om Kubernetes-instrumentpanelen finns i [Kubernetes-instrumentpanel för Webbgränssnitt][kubernetes-dashboard].
 
 ## <a name="before-you-begin"></a>Innan du börjar
 
 Stegen som beskrivs i det här dokumentet förutsätter att du har skapat ett AKS-kluster och har upprättat en `kubectl` anslutning med klustret. Om du vill skapa ett AKS-kluster finns i den [AKS-Snabbstart][aks-quickstart].
 
-Du måste också ha installerat och konfigurerat Azure CLI version 2.0.27 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI][install-azure-cli].
+Du också ha Azure CLI version 2.0.46 eller senare installerat och konfigurerat. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI][install-azure-cli].
 
-## <a name="start-kubernetes-dashboard"></a>Starta Kubernetes-instrumentpanelen
+## <a name="start-the-kubernetes-dashboard"></a>Starta Kubernetes-instrumentpanelen
 
 Starta Kubernetes-instrumentpanelen med den [az aks Bläddra] [ az-aks-browse] kommando. I följande exempel öppnas instrumentpanelen för klustret med namnet *myAKSCluster* i resursgruppen med namnet *myResourceGroup*:
 
@@ -34,7 +34,9 @@ Starta Kubernetes-instrumentpanelen med den [az aks Bläddra] [ az-aks-browse] k
 az aks browse --resource-group myResourceGroup --name myAKSCluster
 ```
 
-Det här kommandot skapar en proxy mellan utvecklingssystemet och Kubernetes-API och öppnar en webbläsare till Kubernetes-instrumentpanelen.
+Det här kommandot skapar en proxy mellan utvecklingssystemet och Kubernetes-API och öppnar en webbläsare till Kubernetes-instrumentpanelen. Om en webbläsare inte öppnas Kubernetes-instrumentpanelen, kopiera och klistra in URL-adressen som anges i Azure CLI, vanligtvis *http://127.0.0.1:8001*.
+
+![Översiktssidan för Kubernetes web-instrumentpanelen](./media/kubernetes-dashboard/dashboard-overview.png)
 
 ### <a name="for-rbac-enabled-clusters"></a>För RBAC-aktiverade kluster
 
@@ -53,48 +55,57 @@ kubectl create clusterrolebinding kubernetes-dashboard --clusterrole=cluster-adm
 
 Du kan nu komma åt Kubernetes-instrumentpanelen i klustret RBAC-aktiverade. Starta Kubernetes-instrumentpanelen med den [az aks Bläddra] [ az-aks-browse] kommandot som beskrivs i föregående steg.
 
-## <a name="run-an-application"></a>Kör ett program
+## <a name="create-an-application"></a>Skapa ett program
 
-I Kubernetes-instrumentpanelen klickar du på den **skapa** knappen i det övre högra fönstret. Ge distributionen namnet `nginx` och ange `nginx:latest` för namnet på avbildningen. Under **Service**väljer **externa** och ange `80` för både porten och målport.
+Om du vill se hur Kubernetes-instrumentpanelen kan minska komplexiteten av hanteringsuppgifter, nu ska vi skapa ett program. Du kan skapa ett program på Kubernetes-instrumentpanelen genom att tillhandahålla textinmatning, en YAML-fil eller via en grafisk Guide.
 
-När du är klar klickar du på **distribuera** distributionen skapas.
+Om du vill skapa ett program utför du följande steg:
 
-![Dialogrutan Skapa i Kubernetes-tjänst](./media/container-service-kubernetes-ui/create-deployment.png)
+1. Välj den **skapa** knappen i det övre högra fönstret.
+1. Om du vill använda grafisk guide, välja att **skapa en app**.
+1. Ange ett namn för distributionen, till exempel *nginx*
+1. Ange namnet för behållaravbildningen att använda, till exempel *nginx:1.15.5*
+1. Om du vill exponera port 80 för webbtrafik, skapar du ett Kubernetes-tjänst. Under **Service**väljer **externa**, ange sedan **80** för både porten och målport.
+1. När du är klar väljer **distribuera** att skapa appen.
 
-## <a name="view-the-application"></a>Visa programmet
+![Distribuera en app i Kubernetes web-instrumentpanelen](./media/kubernetes-dashboard/create-app.png)
 
-Statusinformation om programmet kan ses i Kubernetes-instrumentpanelen. När programmet körs kan har varje komponent en grön kryssrutan bredvid den.
+Det tar en minut eller två för en offentlig extern IP-adress som ska tilldelas till Kubernetes-tjänst. På den vänstra storleken under **identifiering och belastningsutjämning** Välj **Services**. Tjänsten för ditt program visas, inklusive den *externa slutpunkter*, enligt följande exempel:
 
-![Kubernetes-Poddar](./media/container-service-kubernetes-ui/complete-deployment.png)
+![Visa en lista över tjänster och slutpunkter](./media/kubernetes-dashboard/view-services.png)
 
-Om du vill se mer information om programmet poddarna, klickar du på **Poddar** i den vänstra menyn och välj sedan den **NGINX** pod. Här kan du se pod-specifik information, till exempel resursförbrukning.
+Välj slutpunktsadressen att öppna ett webbläsarfönster till NGINX-standardsida:
 
-![Kubernetes-resurser](./media/container-service-kubernetes-ui/running-pods.png)
+![Visa NGINX standardsidan för det distribuerade programmet](./media/kubernetes-dashboard/default-nginx.png)
 
-För att hitta IP-adressen för programmet, klickar du på **Services** i den vänstra menyn och välj sedan den **NGINX** service.
+## <a name="view-pod-information"></a>Visa pod information
 
-![Visa nginx](./media/container-service-kubernetes-ui/nginx-service.png)
+Kubernetes-instrumentpanelen kan ge grundläggande övervakning av mått- och felsökningsinformation, till exempel loggar.
+
+Om du vill se mer information om programmet poddarna **Poddar** på den vänstra menyn. Listan över tillgängliga poddar visas. Välj din *nginx* pod att visa information, till exempel användning av databasresurser:
+
+![Visa pod information](./media/kubernetes-dashboard/view-pod-info.png)
 
 ## <a name="edit-the-application"></a>Redigera programmet
 
-Förutom att skapa och visa program, kan Kubernetes-instrumentpanelen användas för att redigera och uppdatera programdistributioner.
+Förutom att skapa och visa program, kan Kubernetes-instrumentpanelen användas för att redigera och uppdatera programdistributioner. För ytterligare redundans för programmet kan vi öka antalet repliker för NGINX.
 
-Om du vill redigera en distribution, klickar du på **distributioner** i den vänstra menyn och välj sedan den **NGINX** distribution. Välj slutligen **redigera** i det övre högra navigeringsfältet.
+Så här redigerar du en distribution:
 
-![Redigera Kubernetes](./media/container-service-kubernetes-ui/view-deployment.png)
+1. Välj **distributioner** på den vänstra menyn och välj sedan din *nginx* distribution.
+1. Välj **redigera** i det övre högra navigeringsfältet.
+1. Leta upp den `spec.replica` värde, på runt rad 20. För att öka antalet repliker för programmet kan ändra det här värdet från *1* till *3*.
+1. Välj **uppdatering** när redo.
 
-Leta upp den `spec.replica` värde, som bör vara 1, ändra värdet till 3. Du gör det ökade replikantalet av NGINX-distribution från 1 till 3.
+![Redigera distributionen för att uppdatera antalet repliker](./media/kubernetes-dashboard/edit-deployment.png)
 
-Välj **uppdatering** när redo.
+Det tar en liten stund för nya poddarna som ska skapas i en replikuppsättning. I den vänstra menyn, Välj **replikuppsättningar**, och välj sedan din *nginx* replikuppsättningen. Listan över poddar nu visar uppdaterade replikantalet, som visas i följande Exempelutdata:
 
-![Redigera Kubernetes](./media/container-service-kubernetes-ui/edit-deployment.png)
+![Visa information om uppsättningen](./media/kubernetes-dashboard/view-replica-set.png)
 
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information om Kubernetes-instrumentpanelen finns i Kubernetes-dokumentationen.
-
-> [!div class="nextstepaction"]
-> [Kubernetes-instrumentpanel för Webbgränssnitt][kubernetes-dashboard]
+Mer information om Kubernetes-instrumentpanelen finns i den [Kubernetes-instrumentpanel för Webbgränssnitt][kubernetes-dashboard].
 
 <!-- LINKS - external -->
 [kubernetes-dashboard]: https://kubernetes.io/docs/tasks/access-application-cluster/web-ui-dashboard/

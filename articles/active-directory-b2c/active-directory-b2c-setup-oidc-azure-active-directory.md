@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 09/21/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 64cd440947c95de92ea156c14e4c524ecdc8e76c
-ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
+ms.openlocfilehash: 5f51fbff11412324ad167d49202f7215cefb5ac2
+ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48268824"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49076926"
 ---
 # <a name="set-up-sign-in-azure-active-directory-accounts-a-built-in-policy-in-azure-active-directory-b2c"></a>Konfigurera inloggning Azure Active Directory-konton en inbyggd princip i Azure Active Directory B2C
 
@@ -32,7 +32,7 @@ Aktivera inloggning för användare från en viss Azure AD-organisation kan du b
 >`Contoso.com` används för i organisationens Azure AD-klient och `fabrikamb2c.onmicrosoft.com` används som Azure AD B2C-klient i följande anvisningar.
 
 1. Logga in på [Azure Portal](https://portal.azure.com).
-2. Kontrollera att du använder den katalog som innehåller din Azure AD B2C-klient (fabrikamb2c.onmicrosoft.com) genom att klicka på katalog- och prenumerationsfilter i menyn längst upp till den katalog som innehåller din Azure AD B2C-klient.
+2. Kontrollera att du använder den katalog som innehåller din Azure AD-klient (contoso.com) genom att klicka på katalog- och prenumerationsfilter i menyn längst upp till den katalog som innehåller din Azure AD-klient.
 3. Välj **alla tjänster** i det övre vänstra hörnet av Azure-portalen och Sök efter och välj **appregistreringar**.
 4. Välj **Ny programregistrering**.
 5. Ange ett namn för ditt program. Till exempel `Azure AD B2C App`.
@@ -40,8 +40,10 @@ Aktivera inloggning för användare från en viss Azure AD-organisation kan du b
 7. För den **inloggnings-URL**, ange följande URL i alla gemener, där `your-tenant` ersätts med namnet på din Azure AD B2C-klient (fabrikamb2c.onmicrosoft.com):
 
     ```
-    https://yourtenant.b2clogin.com/your-tenant.onmicrosoft.com/oauth2/authresp
+    https://your-tenant.b2clogin.com/your-tenant.onmicrosoft.com/oauth2/authresp
     ```
+
+    Alla URL: er bör nu använda [b2clogin.com](b2clogin.md).
 
 8. Klicka på **Skapa**. Kopiera den **program-ID** som ska användas senare.
 9. Välj programmet och välj sedan **inställningar**.
@@ -49,21 +51,21 @@ Aktivera inloggning för användare från en viss Azure AD-organisation kan du b
 
 ## <a name="configure-azure-ad-as-an-identity-provider-in-your-tenant"></a>Konfigurera Azure AD som identitetsprovider i din klient
 
-1. Kontrollera att du använder den katalog som innehåller organisationens Azure AD-klient (contoso.com) genom att klicka på den **katalog- och prenumerationsfilter** i den översta menyn och välja den katalog som innehåller din klient.
+1. Kontrollera att du använder den katalog som innehåller Azure AD B2C-klient (fabrikamb2c.onmicrosoft.com) genom att klicka på den **katalog- och prenumerationsfilter** i den översta menyn och välja den katalog som innehåller din Azure AD B2C innehavaren.
 2. Välj **alla tjänster** i det övre vänstra hörnet av Azure-portalen och Sök efter och välj **Azure AD B2C**.
 3. Välj **identitetsprovidrar**, och välj sedan **Lägg till**.
 4. Ange en **namn**. Ange till exempel ”Contoso Azure AD”.
-5. Välj **identifiera providertyp**väljer **öppna ID Connect**, och klicka på **OK**.
+5. Välj **identifiera providertyp**väljer **öppna ID Connect (förhandsversion)**, och klicka sedan på **OK**.
 6. Klicka på **ställa in den här identitetsprovidern**
-7. För **metadata_url**, ange följande URL ersätter `your-tenant` med namnet på din Azure AD-klient. Till exempel contoso.com:
+7. För **metadata_url**, ange följande URL ersätter `your-tenant` med namnet på din Azure AD-klient:
 
     ```
     https://login.microsoftonline.com/your-tenant/.well-known/openid-configuration
     ```
-
-8. Alternativt kan du ange ett värde för **domän** (t.ex. `ContosoAD`). Det här är värdet som ska användas när du refererar till den här identitetsprovider som använder *domain_hint* i begäran. 
-9. Klicka på **OK**.
-10. Välj **mappa den här identitetsproviderns anspråk** och ange följande anspråk:
+8. För **klient-id**, ange program-ID som du sparade tidigare och för **klienthemlighet**, Ange nyckelvärdet som du antecknade tidigare.
+9. Alternativt kan du ange ett värde för **Domain_hint** (t.ex. `ContosoAD`). Det här är värdet som ska användas när du refererar till den här identitetsprovider som använder *domain_hint* i begäran. 
+10. Klicka på **OK**.
+11. Välj **mappa den här identitetsproviderns anspråk** och ange följande anspråk:
     
     - För **användar-ID**, ange `oid`.
     - För **visningsnamn**, ange `name`.
@@ -71,4 +73,4 @@ Aktivera inloggning för användare från en viss Azure AD-organisation kan du b
     - För **efternamn**, ange `family_name`.
     - För **e-post**, ange `unique_name`.
 
-11. Klicka på **OK**, och sedan **skapa** att spara din konfiguration.
+12. Klicka på **OK**, och klicka sedan på **skapa** att spara din konfiguration.

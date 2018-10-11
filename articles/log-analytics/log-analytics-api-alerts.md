@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 04/10/2018
 ms.author: bwren
 ms.component: ''
-ms.openlocfilehash: 6aaf9b42677064b31c56be96775692c75812e145
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: b178744911d03547509de58e35be5cd99e046391
+ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48044628"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49079063"
 ---
 # <a name="create-and-manage-alert-rules-in-log-analytics-with-rest-api"></a>Skapa och hantera Varningsregler i Log Analytics med REST API
 Log Analytics avisering REST-API kan du skapa och hantera aviseringar i Operations Management Suite (OMS).  Den här artikeln innehåller information om API: et och flera exempel för att utföra olika åtgärder.
@@ -138,6 +138,7 @@ Ett schema måste ha en Aviseringsåtgärd.  Aviseringsåtgärder har en eller f
 |:--- |:--- |:--- |
 | Tröskelvärde |Kriterier för när åtgärden har körts.| Krävs för varje avisering före eller efter att de har utökats till Azure. |
 | Severity |Etikett som används för att klassificera avisering när den utlöses.| Krävs för varje avisering före eller efter att de har utökats till Azure. |
+| Utelämna |Alternativet för att stoppa meddelanden från aviseringen. | Valfritt för varje avisering innan eller efter att de har utökats till Azure. |
 | Åtgärdsgrupper |ID: N för Azure ActionGroup där åtgärder som krävs har angetts, - e-postmeddelanden, SMSs, röstsamtal, Webhooks, Automation-Runbooks, ITSM-anslutningsprogram, t.ex.| Krävs när aviseringar har utökats till Azure|
 | Anpassa åtgärder|Ändra standardutdata för väljer åtgärder från ActionGroup| Du kan använda valfritt för varje avisering när aviseringar har utökats till Azure. |
 | EmailNotification |Skicka e-post till flera mottagare. | Inte krävs, om aviseringar har utökats till Azure|
@@ -213,6 +214,37 @@ Använda Put-metoden med en befintlig åtgärds-ID om du vill ändra en allvarli
 
     $thresholdWithSevJson = "{'etag': 'W/\"datetime'2016-02-25T20%3A54%3A20.1302566Z'\"','properties': { 'Name': 'My Threshold', 'Version':'1','Severity': 'critical', 'Type':'Alert', 'Threshold': { 'Operator': 'gt', 'Value': 10 } }"
     armclient put /subscriptions/{Subscription ID}/resourceGroups/OI-Default-East-US/providers/Microsoft.OperationalInsights/workspaces/{Workspace Name}/savedSearches/{Search ID}/schedules/{Schedule ID}/actions/mythreshold?api-version=2015-03-20 $thresholdWithSevJson
+
+#### <a name="suppress"></a>Utelämna
+Log Analytics bygger fråga aviseringar utlöses varje gång tröskelvärde har uppnåtts eller överskridits. Baserat på logiken underförstådd i frågan kan detta resultera i aviseringen komma utlöses för en serie intervall och kan därför meddelanden också skickas kontinuerligt. För att förhindra sådana scenariot kan en användare ange utelämna alternativet anvisningar om hur Log Analytics för att vänta tills en stipulerade lång tid innan meddelande utlöses den andra gången för regeln. Om utelämna anges under 30 minuter. sedan kommer aviseringen utlöses första gången och skicka meddelanden som har konfigurerats. Men sedan vänta i 30 minuter innan meddelandet för regeln används igen. Varningsregeln fortsätter att köras i övergångsperioden, – endast meddelande undertrycks av Log Analytics för angiven tidpunkt, oavsett hur många gånger varningsregeln har utlösts under den här perioden.
+
+Utelämna egenskapen för Log Analytics varningsregel anges med hjälp av den *begränsning* värde och den Undertryckning period med *DurationInMinutes* värde.
+
+Följande är ett exempelsvar för en åtgärd med bara ett tröskelvärde, allvarlighetsgrad och utelämna egenskapen
+
+    "etag": "W/\"datetime'2016-02-25T20%3A54%3A20.1302566Z'\"",
+    "properties": {
+        "Type": "Alert",
+        "Name": "My threshold action",
+        "Threshold": {
+            "Operator": "gt",
+            "Value": 10
+        },
+        "Throttling": {
+          "DurationInMinutes": 30
+        },
+        "Severity": "critical",
+        "Version": 1    }
+
+Använda Put-metoden med en unika åtgärds-ID för att skapa en ny åtgärd för ett schema med allvarlighetsgrad.  
+
+    $AlertSuppressJson = "{'properties': { 'Name': 'My Threshold', 'Version':'1','Severity': 'critical', 'Type':'Alert', 'Throttling': { 'DurationInMinutes': 30 },'Threshold': { 'Operator': 'gt', 'Value': 10 } }"
+    armclient put /subscriptions/{Subscription ID}/resourceGroups/OI-Default-East-US/providers/Microsoft.OperationalInsights/workspaces/{Workspace Name}/savedSearches/{Search ID}/schedules/{Schedule ID}/actions/myalert?api-version=2015-03-20 $AlertSuppressJson
+
+Använda Put-metoden med en befintlig åtgärds-ID om du vill ändra en allvarlighetsgrad-åtgärd för ett schema.  Brödtexten i begäran måste innehålla etag för åtgärden.
+
+    $AlertSuppressJson = "{'etag': 'W/\"datetime'2016-02-25T20%3A54%3A20.1302566Z'\"','properties': { 'Name': 'My Threshold', 'Version':'1','Severity': 'critical', 'Type':'Alert', 'Throttling': { 'DurationInMinutes': 30 },'Threshold': { 'Operator': 'gt', 'Value': 10 } }"
+    armclient put /subscriptions/{Subscription ID}/resourceGroups/OI-Default-East-US/providers/Microsoft.OperationalInsights/workspaces/{Workspace Name}/savedSearches/{Search ID}/schedules/{Schedule ID}/actions/myalert?api-version=2015-03-20 $AlertSuppressJson
 
 #### <a name="action-groups"></a>Åtgärdsgrupper
 Alla aviseringar i Azure, använda åtgärdsgrupp som standardmekanism för att hantera åtgärder. Med åtgärdsgrupp kan du ange dina åtgärder en gång och sedan associerar åtgärdsgrupp att flera aviseringar – i Azure. Utan att behöva flera gånger deklarera samma åtgärder om och om igen. Åtgärdsgrupper stöd för flera åtgärder – inklusive e-post, SMS, röstsamtal, ITSM-anslutningen, Automation-Runbook, Webhook URI med mera. 

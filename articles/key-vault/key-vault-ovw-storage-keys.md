@@ -9,16 +9,17 @@ author: bryanla
 ms.author: bryanla
 manager: mbaldwin
 ms.date: 10/03/2018
-ms.openlocfilehash: 80601ed30785af37346f801b7e4f1c90e897b3cd
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: b5b30f7f5ffc7fcbef918162bc736c1f0a888d1b
+ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48888160"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49067745"
 ---
 # <a name="azure-key-vault-storage-account-keys"></a>Azure Key Vault-Lagringskontonycklar
 
-[!NOTE] [Azure storage stöder nu AAD auktorisering](https://docs.microsoft.com/azure/storage/common/storage-auth-aad). Vi rekommenderar att du använder Azure Active Directory för autentisering och auktorisering till lagring som användarna inte behöver bekymra sig om roterar sina nycklar för Lagringskonto. 
+> [!NOTE]
+> [Azure storage stöder nu AAD auktorisering](https://docs.microsoft.com/azure/storage/common/storage-auth-aad). Vi rekommenderar att du använder Azure Active Directory för autentisering och auktorisering till lagring som användarna inte behöver bekymra sig om roterar sina nycklar för Lagringskonto.
 
 - Azure Key Vault hanterar nycklar för ett Azure Storage konto (ASA).
     - Azure Key Vault kan internt lista nycklar (sync) med Azure Storage-kontot.    

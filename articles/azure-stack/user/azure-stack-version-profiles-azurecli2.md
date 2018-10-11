@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 09/08/2018
 ms.author: sethm
 ms.reviewer: sijuman
-ms.openlocfilehash: 59b637e6887a645430d902cd846cacda13b14cfe
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 6042aa4dd8b26a0986737edc3c89b8e165ae970a
+ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46972818"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49067711"
 ---
 # <a name="use-api-version-profiles-with-azure-cli-in-azure-stack"></a>Använd API-versionsprofiler med Azure CLI i Azure Stack
 
@@ -168,7 +168,8 @@ Använd följande steg för att ansluta till Azure Stack:
 
 1. Logga in på Azure Stack-miljön med hjälp av den `az login` kommando. Du kan logga in på Azure Stack-miljön som en användare eller som en [tjänstens huvudnamn](https://docs.microsoft.com/azure/active-directory/develop/active-directory-application-objects). 
 
-   * Logga in som en *användaren*: du kan antingen ange användarnamnet och lösenordet direkt inom den `az login` kommandot eller autentisera med hjälp av en webbläsare. Du måste göra det senare om ditt konto har aktiverat multifaktorautentisering.
+    * AAD-miljöer
+      * Logga in som en *användaren*: du kan antingen ange användarnamnet och lösenordet direkt inom den `az login` kommandot eller autentisera med hjälp av en webbläsare. Du måste göra det senare om ditt konto har aktiverat multifaktorautentisering.
 
       ```azurecli
       az login \
@@ -179,7 +180,7 @@ Använd följande steg för att ansluta till Azure Stack:
       > [!NOTE]
       > Om ditt konto har aktiverat multifaktorautentisering, kan du använda den `az login command` utan att ange den `-u` parametern. Kör kommandot ger dig en URL och en kod som du måste använda för att autentisera.
    
-   * Logga in som en *tjänstens huvudnamn*: innan du loggar in, [skapa ett huvudnamn för tjänsten via Azure portal](azure-stack-create-service-principals.md) eller CLI och tilldela den till en roll. Nu kan logga in med hjälp av följande kommando:
+      * Logga in som en *tjänstens huvudnamn*: innan du loggar in, [skapa ett huvudnamn för tjänsten via Azure portal](azure-stack-create-service-principals.md) eller CLI och tilldela den till en roll. Nu kan logga in med hjälp av följande kommando:
 
       ```azurecli
       az login \
@@ -188,6 +189,22 @@ Använd följande steg för att ansluta till Azure Stack:
         -u <Application Id of the Service Principal> \
         -p <Key generated for the Service Principal>
       ```
+    * AD FS-miljöer
+
+        * Logga in som en *tjänstens huvudnamn*: 
+          1.    Förbered PEM-filen som ska användas för huvudsaklig inloggning på tjänsten.
+                * På klientdatorn där huvudkontot som har skapats, exportera tjänstobjektscertifikatet som en pfx med den privata nyckeln (finns på cert: \CurrentUser\My; cert-namnet har samma namn som huvudnamnet).
+
+                *   Konvertera pfx till pem (Använd OpenSSL Utility).
+
+          1.    Logga in på CLI. :
+                ```azurecli
+                az login --service-principal \
+                 -u <Client ID from the Service Principal details> \
+                 -p <Certificate's fully qualified name. Eg. C:\certs\spn.pem>
+                 --tenant <Tenant ID> \
+                 --debug 
+                ```
 
 ## <a name="test-the-connectivity"></a>Testa anslutningen
 

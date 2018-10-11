@@ -1,5 +1,5 @@
 ---
-title: Faktorer som påverkar prestanda för Azure AD Connect
+title: Faktorer som påverkar prestandan för Azure AD Connect
 description: Det här dokumentet beskriver hur olika faktorer påverkar Azure AD Connect etablering motorn. Dessa faktorer hjälper organisationer att planera sina Azure AD Connect-distribution för att kontrollera att den uppfyller deras krav för katalogsynkronisering.
 services: active-directory
 author: billmath
@@ -11,14 +11,14 @@ ms.workload: identity
 ms.date: 10/06/2018
 ms.reviewer: martincoetzer
 ms.author: billmath
-ms.openlocfilehash: 6ad8e04a3cd61061b44ca9b6a216f92d69a70f6b
-ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
+ms.openlocfilehash: 7cf0e2b211f9d34f6d8f4fe89a230d8a2e97512a
+ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/10/2018
-ms.locfileid: "48903002"
+ms.locfileid: "49069021"
 ---
-# <a name="factors-influencing-the-performance-of-azure-ad-connect"></a>Faktorer som påverkar prestanda för Azure AD Connect
+# <a name="factors-influencing-the-performance-of-azure-ad-connect"></a>Faktorer som påverkar prestandan för Azure AD Connect
 
 Azure AD Connect synkroniserar Active Directory till Azure AD. Den här servern är en kritisk komponent för att flytta dina användaridentiteter till molnet. De främsta faktorerna som påverkar prestanda för en Azure AD Connect är:
 
@@ -41,7 +41,7 @@ Följande diagram visar en övergripande arkitekturen för att etablera motor so
 
 ![AzureADConnentInternal](media/plan-connect-performance-factors/AzureADConnentInternal.png)
 
-Etablering motorn ansluter till varje Active Directory-skog och med Azure AD. Processen med att läsa information från varje katalog kallas för Import. Exportera avser uppdaterar katalogerna från etablering-motorn. Synkronisera utvärderar reglerna för hur objekt som flödar i etablering motorn. För en grundligare genomgång av kan du referera till [Azure AD Connect-synkronisering: Förstå arkitekturen](https://docs.microsoft.com/azure/active-directory/hybrid/concept-azure-ad-connect-sync-architecture).
+Etablering motorn ansluter till varje Active Directory-skog och till Azure AD. Processen med att läsa information från varje katalog kallas för Import. Exportera avser uppdaterar katalogerna från etablering-motorn. Synkronisera utvärderar reglerna för hur objekt som flödar i etablering motorn. För en grundligare genomgång av kan du referera till [Azure AD Connect-synkronisering: Förstå arkitekturen](https://docs.microsoft.com/azure/active-directory/hybrid/concept-azure-ad-connect-sync-architecture).
 
 Azure AD Connect använder följande mellanlagringsområden, regler och processer för att tillåta synkroniseringen från Active Directory till Azure AD:
 
@@ -62,15 +62,13 @@ Profil för inledande synkronisering är processen med att läsa de anslutna kat
 
 ### <a name="delta-sync-profile"></a>Delta sync-profil
 
-För att optimera synkroniseringen detta körningsprofil endast bearbeta ändringarna (skapar, tar bort och uppdaterar) för objekt i dina anslutna kataloger, sedan den senaste synkroniseringen. Som standard körs delta synkronisering profilen var 30: e minut. Organisationer bör sträva efter att den tid det tar att under 30 minuter för att kontrollera att Azure AD är uppdaterad. För att övervaka hälsotillståndet för Azure AD Connect, använda den [hälsoövervakning agenten](how-to-connect-health-sync.md) att se eventuella problem i processen. Delta synkronisering profilen innehåller följande steg:
+För att optimera synkroniseringen detta körningsprofil endast bearbeta ändringarna (skapar, tar bort och uppdaterar) för objekt i dina anslutna kataloger, sedan den senaste synkroniseringen. Som standard körs delta synkronisering profilen var 30: e minut. Organisationer bör sträva efter att den tid det tar att under 30 minuter för att kontrollera att Azure AD är uppdaterad. För att övervaka hälsotillståndet för Azure AD Connect, använda den [hälsoövervakning agenten](how-to-connect-health-sync.md) att se eventuella problem med processen. Delta synkronisering profilen innehåller följande steg:
 
 1. Deltaimport på alla kopplingar
 2. Deltasynkronisering på alla kopplingar
 3. Exportera på alla kopplingar
 
 En typisk företags organisation delta sync scenario är:
-
-
 
 - ~ 1% av objekt tas bort
 - ~ 1% av objekt skapas
@@ -94,7 +92,7 @@ Följande åtgärder som ingår i en fullständig synkroniseringscykel:
 3. Exportera på alla kopplingar
 
 > [!NOTE]
-> Noggrann planering krävs när du gör massuppdateringar för många objekt i din Active Directory eller Azure AD. Massinläsning uppdateringarna kommer orsaka delta synkroniseringen tar längre tid när du importerar, eftersom många objekt har ändrats. Lång import kan inträffa även om Massuppdatering inte påverkar synkroniseringen. Till exempel tilldela licenser till många användare i Azure AD gör en lång import cykel från Azure AD, men ska inte resultera i attributändringar i Active Directory.
+> Noggrann planering krävs när du gör massuppdateringar för många objekt i din Active Directory eller Azure AD. Massinläsning uppdateringarna kommer orsaka delta synkroniseringen tar längre tid när du importerar, eftersom många objekt har ändrats. Lång import kan inträffa även om Massuppdatering inte påverka synkroniseringen. Till exempel tilldela licenser till många användare i Azure AD gör en lång import cykel från Azure AD, men ska inte resultera i attributändringar i Active Directory.
 
 ### <a name="synchronization"></a>Synkronisering
 
@@ -103,7 +101,7 @@ Process-runtime synkronisering har följande konsekvenser för prestanda:
 * Synkroniseringen har enkel threaded, vilket innebär att etablering motorn inte göra någon parallell bearbetning av körningsprofilerna anslutna kataloger, objekt eller attribut.
 * Importeringen ökar linjärt med antalet objekt som synkroniseras. Till exempel om 10 000 objekt tar 10 minuter att importera, tar sedan 20 000 objekt ungefär 20 minuter på samma server.
 * Exporten är också linjär.
-* Synkroniseringen kommer att växa exponentiellt baserat på antalet objekt med referenser till andra objekt. Medlemskap i gruppen och kapslade grupper har huvudsakliga prestandapåverkan, eftersom medlemmarna som refererar till objekt eller andra grupper. Dessa referenser måste hitta och refererar till objekt i MV att slutföra synkroniseringscykel.
+* Synkroniseringen kommer att växa exponentiellt baserat på antalet objekt med referenser till andra objekt. Medlemskap i gruppen och kapslade grupper har den huvudsakliga prestandapåverkan eftersom deras medlemmar refererar till objekt eller andra grupper. Dessa referenser måste hitta och refererar till objekt i MV att slutföra synkroniseringscykel.
 
 ### <a name="filtering"></a>Filtrering
 
@@ -183,10 +181,10 @@ Beakta följande rekommendationer för att optimera prestanda för din Azure AD 
 - Använd den [rekommenderad maskinvarukonfiguration](how-to-connect-install-prerequisites.md) baserat på storleken på din implementering för Azure AD Connect-servern.
 - När du uppgraderar Azure AD Connect i storskaliga distributioner måste du överväga att använda [svänga migreringsmetod](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-upgrade-previous-version#swing-migration), för att kontrollera att du har minst driftstopp och bästa möjliga tillförlitlighet. 
 - Använda SSD för SQL-databas för bästa skriva prestanda.
-- Filtrera Active Directory-omfång till endast de objekt som behöver etableras i Azure AD, med domänen, Organisationsenheten eller attributfiltrering.
+- Filtrera Active Directory-omfång så att endast objekt som etableras i Azure AD, med domänen, Organisationsenheten eller attributfiltrering.
 - Om du behöver ändra standardreglerna attributet flow först kopiera regeln, ändra sedan kopian och inaktivera den ursprungliga regeln. Kom ihåg att köra en fullständig synkronisering.
 - Planera tillräcklig tid för den första fullständiga synkroniseringen körningsprofil.
-- Sträva efter Deltasynkronisering cykel har slutförts i 30 minuter. Om delta synkronisering profilen inte Slutför i 30 minuter, ändra synkroniseringsfrekvensen standard om du vill inkludera en fullständig delta synkroniseringscykel.
+- Strävar efter att slutföra synkroniseringscykel delta i 30 minuter. Om delta synkronisering profilen inte Slutför i 30 minuter, ändra synkroniseringsfrekvensen standard om du vill inkludera en fullständig delta synkroniseringscykel.
 - Övervaka din [Azure AD Connect health för synkronisering](how-to-connect-health-agent-install.md) i Azure AD.
 
 ## <a name="next-steps"></a>Nästa steg

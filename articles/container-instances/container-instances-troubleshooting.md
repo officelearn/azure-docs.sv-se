@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 07/19/2018
 ms.author: seanmck
 ms.custom: mvc
-ms.openlocfilehash: 6f57bc41cddc997a69f92ba4e8ca66faaeb29738
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: d2e4491f2ee21deedd674a5a8a64e4dd99149924
+ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39424610"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49079369"
 ---
 # <a name="troubleshoot-common-issues-in-azure-container-instances"></a>Felsöka vanliga problem i Azure Container Instances
 
@@ -89,11 +89,24 @@ Om avbildningen inte kan hämtas, händelser som liknar följande visas i utdata
 ],
 ```
 
-## <a name="container-continually-exits-and-restarts"></a>Behållaren kontinuerligt avslutas och startas om
+## <a name="container-continually-exits-and-restarts-no-long-running-process"></a>Behållaren kontinuerligt avslutas och startas om (inga tidskrävande process)
 
-Om din behållare körs kan slutföras och startar om automatiskt, kan du behöva ange en [omstartsprincip](container-instances-restart-policy.md) av **OnFailure** eller **aldrig**. Om du anger **OnFailure** och fortfarande se kontinuerliga startas om, det kan finnas ett problem med programmet eller skriptet som körs i din behållare.
+Behållargrupper som standard en [omstartsprincip](container-instances-restart-policy.md) av **alltid**, så att behållare i behållargruppen Starta alltid om när de körs kan slutföras. Du kan behöva ändra detta till **OnFailure** eller **aldrig** om du planerar att köra uppgiften-baserade behållare. Om du anger **OnFailure** och fortfarande se kontinuerliga startas om, det kan finnas ett problem med programmet eller skriptet som körs i din behållare.
 
-Container Instances API innehåller en `restartCount` egenskapen. Du kan använda för att kontrollera antalet omstarter för en behållare i [az container show] [ az-container-show] i Azure CLI. I följande exempel på utdata (som har trunkerats av utrymmesskäl), kan du se den `restartCount` egenskapen i slutet av utdata.
+När du kör behållargrupper utan tidskrävande processer kan du se upprepade avslutas och startas om med bilder, till exempel Ubuntu eller Alpine. Ansluta via [EXEC](container-instances-exec.md) fungerar inte som behållaren har ingen process att hålla det alive. För att lösa detta inkludera ett start-kommando som liknar följande med din grupp behållardistribution att hålla den behållare som körs.
+
+```azurecli-interactive
+## Deploying a Linux container
+az container create -g MyResourceGroup --name myapp --image ubuntu --command-line "tail -f /dev/null"
+```
+
+```azurecli-interactive 
+## Deploying a Windows container
+az container create -g myResourceGroup --name mywindowsapp --os-type Windows --image windowsservercore:ltsc2016
+ --command-line "ping -t localhost"
+```
+
+Container Instances API och Azure portal innehåller ett `restartCount` egenskapen. Du kan använda för att kontrollera antalet omstarter för en behållare i [az container show] [ az-container-show] i Azure CLI. I följande exempel utdata (som har trunkerats av utrymmesskäl) ser du den `restartCount` egenskapen i slutet av utdata.
 
 ```json
 ...

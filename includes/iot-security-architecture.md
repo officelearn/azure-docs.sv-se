@@ -1,19 +1,19 @@
 ---
 title: ta med fil
 description: ta med fil
-services: iot-suite
-author: dominicbetts
-ms.service: iot-suite
+services: iot-fundamentals
+author: robinsh
+ms.service: iot-fundamentals
 ms.topic: include
-ms.date: 04/24/2018
-ms.author: dobett
+ms.date: 08/07/2018
+ms.author: robinsh
 ms.custom: include file
-ms.openlocfilehash: 1137f1dac9570b56dc202194e5f94dfd72c31c9f
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 64c7525be9bd44b0d33fdcd8da717e9fe893e057
+ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39029952"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49070193"
 ---
 # <a name="internet-of-things-security-architecture"></a>Internet of Things security-arkitektur
 
@@ -185,7 +185,7 @@ Det här exemplet försöker åtgärda ett antal olika hot i olika faser data/in
 
 Här följer några exempel på hot i den här kategorin:
 
-Förfalskning: Kan en angripare extrahera kryptografiska nyckelmaterial från en enhet, antingen på programvara eller maskinvara och därefter åtkomst till systemet med en annan fysisk eller virtuell enhet under identiteten för enheten nyckelmaterial har tagits från.
+**Förfalskning**: en angripare kan extrahera kryptografiska nyckelmaterial från en enhet, antingen på nivån programvara eller maskinvara och därefter har åtkomst till systemet med en annan fysisk eller virtuell enhet under identiteten för enheten nyckelmaterial tagits från.
 
 **DOS-attack**: en enhet kan återges inte klarar fungerar eller kommunicera genom att störa radio frekvenser eller övergripande kablar. En kamera för övervakning som hade dess power eller nätverksanslutningen avsiktligt blockerade rapportera inte till exempel data, alls.
 

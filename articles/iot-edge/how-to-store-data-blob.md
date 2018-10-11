@@ -9,12 +9,12 @@ ms.date: 10/03/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 74310e50f37e40856d5fe379baec071b4773f80e
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: 6094236269df881eac6f8cd2fd04183dd9d6df3b
+ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48801428"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49068765"
 ---
 # <a name="store-data-at-the-edge-with-azure-blob-storage-on-iot-edge-preview"></a>Store data på gränsen med Azure Blob Storage på IoT Edge (förhandsversion)
 
@@ -60,7 +60,7 @@ Det finns flera sätt att distribuera moduler till en IoT Edge-enhet och alla fu
 
 Om du vill distribuera blob storage via Azure portal följer du stegen i [distribuera Azure IoT Edge-moduler från Azure portal](how-to-deploy-modules-portal.md). Innan du skapar gå att distribuera din modul, kopiera URI för avbildning och förbereda behållaren alternativ baserat på operativsystemet behållare. Använda värdena i den **konfigurera ett distribution-manifest** i artikeln för distribution. 
 
-Ange URI för avbildning för blob storage-modulen: **mcr.microsoft.com/azure-blob-storage**. 
+Ange URI för avbildning för blob storage-modulen: **mcr.microsoft.com/azure-blob-storage:latest**. 
    
 Använd följande JSON-mallen för den **behållare skapa alternativ** fält. Konfigurera JSON med ditt lagringskontonamn och lagringskontonyckel storage directory bindning.  
    
@@ -86,8 +86,10 @@ I Skapa-alternativen JSON uppdaterar `\<your storage account name\>` med ett nam
 I Skapa-alternativen JSON uppdaterar `<storage directory bind>` beroende på operativsystemet för behållaren. Ange namnet på en [volym](https://docs.docker.com/storage/volumes/) eller den absoluta sökvägen till en katalog på din IoT Edge-enhet där du vill att blob-modulen för att lagra data.  
 
    * Linux-behållare:  **\<lagringssökväg >: / blobroot**. Till exempel/srv/containerdata: / blobroot. Eller, min volym: / blobroot. 
-   * Windows-behållare:  **\<lagringssökväg >: C: / BlobRoot**. Till exempel C: / ContainerData:C: / BlobRoot. Eller, min-volymen: C: / blobroot. 
-
+   * Windows-behållare:  **\<lagringssökväg >: C: / BlobRoot**. Till exempel C: / ContainerData:C: / BlobRoot. Eller, min-volymen: C: / blobroot.
+   
+   > [!CAUTION]
+   > Ändra inte den ”/ blobroot” för Linux och ”C:/BlobRoot” för Windows, för  **\<Storage directory bind >** värden.
 
 Du behöver inte ange autentiseringsuppgifter för registret för att komma åt Azure Blob Storage på IoT Edge och du behöver inte deklarera alla vägar för din distribution. 
 
@@ -111,7 +113,7 @@ Använd följande steg för att skapa en ny IoT Edge-lösning med ett blob stora
    
    4. **Ange ett Modulnamn** -ange ett beskrivande namn för din modul som **azureBlobStorage**.
    
-   5. **Ange Docker-avbildning för modulen** -ange URI för avbildning: **mcr.microsoft.com/azure-blob-storage**
+   5. **Ange Docker-avbildning för modulen** -ange URI för avbildning: **mcr.microsoft.com/azure-blob-storage:latest**
 
 VS Code tar den information du tillhandahålls, skapar en IoT Edge-lösning och läser sedan in den i ett nytt fönster. 
 
@@ -133,6 +135,9 @@ Lösningsmallen skapar en manifest Distributionsmall som innehåller din avbildn
 
    * Linux-behållare:  **\<lagringssökväg >: / blobroot**. Till exempel/srv/containerdata: / blobroot. Eller, min volym: / blobroot.
    * Windows-behållare:  **\<lagringssökväg >: C: / BlobRoot**. Till exempel C: / ContainerData:C: / BlobRoot. Eller, min-volymen: C: / blobroot.
+   
+   > [!CAUTION]
+   > Ändra inte den ”/ blobroot” för Linux och ”C:/BlobRoot” för Windows, för  **\<Storage directory bind >** värden.
 
 5. Spara **deployment.template.json**.
 
@@ -159,7 +164,13 @@ Du kan använda kontonamnet och nyckeln för att du har konfigurerat att få åt
 
 Ange din IoT Edge-enhet som blob-slutpunkt för lagring av alla begäranden som du gör. Du kan [skapa en anslutningssträng för en slutpunkt för lagring av explicita](../storage/common/storage-configure-connection-string.md#create-a-connection-string-for-an-explicit-storage-endpoint) med hjälp av informationen i IoT Edge och kontonamnet som du har konfigurerat. 
 
-Blob-slutpunkten för Azure Blob Storage på IoT Edge är `http://<IoT Edge device hostname>:11002/<account name>`. 
+1. För moduler som har distribuerats på samma edge-enheten där ”Azure Blob Storage på IoT Edge” körs, blob-slutpunkten är: `http://<Module Name>:11002/<account name>`. 
+2. För moduler som har distribuerats på olika edge-enhet än edge-enhet där ”Azure Blob Storage på IoT Edge” körs, så beroende på din konfiguration av blob-slutpunkten är: `http://<device IP >:11002/<account name>` eller `http://<IoT Edge device hostname>:11002/<account name>` eller `http://<FQDN>:11002/<account name>`
+
+## <a name="logs"></a>Logs
+
+Du hittar loggarna i behållaren under: 
+* För Linux: /blobroot/logs/platformblob.log
 
 ## <a name="deploy-multiple-instances"></a>Distribuera flera instanser
 
@@ -179,7 +190,7 @@ Azure Blob Storage-dokumentationen innehåller snabbstarter som innehåller exem
 
 Följande snabbstarter använder språk som stöds också av IoT Edge, så att du kan distribuera dem som IoT Edge-moduler tillsammans med blob storage-modulen:
 
-* [.NET](../storage/blobs/storage-quickstart-blobs-dotnet.md)
+* [NET](../storage/blobs/storage-quickstart-blobs-dotnet.md)
 * [Java](../storage/blobs/storage-quickstart-blobs-java.md)
 * [Python](../storage/blobs/storage-quickstart-blobs-python.md)
 * [Node.js](../storage/blobs/storage-quickstart-blobs-nodejs.md)
@@ -193,7 +204,7 @@ Inte alla åtgärder i Azure Blob Storage stöds av Azure Blob Storage på IoT E
 ### <a name="account"></a>Konto
 
 Stöds: 
-* Lista behållare
+* Visa en lista med containrar
 
 Stöds inte: 
 * Hämta och ange egenskaper för blob

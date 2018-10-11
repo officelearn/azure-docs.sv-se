@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/01/2017
 ms.author: apurvajo;cephalin
-ms.openlocfilehash: c223e8fb000686aedefa1c02e93c1c8cbb30ec73
-ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
+ms.openlocfilehash: 0c2adcfa4e11e444f66e1a9c04bea6e3d352f117
+ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42888301"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49077734"
 ---
 # <a name="buy-and-configure-an-ssl-certificate-for-your-azure-app-service"></a>Köp och konfigurera ett SSL-certifikat för din Azure Apptjänst
 
@@ -198,14 +198,6 @@ Om du vill manuellt förnya certifikatet i stället, klickar du på **förnya ma
 
 > [!NOTE]
 > Det förnyade certifikatet är inte automatiskt bunden till din app, oavsett om du förnyade manuellt eller den förnyas automatiskt. Om du vill binda det till din app, se [förnya certifikat](./app-service-web-tutorial-custom-ssl.md#renew-certificates). 
-
-<a name="notrenewed"></a>
-## <a name="why-is-my-certificate-not-auto-renewed"></a>Varför är min certifikatet inte automatisk-förnyas?
-
-Om SSL-certifikatet har konfigurerats för automatisk förnyelse, men den inte förnyas automatiskt, kan du ha en väntar på verifiering. Tänk på följande: 
-
-- GoDaddy, vilket genererar App Service-certifikat, kräver domänkontroll vartannat år. Domänadministratören får ett e-postmeddelande när alla tre år för att verifiera domänen. Det gick inte att kontrollera e-postmeddelandet eller verifiera din domän förhindrar att App Service-certifikat förnyas automatiskt. 
-- På grund av en ändring i principen för GoDaddy måste alla App Service-certifikat som utfärdats före den 1 mars 2017 Omverifiering av domän vid tidpunkten för nästa förnyelse (även om den automatiska förnyelsen är aktiverat för certifikatet). Kontrollera din e-post och slutföra den här enstaka domänverifiering om du vill fortsätta den automatiska förnyelsen App Service certificate. 
 
 ## <a name="more-resources"></a>Fler resurser
 

@@ -8,12 +8,12 @@ ms.component: speech
 ms.topic: article
 ms.date: 05/09/2018
 ms.author: v-jerkin
-ms.openlocfilehash: dd43aff91568ba4bd93f27e88cc63a50b9d8e4bd
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: fea4f762a46963f923ba8f44644df37b29fc77a6
+ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48886444"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49068748"
 ---
 # <a name="speech-service-rest-apis"></a>Taltjänst REST API: er
 
@@ -21,7 +21,7 @@ REST-API: er för tjänsten Azure Cognitive Services tal liknar API: er som till
 
 ## <a name="speech-to-text"></a>Tal till text
 
-Slutpunkter för tal till Text REST API visas i följande tabell. Använd det som matchar din region för prenumerationen. Referens för den **erkännande lägen** nedan för att ersätta `conversation` med antingen `interactive` eller `dictation` för din önskade sceanrio i ett visst API-anrop.
+Slutpunkter för tal till Text REST API visas i följande tabell. Använd det som matchar din region för prenumerationen. 
 
 [!INCLUDE [](../../../includes/cognitive-services-speech-service-endpoints-speech-to-text.md)]
 
@@ -29,52 +29,6 @@ Slutpunkter för tal till Text REST API visas i följande tabell. Använd det so
 > Om du har anpassat den akustiska modellen eller språkmodell eller uttal, använder du din anpassade slutpunkt.
 
 Detta API stöder endast kort yttranden. Begäranden kan innehålla upp till 10 sekunder ljud och de senaste 14 sekunder övergripande maximalt. REST API: et returnerar endast slutresultat inte partiell eller mellanliggande resultat. Speech-tjänsten har också en [batch avskrift](batch-transcription.md) API som kan transkribera längre ljud.
-
-### <a name="recognition-modes"></a>Igenkänning av lägen
-
-När du använder REST API eller WebSocket-protokoll direkt, den måste ange läget för taligenkänning: `interactive`, `conversation`, eller `dictation`. Igenkänning av läge justerar taligenkänning baserat på hur användarna är sannolikt att tala. Välj lämplig erkännande läge för ditt program.
-
-> [!NOTE]
-> Igenkänning av lägen kan ha olika beteenden i REST-protokoll än i WebSocket-protokoll. REST API stöder till exempel inte kontinuerlig erkännande, även i konversationen eller diktering läge.
-> [!NOTE]
-> Dessa lägen gäller när du använder REST- eller WebSocket-protokollet direkt. Den [tal SDK](speech-sdk.md) använder olika parametrar för att ange erkännande Adressreferens. Mer information finns i klientbiblioteket för ditt val.
-
-Microsoft Speech Service returnerar endast en fras igenkänningsresultatet för alla erkännande lägen. Det finns en gräns på 15 sekunder för en enda uttryck när du använder REST API eller WebSocket-protokollet direkt.
-
-#### <a name="interactive-mode"></a>Interaktivt läge
-
-I `interactive` läge, en användare gör kort begäranden och förväntar sig programmet att utföra en åtgärd som svar.
-
-Följande egenskaper är typiska för interaktivt läge program:
-
-- Användarna vet de talar till en dator och inte till en annan personal.
-- Programanvändare redan i förväg vet vad de vill säga baserat på vad de vill att programmet utför.
-- Vanligtvis räcker yttranden om 2-3 sekunder.
-
-#### <a name="conversation-mode"></a>Konversationen läge
-
-I `conversation` läge, användare bedriver en mänskliga människor konversation.
-
-Följande egenskaper är typiska för konversationen läge program:
-
-- Användarna vet att de pratar till en annan person.
-- Taligenkänning förbättrar mänskliga konversationer genom att låta en eller båda deltagarna ser talade texten.
-- Användare planerar alltid inte att säga.
-- Användare har ofta använder för att hitta slang och andra informell tal.
-
-#### <a name="dictation-mode"></a>Dikteringsläge
-
-I `dictation` läge, användare kunna räkna upp längre yttranden till programmet för vidare bearbetning.
-
-Följande egenskaper är typiska för diktering läge program:
-
-- Användarna vet att de pratar till en dator.
-- Text för tal igenkänningsresultat visas för användarna.
-- Användare har ofta planerar vad de vill säga och mer formella språk.
-- Användare utsträckning fullständiga meningar som senaste 5 – 8 sekunder.
-
-> [!NOTE]
-> Microsoft Speech Service returnerar inte ofullständiga resultat i lägena diktering och konversationen. I stället returnerar tjänsten stabil frasen resultaten efter tystnad gränser i ljudströmmen. Microsoft kan förbättra tal-protokollet för att förbättra användarupplevelsen i dessa lägen för kontinuerlig erkännande.
 
 
 ### <a name="query-parameters"></a>Frågeparametrar

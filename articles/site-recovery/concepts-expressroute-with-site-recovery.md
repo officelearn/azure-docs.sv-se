@@ -9,12 +9,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 07/06/2018
 ms.author: manayar
-ms.openlocfilehash: ac64c73ac26c610c08dceff13cbd524916853146
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: eb28a3d165bcb6cc5e63162053029ce14b0d7f8f
+ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37916429"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49078145"
 ---
 # <a name="azure-expressroute-with-azure-site-recovery"></a>Med ExpressRoute i Azure med Azure Site Recovery
 
@@ -49,7 +49,7 @@ Azure Site Recovery kan haveriberedskap för [Azure-datorer](azure-to-azure-arch
 
 För haveriberedskap för virtuella Azure-datorer krävs som standard ExpressRoute inte för replikering. När virtuella datorer som växlar över till mål-Azure-region, du kan komma åt dem med hjälp av [privat peering](../expressroute/expressroute-circuit-peerings.md#azure-private-peering).
 
-Om du redan använder ExpressRoute för att ansluta från ditt lokala datacenter till Azure virtuella datorer på källregionen, kan du planera för återupprättar ExpressRoute-anslutningen vid redundans mål-region. Du kan använda samma ExpressRoute-krets för att ansluta till målregion via en ny virtuell nätverksanslutning eller använda en separat ExpressRoute-krets och anslutningen för katastrofåterställning. Olika möjliga scenarier beskrivs [här](azure-vm-disaster-recovery-with-expressroute.md#failover-models-with-expressroute).
+Om du redan använder ExpressRoute för att ansluta från ditt lokala datacenter till Azure virtuella datorer på källregionen, kan du planera för återupprättar ExpressRoute-anslutningen vid redundans mål-region. Du kan använda samma ExpressRoute-krets för att ansluta till målregion via en ny virtuell nätverksanslutning eller använda en separat ExpressRoute-krets och anslutningen för katastrofåterställning. Olika möjliga scenarier beskrivs [här](azure-vm-disaster-recovery-with-expressroute.md#fail-over-azure-vms-when-using-expressroute).
 
 Du kan replikera virtuella Azure-datorer till valfri Azure-region inom samma geografiska klustret enligt anvisningarna [här](../site-recovery/azure-to-azure-support-matrix.md#region-support). Om den valda Azure-målregion inte ligger inom samma geopolitiska region som källa, kan du behöva aktivera ExpressRoute Premium. Mer information hittar du [ExpressRoute-platser](../expressroute/expressroute-locations.md#azure-regions-to-expressroute-locations-within-a-geopolitical-region) och [prisinformation för ExpressRoute](https://azure.microsoft.com/pricing/details/expressroute/).
 

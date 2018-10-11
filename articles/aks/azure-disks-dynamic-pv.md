@@ -1,26 +1,33 @@
 ---
-title: Skapa beständiga volymer med Azure Kubernetes Service
-description: Lär dig hur du använder Azure-diskar för att skapa beständiga volymer för poddar i Azure Kubernetes Service (AKS)
+title: Skapa en volym för flera poddar dynamiskt i Azure Kubernetes Service (AKS)
+description: Lär dig hur du skapar en permanent volym dynamiskt med Azure-diskar för användning med flera samtidiga poddar i Azure Kubernetes Service (AKS)
 services: container-service
 author: iainfoulds
-manager: jeconnoc
 ms.service: container-service
 ms.topic: article
-ms.date: 07/20/2018
+ms.date: 10/08/2018
 ms.author: iainfou
-ms.openlocfilehash: 7048ab4e08d25fd5181857a4e7592d0bcb7d3b5f
-ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
+ms.openlocfilehash: 4fea0f63f3e28f25392ef909d9735c6129df69e7
+ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42885602"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49067015"
 ---
-# <a name="create-persistent-volumes-with-azure-disks-for-azure-kubernetes-service-aks"></a>Skapa beständiga volymer med Azure-diskar för Azure Kubernetes Service (AKS)
+# <a name="dynamically-create-and-use-a-persistent-volume-with-azure-disks-in-azure-kubernetes-service-aks"></a>Dynamiskt skapa och använda en permanent volym med Azure-diskar i Azure Kubernetes Service (AKS)
 
-En permanent volym representerar en typ av lagring som har etablerats för användning med Kubernetes-poddar. En permanent volym kan användas av en eller flera poddar och kan etableras statiskt eller dynamiskt. Mer information om Kubernetes beständiga volymer finns i [Kubernetes beständiga volymer][kubernetes-volumes]. Den här artikeln visar hur du använder beständiga volymer med Azure-diskar i ett kluster i Azure Kubernetes Service (AKS).
+En permanent volym representerar en typ av lagring som har etablerats för användning med Kubernetes-poddar. En permanent volym kan användas av en eller flera poddar och kan etableras statiskt eller dynamiskt. Den här artikeln visar hur du skapar dynamiskt beständiga volymer med Azure-diskar för användning av en enda pod i ett kluster i Azure Kubernetes Service (AKS).
 
 > [!NOTE]
-> En Azure-disk kan endast monteras med *åtkomstläge* typ *ReadWriteOnce*, vilket gör dem tillgängliga för en enskild AKS nod. Om du behöver att dela en permanent volym över flera noder, bör du använda [Azure Files][azure-files-pvc].
+> En Azure-disk kan endast monteras med *åtkomstläge* typ *ReadWriteOnce*, vilket gör dem tillgängliga för endast en enda pod i AKS. Om du vill dela en permanent volym över flera poddar kan använda [Azure Files][azure-files-pvc].
+
+Mer information om Kubernetes beständiga volymer finns i [Kubernetes beständiga volymer][kubernetes-volumes].
+
+## <a name="before-you-begin"></a>Innan du börjar
+
+Den här artikeln förutsätter att du har ett befintligt AKS-kluster. Om du behöver ett AKS-kluster finns i snabbstarten om AKS [med Azure CLI] [ aks-quickstart-cli] eller [med Azure portal][aks-quickstart-portal].
+
+Du också ha Azure CLI version 2.0.46 eller senare installerat och konfigurerat. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI][install-azure-cli].
 
 ## <a name="built-in-storage-classes"></a>Inbyggda lagringsklasser
 
@@ -44,7 +51,7 @@ managed-premium     kubernetes.io/azure-disk   1h
 ```
 
 > [!NOTE]
-> Beständig volym anspråk har angetts i GiB men Azure hanterade diskar faktureras av SKU: N för en viss storlek. Dessa SKU: er mellan 32GiB för S4 eller P4 diskar och 4TiB för S50 eller P50 diskar. Dataflöde och IOPS-prestanda för en Premium managed disk beror på båda SKU och instansstorleken för noderna i AKS-klustret. Mer information finns i [priser och prestanda för Managed Disks][managed-disk-pricing-performance].
+> Beständig volym anspråk har angetts i GiB men Azure hanterade diskar faktureras av SKU: N för en viss storlek. Dessa SKU: er mellan 32GiB för S4 eller P4 diskar och 32TiB för S80 eller P80 diskar. Dataflöde och IOPS-prestanda för en Premium managed disk beror på båda SKU och instansstorleken för noderna i AKS-klustret. Mer information finns i [priser och prestanda för Managed Disks][managed-disk-pricing-performance].
 
 ## <a name="create-a-persistent-volume-claim"></a>Skapa ett anspråk för permanent volym
 
@@ -69,10 +76,10 @@ spec:
 > [!TIP]
 > Du kan skapa en disk som använder standard-lagring med `storageClassName: default` snarare än *hanteras premium*.
 
-Skapa permanent volym-anspråk med den [kubectl skapa] [ kubectl-create] kommandot och ange din *azure premium.yaml* fil:
+Skapa permanent volym-anspråk med den [kubectl gäller] [ kubectl-apply] kommandot och ange din *azure premium.yaml* fil:
 
 ```
-$ kubectl create -f azure-premium.yaml
+$ kubectl apply -f azure-premium.yaml
 
 persistentvolumeclaim/azure-managed-disk created
 ```
@@ -90,21 +97,28 @@ metadata:
   name: mypod
 spec:
   containers:
-    - name: myfrontend
-      image: nginx
-      volumeMounts:
-      - mountPath: "/mnt/azure"
-        name: volume
+  - name: mypod
+    image: nginx:1.15.5
+    resources:
+      requests:
+        cpu: 100m
+        memory: 128Mi
+      limits:
+        cpu: 250m
+        memory: 256Mi
+    volumeMounts:
+    - mountPath: "/mnt/azure"
+      name: volume
   volumes:
     - name: volume
       persistentVolumeClaim:
         claimName: azure-managed-disk
 ```
 
-Skapa en pod med den [kubectl skapa] [ kubectl-create] kommandot, som visas i följande exempel:
+Skapa en pod med den [kubectl gäller] [ kubectl-apply] kommandot, som visas i följande exempel:
 
 ```
-$ kubectl create -f azure-pvc-disk.yaml
+$ kubectl apply -f azure-pvc-disk.yaml
 
 pod/mypod created
 ```
@@ -124,7 +138,7 @@ Volumes:
     Type:        Secret (a volume populated by a Secret)
     SecretName:  default-token-smm2n
     Optional:    false
-
+[...]
 Events:
   Type    Reason                 Age   From                               Message
   ----    ------                 ----  ----                               -------
@@ -189,11 +203,18 @@ metadata:
   name: mypodrestored
 spec:
   containers:
-    - name: myfrontendrestored
-      image: nginx
-      volumeMounts:
-      - mountPath: "/mnt/azure"
-        name: volume
+  - name: mypodrestored
+    image: nginx:1.15.5
+    resources:
+      requests:
+        cpu: 100m
+        memory: 128Mi
+      limits:
+        cpu: 250m
+        memory: 256Mi
+    volumeMounts:
+    - mountPath: "/mnt/azure"
+      name: volume
   volumes:
     - name: volume
       azureDisk:
@@ -202,10 +223,10 @@ spec:
         diskURI: /subscriptions/<guid>/resourceGroups/MC_myResourceGroupAKS_myAKSCluster_eastus/providers/Microsoft.Compute/disks/pvcRestored
 ```
 
-Skapa en pod med den [kubectl skapa] [ kubectl-create] kommandot, som visas i följande exempel:
+Skapa en pod med den [kubectl gäller] [ kubectl-apply] kommandot, som visas i följande exempel:
 
 ```
-$ kubectl create -f azure-restored.yaml
+$ kubectl apply -f azure-restored.yaml
 
 pod/mypodrestored created
 ```
@@ -237,7 +258,7 @@ Läs mer om Kubernetes beständiga volymer med Azure-diskar.
 
 <!-- LINKS - external -->
 [access-modes]: https://kubernetes.io/docs/concepts/storage/persistent-volumes/#access-modes
-[kubectl-create]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#create
+[kubectl-apply]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply
 [kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
 [kubernetes-storage-classes]: https://kubernetes.io/docs/concepts/storage/storage-classes/
 [kubernetes-volumes]: https://kubernetes.io/docs/concepts/storage/persistent-volumes/
@@ -251,3 +272,6 @@ Läs mer om Kubernetes beständiga volymer med Azure-diskar.
 [az-snapshot-create]: /cli/azure/snapshot#az-snapshot-create
 [az-disk-create]: /cli/azure/disk#az-disk-create
 [az-disk-show]: /cli/azure/disk#az-disk-show
+[aks-quickstart-cli]: kubernetes-walkthrough.md
+[aks-quickstart-portal]: kubernetes-walkthrough-portal.md
+[install-azure-cli]: /cli/azure/install-azure-cli

@@ -12,12 +12,12 @@ ms.devlang: nodejs
 ms.topic: reference
 ms.date: 03/04/2018
 ms.author: glenga
-ms.openlocfilehash: 24f7faa0fb111e4e537a7db3f5e1eea709d1ca59
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: c4206b3178cd02082b8e0815081fedf59a6836b1
+ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46957749"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49068318"
 ---
 # <a name="azure-functions-javascript-developer-guide"></a>Utvecklarguide för Azure Functions JavaScript
 Den här guiden innehåller information om krångla skriva Azure Functions med JavaScript.
@@ -66,6 +66,8 @@ module.exports = function(context, myTrigger, myInput, myOtherInput) {
     // function logic goes here :)
     context.done();
 };
+```
+```javascript
 // You can also use 'arguments' to dynamically handle inputs
 module.exports = async function(context) {
     context.log('Number of inputs: ' + arguments.length);
@@ -79,6 +81,37 @@ module.exports = async function(context) {
 Utlösare och bindningar för indata (bindningarna för `direction === "in"`) kan skickas till funktionen som parametrar. De skickas till funktionen i samma ordning som de har definierats i *function.json*. Du kan också dynamiskt hantera indata med hjälp av JavaScript [ `arguments` ](https://msdn.microsoft.com/library/87dw3w1k.aspx) objekt. Om du har till exempel `function(context, a, b)` och ändra den till `function(context, a)`, du kan fortfarande få värdet för `b` i Funktionskoden genom att referera till `arguments[2]`.
 
 Alla bindningar, oavsett riktning, skickas även vidare den `context` objekt med hjälp av den `context.bindings` egenskapen.
+
+### <a name="exporting-an-async-function"></a>Exportera en async-funktion
+När du använder JavaScript [ `async function` ](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/async_function) deklarationen eller vanlig JavaScript [löften](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise) (inte tillgängligt med Functions v1.x), du uttryckligen behöver inte anropa den [ `context.done` ](#contextdone-method) återanrop för att signalera att funktionen har slutförts. Slutför din funktion när exporterade async-funktion/löftet har slutförts.
+
+Till exempel är det här en enkel funktion som loggar den utlöstes och omedelbart är slutfört.
+``` javascript
+module.exports = async function (context) {
+    context.log('JavaScript trigger function processed a request.');
+};
+```
+
+När du exporterar en async-funktion kan du också konfigurera utdatabindningar att ta den `return` värde. Det här är en annan metod för tilldelning av utdata med hjälp av den [ `context.bindings` ](#contextbindings-property) egenskapen.
+
+Tilldela en utdata med hjälp av `return`, ändra den `name` egenskap `$return` i `function.json`.
+```json
+{
+  "type": "http",
+  "direction": "out",
+  "name": "$return"
+}
+```
+Funktionskoden JavaScript kan se ut så här:
+```javascript
+module.exports = async function (context, req) {
+    context.log('JavaScript HTTP trigger function processed a request.');
+    // You can call and await an async method here
+    return {
+        body: "Hello, world!"
+    };
+}
+```
 
 ## <a name="context-object"></a>Context-objektet
 Körningen använder en `context` objekt att skicka data till och från din funktion och så att du kan kommunicera med körningen.

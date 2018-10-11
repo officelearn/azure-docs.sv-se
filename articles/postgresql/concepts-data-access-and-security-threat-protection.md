@@ -8,12 +8,12 @@ ms.service: postgresql
 ms.topic: article
 ms.date: 09/20/2018
 ms.author: mbolz
-ms.openlocfilehash: c3242d9c1725d88c7feded01b95bb889dedcc1c7
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 392947919813753dc57422957029e961a037a616
+ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47047983"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49066946"
 ---
 # <a name="azure-database-for-postgresql-advanced-threat-protection"></a>Azure Database för PostgreSQL Avancerat skydd
 
@@ -34,8 +34,8 @@ Avancerat skydd för Azure Database for PostgreSQL ger ett nytt lager av säkerh
 ## <a name="advanced-threat-protection-alerts"></a>Avancerade Threat Protection-aviseringar 
 Avancerat skydd för Azure Database for PostgreSQL identifierar avvikande aktiviteter som visar onormala och potentiellt skadliga försök att komma åt eller utnyttja databaser och det kan utlösa följande aviseringar:
 - **Åtkomst från ovanlig plats**: den här aviseringen utlöses när det finns en ändring i åtkomstmönstret för till Azure Database for PostgreSQL-server, där någon har loggat in på Azure Database for PostgreSQL-server från en ovanlig geografisk plats. I vissa fall identifierar aviseringen en giltig åtgärd (ett nytt program eller nytt underhåll av utvecklare). I andra fall identifierar aviseringen en skadlig åtgärd (tidigare anställd, extern angripare).
-- **Åtkomst från ovanligt Azure-Datacenter**: den här aviseringen utlöses när det finns en ändring i åtkomstmönstret för till Azure Database for PostgreSQL-server, där någon har loggat in till SQLServer från en ovanligt Azure-datacenter som nyligen setts på den här -servern under den senaste perioden. I vissa fall identifierar aviseringen en giltig åtgärd (det nya programmet i Azure, Power BI, Azure Database för PostgreSQL Query Editor). I andra fall identifierar aviseringen en skadlig åtgärd från en Azure-resurs/-tjänst (tidigare anställd, extern angripare).
-- **Åtkomst från okänd huvudnamn**: den här aviseringen utlöses när det finns en ändring i åtkomstmönstret för till Azure Database for PostgreSQL-server, där någon har loggat in till SQLServer med ett ovanligt huvudkonto (Azure Database for PostgreSQL användare). I vissa fall identifierar aviseringen en giltig åtgärd (nytt program eller nytt underhåll av utvecklare). I andra fall identifierar aviseringen en skadlig åtgärd (tidigare anställd, extern angripare).
+- **Åtkomst från ovanligt Azure-Datacenter**: den här aviseringen utlöses när det finns en ändring i åtkomstmönstret för till Azure Database for PostgreSQL-server, där någon har loggat in på servern från en ovanligt Azure-datacenter som nyligen setts på den här -servern under den senaste perioden. I vissa fall identifierar aviseringen en giltig åtgärd (det nya programmet i Azure, Power BI, Azure Database för PostgreSQL Query Editor). I andra fall identifierar aviseringen en skadlig åtgärd från en Azure-resurs/-tjänst (tidigare anställd, extern angripare).
+- **Åtkomst från okänd huvudnamn**: den här aviseringen utlöses när det finns en ändring i åtkomstmönstret för till Azure Database for PostgreSQL-server, där någon har loggat in på servern med ett ovanligt huvudkonto (Azure Database for PostgreSQL användare). I vissa fall identifierar aviseringen en giltig åtgärd (nytt program eller nytt underhåll av utvecklare). I andra fall identifierar aviseringen en skadlig åtgärd (tidigare anställd, extern angripare).
 - **Access from a potentially harmful application** (Åtkomst från ett potentiellt skadligt program): Den här aviseringen utlöses när ett potentiellt skadligt program används för att få åtkomst till databasen. I vissa fall identifierar aviseringen pågående intrångstestning. I andra fall identifierar aviseringen en attack med vanliga angreppsverktyg.
 - **Brute force Azure Database för PostgreSQL autentiseringsuppgifter**: den här aviseringen utlöses när det finns ett onormalt stort antal misslyckade inloggningar med olika autentiseringsuppgifter. I vissa fall identifierar aviseringen pågående intrångstestning. I andra fall identifierar aviseringen ett nyckelsökningsangrepp.
 

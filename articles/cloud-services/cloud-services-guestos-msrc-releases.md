@@ -11,17 +11,42 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 9/13/2018
+ms.date: 10/9/2018
 ms.author: raiye
-ms.openlocfilehash: c0eff5054b186ebc701e88d793992c8729408b7d
-ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
+ms.openlocfilehash: f0fe3d66430c17c417de7ecd808069ba76a57ef5
+ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45606005"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49069547"
 ---
 # <a name="azure-guest-os"></a>Azure gäst-OS
 Följande tabeller visar Microsoft Security Response Center (MSRC) uppdateringarna tillämpas på Gästoperativsystemet i Azure. Sök i den här artikeln för att avgöra om en viss uppdatering gäller för Gästoperativsystem som du använder. Uppdateringar alltid överför för speciellt [familj] [ family-explain] de introducerades i.
+
+## <a name="september-guest-os"></a>September gäst-OS
+> [!NOTE]
+> Gästoperativsystemet i September distribueras för närvarande till molnet virtuella datorer som är konfigurerade för automatiska uppdateringar. När distributionen är klar kan kommer den här versionen att göras tillgängligt för manuella uppdateringar via Azure portal och -konfigurationsfiler. Följande korrigeringar som ingår i Gästoperativsystemet i September. Den här listan kan ändras.
+
+| Produktkategori | Överordnad KB-artikel | Beskrivning av säkerhetsrisk | Gäst-OS | Datum som introducerades |
+| --- | --- | --- | --- | --- |
+| Rel 18-09 | [4457131] | Windows 10-säkerhet | 5.23 | Den 11 september 2018 |
+| Rel 18-09 | [4457145] | Endast Windows-säkerhet | 2.78 | Den 11 september 2018 |
+| Rel 18-09 | [4457140] | Endast Windows-säkerhet | 3.65 | Den 11 september 2018 |
+| Rel 18-09 | [4457143] | Endast Windows-säkerhet | 4.58 | Den 11 september 2018 |
+| Rel 18-09 | [4457055], [4457030] | .NET 3.5, 4.5 säkerhet | 2.78 | Den 11 september 2018 |
+| Rel 18-09 | [4457053], [4457029] | .NET 3.5, 4.x-säkerhet | 3.65 | Den 11 september 2018 |
+| Rel 18-09 | [4457056], [4457028] | .NET 3.5, 4.x-säkerhet | 4.58 | Den 11 september 2018 |
+| Rel 18-09 | [4457146] | Flash | 3.65, 4.58, 5.23 | Den 11 september 2018 |
+| Rel 18-09 | [4457426] | Internet Explorer | 2.78, 3.65, 4.58 | Den 11 september 2018 |
+| Gäller inte | [4343900] | Insamling av augusti icke-säkerhet | 2.78 | Den 14 augusti 2018 |
+| Gäller inte | [4344152] | Insamling av augusti ej säkerhet .NET 3.5 | 2.78 | Den 14 augusti 2018 |
+| Gäller inte | [4344149] | Augusti ej säkerhet .NET 4 x rollup | 2.78 | Den 14 augusti 2018 |
+| Gäller inte | [4343901] | Insamling av augusti icke-säkerhet | 3.65 | Den 14 augusti 2018 |
+| Gäller inte | [4344150] | Insamling av augusti ej säkerhet .NET 3.5 | 3.65 | Den 14 augusti 2018 |
+| Gäller inte | [4344148] | Augusti ej säkerhet .NET 4 x rollup | 3.65 | Den 14 augusti 2018 |
+| Gäller inte | [4343898] | Insamling av augusti icke-säkerhet | 4.58 | Den 14 augusti 2018 |
+| Gäller inte | [4344153] | Insamling av augusti ej säkerhet .NET 3.5 | 4.58 | Den 14 augusti 2018 |
+| Gäller inte | [4344147] | Augusti ej säkerhet .NET 4 x rollup | 4.58 | Den 14 augusti 2018 |
 
 ## <a name="august-guest-os"></a>Augusti gäst-OS
 | Produktkategori | Överordnad KB-artikel | Beskrivning av säkerhetsrisk | Gäst-OS | Datum som introducerades |
@@ -45,7 +70,6 @@ Följande tabeller visar Microsoft Security Response Center (MSRC) uppdateringar
 | Gäller inte | [4338815] |Insamling av juli icke-säkerhet |4.57 | Den 10 juli 2018 |
 | Gäller inte | [4338424] |Insamling av juli ej säkerhet .NET 3.5 |3.64 | Den 10 juli 2018 |
 | Gäller inte | [4338415] |Juli ej säkerhet .NET 4 x rollup |3.64 | Den 10 juli 2018 |
-
 
 ## <a name="july-guest-os"></a>Juli gäst-OS
 | Produktkategori | Överordnad KB-artikel | Beskrivning av säkerhetsrisk | Gäst-OS | Datum som introducerades |
@@ -717,6 +741,27 @@ Följande tabeller visar Microsoft Security Response Center (MSRC) uppdateringar
 | Gäller inte |[2999802] |Heldragna linjer i stället för kantlinjerna skrivs ut i Windows |4.15, 3.22, 2.34 |Jan 13 2015 |
 | Gäller inte |[2896881] |Länge inloggningstid när du använder kommandot AddPrinterConnection VBScript för att mappa skrivare för användare vid inloggning i Windows |4.15, 3.22, 2.34 |Jan 13 2015 |
 
+[4457131]: http://support.microsoft.com/kb/4457131
+[4457145]: http://support.microsoft.com/kb/4457145
+[4457140]: http://support.microsoft.com/kb/4457140
+[4457143]: http://support.microsoft.com/kb/4457143
+[4457055]: http://support.microsoft.com/kb/4457055
+[4457030]: http://support.microsoft.com/kb/4457030
+[4457053]: http://support.microsoft.com/kb/4457053
+[4457029]: http://support.microsoft.com/kb/4457029
+[4457056]: http://support.microsoft.com/kb/4457056
+[4457028]: http://support.microsoft.com/kb/4457028
+[4457146]: http://support.microsoft.com/kb/4457146
+[4457426]: http://support.microsoft.com/kb/4457426
+[4343900]: http://support.microsoft.com/kb/4343900
+[4344152]: http://support.microsoft.com/kb/4344152
+[4344149]: http://support.microsoft.com/kb/4344149
+[4343901]: http://support.microsoft.com/kb/4343901
+[4344150]: http://support.microsoft.com/kb/4344150
+[4344148]: http://support.microsoft.com/kb/4344148
+[4343898]: http://support.microsoft.com/kb/4343898
+[4344153]: http://support.microsoft.com/kb/4344153
+[4344147]: http://support.microsoft.com/kb/4344147
 
 [4343887]: http://support.microsoft.com/kb/4343887
 [4343899]: http://support.microsoft.com/kb/4343899

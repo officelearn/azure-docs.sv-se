@@ -9,12 +9,12 @@ ms.service: machine-learning
 ms.component: core
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: cbd475ae4ce944db3ebf57b415b60e7abdd52677
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: 33126c094a55bc57edd49a54fbc4f5acd7401998
+ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47163859"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49079012"
 ---
 # <a name="configure-your-automated-machine-learning-experiment"></a>Konfigurera dina automatiserade machine learning-experiment
 
@@ -184,13 +184,13 @@ Den här tabellen anger parameterinställningar som är tillgängliga för exper
 Egenskap  |  Beskrivning | Standardvärde
 --|--|--
 `task`  |Ange vilken typ av problem med machine learning. Tillåtna värden är <li>Klassificering</li><li>Regression</li>    | Ingen |
-`primary_metric` |Mått som du vill optimera i att skapa din modell. Om du anger Precision som primary_metric, söker exempelvis automatisk ML för att hitta en modell med största noggrannhet. Du kan bara ange en primary_metric per experiment. Tillåtna värden är <br/>**Klassificering**:<br/><li> Precision  </li><li> AUC_weighted</li><li> precision_score_weighted </li><li> balanced_accuracy </li><li> average_precision_score_weighted </li><br/>**Regression**: <br/><li> normalized_mean_absolute_error </li><li> spearman_correlation </li><li> normalized_root_mean_squared_error </li><li> normalized_root_mean_squared_log_error</li><li> R2_score    </li> | För klassificering: Precision <br/>För Regression: spearman_correlation <br/> |
+`primary_metric` |Mått som du vill optimera i att skapa din modell. Om du anger Precision som primary_metric, söker exempelvis automatisk ML för att hitta en modell med största noggrannhet. Du kan bara ange en primary_metric per experiment. Tillåtna värden är <br/>**Klassificering**:<br/><li> accuracy  </li><li> AUC_weighted</li><li> precision_score_weighted </li><li> balanced_accuracy </li><li> average_precision_score_weighted </li><br/>**Regression**: <br/><li> normalized_mean_absolute_error </li><li> spearman_correlation </li><li> normalized_root_mean_squared_error </li><li> normalized_root_mean_squared_log_error</li><li> R2_score    </li> | För klassificering: Precision <br/>För Regression: spearman_correlation <br/> |
 `exit_score` |  Du kan ange ett målvärde för din primary_metric. När en modell finns som uppfyller primary_metric mål, automatiserad ML stoppar iterera och försöket avslutas. Om det här värdet inte anges (standard), fortsätter automatiserad ML-experiment att köra antal upprepningar som anges i iterationer. Tar ett double-värde. Om målet når aldrig, fortsätter automatiserad ML tills den når antal upprepningar som anges i iterationer.|   Ingen
 `iterations` |Maximalt antal upprepningar. Varje iteration är lika med ett utbildningsjobb som resulterar i en pipeline. Pipeline är Förbearbeta data och modell. Få en högkvalitativ modellen använder 250 eller fler | 100
 `Concurrent_iterations`|    Maxantal upprepningar som ska köras parallellt. Den här inställningen fungerar endast för fjärranslutna beräkning.|    1
 `max_cores_per_iteration`   | Anger hur många kärnor på beräkningsmål skulle användas för att träna en enkel rörledning. Om algoritmen kan utnyttja flera kärnor, ökar prestanda på en dator med flera kärnor. Du kan ange den till -1 för att använda alla tillgängliga kärnor på datorn.|  1
 `max_time_sec` |    Begränsar mängden tid (sekunder) tar för en viss iteration. Om en iteration överskrider angiven mängd, den iterationen hämtar har avbrutits. Om den inte anges kommer iterationen fortsätter att köras tills den är klar. |   Ingen
-`n_cross_validations`   |Antalet mellan verifiering delningar| Ingen
+`n_cross_validations`   |Antalet delningar i korsverifieringar| Ingen
 `validation_size`   |Storleken på verifiering som procent av alla utbildning exemplet.|  Ingen
 `preprocess` | SANT/FALSKT <br/>True aktiverar experimentera om du vill utföra Förbearbeta på indata. Följande är en delmängd av Förbearbeta<li>Data saknas: Imputes det saknade data numeriska med Average, Text med de flesta förekomst </li><li>Kategoriska värden: Om-datatypen är numeriska datatyper och antalet unika värden är mindre än 5 procent, konverterar till en hot-kodning </li><li>Etc. fullständig lista finns [GitHub-lagringsplatsen](https://aka.ms/aml-notebooks)</li><br/>Obs: om data som är gles du inte använda Förbearbeta = true |  False | 
 `blacklist_algos`   | Automatiserad ML-experiment har många olika algoritmer som försök. Konfigurera automatisk ML för att undanta vissa algoritmer från experimentet. Användbart om du är medveten om att algoritm(er) inte fungerar bra för din datauppsättning. Exkludera algoritmer kan spara beräkningsresurser och utbildning.<br/>Tillåtna värden för klassificering<br/><li>Logistic regression</li><li>Descent klassificerare</li><li>MultinomialNB</li><li>BernoulliNB</li><li>SVM</li><li>LinearSVM</li><li>kNN</li><li>DT</li><li>RF</li><li>extra träd</li><li>gradient boosting</li><li>lgbm_classifier</li><br/>Tillåtna värden för Regression<br/><li>Elastisk net</li><li>Gradient boosting regressor</li><li>DT regressor</li><li>kNN regressor</li><li>Lasso Dell</li><li>Descent regressor</li><li>RF regressor</li><li>extra träd regressor</li>|   Ingen
@@ -225,8 +225,7 @@ Följande mått har sparats i varje iteration
 * AUC_macro
 * AUC_micro
 * AUC_weighted
-* AUC_weighted_max
-* Precision
+* accuracy
 * average_precision_score_macro
 * average_precision_score_micro
 * average_precision_score_weighted

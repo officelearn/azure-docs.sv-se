@@ -1,9 +1,9 @@
 ---
-title: Kapacitetsplanering för Azure App Service-serverroller i Azure-stacken | Microsoft Docs
-description: Kapacitetsplanering för Azure App Service-serverroller i Azure-stacken
+title: Kapacitetsplanering för Azure App Service-serverroller i Azure Stack | Microsoft Docs
+description: Kapacitetsplanering för Azure App Service-serverroller i Azure Stack
 services: azure-stack
 documentationcenter: ''
-author: brenduns
+author: sethmanheim
 manager: femila
 editor: ''
 ms.assetid: ''
@@ -13,100 +13,100 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 06/28/2018
-ms.author: brenduns
+ms.author: sethm
 ms.reviewer: anwestg
-ms.openlocfilehash: f54481fe59df21b500ee860d1e9a202ed32bdd87
-ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.openlocfilehash: 7cdcd8b7e9814c206255077fae0af2029fab6583
+ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37097156"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49078121"
 ---
-# <a name="capacity-planning-for-azure-app-service-server-roles-in-azure-stack"></a>Kapacitetsplanering för Azure App Service-serverroller i Azure-stacken
+# <a name="capacity-planning-for-azure-app-service-server-roles-in-azure-stack"></a>Kapacitetsplanering för Azure App Service-serverroller i Azure Stack
 
-*Gäller för: Azure Stack integrerat system och Azure-stacken Development Kit*
+*Gäller för: integrerade Azure Stack-system och Azure Stack Development Kit*
 
-Om du vill konfigurera en klar Produktionsdistribution av Azure App Service på Azure-stacken måste du planera för kapacitet du förväntar dig att systemet stöder.  
+Om du vill konfigurera en klar Produktionsdistribution av Azure App Service i Azure Stack, måste du planera för kapacitet som du förväntar dig att systemet stöder.  
 
-Den här artikeln innehåller anvisningar för det minsta antalet compute-instanser och beräkning SKU: er som du bör använda för distribution i produktionsmiljöer.
+Den här artikeln innehåller anvisningar för det minsta antalet instanser och beräkning SKU: er som du bör använda för valfri Produktionsdistribution.
 
-Du kan planera din strategi för kapacitet av Apptjänst med hjälp av dessa riktlinjer. Framtida versioner av Azure-stacken ger alternativ för hög tillgänglighet för Apptjänst.
+Du kan planera din strategi för App Service-kapacitet som använder dessa riktlinjer. Framtida versioner av Azure Stack ger alternativ för hög tillgänglighet för App Service.
 
-| Apptjänst-serverrollen | Minsta rekommenderade antalet instanser | Rekommenderade beräkning SKU|
+| App Service-serverrollen | Minsta rekommenderade antalet instanser | Rekommenderade beräkning SKU|
 | --- | --- | --- |
 | Kontrollenhet | 2 | A1 |
 | Klient | 2 | A1 |
 | Hantering | 2 | A3 |
 | Utgivare | 2 | A1 |
-| Web medarbetare – delade | 2 | A1 |
-| Web medarbetare – dedikerade | 2 per nivå | A1 |
+| Web Worker - delade | 2 | A1 |
+| Web Worker - dedikerad | 2 per nivå | A1 |
 
-## <a name="controller-role"></a>Rollen som domänkontrollant
+## <a name="controller-role"></a>Kontrollantrollen
 
-**Rekommenderade minsta**: två instanser av A1 Standard
+**Rekommenderade lägsta**: två instanser av Standard A1
 
-Azure App Service Controller inträffar normalt låg förbrukning av CPU, minne och nätverksresurser. Du måste dock ha två domänkontrollanter för hög tillgänglighet. Två domänkontrollanter är också det maximala antalet domänkontrollanter som är tillåtna. Du kan skapa andra webbplatser styrenheten direkt från installationsprogrammet under distributionen.
+Azure App Service-Controller inträffar normalt med låg användning av processor, minne och nätverksresurser. Du måste dock ha två domänkontrollanter för hög tillgänglighet. Två styrenheterna är också det maximala antalet domänkontrollanter som tillåts. Du kan skapa den andra styrenheten för Web Sites direkt från installationsprogrammet under distributionen.
 
 ## <a name="front-end-role"></a>Front End role
 
-**Rekommenderade minsta**: två instanser av A1 Standard
+**Rekommenderade lägsta**: två instanser av Standard A1
 
-Klientdelen dirigerar begäranden till webbtjänst arbetare beroende på Web Worker tillgänglighet. Du bör ha fler än en klientdel för hög tillgänglighet och du kan ha fler än två. För kapacitetsplanering ändamål, Överväg att varje kärna kan hantera cirka 100 begäranden per sekund.
+Klientdelen dirigerar begäranden till Webbarbetare beroende på tillgänglighet för Web Worker. Du bör ha fler än en klientdel för hög tillgänglighet, och du kan ha fler än två. Överväg att varje kärna kan hantera cirka 100 begäranden per sekund för planering-kapacitet.
 
-## <a name="management-role"></a>Roll
+## <a name="management-role"></a>Hanteringsroll
 
-**Rekommenderade minsta**: två instanser av A3 Standard
+**Rekommenderade lägsta**: två instanser av Standard A3
 
-Azure App Service Management-rollen är ansvarig för App Service Azure Resource Manager och API-slutpunkter, portal tillägg (admin, klient, Functions-portalen) och datatjänsten. Management Server-rollen kräver normalt bara om 4 GB RAM-minne i en produktionsmiljö. Det kan dock uppstå hög CPU när många administrativa uppgifter (till exempel skapa en webbplats) utförs. Du bör ha fler än en server som den här rollen för hög tillgänglighet och minst två kärnor per server.
+Azure App Service Management-rollen är ansvarig för App Service Azure Resource Manager och API-slutpunkter, portal tillägg (admin, klient, Functions-portalen) och data service. Management Server-rollen kräver normalt endast om 4 GB RAM-minne i en produktionsmiljö. Det kan dock uppstå höga CPU när många administrationsuppgifter (till exempel skapa en webbplats) utförs. Du bör ha fler än en server som har tilldelats den här rollen för hög tillgänglighet, och minst två kärnor per server.
 
-## <a name="publisher-role"></a>Utgivare
+## <a name="publisher-role"></a>Utgivarroll
 
-**Rekommenderade minsta**: två instanser av A1 Standard
+**Rekommenderade lägsta**: två instanser av Standard A1
 
-Om många användare publicerar samtidigt, få rollen Publisher hög CPU-användning. För hög tillgänglighet, göra mer än en utgivare roll som är tillgängliga.  Utgivaren endast hanterar FTP-/ FTPS-trafik.
+Om många användare publicerar samtidigt, kan Publisher-rollen uppstå vid hög CPU-användning. För hög tillgänglighet, göra mer än en roll för utgivaren som är tillgänglig.  Utgivaren hanterar endast FTP/FTPS-trafik.
 
-## <a name="web-worker-role"></a>Worker-webbroll
+## <a name="web-worker-role"></a>Web worker-roll
 
-**Rekommenderade minsta**: två instanser av A1 Standard
+**Rekommenderade lägsta**: två instanser av Standard A1
 
-Du bör ha minst fyra Web arbetsroller, två för delade webbplats läge och två för varje nivå dedikerade arbetarservrar du planerar att erbjuda för hög tillgänglighet. Delade och dedikerad beräkning lägen ge olika nivåer av tjänsten till klienter. Du måste kanske flera Web arbetare om många av dina kunder:
+För hög tillgänglighet bör du ha minst fyra Webbarbetsroller, två för delat webbplatsläge och två för varje dedikerad arbetarnivån du planerar att erbjuda. Delade och dedikerade beräkning lägen ge olika nivåer av tjänsten till klienter. Du kanske behöver mer Webbarbetare om många av dina kunder är:
 
-- Med hjälp av dedikerade beräkning läge worker nivåer (som är resurskrävande.)
-- Körs i delade beräknings-läge.
+- Med hjälp av arbetarnivåer för dedikerade beräkning läge (som är resurskrävande.)
+- Kör i delat beräkningsläge.
 
-När en användare har skapat en App Service-Plan för dedikerade beräknings-läge SKU: N, antalet Web arbetare som angetts i att Apptjänstplan kommer inte längre vara tillgängliga för användare.
+När en användare har skapat en App Service Plan för ett dedikerat beräkningsläge SKU, antalet Web arbeten som angetts i att App Service-planen inte längre tillgänglig för användare.
 
-För att ge Azure Functions till användare i förbrukning planmodellen, måste du distribuera delade Web arbetare.
+Om du vill ge användarna i planen förbrukningsmodell Azure Functions, måste du distribuera delade Webbarbetare.
 
-När du funderar över antalet delade Web arbetsroller genom att gå igenom dessa överväganden:
+När du bestämmer dig antalet delade Web Worker-roller ska använda, granska dessa överväganden:
 
-- **Minne**: minne är den mest kritiska resursen för en roll för Web Worker. Otillräckligt med minne påverkar webbplatsprestanda när virtuellt minne växlas från disken. Varje server kräver 1,2 GB RAM för operativsystemet. RAM-minne över tröskeln kan användas för att köra webbplatser.
-- **Procentandelen aktiva webbplatser**: vanligtvis cirka 5 procent av program i en Azure App Service för distribution av Azure-stacken är aktiva. Procentandelen av program som är aktiva vid ett givet tillfälle kan dock vara högre eller lägre. Med en aktiv frekvens på 5 procent det maximala antalet program att placera den i en Azure App Service på Azure-stacken distributionen ska vara mindre än:
+- **Minne**: minne är den mest kritiska resursen för en Web Worker-roll. Otillräckligt med minne påverkar prestanda för webbplatsen när virtuellt minne växlar från disken. Varje server kräver cirka 1,2 GB RAM-minne för operativsystemet. RAM-minne över tröskeln kan användas för att köra webbplatser.
+- **Procentandelen aktiva webbplatser**: vanligtvis cirka 5 procent av program i en Azure App Service i Azure Stack-distributioner är aktiva. Procentandel program som är aktiva vid ett givet tillfälle kan dock vara högre eller lägre. Med en aktiv programmet hastighet av 5 procent det maximala antalet program ska placeras i en Azure App Service i Azure Stack-distributionen ska vara mindre än:
   - 20 gånger antalet aktiva webbplatser (5 x 20 = 100).
-- **Genomsnittlig minneskrav**: genomsnittlig minneskrav för program som förekommer i produktionsmiljöer är på 70 MB. Med den här storleken kan kan det minne som allokerats på alla datorer med roller för Web Worker eller virtuella datorer beräknas enligt följande:
+- **Genomsnittlig minneskrav**: genomsnittlig minnesavtrycket som krävs för program som observerats i produktionsmiljöer är cirka 70 MB. Med den här tjänsten kan kan det minne som allokerats över alla datorer med roller för Web Worker eller virtuella datorer beräknas enligt följande:
 
-    *Antal etablerad program * 70 MB * 5% - (nummer för Web arbetsroller * 1044 MB)*
+    *Antal etablerade program * 70 MB * 5% - (tal av Webbarbetsroller * 1044 MB)*
 
-   Om det finns 5 000 program i miljön som kör 10 webb-och arbetsroller, måste varje roll för Web Worker VM ha 7060 MB RAM-minne:
+   Om det finns 5 000 program i miljön med 10 Web Worker-roller, bör varje Web Worker-roll VM ha 7060 MB RAM-minne:
 
    5 000 * 70 * 0,05 – (10 * 1044) = 7060 (= cirka 7 GB)
 
-   Mer information om att lägga till flera worker-instanser finns [att lägga till flera arbetsroller](azure-stack-app-service-add-worker-roles.md).
+   Information om att lägga till flera arbetsinstanser finns i [att lägga till fler arbetsroller](azure-stack-app-service-add-worker-roles.md).
 
 ## <a name="file-server-role"></a>Filserverrollen
 
-För rollen filserver kan du använda en fristående filserver för utveckling och testning, till exempel när du distribuerar Azure App Service på Azure-stacken Development Kit du kan använda den här mallen - <https://aka.ms/appsvconmasdkfstemplate>. För produktion, ska du använda en förkonfigurerad Windows-filserver eller en förkonfigurerad Windows-filserver.
+För rollen filserver kan du använda en fristående filserver för utveckling och testning, till exempel när du distribuerar Azure App Service i Azure Stack Development Kit kan du använda den här mallen - <https://aka.ms/appsvconmasdkfstemplate>. För produktion bör du använda en förkonfigurerad Windows-filserver eller en förkonfigurerad icke-Windows server.
 
-I produktionsmiljöer upplevelser rollen filserver beräkningsintensiva disk-i/o. Eftersom den innehåller alla filer som innehåll och program för användaren för webbplatser, ska du konfigurera något av följande för den här rollen före:
+Rollen filserver upplevelser beräkningsintensiva disk-i/o i produktionsmiljöer. Eftersom den innehåller alla filer som innehåll och program för webbplatser för användare, bör du konfigurera något av följande för den här rollen före:
 
 - en Windows-filserver
 - en Windows-Filserverklustret
 - en icke-Windows-filserver
 - en icke-Windows-filserverklustret
-- en NAS (Network Attached Storage)-enhet
+- en enhet för NAS (Network Attached Storage)
 
 Mer information finns i [etablera en filserver](azure-stack-app-service-before-you-get-started.md#prepare-the-file-server).
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Innan du börjar med App Service på Azure-stacken](azure-stack-app-service-before-you-get-started.md)
+[Innan du sätter igång med App Service i Azure Stack](azure-stack-app-service-before-you-get-started.md)

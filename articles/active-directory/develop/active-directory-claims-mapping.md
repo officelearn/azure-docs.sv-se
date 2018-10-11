@@ -12,14 +12,14 @@ ms.topic: article
 ms.date: 10/05/2018
 ms.author: celested
 ms.reviewer: hirsin, jeedes
-ms.openlocfilehash: c188b800e2227a5c9f3a11d7d8d752af3efdf66a
-ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
+ms.openlocfilehash: 43b17c54014d2f1beedd02f9ec627dd087e65d5a
+ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/10/2018
-ms.locfileid: "48904411"
+ms.locfileid: "49069275"
 ---
-# <a name="how-to-customize-claims-emitted-in-tokens-for-a-specific-app-in-a-tenant-public-preview"></a>Så här: anpassa anspråk som släpps i token för en viss app i en klient (offentlig förhandsversion)
+# <a name="how-to-customize-claims-emitted-in-tokens-for-a-specific-app-in-a-tenant-preview"></a>Så här: anpassa anspråk som släpps i token för en viss app i en klient (förhandsversion)
 
 > [!NOTE]
 > Den här funktionen ersätter och ersätter den [anspråk anpassning](active-directory-saml-claims-customization.md) erbjuds via portalen idag. På samma program, om du har ändrat anspråk med hjälp av portalen förutom Graph/PowerShell-metoden som beskrivs i det här dokumentet har tokens som utfärdats för att programmet kommer att ignorera konfigurationen i portalen. Konfigurationer som görs via metoderna som beskrivs i det här dokumentet visas inte i portalen.

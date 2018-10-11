@@ -16,14 +16,15 @@ ms.date: 10/05/2018
 ms.author: celested
 ms.custom: aaddev
 ms.reviewer: hirsin
-ms.openlocfilehash: 292783d3710914af27870b1ae5259b43e284242d
-ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
+ms.openlocfilehash: 1fa5a2f9d63dfd9af006285beec256395d7ac668
+ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/10/2018
-ms.locfileid: "48904406"
+ms.locfileid: "49069513"
 ---
-# <a name="configurable-token-lifetimes-in-azure-active-directory-public-preview"></a>Konfigurerbara tokenlivslängder i Azure Active Directory (förhandsversion)
+# <a name="configurable-token-lifetimes-in-azure-active-directory-preview"></a>Konfigurerbara tokenlivslängder i Azure Active Directory (förhandsversion)
+
 Du kan ange livslängden för en token utfärdad av Azure Active Directory (AD Azure). Du kan ange livslängd för token för alla appar i din organisation, för ett program med flera innehavare (flera organisation) eller för en specifik huvudtjänst i organisationen.
 
 > [!IMPORTANT]
@@ -47,7 +48,7 @@ Du kan ange livslängd för token-principer för uppdateringstoken, åtkomst-tok
 Klienter använder åtkomsttoken för att få åtkomst till en skyddad resurs. En åtkomsttoken kan användas endast för en specifik kombination av användare, klienten och resursen. Åtkomsttoken gick inte att återkalla och är giltiga till deras utgångsdatum. En skadliga aktörer som har fått en åtkomsttoken kan använda det för omfattningen av dess livslängd. Justera livslängden för en åtkomsttoken är en kompromiss mellan förbättra systemets prestanda och öka hur lång tid att klienten behåller åtkomst efter användarens konto har inaktiverats. Förbättrad prestanda uppnås genom att minska antalet gånger som en klient behöver skaffa en ny åtkomsttoken.  Standardvärdet är 1 timme - efter 1 timme klienten måste använda uppdateringstoken (vanligtvis tyst) få en ny uppdateringstoken och få åtkomst till token. 
 
 ### <a name="refresh-tokens"></a>Uppdatera token
-När en klient får en åtkomsttoken för att få åtkomst till en skyddad resurs, får klienten också en uppdateringstoken. Uppdateringstoken används för att hämta nya åtkomst/uppdatera token par när den aktuella åtkomst-token upphör att gälla. En uppdateringstoken är bunden till en kombination av användar- och klienten. En uppdateringstoken kan vara [återkallas när som helst](v1-id-and-access-tokens.md#token-revocation), och denna tokens giltighet kontrolleras varje gång används aktuellt token.  
+När en klient får en åtkomsttoken för att få åtkomst till en skyddad resurs, får klienten också en uppdateringstoken. Uppdateringstoken används för att hämta nya åtkomst/uppdatera token par när den aktuella åtkomst-token upphör att gälla. En uppdateringstoken är bunden till en kombination av användar- och klienten. En uppdateringstoken kan vara [återkallas när som helst](access-tokens.md#token-revocation), och denna tokens giltighet kontrolleras varje gång används aktuellt token.  
 
 Det är viktigt att göra skillnad mellan konfidentiella klienter och offentliga klienter, eftersom detta påverkar hur länge uppdateringstoken kan användas. Mer information om olika typer av klienter finns i [RFC 6749](https://tools.ietf.org/html/rfc6749#section-2.1).
 

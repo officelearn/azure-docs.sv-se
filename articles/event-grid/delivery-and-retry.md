@@ -5,14 +5,14 @@ services: event-grid
 author: tfitzmac
 ms.service: event-grid
 ms.topic: conceptual
-ms.date: 09/13/2018
+ms.date: 10/10/2018
 ms.author: tomfitz
-ms.openlocfilehash: 15d68e4da6dd03751300f87ea5830c2db0470b60
-ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
+ms.openlocfilehash: 4d53c33daefaadb4c58ce500a5d564af7988b606
+ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45604866"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49077096"
 ---
 # <a name="event-grid-message-delivery-and-retry"></a>Event Grid meddelandeleverans och försök igen
 
@@ -22,7 +22,7 @@ Event Grid förser varaktiga. Du får varje meddelande minst en gång för varje
 
 För närvarande skickar Event Grid varje händelse individuellt till prenumeranter. Prenumeranten tar emot en matris med en enda händelse.
 
-## <a name="retry-intervals-and-duration"></a>Intervall för återförsök och varaktighet
+## <a name="retry-schedule-and-duration"></a>Försök testschemat
 
 Event Grid använder en exponentiell backoff återförsöksprincipen för händelseleverans. Om en slutpunkt som inte svarar eller returnerar en felkod, försöker Event Grid leverans enligt följande schema:
 
@@ -34,7 +34,7 @@ Event Grid använder en exponentiell backoff återförsöksprincipen för hände
 6. 30 minuter
 7. 1 timme
 
-Event Grid lägger till en liten slumpmässig i alla återförsöksinterval. Efter en timme görs händelseleverans en gång i timmen.
+Event Grid lägger till en liten slumpmässig alla steg som försök igen. Efter en timme görs händelseleverans en gång i timmen.
 
 Som standard Event Grid upphör att gälla alla händelser som inte levereras inom 24 timmar. Du kan [anpassa återförsöksprincipen](manage-event-delivery.md) när du skapar en händelseprenumeration. Ange det maximala antalet leveransförsök (standardvärdet är 30) och händelsen time to live (standardvärdet är 1 440 minuter).
 

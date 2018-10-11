@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: a9159ade6e16c1d14149197e85cee8720dd98b09
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: b226aeac86084c56a49d00c2a2f8deddaf7b0f68
+ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44381687"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49068782"
 ---
 # <a name="claimsproviders"></a>ClaimsProviders 
 
@@ -52,7 +52,7 @@ Den **ClaimsProvider** elementet innehåller följande underordnade element:
 
 | Element | Förekomster | Beskrivning |
 | ------- | ---------- | ----------- |
-| Domän | 0:1 | En sträng som innehåller domännamnet för den anspråk providern. Om din anspråksprovider innehåller den tekniska profilen Facebook, är domännamnet Facebook.com. Det här domännamnet används för alla tekniska profiler som definierats i anspråksleverantören såvida inte åsidosätts av den tekniska profilen. |
+| Domain | 0:1 | En sträng som innehåller domännamnet för den anspråk providern. Om din anspråksprovider innehåller den tekniska profilen Facebook, är domännamnet Facebook.com. Det här domännamnet används för alla tekniska profiler som definierats i anspråksleverantören såvida inte åsidosätts av den tekniska profilen. Domännamnet kan också refereras i ett **domain_hint**. Mer information finns i den **omdirigera logga in till en leverantör av sociala** delen av [konfigurera direkt inloggning med Azure Active Directory B2C](direct-signin.md). |
 | DisplayName | 0:1 | En sträng som innehåller namnet på anspråksprovidern som kan visas för användarna. |
 | [TechnicalProfiles](technicalprofiles.md) | 0:1 | En uppsättning tekniska profiler som stöds av anspråk providern |
 

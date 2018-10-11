@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/28/2018
 ms.author: lbosq
-ms.openlocfilehash: a513d186f895c33ef9329ce0464c70de5884330d
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: bf91ec77f8d7248c6fa2047636f295c187f626c8
+ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48891078"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49078230"
 ---
 # <a name="using-a-partitioned-graph-in-azure-cosmos-db"></a>Med hjälp av ett partitionerade diagram i Azure Cosmos DB
 
@@ -41,7 +41,7 @@ Nedan visas information som behöver förstå när du skapar en partitionerad gr
 
 - **Graph-frågor måste du ange en partitionsnyckel**. Om du vill dra full nytta av horisontell partitionering i Azure Cosmos DB, anges Partitionsnyckeln när en enskild brytpunkt väljs, när det är möjligt. Här följer några frågor för att välja en eller flera hörn i en partitionerad graph:
 
-    - Du inte kan använda för närvarande `/id` som partitionsnyckel för en behållare i Gremlin-API.
+    - `/id` och `/label` stöds inte som partitionsnycklar för en behållare i Gremlin-API: et...
 
 
     - Att välja ett hörn med ID: T, sedan **med hjälp av den `.has()` steg för att ange egenskapen partitions**: 

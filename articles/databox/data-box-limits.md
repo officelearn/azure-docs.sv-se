@@ -12,15 +12,15 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 09/05/2018
+ms.date: 10/10/2018
 ms.author: alkohli
 ms.custom: ''
-ms.openlocfilehash: fe42380288c0f139a2bae80a12f0ebc428a4c286
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: d1aeabd2de529d2c6b3159d9cd65996fb5096d0a
+ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46993093"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49069377"
 ---
 # <a name="azure-data-box-limits"></a>Azure Data Box-gränser
 
@@ -35,7 +35,7 @@ ms.locfileid: "46993093"
 
 ## <a name="data-box-limits"></a>Databegränsningar för Box
 
-- Data Box kan lagra upp till 5 miljoner filer.
+- Data Box kan lagra högst 500 miljoner filer.
 
 ## <a name="azure-storage-limits"></a>Azure storage-begränsningar
 

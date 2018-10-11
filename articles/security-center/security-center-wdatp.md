@@ -1,6 +1,6 @@
 ---
-title: Windows Defender Avancerat skydd (ATP) med Azure Security Center | Microsoft Docs
-description: Det här dokumentet introducerar integrering mellan Azure Security Center och Windows Defender ATP.
+title: Windows Defender Avancerat skydd med Azure Security Center
+description: Det här dokumentet introducerar integrering mellan Azure Security Center och Windows Defender Avancerat skydd.
 services: security-center
 documentationcenter: na
 author: barclayn
@@ -13,96 +13,98 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/20/2018
 ms.author: barclayn
-ms.openlocfilehash: 5f604583aeb9a633d34bad633008e0c2ddeb3ef2
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: e7bb7f0c4cb63390b91012e071589611991a2866
+ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47032044"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49068340"
 ---
-# <a name="windows-defender-advanced-threat-protection-atp-with-azure-security-center"></a>Windows Defender Avancerat skydd (ATP) med Azure Security Center
+# <a name="windows-defender-advanced-threat-protection-with-azure-security-center"></a>Windows Defender Avancerat skydd med Azure Security Center
 
-Azure Security Center utöka utbudet molnet arbetsbelastning Protection plattformar (CWPP) genom att integrera med [Windows Defender ATP](https://www.microsoft.com/WindowsForBusiness/windows-atp).
-Den här ändringen ger dig omfattande funktioner för slutpunktsidentifiering och svar (EDR). Det kan du upptäcka avvikelser, identifiera och svara på avancerade attacker på serverslutpunkter som övervakas av ASC.
+Azure Security Center utöka utbudet Molnplattformar arbetsbelastning skydd genom att integrera med [Windows Defender Avancerat skydd](https://www.microsoft.com/en-us/WindowsForBusiness/windows-atp) (ATP).
+Den här ändringen ger dig omfattande funktioner för slutpunktsidentifiering och svar (EDR). Med Windows Defender ATP-integrering kan du upptäcka avvikelser. Du kan också upptäcka och svara på avancerade attacker på serverslutpunkter som övervakas av Azure Security Center.
 
-Azure Security Center-kunder kan nu använda Windows Defender ATP-funktioner:
+Azure Security Center-kunder kan nu använda funktioner i Windows Defender ATP:
 
-- **Nästa generations efter intrång identifiering sensorer:** Windows Defender ATP-sensorn för Windows-servrar som samlar in ett brett utbud av beteendeanalys signaler att aktivera avancerad attack identifiering och undersökning.
+- **Nästa generations efter intrång identifiering sensorer**: Windows Defender ATP-sensorer för Windows-servrar samla in ett brett utbud av beteendeanalys signaler.
 
-- **Analytics-baserat och molndrivna efter intrång identifiering:** Windows Defender ATP snabbt anpassas till ändra hot. Den använder avancerad analys och stordata. Det är framhävas av Intelligent Security Graph med signaler i Windows, Azure och Office för att identifiera okända hot. Det ger användbara aviseringar och gör att du kan svara snabbt.
+- **Analytics-baserat och molndrivna efter intrång identifiering**: Windows Defender ATP snabbt anpassas till ändra hot. Det använder avancerad analys och stordata. Windows Defender ATP framhävas av Intelligent Security Graph med signaler i Windows, Azure och Office för att identifiera okända hot. Det ger användbara aviseringar och gör att du kan svara snabbt.
 
-- **Hotinformation**: Windows Defender ATP identifierar angripare verktyg, tekniker och procedurer och genererar varningar när de observeras. Det använder data som genereras av Microsoft intensiva kampanjperioder security team, och förstärkas med hotinformation som tillhandahålls av partner.
+- **Hotinformation**: Windows Defender ATP identifierar angripare verktyg, tekniker och procedurer. När den identifierar dessa genererar aviseringar. Det använder data som genereras av Microsoft threat intensiva kampanjperioder och security team, förstärkas med information som tillhandahålls av partner.
 
 Dessa funktioner är nu tillgängliga i Azure Security Center:
 
-- Automatisk registrering – Windows Defender ATP-sensorn är automatiskt aktiverat på Windows-servrar som publiceras till ASC
+- **Automatisk registrering**: The Windows Defender ATP-sensorn aktiveras automatiskt för Windows-servrar som är registrerad på Azure Security Center.
 
-- Enda glasruta i ASC - Windows Defender ATP-aviseringar är tillgängliga i ASC-konsolen
+- **Enda glasruta**: I Azure Security Center-konsolen visar Windows Defender ATP-aviseringar.
 
-- Detaljerad datorn undersökning - ASC-kunder komma åt Windows Defender ATP-konsolen för att utföra detaljerade undersökningar för att upptäcka omfånget för intrång
+- **Detaljerad datorn undersökning**: Azure Security Center-kunder komma åt Windows Defender ATP-konsolen för att utföra en detaljerade undersökningar för att upptäcka omfattningen av ett intrång.
 
-![* Bild 1 se hela bilden när du undersöker inklusive aviseringar som genereras av ASC *](media/security-center-wdatp/image1.png)
+![Azure Security Center, visas en lista över aviseringar och allmän information om varje avisering](media/security-center-wdatp/image1.png)
 
-Du kan [undersöka](security-center-investigation.md) aviseringen i Azure Security Center:
+Du kan [undersöka aviseringen](security-center-investigation.md) i Azure Security Center:
 
-![Bild 2 - undersökning i Azure Security Center](media/security-center-wdatp/image2.png)
+![Aviseringen undersökningsinstrumentpanelen i Azure Security Center](media/security-center-wdatp/image2.png)
 
-Du kan ytterligare undersöka aviseringen genom att pivotera till Windows Defender ATP. Det kan du se ytterligare information som aviseringen processträdet, incident diagram och en tidslinje för detaljerade exponera alla av beteenden för en tidigare period på upp till sex månader.
+Du kan ytterligare undersöka aviseringen genom att pivotera till Windows Defender ATP. Det kan du se ytterligare information, till exempel aviseringar processträdet och incident graph. Du kan också se en tidslinje för detaljerade som visar var beteende för en tidigare period på upp till sex månader.
 
-![Bild 3 undersökning – Windows Defender ATP](media/security-center-wdatp/image3.png)
+![Windows Defender ATP-sidan med detaljerad information om en avisering](media/security-center-wdatp/image3.png)
 
 ## <a name="platform-support"></a>Plattformssupport
 
 Den här funktionen stöder identifiering på Windows Server 2012 R2 och Windows Server 2016.
 
-Endast servrar i prenumerationer på standardnivån
+Endast servrar i prenumerationer för standard-tjänstnivå stöds.
 
 ## <a name="onboarding-instructions"></a>Registreringsanvisningar
 
-För att visa om Windows Defender ATP-integrering aktiverat, kan du välja Security center > säkerhetsprincip > prenumeration > Redigera inställningar
+Om du vill visa om Windows Defender ATP-integrering aktiverat, Välj **Säkerhetscenter** > **säkerhetsprincip** > **prenumeration**  >  **Redigera inställningar för**.
 
-  ![Visa principen](media/security-center-wdatp/policy-management.png)
+  ![Azure Security Center-principhantering](media/security-center-wdatp/policy-management.png)
 
-Här kan du se integreringar som aktiverats
+Här kan du se integreringar aktiverad för tillfället.
 
-  ![Aktiverade integreringar](media/security-center-wdatp/enable-integrations.png)
+  ![Inställningssidan för Azure Security Center Threat identifiering med Windows Defender ATP-integrering aktiverat](media/security-center-wdatp/enable-integrations.png)
 
-- Om du redan har integrerats servrar till ASC standardnivån - ingen åtgärd krävs ASC kommer automatiskt publicera servrarna till WDATP. Det kan ta upp till 24 timmar.
+- Om du redan har integrerats servrar till Azure Security Center standard-nivån, måste du vidta någon ytterligare åtgärd. Azure Security Center att automatiskt publicera servrarna så Windows Defender ATP. Det kan ta upp till 24 timmar.
 
-- Om du aldrig har integrerats servrar till ASC-standard-nivån – publicera till ASC som vanligt.
+- Om du har aldrig har integrerats servrar till Azure Security Center standard-nivån kan publicera dem till Azure Security Center som vanligt.
 
-- Om du integrerade servrar via WDATP:
+- Om du har publicerat servrar via Windows Defender ATP:
   - Läs dokumentationen för vägledning på [så avregistrera serverdatorer](https://go.microsoft.com/fwlink/p/?linkid=852906).
-  - Publicera till ASC
+  - Publicera dessa servrar till Azure Security Center.
 
-## <a name="access-to-wdatp-portal"></a>Åtkomst till WDATP-portalen
+## <a name="access-to-the-windows-defender-atp-portal"></a>Åtkomst till Windows Defender ATP-portalen
 
-Följ anvisningarna på [tilldela användaråtkomst till portalen](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-atp/assign-portal-access-windows-defender-advanced-threat-protection)
+Följ instruktionerna i [tilldela användaråtkomst till portalen](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-atp/assign-portal-access-windows-defender-advanced-threat-protection).
 
-## <a name="set-firewall-configuration"></a>Konfiguration av brandvägg
+## <a name="set-the-firewall-configuration"></a>Ange brandväggskonfigurationen
 
-Om du har en proxy eller brandvägg som blockerar anonym trafik, som Windows Defender ATP-sensorn ansluter från systemets kontext, se till att anonym trafik inte är tillåten. Följ instruktionerna [ge åtkomst till URL: er i Windows Defender ATP-tjänsten i proxyservern](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-atp/configure-proxy-internet-windows-defender-advanced-threat-protection#enable-access-to-windows-defender-atp-service-urls-in-the-proxy-server)
+Om du har en proxy eller brandvägg som blockerar anonym trafik och för att ansluta en Windows Defender ATP-sensorn från systemets kontext, se till att anonym trafik är tillåten. Följ instruktionerna i [ge åtkomst till URL: er i Windows Defender ATP-tjänsten i proxyservern](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-atp/configure-proxy-internet-windows-defender-advanced-threat-protection#enable-access-to-windows-defender-atp-service-urls-in-the-proxy-server).
 
-## <a name="how-can-i-test-the-feature"></a>Hur kan jag testa funktionen?
+## <a name="test-the-feature"></a>Testa funktionen
 
- Följande steg skapar en ofarliga WDATP test avisering.
+Så här genererar en avisering om ofarliga Windows Defender ATP test:
 
-1. RDP till någon av Windows Server-datorer (2012 R2 eller 2016) för den prenumerationen och öppna ett kommandotolksfönster
+1. Använda Fjärrskrivbord för att komma åt en Windows Server 2012 R2-dator eller en Windows Server 2016 VM.  Öppna ett kommandotolksfönster.
 
-2. Kopiera i Kommandotolken och kör du kommandot nedan. Kommandotolkens fönster stängs automatiskt.
+2. Kopiera och kör följande kommando i Kommandotolken. Kommandotolkens fönster stängs automatiskt.
 
-    **PowerShell.exe - NoExit - ExecutionPolicy kringgå - WindowStyle dolda (New-Object System.Net.WebClient). DownloadFile (”http://127.0.0.1/1.exe” ”, C:\\test-WDATP-test\\invoice.exe”); Starta processen ”C:\\test-WDATP-test\\invoice.exe” **
+    ```
+    powershell.exe -NoExit -ExecutionPolicy Bypass -WindowStyle Hidden (New-Object System.Net.WebClient).DownloadFile('http://127.0.0.1/1.exe', 'C:\\test-WDATP-test\\invoice.exe'); Start-Process 'C:\\test-WDATP-test\\invoice.exe'
+    ```
 
-  ![Bild av kommandot ovan i Kommandotolkens fönster](media/security-center-wdatp/image4.jpeg)
+   ![En kommandotolk med kommandot ovan](media/security-center-wdatp/image4.jpeg)
 
-3. Om detta lyckas visas en ny avisering om några minuter i ASC och WD ATP-portalen.
+3. Om kommandot lyckas visas en ny avisering på instrumentpanelen i Azure Security Center och Windows Defender ATP-portalen. Den här aviseringen kan ta några minuter innan den visas.
 
-4. Granska aviseringen i Azure Security Center, gå till **säkerhetsaviseringar -\> misstänkt Powershell-kommandorad**
+4. Om du vill granska aviseringen i Security Center går du till **säkerhetsaviseringar** >  **misstänkt Powershell-kommandorad**.
 
-5. Från undersökningen fönstret klickar du på länken för att omdirigera till WDATP portal
+5. I fönstret undersökning markerar du länken som leder till Windows Defender ATP-portalen.
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Ange säkerhetsprinciper i Azure Security Center](security-center-policies.md) – Här får du lära dig hur du ställer in säkerhetsprinciper för prenumerationer och resursgrupper i Azure.
-- [Hantera säkerhetsrekommendationer i Azure Security Center](security-center-recommendations.md) – Lär dig hur rekommendationer hjälper dig att skydda dina Azure-resurser.
-- [Övervakning av säkerhetshälsa i Azure Security Center](security-center-monitoring.md) – Lär dig att övervaka hälsotillståndet hos dina Azure-resurser.
+- [Ange säkerhetsprinciper i Azure Security Center](security-center-policies.md): Lär dig hur du ställer in säkerhetsprinciper för dina Azure-prenumerationer och resursgrupper.
+- [Hantera säkerhetsrekommendationer i Azure Security Center](security-center-recommendations.md): Lär dig hur rekommendationer hjälper dig att skydda dina Azure-resurser.
+- [Övervakning av säkerhetshälsa i Azure Security Center](security-center-monitoring.md): Lär dig hur du övervakar dina Azure-resursers hälsa.

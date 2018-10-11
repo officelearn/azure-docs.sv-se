@@ -11,17 +11,16 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/29/2018
+ms.date: 10/10/2018
 ms.author: mbullwin
-ms.openlocfilehash: ef79ff7c8e238a0a90912d099b4b9dfe2a387c1d
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: 5ea026de228f3c93eed04770ad931d072387aa95
+ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45577232"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49079080"
 ---
 # <a name="data-collection-retention-and-storage-in-application-insights"></a>Datainsamling, kvarhållning och lagring i Application Insights
-
 
 När du installerar [Azure Application Insights] [ start] SDK i din app skickar telemetri om din app till molnet. Naturligtvis finns vill ansvarig utvecklare veta exakt vilka data skickas, vad händer med data och hur de kan behålla kontrollen över den. I synnerhet kunde känsliga data skickas, där är lagrade och hur säker är det? 
 
@@ -90,6 +89,8 @@ Detta är möjligt genom att skriva en [processor-plugin-programmet för telemet
 Rådatapunkterna (det vill säga objekt som du kan fråga i Analytics och inspektera i Search) kvarhålls i upp till 90 dagar. Om du vill behålla data längre än den som du kan använda [löpande export](app-insights-export-telemetry.md) att kopiera den till ett lagringskonto.
 
 Sammanställda data (dvs, antal, genomsnitt och andra statistiska data som du ser i Metric Explorer) finns kvar på en grain på 1 minut under 90 dagar.
+
+[Felsök ögonblicksbilder](app-insights-snapshot-debugger.md) lagras i sju dagar. Den här bevarandeprincipen är inställd på basis av per program. Om du vill öka det här värdet kan du begära en ökning genom att öppna ett supportärende i Azure-portalen.
 
 ## <a name="who-can-access-the-data"></a>Vem kan komma åt dessa data?
 Data är synliga för dig och, om du har ett organisationskonto, dina gruppmedlemmar. 
@@ -203,7 +204,7 @@ Vi rekommenderar inte uttryckligen ställa in ditt program att bara använda TLS
 | Azure App Services  | Stöd för behövas konfiguration. | Support lanserades i April 2018. Läs meddelandet för [konfigurationsinformation](https://blogs.msdn.microsoft.com/appserviceteam/2018/04/17/app-service-and-functions-hosted-apps-can-now-update-tls-versions/).  |
 | Azure-Funktionsappar | Stöd för behövas konfiguration. | Support lanserades i April 2018. Läs meddelandet för [konfigurationsinformation](https://blogs.msdn.microsoft.com/appserviceteam/2018/04/17/app-service-and-functions-hosted-apps-can-now-update-tls-versions/). |
 |.NET | Stöd för varierar konfigurationen beroende på version. | Detaljerad konfigurationsinformation för .NET 4.7 och tidigare versioner finns i [instruktionerna](https://docs.microsoft.com/dotnet/framework/network-programming/tls#support-for-tls-12).  |
-|Statusövervakaren | Konfigurationer som stöds, krävs | Statusövervakaren förlitar sig på [Operativsystemets konfiguration](https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings) + [.NET Configuration](https://docs.microsoft.com/dotnet/framework/network-programming/tls#support-for-tls-12) till support TLS 1.2.
+|Statusövervakare | Konfigurationer som stöds, krävs | Statusövervakaren förlitar sig på [Operativsystemets konfiguration](https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings) + [.NET Configuration](https://docs.microsoft.com/dotnet/framework/network-programming/tls#support-for-tls-12) till support TLS 1.2.
 |Node.js |  Stöds i v10.5.0, behövas konfiguration. | Använd den [officiell Node.js TLS/SSL-dokumentation](https://nodejs.org/api/tls.html) för eventuella specifika programkonfiguration. |
 |Java | Stöd för JDK-stöd för TLS 1.2 har lagts till i [JDK 6 update 121](http://www.oracle.com/technetwork/java/javase/overview-156328.html#R160_121) och [JDK 7](http://www.oracle.com/technetwork/java/javase/7u131-relnotes-3338543.html). | JDK 8 använder [TLS 1.2 som standard](https://blogs.oracle.com/java-platform-group/jdk-8-will-use-tls-12-as-default).  |
 |Linux | Linux-distributioner tenderar att förlita dig på [OpenSSL](https://www.openssl.org) för stöd för TSL 1.2.  | Kontrollera den [OpenSSL Changelog](https://www.openssl.org/news/changelog.html) att bekräfta din version av OpenSSL stöds.|

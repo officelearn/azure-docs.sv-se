@@ -3,18 +3,16 @@ title: Distribuera behållare med Helm i Kubernetes på Azure
 description: Använda Helm paketering för att distribuera behållare i ett kluster i Azure Kubernetes Service (AKS)
 services: container-service
 author: iainfoulds
-manager: jeconnoc
 ms.service: container-service
 ms.topic: article
-ms.date: 07/13/2018
+ms.date: 10/01/2018
 ms.author: iainfou
-ms.custom: mvc
-ms.openlocfilehash: dd2deba25615373765dd3492d03c1ba547c8ba8c
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: d95f7ad337e52aed47656c2ea60e6b193a427946
+ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39055142"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49068585"
 ---
 # <a name="install-applications-with-helm-in-azure-kubernetes-service-aks"></a>Installera program med Helm i Azure Kubernetes Service (AKS)
 
@@ -26,32 +24,11 @@ Den här artikeln visar hur du konfigurerar och använder Helm i en Kubernetes-k
 
 Stegen som beskrivs i det här dokumentet förutsätter att du har skapat ett AKS-kluster och har upprättat en `kubectl` anslutning med klustret. Om du behöver dessa objekt visas den [AKS-Snabbstart][aks-quickstart].
 
-## <a name="install-helm-cli"></a>Installera Azure CLI
-
-Helm CLI är en klient som körs i utvecklingssystemet och gör att du kan starta, stoppa och hantera program med Helm.
-
-Om du använder Azure Cloud Shell är Helm CLI redan installerad. Om du vill installera Helm CLI på en Mac `brew`. Ytterligare information finns i alternativ [installera Helm][helm-install-options].
-
-```console
-brew install kubernetes-helm
-```
-
-Utdata:
-
-```
-==> Downloading https://homebrew.bintray.com/bottles/kubernetes-helm-2.9.1.high_sierra.bottle.tar.gz
-######################################################################## 100.0%
-==> Pouring kubernetes-helm-2.9.1.high_sierra.bottle.tar.gz
-==> Caveats
-Bash completion has been installed to:
-  /usr/local/etc/bash_completion.d
-==> Summary
-🍺  /usr/local/Cellar/kubernetes-helm/2.9.1: 50 files, 66.2MB
-```
+Du måste också Helm CLI-verktyget, klienten som körs i utvecklingssystemet och gör att du kan starta, stoppa och hantera program med Helm. Om du använder Azure Cloud Shell är Helm CLI redan installerad. Installationsanvisningar på din lokala plattform finns [installera Helm][helm-install].
 
 ## <a name="create-a-service-account"></a>Skapa ett tjänstkonto
 
-Innan du kan distribuera Helm i ett kluster med RBAC-aktiverad, behöver du ett tjänstkonto och rollen bindning för Tiller-tjänsten. Mer information om hur du skyddar Helm / Tiller i en RBAC aktiverat kluster, se [Tiller namnområden och RBAC][tiller-rbac]. Om klustret inte är RBAC aktiverad, kan du hoppa över det här steget.
+Innan du kan distribuera Helm i en RBAC-aktiverade AKS-kluster, behöver du ett tjänstkonto och rollen bindning för Tiller-tjänsten. Mer information om hur du skyddar Helm / Tiller i en RBAC aktiverat kluster, se [Tiller namnområden och RBAC][tiller-rbac]. Hoppa över det här steget om AKS-klustret inte är aktiverat RBAC.
 
 Skapa en fil med namnet `helm-rbac.yaml` och kopiera följande YAML:
 
@@ -76,10 +53,10 @@ subjects:
     namespace: kube-system
 ```
 
-Skapa kontot och rollen bindning med den `kubectl create` kommando:
+Skapa kontot och rollen bindning med den `kubectl apply` kommando:
 
 ```console
-kubectl create -f helm-rbac.yaml
+kubectl apply -f helm-rbac.yaml
 ```
 
 ## <a name="secure-tiller-and-helm"></a>Skydda Tiller och Helm
@@ -96,7 +73,7 @@ För att distribuera en grundläggande Tiller i ett AKS-kluster måste använda 
 helm init --service-account tiller
 ```
 
-Om du har konfigurerat TLS/SSL mellan Helm och Tiller ger den `--tiller-tls-` parametrar och namnen på dina egna certifikat, som visas i följande exempel:
+Om du har konfigurerat TLS/SSL mellan Helm och Tiller ger den `--tiller-tls-*` parametrar och namnen på dina egna certifikat, som visas i följande exempel:
 
 ```console
 helm init \

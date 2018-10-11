@@ -4,14 +4,14 @@ description: Den här artikeln innehåller en översikt över Brandvägg för we
 services: application-gateway
 author: amsriva
 ms.service: application-gateway
-ms.date: 10/6/2017
+ms.date: 10/11/2018
 ms.author: amsriva
-ms.openlocfilehash: a16f8d988c900d015810bfe72b04ff5e9eb0682a
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.openlocfilehash: 10a67eab142287cf9303e54005b6b167e9890df0
+ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48815676"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49068459"
 ---
 # <a name="web-application-firewall-waf"></a>Brandvägg för webbaserade program (WAF)
 
@@ -47,21 +47,43 @@ Viktiga fördelar med Application Gateway och brandväggen för webbaserade prog
 
 ## <a name="features"></a>Funktioner
 
-Brandväggen för webbaserade program är förkonfigurerad med CRS 3.0 som standard. Du kan också välja att använda 2.2.9. I CRS 3.0 finns bättre möjligheter att eliminera falska positiva identifieringar än i 2.2.9. Du kan [anpassa regler så att de passar dina behov](application-gateway-customize-waf-rules-portal.md). Några vanliga säkerhetshot som brandväggen för webbaserade program skyddar mot:
+- Skydd mot SQL-inmatning
+- Skydd mot skriptkörning över flera webbplatser
+- Skydd mot vanliga webbattacker, som kommandoinmatning, dold HTTP-begäran, delning av HTTP-svar och attack genom införande av fjärrfil
+- Skydd mot åtgärder som inte följer HTTP-protokollet
+- Skydd mot avvikelser i HTTP-protokollet som att användaragent för värden och accept-huvud saknas
+- Skydd mot robotar, crawlers och skannrar
+- Identifiering av vanliga felkonfigureringar för programmet (det vill säga Apache, IIS osv.)
 
-* Skydd mot SQL-inmatning
-* Skydd mot skriptkörning över flera webbplatser
-* Skydd mot vanliga webbattacker, som kommandoinmatning, dold HTTP-begäran, delning av HTTP-svar och attack genom införande av fjärrfil
-* Skydd mot åtgärder som inte följer HTTP-protokollet
-* Skydd mot avvikelser i HTTP-protokollet som att användaragent för värden och accept-huvud saknas
-* Skydd mot robotar, crawlers och skannrar
-* Identifiering av vanliga felkonfigureringar för programmet (det vill säga Apache, IIS osv.)
+### <a name="public-preview-features"></a>Funktioner i offentlig förhandsversion
 
-En detaljerad lista över regler och deras skydd finns följande [Core Rule Sets](#core-rule-sets).
+Det aktuella WAF offentligt förhandsversion SKU incudes följande funktioner:
+
+- **Begär storleksgränser** -Brandvägg för webbaserade program kan du konfigurera storleksbegränsningar för begäran i lägre och övre gränser.
+- **Undantagslistor** -WAF undantagslistor Tillåt användare att utelämna vissa begärandeattribut från en WAF-utvärdering. Ett vanligt exempel är Active Directory infogas token som används för autentisering eller lösenorden.
+
+Läs mer om den offentliga förhandsversionen av WAF [storleksgränser för programmet brandväggen begäran och undantagslistor (offentlig förhandsversion)](application-gateway-waf-configuration.md).
+
+
+
+
 
 ### <a name="core-rule-sets"></a>Core Rule Sets
 
 Application Gateway stöder två regeluppsättningar: CRS 3.0 och CRS 2.2.9. Dessa Core Rule Sets är regelsamlingar som skyddar dina webbprogram mot skadlig aktivitet.
+
+Brandväggen för webbaserade program är förkonfigurerad med CRS 3.0 som standard. Du kan också välja att använda 2.2.9. I CRS 3.0 finns bättre möjligheter att eliminera falska positiva identifieringar än i 2.2.9. Du kan [anpassa regler så att de passar dina behov](application-gateway-customize-waf-rules-portal.md). Några vanliga säkerhetshot som brandväggen för webbaserade program skyddar mot:
+
+- Skydd mot SQL-inmatning
+- Skydd mot skriptkörning över flera webbplatser
+- Skydd mot vanliga webbattacker, som kommandoinmatning, dold HTTP-begäran, delning av HTTP-svar och attack genom införande av fjärrfil
+- Skydd mot åtgärder som inte följer HTTP-protokollet
+- Skydd mot avvikelser i HTTP-protokollet som att användaragent för värden och accept-huvud saknas
+- Skydd mot robotar, crawlers och skannrar
+- Identifiering av vanliga felkonfigureringar i program (t.ex. Apache, IIS osv.)
+
+En detaljerad lista över regler och deras skydd finns i [Core regeluppsättningar](#core-rule-sets).
+
 
 #### <a name="owasp30"></a>OWASP_3.0
 

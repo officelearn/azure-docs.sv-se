@@ -5,17 +5,17 @@ services: active-directory
 ms.service: active-directory
 ms.component: B2B
 ms.topic: conceptual
-ms.date: 04/20/2018
+ms.date: 10/10/2018
 ms.author: mimart
 author: msmimart
 manager: mtillman
 ms.reviewer: sasubram
-ms.openlocfilehash: 65f43eb28ef2ef51409469934d59e1add7e83666
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 57c807b7729b58d2537ee09ddd5d05d4f2afb55e
+ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46297222"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49068851"
 ---
 # <a name="grant-b2b-users-in-azure-ad-access-to-your-on-premises-applications"></a>Grant B2B-användare i Azure AD åtkomst till dina lokala program
 
@@ -65,9 +65,9 @@ Du kan hantera de lokala B2B användarobjekt via principer för hantering av liv
 - Du kan konfigurera principer för multifaktorautentisering (MFA) för gästanvändaren så att MFA används under Application Proxy-autentisering. Mer information finns i [villkorlig åtkomst för användare i B2B-samarbetet](conditional-access.md).
 - Alla sponsring, åtkomstgranskningar, konto kontroller och annat som utförs på molnet B2B användaren gäller för lokala användare. Till exempel om molnet användaren tas bort via principer för hantering av livscykeln för raderas lokal användare också av MIM Sync eller Azure AD Connect sync. Mer information finns i [hantera gäståtkomst med Azure AD åtkomst går igenom](../governance/manage-guest-access-with-access-reviews.md).
 
-### <a name="create-b2b-guest-user-objects-through-mim-preview"></a>Skapa användarobjekt för B2B-gäst via MIM (förhandsversion)
+### <a name="create-b2b-guest-user-objects-through-mim"></a>Skapa användarobjekt för B2B-gäst via MIM
 
-Information om hur du använder MIM 2016 Service Pack 1 och MIM-hanteringsagenten för Microsoft Graph för att skapa användarobjekt gäst i din lokala katalog finns i [Azure AD-business-to-business (B2B) samarbete med Microsoft Identity Manager (MIM) 2016 SP1 med Azure Application Proxy (offentlig förhandsversion)](https://docs.microsoft.com/microsoft-identity-manager/microsoft-identity-manager-2016-graph-b2b-scenario).
+Information om hur du använder MIM 2016 Service Pack 1 och MIM-hanteringsagenten för Microsoft Graph för att skapa användarobjekt gäst i din lokala katalog finns i [Azure AD-business-to-business (B2B) samarbete med Microsoft Identity Manager (MIM) 2016 SP1 med Azure Application Proxy](https://docs.microsoft.com/microsoft-identity-manager/microsoft-identity-manager-2016-graph-b2b-scenario).
 
 ### <a name="create-b2b-guest-user-objects-through-a-script-preview"></a>Skapa användarobjekt för B2B-gäst via ett skript (förhandsversion)
 

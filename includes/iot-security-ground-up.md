@@ -1,19 +1,19 @@
 ---
 title: ta med fil
 description: ta med fil
-services: iot-suite
-author: dominicbetts
-ms.service: iot-suite
+services: iot-fundamentals
+author: robinsh
+ms.service: iot-fundamentals
 ms.topic: include
 ms.date: 04/24/2018
-ms.author: dobett
+ms.author: robinsh
 ms.custom: include file
-ms.openlocfilehash: 181432c3050bbc614898b1ddf779bc90239a35be
-ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
+ms.openlocfilehash: 8137a292045377c5dccb69c21a8118d0dc17874e
+ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39189408"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49069956"
 ---
 # <a name="internet-of-things-security-from-the-ground-up"></a>IOT-säkerhet från grunden
 
@@ -62,7 +62,9 @@ Azure IoT Hub åtkomstkontrollprinciper i molnet aktivera aktivering och inaktiv
 Ytterligare säkerhetsfunktioner:
 
 * Enheter accepterar inte oönskad nätverksanslutningar. De upprättar alla anslutningar och vägar endast utgående dirigering. För en enhet ska ta emot ett kommando från serverdelen måste enheten initiera en anslutning för att söka efter kommandon som väntar på att bearbeta. När upprättas en anslutning mellan enheten och IoT Hub på ett säkert sätt, meddelanden från molnet till enheten och enheten till molnet kan skickas transparent.
+
 * Enheter kan du bara ansluta till eller upprätta vägar till välkända tjänster som de är peerkopplade, till exempel en Azure IoT-hubb.
+
 * På systemnivå auktorisering och autentisering använder enhetsspecifika identiteter, vilket gör autentiseringsuppgifter och behörigheter nära-direkt kan återkallas.
 
 ### <a name="secure-connectivity"></a>Säker anslutning
@@ -76,7 +78,9 @@ Skalbarhet kräver möjligheten att på ett säkert sätt samverka med en mängd
 Säkerhetsfunktioner för ytterligare en anslutning är:
 
 * Kommunikationsvägen mellan enheter och Azure IoT Hub, eller mellan gateway och Azure IoT Hub, skyddas med hjälp av branschstandard säkerhet TLS (Transport Layer) med Azure IoT Hub med X.509-protokollet.
+
 * För att skydda enheter från oönskade inkommande anslutningar, öppnas Azure IoT Hub inte någon anslutning till enheten. Enheten initierar alla anslutningar.
+
 * Azure IoT Hub varaktigt lagrar meddelanden för enheter och väntar på att enheten ansluter. Dessa kommandon lagras i två dagar att aktivera enheter som ansluter bara ibland, på grund av kapacitets- eller frågor, att ta emot dessa kommandon. Azure IoT Hub underhåller en kö för varje enhet för varje enhet.
 
 ### <a name="secure-processing-and-storage-in-the-cloud"></a>Säker bearbetning och lagring i molnet
@@ -100,8 +104,13 @@ Lösningsacceleratorer skapa i säkerhetsåtgärder avsiktligt, aktivera säker 
 Varje lösningsaccelerator skapar instanser av Azure-tjänster, till exempel:
 
 * [**Azure IoT Hub**](https://azure.microsoft.com/services/iot-hub/): din gateway som ansluter molnet till enheter. Du kan skala till miljoner anslutningar per hubb och bearbeta enorma mängder data med stöd för autentisering per enhet vilket hjälper dig att skydda din lösning.
+
 * [**Azure Cosmos DB**](https://azure.microsoft.com/services/cosmos-db/): en skalbar och fullständigt indexerade databastjänst för halvstrukturerade data som hanterar metadata för enheterna som du etablerar, till exempel attribut, konfiguration och säkerhetsegenskaper för. Azure Cosmos DB erbjuder hög prestanda och hög genomströmning bearbetning, schemaoberoende indexering av data och ett omfattande SQL-gränssnitt.
+
 * [**Azure Stream Analytics**](https://azure.microsoft.com/services/stream-analytics/): strömningsbearbetning i molnet som hjälper dig att snabbt utveckla och distribuera en analyslösning med låg kostnad för att hämta information i realtid från enheter, sensorer, infrastruktur och program . Data från den här fullständigt hanterade tjänsten kan skalas till alla volymer samtidigt som du får hög genomströmning, Låg fördröjning och återhämtning.
+
 * [**Azure App Services**](https://azure.microsoft.com/services/app-service/): en plattform för att skapa avancerade webb- och mobilappar som ansluter till data överallt; i molnet eller lokalt. Skapa spännande mobilappar för iOS, Android och Windows. Integrera med programvara som en tjänst (SaaS) och företagsprogram med out-of the box anslutningen till massor av molnbaserade tjänster och företagsprogram. Koda på önskat språk och IDE – .NET, Node.js, PHP, Python eller Java – att skapa webbappar och API: er snabbare än någonsin.
+
 * [**Logic Apps**](https://azure.microsoft.com/services/app-service/logic/): Logic Apps-funktionen i Azure App Service hjälper dig att integrera din IoT-lösning till dina befintliga line-of-business-system och automatisera arbetsflödesprocesser. Logic Apps kan utvecklare utforma arbetsflöden som startar från en utlösare och sedan köra en serie steg, regler och åtgärder som använder kraftfulla kopplingar för att integrera med dina affärsprocesser. Logic Apps ger ut nyckelfärdig anslutning till ett enormt ekosystem med SaaS, molnbaserade och lokala program.
-* [**Azure-bloblagring**](https://azure.microsoft.com/services/storage/): pålitlig, ekonomisk molnlagring för de data som enheterna skickar till molnet.
+
+* [**Azure Blob storage**](https://azure.microsoft.com/services/storage/): pålitlig, ekonomisk molnlagring för de data som enheterna skickar till molnet.

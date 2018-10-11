@@ -5,14 +5,14 @@ services: event-grid
 author: tfitzmac
 ms.service: event-grid
 ms.topic: conceptual
-ms.date: 09/13/2018
+ms.date: 10/10/2018
 ms.author: tomfitz
-ms.openlocfilehash: 5db53567b1df9e726fb0c507f0302536ea45b7f4
-ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
+ms.openlocfilehash: fcf3ecaff6e8ba1421496a96d01428946cf8ab8e
+ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45603778"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49077790"
 ---
 # <a name="dead-letter-and-retry-policies"></a>Obeställbara meddelanden och principer för återförsök
 
@@ -48,7 +48,7 @@ Om du vill inaktivera dead-lettering, kör kommandot för att skapa händelsepre
 
 När du skapar en Event Grid-prenumeration kan ange du värden för hur länge Event Grid bör försöka leverera händelsen. Event Grid som standard försöker i 24 timmar (1 440 minuter) och försöker upp till 30 gånger. Du kan ange något av dessa värden för event grid-prenumeration. Värdet för time to live-händelse måste vara ett heltal mellan 1 och 1440. Värdet för maximal leveransförsök måste vara ett heltal mellan 1 och 30.
 
-Du kan inte konfigurera den [återförsöksintervall](delivery-and-retry.md#retry-intervals-and-duration).
+Du kan inte konfigurera den [försök schema](delivery-and-retry.md#retry-schedule-and-duration).
 
 För att ange händelsen time-to-live för ett annat värde än 1 440 minuter, använder du:
 

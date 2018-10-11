@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 07/26/2018
 ms.author: andrl
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d7c1c28b3d7b2f51c31f5f05cdef66cc8d71e192
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: 968651e2bd06d54c8b735bf2418e0d84b94f315d
+ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48886391"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49078576"
 ---
 # <a name="partition-and-scale-in-azure-cosmos-db"></a>Partitionera och skala i Azure Cosmos DB
 
@@ -185,7 +185,7 @@ Mer information finns i [utveckla med tabell-API](tutorial-develop-table-dotnet.
 Med Gremlin-API kan du använda Azure portal eller Azure CLI för att skapa en behållare som representerar ett diagram. Eftersom Azure Cosmos DB är flera modeller, kan du också använda en av de andra API: er att skapa och skala din graph-behållare.
 
 > [!NOTE]
-> Du kan inte använda `/id` som partitionsnyckel för en behållare i Gremlin-API. 
+> `/id` och `/label` stöds inte som partitionsnycklar för en behållare i Gremlin-API.
 
 Du kan läsa alla hörn eller edge med hjälp av partitionsnyckel och ID i Gremlin. För ett diagram med region (”USA”) som partitionsnyckel och ”Seattle” som radnyckel, kan du hitta ett hörn med hjälp av följande syntax:
 

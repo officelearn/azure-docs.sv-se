@@ -5,15 +5,15 @@ services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 07/06/2018
+ms.date: 10/10/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 6a113169cb3f8fea1012643efcb56e5cf6c7e908
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 4a92bfc9d682346c874ce91fc9835558402bae84
+ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37915977"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49078995"
 ---
 # <a name="prepare-azure-resources-for-replication-of-on-premises-machines"></a>Förbereda Azure-resurser för replikering av lokala datorer
 
@@ -23,7 +23,7 @@ Den här artikeln är den första kursen i en serie som illustrerar hur du stäl
 
 Självstudiekurser är utformade för att visa den enklaste distributionsvägen för ett scenario. De använder standardalternativ där det är möjligt och visar inte alla möjliga inställningar och sökvägar. 
 
-Den här artikeln visar hur du förbereder Azure-komponenter när du vill replikera lokala virtuella datorer (Hyper-V eller VMware) eller fysiska Windows-/Linux-servrar till Azure. I den här guiden får du lära dig hur man:
+Den här artikeln visar hur du förbereder Azure-komponenter när du vill replikera lokala virtuella datorer (Hyper-V eller VMware) eller fysiska Windows-/Linux-servrar till Azure. I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
 > * Kontrollera att ditt Azure-konto har replikeringsbehörighet.
@@ -58,7 +58,7 @@ Avbildningar av replikerade datorer lagras i Azure-lagringen. Virtuella Azure-da
 5. I **Replikering** väljer du standardinställningen **Read-access geo-redundant storage** för lagringsredundans. Vi låter **Säker överföring krävs** vara **Inaktiverat**.
 6. I **Prestanda** väljer du **Standard** och i **Åtkomstnivå** väljer du standardalternativet **Frekvent**.
 7. I **Prenumeration** väljer du den prenumeration som du vill skapa det nya lagringskontot i.
-8. Ange ett nytt namn på resursgruppen i **Resursgrupp**. En Azure-resursgrupp är en logisk behållare där Azure-resurser distribueras och hanteras. I de här självstudierna använder vi namnet **ContosoRG**.
+8. Ange ett nytt namn på resursgruppen i **Resursgrupp**. En Azure-resursgrupp är en logisk container där Azure-resurser distribueras och hanteras. I de här självstudierna använder vi namnet **ContosoRG**.
 9. Välj den geografiska platsen för ditt lagringskonto för **Plats**. 
 
    ![skapar ett lagringskonto](media/tutorial-prepare-azure/create-storageacct.png)

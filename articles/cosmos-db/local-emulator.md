@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/20/2018
 ms.author: danoble
-ms.openlocfilehash: 7067a71eea3ffbfadf006a102ee926fb15347f63
-ms.sourcegitcommit: 42405ab963df3101ee2a9b26e54240ffa689f140
+ms.openlocfilehash: a5481f9b2b443a0860ce0df5643427f357e1c294
+ms.sourcegitcommit: 4edf9354a00bb63082c3b844b979165b64f46286
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47423654"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48785379"
 ---
 # <a name="use-the-azure-cosmos-db-emulator-for-local-development-and-testing"></a>Använda Azure Cosmos DB-emulatorn för lokal utveckling och testning
 
@@ -466,54 +466,6 @@ För att samla in felsökningsspårningar kör du följande kommandon från en a
 2. I Windows-sökrutan skriver du **Appar och funktioner** och klickar på resultatet för **Appar och funktioner (systeminställningar)**.
 3. I listan över appar bläddrar du till **Azure Cosmos DB-emulatorn**, väljer den, klickar på **Avinstallera** och bekräftar sedan och klickar på **Avinstallera** igen.
 4. När appen är avinstallerad navigerar du till `C:\Users\<user>\AppData\Local\CosmosDBEmulator` och tar bort mappen. 
-
-## <a name="change-list"></a>Ändringslista
-
-Du kan kontrollera versionsnummer genom att högerklicka på ikonen för den lokala emulatorn i aktivitetsfältet och klicka på Om-menyalternativet.
-
-### <a name="1220-released-on-april-20-2018"></a>1.22.0. Gavs ut den 20 april 2018
-
-Förutom att uppdatera emulatortjänsterna för paritet med Cosmos DB-molntjänsterna så har vi lagt till bättre PowerShell-dokumentation och några olika felkorrigeringar.
-
-### <a name="12106-released-on-march-27-2018"></a>1.21.0.6 Gavs ut den 27 mars 2018
-
-Förutom att uppdatera emulatortjänsterna för paritet med Cosmos DB-molntjänsterna så har vi lagt till en ny funktion och två felkorrigeringar i den här versionen.
-
-#### <a name="features"></a>Funktioner
-
-1. Kommandot Start-CosmosDbEmulator innehåller nu startalternativ.
-
-#### <a name="bug-fixes"></a>Felkorrigeringar
-
-1. PowerShell-modulen Microsoft.Azure.CosmosDB.Emulator ser nu till att `ServiceControllerStatus`-uppräkningen läses in.
-
-2. PowerShell-modulen Microsoft.Azure.CosmosDB.Emulator innehåller nu ett manifest som utelämnades i den första versionen.
-
-### <a name="1201084-released-on-february-14-2018"></a>1.20.108.4 Släpptes den 14 februari 2018
-
-Det finns en ny funktion och två felkorrigeringar i den här versionen. Vi tackar kunderna som har hjälpt oss att hitta och åtgärda problemen.
-
-#### <a name="bug-fixes"></a>Felkorrigeringar
-
-1. Emulatorn fungerar nu på datorer med 1 eller 2 kärnor (eller virtuella processorer)
-
-   Cosmos DB allokerar uppgifter för att utföra olika tjänster. Antalet allokerade uppgifter är en multipel av antalet kärnor på en värd. Standardmultipeln fungerar bra i produktionsmiljöer där antalet kärnor är stort. Men på datorer med 1 eller 2 processorer allokeras inga uppgifter för att utföra dessa tjänster när den här multipeln används.
-
-   Vi åtgärdade detta genom att lägga till en konfigurationsåsidosättning för emulatorn. Vi kan nu använda en multipel på 1. Antalet uppgifter som allokeras för att utföra diverse tjänster motsvarar nu antalet kärnor hos en värd.
-
-   Det här problemet prioriterades främst för den här versionen. Vi ser att många utvecklings-/testmiljöer med emulatorn har 1 eller 2 kärnor.
-
-2. Emulatorn kräver inte längre att Microsoft Visual C++ 2015 Redistributable ska vara installerat.
-
-   Vi upptäckte att nya installationer av Windows (skrivbords- och serverversioner) inte innehåller det här distributionspaketet. Därför paketerar vi nu de omdistribuerbara binärfilerna med emulatorn.
-
-#### <a name="features"></a>Funktioner
-
-Många av de kunder vi har talat med har sagt att det vore bra om det gick att skriva skript för emulatorn. Vi har därför lagt till vissa skriptmöjligheter i den här versionen. Emulatorn innehåller nu en PowerShell-modul för att starta, stoppa, hämta status och avinstallera sig själv: `Microsoft.Azure.CosmosDB.Emulator`. 
-
-### <a name="120911-released-on-january-26-2018"></a>1.20.91.1 Gavs ut den 26 januari 2018
-
-* Aktiverade MongoDB-sammansättningspipeline som standard.
 
 ## <a name="next-steps"></a>Nästa steg
 

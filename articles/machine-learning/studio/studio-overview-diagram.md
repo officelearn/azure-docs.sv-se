@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
 ms.date: 04/04/2017
-ms.openlocfilehash: f1364435d2f7b50c642d1bb5b41708ec52bda533
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 240be0e7dc199a84130739244743d245b780b608
+ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46946212"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48902084"
 ---
 # <a name="overview-diagram-of-azure-machine-learning-studio-capabilities"></a>Översiktsdiagram över funktioner i Machine Learning Studio
 Diagrammet **Översikt över funktioner i Microsoft Azure Machine Learning Studio** ger en övergripande bild av hur du kan utveckla en förutsägelseanalysmodell i Machine Learning Studio och använda den i Azure-molnet.
@@ -47,7 +47,7 @@ Ladda ned diagrammet **Översikt över funktioner i Microsoft Azure Machine Lear
 
 
 ## <a name="more-help-with-machine-learning-studio"></a>Mer hjälp med Machine Learning Studio
-* En översikt över Microsoft Azure Machine Learning finns i [Introduktion till Machine Learning på Microsoft Azure](what-is-machine-learning.md)
+* En översikt över Microsoft Azure Machine Learning finns i [Introduktion till Machine Learning på Microsoft Azure](../service/overview-what-is-azure-ml.md)
 * En översikt över Machine Learning Studio finns i [Vad är Azure Machine Learning Studio?](what-is-ml-studio.md).
 * En ingående diskussion av de Machine Learning-algoritmer som finns i Machine Learning Studio finns i [Så här väljer du algoritmer för Microsoft Azure Machine Learning](algorithm-choice.md).
 

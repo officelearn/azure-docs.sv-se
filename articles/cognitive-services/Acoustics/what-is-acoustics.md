@@ -1,20 +1,21 @@
 ---
-title: Introduktion till akustik – Cognitive Services
+title: Vad är Project Acoustics?
+titlesuffix: Azure Cognitive Services
 description: Plugin-programmet Project Acoustics Unity ger ocklusion, reverb och spatialisering för projekt som riktar in sig på VR och traditionella skärmar.
 services: cognitive-services
 author: kegodin
-manager: noelc
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: acoustics
 ms.topic: overview
 ms.date: 08/17/2018
 ms.author: kegodin
-ms.openlocfilehash: 08c6d8b8e229aabcc05fdfde2d8ffadf3a6346c2
-ms.sourcegitcommit: 1aedb52f221fb2a6e7ad0b0930b4c74db354a569
+ms.openlocfilehash: 6a3c97ead40cfb24604edac0624e38a9b0713fc0
+ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "40181030"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48901032"
 ---
 # <a name="what-is-project-acoustics"></a>Vad är Project Acoustics?
 Plugin-programmet Project Acoustics Unity ger ocklusion, reverb och spatialisering för projekt som riktar in sig på VR och traditionella skärmar. Med det får du ett sätt att utforma spelakustik som lägger ett lager av designavsikter över en fysikbaserad vågsimulering.

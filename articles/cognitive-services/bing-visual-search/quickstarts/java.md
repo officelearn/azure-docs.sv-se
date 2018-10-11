@@ -6,22 +6,22 @@ services: cognitive-services
 author: swhite-msft
 manager: cgronlun
 ms.service: cognitive-services
-ms.technology: bing-visual-search
+ms.component: bing-visual-search
 ms.topic: quickstart
 ms.date: 5/16/2018
 ms.author: scottwhi
-ms.openlocfilehash: 56e1b943f03128fa6703a7b15bd0d6ade09089d6
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 0e2f4d83904240cb32d3e162c4c873f0c8e469fd
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47222632"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48885263"
 ---
 # <a name="quickstart-your-first-bing-visual-search-query-in-java"></a>Snabbstart: Din första fråga till Visuell sökning i Bing i Java
 
 API:n för visuell sökning i Bing returnerar information om en bild som du anger. Du kan ange bilden med hjälp av dess URL, en insiktstoken eller genom att ladda upp en bild. Information om alternativen finns i [Vad är API för visuell sökning i Bing?](../overview.md) Den här artikeln visar hur du laddar upp en bild. Att ladda upp en bild kan vara användbart i mobila scenarier, där du kan ta en bild av ett välkänt landmärke och få tillbaka information om det. Informationen kan exempelvis vara fakta om landmärket. 
 
-Om du laddar upp en lokal bild måste du inkludera de formulärdata som visas nedan i brödtexten i POST. Formulärdatan måste innehålla rubriken för innehållsdispositionen. Parametern `name` måste anges till ”image” och parametern `filename` kan anges till valfri sträng. Innehållet i formuläret är binärt för bilden. Den maximala bildstorlek som du kan ladda upp är 1 MB. 
+Om du laddar upp en lokal bild måste du inkludera de formulärdata som visas nedan i brödtexten i POST. Formulärdatan måste innehålla huvudet för innehållsdispositionen. Parametern `name` måste anges till ”image” och parametern `filename` kan anges till valfri sträng. Innehållet i formuläret är binärt för bilden. Den maximala bildstorlek som du kan ladda upp är 1 MB. 
 
 ```
 --boundary_1234-abcd
@@ -51,7 +51,7 @@ Följ dessa steg om du vill köra programmet:
 2. Skapa ett nytt Java-projekt i din favorit-IDE eller i ett redigeringsprogram.
 3. Lägg till den angivna koden i en fil med namnet `VisualSearch.java`.
 4. Ersätt värdet `subscriptionKey` med din prenumerationsnyckel.
-4. Ersätt värdet `imagePath` med sökvägen till bilden som ska laddas upp.
+4. Ersätt värdet `imagePath` med sökvägen till den bild som ska laddas upp.
 5. Kör programmet.
 
 
@@ -146,11 +146,11 @@ public class UploadImage2 {
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Få information om en bild med hjälp av en insiktstoken](../use-insights-token.md)  
+[Få insikter om en bild med hjälp av en insiktstoken](../use-insights-token.md)  
 [Självstudie om bilduppladdning i Visuell sökning i Bing](../tutorial-visual-search-image-upload.md)
 [Självstudie om ensidesapplikationer i Visuell sökning i Bing](../tutorial-bing-visual-search-single-page-app.md)  
 [Översikt för Visuell sökning i Bing](../overview.md)  
-[Prova!](https://aka.ms/bingvisualsearchtryforfree)  
+[Prova](https://aka.ms/bingvisualsearchtryforfree)  
 [Skaffa en åtkomstnyckel för en kostnadsfri utvärderingsversion](https://azure.microsoft.com/try/cognitive-services/?api=bing-visual-search-api)  
 [Referens till API för visuell sökning i Bing](https://aka.ms/bingvisualsearchreferencedoc)
 

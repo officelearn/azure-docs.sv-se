@@ -16,25 +16,25 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 03/27/18
 ms.author: cynthn
-ms.openlocfilehash: fc3128c0e08a54bfe95ec4d09bcc766d1d20811f
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 962034569a0ddcaf58adfe1ac541703cf731c1ad
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38477878"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46952383"
 ---
 # <a name="quickstart-create-a-linux-virtual-machine-scale-set-with-an-azure-template"></a>Snabbstart: Skapa en Linux VM-skalningsuppsättning med en Azure-mall
-Med en VM-skalningsuppsättning kan du distribuera och hantera en uppsättning identiska, virtuella datorer med automatisk skalning. Du kan skala antalet virtuella datorer i skalningsuppsättningen manuellt eller definiera regler för automatisk skalning baserat på resursanvändning som CPU, minnesefterfrågan eller nätverkstrafik. En Azure-belastningsutjämnare distribuerar sedan trafiken till de virtuella datorinstanserna i skalningsuppsättningen. I den här snabbstarten skapar du en VM-skalningsuppsättning och distribuerar ett exempelprogram med en Azure Resource Manager-mall.
+Med en VM-skalningsuppsättning kan du distribuera och hantera en uppsättning identiska, virtuella datorer med automatisk skalning. Du kan skala antalet virtuella datorer i skalningsuppsättningen manuellt eller definiera regler för automatisk skalning baserat på resursanvändning som CPU, minnesefterfrågan eller nätverkstrafik. En Azure-lastbalanserare distribuerar sedan trafiken till de virtuella datorinstanserna i skalningsuppsättningen. I den här snabbstarten skapar du en VM-skalningsuppsättning och distribuerar ett exempelprogram med en Azure Resource Manager-mall.
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Om du väljer att installera och använda CLI lokalt, måste du köra Azure CLI version 2.0.29 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI 2.0]( /cli/azure/install-azure-cli).
+Om du väljer att installera och använda CLI lokalt, måste du köra Azure CLI version 2.0.29 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI]( /cli/azure/install-azure-cli).
 
 
 ## <a name="define-a-scale-set-in-a-template"></a>Definiera en skalningsuppsättning i en mall
-Du kan distribuera grupper av relaterade resurser med hjälp av Azure Resource Manager-mallar. Mallarna är skrivna i JavaScript Object Notation (JSON) och definierar hela infrastrukturen i Azure-miljön för din app. Med en enda mall kan du skapa VM-skalningsuppsättningen, installera program och ange regler för automatisk skalning. Du kan återanvända mallen och använda variabler och parametrar till att uppdatera befintliga, eller skapa ytterligare, skalningsuppsättningar. Du kan distribuera mallar via Azure Portal, Azure CLI 2.0 eller Azure PowerShell eller från pipelines för kontinuerlig integrering/kontinuerlig leverans (CI/CD).
+Du kan distribuera grupper av relaterade resurser med hjälp av Azure Resource Manager-mallar. Mallarna är skrivna i JavaScript Object Notation (JSON) och definierar hela infrastrukturen i Azure-miljön för din app. Med en enda mall kan du skapa VM-skalningsuppsättningen, installera program och ange regler för automatisk skalning. Du kan återanvända mallen och använda variabler och parametrar till att uppdatera befintliga, eller skapa ytterligare, skalningsuppsättningar. Du kan distribuera mallar via Azure-portalen, Azure CLI eller Azure PowerShell eller från pipelines för kontinuerlig integrering/kontinuerlig leverans (CI/CD).
 
 Mer information om mallar finns i [Översikt över Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#template-deployment)
 
@@ -92,7 +92,7 @@ När du skapar en skalningsuppsättning med en mall definierar du lämpliga resu
 }
 ```
 
- Av utrymmesskäl visas inte nätverkskortkonfigurationen. Ytterligare komponenter, till exempel belastningsutjämnare, visas inte heller. En fullständig skalningsuppsättningsmall visas [i slutet av den här artikeln](#deploy-the-template).
+ Av utrymmesskäl visas inte nätverkskortkonfigurationen. Ytterligare komponenter, till exempel lastbalanserare, visas inte heller. En fullständig skalningsuppsättningsmall visas [i slutet av den här artikeln](#deploy-the-template).
 
 
 ## <a name="add-a-sample-application"></a>Lägg till ett exempelprogram
@@ -137,7 +137,7 @@ Du kan distribuera mallen [Python HTTP-servern på Linux](https://github.com/Azu
 
 [![Distribuera mall till Azure](media/virtual-machine-scale-sets-create-template/deploy-button.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-vmss-bottle-autoscale%2Fazuredeploy.json)
 
-Du kan också använda Azure CLI 2.0 för att installera Python HTTP-servern på Linux med [az group deployment create](/cli/azure/group/deployment#az_group_deployment_create) på följande sätt:
+Du kan också använda Azure CLI för att installera Python HTTP-servern på Linux med [az group deployment create](/cli/azure/group/deployment#az_group_deployment_create) på följande sätt:
 
 ```azurecli-interactive
 # Create a resource group
@@ -153,7 +153,7 @@ Svara på frågorna och ange namn på skalningsuppsättningen, antal instanser o
 
 
 ## <a name="test-your-scale-set"></a>Testa din skalningsuppsättning
-Om du vill se din skalningsuppsättning i praktiken så gå till exempelwebbprogrammet i en webbläsare. Hämta den offentliga IP-adressen för belastningsutjämnaren med [az network public-ip list](/cli/azure/network/public-ip#show) på följande sätt:
+Om du vill se din skalningsuppsättning i praktiken så gå till exempelwebbprogrammet i en webbläsare. Hämta den offentliga IP-adressen för lastbalanseraren med [az network public-ip list](/cli/azure/network/public-ip#show) på följande sätt:
 
 ```azurecli-interactive
 az network public-ip list \
@@ -161,7 +161,7 @@ az network public-ip list \
     --query [*].ipAddress -o tsv
 ```
 
-Ange den offentliga IP-adressen för belastningsutjämnaren i en webbläsare i formatet *http://publicIpAddress:9000/do_work*. Belastningsutjämnaren distribuerar trafik till en av dina VM-instanser enligt följande exempel:
+Ange den offentliga IP-adressen för lastbalanseraren i en webbläsare i formatet *http://publicIpAddress:9000/do_work*. Lastbalanseraren distribuerar trafik till en av dina VM-instanser enligt följande exempel:
 
 ![Standardwebbsida i NGINX](media/virtual-machine-scale-sets-create-template/running-python-app.png)
 

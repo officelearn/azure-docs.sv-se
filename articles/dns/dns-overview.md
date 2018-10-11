@@ -5,14 +5,14 @@ author: vhorne
 manager: jeconnoc
 ms.service: dns
 ms.topic: overview
-ms.date: 6/7/2018
+ms.date: 9/24/2018
 ms.author: victorh
-ms.openlocfilehash: 0812f5e3e23fbf49afec91524b4de2ff0eb7cd9a
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: e3e04bf7e35b22a56465810f476323ed217e047a
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45574189"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46967633"
 ---
 # <a name="what-is-azure-dns"></a>Vad är Azure DNS?
 
@@ -52,6 +52,14 @@ Dina domäner och poster kan hanteras med hjälp av Azure-portalen, Azure PowerS
 Azure DNS stöder även privata DNS-zoner, som för närvarande är i förhandsversion. På så sätt kan du använda dina egna anpassade domännamn i dina privata virtuella nätverk i stället för de namn som tillhandahålls av Azure och är tillgängliga i dag.
 
 Mer information finns på sidan om att [använda Azure DNS för privata domäner](private-dns-overview.md).
+
+## <a name="alias-records"></a>Aliasposter
+
+Azure DNS stöder aliaspostuppsättningar. Du kan använda en aliaspostuppsättning för att referera till en Azure-resurs, till exempel en offentlig IP-adress i Azure eller en Traffic Manager-profil. Om IP-adressen för den underliggande resursen ändras uppdateras aliaspostuppsättningen sömlöst under DNS-matchningen. Aliaspostuppsättningen pekar på tjänstinstansen och tjänstinstansen associeras med en IP-adress. 
+
+Dessutom kan du nu peka din apex eller en domän utan www (t.ex. contoso.com) mot en Traffic Manager-profil med hjälp av en aliaspost.
+
+Mer information finns i [översikten över Azure DNS-aliasposter](dns-alias.md).
 
 
 ## <a name="next-steps"></a>Nästa steg

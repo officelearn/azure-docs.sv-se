@@ -1,6 +1,6 @@
 ---
-title: Skriptexempel för Azure CLI – Skapa en webbapp med kontinuerlig distribution från Visual Studio Team Services | Microsoft Docs
-description: Skriptexempel för Azure CLI – Skapa en webbapp med kontinuerlig distribution från Visual Studio Team Services
+title: Skriptexempel för Azure CLI – Skapa en webbapp med kontinuerlig distribution från Azure DevOps Services | Microsoft Docs
+description: Azure CLI-skriptexempel – Skapa en webbapp med kontinuerlig distribution från Azure DevOps Services
 services: app-service\web
 documentationcenter: ''
 author: syntaxc4
@@ -16,30 +16,30 @@ ms.topic: sample
 ms.date: 12/11/2017
 ms.author: cfowler
 ms.custom: mvc
-ms.openlocfilehash: e3748654f85e32edeb6f0c7478418068aeb4ae5f
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: fcb55c72f63a9964f04fba1e2b8abbaf39fe6b46
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/30/2018
-ms.locfileid: "30282886"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46967055"
 ---
-# <a name="create-a-web-app-with-continuous-deployment-from-visual-studio-team-services"></a>Skapa en webbapp med kontinuerlig distribution från Visual Studio Team Services
+# <a name="create-a-web-app-with-continuous-deployment-from-azure-devops"></a>Skapa en webbapp med kontinuerlig distribution från Azure DevOps
 
-Det här exempelskriptet skapar en webbapp i App Service med dess relaterade resurser och ställer sedan in kontinuerlig distribution från en Visual Studio Team Services-databas. För det här exemplet behöver du följande:
+Det här exempelskriptet skapar en webbapp i App Service med dess relaterade resurser och ställer sedan in kontinuerlig distribution från en Azure DevOps-lagringsplats. För det här exemplet behöver du följande:
 
-* En Visual Studio Team Services-databas med programkod som du har administrativa behörigheter för.
-* En [personlig åtkomsttoken (PAT)](https://www.visualstudio.com/docs/setup-admin/team-services/use-personal-access-tokens-to-authenticate) för Visual Studio Team Services-kontot.
+* En Azure DevOps-lagringsplats med programkod som du har administratörsbehörighet för.
+* En [personlig åtkomsttoken (PAT)](https://docs.microsoft.com/azure/devops/organizations/accounts/use-personal-access-tokens-to-authenticate?view=vsts) för din Azure DevOps-organisation.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Om du väljer att installera och använda CLI-gränssnittet lokalt måste du ha Azure CLI version 2.0 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI 2.0]( /cli/azure/install-azure-cli).
+Om du väljer att installera och använda CLI-gränssnittet lokalt måste du ha Azure CLI version 2.0 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa informationen i [Installera Azure CLI]( /cli/azure/install-azure-cli).
 
 ## <a name="sample-script"></a>Exempelskript
 
-[!code-azurecli-interactive[main](../../../cli_scripts/app-service/deploy-vsts-continuous/deploy-vsts-continuous.sh?highlight=3-4 "Create a web app with continuous deployment from Visual Studio Team Services")]
+[!code-azurecli-interactive[main](../../../cli_scripts/app-service/deploy-vsts-continuous/deploy-vsts-continuous.sh?highlight=3-4 "Create a web app with continuous deployment from Azure DevOps")]
 
 [!INCLUDE [cli-script-clean-up](../../../includes/cli-script-clean-up.md)]
 

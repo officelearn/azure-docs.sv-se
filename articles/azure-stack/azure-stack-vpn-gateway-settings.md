@@ -3,7 +3,7 @@ title: VPN gateway-inställningar för Azure Stack | Microsoft Docs
 description: Läs mer om inställningar för VPN-gatewayer som du använder med Azure Stack.
 services: azure-stack
 documentationcenter: ''
-author: brenduns
+author: sethmanheim
 manager: femila
 editor: ''
 ms.assetid: fa8d3adc-8f5a-4b4f-8227-4381cf952c56
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/14/2018
-ms.author: brenduns
-ms.openlocfilehash: 6380936766bb0f3848811be305783c274867b0fc
-ms.sourcegitcommit: a3a0f42a166e2e71fa2ffe081f38a8bd8b1aeb7b
+ms.author: sethm
+ms.openlocfilehash: 2fa062621e551ce7182facc45ec84b39d4c2dad7
+ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/01/2018
-ms.locfileid: "43381875"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49078757"
 ---
 # <a name="vpn-gateway-configuration-settings-for-azure-stack"></a>Konfigurationsinställningar för VPN-gateway för Azure Stack
 

@@ -1,5 +1,5 @@
 ---
-title: Snabbstart – Skapa en VM-skalningsuppsättning med Azure CLI 2.0 | Microsoft Docs
+title: Snabbstart – Skapa en VM-skalningsuppsättning med Azure CLI | Microsoft Docs
 description: Lär dig hur du snabbt skapar en VM-skalningsuppsättning med Azure PowerShell
 services: virtual-machine-scale-sets
 documentationcenter: ''
@@ -16,21 +16,21 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 03/27/18
 ms.author: cynthn
-ms.openlocfilehash: 9df1ce48f3851fb0d5576315ac63f9f923059ffa
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 348074592da8465762b178b49af4713aadcc8c8d
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38630122"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46970673"
 ---
-# <a name="quickstart-create-a-virtual-machine-scale-set-with-the-azure-cli-20"></a>Snabbstart: Skapa en VM-skalningsuppsättning med Azure CLI 2.0
-Med en VM-skalningsuppsättning kan du distribuera och hantera en uppsättning identiska, virtuella datorer med automatisk skalning. Du kan skala antalet virtuella datorer i skalningsuppsättningen manuellt eller definiera regler för automatisk skalning baserat på resursanvändning som CPU, minnesefterfrågan eller nätverkstrafik. En Azure-belastningsutjämnare distribuerar sedan trafiken till de virtuella datorinstanserna i skalningsuppsättningen. I den här snabbstarten skapar du en VM-skalningsuppsättning och distribuerar ett exempelprogram med Azure CLO 2.0.
+# <a name="quickstart-create-a-virtual-machine-scale-set-with-the-azure-cli"></a>Snabbstart: Skapa en VM-skalningsuppsättning med Azure CLI
+Med en VM-skalningsuppsättning kan du distribuera och hantera en uppsättning identiska, virtuella datorer med automatisk skalning. Du kan skala antalet virtuella datorer i skalningsuppsättningen manuellt eller definiera regler för automatisk skalning baserat på resursanvändning som CPU, minnesefterfrågan eller nätverkstrafik. En Azure-lastbalanserare distribuerar sedan trafiken till de virtuella datorinstanserna i skalningsuppsättningen. I den här snabbstarten skapar du en VM-skalningsuppsättning och distribuerar ett exempelprogram med Azure CLI.
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Om du väljer att installera och använda CLI lokalt, måste du köra Azure CLI version 2.0.29 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI 2.0]( /cli/azure/install-azure-cli). 
+Om du väljer att installera och använda CLI lokalt, måste du köra Azure CLI version 2.0.29 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI]( /cli/azure/install-azure-cli). 
 
 
 ## <a name="create-a-scale-set"></a>Skapa en skalningsuppsättning
@@ -72,7 +72,7 @@ az vmss extension set \
 
 
 ## <a name="allow-traffic-to-application"></a>Tillåta trafik till program
-En Azure-belastningsutjämnare distribuerades automatiskt när skalningsuppsättning skapades. Belastningsutjämnare distribuerar trafiken till VM-instanserna i skalningsuppsättningen. Använd [az network lb rule create](/cli/azure/network/lb/rule#az_network_lb_rule_create) för att skapa en regel för belastningsutjämnaren för att tillåta att trafik når exempelwebbprogrammet. I följande exempel skapas en regel med namnet *myLoadBalancerRuleWeb*:
+En Azure-lastbalanserare distribuerades automatiskt när skalningsuppsättning skapades. Lastbalanserare distribuerar trafiken till VM-instanserna i skalningsuppsättningen. Använd [az network lb rule create](/cli/azure/network/lb/rule#az_network_lb_rule_create) för att skapa en regel för lastbalanseraren för att tillåta att trafik når exempelwebbprogrammet. I följande exempel skapas en regel med namnet *myLoadBalancerRuleWeb*:
 
 ```azurecli-interactive
 az network lb rule create \
@@ -88,7 +88,7 @@ az network lb rule create \
 
 
 ## <a name="test-your-scale-set"></a>Testa din skalningsuppsättning
-Om du vill se din skalningsuppsättning i praktiken så gå till exempelwebbprogrammet i en webbläsare. Hämta den offentliga IP-adressen för belastningsutjämnaren med [az network public-ip show](/cli/azure/network/public-ip#az_network_public_ip_show). I följande exempel hämtas IP-adressen för *myScaleSetLBPublicIP* som skapas som en del av skalningsuppsättningen:
+Om du vill se din skalningsuppsättning i praktiken så gå till exempelwebbprogrammet i en webbläsare. Hämta den offentliga IP-adressen för lastbalanseraren med [az network public-ip show](/cli/azure/network/public-ip#az_network_public_ip_show). I följande exempel hämtas IP-adressen för *myScaleSetLBPublicIP* som skapas som en del av skalningsuppsättningen:
 
 ```azurecli-interactive
 az network public-ip show \
@@ -98,7 +98,7 @@ az network public-ip show \
   --output tsv
 ```
 
-Skriv den offentliga IP-adressen för belastningsutjämnaren i en webbläsare. Belastningsutjämnaren distribuerar trafik till en av dina VM-instanser enligt följande exempel:
+Skriv den offentliga IP-adressen för lastbalanseraren i en webbläsare. Lastbalanseraren distribuerar trafik till en av dina VM-instanser enligt följande exempel:
 
 ![Standardwebbsida i NGINX](media/virtual-machine-scale-sets-create-cli/running-nginx-site.png)
 

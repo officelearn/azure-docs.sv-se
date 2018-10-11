@@ -1,6 +1,6 @@
 ---
-title: Azure CLI 2.0-exempel – använd en anpassad virtuell datoravbildning | Microsoft Docs
-description: Azure CLI 2.0-exempel
+title: Azure CLI-exempel – Använda en anpassad virtuell datoravbildning | Microsoft Docs
+description: Azure CLI-exempel
 services: virtual-machine-scale-sets
 documentationcenter: ''
 author: cynthn
@@ -16,14 +16,14 @@ ms.workload: na
 ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: c13b8275b69579e6645a5a0fa0c9d446c0246a48
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: a74e84b05269acc0d9f98a221b9e496dbe5fc75f
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38697508"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46986089"
 ---
-# <a name="create-a-virtual-machine-scale-set-from-a-custom-vm-image-with-the-azure-cli-20"></a>Skapa en VM-skalningsuppsättning från en anpassad virtuell datoravbildning med Azure CLI 2.0
+# <a name="create-a-virtual-machine-scale-set-from-a-custom-vm-image-with-the-azure-cli"></a>Skapa en VM-skalningsuppsättning från en anpassad virtuell datoravbildning med Azure CLI
 Det här skriptet skapar en VM-skalningsuppsättning som använder en anpassad virtuell datoravbildning som källa för de virtuella datorinstanserna.
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
@@ -46,10 +46,10 @@ Det här skriptet använder följande kommandon för att skapa en resursgrupp, e
 | Kommando | Anteckningar |
 |---|---|
 | [az group create](/cli/azure/ad/group#az_ad_group_create) | Skapar en resursgrupp där alla resurser lagras. |
-| [az vmss create](/cli/azure/vmss#az_vmss_create) | Skapar VM-skalningsuppsättningen och ansluter den till det virtuella nätverket, undernätet och nätverkssäkerhetsgruppen. En belastningsutjämnare skapas även för att distribuera trafik till flera virtuella datorinstanser. Det här kommandot anger även den virtuella datoravbildning som ska användas samt administrativa autentiseringsuppgifter.  |
+| [az vmss create](/cli/azure/vmss#az_vmss_create) | Skapar VM-skalningsuppsättningen och ansluter den till det virtuella nätverket, undernätet och nätverkssäkerhetsgruppen. En lastbalanserare skapas även för att distribuera trafik till flera virtuella datorinstanser. Det här kommandot anger även den virtuella datoravbildning som ska användas samt administrativa autentiseringsuppgifter.  |
 | [az group delete](/cli/azure/ad/group#delete) | Tar bort en resursgrupp, inklusive alla kapslade resurser. |
 
 ## <a name="next-steps"></a>Nästa steg
-Mer information om Azure CLI 2.0 finns i [Azure CLI 2.0-dokumentationen](https://docs.microsoft.com/cli/azure/overview).
+Mer information om Azure CLI finns i [Azure CLI-dokumentationen](https://docs.microsoft.com/cli/azure/overview).
 
-Ytterligare Azure CLI 2.0-skriptexempel för VM-skalningsuppsättningar finns i [dokumentationen för VM-skalningsuppsättningar i Azure](../cli-samples.md).
+Ytterligare Azure CLI-skriptexempel för VM-skalningsuppsättningar finns i [dokumentationen för VM-skalningsuppsättningar i Azure](../cli-samples.md).

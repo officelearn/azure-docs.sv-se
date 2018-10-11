@@ -1,29 +1,31 @@
 ---
-title: Azure snabbstart – Skapa en blob i objektlagring med hjälp av Azure Storage Explorer | Microsoft Docs
-description: I den här snabbstarten använder du Azure Storage Explorer i objektlagring (Blob). Du använder sedan Storage Explorer för att ladda upp en blob till Azure Storage och lista blobarna i en container.
+title: 'Snabbstart: Skapa en blob i objektlagring med hjälp av Azure Storage Explorer'
+description: I den här snabbstarten får du lära dig hur du skapar en container och en blob med Azure Storage Explore. Du får lära dig hur du hämtar bloben till din lokala dator och hur du visar alla blobar i en container. Du får också lära dig hur du skapar en ögonblicksbild av en blob, hanterar åtkomstprinciper för containrar och skapar en signatur för delad åtkomst.
 services: storage
 author: tamram
 ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
-ms.date: 04/09/2018
+ms.date: 08/27/2018
 ms.author: tamram
-ms.openlocfilehash: 83698abd3006671c5edce37e3cada26d07d25b8f
-ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
+ms.openlocfilehash: 3f0418e9ccdc5fe3babd2f1ac4482795994fe3b4
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39399644"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46996136"
 ---
-# <a name="quickstart-upload-download-and-list-blobs-using-azure-storage-explorer"></a>Snabbstart: Ladda upp, ladda ned och lista blobar med Azure Storage Explorer
+# <a name="quickstart-use-azure-storage-explorer-to-create-a-blob-in-object-storage"></a>Snabbstart: Skapa en blob i objektlagring med hjälp av Azure Storage Explorer
 
-[Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) är ett användargränssnitt för flera plattformar som används för att hantera innehållet i dina lagringskonton. I den här guiden beskriver vi hur du använder Azure Storage Explorer för att överföra filer mellan en lokal disk och Azure Blob Storage.
+I den här snabbstarten får du lära dig hur du skapar en container och en blob med [Azure Storage Explore](https://azure.microsoft.com/features/storage-explorer/). Du får lära dig hur du hämtar bloben till din lokala dator och hur du visar alla blobar i en container. Du får också lära dig hur du skapar en ögonblicksbild av en blob, hanterar åtkomstprinciper för containrar och skapar en signatur för delad åtkomst.
+
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-För den här snabbstarten krävs det att Azure Storage Explorer är installerat. Om du behöver installera det kan du gå till [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) för att ladda ned det för Windows, Macintosh eller Linux.
+För den här snabbstarten krävs att du installerar Azure Storage Explorer. Information om hur du installerar Azure Storage Explorer för Windows, Macintosh och Linux finns i [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/).
 
-[!INCLUDE [storage-quickstart-tutorial-create-account-portal](../../../includes/storage-quickstart-tutorial-create-account-portal.md)]
+[!INCLUDE [storage-create-account-portal-include](../../../includes/storage-create-account-portal-include.md)]
 
 ## <a name="log-in-to-storage-explorer"></a>Logga in i Storage Explorer
 

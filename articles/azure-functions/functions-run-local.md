@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: glenga
-ms.openlocfilehash: e77e81624c93bf1189afd556a8257362197c6b60
-ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
+ms.openlocfilehash: 1827e54f5e1e68ec324b4f521de843be48935391
+ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/10/2018
-ms.locfileid: "48902968"
+ms.locfileid: "49079420"
 ---
 # <a name="work-with-azure-functions-core-tools"></a>Arbeta med Azure Functions Core Tools
 
@@ -326,6 +326,8 @@ Den `host` kommando krävs endast i version 1.x.
 | **`--nodeDebugPort -n`** | Porten för nod-felsökare att använda. Standard: Ett värde från launch.json eller 5858. Version 1.x endast. |
 | **`--password`** | Lösenordet eller en fil som innehåller lösenordet för en .pfx-fil. Bara används med `--cert`. Version 2.x endast. |
 | **`--port -p`** | Lokal port att lyssna på. Standardvärde: 7071. |
+| **`--pause-on-error`** | Pausa för ytterligare indata innan du avslutar processen. Används endast när den startas Core Tools från en integrerad utvecklingsmiljö (IDE).|
+| **`--script-root --prefix`** | Används för att ange sökvägen till roten för funktionsappen som ska köras eller distribueras. Det här används för kompilerade projekt som genererar av projektfiler till en undermapp. Till exempel när du skapar en C#-klassbibliotek projekt, host.json, local.settings.json och function.json filer skapas i en *rot* undermapp med en sökväg som `MyProject/bin/Debug/netstandard2.0`. I så fall, Ange prefixet som `--script-root MyProject/bin/Debug/netstandard2.0`. Det här är roten av funktionsappen vid körning i Azure. |
 | **`--timeout -t`** | Tidsgränsen för Functions värden startas, i sekunder. Standard: 20 sekunder.|
 | **`--useHttps`** | Binda till `https://localhost:{port}` snarare än till `http://localhost:{port}`. Det här alternativet skapar som standard ett betrott certifikat på datorn.|
 
@@ -333,7 +335,7 @@ För en C# klassbiblioteksprojektet (.csproj), måste du inkludera den `--build`
 
 När funktioner värden startas, returnerar de URL: en för HTTP-utlösta funktionerna:
 
-```bash
+```output
 Found the following functions:
 Host.Functions.MyHttpTrigger
 

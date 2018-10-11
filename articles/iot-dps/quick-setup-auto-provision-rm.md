@@ -9,22 +9,22 @@ ms.service: iot-dps
 services: iot-dps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: e3aa2cf93e529fcc430162ac90be06a75690fb21
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 45558e25f2f61090cfb3ddb5c382170ab40792d0
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39523452"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46999058"
 ---
 # <a name="set-up-the-iot-hub-device-provisioning-service-with-an-azure-resource-manager-template"></a>Konfigurera tjänsten IoT Hub Device Provisioning med en Azure Resource Manager-mall
 
-Du kan använda [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) för att programmässigt konfigurera de Azure-molnresurser som är nödvändiga för att etablera dina enheter. De här anvisningarna visar hur du skapar en IoT-hubb, en ny IoT Hub Device Provisioning-tjänst och hur du länkar de två tjänsterna till varandra med en Azure Resource Manager-mall. I den här snabbstarten används [Azure CLI 2.0](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy-cli) för att utföra de nödvändiga programmässiga stegen för att skapa en resursgrupp och distribuera mallen, men du kan enkelt använda [Azure-portalen](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy-portal), [PowerShell](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy), .NET, ruby eller andra programmeringsspråk för att utföra stegen och distribuera mallen. 
+Du kan använda [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) för att programmässigt konfigurera de Azure-molnresurser som är nödvändiga för att etablera dina enheter. De här anvisningarna visar hur du skapar en IoT-hubb, en ny IoT Hub Device Provisioning-tjänst och hur du länkar de två tjänsterna till varandra med en Azure Resource Manager-mall. I den här snabbstarten används [Azure CLI](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy-cli) för att utföra de nödvändiga programmässiga stegen för att skapa en resursgrupp och distribuera mallen, men du kan enkelt använda [Azure-portalen](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy-portal), [PowerShell](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy), .NET, ruby eller andra programmeringsspråk för att utföra stegen och distribuera mallen. 
 
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
 - Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
-- För den här snabbstarten krävs att du kör Azure CLI lokalt. Du måste ha Azure CLI-version 2.0 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera CLI kan du läsa [Installera Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli).
+- För den här snabbstarten krävs att du kör Azure CLI lokalt. Du måste ha Azure CLI-version 2.0 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera CLI kan du läsa mer i [Installera Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli).
 
 
 ## <a name="sign-in-to-azure-and-create-a-resource-group"></a>Logga in på Azure och skapa en resursgrupp

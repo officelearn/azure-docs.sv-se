@@ -1,26 +1,29 @@
 ---
-title: Självstudie – Hantera kostnader med Azure Cost Management | Microsoft Docs
+title: Självstudie – Hantera kostnader med Cloudyn i Azure | Microsoft Docs
 description: I den här självstudien lär du dig att hantera kostnader med hjälp av kostnadsallokering, showback- och chargeback-rapporter.
 services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 04/26/2018
+ms.date: 09/18/2018
 ms.topic: tutorial
 ms.service: cost-management
 ms.custom: ''
 manager: dougeby
-ms.openlocfilehash: 16f86eace9b5848f263e0d0772db441a123f21ae
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 743576d8cbd7135369fb692e601360cb57a6c3bd
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46989643"
 ---
-# <a name="tutorial-manage-costs-by-using-azure-cost-management"></a>Självstudie: Hantera kostnader med Azure Cost Management
+# <a name="tutorial-manage-costs-by-using-cloudyn"></a>Självstudie: Hantera kostnader med hjälp av Cloudyn
 
-Du hanterar kostnader och skapar showback-rapporter i Azure Cost Management genom att allokera kostnader baserat på taggar. Vid kostnadsallokeringen tilldelas kostnader till dina förbrukade molnresurser. Kostnaderna är helt allokerade när alla resurser är kategoriserade med taggar. När kostnaderna har allokerats kan du visa showback- eller chargeback-information för användarna på instrumentpaneler och i rapporter. Många resurser kanske däremot inte är taggade eller inte kan taggas när du börjar använda Cost Management.
+Du hanterar kostnader och skapar showback-rapporter i Cloudyn genom att allokera kostnader baserat på taggar. Vid kostnadsallokeringen tilldelas kostnader till dina förbrukade molnresurser. Kostnaderna är helt allokerade när alla resurser är kategoriserade med taggar. När kostnaderna har allokerats kan du visa showback- eller chargeback-information för användarna på instrumentpaneler och i rapporter. Många resurser kanske däremot inte är taggade eller inte kan taggas när du börjar använda Cloudyn.
 
 Till exempel kanske du vill få ersättning för ingenjörskostnader. Du måste kunna visa ingenjörsteamet att du behöver ett specifikt belopp baserat på resurskostnader. Du kan visa en rapport med alla förbrukade resurser som är taggade med *engineering*.
+
+I den här artikeln används taggar och kategorier ibland synonymt. Kategorier är en bred samling och kan vara många saker. De kan bestå av affärsenheter, kostnadsställen, webbtjänster eller något annat som är taggat. Taggar är namn/värde-par som gör det möjligt att kategorisera resurser och visa och hantera sammanställd faktureringsinformation genom att tillämpa samma tagg på flera resurser och resursgrupper. I tidigare versioner av Azure-portalen kallades ett *taggnamn* för en *nyckel*. Taggar skapas för och lagras av en enda Azure-prenumeration. Taggar i AWS består av nyckel/värde-par. Eftersom både Azure och AWS har använt termen *nyckel*, används den termen i Cloudyn. Category Manager använder nycklar (taggnamn) för att sammanfoga taggar.
 
 I den här guiden får du lära dig att:
 
@@ -33,13 +36,22 @@ Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto]
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
 - Du måste ha ett Azure-konto.
-- Du måste antingen ha en utvärderingsregistrering eller en betald prenumeration för Azure Cost Management.
+- Du måste ha en utvärderingsregistrering eller en betald prenumeration för Cloudyn.
+- [Inaktiverade konton måste aktiveras](activate-subs-accounts.md) på Cloudyn-portalen.
+- [Övervakning på gästnivå](azure-vm-extended-metrics.md) måste vara aktiverat på dina virtuella datorer.
+
 
 ## <a name="use-custom-tags-to-allocate-costs"></a>Använda anpassade taggar för allokering av kostnader
 
+Cloudyn hämtar data om taggar för resursgrupper från Azure och distribuerar automatiskt tagginformation till resurser. Du kan se kostnaden baserat på resurstaggar i kostnadsallokeringen.
+
+Med kostnadsallokeringsmodellen definierar du kategorier (taggar) som tillämpas internt för icke-kategoriserade (ej taggade) resurser för att gruppera dina kostnader och definiera regler för hantering av otaggade kostnader. Kostnadsallokeringsregler är dina sparade instruktioner där en tjänsts kostnader distribueras till en annan tjänst. Därefter visar dessa resurser taggar/kategorier i *kostnadsallokeringsrapporter* genom att välja den modell som du skapade.
+
+Tänk på att tagginformation inte visas för dessa resurser i *kostnadsanalysrapporter*. Dessutom skickas inte taggar som tillämpats i Cloudyn med hjälp av kostnadsallokering till Azure, så du ser dem inte på Azure-portalen.
+
 När du börjar allokera kostnader ska du först definiera omfattningen med hjälp av en kostnadsmodell. Kostnadsmodellen ändrar inte kostnaderna utan fördelar dem. När du skapar en kostnadsmodell delar du upp data efter kostnadsenhet, konto eller prenumeration, samt med flera olika taggar. Vanliga exempel på taggar kan vara en faktureringskod, ett kostnadsställe eller ett gruppnamn. Taggarna hjälper dig även med showback eller chargeback till andra delar av organisationen.
 
-Om du vill skapa en anpassad kostnadsallokeringsmodell väljer du **Cost** (Kostnad) &gt; **Cost Management** (Kostnadshantering) &gt; **Cost Allocation 360°** (Kostnadsallokering 360°) i rapportmenyn.
+Om du vill skapa en anpassad kostnadsallokeringsmodell väljer du **Kostnader** &gt; **Kostnadshantering** &gt; **Cost Allocation 360°** (Kostnadsallokering 360°) på rapportens meny.
 
 ![Kostnadsallokering 360° valt](./media/tutorial-manage-costs/cost-allocation-360.png)
 
@@ -59,7 +71,7 @@ Till exempel kanske du vill ta Azure Storage-kostnaderna och fördela dem lika m
 
 
 
-I ett annat exempel kanske du vill allokera alla Azure-nätverkskostnader till en specifik affärsenhet i organisationen. Om du vill göra det väljer du tjänsten **Azure/Network** och sedan **Explicit Distribution** (Explicit fördelning). Ange sedan fördelningsvärdet till 100 procent och välj affärsenheten – **G&amp;A** i följande bild:
+I ett annat exempel kanske du vill allokera alla Azure-nätverkskostnader till en specifik affärsenhet i organisationen. Om du vill göra det väljer du tjänsten **Azure/Network** och sedan **Explicit Distribution** (Explicit distribution) under **Define Allocation Rule** (Definiera allokeringsregel). Ange sedan fördelningsvärdet till 100 procent och välj affärsenheten – **G&amp;A** i följande bild:
 
 ![Exempel på allokeringsregel för en viss affärsenhet i kostnadsmodell](./media/tutorial-manage-costs/cost-model03.png)
 
@@ -97,9 +109,9 @@ De taggdata du ser i Cloudyn-rapporter har sitt ursprung på tre platser:
     - Cloudyn-entitetstaggar – användardefinierade metadata som tillämpas på Cloudyn-entiteter
     - Category Manager – ett verktyg för datarensning som skapar nya taggar baserat på regler som tillämpas på befintliga taggar
 
-Om du vill visa molnproviderns taggar i Cloudyn-kostnadsrapporter måste du skapa en anpassad kostnadsallokeringsmodell med Cost Allocation 360. Det gör du genom att gå till **Cost** > **Cost Management** > **Cost Allocation 360**, välja önskade taggar och definiera regler för hantering av otaggade kostnader. Skapa sedan en ny kostnadsmodell. Sedan kan du visa rapporter i Cost Allocation Analysis och du kan visa, filtrera och sortera efter dina Azure-resurstaggar.
+Om du vill visa molnproviderns taggar i Cloudyn-kostnadsrapporter måste du skapa en anpassad kostnadsallokeringsmodell med Cost Allocation 360. Det gör du genom att gå till **Kostnader** > **Kostnadshantering** > **Cost Allocation 360** (Kostnadsallokering 360°), välja önskade taggar och definiera regler för hantering av otaggade kostnader. Skapa sedan en ny kostnadsmodell. Sedan kan du visa rapporter i Cost Allocation Analysis och du kan visa, filtrera och sortera efter dina Azure-resurstaggar.
 
-Azure-resurstaggar visas bara i **Cost Allocation Analysis**-rapporter.
+Azure-resurstaggar visas bara i rapporter under **Kostnader** > **Cost Allocation Analysis** (Kostnadsallokeringsanalys).
 
 Molnproviderns faktureringstaggar visas i alla kostnadsrapporter.
 

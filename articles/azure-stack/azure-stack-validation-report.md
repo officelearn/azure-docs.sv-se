@@ -3,7 +3,7 @@ title: Verifieringsrapport för Azure Stack | Microsoft Docs
 description: Använda rapporten Azure Stack-beredskap för installation och granska verifieringsresultatet från.
 services: azure-stack
 documentationcenter: ''
-author: brenduns
+author: sethmanheim
 manager: femila
 editor: ''
 ms.assetid: ''
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 05/08/2018
-ms.author: brenduns
+ms.author: sethm
 ms.reviewer: ''
-ms.openlocfilehash: 06b5660a9428e98d2e99b5d447a05700968ec884
-ms.sourcegitcommit: a3a0f42a166e2e71fa2ffe081f38a8bd8b1aeb7b
+ms.openlocfilehash: 156b84e4941363716721b5cee6c19333ffe7594c
+ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/01/2018
-ms.locfileid: "43381921"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49079454"
 ---
 # <a name="azure-stack-validation-report"></a>Azure Stack-verifieringsrapport
 Verktyget Azure Stack-beredskap för installation används för att köra verifieringar som har stöd för distribution och underhåll av Azure Stack-miljön. Verktyget skriver resultatet till en JSON-fil för rapporten. Rapporten visar detaljerad och sammanfattade data om tillståndet för krav för distribution av Azure Stack. Rapporten visar även information om hemligheter Rotation för befintliga Azure Stack-distributioner.  

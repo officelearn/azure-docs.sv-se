@@ -3,7 +3,7 @@ title: Ansluta Azure Stack till Azure med ExpressRoute
 description: Lär dig hur du ansluter virtuella nätverk i Azure Stack till virtuella nätverk i Azure med ExpressRoute.
 services: azure-stack
 documentationcenter: ''
-author: brenduns
+author: sethmanheim
 manager: femila
 editor: ''
 ms.assetid: ''
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/12/2018
-ms.author: brenduns
+ms.author: sethm
 ms.reviewer: ''
-ms.openlocfilehash: db9f19154668fa33bb94e59a4da6735b1a6d3d49
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: eee4407af8d7def94061002941d758a99237645f
+ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44720505"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49078706"
 ---
 # <a name="connect-azure-stack-to-azure-using-azure-expressroute"></a>Ansluta Azure Stack till Azure med Azure ExpressRoute
 
@@ -345,7 +345,7 @@ Följ stegen i [konfigurera en virtuell nätverksgateway för ExpressRoute med P
 
 Om du vill länka ExpressRoute-kretsen till det virtuella hubbnätverket, följer du stegen i [ansluta ett virtuellt nätverk till en ExpressRoute-krets](../expressroute/expressroute-howto-linkvnet-portal-resource-manager.md).
 
-### <a name="peer-the-vnets"></a>Peer-koppla virtuella nätverk
+### <a name="peer-the-vnets"></a>Peerkoppla de virtuella nätverken
 
 Peer-NAV och ekrar virtuella nätverk med stegen i [skapa vnet-peering med hjälp av Azure portal](../virtual-network/virtual-networks-create-vnetpeering-arm-portal.md). När du konfigurerar VNet-peering kan du kontrollera att du använder du följande alternativ:
 

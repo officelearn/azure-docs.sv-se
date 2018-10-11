@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 10/23/2017
 ms.author: suhuruli
 ms.custom: mvc, devcenter
-ms.openlocfilehash: ed5da0afe67deaa7000c1bf3b8d75bdea14f2ecd
-ms.sourcegitcommit: a62cbb539c056fe9fcd5108d0b63487bd149d5c3
+ms.openlocfilehash: 7fcf0b924868d755bc76f7d1e695e73afc4eae6a
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42616334"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46993399"
 ---
 # <a name="quickstart-deploy-a-java-reliable-services-application-to-service-fabric"></a>Snabbstart: Distribuera en Java-app (tillförlitliga tjänster) till Service Fabric
 
@@ -101,7 +101,7 @@ Logga in och anslut till ett [Linux-kluster](http://aka.ms/tryservicefabric). H�
 I Service Fabric finns flera verktyg för att hantera kluster och dess program:
 
 * Service Fabric Explorer, ett webbläsarbaserat verktyg.
-* Service Fabric CLI (kommandoradsgränssnitt) som körs ovanpå Azure CLI 2.0.
+* Service Fabric CLI (kommandoradsgränssnitt) som körs ovanpå Azure CLI.
 * PowerShell-kommandon.
 
 I den här snabbstarten använder du Service Fabric CLI och Service Fabric Explorer.

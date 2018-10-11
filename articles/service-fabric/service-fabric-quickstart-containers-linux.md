@@ -15,18 +15,18 @@ ms.workload: NA
 ms.date: 04/11/2018
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: b0ded0fb274f6b64935ddaba75abf23a94063120
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: c84470936dfc9610f23dacb55d8d8643a2651f71
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38452659"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46948408"
 ---
 # <a name="quickstart-deploy-linux-containers-to-service-fabric"></a>Snabbstart: Distribuera Linux-behållare till Service Fabric
 
-Azure Service Fabric är en plattform för distribuerade system för distribution och hantering av skalbara och tillförlitliga mikrotjänster och behållare.
+Azure Service Fabric är en plattform för distribuerade system för distribution och hantering av skalbara och tillförlitliga mikrotjänster och containrar.
 
-Den här snabbstarten visar hur du distribuerar Linux-behållare till ett Service Fabric-kluster. När du är klar har du ett röstningsprogram som består av en frontwebbtjänst i Python och en Redis-serverdel som körs i ett Service Fabric-kluster. Du lär dig också att redundansväxla ett program och skala program i klustret.
+Den här snabbstarten visar hur du distribuerar Linux-containrar till ett Service Fabric-kluster. När du är klar har du ett röstningsprogram som består av en frontwebbtjänst i Python och en Redis-serverdel som körs i ett Service Fabric-kluster. Du lär dig också att redundansväxla ett program och skala program i klustret.
 
 ![Webbsida för röstningsappen][quickstartpic]
 
@@ -38,7 +38,7 @@ Om det är första gången du kör Cloud Shell uppmanas du att konfigurera din `
 
 ## <a name="get-the-application-package"></a>Hämta programpaketet
 
-För att kunna distribuera behållare till Service Fabric behöver du en uppsättning manifestfiler (programdefinitionen), som beskriver de enskilda behållarna samt programmet.
+För att kunna distribuera containrar till Service Fabric behöver du en uppsättning manifestfiler (programdefinitionen), som beskriver de enskilda containrarna samt programmet.
 
 I Cloud Shell använder du Git för att klona en kopia av programmets definition. Ändra sedan katalog till `Voting`-katalogen i din klon.
 
@@ -65,7 +65,7 @@ Logga in och anslut till ett [Linux-kluster](http://aka.ms/tryservicefabric). H�
 I Service Fabric finns flera verktyg för att hantera kluster och dess program:
 
 - Service Fabric Explorer, ett webbläsarbaserat verktyg.
-- Service Fabric CLI (kommandoradsgränssnitt) som körs ovanpå Azure CLI 2.0.
+- Service Fabric CLI (kommandoradsgränssnitt) som körs ovanpå Azure CLI. 
 - PowerShell-kommandon.
 
 I den här snabbstarten använder du Service Fabric-CLI:n i Cloud Shell och Service Fabric Explorer. Följande avsnitt visar hur du installerar certifikatet som krävs för att ansluta till ditt säkra kluster med dessa verktyg.
@@ -86,7 +86,7 @@ Om du vill använda CLI i Cloud Shell måste du ladda upp certifikatets PFX-fil 
 
 Om du vill använda Service Fabric Explorer måste du importera certifikatets PFX-fil som du hämtade från partklustrets webbplats till certifikatarkivet (Windows eller Mac) eller till själva webbläsaren (Ubuntu). Du behöver lösenordet för den privata nyckeln i PFX, som du kan hämta på sidan **Viktigt**.
 
-Använd den metod som du är mest bekväm med till att importera certifikatet på datorn. Till exempel:
+Använd den metod som du är mest bekväm med till att importera certifikatet på datorn. Exempel:
 
 - I Windows: Dubbelklicka på PFX-filen och följ anvisningarna för att installera certifikatet i ditt personliga arkiv `Certificates - Current User\Personal\Certificates`. Du kan också använda PowerShell-kommandot i **Viktigt**-instruktionerna.
 - I Mac: Dubbelklicka på PFX-filen och följ anvisningarna för att installera certifikatet i din nyckelring.
@@ -114,7 +114,7 @@ Använd den metod som du är mest bekväm med till att importera certifikatet p�
 
     ![Service Fabric Explorer][sfx]
 
-5. Om du vill ansluta till behållaren som körs öppnar du en webbläsare och går till webbadressen för ditt kluster, till exempel `http://linh1x87d1d.westus.cloudapp.azure.com:80`. Nu ska röstningsprogrammet visas i webbläsaren.
+5. Om du vill ansluta till containern som körs öppnar du en webbläsare och går till webbadressen för ditt kluster, till exempel `http://linh1x87d1d.westus.cloudapp.azure.com:80`. Nu ska röstningsprogrammet visas i webbläsaren.
 
     ![Webbsida för röstningsappen][quickstartpic]
 
@@ -124,16 +124,16 @@ Använd den metod som du är mest bekväm med till att importera certifikatet p�
 > sfctl compose create --deployment-name TestApp --file-path ../docker-compose.yml
 > ```
 
-## <a name="fail-over-a-container-in-a-cluster"></a>Redundansväxla en behållare i ett kluster
+## <a name="fail-over-a-container-in-a-cluster"></a>Redundansväxla en container i ett kluster
 
-Service Fabric säkerställer att dina behållarinstanser flyttas automatiskt till andra noder i klustret om ett fel inträffar. Du kan också tomma en nod på behållare och sedan flytta dem till andra noder i klustret. I Service Fabric finns olika sätt att skala dina tjänster på. I följande steg ska du använda Service Fabric Explorer.
+Service Fabric säkerställer att dina containerinstanser flyttas automatiskt till andra noder i klustret om ett fel inträffar. Du kan också tömma en nod på containrar och sedan flytta dem till andra noder i klustret. I Service Fabric finns olika sätt att skala dina tjänster på. I följande steg ska du använda Service Fabric Explorer.
 
-Så här redundansväxlar du behållaren på klientsidan:
+Så här redundansväxlar du containern på klientsidan:
 
 1. Öppna Service Fabric Explorer i klustret, till exempel `https://linh1x87d1d.westus.cloudapp.azure.com:19080/Explorer`.
-2. Klicka på noden **fabric:/Voting/azurevotefront** i trädvyn och expandera partitionsnoden (visas med en GUID). Lägg märke till nodnamnet i trädvyn som visar de noder som behållaren körs på, till exempel `_nodetype_4`.
-3. Visa noden **Noder** i trädvyn. Klicka på ellipsen (...) bredvid den nod som kör behållaren.
-4. Välj **Starta om** för att starta om noden och bekräfta omstartsåtgärden. Omstarten gör att behållaren växlar över till en annan nod i klustret.
+2. Klicka på noden **fabric:/Voting/azurevotefront** i trädvyn och expandera partitionsnoden (visas med en GUID). Lägg märke till nodnamnet i trädvyn som visar de noder som containern körs på, till exempel `_nodetype_4`.
+3. Visa noden **Noder** i trädvyn. Klicka på ellipsen (...) bredvid den nod som kör containern.
+4. Välj **Starta om** för att starta om noden och bekräfta omstartsåtgärden. Omstarten gör att containern växlar över till en annan nod i klustret.
 
     ![Nodvy i Service Fabric Explorer][sfxquickstartshownodetype]
 
@@ -167,7 +167,7 @@ Med den här enkla hanteringsåtgärden har du dubblerat tillgängliga resurser 
     ./uninstall.sh
     ```
 
-2. Om du är färdig med ditt kluster kan du ta bort certifikatet från certifikatarkivet. Till exempel:
+2. Om du är färdig med ditt kluster kan du ta bort certifikatet från certifikatarkivet. Exempel:
    - I Windows: Använd [MMC-snapin-modulen Certifikat](https://docs.microsoft.com/dotnet/framework/wcf/feature-details/how-to-view-certificates-with-the-mmc-snap-in). Välj **Mitt användarkonto** när du lägger till snapin-modulen. Gå till `Certificates - Current User\Personal\Certificates` och ta bort certifikatet.
    - I Mac: Använd nyckelringsappen.
    - I Ubuntu: Följ stegen som du använde för att visa certifikat och ta bort certifikatet.
@@ -176,10 +176,10 @@ Med den här enkla hanteringsåtgärden har du dubblerat tillgängliga resurser 
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här snabbstarten har du distribuerat ett program för Linux-behållare till ett Service Fabric-kluster i Azure, utfört redundansväxling på programmet och skalat programmet i klustret. Om du vill veta mer om hur man arbetar med Linux-behållare i Service Fabric kan du fortsätta till självstudien för appar i Linux-behållaren.
+I den här snabbstarten har du distribuerat ett Linux-containerprogram till ett Service Fabric-kluster i Azure, utfört redundansväxling på programmet och skalat programmet i klustret. Om du vill veta mer om hur man arbetar med Linux-containrar i Service Fabric kan du fortsätta till självstudien om Linux-containerappar.
 
 > [!div class="nextstepaction"]
-> [Skapa en app för Linux-behållare](./service-fabric-tutorial-create-container-images.md)
+> [Skapa en app för Linux-container](./service-fabric-tutorial-create-container-images.md)
 
 [sfx]: ./media/service-fabric-quickstart-containers-linux/containersquickstartappinstance.png
 [quickstartpic]: ./media/service-fabric-quickstart-containers-linux/votingapp.png

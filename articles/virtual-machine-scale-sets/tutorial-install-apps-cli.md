@@ -1,6 +1,6 @@
 ---
-title: Självstudie – installera program på en skalningsuppsättning med Azure CLI 2.0 | Microsoft Docs
-description: Läs hur du använder Azure CLI 2.0 för att installera program på VM-skalningsuppsättningar med det anpassade skripttillägget
+title: Självstudie – installera program på en skalningsuppsättning med Azure CLI | Microsoft Docs
+description: Läs hur du använder Azure CLI för att installera program på VM-skalningsuppsättningar med det anpassade skripttillägget
 services: virtual-machine-scale-sets
 documentationcenter: ''
 author: cynthn
@@ -16,14 +16,14 @@ ms.topic: tutorial
 ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: fe1fd957176762c5cc04145f56559b50667c476c
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 21b85a3afa8e955661b3acbe5c7e4cb463a6d23f
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38606533"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46986191"
 ---
-# <a name="tutorial-install-applications-in-virtual-machine-scale-sets-with-the-azure-cli-20"></a>Självstudie: Installera program i VM-skalningsuppsättningar med Azure CLI 2.0
+# <a name="tutorial-install-applications-in-virtual-machine-scale-sets-with-the-azure-cli"></a>Självstudie: Installera program i VM-skalningsuppsättningar med Azure CLI
 Om du vill köra program på virtuella datorinstanser i en skalningsuppsättning, måste du först installera programkomponenter och nödvändiga filer. I en föregående självstudie fick du lära dig hur du skapar och använder en anpassad virtuell datoravbildning för att distribuera dina virtuella datorinstanser. Den här anpassade avbildningen inkluderade programinstallationer och konfigurationer. Du kan också automatisera installationen av programmen till en skalningsuppsättning efter att varje virtuell datorinstans distribueras, eller uppdatera ett program som redan körs på en skalningsuppsättning. I den här självstudiekursen får du lära du dig att:
 
 > [!div class="checklist"]
@@ -35,13 +35,13 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Om du väljer att installera och använda CLI lokalt, måste du köra Azure CLI version 2.0.29 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI 2.0]( /cli/azure/install-azure-cli). 
+Om du väljer att installera och använda CLI lokalt, måste du köra Azure CLI version 2.0.29 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI]( /cli/azure/install-azure-cli). 
 
 
 ## <a name="what-is-the-azure-custom-script-extension"></a>Vad är det anpassade Azure-skripttillägget?
 Det anpassade skripttillägget laddar ner och kör skript på virtuella Azure-datorer. Det här tillägget är användbart för konfiguration efter distribution, programvaruinstallation eller andra konfigurerings-/hanteringsuppgifter. Skript kan laddas ned från Azure Storage eller GitHub, eller tillhandahållas via Azure Portal vid tilläggskörning.
 
-Det anpassade skripttillägget integreras med Azure Resource Manager-mallar och kan också användas med Azure CLI 2.0, Azure PowerShell, Azure Portal eller REST API:t. Mer information finns i [översikten över tillägget för anpassat skript](../virtual-machines/linux/extensions-customscript.md).
+Det anpassade skripttillägget integreras med Azure Resource Manager-mallar och kan också användas med Azure CLI, Azure PowerShell, Azure-portalen eller REST API:et. Mer information finns i [översikten över tillägget för anpassat skript](../virtual-machines/linux/extensions-customscript.md).
 
 För att använda det anpassade skripttillägget med Azure CLI, skapar du en JSON-fil som definierar vilka filer som ska hämtas och ger den kommandot att köras. Dessa JSON-definitioner kan återanvändas i distributioner av skalningsuppsättningar för att tillämpa konsekventa programinstallationer.
 
@@ -98,7 +98,7 @@ Varje virtuell datorinstans i skalningsuppsättningen laddar ned och kör skript
 
 
 ## <a name="test-your-scale-set"></a>Testa din skalningsuppsättning
-Skapa en regel för belastningsutjämnare med [az network lb rule create](/cli/azure/network/lb/rule#create) för att tillåta trafik till webbservern. I följande exempel skapas en regel med namnet *myLoadBalancerRuleWeb*:
+Skapa en regel för lastbalanserare med [az network lb rule create](/cli/azure/network/lb/rule#create) för att tillåta trafik till webbservern. I följande exempel skapas en regel med namnet *myLoadBalancerRuleWeb*:
 
 ```azurecli-interactive
 az network lb rule create \
@@ -112,7 +112,7 @@ az network lb rule create \
   --protocol tcp
 ```
 
-Om du vill testa webbservern hämtar du den offentliga IP-adressen för belastningsutjämnaren med [az network public-ip show](/cli/azure/network/public-ip#show). I följande exempel hämtas IP-adressen för *myScaleSetLBPublicIP* som skapas som en del av skalningsuppsättningen:
+Om du vill testa webbservern hämtar du den offentliga IP-adressen för lastbalanseraren med [az network public-ip show](/cli/azure/network/public-ip#show). I följande exempel hämtas IP-adressen för *myScaleSetLBPublicIP* som skapas som en del av skalningsuppsättningen:
 
 ```azurecli-interactive
 az network public-ip show \
@@ -122,7 +122,7 @@ az network public-ip show \
   --output tsv
 ```
 
-Skriv den offentliga IP-adressen för belastningsutjämnaren i en webbläsare. Belastningsutjämnaren distribuerar trafik till en av dina VM-instanser enligt följande exempel:
+Skriv den offentliga IP-adressen för lastbalanseraren i en webbläsare. Lastbalanseraren distribuerar trafik till en av dina VM-instanser enligt följande exempel:
 
 ![Standardwebbsida i NGINX](media/tutorial-install-apps-cli/running-nginx.png)
 
@@ -167,7 +167,7 @@ az group delete --name myResourceGroup --no-wait --yes
 
 
 ## <a name="next-steps"></a>Nästa steg
-I den här självstudien fick du lära dig hur du automatiskt installerar och uppdaterar program på din skalningsuppsättning med Azure CLI 2.0:
+I den här självstudien fick du lära dig hur du automatiskt installerar och uppdaterar program på din skalningsuppsättning med Azure CLI:
 
 > [!div class="checklist"]
 > * Installerar automatiskt program till din skalningsuppsättning

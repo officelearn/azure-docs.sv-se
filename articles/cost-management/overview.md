@@ -1,27 +1,29 @@
 ---
-title: Översikt över Azure Cost Management | Microsoft Docs
-description: Azure Cost Management är en kostnadshanteringslösning med flera moln som hjälper dig att bättre använda Azure och andra molnresurser.
+title: Översikt över Cloudyn i Azure | Microsoft Docs
+description: Cloudyn är en kostnadshanteringslösning med flera moln som hjälper dig att använda Azure och andra molnresurser.
 services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 04/26/2018
+ms.date: 09/18/2018
 ms.topic: overview
 ms.service: cost-management
 manager: dougeby
 ms.custom: ''
-ms.openlocfilehash: 05e53688e1350052fdbbc61451df8a51dc3349cd
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 9f0eac454d6ac937fc3313e4c50f8872e320c7ca
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32162984"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46985392"
 ---
-# <a name="what-is-azure-cost-management"></a>Vad är Azure Cost Management?
+# <a name="what-is-cloudyn"></a>Vad är Cloudyn?
 
-Azure Cost Management licensieras av Cloudyn, ett dotterbolag till Microsoft, och gör det möjligt att spåra molnanvändning och utgifter för dina Azure-resurser och andra molnleverantörer, inklusive AWS och Google. Instrumentpanelsrapporter som är lätta att förstå hjälper dig med kostnadsallokering och kostnadsrapporter/återbetalningar. Cost Management hjälper dig att optimera molnutgifterna genom att identifiera underutnyttjade resurser som du sedan kan hantera och anpassa.
+Cloudyn, ett dotterbolag till Microsoft, gör det möjligt att spåra molnanvändning och utgifter för dina Azure-resurser och andra molnleverantörer, inklusive AWS och Google. Instrumentpanelsrapporter som är lätta att förstå hjälper dig med kostnadsallokering och kostnadsrapporter/återbetalningar. Cloudyn hjälper dig att optimera molnutgifterna genom att identifiera underutnyttjade resurser som du sedan kan hantera och anpassa.
 
-En introduktionsvideo finns i [Introduction to Azure Cost Management ](https://azure.microsoft.com/resources/videos/azure-cost-management-overview-and-demo) (Introduktion till Azure Cost Management).
+En introduktionsvideo finns i [Introduction to Azure Cloudyn ](https://azure.microsoft.com/resources/videos/azure-cost-management-overview-and-demo) (Introduktion till Azure Cloudyn).
+
+Azure Cost Management innehåller liknande funktioner som Cloudyn. Azure Cost Management är en lösning för intern kostnadshantering i Azure. Du får hjälp att analysera kostnader, skapa och hantera budgetar, exportera data samt granska och arbeta med optimeringsrekommendationer för att spara pengar. Mer information finns i [Azure Cost Management](overview-cost-mgt.md).
 
 ## <a name="monitor-usage-and-spending"></a>Övervaka användning och utgifter
 
@@ -29,12 +31,9 @@ Det är mycket viktigt att övervaka användning och utgifter för molninfrastru
 
 Rapporterna hjälper dig att övervaka utgifterna för att kunna analysera och följa molnanvändning, kostnader och trender. Med hjälp av rapporter för tidsperioder kan du upptäcka avvikelser som skiljer sig från normala trender. Ineffektivitet i molndistributionen syns i optimeringsrapporterna. Du kan även se ineffektivitet i kostnadsanalysrapporterna.
 
-![Rapport för kostnad över tid](media\overview\cost-over-time-rpt.png)
-
-
 ## <a name="manage-costs"></a>Hantera kostnader
 
-Historiska data kan hjälpa dig att hantera kostnader när du analyserar användning och kostnader över tid för att identifiera trender. Trender används sedan för att skapa prognoser för framtida utgifter. Cost Management innehåller även användbara rapporter för kostnadsprognoser.
+Historiska data kan hjälpa dig att hantera kostnader när du analyserar användning och kostnader över tid för att identifiera trender. Trender används sedan för att skapa prognoser för framtida utgifter. Cloudyn innehåller även användbara rapporter för kostnadsprognoser.
 
 Kostnadsallokering hanterar kostnader genom att analysera kostnaderna baserat på din taggningsprincip. Du kan använda taggar på anpassade konton, resurser och entiteter för att förfina kostnadsallokeringen. Category Manager organiserar taggarna för att ge ytterligare styrning. Du kan även använda kostnadsallokering för kostnadsrapporter/återbetalning för att visa resursanvändning och kopplade kostnader för att påverka förbrukningsbeteenden eller debitera klientkunder.
 
@@ -44,14 +43,12 @@ Aviseringar kan hjälpa till att hantera kostnader genom att meddela dig automat
 
 ## <a name="improve-efficiency"></a>Förbättra effektiviteten
 
-Du kan fastställa optimal användning av virtuella datorer och identifiera virtuella datorer som inte används, eller ta bort virtuella datorer som inte används och ej anslutna diskar med Cost Management. Med hjälp av informationen i rapporterna för storleksoptimering och ineffektivitet kan du skapa en plan för att minska storleken eller ta bort virtuella datorer som inte används. Optimeringsrapporter stöds dock för närvarande inte för CSP-partnerkonton eller prenumerationer.
-
-![storleksrekommendationer](.\media\overview\sizing.png)
+Du kan fastställa optimal användning av virtuella datorer och identifiera virtuella datorer som inte används, eller ta bort virtuella datorer som inte används och ej anslutna diskar med Cloudyn. Med hjälp av informationen i rapporterna för storleksoptimering och ineffektivitet kan du skapa en plan för att minska storleken eller ta bort virtuella datorer som inte används. Optimeringsrapporter stöds dock för närvarande inte för CSP-partnerkonton eller prenumerationer.
 
 Om du har etablerat reserverade AWS-instanser kan du förbättra användningen av de reserverade instanserna med optimeringsrapporter där du kan se köprekommendationer, ändra oanvända reservationer och planera etablering.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Nu när du är bekant med Cost Management är nästa steg att registrera molnmiljön och börja utforska dina data.
+Nu när du är bekant med Cloudyn är nästa steg att registrera molnmiljön och börja utforska dina data.
 
 - [Registrera en enskild Azure-prenumeration](quick-register-azure-sub.md)

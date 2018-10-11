@@ -1,55 +1,57 @@
 ---
-title: Java-Snabbstart för Azure Cognitive Services och Microsoft Translator-API för Talöversättning | Microsoft Docs
-description: Hämta information och exempel på kod som hjälper dig att snabbt komma igång med Microsoft Translator Speech API i Microsoft Cognitive Services på Azure.
+title: 'Snabbstart: Translator Speech API Java'
+titlesuffix: Azure Cognitive Services
+description: Hämta information och kodexempel som hjälper dig att snabbt komma igång med Translator Speech API.
 services: cognitive-services
-documentationcenter: ''
 author: v-jaswel
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-speech
-ms.topic: article
+ms.topic: quickstart
 ms.date: 3/5/2018
 ms.author: v-jaswel
-ms.openlocfilehash: 0db55f4064d3415cb647519ea9030936012a8446
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
-ms.translationtype: MT
+ROBOTS: NOINDEX
+ms.openlocfilehash: dde7d3dc7c1a744da9a22c0e4c0a483a186aa327
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "41987459"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46969469"
 ---
-# <a name="quickstart-for-microsoft-translator-speech-api-with-java"></a>Snabbstart för Microsoft Translator Speech API med Java 
+# <a name="quickstart-translator-speech-api-with-java"></a>Snabbstart: Translator Speech API med Java 
 <a name="HOLTop"></a>
 
-Den här artikeln visar hur du använder Microsoft Translator Speech API för att översätta ord som sägs i en WAV-fil.
+Den här artikeln visar hur du använder Translator Speech API för att översätta ord som sägs i en .wav-fil.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
-Du behöver [JDK 7 eller 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) att kompilera och köra den här koden. Du kan använda en Java-IDE om du har en favorit, men en textredigerare räcker.
+Du behöver [JDK 7 eller 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) för att kompilera och köra den här koden. Du kan använda en Java IDE om du föredrar det, men ett redigeringsprogram fungerar också bra.
 
 Du behöver följande filer.
 - [javax.websocket-api-1.1.jar (eller senare)](https://mvnrepository.com/artifact/javax.websocket/javax.websocket-api)
 - [jetty-http-9.4.11.v20180605.jar (eller senare)](https://mvnrepository.com/artifact/org.eclipse.jetty/jetty-http)
-- [jetty-i/o-9.4.11.v20180605.jar (eller senare)](https://mvnrepository.com/artifact/org.eclipse.jetty/jetty-io)
+- [jetty-io-9.4.11.v20180605.jar (eller senare)](https://mvnrepository.com/artifact/org.eclipse.jetty/jetty-io)
 - [jetty-util-9.4.11.v20180605.jar (eller senare)](https://mvnrepository.com/artifact/org.eclipse.jetty/jetty-util)
 - [websocket-api-9.4.11.v20180605.jar (eller senare)](https://mvnrepository.com/artifact/org.eclipse.jetty.websocket/websocket-api)
 - [websocket-client-9.4.11.v20180605.jar (eller senare)](https://mvnrepository.com/artifact/org.eclipse.jetty.websocket/websocket-client)
-- [websocket-gemensamma-9.4.11.v20180605.jar (eller senare)](https://mvnrepository.com/artifact/org.eclipse.jetty.websocket/websocket-common)
+- [websocket-common-9.4.11.v20180605.jar (eller senare)](https://mvnrepository.com/artifact/org.eclipse.jetty.websocket/websocket-common)
 - [javax-websocket-client-impl-9.4.11.v20180605.jar (eller senare)](https://mvnrepository.com/artifact/org.eclipse.jetty.websocket/javax-websocket-client-impl)
-- [jetty-klient-9.4.11.v20180605.jar (eller senare)](https://mvnrepository.com/artifact/org.eclipse.jetty/jetty-client)
+- [jetty-client-9.4.11.v20180605.jar (eller senare)](https://mvnrepository.com/artifact/org.eclipse.jetty/jetty-client)
 
-Du behöver en WAV-fil med namnet ”speak.wav” i samma mapp som den körbara filen som du kompilera från koden nedan. Den här .wav-filen ska vara i standard PCM, 16-bitars, 16kHz mono format. Du kan hämta sådan .wav fil från den [Text till tal-API](https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/rest-apis#text-to-speech).
+Du behöver en WAV-fil med namnet ”speak.wav” i samma mapp som den körbara filen som du kompilerar från koden nedan. Den här WAV-filen bör vara en 16-bitars 16 kHz-fil i PCM-standardformat. Du kan hämta en sådan WAV-fil från [Text till tal-API:et](https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/rest-apis#text-to-speech).
 
-Du måste ha en [Cognitive Services API-konto](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) med **Microsoft Translator Speech API**. Du behöver en betald prenumerationsnyckel från din [Azure-instrumentpanelen](https://portal.azure.com/#create/Microsoft.CognitiveServices).
+Du behöver ett [Cognitive Services API-konto](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) med **Microsoft Translator Speech API**. Du behöver prenumerationsnyckeln för en betalprenumeration från din [Azure-instrumentpanel](https://portal.azure.com/#create/Microsoft.CognitiveServices).
 
 ## <a name="translate-speech"></a>Översätt tal
 
 Följande kod omvandlar tal från ett språk till ett annat.
 
-1. Skapa ett nytt Java-projekt i din favorit-IDE.
+1. Skapa ett nytt Java-projekt i din favoritutvecklingsmiljö.
 2. Lägg till koden nedan.
-3. Ersätt den `key` värde med en giltig åtkomstnyckel för din prenumeration.
+3. Ersätt värdet `key` med en giltig åtkomstnyckel för din prenumeration.
 4. Kör programmet.
 
-Config.Java:
+Config.java:
 
 ```java
 import java.util.*;
@@ -71,7 +73,7 @@ public class Config extends ClientEndpointConfig.Configurator {
 }
 ```
 
-Client.Java:
+Client.java:
 
 ```java
 import java.io.*;
@@ -214,7 +216,7 @@ See:
 }
 ```
 
-Speak.Java:
+Speak.java:
 
 ```java
 /*
@@ -263,18 +265,18 @@ public class Speak {
 }
 ```
 
-**Omvandla tal svar**
+**Talöversättningssvar**
 
-En lyckad resultatet är att skapa en fil med namnet ”speak2.wav”. Filen innehåller översättningen av ord som sägs i ”speak.wav”.
+Om åtgärden lyckas skapas en fil med namnet ”speak2.wav”. Filen innehåller översättningen av orden som sägs i ”speak.wav”.
 
 [Överst på sidan](#HOLTop)
 
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Translator Speech självstudien](../tutorial-translator-speech-csharp.md)
+> [Translator Speech-självstudie](../tutorial-translator-speech-csharp.md)
 
-## <a name="see-also"></a>Se också 
+## <a name="see-also"></a>Se även 
 
-[Översikt över Translator Speech](../overview.md)
+[Translator Speech-översikt](../overview.md)
 [API-referens](https://docs.microsoft.com/azure/cognitive-services/translator-speech/reference)

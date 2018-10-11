@@ -1,37 +1,35 @@
 ---
-title: 'Azure Cosmos DB: Skapa en app med Node.js och SQL API:t | Microsoft Docs'
+title: 'Azure Cosmos DB: Skapa en Node.js-app med JavaScript SDK för att hantera Azure Cosmos DB SQL API-data | Microsoft Docs'
 description: Presenterar ett Node.js-kodexempel som du kan använda för att ansluta till och ställa frågor via Azure Cosmos DB SQL API:t
 services: cosmos-db
 author: deborahc
-manager: kfile
 ms.service: cosmos-db
 ms.component: cosmosdb-sql
 ms.custom: quick start connect, mvc
 ms.devlang: nodejs
 ms.topic: quickstart
-ms.date: 04/10/2018
+ms.date: 09/24/2018
 ms.author: dech
-ms.openlocfilehash: f5130a1ec1817448285d9995fa2d769178629114
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: a8a81556002bec82325bf4cf53b68ff49b8b6917
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43698323"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46982332"
 ---
-# <a name="azure-cosmos-db-build-a-sql-api-app-with-nodejs-and-the-azure-portal"></a>Azure Cosmos DB: Skapa en SQL API-app med Node.js och Azure Portal
+# <a name="azure-cosmos-db-build-a-nodejs-app-using-javascript-sdk-to-manage-azure-cosmos-db-sql-api-data"></a>Azure Cosmos DB: Skapa en Node.js-app med JavaScript SDK för att hantera Azure Cosmos DB SQL API-data
 
 > [!div class="op_single_selector"]
 > * [.NET](create-sql-api-dotnet.md)
 > * [Java](create-sql-api-java.md)
 > * [Node.js](create-sql-api-nodejs.md)
-> * [Node.js- v2](create-sql-api-nodejs-preview.md)
 > * [Python](create-sql-api-python.md)
 > * [Xamarin](create-sql-api-xamarin-dotnet.md)
 >  
 
 Azure Cosmos DB är Microsofts globalt distribuerade databastjänst för flera datamodeller. Du kan snabbt skapa och ställa frågor mot databaser med dokument, nyckel/värde-par och grafer. Du får fördelar av den globala distributionen och den horisontella skalningsförmågan som ligger i grunden hos Azure Cosmos DB. 
 
-Den här snabbstarten visar hur du skapar ett Azure Cosmos DB [SQL API](sql-api-introduction.md)-konto, dokumentdatabas och samling med Azure Portal. Sedan skapar du och kör en konsolapp som är byggd med [SQL Node.js API](sql-api-sdk-node.md).
+Den här snabbstarten visar hur du skapar ett [SQL API](sql-api-introduction.md)-konto i Azure Cosmos DB, en dokumentdatabas och en container med Azure-portalen. Sedan skapar du och kör en konsolapp som är byggd med [SQL JavaScript SDK](sql-api-sdk-node.md). I den här snabbstarten används version 2.0 av [JavaScript SDK](https://www.npmjs.com/package/@azure/cosmos).
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
@@ -39,7 +37,7 @@ Den här snabbstarten visar hur du skapar ett Azure Cosmos DB [SQL API](sql-api-
 [!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]
 
 * Följande gäller också:
-    * [Node.js](https://nodejs.org/en/) version v0.10.29 eller senare
+    * [Node.js](https://nodejs.org/en/) version v6.0.0 eller senare
     * [Git](http://git-scm.com/)
 
 ## <a name="create-a-database-account"></a>Skapa ett databaskonto
@@ -60,7 +58,7 @@ Den här snabbstarten visar hur du skapar ett Azure Cosmos DB [SQL API](sql-api-
 
 ## <a name="clone-the-sample-application"></a>Klona exempelprogrammet
 
-Nu ska vi klona en SQL API-app från github, ange anslutningssträngen och köra appen. Du kommer att se hur lätt det är att arbeta med data programmässigt. 
+Nu ska vi klona vi en SQL API-app från Github, ange anslutningssträngen och köra appen.
 
 1. Öppna en kommandotolk, skapa en ny mapp som heter git-samples och stäng sedan kommandotolken.
 
@@ -77,65 +75,59 @@ Nu ska vi klona en SQL API-app från github, ange anslutningssträngen och köra
 3. Klona exempellagringsplatsen med följande kommando. Detta kommando skapar en kopia av exempelappen på din dator.
 
     ```bash
-    git clone https://github.com/Azure-Samples/azure-cosmos-db-documentdb-nodejs-getting-started.git
+    git clone https://github.com/Azure-Samples/azure-cosmos-db-sql-api-nodejs-getting-started.git
     ```
 
 ## <a name="review-the-code"></a>Granska koden
 
 Det här steget är valfritt. Om du vill lära dig hur databasresurserna skapas i koden kan du granska följande kodavsnitt. Annars kan du gå vidare till [Uppdatera din anslutningssträng](#update-your-connection-string). 
 
-Följande kodfragment är alla hämtade från filen app.js.
+Observera att om du är bekant med den tidigare versionen av JavaScript SDK så är du kanske van vid att se termerna ”samling” och ”dokument”. Eftersom Azure Cosmos DB stöder [flera API-modeller](https://docs.microsoft.com/azure/cosmos-db/introduction#key-capabilities) använder version 2.0+ av JavaScript SDK de allmänna termerna ”container”, vilket kan vara en samling, ett diagram eller en tabell, och ”objekt” för att beskriva innehållet i containern.
 
-* `documentClient` har initierats.
+Följande kodfragment är alla hämtade från filen **app.js**.
+
+* `CosmosClient` har initierats.
 
     ```nodejs
-    var client = new documentClient(config.endpoint, { "masterKey": config.primaryKey });
+    const client = new CosmosClient({ endpoint: endpoint, auth: { masterKey: masterKey } });
     ```
 
 * En ny databas skapas.
 
     ```nodejs
-    client.createDatabase(config.database, (err, created) => {
-        if (err) reject(err)
-        else resolve(created);
-    });
+    const { database } = await client.databases.createIfNotExists({ id: databaseId });
     ```
 
-* En ny samling skapas.
+* En ny container (samling) skapas på.
 
     ```nodejs
-    client.createCollection(databaseUrl, config.collection, { offerThroughput: 400 }, (err, created) => {
-        if (err) reject(err)
-        else resolve(created);
-    });
+    const { container } = await client.database(databaseId).containers.createIfNotExists({ id: containerId });
     ```
 
-* Vissa dokument skapas.
+* Ett objekt (dokument) skapas.
 
     ```nodejs
-    client.createDocument(collectionUrl, document, (err, created) => {
-        if (err) reject(err)
-        else resolve(created);
-    });
+    const { item } = await client.database(databaseId).container(containerId).items.create(itemBody);
     ```
 
 * En SQL-fråga över JSON utförs.
 
     ```nodejs
-    client.queryDocuments(
-        collectionUrl,
-        'SELECT VALUE r.children FROM root r WHERE r.lastName = "Andersen"'
-    ).toArray((err, results) => {
-        if (err) reject(err)
-        else {
-            for (var queryResult of results) {
-                let resultString = JSON.stringify(queryResult);
-                console.log(`\tQuery returned ${resultString}`);
+    const querySpec = {
+        query: "SELECT VALUE r.children FROM root r WHERE r.lastName = @lastName",
+        parameters: [
+            {
+                name: "@lastName",
+                value: "Andersen"
             }
-            console.log();
-            resolve(results);
-        }
-    });
+        ]
+    };
+
+    const { result: results } = await client.database(databaseId).container(containerId).items.query(querySpec).toArray();
+    for (var queryResult of results) {
+        let resultString = JSON.stringify(queryResult);
+        console.log(`\tQuery returned ${resultString}\n`);
+    }
     ```    
 
 ## <a name="update-your-connection-string"></a>Uppdatera din anslutningssträng
@@ -154,7 +146,7 @@ Gå nu tillbaka till Azure-portalen för att hämta information om din anslutnin
 
 4. Kopiera sedan värdet för primärnyckeln från portalen och gör det till värdet för `config.primaryKey` i `config.js`. Du har nu uppdaterat din app med all information den behöver för att kommunicera med Azure Cosmos DB. 
 
-    `config.primaryKey "FILLME"`
+    `config.primaryKey = "FILLME"`
     
 ## <a name="run-the-app"></a>Kör appen
 1. Kör `npm install` i en terminal för att installera de npm-moduler som krävs

@@ -9,32 +9,32 @@ ms.assetid: 0e57f5c7-6f5a-46b7-a18a-043da8ca0d83
 ms.service: key-vault
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 05/17/2018
+ms.date: 09/05/2018
 ms.author: barclayn
 ms.custom: mvc
-ms.openlocfilehash: 91e2047998d6e743691821c631e15c94cd63cf15
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.openlocfilehash: d1776fc2347eb1a1f03a834b6a5f847ef5c551e4
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41918266"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46948891"
 ---
 # <a name="tutorial-configure-an-azure-web-application-to-read-a-secret-from-key-vault"></a>Självstudier: Konfigurera ett Azure-webbprogram att läsa en hemlighet från Key Vault
 
-Den här självstudiekursen beskriver steg för steg hur du konfigurerar ett Azure-webbprogram att läsa information från Key Vault med hjälp av hanterade tjänstidentiteter. Lär dig att:
+Den här självstudiekursen beskriver steg för steg hur du konfigurerar ett Azure-webbprogram för att läsa information från Key Vault med hjälp av hanterade identiteter för Azure-resurser. Lär dig att:
 
 > [!div class="checklist"]
 > * Skapa ett nyckelvalv.
 > * Lagra en hemlighet i Key Vault.
 > * Skapa ett Azure-webbprogram.
-> * Aktivera hanterade tjänstidentiteter
+> * Aktivera en hanterad identitet för webbprogrammet.
 > * Bevilja de behörigheter som krävs för att programmet ska kunna läsa data från Key Vault.
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Om du väljer att installera och använda CLI lokalt kräver de här självstudierna att du kör Azure CLI version 2.0.4 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI 2.0]( /cli/azure/install-azure-cli).
+Om du väljer att installera och använda CLI lokalt kräver de här självstudierna att du kör Azure CLI version 2.0.4 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa informationen i [Installera Azure CLI]( /cli/azure/install-azure-cli).
 
 Du kan logga in i Azure via CLI genom att skriva:
 
@@ -218,9 +218,9 @@ Du måste installera två NuGet-paket för webbprogrammet. Installera dem genom 
 >[!IMPORTANT]
 > Ett webbläsarfönster öppnas och ett meddelande av typen 502.5 – Processfel visas. Detta är normalt. Du måste bevilja programidentiteten behörighet att läsa hemligheter från Key Vault.
 
-## <a name="enable-managed-service-identity"></a>Aktivera Hanterad tjänstidentitet
+## <a name="enable-a-managed-identity-for-the-web-app"></a>Aktivera en hanterad identitet för webbprogrammet
 
-Azure Key Vault är ett sätt att lagra autentiseringsuppgifter samt andra nycklar och hemligheter på ett säkert sätt, men din kod måste autentiseras till Key Vault för att kunna hämta dem. Hanterad tjänstidentitet (MSI) löser detta problem på ett enklare sätt genom att ge Azure-tjänsterna en automatiskt hanterad identitet i Azure Active Directory (Azure AD). Du kan använda den här identiteten för att autentisera till alla tjänster som stöder Azure AD-autentisering, inklusive Key Vault, utan att behöva ha några autentiseringsuppgifter i koden.
+Azure Key Vault är ett sätt att lagra autentiseringsuppgifter samt andra nycklar och hemligheter på ett säkert sätt, men din kod måste autentiseras till Key Vault för att kunna hämta dem. [Hanterade identiteter för Azure-resurser (översikt)](../active-directory/managed-identities-azure-resources/overview.md) löser detta problem på ett enklare sätt genom att ge Azure-tjänsterna en automatiskt hanterad identitet i Azure Active Directory (Azure AD). Du kan använda den här identiteten för att autentisera till alla tjänster som stöder Azure AD-autentisering, inklusive Key Vault, utan att behöva ha några autentiseringsuppgifter i koden.
 
 1. Gå tillbaka till Azure CLI
 2. Kör kommandot assign-identity för att skapa identiteten för det här programmet:
@@ -230,7 +230,7 @@ az webapp identity assign --name "WebKeyVault" --resource-group "ContosoResource
 ```
 
 >[!NOTE]
->Det här kommandot fungerar på samma sätt som när du går till portalen och väljer **På** för **Hanterad tjänstidentitet** i egenskaperna för webbprogrammet.
+>Det här kommandot fungerar på samma sätt som när du går till portalen och väljer **På** för **Identitet/Systemtilldelad** i egenskaperna för webbprogrammet.
 
 ## <a name="grant-rights-to-the-application-identity"></a>Bevilja behörighet till programidentiteten
 

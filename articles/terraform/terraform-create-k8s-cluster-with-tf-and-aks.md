@@ -8,13 +8,13 @@ author: tomarcher
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
-ms.date: 09/06/2018
-ms.openlocfilehash: cd1219fda7821fdc99e334de58826317113415d4
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.date: 09/08/2018
+ms.openlocfilehash: f261c59193349d55d407e6079002b75884273e84
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44053649"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46960251"
 ---
 # <a name="create-a-kubernetes-cluster-with-azure-kubernetes-service-and-terraform"></a>Skapa ett Kubernetes-kluster med Azure Kubernetes Service och Terraform
 [Azure Kubernetes Service (AKS)](/azure/aks/) hanterar din värdmiljö för Kubernetes, vilket gör det enkelt att snabbt distribuera och hantera containerbaserade program utan kunskaper om orkestrering av containrar. Det eliminerar också problem med pågående åtgärder och underhåll genom etablering, uppgradering och skalning av resurser på begäran, utan att koppla från dina program.
@@ -32,7 +32,7 @@ I den här självstudien lär du dig hur du utför följande uppgifter för att 
 
 - **Konfigurera Terraform**: Följ anvisningarna i artikeln [Terraform and configure access to Azure](/azure/virtual-machines/linux/terraform-install-configure) (Terraform och konfigurera åtkomst till Azure)
 
-- **Azure-tjänstens huvudnamn**: Följ anvisningarna i avsnittet i avsnittet **Skapa huvudnamn för tjänsten** i artikeln [Skapa Azure-tjänstens huvudnamn med Azure CLI 2.0](/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest#create-the-service-principal). Observera värdena för appId, displayName, password (lösenord) och tenant (klientorganisation).
+- **Azure-tjänstens huvudnamn**: Följ anvisningarna i avsnittet **Skapa huvudnamn för tjänsten** i artikeln [Skapa Azure-tjänstens huvudnamn med Azure CLI](/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest#create-the-service-principal). Observera värdena för appId, displayName, password (lösenord) och tenant (klientorganisation).
 
 ## <a name="create-the-directory-structure"></a>Skapa katalogstrukturen
 Det första steget är att skapa katalogen som innehåller Terraform-konfigurationsfilerna för övningen.
@@ -295,7 +295,14 @@ I det här avsnittet ser du hur du använder kommandot `terraform init` för att
 
     ![Exempel på resultat för "terraform init"](./media/terraform-create-k8s-cluster-with-tf-and-aks/terraform-init-complete.png)
 
-1. Kör kommandot `terraform plan` för att skapa Terraform-planen som definierar infrastrukturelementen. Kommandot begär två värden: **var.client_id** och **var.client_secret**. För variabeln **var.client_id** anger du värdet **appId** som kopplas till tjänstens huvudnamn. För variabeln **var.client_secret** anger du värdet **password** som kopplas till tjänstens huvudnamn.
+1. Exportera autentiseringsuppgifterna för tjänstens huvudnamn. Ersätt platshållarna &lt;your-client-id> och &lt;your-client-secret> med de värden för **appId** och **lösenord** som är associerade med ditt tjänsthuvudnamn.
+
+    ```bash
+    export TF_VAR_client_id=<your-client-id>
+    export TF_VAR_client_secret=<your-client-secret>
+    ```
+
+1. Kör kommandot `terraform plan` för att skapa Terraform-planen som definierar infrastrukturelementen. 
 
     ```bash
     terraform plan -out out.plan

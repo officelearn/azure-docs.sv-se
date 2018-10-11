@@ -3,7 +3,7 @@ title: Åtgärda problem med certifikat för Azure Stack | Microsoft Docs
 description: Använda Azure Stack-beredskap layout för att granska och åtgärda problem med certifikat.
 services: azure-stack
 documentationcenter: ''
-author: brenduns
+author: sethmanheim
 manager: femila
 editor: ''
 ms.assetid: ''
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 05/08/2018
-ms.author: brenduns
+ms.author: sethm
 ms.reviewer: ''
-ms.openlocfilehash: 6bc7839e7db0022beaa9b31c390655f31d1d52c0
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.openlocfilehash: 5e96c731496d79ca081091e2059a35545f963bd6
+ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44053473"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49078650"
 ---
 # <a name="remediate-common-issues-for-azure-stack-pki-certificates"></a>Åtgärda vanliga problem med Azure Stack PKI-certifikat
 Informationen i den här artikeln kan hjälpa dig att förstå och lösa vanliga problem med Azure Stack PKI-certifikat. Du kan identifiera problem när du använder Azure Stack-beredskap för installation för att [Validera Azure Stack PKI-certifikat](azure-stack-validate-pki-certs.md). Verktyget kontrollerar för att säkerställa att certifikat uppfyller kraven för PKI för ett Azure Stack-distributioner och Azure Stack hemlighet Rotation och loggas resultaten i en [report.json filen](azure-stack-validation-report.md).  

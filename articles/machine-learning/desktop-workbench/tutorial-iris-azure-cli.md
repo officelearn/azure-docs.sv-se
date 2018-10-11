@@ -10,15 +10,19 @@ ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: tutorial
 ms.date: 10/15/2017
-ms.openlocfilehash: 10fe861682da6c1d1ac701a565cef11f9b44cd1e
-ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ROBOTS: NOINDEX
+ms.openlocfilehash: b9b515a2ccaedc40fc531d6a1cc58cbe98212b4a
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "41918977"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46967905"
 ---
 # <a name="tutorial-classifying-iris-using-the-command-line-interface"></a>Självstudie: Klassificera Iris med hjälp av kommandoradsgränssnittet
-Azure Machine Learning-tjänsterna (förhandsversionen) är en integrerad lösning för datavetenskap och analys från slutpunkt till slutpunkt som datatekniker kan använda för att förbereda data, utveckla experiment och distribuera modeller i molnskala.
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)]
+
+Azure Machine Learning-tjänsten (förhandsversionen) är en integrerad lösning för datavetenskap och analys från slutpunkt till slutpunkt som datatekniker kan använda för att förbereda data, utveckla experiment och distribuera modeller i molnskala.
 
 I självstudien får du lära dig att använda CLI-verktyg (kommandoradsgränssnitt) i Azure Machine Learnings förhandsversionsfunktioner: 
 > [!div class="checklist"]
@@ -34,7 +38,7 @@ För att slutföra den här kursen behöver du:
   
   Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-- Azure Machine Learning Workbench-programmet installeras enligt beskrivningen i [Snabbstart: Installera och starta Azure Machine Learning-tjänster](../service/quickstart-installation.md). 
+- Azure Machine Learning Workbench-programmet installeras enligt beskrivningen i [Snabbstart: Installera och starta Azure Machine Learning-tjänsten](quickstart-installation.md). 
 
   >[!IMPORTANT]
   >Skapa inte Azure Machine Learning-tjänstkonton. Du kommer att göra det med hjälp av CLI:n i den här artikeln.
@@ -139,16 +143,16 @@ $ az ml project create --name <project name> --workspace <workspace name> --acco
 ```
 
 ### <a name="create-a-new-project-associated-with-a-cloud-git-repository"></a>Skapa ett nytt projekt som är associerat med en Git-lagringsplats i molnet
-Du kan skapa ett nytt projekt som är associerat med en VSTS (Visual Studio Team Service) Git-lagringsplats. Varje gång ett experiment skickas, allokeras en ögonblicksbild av hela projektmappen till den fjärranslutna Git-lagringsplatsen. Se [Använda en Git-lagringsplats med ett Azure Machine Learning Workbench-projekt](using-git-ml-project.md) för mer information.
+Du kan skapa ett nytt projekt som är associerat med en Azure DevOps Git-lagringsplats. Varje gång ett experiment skickas, allokeras en ögonblicksbild av hela projektmappen till den fjärranslutna Git-lagringsplatsen. Se [Använda en Git-lagringsplats med ett Azure Machine Learning Workbench-projekt](using-git-ml-project.md) för mer information.
 
 > [!NOTE]
-> Azure Machine Learning stöder endast tomma Git-lagringsplatser som skapas i VSTS.
+> Azure Machine Learning stöder endast tomma Git-lagringsplatser som skapas i Azure DevOps.
 
 ```azure-cli
 $ az ml project create --name <project name> --workspace <workspace name> --account <experimentation account name> --resource-group <resource group name> --path <local folder path> --repo <VSTS repo URL>
 ```
 > [!TIP]
-> Om du får felet ”Lagringsplatsens URL kan vara ogiltig eller användaren kanske inte har åtkomst”, kan du skapa en säkerhetstoken i VSTS (under _Säkerhet_, _Lägg till personliga åtkomsttokens_) och använda `--vststoken`-argumentet när du skapar ditt projekt. 
+> Om du får felet ”Lagringsplatsens URL kan vara ogiltig eller användaren kanske inte har åtkomst”, kan du skapa en säkerhetstoken i Azure DevOps (under _Säkerhet_, _Lägg till personliga åtkomsttokens_) och använda `--vststoken`-argumentet när du skapar ditt projekt. 
 
 ### <a name="sample_create"></a>Skapa ett nytt projekt från ett exempel
 I det här exemplet skapar du ett nytt projekt med ett projektexempel som mall.

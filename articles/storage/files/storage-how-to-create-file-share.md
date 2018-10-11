@@ -8,12 +8,12 @@ ms.topic: get-started-article
 ms.date: 09/19/2017
 ms.author: renash
 ms.component: files
-ms.openlocfilehash: 9ce0bc425836fffb59e804bdbd19f23cfc26c00e
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: ec952aa26d7bc6b185b425700080a4f474564b76
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39527177"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46955817"
 ---
 # <a name="create-a-file-share-in-azure-files"></a>Skapa en filresurs i Azure Files
 Du kan skapa Azure-filresurser med hjälp av [Azure Portal](https://portal.azure.com/), PowerShell-cmdlets för Azure Storage, klientbiblioteken för Azure Storage eller Azure Storage REST-API:et. I den här kursen lär du dig:
@@ -47,7 +47,7 @@ Innan du kan använda PowerShell laddar du ned och installerar Azure PowerShell-
 > [!Note]  
 > Vi rekommenderar att du laddar ned och installerar eller uppgradera till den senaste Azure PowerShell-modulen.
 
-1. **Skapa en kontext för ditt lagringskonto och nyckel** Kontexten innehåller lagringskontots namn och kontonyckel. Anvisningar för hur du kopierar din kontonyckel från [Azure Portal](https://portal.azure.com/) finns i [Visa och kopiera åtkomstnycklar för lagring](../common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json#view-and-copy-storage-access-keys).
+1. **Skapa en kontext för ditt lagringskonto och nyckel** Kontexten innehåller lagringskontots namn och kontonyckel. Anvisningar för hur du kopierar din kontonyckel från [Azure-portalen](https://portal.azure.com/) finns i [Åtkomstnycklar för lagringskonto](../common/storage-account-manage.md#access-keys).
 
     ```powershell
     $storageContext = New-AzureStorageContext <storage-account-name> <storage-account-key>
@@ -64,7 +64,7 @@ Innan du kan använda PowerShell laddar du ned och installerar Azure PowerShell-
 
 ## <a name="create-file-share-through-command-line-interface-cli"></a>Skapa filresurs via kommandoradsgränssnittet (CLI)
 1. **Om du vill förbereda för att använda ett kommandoradsgränssnitt (CLI) laddar du ned Azure CLI och installerar det.**  
-    Se [Install Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli) (Installera Azure CLI 2.0) och [Get started with Azure CLI 2.0](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) (Kom igång med Azure CLI 2.0).
+    Se [Installera Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) och [Kom igång med Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli).
 
 2. **Skapa en anslutningssträng för lagringskontot där du vill skapa resursen.**  
     Ersätt ```<storage-account>``` och ```<resource_group>``` med lagringskontots namn och resursgrupp i följande exempel:

@@ -1,43 +1,45 @@
 ---
-title: Snabbstart för node.js för Azure Cognitive Services och Microsoft Translator-API för Talöversättning | Microsoft Docs
-description: Hämta information och exempel på kod som hjälper dig att snabbt komma igång med Microsoft Translator Speech API i Microsoft Cognitive Services på Azure.
+title: 'Snabbstart: Translator Speech API Node.js'
+titlesuffix: Azure Cognitive Services
+description: Hämta information och kodexempel som hjälper dig att snabbt komma igång med Translator Speech API.
 services: cognitive-services
-documentationcenter: ''
 author: v-jaswel
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-speech
-ms.topic: article
+ms.topic: quickstart
 ms.date: 3/5/2018
 ms.author: v-jaswel
-ms.openlocfilehash: e652ee1e201e60d0d75f10bb8fceb4fbcd205381
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
-ms.translationtype: MT
+ROBOTS: NOINDEX
+ms.openlocfilehash: 533faeca37f021beb86148a4f11a0f04c631a30a
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "41987484"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46954593"
 ---
-# <a name="quickstart-for-microsoft-translator-speech-api-with-nodejs"></a>Snabbstart för Microsoft Translator Speech API med Node.js 
+# <a name="quickstart-translator-speech-api-with-nodejs"></a>Snabbstart: Translator Speech API med Node.js 
 <a name="HOLTop"></a>
 
-Den här artikeln visar hur du använder Microsoft Translator Speech API för att översätta ord som sägs i en WAV-fil.
+Den här artikeln visar hur du använder Translator Speech API för att översätta ord som sägs i en WAV-fil.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
-Du behöver [Node.js 6](https://nodejs.org/en/download/) att köra den här koden.
+Du behöver [Node.js 6](https://nodejs.org/en/download/) för att kunna köra den här koden.
 
-Du måste installera den [Websocket paketet](https://www.npmjs.com/package/websocket) för Node.js.
+Du måste installera [Websocket-paketet](https://www.npmjs.com/package/websocket) för Node.js.
 
-Du behöver en WAV-fil med namnet ”speak.wav” i samma mapp som den körbara filen som du kompilera från koden nedan. Den här .wav-filen ska vara i standard PCM, 16-bitars, 16 kHz mono format. Du kan hämta sådan .wav fil från den [Text till tal-API](https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/rest-apis#text-to-speech).
+Du behöver en WAV-fil med namnet ”speak.wav” i samma mapp som den körbara filen som du kompilerar från koden nedan. Den här WAV-filen bör vara en 16-bitars 16 kHz-fil i PCM-standardmonoformat. Du kan hämta en sådan WAV-fil från [Text till tal-API:et](https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/rest-apis#text-to-speech).
 
-Du måste ha en [Cognitive Services API-konto](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) med **Microsoft Translator Speech API**. Du behöver en betald prenumerationsnyckel från din [Azure-instrumentpanelen](https://portal.azure.com/#create/Microsoft.CognitiveServices).
+Du behöver ett [Cognitive Services API-konto](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) med **Microsoft Translator Speech API**. Du behöver nyckeln till en betalprenumeration från din [Azure-instrumentpanel](https://portal.azure.com/#create/Microsoft.CognitiveServices).
 
 ## <a name="translate-speech"></a>Översätt tal
 
 Följande kod omvandlar tal från ett språk till ett annat.
 
-1. Skapa ett nytt Node.js-projekt i din favorit-IDE.
+1. Skapa ett nytt Node.js-projekt i valfri IDE.
 2. Lägg till koden nedan.
-3. Ersätt den `key` värde med en giltig åtkomstnyckel för din prenumeration.
+3. Ersätt värdet `key` med en giltig åtkomstnyckel för din prenumeration.
 4. Kör programmet.
 
 ```nodejs
@@ -155,18 +157,18 @@ function connect() {
 connect();
 ```
 
-**Omvandla tal svar**
+**Talöversättningssvar**
 
-En lyckad resultatet är att skapa en fil med namnet ”speak2.wav”. Filen innehåller översättningen av ord som sägs i ”speak.wav”.
+Om åtgärden lyckas skapas en fil med namnet ”speak2.wav”. Filen innehåller översättningen av orden som sägs i ”speak.wav”.
 
 [Överst på sidan](#HOLTop)
 
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Translator Speech självstudien](../tutorial-translator-speech-csharp.md)
+> [Translator Speech-självstudie](../tutorial-translator-speech-csharp.md)
 
-## <a name="see-also"></a>Se också 
+## <a name="see-also"></a>Se även 
 
-[Översikt över Translator Speech](../overview.md)
+[Translator Speech-översikt](../overview.md)
 [API-referens](https://docs.microsoft.com/azure/cognitive-services/translator-speech/reference)

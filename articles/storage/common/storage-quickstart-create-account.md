@@ -1,27 +1,24 @@
 ---
-title: Azure-snabbstart – Skapa ett lagringskonto | Microsoft Docs
-description: Lär dig snabbt att skapa ett nytt lagringskonto med hjälp av Azure Portal, Azure PowerShell eller Azure CLI.
+title: 'Snabbstart: Skapa ett lagringskonto – Azure Storage'
+description: I den här snabbstarten lär du dig att skapa ett lagringskonto med Azure-portalen, Azure PowerShell eller Azure CLI. Ett Azure Storage-konto tillhandahåller ett unikt namnområde i Microsoft Azure där du kan lagra och få åtkomst till de dataobjekt som du skapar i Azure Storage.
 services: storage
 author: tamram
 ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
-ms.date: 07/03/2018
+ms.date: 09/18/2018
 ms.author: tamram
 ms.component: common
-ms.openlocfilehash: 91e98f74fd6cd88533a5090a383897eaa0e60648
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: a695e333f48ed0bbf1ad5656c20964232feff4d7
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39524028"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46990135"
 ---
 # <a name="create-a-storage-account"></a>skapar ett lagringskonto
 
-Ett Azure Storage-konto tillhandahåller ett unikt namnområde i molnet där du kan lagra och få åtkomst till dina dataobjekt i Azure Storage. Ett lagringskonto innehåller alla blobar, filer, köer, tabeller och diskar som du skapar med det kontot. 
-
-Du måste först skapa ett nytt lagringskonto för att komma igång med Azure Storage. Du kan skapa ett Azure Storage-konto med hjälp av [Azure Portal](https://portal.azure.com/), [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview) eller [Azure CLI](https://docs.microsoft.com/cli/azure?view=azure-cli-latest). Den här snabbstarten visar hur du använder vart och ett av dessa alternativ för att skapa det nya lagringskontot. 
-
+I den här snabbstarten lär du dig att skapa ett lagringskonto med [Azure-portalen](https://portal.azure.com/), [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview) eller [Azure CLI](https://docs.microsoft.com/cli/azure?view=azure-cli-latest).  
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
@@ -54,7 +51,7 @@ Knappen startar ett interaktivt gränssnitt som du kan använda för att köra s
 
 ### <a name="install-the-cli-locally"></a>Installera CLI lokalt
 
-Du kan även installera och använda Azure CLI lokalt. För den här snabbstarten krävs det att du kör Azure CLI version 2.0.4 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI 2.0](/cli/azure/install-azure-cli). 
+Du kan även installera och använda Azure CLI lokalt. För den här snabbstarten krävs det att du kör Azure CLI version 2.0.4 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa informationen i [Installera Azure CLI](/cli/azure/install-azure-cli). 
 
 ---
 
@@ -84,26 +81,21 @@ az login
 
 ---
 
-## <a name="create-a-resource-group"></a>Skapa en resursgrupp
+## <a name="create-a-storage-account"></a>skapar ett lagringskonto
 
-En Azure-resursgrupp är en logisk container där Azure-resurser distribueras och hanteras. Mer information om resursgrupper finns i [Översikt över Azure Resource Manager](../../azure-resource-manager/resource-group-overview.md).
+Nu är du redo att skapa ditt lagringskonto.
+
+Varje lagringskonto måste tillhöra en Azure-resursgrupp. En resursgrupp är en logisk container där Azure-resurserna grupperas. När du skapar ett lagringskonto kan du antingen skapa en ny resursgrupp eller använda en befintlig resursgrupp. I den här snabbstarten ser du hur du skapar en ny resursgrupp. 
+
+Ett **v2-lagringskonto för generell användning** ger åtkomst till alla Azure Storage-tjänster: blobar, filer, köer, tabeller och diskar. Snabbstarten skapar ett v2-lagringskonto för generell användning, men stegen för att skapa alla typer av lagringskonton liknar dessa.   
 
 # <a name="portaltabportal"></a>[Portal](#tab/portal)
 
-Följ de här stegen för att skapa en resursgrupp i Azure-portalen:
-
-1. I Azure-portalen expanderar du menyn på vänster sida för att öppna tjänstemenyn och väljer **Resursgrupper**.
-2. Klicka på knappen **Lägg till** för att lägga till en ny resursgrupp.
-3. Ange ett namn för den nya resursgruppen.
-4. Välj den prenumeration där du vill skapa den nya resursgruppen.
-5. Välj platsen för resursgruppen.
-6. Klicka på knappen **Skapa**.  
-
-![Skärmbild som visar hur du skapar en resursgrupp i Azure-portalen](./media/storage-quickstart-create-account/create-resource-group.png)
+[!INCLUDE [storage-create-account-portal-include](../../../includes/storage-create-account-portal-include.md)]
 
 # <a name="powershelltabpowershell"></a>[PowerShell](#tab/powershell)
 
-Om du vill skapa en resursgrupp med PowerShell använder du kommandot [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup): 
+Skapa först en ny resursgrupp med PowerShell, med kommandot [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup): 
 
 ```powershell
 # put resource group in a variable so you can use the same group name going forward,
@@ -119,64 +111,7 @@ Get-AzureRmLocation | select Location
 $location = "westus"
 ```
 
-# <a name="azure-clitabazure-cli"></a>[Azure CLI](#tab/azure-cli)
-
-Om du vill skapa en ny resursgrupp med Azure CLI använder du kommandot [az group create](/cli/azure/group#az_group_create). 
-
-```azurecli-interactive
-az group create \
-    --name storage-quickstart-resource-group \
-    --location westus
-```
-
-Om du inte vet vilken region du ska ange för parametern `--location` kan du hämta en lista över regioner som stöds för din prenumeration med kommandot [az account list-locations](/cli/azure/account#az_account_list).
-
-```azurecli-interactive
-az account list-locations \
-    --query "[].{Region:name}" \
-    --out table
-```
-
----
-
-## <a name="create-a-general-purpose-storage-account"></a>Skapa ett allmänt lagringskonto
-
-Ett allmänt lagringskonto ger åtkomst till alla Azure Storage-tjänster: blobar, filer, köer och tabeller. Ett allmänt lagringskonto kan skapas på standard- eller premiumnivån. Exemplen i den här artikeln visar hur du skapar ett allmänt lagringskonto på standardnivån (standarden).
-
-Azure Storage erbjuder två typer av lagringskonton för generell användning:
-
-- General-purpose v2-konton (GPv2) 
-- General-purpose v1-konton (GPv1). 
-
-> [!NOTE]
-> Vi rekommenderar att du skapar nya storage-konton som **GPv2-konton**, för att kunna utnyttja nya funktioner som finns tillgängliga för dessa konton.  
-
-Mer information om typer av lagringskonton finns i [Alternativ för Azure Storage-konton](storage-account-options.md).
-
-Tänk på dessa regler när du namnger lagringskontot:
-
-- Namnet på ett lagringskonto måste vara mellan 3 och 24 tecken långt och får endast innehålla siffror och gemener.
-- Namnet på ditt lagringskonto måste vara unikt i Azure. Det får inte finnas två lagringskonton med samma namn.
-
-# <a name="portaltabportal"></a>[Portal](#tab/portal)
-
-Följ de här stegen för att skapa ett GPv2-konto för generell användning i Azure-portalen:
-
-1. I Azure-portalen expanderar du menyn på vänster sida för att öppna tjänstemenyn och välja **Alla tjänster**. Rulla ned till **lagring** och välj **lagringskonton**. På fönstret **lagringskonton** som visas, väljer du **lägg till**.
-2. Ange ett namn för lagringskontot.
-3. Sätt fältet **Typ av konto** till **StorageV2 (generell användning v2)**.
-4. Låt fältet **Replikering** stå som **Lokalt redundant lagring (LRS)**. Alternativt kan du välja **zonredundant lagring (ZRS)**, **geo-redundant lagring (GRS)** eller **geo-redundant lagring med läsåtkomst (RA-GRS)**.
-5. Behåll standardvärdena för dessa fält: **Distributionsmodell**, **Prestanda**, **Säker överföring krävs**.
-6. Välj den prenumeration där du vill skapa lagringskontot.
-7. I avsnittet **Resursgrupp** väljer du **Använd befintlig** och väljer sedan den resursgrupp du skapade i föregående avsnitt.
-8. Välj platsen för det nya lagringskontot.
-9. Skapa lagringskontot genom att klicka på **Skapa**.      
-
-![Skärmbild som visar hur du skapar ett lagringskonto i Azure-portalen](./media/storage-quickstart-create-account/create-account-portal.png)
-
-# <a name="powershelltabpowershell"></a>[PowerShell](#tab/powershell)
-
-Om du vill skapa ett GPv2-lagringskonto för generell användning från PowerShell med lokalt redundant lagring (LRS) använder du kommandot [New-AzureRmStorageAccount](/powershell/module/azurerm.storage/New-AzureRmStorageAccount): 
+Skapa sedan ett v2-lagringskonto för generell användning med lokalt redundant lagring (LRS). Använd kommandot [New-AzureRMStorageAccount](/powershell/module/azurerm.storage/New-AzureRmStorageAccount): 
 
 ```powershell
 New-AzureRmStorageAccount -ResourceGroupName $resourceGroup `
@@ -197,7 +132,23 @@ Du kan skapa ett GPv2-lagringskonto for generell användning med zonredundant la
 
 # <a name="azure-clitabazure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-Om du vill skapa ett allmänt GPv2-lagringskonto för generell användning från Azure CLI med lokalt redundant lagring använder du kommandot [az storage account create](/cli/azure/storage/account#az_storage_account_create).
+Skapa först en ny resursgrupp med Azure CLI med kommandot [az group create](/cli/azure/group#az_group_create). 
+
+```azurecli-interactive
+az group create \
+    --name storage-quickstart-resource-group \
+    --location westus
+```
+
+Om du inte vet vilken region du ska ange för parametern `--location` kan du hämta en lista över regioner som stöds för din prenumeration med kommandot [az account list-locations](/cli/azure/account#az_account_list).
+
+```azurecli-interactive
+az account list-locations \
+    --query "[].{Region:name}" \
+    --out table
+```
+
+Skapa sedan ett v2-lagringskonto för generell användning med lokalt redundant lagring. Använd kommandot [az storage account create](/cli/azure/storage/account#az_storage_account_create):
 
 ```azurecli-interactive
 az storage account create \
@@ -258,16 +209,16 @@ I den här snabbstarten har du skapat ett allmänt standardlagringskonto. Om du 
 # <a name="portaltabportal"></a>[Portal](#tab/portal)
 
 > [!div class="nextstepaction"]
-> [Överföra objekt till och från Azure Blob Storage med hjälp av Azure Portal](../blobs/storage-quickstart-blobs-portal.md)
+> [Arbeta med blobar med Azure-portalen](../blobs/storage-quickstart-blobs-portal.md)
 
 # <a name="powershelltabpowershell"></a>[PowerShell](#tab/powershell)
 
 > [!div class="nextstepaction"]
-> [Överföra objekt till och från Azure Blob Storage med hjälp av PowerShell](../blobs/storage-quickstart-blobs-powershell.md)
+> [Arbeta med blobar med PowerShell](../blobs/storage-quickstart-blobs-powershell.md)
 
 # <a name="azure-clitabazure-cli"></a>[Azure CLI](#tab/azure-cli)
 
 > [!div class="nextstepaction"]
-> [Överföra objekt till och från Azure Blob Storage med hjälp av Azure CLI](../blobs/storage-quickstart-blobs-cli.md)
+> [Arbeta med blob-lagring med Azure CLI](../blobs/storage-quickstart-blobs-cli.md)
 
 ---

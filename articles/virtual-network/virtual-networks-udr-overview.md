@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 10/26/2017
 ms.author: jdial
 ms.custom: ''
-ms.openlocfilehash: b206d93d7c72f5d8ff3dd3baa277cd0db33ba583
-ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
+ms.openlocfilehash: 97e192312619455c0055a917df880cc48eb082dd
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42811921"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46978932"
 ---
 # <a name="virtual-network-traffic-routing"></a>Trafikdirigering i virtuella nätverk
 
@@ -105,13 +105,13 @@ Du kan inte ange **VNet-peering** eller **VirtualNetworkServiceEndpoint** son n�
 
 Namnet som visas och refereras för nästa hopptyper är olika för Azure-portalen och kommandoradsverktyg och Azure Resource Manager och klassiska distributionsmodeller. I följande tabell visas de namn som används för att referera till varje nästa hopptyp med olika verktyg och [distributionsmodeller](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json):
 
-|Nexthop-typ                   |Azure CLI 2.0 och PowerShell (Resource Manager) |Azure CLI 1.0 och PowerShell (klassisk)|
+|Nexthop-typ                   |Azure CLI och PowerShell (Resource Manager) |Azures klassiska CLI och PowerShell (klassisk)|
 |-------------                   |---------                                       |-----|
 |Virtuell nätverksgateway         |VirtualNetworkGateway                           |VPNGateway|
-|Virtuellt nätverk                 |VNetLocal                                       |VNETLocal (inte tillgängligt i CLI 1.0 i asm-läge)|
-|Internet                        |Internet                                        |Internet (inte tillgängligt i CLI 1.0 i asm-läge)|
+|Virtuellt nätverk                 |VNetLocal                                       |VNETLocal (inte tillgängligt i klassiska CLI i asm-läge)|
+|Internet                        |Internet                                        |Internet (inte tillgängligt i klassiska CLI i asm-läge)|
 |Virtuell installation               |VirtualAppliance                                |VirtualAppliance|
-|Ingen                            |Ingen                                            |Null (inte tillgängligt i CLI 1.0 i asm-läge)|
+|Ingen                            |Ingen                                            |Null (inte tillgängligt i klassiska CLI i asm-läge)|
 |Virtuell nätverkspeering         |VNET-peering                                    |Inte tillämpligt|
 |Slutpunkt för virtuellt nätverk|VirtualNetworkServiceEndpoint                   |Inte tillämpligt|
 

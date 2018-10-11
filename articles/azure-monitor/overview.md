@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/26/2018
 ms.author: bwren
-ms.openlocfilehash: 0413357b6e17bf66b0ae9b504bc23b9702d03c91
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 0f17cf7f2ef655f482b08b5c7163c0d85be77ce5
+ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47220983"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49068713"
 ---
 # <a name="azure-monitor-overview"></a>Översikt över Azure Monitor
 
@@ -70,7 +70,7 @@ Azure Monitor kan samla in loggdata från alla REST-klient som använder den [Da
 Övervakning av data är endast användbart om det kan öka din insyn i driften av IT-miljön. Azure Monitor innehåller flera funktioner och verktyg som kan ger värdefulla insikter i dina program och andra resurser som de förlitar sig på. [Övervakningslösningar](../monitoring/monitoring-solutions.md) och funktioner som [Application Insights](../application-insights/app-insights-overview.md) och behållaren Insights ger djupare insikter om olika aspekter av ditt program och specifika Azure-tjänster. 
 
 ### <a name="application-insights"></a>Application Insights
-[Application Insights](http://azure.microsoft.com/documentation/services/application-insights) övervakar tillgänglighet, prestanda och användningen av ditt webbprogram om de är finns i molnet eller lokalt. Den använder kraftfull dataplattform analys i Log Analytics för att ge dig djupare insikter om ditt programs operations och diagnostisera fel utan att behöva vänta på att en användare rapporterar dem. Application Insights innehåller en rad olika utvecklingsverktyg och integreras med Visual Studio för att stödja dina DevOps-processer.
+[Application Insights](../application-insights/app-insights-overview.md) övervakar tillgänglighet, prestanda och användningen av ditt webbprogram om de är finns i molnet eller lokalt. Den använder kraftfull dataplattform analys i Log Analytics för att ge dig djupare insikter om ditt programs operations och diagnostisera fel utan att behöva vänta på att en användare rapporterar dem. Application Insights innehåller en rad olika utvecklingsverktyg och integreras med Visual Studio för att stödja dina DevOps-processer.
 
 ![App Insights](media/overview/app-insights.png)
 

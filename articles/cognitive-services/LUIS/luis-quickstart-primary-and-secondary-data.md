@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: tutorial
 ms.date: 09/09/2018
 ms.author: diberry
-ms.openlocfilehash: 941c29506aa8f17dcb6262495b28dd26e78194d5
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: e0cdda629ddded121a424af61377c04ee8d958d3
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47036073"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48867552"
 ---
 # <a name="tutorial-7-extract-names-with-simple-entity-and-phrase-list"></a>Självstudie 7: Extrahera namn med en enkel entitet och en fraslista
 
@@ -299,7 +299,7 @@ Eftersom ett namn kan vara vad som helst förutsäger LUIS-appen entiteter mer k
 
     [![](media/luis-quickstart-primary-and-secondary-data/hr-create-phrase-list-2.png "Skärmbild på dialogrutan för att skapa en ny fraslista med ord i fraslistans värderuta")](media/luis-quickstart-primary-and-secondary-data/hr-create-phrase-list-2.png#lightbox)
 
-5. [Träna](#train-the-luis-app) och [publicera](#publish-the-app-to-get-the-endpoint-URL) appen igen för att använda fraslistan.
+5. [Träna](#train) och [publicera](#publish) appen igen för att använda fraslistan.
 
 6. Skicka om frågan till slutpunkten med samma yttrande: `This is the lead welder paperwork.`
 

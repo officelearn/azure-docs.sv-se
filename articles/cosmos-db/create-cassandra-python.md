@@ -10,17 +10,17 @@ ms.custom: quick start connect, mvc
 ms.devlang: python
 ms.topic: quickstart
 ms.date: 09/24/2018
-ms.openlocfilehash: 4712c0b40209cd6d40703176f95a80f491d0364c
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 5ffd134bd4e47f92264f8b299f8fd4bdb76f6c9f
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46979108"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48870324"
 ---
 # <a name="quickstart-build-a-cassandra-app-with-python-and-azure-cosmos-db"></a>Snabbstart: Skapa en Cassandra-app med Python och Azure Cosmos DB
 
 > [!div class="op_single_selector"]
-> * [.NET](create-cassandra-dotnet.md)
+> * [NET](create-cassandra-dotnet.md)
 > * [Java](create-cassandra-java.md)
 > * [Node.js](create-cassandra-nodejs.md)
 > * [Python](create-cassandra-python.md)
@@ -49,7 +49,7 @@ Innan du kan börja skapa en dokumentdatabas måste du skapa ett Cassandra-konto
 
 Nu ska vi klona en Cassandra API-app från github, ange anslutningssträngen och köra appen. Du kommer att se hur lätt det är att arbeta med data programmässigt. 
 
-1. Öppna en kommandotolk. Skapa en ny mapp som heter `git-samples`. Stäng kommandotolken.
+1. Öppna en kommandotolk. Skapa en ny mapp med namnet `git-samples`. Stäng sedan kommandotolken.
 
     ```bash
     md "C:\git-samples"
@@ -112,13 +112,13 @@ Det här steget är valfritt. Om du vill lära dig hur databasresurserna skapas 
 
     ```Python
     insert_data = session.prepare("INSERT INTO  uprofile.user  (user_id, user_name , user_bcity) VALUES (?,?,?)")
-    batch = BatchStatement()
-    batch.add(insert_data, (1, 'LyubovK', 'Dubai'))
-    batch.add(insert_data, (2, 'JiriK', 'Toronto'))
-    batch.add(insert_data, (3, 'IvanH', 'Mumbai'))
-    batch.add(insert_data, (4, 'YuliaT', 'Seattle'))
+    session.execute(insert_data, [1,'Lybkov','Seattle'])
+    session.execute(insert_data, [2,'Doniv','Dubai'])
+    session.execute(insert_data, [3,'Keviv','Chennai'])
+    session.execute(insert_data, [4,'Ehtevs','Pune'])
+    session.execute(insert_data, [5,'Dnivog','Belgaum'])
     ....
-    session.execute(batch)
+    
     ```
 
 * Fråga för att hämta alla nyckelvärden.
@@ -138,7 +138,7 @@ Det här steget är valfritt. Om du vill lära dig hur databasresurserna skapas 
 
 Gå nu tillbaka till Azure-portalen för att hämta information om din anslutningssträng och kopiera den till appen. Anslutningssträngen gör det möjligt för appen att kommunicera med den värdbaserade databasen.
 
-1. I [Azure-portalen](http://portal.azure.com/) väljer du **Anslutningssträng**. 
+1. På [Azure-portalen](http://portal.azure.com/) väljer du **Anslutningssträng**. 
 
     Använd ![Knappen Kopiera](./media/create-cassandra-python/copy.png) knappen på höger sida av skärmen för att kopiera det övre värdet, KONTAKTPUNKT.
 
@@ -197,11 +197,11 @@ Gå nu tillbaka till Azure-portalen för att hämta information om din anslutnin
 
 3. Kontrollera att resultatet blir det man kan förvänta sig från kommandoraden.
 
-    Tryck på CTRL + C om du vill stoppa körning av programmet och stänga konsolfönstret. 
+    Tryck på CTRL + C om du vill stoppa körningen av programmet och stänga konsolfönstret. 
 
     ![Visa och verifiera utdata](./media/create-cassandra-python/output.png)
     
-4. I **Datautforskaren** i Azure-portalen kan du fråga, ändra och arbeta med dessa nya data. 
+4. I **Datautforskaren** på Azure-portalen kan du fråga, ändra och arbeta med dessa nya data. 
 
     ![Visa data i Datautforskaren](./media/create-cassandra-python/data-explorer.png)
 

@@ -8,18 +8,18 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: quickstart
 ms.date: 09/24/2018
-ms.openlocfilehash: b35cbb65c32336b0021a2004f4237a9784db8ea7
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 52be08006985ee2f2e1ea4427e0f63ebbeb6e8b2
+ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46969095"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48900504"
 ---
 # <a name="quickstart-ingest-data-using-the-azure-data-explorer-python-library"></a>Snabbstart: Mata in data med hjälp av Python-biblioteket i Azure Data Explorer
 
 Azure Data Explorer är en snabb och mycket skalbar datautforskningstjänst för logg- och telemetridata. Azure Data Explorer tillhandahåller två klientbibliotek för Python: ett [bibliotek för inmatning](https://github.com/Azure/azure-kusto-python/tree/master/azure-kusto-ingest) och [ett databibliotek](https://github.com/Azure/azure-kusto-python/tree/master/azure-kusto-data). I biblioteken kan du mata in (läsa in) data i ett kluster och fråga data från din kod. I den här snabbstarten skapar du först en tabell och datamappning i ett testkluster. Sedan köar du inmatningen till klustret och verifierar resultaten.
 
-Den här snabbstarten är också tillgängligt som en [Azure Notebook](https://notebooks.azure.com/ManojRaheja/libraries/KustoPythonSamples/html/QueuedIngestSingleBlob.ipynb).
+Den här snabbstarten är också tillgänglig som en [Azure Notebook](https://notebooks.azure.com/ManojRaheja/libraries/KustoPythonSamples/html/QueuedIngestSingleBlob.ipynb).
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt Azure-konto](https://azure.microsoft.com/free/) innan du börjar.
 
@@ -132,12 +132,15 @@ df_mapping_create_output
 Köa ett meddelande för att hämta data från Blob Storage och mata in data i Azure Data Explorer.
 
 ```python
-KUSTO_INGEST_CLIENT = KustoIngestClient(KCSB_INGEST)
+INGESTION_CLIENT = KustoIngestClient(KCSB_INGEST)
 
+# All ingestion properties are documented here: https://docs.microsoft.com/en-us/azure/kusto/management/data-ingest#ingestion-properties
 INGESTION_PROPERTIES  = IngestionProperties(database=KUSTO_DATABASE, table=DESTINATION_TABLE, dataFormat=DataFormat.csv, mappingReference=DESTINATION_TABLE_COLUMN_MAPPING, additionalProperties={'ignoreFirstRecord': 'true'})
-KUSTO_INGEST_CLIENT.ingest_from_multiple_blobs([BlobDescriptor(BLOB_PATH,FILE_SIZE)],delete_sources_on_success=False,ingestion_properties=INGESTION_PROPERTIES)
+BLOB_DESCRIPTOR = BlobDescriptor(BLOB_PATH, FILE_SIZE)  # 10 is the raw size of the data in bytes
+INGESTION_CLIENT.ingest_from_blob(BLOB_DESCRIPTOR,ingestion_properties=INGESTION_PROPERTIES)
 
-print('Done queueing up ingestion with Kusto')
+print('Done queuing up ingestion with Azure Data Explorer')
+
 ```
 
 ## <a name="validate-that-data-was-ingested-into-the-table"></a>Verifiera att data har matats in i tabellen
@@ -180,4 +183,4 @@ Om du planerar att följa våra andra snabbstarter och självstudier kan du spar
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Skriva frågor](write-queries.md)
+> [Skriv frågor](write-queries.md)

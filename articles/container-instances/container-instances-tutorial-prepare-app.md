@@ -2,19 +2,18 @@
 title: Självstudiekurs om Azure Container Instances – förbereda appen
 description: Självstudiekurs om Azure Container Instances del 1 av 3 – förbereda en app för driftsättning till Azure Container Instances
 services: container-instances
-author: mmacy
-manager: jeconnoc
+author: dlepow
 ms.service: container-instances
 ms.topic: tutorial
 ms.date: 03/21/2018
-ms.author: marsma
+ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: 79041123196559c5759789638228ea0dd21f2762
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: dfe494eba64f546616e4e6cc9898f9d63d81eaa2
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32163290"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48854787"
 ---
 # <a name="tutorial-create-container-for-deployment-to-azure-container-instances"></a>Självstudier: Skapa behållare för distribution till Azure Container Instances
 
@@ -24,7 +23,7 @@ I den här artikeln, som är del ett i serien, får du göra följande:
 
 > [!div class="checklist"]
 > * Klona programmets källkod från GitHub
-> * Skapa en behållaravbildning från programkällan
+> * Skapa en containeravbildning från programkällan
 > * Testa avbildningarna i en lokal Docker-miljö
 
 I del två och tre av självstudiekursen får du överföra avbildningen till Azure Container Registry och sedan distribuera den till Azure Container Instances.
@@ -47,9 +46,9 @@ git clone https://github.com/Azure-Samples/aci-helloworld.git
 
 Du kan också [hämta ZIP-arkivet] [ aci-helloworld-zip] från GitHub direkt.
 
-## <a name="build-the-container-image"></a>Bygga behållaravbildningen
+## <a name="build-the-container-image"></a>Bygga containeravbildningen
 
-Den Dockerfile som finns i exempelprogrammet visar hur behållaren är byggd. Den börjar från en [officiell Node.js-avbildning][docker-hub-nodeimage] baserat på [Alpine Linux][alpine-linux], en liten distribution som är lämplig för användning med behållare. Den kopierar sedan programfilerna till behållaren, installerar beroenden med Node Package Manager (nodpaketshanteraren) och startar slutligen programmet.
+Den Dockerfile som finns i exempelprogrammet visar hur containern är byggd. Den börjar från en [officiell Node.js-avbildning][docker-hub-nodeimage] baserat på [Alpine Linux][alpine-linux], en liten distribution som är lämplig för användning med containrar. Den kopierar sedan programfilerna till containern, installerar beroenden med Node Package Manager (nodpaketshanteraren) och startar slutligen programmet.
 
 ```Dockerfile
 FROM node:8.9.3-alpine
@@ -60,7 +59,7 @@ RUN npm install
 CMD node /usr/src/app/index.js
 ```
 
-Använd kommandot [docker build][docker-build] (dockerbygge) för att skapa behållaravbildningen, och märk den som *aci-tutorial-app*:
+Använd kommandot [docker build][docker-build] (dockerbygge) för att skapa containeravbildningen, och märk den som *aci-tutorial-app*:
 
 ```bash
 docker build ./aci-helloworld -t aci-tutorial-app
@@ -102,22 +101,22 @@ REPOSITORY          TAG       IMAGE ID        CREATED           SIZE
 aci-tutorial-app    latest    5c745774dfa9    39 seconds ago    68.1 MB
 ```
 
-## <a name="run-the-container-locally"></a>Kör behållaren lokalt
+## <a name="run-the-container-locally"></a>Kör containern lokalt
 
-Innan du distribuerar behållaren till Azure Container Instances, så använd [docker run][docker-run] så att du kan köra den lokalt och bekräfta att den fungerar. Med växeln `-d` kan du köra behållaren i bakgrunden, medan `-p` gör att du kan mappa en godtycklig port för dina beräkningar till port 80 i behållaren.
+Innan du distribuerar behållaren till Azure Container Instances, så använd [docker run][docker-run] så att du kan köra den lokalt och bekräfta att den fungerar. Med växeln `-d` kan du köra containern i bakgrunden, medan `-p` gör att du kan mappa en godtycklig port för dina beräkningar till port 80 i containern.
 
 ```bash
 docker run -d -p 8080:80 aci-tutorial-app
 ```
 
-Utdata från `docker run`-kommandot visar ID:t för den behållare som körs om kommandot lyckas:
+Utdata från `docker run`-kommandot visar ID:t för den container som körs om kommandot lyckas:
 
 ```console
 $ docker run -d -p 8080:80 aci-tutorial-app
 a2e3e4435db58ab0c664ce521854c2e1a1bda88c9cf2fcff46aedf48df86cccf
 ```
 
-Navigera nu till http://localhost:8080 i webbläsaren och bekräfta att behållaren körs. Du bör se en webbsida som liknar följande:
+Navigera nu till http://localhost:8080 i webbläsaren och bekräfta att containern körs. Du bör se en webbsida som liknar följande:
 
 ![Köra appen lokalt i webbläsaren][aci-tutorial-app-local]
 
@@ -127,8 +126,8 @@ I den här självstudien har du skapat en behållaravbildning som kan distribuer
 
 > [!div class="checklist"]
 > * Klonade programkällan från GitHub
-> * Skapat en behållaravbildning från programkällkoden
-> * Testade behållaren lokalt
+> * Skapat en containeravbildning från programkällkoden
+> * Testade containern lokalt
 
 Fortsätt till nästa självstudie i serien och lär dig hur du lagrar din behållaravbildning i Azure Container Registry:
 

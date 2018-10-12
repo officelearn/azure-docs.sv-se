@@ -7,12 +7,12 @@ ms.service: cognitive-services
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: nolach
-ms.openlocfilehash: 843ff39f49141ff78219771a6d4af2e9e6e7644b
-ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
+ms.openlocfilehash: 21b37d2b61af81e6481de4c5e7537a3382d895b6
+ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48017490"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49113928"
 ---
 # <a name="creating-custom-voice-fonts"></a>Skapa anpassade rösttyper
 
@@ -22,12 +22,9 @@ För att skapa din rösttyp du gör en studio-registrering och ladda upp de asso
 
 Du kan komma igång med en liten mängd data för ett konceptbevis. Men ju mer data du tillhandahålla, desto mer naturliga och professional låter din röst.
 
-
 ## <a name="prerequisites"></a>Förutsättningar
 
-Den **Text till tal** röst anpassning av funktionen är för tillfället i privat förhandsversion. [Fyll i formuläret programmet](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR0N8Vcdi8MZBllkZb70o6KdURjRaUzhBVkhUNklCUEMxU0tQMEFPMjVHVi4u) övervägas för åtkomst.
-
-Du behöver också en Azure-konto och en prenumeration på Speech-tjänsten. [Skapa en](https://docs.microsoft.com/azure/cognitive-services/speech-service/get-started) om du inte redan har gjort. Anslut din prenumeration till anpassad Voice-portalen på följande sätt:
+Du behöver ett Azure-konto och en prenumeration på Speech-tjänsten. [Skapa en](https://docs.microsoft.com/azure/cognitive-services/speech-service/get-started) om du inte redan har gjort. Ansluta din prenumeration till den anpassade Voice-portalen som visas här.
 
 1. Logga in på den [anpassad röst portal](https://customvoice.ai) med hjälp av samma Microsoft-konto som du använde för att tillämpa för åtkomst.
 
@@ -37,7 +34,6 @@ Du behöver också en Azure-konto och en prenumeration på Speech-tjänsten. [Sk
 
 3. På sidan prenumerationer väljer **ansluta befintliga prenumeration**. Observera att Speech Services har stöd för olika regioner. Kontrollera den region där din prenumerationsnyckel skapades, och kontrollera att du ansluter din nyckel till rätt underordnade portalen.  
 
-     
 4. Klistra in din prenumerationsnyckel i tabellen, som visas i följande exempel. Varje prenumeration har två nycklar och du kan använda någon av dessa.
 
      ![Lägg till prenumeration](media/custom-voice/add-subscription.png)

@@ -9,12 +9,12 @@ ms.reviewer: jmartens
 ms.author: tedway
 author: tedway
 ms.date: 10/01/2018
-ms.openlocfilehash: b78a199df9f457b09bb487df74a646363fb172b9
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.openlocfilehash: 925173f85301d6481ae3b9cf891041239b06bc8f
+ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48815077"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49113724"
 ---
 # <a name="deploy-a-model-as-a-web-service-on-an-fpga-with-azure-machine-learning"></a>Distribuera en modell som en webbtjänst på en FPGA med Azure Machine Learning
 
@@ -170,7 +170,7 @@ Azure Machine Learning-modeller som körs på FPGA ger stöd för SSL- och nycke
 
 ## <a name="sample-notebook"></a>Exempel-anteckningsbok
 
-Begreppen i den här artikeln är visas i den `project-brainwave/project-brainwave-quickstart.ipynb` anteckningsboken.
+Begreppen i den här artikeln är visas i den [project brainwave/projekt-brainwave-quickstart.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/project-brainwave/project-brainwave-quickstart.ipynb) anteckningsboken.
 
 Hämta den här anteckningsboken:
 

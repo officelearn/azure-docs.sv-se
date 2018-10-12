@@ -1,6 +1,6 @@
 ---
-title: Koppla en datadisk hanterade till en Windows-VM - Azure | Microsoft Docs
-description: Så här kopplar du nya hanterade datadisk för en virtuell Windows-dator i Azure-portalen med hjälp av Resource Manager-distributionsmodellen.
+title: Koppla en hanterad datadisk till en Windows-dator – Azure | Microsoft Docs
+description: Så här kopplar du en hanterad datadisk till en virtuell Windows-dator med hjälp av Azure portal.
 services: virtual-machines-windows
 documentationcenter: ''
 author: cynthn
@@ -13,73 +13,71 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 12/13/2017
+ms.date: 10/08/2018
 ms.author: cynthn
-ms.openlocfilehash: 14721b2f2bc7913c2b7eadfc5ee801a223201ea9
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 8d83af114ebb5e5ff78372897d3e08ed592d4012
+ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30913424"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49093909"
 ---
-# <a name="how-to-attach-a-managed-data-disk-to-a-windows-vm-in-the-azure-portal"></a>Så här kopplar du en datadisk hanterade till en virtuell Windows-dator i Azure-portalen
+# <a name="attach-a-managed-data-disk-to-a-windows-vm-by-using-the-azure-portal"></a>Ansluta en hanterad datadisk till en virtuell Windows-dator med hjälp av Azure portal
 
-Den här artikeln visar hur du kopplar en ny datadisk hanterade till Windows-datorer i Azure-portalen. Innan du gör detta kan du granska dessa tips:
-
-* Storleken på den virtuella datorn styr hur många datadiskar som du kan bifoga. Mer information finns i [storlekar för virtuella datorer](sizes.md).
-* För en ny disk behöver du inte skapa först eftersom Azure skapar den när du ansluter den.
-
-Du kan också [ansluta en datadisk med hjälp av Powershell](attach-disk-ps.md).
+Den här artikeln visar hur du ansluter en ny hanterad datadisk till en Windows-dator (VM) med hjälp av Azure portal. Storleken på den virtuella datorn avgör hur många datadiskar som du kan koppla. Mer information finns i [storlekar för virtuella datorer](sizes.md).
 
 
+## <a name="add-a-data-disk"></a>Lägga till en datadisk
 
-## <a name="add-a-data-disk"></a>Lägg till en datadisk
-1. Klicka på menyn till vänster **virtuella datorer**.
-2. Välj den virtuella datorn i listan.
-3. På sidan virtuella **diskar**.
-4. På den **diskar** klickar du på **+ Lägg till datadisk**.
+1. I den [Azure-portalen](https://portal.azure.com), på menyn till vänster väljer **virtuella datorer**.
+2. Välj en virtuell dator i listan.
+3. På den **VM** väljer **diskar**.
+4. På den **diskar** väljer **Lägg till datadisk**.
 5. Välj i listrutan för den nya disken **skapa disk**.
-6. I den **skapa hanterade diskar** skriver du ett namn för disken och ändra andra inställningar som behövs. Klicka på **Skapa** när du är klar.
-7. I den **diskar** klickar du på **spara** att spara den nya diskkonfigurationen för den virtuella datorn.
-6. När Azure skapar disken och kopplar den till den virtuella datorn, den nya disken visas i inställningarna för den virtuella disken under **datadiskar**.
+6. I den **skapa hanterad disk** skriver ett namn på disken och justera de andra inställningarna efter behov. När du är klar väljer du **Skapa**.
+7. I den **diskar** väljer **spara** att spara den nya diskkonfigurationen för den virtuella datorn.
+8. När Azure skapar disken och kopplar den till den virtuella datorn, den nya disken visas i den virtuella datorns diskinställningarna under **datadiskar**.
 
 
 ## <a name="initialize-a-new-data-disk"></a>Initiera en ny datadisk
 
-1. Ansluta till den virtuella datorn.
-1. Klicka på start-menyn i den virtuella datorn och skriva **diskmgmt.msc** och träffar **RETUR**. Öppnar disk snapin-modulen.
-2. Diskhantering identifierar att du har en ny, ej initierad disk och **initiera Disk** fönstret öppnas.
-3. Kontrollera att den nya disken är markerad och klicka på **OK** att initiera den.
-4. Den nya disken visas i **lediga**. Högerklicka på disken och välj **ny enkel volym**. Den **guiden Ny enkel volym** öppnas.
-5. Gå igenom guiden och hålla alla standardinställningar, när du är klar väljer **Slutför**.
-6. Stäng Diskhantering.
-7. Du får ett popup-fönster som du vill formatera den nya disken innan du kan använda den. Klicka på **Formatera disk**.
-8. I den **Format ny disk** dialogrutan Kontrollera inställningarna och klicka sedan på **starta**.
-9. Du får en varning om att diskarna formateras tas alla data, klickar på **OK**.
-10. När formatet är klar klickar du på **OK**.
+1. Anslut till den virtuella datorn.
+1. Välj Windows **starta** menyn i virtuell dator som körs och ange **diskmgmt.msc** i sökrutan. Den **Diskhantering** konsolen öppnas.
+2. Diskhantering identifierar att du har en ny, oinitierad disk och **initiera Disk** fönster visas.
+3. Kontrollera den nya disken är markerat och välj sedan **OK** att initiera den.
+4. Den nya disken visas som **lediga**. Högerklicka på disken och välj **ny enkel volym**. Den **guiden Ny enkel volym** öppnas.
+5. Gå igenom guiden att hålla alla standardvärden, och när du är klar väljer du **Slutför**.
+6. Stäng **Diskhantering**.
+7. Ett popup-fönster visas om att du behöver för att formatera den nya disken innan du kan använda den. Välj **Formatera disk**.
+8. I den **formatera ny disk** , kontrollerar du inställningarna och välj sedan **starta**.
+9. Meddelar dig om att formatera diskarna raderar alla data visas en varning. Välj **OK**.
+10. När formateringen är klar, väljer **OK**.
 
 ## <a name="use-trim-with-standard-storage"></a>Använd Rensa med standardlagring
 
-Om du använder standardlagring (HDD), bör du aktivera TRIMNING. TRIMNING ignorerar oanvända block på disken så att endast debiteras du för lagring som du faktiskt använder. Om du skapar stora filer och ta bort dem kan detta spara på kostnader. 
+Om du använder standard-lagring (HDD), bör du aktivera den **TRIMMA** kommando. Den **TRIMMA** kommandot tar bort oanvända block på disken så att du faktureras bara för lagring som du faktiskt använder. Med hjälp av **TRIMMA**, du kan spara på kostnaderna om du skapar stora filer och därefter tar bort dem. 
 
-Du kan köra det här kommandot för att kontrollera TRIM inställningen. Öppna en kommandotolk på din Windows-VM och skriv:
+Kontrollera den **TRIMMA** , öppna en kommandotolk på den virtuella Windows-datorn och ange följande kommando:
 
 ```
 fsutil behavior query DisableDeleteNotify
 ```
 
-Om kommandot returnerar 0, är TRIMNING aktiverat på rätt sätt. Om den returnerar 1, kör du följande kommando för att aktivera TRIMNING:
+Om kommandot returnerar 0, **TRIMMA** har aktiverats korrekt. Annars, om den returnerar 1, kör följande kommando för att aktivera **TRIMMA**:
+
 ```
 fsutil behavior set DisableDeleteNotify 0
 ```
 
-När du tar bort data från disken, kan du se till åtgärderna TRIM tömning korrekt genom att köra defragmenterar med TRIMNING:
+När du har tagit bort data från disken, du kan kontrollera att den **TRIMMA** operations tömning korrekt genom att köra defragmenterar med **TRIMMA**:
 
 ```
 defrag.exe <volume:> -l
 ```
 
-Du kan också kontrollera hela volymen trimmas genom att formatera volymen.
+Du kan också formatera volymen för att säkerställa att hela volymen beskärs.
 
 ## <a name="next-steps"></a>Nästa steg
-Om ditt program behöver använda D: enhet för att lagra data, kan du [ändra enhetsbeteckningen för den tillfälliga disken i Windows](change-drive-letter.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
+
+- Du kan också [ansluter en datadisk med hjälp av PowerShell](attach-disk-ps.md).
+- Om programmet behöver för att använda den *D:* enhet för att lagra data, kan du [ändra enhetsbeteckningen för den temporära disken Windows](change-drive-letter.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).

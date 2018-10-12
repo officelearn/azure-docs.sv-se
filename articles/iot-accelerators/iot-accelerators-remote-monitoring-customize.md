@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 01/17/2018
 ms.topic: conceptual
-ms.openlocfilehash: 7971a5aeadd2b2edaa43da8bacae9743937ce30e
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: e8b3cd0e1e1d1f3940a103f614cf2746b2770e3f
+ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46127354"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49092056"
 ---
 # <a name="customize-the-remote-monitoring-solution-accelerator"></a>Anpassa lösningsacceleratorn för fjärrövervakning
 
@@ -460,9 +460,15 @@ Du kan redigera koden för att ändra presentationen och visualiseringar lagret 
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här artikeln har du lärt dig om resurserna som är tillgängliga om du vill anpassa webbgränssnittet lösningsacceleratorn för fjärrövervakning.
+I den här artikeln har du lärt dig om resurserna som är tillgängliga om du vill anpassa webbgränssnittet lösningsacceleratorn för fjärrövervakning. Mer information om hur du anpassar Användargränssnittet finns i följande artiklar:
+
+* [Lägg till en anpassad sida fjärrövervakning solution accelerator webbgränssnittet](iot-accelerators-remote-monitoring-customize-page.md)
+* [Lägga till en anpassad tjänst fjärrövervakning solution accelerator webbgränssnittet](iot-accelerators-remote-monitoring-customize-service.md)
+* [Lägg till ett anpassat rutnät till fjärrövervakning solution accelerator webbgränssnittet](iot-accelerators-remote-monitoring-customize-grid.md)
+* [Lägg till en anpassad utfällbara till fjärrövervakning solution accelerator webbgränssnittet](iot-accelerators-remote-monitoring-customize-flyout.md)
+* [Lägga till en anpassad panel på instrumentpanelen för fjärrövervakning solution accelerator webbläsaren](iot-accelerators-remote-monitoring-customize-panel.md)
 
 Mer information om lösningsacceleratorn för fjärrövervakning finns [arkitektur för fjärrövervakning](iot-accelerators-remote-monitoring-sample-walkthrough.md)
 
-Mer information om hur du anpassar lösningen för fjärrövervakning finns [anpassa och distribuera om en mikrotjänst](iot-accelerators-microservices-example.md)
+Läs mer om hur du anpassar lösningen fjärrövervakning mikrotjänsterna [anpassa och distribuera om en mikrotjänst](iot-accelerators-microservices-example.md).
 <!-- Next tutorials in the sequence -->

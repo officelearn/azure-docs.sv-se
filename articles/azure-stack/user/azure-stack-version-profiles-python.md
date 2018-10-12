@@ -14,12 +14,12 @@ ms.date: 08/15/2018
 ms.author: sethm
 ms.reviewer: sijuman
 <!-- dev: viananth -->
-ms.openlocfilehash: c55dcf0736642690f245f680db5cb1620c2175e7
-ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
+ms.openlocfilehash: c4600eda74fbc0ae53f30dac00e0127a984a4fff
+ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44390970"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49093423"
 ---
 # <a name="use-api-version-profiles-with-python-in-azure-stack"></a>Använd API-versionsprofiler med Python i Azure Stack
 
@@ -51,9 +51,9 @@ För att kunna använda Azure SDK för Python med Azure Stack, måste du ange f�
 
 | Värde | Miljövariabler | Beskrivning |
 |---------------------------|-----------------------|-------------------------------------------------------------------------------------------------------------------------|
-| Klientorganisations-ID | AZURE_TENANT_ID | Värdet för Azure Stack [klient-ID](../azure-stack-identity-overview.md). |
-| Klient-ID | AZURE_CLIENT_ID | Tjänsten huvudnamn program-ID sparas när tjänstens huvudnamn har skapats i föregående avsnitt i det här dokumentet. |
-| Prenumerations-ID | AZURE_SUBSCRIPTION_ID | Den [prenumerations-ID](../azure-stack-plan-offer-quota-overview.md#subscriptions) är hur du kommer åt erbjudanden i Azure Stack. |
+| Klient-ID:t | AZURE_TENANT_ID | Värdet för Azure Stack [klient-ID](../azure-stack-identity-overview.md). |
+| Klientorganisations-ID | AZURE_CLIENT_ID | Tjänsten huvudnamn program-ID sparas när tjänstens huvudnamn har skapats i föregående avsnitt i det här dokumentet. |
+| Prenumerations-ID:t | AZURE_SUBSCRIPTION_ID | Den [prenumerations-ID](../azure-stack-plan-offer-quota-overview.md#subscriptions) är hur du kommer åt erbjudanden i Azure Stack. |
 | Klienthemlighet | AZURE_CLIENT_SECRET | Huvudnamn tjänstprogrammet hemlighet sparas när tjänstens huvudnamn har skapats. |
 | Resource Manager-slutpunkten | ARM_ENDPOINT | Se [Azure Stack resource manager-slutpunkten](azure-stack-version-profiles-ruby.md#the-azure-stack-resource-manager-endpoint). |
 
@@ -129,7 +129,7 @@ Exemplen är inte nödvändigtvis i den ordning som visas i listan ovan.
     export ARM_ENDPOINT={your AzureStack Resource Manager Endpoint}
     ```
 
-7.  För att kunna köra det här exemplet, måste Ubuntu 16.04-LTS och Windows Server 2012 R2 Datacenter-avbildningar finnas i Azure Stack-marknadsplatsen. Det kan vara antingen [ned från Azure](https://docs.microsoft.com/azure/azure-stack/azure-stack-download-azure-marketplace-item) eller [lagts till i plattformens Avbildningslagringsplats](https://docs.microsoft.com/azure/azure-stack/azure-stack-add-vm-image).
+7.  För att kunna köra det här exemplet, måste Ubuntu 16.04-LTS och Windows Server 2012 R2 Datacenter-avbildningar finnas i Azure Stack marketplace. Det kan vara antingen [ned från Azure](https://docs.microsoft.com/azure/azure-stack/azure-stack-download-azure-marketplace-item) eller [lagts till i plattformens Avbildningslagringsplats](https://docs.microsoft.com/azure/azure-stack/azure-stack-add-vm-image).
 
 8. Kör exemplet.
 
@@ -137,7 +137,7 @@ Exemplen är inte nödvändigtvis i den ordning som visas i listan ovan.
     python unmanaged-disks\example.py
     ```
 
-## <a name="notes"></a>OBS!
+## <a name="notes"></a>Anteckningar
 
 Du kanske tro att försöka hämta en virtuell dators OS-disk med hjälp av `virtual_machine.storage_profile.os_disk`.
 I vissa fall kan detta göra vad du vill ha, men tänk på att den ger dig en `OSDisk` objekt.

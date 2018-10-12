@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 04/26/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 80749fedde17a9567aa13e1e72677dfdd027ca36
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: f9876f3e21a7cfccae2fb7f70913269d4ca1fdf4
+ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48043268"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49115377"
 ---
 # <a name="container-monitoring-solution-in-log-analytics"></a>Lösning för övervakning av behållare i Log Analytics
 
@@ -36,7 +36,7 @@ Lösningen visar vilka behållare som körs, vilka behållaravbildning de körs 
 - Service Fabric
 - Red Hat OpenShift
 
-Om du vill övervaka prestanda för din arbetsbelastning distribueras till Kubernetes-miljön på AKS (Azure Container Service), se [övervaka Azure Container Service](../monitoring/monitoring-container-health.md).  Övervakningslösningen för behållaren omfattar inte support för att övervaka den plattformen.  
+Om du vill övervaka prestanda för dina arbetsbelastningar som distribueras till Kubernetes-miljöer finns på Azure Kubernetes Service (AKS), se [övervaka Azure Kubernetes Service](../monitoring/monitoring-container-health.md). Övervakningslösningen för behållaren omfattar inte support för att övervaka den plattformen.  
 
 Följande diagram visar relationerna mellan olika behållare-värdar och -agenter med Log Analytics.
 

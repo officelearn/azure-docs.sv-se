@@ -5,21 +5,23 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 07/03/2018
+ms.date: 10/11/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: dcfcfb24d2b47a8272c576856fc3accc547f354a
-ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
+ms.openlocfilehash: 837601a55bbe97e904f3dece9f4c87563d6dd4e9
+ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "42054403"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49092685"
 ---
 # <a name="create-a-model-in-azure-portal"></a>Skapa en modell i Azure-portalen
 
 Azure Analysis Services web designer (förhandsgranskning)-funktionen i Azure-portalen ger ett snabbt och enkelt sätt att skapa och redigera tabellmodeller och fråga modellen data direkt i webbläsaren. 
 
-Ha i åtanke, webbdesignern är **förhandsversion**. Funktionerna är begränsade. För mer avancerade modellen utveckling och testning är det bäst att använda Visual Studio (SSDT) och SQL Server Management Studio (SSMS).
+> [!IMPORTANT]
+> Den här funktionen är inaktuell. Den kan tas bort eller ändrat i en kommande uppdatering. Vi rekommenderar att du sluta använda den här funktionen i nya och befintliga projekt för att bibehålla kompatibilitet med framtida uppdateringar. För mer avancerade modellen utveckling och testning är det bäst att använda Visual Studio (SSDT) och SQL Server Management Studio (SSMS).
+
 
 ## <a name="before-you-begin"></a>Innan du börjar
 
@@ -30,7 +32,7 @@ Ha i åtanke, webbdesignern är **förhandsversion**. Funktionerna är begränsa
 
 ## <a name="sign-in-to-the-azure-portal"></a>Logga in på Azure Portal
 
-Logga in på [Azure-portalen](https://portal.azure.com/).
+Logga in på [Azure Portal](https://portal.azure.com/).
 
 ## <a name="to-create-a-new-tabular-model"></a>Skapa en ny tabellmodell
 

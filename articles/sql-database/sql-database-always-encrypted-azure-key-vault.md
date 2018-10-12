@@ -13,12 +13,12 @@ ms.author: vanto
 ms.reviewer: ''
 manager: craigg
 ms.date: 10/05/2018
-ms.openlocfilehash: 2d735225782398b4e22a42816586a56cab54b763
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.openlocfilehash: 79613ab7a0e96405abbb3b380800f5ba951c3bdc
+ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48870204"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49092703"
 ---
 # <a name="always-encrypted-protect-sensitive-data-and-store-encryption-keys-in-azure-key-vault"></a>Alltid krypterad: Skydda känsliga data och lagra krypteringsnycklar i Azure Key Vault
 
@@ -55,6 +55,7 @@ Nu när du har program-ID och din klientapp har konfigurerats är det dags att s
 
 Du kan snabbt skapa ett nyckelvalv genom att köra följande skript. En detaljerad förklaring av dessa cmdletar och mer information om hur du skapar och konfigurerar ett nyckelvalv, se [Kom igång med Azure Key Vault](../key-vault/key-vault-get-started.md).
 
+```powershell
     $subscriptionName = '<your Azure subscription name>'
     $userPrincipalName = '<username@domain.com>'
     $applicationId = '<application ID from your AAD application>'
@@ -72,12 +73,12 @@ Du kan snabbt skapa ett nyckelvalv genom att köra följande skript. En detaljer
 
     Set-AzureRmKeyVaultAccessPolicy -VaultName $vaultName -ResourceGroupName $resourceGroupName -PermissionsToKeys create,get,wrapKey,unwrapKey,sign,verify,list -UserPrincipalName $userPrincipalName
     Set-AzureRmKeyVaultAccessPolicy  -VaultName $vaultName  -ResourceGroupName $resourceGroupName -ServicePrincipalName $applicationId -PermissionsToKeys get,wrapKey,unwrapKey,sign,verify,list
-
+```
 
 
 
 ## <a name="create-a-blank-sql-database"></a>Skapa en tom SQL-databas
-1. Logga in på [Azure-portalen](https://portal.azure.com/).
+1. Logga in på [Azure Portal](https://portal.azure.com/).
 2. Gå till **skapa en resurs** > **databaser** > **SQL Database**.
 3. Skapa en **tom** databas med namnet **Clinic** på en ny eller befintlig server. För detaljerade instruktioner om hur du skapar en databas i Azure-portalen finns i [din första Azure SQL database](sql-database-get-started-portal.md).
    
@@ -107,6 +108,7 @@ I det här avsnittet skapar du en tabell för att lagra Patientdata. Det är int
 2. Högerklicka på den **Clinic** databasen och klicka på **ny fråga**.
 3. Klistra in följande Transact-SQL (T-SQL) i nya frågefönstret och **kör** den.
 
+```sql
         CREATE TABLE [dbo].[Patients](
          [PatientId] [int] IDENTITY(1,1),
          [SSN] [char](11) NOT NULL,
@@ -120,7 +122,7 @@ I det här avsnittet skapar du en tabell för att lagra Patientdata. Det är int
          [BirthDate] [date] NOT NULL
          PRIMARY KEY CLUSTERED ([PatientId] ASC) ON [PRIMARY] );
          GO
-
+```
 
 ## <a name="encrypt-columns-configure-always-encrypted"></a>Kryptera kolumner (Konfigurera Always Encrypted)
 SSMS innehåller en guide som hjälper dig att enkelt konfigurera Always Encrypted genom att ställa in den kolumnhuvudnyckeln och kolumnkrypteringsnyckel krypterade kolumner för dig.
@@ -183,9 +185,10 @@ Nu när Always Encrypted har konfigurerats kan du skapa ett program som utför *
 
 Kör följande två rader med kod i Package Manager-konsolen.
 
+```powershell
     Install-Package Microsoft.SqlServer.Management.AlwaysEncrypted.AzureKeyVaultProvider
     Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory
-
+```
 
 
 ## <a name="modify-your-connection-string-to-enable-always-encrypted"></a>Ändra anslutningssträngen för att aktivera Always Encrypted
@@ -204,6 +207,7 @@ Lägg till följande nyckelord i anslutningssträngen.
 ### <a name="enable-always-encrypted-with-sqlconnectionstringbuilder"></a>Aktivera Always Encrypted med SqlConnectionStringBuilder
 Följande kod visar hur du aktiverar Always Encrypted genom att ange [SqlConnectionStringBuilder.ColumnEncryptionSetting](https://msdn.microsoft.com/library/system.data.sqlclient.sqlconnectionstringbuilder.columnencryptionsetting.aspx) till [aktiverad](https://msdn.microsoft.com/library/system.data.sqlclient.sqlconnectioncolumnencryptionsetting.aspx).
 
+```CS
     // Instantiate a SqlConnectionStringBuilder.
     SqlConnectionStringBuilder connStringBuilder =
        new SqlConnectionStringBuilder("replace with your connection string");
@@ -211,10 +215,12 @@ Följande kod visar hur du aktiverar Always Encrypted genom att ange [SqlConnect
     // Enable Always Encrypted.
     connStringBuilder.ColumnEncryptionSetting =
        SqlConnectionColumnEncryptionSetting.Enabled;
+```
 
 ## <a name="register-the-azure-key-vault-provider"></a>Registrera Azure Key Vault-providern
 Följande kod visar hur du registrerar Azure Key Vault-providern med ADO.NET-drivrutinen.
 
+```C#
     private static ClientCredential _clientCredential;
 
     static void InitializeAzureKeyVaultProvider()
@@ -230,8 +236,7 @@ Följande kod visar hur du registrerar Azure Key Vault-providern med ADO.NET-dri
        providers.Add(SqlColumnEncryptionAzureKeyVaultProvider.ProviderName, azureKeyVaultProvider);
        SqlConnection.RegisterColumnEncryptionKeyStoreProviders(providers);
     }
-
-
+```
 
 ## <a name="always-encrypted-sample-console-application"></a>Alltid krypterad exempelkonsol-program
 Detta exempel visar hur du:
@@ -244,7 +249,7 @@ Detta exempel visar hur du:
 Ersätt innehållet i **Program.cs** med följande kod. Ersätt anslutningssträngen för global connectionString-variabeln i den rad som föregår direkt Main-metoden med giltig anslutningssträngen från Azure-portalen. Det här är den enda ändringen du behöver göra i den här koden.
 
 Kör appen om du vill se Always Encrypted fungerar i praktiken.
-
+```CS
     using System;
     using System.Collections.Generic;
     using System.Linq;
@@ -584,7 +589,7 @@ Kör appen om du vill se Always Encrypted fungerar i praktiken.
         public DateTime BirthDate { get; set; }
     }
     }
-
+```
 
 
 ## <a name="verify-that-the-data-is-encrypted"></a>Kontrollera att informationen är krypterad
@@ -592,7 +597,9 @@ Du kan snabbt kontrollera att den faktiska data på servern är krypterad genom 
 
 Kör följande fråga för Clinic-databasen.
 
+```sql
     SELECT FirstName, LastName, SSN, BirthDate FROM Patients;
+```
 
 Du kan se att de krypterade kolumnerna inte innehåller några data i klartext.
 
@@ -608,12 +615,13 @@ Lägg sedan till den *kolumnen krypteringsinställning = aktiverat* parametern u
    
     ![Nytt konsolprogram](./media/sql-database-always-encrypted-azure-key-vault/ssms-connection-parameter.png)
 4. Kör följande fråga för Clinic-databasen.
-   
-        SELECT FirstName, LastName, SSN, BirthDate FROM Patients;
-   
-     Du kan nu se klartext data i de krypterade kolumnerna.
 
-    ![Nytt konsolprogram](./media/sql-database-always-encrypted-azure-key-vault/ssms-plaintext.png)
+   ```sql
+      SELECT FirstName, LastName, SSN, BirthDate FROM Patients;
+   ```
+
+     Du kan nu se klartext data i de krypterade kolumnerna.
+     ![Nytt konsolprogram](./media/sql-database-always-encrypted-azure-key-vault/ssms-plaintext.png)
 
 
 ## <a name="next-steps"></a>Nästa steg

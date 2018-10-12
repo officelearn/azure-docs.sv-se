@@ -5,15 +5,15 @@ author: johnkemnetz
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: reference
-ms.date: 8/21/2018
+ms.date: 10/11/2018
 ms.author: johnkem
 ms.component: logs
-ms.openlocfilehash: 06d9fda01a89340eb019b4900c02e321e0b73cf5
-ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
+ms.openlocfilehash: 3b665ed0539a41ffeca87511154f3607a57cff4a
+ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42818972"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49116201"
 ---
 # <a name="supported-services-schemas-and-categories-for-azure-diagnostic-logs"></a>Tjänster som stöds, scheman och kategorier för Azure-diagnostikloggar
 
@@ -25,22 +25,22 @@ En kombination av resurstypen (tillgänglig i den `resourceId` egenskapen) och `
 
 | Namn | Krävs/valfritt | Beskrivning |
 |---|---|---|
-| tid | Obligatoriskt | Tidsstämpel (UTC) för händelsen. |
-| resourceId | Obligatoriskt | Resurs-ID för den resurs som genereras av händelsen. För klienttjänster är det av formuläret /tenants/tenant-id/providers/provider-name. |
+| time | Krävs | Tidsstämpel (UTC) för händelsen. |
+| resourceId | Krävs | Resurs-ID för den resurs som genereras av händelsen. För klienttjänster är det av formuläret /tenants/tenant-id/providers/provider-name. |
 | TenantId | Krävs för klient loggar | Klient-ID för Active Directory-klient som den här händelsen är kopplad till. Den här egenskapen används endast för på klientnivå loggar, visas inte i resursnivå loggar. |
-| operationName | Obligatoriskt | Namnet på åtgärden som representeras av den här händelsen. Om händelsen representerar en RBAC-åtgärd, är detta Åtgärdsnamnet RBAC (t.ex.) Microsoft.Storage/storageAccounts/blobServices/blobs/Read). Vanligtvis modellerats i form av en Resource Manager-åtgärd, även om de inte är faktiska dokumenterade Resource Manager-åtgärder (`Microsoft.<providerName>/<resourceType>/<subtype>/<Write/Read/Delete/Action>`) |
-| operationVersion | Valfritt | Api-versionen som är associerade med åtgärden om operationName har utförts med hjälp av ett API (t.ex.) `http://myservice.windowsazure.net/object?api-version=2016-06-01`). Om det finns inga API som motsvarar den här åtgärden, representerar versionen version av åtgärden om egenskaper som är associerade med åtgärden ändras i framtiden. |
-| category | Obligatoriskt | Loggkategori för händelsen. Kategorin är precisionen som du kan aktivera eller inaktivera loggar på en viss resurs. Egenskaperna som visas i blobben som egenskaper för en händelse är samma inom en viss kategori och resurs loggtyp. Vanliga loggkategorier är ”granskning” ”drift” ”körning” och ”-begäran”. |
-| resultType | Valfritt | Status för händelsen. Vanliga värden är startad, pågår, slutfört, misslyckades, aktiv och löst. |
-| resultSignature | Valfritt | Sub-status för händelsen. Om den här åtgärden motsvarar ett REST API-anrop, är HTTP-statuskod för motsvarande REST-anropet. |
-| resultDescription | Valfritt | Statisk textbeskrivningen av den här åtgärden, t.ex. ”Hämta lagringsfilen”. |
-| durationMs | Valfritt | Varaktigheten i millisekunder. |
-| callerIpAddress | Valfritt | Anroparen IP-adressen, om åtgärden motsvarar ett API-anrop som skulle kommer från en entitet med offentligt tillgängliga IP-adress. |
-| correlationId | Valfritt | Ett GUID som används för att gruppera en uppsättning relaterade händelser. Normalt om två händelser har samma operationName men två olika statusar (t.ex.) ”Igång” och ”lyckades”), de delar samma Korrelations-ID. Detta kan också representera andra relationer mellan händelser. |
-| identity | Valfritt | En JSON-blob som beskriver identiteten för användaren eller programmet som utförde åtgärden. Detta brukar vara auktorisering och anspråk / JWT-token från active directory. |
-| Nivå | Valfritt | Allvarlighetsgrad för händelsen. Måste vara något av information, varning, fel eller kritiskt. |
-| plats | Valfritt | Regionen för den resurs som sänder händelsen, t.ex. ”Östra USA” eller ”Frankrike, södra” |
-| properties | Valfritt | Alla utökade egenskaper relaterade till den här viss kategori med händelser. Alla anpassade/unika egenskaper måste placeras i den här ”del B” av schemat. |
+| operationName | Krävs | Namnet på åtgärden som representeras av den här händelsen. Om händelsen representerar en RBAC-åtgärd, är detta Åtgärdsnamnet RBAC (t.ex.) Microsoft.Storage/storageAccounts/blobServices/blobs/Read). Vanligtvis modellerats i form av en Resource Manager-åtgärd, även om de inte är faktiska dokumenterade Resource Manager-åtgärder (`Microsoft.<providerName>/<resourceType>/<subtype>/<Write/Read/Delete/Action>`) |
+| operationVersion | Valfri | Api-versionen som är associerade med åtgärden om operationName har utförts med hjälp av ett API (t.ex.) `http://myservice.windowsazure.net/object?api-version=2016-06-01`). Om det finns inga API som motsvarar den här åtgärden, representerar versionen version av åtgärden om egenskaper som är associerade med åtgärden ändras i framtiden. |
+| category | Krävs | Loggkategori för händelsen. Kategorin är precisionen som du kan aktivera eller inaktivera loggar på en viss resurs. Egenskaperna som visas i blobben som egenskaper för en händelse är samma inom en viss kategori och resurs loggtyp. Vanliga loggkategorier är ”granskning” ”drift” ”körning” och ”-begäran”. |
+| resultType | Valfri | Status för händelsen. Vanliga värden är startad, pågår, slutfört, misslyckades, aktiv och löst. |
+| resultSignature | Valfri | Sub-status för händelsen. Om den här åtgärden motsvarar ett REST API-anrop, är HTTP-statuskod för motsvarande REST-anropet. |
+| resultDescription | Valfri | Statisk textbeskrivningen av den här åtgärden, t.ex. ”Hämta lagringsfilen”. |
+| durationMs | Valfri | Varaktigheten i millisekunder. |
+| callerIpAddress | Valfri | Anroparen IP-adressen, om åtgärden motsvarar ett API-anrop som skulle kommer från en entitet med offentligt tillgängliga IP-adress. |
+| correlationId | Valfri | Ett GUID som används för att gruppera en uppsättning relaterade händelser. Normalt om två händelser har samma operationName men två olika statusar (t.ex.) ”Igång” och ”lyckades”), de delar samma Korrelations-ID. Detta kan också representera andra relationer mellan händelser. |
+| identity | Valfri | En JSON-blob som beskriver identiteten för användaren eller programmet som utförde åtgärden. Detta brukar vara auktorisering och anspråk / JWT-token från active directory. |
+| Nivå | Valfri | Allvarlighetsgrad för händelsen. Måste vara något av information, varning, fel eller kritiskt. |
+| location | Valfri | Regionen för den resurs som sänder händelsen, t.ex. ”Östra USA” eller ”Frankrike, södra” |
+| properties | Valfri | Alla utökade egenskaper relaterade till den här viss kategori med händelser. Alla anpassade/unika egenskaper måste placeras i den här ”del B” av schemat. |
 
 ## <a name="service-specific-schemas-for-resource-diagnostic-logs"></a>Tjänstspecifika scheman för diagnostikloggar för resursen
 Schemat för resursdiagnostikloggar varierar beroende på resursen och log kategori. I listan visas alla tjänster som gör tillgängliga diagnostikloggar och länkar till tjänsten och kategorispecifik schema där det är tillgängligt.
@@ -53,26 +53,26 @@ Schemat för resursdiagnostikloggar varierar beroende på resursen och log kateg
 | Programgateways |[Diagnostikloggning för Application Gateway](../application-gateway/application-gateway-diagnostics.md) |
 | Azure Automation |[Logganalys för Azure Automation](../automation/automation-manage-send-joblogs-log-analytics.md) |
 | Azure Batch |[Azure Batch Diagnostisk loggning](../batch/batch-diagnostics.md) |
+| Azure Database for MySQL | [Azure Database för MySQL-diagnostikloggar](../mysql/concepts-server-logs.md#diagnostic-logs) |
+| Azure Database for PostgreSQL | [Azure Database for PostgreSQL-diagnostikloggar](../postgresql/concepts-server-logs.md#diagnostic-logs) |
 | Cognitive Services | Schemat är inte tillgänglig. |
 | Content Delivery Network | [Azure diagnostikloggar för CDN](../cdn/cdn-azure-diagnostic-logs.md) |
 | CosmosDB | [Azure Cosmos DB-loggning](../cosmos-db/logging.md) |
 | Data Factory | [Övervaka Datafabriker med hjälp av Azure Monitor](../data-factory/monitor-using-azure-monitor.md) |
 | Data Lake Analytics |[Åtkomst till diagnostikloggar för Azure Data Lake Analytics](../data-lake-analytics/data-lake-analytics-diagnostic-logs.md) |
 | Data Lake Store |[Åtkomst till diagnostikloggar för Azure Data Lake Store](../data-lake-store/data-lake-store-diagnostic-logs.md) |
-| Databas för PostgreSQL |  Schemat är inte tillgänglig. |
 | Event Hubs |[Azure Event Hubs-diagnostikloggar](../event-hubs/event-hubs-diagnostic-logs.md) |
-| ExpressRoute | Schemat är inte tillgänglig. |
+| Express Route | Schemat är inte tillgänglig. |
 | Azure Firewall | Schemat är inte tillgänglig. |
-| IoT-hubb | [IoT Hub-åtgärder](../iot-hub/iot-hub-monitor-resource-health.md#use-azure-monitor) |
-| Nyckelvalv |[Azure Key Vault-loggning](../key-vault/key-vault-logging.md) |
-| Lastbalanserare |
-  [Logganalys för Azure Load Balancer](../load-balancer/load-balancer-monitor-log.md) |
+| IoT Hub | [IoT Hub-åtgärder](../iot-hub/iot-hub-monitor-resource-health.md#use-azure-monitor) |
+| Key Vault |[Azure Key Vault-loggning](../key-vault/key-vault-logging.md) |
+| Lastbalanserare |[Logganalys för Azure Load Balancer](../load-balancer/load-balancer-monitor-log.md) |
 | Logic Apps |[Anpassat Logic Apps B2B-spårningsschema](../logic-apps/logic-apps-track-integration-account-custom-tracking-schema.md) |
 | Nätverkssäkerhetsgrupper |[Log Analytics för nätverkssäkerhetsgrupper (NSG)](../virtual-network/virtual-network-nsg-manage-log.md) |
 | DDOS Protection | [Hantera Azure DDoS Protection Standard](../virtual-network/manage-ddos-protection.md) |
 | Power BI Dedicated | [Diagnostisk loggning för Power BI Embedded i Azure](https://docs.microsoft.com/power-bi/developer/azure-pbie-diag-logs) |
 | Recovery Services | [Datamodell för Azure Backup](../backup/backup-azure-reports-data-model.md)|
-| Sök |[Att aktivera och använda Search Traffic Analytics](../search/search-traffic-analytics.md) |
+| Search |[Att aktivera och använda Search Traffic Analytics](../search/search-traffic-analytics.md) |
 | Service Bus |[Azure Service Bus-diagnostikloggar](../service-bus-messaging/service-bus-diagnostic-logs.md) |
 | SQL Database | [Azure SQL Database Diagnostisk loggning](../sql-database/sql-database-metrics-diag-logging.md) |
 | Stream Analytics |[Jobbet diagnostikloggar](../stream-analytics/stream-analytics-job-diagnostic-logs.md) |
@@ -102,9 +102,10 @@ Schemat för resursdiagnostikloggar varierar beroende på resursen och log kateg
 |Microsoft.DataFactory/factories|PipelineRuns|Pipelinekörningar log|
 |Microsoft.DataFactory/factories|TriggerRuns|Utlösaren kör log|
 |Microsoft.DataLakeAnalytics/accounts|Granska|Granskningsloggar|
-|Microsoft.DataLakeAnalytics/accounts|Förfrågningar|Begära loggar|
+|Microsoft.DataLakeAnalytics/accounts|Begäranden|Begära loggar|
 |Microsoft.DataLakeStore/accounts|Granska|Granskningsloggar|
-|Microsoft.DataLakeStore/accounts|Förfrågningar|Begära loggar|
+|Microsoft.DataLakeStore/accounts|Begäranden|Begära loggar|
+|Microsoft.DBforMySQL/servers|MySqlSlowLogs|MySQL långsamma frågeloggar|
 |Microsoft.DBforPostgreSQL/servers|PostgreSQLLogs|PostgreSQL-Server-loggar|
 |Microsoft.Devices/IotHubs|Anslutningar|Anslutningar|
 |Microsoft.Devices/IotHubs|DeviceTelemetry|Enhetstelemetri|
@@ -162,7 +163,7 @@ Schemat för resursdiagnostikloggar varierar beroende på resursen och log kateg
 |Microsoft.Search/searchServices|OperationLogs|Åtgärdsloggar|
 |Microsoft.ServiceBus/namespaces|OperationalLogs|Driftloggar|
 |Microsoft.Sql/servers/databases|SQLInsights|SQL Insights|
-|Microsoft.Sql/servers/databases|AutomaticTuning|Automatisk justering|
+|Microsoft.Sql/servers/databases|AutomaticTuning|Automatisk inställning|
 |Microsoft.Sql/servers/databases|QueryStoreRuntimeStatistics|Query Store-Körningsstatistik|
 |Microsoft.Sql/servers/databases|QueryStoreWaitStatistics|Query Store vänta statistik|
 |Microsoft.Sql/servers/databases|Fel|Fel|
@@ -174,7 +175,7 @@ Schemat för resursdiagnostikloggar varierar beroende på resursen och log kateg
 |Microsoft.Sql/servers/databases|SQLSecurityAuditEvents|Granskningshändelse för SQL-säkerhet|
 |Microsoft.Sql/servers/databases|SqlDw_Requests|SQL DW-begäranden|
 |Microsoft.Sql/servers/databases|SqlDw_RequestSteps|SQL DW begäran steg|
-|Microsoft.StreamAnalytics/streamingjobs|Körning|Körning|
+|Microsoft.StreamAnalytics/streamingjobs|Körnings-|Körnings-|
 |Microsoft.StreamAnalytics/streamingjobs|Redigering|Redigering|
 
 ## <a name="next-steps"></a>Nästa steg

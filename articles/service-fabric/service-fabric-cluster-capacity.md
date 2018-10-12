@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/27/2018
 ms.author: chackdan
-ms.openlocfilehash: d1d17ff331d3e770b77ce729904e57cf88ebc16c
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: 86099c5385c14ce7cf10bbc84ebe1b5e70b2b3e6
+ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44348576"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49094215"
 ---
 # <a name="service-fabric-cluster-capacity-planning-considerations"></a>Service Fabric-kluster kapacitetsplanering
 För alla Produktionsdistribution är kapacitetsplanering ett viktigt steg. Här är några av de objekt som du måste väga in som en del av den här processen.
@@ -165,6 +165,7 @@ För produktionsarbetsbelastningar:
 - 14 GB lokal SSD är ett minimikrav. Vår rekommendation är minst 50 GB. Större diskar krävs för dina arbetsbelastningar, särskilt när du kör Windows-behållare. 
 - Partiell grundläggande VM SKU: er som Standard A0 stöds inte för produktionsarbetsbelastningar.
 - Standard A1-SKU stöds inte för produktionsarbetsbelastningar av prestandaskäl.
+- Lågprioriterade virtuella datorer stöds inte.
 
 > [!WARNING]
 > Ändra den primära noden VM SKU-storlek på ett aktivt kluster är en åtgärd för skalning och dokumenteras i [Virtual Machine Scale Sets skala ut](virtual-machine-scale-set-scale-node-type-scale-out.md) dokumentation.

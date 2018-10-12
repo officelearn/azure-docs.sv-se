@@ -1,6 +1,6 @@
 ---
 title: Skapa en ögonblicksbild av en virtuell Hårddisk i Azure | Microsoft Docs
-description: Lär dig hur du skapar en kopia av en Azure VM ska användas som en tillbaka upp eller för att felsöka problem.
+description: Lär dig hur du skapar en kopia av en virtuell Azure-dator ska användas som en tillbaka upp eller för att felsöka problem.
 documentationcenter: ''
 author: cynthn
 manager: jeconnoc
@@ -12,38 +12,38 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 04/10/2018
+ms.date: 10/08/2018
 ms.author: cynthn
-ms.openlocfilehash: 7d45fd749fea4036d944d740541d8b8607553835
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 87d78178c32aea3ae601983ec14e9df0732b59e2
+ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34658163"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49091308"
 ---
 # <a name="create-a-snapshot"></a>Skapa en ögonblicksbild
 
-Ta en ögonblicksbild av ett operativsystem eller disk VHD för säkerhetskopiering eller felsökning av VM-problem. En ögonblicksbild är en fullständig, skrivskyddad kopia av en virtuell Hårddisk. 
+En ögonblicksbild är en fullständig, skrivskyddad kopia av en virtuell hårddisk (VHD). Du kan ta en ögonblicksbild av en OS- eller datadisken VHD som ska användas som en säkerhetskopia eller att felsöka problem med virtuella datorer (VM). 
 
-## <a name="use-azure-portal-to-take-a-snapshot"></a>Använd Azure-portalen för att ta en ögonblicksbild 
+## <a name="use-the-azure-portal"></a>Använda Azure-portalen 
 
 1. Logga in på [Azure Portal](https://portal.azure.com).
-2. Starta i det övre vänstra hörnet, klickar du på **skapar du en resurs** och Sök efter **ögonblicksbild**.
-3. I bladet ögonblicksbild klickar du på **skapa**.
+2. I den vänstra menyn, Välj **skapa en resurs**, och sedan söka efter och välja **ögonblicksbild**.
+3. I den **ögonblicksbild** väljer **skapa**. Den **Skapa ögonblicksbild** fönster visas.
 4. Ange en **namn** för ögonblicksbilden.
-5. Välj en befintlig [resursgrupp](../../azure-resource-manager/resource-group-overview.md#resource-groups) eller skriv namnet på en ny. 
-6. Välj ett Azure-datacenter plats.  
-7. För **källdisken**, Välj den hanterade disken till ögonblicksbild.
-8. Välj den **kontotyp** du vill lagra ögonblicksbilden. Vi rekommenderar **Standard_LRS** om du inte behöver den lagras på en disk med hög prestanda.
-9. Klicka på **Skapa**.
+5. Välj en befintlig [resursgrupp](../../azure-resource-manager/resource-group-overview.md#resource-groups) eller ange namnet på en ny. 
+6. Välj en **Plats** för ett Azure-datacenter.  
+7. För **källdisken**, Välj den hantera disken till ögonblicksbild.
+8. Välj den **kontotyp** du använder för att lagra ögonblicksbilden. Välj **Standard_HDD**, såvida du inte behöver ögonblicksbild lagras på en disk med hög prestanda.
+9. Välj **Skapa**.
 
-## <a name="use-powershell-to-take-a-snapshot"></a>Använd PowerShell för att ta en ögonblicksbild
+## <a name="use-powershell"></a>Använd PowerShell
 
-Följande steg visar hur du hämtar VHD-disk som ska kopieras, skapa ögonblicksbild konfigurationer och ta en ögonblicksbild av disken med hjälp av den [ny AzureRmSnapshot](/powershell/module/azurerm.compute/new-azurermsnapshot) cmdlet. 
+Följande steg visar hur du kopierar VHD-disken, skapa ögonblicksbild konfigurationen och ta en ögonblicksbild av disken med hjälp av den [New AzureRmSnapshot](/powershell/module/azurerm.compute/new-azurermsnapshot) cmdlet. 
 
-Innan du börjar bör du kontrollera att du har den senaste versionen av AzureRM.Compute PowerShell-modulen. Den här artikeln kräver AzureRM Modulversion 5.7.0 eller senare. Kör `Get-Module -ListAvailable AzureRM` för att hitta versionen. Om du behöver uppgradera kan du läsa [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps) (Installera Azure PowerShell-modul). Om du kör PowerShell lokalt måste du också köra `Connect-AzureRmAccount` för att skapa en anslutning till Azure.
+Innan du börjar måste du kontrollera att du har den senaste versionen av AzureRM.Compute PowerShell-modulen, som måste vara version 5.7.0-installationsprogram eller senare. Kör `Get-Module -ListAvailable AzureRM` för att hitta versionen. Om du behöver uppgradera kan du läsa [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps) (Installera Azure PowerShell-modul). Om du kör PowerShell lokalt, kör [Connect-AzureRmAccount](https://docs.microsoft.com/powershell/module/azurerm.profile/connect-azurermaccount) att skapa en anslutning till Azure.
 
-Ange vissa parametrar. 
+1. Ange vissa parametrar: 
 
  ```azurepowershell-interactive
 $resourceGroupName = 'myResourceGroup' 
@@ -52,39 +52,36 @@ $vmName = 'myVM'
 $snapshotName = 'mySnapshot'  
 ```
 
-Hämta den virtuella datorn.
+2. Hämta den virtuella datorn:
 
  ```azurepowershell-interactive
 $vm = get-azurermvm `
-   -ResourceGroupName $resourceGroupName `
+   -ResourceGroupName $resourceGroupName 
    -Name $vmName
 ```
 
-Skapa en ögonblicksbild av konfigurationen. I det här exemplet ska vi ögonblicksbild OS-disk.
+3. Skapa ögonblicksbild-konfigurationen. I det här exemplet är ögonblicksbilden av OS-disken:
 
  ```azurepowershell-interactive
-$snapshot =  New-AzureRmSnapshotConfig `
-   -SourceUri $vm.StorageProfile.OsDisk.ManagedDisk.Id `
-   -Location $location `
+$snapshot =  New-AzureRmSnapshotConfig 
+   -SourceUri $vm.StorageProfile.OsDisk.ManagedDisk.Id 
+   -Location $location 
    -CreateOption copy
 ```
    
-> [!NOTE]
-> Om du vill lagra din ögonblicksbild i zonen flexibel måste du skapa i en region som stöder [tillgänglighet zoner](../../availability-zones/az-overview.md) och inkludera den `-SkuName Standard_ZRS` parameter.   
-
+   > [!NOTE]
+   > Om du vill lagra dina ögonblicksbild i zonen flexibel lagring, skapar du den i en region som har stöd för [tillgänglighetszoner](../../availability-zones/az-overview.md) och inkludera den `-SkuName Standard_ZRS` parametern.   
    
-Ta ögonblicksbilden.
+4. Ta ögonblicksbilden:
 
-```azurepowershell-interactive
-New-AzureRmSnapshot `
-   -Snapshot $snapshot `
-   -SnapshotName $snapshotName `
+ ```azurepowershell-interactive
+New-AzureRmSnapshot 
+   -Snapshot $snapshot 
+   -SnapshotName $snapshotName 
    -ResourceGroupName $resourceGroupName 
 ```
 
 
-
-
 ## <a name="next-steps"></a>Nästa steg
 
-Skapa en virtuell dator från en ögonblicksbild genom att skapa en hanterad disk från en ögonblicksbild och kopplar den nya hantera disken som OS-disk. Mer information finns i [skapa en virtuell dator från en ögonblicksbild](./../scripts/virtual-machines-windows-powershell-sample-create-vm-from-snapshot.md?toc=%2fpowershell%2fmodule%2ftoc.json) exempel.
+Skapa en virtuell dator från en ögonblicksbild genom att skapa en hanterad disk från en ögonblicksbild och sedan koppla ny hanterad disk som OS-disk. Mer information finns i exemplet i [skapa en virtuell dator från en ögonblicksbild med PowerShell](./../scripts/virtual-machines-windows-powershell-sample-create-vm-from-snapshot.md?toc=%2fpowershell%2fmodule%2ftoc.json).

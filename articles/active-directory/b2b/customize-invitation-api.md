@@ -10,12 +10,12 @@ ms.author: mimart
 author: msmimart
 manager: mtillman
 ms.reviewer: sasubram
-ms.openlocfilehash: 20c824da82d6e3e66bfa2d7447c8a9573cbdce69
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.openlocfilehash: 8809a5a8b4f76d6e33bbb934e13931e86f2d681c
+ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45985821"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49091782"
 ---
 # <a name="azure-active-directory-b2b-collaboration-api-and-customization"></a>Azure Active Directory B2B-samarbete API och anpassning
 
@@ -79,7 +79,7 @@ Mer information finns: https://graph.microsoft.io/docs/authorization/permission_
 
 
 ## <a name="powershell"></a>PowerShell
-Nu är det möjligt att använda PowerShell för att lägga till och bjuda in extern användare till en organisation enkelt. Skapa en inbjudan med hjälp av cmdleten:
+Du kan använda PowerShell för att lägga till och bjuda in extern användare till en organisation enkelt. Skapa en inbjudan med hjälp av cmdleten:
 
 ```
 New-AzureADMSInvitation
@@ -92,7 +92,25 @@ Du kan använda följande alternativ:
 * -SendInvitationMessage
 * -InvitedUserMessageInfo
 
-Du kan också besöka våra API-referens för inbjudan i [https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/invitation](https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/invitation)
+### <a name="invitation-status"></a>Status för inbjudan
+
+När du skickar en extern användare en inbjudan kan du använda den **Get-AzureADUser** cmdlet för att se om de har accepterat. Följande egenskaper för Get-AzureADUser fylls när en extern användare skickas en inbjudan:
+
+* **UserState** anger om inbjudan är **PendingAcceptance** eller **godkända**.
+* **UserStateChangedOn** visar tidstämpeln för senaste ändringen på **UserState** egenskapen.
+
+Du kan använda den **Filter** möjlighet att filtrera resultaten efter **UserState**. Exemplet nedan visar hur du filtrerar resultaten för att visa endast de användare som har en väntande inbjudan. Exemplet visar också de **Format-List** alternativ, vilket låter dig ange egenskaperna för att visa. 
+ 
+```
+Get-AzureADUser -Filter "UserState eq 'PendingAcceptance'" | Format-List -Property DisplayName,UserPrincipalName,UserState,UserStateChangedOn
+```
+
+> [!NOTE]
+> Kontrollera att du har den senaste versionen av AzureAD PowerShell-modulen eller AzureADPreview PowerShell-modulen. 
+
+## <a name="see-also"></a>Se också
+
+Kolla in inbjudan API-referens i [ https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/invitation ](https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/invitation).
 
 ## <a name="next-steps"></a>Nästa steg
 

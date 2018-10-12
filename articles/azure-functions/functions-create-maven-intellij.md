@@ -12,19 +12,19 @@ ms.topic: conceptual
 ms.date: 07/01/2018
 ms.author: jehollan
 ms.custom: mvc, devcenter
-ms.openlocfilehash: b28e7b158af939defd37734c3ff9fe2309e3ab85
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: d641688b5e2da7bf571b536aa9cc340e9a5b2ace
+ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44094407"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49115428"
 ---
 # <a name="create-your-first-function-with-java-and-intellij-preview"></a>Skapa din första funktion med Java och IntelliJ (förhandsversion)
 
 > [!NOTE] 
 > Java för Azure Functions finns för närvarande som förhandsversion.
 
-Den här artikeln visar hur du skapar en [serverlös](https://azure.microsoft.com/overview/serverless-computing/) function-projekt med IntelliJ IDEA och Apache Maven, testa och felsöka det på din dator från IDE och distribuera den till Azure Functions. 
+Den här artikeln visar hur du skapar en [serverlös](https://azure.microsoft.com/solutions/serverless/) function-projekt med IntelliJ IDEA och Apache Maven, testa och felsöka det på din dator från IDE och distribuera den till Azure Functions. 
 
 <!-- TODO ![Access a Hello World function from the command line with cURL](media/functions-create-java-maven/hello-azure.png) -->
 

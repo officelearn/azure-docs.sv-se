@@ -1,5 +1,5 @@
 ---
-title: Hur att läsa eller skriva partitionerad data i Azure Data Factory | Microsoft Docs
+title: Så här att läsa eller skriva partitionerade data i Azure Data Factory | Microsoft Docs
 description: Lär dig mer om att läsa eller skriva partitionerade data i Azure Data Factory.
 services: data-factory
 documentationcenter: ''
@@ -13,18 +13,20 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/15/2018
 ms.author: shlo
-ms.openlocfilehash: 59644f3318e2bf9c4f0ea6c3f5699fe1d19f2089
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 24464d110b00508cfb3fde4ab1a050773511e255
+ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37053718"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49091057"
 ---
-# <a name="how-to-read-or-write-partitioned-data-in-azure-data-factory"></a>Hur att läsa eller skriva partitionerad data i Azure Data Factory
-Azure Data Factory stöds läsning eller skrivning partitionerade data med hjälp av SliceStart/SliceEnd/WindowStart/WindowEnd systemvariabler i version 1. Du kan åstadkomma detta genom att använda en pipeline-parameter och utlösarens schemalagd tid/starttid som ett värde för parametern i den aktuella versionen av Data Factory. 
+# <a name="how-to-read-or-write-partitioned-data-in-azure-data-factory"></a>Så här att läsa eller skriva partitionerade data i Azure Data Factory
 
-## <a name="use-a-pipeline-parameter"></a>Använda en pipeline-parameter 
-I version 1, kunde du använda partitionedBy egenskap och SliceStart systemvariabeln som visas i följande exempel: 
+I Azure Data Factory version 1, kan du läsa eller skriva partitionerade data med hjälp av den **SliceStart**, **SliceEnd**, **WindowStart**, och **WindowEnd** systemvariabler. I den aktuella versionen av Data Factory kan du göra detta med hjälp av en pipeline-parameter och en utlösare start- eller schemalagd tid som ett värde för parametern. 
+
+## <a name="use-a-pipeline-parameter"></a>Använd en pipeline-parameter 
+
+I Data Factory version 1, kunde du använda den **partitionedBy** egenskapen och **SliceStart** systemvariabel som visas i följande exempel: 
 
 ```json
 "folderPath": "adfcustomerprofilingsample/logs/marketingcampaigneffectiveness/{Year}/{Month}/{Day}/",
@@ -35,13 +37,13 @@ I version 1, kunde du använda partitionedBy egenskap och SliceStart systemvaria
 ],
 ```
 
-Läs mer om egenskapen partitonedBy [version 1 Azure Blob-koppling](v1/data-factory-azure-blob-connector.md#dataset-properties) artikel. 
+Mer information om den **partitonedBy** egenskap, finns i [kopiera data till och från Azure Blob storage med hjälp av Azure Data Factory](v1/data-factory-azure-blob-connector.md#dataset-properties). 
 
-I den aktuella versionen av Data Factory är ett sätt att uppnå det här problemet att göra följande: 
+Att uppnå det här beteendet i den aktuella versionen av Data Factory: 
 
-1. Definiera en **pipeline parametern** av typen string. I följande exempel pipeline-parameternamnet är **windowStartTime**. 
-2. Ange **folderPath** i datauppsättningsdefinitionen att referera till värdet för pipeline-parametern. 
-3. Skicka det faktiska värdet för parametern när du anropar den pipelinen på begäran eller skicka en utlösare schemalagd tid/starttid dynamiskt vid körning. 
+1. Definiera en *pipeline-parametern* av typen **sträng**. I följande exempel visas namnet på parametern pipeline är **windowStartTime**. 
+2. Ange **folderPath** i definitionen för datauppsättningen för att referera till värdet för parametern pipeline. 
+3. Skicka det faktiska värdet för parametern när du anropar pipeline på begäran. Du kan även skicka en utlösare start- eller schema dynamiskt vid körning. 
 
 ```json
 "folderPath": {
@@ -50,8 +52,9 @@ I den aktuella versionen av Data Factory är ett sätt att uppnå det här probl
 },
 ```
 
-## <a name="pass-in-value-from-a-trigger"></a>Ange värdet från en utlösare
-I följande rullande fönster utlösardefinition, starttid för begränsningsfönstret för utlösaren skickas som ett värde för parametern pipeline **windowStartTime**: 
+## <a name="pass-in-a-value-from-a-trigger"></a>Skicka in ett värde från en utlösare
+
+I utlösardefinitionen följande rullande fönster starttiden för utlösaren skickas som ett värde för parametern pipeline **windowStartTime**: 
 
 ```json
 {
@@ -80,7 +83,7 @@ I följande rullande fönster utlösardefinition, starttid för begränsningsfö
 
 ## <a name="example"></a>Exempel
 
-Här är ett exempel datauppsättningsdefinitionen:
+Här är en exempeldefinition för datauppsättning:
 
 ```json
 {
@@ -176,4 +179,6 @@ Pipeline-definition:
 ```
 
 ## <a name="next-steps"></a>Nästa steg
-För att skapa en datafabrik med en rörledning för fullständig genomgång, se [Snabbstart: skapa en datafabrik](quickstart-create-data-factory-powershell.md). 
+
+En fullständig genomgång av hur du skapar en datafabrik med en pipeline finns i [Snabbstart: skapa en datafabrik](quickstart-create-data-factory-powershell.md). 
+

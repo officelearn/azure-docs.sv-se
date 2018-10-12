@@ -14,12 +14,12 @@ ms.date: 09/25/2018
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
-ms.openlocfilehash: f54f13c6b7bb75644e95e62f13d6427e07c64037
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: 755b94b71fdaefb261741f4d4e756b90d8148280
+ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48884600"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49116903"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Behörigheter för administratör i Azure Active Directory
 
@@ -37,11 +37,15 @@ Följande administratörsroller är tillgängliga:
 
 * **[Programadministratör](#application-administrator)**: användare i den här rollen kan skapa och hantera alla aspekter av företagsprogram och programregistreringar proxyinställningarna för programmet. Den här rollen ger även möjlighet att godkänna delegerade behörigheter och programbehörigheter exklusive Microsoft Graph och Azure AD Graph. Medlemmar i den här rollen har inte lagts som ägare när du skapar nya programregistreringar eller företagsprogram.
 
+  <b>Viktiga</b>: den här rollen ger möjlighet att hantera programmet autentiseringsuppgifter. Användare som är tilldelade den här rollen kan lägga till autentiseringsuppgifter i ett program och använda dessa autentiseringsuppgifter för att personifiera programmets identitet. Om programmets identitet har beviljats åtkomst till Azure Active Directory, till exempel möjligheten att skapa eller uppdatera användare eller andra objekt, kan sedan en användare som tilldelats den här rollen utföra dessa åtgärder medan personifieras programmet. Den här möjligheten att personifiera programmets identitet kan vara en höjning av privilegier över vad användaren kan göra via sin rolltilldelningar i Azure AD. Det är viktigt att förstå att tilldela en användare till rollen programadministratör ger dem möjlighet att personifiera identitet för ett program.
+
 * **[Programutvecklare](#application-developer)**: användare i den här rollen kan skapa programregistreringar när den ”användare kan registrera program” är inställt på Nej. Den här rollen kan också medlemmar måste samtycka på sina egna räkning när den ”användare kan godkänna att appar får åtkomst till företagets data å deras vägnar” är inställt på Nej. Medlemmar i den här rollen har lagts till som ägare när du skapar nya programregistreringar eller företagsprogram.
 
 * **[Faktureringsadministratör](#billing-administrator)**: gör inköp, hanterar prenumerationer, hanterar supportärenden och övervakar tjänstehälsa.
 
 * **[Molnprogramadministratör](#cloud-application-administrator)**: användare i den här rollen har samma behörigheter som rollen programadministratör exklusive möjligheten att hantera programproxy. Den här rollen ger möjlighet att skapa och hantera alla aspekter av företagsprogram och programregistreringar. Den här rollen ger även möjlighet att godkänna delegerade behörigheter och programbehörigheter exklusive Microsoft Graph och Azure AD Graph. Medlemmar i den här rollen har inte lagts som ägare när du skapar nya programregistreringar eller företagsprogram.
+
+  <b>Viktiga</b>: den här rollen ger möjlighet att hantera programmet autentiseringsuppgifter. Användare som är tilldelade den här rollen kan lägga till autentiseringsuppgifter i ett program och använda dessa autentiseringsuppgifter för att personifiera programmets identitet. Om programmets identitet har beviljats åtkomst till Azure Active Directory, till exempel möjligheten att skapa eller uppdatera användare eller andra objekt, kan sedan en användare som tilldelats den här rollen utföra dessa åtgärder medan personifieras programmet. Den här möjligheten att personifiera programmets identitet kan vara en höjning av privilegier över vad användaren kan göra via sin rolltilldelningar i Azure AD. Det är viktigt att förstå att tilldela en användare till rollen Molnprogramadministratör ger dem möjlighet att personifiera identitet för ett program.
 
 * **[Molnenhetsadministratör](#cloud-device-administrator)**: användare i den här rollen kan aktivera, inaktivera, och ta bort enheter i Azure AD och Läs Windows 10 BitLocker-nycklar (om sådan finns) i Azure-portalen. Rollen ger inte behörighet att hantera andra egenskaper på enheten.
 
@@ -98,6 +102,8 @@ Följande administratörsroller är tillgängliga:
 * **[Power BI-tjänstadministratör](#power-bi-service-administrator)**: användare med den här rollen har globala behörigheter inom Microsoft Power BI när tjänsten finns närvarande, liksom möjlighet att hantera supportbegäranden och kontrollera tjänstens hälsotillstånd. Mer information på [förstå administratörsrollen för Power BI](https://docs.microsoft.com/power-bi/service-admin-role).
 
 * **[Privilegierad Rolladministratör](#privileged-role-administrator)**: användare med den här rollen kan hantera rolltilldelningar i Azure Active Directory, liksom i Azure AD Privileged Identity Management. Den här rollen kan dessutom hantera alla aspekter av Privileged Identity Management.
+
+  <b>Viktiga</b>: den här rollen ger dig möjlighet att hantera medlemskap i alla Azure AD-roller, inklusive den globala administratörsrollen. Den här rollen omfattar inte andra Privilegierade funktioner i Azure AD, som skapar eller uppdaterar användare. Användare som tilldelats den här rollen kan dock ge sig själva eller andras ytterligare behörighet genom att tilldela ytterligare roller.
 
 * **[Rapporterar läsare](#reports-reader)**: användare med den här rollen kan visa användning reporting data och instrumentpanelen rapporter i Administrationscenter för Office 365 och införande kontexten pack i Power BI. Dessutom rollen ger åtkomst till loggar in rapporter och aktivitet i Azure AD och data som returneras av Microsoft Graph rapporterings-API. En användare som tilldelats rollen rapportläsare kan komma åt endast relevanta användnings- och användningsstatistik. De har inte någon administratörsbehörighet för att konfigurera inställningar eller åtkomst till produktspecifika Administrationscenter som Exchange. 
 

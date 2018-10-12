@@ -1,25 +1,19 @@
 ---
 title: Systemkrav för Microsoft Azure Data Box | Microsoft Docs
-description: Läs mer om programvara och nätverkskrav för din Azure Data Box
+description: Lär dig mer om programvaran och nätverkskraven för din Azure Data Box-enhet
 services: databox
-documentationcenter: NA
 author: alkohli
-manager: twooley
-editor: ''
-ms.assetid: ''
 ms.service: databox
-ms.devlang: NA
+ms.subservice: pod
 ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 09/24/2018
 ms.author: alkohli
-ms.openlocfilehash: f97c6174adf454a031e94942843075c457236575
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 957100e042da1d41fb7c8fa27a5663cf99a41c20
+ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46982992"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49093943"
 ---
 # <a name="azure-data-box-system-requirements"></a>Azure Data Box-systemkrav
 
@@ -88,7 +82,7 @@ Här är en lista över webbläsare som stöds för det lokala webbgränssnittet
 
 ## <a name="networking-requirements"></a>Nätverkskrav
 
-Datacentret måste ha höghastighetsnätverk. Vi rekommenderar starkt att du har minst ett 10 GbE-anslutning. Om en 10 GbE-anslutning inte är tillgänglig en 1 GbE-datalänk kan användas för att kopiera data men kopia hastighet som påverkas.
+Datacentret måste ha höghastighetsnätverk. Vi rekommenderar starkt att du har en anslutning på minst 10 GbE. Om en 10 GbE-anslutning inte är tillgänglig en 1 GbE-datalänk kan användas för att kopiera data men kopia hastighet som påverkas.
 
 ## <a name="next-step"></a>Nästa steg
 

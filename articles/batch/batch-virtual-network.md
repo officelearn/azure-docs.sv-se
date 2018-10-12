@@ -1,48 +1,43 @@
 ---
 title: Etablera Azure Batch-pool i ett virtuellt nätverk | Microsoft Docs
-description: Du kan skapa en Batch-pool i ett virtuellt nätverk så att beräkningsnoder kan kommunicera säkert med andra virtuella datorer i nätverket, till exempel en filserver.
+description: Hur du skapar en Batch-pool i Azure-nätverk så att beräkningsnoder kan kommunicera säkert med andra virtuella datorer i nätverket, till exempel en filserver.
 services: batch
 author: dlepow
 manager: jeconnoc
 ms.service: batch
 ms.topic: article
-ms.date: 08/15/2018
+ms.date: 10/05/2018
 ms.author: danlep
-ms.openlocfilehash: 9e8bd6819601cc4436e3432ee390f2ae82a0d94a
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.openlocfilehash: ef37d482e86e4ae05d3f14c78404dc395792b236
+ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42056133"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49091971"
 ---
 # <a name="create-an-azure-batch-pool-in-a-virtual-network"></a>Skapa en Azure Batch-pool i ett virtuellt nätverk
 
-
 När du skapar ett Azure Batch-pool kan du etablera poolen i ett undernät för ett [Azure-nätverk](../virtual-network/virtual-networks-overview.md) (VNet) som du anger. Den här artikeln förklarar hur du ställer in en Batch-pool i ett virtuellt nätverk. 
-
-
 
 ## <a name="why-use-a-vnet"></a>Varför ska jag använda ett virtuellt nätverk?
 
-
 Ett Azure Batch-pool har inställningar för compute-noder att kommunicera med varandra – till exempel, för att köra aktiviteter med flera instanser. De här inställningarna kräver inte ett separat virtuellt nätverk. Noderna inte kan dock kommunicera med virtuella datorer som inte är en del av Batch-pool, till exempel en server eller en server som standard. Du kan etablera poolen i ett undernät för ett virtuellt Azure nätverk för att tillåta compute-noder i poolen kan kommunicera säkert med andra virtuella datorer eller med ett lokalt nätverk. 
-
-
 
 ## <a name="prerequisites"></a>Förutsättningar
 
 * **Autentisering**. Om du vill använda ett Azure VNet-nätverk måste Batch-klientens API använda Azure Active Directory-autentisering (AD). Mer dokumentation om stödet för Azure Batch i Azure Active Directory finns i [Authenticate Batch service solutions with Active Directory](batch-aad-auth.md) (Autentisera lösningar för Batch-tjänsten med Active Directory). 
 
-* **Ett Azure VNet**. Du kan använda Azure-portalen, Azure PowerShell, Azure-kommandoradsgränssnittet (CLI) eller andra metoder för att förbereda ett virtuellt nätverk med ett eller flera undernät i förväg. Om du vill skapa en Azure Resource Manager-baserad VNet [skapa ett virtuellt nätverk](../virtual-network/manage-virtual-network.md#create-a-virtual-network). För att skapa ett klassiskt virtuellt nätverk, se [skapa ett virtuellt nätverk (klassiskt) med flera undernät](../virtual-network/create-virtual-network-classic.md).
+* **Ett Azure VNet**. Se följande avsnitt för VNet-krav och konfiguration. Du kan använda Azure-portalen, Azure PowerShell, Azure-kommandoradsgränssnittet (CLI) eller andra metoder för att förbereda ett virtuellt nätverk med ett eller flera undernät i förväg.  
+  * Om du vill skapa en Azure Resource Manager-baserad VNet [skapa ett virtuellt nätverk](../virtual-network/manage-virtual-network.md#create-a-virtual-network). Ett virtuellt Resource Manager-baserade nätverk rekommenderas för nya distributioner och stöds endast på pooler i konfigurationen av virtuella datorn.
+  * För att skapa ett klassiskt virtuellt nätverk, se [skapa ett virtuellt nätverk (klassiskt) med flera undernät](../virtual-network/create-virtual-network-classic.md). Ett klassiskt virtuellt nätverk stöds endast i pooler i konfigurationen för molntjänster.
 
-### <a name="vnet-requirements"></a>VNet-krav
+## <a name="vnet-requirements"></a>VNet-krav
+
 [!INCLUDE [batch-virtual-network-ports](../../includes/batch-virtual-network-ports.md)]
-    
+
 ## <a name="create-a-pool-with-a-vnet-in-the-portal"></a>Skapa en pool med ett virtuellt nätverk i portalen
 
 När du har skapat ditt virtuella nätverk och tilldelat ett undernät till det, du kan skapa en Batch-pool med det virtuella nätverket. Följ dessa steg för att skapa en pool från Azure portal: 
-
-
 
 1. Navigera till ditt Batch-konto i Azure Portal. Det här kontot måste finnas i samma prenumeration och region som den resursgrupp som innehåller det virtuella nätverket som du tänker använda. 
 2. I den **inställningar** fönstret till vänster, Välj den **pooler** menyalternativ.

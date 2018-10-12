@@ -10,12 +10,12 @@ ms.component: computer-vision
 ms.topic: conceptual
 ms.date: 08/29/2018
 ms.author: v-deken
-ms.openlocfilehash: 49cba0e9b6958beb07b6f074e6dc748679514525
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.openlocfilehash: 2a77306f408e87d5055a292d6f403cc041790eba
+ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45985319"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49093875"
 ---
 # <a name="recognizing-printed-and-handwritten-text"></a>Känna igen tryckt och handskriven text
 
@@ -29,7 +29,7 @@ Visuellt innehåll kan känna igen utskrivna och handskriven text i bilder som u
 
 - Bilden måste vara visas i JPEG, PNG eller BMP-format
 - Filstorleken måste vara mindre än 4 megabyte (MB)
-- Bildens dimensioner måste vara mellan 40 x 40 och 3200 x 3200 bildpunkter
+- Storleken för avbildningen måste vara mellan 50 x 50 och 4200 x 4200 bildpunkter
 
 > [!NOTE]
 > Den här tekniken är för närvarande en förhandsversion och är endast tillgänglig för engelsk text.

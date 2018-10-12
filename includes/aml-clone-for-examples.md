@@ -9,15 +9,13 @@ manager: cgronlund
 ms.custom: include file
 ms.topic: include
 ms.date: 09/24/2018
-ms.openlocfilehash: 98e168ccb600bd1371da7f125531f3b4421b3d80
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: e9e338e32e570ce98854e059ecdda21d99fda728
+ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47018642"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49117260"
 ---
 1. [![Azure anteckningsböcker](https://notebooks.azure.com/launch.png)](https://aka.ms/aml-clone-azure-notebooks)
-[importera exempelanteckningsböcker till Azure-anteckningsböcker](https://aka.ms/aml-clone-azure-notebooks).
-1.  Skapa en arbetsyta och dess konfigurationsfil (**config.json**) med hjälp av anvisningarna i [så här konfigurerar du en utvecklingsmiljö för Azure Machine Learning-tjänsten](https://aka.ms/aml-how-to-configure-environment).
-2. Välj `+New` i verktygsfältet för att lägga till din **config.json** filen till samma mapp som anteckningsboken.
-3. Öppna anteckningsboken.
+[importera exempelanteckningsböcker till Azure-anteckningsböcker](https://aka.ms/aml-clone-azure-notebooks). (Ditt företag kan kräva [administratörens godkännande](https://notebooks.azure.com/help/signing-up/work-or-school-account/admin-consent) innan du kan logga in.)
+1. Finns i filen Viktigt i importerade-biblioteket för ytterligare instruktioner att köra de bärbara datorerna.

@@ -9,12 +9,12 @@ author: bryanla
 ms.author: bryanla
 manager: mbaldwin
 ms.date: 10/03/2018
-ms.openlocfilehash: b5b30f7f5ffc7fcbef918162bc736c1f0a888d1b
-ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
+ms.openlocfilehash: adc8b84f0f22e85de88c4bd80c10a2a35d7b490a
+ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49067745"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49114608"
 ---
 # <a name="azure-key-vault-storage-account-keys"></a>Azure Key Vault-Lagringskontonycklar
 
@@ -38,24 +38,19 @@ ms.locfileid: "49067745"
 -------------------------
 
 1. Hämta resurs-ID för Azure Storage-konto som du vill hantera.
-    a. När vi har skapat ett lagringskonto 
+    a. Kör följande kommando för att hämta resurs-ID för lagringskontot som du vill hantera när du har skapat ett lagringskonto
     ```
     az storage account show -n storageaccountname (Copy ID out of the result of this command)
     ```
-2. Hämta resurs-ID för Azure Storage-konto som du vill hantera.
-    ```
-    az storage account show -n storageaccountname (Take ID out of this)
-    ```
-3. Hämta program-ID för Azure Key Vault-tjänstens huvudnamn 
+2. Hämta program-ID för Azure Key Vault-tjänstens huvudnamn 
     ```
     az ad sp show --id cfa8b339-82a2-471a-a3c9-0fc0be7a4093
     ```
-4. Tilldela lagring nyckeln operatörsrollen till Azure Key Vault Identity
+3. Tilldela lagring nyckeln operatörsrollen till Azure Key Vault Identity
     ```
     az role assignment create --role "Storage Account Key Operator Service Role"  --assignee-object-id hhjkh --scope idofthestorageaccount
     ```
-5. Skapa Key Vault hanteras Storage-konto.     <br /><br />
-   Nedanstående kommando som frågar Key Vault för att återskapa nyckeln var 90: e dag.
+4. Skapa Key Vault hanteras Storage-konto.     <br /><br />
    Nedanstående kommando som frågar Key Vault för att återskapa åtkomstnycklarna för ditt lagringsutrymme med jämna mellanrum, med en återskapandeperiod. Nedan har anger vi en återskapandeperiod 90 dagar. Efter 90 dagar, Key Vault återskapa ”key1” och växla den aktiva nyckeln från ”key2” till ”key1”.
    ### <a name="key-regeneration"></a>Åtkomstnyckeln återskapades
     ```

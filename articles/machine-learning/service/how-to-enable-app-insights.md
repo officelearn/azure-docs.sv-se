@@ -9,12 +9,12 @@ ms.reviewer: jmartens
 ms.author: marthalc
 author: marthalc
 ms.date: 10/01/2018
-ms.openlocfilehash: 812c9911486174b1ed3be5373486e992e4037425
-ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
+ms.openlocfilehash: 45871ab515c7ffd9520b1d77d3fd1e77abcc29ef
+ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48248542"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49114575"
 ---
 # <a name="monitor-your-azure-machine-learning-models-in-production-with-application-insights"></a>Övervaka dina Azure Machine Learning-modeller i produktion med Application Insights
 
@@ -127,7 +127,7 @@ Klicka på [här](../../application-insights/app-insights-overview.md) mer infor
 
 ## <a name="example-notebook"></a>Exempel-anteckningsbok
 
-Den `00.Getting Started/13.enable-app-insights-in-production-service.ipynb` notebook demonstrerar begreppen i den här artikeln.  Hämta den här anteckningsboken:
+Den [00. komma Started/13.enable-app-insights-in-production-service.ipynb](https://github.com/Azure/MachineLearningNotebooks/tree/master/01.getting-started/13.enable-app-insights) notebook demonstrerar begreppen i den här artikeln.  Hämta den här anteckningsboken:
  
 [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-for-examples.md)]
 

@@ -17,12 +17,12 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.custom: aaddev
 ms.reviewer: sureshja
-ms.openlocfilehash: 74bcd1e795186eba652d2da986c290e1989dd1d1
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: bc7999d56da8398b4f54b0144a595ee7c2e2ea35
+ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47041582"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49115118"
 ---
 # <a name="azure-active-directory-app-manifest"></a>Azure Active Directory-appmanifestet
 
@@ -43,7 +43,7 @@ Appar som integreras med Azure Active Directory (AD Azure) måste registreras me
 | `appId` | Strängen för meddelandealternatividentifieraren | Anger den unika identifieraren för den app som har tilldelats en app av Azure AD. | `"601790de-b632-4f57-9523-ee7cb6ceba95"` |
 | `appRoles` | Typ av matris | Anger samlingen av roller som en app kan deklarera. Dessa roller kan tilldelas användare, grupper eller tjänstens huvudnamn. Fler exempel och information i [Lägg till roller i ditt program och tar emot dem i token](howto-add-app-roles-in-azure-ad-apps.md) | <code>[<br>&nbsp;&nbsp;{<br>&nbsp;&nbsp;&nbsp;"allowedMemberTypes": [<br>&emsp;&nbsp;&nbsp;&nbsp;"User"<br>&nbsp;&nbsp;&nbsp;],<br>&nbsp;&nbsp;&nbsp;"description":"Read-only access to device information",<br>&nbsp;&nbsp;&nbsp;"displayName":"Read Only",<br>&nbsp;&nbsp;&nbsp;"id":guid,<br>&nbsp;&nbsp;&nbsp;"isEnabled":true,<br>&nbsp;&nbsp;&nbsp;"value":"ReadOnly"<br>&nbsp;&nbsp;}<br>]</code>  |
 | `groupMembershipClaims` | sträng | En bitmask som konfigurerar den `groups` anspråk som utfärdats i en användare eller OAuth 2.0-åtkomsttoken som förväntar sig att appen. Värdena är:<br>0: ingen<br>1: säkerhetsgrupper och Azure AD-roller<br>2: reserverad<br>4: reserverad<br>Ställa in bitmask 7 får alla säkerhetsgrupper, distributionsgrupper och Azure AD-katalogroller som den inloggade användaren är medlem i. | `1` |
-| `optionalClaims` | sträng | De valfria anspråk som returneras i token av säkerhetstokentjänsten för den här specifika appen. Mer information finns i [valfria anspråk](active-directory-optional-claims.md). | `null` |
+| `optionalClaims` | sträng | De valfria anspråk som returneras i token av säkerhetstokentjänsten för den här specifika appen.<br>Appar som stöder både personliga konton och Azure AD (registrerad via portalen för registrering av appen) kan inte använda valfria anspråk för tillfället. Appar som är registrerade för bara Azure AD med v2.0-slutpunkten får valfria anspråk som begärts i manifestet. Mer information finns i [valfria anspråk](active-directory-optional-claims.md). | `null` |
 | `id` | Strängen för meddelandealternatividentifieraren | Den unika identifieraren för appen i katalogen. Detta ID är inte den identifierare som används för att identifiera appen i alla protokoll-transaktioner. Den används för refererar till objektet i directory-frågor. | `"f7f9acfc-ae0c-4d6c-b489-0a81dc1652dd"` |
 | `identifierUris` | Strängmatris | Användardefinierade URI(s) som unikt identifierar en webbapp i sin Azure AD-klient eller i en verifierad anpassad domän om appen är flera innehavare. | <code>[<br>&nbsp;&nbsp;"https://MyRegistererdApp"<br>]</code> |
 | `informationalUrls` | sträng | Anger länkar till appens användningsvillkor och sekretesspolicy. Användningsvillkor och sekretesspolicy exponeras för användare via medgivande användarupplevelsen. Mer information finns i [så här: lägga till användningsvillkor och sekretesspolicy för registrerad Azure AD-appar](howto-add-terms-of-service-privacy-statement.md). | <code>{<br>&nbsp;&nbsp;&nbsp;"marketing":"https://MyRegisteredApp/marketing",<br>&nbsp;&nbsp;&nbsp;"privacy":"https://MyRegisteredApp/privacystatement",<br>&nbsp;&nbsp;&nbsp;"support":"https://MyRegisteredApp/support",<br>&nbsp;&nbsp;&nbsp;"termsOfService":"https://MyRegisteredApp/termsofservice"<br>}</code> |

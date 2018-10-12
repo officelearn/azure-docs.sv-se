@@ -6,19 +6,19 @@ ms.service: automation
 ms.component: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 05/08/2018
+ms.date: 10/08/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: b577f697f4467656166b83ea78efdfe6d742941f
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 66f3558a4314b1639d54d4e8ea6814eea9064073
+ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47032537"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49113894"
 ---
 # <a name="runbook-execution-in-azure-automation"></a>Runbook-körning i Azure Automation
 
-När du startar en runbook i Azure Automation skapas ett jobb. Ett jobb är en enskild körningsinstans av en runbook. En Azure Automation arbetare är tilldelad att köra varje jobb. Medan arbetare som delas av flera Azure-konton, är jobb från olika Automation-konton isolerade från varandra. Du kan inte ha styra vilken Worker behandlar begäran för jobbet. En enda runbook kan ha flera jobb som körs på en gång. Körningsmiljö för jobb från samma Automation-konto får återanvändas. När du visar en lista med runbooks i Azure-portalen visar status för alla jobb som har startats för varje runbook. Du kan visa listan över jobb för varje runbook för att kunna spåra status för var och en. En beskrivning av olika jobbstatusar [Jobbstatusar](#job-statuses).
+När du startar en runbook i Azure Automation skapas ett jobb. Ett jobb är en enskild körningsinstans av en runbook. En Azure Automation arbetare är tilldelad att köra varje jobb. Medan arbetare som delas av många Azure-konton, är jobb från olika Automation-konton isolerade från varandra. Du har inte styra vilken Worker behandlar begäran för jobbet. En enda runbook kan ha många jobb som körs på en gång. Körningsmiljö för jobb från samma Automation-konto får återanvändas. När du visar en lista med runbooks i Azure-portalen visar status för alla jobb som har startats för varje runbook. Du kan visa listan över jobb för varje runbook du spårar statusen för var och en. En beskrivning av olika jobbstatusar [Jobbstatusar](#job-statuses).
 
 [!INCLUDE [GDPR-related guidance](../../includes/gdpr-dsr-and-stp-note.md)]
 
@@ -34,46 +34,46 @@ Dina jobb har åtkomst till dina Azure-resurser genom att göra en anslutning ti
 
 ## <a name="job-statuses"></a>Jobbstatus
 
-I följande tabell beskrivs de olika statuslägen som är möjliga för ett jobb.
+I följande tabell beskrivs de olika statuslägen som är möjliga för ett jobb. PowerShell har två typer av fel, avslutande och icke-avslutande fel. Avslutande fel att ange runbook-status till **misslyckades** om de sker. Icke-avslutande fel kan skriptet som ska fortsätta även när de inträffar. Ett exempel på ett icke-avslutande fel med den `Get-ChildItem` cmdlet: en med en sökväg som inte finns. PowerShell ser att sökvägen finns inte, genererar ett fel och fortsätter till nästa mapp. Det här felet inte att ange runbook-status till **misslyckades** och kan markeras som **slutförd**. Om du vill tvinga en runbook för att stoppa på ett icke-avslutande fel, kan du använda `-ErrorAction Stop` på cmdlet: en.
 
 | Status | Beskrivning |
 |:--- |:--- |
 | Slutfört |Jobbet har slutförts. |
-| Misslyckad |För [grafisk och PowerShell Workflow-runbooks](automation-runbook-types.md), det gick inte att kompilera runbook. För [PowerShell-skript runbooks](automation-runbook-types.md), det gick inte att starta runbook eller jobbet påträffade ett undantag. |
+| Misslyckad |För [grafisk och PowerShell Workflow-runbooks](automation-runbook-types.md), det gick inte att kompilera runbook. För [PowerShell-skript runbooks](automation-runbook-types.md), det gick inte att starta runbook eller jobbet hade ett undantag. |
 | Misslyckades, väntar på resurser |Jobbet misslyckades eftersom den har nått den [rättmätiga del](#fair-share) begränsa tre gånger och startas från samma kontrollpunkten eller från början av runbooken varje gång. |
 | I kö |Jobbet väntar på resurser på en Automation arbetare blir tillgängliga så att den kan startas. |
-| Startar |Jobbet har tilldelats en arbetare och systemet håller startar om den. |
-| Fortsätter |Systemet håller på att återuppta jobbet efter att det pausades. |
+| Startar |Jobbet har tilldelats en arbetare och systemet börjar den. |
+| Fortsätter |Systemet är återuppta jobbet efter att det pausades. |
 | Körs |Jobbet körs. |
 | Kör, väntar på resurser |Jobbet har inaktiverats eftersom den har nått den [rättmätiga del](#fair-share) gränsen. Återupptas från den senaste kontrollpunkten inom kort. |
 | Stoppad |Jobbet stoppades av användaren innan den slutfördes. |
-| Stoppas |Systemet håller på att stoppa arbetet. |
-| Tillfälligt avbruten |Jobbet pausades av användaren, av systemet eller av ett kommando i runbook. Ett jobb som pausats kan startas igen och återupptas från den senaste kontrollpunkten eller från början av runbooken om den inte redan har kontrollpunkter. Runbook-jobbet är bara inaktiveras av systemet när ett undantag inträffar. Som standard anges ErrorActionPreference till **Fortsätt**, vilket innebär att jobbet körs på ett fel. Om inställningsvariabeln är inställt på **stoppa**, och sedan jobbet pausar på ett fel. Gäller för [grafisk och PowerShell Workflow-runbooks](automation-runbook-types.md) endast. |
+| Stoppas |Systemet håller på att stoppas jobbet. |
+| Tillfälligt avbruten |Jobbet pausades av användaren, av systemet eller av ett kommando i runbook. Om en runbook inte har en kontrollpunkt, börjar den från början av runbooken. Om den har en kontrollpunkt för den startar igen och återupptas från den senaste kontrollpunkten. Runbook-jobbet är bara inaktiveras av systemet när ett undantag inträffar. Som standard anges ErrorActionPreference till **Fortsätt**, vilket innebär att jobbet körs på ett fel. Om inställningsvariabeln är inställt på **stoppa**, och sedan jobbet pausar på ett fel. Gäller för [grafisk och PowerShell Workflow-runbooks](automation-runbook-types.md) endast. |
 | Pausar |Systemet försöker att pausa arbetet på användarens begäran. Runbooken måste nå nästa kontrollpunkt innan den pausas. Om den redan passerat den sista kontrollpunkten sedan slutförs den innan den pausas. Gäller för [grafisk och PowerShell Workflow-runbooks](automation-runbook-types.md) endast. |
 
 ## <a name="viewing-job-status-from-the-azure-portal"></a>Visa jobbstatus från Azure portal
 
-Du kan visa en sammanfattande status för alla runbookjobb eller visa detaljer om specifika runbook-jobb i Azure-portalen eller genom att konfigurera integration med Log Analytics-arbetsytan och vidarebefordra runbook jobbströmmar status och jobb. Mer information om hur du integrerar med Log Analytics finns i [vidarebefordrar jobbstatus och jobbströmmar från Automation till Log Analytics](automation-manage-send-joblogs-log-analytics.md).
+Du kan visa en sammanfattande status för alla runbookjobb eller visa detaljer om en specifik runbook-jobb i Azure-portalen. Du kan också konfigurera integrering med Log Analytics-arbetsytan och vidarebefordra runbook jobbströmmar status och jobb. Mer information om hur du integrerar med Log Analytics finns i [vidarebefordrar jobbstatus och jobbströmmar från Automation till Log Analytics](automation-manage-send-joblogs-log-analytics.md).
 
 ### <a name="automation-runbook-jobs-summary"></a>Automation runbook-jobb sammanfattning
 
-Till höger om det valda Automation-kontot kan du se en sammanfattning av alla runbookjobb för ett valt Automation-konto under **Jobbstatistik** panelen.
+Till höger om det valda Automation-kontot kan du se en sammanfattning av alla runbookjobb under **Jobbstatistik** panelen.
 
 ![Jobbstatistik panel](./media/automation-runbook-execution/automation-account-job-status-summary.png)
 
 Den här panelen visar antal och grafisk representation av jobbet har statusen för alla jobb som körs.
 
-Klick på panelen presenterar den **jobb** blad som innehåller en sammanfattad lista över alla jobb som körs, med status, jobbkörningen och start- och sluttider.
+Klick på panelen presenterar den **jobb** sida med en sammanfattad lista över alla jobb som körs. Den här sidan visar status, starttider och slutförande gånger.
 
-![Jobb-bladet för Automation-kontot](./media/automation-runbook-execution/automation-account-jobs-status-blade.png)
+![Automation-kontosidan jobb](./media/automation-runbook-execution/automation-account-jobs-status-blade.png)
 
-Du kan filtrera listan över jobb genom att välja **filtrera jobb** och filtrera på en viss runbook jobbstatus, eller från den nedrullningsbara listan datum/tid-intervallet för att söka i.
+Du kan filtrera listan över jobb genom att välja **filtrera jobb** och filtrera på en viss runbook jobbstatus, eller från den nedrullningsbara listan och tidsintervall att söka i.
 
 ![Filtrera jobbstatus](./media/automation-runbook-execution/automation-account-jobs-filter.png)
 
-Du kan också du kan visa sammanfattningsinformation för jobbet för en viss runbook genom att välja den runbooken från den **Runbooks** blad i ditt Automation-konto och välj sedan den **jobb** panelen. Detta medför det **jobb** bladet och därifrån kan du klicka på Jobbposten som ska visa detaljer och effekt.
+Du kan också du kan visa sammanfattningsinformation för jobbet för en viss runbook genom att välja den runbooken från den **Runbooks** i ditt Automation-konto och välj sedan den **jobb** panelen. Den här åtgärden anger den **jobb** sidan, och därifrån kan du klicka på Jobbposten som ska visa detaljer och effekt.
 
-![Jobb-bladet för Automation-kontot](./media/automation-runbook-execution/automation-runbook-job-summary-blade.png)
+![Automation-kontosidan jobb](./media/automation-runbook-execution/automation-runbook-job-summary-blade.png)
 
 ### <a name="job-summary"></a>Jobbsammanfattning
 
@@ -82,9 +82,9 @@ Du kan visa en lista över alla jobb som har skapats för en viss runbook och de
 Du kan använda följande steg för att visa jobb för en runbook.
 
 1. I Azure-portalen väljer du **Automation** och välj sedan namnet på ett Automation-konto.
-2. Från hubben, väljer **Runbooks** och klicka sedan på den **Runbooks** bladet Välj en runbook i listan.
-3. På bladet för den markerade runbooken, klickar du på den **jobb** panelen.
-4. Klicka på ett av jobben i listan och på bladet med runbook-jobb kan du se detaljer och effekt.
+2. Från hubben, väljer **Runbooks** och klicka sedan på den **Runbooks** väljer du en runbook i listan.
+3. På sidan för den markerade runbooken klickar du på den **jobb** panelen.
+4. Klicka på ett av jobben i listan och på informationssidan för runbook-jobb kan du se detaljer och effekt.
 
 ## <a name="retrieving-job-status-using-windows-powershell"></a>Hämta jobbstatus med Windows PowerShell
 
@@ -137,18 +137,17 @@ Get-AzureRmLog -ResourceId $JobResourceID -MaxRecord 1 | Select Caller
 
 För att kunna dela resurser mellan alla runbooks i molnet, kommer Azure Automation tillfälligt bort jobb efter det har körts i tre timmar. Under denna tid jobb för [PowerShell-baserade runbooks](automation-runbook-types.md#powershell-runbooks) stoppas och är inte startas. Jobbet status visas **stoppad**. Den här typen av runbook startas alltid om från början, eftersom de inte stöder kontrollpunkter.
 
-[PowerShell-Arbetsflödesbaserade runbooks](automation-runbook-types.md#powershell-workflow-runbooks) återupptas från deras senaste [kontrollpunkt](https://docs.microsoft.com/system-center/sma/overview-powershell-workflows#bk_Checkpoints). När du har kört tre timmar, runbook-jobbet har pausats av tjänsten och dess status visas **som körs, väntar på resurser**. När en sandbox blir tillgängligt runbook sker en automatisk omstart av Automation-tjänsten och återupptar från den senaste kontrollpunkten. Detta är normalt PowerShell-arbetsflöde att pausa/starta om. Om runbook igen överskrider tre timmars körning, processen upprepas, upp till tre gånger. Efter den tredje omstarten, om runbooken fortfarande inte har slutförts inom tre timmar sedan runbook-jobbet misslyckades och jobbstatusen visas **misslyckades, väntar på resurser**. I så fall får du följande undantag fel.
+[PowerShell-Arbetsflödesbaserade runbooks](automation-runbook-types.md#powershell-workflow-runbooks) återupptas från deras senaste [kontrollpunkt](https://docs.microsoft.com/system-center/sma/overview-powershell-workflows#bk_Checkpoints). När du har kört tre timmar, runbook-jobbet har pausats av tjänsten och dess status visas **som körs, väntar på resurser**. När en sandbox blir tillgängligt runbook sker en automatisk omstart av Automation-tjänsten och återupptar från den senaste kontrollpunkten. Det här beteendet är normalt PowerShell-arbetsflöde att pausa/starta om. Om runbook igen överskrider tre timmars körning, processen upprepas, upp till tre gånger. Efter den tredje omstarten, om runbooken fortfarande inte har slutförts inom tre timmar sedan runbook-jobbet misslyckades och jobbstatusen visas **misslyckades, väntar på resurser**. I så fall får du följande undantag fel.
 
 *Jobbet kan inte fortsätta att köra eftersom den upprepade gånger har avlägsnats från samma kontrollpunkten. Kontrollera att din Runbook inte utför tidskrävande operationer utan att spara sitt tillstånd.*
 
-Detta är att skydda tjänsten från runbooks som körs på obestämd tid utan att slutföra, eftersom de inte göra det i nästa kontrollpunkt utan att tas bort från minnet igen.
+Det här beteendet är att skydda tjänsten från runbooks som körs på obestämd tid utan att slutföra, eftersom de inte göra det i nästa kontrollpunkt utan att tas bort från minnet igen.
 
 Om runbooken har inga kontrollpunkter eller jobbet hade inte nå den första kontrollpunkten innan tas bort från minnet, startas sedan om från början.
 
-För tidskrävande aktiviteter rekommenderar vi att du använder en [Hybrid Runbook Worker](automation-hrw-run-runbooks.md#job-behavior). Hybrid Runbook Worker begränsas inte av tidsfördelningsgränser och en runbook kan köras under obegränsad tid. Det andra jobbet [gränser](../azure-subscription-service-limits.md#automation-limits) gäller både Azure sandbox-miljöer och Hybrid Runbook Worker.
+För tidskrävande aktiviteter rekommenderar vi att du använder en [Hybrid Runbook Worker](automation-hrw-run-runbooks.md#job-behavior). Hybrid Runbook Worker begränsas inte av rättmätiga del och inte har en begränsning på hur lång tid en runbook kan köra. Det andra jobbet [gränser](../azure-subscription-service-limits.md#automation-limits) gäller både Azure sandbox-miljöer och Hybrid Runbook Worker.
 
-
-Om du använder en PowerShell Workflow-runbook i Azure, när du skapar en runbook, bör du kontrollera att tiden för att köra alla aktiviteter mellan två kontrollpunkter inte överskrider tre timmar. Du kan behöva lägga till kontrollpunkter till din runbook så att den inte uppnår sin gräns för den här tre timmar eller dela upp långa åtgärder. Din runbook kan till exempel utföra en reindex på en stor SQL-databas. Om den här enda åtgärden inte slutförs inom gränsen på rättmätiga del, tas bort från minnet jobbet och startas om från början. I det här fallet bör du dela upp reindex åtgärden i flera steg, t.ex omindexering en tabell i taget, och infoga en kontrollpunkt efter varje åtgärd så att jobbet återupptas efter den senaste åtgärden har slutförts.
+Om du använder en PowerShell Workflow-runbook i Azure, när du skapar en runbook, bör du kontrollera dags att utföra alla aktiviteter mellan två kontrollpunkter inte överskrider tre timmar. Du kan behöva lägga till kontrollpunkter till din runbook för att se till att det inte uppnår sin gräns för den här tre timmar eller dela upp långa åtgärder. Din runbook kan till exempel köra en reindex på en stor SQL-databas. Om den här enda åtgärden inte slutförs inom gränsen på rättmätiga del, tas bort från minnet jobbet och startas om från början. I det här fallet bör du dela upp reindex åtgärden i flera steg, t.ex omindexering en tabell i taget, och infoga en kontrollpunkt efter varje åtgärd så att jobbet återupptas efter den senaste åtgärden har slutförts.
 
 ## <a name="next-steps"></a>Nästa steg
 

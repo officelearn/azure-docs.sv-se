@@ -10,12 +10,12 @@ ms.component: core
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 2ec0dea7e50747f8af337874c8f12463cecb8df7
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: 1297881373943143578695490531d147d7f5523d
+ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47163485"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49115330"
 ---
 # <a name="train-models-with-automated-machine-learning-in-the-cloud"></a>Träna modeller med automatiserade maskininlärning i molnet
 
@@ -192,8 +192,8 @@ RunDetails(remote_run).show()
 ```
 Här är en statisk bild av widgeten.  Du kan klicka på någon av staplarna i tabell för att visa egenskaper för körning och utdataloggar för som körs i anteckningsboken.   Du kan också använda listrutan ovanför diagrammet för att visa ett diagram över alla tillgängliga mått för varje iteration.
 
-![widget tabell](./media/how-to-auto-train-remote/table.png)
-![widget diagram](./media/how-to-auto-train-remote/plot.png)
+![widgettabell](./media/how-to-auto-train-remote/table.png)
+![widgetdiagram](./media/how-to-auto-train-remote/plot.png)
 
 Widgeten visar en URL som du kan använda för att visa och utforska de enskilda körningsinformation.
  
@@ -203,7 +203,7 @@ Finns det loggar på DSVM under/tmp/azureml_run / {iterationid} / azureml-loggar
 
 ## <a name="example"></a>Exempel
 
-Den `automl/03.auto-ml-remote-execution.ipynb` notebook demonstrerar begreppen i den här artikeln.  Hämta den här anteckningsboken:
+Den [automl/03.auto-ml-remote-execution.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/automl/03.auto-ml-remote-execution.ipynb) notebook demonstrerar begreppen i den här artikeln.  Hämta den här anteckningsboken:
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-for-examples.md)]
 

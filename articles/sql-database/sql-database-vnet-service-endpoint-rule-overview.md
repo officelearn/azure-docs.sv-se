@@ -12,12 +12,12 @@ ms.author: dmalik
 ms.reviewer: vanto, genemi
 manager: craigg
 ms.date: 09/18/2018
-ms.openlocfilehash: 0e14a00cbd7f38f7409a6551ac6f29c9f54a7434
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.openlocfilehash: 3cfff932834682471990236c9e96b499e20d33f1
+ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48870850"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49092566"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-azure-sql-database-and-sql-data-warehouse"></a>Använda tjänstslutpunkter i virtuella nätverk och regler för Azure SQL Database och SQL Data Warehouse
 
@@ -148,10 +148,9 @@ När du använder Tjänsteslutpunkter för Azure SQL Database kan du granska fö
 
 #### <a name="expressroute"></a>ExpressRoute
 
-Om nätverket är anslutet till det Azure-nätverket med hjälp av [ExpressRoute][expressroute-indexmd-744v], varje krets har konfigurerats med två offentliga IP-adresser i Microsoft Edge. Två IP-adresser används för att ansluta till Microsoft Services, till exempel till Azure Storage, med hjälp av Azure offentlig Peering.
-
-Om du vill tillåta kommunikation från din krets till Azure SQL Database, måste du skapa IP-Nätverksregler för offentliga IP-adresserna för dina kretsar. För att kunna hitta ExpressRoute-kretsen offentliga IP-adresser, öppnar du ett supportärende hos ExpressRoute med hjälp av Azure portal.
-
+Om du använder [ExpressRoute](../expressroute/expressroute-introduction.md?toc=%2fazure%2fvirtual-network%2ftoc.json) lokalt för offentlig peering eller Microsoft-peering, måste du identifiera de NAT IP-adresser som används. För offentlig peering, använder varje ExpressRoute-krets som standard två NAT IP-adresser, som används för Azure-tjänsttrafik när trafiken kommer till Microsoft Azure-stamnätverket. För Microsoft-peering är de NAT IP-adresser som används antingen tillhandahållna av kunden eller av tjänsteleverantören. Om du vill tillåta åtkomst till dina tjänstresurser måste du tillåta dessa offentliga IP-adresser i resursens IP-brandväggsinställning. För att kunna hitta ExpressRoute-kretsens IP-adresser för offentlig peering [öppnar du ett supportärende hos ExpressRoute](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) via Azure-portalen. Lär dig mer om [NAT för ExpressRoute offentliga peering och Microsoft-peering.](../expressroute/expressroute-nat.md?toc=%2fazure%2fvirtual-network%2ftoc.json#nat-requirements-for-azure-public-peering)
+  
+Om du vill tillåta kommunikation från din krets till Azure SQL Database, måste du skapa IP-Nätverksregler för offentliga IP-adresserna för dina NAT.
 
 <!--
 FYI: Re ARM, 'Azure Service Management (ASM)' was the old name of 'classic deployment model'.

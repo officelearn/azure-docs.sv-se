@@ -4,52 +4,151 @@ description: Beskriver hur du skapar en ny Azure Active Directory-program och tj
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
-manager: timlt
-editor: tysonn
 ms.service: azure-resource-manager
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/21/2018
+ms.date: 10/11/2018
 ms.author: tomfitz
-ms.openlocfilehash: 2f053f6dd98b9f4e97d69e51bce933a003633277
-ms.sourcegitcommit: 8b694bf803806b2f237494cd3b69f13751de9926
+ms.openlocfilehash: 5233cde48d52e34960e87d3362b8cfaf3a0722c0
+ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/20/2018
-ms.locfileid: "46497951"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49113741"
 ---
 # <a name="use-portal-to-create-an-azure-active-directory-application-and-service-principal-that-can-access-resources"></a>Använda portalen för att skapa ett Azure Active Directory-program och tjänstens huvudnamn som kan komma åt resurser
 
-När du har kod som behöver åtkomst till eller ändra resurser kan ställa du in ett Azure Active Directory (AD)-program. Du kan sedan tilldela behörigheterna som krävs för AD-programmet. Den här metoden är bättre att köra appen enligt dina autentiseringsuppgifter eftersom du kan tilldela behörigheter till appen identiteten som skiljer sig från dina egna behörigheter. Vanligen är dessa behörigheter begränsade till exakt vad appen behöver göra.
-
-Den här artikeln visar hur du utför de här stegen via portalen. Den fokuserar på en enda klient program där programmet är avsett att köras i endast en organisation. Du använder vanligtvis enda klient program för line-of-business-program som körs i din organisation.
+När du har kod som behöver åtkomst till eller ändra resurser kan skapa du en identitet för appen. Den här identiteten kallas tjänstens huvudnamn. Du kan sedan tilldela behörighet till tjänstens huvudnamn. Den här artikeln visar hur du använder portalen för att skapa tjänstens huvudnamn. Den fokuserar på en enda klient program där programmet är avsett att köras i endast en organisation. Du använder vanligtvis enda klient program för line-of-business-program som körs i din organisation.
 
 > [!IMPORTANT]
 > Överväg att använda hanterade identiteter för Azure-resurser för din Programidentitet istället för att skapa ett huvudnamn för tjänsten. Om din kod körs på en tjänst som stöder hanterade identiteter och åtkomst till resurser som stöder Azure Active Directory-autentisering, är hanterade identiteter ett bättre alternativ för dig. Läs mer om hanterade identiteter för Azure-resurser, inklusive vilka tjänster för närvarande stöd för den i [vad är hanterade identiteter för Azure-resurser?](../active-directory/managed-identities-azure-resources/overview.md).
 
+## <a name="create-an-azure-active-directory-application"></a>Skapa ett Azure Active Directory-program
+
+Låt oss sätta igång direkt i att skapa identiteten. Om du stöter på problem, kontrollerar du den [nödvändiga behörigheter](#required-permissions) att kontrollera att ditt konto kan skapa identiteten.
+
+1. Logga in på ditt Azure-konto via den [Azure-portalen](https://portal.azure.com).
+1. Välj **Azure Active Directory**.
+
+   ![Välj azure active directory](./media/resource-group-create-service-principal-portal/select-active-directory.png)
+
+1. Välj **Appregistreringar**.
+
+   ![Välj appregistreringar](./media/resource-group-create-service-principal-portal/select-app-registrations.png)
+
+1. Välj **+ ny programregistrering**.
+
+   ![Lägg till app](./media/resource-group-create-service-principal-portal/select-add-app.png)
+
+1. Ange ett namn och en URL för programmet. Välj **Webbapp/API** för den programtyp som du vill skapa. Du kan inte skapa autentiseringsuppgifter för en [programspecifik](../active-directory/manage-apps/application-proxy-configure-native-client-application.md). Du kan inte använda den typen för ett automatiserat program. När du har angett värdena, Välj **skapa**.
+
+   ![namnprogram](./media/resource-group-create-service-principal-portal/create-app.png)
+
+Du har skapat din Azure Active Directory-program och tjänstens huvudnamn.
+
+## <a name="assign-application-to-role"></a>Tilldela program till roll
+
+För att komma åt resurser i din prenumeration, måste du tilldela programmet till en roll. Bestäm vilken roll har rätt behörigheter för programmet. Läs om tillgängliga roller i [RBAC: inbyggda roller](../role-based-access-control/built-in-roles.md).
+
+Du kan ange omfånget för den prenumerationen, resursgruppen eller resursen. Behörigheter ärvs till lägre nivåer av omfång. Till exempel lägga till ett program till rollen Läsare för en resursgrupp innebär att den kan läsa resursgruppen och alla resurser som den innehåller.
+
+1. Navigera till den nivå av omfång som du vill tilldela programmet till. Om du vill tilldela en roll prenumerationsområde, väljer du exempelvis **alla tjänster** och **prenumerationer**.
+
+   ![Välj en prenumeration](./media/resource-group-create-service-principal-portal/select-subscription.png)
+
+1. Välj den specifika prenumerationen att tilldela programmet till.
+
+   ![Välj prenumeration för tilldelning](./media/resource-group-create-service-principal-portal/select-one-subscription.png)
+
+   Om du inte ser den prenumeration som du letar efter, väljer **globala prenumerationer filter**. Kontrollera att den prenumeration du vill har valts för portalen. 
+
+1. Välj **åtkomstkontroll (IAM)**.
+
+   ![Välj åtkomst](./media/resource-group-create-service-principal-portal/select-access-control.png)
+
+1. Välj **+ Lägg till**.
+
+   ![Välj Lägg till](./media/resource-group-create-service-principal-portal/select-add.png)
+
+1. Välj den roll som du vill tilldela till programmet. Att köra programmet åtgärder som att **omstart**, **starta** och **stoppa** instanser, väljer den **deltagare** roll. Som standard visas inte Azure Active Directory-program i de tillgängliga alternativen. Sök efter namnet för att hitta ditt program, och markera den.
+
+   ![Välja en roll](./media/resource-group-create-service-principal-portal/select-role.png)
+
+1. Välj **spara** Slutför tilldela rollen. Du ser ditt program i listan över användare som har tilldelats en roll för detta omfång.
+
+Tjänstens huvudnamn har ställts in. Du kan börja använda det för att köra dina skript eller appar. Nästa avsnitt visar hur du hämtar värden som behövs när du loggar in via programmering.
+
+## <a name="get-values-for-signing-in"></a>Hämta värden för att logga in
+
+### <a name="get-tenant-id"></a>Hämta klientorganisations-ID
+
+När du programmässigt loggar in, måste du skicka klientorganisations-ID med din autentiseringsbegäran.
+
+1. Välj **Azure Active Directory**.
+
+   ![Välj azure active directory](./media/resource-group-create-service-principal-portal/select-active-directory.png)
+
+1. Välj **egenskaper**.
+
+   ![Välj Azure AD-egenskaper](./media/resource-group-create-service-principal-portal/select-ad-properties.png)
+
+1. Kopiera den **katalog-ID** att få ditt klient-ID.
+
+   ![Klient-ID:t](./media/resource-group-create-service-principal-portal/copy-directory-id.png)
+
+### <a name="get-application-id-and-authentication-key"></a>Hämta nyckel för program-ID och autentiseringsnyckel
+
+Du måste också ID: T för ditt program och en autentiseringsnyckel. Hämta dessa värden med följande steg:
+
+1. Välj ditt program i **Appregistreringar** i Azure Active Directory.
+
+   ![Välj program](./media/resource-group-create-service-principal-portal/select-app.png)
+
+1. Kopiera **Program-ID:t** och lagra det i din programkod.
+
+   ![Klientorganisations-ID](./media/resource-group-create-service-principal-portal/copy-app-id.png)
+
+1. Välj **inställningar**.
+
+   ![Välj inställningar](./media/resource-group-create-service-principal-portal/select-settings.png)
+
+1. Välj **Nycklar**.
+
+   ![Välj nycklar](./media/resource-group-create-service-principal-portal/select-keys.png)
+
+1. Tillhandahåll beskrivning av och varaktighet för nyckeln. Välj **Spara** när du är klar.
+
+   ![Spara nyckel](./media/resource-group-create-service-principal-portal/save-key.png)
+
+   När du har sparat nyckeln visas nyckelns värde. Kopiera det här värdet eftersom du inte kan komma att hämta nyckeln senare. Du kan ange nyckelvärdet med program-ID för inloggning som programmet. Lagra nyckelvärdet där programmet kan hämta det.
+
+   ![sparad nyckel](./media/resource-group-create-service-principal-portal/copy-key.png)
+
 ## <a name="required-permissions"></a>Nödvändiga behörigheter
 
-För att slutföra den här artikeln, måste du har behörighet att registrera ett program med Azure AD-klienten och tilldela programmet till en roll i Azure-prenumerationen. Nu ska vi Kontrollera att du har rätt behörighet för att utföra de här stegen.
+Du måste ha tillräcklig behörighet för att registrera ett program med Azure AD-klienten och tilldela programmet till en roll i Azure-prenumerationen.
 
 ### <a name="check-azure-active-directory-permissions"></a>Kontrollera Azure Active Directory-behörigheter
 
 1. Välj **Azure Active Directory**.
 
-   ![välj azure active directory](./media/resource-group-create-service-principal-portal/select-active-directory.png)
+   ![Välj Azure Active Directory](./media/resource-group-create-service-principal-portal/select-active-directory.png)
 
-1. Välj **Användarinställningar** i Azure Active Directory.
+1. Lägg märke till din roll. Om du har den **användaren** roll, måste du se till att icke-administratörer kan registrera program.
+
+   ![Sök efter användare](./media/resource-group-create-service-principal-portal/view-user-info.png)
+
+1. Välj **användarinställningar**.
 
    ![Välj användarinställningar](./media/resource-group-create-service-principal-portal/select-user-settings.png)
 
-1. Kontrollera den **appregistreringar** inställningen. Om inställd **Ja**, icke-administratörer kan registrera AD-appar. Den här inställningen innebär att alla användare i Azure AD-klientorganisationen kan registrera en app. Du kan fortsätta att [Kontrollera Azure-Prenumerationsbehörighet](#check-azure-subscription-permissions).
+1. Kontrollera den **appregistreringar** inställningen. Det här värdet kan bara anges av en administratör. Om inställd **Ja**, någon användare i Azure AD-klient kan registrera en app.
 
    ![Visa app-registreringar](./media/resource-group-create-service-principal-portal/view-app-registrations.png)
 
-1. Om inställningen appregistreringar anges till **nr**, endast [globala administratörer](../active-directory/users-groups-roles/directory-assign-admin-roles.md) kan registrera appar. Kontrollera om ditt konto är en administratör för Azure AD-klient. Välj **översikt** och titta på din användarinformation. Om ditt konto har tilldelats till rollen, men registreringen appinställningen (från föregående steg) är begränsad till administratörer, kan du be din administratör att antingen tilldela dig till rollen som global administratör eller så att användarna kan registrera appar.
-
-   ![Sök efter användare](./media/resource-group-create-service-principal-portal/view-user-info.png)
+Om inställningen appregistreringar anges till **nr**, endast [globala administratörer](../active-directory/users-groups-roles/directory-assign-admin-roles.md) kan registrera appar. Om ditt konto har tilldelats till rollen, men appinställningen för registreringen är begränsat till administratörer, kan du be din administratör att antingen tilldela dig till rollen som global administratör eller så att användarna kan registrera appar.
 
 ### <a name="check-azure-subscription-permissions"></a>Kontrollera behörigheter för Azure-prenumeration
 
@@ -61,7 +160,7 @@ Att kontrollera dina Prenumerationsbehörigheter:
 
    ![Välj användarbehörigheter](./media/resource-group-create-service-principal-portal/select-my-permissions.png)
 
-1. Välj prenumerationen från den nedrullningsbara listan. Välj **Klicka här om du vill visa fullständig åtkomst information för den här prenumerationen**.
+1. Välj den prenumeration som du vill skapa tjänsten huvudnamn i från den nedrullningsbara listan. Välj **Klicka här om du vill visa fullständig åtkomst information för den här prenumerationen**.
 
    ![Sök efter användare](./media/resource-group-create-service-principal-portal/view-details.png)
 
@@ -69,102 +168,6 @@ Att kontrollera dina Prenumerationsbehörigheter:
 
    ![Visa behörigheter](./media/resource-group-create-service-principal-portal/view-user-role.png)
 
-## <a name="create-an-azure-active-directory-application"></a>Skapa ett Azure Active Directory-program
-
-1. Logga in på ditt Azure-konto via den [Azure-portalen](https://portal.azure.com).
-1. Välj **Azure Active Directory**.
-
-   ![välj azure active directory](./media/resource-group-create-service-principal-portal/select-active-directory.png)
-
-1. Välj **Appregistreringar**.
-
-   ![välj appregistreringar](./media/resource-group-create-service-principal-portal/select-app-registrations.png)
-
-1. Välj **Ny programregistrering**.
-
-   ![lägg till app](./media/resource-group-create-service-principal-portal/select-add-app.png)
-
-1. Ange ett namn och en URL för programmet. Välj **Webbapp/API** för den programtyp som du vill skapa. Du kan inte skapa autentiseringsuppgifter för en [programspecifik](../active-directory/manage-apps/application-proxy-configure-native-client-application.md)därför att typen inte fungerar för ett automatiserat program. När du har angett värdena, Välj **skapa**.
-
-   ![namnprogram](./media/resource-group-create-service-principal-portal/create-app.png)
-
-Du har skapat ditt program.
-
-## <a name="get-application-id-and-authentication-key"></a>Hämta nyckel för program-ID och autentiseringsnyckel
-
-När du loggar in med programmet behöver du programmets ID och en autentiseringsnyckel. Hämta dessa värden med följande steg:
-
-1. Välj ditt program i **Appregistreringar** i Azure Active Directory.
-
-   ![välj program](./media/resource-group-create-service-principal-portal/select-app.png)
-
-1. Kopiera **Program-ID:t** och lagra det i din programkod. Vissa [programexempel](#log-in-as-the-application) refererar till det här värdet som klient-ID:t.
-
-   ![klient-ID](./media/resource-group-create-service-principal-portal/copy-app-id.png)
-
-1. Välj **Inställningar** om du vill generera en autentiseringsnyckel.
-
-   ![välj inställningar](./media/resource-group-create-service-principal-portal/select-settings.png)
-
-1. Välj **Nycklar** om du vill generera en autentiseringsnyckel.
-
-   ![välj nycklar](./media/resource-group-create-service-principal-portal/select-keys.png)
-
-1. Tillhandahåll beskrivning av och varaktighet för nyckeln. Välj **Spara** när du är klar.
-
-   ![spara nyckel](./media/resource-group-create-service-principal-portal/save-key.png)
-
-   När du har sparat nyckeln visas nyckelns värde. Kopiera det här värdet eftersom du inte kan komma att hämta nyckeln senare. Du kan ange nyckelvärdet med program-ID för inloggning som programmet. Lagra nyckelvärdet där programmet kan hämta det.
-
-   ![sparad nyckel](./media/resource-group-create-service-principal-portal/copy-key.png)
-
-## <a name="get-tenant-id"></a>Hämta klientorganisations-ID
-
-När du loggar in med programmet måste du skicka klientorganisations-ID:t med din autentiseringsbegäran.
-
-1. Välj **Azure Active Directory**.
-
-   ![välj azure active directory](./media/resource-group-create-service-principal-portal/select-active-directory.png)
-
-1. Om du vill hämta klientorganisations-ID:t väljer du **Egenskaper** för din Microsoft Azure Active Directory-klientorganisation.
-
-   ![välj Azure AD-egenskaper](./media/resource-group-create-service-principal-portal/select-ad-properties.png)
-
-1. Kopiera **katalog-ID:t**. Det här värdet är ditt klientorganisations-ID.
-
-   ![klientorganisations-ID](./media/resource-group-create-service-principal-portal/copy-directory-id.png)
-
-## <a name="assign-application-to-role"></a>Tilldela program till roll
-
-För att komma åt resurser i din prenumeration, måste du tilldela programmet till en roll. Bestäm vilken roll representerar rätt behörigheter för programmet. Läs om tillgängliga roller i [RBAC: inbyggda roller](../role-based-access-control/built-in-roles.md).
-
-Du kan ange omfånget för den prenumerationen, resursgruppen eller resursen. Behörigheter ärvs till lägre nivåer av omfång. Till exempel lägga till ett program till rollen Läsare för en resursgrupp innebär att den kan läsa resursgruppen och alla resurser som den innehåller.
-
-1. Navigera till den nivå av omfång som du vill tilldela programmet till. Om du vill tilldela en roll prenumerationsområde, väljer du exempelvis **prenumerationer**. Du kan i stället välja en resursgrupp eller resurs.
-
-   ![Välj prenumeration](./media/resource-group-create-service-principal-portal/select-subscription.png)
-
-1. Välj den specifika prenumerationen (resursgrupp eller resurs) för att tilldela programmet till.
-
-   ![Välj prenumeration för tilldelning](./media/resource-group-create-service-principal-portal/select-one-subscription.png)
-
-1. Välj **åtkomstkontroll (IAM)**.
-
-   ![Välj åtkomst](./media/resource-group-create-service-principal-portal/select-access-control.png)
-
-1. Välj **Lägg till**.
-
-   ![Välj Lägg till](./media/resource-group-create-service-principal-portal/select-add.png)
-
-1. Välj den roll som du vill tilldela till programmet. För att köra programmet åtgärder som att **omstart**, **starta** och **stoppa** instanser, du måste ha att välja rollen **deltagare**. Följande bild visar den **läsare** roll.
-
-   ![Välj roll](./media/resource-group-create-service-principal-portal/select-role.png)
-
-1. Som standard visas inte Azure Active Directory-program i de tillgängliga alternativen. Du måste ange namnet på den i sökfältet för att hitta ditt program. Markera den.
-
-   ![Sök efter app](./media/resource-group-create-service-principal-portal/search-app.png)
-
-1. Välj **spara** Slutför tilldela rollen. Du ser ditt program i listan över användare som har tilldelats en roll för detta omfång.
 
 ## <a name="next-steps"></a>Nästa steg
 * Om du vill konfigurera ett program med flera innehavare, se [utvecklarguiden för auktorisering med Azure Resource Manager API](resource-manager-api-authentication.md).

@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 03/28/2018
 ms.author: tamram
 ms.component: common
-ms.openlocfilehash: 3f2609ea57ea5a5a0cce2544a1031c55199d137b
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: bc6d615409f3c2d0f46286d2ad2ba20c32574afd
+ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39531353"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49091730"
 ---
 # <a name="deciding-when-to-use-azure-blobs-azure-files-or-azure-disks"></a>Avgöra när du ska använda Azure Blobs, Azure Files eller Azure-diskar
 
@@ -64,8 +64,8 @@ I följande tabell jämförs Azure Files med Azure-diskar.
 |Rensa|Automatisk|Manuell|  
 |Åtkomst med hjälp av REST|Filer i den virtuella Hårddisken kan inte nås|Filer som lagras på en resurs kan nås|  
 |Maxstorlek|4 TiB-disk|5 TiB-filresurser och 1 TiB-fil i resursen|  
-|Maximalt antal 8KB IOps|500 IOps|1 000 IOps|  
-|Dataflöde|Upp till 60 MiB/s per Disk|Upp till 60 MiB/s per filresurs|  
+|Maximalt antal IOps|500 IOps|1 000 IOps|  
+|Dataflöde|Upp till 60 MiB/s per Disk|Målet är 60 MiB/s per filresurs (hämta högre för högre i/o-storlekar)|  
 
 ## <a name="next-steps"></a>Nästa steg
 

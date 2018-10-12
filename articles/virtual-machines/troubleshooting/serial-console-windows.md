@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/07/2018
 ms.author: harijay
-ms.openlocfilehash: 705366dbb055679a2d0adc628938fa419609f6ed
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: ceff8f6134f04409a4df1045a764c06597d997fc
+ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48885127"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49092838"
 ---
 # <a name="virtual-machine-serial-console"></a>Virtual Machine Serial Console
 
@@ -83,12 +83,12 @@ Om du måste aktivera Windows boot loader uppmanas du för att visa i seriekonso
 1. Ansluta till din Windows-dator via fjärrskrivbord
 2. Kör följande kommandon från en administrativ kommandotolk 
 * `bcdedit /set {bootmgr} displaybootmenu yes`
-* `bcdedit /set {bootmgr} timeout 30`
+* `bcdedit /set {bootmgr} timeout 10`
 * `bcdedit /set {bootmgr} bootems yes`
 3. Starta om datorn för Start-menyn är aktiverat
 
 > [!NOTE] 
-> Timeout-värdet som du anger för startmenyn manager visas påverkar din OS-Start i framtiden. Det kan vara godtagbar för vissa att lägga till en andra 30 tidsgräns för att se till att boot manager visas via seriekonsolen, kanske andra en kortare tidsgräns. Ange timeout-värdet till ett värde som du är nöjd med.
+> Timeout-värdet som du anger för startmenyn manager visas påverkar din OS-Start i framtiden. Det kan vara godtagbar för vissa att lägga till en 10 andra tidsgräns för att se till att boot manager visas via seriekonsolen, kanske andra en kortare eller längre tidsgräns. Ange timeout-värdet till ett värde som du är nöjd med.
 
 ## <a name="use-serial-console-for-nmi-calls-in-windows-vms"></a>Använd Seriekonsol för NMI anrop i Windows-datorer
 Ett icke-maskable avbrott (NMI) är utformad för att skapa en signal som inte kommer att ignorera programvara på en virtuell dator. Historiskt sett använts NMIs för att övervaka maskinvarufel på system som krävs för specifika svarstider.  Idag, programmerare och systemadministratörer använder ofta NMI som en mekanism för att felsöka eller felsöka system som har hängt.

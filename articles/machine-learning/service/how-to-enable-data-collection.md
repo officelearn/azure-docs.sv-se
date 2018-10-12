@@ -9,12 +9,12 @@ ms.reviewer: jmartens
 ms.author: marthalc
 author: marthalc
 ms.date: 09/24/2018
-ms.openlocfilehash: 61776c5122abb73dd34ef2ad11f6a44ab22f6a6b
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.openlocfilehash: 70c023fc8fe996060d3eff3d5a700b5f910097b4
+ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48238846"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49113639"
 ---
 # <a name="collect-data-for-models-in-production"></a>Samla in data för modeller i produktion
 
@@ -161,7 +161,7 @@ Du kan stoppa insamling av data som helst. Använda Python-kod eller Azure-porta
 
 ## <a name="example-notebook"></a>Exempel-anteckningsbok
 
-Den `00.Getting Started/12.enable-data-collection-for-models-in-aks.ipynb` notebook demonstrerar begreppen i den här artikeln.  
+Den [00. komma Started/12.enable-data-collection-for-models-in-aks.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/01.getting-started/12.enable-data-collection-for-models-in-aks) notebook demonstrerar begreppen i den här artikeln.  
 
 Hämta den här anteckningsboken:
  

@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: michmcla
-ms.openlocfilehash: 8ba1286f7283a1062b2b94d58c2439e8461c1573
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.openlocfilehash: a66a7537632aac2190cd39f13665bcd8d4ed6ce7
+ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48817134"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49115002"
 ---
 # <a name="configure-azure-multi-factor-authentication-settings"></a>Konfigurera Azure Multi-Factor Authentication-inställningar
 
@@ -322,11 +322,11 @@ Den _komma ihåg Multifaktorautentisering_ funktionen för enheter och webbläsa
 
 ### <a name="how-the-feature-works"></a>Hur funktionen fungerar
 
-Kom ihåg Multi-Factor Authentication-funktionen anger en beständig cookie för webbläsaren när en användare väljer den **fråga inte igen efter X dagar** alternativet när du loggar in. Användaren inte ska uppmanas igen Multifaktorautentisering från den samma webbläsaren tills cookien upphör att gälla. Om användaren öppnar en annan webbläsare på samma enhet eller tar bort sina cookies, uppmanas de igen att verifiera. 
+Kom ihåg Multi-Factor Authentication-funktionen anger en beständig cookie för webbläsaren när en användare väljer den **fråga inte igen efter X dagar** alternativet när du loggar in. Användaren inte ska uppmanas igen Multifaktorautentisering från den samma webbläsaren tills cookien upphör att gälla. Om användaren öppnar en annan webbläsare på samma enhet eller tar bort sina cookies, uppmanas de igen att verifiera.
 
-Den **fråga inte igen efter X dagar** alternativet visas inte på icke-webbläsarbaserade program, oavsett om appen stöder modern autentisering. De här apparna använda _uppdateringstoken_ som ger nya åtkomsttoken varje timme. När en uppdateringstoken har verifierats kan Azure AD som kontrollerar att den senaste tvåstegsverifieringen inträffade inom det angivna antalet dagar. 
+Den **fråga inte igen efter X dagar** alternativet visas inte på icke-webbläsarbaserade program, oavsett om appen stöder modern autentisering. De här apparna använda _uppdateringstoken_ som ger nya åtkomsttoken varje timme. När en uppdateringstoken har verifierats kan Azure AD som kontrollerar att den senaste tvåstegsverifieringen inträffade inom det angivna antalet dagar.
 
-Funktionen minskar antalet autentiseringar i web apps, som normalt att efterfråga varje gång. Funktionen ökar antalet autentiseringar för modern autentiseringsklienter som normalt frågar efter 90 dagar.
+Funktionen minskar antalet autentiseringar i web apps, som normalt att efterfråga varje gång. Funktionen ökar antalet autentiseringar för modern autentiseringsklienter som normalt frågar efter 90 dagar. Kan också öka antalet autentiseringar i kombination med principer för villkorlig åtkomst.
 
 >[!IMPORTANT]
 >Den **komma ihåg Multifaktorautentisering** funktionen är inte kompatibel med den **vill förbli inloggad** funktion i AD FS, när användare utför tvåstegsverifiering för AD FS via Azure Multi-Factor Authentication-servern eller en lösning från tredje part för multifaktorautentisering.

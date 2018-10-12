@@ -12,12 +12,12 @@ ms.author: aliceku
 ms.reviewer: vanto
 manager: craigg
 ms.date: 10/05/2018
-ms.openlocfilehash: 2308897737014befb831cbef9880065856c20c77
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.openlocfilehash: aff1d59000a95f2b8f029b9db30ff1facb2f8ba6
+ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48868804"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49114676"
 ---
 # <a name="azure-sql-transparent-data-encryption-bring-your-own-key-support"></a>Azure SQL Transparent datakryptering: Bring Your Own Key-stöd
 
@@ -66,7 +66,14 @@ När TDE först konfigureras för att använda ett TDE-skydd från Key Vault, sk
   > [!NOTE]
   > Om Azure AD Identity **av misstag har tagits bort eller återkallas serverns behörigheter** med hjälp av den nyckelvalvets åtkomstprincip, servern förlorat åtkomst till nyckelvalvet och transparent Datakryptering krypteras databaser tas bort inom 24 timmar.
 
-- Konfigurera Azure Key Vault utan virtuella nätverket eller brandväggen.  Om SQL förlorar åtkomst till nyckelvalvet, ignoreras TDE krypterade databaser inom 24 timmar.
+- När du använder brandväggar och virtuella nätverk med Azure Key Vault, måste du konfigurera följande: 
+  - Tillåta åtkomst från ”valda nätverk” 
+  - Lägg till befintliga virtuella nätverk och välj SQL Database-nätverket om det är tillämpligt (detta är valfritt för singleton-databaser och krävs för hanterade instanser) 
+  - Tillåt att betrodda Microsoft-tjänster kringgår den här brandväggen – väljer Ja 
+         
+    > [!NOTE] 
+    > Om TDE krypterad SQL-databaser förlorar åtkomst till nyckelvalvet eftersom de inte kan kringgå brandväggen, databaserna hamnar inom 24 timmar.
+
 - Aktivera granskning och rapportera alla krypteringsnycklar: Key Vault ger loggar som är lätt att mata in i andra säkerhet och händelsehantering (SIEM) hanteringsverktyg. Operations Management Suite (OMS) [Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-key-vault) är ett exempel på en tjänst som redan har integrerat.
 - För att säkerställa hög tillgänglighet med krypterade databaser, att konfigurera varje logisk server med två Azure-Nyckelvalv som finns i olika regioner.
 

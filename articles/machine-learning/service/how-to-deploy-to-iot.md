@@ -10,12 +10,12 @@ author: shivanipatel
 manager: cgronlun
 ms.reviewer: larryfr
 ms.date: 09/24/2018
-ms.openlocfilehash: 66370aec76044454ab4f11eb432fe2e9b0cdb9cf
-ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
+ms.openlocfilehash: 7d706cf71761496fd740c729224ee4331eeb2911
+ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48248593"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49091631"
 ---
 # <a name="prepare-to-deploy-models-on-iot-edge"></a>Förbereda för distribution av modeller på IoT Edge
 
@@ -45,9 +45,6 @@ Om du vill veta hur du registrerar din enhet och installera IoT-runtime, följer
 
 Azure IoT Edge-moduler är baserade på behållaravbildningar. Använd följande steg för att distribuera din modell till en IoT Edge-enhet genom att registrera din modell på en arbetsyta för Azure Machine Learning-tjänsten och skapa en Docker-avbildning. 
 
-> [!IMPORTANT]
-> Hoppa över steg 3 i det här fallet om du har använt Azure Machine Learning för att träna din modell som redan kan registreras i din arbetsyta.
-
 1. Initiera arbetsytan och läsa in config.json-fil:
 
     ```python
@@ -58,6 +55,9 @@ Azure IoT Edge-moduler är baserade på behållaravbildningar. Använd följande
     ```    
 
 1. Registrera modellen på din arbetsyta. Ersätt standardtexten med din modell sökväg, namn, taggar och beskrivning:
+
+    > [!IMPORTANT]
+    > Om du använder Azure Machine Learning för att träna modellen, kan den redan vara registrerad på arbetsytan. I så fall kan du hoppa över det här steget. Om du vill se en lista över modeller som registrerats med den här arbetsytan använder `Model.list(ws)`.
 
     ```python
     from azureml.core.model import Model
@@ -81,9 +81,9 @@ Azure IoT Edge-moduler är baserade på behållaravbildningar. Använd följande
 
 1. Skapa en **bedömning skriptet** med namnet `score.py`. Den här filen används för att köra modellen i avbildningen. Det måste innehålla följande funktioner:
 
-    * Den `init()` funktion, som vanligtvis läser in modellen i ett globala objekt. Den här funktionen körs en gång när Docker-behållaren startas. 
+    * Funktionen `init()`, som vanligtvis läser in modellen i ett globalt objekt. Den här funktionen körs endast en gång när Docker-containern startas. 
 
-    * Den `run(input_data)` funktionen använder modellen för att förutsäga ett värde baserat på indata. Indata och utdata kör vanligtvis använder JSON för serialisering och deserialisering, men andra format som stöds.
+    * Funktionen `run(input_data)` använder modellen till att förutsäga ett värde som baseras på indatan. Indatan och utdatan i körningen använder vanligtvis JSON för serialisering och deserialisering, men andra format stöds också.
 
     Ett exempel finns i den [bild klassificering självstudien](tutorial-deploy-models-with-aml.md#make-script).
 

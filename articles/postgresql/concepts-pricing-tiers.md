@@ -8,13 +8,13 @@ manager: kfile
 editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
-ms.date: 09/27/2018
-ms.openlocfilehash: 696932135cdd3850e04d25370867c0273b99b3bf
-ms.sourcegitcommit: 42405ab963df3101ee2a9b26e54240ffa689f140
+ms.date: 10/10/2018
+ms.openlocfilehash: aab867e5c58ba9de17b3c68c8e507fca5354eb90
+ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47423552"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49093449"
 ---
 # <a name="azure-database-for-postgresql-pricing-tiers"></a>Azure Database för PostgreSQL prisnivåer
 
@@ -46,8 +46,8 @@ Compute-resurser som tillhandahålls som vCores, som representerar en logisk CPU
 
 | **Azure-region** | **Generation 4** | **5: e generationen** |
 |:---|:----------:|:--------------------:|
-| Centrala USA | X | X |
-| Östra USA | X | X |
+| Centrala USA |  | X |
+| Östra USA |  | X |
 | USA, östra 2 | X | X |
 | Norra centrala USA | X | X |
 | Södra centrala USA | X | X |
@@ -97,7 +97,7 @@ Du kan övervaka dina i/o-användningen i Azure portal eller med hjälp av Azure
 
 ### <a name="reaching-the-storage-limit"></a>Når gränsen för lagring
 
-Servern är skrivskyddad när mängden ledigt utrymme uppnår mindre än 5 GB eller 5% av etablerad lagring, beroende på vilket som är mindre. Exempel: Om du har etablerat 100 GB lagringsutrymme och den faktiska användningen går över 95 GB, servern är skrivskyddad. Du kan också om du har etablerat 5 GB lagringsutrymme, är servern skrivskyddad när det lediga lagringsutrymmet som når mindre än 250 MB.  
+Servern markeras som skrivskyddad när mängden ledigt utrymme är mindre än 5 GB eller 5 % av lagringen, beroende på vilket som är minst. Exempel: Om du har etablerat 100 GB lagringsutrymme och den faktiska användningen går över 95 GB, servern är skrivskyddad. Eller om du har etablerat 5 GB lagringsutrymme blir servern markerad som skrivskyddad om det lediga utrymmet understiger 250 MB.  
 
 När servern har angetts till skrivskyddat läge kopplas bort alla befintliga sessioner och ogenomförda transaktioner återställs. Alla efterföljande skrivåtgärder och transaktionen genomför misslyckas. Alla efterföljande skrivskyddade frågor fungerar utan avbrott.  
 

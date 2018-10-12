@@ -9,12 +9,12 @@ ms.author: minxia
 author: mx-iao
 ms.reviewer: sgilley
 ms.date: 09/24/2018
-ms.openlocfilehash: 43302bd449b2a25e3e1a65da5ae2a70c3660cb09
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.openlocfilehash: c761d0ac5d2c52241eadd18b2d8b65e00ccb34ba
+ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48815026"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49114999"
 ---
 # <a name="how-to-train-tensorflow-models"></a>Hur du tränar TensorFlow-modeller
 
@@ -171,13 +171,13 @@ run = exp.submit(tf_est)
 
 ## <a name="examples"></a>Exempel
 En självstudiekurs om nod TensorFlow-utbildning, se:
-* `training/03.train-hyperparameter-tune-deploy-with-tensorflow `
+* [Training/03.Train-hyperparameter-Tune-Deploy-with-tensorflow](https://github.com/Azure/MachineLearningNotebooks/blob/master/training/03.train-hyperparameter-tune-deploy-with-tensorflow/03.train-hyperparameter-tune-deploy-with-tensorflow.ipynb)
 
 En självstudiekurs om distribuerade TensorFlow med Horovod finns:
-* `training/04.distributed-tensorflow-with-horovod`
+* [utbildning/04.distributed-tensorflow-med-horovod](https://github.com/Azure/MachineLearningNotebooks/tree/master/training/04.distributed-tensorflow-with-horovod)
 
 En självstudiekurs om interna distribuerade TensorFlow finns:
-* `training/05.distributed-tensorflow-with-parameter-server`
+* [utbildning/05.distributed-tensorflow-med-parametern-server](https://github.com/Azure/MachineLearningNotebooks/blob/master/training/05.distributed-tensorflow-with-parameter-server)
 
 Hämta dessa anteckningsböcker:
 

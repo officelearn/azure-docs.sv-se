@@ -8,13 +8,13 @@ manager: kfile
 editor: jasonwhowell
 ms.service: mysql
 ms.topic: article
-ms.date: 06/21/2018
-ms.openlocfilehash: 55d5cf97225508d6c7c490347cfe21ced832300e
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.date: 10/11/2018
+ms.openlocfilehash: cb2e1a34748875de9c7f8dd59be27c408ec82818
+ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44091729"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49090339"
 ---
 # <a name="minimal-downtime-migration-to-azure-database-for-mysql"></a>Minimal stilleståndstid vid migrering till Azure Database for MySQL
 Du kan utföra MySQL-migrering till Azure Database för MySQL med minimal avbrottstid med hjälp av den Nyintroducerade **kapaciteten för kontinuerlig synkronisering** för den [Azure Database Migration Service](https://aka.ms/get-dms) (DMS). Den här funktionen begränsar stilleståndstiden som krävs av programmet.
@@ -28,4 +28,4 @@ DMS utför en inledande inläsningen av dina lokala till Azure Database för MyS
 
 ## <a name="next-steps"></a>Nästa steg
 - Visa videon [enkelt migrera MySQL/PostgreSQL appar till Azure managed service](https://medius.studios.ms/Embed/Video/THR2201?sid=THR2201), som innehåller en demo som visar hur du migrerar MySQL-appar till Azure Database för MySQL.
-- [Migrera MySQL till Azure Database för MySQL med hjälp av DMS] (https://docs.microsoft.com/azure/dms/tutorial-mysql-azure-mysql-online).
+- Finns i självstudierna [migrera MySQL till Azure Database för MySQL med hjälp av DMS](https://docs.microsoft.com/azure/dms/tutorial-mysql-azure-mysql-online).

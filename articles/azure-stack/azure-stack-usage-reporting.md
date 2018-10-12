@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 05/30/2018
 ms.author: sethm
 ms.reviewer: alfredop
-ms.openlocfilehash: 54a81e6c5c6e1fe5c37b985e40174dc369edfe6d
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.openlocfilehash: cf6604730ab3bd9ee04fac36e703022f63dcb949
+ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45630417"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49090373"
 ---
 # <a name="report-azure-stack-usage-data-to-azure"></a>Rapportera användningsdata för Azure Stack till Azure 
 
@@ -95,10 +95,6 @@ Enterprise Agreement (EA) och CSP-prenumerationer stöds för Azure Stack multin
 ## <a name="does-usage-data-reporting-work-in-sovereign-clouds"></a>Fungerar användningsdata reporting arbets i suveräna moln?
 
 I Azure Stack Development Kit kräver användningsrapportering data prenumerationer som skapas i det globala Azure-systemet. Prenumerationer som skapats i någon av suveräna moln (Azure Government, Azure Tyskland och Azure Kina moln) kan inte registreras med Azure, så att de inte stöder rapportering av användning.
-
-## <a name="how-can-users-identify-azure-stack-usage-data-in-the-azure-billing-portal"></a>Hur kan användare att identifiera Azure Stack-användningsdata i Azure-faktureringsportalen?
-
-Användarna kan se Azure Stack-användningsdata i filen för information om användning. Om du vill veta om hur du får information om användningsfil avser den [Filnedladdning användning från Azure-Kontocenter artikeln](https://docs.microsoft.com/azure/billing/billing-download-azure-invoice-daily-usage-date#download-usage-from-the-account-center-csv). Information om användningsfil innehåller de Azure Stack-mätare som identifierar Azure Stack-lagring och virtuella datorer. Alla resurser som används i Azure Stack rapporteras under den region som heter ”Azure Stack”.
 
 ## <a name="why-doesnt-the-usage-reported-in-azure-stack-match-the-report-generated-from-azure-account-center"></a>Varför matchar inte den användning som rapporteras i Azure Stack rapporten som genereras från Azure-Kontocenter?
 

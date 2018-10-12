@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 10/06/2018
 ms.reviewer: martincoetzer
 ms.author: billmath
-ms.openlocfilehash: 7cf0e2b211f9d34f6d8f4fe89a230d8a2e97512a
-ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
+ms.openlocfilehash: cdca1b31f9b6cf10113dc0dba70b8f8991bafa2b
+ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49069021"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49093977"
 ---
 # <a name="factors-influencing-the-performance-of-azure-ad-connect"></a>Faktorer som påverkar prestandan för Azure AD Connect
 
@@ -30,7 +30,7 @@ Azure AD Connect synkroniserar Active Directory till Azure AD. Den här servern 
 | Konfiguration| Hur Azure AD Connect processer katalogerna och information. |
 | Läsa in| Frekvens för objektet ändras. Belastningar som kan variera under en timme, dag eller vecka. Beroende på komponenten, kan du behöva utforma för hög belastning eller genomsnittlig belastning. |
 
-Syftet med det här dokumentet är att beskriva prestandaöverväganden påverka prestanda för etablering motorn av Azure AD Connect. De andra komponenterna i Azure AD Connect, till exempel [Azure AD Connect health](how-to-connect-health-agent-install.md) och agenter inte som beskrivs här.
+Syftet med det här dokumentet är att beskriva de faktorer som påverkar prestanda för Azure AD Connect etablering motorn. Stora och komplexa organisationer (organisationer etablering mer än 100 000 objekt) kan använda rekommendationerna för att optimera sina Azure AD Connect-implementering, om de stöter på några prestandaproblem som beskrivs här. De andra komponenterna i Azure AD Connect, till exempel [Azure AD Connect health](how-to-connect-health-agent-install.md) och agenter inte som beskrivs här.
 
 > [!IMPORTANT]
 > Microsoft stöder inte ändring eller Azure AD Connect utöver de åtgärder som är formellt dokumenterade. Sådana åtgärder kan göra att Azure AD Connect-synkroniseringen hamnar i ett inkonsekvent tillstånd eller ett tillstånd som inte stöds. Därför kan Microsoft inte tillhandahålla teknisk support för sådana distributioner.

@@ -9,12 +9,12 @@ ms.component: core
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/24/2018
-ms.openlocfilehash: ced10a54d569531b06ee47b646130f43cedd2963
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 3256c8815b19f9b070cce3cd422f92c296e3e5c3
+ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46984610"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49115190"
 ---
 # <a name="track-experiments-and-training-metrics-in-azure-machine-learning"></a>Spåra experiment och utbildning mått i Azure Machine Learning
 
@@ -148,7 +148,7 @@ Det här exemplet kan utökas med grundläggande sklearn upphöjning modellen ov
           "test": {"X": X_test, "y": y_test}}
 
   # list of numbers from 0.0 to 1.0 with a 0.05 interval
-  alphas = np.arange(0.0, 1.0, 0.05)
+  alphas = mylib.get_alphas()
 
   for alpha in alphas:
       # Use Ridge algorithm to create a regression model
@@ -213,7 +213,7 @@ Det här exemplet kan utökas med grundläggande sklearn upphöjning modellen ov
 ## <a name="view-run-details"></a>Visa körningsinformation
 
 ### <a name="monitor-run-with-jupyter-notebook-widgets"></a>Övervakare som körs med Jupyter notebook widgetar
-När du använder den **ScriptRunConfig** metod för att skicka körs, du kan se förloppet för körning med en Jupyter-anteckningsbok widget. Som kör överföringen widgeten är asynkron och tillhandahåller live uppdateringar var 10 – 15: e sekund tills jobbet har slutförts.
+När du använder den **ScriptRunConfig** metod för att skicka körs, du kan se förloppet för körning med en Jupyter-anteckningsbok widget. Precis som körningsöverföringen är widgeten asynkron och tillhandahåller liveuppdateringar var 10:e till var 15:e sekund tills jobbet har slutförts.
 
 1. Visa widgeten Jupyter under väntan på Kör för att slutföra.
 
@@ -247,8 +247,8 @@ Du kan också visa alla utdata och loggar för körningen eller ladda ned ögonb
 
 ## <a name="example-notebooks"></a>Exempel-anteckningsböcker
 Följande anteckningsböcker demonstrera begreppen i den här artikeln:
-* `01.getting-started/01.train-within-notebook/01.train-within-notebook.ipynb`
-* `01.getting-started/02.train-on-local/02.train-on-local.ipynb`
+* [01.Getting-Started/01.Train-within-notebook/01.Train-within-notebook.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/01.getting-started/01.train-within-notebook)
+* [01.Getting-Started/02.Train-on-Local/02.Train-on-Local.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/01.getting-started/02.train-on-local)
 
 Hämta dessa anteckningsböcker: [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-for-examples.md)]
 

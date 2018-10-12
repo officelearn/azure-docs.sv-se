@@ -8,13 +8,13 @@ manager: kfile
 editor: jasonwhowell
 ms.service: mysql
 ms.topic: article
-ms.date: 09/27/2018
-ms.openlocfilehash: c390f6cbc9f7ced8113b4e6053dec1adcaf761a1
-ms.sourcegitcommit: 42405ab963df3101ee2a9b26e54240ffa689f140
+ms.date: 10/10/2018
+ms.openlocfilehash: e3d0e54c32a08c613407f1a90c78cc63be929078
+ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47422616"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49091801"
 ---
 # <a name="azure-database-for-mysql-pricing-tiers"></a>Azure Database för MySQL prisnivåer
 
@@ -45,8 +45,8 @@ Compute-resurser som tillhandahålls som vCores, som representerar en logisk CPU
 
 | **Azure-region** | **Generation 4** | **5: e generationen** |
 |:---|:----------:|:--------------------:|
-| Centrala USA | X | X |
-| Östra USA | X | X |
+| Centrala USA |  | X |
+| Östra USA |  | X |
 | USA, östra 2 | X | X |
 | Norra centrala USA | X | X |
 | Södra centrala USA | X | X |
@@ -96,9 +96,9 @@ Du kan övervaka dina i/o-användningen i Azure portal eller med hjälp av Azure
 
 ### <a name="reaching-the-storage-limit"></a>Når gränsen för lagring
 
-Servern är skrivskyddad när mängden ledigt utrymme uppnår mindre än 5 GB eller 5% av etablerad lagring, beroende på vilket som är mindre. Exempel: Om du har etablerat 100 GB lagringsutrymme och den faktiska användningen går över 95 GB, servern är skrivskyddad. Du kan också om du har etablerat 5 GB lagringsutrymme, är servern skrivskyddad när det lediga lagringsutrymmet som når mindre än 250 MB.  
+Servern markeras som skrivskyddad när mängden ledigt utrymme är mindre än 5 GB eller 5 % av lagringen, beroende på vilket som är minst. Exempel: Om du har etablerat 100 GB lagringsutrymme och den faktiska användningen går över 95 GB, servern är skrivskyddad. Eller om du har etablerat 5 GB lagringsutrymme blir servern markerad som skrivskyddad om det lediga utrymmet understiger 250 MB.  
 
-När tjänsten försöker skrivskydda servern, alla nya transaktion skrivbegäranden blockeras och befintliga aktiva transaktioner fortsätter att köra. När servern har angetts till skrivskyddat läge, genomför alla efterföljande skrivåtgärder och transaktionen misslyckas. Läs frågor kommer att fortsätta att arbeta utan avbrott. När du ökar den etablerade lagringen, kommer servern vara redo att acceptera skrivtransaktioner igen.
+När tjänsten försöker göra så att servern blir skrivskyddad blockeras alla nya skrivtransaktionsbegäranden och befintliga aktiva transaktioner fortsätter att köras. När servern är i skrivskyddat läge misslyckas alla efterföljande skrivåtgärder och transaktioner. Läsfrågor fortsätter att fungera utan avbrott. När du har ökat lagringen är servern redo att acceptera skrivtransaktioner igen.
 
 Vi rekommenderar att du ställer in en avisering som meddelar dig när tröskelvärdet närmar sig din serverlagring för att undvika hämta till skrivskyddat läge. Mer information finns i dokumentationen på [hur du ställer in en avisering](howto-alert-on-metric.md).
 

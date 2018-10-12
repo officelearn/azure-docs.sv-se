@@ -8,12 +8,12 @@ ms.author: hrasheed
 ms.reviewer: hrasheed
 ms.topic: conceptual
 ms.date: 10/9/2018
-ms.openlocfilehash: c56158a5e8df2e8781ec8e4431c75beadd154297
-ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
+ms.openlocfilehash: 93a6480cdab0153d0febad376c93b9321a87deda
+ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48901659"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49114901"
 ---
 # <a name="configure-a-hdinsight-cluster-with-enterprise-security-package-by-using-azure-active-directory-domain-services"></a>Konfigurera ett HDInsight-kluster med Enterprise Security Package med hjälp av Azure Active Directory Domain Services
 
@@ -33,7 +33,7 @@ Aktivera AzureAD DS är en förutsättning innan du kan skapa ett HDInsight-klus
 
 När Azure AD-DS har aktiverats kan alla användare och objekt synkroniserar från Azure Active Directory till Azure AD DS-som standard. Längden på synkroniseringsåtgärden beror på antalet objekt i Azure AD. Synkroniseringen kan ta ett par dagar för hundratusentals objekt. 
 
-Kunderna kan välja att synkronisera de grupper som behöver åtkomst till HDInsight-kluster. Det här alternativet för att synkronisera bara vissa grupper kallas *begränsade synkronisering*. Se [konfigurera omfång synkronisering från Azure AD till din hanterade domän](https://docs.microsoft.com/en-us/azure/active-directory-domain-services/active-directory-ds-scoped-synchronization) anvisningar.
+Kunderna kan välja att synkronisera de grupper som behöver åtkomst till HDInsight-kluster. Det här alternativet för att synkronisera bara vissa grupper kallas *begränsade synkronisering*. Se [konfigurera omfång synkronisering från Azure AD till din hanterade domän](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-scoped-synchronization) anvisningar.
 
 När du har aktiverat Azure AD-DS körs en lokal tjänst DNS (Domain Name)-server på AD-datorer (VM). Konfigurera din Azure AD DS virtuella nätverk (VNET) om du vill använda dessa anpassade DNS-servrar. För att hitta rätt IP-adresser, Välj **egenskaper** under den **hantera** kategori och titta på IP-adresser i listan under **IP-adress i virtuellt nätverk**.
 
@@ -47,31 +47,38 @@ När du har aktiverat Azure AD-DS körs en lokal tjänst DNS (Domain Name)-serve
 
 När du aktiverar säker LDAP, placera domännamnet i ämnesnamnet eller det alternativa certifikatmottagarnamnet i certifikatet. Exempel: om ditt domännamn är *contoso.com*, kontrollera exakt samma namn finns i certifikatets ämnesnamn eller Alternativt ämnesnamn. Mer information finns i [konfigurera säkert LDAP för en Azure AD DS-domän hanterad](../../active-directory-domain-services/active-directory-ds-admin-guide-configure-secure-ldap.md).
 
-## <a name="check-azure-ad-ds-health-status"></a>Kontrollera status för Azure AD-DS-hälsa
 
+## <a name="check-azure-ad-ds-health-status"></a>Kontrollera status för Azure AD-DS-hälsa
 Visa hälsotillståndet för din Azure Active Directory Domain Services genom att välja **hälsotillstånd** under den **hantera** kategori. Kontrollera statusen för Azure AD DS-är grönt (körs) och synkroniseringen är klar.
 
 ![Azure Active Directory Domain Services-hälsa](./media/apache-domain-joined-configure-using-azure-adds/hdinsight-aadds-health.png)
 
-## <a name="add-managed-identity"></a>Lägg till hanterad identitet
+Bör du se till att alla de [krävs portar](https://docs.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd772723(v=ws.10)#communication-to-domain-controllers) är vitlistade i AAD-DS-undernät NSG-regler om AAD-DS skyddas av en Nätverkssäkerhetsgrupp. 
 
-Skapa en hanterad Användartilldelad identitet om du inte redan har en. Se [skapa, lista, ta bort eller tilldela en roll till en Användartilldelad hanterad identitet med hjälp av Azure portal](https://docs.microsoft.com/en-us/azure/active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal) anvisningar. 
+## <a name="create-and-authorize-a-managed-identity"></a>Skapa och auktorisera en hanterad identitet
+> [!NOTE]
+> AAD-DS-administratörer har behörighet för att auktorisera den här hanterad identitet.
 
-Den hanterade identitet används för att förenkla domain services-åtgärder. Den här identiteten har åtkomst till läsa, skapa, ändra och ta bort domain services åtgärder som behövs för HDInsight Enterprise Security Package som att skapa organisationsenheter och principer för tjänsten.
+En **användartilldelade hanterad identitet** används för att förenkla domain services-åtgärder. När du tilldelar rollen deltagare för HDInsight Domain Services hanterad identitet den läsa, skapa, ändra och ta bort domain services-åtgärder. Vissa åtgärder, till exempel skapa organisationsenheter för domäntjänster och tjänsten principer som krävs för HDInsight Enterprise Security Package. Hanterade identiteter kan skapas i alla prenumerationer. Mer information finns i [hanterade identiteter för Azure-resurser](../../active-directory/managed-identities-azure-resources/overview.md).
 
-När du har aktiverat Azure AD-DS skapar en hanterad Användartilldelad identitet och kopplar den till den **HDInsight Domain Services deltagare** roll i Azure AD DS-åtkomstkontroll.
+Skapa en hanterad Användartilldelad identitet om du vill konfigurera en hanterad identitet för användning med ESP för HDInsight-kluster om du inte redan har en. Se [skapa, lista, ta bort eller tilldela en roll till en Användartilldelad hanterad identitet med hjälp av Azure portal](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal) anvisningar. Tilldela sedan den hantera identitet som den **HDInsight Domain Services deltagare** roll i Azure AD DS-åtkomstkontroll (admin-behörighet för AAD-DS krävs för att göra den här rolltilldelningen).
 
 ![Active Directory Domain Services Access control i Azure](./media/apache-domain-joined-configure-using-azure-adds/hdinsight-configure-managed-identity.png)
 
-Tilldela en hanterad identitet till den **HDInsight Domain Services deltagare** rollen säkerställer att identiteten har tillgång till att utföra vissa åtgärder med domain services på Azure AD-DS-domänen. Mer information finns i [vad är hanterade identiteter för Azure-resurser](../../active-directory/managed-identities-azure-resources/overview.md).
+Tilldela en hanterad identitet till den **HDInsight Domain Services deltagare** rollen säkerställer att identiteten har tillgång till att utföra vissa åtgärder med domain services på AAD-DS-domän.
+
+När den hanterade identitet skapas och rätt rollen, kan AAD-DS-administratören konfigurera vem som kan använda den här hanterad identitet. Om du vill konfigurera användare för den hanterade identitet administratören bör markera den hantera identitet i portalen och klicka sedan **åtkomstkontroll (IAM)** under **översikt**. Tilldela sedan rollen ”hanterade Identitetsoperatör” till höger, till användare eller grupper som vill skapa ESP för HDInsight-kluster. AAD-DS-administratören kan till exempel tilldela den här rollen i gruppen ”MarketingTeam” ”sjmsi” hanterad identitet, enligt bilden nedan.
+
+![HDInsight hanterad identitet operatorn rolltilldelning](./media/apache-domain-joined-configure-using-azure-adds/hdinsight-managed-identity-operator-role-assignment.png)
+
 
 ## <a name="create-a-hdinsight-cluster-with-esp"></a>Skapa ett HDInsight-kluster med ESP
 
 Nästa steg är att skapa HDInsight-kluster med ESP aktiverat med Azure AD-DS.
 
-Det är lättare att placera både Azure AD-DS-instans och HDInsight-klustret i samma Azure-nätverk. Om de finns i olika virtuella nätverk måste du peerkoppla de virtuella nätverk så att HDInsight virtuella datorer som är synliga för domänkontrollanten och kan läggas till domänen. Mer information finns i [peerkoppling av virtuella nätverk](../../virtual-network/virtual-network-peering-overview.md). Om du vill testa om peering utförs korrekt, ansluta till en virtuell dator till HDInsight VNET/undernätet och pinga domännamnet eller köra **ldp.exe** att få åtkomst till Azure AD-DS-domän.
+Det är lättare att placera både Azure AD-DS-instans och HDInsight-klustret i samma Azure-nätverk. Om de finns i olika virtuella nätverk måste du peerkoppla de virtuella nätverk så att HDInsight virtuella datorer som är synliga för domänkontrollanten och kan läggas till domänen. Mer information finns i [peerkoppling av virtuella nätverk](../../virtual-network/virtual-network-peering-overview.md). 
 
-När de virtuella nätverken har peerkopplats kan du konfigurera HDInsight VNET att använda en anpassad DNS-server och ange Azure AD-DS privata IP-adresser som DNS-serveradresser. När båda de virtuella nätverken använder samma DNS-servrar, ditt domännamn matchar med rätt IP-Adressen och kan nås från HDInsight. Till exempel om ditt domännamn är ”contoso.com” sedan efter det här steget pinga ”contoso.com” ska matcha rätt Azure AD DS-IP. Du kan sedan ansluta till en virtuell dator till den här domänen.
+När de virtuella nätverken har peerkopplats kan du konfigurera HDInsight VNET att använda en anpassad DNS-server och ange Azure AD-DS privata IP-adresser som DNS-serveradresser. När båda de virtuella nätverken använder samma DNS-servrar, ditt domännamn matchar med rätt IP-Adressen och kan nås från HDInsight. Till exempel om ditt domännamn är ”contoso.com” sedan efter det här steget pinga ”contoso.com” ska matcha rätt Azure AD DS-IP. Om du vill testa om peering utförs korrekt, ansluta till en windows-dator till HDInsight VNET/undernätet och pinga domännamnet eller köra **ldp.exe** att få åtkomst till Azure AD-DS-domän. Sedan ansluta den här windows-dator till domänen för att bekräfta att alla nödvändiga RPC-anrop lyckas mellan klienten och servern.
 
 ![Konfigurera anpassade DNS-servrar för peer-kopplade virtuella nätverket](./media/apache-domain-joined-configure-using-azure-adds/hdinsight-aadds-peered-vnet-configuration.png)
 

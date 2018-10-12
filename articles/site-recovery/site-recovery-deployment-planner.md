@@ -11,15 +11,15 @@ ms.service: site-recovery
 ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: hero-article
-ms.date: 07/06/2018
+ms.topic: conceptual
+ms.date: 10/11/2018
 ms.author: nisoneji
-ms.openlocfilehash: 66dda70e2f9b4c0235434fd91a061b43e2489bdf
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
-ms.translationtype: HT
+ms.openlocfilehash: a04a372e52c682af428938514eac5d5e0f4274f0
+ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37915868"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49093722"
 ---
 # <a name="azure-site-recovery-deployment-planner-for-vmware-to-azure"></a>Distributionshanteraren för Azure Site Recovery för VMware till Azure
 Den här artikeln utgör användarhandboken för Distributionshanteraren för Azure Site Recovery vid produktionsdistribution av VMware till Azure.
@@ -79,13 +79,13 @@ Antalet servrar som kan profileras per körningsinstans av Distributionshanterar
 
 * Verktyget är främst avsett för haveriberedskapsscenariot Hyper-V till Azure. För haveriberedskap från Hyper-V till sekundär plats kan det bara användas till att förstå rekommendationer för källsidan, till exempel nätverksbandbredd som krävs, ledigt lagringsutrymme som krävs på varje Hyper-V-källserver samt inledande batchnummer för replikering och batchdefinitioner. Ignorera Azure-rekommendationer och kostnader i rapporten. Åtgärden för att hämta dataflödet gäller dessutom inte för haveriberedskapsscenarion från Hyper-V till sekundär plats.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 Verktyget har två huvudfaser: profilering och rapportgenerering. Det finns också ett tredje alternativ som endast beräknar dataflödet. Kraven för servern som profilering och dataflödesmätning initieras från visas i följande tabell.
 
 | Serverkrav | Beskrivning|
 |---|---|
-|Profilering och mätning av dataflöde| <ul><li>Operativsystem: Windows Server 2016 eller Windows Server 2012 R2<br>(matchar helst åtminstone [storleksrekommendationerna för konfigurationsservern](https://aka.ms/asr-v2a-on-prem-components))</li><li>Datorkonfiguration: 8 virtuella processorer, 16 GB RAM-minne, 300 GB hårddisk</li><li>[.NET Framework 4.5](https://aka.ms/dotnet-framework-45)</li><li>[VMware vSphere PowerCLI 6.0 R3](https://aka.ms/download_powercli)</li><li>[Visual C++ Redistributable for Visual Studio 2012](https://aka.ms/vcplusplus-redistributable)</li><li>Internetåtkomst till Azure från den här servern</li><li>Azure Storage-konto</li><li>Administratörsbehörighet till servern</li><li>Minst 100 GB ledigt diskutrymme (förutsätter 1 000 virtuella datorer med ett medeltal av tre diskar vardera, profilerade för 30 dagar)</li><li>Nivåinställningarna för VMware vCenter-statistik bör anges till 2 eller hög nivå</li><li>Tillåt port 443: Distributionshanteraren för Site Recovery använder den här porten för att ansluta till vCenter-servern/ESXi-värden</ul></ul>|
-| Rapportgenerering | En Windows-dator eller Windows Server med Excel 2013 eller senare |
+|Profilering och mätning av dataflöde| <ul><li>Operativsystem: Windows Server 2016 eller Windows Server 2012 R2<br>(matchar helst åtminstone [storleksrekommendationerna för konfigurationsservern](https://aka.ms/asr-v2a-on-prem-components))</li><li>Datorkonfiguration: 8 virtuella processorer, 16 GB RAM-minne, 300 GB hårddisk</li><li>[.NET Framework 4.5](https://aka.ms/dotnet-framework-45)</li><li>[VMware vSphere PowerCLI 6.0 R3](https://aka.ms/download_powercli)</li><li>[Visual C++ Redistributable for Visual Studio 2012](https://aka.ms/vcplusplus-redistributable)</li><li>Internetåtkomst till Azure från den här servern</li><li>Azure Storage-konto</li><li>Administratörsbehörighet till servern</li><li>Minst 100 GB ledigt diskutrymme (förutsätter 1 000 virtuella datorer med ett medeltal av tre diskar vardera, profilerade för 30 dagar)</li><li>Nivåinställningarna för VMware vCenter-statistik kan vara 1 eller högre nivå</li><li>Tillåt vCenter-porten (standard 443): Site Recovery Deployment Planner använder den här porten för att ansluta till vCenter-servern/ESXi-värden</ul></ul>|
+| Rapportgenerering | En Windows-dator eller Windows Server med Excel 2013 eller senare.<li>[.NET Framework 4.5](https://aka.ms/dotnet-framework-45)</li><li>[Visual C++ Redistributable for Visual Studio 2012](https://aka.ms/vcplusplus-redistributable)</li><li>[VMware vSphere PowerCLI 6.0 R3](https://aka.ms/download_powercli) krävs bara när du skickar - alternativet för användare i rapporten-kommandot för projektgenerering att hämta den senaste VM-konfigurationsinformationen för de virtuella datorerna. Depolyment Planner ansluter till vCenter-servern. Tillåt vCenter-porten (standard 443) port att ansluta till vCenter-servern.</li>|
 | Användarbehörigheter | Läsbehörighet för det användarkonto som ska användas för åtkomst till VMware vCenter-servern/VMware vSphere ESXi-värden under profilering |
 
 > [!NOTE]

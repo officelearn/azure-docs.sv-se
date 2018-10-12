@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 10/16/2017
 ms.reviewer: ramach
 ms.author: mbullwin
-ms.openlocfilehash: 2da281f52a85992c6fade360c94fbf473c38dc20
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: eb2ec0c0b77e71a54d1e7f852a22d82203abf7b6
+ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39424032"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49091988"
 ---
 # <a name="enable-application-insights-profiler-for-azure-vms-service-fabric-and-azure-cloud-services"></a>Aktivera Application Insights Profiler för virtuella Azure-datorer, Service Fabric och Azure Cloud Services
 
@@ -48,7 +48,7 @@ Innan du kan utnyttja Profiler, måste du ändra konfigurationen på tre platser
 
    ![Platsen för instrumenteringsnyckeln](./media/enable-profiler-compute/CopyAIKey.png)
 
-1. Om du vill slutföra konfigurationen av Application Insights-instans för Profiler, slutför du proceduren som beskrivs i [aktivera Profiler. Du behöver inte att länka webbappar, eftersom steg som är specifika för app services-resursen. Kontrollera att Profiler är aktiverat i den **konfigurera Profiler** fönstret.
+1. Om du vill slutföra konfigurationen av Application Insights-instans för Profiler, slutför du proceduren som beskrivs i [aktivera Profiler](https://docs.microsoft.com/azure/application-insights/app-insights-profiler). Du behöver inte att länka webbappar, eftersom steg som är specifika för app services-resursen. Kontrollera att Profiler är aktiverat i den **konfigurera Profiler** fönstret.
 
 
 ## <a name="set-up-the-application-source-code"></a>Ställ in programmets källkod
@@ -163,7 +163,7 @@ Om du vill konfigurera din miljö, gör du följande:
 
 ### <a name="azure-cloud-services"></a>Azure Cloud Services
 
-1. Så att du använder [.NET Framework 4.6.1](https://docs.microsoft.com/dotnet/framework/migration-guide/how-to-determine-which-versions-are-installed) eller senare, så är tillräckliga för att bekräfta att den *ServiceConfiguration.\*. cscfg* filer har en `osFamily` värdet av ”5” eller senare.
+1. Så att du använder [.NET Framework 4.6.1](https://docs.microsoft.com/dotnet/framework/migration-guide/how-to-determine-which-versions-are-installed) eller senare, så är tillräckliga för att bekräfta att den *ServiceConfiguration.\*.cscfg* filer har en `osFamily` värdet av ”5” eller senare.
 
 1. Leta upp den [Azure Diagnostics](https://docs.microsoft.com/azure/monitoring-and-diagnostics/azure-diagnostics) *diagnostics.wadcfgx* filen för din programroll som visas här:  
 
@@ -191,7 +191,7 @@ Om du vill konfigurera din miljö, gör du följande:
 >  * Den nyckel som används av den `ApplicationInsights` mottagare.  
 >  * Den nyckel som används av den `ApplicationInsightsProfiler` mottagare.  
 >
-> Du kan hitta faktiska instrumentation nyckelvärdet som används av den `ApplicationInsights` mottagare den *ServiceConfiguration.\*. cscfg* filer.  
+> Du kan hitta faktiska instrumentation nyckelvärdet som används av den `ApplicationInsights` mottagare den *ServiceConfiguration.\*.cscfg* filer.  
 > När du har Visual Studio 15.5 Azure SDK-versionen kan endast instrumenteringsnycklar som används av programmet och `ApplicationInsightsProfiler` mottagare behöver matchar varandra.
 
 

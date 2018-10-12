@@ -1,6 +1,6 @@
 ---
 title: Konfigurera webbappar i Azure App Service
-description: Hur du konfigurerar en webbapp i Azure App Service
+description: Så här konfigurerar du en webbapp i Azure App Services
 services: app-service\web
 documentationcenter: ''
 author: cephalin
@@ -14,21 +14,21 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/25/2017
 ms.author: cephalin
-ms.openlocfilehash: 84bd2019e9586fa008560dba07119323ecb7f02e
-ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
+ms.openlocfilehash: cf3a6fe24082a10db6a5b1267b70435d9e36b720
+ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36293724"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49115530"
 ---
 # <a name="configure-web-apps-in-azure-app-service"></a>Konfigurera webbappar i Azure App Service
 
-Det här avsnittet beskriver hur du konfigurerar en web app med hjälp av den [Azure Portal].
+Det här avsnittet förklarar hur du konfigurerar en webbapp med den [Azure Portal].
 
 [!INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
 ## <a name="application-settings"></a>Programinställningar
-1. I den [Azure Portal], öppna bladet för webbprogrammet.
+1. I den [Azure Portal], öppnar du bladet för webbappen.
 3. Klicka på **Programinställningar**.
 
 ![Programinställningar][configure01]
@@ -36,130 +36,131 @@ Det här avsnittet beskriver hur du konfigurerar en web app med hjälp av den [A
 Den **programinställningar** bladet har inställningar som är grupperade under flera kategorier.
 
 ### <a name="general-settings"></a>Allmänna inställningar
-**Versioner av Framework**. Ange dessa alternativ om din app använder alla dessa ramverk: 
+**Ramverksversioner**. Ange alternativ om din app använder alla dessa ramverk: 
 
 * **.NET framework**: Ange .NET framework-version. 
 * **PHP**: Ange PHP-version eller **OFF** att inaktivera PHP. 
 * **Java**: Välj den Java-versionen eller **OFF** att inaktivera Java. Använd den **Webbehållaren** möjlighet att välja mellan Tomcat och Jetty-versioner.
 * **Python**: Välj Python-version eller **OFF** att inaktivera Python.
 
-Av tekniska skäl inaktiveras när du aktiverar Java för din app alternativen för .NET, PHP och Python.
+För tekniska skäl inaktiveras om du aktiverar Java för din app alternativen .NET, PHP och Python.
 
 <a name="platform"></a>
-**Plattform**. Anger om ditt webbprogram kör i en 32-bitars eller 64-bitars miljö. 64-bitars miljö kräver Basic eller Standard-nivån. Frigör och delade nivån körs alltid i en 32-bitars-miljö.
+**Plattformen**. Anger om din webbapp körs i en 32-bitars eller 64-bitars miljö. 64-bitars-miljö kräver Basic eller Standard-nivån. Kostnadsfri och delad klient körs alltid i en 32-bitars-miljö.
 
 [!INCLUDE [app-service-dev-test-note](../../includes/app-service-dev-test-note.md)]
 
-**Web Sockets**. Ange **ON** att WebSocket-protokollet, till exempel om ditt webbprogram använder [ASP.NET-SignalR] eller [socket.io](https://socket.io/).
+**Web Sockets**. Ange **på** att aktivera WebSocket-protokoll, till exempel, om din webbapp använder [ASP.NET SignalR] eller [socket.io](https://socket.io/).
 
 <a name="alwayson"></a>
-**Always On**. Som standard inaktiveras webbappar om de är inaktiv under en tidsperiod. Detta gör att systemet spara resurser. I Basic eller Standard-läge kan du aktivera **alltid på** att appen att läsa in hela tiden. Om din app körs kontinuerliga Webbjobb eller körs WebJobs aktiveras med hjälp av ett CRON-uttryck, bör du aktivera **alltid på**, eller web-jobb körs inte på ett tillförlitligt sätt.
+**Always On**. Som standard inaktiveras webbappar om de är inaktiva under en viss tidsperiod. På så sätt kan systemet spara resurser. I Basic eller Standard-läge kan du aktivera **Always On** att hålla appen att läsa in hela tiden. Om din app körs kontinuerliga WebJobs eller körs WebJobs utlöses med hjälp av ett CRON-uttryck, bör du aktivera **alltid på**, eller webbjobb körs inte på ett tillförlitligt sätt.
 
-**Hanterat Pipeline-Version**. Anger IIS [Pipeline-läge]. Låt den här uppsättningen integrerad (standard) om du inte har en äldre app som kräver en äldre version av IIS.
+**Hanterad Pipelineversion**. Anger IIS [Pipeline-läge]. Lämna den här uppsättningen integrerad (standard) om du inte har en äldre app som kräver en äldre version av IIS.
 
-**HTTP-versionen**. Ange till **2.0** att aktivera stöd för [HTTPS-2](https://wikipedia.org/wiki/HTTP/2) protokoll. 
+**HTTP-Version**. Ange **2.0** aktivera stöd för [HTTPS/2](https://wikipedia.org/wiki/HTTP/2) protokoll. 
 
 > [!NOTE]
-> De flesta moderna webbläsare HTTP/2-protokoll via TLS, medan icke-krypterad trafik fortsätter att använda HTTP/1.1. Se till att klientdatorer webbläsare ansluter till din app med HTTP/2, antingen [köpa ett certifikat för App Service](web-sites-purchase-ssl-web-site.md) för den anpassade domänen för din app eller [bind ett certifikat från tredje part](app-service-web-tutorial-custom-ssl.md).
+> De flesta moderna webbläsare stöder HTTP/2-protokollet via TLS blir bara, medan icke-krypterad trafik fortsätter att använda HTTP/1.1. Se till att webbläsare ansluta till din app med HTTP/2, antingen [köpa ett App Service Certificate](web-sites-purchase-ssl-web-site.md) för appens anpassade domän eller [bind ett certifikat från tredje part](app-service-web-tutorial-custom-ssl.md).
 
-**ARR tillhörighet**. I en app som skalas ut till flera VM-instanser, ARR tillhörighet cookies garanterar att klienten dirigeras till samma instans för sessionen. För att förbättra prestanda för tillståndslösa program kan du ange **av**.   
+**ARR-tillhörighet**. I en app som skalas ut till flera VM-instanser, ARR-tillhörighet cookies garanterar att klienten dirigeras till samma-instans för resten av sessionen. För att förbättra prestandan för tillståndslösa program, välja alternativet **av**.   
 
-**Automatisk växling**. Om du aktiverar automatisk växling för en distributionsplats Apptjänst automatiskt att växla som webbappen till produktionen när du trycker på en uppdatering till platsen. Mer information finns i [till mellanlagring fack för web apps i Azure App Service](web-sites-staged-publishing.md).
+**Automatisk växling**. Om du aktiverar automatisk växling för ett distributionsfack App Service automatiskt att växla som webbappen till produktion när du skickar en uppdatering till platsen. Mer information finns i [distribuera till mellanlagringsplatser för web apps i Azure App Service](web-sites-staged-publishing.md).
 
 ### <a name="debugging"></a>Felsökning
-**Fjärrfelsökning**. Aktiverar fjärrfelsökning. När aktiverat, kan du använda fjärråtkomst felsökaren i Visual Studio för att ansluta direkt till ditt webbprogram. Fjärrfelsökning förblir aktiverat för 48 timmar. 
+**Fjärrfelsökning**. Gör det möjligt att fjärrfelsökning. När aktiverad kan du använda fjärrfelsökningsprogrammet i Visual Studio för att ansluta direkt till din webbapp. Fjärrfelsökning förblir aktiverat i 48 timmar. 
 
 ### <a name="app-settings"></a>Appinställningar
-Det här avsnittet innehåller namn/värde-par som ditt webbprogram ska läsas in vid start av. 
+Det här avsnittet innehåller namn/värde-par som webbappen ska läsas in på start upp. 
 
-* För .NET-appar de här inställningarna är injekteras i konfigurationen av .NET `AppSettings` vid körning kan åsidosätta befintliga inställningar. 
-* PHP, Python, Java och noden program kan komma åt de här inställningarna som miljövariabler vid körning. Två miljövariabler som skapas för varje appinställning. en med namnet som anges i inställningen som appen och en annan med prefixet APPSETTING_. Båda innehåller samma värde.
+* För .NET-appar är de här inställningarna införs i din .NET-konfiguration `AppSettings` vid körning, åsidosätter befintliga inställningar. 
+* För App Service på Linux eller Web App for Containers, om du har kapslad json nyckelstruktur i ditt namn som `ApplicationInsights:InstrumentationKey` behöver du ha `ApplicationInsights__InstrumentationKey` som namn. Observera så att alla `:` ska ersättas med `__` (dvs. dubbla understreck).
+* PHP, Python, Java och Node-program kan komma åt de här inställningarna som miljövariabler under körning. Två miljövariabler som skapats för varje appinställning: en med namnet som anges i inställningen appinmatning och en annan med prefixet APPSETTING_. Båda innehåller samma värde.
 
-Appinställningar krypteras alltid när lagras (krypterat i vila).
+Appinställningar är alltid krypterade när lagrade (krypterat i vila).
 
 ### <a name="connection-strings"></a>Anslutningssträngar
 Anslutningssträngar för länkade resurser. 
 
-För .NET-appar har dessa anslutningssträngar injekteras i konfigurationen av .NET `connectionStrings` inställningar vid körning kan åsidosätta befintliga poster där nyckeln är lika med länkade databasnamnet. 
+För .NET-appar, är dessa anslutningssträngar införs i din .NET-konfiguration `connectionStrings` inställningar vid körning, åsidosätter befintliga poster där nyckeln är lika med länkade databasens namn. 
 
-PHP, Python, Java och noden program, ska inställningarna vara tillgänglig som miljövariabler vid körning, föregås av anslutningstypen. Variabeln prefix miljö är följande: 
+För PHP, Python, Java och Node-program, kommer att finnas inställningarna som miljövariabler vid körning, föregås av anslutningstypen. Variabeln prefixen miljö är följande: 
 
 * SQLServer: `SQLCONNSTR_`
 * MySQL: `MYSQLCONNSTR_`
 * SQL-databas: `SQLAZURECONNSTR_`
 * Anpassad: `CUSTOMCONNSTR_`
 
-Om exempelvis en MySql-anslutningssträng vid namn `connectionstring1`, den kan nås via miljövariabeln `MYSQLCONNSTR_connectionString1`.
+Exempel: om en anslutningssträng för MySql med namnen `connectionstring1`, den kan nås via miljövariabeln `MYSQLCONNSTR_connectionString1`.
 
 Anslutningssträngar krypteras alltid när lagras (krypterat i vila).
 
 ### <a name="default-documents"></a>Standarddokument
-Standarddokumentet är webbsidan som visas på rot-URL för en webbplats.  Den första matchande filen i listan används. 
+Standarddokument är den webbsida som visas på rot-URL för en webbplats.  Den första matchande filen i listan används. 
 
-Webbprogram kan använda moduler att vägen baserat på URL: en i stället för betjänar statiskt innehåll, då det finns inga standarddokument som sådana.    
+Webbappar kan använda moduler att vägen baserat på URL i stället för tillhandahåller statiskt innehåll, då det finns inga standarddokument som sådana.    
 
 ### <a name="handler-mappings"></a>Hanterarmappningar
 Använd det här området för att lägga till processorer för anpassat skript för att hantera begäranden för specifika filtillägg. 
 
-* **Tillägget**. Filtillägg som ska hanteras, till exempel *.php eller handler.fcgi. 
-* **Script Processor sökvägen**. Den absoluta sökvägen till Skriptprocessor. Begäranden om filer som matchar filnamnstillägget kommer att behandlas av Skriptprocessor för. Använd sökvägen med `D:\home\site\wwwroot` att referera till rotkatalogen för din app.
+* **Tillägget**. Filnamnstillägg som ska hanteras, till exempel *.php eller handler.fcgi. 
+* **Skriptet Processorsökväg**. Den absoluta sökvägen till Skriptprocessor. Begäranden om filer som matchar filnamnstillägget kommer att behandlas av Skriptprocessor för. Använd sökvägen med `D:\home\site\wwwroot` att referera till rotkatalogen för din app.
 * **Ytterligare argument**. Valfria kommandoradsargument för Skriptprocessor 
 
 ### <a name="virtual-applications-and-directories"></a>Virtuella program och kataloger
-Ange varje virtuell katalog och dess motsvarande fysiska sökväg i förhållande till webbplatsroten för att konfigurera virtuella program och kataloger. Du kan också markera den **programmet** kryssrutan för att markera en virtuell katalog som ett program.
+Ange varje virtuell katalog och dess motsvarande fysisk sökväg i förhållande till webbplatsroten för att konfigurera virtuella program och kataloger. Du kan också markera den **program** kryssrutan för att markera en virtuell katalog som ett program.
 
-## <a name="enabling-diagnostic-logs"></a>Aktivera diagnostikloggar
+## <a name="enabling-diagnostic-logs"></a>Aktiverar diagnostikloggar
 Aktivera diagnostikloggar:
 
-1. I bladet för din webbapp klickar du på **alla inställningar**.
-2. Klicka på **diagnostikloggar**. 
+1. I bladet för din webbapp, klickar du på **alla inställningar**.
+2. Klicka på **Diagnostikloggar**. 
 
-Alternativ för att skriva diagnostiska loggar från webbprogram som har stöd för loggning: 
+Alternativ för att skriva diagnostikloggar från ett webbprogram som har stöd för loggning: 
 
-* **Programloggning**. Skriver programloggar till filsystemet. Loggning varar under en period på 12 timmar. 
+* **Programloggning**. Skriver programloggar till filsystemet. Loggning användas i 12 timmar. 
 
-**Nivå**. När programmet loggning är aktiverat anger det här alternativet mängden information som ska registreras (fel, varning, Information eller utförlig).
+**Nivå**. När programmet har aktiverats, anger det här alternativet mängden information som ska registreras (fel, varning, Information eller utförlig).
 
-**Web server-loggning**. Loggar sparas i W3C utökat loggfilsformat. 
+**Webbserverloggning**. Loggar sparas i W3C utökat loggfilsformat. 
 
-**Detaljerade felmeddelanden**. Sparar felmeddelanden detaljerade .htm-filer. Filerna sparas under /LogFiles/DetailedErrors. 
+**Detaljerade felmeddelanden**. Sparar felmeddelanden detaljerade htm-filer. Filerna sparas under /LogFiles/DetailedErrors. 
 
-**Spårning av misslyckade begäranden**. Loggar misslyckade förfrågningar till XML-filer. Filerna sparas under loggfilerna/W3SVC*xxx*, där xxx är en unik identifierare. Den här mappen innehåller en XSL-fil och en eller flera XML-filer. Se till att hämta XSL-filen eftersom det ger funktioner för att formatera och filtrera innehållet i XML-filerna.
+**Spårning av misslyckade begäranden**. Loggar misslyckade förfrågningar till XML-filer. Filerna sparas under/LogFiles/W3SVC*xxx*, där xxx är en unik identifierare. Den här mappen innehåller en XSL-fil och en eller flera XML-filer. Se till att hämta XSL-filen eftersom den innehåller funktioner för att formatera och filtrera innehållet i XML-filerna.
 
-Om du vill visa loggfilerna måste du skapa FTP-autentiseringsuppgifter, enligt följande:
+Om du vill visa loggfilerna, måste du skapa FTP-autentiseringsuppgifter på följande sätt:
 
-1. I bladet för din webbapp klickar du på **alla inställningar**.
+1. I bladet för din webbapp, klickar du på **alla inställningar**.
 2. Klicka på **distributionsbehörigheterna**.
 3. Ange ett användarnamn och lösenord.
 4. Klicka på **Spara**.
 
 ![Ange autentiseringsuppgifter för distribution][configure03]
 
-Det fullständiga namnet för FTP-användare är ”app\username” där *app* är namnet på ditt webbprogram. Användarnamnet visas i bladet webbapp, under **Essentials**.
+Fullständig FTP-användarnamnet är ”app\username” där *app* är namnet på din webbapp. Användarnamnet visas i webbappsbladet, under **Essentials**.
 
-![Autentiseringsuppgifter för FTP-distribution][configure02]
+![FTP-autentiseringsuppgifter för distribution][configure02]
 
-## <a name="other-configuration-tasks"></a>Andra konfigurationsuppgifter
+## <a name="other-configuration-tasks"></a>Andra konfigurationsåtgärder
 ### <a name="ssl"></a>SSL
-Du kan överföra SSL-certifikat för en anpassad domän i Basic eller Standard-läge. Mer information finns i [aktivera HTTPS för en webbapp](app-service-web-tutorial-custom-ssl.md). 
+Du kan ladda upp SSL-certifikat för en anpassad domän i Basic eller Standard-läge. Mer information finns i [aktivera HTTPS för en webbapp](app-service-web-tutorial-custom-ssl.md). 
 
-Om du vill visa dina överförda certifikat klickar du på **alla inställningar** > **anpassade domäner och SSL**.
+Om du vill visa dina uppladdade certifikat klickar du på **alla inställningar** > **anpassade domäner och SSL**.
 
 ### <a name="domain-names"></a>Domännamn
-Lägg till anpassade domännamn för din webbapp. Mer information finns i [konfigurera ett anpassat domännamn för en webbapp i Azure App Service](app-service-web-tutorial-custom-domain.md).
+Lägga till anpassade domännamn för din webbapp. Mer information finns i [konfigurera ett anpassat domännamn för en webbapp i Azure App Service](app-service-web-tutorial-custom-domain.md).
 
-Om du vill visa dina domännamn, klickar du på **alla inställningar** > **anpassade domäner och SSL**.
+Du kan visa dina domännamn genom att klicka på **alla inställningar** > **anpassade domäner och SSL**.
 
 ### <a name="deployments"></a>Distributioner
-* Ställ in kontinuerlig distribution. Se [med Git för att distribuera Webbappar i Azure App Service](app-service-deploy-local-git.md).
-* Distributionsplatser. Se [distribuera till Mellanlagringsmiljöer för Web Apps i Azure App Service].
+* Konfigurera kontinuerlig distribution. Se [med hjälp av Git för att distribuera Web Apps i Azure App Service](app-service-deploy-local-git.md).
+* Distributionsplatser. Se [distribuera till Mellanlagringsmiljöer för Webbappar i Azure App Service].
 
 Om du vill visa dina distributionsplatser, klickar du på **alla inställningar** > **distributionsfack**.
 
 ### <a name="monitoring"></a>Övervakning
-Du kan testa tillgängligheten för HTTP eller HTTPS-slutpunkter från upp till tre fördelade platser i Basic eller Standard-läge. En övervakning testet misslyckas om HTTP-svarskoden är ett fel (4xx eller 5xx) eller svaret tar mer än 30 sekunder. En slutpunkt anses vara tillgänglig om övervakning testerna lyckas från angivna platser. 
+Du kan testa tillgängligheten för HTTP eller HTTPS-slutpunkter, från upp till tre platser för geo-distribuerad i Basic eller Standard-läge. Det går inte att en övervakningstestet om HTTP-svarskoden är ett fel (4xx eller 5xx) eller svaret tar mer än 30 sekunder. En slutpunkt anses vara tillgänglig om övervakningstesten lyckas från de angivna platserna. 
 
-Mer information finns i [Så här: övervaka status på slutpunkt].
+Mer information finns i [så här: övervaka status för web-slutpunkt].
 
 > [!NOTE]
 > Om du vill komma igång med Azure App Service innan du registrerar dig för ett Azure-konto kan du gå till [Prova App Service]. Där kan du direkt skapa en tillfällig startwebbapp i App Service. Inga kreditkort krävs. Inga åtaganden.
@@ -170,17 +171,17 @@ Mer information finns i [Så här: övervaka status på slutpunkt].
 * [Konfigurera ett anpassat domännamn i Azure App Service]
 * [Aktivera HTTPS för en app i Azure App Service]
 * [Skala en webbapp i Azure App Service]
-* [Övervakning grunderna för Web Apps i Azure App Service]
+* [Grundläggande övervakning för Web Apps i Azure App Service]
 
 <!-- URL List -->
 
-[ASP.NET-SignalR]: http://www.asp.net/signalr
+[ASP.NET SignalR]: http://www.asp.net/signalr
 [Azure Portal]: https://portal.azure.com/
 [Konfigurera ett anpassat domännamn i Azure App Service]: ./app-service-web-tutorial-custom-domain.md
-[Distribuera till Mellanlagringsmiljöer för Web Apps i Azure App Service]: ./web-sites-staged-publishing.md
+[Distribuera till Mellanlagringsmiljöer för Webbappar i Azure App Service]: ./web-sites-staged-publishing.md
 [Aktivera HTTPS för en app i Azure App Service]: ./app-service-web-tutorial-custom-ssl.md
-[Så här: övervaka status på slutpunkt]: http://go.microsoft.com/fwLink/?LinkID=279906
-[Övervakning grunderna för Web Apps i Azure App Service]: ./web-sites-monitor.md
+[Så här: övervaka status för web-slutpunkt]: http://go.microsoft.com/fwLink/?LinkID=279906
+[Grundläggande övervakning för Web Apps i Azure App Service]: ./web-sites-monitor.md
 [Pipeline-läge]: http://www.iis.net/learn/get-started/introduction-to-iis/introduction-to-iis-architecture#Application
 [Skala en webbapp i Azure App Service]: ./web-sites-scale.md
 [Prova App Service]: https://azure.microsoft.com/try/app-service/

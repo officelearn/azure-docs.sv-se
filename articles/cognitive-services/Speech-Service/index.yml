@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 01b288136036fc5ff719c179821801aeac95c5c5
-ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
+ms.openlocfilehash: 7bfa1becd3eed5bcf3e2d0bec160a4b4e2f254a3
+ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/06/2018
-ms.locfileid: "48830540"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49091887"
 documentType: LandingData
 title: Dokumentation om Speech Service SDK
 metadata:
@@ -26,15 +26,6 @@ metadata:
   ms.author: nitinme
 abstract:
   description: Lär dig hur du använder Speech Service och Speech SDK för att lägga till stöd för talfunktioner till dina appar. Du kan använda Speech SDK för att lägga till funktionerna <i>tal till text</i> (taligenkänning/SR) <i>avsikt</i>, <i>översättning</i> och <i>text till tal</i> (text till tal) i dina appar. Taltjänsten har även ett REST API som fungerar med alla programmeringsspråk som kan göra HTTP-förfrågningar.
-  aside:
-    image:
-      alt: 
-      height: 110
-      src: ../media/index/speech-landing-page-video.png
-      width: 250
-    title: Speech Service-översikt (10:34)
-    href: https://azure.microsoft.com/resources/videos/connect-2017-microsoft-cognitive-services-overview-of-advanced-speech-capabilities/
-    width: 250
 sections:
 - items:
   - type: list
@@ -209,7 +200,7 @@ sections:
         <p><a href="https://aka.ms/csspeech/javascriptref">JavaScript API</a></p>
     - title: REST-API
       html: >
-        <p><a href="https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis">REST API</a></p>
+        <p><a href="https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis">REST-API</a></p>
     - title: PowerShell
       html: >
         <p><a href=https://docs.microsoft.com/powershell/module/azurerm.cognitiveservices/?view=azurermps-4.4.1#cognitive_services">Azure PowerShell</a></p>

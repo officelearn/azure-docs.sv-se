@@ -5,17 +5,17 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.component: authentication
 ms.topic: conceptual
-ms.date: 07/11/2018
+ms.date: 10/11/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: michmcla
-ms.openlocfilehash: f6067a6270010aaf57a404f66b8a99cbafa525ca
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: 4a90dc1d97121426e7b161b1d5c92df78b0925a6
+ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48041706"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49114166"
 ---
 # <a name="how-it-works-azure-multi-factor-authentication"></a>Så här fungerar det: Azure Multi-Factor Authentication
 
@@ -42,15 +42,6 @@ Multi-Factor Authentication ingår i följande erbjudanden:
 > [!NOTE]
 > Nya kunder kan inte längre att köpa Azure Multi-Factor Authentication som en fristående erbjuder effektiva September 1 2018. Multifaktorautentisering fortsätter att vara en tillgänglig funktion i Azure AD Premium-licenser.
 
-### <a name="auth-provider-or-mfa-license"></a>Auth-Provider eller MFA-licens
-
-Om du har Azure AD Premium eller en annan licens-paket som innehåller Azure AD Premium kan har du redan Azure MFA. Din organisation behöver inte något mer att utöka kapaciteten för tvåstegsverifiering verifiering för alla användare. Du behöver bara tilldela en licens till en användare och sedan kan du aktivera MFA.
-
-Om du inte har licenser som inkluderar Azure MFA eller inte har tillräckligt med licenser för alla användare, kan du skapa en [MFA Auth-Provider](concept-mfa-authprovider.md) att utöka alla funktioner i MFA till de användare som behövs.
-
-> [!IMPORTANT]
-> Om du inte har tillräckligt med licenser för alla användare, kan du skapa en per användare Multi-Factor Auth-Provider för att täcka resten av din organisation. Skapa inte en per autentisering Multi-Factor Auth-Provider. Om du gör det, kan du få betala för begäranden från användare som redan har licenser.
-
 ## <a name="supportability"></a>Support
 
 Eftersom de flesta användare är vana vid att använda endast lösenord för autentisering, är det viktigt att din organisation kommunicerar med alla användare om den här processen. Medvetenhet kan minska risken för att användare kontakta supportavdelningen för mindre allvarliga problem som rör MFA. Det finns dock vissa scenarier där tillfälligt inaktivera MFA är nödvändigt. Använd följande riktlinjer för att förstå hur du hanterar dessa scenarier:
@@ -65,8 +56,8 @@ Eftersom de flesta användare är vana vid att använda endast lösenord för au
 
 - Hämta en stegvisa MFA [distributionsplan](https://aka.ms/MFADeploymentPlan)
 
-- Hitta information om [licensiering dina användare](concept-mfa-licensing.md)
+- Hitta information om [licensiering av användare](concept-mfa-licensing.md)
 
-- Få information om [vilken version som ska distribuera](concept-mfa-whichversion.md)
+- Få information om [vilken version som ska distribueras](concept-mfa-whichversion.md)
 
-- Få svar på [vanliga frågor och svar](multi-factor-authentication-faq.md)
+- Få svar på [vanliga frågor](multi-factor-authentication-faq.md)

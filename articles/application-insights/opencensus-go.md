@@ -9,12 +9,12 @@ ms.date: 09/15/2018
 ms.service: application-insights
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 6262c7029a76deec2dc1169783e9cbf6311fc3f1
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 853fd1e9939631b6c459caf89994299e7a8406b0
+ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46958279"
+ms.lasthandoff: 10/12/2018
+ms.locfileid: "49165549"
 ---
 # <a name="collect-distributed-traces-from-go-preview"></a>Samla in distribuerade spårningar från Go (förhandsversion)
 
@@ -30,7 +30,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://a
 
 ## <a name="sign-in-to-the-azure-portal"></a>Logga in på Azure Portal
 
-Logga in på [Azure-portalen](https://portal.azure.com/).
+Logga in på [Azure Portal](https://portal.azure.com/).
 
 ## <a name="create-application-insights-resource"></a>Skapa Application Insights-källa
 
@@ -182,47 +182,47 @@ Du måste först skapa en Application Insights-resurs som genererar en instrumen
             log.Fatal(http.ListenAndServe(":50030", &ochttp.Handler{Propagation: &tracecontext.HTTPFormat{}}))
         
         }
-        ```
+     ```
 
-3. Once the simple go app is running navigate to `http://localhost:50030`. Each refresh of the browser will generate the text "hello world" accompanied by corresponding span data that is picked up by the local forwarder.
+3. När enkel go-app är igång går du till `http://localhost:50030`. Varje uppdatering av webbläsaren genererar den texten ”hello world” tillsammans med motsvarande span data som hämtas av den lokala vidarebefordraren.
 
-4. To confirm that the **local forwarder** is picking up the traces check the `LocalForwarder.config` file. If you followed the steps in the [prerequisite](https://docs.microsoft.com/azure/application-insights/local-forwarder#windows-service), it will be located in `C:\LF-WindowsServiceHost`.
+4. Att bekräfta att den **lokala vidarebefordrare** plocka upp kontrollen spårningar den `LocalForwarder.config` filen. Om du har följt stegen i den [nödvändiga](https://docs.microsoft.com/azure/application-insights/local-forwarder#windows-service), det ska finnas i `C:\LF-WindowsServiceHost`.
 
-    In the image below of the log file, you can see that prior to running the second script where we added an exporter `OpenCensus input BatchesReceived` was 0. Once we started running the updated script `BatchesReceived` incremented equal to the number of values we entered:
+    I nedanstående bild av loggfilen, kan du se att innan du kör skriptet andra där vi har lagt till en exportör `OpenCensus input BatchesReceived` : 0. När vi började köras det uppdaterade skriptet `BatchesReceived` ökar lika med antalet värden som vi angav:
     
-    ![New App Insights resource form](./media/opencensus-go/0004-batches-received.png)
+    ![Nytt App Insights-resursformulär](./media/opencensus-go/0004-batches-received.png)
 
-## Start monitoring in the Azure portal
+## <a name="start-monitoring-in-the-azure-portal"></a>Börja övervaka i Azure-portalen
 
-1. You can now reopen the Application Insights **Overview** page in the Azure portal, to view details about your currently running application. Select **Live Metric Stream**.
+1. Nu kan du öppna Application Insights **översikt** sida i Azure portal, för att visa information om programmet som körs för närvarande. Välj **Live Metric Stream**.
 
-   ![Screenshot of overview pane with live metric stream selected in red box](./media/opencensus-go/0005-overview-live-metrics-stream.png)
+   ![Skärmbild av översiktsfönstret med live metric stream för valt med röd ram](./media/opencensus-go/0005-overview-live-metrics-stream.png)
 
-2. If you run the second Go app again and start refreshing the browser for `http://localhost:50030`, you will see live trace data as it arrives in Application Insights from the local forwarder service.
+2. Om du kör andra Go-appen igen och starta uppdatering av webbläsaren för `http://localhost:50030`, ser du live spårningsdata när de anländer i Application Insights från lokala vidarebefordrartjänsten.
 
-   ![Screenshot of live metric stream with performance data displayed](./media/opencensus-go/0006-stream.png)
+   ![Skärmbild av live metric stream för med prestandadata som visas](./media/opencensus-go/0006-stream.png)
 
-3. Navigate back to the **Overview** page and select **Application Map** for a visual layout of the dependency relationships and call timing between your application components.
+3. Gå tillbaka till den **översikt** och välj **Programkartan** för en visuell layout av beroenden och anrop tidsinställning mellan programkomponenter.
 
-    ![Screenshot of basic application map](./media/opencensus-go/0007-application-map.png)
+    ![Skärmbild av program med grundläggande karta](./media/opencensus-go/0007-application-map.png)
 
-    Since we were only tracing one method call, our application map isn't as interesting. But application map can scale to visualize far more distributed applications:
+    Eftersom vi bara spårning ett metodanrop, inte våra programkartan som intressant. Men programkartan kan skalas för att visualisera mycket mer distribuerade program:
 
-   ![Application Map](./media/app-insights-nodejs-quick-start/application-map.png)
+   ![Programkarta](./media/app-insights-nodejs-quick-start/application-map.png)
 
-4. Select **Investigate Performance** to perform detailed performance analysis and determine the root cause of slow performance.
+4. Välj **Undersök prestanda** att utföra detaljerade prestandaanalys och fastställa orsaken till långsamma prestanda.
 
-    ![Screenshot of performance pane](./media/opencensus-go/0008-performance.png)
+    ![Skärmbild av fönstret för prestanda](./media/opencensus-go/0008-performance.png)
 
-5. Selecting **Samples** and then clicking on any of the samples that appear in the right-hand pane will launch the end-to-end transaction details experience. While our sample app will just show us a single event, a more complex application would allow you to explore the end-to-end transaction down to level of an individual event's call stack.
+5. Att välja **exempel** och sedan klicka på någon av de exempel som visas i rutan till höger startar slutpunkt till slutpunkt transaktion information upplevelse. Även om vår exempelapp kommer bara att visa en enda händelse, skulle ett mer komplext program kan du utforska slutpunkt till slutpunkt-transaktion till nivå i en enskild händelse anropsstacken.
 
-     ![Screenshot of end-to-end transaction interface](./media/opencensus-go/0009-end-to-end-transaction.png)
+     ![Skärmbild av transaktionsgränssnitt som slutpunkt till slutpunkt](./media/opencensus-go/0009-end-to-end-transaction.png)
 
-## OpenCensus trace for Go
+## <a name="opencensus-trace-for-go"></a>Spårning av OpenCensus för Go
 
-We only covered the basics of integrating OpenCensus for Go with the local forwarder and Application Insights. The [official OpenCensus Go usage guidance](https://godoc.org/go.opencensus.io) covers more advanced topics.
+Vi bara beskrivs grunderna för att integrera OpenCensus för Go med lokala vidarebefordrare och Application Insights. Den [officiella vägledning för användning av OpenCensus Go](https://godoc.org/go.opencensus.io) omfattar mer avancerade avsnitt.
 
-## Next steps
+## <a name="next-steps"></a>Nästa steg
 
-* [Application map](./app-insights-app-map.md)
-* [End-to-end performance monitoring](./app-insights-tutorial-performance.md)
+* [Programkarta](./app-insights-app-map.md)
+* [Prestandaövervakning för slutpunkt till slutpunkt](./app-insights-tutorial-performance.md)

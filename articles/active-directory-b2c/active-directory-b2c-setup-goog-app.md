@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 09/11/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 1ddcbba4eacad040420efaf087f170e6c06ab2a0
-ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
+ms.openlocfilehash: 5f6ce3564cf4056dc9295e1885be425bbe3d7701
+ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47182407"
+ms.lasthandoff: 10/12/2018
+ms.locfileid: "49165308"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-google-account-using-azure-active-directory-b2c"></a>Konfigurera registrering och inloggning med ett Google-konto med hjälp av Azure Active Directory B2C
 
@@ -28,7 +28,7 @@ Om du vill använda ett Google-konto som identitetsprovider i Azure Active Direc
 3. Ange en **projektnamn**, klickar du på **skapa**, och kontrollera att du använder det nya projektet.
 3. Välj **autentiseringsuppgifter** i den vänstra menyn och välj sedan **skapa autentiseringsuppgifter** > **Oauth klient-ID**.
 4. Välj **konfigurera godkännandeskärmen**.
-5. Välj eller ange en giltig **e-postadress**, ange en **produktnamn som visas för användare**, och klicka på **spara**.
+5. Välj eller ange en giltig **e-postadress**, ange en **produktnamn som visas för användare**, lägga till `b2clogin.com` till **auktoriserade domäner**, och klicka på **spara** .
 6. Under **programtyp**väljer **webbprogram**.
 7. Ange en **namn** för ditt program ange `https://your-tenant-name.b2clogin.com` i **behörighet JavaScript ursprung**, och `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/authresp` i **auktoriserade omdirigerings-URI: er**. Ersätt `your-tenant-name` med namnet på din klient. Du måste använda gemener när du anger ditt klientnamn även om klienten har definierats med versaler i Azure AD B2C.
 8. Klicka på **Skapa**.

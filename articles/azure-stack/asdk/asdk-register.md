@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 10/11/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.openlocfilehash: 16d775b15c9e4ec8898d5c7e498299288f1c37c2
-ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
+ms.openlocfilehash: 19206163a07964b564300bbed1fed45973c8fc74
+ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49113444"
+ms.lasthandoff: 10/13/2018
+ms.locfileid: "49311073"
 ---
 # <a name="azure-stack-registration"></a>Azure Stack-registrering
 Du kan registrera din Azure Stack Development Kit (ASDK)-installation med Azure kan du hämta marketplace från Azure och du ställer in handelsdata rapporterar tillbaka till Microsoft. Registrering krävs för att stödja fullständig Azure Stack-funktioner, inklusive marketplace syndikering. Registrering rekommenderas eftersom det gör att du kan testa viktiga Azure Stack-funktioner som marketplace-syndikering och användningsrapportering. När du har registrerat Azure Stack rapporteras användning till Azure commerce. Du kan se den prenumeration som du använde för registrering. ASDK användare debiteras dock inte för eventuell användning av rapporterar.
@@ -68,7 +68,7 @@ Följ dessa steg för att registrera ASDK med Azure.
     -PrivilegedEndpoint AzS-ERCS01 `
     -BillingModel Development `
     -RegistrationName $RegistrationName `
-    -EnableUsageReporting:$UsageReporting
+    -UsageReportingEnabled:$UsageReporting
     ```
 3. När skriptet har slutförts bör du se det här meddelandet: **miljön är nu registrerad och aktiverad med hjälp av de angivna parametrarna.**
 

@@ -11,13 +11,13 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: sashan, moslake
 manager: craigg
-ms.date: 10/09/2018
-ms.openlocfilehash: e93de9b3642e0b01bf65b6761d8832b0d4c2a431
-ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
+ms.date: 10/12/2018
+ms.openlocfilehash: a0d8e225718361c096b914245d73064edb1715c4
+ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48901693"
+ms.lasthandoff: 10/12/2018
+ms.locfileid: "49166363"
 ---
 # <a name="vcore-service-tiers-azure-hybrid-use-benefit-and-migration"></a>vCore-tjänstnivåer, Azure Hybrid Use Benefit och migrering
 
@@ -66,9 +66,13 @@ I den vCore-baserade inköpsmodellen, kan du byta dina befintliga licenser för 
 
 ## <a name="migration-from-dtu-model-to-vcore-model"></a>Migrering från DTU-modellen till vCore-modellen
 
-### <a name="migration-of-single-databases-with-geo-replication-links"></a>Migrering av enskilda databaser med geo-replikeringslänkar
+### <a name="migration-of-a-database"></a>Migrering av en databas
 
-Migrera till från DTU-baserade modellen till vCore-baserade modellen liknar att uppgradera eller nedgradera geo-replikering relationerna mellan Standard och Premium-databaser. Det kräver inte avslutar geo-replikering, men användaren måste följa reglerna ordningsföljd. När du uppgraderar, måste du uppgradera den sekundära databasen först och sedan uppgradera primärt. När du nedgraderar, i omvänd ordning: du nedgradera den primära databasen först och sedan nedgraderar sekundär. 
+Migrera en databas från den DTU-baserade inköpsmodellen till den vCore-baserade inköpsmodellen liknar att uppgradera eller nedgradera mellan Standard och Premium-databaser i den DTU-baserade inköpsmodellen.
+
+### <a name="migration-of-databases-with-geo-replication-links"></a>Migrering av databaser med geo-replikeringslänkar
+
+Migrera till från DTU-baserade modellen till vCore-baserade modellen liknar att uppgradera eller nedgradera geo-replikering relationerna mellan Standard och Premium-databaser. Det kräver inte avslutar geo-replikering, men användaren måste följa reglerna ordningsföljd. När du uppgraderar, måste du uppgradera den sekundära databasen först och sedan uppgradera primärt. När du nedgraderar, i omvänd ordning: du nedgradera den primära databasen först och sedan nedgraderar sekundär.
 
 När du använder geo-replikering mellan två elastiska pooler, rekommenderar vi att du anger en pool som primärt och den andra – som sekundärt. I så fall bör migrerar elastiska pooler använda samma riktlinjer.  Men är det tekniskt sett är det möjligt att en elastisk pool innehåller både primära och sekundära databaser. I det här fallet ska om du vill migrera korrekt du behandla poolen med högre användning som ”primär” och följ sekvensering reglerna i enlighet med detta.  
 
@@ -88,15 +92,15 @@ I följande tabell innehåller riktlinjer för specifika Migreringsscenarier:
 
 \* Varje 100 dtu: er i Standard-nivån kräver minst 1 virtuell kärna och varje 125 DTU på premiumnivån kräver minst 1 virtuell kärna
 
-### <a name="migration-of-failover-groups"></a>Migrering av redundansgrupper 
+### <a name="migration-of-failover-groups"></a>Migrering av redundansgrupper
 
-Migrering av redundansgrupper med flera databaser kräver enskilda migreringen av de primära och sekundära databaserna. Samma överväganden och sekvensering regler gäller vid den här processen. När databaserna som har konverterats till den vCore-baserade modellen, redundansgruppen kommer att gälla med samma principinställningar. 
+Migrering av redundansgrupper med flera databaser kräver enskilda migreringen av de primära och sekundära databaserna. Samma överväganden och sekvensering regler gäller vid den här processen. När databaserna som har konverterats till den vCore-baserade modellen, redundansgruppen kommer att gälla med samma principinställningar.
 
 ### <a name="creation-of-a-geo-replication-secondary"></a>Skapandet av en sekundär geo-replikering
 
 Du kan bara skapa en geo-secondary baserat på samma tjänstenivå som primär. För databasen med hög log generation hastighet vi rekommenderar att sekundärt skapas med samma beräkning storlek som primärt. Om du skapar en geo-secondary i den elastiska poolen för en enskild primär databas, är det bäst att poolen har de `maxVCore` inställning som matchar beräkningsstorleken primära databasen. Om du skapar en geo-secondary i den elastiska poolen för en primär i en annan elastisk pool, är det bäst att poolerna har samma `maxVCore` inställningar
 
-### <a name="using-database-copy-to-convert-a-dtu-based-database-to-a-vcore-based-database"></a>Använda databaskopian och konvertera en DTU-baserad databas till en vCore-baserad databas.
+### <a name="using-database-copy-to-convert-a-dtu-based-database-to-a-vcore-based-database"></a>Använda databaskopian och konvertera en DTU-baserad databas till en vCore-baserad databas
 
 Du kan kopiera en databas med lämplig storlek i DTU-baserad beräkning till en databas med lämplig storlek för vCore-baserad beräkning utan begränsningar eller särskilda ordningsföljd så länge Målstorlek för beräkning har stöd för den maximala databasstorleken av källdatabasen. Databaskopian skapar en ögonblicksbild av data från och med starttiden för kopieringen och utför inte synkronisera data mellan källan och målet.
 

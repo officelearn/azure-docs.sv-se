@@ -16,12 +16,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/23/2018
 ms.author: markvi
-ms.openlocfilehash: 56df09f461458071093088159d3b468755b0e4ad
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: 71d8bfa116fd4d0e824d80da26df7271121a595c
+ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47434950"
+ms.lasthandoff: 10/13/2018
+ms.locfileid: "49311379"
 ---
 # <a name="enable-enterprise-state-roaming-in-azure-active-directory"></a>Aktivera enterprise tillståndsväxling i Azure Active Directory
 Enterprise State Roaming är tillgänglig för alla företag med en Azure AD Premium eller Enterprise Mobility + Security (EMS)-licens. Mer information om hur du hämtar en Azure AD-prenumeration finns i den [produktsidan för Azure AD](https://azure.microsoft.com/services/active-directory).
@@ -32,9 +32,9 @@ När du aktiverar Enterprise State Roaming, beviljas automatiskt en kostnadsfri,
 
 1. Logga in på [Azure AD administratörscenter](https://aad.portal.azure.com/).
 
-2. Välj **Azure Active Directory** &gt; **enheter** &gt; **Enterprise State Roaming**.
+1. Välj **Azure Active Directory** &gt; **enheter** &gt; **Enterprise State Roaming**.
 
-3. Välj **användarna kan synkronisera inställningar och AppData på enheter**. Mer information finns i [så här konfigurerar du Enhetsinställningar](https://docs.microsoft.com/azure/active-directory/device-management-azure-portal).
+1. Välj **användarna kan synkronisera inställningar och AppData på enheter**. Mer information finns i [så här konfigurerar du Enhetsinställningar](https://docs.microsoft.com/azure/active-directory/device-management-azure-portal).
   
   ![Bild av enhetsinställning med namnet användare kan synkronisera inställningar och AppData på enheter](./media/active-directory-windows-enterprise-state-roaming-enable/device-settings.png)
   
@@ -57,15 +57,15 @@ Följ dessa steg om du vill visa en statusrapport för per användare enheten sy
 
 1. Logga in på [Azure AD administratörscenter](https://aad.portal.azure.com/).
 
-2. Välj **Azure Active Directory** &gt; **användare** &gt; **alla användare**.
+1. Välj **Azure Active Directory** &gt; **användare** &gt; **alla användare**.
 
-3. Välj användaren och välj sedan **enheter**.
+1. Välj användaren och välj sedan **enheter**.
 
-4. Under **visa**väljer **Enhetssynkroniseringställningar eller AppData** att visa synkroniseringsstatus.
+1. Under **visa**väljer **Enhetssynkroniseringställningar eller AppData** att visa synkroniseringsstatus.
   
   ![Bild av enhetsinställning synkronisera data](./media/active-directory-windows-enterprise-state-roaming-enable/sync-status.png)
   
-5. Om det finns enheter synkroniserar för den här användaren kan se enheterna som visas här.
+1. Om det finns enheter synkroniserar för den här användaren kan se enheterna som visas här.
   
   ![Bild av kolumnbaserad enhetsdata för synkronisering](./media/active-directory-windows-enterprise-state-roaming-enable/device-status-row.png)
 

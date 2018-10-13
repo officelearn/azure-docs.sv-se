@@ -5,14 +5,14 @@ services: storage
 author: seguler
 ms.service: storage
 ms.topic: article
-ms.date: 05/10/2018
+ms.date: 10/11/2018
 ms.author: seguler
-ms.openlocfilehash: 9964aa4d263e0b75eb59b4e1434a9b3f0aac6ea1
-ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
+ms.openlocfilehash: 4f29933fbd4b9ea5c9868e307a6affa7e2273e3d
+ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39400443"
+ms.lasthandoff: 10/12/2018
+ms.locfileid: "49165189"
 ---
 # <a name="how-to-mount-blob-storage-as-a-file-system-with-blobfuse"></a>Hur du montera Blob storage som ett filsystem med blobfuse
 
@@ -27,7 +27,7 @@ Den här guiden visar hur du använder blobfuse och montera Blob storage-behåll
 > 
 
 ## <a name="install-blobfuse-on-linux"></a>Installera blobfuse på Linux
-Blobfuse binärfiler finns på [lagringsplatser för Microsoft-programvara för Linux](https://docs.microsoft.com/windows-server/administration/Linux-Package-Repository-for-Microsoft-Software). Konfigurera en av dessa databaser för att kunna installera blobfuse.
+Blobfuse binärfiler finns på [lagringsplatser för Microsoft-programvara för Linux](https://docs.microsoft.com/windows-server/administration/Linux-Package-Repository-for-Microsoft-Software) för distributioner som Ubuntu och RHEL. Konfigurera en databaser i listan för att kunna installera blobfuse på dessa distributioner. Du kan också skapa binärfiler från källkoden följa installationsstegen [här](https://github.com/Azure/azure-storage-fuse/wiki/1.-Installation#option-2---build-from-source) om det finns inga binärfiler för din distribution.
 
 ### <a name="configure-the-microsoft-package-repository"></a>Konfigurera Microsoft-paketdatabasen
 Konfigurera den [Linux Paketdatabasen för Microsoft-produkter](https://docs.microsoft.com/windows-server/administration/Linux-Package-Repository-for-Microsoft-Software).
@@ -89,7 +89,7 @@ Blobfuse kräver dina autentiseringsuppgifter som ska lagras i en textfil i föl
 
 ```
 accountName myaccount
-accountKey myaccesskey==
+accountKey 9fD-/KjshdfLDERmcIjabcdefhAUSIHD/asdhfoiasiaAISOIabcdef/askdfewiAASJDNFL+askdlfj==
 containerName mycontainer
 ```
 
@@ -97,6 +97,10 @@ När du har skapat den här filen kan du se till att begränsa åtkomst så att 
 ```bash
 chmod 700 fuse_connection.cfg
 ```
+
+> [!NOTE]
+> Om du har skapat konfigurationsfilen på Windows, se till att köra `dos2unix` att rensa och konvertera till Unix-format. 
+>
 
 ### <a name="create-an-empty-directory-for-mounting"></a>Skapa en tom katalog för montering
 ```bash

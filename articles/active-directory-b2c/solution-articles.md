@@ -4,16 +4,16 @@ description: Den här artikeln får du länkar till lösningen och utbildningsin
 services: active-directory-b2c
 author: davidmu1
 ms.author: davidmu
-ms.date: 09/07/2018
+ms.date: 10/11/2018
 ms.topic: conceptual
 ms.service: active-directory
 ms.component: b2c
-ms.openlocfilehash: bdacbe425aa3140f8a3d60fdf121712d1e6eda3e
-ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
+ms.openlocfilehash: 74598aa83a9ed47ee85ef71593745faccfb81ee3
+ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/13/2018
-ms.locfileid: "45541610"
+ms.lasthandoff: 10/12/2018
+ms.locfileid: "49165955"
 ---
 # <a name="solutions-and-training-for-azure-active-directory-b2c"></a>Lösningar och träning för Azure Active Directory B2C
 
@@ -22,6 +22,7 @@ Azure Active Directory (Azure AD) B2C kan organisationer att implementera affär
 | Titel | Beskrivning |
 | ----- | ----------- |
 | [Kunden Identitetshantering med Azure AD B2C](https://channel9.msdn.com/Shows/On-NET/Customer-Identity-Management-with-Azure-AD-B2C) | I den här översikten av tjänsten, Parakh Jain ([@jainparakh](https://twitter.com/jainparakh)) från Azure AD B2C team ger oss en översikt över hur tjänsten fungerar, och visar också hur vi snabbt kan ansluta B2C till ett ASP.NET Core-program. |
+| [Fördelarna med att använda Azure AD B2C](https://aka.ms/b2coverview) | Förstå fördelarna och vanliga scenarier med Azure AD B2C och hur dina program kan utnyttja den här CIAM-tjänsten. |
 | [Få kunskap om Azure AD B2C: en kurs för utvecklare](https://aka.ms/learnAADB2C) | Den här slutpunkt till slutpunkt-kursen guidar utvecklare via en fullständig resa på utveckling av program med Azure AD B2C som autentiseringsmetod. Tio djupgående moduler med labs omfattar allt från hur du konfigurerar en Azure-prenumeration att skapa anpassade principer som definierar de utbildning som gör kunderna engagerade. |
 | [Aktivera partners, leverantörer och kunder att köra program med Azure active Directory](https://aka.ms/aadexternalidentities) | Varje organisation lyckas, oavsett dess storlek, bransch, eller efterlevnad och säkerhetsposition, är beroende av organisationens möjlighet att samarbeta med andra organisationer och kontakt med kunder.<br><br>Sammanför Azure AD, Azure AD B2C och Azure AD B2B-samarbete, den här guiden beskrivs affärsvärdet och säkerhetsnivån för att skapa en program- eller web upplevelse som tillhandahåller en konsoliderad autentisering skräddarsys för ramen för din anställda, affärspartner och leverantörer och kunder. |
 | [Migrera program autentisering till Azure AD B2C i en Hybridmiljö](https://aka.ms/MigratetoAADB2C) | I dagens moderna organisationer sker digitala omvandling och flytta till molnet i faser för att kräva att de flesta organisationer att åtminstone temporärt fungera i en hybridmiljö identitet.<br><br>Den här guiden fokuserar på att skapa migreringsplan för att flytta ditt första program till Azure AD B2C och täcker överväganden för att göra det i en hybridmiljö identitet. |

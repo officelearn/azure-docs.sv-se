@@ -8,12 +8,12 @@ ms.devlang: c
 ms.topic: conceptual
 ms.date: 08/25/2017
 ms.author: yizhon
-ms.openlocfilehash: 0c2f39ed1610598ab4f7f857da3df817089bcb38
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: 5e29dcde80da75fa70fe6dcbf35d7f319a5ca3cb
+ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48044747"
+ms.lasthandoff: 10/13/2018
+ms.locfileid: "49311159"
 ---
 # <a name="azure-iot-device-sdk-for-c"></a>Azure IoT-enhetens SDK för C
 
@@ -87,29 +87,29 @@ Om du inte är bekant med device explorer-verktyg, beskriver följande procedur 
 
 1. Om du vill installera device explorer-verktyg, se [hur du använder Device Explorer för IoT Hub-enheter](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/tools/DeviceExplorer).
 
-2. När du kör programmet visas det här gränssnittet:
+1. När du kör programmet visas det här gränssnittet:
 
   ![Device Explorer Twin skärmbild](./media/iot-hub-device-sdk-c-intro/DeviceExplorerTwinConfigTab.png)
 
-3. Ange din **IoT Hub-anslutningssträngen** i första fältet och klickar på **uppdatering**. Det här steget konfigurerar verktyget så att den kan kommunicera med IoT Hub. 
+1. Ange din **IoT Hub-anslutningssträngen** i första fältet och klickar på **uppdatering**. Det här steget konfigurerar verktyget så att den kan kommunicera med IoT Hub. 
 
 Den **Connection String** finns under **IoT Hub-tjänsten** > **inställningar** > **Policy för delad åtkomst**  >  **iothubowner**.
 
-4. När IoT Hub-anslutningssträngen konfigureras, klickar du på den **Management** fliken:
+1. När IoT Hub-anslutningssträngen konfigureras, klickar du på den **Management** fliken:
 
   ![Device Explorer Twin / hantering av skärmbild](./media/iot-hub-device-sdk-c-intro/DeviceExplorerTwinManagementTab.png)
 
 Den här fliken är där du hanterar enheter som är registrerade i IoT hub.
 
-5. Du skapar en enhet genom att klicka på den **skapa** knappen. En dialogruta visas med en uppsättning förifyllda nycklar (primär eller sekundär). Ange en **enhets-ID** och klicka sedan på **skapa**.
+1. Du skapar en enhet genom att klicka på den **skapa** knappen. En dialogruta visas med en uppsättning förifyllda nycklar (primär eller sekundär). Ange en **enhets-ID** och klicka sedan på **skapa**.
 
   ![Skapa enhet skärmbild](./media/iot-hub-device-sdk-c-intro/CreateDevice.png)
 
-6. När enheten har skapats, lista enheterna uppdateringar med alla registrerade enheter, inklusive den som du nyss skapade. Om du högerklickar på den nya enheten kan se du den här menyn:
+1. När enheten har skapats, lista enheterna uppdateringar med alla registrerade enheter, inklusive den som du nyss skapade. Om du högerklickar på den nya enheten kan se du den här menyn:
 
   ![Device Explorer Twin högerklickar du på resultatet](./media/iot-hub-device-sdk-c-intro/DeviceExplorerTwinManagementTab_RightClick.png)
 
-7. Om du väljer **kopiera anslutningssträngen för vald enhet**, enhetens anslutningssträng har kopierats till Urklipp. Behåll en kopia av enhetens anslutningssträng. Du behöver den när du kör exempelprogram som beskrivs i följande avsnitt.
+1. Om du väljer **kopiera anslutningssträngen för vald enhet**, enhetens anslutningssträng har kopierats till Urklipp. Behåll en kopia av enhetens anslutningssträng. Du behöver den när du kör exempelprogram som beskrivs i följande avsnitt.
 
 När du har slutfört stegen ovan, är du redo att börja köra kod. De flesta exempel har en konstant överst i filen huvudsakliga källan som gör att du kan ange en anslutningssträng. Till exempel motsvarande rad från den **iothub\_klienten\_exempel\_mqtt** program visas på följande sätt.
 
@@ -320,7 +320,7 @@ Använd den **IoTHubMessage\_GetByteArray** funktionen för att hämta meddeland
 
 När du är klar skickar händelser och mottagande meddelanden uninitialize du IoT-biblioteket. Utfärda följande funktionsanropet gör du:
 
-```
+```c
 IoTHubClient_LL_Destroy(iotHubClientHandle);
 ```
 

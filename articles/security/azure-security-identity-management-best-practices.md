@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/17/2018
 ms.author: barclayn
-ms.openlocfilehash: f6640e7d179199fbfb5b0c2b0c384729b6f53bcf
-ms.sourcegitcommit: 8b694bf803806b2f237494cd3b69f13751de9926
+ms.openlocfilehash: b1002d046014abd15452489e343ecf7c30b00d73
+ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/20/2018
-ms.locfileid: "46498257"
+ms.lasthandoff: 10/13/2018
+ms.locfileid: "49311345"
 ---
 # <a name="azure-identity-management-and-access-control-security-best-practices"></a>Azure Identitetshantering och åtkomstkontroll säkerhetsmetoder
 
@@ -113,7 +113,7 @@ Det finns flera alternativ för att kräva tvåstegsverifiering. Det bästa alte
 
 Följande är alternativ och fördelar för att aktivera tvåstegsverifiering:
 
-**Alternativ 1**: [aktivera Multi-Factor Authentication genom att ändra användarens tillstånd](../active-directory/authentication/howto-mfa-userstates.md#enable-azure-mfa-by-changing-user-status).   
+**Alternativ 1**: [aktivera Multi-Factor Authentication genom att ändra användarens tillstånd](../active-directory/authentication/howto-mfa-userstates.md).   
 **Förmånen**: det här är den traditionella metoden för att kräva tvåstegsverifiering. Det fungerar med både [Azure Multi-Factor Authentication i molnet och Azure Multi-Factor Authentication Server](../active-directory/authentication/concept-mfa-whichversion.md). Med den här metoden kräver att användare utför en tvåstegsverifiering varje gång de loggar in och åsidosättningar principer för villkorlig åtkomst.
 
 **Alternativ 2**: [aktivera Multi-Factor Authentication med principen för villkorlig åtkomst](../active-directory/authentication/howto-mfa-getstarted.md#enable-multi-factor-authentication-with-conditional-access).   
@@ -121,7 +121,7 @@ Följande är alternativ och fördelar för att aktivera tvåstegsverifiering:
 
 Det här är det mest flexibla sättet att aktivera tvåstegsverifiering för dina användare. När en princip för villkorlig åtkomst fungerar endast för Azure Multi-Factor Authentication i molnet och är en premiumfunktion i Azure AD. Du hittar mer information om den här metoden i [distribuera molnbaserade Azure Multi-Factor Authentication](../active-directory/authentication/howto-mfa-getstarted.md).
 
-**Alternativ 3**: aktivera Multi-Factor Authentication med principer för villkorlig åtkomst genom att utvärdera risken för användare och logga in för [Azure AD Identity Protection](../active-directory/active-directory-identityprotection.md).   
+**Alternativ 3**: aktivera Multi-Factor Authentication med principer för villkorlig åtkomst genom att utvärdera risken för användare och logga in för [Azure AD Identity Protection](../active-directory/authentication/tutorial-risk-based-sspr-mfa.md).   
 **Förmånen**: det här alternativet kan du:
 
 - Identifiera potentiella sårbarheter som påverkar organisationens identiteter.
@@ -131,7 +131,7 @@ Det här är det mest flexibla sättet att aktivera tvåstegsverifiering för di
 Den här metoden används Azure AD Identity Protection riskbedömningen att avgöra om tvåstegsverifiering krävs baserat på användare och inloggningsrisk för alla molnprogram. Den här metoden kräver Azure Active Directory P2 licensiering. Du hittar mer information om den här metoden i [Azure Active Directory Identity Protection](../active-directory/identity-protection/overview.md).
 
 > [!Note]
-> Alternativ 1, aktivera Multi-Factor Authentication genom att ändra användartillståndet, åsidosätter villkorsprinciper. Eftersom alternativ 2 och 3 använder principer för villkorlig åtkomst, kan du inte använda alternativ 1 med dem.
+> Alternativ 1, aktivera Multi-Factor Authentication genom att ändra användartillståndet, åsidosätter principer för villkorlig åtkomst. Eftersom alternativ 2 och 3 använder principer för villkorlig åtkomst, kan du inte använda alternativ 1 med dem.
 
 Organisationer som inte lägger till extra skyddslager för identitet, till exempel tvåstegsverifiering, är mer sårbara för angrepp för stöld av autentiseringsuppgifter. En attack med stöld av autentiseringsuppgifter kan leda till kompromettering av data.
 

@@ -1,6 +1,6 @@
 ---
 title: Kopiera data från Netezza med hjälp av Azure Data Factory | Microsoft Docs
-description: Lär dig hur du kopierar data från Netezza till stöds sink datalager med hjälp av en kopia aktivitet i ett Azure Data Factory-pipelinen.
+description: Lär dig hur du kopierar data från Netezza till mottagarens datalager genom att använda en Kopieringsaktivitet i en Azure Data Factory-pipeline.
 services: data-factory
 documentationcenter: ''
 author: linda33wj
@@ -13,47 +13,47 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/15/2018
 ms.author: jingwang
-ms.openlocfilehash: f8c10e2200f830ea6e568e7b3fba1f0a6085cef2
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 1b7499990a049f276bf1af9e31b639ea4944d8f7
+ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37059178"
+ms.lasthandoff: 10/12/2018
+ms.locfileid: "49167582"
 ---
-# <a name="copy-data-from-netezza-using-azure-data-factory"></a>Kopiera data från Netezza med hjälp av Azure Data Factory 
+# <a name="copy-data-from-netezza-by-using-azure-data-factory"></a>Kopiera data från Netezza med hjälp av Azure Data Factory 
 
-Den här artikeln beskrivs hur du använder aktiviteten kopiera i Azure Data Factory för att kopiera data från Netezza. Den bygger på den [kopiera aktivitet översikt](copy-activity-overview.md) artikel som presenterar en allmän översikt över kopieringsaktiviteten.
+Den här artikeln beskrivs hur du använder Kopieringsaktivitet i Azure Data Factory för att kopiera data från Netezza. Artikeln bygger vidare på [Kopieringsaktivitet i Azure Data Factory](copy-activity-overview.md), som anger en allmän översikt över Kopieringsaktivitet.
 
 ## <a name="supported-capabilities"></a>Funktioner som stöds
 
-Du kan kopiera data från Netezza till alla stöds sink-datalagret. En lista över datalager som stöds som källor/sänkor av kopieringsaktiviteten, finns det [stöds datalager](copy-activity-overview.md#supported-data-stores-and-formats) tabell.
+Du kan kopiera data från Netezza till alla datalager för mottagare som stöds. En lista över data lagrar att det stöder Kopieringsaktiviteten som källor och mottagare, finns i [datalager och format som stöds](copy-activity-overview.md#supported-data-stores-and-formats).
 
-Azure Data Factory innehåller en inbyggd drivrutin att tillåta anslutningar, måste du därför inte att manuellt installera en drivrutin med den här anslutningen.
+Azure Data Factory tillhandahåller en inbyggd drivrutin om du vill aktivera anslutningen. Du behöver inte installera en drivrutin för att använda den här anslutningen manuellt.
 
-## <a name="getting-started"></a>Komma igång
+## <a name="get-started"></a>Kom igång
 
-Du kan skapa en pipeline med kopieringsaktiviteten använder .NET SDK, Python SDK, Azure PowerShell, REST-API eller Azure Resource Manager-mall. Se [kopiera aktivitet kursen](quickstart-create-data-factory-dot-net.md) för stegvisa instruktioner för att skapa en pipeline med en Kopieringsaktivitet.
+Du kan skapa en pipeline som använder en Kopieringsaktivitet med hjälp av .NET SDK, Python SDK, Azure PowerShell, REST API eller en Azure Resource Manager-mall. Se den [Kopieringsaktiviteten självstudien](quickstart-create-data-factory-dot-net.md) stegvisa instruktioner om hur du skapar en pipeline med en Kopieringsaktivitet.
 
-Följande avsnitt innehåller information om egenskaper som används för att definiera Data Factory entiteter till Netezza connector.
+Följande avsnitt innehåller information om egenskaper som du kan använda för att definiera Data Factory-entiteter som är specifika för Netezza-anslutningsappen.
 
-## <a name="linked-service-properties"></a>Länkad tjänstegenskaper
+## <a name="linked-service-properties"></a>Länkade tjänstegenskaper
 
-Följande egenskaper stöds för Netezza länkade tjänsten:
+Följande egenskaper har stöd för Netezza länkade tjänsten:
 
 | Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| typ | Egenskapen type måste anges till: **Netezza** | Ja |
-| connectionString | En ODBC-anslutningssträng att ansluta till Netezza. Markera det här fältet som en SecureString lagra den på ett säkert sätt i Data Factory eller [referera en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). | Ja |
-| connectVia | Den [integrering Runtime](concepts-integration-runtime.md) som används för att ansluta till datalagret. Du kan använda Self-hosted integrering Runtime eller Azure Integration Runtime (om datalager är offentligt tillgänglig). Om inget anges används standard-Azure Integration Runtime. |Nej |
+| typ | Den **typ** egenskapen måste anges till **Netezza**. | Ja |
+| connectionString | En ODBC-anslutningssträng att ansluta till Netezza. Markera det här fältet som en **SecureString** Skriv för att lagra den på ett säkert sätt i Data Factory. Du kan också [refererar till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). | Ja |
+| connectVia | Den [Integreringskörningen](concepts-integration-runtime.md) för att ansluta till datalagret. Du kan välja en lokal Integration Runtime eller Azure Integration Runtime (om ditt datalager är offentligt tillgänglig). Om den inte anges används standard Azure Integration Runtime. |Nej |
 
-En typisk anslutningssträng är `Server=<server>;Port=<port>;Database=<database>;UID=<user name>;PWD=<password>`. Fler egenskaper som du kan ange per ditt fall:
+En typisk anslutningssträng är `Server=<server>;Port=<port>;Database=<database>;UID=<user name>;PWD=<password>`. I följande tabell beskrivs fler egenskaper som du kan ange:
 
 | Egenskap  | Beskrivning | Krävs |
-|:--- |:--- |:--- |:--- |
-| SecurityLevel | Vilken säkerhetsnivå (SSL/TLS) som drivrutinen använder för anslutning till datalagret. T.ex. `SecurityLevel=preferredSecured`. Värden som stöds är:<br/>– Endast oskyddad (**onlyUnSecured**): drivrutinen inte använda SSL.<br/>- **Önskad Unsecured (preferredUnSecured) (standard)**: om servern innehåller ett val, drivrutinen inte använda SSL. <br/>- **Önskad skyddat (preferredSecured)**: om servern innehåller ett val, drivrutinen använder SSL. <br/>- **Endast skyddat (onlySecured)**: drivrutinen ansluter inte såvida inte en SSL-anslutning är tillgänglig | Nej |
-| CUCertfil | Den fullständiga sökvägen till SSL-certifikatet som används av servern. T.ex. `CaCertFile=<cert path>;`| Ja, om SSL är aktiverat |
+|:--- |:--- |:--- |
+| SecurityLevel | Nivån på security (SSL/TLS) som drivrutinen använder för anslutning till datalagret. Exempel: `SecurityLevel=preferredSecured`. Värden som stöds är:<br/>- **Endast oskyddad** (**onlyUnSecured**): drivrutinen inte använda SSL.<br/>- **Önskad oskyddat (preferredUnSecured) (standard)**: om servern innehåller ett val, drivrutinen inte använda SSL. <br/>- **Önskad säker (preferredSecured)**: om servern innehåller ett val, drivrutinen använder SSL. <br/>- **Endast skyddas (onlySecured)**: drivrutinen inte går att ansluta såvida inte en SSL-anslutning är tillgänglig. | Nej |
+| CUCertfil | Den fullständiga sökvägen till SSL-certifikatet som används av servern. Exempel: `CaCertFile=<cert path>;`| Ja, om SSL är aktiverat |
 
-**Exempel:**
+**Exempel**
 
 ```json
 {
@@ -76,9 +76,11 @@ En typisk anslutningssträng är `Server=<server>;Port=<port>;Database=<database
 
 ## <a name="dataset-properties"></a>Egenskaper för datamängd
 
-En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera datauppsättningar finns på [datauppsättningar](concepts-datasets-linked-services.md) artikel. Det här avsnittet innehåller en lista över egenskaper som stöds av Netezza dataset.
+Det här avsnittet innehåller en lista över egenskaper som har stöd för Netezza-datauppsättningen.
 
-Ange typegenskapen för dataset för att kopiera data från Netezza, **NetezzaTable**. Det finns ingen ytterligare typspecifika egenskap i den här typen av datauppsättningen.
+En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera datauppsättningar finns i [datauppsättningar](concepts-datasets-linked-services.md). 
+
+Om du vill kopiera data från Netezza, ange den **typ** egenskapen på datauppsättningen till **NetezzaTable**. Det finns ingen ytterligare typspecifika-egenskap i den här typen av datauppsättning.
 
 **Exempel**
 
@@ -97,16 +99,18 @@ Ange typegenskapen för dataset för att kopiera data från Netezza, **NetezzaTa
 
 ## <a name="copy-activity-properties"></a>Kopiera egenskaper för aktivitet
 
-En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera aktiviteter finns i [Pipelines](concepts-pipelines-activities.md) artikel. Det här avsnittet innehåller en lista över egenskaper som stöds av Netezza källa.
+Det här avsnittet innehåller en lista över egenskaper som har stöd för Netezza-källan.
+
+En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera aktiviteter finns i [Pipelines](concepts-pipelines-activities.md). 
 
 ### <a name="netezza-as-source"></a>Netezza som källa
 
-Om du vill kopiera data från Netezza, anger du källa i kopieringsaktiviteten till **NetezzaSource**. Följande egenskaper stöds i kopieringsaktiviteten **källa** avsnitt:
+Om du vill kopiera data från Netezza, ange den **källa** typ i Kopieringsaktiviteten till **NetezzaSource**. Följande egenskaper stöds i Kopieringsaktiviteten **källa** avsnittet:
 
 | Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| typ | Egenskapen type för aktiviteten kopieringskälla måste anges till: **NetezzaSource** | Ja |
-| DocumentDB | Använda anpassade SQL-frågan för att läsa data. Till exempel: `"SELECT * FROM MyTable"`. | Ja |
+| typ | Den **typ** egenskapen för Kopieringsaktiviteten källan måste anges till **NetezzaSource**. | Ja |
+| DocumentDB | Använda anpassade SQL-frågan för att läsa data. Exempel: `"SELECT * FROM MyTable"` | Ja |
 
 **Exempel:**
 
@@ -141,4 +145,5 @@ Om du vill kopiera data från Netezza, anger du källa i kopieringsaktiviteten t
 ```
 
 ## <a name="next-steps"></a>Nästa steg
-En lista över datakällor som stöds som källor och sänkor av kopieringsaktiviteten i Azure Data Factory finns [stöds datalager](copy-activity-overview.md#supported-data-stores-and-formats).
+
+En lista över datalager som Kopieringsaktiviteten som källor och egenskaperna i Azure Data Factory finns i [datalager och format som stöds](copy-activity-overview.md#supported-data-stores-and-formats).

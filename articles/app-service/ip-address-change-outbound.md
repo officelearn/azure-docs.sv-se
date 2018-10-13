@@ -10,12 +10,12 @@ ms.workload: web
 ms.topic: article
 ms.date: 06/28/2018
 ms.author: cephalin
-ms.openlocfilehash: dfc0a13c1804d8ea74c78a61bfa85e9f5bdd1685
-ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
+ms.openlocfilehash: 2355fa5e3e7fd83b5d9f22d87c19f8152659fc97
+ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42819078"
+ms.lasthandoff: 10/13/2018
+ms.locfileid: "49309368"
 ---
 # <a name="how-to-prepare-for-an-outbound-ip-address-change"></a>Så här förbereder du för en utgående IP-adressändring
 
@@ -47,4 +47,4 @@ Nya utgående IP-adresser visas i portalen innan de träder i kraft. När Azure 
 
 ## <a name="next-steps"></a>Nästa steg
 
-Den här artikeln beskrivs hur du förbereder en ändring av IP-adress som initierades av Azure. Mer information om IP-adresser i Azure App Service finns i [utgående och utgående IP-adresser i Azure App Service](app-service-ip-addresses.md).
+Den här artikeln beskrivs hur du förbereder en ändring av IP-adress som initierades av Azure. Mer information om IP-adresser i Azure App Service finns i [inkommande och utgående IP-adresser i Azure App Service](app-service-ip-addresses.md).

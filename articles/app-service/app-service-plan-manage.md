@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/09/2017
 ms.author: cephalin
-ms.openlocfilehash: 2c08522df598bd5c6313c3f026efe48e1c4a2c56
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: f426982163a5e49264bc4f222f6869d9cbb40c89
+ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39449367"
+ms.lasthandoff: 10/12/2018
+ms.locfileid: "49166074"
 ---
 # <a name="manage-an-app-service-plan-in-azure"></a>Hantera en App Service-plan i Azure
 
@@ -57,6 +57,12 @@ Du kan skapa en tom App Service-plan eller du kan skapa en plan som en del av sk
 
 Du kan flytta en app till en annan App Service-planen så länge planen källa och målplanen finns i den _samma resursgrupp och geografisk region_.
 
+> [!NOTE]
+> Azure har distribuerat varje ny App Service-plan i en distributionsenhet internt kallas ett webbutrymme. Varje region kan ha många webbutrymmen, men din app kan bara flytta mellan planer som skapas i samma webbutrymmet. En App Service Environment är en isolerad webbutrymmet så att appar kan flyttas mellan prenumerationer i samma App Service Environment, men inte mellan planer i olika App Service-miljöer.
+>
+> Du kan inte ange webbutrymmet som du vill när du skapar en plan, men det är möjligt att se till att en plan har skapats i samma webbutrymmet som en befintlig plan. Enkelt uttryckt alla planer som skapas med samma resursgrupp och region kombination distribueras i samma webbutrymmet. Till exempel om du har skapat en plan i resursgruppen A och B-region, distribueras sedan vilken plan som du skapar i A-resursgrupp och region B till samma webbutrymmet. Observera inte att planer kan flytta webspaces när de skapas, så du inte kan flytta en plan i ”samma webbutrymmet” som en annan plan för genom att flytta den till en annan resursgrupp.
+> 
+
 1. I den [Azure-portalen](https://portal.azure.com), bläddra till den app som du vill flytta.
 
 1. På menyn letar den **Apptjänstplan** avsnittet.
@@ -67,16 +73,7 @@ Du kan flytta en app till en annan App Service-planen så länge planen källa o
 
 1. I den **App Service-plan** Väljaren, väljer en befintlig planerar att flytta den här appen till.   
 
-> [!IMPORTANT]
-> Den **Välj App Service-plan** sidan filtreras efter följande kriterier: 
-> - Det finns i samma resursgrupp 
-> - Det finns i samma geografiska region 
-> - Det finns i samma webbutrymmet  
-> 
-> En _webbutrymmet_ är en logisk konstruktion i App Service som definierar en gruppering av serverresurser. Ett geografiskt område (till exempel USA, västra) innehåller många webbutrymmen för att allokera kunder som använder App Service. För närvarande kan flytta du inte App Service-resurser mellan webbutrymmen. 
-> 
-
-[!INCLUDE [app-service-dev-test-note](../../includes/app-service-dev-test-note.md)]
+Den **Välj App Service-plan** visar endast de planer som finns i samma resursgrupp och geografiska region som den aktuella appen App Service-plan.
 
 Varje prenumeration har sin egen prisnivå. Till exempel flytta en plats från en **kostnadsfri** nivå till en **Standard** nivå kan alla appar som har tilldelats till den använda de funktioner och resurser av den **Standard** nivå. Flytta en app från en högre nivåer plan till en lägre nivåer plan innebär dock att du inte längre har åtkomst till vissa funktioner. Om din app använder en funktion som inte är tillgänglig i målplanen, får du ett felmeddelande som visar vilken funktion som används som inte är tillgänglig. 
 

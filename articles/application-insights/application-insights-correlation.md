@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 04/09/2018
 ms.reviewer: sergkanz
 ms.author: mbullwin
-ms.openlocfilehash: 696843363bc6617bb11c01cdccb9dbbb7b719a82
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 78ae04d3c51cf8039dcdd067594afafae606f5e3
+ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46298208"
+ms.lasthandoff: 10/13/2018
+ms.locfileid: "49310563"
 ---
 # <a name="telemetry-correlation-in-application-insights"></a>Telemetrikorrelation i Application Insights
 
@@ -165,5 +165,5 @@ telemetry.getContext().getDevice().setRoleName("My Component Name");
 - Publicera alla komponenter i din micro tjänst med Application Insights. Kolla in [plattformar som stöds](app-insights-platforms.md).
 - Se [datamodellen](application-insights-data-model.md) för Application Insights och modellen.
 - Lär dig hur du [utöka och filtrera telemetri](app-insights-api-filtering-sampling.md).
-- [Application Insights confg-referens](app-insights-configuration-with-applicationinsights-config.md)
+- [Application Insights config-referens](app-insights-configuration-with-applicationinsights-config.md)
 

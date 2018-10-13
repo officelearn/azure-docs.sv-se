@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/29/2018
+ms.date: 10/13/2018
 ms.author: jdial
-ms.openlocfilehash: f25da8c1eedc31209a67ae05aef9dded45b706e0
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: ae1a77921cdb3eba003ff6dc8b4885866f2fbe5e
+ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46962410"
+ms.lasthandoff: 10/13/2018
+ms.locfileid: "49310377"
 ---
 # <a name="azure-ddos-protection-standard-overview"></a>Översikt över Azure DDoS Protection Standard
 
@@ -29,7 +29,7 @@ Distribuerade attacker denial of service (DDoS) är några av de största tillg�
 Azure DDoS protection, tillsammans med programmet Metodtips för design, ger skydd mot DDoS-attacker. Azure DDoS protection får du med följande tjänstnivåer:
 
 - **Grundläggande**: aktiveras automatiskt som en del av Azure-plattformen. Ständigt aktiverad övervakning och i realtid minskning av vanliga attacker på nätverksnivå, ger samma försvar som används av Microsoft online services. Hela skalan för Azures globala nätverket kan användas för att distribuera och minimera attack trafik mellan regioner. Skydd tillhandahålls för IPv4 och IPv6 Azure [offentliga IP-adresser](virtual-network-public-ip-address.md).
-- **Standard**: ger ytterligare skyddsfunktioner över grundläggande tjänstenivå som är finjusterade specifikt för Azure Virtual Network-resurser. DDoS Protection Standard är enkelt att använda, och kräver inga ändringar i programmet. Appskyddsprinciper är justerade via dedikerade övervaknings- och machine learning-algoritmer. Principer som används för den offentliga IP-adresser som är kopplade till resurser som har distribuerats i virtuella nätverk, till exempel Azure Load Balancer Azure Application Gateway och Azure Service Fabric-instanser. I realtid telemetri är tillgängligt via Azure Monitor vyer under ett angrepp, och för historik. Omfattande attack minskning analyser är tillgängliga via diagnostikinställningar. Skydd på programnivå kan läggas till via den [Azure Application Gateway Web Application Firewall](../application-gateway//application-gateway-web-application-firewall-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) eller genom att installera en brandvägg för 3 från Azure Marketplace. Skydd tillhandahålls för IPv4 Azure [offentliga IP-adresser](virtual-network-public-ip-address.md).
+- **Standard**: ger ytterligare skyddsfunktioner över grundläggande tjänstenivå som är finjusterade specifikt för Azure Virtual Network-resurser. DDoS Protection Standard är enkelt att använda, och kräver inga ändringar i programmet. Appskyddsprinciper är justerade via dedikerade övervaknings- och machine learning-algoritmer. Principer som används för den offentliga IP-adresser som är kopplade till resurser som har distribuerats i virtuella nätverk, till exempel Azure Load Balancer, Azure Application Gateway och Azure Service Fabric-instanser, men det här skyddet gäller inte för App Service-miljöer. I realtid telemetri är tillgängligt via Azure Monitor vyer under ett angrepp, och för historik. Omfattande attack minskning analyser är tillgängliga via diagnostikinställningar. Skydd på programnivå kan läggas till via den [Azure Application Gateway Web Application Firewall](../application-gateway//application-gateway-web-application-firewall-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) eller genom att installera en brandvägg för 3 från Azure Marketplace. Skydd tillhandahålls för IPv4 Azure [offentliga IP-adresser](virtual-network-public-ip-address.md).
 
 ![Azure DDoS Protection grundläggande mot. Standard](./media/ddos-protection-overview/ddoscomparison.png)
 

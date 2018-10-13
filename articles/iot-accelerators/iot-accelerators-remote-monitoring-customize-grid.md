@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 10/04/2018
 ms.topic: conceptual
-ms.openlocfilehash: 71f2164c9c419604c513261df7e1264060a2c374
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: e1c694847a1ec16d4d7a7b1118df71cb06396186
+ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49094595"
+ms.lasthandoff: 10/12/2018
+ms.locfileid: "49165938"
 ---
 # <a name="add-a-custom-grid-to-the-remote-monitoring-solution-accelerator-web-ui"></a>Lägg till ett anpassat rutnät till fjärrövervakning solution accelerator webbgränssnittet
 
@@ -188,7 +188,7 @@ Föregående kommando körs lokalt på Användargränssnittet [ http://localhost
 
 Det finns två alternativ för att aktivera en användare att välja rader i rutnätet:
 
-### <a name="hard-select-rows"></a>Hårda väljer rader
+### <a name="hard-select-rows"></a>Hård-Välj rader
 
 Om en användare behöver vidta åtgärder för flera rader på samma gång, Använd kryssrutorna på rader:
 
@@ -214,7 +214,7 @@ Om en användare behöver vidta åtgärder för flera rader på samma gång, Anv
     };
     ```
 
-1. Ange kontext knappar till sidan när en rad i rutnätet väljs hårt:
+1. Ange kontext knappar till sidan när en rad i rutnätet är hårda har valts:
 
     ```js
     this.contextBtns = [
@@ -234,7 +234,7 @@ Om en användare behöver vidta åtgärder för flera rader på samma gång, Anv
     }
     ```
 
-1. När en kontext klickar på knappen Hämta hårt markerade objekt att utföra ditt arbete på:
+1. När du klickar på en knapp för kontext får du svårt markerade element att utföra ditt arbete på:
 
     ```js
     doSomething = () => {
@@ -243,9 +243,9 @@ Om en användare behöver vidta åtgärder för flera rader på samma gång, Anv
     };
     ```
 
-### <a name="soft-select-rows"></a>Mjuk väljer rader
+### <a name="soft-select-rows"></a>Mjuk-Välj rader
 
-Om användaren behöver bara att kunna agera på en enskild rad, konfigurera en mjuk väljer länken för en eller flera kolumner i den **columnDefs**.
+Om användaren behöver bara att kunna agera på en enskild rad, konfigurera en mjuk-Välj länk för en eller flera kolumner i den **columnDefs**.
 
 1. I **exampleGridConfig.js**, lägga till **SoftSelectLinkRenderer** som den **cellRendererFramework** för en **columnDef**.
 
@@ -260,7 +260,7 @@ Om användaren behöver bara att kunna agera på en enskild rad, konfigurera en 
     };
     ```
 
-1. När du klickar på en icke-begränsande väljer länken utlöser den **onSoftSelectChange** händelse. Utför åtgärder är det önskade för den raden, till exempel öppnar en information utfällbara. Det här exemplet skriver helt enkelt till konsolen:
+1. När du klickar på en länk för mjuk-Välj utlöser den **onSoftSelectChange** händelse. Utför åtgärder är det önskade för den raden, till exempel att öppna information utfällbar meny. Det här exemplet skriver helt enkelt till konsolen:
 
     ```js
     onSoftSelectChange = (rowId, rowEvent) => {
@@ -281,6 +281,6 @@ Om användaren behöver bara att kunna agera på en enskild rad, konfigurera en 
 
 I den här artikeln har du lärt dig om resurserna som är tillgängliga för att hjälpa dig lägga till eller anpassa sidor i webbgränssnittet lösningsacceleratorn för fjärrövervakning.
 
-Nu du har definierat ett rutnät med nästa steg är att [lägga till en anpassad utfällbara fjärrövervakning solution accelerator webbgränssnittet](iot-accelerators-remote-monitoring-customize-flyout.md) som visas på exempelsidan.
+Nu du har definierat ett rutnät med nästa steg är att [lägga till en anpassad utfällt fjärrövervakning solution accelerator webbgränssnittet](iot-accelerators-remote-monitoring-customize-flyout.md) som visas på exempelsidan.
 
 Mer information om lösningsacceleratorn för fjärrövervakning finns [arkitektur för fjärrövervakning](iot-accelerators-remote-monitoring-sample-walkthrough.md).

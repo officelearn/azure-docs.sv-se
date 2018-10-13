@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 09/06/2018
 ms.author: mabrigg
 ms.reviewer: ppacent
-ms.openlocfilehash: b0fe9acc187aab87e8ee0528cf998e2ef923f897
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: cc7b1b9e96e32b090c0ec9ec9ab029588e5ec4ce
+ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44722018"
+ms.lasthandoff: 10/12/2018
+ms.locfileid: "49166975"
 ---
 # <a name="rotate-secrets-in-azure-stack"></a>Rotera hemligheter i Azure Stack
 
@@ -81,7 +81,8 @@ Kör hemliga rotation med hjälp av anvisningarna nedan kommer att åtgärda des
 
    > [!IMPORTANT]  
    > Se till att hemliga rotation har inte körts på din miljö. Om hemlig rotation har redan gjorts kan du uppdatera Azure Stack till version 1807 eller senare innan du kan köra hemliga rotation. 
-1.  Meddela användarna om eventuella underhållsåtgärder. Schemalägga normala underhållsfönster, så mycket som möjligt, under tider utanför kontorstid. Underhåll kan påverka både användaren arbetsbelastningar och åtgärder.
+1.  Operatörer kan få aviseringar öppnar och stänger automatiskt under rotation av Azure Stack-hemligheter.  Det här beteendet är förväntat och aviseringar kan ignoreras.  Operatörer kan kontrollera giltigheten för de här aviseringarna genom att köra testet AzureStack.  Operatörer med SCOM för att övervaka Azure Stack-system, placera ett system i underhållsläge hindrar dessa aviseringar från att nå sina ITSM-system, men fortsätter att varna om Azure Stack-system blir oåtkomlig. 
+2. Meddela användarna om eventuella underhållsåtgärder. Schemalägga normala underhållsfönster, så mycket som möjligt, under tider utanför kontorstid. Underhåll kan påverka både användaren arbetsbelastningar och åtgärder.
     > [!note]  
     > Nästa steg gäller endast när du roterar externa hemligheter i Azure Stack.
 3. Förbered en ny uppsättning ersättning externa certifikat. Den nya uppsättningen matchar certifikat-specifikationer som beskrivs i den [Azure Stack PKI-certifikatkrav](https://docs.microsoft.com/azure/azure-stack/azure-stack-pki-certs).

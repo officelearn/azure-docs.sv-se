@@ -12,21 +12,21 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/09/2018
+ms.date: 10/12/2018
 ms.author: bryanla
-ms.openlocfilehash: b1330f2f912f3e5974a43e43f649576561fbcc11
-ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
+ms.openlocfilehash: 1d6f84612dd2bac34c238ad7eaf323dc7fa00ba3
+ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49079233"
+ms.lasthandoff: 10/13/2018
+ms.locfileid: "49311362"
 ---
 # <a name="about-keys-secrets-and-certificates"></a>Om nycklar, hemligheter och certifikat
 
 Azure Key Vault kan Microsoft Azure-program och användare du lagrar och använder flera typer av data för hemlighet/nyckel:
 
 - Kryptografiska nycklar: har stöd för flera nyckeltyper och algoritmer och möjliggör användning av maskinvarusäkerhetsmodul moduler (HSM) för högt värderade nycklar. 
-- Hemligheter: Tillåter användare att på ett säkert sätt lagra hemligheter som lösenord. Hemligheter är begränsad storlek oktetten objekt med inga specifika semantik. 
+- Hemligheter: Ger säker lagring av hemligheter som lösenord och databasanslutningssträngar.
 - Certifikat: Har stöd för certifikat som är byggda på nycklar och hemligheter och Lägg till en funktion för automatisk förnyelse.
 - Azure Storage: Kan hantera nycklar för ett Azure Storage-konto för dig. Internt, Key Vault kan lista nycklar (sync) med Azure Storage-kontot och återskapa (rotera) nycklarna regelbundet. 
 
@@ -94,7 +94,7 @@ Kryptografiska nycklar i Key Vault representeras som JSON-Webbnyckeln [JWK]-obje
 
      Mer information om geografiska gränser finns [Microsoft Azure Trust Center](https://azure.microsoft.com/support/trust-center/privacy/)  
 
-Key Vault har stöd för RSA och Elliptic Curve nycklar. Kommande versioner stöder andra nyckeltyper som symmetriska.
+Key Vault har stöd för RSA och Elliptic Curve nycklar. 
 
 -   **EG**: ”Soft” Elliptic Curve nyckel.
 -   **EG HSM**: ”Hard” Elliptic Curve nyckel.
@@ -105,7 +105,7 @@ Key Vault har stöd för RSA-nycklar med storlekar 2048, 3072 och 4096. Key Vaul
 
 ### <a name="cryptographic-protection"></a>Kryptering
 
-De kryptografiska moduler som använder Key Vault, om HSM eller programvara är FIPS (Federal Information Processing Standards)-verifierade. Du behöver inte göra något speciellt för att köra i FIPS-läge. Om du **skapa** eller **importera** nycklar som HSM-skyddad, är garanterade att bearbetas inuti en HSM verifieras till FIPS 140-2 nivå 2 eller högre. Om du **skapa** eller **importera** nycklar som programvaruskyddad, de är bearbetade inuti kryptografiska moduler som har verifierats att FIPS 140-2 nivå 1 eller senare. Mer information finns i [nycklar och nyckeltyper](#keys-and-key-types).
+De kryptografiska moduler som använder Key Vault, om HSM eller programvara är FIPS (Federal Information Processing Standards)-verifierade. Du behöver inte göra något speciellt för att köra i FIPS-läge. Nycklar **skapade** eller **importeras** som HSM-skyddad är bearbetas inuti en HSM, verifierade enligt standarderna FIPS 140-2 nivå 2 eller högre. Nycklar **skapade** eller **importeras** som programvaruskyddad, bearbetas i kryptografiska moduler som verifierats till FIPS 140-2 nivå 1 eller högre. Mer information finns i [nycklar och nyckeltyper](#keys-and-key-types).
 
 ###  <a name="ec-algorithms"></a>EG algoritmer
  Följande algoritm identifierare stöds med EG och EG HSM-nycklar i Key Vault. 
@@ -136,13 +136,13 @@ De kryptografiska moduler som använder Key Vault, om HSM eller programvara är 
 
 Key Vault har stöd för följande åtgärder på objekt med nycklar:  
 
--   **Skapa**: gör att en klient att skapa en nyckel i Key Vault. Värdet för nyckeln genereras av Key Vault och lagras, och inte är släppt till klienten. Asymmetrisk (och i framtiden, Elliptic Curve och Symmetric) kan du skapa nycklar i Key Vault.  
--   **Importera**: gör att en klient att importera en befintlig nyckel till Nyckelvalvet. Asymmetriska nycklar kan importeras till Key Vault med ett antal olika paketering metoder i JWK-konstruktion. I framtiden, Elliptic Curve och Symmetric kommer också att paketeras samma.
+-   **Skapa**: gör att en klient att skapa en nyckel i Key Vault. Värdet för nyckeln genereras av Key Vault och lagras, och inte är släppt till klienten. Asymmetriska nycklar skapas i Key Vault.  
+-   **Importera**: gör att en klient att importera en befintlig nyckel till Nyckelvalvet. Asymmetriska nycklar kan importeras till Key Vault med ett antal olika paketering metoder i JWK-konstruktion. 
 -   **Uppdatera**: gör att en klient med tillräcklig behörighet för att ändra metadata (nyckelattribut) som är associerade med en nyckel som tidigare lagras i Key Vault.  
 -   **Ta bort**: gör att en klient med tillräcklig behörighet för att ta bort en nyckel från Key Vault.  
 -   **Lista**: gör att en klient att lista alla nycklar i ett visst Nyckelvalv.  
 -   **Lista över versioner**: gör att en klient att lista alla versioner av en viss nyckel i en viss Key Vault.  
--   **Hämta**: gör att en klient hämta de offentliga delarna av en viss nyckel i ett Key Vault.  
+-   **Hämta**: gör att en klient hämta de offentliga delarna av en viss nyckel i Key Vault.  
 -   **Backup**: exporterar en nyckel i ett skyddat format.  
 -   **Återställa**: importerar en tidigare säkerhetskopierade nyckel.  
 
@@ -226,7 +226,7 @@ Mer information om hur du arbetar med nycklar finns i [viktiga åtgärder i Key 
 
 ### <a name="working-with-secrets"></a>Arbeta med hemligheter
 
-Hemligheter i Key Vault är oktetten sekvenser med en maximal storlek på 25 kB som varje. Key Vault-tjänsten tillhandahåller inte semantik för hemligheter. Det bara tar emot data, krypterar dem, lagrar den och returnerar en hemlig identifierare (”id”). Identifieraren kan användas för att hämta hemligheten vid ett senare tillfälle.  
+Från en utvecklares perspektiv, Key Vault-API: er för att acceptera och returnera hemliga värden som strängar. Internt, Key Vault lagrar och hanterar hemligheter som sekvenser av oktetter (8-bitars byte), med en maximal storlek på 25 kB som varje. Key Vault-tjänsten tillhandahåller inte semantik för hemligheter. Det bara tar emot data, krypterar dem, lagrar den och returnerar en hemlig identifierare (”id”). Identifieraren kan användas för att hämta hemligheten vid ett senare tillfälle.  
 
 För mycket känsliga data bör klienter för ytterligare skyddslager för data. Kryptera data med hjälp av en Skyddsnyckel för separat före lagring i Key Vault är ett exempel.  
 
@@ -247,7 +247,7 @@ Det finns ytterligare skrivskyddade attribut som ingår i alla svar som innehål
 
 #### <a name="date-time-controlled-operations"></a>Datum / tid-kontrollerad åtgärder
 
-En hemlighet **hämta** åtgärden kommer att fungera för inte ännu giltiga och har upphört att gälla hemligheter, utanför den *nbf* / *exp* fönster. Anropa en hemlighet **hämta** åtgärden för en hemlighet som inte ännu giltiga kan användas för testning. Hämtar (**hämta**ing) en hemlighet som har upphört att gälla, kan användas för återställningsåtgärder.
+En hemlighet **hämta** åtgärden kommer att fungera för inte ännu giltiga och har upphört att gälla hemligheter, utanför den *nbf* / *exp* fönster. Anropa en hemlighet **hämta** åtgärden för en hemlighet som inte ännu giltiga kan användas för testning. Hämtar (**hämta**cering) en hemlighet som har upphört att gälla, kan användas för återställningsåtgärder.
 
 Mer information om datatyper finns i [datatyper](#data-types).  
 
@@ -281,7 +281,7 @@ Du kan ange ytterligare programspecifik metadata i form av taggar. Nyckelvalv st
 
 Support för Key Vault-certifikat ger för hantering av din x509 certifikat och följande:  
 
--   Ger en certifikat-ägaren att skapa ett certifikat via en process för att skapa Key Vault eller import av ett befintligt certifikat. Detta omfattar både självsignerade och certifikatutfärdare genererade certifikat.
+-   Ger en certifikat-ägaren att skapa ett certifikat via en process för att skapa Key Vault eller import av ett befintligt certifikat. Innehåller både självsignerade och certifikatutfärdare genererade certifikat.
 -   Ger en Key Vault-certifikat ägaren att implementera säker lagring och hantering av X509 certifikat utan interaktion med privat nyckelmaterial.  
 -   Ger en certifikat-ägaren att skapa en princip som dirigerar Key Vault för att hantera livscykeln för ett certifikat.  
 -   Gör att certifikatet ägare att tillhandahålla kontaktinformation för meddelande om livscykeln för händelser för förfallodatum och förnyelse av certifikat.  
@@ -406,7 +406,7 @@ Om en certifikatprincip anges för automatisk förnyelse, skickas ett meddelande
 -   Innan du certifikatförnyelse
 -   Efter certifikatförnyelse, anger om certifikatet har förnyats, eller om ett fel uppstod, kräver manuell förnyelse av certifikatet.  
 
- Om en certifikatprincip är inställt på manuellt skickas förnyade (endast email) och ett meddelande när det är dags att förnya certifikatet.  
+ När en certifikatprincip för som är inställt på manuellt förnyas (endast email), skickas ett meddelande när det är dags att förnya certifikatet.  
 
 ### <a name="certificate-access-control"></a>Åtkomstkontroll för certifikat
 

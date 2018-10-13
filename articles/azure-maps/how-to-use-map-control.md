@@ -3,17 +3,17 @@ title: Så här använder du Kartkontroll för Azure Maps | Microsoft Docs
 description: Lär dig hur du använder Azure Maps Kartkontroll klientens Javascript-biblioteket.
 author: dsk-2015
 ms.author: dkshir
-ms.date: 09/05/2018
+ms.date: 10/08/2018
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 45890b4bd474c010b2b086be0405b79d340aeebd
-ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
+ms.openlocfilehash: 850f9b28c112c11fd98a8abc81a1811cd26d81cc
+ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45603167"
+ms.lasthandoff: 10/12/2018
+ms.locfileid: "49166040"
 ---
 # <a name="use-the-azure-maps-map-control"></a>Använda Kartkontrollen Azure Maps
 
@@ -32,7 +32,7 @@ Du kan bädda in en karta på en webbsida med hjälp av klientens Javascript-bib
     <script src="https://atlas.microsoft.com/sdk/js/atlas.min.js?api-version=1"></script>
     ```
 
-3. För att göra en ny karta i webbläsaren, lägger du till en **#map** refererar till i den `<style>` element:
+3. För att rendera en ny karta i webbläsaren ska du lägga till en **#map** refererar till i den `<style>` element:
 
     ```html
     <style>
@@ -43,14 +43,14 @@ Du kan bädda in en karta på en webbsida med hjälp av klientens Javascript-bib
     </style>
     ```
 
-4. Definiera ett nytt avsnitt i html-text och skapa ett skript för att initiera kartkontrollen. Använd din egen nyckel för Azure Maps-konto i skriptet. Om du vill skapa ett konto eller hitta din nyckel finns i [så här hanterar du ditt Azure Maps-konto och dina nycklar](how-to-manage-account-keys.md).
+4. Definiera ett nytt avsnitt i html-text och skapa ett skript för att initiera kartkontrollen. Använd din egen nyckel för Azure Maps-konto i skriptet. Om du vill skapa ett konto eller hitta din nyckel finns i [så här hanterar du ditt Azure Maps-konto och dina nycklar](how-to-manage-account-keys.md). Den **språkinställning** metoden anger språket som ska användas för kartetiketter och kontroller. Mer information om språk som stöds finns i [språk som stöds](https://docs.microsoft.com/azure/azure-maps/supported-languages).
 
     ```html
     <div id="map">
         <script>
-            var MapsAccountKey = "<_your account key_>";
+            atlas.setSubscriptionKey("<_your account key_>");
+            atlas.setLanguage("en");
             var map = new atlas.Map("map", {
-                "subscription-key": MapsAccountKey,
                 center: [-122.33263,47.59093],
                 zoom: 12
             });

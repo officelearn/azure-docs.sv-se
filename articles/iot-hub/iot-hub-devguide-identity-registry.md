@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 08/29/2018
 ms.author: dobett
-ms.openlocfilehash: 041eed3a65faeb4e6c19cd9220a9e6393e18532a
-ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
+ms.openlocfilehash: 3e6e42da7f3c1423ecf2de507f3c2f0257fbb21f
+ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47452215"
+ms.lasthandoff: 10/13/2018
+ms.locfileid: "49311243"
 ---
 # <a name="understand-the-identity-registry-in-your-iot-hub"></a>Förstå identitetsregistret i IoT hub
 
@@ -29,7 +29,9 @@ Använd identitetsregistret när du behöver:
 * Kontrollera per enhet/per-zakazuje åtkomsten till din hubb enhet eller modulen-slutpunkter.
 
 > [!NOTE]
-> ID-registret innehåller inte några programspecifika metadata.
+> * ID-registret innehåller inte några programspecifika metadata.
+> * Modultvilling för identitets- och modulen finns i offentlig förhandsversion. Nedan funktionen kommer att stödjas på modulen identitet när den är allmänt tillgängliga.
+>
 
 ## <a name="identity-registry-operations"></a>Identitetsregisteråtgärder
 
@@ -40,7 +42,6 @@ IoT Hub-identitetsregistret exponerar följande åtgärder:
 * Hämta enhet eller modulen identitet med hjälp av ID
 * Ta bort enheten eller modulen identitet
 * Lista över upp till 1 000 identiteter
-> Modultvilling för identitets- och modulen finns i offentlig förhandsversion. Nedan funktionen kommer att stödjas på modulen identitet när den är allmänt tillgängliga.
 * Exportera enhetsidentiteter till Azure blob storage
 * Importera enhetsidentiteter från Azure blob storage
 

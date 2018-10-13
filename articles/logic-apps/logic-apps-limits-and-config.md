@@ -8,13 +8,13 @@ author: ecfan
 ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
-ms.date: 10/03/2018
-ms.openlocfilehash: ac13080ec6100734a5b777cc7cb243720f8424a6
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.date: 10/11/2018
+ms.openlocfilehash: 8aa2627f46be1e375fb3c3e565848a930ba6726b
+ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48817168"
+ms.lasthandoff: 10/12/2018
+ms.locfileid: "49167451"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Begränsningar och konfigurationsinformation för Azure Logic Apps
 
@@ -143,6 +143,18 @@ Vissa åtgärder för anslutningsappen göra asynkrona anrop eller lyssna efter 
 | Antal återförsök | 90 | Standardvärdet är 4. Du kan ändra standardinställningen med den [försök principparametern](../logic-apps/logic-apps-workflow-actions-triggers.md). | 
 | Maximal tid innan nytt försök | 1 dag | Du kan ändra standardinställningen med den [försök principparametern](../logic-apps/logic-apps-workflow-actions-triggers.md). | 
 | Min tid innan nytt försök | 5 sekunder | Du kan ändra standardinställningen med den [försök principparametern](../logic-apps/logic-apps-workflow-actions-triggers.md). |
+|||| 
+
+<a name="sftp"></a>
+
+## <a name="sftp-and-sftp-ssh-limits"></a>SFTP-och SFTP-SSH
+
+### <a name="file-size"></a>Filstorlek
+
+| Namn | Gräns | Anteckningar |
+|------|-------|-------|
+| SFTP | 50 MB | Du kan undvika den här gränsen genom att använda den [SFTP-SSH-anslutningen](../connectors/connectors-sftp-ssh.md) eller se [hantera stora meddelanden med storlekar](../logic-apps/logic-apps-handle-large-messages.md). Men kan vissa kopplingar och API: er inte stöd för storlekar eller även Standardgränsen. | 
+| SFTP-SSH | 1 GB | Du kan undvika den här gränsen, se [hantera stora meddelanden med storlekar](../logic-apps/logic-apps-handle-large-messages.md). Men kan vissa kopplingar och API: er inte stöd för storlekar eller även Standardgränsen. | 
 |||| 
 
 <a name="custom-connector-limits"></a>

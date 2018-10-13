@@ -6,13 +6,13 @@ ms.service: security
 ms.subservice: Azure Disk Encryption
 ms.topic: article
 ms.author: mstewart
-ms.date: 09/10/2018
-ms.openlocfilehash: 6d08dbe1976363be414597401d7a4efbae82c9b4
-ms.sourcegitcommit: 8b694bf803806b2f237494cd3b69f13751de9926
+ms.date: 10/12/2018
+ms.openlocfilehash: 9fefe75d43630a68a2d22bdc3270f255587030d0
+ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/20/2018
-ms.locfileid: "46498444"
+ms.lasthandoff: 10/13/2018
+ms.locfileid: "49311014"
 ---
 # <a name="azure-disk-encryption-prerequisites-previous-release"></a>Krav för Azure Disk Encryption (tidigare version)
 
@@ -49,11 +49,22 @@ Ett exempel på kommandon som kan användas för att montera datadiskarna och sk
 
 ## <a name="bkmk_GPO"></a> Nätverk och en Grupprincip
 
-**Om du vill aktivera Azure Disk Encryption måste funktion, den virtuella IaaS-datorer uppfylla följande nätverk endpoint konfigurationskrav:**
+**Om du vill aktivera Azure Disk Encryption-funktionen med hjälp av äldre AAD måste frågesträngparameterns syntax, IaaS-datorer uppfylla följande slutpunkt configuration nätverkskraven:** 
   - Om du vill hämta en token för att ansluta till ditt nyckelvalv, IaaS VM måste vara kan ansluta till en Azure Active Directory-slutpunkt \[login.microsoftonline.com\].
   - Om du vill skriva dem till ditt nyckelvalv kunna IaaS VM ansluta till slutpunkten för nyckelvalvet.
   - IaaS VM måste kunna ansluta till en Azure storage-slutpunkt som är värd för lagringsplatsen Azure-tillägget och ett Azure storage-konto som är värd för VHD-filer.
-  -  Om din säkerhetsprincip begränsar åtkomst från virtuella Azure-datorer till Internet, kan du matcha den föregående URI: N och konfigurera en specifik regel som tillåter utgående anslutning till IP-adresserna. Mer information finns i [Azure Key Vault bakom en brandvägg](../key-vault/key-vault-access-behind-firewall.md).    
+  -  Om din säkerhetsprincip begränsar åtkomst från virtuella Azure-datorer till Internet, kan du matcha den föregående URI: N och konfigurera en specifik regel som tillåter utgående anslutning till IP-adresserna. Mer information finns i [Azure Key Vault bakom en brandvägg](../key-vault/key-vault-access-behind-firewall.md).
+  - På Windows, om TLS 1.0 har inaktiverats explicit och .NET-versionen har inte uppdaterats till 4.6 eller senare, följande registerändring aktiverar ADE att välja den nya TLS-versionen ”: Windows Registereditorn 5.00
+
+        [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\.NETFramework\v4.0.30319]
+        "SystemDefaultTlsVersions"=dword:00000001
+        "SchUseStrongCrypto"=dword:00000001
+
+        [HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Microsoft\.NETFramework\v4.0.30319]
+        "SystemDefaultTlsVersions"=dword:00000001
+        "SchUseStrongCrypto"=dword:00000001` 
+
+ 
 
 
 **Grupprincip:**
@@ -65,7 +76,7 @@ Ett exempel på kommandon som kan användas för att montera datadiskarna och sk
 ## <a name="bkmk_PSH"></a> Azure PowerShell
 [Azure PowerShell](/powershell/azure/overview) tillhandahåller en uppsättning cmdletar som använder den [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) modellen för att hantera dina Azure-resurser. Du kan använda den i din webbläsare med [Azure Cloud Shell](../cloud-shell/overview.md), eller så kan du installera den på den lokala datorn med hjälp av anvisningarna nedan för att använda den i PowerShell-sessioner. Om du redan har installerat lokalt kan du kontrollera att du använder den senaste versionen av Azure PowerShell SDK-version för att konfigurera Azure Disk Encryption. Ladda ned den senaste versionen av [Azure PowerShell version](https://github.com/Azure/azure-powershell/releases).
 
-### <a name="install-azure-powershell-for-use-on-your-local-machine-optional"></a>Installera Azure PowerShell för användning på den lokala datorn (valfritt): 
+### <a name="install-azure-powershell-for-use-on-your-local-machine-optional"></a>Installera Azure PowerShell för användning på den lokala datorn (valfritt):  
 1. Följ anvisningarna i länkarna för ditt operativsystem sedan fortsätta men resten av stegen nedan.      
     - [Installera och konfigurera Azure PowerShell för Windows](/powershell/azure/install-azurerm-ps). 
         - Installera PowerShellGet, Azure PowerShell, och Läs in AzureRM-modulen. 

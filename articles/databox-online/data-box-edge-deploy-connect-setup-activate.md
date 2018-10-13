@@ -1,27 +1,20 @@
 ---
 title: Ansluta till, konfigurera och aktivera Azure Data Box Edge i Azure-portalen | Microsoft Docs
 description: Tredje självstudien för att distribuera Data Box Edge du instrueras att ansluta, konfigurera och aktivera den fysiska enheten.
-services: databox-edge-gateway
-documentationcenter: NA
+services: databox
 author: alkohli
-manager: twooley
-editor: ''
-ms.assetid: ''
-ms.service: databox-edge-gateway
-ms.devlang: NA
+ms.service: databox
+ms.subservice: edge
 ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 10/08/2018
 ms.author: alkohli
-ms.custom: ''
 Customer intent: As an IT admin, I need to understand how to connect and activate Data Box Edge so I can use it to transfer data to Azure.
-ms.openlocfilehash: 83bc1d81eaa930fc16c895f4e3b8b9bf1b1ad28c
-ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
+ms.openlocfilehash: 3d6742bec54e612b5dca6d9ef6c4f67a33929448
+ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/06/2018
-ms.locfileid: "48832325"
+ms.lasthandoff: 10/12/2018
+ms.locfileid: "49166584"
 ---
 # <a name="tutorial-connect-set-up-activate-azure-data-box-edge-preview"></a>Självstudier: Ansluta, konfigurera, aktiverar Azure Data Box Edge (förhandsversion) 
 

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/18/2018
 ms.author: wgries
 ms.custom: include file
-ms.openlocfilehash: 3f70a8cf2df25f487de7cd1a8c8cbdf9431839f0
-ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
+ms.openlocfilehash: a29f1c4a625552dd958884c6a172bee470e61ca6
+ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43285629"
+ms.lasthandoff: 10/12/2018
+ms.locfileid: "49312596"
 ---
 | Resurs | Mål | Hård gräns |
 |----------|--------------|------------|
@@ -30,3 +30,4 @@ ms.locfileid: "43285629"
 | Maximal (kataloger och filer) security descriptor Objektstorlek | 4 KiB | Ja |
 | Filstorlek | 100 giB | Nej |
 | Minsta filstorlek för en fil för att vara nivåindelad | 64 KiB | Ja |
+| Samtidiga synkroniseringssessioner | 2 active sync-sessioner per processor- eller högst 8 active sync-sessioner per server | Ja |

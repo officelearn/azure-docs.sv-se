@@ -10,12 +10,12 @@ ms.component: computer-vision
 ms.topic: conceptual
 ms.date: 01/26/2017
 ms.author: kefre
-ms.openlocfilehash: 5c0a4e981a290b9a758c8401a75e546c61618b45
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.openlocfilehash: 55b474d0edbb8dc01b9f35d4f8799e53e37862df
+ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45983909"
+ms.lasthandoff: 10/12/2018
+ms.locfileid: "49166380"
 ---
 # <a name="computer-vision-api-frequently-asked-questions"></a>Vanliga och frågor svar om API för visuellt
 
@@ -44,7 +44,7 @@ ms.locfileid: "45983909"
 | Danska (da-DK)  | Nederländska (nl-NL)     | Svenska           | Finska (fi-FI)            |Franska (fr-FR)
 | Tyska (de-DE)  | Grekiska (el-GR)     | Ungerska (hu-HU) | Italienska (it-IT)            | Japanska (ja-JP)
 | Koreanska (ko-KR)  | Norska (nb-NO) | Polska (pl-PL)    | Portugisiska (pt-BR) (pt-PT) | Ryska (ru-RU)
-| Spanska (es-ES)   | Svenska (SA-SV)     | Turkiska (tr Dataflödesenheter)   |                            |
+| Spanska (es-ES)   | Svenska (SA-SV)     | Turkiska (tr-TR)   |                            |
 
 -----
 

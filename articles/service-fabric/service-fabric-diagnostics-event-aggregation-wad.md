@@ -1,6 +1,6 @@
 ---
-title: Azure Service Fabric händelse aggregeringen med Windows Azure-diagnostik | Microsoft Docs
-description: Läs mer om sammanställa och samlar in händelser med hjälp av BOMULLSTUSS för övervakning och diagnostik av Azure Service Fabric-kluster.
+title: Azure Service Fabric händelse aggregering med Windows Azure-diagnostik | Microsoft Docs
+description: Läs mer om sammanställa och samla in händelser med WAD för övervakning och diagnostik för Azure Service Fabric-kluster.
 services: service-fabric
 documentationcenter: .net
 author: srrengar
@@ -14,67 +14,67 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/03/2018
 ms.author: srrengar
-ms.openlocfilehash: 38a026e8995bb7384c866dcd2f12588ca816009f
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: fe8cf752337bdb3fcd61ce6aa9f3e5cb834fb0aa
+ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34205781"
+ms.lasthandoff: 10/13/2018
+ms.locfileid: "49310971"
 ---
-# <a name="event-aggregation-and-collection-using-windows-azure-diagnostics"></a>Aggregering av händelse och med Windows Azure-diagnostik
+# <a name="event-aggregation-and-collection-using-windows-azure-diagnostics"></a>Händelsen aggregering och samling med Windows Azure Diagnostics
 > [!div class="op_single_selector"]
 > * [Windows](service-fabric-diagnostics-event-aggregation-wad.md)
 > * [Linux](service-fabric-diagnostics-event-aggregation-lad.md)
 >
 >
 
-När du kör ett Azure Service Fabric-kluster, är det en bra idé att samla in loggar från alla noder i en central plats. Med loggarna på en central plats hjälper dig att analysera och felsöka problem i klustret eller problem i program och tjänster som körs i klustret.
+När du kör ett Azure Service Fabric-kluster, är det en bra idé att samla in loggar från alla noder i en central plats. Med loggarna på en central plats hjälper dig att analysera och felsöka problem i ditt kluster eller problem i program och tjänster som körs i klustret.
 
-Ett sätt att överföra och samla in loggar är att använda Windows Azure Diagnostics (BOMULLSTUSS)-tillägget, som överför loggar till Azure Storage och har även möjlighet att skicka loggar till Azure Application Insights eller Händelsehubbar. Du kan också använda en extern process för att läsa händelser från lagring och placera dem i en analys plattform produkt som [logganalys](../log-analytics/log-analytics-service-fabric.md) eller en annan lösning för parsning av loggen.
+Ett sätt att överföra och samla in loggar är att använda tillägg för Windows Azure Diagnostics SÄKERHETSSPECIFIKA som överför loggar till Azure Storage och har också möjlighet att skicka loggarna till Azure Application Insights eller Event Hubs. Du kan också använda en extern process för att läsa händelser från storage och placera dem i en plattform produkten analys som [Log Analytics](../log-analytics/log-analytics-service-fabric.md) eller en annan lösning för parsning av loggen.
 
 ## <a name="prerequisites"></a>Förutsättningar
-Följande verktyg som används i den här artikeln:
+Följande verktyg används i den här artikeln:
 
 * [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md)
 * [Azure PowerShell](/powershell/azure/overview)
 * [Azure Resource Manager-mall](../virtual-machines/windows/extensions-diagnostics-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
-## <a name="service-fabric-platform-events"></a>Service Fabric-plattformen händelser
-Service Fabric ställer du in med ett fåtal [out box loggning kanaler](service-fabric-diagnostics-event-generation-infra.md), av vilka följande kanaler som är förkonfigurerad med tillägget att skicka övervakning och diagnostikdata till en tabell för lagring eller någon annanstans:
-  * [Funktionshändelser](service-fabric-diagnostics-event-generation-operational.md): att åtgärder som utförs av Service Fabric-plattformen. Exempel: skapa program och tjänster, nod tillståndsändringar och information om uppgradering. Dessa orsakat som loggar händelsen ETW Tracing for Windows)
-  * [Reliable Actors programmering modellen händelser](service-fabric-reliable-actors-diagnostics.md)
-  * [Reliable Services programming modellen händelser](service-fabric-reliable-services-diagnostics.md)
+## <a name="service-fabric-platform-events"></a>Service Fabric-plattformshändelser
+Service Fabric ställer du in med ett fåtal [out-of the box loggning kanaler](service-fabric-diagnostics-event-generation-infra.md), av vilka följande kanaler som är förkonfigurerad med tillägget för att skicka övervakning och diagnostikdata i en lagringstabell eller någon annanstans:
+  * [Drifthändelser](service-fabric-diagnostics-event-generation-operational.md): på högre nivå åtgärder som utförs av Service Fabric-plattformen. Exempel innefattar skapandet av program och tjänster, noden tillståndsändringar och information om uppgradering. Dessa genereras som för Windows ETW (Event Tracing) loggar
+  * [Reliable Actors programming modellhändelser](service-fabric-reliable-actors-diagnostics.md)
+  * [Reliable Services programming modellhändelser](service-fabric-reliable-services-diagnostics.md)
 
-## <a name="deploy-the-diagnostics-extension-through-the-portal"></a>Distribuera diagnostik tillägget via portalen
-Det första steget i att samla in loggar är att distribuera diagnostik tillägget på virtuella skala uppsättning noder i Service Fabric-klustret. Diagnostik-tillägget samlar in loggar på varje virtuell dator och överför dem till lagringskontot som du anger. Följande steg beskriver hur du gör detta för nya och befintliga kluster via Azure-portalen och Azure Resource Manager-mallar.
+## <a name="deploy-the-diagnostics-extension-through-the-portal"></a>Distribuera diagnostiktillägget via portalen
+Det första steget i att samla in loggar är att distribuera diagnostiktillägget på VM scale set noder i Service Fabric-klustret. Diagnostiktillägget samlar in loggar på varje virtuell dator och överför dem till det lagringskonto som du anger. Följande steg beskriver hur du gör detta för nya och befintliga kluster via Azure portal och Azure Resource Manager-mallar.
 
-### <a name="deploy-the-diagnostics-extension-as-part-of-cluster-creation-through-azure-portal"></a>Distribuera diagnostik-tillägget som en del av klustret har skapats via Azure portal
-När du skapar klustret i konfigurationssteget klustret, expandera valfria inställningar och kontrollera att diagnostik är **på** (standardinställningen).
+### <a name="deploy-the-diagnostics-extension-as-part-of-cluster-creation-through-azure-portal"></a>Distribuera diagnostiktillägget som en del av Skapa kluster via Azure-portalen
+När du skapar ditt kluster i konfigurationssteg för klustret, expandera valfria inställningar och kontrollera att diagnostik är inställd på **på** (standardinställningen).
 
-![Azure diagnostikinställningar för klustret skapas i portalen](media/service-fabric-diagnostics-event-aggregation-wad/azure-enable-diagnostics-new.png)
+![Azure Diagnostics-inställningar i portalen för att skapa kluster](media/service-fabric-diagnostics-event-aggregation-wad/azure-enable-diagnostics-new.png)
 
-Vi rekommenderar starkt att du hämtar mallen **innan du klickar på Skapa** i det sista steget. Mer information finns i [ställer in ett Service Fabric-kluster med en Azure Resource Manager-mall](service-fabric-cluster-creation-via-arm.md). Du måste göra ändringar på vilka kanaler (ovan) samla in data från mallen.
+Vi rekommenderar starkt att du har hämtat mallen **innan du klickar på Skapa** i det sista steget. Mer information finns att [konfigurera ett Service Fabric-kluster med hjälp av en Azure Resource Manager-mall](service-fabric-cluster-creation-via-arm.md). Du måste göra ändringar på vilka kanaler (listade ovan) för att samla in data från mallen.
 
 ![Kluster-mall](media/service-fabric-diagnostics-event-aggregation-wad/download-cluster-template.png)
 
-Nu när du samla händelser i Azure Storage, [konfigurera logganalys](service-fabric-diagnostics-oms-setup.md) att få insikter och fråga dem i logganalys-portalen
+Nu när du aggregering av händelser i Azure Storage, [konfigurera Log Analytics](service-fabric-diagnostics-oms-setup.md) att få insikter och skicka frågor till dem i Log Analytics-portalen
 
 >[!NOTE]
->Det finns för närvarande inget sätt att filtrera eller rensa de händelser som skickas till tabeller. Om du inte implementerar en process för att ta bort händelser från tabellen, i tabell fortsätter att växa (standard fästpunkten är 50 GB). Instruktioner om hur du ändrar det här är [ytterligare nedan i den här artikeln](service-fabric-diagnostics-event-aggregation-wad.md#update-storage-quota). Det finns också ett exempel på en rensning datatjänst som körs i den [Watchdog exempel](https://github.com/Azure-Samples/service-fabric-watchdog-service), och det rekommenderas att du skriver en själv, såvida det inte finns en anledning att lagra loggar utöver en tidsram för 30 eller 90 dagar.
+>Det finns för närvarande inget sätt att filtrera eller rensa de händelser som skickas till tabeller. Om du inte har implementerat en process för att ta bort händelser från tabellen, tabellen fortsätter att växa (standard fästpunkten är 50 GB). Instruktioner om hur du ändrar det här är [ytterligare nedan i den här artikeln](service-fabric-diagnostics-event-aggregation-wad.md#update-storage-quota). Det finns också ett exempel på en rensning tjänst som körs i den [Watchdog exempel](https://github.com/Azure-Samples/service-fabric-watchdog-service), och vi rekommenderar att du skriver en själv, om det inte finns en anledning att lagra loggar utöver en tidsram för 30 eller 90 dagar.
 
-## <a name="deploy-the-diagnostics-extension-through-azure-resource-manager"></a>Distribuera diagnostik tillägget via Azure Resource Manager
+## <a name="deploy-the-diagnostics-extension-through-azure-resource-manager"></a>Distribuera det via Azure Resource Manager-diagnostiktillägget
 
-### <a name="create-a-cluster-with-the-diagnostics-extension"></a>Skapa ett kluster med filnamnstillägget diagnostik
-Om du vill skapa ett kluster med hjälp av hanteraren för filserverresurser, som du behöver lägga till diagnostik konfigurationen JSON till fullständig Resource Manager-mallen innan du skapar klustret. Vi ger en fem-VM klustret Resource Manager exempelmall diagnostik-konfiguration som lagts till som en del av våra exempel för Resource Manager-mall. Du kan se den på den här platsen i galleriet Azure-exempel: [kluster med fem noder med diagnostik Resource Manager mallen exempel](https://azure.microsoft.com/en-in/resources/templates/service-fabric-secure-cluster-5-node-1-nodetype/).
+### <a name="create-a-cluster-with-the-diagnostics-extension"></a>Skapa ett kluster med diagnostics-tillägg
+Om du vill skapa ett kluster med hjälp av Resource Manager, som du behöver lägga till diagnostikkonfigurationen JSON till den fullständiga Resource Manager-mallen innan du skapar klustret. Vi tillhandahåller ett exempel fem VM-kluster Resource Manager-mall med diagnostiky har lagts till som en del av vår Resource Manager-exempelmallar. Du kan se dem på den här platsen i Azure-exempelgalleri: [kluster med fem noder med exempel för diagnostik Resource Manager-mall](https://azure.microsoft.com/en-in/resources/templates/service-fabric-secure-cluster-5-node-1-nodetype/).
 
-Öppna filen azuredeploy.json för att se inställningen diagnostik i Resource Manager-mallen, och Sök efter **IaaSDiagnostics**. Om du vill skapa ett kluster med hjälp av den här mallen, Välj den **till Azure** knappen tillgänglig vid föregående länk.
+Om du vill visa inställningen för diagnostik i Resource Manager-mallen, öppna filen azuredeploy.JSON och Sök efter **IaaSDiagnostics**. Om du vill skapa ett kluster med hjälp av den här mallen, Välj den **distribuera till Azure** knappen som är tillgängliga på den föregående länken.
 
-Du kan hämta Resource Manager-exempel, göra ändringar, och skapa ett kluster med den ändrade mallen med hjälp av den `New-AzureRmResourceGroupDeployment` i Azure PowerShell-fönster. Se följande kod för de parametrar som du anger för att kommandot. Detaljerad information om hur du distribuerar en resursgrupp med hjälp av PowerShell finns i artikeln [distribuera en resursgrupp med Azure Resource Manager-mallen](../azure-resource-manager/resource-group-template-deploy.md).
+Du kan också du kan hämta exemplet för Resource Manager, göra ändringar i den och skapa ett kluster med den ändrade mallen med hjälp av den `New-AzureRmResourceGroupDeployment` i en Azure PowerShell-fönster. Se följande kod för parametrar som du anger i kommandot. Detaljerad information om hur du distribuerar en resursgrupp med hjälp av PowerShell finns i artikeln [distribuera en resursgrupp med Azure Resource Manager-mallen](../azure-resource-manager/resource-group-template-deploy.md).
 
-### <a name="add-the-diagnostics-extension-to-an-existing-cluster"></a>Lägga till filnamnstillägget diagnostik till ett befintligt kluster
-Om du har ett befintligt kluster som inte har distribuerats diagnostik, kan du lägga till eller uppdatera det. via mallen klustret. Ändra Resource Manager-mallen som används för att skapa det befintliga klustret eller hämta mallen från portalen, enligt beskrivningen ovan. Ändra template.json-filen genom att utföra följande uppgifter:
+### <a name="add-the-diagnostics-extension-to-an-existing-cluster"></a>Lägg till diagnostiktillägget i ett befintligt kluster
+Om du har ett befintligt kluster som inte har distribuerats diagnostik kan du lägga till eller uppdatera det. via mallen kluster. Ändra Resource Manager-mallen som används för att skapa det befintliga klustret eller ladda ned mallen från portalen enligt beskrivningen ovan. Ändra filen template.json genom att utföra följande uppgifter:
 
-Lägga till en ny storage-resurs i mallen genom att lägga till avsnittet resurser.
+Lägg till en ny storage-resurs i mallen genom att lägga till resurserna.
 
 ```json
 {
@@ -92,7 +92,7 @@ Lägga till en ny storage-resurs i mallen genom att lägga till avsnittet resurs
 },
 ```
 
- Lägg till avsnittet Parametrar precis efter storage-konto definitioner, mellan `supportLogStorageAccountName`. Ersätt platshållartexten *lagringskontonamnet här* med namnet på det lagringskonto som du vill.
+ Lägg till parameteravsnittet precis efter definitioner för storage-konto, mellan `supportLogStorageAccountName`. Ersätt platshållartexten *lagringskontonamn här* med namnet på det lagringskonto som du vill ha.
 
 ```json
     "applicationDiagnosticsStorageAccountType": {
@@ -114,7 +114,7 @@ Lägga till en ny storage-resurs i mallen genom att lägga till avsnittet resurs
       }
     },
 ```
-Sedan uppdatera den `VirtualMachineProfile` i template.json-filen genom att lägga till följande kod i en matris för tillägg. Glöm inte att lägga till ett kommatecken i början eller slutet, beroende på om det har infogats.
+Sedan uppdaterar den `VirtualMachineProfile` i filen template.json genom att lägga till följande kod i matrisen tillägg. Glöm inte att lägga till ett kommatecken i början eller slutet, beroende på där den infogas.
 
 ```json
 {
@@ -171,10 +171,10 @@ Sedan uppdatera den `VirtualMachineProfile` i template.json-filen genom att läg
 }
 ```
 
-När du har ändrat filen template.json enligt publicera Resource Manager-mallen. Om mallen exporterades, publicerar körs filen deploy.ps1 mallen. När du har distribuerat, se till att **ProvisioningState** är **lyckades**.
+När du har ändrat filen template.json enligt publicera om Resource Manager-mallen. Om mallen exporterades, publicerar körs filen deploy.ps1 mallen. När du distribuerar kan du se till att **ProvisioningState** är **lyckades**.
 
 > [!TIP]
-> Om du ska distribuera behållare till klustret, aktivera BOMULLSTUSS för docker stats genom att lägga till den till din **WadCfg > DiagnosticMonitorConfiguration** avsnitt.
+> Om du ska distribuera behållare till klustret, aktivera WAD att den använder docker statistik genom att lägga till den till din **WadCfg > DiagnosticMonitorConfiguration** avsnittet.
 >
 >```json
 >"DockerSources": {
@@ -187,43 +187,43 @@ När du har ändrat filen template.json enligt publicera Resource Manager-mallen
 
 ### <a name="update-storage-quota"></a>Uppdatera lagringskvoten
 
-Eftersom de tabeller som fylls i av tillägget växer tills kvoten träffar, du kanske vill minska kvotstorleken. Standardvärdet är 50 GB och kan konfigureras i mallen under den `overallQuotainMB` fältet under `DiagnosticMonitorConfiguration`
+Eftersom de tabeller som har lagts till av tillägget växer tills kvoten uppnås, kan du överväga att minska kvotstorleken. Standardvärdet är 50 GB och kan konfigureras i mallen under den `overallQuotainMB` fältet under `DiagnosticMonitorConfiguration`
 
 ```json
 "overallQuotaInMB": "50000",
 ```
 
-## <a name="log-collection-configurations"></a>Logga samling konfigurationer
+## <a name="log-collection-configurations"></a>Konfigurationer för log-samling
 Loggar från ytterligare kanaler finns också tillgängliga för samlingen, här är några av de vanligaste konfigurationerna som du kan göra i mallen för kluster som körs i Azure.
 
-* Drift kanal - Base: Aktiverad som standard, övergripande åtgärder som utförs av Service Fabric och klustret, inklusive händelser för en nod, kommer ett nytt program som distribueras, eller en uppgradering återställning osv. En lista över händelser som avser [drifthändelser för kanal](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-event-generation-operational).
+* Drift kanal - bas: Aktiverat som standard, avancerade åtgärder som utförs av Service Fabric och klustret, inklusive händelser för en nod som kommer upp kan ett nytt program som distribueras, eller en uppgradering återställning osv. En lista över händelser som avser [drifthändelser för kanal](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-event-generation-operational).
   
 ```json
       scheduledTransferKeywordFilter: "4611686018427387904"
   ```
-* Drift kanaler – detaljerad: Detta inkluderar hälsorapporter och belastningsutjämning beslut plus allt i den grundläggande operativa kanalen. Dessa händelser genereras av systemet eller din kod med hjälp av hälsotillstånd eller läsa in reporting API: er som [ReportPartitionHealth](https://msdn.microsoft.com/library/azure/system.fabric.iservicepartition.reportpartitionhealth.aspx) eller [ReportLoad](https://msdn.microsoft.com/library/azure/system.fabric.iservicepartition.reportload.aspx). Visa dessa händelser i Loggboken för Visual Studio diagnostiska lägga till ”Microsoft-ServiceFabric:4:0x4000000000000008” i listan över ETW-providers.
+* Drift kanaler – detaljerad: Detta inkluderar rapporter om hälsotillstånd och belastningsutjämning beslut, plus allt i den grundläggande operativa kanalen. Dessa händelser genereras av systemet eller din kod med hjälp av hälsotillstånd eller läsa in reporting API: er som [ReportPartitionHealth](https://msdn.microsoft.com/library/azure/system.fabric.iservicepartition.reportpartitionhealth.aspx) eller [ReportLoad](https://msdn.microsoft.com/library/azure/system.fabric.iservicepartition.reportload.aspx). Visa dessa händelser i Loggboken i Visual Studio-diagnostik Lägg till ”Microsoft-ServiceFabric:4:0x4000000000000008” i listan över ETW-leverantörer.
 
 ```json
       scheduledTransferKeywordFilter: "4611686018427387912"
   ```
 
-* Data och Messaging kanal - Base: kritiska loggar och händelser som genererats i messaging (för närvarande endast ReverseProxy) och sökvägen, dessutom till detaljerad operativa kanalen loggar. Dessa händelser är fel och andra viktiga problem i ReverseProxy för begäranden som begäranden som bearbetas. **Det här är våra rekommendationer för omfattande loggning**. Om du vill visa dessa händelser i Loggboken i Visual Studio-diagnostik, lägger du till ”Microsoft-ServiceFabric:4:0x4000000000000010” i listan över ETW-providers.
+* Data och Messaging, kanal - bas: kritiska loggar och händelser som genererats i meddelanden (för närvarande endast ReverseProxy) och datasökväg, dessutom till detaljerad användningskanal loggar. Dessa händelser är behandling av fel och andra viktiga problem i ReverseProxy, samt begäranden som bearbetas. **Det här är våra rekommendationer för omfattande loggning**. Du kan visa dessa händelser i Loggboken i Visual Studio-diagnostik genom att lägga till ”Microsoft-ServiceFabric:4:0x4000000000000010” i listan över ETW-leverantörer.
 
 ```json
       scheduledTransferKeywordFilter: "4611686018427387928"
   ```
 
-* Data & Messaging kanaler – detaljerad: utförlig kanal som innehåller alla icke-kritiska loggar från data och meddelanden i klustret och detaljerad operativa kanalen. För detaljerad felsökning av alla händelser för omvänd proxy, referera till den [omvänd proxy diagnostik guiden](service-fabric-reverse-proxy-diagnostics.md).  Om du vill visa dessa händelser i Loggboken för Visual Studio diagnostiska lägger du till ”Microsoft-ServiceFabric:4:0x4000000000000020” i listan över ETW-providers.
+* Data & Messaging, kanal - detaljerad: utförlig kanal som innehåller alla icke-kritiska loggar från data och meddelanden i klustret och detaljerad operativa kanalen. För detaljerad felsökning för alla händelser för omvänd proxy kan referera till den [omvänd proxy diagnostik guiden](service-fabric-reverse-proxy-diagnostics.md).  Om du vill visa dessa händelser i Visual Studio diagnostiska Loggboken, lägger du till ”Microsoft-ServiceFabric:4:0x4000000000000020” i listan över ETW-leverantörer.
 
 ```json
       scheduledTransferKeywordFilter: "4611686018427387944"
   ```
 
 >[!NOTE]
->Den här kanalen har en mycket stor volym med händelser, aktiverar händelseinsamling från den här detaljerade kanal resultat i en stor mängd spårningar skapas snabbt och kan använda lagringskapacitet. Endast aktivera detta om det är absolut nödvändigt.
+>Den här kanalen har ett mycket stort antal händelser, hur du aktiverar händelseinsamling från den här detaljerade kanal resultat i en massa spårningar som skapas snabbt och kan använda lagringskapacitet. Endast aktivera detta om det är absolut nödvändigt.
 
 
-Så här aktiverar du den **grundläggande Data och Messaging kanal** våra rekommendationer för omfattande loggning, den `EtwManifestProviderConfiguration` i den `WadCfg` av mallen som ser ut som följande:
+Att aktivera den **Base drift kanal** våra rekommendationer för omfattande loggning med minsta möjliga störningar, för den `EtwManifestProviderConfiguration` i den `WadCfg` av mallen skulle se ut så här:
 
 ```json
   "WadCfg": {
@@ -251,7 +251,7 @@ Så här aktiverar du den **grundläggande Data och Messaging kanal** våra reko
               {
                 "provider": "cbd93bc2-71e5-4566-b3a7-595d8eeca6e8",
                 "scheduledTransferLogLevelFilter": "Information",
-                "scheduledTransferKeywordFilter": "4611686018427387928",
+                "scheduledTransferKeywordFilter": "4611686018427387904",
                 "scheduledTransferPeriod": "PT5M",
                 "DefaultEvents": {
                   "eventDestination": "ServiceFabricSystemEventTable"
@@ -265,11 +265,11 @@ Så här aktiverar du den **grundläggande Data och Messaging kanal** våra reko
 
 ## <a name="collect-from-new-eventsource-channels"></a>Samla in från den nya EventSource kanaler
 
-Om du vill uppdatera diagnostik för att samla in loggar från nya EventSource kanaler som representerar ett nytt program som du använder om att distribuera, utföra samma kluster steg enligt beskrivningen ovan för att installationen av diagnostik för ett befintligt.
+Om du vill uppdatera diagnostik för att samla in loggar från nya EventSource kanaler som representerar ett nytt program som att du är om att distribuera, utför samma kluster steg som tidigare angivits för installation av diagnostik för ett befintligt.
 
-Uppdatera den `EtwEventSourceProviderConfiguration` -avsnittet i template.json att lägga till poster för de nya EventSource kanalerna innan du använder konfigurationen uppdatera med hjälp av den `New-AzureRmResourceGroupDeployment` PowerShell-kommando. Namnet på händelsekällan definieras som en del av din kod i Visual Studio-genererade ServiceEventSource.cs-filen.
+Uppdatera den `EtwEventSourceProviderConfiguration` avsnitt i filen template.json lägga till poster för de nya EventSource kanalerna innan du tillämpar konfigurationen uppdatera med hjälp av den `New-AzureRmResourceGroupDeployment` PowerShell-kommando. Namnet på händelsekällan definieras som en del av din kod i Visual Studio-genererade ServiceEventSource.cs-filen.
 
-Till exempel om din händelsekällan är Mina Eventsource, lägger du till följande kod för att placera händelser från Mina Eventsource i en tabell med namnet MyDestinationTableName.
+Exempel: om din händelsekälla heter Min Eventsource, lägger du till följande kod för att placera händelser från min Eventsource i en tabell med namnet MyDestinationTableName.
 
 ```json
         {
@@ -281,26 +281,26 @@ Till exempel om din händelsekällan är Mina Eventsource, lägger du till följ
         }
 ```
 
-Om du vill samla in prestandaräknare eller händelseloggar, ändra Resource Manager-mallen med hjälp av exemplen i [skapa en virtuell Windows-dator med övervakning och diagnostik med en Azure Resource Manager-mall](../virtual-machines/windows/extensions-diagnostics-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Kubfilen Resource Manager-mallen.
+Om du vill samla in prestandaräknare eller händelseloggar, ändra Resource Manager-mallen med hjälp av de exempel som tillhandahålls i [skapa en virtuell Windows-dator med övervakning och diagnostik med en Azure Resource Manager-mall](../virtual-machines/windows/extensions-diagnostics-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Sedan publicera Resource Manager-mallen.
 
 ## <a name="collect-performance-counters"></a>Samla in prestandaräknare
 
-Lägg till prestandaräknare till din ”WadCfg > DiagnosticMonitorConfiguration” i Resource Manager-mall för klustret om du vill samla in prestandavärden från klustret. Se [övervakning av programprestanda med BOMULLSTUSS](service-fabric-diagnostics-perf-wad.md) anvisningar om hur du ändrar dina `WadCfg` att samla in specifika prestandaräknare. Referens [prestandaräknare för Service Fabric](service-fabric-diagnostics-event-generation-perf.md) för en lista över prestanda prestandaräknare som rekommenderar vi att samla in.
+Lägg till prestandaräknare till din ”WadCfg > DiagnosticMonitorConfiguration” i Resource Manager-mall för klustret om du vill samla in prestandavärden från klustret. Se [prestandaövervakning med WAD](service-fabric-diagnostics-perf-wad.md) anvisningar om hur du ändrar din `WadCfg` att samla in specifika prestandaräknare. Referens [prestandaräknare för Service Fabric](service-fabric-diagnostics-event-generation-perf.md) för en lista över prestanda prestandaräknare som rekommenderar vi att samla in.
   
-Om du använder en Application Insights-sink enligt beskrivningen i avsnittet nedan och vill använda de här måtten ska visas i Application Insights, se till att lägga till mottagare namn i avsnittet ”sänkor” som ovan. Detta skickar automatiskt de prestandaräknare som konfigureras individuellt till Application Insights-resurs.
+Om du använder en Application Insights-mottagare, enligt beskrivningen i avsnittet nedan och vill att de här måtten ska visas i Application Insights, se till att lägga till namnet på mottagaren i avsnittet ”mottagare” enligt ovan. Prestandaräknare som konfigureras individuellt skickas automatiskt till Application Insights-resursen.
 
 
 ## <a name="send-logs-to-application-insights"></a>Skicka loggar till Application Insights
 
-Övervakning och diagnostik data skickas till Application Insights (AI) kan göras som en del av konfigurationen BOMULLSTUSS. Om du vill använda AI för händelseanalys och visualisering läsa [hur du ställer in en AI sink](service-fabric-diagnostics-event-analysis-appinsights.md#add-the-ai-sink-to-the-resource-manager-template) som en del av din ”WadCfg”.
+Övervakning och diagnostik data skickas till Application Insights (AI) kan göras som en del av konfigurationen av WAD. Om du väljer att använda AI för händelseanalys och visualisering, kan du läsa [hur du ställer in en AI-sink](service-fabric-diagnostics-event-analysis-appinsights.md#add-the-ai-sink-to-the-resource-manager-template) som en del av din ”WadCfg”.
 
 ## <a name="next-steps"></a>Nästa steg
 
-När du har korrekt konfigurerat Azure diagnostics, visas data i Storage-tabeller från ETW och EventSource loggar. Om du väljer att använda Log Analytics Kibana eller några andra analyser och visualisering dataplattform som inte har konfigurerats i Resource Manager-mallen direkt att se till att ställa in plattformen du väljer att läsa data från dessa lagringstabeller. På så vis för Log Analytics är relativt trivial och förklaras i [händelse och logga analysis](service-fabric-diagnostics-event-analysis-oms.md). Application Insights är lite specialfall på detta sätt, eftersom den kan konfigureras som en del av diagnostik tilläggets konfiguration, så finns det [lämplig artikel](service-fabric-diagnostics-event-analysis-appinsights.md) om du väljer att använda AI.
+När du har korrekt konfigurerat Azure-diagnostik, visas data i ditt Storage-tabeller från ETW- och EventSource loggarna. Om du väljer att använda Log Analytics, Kibana eller andra data analys och visualisering plattformar som inte har konfigurerats i Resource Manager-mallen direkt, se till att konfigurera plattform för att läsa data från lagringstabellerna. Gör detta för Log Analytics är relativt enkelt och förklaras i [händelse och log analysis](service-fabric-diagnostics-event-analysis-oms.md). Application Insights är en del specialfall i detta avseende, eftersom den kan konfigureras som en del av konfigurationen av Diagnostiktillägget, så finns det [lämplig artikeln](service-fabric-diagnostics-event-analysis-appinsights.md) om du väljer att använda AI.
 
 >[!NOTE]
->Det finns för närvarande inget sätt att filtrera eller rensa de händelser som skickas till tabellen. Om du inte implementerar en process för att ta bort händelser från tabellen, i tabellen kommer att fortsätta att växa. För närvarande finns ett exempel på en rensning datatjänst som körs i den [Watchdog exempel](https://github.com/Azure-Samples/service-fabric-watchdog-service), och det rekommenderas att du skriver en själv, såvida det inte finns en anledning att lagra loggar utöver en tidsram för 30 eller 90 dagar.
+>Det finns för närvarande inget sätt att filtrera eller rensa de händelser som skickas till tabellen. Om du inte implementerar en process för att ta bort händelser från tabellen, i tabellen kommer att fortsätta att växa. För närvarande finns ett exempel på en rensning tjänst som körs i den [Watchdog exempel](https://github.com/Azure-Samples/service-fabric-watchdog-service), och vi rekommenderar att du skriver en själv, om det inte finns en anledning att lagra loggar utöver en tidsram för 30 eller 90 dagar.
 
-* [Lär dig att samla in prestandaräknare eller loggar med hjälp av diagnostik-tillägget](../virtual-machines/windows/extensions-diagnostics-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+* [Lär dig att samla in prestandaräknare eller loggar med hjälp av Diagnostics-tillägg](../virtual-machines/windows/extensions-diagnostics-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 * [Händelseanalys och visualisering med Application Insights](service-fabric-diagnostics-event-analysis-appinsights.md)
-* [Händelseanalys och visualisering med logganalys](service-fabric-diagnostics-event-analysis-oms.md)
+* [Händelseanalys och visualisering med Log Analytics](service-fabric-diagnostics-event-analysis-oms.md)

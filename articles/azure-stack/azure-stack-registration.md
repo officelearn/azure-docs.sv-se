@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 10/09/2018
 ms.author: jeffgilb
 ms.reviewer: brbartle
-ms.openlocfilehash: 410566e62daeb42100443e72f2d8a1acb8dad5a3
-ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
+ms.openlocfilehash: c9106557c7c113281b04d37f1bc3d8b29e2087cc
+ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48902288"
+ms.lasthandoff: 10/13/2018
+ms.locfileid: "49310461"
 ---
 # <a name="register-azure-stack-with-azure"></a>Registrera Azure Stack med Azure
 
@@ -45,7 +45,7 @@ Du behöver följande för på plats innan du registrerar:
 
 Innan du registrerar Azure Stack med Azure, måste du ha:
 
-- Prenumerations-ID för en Azure-prenumeration. Endast EA, CSP eller CSP delade tjänster som prenumerationer stöds för registrering. CSP: er måste du bestämma om du vill [använder en CSP eller CSPSS prenumeration](azure-stack-add-manage-billing-as-a-csp.md#create-a-csp-or-cspss-subscription).<br><br>Logga in på Azure för att hämta ID, klickar du på **alla tjänster**. Sedan, under den **Allmänt** kategori, väljer **prenumerationer**, klicka på den prenumeration som du vill använda, och under **Essentials** du hittar prenumerations-ID.
+- Prenumerations-ID för en Azure-prenumeration. Endast EA, CSP eller CSP delade tjänster som prenumerationer stöds för registrering. CSP: er måste du bestämma om du vill [använder en CSP eller APSS prenumeration](azure-stack-add-manage-billing-as-a-csp.md#create-a-csp-or-apss-subscription).<br><br>Logga in på Azure för att hämta ID, klickar du på **alla tjänster**. Sedan, under den **Allmänt** kategori, väljer **prenumerationer**, klicka på den prenumeration som du vill använda, och under **Essentials** du hittar prenumerations-ID.
 
   > [!Note]  
   > Tyskland cloud-prenumerationer stöds inte för närvarande.

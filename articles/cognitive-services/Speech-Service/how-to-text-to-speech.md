@@ -3,18 +3,18 @@ title: Använda Text till tal med Speech services
 description: Lär dig hur du använder Text till tal i Speech-tjänsten.
 titleSuffix: Microsoft Cognitive Services
 services: cognitive-services
-author: v-jerkin
+author: erhopf
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: article
 ms.date: 09/08/2018
-ms.author: v-jerkin
-ms.openlocfilehash: 5822c313cf0fb5848726cf85c46cda2a3a408264
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.author: erhopf
+ms.openlocfilehash: 774425d19101e4d326f0d6435d56aff1b37a31f7
+ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47434627"
+ms.lasthandoff: 10/12/2018
+ms.locfileid: "49165053"
 ---
 # <a name="use-text-to-speech-in-speech-service"></a>Använd ”Text till tal” i Speech service
 
@@ -44,7 +44,7 @@ Se [Text till tal röster](language-support.md#text-to-speech) en lista över ti
 
 En Text till tal HTTP-begäran skickas i POST-läge med texten som ska talas i brödtexten i begäran. Den maximala längden på HTTP-begärandetexten är 1024 tecken. Begäran måste ha följande huvuden:
 
-Sidhuvud|Värden|Kommentarer
+Huvud|Värden|Kommentarer
 -|-|-
 |`Content-Type` | `application/ssml+xml` | Indata-text-format.
 |`X-Microsoft-OutputFormat`|     `raw-16khz-16bit-mono-pcm`<br>`riff-16khz-16bit-mono-pcm`<br>`raw-8khz-8bit-mono-mulaw`<br>`riff-8khz-8bit-mono-mulaw`<br>`audio-16khz-128kbitrate-mono-mp3`<br>`audio-16khz-64kbitrate-mono-mp3`<br>`audio-16khz-32kbitrate-mono-mp3`<br>`raw-24khz-16bit-mono-pcm`<br>`riff-24khz-16bit-mono-pcm`<br>`audio-24khz-160kbitrate-mono-mp3`<br>`audio-24khz-96kbitrate-mono-mp3`<br>`audio-24khz-48kbitrate-mono-mp3` | Ljudformatet utdata.

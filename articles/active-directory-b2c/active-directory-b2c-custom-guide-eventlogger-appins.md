@@ -1,25 +1,25 @@
 ---
 title: Spåra användarnas beteende med hjälp av händelser i Application Insights från Azure Active Directory B2C | Microsoft Docs
-description: Stegvis guide för att aktivera händelseloggar i Application Insights från Azure AD B2C användaren utbildning genom att använda anpassade principer (förhandsversion)
+description: Lär dig hur du aktiverar händelseloggar i Application Insights från Azure AD B2C användaren resor med anpassade principer (förhandsversion).
 services: active-directory-b2c
 author: davidmu1
 manager: mtillman
 ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 04/16/2018
+ms.date: 10/12/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: c77feed3b86358c74f741b53aa03ecb454dc9a62
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: 2451e8019780fee6f76a2de6658c3d5541db35b9
+ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43337110"
+ms.lasthandoff: 10/13/2018
+ms.locfileid: "49310615"
 ---
-# <a name="track-user-behavior-in-azure-ad-b2c-journeys-by-using-application-insights"></a>Spåra användarnas beteende i Azure AD B2C-transporter med hjälp av Application Insights
+# <a name="track-user-behavior-in-azure-active-directory-b2c-using-application-insights"></a>Spåra användarnas beteende i Azure Active Directory B2C med Application Insights
 
-Azure Active Directory B2C (Azure AD B2C) fungerar bra med Azure Application Insights. De ger detaljerad och anpassade händelseloggar för dina egna anpassade användaren resor. Den här artikeln visar hur du kommer igång så att du kan:
+När du använder Azure Active Directory (Azure AD) B2C tillsammans med Azure Application Insights kan du kan få detaljerad och anpassade händelseloggar för dina användare resor. I den här artikeln kan du se hur du:
 
 * Få insikter om användarbeteende.
 * Felsöka dina egna principer i utveckling eller produktion.
@@ -31,30 +31,35 @@ Azure Active Directory B2C (Azure AD B2C) fungerar bra med Azure Application Ins
 
 ## <a name="how-it-works"></a>Hur det fungerar
 
-Identitetsramverk i Azure AD B2C innehåller nu providern `Handler="Web.TPEngine.Providers.UserJourneyContextProvider, Web.TPEngine, Version=1.0.0.0`.  Händelsedata skickas direkt till Application Insights med hjälp av instrumentationsnyckeln tillhandahålls till Azure AD B2C.
+Identitetsramverk i Azure AD B2C innehåller providern `Handler="Web.TPEngine.Providers.UserJourneyContextProvider, Web.TPEngine, Version=1.0.0.0`. Händelsedata skickas direkt till Application Insights med hjälp av instrumentationsnyckeln tillhandahålls till Azure AD B2C.
 
-Tekniska profilen använder den här providern för att definiera en händelse från B2C.  Profilen anger namnet på händelsen, de anspråk som kommer att läggas till och instrumenteringsnyckeln.  Om du vill publicera en händelse läggs sedan den tekniska profilen som en `orchestration step` eller som en `validation technical profile` i en anpassad användarresa.
+Tekniska profilen använder den här providern för att definiera en händelse från Azure AD B2C. Profilen anger namnet på händelsen, de anspråk som registreras och instrumenteringsnyckeln. Om du vill publicera en händelse läggs sedan den tekniska profilen som en `orchestration step`, eller som en `validation technical profile` i en anpassad användarresa.
 
 Application Insights kan en enhetlig händelser med ett Korrelations-ID för att registrera en användarsession. Application Insights gör den händelsen och sessionen tillgänglig inom några sekunder och visar många visualisering, export och analysverktyg.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-Utför stegen i [komma igång med anpassade principer](active-directory-b2c-get-started-custom.md). Den här artikeln förutsätter att du använder startpaket för anpassad princip. Men startpaket krävs inte.
+Utför stegen i [Kom igång med anpassade principer](active-directory-b2c-get-started-custom.md). Den här artikeln förutsätter att du använder startpaket för anpassad princip. Men startpaket krävs inte.
 
-## <a name="step-1-create-an-application-insights-resource-and-get-the-instrumentation-key"></a>Steg 1. Skapa en Application Insights-resurs och få instrumenteringsnyckeln
+## <a name="create-an-application-insights-resource"></a>Skapa en Application Insights-resurs
 
-När du använder Application Insights med Azure AD B2C, är det enda kravet att skapa en resurs och få en instrumenteringsnyckel. Du skapar en resurs i den [Azure-portalen.](https://portal.azure.com)
+När du använder Application Insights med Azure AD B2C är allt du behöver göra skapa en resurs och få instrumenteringsnyckeln.
 
-1. I Azure-portalen inom din prenumeration-klient väljer **+ skapa en resurs**. Den här klienten är inte din Azure AD B2C-klient.  
-2. Sök efter och välj **Application Insights**.  
-3. Skapa en resurs som använder **ASP.NET-webbprogram** som **programtyp**, under en prenumeration på dina inställningar.
-4. När du har skapat Application Insights-resursen, öppna den och Observera instrumenteringsnyckeln.
+1. Logga in på [Azure Portal](https://portal.azure.com/).
+2. Kontrollera att du använder den katalog som innehåller din Azure-prenumeration genom att klicka på den **katalog- och prenumerationsfilter** i den översta menyn och välja den katalog som innehåller din prenumeration. Den här klienten är inte din Azure AD B2C-klient.
+3. Välj **skapa en resurs** i det övre vänstra hörnet av Azure-portalen och Sök efter och välj **Application Insights**.
+4. Klicka på **Skapa**.
+5. Ange en **namn** för resursen.
+6. För **programtyp**väljer **ASP.NET-webbprogram**.
+7. För **resursgrupp**, Välj en befintlig grupp eller ange ett namn för en ny grupp.
+8. Klicka på **Skapa**.
+4. När du skapar Application Insights-resursen, öppna den, expanderar **Essentials**, och kopierar instrumenteringsnyckeln.
 
-![Översikt över Application Insights och Instrumenteringsnyckeln](./media/active-directory-b2c-custom-guide-eventlogger-appins/app-ins-key.png)
+![Översikt över Application Insights och Instrumenteringsnyckeln](./media/active-directory-b2c-custom-guide-eventlogger-appins/app-insights.png)
 
-## <a name="step-2-add-new-claimtype-definitions-to-your-trust-framework-extension-file"></a>Steg 2. Lägga till nya ClaimType definitioner i filen förtroende framework-tillägg
+## <a name="add-new-claimtype-definitions"></a>Lägg till nya ClaimType definitioner
 
-Öppna tilläggsfilen från startpaket och Lägg till följande element i den `<BuildingBlocks>` noden. Filnamnet är vanligtvis `yourtenant.onmicrosoft.com-B2C_1A_TrustFrameworkExtensions.xml`
+Öppna den *TrustFrameworkExtensions.xml* filen från startpaket och Lägg till följande element i den [BuildingBlocks](buildingblocks.md) element:
 
 ```xml
 <ClaimsSchema>
@@ -101,34 +106,23 @@ När du använder Application Insights med Azure AD B2C, är det enda kravet att
 </ClaimsSchema>
 ```
 
-## <a name="step-3-add-new-technical-profiles-that-use-the-application-insights-provider"></a>Steg 3. Lägga till nya tekniska profiler som använder Application Insights-providern
+## <a name="add-new-technical-profiles"></a>Lägga till nya tekniska profiler
 
-Tekniska profiler kan ses funktioner i den identitet upplevelse Framework av Azure AD B2C. Det här exemplet definierar fem tekniska profiler för att öppna en session och publicerar händelser:
+Tekniska profiler kan ses funktioner i den identitet upplevelse Framework av Azure AD B2C. Den här tabellen definieras de tekniska profiler som används för att öppna en session och publicerar händelser.
 
 | Tekniska profilen | Aktivitet |
 | ----------------- | -----|
-| AzureInsights-Common | Skapar en gemensam uppsättning parametrar som ska ingå i alla AzureInsights tekniska profiler | 
-| JourneyContextForInsights | Öppnas sessionen i Application Insights och skickar ett Korrelations-ID |
-| AzureInsights-SignInRequest | Skapar en `SignIn` händelse med en uppsättning anspråk när en inloggningsbegäran har tagits emot | 
-| AzureInsights-UserSignup | Skapar en UserSignup händelse när användaren utlöser inloggningsalternativet i en registrerings-registreringen/inloggning resa | 
-| AzureInsights-SignInComplete | Registrerar en autentisering slutförs när en token har skickats till den förlitande partsprogram | 
+| AzureInsights-Common | Skapar en gemensam uppsättning parametrar som ska ingå i alla AzureInsights tekniska profiler. | 
+| AzureInsights-SignInRequest | Skapar en inloggning från händelse med en uppsättning anspråk när en inloggningsbegäran har tagits emot. | 
+| AzureInsights-UserSignup | Skapar en UserSignup händelse när användaren utlöser inloggningsalternativet i en registrerings-registreringen/inloggning resa. | 
+| AzureInsights-SignInComplete | Registrerar en autentisering slutförs när en token har skickats till den förlitande partsprogram. | 
 
-Lägg till profilerna i tilläggsfilen från startpaket genom att lägga till dessa element och den `<ClaimsProviders>` noden.  Filnamnet är vanligtvis `yourtenant.onmicrosoft.com-B2C_1A_TrustFrameworkExtensions.xml`
-
-> [!IMPORTANT]
-> Ändra instrumenteringsnyckeln i den `ApplicationInsights-Common` tekniska profil till det GUID som innehåller Application Insights-resursen.
+Lägga till profiler till den *TrustFrameworkExtensions.xml* filen från startpaket. Lägg till dessa element och den **ClaimsProviders** element:
 
 ```xml
 <ClaimsProvider>
   <DisplayName>Application Insights</DisplayName>
   <TechnicalProfiles>
-    <TechnicalProfile Id="JourneyContextForInsights">
-      <DisplayName>Application Insights</DisplayName>
-      <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.UserJourneyContextProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
-      <OutputClaims>
-        <OutputClaim ClaimTypeReferenceId="CorrelationId" />
-      </OutputClaims>
-    </TechnicalProfile>
     <TechnicalProfile Id="AzureInsights-SignInRequest">
       <InputClaims>
         <!-- An input claim with a PartnerClaimType="eventName" is required. This is used by the AzureApplicationInsightsProvider to create an event with the specified value. -->
@@ -172,24 +166,16 @@ Lägg till profilerna i tilläggsfilen från startpaket genom att lägga till de
 </ClaimsProvider>
 ```
 
-## <a name="step-4-add-the-technical-profiles-for-application-insights-as-orchestration-steps-in-an-existing-user-journey"></a>Steg 4. Lägga till de tekniska profilerna för Application Insights enligt orchestration-steg i en befintlig användarresa
+> [!IMPORTANT]
+> Ändra instrumenteringsnyckeln i den `ApplicationInsights-Common` tekniska profil till det GUID som innehåller Application Insights-resursen.
 
-Anropa `JournyeContextForInsights` som orchestration-steg 1:
-
-```xml
-<!-- Initialize a session with Application Insights -->
-<OrchestrationStep Order="1" Type="ClaimsExchange">
-  <ClaimsExchanges>
-    <ClaimsExchange Id="JourneyContextForInsights" TechnicalProfileReferenceId="JourneyContextForInsights" />
-  </ClaimsExchanges>
-</OrchestrationStep>
-```
+## <a name="add-the-technical-profiles-as-orchestration-steps"></a>Lägg till de tekniska profilerna som orchestration-steg
 
 Anropa `Azure-Insights-SignInRequest` som orchestration steg 2 för att spåra en inloggning-i/registrering begäran har tagits emot:
 
 ```xml
 <!-- Track that we have received a sign in request -->
-<OrchestrationStep Order="2" Type="ClaimsExchange">
+<OrchestrationStep Order="1" Type="ClaimsExchange">
   <ClaimsExchanges>
     <ClaimsExchange Id="TrackSignInRequest" TechnicalProfileReferenceId="AzureInsights-SignInRequest" />
   </ClaimsExchanges>
@@ -200,7 +186,7 @@ Omedelbart *innan* den `SendClaims` orkestrering kan du lägga till ett nytt ste
 
 ```xml
 <!-- Handles the user clicking the sign up link in the local account sign in page -->
-<OrchestrationStep Order="9" Type="ClaimsExchange">
+<OrchestrationStep Order="8" Type="ClaimsExchange">
   <Preconditions>
     <Precondition Type="ClaimsExist" ExecuteActionsIf="false">
       <Value>newUser</Value>
@@ -221,7 +207,7 @@ Direkt efter den `SendClaims` orkestreringssteget, anrop `Azure-Insights-SignInC
 
 ```xml
 <!-- Track that we have successfully sent a token -->
-<OrchestrationStep Order="11" Type="ClaimsExchange">
+<OrchestrationStep Order="10" Type="ClaimsExchange">
   <ClaimsExchanges>
     <ClaimsExchange Id="TrackSignInComplete" TechnicalProfileReferenceId="AzureInsights-SignInComplete" />
   </ClaimsExchanges>
@@ -232,9 +218,9 @@ Direkt efter den `SendClaims` orkestreringssteget, anrop `Azure-Insights-SignInC
 > När du har lagt till nya orchestration-steg kan du numrera om stegen sekventiellt utan hoppar över alla heltal från 1 till N.
 
 
-## <a name="step-5-upload-your-modified-extensions-file-run-the-policy-and-view-events-in-application-insights"></a>Steg 5. Ladda upp tilläggsfilen ändrade, kör principen och visa händelser i Application Insights
+## <a name="upload-your-file-run-the-policy-and-view-events"></a>Ladda upp din fil, köra principen och granska händelser
 
-Spara och ladda upp den nya förtroende framework-tillägg-filen. Anropa sedan principen för förlitande part från ditt program eller Använd `Run Now` i Azure AD B2C-gränssnittet. Händelser är tillgängliga i Application Insights i sekunder.
+Spara och ladda upp den *TrustFrameworkExtensions.xml* fil. Anropa sedan principen för förlitande part från ditt program eller Använd **kör nu** i Azure-portalen. Händelser är tillgängliga i Application Insights i sekunder.
 
 1. Öppna den **Application Insights** resurs i Azure Active Directory-klient.
 2. Välj **användning** > **händelser**.
@@ -242,94 +228,17 @@ Spara och ladda upp den nya förtroende framework-tillägg-filen. Anropa sedan p
 
 ![Application Insights-Användningshändelser Blase](./media/active-directory-b2c-custom-guide-eventlogger-appins/app-ins-graphic.png)
 
-##  <a name="next-steps"></a>Nästa steg
+## <a name="next-steps"></a>Nästa steg
 
-Lägg till anspråkstyper och händelser användarresan som passar dina behov. Här är en lista över möjliga anspråk, med hjälp av ytterligare anspråk matchare
+Lägg till anspråkstyper och händelser användarresan som passar dina behov. Du kan använda [anspråk matchare](claim-resolver-overview.md) eller valfri sträng Anspråkstyp, lägga till anspråk genom att lägga till en **inkommande anspråk** element till Application Insights-händelse eller till den tekniska profilen AzureInsights gemensamma. 
 
-### <a name="culture-specific-claims"></a>Kultur-specifika anspråk
+- **ClaimTypeReferenceId** är referens till en anspråkstyp.
+- **PartnerClaimType** är namnet på den egenskap som visas i Azure Insights. Använd syntaxen för `{property:NAME}`, där `NAME` är egenskap som läggs till händelsen. 
+- **DefaultValue** använda valfritt strängvärde eller matcharen anspråk. 
 
-```xml
-Referenced using: {Culture:One of the property names below}
-```
-
-| Begär | Definition | Exempel |
-| ----- | -----------| --------|
-| LanguageName | De två enhetsbokstaven ISO-kod för språk | en |
-| RegionName | De två enhetsbokstaven ISO-kod för regionen | USA |
-| RFC5646 | RFC5646 språkkod | sv-SE |
-| LCID   | LCID för språkkod | 29 |
-
-### <a name="policy-specific-claims"></a>Princip-specifika anspråk
-
-```xml
-Referenced using {Policy:One of the property names below}
-```
-
-| Begär | Definition | Exempel |
-| ----- | -----------| --------|
-| TrustFrameworkTenantId | Trustframework-klient-id | Gäller inte |
-| RelyingPartyTenantId | Klient-id för den förlitande parten | Gäller inte |
-| PolicyId | Princip-id för principen | Gäller inte |
-| TenantObjectId | Klient objekt-id för principen | Gäller inte |
-
-### <a name="openid-connect-specific-claims"></a>OpenID Connect-specifika anspråk
-
-```xml
-Referenced using {OIDC:One of the property names below}
-```
-
-| Begär | OpenIdConnect parameter | Exempel |
-| ----- | ----------------------- | --------|
-| fråga | fråga | Gäller inte |
-| LoginHint |  login_hint | Gäller inte |
-| DomainHint | domain_hint | Gäller inte |
-|  MaxAge | max_age | Gäller inte |
-| ClientId | client_id | Gäller inte |
-| Användarnamn | login_hint | Gäller inte |
-|  Resurs | resurs| Gäller inte |
-| AuthenticationContextReferences | acr_values | Gäller inte |
-
-### <a name="non-protocol-parameters-included-with-oidc--oauth2-requests"></a>Icke-protokollparametrar ingår OIDC & OAuth2 begäranden
-
-```xml
-Referenced using { OAUTH-KV:Querystring parameter name }
-```
-
-Alla parameternamn som en del av ett OIDC eller OAuth2-begäran kan mappas till ett anspråk i användarresan. Du kan sedan registrera det i händelsen. Till exempel begärande från programmet kan innehålla en frågesträngsparameter med namnet `app_session`, `loyalty_number` eller `any_string`.
-
-Här är ett exempel på begäran från programmet:
-
-```
-https://sampletenant.b2clogin.com/tfp/sampletenant.onmicrosoft.com/B2C_1A_signup_signin/oauth2/v2.0/authorize?client_id=e1d2612f-c2bc-4599-8e7b-d874eaca1ae1&nonce=defaultNonce&redirect_uri=https%3A%2F%2Fjwt.ms&scope=openid&response_type=id_token&prompt=login&app_session=0a2b45c&loyalty_number=1234567
-
-```
-Du kan sedan lägga till anspråk genom att lägga till en `Input Claim` element på Application Insights-händelsen. Egenskaperna för en händelse läggs till via syntax {egenskapen: NAME}, där NAME egenskapen läggs till händelsen. Exempel:
-
-```
+```XML
 <InputClaim ClaimTypeReferenceId="app_session" PartnerClaimType="{property:app_session}" DefaultValue="{OAUTH-KV:app_session}" />
 <InputClaim ClaimTypeReferenceId="loyalty_number" PartnerClaimType="{property:loyalty_number}" DefaultValue="{OAUTH-KV:loyalty_number}" />
+<InputClaim ClaimTypeReferenceId="language" PartnerClaimType="{property:language}" DefaultValue="{Culture:RFC5646}" />
 ```
-
-### <a name="other-system-claims"></a>Andra system-anspråk
-
-Vissa system anspråk måste läggas till i uppsättningen anspråk innan de kan spela in som händelser. Den tekniska profilen `SimpleUJContext` måste anropas som en orchestration-steg eller en profil för tekniska innan dessa anspråk är tillgängliga.
-
-```xml
-<ClaimsProvider>
-  <DisplayName>User Journey Context Provider</DisplayName>
-  <TechnicalProfiles>
-    <TechnicalProfile Id="SimpleUJContext">
-      <DisplayName>User Journey Context Provide</DisplayName>
-      <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.UserJourneyContextProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
-      <OutputClaims>
-        <OutputClaim ClaimTypeReferenceId="IP-Address" />
-        <OutputClaim ClaimTypeReferenceId="CorrelationId" />
-        <OutputClaim ClaimTypeReferenceId="DateTimeInUtc" />
-        <OutputClaim ClaimTypeReferenceId="Build" />
-      </OutputClaims>
-    </TechnicalProfile>
-  </TechnicalProfiles>
-</ClaimsProvider>
-```
-
 

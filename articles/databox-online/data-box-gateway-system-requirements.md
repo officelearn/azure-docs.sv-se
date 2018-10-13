@@ -1,25 +1,19 @@
 ---
 title: Systemkrav för Microsoft Azure Data Box Gateway | Microsoft Docs
 description: Läs mer om programvara och nätverkskrav för din Azure Data Box-Gateway
-services: databox-edge-gateway
-documentationcenter: NA
+services: databox
 author: alkohli
-manager: twooley
-editor: ''
-ms.assetid: ''
-ms.service: databox-edge-gateway
-ms.devlang: NA
+ms.service: databox
+ms.subservice: gateway
 ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 09/24/2018
 ms.author: alkohli
-ms.openlocfilehash: 915190f6f2773d22d14c75be1140f96b7dd40559
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 16d9604100d3ec37cef7ad4ebbdc376967006e15
+ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46991580"
+ms.lasthandoff: 10/12/2018
+ms.locfileid: "49166703"
 ---
 # <a name="azure-data-box-gateway-system-requirements-preview"></a>Systemkrav för Azure Data Box-Gateway (förhandsversion)
 
@@ -31,7 +25,7 @@ Systemkrav för den virtuella enheten Data Box-Gateway är:
 - **Nätverkskrav för enheten** – innehåller information om alla nätverkskrav för driften av den virtuella enheten.
 
 > [!IMPORTANT]
-> Data Box-Gateway är i förhandsversion. Granska den [villkor för användning av förhandsversionen av](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) innan du distribuerar den här lösningen. 
+> Data Box Gateway är en förhandsversion. Läs [användningsvillkoren för förhandsversionen](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) innan du distribuerar den här lösningen. 
 
 ## <a name="supported-os-for-clients-connected-to-device"></a>Operativsystem som stöds för klienter som är anslutna till enhet
 
@@ -134,7 +128,7 @@ Vi rekommenderar att du ställer in brandväggsreglerna för utgående trafik, b
 
 Följande krav gäller för minsta Internet-bandbredd tillgänglig för dina Data Box Gateway-enheter.
 
-- Din Data Box-Gateway har en dedikerad 20 Mbit/s internetbandbredd (eller mer) vid alla tidpunkter. Den här bandbredden ska inte delas med andra program. 
+- Din Data Box Gateway har en dedikerad Internetbandbredd på minst 20 Mbit/s som alltid är tillgänglig. Den här bandbredden ska inte delas med andra program. 
 - Din Data Box-Gateway har en dedikerad 32 Mbit/s internetbandbredd (eller mer) när du använder nätverksbegränsning.
 
 ## <a name="next-step"></a>Nästa steg

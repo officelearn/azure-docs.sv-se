@@ -1,6 +1,6 @@
 ---
-title: Lägga till en utfällbara av lösningen för fjärrövervakning gränssnitt – Azure | Microsoft Docs
-description: Den här artikeln visar hur du lägger till en ny utfällbara på en sida i Remote Monitoring solution accelerator webbgränssnittet.
+title: Lägga till en utfällt av lösningen för fjärrövervakning gränssnitt – Azure | Microsoft Docs
+description: Den här artikeln visar hur du lägger till en ny utfällt på en sida i Remote Monitoring solution accelerator webbgränssnittet.
 author: dominicbetts
 manager: timlt
 ms.author: dobett
@@ -8,21 +8,21 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 10/05/2018
 ms.topic: conceptual
-ms.openlocfilehash: 9ba58ca887332d2ea224320951b25031cacbef0d
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: ccb1a7ff6abbc68f42c7632a8ba7a392b2c48794
+ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49094608"
+ms.lasthandoff: 10/12/2018
+ms.locfileid: "49167434"
 ---
-# <a name="add-a-custom-fly-out-to-the-remote-monitoring-solution-accelerator-web-ui"></a>Lägg till en anpassad utfällbara till fjärrövervakning solution accelerator webbgränssnittet
+# <a name="add-a-custom-flyout-to-the-remote-monitoring-solution-accelerator-web-ui"></a>Lägg till en anpassad utfällt till fjärrövervakning solution accelerator webbgränssnittet
 
-Den här artikeln visar hur du lägger till en ny utfällbara på en sida i Remote Monitoring solution accelerator webbgränssnittet. Artikeln beskriver:
+Den här artikeln visar hur du lägger till en ny utfällt på en sida i Remote Monitoring solution accelerator webbgränssnittet. Artikeln beskriver:
 
 - Så här förbereder du en lokal utvecklingsmiljö.
-- Hur du lägger till en ny utfällbara till en sida i webbläsaren.
+- Hur du lägger till en ny utfällt till en sida i webbläsaren.
 
-I exempel utfällbara i den här artikeln visas på sidan med rutnätet som den [lägga till ett anpassat rutnät till fjärrövervakning solution accelerator webbgränssnittet](iot-accelerators-remote-monitoring-customize-grid.md) artikel visar hur du lägger till.
+Exempel utfällt i den här artikeln visas på sidan med rutnätet som den [lägga till ett anpassat rutnät till fjärrövervakning solution accelerator webbgränssnittet](iot-accelerators-remote-monitoring-customize-grid.md) artikel visar hur du lägger till.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -39,27 +39,27 @@ Innan du fortsätter bör du genomföra stegen i följande artiklar:
 - [Lägga till en anpassad tjänst fjärrövervakning solution accelerator webbgränssnittet](iot-accelerators-remote-monitoring-customize-service.md)
 - [Lägg till ett anpassat rutnät till fjärrövervakning solution accelerator webbgränssnittet](iot-accelerators-remote-monitoring-customize-grid.md)
 
-## <a name="add-a-fly-out"></a>Lägg till en utfällbara
+## <a name="add-a-flyout"></a>Lägg till en utfällt
 
-Om du vill lägga till en utfällbara till webbgränssnittet för måste du lägga till källfilerna som definierar utfällbara och ändra befintliga filer om du vill göra webbgränssnittet medveten om den nya komponenten.
+Om du vill lägga till en utfällt till webbgränssnittet för måste du lägga till källfilerna som definierar utfällt och ändra befintliga filer om du vill göra webbgränssnittet medveten om den nya komponenten.
 
-### <a name="add-the-new-files-that-define-the-fly-out"></a>Lägg till de nya filerna som definierar utfällbara
+### <a name="add-the-new-files-that-define-the-flyout"></a>Lägg till de nya filerna som definierar utfällt
 
-Att komma igång, den **src/genomgången/komponenter/sidor/pageWithFlyout/egna undermenyer/exampleFlyout** mappen innehåller de filer som definierar en utfällbara:
+Att komma igång, den **src/genomgången/komponenter/sidor/pageWithFlyout/egna undermenyer/exampleFlyout** mappen innehåller de filer som definierar utfällbar meny:
 
 **exampleFlyout.container.js**
 
-[!code-javascript[Example fly-out container](~/remote-monitoring-webui/src/walkthrough/components/pages/pageWithFlyout/flyouts/exampleFlyout/exampleFlyout.container.js?name=flyoutcontainer "Example fly-out container")]
+[!code-javascript[Example flyout container](~/remote-monitoring-webui/src/walkthrough/components/pages/pageWithFlyout/flyouts/exampleFlyout/exampleFlyout.container.js?name=flyoutcontainer "Example flyout container")]
 
 **exampleFlyout.js**
 
-[!code-javascript[Example fly-out](~/remote-monitoring-webui/src/walkthrough/components/pages/pageWithFlyout/flyouts/exampleFlyout/exampleFlyout.js?name=flyout "Example fly-out")]
+[!code-javascript[Example flyout](~/remote-monitoring-webui/src/walkthrough/components/pages/pageWithFlyout/flyouts/exampleFlyout/exampleFlyout.js?name=flyout "Example flyout")]
 
 Kopiera den **src/genomgången/komponenter/sidor/pageWithFlyout/egna undermenyer** mappen till den **src/komponenter/sidor/exempel** mapp.
 
-### <a name="add-the-fly-out-to-the-page"></a>Lägga till utfällbara på sidan
+### <a name="add-the-flyout-to-the-page"></a>Lägga till utfällt på sidan
 
-Ändra den **src/components/pages/example/basicPage.js** att lägga till utfällbara.
+Ändra den **src/components/pages/example/basicPage.js** att lägga till den utfällbar meny.
 
 Lägg till **Btn** för import från **komponenter/delat** och Lägg till import för **svgs** och **ExampleFlyoutContainer**:
 
@@ -104,7 +104,7 @@ Lägg till följande **konstanta** definitioner för att den **rendera** funktio
     const isExampleFlyoutOpen = openFlyoutName === 'example';
 ```
 
-Lägg till en knapp för att öppna utfällbara till på snabbmenyn:
+Lägg till en knapp för att öppna utfällt till på snabbmenyn:
 
 ```js
       <ContextMenu key="context-menu">
@@ -113,7 +113,7 @@ Lägg till en knapp för att öppna utfällbara till på snabbmenyn:
       </ContextMenu>,
 ```
 
-Lägg till text och behållaren utfällbara sidinnehållet:
+Lägg till text och behållaren utfällt sidinnehållet:
 
 ```js
       <PageContent className="basic-page-container" key="page-content">
@@ -125,7 +125,7 @@ Lägg till text och behållaren utfällbara sidinnehållet:
       </PageContent>
 ```
 
-## <a name="test-the-fly-out"></a>Testa utfällbara
+## <a name="test-the-flyout"></a>Testa utfällt
 
 Om webb Användargränssnittet inte redan körs lokalt, kör du följande kommando i roten av den lokala kopian av databasen:
 
@@ -139,6 +139,6 @@ Föregående kommando körs lokalt på Användargränssnittet [ http://localhost
 
 I den här artikeln har du lärt dig om resurserna som är tillgängliga för att hjälpa dig lägga till eller anpassa sidor i webbgränssnittet lösningsacceleratorn för fjärrövervakning.
 
-Nu du har definierat en utfällbara på en sida, nästa steg är att [lägga till en panel på instrumentpanelen för fjärrövervakning solution accelerator webbläsaren](iot-accelerators-remote-monitoring-customize-panel.md).
+Nu du har definierat utfällbar meny på en sida, nästa steg är att [lägga till en panel på instrumentpanelen för fjärrövervakning solution accelerator webbläsaren](iot-accelerators-remote-monitoring-customize-panel.md).
 
 Mer information om lösningsacceleratorn för fjärrövervakning finns [arkitektur för fjärrövervakning](iot-accelerators-remote-monitoring-sample-walkthrough.md).

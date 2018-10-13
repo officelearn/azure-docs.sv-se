@@ -5,24 +5,24 @@ services: event-grid
 author: tfitzmac
 ms.service: event-grid
 ms.topic: reference
-ms.date: 08/17/2018
+ms.date: 10/12/2018
 ms.author: tomfitz
-ms.openlocfilehash: 22629ba553cc58435f99ed0fed97be252b24b409
-ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
+ms.openlocfilehash: ffc9eba251cbf4d9e2542791d90943ecdd1a972a
+ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "42055211"
+ms.lasthandoff: 10/13/2018
+ms.locfileid: "49310580"
 ---
 # <a name="azure-event-grid-event-schema-for-resource-groups"></a>Azure Event Grid-Händelseschema för resursgrupper
 
 Den här artikeln innehåller egenskaperna och schemat för resursen gruppera händelser. En introduktion till Händelsescheman i [Azure Event Grid Händelseschema](event-schema.md).
 
-Generera samma händelsetyper Azure-prenumerationer och resursgrupper. Händelsetyperna som är relaterade till ändringar i resurser. Den viktigaste skillnaden är att resursgrupper skickar händelser för resurserna i resursgruppen och Azure-prenumerationer Generera händelser för resurser i prenumerationen.
+Generera samma händelsetyper Azure-prenumerationer och resursgrupper. Händelsetyperna som är relaterade till resursändringar eller åtgärder. Den viktigaste skillnaden är att resursgrupper skickar händelser för resurserna i resursgruppen och Azure-prenumerationer Generera händelser för resurser i prenumerationen.
 
-Resurs-händelser skapas för PUT, PATCH, och ta bort som skickas till `management.azure.com`. Skapa inte händelser POST och GET-åtgärder. Åtgärder som skickas till dataplanet (t.ex. `myaccount.blob.core.windows.net`) skapa inte händelser.
+Resurs-händelser skapas för PUT, PATCH, POST och ta bort som skickas till `management.azure.com`. Hämta operations skapa inte händelser. Åtgärder som skickas till dataplanet (t.ex. `myaccount.blob.core.windows.net`) skapa inte händelser. Åtgärd-händelser ger händelsedata för åtgärder som att visa en lista över nycklar för en resurs.
 
-När du prenumererar på händelser för en resursgrupp får din slutpunkt alla händelser för resursgruppen. Händelser kan omfatta händelse som du vill se, till exempel att uppdatera en virtuell dator, men även händelser som kanske inte är viktiga för dig, till exempel skriver en ny post i distributionshistoriken. Du kan ta emot alla händelser på din slutpunkt och skriva kod som bearbetar händelserna som du vill hantera eller du kan ange ett filter när du skapar händelseprenumerationen.
+När du prenumererar på händelser för en resursgrupp får din slutpunkt alla händelser för resursgruppen. Händelser kan omfatta händelse som du vill se, till exempel att uppdatera en virtuell dator, men även händelser som kanske inte är viktiga för dig, till exempel skriver en ny post i distributionshistoriken. Du kan ta emot alla händelser på din slutpunkt och skriva kod som bearbetar händelserna som du vill hantera. Eller så kan du definiera ett filter när du skapar händelseprenumerationen.
 
 För att programmässigt hantera händelser, kan du sortera händelser genom att titta på den `operationName` värde. Till exempel händelse slutpunkten endast bearbeta händelser för åtgärder som är lika med `Microsoft.Compute/virtualMachines/write` eller `Microsoft.Storage/storageAccounts/write`.
 
@@ -36,12 +36,15 @@ Resursgrupper generera management händelser från Azure Resource Manager, t.ex.
 
 | Händelsetyp | Beskrivning |
 | ---------- | ----------- |
-| Microsoft.Resources.ResourceWriteSuccess | Utlöses lyckas när en resurs skapa eller uppdatera åtgärden. |
-| Microsoft.Resources.ResourceWriteFailure | Utlöses när en resurs skapar eller uppdatering misslyckas. |
-| Microsoft.Resources.ResourceWriteCancel | Utlöses avbryts när en resurs skapa eller uppdatera åtgärden. |
-| Microsoft.Resources.ResourceDeleteSuccess | Utlöses när en resurs borttagningsåtgärd lyckas. |
-| Microsoft.Resources.ResourceDeleteFailure | Utlöses när en resurs borttagningsåtgärd misslyckas. |
-| Microsoft.Resources.ResourceDeleteCancel | Utlöses när en resurs borttagningsåtgärd har avbrutits. Den här händelsen inträffar när en för malldistribution har avbrutits. |
+| Microsoft.Resources.ResourceActionCancel | Utlöses när åtgärden på resursen har avbrutits. |
+| Microsoft.Resources.ResourceActionFailure | Utlöses när åtgärden på resursen misslyckas. |
+| Microsoft.Resources.ResourceActionSuccess | Utlöses när åtgärden på resursen fungerar. |
+| Microsoft.Resources.ResourceDeleteCancel | Utlöses när ta bort åtgärden har avbrutits. Den här händelsen inträffar när en för malldistribution har avbrutits. |
+| Microsoft.Resources.ResourceDeleteFailure | Utlöses när ta bort åtgärden misslyckas. |
+| Microsoft.Resources.ResourceDeleteSuccess | Utlöses när för att ta bort lyckas. |
+| Microsoft.Resources.ResourceWriteCancel | Utlöses när Skapa eller uppdateringsåtgärden har avbrutits. |
+| Microsoft.Resources.ResourceWriteFailure | Utlöses när Skapa eller uppdatera åtgärden misslyckas. |
+| Microsoft.Resources.ResourceWriteSuccess | Utlöses när Skapa eller uppdateringsåtgärden lyckas. |
 
 ## <a name="example-event"></a>Exempel-händelse
 
@@ -171,13 +174,69 @@ I följande exempel visas schemat för en **ResourceDeleteSuccess** händelse. S
 }]
 ```
 
+I följande exempel visas schemat för en **ResourceActionSuccess** händelse. Samma schema används för **ResourceActionFailure** och **ResourceActionCancel** händelser med olika värden för `eventType`.
+
+```json
+[{   
+  "subject": "/subscriptions/{subscription-id}/resourceGroups/{resource-group}/providers/Microsoft.EventHub/namespaces/{namespace}/AuthorizationRules/RootManageSharedAccessKey",
+  "eventType": "Microsoft.Resources.ResourceActionSuccess",
+  "eventTime": "2018-10-08T22:46:22.6022559Z",
+  "id": "{ID}",
+  "data": {
+    "authorization": {
+      "scope": "/subscriptions/{subscription-id}/resourceGroups/{resource-group}/providers/Microsoft.EventHub/namespaces/{namespace}/AuthorizationRules/RootManageSharedAccessKey",
+      "action": "Microsoft.EventHub/namespaces/AuthorizationRules/listKeys/action",
+      "evidence": {
+        "role": "Contributor",
+        "roleAssignmentScope": "/subscriptions/{subscription-id}",
+        "roleAssignmentId": "{ID}",
+        "roleDefinitionId": "{ID}",
+        "principalId": "{ID}",
+        "principalType": "ServicePrincipal"
+      }     
+    },
+    "claims": {
+      "aud": "{audience-claim}",
+      "iss": "{issuer-claim}",
+      "iat": "{issued-at-claim}",
+      "nbf": "{not-before-claim}",
+      "exp": "{expiration-claim}",
+      "aio": "{token}",
+      "appid": "{ID}",
+      "appidacr": "2",
+      "http://schemas.microsoft.com/identity/claims/identityprovider": "{URL}",
+      "http://schemas.microsoft.com/identity/claims/objectidentifier": "{ID}",
+      "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier": "{ID}",       "http://schemas.microsoft.com/identity/claims/tenantid": "{ID}",
+      "uti": "{ID}",
+      "ver": "1.0"
+    },
+    "correlationId": "{ID}",
+    "httpRequest": {
+      "clientRequestId": "{ID}",
+      "clientIpAddress": "{IP-address}",
+      "method": "POST",
+      "url": "https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group}/providers/Microsoft.EventHub/namespaces/{namespace}/AuthorizationRules/RootManageSharedAccessKey/listKeys?api-version=2017-04-01"
+    },
+    "resourceProvider": "Microsoft.EventHub",
+    "resourceUri": "/subscriptions/{subscription-id}/resourceGroups/{resource-group}/providers/Microsoft.EventHub/namespaces/{namespace}/AuthorizationRules/RootManageSharedAccessKey",
+    "operationName": "Microsoft.EventHub/namespaces/AuthorizationRules/listKeys/action",
+    "status": "Succeeded",
+    "subscriptionId": "{subscription-id}",
+    "tenantId": "{tenant-id}"
+  },
+  "dataVersion": "2",
+  "metadataVersion": "1",
+  "topic": "/subscriptions/{subscription-id}/resourceGroups/{resource-group}" 
+}]
+```
+
 ## <a name="event-properties"></a>Egenskaper för händelse
 
 En händelse har följande översta data:
 
 | Egenskap  | Typ | Beskrivning |
 | -------- | ---- | ----------- |
-| ämne | sträng | Fullständig resurssökväg till händelsekällan. Det här fältet är skrivskyddat. Event Grid ger det här värdet. |
+| ämne | sträng | Fullständig resurssökväg till händelsekällan. Det här fältet är inte skrivbar. Event Grid ger det här värdet. |
 | Ämne | sträng | Publisher-definierade sökvägen till ämne för händelsen. |
 | Händelsetyp | sträng | En av typerna som registrerade händelsen för den här händelsekällan. |
 | eventTime | sträng | Den tid som händelsen genereras baserat på leverantörens UTC-tid. |
@@ -194,7 +253,7 @@ Dataobjektet har följande egenskaper:
 | anspråk | objekt | Egenskaper för anspråken. Mer information finns i [JWT-specifikationen](http://self-issued.info/docs/draft-ietf-oauth-json-web-token.html). |
 | correlationId | sträng | En Operations-ID för felsökning. |
 | httpRequest | objekt | Information om åtgärden. Det här objektet är endast ingår när du uppdaterar en befintlig resurs eller ta bort en resurs. |
-| ResourceProvider | sträng | Resursprovidern som utför åtgärden. |
+| ResourceProvider | sträng | Resource provider för åtgärden. |
 | resourceUri | sträng | URI för resursen i åtgärden. |
 | operationName | sträng | Åtgärden som utfördes. |
 | status | sträng | Status för åtgärden. |

@@ -10,14 +10,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/23/2018
+ms.date: 10/11/2018
 ms.author: douglasl
-ms.openlocfilehash: 38fbb62de60bc5604210c8ad7339368a04967c27
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.openlocfilehash: 20ee69654a6b19365c9b7c46e1fa11e102168365
+ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48867060"
+ms.lasthandoff: 10/13/2018
+ms.locfileid: "49309373"
 ---
 # <a name="create-a-trigger-that-runs-a-pipeline-in-response-to-an-event"></a>Skapa en utlösare som kör en pipeline som svar på en händelse
 
@@ -80,7 +80,7 @@ Följande tabell innehåller en översikt över de element som är relaterade ti
 Det här avsnittet innehåller exempel på inställningar för händelsebaserade utlösare.
 
 -   **Blobbsökväg som börjar med**('/ containername / ”) – tar emot händelser för alla blobar i behållaren.
--   **Blobbsökväg som börjar med**(”/ mappnamn/blobar/containername”) – tar emot händelser för alla blobar i behållaren för containername och mappnamn mappen.
+-   **Blobbsökväg som börjar med**(”/ mappnamn/blobar/containername”) – tar emot händelser för alla blobar i behållaren för containername och mappnamn mappen. Du kan också referera till en undermapp; till exempel ”/ containername/blobar/mappnamn/undermappsnamn /'.
 -   **Blobbsökväg som börjar med**('/ containername/blobs/foldername/file.txt ”) – tar emot händelser för en blob med namnet fil.txt i mappnamn mapp under behållaren containername.
 -   **Blobbsökväg slutar med**('fil.txt') – Receives händelser för en blob med namnet fil.txt på valfri sökväg.
 -   **Blobbsökväg slutar med**('/ containername/blobs/file.txt ”) – tar emot händelser för en blob med namnet fil.txt under behållaren containername.

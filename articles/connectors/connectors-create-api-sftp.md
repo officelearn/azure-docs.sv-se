@@ -10,13 +10,13 @@ ms.reviewer: klam, LADocs
 ms.assetid: 697eb8b0-4a66-40c7-be7b-6aa6b131c7ad
 ms.topic: article
 tags: connectors
-ms.date: 08/24/2018
-ms.openlocfilehash: 8f430477883543aa8f87eb3fb0fb49ab31e2d723
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.date: 10/11/2018
+ms.openlocfilehash: 77a76aa4fbb051e5999053279798c1b0147ae8e9
+ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43042046"
+ms.lasthandoff: 10/12/2018
+ms.locfileid: "49166788"
 ---
 # <a name="monitor-create-and-manage-sftp-files-by-using-azure-logic-apps"></a>Övervaka, skapa och hantera SFTP-filer med hjälp av Azure Logic Apps
 
@@ -27,8 +27,10 @@ Med Azure Logic Apps och SFTP-anslutningsappen kan du skapa automatiserade uppgi
 * Hämta filinnehåll och metadata.
 * Extrahera Arkiv till mappar.
 
-Du kan använda utlösare som få svar från din SFTP-server och se utdata som är tillgängliga för andra åtgärder. Du kan använda åtgärder i dina logic apps för att utföra uppgifter med filer på din SFTP-server. Du kan också ha andra åtgärder som använder utdata från SFTP-åtgärder. Till exempel om du regelbundet hämta filer från din SFTP-server, kan du skicka e-postmeddelande om dessa filer och sitt innehåll med hjälp av anslutningsappen Office 365 Outlook eller Outlook.com-anslutning.
-Om du är nybörjare till logic apps, granska [vad är Azure Logic Apps?](../logic-apps/logic-apps-overview.md)
+Du kan använda utlösare som få svar från din SFTP-server och se utdata som är tillgängliga för andra åtgärder. Du kan använda åtgärder i dina logic apps för att utföra uppgifter med filer på din SFTP-server. Du kan också ha andra åtgärder som använder utdata från SFTP-åtgärder. Till exempel om du regelbundet hämta filer från din SFTP-server, kan du skicka e-postmeddelande om dessa filer och sitt innehåll med hjälp av anslutningsappen Office 365 Outlook eller Outlook.com-anslutning. Om du är nybörjare till logic apps, granska [vad är Azure Logic Apps?](../logic-apps/logic-apps-overview.md)
+
+> [!NOTE]
+> För filer som är större än 50 MB och upp till 1 GB, använda den [SFTP-SSH-anslutningen](../connectors/connectors-sftp-ssh.md). SFTP-anslutningsappen stöder bara filer som är 50 MB eller mindre om du inte använder [storlekar för att hantera stora meddelanden](../logic-apps/logic-apps-handle-large-messages.md). 
 
 ## <a name="prerequisites"></a>Förutsättningar
 

@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 10/11/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 6127e300ee46dbd33f8537f0138963cd4e3b5cc8
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: 67a987d9b491ba6813e900c293529ed677c45757
+ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49094147"
+ms.lasthandoff: 10/12/2018
+ms.locfileid: "49167689"
 ---
 # <a name="update-management-solution-in-azure"></a>Lösningen för uppdateringshantering i Azure
 
@@ -35,17 +35,17 @@ Följande diagram visar en konceptuell vy över beteende och dataflöde över hu
 
 ![Uppdatera processflöde för hantering](media/automation-update-management/update-mgmt-updateworkflow.png)
 
-Hantering av uppdateringar kan användas för att internt registrera datorer i flera prenumerationer i samma klientorganisation. Hantera virtuella datorer i en annan klient måste du publicera dem som [icke-Azure-datorer](automation-onboard-solutions-from-automation-account.md#onboard-a-non-azure-machine). 
+Hantering av uppdateringar kan användas för att internt registrera datorer i flera prenumerationer i samma klientorganisation. För att hantera datorer i en annan klient, måste du publicera dem som [icke-Azure-datorer](automation-onboard-solutions-from-automation-account.md#onboard-a-non-azure-machine).
 
 När en CVE är viktig, tar 2 – 3 timmar innan uppdateringen att visas för Linux-datorer för utvärdering.  För Windows-datorer tar den 12 – 15 timmar för uppdatering ska visas för utvärderingen efter att det har släppts.
 
-När en dator utför en sökning för att kontrollera uppdateringskompatibilitet, vidarebefordrar agenten informationen gruppvis till Azure Log Analytics. På en Windows-dator utförs kompatibilitetsgenomsökningen var 12: e timme som standard.
+När en dator är klar en sökning efter uppdateringskompatibilitet vidarebefordrar agenten informationen gruppvis till Azure Log Analytics. På en Windows-dator kördes kompatibilitetsgenomsökningen var 12: e timme som standard.
 
 Förutom genomsökningsschemat initieras sökningen för uppdateringskompatibilitet inom 15 minuter om du MMA startas innan installationen av uppdateringen och efter installationen av uppdateringen.
 
 För en Linux-dator utförs kompatibilitetsgenomsökningen var tredje timme som standard. Om MMA-agenten startas initieras en kompatibilitetsgenomsökning inom 15 minuter.
 
-Lösningen rapporterar hur uppdaterad datorn är utifrån vilken källa du är konfigurerad för att synkronisera med. Om Windows-datorn är konfigurerad för att rapportera till WSUS, beroende på när WSUS senast synkroniserad med Microsoft Update kan resultatet skiljer sig från vad Microsoft Updates visar. Det här är samma för Linux-datorer som är konfigurerade att rapportera till en lokal lagringsplats i stället för till en offentlig repo.
+Lösningen rapporterar hur uppdaterad datorn är utifrån vilken källa du är konfigurerad för att synkronisera med. Om Windows-datorn är konfigurerad för att rapportera till WSUS, beroende på när WSUS senast synkroniserad med Microsoft Update kan resultatet skiljer sig från vad Microsoft Updates visar. Det här beteendet är samma för Linux-datorer som är konfigurerade att rapportera till en lokal lagringsplats i stället för till en offentlig repo.
 
 > [!NOTE]
 > För att korrekt rapportera till tjänsten, hantering av uppdateringar som kräver vissa webbadresser och portar som ska aktiveras. Mer information om dessa krav finns [Network planera för Hybrid Worker-arbeten](automation-hybrid-runbook-worker.md#network-planning).
@@ -54,11 +54,11 @@ Du kan distribuera och installera programuppdateringar på datorer som kräver u
 
 En schemalagd distribution definierar vilka måldatorer som får tillämpliga uppdateringar, antingen genom att uttryckligen ange datorer eller genom att välja en [datorgrupp](../log-analytics/log-analytics-computer-groups.md) som baseras på loggsökningar för en specifik uppsättning datorer. Du kan även ange ett schema för att godkänna och ange en viss tidsperiod under vilken du kan installera uppdateringar.
 
-Uppdateringar installeras av runbooks i Azure Automation. Du kan inte visa dessa runbooks och runbooks kräver inte någon konfigurering. När en uppdateringsdistribution skapas, skapar ett schema som startar en masteruppdaterings-runbook vid den angivna tidpunkten för datorerna som ingår i uppdateringsdistributionen. Master-runbook startar en underordnad runbook på varje agent så att utföra installationen av nödvändiga uppdateringar.
+Uppdateringar installeras av runbooks i Azure Automation. Du kan inte visa dessa runbooks och runbooks kräver inte någon konfigurering. När en uppdateringsdistribution skapas, skapar ett schema som startar en masteruppdaterings-runbook vid den angivna tidpunkten för datorerna som ingår i uppdateringsdistributionen. Master-runbook startar en underordnad runbook på varje agent så att installera nödvändiga uppdateringar.
 
-Vid det datum och tid som anges i uppdateringsdistributionen kör måldatorerna distributionen parallellt. Innan du kör installationen utförs en genomsökning för att verifiera att uppdateringarna fortfarande är nödvändiga. Om uppdateringarna som inte godkänts i WSUS, för WSUS-klientdatorer misslyckas distributionen av uppdateringen.
+Vid det datum och tid som anges i uppdateringsdistributionen kör måldatorerna distributionen parallellt. Före installationen kört en genomsökning för att verifiera att uppdateringarna fortfarande är nödvändiga. Om uppdateringarna som inte godkänts i WSUS, för WSUS-klientdatorer misslyckas distributionen av uppdateringen.
 
-Med en dator som har registrerats för uppdateringshantering i flera Log Analytics-arbetsytor (flera värdar) stöds inte.
+Med en dator som har registrerats för uppdateringshantering i mer än en Log Analytics-arbetsytor (flera värdar) stöds inte.
 
 ## <a name="clients"></a>Klienter
 
@@ -92,7 +92,7 @@ Windows-agenter måste konfigureras för att kommunicera med en WSUS-server elle
 
 #### <a name="linux"></a>Linux
 
-För Linux, måste datorn ha åtkomst till en uppdateringslagringsplats. Uppdatera databasen kan vara privat eller offentlig. TLS 1.1 eller TLS 1.2 krävs för att interagera med hantering av uppdateringar. En Log Analytics-agenten för Linux som är konfigurerad för att rapportera till flera Log Analytics-arbetsytor stöds inte med den här lösningen.
+För Linux, måste datorn ha åtkomst till en uppdateringslagringsplats. Uppdatera databasen kan vara privat eller offentlig. TLS 1.1 eller TLS 1.2 krävs för att interagera med hantering av uppdateringar. En Log Analytics-agenten för Linux som är konfigurerad att rapportera till fler än en Log Analytics-arbetsytor stöds inte med den här lösningen.
 
 Information om hur du installerar Log Analytics-agenten för Linux och hämta den senaste versionen finns i [Operations Management Suite-agenten för Linux](https://github.com/microsoft/oms-agent-for-linux). Information om hur du installerar Log Analytics-agenten för Windows finns i [Operations Management Suite-agenten för Windows](../log-analytics/log-analytics-windows-agent.md).
 
@@ -209,13 +209,13 @@ Om du vill skapa en ny uppdateringsdistribution, Välj **distribution av schemau
 | --- | --- |
 | Namn |Unikt namn som identifierar uppdateringsdistributionen. |
 |Operativsystem| Linux eller Windows|
-| Grupper för att uppdatera (förhandsversion)|Definiera en fråga som baseras på en kombination av prenumeration, resursgrupper, platser och taggar för att skapa en dynamisk grupp med virtuella Azure-datorer ska ingå i din distribution. Läs mer i [dynamiska grupper](automation-update-management.md#using-dynamic-groups)|
+| Grupper för att uppdatera (förhandsversion)|Definiera en fråga som baseras på en kombination av prenumeration, resursgrupper, platser och taggar för att skapa en dynamisk grupp med virtuella Azure-datorer ska ingå i din distribution. Mer information finns i [dynamiska grupper](automation-update-management.md#using-dynamic-groups)|
 | Datorer som ska uppdateras |Välj en sparad sökning, importerat gruppen, eller välja dator från listrutan och Välj enskilda datorer. Om du väljer **Datorer** visas beredskapen för datorn i kolumnen **Uppdatera agentberedskap**.</br> Mer om de olika metoderna för att skapa datorgrupper i Log Analytics finns i dokumentationen om [datorgrupper i Log Analytics](../log-analytics/log-analytics-computer-groups.md) |
 |Uppdatera klassificeringar|Välj de uppdateringsklassificeringar som du behöver|
-|Inkludera/exkludera uppdateringar|Då öppnas det **ta med eller undanta** sidan. Uppdateringar för inkluderas eller uteslutas är på en separat flik. Mer information om hur inkludering hanteras och se [inkludering beteende](automation-update-management.md#inclusion-behavior) |
+|Inkludera/exkludera uppdateringar|Då öppnas det **ta med eller undanta** sidan. Uppdateringar för inkluderas eller uteslutas är på en separat flik. Mer information om hur inkludering hanteras finns [inkludering beteende](automation-update-management.md#inclusion-behavior) |
 |Schemainställningar|Välj tid att starta och välj antingen en gång eller återkommande för upprepningen|
 | Förskript och efterskript|Välj skript ska köras före och efter distributionen|
-| Underhållsperiod |Antal minuter som angetts för uppdateringar. Värdet kan inte vara mindre än 30 minuter och högst 6 timmar |
+| Underhållsperiod |Antal minuter som angetts för uppdateringar. Värdet får inte vara mindre än 30 minuter och högst 6 timmar |
 | Starta om kontroll| Anger hur omstarter ska hanteras. De tillgängliga alternativen är:</br>Starta om vid behov (standard)</br>Starta alltid om</br>Starta aldrig om</br>Endast omstart – uppdateringar installeras inte|
 
 Distributioner av uppdateringar kan även skapas programmässigt. Läs hur du skapar en distribution med REST API i [programvarukonfigurationer för Update - skapa](/rest/api/automation/softwareupdateconfigurations/create). Det finns också en exempel-runbook som kan användas för att skapa en distribution av varje vecka. Läs mer om denna runbook i [skapa en veckovis uppdateringsdistribution för en eller flera virtuella datorer i en resursgrupp](https://gallery.technet.microsoft.com/scriptcenter/Create-a-weekly-update-2ad359a1).
@@ -273,6 +273,7 @@ Följande adresser krävs för hantering av uppdateringar. Kommunikation till de
 |*.ods.opinsights.azure.com     |*. ods.opinsights.azure.us         |
 |*.oms.opinsights.azure.com     | *. oms.opinsights.azure.us        |
 |*.blob.core.windows.net|*. blob.core.usgovcloudapi.net|
+|*.azure-automation.net|*.Azure automation.us|
 
 Mer information om portar som kräver att Hybrid Runbook Worker finns [Hybrid Worker-rollen portar](automation-hybrid-runbook-worker.md#hybrid-worker-role).
 
@@ -494,7 +495,7 @@ Update
 
 ## <a name="using-dynamic-groups"></a>Med dynamiska grupper (förhandsversion)
 
-Uppdateringshantering ger möjlighet att fokusera på en dynamisk grupp av virtuella Azure-datorer för distributioner av uppdateringar. De här grupperna definieras av en fråga, när en uppdateringsdistribution börjar medlemmar i gruppen utvärderas. När du definierar din fråga kan följande objekt användas tillsammans att fylla i den dynamiska gruppen
+Uppdateringshantering ger möjlighet att fokusera på en dynamisk grupp av virtuella Azure-datorer för distributioner av uppdateringar. De här grupperna definieras av en fråga, när en uppdateringsdistribution börjar medlemmar i gruppen utvärderas. När du definierar din fråga måste kan följande objekt användas tillsammans att fylla i den dynamiska gruppen
 
 * Prenumeration
 * Resursgrupper
@@ -515,9 +516,9 @@ Läs hur du integrerar hanteringslösningen med System Center Configuration Mana
 
 ## <a name="inclusion-behavior"></a>Inkludering beteende
 
-Uppdatera inkludering kan du ange specifika uppdateringar tillämpas. Korrigeringsfiler eller paket som är inställda som ska tas med är installerade. När korrigeringsfiler eller paket har angetts att ingå och en klassificering har markerats, installeras både inkluderade objekt och objekt som uppfyller klassificeringen.
+Uppdatera inkludering kan du ange specifika uppdateringar tillämpas. Korrigeringsfiler eller paket som ingår är installerade. När korrigeringsfiler eller paket ingår och en klassificering har markerats, installeras både inkluderade objekt och objekt som uppfyller klassificeringen.
 
-Det är viktigt att veta att undantag åsidosätta inkluderingar. Till exempel om du definierar en regel för exkludering av `*`, och sedan inga korrigeringar eller paket som är installerade som de är alla undantagna. För Linux-datorer om ett paket som ingår men innehåller ett beroende paket som har undantagits är specifcally installeras paketet inte.
+Det är viktigt att veta att undantag åsidosätta inkluderingar. Till exempel om du definierar en regel för exkludering av `*`, och sedan inga korrigeringar eller paket som är installerade som de är alla undantagna. För Linux-datorer om ett paket som ingår men innehåller ett beroende paket som har undantagits är installeras paketet inte.
 
 ## <a name="patch-linux-machines"></a>Patch Linux-datorer
 
@@ -535,7 +536,7 @@ I Red Hat Enterprise Linux är paketnamnet som ska undantas redhat-release-serve
 
 ### <a name="critical--security-patches-arent-applied"></a>Kritiska / säkerhetsuppdateringar tillämpas inte
 
-När du distribuerar uppdateringar till en Linux-dator kan välja du klassificeringar för uppdatering. Detta filtrerar de uppdateringar som tillämpas på de som uppfyller de angivna kriterierna. Det här filtret tillämpas lokalt på datorn när uppdateringen distribueras.
+När du distribuerar uppdateringar till en Linux-dator kan välja du klassificeringar för uppdatering. Detta filtrerar de uppdateringar som tillämpas på datorn som uppfyller de angivna kriterierna. Det här filtret tillämpas lokalt på datorn när uppdateringen distribueras.
 
 Eftersom uppdateringshantering update-funktioner i molnet, kan vissa uppdateringar flaggas i uppdateringshantering som har betydelse för säkerhet, trots att den lokala datorn inte har den här informationen. Därmed, om du använder kritiska uppdateringar till en Linux-dator, kan det finnas uppdateringar som inte markeras som med Säkerhetspåverkan om att datorn och uppdateringarna inte tillämpas.
 

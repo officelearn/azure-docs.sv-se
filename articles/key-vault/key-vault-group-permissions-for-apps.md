@@ -12,27 +12,29 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/09/2018
+ms.date: 10/12/2018
 ms.author: ambapat
-ms.openlocfilehash: 639dfb6e3231a5eba3d6ecb9cd0198f5718b4aef
-ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
+ms.openlocfilehash: 4ad6a18f9937fcc7d24bebc3ac197e23990ff59e
+ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49079029"
+ms.lasthandoff: 10/13/2018
+ms.locfileid: "49309254"
 ---
-# <a name="grant-permission-to-many-applications-to-access-a-key-vault"></a>Ge behörighet till många program för att komma åt ett nyckelvalv
+# <a name="grant-several-applications-access-to-a-key-vault"></a>Bevilja flera program åtkomst till ett nyckelvalv
 
-## <a name="q-i-have-several-applications-that-need-to-access-a-key-vault-how-can-i-give-these-applications-up-to-1024-access-to-key-vault"></a>F: Jag har flera program som behöver komma åt ett nyckelvalv, hur kan jag ge programmen (upp till 1024) åtkomst till Key Vault?
+Principer för åtkomstkontroll kan användas för att bevilja flera program åtkomst till ett nyckelvalv. En principer för åtkomstkontroll kan stöda upp till 1024 program och konfigureras på följande sätt:
 
-Principer för åtkomstkontroll Key Vault har stöd för upp till 1024 poster. Du kan dock skapa en Azure Active Directory-säkerhetsgrupp. Lägg till alla associerade huvudnamn i den här säkerhetsgruppen och bevilja åtkomst till den här säkerhetsgruppen till Key Vault.
+1. Skapa en Azure Active Directory-säkerhetsgrupp. 
+2. Lägg till alla program som är associerade tjänstens huvudnamn i gruppen.
+3. Bevilja den säkerhetsgrupp åtkomstbehörighet till ditt Nyckelvalv.
 
 Här följer krav:
 * [Installera Azure Active Directory PowerShell V2-modulen](https://www.powershellgallery.com/packages/AzureAD).
 * [Installera Azure PowerShell](/powershell/azure/overview).
 * För att köra följande kommandon, behöver du behörighet att skapa eller redigera grupper i Azure Active Directory-klient. Om du inte har behörighet, kan du behöva kontakta Azure Active Directory-administratören. Se [om Azure Key Vault-nycklar, hemligheter och certifikat](about-keys-secrets-and-certificates.md) mer information om hur Key Vault åtkomstbehörigheter principen.
 
-Nu kör följande kommandon i PowerShell.
+Nu kör följande kommandon i PowerShell:
 
 ```powershell
 # Connect to Azure AD 

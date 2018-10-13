@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: michmcla
-ms.openlocfilehash: df86b8466291ee6b1cb5baf7f0a16bec9c719c6f
-ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
+ms.openlocfilehash: 302cf047ee1ffea685a939bddee84551de7042ec
+ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49115135"
+ms.lasthandoff: 10/12/2018
+ms.locfileid: "49166771"
 ---
 # <a name="how-to-require-two-step-verification-for-a-user"></a>Hur du kräver tvåstegsverifiering för en användare
 Du kan ta två metoder för att kräva tvåstegsverifiering, som båda kräver att du använder ett globalt administratörskonto. Det första alternativet är att varje användare för Azure Multi-Factor Authentication (MFA). När användare är aktiverade individuellt, de utför en tvåstegsverifiering varje gång de loggar in (med vissa undantag, till exempel när de loggar in från betrodda IP-adresser eller när den _sparas enheter_ funktionen är aktiverad). Det andra alternativet är att ställa in en princip för villkorlig åtkomst som kräver tvåstegsverifiering under vissa omständigheter.
@@ -124,6 +124,8 @@ eller också kan det vara korta till:
     Set-MsolUser -UserPrincipalName user@domain.com -StrongAuthenticationRequirements @()
 
 ## <a name="next-steps"></a>Nästa steg
+
+Varför har en användare uppmanas eller uppmanas inte att utföra MFA? Se avsnittet [rapporten för Azure AD-inloggningar i rapporterna i Azure Multi-Factor Authentication-dokumentet](howto-mfa-reporting.md#azure-ad-sign-ins-report).
 
 Om du vill konfigurera ytterligare inställningar som tillförlitliga IP-adresser, anpassade röstmeddelanden och bedrägerivarningar finns i artikeln [konfigurera Azure Multi-Factor Authentication-inställningar](howto-mfa-mfasettings.md)
 

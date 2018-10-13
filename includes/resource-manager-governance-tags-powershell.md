@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/21/2018
 ms.author: tomfitz
 ms.custom: include file
-ms.openlocfilehash: 5dc4ce00685c74b2974cf1bfb5e8606eb3063e8d
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
-ms.translationtype: HT
+ms.openlocfilehash: 5914789675edba0d56e6899728fc2c3c7768374a
+ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38740587"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49312395"
 ---
 Om du vill lägga till två taggar till en resursgrupp använder du kommandot [Set-AzureRmResourceGroup](/powershell/module/azurerm.resources/set-azurermresourcegroup):
 
@@ -84,6 +84,18 @@ Om du vill kombinera flera värden i en enda tagg använder du en JSON-sträng.
 
 ```azurepowershell-interactive
 Set-AzureRmResourceGroup -Name myResourceGroup -Tag @{ CostCenter="{`"Dept`":`"IT`",`"Environment`":`"Test`"}" }
+```
+
+Om du vill lägga till en ny tagg med flera värden utan att förlora de befintliga taggarna, måste du hämta de befintliga taggarna, använder en JSON-sträng för den nya taggen och tillämpa samling taggar:
+
+```azurepowershell-interactive
+# Get existing tags and add a new tag
+$ResourceGroup = Get-AzureRmResourceGroup -Name myResourceGroup
+$Tags = $ResourceGroup.Tags
+$Tags.Add("CostCenter", "{`"Dept`":`"IT`",`"Environment`":`"Test`"}")
+
+# Reapply the updated set of tags
+$ResourceGroup | Set-AzureRmResourceGroup -Tag $Tags
 ```
 
 Om du vill ta bort alla taggar skickar du en tom hash-tabell.

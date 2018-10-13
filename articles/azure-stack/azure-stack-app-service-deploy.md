@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/12/2018
 ms.author: anwestg
-ms.openlocfilehash: 9f584213a65b9f2408d4ca2a06108cf18222376d
-ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
+ms.openlocfilehash: 08f08d926a9e27e421ff8db46051d8a1e7229041
+ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48268807"
+ms.lasthandoff: 10/12/2018
+ms.locfileid: "49166890"
 ---
 # <a name="add-an-app-service-resource-provider-to-azure-stack"></a>Lägga till en App Service-resursprovider i Azure Stack
 
@@ -130,7 +130,7 @@ Distribuera App Service-resursprovider genom att följa dessa steg:
 11. Ange SQL Server-information för server-instans som används för att vara värd för App Service resource provider-databaser och välj sedan **nästa**. Installationsprogrammet verifierar egenskaper för SQL-anslutning.
 
     > [!NOTE]
-    > Ett försök görs att testa anslutningen till SQL Server innan du fortsätter. Men om du distribuerar till ett befintligt virtuellt nätverk, du kan rapportera det här anslutningstestet. Du får en varning och en fråga för att fortsätta. Om SQL Server-information är korrekt kan du fortsätta med distributionen.
+    > Ett försök görs att testa anslutningen till SQL Server innan du fortsätter. Men om du distribuerar till ett befintligt virtuellt nätverk, det här Anslutningstestet misslyckas. Du får en varning och en fråga för att fortsätta. Om SQL Server-information är korrekt kan du fortsätta med distributionen.
     >
     > Installationsprogrammet kommer från Azure App Service i Azure Stack-1.3 och senare kontrollera att SQL Server har databas inneslutning aktiverad på SQL Server-nivå.  Om det inte är det, uppmanas du att följande undantag:
     > ```sql

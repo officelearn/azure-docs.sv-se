@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/07/2018
+ms.date: 10/12/2018
 ms.author: sethm
 ms.reviewer: justini
-ms.openlocfilehash: a870ba238239a20af154f611f88e7c2fdb95f9f7
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.openlocfilehash: 2e913881faadd4892ad1ebc8cb404efe6489eb0d
+ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48870935"
+ms.lasthandoff: 10/13/2018
+ms.locfileid: "49310906"
 ---
 # <a name="azure-stack-1808-update"></a>Uppdatering av Azure Stack 1808
 
@@ -40,7 +40,7 @@ Azure Stack 1808 update build-nummer är **1.1808.0.97**.
 Den här uppdateringen innehåller följande förbättringar för Azure Stack.
 
 <!--  2682594   | IS  --> 
-- **Alla miljöer i Azure Stack kan nu använda formatet tidszon Coordinated Universal Time (UTC).**  Alla logga data nu relaterad information visas i UTC-format. Om du uppdaterar från en tidigare version som inte har installerats med hjälp av UTC, uppdateras din miljö för att använda UTC. 
+- **Alla miljöer i Azure Stack kan nu använda formatet tidszon Coordinated Universal Time (UTC).**  Alla loggdata och relaterad information nu visas i UTC-format. Om du uppdaterar från en tidigare version som inte har installerats med hjälp av UTC, uppdateras din miljö för att använda UTC. 
 
 <!-- 2437250  | IS  ASDK --> 
 - **Hanterade diskar stöds.** Du kan nu använda Managed Disks i Azure Stack virtuella datorer och VM-skalningsuppsättningar. Mer information finns i [Azure Stack Managed Disks: skillnader och överväganden](/azure/azure-stack/user/azure-stack-managed-disk-considerations).
@@ -52,7 +52,7 @@ Den här uppdateringen innehåller följande förbättringar för Azure Stack.
 - **Förbereda för tillägget värden**. Du kan använda tillägget värden för att säkra Azure Stack genom att minska antalet TCP/IP-portar som krävs. Med 1808-uppdateringen kan du förbereda, förbereda Azure Stack för tillägget värden. Mer information finns i [förbereda för tillägget för värd för Azure Stack](/azure/azure-stack/azure-stack-extension-host-prepare).
 
 <!-- IS --> 
-- **Galleriobjekt för Virtual Machine Scale Sets är nu inbyggda**. Galleriobjektet Virtual Machine Scale Sets är nu tillgänglig i användar- och analytikerportaler utan att behöva ladda ned den.  Om du uppgraderar till 1808 är den tillgänglig vid slutförandet av uppgraderingen.  
+- **Galleriobjekt för Virtual Machine Scale Sets är nu inbyggda i**. Galleriobjektet Virtual Machine Scale Sets är nu tillgänglig i användar- och analytikerportaler utan att behöva ladda ned den.  Om du uppgraderar till 1808 är den tillgänglig vid slutförandet av uppgraderingen.  
 
 <!-- IS, ASDK --> 
 - **Virtual Machine Scale Sets skalning**. Du kan använda portalen för att [skala en VM-Skalningsuppsättning](azure-stack-compute-add-scalesets.md#scale-a-virtual-machine-scale-set) (VMSS).    
@@ -61,10 +61,10 @@ Den här uppdateringen innehåller följande förbättringar för Azure Stack.
 - **Stöd för anpassade konfigurationer för IPSec/IKE-princip** för [VPN-gatewayer i Azure Stack](/azure/azure-stack/azure-stack-vpn-gateway-about-vpn-gateways).
 
 <!-- | IS ASDK--> 
-- **Marketplace-objekt för Kubernetes**. Du kan nu distribuera Kubernetes-kluster med hjälp av den [Kubernetes Marketplace-objekt](azure-stack-solution-template-kubernetes-cluster-add.md). Användare kan det Kubernetes-objekt och fylla i några parametrar för att distribuera ett Kubernetes-kluster i Azure Stack. Syftet med mallarna är att göra det enkelt för användarna att installationsprogrammet utveckling/testning i Kubernetes-distribution med några få steg.
+- **Marketplace-objekt för Kubernetes**. Du kan nu distribuera Kubernetes-kluster med hjälp av den [Kubernetes Marketplace-objekt](azure-stack-solution-template-kubernetes-cluster-add.md). Användare kan det Kubernetes-objekt och fylla i några parametrar för att distribuera ett Kubernetes-kluster i Azure Stack. Syftet med mallarna är att göra det enkelt för användarna att ställa in Kubernetes-distributioner för utveckling/testning med några få steg.
 
 <!-- | IS ASDK--> 
-- **Blockchain mallar**. Du kan nu köra [Ethereum consortium distributioner](azure-stack-ethereum.md) på Azure Stack. Du kan hitta tre nya mallar i den [Azure Stack Snabbstartsmallarna](https://github.com/Azure/AzureStack-QuickStart-Templates). De används att distribuera och konfigurera ett flera medlem Ethereum konsortienätverk med minimal kunskap om Azure och Ethereum. Syftet med mallarna är att göra det enkelt för användarna att installationsprogrammet utveckling/testning Blockchain distributioner med några få steg.
+- **Blockchain mallar**. Du kan nu köra [Ethereum consortium distributioner](azure-stack-ethereum.md) på Azure Stack. Du kan hitta tre nya mallar i den [Azure Stack Snabbstartsmallarna](https://github.com/Azure/AzureStack-QuickStart-Templates). De används att distribuera och konfigurera ett flera medlem Ethereum konsortienätverk med minimal kunskap om Azure och Ethereum. Syftet med mallarna är att göra det enkelt för användarna att ställa in utveckling/testning Blockchain distributioner med några få steg.
 
 <!-- | IS ASDK--> 
 - **API-version profilen 2017-03-09-profilen har uppdaterats till 2018-03-01-hybrid**. API-profiler ange Azure-resursprovidern och API-version för Azure REST-slutpunkter. Mer information om profiler finns i [hantera API-versionsprofiler i Azure Stack](/azure/azure-stack/user/azure-stack-version-profiles).
@@ -144,6 +144,13 @@ Den här uppdateringen innehåller även minskningen för spekulativ körning si
   ```   
 
 ### <a name="known-issues-with-the-update-process"></a>Kända problem med uppdateringen
+
+<!-- TBD - IS -->
+- Du kan se följande aviseringar visas flera gånger och sedan försvinner på Azure Stack-system:
+   - *Infrastruktur-rollinstans som är inte tillgänglig*
+   - *Skala enhet noden är offline*
+   
+  Kör den [Test AzureStack](azure-stack-diagnostic-test.md) cmdlet för att kontrollera hälsotillståndet för rollinstanser för infrastruktur och skala enhet noder. Om inga problem har identifierats av [Test-AzureStack](azure-stack-diagnostic-test.md), du kan ignorera dessa aviseringar. Om ett problem har identifierats, kan du försöker starta rollinstansen infrastruktur eller nod med hjälp av administrationsportalen eller PowerShell.
 
 - När du kör [Test AzureStack](azure-stack-diagnostic-test.md) efter 1808 uppdateringen visas ett varningsmeddelande från den Hanteringsstyrenheten för baskort (BMC). Du kan ignorera den här varningen.
 
@@ -226,7 +233,7 @@ Här följer efter installation kända problem för den här build-versionen.
 
 
 <!-- 2812138 | IS --> 
-- Du kan se en avisering för **Storage** komponent som har följande information:
+- Du kan se en avisering för **Storage** komponent som innehåller följande information:
 
    - NAMN: Internt kommunikationsfel vid lagring  
    - ALLVARLIGHETSGRAD: kritisk  

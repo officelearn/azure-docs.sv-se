@@ -8,12 +8,12 @@ services: mariadb
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 9b22890bceba6205c995a01105cdf11a08a9c10b
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 551fe303994f6c72f8a4bf39e76f12c62f58026b
+ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46998754"
+ms.lasthandoff: 10/13/2018
+ms.locfileid: "49309543"
 ---
 # <a name="migrate-your-mariadb-database-to-azure-database-for-mariadb-using-dump-and-restore"></a>Migrera din MariaDB-databas till Azure Database for MariaDB med säkerhetskopiering och återställning
 Den här artikeln beskrivs två vanliga sätt att säkerhetskopiera och återställa databaser i din Azure Database for MariaDB
@@ -30,7 +30,9 @@ För att gå igenom den här guiden, måste du ha:
 Använda vanliga funktioner och verktyg, till exempel MySQL Workbench, mysqldump, Toad eller Navicat för att fjärransluta och återställa data till Azure Database for MariaDB. Använd dessa verktyg på din klientdator med en Internetanslutning för att ansluta till Azure Database for MariaDB. Använda en SSL-krypterad anslutning för bästa säkerhetspraxis, se även [Konfigurera SSL-anslutning i Azure Database for MariaDB](concepts-ssl-connection-security.md). Du behöver inte flytta filer med felsökningsdumpar vart särskilda molnet när du migrerar till Azure Database for MariaDB. 
 
 ## <a name="common-uses-for-dump-and-restore"></a>Vanliga användningsområden för säkerhetskopiering och återställning
-Du kan använda MySQL-verktyg, till exempel mysqldump och mysqlpump till dump och load databaser i en Azure Database for MariaDB-server i flera vanliga scenarier. <!--In other scenarios, you may use the [Import and Export](concepts-migrate-import-export.md) approach instead.-->
+Du kan använda MySQL-verktyg, till exempel mysqldump och mysqlpump till dump och load databaser i en Azure Database for MariaDB-server i flera vanliga scenarier. 
+
+<!--In other scenarios, you may use the [Import and Export](howto-migrate-import-export.md) approach instead.-->
 
 - Använd database minnesdumpar när du migrerar hela databasen. Den här rekommendationen innehåller när du flyttar en stor mängd data eller när du vill minimera avbrott i tjänsten för live-webbplatser eller program. 
 -  Kontrollera att alla tabeller i databasen använder InnoDB-lagringsmotorn vid inläsning av data till Azure Database for MariaDB. Azure Database for MariaDB stöder endast InnoDB-lagringsmotorn och stöder därför inte alternativt lagringskonto motorer. Om dina tabeller har konfigurerats med andra storage-motorer, kan du konvertera dem till InnoDB engine-format innan du migrerar till Azure Database for MariaDB.

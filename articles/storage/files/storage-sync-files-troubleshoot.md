@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 09/06/2018
 ms.author: jeffpatt
 ms.component: files
-ms.openlocfilehash: 3565793347a8c9704e51e893e5aa916cf54cab8e
-ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
+ms.openlocfilehash: b53be5a5683ca8fcc8760a2d4cb7e766904a44a3
+ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49115581"
+ms.lasthandoff: 10/12/2018
+ms.locfileid: "49167672"
 ---
 # <a name="troubleshoot-azure-file-sync"></a>Felsök Azure File Sync
 Använd Azure File Sync för att centralisera din organisations filresurser i Azure Files, samtidigt som den flexibilitet, prestanda och kompatibilitet för en lokal filserver. Azure File Sync omvandlar Windows Server till ett snabbt cacheminne för din Azure-filresurs. Du kan använda alla protokoll som är tillgänglig på Windows Server för att komma åt dina data lokalt, inklusive SMB, NFS och FTPS. Du kan ha så många cacheminnen som du behöver över hela världen.
@@ -135,6 +135,21 @@ Utför följande steg för att lösa problemet:
 2. Kontrollera inställningarna för brandväggen och proxyservern är korrekt konfigurerade:
     - Om servern finns bakom en brandvägg kan du kontrollera att port 443 för utgående trafik tillåts. Om brandväggen begränsar trafik till specifika domäner, kontrollerar du de domäner som anges i brandväggen [dokumentation](https://docs.microsoft.com/en-us/azure/storage/files/storage-sync-files-firewall-and-proxy#firewall) är tillgängliga.
     - Om servern finns bakom en proxyserver kan du konfigurera datoromfattande eller appspecifika proxyinställningarna genom att följa stegen i proxyn [dokumentation](https://docs.microsoft.com/en-us/azure/storage/files/storage-sync-files-firewall-and-proxy#proxy).
+
+<a id="endpoint-noactivity-sync"></a>**Serverslutpunkten har en hälsostatus ”ingen aktivitet” och Servertillstånd på bladet registrerade servrar är ”Online”**  
+
+Server hälsostatus för slutpunkter för ”ingen aktivitet” innebär Serverslutpunkten inte har loggat synkroniseringsaktivitet under de senaste två timmarna.
+
+En serverslutpunkt kan inte logga synkronisering av följande skäl:
+
+- Servern har nått det maximala antalet samtidiga synkroniseringssessioner. Azure File Sync stöder för närvarande 2 active sync-sessioner per processor eller högst 8 active sync-sessioner per server.
+
+- Servern har en aktiv VSS-synkroniseringssessionen (SnapshotSync). När en VSS-synkroniseringssessionen är aktiv för en serverslutpunkt kan inte andra serverslutpunkter på servern starta en start-synkroniseringssessionen tills VSS-synkroniseringssessionen har slutförts.
+
+Du kan kontrollera den aktuella synkroniseringsaktivitet på en server [hur jag för att övervaka förloppet för aktuella synkroniseringssession?](#how-do-i-monitor-the-progress-of-a-current-sync-session).
+
+> [!Note]  
+> Om servertillståndet på bladet registrerade servrar är ”visas Offline”, kan du utföra stegen i den [Serverslutpunkten har en hälsostatus ”ingen aktivitet” eller ”väntande” och Servertillstånd på bladet registrerade servrar är ”visas som offline” ](#server-endpoint-noactivity) avsnittet.
 
 ## <a name="sync"></a>Sync
 <a id="afs-change-detection"></a>**Om jag har skapat en fil direkt i min Azure-filresurs via SMB eller via portalen, hur lång tid tar det för den fil som ska synkroniseras till servrar i synkroniseringsgruppen?**  

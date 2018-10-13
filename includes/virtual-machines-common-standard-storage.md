@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/05/2018
 ms.author: yuemlu
 ms.custom: include file
-ms.openlocfilehash: e3d904358282f303a2d1ab35cf4fdc8026d7db55
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: f1fe45283ef2886a50bf6a36e50e7ffe42055ee2
+ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47060728"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49312352"
 ---
 # <a name="cost-effective-standard-storage-and-unmanaged-and-managed-azure-vm-disks"></a>Standard Storage med kostnadseffektiv lagring och ohanterade och hanterade Virtuella Azure-diskar
 
@@ -25,7 +25,7 @@ Den här artikeln handlar om användning av standard SSD och HDD-diskar. Mer inf
 
 Det finns två sätt att skapa standarddiskar för virtuella Azure-datorer:
 
-**Ohanterade diskar**: den här typen av disken är den ursprungliga metoden där du hanterar de lagringskonton som används för att lagra VHD-filerna som motsvarar VM-diskarna. VHD-filer som lagras som sidblobar i lagringskonton. Ohanterade diskar kan kopplas till valfri Azure VM-storlek, inklusive de virtuella datorer som främst använder Premium Storage kan till exempel DSv2 och GS-serien. Virtuella Azure-datorer stöd för att koppla flera standarddiskar, vilket gör att upp till 256 PiB lagringsutrymme per virtuell dator. Om du använder diskstorlekar förhandsversion måste ha du upp till cirka 2 PiB lagringsutrymme per virtuell dator. 
+**Ohanterade diskar**: den här typen av disken är den ursprungliga metoden där du hanterar de lagringskonton som används för att lagra VHD-filerna som motsvarar VM-diskarna. VHD-filer som lagras som sidblobar i lagringskonton. Ohanterade diskar kan kopplas till valfri Azure VM-storlek, inklusive de virtuella datorer som främst använder Premium Storage kan till exempel DSv2 och GS-serien. Virtuella Azure-datorer stöd för att koppla flera standarddiskar, vilket gör att upp till 256 TiB lagringsutrymme per virtuell dator. Om du använder diskstorlekar förhandsversion måste ha du upp till cirka 2 PiB lagringsutrymme per virtuell dator.
 
 [**Azure Managed Disks**](../articles/virtual-machines/windows/managed-disks-overview.md): den här funktionen hanterar de lagringskonton som används för VM-diskarna åt dig. Du kan ange typ (Premium SSD-, Standard SSD- och Standard HDD) och storlek på disk och Azure skapar och hanterar disken åt dig. Du inte behöver bekymra dig om genom att diskarna placeras på flera lagringskonton för att säkerställa att du håller dig inom skalbarhetsgränserna för storage-konton – Azure hanterar det åt dig.
 

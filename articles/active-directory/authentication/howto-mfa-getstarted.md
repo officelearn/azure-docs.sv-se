@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: michmcla
-ms.openlocfilehash: 07e9126b73b0282f61567fe8d06f785bf9a04fef
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: bd2f796ab2feee4bb862d8de2c44efc742163f06
+ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48803487"
+ms.lasthandoff: 10/12/2018
+ms.locfileid: "49167536"
 ---
 # <a name="deploy-cloud-based-azure-multi-factor-authentication"></a>Distribuera molnbaserade Azure Multi-Factor Authentication
 
@@ -105,6 +105,8 @@ Testa för att bekräfta att din princip för villkorlig åtkomst fungerar, logg
 ## <a name="next-steps"></a>Nästa steg
 
 Grattis, du har konfigurerat Azure Multi-Factor Authentication i molnet.
+
+Varför har en användare uppmanas eller uppmanas inte att utföra MFA? Se avsnittet [rapporten för Azure AD-inloggningar i rapporterna i Azure Multi-Factor Authentication-dokumentet](howto-mfa-reporting.md#azure-ad-sign-ins-report).
 
 Om du vill konfigurera ytterligare inställningar som tillförlitliga IP-adresser, anpassade röstmeddelanden och bedrägerivarningar finns i artikeln [konfigurera Azure Multi-Factor Authentication-inställningar](howto-mfa-mfasettings.md).
 

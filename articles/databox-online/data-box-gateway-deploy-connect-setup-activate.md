@@ -1,26 +1,19 @@
 ---
 title: Ansluta till, konfigurera och aktivera Azure Data Box-Gateway i Azure-portalen | Microsoft Docs
 description: Tredje självstudien för att distribuera Data Box Gateway du instrueras att ansluta, konfigurera och aktivera den virtuella enheten.
-services: databox-edge-gateway
-documentationcenter: NA
+services: databox
 author: alkohli
-manager: twooley
-editor: ''
-ms.assetid: ''
-ms.service: databox-edge-gateway
-ms.devlang: NA
+ms.service: databox
+ms.subservice: gateway
 ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 09/27/2018
 ms.author: alkohli
-ms.custom: ''
-ms.openlocfilehash: 77ccc6ebbb48ab3d7ce22d6c593bd62aa8dec3ac
-ms.sourcegitcommit: 3150596c9d4a53d3650cc9254c107871ae0aab88
+ms.openlocfilehash: 2126871472b044f9b8c0df99c7cb14df348eab0e
+ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47419496"
+ms.lasthandoff: 10/12/2018
+ms.locfileid: "49166754"
 ---
 # <a name="tutorial-connect-set-up-activate-azure-data-box-gateway-preview"></a>Självstudier: Ansluta, konfigurera, aktiverar Azure Data Box-Gateway (förhandsversion) 
 
@@ -40,7 +33,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 
 
 > [!IMPORTANT]
-> - Data Box-Gateway är i förhandsversion. Granska [Azures användningsvillkor för förhandsversionen](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) innan du beställer och distribuerar den här lösningen. 
+> - Data Box Gateway är en förhandsversion. Granska [Azures användningsvillkor för förhandsversionen](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) innan du beställer och distribuerar den här lösningen. 
 
 
 ## <a name="prerequisites"></a>Förutsättningar
@@ -88,7 +81,7 @@ Du har kommit till den **instrumentpanelen** för din enhet.
    
     När du konfigurerar nätverksinställningar, Tänk på följande:
 
-    - Om DHCP är aktiverad i din miljö konfigureras automatiskt nätverksgränssnitt. Därför kan tilldelas automatiskt en IP-adress, undernät, gateway och DNS.
+    - Om DHCP har aktiverats i din miljö konfigureras nätverksgränssnitten automatiskt. Därför kan tilldelas automatiskt en IP-adress, undernät, gateway och DNS.
     - Om DHCP inte är aktiverad kan du tilldela statiska IP-adresser om det behövs.
     - Du kan konfigurera nätverksgränssnittets som IPv4.
    
@@ -127,7 +120,7 @@ Du har kommit till den **instrumentpanelen** för din enhet.
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här självstudien lärde du Data Box Gateway ämnen som:
+I den här kursen har du lärt dig om Data Gateway-ämnen som att:
 
 > [!div class="checklist"]
 > * Ansluta till virtuella enheten

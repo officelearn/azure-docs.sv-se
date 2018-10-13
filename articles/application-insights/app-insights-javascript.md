@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/14/2017
 ms.author: mbullwin
-ms.openlocfilehash: 70269fc71fcb2ef9158b50d3bb281097abee0740
-ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
+ms.openlocfilehash: 6d826702d8302246a225ebfcdf0a5987cf9d2045
+ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38991474"
+ms.lasthandoff: 10/12/2018
+ms.locfileid: "49167060"
 ---
 # <a name="application-insights-for-web-pages"></a>Application Insights för webbsidor
 Visa prestanda och användning för webbsidor eller appar. Om du lägger till [Application Insights](app-insights-overview.md) i webbsidans skript så visas information om tider för sidinläsningar och AJAX-anrop, information om och antalet webbläsarundantag och AJAX-fel, samt information om antalet användare och sessioner. Allt detta kan visas efter sida, klientoperativsystem- och webbläsarversion, geografisk plats och andra dimensioner. Du kan ställa in varningar för antal fel eller långsam sidinläsning. Och genom att infoga spårning av anrop i JavaScript-kod kan du spåra hur olika funktioner i ditt webbsideprogram används.
@@ -48,12 +48,6 @@ Om du inte redan har en resurs skapar du en:
 *Har du redan frågor?* [Mer information om hur du skapar en resurs](app-insights-create-new-resource.md).
 
 ### <a name="add-the-sdk-script-to-your-app-or-web-pages"></a>Lägga till SDK-skriptet till appen eller webbsidorna
-Hämta skriptet för webbsidor i Snabbstart:
-
-![På översiktsbladet för appen väljer du Snabbstart, Hämta kod för att övervaka webbplatser. Kopiera skriptet.](./media/app-insights-javascript/02-monitor-web-page.png)
-
-> [!NOTE]
-> *Komma igång*-upplevelsen kan variera beroende på vilken programtyp som du väljer när du skapar din Application Insights-resurs. Om skriptet inte är tillgängligt för din app så som visas på föregående skärmbild, så använd följande skript.
 
 ```HTML
 <!-- 
@@ -127,7 +121,7 @@ Om du vill kontrollera telemetrin som en webbapp skickar till Application Insigh
 
 ![Öppna appens resurs på portal.azure.com och klicka på Inställningar, Webbläsare.](./media/app-insights-javascript/03.png)
 
-Inga data än? Klicka på **Uppdatera** längst upp på sidan. Ser du fortfarande ingenting? Mer information finns i [Felsökning](app-insights-troubleshoot-faq.md).
+Inga data än? Klicka på **Uppdatera längst upp på sidan. Ser du fortfarande ingenting? Mer information finns i [Felsökning](app-insights-troubleshoot-faq.md).
 
 Bladet Webbläsare är ett [Metrics Explorer-blad](app-insights-metrics-explorer.md) med förinställda filter och diagraminställningar. Du kan redigera tidsintervallet, filtren och diagramkonfigurationen om du vill och spara resultatet som en favorit. Klicka på **Återställ standardvärden** för att återgå till det ursprungliga konfigurationsbladet.
 

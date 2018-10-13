@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 08/30/2018
 ms.author: sethm
 ms.reviewer: alfredo
-ms.openlocfilehash: b8c00795c7777e5485f4725e1da63fc764973f43
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.openlocfilehash: b4df9d3b107945b2c0797875718f3266b7fd0b10
+ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45628938"
+ms.lasthandoff: 10/12/2018
+ms.locfileid: "49166551"
 ---
 # <a name="manage-usage-and-billing-for-azure-stack-as-a-cloud-service-provider"></a>Hantera användning och fakturering för Azure Stack som en Molntjänstleverantör 
 
@@ -35,7 +35,7 @@ I följande diagram visas de steg som du måste välja ditt konto för delade tj
 
 ![Processen för att aktivera användning och hantering som en Molntjänstleverantör.](media\azure-stack-add-manage-billing-as-a-csp\process-add-useage-as-a-csp.png)
 
-## <a name="create-a-csp-or-cspss-subscription"></a>Skapa en CSP eller CSPSS prenumeration
+## <a name="create-a-csp-or-apss-subscription"></a>Skapa en CSP eller APSS prenumeration
 
 ### <a name="cloud-service-provider-subscription-types"></a>Molntyper tjänstleverantör prenumeration
 
@@ -44,13 +44,13 @@ Du måste välja vilken typ av konto för delade tjänster som du använder för
  - Molntjänstleverantör 
  - Delade tjänster-partnerprenumeration 
 
-#### <a name="csp-shared-services"></a>CSP delade tjänster
+#### <a name="azure-partner-shared-services"></a>Azure-Partner delade tjänster
 
-Molnprenumerationer för Service Provider delade tjänster (CSPSS) är det önskade valet för registrering när en direkt CSP eller en CSP-återförsäljare fungerar Azure Stack.
+Azure Partner delade tjänster (APSS)-prenumerationer är det önskade valet för registrering när en direkt CSP eller en CSP-återförsäljare fungerar Azure Stack.
 
-CSPSS prenumerationer är associerade med en klient för delade tjänster. När du registrerar Azure Stack kan behöva du ange autentiseringsuppgifter för ett konto som är ägare till prenumerationen. Det konto som används för att registrera Azure Stack kan skilja sig från det administratörskonto som du använder för distributionen. Dessutom är de två kontona gör *inte* måste tillhöra samma domän. Med andra ord kan du distribuera med hjälp av den klient som du redan använder. Du kan till exempel använda ContosoCSP.onmicrosoft.com och sedan registrera dig med en annan klient, till exempel IURContosoCSP.onmicrosoft.com. Du måste komma ihåg att du loggar in med ContosoCSP.onmicrosoft.com när du gör dag att göra Azure Stack-administration. När du loggar in på Azure med hjälp av IURContosoCSP.onmicrosoft.com när du behöver göra registreringsåtgärder.
+APSS prenumerationer är associerade med en klient för delade tjänster. När du registrerar Azure Stack kan behöva du ange autentiseringsuppgifter för ett konto som är ägare till prenumerationen. Det konto som används för att registrera Azure Stack kan skilja sig från det administratörskonto som du använder för distributionen. Dessutom är de två kontona gör *inte* måste tillhöra samma domän. Med andra ord kan du distribuera med hjälp av den klient som du redan använder. Du kan till exempel använda ContosoCSP.onmicrosoft.com och sedan registrera dig med en annan klient, till exempel IURContosoCSP.onmicrosoft.com. Du måste komma ihåg att du loggar in med ContosoCSP.onmicrosoft.com när du gör dag att göra Azure Stack-administration. När du loggar in på Azure med hjälp av IURContosoCSP.onmicrosoft.com när du behöver göra registreringsåtgärder.
 
-Se nedan för en beskrivning av CSPSS prenumerationer och instruktioner om hur du skapar prenumerationen [Lägg till Azure-Partner delade tjänster](https://msdn.microsoft.com/partner-center/shared-services).
+Se nedan för en beskrivning av APSS prenumerationer och instruktioner om hur du skapar prenumerationen [Lägg till Azure-Partner delade tjänster](https://msdn.microsoft.com/partner-center/shared-services).
 
 #### <a name="csp-subscriptions"></a>CSP-prenumerationer
 
@@ -58,7 +58,7 @@ Molnprenumerationer för Service Provider (CSP) är det önskade alternativet f�
 
 ## <a name="register-azure-stack"></a>Registrera Azure Stack
 
-Använd den CSPSS-prenumeration som skapats efter information i föregående avsnitt för att registrera Azure Stack med Azure. Mer information finns i [registrera Azure Stack med din Azure-prenumeration](azure-stack-registration.md).
+Använd den APSS-prenumeration som skapats efter information i föregående avsnitt för att registrera Azure Stack med Azure. Mer information finns i [registrera Azure Stack med din Azure-prenumeration](azure-stack-registration.md).
 
 ## <a name="add-end-customer"></a>Lägg till slutkunden
 
@@ -72,7 +72,7 @@ Med registrering av kan Azure Stack:
  - Vidarebefordra Azure Stack-användningsdata till Azure Commerce och fakturerar en Azure-prenumeration.
  - Rapportera alla kunders användning på en annan prenumeration med en multitenant Azure Stack-distribution. Flera innehavare kan Azure Stack för olika organisationer på samma Azure Stack-instans.
 
-Det finns en Standardprenumeration för varje Azure Stack, och många klient prenumerationer. Standard-prenumerationen är en Azure-prenumeration som debiteras om det inte finns en klientspecifik-prenumeration. Det måste vara först som prenumeration som har registrerats. Prenumerationen för användning med flera innehavare rapporterna ska fungera, måste vara en CSP eller CSPSS prenumeration.
+Det finns en Standardprenumeration för varje Azure Stack, och många klient prenumerationer. Standard-prenumerationen är en Azure-prenumeration som debiteras om det inte finns en klientspecifik-prenumeration. Det måste vara först som prenumeration som har registrerats. Prenumerationen för användning med flera innehavare rapporterna ska fungera, måste vara en CSP eller APSS prenumeration.
 
 Sedan har registreringen uppdaterats med en Azure-prenumeration för varje klient som kommer att använda Azure Stack. Klient-prenumerationer måste vara av typen CSP och måste dyker upp i den partner som äger standard-prenumerationen. Med andra ord kan du registrera någon annans kunder.
 

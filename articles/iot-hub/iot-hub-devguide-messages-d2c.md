@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 08/13/2018
 ms.author: asrastog
-ms.openlocfilehash: a4ebb64d14b325680a65ffd52f6a07836c1e6ede
-ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
+ms.openlocfilehash: abc32b726eea55f08a052f29a12f1eb237d4f5d6
+ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/01/2018
-ms.locfileid: "47585687"
+ms.lasthandoff: 10/13/2018
+ms.locfileid: "49311328"
 ---
 # <a name="use-message-routing-to-send-device-to-cloud-messages-to-different-endpoints"></a>Använd meddelanderoutning för att skicka meddelanden från enheten till molnet till olika slutpunkter
 
@@ -21,7 +21,7 @@ ms.locfileid: "47585687"
 
 Meddelanderoutning kan du skicka meddelanden från dina enheter till molntjänster i ett automatiserade, skalbart och tillförlitligt sätt. Meddelanderoutning kan användas för: 
 
-* **Skickar enheter telemetri meddelanden samt händelser** nämligen Livscykelhändelser för enhet och enhetstvillingen ändra händelser till inbyggda – slutpunkt och anpassade slutpunkter. Lär dig mer om [routning slutpunkter](##routing-endpoints).
+* **Skickar enheter telemetri meddelanden samt händelser** nämligen Livscykelhändelser för enhet och enhetstvillingen ändra händelser till inbyggda – slutpunkt och anpassade slutpunkter. Lär dig mer om [routning slutpunkter](#routing-endpoints).
 
 * **Filtrera data innan du skicka det till olika slutpunkter** genom att använda komplexa frågor. Meddelanderoutning kan du fråga på meddelandeegenskaperna och meddelandetexten som enheten twin taggar och tvillingegenskaper. Läs mer om hur du använder [frågor i meddelanderoutning](iot-hub-devguide-routing-query-syntax.md).
 

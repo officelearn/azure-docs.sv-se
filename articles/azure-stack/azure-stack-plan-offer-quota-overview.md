@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 06/07/2018
+ms.date: 10/12/2018
 ms.author: sethm
 ms.reviewer: ''
-ms.openlocfilehash: 70ed5d45701133434c708ad80aaafc58645297e8
-ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
+ms.openlocfilehash: 343c29db4ac5fba37d8ea1b17862b86566ae15ca
+ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49077127"
+ms.lasthandoff: 10/13/2018
+ms.locfileid: "49309203"
 ---
 # <a name="plan-offer-quota-and-subscription-overview"></a>Översikt över plan, erbjudande, kvot och prenumeration
 
@@ -40,7 +40,7 @@ Följ dessa anvisningar när du levererar en tjänst:
 2. Skapa en plan som har en eller flera tjänster. När du skapar en plan, Välj eller skapa kvoter som definierar resursgränser för varje tjänst i planen.
 3. Skapa ett erbjudande som innehåller en eller flera planer. Erbjudandet kan innehålla basplaner och valfritt tilläggsplaner.
 
-När du har skapat erbjudandet kan kan dina användare prenumerera komma åt tjänster och resurser i erbjudandet ger tillgång till. Användare kan prenumerera så många erbjudanden som de vill. Följande diagram visar ett enkelt exempel på en användare som prenumererar på två erbjudanden. Varje erbjudande har en plan eller två, och varje plan ger dem åtkomst till tjänster.
+När du har skapat erbjudandet kan kan dina användare prenumerera komma åt tjänster och resurser i erbjudandet ger tillgång till. Användare kan prenumerera så många erbjudanden som de vill. Följande bild visar ett enkelt exempel på en användare som prenumererar på två erbjudanden. Varje erbjudande har en plan eller två, och varje plan ger dem åtkomst till tjänster.
 
 ![Klientprenumeration med erbjudanden och planer](media/azure-stack-key-features/image4.png)
 
@@ -50,7 +50,7 @@ Prenumerationer är grupperingar av en eller flera tjänster. Som en Azure Stack
 
 ### <a name="quotas"></a>Kvoter
 
-Du kan använda förkonfigurerade kvoter eller skapa en ny kvot för varje tjänst i en plan för att hjälpa dig att hantera din kapacitet. Kvoter definiera övre resursbegränsningar som en användarprenumeration kan etablera eller använda. En kvot kan till exempel tillåta en användare kan skapa upp till fem virtuella datorer (VM). Du kan ange ytterligare kvoter på de virtuella datorerna, till exempel RAM-minne och CPU-kärnor.
+Du kan använda för att hjälpa dig att hantera din kapacitet, förkonfigurerade *kvoter*, eller skapa en ny kvot för varje tjänst i en plan. Kvoter definiera övre resursbegränsningar som en användarprenumeration kan etablera eller använda. En kvot kan till exempel tillåta en användare kan skapa upp till fem virtuella datorer (VM).
 
 Du kan konfigurera kvoter efter region. En plan som tillhandahåller beräkning för Region A kan till exempel ha en kvot på två virtuella datorer med 4 GB RAM-minne och 8 CPU-kärnor.
 
@@ -61,7 +61,7 @@ Läs mer om [kvottyper i Azure Stack](azure-stack-quota-types.md).
 
 ### <a name="base-plan"></a>Basplan
 
-När du skapar ett erbjudande, kan tjänstadministratören innehålla en Basplan. Dessa basplaner ingår som standard när en användare prenumererar på erbjudandet. När en användare prenumererar har de åtkomst till alla resursprovidrar som anges i dessa basplaner (med motsvarande kvoter.)
+När du skapar ett erbjudande, kan tjänstadministratören innehålla en Basplan. Dessa basplaner ingår som standard när en användare prenumererar på erbjudandet. När en användare prenumererar har de åtkomst till alla resursprovidrar som anges i dessa basplaner (med motsvarande kvoter).
 
 ### <a name="add-on-plans"></a>Tilläggsplaner
 
@@ -81,8 +81,8 @@ Varje kombination av en användare med ett erbjudande är en unik prenumeration.
 
 ### <a name="default-provider-subscription"></a>Standard providerprenumeration
 
-Providerprenumeration som standard skapas automatiskt när du distribuerar Azure Stack Development Kit. Den här prenumerationen kan användas för att hantera Azure Stack, distribuera ytterligare resursprovidrar och skapa planer och erbjudanden för användare. För säkerhet och licensiering orsaker, bör inte det användas för att köra kundens arbetsbelastningar och program.
+Standard-providerprenumeration skapas automatiskt när du distribuerar Azure Stack Development Kit. Den här prenumerationen kan användas för att hantera Azure Stack, distribuera ytterligare resursprovidrar och skapa planer och erbjudanden för användare. För säkerhet och licensiering orsaker, bör det inte användas för att köra kundens arbetsbelastningar och program.
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Skapa en plan](azure-stack-create-plan.md)
+Läs mer om planer och erbjudanden, [skapa en plan](azure-stack-create-plan.md).

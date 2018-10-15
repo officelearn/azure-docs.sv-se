@@ -9,16 +9,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: sngun
-ms.openlocfilehash: b7908f9f9aef51857f0ffb07102e1df245b7a259
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: c183bbe2c20bdc1772160cbbd8260dece0b6eb54
+ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47064466"
+ms.lasthandoff: 10/13/2018
+ms.locfileid: "49309509"
 ---
-# <a name="azure-cosmos-db-serverless-database-computing-using-azure-functions"></a>Azure Cosmos DB: Databas utan Server databehandling med Azure Functions
+# <a name="serverless-database-computing-using-azure-cosmos-db-and-azure-functions"></a>Databas utan Server databehandling med Azure Cosmos DB och Azure Functions
 
-Databearbetning handlar om möjligheten att fokusera på enskilda delar av logik som är upprepningsbar och tillståndslösa. Dessa delar kräver ingen infrastrukturhantering av och de förbrukar resurser endast för sekunder eller millisekunder, de kör för. Kärnan i serverlös databehandling flytt är funktioner som är tillgängliga i Azure-ekosystemet av [Azure Functions](https://azure.microsoft.com/services/functions).
+Databearbetning handlar om möjligheten att fokusera på enskilda delar av logik som är upprepningsbar och tillståndslösa. Dessa delar kräver ingen infrastrukturhantering av och de förbrukar resurser endast för sekunder eller millisekunder, de kör för. Kärnan i serverlös databehandling flytt är funktioner som är tillgängliga i Azure-ekosystemet av [Azure Functions](https://azure.microsoft.com/services/functions). Vill veta mer om andra miljöer för serverfri körning i Azure finns i [utan server i Azure](https://azure.microsoft.com/solutions/serverless/) sidan. 
 
 Med den interna integreringen mellan [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db) och Azure Functions, du kan skapa databasutlösare, indatabindningar och utdatabindningar direkt från Azure Cosmos DB-kontot. Med Azure Functions och Azure Cosmos DB, kan du skapa och distribuera händelsedrivna appar utan server med låg latens, att utforska data för en global användarbas.
 

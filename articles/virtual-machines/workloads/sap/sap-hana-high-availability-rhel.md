@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 08/16/2018
 ms.author: sedusch
-ms.openlocfilehash: 637e926676c727c01c60fe0d3e4e758173bdbd18
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.openlocfilehash: 77f4eeec1aa87f42c90d4e93f98f460a8b54b9a9
+ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45637564"
+ms.lasthandoff: 10/12/2018
+ms.locfileid: "49167419"
 ---
 # <a name="high-availability-of-sap-hana-on-azure-vms-on-red-hat-enterprise-linux"></a>Hög tillgänglighet för SAP HANA på Azure virtuella datorer på Red Hat Enterprise Linux
 
@@ -643,8 +643,9 @@ Resource Group: g_ip_HN1_03
 </code></pre>
 
 Du kan testa installationen av agenten att hägna in Azure genom att inaktivera nätverksgränssnittet på noden där den kör SAP HANA som Master.
+Se [Red Hat Knowledgebase-artikeln 79523](https://access.redhat.com/solutions/79523) för en descricption på hur du simulerar ett nätverksfel. I det här exemplet använder vi net_breaker skriptet för att blockera all åtkomst till nätverket.
 
-<pre><code>[root@hn1-db-1 ~]# sudo ifdown eth0
+<pre><code>[root@hn1-db-1 ~]# sh ./net_breaker.sh BreakCommCmd 10.0.0.6
 </code></pre>
 
 Den virtuella datorn måste nu starta om eller stoppa beroende på din klusterkonfiguration.

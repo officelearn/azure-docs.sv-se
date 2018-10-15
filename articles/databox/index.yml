@@ -1,23 +1,22 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: f4ef48157896d7cf4947fbc8ef6eba8b59ec414b
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 7056f5478838eec1cccf6329e172d86ea90d4dd8
+ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46986530"
+ms.lasthandoff: 10/13/2018
+ms.locfileid: "49311056"
 documentType: LandingData
-title: Azure Data Box för överföring offline
+title: Azure Data Box-dokumentation – överföring offline
 metadata:
-  title: Azure Data Box-dokumentation för överföring offline
-  description: Med Azure Data Box kan du överföra hundratals terabyte data till Azure på ett snabbt, prisvärt och tillförlitligt sätt. Använd Data Box-enheter för överföring av data offline när du har begränsad tid, nätverksresurser eller budget.
+  title: Azure Data Box-dokumentation – överföring offline
+  description: Använd Data Box-enheter för överföring av data offline till Azure när du har begränsad tid eller budget, eller begränsade nätverksresurser.
   services: databox
   author: alkohli
   manager: twooley
   ms.service: databox
-  ms.tgt_pltfrm: na
-  ms.devlang: na
+  ms.subservice: pod
   ms.topic: landing-page
-  ms.date: 09/24/2018
+  ms.date: 10/12/2018
   ms.author: alkohli
 abstract:
   description: Med Azure Data Box kan du överföra hundratals terabyte data till Azure på ett snabbt, prisvärt och tillförlitligt sätt. Använd Data Box-enheter för överföring av data offline när du har begränsad tid, nätverksresurser eller budget.<p>Beroende på datastorleken kan du välja mellan Data Box-Disk, Data Box<SUP>förhandsversion</SUP> eller Data Box – tung<SUP>förhandsversion</SUP>. För varje enhet sker överföringen till Azure i 4 enkla steg – beställa, ta emot, kopiera data till enhet och returnera enheten till Azure. I Azure-datacentret överförs och raderas data.</p><p>Lär dig hur du kan använda Data Box för att överföra dina offlinedata med våra snabbstarter och självstudier.</p>

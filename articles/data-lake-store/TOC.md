@@ -28,6 +28,7 @@
 ### [Åtkomstkontroll](data-lake-store-access-control.md)
 ### [Att säkra lagrade data](data-lake-store-secure-data.md)
 ### [Kryptering](data-lake-store-encryption.md)
+### [Virtuell nätverksintegrering (förhandsversion)](data-lake-store-network-security.md)
 
 ## Autentisera med Data Lake Storage Gen1
 ### [Autentiseringsalternativ](data-lakes-store-authentication-using-azure-active-directory.md)
@@ -85,7 +86,7 @@
 # Referens
 ## [Kodexempel](https://azure.microsoft.com/resources/samples/?service=data-lake-store)
 ## [Azure PowerShell](/powershell/module/azurerm.datalakestore)
-## [.NET](https://docs.microsoft.com/dotnet/api/overview/azure/data-lake-store?view=azure-dotnet)
+## [NET](https://docs.microsoft.com/dotnet/api/overview/azure/data-lake-store?view=azure-dotnet)
 ## [Java](/java/api/com.microsoft.azure.datalake.store)
 ## [Node.js](https://www.npmjs.com/package/azure-arm-datalake-store)
 ## [Python (kontohantering)](https://docs.microsoft.com/python/api/azure.mgmt.datalake.store?view=azure-python)

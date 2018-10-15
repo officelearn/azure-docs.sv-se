@@ -4,6 +4,18 @@ items:
   items:
   - name: Vad är Content Moderator?
     href: overview.md
+- name: Snabbstarter
+  items:
+  - name: Kom igång med Content Moderator
+    href: quick-start.md
+  - name: Använda .NET SDK
+    items:
+    - name: Kontrollera avbildningsinnehåll
+      href: image-moderation-quickstart-dotnet.md
+    - name: Kontrollera textinnehåll
+      href: text-moderation-quickstart-dotnet.md
+    - name: Kontrollera videoinnehåll
+      href: video-moderation-api.md
 - name: Exempel
   items:
   - name: .NET SDK-exempel
@@ -26,30 +38,20 @@ items:
   items:
   - name: Prova Content Moderator
     items:
-    - name: Kom igång med Content Moderator
-      href: quick-start.md
     - name: API:er för moderering
       items:
-      - name: Hjälpbibliotek – .NET
-        href: content-moderator-helper-quickstart-dotnet.md
       - name: Avbildningar – API-konsol
         href: try-image-api.md
-      - name: Avbildningar – .NET
-        href: image-moderation-quickstart-dotnet.md
+      - name: Kontrollera avbildningar mot anpassade listor
+        href: image-lists-quickstart-dotnet.md
       - name: Anpassade avbildningar – API-konsol
         href: try-image-list-api.md
-      - name: Anpassade avbildningar – .NET
-        href: image-lists-quickstart-dotnet.md
       - name: Text – API-konsol
         href: try-text-api.md
-      - name: Text – .NET
-        href: text-moderation-quickstart-dotnet.md
+      - name: Kontrollera text mot anpassade termer
+        href: term-lists-quickstart-dotnet.md
       - name: Anpassade villkor – API-konsol
         href: try-terms-list-api.md
-      - name: Anpassade villkor – .NET
-        href: term-lists-quickstart-dotnet.md
-      - name: Videor – .NET
-        href: video-moderation-api.md
     - name: Omdömes-API:er
       items:
       - name: Jobb – API-konsol
@@ -132,9 +134,9 @@ items:
     href: https://azure.microsoft.com/roadmap/?category=ai-machine-learning
   - name: Webbseminarium på begäran
     href: https://info.microsoft.com/cognitive-services-content-moderator-ondemand.html
-ms.openlocfilehash: 32f0c64253836d3080cc815753e361d810e1f2e8
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: 68febbe4e4206c774f75e1a07216eddf86dc5888
+ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47433817"
+ms.lasthandoff: 10/13/2018
+ms.locfileid: "49309833"

@@ -1,5 +1,5 @@
 # Översikt
-## [Komma igång](get-started.md)
+## [Kom igång](get-started.md)
 ## [Certifieringar](sap-certifications.md)
 # SAP HANA på Azure (stora instanser)
 ## Översikt
@@ -77,6 +77,7 @@
 #### [Hög tillgänglighet på Windows med delad disk för (A)SCS-instans](sap-high-availability-guide-wsfc-shared-disk.md)
 #### [Hög tillgänglighet på Windows med SOFS-filresurs för (A)SCS-instans](sap-high-availability-guide-wsfc-file-share.md)
 #### [Hög tillgänglighet på SUSE Linux för (A)SCS-instans](high-availability-guide-suse.md)
+#### [Hög tillgänglighet på Red Hat Enterprise Linux för (A)SCS-instans](high-availability-guide-rhel.md)
 ### Förberedelse av Azure-infrastruktur
 #### [Windows med delad disk för (A)SCS-instans](sap-high-availability-infrastructure-wsfc-shared-disk.md)
 #### [Windows med SOFS-filresurs för (A)SCS-instans](sap-high-availability-infrastructure-wsfc-file-share.md)

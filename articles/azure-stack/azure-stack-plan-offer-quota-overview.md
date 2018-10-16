@@ -15,12 +15,12 @@ ms.topic: get-started-article
 ms.date: 10/12/2018
 ms.author: sethm
 ms.reviewer: ''
-ms.openlocfilehash: 343c29db4ac5fba37d8ea1b17862b86566ae15ca
-ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
+ms.openlocfilehash: ee336fb5a60998aaac1518a85b8b92f63d9d4b64
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2018
-ms.locfileid: "49309203"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49318137"
 ---
 # <a name="plan-offer-quota-and-subscription-overview"></a>Översikt över plan, erbjudande, kvot och prenumeration
 
@@ -52,7 +52,7 @@ Prenumerationer är grupperingar av en eller flera tjänster. Som en Azure Stack
 
 Du kan använda för att hjälpa dig att hantera din kapacitet, förkonfigurerade *kvoter*, eller skapa en ny kvot för varje tjänst i en plan. Kvoter definiera övre resursbegränsningar som en användarprenumeration kan etablera eller använda. En kvot kan till exempel tillåta en användare kan skapa upp till fem virtuella datorer (VM).
 
-Du kan konfigurera kvoter efter region. En plan som tillhandahåller beräkning för Region A kan till exempel ha en kvot på två virtuella datorer med 4 GB RAM-minne och 8 CPU-kärnor.
+Du kan konfigurera kvoter efter region. En plan som tillhandahåller beräkning för Region A kan till exempel ha en kvot på två virtuella datorer.
 
 >[!NOTE]
 >I den Azure Stack Development Kit, endast en region (med namnet *lokala*) är tillgänglig.

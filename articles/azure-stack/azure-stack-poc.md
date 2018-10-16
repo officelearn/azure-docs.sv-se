@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 06/04/2018
+ms.date: 10/15/2018
 ms.author: jeffgilb
 ms.reviewer: unknown
 ms.custom: mvc
-ms.openlocfilehash: 848df59b01cc0c03b9a5f3dae2644d469c8651bb
-ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
+ms.openlocfilehash: b2b81938eafe104369e52e72f9958e2adf2cca6f
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35234894"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49345228"
 ---
 # <a name="what-is-azure-stack"></a>Vad är Azure Stack?
 
@@ -34,18 +34,19 @@ Azure Stack-integrerade system erbjuds via ett partnerskap mellan Microsoft och 
 
 ## <a name="azure-stack-development-kit"></a>Azure Stack Development Kit
 
-Microsoft [Azure Stack Development Kit (ASDK)](.\asdk\asdk-what-is.md) är en ennodsdistribution av Azure Stack. Du kan använda den för att utvärdera Azure Stack och för att lära dig mer om plattformen.  Du kan också använda ASDK som en utvecklare miljö för att skapa appar som använder API: er och verktyg som är kompatibel med Azure.
+Microsoft [Azure Stack Development Kit (ASDK)](.\asdk\asdk-what-is.md) är en ennodsdistribution av Azure Stack. Du kan använda den för att utvärdera Azure Stack och för att lära dig mer om plattformen.  Du kan också använda ASDK som en miljö för att skapa appar med hjälp av API: er och verktyg som är förenligt med Azure.
 
 >[!Note]
 >ASDK är inte avsedd att användas som en produktionsmiljö.
 
 ASDK har följande begränsningar:
 
-* ASDK är associerad med en enda Azure Active Directory (AD Azure) eller Active Directory Federation Services (AD FS) identitetsleverantör. Du kan skapa flera användare i den här katalogen och tilldela varje användare prenumerationer.
-* Eftersom Azure Stack-komponenter distribueras på en värddator är de fysiska resurser som finns tillgängliga för klientresurser begränsade. Den här konfigurationen är inte avsedd att skala eller prestanda.
-* Scenarier för nätverk är begränsade på grund av en värd och NIC-distributionskrav.
+* ASDK är associerad med en enda Azure Active Directory (AD Azure) eller en identitetsprovider för Active Directory Federation Services (AD FS). Du kan skapa flera användare i den här katalogen och tilldela prenumerationer till varje användare.
+* Eftersom Azure Stack-komponenter distribueras på en värddator är de fysiska resurser som finns tillgängliga för klientresurser begränsade. Den här konfigurationen är inte avsedd för utvärdering av skalbarhet eller prestanda.
+* Scenarier för nätverk är begränsade på grund av värddator och NIC-distributionskrav.
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Huvudfunktioner och koncept](azure-stack-key-features.md)
-- [Azure Stack: ett Azure-tillägg (pdf)](https://azure.microsoft.com/resources/azure-stack-an-extension-of-azure/)
+[Huvudfunktioner och koncept](azure-stack-key-features.md)
+
+[Azure Stack: ett Azure-tillägg (pdf)](https://azure.microsoft.com/resources/azure-stack-an-extension-of-azure/)

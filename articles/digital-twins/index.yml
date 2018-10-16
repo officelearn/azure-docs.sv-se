@@ -1,0 +1,37 @@
+### YamlMime:YamlDocument
+ms.openlocfilehash: 74743b3e9e32a844098f3097e3c036b38c391c02
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.translationtype: HT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49323021"
+documentType: LandingData
+title: Dokumentation om Azure Digital Twins
+metadata:
+  title: Dokumentation om Azure Digital Twins – Självstudier, API-referens | Microsoft Docs
+  description: Använd Azure Digital Twins för att skapa smarta rumsliga lösningar.
+  author: dsk-2015
+  manager: timlt
+  ms.service: digital-twins
+  services: digital-twins
+  ms.topic: landing-page
+  ms.date: 10/15/2018
+  ms.author: dkshir
+abstract:
+  description: Lär dig hur du använder Azure Digital Twins för att ansluta personer, platser och saker och för att skapa IoT-lösningar med spatial intelligens. Gå igenom snabbstarten och självstudierna för att övervaka en tänkt smart byggnad, lär dig mer djupgående begrepp och skapa en nästa generations IoT-lösning som bygger på din fysiska miljö.
+sections:
+- title: Snabbstart på fem minuter
+  items:
+  - type: paragraph
+    text: Lär dig hur du <a href="quickstart-view-occupancy-dotnet">hittar tillgängliga rum med god luftkvalitet genom att använda Azure Digital Twins .NET-exempel</a>.
+- title: Steg för steg-självstudier
+  items:
+  - type: paragraph
+    text: Lär dig hur du anpassar och använder din Azure Digital Twins-lösning för att övervaka dina anläggningar.
+  - type: list
+    style: ordered
+    items:
+    - html: <a href="/azure/digital-twins/tutorial-facilities-setup">Etablera en exempelbyggnad</a>
+    - html: <a href="/azure/digital-twins/tutorial-facilities-udf">Övervaka byggnadens tillstånd</a>
+    - html: <a href="/azure/digital-twins/tutorial-facilities-events">Ta emot aviseringar från byggnaden</a>
+    - html: <a href="/azure/digital-twins/tutorial-facilities-analyze">Analysera händelser från din byggnad</a>

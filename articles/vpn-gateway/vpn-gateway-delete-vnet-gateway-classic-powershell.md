@@ -15,24 +15,24 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/11/2017
 ms.author: cherylmc
-ms.openlocfilehash: 0c5d045cb949f5393bb2d9da54715b2b84229c36
-ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
+ms.openlocfilehash: 2c92db96820b9796ba2c952affcb3b3eef5b985e
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39036296"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49319854"
 ---
 # <a name="delete-a-virtual-network-gateway-using-powershell-classic"></a>Ta bort en virtuell nätverksgateway med hjälp av PowerShell (klassisk)
+
 > [!div class="op_single_selector"]
 > * [Resource Manager – Azure Portal](vpn-gateway-delete-vnet-gateway-portal.md)
 > * [Resource Manager – PowerShell](vpn-gateway-delete-vnet-gateway-powershell.md)
 > * [Klassisk – PowerShell](vpn-gateway-delete-vnet-gateway-classic-powershell.md)
 >
->
 
 Den här artikeln får du ta bort en VPN-gateway i den klassiska distributionsmodellen med hjälp av PowerShell. När den virtuella nätverksgatewayen har tagits bort, ändra nätverkskonfigurationsfilen för att ta bort element som du inte längre använder.
 
-##<a name="connect"></a>Steg 1: Anslut till Azure
+## <a name="connect"></a>Steg 1: Anslut till Azure
 
 ### <a name="1-install-the-latest-powershell-cmdlets"></a>1. Installera det senaste PowerShell-cmdlet.
 
@@ -101,7 +101,7 @@ Exempel:
  </Gateway>
 ```
 
-###<a name="lns"></a>Lokala nätverksplatser
+### <a name="lns"></a>Lokala nätverksplatser
 
 Ta bort lokala webbplatser som du inte längre använder. Beroende på hur du har skapat, är det möjligt att du inte har en **LocalNetworkSite** visas.
 

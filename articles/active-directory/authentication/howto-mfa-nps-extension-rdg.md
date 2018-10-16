@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: michmcla
-ms.openlocfilehash: 14607e01c0bd51ca9ae98f969c9cd6e1c8c62bb9
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 7fb69fd52c03300ee554fd903cba1670f2aa2421
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46294279"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49318613"
 ---
 # <a name="integrate-your-remote-desktop-gateway-infrastructure-using-the-network-policy-server-nps-extension-and-azure-ad"></a>Integrera fjärrskrivbordsgateway infrastruktur med Network Policy Server (NPS)-tillägget och Azure AD
 
@@ -47,12 +47,12 @@ En RD Gateway kan konfigureras för att använda en central principarkiv för au
 När NPS-tillägget för Azure är integrerad med NPS och Remote Desktop Gateway, är lyckad autentisering-flödet följande:
 
 1. Remote Desktop Gateway-servern tar emot en begäran om autentisering från fjärrskrivbordsanvändare att ansluta till en resurs, till exempel en fjärrskrivbordssession. Fungerar som en RADIUS-klient, Remote Desktop Gateway-servern konverterar begäran till en RADIUS-åtkomstbegäran och skickar meddelandet till RADIUS (NPS)-servern där NPS-tillägget installeras. 
-2. Kombinationen av användarnamn och lösenord har verifierats i Active Directory och användaren har autentiserats.
-3. Om alla villkor som anges i NPS-anslutningsbegäran och principer för nätverk är uppfyllda (till exempel tid på dagen eller grupp begränsningar av medlemskap), NPS-tillägget utlöser en begäran för sekundär autentisering med Azure MFA. 
-4. Azure MFA kommunicerar med Azure AD, hämtar användarens information och utför sekundära autentiseringen med den metod som konfigurerats av användaren (textmeddelande, mobilapp och så vidare). 
-5. Vid en lyckad distribution av MFA-kontrollen kommunicerar Azure MFA resultatet till NPS-tillägget.
-6. NPS-servern där tillägget installeras, skickar meddelandet RADIUS Access-Accept för auktoriseringsprincip för Fjärrskrivbordsanslutning principen till Remote Desktop Gateway-servern.
-7. Användaren beviljas åtkomst till den begärda nätverksresursen via RD Gateway.
+1. Kombinationen av användarnamn och lösenord har verifierats i Active Directory och användaren har autentiserats.
+1. Om alla villkor som anges i NPS-anslutningsbegäran och principer för nätverk är uppfyllda (till exempel tid på dagen eller grupp begränsningar av medlemskap), NPS-tillägget utlöser en begäran för sekundär autentisering med Azure MFA. 
+1. Azure MFA kommunicerar med Azure AD, hämtar användarens information och utför sekundära autentiseringen med den metod som konfigurerats av användaren (textmeddelande, mobilapp och så vidare). 
+1. Vid en lyckad distribution av MFA-kontrollen kommunicerar Azure MFA resultatet till NPS-tillägget.
+1. NPS-servern där tillägget installeras, skickar meddelandet RADIUS Access-Accept för auktoriseringsprincip för Fjärrskrivbordsanslutning principen till Remote Desktop Gateway-servern.
+1. Användaren beviljas åtkomst till den begärda nätverksresursen via RD Gateway.
 
 ## <a name="prerequisites"></a>Förutsättningar
 Det här avsnittet beskriver förutsättningarna som krävs innan du integrera Azure MFA med fjärrskrivbordsgateway. Innan du börjar måste du ha följande krav på plats.  
@@ -105,9 +105,9 @@ Det här avsnittet innehåller anvisningar för att konfigurera RDS-infrastruktu
 Som en del av konfigurationen av NPS-tillägget måste du ange autentiseringsuppgifter som administratör och Azure AD-ID för Azure AD-klienten. Följande steg visar hur du hämtar klient-ID.
 
 1. Logga in på den [Azure-portalen](https://portal.azure.com) som global administratör för Azure-klient.
-2. I det vänstra navigeringsfönstret väljer du den **Azure Active Directory** ikon.
-3. Välj **egenskaper**.
-4. I bladet egenskaper bredvid katalog-ID klickar du på den **kopia** ikonen som visas nedan, för att kopiera ID: T till Urklipp.
+1. I det vänstra navigeringsfönstret väljer du den **Azure Active Directory** ikon.
+1. Välj **egenskaper**.
+1. I bladet egenskaper bredvid katalog-ID klickar du på den **kopia** ikonen som visas nedan, för att kopiera ID: T till Urklipp.
 
  ![Egenskaper](./media/howto-mfa-nps-extension-rdg/image1.png)
 
@@ -119,13 +119,13 @@ Installera NPS-tillägget på en server som har rollen nätverksprinciper och Ac
 > 
 
 1. Ladda ned den [NPS-tillägget](https://aka.ms/npsmfa). 
-2. Kopiera den körbara filen för installationsprogrammet (NpsExtnForAzureMfaInstaller.exe) till NPS-servern.
-3. Dubbelklicka på NPS-servern **NpsExtnForAzureMfaInstaller.exe**. Om du uppmanas till detta klickar du på **kör**.
-4. I dialogrutan NPS-tillägget för Azure MFA installation granska licensvillkoren för programvaran, kontrollera **jag godkänner licensvillkoren och villkor**, och klicka på **installera**.
+1. Kopiera den körbara filen för installationsprogrammet (NpsExtnForAzureMfaInstaller.exe) till NPS-servern.
+1. Dubbelklicka på NPS-servern **NpsExtnForAzureMfaInstaller.exe**. Om du uppmanas till detta klickar du på **kör**.
+1. I dialogrutan NPS-tillägget för Azure MFA installation granska licensvillkoren för programvaran, kontrollera **jag godkänner licensvillkoren och villkor**, och klicka på **installera**.
  
   ![Azure MFA-installationen](./media/howto-mfa-nps-extension-rdg/image2.png)
 
-5. I dialogrutan NPS-tillägget för Azure MFA installationen klickar du på **Stäng**. 
+1. I dialogrutan NPS-tillägget för Azure MFA installationen klickar du på **Stäng**. 
 
   ![NPS-tillägget för Azure MFA](./media/howto-mfa-nps-extension-rdg/image3.png)
 
@@ -145,20 +145,20 @@ Om du vill använda dina egna certifikat måste du associera den offentliga nyck
 Om du vill använda skriptet, ger du tillägget med dina administratörsautentiseringsuppgifter för Azure AD och Azure AD-klient-ID som du kopierade tidigare. Kör skriptet på varje NPS-server där du installerade NPS-tillägget. Gör något av följande:
 
 1. Öppna en administrativ Windows PowerShell-prompt.
-2. I PowerShell-Kommandotolken skriver `cd ‘c:\Program Files\Microsoft\AzureMfa\Config’`, och tryck på **RETUR**.
-3. Typ `.\AzureMfsNpsExtnConfigSetup.ps1`, och tryck på **RETUR**. Skriptet kontrollerar om Azure Active Directory PowerShell-modulen är installerad. Om inte har installerats installerar skriptet modulen åt dig.
+1. I PowerShell-Kommandotolken skriver `cd ‘c:\Program Files\Microsoft\AzureMfa\Config’`, och tryck på **RETUR**.
+1. Typ `.\AzureMfsNpsExtnConfigSetup.ps1`, och tryck på **RETUR**. Skriptet kontrollerar om Azure Active Directory PowerShell-modulen är installerad. Om inte har installerats installerar skriptet modulen åt dig.
 
   ![Azure AD PowerShell](./media/howto-mfa-nps-extension-rdg/image4.png)
   
-4. När skriptet har kontrollerat installationen av PowerShell-modulen, visas dialogrutan för Azure Active Directory PowerShell-modulen. I dialogrutan anger du dina autentiseringsuppgifter för Azure AD-administratör och lösenord och klicka på **logga In**.
+1. När skriptet har kontrollerat installationen av PowerShell-modulen, visas dialogrutan för Azure Active Directory PowerShell-modulen. I dialogrutan anger du dina autentiseringsuppgifter för Azure AD-administratör och lösenord och klicka på **logga In**.
 
   ![Öppna Powershell-konto](./media/howto-mfa-nps-extension-rdg/image5.png)
 
-5. När du uppmanas, klistra in det klient-ID som du tidigare kopierade till Urklipp och tryck på **RETUR**.
+1. När du uppmanas, klistra in det klient-ID som du tidigare kopierade till Urklipp och tryck på **RETUR**.
 
   ![Ange klient-ID](./media/howto-mfa-nps-extension-rdg/image6.png)
 
-6. Skriptet skapar ett självsignerat certifikat och utför andra ändringar i konfigurationen. Resultatet ska se ut som på bilden nedan.
+1. Skriptet skapar ett självsignerat certifikat och utför andra ändringar i konfigurationen. Resultatet ska se ut som på bilden nedan.
 
   ![Självsignerat certifikat](./media/howto-mfa-nps-extension-rdg/image7.png)
 
@@ -171,22 +171,22 @@ Autentiseringsflödet kräver att RADIUS-meddelanden utbytas mellan fjärrskrivb
 Auktoriseringsprinciper för fjärrskrivbordsanslutning (RD cap) ange kraven för att ansluta till en server för fjärrskrivbordsgateway. Auktoriseringsprinciper för fjärrskrivbordsanslutning kan lagras lokalt (standard) eller de kan lagras i en central auktoriseringsprincip för Fjärrskrivbordsanslutning butik som kör NPS. Om du vill konfigurera integrering av Azure MFA med Fjärrskrivbordstjänster, måste du ange användning av en central store.
 
 1. Öppna på servern för fjärrskrivbordsgateway **Serverhanteraren**. 
-2. På menyn klickar du på **verktyg**, peka på **Remote Desktop Services**, och klicka sedan på **hanteraren för fjärrskrivbordsgateway**.
+1. På menyn klickar du på **verktyg**, peka på **Remote Desktop Services**, och klicka sedan på **hanteraren för fjärrskrivbordsgateway**.
 
   ![Fjärrskrivbordstjänster](./media/howto-mfa-nps-extension-rdg/image8.png)
 
-3. I den hanteraren för Fjärrskrivbordsgateway, högerklicka på  **\[servernamn\] (lokal)**, och klicka på **egenskaper**.
+1. I den hanteraren för Fjärrskrivbordsgateway, högerklicka på  **\[servernamn\] (lokal)**, och klicka på **egenskaper**.
 
   ![Servernamn](./media/howto-mfa-nps-extension-rdg/image9.png)
 
-4. I dialogrutan Egenskaper väljer du den **RD CAP Store** fliken.
-5. På fliken RD CAP Store väljer **Central server som kör NPS**. 
-6. I den **ange namn eller IP-adressen för servern som kör NPS** skriver IP-adress eller namnet på den server där du installerade NPS-tillägget.
+1. I dialogrutan Egenskaper väljer du den **RD CAP Store** fliken.
+1. På fliken RD CAP Store väljer **Central server som kör NPS**. 
+1. I den **ange namn eller IP-adressen för servern som kör NPS** skriver IP-adress eller namnet på den server där du installerade NPS-tillägget.
 
   ![Ange namn eller IP-adress](./media/howto-mfa-nps-extension-rdg/image10.png)
   
-7. Klicka på **Lägg till**.
-8. I den **delad hemlighet** dialogrutan, ange en delad hemlighet och klicka sedan på **OK**. Se till att du registrerar den här delade hemligheten och lagra posten på ett säkert sätt.
+1. Klicka på **Lägg till**.
+1. I den **delad hemlighet** dialogrutan, ange en delad hemlighet och klicka sedan på **OK**. Se till att du registrerar den här delade hemligheten och lagra posten på ett säkert sätt.
 
  >[!NOTE]
  >Delad hemlighet används för att upprätta förtroende mellan RADIUS-servrar och klienter. Skapa en hemlighet med långa och komplexa.
@@ -194,45 +194,45 @@ Auktoriseringsprinciper för fjärrskrivbordsanslutning (RD cap) ange kraven fö
 
  ![Delad hemlighet](./media/howto-mfa-nps-extension-rdg/image11.png)
 
-9. Stäng dialogrutan genom att klicka på **OK**.
+1. Stäng dialogrutan genom att klicka på **OK**.
 
 ### <a name="configure-radius-timeout-value-on-remote-desktop-gateway-nps"></a>Konfigurera RADIUS-timeout-värde på Remote Desktop Gateway NPS
 För att säkerställa att det finns tid att verifiera användarnas autentiseringsuppgifter, utföra tvåstegsverifiering, få svar och svara på RADIUS-meddelanden, det är nödvändigt att justera RADIUS timeout-värdet.
 
 1. Öppna Serverhanteraren på servern för fjärrskrivbordsgateway. På menyn klickar du på **verktyg**, och klicka sedan på **Network Policy Server**. 
-2. I den **NPS (lokal)** konsolen, expandera **RADIUS-klienter och servrar**, och välj **fjärranslutna RADIUS-Server**.
+1. I den **NPS (lokal)** konsolen, expandera **RADIUS-klienter och servrar**, och välj **fjärranslutna RADIUS-Server**.
 
  ![Fjärr-RADIUS-Server](./media/howto-mfa-nps-extension-rdg/image12.png)
 
-3. I informationsfönstret dubbelklickar du på **TS GATEWAY SERVER GROUP**.
+1. I informationsfönstret dubbelklickar du på **TS GATEWAY SERVER GROUP**.
 
  >[!NOTE]
  >Den här gruppen för RADIUS-Server skapas när du har konfigurerat den centrala servern för NPS-policys. RD Gateway vidarebefordrar RADIUS-meddelanden till den här servern eller en grupp av servrar, om mer än en i gruppen.
  >
 
-4. I den **gruppegenskaper för TS GATEWAY SERVER** dialogrutan Välj IP-adressen eller namnet på den NPS-server som du har konfigurerat för att lagra auktoriseringsprinciper för fjärrskrivbordsanslutning och klicka sedan på **redigera**. 
+1. I den **gruppegenskaper för TS GATEWAY SERVER** dialogrutan Välj IP-adressen eller namnet på den NPS-server som du har konfigurerat för att lagra auktoriseringsprinciper för fjärrskrivbordsanslutning och klicka sedan på **redigera**. 
 
  ![TS Gateway-servergrupp](./media/howto-mfa-nps-extension-rdg/image13.png)
 
-5. I den **redigera RADIUS-Server** dialogrutan den **Utjämning av nätverksbelastning** fliken.
-6. I den **Utjämning av nätverksbelastning** fliken den **antal sekunder utan svar innan begäran anses vara förlorad** fältet, ändrar du standardvärdet från 3 till ett värde mellan 30 och 60 sekunder.
-7. I den **antal sekunder mellan begäranden när servern anses vara otillgänglig** fältet, ändrar du standardvärdet på 30 sekunder till ett värde som är lika med eller större än värdet du angav i föregående steg.
+1. I den **redigera RADIUS-Server** dialogrutan den **Utjämning av nätverksbelastning** fliken.
+1. I den **Utjämning av nätverksbelastning** fliken den **antal sekunder utan svar innan begäran anses vara förlorad** fältet, ändrar du standardvärdet från 3 till ett värde mellan 30 och 60 sekunder.
+1. I den **antal sekunder mellan begäranden när servern anses vara otillgänglig** fältet, ändrar du standardvärdet på 30 sekunder till ett värde som är lika med eller större än värdet du angav i föregående steg.
 
  ![Redigera Radius-Server](./media/howto-mfa-nps-extension-rdg/image14.png)
 
-8.  Klicka på **OK** två gånger för att stänga dialogrutorna.
+1.  Klicka på **OK** två gånger för att stänga dialogrutorna.
 
 ### <a name="verify-connection-request-policies"></a>Kontrollera principer för anslutningsbegäran 
 Som standard när du konfigurerar Fjärrskrivbordsgatewayen att använda en central principarkiv för auktoriseringsprinciper för anslutning, har RD Gateway konfigurerats för att vidarebefordra CAP-begäranden till NPS-servern. NPS-server med Azure MFA-tillägget installerat, bearbetar RADIUS-åtkomstbegäran. Följande steg visar hur du verifierar standardprincipen. 
 
 1. Fjärrskrivbordsgateway i NPS (lokal)-konsolen, expandera **principer**, och välj **principer för anslutningsbegäran**.
-2. Dubbelklicka på **TS GATEWAY AUTHORIZATION POLICY**.
-3. I den **TS GATEWAY AUTHORIZATION POLICY egenskaper** dialogrutan klickar du på den **inställningar** fliken.
-4. På **inställningar** klickar du på fliken, under Vidarebefordra anslutningsbegäran **autentisering**. RADIUS-klienten har konfigurerats att vidarebefordra begäranden för autentisering.
+1. Dubbelklicka på **TS GATEWAY AUTHORIZATION POLICY**.
+1. I den **TS GATEWAY AUTHORIZATION POLICY egenskaper** dialogrutan klickar du på den **inställningar** fliken.
+1. På **inställningar** klickar du på fliken, under Vidarebefordra anslutningsbegäran **autentisering**. RADIUS-klienten har konfigurerats att vidarebefordra begäranden för autentisering.
 
  ![Autentiseringsinställningar](./media/howto-mfa-nps-extension-rdg/image15.png)
  
-5. Klicka på **Avbryt**. 
+1. Klicka på **Avbryt**. 
 
 ## <a name="configure-nps-on-the-server-where-the-nps-extension-is-installed"></a>Konfigurera NPS på den server där NPS-tillägget har installerats
 NPS-servern där NPS-tillägget installeras måste vara kan utbyta meddelanden för RADIUS med NPS-server på den Remote Desktop Gateway. Om du vill aktivera den här meddelandeutbyte, måste du konfigurera NPS-komponenter på den server där NPS-tillägg-tjänsten är installerad. 
@@ -241,13 +241,13 @@ NPS-servern där NPS-tillägget installeras måste vara kan utbyta meddelanden f
 NPS-servern måste registreras i Active Directory för att fungera korrekt i det här scenariot.
 
 1. Öppna på NPS-servern **Serverhanteraren**.
-2. I Serverhanteraren klickar du på **verktyg**, och klicka sedan på **Network Policy Server**. 
-3. I NPS-konsolträdet högerklickar du på **NPS (lokal)**, och klicka sedan på **registrera servern i Active Directory**. 
-4. Klicka på **OK** två gånger.
+1. I Serverhanteraren klickar du på **verktyg**, och klicka sedan på **Network Policy Server**. 
+1. I NPS-konsolträdet högerklickar du på **NPS (lokal)**, och klicka sedan på **registrera servern i Active Directory**. 
+1. Klicka på **OK** två gånger.
 
  ![Registrera servern i AD](./media/howto-mfa-nps-extension-rdg/image16.png)
 
-5. Lämna konsolen öppen för nästa procedur.
+1. Lämna konsolen öppen för nästa procedur.
 
 ### <a name="create-and-configure-radius-client"></a>Skapa och konfigurera RADIUS-klient 
 Fjärrskrivbordsgateway måste konfigureras som en RADIUS-klient till NPS-servern. 
@@ -256,39 +256,39 @@ Fjärrskrivbordsgateway måste konfigureras som en RADIUS-klient till NPS-server
 
  ![Ny RADIUS-klienter](./media/howto-mfa-nps-extension-rdg/image17.png)
 
-2. I den **ny RADIUS-klient** dialogrutan Ange ett eget namn, till exempel _Gateway_, och IP-adressen eller DNS-namnet på den Remote Desktop Gateway-servern. 
-3. I den **delad hemlighet** och **Bekräfta delad hemlighet** fält, anger du samma hemlighet som du använt tidigare.
+1. I den **ny RADIUS-klient** dialogrutan Ange ett eget namn, till exempel _Gateway_, och IP-adressen eller DNS-namnet på den Remote Desktop Gateway-servern. 
+1. I den **delad hemlighet** och **Bekräfta delad hemlighet** fält, anger du samma hemlighet som du använt tidigare.
 
  ![Namn och adress](./media/howto-mfa-nps-extension-rdg/image18.png)
 
-4. Klicka på **OK** att stänga dialogrutan Ny RADIUS-klient.
+1. Klicka på **OK** att stänga dialogrutan Ny RADIUS-klient.
 
 ### <a name="configure-network-policy"></a>Konfigurera principen för nätverk
 Kom ihåg att NPS-server med Azure MFA-tillägget är avsedda centrala principarkivet för anslutning auktorisering princip (CAP). Därför måste du implementera ett tak på NPS-servern att godkänna giltiga anslutningar begäranden.  
 
 1. Öppna konsolen NPS (lokal) på NPS-servern, expandera **principer**, och klicka på **nätverksprinciper**.
-2. Högerklicka på **anslutningar till andra klientåtkomstservrar**, och klicka på **duplicera princip**. 
+1. Högerklicka på **anslutningar till andra klientåtkomstservrar**, och klicka på **duplicera princip**. 
 
  ![Dubbla](./media/howto-mfa-nps-extension-rdg/image19.png)
 
-3. Högerklicka på **kopia av anslutningar till andra klientåtkomstservrar**, och klicka på **egenskaper**.
+1. Högerklicka på **kopia av anslutningar till andra klientåtkomstservrar**, och klicka på **egenskaper**.
 
  ![Nätverksegenskaper](./media/howto-mfa-nps-extension-rdg/image20.png)
 
-4. I den **kopia av anslutningar till andra klientåtkomstservrar** i dialogrutan **principnamn**, ange ett lämpligt namn, till exempel _RDG_CAP_. Kontrollera **principen är aktiverad**, och välj **bevilja åtkomst**. Valfritt: i **typ av nätverksåtkomstserver**väljer **fjärrskrivbordsgateway**, eller lämna den som **Ospecificerad**.
+1. I den **kopia av anslutningar till andra klientåtkomstservrar** i dialogrutan **principnamn**, ange ett lämpligt namn, till exempel _RDG_CAP_. Kontrollera **principen är aktiverad**, och välj **bevilja åtkomst**. Valfritt: i **typ av nätverksåtkomstserver**väljer **fjärrskrivbordsgateway**, eller lämna den som **Ospecificerad**.
 
  ![Kopia av anslutningar](./media/howto-mfa-nps-extension-rdg/image21.png)
 
-5.  Klicka på den **begränsningar** fliken och markera **tillåter klienter att ansluta utan att förhandla om autentiseringsmetod**.
+1.  Klicka på den **begränsningar** fliken och markera **tillåter klienter att ansluta utan att förhandla om autentiseringsmetod**.
 
  ![Tillåt klienter att ansluta](./media/howto-mfa-nps-extension-rdg/image22.png)
 
-6. Du kan också klicka på den **villkor** fliken och Lägg till villkor som måste uppfyllas för anslutningen ska ha befogenhet, till exempel medlemskap i en specifik Windows-grupp.
+1. Du kan också klicka på den **villkor** fliken och Lägg till villkor som måste uppfyllas för anslutningen ska ha befogenhet, till exempel medlemskap i en specifik Windows-grupp.
 
  ![Villkor](./media/howto-mfa-nps-extension-rdg/image23.png)
 
-7. Klicka på **OK**. När du uppmanas att visa motsvarande hjälpavsnitt, klickar du på **nr**.
-8. Kontrollera att den nya principen är överst i listan att principen är aktiverad, och att den ger åtkomst.
+1. Klicka på **OK**. När du uppmanas att visa motsvarande hjälpavsnitt, klickar du på **nr**.
+1. Kontrollera att den nya principen är överst i listan att principen är aktiverad, och att den ger åtkomst.
 
  ![Nätverksprinciper](./media/howto-mfa-nps-extension-rdg/image24.png)
 

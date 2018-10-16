@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 02/20/2018
 ms.author: abshamsft
 ms.component: ''
-ms.openlocfilehash: e12c513f8812381897804412616be1ef7c743a3d
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: 953a004f48bfd9bd68b9500d312240c45cbf3292
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48044101"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49321911"
 ---
 # <a name="network-performance-monitor-solution-in-azure"></a>Network Performance Monitor-lösning i Azure
 
@@ -271,7 +271,7 @@ Om du är en NPM-användare som skapar en avisering via Azure-portalen:
 3. Om du väljer att använda åtgärdsgrupper, måste du välja en tidigare skapad åtgärdsgrupp. Du kan lära dig hur du skapar en åtgärdsgrupp [här.](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-action-groups#create-an-action-group-by-using-the-azure-portal) 
 4. Du kan använda Hantera aviseringar länk för att hantera dina aviseringar när aviseringen har skapats. 
 
-##<a name="pricing"></a>Prissättning
+## <a name="pricing"></a>Prissättning
 
 Information om priser finns [online](log-analytics-network-performance-monitor-pricing-faq.md).
 

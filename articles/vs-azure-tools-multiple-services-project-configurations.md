@@ -12,12 +12,12 @@ ms.workload: azure-vs
 ms.topic: conceptual
 ms.date: 11/11/2017
 ms.author: ghogen
-ms.openlocfilehash: 56b01855a5996bb62f721bda2bfc207684227854
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: 1ec587f4a4519f86efceb7cefa0acb372035a9a9
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "42056774"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49318222"
 ---
 # <a name="configuring-your-azure-project-in-visual-studio-to-use-multiple-service-configurations"></a>Konfigurera din Azure-projekt i Visual Studio för att använda flera tjänstkonfiguration
 
@@ -75,8 +75,9 @@ Om du vill skapa en anslutningssträng, Välj **Lägg till inställning** och an
 Ny eller befintlig anslutningssträngar, Välj **...** * till höger om den **värdet** fältet för att öppna den **skapa Lagringsanslutningssträng** dialogrutan:
 
 1. Under **ansluta med hjälp av**, Välj den **prenumerationen** möjlighet att välja ett lagringskonto från en prenumeration. Visual Studio hämtar sedan autentiseringsuppgifterna för ett lagringskonto automatiskt från den `.publishsettings` filen.
-1. Att välja **angett autentiseringsuppgifterna manuellt** kan du ange kontonamnet och nyckeln direkt med hjälp av information från Azure-portalen. Kopiera kontonyckeln: en. Gå till storage-konto på Azure portal och väljer **hantera nycklar**.
-    2. Gå till storage-konto på Azure portal, Välj om du vill kopiera kontonyckeln **Inställningar > åtkomstnycklar**, sedan använda kopieringsknappen för att kopiera den primära åtkomstnyckeln till Urklipp.
+1. Att välja **angett autentiseringsuppgifterna manuellt** kan du ange kontonamnet och nyckeln direkt med hjälp av information från Azure-portalen. Kopiera kontonyckeln:
+    1. Gå till storage-konto på Azure portal och väljer **hantera nycklar**.
+    1. Gå till storage-konto på Azure portal, Välj om du vill kopiera kontonyckeln **Inställningar > åtkomstnycklar**, sedan använda kopieringsknappen för att kopiera den primära åtkomstnyckeln till Urklipp.
 1. Välj en av anslutningsalternativ. **Ange anpassade slutpunkter** du ombeds ange specifika URL: er för blobbar, tabeller och köer. Anpassade slutpunkter kan du använda [anpassade domäner](storage/blobs/storage-custom-domain-name.md) och styra åtkomsten mer exakt. Se [konfigurerar Azure Storage-anslutningssträngar](./storage/common/storage-configure-connection-string.md).
 1. Välj **OK**, sedan **fil > Spara** att uppdatera konfigurationen med den nya anslutningssträngen.
 

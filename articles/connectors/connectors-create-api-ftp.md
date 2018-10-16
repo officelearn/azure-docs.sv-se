@@ -1,92 +1,136 @@
 ---
 title: Ansluta till FTP-server – Azure Logic Apps | Microsoft Docs
 description: Skapa, övervaka och hantera filer på en FTP-server med Azure Logic Apps
-author: ecfan
-manager: jeconnoc
-ms.author: estfan
-ms.date: 07/22/2016
-ms.topic: article
-ms.service: logic-apps
 services: logic-apps
-ms.reviewer: klam, LADocs
+ms.service: logic-apps
 ms.suite: integration
+author: ecfan
+ms.author: estfan
+ms.reviewer: klam, LADocs
+ms.topic: article
+ms.date: 10/15/2018
 tags: connectors
-ms.openlocfilehash: 4355a767d2ecd500662cdf4522e8a7e12de86b80
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.openlocfilehash: e72b7e5ac3c66283116925e8e36c1c33e777042c
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37866159"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49318925"
 ---
-# <a name="get-started-with-the-ftp-connector"></a>Kom igång med FTP-anslutningsappen
-Använd FTP-anslutningsappen för att övervaka, hantera och skapa filer på en FTP-server. 
+# <a name="create-monitor-and-manage-ftp-files-by-using-azure-logic-apps"></a>Skapa, övervaka och hantera FTP-filer med hjälp av Azure Logic Apps
 
-Att använda [alla anslutningar](apis-list.md), måste du först skapa en logikapp. Du kan komma igång med [nu skapa en logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+Med Azure Logic Apps och FTP-anslutningsappen kan skapa du automatiserade uppgifter och arbetsflöden som kan skapa, övervaka, skicka och ta emot filerna med ditt konto på en FTP-server, tillsammans med andra åtgärder, till exempel:
 
-## <a name="connect-to-ftp"></a>Ansluta till FTP
-Innan din logikapp kan komma åt alla tjänster måste du först måste du skapa en *anslutning* till tjänsten. En [anslutning](connectors-overview.md) tillhandahåller anslutningen mellan en logikapp och en annan tjänst.  
+* Övervaka när filer läggs till eller ändras.
+* Hämta, skapa, kopiera, uppdatera, lista, och ta bort filer.
+* Hämta filinnehåll och metadata.
+* Extrahera Arkiv till mappar.
 
-### <a name="create-a-connection-to-ftp"></a>Skapa en anslutning till FTP
-> [!INCLUDE [Steps to create a connection to FTP](../../includes/connectors-create-api-ftp.md)]
-> 
-> 
-
-## <a name="use-a-ftp-trigger"></a>Använda en FTP-utlösare
-En utlösare är en händelse som kan användas för att starta arbetsflödet som definierats i en logikapp. [Mer information om utlösare](../logic-apps/logic-apps-overview.md#logic-app-concepts).  
-
-> [!IMPORTANT]
-> FTP-anslutningsappen kräver en FTP-server som är tillgänglig från Internet och är konfigurerad för att fungera med PASSIVT läge. FTP-anslutningsappen är också **inte kompatibel med implicit FTPS (FTP över SSL)**. FTP-anslutningsappen stöder bara explicit FTPS (FTP över SSL).  
-> 
-> 
-
-I det här exemplet jag visar hur du använder den **FTP - när en fil läggs till eller ändras** utlösa för att initiera en logikappens arbetsflöde när en fil läggs till eller ändras på en FTP-server. Du kan använda den här utlösaren för att övervaka en FTP-mapp för nya filer som representerar order från kunder i en enterprise-exemplet.  Du kan sedan använda en FTP-anslutningstjänsten åtgärd som **hämta filinnehåll** att hämta innehållet i ordningen för vidare bearbetning och lagring i din orderdatabasen.
-
-1. Ange *ftp* i sökrutan på logic apps designer och markera den **FTP - när en fil läggs till eller ändras** utlösare   
-   ![FTP-utlösarbild 1](./media/connectors-create-api-ftp/ftp-trigger-1.png)  
-   Den **när en fil läggs till eller ändras** kontrollen öppnas  
-   ![FTP-utlösarbild 2](./media/connectors-create-api-ftp/ftp-trigger-2.png)  
-2. Välj den **...**  finns på höger sida av kontrollen. Då öppnas mappen väljarkontrollen  
-   ![Bild 3 till FTP-utlösare](./media/connectors-create-api-ftp/ftp-trigger-3.png)  
-3. Välj den **>** (HÖGERPIL) och bläddra till den mapp som du vill övervaka för nya eller ändrade filer. Välj mapp och Observera mappen visas nu i den **mappen** kontroll.  
-   ![FTP-utlösarbild 4](./media/connectors-create-api-ftp/ftp-trigger-4.png)   
-
-Logikappen har nu konfigurerats med en utlösare som börjar en körning av andra utlösare och åtgärder i arbetsflödet när en fil ändras eller skapas i den specifika FTP-mappen. 
+Du kan använda utlösare som få svar från FTP-servern och göra utdata som är tillgängliga för andra åtgärder. Du kan använda åtgärder i dina logic apps för att utföra uppgifter med filer på FTP-servern. Du kan också ha andra åtgärder som använder utdata från FTP-åtgärder. Till exempel om du regelbundet hämta filer från FTP-servern, kan du skicka e-postmeddelande om dessa filer och sitt innehåll med hjälp av anslutningsappen Office 365 Outlook eller Outlook.com-anslutning. Om du är nybörjare till logic apps, granska [vad är Azure Logic Apps?](../logic-apps/logic-apps-overview.md)
 
 > [!NOTE]
-> Det måste innehålla minst en utlösare och en åtgärd för en logikapp ska fungera. Följ stegen i nästa avsnitt för att lägga till en åtgärd.  
-> 
-> 
+> FTP-anslutningsappen stöder bara filer som är 50 MB eller mindre om du inte använder [storlekar för att hantera stora meddelanden](../logic-apps/logic-apps-handle-large-messages.md). 
+>
+> Dessutom FTP-anslutningsappen stöder bara explicit FTP över SSL (FTPS) och är inte kompatibel med implicit FTPS. 
 
-## <a name="use-a-ftp-action"></a>Använda en FTP-åtgärd
-En åtgärd är en åtgärd som utförs av arbetsflödet som definierats i en logikapp. [Läs mer om åtgärder](../logic-apps/logic-apps-overview.md#logic-app-concepts).  
+## <a name="prerequisites"></a>Förutsättningar
 
-Nu när du har lagt till en utlösare, Följ dessa steg för att lägga till en åtgärd som ska hämta innehållet i den nya eller ändrade filen som upptäckts av utlösaren.    
+* En Azure-prenumeration. Om du heller inte har någon Azure-prenumeration kan du <a href="https://azure.microsoft.com/free/" target="_blank">registrera ett kostnadsfritt Azure-konto</a>. 
 
-1. Välj **+ nytt steg** att lägga till åtgärden för att hämta innehållet i filen på FTP-servern  
-2. Välj den **Lägg till en åtgärd** länk.  
-   ![Bild av åtgärder för FTP-1](./media/connectors-create-api-ftp/ftp-action-1.png)  
-3. Ange *FTP* att söka efter alla åtgärder som rör FTP.
-4. Välj **FTP - hämta filinnehåll** som åtgärden som ska vidtas när en nya eller ändrade filen finns i FTP-mappen.      
-   ![Bild av åtgärder för FTP-2](./media/connectors-create-api-ftp/ftp-action-2.png)  
-   Den **hämta filinnehåll** styra öppnas. **Obs**: uppmanas du att godkänna din logikapp för att komma åt ditt konto för FTP-server om du inte har gjort det tidigare.  
-   ![Bild av åtgärder för FTP-3](./media/connectors-create-api-ftp/ftp-action-3.png)   
-5. Välj den **filen** kontroll (det tomma utrymmet finns under ** filen ***). Här kan använda du någon av de olika egenskaperna från den nya eller ändrade fil som finns på FTP-servern.  
-6. Välj den **filinnehåll** alternativet.  
-   ![Bild 4 av FTP-åtgärder](./media/connectors-create-api-ftp/ftp-action-4.png)   
-7. Kontrollen har uppdaterats, vilket betyder att den **FTP - hämta filinnehåll** åtgärd får den *filinnehåll* av nya eller ändrade filen på FTP-servern.      
-   ![Bild 5 av FTP-åtgärder](./media/connectors-create-api-ftp/ftp-action-5.png)     
-8. Spara ditt arbete och sedan lägga till en fil i mappen FTP för att testa ditt arbetsflöde.    
+* Din FTP-värd-adress och konto autentiseringsuppgifter
 
-Logikappen har nu konfigurerats med en utlösare för att övervaka en mapp på en FTP-server och starta arbetsflödet när den hittar en ny fil eller en fil på FTP-servern. 
+  FTP-anslutningsappen kräver att FTP-servern kan nås från internet och ställa in att fungera inom *passiva* läge. Dina autentiseringsuppgifter för tillåta din logikapp för att skapa en anslutning och få åtkomst till FTP-kontot.
 
-Logikappen har också konfigurerats med en åtgärd för att hämta innehållet i den nya eller ändrade filen.
+* Grundläggande kunskaper om [hur du skapar logikappar](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 
-Du kan nu lägga till en annan åtgärd som den [SQL Server – infogningsrad](connectors-create-api-sqlazure.md) åtgärder för att infoga innehållet i den nya eller ändrade filen i en SQL-databastabell.  
+* Logikappen där du vill få åtkomst till FTP-kontot. Du kommer igång med en FTP-utlösare [skapa en tom logikapp](../logic-apps/quickstart-create-first-logic-app-workflow.md). Om du vill använda en FTP-åtgärd, starta din logikapp med en annan utlösare, till exempel, **upprepning** utlösaren.
 
-## <a name="connector-specific-details"></a>Information om specifika
+## <a name="connect-to-ftp"></a>Ansluta till FTP
 
-Visa alla utlösare och åtgärder som definierats i swagger och får även eventuella gränser i den [anslutningsinformationen](/connectors/ftpconnector/). 
+[!INCLUDE [Create connection general intro](../../includes/connectors-create-connection-general-intro.md)]
+
+1. Logga in på den [Azure-portalen](https://portal.azure.com), och öppna logikappen i Logic App Designer, om inte redan är öppna.
+
+1. För tom logic apps i sökrutan anger du ”ftp” som filter. Välj utlösaren som du vill under listan över utlösare. 
+
+   ELLER
+
+   För befintliga logikappar under det sista steget där du vill lägga till en åtgärd, Välj **nytt steg**, och välj sedan **Lägg till en åtgärd**. 
+   I sökrutan anger du ”ftp” som filter. 
+   Välj vilken åtgärd du önska under åtgärder.
+
+   Om du vill lägga till en åtgärd mellan stegen, flyttar du pekaren över pilen mellan stegen. 
+   Välj plustecknet (**+**) som visas och välj sedan **Lägg till en åtgärd**.
+
+1. Ange informationen som krävs för anslutningen och välj sedan **skapa**.
+
+1. Ange informationen som krävs för din valda utlösare eller åtgärd och fortsätt att utveckla logikappens arbetsflöde.
+
+## <a name="examples"></a>Exempel
+
+### <a name="ftp-trigger-when-a-file-is-added-or-modified"></a>FTP-utlösare: när en fil läggs till eller ändras
+
+Den här utlösaren startar en logikapparbetsflöde när utlösaren identifierar när en fil läggs till eller ändras på en FTP-server. Till exempel kan du lägga till ett villkor som kontrollerar dess innehåll och beslutar om att hämta innehållet, baserat på om innehållet uppfyller ett angivet villkor. Slutligen kan du lägga till en åtgärd som hämtar filens innehåll och placera innehållet i en mapp på SFTP-server. 
+
+**Enterprise exempel**: du kan använda den här utlösaren för att övervaka en FTP-mapp för nya filer som representerar kundorder. Du kan sedan använda en FTP-åtgärd som **hämta filinnehåll**, så du kan hämta den ordning innehåll för vidare bearbetning och lagra den ordningen i en order-databas.
+
+En giltig och funktionella logikapp kräver en utlösare och minst en åtgärd. Kontrollera så att du lägger till en åtgärd när du lägger till en utlösare.
+
+Här är ett exempel som visar den här utlösaren: **när en fil läggs till eller ändras**
+
+1. Logga in på den [Azure-portalen](https://portal.azure.com), och öppna logikappen i Logic App Designer, om inte redan är öppna.
+
+1. För tom logic apps i sökrutan anger du ”ftp” som filter. Under listan över utlösare, väljer du den här utlösaren: **när en arkiverade läggs till eller ändras – FTP**
+
+   ![Hitta och välj FTP-utlösare](./media/connectors-create-api-ftp/select-ftp-trigger.png)  
+
+1. Ange informationen som krävs för anslutningen och välj sedan **skapa**.
+
+   ![Skapa FTP-server-anslutning](./media/connectors-create-api-ftp/create-ftp-connection-trigger.png)  
+
+1. Bredvid den **mappen** väljer du mappikonen så visas en lista. För att hitta mappen som du vill övervaka för nya eller redigerade filer, väljer du pilen rätvinkliga (**>**), bläddra till mappen och välj sedan mappen.
+
+   ![Hitta och Välj mapp som ska övervakas](./media/connectors-create-api-ftp/select-folder.png)  
+
+   Den valda mappen visas i den **mappen** box.
+
+   ![Vald mapp](./media/connectors-create-api-ftp/selected-folder.png)  
+
+Nu när logikappen har en utlösare, lägga till åtgärder som du vill köra när logikappen hittar en ny eller redigerad fil. Du kan lägga till en FTP-åtgärd som hämtar nya eller uppdaterade innehållet för det här exemplet.
+
+### <a name="ftp-action-get-content"></a>FTP-åtgärd: hämta innehåll
+
+Den här åtgärden hämtar innehållet från en fil på en FTP-server när den filen läggs till eller uppdateras. Till exempel kan du lägga till utlösaren från exemplet ovan och en åtgärd som hämtar dess innehåll när den filen läggs till eller redigeras. 
+
+1. Under utlösaren eller andra åtgärder, väljer **nytt steg**. 
+
+1. I sökrutan anger du ”ftp” som filter. Under åtgärdslistan väljer du den här åtgärden: **hämta filinnehåll - FTP**
+
+   ![Välj FTP-åtgärd](./media/connectors-create-api-ftp/select-ftp-action.png)  
+
+1. Om du redan har en anslutning till FTP-servern och kontot kan gå till nästa steg. I annat fall anger du informationen som krävs för anslutningen och välj sedan **skapa**. 
+
+   ![Skapa FTP-server-anslutning](./media/connectors-create-api-ftp/create-ftp-connection-action.png)
+
+1. Efter den **hämta filinnehåll** åtgärd öppnas klickar du på inuti den **filen** så att den dynamiska innehållslistan visas. Nu kan du välja Egenskaper för utdata från föregående steg. Den dynamiska innehållslistan, väljer du den **filinnehåll** egenskap som har innehållet för filen har lagts till eller uppdaterats.  
+
+   ![Hitta och Välj fil](./media/connectors-create-api-ftp/ftp-action-get-file-content.png)
+
+   Den **filinnehåll** egenskapen visas nu i den **filen** box.
+
+   ![Valda ”filinnehåll” egenskapen](./media/connectors-create-api-ftp/ftp-action-selected-file-content-property.png)
+
+1. Spara din logikapp. Testa ditt arbetsflöde genom att lägga till en fil till FTP-mapp som din logikapp nu övervakar.
+
+## <a name="connector-reference"></a>Referens för anslutningsapp
+
+Teknisk information om utlösare, åtgärder och begränsningar som beskrivs av anslutningsappens OpenAPI (tidigare Swagger) beskrivning, granska kopplingens [referenssida](/connectors/ftpconnector/).
+
+## <a name="get-support"></a>Få support
+
+* Om du har frågor kan du besöka [forumet för Azure Logic Apps](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
+* Om du vill skicka in eller rösta på förslag på funktioner besöker du [webbplatsen för Logic Apps-användarfeedback](http://aka.ms/logicapps-wish).
 
 ## <a name="next-steps"></a>Nästa steg
-[Skapa en logikapp](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 
+* Läs mer om andra [Logic Apps-anslutningsprogram](../connectors/apis-list.md)

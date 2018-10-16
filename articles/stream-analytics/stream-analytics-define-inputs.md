@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 04/27/2018
-ms.openlocfilehash: 2da388ef2fc0df8b08658900fe91ecc9d440fd3a
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: 9b75db835b0bdcc18cb82f427250630fb936d817
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45579300"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49341232"
 ---
 # <a name="stream-data-as-input-into-stream-analytics"></a>Stream-data som indata till Stream Analytics
 
@@ -39,7 +39,7 @@ Azure Event Hubs ger mycket skalbar publicerings-/ händelse ingestors. En händ
 `EventEnqueuedUtcTime` tidsstämpeln för ankomst en händelse i en händelsehubb och är standard tidsstämpeln för händelser som kommer från Event Hubs till Stream Analytics. Bearbeta data som en dataström med en tidsstämpel i den händelse att nyttolasten, måste du använda den [TIMESTAMP BY](https://msdn.microsoft.com/library/azure/dn834998.aspx) nyckelord.
 
 ### <a name="consumer-groups"></a>Konsumentgrupper
-Du bör konfigurera varje Stream Analytics-händelsehubb indata har sin egen konsumentgrupp. När ett jobb innehåller en självkoppling eller har flera inmatningar, vissa indata kan läsas av mer än en läsare nedströms. Den här situationen påverkar antalet läsare i en enskild konsument-grupp. För att inte Händelsehubbar högst fem läsare per konsumentgrupp per partition, är det en bra idé att utse en konsumentgrupp för varje Stream Analytics-jobbet. Det finns också en gräns på 20 konsumentgrupper per händelsehubb. Mer information finns i [felsöka Azure Stream Analytics med Event Hub-mottagare](stream-analytics-event-hub-consumer-groups.md).
+Du bör konfigurera varje Stream Analytics-händelsehubb indata har sin egen konsumentgrupp. När ett jobb innehåller en självkoppling eller har flera inmatningar, vissa indata kan läsas av mer än en läsare nedströms. Den här situationen påverkar antalet läsare i en enskild konsument-grupp. För att inte Händelsehubbar högst fem läsare per konsumentgrupp per partition, är det en bra idé att utse en konsumentgrupp för varje Stream Analytics-jobbet. Det finns också en gräns på 20 konsumentgrupper per händelsehubb. Mer information finns i [felsöka Azure Stream Analytics indata](stream-analytics-troubleshoot-input.md).
 
 ### <a name="stream-data-from-event-hubs"></a>Strömma data med Event Hubs
 I följande tabell beskrivs varje egenskap i den **nya indata** sidan på Azure portal till strömindata data från en händelsehubb:

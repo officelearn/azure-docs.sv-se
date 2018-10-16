@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/03/2018
+ms.date: 10/15/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 43f077ef07597604eaf42cb4af47cbc2f0e6c524
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: 9decd861ff20a45939f700eef99245b6555829f8
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48042011"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49319752"
 ---
 # <a name="collect-data-in-a-hybrid-environment-with-log-analytics-agent"></a>Samla in data i en hybridmiljö med Log Analytics-agenten
 
@@ -51,15 +51,30 @@ Följande versioner av Windows-operativsystemet stöds officiellt för Windows-a
 * Windows 7 SP1 och senare.
 
 ## <a name="supported-linux-operating-systems"></a>Linux-operativsystem som stöds
-Följande Linux-distributioner stöds officiellt.  Linux-agenten kan också köra på andra distributioner som inte visas.  Om inget annat anges stöds alla mindre versioner för varje större version i listan.  
+Det här avsnittet innehåller information om Linux-distributioner som stöds.    
 
-* Amazon Linux 2012.09 till 2015.09 (x86/x64)
-* CentOS Linux 5, 6 och 7 (x86/x64)  
-* Oracle Linux 5, 6 och 7 (x86/x64) 
-* Red Hat Enterprise Linux Server 5, 6 och 7 (x86/x64)
-* Debian GNU/Linux 6, 7 och 8 (x86/x64)
-* Ubuntu 12.04 LTS, 14.04 LTS, 16.04 LTS (x86/x64)
-* SUSE Linux Enterprise Server 11 och 12 (x86/x64)
+Från och med versioner som lanseras efter augusti 2018 har gör vi följande ändringar i vår supportmodell:  
+
+* Endast de server-versioner stöds, inte klienten.  
+* Nya versioner av [Azure Linux-godkända distributioner](../virtual-machines/linux/endorsed-distros.md) stöds alltid.  
+* Alla mindre versioner stöds för varje större version i listan.
+* Versioner som har klarat sina tillverkarens support upphör datum stöds inte.  
+* Nya versioner av AMI stöds inte.  
+* Endast de versioner som kör SSL 1.x som standard som stöds.
+
+Om du använder en distribution eller en version som stöds för närvarande inte och inte justeras till vår supportmodell, rekommenderar vi att du Förgrena lagringsplatsen uppmärksammades att Microsoft-supporten inte kommer ge hjälp med förgrenade agent versioner.
+
+* Amazon Linux 2017.09 (x 64)
+* CentOS Linux 6 (x86/x64) och 7 (x 64)  
+* Oracle Linux 6 och 7 (x86/x64) 
+* Red Hat Enterprise Linux Server 6 (x86/x64) och 7 (x 64)
+* Debian GNU/Linux 8 och 9 (x86/x64)
+* Ubuntu 14.04 LTS (x86/x64), 16.04 LTS (x86/x64) och 18.04 LTS (x64)
+* SUSE Linux Enterprise Server 12 (x 64)
+
+>[!NOTE]
+>OpenSSL 1.1.0 stöds bara på x86_x64 plattformar (64-bitars) och OpenSSL tidigare än 1.x inte stöds på valfri plattform.
+>
 
 ## <a name="tls-12-protocol"></a>TLS 1.2-protokollet
 Om du vill se till att skydda data under överföringen till Log Analytics, rekommenderar vi starkt att du kan konfigurera att agenten ska du använda minst Transport Layer Security (TLS) 1.2. Äldre versioner av TLS/Secure Sockets Layer (SSL) har påträffats sårbara och de fungerar fortfarande för närvarande för att tillåta bakåtkompatibilitet kompatibilitet, de arbetar **rekommenderas inte**.  Mer information [skickar data på ett säkert sätt med hjälp av TLS 1.2](log-analytics-data-security.md#sending-data-securely-using-tls-12). 

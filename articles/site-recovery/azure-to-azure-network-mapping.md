@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 07/06/2018
 ms.author: manayar
-ms.openlocfilehash: aed804a257376308c668ce0c2f3e8ce652ee9b3f
-ms.sourcegitcommit: 1af4bceb45a0b4edcdb1079fc279f9f2f448140b
+ms.openlocfilehash: 0e73abf0fc170079d4b2bc093df45c998e68d184
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "42058155"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49320534"
 ---
 # <a name="map-virtual-networks-in-different-azure-regions"></a>Mappa virtuella nätverk i olika Azure-regioner
 
@@ -106,7 +106,7 @@ Om käll-undernätet och målundernätet har olika adressutrymmen, har nästa ti
 Den redundansväxlade virtuella datorn tilldelas med – nästa tillgängliga IP-Adressen från slutet av adressintervall för undernätet är: 10.0.0.254 </br>
 
 **Obs:** termer som **produktion vNet** hänvisar vi till ”målnätverket' mappade under katastrofberedskapskonfigurationen.
-####<a name="2-if-the-target-network-chosen-is-not-the-production-vnet-but-has-the-same-subnet-range-as-production-network"></a>2. Om målnätverket valt är inte produktion vNet men har samma undernätsintervall som produktionsnätverket 
+#### <a name="2-if-the-target-network-chosen-is-not-the-production-vnet-but-has-the-same-subnet-range-as-production-network"></a>2. Om målnätverket valt är inte produktion vNet men har samma undernätsintervall som produktionsnätverket 
 
 - Recovery IP (mål-IP) är en statisk IP-adress med det **samma IP-adress** (d.v.s. konfigurerat statisk IP-adress) som är reserverat för redundans. Den angivna samma IP-adress är tillgänglig.
 - Om den angivna statiska IP-Adressen har redan tilldelats en annan virtuell dator/enhet, kommer recovery IP-Adressen att nästa tillgängliga IP-Adressen från slutet av adressintervall för undernätet.

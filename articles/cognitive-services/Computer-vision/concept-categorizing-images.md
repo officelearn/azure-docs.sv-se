@@ -3,19 +3,19 @@ title: Kategorisera bilder - visuellt innehåll
 titleSuffix: Azure Cognitive Services
 description: Begrepp för att kategorisera bilder med hjälp av den API för visuellt innehåll.
 services: cognitive-services
-author: deken
+author: PatrickFarley
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: computer-vision
 ms.topic: conceptual
 ms.date: 08/29/2018
-ms.author: v-deken
-ms.openlocfilehash: 345432cbc8a552ba7f6a4902cec72bcc1bf9feac
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.author: pafarley
+ms.openlocfilehash: 602ea8028cf89b23df692d5c2fb9b781f64bcad4
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45983568"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49341692"
 ---
 # <a name="categorizing-images"></a>Kategorisera bilder
 

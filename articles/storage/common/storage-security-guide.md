@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 05/31/2018
 ms.author: cshoe
 ms.component: common
-ms.openlocfilehash: 268459fde7a622079656e637d2c51562cea358a4
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: 584db1400ddd2b4f447b7ca397f2c98b701c7848
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45730957"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49341879"
 ---
 # <a name="azure-storage-security-guide"></a>Säkerhetsguiden för Azure Storage
 
@@ -22,7 +22,7 @@ Azure Storage tillhandahåller en omfattande uppsättning funktioner för säker
 - Alla data som skrivs till Azure Storage krypteras automatiskt med [Storage Service Encryption (SSE)](storage-service-encryption.md). Mer information finns i [presenterar standard kryptering för Azure-Blobar, filer, tabeller och Queue Storage](https://azure.microsoft.com/blog/announcing-default-encryption-for-azure-blobs-files-table-and-queue-storage/).
 - Azure Active Directory (Azure AD) och rollbaserad åtkomstkontroll (RBAC) stöds för Azure Storage för både resource management-åtgärder och åtgärder, enligt följande:   
     - Du kan tilldela RBAC-roller som är begränsade till storage-konto till säkerhetsobjekt och Använd Azure AD för att auktorisera resource management-åtgärder, till exempel nyckelhantering.
-    - Azure AD-integrering stöds i förhandsversionen av dataåtgärder på tjänsterna Blob och kö. Du kan tilldela RBAC-roller som är begränsade till en prenumeration, resursgrupp, storage-konto, eller en enskild behållare eller kön på ett säkerhetsobjekt eller en hanterad tjänstidentitet. Mer information finns i [autentisera åtkomsten till Azure Storage med Azure Active Directory (förhandsversion)](storage-auth-aad.md).   
+    - Azure AD-integrering stöds i förhandsversionen av dataåtgärder på tjänsterna Blob och kö. Du kan tilldela RBAC-roller som är begränsade till en prenumeration, resursgrupp, storage-konto, eller en enskild behållare eller kön på ett säkerhetsobjekt eller en hanterad identitet för Azure-resurser. Mer information finns i [autentisera åtkomsten till Azure Storage med Azure Active Directory (förhandsversion)](storage-auth-aad.md).   
 - Data kan skyddas i rörelse mellan ett program och Azure med hjälp av [Client Side Encryption](../storage-client-side-encryption.md), HTTPS och SMB 3.0.  
 - OS- och diskar som används av virtuella Azure-datorer kan krypteras med [Azure Disk Encryption](../../security/azure-security-disk-encryption.md). 
 - Delegerad åtkomst till dataobjekt i Azure Storage kan tilldelas via [signaturer för delad åtkomst](../storage-dotnet-shared-access-signature-part-1.md).

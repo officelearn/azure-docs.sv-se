@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/27/2018
-ms.openlocfilehash: af143ef1ec79868294af7d7511548dc54f8ceb8d
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: ca596b2d33a6248dac94ddd7eef9a9c44daac3c8
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43049278"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49343749"
 ---
 # <a name="introduction-to-ml-services-and-open-source-r-capabilities-on-hdinsight"></a>Introduktion till ML-tjänster och funktioner för öppen källkod-R på HDInsight
 
@@ -148,6 +148,6 @@ De priser som är kopplade till en ML-tjänster HDInsight-kluster är strukturer
 
 Mer information om hur du använder ML-tjänster på HDInsight-kluster finns i följande avsnitt:
 
-* [Kom igång med ML Serices-kluster i HDInsight](r-server-get-started.md)
+* [Kom igång med ML-Services-kluster i HDInsight](r-server-get-started.md)
 * [Alternativ för beräkningskontexter för ML-tjänstkluster i HDInsight](r-server-compute-contexts.md)
 * [Lagringsalternativ för ML-Services-kluster i HDInsight](r-server-storage.md)

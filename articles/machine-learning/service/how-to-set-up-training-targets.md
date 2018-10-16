@@ -10,12 +10,12 @@ ms.service: machine-learning
 ms.component: core
 ms.topic: article
 ms.date: 09/24/2018
-ms.openlocfilehash: 84cba0cb156e1d847c92596a9f2f6017a429b9d2
-ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
+ms.openlocfilehash: 18188b8c0572057fb9277294c381de12df196439
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49113826"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49343936"
 ---
 # <a name="select-and-use-a-compute-target-to-train-your-model"></a>Använd ett beräkningsmål träna din modell
 
@@ -24,6 +24,9 @@ Med Azure Machine Learning-tjänsten kan du träna din modell i flera olika milj
 Beräkningsmål är den resurs som kör dina utbildningsskript eller värdar modellen när den distribueras som en webbtjänst. De kan skapas och hanteras med hjälp av Azure Machine Learning SDK eller CLI. Om du har beräkningsmål som har skapats av en annan process (till exempel Azure portal eller Azure CLI) kan använda du dem genom att koppla dem till din arbetsyta för Azure Machine Learning-tjänsten.
 
 Du kan börja med lokala körs på din dator och sedan skala uppåt och utåt till andra miljöer, till exempel remote Data Science virtuella datorer med GPU- eller Azure Batch AI. 
+
+>[!NOTE]
+> Koden i den här artikeln har testats med Azure Machine Learning SDK version 0.168 
 
 ## <a name="supported-compute-targets"></a>Stöds beräkningsmål
 
@@ -106,7 +109,7 @@ from azureml.core.conda_dependencies import CondaDependencies
 run_config_system_managed = RunConfiguration()
 
 run_config_system_managed.environment.python.user_managed_dependencies = False
-run_config_system_managed.prepare_environment = True
+run_config_system_managed.auto_prepare_environment = True
 
 # Specify conda dependencies with scikit-learn
 

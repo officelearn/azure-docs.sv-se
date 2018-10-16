@@ -10,12 +10,12 @@ ms.component: manage
 ms.date: 04/11/2018
 ms.author: kavithaj
 ms.reviewer: igorstan
-ms.openlocfilehash: c894fed56393e1504f54999e57bba6f9ffed27a7
-ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
+ms.openlocfilehash: 18a6234eb56902625fdcc8f150a41b7551d229cc
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43288262"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49318545"
 ---
 # <a name="auditing-in-azure-sql-data-warehouse"></a>Granskning i Azure SQL Data Warehouse
 
@@ -112,7 +112,7 @@ Innan du konfigurerar audit granskning kontrollera om du använder en [”meddel
 
 ## <a id="subheading-3"></a>Analysera granskningsloggar och rapporter
 
-###<a name="server-level-policy-audit-logs"></a>Princip för servernivå granskningsloggar
+### <a name="server-level-policy-audit-logs"></a>Princip för servernivå granskningsloggar
 På servernivå granskningsloggarna skrivs till **Tilläggsblobbar** i Azure Blob storage på din Azure-prenumeration. De sparas som en samling av blobfiler i en behållare med namnet **sqldbauditlogs**.
 
 Ytterligare information om hierarkin för mappen storage namngivningskonventioner och loggformat, finns det [referens till Blob granskningslogg Format](https://go.microsoft.com/fwlink/?linkid=829599).
@@ -147,7 +147,7 @@ Det finns flera metoder som du kan använda för att visa blob granskningsloggar
 
 
 <br>
-###<a name="database-level-policy-audit-logs"></a>Loggar för granskning på databasnivå
+### <a name="database-level-policy-audit-logs"></a>Loggar för granskning på databasnivå
 Databasnivå granskningsloggar räknas samman i en samling med Store-tabeller med en **SQLDBAuditLogs** prefixet i Azure storage-kontot som du valde i installationsprogrammet. Du kan visa loggfiler med hjälp av ett verktyg som [Azure Storage Explorer](http://azurestorageexplorer.codeplex.com).
 
 En förkonfigurerad instrumentpanel rapportmall är tillgänglig som en [nedladdningsbara Excel-kalkylblad](http://go.microsoft.com/fwlink/?LinkId=403540) för att snabbt analysera loggdata. Om du vill använda mallen på dina granskningsloggar, behöver du Excel 2013 eller senare och Power Query, som du kan [ladda ned här](http://www.microsoft.com/download/details.aspx?id=39379).

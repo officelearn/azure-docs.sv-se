@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: 69f6ed7814feacbd5adf60325aae123d388ffb61
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: f523e2e2d55a34825bbb76a5a879c7c046b6b554
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39222796"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49318970"
 ---
 # <a name="customize-the-azure-ad-functionality-for-self-service-password-reset"></a>Anpassa Azure AD-funktionerna för lösenordsåterställning via självbetjäning
 
@@ -55,7 +55,9 @@ Active Directory Federation Services (AD FS) administratörer kan lägga till en
 
 Om du vill lägga till en länk till sidan för AD FS, använder du följande kommando på AD FS-servern. Användare kan använda den här sidan för att ange SSPR-arbetsflöde.
 
-``` Set-ADFSGlobalWebContent -SigninPageDescriptionText "<p><A href='https://passwordreset.microsoftonline.com' target='_blank'>Can’t access your account?</A></p>" ```
+``` powershell
+Set-ADFSGlobalWebContent -SigninPageDescriptionText "<p><A href='https://passwordreset.microsoftonline.com' target='_blank'>Can’t access your account?</A></p>"
+```
 
 ## <a name="customize-the-sign-in-page-and-access-panel-look-and-feel"></a>Anpassa inloggning sidan och åtkomst till panelen utseendet och känslan
 
@@ -65,8 +67,8 @@ Bilderna som du väljer visas i följande omständigheter:
 
 * När en användare anger sina användarnamn
 * Om användaren har åtkomst till den anpassade URL: en:
-    * Genom att skicka den *whr* parametern till lösenordet för lösenordsåterställning, som ”https://login.microsoftonline.com/?whr=contoso.com”
-    * Genom att skicka den *användarnamn* parametern till lösenordet för lösenordsåterställning, som ”https://login.microsoftonline.com/?username=admin@contoso.com”
+    * Genom att skicka den `whr` parametern till lösenordet för lösenordsåterställning, som ”https://login.microsoftonline.com/?whr=contoso.com”
+    * Genom att skicka den `username` parametern till lösenordet för lösenordsåterställning, som ”https://login.microsoftonline.com/?username=admin@contoso.com”
 
 Hitta information om hur du konfigurerar företagsanpassning i artikeln [lägga till företagsprofilering för din inloggningssidan i Azure AD](../fundamentals/customize-branding.md).
 

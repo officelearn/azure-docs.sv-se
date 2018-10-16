@@ -9,12 +9,12 @@ ms.service: machine-learning
 ms.component: core
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 1171ff64bea99d7bc736a5a4fe88d9c08324b9d9
-ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
+ms.openlocfilehash: 950d985ca87cce484edeb7930ca1bda34d812f33
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49116478"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49344140"
 ---
 # <a name="tune-hyperparameters-for-your-model"></a>Justera hyperparametrar för din modell
 
@@ -36,6 +36,8 @@ I deep learning / machine learning-scenarier beroende modellprestanda kraftigt f
 
 Azure Machine Learning kan du automatisera finjustering utforskning på ett effektivt sätt sparar mycket tid och resurser. Du anger finjustering värdeintervallet och ett högsta antal utbildning körs. Systemet sedan startas flera samtidiga körningar med olika parameterkonfigurationer och söker efter den konfiguration som ger bästa prestanda, enligt de mått som du väljer. Dåligt utför träningskörningar är automatiskt tidig avbröts, vilket minskar slöseri av beräkningsresurser. Dessa resurser används i stället för att utforska andra finjustering-konfigurationer.
 
+>[!NOTE]
+> Koden i den här artikeln har testats med Azure Machine Learning SDK version 0.168 
 
 ## <a name="define-search-space"></a>Definiera search utrymme
 
@@ -164,7 +166,7 @@ Logga in med det här måttet i utbildning skriptet med följande exempel kodfra
 
 ```Python
 from azureml.core.run import Run
-run_logger = Run.get_submitted_run()
+run_logger = Run.get_context()
 run_logger.log("accuracy", float(val_accuracy))
 ```
 

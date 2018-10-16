@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: 43d2ba496be90e9e87185e6365dd998adccfa09d
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: 3d9d6aef4fafd6013c86fd5d5883222c0f32b34d
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48804539"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49319384"
 ---
 # <a name="what-is-password-writeback"></a>Vad är tillbakaskrivning av lösenord?
 
@@ -43,6 +43,7 @@ Tillbakaskrivning av lösenord innehåller:
 
 > [!Note]
 > Användarkonton som finns i skyddade grupper i den lokala Active Directory kan inte användas med tillbakaskrivning av lösenord. Mer information om skyddade grupper finns i [skyddade konton och grupper i Active Directory](https://technet.microsoft.com/library/dn535499.aspx).
+>
 
 ## <a name="licensing-requirements-for-password-writeback"></a>Licensieringskrav för tillbakaskrivning av lösenord
 
@@ -69,28 +70,30 @@ När en federerad eller lösenord hash synkroniserade användare försöker åte
 1. En kontroll utförs om du vill se vilken typ av lösenord som användaren har. Om lösenordet är hanteras lokalt:
    * En kontroll utförs för att se om tjänsten för tillbakaskrivning av är igång. Om det är kan användaren fortsätta.
    * Om tjänsten för tillbakaskrivning av är nere kan användaren informeras om att deras lösenord inte kan återställas just nu.
-2. Därefter måste användaren skickar Grindarna lämplig autentisering och når den **Återställ lösenord** sidan.
-3. Användaren väljer ett nytt lösenord och bekräftar den.
-4. När användaren väljer **skicka**, lösenordet i klartext krypteras med en symmetrisk nyckel som skapades under installationen tillbakaskrivning.
-5. Det krypterade lösenordet ingår i en nyttolast som skickas via en HTTPS-kanal till din klientspecifik service bus-reläer (som har ställts in för dig under installationsprocessen för tillbakaskrivning av). Den här relay skyddas av ett slumpmässigt genererat lösenord som känner till endast den lokala installationen.
-6. När meddelandet når en service bus, aktiveras automatiskt slutpunkten för återställning av lösenord och ser att det finns en väntande begäran återställning.
-7. Tjänsten söker sedan efter användaren med hjälp av molnet fästpunktsattributet. För den här sökningen ska lyckas:
+1. Därefter måste användaren skickar Grindarna lämplig autentisering och når den **Återställ lösenord** sidan.
+1. Användaren väljer ett nytt lösenord och bekräftar den.
+1. När användaren väljer **skicka**, lösenordet i klartext krypteras med en symmetrisk nyckel som skapades under installationen tillbakaskrivning.
+1. Det krypterade lösenordet ingår i en nyttolast som skickas via en HTTPS-kanal till din klientspecifik service bus-reläer (som har ställts in för dig under installationsprocessen för tillbakaskrivning av). Den här relay skyddas av ett slumpmässigt genererat lösenord som känner till endast den lokala installationen.
+1. När meddelandet når en service bus, aktiveras automatiskt slutpunkten för återställning av lösenord och ser att det finns en väntande begäran återställning.
+1. Tjänsten söker sedan efter användaren med hjälp av molnet fästpunktsattributet. För den här sökningen ska lyckas:
 
    * Användarobjektet måste finnas i Active Directory-anslutarplatsen.
    * Användarobjektet måste kopplas till den motsvarande metaversumobjekt (MV).
    * Användarobjektet måste kopplas till motsvarande Azure Active Directory connector-objektet.
-   * Länken från Active Directory connector-objektet till MV måste ha synkroniseringsregeln `Microsoft.InfromADUserAccountEnabled.xxx` på länken. <br> <br>
+   * Länken från Active Directory connector-objektet till MV måste ha synkroniseringsregeln `Microsoft.InfromADUserAccountEnabled.xxx` på länken.
+   
    När anropet strömmar in från molnet, Synkroniseringsmotorn använder den **Molnakarvärde** attribut för att leta upp anslutarplatsen som Azure Active Directory. Den sedan följer länken till MV-objekt och sedan följer länken till Active Directory-objektet. Eftersom det kan finnas flera Active Directory-objekt (flera skogar) för samma användare, Synkroniseringsmotorn förlitar sig på den `Microsoft.InfromADUserAccountEnabled.xxx` länk för att välja rätt.
 
    > [!Note]
    > Till följd av den här logiken för lösenord måste tillbakaskrivning ska fungera Azure AD Connect kunna kommunicera med primära domänkontrollantens (PDC) emulator. Om du vill aktivera det manuellt kan ansluta du Azure AD Connect till PDC-emulatorn. Högerklicka på den **egenskaper** för Active Directory-anslutningsappen för synkronisering Välj **konfigurera katalogpartitioner**. Därifrån kan du leta efter den **domänkontrollanten** avsnittet och markerar du kryssrutan som heter **endast använda prioriterade domänkontrollanter**. Även om den prioriterade domänkontrollanten inte är en PDC-emulator, försöker Azure AD Connect ansluta till PDC för tillbakaskrivning av lösenord.
 
-8. När användaren hittas konto, görs ett försök att återställa lösenordet direkt i rätt Active Directory-skogen.
-9. Om uppsättningsåtgärd som lösenord lyckas användaren är ett meddelande om att deras lösenord har ändrats.
+1. När användaren hittas konto, görs ett försök att återställa lösenordet direkt i rätt Active Directory-skogen.
+1. Om uppsättningsåtgärd som lösenord lyckas användaren är ett meddelande om att deras lösenord har ändrats.
    > [!NOTE]
    > Om användarens lösenords-hash synkroniseras till Azure AD med hjälp av synkronisering av lösenordshash, finns det en risk att lokala lösenordsprincip är lägre än lösenordsprincipen som molnet. I det här fallet tillämpas den lokala principen. Den här principen säkerställer att dina lokala principer tillämpas i molnet, oavsett om du använder hash Lösenordssynkronisering eller federation för att tillhandahålla enkel inloggning.
+   >
 
-10. Om lösenordet har angetts för åtgärden misslyckas uppmanar användaren att försöka igen i ett fel. Åtgärden kan misslyckas eftersom:
+1. Om lösenordet har angetts för åtgärden misslyckas uppmanar användaren att försöka igen i ett fel. Åtgärden kan misslyckas eftersom:
    * Tjänsten är inaktiv.
    * Det lösenord som de har valt uppfyller inte organisationens principer.
    * Det går inte att hitta användaren i lokala Active Directory.
@@ -107,10 +110,10 @@ Tillbakaskrivning av lösenord är en mycket säker tjänst. För att säkerstä
    * När service bus-relä skapas, skapas en stark symmetriska nyckel som används för att kryptera lösenordet när det gäller i rörelse. Den här nyckeln kan bara gäller i ditt företags hemliga arkivet i molnet, vilket är mycket låsta och granskas, precis som alla andra lösenord i katalogen.
 * **Branschens standard säkerhet TLS (Transport Layer)**
    1. När ett lösenord återställa eller ändra åtgärden sker i molnet, lösenordet i klartext är krypterad med din offentliga nyckel.
-   2. Det krypterade lösenordet placeras i en HTTPS-meddelandet som skickas över en krypterad kanal med hjälp av Microsoft SSL-certifikat till service bus-relä.
-   3. När meddelandet tas emot i en service bus, vaknar lokala agenten och autentiserar till en service bus med hjälp av starkt lösenord som skapades tidigare.
-   4. Den lokala agenten tar upp det krypterade meddelandet och dekrypterar den med hjälp av den privata nyckeln.
-   5. Den lokala agenten försöker ställa in lösenordet via AD DS SetPassword-API: et. Det här steget är det låter tillämpning av din Active Directory lokala lösenordsprincip (till exempel komplexitet, ålder, historik och filter) i molnet.
+   1. Det krypterade lösenordet placeras i en HTTPS-meddelandet som skickas över en krypterad kanal med hjälp av Microsoft SSL-certifikat till service bus-relä.
+   1. När meddelandet tas emot i en service bus, vaknar lokala agenten och autentiserar till en service bus med hjälp av starkt lösenord som skapades tidigare.
+   1. Den lokala agenten tar upp det krypterade meddelandet och dekrypterar den med hjälp av den privata nyckeln.
+   1. Den lokala agenten försöker ställa in lösenordet via AD DS SetPassword-API: et. Det här steget är det låter tillämpning av din Active Directory lokala lösenordsprincip (till exempel komplexitet, ålder, historik och filter) i molnet.
 * **Principer för förfallodatum för meddelande**
    * Om meddelandet är placerad i service bus eftersom den lokala tjänsten är avstängd, tidsgränsen och tas bort efter ett par minuter. Tidsgräns och borttagning av meddelandet ökar du säkerheten ytterligare.
 

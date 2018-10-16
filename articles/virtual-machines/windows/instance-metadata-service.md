@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 10/10/2017
 ms.author: harijayms
-ms.openlocfilehash: d7917ad65b3e3fd1abacdb624a03b3f62c7fc07f
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: fef04a853800237c6eb2443165d2b528a9e9b3db
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47221562"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49342542"
 ---
 # <a name="azure-instance-metadata-service"></a>Azure Instance Metadata service
 
@@ -310,7 +310,7 @@ undernätsprefix / | Undernätets prefix, exempel 24 | 2017-04-02
 IPv6/IP-adress | Den lokala IPv6-adressen för den virtuella datorn | 2017-04-02 
 MAC-adress | Mac-adress för virtuell dator | 2017-04-02 
 scheduledevents | Se [schemalagda händelser](scheduled-events.md) | 2017-08-01
-identity | (Förhandsversion) Hanterad tjänstidentitet. Se [hämta en åtkomsttoken](../../active-directory/managed-identities-azure-resources/how-to-use-vm-token.md) | 2018-02-01
+identity | (Förhandsversion) Hanterade identiteter för Azure-resurser. Se [hämta en åtkomsttoken](../../active-directory/managed-identities-azure-resources/how-to-use-vm-token.md) | 2018-02-01
 
 ## <a name="example-scenarios-for-usage"></a>Exempelscenarier för användning  
 

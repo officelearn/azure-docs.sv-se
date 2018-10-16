@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: 057af5e0e5b467ab60e8de7534e9f4428b96c3dc
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 668882b8b39052c3c8e7d7b72c881a64c5c05a10
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46298327"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49321809"
 ---
 # <a name="troubleshoot-self-service-password-reset"></a>Felsöka lösenordsåterställning via självbetjäning
 
@@ -173,16 +173,14 @@ För mer detaljrikedom, referera till den uppdaterade listan med [IP-intervall i
 
 Mer information, gå igenom kraven för anslutningen i den [krav för Azure AD Connect](../hybrid/how-to-connect-install-prerequisites.md) artikeln.
 
-
-
 ### <a name="restart-the-azure-ad-connect-sync-service"></a>Starta om tjänsten Azure AD Connect Sync
 
 Lös problem med nätverksanslutningen eller andra tillfälliga problem med tjänsten genom att starta om tjänsten Azure AD Connect Sync:
 
    1. Som administratör, välja **starta** på den server som kör Azure AD Connect.
-   2. Ange **services.msc** i sökfältet och välj **RETUR**.
-   3. Leta efter den **Microsoft Azure AD Sync** posten.
-   4. Högerklicka på tjänstposten, Välj **starta om**, och sedan vänta tills åtgärden slutförs.
+   1. Ange **services.msc** i sökfältet och välj **RETUR**.
+   1. Leta efter den **Microsoft Azure AD Sync** posten.
+   1. Högerklicka på tjänstposten, Välj **starta om**, och sedan vänta tills åtgärden slutförs.
 
    ![Starta om tjänsten Azure AD Sync][Service restart]
 
@@ -193,15 +191,15 @@ De här stegen återupprätta anslutningen med Molntjänsten och lös eventuella
 För att lösa problem med nätverksanslutningen, inaktivera och återaktivera funktionen för tillbakaskrivning av lösenord:
 
    1. Som administratör öppnar du Azure AD Connect-konfigurationsguiden.
-   2. I **Anslut till Azure AD**, ange dina autentiseringsuppgifter för Azure AD-global administratör.
-   3. I **Anslut till AD DS**, ange dina autentiseringsuppgifter som administratör AD Domain Services.
-   4. I **identifierar användarna**väljer den **nästa** knappen.
-   5. I **valfria funktioner**, avmarkera de **tillbakaskrivning av lösenord** markerar du kryssrutan.
-   6. Välj **nästa** via återstående dialogsidorna utan att ändra vad som helst tills du kommer till den **redo att konfigurera** sidan.
-   7. Se till att den **redo att konfigurera sidan** visar den **tillbakaskrivning av lösenord** beroende på **inaktiverad** och välj sedan gröna **konfigurera** knappen för att genomföra ändringarna.
-   8. I **slutfört**, avmarkera de **synkronisera nu** och välj sedan **Slutför** att stänga guiden.
-   9. Öppna Azure AD Connect-konfigurationsguiden.
-   10. Upprepa steg 2-8, förutom att se till att du väljer den **tillbakaskrivning av lösenord** alternativet på den **valfria funktioner** sidan för att aktivera tjänsten igen.
+   1. I **Anslut till Azure AD**, ange dina autentiseringsuppgifter för Azure AD-global administratör.
+   1. I **Anslut till AD DS**, ange dina autentiseringsuppgifter som administratör AD Domain Services.
+   1. I **identifierar användarna**väljer den **nästa** knappen.
+   1. I **valfria funktioner**, avmarkera de **tillbakaskrivning av lösenord** markerar du kryssrutan.
+   1. Välj **nästa** via återstående dialogsidorna utan att ändra vad som helst tills du kommer till den **redo att konfigurera** sidan.
+   1. Se till att den **redo att konfigurera sidan** visar den **tillbakaskrivning av lösenord** beroende på **inaktiverad** och välj sedan gröna **konfigurera** knappen för att genomföra ändringarna.
+   1. I **slutfört**, avmarkera de **synkronisera nu** och välj sedan **Slutför** att stänga guiden.
+   1. Öppna Azure AD Connect-konfigurationsguiden.
+   1. Upprepa steg 2-8, förutom att se till att du väljer den **tillbakaskrivning av lösenord** alternativet på den **valfria funktioner** sidan för att aktivera tjänsten igen.
 
 De här stegen återupprätta anslutningen med vår tjänst i molnet och lös eventuella avbrott i verksamheten som kan uppstå.
 
@@ -215,10 +213,11 @@ Vi rekommenderar att du utför det här steget endast när du försöker de två
 
 > [!WARNING]
 > Om du har anpassat de out-of the box Synkroniseringsregler *säkerhetskopiera dem innan du fortsätter med uppgraderingen och sedan manuellt distribuera dem igen när du är klar.*
+>
 
-   1. Hämta den senaste versionen av Azure AD Connect från den [Microsoft Download Center](http://go.microsoft.com/fwlink/?LinkId=615771).
-   2. Eftersom du redan har installerat Azure AD Connect måste du utföra en uppgradering på plats för att uppdatera din Azure AD Connect-installationen till den senaste versionen.
-   3. Kör det Hämta paketet och följa den på skärmen instruktionerna för att uppdatera din Azure AD Connect-datorn.
+1. Hämta den senaste versionen av Azure AD Connect från den [Microsoft Download Center](http://go.microsoft.com/fwlink/?LinkId=615771).
+1. Eftersom du redan har installerat Azure AD Connect måste du utföra en uppgradering på plats för att uppdatera din Azure AD Connect-installationen till den senaste versionen.
+1. Kör det Hämta paketet och följa den på skärmen instruktionerna för att uppdatera din Azure AD Connect-datorn.
 
 De här stegen bör återupprätta anslutningen med vår tjänst i molnet och Lös avbrott som kan uppstå.
 
@@ -228,34 +227,33 @@ Om du installerar den senaste versionen av Azure AD Connect-servern inte löser 
 
 Azure AD Connect kräver Active Directory **Återställ lösenord** behörighet att utföra tillbakaskrivning av lösenord. Du kan använda den gällande behörigheten för Windows-funktionen om du vill veta om Azure AD Connect har behörigheten som krävs för en viss lokala Active Directory-användarkonto:
 
-   1. Logga in på Azure AD Connect-servern och starta den **hanteraren för synkroniseringstjänsten** genom att välja **starta** > **synkroniseringstjänsten**.
-   2. Under den **Anslutningsappar** väljer du lokalt **Active Directory Domain Services** anslutningen och välj sedan **egenskaper**.  
-
+1. Logga in på Azure AD Connect-servern och starta den **hanteraren för synkroniseringstjänsten** genom att välja **starta** > **synkroniseringstjänsten**.
+1. Under den **Anslutningsappar** väljer du lokalt **Active Directory Domain Services** anslutningen och välj sedan **egenskaper**.  
    ![Gällande behörigheten – steg 2](./media/active-directory-passwords-troubleshoot/checkpermission01.png)  
   
-   3. I popup-fönstret, Välj **Anslut till Active Directory-skog** och anteckna den **användarnamn** egenskapen. Den här egenskapen är AD DS-kontot som används av Azure AD Connect för att utföra katalogsynkronisering. Att utföra tillbakaskrivning av lösenord Azure AD Connect har AD DS-kontot återställt lösenordet behörighet.  
+1. I popup-fönstret, Välj **Anslut till Active Directory-skog** och anteckna den **användarnamn** egenskapen. Den här egenskapen är AD DS-kontot som används av Azure AD Connect för att utföra katalogsynkronisering. Att utföra tillbakaskrivning av lösenord Azure AD Connect har AD DS-kontot återställt lösenordet behörighet.  
    
    ![Gällande behörigheten – steg 3](./media/active-directory-passwords-troubleshoot/checkpermission02.png) 
   
-   4. Logga in till en lokal domänkontrollant och starta den **Active Directory-användare och datorer** program.
-   5. Välj **visa** och se till att den **avancerade funktioner** är aktiverat.  
+1. Logga in till en lokal domänkontrollant och starta den **Active Directory-användare och datorer** program.
+1. Välj **visa** och se till att den **avancerade funktioner** är aktiverat.  
    
    ![Gällande behörigheten – steg 5](./media/active-directory-passwords-troubleshoot/checkpermission03.png) 
   
-   6. Leta efter Active Directory-användarkonto som du vill kontrollera. Högerklicka på namnet på kontot och välj **egenskaper**.  
+1. Leta efter Active Directory-användarkonto som du vill kontrollera. Högerklicka på namnet på kontot och välj **egenskaper**.  
    
    ![Gällande behörigheten - steg 6](./media/active-directory-passwords-troubleshoot/checkpermission04.png) 
 
-   7. I popup-fönstret går du till den **Security** fliken och markera **Avancerat**.  
+1. I popup-fönstret går du till den **Security** fliken och markera **Avancerat**.  
    
    ![Gällande behörigheten – steg 7](./media/active-directory-passwords-troubleshoot/checkpermission05.png) 
    
-   8. I den **avancerade säkerhetsinställningar för administratören** popup-fönstret, gå till den **gällande åtkomst** fliken.
-   9. Välj **väljer en användare**, Välj AD DS-kontot som används av Azure AD Connect (se steg 3) och välj sedan **visa gällande åtkomst**.  
-   
+1. I den **avancerade säkerhetsinställningar för administratören** popup-fönstret, gå till den **gällande åtkomst** fliken.
+1. Välj **väljer en användare**, Välj AD DS-kontot som används av Azure AD Connect (se steg 3) och välj sedan **visa gällande åtkomst**.
+
    ![Gällande behörigheten - steg 9](./media/active-directory-passwords-troubleshoot/checkpermission06.png) 
   
-   10. Rulla nedåt och leta efter **Återställ lösenord**. Om transaktionen har markerat, har AD DS-kontot behörighet att återställa lösenordet för det valda Active Directory-kontot.  
+1. Rulla nedåt och leta efter **Återställ lösenord**. Om transaktionen har markerat, har AD DS-kontot behörighet att återställa lösenordet för det valda Active Directory-kontot.  
    
    ![Gällande behörigheten - steg 10](./media/active-directory-passwords-troubleshoot/checkpermission07.png)  
 
@@ -285,8 +283,6 @@ För att hjälpa dig korrekt ombeds ange så mycket information som möjligt nä
     * Är detta en endast molnbaserad användare?
 * **Licensiering**: har du en Azure AD Premium eller Azure AD Basic-licens?
 * **Programhändelseloggen**: Om du använder tillbakaskrivning av lösenord och felet finns i din lokala infrastruktur, inkludera en komprimerad kopia av Loggboken program från Azure AD Connect-servern.
-
-
 
 [Service restart]: ./media/active-directory-passwords-troubleshoot/servicerestart.png "Starta om tjänsten Azure AD Sync"
 [Support code]: ./media/active-directory-passwords-troubleshoot/supportcode.png "Supportkod som finns längst ned till höger i fönstret"

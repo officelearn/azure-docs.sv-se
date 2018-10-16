@@ -1,24 +1,25 @@
 ---
-title: Använda anpassade uttal – Custom Speech Service
-titlesuffix: Azure Cognitive Services
-description: Lär dig hur du skapar en språkmodell med Custom Speech Service.
+title: Använda anpassade uttal med Custom Speech Service på Azure | Microsoft Docs
+description: Lär dig hur du skapar en språkmodell med Custom Speech Service i Cognitive Services.
 services: cognitive-services
 author: PanosPeriorellis
-manager: cgronlun
+manager: onano
 ms.service: cognitive-services
 ms.component: custom-speech
-ms.topic: conceptual
+ms.topic: article
 ms.date: 11/23/2017
 ms.author: panosper
-ROBOTS: NOINDEX
-ms.openlocfilehash: 6442eec3e622282ecf6a3bf884110cd435fc18be
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 1e9de9755ef4baee7e2a0e6c093e2cf27cb4281f
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47223482"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49339822"
 ---
 # <a name="enable-custom-pronunciation"></a>Aktivera anpassad uttal
+
+[!INCLUDE [Deprecation note](../../../../includes/cognitive-services-custom-speech-deprecation-note.md)]
+
 Anpassade uttal kan du definiera fonetiska, formulär och visning av ett ord eller en term. Det är användbart för att hantera anpassade villkor, till exempel produktnamn eller förkortningar. Allt du behöver är en uttal-fil (en enkel txt-fil).
 
 Här är hur det fungerar. Du kan ange flera anpassade uttal av poster i en enda txt-fil. Strukturen är följande:

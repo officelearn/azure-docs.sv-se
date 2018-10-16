@@ -8,17 +8,17 @@ ms.topic: include
 ms.date: 05/29/2018
 ms.author: azcspmt;jonbeck;cynthn;danlep
 ms.custom: include file
-ms.openlocfilehash: 296e92d803bb69376f286aa60cfb4a955b08010f
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.openlocfilehash: c12fff63cdb7241d89e7511a3dac2ff9c1363ae6
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "34669362"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49346112"
 ---
 ## <a name="deployment-considerations"></a>Distributionsöverväganden
 * **Azure-prenumeration** – för att distribuera mer än ett par beräkningsintensiva instanser, Överväg att en användningsbaserad prenumeration eller andra alternativ. Om du använder ett [kostnadsfritt Azure-konto](https://azure.microsoft.com/free/) kan du bara använda ett begränsat antal Azure Compute-kärnor.
 
-* **Priser och tillgänglighet** -dessa VM-storlekar finns bara i Standard prisnivå. Kontrollera [produkttillgänglighet per region] (https://azure.microsoft.com/regions/services/) för tillgänglighet i Azure-regioner. 
+* **Priser och tillgänglighet** -dessa VM-storlekar finns bara i Standard prisnivå. Kontrollera [produkttillgänglighet per region](https://azure.microsoft.com/global-infrastructure/services/) för tillgänglighet i Azure-regioner. 
 * **Kärnkvot** – du kan behöva öka kärnkvoten i din Azure-prenumeration från standardvärdet. Din prenumeration kan också begränsa hur många kärnor du kan distribuera i vissa storleksfamiljer VM, inklusive H-serien. En kvot, [öppna en supportbegäran online-kund](../articles/azure-supportability/how-to-create-azure-support-request.md) utan kostnad. (Standardgränser kan variera beroende på din prenumerationskategori.)
   
   > [!NOTE]
@@ -37,4 +37,3 @@ Det här gränssnittet kan RDMA-kompatibla förekomster att kommunicera över et
 > IP över IB stöds inte i Azure. Endast RDMA over IB stöds.
 >
 
-Distribuera RDMA-kompatibla HPC virtuella datorer i samma tillgänglighetsuppsättning eller VM-skalningsuppsättning (när du använder Azure Resource Manager-distributionsmodellen) eller samma molntjänst (när du använder den klassiska distributionsmodellen). Om du använder en VM-skalningsuppsättning kan du se till att du begränsa distributionen till en enda placeringsgrupp; till exempel i en Resource Manager-mall, ange den *singlePlacementGroup* egenskap *SANT*. Ytterligare krav för RDMA-kompatibla HPC virtuella datorer till Azure RDMA-nätverk följer.

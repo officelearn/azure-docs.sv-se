@@ -8,12 +8,12 @@ ms.date: 09/20/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: f4afad753da4a314ade3fb7433c6be3e489e05b0
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 30b85f15d8718e21af66634db5a4afd5623a77e6
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47033693"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49340179"
 ---
 # <a name="understand-extended-offline-capabilities-for-iot-edge-devices-modules-and-child-devices-preview"></a>Förstå utökade offlinefunktionerna för IoT Edge-enheter, moduler och underordnade enheter (förhandsversion)
 
@@ -126,11 +126,11 @@ Du kan konfigurera miljövariabler och skapa alternativen för Edge hub-modul i 
     "type": "docker",
     "settings": {
         "image": "mcr.microsoft.com/azureiotedge-hub:1.0",
-        "createOptions": "{\"HostConfig\":{\"Binds\":[\"C:\\\\HostStoragePath:C:\\\\ModuleStoragePath\"],\"PortBindings\":{\"8883/tcp\":[{\"HostPort\":\"8883\"}],\"443/tcp\":[{\"HostPort\":\"443\"}],\"5671/tcp\":[{\"HostPort\":\"5671\"}]}}}"
+        "createOptions": "{\"HostConfig\":{\"Binds\":[\"<HostStoragePath>:<ModuleStoragePath>\"],\"PortBindings\":{\"8883/tcp\":[{\"HostPort\":\"8883\"}],\"443/tcp\":[{\"HostPort\":\"443\"}],\"5671/tcp\":[{\"HostPort\":\"5671\"}]}}}"
     },
     "env": {
         "storageFolder": {
-            "value": "C:\\\\ModuleStoragePath"
+            "value": "<ModuleStoragePath>"
         }
     },
     "status": "running",
@@ -138,6 +138,8 @@ Du kan konfigurera miljövariabler och skapa alternativen för Edge hub-modul i 
 }
 ```
 
+Ersätt `<HostStoragePath>` och `<ModuleStoragePath>` med värden och modulen lagringen sökväg; både värden och modulen lagringssökväg måste vara en absolut sökväg.  Till exempel `\"Binds\":[\"/etc/iotedge/storage/:/iotedge/storage/"` innebär att vara värd för sökvägen `/etc/iotedge/storage` mappas till behållarsökväg `/iotedge/storage/`.  Du kan också hitta mer information om createOptions från [docker docs](https://docs.docker.com/engine/api/v1.32/#operation/ContainerCreate).
+
 ## <a name="next-steps"></a>Nästa steg
 
-Aktivera utökad offline åtgärder i dina transparent gatewayscenarier för [Linux](how-to-create-transparent-gateway-linux.md) eller [Windows](how-to-create-transparent-gateway-windows.md) enheter. 
+Aktivera utökad offline åtgärder i dina transparent gatewayscenarier för [Linux](how-to-create-transparent-gateway-linux.md) eller [Windows](how-to-create-transparent-gateway-windows.md) enheter.

@@ -11,13 +11,13 @@ author: bonova
 ms.author: bonova
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 10/05/2018
-ms.openlocfilehash: 52726d9145d2065da70eea55a03b47ad1602f1f7
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.date: 10/15/2018
+ms.openlocfilehash: f1b2f9c7ee9d2fbeec51315a5e348b197fb4c06b
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48868562"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49342508"
 ---
 # <a name="azure-sql-database-managed-instance-deployment-model-with-virtual-network-and-near-100-sql-server-compatibility"></a>Azure SQL Database Managed Instance-distributionsmodellen med virtuellt nätverk och nästan 100% kompatibilitet med SQL Server
 
@@ -105,7 +105,7 @@ Mer information om skillnaden mellan tjänstnivåerna i [resursgränser för han
 
 ### <a name="business-critical-service-tier-preview"></a>Affärsnivå kritiska-(förhandsversion)
 
-Kritiska-affärsnivå har utformats för program med höga i/o-krav. Det erbjuder högsta återhämtning till fel med flera isolerade Always On-repliker.
+Kritiska-affärsnivå har utformats för program med höga i/o-krav. Det erbjuder högsta återhämtning till fel med flera isolerade repliker.
 
 I följande lista beskrivs de främsta egenskaperna för nivån affärskritisk service:
 
@@ -209,7 +209,7 @@ Följande diagram illustrerar ytan kompatibilitet i hanterade instanser:
 
 Hanterad instans fördelar från att alltid upp-hittills i molnet, vilket innebär att vissa funktioner i en lokal SQL Server kan vara antingen föråldrade dragits tillbaka eller har alternativ. Det finns vissa fall när verktyg måste du identifiera att en viss funktion fungerar på ett något annorlunda sätt eller att tjänsten inte körs i en miljö som du inte helt styra:
 
-- Hög tillgänglighet är inbyggda och redan har konfigurerats. Always On funktioner med hög tillgänglighet är inte tillgängliga på samma sätt som i SQL IaaS-implementeringar
+- Hög tillgänglighet är inbyggd i och redan har konfigurerats med hjälp av teknik som liknar [ständigt aktiverade Tillgänglighetsgrupper](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server).
 - Automatiserade säkerhetskopieringar och tidpunkt för återställning till tidpunkt. Kunden kan initiera `copy-only` säkerhetskopieringar som inte stör automatisk loggsäkerhetskopieringssekvensen.
 - Hanterad instans tillåter inte att ange fullständig fysiska sökvägar så att alla motsvarande scenarier behöver stödjas på olika sätt: ÅTERSTÄLLA DB stöder inte WITH MOVE, skapa DB inte tillåter fysiska sökvägar, BULK INSERT fungerar med Azure Blobs endast osv.
 - Hanterad instans stöder [Azure AD-autentisering](sql-database-aad-authentication.md) som molnet alternativ till Windows-autentisering.

@@ -1,6 +1,6 @@
 ---
-title: Viktiga funktioner koncept i Azure-stacken | Microsoft Docs
-description: Läs mer om viktiga funktioner och koncept i Azure-stacken.
+title: Viktiga funktioner och koncept i Azure Stack | Microsoft Docs
+description: Läs mer om viktiga funktioner och koncept i Azure Stack.
 services: azure-stack
 documentationcenter: ''
 author: jeffgilb
@@ -12,157 +12,157 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/10/2018
+ms.date: 10/15/2018
 ms.author: jeffgilb
 ms.reviewer: ''
-ms.openlocfilehash: 851530910c702d388cd4dc8607bf09ecb5fa44e0
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 16c908dabd313cd9d64ce5be9b7d0299423a7675
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34198481"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49344693"
 ---
-# <a name="key-features-and-concepts-in-azure-stack"></a>Viktiga funktioner och koncept i Azure-stacken
-Om du har använt Microsoft Azure-stacken kan dessa villkor och funktionsbeskrivning vara användbart.
+# <a name="key-features-and-concepts-in-azure-stack"></a>Huvudfunktioner och koncept i Azure Stack
+Om du inte har använt Microsoft Azure Stack kan dessa villkor och funktionsbeskrivning vara användbart.
 
-## <a name="personas"></a>Personer
-Det finns två varianter av användare för Microsoft Azure-stacken, operatorn molnet (provider) och klienten (konsument).
+## <a name="personas"></a>Profiler
+Det finns två varianter av användare för Microsoft Azure Stack molnoperator (provider) och klienttrafik (konsument).
 
-* En **moln operatorn** kan konfigurera Azure-stacken och hantera erbjudanden, planer, tjänster, kvoter och priser för att tillhandahålla resurser för sina klienter.  Molnoperatörer också hantera kapacitet och svara på aviseringar.  
-* En **klient** (kallas även för en användare) förbrukar tjänster som molnadministratören erbjuder. Klienter kan etablera, övervaka och hantera tjänster som de har prenumererat på, till exempel Web Apps, lagring och virtuella datorer.
+* En **molnoperator** kan konfigurera Azure Stack och hantera erbjudanden, planer, tjänster, kvoter och priser för att tillhandahålla resurser för sina klienter.  Molnoperatörer också hantera kapacitet och svara på aviseringarna.  
+* En **klient** (kallas även för en användare) använder tjänster som erbjuder molnadministratören. Klienter kan etablera, övervaka och hantera tjänster som de som prenumererar på, t.ex Web Apps, lagring och virtuella datorer.
 
 ## <a name="portal"></a>Portalen
-Metoder för att interagera med Microsoft Azure-stacken är administratörsportal, användarportalen och PowerShell.
+De huvudsakliga sätt att interagera med Microsoft Azure Stack är administratörsportal, användarportalen och PowerShell.
 
-Azure Stack-portaler har varje backas upp av separata instanser av Azure Resource Manager.  En operator för molnet använder administratörsportalen att hantera Azure-stacken och att exempelvis skapa klient erbjudanden.  Användarportalen (kallas även klientportalen) tillhandahåller en Självbetjäning för förbrukningen av molnresurser, t.ex. virtuella datorer, lagringskonton och Web Apps. Mer information finns i [med hjälp av Azure-stacken administratörs- och portaler](azure-stack-manage-portals.md).
+Azure Stack-portaler backas var och en av separata instanser av Azure Resource Manager.  En molnoperator använder administratörsportalen att hantera Azure Stack och för att exempelvis skapa klient erbjudanden.  Användarportalen (kallas även klientportalen) tillhandahåller en Självbetjäning för användning av molnresurser, t.ex. virtuella datorer, lagringskonton och Web Apps. Mer information finns i [med hjälp av Azure Stack administratörs- och portaler](azure-stack-manage-portals.md).
 
 ## <a name="identity"></a>Identitet 
-Azure-stacken använder Azure Active Directory (AAD) eller Active Directory Federation Services (AD FS) som en identitetsleverantör.  
+Azure Stack använder Azure Active Directory (AAD) eller Active Directory Federation Services (AD FS) som en identitetsleverantör.  
 
 ### <a name="azure-active-directory"></a>Azure Active Directory
-Azure Active Directory är Microsofts molnbaserade, flera innehavare identitetsleverantör.  De flesta hybridscenarion använder Azure Active Directory som identitet Arkiv.
+Azure Active Directory är Microsofts molnbaserade, flera innehavare identitetsprovider.  De flesta hybridscenarier använda Azure Active Directory som Identitetslagret.
 
 ### <a name="active-directory-federation-services"></a>Active Directory Federation Services
-Du kan välja att använda Active Directory Federation Services (AD FS) för frånkopplade distributioner av Azure-stacken.  Azure stacken, resursproviders och andra program fungerar på samma sätt med AD FS och Azure Active Directory. Azure-stacken innehåller sin egen instans av AD FS och Active Directory och en Active Directory Graph API. Azure-stacken Development Kit har stöd för följande AD FS-scenarier:
+Du kan välja att använda Active Directory Federation Services (AD FS) för frånkopplade distributioner av Azure Stack.  Azure Stack, resursprovidrar och andra program fungerar ungefär på samma sätt med AD FS som de gör med Azure Active Directory. Azure Stack innehåller en egen instans av AD FS och Active Directory och ett Active Directory Graph API. Azure Stack Development Kit har stöd för följande AD FS-scenarier:
 
 - Logga in på distributionen med hjälp av AD FS.
-- Skapa en virtuell dator med hemligheter i Nyckelvalvet
-- Skapa ett valv för lagring/åtkomst till hemligheter
-- Skapa anpassade RBAC-roller i prenumerationen
-- Tilldela användare till RBAC-roller för resurser
-- Skapa systemomfattande RBAC-roller med hjälp av Azure PowerShell
+- Skapa en virtuell dator med hemligheter i Key Vault
+- Skapa ett valv för att lagra/komma åt hemligheter
+- Skapa anpassad RBAC-roller i prenumerationen
+- Tilldela användare till RBAC-roller på resurser
+- Skapa systemomfattande RBAC-roller via Azure PowerShell
 - Logga in som en användare via Azure PowerShell
-- Skapa tjänst säkerhetsobjekt använda dem för att logga in på Azure PowerShell
+- Skapa tjänstens huvudnamn använda dem för att logga in på Azure PowerShell
 
 
 ## <a name="regions-services-plans-offers-and-subscriptions"></a>Regioner, tjänster, planer, erbjudanden och prenumerationer
-Tjänster som levereras till klienter som använder regioner, prenumerationer, erbjudanden och planer i Azure-stacken. Klienter kan prenumerera på flera erbjudanden. Erbjudanden som kan ha en eller flera planer och planer kan ha en eller flera tjänster.
+I Azure Stack levereras tjänster till klienter med hjälp av regioner, prenumerationer, erbjudanden och planer. Klienter kan prenumerera på flera erbjudanden. Erbjudanden kan ha en eller flera planer och planer kan ha en eller flera tjänster.
 
 ![](media/azure-stack-key-features/image4.png)
 
-Exempel hierarkin för en klient prenumerationer erbjudanden, var och en med olika planer och tjänster.
+Exempelhierarki för en klient erbjudanden, var och en med olika planer och tjänster.
 
 ### <a name="regions"></a>Regioner
-Azure Stack-regioner är en grundläggande del av hantering och skala. En organisation kan ha flera regioner med tillgängliga resurser i varje region. Regioner kan också ha olika Tjänsterbjudanden som är tillgängliga. I Azure-stacken Development Kit en enskild region stöds och heter automatiskt *lokala*.
+Regionerna i Azure Stack är en grundläggande del av skalning och hantering. En organisation kan ha flera regioner med resurser som är tillgängliga i varje region. Regioner kan också ha olika service-erbjudanden. I Azure Stack Development Kit en enskild region stöds och heter automatiskt *lokala*.
 
 ### <a name="services"></a>Tjänster
-Microsoft Azure-stacken gör det möjligt för leverantörer att leverera en mängd olika tjänster och program, till exempel virtuella datorer, SQL Server-databaser, SharePoint, Exchange och mer.
+Microsoft Azure Stack kan leverantörer att leverera en mängd olika tjänster och program, till exempel virtuella datorer, SQL Server-databaser, SharePoint, Exchange och mer.
 
 ### <a name="plans"></a>Planer
-Planer är grupperingar av en eller flera tjänster. Som en leverantör, kan du skapa planer för att erbjuda dina klienter. Dina klienter prenumererar i sin tur på dina erbjudanden för att använda de planer och tjänster som ingår i dem.
+Prenumerationer är grupperingar av en eller flera tjänster. Som leverantör måste skapa du planer som du erbjuder dina klienter. Dina klienter prenumererar i sin tur på dina erbjudanden för att använda de planer och tjänster som ingår i dem.
 
-Varje tjänst som lagts till i en plan kan konfigureras med kvotinställningar som hjälper dig att hantera din kapacitet. Kvoter kan innehålla begränsningar, till exempel VM, RAM-minne och processor gränser och tillämpas per användare prenumeration. Kvoter kan skiljas åt av platsen. En plan som innehåller beräknings-tjänster från Region A kan till exempel ha en kvot på två virtuella datorer, 4 GB RAM-minne och 10 CPU-kärnor.
+Varje tjänst som lagts till i en plan kan konfigureras med kvotinställningar för att hantera Molnets kapacitet. Kvoter kan innehålla begränsningar, till exempel VM, RAM-minne och CPU-gränser och tillämpas per användarprenumeration. Kvoter kan delas efter plats. En plan som innehåller bearbetningstjänster från Region A kan till exempel ha en kvot på två virtuella datorer, 4 GB RAM-minne och 10 CPU-kärnor.
 
-När du skapar ett erbjudande tjänstadministratören kan innehålla en **Basplan**. Dessa basen planer ingår som standard när en klient som prenumererar på det erbjudandet. När en användare prenumererar (och prenumerationen skapas) har användaren åtkomst till alla providrar som anges i dessa basen planer (med motsvarande kvoter).
+När du skapar ett erbjudande, tjänstadministratören kan innehålla en **Basplan**. Dessa basplaner ingår som standard när en klient som prenumererar på erbjudandet. När en användare prenumererar och prenumerationen har skapats, har användaren åtkomst till alla resursprovidrar som anges i dessa basplaner (med motsvarande kvoter).
 
-Administratören kan även inkludera **tillägg planer** i ett erbjudande. Tillägget planer ingår inte som standard i prenumerationen. Tillägget är ytterligare scheman (kvoter) tillgängliga i ett erbjudande som en prenumeration ägare kan lägga till sina prenumerationer.
+Tjänstadministratören kan även inkludera **tilläggsplaner** i ett erbjudande. Tilläggsplaner ingår inte som standard i prenumerationen. Tilläggsplaner är ytterligare scheman (kvoter) tillgängliga i ett erbjudande som en Prenumerationens ägare kan lägga till prenumerationerna.
 
 ### <a name="offers"></a>Erbjudande
-Erbjudanden är grupper med en eller flera serviceplaner providers presentera för klienter att köpa (prenumerera på). Erbjuder Alpha kan till exempel innehålla planera en som innehåller en uppsättning tjänster för beräkning och planera B som innehåller en uppsättning tjänster för lagring och nätverk.
+Erbjudanden är grupper med en eller flera planer som leverantörer presenterar för klienterna att köpa (prenumerera). Erbjuder Alpha kan exempelvis innehålla Plan A som innehåller en uppsättning Beräkningstjänster och planera B som innehåller en uppsättning tjänster för lagring och nätverk.
 
-Ett erbjudande levereras med en uppsättning basen planer och administratörer kan skapa tillägg planer som klienter kan lägga till prenumerationen.
+Ett erbjudande som levereras med en uppsättning basplaner och administratörer kan skapa tilläggsplaner som klienter kan lägga till prenumerationen.
 
 ### <a name="subscriptions"></a>Prenumerationer
-En prenumeration är hur klienter köpa erbjudandena. En prenumeration är en kombination av en klient med ett erbjudande. En klient kan ha flera erbjudanden prenumerationer. Varje prenumeration gäller endast ett erbjudande. En klient prenumerationer fastställa vilka tjänster eller det planer för att få åtkomst till.
+En prenumeration hör hur klienter köpa dina erbjudanden. En prenumeration är en kombination av en klient med ett erbjudande. En klient kan ha flera erbjudanden prenumerationer. Varje prenumeration gäller endast ett erbjudande. En klients prenumerationer avgör vilka prenumerationer/tjänster som de kan komma åt.
 
-Prenumerationer kan organisera och åtkomst till molnresurser och tjänster.
+Prenumerationer att ordna och åtkomst till molnresurser och tjänster.
 
-För administratören skapas en prenumeration på Default leverantör under distributionen. Den här prenumerationen kan användas för att hantera Azure-stacken, distribuera ytterligare resursproviders och skapa planer och erbjudanden för klienter. Det bör inte användas för att köra kundens arbetsbelastningar och program. Från och med version 1804 komplettera två ytterligare prenumerationer standard providern prenumerationen; en avläsning prenumeration och en prenumeration för användning. Dessa tillägg underlätta avgränsa hanteringen av grundläggande infrastruktur och ytterligare resursproviders arbetsbelastningar.  
+För administratören skapas en standard Providerprenumeration under distributionen. Den här prenumerationen kan användas för att hantera Azure Stack, distribuera ytterligare resursprovidrar och skapa planer och erbjudanden för klienter. Det bör inte användas för att köra kundens arbetsbelastningar och program. Från och med version 1804, komplettera två ytterligare prenumerationer den standard providerprenumeration; en prenumeration för Avläsning av programvara och en användning-prenumeration. Dessa tillägg underlätta att separera hanteringen av grundläggande infrastruktur, ytterligare resursprovidrar och arbetsbelastningar.  
 
 ## <a name="azure-resource-manager"></a>Azure Resource Manager
-Med Azure Resource Manager kan arbeta du med din för infrastrukturresurser i en mallbaserade deklarativ modell.   Det ger ett enda gränssnitt som du kan använda för att distribuera och hantera dina komponenter. Fullständig information och anvisningar finns i [översikt över Azure Resource Manager](../azure-resource-manager/resource-group-overview.md).
+Med Azure Resource Manager kan arbeta du med dina resurser i infrastrukturen i en mallbaserade, deklarativa modell.   Det är ett gränssnitt som du kan använda för att distribuera och hantera dina lösningskomponenter. Fullständig information och riktlinjer finns i den [översikt över Azure Resource Manager](../azure-resource-manager/resource-group-overview.md).
 
 ### <a name="resource-groups"></a>Resursgrupper
-Resursgrupper är samlingar av resurser, tjänster och program, och varje resurs har en typ, till exempel virtuella datorer, virtuella nätverk, offentliga IP-adresser, lagringskonton och webbplatser. Varje resurs måste finnas i en resursgrupp och så resursgrupper logiskt att ordna resurser, exempelvis av arbetsbelastningen eller platsen.  I Microsoft Azure-stacken hanteras resurser, till exempel planer och erbjuder också i resursgrupper.
+Resursgrupper är samlingar av resurser, tjänster och program – och varje resurs har en typ, till exempel virtuella datorer, virtuella nätverk, offentlig IP-adresser, lagringskonton och webbplatser. Varje resurs måste vara i en resursgrupp och så resursgrupper logiskt att organisera resurser, till exempel av arbetsbelastning eller plats.  I Microsoft Azure Stack hanteras resurser, till exempel planer och erbjudanden också i resursgrupper.
 
-Till skillnad från [Azure](../azure-resource-manager/resource-group-move-resources.md), du kan inte flytta resurser mellan resursgrupper. När du visar egenskaperna för en resurs eller en resursgrupp i Azure-stacken administrationsportal på *flytta* knappen är nedtonad och nedtonat. 
+Till skillnad från [Azure](../azure-resource-manager/resource-group-move-resources.md), du kan inte flytta resurser mellan resursgrupper. När du visar egenskaperna för en resurs eller resursgrupp i Azure Stack-administratörsportalen, i *flytta* knappen är nedtonad och inte tillgänglig. 
  
 ### <a name="azure-resource-manager-templates"></a>Azure Resource Manager-mallar
-Du kan skapa en mall (i JSON-format) som definierar distributionen och konfigurationen av ditt program med Azure Resource Manager. Den här mallen kallas för en Azure Resource Manager-mall och tillhandahåller en deklarativ metod för att definiera distributionen. Genom att använda en mall kan du distribuera ditt program flera gånger under applivscykeln och vara säker på att dina resurser distribueras konsekvent.
+Med Azure Resource Manager kan du skapa en mall (i JSON-format) som definierar distributionen och konfigurationen av ditt program. Den här mallen kallas för en Azure Resource Manager-mall och tillhandahåller en deklarativ metod för att definiera distributionen. Genom att använda en mall kan du distribuera ditt program flera gånger under applivscykeln och vara säker på att dina resurser distribueras konsekvent.
 
 ## <a name="resource-providers-rps"></a>Resursproviders (RPs)
-Resursproviders är webbtjänster som utgör grunden för alla Azure-baserade IaaS och PaaS-tjänster. Azure Resource Manager förlitar sig på olika RPs att ge åtkomst till tjänster.
+Resursproviders är webbtjänster som utgör grunden för alla Azure-baserade IaaS och PaaS-tjänster. Azure Resource Manager är beroende av olika RPs att ge åtkomst till tjänster.
 
-Det finns fyra grundläggande RPs: nätverk, lagring, beräkning och KeyVault. Var och en av dessa RPs hjälper dig att konfigurera och styra sina respektive resurser. Administratörer kan också lägga till nya anpassade providers.
+Det finns fyra grundläggande RPs: nätverk, lagring, beräkning och KeyVault. Var och en av dessa RPs hjälper dig att konfigurera och kontrollera dess respektive resurser. Administratörer kan också lägga till nya anpassade resursprovidrar.
 
-### <a name="compute-rp"></a>Beräkna RP
-Beräkna Resource Provider (CRP) gör att Azure Stack-klienter kan skapa sina egna virtuella datorer. CRP omfattar möjligheten att skapa virtuella datorer samt tillägg för virtuell dator. Tjänsten Virtual Machine-tillägg ger IaaS-funktioner för Windows och Linux virtuella datorer.  Du kan använda CRP exempelvis för att etablera en virtuell Linux-dator och köra Bash-skript under distributionen för att konfigurera den virtuella datorn.
+### <a name="compute-rp"></a>Compute RP
+Compute Resource Provider (CRP: N) gör att Azure Stack-klienter kan skapa sina egna virtuella datorer. CRP: N innehåller möjligheten att skapa virtuella datorer samt virtuella datorer, tillägg. Tjänsten VM-tillägget ger IaaS-funktioner för Windows och Linux-datorer.  Exempelvis kan du använda CRP: N att etablera en Linux-dator och kör Bash-skript under distributionen för att konfigurera den virtuella datorn.
 
 ### <a name="network-rp"></a>Nätverket RP
-Nätverket Resource Provider (NRP) ger en uppsättning funktioner för Programvarudefinierad nätverksfunktion (SDN) och nätverk funktionen virtualisering (NFV) för det privata molnet.  Du kan använda NRP för att skapa resurser som programvara belastningen belastningsutjämnare, offentliga IP-adresser, nätverkssäkerhetsgrupper, virtuella nätverk.
+Nätverket Resource Provider (NRP) ger ett antal funktioner för Programvarudefinierad nätverksfunktion (SDN) och nätverk funktionen virtualisering (NFV) för det privata molnet.  Du kan använda NRP för att skapa resurser som software load balancers, offentliga IP-adresser, nätverkssäkerhetsgrupperna, virtuella nätverk.
 
-### <a name="storage-rp"></a>Lagring RP
-Lagring RP levererar fyra konsekvent Azure storage-tjänster: blob-, tabell-, kö- och kontohantering. Det erbjuder också en lagring administration molntjänst för att underlätta administrationen av provider i Azure-konsekvent lagringstjänster. Azure Storage ger flexibilitet för att lagra och hämta stora mängder Ostrukturerade data, till exempel dokument och mediafiler med Azure BLOB och strukturerade NoSQL-baserade data med Azure-tabeller. Mer information om Azure Storage finns [introduktion till Microsoft Azure Storage](../storage/common/storage-introduction.md).
+### <a name="storage-rp"></a>Storage RP
+Storage-RP levererar fyra Azure-konsekventa lagringstjänster: blob, tabell, kö och kontohantering. Den erbjuder även en storage administration molntjänst för att underlätta administration av tjänsten Azure-konsekventa Storage-tjänster. Azure Storage tillhandahåller flexibilitet för att lagra och hämta stora mängder Ostrukturerade data, till exempel dokument och mediefiler med Azure Blobs och strukturerade NoSQL-baserade data med Azure-tabeller. Mer information om Azure Storage finns i [introduktion till Microsoft Azure Storage](../storage/common/storage-introduction.md).
 
 #### <a name="blob-storage"></a>Blob Storage
 BLOB storage lagrar alla datauppsättning. En blobb kan bestå av vilka slags textdata eller binära data som helst, till exempel ett dokument, en mediefil eller ett installationsprogram. Table storage lagrar strukturerade datauppsättningar. Table Storage är en nyckel- och attributdatabas för NoSQL som möjliggör snabb utveckling och snabb tillgång till stora mängder data. Queue storage erbjuder tillförlitlig meddelandehantering för arbetsflödesbearbetning och för kommunikation mellan komponenter i molntjänster.
 
-Varje blobb är underordnad en behållare. Behållare är också ett praktiskt sätt att tilldela säkerhetsprinciper till grupper med objekt. Ett lagringskonto kan innehålla valfritt antal behållare och en behållare kan innehålla valfritt antal blobbar, upp till 500 TB kapacitetsgränsen för lagringskontot. Blob Storage erbjuder tre typer av blobbar: blockblobbar, tilläggsblobbar och sidblobbar (diskar). Blockblobbar är optimerade för direktuppspelning och lagring av molnobjekt och är ett bra alternativ för att lagra dokument, mediefiler, säkerhetskopior osv. Tilläggsblobbar påminner om blockblobbar, men är optimerade för tilläggsåtgärder. En tilläggsblobb kan bara uppdateras genom att ett nytt block läggs till i slutet. Tilläggsblobbar är praktiska i scenarier som loggning, där nya data bara behöver skrivas till slutet av blobben. Sidblobbar är optimerade för att representera IaaS-diskar och stöd för slumpmässiga skrivningar och kan vara upp till 1 TB. En nätverksansluten IaaS-disk för en virtuell Azure-dator är en VHD som lagras som en sidblobb.
+Varje blobb är underordnad en behållare. Containrar är också ett praktiskt sätt att tilldela säkerhetsprinciper till grupper med objekt. Ett lagringskonto kan innehålla valfritt antal behållare och en behållare kan innehålla valfritt antal blobbar, upp till 500 TB kapacitetsgränsen för lagringskontot. Blob Storage erbjuder tre typer av blobbar: blockblobbar, tilläggsblobbar och sidblobbar (diskar). Blockblobbar är optimerade för direktuppspelning och lagring av molnobjekt och är ett bra alternativ för att lagra dokument, mediefiler, säkerhetskopior osv. Tilläggsblobbar påminner om blockblobbar, men är optimerade för tilläggsåtgärder. En tilläggsblobb kan bara uppdateras genom att ett nytt block läggs till i slutet. Tilläggsblobbar är praktiska i scenarier som loggning, där nya data bara behöver skrivas till slutet av blobben. Sidblobbar är optimerade för att representera IaaS-diskar och stöd för slumpmässiga skrivningar och kan vara upp till 1 TB. En nätverksansluten IaaS-disk för en virtuell Azure-dator är en VHD som lagras som en sidblobb.
 
 #### <a name="table-storage"></a>Table Storage
-Table storage är Microsofts NoSQL-nyckel och attributdatabas – den har en design utan scheman, vilket skiljer den från traditionella relationsdatabaser. Eftersom data lagras saknas scheman, är det enkelt att anpassa dina data som behov utvecklas. Table Storage är enkelt att använda, vilket gör det lätt för utvecklare att snabbt skapa program. Table Storage är en nyckel- och attributdatabas, vilket innebär att varje värde i en tabell lagras med ett typbestämt egenskapsnamn. Egenskapsnamnet kan användas för att filtrera och ange urvalskriterier. En uppsättning egenskaper och deras värden utgör en entitet. Två entiteter i samma tabell kan innehålla olika samlingar egenskaper eftersom lagring saknas tabellscheman, och dessa egenskaper kan vara av olika typer. Du kan använda Table Storage för att lagra flexibla datauppsättningar, till exempel användardata för webbprogram, adressböcker, enhetsinformation och andra typer av metadata som din tjänst kräver. Du kan lagra valfritt antal enheter i en tabell, och ett lagringskonto kan innehålla valfritt antal tabeller, upp till lagringskontots kapacitetsgräns.
+Table storage är Microsofts NoSQL nyckel-/ attributlager – tjänsten har en design utan scheman, vilket skiljer den från traditionella relationsdatabaser. Eftersom data lagras brist scheman, är det enkelt att anpassa dina data efter behov av utvecklas. Table Storage är enkelt att använda, vilket gör det lätt för utvecklare att snabbt skapa program. Table Storage är en nyckel- och attributdatabas, vilket innebär att varje värde i en tabell lagras med ett typbestämt egenskapsnamn. Egenskapsnamnet kan användas för att filtrera och ange urvalskriterier. En uppsättning egenskaper och deras värden utgör en entitet. Två entiteter i samma tabell kan innehålla olika samlingar egenskaper eftersom Table storage brist scheman, och dessa egenskaper kan vara av olika typer. Du kan använda Table Storage för att lagra flexibla datauppsättningar, till exempel användardata för webbprogram, adressböcker, enhetsinformation och andra typer av metadata som din tjänst kräver. Du kan lagra valfritt antal enheter i en tabell, och ett lagringskonto kan innehålla valfritt antal tabeller, upp till lagringskontots kapacitetsgräns.
 
 #### <a name="queue-storage"></a>Queue Storage
 Azure Queue Storage innehåller molnmeddelandehantering mellan programkomponenter. När program utformas för skalning är programkomponenterna ofta fristående, så att de kan skalas oberoende av varandra. Queue Storage är en asynkron meddelandelösning för kommunikation mellan programkomponenter, oavsett om de körs i molnet, på skrivbordet, på en lokal server eller på en mobil enhet. Queue Storage har också stöd för hantering av asynkrona åtgärder och utveckling av processarbetsflöden.
 
 ### <a name="keyvault"></a>KeyVault
-KeyVault RP ger hantering och granskning av hemligheter, till exempel lösenord och certifikat. Exempelvis kan en klient använda KeyVault RP ange administratörslösenord eller nycklar under distribution av Virtuella datorer.
+KeyVault RP ger hantering och granskning av hemligheter som lösenord och certifikat. Exempelvis kan en klient använda KeyVault RP ange administratörers lösenord eller nycklar under distribution av virtuella datorer.
 
-## <a name="high-availability-for-azure-stack"></a>Hög tillgänglighet för Azure-stacken
-*Gäller för: Azure Stack 1802 eller senare versioner*
+## <a name="high-availability-for-azure-stack"></a>Hög tillgänglighet för Azure Stack
+*Gäller för: Azure Stack-1802 eller senare versioner*
 
-För att uppnå hög tillgänglighet till ett multi-VM produktionssystem i Azure placeras virtuella datorer i en tillgänglighetsuppsättning som sprids dem över flera feldomäner och update-domäner. På så sätt kan [virtuella datorer som distribueras i tillgänglighetsuppsättningar](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-availability-sets) är fysiskt isolerade från varandra på separata serverrack att tillåta för återhämtning av fel som visas i följande diagram:
+För att uppnå hög tillgänglighet för ett system för produktion av flera virtuella datorer i Azure är virtuella datorer placerade i en tillgänglighetsuppsättning som sprids dem över flera feldomäner och uppdateringsdomäner. På så sätt kan [virtuella datorer som distribueras i tillgänglighetsuppsättningar](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-availability-sets) är fysiskt isolerade från varandra på separata serverrack att tillåta för återhämtning för fel som visas i följande diagram:
 
-  ![Azure Stack hög tillgänglighet](media/azure-stack-key-features/high-availability.png)
+  ![Hög tillgänglighet med Azure Stack](media/azure-stack-key-features/high-availability.png)
 
-### <a name="availability-sets-in-azure-stack"></a>Tillgänglighetsuppsättningar i Azure-stacken
-När infrastrukturen i Azure-stacken är redan motståndskraftiga mot fel, den underliggande tekniken (failover clustering) fortfarande ådrar sig vissa avbrott för virtuella datorer på en fysisk server påverkas om ett maskinvarufel. Azure-stacken stöder med en tillgänglighetsuppsättning med högst tre feldomäner överensstämmer med Azure.
+### <a name="availability-sets-in-azure-stack"></a>Tillgänglighetsuppsättningar i Azure Stack
+Infrastrukturen i Azure Stack är redan elastisk vid fel, medför den underliggande tekniken (redundanskluster) fortfarande vissa avbrott för virtuella datorer på en fysisk server som påverkas om det uppstår ett maskinvarufel. Azure Stack har stöd för att ha en tillgänglighetsuppsättning med högst tre feldomäner för att överensstämma med Azure.
 
-- **Fault domäner**. Virtuella datorer placeras i en tillgänglighetsuppsättning kommer vara fysiskt isolerade från varandra genom att sprida dem jämnt som möjligt över flera feldomäner (Azure Stack noder). Om det finns ett maskinvarufel, kommer virtuella datorer från misslyckade feldomänen att startas om om andra feldomäner, men om möjligt sparas i separata feldomäner från de andra virtuella datorerna i samma tillgänglighetsuppsättning. När maskinvaran är tillbaka online, kommer du genomförs virtuella datorer för att upprätthålla hög tillgänglighet. 
+- **Feldomäner**. Virtuella datorer placeras i en tillgänglighetsuppsättning kommer att fysiskt isolerade från varandra genom att sprida dem så jämnt som möjligt via flera feldomäner (Azure Stack-noder). Om det finns ett maskinvarufel, kommer virtuella datorer från den misslyckade feldomänen att startas om i andra feldomäner, men om möjligt sparas i separata feldomäner från andra virtuella datorer i samma tillgänglighetsuppsättning. När maskinvaran som är online igen, kommer du genomförs virtuella datorer för att upprätthålla hög tillgänglighet. 
  
-- **Uppdatera domäner**. Uppdatera domäner är ett annat Azure koncept som ger hög tillgänglighet i tillgänglighetsuppsättningar. En uppdateringsdomän är en logisk grupp av underliggande maskinvara som kan genomgår underhåll på samma gång. Virtuella datorer finns i samma uppdateringsdomän startas tillsammans under planerat underhåll. Eftersom klienter kan du skapa virtuella datorer i en tillgänglighetsuppsättning, Azure-plattformen automatiskt distribuerar virtuella datorer mellan dessa uppdatera domäner. I Azure-stacken är live migreras över online värddatorerna i klustret innan den underliggande värden uppdateras. Eftersom det inte finns inget driftstopp klient under en uppdatering av värden, finns funktionen domän på Azure-stacken endast för kompatibilitet med Azure. 
+- **Uppdateringsdomäner**. Uppdateringsdomäner är en annan Azure koncept som ger hög tillgänglighet i tillgänglighetsuppsättningar. En uppdateringsdomän är en logisk grupp av underliggande maskinvara som kan underhållas på samma gång. Virtuella datorer finns i samma uppdateringsdomän startas tillsammans under planerat underhåll. När klienter skapar virtuella datorer i en tillgänglighetsuppsättning, distribuerar Azure-plattformen automatiskt virtuella datorer mellan dessa uppdateringsdomäner. I Azure Stack, virtuella datorer är live migreras på andra online värdar i klustret innan deras underliggande värden har uppdaterats. Eftersom det inte finns inget klient-avbrott under en värduppdatering av, finns bara funktionen domän i Azure Stack mall kompatibilitet med Azure. 
 
 ### <a name="upgrade-scenarios"></a>Uppgraderingsscenarier 
-Virtuella datorer i tillgänglighetsuppsättningar som skapades innan Azure Stack version 1802 ges ett antal fel och uppdatera domäner standard (1 och 1 respektive). För att uppnå hög tillgänglighet för virtuella datorer i dessa befintliga tillgänglighetsuppsättningar, måste du först ta bort de befintliga virtuella datorerna och distribuera dem till en ny tillgänglighetsuppsättning med rätt fel- och update domän antal enligt beskrivningen i [ändringen i tillgänglighetsuppsättning för en Windows VM](https://docs.microsoft.com/azure/virtual-machines/windows/change-availability-set). 
+Virtuella datorer i tillgänglighetsuppsättningar som skapades innan Azure Stack-version 1802 ges ett angivet antal i fel- och uppdateringsdomäner (1 och 1 respektive). För att uppnå hög tillgänglighet för virtuella datorer i dessa befintliga tillgänglighetsuppsättningar, måste du först ta bort de befintliga virtuella datorerna och distribuera dem till en ny tillgänglighetsuppsättning med rätt fel- och domän antal, enligt beskrivningen i [ändra den tillgänglighetsuppsättningen för en virtuell Windows-dator](https://docs.microsoft.com/azure/virtual-machines/windows/change-availability-set). 
 
-Skaluppsättningar för virtuell dator, en tillgänglighetsuppsättning har skapats internt med en standard domän och uppdatera feldomänsantalet (3 och 5 respektive). Alla skalningsuppsättningar i virtuella innan uppdateringen 1802 placeras i en tillgänglighetsuppsättning med fel och uppdatera standarddomänen räknar (1 och 1 respektive). Om du vill uppdatera dessa scale set instanser för virtuella datorer för att uppnå nyare spridning skala ut skaluppsättningar för virtuell dator efter antalet instanser som fanns före uppdateringen av 1802 och ta sedan bort äldre instanser av skaluppsättningar för virtuell dator. 
+VM-skalningsuppsättningar, en tillgänglighetsuppsättning skapas internt med en standard-domän och uppdatera antalet feldomäner (3 och 5 respektive). Alla VM-skalningsuppsättningar som skapats innan 1802 uppdateringen kommer att placeras i en tillgänglighetsuppsättning med fel- och standarddomän räknar (1 och 1 respektive). För att uppdatera dessa VM-skalningsuppsättningsinstanser för att uppnå nyare spridningen, skala ut skalningsuppsättningar för virtuella datorer genom att antalet instanser som fanns före uppdateringen 1802 och ta sedan bort de äldre instanserna av VM-skalningsuppsättningar. 
 
 ## <a name="role-based-access-control-rbac"></a>Rollbaserad åtkomstkontroll (RBAC)
-Du kan använda RBAC för att bevilja åtkomst till systemet till behöriga användare, grupper och tjänster genom att tilldela dem roller på en prenumeration, resursgrupp eller enskild resurs. Varje roll definierar den åtkomstnivå som en användare, grupp eller tjänst har över Microsoft Azure-stacken resurser.
+Du kan använda RBAC för att ge systemåtkomst till behöriga användare, grupper och tjänster genom att tilldela dem roller på en prenumeration, resursgrupp eller enskild resurs. Varje roll definierar den åtkomstnivå som en användare, grupp eller tjänst har över Microsoft Azure Stack-resurser.
 
-Azure RBAC har tre grundläggande roller som gäller för alla typer av resurser: ägare, deltagare och läsare. Ägaren har fullständig åtkomst till alla resurser som bland annat att delegera åtkomst till andra. Deltagare kan skapa och hantera alla typer av Azure-resurser, men det går inte att bevilja åtkomst till andra. Läsare kan bara visa befintliga Azure-resurser. Resten av rollerna i Azure RBAC kan hanteringen av specifika Azure-resurser. Till exempel virtuella deltagarrollen tillåter skapande och hantering av virtuella datorer men tillåter inte hantering av virtuellt nätverk eller undernät som den virtuella datorn ansluter till.
+RBAC i Azure har tre grundläggande roller som gäller för alla typer av resurser: ägare, deltagare och läsare. Ägare har fullständig åtkomst till alla resurser inklusive rätten att delegera åtkomst till andra. Deltagare kan skapa och hantera alla typer av Azure-resurser, men det går inte att bevilja åtkomst till andra. Läsare kan bara visa befintliga Azure-resurser. Resten av RBAC-roller i Azure kan hanteringen av specifika Azure-resurser. Exempelvis kan rollen virtuell Datordeltagare kan skapandet och hanteringen av virtuella datorer, men tillåter inte hantering av det virtuella nätverket eller undernätet som den virtuella datorn ansluter till.
 
 ## <a name="usage-data"></a>Användningsdata
-Microsoft Azure-stacken samlar in aggregerar användningsdata över alla resursproviders och skickar den till Azure för bearbetning av Azure handelsdepartement. Användningsdata samlas in på Azure-stacken kan granskas via ett REST-API. Det är en Azure-konsekvent klient-API som providern och delegerad Provider-API: er att hämta användningsdata över alla klient-prenumerationer. Den här informationen kan användas för att integrera med ett externt verktyg eller en tjänst för fakturerings- eller återbetalning. När du har bearbetats användning av Azure handelsdepartement, kan det visas i Azure portal för fakturering.
+Microsoft Azure Stack samlar in och sammanställer användningsdata över alla resursproviders och skickar den till Azure för bearbetning av Azure commerce. Användningsdata som samlas in på Azure Stack kan ses via ett REST-API. Det finns en Azure-konsekventa klient-API som Provider och delegerad Provider API: er att hämta användningsdata för alla klient-prenumerationer. Dessa data kan användas för att integrera med ett externt verktyg eller en tjänst för fakturerings- eller återbetalning. När användning har behandlats av Azure commerce, kan det visas i på Azures faktureringsportal.
 
-## <a name="in-development-build-of-azure-stack-development-kit"></a>I development version av Azure-stacken Development Kit
-I development versioner kan tidiga brukare utvärdera den senaste versionen av Azure-stacken Development Kit. De är inkrementella versioner baserat på senaste huvudversion. Större versioner kommer att fortsätta frigörs några månaders mellanrum, släpp i development versioner periodvis mellan större versioner.
+## <a name="in-development-build-of-azure-stack-development-kit"></a>I utveckling version av Azure Stack Development Kit
+I utveckling versioner kan tidiga brukare utvärdera den senaste versionen av Azure Stack Development Kit. De är inkrementella versioner baserat på senaste huvudversion. Medan huvudversioner fortsätter frigörs några månaders mellanrum, i utveckling versioner kommer att släppa periodvis mellan större versioner.
 
-I development versioner ger följande fördelar:
+I utveckling versioner ger följande fördelar:
 - Felkorrigeringar
 - Nya funktioner
 - Andra förbättringar
 
 ## <a name="next-steps"></a>Nästa steg
-[Utvärdera Azure Stack Development Kit](azure-stack-deploy-overview.md)
+[Grundläggande om administration](azure-stack-manage-basics.md)
 

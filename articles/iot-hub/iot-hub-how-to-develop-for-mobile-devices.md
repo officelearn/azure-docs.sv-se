@@ -1,54 +1,52 @@
 ---
-title: Utveckla för mobila enheter med Azure IoT SDK | Microsoft Docs
-description: 'Utvecklare guide – Lär dig mer om hur du utvecklar för mobila enheter med Azure IoT-hubb SDK: er.'
+title: 'Utveckla för mobila enheter med Azure IoT SDK: er | Microsoft Docs'
+description: 'Developer Användarguide – Lär dig mer om hur du utvecklar för mobila enheter med Azure IoT Hub SDK: er.'
 author: yzhong94
-manager: ''
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 04/16/2018
 ms.author: yizhon
-ms.openlocfilehash: 9c4b4a61698556f14a6362984b04e5cc409b5763
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 4a94abe69b525dc1b03fe2c1ae9593f3c6399f56
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34634955"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49339761"
 ---
-# <a name="develop-for-mobile-devices-using-azure-iot-sdks"></a>Utveckla för mobila enheter med Azure IoT-SDK
+# <a name="develop-for-mobile-devices-using-azure-iot-sdks"></a>Utveckla för mobila enheter med Azure IoT SDK: er
 
-Saker i Sakernas Internet kan referera till en mängd olika enheter med olika funktioner: sensorer, mikrostyrenheter, smarta enheter, industriella gateways och även mobila enheter.  En mobil enhet kan vara en IoT-enhet, där den skickar enhet till moln telemetri och hanteras av molnet.  Det kan också vara enheten kör ett program för backend-tjänst som hanterar andra IoT-enheter.  I båda fallen [Azure IoT-hubb SDK] [ lnk-sdk-overview] kan användas för att utveckla program som fungerar för mobila enheter.  
+Saker i Sakernas Internet kan referera till en mängd olika enheter med olika funktioner: sensorer, mikrostyrenheter, smarta enheter, industriella gatewayer och även mobila enheter.  En mobil enhet kan vara en IoT-enhet, där det skickar enhet-till-moln-telemetri och hanteras i molnet.  Det kan också vara enheten som kör ett program för backend-tjänst som hanterar andra IoT-enheter.  I båda fallen [Azure IoT Hub SDK: er](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-sdks) kan användas för att utveckla program som fungerar för mobila enheter.  
 
 ## <a name="develop-for-native-ios-platform"></a>Utveckla för interna iOS-plattformen
 
-Azure IoT-hubb SDK ger stöd för interna iOS-plattformen via Azure IoT-hubb C SDK.  Du kan se det som en iOS SDK som du kan använda i Swift eller Objective C XCode-projekt.  Det finns två sätt att använda C SDK för iOS:
-- Använda CocoaPod-biblioteken i XCode-projekt direkt.  
-- Hämta källkoden för C SDK och skapa för iOS-plattformen efter den [skapa instruktion] [ lnk-c-devbox] för MacOS.  
+Azure IoT Hub SDK: er ge support för interna iOS-plattformen via Azure IoT Hub C SDK.  Du kan se det som en iOS-SDK som du kan lägga till i Swift eller Objective C XCode-projektet.  Det finns två sätt att använda C SDK för iOS:
 
-Azure IoT-hubb C SDK skrivs i C99 för maximal portabilitet till olika plattformar.  Porting innebär skriva ett tunn införande lager för plattformsspecifika komponenter, som finns här för [iOS][lnk-ios-pal].  Funktioner i SDK C kan utnyttjas på iOS-plattformen, inklusive Azure IoT Hub-primitiver som stöds och SDK-specifika funktioner som gör att principen för nätverket tillförlitlighet.  Gränssnittet för iOS SDK liknar också gränssnittet för Azure IoT-hubb C SDK.  
+* Använd CocoaPod-biblioteken i XCode-projekt direkt.  
 
-Dessa dokumentation går igenom hur du utvecklar ett enhetsprogram eller tjänstprogrammet på en iOS-enhet:
-- [Snabbstart: Skicka telemetri från en enhet till en IoT-hubb][lnk-device-ios-quickstart]  
-- [Skicka meddelanden från moln till din enhet med IoT-hubb][lnk-service-ios-quickstart]  
+* Ladda ned källkoden för C SDK och skapa för iOS-plattformen den [skapa instruktion](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/devbox_setup.md) för MacOS.  
 
-### <a name="develop-with-azure-iot-hub-cocoapod-libraries"></a>Utveckla med Azure IoT-hubb CocoaPod bibliotek
+Azure IoT Hub C SDK är skriven i C99 för maximal portabilitet för olika plattformar.  Porteringsguiden måste du skriva en tunn införande lager för plattformsspecifika-komponenterna, som finns här för [iOS](https://github.com/Azure/azure-c-shared-utility/tree/master/pal/ios-osx).  Funktioner i C SDK kan utnyttjas på iOS-plattformen, inklusive Azure IoT Hub-primitiver som stöds och SDK-specifika funktioner som återförsöksprincip för nätverket tillförlitlighet.  Gränssnittet för iOS SDK är också liknar gränssnitt för Azure IoT Hub C SDK.  
 
-Azure IoT-hubb SDK släpper en uppsättning Objective-C CocoaPod bibliotek för iOS-utveckling.  Den senaste listan över CocoaPod bibliotek finns [CocoaPods för Microsoft Azure IoT][lnk-cocoapod-list].  När de relevanta biblioteken ingår i ditt XCode-projekt, finns det två sätt att skriva IoT-hubb relaterade kod:
-- Funktionen för Objective C: om projektet är skriven i Objective-C, du kan anropa API: er från Azure IoT-hubb C SDK direkt.  Om ditt projekt skrivs i Swift, kan du anropa ``@objc func`` innan skapa din funktion och fortsätta att skriva alla logics som rör Azure IoT-hubb med hjälp av C eller Objective-C-koden.  En uppsättning exempel som visar båda finns i den [exempel databasen][lnk-ios-samples-repo].  
-- Inkludera C-exempel: Om du har skapat ett program för enhet C, du kan referera till det direkt i ditt XCode-projekt:
-    - Lägga till filen sample.c i ditt XCode-projekt från XCode.  
-    - Lägg till huvudfilen beroendet.  Ett huvud ingår i den [exempel databasen] [ lnk-ios-samples-repo] som exempel.  Mer information finns i Apples dokumentationssidan för [Objective-C](https://developer.apple.com/documentation/objectivec).
+Dessa dokumentation gå igenom hur du utvecklar ett enhetprogram eller service-program på en iOS-enhet:
+
+* [Snabbstart: Skicka telemetri från en enhet till en IoT-hubb](quickstart-send-telemetry-ios.md)  
+
+* [Skicka meddelanden från molnet till enheten med IoT hub](iot-hub-ios-swift-c2d.md) 
+
+## <a name="develop-with-azure-iot-hub-cocoapod-libraries"></a>Utveckla med Azure IoT Hub CocoaPod bibliotek
+
+Azure IoT Hub SDK släpper en uppsättning Objective-C CocoaPod klientbibliotek för iOS-utveckling.  Du hittar den senaste listan över CocoaPod bibliotek i [CocoaPods för Microsoft Azure IoT](https://github.com/Azure/azure-iot-sdk-c/blob/master/iothub_client/samples/ios/CocoaPods.md).  När de relevanta biblioteken ingår i ditt XCode-projekt, finns det två sätt att skriva IoT Hub relaterade koden:
+
+* Mål-C-funktion: om ditt projekt är skriven i Objective-C, kan du anropa API: er från Azure IoT Hub C SDK direkt.  Om ditt projekt är skrivna i Swift, kan du anropa `@objc func` innan skapar din funktion och fortsätt med att skriva alla logics som rör Azure IoT Hub med C eller Objective-C-koden.  En uppsättning exempel som visar båda finns i den [exempellagringsplatsen](https://github.com/Azure-Samples/azure-iot-samples-ios).  
+
+* Införliva C-exempel: Om du har skrivit ett program för enhet C, du kan använda den direkt i XCode-projektet:
+
+    * Lägg till filen sample.c till ditt XCode-projekt från XCode.  
+    
+    * Lägg till huvudfilen till din beroende.  En rubrikfil ingår i den [exempellagringsplatsen](https://github.com/Azure-Samples/azure-iot-samples-ios) som exempel. Mer information finns i Apples dokumentationssidan för [Objective-C](https://developer.apple.com/documentation/objectivec).
 
 ## <a name="next-steps"></a>Nästa steg
-* [IoT Hub REST API-referens][lnk-rest-ref]
-* [Azure IoT C SDK-källkod][lnk-c-sdk]
 
-[lnk-sdk-overview]: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-sdks
-[lnk-c-devbox]: https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/devbox_setup.md
-[lnk-device-ios-quickstart]:https://docs.microsoft.com/azure/iot-hub/quickstart-send-telemetry-ios
-[lnk-service-ios-quickstart]: https://docs.microsoft.com/azure/iot-hub/iot-hub-ios-swift-c2d
-[lnk-cocoapod-list]: https://github.com/Azure/azure-iot-sdk-c/blob/master/iothub_client/samples/ios/CocoaPods.md
-[lnk-ios-samples-repo]: https://github.com/Azure-Samples/azure-iot-samples-ios
-[lnk-ios-pal]: https://github.com/Azure/azure-c-shared-utility/tree/master/pal/ios-osx
-[lnk-c-sdk]: https://github.com/Azure/azure-iot-sdk-c
-[lnk-rest-ref]: https://docs.microsoft.com/rest/api/iothub/
+* [IoT Hub REST API-referens](https://docs.microsoft.com/rest/api/iothub/)
+* [Källkoden för Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c)

@@ -17,18 +17,18 @@ ms.date: 06/06/2017
 ms.author: celested
 ms.reviewer: hirsin, nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: ce29c6a9df49721ca23f84da3f1c97bcc83ab4a7
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: cf62d961d7bd2b6ff2cb03ee577368f2ee7b8452
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39581730"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49318840"
 ---
 # <a name="service-to-service-calls-using-delegated-user-identity-in-the-on-behalf-of-flow"></a>Tjänst till tjänst-anrop med hjälp av delegerad användaridentitet i On-Behalf-Of-flöde
 Den OAuth 2.0 Behalf (OBO) flow fungerar användningsfall där ett program anropar en tjänst/webb-API, som i sin tur måste anropa en annan tjänst/webb-API. Tanken är att sprida delegerade användaren identitets- och behörigheter genom begärandekedjan. För mellannivå-tjänsten ska göra autentiserade begäranden till den underordnade tjänsten, behöver så skydda en åtkomsttoken från Azure Active Directory (Azure AD), användarens räkning.
 
 > [!IMPORTANT]
-> Offentliga klienter som använder den [implicit beviljande av OAuth 2.0](v1-oauth2-implicit-grant-flow.md) kan inte använda OBO-flödet. Dessa klienter måste ange sina åtkomst-token till en konfidentiell klient mellannivå att utföra OBO flöden. Mer information om vilka klienter som kan utföra OBO-anrop, finns i [Klientbegränsningar](#client-limitations).
+> Från och med maj 2018, ett `id_token` kan inte användas för On-Behalf-Of-flöde - SPA måste klara ett **åtkomst** token i en mellannivå konfidentiell klient för att utföra OBO flöden. Se [begränsningar](#client-limitations) för mer information som klienter kan utföra On-Behalf-Of-anrop.
 
 ## <a name="on-behalf-of-flow-diagram"></a>On-Behalf-Of flödesdiagram
 Anta att användaren har autentiserats på ett program med hjälp av den [flöde beviljat med OAuth 2.0-auktoriseringskod](v1-protocols-oauth-code.md). Programmet har nu en åtkomsttoken (token A) med det användar- och medgivande till att komma åt mellannivå webb-API (API-A). Nu kan måste API A göra en autentiserad begäran till underordnade webb-API (API-B).
@@ -202,7 +202,7 @@ Host: graph.windows.net
 Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6InowMzl6ZHNGdWl6cEJmQlZLMVRuMjVRSFlPMCIsImtpZCI6InowMzl6ZHNGdWl6cEJmQlZLMVRuMjVRSFlPMCJ9.eyJhdWQiOiJodHRwczovL2dyYXBoLndpbmRvd3MubmV0IiwiaXNzIjoiaHR0cHM6Ly9zdHMud2luZG93cy5uZXQvMjYwMzljY2UtNDg5ZC00MDAyLTgyOTMtNWIwYzUxMzRlYWNiLyIsImlhdCI6MTQ5MzQyMzE2OCwibmJmIjoxNDkzNDIzMTY4LCJleHAiOjE0OTM0NjY5NTEsImFjciI6IjEiLCJhaW8iOiJBU1FBMi84REFBQUE1NnZGVmp0WlNjNWdBVWwrY1Z0VFpyM0VvV2NvZEoveWV1S2ZqcTZRdC9NPSIsImFtciI6WyJwd2QiXSwiYXBwaWQiOiI2MjUzOTFhZi1jNjc1LTQzZTUtOGU0NC1lZGQzZTMwY2ViMTUiLCJhcHBpZGFjciI6IjEiLCJlX2V4cCI6MzAyNjgzLCJmYW1pbHlfbmFtZSI6IlRlc3QiLCJnaXZlbl9uYW1lIjoiTmF2eWEiLCJpcGFkZHIiOiIxNjcuMjIwLjEuMTc3IiwibmFtZSI6Ik5hdnlhIFRlc3QiLCJvaWQiOiIxY2Q0YmNhYy1iODA4LTQyM2EtOWUyZi04MjdmYmIxYmI3MzkiLCJwbGF0ZiI6IjMiLCJwdWlkIjoiMTAwMzNGRkZBMTJFRDdGRSIsInNjcCI6IlVzZXIuUmVhZCIsInN1YiI6IjNKTUlaSWJlYTc1R2hfWHdDN2ZzX0JDc3kxa1l1ekZKLTUyVm1Zd0JuM3ciLCJ0aWQiOiIyNjAzOWNjZS00ODlkLTQwMDItODI5My01YjBjNTEzNGVhY2IiLCJ1bmlxdWVfbmFtZSI6Im5hdnlhQGRkb2JhbGlhbm91dGxvb2sub25taWNyb3NvZnQuY29tIiwidXBuIjoibmF2eWFAZGRvYmFsaWFub3V0bG9vay5vbm1pY3Jvc29mdC5jb20iLCJ1dGkiOiJ4Q3dmemhhLVAwV0pRT0x4Q0dnS0FBIiwidmVyIjoiMS4wIn0.cqmUVjfVbqWsxJLUI1Z4FRx1mNQAHP-L0F4EMN09r8FY9bIKeO-0q1eTdP11Nkj_k4BmtaZsTcK_mUygdMqEp9AfyVyA1HYvokcgGCW_Z6DMlVGqlIU4ssEkL9abgl1REHElPhpwBFFBBenOk9iHddD1GddTn6vJbKC3qAaNM5VarjSPu50bVvCrqKNvFixTb5bbdnSz-Qr6n6ACiEimiI1aNOPR2DeKUyWBPaQcU5EAK0ef5IsVJC1yaYDlAcUYIILMDLCD9ebjsy0t9pj_7lvjzUSrbMdSCCdzCqez_MSNxrk1Nu9AecugkBYp3UVUZOIyythVrj6-sVvLZKUutQ
 ```
 ## <a name="client-limitations"></a>Klientbegränsningar
-Offentliga klienter med jokertecken svars-URL kan inte använda en `id_token` för OBO flöden. En konfidentiell klient kan dock fortfarande lösa in åtkomsttoken som köpts via implicit beviljande av flödet även om offentlig klient har jokertecken redirect URI-registreras.
+Offentliga klienter med jokertecken svars-URL kan inte använda en `id_token` för OBO flöden. Men en konfidentiell klient fortfarande lösa in **åtkomst** token som köpts via implicit beviljande av flödet, även om den offentliga klienten har ett jokertecken omdirigerings-URI som har registrerats.
 
 ## <a name="next-steps"></a>Nästa steg
 Läs mer om OAuth 2.0-protokollet och ett annat sätt att utföra tjänst till tjänst-autentisering via klientautentiseringsuppgifter.

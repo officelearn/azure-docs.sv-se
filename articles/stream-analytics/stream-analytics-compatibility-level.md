@@ -7,13 +7,13 @@ ms.author: jasonh
 manager: kfile
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 01/03/2018
-ms.openlocfilehash: 136b21f026d208c09b50dfa8601de692e518774e
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.date: 10/15/2018
+ms.openlocfilehash: 661aa85a200d4eafa1c521b06f6e12378d61e93e
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43699118"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49343596"
 ---
 # <a name="compatibility-level-for-azure-stream-analytics-jobs"></a>Kompatibilitetsnivån för Azure Stream Analytics-jobb
  
@@ -68,5 +68,5 @@ Följande viktiga ändringar har introducerats i kompatibilitetsnivå 1.1:
   * **aktuell version:** det finns inga fler automatiskt ”uppåt” av strängvärden med datum / / tidszonsinformation för DateTime-typen. Därför kan sparas informationen om tidszonen. 
 
 ## <a name="next-steps"></a>Nästa steg
-* [Felsökningsguide för Azure Stream Analytics](stream-analytics-troubleshooting-guide.md)
+* [Felsöka Azure Stream Analytics-indata](stream-analytics-troubleshoot-input.md)
 * [Stream Analytics Resource health-blad](stream-analytics-resource-health.md)

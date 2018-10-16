@@ -11,33 +11,37 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/12/2018
+ms.date: 10/15/2018
 ms.author: mabrigg
 ms.reviewer: alfredo
-ms.openlocfilehash: 9396d49f455f8f4af1abf7f0020e95e8fd0a14cc
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: 67e1e22bc5569e7d6e20332ee86ffe4c7dd6a354
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45729594"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49343851"
 ---
 # <a name="manage-tenant-registration-in-azure-stack"></a>Hantera klienten registrering i Azure Stack
 
 *Gäller för: integrerade Azure Stack-system*
 
-Den här artikeln innehåller information om åtgärder som du kan använda för att hantera din klient-registreringar och hur klientanvändning spåras. Du hittar information om hur du lägger till, lista, eller ta bort klient mappningar. Du kan använda PowerShell eller Billing API-slutpunkter för att hantera din användning spårning.
+Den här artikeln innehåller information om registreringsåtgärder. Du kan använda de här åtgärderna till:
+- Hantera registreringar för klient
+- Hantera spårning för användning av klient
+
+Du hittar information om hur du lägger till, lista, eller ta bort klient mappningar. Du kan använda PowerShell eller Billing API-slutpunkter för att hantera din användning spårning. Du hittar information om hur du lägger till, lista, eller ta bort klient mappningar. Du kan använda PowerShell eller Billing API-slutpunkter för att hantera din användning spårning.
 
 ## <a name="add-tenant-to-registration"></a>Lägg till klient till registreringen
 
-Du använder den här åtgärden när du vill lägga till en ny klient i din registrering, så att deras användning rapporteras under en Azure-prenumeration i samband med sina Azure Active Directory (Azure AD)-klient.
+Du använder åtgärden när du vill lägga till en ny klient i din registrering. Klientanvändning rapporteras under en Azure-prenumeration i samband med sina Azure Active Directory (Azure AD)-klient.
 
-Du kan också använda den här åtgärden om du vill ändra den prenumeration som är associerad med en klient, kan du anropa PUT/New-AzureRMResource igen. Gamla mappningen skrivs över.
+Du kan också använda åtgärden om du vill ändra den prenumeration som är associerad med en klient. Anropa PUT/New-AzureRMResource om du vill skriva över tidigare mappningen.
 
-Observera att endast en Azure-prenumeration kan associeras med en klient. Om du försöker lägga till en andra prenumerationen till en befintlig klient, är den första prenumerationen skrivas över. 
+Du kan associera en enda Azure-prenumeration med en klient. Om du försöker lägga till en andra prenumerationen till en befintlig klient, är den första prenumerationen skrivas över.
 
 ### <a name="use-api-profiles"></a>Använd API-profiler
 
-Cmdletar i den här artikeln kräver att du anger en API-profil när du kör PowerShell. API-profiler representerar en uppsättning Azure resursprovidrar och deras API-versioner. De hjälper dig att använda rätt version av API: et när du interagerar med flera Azure-moln, till exempel när du arbetar med globala Azure och Azure Stack. Profiler definieras av ett namn som matchar deras lanseringsdatum. Med den här artikeln kommer du behöva använda den **2017-09-03** profil.
+Registrering-cmdletar kräver att du anger en API-profil när du kör PowerShell. API-profiler representerar en uppsättning Azure resursprovidrar och deras API-versioner. De hjälper dig att använda rätt version av API: et när du interagerar med flera Azure-moln. Exempelvis kan arbeta du med flera moln när du arbetar med globala Azure och Azure Stack. Profiler ange ett namn som matchar deras lanseringsdatum. Du måste använda den **2017-09-03** profil.
 
 Läs mer om Azure Stack och API-profiler, [hantera API-versionsprofiler i Azure Stack](user/azure-stack-version-profiles.md). Anvisningar för att konfigurera och komma igång med API-profilen med PowerShell finns i [Använd API-versionsprofiler för PowerShell i Azure Stack](user/azure-stack-version-profiles-powershell.md).
 
@@ -46,7 +50,7 @@ Läs mer om Azure Stack och API-profiler, [hantera API-versionsprofiler i Azure 
 | Parameter                  | Beskrivning |
 |---                         | --- |
 | registrationSubscriptionID | Azure-prenumerationen som har använts för den första registreringen. |
-| customerSubscriptionID     | Azure-prenumerationen (inte Azure Stack) som hör till kunden som ska registreras. Måste skapas i erbjudandet Cloud Service Provider (CSP). I praktiken innebär detta via Partnercenter. Om en kund har fler än en klient, måste den här prenumerationen skapas i den klient som ska användas för att logga in på Azure Stack. |
+| customerSubscriptionID     | Azure-prenumerationen (inte Azure Stack) som hör till kunden som ska registreras. Måste skapas i Cloud Service Provider (CSP) erbjudandet via Partnercenter. Om en kund har fler än en klient, skapat en prenumeration att logga in på Azure Stack-klient. |
 | ResourceGroup              | Resursgruppen i Azure som är lagrade i din registrering. |
 | registrationName           | Namnet på registreringen av din Azure Stack. Det är ett objekt som lagras i Azure. Namnet är vanligtvis i formuläret azurestack-CloudID, där CloudID är moln-ID för Azure Stack-distributionen. |
 

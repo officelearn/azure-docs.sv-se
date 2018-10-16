@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 10/05/2018
-ms.openlocfilehash: 124e936b619e3078c71094156bf91a437a28492b
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: 77c761ce72449f91cf91c66219ebc815d1620e94
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48862792"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49343682"
 ---
 # <a name="azure-stream-analytics-preview-features"></a>Azure Stream Analytics-förhandsversionsfunktioner
 
@@ -67,9 +67,9 @@ Utvecklare kan nu användas för att implementera anpassade deserializers i C# f
 
 Nu är det möjligt att partitionera dina Azure Stream Analytics-utdata till Blob-lagring baserat på alla kolumner i frågan.
 
-### <a name="managed-service-identity-msi-authentication-to-azure-data-lake-storage"></a>Hanterad tjänstidentitet (MSI)-autentisering till Azure Data Lake Storage
+### <a name="managed-identities-for-azure-resources-authentication-to-azure-data-lake-storage"></a>Hanterade identiteter för autentisering av Azure-resurser till Azure Data Lake Storage
 
-Du kan nu utföra åtgärder i realtid pipelines med MSI-baserad autentisering vid skrivning till Azure Data Lake Storage Gen1 så att du kan skapa jobb programmässigt. För ytterligare information, besök [Använd hanterade identiteter för att autentisera Azure Stream Analytics-jobb till Azure Data Lake Storage Gen1 utdata](stream-analytics-managed-identities-adls.md).
+Du kan nu utföra åtgärder i realtid pipelines med hanterade identiteter för Azure-resurser baserat autentisering vid skrivning till Azure Data Lake Storage Gen1 så att du kan skapa jobb programmässigt. För ytterligare information, besök [Använd hanterade identiteter för Azure-resurser kan autentisera Azure Stream Analytics-jobb till Azure Data Lake Storage Gen1 utdata](stream-analytics-managed-identities-adls.md).
 
 ## <a name="next-steps"></a>Nästa steg
 

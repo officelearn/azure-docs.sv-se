@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 03/29/2018
 ms.author: cynthn
-ms.openlocfilehash: 03723b8653e42bca371f47e16657e7e973c257ae
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: 2cef9673469020d56e549709d6084f37d3a64b87
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44294994"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49341098"
 ---
 # <a name="how-to-use-packer-to-create-windows-virtual-machine-images-in-azure"></a>Hur du använder Packer för att skapa Windows-avbildningar i Azure
 Varje virtuell dator (VM) i Azure skapas från en avbildning som definierar den Windows-distribution och operativsystemsversion. Bilder kan innehålla förinstallerade program och konfigurationer. Azure Marketplace erbjuder många avbildningar av första och tredje part för de vanligaste OS och programmiljöer, eller skapa dina egna anpassade avbildningar som är specialanpassade utifrån dina behov. Den här artikeln beskriver hur du använder Verktyg för öppen källkod [Packer](https://www.packer.io/) att definiera och skapa anpassade avbildningar i Azure.
@@ -39,11 +39,11 @@ New-AzureRmResourceGroup -Name $rgName -Location $location
 ## <a name="create-azure-credentials"></a>Skapa Azure-autentiseringsuppgifter
 Packer autentiserar med Azure med ett huvudnamn för tjänsten. Ett huvudnamn för Azure-tjänsten är en säkerhetsidentitet som du kan använda med appar, tjänster och automatiseringsverktyg som Packer. Du kontrollerar och definiera behörigheter om vilka åtgärder som tjänstens huvudnamn kan utföra i Azure.
 
-Skapa ett tjänstobjekt med [New-AzureRmADServicePrincipal](/powershell/module/azurerm.resources/new-azurermadserviceprincipal) och tilldela behörigheter för tjänstens huvudnamn att skapa och hantera resurser med [New-AzureRmRoleAssignment](/powershell/module/azurerm.resources/new-azurermroleassignment):
+Skapa ett tjänstobjekt med [New-AzureRmADServicePrincipal](/powershell/module/azurerm.resources/new-azurermadserviceprincipal) och tilldela behörigheter för tjänstens huvudnamn att skapa och hantera resurser med [New-AzureRmRoleAssignment](/powershell/module/azurerm.resources/new-azurermroleassignment). Ersätt *&lt;lösenord&gt;* i exempel med ditt eget lösenord.  
 
 ```powershell
 $sp = New-AzureRmADServicePrincipal -DisplayName "AzurePacker" `
-    -Password (ConvertTo-SecureString "P@ssw0rd!" -AsPlainText -Force)
+    -Password (ConvertTo-SecureString "<password>" -AsPlainText -Force)
 Sleep 20
 New-AzureRmRoleAssignment -RoleDefinitionName Contributor -ServicePrincipalName $sp.ApplicationId
 ```

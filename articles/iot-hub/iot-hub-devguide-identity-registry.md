@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 08/29/2018
 ms.author: dobett
-ms.openlocfilehash: 3e6e42da7f3c1423ecf2de507f3c2f0257fbb21f
-ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
+ms.openlocfilehash: 6291350cab41c123b41f7fee811bf72a21d9ff35
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2018
-ms.locfileid: "49311243"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49319140"
 ---
 # <a name="understand-the-identity-registry-in-your-iot-hub"></a>Förstå identitetsregistret i IoT hub
 
@@ -198,6 +198,9 @@ Enhetsidentiteter representeras som JSON-dokument med följande egenskaper:
 > [!NOTE]
 > Anslutningsläge kan bara representera IoT Hub-vy över statusen för anslutningen. Uppdateringar till det här tillståndet kan fördröjas beroende på nätverkets tillstånd och konfigurationer.
 
+> [!NOTE]
+> För närvarande enheten SDK: er stöder inte användning av den `+` och `#` tecken i den **deviceId**.
+
 ## <a name="module-identity-properties"></a>Modulen identitetsegenskaper
 
 Modulen identiteter representeras som JSON-dokument med följande egenskaper:
@@ -216,6 +219,9 @@ Modulen identiteter representeras som JSON-dokument med följande egenskaper:
 | connectionState |skrivskyddad |Ett fält som anger status för användaranslutning: antingen **ansluten** eller **frånkopplad**. Det här fältet visar vyn IoT hubb för enhetens anslutningsstatus. **Viktiga**: det här fältet bör endast användas för utveckling/felsökning syften. Anslutningsstatus uppdateras endast för enheter med hjälp av MQTT eller AMQP. Dessutom den baseras på på protokollnivå pingar (MQTT pingar eller AMQP-ping) och den kan ha en maximal fördröjning på endast 5 minuter. Därmed behöver kan det finnas falska positiva identifieringar, t.ex. enheter rapporteras som är anslutna, men som inte är ansluten. |
 | connectionStateUpdatedTime |skrivskyddad |En temporal indikator som visar datum och tid för senaste status för anslutningen har uppdaterats. |
 | lastActivityTime |skrivskyddad |En temporal indikator som visar datum och tid för senaste enheten är ansluten, tas emot eller skickat ett meddelande. |
+
+> [!NOTE]
+> För närvarande enheten SDK: er stöder inte användning av den `+` och `#` tecken i den **deviceId** och **moduleId**.
 
 ## <a name="additional-reference-material"></a>Ytterligare referensmaterial
 

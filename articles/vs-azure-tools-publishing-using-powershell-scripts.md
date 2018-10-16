@@ -12,12 +12,12 @@ ms.workload: azure-vs
 ms.topic: conceptual
 ms.date: 11/11/2016
 ms.author: ghogen
-ms.openlocfilehash: dac5425f72ff57e412be664e1bc0c84aee3dec1f
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: 99d723eee6bd5b60289af5490e4b1cd6a855cabb
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "42060320"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49319157"
 ---
 # <a name="using-windows-powershell-scripts-to-publish-to-dev-and-test-environments"></a>Använda Windows PowerShell-skript för att publicera i utvecklings- och testmiljöer
 
@@ -52,6 +52,7 @@ Publicera skriptet innehåller specifika publicera stegen för att distribuera t
 Windows PowerShell-modulen som Visual Studio genererar innehåller funktioner som publicera skriptet använder. Dessa Azure PowerShell-funktioner är inte avsedda att ändras. Se [Så här installerar och konfigurerar du Azure PowerShell](/powershell/azure/overview).
 
 ### <a name="json-configuration-file"></a>JSON-konfigurationsfil
+
 JSON-fil skapas i den **konfigurationer** mapp och innehåller konfigurationsdata som anger exakt vilka resurser som ska distribueras till Azure. Namnet på den fil som Visual Studio genererar är projekt-namn-WAWS-dev.json om du har skapat en webbplats eller projekt namnet-VM-dev.json om du har skapat en virtuell dator. Här är ett exempel på en JSON-konfigurationsfil som genereras när du skapar en webbplats. De flesta av värdena är självförklarande. Namnet på webbplatsen skapas av Azure, så det inte kanske matchar ditt projektnamn.
 
 ```json
@@ -150,7 +151,7 @@ Om du har en webbplats som har flera distributionsmiljöer (kallas fack) i stäl
 
 Om du aldrig har kört ett Windows PowerShell-skript innan, måste du först ställa in körningsprincipen att aktivera skript körs. Principen är en säkerhetsfunktion för att förhindra att användare kör Windows PowerShell-skript om de är sårbara för skadlig kod eller virus som rör körning av skript.
 
-### <a name="run-the-script"></a>Kör skript
+### <a name="run-the-script"></a>Kör skriptet
 
 1. Skapa Web Deploy-paket för ditt projekt. Ett webbdistributionspaket är en komprimerad fil (ZIP-fil) som innehåller filer som du vill kopiera till din webbplats eller virtuell dator. Du kan skapa Web Deploy-paket i Visual Studio för webbprogram i alla.
 
@@ -159,29 +160,29 @@ Om du aldrig har kört ett Windows PowerShell-skript innan, måste du först st�
 Mer information finns i [så här: skapa ett Webbdistributionspaket i Visual Studio](https://msdn.microsoft.com/library/dd465323.aspx). Du kan även automatisera skapandet av din webbdistributionspaket, enligt beskrivningen i [anpassa och utöka publicera scripts[(#customizing-and-extending-publish-scripts)]
 
 1. I **Solution Explorer**, öppna snabbmenyn för skriptet och välj sedan **öppna med PowerShell ISE**.
-2. Om du kör Windows PowerShell-skript på den här datorn för första gången, öppna Kommandotolken med administratörsbehörighet och skriver du följande kommando:
+1. Om du kör Windows PowerShell-skript på den här datorn för första gången, öppna Kommandotolken med administratörsbehörighet och skriver du följande kommando:
 
     ```powershell
     Set-ExecutionPolicy RemoteSigned
     ```
 
-3. Logga in på Azure med hjälp av följande kommando.
+1. Logga in på Azure med hjälp av följande kommando.
 
     ```powershell
     Add-AzureAccount
     ```
 
-    När du uppmanas, anger du ditt användarnamn och lösenord.
+När du uppmanas, anger du ditt användarnamn och lösenord.
 
-    Observera att den här metoden för att tillhandahålla autentiseringsuppgifter för Azure inte fungerar när du automatiserar skriptet. I stället bör du använda den `.publishsettings` filen för att ange autentiseringsuppgifter. En gång kan du använda kommandot **Get-AzurePublishSettingsFile** att hämta filen från Azure och därefter använda **Import AzurePublishSettingsFile** att importera filen. Mer detaljerade anvisningar finns i [Installera och konfigurera Azure PowerShell](/powershell/azure/overview).
+Observera att den här metoden för att tillhandahålla autentiseringsuppgifter för Azure inte fungerar när du automatiserar skriptet. I stället bör du använda den `.publishsettings` filen för att ange autentiseringsuppgifter. En gång kan du använda kommandot **Get-AzurePublishSettingsFile** att hämta filen från Azure och därefter använda **Import AzurePublishSettingsFile** att importera filen. Mer detaljerade anvisningar finns i [Installera och konfigurera Azure PowerShell](/powershell/azure/overview).
 
-4. (Valfritt) Om du vill skapa Azure-resurser som den virtuella datorn, databas och en webbplats utan att publicera ditt webbprogram, använda den **publicera WebApplication.ps1** med den **-konfigurationen**argumentet inställt på JSON-konfigurationsfil. Den här kommandoraden använder JSON-konfigurationsfil för att avgöra vilka resurser för att skapa. Eftersom den använder standardinställningarna för andra argument på kommandoraden, skapar resurserna, men publicera inte ditt webbprogram. – Utförliga alternativet får du mer information om vad som händer.
+1. (Valfritt) Om du vill skapa Azure-resurser som den virtuella datorn, databas och en webbplats utan att publicera ditt webbprogram, använda den **publicera WebApplication.ps1** med den **-konfigurationen**argumentet inställt på JSON-konfigurationsfil. Den här kommandoraden använder JSON-konfigurationsfil för att avgöra vilka resurser för att skapa. Eftersom den använder standardinställningarna för andra argument på kommandoraden, skapar resurserna, men publicera inte ditt webbprogram. – Utförliga alternativet får du mer information om vad som händer.
 
     ```powershell
     Publish-WebApplication.ps1 -Verbose –Configuration C:\Path\WebProject-WAWS-dev.json
     ```
 
-5. Använd den **publicera WebApplication.ps1** kommandot som visas i något av följande exempel för att anropa skriptet och publicera ditt webbprogram. Om du vill åsidosätta standardinställningarna för någon av de övriga argument, till exempel prenumerationens namn, publicera paketnamn, autentiseringsuppgifter för virtuell dator eller server Databasautentiseringsuppgifter kan ange du dessa parametrar. Använd den **– utförlig** alternativet om du vill se mer information om förloppet för publiceringsprocessen.
+1. Använd den **publicera WebApplication.ps1** kommandot som visas i något av följande exempel för att anropa skriptet och publicera ditt webbprogram. Om du vill åsidosätta standardinställningarna för någon av de övriga argument, till exempel prenumerationens namn, publicera paketnamn, autentiseringsuppgifter för virtuell dator eller server Databasautentiseringsuppgifter kan ange du dessa parametrar. Använd den **– utförlig** alternativet om du vill se mer information om förloppet för publiceringsprocessen.
 
     ```powershell
     Publish-WebApplication.ps1 –Configuration C:\Path\WebProject-WAWS-dev-json `
@@ -191,27 +192,29 @@ Mer information finns i [så här: skapa ett Webbdistributionspaket i Visual Stu
     -Verbose
     ```
 
-    Om du skapar en virtuell dator, kommandot ser ut som följande. Det här exemplet visar också hur du anger autentiseringsuppgifterna för flera databaser. För de virtuella datorerna som dessa skript skapar, är SSL-certifikatet inte från en betrodd rotcertifikatutfärdare. Därför måste du använda den **– AllowUntrusted** alternativet.
+Om du skapar en virtuell dator, kommandot ser ut som följande. Det här exemplet visar också hur du anger autentiseringsuppgifterna för flera databaser. För de virtuella datorerna som dessa skript skapar, är SSL-certifikatet inte från en betrodd rotcertifikatutfärdare. Därför måste du använda den **– AllowUntrusted** alternativet.
 
-    ```powershell
-    Publish-WebApplication.ps1 `
-    -Configuration C:\Path\ADVM-VM-test.json `
-    -SubscriptionName Contoso `
-    -WebDeployPackage C:\Path\ADVM.zip `
-    -AllowUntrusted `
-    -VMPassword @{name = "vmUserName"; password = "YourPasswordHere"} `
-    -DatabaseServerPassword @{Name="server1";Password="adminPassword1"}, @{Name="server2";Password="adminPassword2"} `
-    -Verbose
-    ```
+```powershell
+Publish-WebApplication.ps1 `
+-Configuration C:\Path\ADVM-VM-test.json `
+-SubscriptionName Contoso `
+-WebDeployPackage C:\Path\ADVM.zip `
+-AllowUntrusted `
+-VMPassword @{name = "vmUserName"; password = "YourPasswordHere"} `
+-DatabaseServerPassword @{Name="server1";Password="adminPassword1"}, @{Name="server2";Password="adminPassword2"} `
+-Verbose
+```
 
-    Skriptet kan skapa databaser, men det skapar inte databasservrar. Om du vill skapa en databasserver kan du använda den **New AzureSqlDatabaseServer** funktionen i Azure-modulen.
+Skriptet kan skapa databaser, men det skapar inte databasservrar. Om du vill skapa en databasserver kan du använda den **New AzureSqlDatabaseServer** funktionen i Azure-modulen.
 
 ## <a name="customizing-and-extending-the-publish-scripts"></a>Anpassa och utöka publicera-skript
+
 Du kan anpassa publicera skript och JSON-konfigurationsfil. Funktioner i Windows PowerShell-modulen **AzureWebAppPublishModule.psm1** är inte avsedda att ändras. Om du bara vill ange en annan databas eller ändra några av egenskaperna för den virtuella datorn kan du redigera JSON-konfigurationsfil. Om du vill utöka funktionerna i skript för att automatisera att skapa och testa ditt projekt kan du implementera funktionen platshållare i **publicera WebApplication.ps1**.
 
 Om du vill automatisera och bygga projektet, lägger du till kod som anropar MSBuild till `New-WebDeployPackage` som visas i det här kodexemplet. Sökvägen till MSBuild-kommandot är olika beroende på vilken version av Visual Studio som du har installerat. Du kan använda funktionen för att få rätt sökväg, **Get-MSBuildCmd**, vilket visas i det här exemplet.
 
 ### <a name="to-automate-building-your-project"></a>Att automatisera och bygga projektet
+
 1. Lägg till den `$ProjectFile` parametern i det globala param-avsnittet.
 
     ```powershell
@@ -221,7 +224,7 @@ Om du vill automatisera och bygga projektet, lägger du till kod som anropar MSB
     $ProjectFile,
     ```
 
-2. Kopiera funktionen `Get-MSBuildCmd` i skriptet.
+1. Kopiera funktionen `Get-MSBuildCmd` i skriptet.
 
     ```powershell
     function Get-MSBuildCmd
@@ -242,7 +245,7 @@ Om du vill automatisera och bygga projektet, lägger du till kod som anropar MSB
     }
     ```
 
-3. Ersätt `New-WebDeployPackage` med följande kod och Ersätt platshållarna rad konstruera `$msbuildCmd`. Den här koden är för Visual Studio 2017. Om du använder Visual Studio 2015, ändra den **VisualStudioVersion** egenskap `14.0` (`12.0` för Visual Studio 2013).
+1. Ersätt `New-WebDeployPackage` med följande kod och Ersätt platshållarna rad konstruera `$msbuildCmd`. Den här koden är för Visual Studio 2017. Om du använder Visual Studio 2015, ändra den **VisualStudioVersion** egenskap `14.0` (`12.0` för Visual Studio 2013).
 
     ```powershell
     function New-WebDeployPackage
@@ -250,15 +253,15 @@ Om du vill automatisera och bygga projektet, lägger du till kod som anropar MSB
         #Write a function to build and package your web application
     ```
 
-    Använd MsBuild.exe för att skapa ditt webbprogram. Hjälp finns i MSBuild Kommandoradsreferens på: [http://go.microsoft.com/fwlink/?LinkId=391339](http://go.microsoft.com/fwlink/?LinkId=391339)
+Använd MsBuild.exe för att skapa ditt webbprogram. Hjälp finns i MSBuild Kommandoradsreferens på: [http://go.microsoft.com/fwlink/?LinkId=391339](http://go.microsoft.com/fwlink/?LinkId=391339)
 
-    ```powershell
-    Write-VerboseWithTime 'Build-WebDeployPackage: Start'
+```powershell
+Write-VerboseWithTime 'Build-WebDeployPackage: Start'
 
-    $msbuildCmd = '"{0}" "{1}" /T:Rebuild;Package /P:VisualStudioVersion=15.0 /p:OutputPath="{2}\MSBuildOutputPath" /flp:logfile=msbuild.log,v=d' -f (Get-MSBuildCmd), $ProjectFile, $scriptDirectory
+$msbuildCmd = '"{0}" "{1}" /T:Rebuild;Package /P:VisualStudioVersion=15.0 /p:OutputPath="{2}\MSBuildOutputPath" /flp:logfile=msbuild.log,v=d' -f (Get-MSBuildCmd), $ProjectFile, $scriptDirectory
 
-    Write-VerboseWithTime ('Build-WebDeployPackage: ' + $msbuildCmd)
-    ```
+Write-VerboseWithTime ('Build-WebDeployPackage: ' + $msbuildCmd)
+```
 
 ### <a name="start-execution-of-the-build-command"></a>Starta körning av build-kommandot
 
@@ -293,7 +296,7 @@ return $WebDeployPackage
     }
     ```
 
-2. Anropa anpassade skriptet från kommandoraden med hjälp av skicka den `$Project` argument, som i följande exempel:
+1. Anropa anpassade skriptet från kommandoraden med hjälp av skicka den `$Project` argument, som i följande exempel:
 
     ```powershell
     .\Publish-WebApplicationVM.ps1 -Configuration .\Configurations\WebApplication5-VM-dev.json `
@@ -303,9 +306,10 @@ return $WebDeployPackage
     -Verbose
     ```
 
-    Lägg till kod för att automatisera testning av ditt program, `Test-WebApplication`. Se till att ta bort kommentarerna raderna i **publicera WebApplication.ps1** där dessa funktioner anropas. Om du inte anger en implementering kan du manuellt skapa projektet med Visual Studio och kör sedan skriptet publicera för att publicera på Azure.
+Lägg till kod för att automatisera testning av ditt program, `Test-WebApplication`. Se till att ta bort kommentarerna raderna i **publicera WebApplication.ps1** där dessa funktioner anropas. Om du inte anger en implementering kan du manuellt skapa projektet med Visual Studio och kör sedan skriptet publicera för att publicera på Azure.
 
 ## <a name="publishing-function-summary"></a>Sammanfattning av Publishing funktioner
+
 Om du vill få hjälp med funktioner som du kan använda Kommandotolken för Windows PowerShell, använder du kommandot `Get-Help function-name`. Hjälpen innehåller parametern hjälp och exempel. Samma hjälptexten finns också i skriptet källfilerna **AzureWebAppPublishModule.psm1** och **publicera WebApplication.ps1**. Skript och hjälp är lokaliserade på ditt språk för Visual Studio.
 
 **AzureWebAppPublishModule**

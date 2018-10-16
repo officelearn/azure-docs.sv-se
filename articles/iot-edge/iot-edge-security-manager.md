@@ -2,19 +2,19 @@
 title: Azure IoT Edge-säkerhetshanteraren | Microsoft Docs
 description: Hanterar den IoT Edge-enhet security effekten av åtgärder och integriteten för säkerhetstjänster.
 services: iot-edge
-keywords: säkerhet, element, enklaven, IoT Edge
+keywords: säkerhet, säker element, enklaven, TEE, IoT Edge
 author: eustacea
 manager: timlt
 ms.author: eustacea
 ms.date: 07/30/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 4594685291396b8b80e62abe57be109f0abbd81d
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: f0e548cdd1c59dc894899ddbac127dd76db7db26
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46126351"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49321197"
 ---
 # <a name="azure-iot-edge-security-manager"></a>Azure IoT Edge-säkerhetshanteraren
 
@@ -113,7 +113,7 @@ HSM-PAL avlägsnar alla roten av förtroende maskinvara för att isolera utveckl
 
 ## <a name="secure-silicon-root-of-trust-hardware"></a>Säker silicon roten förtroende maskinvara
 
-Säker silicon är nödvändigt att förtroendeankare förtroende i IoT Edge-enhet maskinvara.  Säker silicon finnas i olika att inkludera Trusted Platform Module (TPM), inbäddade säker Element (eSM), ARM Trustzone, Intel SGX och anpassade säker silicon tekniker.  Användning av säker silicon förtroenderoten i enheter rekommenderas starkt beroende hot som är associerade med fysiskt tillgängligheten för IoT-enheter.
+Säker silicon är nödvändigt att förtroendeankare förtroende i IoT Edge-enhet maskinvara.  Säker silicon finnas i olika att inkludera Trusted Platform Module (TPM), inbäddade säker Element (eSE), ARM TrustZone, Intel SGX och anpassade säker silicon tekniker.  Användning av säker silicon förtroenderoten i enheter rekommenderas starkt beroende hot som är associerade med fysiskt tillgängligheten för IoT-enheter.
 
 ## <a name="iot-edge-security-manager-integration-and-maintenance"></a>IoT Edge security manager-integrering och underhåll
 

@@ -1,67 +1,67 @@
 ---
-title: Lägga till scope som kör åtgärder baserat på Gruppstatus - Azure Logic Apps | Microsoft Docs
+title: Lägga till scope som kör åtgärder baserat på status för distributionsgrupp – Azure Logic Apps | Microsoft Docs
 description: Så här skapar du scope som kör arbetsflödesåtgärder baserat på status för grupp-åtgärd i Azure Logic Apps
 services: logic-apps
 ms.service: logic-apps
+ms.suite: integration
 author: ecfan
 ms.author: estfan
 manager: jeconnoc
-ms.date: 03/05/2018
-ms.topic: article
 ms.reviewer: klam, LADocs
-ms.suite: integration
-ms.openlocfilehash: 1258175eb3d28d39be8be08498ba8d2e0998aa43
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.date: 10/03/2018
+ms.topic: article
+ms.openlocfilehash: ac184ce790a0700fcacc63f70c2bb321142d7224
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35298822"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49320551"
 ---
-# <a name="create-scopes-that-run-workflow-actions-based-on-group-status-in-azure-logic-apps"></a>Skapa scope som kör arbetsflödesåtgärder baserat på Gruppstatus för i Azure Logic Apps
+# <a name="run-actions-based-on-group-status-with-scopes-in-azure-logic-apps"></a>Kör åtgärder baserat på status för distributionsgrupp med omfång i Azure Logic Apps
 
-Om du vill köra åtgärder när en annan grupp av åtgärder lyckas eller misslyckas, gruppera dessa åtgärder i en *omfång*. Den här strukturen är användbart när du vill ordna åtgärder som en logisk grupp, utvärdera gruppens status och utföra åtgärder som är baserade på scopets status. När alla åtgärder i en omfattning klara så hämtar omfånget också sin egen status. Du kan till exempel använda scope när du vill implementera [undantag och felhantering](../logic-apps/logic-apps-exception-handling.md#scopes). 
+För att köra åtgärder när en annan grupp av åtgärder lyckas eller misslyckas, gruppera dessa åtgärder i en *omfång*. Den här strukturen är användbart när du vill ordna åtgärder som en logisk grupp, utvärdera gruppens status och utföra åtgärder som baseras på scopets status. När alla åtgärder i ett omfång slutföras, hämtar omfånget även dess egna status. Du kan till exempel använda omfång när du vill implementera [undantag och felhantering](../logic-apps/logic-apps-exception-handling.md#scopes). 
 
-Om du vill kontrollera status för ett omfång kan du använda samma villkor som används för att fastställa en logik appar kör status, till exempel ”Succeeded”, ”misslyckades”, ”avbrott” och så vidare. Som standard när alla omfattningar åtgärder lyckas markeras scopets status ”lyckades”. Men om alla åtgärder i omfånget misslyckas eller avbryts, scope har status ”misslyckades”. Gränserna för scope finns [gränser och config](../logic-apps/logic-apps-limits-and-config.md). 
+Du kan kontrollera status för ett omfång du kan använda samma villkor som används för att fastställa en logic apps kör status, till exempel ”Succeeded”, ”misslyckades”, ”annullerad” och så vidare. Som standard när alla omfattningar åtgärder lyckas markeras scopets status ”Succeeded”. Men om alla åtgärden misslyckas eller avbryts, scopets status är märkt ”misslyckades”. Gränser för scope för finns i [begränsningar och konfigurationer](../logic-apps/logic-apps-limits-and-config.md). 
 
-Här är till exempel en övergripande logikappen som använder ett scope för att köra specifika åtgärder och ett villkor för att kontrollera scopets status. Om alla åtgärder i omfånget inte, eller avslutas oväntat omfång har markerats som ”misslyckades” eller ”avbrutet” respektive och logikappen skickar meddelandet ”Scope misslyckades”. Om åtgärderna som omfattas lyckas skickar logikappen meddelandet ”Scope lyckades”.
+Här är till exempel en övergripande logikapp som använder en omfattning för att köra specifika åtgärder och ett villkor för att kontrollera scopets status. Om alla åtgärder i omfånget misslyckas eller avslutas oväntat, omfång har markerats ”misslyckades” eller ”avbrutet” respektive och logikappen skickar ett meddelande med ”omfång misslyckades”. Om alla begränsade åtgärder lyckas skickar logikappen ett ”omfång lyckades”-meddelande.
 
-![Ställ in ”Schemalägg--återkommande” utlösare](./media/logic-apps-control-flow-run-steps-group-scopes/scope-high-level.png)
+![Konfigurera utlösaren ”schema – återkommande”](./media/logic-apps-control-flow-run-steps-group-scopes/scope-high-level.png)
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-Om du vill följa exemplet i den här artikeln, vad du behöver:
+Om du vill följa exemplet i den här artikeln behöver du följande objekt:
 
 * En Azure-prenumeration. Om du inte har någon prenumeration kan du [registrera ett kostnadsfritt Azure-konto](https://azure.microsoft.com/free/). 
 
-* Ett e-postkonto från alla e-providern stöds av Logic Apps. Det här exemplet använder Outlook.com. Om du använder en annan provider det allmänna flödet förblir oförändrat, men ditt användargränssnitt visas olika.
+* Ett e-postkonto från valfri e-postleverantör som stöds av Logic Apps. Det här exemplet använder Outlook.com. Om du använder en annan leverantör det allmänna flödet alltid densamma, men Användargränssnittet visas olika.
 
-* En Bing Maps-nyckel. Den här nyckeln finns <a href="https://msdn.microsoft.com/library/ff428642.aspx" target="_blank">få en nyckel för Bing Maps</a>.
+* En Bing Maps-nyckel. Den här nyckeln finns <a href="https://msdn.microsoft.com/library/ff428642.aspx" target="_blank">hämtar en Bing Maps-nyckel</a>.
 
-* Grundläggande kunskaper om [skapa logikappar](../logic-apps/quickstart-create-first-logic-app-workflow.md)
+* Grundläggande kunskaper om [hur du skapar logikappar](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 
-## <a name="create-sample-logic-app"></a>Skapa exempel logikapp
+## <a name="create-sample-logic-app"></a>Skapa exempellogikappen
 
-Börja med att skapa det här exemplet logikappen så att du kan lägga till ett scope senare:
+Börja med att skapa den här exempellogikappen så att du kan lägga till ett scope senare:
 
-![Skapa exempel logikapp](./media/logic-apps-control-flow-run-steps-group-scopes/finished-sample-app.png)
+![Skapa exempellogikappen](./media/logic-apps-control-flow-run-steps-group-scopes/finished-sample-app.png)
 
-* En **schema - upprepning** utlösare som kontrollerar Bing Maps-tjänsten vid ett intervall som du anger
-* En **Bing Maps - Get-väg** åtgärd som söker resa tiden mellan två platser
-* En villkorlig sats som kontrollerar om tid överskrider en angiven tid
-* En åtgärd som skickar e-post som aktuell tid är större än den angivna tiden
+* En **schema – återkommande** utlösare som kontrollerar Bing Maps-tjänsten med ett intervall som du anger
+* En **Bing Maps - Get route** åtgärd som kontrollerar restiden mellan två platser
+* En villkorlig sats som kontrollerar om restiden överskrider din angivna restiden
+* En åtgärd som skickar e-post den aktuella restiden överskrider din angiven tid
 
-Du kan spara logikappen när som helst, så du bör spara ditt arbete ofta.
+Du kan spara din logikapp när som helst, så spara ditt arbete ofta.
 
 1. Logga in på den <a href="https://portal.azure.com" target="_blank">Azure-portalen</a>, om du inte redan har gjort. Skapa en tom logikapp.
 
-2. Lägg till den **schema - upprepning** utlösare med dessa inställningar: **intervall** = ”1” och **frekvens** = ”minuter”
+1. Lägg till den **schema – återkommande** utlösaren med de här inställningarna: **intervall** = ”1” och **frekvens** = ”Minute”
 
-   ![Ställ in ”Schemalägg--återkommande” utlösare](./media/logic-apps-control-flow-run-steps-group-scopes/recurrence.png)
+   ![Konfigurera utlösaren ”schema – återkommande”](./media/logic-apps-control-flow-run-steps-group-scopes/recurrence.png)
 
    > [!TIP]
-   > Dölja varje åtgärd form slutföra de här stegen för att förenkla vyn visuellt och dölja information för varje åtgärd i designern.
+   > Minimera form för varje åtgärd slutföra de här stegen för att förenkla vyn visuellt och dölja information om varje åtgärd i designern.
 
-3. Lägg till den **Bing Maps - Get-väg** åtgärd. 
+1. Lägg till den **Bing Maps - Get route** åtgärd. 
 
    1. Om du inte redan har en Bing Maps-anslutning, uppmanas du att skapa en anslutning.
 
@@ -71,137 +71,170 @@ Du kan spara logikappen när som helst, så du bör spara ditt arbete ofta.
       | **API-nyckel** | <*your-Bing-Maps-key*> | Ange Bing Maps-nyckeln som du fick tidigare. | 
       ||||  
 
-   2. Ställ in din **Get väg** åtgärd enligt tabellen nedan avbildningen:
+   1. Konfigurera din **Get route** åtgärd enligt tabellen under den här bilden:
 
-      ![Ställ in ”Bing Maps - Get-väg” åtgärd](./media/logic-apps-control-flow-run-steps-group-scopes/get-route.png) 
+      ![Ställa in ”Bing Maps - Get route” åtgärd](./media/logic-apps-control-flow-run-steps-group-scopes/get-route.png) 
 
       Mer information om dessa parametrar finns [Calculate a route](https://msdn.microsoft.com/library/ff701717.aspx) (Beräkna en resväg).
 
       | Inställning | Värde | Beskrivning |
       | ------- | ----- | ----------- |
-      | **Waypoint 1** (Platsmarkör 1) | <*Starta*> | Ange din väg ursprung. | 
-      | **Waypoint 2** (Platsmarkör 2) | <*End*> | Ange din väg mål. | 
-      | **Avoid** (Undvik) | Ingen | Ange objekt för att undvika längs vägen, till exempel väg, vägtullar, och så vidare. Möjliga värden finns i [beräkna en väg](https://msdn.microsoft.com/library/ff701717.aspx). | 
-      | **Optimize** (Optimera) | timeWithTraffic | Välj en parameter för att optimera din flödet, till exempel avståndet, tid med aktuell trafikinformation om och så vidare. Det här värdet används i det här exemplet: ”timeWithTraffic” | 
-      | **Avståndsenhet** | <*your-preference*> | Ange avståndet enhet för att beräkna rutten. Det här värdet används i det här exemplet: ”mil” | 
-      | **Travel mode** (Färdsätt) | Driving (Bil) | Ange läget för resa för din vägen. Det här exemplet använder det här värdet ”driva” | 
+      | **Waypoint 1** (Platsmarkör 1) | <*Starta*> | Ange resvägen. | 
+      | **Waypoint 2** (Platsmarkör 2) | <*slutpunkt*> | Ange slutpunkten för resvägen. | 
+      | **Avoid** (Undvik) | Ingen | Ange objekt för att undvika vägen, till exempel motorvägar, vägtullar, och så vidare. Möjliga värden finns i [beräkna en väg](https://msdn.microsoft.com/library/ff701717.aspx). | 
+      | **Optimize** (Optimera) | timeWithTraffic | Välj en parameter för att optimera färdvägen, till exempel avstånd, med information om aktuella trafik och så vidare. Det här exemplet används det här värdet: ”timeWithTraffic” | 
+      | **Avståndsenhet** | <*your-preference*> | Ange avståndet enhet för att beräkna din resväg. Det här exemplet används det här värdet: ”Mile” | 
+      | **Travel mode** (Färdsätt) | Driving (Bil) | Ange färdmedlet för din resväg. Det här exemplet används det här värdet ”körkort” | 
       | **Transit Date-Time** (Tid/datum för kollektivtrafik) | Ingen | Gäller endast överföring-läge. | 
-      | **Överföring datum-typ** | Ingen | Gäller endast överföring-läge. | 
+      | **Överföring Datumtyp typ** | Ingen | Gäller endast överföring-läge. | 
       ||||  
 
-4. Lägg till ett villkor att kontrollera huruvida den aktuella tid med trafik överskrider en angiven tid. Följ stegen i den här avbildningen i det här exemplet:
+1. [Lägg till ett villkor](../logic-apps/logic-apps-control-flow-conditional-statement.md) som kontrollerar om den aktuella restiden med trafik överskrider en angiven tid. Följ anvisningarna i det här exemplet:
 
-   ![Skapa villkor](./media/logic-apps-control-flow-run-steps-group-scopes/build-condition.png)
+   1. Byt namn på villkoret med den här beskrivningen: **om tiden för trafik är mer än en angiven tid**
 
-   1. Byt namn på villkoret med den här beskrivningen: **trafik tid om mer än angiven tid**
+   1. I kolumnen längst till vänster klickar du i den **Välj ett värde** rutan så visas listan med dynamiskt innehåll. Från listan, Välj den **Travel Duration Traffic** fält som är i sekunder. 
 
-   2. I listan, väljer du den **resa varaktighet trafik** fältet, som är i sekunder. 
+      ![Skapa villkor](./media/logic-apps-control-flow-run-steps-group-scopes/build-condition.png)
 
-   3. För jämförelseoperatorn, väljer du den här operatorn: **är större än**
+   1. I den mellersta rutan väljer du operatorn: **är större än**
 
-   4. Värdet för jämförelse, ange **600**, vilket är i sekunder och motsvarande till 10 minuter.
+   1. I kolumnen längst till höger anger du den här Jämförelsevärde som är i sekunder och equivlent till 10 minuter: **600**
 
-5. I villkoret **om värdet är true** Förgrena, lägga till en ”skicka e-post”-åtgärd för e-post-providern. Ställ in den här åtgärden med informationen som visas i tabellen i den här avbildningen:
+      När du är klar ser villkoret ut som i det här exemplet:
 
-   ![Lägg till ”skicka ett e-postmeddelande” åtgärd ”om värdet är true” gren](./media/logic-apps-control-flow-run-steps-group-scopes/send-email.png)
+      ![Klar villkor](./media/logic-apps-control-flow-run-steps-group-scopes/finished-condition.png)
 
-   1. För den **till** , ange din e-postadress för testning.
+1. I den **om värdet är true** grenen, lägga till en ”skicka e-post”-åtgärd för din e-postleverantör. Ställ in den här åtgärden genom att följa stegen under den här bilden:
 
-   2. För den **ämne** anger du den här texten:
+   ![Lägga till ”skicka ett e-postmeddelande” åtgärd i ”om det är SANT” gren](./media/logic-apps-control-flow-run-steps-group-scopes/send-email.png)
+
+   1. I den **till** , ange din e-postadress för testning.
+
+   1. I den **ämne** fältet, anger du den här texten:
 
       ```Time to leave: Traffic more than 10 minutes```
 
-   3. För den **brödtext** anger du den här texten med ett avslutande blanksteg: 
+   1. I den **brödtext** fältet, anger du texten med ett avslutande blanksteg: 
 
       ```Travel time: ```
 
-      Medan du markören visas i den **brödtext** fältet dynamisk innehållslistan förblir öppen så att du kan välja de parametrar som är tillgängliga nu.
+      Medan du markören visas i den **brödtext** fält, den dynamiska innehållslistan förblir öppen så att du kan välja alla parametrar som är tillgängliga i det här läget.
 
-   4. Välj **Expression** (Uttryck) i listan med dynamiskt innehåll.
+   1. Välj **Expression** (Uttryck) i listan med dynamiskt innehåll.
 
-   5. Leta upp och markera den **div ()** funktion.
+   1. Sök efter och välj den **div()** funktion. 
+   Placera markören i i funktionens parentes.
 
-   6. Även om markören är i funktionens parenteser, Välj **dynamiskt innehåll** så att du kan lägga till den **trafik varaktighet trafik** parametern nästa.
-
-   7. Under **Get väg** Välj i listan dynamic-parametern i **trafik varaktighet trafik** fältet.
+   1. Markören är i funktionens parenteser, Välj **dynamiskt innehåll** så att den dynamiska innehållslistan visas. 
+   
+   1. Från den **Get route** väljer den **trafik varaktighet trafik** fält.
 
       ![Välj ”trafik varaktighet trafik”](./media/logic-apps-control-flow-run-steps-group-scopes/send-email-2.png)
 
-   8. När fältet motsvarar JSON-format, lägga till en **kommatecken** (```,```) följt av numret ```60``` så att du konverterar värdet i **trafik varaktighet trafik** från sekunder minuter. 
+   1. När fältet matchar JSON-format, lägga till en **kommatecken** (```,```) följt av numret ```60``` så att du konverterar värdet i **trafik varaktighet trafik** från sekunder till minuter. 
    
       ```
       div(body('Get_route')?['travelDurationTraffic'],60)
       ```
 
-      Uttrycket nu ser ut som i det här exemplet:
+      Uttrycket nu ser ut som i följande exempel:
 
-      ![Slut uttryck](./media/logic-apps-control-flow-run-steps-group-scopes/send-email-3.png)  
+      ![Slut uttrycket](./media/logic-apps-control-flow-run-steps-group-scopes/send-email-3.png)  
 
-   9. Se till att du väljer **OK** när du är klar.
+   1. När du är klar väljer **OK**.
 
-  10. När uttrycket matchar, lägger du till den här texten med ett inledande blanksteg: ``` minutes```
+  1. När uttrycket matchar, lägger du till den här texten med ett inledande blanksteg: ``` minutes```
   
-      Din **brödtext** fältet nu ser ut som i det här exemplet:
+     Din **brödtext** fältet ser ut som i det här exemplet:
 
-      ![Fältet klar ”brödtext”](./media/logic-apps-control-flow-run-steps-group-scopes/send-email-4.png)
+     ![Klar ”Body”-fält](./media/logic-apps-control-flow-run-steps-group-scopes/send-email-4.png)
 
-6. Spara din logikapp.
+1. Spara din logikapp.
 
-Sedan lägger till ett scope så att du kan gruppera specifika åtgärder och utvärdera deras status.
+Lägg sedan till ett omfång så att du kan gruppera specifika åtgärder och utvärdera deras status.
 
 ## <a name="add-a-scope"></a>Lägg till Omfång
 
-1. Om du inte redan gjort öppna logikappen i logik App Designer. 
+1. Om du inte redan gjort öppna logikappen i Logic App Designer. 
 
-2. Lägga till ett scope på arbetsflödet plats som du vill. Exempel:
+1. Lägga till ett scope på arbetsflödet plats som du vill. Till exempel om du vill lägga till ett scope mellan befintliga stegen i logikapparbetsflöde, Följ dessa steg: 
 
-   * Om du vill lägga till ett scope mellan befintliga stegen i logik app arbetsflödet muspekaren på pilen där du vill lägga till området. 
-   Välj den **plustecknet** (**+**) > **lägga till ett scope**.
+   1. Flyttar du pekaren över pilen där du vill lägga till området. 
+   Välj den **plustecknet** (**+**) > **Lägg till en åtgärd**.
 
-     ![Lägg till Omfång](./media/logic-apps-control-flow-run-steps-group-scopes/add-scope.png)
+      ![Lägg till Omfång](./media/logic-apps-control-flow-run-steps-group-scopes/add-scope.png)
 
-     När du vill lägga till ett scope i slutet av arbetsflödet, längst ned i din logikapp, Välj **+ nytt steg** > **... Flera** > **lägga till ett scope**.
+   1. I sökrutan anger du ”omfång” som filter. 
+   Välj den **omfång** åtgärd.
 
-3. Nu lägga till stegen eller dra befintliga steg som du vill köra inuti scope. Dra åtgärderna i omfånget för det här exemplet:
+## <a name="add-steps-to-scope"></a>Lägg till steg i omfång
+
+1. Nu lägger till stegen eller dra befintliga steg som du vill köra i omfånget. Dra åtgärderna i omfattningen för det här exemplet:
       
    * **Hämta väg**
-   * **Trafik tid om mer än angiven tid**, vilket omfattar både den **SANT** och **FALSKT** filialer
+   * **Om tiden för trafik är mer än en angiven tid**, som innehåller både den **SANT** och **FALSKT** grenar
 
-   Din logikapp nu ser ut som i det här exemplet:
+   Din logikapp nu ser ut som i följande exempel:
 
    ![Omfång som har lagts till](./media/logic-apps-control-flow-run-steps-group-scopes/scope-added.png)
 
-4. Lägg till ett villkor som kontrollerar scopets status under omfång. Byt namn på villkoret med den här beskrivningen: **om scope misslyckades**
+1. Lägg till ett villkor som kontrollerar scopets status under omfånget. Byt namn på villkoret med den här beskrivningen: **om omfång misslyckades**
 
-   ![Lägg till villkor för att kontrollera status för scope](./media/logic-apps-control-flow-run-steps-group-scopes/add-condition-check-scope-status.png)
+   ![Lägg till villkor för att kontrollera status för omfång](./media/logic-apps-control-flow-run-steps-group-scopes/add-condition-check-scope-status.png)
   
-5. Skapa den här uttryck som kontrollerar om scopets status är lika med `Failed` eller `Aborted`.
+1. Lägg till dessa uttryck som kontrollerar om scopets status är lika med ”misslyckades” eller ”avbrutet” i villkoret. 
 
-   ![Lägg till uttryck som kontrollerar scopets status](./media/logic-apps-control-flow-run-steps-group-scopes/build-expression-check-scope-status.png)
+   1. Om du vill lägga till en ny rad, Välj **Lägg till**. 
 
-   Eller om du vill ange det här uttrycket som text, Välj **redigera i Avancerat läge**.
+   1. Klicka i den vänstra rutan så att den dynamiska innehållslistan visas i varje rad. 
+   Från den dynamiska innehållslistan, väljer **uttryck**. Ange det här uttrycket i rutan och välj sedan **OK**: 
+   
+      `result('Scope')[0]['status']`
 
-   ```@equals('@result(''Scope'')[0][''status'']', 'Failed, Aborted')```
+      ![Lägg till uttryck som kontrollerar scopets status](./media/logic-apps-control-flow-run-steps-group-scopes/check-scope-status.png)
 
-6. I den **om värdet är true** och **om falskt** filialer, lägga till de åtgärder som du vill utföra, till exempel skicka e-post eller ett meddelande.
+   1. Välj för båda rader **är lika med** som operatör. 
+   
+   1. För jämförelse-värdena i den första raden anger `Failed`. 
+   I den andra raden anger `Aborted`. 
 
-   ![Lägg till uttryck som kontrollerar scopets status](./media/logic-apps-control-flow-run-steps-group-scopes/handle-true-false-branches.png)
+      När du är klar ser villkoret ut som i det här exemplet:
 
-7. Spara din logikapp.
+      ![Lägg till uttryck som kontrollerar scopets status](./media/logic-apps-control-flow-run-steps-group-scopes/check-scope-status-finished.png)
 
-Din färdiga logikapp nu ser ut som om det här exemplet med alla former expanderas:
+      Nu ska du ange villkoret `runAfter` egenskapen så att villkoret kontrollerar status för omfång och kör instruktionen matchande som du definierar i senare steg.
 
-![Klar logikapp med scope](./media/logic-apps-control-flow-run-steps-group-scopes/scopes-overview.png)
+   1. På den **om omfång misslyckades** villkoret, Välj den **ellipsen** (...) knappen och välj sedan **konfigurera körning efter**.
+
+      ![Konfigurera 'runAfter-egenskapen](./media/logic-apps-control-flow-run-steps-group-scopes/configure-run-after.png)
+
+   1. Välj alla dessa scope statusar: **lyckas**, **misslyckades**, **hoppas över**, och **har nått sin tidsgräns**
+
+      ![Välj omfattning statusar](./media/logic-apps-control-flow-run-steps-group-scopes/select-run-after-statuses.png)
+
+   1. När du är klar väljer **klar**. 
+   Villkoret visar nu en ”information”-ikon.
+
+1. I den **om värdet är true** och **om falskt** grenar, lägga till de åtgärder som du vill utföra baserat på varje omfång status, till exempel skicka ett e-post eller ett meddelande.
+
+   ![Lägga till åtgärder ska utföras baserat på status för omfång](./media/logic-apps-control-flow-run-steps-group-scopes/handle-true-false-branches.png)
+
+1. Spara din logikapp.
+
+Din logikapp nu ser ut som i följande exempel:
+
+![Färdig logikapp med omfattning](./media/logic-apps-control-flow-run-steps-group-scopes/scopes-overview.png)
 
 ## <a name="test-your-work"></a>Testa ditt arbete
 
-Välj verktygsfältet designer **kör**. Om åtgärderna som omfattas lyckas visas ett meddelande som ”Scope lyckades”. Om åtgärder som omfattas inte lyckas visas ett meddelande som ”Scope misslyckades”. 
+I verktygsfältet för appdesignern väljer **kör**. Om alla begränsade åtgärder lyckas får du ett meddelande om ”omfång lyckades”. Om alla begränsade åtgärder inte lyckas får du ett meddelande om ”omfång misslyckades”. 
 
 <a name="scopes-json"></a>
 
 ## <a name="json-definition"></a>JSON-definition
 
-Om du arbetar i kodvy, kan du definiera en scope-struktur i din logikapp JSON-definitionen i stället. Här är till exempel JSON-definitionen för utlösare och åtgärder i föregående logikappen:
+Om du arbetar i kodvy, kan du definiera en scope-struktur i JSON-definition för din logikapp i stället. Här är till exempel JSON-definitionen för utlösare och åtgärder i föregående logikapp:
 
 ``` json
 "triggers": {
@@ -210,7 +243,7 @@ Om du arbetar i kodvy, kan du definiera en scope-struktur i din logikapp JSON-de
     "recurrence": {
        "frequency": "Minute",
        "interval": 1
-    },
+    }
   }
 }
 ```
@@ -224,7 +257,7 @@ Om du arbetar i kodvy, kan du definiera en scope-struktur i din logikapp JSON-de
         "type": "ApiConnection",
         "inputs": {
           "body": {
-            "Body": "Scope failed",
+            "Body": "Scope failed. Scope status: @{result('Scope')[0]['status']}",
             "Subject": "Scope failed",
             "To": "<your-email@domain.com>"
           },
@@ -245,7 +278,7 @@ Om du arbetar i kodvy, kan du definiera en scope-struktur i din logikapp JSON-de
           "type": "ApiConnection",
           "inputs": {
             "body": {
-              "Body": "None",
+              "Body": "Scope succeeded. Scope status: @{result('Scope')[0]['status']}",
               "Subject": "Scope succeeded",
               "To": "<your-email@domain.com>"
             },
@@ -261,10 +294,28 @@ Om du arbetar i kodvy, kan du definiera en scope-struktur i din logikapp JSON-de
         }
       }
     },
-    "expression": "@equals('@result(''Scope'')[0][''status'']', 'Failed, Aborted')",
+    "expression": {
+      "or": [ 
+         {
+            "equals": [ 
+              "@result('Scope')[0]['status']", 
+              "Failed"
+            ]
+         },
+         {
+            "equals": [
+               "@result('Scope')[0]['status']", 
+               "Aborted"
+            ]
+         } 
+      ]
+    },
     "runAfter": {
       "Scope": [
-        "Succeeded"
+        "Failed",
+        "Skipped",
+        "Succeeded",
+        "TimedOut"
       ]
     }
   },
@@ -291,14 +342,14 @@ Om du arbetar i kodvy, kan du definiera en scope-struktur i din logikapp JSON-de
         },
         "runAfter": {}
       },
-      "If_traffic_time_more_than_specified_time": {
+      "If_traffic_time_is_more_than_specified_time": {
         "type": "If",
         "actions": {
           "Send_mail_when_traffic_exceeds_10_minutes": {
             "type": "ApiConnection",
             "inputs": {
               "body": {
-                 "Body": "Travel time:@{div(body('Get_route')?['travelDurationTraffic'], 60)} minutes",
+                 "Body": "Travel time:@{div(body('Get_route')?['travelDurationTraffic'],60)} minutes",
                  "Subject": "Time to leave: Traffic more than 10 minutes",
                  "To": "<your-email@domain.com>"
               },
@@ -313,7 +364,16 @@ Om du arbetar i kodvy, kan du definiera en scope-struktur i din logikapp JSON-de
             "runAfter": {}
           }
         },
-        "expression": "@greater(body('Get_route')?['travelDurationTraffic'], 600)",
+        "expression": {
+          "and" : [
+            {
+               "greater": [ 
+                  "@body('Get_route')?['travelDurationTraffic']", 
+                  600
+               ]
+            }
+          ]
+        },
         "runAfter": {
           "Get_route": [
             "Succeeded"
@@ -323,17 +383,17 @@ Om du arbetar i kodvy, kan du definiera en scope-struktur i din logikapp JSON-de
     },
     "runAfter": {}
   }
-}
+},
 ```
 
 ## <a name="get-support"></a>Få support
 
 * Om du har frågor kan du besöka [forumet för Azure Logic Apps](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
-* För att skicka eller rösta på funktioner och förslag, finns det [Azure Logikappar användare feedbackwebbplats](http://aka.ms/logicapps-wish).
+* Om du vill skicka in eller rösta på funktioner och förslag, Besök den [webbplatsen för Azure Logic Apps-Användarfeedback](http://aka.ms/logicapps-wish).
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Köra steg baserat på ett villkor (villkorssatser)](../logic-apps/logic-apps-control-flow-conditional-statement.md)
+* [Kör steg baserat på ett villkor (villkorssatser)](../logic-apps/logic-apps-control-flow-conditional-statement.md)
 * [Kör steg baserat på olika värden (switch-satser)](../logic-apps/logic-apps-control-flow-switch-statement.md)
 * [Kör och upprepa steg (slingor)](../logic-apps/logic-apps-control-flow-loops.md)
 * [Kör- eller merge-parallella åtgärder (grenar)](../logic-apps/logic-apps-control-flow-branches.md)

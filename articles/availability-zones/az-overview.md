@@ -16,12 +16,12 @@ ms.workload: na
 ms.date: 08/31/2018
 ms.author: cynthn
 ms.custom: mvc I am an ITPro and application developer, and I want to protect (use Availability Zones) my applications and data against data center failure (to build Highly Available applications).
-ms.openlocfilehash: 2a119e110d9d3687f24ebf7f72b2b4506674d4e3
-ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
+ms.openlocfilehash: b536771ddf437de025599e2b9c6092c1655f0bd9
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2018
-ms.locfileid: "49310138"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49321190"
 ---
 # <a name="what-are-availability-zones-in-azure"></a>Vad är Tillgänglighetszoner i Azure?
 Tillgänglighetszoner är en hög tillgänglighet erbjudande som skyddar dina program och data från datacenter havererar. Tillgänglighetszoner är unika, fysiska platser inom en Azure-region. Varje zon består av en eller flera datacenter som är utrustade med oberoende kraft, kylning och nätverkstjänster. För att säkerställa återhämtning, finns det minst tre separata zoner i alla aktiverade regioner. Fysisk avgränsning av Tillgänglighetszoner inom en region skyddar program och data mot datacenterproblem. Zonredundant tjänster replikera dina program och data i olika Tillgänglighetszoner och skydda från single punkter av fel. Azure erbjuder branschens bästa 99,99% VM DRIFTTID med Tillgänglighetszoner. I det fullständiga[Azure-serviceavtalet](https://azure.microsoft.com/support/legal/sla/virtual-machines/) förklaras den garanterade tillgängligheten för Azure som helhet.
@@ -78,7 +78,7 @@ Det finns ingen extra kostnad för virtuella datorer som distribueras i en Tillg
 - [Belastningsutjämna virtuella datorer mellan zoner med en Standardbelastningsutjämnare med en zonredundant klientdel](../load-balancer/load-balancer-standard-public-zone-redundant-cli.md)
 - [Belastningsutjämna virtuella datorer inom en zon med hjälp av en Standardbelastningsutjämnare med en zonindelad klientdel](../load-balancer/load-balancer-standard-public-zonal-cli.md)
 - [Zonredundant lagring](../storage/common/storage-redundancy-zrs.md)
-- [SQL Database](../sql-database/sql-database-high-availability.md#zone-redundant-configuration-preview)
+- [SQL Database](../sql-database/sql-database-high-availability.md#zone-redundant-configuration)
 - [Geohaveriberedskap för Event Hubs](../event-hubs/event-hubs-geo-dr.md#availability-zones-preview)
 - [Geohaveriberedskap för Service Bus](../service-bus-messaging/service-bus-geo-dr.md#availability-zones-preview)
 - [Skapa en zonredundant virtuell nätverksgateway](../vpn-gateway/create-zone-redundant-vnet-gateway.md)

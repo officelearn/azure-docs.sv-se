@@ -8,12 +8,12 @@ ms.topic: howto
 ms.date: 09/24/2018
 ms.author: ancav
 ms.component: metrics
-ms.openlocfilehash: b9808233e08e545c31e171afe104173dccc6abed
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: 7b600bd699ce7f9e4a6c7cba1a41b6bdece16bf0
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47434933"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49343736"
 ---
 # <a name="send-guest-os-metrics-to-the-azure-monitor-metric-store-using-a-resource-manager-template-for-a-windows-virtual-machine-scale-set"></a>Skicka OS gästmått av Azure Monitor-måtten lagra med en Resource Manager-mall för en Windows VM-skalningsuppsättning
 
@@ -81,7 +81,7 @@ Hittar du definitioner av Virtual Machine Scale Sets i resursavsnittet och Lägg
 I virtual machine scale Sets resurs, hitta den **virtualMachineProfile** avsnittet. Lägg till en ny profil med namnet **extensionsProfile** att hantera tillägg.  
 
 
-I den **extensionProfile**, lägga till ett nytt tillägg i mallen som den **VMSS-WAD-extension avsnittet**.  Det här avsnittet är hanterad tjänstidentitet (MSI)-tillägg som säkerställer att de mått som genereras accepteras av Azure Monitor. Den **namn** fältet kan innehålla valfritt namn. 
+I den **extensionProfile**, lägga till ett nytt tillägg i mallen som den **VMSS-WAD-extension avsnittet**.  Det här avsnittet är hanterade identiteter för tillägget för Azure-resurser som säkerställer att de mått som genereras accepteras av Azure Monitor. Den **namn** fältet kan innehålla valfritt namn. 
 
 Koden nedan från MSI-tillägget lägger till diagnostiktillägget och konfigurationen som en resurs för tillägget scale set-resursen för virtuella datorer. Passa på att lägga till/ta bort räknare för serverprestanda. 
 
@@ -89,7 +89,7 @@ Koden nedan från MSI-tillägget lägger till diagnostiktillägget och konfigura
           "extensionProfile": { 
             "extensions": [ 
             // BEGINNING of added code  
-            // Managed service identity   
+            // Managed identites for Azure resources   
                 { 
                  "name": "VMSS-WAD-extension", 
                  "properties": { 

@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.reviewer: Dale.Koetke
 ms.date: 08/11/2018
 ms.author: mbullwin
-ms.openlocfilehash: 221d0d8a78a46cad9f1994e9313b21e2867d9563
-ms.sourcegitcommit: d2f2356d8fe7845860b6cf6b6545f2a5036a3dd6
+ms.openlocfilehash: 4407322dd415a7c8b2ef8b7ff470a247b8d68f69
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42060921"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49319463"
 ---
 # <a name="manage-pricing-and-data-volume-in-application-insights"></a>Hantera priser och datavolymer i Application Insights
 
@@ -159,6 +159,10 @@ Du kan skriva ett skript för att ange prisplan med hjälp av Azure Resource Man
 ## <a name="limits-summary"></a>Sammanfattning av gränser
 
 [!INCLUDE [application-insights-limits](../../includes/application-insights-limits.md)]
+
+## <a name="disable-daily-cap-e-mails"></a>Inaktivera e-postmeddelanden med daglig gräns
+
+Inaktivera de dagliga volume cap e-postmeddelandena, under den **konfigurera** delen av Application Insights-resursen i den **användning och uppskattade kostnader** väljer **dagligt tak** . Det finns inställningar för att skicka e-postmeddelande när gränsen har uppnåtts, samt när en justerbar varningsnivå har uppnåtts. Om du vill inaktivera alla dagligen relaterade cap volym e-postmeddelanden avmarkera båda rutorna.
 
 ## <a name="next-steps"></a>Nästa steg
 

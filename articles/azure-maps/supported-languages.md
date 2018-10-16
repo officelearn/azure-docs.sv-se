@@ -8,20 +8,20 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
-ms.openlocfilehash: 68438a317b33bb7e3e784936cdfd1282ba823ad8
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 380bf5cb89a165534d0084758d532613eeff480a
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34600246"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49320500"
 ---
 # <a name="azure-maps-supported-languages"></a>Språk som stöds av Azure Maps
-Azure Maps lokaliserade på flera olika språk tjänster.  Följande tabell innehåller språkkoderna som stöds för varje tjänst.  
+Azure Maps har lokaliserats i olika språk tjänster.  Följande tabell innehåller koder för språk som stöds för varje tjänst.  
   
 
-| ID         | Namn                   |  Kartor | Search | Routning | Trafik incidenter | JS kartkontrollen | Tidszon |
+| ID         | Namn                   |  Kartor | Search | Routning | Trafik-incidenter | JS kartkontroll | Tidszon |
 |------------|------------------------|:-----:|:------:|:-------:|:-----------------:|:--------------:|:---------:|
-| AF ÖA      | Afrikaans              |       |    ✓   |    ✓    |                   |                |     ✓     |
+| AF ZA      | Afrikaans              |       |    ✓   |    ✓    |                   |                |     ✓     |
 | ar-SA      | Arabiska                 |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
 | EU-ES      | Baskiska                 |       |        |         |                   |                |     ✓     |
 | BG-BG      | Bulgariska              |   ✓   |    ✓   |    ✓    |                   |        ✓       |     ✓     |
@@ -32,17 +32,17 @@ Azure Maps lokaliserade på flera olika språk tjänster.  Följande tabell inne
 | CS-CZ      | Tjeckiska                  |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
 | da-DK      | Danska                 |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
 | NL-NL      | Nederländska                  |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
-| NL-vara      | Engelska (Nya Zeeland)        |       |    ✓   |         |                   |                |     ✓     |
+| NL-vara      | Nederländska (Belgien)        |       |    ✓   |         |                   |                |     ✓     |
 | en         | Svenska                |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
-| et-EE      | Estniska               |       |    ✓   |         |         ✓         |                |     ✓     |
+| et EE      | Estniska               |       |    ✓   |         |         ✓         |                |     ✓     |
 | fi-FI      | Finska                |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
 | fr-FR      | Franska                 |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
 | fr-CA      | Franska (Kanada)      |       |    ✓   |         |                   |                |     ✓     |
-| huvudbok ES      | Galiciska               |       |        |         |                   |                |     ✓     |
+| GL-ES      | Galiciska               |       |        |         |                   |                |     ✓     |
 | de-DE      | Tyska                 |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
-| el-GR      | Grekiska                  |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
+| el GR      | Grekiska                  |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
 | han IL      | Hebreiska                 |       |        |         |         ✓         |                |     ✓     |
-| Hej IN      | Hindi                  |       |        |         |                   |                |     ✓     |
+| Hej Indien      | Hindi                  |       |        |         |                   |                |     ✓     |
 | hu-HU      | Ungerska              |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
 | ID-ID      | Indonesiska             |   ✓   |        |    ✓    |         ✓         |        ✓       |     ✓     |
 | IT-IT      | Italienska                |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
@@ -52,8 +52,10 @@ Azure Maps lokaliserade på flera olika språk tjänster.  Följande tabell inne
 | ES 419     | Latinamerika spanska |       |    ✓   |         |                   |                |     ✓     |
 | lv-LV      | Lettiska                |       |    ✓   |         |         ✓         |                |     ✓     |
 | lt-LT      | Litauiska             |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
-| Mina MS      | Malajiska (latinsk)          |   ✓   |    ✓   |    ✓    |                   |        ✓       |     ✓     |
-| NB-NO      | Norska Bokmål       |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
+| MS-Mina      | Malajiska (latinsk)          |   ✓   |    ✓   |    ✓    |                   |        ✓       |     ✓     |
+| NB-NO      | Norska, Bokmål       |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
+| NGT        | Neutrala grunden sanningen - officiella språk för alla regioner i lokala skript om de är tillgängliga |   ✓     |        |         |                   |      ✓          |         |
+| NGT Latn   | Neutrala grunden sanningen - latinska exonyms. Latin-skript som ska användas om det är tillgängligt |   ✓     |        |         |                   |        ✓         |          |
 | pl-PL      | Polska                 |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
 | pt-BR      | Portugisiska (Brasilien)    |   ✓   |    ✓   |    ✓    |                   |        ✓       |     ✓     |
 | PT-PT      | Portugisiska (Portugal)  |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |

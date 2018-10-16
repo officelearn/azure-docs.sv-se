@@ -10,15 +10,16 @@ ms.component: bing-speech
 ms.topic: article
 ms.date: 09/18/2018
 ms.author: zhouwang
-ROBOTS: NOINDEX
-ms.openlocfilehash: 0f98182a73cebdd4df9f7849b2306f89c620f24b
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: a9f74f4032a78ee51ea2a8f020cd1418bb3330ca
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46973957"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49345364"
 ---
 # <a name="quickstart-use-the-bing-speech-recognition-rest-api"></a>Snabbstart: Använda Bing-taligenkänning REST API
+
+[!INCLUDE [Deprecation note](../../../../includes/cognitive-services-bing-speech-api-deprecation-note.md)]
 
 Med molnbaserad Bing Speech-tjänsten, kan du utveckla program med hjälp av REST-API för att omvandla talat ljud till text.
 
@@ -62,7 +63,7 @@ https://speech.platform.bing.com/speech/recognition/<RECOGNITION_MODE>/cognitive
 
 I följande tabell visas några exempel på service URI: er.
 
-| Igenkänning av läge  | Språk | Utdataformat | Tjänstens URI |
+| Igenkänningsläge  | Språk | Utdataformat | Tjänstens URI |
 |---|---|---|---|
 | `interactive` | pt-BR | Standard | https://speech.platform.bing.com/speech/recognition/interactive/cognitiveservices/v1?language=pt-BR |
 | `conversation` | sv-SE | Detaljerad |https://speech.platform.bing.com/speech/recognition/conversation/cognitiveservices/v1?language=en-US&format=detailed |
@@ -78,7 +79,7 @@ Följande fält måste anges i huvudet för begäran:
 - `Ocp-Apim-Subscription-Key`: Varje gång som du anropa tjänsten, måste du ange din prenumerationsnyckel i den `Ocp-Apim-Subscription-Key` rubrik. Taltjänsten stöder också skicka auktorisering token i stället för prenumerationsnycklar. Mer information finns i [autentisering](../How-to/how-to-authentication.md).
 - `Content-type`: Det `Content-type` fältet beskriver format och codec för ljud dataström. För närvarande endast WAV-fil och PCM Mono 16000 kodning stöds. Content-type-värdet för det här formatet är `audio/wav; codec=audio/pcm; samplerate=16000`.
 
-Den `Transfer-Encoding` fältet är valfritt. Om du anger det här fältet till `chunked`, kan du beskära ljudet i små segment. Mer information finns i [Segmentvis överföring](../How-to/how-to-chunked-transfer.md).
+Fältet `Transfer-Encoding` är valfritt. Om du anger det här fältet till `chunked`, kan du beskära ljudet i små segment. Mer information finns i [Segmentvis överföring](../How-to/how-to-chunked-transfer.md).
 
 Följande är ett exempel förfrågnings-huvud:
 

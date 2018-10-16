@@ -10,15 +10,16 @@ ms.component: bing-speech
 ms.topic: article
 ms.date: 09/18/2018
 ms.author: zhouwang
-ROBOTS: NOINDEX
-ms.openlocfilehash: 5b85a548d692b06a6da009432678d9c02242cb50
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: f79b148558e7881f852ccd57916b0b0f31a98219
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46996833"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49342338"
 ---
 # <a name="quickstart-use-the-bing-speech-recognition-api-in-c35-for-net-on-windows"></a>Snabbstart: Använda Bing-taligenkänning API i C&#35; för .NET i Windows
+
+[!INCLUDE [Deprecation note](../../../../includes/cognitive-services-bing-speech-api-deprecation-note.md)]
 
 Den här sidan visar hur du utvecklar ett grundläggande Windows-program som använder den tal-API: T för att omvandla talat ljud till text. Använder klientbiblioteket får strömning i realtid, vilket innebär att när klientprogrammet skickar ljud till tjänsten, den samtidigt och asynkront får tillbaka delvisa igenkänningsresultat.
 

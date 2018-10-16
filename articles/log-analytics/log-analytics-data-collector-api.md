@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 07/03/2018
 ms.author: bwren
 ms.component: ''
-ms.openlocfilehash: 297ba626d8b80d9362476ca4578e34140df5f91a
-ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
+ms.openlocfilehash: f0a982e8a0cb358e29375e05c1752a33b15ec255
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48248661"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49319718"
 ---
 # <a name="send-data-to-log-analytics-with-the-http-data-collector-api-public-preview"></a>Skicka data till Log Analytics med HTTP Data Collector API (förhandsversion)
 Den här artikeln visar hur du använder HTTP Data Collector API för att skicka data till Log Analytics från en REST API-klient.  Den beskriver hur du formatera data som samlas in från dina skript eller ett program, inkludera den i en begäran och få den begäran som auktoriserats av Log Analytics.  Exempel tillhandahålls för PowerShell, C# och Python.
@@ -56,7 +56,7 @@ Om du vill använda HTTP Data Collector API måste skapa du en POST-begäran som
 | API-version |Versionen av API för användning med den här begäran. Det är för närvarande 2016-04-01. |
 
 ### <a name="request-headers"></a>Begärandehuvud
-| Sidhuvud | Beskrivning |
+| Huvud | Beskrivning |
 |:--- |:--- |
 | Auktorisering |Signatur för auktorisering. Senare i artikeln kan du läsa om hur du skapar en HMAC-SHA256-rubrik. |
 | Loggtyp |Ange posttypen för de data som skickas. Loggtypen stöder för närvarande endast alfanumeriska tecken. Det stöder inte numeriska värden eller specialtecken. Storleksgränsen för den här parametern är 100 tecken. |
@@ -101,7 +101,7 @@ Exemplen i nästa avsnitt har exempelkod för att skapa en auktoriseringsrubrik.
 ## <a name="request-body"></a>Begärandetext
 Meddelandets brödtext måste vara i JSON. Det måste innehålla en eller flera poster med egenskapen namn och värdepar i följande format:
 
-```
+```json
 [
     {
         "property 1": "value1",
@@ -114,7 +114,7 @@ Meddelandets brödtext måste vara i JSON. Det måste innehålla en eller flera 
 
 Du kan batch flera poster i en enskild begäran med hjälp av följande format. Alla poster måste vara samma posttyp.
 
-```
+```json
 [
     {
         "property 1": "value1",
@@ -218,7 +218,7 @@ För varje prov, gör du dessa steg för att ange variabler för auktoriseringsr
 Du kan också ändra variablerna för loggtyp och JSON-data.
 
 ### <a name="powershell-sample"></a>PowerShell-exempel
-```
+```powershell
 # Replace with your Workspace ID
 $CustomerId = "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"  
 
@@ -301,7 +301,7 @@ Post-LogAnalyticsData -customerId $customerId -sharedKey $sharedKey -body ([Syst
 ```
 
 ### <a name="c-sample"></a>C#-exempel
-```
+```csharp
 using System;
 using System.Net;
 using System.Net.Http;
@@ -387,7 +387,7 @@ namespace OIAPIExample
 ```
 
 ### <a name="python-2-sample"></a>Python 2-exempel
-```
+```python
 import json
 import requests
 import datetime

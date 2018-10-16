@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 11/03/2017
 ms.author: bharatn
-ms.openlocfilehash: 84869a93dfe2f979e207257ebac80773a172a776
-ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
+ms.openlocfilehash: 04f233384ad0d02cb5b7056df1e5fdfc74b9bec8
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48017932"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49344633"
 ---
 # <a name="reverse-proxy-in-azure-service-fabric"></a>Omvänd proxy i Azure Service Fabric
 Omvänd proxy som är inbyggda i Azure Service Fabric hjälper mikrotjänster som körs i ett Service Fabric-kluster identifiera och kommunicera med andra tjänster som har http-slutpunkter.
@@ -155,6 +155,8 @@ För tjänster som körs i behållare, kan du använda miljövariabeln, `Fabric_
     var serviceUrl = $"http://{fqdn}:19081/DockerSFApp/UserApiContainer";
 ```
 För det lokala klustret `Fabric_NodeIPOrFQDN` är inställd på ”localhost” som standard. Starta det lokala klustret med den `-UseMachineName` parametern för att kontrollera behållare kan nå omvänd proxy som körs på noden. Mer information finns i [konfigurerar utvecklarmiljön för att felsöka behållare](service-fabric-how-to-debug-windows-containers.md#configure-your-developer-environment-to-debug-containers).
+
+Service Fabric-tjänster som körs i Docker Compose-behållare kräver en särskild docker-compose.yml *portarna avsnittet* http: eller https: konfiguration. Mer information finns i [Docker Compose distributionsstöd i Azure Service Fabric](service-fabric-docker-compose.md).
 
 ## <a name="next-steps"></a>Nästa steg
 * [Installera och konfigurera omvänd proxy i ett kluster](service-fabric-reverseproxy-setup.md).

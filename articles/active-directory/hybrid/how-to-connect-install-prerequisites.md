@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/09/2018
+ms.date: 09/28/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: addb99478025757257bce465a02287ebedd40bb1
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: f0791173450d5db3b33762ec9d5ed5c1adf96788
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46314981"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49321639"
 ---
 # <a name="prerequisites-for-azure-ad-connect"></a>Förhandskrav för Azure AD Connect
 Det här avsnittet beskriver kraven och maskinvarukrav för Azure AD Connect.
@@ -29,11 +29,11 @@ Det här avsnittet beskriver kraven och maskinvarukrav för Azure AD Connect.
 Innan du installerar Azure AD Connect, finns det några saker som du behöver.
 
 ### <a name="azure-ad"></a>Azure AD
-* En Azure-prenumeration eller en [Azure-utvärderingsversion](https://azure.microsoft.com/pricing/free-trial/). Den här prenumerationen har bara krävs för att komma åt Azure-portalen och inte med Azure AD Connect. Om du använder PowerShell eller Office 365 kan behöver du inte en Azure-prenumeration du använder Azure AD Connect. Om du har en Office 365-licens, kan du också använda Office 365-portalen. Med en betald Office 365-licens kan du också få in på Azure portal från Office 365-portalen.
-  * Du kan också använda den [Azure-portalen](https://portal.azure.com). Den här portalen kräver inte en Azure AD-licens.
+* En Azure AD-klientorganisation. Du får en med en [kostnadsfri utvärderingsversion av Azure](https://azure.microsoft.com/pricing/free-trial/). Du kan använda något av följande portaler för att hantera Azure AD Connect:
+  * Den [Azure-portalen](https://portal.azure.com).
+  * Den [Office-portalen](https://portal.office.com).  
 * [Lägga till och verifiera domänen](../active-directory-domains-add-azure-portal.md) du planerar att använda i Azure AD. Om du planerar att använda contoso.com för dina användare och sedan kontrollera att den här domänen har verifierats och du bara använder inte standarddomän contoso.onmicrosoft.com.
 * En Azure AD-klient kan som 50k-standardobjekt. När du verifierar din domän, ökat gränsen på 300 kB-objekt. Om du behöver ännu fler objekt i Azure AD, måste du öppna ett supportärende om du vill att den har höjts ytterligare. Om du behöver fler än 500 k-objekt kan behöver du en licens, till exempel Office 365, Azure AD Basic, Azure AD Premium eller Enterprise Mobility and Security.
-* ADSyncPrep är en modul för PowerShell-skript som innehåller funktioner som används för att förbereda Active Directory-miljön för Azure AD Connect.  ADSyncPrep kräver den [Azure AD Microsoft Online v1.1 PowerShell-modulen](https://docs.microsoft.com/powershell/azure/active-directory/install-msonlinev1?view=azureadps-1.0).  Version 2 fungerar inte. Du kan installera modulen med hjälp av den `Install-Module` cmdlet.  Mer information finns i länken.
 
 ### <a name="prepare-your-on-premises-data"></a>Förbereda dina lokala data
 * Använd [reparationsverktyg](https://support.office.com/article/Install-and-run-the-Office-365-IdFix-tool-f4bd2439-3e41-4169-99f6-3fabdfa326ac) identifiera fel, till exempel dubbletter och formateringsproblem i katalogen innan du synkroniserar till Azure AD och Office 365.
@@ -47,7 +47,7 @@ Innan du installerar Azure AD Connect, finns det några saker som du behöver.
 * Det rekommenderas att [aktivera Active Directory-Papperskorgen](how-to-connect-sync-recycle-bin.md).
 
 ### <a name="azure-ad-connect-server"></a>Azure AD Connect-servern
-* Azure AD Connect kan inte installeras på Small Business Server eller Windows Server Essentials. Servern måste använda Windows Server standard- eller bättre.
+* Azure AD Connect kan inte installeras på Small Business Server eller Windows Server Essentials innan 2019 (Windows Server Essentials 2019 stöds). Servern måste använda Windows Server standard- eller bättre.
 * Azure AD Connect-servern måste ha ett fullständigt grafiskt användargränssnitt installerad. Det är **stöds inte** att installera på server core.
 * Azure AD Connect måste installeras på Windows Server 2008 eller senare. Den här servern kan vara en domänkontrollant eller en medlemsserver när med standardinställningar. Om du använder anpassade inställningar, servern kan också vara fristående och behöver inte vara ansluten till en domän.
 * Om du installerar Azure AD Connect på Windows Server 2008 eller Windows Server 2008 R2, se till att tillämpa de senaste snabbkorrigeringarna från Windows Update. Installationen kan inte börja med en okorrigerad server.
@@ -70,7 +70,7 @@ Innan du installerar Azure AD Connect, finns det några saker som du behöver.
 ### <a name="accounts"></a>Konton
 * En Global administratör för Azure AD-konto för Azure AD-klient som du vill integrera med. Det här kontot måste vara en **school-eller organisationskonto** och får inte vara en **microsoftkonto**.
 * Om du använder standardinställningar eller uppgradera från DirSync, måste du ha ett Enterprise-administratörskonto för din lokala Active Directory.
-* [Konton i Active Directory](reference-connect-accounts-permissions.md) om du använder anpassade inställningar installationssökvägen.
+* [Konton i Active Directory](reference-connect-accounts-permissions.md) om du använder anpassade inställningar installationssökväg eller ett Enterprise-administratörskonto för din lokala Active Directory.
 
 ### <a name="connectivity"></a>Anslutning
 * Azure AD Connect-servern måste DNS-matchning för både intranät och internet. DNS-server måste kunna matcha namn både till din lokala Active Directory och Azure AD-slutpunkter.
@@ -184,7 +184,6 @@ När du använder Azure AD Connect för att distribuera Active Directory Federat
 Här följer en lista över komponenter som Azure AD Connect installerar på den server där Azure AD Connect är installerad. Den här listan är för en grundläggande Expressinstallation. Om du vill använda en annan SQL Server på sidan Installera synkronisering har sedan SQL Express LocalDB inte installerats lokalt.
 
 * Azure AD Connect Health
-* Microsoft Online Services-inloggningsassistent för IT-proffs (installerad men inget beroende på den)
 * Microsoft SQL Server 2012-kommandoradsverktyg
 * Microsoft SQL Server 2012 Express LocalDB
 * Microsoft SQL Server 2012 Native Client

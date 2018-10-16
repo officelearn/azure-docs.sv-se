@@ -12,14 +12,15 @@ ms.workload: azure-vs
 ms.topic: conceptual
 ms.date: 12/23/2016
 ms.author: ghogen
-ms.openlocfilehash: 26f303318320eb8b039503666841e518f75348e4
-ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ms.openlocfilehash: a114833b40fe834aa0108d1a2f3821f0b7cbddbc
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "42056522"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49321860"
 ---
 # <a name="get-started-with-azure-queue-storage-and-visual-studio-connected-services-aspnet"></a>Kom igång med Azure queue storage och Visual Studio anslutna tjänster (ASP.NET)
+
 [!INCLUDE [storage-try-azure-tools-queues](../../includes/storage-try-azure-tools-queues.md)]
 
 ## <a name="overview"></a>Översikt
@@ -28,7 +29,7 @@ Azure queue storage innehåller molnmeddelandehantering mellan programkomponente
 
 Den här självstudiekursen visar hur du skriver ASP.NET-kod för några vanliga scenarier med hjälp av Azure queue storage-entiteter. De här scenarierna omfattar vanliga åtgärder, till exempel skapa en Azure-kö och att lägga till, ändra, läsa och ta bort Kömeddelanden.
 
-##<a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Förutsättningar
 
 * [Microsoft Visual Studio](https://www.visualstudio.com/downloads/)
 * [Azure Storage-konto](../storage/common/storage-quickstart-create-account.md)
@@ -452,7 +453,7 @@ Det här avsnittet visar hur du kan hämta kölängden (antal meddelanden).
     queue.FetchAttributes();
     ```
 
-6. Åtkomst till den **CloudQueue.ApproximateMessageCount** egenskapen för att hämta köns längd.
+1. Åtkomst till den **CloudQueue.ApproximateMessageCount** egenskapen för att hämta köns längd.
  
     ```csharp
     int? nMessages = queue.ApproximateMessageCount;

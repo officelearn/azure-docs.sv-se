@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/01/2017
 ms.author: apurvajo;cephalin
-ms.openlocfilehash: 0c2adcfa4e11e444f66e1a9c04bea6e3d352f117
-ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
+ms.openlocfilehash: 38f7f82d293409a49c41381cedaa1f7600068cd3
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49077734"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49319412"
 ---
 # <a name="buy-and-configure-an-ssl-certificate-for-your-azure-app-service"></a>Köp och konfigurera ett SSL-certifikat för din Azure Apptjänst
 
@@ -78,7 +78,7 @@ Från samma **Certifikatkonfigureringen** du använde i steg3, klickar du på **
 
 Välj önskad domän verifieringsmetod. 
 
-Det finns fyra typer av domänverifiering som stöds av App Service-certifikat: App Service, domän och manuell verifiering. Typerna verifiering beskrivs mer detaljerat i de [avancerade avsnitt](#advanced).
+Det finns tre typer av domänverifiering som stöds av App Service-certifikat: App Service, domän och manuell verifiering. Typerna verifiering beskrivs mer detaljerat i de [avancerade avsnitt](#advanced).
 
 > [!NOTE]
 > **App Service-verifiering** är det enklaste alternativet när du vill verifiera domänen är redan mappad till en App Service-app i samma prenumeration. Den drar nytta av det faktum att App Service-appen har redan verifierats äger domänen.

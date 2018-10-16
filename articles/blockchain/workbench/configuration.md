@@ -5,23 +5,23 @@ services: azure-blockchain
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 10/1/2018
+ms.date: 10/4/2018
 ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: zeyadr
 manager: femila
-ms.openlocfilehash: fd3ff0087ee51c392d9cebb32c8bcc969f9a4601
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.openlocfilehash: caaee4cb155fc05b78bc47f1e53c79ecb0597183
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48243500"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49341947"
 ---
 # <a name="azure-blockchain-workbench-configuration-reference"></a>Referens för Azure Blockchain Workbench-konfiguration
 
  Azure Blockchain Workbench-program är flerparti arbetsflöden som definieras av konfigurationsmetadata och smarta kontraktkod. Konfigurationsmetadata definierar avancerade arbetsflöden och interaktion modell blockchain-program. Smarta kontrakt definiera affärslogiken i blockchain-program. Workbench använder konfiguration och smarta kontraktkod för att generera användarupplevelser för blockchain-program.
 
-Konfigurationsmetadata anger följande information för varje blockchain-program: 
+Konfigurationsmetadata anger följande information för varje blockchain-program:
 
 * Namn och en beskrivning av blockchain-program
 * Unikt roller för användare som kan fungera eller delta i blockchain-program
@@ -42,7 +42,7 @@ En blockchain-program innehåller configuration metadata, arbetsflöden och anv�
 | Fält | Beskrivning | Krävs |
 |-------|-------------|:--------:|
 | ApplicationName | Unikt programnamn. Motsvarande smarta kontrakt måste använda samma **ApplicationName** för tillämpliga avtal.  | Ja |
-| DisplayName | Eget namn för programmet. | Ja |
+| displayName | Eget namn för programmet. | Ja |
 | Beskrivning | Beskrivning av programmet. | Nej |
 | ApplicationRoles | Insamling av [ApplicationRoles](#application-roles). Användarroller som kan fungera eller delta i programmet.  | Ja |
 | Arbetsflöden | Insamling av [arbetsflöden](#workflows). Varje arbetsflöde fungerar som en tillståndsdator att styra flödet av affärslogik. | Ja |
@@ -56,7 +56,7 @@ Ett programs affärslogik kan modelleras som en tillståndsdator där vidta åtg
 | Fält | Beskrivning | Krävs |
 |-------|-------------|:--------:|
 | Namn | För unika Arbetsflödesnamn. Motsvarande smarta kontrakt måste använda samma **namn** för tillämpliga avtal. | Ja |
-| DisplayName | Eget namn för arbetsflödet. | Ja |
+| displayName | Eget namn för arbetsflödet. | Ja |
 | Beskrivning | Beskrivning av arbetsflödet. | Nej |
 | Initierare | Insamling av [ApplicationRoles](#application-roles). Roller som är tilldelade till användare som har behörighet att skapa kontrakt i arbetsflödet. | Ja |
 | StartState | Namnet på det ursprungliga tillståndet för arbetsflödet. | Ja |
@@ -73,17 +73,44 @@ Datatyper som stöds.
 
 | Typ | Beskrivning |
 |-------|-------------|
-| Adress  | Blockchain-adresstypen, till exempel *kontrakt* eller *användare* |
-| Bool     | Boolesk datatyp |
-| kontrakt | Adress av typen kontrakt |
-| Enum     | Numrerade uppsättning namngivna värden. När du använder uppräkningstypen kan ange du också en lista över EnumValues. Varje värde är begränsad till 255 tecken. Giltigt värde tecken omfattar övre och gemena bokstäver (A-Z, a – z) och siffror (0-9). |
-| int      | Datatypen Integer |
-| pengar    | Datatypen Money |
-| state    | Arbetsflödets tillstånd |
-| sträng   | Datatypen String |
-| Användare     | Adressen för typ av användare |
-| time     | Tid datatyp |
+| Adress  | Blockchain-adresstypen, till exempel *kontrakt* eller *användare*. |
+| matris    | Enskild nivå matris av typen heltal, bool, pengar och tid. Matriser kan vara statisk eller dynamisk. Använd **ElementType** Ange datatyp för element i matrisen. Se [exempelkonfiguration](#example-configuration-of-type-array). |
+| Bool     | Boolesk datatyp. |
+| kontrakt | Adress av typen kontrakt. |
+| Enum     | Numrerade uppsättning namngivna värden. När du använder uppräkningstypen kan ange du också en lista över EnumValues. Varje värde är begränsad till 255 tecken. Giltigt värde tecken omfattar övre och gemena bokstäver (A-Z, a – z) och siffror (0-9). Se [exempel på konfiguration och användning i Solidity](#example-configuration-of-type-enum). |
+| int      | Datatypen Integer. |
+| pengar    | Datatypen Money. |
+| state    | Arbetsflödets tillstånd. |
+| sträng  | Strängdatatyp. 4000 tecken maximalt. Se [exempelkonfiguration](#example-configuration-of-type-string). |
+| Användare     | Adressen för typ av användare. |
+| time     | Tid datatyp. |
 |`[ Application Role Name ]`| Vilket namn som anges i programrollen. Begränsar användarna av den rolltypen. |
+
+### <a name="example-configuration-of-type-array"></a>Exempel på konfiguration av typen matris
+
+```json
+{
+  "Name": "Quotes",
+  "Description": "Market quotes",
+  "DisplayName": "Quotes",
+  "Type": {
+    "Name": "array",
+    "ElementType": {
+        "Name": "int"
+    }
+  }
+}
+```
+
+#### <a name="using-a-property-of-type-array"></a>Med hjälp av en egenskap av typen matris
+
+Om du definierar en egenskap som typen matris i konfigurationen måste du inkludera en explicit get-funktion för att returnera den offentliga egenskapen av matristypen i Solidity. Exempel:
+
+```
+function GetQuotes() public constant returns (int[]) {
+     return Quotes;
+}
+```
 
 ### <a name="example-configuration-of-type-string"></a>Exempel på konfiguration av typen sträng
 
@@ -183,7 +210,7 @@ Definierar funktioner som kan köras i arbetsflödet.
 | Fält | Beskrivning | Krävs |
 |-------|-------------|:--------:|
 | Namn | Det unika namnet på funktionen. Motsvarande smarta kontrakt måste använda samma **namn** för funktionen tillämpliga. | Ja |
-| DisplayName | Eget namn för funktionen. | Ja |
+| displayName | Eget namn för funktionen. | Ja |
 | Beskrivning | Beskrivning av funktionen | Nej |
 | Parametrar | Insamling av [identifierare](#identifiers) motsvarar parametrarna för funktionen. | Ja |
 
@@ -231,7 +258,7 @@ En samling av unika tillstånd i ett arbetsflöde. Varje tillstånd fångar ett 
 | Fält | Beskrivning | Krävs |
 |-------|-------------|:--------:|
 | Namn | Unikt namn för tillståndet. Motsvarande smarta kontrakt måste använda samma **namn** för tillämpligt tillstånd. | Ja |
-| DisplayName | Eget namn för tillståndet. | Ja |
+| displayName | Eget namn för tillståndet. | Ja |
 | Beskrivning | Beskrivning av tillstånd. | Nej |
 | Värdet för procent färdigt | Ett heltalsvärde som visas i användargränssnittet för Blockchain Workbench för att visa förloppet i kontrollflödet för business logic. | Ja |
 | Stil | Visuella tips som anger om tillståndet representerar tillståndet har lyckats eller misslyckats. Det finns två giltiga värden: `Success` eller `Failure`. | Ja |
@@ -301,7 +328,7 @@ Tillgängliga åtgärder till nästa steg. En eller flera roller kan utföra en 
 |-------|-------------|:--------:|
 | AllowedRoles | Lista över roller som program tillåts för att initiera övergången. Alla användare av den angivna rollen kanske att utföra åtgärden. | Nej |
 | AllowedInstanceRoles | Lista med användarroller deltar eller anges i det smarta kontrakt som tillåts att initiera övergången. Instansroller definieras i **egenskaper** i arbetsflöden. AllowedInstanceRoles representerar en användare som deltar i en instans av ett smarta kontrakt. AllowedInstanceRoles ger dig möjlighet att begränsa att utföra en åtgärd till en användarroll i en kontrakt-instans.  Till exempel kanske du bara vill tillåta användaren som skapade kontraktet (InstanceOwner) för att kunna avsluta i stället för alla användare i rolltyp (ägare) om du har angett rollen i AllowedRoles. | Nej |
-| DisplayName | Övergången eget visningsnamn. | Ja |
+| displayName | Övergången eget visningsnamn. | Ja |
 | Beskrivning | Beskrivning av övergången. | Nej |
 | Funktion | Namnet på funktionen för att initiera övergången. | Ja |
 | NextStates | En samling av potentiella nästa tillstånd efter en lyckad övergång. | Ja |
@@ -368,7 +395,7 @@ Identifierare som representerar en mängd information som används för att besk
 | Fält | Beskrivning | Krävs |
 |-------|-------------|:--------:|
 | Namn | Det unika namnet på egenskapen eller parametern. Motsvarande smarta kontrakt måste använda samma **namn** för egenskap eller parametern. | Ja |
-| DisplayName | Eget visningsnamn för egenskap eller parametern. | Ja |
+| displayName | Eget visningsnamn för egenskap eller parametern. | Ja |
 | Beskrivning | Beskrivning av den egenskapen eller parametern. | Nej |
 
 ### <a name="identifiers-example"></a>Exempel för identifierare

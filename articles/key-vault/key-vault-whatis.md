@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/05/2018
 ms.author: barclayn
-ms.openlocfilehash: fa8605f4822ff0ee5ba25ee0baca4fb2fec83b17
-ms.sourcegitcommit: 8b694bf803806b2f237494cd3b69f13751de9926
+ms.openlocfilehash: 7e98853b5b2ccc779dca970337fc44217977c8c9
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/20/2018
-ms.locfileid: "46497611"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49342577"
 ---
 # <a name="what-is-azure-key-vault"></a>Vad är Azure Key Vault?
 
@@ -35,7 +35,7 @@ Azure Key Vault är ett verktyg för att lagra och komma åt hemligheter på ett
 
 Grunden finns 3 sätt att autentisera till Key Vault
 
-1. **Med hjälp av [hanterad tjänstidentitet](https://docs.microsoft.com/en-us/azure/active-directory/managed-identities-azure-resources/overview)**  (**rekommenderas och bästa praxis**): när du distribuerar en App på en virtuell dator i Azure kan du tilldela en identitet till din virtuella dator som har åtkomst till Nyckelvalvet. Du kan också tilldela identiteter till andra azure-resurser som listas [här](https://docs.microsoft.com/en-us/azure/active-directory/managed-identities-azure-resources/overview). Fördelen med den här metoden är appen / tjänsten hanterar inte rotation för den första hemligheten. Azure roterar automatiskt identiteten. 
+1. **Med hjälp av [hanterade identiteter för Azure-resurser](https://docs.microsoft.com/en-us/azure/active-directory/managed-identities-azure-resources/overview)**  (**rekommenderas och bästa praxis**): när du distribuerar en App på en virtuell dator i Azure kan du tilldela en identitet till den virtuella datorn som har åtkomst till Key Vault. Du kan också tilldela identiteter till andra azure-resurser som listas [här](https://docs.microsoft.com/en-us/azure/active-directory/managed-identities-azure-resources/overview). Fördelen med den här metoden är appen / tjänsten hanterar inte rotation för den första hemligheten. Azure roterar automatiskt identiteten. 
 2. **Med hjälp av tjänstens huvudnamn och certifikat:** 2 alternativ är att använda ett huvudnamn för tjänsten och en tillhörande certifikat som har åtkomst till Key Vault. Ansvaret för att rotera certifikatet är på programmets ägare eller utvecklare och därför rekommenderas detta inte
 3. **Med hjälp av tjänstens huvudnamn och hemlighet:** det 3 alternativet (rekommenderas inte) är att använda ett huvudnamn för tjänsten och en hemlighet för att autentisera till Key Vault
 

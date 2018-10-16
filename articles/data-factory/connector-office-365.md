@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/08/2018
+ms.date: 10/15/2018
 ms.author: jingwang
-ms.openlocfilehash: 3caae8ecae66178bc538d0b9d1240293028f33ad
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.openlocfilehash: 8a36053fe3189a72c33ea14445a6b064260eec01
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48867365"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49318324"
 ---
 # <a name="copy-data-from-office-365-into-azure-using-azure-data-factory-preview"></a>Kopiera data från Office 365 till Azure med hjälp av Azure Data Factory (förhandsversion) 
 
@@ -55,7 +55,7 @@ Om du vill kopiera data från Office 365 till Azure, måste du utföra följande
 
 Om det här är första gången du begär data för den här kontexten (en kombination av vilka data som tabell håller på att åtkomst, vilken destination kontot är data som läses in i och vilka användaridentitet är att göra data åtkomstbegäran), ser du kopieringsaktiviteten status som ”pågår” och bara när du klickar på [”information” länka under åtgärder](copy-activity-overview.md#monitoring) ska du se statusen som ”RequestingConsent”.  En medlem i gruppen data access godkännaren måste godkänna begäran i Privileged Access Management innan extrahering av data kan fortsätta.
 
-Se [här](https://github.com/OfficeDev/ManagedAccessMSGraph/wiki/Approving-a-data-access-request) på hur godkännaren kan godkänna data åt begäran och se [här](https://github.com/OfficeDev/ManagedAccessMSGraph/wiki/On-boarding) förklaringar på övergripande integrering med Privileged Access Management, inklusive hur du ställer in data godkännare för nyckelringar.
+Se [här](https://github.com/OfficeDev/MS-Graph-Data-Connect/wiki/Approving-data-access-requests) på hur godkännaren kan godkänna data åt begäran och se [här](https://github.com/OfficeDev/MS-Graph-Data-Connect/wiki/Capabilities#integration-with-privileged-access-management) förklaringar på övergripande integrering med Privileged Access Management, inklusive hur du ställer in data godkännare för nyckelringar.
 
 ## <a name="policy-validation"></a>Verifieringen av användarprinciper
 
@@ -72,7 +72,7 @@ Du kan skapa en pipeline med Kopieringsaktivitet med någon av följande verktyg
 - [.NET SDK](quickstart-create-data-factory-dot-net.md)
 - [Python SDK](quickstart-create-data-factory-python.md)
 - [Azure PowerShell](quickstart-create-data-factory-powershell.md)
-- [REST API](quickstart-create-data-factory-rest-api.md)
+- [REST-API](quickstart-create-data-factory-rest-api.md)
 - [Azure Resource Manager-mall](quickstart-create-data-factory-resource-manager-template.md). 
 
 Följande avsnitt innehåller information om egenskaper som används för att definiera Data Factory-entiteter som är specifika för Office 365-anslutning.
@@ -124,7 +124,7 @@ För att kopiera data från Office 365, stöds följande egenskaper:
 | Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | typ | Type-egenskapen för datauppsättningen måste anges till: **Office365Table** | Ja |
-| tableName | Namn på datauppsättning för att extrahera från Office 365. Finns här för en lista över tillgängliga för extrahering av Office 365-datauppsättningar. | Ja |
+| tableName | Namn på datauppsättning för att extrahera från Office 365. Se [här](https://github.com/OfficeDev/MS-Graph-Data-Connect/wiki/Capabilities#datasets) lista över tillgängliga för extrahering av Office 365-datauppsättningar. | Ja |
 | Predikatet | Ett predikat uttryck som kan användas för att filtrera specifika rader att extrahera från Office 365.  Finns här för att ta reda på vilka kolumner som kan användas för filtrering med predikat för varje tabell och uttrycksformatet filter. | Nej<br>(Om ingen predikatet anges är standardvärdet att extrahera data för de senaste 30 dagarna) |
 
 **Exempel**

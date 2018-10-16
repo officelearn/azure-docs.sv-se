@@ -8,12 +8,12 @@ ms.service: security
 ms.topic: article
 ms.date: 07/13/2018
 ms.author: jomolesk
-ms.openlocfilehash: 6fe85d7ac527179ab39e89739f5744f3aa1ef8e2
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: 1c2294004245e0ef64b9b708a5b57ec0d34cc45f
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44297563"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49321996"
 ---
 # <a name="azure-security-and-compliance-blueprint-paas-web-application-hosting-for-uk-official-workloads"></a>Azure-säkerhet och efterlevnad skiss: PaaS Web program som är värd för Storbritannien officiella arbetsbelastningar
 
@@ -52,7 +52,6 @@ Som en del av distributionsarkitektur, säker lagring etablera, övervakning & l
 Den här lösningen använder följande Azure-tjänster. Mer information om distributionsarkitekturen finns i den [distributionsarkitektur](#deployment-architecture) avsnittet.
 
 - Azure Active Directory
-- Hanterad tjänstidentitet
 - App Service
 - Webbapp
 - API-app
@@ -107,13 +106,13 @@ Azure Web Apps får du en fullständigt hanterad värdmiljö för webbprogram so
 
 App Service är [ISO, SOC och PCI-kompatibel](https://www.microsoft.com/TrustCenter/) och kan autentisera användare med [Azure Active Directory](https://docs.microsoft.com/azure/app-service/app-service-mobile-how-to-configure-active-directory-authentication) eller med social inloggning ([Google](https://docs.microsoft.com/azure/app-service/app-service-mobile-how-to-configure-google-authentication), [Facebook](https://docs.microsoft.com/azure/app-service/app-service-mobile-how-to-configure-facebook-authentication), [Twitter](https://docs.microsoft.com/azure/app-service/app-service-mobile-how-to-configure-twitter-authentication), och [Microsoft authentication](https://docs.microsoft.com/azure/app-service/app-service-mobile-how-to-configure-microsoft-authentication).
 
-Basic, Standard och Premium-prenumerationer avser produktionsarbetsbelastningar och körs på särskilda virtuella datorinstanser. Varje instans har stöd för flera program och domäner. App services också stöd för [IP-adressbegränsningar](https://docs.microsoft.com/azure/app-service/app-service-ip-restrictions) att skydda trafik till betrodda IP-adresser om det behövs och även [hanterad tjänstidentitet](https://docs.microsoft.com/azure/app-service/app-service-managed-service-identity) för säker anslutning till andra PaaS-tjänster, till exempel [ Key Vault](https://azure.microsoft.com/services/key-vault/) och [Azure SQL Database](https://azure.microsoft.com/services/sql-database/). Om det krävs ytterligare säkerhet vår isolerad är värd för dina appar i en privat, dedikerad miljö för Azure och är perfekt för appar som kräver säkra anslutningar till ditt lokala nätverk eller ytterligare prestanda och skalning.
+Basic, Standard och Premium-prenumerationer avser produktionsarbetsbelastningar och körs på särskilda virtuella datorinstanser. Varje instans har stöd för flera program och domäner. App services också stöd för [IP-adressbegränsningar](https://docs.microsoft.com/azure/app-service/app-service-ip-restrictions) att skydda trafik till betrodda IP-adresser om det behövs och även [hanterade identiteter för Azure-resurser](https://docs.microsoft.com/azure/app-service/app-service-managed-service-identity) för säker anslutning till andra PaaS-tjänster till exempel [Nyckelvalv](https://azure.microsoft.com/services/key-vault/) och [Azure SQL Database](https://azure.microsoft.com/services/sql-database/). Om det krävs ytterligare säkerhet vår isolerad är värd för dina appar i en privat, dedikerad miljö för Azure och är perfekt för appar som kräver säkra anslutningar till ditt lokala nätverk eller ytterligare prestanda och skalning.
 
 Den här mallen distribuerar följande App Service-funktioner:
 
 - [Standard](https://docs.microsoft.com/azure/app-service/azure-web-sites-web-hosting-plans-in-depth-overview) nivå för App Service-Plan
 - Flera Web App [distributionsfack](https://docs.microsoft.com/azure/app-service/web-sites-staged-publishing): utveckling, förhandsgranskning, QA, UAT och naturligtvis produktion (standard-port).
-- [Hanterad tjänstidentitet](https://docs.microsoft.com/azure/app-service/app-service-managed-service-identity) att ansluta till [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) (Detta kan också användas för att ge åtkomst till [Azure SQL Database](https://azure.microsoft.com/services/sql-database/) 
+- [Hanterade identiteter för Azure-resurser](https://docs.microsoft.com/azure/app-service/app-service-managed-service-identity) att ansluta till [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) (Detta kan också användas för att ge åtkomst till [Azure SQL Database](https://azure.microsoft.com/services/sql-database/) 
 - Integrering med [Azure Application Insights](https://docs.microsoft.com/azure/application-insights/app-insights-azure-web-apps) att övervaka prestanda
 - [Diagnostikloggar](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs) 
 - Mått [aviseringar](https://docs.microsoft.com/azure/application-insights/app-insights-alerts) 
@@ -164,7 +163,7 @@ Detaljerad information om hur du skyddar Azure Storage finns i den [säkerhetsgu
 
 #### <a name="azure-key-vault-in-this-blueprint"></a>Azure Key Vault i den här skissen
 
-- Innehåller lagringsåtkomstnyckel med läsbehörighet för den [hanterad tjänstidentitet](https://docs.microsoft.com/azure/app-service/app-service-managed-service-identity) kunden riktade webbappens
+- Innehåller lagringsåtkomstnyckel med läsbehörighet för den [hanterad identitet](https://docs.microsoft.com/azure/app-service/app-service-managed-service-identity) kunden riktade webbappens
 - Innehåller DBA-lösenord för SQL Server (i ett separat valv)
 - Diagnostikloggning
 

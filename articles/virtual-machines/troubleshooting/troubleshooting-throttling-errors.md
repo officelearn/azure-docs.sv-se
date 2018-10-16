@@ -13,12 +13,12 @@ ms.topic: troubleshooting
 ms.workload: infrastructure-services
 ms.date: 09/18/2018
 ms.author: vashan, rajraj, changov
-ms.openlocfilehash: 7a1c283820b1ddef0c85899d9b56b6dcc3ea4b95
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: d9d9e9cdb791504c864cae20d1248ba78a180a4c
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48043143"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49320279"
 ---
 # <a name="troubleshooting-api-throttling-errors"></a>Felsökning av API-begränsningsfel 
 
@@ -32,7 +32,7 @@ När en Azure API-klient hämtar en begränsning fel, är HTTP-status 429 för m
 
 ## <a name="call-rate-informational-response-headers"></a>Anropa rate informationsmeddelande svarshuvuden 
 
-| Sidhuvud                            | Värdeformat                           | Exempel                               | Beskrivning                                                                                                                                                                                               |
+| Huvud                            | Värdeformat                           | Exempel                               | Beskrivning                                                                                                                                                                                               |
 |-----------------------------------|----------------------------------------|---------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | x-ms-ratelimit-återstående-resurs |```<source RP>/<policy or bucket>;<count>```| Microsoft.Compute/HighCostGet3Min;159 | Återstående antalet för API-anrop för begränsningsprincipen som täcker bucket eller åtgärden resursgruppen, inklusive mål för den här begäran                                                                   |
 | x-ms-begäran-kostnad               | ```<count>   ```                             | 1                                     | Antalet antal ”debiteras” för den här HTTP-begäran mot principen gäller gränsen. Detta är normalt 1. Batch-begäranden, till exempel för att skala en skalningsuppsättning för virtuella datorer kan debitera flera antal. |
@@ -49,7 +49,7 @@ x-ms-ratelimit-remaining-resource: Microsoft.Compute/VMScaleSetBatchedVMRequests
 x-ms-ratelimit-remaining-resource: Microsoft.Compute/VmssQueuedVMOperations;4720 
 ```
 
-##<a name="throttling-error-details"></a>Begränsning felinformation
+## <a name="throttling-error-details"></a>Begränsning felinformation
 
 429 HTTP-status används ofta för att avvisa en begäran eftersom en anropsgränsen har nåtts. En typisk begränsning felsvar från Compute-Resursprovidern ser ut i exemplet nedan (endast relevant rubriker visas):
 

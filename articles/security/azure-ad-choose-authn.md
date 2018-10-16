@@ -9,12 +9,12 @@ ms.date: 04/12/2018
 ms.topic: article
 ms.service: active-directory
 ms.workload: identity
-ms.openlocfilehash: b40004e80bf12782b29f5e156a59fb40c807fe57
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: e2521fe3c7ff14765878a7e98a605a9ebbac7cc7
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46296047"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49345177"
 ---
 # <a name="choose-the-right-authentication-method-for-your-azure-active-directory-hybrid-identity-solution"></a>Välja rätt autentiseringsmetod för din Azure Active Directory-hybrididentitetslösning 
 
@@ -52,11 +52,11 @@ När du väljer den här autentiseringsmetoden hanterar Azure AD användarnas in
 **Azure AD-lösenordshashsynkronisering**. Det enklaste sättet att aktivera autentisering för lokala katalogobjekt i Azure AD. Användare kan använda samma användarnamn och lösenord som de använder lokalt utan att behöva distribuera ytterligare infrastruktur. Vissa premiumfunktioner i Azure AD, som Identity Protection kräver synkronisering av lösenordshash för oavsett vilken autentiseringsmetod som du väljer.
 
 > [!NOTE] 
-> Lösenord lagras i klartext aldrig eller krypterats med en algoritm för omvändbar i Azure AD. Läs mer om den faktiska processen för synkronisering av lösenordshash, [implementera lösenordshashsynkronisering med Azure AD Connect-synkronisering](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnectsync-implement-password-synchronization). 
+> Lösenord lagras i klartext aldrig eller krypterats med en algoritm för omvändbar i Azure AD. Läs mer om den faktiska processen för synkronisering av lösenordshash, [implementera lösenordshashsynkronisering med Azure AD Connect-synkronisering](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-password-hash-synchronization). 
 
 **Azure AD-direktautentisering**. Tillhandahåller en enkel lösenordsverifieringen för tjänster som Azure AD-autentisering med hjälp av en programvaruagent som körs på en eller flera lokala servrar. Servrar verifiera användare direkt med en lokal Active Directory, vilket garanterar att valideringen av lösenordet inte inträffa i molnet. 
 
-Företag med en säkerhetskrav att omedelbart tillämpa lokal användare konto tillstånd, principer för lösenord och logga in timmar kan använda den här autentiseringsmetoden. Läs mer om processen för faktiska direktautentisering [användare logga in med Azure AD-direktautentisering](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-pass-through-authentication).
+Företag med en säkerhetskrav att omedelbart tillämpa lokal användare konto tillstånd, principer för lösenord och logga in timmar kan använda den här autentiseringsmetoden. Läs mer om processen för faktiska direktautentisering [användare logga in med Azure AD-direktautentisering](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-pta).
 
 ### <a name="federated-authentication"></a>Federerad autentisering
 När du väljer den här autentiseringsmetoden av Azure AD-händer autentiseringsprocessen till ett separat betrodda autentiseringssystem, till exempel en lokal Active Directory Federation Services (AD FS) för att verifiera användarens lösenord.
@@ -88,17 +88,17 @@ Följande avsnitt hjälper dig att bestämma vilken autentiseringsmetod som pass
 > [!NOTE]
 > Lösenordet har upphört att gälla och kontot utelåst tillstånd för närvarande inte är synkroniserad med Azure AD med Azure AD Connect. 
 
-Referera till [implementera synkronisering av lösenordshash](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnectsync-implement-password-synchronization) distributionsanvisningar.
+Referera till [implementera synkronisering av lösenordshash](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-password-hash-synchronization) distributionsanvisningar.
 
 ### <a name="cloud-authentication-pass-through-authentication"></a>Autentisering i molnet: direktautentisering  
 
 * **Arbete**. För direktautentisering, behöver du en eller flera (Vi rekommenderar tre) lightweight agenter som installerats på befintliga servrar. Dessa agenter måste ha åtkomst till din lokala Active Directory Domain Services, inklusive din lokala AD-domänkontrollanter. Behöver de utgående åtkomst till Internet och åtkomst till dina domänkontrollanter. Därför är det inte stöd för att distribuera agenter i ett perimeternätverk. 
 
-    Direktautentisering kräver obegränsad nätverksåtkomst till domänkontrollanter. All nätverkstrafik krypteras och begränsat till autentiseringsbegäranden. Mer information om den här processen finns i den [djupgående om säkerhet](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-pass-through-authentication-security-deep-dive) på direktautentisering.
+    Direktautentisering kräver obegränsad nätverksåtkomst till domänkontrollanter. All nätverkstrafik krypteras och begränsat till autentiseringsbegäranden. Mer information om den här processen finns i den [djupgående om säkerhet](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-pta-security-deep-dive) på direktautentisering.
 
 * **Användarupplevelsen**. För att förbättra användarnas inloggning ska distribuera sömlös SSO med direktautentisering. Sömlös SSO eliminerar onödiga anvisningarna när användare loggar in.
 
-* **Avancerade scenarier**. Direktautentisering tillämpar lokala kontoprinciper vid tidpunkten för inloggningen. Exempel: åtkomst nekas när den lokala användarens tillstånd är inaktiverad låst konto, eller [lösenord har upphört att gälla](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-pass-through-authentication-faq#what-happens-if-my-users-password-has-expired-and-they-try-to-sign-in-by-using-pass-through-authentication) eller hamnar utanför timmar när användaren tillåts att logga in. 
+* **Avancerade scenarier**. Direktautentisering tillämpar lokala kontoprinciper vid tidpunkten för inloggningen. Exempel: åtkomst nekas när den lokala användarens tillstånd är inaktiverad låst konto, eller [lösenord har upphört att gälla](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-pta-faq#what-happens-if-my-users-password-has-expired-and-they-try-to-sign-in-by-using-pass-through-authentication) eller hamnar utanför timmar när användaren tillåts att logga in. 
 
     Organisationer som kräver Multi-Factor authentication med direktautentisering måste använda Azure Multi-Factor Authentication (MFA). Dessa organisationer kan inte använda en från tredje part eller den lokala Multi-Factor authentication-metod. Avancerade funktioner kräver att synkronisering av lösenordshash distribueras, oavsett om du väljer direktautentisering. Ett exempel är rapporten läckta autentiseringsuppgifter för Identity Protection.
 
@@ -108,9 +108,9 @@ Referera till [implementera synkronisering av lösenordshash](https://docs.micro
 
 * **Överväganden**. Du kan använda synkronisering av lösenordshash som en säkerhetskopiering autentiseringsmetod för direktautentisering, när agenterna inte kan verifiera en användares autentiseringsuppgifter på grund av en betydande lokalt fel skulle uppstå. Redundans till synkronisering av lösenordshash sker inte automatiskt och du måste använda Azure AD Connect för att växla metoden inloggning manuellt. 
 
-    Stöd för andra överväganden vid direktautentisering, inklusive alternativ-ID finns i [vanliga frågor och svar](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-pass-through-authentication-faq).
+    Stöd för andra överväganden vid direktautentisering, inklusive alternativ-ID finns i [vanliga frågor och svar](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-pta-faq).
 
-Referera till [implementera direktautentisering](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-pass-through-authentication) distributionsanvisningar.
+Referera till [implementera direktautentisering](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-pta) distributionsanvisningar.
 
 ### <a name="federated-authentication"></a>Federerad autentisering
 
@@ -122,7 +122,7 @@ Referera till [implementera direktautentisering](https://docs.microsoft.com/azur
 
     * Autentisering som kräver smartkort eller certifikat.
     * Lokala MFA-servrar eller tredje parts multifaktor-leverantörer.
-    * Autentisering med hjälp av autentiseringsmetoder från tredje part lösningar. Se den [kompatibilitetslistan för Azure AD-federation](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-federation-compatibility).
+    * Autentisering med hjälp av autentiseringsmetoder från tredje part lösningar. Se den [kompatibilitetslistan för Azure AD-federation](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-fed-compatibility).
     * Logga in som kräver en sAMAccountName, till exempel domän\användarnamn, i stället för en UPN User Principal Name (), till exempel user@domain.com.
 
 * **Affärskontinuitet**. Federerad system kräver normalt en Utjämning av nätverksbelastning-matris av servrar, kallas även en servergrupp. Den här gruppen har konfigurerats i ett internt nätverk och perimeternätverket Nätverkstopologi för att säkerställa hög tillgänglighet för begäranden om autentisering.
@@ -136,7 +136,7 @@ För en nonroutable-domän som inte kan verifieras i Azure AD, behöver du ytter
 Referera till [distribuera federationsservrar](https://docs.microsoft.com/windows-server/identity/ad-fs/deployment/deploying-federation-servers) distributionsanvisningar.
 
 > [!NOTE] 
-> När du distribuerar din Azure AD-hybrididentitetslösning, måste du implementera en av topologier som stöds av Azure AD Connect. Läs mer om stöds och som inte stöds sammansättningar vid [topologier för Azure AD Connect](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-topologies).
+> När du distribuerar din Azure AD-hybrididentitetslösning, måste du implementera en av topologier som stöds av Azure AD Connect. Läs mer om stöds och som inte stöds sammansättningar vid [topologier för Azure AD Connect](https://docs.microsoft.com/azure/active-directory/hybrid/plan-connect-topologies).
 
 ## <a name="architecture-diagrams"></a>Arkitekturdiagram
 
@@ -160,11 +160,11 @@ Följande diagram visas de övergripande arkitektur komponenter som krävs för 
 |:-----|:-----|:-----|:-----|
 |Var sker autentisering?|I molnet|I molnet när du har ett säkert lösenord verifiering exchange med lokala autentiseringsagent|Lokal|
 |Vilka är kraven på lokal server utöver etablering systemet: Azure AD Connect?|Ingen|En server för varje ytterligare autentisering-agent|Två eller flera AD FS-servrar<br><br>Två eller flera WAP-servrar i perimeternätverket/DMZ-nätverk|
-|Vilka är kraven för den lokala Internet och nätverk utöver etablering systemet?|Ingen|[Utgående Internetåtkomst](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-pass-through-authentication-quick-start) från servrarna som kör autentiseringsagenter|[Inkommande Internetåtkomst](https://docs.microsoft.com/windows-server/identity/ad-fs/overview/ad-fs-requirements) till WAP-servrar i perimeternätverket<br><br>Inkommande åtkomst till AD FS-servrar från WAP-servrar i perimeternätverket<br><br>Utjämning av nätverksbelastning|
+|Vilka är kraven för den lokala Internet och nätverk utöver etablering systemet?|Ingen|[Utgående Internetåtkomst](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-pta-quick-start) från servrarna som kör autentiseringsagenter|[Inkommande Internetåtkomst](https://docs.microsoft.com/windows-server/identity/ad-fs/overview/ad-fs-requirements) till WAP-servrar i perimeternätverket<br><br>Inkommande åtkomst till AD FS-servrar från WAP-servrar i perimeternätverket<br><br>Utjämning av nätverksbelastning|
 |Finns det ett krav för SSL-certifikat?|Nej|Nej|Ja|
-|Finns det en lösning för hälsoövervakning?|Krävs inte|Agentstatus som tillhandahålls av [Azure Active Directory Administrationscenter](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-troubleshoot-pass-through-authentication)|[Azure AD Connect Health](https://docs.microsoft.com/azure/active-directory/connect-health/active-directory-aadconnect-health-adfs)|
-|Användarna får enkel inloggning till molnresurser från domänanslutna enheter i företagets nätverk?|Ja med [sömlös SSO](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-sso)|Ja med [sömlös SSO](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-sso)|Ja|
-|Vilka typer av inloggning stöds?|UserPrincipalName + lösenord<br><br>Windows-integrerad autentisering med hjälp av [sömlös SSO](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-sso)<br><br>[Alternativa inloggnings-ID](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-get-started-custom)|UserPrincipalName + lösenord<br><br>Windows-integrerad autentisering med hjälp av [sömlös SSO](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-sso)<br><br>[Alternativa inloggnings-ID](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-pass-through-authentication-faq)|UserPrincipalName + lösenord<br><br>sAMAccountName + lösenord<br><br>Windows-integrerad autentisering<br><br>[Certifikat och smartkort-autentisering](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configure-user-certificate-authentication)<br><br>[Alternativa inloggnings-ID](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configuring-alternate-login-id)|
+|Finns det en lösning för hälsoövervakning?|Krävs inte|Agentstatus som tillhandahålls av [Azure Active Directory Administrationscenter](https://docs.microsoft.com/azure/active-directory/hybrid/tshoot-connect-pass-through-authentication)|[Azure AD Connect Health](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-health-adfs)|
+|Användarna får enkel inloggning till molnresurser från domänanslutna enheter i företagets nätverk?|Ja med [sömlös SSO](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-sso)|Ja med [sömlös SSO](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-sso)|Ja|
+|Vilka typer av inloggning stöds?|UserPrincipalName + lösenord<br><br>Windows-integrerad autentisering med hjälp av [sömlös SSO](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-sso)<br><br>[Alternativa inloggnings-ID](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-install-custom)|UserPrincipalName + lösenord<br><br>Windows-integrerad autentisering med hjälp av [sömlös SSO](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-sso)<br><br>[Alternativa inloggnings-ID](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-pta-faq)|UserPrincipalName + lösenord<br><br>sAMAccountName + lösenord<br><br>Windows-integrerad autentisering<br><br>[Certifikat och smartkort-autentisering](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configure-user-certificate-authentication)<br><br>[Alternativa inloggnings-ID](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configuring-alternate-login-id)|
 |Är Windows Hello för företag som stöds?|[Förtroendemodell med nyckel](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-identity-verification)<br><br>[Förtroendemodell med certifikat med Intune](https://blogs.technet.microsoft.com/microscott/setting-up-windows-hello-for-business-with-intune/)|[Förtroendemodell med nyckel](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-identity-verification)<br><br>[Förtroendemodell med certifikat med Intune](https://blogs.technet.microsoft.com/microscott/setting-up-windows-hello-for-business-with-intune/)|[Förtroendemodell med nyckel](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-identity-verification)<br><br>[Förtroendemodell med certifikat](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-key-trust-adfs)|
 |Vad är Multi-Factor authentication-alternativ?|[Azure MFA](https://docs.microsoft.com/azure/multi-factor-authentication/)<br><br>[Anpassade kontroller med villkorlig åtkomst *](https://docs.microsoft.com/en-us/azure/active-directory/conditional-access/controls#custom-controls-1)|[Azure MFA](https://docs.microsoft.com/azure/multi-factor-authentication/)<br><br>[Anpassade kontroller med villkorlig åtkomst *](https://docs.microsoft.com/en-us/azure/active-directory/conditional-access/controls#custom-controls-1)|[Azure MFA](https://docs.microsoft.com/azure/multi-factor-authentication/)<br><br>[Azure MFA-servern](https://docs.microsoft.com/azure/active-directory/authentication/howto-mfaserver-deploy)<br><br>[Tredje parts MFA](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configure-additional-authentication-methods-for-ad-fs)<br><br>[Anpassade kontroller med villkorlig åtkomst *](https://docs.microsoft.com/en-us/azure/active-directory/conditional-access/controls#custom-controls-1)|
 |Vilka användare konto tillstånd stöds?|Inaktiverade konton<br>(upp till 30-minuters fördröjning)|Inaktiverade konton<br><br>Låst konto<br><br>Kontot har gått ut<br><br>Lösenordet har gått ut<br><br>Logga in timmar|Inaktiverade konton<br><br>Låst konto<br><br>Kontot har gått ut<br><br>Lösenordet har gått ut<br><br>Logga in timmar|

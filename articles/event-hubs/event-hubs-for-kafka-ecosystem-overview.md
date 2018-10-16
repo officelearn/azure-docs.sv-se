@@ -9,16 +9,16 @@ ms.service: event-hubs
 ms.topic: article
 ms.date: 08/16/2018
 ms.author: bahariri
-ms.openlocfilehash: 16c101068be48ba1435ef230b29c679fcef17d08
-ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
+ms.openlocfilehash: f6da33792e1634fb33a298e34b8945c32ef36c39
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42061697"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49343222"
 ---
 # <a name="azure-event-hubs-for-apache-kafka-preview"></a>Händelsehubbar i Azure för Apache Kafka (förhandsgranskning)
 
-Event Hubs ger en Kafka-slutpunkt som kan användas av din befintliga Kafka-baserade program som ett alternativ till att köra dina egna Kafka-kluster. Har stöd för Händelsehubbar [Apache Kafka 1.0](https://kafka.apache.org/10/documentation.html) och nyare-klientversioner och fungerar med dina befintliga Kafka-program, inklusive MirrorMaker. 
+Event Hubs ger en Kafka-slutpunkt som kan användas av din befintliga Kafka-baserade program som ett alternativ till att köra dina egna Kafka-kluster. Har stöd för Händelsehubbar [Apache Kafka-protokollet 1.0 eller senare](https://kafka.apache.org/documentation/), och fungerar med dina befintliga Kafka-program, inklusive MirrorMaker. 
 
 ## <a name="what-does-event-hubs-for-kafka-provide"></a>Vad tillhandahåller Händelsehubbar för Kafka?
 
@@ -70,6 +70,7 @@ Den här artikeln kan du tillhandahålla en introduktion till Event Hubs för Ka
 
 * [Så här skapar du Kafka aktiverat Event Hubs](event-hubs-create-kafka-enabled.md)
 * [Stream till Event Hubs från Kafka-program](event-hubs-quickstart-kafka-enabled-event-hubs.md)
+* [Utforska fler exempel på GitHub](https://github.com/Azure/azure-event-hubs-for-kafka)
 * Kom igång med en [kurs om händelsehubbar](event-hubs-dotnet-standard-getstarted-send.md)
 * [Vanliga frågor och svar om Event Hubs](event-hubs-faq.md)
 

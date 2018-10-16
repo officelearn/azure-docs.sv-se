@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: bc03bbf63427061c8d9f9e96ebcd9dce84f9fccf
-ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
+ms.openlocfilehash: 941a7242e1f6fddd1ff91721141be4e1f9816b31
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/11/2018
-ms.locfileid: "42056936"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49344871"
 ---
 # <a name="runbook-input-parameters"></a>Indataparametrar för Runbook
 
@@ -73,6 +73,10 @@ Sedan kan du skicka följande värde för parametern:
 ```powershell
 @{"FirstName"="Joe";"MiddleName"="Bob";"LastName"="Smith"}
 ```
+> [!NOTE]
+> När du skickar något värde till en valfri `[String]` typparametern som har en _standardvärde_ av `$null`, så parameterns värde kommer att vara en _tom sträng_, **inte** `$null`.
+> 
+> 
 
 ## <a name="configure-input-parameters-in-graphical-runbooks"></a>Konfigurera indataparametrar i grafiska runbooks
 

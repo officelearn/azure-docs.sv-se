@@ -9,12 +9,12 @@ ms.date: 10/03/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 2a52735a7f573534c6d643e778a898a888dfc81f
-ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
+ms.openlocfilehash: 6fdfc1002528fa48145e577dfee3eac935f31fcd
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49114591"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49344854"
 ---
 # <a name="store-data-at-the-edge-with-azure-blob-storage-on-iot-edge-preview"></a>Store data på gränsen med Azure Blob Storage på IoT Edge (förhandsversion)
 
@@ -81,7 +81,7 @@ Använd följande JSON-mallen för den **behållare skapa alternativ** fält. Ko
    }
    ```   
    
-I Skapa-alternativen JSON uppdaterar `\<your storage account name\>` med ett namn. Uppdatera `\<your storage account key\>` med en 64-bytes base64-nyckel. Du kan generera en nyckel med verktyg som [GeneratePlus](https://generate.plus/en/base64) vilket gör att du kan välja din längd i byte. Du använder dessa autentiseringsuppgifter för att få åtkomst till blob-lagringen från andra moduler.
+I Skapa-alternativen JSON uppdaterar `\<your storage account name\>` med ett namn. Uppdatera `\<your storage account key\>` med en 64-bytes base64-nyckel. Du kan generera en nyckel med verktyg som [GeneratePlus](https://generate.plus/en/base64?gp_base64_base[length]=64) vilket gör att du kan välja din längd i byte. Du använder dessa autentiseringsuppgifter för att få åtkomst till blob-lagringen från andra moduler.
 
 I Skapa-alternativen JSON uppdaterar `<storage directory bind>` beroende på operativsystemet för behållaren. Ange namnet på en [volym](https://docs.docker.com/storage/volumes/) eller den absoluta sökvägen till en katalog på din IoT Edge-enhet där du vill att blob-modulen för att lagra data.  
 
@@ -150,7 +150,7 @@ Lösningsmallen skapar en manifest Distributionsmall som innehåller din avbildn
    STORAGE_ACCOUNT_KEY=
    ```
 
-8. Ange ett namn för lagringskontonamn och tillhandahålla en 64-bytes base64-nyckel för lagringskontonyckeln. Du kan generera en nyckel med verktyg som [GeneratePlus](https://generate.plus/en/base64). Du använder dessa autentiseringsuppgifter för att få åtkomst till blob-lagringen från andra moduler. 
+8. Ange ett namn för lagringskontonamn och tillhandahålla en 64-bytes base64-nyckel för lagringskontonyckeln. Du kan generera en nyckel med verktyg som [GeneratePlus](https://generate.plus/en/base64?gp_base64_base[length]=64). Du använder dessa autentiseringsuppgifter för att få åtkomst till blob-lagringen från andra moduler. 
 
 9. Spara **.env**. 
 

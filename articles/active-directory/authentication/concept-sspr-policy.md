@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: 13b21c4f8fde2b11722d012c207ed75447a7f970
-ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
+ms.openlocfilehash: 3e3b608d3928536d654a594c42cbcc955d620d98
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49114659"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49321741"
 ---
 # <a name="password-policies-and-restrictions-in-azure-active-directory"></a>Lösenordsprinciper och begränsningar i Azure Active Directory
 
@@ -27,7 +27,7 @@ Den här artikeln beskriver lösenordsprinciper och krav på komplexitet som är
 
 Med en princip för två gate **administratörer inte har möjlighet att använda säkerhetsfrågor**.
 
- En två-gate-princip kräver två typer av autentiseringsdata, till exempel en e-postadress *och* ett telefonnummer. En två-gate-princip tillämpas under följande omständigheter:
+En två-gate-princip kräver två typer av autentiseringsdata, till exempel en e-postadress *och* ett telefonnummer. En två-gate-princip tillämpas under följande omständigheter:
 
 * Alla följande Azure-administratörsroller som påverkas:
   * Supportavdelningsadministratör
@@ -50,29 +50,17 @@ Med en princip för två gate **administratörer inte har möjlighet att använd
   * CRM-tjänstadministratör
   * Power BI-tjänstadministratör
 
-* Om 30 dagar har i en utvärderingsprenumeration
-
-  eller
-
-* En anpassad domän finns, t.ex contoso.com
-
-  eller
-
+* Om 30 dagar har i en utvärderingsprenumeration; eller
+* En anpassad domän finns, t.ex contoso.com; eller
 * Azure AD Connect synkroniserar identiteter från din lokala katalog
 
 ### <a name="exceptions"></a>Undantag
 
 En princip för en gate kräver en typ av autentiseringsdata, till exempel en e-postadress *eller* telefonnummer. En princip för en gate gäller under följande omständigheter:
 
-* Det är inom de första 30 dagarna av en utvärderingsprenumeration
-
-  eller
-
-* En anpassad domän inte finns (*. onmicrosoft.com)
-
-  och
-
-  Azure AD Connect synkroniserar inte identiteter
+* Det är inom de första 30 dagarna av en utvärderingsprenumeration; eller
+* En anpassad domän inte finns (*. onmicrosoft.com); och
+* Azure AD Connect synkroniserar inte identiteter
 
 ## <a name="userprincipalname-policies-that-apply-to-all-user-accounts"></a>UserPrincipalName-principer som gäller för alla användarkonton
 
@@ -117,7 +105,7 @@ Om du vill komma igång kan du behöva [ladda ned och installera Azure AD PowerS
 ### <a name="check-the-expiration-policy-for-a-password"></a>Kontrollera förfalloprincipen för lösenord
 
 1. Ansluta till Windows PowerShell med hjälp av företagets administratörsautentiseringsuppgifter.
-2. Kör något av följande kommandon:
+1. Kör något av följande kommandon:
 
    * Om du vill se om en användares lösenord har angetts att aldrig upphöra, kör du följande cmdlet med hjälp av UPN-namnet (till exempel *aprilr@contoso.onmicrosoft.com*) eller användar-ID för den användare som du vill kontrollera: `Get-AzureADUser -ObjectId <user ID> | Select-Object @{N="PasswordNeverExpires";E={$_.PasswordPolicies -contains "DisablePasswordExpiration"}}`
    * Se den **lösenordet upphör aldrig att gälla** inställningen för alla användare kör du följande cmdlet: `Get-AzureADUser -All $true | Select-Object UserPrincipalName, @{N="PasswordNeverExpires";E={$_.PasswordPolicies -contains "DisablePasswordExpiration"}}`
@@ -125,7 +113,7 @@ Om du vill komma igång kan du behöva [ladda ned och installera Azure AD PowerS
 ### <a name="set-a-password-to-expire"></a>Ange ett lösenord att gälla
 
 1. Ansluta till Windows PowerShell med hjälp av företagets administratörsautentiseringsuppgifter.
-2. Kör något av följande kommandon:
+1. Kör något av följande kommandon:
 
    * Kör följande cmdlet för att ange lösenordet för en användare så att lösenordet upphör att gälla, med hjälp av UPN-namnet eller det användar-ID för användaren: `Set-AzureADUser -ObjectId <user ID> -PasswordPolicies None`
    * Om du vill ange lösenorden för alla användare i organisationen så att de går ut, använder du följande cmdlet: `Get-AzureADUser -All $true | Set-AzureADUser -PasswordPolicies None`
@@ -133,7 +121,7 @@ Om du vill komma igång kan du behöva [ladda ned och installera Azure AD PowerS
 ### <a name="set-a-password-to-never-expire"></a>Ange ett lösenord aldrig upphör att gälla
 
 1. Ansluta till Windows PowerShell med hjälp av företagets administratörsautentiseringsuppgifter.
-2. Kör något av följande kommandon:
+1. Kör något av följande kommandon:
 
    * Kör följande cmdlet för att ange lösenordet för en användare att aldrig upphöra, med hjälp av UPN-namnet eller det användar-ID för användaren: `Set-AzureADUser -ObjectId <user ID> -PasswordPolicies DisablePasswordExpiration`
    * Om du vill ange lösenorden för alla användare i en organisation att aldrig upphöra, kör du följande cmdlet: `Get-AzureADUser -All $true | Set-AzureADUser -PasswordPolicies DisablePasswordExpiration`

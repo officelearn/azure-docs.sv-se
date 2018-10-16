@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 04/20/2018
 manager: jlembicz
 ms.author: nateko
-ms.openlocfilehash: 579d92f41e41cdb38d4a1eb0bb6e56ce4d4b2a45
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: 9f887b065cf4fcc295873ee969030c67d17d9e2f
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47093222"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49318477"
 ---
 # <a name="synonyms-in-azure-search"></a>Synonymer i Azure Search
 
@@ -148,6 +148,8 @@ Synonymfunktionen skriver om den ursprungliga frågan med synonymer med OR-opera
 Synonymen funktionen gäller för sökfrågor och gäller inte för filter eller fasetter. På samma sätt baseras förslag endast på den ursprungliga sikt. synonymen matchningar visas inte i svaret.
 
 Synonymen expanderar gäller inte för jokertecken söktermer; prefix, fuzzy, och regex villkor inte är expanderat.
+
+Om du behöver göra en enda fråga som gäller synonymen expansion och jokertecken, regex eller fuzzy sökningar, kan du kombinera frågor med OR-syntax. Till exempel om du vill kombinera synonymer med jokertecken för enkel frågesyntax termen skulle vara `<query> | <query>*`.
 
 ## <a name="tips-for-building-a-synonym-map"></a>Tips för att skapa en synonymmappning
 

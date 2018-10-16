@@ -1,24 +1,25 @@
 ---
-title: Använda en anpassad slutpunkt - Custom Speech Service
-titlesuffix: Azure Cognitive Services
-description: Lär dig hur du använder en anpassad tal till text-slutpunkt med Custom Speech Service.
+title: Använda en anpassad slutpunkt med Custom Speech Service på Azure | Microsoft Docs
+description: Lär dig hur du använder en anpassad tal till text-slutpunkt med Custom Speech Service i Cognitive Services.
 services: cognitive-services
 author: PanosPeriorellis
-manager: cgronlun
+manager: onano
 ms.service: cognitive-services
 ms.component: custom-speech
-ms.topic: conceptual
+ms.topic: article
 ms.date: 02/08/2017
 ms.author: panosper
-ROBOTS: NOINDEX
-ms.openlocfilehash: 98c1b58e58490199b0258dfcc8df183c3fe9a8bd
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 9f1a21d6f099bc27c81e8c254f7df73d6c3e585d
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47223380"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49341813"
 ---
 # <a name="use-a-custom-speech-to-text-endpoint"></a>Använd en anpassad slutpunkt för tal till text
+
+[!INCLUDE [Deprecation note](../../../../includes/cognitive-services-custom-speech-deprecation-note.md)]
+
 Du kan skicka begäranden till en Azure Custom Speech Service tal till text-slutpunkt på ett liknande sätt som du kan i standardslutpunkten Cognitive Services tal. De här slutpunkterna är funktionellt identiska med standardslutpunkterna för API för taligenkänning. Därför finns även på samma sätt som är tillgänglig via klientbiblioteket eller REST-API för API för taligenkänning för din anpassade slutpunkt.
 
 Slutpunkter som du skapar med hjälp av den här tjänsten kan bearbeta olika antal samtidiga begäranden. Volymen beror på prisnivå som är associerade med prenumerationen. Ett fel inträffar om för många begäranden tas emot. Den kostnadsfria nivån har en månatliga gräns för begäranden.

@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 02/26/2018
 ms.author: elioda
-ms.openlocfilehash: 4aa4a3b1e617009d88c581966f791569322d967f
-ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
+ms.openlocfilehash: f28a41f4a80806df14e314dae05405b7b45449b1
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48018443"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49318256"
 ---
 # <a name="iot-hub-query-language-for-device-and-module-twins-jobs-and-message-routing"></a>IoT Hub-frågespråk för tvillingar för enheten och modulen, jobb och meddelanderoutning
 
@@ -176,7 +176,7 @@ Den här frågan returnerar alla modultvillingar med statusen genomsökning, men
 ```sql
 Select * from devices.modules 
   where properties.reported.status = 'scanning' 
-  and deviceId IN ('device1', 'device2')  
+  and deviceId IN ['device1', 'device2']
 ```
 
 ### <a name="c-example"></a>C#-exempel

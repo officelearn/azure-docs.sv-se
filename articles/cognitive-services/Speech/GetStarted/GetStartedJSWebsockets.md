@@ -10,15 +10,16 @@ ms.component: bing-speech
 ms.topic: article
 ms.date: 09/18/2018
 ms.author: zhouwang
-ROBOTS: NOINDEX
-ms.openlocfilehash: c4fb331076f88d4f14f56201aa31a00160f395aa
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 79f2aa9c3e73037aa25848b7d11c34a73bf35f64
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46995354"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49342406"
 ---
 # <a name="get-started-with-the-speech-recognition-api-in-javascript"></a>Kom igång med API för taligenkänning taligenkänning i JavaScript
+
+[!INCLUDE [Deprecation note](../../../../includes/cognitive-services-bing-speech-api-deprecation-note.md)]
 
 Du kan utveckla program som omvandla talat ljud till text med hjälp av de tal-API: T. JavaScript-klientbiblioteket använder den [Speech Service WebSocket-protokoll](../API-Reference-REST/websocketprotocol.md), vilket gör att du prata och ta emot transkriberas text samtidigt. Den här artikeln hjälper dig att komma igång med API för taligenkänning taligenkänning i JavaScript.
 

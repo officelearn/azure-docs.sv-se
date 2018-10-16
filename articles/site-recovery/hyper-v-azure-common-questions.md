@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.date: 10/10/2018
 ms.topic: conceptual
 ms.author: raynew
-ms.openlocfilehash: 83c23933acf1ed621728991fbdeea088911cf36c
-ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
+ms.openlocfilehash: 7c5316aea2bfdb9a96b9aeb2dd5387b2643a92b2
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49078672"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49319735"
 ---
 # <a name="common-questions---hyper-v-to-azure-replication"></a>Vanliga frågor – Hyper-V till Azure replikering
 
@@ -135,7 +135,7 @@ När du replikerar till Azure replikeringstrafik når de offentliga slutpunktern
 
 För replikering, måste en Hyper-V virtuell dator köra ett operativsystem som stöds. Dessutom kan måste den virtuella datorn uppfylla kraven för virtuella Azure-datorer. [Läs mer](hyper-v-azure-support-matrix.md#replicated-vms) i supportmatrisen.
 
-###<a name="how-often-can-i-replicate-to-azure"></a>Hur ofta kan jag replikera till Azure?
+### <a name="how-often-can-i-replicate-to-azure"></a>Hur ofta kan jag replikera till Azure?
 
 Hyper-V-datorer kan replikeras var 30 sekunder (förutom för premium-lagring), 5 minuter eller 15 minuter.
 
@@ -207,6 +207,3 @@ När din lokala infrastruktur är igång igen kan du inte återställa. Återst�
 
 ### <a name="can-i-fail-back-to-a-different-location"></a>Kan jag återställa till en annan plats?
 Ja, om du växlas över till Azure, du kan växla tillbaka till en annan plats om den ursprungliga som inte är tillgänglig. [Läs mer](hyper-v-azure-failback.md#failback-to-an-alternate-location-in-hyper-v-environment).
-
-
-

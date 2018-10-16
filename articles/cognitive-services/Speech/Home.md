@@ -10,23 +10,21 @@ ms.component: bing-speech
 ms.topic: article
 ms.date: 09/18/2018
 ms.author: zhouwang
-ROBOTS: NOINDEX
-ms.openlocfilehash: ca1045bcec889e1de47b44a44322579f8b60598f
-ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
+ms.openlocfilehash: 960d2d402f223b306aa6ff05b567d13525e3d525
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/01/2018
-ms.locfileid: "47586211"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49340366"
 ---
 # <a name="what-is-bing-speech"></a>Vad är Bing-taligenkänning?
+
+[!INCLUDE [Deprecation note](../../../includes/cognitive-services-bing-speech-api-deprecation-note.md)]
 
 Molnbaserade Microsoft Bing Speech API får utvecklare ett enkelt sätt att skapa kraftfulla funktioner som stöd för tal i sina program, t.ex. röst kommandokontroll, dialogruta för användare med hjälp av naturligt språk konversation, och taltranskription och diktering. Microsoft Speech API stöder både *tal till Text* och *Text till tal* konvertering.
 
 - **Tal till Text** API omvandlar tal till text som kan användas som indata eller kommandon för att kontrollera ditt program.
 - **Text till tal** API: texten omvandlas till ljudströmmar som kan spelas upp för användare av ditt program.
-
-> [!NOTE] 
-> Sedan September 2018, den nya [taltjänst](../speech-service/index.yml) har blivit allmänt tillgänglig. Vi rekommenderar att du [prova det kostnadsfritt](../speech-service/get-started.md).
 
 ## <a name="speech-to-text-speech-recognition"></a>Tal till text (Taligenkänning)
 

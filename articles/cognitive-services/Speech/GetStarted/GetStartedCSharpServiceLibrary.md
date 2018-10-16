@@ -10,15 +10,16 @@ ms.component: bing-speech
 ms.topic: article
 ms.date: 09/18/2018
 ms.author: zhouwang
-ROBOTS: NOINDEX
-ms.openlocfilehash: 5716f7a0af16bd3e40dea4468e2fae884f911718
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: e9b3d3207f5aca6cba3555ba2578b5c66b3bd193
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46967565"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49343699"
 ---
 # <a name="quickstart-use-the-bing-speech-recognition-service-library-in-c35-for-net-windows"></a>Snabbstart: Använda tjänstbibliotek för Bing-taligenkänning taligenkänning i C&#35; för .NET Windows
+
+[!INCLUDE [Deprecation note](../../../../includes/cognitive-services-bing-speech-api-deprecation-note.md)]
 
 Tjänstbiblioteket är för utvecklare som har sina egna molntjänst och vill anropa Speech Service från sin tjänst. Om du vill att anropa tjänsten för taligenkänning från enheten-bunden appar, Använd inte denna SDK. (Använd andra klientbibliotek eller REST API: er för som.)
 

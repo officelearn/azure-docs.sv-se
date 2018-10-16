@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/24/2018
 ms.author: ramankum
 ms.custom: include file
-ms.openlocfilehash: 097fc837807d28e02732cf8820afac74c33e16d9
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.openlocfilehash: a05d0c623c1abdb5713c1d49b0b577298c1d6c7d
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48240020"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49347036"
 ---
 # <a name="high-performance-premium-storage-and-managed-disks-for-vms"></a>Högpresterande Premium Storage och hanterade diskar för virtuella datorer
 
@@ -51,7 +51,7 @@ Här följer några av funktionerna i Premium Storage:
 
 * **Premium storage-diskar**
 
-    Premium Storage stöder VM-diskar som kan kopplas till specifika storlek-serien för virtuella datorer. Premium Storage stöder en mängd olika virtuella Azure-datorer. Du kan välja mellan åtta GA-diskstorlekar: P4 (32 GiB) P6 (64 GiB) P10 (128 GiB) P15 (256 GB), P20 (512 GiB), P30 (1 024 GiB), P40 (2 048 GiB) P50 (4095 GiB). Samt tre Förhandsgranska diskstorlekar: P60 8 192 GiB (8 TiB) P70 16,348 GiB (16 TiB) P80 32 767 GiB (32 TiB). P4, P6, P60, P70 och P80 diskstorlekar finns för närvarande endast stöd för Managed Disks. Varje diskstorleken har sin egen prestandakrav. Du kan koppla en eller flera diskar till din virtuella dator beroende på dina programkrav. Vi beskriver specifikationer i detalj i [skalbarhets- och prestandamål för Premium Storage](#scalability-and-performance-targets).
+    Premium Storage stöder VM-diskar som kan kopplas till specifika storlek-serien för virtuella datorer. Premium Storage stöder en mängd olika virtuella Azure-datorer. Du kan välja mellan åtta GA-diskstorlekar: P4 (32 GiB) P6 (64 GiB) P10 (128 GiB) P15 (256 GB), P20 (512 GiB), P30 (1 024 GiB), P40 (2 048 GiB) P50 (4095 GiB). Samt tre Förhandsgranska diskstorlekar: P60 8 192 GiB (8 TiB) P70 16,348 GiB (16 TiB) P80 32 767 GiB (32 TiB). P4, P6, P15, P60, P70 och P80 diskstorlekar finns för närvarande endast stöd för Managed Disks. Varje diskstorleken har sin egen prestandakrav. Du kan koppla en eller flera diskar till din virtuella dator beroende på dina programkrav. Vi beskriver specifikationer i detalj i [skalbarhets- och prestandamål för Premium Storage](#scalability-and-performance-targets).
 
 * **Premium-sidblobar**
 
@@ -149,7 +149,7 @@ Mer information finns i [skalbarhets- och prestandamål i Azure Storage](../arti
 Om du använder premium storage-konton för ohanterade diskar och programmet överskrider det för skalbarhetsmål för ett enda lagringskonto, kanske du vill migrera till managed disks. Om du inte vill migrera till managed disks kan du skapa programmet så att flera lagringskonton. Sedan kan partitionera dina data på dessa lagringskonton. Till exempel om du vill koppla 51 TB diskar mellan flera virtuella datorer fördelade dem på två lagringskonton. 35 TB är gränsen för en enda premium storage-konto. Se till att ett enda lagringskonto aldrig har mer än 35 TB etablerade diskar.
 
 ### <a name="premium-storage-disk-limits"></a>Gränser för Premium Storage disk
-När du etablerar en premium-lagringsdisk anger storleken på disken högsta IOPS och dataflöde (bandbredd). Azure erbjuder åtta typer av premium-lagringsdiskar: P4 (hanterade diskar endast), P6 (hanterade diskar endast), P10, P15, P20, P30, P40 och P50. Varje typ av premiumlagring har specifika gränser för IOPS och dataflöde. Begränsningar för disktyper beskrivs i följande tabell:
+När du etablerar en premium-lagringsdisk anger storleken på disken högsta IOPS och dataflöde (bandbredd). Azure erbjuder åtta GA-typer av premium-lagringsdiskar: P4 (hanterade diskar endast), P6 (hanterade diskar endast), P10, P15 (hanterade diskar endast), P20, P30, P40 och P50. Samt tre Förhandsgranska diskstorlekar: P60 och P70 P80. Varje typ av premiumlagring har specifika gränser för IOPS och dataflöde. Begränsningar för disktyper beskrivs i följande tabell:
 
 | Premium-diskar typ | P4 | P6 | P10 | P15 | P20 | P30 | P40 | P50 | P60 | P70 | P80 | |---|---|---|---|---|---|---|---|---|| -------|| -------|| -------| | Diskstorlek | 32 giB | 64 giB | 128 giB | 256 GB | 512 giB | 1 024 giB (1 TiB) | 2048 giB (2 TiB) | 4 095 giB (4 TiB) | 8192 giB (8 TiB) | 16 384 giB (16 TiB) | 32 767 giB (32 TiB) || IOPS per disk | 120 | 240 | 500 | 1100 | 2300 | 5000 | 7500 | 7500 | 12 500 | 15 000 | 20 000 || Dataflöde per disk | 25 MB per sekund | 50 MB per sekund | 100 MB per sekund | 125 MB per sekund | 150 MB per sekund | 200 MB per sekund | 250 MB per sekund | 250 MB per sekund | 480 MB per sekund | 750 MB per sekund | 750 MB per sekund |
 

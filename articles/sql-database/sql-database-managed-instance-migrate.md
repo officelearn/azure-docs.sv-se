@@ -11,13 +11,13 @@ author: bonova
 ms.author: bonova
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 09/26/2018
-ms.openlocfilehash: 6d03a6016d26e7885bedd4a0b56cbab9dab4873e
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.date: 10/15/2018
+ms.openlocfilehash: 6868b842f22a6d107936fcb1e49c46b0c1f58469
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48869890"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49345313"
 ---
 # <a name="sql-server-instance-migration-to-azure-sql-database-managed-instance"></a>Migrering av SQL Server-instans till Azure SQL Database Managed Instance
 
@@ -38,9 +38,9 @@ Migreringen av databasen ut som på en hög nivå:
 
 ## <a name="assess-managed-instance-compatibility"></a>Utvärdera kompatibilitet för hanterad instans
 
-Börja med att kontrollera om Managed Instance är kompatibelt med databaskrav av ditt program. Hanterad instans är utformad att ge enkel lift and shift-migrering för flesta av befintliga program som använder SQL Server lokalt eller på virtuella datorer. Men du kan ibland behöva funktioner eller funktioner som ännu inte stöds och kostnaden för att implementera en lösning är för höga. 
+Börja med att kontrollera om Managed Instance är kompatibelt med databaskrav av ditt program. Hanterad instans är utformad att ge enkel lift and shift-migrering för flesta av befintliga program som använder SQL Server lokalt eller på virtuella datorer. Men du kan ibland behöva funktioner eller funktioner som ännu inte stöds och kostnaden för att implementera en lösning är för höga.
 
-Använd [Data Migration Assistant (DMA)](https://docs.microsoft.com/sql/dma/dma-overview) för att identifiera potentiella kompatibilitetsproblem påverkar databasfunktionaliteten på Azure SQL Database. DMA har stöd inte för hanterad instans som mål för migrering, men det rekommenderas att köra utvärderingen mot Azure SQL Database och noga igenom listan över rapporterade funktionsparitet och kompatibilitetsproblem mot produktdokumentationen. Se [Azure SQL Database-funktioner](sql-database-features.md) att kontrollera finns det vissa rapporterade allvarliga problem att inte blockeringar i hanterad instans, eftersom de flesta av de blockerar problem hindrar en migrering till Azure SQL Database har tagits bort med hanterad Instans. För instans, funktioner som databasöverskridande frågor och transaktioner över flera databaser inom samma instans länkad server för att andra SQL källor, CLR, globala temporära tabeller, är instans på vyer, Service Broker och liknande tillgängliga i hanterade instanser. 
+Använd [Data Migration Assistant (DMA)](https://docs.microsoft.com/sql/dma/dma-overview) för att identifiera potentiella kompatibilitetsproblem påverkar databasfunktionaliteten på Azure SQL Database. DMA har stöd inte för hanterad instans som mål för migrering, men det rekommenderas att köra utvärderingen mot Azure SQL Database och noga igenom listan över rapporterade funktionsparitet och kompatibilitetsproblem mot produktdokumentationen. Se [Azure SQL Database-funktioner](sql-database-features.md) att kontrollera finns det vissa rapporterade allvarliga problem att inte blockeringar i hanterad instans, eftersom de flesta av de blockerar problem hindrar en migrering till Azure SQL Database har tagits bort med hanterad Instans. För instans, funktioner som databasöverskridande frågor och transaktioner över flera databaser inom samma instans länkad server för att andra SQL källor, CLR, globala temporära tabeller, är instans på vyer, Service Broker och liknande tillgängliga i hanterade instanser.
 
 Om det finns några rapporterade allvarliga problem som inte tas bort i Azure SQL Database Managed Instance kan du behöva tänka på ett alternativ, till exempel [SQL Server på virtuella datorer i Azure](https://azure.microsoft.com/services/virtual-machines/sql-server/). Här följer några exempel:
 
@@ -64,12 +64,12 @@ Läs hur du skapar infrastrukturen som virtuellt nätverk och en hanterad instan
 
 ## <a name="select-migration-method-and-migrate"></a>Välj migreringsmetod och migrera
 
-Hanterade instans mål användarscenarier som kräver drivrutiner för masslagring Databasmigrering från lokala eller IaaS databasen implementeringar. De är optimala val när du vill flytta över serverdelen för de program som regelbundet använder instansnivå och / eller databasöverskridande funktioner. Om det här är ditt scenario kan du flytta en hel instans till en motsvarande miljö i Azure utan att behöva rearchitecture dina program. 
+Hanterade instans mål användarscenarier som kräver drivrutiner för masslagring Databasmigrering från lokala eller IaaS databasen implementeringar. De är optimala val när du vill flytta över serverdelen för de program som regelbundet använder instansnivå och / eller databasöverskridande funktioner. Om det här är ditt scenario kan du flytta en hel instans till en motsvarande miljö i Azure utan att behöva göra om arkitekturen i dina program.
 
 Om du vill flytta SQL-instanser måste du planera noggrant:
 
--   Migrering av alla databaser som måste vara samordnad (som körs på samma instans)
--   Migrering av på instansnivå objekt som ditt program är beroende av, inklusive inloggningar, autentiseringsuppgifter, SQL-Agentjobb och operatorer och på serverutlösare. 
+- Migrering av alla databaser som måste vara samordnad (som körs på samma instans)
+- Migrering av på instansnivå objekt som ditt program är beroende av, inklusive inloggningar, autentiseringsuppgifter, SQL-Agentjobb och operatorer och på serverutlösare.
 
 Managed Instance är en fullständigt hanterad tjänst som gör att du kan delegera vissa av de ordinarie DBA-åtgärder för plattformen som de är inbyggda i. Därför vissa nivå instansdata inte behöver migreras, till exempel Underhållsjobb för regelbundna säkerhetskopieringar eller Always On-konfiguration som [hög tillgänglighet](sql-database-high-availability.md) är inbyggd i.
 
@@ -80,7 +80,7 @@ Hanterad instans stöder följande databas-migreringsalternativ (för närvarand
 
 ### <a name="azure-database-migration-service"></a>Azure Database Migration Service
 
-Den [Azure Database Migration Service (DMS)](../dms/dms-overview.md) är en fullständigt hanterad tjänst som utformats för att aktivera sömlös migrering från flera databaskällor till Azure-Dataplattformar med minimal avbrottstid. Den här tjänsten effektiviserar uppgifter som krävs för att flytta befintliga från tredje part och SQL Server-databaser till Azure. Distributionsalternativ i den offentliga förhandsversionen inkluderar Azure SQL Database Managed Instance och SQL Server i en Azure virtuell dator. DMS är den rekommenderade metoden för migrering för dina företagsarbetsbelastningar. 
+Den [Azure Database Migration Service (DMS)](../dms/dms-overview.md) är en fullständigt hanterad tjänst som utformats för att aktivera sömlös migrering från flera databaskällor till Azure-Dataplattformar med minimal avbrottstid. Den här tjänsten effektiviserar uppgifter som krävs för att flytta befintliga från tredje part och SQL Server-databaser till Azure. Distributionsalternativ i den offentliga förhandsversionen inkluderar Azure SQL Database Managed Instance och SQL Server i en Azure virtuell dator. DMS är den rekommenderade metoden för migrering för dina företagsarbetsbelastningar.
 
 Om du använder SQL Server Integration Services (SSIS) i SQL Server lokalt, DMS stöder ännu inte migrera SSIS-katalogen (SSISDB) som lagrar SSIS-paket, men du kan etablera Azure-SSIS Integration Runtime (IR) i Azure Data Factory (ADF) som kommer Skapa en ny SSISDB i Azure SQL-databas/hanterad instans och sedan du kan distribuera om ditt paket till den, se [skapa Azure-SSIS IR i ADF](https://docs.microsoft.com/azure/data-factory/create-azure-ssis-integration-runtime).
 
@@ -88,7 +88,7 @@ Läs mer om det här scenariot och konfigurationssteg för att DMS i [migrera di
 
 ### <a name="native-restore-from-url"></a>Intern återställning från URL
 
-ÅTERSTÄLLNING av interna säkerhetskopieringar (.bak-filer) som kommer från SQL Server lokalt eller [SQL Server på virtuella datorer](https://azure.microsoft.com/services/virtual-machines/sql-server/)är tillgängligt på [Azure Storage](https://azure.microsoft.com/services/storage/), är en av de viktigaste funktionerna på SQL DB Managed Instance som möjliggör snabbt och enkelt offline Databasmigrering. 
+ÅTERSTÄLLNING av interna säkerhetskopieringar (.bak-filer) som kommer från SQL Server lokalt eller [SQL Server på virtuella datorer](https://azure.microsoft.com/services/virtual-machines/sql-server/)är tillgängligt på [Azure Storage](https://azure.microsoft.com/services/storage/), är en av de viktigaste funktionerna på SQL DB Managed Instance som möjliggör snabbt och enkelt offline Databasmigrering.
 
 Följande diagram ger en översikt över processen:
 
@@ -121,6 +121,7 @@ När du är på en helt hanterad plattform ta fördelar som tillhandahålls auto
 Dessutom kan du inte behöver bekymra dig om hur du konfigurerar hög tillgänglighet som [hög tillgänglighet](sql-database-high-availability.md) är inbyggd i.
 
 Överväg att använda några av de funktioner som är tillgängliga för att stärka säkerheten:
+
 - Azure Active Directory-autentisering på databasnivå
 - Använd [avancerade säkerhetsfunktioner](sql-database-security-overview.md) som [granskning](sql-database-managed-instance-auditing.md), [Hotidentifiering](sql-advanced-threat-protection.md), [säkerhet på radnivå](https://docs.microsoft.com/sql/relational-databases/security/row-level-security), och [dynamisk Datamaskning](https://docs.microsoft.com/sql/relational-databases/security/dynamic-data-masking) ) att skydda din instans.
 

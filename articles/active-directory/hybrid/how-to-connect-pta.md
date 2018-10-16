@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 07/19/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 8055faad3cd546e538def5e7292287b49ce96cb4
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 4ae84ff481b25f1e91a29c067dea74ba25f924aa
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46314512"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49320330"
 ---
 # <a name="user-sign-in-with-azure-active-directory-pass-through-authentication"></a>Användaren logga in med Azure Active Directory-direktautentisering
 
@@ -38,7 +38,7 @@ Du kan kombinera direktautentisering med den [sömlös enkel inloggning](how-to-
 
 ## <a name="key-benefits-of-using-azure-ad-pass-through-authentication"></a>Viktiga fördelar med att använda Azure AD-direktautentisering
 
-- *Bra användarupplevelse*
+- *En utmärkt användarupplevelse*
   - Användare använda samma lösenord för att logga in på både lokala och molnbaserade program.
   - Användarna snabbare kan prata IT supportavdelningen lösa lösenord-relaterade problem.
   - Användarna kan slutföra [egen lösenordshantering](../authentication/active-directory-passwords-overview.md) uppgifter i molnet.
@@ -69,7 +69,7 @@ Du kan kombinera direktautentisering med den [sömlös enkel inloggning](how-to-
 ## <a name="next-steps"></a>Nästa steg
 
 - [Snabbstart](how-to-connect-pta-quick-start.md) – komma igång och köra Azure AD-direktautentisering.
-- [Migrera från AD FS till direktautentisering](https://github.com/Identity-Deployment-Guides/Identity-Deployment-Guides/blob/master/Authentication/Migrating%20from%20Federated%20Authentication%20to%20Pass-through%20Authentication.docx) -en detaljerad vägledning för att migrera från AD FS (eller andra tekniker för federation) till direktautentisering.
+- [Migrera från AD FS till direktautentisering](https://github.com/Identity-Deployment-Guides/Identity-Deployment-Guides/blob/master/Authentication/Migrating%20from%20Federated%20Authentication%20to%20Pass-through%20Authentication.docx?raw=true) -en detaljerad vägledning för att migrera från AD FS (eller andra tekniker för federation) till direktautentisering.
 - [Smart kontoutelåsning](../authentication/howto-password-smart-lockout.md) -konfigurera Smart kontoutelåsning kapaciteten på din klient för att skydda användarkonton.
 - [Aktuella begränsningar](how-to-connect-pta-current-limitations.md) – Lär dig vilka scenarier som stöds och vilka som inte är.
 - [Teknisk djupdykning](how-to-connect-pta-how-it-works.md) – förstå hur den här funktionen fungerar.

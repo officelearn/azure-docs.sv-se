@@ -10,12 +10,12 @@ ms.component: manage
 ms.date: 08/06/2018
 ms.author: twounder
 ms.reviewer: twounder
-ms.openlocfilehash: 5c54505625f40d7c0bd00111e2ff260dc9afaf1c
-ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
+ms.openlocfilehash: c7d2211ca69fcd18588ea1b20b638b2970b8439c
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43288012"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49318851"
 ---
 # <a name="whats-new-in-azure-sql-data-warehouse-july-2018"></a>Vad är nytt i Azure SQL Data Warehouse? Juli 2018
 Azure SQL Data Warehouse tar emot förbättringar kontinuerligt. Den här artikeln beskriver nya funktioner och ändringar som har införts i juli 2018.
@@ -30,7 +30,7 @@ Utöver runtime-prestanda i [Gigaom Research](https://gigaom.com/report/data-war
 ![Azure SQL Data Warehouse är snabbare och billigare än Amazon Redshift](https://azurecomcdn.azureedge.net/mediahandler/acomblog/media/Default/blog/cb76447e-621e-414b-861e-732ffee5345a.png)
 <sub>källa: [Gigaom Forskningsrapport analytiker: datalager i molnet-Benchmark](https://gigaom.com/report/data-warehouse-in-the-cloud-benchmark/)</sub>
 
-###<a name="query-concurrency"></a>Fråga samtidighet
+### <a name="query-concurrency"></a>Fråga samtidighet
 SQL Data Warehouse innebär också att data är tillgängliga i ditt företag. Microsoft har förbättrats tjänsten för att stödja 128 samtidiga frågor så att fler användare kan söka i samma databasen och inte blockeras av andra förfrågningar. Däremot begränsar Amazon Redshift maximalt antal samtidiga frågor till 50, begränsa åtkomst till data i organisationen.
 
 SQL Data Warehouse ger fråga prestanda och fråga samtidighet fördelarna utan någon prisökning och bygga på dess unika arkitektur med fristående lagringsutrymme och databearbetning.

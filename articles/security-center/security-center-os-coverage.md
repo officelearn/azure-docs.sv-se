@@ -1,9 +1,9 @@
 ---
-title: Plattformar som stöds i Azure Security Center | Microsoft Docs
-description: Det här dokumentet innehåller en lista över Windows och Linux operatings-system som stöds i Azure Security Center.
+title: Funktioner och plattformar som stöds av Azure Security Center | Microsoft Docs
+description: Det här dokumentet innehåller en lista över funktioner och plattformar som stöds av Azure Security Center.
 services: security-center
 documentationcenter: na
-author: TerryLanfear
+author: rkarlin
 manager: MBaldwin
 editor: ''
 ms.assetid: 70c076ef-3ad4-4000-a0c1-0ac0c9796ff1
@@ -12,16 +12,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/26/2018
-ms.author: terrylan
-ms.openlocfilehash: 54d173caa0e3eb4bbd8bda7c924e56d546a99662
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.date: 10/10/2018
+ms.author: rkarlin
+ms.openlocfilehash: 279818e6b43e53206deb9e33591f75ef381a8962
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44297510"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49319990"
 ---
-# <a name="supported-platforms-in-azure-security-center"></a>Plattformar som stöds i Azure Security Center
+# <a name="platforms-and-features-supported-by-azure-security-center"></a>Plattformar och funktioner som stöds av Azure Security Center
+
 Tillstånd säkerhetsövervakning och rekommendationer är tillgängliga för virtuella datorer (VM), som skapats med hjälp av både klassiska och Resource Manager distributionsmodellerna och datorer.
 
 > [!NOTE]
@@ -29,7 +30,11 @@ Tillstånd säkerhetsövervakning och rekommendationer är tillgängliga för vi
 >
 >
 
-## <a name="supported-platforms-for-windows-computers-and-vms"></a>Plattformar som stöds för Windows-datorer och virtuella datorer
+## <a name="supported-platforms"></a>Plattformar som stöds 
+
+Det här avsnittet ser du vilka plattformar som Azure Security Center-agenten kan köra och varifrån den kan samla in data.
+
+### <a name="supported-platforms-for-windows-computers-and-vms"></a>Plattformar som stöds för Windows-datorer och virtuella datorer
 Operativsystem som stöds Windows:
 
 * Windows Server 2008
@@ -39,7 +44,7 @@ Operativsystem som stöds Windows:
 * Windows Server 2016
 
 
-## <a name="supported-platforms-for-linux-computers-and-vms"></a>Plattformar som stöds för Linux-datorer och virtuella datorer
+### <a name="supported-platforms-for-linux-computers-and-vms"></a>Plattformar som stöds för Linux-datorer och virtuella datorer
 Operativsystem som stöds Linux:
 
 * Versioner för Ubuntu 12.04 LTS, 14.04 LTS, 16.04 LTS
@@ -58,6 +63,62 @@ Operativsystem som stöds Linux:
 
 ## <a name="vms-and-cloud-services"></a>Virtuella datorer och molntjänster
 Virtuella datorer som körs i en molntjänst stöds också. Endast molntjänster web och worker-roller som körs i produktionsmiljön fack övervakas. Läs mer om Molntjänsten i [översikt över Cloud Services](../cloud-services/cloud-services-choose-me.md).
+
+
+## <a name="supported-iaas-features"></a>IaaS-funktioner som stöds
+
+> [!div class="mx-tableFixed"]
+> 
+
+|Server|Windows||Linux||
+|----|----|----|----|----|
+|Miljö|Azure|Icke-Azure|Azure|Icke-Azure|
+|VMBA hotidentifieringsaviseringar|✔|✔|✔ (på versioner som stöds)|✔|
+|Nätverksbaserade hotidentifieringsaviseringar|✔|X|✔|X|
+|Windows Defender ATP-integrering *|✔ (på versioner som stöds)|✔|X|X|
+|Saknade uppdateringar|✔|✔|✔|✔|
+|Säkerhetskonfigurationer|✔|✔|✔|✔|
+|Mot skadlig kod|✔|✔|X|X|
+|JIT VM-åtkomst|✔|X|✔|X|
+|Anpassningsbara programkontroller|✔ (endast Azure)|X|X|X|
+|FIM|✔|✔|✔|✔|
+|Diskkryptering|✔|X|✔|X|
+|Tredjeparts-distribution|✔|X|✔|X|
+|NSG:er|✔|X|✔|X|
+|Filess V1|✔|✔|X|X|
+|Nätverkskarta|✔|X|✔|X|
+|Anpassningsbar nätverk appstyrning|✔|X|✔|X|
+
+* Dessa funktioner stöds för närvarande i offentlig förhandsversion.
+
+
+## <a name="supported-paas-features"></a>PaaS-funktioner som stöds
+
+
+|Tjänst|Rekommendationer|Hotidentifiering|
+|----|----|----|
+|SQL|✔| ✔|
+|PostGreSQL *|✔| ✔|
+|MySQL *|✔| ✔|
+|BLOB storage-konton *|✔| ✔|
+|App Services|✔| ✔|
+|Molntjänster|✔| X|
+|Redis Cache|✔| X|
+|Service fabric|✔| X|
+|Azure-automatisering|✔| X|
+|Data Lake |✔| X|
+|Nyckelvalv|✔| X|
+|Service bus|✔| X|
+|Stream analytics|✔| X|
+|Batch|✔| X|
+|Logikappar|✔| X|
+|Virtuella nätverk|✔| Ej tillämpligt|
+|Undernät|✔| Ej tillämpligt|
+|Nätverkskort|✔| ✔|
+|NSG:er|✔| Ej tillämpligt|
+|Prenumeration|✔| ✔|
+
+* Dessa funktioner stöds för närvarande i offentlig förhandsversion.
 
 ## <a name="next-steps"></a>Nästa steg
 

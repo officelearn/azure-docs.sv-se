@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/03/2018
+ms.date: 09/28/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 29517f057599c7bf108d1c4d525b6c67c1b6b46a
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 8b45acebf95d5bf24ff2045f5739c8584f374842
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46311453"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49320466"
 ---
 # <a name="azure-active-directory-pass-through-authentication-quick-start"></a>Azure Active Directory-direktautentisering: Snabbstart för
 
@@ -48,7 +48,7 @@ Se till att följande krav är uppfyllda.
 2. Installera den [senaste versionen av Azure AD Connect](https://www.microsoft.com/download/details.aspx?id=47594) på den server som anges i föregående steg. Om du redan har Azure AD Connect körs kan du kontrollera att versionen är 1.1.750.0 eller senare.
 
     >[!NOTE]
-    >Azure AD Connect-versioner 1.1.557.0, 1.1.558.0, 1.1.561.0 och 1.1.614.0 har ett problem med synkronisering av lösenordshash. Om du _inte_ planerar att använda synkronisering av lösenordshash tillsammans med direktautentisering, läsa den [viktig information om Azure AD Connect](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-version-history#116470).
+    >Azure AD Connect-versioner 1.1.557.0, 1.1.558.0, 1.1.561.0 och 1.1.614.0 har ett problem med synkronisering av lösenordshash. Om du _inte_ planerar att använda synkronisering av lösenordshash tillsammans med direktautentisering, läsa den [viktig information om Azure AD Connect](https://docs.microsoft.com/azure/active-directory/hybrid/reference-connect-version-history#116470).
 
 3. Identifiera en eller flera ytterligare servrar (som kör Windows Server 2012 R2 eller senare) där du kan köra fristående Autentiseringsagenter. Dessa ytterligare servrar behövs för att garantera hög tillgänglighet för begäranden för att logga in. Lägg till servrar i samma Active Directory-skog som användare vars lösenord du måste verifiera.
 
@@ -57,13 +57,13 @@ Se till att följande krav är uppfyllda.
 
 4. Om det finns en brandvägg mellan dina servrar och Azure AD måste du konfigurera följande objekt:
    - Se till att Autentiseringsagenter kan göra *utgående* begäranden till Azure AD via följande portar:
-   
+
     | Portnummer | Hur den används |
     | --- | --- |
     | **80** | Hämtar listor över återkallade certifikat (CRL) vid verifiering av SSL-certifikatet |
     | **443** | Hanterar all utgående kommunikation med tjänsten |
     | **8080** (valfritt) | Autentiseringsagenter rapportera status för var tionde minut över port 8080, om port 443 är inte tillgänglig. Den här statusen visas på Azure AD-portalen. Port 8080 är _inte_ används för användarinloggningar. |
-   
+
     Om din brandvägg tillämpar regler enligt ursprungliga användarna, kan du öppna dessa portar för trafik från Windows-tjänster som körs som en nätverkstjänst.
    - Om din brandvägg eller proxyserver kan DNS-lista över tillåtna, lista över tillåtna anslutningar till  **\*. msappproxy.net** och  **\*. servicebus.windows.net**. Om den inte tillåter åtkomst till den [Azure datacenter IP-adressintervall](https://www.microsoft.com/download/details.aspx?id=41653), som uppdateras varje vecka.
    - Din Autentiseringsagenter behöver åtkomst till **login.windows.net** och **login.microsoftonline.com** för inledande registrering. Öppna din brandvägg för dessa URL: er samt.
@@ -132,13 +132,13 @@ Dessutom kan du skapa och köra ett distributionsskript för obevakad. Detta är
 
 1. Kör följande kommando för att installera en Agent för autentisering: `AADConnectAuthAgentSetup.exe REGISTERCONNECTOR="false" /q`.
 2. Du kan registrera agenten autentisering med vår tjänst med hjälp av Windows PowerShell. Skapa ett PowerShell-autentiseringsuppgifter objekt `$cred` som innehåller en global administratörsanvändarnamn och lösenord för din klient. Kör följande kommando ersätter *\<användarnamn\>* och  *\<lösenord\>*:
-   
+
         $User = "<username>"
         $PlainPassword = '<password>'
         $SecurePassword = $PlainPassword | ConvertTo-SecureString -AsPlainText -Force
         $cred = New-Object –TypeName System.Management.Automation.PSCredential –ArgumentList $User, $SecurePassword
 3. Gå till **C:\Program Files\Microsoft Azure AD Connect-Autentiseringsagenten** och kör följande skript med den `$cred` objektet som du skapade:
-   
+
         RegisterConnector.ps1 -modulePath "C:\Program Files\Microsoft Azure AD Connect Authentication Agent\Modules\" -moduleName "AppProxyPSModule" -Authenticationmode Credentials -Usercredentials $cred -Feature PassthroughAuthentication
 
 ## <a name="next-steps"></a>Nästa steg
@@ -151,4 +151,3 @@ Dessutom kan du skapa och köra ett distributionsskript för obevakad. Detta är
 - [Djupgående om säkerhet](how-to-connect-pta-security-deep-dive.md): få teknisk information om funktionen direktautentisering.
 - [Azure AD sömlös SSO](how-to-connect-sso.md): Mer information om den här tilläggsfunktionen.
 - [UserVoice](https://feedback.azure.com/forums/169401-azure-active-directory/category/160611-directory-synchronization-aad-connect): använda Azure Active Directory-forumet till filen nya funktionbegäran.
-

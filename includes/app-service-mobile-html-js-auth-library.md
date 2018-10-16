@@ -2,7 +2,7 @@
 För att använda Mobile Apps för att hantera autentiseringsprocessen i din app måste du registrera din app med din identitetsprovider. Sedan måste du konfigurera program-ID och -hemligheten som du fått av din provider i Azure App Service.
 Mer information finns i självstudierna [Lägg till autentisering till din app](../articles/app-service-mobile/app-service-mobile-cordova-get-started-users.md).
 
-När du har registrerat din identitetsprovider anropar du `.login()`-metoden med namnet på din provider. Till exempel för att logga in med Facebook-Använd följande kod:
+När du har registrerat din identitetsprovider anropar du `.login()`-metoden med namnet på din provider. Till exempel för att logga in med Facebook använder följande kod:
 
 ```
 client.login("facebook").done(function (results) {
@@ -17,9 +17,9 @@ Giltiga värden för providern är 'aad', 'facebook', 'google', 'microsoftaccoun
 > [!NOTE]
 > Google-autentisering fungerar för närvarande inte via Server Flow.  Om du vill autentisera med Google måste du använda en [klientflödesmetod](#client-auth).
 
-I det här fallet hanterar Azure App Service OAuth 2.0-autentiseringsflödet.  Den visar inloggningssidan för vald leverantör och genererar en Apptjänst-autentiseringstoken efter lyckad inloggning med identitetsleverantören. När inloggningsfunktionen är färdig returnerar den ett JSON-objekt som både visar användar-ID och App Service-autentiseringstoken i fälten userId respektive authenticationToken. Den här token kan cachelagras och återanvändas tills den upphör att gälla.
+I det här fallet hanterar Azure App Service OAuth 2.0-autentiseringsflödet.  Den visar inloggningssidan för den valda providern och genererar en App Service-autentiseringstoken efter lyckad inloggning med identitetsprovidern. När inloggningsfunktionen är färdig returnerar den ett JSON-objekt som både visar användar-ID och App Service-autentiseringstoken i fälten userId respektive authenticationToken. Den här token kan cachelagras och återanvändas tills den upphör att gälla.
 
-###<a name="client-auth"></a>Gör så här för att: autentisera med en provider (Client Flow)
+### <a name="client-auth"></a>Gör så här för att: autentisera med en provider (Client Flow)
 
 Din app kan även oberoende kontakta identitetsprovidern och sedan tillhandahålla den returnerade token till App Service för autentisering. Det här klientflödet gör det möjligt för dig att tillhandahålla enkel inloggning för användare eller hämta ytterligare användardata från identitetsprovidern.
 
@@ -61,7 +61,7 @@ WL.login({ scope: "wl.basic"}).then(function (result) {
 
 I det här exemplet hämtas en token från Live Connect som sedan levereras till App Service genom att anropa inloggningsfunktionen.
 
-###<a name="auth-getinfo"></a>Gör så här för att: Få mer information om den autentiserade användaren
+### <a name="auth-getinfo"></a>Gör så här för att: Få mer information om den autentiserade användaren
 
 Autentiseringsinformationen kan hämtas från `/.auth/me`-slutpunkten med hjälp av HTTP-anrop med ett AJAX-bibliotek.  Se till att du ställer in `X-ZUMO-AUTH`-rubriken till din autentiseringstoken.  Autentiseringstoken lagras i `client.currentUser.mobileServiceAuthenticationToken`.  För att till exempel använda Fetch API:
 

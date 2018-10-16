@@ -15,14 +15,14 @@ ms.topic: article
 ms.date: 09/13/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 6993895b6f2b836308b8ed7c375212c3fae12768
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: c21b4b8996d7dae62c2aa1937c2876a66f6f82bd
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46311978"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49320568"
 ---
-#<a name="azure-ad-connect-device-options"></a>Azure AD Connect: Enhetsalternativ
+# <a name="azure-ad-connect-device-options"></a>Azure AD Connect: Enhetsalternativ
 
 Följande dokumentation innehåller information om de olika enhet alternativen som är tillgängliga i Azure AD Connect. Du kan använda Azure AD Connect för att konfigurera följande två åtgärder: 
 * **Hybrid Azure AD-anslutning**: om din miljö har en lokal AD-fotavtryck och du vill att fördelarna med Azure AD, du kan implementera hybrid Azure AD-anslutna enheter. Dessa enheter är anslutna både till din lokala Active Directory och Azure Active Directory.

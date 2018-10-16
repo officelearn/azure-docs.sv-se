@@ -9,30 +9,33 @@ ms.component: core
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/24/2018
-ms.openlocfilehash: 3256c8815b19f9b070cce3cd422f92c296e3e5c3
-ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
+ms.openlocfilehash: b3e1fd5331b97fc2120819b17f7fbba57dadf7b1
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49115190"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49345058"
 ---
 # <a name="track-experiments-and-training-metrics-in-azure-machine-learning"></a>Spåra experiment och utbildning mått i Azure Machine Learning
 
 I Azure Machine Learning-tjänsten kan du spåra dina experiment och övervaka mått för att förbättra modellen skapandeprocessen. I den här artikeln får du får lära dig om olika sätt att lägga till loggning i manuset utbildning, hur du skickar experiment med **start_logging** och **ScriptRunConfig**, så kontrollera status för en jobb som körs, och hur du visar resultatet av en körning. 
 
+>[!NOTE]
+> Koden i den här artikeln har testats med Azure Machine Learning SDK version 0.168 
+
 ## <a name="list-of-training-metrics"></a>Lista över mått för utbildning 
 
 Följande mått kan läggas till en körning vid utbildning ett experiment. Om du vill visa en mer detaljerad lista över vad som kan spåras på en körning, se den [SDK referensdokumentation](https://docs.microsoft.com/python/api/overview/azure/azure-ml-sdk-overview?view=azure-ml-py).
 
-|Typ| Python-funktion | Anteckningar|
-|----|:----:|:----:|
-|Skalära värden | `run.log(name, value, description='')`| Logga ett måttvärde ska köras med det angivna namnet. Logga ett mått på en körning gör det måttet som ska lagras i den kör posten i experimentet.  Du kan logga samma mått flera gånger inom en körning resultatet ses som en vektor för att mått.|
-|Listor| `run.log_list(name, value, description='')`|Logga ett måttvärde listan ska köras med det angivna namnet.|
-|Rad| `run.log_row(name, description=None, **kwargs)`|Med hjälp av *log_row* skapar ett mått i tabellen med kolumner enligt beskrivningen i kwargs. Varje namngivna parametern genererar en kolumn med det angivna värdet.  *log_row* kan anropas en gång för att logga en godtycklig tuppel eller flera gånger i en loop för att generera en hel tabell.|
-|Tabell| `run.log_table(name, value, description='')`| Logga ett tabell-mått ska köras med det angivna namnet. |
-|Avbildningar| `run.log_image(name, path=None, plot=None)`|Logga in en avbildning mått kör posten. Använd log_image för att logga en fil eller en matplotlib ritning körningen.  Dessa avbildningar är synlig och jämförbar i posten kör.|
-|Tagga en körning| `run.tag(key, value=None)`|Tagga kör med en strängnyckel och ett valfritt strängvärde.|
-|Ladda upp filen eller katalogen|`run.upload_file(name, path_or_stream)`|Ladda upp en fil till kör posten. Körs automatiskt samla in fil i den angivna katalogen, där standardinställningen är ”. / matar ut” för de flesta typer som körs.  Använd upload_file endast när ytterligare filer måste överföras eller en utdatakatalog har inte angetts. Vi rekommenderar att lägga till `outputs` namn så att den hämtar överförs till utdata-katalogen. Du kan lista alla filer som är associerade med detta kör post efter kallas `run.get_file_names()`|
+|Typ| Python-funktion | Exempel | Anteckningar|
+|----|:----|:----|:----|
+|Skalära värden | `run.log(name, value, description='')`| `run.log("accuracy", 0.95) ` |Logga en numeriska eller Anslutningssträngens värde ska köras med det angivna namnet. Logga ett mått på en körning gör det måttet som ska lagras i den kör posten i experimentet.  Du kan logga samma mått flera gånger inom en körning resultatet ses som en vektor för att mått.|
+|Listor| `run.log_list(name, value, description='')`| `run.log_list("accuracies", [0.6, 0.7, 0.87])` | Logga in en lista med värden ska köras med det angivna namnet.|
+|Rad| `run.log_row(name, description=None, **kwargs)`| `run.log_row("Y over X", x=1, y=0.4)` | Med hjälp av *log_row* skapar ett mått med flera kolumner enligt beskrivningen i kwargs. Varje namngivna parametern genererar en kolumn med det angivna värdet.  *log_row* kan anropas en gång för att logga en godtycklig tuppel eller flera gånger i en loop för att generera en hel tabell.|
+|Tabell| `run.log_table(name, value, description='')`| `run.log_table("Y over X", {"x":[1, 2, 3], "y":[0.6, 0.7, 0.89]})` | Logga ett katalogobjekt ska köras med det angivna namnet. |
+|Avbildningar| `run.log_image(name, path=None, plot=None)`| `run.log_image("ROC", plt)` | Logga in en avbildning kör posten. Använd log_image för att logga en fil eller en matplotlib ritning körningen.  Dessa avbildningar är synlig och jämförbar i posten kör.|
+|Tagga en körning| `run.tag(key, value=None)`| `run.tag("selected", "yes")` | Tagga kör med en strängnyckel och ett valfritt strängvärde.|
+|Ladda upp filen eller katalogen|`run.upload_file(name, path_or_stream)`| Run.upload_file (”best_model.pkl” ”,. / model.pkl”) | Ladda upp en fil till kör posten. Körs automatiskt samla in fil i den angivna katalogen, där standardinställningen är ”. / matar ut” för de flesta typer som körs.  Använd upload_file endast när ytterligare filer måste överföras eller en utdatakatalog har inte angetts. Vi rekommenderar att lägga till `outputs` namn så att den hämtar överförs till utdata-katalogen. Du kan lista alla filer som är associerade med detta kör post efter kallas `run.get_file_names()`|
 
 > [!NOTE]
 > Mått för skalärer, listor, rader och tabeller kan ha typen: flyttal, heltal eller string.
@@ -141,7 +144,7 @@ Det här exemplet kan utökas med grundläggande sklearn upphöjning modellen ov
 
   X, y = load_diabetes(return_X_y = True)
 
-  run = Run.get_submitted_run()
+  run = Run.get_context()
 
   X_train, X_test, y_train, y_test = train_test_split(X, y, test_size = 0.2, random_state = 0)
   data = {"train": {"X": X_train, "y": y_train},

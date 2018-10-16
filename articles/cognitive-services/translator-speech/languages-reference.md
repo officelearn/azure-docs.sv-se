@@ -10,15 +10,16 @@ ms.component: translator-speech
 ms.topic: conceptual
 ms.date: 05/18/18
 ms.author: v-jansko
-ROBOTS: NOINDEX
-ms.openlocfilehash: 9fbbba7ed5e81cae1d30c5a480b9f7f7a13342c5
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: b7005811898df9132be6bc199e26f6c6dc358618
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46986429"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49345211"
 ---
 # <a name="translator-speech-api-languages"></a>API för Talöversättning: språk
+
+[!INCLUDE [Deprecation note](../../../includes/cognitive-services-translator-speech-deprecation-note.md)]
 
 Translator för Talöversättning utökar kontinuerligt listan över språk som stöds av dess tjänster. Använd detta API för att identifiera uppsättningen språk som är för närvarande tillgängliga för användning med Translator Speech-tjänsten.
 
@@ -130,7 +131,7 @@ Langagues {tal (object, valfritt), text (object, valfritt), text till tal (objec
 
 ### <a name="headers"></a>Rubriker
 
-|Sidhuvud|Beskrivning|Typ|
+|Huvud|Beskrivning|Typ|
 :--|:--|:--|
 X-RequestId|Värde som genereras av server för att identifiera begäran och används för felsökning.|sträng|
 

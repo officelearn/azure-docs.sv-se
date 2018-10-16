@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: michmcla
-ms.openlocfilehash: e5915157c1ff2c1f58779e5c3b1d784241464b32
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.openlocfilehash: 372670a482ec984fcc9bd9c28ca3a8625e959a77
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43669054"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49320670"
 ---
 # <a name="how-to-get-azure-multi-factor-authentication"></a>Så här hämtar du Azure Multi-Factor Authentication
 
@@ -23,6 +23,7 @@ När det gäller att skydda dina konton ska tvåstegsverifiering vara standard f
 
 > [!IMPORTANT]
 > Den här artikeln är avsedd att vara en guide som hjälper dig att förstå de olika sätten att köpa Azure Multi-Factor Authentication. Specifik information om priser och fakturering du bör alltid använda den [Multifaktorautentisering prissättningssidan](https://azure.microsoft.com/pricing/details/multi-factor-authentication/).
+>
 
 ## <a name="available-versions-of-azure-multi-factor-authentication"></a>Tillgängliga versioner av Azure Multi-Factor Authentication
 
@@ -43,6 +44,7 @@ Följande tabell innehåller en lista över de funktioner som är tillgängliga 
 
 > [!NOTE]
 > Den här jämförelsetabellen beskrivs de funktioner som ingår i varje version av Multi-Factor Authentication. Om du har fullständig Azure Multi-Factor Authentication-tjänsten kan vissa funktioner kanske inte är tillgängliga beroende på om du använder [lokala MFA i molnet eller MFA](concept-mfa-whichversion.md).
+>
 
 | Funktion | Multi-Factor Authentication för Office 365 | Multi-Factor Authentication för Azure AD-administratörer | Azure Multi-Factor Authentication |
 | --- |:---:|:---:|:---:|
@@ -93,11 +95,13 @@ När du använder en Azure Multi-Factor Authentication-Provider, finns det två 
   > Fakturering – exempel 1: du har 5 000 användare som har aktiverats för MFA idag. MFA-systemet dividerar det numret med 31 och rapporter 161.29 användare för den dagen. Du aktiverar morgon 15 fler användare, så att systemet MFA rapporterar 161.77 användare för den dagen. I slutet av faktureringsperioden lägger det totala antalet användare som faktureras mot din Azure-prenumeration upp till runt 5 000.
   >
   > Fakturering exempel 2: du har en blandning av användare med licenser och användare utan, så att du har en per användare Azure MFA-Provider till utgör skillnaden. Det finns 4 500 Enterprise Mobility + Security-licenser på din klient, men 5 000 användare som har aktiverats för MFA. Din Azure-prenumeration faktureras för 500 användare, beräknas och rapporteras per dag som 16.13 användare.
+  >
 
-2. **Per autentisering** – för företag som vill aktivera tvåstegsverifiering för en stor grupp med användare som behöver sällan autentisering. Fakturering baseras på antalet begäranden om tvåstegsverifiering, oavsett om dessa verifiering lyckas eller nekas. Den här Faktureringsmetoden visas på ditt kontoutdrag för Azure-användning i packs om 10 autentiseringar och rapporteras per dag.
+1. **Per autentisering** – för företag som vill aktivera tvåstegsverifiering för en stor grupp med användare som behöver sällan autentisering. Fakturering baseras på antalet begäranden om tvåstegsverifiering, oavsett om dessa verifiering lyckas eller nekas. Den här Faktureringsmetoden visas på ditt kontoutdrag för Azure-användning i packs om 10 autentiseringar och rapporteras per dag.
 
   > [!NOTE]
   > Fakturering exempel 3: idag, Azure MFA-tjänsten har tagit emot 3,105 begäranden om tvåstegsverifiering. Din Azure-prenumeration faktureras efter 310.5 autentisering hanteringspaket.
+  >
 
 Det är viktigt att Observera att du kan ha licenser, men får betala för förbrukning-baserad konfiguration. Om du har konfigurerat en per autentisering Azure MFA-Provider, debiteras du för varje förfrågningar om tvåstegsverifiering, även de som görs av användare som har licenser. Om du ställer in en per användare Azure MFA-Provider på en domän som inte är länkad till din Azure AD-klient, debiteras du per aktiverad användare även om användarna har licenser på Azure AD.
 

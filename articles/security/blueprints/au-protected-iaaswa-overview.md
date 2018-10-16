@@ -8,12 +8,12 @@ ms.service: security
 ms.topic: article
 ms.date: 08/23/2018
 ms.author: meladie
-ms.openlocfilehash: b269a145c78aaf025ef05a4562cf55124c17e2ee
-ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
+ms.openlocfilehash: f25e054f0273d770807dad6788f184a876a00fe7
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42818013"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49319208"
 ---
 # <a name="azure-security-and-compliance-blueprint---iaas-web-application-for-australia-protected"></a>Azure-säkerhet och efterlevnad skissen - IaaS-webbprogram för Australien skyddas
 
@@ -56,8 +56,8 @@ Den här lösningen använder följande Azure-tjänster. Mer information finns i
 - Azure Monitor
 - Azure Resource Manager
 - Azure Security Center
-- Azure Logganalys
-- Azure-lagring
+- Azure Log Analytics
+- Azure Storage
 - Azure Virtual Machines
     - (1) management/skyddsmiljö (Windows Server 2016 Datacenter)
     - (2) SQL Server-klusternod (SQL Server 2017 på Windows Server 2016)
@@ -79,7 +79,6 @@ Den här lösningen skapar en virtuell dator som en domänansluten skyddsmiljö-
 -   [Azure Diagnostics-tillägg](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-extensions-diagnostics-template)
 -   [Azure Disk Encryption](https://docs.microsoft.com/azure/security/azure-security-disk-encryption) med Azure Key Vault
 -   En [princip för automatisk avstängning](https://azure.microsoft.com/blog/announcing-auto-shutdown-for-vms-using-azure-resource-manager/) du minskar användningen av virtuella datorresurser som
--   [Windows Defender Credential Guard](https://docs.microsoft.com/windows/access-protection/credential-guard/credential-guard) aktiverad så att autentiseringsuppgifter och andra hemligheter som körs i en skyddad miljö som är isolerad från vilket operativsystem som körs
 
 ### <a name="virtual-network"></a>Virtuellt nätverk
 Arkitekturen definierar ett privat virtuellt nätverk med ett adressutrymme för 10.200.0.0/16.

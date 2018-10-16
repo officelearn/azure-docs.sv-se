@@ -11,18 +11,18 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 11/21/2017
 ms.author: glenga
-ms.openlocfilehash: 281d74b6836516e03771d82c96fab628eac12f1a
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: 62d675e4b91e3e22cf01e09d1a1a021f225310a9
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47395839"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49321894"
 ---
 # <a name="azure-cosmos-db-bindings-for-azure-functions-1x"></a>Azure Cosmos DB-bindningar för Azure Functions 1.x
 
 > [!div class="op_single_selector" title1="Select the version of the Azure Functions runtime you are using: "]
-> * [Version 1 – allmänt tillgänglig](functions-bindings-cosmosdb.md)
-> * [Version 2 – förhandsversion](functions-bindings-cosmosdb-v2.md)
+> * [Version 1](functions-bindings-cosmosdb.md)
+> * [Version 2](functions-bindings-cosmosdb-v2.md)
 
 Den här artikeln förklarar hur du arbetar med [Azure Cosmos DB](..\cosmos-db\serverless-computing-database.md) bindningar i Azure Functions. Azure Functions stöder utlösa, indata och utdata-bindningar för Azure Cosmos DB.
 
@@ -187,7 +187,7 @@ I följande tabell förklaras konfigurationsegenskaper för bindning som du ange
 |**typ** || Måste anges till `cosmosDBTrigger`. |
 |**riktning** || Måste anges till `in`. Den här parametern anges automatiskt när du skapar utlösaren i Azure-portalen. |
 |**Namn** || Variabelnamnet som används i Funktionskoden som representerar en lista över dokument med ändringar. | 
-|**connectionStringSetting**|**connectionStringSetting** | Namnet på en appinställning som innehåller anslutningssträngen som används för att ansluta till Azure Cosmos DB-kontot som övervakas. |
+|**ConnectionStringSetting**|**connectionStringSetting** | Namnet på en appinställning som innehåller anslutningssträngen som används för att ansluta till Azure Cosmos DB-kontot som övervakas. |
 |**databaseName**|**databaseName**  | Namnet på Azure Cosmos DB-databasen med den samling som övervakas. |
 |**Samlingsnamn** |**Samlingsnamn** | Namnet på samlingen som övervakas. |
 |**leaseConnectionStringSetting** | **leaseConnectionStringSetting** | (Valfritt) Namnet på en appinställning som innehåller anslutningssträngen till den tjänst som innehar lånet samlingen. När inte har angetts i `connectionStringSetting` värde som ska användas. Den här parametern anges automatiskt när bindningen skapas i portalen. Anslutningssträngen för lånsamlingen måste ha skrivbehörighet.|

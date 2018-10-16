@@ -7,16 +7,30 @@ author: wolfma61
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: article
-ms.date: 09/24/2018
+ms.date: 10/12/2018
 ms.author: wolfma
-ms.openlocfilehash: cfc8f973ac9bced9396a081f7fb2ab6a4a1b2f7f
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 3a9da3b0f2165dadd99691c6dc9e41cbf3d48620
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46963091"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49340009"
 ---
 # <a name="release-notes"></a>Viktig information
+
+## <a name="cognitive-services-speech-sdk-101"></a>Cognitive Services tal SDK 1.0.1
+
+Förbättrad tillförlitlighet och felkorrigeringar:
+
+* Åtgärda potentiella allvarligt fel på grund av konkurrenstillstånd i tar bort Igenkännande
+* Åtgärda potentiella allvarligt fel vid Odefinierad egenskaper.
+* Ytterligare fel och kontroll av parametern.
+* Mål-C: åtgärda möjliga allvarligt fel som orsakats av åsidosätta i NSString namn.
+* Objectice C: justera visningen av API
+* JavaScript: korrigeringar om händelser och sina nyttolaster.
+* Dokumentation om förbättringar.
+
+I vår [exempellagringsplatsen](https://aka.ms/csspeech/samples), ett nytt stickprov för JavaScript har lagts till.
 
 ## <a name="cognitive-services-speech-sdk-100-2018-september-release"></a>Cognitive Services tal SDK 1.0.0: September 2018 versionen
 

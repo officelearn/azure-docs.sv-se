@@ -1,6 +1,6 @@
 ---
-title: Integrera externa övervakningslösning med Azure-stacken | Microsoft Docs
-description: Lär dig mer om att integrera Azure stacken med en extern övervakningslösning i ditt datacenter.
+title: Integrera externa övervakningslösning med Azure Stack | Microsoft Docs
+description: Lär dig hur du integrerar Azure Stack med en extern lösning för övervakning i ditt datacenter.
 services: azure-stack
 documentationcenter: ''
 author: jeffgilb
@@ -11,90 +11,90 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: article
-ms.date: 05/10/2018
+ms.date: 10/15/2018
 ms.author: jeffgilb
 ms.reviewer: thoroet
-ms.openlocfilehash: d7c8520602132722fd0c7138de4a276b9ac2208a
-ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
+ms.openlocfilehash: 66cd20eaa401261bcb18bedbbc16f5bcf40ee192
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34807347"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49342991"
 ---
-# <a name="integrate-external-monitoring-solution-with-azure-stack"></a>Integrera externa övervakningslösning med Azure-stacken
+# <a name="integrate-external-monitoring-solution-with-azure-stack"></a>Integrera externa övervakningslösning med Azure Stack
 
-Du behöver övervaka Azure Stack-programvara, fysiska datorer och fysiska nätverksväxlar för övervakning av externa Azure Stack-infrastrukturen. Dessa områden ger en metod för att hämta information om hälsa och avisering:
+Du behöver övervaka Azure Stack-programvara, de fysiska datorerna och de fysiska nätverksväxlarna för externa övervakning av Azure Stack-infrastruktur. Var och en av dessa områden erbjuder en metod för att hämta information om hälsotillstånd och avisering:
 
-- Azure Stack programvara erbjuder ett REST-baserad API för att hämta hälsotillstånd och aviseringar. Användning av programvarudefinierade som Storage Spaces Direct, lagring, hälsotillstånd och aviseringar är en del av programvaran övervakning.
-- Fysiska datorer kan göra hälsa och aviseringsinformation tillgängliga via huvudkortshanteringskontroller (bmc).
-- Fysiska nätverksenheter kan göra hälsa och aviseringsinformation tillgängliga via SNMP-protokollet.
+- Azure Stack-software erbjuder en REST-baserat API för att hämta hälsotillstånd och aviseringar. Användning av programdefinierade tekniker som Storage Spaces Direct, storage hälsotillstånd och aviseringar är en del av programvaran övervakning.
+- Fysiska datorer kan tillgängliggöra hälso- och aviseringsinformation via hanteringsstyrenheter för baskort (bmc).
+- Fysiska nätverksenheter kan göra hälso- och aviseringsinformation tillgängliga via SNMP-protokollet.
 
-Varje Azure Stack-lösning levereras med en maskinvara livscykel värd. Den här värden körs OEM-tillverkaren (OEM) maskinvaruleverantören övervakningsprogram för fysiska servrar och nätverksenheter. Om du vill kan du kringgå övervakningsinställningarna lösningar och integrera med befintliga övervakning direkt i ditt datacenter.
+Varje Azure Stack-lösning levereras med en maskinvara livscykel-värd. Den här värden körs Original Equipment Manufacturer (OEM) maskinvaruleverantören övervakningsprogram för fysiska servrar och nätverksenheter. Om du vill kan du kringgå dessa övervakningslösningar och direkt integrera med befintliga övervakningslösningar i ditt datacenter.
 
 > [!IMPORTANT]
-> Den externa övervakningslösning som du använder måste vara utan Agent. Du kan inte installera agenter från tredje part i Azure Stack-komponenter.
+> Den externa övervakningslösning som du använder måste vara utan Agent. Du kan inte installera agenter från tredje part i Azure Stack-komponenterna.
 
-Följande diagram visar trafikflödet mellan en Azure-stacken integrerat system, maskinvara livscykel värden, en extern övervakningslösning och ett system för insamling av externa biljetter/data.
+Följande diagram visar trafikflödet mellan ett integrerat Azure Stack-system, maskinvara livscykel värden, en extern lösning för övervakning och ett system för insamling av externa biljetter/data.
 
-![Diagram över trafik mellan Azure stacken, övervakning och biljetter lösning.](media/azure-stack-integrate-monitor/MonitoringIntegration.png)  
+![Diagrammet visar trafik mellan Azure Stack, övervakning och ärenden lösning.](media/azure-stack-integrate-monitor/MonitoringIntegration.png)  
 
-Den här artikeln förklarar hur du integrerar Azure stacken med externa övervakningslösningar, till exempel System Center Operations Manager och Nagios. Den omfattar också hur du arbetar med aviseringar via programmering med hjälp av PowerShell eller via REST API-anrop.
+Den här artikeln förklarar hur du integrerar Azure Stack med externa övervakningslösningar, till exempel System Center Operations Manager och Nagios. Den innehåller också hur du arbetar med aviseringar programmässigt med hjälp av PowerShell eller via REST API-anrop.
 
 ## <a name="integrate-with-operations-manager"></a>Integrera med Operations Manager
 
-Du kan använda Operations Manager för externa övervakning av Azure-stacken. System Center Management Pack för Microsoft Azure-Stack kan du övervaka flera Azure-stacken distributioner med en Operations Manager-instans. Management pack använder hälsa resursprovidern och uppdatera resursprovidern REST API: er för att kommunicera med Azure-stacken. Om du planerar att kringgå OEM övervakning av program som körs på värden för maskinvara livscykel, kan du installera leverantörshanteringspaket för övervakning av fysiska servrar. Du kan också använda Operations Manager identifiering av nätverksenheter för att övervaka nätverksväxlar.
+Du kan använda Operations Manager för externa övervakning av Azure Stack. System Center Management Pack för Microsoft Azure Stack kan du övervaka flera Azure Stack-distributioner med en enda Operations Manager-instans. Management pack använder Health-resursprovidern och uppdatera resource provider REST API: er för att kommunicera med Azure Stack. Om du planerar att kringgå OEM-tillverkaren övervakning av program som körs på värden för maskinvara livscykel, kan du installera leverantörshanteringspaket för att övervaka fysiska servrar. Du kan också använda Operations Manager identifiering av nätverksenheter för att övervaka nätverksväxlar.
 
-Management pack för Azure-stacken innehåller följande funktioner:
+Management pack för Azure Stack innehåller följande funktioner:
 
 - Du kan hantera flera Azure Stack-distributioner
 - Det finns stöd för Azure Active Directory (Azure AD) och Active Directory Federation Services (AD FS)
 - Du kan hämta och stänga aviseringar
-- Det finns en hälsa och en instrumentpanel kapacitet
+- Det finns en hälsotillstånd och en instrumentpanel för kapacitet
 - Innehåller Underhållsläge för automatisk identifiering för när korrigeringar och uppdateringar (P & U) pågår
 - Innehåller framtvinga en uppdatering uppgifter för distribution och region
 - Du kan lägga till anpassad information till en region
 - Har stöd för meddelanden och rapportering
 
-Du kan hämta System Center Management Pack för Microsoft Azure-stacken och den associerade [användarhandboken](https://www.microsoft.com/en-us/download/details.aspx?id=55184), eller direkt från Operations Manager.
+Du kan hämta System Center Management Pack för Microsoft Azure Stack och den associerade [användarhandboken](https://www.microsoft.com/en-us/download/details.aspx?id=55184), eller direkt från Operations Manager.
 
-Du kan integrera med Service Manager i System Center Operations Manager för en loggnings-lösning. Integrerad product connector kan dubbelriktad kommunikation som gör att du kan stänga en avisering i Azure-stacken och Operations Manager när du har löst tjänstbegäran i Service Manager.
+Du kan integrera med System Center Service Manager Operations Manager för en lösning för supportloggning. Integrerad produktanslutningen gör det möjligt för dubbelriktad kommunikation som gör att du kan stänga en avisering i Azure Stack och Operations Manager när du har löst en tjänstbegäran i Service Manager.
 
-Följande diagram visar integrering av Azure-stacken med en befintlig distribution av System Center. Du kan automatisera Service Manager ytterligare med System Center Orchestrator eller Service Management Automation (SMA) för att köra åtgärder i Azure-stacken.
+Följande diagram visar integrering av Azure Stack med en befintlig System Center-distribution. Du kan automatisera Service Manager ytterligare med System Center Orchestrator eller Service Management Automation (SMA) för att köra åtgärder i Azure Stack.
 
-![Diagram över integrering med OM, Service Manager och SMA.](media/azure-stack-integrate-monitor/SystemCenterIntegration.png)
+![Diagram som visar integrering med OM Service Manager och SMA.](media/azure-stack-integrate-monitor/SystemCenterIntegration.png)
 
 ## <a name="integrate-with-nagios"></a>Integrera med Nagios
 
-En Nagios övervakning plugin-programmet har utvecklats tillsammans med Cloudbase partnerlösningar som är tillgängliga under licensen Tillåtande kostnadsfri programvara – MIT (Massachusetts Institute of Technology).
+En Nagios övervakning plugin-programmet har utvecklats tillsammans med Cloudbase partnerlösningar som är tillgängliga under licens för Tillåtande kostnadsfri programvara – MIT (Massachusetts Institute of Technology).
 
-Plugin-programmet har skrivits i Python och utnyttjar resursprovidern hälsa REST API. Den erbjuder grundläggande funktioner för att hämta och Stäng varningar i Azure-stacken. Den låter dig lägga till flera Azure Stack-distributioner och skicka meddelanden som System Center management pack.
+Plugin-programmet är skrivet i Python och utnyttjar hälsotillstånd resource provider REST API. Den erbjuder grundläggande funktioner för att hämta och stänga aviseringar i Azure Stack. Den kan du lägga till flera Azure Stack-distributioner och skicka meddelanden som System Center management pack.
 
-Plugin-programmet fungerar med Nagios Enterprise och Nagios kärnor. Du kan ladda ned det [här](https://exchange.nagios.org/directory/Plugins/Cloud/Monitoring-AzureStack-Alerts/details). Hämtningsplatsen innehåller också information om installation och konfiguration.
+Plugin-programmet fungerar med Nagios Enterprise och Nagios Core. Du kan hämta det [här](https://exchange.nagios.org/directory/Plugins/Cloud/Monitoring-AzureStack-Alerts/details). Hämtningsplatsen innehåller också information om installation och konfiguration.
 
-### <a name="plugin-parameters"></a>Plugin-parametrar
+### <a name="plugin-parameters"></a>Plugin-programmet parametrar
 
 Konfigurera plugin-fil ”Azurestack_plugin.py” med följande parametrar:
 
 | Parameter | Beskrivning | Exempel |
 |---------|---------|---------|
-| *arm_endpoint* | Azure Resource Manager (administratör) slutpunkt |https://adminmanagement.local.azurestack.external |
-| *api_endpoint* | Azure Resource Manager (administratör) slutpunkt  | https://adminmanagement.local.azurestack.external |
-| *Tenant_id* | Admin prenumerations-ID | Hämta via administratörsportal eller PowerShell |
+| *arm_endpoint* | Azure Resource Manager (administratör)-slutpunkt |https://adminmanagement.local.azurestack.external |
+| *api_endpoint* | Azure Resource Manager (administratör)-slutpunkt  | https://adminmanagement.local.azurestack.external |
+| *Tenant_id* | Administratören prenumerations-ID | Hämta via administratörsportalen eller PowerShell |
 | *Användarnamn* | Operatorn prenumeration användarnamn | operator@myazuredirectory.onmicrosoft.com |
 | *User_password* | Operatorn prenumeration lösenord | mittlösenord |
-| *client_id* | Client | 0a7bdc5c-7b57-40be-9939-d4c5fc7cd417 * |
-| *Region* |  Namn på Azure Stack område | lokal |
+| *Client_id* | Client | 0a7bdc5c-7b57-40be-9939-d4c5fc7cd417 * |
+| *Region* |  Azure Stack-Regionsnamn | lokal |
 |  |  |
 
 * PowerShell GUID som tillhandahålls är universal. Du kan använda den för varje distribution.
 
-## <a name="use-powershell-to-monitor-health-and-alerts"></a>Använda PowerShell för att övervaka hälsotillstånd och aviseringar
+## <a name="use-powershell-to-monitor-health-and-alerts"></a>Använd PowerShell för att övervaka hälsotillstånd och aviseringar
 
-Om du inte använder Operations Manager, Nagios eller en Nagios-baserad lösning kan använda du PowerShell för att aktivera ett brett spektrum av övervakning av lösningar som kan integreras med Azure-stacken.
+Om du inte använder Operations Manager, Nagios eller en Nagios-baserad lösning, kan du använda PowerShell för att aktivera ett brett utbud av övervakning av lösningar som kan integreras med Azure Stack.
 
 1. Om du vill använda PowerShell, se till att du har [PowerShell installeras och konfigureras](azure-stack-powershell-configure-quickstart.md) för en Azure-stacken operator-miljö. Installera PowerShell på en lokal dator som kan nå slutpunkten för Resource Manager (administratör) (https://adminmanagement. [Region]. [External_FQDN]).
 
-2. Kör följande kommandon för att ansluta till Azure Stack-miljö som operatör Azure Stack:
+2. Kör följande kommandon för att ansluta till Azure Stack-miljön som Azure Stack-operatör:
 
    ```PowerShell  
     Add-AzureRMEnvironment -Name "AzureStackAdmin" -ArmEndpoint https://adminmanagement.[Region].[External_FQDN]
@@ -102,7 +102,7 @@ Om du inte använder Operations Manager, Nagios eller en Nagios-baserad lösning
    Add-AzureRmAccount -EnvironmentName "AzureStackAdmin"
    ```
 
-3. Använd kommandon, till exempel i följande exempel för att arbeta med aviseringar:
+3. Använd kommandon till exempel för att arbeta med aviseringar:
    ```PowerShell
     #Retrieve all alerts
     Get-AzsAlert
@@ -125,8 +125,8 @@ Om du inte använder Operations Manager, Nagios eller en Nagios-baserad lösning
 
 ## <a name="learn-more"></a>Läs mer
 
-Information om inbyggda hälsoövervakning finns [övervaka hälsotillstånd och aviseringar i Azure-stacken](azure-stack-monitor-health.md).
+Läs om hur inbyggda hälsoövervakning [övervaka hälsotillstånd och aviseringar i Azure Stack](azure-stack-monitor-health.md).
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Integrering av säkerhet](azure-stack-integrate-security.md)
+[Security-integrering](azure-stack-integrate-security.md)

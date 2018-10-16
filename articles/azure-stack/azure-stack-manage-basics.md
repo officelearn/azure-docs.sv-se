@@ -3,7 +3,7 @@ title: Azure Stack administration grunder | Microsoft Docs
 description: Lär dig vad du behöver veta för att administrera Azure Stack.
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
+author: jeffgilb
 manager: femila
 editor: ''
 ms.assetid: 856738a7-1510-442a-88a8-d316c67c757c
@@ -12,14 +12,14 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/28/2018
-ms.author: mabrigg
-ms.openlocfilehash: ead76fd2f03a5d445f9fdbb6c10edb852fd046cf
-ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
+ms.date: 10/15/2018
+ms.author: jeffgilb
+ms.openlocfilehash: 37b8eff2d4ed89c90f1fa6f128673ed5bacaaa90
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/01/2018
-ms.locfileid: "47585772"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49339958"
 ---
 # <a name="azure-stack-administration-basics"></a>Azure Stack administration grunder
 Det finns flera saker du behöver veta om du inte har använt Azure Stack-administration. Den här vägledningen ger en översikt över din roll som Azure Stack-operatör och vad du behöver att be användarna för dem att snabbt blir mer produktiv.
@@ -144,6 +144,6 @@ För SDK-paket, kan du be supporten frågor i den [Microsofts forum](https://soc
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Regionshantering i Azure Stack](azure-stack-region-management.md)
+[Regionshantering i Azure Stack](azure-stack-region-management.md)
 
 

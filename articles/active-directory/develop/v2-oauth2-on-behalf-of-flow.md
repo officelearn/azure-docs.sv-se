@@ -17,12 +17,12 @@ ms.date: 06/06/2018
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: da13b7b7b9bd39692db422a315383e0f12aae453
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: 8ff46246d46a6028bc83b8fdf9c984e87f5578a5
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43344884"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49320313"
 ---
 # <a name="azure-active-directory-v20-and-oauth-20-on-behalf-of-flow"></a>Azure Active Directory v2.0- och OAuth 2.0-Behalf-flöde
 OAuth 2.0-Behalf flow fungerar användningsfall där ett program anropar en tjänst/webb-API, som i sin tur måste anropa en annan tjänst/webb-API. Tanken är att sprida delegerade användaren identitets- och behörigheter genom begärandekedjan. För mellannivå-tjänsten ska göra autentiserade begäranden till den underordnade tjänsten, behöver så skydda en åtkomsttoken från Azure Active Directory (Azure AD), användarens räkning.
@@ -33,7 +33,7 @@ OAuth 2.0-Behalf flow fungerar användningsfall där ett program anropar en tjä
 
 
 > [!IMPORTANT]
-> Den [implicit beviljande](v2-oauth2-implicit-grant-flow.md) kan inte användas för On-Behalf-Of-flöde - SPA måste ange sina (implicit flöde) åtkomst-token till en konfidentiell klient mellannivå att utföra OBO flöden. Se [begränsningar](#client-limitations) för mer information som klienter kan utföra On-Behalf-Of-anrop.  
+> Från och med maj 2018, ett `id_token` kan inte användas för On-Behalf-Of-flöde - SPA måste klara ett **åtkomst** token i en mellannivå konfidentiell klient för att utföra OBO flöden. Se [begränsningar](#client-limitations) för mer information som klienter kan utföra On-Behalf-Of-anrop.
 
 ## <a name="protocol-diagram"></a>Protokollet diagram
 Anta att användaren har autentiserats på ett program med hjälp av den [flöde beviljat med OAuth 2.0-auktoriseringskod](v2-oauth2-auth-code-flow.md). Programmet har nu en åtkomsttoken *för API-A* (token A) med det användar- och medgivande till att komma åt mellannivå webb-API (API-A). Nu kan måste API A göra en autentiserad begäran till underordnade webb-API (API-B).

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/14/2018
 ms.author: negat
-ms.openlocfilehash: 628d407869d24f466b5a7c056d51d76217e29798
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 49414b06010cf83c10bbc9519f2bced2126661a4
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46996663"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49322081"
 ---
 # <a name="modify-a-virtual-machine-scale-set"></a>Ändra en VM-skalningsuppsättning
 Du kan behöva ändra eller uppdatera din skalningsuppsättning för virtuella datorer under hela livscykeln för programmen. De här uppdateringarna kan omfatta uppdatera konfigurationen för skaluppsättningen eller ändra programkonfigurationen. Den här artikeln beskriver hur du ändrar en befintlig skalningsuppsättning med REST API: er, Azure PowerShell eller Azure CLI.
@@ -126,7 +126,7 @@ Dessa egenskaper innehåller en sammanfattning av det aktuella runtime-tillstån
 
 
 ### <a name="the-scale-set-vm-model-view"></a>Skaluppsättningen VM modellvy
-Liknande hur en skalningsuppsättning har en modellvy varje virtuell dator i skalningsuppsättningen har en egen modellvy. Om du vill fråga modellvy för en skalningsuppsättning, kan du använda:
+Liknande hur en skalningsuppsättning har en modellvy varje virtuell datorinstans i skalningsuppsättningen har en egen modellvy. Om du vill fråga modellvy för specifika Virtuella datorinstanser i en skalningsuppsättning, kan du använda:
 
 - REST-API [beräkning/virtualmachinescalesetvms/hämta](/rest/api/compute/virtualmachinescalesetvms/get) på följande sätt:
 
@@ -162,11 +162,11 @@ $ az vmss show --resource-group myResourceGroup --name myScaleSet
 }
 ```
 
-Dessa egenskaper beskriver konfigurationen av Virtuellt datorn, inte konfigurationen av skaluppsättningen som helhet. Skalningsuppsättningsmodell har exempelvis `overprovision` som en egenskap, men inte av modellen för en virtuell dator i en skalningsuppsättning. Den här skillnaden beror på att skaffa stora resurser är en egenskap för skalningsuppsättningen som en hel, inte för enskilda virtuella datorer i skalningsuppsättningen (Läs mer om överetablering [designöverväganden för skalningsuppsättningar](virtual-machine-scale-sets-design-overview.md#overprovisioning)).
+Dessa egenskaper beskriver konfigurationen av den Virtuella datorinstansen inte konfigurationen av skaluppsättningen som helhet. Skalningsuppsättningsmodell har exempelvis `overprovision` som en egenskap, men inte av modellen för en VM-instans i en skalningsuppsättning. Den här skillnaden beror på att skaffa stora resurser är en egenskap för skalningsuppsättningen som en hel, inte för enskilda VM-instanser i skalningsuppsättningen (Läs mer om överetablering [designöverväganden för skalningsuppsättningar](virtual-machine-scale-sets-design-overview.md#overprovisioning)).
 
 
 ### <a name="the-scale-set-vm-instance-view"></a>Den instansvyn för VM-skalningsuppsättning
-Liknande hur en skalningsuppsättning har en Instansvy för varje virtuell dator i skalningsuppsättningen har en egen instansvyn. Om du vill fråga instansvyn för en skalningsuppsättning, kan du använda:
+Liknande hur en skalningsuppsättning har en Instansvy för varje virtuell datorinstans i skalningsuppsättningen har en egen instansvyn. Om du vill fråga instansvyn för en specifik VM-instans i en skalningsuppsättning, kan du använda:
 
 - REST-API [beräkning/virtualmachinescalesetvms/getinstanceview](/rest/api/compute/virtualmachinescalesetvms/getinstanceview) på följande sätt:
 
@@ -239,7 +239,7 @@ $ az vmss get-instance-view --resource-group myResourceGroup --name myScaleSet -
 }
 ```
 
-Dessa egenskaper beskriver det aktuella runtime-tillståndet för den Virtuella datorn, som innehåller några tillägg som tillämpas på skalningsuppsättningen.
+Dessa egenskaper beskriver det aktuella runtime-tillståndet för VM-instans som innehåller några tillägg som tillämpas på skalningsuppsättningen.
 
 
 ## <a name="how-to-update-global-scale-set-properties"></a>Så här uppdaterar du global skala ange egenskaper

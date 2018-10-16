@@ -1,24 +1,24 @@
 ---
-title: Kom igång med Custom Speech Service
-titlesuffix: Azure Cognitive Services
+title: Kom igång med Custom Speech Service på Azure | Microsoft Docs
 description: Prenumerera på anpassat tal-tjänst och länkar tjänsteaktiviteter till en Azure-prenumeration du tränar en modell och gör en distribution.
 services: cognitive-services
 author: PanosPeriorellis
-manager: cgronlun
+manager: onano
 ms.service: cognitive-services
 ms.component: custom-speech
-ms.topic: conceptual
+ms.topic: article
 ms.date: 02/08/2017
 ms.author: panosper
-ROBOTS: NOINDEX
-ms.openlocfilehash: ae72edd626bd91dea7cd2812a3ef821b905f59a4
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 4bbd4c57556fd4bfd176c915e26be4a4d198418a
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47225250"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49339941"
 ---
 # <a name="get-started-with-custom-speech-service"></a>Kom igång med Custom Speech Service
+
+[!INCLUDE [Deprecation note](../../../includes/cognitive-services-custom-speech-deprecation-note.md)]
 
 Utforska de viktigaste funktionerna i Custom Speech Service och lär dig att bygga, distribuera och använda- och språkdata modeller för dina programbehov. Mer omfattande dokumentation och stegvisa instruktioner hittar när du har registrerat dig på Custom Speech Services-portalen.
 
@@ -34,7 +34,7 @@ Innan du spelar med ovanstående exempel, du måste prenumerera på Custom Speec
 Du kan ladda ned en klientbiblioteket och alla exempel via [SDK](https://www.microsoft.com/cognitive-services/en-us/SDK-Sample?api=bing%20speech&category=sdk). Den hämta zip-filen måste extraheras till en mapp väljer, många användare väljer du mappen för Visual Studio 2015.
 
 ## <a name="creating-a-custom-acoustic-model"></a>Skapa en anpassad akustisk modell
-Om du vill anpassa den akustiska modellen till en viss domän, krävs en samling taldata. Den här samlingen består av en uppsättning ljudfiler med taldata och en textfil med transkriptioner av varje ljudfil. Ljuddata ska vara representativ för ett scenario där du vill använda Igenkännande
+För att anpassa den akustiska modellen för en viss domän krävs en samling taldata. Den här samlingen består av en uppsättning ljudfiler med taldata och en textfil med transkriptioner av varje ljudfil. Ljuddata ska vara representativ för ett scenario där du vill använda Igenkännande
 
 Till exempel: Om du vill att känna igen tal i en miljö med bort störande factory ljudfiler ska bestå av personer som talar bort störande fabrik.
 Om du är intresserad av att optimera prestanda för en enda talare, t.ex. du skulle vilja transkribera alla FDR'S Fireside Chat och ljudfiler ska bestå av flera exempel på den talaren endast.
@@ -52,7 +52,7 @@ När du har skapat anpassade akustiska modeller och/eller språkmodeller, kan de
 Du hittar en detaljerad beskrivning om hur du skapar en slutpunkt för anpassat tal text [här](CustomSpeech-How-to-Topics/cognitive-services-custom-speech-create-endpoint.md).
 
 ## <a name="using-a-custom-speech-endpoint"></a>Med hjälp av en anpassad slutpunkt
-Förfrågningar kan skickas till en slutpunkt för CRIS tal till text på ungefär samma sätt som standard Azure Cognitive Services tal slutpunkt. Observera att de här slutpunkterna är funktionen identisk med standardslutpunkterna för API för taligenkänning. Därför är på samma sätt som är tillgängliga via klientbibliotek eller REST API för API för taligenkänning också tillgängligt för din anpassade slutpunkt.
+Förfrågningar kan skickas till en slutpunkt för CRIS tal till text på ungefär samma sätt som standard Microsoft Cognitive Services tal slutpunkt. Observera att de här slutpunkterna är funktionen identisk med standardslutpunkterna för API för taligenkänning. Därför är på samma sätt som är tillgängliga via klientbibliotek eller REST API för API för taligenkänning också tillgängligt för din anpassade slutpunkt.
 
 Du hittar en detaljerad beskrivning om hur du använder en anpassad tal till text-slutpunkt [här](CustomSpeech-How-to-Topics/cognitive-services-custom-speech-use-endpoint.md).
 

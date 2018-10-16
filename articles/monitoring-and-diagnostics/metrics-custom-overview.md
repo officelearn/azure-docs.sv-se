@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: ancav
 ms.component: metrics
-ms.openlocfilehash: c136772e27dab014c22234f1ef1d2baddd2ffe58
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 1bdf1e1f5e58ecb0939d5876e0cef349e32de517
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46978088"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49344767"
 ---
 # <a name="custom-metrics-in-azure-monitor"></a>Anpassade mått i Azure Monitor
 
@@ -31,14 +31,14 @@ När du skickar anpassade mått till Azure Monitor måste varje data punkter (el
 
 ### <a name="authentication"></a>Autentisering
 Den entitet som skickar måttet måste ha en giltig Azure Active Directory-token i rubriken ”ägar” för begäran om du vill skicka anpassade mått till Azure Monitor. Det finns ett antal sätt att hämta en giltig ägartoken som stöds:
-1. [MSI (hanterad tjänstidentitet)](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) – ger en identitet till en Azure-resurs själva (till exempel en virtuell dator). MSI har utformats för att tilldela resurser behörigheter att utföra vissa åtgärder – till exempel så att en resurs att skapa mått om sig själv. En resurs (eller dess MSI) kan ha behörighet ”övervakning mått Publisher” på en annan resurs, vilket gör att skapa mått för andra resurser samt MSI.
+1. [Hanterade identiteter för Azure-resurser](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) -ger en identitet till en Azure-resurs själva (till exempel en virtuell dator). MSI har utformats för att tilldela resurser behörigheter att utföra vissa åtgärder – till exempel så att en resurs att skapa mått om sig själv. En resurs (eller dess MSI) kan ha behörighet ”övervakning mått Publisher” på en annan resurs, vilket gör att skapa mått för andra resurser samt MSI.
 2. [AAD-tjänsthuvudnamn](https://docs.microsoft.com/azure/active-directory/develop/app-objects-and-service-principals) – det här scenariot är en AAD-programmet (tjänst) kan tilldelas behörigheter att skapa mått om en Azure-resurs.
 Azure Monitor verifierar applikations-token med hjälp av AAD offentliga nycklar för att autentisera begäran. Den befintliga ”övervakning mått” utgivarrollen har redan den här behörigheten, som är tillgängliga i Azure-portalen. Tjänstens huvudnamn, beroende på vilka resurser som den kommer anpassade mått för, kan få ”övervakning mått” utgivarroll definitionsområdet krävs (prenumeration, resursgrupp eller specifik resurs).
 
 > [!NOTE]
 > När begär en AAD-token för att skapa anpassade mått Kontrollera token begärs för publik/resursen är https://monitoring.azure.com/ (se till att du inkluderar avslutande ”/”)
 
-### <a name="subject"></a>Ämne
+### <a name="subject"></a>Subjekt
 Den här egenskapen samlar in vilket Azure-resurs-ID som anpassade mått rapporteras för. Den här informationen ska kodas i URL: en för API-anrop som görs. Varje API kan bara skicka måttvärden för en enskild Azure-resurser.
 
 > [!NOTE]
@@ -194,6 +194,6 @@ Använda anpassade mått från olika tjänster
  - [Virtual Machine Scale Sets](metrics-store-custom-guestos-resource-manager-vmss.md)
  - [Virtuell dator (klassisk)](metrics-store-custom-guestos-classic-vm.md)
  - [Linux-dator med Telegraf agent](metrics-store-custom-linux-telegraf.md)
- - [REST API](metrics-store-custom-rest-api.md)
+ - [REST-API](metrics-store-custom-rest-api.md)
  - [Molntjänst (klassisk)](metrics-store-custom-guestos-classic-cloud-service.md)
  

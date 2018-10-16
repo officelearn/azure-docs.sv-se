@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 10/07/2018
 ms.author: sethm
 ms.reviewer: justini
-ms.openlocfilehash: bce76827c56fd660b6ab4353fed1c43f88132587
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.openlocfilehash: b4ee3354d024034fd47ee50ae78d25d5bb4a38f5
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48868827"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49345279"
 ---
 # <a name="azure-stack-1807-update"></a>Uppdatering av Azure Stack 1807
 
@@ -232,6 +232,14 @@ Här följer efter installation kända problem för den här build-versionen.
 
 
 ### <a name="health-and-monitoring"></a>Hälsa och övervakning
+
+<!-- TBD - IS -->
+- Du kan se följande aviseringar visas flera gånger och sedan försvinner på Azure Stack-system:
+   - *Infrastruktur-rollinstans som är inte tillgänglig*
+   - *Skala enhet noden är offline*
+   
+  Kör den [Test AzureStack](azure-stack-diagnostic-test.md) cmdlet för att kontrollera hälsotillståndet för rollinstanser för infrastruktur och skala enhet noder. Om inga problem har identifierats av [Test-AzureStack](azure-stack-diagnostic-test.md), du kan ignorera dessa aviseringar. Om ett problem har identifierats, kan du försöker starta rollinstansen infrastruktur eller nod med hjälp av administrationsportalen eller PowerShell.
+
 <!-- 1264761 - IS ASDK -->  
 - Du kan se aviseringar för den **hälsotillstånd controller** komponent som har följande information:  
 

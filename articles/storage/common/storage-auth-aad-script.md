@@ -8,16 +8,16 @@ ms.topic: article
 ms.date: 09/20/2018
 ms.author: tamram
 ms.component: common
-ms.openlocfilehash: 6354d89ff5a23ccb51b85737b3a842c08534683e
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 42422580acec0811b0eb65d6fe1c0bed791eb9bd
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47223618"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49344548"
 ---
 # <a name="use-an-azure-ad-identity-to-access-azure-storage-with-cli-or-powershell-preview"></a>Använda en Azure AD-identitet för åtkomst till Azure Storage med CLI eller PowerShell (förhandsversion)
 
-Azure Storage tillhandahåller förhandsversion tillägg för Azure CLI och PowerShell som gör det möjligt att logga in och kör skriptkommandon under en Azure Active Directory (Azure AD)-identitet. Azure AD-identitet kan vara en användare, grupp eller tjänstens huvudnamn för programmet eller det kan vara en [hanterad tjänstidentitet](../../active-directory/managed-identities-azure-resources/overview.md). Du kan tilldela behörigheter för att få åtkomst till lagringsresurser till Azure AD-identitet via rollbaserad åtkomstkontroll (RBAC). Mer information om RBAC-roller i Azure Storage finns i [hantera åtkomsträttigheter till Azure Storage-data med RBAC (förhandsversion)](storage-auth-aad-rbac.md).
+Azure Storage tillhandahåller förhandsversion tillägg för Azure CLI och PowerShell som gör det möjligt att logga in och kör skriptkommandon under en Azure Active Directory (Azure AD)-identitet. Azure AD-identitet kan vara en användare, grupp eller tjänstens huvudnamn för programmet eller det kan vara en [hanterad identitet för Azure-resurser](../../active-directory/managed-identities-azure-resources/overview.md). Du kan tilldela behörigheter för att få åtkomst till lagringsresurser till Azure AD-identitet via rollbaserad åtkomstkontroll (RBAC). Mer information om RBAC-roller i Azure Storage finns i [hantera åtkomsträttigheter till Azure Storage-data med RBAC (förhandsversion)](storage-auth-aad-rbac.md).
 
 När du loggar in till Azure CLI eller PowerShell med Azure AD-identitet, returneras en åtkomsttoken för att komma åt Azure Storage under den identiteten. Den token används sedan automatiskt av CLI eller PowerShell för att auktorisera åtgärder mot Azure Storage. För åtgärder som stöds behöver du inte längre att skicka en nyckel eller en SAS-token med kommandot.
 

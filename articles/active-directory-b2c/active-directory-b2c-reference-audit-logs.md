@@ -10,12 +10,12 @@ ms.workload: identity
 ms.date: 08/04/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 1697830f699c9cd50548bcfcdd038348db314020
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: 67e57faf37697697bee74597a40db39149699fe5
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38969667"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49320245"
 ---
 # <a name="accessing-azure-ad-b2c-audit-logs"></a>Åtkomst till Azure AD B2C-granskningsloggar
 
@@ -24,7 +24,7 @@ Azure Active Directory B2C (Azure AD B2C) genererar granskningsloggar som inneh�
 > [!IMPORTANT]
 > Granskningsloggar behålls endast i sju dagar. Planera att hämta och lagra dina loggar med någon av metoderna nedan om du behöver en längre period. 
 
-##<a name="overview-of-activities-available-in-the-b2c-category-of-audit-logs"></a>Översikt över aktiviteter som är tillgängliga i kategorin B2C på granskningsloggar
+## <a name="overview-of-activities-available-in-the-b2c-category-of-audit-logs"></a>Översikt över aktiviteter som är tillgängliga i kategorin B2C på granskningsloggar
 Den **B2C** kategori i granskningsloggarna innehåller följande typer av aktiviteter:
 |Aktivitetstyp |Beskrivning  |
 |---------|---------|
@@ -38,10 +38,10 @@ Den **B2C** kategori i granskningsloggarna innehåller följande typer av aktivi
 > [!NOTE]
 > Objektet CRUD användaraktiviteter, finns det **Kärnkatalog** kategori.
 
-##<a name="example-activity"></a>Exemplet på aktivitet
+## <a name="example-activity"></a>Exemplet på aktivitet
 Exemplet nedan visar data som hämtats när en användare loggar in med en extern identitetsleverantör: ![granskningsloggar - exempel](./media/active-directory-b2c-reference-audit-logs/audit-logs-example.png)
 
-##<a name="accessing-audit-logs-through-the-azure-portal"></a>Få åtkomst till granskningsloggar via Azure Portal
+## <a name="accessing-audit-logs-through-the-azure-portal"></a>Få åtkomst till granskningsloggar via Azure Portal
 1. Gå till [Azure-portalen](https://portal.azure.com). Kontrollera att du är i din B2C-katalog.
 2. Klicka på **Azure Active Directory** i fältet Favoriter till vänster 
     
@@ -62,18 +62,18 @@ Du kommer se en lista över aktiviteter loggas under de senaste sju dagarna.
 - Om du klickar på en specifik rad i listan över visas en sammanhangsberoende rutan till höger ytterligare attribut som är associerat med aktiviteten
 - Klicka på **hämta** att hämta aktiviteterna som en csv-fil
 
-##<a name="accessing-audit-logs-through-the-azure-ad-reporting-api"></a>Få åtkomst till granskningsloggar via Azure AD reporting-API
+## <a name="accessing-audit-logs-through-the-azure-ad-reporting-api"></a>Få åtkomst till granskningsloggar via Azure AD reporting-API
 Granskningsloggar publiceras till samma pipelinen som andra aktiviteter för Azure Active Directory, så att de kan nås via den [Azure Active Directory reporting API](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-api-audit-reference). 
 
-###<a name="prerequisites"></a>Förutsättningar
+### <a name="prerequisites"></a>Förutsättningar
 För att autentisera till Azure AD reporting API: et måste du först registrera ett program. Se till att följa stegen i [krav för att få åtkomst till Azure AD reporting API: er](https://azure.microsoft.com/documentation/articles/active-directory-reporting-api-getting-started/).
 
-###<a name="accesing-the-api"></a>Öppnar API: et
+### <a name="accesing-the-api"></a>Öppnar API: et
 Om du vill ladda ned Azure AD B2C-granskningsloggar via API: et, bör du filterloggar till den **B2C** kategori. Om du vill filtrera efter kategori, använder du parametern för frågesträngen när du anropar Azure AD reporting API-slutpunkter, enligt nedan:
 
 `https://graph.windows.net/your-b2c-tentant.onmicrosoft.com/activities/audit?api-version=beta&$filter=category eq 'B2C'`
 
-###<a name="powershell-script"></a>PowerShell-skript
+### <a name="powershell-script"></a>PowerShell-skript
 Följande skript innehåller ett exempel på hur du använder PowerShell för att fråga efter Azure AD reporting API: et och lagrar resultatet som en JSON-fil:
 
 ```powershell

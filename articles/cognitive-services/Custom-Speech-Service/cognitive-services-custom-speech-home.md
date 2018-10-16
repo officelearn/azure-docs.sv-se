@@ -1,24 +1,24 @@
 ---
-title: Vad är Custom Speech Service?
-titlesuffix: Azure Cognitive Services
+title: Anpassad tal tjänstöversikt på Azure | Microsoft Docs
 description: Custom Speech Service är en molnbaserad tjänst där användarna kan anpassa talmodeller för tal till text-transkriptioner.
 services: cognitive-services
 author: PanosPeriorellis
-manager: cgronlun
+manager: onano
 ms.service: cognitive-services
 ms.component: custom-speech
-ms.topic: overview
+ms.topic: article
 ms.date: 02/07/2017
 ms.author: panosper
-ROBOTS: NOINDEX
-ms.openlocfilehash: f90fc40a42806cfb002da2d9943eaa41736df4d7
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
-ms.translationtype: HT
+ms.openlocfilehash: 97eee2b6440dbbf740ad5fa856bd518facabbfef
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47222751"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49342304"
 ---
 # <a name="what-is-custom-speech-service"></a>Vad är Custom Speech Service?
+
+[!INCLUDE [Deprecation note](../../../includes/cognitive-services-custom-speech-deprecation-note.md)]
 
 Custom Speech Service är en molnbaserad tjänst där användarna kan anpassa talmodeller för tal till text-transkriptioner.
 Information om hur du använder Custom Speech Service finns på [Custom Speech Service-portalen](https://cris.ai).
@@ -44,7 +44,7 @@ Om du exempelvis skulle bygga en app som ska söka på MSDN med tal är det sann
 
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information om hur du använder Custom Speech Service finns i [Custom Speech Service-portalen] (https://cris.ai).
+Mer information om hur du använder Custom Speech Service finns i den [Custom Speech Service Portal](https://cris.ai).
 
 * [Kom igång](cognitive-services-custom-speech-get-started.md)
 * [Vanliga frågor och svar](cognitive-services-custom-speech-faq.md)

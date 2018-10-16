@@ -10,12 +10,12 @@ ms.component: academic-knowledge
 ms.topic: conceptual
 ms.date: 03/27/2017
 ms.author: alch
-ms.openlocfilehash: da5e03e5fd3259157ee33744b614e2be3e284eb8
-ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
+ms.openlocfilehash: 915e2e5a67d068c418ce50eee9d84dc66e61ee00
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48901949"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49321300"
 ---
 # <a name="calchistogram-method"></a>CalcHistogram, metod
 
@@ -35,10 +35,12 @@ Namn  |Värde | Krävs?  |Beskrivning
 **uttryck för Markörstorlek**    |Textsträngen | Ja  |Ett frågeuttryck som anger de entiteter som att beräkna histogram.
 **Modellen** |Textsträngen | Nej |Välj namnet på den modell som du vill fråga.  För närvarande standardvärdet *senaste*.
 **Attribut** | Textsträngen | Nej<br>standard: | En kommaavgränsad lista som anger de attributvärden som ingår i svaret. Attributnamn är skiftlägeskänsliga.
-**Antal** |Tal | Nej<br>Standard: 10 |Antalet resultat som ska returneras.
+**antal** |Tal | Nej<br>Standard: 10 |Antalet resultat som ska returneras.
 **förskjutning**  |Tal | Nej<br>Standard: 0 |Index för det första resultatet ska returneras.
-<br>
+**Timeout**  |Tal | Nej<br>Standard: 1000 |Tidsgräns i millisekunder. Endast tolkningar hittades före tidsgränsen har gått ut returneras.
+
 ## <a name="response-json"></a>Svar (JSON)
+
 Namn | Beskrivning
 --------|---------
 **uttryck för Markörstorlek**  |Parametern uttryck från begäran.
@@ -53,7 +55,7 @@ Namn | Beskrivning
 **histogram [.histogram [y] .count x]**  |Antal matchande entiteter med det här attributvärdet.
 **avbröts** | SANT om uppnåddes för begäran.
 
- <br>
+
 #### <a name="example"></a>Exempel:
 ```
 https:// westus.api.cognitive.microsoft.com/academic/v1.0/calchistogram?expr=And(Composite(AA.AuN=='jaime teevan'),Y>2012)&attributes=Y,F.FN&count=4

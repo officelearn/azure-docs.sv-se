@@ -1,5 +1,5 @@
 ---
-title: Application Insights-data från LUIS med C#
+title: Application Insights-data från LUIS med Node.js
 titleSuffix: Azure Cognitive Services
 description: Skapa en robot som är integrerad med en LUIS-programmet och Application Insights med hjälp av Node.js.
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 09/24/2018
 ms.author: diberry
-ms.openlocfilehash: 342c4f98d854d94426c3e4a1eb79bb2a6adffaad
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 6199e4a681f7f58ea0cf57b575afb2a63d160eee
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47038008"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49321962"
 ---
 # <a name="add-luis-results-to-application-insights"></a>Lägg till LUIS resultaten till Application Insights
 Den här självstudien lägger till LUIS begäranden och svar information till [Application Insights](https://azure.microsoft.com/services/application-insights/) telemetri datalagring. När du har dessa data kan du fråga den med Kusto språk eller PowerBi aggregeras, om du vill analysera och rapportera om avsikter och entiteter av uttryck i realtid. Den här analysis hjälper dig att avgöra om du ska lägga till eller redigera avsikter och entiteter av LUIS-appen.

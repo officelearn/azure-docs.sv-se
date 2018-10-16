@@ -1,24 +1,25 @@
 ---
-title: Migrera prisnivåer för slutpunkter – Custom Speech Service
-titlesuffix: Azure Cognitive Services
-description: Lär dig hur du migrerar distributioner från nivåer S0 och S1 till S2 för Custom Speech Service slutpunkter.
+title: Migrera prisnivåer slutpunkter från Custom Speech Service på Azure | Microsoft Docs
+description: Lär dig hur du migrerar distributioner från nivåer S0 och S1 till S2 för Custom Speech Service slutpunkter i Cognitive Services.
 services: cognitive-services
 author: PanosPeriorellis
-manager: cgronlun
+manager: onano
 ms.service: cognitive-services
 ms.component: custom-speech
-ms.topic: conceptual
+ms.topic: article
 ms.date: 07/05/2017
 ms.author: panosper
-ROBOTS: NOINDEX
-ms.openlocfilehash: 560aa0a7b9748f75cdde99691db7f33e2fc10221
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: a9bdb257137db0063d39f028a69e2164eccbdc31
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47224859"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49340468"
 ---
 # <a name="migrate-deployments-to-the-new-pricing-model"></a>Migrera distributioner till den nya prismodellen
+
+[!INCLUDE [Deprecation note](../../../../includes/cognitive-services-custom-speech-deprecation-note.md)]
+
 Från och med juli 2017 Custom Speech Service erbjuder en [nya prismodellen](https://azure.microsoft.com/pricing/details/cognitive-services/custom-speech-service/). Den nya modellen är *lättare att förstå*, *enklare att beräkna kostnaderna*, och *mer flexibel* när det gäller skalning. Microsoft har infört konceptet med en skalningsenhet för skalning. Varje skalningsenhet kan hantera fem samtidiga begäranden. Skalning för samtidiga förfrågningar enligt den gamla modellen har ställts in på 5 samtidiga begäranden för S0-nivån och den har angetts till 12 samtidiga begäranden för nivån S1. Vi har öppnat gränserna för att erbjuda dig större flexibilitet till dina krav för användningsfall.
 
 Om du kör en gammal S0 eller S1-nivå, rekommenderar vi att du migrerar din befintliga distributioner till den nya S2-nivån. Den nya S2-nivån omfattar varken S0 eller S1-nivån. Du kan se de tillgängliga alternativen i följande bild:

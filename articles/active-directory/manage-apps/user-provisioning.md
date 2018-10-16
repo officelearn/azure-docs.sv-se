@@ -14,14 +14,15 @@ ms.workload: identity
 ms.date: 07/30/2018
 ms.author: barbkess
 ms.reviewer: asmalser
-ms.openlocfilehash: 8a84f2f13318dea5c2b99af0b880f2adb1343c8d
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: 9170f6f90b9e9b0a310f3b078c82dcab3f179fb3
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48042793"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49321316"
 ---
 # <a name="automate-user-provisioning-and-deprovisioning-to-saas-applications-with-azure-active-directory"></a>Automatisera etablering och avetablering för SaaS-program med Azure Active Directory
+
 ## <a name="what-is-automated-user-provisioning-for-saas-apps"></a>Vad är automatisk användaretablering för SaaS-appar?
 Azure Active Directory (Azure AD) kan du automatisera den genereringen, underhållet och borttagningen av användaridentiteter i molnet ([SaaS](https://azure.microsoft.com/overview/what-is-saas/)) program, till exempel Dropbox, Salesforce, ServiceNow med mera.
 
@@ -42,6 +43,7 @@ Azure Active Directory (Azure AD) kan du automatisera den genereringen, underhå
 * Rapportering och aktivitet loggar för bättre övervakning och felsökning.
 
 ## <a name="why-use-automated-provisioning"></a>Varför använda automatiserad etablering?
+
 Vissa vanliga motiveringarna till att använda den här funktionen är:
 
 * Undvika de kostnader och ineffektivitet handhavarfel vid manuell etablering processer.
@@ -69,6 +71,7 @@ Den **Provisioning-tjänsten för Azure AD** etablerar användare i SaaS-appar o
 Azure AD-funktioner förintegrerade stöd för en mängd olika populära SaaS-appar och HR-system, samt allmänna stöd för appar som implementerar vissa delar av den SCIM 2.0-standarden.
 
 ### <a name="pre-integrated-applications"></a>Redan integrerade program
+
 En lista över alla program som stöder Azure AD en förintegrerade etablering anslutningen finns i den [lista över självstudier för program för användaretablering](../saas-apps/tutorial-list.md).
 
 Till kontakten med Azure AD Utvecklingsteamet för att begära etablering stöd för ytterligare program kan skicka ett meddelande via den [Azure Active Directory-Feedbackforum](https://feedback.azure.com/forums/374982-azure-active-directory-application-requests/filters/new?category_id=172035).
@@ -77,6 +80,7 @@ Till kontakten med Azure AD Utvecklingsteamet för att begära etablering stöd 
 > För ett program som stöder automatisk användaretablering, måste den först ange den nödvändiga användarhanteringen API: er som gör att externa program att automatisera genereringen, underhållet och borttagningen användare. Därför kan är inte alla SaaS-appar kompatibla med den här funktionen. För appar som har stöd för användarhantering API: er kan det tekniska teamet för Azure AD kommer sedan att kunna skapa en allokering anslutning till de apparna och arbetet är prioriterad av aktuella och framtida kunders behov. 
 
 ### <a name="connecting-applications-that-support-scim-20"></a>Ansluta appar som stöder SCIM 2.0
+
 Information om hur du ansluter Allmänt program som implementerar SCIM 2.0 - baserat Användarhantering API: er, se [med SCIM för att automatiskt etablera användare och grupper från Azure Active Directory till program](use-scim-to-provision-users-and-groups.md).
 
     
@@ -124,6 +128,7 @@ På skärmen application management etablering har konfigurerats i den **etabler
 När Azure AD är källsystemet, etableringstjänsten använder det [differentiell fråga funktion i Azure AD Graph API](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-differential-query) att övervaka användare och grupper. Etableringstjänsten körs en initial synkronisering mot källsystemet och målsystemet, följt av periodiska inkrementella synkroniseringar. 
 
 ### <a name="initial-sync"></a>Den inledande synkroniseringen
+
 När etableringstjänsten startas, kommer den första synkroniseringen har någonsin tidigare utfört:
 
 1. Fråga efter alla användare och grupper från källsystemet, hämtas alla attribut som definierats i den [attributmappningar](customize-application-attributes.md).
@@ -137,6 +142,7 @@ När etableringstjänsten startas, kommer den första synkroniseringen har någo
 Vissa program, till exempel Box, ServiceNow och Google Apps stöd inte bara etablera användare, utan också etablering grupper och deras medlemmar. I sådana fall om gruppetablering har aktiverats i den [mappningar](customize-application-attributes.md), Etablerar tjänsten synkroniseras användarna och grupper och därefter synkroniserar gruppmedlemskap. 
 
 ### <a name="incremental-syncs"></a>Inkrementella synkroniseringar
+
 Efter den första synkroniseringen kommer alla efterföljande synkroniseringar
 
 1. Fråga källsystemet för alla användare och grupper som har uppdaterats sedan den senaste vattenstämpeln lagrades.
@@ -160,7 +166,8 @@ Etableringstjänsten fortsätter att köras back-to-back inkrementella synkronis
 * En ny inledande synkronisering aktiveras på grund av en ändring i attributmappningar eller Omfångsfilter. Detta tar bort alla lagrade vattenstämpel och gör att alla källobjekt som ska utvärderas igen.
 * Etableringen går i karantän (se nedan) på grund av en hög Felfrekvens och ligger i karantän i mer än fyra veckor. I detta fall kan inaktiveras tjänsten automatiskt.
 
-### <a name="errors-and-retries"></a>Fel och återförsök 
+### <a name="errors-and-retries"></a>Fel och återförsök
+
 Om en enskild användare inte kan har lagts till, uppdateras eller tas bort i målsystemet pga ett fel i målsystemet, kommer åtgärden upprepas under nästa synkroniseringscykel. Om du fortsätter att misslyckas, påbörjas nya försök ska ske en mindre ofta gradvis skala tillbaka till bara ett försök per dag. För att lösa felet kan administratörerna kontrollera de [granskningsloggar](check-status-user-account-provisioning.md) för ”processdeponering” händelser för att avgöra roten orsaka och vidta lämplig åtgärd. Vanliga fel kan innefatta:
 
 * Användare som inte har ett attribut som fylls i källsystemet som krävs i målsystemet
@@ -169,6 +176,7 @@ Om en enskild användare inte kan har lagts till, uppdateras eller tas bort i m�
 De här felen kan lösas genom att justera attributvärden för den berörda användaren i källsystemet, eller genom att justera attributmappningar för att inte orsakar konflikter.   
 
 ### <a name="quarantine"></a>Karantän
+
 Om de flesta eller alla anrop görs mot målsystemet konsekvent misslyckas på grund av ett fel (till exempel som i fallet med ogiltig administratörsautentiseringsuppgifter), sedan Etableringsjobbet försätts i ”karantän” tillstånd. Detta anges i den [etablering sammanfattningsrapport](check-status-user-account-provisioning.md), och via e-post om e-postaviseringar har konfigurerats i Azure-portalen. 
 
 När du är i karantän, minskar frekvensen av inkrementella synkroniseringar gradvis till en gång per dag. 
@@ -219,33 +227,33 @@ Sammanfattning av faktorer som påverkar den tid det tar för att slutföra en *
 * Antalet och storleken på tilldelade grupper. Det tar längre tid än synkronisera användare att synkronisera tilldelade grupper. Prestanda kan påverkas av både antalet och storleken på de tilldelade grupperna. Om ett program har [mappningar som aktiverats för gruppen objektsynkronisering](customize-application-attributes.md#editing-group-attribute-mappings), egenskaper som gruppnamn och medlemskap har synkroniserats och användare. Dessa ytterligare synkroniseringar tar längre tid än att bara synkronisera användarobjekt.
 
 
-##<a name="how-can-i-tell-if-users-are-being-provisioned-properly"></a>Hur vet jag om användare har etablerats korrekt?
+## <a name="how-can-i-tell-if-users-are-being-provisioned-properly"></a>Hur vet jag om användare har etablerats korrekt?
 
 Alla åtgärder som utförs av tjänst för användaretablering registreras i Azure AD granskningsloggar. Detta inkluderar alla Läs- och skrivåtgärder som gjorts i käll-och mål, samt vilka användardata som har lästs eller skrivits under varje åtgärd.
 
 Information om hur läsningen granskningsloggarna i Azure-portalen finns i den [etablering rapporteringsguide](check-status-user-account-provisioning.md).
 
 
-##<a name="how-do-i-troubleshoot-issues-with-user-provisioning"></a>Hur felsöker jag problem med etableringen av användare?
+## <a name="how-do-i-troubleshoot-issues-with-user-provisioning"></a>Hur felsöker jag problem med etableringen av användare?
 
 Scenariobaserade vägledning om hur du felsöker automatisk användaretablering finns i [problem med att konfigurera och etablera användare till ett program](application-provisioning-config-problem.md).
 
 
-##<a name="what-are-the-best-practices-for-rolling-out-automatic-user-provisioning"></a>Vilka är rekommenderade metoder för att lansera automatisk användaretablering?
+## <a name="what-are-the-best-practices-for-rolling-out-automatic-user-provisioning"></a>Vilka är rekommenderade metoder för att lansera automatisk användaretablering?
 
 > [!VIDEO https://www.youtube.com/embed/MAy8s5WSe3A]
 
 Ett exempel stegvisa distributionsplan för utgående användaretablering för ett program, finns det [identitet Distributionsguide för Användaretablering](https://aka.ms/userprovisioningdeploymentplan).
 
-##<a name="more-frequently-asked-questions"></a>Fler vanliga frågor och svar
+## <a name="more-frequently-asked-questions"></a>Fler vanliga frågor och svar
 
-###<a name="does-automatic-user-provisioning-to-saas-apps-work-with-b2b-users-in-azure-ad"></a>Stöder automatisk användaretablering till SaaS-appar fungerar med B2B-användare i Azure AD?
+### <a name="does-automatic-user-provisioning-to-saas-apps-work-with-b2b-users-in-azure-ad"></a>Stöder automatisk användaretablering till SaaS-appar fungerar med B2B-användare i Azure AD?
 
 Ja, det är möjligt att använda Azure AD-användare etablera tjänsten för att etablera B2B (eller gäst) användare i Azure AD SaaS-program.
 
 SaaS-program måste dock för B2B-användare för att kunna logga in på SaaS-program med hjälp av Azure AD kan ha sin SAML-baserad enkel inloggning förmåga konfigurerats i ett visst sätt. Mer information om hur du konfigurerar SaaS-program för att stödja inloggningar från B2B-användare finns i [konfigurera SaaS-appar för B2B-samarbete]( https://docs.microsoft.com/azure/active-directory/b2b/configure-saas-apps).
 
-###<a name="does-automatic-user-provisioning-to-saas-apps-work-with-dynamic-groups-in-azure-ad"></a>Stöder automatisk användaretablering till SaaS-appar fungerar med dynamiska grupper i Azure AD?
+### <a name="does-automatic-user-provisioning-to-saas-apps-work-with-dynamic-groups-in-azure-ad"></a>Stöder automatisk användaretablering till SaaS-appar fungerar med dynamiska grupper i Azure AD?
 
 Ja. När konfigurerad att ”synkronisera enbart tilldelade användare och grupper”, Azure AD-tjänst för användaretablering kan etablera eller användares användare i ett SaaS-program baserat på huruvida de är medlemmar i en [dynamisk grupp](https://docs.microsoft.com/azure/active-directory/users-groups-roles/groups-create-rule]). Dynamiska grupper kan även användas med alternativet ”Synkronisera alla användare och grupper”.
 
@@ -255,7 +263,7 @@ Användning av dynamiska grupper kan dock påverka prestandan för slutpunkt til
 
 * När du använder dynamiska grupper, måste reglerna noggrant beaktas med användaren etablering och avetablering i åtanke, eftersom en förlust av medlemskap resulterar i en avställningsskript händelse.
 
-###<a name="does-automatic-user-provisioning-to-saas-apps-work-with-nested-groups-in-azure-ad"></a>Stöder automatisk användaretablering till SaaS-appar fungerar med kapslade grupper i Azure AD?
+### <a name="does-automatic-user-provisioning-to-saas-apps-work-with-nested-groups-in-azure-ad"></a>Stöder automatisk användaretablering till SaaS-appar fungerar med kapslade grupper i Azure AD?
 
 Nej. När konfigurerad att ”synkronisera enbart tilldelade användare och grupper”, kan Azure AD-tjänst för användaretablering inte läsa eller etablera användare som finns i kapslade grupper. Det är bara kunna läsa och etablera användare som är direkta medlemmar av gruppen uttryckligen tilldelad.
 
@@ -264,6 +272,7 @@ Detta är en begränsning av ”gruppbaserad tilldelningar till program”, som 
 Som en lösning kan du måste uttryckligen tilldela (eller på annat sätt [omfång i](https://docs.microsoft.com/en-us/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts)) de grupper som innehåller de användare som behöver etableras.
 
 ## <a name="related-articles"></a>Relaterade artiklar
+
 * [Lista över guider om hur du integrerar SaaS-appar](../saas-apps/tutorial-list.md)
 * [Anpassa attributmappningar för etableringen av användare](customize-application-attributes.md)
 * [Skriva uttryck för attributmappningar](functions-for-customizing-application-data.md)

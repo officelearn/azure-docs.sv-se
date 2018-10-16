@@ -7,12 +7,12 @@ ms.subservice: Azure Disk Encryption
 ms.topic: article
 ms.author: mstewart
 ms.date: 10/12/2018
-ms.openlocfilehash: 9fefe75d43630a68a2d22bdc3270f255587030d0
-ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
+ms.openlocfilehash: 8b0f682e481ef73019d3371af2b84f6270e021ee
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2018
-ms.locfileid: "49311014"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49341896"
 ---
 # <a name="azure-disk-encryption-prerequisites-previous-release"></a>Krav för Azure Disk Encryption (tidigare version)
 
@@ -54,8 +54,8 @@ Ett exempel på kommandon som kan användas för att montera datadiskarna och sk
   - Om du vill skriva dem till ditt nyckelvalv kunna IaaS VM ansluta till slutpunkten för nyckelvalvet.
   - IaaS VM måste kunna ansluta till en Azure storage-slutpunkt som är värd för lagringsplatsen Azure-tillägget och ett Azure storage-konto som är värd för VHD-filer.
   -  Om din säkerhetsprincip begränsar åtkomst från virtuella Azure-datorer till Internet, kan du matcha den föregående URI: N och konfigurera en specifik regel som tillåter utgående anslutning till IP-adresserna. Mer information finns i [Azure Key Vault bakom en brandvägg](../key-vault/key-vault-access-behind-firewall.md).
-  - På Windows, om TLS 1.0 har inaktiverats explicit och .NET-versionen har inte uppdaterats till 4.6 eller senare, följande registerändring aktiverar ADE att välja den nya TLS-versionen ”: Windows Registereditorn 5.00
-
+  - På Windows, om TLS 1.0 har inaktiverats explicit och .NET-versionen har inte uppdaterats till 4.6 eller senare, kommer följande registerändring aktivera ADE att välja den nya TLS-versionen:
+    
         [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\.NETFramework\v4.0.30319]
         "SystemDefaultTlsVersions"=dword:00000001
         "SchUseStrongCrypto"=dword:00000001
@@ -63,6 +63,7 @@ Ett exempel på kommandon som kan användas för att montera datadiskarna och sk
         [HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Microsoft\.NETFramework\v4.0.30319]
         "SystemDefaultTlsVersions"=dword:00000001
         "SchUseStrongCrypto"=dword:00000001` 
+     
 
  
 

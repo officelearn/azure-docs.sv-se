@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/06/2018
 ms.author: asgang
-ms.openlocfilehash: 95e5c53da2556293fc676fa5b1db9b4585038300
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: a498ac9f973bbcf87bec104f18b542cc7e8b5800
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37921432"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49318698"
 ---
 # <a name="protect-a-multi-tier-sap-netweaver-application-deployment-by-using-site-recovery"></a>Skydda en programdistribution för flera nivåer SAP NetWeaver med hjälp av Site Recovery
 
@@ -71,10 +71,10 @@ För haveriberedskap (DR), måste du kunna växla över till en sekundär region
 #### <a name="vms-running-sap-web-dispatcher-pool"></a>Virtuella datorer som kör SAP Web Dispatcher-pool 
 Komponenten Web Dispatcher används som en belastningsutjämnare för SAP-trafik på SAP-programservrarna. För att uppnå hög tillgänglighet för Web Dispatcher-komponent, används Azure Load Balancer för att implementera parallella Web Dispatcher-installation i en konfiguration för resursallokering för HTTP (S) fördelning av trafik mellan de tillgängliga Web avsändare i poolen för belastningsutjämnaren. Detta kommer att replikeras med hjälp av Azure Site Recovery och automatiserade skript som används för att konfigurera en belastningsutjämnare disaster recovery-region. 
 
-####<a name="vms-running-application-servers-pool"></a>Virtuella datorer som körs programpool för servrar
+#### <a name="vms-running-application-servers-pool"></a>Virtuella datorer som körs programpool för servrar
 SMLG transaktionen används för att hantera inloggningsgrupper för ABAP-programservrar. Den använder funktionen på meddelande-servern för Central tjänster för belastningsutjämning för att distribuera arbetsbelastningen mellan servrar för SAP programpool för SAPGUIs och RFC trafik. Detta kommer att replikeras med Azure Site Recovery 
 
-####<a name="vms-running-sap-central-services-cluster"></a>Virtuella datorer som kör SAP Central Services-kluster
+#### <a name="vms-running-sap-central-services-cluster"></a>Virtuella datorer som kör SAP Central Services-kluster
 Denna Referensarkitektur kör centrala tjänster på virtuella datorer i appnivån. Central Services är en potentiell felpunkt (SPOF) när de distribueras till en enda virtuell dator – typisk distribution när hög tillgänglighet inte är ett krav.<br>
 
 Ett kluster med delad disk eller en resurs filklustret kan användas för att implementera en lösning med hög tillgänglighet. För att konfigurera virtuella datorer i ett kluster med delad disk, Använd Windows Server-redundanskluster. Molnvittne rekommenderas som ett kvorumvittne. 
@@ -110,7 +110,7 @@ Nedan visas i rekommendationen för haveriberedskap för varje nivå som använd
 **Active directory-datorer** |  Active directory-replikering 
 **SQL database-servrar** |  SQL always on-replikering
 
-##<a name="replicate-virtual-machines"></a>Replikera virtuella datorer
+## <a name="replicate-virtual-machines"></a>Replikera virtuella datorer
 
 Om du vill börja replikera alla SAP-program virtuella datorer till Azure disaster recovery datacenter, följer du riktlinjerna i [replikera en virtuell dator till Azure](azure-to-azure-walkthrough-enable-replication.md).
 

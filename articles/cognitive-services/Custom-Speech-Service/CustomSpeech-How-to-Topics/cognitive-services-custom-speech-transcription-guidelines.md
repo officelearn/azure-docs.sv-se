@@ -1,24 +1,25 @@
 ---
-title: Transkription riktlinjer – Custom Speech Service
-titlesuffix: Azure Cognitive Services
-description: Lär dig hur du förbereder data för Custom Speech Service.
+title: Transkription riktlinjerna i Custom Speech Service på Azure | Microsoft Docs
+description: Lär dig hur du förbereder data för Custom Speech Service i Cognitive Services.
 services: cognitive-services
 author: PanosPeriorellis
-manager: cgronlun
+manager: onano
 ms.service: cognitive-services
 ms.component: custom-speech
-ms.topic: conceptual
+ms.topic: article
 ms.date: 02/08/2017
 ms.author: panosper
-ROBOTS: NOINDEX
-ms.openlocfilehash: a5daca2dbb3fc792850264bca7d8b0c59e7c8faa
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 6c64b89c2eb933e9bcc24bdc3097e7a0b2aab368
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47220626"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49342474"
 ---
 # <a name="transcription-guidelines"></a>Riktlinjer för transkription
+
+[!INCLUDE [Deprecation note](../../../../includes/cognitive-services-custom-speech-deprecation-note.md)]
+
 Följande riktlinjer för taltranskription ska följas för att säkerställa bästa användning av din textdata för- och språkdata modellanpassning. Dessa riktlinjer är språkspecifika.
 
 ## <a name="text-normalization"></a>Text normalisering

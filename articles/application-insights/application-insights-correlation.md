@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 04/09/2018
 ms.reviewer: sergkanz
 ms.author: mbullwin
-ms.openlocfilehash: 78ae04d3c51cf8039dcdd067594afafae606f5e3
-ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
+ms.openlocfilehash: d9b6f5c08eed5efceafc71feaf654ad8f4fcafa0
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2018
-ms.locfileid: "49310563"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49341131"
 ---
 # <a name="telemetry-correlation-in-application-insights"></a>Telemetrikorrelation i Application Insights
 
@@ -105,17 +105,19 @@ public void ConfigureServices(IServiceCollection services)
 
 ## <a name="open-tracing-and-application-insights"></a>Öppna spårning och Application Insights
 
-[Öppna spårning](http://opentracing.io/) och Application Insights datamodeller ser ut 
+Den [öppen spårning datamodelldata specifikationen](http://opentracing.io/) och Application Insights-datamodeller mappa på följande sätt:
 
-- `request`, `pageView` mappar till **Span** med `span.kind = server`
-- `dependency` mappar till **Span** med `span.kind = client`
-- `id` för en `request` och `dependency` mappar till **Span.Id**
-- `operation_Id` mappar till **TraceId**
-- `operation_ParentId` mappar till **referens** av typen `ChildOf`
+| Application Insights                  | Öppna spårning                                      |
+|------------------------------------   |-------------------------------------------------  |
+| `Request`, `PageView`                 | `Span` med `span.kind = server`                  |
+| `Dependency`                          | `Span` med `span.kind = client`                  |
+| `Id` av `Request` och `Dependency`    | `SpanId`                                          |
+| `Operation_Id`                        | `TraceId`                                         |
+| `Operation_ParentId`                  | `Reference` av typen `ChildOf` (den överordnade span)   |
 
-Se [datamodellen](application-insights-data-model.md) för Application Insights och modellen.
+Läs mer på Application Insights-datamodell, [datamodellen](application-insights-data-model.md). 
 
-Se [specifikationen](https://github.com/opentracing/specification/blob/master/specification.md) och [semantic_conventions](https://github.com/opentracing/specification/blob/master/semantic_conventions.md) för definitioner av öppen spårning begrepp.
+Se öppen spårning [specifikationen](https://github.com/opentracing/specification/blob/master/specification.md) och [semantic_conventions](https://github.com/opentracing/specification/blob/master/semantic_conventions.md) för definitioner av öppen spårning begrepp.
 
 
 ## <a name="telemetry-correlation-in-net"></a>Telemetrikorrelation i .NET

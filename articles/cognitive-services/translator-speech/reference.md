@@ -10,19 +10,20 @@ ms.component: translator-speech
 ms.topic: reference
 ms.date: 05/18/2018
 ms.author: v-jansko
-ROBOTS: NOINDEX
-ms.openlocfilehash: 46aeab52014a28d1a962195de802d0e000b62509
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 1fc48687141ea8a7e8cb30d3438d81e8f1088e4f
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46978717"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49340451"
 ---
 # <a name="translator-speech-api"></a>Translator Speech API
 
+[!INCLUDE [Deprecation note](../../../includes/cognitive-services-translator-speech-deprecation-note.md)]
+
 Den här tjänsten erbjuder en strömmande API för att transkribera konversationsanpassade tal från ett språk i texten i ett annat språk. API: et är integrerat text till tal-funktioner för att tala översatt text tillbaka. Translator Speech API möjliggör scenarier som översättning i realtid av konversationer som visas i Skype Translator.
 
-Med Translator Speech API klientprogram strömma tal ljud till tjänsten och få tillbaka en dataström med textbaserade resultat, som inkluderar den tolkade texten i en källspråket och en översättning som visas på språket som mål. Textresultat produceras genom att använda automatisk taligenkänning erkännande (ASR) drivs av djupa neurala nätverk för att inkommande ljudström. ASR råutdata ytterligare förbättras av en ny teknik som kallas TrueText för att avspegla närmare användaravsikt. Till exempel TrueText tar bort disfluencies (hmms och coughs) och återställning rätt interpunktion och gemener/versaler. Möjligheten att maskera med eller undanta profanities ingår också. Igenkänning av och translation motorerna är särskilt utbildade för att hantera konversationsanpassade tal. Talöversättning-tjänsten använder identifiering av tystnad motsvarar slutet av ett uttryck. Efter en paus i röst aktivitet kommer tjänsten tillbaka strömma slutresultatet för slutförda uttryck. Tjänsten kan också skicka tillbaka ofullständiga resultat, som ger mellanliggande igenkänningar och översättningar för ett uttryck pågår. För slutresultat ger tjänsten möjlighet att syntetisera tal (text) från talat texten i språk som mål. Text till tal ljud skapas i det format som anges av klienten. WAV och MP3-format är tillgängliga.
+Med Translator Speech API klientprogram strömma tal ljud till tjänsten och få tillbaka en dataström med textbaserade resultat, som inkluderar den tolkade texten i en källspråket och en översättning som visas på språket som mål. Textresultatet produceras genom automatisk taligenkänning (ASR) som drivs av djupa neurala nätverk för den inkommande ljudströmmen. ASR råutdata ytterligare förbättras av en ny teknik som kallas TrueText för att avspegla närmare användaravsikt. Till exempel TrueText tar bort disfluencies (hmms och coughs) och återställning rätt interpunktion och gemener/versaler. Möjligheten att maskera eller undanta svordomar ingår också. Igenkänningsmotorn och översättningsmotorn är särskilt tränade för att hantera samtal. Talöversättning-tjänsten använder identifiering av tystnad motsvarar slutet av ett uttryck. Efter en paus i röstaktiviteten återger tjänsten ett slutresultat för slutförda påståenden. Tjänsten kan också skicka tillbaka ofullständiga resultat, som ger mellanliggande igenkänningar och översättningar av ett pågående påstående. För slutresultat ger tjänsten möjlighet att syntetisera tal (text) från talat texten i språk som mål. Text till tal-ljud skapas i det format som anges av klienten. WAV- och MP3-format är tillgängliga.
 
 Translator Speech API utnyttjar WebSocket-protokoll för att tillhandahålla en full duplex kommunikationskanalen mellan klienten och servern. Ett program kräver dessa steg för att använda tjänsten:
 

@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 07/06/2018
+ms.date: 10/12/2018
 ms.author: jonbeck
-ms.openlocfilehash: 31e81741d2a627888e478b3871bdbab4e6b6d6f5
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.openlocfilehash: e00a4c5f5ee307a2d574702844e481894d28cb93
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37902647"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49340315"
 ---
 # <a name="high-performance-compute-vm-sizes"></a>Högpresterande storlekar på virtuella datorer
 
@@ -50,12 +50,19 @@ ms.locfileid: "37902647"
   
   Mer information finns i [virtuella datorer, tillägg och funktioner](extensions-features.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Du kan också arbeta med tillägg för virtuella datorer som distribueras i den [klassiska distributionsmodellen](classic/manage-extensions.md).
 
+### <a name="cluster-configuration-options"></a>Konfigurationsalternativ för kluster
 
-## <a name="using-hpc-pack"></a>Med HPC Pack
+Azure tillhandahåller flera alternativ för att skapa kluster i Windows HPC-datorer som kan kommunicera med RDMA-nätverk, inklusive: 
 
-[Microsoft HPC Pack](https://technet.microsoft.com/library/jj899572.aspx), Microsofts kostnadsfria HPC-kluster och jobb hanteringslösning, är ett alternativ för dig att skapa ett beräkningskluster i Azure för att köra Windows-baserade MPI-program och andra HPC-arbetsbelastningar. HPC Pack 2012 R2 och senare versioner innehåller en körningsmiljö för MS-MPI som använder Azure RDMA-nätverk när de distribueras på RDMA-kompatibla virtuella datorer.
+* **Virtuella datorer** – distribuera RDMA-kompatibla HPC virtuella datorer i samma tillgänglighetsuppsättning (när du använder Azure Resource Manager-distributionsmodellen). Om du använder den klassiska distributionsmodellen kan du distribuera de virtuella datorerna i samma molntjänst. 
 
+* **VM-skalningsuppsättningar** – i en VM-skalningsuppsättning ställer, se till att du begränsa distributionen till en enda placeringsgrupp. Till exempel i en Resource Manager-mall, ange den `singlePlacementGroup` egenskap `true`. 
 
+* **Azure CycleCloud** -skapa ett HPC-kluster i [Azure CycleCloud](/azure/cyclecloud/) att köra MPI-jobb på Windows-noder.
+
+* **Azure Batch** – skapa en [Azure Batch](/azure/batch/) beräkningsnoder i poolen för att köra MPI-arbetsbelastningar på Windows Server. Mer information finns i [använda RDMA-kompatibla eller GPU-aktiverade instanser i Batch-pooler](../../batch/batch-pool-compute-intensive-sizes.md). Se även de [Batch skeppsvarv](https://github.com/Azure/batch-shipyard) -projektet för att köra behållarbaserade arbetsbelastningar på Batch.
+
+* **Microsoft HPC Pack** - [HPC Pack](https://docs.microsoft.com/powershell/high-performance-computing/overview) innehåller en körningsmiljö för MS-MPI som använder Azure RDMA-nätverk när de distribueras på RDMA-kompatibla Windows virtuella datorer. Till exempel distributioner, se [ställa in ett Windows RDMA-kluster med HPC Pack för att köra MPI-program](classic/hpcpack-rdma-cluster.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
 
 ## <a name="other-sizes"></a>Andra storlekar
 - [Generellt syfte](sizes-general.md)

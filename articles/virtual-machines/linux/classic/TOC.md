@@ -33,7 +33,6 @@
 ### [Ruby on Rails-webbapp](ruby-rails-web-app.md)
 ### [Cassandra och Node.js-klienten](cassandra-nodejs.md)
 ### [tomcat](setup-tomcat.md)
-### [RDMA-kluster för att köra MPI-program](rdma-cluster.md)
 ### HPC Pack
 #### [Skapa ett kluster för Linux-arbetsbelastningar](hpcpack-cluster-powershell-script.md)
 #### [Hantera ett kluster med Linux-noder](hpcpack-cluster.md)

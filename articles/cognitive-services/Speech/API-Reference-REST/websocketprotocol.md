@@ -10,15 +10,16 @@ ms.component: bing-speech
 ms.topic: article
 ms.date: 09/18/2018
 ms.author: zhouwang
-ROBOTS: NOINDEX
-ms.openlocfilehash: 6ee61a38615ac8cbf4c4fcf6b8d631c5f9a8f7d1
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 0bbc6b638d11335e6d46501fa651996f05957dd5
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46962784"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49341828"
 ---
 # <a name="bing-speech-websocket-protocol"></a>Bing Speech WebSocket-protokoll
+
+[!INCLUDE [Deprecation note](../../../../includes/cognitive-services-bing-speech-api-deprecation-note.md)]
 
 Bing-taligenkänning är en molnbaserad plattform med funktioner för de mest avancerade algoritmerna som är tillgängliga för konvertera talat ljud till text. Bing-taligenkänning-protokollet definierar den [anslutningsinställningar](#connection-establishment) mellan program och tjänsten och tal igenkänning av meddelanden som utbyts mellan motsvarigheter ([klienten kommer meddelanden](#client-originated-messages) och [service-genererade meddelanden](#service-originated-messages)). Dessutom [telemetrimeddelanden](#telemetry-schema) och [felhantering](#error-handling) beskrivs.
 
@@ -148,7 +149,7 @@ De huvudsakliga meddelanden som skickas av klienten till tjänsterna är `speech
 
 Följande huvuden krävs för alla klient-genererade meddelanden.
 
-| Sidhuvud | Värde |
+| Huvud | Värde |
 |----|----|
 | Sökväg | Meddelande-sökvägen som anges i det här dokumentet |
 | X-RequestId | UUID i ”no-dash”-format |
@@ -248,7 +249,7 @@ Taltjänsten använder först `audio` meddelande som innehåller en om unika beg
 
 Följande huvuden krävs för alla `audio` meddelanden.
 
-| Sidhuvud         |  Värde     |
+| Huvud         |  Värde     |
 | ------------- | ---------------- |
 | Sökväg | `audio` |
 | X-RequestId | UUID i ”no-dash”-format |

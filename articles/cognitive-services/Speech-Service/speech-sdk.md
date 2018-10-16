@@ -7,14 +7,14 @@ author: erhopf
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: article
-ms.date: 09/24/2018
-ms.author: erhopf
-ms.openlocfilehash: a8e23e971cc0186317a291ecbdd010fc2a3ae1e8
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.date: 10/12/2018
+ms.author: v-jerkin
+ms.openlocfilehash: 2ebdacc8cba5fcf8835da3e73c2c14dbca40fe8e
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49167604"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49340724"
 ---
 # <a name="about-the-cognitive-services-speech-sdk"></a>Om Cognitive Services tal SDK
 
@@ -49,7 +49,7 @@ sudo apt-get install build-essential libssl1.0.0 libcurl3 libasound2
 * C#: Du kan referera till och använder den senaste versionen av vår tal SDK NuGet-paketet. Lägg till följande paketreferens i projektet om du vill referera till SDK:
 
   ```xml
-  <PackageReference Include="Microsoft.CognitiveServices.Speech" Version="1.0.0" />
+  <PackageReference Include="Microsoft.CognitiveServices.Speech" Version="1.0.1" />
   ```
 
 * Java: Du kan referera till och använda den senaste versionen av vår tal SDK Maven-paketet. I Maven-projekt lägger du till `https://csspeechstorage.blob.core.windows.net/maven/` som ytterligare lagringsplats och referens `com.microsoft.cognitiveservices.speech:client-sdk:0.6.0` som ett beroende. 
@@ -68,7 +68,7 @@ sudo apt-get install build-essential libssl1.0.0 libcurl3 libasound2
 
 ### <a name="android"></a>Android
 
-Java SDK för Android kommer som ett [AAR (Android-biblioteket)](https://developer.android.com/studio/projects/android-library), som innehåller nödvändiga bibliotek samt Android behörigheter som krävs för att använda den. Den finns i ett Maven-centrallager på `https://csspeechstorage.blob.core.windows.net/maven/` som paket `com.microsoft.cognitiveservices.speech:client-sdk:1.0.0`.
+Java SDK för Android kommer som ett [AAR (Android-biblioteket)](https://developer.android.com/studio/projects/android-library), som innehåller nödvändiga bibliotek samt Android behörigheter som krävs för att använda den. Den finns i ett Maven-centrallager på `https://csspeechstorage.blob.core.windows.net/maven/` som paket `com.microsoft.cognitiveservices.speech:client-sdk:1.0.1`.
 
 Om du vill använda paketet från Android Studio-projekt gör du följande ändringar:
 
@@ -81,7 +81,7 @@ Om du vill använda paketet från Android Studio-projekt gör du följande ändr
 * I modul på servernivå build.gradle-filen lägger du till följande för att den `dependencies` avsnittet:
 
   ```text
-  implementation 'com.microsoft.cognitiveservices.speech:client-sdk:1.0.0'
+  implementation 'com.microsoft.cognitiveservices.speech:client-sdk:1.0.1'
   ```
 
 Java SDK är också en del av den [tal Devices SDK](speech-devices-sdk.md).

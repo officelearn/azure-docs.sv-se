@@ -5,14 +5,14 @@ services: container-service
 author: iainfoulds
 ms.service: container-service
 ms.topic: article
-ms.date: 08/31/2018
+ms.date: 10/11/2018
 ms.author: iainfou
-ms.openlocfilehash: d278e47979e696183b703f7e67e39757d854fdb2
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: 258eb744cf86fcd14250be8f2e8ec18b5a0fada3
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48857745"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49319429"
 ---
 # <a name="network-configuration-in-azure-kubernetes-service-aks"></a>Nätverkskonfigurationen i Azure Kubernetes Service (AKS)
 
@@ -73,23 +73,19 @@ Plan för IP-adress för ett AKS-kluster består av en virtuell nätverks-, mins
 
 Standard maximala antalet poddar per nod i ett AKS-kluster varierar mellan grundläggande och avancerade nätverks- och metoden för klusterdistribution.
 
-### <a name="default-maximum"></a>Standardmaxvärde
-
-Det här är den *standard* maximum när du distribuerar ett AKS-klustret utan att ange det maximala antalet poddar vid tidpunkten för distribution:
-
 | Distributionsmetod | Basic | Advanced | Kan konfigureras vid distribution |
 | -- | :--: | :--: | -- |
-| Azure CLI | 110 | 30 | Ja |
-| Resource Manager-mall | 110 | 30 | Ja |
+| Azure CLI | 110 | 30 | Ja (upp till 110) |
+| Resource Manager-mall | 110 | 30 | Ja (upp till 110) |
 | Portalen | 110 | 30 | Nej |
 
 ### <a name="configure-maximum---new-clusters"></a>Konfigurera maximal – nya kluster
 
-Ange ett annat maximalt antal poddar per nod när du distribuerar ett AKS-kluster:
+Det går att konfigurera det maximala antalet poddar per nod *endast vid tidpunkten för distribution av kluster*. Om du distribuerar med Azure CLI eller med en Resource Manager-mall kan ange du maximal poddarna per nodvärde så mycket som 110.
 
-* **Azure CLI**: Ange den `--max-pods` argumentet när du distribuerar ett kluster med den [az aks skapa] [ az-aks-create] kommando.
-* **Resource Manager-mall**: Ange den `maxPods` -egenskapen i den [ManagedClusterAgentPoolProfile] objekt när du distribuerar ett kluster med en Resource Manager-mall.
-* **Azure-portalen**: du kan inte ändra det maximala antalet poddar per nod när du distribuerar ett kluster med Azure-portalen. Avancerade nätverk kluster är begränsade till 30 poddar per nod när de distribueras i Azure-portalen.
+* **Azure CLI**: Ange den `--max-pods` argumentet när du distribuerar ett kluster med den [az aks skapa] [ az-aks-create] kommando. Det högsta värdet är 110.
+* **Resource Manager-mall**: Ange den `maxPods` -egenskapen i den [ManagedClusterAgentPoolProfile] objekt när du distribuerar ett kluster med en Resource Manager-mall. Det högsta värdet är 110.
+* **Azure-portalen**: du kan inte ändra det maximala antalet poddar per nod när du distribuerar ett kluster med Azure-portalen. Avancerade nätverk kluster är begränsade till 30 poddar per nod när du distribuerar med hjälp av Azure portal.
 
 ### <a name="configure-maximum---existing-clusters"></a>Konfigurera maximal – befintliga kluster
 

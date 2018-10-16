@@ -11,22 +11,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 10/9/2018
+ms.date: 10/12/2018
 ms.author: raiye
-ms.openlocfilehash: f0fe3d66430c17c417de7ecd808069ba76a57ef5
-ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
+ms.openlocfilehash: b37600fe8d0616454264b67553149223746318d8
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49069547"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49322030"
 ---
 # <a name="azure-guest-os"></a>Azure gäst-OS
 Följande tabeller visar Microsoft Security Response Center (MSRC) uppdateringarna tillämpas på Gästoperativsystemet i Azure. Sök i den här artikeln för att avgöra om en viss uppdatering gäller för Gästoperativsystem som du använder. Uppdateringar alltid överför för speciellt [familj] [ family-explain] de introducerades i.
 
 ## <a name="september-guest-os"></a>September gäst-OS
-> [!NOTE]
-> Gästoperativsystemet i September distribueras för närvarande till molnet virtuella datorer som är konfigurerade för automatiska uppdateringar. När distributionen är klar kan kommer den här versionen att göras tillgängligt för manuella uppdateringar via Azure portal och -konfigurationsfiler. Följande korrigeringar som ingår i Gästoperativsystemet i September. Den här listan kan ändras.
-
 | Produktkategori | Överordnad KB-artikel | Beskrivning av säkerhetsrisk | Gäst-OS | Datum som introducerades |
 | --- | --- | --- | --- | --- |
 | Rel 18-09 | [4457131] | Windows 10-säkerhet | 5.23 | Den 11 september 2018 |
@@ -740,6 +737,28 @@ Följande tabeller visar Microsoft Security Response Center (MSRC) uppdateringar
 | Gäller inte |[3007054] |PIN-kodsskyddade utskrifter alternativet alltid visas när du skriver ut ett dokument i en Windows Store-programmet i Windows |4.15, 3.22, 2.34 |Jan 13 2015 |
 | Gäller inte |[2999802] |Heldragna linjer i stället för kantlinjerna skrivs ut i Windows |4.15, 3.22, 2.34 |Jan 13 2015 |
 | Gäller inte |[2896881] |Länge inloggningstid när du använder kommandot AddPrinterConnection VBScript för att mappa skrivare för användare vid inloggning i Windows |4.15, 3.22, 2.34 |Jan 13 2015 |
+
+[4457131]: http://support.microsoft.com/kb/4457131
+[4457145]: http://support.microsoft.com/kb/4457145
+[4457140]: http://support.microsoft.com/kb/4457140
+[4457143]: http://support.microsoft.com/kb/4457143
+[4457055]: http://support.microsoft.com/kb/4457055
+[4457030]: http://support.microsoft.com/kb/4457030
+[4457053]: http://support.microsoft.com/kb/4457053
+[4457029]: http://support.microsoft.com/kb/4457029
+[4457056]: http://support.microsoft.com/kb/4457056
+[4457028]: http://support.microsoft.com/kb/4457028
+[4457146]: http://support.microsoft.com/kb/4457146
+[4457426]: http://support.microsoft.com/kb/4457426
+[4343900]: http://support.microsoft.com/kb/4343900
+[4344152]: http://support.microsoft.com/kb/4344152
+[4344149]: http://support.microsoft.com/kb/4344149
+[4343901]: http://support.microsoft.com/kb/4343901
+[4344150]: http://support.microsoft.com/kb/4344150
+[4344148]: http://support.microsoft.com/kb/4344148
+[4343898]: http://support.microsoft.com/kb/4343898
+[4344153]: http://support.microsoft.com/kb/4344153
+[4344147]: http://support.microsoft.com/kb/4344147
 
 [4457131]: http://support.microsoft.com/kb/4457131
 [4457145]: http://support.microsoft.com/kb/4457145

@@ -11,34 +11,38 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 09/14/2018
-ms.openlocfilehash: dfff51d7541ffdc2d279b238a6d993d5e29515f0
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.date: 10/15/2018
+ms.openlocfilehash: 89466d8774698028c8574e90f5a58e1678c9b938
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47160715"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49343562"
 ---
-# <a name="resolving-transact-sql-differences-during-migration-to-sql-database"></a>Lösa Transact-SQL skillnader vid migrering till SQL-databas   
+# <a name="resolving-transact-sql-differences-during-migration-to-sql-database"></a>Lösa Transact-SQL skillnader vid migrering till SQL-databas
+
 När [migrera din databas](sql-database-cloud-migrate.md) från SQL Server till Azure SQL Server, kanske du upptäcker att databasen kräver viss omkonstruktion innan SQL Server kan migreras. Den här artikeln innehåller riktlinjer som hjälper dig att utföra den här bakåtkompilering såväl förstå de underliggande orsaker till varför den bakåtkompilering krävs. För att identifiera inkompatibiliteter, använda den [Data Migration Assistant (DMA)](https://www.microsoft.com/download/details.aspx?id=53595).
 
 ## <a name="overview"></a>Översikt
+
 De flesta Transact-SQL-funktioner som använder program stöds helt i både Microsoft SQL Server och Azure SQL Database. Till exempel fungerar SQL-kärnkomponenter, till exempel datatyper, operatörer, sträng, aritmetiska, logiska och markören functions identiskt i SQL Server och SQL-databas. Det finns dock några T-SQL skillnader i DDL (data definition language) och DML (data manipulation language) element, vilket resulterar i T-SQL-uttryck och frågor som stöds endast delvis (vilket beskrivs senare i den här artikeln).
 
-Dessutom finns vissa funktioner och syntax som inte stöds på alla eftersom Azure SQL Database har utformats för att isolera funktioner från beroenden på huvuddatabasen och operativsystemet. Därför är de flesta aktiviteter på servernivå olämpliga för SQL Database. T-SQL-uttryck och alternativ är inte tillgängliga om de konfigurerar servernivåalternativ, operativsystemets komponenter eller anger systemkonfigurationen för filen. När sådana funktioner krävs ett lämpligt alternativ ofta är tillgänglig på annat sätt från SQL Database eller från en annan Azure-funktion eller -tjänst. 
+Dessutom finns vissa funktioner och syntax som inte stöds på alla eftersom Azure SQL Database har utformats för att isolera funktioner från beroenden på huvuddatabasen och operativsystemet. Därför är de flesta aktiviteter på servernivå olämpliga för SQL Database. T-SQL-uttryck och alternativ är inte tillgängliga om de konfigurerar servernivåalternativ, operativsystemets komponenter eller anger systemkonfigurationen för filen. När sådana funktioner krävs ett lämpligt alternativ ofta är tillgänglig på annat sätt från SQL Database eller från en annan Azure-funktion eller -tjänst.
 
-Exempelvis inbyggd hög tillgänglighet i Azure, så konfigurerar alltid på inte behövs (även om du konfigurerar aktiv geo-replikering för snabbare återställning i händelse av en katastrof). Därför T-SQL-uttryck som rör Tillgänglighetsgrupper stöds inte av SQL Database och vyer för dynamisk hantering som rör alltid på stöds också inte.
+Till exempel hög tillgänglighet är inbyggd i Azure SQL Database med hjälp av teknik som liknar [ständigt aktiverade Tillgänglighetsgrupper](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server). T-SQL-uttryck som rör Tillgänglighetsgrupper stöds inte av SQL Database och vyer för dynamisk hantering som rör alltid på Tillgänglighetsgrupper stöds inte också.
 
 En lista över de funktioner som stöds och som inte stöds av SQL-databas finns i [Azure SQL Database funktionsjämförelse](sql-database-features.md). I listan på den här sidan kompletterar artikeln riktlinjer och funktioner och fokuserar på Transact-SQL-uttryck.
 
 ## <a name="transact-sql-syntax-statements-with-partial-differences"></a>Instruktioner för Transact-SQL-syntax med partiella skillnader
-Core DDL (data definition language)-instruktionerna är tillgängliga, men vissa DDL-instruktionerna har tillägg rör disk placering och stöds inte funktioner. 
+
+Core DDL (data definition language)-instruktionerna är tillgängliga, men vissa DDL-instruktionerna har tillägg rör disk placering och stöds inte funktioner.
 
 - Skapa och ändra databas har över tre dussin alternativ. Instruktionerna är filplacering, FILESTREAM och service broker-alternativ som endast gäller för SQL Server. Detta inte har någon betydelse om du skapar databaser innan du migrerar, men om du migrerar T-SQL-kod som skapar databaser du bör jämföra [Skapa databas (Azure SQL Database)](https://msdn.microsoft.com/library/dn268335.aspx) med SQL Server-syntax på [skapa DATABAS (SQL Server Transact-SQL)](https://msdn.microsoft.com/library/ms176061.aspx) att kontrollera att alla alternativ som du använder stöds. Skapa databas för Azure SQL Database har även tjänstmålet och elastisk skalningsalternativ som endast tillämpas på SQL-databas.
 - Skapa och ALTER TABLE-instruktioner har FileTable alternativ som inte kan användas i SQL-databas eftersom FILESTREAM inte stöds.
 - Skapa och ändra inloggnings-satser stöds men SQL Database erbjuder inte alla alternativ. Om du vill göra databasen mer portabel uppmuntrar SQL Database använder oberoende databasanvändare i stället för inloggningar när det är möjligt. Mer information finns i [CREATE/ALTER LOGIN](https://msdn.microsoft.com/library/ms189828.aspx) och [styra och bevilja åtkomst till databasen](https://docs.microsoft.com/azure/sql-database/sql-database-manage-logins).
 
-## <a name="transact-sql-syntax-not-supported-in-azure-sql-database"></a>Transact-SQL-syntaxen stöds inte i Azure SQL Database   
+## <a name="transact-sql-syntax-not-supported-in-azure-sql-database"></a>Transact-SQL-syntaxen stöds inte i Azure SQL Database
+
 Förutom Transact-SQL-uttryck som rör stöds inte funktioner som beskrivs i [Azure SQL Database funktionsjämförelse](sql-database-features.md), följande uttryck och grupper av uttryck stöds inte. Därför om databasen som ska migreras använder någon av följande funktioner, nytt supporttekniker T-SQL för att ta bort dessa T-SQL-funktioner och -uttryck.
 
 - Sortering av systemobjekt
@@ -74,9 +78,11 @@ Förutom Transact-SQL-uttryck som rör stöds inte funktioner som beskrivs i [Az
 - `USE`-uttryck: Om du vill ändra databasens kontext till en annan databas måste du göra en ny anslutning till den nya databasen.
 
 ## <a name="full-transact-sql-reference"></a>Fullständig referens för Transact-SQL
-Mer information om Transact-SQL-grammatik, -användning och -exempel finns i [Transact-SQL Reference (Database Engine)](https://msdn.microsoft.com/library/bb510741.aspx) i SQL Server Books Online. 
+
+Mer information om Transact-SQL-grammatik, -användning och -exempel finns i [Transact-SQL Reference (Database Engine)](https://msdn.microsoft.com/library/bb510741.aspx) i SQL Server Books Online.
 
 ### <a name="about-the-applies-to-tags"></a>Om "Gäller för"-taggar
+
 Transact-SQL-referensen innehåller artiklar som rör SQL Server-versioner 2008 aktuella. Under artikelrubriken det är en ikon, visa en lista över de fyra SQL Server-plattformarna och som anger tillämplighet. Till exempel introducerades tillgänglighetsgrupper i SQL Server 2012. Den [skapa TILLGÄNGLIGHETSGRUPP](https://msdn.microsoft.com/library/ff878399.aspx) artikeln anger att instruktionen gäller **SQL Server (startar med 2012)**. Uttrycket gäller inte för SQL Server 2008, SQL Server 2008 R2, Azure SQL Database, Azure SQL Data Warehouse eller Parallel Data Warehouse.
 
 I vissa fall kan det allmänna ämnet för en artikel kan användas i en produkt, men det finns mindre skillnader mellan produkter. Skillnaderna anges vid mittpunkter i artikeln efter behov. I vissa fall kan det allmänna ämnet för en artikel kan användas i en produkt, men det finns mindre skillnader mellan produkter. Skillnaderna anges vid mittpunkter i artikeln efter behov. Till exempel finns CREATE TRIGGER-artikel i SQL-databas. Men **alla SERVER** för servernivå utlösare, anger att servernivå utlösare inte kan användas i SQL-databas. Använd på databasnivå utlösare i stället.
@@ -84,4 +90,3 @@ I vissa fall kan det allmänna ämnet för en artikel kan användas i en produkt
 ## <a name="next-steps"></a>Nästa steg
 
 En lista över de funktioner som stöds och som inte stöds av SQL-databas finns i [Azure SQL Database funktionsjämförelse](sql-database-features.md). I listan på den här sidan kompletterar artikeln riktlinjer och funktioner och fokuserar på Transact-SQL-uttryck.
-

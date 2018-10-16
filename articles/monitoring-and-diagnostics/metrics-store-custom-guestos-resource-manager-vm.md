@@ -8,12 +8,12 @@ ms.topic: howto
 ms.date: 09/24/2018
 ms.author: ancav
 ms.component: metrics
-ms.openlocfilehash: 4ed911766a14dd35ea662326a5d50df11cf81698
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: f3076054eb6e18eb5143a34ba558c1f9e43ea4a5
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46984089"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49345194"
 ---
 # <a name="send-guest-os-metrics-to-the-azure-monitor-metric-store-using-a-resource-manager-template-for-a-windows-virtual-machine"></a>Skicka OS gästmått av Azure Monitor-måtten lagra med en Resource Manager-mall för en Windows-dator
 
@@ -64,7 +64,7 @@ Lägg till ett storage-konto-ID till den **variabler** avsnitt i mallen när pos
     "accountid": "[resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName'))]", 
 ```
 
-Lägg till den här hanterad tjänstidentitet (MSI)-tillägget för mallen överst i avsnittet ”resurser”.  Tillägget säkerställer att Azure Monitor accepterar de mått som genereras.  
+Lägg till den här hanterade identiteter för tillägget för Azure-resurser i mallen överst i avsnittet ”resurser”.  Tillägget säkerställer att Azure Monitor accepterar de mått som genereras.  
 
 ```json
 //Find this code 

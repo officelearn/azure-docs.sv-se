@@ -9,12 +9,12 @@ ms.service: iot-dps
 services: iot-dps
 manager: arjmands
 ms.custom: mvc
-ms.openlocfilehash: c94b5d4800f5776b51247c6ec2f6662a6ab26abc
-ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
+ms.openlocfilehash: 4ab558b680a0d00d1b9bdfbcb1529219f6c37b37
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "42056990"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49319261"
 ---
 # <a name="how-to-use-different-attestation-mechanisms-with-device-provisioning-service-client-sdk-for-c"></a>Använda olika attesteringsmetoder för maskinvara med klient-SDK för enhetsetableringstjänsten för C
 
@@ -143,6 +143,7 @@ Bygga SDK:t innan du skapar enhetsregistreringen.
 Om du använder TPM, följer du anvisningarna i ["Create and provision a simulated device using IoT Hub Device Provisioning Service"](./quick-create-simulated-device.md) (skapa och etablera en simulerad enhet med enhetsetableringstjänsten för IoT-hubb) för att skapa en post för registrering av enheten i din enhetsetableringstjänst och simulering av den första starten.
 
 ### <a name="x509"></a>X **.** 509
+
 1. Om du vill registrera en enhet i etableringstjänsten behöver du anteckna bekräftelsenyckel och registrerings-ID för varje enhet. Dessa visas i etableringsverktyget som tillhandahålls av klient-SDK:t. Kör följande kommando för att skriva ut rotcertifikatutfärdarens certifikat (för gruppregistrering) och lövcertifikatet (för enskild registrering):
       ```
       ./azure-iot-sdk-c/dps_client/tools/x509_device_provision/x509_device_provision.exe
@@ -185,4 +186,3 @@ När enheten har etablerats med etableringstjänsten använder det här API:t de
   ```
   IOTHUB_CLIENT_LL_HANDLE handle = IoTHubClient_LL_CreateFromDeviceAuth(iothub_uri, device_id, iothub_transport);
   ```
-

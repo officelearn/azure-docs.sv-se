@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.workload: identity
 ms.date: 06/18/2018
 ms.author: martincoetzer
-ms.openlocfilehash: 2a6c94d902c639a2529e501347876d63a3f56d7e
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.openlocfilehash: 94d96cab28f738984b3d05d5eee0754e8c5e75b6
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39505617"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49341590"
 ---
 # <a name="five-steps-to-securing-your-identity-infrastructure"></a>Fem steg för att skydda din infrastruktur för Identitetshantering
 
@@ -44,7 +44,7 @@ Allt klart? Nu sätter vi igång på checklistan.
 
 ## <a name="step-1---strengthen-your-credentials"></a>Steg 1 – Stärk dina autentiseringsuppgifter 
 
-De flesta enterprise säkerhetsöverträdelser som drabbar kommer med ett konto komprometteras med någon av några olika metoder, till exempel lösenord sprutar, brott repetitionsattacker eller nätfiske. Läs mer om dessa attacker i den här videon:
+De flesta enterprise säkerhetsöverträdelser som drabbar kommer med ett konto komprometteras med någon av några olika metoder, till exempel lösenord sprutar, brott repetitionsattacker eller nätfiske. Läs mer om dessa attacker i den här videon (1t 15 miljoner):
 > [!VIDEO https://channel9.msdn.com/events/Ignite/Microsoft-Ignite-Orlando-2017/BRK3016/player]
 
 Om användare i identitetssystemet med hjälp av svaga lösenord och stärka dem inte med Multi-Factor authentication, det är inte bara några om eller när du blivit komprometterade – bara ”hur ofta”.

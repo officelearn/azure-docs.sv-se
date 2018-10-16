@@ -12,12 +12,12 @@ ms.author: xiwu
 ms.reviewer: douglasl
 manager: craigg
 ms.date: 10/05/2018
-ms.openlocfilehash: 82390ae304fc4d6873efc4a5073725a02b915eaa
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.openlocfilehash: 98d30d2987d42a2c4893e00c3ba2ea6acd471bef
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48870595"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49318817"
 ---
 # <a name="set-up-sql-data-sync-to-sync-data-between-azure-sql-database-and-sql-server-on-premises"></a>Konfigurera SQL Data Sync att synkronisera data mellan Azure SQL Database och SQL Server lokalt
 
@@ -61,7 +61,7 @@ Fullständig PowerShell-exempel som visar hur du konfigurerar SQL Data Sync finn
    2. I den **Metadatasynkroniserings-databasen** väljer om du vill skapa en ny databas (rekommenderas) eller använda en befintlig databas.
 
         > [!NOTE]
-        > Microsoft rekommenderar att du skapar en ny, tom databas ska användas som den Metadatasynkroniserings-databasen. Datasynkronisering skapar tabeller i den här databasen och kör en återkommande arbetsbelastning. Den här databasen delas automatiskt som den Metadatasynkroniserings-databasen för alla dina synkroniseringsgrupper i den valda regionen. Du kan inte ändra den Metadatasynkroniserings-databasen eller dess namn utan att släppa den.
+        > Microsoft rekommenderar att du skapar en ny, tom databas ska användas som den Metadatasynkroniserings-databasen. Datasynkronisering skapar tabeller i den här databasen och kör en återkommande arbetsbelastning. Den här databasen delas automatiskt som den Metadatasynkroniserings-databasen för alla dina synkroniseringsgrupper i den valda regionen. Du kan inte ändra den Metadatasynkroniserings-databasen eller dess namn utan att ta bort alla synkroniseringsgrupper och Synkroniseringsagenter i regionen.
 
         Om du har valt **ny databas**väljer **Skapa ny databas.** Den **SQL Database** öppnas. På den **SQL Database** sidan, namn och konfigurera den nya databasen. Välj sedan **OK**.
 

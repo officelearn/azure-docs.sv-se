@@ -3,19 +3,19 @@ title: Identifiera domänspecifika innehåll – visuellt innehåll
 titleSuffix: Azure Cognitive Services
 description: Begrepp för som beskriver bilder med hjälp av den API för visuellt innehåll.
 services: cognitive-services
-author: deken
+author: PatrickFarley
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: computer-vision
 ms.topic: conceptual
 ms.date: 08/29/2018
-ms.author: v-deken
-ms.openlocfilehash: b197227b6550703e4cc303fc800839dc48bf2d1c
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.author: pafarley
+ms.openlocfilehash: a9c71fa7e5d86cfeb4fe6fab44bbce241546ccb8
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45985217"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49342574"
 ---
 # <a name="detecting-domain-specific-content"></a>Identifiera domänspecifikt innehåll
 

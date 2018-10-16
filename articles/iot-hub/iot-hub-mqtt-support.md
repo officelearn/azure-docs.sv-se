@@ -1,19 +1,19 @@
 ---
 title: Förstå Azure IoT Hub MQTT-support | Microsoft Docs
 description: 'Utvecklarguide – stöd för enheter som ansluter till en IoT Hub device-slutpunkter med hjälp av MQTT-protokollet. Innehåller information om inbyggda MQTT stöd i SDK: er för Azure IoT-enheter.'
-author: fsautomata
+author: rezasherafat
 manager: ''
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 03/05/2018
-ms.author: elioda
-ms.openlocfilehash: 2e45422ca6a861894193600eff17f192bc20b357
-ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
+ms.date: 10/12/2018
+ms.author: rezas
+ms.openlocfilehash: 6e2ab773f865a8e52c7b04b94a188dd244540e0d
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/11/2018
-ms.locfileid: "42058785"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49344973"
 ---
 # <a name="communicate-with-your-iot-hub-using-the-mqtt-protocol"></a>Kommunicera med IoT-hubben med hjälp av MQTT-protokollet
 
@@ -107,7 +107,7 @@ För Device Explorer:
 
 MQTT ansluta och koppla från paket, IoT Hub skickar en händelse på den **Operations Monitoring** kanal. Den här händelsen har ytterligare information som kan hjälpa dig att felsöka anslutningsproblem.
 
-App för enheter kan ange en **kommer** meddelande i den **CONNECT** paket. Enhetsappen ska använda `devices/{device_id}/messages/events/{property_bag}` eller `devices/{device_id}/messages/events/{property_bag}` som den **kommer** ämnesnamn definiera **kommer** meddelanden ska vidarebefordras som ett telemetri-meddelande. I det här fallet om nätverksanslutningen är stängd, men en **DISCONNECT** paket togs inte emot tidigare från enheten, IoT Hub och skickar sedan den **kommer** meddelandet som anges i den **CONNECT** paketet till telemetri-kanalen. Telemetri kanalen kan vara antingen standard **händelser** slutpunkt eller en anpassad slutpunkt som definierats av IoT Hub routning. Meddelandet har den **iothub-MessageType** egenskapen med värdet **kommer** tilldelade till den.
+App för enheter kan ange en **kommer** meddelande i den **CONNECT** paket. Enhetsappen ska använda `devices/{device_id}/messages/events/` eller `devices/{device_id}/messages/events/{property_bag}` som den **kommer** ämnesnamn definiera **kommer** meddelanden ska vidarebefordras som ett telemetri-meddelande. I det här fallet om nätverksanslutningen är stängd, men en **DISCONNECT** paket togs inte emot tidigare från enheten, IoT Hub och skickar sedan den **kommer** meddelandet som anges i den **CONNECT** paketet till telemetri-kanalen. Telemetri kanalen kan vara antingen standard **händelser** slutpunkt eller en anpassad slutpunkt som definierats av IoT Hub routning. Meddelandet har den **iothub-MessageType** egenskapen med värdet **kommer** tilldelade till den.
 
 ### <a name="tlsssl-configuration"></a>TLS/SSL-konfiguration
 
@@ -228,6 +228,8 @@ Mer information finns i [utvecklarguide för Device twins][lnk-devguide-twin].
 
 ### <a name="update-device-twins-reported-properties"></a>Uppdatera enhetstvillingens rapporterade egenskaper
 
+Om du vill uppdatera rapporterade egenskaper skickar enheten en begäran till IoT Hub via en publikation över ett avsedda MQTT-ämne. När begäran bearbetades, svarar IoT Hub lyckad eller misslyckad status för uppdateringsåtgärden via en publikation till ett annat avsnitt. Det här avsnittet går att prenumerera av enheten för att kunna meddela om resultatet av begäran om uppdatering av dess enhetstvilling. Implment den här typen av begäran/svar-interaktion i MQTT, vi dra nytta av id för förfrågan (`$rid`) ingår från början i enheten i dess begäran om uppdatering. Den här begäran-id ingår också i svaret från IoT Hub för att tillåta att enheten att korrelera svaret till viss tidigare begäran.
+
 Följande anvisningar beskriver hur en enhet uppdaterar rapporterade egenskaper i enhetstvillingen i IoT Hub:
 
 1. En enhet måste först prenumerera på den `$iothub/twin/res/#` avsnittet om du vill ta emot åtgärdens svar från IoT Hub.
@@ -253,6 +255,20 @@ De möjliga statuskoder är:
 | 400 | Felaktig begäran. Felaktig JSON |
 | 429 | För många begäranden (begränsad), enligt [IoT Hub-begränsning][lnk-quotas] |
 | 5** | Serverfel |
+
+Python kodfragmentet nedan visar läsningen rapporterade egenskaper uppdateringsprocessen över MQTT (med Paho MQTT-klienten):
+```python
+from paho.mqtt import client as mqtt
+
+# authenticate the client with IoT Hub (not shown here)
+
+client.subscribe("$iothub/twin/res/#")
+rid = "1"
+twin_reported_property_patch = "{\"firmware_version\": \"v1.1\"}"
+client.publish("$iothub/twin/PATCH/properties/reported/?$rid=" + rid, twin_reported_property_patch, qos=0)
+```
+
+Vid en lyckad distribution för tvilling rapporterade egenskaper uppdateringsåtgärden ovan, publikationen meddelandet från IoT Hub har följande avsnitt: `$iothub/twin/res/204/?$rid=1&$version=6`, där `204` är statuskod som visar att det lyckades, `$rid=1` motsvarar begäran-ID tillhandahålls av enheten i koden, och `$version` motsvarar versionen av avsnittet rapporterade egenskaper för enhetstvillingar efter uppdateringen.
 
 Mer information finns i [utvecklarguide för Device twins][lnk-devguide-twin].
 

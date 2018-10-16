@@ -10,12 +10,12 @@ ms.devlang: c
 ms.topic: conceptual
 ms.date: 04/11/2018
 ms.author: rangv
-ms.openlocfilehash: 8962f41d971ac88134f639a61ef0b42c60bbd419
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: c8e2dcfef1db8bfe3d76ac917f8c14a4060e3968
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44161500"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49318766"
 ---
 # <a name="connect-raspberry-pi-to-azure-iot-hub-c"></a>Anslut Raspberry Pi till Azure IoT Hub (C)
 
@@ -61,10 +61,9 @@ Följande objekt är valfria:
 * 6-F/M omkopplare kablar.
 * En indirekt Indikator för 10 mm.
 
-
 > [!NOTE] 
-Dessa objekt är valfritt eftersom kod exempel support simulerade sensordata.
-
+> Dessa objekt är valfritt eftersom kod exempel support simulerade sensordata.
+>
 
 [!INCLUDE [iot-hub-get-started-create-hub-and-device](../../includes/iot-hub-get-started-create-hub-and-device.md)]
 
@@ -97,7 +96,8 @@ Förbered microSD-kort för installation av Raspbian avbildningen.
    ![Aktivera SPI och SSH på Raspberry Pi](media/iot-hub-raspberry-pi-kit-c-get-started/2_enable-spi-ssh-on-raspberry-pi.png)
 
 > [!NOTE] 
-Om du vill aktivera SSH och SPI, du kan hitta mer referensdokument på [raspberrypi.org](https://www.raspberrypi.org/documentation/remote-access/ssh/) och [RASPI-CONFIG](https://www.raspberrypi.org/documentation/configuration/raspi-config.md).
+> Om du vill aktivera SSH och SPI, du kan hitta mer referensdokument på [raspberrypi.org](https://www.raspberrypi.org/documentation/remote-access/ssh/) och [RASPI-CONFIG](https://www.raspberrypi.org/documentation/configuration/raspi-config.md).
+>
 
 ### <a name="connect-the-sensor-to-pi"></a>Ansluta sensorn till Pi
 
@@ -171,6 +171,7 @@ Aktivera Pi med hjälp av micro USB-kabel och strömförsörjningen. Använd Eth
 
    > [!NOTE] 
    > Om du **inte har en fysisk BME280**, du kan använda ”--simulerade data, som kommandoradsparametern att simulera temperatur och fuktighet. `sudo ./setup.sh --simulated-data`
+   >
 
 ### <a name="build-and-run-the-sample-application"></a>Skapa och köra exempelprogrammet
 
@@ -179,6 +180,7 @@ Aktivera Pi med hjälp av micro USB-kabel och strömförsörjningen. Använd Eth
    ```bash
    cmake . && make
    ```
+   
    ![Skapa utdata](media/iot-hub-raspberry-pi-kit-c-get-started/7_build-output.png)
 
 1. Kör exempelprogrammet genom att köra följande kommando:
@@ -188,8 +190,8 @@ Aktivera Pi med hjälp av micro USB-kabel och strömförsörjningen. Använd Eth
    ```
 
    > [!NOTE] 
-   Kontrollera att du kopiera och klistra in anslutningssträngen i de enkla citattecken.
-
+   > Kontrollera att du kopiera och klistra in anslutningssträngen i de enkla citattecken.
+   >
 
 Du bör se följande utdata som visar sensordata och meddelanden som skickas till din IoT hub.
 

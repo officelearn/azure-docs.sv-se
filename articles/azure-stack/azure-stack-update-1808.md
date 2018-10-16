@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 10/12/2018
 ms.author: sethm
 ms.reviewer: justini
-ms.openlocfilehash: 2e913881faadd4892ad1ebc8cb404efe6489eb0d
-ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
+ms.openlocfilehash: 2e40f0520c0f5e605974f883b3327699ff26313e
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2018
-ms.locfileid: "49310906"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49321826"
 ---
 # <a name="azure-stack-1808-update"></a>Uppdatering av Azure Stack 1808
 
@@ -145,13 +145,6 @@ Den här uppdateringen innehåller även minskningen för spekulativ körning si
 
 ### <a name="known-issues-with-the-update-process"></a>Kända problem med uppdateringen
 
-<!-- TBD - IS -->
-- Du kan se följande aviseringar visas flera gånger och sedan försvinner på Azure Stack-system:
-   - *Infrastruktur-rollinstans som är inte tillgänglig*
-   - *Skala enhet noden är offline*
-   
-  Kör den [Test AzureStack](azure-stack-diagnostic-test.md) cmdlet för att kontrollera hälsotillståndet för rollinstanser för infrastruktur och skala enhet noder. Om inga problem har identifierats av [Test-AzureStack](azure-stack-diagnostic-test.md), du kan ignorera dessa aviseringar. Om ett problem har identifierats, kan du försöker starta rollinstansen infrastruktur eller nod med hjälp av administrationsportalen eller PowerShell.
-
 - När du kör [Test AzureStack](azure-stack-diagnostic-test.md) efter 1808 uppdateringen visas ett varningsmeddelande från den Hanteringsstyrenheten för baskort (BMC). Du kan ignorera den här varningen.
 
 <!-- 2468613 - IS --> 
@@ -174,7 +167,7 @@ Här följer efter installation kända problem för den här build-versionen.
 
 ### <a name="portal"></a>Portalen
 
-- Den tekniska dokumentationen för Azure Stack fokuserar på den senaste versionen. På grund av portalen ändringar mellan versioner vad som visas när du använder Azure Stack-portalerna kan skilja sig från vad som visas i dokumentationen. 
+- Den tekniska dokumentationen för Azure Stack fokuserar på den senaste versionen av Azure Stack. På grund av portalen ändringar mellan versioner vad som visas när du använder Azure Stack-portalerna kan skilja sig från vad som visas i dokumentationen. 
 
 <!-- TBD - IS ASDK --> 
 - Du kan se en tom instrumentpanel i portalen. Om du vill återställa instrumentpanelen, klickar du på **redigera instrumentpanelen**, högerklicka och välj **återställa till standardtillståndet**.
@@ -214,6 +207,14 @@ Här följer efter installation kända problem för den här build-versionen.
 
 
 ### <a name="health-and-monitoring"></a>Hälsa och övervakning
+
+<!-- TBD - IS -->
+- Du kan se följande aviseringar visas flera gånger och sedan försvinner på Azure Stack-system:
+   - *Infrastruktur-rollinstans som är inte tillgänglig*
+   - *Skala enhet noden är offline*
+   
+  Kör den [Test AzureStack](azure-stack-diagnostic-test.md) cmdlet för att kontrollera hälsotillståndet för rollinstanser för infrastruktur och skala enhet noder. Om inga problem har identifierats av [Test-AzureStack](azure-stack-diagnostic-test.md), du kan ignorera dessa aviseringar. Om ett problem har identifierats, kan du försöker starta rollinstansen infrastruktur eller nod med hjälp av administrationsportalen eller PowerShell.
+
 <!-- 1264761 - IS ASDK --> 
 - Du kan se aviseringar för den **hälsotillstånd controller** komponent som har följande information:  
 

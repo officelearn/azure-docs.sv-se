@@ -10,15 +10,16 @@ ms.component: bing-speech
 ms.topic: article
 ms.date: 09/18/2018
 ms.author: zhouwang
-ROBOTS: NOINDEX
-ms.openlocfilehash: cf21b11f76592f5df2d81e6bdc10413c79fe895e
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 510bc258aae80582e85478936c3281198e89d755
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46979234"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49343171"
 ---
 # <a name="chunked-transfer-encoding"></a>Chunked-kodning
+
+[!INCLUDE [Deprecation note](../../../../includes/cognitive-services-bing-speech-api-deprecation-note.md)]
 
 För att transkribera tal till text, kan Microsoft API för taligenkänning du skicka ljudet som en hela segment eller beskära ljudet i små segment. För att effektivt strömma ljud och avskrift svarstiden, vi rekommenderar att du använder [Chunked-kodning](https://en.wikipedia.org/wiki/Chunked_transfer_encoding) att strömma ljud till tjänsten. Andra-implementeringar kan leda till användaren som uppfattade svarstider. Mer information finns i den [ljud strömmar](../concepts.md#audio-streams) sidan.
 

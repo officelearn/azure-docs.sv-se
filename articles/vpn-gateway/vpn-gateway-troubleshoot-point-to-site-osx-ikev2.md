@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/27/2018
 ms.author: alzam
-ms.openlocfilehash: bc8e95b07d984505fc0e5fdad41fe120463b5b0e
-ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
+ms.openlocfilehash: c370808d06f31f9d79c99ca0f20f613d9e335d60
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/01/2018
-ms.locfileid: "47585534"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49339060"
 ---
 # <a name="troubleshoot-point-to-site-vpn-connections-from-mac-os-x-vpn-clients"></a>Felsöka punkt-till-plats-VPN-anslutningar från VPN för Mac OS X-klienter
 
@@ -66,7 +66,9 @@ Om du försöker de föregående stegen och allt är korrekt konfigurerad, kan d
 1. Filtrera på *isakmp* och titta på den **IKE_SA** paket. Du bör kunna titta på informationen för SA-förslag under den **nyttolast: säkerhetsassociation**. 
 2. Kontrollera att klienten och servern har en gemensam uppsättning.
 
-  ![paket](./media/vpn-gateway-troubleshoot-point-to-site-osx-ikev2/packet5.jpg)
+  ![paket](./media/vpn-gateway-troubleshoot-point-to-site-osx-ikev2/packet5.jpg) 
+  
+3. Om det finns inga svar från servern på nätverksspår, kontrollerar du att du har aktiverat IKEv2-protokoll på sidan Azure Gateway-konfiguration på webbplatsen Azure-portalen.
 
 ## <a name="next-steps"></a>Nästa steg
 Mer hjälp finns i [Microsoft Support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).

@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/21/2018
+ms.date: 10/10/2018
 ms.author: rkarlin
-ms.openlocfilehash: cb13da7ad9387b7170882752b1620c2756bc3675
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: 98533e3c1454867ff09c53902f0f575d198452a3
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46124160"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49320347"
 ---
 # <a name="manage-virtual-machine-access-using-just-in-time"></a>Hantera VM-åtkomst med hjälp av just-in-time
 
@@ -111,6 +111,33 @@ Under **JIT VM-åtkomstkonfiguration**, du kan också lägga till och konfigurer
 > [!NOTE]
 >När JIT VM-åtkomst är aktiverat för en virtuell dator, Azure Security Center skapar neka alla regler för inkommande trafik för de markerade portarna i nätverkssäkerhetsgrupper som är kopplade till den. Reglerna ska antingen vara högsta prioritet för dina Nätverkssäkerhetsgrupper eller lägre prioritet än befintliga regler som redan finns där. Detta beror på en analys som utförs av Azure Security Center som avgör om en regel är säker eller inte.
 >
+
+
+## <a name="set-just-in-time-within-a-vm"></a>Ange just-in-time i en virtuell dator
+
+Om du vill göra det enklare att distribuera just-in-time-åtkomst för dina virtuella datorer, kan du ange en virtuell dator bara just-in-time-åtkomst ska tillåtas direkt från den virtuella datorn.
+
+1. I Azure-portalen väljer du **virtuella datorer**.
+2. Klicka på den virtuella datorn som du vill begränsa till just-in-time-åtkomst.
+3. I menyn klickar du på **Configuration**.
+4. Under **precis i tid access** klickar du på **aktivera just-in-time-princip**. 
+
+På så sätt kan just-in-time-åtkomst för den virtuella datorn med hjälp av följande inställningar:
+
+- Windows-servrar:
+    - RDP-porten 3389
+    - tre timmar av åtkomst
+    - Tillåtna käll-IP-adresser har angetts till Per begäran
+- Linux-servrar:
+    - SSH-porten 22
+    - tre timmar av åtkomst
+    - Tillåtna käll-IP-adresser har angetts till Per begäran
+     
+Om en virtuell dator har redan just-in-time aktiverat när du går till dess konfigurationssidan kommer du att kunna just-in-time är aktiverat och att du kan använda länken för att öppna den i Azure Security Center att visa och ändra inställningarna.
+
+![JIT-config i virtuell dator](./media/security-center-just-in-time/jit-vm-config.png)
+
+
 ## <a name="requesting-access-to-a-vm"></a>Begär åtkomst till en virtuell dator
 
 Att begära åtkomst till en virtuell dator:

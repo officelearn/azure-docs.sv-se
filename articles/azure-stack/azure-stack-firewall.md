@@ -1,6 +1,6 @@
 ---
-title: Azure Stack-brandväggen planera för Azure-stacken integrerat system | Microsoft Docs
-description: Beskriver Azure Stack brandväggen överväganden för flera noder Azure Stack Azure-anslutna distributioner.
+title: Integrerade Azure Stack-brandväggen planering för Azure Stack-system | Microsoft Docs
+description: Beskriver överväganden för Azure Stack-Brandvägg för Azure Stack Azure-ansluten distribution av flera noder.
 services: azure-stack
 documentationcenter: ''
 author: jeffgilb
@@ -12,57 +12,57 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/23/2018
+ms.date: 10/15/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
-ms.openlocfilehash: 9d980c800f930c00b2b0140314f78ff3f043aa58
-ms.sourcegitcommit: 680964b75f7fff2f0517b7a0d43e01a9ee3da445
+ms.openlocfilehash: d50131a9c9e7572f7696a936cbfec3a8568eda2e
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34604224"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49343664"
 ---
 # <a name="azure-stack-firewall-integration"></a>Integrering med Azure Stack-brandväggen
-Det rekommenderas att du använder en enhet för att säkra Azure-stacken. Även om brandväggar kan hjälpa dig med t.ex distribuerad denial of service (DDOS) attacker, intrångsidentifiering och innehållsgranskning, blir de också en genomströmning flaskhals för Azure storage-tjänster som blobbar, tabeller och köer.
+Du rekommenderas att du använder en brandväggsenhet för att säkra Azure Stack. Även om brandväggar kan hjälpa dig med distribuerade denial of service DDOS-attacker, intrångsidentifiering och innehållsgranskning, kan de också blir en flaskhals för dataflöde för Azure storage-tjänster som blobbar, tabeller och köer.
 
-Baserat på identitetsmodellen Azure Active Directory (AD Azure) eller Windows Server Active Directory Federation Services (AD FS) kan behöva du publicera AD FS-slutpunkten. Om en frånkopplad distributionsläget används, måste du publicera AD FS-slutpunkten. Mer information finns i [datacenter integration identitet artikel](azure-stack-integrate-identity.md).
+Baserat på identitetsmodellen Azure Active Directory (AD Azure) eller Windows Server Active Directory Federation Services (AD FS), kan du behöva publicera AD FS-slutpunkten. Om en frånkopplad distributionsläget används, måste du publicera den AD FS-slutpunkten. Mer information finns i den [datacenter integration identitet artikeln](azure-stack-integrate-identity.md).
 
-Azure Resource Manager (administratör), administratörsportalen och Key Vault (administratör) slutpunkter kräver inte nödvändigtvis externa publicering. Till exempel som en tjänsteleverantör kanske du vill begränsa risken för angrepp och administrera endast Azure-paketet i nätverket och inte från internet.
+Azure Resource Manager (administratör), administratörsportalen och slutpunkter för Key Vault (administratör) kräver inte externa publicering nödvändigtvis. Till exempel en tjänstleverantör, kan du minska risken för angrepp och administrera Azure Stack från endast i ditt nätverk och inte från internet.
 
-För företag, kan det externa nätverket vara befintliga företagsnätverket. I ett sådant scenario, måste du publicera dessa slutpunkter för att fungera Azure Stack från företagsnätverket.
+För företag, kan det externa nätverket vara befintliga företagets nätverk. I ett sådant scenario, måste du publicera dessa slutpunkter för att köra Azure Stack från företagsnätverket.
 
 ### <a name="network-address-translation"></a>Network Address Translation
-NAT (Network Address Translation) är den rekommenderade metoden för att tillåta distribution av virtuell dator (DVM) för att komma åt externa resurser och internet under distributionen av samt de virtuella datorerna nödsituation Recovery konsolen (ERCS) eller Privilegierade slutpunkt (program) under registrering och felsökning.
+Network Address Translation (NAT) är den rekommenderade metoden att tillåta en distribution av virtuell dator (DVM) för att få åtkomst till de externa resurserna och internet under distributionen av samt de nödfall Recovery konsolen (ERCS) virtuella datorerna eller privilegierad slutpunkt (program) under registrering och felsökning.
 
-NAT kan också vara ett alternativ till offentliga IP-adresser på externt nätverk eller offentliga virtuella IP-adresser. Det rekommenderas dock inte eftersom det begränsar användarupplevelsen klient och ökar komplexitet. De två alternativen är en 1:1-NAT som fortfarande kräver en offentlig IP per användare IP-adress på pool eller NAT-enhet som kräver en NAT-regel per användare VIP som innehåller kopplingar till alla portar som en användare kan använda flera: 1.
+NAT kan också vara ett alternativ till offentliga IP-adresser på det externa nätverket eller offentliga virtuella IP-adresser. Det rekommenderas dock inte eftersom det begränsar klient användarupplevelsen och ökar komplexiteten. De två alternativen är en 1:1-NAT som fortfarande kräver en offentlig IP per användare IP-adresser på poolen eller många: 1 NAT som kräver en NAT-regeln per användare VIP som innehåller kopplingar till alla portar en användare kan använda.
 
-Några av downsides för att använda NAT för offentliga VIP är:
-- NAT lägger till användning vid hantering av brandväggsregler eftersom användarna styra sina egna slutpunkter och sina egna regler för serverpublicering i stacken programvarudefinierade nätverksfunktioner (SDN). Användarna måste kontakta Azure-stacken operatorn att få sina VIP: er som har publicerats och uppdatera portlistan över.
-- Vid användning av NAT begränsar användarupplevelsen, ger fullständig behörighet till operatorn över publiceringsförfrågningar.
-- För hybridscenarion moln med Azure, Överväg att Azure inte stöder att konfigurera en VPN-tunnel till en slutpunkt som använder NAT.
+Några av nackdelarna med att använda NAT för offentlig VIP-adress är:
+- NAT lägger till användning vid hantering av brandväggsregler eftersom användare styra sina egna slutpunkter och sina egna publiceringsregler i stacken programvarudefinierade nätverk (SDN). Användare måste kontakta Azure Stack-operatör att få sina VIP som har publicerats och för att uppdatera listan över portar.
+- Även om användning av NAT gränser användarupplevelsen, ger fullständig behörighet till operatorn över publiceringsförfrågningar.
+- För hybridmolnscenarierna med Azure, Överväg att Azure inte har stöd för hur du konfigurerar en VPN-tunnel till en slutpunkt som använder NAT.
 
 ### <a name="ssl-decryption"></a>SSL-dekryptering
-För närvarande rekommenderas att inaktivera SSL-dekryptering på alla Azure Stack-trafik. Om det stöds i framtida uppdateringar levereras vägledning om hur du aktiverar SSL-dekryptering för Azure-stacken.
+För närvarande rekommenderar vi att inaktivera SSL-dekryptering på alla Azure Stack-trafik. Om det stöds i framtida uppdateringar, ges vägledning om hur du aktiverar SSL-dekryptering för Azure Stack.
 
-## <a name="edge-firewall-scenario"></a>Edge brandväggen scenario
-I en kant-distribution distribueras Azure Stack direkt bakom gränsroutern eller brandväggen. I följande scenarier stöds för brandväggen ska ovan kantlinje (Scenario 1) där den stöder både aktiv-aktiv och aktivt-passivt brandväggskonfigurationer eller fungerar som RAM-enhet (Scenario 2) där det endast har stöd för aktiv-aktiv brandvägg konfiguration för att förlita sig på lika kostnaden Multi Path ECMP () med BGP eller statisk routning för redundans.
+## <a name="edge-firewall-scenario"></a>Edge-brandväggen scenario
+I en edge-distribution med Azure Stack direkt bakom edge-routern eller brandväggen. I dessa scenarier stöds för brandväggen för att vara högre än kantlinje (1-Scenario) där det har stöd för både aktiv-aktiv och aktivt-passivt brandväggskonfigurationer eller fungerar som kantlinje enheten (Scenario 2) där det endast har stöd för aktiv-aktiv brandvägg förlita dig på lika med kostnaden Multi sökväg (ECMP) med BGP eller statisk routning för redundans-konfiguration.
 
-Normalt har offentligt dirigerbara IP-adresser angetts för den offentliga VIP-poolen från det externa nätverket vid tidpunkten för distribution. I en kant-scenariot rekommenderas det inte att använda offentliga dirigerbara IP-adresser på ett annat nätverk av säkerhetsskäl. Det här scenariot kan en användare har fullständig själva kontrollerade molnet upplevelse som i ett offentligt moln som Azure.  
+Vanligtvis har offentliga dirigerbara IP-adresser angetts för den offentliga VIP-poolen från det externa nätverket vid tidpunkten för distribution. I ett scenario för edge rekommenderas inte att använda offentliga dirigerbara IP-adresser på ett annat nätverk av säkerhetsskäl. Det här scenariot kan en användare att uppleva fullständig lokal kontrollerad molnupplevelse som i ett offentligt moln som Azure.  
 
-![Azure Stack edge brandväggen exempel](.\media\azure-stack-firewall\firewallScenarios.png)
+![Brandväggen exempel på Azure Stack edge](.\media\azure-stack-firewall\firewallScenarios.png)
 
-## <a name="enterprise-intranet-or-perimeter-network-firewall-scenario"></a>Företagets intranät eller perimeternätverk brandväggen scenariot
-I ett intranät eller perimeternätverk företagsdistribution bör distribueras Azure Stack på en multi-zonindelad brandvägg eller mellan gränsbrandväggen och interna, företagets nätverksbrandvägg. Sedan dess trafiken distribueras mellan säker, perimeternätverk (eller DMZ) och osäkra zoner som beskrivs nedan:
+## <a name="enterprise-intranet-or-perimeter-network-firewall-scenario"></a>Intranät eller perimeternätverket nätverket brandväggen företagsscenariot
+I en intranät- eller perimeternätverket företagsdistribution med Azure Stack på en multi-zonindelad brandvägg eller mellan gränsbrandväggen och interna, företagets brandvägg. Dess trafiken distribueras sedan mellan säker, perimeternätverk (eller DMZ) och oskyddade zoner som beskrivs nedan:
 
-- **Säker zon**: Detta är det interna nätverket som använder interna eller företagets dirigerbara IP-adresser. Säkra nätverk kan delas upp, har utgående Internetåtkomst via NAT i brandväggen och är vanligtvis nås från var som helst i ditt datacenter via det interna nätverket. Alla Azure-stacken nätverk ska placeras i zonen säker utom det externa nätverket offentliga VIP-pool.
-- **Perimeternätverk zonen**. Perimeternätverket är där externa eller program som webbservrar distribueras vanligtvis mot internet. Det är vanligtvis övervakas av en brandvägg för att undvika attacker som DDoS och för intrångsidentifiering (hackningsförsök) samtidigt som angivna inkommande trafik från internet. Endast en externt nätverk offentliga VIP-pool i Azure-stacken ska placeras i perimeterrnätverkszonen.
-- **Osäkra zonen**. Detta är det externa nätverket internet. Den **är inte** rekommenderas att distribuera Azure-stacken i zonen oskyddat.
+- **Säker zon**: det här är det interna nätverket som använder interna eller företagets dirigerbara IP-adresser. Säkert nätverk kan delas, ha utgående Internetåtkomst via NAT i brandväggen och kan vanligtvis nås från var som helst i ditt datacenter via det interna nätverket. Alla Azure Stack-nätverk ska placeras i zonen säker utom det externa nätverket offentliga VIP-poolen.
+- **Perimeter zonen**. Perimeternätverket är där externa eller program som webbservrar distribueras vanligen som riktas mot internet. Det är vanligtvis övervakas av en brandvägg för att undvika attacker som DDoS och för intrångsidentifiering (kodar) samtidigt som fortfarande angivna inkommande trafik från internet. Endast en externt nätverk offentliga VIP-pool i Azure-stacken ska placeras i perimeterrnätverkszonen.
+- **Oskyddat zon**. Det här är det externa nätverket internet. Den **är inte** rekommenderas att distribuera Azure Stack i zonen oskyddat.
 
-![Azure Stack perimeter-nätverk, exempel](.\media\azure-stack-firewall\perimeter-network-scenario.png)
+![Exempel på nätverket Azure Stack perimeternätverket](.\media\azure-stack-firewall\perimeter-network-scenario.png)
 
 ## <a name="learn-more"></a>Läs mer
-Lär dig mer om [portar och protokoll som används av Azure-stacken slutpunkter](azure-stack-integrate-endpoints.md).
+Läs mer om [portar och protokoll som används av Azure Stack-slutpunkter](azure-stack-integrate-endpoints.md).
 
 ## <a name="next-steps"></a>Nästa steg
-[Krav för Azure-stacken PKI](azure-stack-pki-certs.md)
+[Krav för Azure Stack PKI](azure-stack-pki-certs.md)
 

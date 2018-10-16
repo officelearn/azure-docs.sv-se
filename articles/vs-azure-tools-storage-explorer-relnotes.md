@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/12/2018
 ms.author: cawa
-ms.openlocfilehash: 70e4e131cd83c6e80bc9b61a91cfd98adee0c952
-ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
+ms.openlocfilehash: 7e73f676f47de8256928224aae55ea30eb414ddf
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49116954"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49344769"
 ---
 # <a name="microsoft-azure-storage-explorer-release-notes"></a>Viktig information om Microsoft Azure Lagringsutforskaren
 
@@ -27,13 +27,13 @@ Den här artikeln innehåller viktig information om Azure Storage Explorer 1.4.3
 
 [Microsoft Azure Lagringsutforskaren](./vs-azure-tools-storage-manage-with-storage-explorer.md) är en fristående app som gör det enkelt att arbeta med Azure Storage-data i Windows, macOS och Linux.
 
-## <a name="version-143"></a>Version 1.4.3
-10/11/2018
+## <a name="version-144"></a>Version 1.4.4
+10/15/2018
 
-### <a name="download-azure-storage-explorer-143"></a>Hämta Azure Storage Explorer 1.4.3
-- [Azure Storage Explorer 1.4.3 för Windows](https://go.microsoft.com/fwlink/?LinkId=708343)
-- [Azure Storage Explorer 1.4.3 för Mac](https://go.microsoft.com/fwlink/?LinkId=708342)
-- [Azure Storage Explorer 1.4.3 för Linux](https://go.microsoft.com/fwlink/?LinkId=722418)
+### <a name="download-azure-storage-explorer-144"></a>Hämta Azure Storage Explorer 1.4.4
+- [Azure Storage Explorer 1.4.4 för Windows](https://go.microsoft.com/fwlink/?LinkId=708343)
+- [Azure Storage Explorer 1.4.4 för Mac](https://go.microsoft.com/fwlink/?LinkId=708342)
+- [Azure Storage Explorer 1.4.4 för Linux](https://go.microsoft.com/fwlink/?LinkId=722418)
 
 ### <a name="hotfixes"></a>Snabbkorrigeringar
 * Azure Resource Management Api-versionen har återställts för att låsa upp användare i Azure för amerikanska myndigheter. [#696](https://github.com/Microsoft/AzureStorageExplorer/issues/696)
@@ -90,6 +90,7 @@ Den här artikeln innehåller viktig information om Azure Storage Explorer 1.4.3
 
 ## <a name="previous-releases"></a>Tidigare versioner
 
+* [Version 1.4.3](#version-143)
 * [Version 1.4.2](#version-142)
 * [Version 1.4.1](#version-141)
 * [Version 1.3.0](#version-130)
@@ -118,6 +119,62 @@ Den här artikeln innehåller viktig information om Azure Storage Explorer 1.4.3
 * [Version 0.7.20160129.1](#version-07201601291)
 * [Version 0.7.20160105.0](#version-07201601050)
 * [Version 0.7.20151116.0](#version-07201511160)
+
+## <a name="version-143"></a>Version 1.4.3
+10/11/2018
+
+### <a name="hotfixes"></a>Snabbkorrigeringar
+* Azure Resource Management Api-versionen har återställts för att låsa upp användare i Azure för amerikanska myndigheter. [#696](https://github.com/Microsoft/AzureStorageExplorer/issues/696)
+* Läser in rotationsrutor använder nu CSS-animeringar för att minska mängden GPU som används av Storage Explorer. [#653](https://github.com/Microsoft/AzureStorageExplorer/issues/653)
+
+### <a name="new"></a>Ny
+* Extern resurs bifogade filer, till exempel för SAS-anslutningarna och emulatorer, har förbättrats avsevärt. Nu kan du:
+   * Anpassa visningsnamnet för den resurs som du bifogar. [#31](https://github.com/Microsoft/AzureStorageExplorer/issues/31)
+   * Ansluta till flera lokala emulatorer som använder olika portar. [#193](https://github.com/Microsoft/AzureStorageExplorer/issues/193)
+   * Lägga till resurser som är anslutna till Snabbåtkomst. [#392](https://github.com/Microsoft/AzureStorageExplorer/issues/392)
+* Lagringsutforskaren har nu stöd för mjuk borttagning. Du kan:
+   * Konfigurera en princip för mjuk borttagning genom att högerklicka på noden Blob-behållare för ditt lagringskonto.
+   * Visa ej permanent bort blobar i Blob-redigeraren genom att välja ”Active och tas bort blobbar” i listrutan bredvid navigeringsfältet.
+   * Ångra borttagning av ej permanent borttagna blobar.
+
+### <a name="fixes"></a>Korrigeringar
+* ”Konfigurera CORS-inställningar”-åtgärden är inte längre tillgänglig på Premium Storage-konton eftersom Premium Storage-konton inte har stöd för CORS. [#142](https://github.com/Microsoft/AzureStorageExplorer/issues/142)
+* Det finns nu en signatur för delad åtkomst-egenskap för SAS-anslutna tjänster. [#184](https://github.com/Microsoft/AzureStorageExplorer/issues/184)
+* ”Ange standard åtkomstnivå”-åtgärden är nu tillgängliga för Blob- och gpv2-/ Storage-konton som har fästs på Snabbåtkomst. [#229](https://github.com/Microsoft/AzureStorageExplorer/issues/229)
+* Ibland misslyckas Storage Explorer att visa klassiska lagringskonton. [#323](https://github.com/Microsoft/AzureStorageExplorer/issues/323)
+
+### <a name="known-issues"></a>Kända problem
+* När du använder emulatorer, till exempel Azure Storage-emulatorn eller Azurite, behöver du ha dem lyssna efter anslutningar på sina standardportarna. I annat fall är Storage Explorer inte kan ansluta till dem.
+* Om du använder VS för Mac och någon gång har skapat en anpassad AAD-konfiguration kan kanske du inte att logga in. Undvik problemet genom att ta bort innehållet i ~ /. IdentityService/AadConfigurations. Om detta inte det avblockerar du, kommentera på [problemet](https://github.com/Microsoft/AzureStorageExplorer/issues/97).
+* Azurite ännu inte helt har genomfört alla Storage API: er. Därför bör finnas det oväntade fel eller beteende när du använder Azurite för utvecklingslagring.
+* I sällsynta fall kan trädet fokus fastna på Snabbåtkomst. Du kan uppdatera alla som behövdes fokus.
+* Ladda upp från OneDrive-mapp fungerar inte på grund av ett fel i NodeJS. Buggen har åtgärdats, men ännu inte har integrerats i Electron.
+* När du riktar in sig på Azure Stack, misslyckas ladda upp filer tilläggsblobbar.
+* När du klickar på ”Avbryt” för en aktivitet, kan det ta en stund innan aktiviteten att avbryta. Detta beror på att vi använder Avbryt filter lösningen som beskrivs [här](https://github.com/Azure/azure-storage-node/issues/317).
+* Om du väljer fel PIN-kod/smartkort-certifikat måste startas om för att få Lagringsutforskaren glömmer detta beslut.
+* Ögonblicksbilder bevaras inte när du byter namn på BLOB-objekt (individuellt eller i en omdöpt blobbehållare). Alla andra egenskaper och metadata för blobbar, filer och entiteter bevaras under en namnbyte.
+* Även om Azure Stack inte för närvarande stöd för filresurser, visas en filresurser nod fortfarande under ett anslutna Azure Stack-lagringskonto.
+* Electron-gränssnitt som används av Storage Explorer har problem med vissa GPU (grafikprocessor) maskinvaruacceleration. Om Storage Explorer visning av ett tomt (tom) huvudfönstret måste du starta Lagringsutforskaren från kommandoraden och inaktivera GPU-acceleration genom att lägga till den `--disable-gpu` växla:
+
+```
+./StorageExplorer.exe --disable-gpu
+```
+
+* Linux-användare behöver du installera [.NET Core 2.0](https://docs.microsoft.com/en-us/dotnet/core/linux-prerequisites?tabs=netcore2x).
+* För användare på Ubuntu 14.04 behöver du kontrollera GCC är uppdaterad – detta kan göras genom att köra följande kommandon och sedan starta om datorn:
+
+    ```
+    sudo add-apt-repository ppa:ubuntu-toolchain-r/test
+    sudo apt-get update
+    sudo apt-get upgrade
+    sudo apt-get dist-upgrade
+    ```
+
+* Du måste installera GConf – detta kan göras genom att köra följande kommandon och sedan starta om datorn för användare på Ubuntu nr 17.04 från:
+
+    ```
+    sudo apt-get install libgconf-2-4
+    ```
 
 ## <a name="version-142"></a>Version 1.4.2
 09/24/2018

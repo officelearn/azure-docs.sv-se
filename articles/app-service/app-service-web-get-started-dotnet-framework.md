@@ -12,15 +12,15 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 08/29/2018
+ms.date: 09/05/2018
 ms.author: cephalin
 ms.custom: mvc, devcenter
-ms.openlocfilehash: f6f443dfe637e68b0e1e13f7c3b9e718ae48a85d
-ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
+ms.openlocfilehash: cce14d91509fe051beef87acdaeac9a92d998ef6
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43191303"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44053786"
 ---
 # <a name="create-an-aspnet-framework-web-app-in-azure"></a>Skapa en ASP.NET Framework-webbapp i Azure
 
@@ -32,11 +32,12 @@ Med [Azure Web Apps](app-service-web-overview.md) får du en mycket skalbar och 
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
-För att slutföra den här självstudien behöver du:
+För att slutföra självstudien installerar du <a href="https://www.visualstudio.com/downloads/" target="_blank">Visual Studio 2017</a> med arbetsbelastningen **ASP.NET och webbutveckling**.
 
-Installera <a href="https://www.visualstudio.com/downloads/" target="_blank">Visual Studio 2017</a> med arbetsbelastningen **ASP.NET och webbutveckling**.
+Om du redan har installerat Visual Studio 2017:
 
-Om du redan har installerat Visual Studio lägger du till arbetsbelastningarna i Visual Studio genom att klicka på **Tools (Verktyg)** > **Get Tools and Features (Skaffa verktyg och funktioner)**.
+- Installera de senaste uppdateringarna i Visual Studio genom att klicka på **Hjälp** > **Sök efter uppdateringar**.
+- Lägg till arbetsbelastningen genom att klicka på **Verktyg** > **Skaffa verktyg och funktioner**.
 
 ## <a name="create-an-aspnet-web-app"></a>Skapa en ASP.NET-webbapp
 
@@ -58,17 +59,15 @@ På menyn väljer du **Felsöka > Starta utan felsökning** för att köra webba
 
 ![Kör appen lokalt](./media/app-service-web-get-started-dotnet-framework/local-web-app.png)
 
-## <a name="publish-to-azure"></a>Publicera till Azure
+## <a name="launch-the-publish-wizard"></a>Starta publiceringsguiden
 
 Högerklicka på projektet **myFirstAzureWebApp** i **Solution Explorer** och välj **Publicera**.
 
 ![Publicera från Solution Explorer](./media/app-service-web-get-started-dotnet-framework/solution-explorer-publish.png)
 
-Se till att **Microsoft Azure App Service** är markerat och välj **Publicera**.
+Publiceringsguiden startas automatiskt. Välj **App Service** > **Publicera** och öppna dialogrutan **Skapa App Service**.
 
 ![Publicera från projektöversiktssidan](./media/app-service-web-get-started-dotnet-framework/publish-to-app-service.png)
-
-Då öppnas dialogrutan **Skapa App Service** där du får hjälp med att skapa alla Azure-resurser du behöver för att köra ASP.NET-webbappen i Azure.
 
 ## <a name="sign-in-to-azure"></a>Logga in på Azure
 
@@ -93,9 +92,9 @@ Ge resursgruppen namnet **myResourceGroup** och välj **OK**.
 
 [!INCLUDE [app-service-plan](../../includes/app-service-plan.md)]
 
-Välj **Ny** bredvid **App Service-plan**. 
+Bredvid **Värdplan** väljer du **Ny**. 
 
-I dialogrutan **Configure App Service Plan** (Konfigurera App Service-plan) använder du inställningarna i tabellen som följer skärmbilden.
+I dialogrutan **Konfigurera värdplan** använder du inställningarna i tabellen som följer skärmbilden.
 
 ![Skapa apptjänstplan](./media/app-service-web-get-started-dotnet-framework/configure-app-service-plan.png)
 
@@ -109,17 +108,17 @@ Välj **OK**.
 
 ## <a name="create-and-publish-the-web-app"></a>Skapa och publicera webbappen
 
-I **Webbprogramnamnet** skriver du ett unikt appnamn (giltiga tecken är `a-z`, `0-9` och `-`) eller acceptera det automatiskt genererade unika namnet. Webbadressen till webbappen är `http://<app_name>.azurewebsites.net`, där `<app_name>` är webbappens namn.
+I **Appnamn** skriver du ett unikt appnamn (giltiga tecken är `a-z`, `0-9` och `-`) eller accepterar det automatiskt genererade unika namnet. Webbadressen till webbappen är `http://<app_name>.azurewebsites.net`, där `<app_name>` är appens namn.
 
 Välj **Skapa** för att börja skapa Azure-resurser.
 
-![Ange webbappnamn](./media/app-service-web-get-started-dotnet-framework/web-app-name.png)
+![Konfigurera appnamn](./media/app-service-web-get-started-dotnet-framework/web-app-name.png)
 
 När guiden slutförs publiceras ASP.NET-webbappen till Azure och sedan öppnas appen i standardwebbläsaren.
 
 ![Publicerad ASP.NET-webbapp i Azure](./media/app-service-web-get-started-dotnet-framework/published-azure-web-app.png)
 
-Webbprogramnamnet som anges i steget [skapa och publicera](#create-and-publish-the-web-app) används som URL-prefixet i formatet `http://<app_name>.azurewebsites.net`.
+Appnamnet som anges i steget [skapa och publicera](#create-and-publish-the-web-app) används som URL-prefixet i formatet `http://<app_name>.azurewebsites.net`.
 
 Grattis, din ASP.NET-webbapp körs live i Azure App Service.
 

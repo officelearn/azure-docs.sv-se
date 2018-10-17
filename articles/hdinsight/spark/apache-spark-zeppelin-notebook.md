@@ -9,20 +9,16 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/21/2018
-ms.openlocfilehash: 9b076709ee24c61b2699672d28bd61204c88a744
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 8e32939f3e253bfdd6f8d989f616f30e1b9f27eb
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43048049"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49364871"
 ---
 # <a name="use-zeppelin-notebooks-with-apache-spark-cluster-on-azure-hdinsight"></a>Använda Zeppelin-anteckningsböcker med Apache Spark-kluster i Azure HDInsight
 
 HDInsight Spark-kluster innehåller Zeppelin-anteckningsböcker som du kan använda för att köra Spark-jobb. I den här artikeln får du lära dig hur du använder Zeppelin-anteckningsbok på ett HDInsight-kluster.
-
-> [!NOTE]
-> Zeppelin-anteckningsböcker är endast tillgängligt för Spark 1.6.3 på HDInsight 3.5 och Spark 2.1.0 på HDInsight 3.6.
->
 
 **Krav:**
 
@@ -50,7 +46,7 @@ HDInsight Spark-kluster innehåller Zeppelin-anteckningsböcker som du kan anvä
    
     Klistra in följande kodfragment i det tomma stycket som skapas som standard i denna nya notebook.
    
-        %livy.spark
+        %livy2.spark
         //The above magic instructs Zeppelin to use the Livy Scala interpreter
    
         // Create an RDD using the default Spark context, sc
@@ -77,6 +73,11 @@ HDInsight Spark-kluster innehåller Zeppelin-anteckningsböcker som du kan anvä
     ![Skapa en tillfällig tabell från rådata](./media/apache-spark-zeppelin-notebook/hdinsight-zeppelin-load-data.png "skapa en tillfällig tabell från rådata")
    
     Du kan också ange en rubrik i varje stycke. I det högra hörnet, klickar du på den **inställningar** ikon och klicka sedan på **visa rubriken**.
+
+> [!NOTE]
+> % spark2 tolk stöds inte i Zeppelin-anteckningsböcker i alla HDInsight-versioner och % sh tolk stöds inte från HDInsight 4.0 och senare.
+>
+
 1. Du kan nu köra Spark SQL-uttryck på den **hvac** tabell. Klistra in följande fråga i ett nytt stycke. Frågan hämtar ID för att bygga och skillnaden mellan mål- och faktiska temperaturer för varje att bygga på ett speciellt datum. Tryck på **SKIFT + RETUR**.
    
         %sql

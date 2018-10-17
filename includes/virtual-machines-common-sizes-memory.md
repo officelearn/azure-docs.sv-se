@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/06/2018
 ms.author: azcspmt;jonbeck;cynthn
 ms.custom: include file
-ms.openlocfilehash: c3b9422ebdb0a5d93f92644d9fea5d9c5ba9fa29
-ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
+ms.openlocfilehash: c40229eaa589d696c557d5ac126515576593443c
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47185173"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49367108"
 ---
 Minnesoptimerade erbjudande för VM-storlekar högt minne att CPU-förhållande som är utmärkt för relationsdatabasservrar, mellanstora till stora cacheminnen och minnesinterna analyser. Den här artikeln innehåller information om hur många virtuella processorer, diskar och nätverkskort samt lagring dataflöde och nätverket bandbredden för varje storlek i den här grupperingen. 
 
@@ -26,7 +26,7 @@ Minnesoptimerade erbjudande för VM-storlekar högt minne att CPU-förhållande 
 
 * Ev3-serien funktioner E5-2673 v4 (Broadwell) 2,3 GHz-processorn i en hyper-threaded konfiguration, vilket ger ett mer prisvärt för de flesta allmänt syfte arbetsbelastningar och föra Ev3 justeras mot allmänna virtuella datorer i de flesta andra moln.  Minne har expanderats (från 7 GiB/Vcpu(:er) för 8 GiB/vCPU) medan disk- och gränser har justerats på basis av per kärna för att anpassas till flytten till hypertrådning.  Ev3 är Följ upp till de extra minne storlekarna av D/Dv2-familjer.
 
-* Azure Compute ger VM-storlekar som isoleras till en specifik maskinvarutyp och dedikerad till en enda kund.  Dessa VM-storlekar passar bäst för arbetsbelastningar som kräver en hög grad av isolering från andra kunder för arbetsbelastningar som innehåller element som efterlevnad och regelkrav.  Kunder kan också välja att dela upp resurser på dessa isolerade virtuella datorer med hjälp av ytterligare [Azure-stöd för kapslade virtuella datorer](https://azure.microsoft.com/en-us/blog/nested-virtualization-in-azure/).  Se tabellerna i VM-familjer nedan för ditt isolerade VM-alternativ.
+* Azure Compute ger VM-storlekar som isoleras till en specifik maskinvarutyp och dedikerad till en enda kund.  Dessa VM-storlekar passar bäst för arbetsbelastningar som kräver en hög grad av isolering från andra kunder för arbetsbelastningar som innehåller element som efterlevnad och regelkrav.  Kunder kan också välja att dela upp resurser på dessa isolerade virtuella datorer med hjälp av ytterligare [Azure-stöd för kapslade virtuella datorer](https://azure.microsoft.com/blog/nested-virtualization-in-azure/).  Se tabellerna i VM-familjer nedan för ditt isolerade VM-alternativ.
 
 ## <a name="esv3-series"></a>Esv3-serien 
 

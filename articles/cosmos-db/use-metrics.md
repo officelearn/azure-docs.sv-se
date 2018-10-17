@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/25/2017
 ms.author: govindk
-ms.openlocfilehash: 792e0b3f8fdfe4ab1b79fec5f45d0587033eca0d
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.openlocfilehash: 5c9dded95fe3ae36a716544368e3dc44c9b86afe
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44055207"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49365500"
 ---
 # <a name="monitoring-and-debugging-with-metrics-in-azure-cosmos-db"></a>Övervaka och felsöka med mått i Azure Cosmos DB
 
@@ -54,7 +54,8 @@ Efter att identifiera vilka partitionsnyckel orsakar skeva i distributionen, kan
 
 ## <a name="comparing-data-size-against-index-size"></a>Jämföra datastorlek mot Indexstorlek
 
-I Azure Cosmos DB är det totala lagringsutrymmet som förbrukar en kombination av både datastorlek och Indexstorlek. Indexstorleken är vanligtvis en bråkdel av storleken på data. I bladet mått i den [Azure-portalen](https://portal.azure.com), fliken lagring visar fördelningen av användningen av lagringsutrymme baserat på data och index. Bild (kanske) också från SDK, du kan hitta aktuella lagringsanvändningen genom en samling läsa.
+I Azure Cosmos DB är det totala lagringsutrymmet som förbrukar en kombination av både datastorlek och Indexstorlek. Indexstorleken är vanligtvis en bråkdel av storleken på data. I bladet mått i den [Azure-portalen](https://portal.azure.com), fliken lagring visar fördelningen av användningen av lagringsutrymme baserat på data och index. 
+
 ```csharp
 // Measure the document size usage (which includes the index size)  
 ResourceResponse<DocumentCollection> collectionInfo = await client.ReadDocumentCollectionAsync(UriFactory.CreateDocumentCollectionUri("db", "coll")); 

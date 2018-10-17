@@ -13,12 +13,12 @@ ms.workload: identity
 ms.date: 09/27/2018
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: ee2a72a65902347a2e58f79d0f621c9d08178104
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: d9cf46a1fd28985d9ca98d173bbef17380b7de21
+ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47410314"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49354401"
 ---
 # <a name="azure-resource-manager-resource-provider-operations"></a>Azure Resource Manager åtgärder för resursprovider
 
@@ -3346,8 +3346,6 @@ Den här artikeln visar en lista över åtgärderna som är tillgängliga för v
 > | Åtgärd | Microsoft.Network/loadBalancers/backendAddressPools/join/action | Ansluter till en load balancer-serverdelsadresspool |
 > | Åtgärd | Microsoft.Network/loadBalancers/backendAddressPools/read | Hämtar en load balancer serverdel adresspool definition |
 > | Åtgärd | Microsoft.Network/loadBalancers/delete | Tar bort en belastningsutjämnare |
-> | Åtgärd | Microsoft.Network/loadBalancers/frontendIPConfigurations/join/action | Ansluter till en Frontend IP-konfigurationen för belastningsutjämnaren. |
-> | Åtgärd | Microsoft.Network/loadBalancers/frontendIPConfigurations/read | Hämtar en load balancer frontend IP-konfigurationsdefinition |
 > | Åtgärd | Microsoft.Network/loadBalancers/inboundNatPools/join/action | Ansluter till en belastningsutjämnare inkommande nat-pool |
 > | Åtgärd | Microsoft.Network/loadBalancers/inboundNatPools/read | Hämtar en belastningsutjämnare inkommande nat-pooldefinitionen |
 > | Åtgärd | Microsoft.Network/loadBalancers/inboundNatRules/delete | Tar bort en belastningsutjämningsregel för ingående nat |
@@ -3477,10 +3475,6 @@ Den här artikeln visar en lista över åtgärderna som är tillgängliga för v
 > | Åtgärd | Microsoft.Network/publicIPAddresses/dnsAliases/read | Hämtar en offentlig Ip-adress Dns-Alias-resurs |
 > | Åtgärd | Microsoft.Network/publicIPAddresses/dnsAliases/write | Skapar en offentlig Ip-adress Dns-Alias-resurs |
 > | Åtgärd | Microsoft.Network/publicIPAddresses/join/action | Ansluter till en offentlig ip-adress |
-> | Åtgärd | Microsoft.Network/publicIPAddresses/loadBalancerPools/delete | Tar bort en offentlig IP-adress belastningsutjämnarens serverdelspool |
-> | Åtgärd | Microsoft.Network/publicIPAddresses/loadBalancerPools/join/action | Ansluter till en offentlig IP-adress belastningsutjämnarens serverdelspool |
-> | Åtgärd | Microsoft.Network/publicIPAddresses/loadBalancerPools/read | Hämtar en offentliga IP-adress load balancer serverdel pool-definition |
-> | Åtgärd | Microsoft.Network/publicIPAddresses/loadBalancerPools/write | Skapar en offentlig IP-adress belastningsutjämnarens serverdelspool eller uppdaterar en befintlig offentlig IP-adress belastningsutjämnarens serverdelspool |
 > | Åtgärd | Microsoft.Network/publicIPAddresses/providers/Microsoft.Insights/diagnosticSettings/read | Hämta diagnostikinställningar för offentliga IP-adress |
 > | Åtgärd | Microsoft.Network/publicIPAddresses/providers/Microsoft.Insights/diagnosticSettings/write | Skapa eller uppdatera diagnostikinställningar för offentliga IP-adress |
 > | Åtgärd | Microsoft.Network/publicIPAddresses/providers/Microsoft.Insights/logDefinitions/read | Hämta Loggdefinitioner för offentliga IP-adress |

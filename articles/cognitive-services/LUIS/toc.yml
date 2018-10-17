@@ -10,7 +10,7 @@ items:
   items:
   - name: Bygg en fördefinierad domänapp
     href: luis-get-started-create-app.md
-  - name: 'Använd API: er'
+  - name: Använda REST-API:er
     items:
     - name: Hämta avsikt
       items:
@@ -164,7 +164,7 @@ items:
       href: luis-how-to-add-example-utterances.md
     - name: Lägg till entiteter
       href: luis-how-to-add-entities.md
-    - name: Med API:er
+    - name: Med REST API:er
       items:
       - name: Skapa en app programmässigt med Node.js
         href: luis-tutorial-node-import-utterances-csv.md
@@ -172,7 +172,7 @@ items:
         href: luis-tutorial-list-entity.md
   - name: Integrera
     items:
-    - name: Med API för Bing-stavningskontroll v7
+    - name: Med Stavningskontroll i Bing v7
       href: luis-tutorial-bing-spellcheck.md
     - name: Med Speech-tjänsten
       href: luis-tutorial-speech-to-intent.md
@@ -234,13 +234,13 @@ items:
         href: luis-how-to-manage-from-cloud-shell.md
       - name: Fördela slutpunktskvoten mellan nycklar med Traffic Manager
         href: luis-traffic-manager.md
-  - name: Migrera till V2 API
+  - name: Migrera till V2 REST API
     href: luis-migration-api-v1-to-v2.md
   - name: Hitta region programmässigt
     items:
-    - name: Använd C#
+    - name: Med hjälp av REST API och C#
       href: luis-find-region-csharp.md
-    - name: Använda Node.js
+    - name: Med hjälp av REST API och Node.js
       href: luis-find-region-nodejs.md
 - name: Referens
   items:
@@ -286,16 +286,18 @@ items:
       href: luis-reference-prebuilt-url.md
   - name: Fördefinierad domänreferens
     href: luis-reference-prebuilt-domains.md
-  - name: Redigera V2 API:er
-    href: https://aka.ms/luis-authoring-apis
-  - name: V2 API för slutpunkt
-    href: https://aka.ms/luis-endpoint-apis
-  - name: HTTP-koder
-    href: luis-reference-response-codes.md
   - name: Azure CLI
     href: https://aka.ms/az-cli-cognitiveservices
   - name: Azure RM PowerShell
     href: https://aka.ms/azure-powershell-cognitiveservices
+  - name: REST API:er
+    items:
+    - name: 'Redigera V2 REST API: er'
+      href: https://aka.ms/luis-authoring-apis
+    - name: Slutpunkt för V2 REST API
+      href: https://aka.ms/luis-endpoint-apis
+    - name: HTTP-koder
+      href: luis-reference-response-codes.md
   - name: SDK:er
     items:
     - name: C#
@@ -374,9 +376,9 @@ items:
     href: https://blog.botframework.com/category/luis/
   - name: Kunskapsbas
     href: https://cognitive.uservoice.com/knowledgebase/topics/127872-luis-language-understanding-intelligent-service
-ms.openlocfilehash: bf82f62fac518c0442ad67c346c422b06aa73088
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: fe393a2c92cf9391dc620acae4878996d107a68e
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47432785"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49364548"

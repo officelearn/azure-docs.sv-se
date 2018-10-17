@@ -11,39 +11,56 @@ author: ronitr
 ms.author: ronitr
 ms.reviewer: vanto
 manager: craigg
-ms.date: 10/04/2018
-ms.openlocfilehash: e40f2f3f0a6551fd9fc38ad138d92f694a09879f
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.date: 10/15/2018
+ms.openlocfilehash: 36269392db785e7d2d203f032a84cccc8a6c62e0
+ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48803247"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49352976"
 ---
 # <a name="azure-sql-database-data-discovery-and-classification"></a>Azure SQL databasdata identifiering och klassificering
+
 Dataidentifiering och klassificering (för närvarande i förhandsversion) ger avancerade funktioner i Azure SQL-databas för **identifierar**, **klassificera**, **märkning**  &  **skyddar** känslig data i dina databaser.
 Identifiera och klassificera dina mest känsliga data (business- och finansiella institutioner vård, personligt identifierbar information (PII) och så vidare.) kan spela upp en central roll i din organisations information protection datasekretesstandarder. Det kan fungera som en infrastruktur för:
-* Hjälper uppfylla data sekretesstandarder och efterlevnadskrav.
-* Olika säkerhetsscenarier, till exempel övervakning (granskning) och Varna vid avvikande åtkomsten till känsliga data.
-* Kontrollera åtkomst till och Härdning av säkerheten för databaser som innehåller mycket känsliga data.
+
+- Hjälper uppfylla data sekretesstandarder och efterlevnadskrav.
+- Olika säkerhetsscenarier, till exempel övervakning (granskning) och Varna vid avvikande åtkomsten till känsliga data.
+- Kontrollera åtkomst till och Härdning av säkerheten för databaser som innehåller mycket känsliga data.
 
 Dataidentifiering och klassificering är en del av den [SQL Avancerat skydd](sql-advanced-threat-protection.md) (ATP) erbjudande som en enhetlig paket för avancerade funktioner för SQL-säkerhet. Dataidentifiering och klassificering kan nås och hanteras via den centrala SQL ATP-portalen.
 
 > [!NOTE]
 > Det här dokumentet avser endast Azure SQL Database. SQL Server (lokalt), se [SQL Dataidentifiering och klassificering](https://go.microsoft.com/fwlink/?linkid=866999).
 
-## <a id="subheading-1"></a>Vad är identifiering och klassificering?
+## <a id="subheading-1"></a>Vad är identifiering och klassificering
+
 Dataidentifiering och klassificering introducerar en uppsättning avancerade tjänster och nya SQL-funktioner, som utgör en ny SQL Information Protection-paradigm syftar till att skydda data, inte bara databasen:
-* **Identifiering och rekommendationer för** – motor för attitydklassificering söker igenom din databas och identifierar kolumner som innehåller potentiellt känsliga data. Det ger dig ett enkelt sätt att granska och använder rekommendationerna för rätt klassificering via Azure portal.
-* **Märkning** – etiketter för klassificering av känslighet kan vara beständigt taggade på kolumner med hjälp av nya klassificering metadata-attribut som introduceras i SQL-motor. Dessa metadata kan sedan användas för avancerade känslighet-baserade gransknings- och skydd scenarier.
-* **Frågeresultatet känslighet** – känslighet för frågeresultatet beräknas i realtid i granskningssyfte.
-* **Synlighet** -klassificering databastillståndet kan visas i en detaljerad instrumentpanel i portalen. Dessutom kan du hämta en rapport (i Excel-format) för att användas för efterlevnad och granskning, samt andra behov.
+
+- **Identifiering och rekommendationer**
+
+  Motor för attitydklassificering söker igenom din databas och identifierar kolumner som innehåller potentiellt känsliga data. Det ger dig ett enkelt sätt att granska och använder rekommendationerna för rätt klassificering via Azure portal.
+
+- **Märkning**
+
+  Etiketter för klassificering av känslighet kan vara beständigt taggade på kolumner med hjälp av nya klassificering metadata-attribut som introduceras i SQL-motor. Dessa metadata kan sedan användas för avancerade känslighet-baserade gransknings- och skydd scenarier.
+
+- **Fråga resultatet set känslighet**
+
+  Känslighet för frågeresultatet beräknas i realtid i granskningssyfte.
+
+- **Synlighet**
+
+  Klassificering databastillståndet kan visas i en detaljerad instrumentpanel i portalen. Dessutom kan du hämta en rapport (i Excel-format) för att användas för efterlevnad och granskning, samt andra behov.
 
 ## <a id="subheading-2"></a>Identifiera, klassificera och märka känsliga kolumner
+
 I följande avsnitt beskrivs stegen för att identifiera, klassificera och märkning kolumner som innehåller känsliga data i databasen, som visar det aktuella tillståndet för klassificering för din databas och exportera rapporter.
 
 Klassificeringen innehåller två metadata-attribut:
-* Etiketter – huvudsakliga klassificering-attribut används för att definiera Känslighetsnivån för de data som lagras i kolumnen.  
-* Typer av information – ange ytterligare granularitet i vilken typ av data som lagras i kolumnen.
+
+- Etiketter – huvudsakliga klassificering-attribut används för att definiera Känslighetsnivån för de data som lagras i kolumnen.  
+- Typer av information – ange ytterligare granularitet i vilken typ av data som lagras i kolumnen.
 
 ## <a name="define-and-customize-your-classification-taxonomy"></a>Definiera och anpassa din klassificering taxonomi
 
@@ -72,31 +89,31 @@ När du har definierat principen klienttäckande kan du fortsätta med klassific
 
    ![Exportera till Excel](./media/sql-data-discovery-and-classification/3_data_classification_export_report.png)
 
-5.  <a id="step-5"></a>För att börja klassificera dina data, klickar du på den **klassificering fliken** överst i fönstret.
+5. <a id="step-5"></a>För att börja klassificera dina data, klickar du på den **klassificering fliken** överst i fönstret.
 
     ![Klassificera du data](./media/sql-data-discovery-and-classification/4_data_classification_classification_tab_click.png)
 
 6. Motor för attitydklassificering söker igenom din databas för kolumner som innehåller potentiellt känsliga data och innehåller en lista över **rekommenderas kolumnklassificeringar**. Visa och tillämpa klassificeringsrekommendationer:
 
-    * Klicka på panelen rekommendationer längst ned i fönstret om du vill visa listan med rekommenderade kolumnklassificeringar:
+   - Klicka på panelen rekommendationer längst ned i fönstret om du vill visa listan med rekommenderade kolumnklassificeringar:
 
       ![Klassificera dina data](./media/sql-data-discovery-and-classification/5_data_classification_recommendations_panel.png)
 
-    * Granska listan över rekommendationer – för att acceptera en rekommendation för en viss kolumn, markera kryssrutan i den vänstra kolumnen i den relevanta raden. Du kan också markera *alla rekommendationer* som godkänts genom att markera kryssrutan i tabellrubrik rekommendationer.
+   - Granska listan över rekommendationer – för att acceptera en rekommendation för en viss kolumn, markera kryssrutan i den vänstra kolumnen i den relevanta raden. Du kan också markera *alla rekommendationer* som godkänts genom att markera kryssrutan i tabellrubrik rekommendationer.
 
        ![Granska rekommendationslistan](./media/sql-data-discovery-and-classification/6_data_classification_recommendations_list.png)
 
-    * Om du vill använda de valda rekommendationerna, klickar du på det blå fältet **Godkänn valda rekommendationer** knappen.
+   - Om du vill använda de valda rekommendationerna, klickar du på det blå fältet **Godkänn valda rekommendationer** knappen.
 
       ![Tillämpa rekommendationer](./media/sql-data-discovery-and-classification/7_data_classification_accept_selected_recommendations.png)
 
 7. Du kan också **manuellt klassificera** kolumner som ett alternativ eller dessutom rekommendationen-baserad klassificering:
 
-    * Klicka på **Lägg till klassificering** i menyn längst upp i fönstret.
+   - Klicka på **Lägg till klassificering** i menyn längst upp i fönstret.
 
       ![Lägg till klassificering manuellt](./media/sql-data-discovery-and-classification/8_data_classification_add_classification_button.png)
 
-    * I den kontexten-fönstret som öppnas väljer du schemat > Tabell > kolumn som du vill klassificera och information typ och känsliga etiketten. Klicka sedan på det blå fältet **Lägg till klassificering** knappen längst ned i fönstret kontext.
+   - I den kontexten-fönstret som öppnas väljer du schemat > Tabell > kolumn som du vill klassificera och information typ och känsliga etiketten. Klicka sedan på det blå fältet **Lägg till klassificering** knappen längst ned i fönstret kontext.
 
       ![Välj kolumn att klassificera](./media/sql-data-discovery-and-classification/9_data_classification_manual_classification.png)
 
@@ -117,16 +134,16 @@ Du kan använda T-SQL för att lägga till/ta bort kolumnklassificeringar, samt 
 > [!NOTE]
 > När du använder T-SQL för att hantera etiketter, finns det ingen validering som etiketter som lagts till i en kolumn som finns i organisationens information protection-principen (uppsättning etiketter som visas i portalen rekommendationer). Det är detta du kan verifiera detta.
 
-* Lägg till/uppdatera klassificeringen av en eller flera kolumner: [lägga till KÄNSLIGHETSKLASSIFICERING](https://docs.microsoft.com/sql/t-sql/statements/add-sensitivity-classification-transact-sql)
-* Ta bort klassificeringen från en eller flera kolumner: [släppa KÄNSLIGHETSKLASSIFICERING](https://docs.microsoft.com/sql/t-sql/statements/drop-sensitivity-classification-transact-sql)
-* Visa alla klassificeringar för databasen: [sys.sensitivity_classifications](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-sensitivity-classifications-transact-sql)
+- Lägg till/uppdatera klassificeringen av en eller flera kolumner: [lägga till KÄNSLIGHETSKLASSIFICERING](https://docs.microsoft.com/sql/t-sql/statements/add-sensitivity-classification-transact-sql)
+- Ta bort klassificeringen från en eller flera kolumner: [släppa KÄNSLIGHETSKLASSIFICERING](https://docs.microsoft.com/sql/t-sql/statements/drop-sensitivity-classification-transact-sql)
+- Visa alla klassificeringar för databasen: [sys.sensitivity_classifications](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-sensitivity-classifications-transact-sql)
 
 Du kan också använda REST API: er för att programmässigt hantera klassificeringar. Den publicerade REST-API: er har stöd för följande åtgärder:
-* [Skapa eller uppdatera](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/createorupdate) – skapar eller uppdaterar känslighetsetikett för en viss kolumn
-* [Ta bort](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/delete) – tar bort känslighetsetikett för en viss kolumn
-* [Hämta](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/get) -hämtar känsliga etiketten för en viss kolumn
-* [Lista med databasen](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/listbydatabase) -hämtar känslighet etiketterna för en viss databas
 
+- [Skapa eller uppdatera](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/sensitivitylabels_createorupdate) – skapar eller uppdaterar känslighetsetikett för en viss kolumn
+- [Ta bort](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/sensitivitylabels_delete) – tar bort känslighetsetikett för en viss kolumn
+- [Hämta](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/sensitivitylabels_get) -hämtar känsliga etiketten för en viss kolumn
+- [Lista med databasen](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/sensitivitylabels_listbydatabase) -hämtar känslighet etiketterna för en viss databas
 
 ## <a id="subheading-5"></a>Nästa steg
 

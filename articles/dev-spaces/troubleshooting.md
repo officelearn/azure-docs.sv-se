@@ -11,12 +11,12 @@ ms.topic: article
 description: Snabb Kubernetes-utveckling med containrar och mikrotjänster i Azure
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers
 manager: douge
-ms.openlocfilehash: 91bec065b2c83eac6b646ae6a55bc1ae0aae01db
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 3f30a62a2f351aecabc37206607c3e28ec5e3ab5
+ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47226899"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49353366"
 ---
 # <a name="troubleshooting-guide"></a>Felsökningsguide
 
@@ -76,6 +76,23 @@ I Visual Studio:
 
     ![Skärmbild av alternativ för dialogrutan](media/common/VerbositySetting.PNG)
     
+Du kan se det här felet när du försöker använda en flerstegs Dockerfile. Utdata ser ut så här:
+
+```cmd
+$ azds up
+Using dev space 'default' with target 'AksClusterName'
+Synchronizing files...6s
+Installing Helm chart...2s
+Waiting for container image build...10s
+Building container image...
+Step 1/12 : FROM [imagename:tag] AS base
+Error parsing reference: "[imagename:tag] AS base" is not a valid repository/tag: invalid reference format
+Failed to build container image.
+Service cannot be started.
+```
+
+Det beror på att skapar AKS-noder som kör en äldre version av Docker som inte stöder flera steg. Du behöver skriva om din Dockerfile för att undvika flera steg versioner.
+
 ## <a name="dns-name-resolution-fails-for-a-public-url-associated-with-a-dev-spaces-service"></a>DNS-namnmatchningen misslyckas för en offentlig URL som är associerade med en tjänst för utveckling blanksteg
 
 När DNS-namnmatchningen misslyckas visas ett ”sidan kan inte visas” eller ”den här platsen kan inte nås” fel i webbläsaren när du försöker ansluta till en offentlig URL som är associerade med en tjänst för utveckling blanksteg.
@@ -206,6 +223,14 @@ Någon ägare eller deltagare åtkomst till Azure-prenumeration kan köra följa
 ```cmd
 az provider register --namespace Microsoft.DevSpaces
 ```
+
+## <a name="error-could-not-find-a-ready-tiller-pod-when-launching-dev-spaces"></a>”Fel: kunde inte hitta en klar tiller pod” när du startar Dev blanksteg
+
+### <a name="reason"></a>Orsak
+Det här felet uppstår om Helm-klienten kan inte längre kommunicera med din Tiller pod körs i klustret.
+
+### <a name="try"></a>Prova:
+Starta om agentnoder i klustret vanligtvis löser problemet.
 
 ## <a name="azure-dev-spaces-doesnt-seem-to-use-my-existing-dockerfile-to-build-a-container"></a>Azure Dev blanksteg verkar inte använda min befintliga Dockerfile för att skapa en behållare 
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/09/2018
 ms.author: ambapat
-ms.openlocfilehash: 58307b25c03202fea63be25136c5a9c5a2d32473
-ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
+ms.openlocfilehash: 4a1de3c011f1f8cfa1ea9246efad4ebb7f9e3a76
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49079046"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49364531"
 ---
 # <a name="secure-your-key-vault"></a>Säkra ditt nyckelvalv
 Azure Key Vault är en molnbaserad tjänst som skyddar krypteringsnycklar och hemligheter (till exempel certifikat, anslutningssträngar, lösenord). Eftersom dessa data är känsliga och verksamhetskritiska, åtkomst till dina nyckelvalv måste skyddas auktoriserade så att endast program och användare för att få åtkomst. 
@@ -183,7 +183,7 @@ Följande skript visar hur security-teamet kan skapa ett nyckelvalv och ställa 
 ```
 # Create key vault and enable logging
 $sa = Get-AzureRmStorageAccount -ResourceGroup ContosoAppRG -Name contosologstorage
-$kv = New-AzureRmKeyVault -VaultName ContosoKeyVault -ResourceGroup ContosoAppRG -SKU premium -Location 'westus' -EnabledForDeployment
+$kv = New-AzureRmKeyVault -Name ContosoKeyVault -ResourceGroup ContosoAppRG -SKU premium -Location 'westus' -EnabledForDeployment
 Set-AzureRmDiagnosticSetting -ResourceId $kv.ResourceId -StorageAccountId $sa.Id -Enabled $true -Categories AuditEvent
 
 # Data plane permissions for Security team

@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 08/30/2018
 ms.author: iainfou
-ms.openlocfilehash: 71a2409f91927b7584aef629109a6da363857f62
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 0ffa1541439890a0591b52c1fdbc717c7d5aa5ff
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47036651"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49362574"
 ---
 # <a name="create-an-ingress-controller-with-a-static-public-ip-address-in-azure-kubernetes-service-aks"></a>Skapa en ingress-kontrollant med en statisk offentlig IP-adress i Azure Kubernetes Service (AKS)
 
@@ -49,13 +49,16 @@ Skapa sedan en offentlig IP-adress med det *Statiska* allokering metoden med hj�
 az network public-ip create --resource-group MC_myResourceGroup_myAKSCluster_eastus --name myAKSPublicIP --allocation-method static
 ```
 
-Nu distribuera den *nginx-ingress* diagram med Helm. Lägg till den `--set controller.service.loadBalancerIP` parametern och ange dina egna offentliga IP-adressen som skapades i föregående steg.
+Nu distribuera den *nginx-ingress* diagram med Helm. Lägg till den `--set controller.service.loadBalancerIP` parametern och ange dina egna offentliga IP-adressen som skapades i föregående steg. För extra redundans två repliker av NGINX ingående kontrollenheterna distribueras med den `--set controller.replicaCount` parametern. Om du vill utnyttja alla fördelar med repliker av ingress-kontrollant, kontrollera att det finns fler än en nod i AKS-klustret.
 
 > [!TIP]
 > I följande exempel installerar ingress-kontrollanten och certifikat i den `kube-system` namnområde. Du kan ange ett annat namnområde för din egen miljö om så önskas. Även om AKS-klustret inte RBAC aktiverat lägger du till `--set rbac.create=false` för kommandon.
 
 ```console
-helm install stable/nginx-ingress --namespace kube-system --set controller.service.loadBalancerIP="40.121.63.72"
+helm install stable/nginx-ingress \
+    --namespace kube-system \
+    --set controller.service.loadBalancerIP="40.121.63.72"  \
+    --set controller.replicaCount=2
 ```
 
 När tjänsten för Kubernetes belastningsutjämning har skapats för ingress-kontrollanten för NGINX kan tilldelas den statiska IP-adressen som visas i följande Exempelutdata:
@@ -268,6 +271,56 @@ Demoprogrammet visas i webbläsaren:
 Lägg nu till den */hello-world-two* sökvägen till det fullständiga Domännamnet, till exempel *https://demo-aks-ingress.eastus.cloudapp.azure.com/hello-world-two*. Andra demoprogrammet med anpassade rubriken visas:
 
 ![Exempel på två](media/ingress/app-two.png)
+
+## <a name="clean-up-resources"></a>Rensa resurser
+
+Den här artikeln används Helm för att installera komponenter för ingress, certifikat och exempelappar. När du distribuerar ett Helm-diagram, skapas ett antal Kubernetes-resurser. Dessa resurser inkluderar poddar, distributioner och tjänster. Om du vill rensa kan du först ta bort certificate-resurser:
+
+```console
+kubectl delete -f certificates.yaml
+kubectl delete -f cluster-issuer.yaml
+```
+
+Nu lista Helm-versioner med den `helm list` kommando. Leta efter diagram med namnet *nginx-ingress*, *certifikathanterare*, och *aks-helloworld*, vilket visas i följande Exempelutdata:
+
+```
+$ helm list
+
+NAME                    REVISION    UPDATED                     STATUS      CHART                   APP VERSION NAMESPACE
+waxen-hamster           1           Tue Oct 16 17:44:28 2018    DEPLOYED    nginx-ingress-0.22.1    0.15.0      kube-system
+alliterating-peacock    1           Tue Oct 16 18:03:11 2018    DEPLOYED    cert-manager-v0.3.4     v0.3.2      kube-system
+mollified-armadillo     1           Tue Oct 16 18:04:53 2018    DEPLOYED    aks-helloworld-0.1.0                default
+wondering-clam          1           Tue Oct 16 18:04:56 2018    DEPLOYED    aks-helloworld-0.1.0                default
+```
+
+Ta bort versionerna med de `helm delete` kommando. I följande exempel tar bort NGINX ingående distribution och Certifikathanteraren två AKS hello world exempelapparna.
+
+```
+$ helm delete waxen-hamster alliterating-peacock mollified-armadillo wondering-clam
+
+release "billowing-kitten" deleted
+release "loitering-waterbuffalo" deleted
+release "flabby-deer" deleted
+release "linting-echidna" deleted
+```
+
+Ta sedan bort Helm-lagringsplatsen för AKS hello world-app:
+
+```console
+helm repo remove azure-samples
+```
+
+Ta bort den inkommande väg som dirigeras trafiken till exempelapparna:
+
+```console
+kubectl delete -f hello-world-ingress.yaml
+```
+
+Slutligen ska du ta bort den statiska offentlig IP-adress som har skapats för ingress-kontrollant. Ange din *MC_* kluster resursgruppens namn som hämtades i det första steget i den här artikeln *MC_myResourceGroup_myAKSCluster_eastus*:
+
+```azurecli
+az network public-ip delete --resource-group MC_myResourceGroup_myAKSCluster_eastus --name myAKSPublicIP
+```
 
 ## <a name="next-steps"></a>Nästa steg
 

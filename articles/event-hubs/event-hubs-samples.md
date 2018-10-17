@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/17/2018
 ms.author: shvija
-ms.openlocfilehash: fbde6e5a5ed053d6c151b3af25535c397a496ef4
-ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
+ms.openlocfilehash: ed337689360428d66657e5391ee52bb0ae39dc14
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "40005342"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49365653"
 ---
 # <a name="event-hubs-samples"></a>Event Hubs-exempel 
 Du kan hitta exempel för Event Hubs på [GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples). De här exemplen visar viktiga funktioner i [Azure Event Hubs](/azure/event-hubs/). Den här artikeln kategoriserar och beskriver exempel som är tillgängliga med länkar till var och en.
@@ -44,6 +44,23 @@ Du kan hitta exempel för Event Hubs på [GitHub](https://github.com/Azure/azure
 | [EventProcessorSample](https://github.com/Azure/azure-event-hubs/blob/master/samples/Java/Basic/EventProcessorSample) |Det här exemplet visar hur du kan ta emot händelser från en händelsehubb med värden för händelsebearbetning, vilket ger automatisk partition val och redundans i flera samtidiga mottagare. | 
 | [AutoScaleOnIngress](https://github.com/Azure/azure-event-hubs/blob/master/samples/Java/Benchmarks/AutoScaleOnIngress) | Det här exemplet illustrerar hur en händelsehubb kan automatiskt skala upp hög belastning. Exemplet skickar händelser till en kostnad som bara överskrider den konfigurerade mängden en händelsehubb som orsakar händelsehubben för att skala upp. | 
 | [IngressBenchmark](https://github.com/Azure/azure-event-hubs/blob/master/samples/Java/Benchmarks/IngressBenchmark) | Det här exemplet kan mäta ingress-priset. | 
+
+## <a name="python-samples"></a>Python-exempel
+Du kan hitta Python-exempel för Azure Event Hubs i den [azure-event-hubs-python](https://github.com/Azure/azure-event-hubs-python/tree/master/examples) GitHub-lagringsplatsen.
+
+## <a name="nodejs-samples"></a>Node.js-exempel
+Du kan hitta Node.js-exempel för Azure Event Hubs i den [azure-event-hubs-nod](https://github.com/Azure/azure-event-hubs-node) GitHub-lagringsplatsen.
+
+## <a name="go-samples"></a>Go-kodexempel
+Du kan hitta Go-exempel för Azure Event Hubs i den [azure-event-hubs-go](https://github.com/Azure/azure-event-hubs-go/tree/master/_examples) GitHub-lagringsplatsen.
+
+## <a name="azure-cli-samples"></a>Azure CLI-exempel
+Du hittar Azure CLI-exempel för Azure Event Hubs i den [azure-event-hubs](https://github.com/Azure/azure-event-hubs/tree/master/samples/Management/CLI) GitHub-lagringsplatsen.
+
+## <a name="azure-powershell-samples"></a>Azure PowerShell-exempel
+Du hittar Azure PowerShell-exempel för Azure Event Hubs i den [azure-event-hubs](https://github.com/Azure/azure-event-hubs/tree/master/samples/Management/PowerShell) GitHub-lagringsplatsen.
+ 
+
 
 ## <a name="next-steps"></a>Nästa steg
 Du kan läsa mer om Event Hubs i följande artiklar:

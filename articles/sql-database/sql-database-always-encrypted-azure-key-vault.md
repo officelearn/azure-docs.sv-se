@@ -13,12 +13,12 @@ ms.author: vanto
 ms.reviewer: ''
 manager: craigg
 ms.date: 10/05/2018
-ms.openlocfilehash: 79613ab7a0e96405abbb3b380800f5ba951c3bdc
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: 44fc04d4788c4381a4922f1335c393e03045900e
+ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49092703"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49352402"
 ---
 # <a name="always-encrypted-protect-sensitive-data-and-store-encryption-keys-in-azure-key-vault"></a>Alltid krypterad: Skydda känsliga data och lagra krypteringsnycklar i Azure Key Vault
 
@@ -605,7 +605,7 @@ Du kan se att de krypterade kolumnerna inte innehåller några data i klartext.
 
    ![Nytt konsolprogram](./media/sql-database-always-encrypted-azure-key-vault/ssms-encrypted.png)
 
-Om du vill använda SSMS på dataåtkomst klartext, måste du först kontrollera att användaren har rätt behörighet till Azure Key Vault: *hämta*, *unwrapKey*, och *Kontrollera*. Detaljerad information finns i [skapa- och huvudnycklarna för Store kolumnen (Always Encrypted)](https://docs.microsoft.com/en-us/sql/relational-databases/security/encryption/create-and-store-column-master-keys-always-encrypted?view=sql-server-2017).
+Om du vill använda SSMS på dataåtkomst klartext, måste du först kontrollera att användaren har rätt behörighet till Azure Key Vault: *hämta*, *unwrapKey*, och *Kontrollera*. Detaljerad information finns i [skapa- och huvudnycklarna för Store kolumnen (Always Encrypted)](https://docs.microsoft.com/sql/relational-databases/security/encryption/create-and-store-column-master-keys-always-encrypted?view=sql-server-2017).
 
 Lägg sedan till den *kolumnen krypteringsinställning = aktiverat* parametern under anslutningen.
 

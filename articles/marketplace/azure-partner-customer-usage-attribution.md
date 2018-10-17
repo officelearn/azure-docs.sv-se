@@ -12,14 +12,14 @@ ms.workload: ''
 ms.tgt_pltfrm: ''
 ms.devlang: ''
 ms.topic: article
-ms.date: 10/05/2018
+ms.date: 10/15/2018
 ms.author: yijenj
-ms.openlocfilehash: 99df133b9f626f970189df578c6d107086b9dab9
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: a0b3c220a1cd857bc8bea0eb5ab41625845fcc5d
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48855008"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49365636"
 ---
 # <a name="azure-partner-customer-usage-attribution"></a>Azure-partner kundens användning attribution
 
@@ -44,17 +44,19 @@ Många partnerlösningar distribueras på en kunds prenumeration med hjälp av R
 
 Om du vill lägga till en globalt unik identifierare (GUID), kan du göra en enda ändring huvudsakliga mallfilen:
 
-1. Skapa en GUID (till exempel eb7927c8-dd66-43e1-b0cf-c346a422063).
+1. [Skapa ett GUID](#create-guids) (t.ex. eb7927c8-dd66-43e1-b0cf-c346a422063) och [registrera GUID](#register-guids-and-offers).
 
 1. Öppna Resource Manager-mallen.
 
 1. Lägg till en ny resurs i den huvudsakliga mallfilen. Resursen måste finnas i den **mainTemplate.json** eller **azuredeploy.json** filen endast, och inte i någon kapslad eller länkad mallar.
 
-1. Ange GUID-värde efter den **pid -** prefix (till exempel pid-eb7927c8-dd66-43e1-b0cf-c346a422063).
+1. Ange GUID-värde efter den **pid -** prefix (t.ex. pid-eb7927c8-dd66-43e1-b0cf-c346a422063).
 
 1. Kontrollera mallen innehåller fel.
 
 1. Publicera om mallen i lämpliga databaser.
+
+1. [Kontrollera GUID i malldistributionen](#verify-the-guid-deployment).
 
 ### <a name="sample-template-code"></a>Exempelkod för mallen
 
@@ -99,6 +101,24 @@ När du använder Azure CLI för att lägga till din GUID, ange den **AZURE_HTTP
 ```
 export AZURE_HTTP_USER_AGENT='pid-eb7927c8-dd66-43e1-b0cf-c346a422063'
 ```
+
+## <a name="create-guids"></a>Skapa GUID
+
+Ett GUID är ett unikt referensnummer med 32 hexadecimala siffror. För att skapa GUID för spårning, bör du använda en GUID-generator. Vi rekommenderar att du utnyttjar [Azure Storage GUID generator formuläret](https://aka.ms/StoragePartners). Men om du inte föredrar att använda Azure Storage GUID generator, det finns flera [online GUID generatorer](https://www.bing.com/search?q=guid%20generator) som du kan använda.
+
+> [!Note]
+> Det är mycket rekommenderar att du använder [Azure Storage GUID generator formuläret](https://aka.ms/StoragePartners) att skapa din GUID. Mer information finns i vår [vanliga frågor och svar](#faq).
+
+Skapa ett unikt GUID för varje erbjudande och distribution kanal. Om du distribuerar två lösningar med hjälp av en mall och var och en är tillgänglig på Azure Marketplace och på GitHub, måste du skapa fyra GUID:
+
+*   Erbjud en i Azure Marketplace 
+*   Erbjud en på GitHub
+*   Erbjudandet B i Azure Marketplace 
+*   Erbjudandet B på GitHub
+
+Rapportering sker genom att värdet för partner (Microsoft Partner-ID) och GUID. 
+
+Du kan också spåra GUID på en mer detaljerad nivå som SKU: N, där SKU: er är varianter av ett erbjudande.
 
 ## <a name="register-guids-and-offers"></a>Registrera GUID och erbjudanden
 
@@ -183,21 +203,6 @@ foreach ($deployment in $deployments){
 }
 ```
 
-## <a name="create-guids"></a>Skapa GUID
-
-Ett GUID är ett unikt referensnummer med 32 hexadecimala siffror. För att skapa GUID för spårning, bör du använda en GUID-generator. Det finns flera [online GUID generatorer](https://www.bing.com/search?q=guid%20generator&qs=n&form=QBRE&sp=-1&ghc=2&pq=guid%20g&sc=8-6&sk=&cvid=0BAFAFCD70B34E4296BB97FBFA3E1B4E) som du kan använda.
-
-Skapa ett unikt GUID för varje erbjudande och distribution kanal. Om du distribuerar två lösningar med hjälp av en mall och var och en är tillgänglig på Azure Marketplace och på GitHub, måste du skapa fyra GUID:
-
-*   Erbjud en i Azure Marketplace 
-*   Erbjud en på GitHub
-*   Erbjudandet B i Azure Marketplace 
-*   Erbjudandet B på GitHub
-
-Rapportering sker genom att värdet för partner (Microsoft Partner-ID) och GUID. 
-
-Du kan också spåra GUID på en mer detaljerad nivå som SKU: N, där SKU: er är varianter av ett erbjudande.
-
 ## <a name="notify-your-customers"></a>Meddela dina kunder
 
 Partner bör informera kunderna om distributioner som använder Resource Manager-GUID spårning. Microsoft rapporterar den Azure-användning som associeras med dessa distributioner till partnern. I följande exempel innehåller innehåll som du kan använda för att informera kunderna om dessa distributioner. I exemplen är ersätter \<PARTNER > med namnet på ditt företag. Partner bör kontrollera att meddelandet som överensstämmer med deras data sekretess och samling principer, inklusive alternativ för kunder som ska undantas från spårning. 
@@ -275,3 +280,7 @@ Kunder kan spåra deras användning av enskilda resurser eller kunddefinierad re
 **Påminner om den här metoden för spårning till den Digital Partner of Record (DPOR)?**
 
 Den nya metoden för att ansluta distribution och användning till en partnerlösning är en mekanism för att länka en partnerlösning till Azure-användning. DPOR är avsedd att associera en konsult (systemintegratör) eller hanteringspartnern (Managed Service Provider) med en kunds Azure-prenumeration.   
+
+**Vad är fördelen för Azure Storage GUID Generator formatet?**
+
+Azure Storage GUID Generator formuläret garanteras att generera en GUID för formatet som krävs. Om du använder någon av Azure Storage-dataplanet spåra metoder, kan du dessutom använda samma GUID för Marketplace kontrollplanet spårning. På så sätt kan du utnyttja ett en enkel och enhetlig GUID för Partner attribution utan att behöva underhålla olika GUID.

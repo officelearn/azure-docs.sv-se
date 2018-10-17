@@ -97,6 +97,8 @@ items:
         href: sql-database-service-tiers-general-purpose-business-critical.md
       - name: Hyperskala
         href: sql-database-service-tier-hyperscale.md
+      - name: Vanliga frågor och svar om hyperskala
+        href: sql-database-service-tier-hyperscale-faq.md
     - name: Tjänstnivåer för DTU
       href: sql-database-service-tiers-dtu.md
     - name: Förskottsbetalning för reserverad kapacitet
@@ -161,6 +163,8 @@ items:
       href: sql-database-business-continuity.md
     - name: Hög tillgänglighet
       href: sql-database-high-availability.md
+    - name: Accelererad återställning av databaser
+      href: sql-database-accelerated-database-recovery.md
     - name: Säkerhetskopior av databasen
       href: sql-database-automated-backups.md
     - name: Långsiktig kvarhållning av säkerhetskopior
@@ -179,13 +183,13 @@ items:
         href: sql-database-geo-replication-portal.md
       - name: Konfigurera säkerhet för repliker
         href: sql-database-geo-replication-security-config.md
-    - name: Återställning av databaser
+    - name: Alternativ för återställning av databaser
       items:
-      - name: Återställning av databaser
+      - name: Återställning med hjälp av säkerhetskopior
         href: sql-database-recovery-using-backups.md
-      - name: Återställa från driftavbrott
+      - name: Vägledning för återställning vid avbrott
         href: sql-database-disaster-recovery.md
-      - name: Utföra återställningstest
+      - name: Återställningstester
         href: sql-database-disaster-recovery-drills.md
     - name: Apputformning
       items:
@@ -319,7 +323,7 @@ items:
         href: sql-database-elastic-scale-use-entity-framework-applications-visual-studio.md
   - name: Jämförelse av SQL-funktioner
     href: sql-database-features.md
-  - name: Prestanda- och justering
+  - name: Prestanda och övervakning
     items:
     - name: Intelligent prestanda
       items:
@@ -630,9 +634,9 @@ items:
     href: /azure/architecture/
   - name: Kundberättelser
     href: http://customers.microsoft.com/en-us/search?sq=%22Azure%20SQL%20Database%22&ff=&p=0&so=story_publish_date%20desc
-ms.openlocfilehash: abafd9d9022b306ce090b618ecc9477cd95c714e
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.openlocfilehash: e39e94ccbf1da42b10cd8c618cd27c2a7eb214de
+ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48869252"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49353518"

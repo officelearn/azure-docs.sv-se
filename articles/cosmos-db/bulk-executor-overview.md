@@ -1,21 +1,20 @@
 ---
-title: Azure Cosmos DB bulk executor biblioteket – översikt | Microsoft Docs
-description: Läs mer om Azure Cosmos DB bulk executor biblioteket, fördelarna med att använda biblioteket och dess arkitektur.
-keywords: Java bulk executor
+title: Massimport och uppdatera data i Azure Cosmos DB med hjälp av klientbiblioteket för bulk-executor | Microsoft Docs
+description: 'Utföra massåtgärder i Azure Cosmos DB via massimport och Massuppdatering API: er som erbjuds av bulk executor biblioteket.'
 services: cosmos-db
 author: tknandu
 manager: kfile
 ms.service: cosmos-db
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/07/2018
+ms.date: 10/16/2018
 ms.author: ramkris
-ms.openlocfilehash: 823cb536a1cd0b8f5da7442906b14447c15ae044
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: a760de998c78ce2afdd24a15d9dd6e5d0cf44dc1
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49091361"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49363556"
 ---
 # <a name="azure-cosmos-db-bulk-executor-library-overview"></a>Azure Cosmos DB bulk executor biblioteket – översikt
  
@@ -27,7 +26,7 @@ Azure Cosmos DB är en snabb, flexibel och globalt distribuerad databastjänst s
 Massinläsning executor biblioteket kan du använda den här massivt dataflöde och lagring. Massinläsning executor biblioteket kan du utför åtgärder i Azure Cosmos DB via massimport och masskyddsåtgärder uppdatera API: er. Du kan läsa mer om funktionerna i bulk executor bibliotek i följande avsnitt. 
 
 > [!NOTE] 
-> För närvarande bulk executor bibliotek stöder import och uppdateringsåtgärder och det här biblioteket som stöds av Azure Cosmos DB SQL API-konton. Se [.NET](sql-api-sdk-bulk-executor-dot-net.md) och [Java](sql-api-sdk-bulk-executor-java.md) viktig information om eventuella uppdateringar i biblioteket.
+> För närvarande bulk executor bibliotek stöder import och uppdateringsåtgärder och det här biblioteket som stöds av endast Azure Cosmos DB SQL API och Gremlin-API-konton.
  
 ## <a name="key-features-of-the-bulk-executor-library"></a>Viktiga funktioner i bulk executor biblioteket  
  

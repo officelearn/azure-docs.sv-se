@@ -13,15 +13,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/18/2018
+ms.date: 10/12/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 96d8977a63d26576d4d783dd0661409fdcee90f8
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 03f096bf160c44f7a35f54a73cff6ea701b87d22
+ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46314036"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49352931"
 ---
 # <a name="azure-ad-connect-accounts-and-permissions"></a>Azure AD Connect: Konton och behörigheter
 
@@ -113,6 +113,12 @@ Följande är en sammanfattning av de anpassa installlation sidorna i guiden aut
 | Sidan för AD FS-tjänstkontot, ”använda en domän användare kontoalternativet” |Autentiseringsuppgifter för AD-användare |Domänanvändare |AD-användarkonto vars autentiseringsuppgifter tillhandahålls används som inloggningskontot för AD FS-tjänsten. |
 
 ### <a name="create-the-ad-ds-connector-account"></a>Skapa AD DS-anslutningskontot
+
+>[!IMPORTANT]
+>En ny PowerShell-modul namngivna ADSyncConfig.psm1 introducerades med build **1.1.880.0** (släpptes i augusti 2018) som innehåller en samling av cmdletar för att konfigurera rätt Active Directory-behörigheter för Azure AD DS Anslutningskontot.
+>
+>Mer information finns i [Azure AD Connect: Konfigurera AD DS Connector kontot behörighet](how-to-connect-configure-ad-ds-connector-account.md)
+
 Det konto som du anger på den **Anslut dina kataloger** sidan måste finnas i Active Directory före installationen.  Azure AD Connect version 1.1.524.0 och senare har alternativet för att låta Azure AD Connect-guiden skapa den **AD DS-anslutningskontot** används för att ansluta till Active Directory.  
 
 Det måste också ha behörighet som beviljas. Installationsguiden kontrollerar inte behörigheterna och eventuella problem finns endast under synkroniseringen.

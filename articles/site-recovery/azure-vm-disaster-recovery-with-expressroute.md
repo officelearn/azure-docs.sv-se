@@ -2,25 +2,25 @@
 title: Integrera Azure ExpressRoute med haveriberedskap för virtuella Azure-datorer med Azure Site Recovery | Microsoft Docs
 description: Beskriver hur du konfigurerar haveriberedskap för virtuella Azure-datorer med hjälp av Azure Site Recovery och Azure ExpressRoute
 services: site-recovery
-author: mayanknayar
+author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
-ms.topic: article
-ms.date: 10/02/2018
-ms.author: manayar
-ms.openlocfilehash: c3fc8edf1601b3bb6f670df64d444edc9dcfbd6d
-ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
+ms.topic: conceptual
+ms.date: 10/16/2018
+ms.author: mayg
+ms.openlocfilehash: 03fac23ea17a6baa1b43e748a4390cf142661a19
+ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49114884"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49353554"
 ---
 # <a name="integrate-azure-expressroute-with-disaster-recovery-for-azure-vms"></a>Integrera Azure ExpressRoute med haveriberedskap för virtuella Azure-datorer
 
 
 Den här artikeln beskriver hur du integrerar Azure ExpressRoute med [Azure Site Recovery](site-recovery-overview.md), när du konfigurerar haveriberedskap för virtuella Azure-datorer till en sekundär Azure-region.
 
-Site Recovery kan haveriberedskap för virtuella Azure-datorer genom att replikera Virtuella Azure-data till Azure. 
+Site Recovery kan haveriberedskap för virtuella Azure-datorer genom att replikera Virtuella Azure-data till Azure.
 
 - Om virtuella Azure-datorer använder [Azure hanterade diskar](../virtual-machines/windows/managed-disks-overview.md), VM-data replikeras till en replikerad hanterad disk i den sekundära regionen.
 - Om virtuella Azure-datorer inte använder hanterade diskar, replikeras VM-data till ett Azure storage-konto.
@@ -76,7 +76,7 @@ Om du vill konfigurera replikering för virtuella Azure-datorer på en primär p
     - Azures standardsystemväg för Azure VM-replikering är 0.0.0.0/0.
     - NVA-distributioner vanligtvis definiera också en standardväg (0.0.0.0/0) som tvingar utgående Internet-trafiken kan flöda via NVA. Standardvägen används när ingen specifik väg konfiguration kan hittas.
     - Om så är fallet kan vara överbelastad NVA om all replikeringstrafik passerar via NVA.
-    - Samma begränsningar gäller även när du använder standardvägar för routning av alla Virtuella Azure-trafik till lokala distributioner. 
+    - Samma begränsningar gäller även när du använder standardvägar för routning av alla Virtuella Azure-trafik till lokala distributioner.
     - I det här scenariot rekommenderar vi att du [skapa en tjänstslutpunkt för nätverket](azure-to-azure-about-networking.md#create-network-service-endpoint-for-storage) i det virtuella nätverket för Microsoft.Storage-tjänsten så att replikeringstrafiken inte lämnar Azure-gränsen.
 
 ## <a name="replication-example"></a>Exempel för replikering
@@ -87,8 +87,8 @@ Enterprise-distributioner har vanligtvis arbetsbelastningar delas upp på flera 
 
 - **Region**. Appar som distribueras i Östasien för Azure-region.
 - **Virtuella ekernätverk**. Appar som distribueras i två virtuella eker-nätverk:
-    - **Källan vNet1**: 10.1.0.0/24. 
-    - **Källan vNet2**: 10.2.0.0/24. 
+    - **Källan vNet1**: 10.1.0.0/24.
+    - **Källan vNet2**: 10.2.0.0/24.
     - Varje eker virtuellt nätverk är ansluten till **Hubbnätverk**.
 - **Hubbnätverk**. Det finns en Hubbnätverk **källa Hubbnätverk**: 10.10.10.0/24.
     - Den här Hubbnätverk fungerar som gatekeepern.
@@ -124,14 +124,14 @@ Hub till spoke | Använd ta bort gateways | Disabled
 
  ![NAV och ekrar peering-konfigurationen](./media/azure-vm-disaster-recovery-with-expressroute/hub-to-spoke-peering-configuration.png)
 
-### <a name="example-steps"></a>Exempelbeskrivningar 
+### <a name="example-steps"></a>Exempelbeskrivningar
 
 I vårt exempel, följande som ska hända när du aktiverar replikering för virtuella Azure-datorer i källnätverket:
 
 1. Du [Aktivera replikering](azure-to-azure-tutorial-enable-replication.md) för en virtuell dator.
 2. Site Recovery skapar repliken virtuella nätverk, undernät och gateway-undernät i målregionen.
 3. Mappningar mellan käll-nätverk och målnätverken repliken skapas skapar site Recovery.
-4. Du skapa manuellt virtuella nätverksgatewayer gatewayanslutningar för virtuella nätverk, virtuell nätverkspeering eller några andra nätverk resurser eller anslutningar. 
+4. Du skapa manuellt virtuella nätverksgatewayer gatewayanslutningar för virtuella nätverk, virtuell nätverkspeering eller några andra nätverk resurser eller anslutningar.
 
 
 ## <a name="fail-over-azure-vms-when-using-expressroute"></a>Växla över virtuella datorer i Azure när du använder ExpressRoute
@@ -148,7 +148,7 @@ När du redundansväxlar virtuella Azure-datorer till målet med hjälp av Site 
 
 Den här konfigurationen hjälper att skyddar ExpressRoute-kretsar mot regionalt haveri. Om din primära peering loation slutar fungera kan fortsätta anslutningar från den andra platsen.
 
-- Kretsen är anslutna till produktionsmiljön är vanligtvis primärt. Den sekundära kretsen har normalt lägre bandbredd, vilket kan ökas om en olycka inträffar. 
+- Kretsen är anslutna till produktionsmiljön är vanligtvis primärt. Den sekundära kretsen har normalt lägre bandbredd, vilket kan ökas om en olycka inträffar.
 - Du kan upprätta anslutningar från den sekundära ExpressRoute-kretsen till mål-vNet efter redundansväxlingen. Du kan också ha anslutningar som har förberetts och kan nu händelse av katastrof, för att minska övergripande återställningstid.
 - Med samtidiga anslutningar till både primära servern och målets virtuella nätverk kan du se till att dina lokala routning bara använder den sekundära kretsen och anslutning efter redundansväxling.
 - De virtuella nätverken för källa och mål kan ta emot nya IP-adresser, eller Behåll de samma efter en redundansväxling. I båda fallen kan sekundära anslutningar upprättas före redundans.
@@ -156,7 +156,7 @@ Den här konfigurationen hjälper att skyddar ExpressRoute-kretsar mot regionalt
 
 #### <a name="two-circuits-with-single-peering-location"></a>Två kretsar med enkel peering-plats
 
-Den här konfigurationen skyddar mot fel på den primära ExpressRoute-kretsen, men inte om den enda peering ExpressRoute-platsen slutar fungera kan påverka både kretsar. 
+Den här konfigurationen skyddar mot fel på den primära ExpressRoute-kretsen, men inte om den enda peering ExpressRoute-platsen slutar fungera kan påverka både kretsar.
 
 - Du kan ha samtidiga anslutningar från lokala datacenter till källan vNEt med den primära kretsen och till mål-vNet med den sekundära kretsen.
 - Kontrollera att som en lokal routning endast använder sekundära kretsen och anslutning efter redundansväxling med samtidiga anslutningar till primära och målet.

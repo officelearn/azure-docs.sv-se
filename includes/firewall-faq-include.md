@@ -5,21 +5,21 @@ services: firewall
 author: vhorne
 ms.service: ''
 ms.topic: include
-ms.date: 10/4/2018
+ms.date: 10/15/2018
 ms.author: victorh
 ms.custom: include file
-ms.openlocfilehash: fa2542d530c37876de38a510a6771144043aae77
-ms.sourcegitcommit: 4edf9354a00bb63082c3b844b979165b64f46286
+ms.openlocfilehash: 1d52c9b3b9b91873bd6f34443f162c74d724a65c
+ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48812160"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49367115"
 ---
 ### <a name="what-is-azure-firewall"></a>Vad är Azure Firewall?
 
 Azure Firewall är en hanterad, molnbaserad tjänst för nätverkssäkerhet som skyddar dina Azure Virtual Network-resurser. Det är en fullständigt administrerad brandvägg-som-tjänst-med inbyggd hög tillgänglighet och skalbarhet i obegränsad molnet. Du kan centralt skapa, framtvinga och logga principer för tillämpning och nätverksanslutning över prenumerationer och virtuella nätverk.
 
-### <a name="what-capabilities-are-supported-in-azure-firewall"></a>Vilka funktioner stöds i Azure-brandvägg?  
+### <a name="what-capabilities-are-supported-in-azure-firewall"></a>Vilka funktioner stöds i Azure-brandvägg?
 
 * Tillståndskänslig brandvägg som en tjänst
 * Inbyggd hög tillgänglighet med obegränsad skalbarhet i molnet
@@ -29,7 +29,7 @@ Azure Firewall är en hanterad, molnbaserad tjänst för nätverkssäkerhet som 
 * Stöd för utgående SNAT
 * Stöd för inkommande DNAT
 * Skapa, tillämpa och logga principer för program och nätverk-anslutning via Azure-prenumerationer och virtuella nätverk centralt
-* Fullständig integrering med Azure Monitor för loggning och analys 
+* Fullständig integrering med Azure Monitor för loggning och analys
 
 ### <a name="what-is-the-pricing-for-azure-firewall"></a>Vad är priset för Azure-brandvägg?
 
@@ -52,13 +52,13 @@ Azure-brandväggen har stöd för regler och regelsamlingar. En regelsamling är
 
 Det finns två typer av samlingar:
 
-* *Regler för program*: du kan konfigurera fullständigt kvalificerade domännamn (FQDN) som kan nås från ett undernät. 
-* *Network regler*: du kan konfigurera regler som innehåller källadresser, protokoll, målportar och måladresser. 
+* *Regler för program*: du kan konfigurera fullständigt kvalificerade domännamn (FQDN) som kan nås från ett undernät.
+* *Network regler*: du kan konfigurera regler som innehåller källadresser, protokoll, målportar och måladresser.
 
 ### <a name="does-azure-firewall-support-inbound-traffic-filtering"></a>Stöder Azure Brandvägg för inkommande trafikfiltrering?
 
 Azure-brandväggen har stöd för filtrering av inkommande och utgående. Inkommande skydd är för icke-HTTP/S-protokoll. Till exempel RDP, SSH och FTP-protokoll.
- 
+
 ### <a name="which-logging-and-analytics-services-are-supported-by-the-azure-firewall"></a>Vilka loggning och Analystjänster stöds av Azure-brandvägg?
 
 Azure-brandväggen är integrerad med Azure Monitor för att visa och analysera loggar från brandväggen. Loggar kan skickas till Log Analytics, Azure Storage eller Event Hubs. De kan analyseras i Log Analytics eller genom att olika verktyg som Excel och Power BI. Mer information finns i [självstudie: övervaka Azure brandväggsloggar](../articles/firewall/tutorial-diagnostics.md).
@@ -66,14 +66,14 @@ Azure-brandväggen är integrerad med Azure Monitor för att visa och analysera 
 ### <a name="how-does-azure-firewall-work-differently-from-existing-services-such-as-nvas-in-the-marketplace"></a>Hur fungerar Azure-brandväggen på olika sätt från befintliga tjänster, till exempel nva: er på marketplace?
 
 Brandvägg för Azure är en enkel brandvägg-tjänst som kan lösa vissa kundscenarier med. Det är normalt att du har en blandning av tredjeparts-nva: er och Azure-brandvägg. Fungerar bättre tillsammans är prioriterat core.
- 
+
 ### <a name="what-is-the-difference-between-application-gateway-waf-and-azure-firewall"></a>Vad är skillnaden mellan Application Gateway WAF och Azure-brandvägg?
 
 Web Application Firewall (WAF) är en funktion i Application Gateway som ger ett centraliserat inkommande skydd av dina webbappar mot vanliga kryphål och säkerhetsproblem. Azure-brandväggen ger inkommande skydd för icke-HTTP/S-protokoll (till exempel RDP, SSH, FTP) och utgående på nätverksnivå skydd för alla portar och protokoll på programnivå skydd för utgående HTTP/S.
 
 ### <a name="what-is-the-difference-between-network-security-groups-nsgs-and-azure-firewall"></a>Vad är skillnaden mellan Nätverkssäkerhetsgrupper (NSG) och Azure-brandvägg?
 
-Azure brandväggstjänsten kompletterar network security group funktioner. Tillsammans kan de ger bättre ”skydd på djupet” nätverkssäkerhet. Nätverkssäkerhetsgrupper innehåller distribuerade layer filtrering av nätverkstrafik för att begränsa trafik till resurser i virtuella nätverk i varje prenumeration. Azure-brandväggen är en fullständigt administrerad, centraliserad nätverk brandväggen som-tjänst, vilket ger nätverks - och programnivå skydd i olika prenumerationer och virtuella nätverk. 
+Azure brandväggstjänsten kompletterar network security group funktioner. Tillsammans kan de ger bättre ”skydd på djupet” nätverkssäkerhet. Nätverkssäkerhetsgrupper innehåller distribuerade layer filtrering av nätverkstrafik för att begränsa trafik till resurser i virtuella nätverk i varje prenumeration. Azure-brandväggen är en fullständigt administrerad, centraliserad nätverk brandväggen som-tjänst, vilket ger nätverks - och programnivå skydd i olika prenumerationer och virtuella nätverk.
 
 ### <a name="how-do-i-set-up-azure-firewall-with-my-service-endpoints"></a>Hur ställer jag in Azure-brandvägg med min tjänstslutpunkter?
 
@@ -107,7 +107,7 @@ Set-AzureRmFirewall -AzureFirewall $azfw
 
 ### <a name="what-are-the-known-service-limits"></a>Vad kända gränser har tjänsten?
 
-* Azure-brandväggen har en mjuk gräns på 1 000 TB per brandväggen per månad. 
+* Azure-brandväggen har en mjuk gräns på 1 000 TB per brandväggen per månad.
 * En instans av Azure-brandväggen som körs i ett centralt virtuella nätverk har virtuell nätverkspeering begränsningar med högst 50 virtuella ekernätverk.  
 * Azure-brandväggen fungerar inte med global peering, så du bör ha minst en distribution av brandvägg per region.
 * Azure-brandväggen har stöd för 10 k programmet regler och 10 k Nätverksregler.
@@ -119,3 +119,7 @@ Ja, du kan använda Azure-brandvägg i en virtuella navnätverket kan dirigera o
 ### <a name="can-azure-firewall-forward-and-filter-network-traffic-between-subnets-in-the-same-virtual-network"></a>Kan Azure-brandvägg framåt och filtrera nätverkstrafik mellan undernät i samma virtuella nätverk?
 
 Trafik mellan undernät i samma virtuella nätverk eller i en direkt peerkopplade virtuella nätverk dirigeras direkt även om UDR pekar på Azure-brandväggen som standard-gateway. Den rekommenderade metoden för interna nätverkssegmentering är att använda Nätverkssäkerhetsgrupper. Om du vill skicka undernätet till undernätet trafik i brandväggen i det här scenariot, måste UDR innehålla mål nätverk undernätsprefixet uttryckligen på båda undernäten.
+
+### <a name="are-there-any-firewall-resource-group-restrictions"></a>Finns det någon brandvägg resource group begränsningar?
+
+Ja. Brandväggen, undernät, virtuella nätverk och den offentliga IP-adressen måste vara i samma resursgrupp.

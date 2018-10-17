@@ -12,14 +12,14 @@ ms.author: genemi
 ms.reviewer: billgib, stein
 manager: craigg
 ms.date: 04/02/2018
-ms.openlocfilehash: b91960920f0181939e634a221080d493fb8cea63
-ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
+ms.openlocfilehash: ff09a5f09393ad642ddb2059b58bd69a17591aff
+ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47056666"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49352219"
 ---
-# <a name="deploy-and-explore-a-sharded-multi-tenant-application-that-uses-azure-sql-database"></a>Distribuera och utforska ett delat program för flera klienter som använder Azure SQL Database
+# <a name="deploy-and-explore-a-sharded-multi-tenant-application"></a>Distribuera och utforska ett delat program för flera innehavare
 
 I den här självstudien, distribuera och utforska ett exempel SaaS-program som kallas Wingtip biljetter. Appen Wingtip biljetter är utformad för att demonstrera funktionerna i Azure SQL Database som förenklar implementeringen av SaaS-scenarier.
 
@@ -27,7 +27,7 @@ Den här implementeringen av Wingtip biljetter appen använder ett mönster för
 
 Det här mönstret för databasen kan du lagra en eller flera innehavare i varje shard eller databasen. Du kan optimera för lägsta kostnad genom att konfigurera varje databas som delas av flera klienter. Eller du kan optimera för isolering genom att konfigurera varje databas som lagrar bara en klient. Valfri optimering kan göras separat för varje specifik klient. Ditt val kan göras när klienten först lagras, eller när du ändrar dig senare. Programmet är utformade att fungera bra i båda fallen.
 
-#### <a name="app-deploys-quickly"></a>Appen distribueras snabbt
+## <a name="app-deploys-quickly"></a>Appen distribueras snabbt
 
 Appen körs i Azure-molnet och använder Azure SQL Database. I följande distribution avsnitt ger det blå fältet **distribuera till Azure** knappen. När knappen trycks distribueras helt appen till din Azure-prenumeration inom fem minuter. Du har fullständig åtkomst till arbete med de olika programkomponenterna.
 
@@ -35,7 +35,7 @@ Programmet har distribuerats med data för tre exempelklienter. Klienterna lagra
 
 Vem som helst kan ladda ned källkoden C# och PowerShell för Wingtip-biljetter från [dess GitHub-lagringsplatsen][link-github-wingtip-multitenantdb-55g].
 
-#### <a name="learn-in-this-tutorial"></a>Lär dig i den här självstudien
+## <a name="learn-in-this-tutorial"></a>Lär dig i den här självstudien
 
 > [!div class="checklist"]
 > - Hur du distribuerar Wingtip biljetter SaaS-program.
@@ -55,15 +55,15 @@ Följande krav måste uppfyllas för att kunna köra den här självstudiekursen
 
 ## <a name="deploy-the-wingtip-tickets-app"></a>Distribuera Wingtip biljetter app
 
-#### <a name="plan-the-names"></a>Planera namnen
+### <a name="plan-the-names"></a>Planera namnen
 
 I stegen i det här avsnittet anger du en *användaren* värde som används för att säkerställa att resursnamn är globalt unikt och ett namn för den *resursgrupp* som innehåller alla resurser som skapades i en distribution appens. För en person med namnet *Ann Finley*, föreslår vi att:
-- *Användare:* **af1***(hennes initialer plus en siffra.   Använd ett annat värde (t.ex. af2) om du distribuerar appen en gång.)*
+- *Användare:* **af1***(hennes initialer plus en siffra. Använd ett annat värde (t.ex. af2) om du distribuerar appen en gång.)*
 - *Resursgrupp:* **wingtip-mt-af1** *(wingtip-mt innebär att det är shardad app för flera klienter. Lägga till användaren namnet af1 korrelerar resursgruppens namn med namnen på de resurser som den innehåller.)*
 
 Välj ditt namn nu och Skriv ned dem. 
 
-#### <a name="steps"></a>Steg
+### <a name="steps"></a>Steg
 
 1. Klicka på följande blå **distribuera till Azure** knappen.
     - Azure-portalen öppnas med Wingtip biljetter SaaS-Distributionsmall.
@@ -133,7 +133,7 @@ En central **Evenemangshubben** webbsidan innehåller en lista med länkar till 
 
    ![Händelser](./media/saas-multitenantdb-get-started-deploy/fabrikam.png)
 
-#### <a name="azure-traffic-manager"></a>Azure Traffic Manager
+### <a name="azure-traffic-manager"></a>Azure Traffic Manager
 
 Om du vill styra distributionen av inkommande begäranden, Wingtip-appen använder [Azure Traffic Manager](../traffic-manager/traffic-manager-overview.md). Sidan händelser för varje klient innehåller klientnamnet i URL: en. Varje URL innehåller också ditt specifika användare-värde. Varje URL följs formatet visas med hjälp av följande steg:
 
@@ -144,7 +144,7 @@ Om du vill styra distributionen av inkommande begäranden, Wingtip-appen använd
 3. Appen söker efter nyckeln i katalogen och erhåller motsvarande platsen för klientens databas.
 4. Appen använder informationen som platsen för att hitta och tillgång till en databas som innehåller alla data för klientorganisationen.
 
-#### <a name="events-hub"></a>Evenemangshubben
+### <a name="events-hub"></a>Evenemangshubben
 
 1. Den **Evenemangshubben** visar en lista över alla klienter som är registrerade i katalogen och deras platser.
 2. Den **Evenemangshubben** använder utökade metadata i katalogen för att hämta det klientnamn som är associerade med varje avbildning att konstruera URL: er.
@@ -185,6 +185,7 @@ Uppdatera den **Evenemangshubben**, och den nya innehavaren visas i listan.
 ## <a name="provision-a-new-tenant-in-its-own-database"></a>Etablera en ny klient i en egen databas
 
 Shardade modell för flera klienter kan du välja om du vill etablera en ny klient till en databas som innehåller andra klienter eller till en databas med sin egen. En klient som är isolerade i en egen databas har följande fördelar:
+
 - Du kan hantera klientens databasens prestanda utan att behöva äventyra med behov för andra klienter.
 - Om det behövs kan databasen återställas till en tidigare tidpunkt, eftersom inga andra klienter kan påverkas.
 
@@ -221,7 +222,6 @@ Nu titta vi på några av de resurser som har distribuerats:
 
    ![klienter server](./media/saas-multitenantdb-get-started-deploy/tenants-server.png)
 
-
 ## <a name="monitor-the-performance-of-the-database"></a>Övervaka prestanda för databasen
 
 Om belastningsgeneratorn har körts i flera minuter, finns tillräckligt med telemetri att titta på databasen övervakningsfunktioner som är inbyggda i Azure-portalen.
@@ -238,7 +238,7 @@ Om belastningsgeneratorn har körts i flera minuter, finns tillräckligt med tel
 
 Belastningsgeneratorn tillämpar en liknande belastning till varje klient, oavsett vilken databas varje klient finns i. Med bara en klient i den **salixsalsa** databas, kan du se att databasen stöder en mycket högre belastning än databasen med flera innehavare. 
 
-#### <a name="resource-allocations-vary-by-workload"></a>Resursallokeringar varierar beroende på arbetsbelastning
+### <a name="resource-allocations-vary-by-workload"></a>Resursallokeringar varierar beroende på arbetsbelastning
 
 Ibland en databas för flera klienter kräver mer resurser för bra prestanda än en enda klient-databas, men inte alltid. Optimala allokeringen av resurser beror på viss arbetsbelastningsegenskaperna för klienterna i systemet.
 
@@ -249,8 +249,9 @@ De arbetsbelastningar som genererats av skriptet belastningen generator är enda
 - Mer information om delade SaaS-program, se [designmönster för SaaS-program för flera innehavare](saas-tenancy-app-design-patterns.md).
 
 - Mer information om elastiska pooler finns i:
-    - [Hjälper dig att hantera och skala flera Azure SQL-databaser för elastiska pooler](sql-database-elastic-pool.md)
-    - [Skala ut med Azure SQL Database](sql-database-elastic-scale-introduction.md)
+
+  - [Hjälper dig att hantera och skala flera Azure SQL-databaser för elastiska pooler](sql-database-elastic-pool.md)
+  - [Skala ut med Azure SQL Database](sql-database-elastic-scale-introduction.md)
 
 ## <a name="next-steps"></a>Nästa steg
 

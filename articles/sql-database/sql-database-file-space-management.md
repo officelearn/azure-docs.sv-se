@@ -12,25 +12,35 @@ ms.author: moslake
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 09/14/2018
-ms.openlocfilehash: a46192c79d32ddf5f178541c3be128893e8f6109
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: ee3b8c274b769cd570d70c5e0dfae939e030ecf5
+ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47159949"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49352437"
 ---
 # <a name="manage-file-space-in-azure-sql-database"></a>Hantera utrymmet i Azure SQL Database
 Den här artikeln beskrivs olika typer av lagringsutrymme i Azure SQL Database och steg som kan utföras när utrymmet som allokerats för databaser och elastiska pooler måste hanteras uttryckligen.
 
 ## <a name="overview"></a>Översikt
 
-De flesta mätvärden i storage utrymme visas i Azure portal och följande API: er mäta antalet sidor som inte används för databaser och elastiska pooler i Azure SQL Database:
+I Azure SQL Database finns arbetsbelastningmönster där allokeringen av underliggande datafiler för databaser kan bli större än mängden data som används sidor. Detta kan inträffa när utrymme används ökar och data raderas. Det beror på att utrymme allokeras inte frigörs automatiskt när data tas bort.
+
+Övervaka användning av utrymme och minska storleken på datafiler kan vara nödvändigt i följande scenarier:
+- Tillåt datatillväxt i en elastisk pool när den fil som allokerats för dess databaser når maximal poolstorlek.
+- Tillåt minskar den maximala storleken för en enkel databas eller elastisk pool.
+- Tillåtet att ändra en enkel databas eller elastisk pool till en annan tjänstnivå eller prestandanivå med en lägre maxstorleken.
+
+### <a name="monitoring-file-space-usage"></a>Övervaka användning av diskutrymme
+De flesta mätvärden i storage utrymme visas i Azure portal och följande API: er mäta endast mängden data som används sidor:
 - Azure Resource Manager baserade mått API: er, inklusive PowerShell [get-mått](https://docs.microsoft.com/powershell/module/azurerm.insights/get-azurermmetric)
 - T-SQL: [sys.dm_db_resource_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database)
+
+Dock följande API: er också mäta hur mycket utrymme som allokerats för databaser och elastiska pooler:
 - T-SQL: [sys.resource_stats](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database)
 - T-SQL: [sys.elastic_pool_resource_stats](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-elastic-pool-resource-stats-azure-sql-database)
 
-Det finns arbetsbelastningmönster där allokeringen av underliggande datafiler för databaser kan bli större än mängden data som används sidor.  Detta kan inträffa när utrymme används ökar och data raderas.  Det beror på att utrymme allokeras inte frigörs automatiskt när data tas bort.  I sådana scenarier kan allokerat utrymme för en databas eller en pool överstiga gränserna för stöds och förhindra datatillväxt eller förhindra tjänstnivå compute storleksändringar och kräver att minska storleken på datafilerna som ska minska.
+### <a name="shrinking-data-files"></a>Minska storleken på datafiler
 
 SQL DB-tjänsten Komprimera inte automatiskt filer för att frigöra oanvänt allokerade utrymme på grund av den möjliga inverkan på prestanda för databasen.  Kunder kan dock minska datafiler via självbetjäning i taget de önskar genom att följa stegen som beskrivs i [frigöra oanvänt allokerat utrymme](#reclaim-unused-allocated-space). 
 

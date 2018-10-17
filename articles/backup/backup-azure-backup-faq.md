@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 8/2/2018
 ms.author: markgal
-ms.openlocfilehash: 561b5d3d9769b509e21a3005d771529f342e2171
-ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
+ms.openlocfilehash: 2151733a5d91fb17c69fa1f4f6aac64a70928824
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49067506"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49364310"
 ---
 # <a name="questions-about-the-azure-backup-service"></a>Frågor om Azure Backup-tjänsten
 Den här artikeln innehåller vanliga frågor och svar om Azure Backup-komponenterna. I vissa svar finns det länkar till artiklar som har omfattande information. Du kan ställa frågor om Azure Backup genom att klicka på **Kommentarer** (till höger). Kommentarerna visas längst ned i den här artikeln. Du kan också ställa frågor om Azure Backup-tjänsten i [diskussionsforumet](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup).
@@ -31,7 +31,7 @@ Ja. Du kan skapa upp till 500 Recovery Services-valv per region som stöds av Az
 Du kan registrera upp till 1000 virtuella Azure-datorer per valv. Om du använder MAB-agenten kan registrera du upp till 50 MAB-agenter per valv. Och du kan registrera 50 MAB-servrar/DPM-servrar till ett valv.
 
 ### <a name="can-i-use-a-rest-api-to-query-the-size-of-protected-items-in-a-vault-br"></a>Kan jag använda ett REST-API för att fråga storleken på skyddade objekt i ett valv? <br/>
-Ja, i artikeln [användningar - listan med valv](https://t.co/2lgIrIaF0J), innehåller den information som kan hämtas från Recovery Services-valvet.
+Ja, i artikeln [användningar - listan med valv](https://docs.microsoft.com/rest/api/recoveryservices/usages/usages_listbyvaults), innehåller den information som kan hämtas från Recovery Services-valvet.
 
 ### <a name="if-my-organization-has-one-vault-how-can-i-isolate-one-servers-data-from-another-server-when-restoring-databr"></a>Min organisation har ett valv. Hur kan jag isolera en servers data från en annan server när jag återställer data?<br/>
 Alla servrar som är registrerade för samma valv kan återställa data som säkerhetskopierats av andra servrar *som använder samma lösenfras*. Om du vill isolera säkerhetskopierade data på en server från andra servrar i organisationen kan du använda en annan lösenfras för dessa servrar. HR-servrarna kan till exempel använda en krypteringslösenfras, redovisningsservrarna en annan och lagringsservrar en tredje.

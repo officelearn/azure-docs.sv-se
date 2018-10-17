@@ -9,17 +9,17 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 04/09/2018
-ms.openlocfilehash: 045d7623c3f00ee984dad406247e3197a4ecc45a
-ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
+ms.openlocfilehash: 2f35f54c7ec5ad169673aebe08602294270f470a
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/01/2018
-ms.locfileid: "47586179"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49364463"
 ---
 # <a name="anomaly-detection-in-azure-stream-analytics"></a>Avvikelseidentifiering i Azure Stream Analytics
 
 > [!IMPORTANT]
-> Den här funktionen håller på att blir inaktuella, men kommer att ersättas med nya funktioner. Mer information finns i [åtta nya funktioner i Azure Stream Analytics](https://azure.microsoft.com/en-us/blog/eight-new-features-in-azure-stream-analytics/) blogginlägg.
+> Den här funktionen håller på att blir inaktuella, men kommer att ersättas med nya funktioner. Mer information finns i [åtta nya funktioner i Azure Stream Analytics](https://azure.microsoft.com/blog/eight-new-features-in-azure-stream-analytics/) blogginlägg.
 
 Den **AnomalyDetection** operator som används för att identifiera olika typer av avvikelser i händelseströmmar. Till exempel en långsam minskning i ledigt minne över en längre tid kan tyda på en minnesläcka eller antalet webbtjänstbegäranden som är stabila inom ett intervall kan avsevärt öka eller minska.  
 

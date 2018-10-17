@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 05/08/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: b98b9e0a10f142cb0177e7e5ea831b61f79a4b7a
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 389c519d5f63b311b2e9c2b1d48d6e09e02c7d81
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46311096"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49361078"
 ---
 # <a name="azure-ad-connect-enabling-device-writeback"></a>Azure AD Connect: Aktivera tillbakaskrivning av enheter
 > [!NOTE]
@@ -32,7 +32,7 @@ Följande dokumentation innehåller information om hur du aktiverar funktionen f
 
 * Aktivera villkorlig åtkomst baserat på enheter för att AD FS (2012 R2 eller senare) skyddade applikationer (förtroenden för förlitande part).
 
-Detta ger ytterligare säkerhet och kontroll som ges åtkomst till program bara till betrodda enheter. Mer information om villkorlig åtkomst finns i [hantera risker med villkorlig åtkomst](../active-directory-conditional-access-azure-portal.md) och [konfigurera lokal villkorlig åtkomst med hjälp av Azure Active Directory Device Registration](../active-directory-conditional-access-automatic-device-registration-setup.md).
+Detta ger ytterligare säkerhet och kontroll som ges åtkomst till program bara till betrodda enheter. Mer information om villkorlig åtkomst finns i [hantera risker med villkorlig åtkomst](../active-directory-conditional-access-azure-portal.md) och [konfigurera lokal villkorlig åtkomst med hjälp av Azure Active Directory Device Registration](../../active-directory/active-directory-device-registration-on-premises-setup.md).
 
 > [!IMPORTANT]
 > <li>Enheter måste finnas i samma skog som användare. Eftersom enheter måste skrivas tillbaka till en enda skog, stöder den här funktionen för närvarande inte en distribution med flera skogar för användaren.</li>
@@ -81,7 +81,7 @@ Tillbakaskrivning av enhet bör nu fungerar korrekt. Tänk på att det kan ta up
    ![Active Directory Administrationscenter registrerad enhetslistan](./media/how-to-connect-device-writeback/devicewriteback6.png)
 
 ## <a name="enable-conditional-access"></a>Aktivera villkorlig åtkomst
-Detaljerade anvisningar för att aktivera det här scenariot är tillgängliga i [konfigurera lokal villkorlig åtkomst med hjälp av Azure Active Directory Device Registration](../active-directory-conditional-access-automatic-device-registration-setup.md).
+Detaljerade anvisningar för att aktivera det här scenariot är tillgängliga i [konfigurera lokal villkorlig åtkomst med hjälp av Azure Active Directory Device Registration](../../active-directory/active-directory-device-registration-on-premises-setup.md).
 
 ## <a name="troubleshooting"></a>Felsökning
 ### <a name="the-writeback-checkbox-is-still-disabled"></a>Tillbakaskrivning av kryssrutan är fortfarande inaktiverad
@@ -125,7 +125,7 @@ Kontrollera konfigurationen i Active Directory:
 
 ## <a name="additional-information"></a>Ytterligare information
 * [Hantera risker med villkorlig åtkomst](../active-directory-conditional-access-azure-portal.md)
-* [Konfigurera lokal villkorlig åtkomst med hjälp av Azure Active Directory Device Registration](../active-directory-device-registration-on-premises-setup.md)
+* [Konfigurera lokal villkorlig åtkomst med hjälp av Azure Active Directory Device Registration](../../active-directory/active-directory-device-registration-on-premises-setup.md)
 
 ## <a name="next-steps"></a>Nästa steg
 Läs mer om hur du [integrerar dina lokala identiteter med Azure Active Directory](whatis-hybrid-identity.md).

@@ -3,23 +3,23 @@ title: Mappa virtuella nätverk mellan två Azure-regioner i Azure Site Recovery
 description: Azure Site Recovery samordnar de replikering, redundans och återställning av virtuella datorer och fysiska servrar. Läs mer om redundans till Azure eller till ett sekundärt datacenter.
 services: site-recovery
 documentationcenter: ''
-author: mayanknayar
+author: mayurigupta13
 manager: rochakm
 editor: ''
 ms.assetid: 44813a48-c680-4581-a92e-cecc57cc3b1e
 ms.service: site-recovery
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 07/06/2018
-ms.author: manayar
-ms.openlocfilehash: 0e73abf0fc170079d4b2bc093df45c998e68d184
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.date: 10/16/2018
+ms.author: mayg
+ms.openlocfilehash: 95e6a388d0638d2fd477d33aaf7c39cf120e29aa
+ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49320534"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49353449"
 ---
 # <a name="map-virtual-networks-in-different-azure-regions"></a>Mappa virtuella nätverk i olika Azure-regioner
 
@@ -106,7 +106,7 @@ Om käll-undernätet och målundernätet har olika adressutrymmen, har nästa ti
 Den redundansväxlade virtuella datorn tilldelas med – nästa tillgängliga IP-Adressen från slutet av adressintervall för undernätet är: 10.0.0.254 </br>
 
 **Obs:** termer som **produktion vNet** hänvisar vi till ”målnätverket' mappade under katastrofberedskapskonfigurationen.
-#### <a name="2-if-the-target-network-chosen-is-not-the-production-vnet-but-has-the-same-subnet-range-as-production-network"></a>2. Om målnätverket valt är inte produktion vNet men har samma undernätsintervall som produktionsnätverket 
+#### <a name="2-if-the-target-network-chosen-is-not-the-production-vnet-but-has-the-same-subnet-range-as-production-network"></a>2. Om målnätverket valt är inte produktion vNet men har samma undernätsintervall som produktionsnätverket
 
 - Recovery IP (mål-IP) är en statisk IP-adress med det **samma IP-adress** (d.v.s. konfigurerat statisk IP-adress) som är reserverat för redundans. Den angivna samma IP-adress är tillgänglig.
 - Om den angivna statiska IP-Adressen har redan tilldelats en annan virtuell dator/enhet, kommer recovery IP-Adressen att nästa tillgängliga IP-Adressen från slutet av adressintervall för undernätet.

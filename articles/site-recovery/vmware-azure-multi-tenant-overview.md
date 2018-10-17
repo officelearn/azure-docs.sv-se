@@ -2,19 +2,19 @@
 title: Översikt över stöd för flera klienter för VMware-VM-replikering till Azure (CSP) med Azure Site Recovery | Microsoft Docs
 description: Innehåller en översikt över Azure Site Recovery-stöd för klient prenumerationer i en miljö med flera klientorganisationer via CSP-programmet.
 services: site-recovery
-author: mayanknayar
+author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
 ms.devlang: na
-ms.topic: article
-ms.date: 07/06/2018
-ms.author: manayar
-ms.openlocfilehash: 2f1a158b6ff4ec603c77f834212cb92fa862b424
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.topic: conceptual
+ms.date: 10/16/2018
+ms.author: mayg
+ms.openlocfilehash: 4cd0c3baf385a864e2173de9bbce897bb5066dae
+ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37919945"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49352879"
 ---
 # <a name="overview-of-multi-tenant-support-for-vmware-replication-to-azure-with-csp"></a>Översikt över stöd för flera klienter för VMware-replikering till Azure med CSP
 

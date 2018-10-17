@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 12/15/2017
 ms.author: cynthn
-ms.openlocfilehash: a2b9a06e8e3b1bda91050e1607c7265d6fe66bb1
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.openlocfilehash: eb227b4b4cbdc40a4e708726bbe0f5d0c7eacb74
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37931797"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49364684"
 ---
 # <a name="use-windows-client-in-azure-for-devtest-scenarios"></a>Använda Windows-klienten i Azure för utveckling och testning
 Du kan använda Windows 7, Windows 8 eller Windows 10 Enterprise (x64) i Azure för utveckling och testning förutsatt att du har en lämplig Visual Studio (tidigare MSDN)-prenumeration. Den här artikeln beskriver krav för berättigande för att köra Windows 7, Windows 8.1, Windows 10 Enterprise i Azure och användning av följande avbildningar i Azure-galleriet.
@@ -48,7 +48,7 @@ I följande tabell beskrivs erbjudande-ID som är berättigade att distribuera W
 | [Visual Studio Premium med MSDN (förmån)](https://azure.microsoft.com/offers/ms-azr-0061p/) |0061P |Windows 10 |
 | [Visual Studio Enterprise-prenumeranter](https://azure.microsoft.com/offers/ms-azr-0063p/) |0063P |Windows 10 |
 | [Prenumeranter på Visual Studio Enterprise (BizSpark)](https://azure.microsoft.com/offers/ms-azr-0064p/) |0064P |Windows 10 |
-| [Enterprise – utveckling/testning](https://azure.microsoft.com/en-us/offers/ms-azr-0148p/) |0148P |Windows 10 |
+| [Enterprise – utveckling/testning](https://azure.microsoft.com/offers/ms-azr-0148p/) |0148P |Windows 10 |
 
 ## <a name="check-your-azure-subscription"></a>Kontrollera din Azure-prenumeration
 Om du inte känner till ditt erbjudande-ID måste hämta du den via Azure-portalen i något av följande två sätt:  

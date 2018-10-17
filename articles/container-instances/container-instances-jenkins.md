@@ -7,12 +7,12 @@ ms.service: container-instances
 ms.topic: article
 ms.date: 08/31/2018
 ms.author: danlep
-ms.openlocfilehash: dde40b8f53aa40f1c15fe0efd810889b8c4510fb
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: 41c9302d280d6027e12f2516bca26a98d224f301
+ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48854872"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49354197"
 ---
 # <a name="use-azure-container-instances-as-a-jenkins-build-agent"></a>Använd Azure Container Instances som en Jenkins skapa agenten
 
@@ -47,7 +47,7 @@ Mer information om Azure Container Instances finns [om Azure Container Instances
 
    ![Ytterligare inställningar för distributioner av Jenkins-portalen](./media/container-instances-jenkins/jenkins-portal-02.png)
 
-4. Tjänstens huvudnamn integration, Välj **Auto(MSI)** ha [Azure Managed Service Identity] [hanterade-identiteter-azure-resurser] automatiskt skapa en autentiseringsidentitet för Jenkins-instansen. Välj **manuell** att ge dina egna autentiseringsuppgifter för tjänstens huvudnamn.
+4. Tjänstens huvudnamn integration, Välj **Auto(MSI)** till har [hanterade identiteter för Azure-resurser] [hanterade-identiteter-azure-resurser] automatiskt skapa en autentiseringsidentitet för Jenkins-instansen. Välj **manuell** att ge dina egna autentiseringsuppgifter för tjänstens huvudnamn.
 
 5. Molnet agenter konfigurera en molnbaserad plattform för Jenkins build jobb. För den här artikeln väljer **ACI**. Varje Jenkins-byggjobb körs i en behållarinstans med ACI-molnagent.
 

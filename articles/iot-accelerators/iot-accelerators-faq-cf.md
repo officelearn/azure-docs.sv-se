@@ -8,12 +8,12 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 12/12/2017
 ms.author: dobett
-ms.openlocfilehash: 737a76ba313dddaa58c302f1df501f16a5c4e9e8
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: e9e88fc9aa3aad902c140ac176e31571b9e55ee3
+ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46966572"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49353749"
 ---
 # <a name="frequently-asked-questions-for-connected-factory-solution-accelerator"></a>Vanliga frågor om ansluten fabrik lösningsaccelerator
 
@@ -140,33 +140,21 @@ Om du ser inga data skickas till IoT Hub är ett problem med simuleringen. Som e
 
 ### <a name="how-do-i-enable-an-interactive-map-in-my-connected-factory-solution"></a>Hur aktiverar jag en interaktiv karta i lösningen för ansluten fabrik?
 
-Du måste ha ett befintligt Bing Maps API för Enterprise-prenumeration om du vill aktivera en interaktiv karta i lösningen för ansluten fabrik.
+Du måste ha ett Azure Maps-konto om du vill aktivera en interaktiv karta i lösningen för ansluten fabrik.
 
-När du distribuerar från [www.azureiotsolutions.com](http://www.azureiotsolutions.com), distributionsprocessen verifierar att din prenumeration har en aktiverad Bing Maps-API för Enterprise-avtalet och distribuerar automatiskt en interaktiv karta i ansluten fabrik. Om detta inte är fallet, kan du fortfarande aktivera en interaktiv karta i din distribution på följande sätt:
+När du distribuerar från [www.azureiotsolutions.com](http://www.azureiotsolutions.com), distributionsprocessen lägger till ett Azure Maps-konto i resursgruppen som innehåller solution accelerator-tjänster.
 
-När du distribuerar med hjälp av den `build.ps1` skriptet i den anslutna fabriken GitHub-lagringsplats och du har en Bing Maps-API för Enterprise-avtalet, ställa in miljövariabeln `$env:MapApiQueryKey` i build-fönstret för att fråga nyckeln för ditt abonnemang. Den interaktiva kartan aktiveras sedan automatiskt.
+När du distribuerar med hjälp av den `build.ps1` skript i ansluten fabrik GitHub-lagringsplatsen uppsättningen miljövariabeln `$env:MapApiQueryKey` i fönstret bygga den [nyckeln för ditt Azure Maps-konto](../azure-maps/how-to-manage-account-keys.md). Den interaktiva kartan aktiveras sedan automatiskt.
 
-Om du inte har en Bing Maps-API för Enterprise-avtalet kan distribuera lösningen för ansluten fabrik från [www.azureiotsolutions.com](http://www.azureiotsolutions.com) eller med hjälp av den `build.ps1` skript. Lägg sedan till en Bing Maps-API för Enterprise-prenumeration för din prenumeration enligt beskrivningen i [hur skapar jag en Bing Maps-API för Enterprise-konto?](#how-do-i-create-a-bing-maps-api-for-enterprise-account). Leta upp Frågenyckeln för det här kontot som beskrivs i [skaffa Bing Maps-API för Enterprise QueryKey](#how-to-obtain-your-bing-maps-api-for-enterprise-querykey) och spara den här nyckeln. Gå till Azure-portalen och åtkomst till App Service-resursen i distributionen ansluten fabrik. Gå till **programinställningar**, hittar du ett avsnitt **appinställningar**. Ange den **MapApiQueryKey** till Frågenyckeln som du fick. Spara inställningarna och gå sedan till **översikt** och starta om App Service.
+Du kan också lägga till en Azure Maps-kontonyckel utvecklingsacceleratorn efter distributionen. Gå till Azure-portalen och åtkomst till App Service-resursen i distributionen ansluten fabrik. Gå till **programinställningar**, hittar du ett avsnitt **programinställningar**. Ange den **MapApiQueryKey** till den [nyckeln för ditt Azure Maps-konto](../azure-maps/how-to-manage-account-keys.md). Spara inställningarna och gå sedan till **översikt** och starta om App Service.
 
-### <a name="how-do-i-create-a-bing-maps-api-for-enterprise-account"></a>Hur skapar jag en Bing Maps-API för Enterprise-konto
+### <a name="how-do-i-create-a-azure-maps-account"></a>Hur skapar jag en Azure Maps-konto?
 
-Du kan få en kostnadsfri *interna transaktioner nivå 1 Bing Maps för Enterprise* plan. Men du kan bara lägga till två av dessa planer till en Azure-prenumeration. Om du inte har en Bing Maps-API för Enterprise-konto, skapar du en i Azure portal genom att klicka på **+ skapa en resurs**. Sök sedan efter **Bing Maps API för företag** och följ anvisningarna för att skapa den.
+Se, [så här hanterar du ditt Azure Maps-konto och dina nycklar](../azure-maps/how-to-manage-account-keys.md).
 
-![Bing-nyckel](./media/iot-accelerators-faq-cf/bing.png)
+### <a name="how-to-obtain-your-azure-maps-account-key"></a>Hur du hämtar din nyckel för Azure Maps-konto
 
-### <a name="how-to-obtain-your-bing-maps-api-for-enterprise-querykey"></a>Skaffa Bing Maps-API för Enterprise QueryKey
-
-När du har skapat ditt Bing Maps-API för Enterprise-avtal, lägga till en Bing Maps för företagsresurs i resursgruppen för lösningen för ansluten fabrik i Azure-portalen.
-
-1. Navigera till resursgruppen som innehåller dina Bing Maps-API för Enterprise-prenumeration i Azure-portalen.
-
-1. Klicka på **alla inställningar**, sedan **nyckelhantering**.
-
-1. Det finns två nycklar: **MasterKey** och **QueryKey**. Kopiera den **QueryKey** värde.
-
-1. Ha den nyckel som hämtas av den `build.ps1` skript, ställa in miljövariabeln `$env:MapApiQueryKey` i miljön PowerShell och den **QueryKey** av din plan. Build-skriptet lägger sedan automatiskt till värdet i inställningarna för App Service.
-
-1. Köra en lokal eller molnbaserad distribution med den `build.ps1` skript.
+Se, [så här hanterar du ditt Azure Maps-konto och dina nycklar](../azure-maps/how-to-manage-account-keys.md).
 
 ### <a name="how-do-enable-the-interactive-map-while-debugging-locally"></a>Hur aktiverar den interaktiva kartan när du felsöker lokalt?
 

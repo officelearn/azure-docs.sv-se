@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/17/2018
 ms.author: miradic
-ms.openlocfilehash: db4f83d0d407ad3d9e895759ea2a687662f5620a
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.openlocfilehash: fbaf6b92a2605d284a749365d542c223e09f730d
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44053303"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49362610"
 ---
 # <a name="introduction-to-auto-scaling"></a>Introduktion till automatisk skalning
 Automatisk skalning är en ytterligare funktion av Service Fabric dynamiskt skala dina tjänster baserat på den belastning som tjänster rapporterar eller baserat på deras användning av resurser. Automatisk skalning ger bra elasticitet och gör etablering av ytterligare instanser eller partitioner av din tjänst på begäran. Hela processen för autoskalning är automatiserade och transparent och när du har konfigurerat dina principer på en tjänst det finns inget behov av manuell skalningsåtgärder på tjänstnivå. Automatisk skalning kan aktiveras antingen när tjänsten skapas eller när som helst genom att uppdatera tjänsten.
@@ -120,7 +120,7 @@ Andra utlösare baseras på belastningen på alla partitioner i en tjänst. Metr
 * _Övre tröskelvärdet för inläsning_ är ett värde som anger när tjänsten kommer att vara **utskalad**. Om den genomsnittliga belastningen för alla partitioner i tjänsten är högre än det här värdet, kommer tjänsten att skalas ut.
 * _Skalningsintervall_ avgör hur ofta utlösaren ska kontrolleras. När utlösaren kontrolleras om skalning krävs mekanismen används. Om skalning inte krävs vidtas någon åtgärd. I båda fallen kontrolleras utlösaren inte igen innan skalningsintervall går ut igen.
 
-Den här utlösaren kan vara används för både med tillståndskänsliga och tillståndslösa tjänster. Den enda funktionen som kan användas med den här utlösaren är AddRemoveIncrementalNamedParitionScalingMechanism. När tjänsten har skalats ut och sedan en ny partition har lagts till och när tjänsten skalas i ett av befintliga partitioner tas bort. Det finns begränsningar som ska kontrolleras när tjänsten skapas eller uppdateras och skapande/uppdatering av tjänsten kommer att misslyckas om dessa villkor inte uppfylls:
+Den här utlösaren kan vara används för både med tillståndskänsliga och tillståndslösa tjänster. Den enda funktionen som kan användas med den här utlösaren är AddRemoveIncrementalNamedPartitionScalingMechanism. När tjänsten har skalats ut och sedan en ny partition har lagts till och när tjänsten skalas i ett av befintliga partitioner tas bort. Det finns begränsningar som ska kontrolleras när tjänsten skapas eller uppdateras och skapande/uppdatering av tjänsten kommer att misslyckas om dessa villkor inte uppfylls:
 * Namngivna partitionsschema måste användas för tjänsten.
 * Partitionsnamnen måste vara i följd heltal som ”0”, ”1”,...
 * Första partitionsnamnet måste vara ”0”.
@@ -137,7 +137,7 @@ Samma som med mekanism som använder skalning genom att lägga till eller ta bor
 * _Minimiantal instanser_ definierar den nedre gränsen för skalning. Om antalet partitioner i tjänsten når den här gränsen kan sedan skalas tjänsten inte i oavsett belastningen.
 
 > [!WARNING] 
-> När AddRemoveIncrementalNamedParitionScalingMechanism används med tillståndskänsliga tjänster, Service Fabric lägger du till eller ta bort partitioner **utan avisering eller varning**. Ompartitionering av data utförs inte när skalning mekanism utlöses. Om för att skala upp igen, nya partitioner är tom och när det gäller skala ned igen, **partition kommer att tas bort tillsammans med alla data som den innehåller**.
+> När AddRemoveIncrementalNamedPartitionScalingMechanism används med tillståndskänsliga tjänster, Service Fabric lägger du till eller ta bort partitioner **utan avisering eller varning**. Ompartitionering av data utförs inte när skalning mekanism utlöses. Om för att skala upp igen, nya partitioner är tom och när det gäller skala ned igen, **partition kommer att tas bort tillsammans med alla data som den innehåller**.
 
 ## <a name="setting-auto-scaling-policy"></a>Ange princip för autoskalning
 
@@ -146,7 +146,7 @@ Samma som med mekanism som använder skalning genom att lägga till eller ta bor
 <ServiceScalingPolicies>
     <ScalingPolicy>
         <AverageServiceLoadScalingTrigger MetricName="servicefabric:/_MemoryInMB" LowerLoadThreshold="300" UpperLoadThreshold="500" ScaleIntervalInSeconds="600"/>
-        <AddRemoveIncrementalNamedParitionScalingMechanism MinPartitionCount="1" MaxPartitionCount="3" ScaleIncrement="1"/>
+        <AddRemoveIncrementalNamedPartitionScalingMechanism MinPartitionCount="1" MaxPartitionCount="3" ScaleIncrement="1"/>
     </ScalingPolicy>
 </ServiceScalingPolicies>
 ```
@@ -155,7 +155,7 @@ Samma som med mekanism som använder skalning genom att lägga till eller ta bor
 FabricClient fabricClient = new FabricClient();
 StatefulServiceUpdateDescription serviceUpdate = new StatefulServiceUpdateDescription();
 AveragePartitionLoadScalingTrigger trigger = new AverageServiceLoadScalingTrigger();
-PartitionInstanceCountScaleMechanism mechanism = new AddRemoveIncrementalNamedParitionScalingMechanism();
+PartitionInstanceCountScaleMechanism mechanism = new AddRemoveIncrementalNamedPartitionScalingMechanism();
 mechanism.MaxPartitionCount = 4;
 mechanism.MinPartitionCount = 1;
 mechanism.ScaleIncrement = 1;
@@ -171,7 +171,7 @@ await fabricClient.ServiceManager.UpdateServiceAsync(new Uri("fabric:/AppName/Se
 ```
 ### <a name="using-powershell"></a>Med hjälp av Powershell
 ```posh
-$mechanism = New-Object -TypeName System.Fabric.Description.AddRemoveIncrementalNamedParitionScalingMechanism
+$mechanism = New-Object -TypeName System.Fabric.Description.AddRemoveIncrementalNamedPartitionScalingMechanism
 $mechanism.MinPartitionCount = 1
 $mechanism.MaxPartitionCount = 3
 $mechanism.ScaleIncrement = 2

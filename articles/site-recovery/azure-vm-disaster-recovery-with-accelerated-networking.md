@@ -3,18 +3,18 @@ title: Accelererat nätverk med Azure VM-katastrofåterställning | Microsoft Do
 description: Beskriver hur du aktiverar Accelererat nätverk med Azure Site Recovery för katastrofåterställning i Azure-dator
 services: site-recovery
 documentationcenter: ''
-author: mayanknayar
+author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
-ms.topic: article
-ms.date: 08/24/2018
-ms.author: manayar
-ms.openlocfilehash: af29333956fb962ed31133260ecbc9607de38fd3
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.topic: conceptual
+ms.date: 10/16/2018
+ms.author: mayg
+ms.openlocfilehash: bb4a3f433f213984c4c351439760ddd3327cda73
+ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43052071"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49353144"
 ---
 # <a name="accelerated-networking-with-azure-virtual-machine-disaster-recovery"></a>Accelererat nätverk med haveriberedskap i Azure-dator
 

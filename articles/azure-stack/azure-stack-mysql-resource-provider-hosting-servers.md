@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/27/2018
+ms.date: 10/16/2018
 ms.author: jeffgilb
 ms.reviewer: quying
-ms.openlocfilehash: 72824e5afb9f8d77c2f7d3bd01e6ff2035e95a95
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.openlocfilehash: 833d8e7960bfb7ee3c135df57e6d4dfec97af037
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48237272"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49364681"
 ---
 # <a name="add-hosting-servers-for-the-mysql-resource-provider"></a>Lägg till värdservrar för MySQL-resursprovider
 
@@ -75,6 +75,24 @@ Följande information gäller för RP och MySQL som är värd för servrar:
 ## <a name="increase-backend-database-capacity"></a>Öka kapaciteten för backend-databas
 
 Du kan öka kapaciteten för backend-databas genom att distribuera flera MySQL-servrar i Azure Stack-portalen. Lägg till dessa servrar till en ny eller befintlig SKU. Om du lägger till en server till en befintlig SKU, se till att de server-egenskaperna är samma som de andra servrarna i SKU.
+
+## <a name="sku-notes"></a>SKU-information
+Använd en SKU-namn som beskriver funktionerna i servrar i SKU: N, till exempel kapacitet och prestanda. Namnet fungerar som en hjälp för att hjälpa användare att distribuera sina databaser till lämplig SKU: N. Du kan till exempel använda SKU-namn för att skilja Tjänsterbjudanden med följande egenskaper:
+  
+* hög kapacitet
+* höga prestanda
+* hög tillgänglighet
+
+Som bästa praxis, bör värdservrar i en SKU ha samma resurs- och egenskaper.
+
+SKU: er kan inte tilldelas till specifika användare eller grupper.
+
+SKU: er kan ta upp till en timme att bli synliga i portalen. Användare kan inte skapa en databas tills SKU: N är färdigt.
+
+Om du vill redigera en SKU, gå till **alla tjänster** > **MySQL nätverkskort** > **SKU: er**. Välj SKU för att ändra, gör nödvändiga ändringar och klicka på **spara** att spara ändringarna. Om du vill ta bort en SKU som inte längre behövs, gå till **alla tjänster** > **MySQL nätverkskort** > **SKU: er**. Högerklicka på SKU-namnet och välj **ta bort** att ta bort den.
+
+> [!TIP]
+> Du kan redigera eller ta bort MySQL-providern resurskvoter på samma plats.
 
 ## <a name="make-mysql-database-servers-available-to-your-users"></a>Gör MySQL database-servrar som är tillgängliga för dina användare
 

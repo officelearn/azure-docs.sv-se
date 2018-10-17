@@ -5,16 +5,16 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 8/1/2018
+ms.date: 10/16/2018
 ms.author: victorh
-ms.openlocfilehash: e4b69e6fa587a5d375a1684c982715f8a7ea8166
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: b0bde770e33a08832e7d3a93a745bbba44b04f87
+ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39579637"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49353347"
 ---
-# <a name="configure-app-service-web-apps-with-application-gateway"></a>Konfigurera App Service Web Apps med Application Gateway 
+# <a name="configure-app-service-web-apps-with-application-gateway"></a>Konfigurera App Service Web Apps med Application Gateway
 
 Med Application Gateway kan du konfigurera en Azure-webbapp eller en annan tjänst för flera klientorganisationer som en medlem i en serverdelspool. I den här artikeln lär du dig hur du konfigurerar en Azure-webbapp med Application Gateway. Det första exemplet visar hur du konfigurerar en befintlig programgateway för att använda en webbapp som en medlem i en serverdelspool. Det andra exemplet visar hur du skapar en ny programgateway med en webbapp som en medlem i en serverdelspool.
 
@@ -41,7 +41,7 @@ Add-AzureRmApplicationGatewayProbeConfig -name webappprobe2 -ApplicationGateway 
 # Retrieve the newly added probe
 $probe = Get-AzureRmApplicationGatewayProbeConfig -name webappprobe2 -ApplicationGateway $gw
 
-# Configure an existing backend http settings 
+# Configure an existing backend http settings
 Set-AzureRmApplicationGatewayBackendHttpSettings -Name appGatewayBackendHttpSettings -ApplicationGateway $gw -PickHostNameFromBackendAddress -Port 80 -Protocol http -CookieBasedAffinity Disabled -RequestTimeout 30 -Probe $probe
 
 # Add the web app to the backend pool
@@ -116,7 +116,7 @@ $fipconfig = New-AzureRmApplicationGatewayFrontendIPConfig -Name fipconfig01 -Pu
 $listener = New-AzureRmApplicationGatewayHttpListener -Name listener01 -Protocol Http -FrontendIPConfiguration $fipconfig -FrontendPort $fp
 
 # Create a new rule
-$rule = New-AzureRmApplicationGatewayRequestRoutingRule -Name rule01 -RuleType Basic -BackendHttpSettings $poolSetting -HttpListener $listener -BackendAddressPool $pool 
+$rule = New-AzureRmApplicationGatewayRequestRoutingRule -Name rule01 -RuleType Basic -BackendHttpSettings $poolSetting -HttpListener $listener -BackendAddressPool $pool
 
 # Define the application gateway SKU to use
 $sku = New-AzureRmApplicationGatewaySku -Name Standard_Small -Tier Standard -Capacity 2
@@ -141,7 +141,7 @@ Id                       : /subscriptions/<subscription_id>/resourceGroups/Conto
 Etag                     : W/"00000d5b-54ed-4907-bae8-99bd5766d0e5"
 ResourceGuid             : 00000000-0000-0000-0000-000000000000
 ProvisioningState        : Succeeded
-Tags                     : 
+Tags                     :
 PublicIpAllocationMethod : Dynamic
 IpAddress                : xx.xx.xxx.xx
 PublicIpAddressVersion   : IPv4
@@ -154,6 +154,12 @@ DnsSettings              : {
                                 "Fqdn": "00000000-0000-xxxx-xxxx-xxxxxxxxxxxx.cloudapp.net"
                             }
 ```
+
+## <a name="restrict-access"></a>Begränsa åtkomst
+
+Webbprogram som distribueras i de här exemplen använder offentliga IP-adresser som kan nås direkt från Internet. Detta hjälper med felsökning när du lär dig om en ny funktion och försök nya saker. Men om du planerar att distribuera en funktion i produktion, ska du lägga till fler begränsningar.
+
+Ett sätt som du kan begränsa åtkomsten till dina webbprogram är att använda [Azure App Service statiska IP-adressbegränsningar](../app-service/app-service-ip-restrictions.md). Du kan till exempel begränsa webbappen så att den endast tar emot trafik från programgatewayen. Använd funktionen app service IP-begränsning visa en lista över application gateway VIP som den enda adressen med åtkomst.
 
 ## <a name="next-steps"></a>Nästa steg
 

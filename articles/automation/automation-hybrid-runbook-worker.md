@@ -6,19 +6,19 @@ ms.service: automation
 ms.component: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 04/25/2018
+ms.date: 10/11/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: c4e237af7e85223839b3f26bcc33007f8abb9d0a
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 694327cf7f7331a35a7e18cb68c566932c6231fc
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47034237"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49363511"
 ---
 # <a name="automate-resources-in-your-datacenter-or-cloud-by-using-hybrid-runbook-worker"></a>Automatisera resurser i ditt datacenter eller i molnet med hjälp av Hybrid Runbook Worker
 
-Runbooks i Azure Automation kan inte komma åt resurser i andra moln eller i din lokala miljö, eftersom de körs på Azure-molnplattformen. Du kan använda funktionen Hybrid Runbook Worker i Azure Automation för att köra runbooks direkt på den dator som är värd för rollen och mot resurser i miljön för att hantera dessa lokala resurser. Runbooks lagras och hanteras i Azure Automation och sedan levereras till en eller flera angivna datorer.
+Runbooks i Azure Automation kanske inte har åtkomst till resurser i andra moln eller i din lokala miljö eftersom de körs på Azure-molnplattformen. Du kan använda funktionen Hybrid Runbook Worker i Azure Automation för att köra runbooks direkt på den dator som är värd för rollen och mot resurser i miljön för att hantera dessa lokala resurser. Runbooks lagras och hanteras i Azure Automation och sedan levereras till en eller flera tilldelade datorer.
 
 Följande bild illustrerar den här funktionen:
 
@@ -26,7 +26,7 @@ Följande bild illustrerar den här funktionen:
 
 Varje Hybrid Runbook Worker är medlem i en Hybrid Runbook Worker-grupp som du anger när du installerar agenten. En grupp kan innehålla en enda agent, men du kan installera flera agenter i en grupp för hög tillgänglighet.
 
-När du startar en runbook på en Hybrid Runbook Worker, anger du den grupp som den körs på. Varje arbetsroll i gruppen avsöker Azure Automation för att se om det finns några jobb. Om det finns ett jobb tar den första worker som klarar av den. Du kan inte ange en viss worker. Jobbet [gränser](../azure-subscription-service-limits.md#automation-limits) gäller både Azure sandbox-miljöer och Hybrid Runbook Worker.
+När du startar en runbook på en Hybrid Runbook Worker, anger du den grupp som den körs på. Varje arbetsroll i gruppen avsöker Azure Automation för att se om det finns några jobb. Om det finns ett jobb tar den första worker som klarar av den. Du kan inte ange en viss worker. Hybrid Runbook Worker delar inte många av de gränser som har Azure sandbox-miljöer. De har inte samma begränsningar på diskutrymme, minne eller nätverket sockets. Hybrid Runbook Worker begränsas bara av resurser på den Hybrid Runbook Worker själva. Dessutom Hybrid Runbook Worker delar inte 180 minut [rättmätiga del](automation-runbook-execution.md#fair-share) tidsgränsen som gör Azure sandbox-miljöer. Läs mer om tjänstbegränsningar för Azure sandbox-miljöer och Hybrid Runbook Worker i jobbet [gränser](../azure-subscription-service-limits.md#automation-limits) sidan.
 
 ## <a name="install-a-hybrid-runbook-worker"></a>Installera en Hybrid Runbook Worker
 
@@ -48,7 +48,7 @@ Granska den [information planerar nätverket](#network-planning) innan du börja
 
 ## <a name="remove-a-hybrid-runbook-worker"></a>Ta bort en Hybrid Runbook Worker
 
-Du kan ta bort en eller flera Hybrid Runbook Worker från en grupp eller du kan ta bort gruppen, beroende på dina krav. Utför följande steg för att ta bort en Hybrid Runbook Worker från en lokal dator:
+Du kan ta bort en eller flera Hybrid Runbook Worker från en grupp eller du kan ta bort gruppen, beroende på dina krav. Ta bort en Hybrid Runbook Worker från en lokal dator med följande steg:
 
 1. Gå till ditt Automation-konto i Azure-portalen.
 2. Under **inställningar**väljer **nycklar** och anteckna värdena för **URL** och **primära åtkomstnyckel**. Du behöver den här informationen för nästa steg.
@@ -78,7 +78,7 @@ sudo python onboarding.py --deregister --endpoint="<URL>" --key="<PrimaryAccessK
 
 ## <a name="remove-a-hybrid-worker-group"></a>Ta bort en Hybrid Worker-grupp
 
-Om du vill ta bort en grupp, måste du först ta bort Hybrid Runbook Worker från varje dator som är medlem i gruppen med hjälp av proceduren som visades tidigare. Utför följande steg för att ta bort gruppen:
+Om du vill ta bort en grupp, måste du först ta bort Hybrid Runbook Worker från varje dator som är medlem i gruppen med hjälp av proceduren som visades tidigare. Sedan använder du följande steg för att ta bort gruppen:
 
 1. Öppna Automation-kontot i Azure-portalen.
 1. Under **Processautomatisering**väljer **Hybrid worker-grupper**. Välj den grupp som du vill ta bort. Egenskapssidan för gruppen visas.
@@ -95,9 +95,9 @@ Om du vill ta bort en grupp, måste du först ta bort Hybrid Runbook Worker frå
 
 ### <a name="hybrid-worker-role"></a>Hybrid Worker-roll
 
-För att Hybrid Runbook Worker att ansluta till och registrera med Log Analytics, måste den ha åtkomst till portnumret och URL: erna som beskrivs i det här avsnittet. Den här åtkomsten är dessutom den [portar och URL: er som krävs för Microsoft Monitoring Agent](../log-analytics/log-analytics-agent-windows.md) att ansluta till Log Analytics. 
+För att Hybrid Runbook Worker att ansluta till och registrera med Log Analytics, måste den ha åtkomst till portnumret och URL: erna som beskrivs i det här avsnittet. Åtkomst är längst upp för att den [portar och URL: er som krävs för Microsoft Monitoring Agent](../log-analytics/log-analytics-agent-windows.md) att ansluta till Log Analytics.
 
-Se till att lämpliga resurser är tillgängliga om du använder en proxyserver för kommunikation mellan agenten och Log Analytics-tjänsten. Om du använder en brandvägg för att begränsa åtkomsten till internet, måste du konfigurera brandväggen att tillåta åtkomst. Om du använder OMS-gatewayen som en proxy, se till att den är konfigurerad för hybrid Worker-arbeten. Anvisningar för hur du gör detta finns i [konfigurera OMS-gatewayen för Automation Hybrid Worker-arbeten](https://docs.microsoft.com/azure/log-analytics/log-analytics-oms-gateway#configure-for-automation-hybrid-workers).
+Om du använder en proxyserver för kommunikation mellan agenten och Log Analytics-tjänsten, se till att lämpliga resurser är tillgängliga. Om du använder en brandvägg för att begränsa åtkomsten till internet, måste du konfigurera brandväggen att tillåta åtkomst. Om du använder OMS-gatewayen som en proxy, kontrollera att den är konfigurerad för hybrid Worker-arbeten. Anvisningar för hur du gör detta finns i [konfigurera OMS-gatewayen för Automation Hybrid Worker-arbeten](https://docs.microsoft.com/azure/log-analytics/log-analytics-oms-gateway#configure-for-automation-hybrid-workers).
 
 Följande port och URL: er krävs för att Hybrid Runbook Worker-rollen ska kommunicera med Automation:
 
@@ -106,7 +106,7 @@ Följande port och URL: er krävs för att Hybrid Runbook Worker-rollen ska komm
 * Global URL: en för Virginia (USA-förvaltad region): *.azure automation.us
 * Agent-tjänsten: https://\<workspaceId\>.agentsvc.azure-automation.net
 
-Det rekommenderas att använda de adresser som anges när du definierar undantag. För IP-adresser som du kan ladda ned den [IP-intervall i Microsoft Azure Datacenter](https://www.microsoft.com/download/details.aspx?id=41653). Den här filen uppdateras varje vecka och återspeglar aktuella intervall och eventuella kommande ändringar till IP-adressintervall.
+Det rekommenderas att använda de adresser som anges när du definierar undantag. För IP-adresser som du kan ladda ned den [IP-intervall i Microsoft Azure Datacenter](https://www.microsoft.com/download/details.aspx?id=41653). Den här filen uppdateras varje vecka och har de aktuella intervall och eventuella kommande ändringar till IP-adressintervall.
 
 Om du har ett Automation-konto som har definierats för en viss region kan begränsa du kommunikationen till det regionala datacentret. Följande tabell innehåller DNS-posten för varje region:
 
@@ -136,7 +136,7 @@ Ladda ned en lista över region IP-adresser i stället för regionnamn den [Azur
 
 ### <a name="update-management"></a>Uppdateringshantering
 
-Förutom de standard-adresser och portar som kräver att Hybrid Runbook Worker, krävs följande adresser specifikt för hantering av uppdateringar. Kommunikation till dessa adresser görs via port 443.
+På standard-adresser och portar som kräver att Hybrid Runbook Worker, krävs följande adresser specifikt för hantering av uppdateringar. Kommunikation till dessa adresser görs via port 443.
 
 |Azure Public  |Azure Government  |
 |---------|---------|

@@ -9,12 +9,12 @@ ms.component: speech-service
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: erhopf
-ms.openlocfilehash: 3d03cd6a5cceb805ed8ee34548bd1a3973e9d78b
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.openlocfilehash: 5a19366f6aeec2422ec8671ba3c32f642b5e01ac
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49167094"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49361444"
 ---
 # <a name="about-the-speech-to-text-api"></a>Om tal till Text API
 
@@ -38,7 +38,7 @@ Den **tal till Text** API: et erbjuder följande funktioner:
 
 ## <a name="api-capabilities"></a>API-funktioner
 
-Några av funktionerna i den **tal till Text** API - särskilt när det gäller anpassning - är tillgängliga via REST. I följande tabell sammanfattas funktionerna för varje metod för att komma åt API: et. 
+Några av funktionerna i den **tal till Text** API, särskilt när det gäller anpassning, är tillgängliga via REST. I följande tabell sammanfattas funktionerna för varje metod för att komma åt API: et. En fullständig lista över funktioner och API-information, se [Swagger referens](https://westus.cris.ai/swagger/ui/index).
 
 | Användningsfall | REST | SDK:er |
 |-----|-----|-----|----|
@@ -55,7 +55,7 @@ Några av funktionerna i den **tal till Text** API - särskilt när det gäller 
 | Skapa och hantera modelldistributioner | Ja | Nej |
 
 > [!NOTE]
-> REST API: et implementerar de nätverksbegränsningar API-begäranden till 25 5 sekunden. Meddelandet hearders informerar begränsningar
+> REST API: et implementerar de nätverksbegränsningar API-begäranden till 25 5 sekunden. Meddelandehuvudena informerar begränsningar
 
 \* *LUIS avsikter och entiteter kan erhållas med hjälp av en separat LUIS-prenumeration. Med den här prenumerationen SDK anropa LUIS för dig och ge entiteten och vad resultat samt tal avskrifter. Med REST-API kan du anropa LUIS själv för att härleda avsikter och entiteter med LUIS-prenumeration.*
 

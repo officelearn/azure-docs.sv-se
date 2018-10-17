@@ -11,13 +11,13 @@ author: aliceku
 ms.author: aliceku
 ms.reviewer: vanto
 manager: craigg
-ms.date: 07/09/2018
-ms.openlocfilehash: 935c54cf04854e75c39df55d8063138086be73a6
-ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
+ms.date: 10/15/2018
+ms.openlocfilehash: 94a3a502d5756d57cfebdf6698a4435dc1e19948
+ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2018
-ms.locfileid: "49309492"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49353041"
 ---
 # <a name="transparent-data-encryption-for-sql-database-and-data-warehouse"></a>Transparent datakryptering för SQL Database och Data Warehouse
 
@@ -25,7 +25,7 @@ Transparent datakryptering (TDE) kan du skydda Azure SQL Database och Azure Data
 
 TDE måste aktiveras manuellt för äldre databaser eller Azure SQL Data Warehouse.  
 
-Transparent datakryptering krypteras lagring av en hel databas med hjälp av en symmetrisk nyckel som heter databaskrypteringsnyckeln. Den här databaskrypteringsnyckeln skyddas av krypteringsskyddet transparent data. Skyddets är antingen en tjänsthanterad certifikat (tjänsthanterad transparent datakryptering) eller en asymmetrisk nyckel som lagras i Azure Key Vault (Bring Your Own Key). Du kan ställa in transparent data krypteringsskyddet på servernivå. 
+Transparent datakryptering krypteras lagring av en hel databas med hjälp av en symmetrisk nyckel som heter databaskrypteringsnyckeln. Den här databaskrypteringsnyckeln skyddas av krypteringsskyddet transparent data. Skyddets är antingen en tjänsthanterad certifikat (tjänsthanterad transparent datakryptering) eller en asymmetrisk nyckel som lagras i Azure Key Vault (Bring Your Own Key). Du kan ställa in transparent data krypteringsskyddet på servernivå.
 
 När du startar för databasen är krypterad databaskrypteringsnyckeln dekrypteras och sedan användas för dekryptering och omkryptering av databasfilerna i SQL Server Database Engine-processen. Transparent datakryptering utför i realtid i/o-kryptering och dekryptering av data på sidnivå. Varje sida dekrypteras när den har läst in i minnet och sedan krypteras innan de skrivs till disk. En allmän beskrivning av transparent datakryptering, se [Transparent datakryptering](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption).
 
@@ -35,11 +35,10 @@ SQL Server som körs på virtuella Azure-datorer även kan använda en asymmetri
 
 I Azure är standardinställningen för transparent datakryptering att databaskrypteringsnyckeln skyddas av ett certifikat för inbyggda. Inbyggda servercertifikatet är unikt för varje server. Om en databas finns i en relation för geo-replikering, både primär och geo-sekundära databasen skyddas av den primära databasen överordnade servernyckeln. Om två databaser är ansluten till samma server kan dela de samma inbyggda certifikat. Microsoft roterar dessa certifikat automatiskt minst var 90: e dag.
 
-Microsoft även sömlöst flyttar hanterar nycklar som behövs för geo-replikering och återställer. 
+Microsoft även sömlöst flyttar hanterar nycklar som behövs för geo-replikering och återställer.
 
 > [!IMPORTANT]
 > Alla nyligen skapade SQL-databaser krypteras som standard med hjälp av tjänsthanterad transparent datakryptering. Befintliga databaser tidigare maj 2017 och databaser som har skapats via återställning, geo-replikering och databaskopian inte är krypterad som standard.
->
 
 ## <a name="bring-your-own-key"></a>Ta med din egen nyckel
 
@@ -54,13 +53,14 @@ Om du vill börja använda transparent datakryptering med stöd för Bring Your 
 ## <a name="move-a-transparent-data-encryption-protected-database"></a>Flytta en transparent data encryption-skyddad databas
 
 Du behöver inte dekryptera databaser för åtgärder i Azure. Transparent data encryption inställningarna på källdatabasen eller primära databasen ärvs transparent på målet. Det innefattar åtgärder som ingår:
-- GEO-återställning.
-- Självbetjänad point-in-time-återställning.
-- Återställa en borttagen databas.
-- Aktiv geo-replikering.
-- Skapa en databaskopia.
 
-När du exporterar en transparent data encryption-skyddad databas, inte är det exporterade innehållet på databasen krypterad. Det här exporterade innehållet lagras i okrypterade BACPAC-filer. Var noga med att skydda BACPAC-filer på rätt sätt och aktivera transparent datakryptering efter import av den nya databasen har slutförts.
+- Geo-återställning
+- Självbetjänad point-in-time-återställning
+- Återställa en borttagen databas
+- Aktiv geo-replikering
+- Skapa en databaskopia
+
+När du exporterar en transparent data encryption-skyddad databas, inte är det exporterade innehållet på databasen krypterad. Det här exporterade innehållet lagras i icke krypterade BACPAC-filer. Var noga med att skydda BACPAC-filer på rätt sätt och aktivera transparent datakryptering efter import av den nya databasen har slutförts.
 
 Till exempel om BACPAC-fil har exporterats från en lokal SQL Server-instans, krypteras importerade innehållet i den nya databasen inte automatiskt. På samma sätt, om BACPAC-fil har exporterats till en lokal SQL Server-instans, den nya databasen också inte krypteras automatiskt.
 
@@ -68,19 +68,19 @@ Det enda undantaget är när du exporterar till och från en SQL-databas. Transp
 
 ## <a name="manage-transparent-data-encryption-in-the-azure-portal"></a>Hantera transparent datakryptering i Azure portal
 
-Om du vill konfigurera transparent datakryptering via Azure-portalen måste du vara ansluten som Azure ägare, deltagare eller SQL Security Manager. 
+Om du vill konfigurera transparent datakryptering via Azure-portalen måste du vara ansluten som Azure ägare, deltagare eller SQL Security Manager.
 
-Du kan ställa in transparent datakryptering på databasnivå. Om du vill aktivera transparent datakryptering på en databas, gå till den [Azure-portalen](https://portal.azure.com) och logga in med ditt Azure-administratör eller bidragsgivare. Hitta transparent data encryption inställningarna för databasen. Som standard används tjänsthanterad transparent datakryptering. Ett krypteringscertifikat för transparent data genereras automatiskt för den server där databasen. 
+Du kan ställa in transparent datakryptering på databasnivå. Om du vill aktivera transparent datakryptering på en databas, gå till den [Azure-portalen](https://portal.azure.com) och logga in med ditt Azure-administratör eller bidragsgivare. Hitta transparent data encryption inställningarna för databasen. Som standard används tjänsthanterad transparent datakryptering. Ett krypteringscertifikat för transparent data genereras automatiskt för den server där databasen.
 
 ![Tjänsthanterad transparent datakryptering](./media/transparent-data-encryption-azure-sql/service-managed-tde.png)  
 
-Du anger transparent data encryption huvudnyckeln, även kallat transparent data encryption skyddets, på servernivå. Om du vill använda transparent datakryptering med stöd för Bring Your Own Key och skydda dina databaser med en nyckel från Key Vault, se krypteringsinställningar transparent data under din server. 
+Du anger transparent data encryption huvudnyckeln, även kallat transparent data encryption skyddets, på servernivå. Om du vill använda transparent datakryptering med stöd för Bring Your Own Key och skydda dina databaser med en nyckel från Key Vault, se krypteringsinställningar transparent data under din server.
 
-![Transparent datakryptering med stöd för Bring Your Own Key](./media/transparent-data-encryption-azure-sql/tde-byok-support.png) 
+![Transparent datakryptering med stöd för Bring Your Own Key](./media/transparent-data-encryption-azure-sql/tde-byok-support.png)
 
 ## <a name="manage-transparent-data-encryption-by-using-powershell"></a>Hantera transparent datakryptering med hjälp av PowerShell
 
-Om du vill konfigurera transparent datakryptering via PowerShell, måste du vara ansluten som Azure ägare, deltagare eller SQL Security Manager. 
+Om du vill konfigurera transparent datakryptering via PowerShell, måste du vara ansluten som Azure ägare, deltagare eller SQL Security Manager.
 
 | Cmdlet | Beskrivning |
 | --- | --- |
@@ -102,28 +102,28 @@ Ansluta till databasen med hjälp av en inloggning som är en administratör ell
 | --- | --- |
 | [ALTER DATABASE (Azure SQL-databas)](/sql/t-sql/statements/alter-database-azure-sql-database) | Ställ in kryptering på/av krypterar eller dekrypterar en databas |
 | [sys.dm_database_encryption_keys](/sql/relational-databases/system-dynamic-management-views/sys-dm-database-encryption-keys-transact-sql) |Returnerar information om krypteringsstatus för en databas och dess associerade databasen krypteringsnycklar |
-| [sys.dm_pdw_nodes_database_encryption_keys](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-nodes-database-encryption-keys-transact-sql) |Returnerar information om krypteringsstatus för varje data warehouse-nod och dess associerade databasen krypteringsnycklar | 
+| [sys.dm_pdw_nodes_database_encryption_keys](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-nodes-database-encryption-keys-transact-sql) |Returnerar information om krypteringsstatus för varje data warehouse-nod och dess associerade databasen krypteringsnycklar |
 |  | |
 
 Du kan inte växla krypteringsskyddet transparent data till en nyckel från Key Vault med hjälp av Transact-SQL. Använd PowerShell eller Azure-portalen.
 
 ## <a name="manage-transparent-data-encryption-by-using-the-rest-api"></a>Hantera transparent datakryptering med hjälp av REST-API
- 
-Om du vill konfigurera transparent datakryptering via REST API, måste du vara ansluten som Azure ägare, deltagare eller SQL Security Manager. 
+
+Om du vill konfigurera transparent datakryptering via REST API, måste du vara ansluten som Azure ägare, deltagare eller SQL Security Manager.
 
 | Kommando | Beskrivning |
 | --- | --- |
-|[Skapa eller uppdatera Server](/rest/api/sql/servers/createorupdate)|Lägger till en Azure Active Directory-identitet till en SQL Server-instans (används för att bevilja åtkomst till Key Vault)|
-|[Skapa eller uppdatera servernyckel](/rest/api/sql/serverkeys/createorupdate)|Lägger till en Key Vault-nyckel till en SQL Server-instans|
-|[Ta bort servernyckeln](/rest/api/sql/serverkeys/delete)|Tar bort en nyckel med Key Vault från en SQL Server-instans|
-|[Hämta för Server](/rest/api/sql/serverkeys/get)|Hämtar en specifik Key Vault-nyckel från en SQL Server-instans|
-|[Lista servernycklar av servern](/rest/api/sql/serverkeys/listbyserver)|Hämtar Key Vault-nycklar för en SQL Server-instans |
-|[Skapa eller uppdatera Krypteringsskyddet](/rest/api/sql/encryptionprotectors/createorupdate)|Anger krypteringsskyddet transparent data för en SQL Server-instans|
-|[Hämta Krypteringsskyddet](/rest/api/sql/encryptionprotectors/get)|Hämtar krypteringsskyddet transparent data för en SQL Server-instans|
-|[Lista kryptering skydd av servern](/rest/api/sql/encryptionprotectors/listbyserver)|Hämtar transparent data encryption skydd för en SQL Server-instans |
-|[Skapa eller uppdatera Transparent Data Encryption konfiguration](/rest/api/sql/transparentdataencryptions/createorupdate)|Aktiverar eller inaktiverar transparent datakryptering för en databas|
-|[Hämta konfiguration för Transparent kryptering](/rest/api/sql/transparentdataencryptions/get)|Hämtar transparent data encryption konfigurationen för en databas|
-|[Transparent Data Encryption Configuration Listresultaten](/rest/api/sql/transparentdataencryptionactivities/ListByConfiguration)|Hämtar kryptering resultatet för en databas|
+|[Skapa eller uppdatera Server](https://docs.microsoft.com/rest/api/sql/servers/servers_createorupdate)|Lägger till en Azure Active Directory-identitet till en SQL Server-instans (används för att bevilja åtkomst till Key Vault)|
+|[Skapa eller uppdatera servernyckel](https://docs.microsoft.com/rest/api/sql/serverkeys/serverkeys_createorupdate)|Lägger till en Key Vault-nyckel till en SQL Server-instans|
+|[Ta bort servernyckeln](https://docs.microsoft.com/rest/api/sql/serverkeys/serverkeys_delete)|Tar bort en nyckel med Key Vault från en SQL Server-instans|
+|[Hämta för Server](https://docs.microsoft.com/rest/api/sql/serverkeys/serverkeys_get)|Hämtar en specifik Key Vault-nyckel från en SQL Server-instans|
+|[Lista servernycklar av servern](https://docs.microsoft.com/rest/api/sql/serverkeys/serverkeys_listbyserver)|Hämtar Key Vault-nycklar för en SQL Server-instans |
+|[Skapa eller uppdatera Krypteringsskyddet](https://docs.microsoft.com/rest/api/sql/encryptionprotectors/encryptionprotectors_createorupdate)|Anger krypteringsskyddet transparent data för en SQL Server-instans|
+|[Hämta Krypteringsskyddet](https://docs.microsoft.com/rest/api/sql/encryptionprotectors/encryptionprotectors_get)|Hämtar krypteringsskyddet transparent data för en SQL Server-instans|
+|[Lista kryptering skydd av servern](https://docs.microsoft.com/rest/api/sql/encryptionprotectors/encryptionprotectors_listbyserver)|Hämtar transparent data encryption skydd för en SQL Server-instans |
+|[Skapa eller uppdatera Transparent Data Encryption konfiguration](https://docs.microsoft.com/rest/api/sql/transparentdataencryptions/transparentdataencryptions_createorupdate)|Aktiverar eller inaktiverar transparent datakryptering för en databas|
+|[Hämta konfiguration för Transparent kryptering](https://docs.microsoft.com/rest/api/sql/transparentdataencryptions/transparentdataencryptions_get)|Hämtar transparent data encryption konfigurationen för en databas|
+|[Transparent Data Encryption Configuration Listresultaten](https://docs.microsoft.com/rest/api/sql/transparentdataencryptionactivities/transparentdataencryptionactivities_listbyconfiguration)|Hämtar kryptering resultatet för en databas|
 
 ## <a name="next-steps"></a>Nästa steg
 

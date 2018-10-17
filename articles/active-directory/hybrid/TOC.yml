@@ -129,11 +129,13 @@ items:
       href: how-to-connect-sync-feature-prevent-accidental-deletes.md
     - name: Aktivera AD-papperskorgen
       href: how-to-connect-sync-recycle-bin.md
+    - name: Konfigurera AD DS Connector-kontot
+      href: how-to-connect-configure-ad-ds-connector-account.md
     - name: Ändra lösenordet för Azure AD Sync-tjänstkontot
       href: how-to-connect-sync-change-serviceacct-pass.md
     - name: Ändra kontot för Azure AD-anslutningsappen
       href: how-to-connect-azureadaccount.md
-    - name: Ändra AD DS-kontolösenordet
+    - name: Ändra lösenordet för AD DS Connector-kontot
       href: how-to-connect-sync-change-addsacct-pass.md
   - name: Hantera Federation Services
     items:
@@ -285,9 +287,9 @@ items:
     href: reference-connect-sync-functions-reference.md
   - name: Kompatibilitetslista för Azure AD-federation
     href: how-to-connect-fed-compatibility.md
-ms.openlocfilehash: 40726c5a7213ad9018db5fd4bc491dfca0731afb
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: eda2a26a9bd3d5a484865a8458246506f24bb518
+ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48885007"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49351940"

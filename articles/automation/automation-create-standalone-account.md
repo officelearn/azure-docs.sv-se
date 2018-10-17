@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 03/15/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 021ab6cd29634c2e2f17234e188edce2a14449cf
-ms.sourcegitcommit: 1aedb52f221fb2a6e7ad0b0930b4c74db354a569
+ms.openlocfilehash: 02ca9065107b999fa0182c89ae2b9d8ca0c8607a
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "42057349"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49362882"
 ---
 # <a name="create-a-standalone-azure-automation-account"></a>Skapa ett fristående Azure Automation-konto
 
@@ -61,14 +61,15 @@ Om du vill skapa ett Azure Automation-konto i Azure-portalen gör du följande:
    ![Sök efter och välj automatisering och kontroll på Azure Marketplace](media/automation-create-standalone-account/automation-marketplace-select-create-automationacct.png)
 
 1. På nästa skärm väljer **skapa**.
+
   ![Lägg till Automation-konto](media/automation-create-standalone-account/automation-create-automationacct-properties.png)
 
   > [!NOTE]
   > Om du ser följande meddelande i den **Lägg till Automation-konto** fönstret ditt konto är inte medlem i rollen administratörer för prenumeration och en medadministratör för prenumerationen.
   >
   > ![Lägg till Automation-konto varning](media/automation-create-standalone-account/create-account-without-perms.png)
-  >
-1. I den **Lägg till Automation-konto** fönstret i den **namn** anger du ett namn för ditt Automation-konto. Det här namnet kan inte ändras när det är valt.
+
+1. I den **Lägg till Automation-konto** fönstret i den **namn** anger du ett namn för ditt Automation-konto. Det här namnet kan inte ändras när det är valt. *Namn är unikt för varje region och resursgrupp.*
 1. Om du har mer än en prenumeration i den **prenumeration** anger du den prenumeration som du vill använda för det nya kontot.
 1. För **resursgrupp**anger eller väljer en ny eller befintlig resursgrupp.
 1. För **plats**, Välj en plats i Azure-datacenter.

@@ -14,12 +14,12 @@ ms.custom: ''
 ms.workload: infrastructure-services
 ms.date: 07/26/2017
 ms.author: victorh
-ms.openlocfilehash: 7dce3657656effd3765f77ae957c1cfc4d3f4316
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: b341bdbe6611187b158f353d00077d33f317f374
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46964417"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49365432"
 ---
 # <a name="customize-web-application-firewall-rules-through-powershell"></a>Anpassa brandväggsregler för webbaserade program via PowerShell
 
@@ -87,6 +87,7 @@ I följande exempel inaktiverar regler `910018` och `910017` på application gat
 ```powershell
 $disabledrules=New-AzureRmApplicationGatewayFirewallDisabledRuleGroupConfig -RuleGroupName REQUEST-910-IP-REPUTATION -Rules 910018,910017
 Set-AzureRmApplicationGatewayWebApplicationFirewallConfiguration -ApplicationGateway $gw -Enabled $true -FirewallMode Detection -RuleSetVersion 3.0 -RuleSetType OWASP -DisabledRuleGroups $disabledrules
+Set-AzureRmApplicationGateway -ApplicationGateway $gw
 ```
 
 ## <a name="next-steps"></a>Nästa steg

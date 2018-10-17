@@ -8,12 +8,12 @@ services: digital-twins
 ms.topic: conceptual
 ms.date: 10/10/2018
 ms.author: adgera
-ms.openlocfilehash: 412e0d42744c9defa3fef6b3ae9643166e6c3b5c
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: 28eb8b5dc0f75b5e031070803d35c8a1ceb1f000
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49324340"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49364353"
 ---
 # <a name="security-best-practices"></a>Rekommenderade säkerhetsmetoder
 
@@ -54,7 +54,7 @@ Vissa viktiga metoder för att på ett säkert sätt skydda en IoT-utrymme är:
 Azure Digital Twins använder Azure Active Directory för att autentisera användare och skydda program. Azure Active Directory stöder autentisering för en mängd olika moderna arkitekturer alla baserat på branschstandardprotokoll som OAuth 2.0 eller OpenID Connect. Några viktiga metoder för att skydda din IoT-sida för Azure Active Directory är:
 
 > [!div class="checklist"]
-> * Store Azure Active Directory apphemligheter och nycklar på en säker plats som [Key Vault](https://azure.microsoft.com/en-us/services/key-vault/).
+> * Store Azure Active Directory apphemligheter och nycklar på en säker plats som [Key Vault](https://azure.microsoft.com/services/key-vault/).
 > * Använda ett certifikat som utfärdats av en betrodd [certifikatutfärdare](https://docs.microsoft.com/azure/active-directory/authentication/active-directory-certificate-based-authentication-get-started) i stället för apphemligheter för autentisering.
 > * Begränsa omfånget för OAuth 2.0 för en token.
 > * Kontrollera hur lång tid som en token är giltig och om en token förblir giltigt.

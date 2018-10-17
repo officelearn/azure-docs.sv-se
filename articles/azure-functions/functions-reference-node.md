@@ -12,12 +12,12 @@ ms.devlang: nodejs
 ms.topic: reference
 ms.date: 03/04/2018
 ms.author: glenga
-ms.openlocfilehash: c4206b3178cd02082b8e0815081fedf59a6836b1
-ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
+ms.openlocfilehash: eb9387cec98621e27aff7dcb40b8897e326c6706
+ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49068318"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49353500"
 ---
 # <a name="azure-functions-javascript-developer-guide"></a>Utvecklarguide för Azure Functions JavaScript
 Den här guiden innehåller information om krångla skriva Azure Functions med JavaScript.
@@ -375,7 +375,10 @@ module.exports = function(context) {
         .where(context.bindings.myInput.names, {first: 'Carla'});
 ```
 
-Observera att du bör definiera en `package.json` i roten på din funktionsapp. Definiera filen kan alla funktioner i appen som delar samma cachelagrade paket, vilket ger bästa prestanda. Om det uppstår en versionskonflikt, du kan lösa problemet genom att lägga till en `package.json` filen i mappen för en specifik funktion.  
+> [!NOTE]
+> Du bör definiera en `package.json` i roten på din Funktionsapp. Definiera filen kan alla funktioner i appen som delar samma cachelagrade paket, vilket ger bästa prestanda. Om det uppstår en versionskonflikt, du kan lösa problemet genom att lägga till en `package.json` filen i mappen för en specifik funktion.  
+
+När du distribuerar Funktionsappar från källkontroll, alla `package.json` filen finns i ditt lager, utlöser en `npm install` i en mapp under distributionen. Men när du distribuerar via portalen eller CLI så du måste manuellt installera paket.
 
 Det finns två sätt att installera paket på din Funktionsapp: 
 

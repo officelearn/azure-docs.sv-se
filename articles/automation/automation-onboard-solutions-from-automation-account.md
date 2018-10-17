@@ -5,16 +5,16 @@ services: automation
 ms.service: automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 06/06/2018
+ms.date: 10/16/2018
 ms.topic: conceptual
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: 5b906b4a90dbceb62c6f2381d0ffa8bc1bee7ef1
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 1ed76b0505747831363ea829f1cb91b3e056282a
+ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47033829"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49352454"
 ---
 # <a name="onboard-update-management-change-tracking-and-inventory-solutions"></a>Publicera lösningar för uppdateringshantering, ändringsspårning och inventering
 
@@ -93,11 +93,11 @@ Välj **hantera datorer**. Gör det öppnas den **hantera datorer** sidan. Den h
 
 ### <a name="all-available-machines"></a>Alla tillgängliga datorer
 
-Välj för att aktivera lösningen för alla tillgängliga datorer **aktivera på alla tillgängliga datorer**. Detta inaktiverar kontrollen för att lägga till datorer individuellt. Detta lägger till alla namnen på datorer som rapporterar till arbetsytan för att den datorgrupp som sparats sökfråga.
+Välj för att aktivera lösningen för alla tillgängliga datorer **aktivera på alla tillgängliga datorer**. Detta inaktiverar kontrollen för att lägga till datorer individuellt. Detta lägger till alla namnen på datorer som rapporterar till arbetsytan för att den datorgrupp som sparats sökfråga. När du väljer detta inaktiverar de **hantera datorer** knappen.
 
 ### <a name="all-available-and-future-machines"></a>Alla tillgängliga och framtida datorer
 
-Välj för att aktivera lösningen för alla tillgängliga och alla framtida datorer **aktivera på alla tillgängliga och framtida datorer**. Det här alternativet tar bort sparade sökningar och Omfattningskonfigurationer från arbetsytan. Då öppnas lösningen till alla Azure- och icke-Azure-datorer som rapporterar till arbetsytan.
+Välj för att aktivera lösningen för alla tillgängliga och alla framtida datorer **aktivera på alla tillgängliga och framtida datorer**. Det här alternativet tar bort sparade sökningar och Omfattningskonfigurationer från arbetsytan. Då öppnas lösningen till alla Azure- och icke-Azure-datorer som rapporterar till arbetsytan. När du väljer detta inaktiverar de **hantera datorer** knappen.
 
 ### <a name="selected-machines"></a>Valda datorer
 
@@ -120,13 +120,13 @@ När du tar bort dessa lösningar kan utföra du följande steg om du vill ta bo
 
 1. Öppna ditt Automation-konto från Azure-portalen och på Automation-konto väljer du sidan **länkade arbetsytan** under avsnittet **relaterade resurser** till vänster.
 
-1. På sidan Avlänka från arbetsytan **ta bort arbetsytans länk**.
+2. På sidan Avlänka från arbetsytan **ta bort arbetsytans länk**.
 
    ![Avlänka arbetsytssidan](media/automation-onboard-solutions-from-automation-account/automation-unlink-workspace-blade.png).
 
    Ett meddelande visas där du bekräftar att du vill fortsätta.
 
-1. Medan Azure Automation försöker ta bort länken till konton som Log Analytics-arbetsytan, kan du följa förloppet under **meddelanden** på menyn.
+3. Medan Azure Automation försöker ta bort länken till konton som Log Analytics-arbetsytan, kan du följa förloppet under **meddelanden** på menyn.
 
 Om du använder lösningen för uppdateringshantering, kan om du vill du ta bort följande objekt som inte längre behövs när du har tagit bort lösningen.
 

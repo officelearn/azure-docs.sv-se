@@ -11,13 +11,13 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: sashan, moslake
 manager: craigg
-ms.date: 10/12/2018
-ms.openlocfilehash: a0d8e225718361c096b914245d73064edb1715c4
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.date: 10/15/2018
+ms.openlocfilehash: 52f49e0b590219c34750501ae85ccc0def572f44
+ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49166363"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49352862"
 ---
 # <a name="vcore-service-tiers-azure-hybrid-use-benefit-and-migration"></a>vCore-tjänstnivåer, Azure Hybrid Use Benefit och migrering
 
@@ -106,5 +106,5 @@ Du kan kopiera en databas med lämplig storlek i DTU-baserad beräkning till en 
 
 ## <a name="next-steps"></a>Nästa steg
 
-- För att få information om specifika storlekar och lagring som kan användas för enkel databas, finns i [SQL Database vCore-baserade resursbegränsningar för enskilda databaser](sql-database-vcore-resource-limits-single-databases.md#single-database-storage-sizes-and-compute-sizes)
-- För att få information om specifika storlekar och lagring som kan användas för elastiska pooler, se [SQL Database vCore-baserade resursbegränsningar för elastiska pooler](sql-database-vcore-resource-limits-elastic-pools.md#elastic-pool-storage-sizes-and-compute-sizes).
+- För att få information om specifika storlekar och lagring som kan användas för enkel databas, finns i [SQL Database vCore-baserade resursbegränsningar för enskilda databaser](sql-database-vcore-resource-limits-single-databases.md#general-purpose-service-tier-storage-sizes-and-compute-sizes)
+- För att få information om specifika storlekar och lagring som kan användas för elastiska pooler, se [SQL Database vCore-baserade resursbegränsningar för elastiska pooler](sql-database-vcore-resource-limits-elastic-pools.md#general-purpose-service-tier-storage-sizes-and-compute-sizes).

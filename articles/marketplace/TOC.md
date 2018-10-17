@@ -22,7 +22,7 @@
 #### [IoT Edge-moduler](./iot-edge-module.md) 
 #### [Konsulttjänst](./consulting-services.md)  
 #### [Publiceringsguide för Office 365, Dynamics 365 och Power BI](./appsource-offer-publishing-guide.md)
-#### [Aktivera en Microsoft AppSource- och Azure Marketplace-listning med hjälp av Azure Active Directory](./enable-appsource-marketplace-using-azure-ad.md)
+#### [Aktivera en AppSource- och Marketplace-lista genom att använda](./enable-appsource-marketplace-using-azure-ad.md)
 
 ### [Låt din verksamhet växa genom marknadsplatsen](./grow-your-business-with-azure-marketplace.md)  
 #### [Önskade lösningar](./preferred-solutions.md) 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: wesmc
-ms.openlocfilehash: 980a183261c394bd83292170ab133fe17229013d
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.openlocfilehash: 11b399bdbbbe92d1e1544f4cbae0824140ce52c1
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42054588"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49364514"
 ---
 # <a name="manage-azure-redis-cache-with-azure-powershell"></a>Hantera Azure Redis Cache med Azure PowerShell
 > [!div class="op_single_selector"]
@@ -783,7 +783,7 @@ Mer information om hur du använder Windows PowerShell med Azure finns i följan
 * [Azure Redis Cache-cmdlet-dokumentationen på MSDN](https://docs.microsoft.com/powershell/module/azurerm.rediscache/?view=azurermps-6.6.0)
 * [Azure Resource Manager-Cmdlets](http://go.microsoft.com/fwlink/?LinkID=394765): Lär dig att använda cmdletarna i modulen Azure Resource Manager.
 * [Hantera Azure-resurser med hjälp av resursgrupper](../azure-resource-manager/resource-group-template-deploy-portal.md): Lär dig hur du skapar och hanterar resursgrupper i Azure-portalen.
-* [Azure-bloggen](https://azure.microsoft.com/en-us/blog/): Lär dig mer om nya funktioner i Azure.
+* [Azure-bloggen](https://azure.microsoft.com/blog/): Lär dig mer om nya funktioner i Azure.
 * [Windows PowerShell-blogg](http://blogs.msdn.com/powershell): Lär dig mer om nya funktioner i Windows PowerShell.
 * [”Hey, Scripting Guy”! Blogg](http://blogs.technet.com/b/heyscriptingguy/): få verkliga tips och tricks från Windows PowerShell-communityn.
 

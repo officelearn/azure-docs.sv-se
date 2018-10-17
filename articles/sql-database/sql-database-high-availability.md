@@ -12,12 +12,12 @@ ms.author: jovanpop
 ms.reviewer: carlrab, sashan
 manager: craigg
 ms.date: 10/15/2018
-ms.openlocfilehash: 004a097a50129c444ad3facf8133295c5de49585
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: 0b2fa1541eafa3acf28690005a6d40fac76deba6
+ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/16/2018
-ms.locfileid: "49345007"
+ms.locfileid: "49353483"
 ---
 # <a name="high-availability-and-azure-sql-database"></a>Hög tillgänglighet och Azure SQL-databas
 
@@ -42,7 +42,7 @@ Följande bild visar fyra noder i arkitekturen standardmodell med avgränsas lag
 
 Det finns två nivåer i modellen standard tillgänglighet:
 
-- En tillståndslös beräkningslager som kör sqlserver.exe processen och innehåller bara tillfälliga och cachelagrade data (till exempel – plancachen, buffertpoolen, kolumnen store pool). Den här tillståndslösa SQL Server-noden drivs av Azure Service Fabric som initierar processen, kontrollerar hälsotillståndet för noden och utför redundans till en annan plats om det behövs.
+- En tillståndslös beräkningslager som kör den `sqlserver.exe` bearbeta och innehåller bara tillfälliga och cachelagrade data (till exempel – plancachen, buffertpoolen, kolumnen store pool). Den här tillståndslösa SQL Server-noden drivs av Azure Service Fabric som initierar processen, kontrollerar hälsotillståndet för noden och utför redundans till en annan plats om det behövs.
 - En tillståndskänslig datalager med databasfiler (.mdf/.ldf) som lagras i Azure Premium Storage. Azure Storage garanterar att inga data går förlorade i poster som placeras i en databasfil. Azure Storage har inbyggda tillgänglighet/redundans som säkerställer att varje post i loggfilen eller sida i datafilen kommer att bevaras även om SQL Server-processen kraschar.
 
 När databasmotorn eller operativsystemet uppgraderas, en del av underliggande den infrastrukturen misslyckas eller om vissa viktiga problem har identifierats i Sql Server-processen, tillståndslösa SQL Server-processen Azure Service Fabric flyttas till en annan tillståndslösa compute-nod. Det finns en uppsättning ledig noder som väntar på att köra nya beräkningstjänst vid redundans för att minimera tiden för växling vid fel. Data i Azure Storage-skiktet påverkas inte och data/loggfiler är kopplade till nyligen initierad SQL Server-processen. Den här processen garanterar 99,99% tillgänglighet, men det kan ha vissa prestandaeffekter på arbetsbelastning som körs på grund av övergångstid och faktumet den nya SQL Server-noden börjar med kalla cache.
@@ -72,6 +72,10 @@ Zonen redundant versionen av arkitektur med hög tillgänglighet är illustreras
 
 ![hög tillgänglighet arkitektur zonredundant](./media/sql-database-high-availability/high-availability-architecture-zone-redundant.png)
 
+## <a name="accelerated-database-recovery-adr"></a>Accelererad databasåterställning (ADR)
+
+[Accelerated Database Recovery (ADR)](sql-database-accelerated-database-recovery.md) en ny SQL database engine-funktion som avsevärt förbättrar databastillgänglighet, särskilt om det förekommer långa körs transaktioner, genom att göra om SQL database engine återställningsprocessen. Regel för automatisk distribution är för närvarande tillgängligt för enskilda databaser, elastiska pooler och Azure SQL Data Warehouse.
+
 ## <a name="conclusion"></a>Sammanfattning
 
 Azure SQL Database är djupt integrerad med Azure-plattformen och är mycket beroende på Service Fabric för identifiering och återställning på Azure-Lagringsblobar för dataskydd och Tillgänglighetszoner för högre feltolerans. På samma gång använder Azure SQL-databas fullständigt Always On Availability Group-teknik från SQL Server-box-produkt för replikering och redundans. Kombinationen av dessa tekniker gör det möjligt för program att fullständigt nytta av fördelarna med en blandad lagringsmodell och stöd för de mest krävande serviceavtal.
@@ -81,3 +85,4 @@ Azure SQL Database är djupt integrerad med Azure-plattformen och är mycket ber
 - Lär dig mer om [Tillgänglighetszoner i Azure](../availability-zones/az-overview.md)
 - Lär dig mer om [Service Fabric](../service-fabric/service-fabric-overview.md)
 - Lär dig mer om [med Azure Traffic Manager](../traffic-manager/traffic-manager-overview.md)
+- Fler alternativ för hög tillgänglighet och katastrofåterställning finns [kontinuitet för företag](sql-database-business-continuity.md)

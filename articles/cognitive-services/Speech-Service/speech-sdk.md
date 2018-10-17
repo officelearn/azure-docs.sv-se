@@ -7,14 +7,14 @@ author: erhopf
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: article
-ms.date: 10/12/2018
-ms.author: v-jerkin
-ms.openlocfilehash: 2ebdacc8cba5fcf8835da3e73c2c14dbca40fe8e
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.date: 10/16/2018
+ms.author: wolfma
+ms.openlocfilehash: 4be6b1e8373b6e7a7db8d97f2c99137cb6aca9bf
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49340724"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49364650"
 ---
 # <a name="about-the-cognitive-services-speech-sdk"></a>Om Cognitive Services tal SDK
 
@@ -32,7 +32,7 @@ För Windows stöder vi följande språk:
 
 * C# (UWP- och .NET), C++: du kan referera till och använda den senaste versionen av vår tal SDK NuGet-paketet. Paketet innehåller 32-bitars och 64-bitars klientbibliotek och hanterade (.NET)-bibliotek. SDK: N kan installeras i Visual Studio med hjälp av NuGet. Sök efter **Microsoft.CognitiveServices.Speech**.
 
-* Java: Du kan referera till och använda den senaste versionen av vår tal SDK Maven-paketet som stöder endast Windows x64. I Maven-projekt lägger du till `https://csspeechstorage.blob.core.windows.net/maven/` som ytterligare lagringsplats och referens `com.microsoft.cognitiveservices.speech:client-sdk:0.6.0` som ett beroende. 
+* Java: Du kan referera till och använda den senaste versionen av vår tal SDK Maven-paketet som stöder endast Windows x64. I Maven-projekt lägger du till `https://csspeechstorage.blob.core.windows.net/maven/` som ytterligare lagringsplats och referens `com.microsoft.cognitiveservices.speech:client-sdk:1.0.1` som ett beroende. 
 
 ### <a name="linux"></a>Linux
 
@@ -52,7 +52,7 @@ sudo apt-get install build-essential libssl1.0.0 libcurl3 libasound2
   <PackageReference Include="Microsoft.CognitiveServices.Speech" Version="1.0.1" />
   ```
 
-* Java: Du kan referera till och använda den senaste versionen av vår tal SDK Maven-paketet. I Maven-projekt lägger du till `https://csspeechstorage.blob.core.windows.net/maven/` som ytterligare lagringsplats och referens `com.microsoft.cognitiveservices.speech:client-sdk:0.6.0` som ett beroende. 
+* Java: Du kan referera till och använda den senaste versionen av vår tal SDK Maven-paketet. I Maven-projekt lägger du till `https://csspeechstorage.blob.core.windows.net/maven/` som ytterligare lagringsplats och referens `com.microsoft.cognitiveservices.speech:client-sdk:1.0.1` som ett beroende. 
 
 * C++: Ladda ned SDK som en [.tar-paketet](https://aka.ms/csspeech/linuxbinary) och packa upp filerna i en katalog med ditt val. I följande tabell visas mappstrukturen SDK:
 

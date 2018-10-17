@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/06/2016
 ms.author: cephalin
-ms.openlocfilehash: 37b11eea5c37103c0bc296a5f466658fbc77ed24
-ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
+ms.openlocfilehash: 5cd56abd02c55dbf72c92ed070f9988fae2b6762
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/15/2018
-ms.locfileid: "42054990"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49365262"
 ---
 # <a name="enable-diagnostics-logging-for-web-apps-in-azure-app-service"></a>Aktivera diagnostikloggning för webbappar i Azure App Service
 ## <a name="overview"></a>Översikt
@@ -82,7 +82,7 @@ Valfri kombination av filsystemet, tabellagring eller blob storage kan aktiveras
 När alla tre lagringsplatser ger samma grundläggande information för loggade händelser **tabellagring** och **blob-lagring** logga ytterligare information, till exempel instans-ID, tråd-ID och en mer Detaljerad tidsstämpel (Ticket-format) än loggning till **filsystem**.
 
 > [!NOTE]
-> Information som lagras i **tabellagring** eller **blob-lagring** kan bara användas med ett storage-klienten eller ett program som kan arbeta direkt med dessa lagringssystem. Till exempel Visual Studio 2013 innehåller en lagringsutforskare som kan användas för att utforska tabell eller blob storage och HDInsight kan komma åt data som lagras i blob storage. Du kan också skriva ett program som ansluter till Azure Storage med hjälp av en av de [Azure SDK: er](https://azure.microsoft.com/en-us/downloads/).
+> Information som lagras i **tabellagring** eller **blob-lagring** kan bara användas med ett storage-klienten eller ett program som kan arbeta direkt med dessa lagringssystem. Till exempel Visual Studio 2013 innehåller en lagringsutforskare som kan användas för att utforska tabell eller blob storage och HDInsight kan komma åt data som lagras i blob storage. Du kan också skriva ett program som ansluter till Azure Storage med hjälp av en av de [Azure SDK: er](https://azure.microsoft.com/downloads/).
 >
 > [!NOTE]
 > Diagnostik kan även aktiveras från Azure PowerShell med hjälp av den **Set-AzureWebsite** cmdlet. Om du inte har installerat Azure PowerShell eller inte har konfigurerat den att använda din Azure-prenumeration, se [installera och konfigurera Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-5.6.0).

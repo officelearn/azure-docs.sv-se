@@ -12,12 +12,12 @@ ms.author: v-daljep
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 09/20/2018
-ms.openlocfilehash: 5bfc11fdf6cbde9c9eed131bbcc7f7ab1dfbc442
-ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
+ms.openlocfilehash: 1cbb46f5238c2019225ab724abaf49e878d19598
+ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/06/2018
-ms.locfileid: "48830701"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49353874"
 ---
 # <a name="troubleshoot-azure-sql-database-performance-issues-with-intelligent-insights"></a>Felsöka Azure SQL Database prestandaproblem med intelligenta insikter
 
@@ -61,7 +61,7 @@ I följande avsnitt beskrivs flashminnet prestandamönster i detalj.
 
 Det här mönstret flashminnet prestanda kombinerar prestandaproblem som är relaterade till når tillgängliga resursbegränsningar, worker begränsningar och tidsgränser för sessioner. Om det här prestandaproblemet har identifierats, anger en beskrivningsfält för diagnostikloggen om prestandaproblemet är relaterat till resursen, worker eller tidsgränser för sessioner.
 
-Resurser på SQL-databas är normalt refererade till [DTU](https://docs.microsoft.com/azure/sql-database/sql-database-what-is-a-dtu) eller [vCore](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-service-tiers-vcore) resurser. Mönstret för att nå resursgränser kan identifieras när identifierats fråga prestandaförsämring orsakas av når någon av de uppmätta resursbegränsningar.
+Resurser på SQL-databas är normalt refererade till [DTU](https://docs.microsoft.com/azure/sql-database/sql-database-what-is-a-dtu) eller [vCore](https://docs.microsoft.com/azure/sql-database/sql-database-service-tiers-vcore) resurser. Mönstret för att nå resursgränser kan identifieras när identifierats fråga prestandaförsämring orsakas av når någon av de uppmätta resursbegränsningar.
 
 Sessionen gränser resursen avser antalet tillgängliga samtidiga inloggningar till SQL-databasen. Det här mönstret prestanda känns igen när program som är anslutna till SQL-databaser har nått antalet tillgängliga samtidiga inloggningar till databasen. Om program försöker att använda fler sessioner än vad som finns på en databas, påverkas prestanda för frågor.
 

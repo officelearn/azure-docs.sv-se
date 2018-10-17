@@ -4,7 +4,7 @@ description: Lär dig hur du använder WebJobs för att köra bakgrundsåtgärde
 services: app-service
 documentationcenter: ''
 author: ggailey777
-manager: erikre
+manager: jeconnoc
 editor: jimbe
 ms.assetid: af01771e-54eb-4aea-af5f-f883ff39572b
 ms.service: app-service
@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/09/2017
-ms.author: glenga;david.ebbo;suwatch;pbatum;naren.soni
-ms.openlocfilehash: c3a41733dd193d10349a0126bfa9c25ce4ba56e7
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.date: 10/16/2018
+ms.author: glenga;msangapu;david.ebbo;suwatch;pbatum;naren.soni;
+ms.openlocfilehash: 901cf32557e0a437e938ceb50ecd500c69c8c3be
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39577685"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49364038"
 ---
 # <a name="run-background-tasks-with-webjobs-in-azure-app-service"></a>Kör bakgrundsuppgifter med WebJobs i Azure App Service
 
@@ -37,14 +37,14 @@ Azure Functions erbjuder ett annat sätt att köra program och skript. En jämf�
 I följande tabell beskrivs skillnaderna mellan *kontinuerlig* och *utlöses* WebJobs.
 
 
-|Kontinuerlig  |Utlöst  |
+|Kontinuerlig igenkänning  |Utlöst  |
 |---------|---------|
 | Startar omedelbart när Webbjobbet har skapats. Om du vill behålla jobbet från slut, fungerar programmet eller skriptet vanligtvis på sitt arbete i en oändlig loop. Om jobbet slutar, kan du starta om den. | Startar endast när det utlöses manuellt eller enligt ett schema. |
 | Körs på alla instanser som webbappen körs på. Du kan också begränsa Webbjobbet till en enda instans. |Körs på en enda instans väljer Azure för belastningsutjämning.|
 | Stöd för fjärrfelsökning. | Inte stöd för fjärrfelsökning.|
 
 > [!NOTE]
-> En webbapp kan timeout efter 20 minuters inaktivitet. Endast begäranden till scm (distribution)-webbplatsen eller till webbappens sidor i portalen återställer timern. Begäranden till den faktiska platsen återställa inte timern. Om din app körs kontinuerligt eller schemalagt WebJobs, aktivera **alltid på** så att Webbjobb körs på ett tillförlitligt sätt. Den här funktionen är endast tillgänglig i den Basic, Standard och Premium [prisnivåer](https://azure.microsoft.com/pricing/details/app-service/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
+> En webbapp kan timeout efter 20 minuters inaktivitet. Endast begäranden till den faktiska webbappen återställer timern. Visa appens konfiguration i Azure-portalen eller genom att göra begäranden till webbplatsen avancerade verktyg (https:// < app_name >. scm.azurewebsites.net) inte återställa timern. Om din app körs kontinuerligt eller schemalagt WebJobs, aktivera **alltid på** så att Webbjobb körs på ett tillförlitligt sätt. Den här funktionen är endast tillgänglig i den Basic, Standard och Premium [prisnivåer](https://azure.microsoft.com/pricing/details/app-service/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 
 ## <a name="acceptablefiles"></a>Filtyper som stöds för skript eller program
 
@@ -83,7 +83,7 @@ when making changes in one don't forget the other two.
    | ------------ | ----------------- | ------------ |
    | **Namn** | myContinuousWebJob | Ett namn som är unikt i en App Service-app. Måste börja med en bokstav eller en siffra och får inte innehålla specialtecken än ”-” och ”_”. |
    | **Ladda upp filen** | ConsoleApp.zip | En *.zip* -fil som innehåller filen körbara filer eller skript samt eventuella stödfiler som krävs för att köra program eller skript. Körbara filer eller skript filen typer som stöds finns i den [filtyper som stöds](#acceptablefiles) avsnittet. |
-   | **Typ** | Kontinuerlig | Den [WebJob typer](#webjob-types) beskrivs tidigare i den här artikeln. |
+   | **Typ** | Kontinuerlig igenkänning | Den [WebJob typer](#webjob-types) beskrivs tidigare i den här artikeln. |
    | **Skalning** | Multi-instans | Endast tillgängligt för kontinuerliga WebJobs. Anger om programmet eller skriptet körs på alla instanser eller bara en instans. Alternativet för att köras på flera instanser gäller inte för den kostnadsfria eller delade [prisnivåer](https://azure.microsoft.com/pricing/details/app-service/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio). | 
 
 4. Klicka på **OK**.

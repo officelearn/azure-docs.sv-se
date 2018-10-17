@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.date: 10/04/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: 64d135ba336ca31fe6db5193f9f19c8c2340b454
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: 93bd04ce654b8403ab3cd69ecd6837b97063e5e8
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48854859"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49363954"
 ---
 # <a name="unified-alerting--monitoring-in-azure-monitor-replaces-classic-alerting--monitoring"></a>Enhetlig aviseringar och övervakning i Azure Monitor ersätter klassiska aviseringar och övervakning
 
-Azure Monitor har nu blivit am enhetlig fullständig stack övervakningstjänst som nu har stöd för ”en mått” och ”en aviseringar' mellan resurser. Mer information finns i vår [blogginlägget på den nya Azure Monitor](https://azure.microsoft.com/en-us/blog/new-full-stack-monitoring-capabilities-in-azure-monitor/). Den nya Azure övervakning och avisering plattformar har skapats för att vara snabbare, smartare och utökningsbara – att se till att takt med växande expanse med molnbaserad databehandling och i linje med Microsoft Intelligent moln filosofin. 
+Azure Monitor har nu blivit am enhetlig fullständig stack övervakningstjänst som nu har stöd för ”en mått” och ”en aviseringar' mellan resurser. Mer information finns i vår [blogginlägget på den nya Azure Monitor](https://azure.microsoft.com/blog/new-full-stack-monitoring-capabilities-in-azure-monitor/). Den nya Azure övervakning och avisering plattformar har skapats för att vara snabbare, smartare och utökningsbara – att se till att takt med växande expanse med molnbaserad databehandling och i linje med Microsoft Intelligent moln filosofin. 
 
 Med den nya Azure-övervakning och avisering plattform på plats kan vi tas ur bruk ”klassiska” övervakning och avisering plattform - finns i *Visa klassiska aviseringar* avsnitt av Azure-aviseringar kommer att bli inaktuell från juni 2019.
 
@@ -57,9 +57,9 @@ Alla klassiska övervakning och avisering system, inklusive motsvarande [API](ht
 
 Alla aviseringar som är kvar i klassiska övervakning och avisering plattform utöver juni 2019 flyttas automatiskt av Microsoft till motsvarande i den nya Azure monitor-plattformen i juli 2019. Processen kommer sömlöst utan någon avbrottstid och se till att kunderna har någon minskad övervakning täckning.
 
-Vi kommer snart med verktyg så att du kan migrera dina aviseringar från frivilligt [aviseringar (klassisk) avsnittet](monitoring-overview-alerts-classic.md) Azure-portalen till de nya Azure-aviseringarna. Alla regler som konfigurerats i aviseringar (klassisk) som har migrerats till den nya Azure Monitor fortsätter att vara kostnadsfria och inte att debiteras. Migrerade klassiska Varningsregler bär också inte någon avgift för push-meddelanden via e-post, webhook eller LogicApp. Användning av typen nyare meddelande eller åtgärd (till exempel SMS, röstsamtal, ITSM-integration, osv.) är dock debiterbar om lagts till i en migrerade eller ny avisering. Mer information finns i [priser för Azure Monitor](https://azure.microsoft.com/en-us/pricing/details/monitor/).
+Vi kommer snart med verktyg så att du kan migrera dina aviseringar från frivilligt [aviseringar (klassisk) avsnittet](monitoring-overview-alerts-classic.md) Azure-portalen till de nya Azure-aviseringarna. Alla regler som konfigurerats i aviseringar (klassisk) som har migrerats till den nya Azure Monitor fortsätter att vara kostnadsfria och inte att debiteras. Migrerade klassiska Varningsregler bär också inte någon avgift för push-meddelanden via e-post, webhook eller LogicApp. Användning av typen nyare meddelande eller åtgärd (till exempel SMS, röstsamtal, ITSM-integration, osv.) är dock debiterbar om lagts till i en migrerade eller ny avisering. Mer information finns i [priser för Azure Monitor](https://azure.microsoft.com/pricing/details/monitor/).
 
-Dessutom kan följande ska debiteras under omfattas av [priser för Azure Monitor](https://azure.microsoft.com/en-us/pricing/details/monitor/):
+Dessutom kan följande ska debiteras under omfattas av [priser för Azure Monitor](https://azure.microsoft.com/pricing/details/monitor/):
 
 - Alla nya (icke-migrerade) varningsregel skapas utöver kostnadsfria enheter på den nya Azure Monitor-plattformen
 - Alla data som matas in och returneras efter kostnadsfria enheter som ingår i Azure Monitor

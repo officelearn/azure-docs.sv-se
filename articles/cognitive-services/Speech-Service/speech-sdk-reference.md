@@ -1,5 +1,5 @@
 ---
-title: Tal SDK-referens
+title: SDK API-referens för taligenkänning
 description: Referenser för tal SDK.
 services: cognitive-services
 titleSuffix: Azure Cognitive Services
@@ -7,18 +7,18 @@ author: erhopf
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: article
-ms.date: 09/24/2018
-ms.author: erhopf
-ms.openlocfilehash: cc43d1588f51afadcbecf041870fdaf119bad025
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.date: 10/16/2018
+ms.author: wolfma
+ms.openlocfilehash: 88f0fa66ba48f21e77a6c0319129708cabbc9535
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49165580"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49362644"
 ---
-# <a name="speech-sdk-reference"></a>Tal SDK-referens
+# <a name="speech-sdk-api-reference"></a>SDK API-referens för taligenkänning
 
-Tal Software Development Kit (SDK) ger dina program åtkomst till funktioner i tjänsten tal, vilket gör det enklare att utveckla talbaserade programvara. För närvarande SDK: erna ger åtkomst till **tal till Text**, **Talöversättning**, och **avsikt erkännande**.
+Tal Software Development Kit (SDK) ger dina program åtkomst till funktioner i tjänsten tal, vilket gör det enklare att utveckla talbaserade programvara. För närvarande SDK: erna ger åtkomst till **tal till Text**, **Talöversättning**, och **avsikt erkännande**. En allmän översikt över funktioner och plattformar som stöds finns i dokumentationen [startsidan](http://aka.ms/csspeech).
 
 [!INCLUDE [Speech SDK Platforms](../../../includes/cognitive-services-speech-service-speech-sdk-platforms.md)]
 

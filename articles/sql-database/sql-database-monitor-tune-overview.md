@@ -11,13 +11,13 @@ author: danimir
 ms.author: v-daljep
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 10/15/2018
-ms.openlocfilehash: fc97aa18328fafc299ad941e6bf12dd21e9029d0
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.date: 10/16/2018
+ms.openlocfilehash: dca23940053fa6bf1f716ffa1a6fa0bcd7b41c91
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49345296"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49362627"
 ---
 # <a name="monitoring-and-performance-tuning"></a>Övervakning och prestandajustering
 
@@ -29,7 +29,7 @@ För att förbättra prestandan för Azure SQL Database, förstår du att varje 
 
 ![Tillstånd för arbetsbelastning](./media/sql-database-monitor-tune-overview/workload-states.png)
 
-För en arbetsbelastning med prestandaproblem, utfärda prestanda Mina bero på CPU-konkurrens (en **körs-relaterade** villkor) eller enskilda frågor väntar på något (en **väntar-relaterade** villkor) .
+För en arbetsbelastning med prestandaproblem prestandaproblemet kan bero på CPU-konkurrens (en **körs-relaterade** villkor) eller enskilda frågor väntar på något (en **väntar-relaterade** villkor ).
 
 - **Hög CPU-användning i Azure SQL database**:
 
@@ -62,7 +62,7 @@ Du kan identifiera körs minnesrelaterade prestandaproblem på flera olika sätt
 
 Först måste vara säker på att detta inte är en hög CPU, körs minnesrelaterade prestandaproblem. Om den inte är nästa steg att identifiera övre väntar som är associerade med din arbetsbelastning.  Vanliga metoder för att visa upp vänta kategorier av typen:
 
-- Den [Query Store](https://docs.microsoft.com/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store) innehåller vänta statistik per fråga över tid. I Query Store kombineras vänta typer i vänta kategorier. Mappningen av vänta kategorier för att vänta typer finns i [sys.query_store_wait_stats](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-query-store-wait-stats-transact-sql.md#wait-categories-mapping-table).
+- Den [Query Store](https://docs.microsoft.com/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store) innehåller vänta statistik per fråga över tid. I Query Store kombineras vänta typer i vänta kategorier. Mappningen av vänta kategorier för att vänta typer finns i [sys.query_store_wait_stats](https://docs.microsoft.com/en-us/sql/relational-databases/system-catalog-views/sys-query-store-wait-stats-transact-sql?view=sql-server-2017#wait-categories-mapping-table).
 - [sys.dm_db_wait_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-wait-stats-azure-sql-database) returnerar information om den väntar påträffades av trådar som körs under åtgärden. Du kan använda den här aggregerade vyn för att diagnostisera prestandaproblem med Azure SQL Database och med specifika frågor och -batchar.
 - [sys.dm_os_waiting_tasks](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-os-waiting-tasks-transact-sql) returnerar information om kön vänta på uppgifter som väntar på några resurser.
 
@@ -91,7 +91,7 @@ Du kan också låta Azure SQL database till [automatiskt optimera prestandan fö
 
 ## <a name="monitor-databases-using-the-azure-portal"></a>Övervaka databaser med Azure-portalen
 
-I [Azure-portalen](https://portal.azure.com/), kan du övervaka en enskild databas resursutnyttjning genom att välja din databas och klicka på **Övervaknings**-diagrammet. Det öppnar **Mått**-fönstret, vilket du kan ändra genom att klicka på **Redigera diagram**-knappen. Lägg till följande mått:
+I den [Azure-portalen](https://portal.azure.com/), du kan övervaka en enskild databas s användning genom att välja databasen och klicka på den **övervakning** diagram. Det öppnar **Mått**-fönstret, vilket du kan ändra genom att klicka på **Redigera diagram**-knappen. Lägg till följande mått:
 
 - CPU-procent
 - DTU-procent
@@ -104,7 +104,7 @@ När du har lagt till de här måtten, kan du fortsätta att visa dem i den **ö
 
 Du kan också konfigurera aviseringar på prestandamåtten. Klicka på knappen **Lägg till avisering** i **mått**-fönstret. Följ guiden för att konfigurera aviseringen. Du har möjlighet att avisera om måttet överskrider ett visst tröskelvärde eller om måttet faller under ett visst tröskelvärde.
 
-Om du exempelvis förväntar dig att arbetsbelastningen på din databas kommer att öka, kan du välja att konfigurera en e-postavisering när din databas kommer upp i 80 % för något av prestandamåtten. Du kan använda detta som en tidig varning att veta när du kanske att växla till nästa högre beräkningsstorleken.
+Om du exempelvis förväntar dig att arbetsbelastningen på din databas kommer att öka, kan du välja att konfigurera en e-postavisering när din databas kommer upp i 80 % för något av prestandamåtten. Du kan använda detta som en tidig varning att veta när du kanske att växla till nästa högsta beräkningsstorleken.
 
 Prestandamåtten kan också hjälpa dig att avgöra om du kan Nedgradera till en lägre beräkningsstorleken. Anta att du använder en Standard S2-databas och alla prestandamått visar att databasen i snitt inte använder mer än 10 % vid något tillfälle. Det är då troligt att databasen skulle fungera bra i Standard S1. Dock vara medveten om arbetsbelastningar som varierar kraftigt innan du beslutar att flytta till en lägre beräkningsstorleken.
 

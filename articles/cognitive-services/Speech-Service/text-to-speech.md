@@ -1,20 +1,20 @@
 ---
-title: Om Text till tal
-description: En översikt över funktionerna i Text till tal.
-titleSuffix: Microsoft Cognitive Services
+title: Om Text till tal - Speech Service
+titleSuffix: Azure Cognitive Services
+description: Tjänsten Microsoft Text-to-Speech erbjuder mer än 75 röster i mer än 45 språk och nationella inställningar. Om du vill använda standard rösttyper, behöver du bara ange voice-namn med några andra parametrar när du anropar Speech-tjänsten.
 services: cognitive-services
 author: erhopf
 ms.service: cognitive-services
 ms.component: speech-service
-ms.topic: article
-ms.date: 05/07/2018
+ms.topic: conceptual
+ms.date: 10/16/2018
 ms.author: erhopf
-ms.openlocfilehash: bc60eed63fb40c42fc4331edb01e15f850bf6ecb
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.openlocfilehash: 2f79ecbb42ba6453c7fb615114c0b7e56402ada3
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49166091"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49363071"
 ---
 # <a name="about-the-text-to-speech-api"></a>Om Text till tal-API
 
@@ -26,7 +26,7 @@ Scenarier i vilka tal syntes används är:
 
 * *Förbättra tillgängligheten:* **Text till tal** teknik kan innehållsägare och utgivare att svara på de olika sätt interagera med sitt innehåll. Personer med visual nedskrivningar eller läsa svårigheter uppskattar att kunna använda innehåll aurally. Röst utdata också gör det enklare för personer som gillar textinnehåll, till exempel newspapers eller bloggar på mobila enheter när du roamar eller utöva.
 
-* *Svara i scenarier för flerprogramskörning:* **Text till tal** gör det möjligt för personer att absorbera viktig information snabbt och bekvämt vid körning eller annars utanför en praktisk läsning av miljö. Navigering är en vanlig tillämpning i det här området. 
+* *Svara i scenarier för flerprogramskörning:* **Text till tal** gör det möjligt för personer att absorbera viktig information snabbt och bekvämt vid körning eller annars utanför en praktisk läsning av miljö. Navigering är en vanlig tillämpning i det här området.
 
 * *Förbättra inlärning med flera lägen:* olika personer Lär dig bästa på olika sätt. Utbildning online experter har visat att tillsammans att tillhandahålla röst- och text kan underlätta information att lära sig och behålla.
 
@@ -34,13 +34,13 @@ Scenarier i vilka tal syntes används är:
 
 ## <a name="voice-support"></a>Stöd för röst
 
-Microsofts **text till tal** tjänsten erbjuder mer än 75 röster i mer än 45 språk och nationella inställningar. Om du vill använda dessa standard ”rösttyper”, behöver du bara ange voice-namn med några andra parametrar när du anropar tjänstens REST API. Information om röster som stöds, se [språk som stöds](language-support.md#text-to-speech). 
+Microsofts **text till tal** tjänsten erbjuder mer än 75 röster i mer än 45 språk och nationella inställningar. Om du vill använda dessa standard ”rösttyper”, behöver du bara ange voice-namn med några andra parametrar när du anropar tjänstens REST API. Information om röster som stöds, se [språk som stöds](language-support.md#text-to-speech).
 
 Om du vill ha en unik röst för ditt program, kan du skapa [anpassade rösttyper](how-to-customize-voice-font.md) från din egen tal-exempel.
 
 ## <a name="api-capabilities"></a>API-funktioner
 
-Många av funktionerna i den **Text till tal** API – särskilt när det gäller anpassning, är tillgängliga via REST. I följande tabell sammanfattas funktionerna för varje metod för att komma åt API: et. En fullständig lista över funktioner och API-information Kontakta [Swagger](https://swagger/service/11ed9226-335e-4d08-a623-4547014ba2cc#/),
+Många av funktionerna i den **Text till tal** API, särskilt när det gäller anpassning, är tillgängliga via REST. I följande tabell sammanfattas funktionerna för varje metod för att komma åt API: et. En fullständig lista över funktioner och API-information, se [Swagger referens](https://westus.cris.ai/swagger/ui/index).
 
 | Användningsfall | REST | SDK:er |
 |-----|-----|-----|----|
@@ -51,7 +51,7 @@ Många av funktionerna i den **Text till tal** API – särskilt när det gälle
 | Hantera prenumerationer | Ja | Nej |
 
 > [!NOTE]
-> API: et implementerar de nätverksbegränsningar API-begäranden till 25 per 5 sekunder. Meddelandet hearders informerar begränsningar.
+> API: et implementerar de nätverksbegränsningar API-begäranden till 25 per 5 sekunder. Meddelandehuvudena informerar begränsningar.
 
 ## <a name="next-steps"></a>Nästa steg
 

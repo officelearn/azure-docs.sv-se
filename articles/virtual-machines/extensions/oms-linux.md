@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 09/24/2018
 ms.author: roiyz
-ms.openlocfilehash: b8a946588d09eb05e1609344318c91f76c7ee106
-ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
+ms.openlocfilehash: bab579b540dbeed8ecbff8925547509edb1d78c9
+ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47452130"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49352384"
 ---
 # <a name="log-analytics-virtual-machine-extension-for-linux"></a>Logga Analytics tillägg för virtuell dator för Linux
 
@@ -80,9 +80,9 @@ Följande JSON visar schemat för tillägget Log Analytics-agenten. Tillägget k
 
 ```json
 {
-  "type": "extensions",
+  "type": "Microsoft.Compute/virtualMachines/extensions",
   "name": "OMSExtension",
-  "apiVersion": "2015-06-15",
+  "apiVersion": "2018-06-01",
   "location": "<location>",
   "dependsOn": [
     "[concat('Microsoft.Compute/virtualMachines/', <vm-name>)]"
@@ -101,11 +101,15 @@ Följande JSON visar schemat för tillägget Log Analytics-agenten. Tillägget k
 }
 ```
 
+>[!NOTE]
+>Enligt schemat ovan förutsätter att den ska placeras på rotnivå för mallen. Om du placerar den i den virtuella datorresursen i mallen den `type` och `name` egenskaper ska ändras enligt [längre ner](#template-deployment).
+>
+
 ### <a name="property-values"></a>Egenskapsvärden
 
 | Namn | Värdet / exempel |
 | ---- | ---- |
-| apiVersion | 2015-06-15 |
+| apiVersion | 2018-06-01 |
 | utgivare | Microsoft.EnterpriseCloud.Monitoring |
 | typ | OmsAgentForLinux |
 | typeHandlerVersion | 1.7 |
@@ -125,7 +129,7 @@ I följande exempel förutsätter att VM-tillägget är kapslade i den virtuella
 {
   "type": "extensions",
   "name": "OMSExtension",
-  "apiVersion": "2015-06-15",
+  "apiVersion": "2018-06-01",
   "location": "<location>",
   "dependsOn": [
     "[concat('Microsoft.Compute/virtualMachines/', <vm-name>)]"
@@ -150,7 +154,7 @@ När du monterar tillägget JSON i roten på mallen resursnamnet innehåller en 
 {
   "type": "Microsoft.Compute/virtualMachines/extensions",
   "name": "<parentVmResource>/OMSExtension",
-  "apiVersion": "2015-06-15",
+  "apiVersion": "2018-06-01",
   "location": "<location>",
   "dependsOn": [
     "[concat('Microsoft.Compute/virtualMachines/', <vm-name>)]"

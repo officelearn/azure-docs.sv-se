@@ -12,116 +12,138 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/01/2017
+ms.date: 10/16/2018
 ms.author: apurvajo;cephalin
-ms.openlocfilehash: 38f7f82d293409a49c41381cedaa1f7600068cd3
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: c775798591a3063fdfe6d399c8337aac2e2f207e
+ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49319412"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49351362"
 ---
-# <a name="buy-and-configure-an-ssl-certificate-for-your-azure-app-service"></a>Köp och konfigurera ett SSL-certifikat för din Azure Apptjänst
+# <a name="buy-and-configure-an-ssl-certificate-for-azure-app-service"></a>Köp och konfigurera ett SSL-certifikat för Azure App Service
 
-Den här självstudien visar hur du skyddar webbappen genom att köpa ett SSL-certifikat för din  **[Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714)** på ett säkert sätt lagra det i [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-whatis), och koppla det till en anpassad domän.
-
-## <a name="step-1---sign-in-to-azure"></a>Steg 1 – Logga i till Azure
-
-Logga in på Azure Portal på http://portal.azure.com
-
-## <a name="step-2---place-an-ssl-certificate-order"></a>Steg 2 – lägga en beställning med SSL-certifikat
-
-Du kan placera en order för SSL-certifikat genom att skapa en ny [App Service Certificate](https://portal.azure.com/#create/Microsoft.SSL) i den **Azure-portalen**.
-
-![Skapandet av certifikat](./media/app-service-web-purchase-ssl-web-site/createssl.png)
-
-Ange ett eget **namn** för SSL-certifikat och ange den **domännamn**
-
-> [!NOTE]
-> Det här steget är en av de viktigaste delarna i inköpsprocessen. Se till att ange rätt värdnamn (anpassad domän) som du vill skydda med det här certifikatet. **INTE** åtkomstgruppen värdnamn med WWW. 
->
-
-Välj din **prenumeration**, **resursgrupp**, och **SKU-certifikat**
+Den här självstudien visar hur du skyddar webbappen genom att skapa (köpa) ett App Service-certifikat i [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-whatis) och kopplar den till en App Service-app.
 
 > [!TIP]
 > App Service-certifikat kan användas för alla Azure- eller icke - Azure-tjänster och är inte begränsat till App Services. Om du vill göra det måste du skapa en lokal PFX-kopia av en App Service-certifikat som du kan använda det var du vill. Mer information finns i [skapar en lokal PFX-kopia av ett App Service Certificate](https://blogs.msdn.microsoft.com/appserviceteam/2017/02/24/creating-a-local-pfx-copy-of-app-service-certificate/).
 >
 
-## <a name="step-3---store-the-certificate-in-azure-key-vault"></a>Steg 3 – Store certifikatet i Azure Key Vault
+## <a name="prerequisites"></a>Förutsättningar
 
-> [!NOTE]
-> [Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-whatis) är en Azure-tjänst som hjälper till att skydda kryptografiska nycklar och hemligheter som används av molnprogram och molntjänster.
->
+Att följa den här guiden:
 
-När SSL-certifikat köpet har slutförts, måste du öppna den [App Service-certifikat](https://portal.azure.com/#blade/HubsExtension/Resources/resourceType/Microsoft.CertificateRegistration%2FcertificateOrders) sidan.
+- [Skapa en App Service-app](/azure/app-service/)
+- [Mappa ett domännamn till din webbapp](app-service-web-tutorial-custom-domain.md) eller [köp och konfigurera i Azure](custom-dns-web-site-buydomains-web-app.md)
+
+[!INCLUDE [Prepare your web app](../../includes/app-service-ssl-prepare-app.md)]
+
+## <a name="start-certificate-order"></a>Starta certifikatbeställning
+
+Starta en App Service certificate order i den <a href="https://portal.azure.com/#create/Microsoft.SSL" target="_blank">App Service Certificate Skapa sida</a>.
+
+![Skapandet av certifikat](./media/app-service-web-purchase-ssl-web-site/createssl.png)
+
+Använd följande tabell för att konfigurera certifikatet. Klicka på **Skapa** när du är klar.
+
+| Inställning | Beskrivning |
+|-|-|
+| Namn | Ett eget namn för din App Service-certifikat. |
+| Värdnamnets domän utan www | Det här steget är en av de viktigaste delarna i inköpsprocessen. Använd rotdomännamn som du har mappat till din app. Gör _inte_ åtkomstgruppen för domännamnet med `www`. |
+| Prenumeration | Datacenter som är värd för webbappen. |
+| Resursgrupp | Den resursgrupp som innehåller certifikatet. Du kan använda en ny resursgrupp eller Välj samma resursgrupp som din App Service-app, till exempel. |
+| Certifikat-SKU | Avgör vilken typ av certifikat för att skapa, om ett standardcertifikat eller en [jokerteckencertifikat](https://wikipedia.org/wiki/Wildcard_certificate). |
+| Juridiska villkor | Klicka för att bekräfta att du godkänner de juridiska villkoren. |
+
+## <a name="store-in-azure-key-vault"></a>Store i Azure Key Vault
+
+När certifikatet inköpsprocessen är klar, finns det några fler steg som du måste utföra innan du kan börja använda det här certifikatet. 
+
+Välj certifikatet i den [App Service-certifikat](https://portal.azure.com/#blade/HubsExtension/Resources/resourceType/Microsoft.CertificateRegistration%2FcertificateOrders) sidan och klicka sedan på **Certifikatkonfigureringen** > **steg 1: Store**.
 
 ![Infoga bild av redo att lagra i KV](./media/app-service-web-purchase-ssl-web-site/ReadyKV.png)
 
-Certifikatets status är **”väntar på att utfärdas”** eftersom det inte finns några fler steg som du måste utföra innan du kan börja använda det här certifikatet.
+[Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-whatis) är en Azure-tjänst som hjälper till att skydda kryptografiska nycklar och hemligheter som används av molnprogram och molntjänster. Det här är den med för App Service-certifikat.
 
-Klicka på **Certifikatkonfigureringen** i Egenskaper för certifikat och klicka på **steg 1: Store** att lagra certifikatet i Azure Key Vault.
+I den **Key Vault-Status** klickar du på **Key Vault-lagret** att skapa ett nytt valv eller välj ett befintligt valv. Använd följande tabell för att konfigurera valvet och klicka på Skapa om du vill skapa ett nytt valv. Se till att skapa nytt Key Vault i samma prenumeration och resursgrupp grupp.
 
-Från den **Key Vault-Status** klickar du på **Key Vault-lagret** att välja en befintlig Key Vault för att lagra certifikatet **eller skapa nytt Key Vault** att skapa nytt Key Vault inom samma prenumeration och resursgrupp.
+| Inställning | Beskrivning |
+|-|-|
+| Namn | Ett unikt namn som består för alfanumeriska tecken och bindestreck. |
+| Resursgrupp | Välj samma resursgrupp som din App Service-certifikat som en rekommendation. |
+| Plats | Välj samma plats som din App Service-app. |
+| Prisnivå | Mer information finns i [prisinformation för Azure Key Vault](https://azure.microsoft.com/pricing/details/key-vault/). |
+| Åtkomstprinciper| Definierar program och kunna komma till valvet-resurser. Du kan konfigurera den senare, följa stegen i [bevilja flera program åtkomst till key vault](../key-vault/key-vault-group-permissions-for-apps.md). |
+| Virtual Network-åtkomst | Begränsa vault åtkomsten till vissa Azure-nätverk. Du kan konfigurera den senare, följa stegen i [konfigurera Azure Key Vault brandväggar och virtuella nätverk](../key-vault/key-vault-network-security.md) |
 
-> [!NOTE]
-> Azure Key Vault har minimal avgifter för lagring av det här certifikatet.
-> Mer information finns i  **[prisinformation för Azure Key Vault](https://azure.microsoft.com/pricing/details/key-vault/)**.
->
+När du har valt valvet, Stäng den **Key Vault-lagret** sidan. Den **Store** alternativet ska visa en grön bock för att lyckas. Låt sidan öppet för nästa steg.
 
-När du har valt Key Vault-lagringsplats för det här certifikatet i, den **Store** alternativet ska visa lyckades.
+## <a name="verify-domain-ownership"></a>Verifiera domänägarskap
 
-![Infoga bild store framgång i KV](./media/app-service-web-purchase-ssl-web-site/KVStoreSuccess.png)
+Från samma **Certifikatkonfigureringen** du använde i det sista steget, klickar du på **steg 2: Kontrollera**.
 
-## <a name="step-4---verify-the-domain-ownership"></a>Steg 4 – Kontrollera vem som äger
+![](./media/app-service-web-purchase-ssl-web-site/verify-domain.png)
 
-Från samma **Certifikatkonfigureringen** du använde i steg3, klickar du på **steg 2: Kontrollera**.
-
-Välj önskad domän verifieringsmetod. 
-
-Det finns tre typer av domänverifiering som stöds av App Service-certifikat: App Service, domän och manuell verifiering. Typerna verifiering beskrivs mer detaljerat i de [avancerade avsnitt](#advanced).
-
-> [!NOTE]
-> **App Service-verifiering** är det enklaste alternativet när du vill verifiera domänen är redan mappad till en App Service-app i samma prenumeration. Den drar nytta av det faktum att App Service-appen har redan verifierats äger domänen.
->
-
-Klicka på **Kontrollera** knappen för att slutföra det här steget.
-
-![Infoga bild av domänverifiering](./media/app-service-web-purchase-ssl-web-site/DomainVerificationRequired.png)
-
-När du klickar på **Kontrollera**, använda den **uppdatera** knappen tills den **Kontrollera** alternativet ska visa lyckades.
-
-![Infoga bild av kontrollerar du i KV](./media/app-service-web-purchase-ssl-web-site/KVVerifySuccess.png)
-
-## <a name="step-5---assign-certificate-to-app-service-app"></a>Steg 5: tilldela certifikatet till App Service-App
+Välj **App Service-verifiering**. Eftersom du redan har mappats till domänen till din webbapp (se [krav](#prerequisites)), har redan verifierats. Klicka bara på **Kontrollera** att slutföra det här steget. Klicka på den **uppdatera** knappen tills meddelandet **certifikatet har Domänverifierats** visas.
 
 > [!NOTE]
-> Innan du utför stegen i det här avsnittet, måste du har associerat ett anpassat domännamn med din app. Mer information finns i  **[konfigurera ett anpassat domännamn för en webbapp.](app-service-web-tutorial-custom-domain.md)**
->
+> Stöds fyra typer av domän verifieringsmetoder: 
+> 
+> - **App Service** -det enklaste alternativet när domänen har redan mappats till en App Service-app i samma prenumeration. Den drar nytta av det faktum att App Service-appen har redan verifierats äger domänen.
+> - **Domän** -Kontrollera en [App Service-domän som du har köpt från Azure](custom-dns-web-site-buydomains-web-app.md). Azure lägger till verifiering TXT-posten för dig och Slutför automatiskt.
+> - **E-post** -verifiera domänen genom att skicka ett e-postmeddelande till domänadministratör. Anvisningar finns när du väljer alternativet.
+> - **Manuell** -verifiera domänen med hjälp av en HTML-sida (**Standard** certifikat endast) eller en DNS TXT-post. Anvisningar finns när du väljer alternativet.
 
-I den  **[Azure-portalen](https://portal.azure.com/)**, klickar du på den **Apptjänst** alternativet till vänster på sidan.
+## <a name="bind-certificate-to-app"></a>Binda certifikatet till appen
 
-Klicka på namnet på den app du vill koppla certifikatet till.
+I den  **[Azure-portalen](https://portal.azure.com/)**, i den vänstra menyn, Välj **Apptjänster** > **\<your_ app >**.
 
-I den **inställningar**, klickar du på **SSL-inställningar**.
-
-Klicka på **importera App Service Certificate** och välj det certifikat som du nyss köpt.
+I det vänstra navigeringsfönstret i appen, Välj **SSL-inställningar** > **privata certifikat (.pfx)** > **importera App Service Certificate**.
 
 ![Infoga bild av Importera certifikat](./media/app-service-web-purchase-ssl-web-site/ImportCertificate.png)
 
-I den **ssl-bindningar** avsnittet Klicka på **lägga till bindningar**, och Använd listrutorna för att välja domännamnet som ska skyddas med SSL och certifikaten som ska användas. Du kan också välja om du vill använda **[(Servernamnindikator)](http://en.wikipedia.org/wiki/Server_Name_Indication)** eller IP-baserad SSL.
+Välj det certifikat du nyss köpt.
 
-![Infoga bild av SSL-bindningar](./media/app-service-web-purchase-ssl-web-site/SSLBindings.png)
+Nu när certifikatet har importerats måste att binda till en mappade domännamnet i din app. Välj **bindningar** > **Lägg till SSL-bindning**. 
 
-Klicka på **Lägg till bindning för** att spara ändringarna och aktivera SSL.
+![Infoga bild av Importera certifikat](./media/app-service-web-purchase-ssl-web-site/AddBinding.png)
+
+Använd följande tabell när du konfigurerar bindningen i den **SSL-bindningar** dialogrutan klickar **Lägg till bindning för**.
+
+| Inställning | Beskrivning |
+|-|-|
+| Värdnamn | Att lägga till SSL-bindning för domännamn. |
+| Tumavtryck för privat certifikat | Certifikat för att binda. |
+| SSL-typ | <ul><li>**SNI SSL** -flera SNI-baserad SSL-bindningar kan läggas till. Med det här alternativet kan flera SSL-certifikat skydda flera domäner på samma IP-adress. De flesta moderna webbläsare (inklusive Internet Explorer, Chrome, Firefox och Opera) stöder SNI (mer information om webbläsare som stöds finns i [Servernamnindikator](http://wikipedia.org/wiki/Server_Name_Indication)).</li><li>**IP-baserad SSL** – Det går bara att lägga till en IP-baserad SSL-bindning. Med det här alternativet tillåts endast ett SSL-certifikat för att skydda en dedikerad offentlig IP-adress. När konfigurerade bindningen, följer du stegen i [mappa om en post för IP SSL](app-service-web-tutorial-custom-ssl.md#remap-a-record-for-ip-ssl). </li></ul> |
+
+## <a name="verify-https-access"></a>Kontrollera åtkomst till HTTPS
+
+Gå till din app med `HTTPS://<domain_name>` i stället för `HTTP://<domain_name>` att verifiera att certifikatet har konfigurerats korrekt.
+
+## <a name="rekey-and-sync-certificate"></a>Nyckeluppdatering och synkronisering av certifikat
+
+Om du behöver uppdatera ditt certifikat, väljer certifikatet i den [App Service-certifikat](https://portal.azure.com/#blade/HubsExtension/Resources/resourceType/Microsoft.CertificateRegistration%2FcertificateOrders) sidan och välj sedan **nyckeluppdatering och synkronisera** i det vänstra navigeringsfönstret.
+
+Klicka på **uppdatera** för att starta processen. Den här processen kan ta 1 – 10 minuter att slutföra.
+
+![Infoga bild av uppdatera SSL](./media/app-service-web-purchase-ssl-web-site/Rekey.png)
+
+Certifikatet samlar certifikatet med ett nytt certifikat som utfärdats av certifikatutfärdaren.
+
+## <a name="renew-certificate"></a>Förnya certifikat
+
+Om du vill aktivera automatisk förnyelse av certifikatet när som helst, väljer certifikatet i den [App Service-certifikat](https://portal.azure.com/#blade/HubsExtension/Resources/resourceType/Microsoft.CertificateRegistration%2FcertificateOrders) sidan och klicka sedan på **inställningarna för automatisk förnyelse** i det vänstra navigeringsfönstret. 
+
+Välj **på** och klicka på **spara**. Certifikat kan starta förnyas automatiskt 60 dagar innan den upphör om du har automatisk förnyelse aktiverad.
+
+![](./media/app-service-web-purchase-ssl-web-site/auto-renew.png)
+
+Om du vill manuellt förnya certifikatet i stället, klickar du på **förnya manuellt**. Du kan begära för att förnya certifikatet manuellt 60 dagar före förfallodatum.
 
 > [!NOTE]
-> Om du har valt **IP-baserad SSL** och din anpassade domän är konfigurerad med en A-post, måste du utföra följande åtgärder. Dessa beskrivs i mer information finns i den [avancerade avsnitt](#Advanced).
+> Det förnyade certifikatet är inte automatiskt bunden till din app, oavsett om du förnyade manuellt eller den förnyas automatiskt. Om du vill binda det till din app, se [förnya certifikat](./app-service-web-tutorial-custom-ssl.md#renew-certificates). 
 
-Du ska nu kunna gå till din app med `HTTPS://` i stället för `HTTP://` att verifiera att certifikatet har konfigurerats korrekt.
-
-<!--![insert image of https](./media/app-service-web-purchase-ssl-web-site/Https.png)-->
-
-## <a name="step-6---management-tasks"></a>Steg 6 – hanteringsuppgifter
+## <a name="automate-with-scripts"></a>Automatisera med skript
 
 ### <a name="azure-cli"></a>Azure CLI
 
@@ -130,74 +152,6 @@ Du ska nu kunna gå till din app med `HTTPS://` i stället för `HTTP://` att ve
 ### <a name="powershell"></a>PowerShell
 
 [!code-powershell[main](../../powershell_scripts/app-service/configure-ssl-certificate/configure-ssl-certificate.ps1?highlight=1-3 "Bind a custom SSL certificate to a web app")]
-
-## <a name="advanced"></a>Advanced
-
-### <a name="verifying-domain-ownership"></a>Verifiera Domänägarskap
-
-Det finns två typer av domänverifiering som stöds av App service-certifikat: domänverifiering och manuell verifiering.
-
-#### <a name="domain-verification"></a>Domänverifiering
-
-Välj det här alternativet endast för [en App Service-domän som du har köpt från Azure.](custom-dns-web-site-buydomains-web-app.md). Azure lägger till verifiering TXT-posten för dig och Slutför automatiskt.
-
-#### <a name="manual-verification"></a>Manuell verifiering
-
-> [!IMPORTANT]
-> HTML-webbsida verifiering (fungerar bara i Standard certifikat-SKU)
->
-
-1. Skapa en HTML-fil med namnet **”starfield.html”**
-
-1. Innehållet i den här filen bör vara det exakta namnet på Domänverifieringstoken. (Du kan kopiera token från sidan Domänverifieringsstatus)
-
-1. Ladda upp den här filen i roten på webbservern som värd för din domän `/.well-known/pki-validation/starfield.html`
-
-1. Klicka på **uppdatera** att uppdatera statusen för certifikatet när verifieringen är klar. Det kan ta några minuter innan verifieringen.
-
-> [!TIP]
-> Verifiera i en terminal med `curl -G http://<domain>/.well-known/pki-validation/starfield.html` ska svaret innehålla den `<verification-token>`.
-
-#### <a name="dns-txt-record-verification"></a>Verifiering av DNS TXT-post
-
-1. Med hjälp av DNS-hanteraren, skapa en TXT-post på den `@` underdomän med värdet som är lika med Domänverifieringstoken.
-1. Klicka på **”uppdatera”** att uppdatera statusen för certifikatet när verifieringen är klar.
-
-> [!TIP]
-> Du måste skapa en TXT-post på `@.<domain>` med värdet `<verification-token>`.
-
-### <a name="assign-certificate-to-app-service-app"></a>Tilldela certifikat till App Service-App
-
-Om du har valt **IP-baserad SSL** och din anpassade domän är konfigurerad med en A-post, måste du utföra följande åtgärder:
-
-När du har konfigurerat en IP-baserad SSL-bindning, en dedikerad IP-adress har tilldelats din app. Du hittar den här IP-adressen på den **Custom domain** sidan under inställningar för din app, precis ovanför den **värdnamn** avsnittet. Är listat som **extern IP-adress**
-
-![Infoga bild av IP SSL](./media/app-service-web-purchase-ssl-web-site/virtual-ip-address.png)
-
-Den här IP-adress skiljer sig från den virtuella IP-adressen som användes för att konfigurera A-posten för din domän. Om du är konfigurerade för att använda SNI-baserad SSL eller inte är konfigurerade för att använda SSL, ingen adress anges för den här posten.
-
-Med hjälp av verktyg som tillhandahålls av din domännamnsregistrator, ändra A-posten för ditt anpassade domännamn så att den pekar till IP-adressen från föregående steg.
-
-## <a name="rekey-and-sync-the-certificate"></a>Uppdatera nyckel och synkronisera certifikatet
-
-Om du behöver uppdatera ditt certifikat, väljer du den **nyckeluppdatering och synkronisera** alternativet från den **certifikategenskaper** sidan.
-
-Klicka på **uppdatera** för att starta processen. Den här processen kan ta 1 – 10 minuter att slutföra.
-
-![Infoga bild av uppdatera SSL](./media/app-service-web-purchase-ssl-web-site/Rekey.png)
-
-Certifikatet samlar certifikatet med ett nytt certifikat som utfärdats av certifikatutfärdaren.
-
-## <a name="renew-the-certificate"></a>Förnya certifikatet
-
-Aktivera automatisk förnyelse av certifikatet när som helst genom att klicka på **inställningarna för automatisk förnyelse** i sidan för hantering av certifikat. Välj **på** och klicka på **spara**. Certifikat kan starta förnya 90 dagar innan den upphör automatiskt om du har automatisk förnyelse aktiverad.
-
-![](./media/app-service-web-purchase-ssl-web-site/auto-renew.png)
-
-Om du vill manuellt förnya certifikatet i stället, klickar du på **förnya manuellt** i stället. Du kan begära för att förnya certifikatet manuellt 60 dagar före förfallodatum.
-
-> [!NOTE]
-> Det förnyade certifikatet är inte automatiskt bunden till din app, oavsett om du förnyade manuellt eller den förnyas automatiskt. Om du vill binda det till din app, se [förnya certifikat](./app-service-web-tutorial-custom-ssl.md#renew-certificates). 
 
 ## <a name="more-resources"></a>Fler resurser
 

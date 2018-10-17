@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 03/30/2018
 ms.author: roiyz
-ms.openlocfilehash: aefb9142e5954b2e4598c73eb36fa25de99e9584
-ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
+ms.openlocfilehash: b4e2971b5bb4ed5add2e68c1aabbc82443a61160
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47452266"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49363393"
 ---
 # <a name="virtual-machine-extensions-and-features-for-linux"></a>Virtuella datorer, tillägg och funktioner i Linux
 
@@ -408,7 +408,7 @@ Du kan också ta bort ett tillägg i Azure-portalen på följande sätt:
 | Tillägget för anpassat skript för Linux |Köra skript mot en Azure virtuell dator |[Tillägget för anpassat skript för Linux](custom-script-linux.md) |
 | VM Access-tillägg |Få åtkomst till en Azure virtuell dator |[VM Access-tillägg](https://github.com/Azure/azure-linux-extensions/tree/master/VMAccess) |
 | Azure Diagnostics-tillägg |Hantera Azure-diagnostik |[Azure Diagnostics-tillägg](https://azure.microsoft.com/blog/windows-azure-virtual-machine-monitoring-with-wad-extension/) |
-| Azure VM Access-tillägg |Hantera användare och autentiseringsuppgifter |[VM Access-tillägg för Linux](https://azure.microsoft.com/en-us/blog/using-vmaccess-extension-to-reset-login-credentials-for-linux-vm/) |
+| Azure VM Access-tillägg |Hantera användare och autentiseringsuppgifter |[VM Access-tillägg för Linux](https://azure.microsoft.com/blog/using-vmaccess-extension-to-reset-login-credentials-for-linux-vm/) |
 
 ## <a name="next-steps"></a>Nästa steg
 

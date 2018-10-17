@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: 033e5e5e054b0a29961ad60e72b1466b51d1df0c
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 5fda0ac590e5faeaa8b6ec44a7d649d2c0122eeb
+ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47035206"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49352993"
 ---
 # <a name="entity-roles-in-patterns-are-contextual-subtypes"></a>Entiteten roller i mönster är sammanhangsberoende undertyper
 Roller är namngivna, sammanhangsberoende undertyper för en entitet som används bara i [mönster](luis-concept-patterns.md).
@@ -28,6 +28,8 @@ Roller namnge ett dessa skillnader:
 |--|--|--|
 |Plats|ursprung|där planet lämnar från|
 |Plats|mål|där planet landar|
+|Fördefinierade datetimeV2|till|slutdatum|
+|Fördefinierade datetimeV2|från|Startdatum|
 
 ## <a name="how-are-roles-used-in-patterns"></a>Hur används roller i mönster?
 I ett mönster mall uttryck används roller inom uttryck: 
@@ -47,6 +49,14 @@ Hierarkisk entiteter innehåller samma sammanhangsberoende information som rolle
 |--|--|
 |hierarkisk entiteter|Avsikter|
 |roles|Mönster|
+
+## <a name="roles-with-prebuilt-entities"></a>Roller med förskapade entiteter
+
+Använd roller med förskapade entiteter för att ge betydelse till olika instanser av färdiga enheten inom ett uttryck. 
+
+### <a name="roles-with-datetimev2"></a>Roller med datetimeV2
+
+Entiteten fördefinierade datetimeV2, gör ett bra jobb så här fungerar en mängd olika i datum och tider i yttranden. Du kanske vill ange datum- och tidsintervall annorlunda än fördefinierade entitetens standard förståelse. 
 
 ## <a name="next-steps"></a>Nästa steg
 

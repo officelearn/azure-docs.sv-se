@@ -11,13 +11,13 @@ author: ronitr
 ms.author: ronitr
 ms.reviewer: vanto
 manager: craigg
-ms.date: 10/02/2018
-ms.openlocfilehash: 7362fc634f27227d037b08cd93f0f406fd250e22
-ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
+ms.date: 10/15/2018
+ms.openlocfilehash: bd40faf8a77a8940dc78375ec516c39742540231
+ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49115615"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49352847"
 ---
 # <a name="get-started-with-sql-database-auditing"></a>Kom igång med SQL-databasgranskning
 
@@ -30,7 +30,6 @@ Azure SQL-databasgranskning spårar databashändelser och skriver dem till en gr
 ## <a id="subheading-1"></a>Azure SQL database auditing översikt
 
 Du kan använda SQL database auditing till att:
-
 
 - **Behåll** granskningsspårning av valda händelser. Du kan definiera kategorier av databasåtgärder som ska granskas.
 - **Rapporten** på Databasaktivitet. Du kan använda förkonfigurerade rapporter och en instrumentpanel för att komma igång snabbt med aktiviteten och rapportera händelser.
@@ -98,7 +97,7 @@ I följande avsnitt beskrivs konfigurationen av granskning med Azure portal.
 
 9. Klicka på **Spara**.
 10. Om du vill anpassa de granskade händelserna, kan du göra detta via [PowerShell-cmdletar](#subheading-7) eller [REST API](#subheading-9).
-11. När du har konfigurerat inställningarna för granskning kan du aktivera funktionen för identifiering av nya hot och konfigurera e-postmeddelanden om du vill få säkerhetsaviseringar. När du använder hotidentifiering kan få du proaktiva varningar på avvikande databasaktiviteter som kan innebära potentiella säkerhetshot. Mer information finns i [komma igång med hotidentifiering](sql-database-threat-detection-get-started.md). 
+11. När du har konfigurerat inställningarna för granskning kan du aktivera funktionen för identifiering av nya hot och konfigurera e-postmeddelanden om du vill få säkerhetsaviseringar. När du använder hotidentifiering kan få du proaktiva varningar på avvikande databasaktiviteter som kan innebära potentiella säkerhetshot. Mer information finns i [komma igång med hotidentifiering](sql-database-threat-detection-get-started.md).
 
 ## <a id="subheading-3"></a>Analysera granskningsloggar och rapporter
 
@@ -223,16 +222,17 @@ Ett skript-exempel finns i [konfigurera granskning och hotidentifiering med hjä
 
 **REST-API – blobbgranskning**:
 
-- [Skapa eller uppdatera databasen Blob granskningsprincip](https://docs.microsoft.com/rest/api/sql/database%20auditing%20settings/createorupdate)
-- [Skapa eller uppdatera Server Blob granskningsprincip](https://docs.microsoft.com/rest/api/sql/server%20auditing%20settings/createorupdate)
-- [Hämta databasen Blob granskningsprincip](https://docs.microsoft.com/rest/api/sql/database%20auditing%20settings/get)
-- [Hämta Server Blob granskningsprincip](https://docs.microsoft.com/rest/api/sql/server%20auditing%20settings/get)
+- [Skapa eller uppdatera databasen Blob granskningsprincip](https://docs.microsoft.com/rest/api/sql/database%20auditing%20settings/databaseblobauditingpolicies_createorupdate)
+- [Skapa eller uppdatera Server Blob granskningsprincip](https://docs.microsoft.com/rest/api/sql/server%20auditing%20settings/serverblobauditingpolicies_createorupdate)
+- [Hämta databasen Blob granskningsprincip](https://docs.microsoft.com/rest/api/sql/database%20auditing%20settings/databaseblobauditingpolicies_get)
+- [Hämta Server Blob granskningsprincip](https://docs.microsoft.com/rest/api/sql/server%20auditing%20settings/serverblobauditingpolicies_get)
 
 Utökade princip med där satsen stöd för ytterligare filtrering:
-- [Skapa eller uppdatera databasen *utökade* Blob granskningsprincip](https://docs.microsoft.com/rest/api/sql/database%20extended%20auditing%20settings/createorupdate)
-- [Skapa eller uppdatera Server *utökade* Blob granskningsprincip](https://docs.microsoft.com/rest/api/sql/server%20extended%20auditing%20settings/createorupdate)
-- [Hämta databas *utökade* Blob granskningsprincip](https://docs.microsoft.com/rest/api/sql/database%20extended%20auditing%20settings/get)
-- [Hämta Server *utökade* Blob granskningsprincip](https://docs.microsoft.com/rest/api/sql/server%20extended%20auditing%20settings/get)
+
+- [Skapa eller uppdatera databasen *utökade* Blob granskningsprincip](https://docs.microsoft.com/rest/api/sql/database%20extended%20auditing%20settings/extendeddatabaseblobauditingpolicies_createorupdate)
+- [Skapa eller uppdatera Server *utökade* Blob granskningsprincip](https://docs.microsoft.com/rest/api/sql/server%20auditing%20settings/serverblobauditingpolicies_createorupdate)
+- [Hämta databas *utökade* Blob granskningsprincip](https://docs.microsoft.com/rest/api/sql/database%20extended%20auditing%20settings/extendeddatabaseblobauditingpolicies_get)
+- [Hämta Server *utökade* Blob granskningsprincip](https://docs.microsoft.com/rest/api/sql/server%20auditing%20settings/serverblobauditingpolicies_get)
 
 <!--Anchors-->
 [Azure SQL Database Auditing overview]: #subheading-1

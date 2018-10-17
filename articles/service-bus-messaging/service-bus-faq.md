@@ -8,16 +8,16 @@ ms.service: service-bus-messaging
 ms.topic: article
 ms.date: 09/05/2018
 ms.author: spelluru
-ms.openlocfilehash: 87a6ccf61e10a6a8c7feeccad3690cdcb9b63641
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: c851c8a9384acf909dc88d3565d49021e1ee67e9
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48857864"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49362032"
 ---
 # <a name="service-bus-faq"></a>Vanliga frågor och svar om Service Bus
 
-Den här artikeln beskriver några vanliga frågor om Microsoft Azure Service Bus. Du kan också besöka den [Azure stöd för vanliga frågor och svar](https://azure.microsoft.com/en-us/support/faq/) allmän Azure prissättning och information.
+Den här artikeln beskriver några vanliga frågor om Microsoft Azure Service Bus. Du kan också besöka den [Azure stöd för vanliga frågor och svar](https://azure.microsoft.com/support/faq/) allmän Azure prissättning och information.
 
 ## <a name="general-questions-about-azure-service-bus"></a>Allmänna frågor om Azure Service Bus
 ### <a name="what-is-azure-service-bus"></a>Vad är Azure Service Bus?
@@ -56,7 +56,7 @@ Det här avsnittet får du svar på några vanliga frågor om Service Bus priss�
 
 Den [Service Bus priser och fakturering](service-bus-pricing-billing.md) artikeln förklarar faktureringsmätare i Service Bus. Specifik information om Service Bus prisalternativ finns i [Service Bus prisinformation](https://azure.microsoft.com/pricing/details/service-bus/).
 
-Du kan också besöka den [Azure stöd för vanliga frågor och svar](https://azure.microsoft.com/en-us/support/faq/) för allmänna Azure information om priser. 
+Du kan också besöka den [Azure stöd för vanliga frågor och svar](https://azure.microsoft.com/support/faq/) för allmänna Azure information om priser. 
 
 ### <a name="how-do-you-charge-for-service-bus"></a>Hur tar du betalt för Service Bus?
 Fullständig information om priser för Service Bus finns i [Service Bus prisinformation][Pricing overview]. Förutom priserna, debiteras du för överföring av associerade data för utanför datacentret där programmet har etablerats.

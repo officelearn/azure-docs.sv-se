@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/01/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: 1490e60f3c6537a661fc1e76907b502a586547c9
-ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
+ms.openlocfilehash: bcede1f985937058196b75a93f539cb34da73992
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48248898"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49365070"
 ---
 # <a name="log-alerts-in-azure-monitor"></a>Loggaviseringar i Azure Monitor
 Den här artikeln innehåller information om aviseringar är en av typerna av aviseringar som stöds i den [Azure Alerts](monitoring-overview-unified-alerts.md) och Tillåt användare att använda Azures analysplattform som bas för aviseringar.
@@ -110,7 +110,7 @@ Men ovan listade om klockan 13:15 - Azure-aviseringar kan inte fastställa att d
 
 
 ## <a name="pricing-and-billing-of-log-alerts"></a>Priser och fakturering av aviseringar
-Priser för loggvarningar anges på den [priser för Azure Monitor](https://azure.microsoft.com/en-us/pricing/details/monitor/) sidan. I Azure-fakturor loggvarningar representeras som typ `microsoft.insights/scheduledqueryrules` med:
+Priser för loggvarningar anges på den [priser för Azure Monitor](https://azure.microsoft.com/pricing/details/monitor/) sidan. I Azure-fakturor loggvarningar representeras som typ `microsoft.insights/scheduledqueryrules` med:
 - Aviseringar i Application Insights visas med exakt aviseringsnamn tillsammans med resursgruppen och egenskaper för aviseringen
 - Loggaviseringar på Log Analytics som visas med aviseringsnamn som `<WorkspaceName>|<savedSearchId>|<scheduleId>|<ActionId>` tillsammans med resursgruppen och egenskaper för aviseringen
 

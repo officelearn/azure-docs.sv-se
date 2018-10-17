@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 ms.date: 10/09/2018
-ms.openlocfilehash: 6760d2832b6c39759f9287797363fcd5a116ccfb
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: 9a0c427b8beec3984a9fdd5d41ba3705fd21fd4c
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48883677"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49365012"
 ---
 # <a name="migrate-sql-server-on-premises-to-azure-sql-db-using-azure-powershell"></a>Migrera SQL Server lokalt till Azure SQL DB med hjälp av Azure PowerShell
 I den här artikeln får du migrera den **Adventureworks2012** databasen återställs till en lokal instans av SQL Server 2005 eller senare till en Azure SQL Database med hjälp av Microsoft Azure PowerShell. Du kan migrera databaser från en lokal SQL Server-instans till Azure SQL Database med hjälp av den `AzureRM.DataMigration` modul i Microsoft Azure PowerShell.
@@ -195,7 +195,7 @@ $selectedAgentJobs = @("agentJob1", "agentJob2")
 ### <a name="create-and-start-a-migration-task"></a>Skapa och starta en migreringen
 
 Använd den `New-AzureRmDataMigrationTask` cmdlet för att skapa och starta en migreringen. Cmdlet: en kräver följande parametrar:
-- *TaskType*. Typ av migreringen för att skapa för SQL Server till Azure SQL-databasinstans Managaged Migreringstyp *MigrateSqlServerSqlDbMi* förväntas. 
+- *TaskType*. Typ av migreringen för att skapa för SQL Server till Azure SQL Database Managed Instance Migreringstyp *MigrateSqlServerSqlDbMi* förväntas. 
 - *Namn på resursgrupp*. Namnet på Azure-resursgrupp där du vill skapa uppgiften.
 - *ServiceName*. Azure Database Migration Service-instans där du vill skapa uppgiften.
 - *ProjectName*. Namnet på Azure Database Migration Service-projekt där du vill skapa uppgiften. 

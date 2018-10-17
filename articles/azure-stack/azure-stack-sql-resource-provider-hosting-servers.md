@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/27/2018
+ms.date: 10/16/2018
 ms.author: jeffgilb
 ms.reviewer: quying
-ms.openlocfilehash: 57033de3224b5966b2dfa80dd1cb45fafd83b26b
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.openlocfilehash: a0a482e44617732c9dc6cd6609672e8204001dbc
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48238750"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49362066"
 ---
 # <a name="add-hosting-servers-for-the-sql-resource-provider"></a>Lägg till värdservrar för SQL-resursprovider
 
@@ -173,23 +173,24 @@ Med dessa kommandon anger alternativet innesluten databas authentication server 
    > Du kan inte blanda fristående servrar med Always On-instanser i samma SKU. Försök att blanda typer när du lägger till de första värdbaserade servern resulterar i ett fel.
 
 ## <a name="sku-notes"></a>SKU-information
-
-Du kan använda SKU: er för att skilja Tjänsterbjudanden. Du kan till exempel ha en SQL Enterprise-instans som har följande egenskaper:
+Använd en SKU-namn som beskriver funktionerna i servrar i SKU: N, till exempel kapacitet och prestanda. Namnet fungerar som en hjälp för att hjälpa användare att distribuera sina databaser till lämplig SKU: N. Du kan till exempel använda SKU-namn för att skilja Tjänsterbjudanden med följande egenskaper:
   
 * hög kapacitet
 * höga prestanda
 * hög tillgänglighet
 
-SKU: er kan inte tilldelas till specifika användare eller grupper i den här versionen.
-
- SKU: er kan ta upp till en timme att bli synliga i portalen. Användare kan inte skapa en databas tills SKU: N är färdigt.
-
->[!TIP]
->Använd en SKU-namnet som återspeglar beskriver funktionerna i servrar i SKU: N, till exempel kapacitet och prestanda. Namnet fungerar som en hjälp för att hjälpa användare att distribuera sina databaser till lämplig SKU: N.
-
 Som bästa praxis, bör värdservrar i en SKU ha samma resurs- och egenskaper.
 
-## <a name="make-the-sql-databases-available-to-users"></a>Gör SQL-databaser som är tillgängliga för användare
+SKU: er kan inte tilldelas till specifika användare eller grupper.
+
+SKU: er kan ta upp till en timme att bli synliga i portalen. Användare kan inte skapa en databas tills SKU: N är färdigt.
+
+Om du vill redigera en SKU, gå till **alla tjänster** > **SQL Adapter** > **SKU: er**. Välj SKU för att ändra, gör nödvändiga ändringar och klicka på **spara** att spara ändringarna. Om du vill ta bort en SKU som inte längre behövs, gå till **alla tjänster** > **SQL Adapter** > **SKU: er**. Högerklicka på SKU-namnet och välj **ta bort** att ta bort den.
+
+> [!TIP]
+> Du kan redigera eller ta bort SQL-providern resurskvoter på samma plats.
+
+## <a name="make-sql-databases-available-to-users"></a>Gör SQL-databaser som är tillgängliga för användare
 
 Skapa planer och erbjudanden att tillgängliggöra SQL-databaser för användare. Lägg till den **Microsoft.SqlAdapter** service för att planen och skapa en ny kvot.
 

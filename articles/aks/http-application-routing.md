@@ -8,18 +8,21 @@ ms.service: container-service
 ms.topic: article
 ms.date: 04/25/2018
 ms.author: laevenso
-ms.openlocfilehash: 181a37504569088e44dbe39da9113257bfb35c4e
-ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
+ms.openlocfilehash: 9a096588c5a8fda64343e001fdbd895d02153f58
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49068953"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49362712"
 ---
 # <a name="http-application-routing"></a>Routning av HTTP-program
 
 HTTP-Programlösningen routning gör det enkelt att komma åt program som distribueras till ditt kluster i Azure Kubernetes Service (AKS). När lösningen är aktiverad, konfigurerar en Ingress-kontrollanten för AKS-klustret. När program distribueras skapar lösningen även offentliga DNS-namn för slutpunkterna.
 
 När tillägget är aktiverat skapas en DNS-zon i din prenumeration. Läs mer om DNS-kostnaden [DNS priser][dns-pricing].
+
+> [!CAUTION]
+> Tillägg till routning för HTTP-program är utformat så att du snabbt skapa en ingress-kontrollanten och kommer åt dina program. Det här tillägget rekommenderas inte för användning i produktion. Produktionsklar ingress-distributioner som omfattar flera repliker och TLS stöder finns i [skapa en HTTPS-ingress-kontrollant](https://docs.microsoft.com/en-us/azure/aks/ingress-tls).
 
 ## <a name="http-routing-solution-overview"></a>HTTP-routning lösningsöversikt
 

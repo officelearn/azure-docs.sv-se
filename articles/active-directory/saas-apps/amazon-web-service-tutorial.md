@@ -8,19 +8,18 @@ manager: femila
 ms.reviewer: joflore
 ms.assetid: 7561c20b-2325-4d97-887f-693aa383c7be
 ms.service: active-directory
-ms.component: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/14/2018
+ms.date: 10/16/2018
 ms.author: jeedes
-ms.openlocfilehash: 8ddcd66d0675603f4e130a9ca367cc4eed7353e7
-ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
+ms.openlocfilehash: 8e91fbf0befaef9088e9afaa6e69c0cb29ad4858
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/15/2018
-ms.locfileid: "42058490"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49363767"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-amazon-web-services-aws"></a>Självstudier: Azure Active Directory-integrering med Amazon Web Services (AWS)
 
@@ -34,7 +33,26 @@ Integrera Amazon Web Services (AWS) med Azure AD ger dig följande fördelar:
 
 Om du vill veta mer om integrering av SaaS-app med Azure AD finns i [vad är programåtkomst och enkel inloggning med Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
-![Amazon Web Services (AWS)](./media/amazon-web-service-tutorial/tutorial_amazonwebservices(aws)_image.png)
+![Amazon Web Services (AWS)](./media/amazon-web-service-tutorial/tutorial_amazonwebservices_image.png)
+
+Du kan konfigurera flera identifierare för flera instanser enligt nedan. 
+
+* `https://signin.aws.amazon.com/saml#1`
+
+* `https://signin.aws.amazon.com/saml#2`
+
+Med dessa värden, Azure AD tar bort värdet för **#** och skicka det korrekta värdet `https://signin.aws.amazon.com/saml` som målgrupp-URL: en i SAML-Token.
+
+**Vi rekommenderar att du använder den här metoden av följande skäl:**
+
+a. Varje program ger du unika X509 certifikat och så varje instans kan ha ett annat certifikat förfallodatum och du kan hantera detta på individuellt för AWS-konto. Övergripande förnya certifikatet kommer att vara enkelt i det här fallet.
+
+b. Du kan aktivera etableringen av användare med AWS-app i Azure AD och sedan vår tjänst hämtar alla roller från det AWS-kontot. Du behöver inte manuellt lägger till eller uppdaterar AWS-roller på appen.
+
+c. Du kan tilldela appägaren individuellt för appen som kan hantera appen direkt i Azure AD.
+
+> [!Note]
+> Kontrollera att du använder galleri-App
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -55,9 +73,7 @@ Om du vill testa stegen i den här självstudien bör du följa dessa rekommenda
 > Om du vill integrera flera AWS-konton till en Azure-konto för enkelinloggning på [detta](https://docs.microsoft.com/azure/active-directory/active-directory-saas-aws-multi-accounts-tutorial) artikeln.
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
-
-I den här självstudien kan du testa Azure AD enkel inloggning i en testmiljö.
-Det scenario som beskrivs i den här självstudien består av två viktigaste byggstenarna:
+I den här självstudien kan du testa Azure AD enkel inloggning i en testmiljö. Det scenario som beskrivs i den här självstudien består av två viktigaste byggstenarna:
 
 1. Att lägga till Amazon Web Services (AWS) från galleriet
 2. Konfigurera och testa Azure AD enkel inloggning
@@ -67,29 +83,27 @@ För att konfigurera integrering av Amazon Web Services (AWS) till Azure AD, som
 
 **Utför följande steg för att lägga till Amazon Web Services (AWS) från galleriet:**
 
-1. I den **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon.
+1. I den **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon. 
 
-    ![Azure Active Directory-knappen][1]
+    ![image](./media/amazon-web-service-tutorial/selectazuread.png)
 
 2. Gå till **företagsprogram**. Gå till **alla program**.
 
-    ![Bladet för Enterprise-program][2]
-
+    ![image](./media/amazon-web-service-tutorial/a_select_app.png)
+    
 3. Lägg till nytt program, klicka på **nytt program** knappen överst i dialogrutan.
 
-    ![Knappen Nytt program][3]
+    ![image](./media/amazon-web-service-tutorial/a_new_app.png)
 
 4. I sökrutan skriver **Amazon Web Services (AWS)** väljer **Amazon Web Services (AWS)** resultatet panelen klickar **Lägg till** för att lägga till programmet.
 
-    ![Amazon Web Services (AWS) i resultatlistan](./media/amazon-web-service-tutorial/tutorial_amazonwebservices(aws)_addfromgallery.png)
+     ![image](./media/amazon-web-service-tutorial/tutorial_amazonwebservices(aws)_addfromgallery.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa Azure AD enkel inloggning
 
 I det här avsnittet ska du konfigurera och testa Azure AD enkel inloggning med Amazon Web Services (AWS) baserat på en testanvändare som kallas ”Britta Simon”.
 
 För enkel inloggning att fungera, behöver Azure AD du känna till motsvarande användare i Amazon Web Services (AWS) till en användare i Azure AD. Med andra ord måste en länk relationen mellan en Azure AD-användare och relaterade användaren i Amazon Web Services (AWS) upprättas.
-
-I Amazon Web Services (AWS), tilldela värdet för den **användarnamn** i Azure AD som värde för den **användarnamn** att upprätta länken-relation.
 
 Om du vill konfigurera och testa Azure AD enkel inloggning med Amazon Web Services (AWS), måste du utföra följande byggblock:
 
@@ -105,70 +119,75 @@ I det här avsnittet ska du aktivera Azure AD enkel inloggning i Azure-portalen 
 
 **Utför följande steg för att konfigurera Azure AD enkel inloggning med Amazon Web Services (AWS):**
 
-1. I Azure-portalen på den **Amazon Web Services (AWS)** program integration-sidan klickar du på **enkel inloggning**.
+1. I den [Azure-portalen](https://portal.azure.com/)på den **Amazon Web Services (AWS)** application integration markerar **enkel inloggning**.
 
-    ![Konfigurera enkel inloggning för länken][4]
+    ![image](./media/amazon-web-service-tutorial/B1_B2_Select_SSO.png)
 
-2. På den **enkel inloggning** dialogrutan **läge** som **SAML-baserad inloggning** att aktivera enkel inloggning.
+2. På den **väljer du en metod för enkel inloggning** dialogrutan Välj **SAML** läge för att aktivera enkel inloggning.
 
-    ![Enkel inloggning för dialogrutan](./media/amazon-web-service-tutorial/tutorial_amazonwebservices(aws)_samlbase.png)
+    ![image](./media/amazon-web-service-tutorial/b1_b2_saml_sso.png)
 
-3. På den **Amazon Web Services (AWS)-domän och URL: er** avsnittet användaren behöver inte utföra några steg som appen är redan förintegrerade med Azure.
+3. På den **ange in enkel inloggning med SAML** klickar du på **redigera** knappen för att öppna **SAML grundkonfiguration** dialogrutan.
 
-    ![Amazon Web Services (AWS)-domän och URL: er med enkel inloggning för information](./media/amazon-web-service-tutorial/tutorial_amazonwebservices(aws)_url.png)
+    ![image](./media/amazon-web-service-tutorial/b1-domains_and_urlsedit.png)
 
-4. Programvara för Amazon Web Services (AWS) förväntar sig SAML-intyg i ett visst format. Konfigurera följande anspråk för det här programmet. Du kan hantera värdena för dessa attribut från den ”**användarattribut**” på sidan för integrering av program. Följande skärmbild visar ett exempel för detta.
+4. På den **SAML grundkonfiguration** avsnittet användaren behöver inte utföra några steg som appen är redan förintegrerade med Azure.
 
-    ![Konfigurera enkel inloggning attb](./media/amazon-web-service-tutorial/tutorial_amazonwebservices(aws)_attribute.png)
+    ![image](./media/amazon-web-service-tutorial/tutorial_amazonwebservices(aws)_url.png)
 
-5. I den **användarattribut** avsnittet på den **enkel inloggning** dialogrutan Konfigurera SAML-token attributet som visas i bilden ovan och utför följande steg:
+5. När du konfigurerar mer än en instans, ange ID-värde. Från och med andra instansen, ange ID-värde i följande format. Använd en **#** logga kan ange ett unikt värde för SPN. 
 
-    | Attributnamn  | Attributvärde | Namnrymd |
+    `https://signin.aws.amazon.com/saml#2`
+
+    ![Amazon Web Services (AWS)-domän och URL: er med enkel inloggning för information](./media/amazon-web-service-tutorial/tutorial_amazonwebservices(aws)_identifier.png)
+
+6. Amazon Web Services (AWS) program som förväntar SAML-intyg i ett visst format. Konfigurera följande anspråk för det här programmet. Du kan hantera värdena för dessa attribut från den **användarattribut och anspråk** avsnitt på sidan för integrering av programmet. På den **ange in enkel inloggning med SAML** klickar du på **redigera** knappen för att öppna **användarattribut och anspråk** dialogrutan.
+
+    ![image](./media/amazon-web-service-tutorial/i4-attribute.png)
+
+7. I den **användaranspråk** avsnittet på den **användarattribut och anspråk** dialogrutan Konfigurera SAML-token attributet som visas i bilden ovan och utför följande steg:
+    
+    | Namn  | Attribut för datakälla  | Namnrymd |
     | --------------- | --------------- | --------------- |
     | RoleSessionName | User.userPrincipalName | https://aws.amazon.com/SAML/Attributes |
     | Roll            | User.assignedroles |  https://aws.amazon.com/SAML/Attributes |
-    | SessionDuration             | ”Ge värdet för talsession per dina behov” |  https://aws.amazon.com/SAML/Attributes |
+    | SessionDuration             | ”Ange ett värde mellan 900 sekunder (15 minuter) till 43200 sekunder (12 timmar)” |  https://aws.amazon.com/SAML/Attributes |
 
-    >[!TIP]
-    >Du måste konfigurera användaretablering i Azure AD för att hämta alla roller från AWS-konsolen. Se etablering stegen nedan.
+    a. Klicka på **Lägg till nytt anspråk** att öppna den **hantera användaranspråk** dialogrutan.
 
-    a. Klicka på **Lägg till attribut** att öppna den **lägga till attributet** dialogrutan.
+    ![image](./media/amazon-web-service-tutorial/i2-attribute.png)
 
-    ![Konfigurera enkel inloggning för Lägg till](./media/amazon-web-service-tutorial/tutorial_attribute_04.png)
-
-    ![Konfigurera enkel inloggning addattb](./media/amazon-web-service-tutorial/tutorial_attribute_05.png)
+    ![image](./media/amazon-web-service-tutorial/i3-attribute.png)
 
     b. I den **namn** textrutan skriver du attributnamnet som visas för den raden.
 
-    c. Från den **värdet** anger attributvärdet som visas för den raden.
+    c. Ange den **Namespace** värde.
 
-    d. I den **Namespace** textrutan skriver namnområdesvärdet som visas för den raden.
+    d. Välj källa som **attributet**.
 
-    d. Klicka på **OK**.
+    e. Från den **källattribut** anger attributvärdet som visas för den raden.
 
-6. På den **SAML-signeringscertifikat** klickar du på **XML-Metadata för** och spara sedan metadatafilen på datorn.
+    f. Klicka på **Spara**.
 
-    ![Länk för hämtning av certifikat](./media/amazon-web-service-tutorial/tutorial_amazonwebservices(aws)_certificate.png)
+8. På den **ange in enkel inloggning med SAML** sidan den **SAML-signeringscertifikat** klickar du på **hämta** att ladda ned den **Federation Metadata-XML**  och spara den på din dator.
 
-7. Klicka på **spara** knappen.
+    ![image](./media/amazon-web-service-tutorial/tutorial_amazonwebservices(aws)_certificate.png) 
 
-    ![Konfigurera enkel inloggning spara-knapp](./media/amazon-web-service-tutorial/tutorial_general_400.png)
+9. I ett annat webbläsarfönster inloggning till webbplatsen för företagets Amazon Web Services (AWS) som administratör.
 
-8. I ett annat webbläsarfönster inloggning till webbplatsen för företagets Amazon Web Services (AWS) som administratör.
-
-9. Klicka på **AWS Home**.
+10. Klicka på **AWS Home**.
 
     ![Konfigurera enkel inloggning på startsidan][11]
 
-10. Klicka på **Identity and Access Management**.
+11. Klicka på **Identity and Access Management**.
 
     ![Konfigurera identitet för enkel inloggning][12]
 
-11. Klicka på **Identitetsprovidrar**, och klicka sedan på **skapa providern**.
+12. Klicka på **Identitetsprovidrar**, och klicka sedan på **skapa providern**.
 
     ![Konfigurera Provider för enkel inloggning][13]
 
-12. På den **konfigurera Provider** dialogrutan utför följande steg:
+13. På den **konfigurera Provider** dialogrutan utför följande steg:
 
     ![Konfigurera enkel inloggning för dialogrutan][14]
 
@@ -180,15 +199,15 @@ I det här avsnittet ska du aktivera Azure AD enkel inloggning i Azure-portalen 
 
     d. Klicka på **nästa steg**.
 
-13. På den **Kontrollera Providerinformationen** dialogrutan sidan, klickar du på **skapa**.
+14. På den **Kontrollera Providerinformationen** dialogrutan sidan, klickar du på **skapa**.
 
     ![Konfigurera enkel inloggning kontrollerar][15]
 
-14. Klicka på **roller**, och klicka sedan på **skapa roll**.
+15. Klicka på **roller**, och klicka sedan på **skapa roll**.
 
     ![Konfigurera roller för enkel inloggning][16]
 
-15. På den **skapa roll** utför följande steg:  
+16. På den **skapa roll** utför följande steg:  
 
     ![Konfigurera enkel inloggning, förtroende][19]
 
@@ -200,11 +219,11 @@ I det här avsnittet ska du aktivera Azure AD enkel inloggning i Azure-portalen 
   
     d. Klicka på **nästa: behörigheter**.
 
-16. På den **bifoga Säkerhetsbehörighetsprinciper** dialogrutan, behöver du inte bifoga princip. Klicka på **nästa: granska**.  
+17. På den **bifoga Säkerhetsbehörighetsprinciper** dialogrutan, behöver du inte bifoga princip. Klicka på **nästa: granska**.  
 
     ![Konfigurera principen för enkel inloggning][33]
 
-17. På den **granska** dialogrutan utför följande steg:
+18. På den **granska** dialogrutan utför följande steg:
 
     ![Konfigurera granskning för enkel inloggning][34]
 
@@ -216,21 +235,21 @@ I det här avsnittet ska du aktivera Azure AD enkel inloggning i Azure-portalen 
 
     d. Skapa så många roller efter behov och mappa den till identitetsleverantören.
 
-18. Använd autentiseringsuppgifter för AWS-tjänstkontot för hämtning av rollerna från AWS-konto i Azure AD-användare etablering. Öppna konsolen AWS home till detta ändamål.
+19. Använd autentiseringsuppgifter för AWS-tjänstkontot för hämtning av rollerna från AWS-konto i Azure AD-användare etablering. Öppna konsolen AWS home till detta ändamål.
 
-19. Klicka på **Services** -> **säkerhet, identitet och efterlevnad** -> **IAM**.
+20. Klicka på **Services** -> **säkerhet, identitet och efterlevnad** -> **IAM**.
 
     ![hämtning av rollerna från AWS-konto](./media/amazon-web-service-tutorial/fetchingrole1.png)
 
-20. Välj den **principer** fliken i avsnittet IAM.
+21. Välj den **principer** fliken i avsnittet IAM.
 
     ![hämtning av rollerna från AWS-konto](./media/amazon-web-service-tutorial/fetchingrole2.png)
 
-21. Skapa en ny princip genom att klicka på **skapa princip** för hämtning av rollerna från AWS-konto i Azure AD-användare etablering.
+22. Skapa en ny princip genom att klicka på **skapa princip** för hämtning av rollerna från AWS-konto i Azure AD-användare etablering.
 
     ![Skapar en ny princip](./media/amazon-web-service-tutorial/fetchingrole3.png)
 
-22. Skapa en egen princip för att hämta alla roller från AWS-konton genom att utföra följande steg:
+23. Skapa en egen princip för att hämta alla roller från AWS-konton genom att utföra följande steg:
 
     ![Skapar en ny princip](./media/amazon-web-service-tutorial/policy1.png)
 
@@ -270,7 +289,7 @@ I det här avsnittet ska du aktivera Azure AD enkel inloggning i Azure-portalen 
 
     ![Definiera den nya principen](./media/amazon-web-service-tutorial/policy5.png)
 
-23. Definiera den **ny princip** genom att utföra följande steg:
+24. Definiera den **ny princip** genom att utföra följande steg:
 
     ![Definiera den nya principen](./media/amazon-web-service-tutorial/policy2.png)
 
@@ -280,7 +299,7 @@ I det här avsnittet ska du aktivera Azure AD enkel inloggning i Azure-portalen 
 
     c. Klicka på **”skapa Policy”** knappen.
 
-24. Skapa ett nytt användarkonto i AWS IAM-tjänsten genom att utföra följande steg:
+25. Skapa ett nytt användarkonto i AWS IAM-tjänsten genom att utföra följande steg:
 
     a. Klicka på **användare** navigering i AWS IAM-konsolen.
 
@@ -300,7 +319,7 @@ I det här avsnittet ska du aktivera Azure AD enkel inloggning i Azure-portalen 
 
     * Klicka på den **nästa behörigheter** knappen i nederkant högra hörnet.
 
-25. Skapa nu en ny princip för den här användaren genom att utföra följande steg:
+26. Skapa nu en ny princip för den här användaren genom att utföra följande steg:
 
     ![Lägga till användare](./media/amazon-web-service-tutorial/adduser2.png)
 
@@ -310,7 +329,7 @@ I det här avsnittet ska du aktivera Azure AD enkel inloggning i Azure-portalen 
 
     c. Välj den **princip** och klicka sedan på den **nästa: granska** knappen.
 
-26. Granska principen till den anslutna användaren genom att utföra följande steg:
+27. Granska principen till den anslutna användaren genom att utföra följande steg:
 
     ![Lägga till användare](./media/amazon-web-service-tutorial/adduser3.png)
 
@@ -318,7 +337,7 @@ I det här avsnittet ska du aktivera Azure AD enkel inloggning i Azure-portalen 
 
     b. Klicka på den **skapa användare** knappen i det nedre högra hörnet att skapa användaren.
 
-27. Hämta autentiseringsuppgifter för en användare genom att utföra följande steg:
+28. Hämta autentiseringsuppgifter för en användare genom att utföra följande steg:
 
     ![Lägga till användare](./media/amazon-web-service-tutorial/adduser4.png)
 
@@ -328,11 +347,11 @@ I det här avsnittet ska du aktivera Azure AD enkel inloggning i Azure-portalen 
 
     c. Klicka på **Stäng** längst ned.
 
-28. Gå till **Användaretablering** avsnittet för Amazon Web Services-appen i Azure AD-hanteringsportalen.
+29. Gå till **Användaretablering** avsnittet för Amazon Web Services-appen i Azure AD-hanteringsportalen.
 
     ![Lägga till användare](./media/amazon-web-service-tutorial/provisioning.png)
 
-29. Ange den **åtkomstnyckeln** och **hemlighet** i den **Klienthemlighet** och **hemlighet Token** fältet respektive.
+30. Ange den **åtkomstnyckeln** och **hemlighet** i den **Klienthemlighet** och **hemlighet Token** fältet respektive.
 
     ![Lägga till användare](./media/amazon-web-service-tutorial/provisioning1.png)
 
@@ -344,7 +363,7 @@ I det här avsnittet ska du aktivera Azure AD enkel inloggning i Azure-portalen 
 
     d. Spara inställningen genom att klicka på den **spara** längst upp.
 
-30. Nu se till att du aktiverar den Etableringsstatus **på** i avsnittet inställningar genom att växla på och klicka sedan på den **spara** längst upp.
+31. Nu se till att du aktiverar den Etableringsstatus **på** i avsnittet inställningar genom att växla på och klicka sedan på den **spara** längst upp.
 
     ![Lägga till användare](./media/amazon-web-service-tutorial/provisioning2.png)
 
@@ -352,34 +371,27 @@ I det här avsnittet ska du aktivera Azure AD enkel inloggning i Azure-portalen 
 
 Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen kallas Britta Simon.
 
-   ![Skapa en Azure AD-testanvändare][100]
+1. I Azure-portalen, i den vänstra rutan väljer **Azure Active Directory**väljer **användare**, och välj sedan **alla användare**.
 
-**Utför följande steg för att skapa en testanvändare i Azure AD:**
+    ![image](./media/amazon-web-service-tutorial/d_users_and_groups.png)
 
-1. I Azure-portalen, i den vänstra rutan klickar du på den **Azure Active Directory** knappen.
+2. Välj **ny användare** överst på skärmen.
 
-    ![Azure Active Directory-knappen](./media/amazon-web-service-tutorial/create_aaduser_01.png)
+    ![image](./media/amazon-web-service-tutorial/d_adduser.png)
 
-2. Om du vill visa en lista över användare, gå till **användare och grupper**, och klicka sedan på **alla användare**.
+3. Utför följande steg i egenskaperna för användaren.
 
-    ![”Användare och grupper” och ”alla användare”-länkar](./media/amazon-web-service-tutorial/create_aaduser_02.png)
+    ![image](./media/amazon-web-service-tutorial/d_userproperties.png)
 
-3. Öppna den **användaren** dialogrutan klickar du på **Lägg till** överst i den **alla användare** dialogrutan.
+    a. I den **namn** ange **BrittaSimon**.
+  
+    b. I den **användarnamn** fälttyp **brittasimon@yourcompanydomain.extension**  
+    Till exempel, BrittaSimon@contoso.com
 
-    ![Knappen Lägg till](./media/amazon-web-service-tutorial/create_aaduser_03.png)
+    c. Välj **egenskaper**väljer den **Show lösenord** kryssrutan och sedan skriva ned det värde som visas i rutan lösenord.
 
-4. I den **användaren** dialogrutan utför följande steg:
-
-    ![Dialogrutan användare](./media/amazon-web-service-tutorial/create_aaduser_04.png)
-
-    a. I den **namn** skriver **BrittaSimon**.
-
-    b. I den **användarnamn** skriver användarens Britta Simon e-postadress.
-
-    c. Välj den **visa lösenord** kryssrutan och sedan skriva ned det värde som visas i den **lösenord** box.
-
-    d. Klicka på **Skapa**.
-
+    d. Välj **Skapa**.
+ 
 ### <a name="create-an-amazon-web-services-aws-test-user"></a>Skapa en testanvändare i Amazon Web Services (AWS)
 
 Målet med det här avsnittet är att skapa en användare som kallas Britta Simon i Amazon Web Services (AWS). Amazon Web Services (AWS) behöver inte en användare som ska skapas i deras system för enkel inloggning, så du inte behöver göra någonting här.
@@ -388,32 +400,37 @@ Målet med det här avsnittet är att skapa en användare som kallas Britta Simo
 
 I det här avsnittet ska aktivera du Britta Simon att använda Azure enkel inloggning genom att ge åtkomst till Amazon Web Services (AWS).
 
-![Tilldela rollen][200]
+1. I Azure-portalen väljer du **företagsprogram**väljer **alla program**.
 
-**Om du vill tilldela Britta Simon till Amazon Web Services (AWS), utför du följande steg:**
-
-1. Öppna vyn program i Azure-portalen och gå till vyn directory och gå till **företagsprogram** klickar **alla program**.
-
-    ![Tilldela användare][201]
+    ![image](./media/amazon-web-service-tutorial/d_all_applications.png)
 
 2. I listan med program väljer **Amazon Web Services (AWS)**.
 
-    ![Länken Amazon Web Services (AWS) i listan med program](./media/amazon-web-service-tutorial/tutorial_amazonwebservices(aws)_app.png)  
+    ![image](./media/amazon-web-service-tutorial/tutorial_amazonwebservices(aws)_app.png)
 
-3. I menyn till vänster, klickar du på **användare och grupper**.
+3. I menyn till vänster väljer **användare och grupper**.
 
-    ![Länken ”användare och grupper”][202]
+    ![image](./media/amazon-web-service-tutorial/d_leftpaneusers.png)
 
-4. Klicka på **Lägg till** knappen. Välj sedan **användare och grupper** på **Lägg till tilldelning** dialogrutan.
+4. Välj den **Lägg till** knappen och välj **användare och grupper** i den **Lägg till tilldelning** dialogrutan.
 
-    ![Fönstret Lägg till tilldelning][203]
+    ![image](./media/amazon-web-service-tutorial/d_assign_user.png)
 
-5. På **användare och grupper** dialogrutan **Britta Simon** på listan användare.
+5. I den **användare och grupper** dialogrutan Välj **Britta Simon** i listan över användare och klicka på den **Välj** längst ned på skärmen.
 
-6. Klicka på **Välj** knappen **användare och grupper** dialogrutan.
+    ![image](./media/amazon-web-service-tutorial/tutorial_amazonwebservices_users.png)
 
-7. Klicka på **tilldela** knappen **Lägg till tilldelning** dialogrutan.
+6. I den **Välj roll** dialogrutan Välj en lämplig användarroll i listan och klicka sedan på den **Välj** längst ned på skärmen.
 
+    ![image](./media/amazon-web-service-tutorial/tutorial_amazonwebservices_roles.png)
+
+    >[!NOTE]
+    >När du har aktiverat användaretablering med programmet, bör du måste vänta i 30 minuter att hämta alla roller från Amazon Web Services (AWS) måste du uppdatera sidan och sedan medan tilldela program till användare och grupper som du ser rollerna för användning r.
+
+7. I den **Lägg till tilldelning** dialogrutan Välj den **tilldela** knappen.
+
+    ![image](./media/amazon-web-service-tutorial/tutorial_amazonwebservices_assign.png)
+    
 ### <a name="test-single-sign-on"></a>Testa enkel inloggning
 
 I det här avsnittet ska testa du Azure AD enkel inloggning för konfigurationen med hjälp av åtkomstpanelen.
@@ -428,17 +445,6 @@ Läs mer om åtkomstpanelen [introduktion till åtkomstpanelen](../active-direct
 
 <!--Image references-->
 
-[1]: ./media/amazon-web-service-tutorial/tutorial_general_01.png
-[2]: ./media/amazon-web-service-tutorial/tutorial_general_02.png
-[3]: ./media/amazon-web-service-tutorial/tutorial_general_03.png
-[4]: ./media/amazon-web-service-tutorial/tutorial_general_04.png
-
-[100]: ./media/amazon-web-service-tutorial/tutorial_general_100.png
-
-[200]: ./media/amazon-web-service-tutorial/tutorial_general_200.png
-[201]: ./media/amazon-web-service-tutorial/tutorial_general_201.png
-[202]: ./media/amazon-web-service-tutorial/tutorial_general_202.png
-[203]: ./media/amazon-web-service-tutorial/tutorial_general_203.png
 [11]: ./media/amazon-web-service-tutorial/ic795031.png
 [12]: ./media/amazon-web-service-tutorial/ic795032.png
 [13]: ./media/amazon-web-service-tutorial/ic795033.png
@@ -458,4 +464,3 @@ Läs mer om åtkomstpanelen [introduktion till åtkomstpanelen](../active-direct
 [39]: ./media/amazon-web-service-tutorial/tutorial_amazonwebservices_provisioning_automatic.png
 [40]: ./media/amazon-web-service-tutorial/tutorial_amazonwebservices_provisioning_testconnection.png
 [41]: ./media/amazon-web-service-tutorial/tutorial_amazonwebservices_provisioning_on.png
-

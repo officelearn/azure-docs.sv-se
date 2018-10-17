@@ -11,17 +11,17 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: sashan, moslake
 manager: craigg
-ms.date: 10/04/2018
-ms.openlocfilehash: 053bcd46f5b0f7e06997bb0bcd57f448617b9911
-ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
+ms.date: 10/15/2018
+ms.openlocfilehash: 15fd86a88c3025f81741d614b03d5c4c7c60262c
+ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/06/2018
-ms.locfileid: "48832328"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49351750"
 ---
 # <a name="general-purpose-and-business-critical-service-tiers"></a>Allmänt syfte och affärskritisk-tjänstnivåer
 
-Den här artikeln beskrivs överväganden för lagring och säkerhetskopiering för generell användning och affärskritisk-tjänstnivåer i den vCore-baserade inköpsmodellen. 
+Den här artikeln beskrivs överväganden för lagring och säkerhetskopiering för generell användning och affärskritisk-tjänstnivåer i den vCore-baserade inköpsmodellen.
 
 > [!NOTE]
 > Mer information om tjänstnivån hyperskala i den vCore-baserade inköpsmodellen finns [hyperskala tjänstnivå](sql-database-service-tier-hyperscale.md). En jämförelse av den vCore-baserade inköpsmodellen med den DTU-baserade inköpsmodellen i [köpa modeller och resurser för Azure SQL Database](sql-database-service-tiers.md).
@@ -57,5 +57,5 @@ Lagring för säkerhetskopior av databasen har allokerats för att stödja punkt
 
 ## <a name="next-steps"></a>Nästa steg
 
-- För att få information om specifika storlekar och lagring som kan användas för enkel databas på nivåerna för generell användning och kritiska företagstjänst, se [SQL Database vCore-baserade resursbegränsningar för enskilda databaser](sql-database-vcore-resource-limits-single-databases.md#single-database-storage-sizes-and-compute-sizes)
-- För att få information om specifika storlekar och lagring som kan användas för elastiska pooler på nivåerna för generell användning och kritiska företagstjänst, se [SQL Database vCore-baserade resursbegränsningar för elastiska pooler](sql-database-vcore-resource-limits-elastic-pools.md#elastic-pool-storage-sizes-and-compute-sizes).
+- För att få information om specifika storlekar och lagring som kan användas för enkel databas på nivåerna för generell användning och kritiska företagstjänst, se [SQL Database vCore-baserade resursbegränsningar för enskilda databaser](sql-database-vcore-resource-limits-single-databases.md#general-purpose-service-tier-storage-sizes-and-compute-sizes)
+- För att få information om specifika storlekar och lagring som kan användas för elastiska pooler på nivåerna för generell användning och kritiska företagstjänst, se [SQL Database vCore-baserade resursbegränsningar för elastiska pooler](sql-database-vcore-resource-limits-elastic-pools.md#general-purpose-service-tier-storage-sizes-and-compute-sizes).

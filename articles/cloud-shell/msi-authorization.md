@@ -14,21 +14,21 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/14/2018
 ms.author: juluk
-ms.openlocfilehash: 09f54efaf3ff89711c34b7960a271438f38cf224
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: fe77deeedc34bf769065e34ac2f81d631b0004d6
+ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/16/2018
-ms.locfileid: "49345092"
+ms.locfileid: "49352959"
 ---
-# <a name="use-msi-in-azure-cloud-shell"></a>Använd MSI-dator i Azure Cloudshell
+# <a name="use-managed-identities-for-azure-resources-in-azure-cloud-shell"></a>Använda hanterade identiteter för Azure-resurser i Azure Cloud Shell
 
-Azure Cloud Shell har stöd för auktorisering med hanterad identiteter (MSI). Använd detta för att hämta åtkomsttoken för att kommunicera säkert med Azure-tjänster.
+Azure Cloud Shell har stöd för auktorisering med hanterade identiteter för Azure-resurser. Använd detta för att hämta åtkomsttoken för att kommunicera säkert med Azure-tjänster.
 
-## <a name="about-managed-service-identity-msi"></a>Om hanterad tjänstidentitet (MSI)
+## <a name="about-managed-identities-for-azure-resources"></a>Om hanterade identiteter för Azure-resurser
 En gemensam utmaning när är att skapa molnprogram på ett säkert sätt hantera autentiseringsuppgifterna som måste vara i din kod för att autentisera till molntjänster. I Cloud Shell kan du behöva autentisera hämtning från Key Vault för en autentiseringsuppgift som kan behöva ett skript.
 
-Hanterad tjänstidentitet (MSI) löser detta problem på ett enklare sätt genom att ge Azure-tjänsterna en automatiskt hanterad identitet i Azure Active Directory (Azure AD). Du kan använda den här identiteten för att autentisera till alla tjänster som stöder Azure AD-autentisering, inklusive Key Vault, utan att behöva ha några autentiseringsuppgifter i koden.
+Hanterade identiteter för Azure-resurser kan lösa problemet enklare genom att ge Azure-tjänster en automatiskt hanterad identitet i Azure Active Directory (AD Azure). Du kan använda den här identiteten för att autentisera till alla tjänster som stöder Azure AD-autentisering, inklusive Key Vault, utan att behöva ha några autentiseringsuppgifter i koden.
 
 ## <a name="acquire-access-token-in-cloud-shell"></a>Hämta åtkomsttoken i Cloud Shell
 

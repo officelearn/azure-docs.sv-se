@@ -5,16 +5,16 @@ ms.service: site-recovery
 ms.workload: backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 07/06/2018
-author: mayanknayar
+ms.date: 10/16/2018
+author: mayurigupta13
 ms.topic: conceptual
-ms.author: manayar
-ms.openlocfilehash: dfd880b6ff3a7e199ea259acc5e5ec59f89c897d
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.author: mayg
+ms.openlocfilehash: 9ec9acab4ad83af22504058c21b102df94b8692d
+ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37919734"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49353245"
 ---
 # <a name="use-role-based-access-control-to-manage-site-recovery-access"></a>Använda rollbaserad åtkomstkontroll för att hantera Site Recovery-åtkomst
 
@@ -23,7 +23,7 @@ Rollbaserad åtkomstkontroll (RBAC) i Azure ger tillgång till ingående åtkoms
 Azure Site Recovery tillhandahåller 3 inbyggda roller som styr Site Recovery-hanteringsåtgärder. Läs mer om [Azure RBAC inbyggda roller](../role-based-access-control/built-in-roles.md)
 
 * [Site Recovery-bidragsgivare](../role-based-access-control/built-in-roles.md#site-recovery-contributor) – Den här rollen har alla behörigheter som krävs för att hantera Azure Site Recovery-åtgärder i ett Recovery Services-valv. En användare med denna roll kan dock inte skapa eller ta bort ett Recovery Services-valv eller tilldela behörighet till andra användare. Den här rollen lämpar sig bäst för haveriberedskapsadministratörer som kan aktivera och hantera haveriberedskap för program eller hela organisationer som omständigheterna.
-* [Site Recovery-operatör](../role-based-access-control/built-in-roles.md#site-recovery-operator) – den här rollen har behörighet att köra och hantera redundans och återställning efter fel. En användare med den här rollen kan inte aktivera eller inaktivera replikering, skapa eller ta bort valv, registrera ny infrastruktur eller tilldela åtkomstbehörigheter till andra användare. Den här rollen lämpar sig bäst för en haveriberedskapsoperatör som kan redundansväxling för virtuella datorer eller program efter instruktioner från programägare och IT-administratörer i en situation med faktiska eller simulerade haveriberedskap som en DR Visa detaljer. Publicera lösning av katastrofen DR-operatorn kan skydda igen och återställa virtuella datorer.
+* [Site Recovery-operatör](../role-based-access-control/built-in-roles.md#site-recovery-operator) – Den här rollen har behörighet att utföra och hantera operationer för redundans och återställning av fel. En användare med den här rollen kan inte aktivera eller inaktivera replikering, skapa eller ta bort valv, registrera ny infrastruktur eller tilldela åtkomstbehörigheter till andra användare. Den här rollen lämpar sig bäst för en haveriberedskapsoperatör som kan redundansväxling för virtuella datorer eller program efter instruktioner från programägare och IT-administratörer i en situation med faktiska eller simulerade haveriberedskap som en DR Visa detaljer. Publicera lösning av katastrofen DR-operatorn kan skydda igen och återställa virtuella datorer.
 * [Site Recovery-läsare](../role-based-access-control/built-in-roles.md#site-recovery-reader) – Den här rollen har behörighet att visa all Site Recovery-hantering. Den här rollen lämpar sig bäst för en IT-chef som kan övervaka aktuell skyddsnivå och skapa supportärenden om det behövs.
 
 Om du vill definiera egna roller för ännu mer kontroll, se hur du [skapa anpassade roller](../role-based-access-control/custom-roles.md) i Azure.
@@ -76,5 +76,5 @@ En användare behöver följande behörigheter till fullständig replikering av 
 * Lär dig mer om att hantera åtkomst med:
   * [PowerShell](../role-based-access-control/role-assignments-powershell.md)
   * [Azure CLI](../role-based-access-control/role-assignments-cli.md)
-  * [REST API](../role-based-access-control/role-assignments-rest.md)
+  * [REST-API](../role-based-access-control/role-assignments-rest.md)
 * [Role-Based Access Control – felsökning](../role-based-access-control/troubleshooting.md): få förslag för att åtgärda vanliga problem.

@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 05/03/2018
 ms.author: v-daljep
 ms.component: ''
-ms.openlocfilehash: cc7dccd52bf5d3af383f807a5edfcb9c1088c5bf
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.openlocfilehash: bc82e030742bb5ea9621e972fcce2435cdda61ea
+ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48237101"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49353466"
 ---
 # <a name="monitor-azure-sql-database-using-azure-sql-analytics-preview"></a>Övervaka Azure SQL Database med Azure SQL Analytics (förhandsversion)
 
@@ -35,6 +35,8 @@ Finns det inbäddade videoklippet för en praktisk översikt om hur du använder
 
 > [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Get-Intelligent-Insights-for-Improving-Azure-SQL-Database-Performance/player]
 >
+
+Medan lösningen kostar ingenting att använda gäller förbrukning av diagnostiktelemetri ovan de kostnadsfria enheterna för datainmatning allokerade varje månad, se [priserna för Log Analytics](https://azure.microsoft.com/en-us/pricing/details/monitor). De kostnadsfria enheterna för datainmatning tillhandahålls aktivera kostnadsfri övervakning av flera databaser varje månad. Observera att mer aktiva databaser med större arbetsbelastningar kommer mata in mer data jämfört med inaktiva databaser. Du kan enkelt övervaka din förbrukning för inmatning av data i lösningen genom att välja OMS-arbetsyta på navigeringsmenyn i Azure SQL Analytics och sedan välja användning och uppskattade kostnader.
 
 ## <a name="connected-sources"></a>Anslutna källor
 

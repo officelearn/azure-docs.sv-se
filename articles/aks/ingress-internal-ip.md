@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 08/30/2018
 ms.author: iainfou
-ms.openlocfilehash: 76ad9d21f7b328e7f201d227cdd9ace51c62a3fd
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: ffa6aa3b9e65577761343e2e09a44ce16a05631f
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44357710"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49365602"
 ---
 # <a name="create-an-ingress-controller-to-an-internal-virtual-network-in-azure-kubernetes-service-aks"></a>Skapa en ingress-kontrollanten för att ett internt virtuellt nätverk i Azure Kubernetes Service (AKS)
 
@@ -47,13 +47,16 @@ controller:
       service.beta.kubernetes.io/azure-load-balancer-internal: "true"
 ```
 
-Nu distribuera den *nginx-ingress* diagram med Helm. Om du vill använda manifestfilen skapade i föregående steg, lägger du till den `-f internal-ingress.yaml` parameter:
+Nu distribuera den *nginx-ingress* diagram med Helm. Om du vill använda manifestfilen skapade i föregående steg, lägger du till den `-f internal-ingress.yaml` parametern. För extra redundans två repliker av NGINX ingående kontrollenheterna distribueras med den `--set controller.replicaCount` parametern. Om du vill utnyttja alla fördelar med repliker av ingress-kontrollant, kontrollera att det finns fler än en nod i AKS-klustret.
 
 > [!TIP]
 > I följande exempel installeras ingress-kontrollanten för i den `kube-system` namnområde. Du kan ange ett annat namnområde för din egen miljö om så önskas. Om AKS-klustret inte RBAC aktiverat lägger du till `--set rbac.create=false` för kommandon.
 
 ```console
-helm install stable/nginx-ingress --namespace kube-system -f internal-ingress.yaml
+helm install stable/nginx-ingress \
+    --namespace kube-system \
+    -f internal-ingress.yaml \
+    --set controller.replicaCount=2
 ```
 
 När tjänsten för Kubernetes belastningsutjämning har skapats för ingress-kontrollanten för NGINX kan tilldelas din interna IP-adressen som visas i följande Exempelutdata:
@@ -173,6 +176,41 @@ $ curl -L -k http://10.240.0.42/hello-world-two
     <link rel="stylesheet" type="text/css" href="/static/default.css">
     <title>AKS Ingress Demo</title>
 [...]
+```
+
+## <a name="clean-up-resources"></a>Rensa resurser
+
+Den här artikeln används Helm för att installera komponenter för ingångshändelser och exempelappar. När du distribuerar ett Helm-diagram, skapas ett antal Kubernetes-resurser. Dessa resurser inkluderar poddar, distributioner och tjänster. Om du vill rensa resurserna först visa Helm-versioner med den `helm list` kommando. Leta efter diagram med namnet *nginx-ingress* och *aks-helloworld*, vilket visas i följande Exempelutdata:
+
+```
+$ helm list
+
+NAME                REVISION    UPDATED                     STATUS      CHART                   APP VERSION NAMESPACE
+kissing-ferret      1           Tue Oct 16 17:13:39 2018    DEPLOYED    nginx-ingress-0.22.1    0.15.0      kube-system
+intended-lemur      1           Tue Oct 16 17:20:59 2018    DEPLOYED    aks-helloworld-0.1.0                default
+pioneering-wombat   1           Tue Oct 16 17:21:05 2018    DEPLOYED    aks-helloworld-0.1.0                default
+```
+
+Ta bort versionerna med de `helm delete` kommando. I följande exempel tar bort NGINX ingående distribution och två AKS hello world exempelapparna.
+
+```
+$ helm delete kissing-ferret intended-lemur pioneering-wombat
+
+release "kissing-ferret" deleted
+release "intended-lemur" deleted
+release "pioneering-wombat" deleted
+```
+
+Ta sedan bort Helm-lagringsplatsen för AKS hello world-app:
+
+```console
+helm repo remove azure-samples
+```
+
+Slutligen tar du bort den inkommande väg som dirigeras trafiken till exempelapparna:
+
+```console
+kubectl delete -f hello-world-ingress.yaml
 ```
 
 ## <a name="next-steps"></a>Nästa steg

@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 05/11/2018
 ms.author: jeffpatt
 ms.component: files
-ms.openlocfilehash: 935d4a3ba3fc3199177be5bd4e70f82239c3c971
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: a0a330d3ea7362ffabb20a5d390cee87cbf7d8ff
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39531845"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49365413"
 ---
 # <a name="troubleshoot-azure-files-problems-in-windows"></a>Felsöka Azure Files-problem i Windows
 
@@ -32,16 +32,17 @@ När du försöker montera en filresurs från en lokal plats eller från ett ann
 
 ### <a name="cause-1-unencrypted-communication-channel"></a>Orsak 1: Okrypterade kommunikationskanalen
 
-Av säkerhetsskäl blockeras anslutningar till Azure-filresurser om kommunikationskanalen inte är krypterad och om anslutningsförsöket inte görs från samma datacenter där de Azure-filresurserna finns. Kommunikation kanalkrypteringen tillhandahålls endast om användarens klientoperativsystem stöder SMB-kryptering.
+Av säkerhetsskäl blockeras anslutningar till Azure-filresurser om kommunikationskanalen inte är krypterad och om anslutningsförsöket inte görs från samma datacenter där de Azure-filresurserna finns. Okrypterade anslutningar inom samma datacenter kan också blockeras om de [säker överföring krävs](https://docs.microsoft.com/en-us/azure/storage/common/storage-require-secure-transfer) är aktiverad på lagringskontot. Kommunikation kanalkrypteringen tillhandahålls endast om användarens klientoperativsystem stöder SMB-kryptering.
 
 Windows 8, Windows Server 2012 och senare versioner av varje system att förhandla begäranden som innehåller SMB 3.0, som stöder kryptering.
 
 ### <a name="solution-for-cause-1"></a>Lösning för orsak 1
 
-Ansluta från en klient som gör något av följande:
+1. Kontrollera den [säker överföring krävs](https://docs.microsoft.com/en-us/azure/storage/common/storage-require-secure-transfer) inställningen är inaktiverad på lagringskontot.
+2. Ansluta från en klient som gör något av följande:
 
-- Uppfyller kraven för Windows 8 och Windows Server 2012 eller senare versioner
-- Ansluter från en virtuell dator i samma datacenter som Azure storage-kontot som används för Azure-filresursen
+    - Uppfyller kraven för Windows 8 och Windows Server 2012 eller senare versioner
+    - Ansluter från en virtuell dator i samma datacenter som Azure storage-kontot som används för Azure-filresursen
 
 ### <a name="cause-2-port-445-is-blocked"></a>Orsak 2: Port 445 blockeras
 

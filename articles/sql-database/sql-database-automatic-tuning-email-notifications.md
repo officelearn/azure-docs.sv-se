@@ -11,19 +11,19 @@ author: danimir
 ms.author: v-daljep
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 09/19/2018
-ms.openlocfilehash: 86639be7c4d934929272e6d578485bfc8bfb9cc9
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.date: 10/15/2018
+ms.openlocfilehash: 1177703dc67e81e537d7682dcf9bbeb475748315
+ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47064109"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49353942"
 ---
 # <a name="email-notifications-for-automatic-tuning"></a>E-postmeddelanden för automatisk justering
 
 SQL Database justeringsrekommendationer genereras av Azure SQL Database [automatisk justering](sql-database-automatic-tuning.md). Den här lösningen övervakar kontinuerligt och analyserar arbetsbelastningar i SQL-databaser att tillhandahålla anpassade justeringsrekommendationer för varje enskild databas som rör skapande av index, borttagning av index och optimering av frågeplaner för körning.
 
-SQL Database automatiska justeringsrekommendationer kan visas i den [Azure-portalen](sql-database-advisor-portal.md), hämtades med [REST API](https://docs.microsoft.com/rest/api/sql/databaserecommendedactions/listbydatabaseadvisor) anropar eller genom att använda [T-SQL](https://azure.microsoft.com/blog/automatic-tuning-introduces-automatic-plan-correction-and-t-sql-management/) och [ PowerShell](https://docs.microsoft.com/powershell/module/azurerm.sql/get-azurermsqldatabaserecommendedaction) kommandon. Den här artikeln baseras på att använda ett PowerShell-skript för att hämta automatiska justeringsrekommendationer för.
+SQL Database automatiska justeringsrekommendationer kan visas i den [Azure-portalen](sql-database-advisor-portal.md), hämtades med [REST API](https://docs.microsoft.com/rest/api/sql/databaserecommendedactions/databaserecommendedactions_listbydatabaseadvisor) anropar eller genom att använda [T-SQL](https://azure.microsoft.com/blog/automatic-tuning-introduces-automatic-plan-correction-and-t-sql-management/) och [ PowerShell](https://docs.microsoft.com/powershell/module/azurerm.sql/get-azurermsqldatabaserecommendedaction) kommandon. Den här artikeln baseras på att använda ett PowerShell-skript för att hämta automatiska justeringsrekommendationer för.
 
 ## <a name="automate-email-notifications-for-automatic-tuning-recommendations"></a>Automatisera e-postmeddelanden för automatiska justeringsrekommendationer för
 
@@ -99,7 +99,7 @@ När det gäller flera prenumerationer, du kan lägga till dem som kommaavgräns
 #
 # Microsoft Azure SQL Database team, 2018-01-22.
 
-# Set subscriptions : IMPORTANT – REPLACE <SUBSCRIPTION_ID_WITH_DATABASES> WITH YOUR SUBSCRIPTION ID 
+# Set subscriptions : IMPORTANT – REPLACE <SUBSCRIPTION_ID_WITH_DATABASES> WITH YOUR SUBSCRIPTION ID
 $subscriptions = ("<SUBSCRIPTION_ID_WITH_DATABASES>", "<SECOND_SUBSCRIPTION_ID_WITH_DATABASES>", "<THIRD_SUBSCRIPTION_ID_WITH_DATABASES>")
 
 # Get credentials
@@ -112,8 +112,8 @@ $advisors = ("CreateIndex", "DropIndex");
 $results = @()
 
 # Loop through all subscriptions
-foreach($subscriptionId in $subscriptions) {    
-    Select-AzureRmSubscription -SubscriptionId $subscriptionId    
+foreach($subscriptionId in $subscriptions) {
+    Select-AzureRmSubscription -SubscriptionId $subscriptionId
     $rgs = Get-AzureRmResourceGroup
 
     # Loop through all resource groups
@@ -122,7 +122,7 @@ foreach($subscriptionId in $subscriptions) {
 
         # Loop through all resource types
         foreach($resourceType in $resourceTypes) {
-            $resources = Get-AzureRmResource -ResourceGroupName $rgname -ResourceType $resourceType    
+            $resources = Get-AzureRmResource -ResourceGroupName $rgname -ResourceType $resourceType
 
             # Loop through all databases
             # Extract resource groups, servers and databases
@@ -141,7 +141,7 @@ foreach($subscriptionId in $subscriptions) {
                 if ($resourceId -match ".*/DATABASES/(?<content>.*)") {
                     $DatabaseName = $matches['content']
                 } else {
-                    continue 
+                    continue
                 }
 
                 # Skip if master
@@ -163,7 +163,7 @@ foreach($subscriptionId in $subscriptions) {
                             $results += $object
                         }
                     }
-                }                
+                }
             }
         }
     }
@@ -174,7 +174,7 @@ $table = $results | Format-List
 Write-Output $table
 ```
 
-Klicka på ”**spara**”-knappen i det övre högra hörnet att spara skriptet. När du är nöjd med skript, klickar du på den ”**publicera**” knappar för att publicera denna runbook. 
+Klicka på ”**spara**”-knappen i det övre högra hörnet att spara skriptet. När du är nöjd med skript, klickar du på den ”**publicera**” knappar för att publicera denna runbook.
 
 I fönstret huvudsakliga runbook kan du klicka på den ”**starta**” för att **testa** skriptet. Klicka på den ”**utdata**” att visa resultatet av skriptet körs. Dessa utdata ska vara innehållet i din e-post. Exempel på utdata från skriptet kan ses i följande skärmbild.
 
@@ -186,7 +186,7 @@ PowerShell-skript för att hämta automatiska justeringsrekommendationer läses 
 
 ## <a name="automate-the-email-jobs-with-microsoft-flow"></a>Automatisera e-jobb med Microsoft Flow
 
-Skapa ett automation-flöde i Microsoft Flow som består av tre åtgärder (jobb) för att slutföra lösningen, som det sista steget: 
+Skapa ett automation-flöde i Microsoft Flow som består av tre åtgärder (jobb) för att slutföra lösningen, som det sista steget:
 
 1. ”**Azure Automation - skapa jobb**” – används för att köra PowerShell-skript för att hämta automatiska justeringen rekommendationer i Azure Automation-runbook
 2. ”**Azure Automation - Get-jobbutdata**” – används för att hämta utdata från utförda PowerShell-skript
@@ -205,25 +205,28 @@ Krav för det här steget är att registrera dig för [Microsoft Flow](https://f
 Nästa steg är att lägga till tre jobb (skapa, är get-utdata och skicka e-post) till det nyligen skapade återkommande flödet. Följ dessa steg för att åstadkomma att lägga till de nödvändiga jobb till flödet:
 
 1. Skapa åtgärd för att köra PowerShell-skript för att hämta justeringsrekommendationer
-- Välj ”**+ nytt steg**”, följt av ”**Lägg till en åtgärd**” i fönstret återkommande flöde
-- I fältet söktyp ”**automation**” och välj ”**Azure Automation – skapa jobb**” från sökresultaten
-- Konfigurera jobbegenskaper för i fönstret Skapa jobbet. För den här konfigurationen behöver du information om dina Azure-prenumeration-ID, resursgrupp och ett Automation-konto **tidigare inspelade** på den **Automation-konto fönstret**. Mer information om tillgängliga alternativ i det här avsnittet finns [Azure Automation - skapa jobbet](https://docs.microsoft.com/connectors/azureautomation/#create-job).
-- Slutför att skapa den här åtgärden genom att klicka på ”**spara flöde**”
+
+   - Välj ”**+ nytt steg**”, följt av ”**Lägg till en åtgärd**” i fönstret återkommande flöde
+   - I fältet söktyp ”**automation**” och välj ”**Azure Automation – skapa jobb**” från sökresultaten
+   - Konfigurera jobbegenskaper för i fönstret Skapa jobbet. För den här konfigurationen behöver du information om dina Azure-prenumeration-ID, resursgrupp och ett Automation-konto **tidigare inspelade** på den **Automation-konto fönstret**. Mer information om tillgängliga alternativ i det här avsnittet finns [Azure Automation - skapa jobbet](https://docs.microsoft.com/connectors/azureautomation/#create-job).
+   - Slutför att skapa den här åtgärden genom att klicka på ”**spara flöde**”
 
 2. Skapa åtgärd för att hämta utdata från utförda PowerShell-skript
-- Välj ”**+ nytt steg**”, följt av ”**Lägg till en åtgärd**” i fönstret återkommande flöde
-- I rutan Sök datatyper ”**automation**” och välj ”**Azure Automation – Get-jobbutdata**” från sökresultaten. Mer information om tillgängliga alternativ i det här avsnittet finns [Azure Automation – Get-jobbutdata](https://docs.microsoft.com/connectors/azureautomation/#get-job-output).
-- Fyll i fälten obligatoriskt (liknar skapar det föregående jobbet) – Fyll i din Azure-prenumeration-ID, resursgrupp och ett Automation-konto (som angetts i fönstret Automation-konto)
-- Klicka i fältet ”**jobb-ID**” för den ”**dynamiskt innehåll**” menyn visas. Från den här menyn väljer alternativet ”**jobb-ID**”.
-- Slutför att skapa den här åtgärden genom att klicka på ”**spara flöde**”
+
+   - Välj ”**+ nytt steg**”, följt av ”**Lägg till en åtgärd**” i fönstret återkommande flöde
+   - I rutan Sök datatyper ”**automation**” och välj ”**Azure Automation – Get-jobbutdata**” från sökresultaten. Mer information om tillgängliga alternativ i det här avsnittet finns [Azure Automation – Get-jobbutdata](https://docs.microsoft.com/connectors/azureautomation/#get-job-output).
+   - Fyll i fälten obligatoriskt (liknar skapar det föregående jobbet) – Fyll i din Azure-prenumeration-ID, resursgrupp och ett Automation-konto (som angetts i fönstret Automation-konto)
+   - Klicka i fältet ”**jobb-ID**” för den ”**dynamiskt innehåll**” menyn visas. Från den här menyn väljer alternativet ”**jobb-ID**”.
+   - Slutför att skapa den här åtgärden genom att klicka på ”**spara flöde**”
 
 3. Skapa åtgärder för att skicka e-postmeddelande med hjälp av Office 365-integration
-- Välj ”**+ nytt steg**”, följt av ”**Lägg till en åtgärd**” i fönstret återkommande flöde
-- I rutan Sök datatyper ”**skicka ett e-postmeddelande**” och välj ”**Office 365 Outlook – skicka ett e-postmeddelande**” från sökresultaten
-- I den ”**till**” fälttyp den e-postadress som du behöver skicka e-postmeddelandet
-- I den ”**ämne**” fälttyp i din e-postmeddelandets ämne, till exempel ”automatiska justeringsrekommendationer för e-postavisering”
-- Klicka i fältet ”**brödtext**” för den ”**dynamiskt innehåll**” menyn visas. Från inom den här menyn under ”**hämta jobbutdata**”, Välj ”**innehåll**” 
-- Slutför att skapa den här åtgärden genom att klicka på ”**spara flöde**”
+
+   - Välj ”**+ nytt steg**”, följt av ”**Lägg till en åtgärd**” i fönstret återkommande flöde
+   - I rutan Sök datatyper ”**skicka ett e-postmeddelande**” och välj ”**Office 365 Outlook – skicka ett e-postmeddelande**” från sökresultaten
+   - I den ”**till**” fälttyp den e-postadress som du behöver skicka e-postmeddelandet
+   - I den ”**ämne**” fälttyp i din e-postmeddelandets ämne, till exempel ”automatiska justeringsrekommendationer för e-postavisering”
+   - Klicka i fältet ”**brödtext**” för den ”**dynamiskt innehåll**” menyn visas. Från inom den här menyn under ”**hämta jobbutdata**”, Välj ”**innehåll**”
+   - Slutför att skapa den här åtgärden genom att klicka på ”**spara flöde**”
 
 > [!TIP]
 > Skapa separata flöden för att skicka automatiserade e-postmeddelanden till olika mottagare. Ändra mottagarens e-postadress i fältet ”till” och ämnesraden för e-post i fältet ”ämne” i dessa ytterligare flöden. Skapa nya runbooks i Azure Automation med anpassade PowerShell-skript (som med en ändring av Azure-prenumerations-ID) kan ytterligare anpassning av automatiserade scenarier, till exempel till exempel e-posta separat mottagare på automatisk justering rekommendationer för olika prenumerationer.
@@ -247,7 +250,7 @@ Det slutgiltiga resultatet för automatiserade e-postmeddelandet liknar följand
 
 Du kan justera utdata och formatering av automatiserade e-postmeddelandet efter dina behov genom att justera PowerShell-skriptet.
 
-Du kan också anpassa lösningen för att skapa e-postmeddelanden baserat på en specifik justering händelse och till flera mottagare för flera prenumerationer och -databaser, beroende på dina anpassade scenarier. 
+Du kan också anpassa lösningen för att skapa e-postmeddelanden baserat på en specifik justering händelse och till flera mottagare för flera prenumerationer och -databaser, beroende på dina anpassade scenarier.
 
 ## <a name="next-steps"></a>Nästa steg
 

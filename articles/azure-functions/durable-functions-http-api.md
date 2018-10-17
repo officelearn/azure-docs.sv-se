@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 09/06/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 19351d31331431e3b5137676061aadc681c496a7
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.openlocfilehash: 4c5f99ed9d20076e3e25ebca261253e576572786
+ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49166635"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49354265"
 ---
 # <a name="http-apis-in-durable-functions-azure-functions"></a>HTTP-API: er i varaktiga funktioner (Azure Functions)
 
@@ -92,6 +92,9 @@ Alla HTTP APIs som implementeras av tillägget Gör följande parametrar. Dataty
 | systemKey  | Frågesträng    | Auktoriseringsnyckeln som krävs för att anropa API: et. |
 | showHistory| Frågesträng    | Valfri parameter. Om inställd `true`, orchestration-körningshistorik tas med i svarets nyttolast.| 
 | showHistoryOutput| Frågesträng    | Valfri parameter. Om inställd `true`, aktiviteten matar ut tas med i orchestration-körningshistorik.| 
+| createdTimeFrom  | Frågesträng    | Valfri parameter. När du filtrerar listan över returnerade instanser som har skapats på eller efter den givna tidsstämpeln ISO8601.|
+| createdTimeTo    | Frågesträng    | Valfri parameter. När du filtrerar listan över returnerade instanser som har skapats på eller innan den givna tidsstämpeln ISO8601.|
+| runtimeStatus    | Frågesträng    | Valfri parameter. När du filtrerar listan över returnerade instanser baserat på deras Körningsstatus. Listan över möjliga runtime statusvärden finns i den [fråga instanser](durable-functions-instance-management.md) avsnittet. |
 
 `systemKey` är en auktoriseringsnyckeln automatiskt genererade av Azure Functions-värden. Den mer specifikt ger åtkomst till tillägget varaktiga uppgift API: er och kan hanteras på samma sätt som [andra auktorisering nycklar](https://github.com/Azure/azure-webjobs-sdk-script/wiki/Key-management-API). Det enklaste sättet att identifiera den `systemKey` värdet är med hjälp av den `CreateCheckStatusResponse` API tidigare nämnts.
 
@@ -194,6 +197,7 @@ Här är ett exempel svarsnyttolasten inklusive orchestration historik och aktiv
 
 Den **HTTP 202** svaret innehåller också en **plats** svarshuvud som refererar till samma Webbadress som den `statusQueryGetUri` fältet tidigare nämnts.
 
+
 ### <a name="get-all-instances-status"></a>Hämta status för alla instanser
 
 Du kan också fråga status för alla instanser. Ta bort den `instanceId` i 'Hämta status för instans-begäran. Parametrarna är samma som ”Get-instans status”. 
@@ -213,6 +217,22 @@ Functions 2.0-formatet har samma parametrar men ett något annorlunda URL-prefix
 
 ```http
 GET /runtime/webhooks/durabletask/instances/?taskHub={taskHub}&connection={connection}&code={systemKey}
+```
+
+#### <a name="request-with-filters"></a>Begäran med filter
+
+Du kan filtrera begäran.
+
+För Functions 1.0 är format för förfrågan på följande sätt:
+
+```http
+GET /admin/extensions/DurableTaskExtension/instances/?taskHub={taskHub}&connection={connection}&code={systemKey}&createdTimeFrom={createdTimeFrom}&createdTimeTo={createdTimeTo}&runtimeStatus={runtimeStatus,runtimeStatus,...}
+```
+
+Functions 2.0-formatet har samma parametrar men ett något annorlunda URL-prefix: 
+
+```http
+GET /runtime/webhooks/durableTask/instances/?taskHub={taskHub}&connection={connection}&code={systemKey}&createdTimeFrom={createdTimeFrom}&createdTimeTo={createdTimeTo}&runtimeStatus={runtimeStatus,runtimeStatus,...}
 ```
 
 #### <a name="response"></a>Svar
@@ -271,6 +291,7 @@ Här är ett exempel på svar-nyttolaster som inkluderar orkestreringsstatus (fo
 > [!NOTE]
 > Den här åtgärden kan vara väldigt kostsamt när det gäller Azure Storage i/o, om det finns många rader i tabellen instanser. Mer information om instansen tabellen finns i den [prestanda och skalning i varaktiga funktioner (Azure Functions)](https://docs.microsoft.com/azure/azure-functions/durable-functions-perf-and-scale#instances-table) dokumentation.
 > 
+
 
 ### <a name="raise-event"></a>Generera händelser
 

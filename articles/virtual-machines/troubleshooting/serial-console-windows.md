@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/07/2018
 ms.author: harijay
-ms.openlocfilehash: ee42c279abaf9282b6f37e2b00050d33ebd093d2
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: 29b045266836ace35aab12c51746b7e339cbb88f
+ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49318273"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49354350"
 ---
 # <a name="virtual-machine-serial-console"></a>Virtual Machine Serial Console
 
@@ -196,7 +196,7 @@ Vi är medvetna om några problem med seriell konsol. Här är en lista över de
 
 Problem                             |   Åtgärd 
 :---------------------------------|:--------------------------------------------|
-Träffa ange när anslutningen popup-meddelandet inte visas en logg i Kommandotolken | Finns på följande sida: [Hitting ange ingenting](https://github.com/Microsoft/azserialconsole/blob/master/Known_Issues/Hitting_enter_does_nothing.md). Detta kan inträffa om du kör en anpassad virtuell dator, förstärkt installation eller en start-konfiguration som causers Windows för att kunna ansluta ordentligt till den seriella porten.
+Träffa ange när anslutningen popup-meddelandet inte visas en logg i Kommandotolken | Finns på följande sida: [Hitting ange ingenting](https://github.com/Microsoft/azserialconsole/blob/master/Known_Issues/Hitting_enter_does_nothing.md). Detta kan inträffa om du kör en anpassad virtuell dator, förstärkt installation eller en start-konfiguration som causers Windows för att kunna ansluta ordentligt till den seriella porten. Detta sker även om du kör Windows 10-klient virtuell dator, som endast Windows Server-datorer är konfigurerade för EMS aktiverat.
 Det går inte att skriva vid SAC fråga om kernel-felsökning är aktiverad | RDP till den virtuella datorn och köra `bcdedit /debug {current} off` från en upphöjd kommandotolk. Om du kan inte använda RDP du i stället kan koppla OS-disken till en annan virtuell Azure-dator och ändra den när ansluten som en disk med `bcdedit /store <drive letter of data disk>:\boot\bcd /debug <identifier> off`, sedan växla tillbaka disken.
 Klistra in i PowerShell i SAC resulterar i ett tredje tecken om ursprungliga innehållet hade ett upprepade tecken | En lösning är att de senaste PSReadLine-modul från den aktuella sessionen. Kör `Remove-Module PSReadLine` att ta bort modulen PSReadLine från den aktuella sessionen – det här inte ta bort eller avinstallera modulen.
 Vissa tangentbord indata producerar utdata som onormalt SAC (t.ex. `[A`, `[3~`) | [VT100](https://aka.ms/vtsequences) escape-sekvenser stöds inte av SAC-prompten.

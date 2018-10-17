@@ -8,14 +8,14 @@ manager: mbaldwin
 ms.service: key-vault
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 08/21/2017
+ms.date: 10/16/2018
 ms.author: bryanla
-ms.openlocfilehash: 93105210267ebadf4273db56e2e147b1b34485e3
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: 99f81e14ca631eccee154a5658bf717cbe07b3da
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44298139"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49364378"
 ---
 # <a name="how-to-use-key-vault-soft-delete-with-powershell"></a>Hur du använder Key Vault mjuk borttagning med PowerShell
 
@@ -49,14 +49,14 @@ Mer information om behörighet och åtkomstkontroll finns i [säkra ditt nyckelv
 
 ## <a name="enabling-soft-delete"></a>Att aktivera mjuk borttagning
 
-Om du vill kunna återställa ett borttaget nyckelvalv eller objekt som lagras i ett nyckelvalv måste du först aktivera mjuk borttagning för det nyckelvalvet.
+Du aktiverar ”mjuk borttagning” att tillåta återställning av borttagna key vault eller objekt som lagras i ett nyckelvalv.
+
+> [!IMPORTANT]
+> Aktiverar ”mjuk borttagning' på key vault är irreversibel. När egenskapen mjuk borttagning har ställts in på ”true”, inte kan ändras eller tas bort.  
 
 ### <a name="existing-key-vault"></a>Befintlig key vault
 
 Aktivera mjuk borttagning för ett befintligt nyckelvalv med namnet ContosoVault på följande sätt. 
-
->[!NOTE]
->För närvarande måste du använda Azure Resource Manager resource manipulering för att skriva direkt i *enableSoftDelete* egenskapen till Key Vault-resursen.
 
 ```powershell
 ($resource = Get-AzureRmResource -ResourceId (Get-AzureRmKeyVault -VaultName "ContosoVault").ResourceId).Properties | Add-Member -MemberType "NoteProperty" -Name "enableSoftDelete" -Value "true"
@@ -69,12 +69,12 @@ Set-AzureRmResource -resourceid $resource.ResourceId -Properties $resource.Prope
 Att aktivera mjuk borttagning för ett nytt nyckelvalv görs vid tidpunkten för skapandet genom att aktivera mjuk borttagning flagga för att lägga till din skapa-kommando.
 
 ```powershell
-New-AzureRmKeyVault -VaultName "ContosoVault" -ResourceGroupName "ContosoRG" -Location "westus" -EnableSoftDelete
+New-AzureRmKeyVault -Name "ContosoVault" -ResourceGroupName "ContosoRG" -Location "westus" -EnableSoftDelete
 ```
 
 ### <a name="verify-soft-delete-enablement"></a>Kontrollera aktivering för mjuk borttagning
 
-Kontrollera att ett nyckelvalv har aktivera mjuk borttagning med den *hämta* kommandot och leta efter den ”ej permanent ta bort aktiverad”? attribut och dess inställning, true eller false.
+Kontrollera att ett nyckelvalv har aktivera mjuk borttagning med den *visa* kommandot och leta efter den ”ej permanent ta bort aktiverad”? attribut:
 
 ```powershell
 Get-AzureRmKeyVault -VaultName "ContosoVault"
@@ -82,60 +82,54 @@ Get-AzureRmKeyVault -VaultName "ContosoVault"
 
 ## <a name="deleting-a-key-vault-protected-by-soft-delete"></a>Tar bort ett nyckelvalv som skyddas av mjuk borttagning
 
-Kommandot för att ta bort (eller ta bort) key vault är densamma, men dess beteende ändras beroende på om du har aktiverat mjuk borttagning eller inte.
+Kommandot för att ta bort ett nyckelvalv ändringar i beteende, beroende på om mjuk borttagning är aktiverat.
+
+> [!IMPORTANT]
+>Om du kör följande kommando för ett nyckelvalv som inte har aktiverat mjuk borttagning, ska du ta bort det här nyckelvalvet och allt dess innehåll med inga alternativ för återställning!
 
 ```powershell
 Remove-AzureRmKeyVault -VaultName 'ContosoVault'
 ```
 
-> [!IMPORTANT]
->Om du kör föregående kommando för ett nyckelvalv som inte har aktiverat mjuk borttagning tar permanent bort den här key vault och allt dess innehåll utan några alternativ för återställning.
-
 ### <a name="how-soft-delete-protects-your-key-vaults"></a>Hur mjuk borttagning skyddar dina nyckelvalv
 
 Aktiverad med mjuk borttagning:
 
-- När ett nyckelvalv tas bort, den tas bort från en resursgrupp och placeras i ett reserverat namnområde som endast är kopplade till den plats där den skapades. 
-- Objekt i en borttagen nyckel valvet, t.ex. nycklar, hemligheter och certifikat, är tillgängliga och förblir det medan sina som innehåller nyckelvalvet är i tillståndet deleted. 
-- DNS-namnet för ett nyckelvalv i ett borttaget tillstånd är fortfarande reserverade så det inte går att skapa ett nytt nyckelvalv med samma namn.  
+- Ett borttaget nyckelvalv tas bort från en resursgrupp och placeras i ett reserverat namnområde, som är associerade med den plats där den skapades. 
+- Borttagna objekt som nycklar, hemligheter och certifikat, är tillgängliga så länge som deras som innehåller nyckelvalvet är i tillståndet deleted. 
+- DNS-namnet för ett borttaget nyckelvalv reserveras förhindrar att ett nytt nyckelvalv med samma namn som skapas.  
 
 Du kan visa tillståndet deleted nyckelvalv, som är associerade med din prenumeration med hjälp av följande kommando:
 
 ```powershell
-PS C:\> Get-AzureRmKeyVault -InRemovedStateVault 
-
-Name           : ContosoVault
-Location             : westus
-Id                   : /subscriptions/xxx/providers/Microsoft.KeyVault/locations/westus/deletedVaults/ContosoVault
-Resource ID          : /subscriptions/xxx/resourceGroups/ContosoVault/providers/Microsoft.KeyVault/vaults/ContosoVault
-Deletion Date        : 5/9/2017 12:14:14 AM
-Scheduled Purge Date : 8/7/2017 12:14:14 AM
-Tags                 :
+PS C:\> Get-AzureRmKeyVault -InRemovedState 
 ```
 
-Den *resurs-ID* i utdata som refererar till den ursprungliga resurs-ID för det här valvet. Eftersom det här nyckelvalvet är nu i ett borttaget tillstånd, det finns ingen resurs med resurs-ID. Den *Id* fältet kan användas för att identifiera resursen när återställa eller rensa. Den *schemalagda Rensa datum* fältet anges när valvet tas bort permanent (rensas) om ingen åtgärd utförs för den här Borttaget valv. Standardkvarhållningsperioden som används för att beräkna den *schemalagda Rensa datum*, är 90 dagar.
+- *ID* kan användas för att identifiera resursen när återställa eller rensa. 
+- *Resurs-ID* är den ursprungliga resurs-ID för det här valvet. Eftersom det här nyckelvalvet är nu i ett borttaget tillstånd, det finns ingen resurs med resurs-ID. 
+- *Schemalagd Rensa datum* är när valvet tas bort permanent, om ingen åtgärd utförs. Standardkvarhållningsperioden som används för att beräkna den *schemalagda Rensa datum*, är 90 dagar.
 
 ## <a name="recovering-a-key-vault"></a>Återställa ett nyckelvalv
 
-Om du vill återställa ett nyckelvalv måste du ange namn på key vault, resursgrupp och plats. Notera platsen och resursgruppen för borttagna nyckelvalvet som du behöver dem för ett nyckelvalv återställningsprocessen.
+Om du vill återställa ett nyckelvalv måste ange du nyckelvalvsnamn, resursgrupp och plats. Notera platsen och resursgruppen för det borttagna nyckelvalvet som du behöver dem för återställningen.
 
 ```powershell
 Undo-AzureRmKeyVaultRemoval -VaultName ContosoVault -ResourceGroupName ContosoRG -Location westus
 ```
 
-När ett nyckelvalv återställs är resultatet en ny resurs med key vault ursprungliga resurs-ID. Om resursgruppen där nyckelvalvet fanns har tagits bort, måste en ny resursgrupp med samma namn skapas innan nyckelvalvet kan återställas.
+När ett nyckelvalv återställs skapas en ny resurs med key vault ursprungliga resurs-ID. Om den ursprungliga resursgruppen tas bort, måste en skapas med samma namn innan du försöker återställning.
 
 ## <a name="key-vault-objects-and-soft-delete"></a>Key Vault-objekt och Mjuk borttagning
 
-För en nyckel, ContosoFirstKey, i en nyckelvalvets med namnet 'ContosoVault' med mjuk borttagning aktiverad här hur du tar bort nyckeln.
+Följande kommando tar bort nyckeln 'ContosoFirstKey' i key vault med namnet ”ContosoVault” som har aktiverat mjuk borttagning:
 
 ```powershell
 Remove-AzureKeyVaultKey -VaultName ContosoVault -Name ContosoFirstKey
 ```
 
-Med nyckelvalvet som aktiverats för mjuk borttagning, visas en borttagen nyckel fortfarande som tas den bort utom, när du uttryckligen lista eller hämta borttagna nycklar. De flesta åtgärder på en nyckel i tillståndet deleted misslyckas förutom lista en borttagen nyckel, återställs eller rensa den. 
+Med nyckelvalvet som aktiverats för mjuk borttagning, visas en borttagen nyckel fortfarande att tas bort, såvida inte du uttryckligen ange borttagna nycklar. De flesta åtgärder på en nyckel i tillståndet deleted misslyckas förutom lista, återställa, rensa en nyckel som har tagits bort. 
 
-Till exempel om du vill begära att lista bort nycklar i key vault använder du följande kommando:
+Följande kommando visar till exempel har tagits bort nycklar i nyckelvalvet 'ContosoVault':
 
 ```powershell
 Get-AzureKeyVaultKey -VaultName ContosoVault -InRemovedState
@@ -143,47 +137,34 @@ Get-AzureKeyVaultKey -VaultName ContosoVault -InRemovedState
 
 ### <a name="transition-state"></a>Övergångstillstånd 
 
-När du tar bort en nyckel i key vault med mjuk borttagning aktiverat kan det ta några sekunder för övergången att slutföra. Under den här övergångstillstånd verka det att nyckeln inte är i aktivt läge eller Borttaget tillstånd. Det här kommandot visar en lista över alla borttagna nycklar i nyckelvalvet med namnet ”ContosoVault”.
-
-```powershell
-  Get-AzureKeyVaultKey -VaultName ContosoVault -InRemovedState
-  Vault Name           : ContosoVault
-  Name                 : ContosoFirstKey
-  Id                   : https://ContosoVault.vault.azure.net:443/keys/ContosoFirstKey
-  Deleted Date         : 2/14/2017 8:20:52 PM
-  Scheduled Purge Date : 5/15/2017 8:20:52 PM
-  Enabled              : True
-  Expires              :
-  Not Before           :
-  Created              : 2/14/2017 8:16:07 PM
-  Updated              : 2/14/2017 8:16:07 PM
-  Tags                 :
-```
+När du tar bort en nyckel i key vault med mjuk borttagning aktiverat kan det ta några sekunder för övergången att slutföra. Under den här ändringen kommer verka det att nyckeln inte är i aktivt läge eller Borttaget tillstånd. 
 
 ### <a name="using-soft-delete-with-key-vault-objects"></a>Använda mjuk borttagning med key vault-objekt
 
-Precis som nyckelvalv, en borttagen nyckel hemlighet eller certifikat finns kvar i Borttaget tillstånd i upp till 90 dagar såvida du inte återställa den eller ta bort den. 
+Precis som nyckelvalv, en borttagna nyckeln eller hemligheten certifikat, finns kvar i Borttaget tillstånd i upp till 90 dagar, såvida du inte återställa den eller ta bort den. 
 
 #### <a name="keys"></a>Nycklar
 
-För att återställa en borttagen nyckel:
+För att återställa en ej permanent borttagna nyckel:
 
 ```powershell
 Undo-AzureKeyVaultKeyRemoval -VaultName ContosoVault -Name ContosoFirstKey
 ```
 
-Ta permanent bort en nyckel:
+Att permanent ta bort (även kallat Rensa) en ej permanent borttagna nyckel:
+
+> [!IMPORTANT]
+> Rensa en nyckel tar permanent bort den och kommer inte att återställa! 
 
 ```powershell
 Remove-AzureKeyVaultKey -VaultName ContosoVault -Name ContosoFirstKey -InRemovedState
 ```
 
->[!NOTE]
->Rensa en nyckel tar permanent bort den, vilket innebär att den inte kan återställas.
-
-Den **återställa** och **Rensa** åtgärder har sina egna behörigheter som är associerade i en åtkomstprincip för nyckelvalvet. För en användare eller tjänstens huvudnamn för att kunna köra en **återställa** eller **Rensa** åtgärd som de måste ha behörigheten respektive för objektet (nyckel eller hemlighet) i nyckelvalvets åtkomstprincip. Som standard den **Rensa** behörighet läggs inte till en nyckelvalvets åtkomstprincip när genvägen till ”alla” används för att ge alla behörigheter till en användare. Du måste uttryckligen bevilja **Rensa** behörighet. Till exempel följande kommando ger user@contoso.com behörighet att utföra flera åtgärder med nycklar i *ContosoVault* inklusive **Rensa**.
+Den **återställa** och **Rensa** åtgärder har sina egna behörigheter som är associerade i en åtkomstprincip för nyckelvalvet. För en användare eller tjänstens huvudnamn för att kunna köra en **återställa** eller **Rensa** åtgärd, de måste ha behörigheten respektive för den här nyckeln eller hemligheten. Som standard **Rensa** inte läggs till en nyckelvalvets åtkomstprincip, när genvägen till ”alla” används för att ge alla behörigheter. Du måste uttryckligen beviljar **Rensa** behörighet. 
 
 #### <a name="set-a-key-vault-access-policy"></a>Ange en åtkomstprincip för nyckelvalvet
+
+Följande kommando ger user@contoso.com behörighet att använda flera åtgärder med nycklar i *ContosoVault* inklusive **Rensa**:
 
 ```powershell
 Set-AzureRmKeyVaultAccessPolicy -VaultName ContosoVault -UserPrincipalName user@contoso.com -PermissionsToKeys get,create,delete,list,update,import,backup,restore,recover,purge
@@ -194,7 +175,7 @@ Set-AzureRmKeyVaultAccessPolicy -VaultName ContosoVault -UserPrincipalName user@
 
 #### <a name="secrets"></a>Hemligheter
 
-T.ex. nycklar drivs hemligheter i key vault på med sina egna kommandon. Följa, är kommandon för att ta bort, lista, återställa och rensa hemligheter.
+T.ex. nycklar, som hemligheter hanteras med sina egna kommandon:
 
 - Ta bort en hemlighet med namnet SQLPassword: 
 ```powershell
@@ -212,40 +193,41 @@ Undo-AzureKeyVaultSecretRemoval -VaultName ContosoVault -Name SQLPAssword
 ```
 
 - Rensa en hemlighet i Borttaget tillstånd: 
-```powershell
-Remove-AzureKeyVaultSecret -VaultName ContosoVault -InRemovedState -name SQLPassword
-```
 
->[!NOTE]
->Rensa en hemlighet tar permanent bort den, vilket innebär att den inte kan återställas.
+  > [!IMPORTANT]
+  > Rensa en hemlighet tar permanent bort den och kommer inte att återställa!
+
+  ```powershell
+  Remove-AzureKeyVaultSecret -VaultName ContosoVault -InRemovedState -name SQLPassword
+  ```
 
 ## <a name="purging-and-key-vaults"></a>Ovanstående och viktiga valv
 
 ### <a name="key-vault-objects"></a>Nyckelvalv-objekt
 
-Rensa en nyckel tar hemlighet eller certifikat permanent bort den, vilket innebär att den inte kan återställas. Nyckelvalvet som innehåller det borttagna objektet förblir dock intakta liksom alla andra objekt i nyckelvalvet. 
+Rensa en nyckel eller hemlighet certifikat, orsakar permanent borttagning och kan inte återställas. Nyckelvalvet som innehåller det borttagna objektet förblir dock intakta liksom alla andra objekt i nyckelvalvet. 
 
 ### <a name="key-vaults-as-containers"></a>Nyckelvalv som behållare
-När ett nyckelvalv tas bort tas allt innehåll, inklusive nycklar, hemligheter och certifikat, bort permanent. Om du vill ta bort ett nyckelvalv, använda den `Remove-AzureRmKeyVault` med alternativet `-InRemovedState` och genom att ange platsen för borttagna nyckelvalvet med den `-Location location` argumentet. Du kan hitta platsen för ett borttaget valv med hjälp av kommandot `Get-AzureRmKeyVault -InRemovedState`.
+När ett nyckelvalv tas bort tas hela dess innehåll bort permanent, inklusive nycklar, hemligheter och certifikat. Om du vill ta bort ett nyckelvalv, använda den `Remove-AzureRmKeyVault` med alternativet `-InRemovedState` och genom att ange platsen för borttagna nyckelvalvet med den `-Location location` argumentet. Du kan hitta platsen för ett borttaget valv med hjälp av kommandot `Get-AzureRmKeyVault -InRemovedState`.
+
+>[!IMPORTANT]
+>Rensning av key vault tar permanent bort den, vilket innebär att den inte kan återställas!
 
 ```powershell
 Remove-AzureRmKeyVault -VaultName ContosoVault -InRemovedState -Location westus
 ```
 
->[!NOTE]
->Rensning av key vault tar permanent bort den, vilket innebär att den inte kan återställas.
-
 ### <a name="purge-permissions-required"></a>Rensa behörigheter som krävs
-- Om du vill rensa ett borttaget nyckelvalv så att valvet och allt dess innehåll tas bort permanent, användaren behöver RBAC-behörighet att utföra en *Microsoft.KeyVault/locations/deletedVaults/purge/action* igen. 
-- Om du vill visa nyckeln har tagits bort valvet en användare behöver RBAC-behörighet att utföra *Microsoft.KeyVault/deletedVaults/read* behörighet. 
+- Om du vill rensa ett borttaget nyckelvalv användaren behöver RBAC-behörighet till den *Microsoft.KeyVault/locations/deletedVaults/purge/action* igen. 
+- Om du vill visa ett borttaget nyckelvalv användaren behöver RBAC-behörighet till den *Microsoft.KeyVault/deletedVaults/read* igen. 
 - Som standard har bara en administratör för prenumerationen dessa behörigheter. 
 
 ### <a name="scheduled-purge"></a>Schemalagda Rensa
 
-Visa en lista över dina Borttaget nyckelvalvobjekt visas när de är schedled tas bort av Key Vault. Den *schemalagda Rensa datum* fältet visas när ett nyckelvalv objekt tas bort permanent, om ingen åtgärd utförs. Som standard är kvarhållningsperioden för ett borttaget nyckelvalv objekt 90 dagar.
+Visa en lista över objekt som borttaget nyckelvalv visar även när de är schemalagda tas bort av Key Vault. *Schemalagd Rensa datum* anger när ett nyckelvalv objekt tas bort permanent, om ingen åtgärd utförs. Som standard är kvarhållningsperioden för ett borttaget nyckelvalv objekt 90 dagar.
 
->[!NOTE]
->En borttagen valvobjekt som utlöses av dess *schemalagda Rensa datum* fältet, bort permanent. Det går inte att återställa.
+>[!IMPORTANT]
+>En borttagen valvobjekt som utlöses av dess *schemalagda Rensa datum* fältet, bort permanent. Det kan inte återställas!
 
 ## <a name="other-resources"></a>Andra resurser
 

@@ -10,17 +10,17 @@ ms.component: qna-maker
 ms.topic: article
 ms.date: 09/12/2018
 ms.author: tulasim
-ms.openlocfilehash: a06a04ba992c8d7e9691e4838d38faaafd48de7a
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: 6eaa4859ea6346390514325980835750d8e4b6d5
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48853920"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49365568"
 ---
 # <a name="migrate-a-knowledge-base-using-export-import"></a>Migrera en kunskapsbas med hjälp av export-import
 QnA Maker meddelat allmän tillgänglighet den 7 maj 2018 på den \\\build\ konferensen. QnA har Maker en ny arkitektur som bygger på Azure. Kunskapsbaser som skapats med QnA Maker kostnadsfri förhandsversion måste migreras till QnA Maker GA. QnA Maker förhandsversionen kommer att inaktualiseras i November 2018. Mer information om ändringar i QnA Maker GA finns i QnA Maker allmänheten [blogginlägget](https://aka.ms/qnamakerga-blog).
 
-QnA Maker har nu en [prissättningsmodellen](https://azure.microsoft.com/en-us/pricing/details/cognitive-services/qna-maker/).
+QnA Maker har nu en [prissättningsmodellen](https://azure.microsoft.com/pricing/details/cognitive-services/qna-maker/).
 
 Förutsättningar
 > [!div class="checklist"]

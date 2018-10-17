@@ -12,12 +12,12 @@ ms.author: xiwu
 ms.reviewer: douglasl
 manager: craigg
 ms.date: 08/09/2018
-ms.openlocfilehash: 602bbdcd21e56bb64515a19623e08ae617c99a59
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.openlocfilehash: dfa5929daffb27617d3d1047f044a5af037e42ff
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48870921"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49362245"
 ---
 # <a name="sync-data-across-multiple-cloud-and-on-premises-databases-with-sql-data-sync"></a>Synkronisera data i flera moln och lokala databaser med SQL Data Sync
 
@@ -152,7 +152,7 @@ Datasynkronisering kan inte synkronisera skrivskyddad eller systemgenererade kol
 | **Dimensioner**                                                      | **Gränsen**              | **Lösning**              |
 |-----------------------------------------------------------------|------------------------|-----------------------------|
 | Maximala antalet synkroniseringsgrupper alla databaser kan höra till.       | 5                      |                             |
-| Maximalt antal slutpunkter i en enda synkroniseringsgrupp              | 30                     | Skapa flera synkroniseringsgrupper |
+| Maximalt antal slutpunkter i en enda synkroniseringsgrupp              | 30                     |                             |
 | Maximalt antal lokala slutpunkter i en enda synkroniseringsgrupp. | 5                      | Skapa flera synkroniseringsgrupper |
 | Databas-, tabell-, schema-och kolumnnamn                       | 50 tecken per namn |                             |
 | Tabeller i en synkroniseringsgrupp                                          | 500                    | Skapa flera synkroniseringsgrupper |
@@ -160,6 +160,8 @@ Datasynkronisering kan inte synkronisera skrivskyddad eller systemgenererade kol
 | Data Radstorleken på en tabell                                        | 24 mb                  |                             |
 | Minsta intervall                                           | 5 minuter              |                             |
 |||
+> [!NOTE]
+> Det kan vara upp till 30 slutpunkter i en enda synkroniseringsgrupp om det finns endast en synkroniseringsgrupp. Om det finns fler än en synkroniseringsgrupp, får inte det totala antalet slutpunkter över alla synkroniseringsgrupper överskrida 30. Om en databas tillhör flera synkroniseringsgrupper, räknas det som flera slutpunkter kan inte en.
 
 ## <a name="faq-about-sql-data-sync"></a>Vanliga frågor och svar om SQL Data Sync
 

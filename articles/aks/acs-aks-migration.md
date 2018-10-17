@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 06/13/2018
 ms.author: nobun
 ms.custom: mvc
-ms.openlocfilehash: cb143998ac46f7f86b2dbf47b69cee7843418f5d
-ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
+ms.openlocfilehash: d26e849cf775e0c645ae97e4b67b5918bbbabd55
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43191634"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49361386"
 ---
 # <a name="migrating-from-azure-container-service-acs-to-azure-kubernetes-service-aks"></a>Migrera från Azure Container Service (ACS) till Azure Kubernetes Service (AKS)
 
@@ -29,7 +29,7 @@ ACS och AKS olika några huvudområden som påverkar migrering. Du bör granska 
     * Anpassad `StorageClass` objekt för Azure-diskar behöver du ändras från `unmanaged` till `managed`
     * Alla `PersistentVolumes` måste du använda `kind: Managed`
 * AKS stöder för närvarande endast en agentpool
-* Windows Server-baserade noder är för närvarande i [privat förhandsgranskning](https://azure.microsoft.com/en-us/blog/kubernetes-on-azure/)
+* Windows Server-baserade noder är för närvarande i [privat förhandsgranskning](https://azure.microsoft.com/blog/kubernetes-on-azure/)
 * Kontrollera listan över AKS [regioner som stöds](https://docs.microsoft.com/azure/aks/container-service-quotas)
 * AKS är en hanterad tjänst med en värdbaserade kontrollplanet i Kubernetes. Du kan behöva ändra dina program om du tidigare har ändrat konfigurationen av ACS-huvudservrar
 

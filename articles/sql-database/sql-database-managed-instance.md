@@ -12,14 +12,14 @@ ms.author: bonova
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 10/15/2018
-ms.openlocfilehash: f1b2f9c7ee9d2fbeec51315a5e348b197fb4c06b
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: aaffdb2f0d21dbb7a5baf029a90e452658c5bd31
+ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/16/2018
-ms.locfileid: "49342508"
+ms.locfileid: "49353644"
 ---
-# <a name="azure-sql-database-managed-instance-deployment-model-with-virtual-network-and-near-100-sql-server-compatibility"></a>Azure SQL Database Managed Instance-distributionsmodellen med virtuellt nätverk och nästan 100% kompatibilitet med SQL Server
+# <a name="use-sql-database-managed-instance-with-virtual-networks-and-near-100-compatibility"></a>Använda SQL Database Managed Instance med virtuella nätverk och nästan 100% kompatibilitet
 
 Azure SQL Database Managed Instance är en ny distributionsmodell för av Azure SQL Database, vilket ger nästan 100% kompatibilitet med den senaste SQL Server lokalt (Enterprise Edition) databasmotorn, ger ett ursprungligt [virtuellt nätverk (VNet)](../virtual-network/virtual-networks-overview.md) implementering som åtgärdar vanliga säkerhetsproblem och en [affärsmodell](https://azure.microsoft.com/pricing/details/sql-database/) fördelaktig för en lokal SQL Server-kunder. Hanterad instans tillåter att befintliga SQL Server-kunder att flytta över sina lokala program till molnet med minimala ändringar för programmet och databasen. På samma gång, Managed Instance bevarar alla PaaS-funktioner (automatiska uppdateringar för uppdatering och version, [automatiska säkerhetskopior](sql-database-automated-backups.md), [hög tillgänglighet](sql-database-high-availability.md) ), vilket drastiskt minskar hanteringskostnader och TCO.
 

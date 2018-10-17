@@ -11,15 +11,15 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 10/05/2018
-ms.openlocfilehash: 47a2404361c8ce3f30a0564378857f5a86232a52
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.date: 10/15/2018
+ms.openlocfilehash: 372f1a0b7e2ad07612caaac478aea14693e002fa
+ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48868101"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49352310"
 ---
-# <a name="hyperscale-service-tier-preview"></a>Hyperskala tjänstnivå (förhandsversion)
+# <a name="hyperscale-service-tier-preview-for-up-to-100-tb"></a>Hyperskala tjänstnivå (förhandsversion) för upp till 100 TB
 
 Hyperskala tjänstnivån i Azure SQL Database är den senaste tjänstnivån i den vCore-baserade inköpsmodellen. Den här är en mycket skalbar lagring och beräkning prestandanivå som utnyttjar Azure-arkitektur för att skala ut lagring och beräkna resurser för en Azure SQL Database avsevärt utöver gränserna som är tillgängliga för generell användning och företag Kritiska tjänstnivåer.
 
@@ -30,11 +30,11 @@ Hyperskala tjänstnivån i Azure SQL Database är den senaste tjänstnivån i de
 > [!IMPORTANT]
 > Hyperskala tjänstnivå finns för närvarande i offentlig förhandsversion. Vi rekommenderar inte någon produktionsarbetsbelastning körs ännu i hyperskala databaser. Du kan inte uppdatera en storskalig databas till andra tjänstnivåer. För testning syfte rekommenderar vi du gör en kopia av den aktuella databasen och uppdatera kopian hyperskala tjänstnivån.
 
-## <a name="what-are-the-capabilities-of-the-hyperscale-service-tier"></a>Vilka är funktionerna i hyperskala tjänstnivån
+## <a name="what-are-the-hyperscale-capabilities"></a>Vad är hyperskala funktioner
 
 Hyperskala tjänstnivån i Azure SQL Database tillhandahåller följande funktioner:
 
-- Stöd för upp till en 100 TB av databasens storlek
+- Stöd för upp till 100 TB databasstorlek
 - Stort sett ögonblickliga säkerhetskopior (baserat på ögonblicksbilder lagras i Azure Blob storage)-databas oavsett storlek utan i/o-inverkan på beräkning
 - Snabba återställningar för databasen (baserat på ögonblicksbilder) i minuter i stället för timmar eller dagar (inte en storlek på data igen)
 - Högre övergripande prestanda på grund av högre log dataflöde och transaktionen commit snabbare oavsett datavolymer
@@ -56,13 +56,13 @@ Tjänstnivån hyperskala stöder alla SQL Server-arbetsbelastningar, men den fr�
 > [!IMPORTANT]
 > Elastiska pooler har inte stöd för storskaliga tjänstnivån.
 
-## <a name="understand-hyperscale-pricing"></a>Prissättningen hyperskala
+## <a name="hyperscale-pricing-model"></a>Hyperskala prismodellen
 
 Hyperskala tjänstnivå finns bara i [vCore-modellen](sql-database-service-tiers-vcore.md). Så att den överensstämmer med den nya arkitekturen skiljer prismodellen sig från generell användning och affärskritiska tjänstnivåer:
 
 - **Compute**:
 
-  Enhetspriset för storskalig databearbetning är per replik. Den [Azure Hybrid-Benifit](https://azure.microsoft.com/pricing/hybrid-benefit/) pris används för att läsa skala repliker automatiskt. I offentlig förhandsversion skapar vi två repliker per databas i hyperskala som standard.
+  Enhetspriset för storskalig databearbetning är per replik. Den [Azure Hybrid-förmånen](https://azure.microsoft.com/pricing/hybrid-benefit/) pris används för att läsa skala repliker automatiskt. I offentlig förhandsversion skapar vi två repliker per databas i hyperskala som standard.
 
 - **Storage**:
 
@@ -70,9 +70,9 @@ Hyperskala tjänstnivå finns bara i [vCore-modellen](sql-database-service-tiers
 
 Läs mer om priser för storskaliga [priser för Azure SQL Database](https://azure.microsoft.com/pricing/details/sql-database/single/)
 
-## <a name="architecture-distributing-functions-to-isolate-capabilities"></a>Arkitektur: Distribuera funktioner för att isolera funktioner
+## <a name="distributed-functions-architecture"></a>Distribuerade functions-arkitektur
 
-Till skillnad från traditionella databasmotorer som har centraliserad alla hanteringsfunktioner för data i en enda plats/process (även så kallade distribuerade databaser i produktionsmiljön idag har flera kopior av en monolitisk motor), skiljer en storskalig databas bearbetning av motorn, där semantiken för olika datamotorer avvika från de komponenter som ger långsiktig lagring och hållbarhet för data. På så sätt kan lagringskapaciteten smidigt skalas ut så mycket som behövs (inledande mål är 100 TB). Skrivskyddade repliker dela samma beräkning komponenter så att ingen kopiering av data som krävs för att skapa en ny läsbar replik.
+Till skillnad från traditionella databasmotorer som har centraliserad alla hanteringsfunktioner för data i en enda plats/process (även så kallade distribuerade databaser i produktionsmiljön idag har flera kopior av en monolitisk motor), skiljer en storskalig databas bearbetning av motorn, där semantiken för olika datamotorer avvika från de komponenter som ger långsiktig lagring och hållbarhet för data. På så sätt kan lagringskapaciteten smidigt skalas ut så mycket som behövs (inledande mål är 100 TB). Skrivskyddade repliker dela samma beräkning komponenter så att ingen kopiering av data som krävs för att skapa en ny läsbar replik. I förhandsversionen stöds endast 1 skrivskyddad replik.
 
 Följande diagram illustrerar de olika typerna av noder i en storskalig databas:
 
@@ -104,12 +104,60 @@ Säkerhetskopior av base och de är därför nästan omedelbart. Lagring och ber
 
 Med möjligheten att snabbt öka eller minska ytterligare skrivskyddad compute-noder kan hyperskala arkitekturen gör betydande läsa skalningsfunktioner och kan även frigöra primära Beräkningsnoden för att betjäna flera skrivbegäranden. Dessutom kan compute-noderna skalas upp och ned snabbt på grund av delad lagring-arkitektur i hyperskala-arkitekturen.
 
+## <a name="create-a-hyperscale-database"></a>Skapa en databas i hyperskala
+
+En storskalig databas kan skapas med den [Azure-portalen](https://portal.azure.com), [T-SQL](https://docs.microsoft.com/sql/t-sql/statements/create-database-transact-sql?view=azuresqldb-current), [Powershell](https://docs.microsoft.com/powershell/module/azurerm.sql/new-azurermsqldatabase) eller [CLI](https://docs.microsoft.com/cli/azure/sql/db#az-sql-db-create). Hyperskala databaser är tillgängliga med enbart den [vCore-baserade inköpsmodellen](sql-database-service-tiers-vcore.md).
+
+Följande T-SQL-kommando skapar en databas i hyperskala. Du måste ange både edition och tjänsten mål i den `CREATE DATABASE` instruktionen.
+
+```sql
+-- Create a HyperScale Database
+CREATE DATABASE [HyperScaleDB1] (EDITION = 'HyperScale', SERVICE_OBJECTIVE = 'HS_Gen4_4');
+GO
+```
+
+## <a name="migrate-an-existing-azure-sql-database-to-the-hyperscale-service-tier"></a>Migrera en befintlig Azure SQL Database på tjänstnivån i hyperskala
+
+Du kan flytta dina befintliga Azure SQL-databaser till hyperskala med hjälp av den [Azure-portalen](https://portal.azure.com), [T-SQL](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current), [Powershell](https://docs.microsoft.com/powershell/module/azurerm.sql/set-azurermsqldatabase) eller [CLI](https://docs.microsoft.com/cli/azure/sql/db#az-sql-db-update). I offentlig förhandsversion är det en enkelriktad migrering. Du kan inte flytta databaser från hyperskala till en annan tjänstnivå. Vi rekommenderar att du gör en kopia av produktionsdatabaserna och migrera till hyperskala för bevis på koncept (POC).
+
+Följande T-SQL-kommando flyttar en databas i hyperskala tjänstnivån. Du måste ange både edition och tjänsten mål i den `ALTER DATABASE` instruktionen.
+
+```sql
+-- Alter a database to make it a HyperScale Database
+ALTER DATABASE [DB2] MODIFY (EDITION = 'HyperScale', SERVICE_OBJECTIVE = 'HS_Gen4_4');
+GO
+```
+
+> [!IMPORTANT]
+> [Transparent databasen datakryptering (TDE)](transparent-data-encryption-azure-sql.md) bör stängas av innan du ändrar en databas för icke-hyperskala att hyperskala.
+
+## <a name="connect-to-a-read-scale-replica-of-a-hyperscale-database"></a>Ansluta till en lässkala replik av en storskalig databas
+
+I hyperskala databaser, den `ApplicationIntent` argumentet i anslutningssträngen som tillhandahålls av klienten avgör om anslutningen dirigeras till skrivning repliken eller till en skrivskyddad sekundär replik. Om den `ApplicationIntent` inställd `READONLY` och databasen har inte en sekundär replik, anslutningen kommer att dirigeras till den primära repliken och standardvärdet är `ReadWrite` beteende.
+
+```cmd
+-- Connection string with application intent
+Server=tcp:<myserver>.database.windows.net;Database=<mydatabase>;ApplicationIntent=ReadOnly;User ID=<myLogin>;Password=<myPassword>;Trusted_Connection=False; Encrypt=True;
+```
+
 ## <a name="available-regions"></a>Tillgängliga regioner
 
 Hyperskala tjänstnivå är för närvarande i offentlig förhandsversion och är tillgängliga i följande Azure-regioner: EastUS1, Usaöstra2, västra USA 2, CentralUS, Usanorracentrala, Europavästra, Europanorra, Västrastorbritannien, Australien, sydöstra Australien, SouthEastAsia, Sydostasien, Koreacentrala
 
+## <a name="known-limitations"></a>Kända begränsningar
+
+| Problem | Beskrivning |
+| :---- | :--------- |
+| ManageBackups fönstret för en logisk server inte visar filtreras hyperskala databaser från SQLServer ->  | Hyperskala har en annan metod för att hantera säkerhetskopior, och därför långsiktig kvarhållning och punkt i tiden säkerhetskopiering kvarhållningsinställningar gäller inte / ogiltigförklaras. Hyperskala databaser visas därför inte i fönstret hantera säkerhetskopiering. |
+| Återställning från tidpunkt | När en databas har migrerats till hyperskala tjänstnivån, stöds inte återställning till point-in-tIme.|
+| Om en databasfil växer under migreringen på grund av en aktiv arbetsbelastning och korsar 1 TB per fil gräns, misslyckas migreringen | Åtgärder: <br> -Om möjligt, migrera databasen när det finns ingen uppdatering av arbetsbelastningar som körs.<br> -Försök igen migreringen, kommer att kunna så länge gränsen på 1 TB inte uppnås under migreringen.|
+| Hanterad instans stöds inte för närvarande | Stöds för närvarande inte |
+| Migrering till hyperskala är för närvarande en enkel åtgärd | När en databas har migrerats till hyperskala, kan inte migreras direkt till en icke-hyperskala tjänstnivå. För närvarande är det enda sättet att migrera en databas från hyperskala till icke-hyperskala att exportera/importera med hjälp av en BACPAC-fil.|
+| Migrering av databaser med InMemory-objekt stöds inte för närvarande | InMemory-objekt måste släppas och återskapas som icke-InMemory-objekt innan du migrerar en databas på hyperskala tjänstnivån.
+
 ## <a name="next-steps"></a>Nästa steg
 
+- Frågor och svar i hyperskala, se [vanliga frågor och svar om hyperskala](sql-database-service-tier-hyperscale-faq.md).
 - Information om tjänstnivåer finns i [tjänstnivåer](sql-database-service-tiers.md)
 - Se [översikt över resource begränsar på en logisk server](sql-database-resource-limits-logical-server.md) information om begränsningar på de server och prenumeration.
 - Köpa modellen gränser för en enskild databas, finns i [Azure SQL Database vCore-baserade köpa modellen gränser för en enskild databas](sql-database-vcore-resource-limits-single-databases.md).

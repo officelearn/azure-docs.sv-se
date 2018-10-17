@@ -3,24 +3,24 @@ title: Azure Traffic Manager med Azure Site Recovery | Microsoft Docs
 description: Beskriver hur du använder Azure Traffic Manager med Azure Site Recovery för katastrofåterställning och migrering
 services: site-recovery
 documentationcenter: ''
-author: mayanknayar
+author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
-ms.topic: article
-ms.date: 07/06/2018
-ms.author: manayar
-ms.openlocfilehash: 0be013a1b8d2c619d58034157240eafb241c4e59
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.topic: conceptual
+ms.date: 10/16/2018
+ms.author: mayg
+ms.openlocfilehash: 8f303ec3349b0003ef764e437c6f06cf498dcc57
+ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37919044"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49353262"
 ---
 # <a name="azure-traffic-manager-with-azure-site-recovery"></a>Azure Traffic Manager med Azure Site Recovery
 
-Med Azure Traffic Manager kan du styra distributionen av trafiken mellan slutpunkterna för din. En slutpunkt är alla Internet-ansluten tjänst i och utanför Azure.
+Med Azure Traffic Manager kan du styra distributionen av trafiken mellan slutpunkterna för din. En slutpunkt är en Internetansluten tjänst i eller utanför Azure.
 
-Traffic Manager använder Domain Name System (DNS) för att dirigera klientbegäranden till den lämpligaste slutpunkten baserat på en trafikdirigeringsmetoden och hälsotillståndet för slutpunkterna. Traffic Manager erbjuder en uppsättning [trafikroutningsmetoder](../traffic-manager/traffic-manager-routing-methods.md) och [endpoint övervakningsalternativ](../traffic-manager/traffic-manager-monitoring.md) som passar olika programbehov och automatisk redundans modeller. Klienterna ansluter direkt till den valda slutpunkten. Traffic Manager är inte en proxy eller en gateway och den kan inte se den trafik som passerar mellan klienten och tjänsten.
+Traffic Manager använder Domain Name System (DNS) för att dirigera klientbegäranden till den lämpligaste slutpunkten baserat på en trafikdirigeringsmetoden och hälsotillståndet för slutpunkterna. Traffic Manager tillhandahåller en uppsättning [trafikdirigeringsmetoder](../traffic-manager/traffic-manager-routing-methods.md) och [alternativ för slutpunktsövervakning](../traffic-manager/traffic-manager-monitoring.md) som passar olika programbehov och modeller för automatisk redundansväxling. Klienterna ansluter direkt till den valda slutpunkten. Traffic Manager är inte en proxy eller en gateway och den kan inte se den trafik som passerar mellan klienten och tjänsten.
 
 Den här artikeln beskrivs hur du kan kombinera Azure trafik Monitor intelligent routning med Azure Site Recoverys kraftfulla haveriberedskap och migreringsfunktioner.
 

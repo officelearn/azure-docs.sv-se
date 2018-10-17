@@ -11,17 +11,20 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 05/22/2017
 ms.author: glenga
-ms.openlocfilehash: a257948c97437d6045f705acb02054928d22ff89
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: 024958d8a548313b53fc24ade5805de036a89afb
+ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44092877"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49351923"
 ---
 # <a name="use-azure-functions-to-connect-to-an-azure-sql-database"></a>Använd Azure Functions för att ansluta till en Azure SQL Database
 Det här avsnittet visar hur du använder Azure Functions för att skapa ett schemalagt jobb som rensar upp rader i en tabell i en Azure SQL Database. Den nya C#-skriptfunktion skapas baserat på en fördefinierad timer utlösarmallen i Azure-portalen. För det här scenariot måste ange du också en anslutningssträng för databasen som en appinställning i funktionsappen. Det här scenariot använder en bulkåtgärd mot databasen. 
 
 Ha din funktion processen person skapa, läsa, uppdatera och ta bort (CRUD)-åtgärder i en tabell med Mobile Apps, bör du i stället använda [Mobile Apps-bindningar](functions-bindings-mobile-apps.md).
+
+> [!IMPORTANT]
+> Exemplen i det här dokumentet avser 1.x-körningen. Information om hur du skapar en 1.x-funktionsapp [hittar du här](./functions-versions.md#creating-1x-apps).
 
 ## <a name="prerequisites"></a>Förutsättningar
 

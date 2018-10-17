@@ -14,25 +14,25 @@ ms.workload: infrastructure
 ms.date: 09/10/2018
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5efdda485e4e1f5013948c6636b267f0d388f4d5
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: a64a60603cd9898386a975313afc676e3b253326
+ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44164735"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49353605"
 ---
-# <a name="connecting-a-vnet-to-hana-large-instance-expressroute"></a>Ansluta ett virtuellt nätverk till HANA stora instanser ExpressRoute
+# <a name="connect-a-virtual-network-to-hana-large-instances"></a>Ansluta ett virtuellt nätverk till stora HANA-instanser
 
-Som du har definierat alla IP-adressintervall och nu fick tillbaka data från Microsoft, kan du ansluta det virtuella nätverket som du skapade innan till stora HANA-instanser. När Azure VNet har skapats kan måste en ExpressRoute-gateway skapas på det virtuella nätverket att länka det virtuella nätverket till ExpressRoute-krets som ansluter till kundklient på stämpel för stor instans.
+När du har skapat ett Azure-nätverk, kan du ansluta nätverket till SAP HANA på Azure stora instanser. Skapa en Azure ExpressRoute-gateway i det virtuella nätverket. Den här gatewayen kan du länka virtuella nätverk till ExpressRoute-krets som ansluter till kundklient på stämpel för stor instans.
 
 > [!NOTE] 
-> Det här steget kan ta upp till 30 minuter att slutföra, eftersom den nya gatewayen skapas i den avsedda Azure-prenumerationen och sedan är anslutna till det angivna virtuella Azure-nätverket.
+> Det här steget kan ta upp till 30 minuter att slutföra. Ny gateway skapas i den avsedda Azure-prenumerationen och sedan anslutit till den angivna Azure-nätverken.
 
-Om det finns redan en gateway, kontrollerar du om det är en ExpressRoute-gateway eller inte. Om inte gatewayen måste tas bort och återskapas som en ExpressRoute-gateway. Om en ExpressRoute-gateway är redan etablerad, eftersom den virtuella Azure-nätverket är redan ansluten till ExpressRoute-kretsen för lokal anslutning, kan du gå vidare till avsnittet länka virtuella nätverk.
+Om det finns redan en gateway, kontrollerar du om det är en ExpressRoute-gateway eller inte. Om inte, ta bort gatewayen och skapa den igen som en ExpressRoute-gateway. Om en ExpressRoute-gateway är redan etablerad, se följande avsnitt i den här artikeln ”länka virtuella nätverk”. 
 
-- Använd antingen den (ny) [Azure-portalen](https://portal.azure.com/), eller PowerShell för att skapa en ExpressRoute VPN-gateway som är ansluten till ditt VNet.
-  - Om du använder Azure-portalen, lägga till en ny **virtuell nätverksgateway** och välj sedan **ExpressRoute** som gateway-typen.
-  - Om du har valt PowerShell i stället först ladda ned och använda senast [Azure PowerShell SDK](https://azure.microsoft.com/downloads/) att säkerställa en optimal upplevelse. Följande kommandon för skapar en ExpressRoute-gateway. Texten som föregås av ett _$_ är användardefinierade variabler som måste uppdateras med din specifika information.
+- Använd antingen den [Azure-portalen](https://portal.azure.com/) eller PowerShell för att skapa en ExpressRoute VPN-gateway är ansluten till ditt virtuella nätverk.
+  - Om du använder Azure-portalen, lägga till en ny **virtuell nätverksgateway**, och välj sedan **ExpressRoute** som gateway-typen.
+  - Om du använder PowerShell först ladda ned och använda senast [Azure PowerShell SDK](https://azure.microsoft.com/downloads/). Följande kommandon för skapar en ExpressRoute-gateway. Texten som föregås av ett _$_ är användardefinierade variabler som ska uppdateras med din specifika information.
 
 ```PowerShell
 # These Values should already exist, update to match your environment
@@ -44,7 +44,7 @@ $myVNetName = "VNet01"
 $myGWName = "VNet01GW"
 $myGWConfig = "VNet01GWConfig"
 $myGWPIPName = "VNet01GWPIP"
-$myGWSku = "HighPerformance" # Supported values for HANA Large Instances are: HighPerformance or UltraPerformance
+$myGWSku = "HighPerformance" # Supported values for HANA large instances are: HighPerformance or UltraPerformance
 
 # These Commands create the Public IP and ExpressRoute Gateway
 $vnet = Get-AzureRmVirtualNetwork -Name $myVNetName -ResourceGroupName $myGroupName
@@ -60,23 +60,23 @@ New-AzureRmVirtualNetworkGateway -Name $myGWName -ResourceGroupName $myGroupName
 -GatewaySku $myGWSku -VpnType PolicyBased -EnableBgp $true
 ```
 
-I det här exemplet användes HighPerformance-gateway-SKU. Alternativen är HighPerformance eller UltraPerformance som en enda gateway SKU: er som stöds för SAP HANA på Azure (stora instanser).
+I det här exemplet användes HighPerformance-gateway-SKU. Alternativen är HighPerformance eller UltraPerformance som de enda gateway-SKU: er som stöds för SAP HANA på Azure (stora instanser).
 
 > [!IMPORTANT]
-> Användningen av UltraPerformance Gateway-SKU är obligatoriskt för HANA stora instanser av typ II classs SKU.
+> Du måste använda SKU för UltraPerformance-Gateway för HANA stora instanser av klassen typ II SKU.
 
-**Länka virtuella nätverk**
+## <a name="link-virtual-networks"></a>Länka virtuella nätverk
 
-Nu när den virtuella Azure-nätverket har en ExpressRoute-gateway kan använda du auktoriseringsinformation som tillhandahålls av Microsoft för att ansluta ExpressRoute-gatewayen till SAP HANA på Azure (stora instanser) ExpressRoute-krets som skapats för den här anslutningen. Det här steget kan utföras med hjälp av Azure portal eller PowerShell. Portalen rekommenderas, men PowerShell-instruktioner finns på följande sätt. 
+Azure-nätverket har nu en ExpressRoute-gateway. Använd auktoriseringsinformation som tillhandahålls av Microsoft för att ansluta ExpressRoute-gatewayen till SAP HANA på Azure (stora instanser) ExpressRoute-krets. Du kan ansluta med hjälp av Azure portal eller PowerShell. Portalen rekommenderas, men om du vill använda PowerShell instruktionerna är följande. 
 
-- Du kan köra följande kommandon för varje VNet-gateway med hjälp av en annan AuthGUID för varje anslutning. De två första posterna visas i följande skript kommer från information som tillhandahålls av Microsoft. Dessutom är AuthGUID specifika för varje virtuellt nätverk och dess gateway. Innebär att, om du vill lägga till ett annat Azure VNet, måste du hämta en annan AuthID för din ExpressRoute-krets som ansluter stora HANA-instanser till Azure. 
+Kör följande kommandon för varje virtuell nätverksgateway med hjälp av en annan AuthGUID för varje anslutning. De två första posterna visas i följande skript kommer från information som tillhandahålls av Microsoft. Dessutom är AuthGUID specifika för varje virtuellt nätverk och dess gateway. Om du vill lägga till en annan Azure-nätverk måste du hämta en annan AuthID för din ExpressRoute-krets som ansluter stora HANA-instanser till Azure. 
 
 ```PowerShell
 # Populate with information provided by Microsoft Onboarding team
 $PeerID = "/subscriptions/9cb43037-9195-4420-a798-f87681a0e380/resourceGroups/Customer-USE-Circuits/providers/Microsoft.Network/expressRouteCircuits/Customer-USE01"
 $AuthGUID = "76d40466-c458-4d14-adcf-3d1b56d1cd61"
 
-# Your ExpressRoute Gateway Information
+# Your ExpressRoute Gateway information
 $myGroupName = "SAP-East-Coast"
 $myGWName = "VNet01GW"
 $myGWLocation = "East US"
@@ -92,8 +92,8 @@ New-AzureRmVirtualNetworkGatewayConnection -Name $myConnectionName `
 -PeerId $PeerID -ConnectionType ExpressRoute -AuthorizationKey $AuthGUID
 ```
 
-Om du vill ansluta gatewayen till flera ExpressRoute-kretsar som är associerade med din prenumeration kan du behöva köra det här steget mer än en gång. Exempelvis kan kommer du förmodligen att ansluta samma VNet-gatewayen till ExpressRoute-krets som ansluter det virtuella nätverket till ditt lokala nätverk.
+För att ansluta gatewayen till mer än en ExpressRoute-krets som är associerad med din prenumeration, kan du behöva köra det här steget mer än en gång. Exempelvis kan kommer du förmodligen att ansluta samma vnet-gatewayen till ExpressRoute-krets som ansluter det virtuella nätverket till ditt lokala nätverk.
 
-**Nästa steg**
+## <a name="next-steps"></a>Nästa steg
 
-- Se [ytterligare krav för HLI](hana-additional-network-requirements.md).
+- [Ytterligare krav för HLI](hana-additional-network-requirements.md)

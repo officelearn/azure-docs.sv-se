@@ -7,18 +7,18 @@ ms.author: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 09/27/2018
-ms.openlocfilehash: 72bf467cc0f2ba195aa4f25228bc9e08605cd4ee
-ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
+ms.openlocfilehash: 41b3dcc03f7cfbfee11798738a3b2daaf5e96741
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48018609"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49365296"
 ---
 # <a name="use-managed-identities-to-authenticate-azure-stream-analytics-jobs-to-azure-data-lake-storage-gen1-output-preview"></a>Använda hanterade identiteter för att autentisera Azure Stream Analytics-jobb till Azure Data Lake Storage Gen1 utdata (förhandsversion)
 
 Azure Stream Analytics stöder hanterad identitetsautentisering med Azure Data Lake Storage (ADLS) Gen1 utdata. Identiteten är ett hanterat program i Azure Active Directory som representerar ett visst Stream Analytics-jobb och kan användas för att autentisera till en resurs. Hanterade identiteter utan begränsningar av användarbaserade autentiseringsmetoder, som behöver autentiseras på nytt på grund av ändring av lösenord eller användaren token kontolösenordet som sker var 90: e dag. Dessutom hanterade identiteter med hjälp av automatisering av Stream Analytics-jobbet distributioner som utdata till Azure Data Lake Storage Gen1.
 
-Gå till den [åtta nya funktioner i Azure Stream Analytics](https://azure.microsoft.com/en-us/blog/eight-new-features-in-azure-stream-analytics/) blogginlägg för att registrera dig för den här förhandsversionen och Läs mer om nya funktioner.
+Gå till den [åtta nya funktioner i Azure Stream Analytics](https://azure.microsoft.com/blog/eight-new-features-in-azure-stream-analytics/) blogginlägg för att registrera dig för den här förhandsversionen och Läs mer om nya funktioner.
 
 Den här artikeln visar två sätt att aktivera hanterad identitet för Azure Stream Analytics-jobb som matar ut till en Azure Data Lake Storage Gen1: via Azure-portalen och via Azure Resource Manager för malldistribution.
 

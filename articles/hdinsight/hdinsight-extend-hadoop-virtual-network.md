@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 10/08/2018
-ms.openlocfilehash: 724d3d7fe8ff037b82bbce797e391c21060aa53d
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.openlocfilehash: 6455322a1a1cf392c16aba708ce8445f8c80c3df
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48870969"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49363851"
 ---
 # <a name="extend-azure-hdinsight-using-an-azure-virtual-network"></a>Utöka Azure HDInsight med hjälp av Azure Virtual Network
 
@@ -173,7 +173,7 @@ Mer information finns i den [namnmatchning för virtuella datorer och Rollinstan
 
 ## <a name="directly-connect-to-hadoop-services"></a>Ansluta direkt till Hadoop-tjänster
 
-De flesta dokumentation om HDInsight förutsätter att du har åtkomst till klustret via internet. Till exempel att du kan ansluta till klustret i https://CLUSTERNAME.azurehdinsight.net. Den här adressen använder den offentliga gatewayen, som inte är tillgänglig om du har använt NSG: er eller udr: er för att begränsa åtkomst från internet.
+Du kan ansluta till klustret på https://CLUSTERNAME.azurehdinsight.net. Den här adressen använder en offentlig IP-adress som kanske inte är tillgängligt om du har använt NSG: er eller udr: er för att begränsa inkommande trafik från internet. Dessutom när du distribuerar klustret i ett virtuellt nätverk du har åtkomst till den med hjälp av privata slutpunkt https://CLUSTERNAME-internal.azurehdinsight.net. Den här slutpunkten motsvarar en privat IP-adress i virtuellt nätverk för åtkomst till klustret.
 
 Använd följande steg när du ansluter till Ambari och andra webbsidor via det virtuella nätverket:
 

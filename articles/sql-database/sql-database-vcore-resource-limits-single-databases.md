@@ -11,13 +11,13 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 09/14/2018
-ms.openlocfilehash: 9ad43ecf2aa5649e582f1aa4159352edf9c8fa5b
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.date: 10/15/2018
+ms.openlocfilehash: 12074ad28e27a249a6dc378986f014ede1cd2ab3
+ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48042605"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49353588"
 ---
 # <a name="azure-sql-database-vcore-based-purchasing-model-limits-for-a-single-database"></a>Azure SQL Database vCore-baserade köpa modellen gränser för en enskild databas
 
@@ -28,14 +28,12 @@ DTU-baserade inköpschef modellen gränser för enskilda databaser på en logisk
 > [!IMPORTANT]
 > Under vissa omständigheter kan du behöva minska en databas för att frigöra oanvänt utrymme. Mer information finns i [hantera utrymmet i Azure SQL Database](sql-database-file-space-management.md).
 
+Du kan ange tjänstnivå, beräkningsstorleken och lagringsutrymmet för en enkel databas med hjälp av den [Azure-portalen](sql-database-single-databases-manage.md#azure-portal-manage-logical-servers-and-databases), [Transact-SQL](sql-database-single-databases-manage.md#transact-sql-manage-logical-servers-and-databases), [PowerShell](sql-database-single-databases-manage.md#powershell-manage-logical-servers-and-databases), [ Azure CLI](sql-database-single-databases-manage.md#azure-cli-manage-logical-servers-and-databases), eller [REST-API](sql-database-single-databases-manage.md#rest-api-manage-logical-servers-and-databases).
 
-## <a name="single-database-storage-sizes-and-compute-sizes"></a>Databas: lagringsstorlekar och storlekar
+## <a name="general-purpose-service-tier-storage-sizes-and-compute-sizes"></a>Tjänstnivå för allmänna ändamål: lagringsstorlekar och storlekar
 
-För enskilda databaser i följande tabeller visar resurserna som är tillgängliga för en enskild databas på varje tjänstnivå och beräkna storleken. Du kan ange tjänstnivå, beräkningsstorleken och lagringsutrymmet för en enkel databas med hjälp av den [Azure-portalen](sql-database-single-databases-manage.md#azure-portal-manage-logical-servers-and-databases), [Transact-SQL](sql-database-single-databases-manage.md#transact-sql-manage-logical-servers-and-databases), [PowerShell](sql-database-single-databases-manage.md#powershell-manage-logical-servers-and-databases), [ Azure CLI](sql-database-single-databases-manage.md#azure-cli-manage-logical-servers-and-databases), eller [REST-API](sql-database-single-databases-manage.md#rest-api-manage-logical-servers-and-databases).
+### <a name="generation-4-compute-platform"></a>Beräkningsplattform generation 4
 
-### <a name="general-purpose-service-tier"></a>Tjänstnivå för allmänt syfte
-
-#### <a name="generation-4-compute-platform"></a>Beräkningsplattform generation 4
 |Beräkna storlek|GP_Gen4_1|GP_Gen4_2|GP_Gen4_4|GP_Gen4_8|GP_Gen4_16|GP_Gen4_24
 |:--- | --: |--: |--: |--: |--: |--: |
 |Maskinvaran generation|4|4|4|4|4|4|
@@ -57,7 +55,8 @@ För enskilda databaser i följande tabeller visar resurserna som är tillgängl
 |Inkluderad lagring av säkerhetskopior|1 X-databasstorlek|1 X-databasstorlek|1 X-databasstorlek|1 X-databasstorlek|1 X-databasstorlek|1 X-databasstorlek|
 |||
 
-#### <a name="generation-5-compute-platform"></a>Beräkningsplattform generation 5
+### <a name="generation-5-compute-platform"></a>Beräkningsplattform generation 5
+
 |Beräkna storlek|GP_Gen5_2|GP_Gen5_4|GP_Gen5_8|GP_Gen5_16|GP_Gen5_24|GP_Gen5_32|GP_Gen5_40| GP_Gen5_80|
 |:--- | --: |--: |--: |--: |---: | --: |--: |--: |--: |
 |Maskinvaran generation|5|5|5|5|5|5|5|
@@ -79,9 +78,10 @@ För enskilda databaser i följande tabeller visar resurserna som är tillgängl
 |Inkluderad lagring av säkerhetskopior|1 X-databasstorlek|1 X-databasstorlek|1 X-databasstorlek|1 X-databasstorlek|1 X-databasstorlek|1 X-databasstorlek|1 X-databasstorlek|1 X-databasstorlek|
 |||
 
-### <a name="business-critical-service-tier"></a>Kritiska-affärsnivå
+## <a name="business-critical-service-tier-storage-sizes-and-compute-sizes"></a>Kritiska-affärsnivå: lagringsstorlekar och storlekar
 
-#### <a name="generation-4-compute-platform"></a>Beräkningsplattform generation 4
+### <a name="generation-4-compute-platform"></a>Beräkningsplattform generation 4
+
 |Beräkna storlek|BC_Gen4_1|BC_Gen4_2|BC_Gen4_4|BC_Gen4_8|BC_Gen4_16|BC_Gen4_24|
 |:--- | --: |--: |--: |--: |--: |--: |
 |Maskinvaran generation|4|4|4|4|4|4|
@@ -103,7 +103,8 @@ För enskilda databaser i följande tabeller visar resurserna som är tillgängl
 |Inkluderad lagring av säkerhetskopior|1 X-databasstorlek|1 X-databasstorlek|1 X-databasstorlek|1 X-databasstorlek|1 X-databasstorlek|1 X-databasstorlek|
 |||
 
-#### <a name="generation-5-compute-platform"></a>Beräkningsplattform generation 5
+### <a name="generation-5-compute-platform"></a>Beräkningsplattform generation 5
+
 |Beräkna storlek|BC_Gen5_2|BC_Gen5_4|BC_Gen5_8|BC_Gen5_16|BC_Gen5_24|BC_Gen5_32|BC_Gen5_40|BC_Gen5_80|
 |:--- | --: |--: |--: |--: |---: | --: |--: |--: |--: |--: |--: |--: |--: |
 |Maskinvaran generation|5|5|5|5|5|5|5|5|
@@ -125,9 +126,10 @@ För enskilda databaser i följande tabeller visar resurserna som är tillgängl
 |Inkluderad lagring av säkerhetskopior|1 X-databasstorlek|1 X-databasstorlek|1 X-databasstorlek|1 X-databasstorlek|1 X-databasstorlek|1 X-databasstorlek|1 X-databasstorlek|1 X-databasstorlek|
 |||
 
-### <a name="hyperscale-service-tier-preview"></a>Hyperskala tjänstnivå (förhandsversion)
+## <a name="hyperscale-service-tier-preview"></a>Hyperskala tjänstnivå (förhandsversion)
 
-#### <a name="generation-4-compute-platform"></a>Beräkningsplattform generation 4
+### <a name="generation-4-compute-platform-storage-sizes-and-compute-sizes"></a>Compute generation 4-plattform: lagringsstorlekar och storlekar
+
 |Prestandanivå|HS_Gen4_1|HS_Gen4_2|HS_Gen4_4|HS_Gen4_8|HS_Gen4_16|HS_Gen4_24|
 |:--- | --: |--: |--: |--: |--: |--: |--: |
 |Maskinvaran generation|4|4|4|4|4|4|
@@ -148,7 +150,9 @@ För enskilda databaser i följande tabeller visar resurserna som är tillgängl
 |Lässkalbarhet|Ja|Ja|Ja|Ja|Ja|Ja|
 |Inkluderad lagring av säkerhetskopior|7|7|7|7|7|7|
 |||
+
 ### <a name="generation-5-compute-platform"></a>Beräkningsplattform generation 5
+
 |Prestandanivå|HS_Gen5_2|HS_Gen5_4|HS_Gen5_8|HS_Gen5_16|HS_Gen5_24|HS_Gen5_32|HS_Gen5_40|HS_Gen5_80|
 |:--- | --: |--: |--: |--: |---: | --: |--: |--: |--: |--: |--: |--: |--: |
 |Maskinvaran generation|5|5|5|5|5|5|5|5|

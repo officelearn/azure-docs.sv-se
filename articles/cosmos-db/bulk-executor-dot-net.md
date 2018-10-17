@@ -1,25 +1,26 @@
 ---
-title: Med hjälp av .NET-biblioteket för bulk-executor för att utföra massåtgärder i Azure Cosmos DB | Microsoft Docs
-description: Använda Azure Cosmos DB bulk executor .NET-biblioteket för att massimport och uppdatera dokument till Azure Cosmos DB-behållare.
-keywords: .NET bulk executor
+title: Med hjälp av .NET-biblioteket för bulk-executor att utföra massimport och uppdateringsåtgärder i Azure Cosmos DB | Microsoft Docs
+description: Massimport och uppdatera Azure Cosmos DB-dokument med hjälp av bulk executor .NET-biblioteket.
 services: cosmos-db
 author: tknandu
 manager: kfile
 ms.service: cosmos-db
 ms.devlang: dotnet
 ms.topic: conceptual
-ms.date: 05/07/2018
+ms.date: 10/16/2018
 ms.author: ramkris
-ms.openlocfilehash: cc0faa44501ea130309a02bb48d02f9c5b33febd
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.openlocfilehash: 04894fdd0ffff38ad129097ce839259f2993332c
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44053388"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49363406"
 ---
 # <a name="use-bulk-executor-net-library-to-perform-bulk-operations-in-azure-cosmos-db"></a>Använd bulk executor .NET-biblioteket för att utföra massåtgärder i Azure Cosmos DB
 
-Den här självstudiekursen innehåller anvisningar om hur du använder Azure Cosmos DB: s bulk executor .NET-biblioteket för att importera och uppdatera dokument till Azure Cosmos DB-behållare. Läs om bulk executor biblioteket och hur den hjälper dig att utnyttja massivt dataflöde och lagring i [bulk executor biblioteksöversikt](bulk-executor-overview.md) artikeln. Den här självstudien vägleder dig genom ett .NET-program som bulk import slumpmässigt genererat dokument till ett Azure Cosmos DB-behållare. När du har importerat visar den dig hur du kan masstilldela uppdatera importerade data genom att ange korrigeringar som åtgärder att utföra på specifika dokumentfält.
+Den här självstudiekursen innehåller anvisningar om hur du använder Azure Cosmos DB: s bulk executor .NET-biblioteket för att importera och uppdatera dokument till Azure Cosmos DB-behållare. Läs om bulk executor biblioteket och hur den hjälper dig att utnyttja massivt dataflöde och lagring i [bulk executor biblioteksöversikt](bulk-executor-overview.md) artikeln. I den här självstudiekursen visas ett .NET-program som bulk import slumpmässigt skapats dokument till en Azure Cosmos DB-behållare. När du har importerat visar den dig hur du kan masstilldela uppdatera importerade data genom att ange korrigeringar som åtgärder att utföra på specifika dokumentfält. 
+
+Massinläsning executor biblioteket är för närvarande stöds av Azure Cosmos DB SQL API och Gremlin-API-konton. Den här artikeln beskriver hur du använder bulk executor-biblioteket för .NET med SQL API-konton. Läs om hur du använder .NET-biblioteket för bulk-executor med Gremlin-API i [utföra massåtgärder i Azure Cosmos DB Gremlin API](bulk-executor-graph-dotnet.md). 
 
 ## <a name="prerequisites"></a>Förutsättningar
 

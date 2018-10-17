@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 10/05/2018
 ms.author: yijenj
-ms.openlocfilehash: 47333a7b5ad7d76ee8bbac19884ba8246eadc05e
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: 9d2745f1211aa6f818f89d9597867e1b3b2de03f
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48855790"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49362661"
 ---
 # <a name="lead-management-for-cloud-marketplace"></a>Lead-hantering för marknadsplats i molnet
 
@@ -214,7 +214,7 @@ Det är möjligt att slutanvändarens e-postdomän är från .edu. Av sekretessk
 
  **Jag har konfigurerat Azure tabell-/ Azure BLOB som min lead-mål, hur kan jag se de potentiella kunderna?** 
 
-Du kan komma åt blob eller table från Azure Portal, eller du kan ladda ned och installera [Azure Storage Explorer](https://azure.microsoft.com/en-us/features/storage-explorer/) kostnadsfritt för att visa ditt Azure storage-konto tabeller/blobbar. 
+Du kan komma åt blob eller table från Azure Portal, eller du kan ladda ned och installera [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) kostnadsfritt för att visa ditt Azure storage-konto tabeller/blobbar. 
 
 
 **Jag har konfigurerat Azure Table som min lead-mål, kan jag få ett meddelande när ett nytt lead skickas av Marketplace?** 

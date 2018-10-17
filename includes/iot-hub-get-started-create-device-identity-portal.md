@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/17/2018
 ms.author: dobett
 ms.custom: include file
-ms.openlocfilehash: 935e2b9e861a889bef48c1d7ba119ab694cddfb3
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: 4809881276da752ac6eb08773fb8be145dc5f4c7
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43094009"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49367024"
 ---
 ## <a name="create-a-device-identity"></a>Skapa en enhetsidentitet
 
@@ -31,11 +31,11 @@ I det här avsnittet ska du använda den [Azure-portalen](https://portal.azure.c
 
    [!INCLUDE [iot-hub-pii-note-naming-device](iot-hub-pii-note-naming-device.md)]
 
-   ![Lägg till en ny enhet](./media/iot-hub-get-started-create-device-identity-portal/add-device.png)
+   ![Lägg till en ny enhet](./media/iot-hub-get-started-create-device-identity-portal/create-a-device.png)
 
 1. I listan över enheter klickar du på den nyligen skapade enheten och kopiera den **anslutningssträngen---primärnyckel** för senare användning.
 
-    ![Enhetens anslutningssträng](./media/iot-hub-get-started-create-device-identity-portal/device-connection-string.png)
+    ![Enhetens anslutningssträng](./media/iot-hub-get-started-create-device-identity-portal/device-details.png)
 
 > [!NOTE]
 > IoT Hub-identitetsregistret lagrar bara enhetsidentiteter för att skydda åtkomsten till IoT Hub. Registret lagrar enhets-ID:n och enhetsnycklar som ska användas som säkerhetsreferenser och en aktiverad/inaktiverad-flagga som du kan använda för att inaktivera åtkomst för en enskild enhet. Om ditt program behöver lagra andra enhetsspecifika metadata bör det använda ett programspecifikt datalager. Mer information finns i [utvecklarhandboken för IoT Hub](../articles/iot-hub/iot-hub-devguide-identity-registry.md).

@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 09/05/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 611eabd377705af7758276a3d920f9cb4c38ac55
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 4f2ceae349c921ce0d83fb7401e3b18404722763
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46311131"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49362916"
 ---
 # <a name="azure-active-directory-pass-through-authentication-frequently-asked-questions"></a>Azure Active Directory-direktautentisering: Vanliga frågor och svar
 
@@ -92,7 +92,7 @@ Om du markerar bladet direktautentisering på den [Azure Active Directory Admini
 
 ## <a name="i-already-use-ad-fs-to-sign-in-to-azure-ad-how-do-i-switch-it-to-pass-through-authentication"></a>Jag använder redan AD FS för att logga in på Azure AD. Hur växlar jag det till direktautentisering?
 
-Om du migrerar från AD FS (eller andra tekniker för federation) till direktautentisering, rekommenderar vi att du följer våra detaljerad Distributionsguide publicerade [här](https://github.com/Identity-Deployment-Guides/Identity-Deployment-Guides/blob/master/Authentication/Migrating%20from%20Federated%20Authentication%20to%20Pass-through%20Authentication.docx).
+Om du migrerar från AD FS (eller andra tekniker för federation) till direktautentisering, rekommenderar vi att du följer våra detaljerad Distributionsguide publicerade [här](https://github.com/Identity-Deployment-Guides/Identity-Deployment-Guides/blob/master/Authentication/Migrating%20from%20Federated%20Authentication%20to%20Pass-through%20Authentication.docx?raw=true).
 
 ## <a name="can-i-use-pass-through-authentication-in-a-multi-forest-active-directory-environment"></a>Kan jag använda direktautentisering i en Active Directory-miljö med flera skogar?
 
@@ -132,7 +132,7 @@ Om du avinstallerar en Agent för autentisering av direkt från en server gör s
 ## <a name="next-steps"></a>Nästa steg
 - [Aktuella begränsningar](how-to-connect-pta-current-limitations.md): Läs mer om vilka scenarier som stöds och vilka som inte är.
 - [Snabbstart](how-to-connect-pta-quick-start.md): komma igång på Azure AD-direktautentisering.
-- [Migrera från AD FS till direktautentisering](https://github.com/Identity-Deployment-Guides/Identity-Deployment-Guides/blob/master/Authentication/Migrating%20from%20Federated%20Authentication%20to%20Pass-through%20Authentication.docx) -en detaljerad vägledning för att migrera från AD FS (eller andra tekniker för federation) till direktautentisering.
+- [Migrera från AD FS till direktautentisering](https://github.com/Identity-Deployment-Guides/Identity-Deployment-Guides/blob/master/Authentication/Migrating%20from%20Federated%20Authentication%20to%20Pass-through%20Authentication.docx?raw=true) -en detaljerad vägledning för att migrera från AD FS (eller andra tekniker för federation) till direktautentisering.
 - [Smart kontoutelåsning](../authentication/howto-password-smart-lockout.md): Lär dig hur du konfigurerar funktionen för smarta kontoutelåsning på din klient för att skydda användarkonton.
 - [Teknisk djupdykning](how-to-connect-pta-how-it-works.md): Förstå hur funktionen direktautentisering fungerar.
 - [Felsöka](tshoot-connect-pass-through-authentication.md): Lär dig att lösa vanliga problem med funktionen direktautentisering.

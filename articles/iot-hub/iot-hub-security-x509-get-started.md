@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 10/10/2017
 ms.author: dobett
-ms.openlocfilehash: 19f6f5d360981c743d819da81eb2f68db1853c8b
-ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
+ms.openlocfilehash: f10f1da93df6a313525e102e4906cfe67a5f6ae3
+ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43783125"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49351890"
 ---
 # <a name="set-up-x509-security-in-your-azure-iot-hub"></a>Konfigurera X.509 säkerheten i Azure IoT hub
 
@@ -72,9 +72,9 @@ De här stegen visar hur du lägger till en ny certifikatutfärdare till din IoT
 
 ## <a name="create-an-x509-device-for-your-iot-hub"></a>Skapa en X.509-enhet för din IoT hub
 
-1. I Azure-portalen går du till din IoT-hubb **Device Explorer**.
+1. I Azure-portalen går du till din IoT-hubb **Utforskare > IoT-enheter** sidan.
 
-2. Klicka på **Lägg till** att lägga till en ny enhet. 
+2. Klicka på **+ Lägg till** att lägga till en ny enhet.
 
 3. Ge ett eget namn för den **enhets-ID**, och välj **_X.509 CA-signerat_** som den **autentiseringstyp**. Klicka på **Spara**.
 

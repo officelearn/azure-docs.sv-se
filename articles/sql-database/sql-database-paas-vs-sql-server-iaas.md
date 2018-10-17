@@ -13,12 +13,12 @@ ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
 ms.date: 10/15/2018
-ms.openlocfilehash: 330655c0c42129a1ef218fa6cf1664a3608918a5
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: ff6b535b67608d9331e134ff3b3d943601e73a48
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49340485"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49364497"
 ---
 # <a name="choose-a-cloud-sql-server-option-azure-sql-paas-database-or-sql-server-on-azure-vms-iaas"></a>Välj ett molnbaserat SQL Server-alternativ: Azure SQL (PaaS) Database eller SQL Server på Azure Virtual Machines (IaaS)
 
@@ -87,7 +87,7 @@ Följande tabell sammanfattar de huvudsakliga egenskaperna för SQL Database och
 |  | Team som inte vill hantera de underliggande operativsystemen och konfigurationsinställningarna. | Samma som SQL-databas. | Du behöver en anpassad miljö med fullständiga administrativa rättigheter. | |
 |  | Databaser på upp till 100 TB. | Samma som SQL-databas. | SQL Server-instanser med upp till 64 TB lagring. Instansen har stöd för så många databaser som behövs. |
 | **Kompatibilitet** | Stöder de flesta lokala på databasnivå funktioner. | Stöder nästan alla lokala funktioner på instansnivå och på databasnivå. | Har stöd för alla lokala funktioner. |
-| **Resurser:** | Du vill inte använda IT-resurser för konfiguration och hantering av den underliggande infrastrukturen, utan vill fokusera på programnivån. | Samma som SQL-databas. | Du har några IT-resurser som ansvarar för konfiguration och hantering. Vissa automatiserade funktioner kan avsevärt förenkla detta arbete. |
+| **Resurser:** | Du vill inte anställa IT-resurser för konfiguration och hantering av underliggande den infrastrukturen utan vill fokusera på programnivån. | Samma som SQL-databas. | Du har några IT-resurser som ansvarar för konfiguration och hantering. Vissa automatiserade funktioner kan avsevärt förenkla detta arbete. |
 | **Totalkostnad för ägarskap:** | Eliminerar kostnaderna för maskinvara och reducerar de administrativa kostnaderna. | Samma som SQL-databas. | Eliminerar maskinvarukostnaderna. |
 | **Verksamhetskontinuitet:** |Förutom [inbyggda infrastruktur för feltolerans](sql-database-high-availability.md), Azure SQL Database tillhandahåller funktioner, till exempel [automatiska säkerhetskopior](sql-database-automated-backups.md), [Point-In-Time-återställning](sql-database-recovery-using-backups.md#point-in-time-restore), [geo-återställning](sql-database-recovery-using-backups.md#geo-restore), och [redundans grupper och aktiv geo-replikering](sql-database-geo-replication-overview.md) att öka verksamhetskontinuiteten. Mer information finns i [översikt över verksamhetskontinuitet i SQL Database](sql-database-business-continuity.md). | Samma som SQL-databas, plus användarinitierad, endast kopiering säkerhetskopieringar är tillgängliga. | Med SQL Server på Azure Virtual Machines kan du konfigurera en lösning med hög tillgänglighet och haveriberedskap för din databas specifika behov. Du kan därmed få ett system som är höggradigt optimerat för just ditt program. Du kan själv testa och köra felväxling vid behov. Mer information finns i [Hög tillgänglighet och haveriberedskap för SQL Server på Azure Virtual Machines](../virtual-machines/windows/sql/virtual-machines-windows-sql-high-availability-dr.md). |
 | **Hybridmoln:** |Ditt lokala program har åtkomst till data i Azure SQL Database. | [Intern implementering](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-vnet-configuration) och vara ansluten till din lokala miljö med hjälp av Azure Express Route eller VPN-Gateway. | Med SQL Server på virtuella Azure-datorer kan du ha program som kör delvis i molnet och delvis lokalt. Du kan till exempel utöka ditt lokala nätverk och Active Directory-domän till molnet via [Azure Virtual Network](../virtual-network/virtual-networks-overview.md). Dessutom kan du lagra lokala datafiler i Azure Storage med [SQL Server-datafiler i Azure](http://msdn.microsoft.com/library/dn385720.aspx). Mer information finns i [Introduktion till SQL Server 2014 Hybridmoln](http://msdn.microsoft.com/library/dn606154.aspx). |
@@ -152,9 +152,9 @@ För **SQL Server som kör på virtuella Azure-datorer** erbjuder Microsoft en t
 
 **SQL Database logiska servrar, elastiska pooler och enskilda databaser** är rätt lösning för molndesignade program när produktivitet för utvecklare och snabb tid till marknad för nya lösningar är avgörande. Med sin programmässiga DBA-lika funktionalitet, är det perfekt för molnarkitekter och utvecklare, eftersom det sänker behovet av att hantera det underliggande operativsystemet och databasen.
 
-**SQL Database Managed Instance** förenklar migreringen av befintliga program till Azure SQL Database, så att du kan föra en migrerade databasen program på marknaden snabbt i Azure.
+**SQL Database Managed Instance** förenklar migreringen av befintliga program till Azure SQL Database, så att du kan föra migrerade databasprogram på marknaden snabbt i Azure.
 
-**SQL Server som körs på Azure Virtual Machines** är perfekt om dina befintliga eller nya program kräver stora databaser eller få åtkomst till alla funktioner i SQL Server eller Windows/Linux, och du vill undvika att tid och pengar för att skaffa nya lokal maskinvara. Det är också passa om du vill migrera befintliga lokala program och databaser till Azure som – är – i fall där Azure SQL Database Managed Instance inte är ett bra alternativ. Eftersom du inte behöver ändra presentationen, programmet och datalager spara du tid och budget på att behöva bygga om din befintliga lösning. Istället kan du fokusera på att migrera alla dina lösningar till Azure och på att genomföra prestandaoptimeringar som kan krävas av Azure-plattformen. Mer information finns i [Bästa praxis för prestanda i SQL Server på Azure Virtual Machines](../virtual-machines/windows/sql/virtual-machines-windows-sql-performance.md).
+**SQL Server som körs på Azure Virtual Machines** är perfekt om dina befintliga eller nya program kräver stora databaser eller få åtkomst till alla funktioner i SQL Server eller Windows/Linux, och du vill undvika tid och pengar för att skaffa nya lokal maskinvara. Det är också passa om du vill migrera befintliga lokala program och databaser till Azure som – är – i fall där Azure SQL Database Managed Instance inte är ett bra alternativ. Eftersom du inte behöver ändra presentationen, programmet och datalager spara du tid och budget på att behöva bygga om din befintliga lösning. Istället kan du fokusera på att migrera alla dina lösningar till Azure och på att genomföra prestandaoptimeringar som kan krävas av Azure-plattformen. Mer information finns i [Bästa praxis för prestanda i SQL Server på Azure Virtual Machines](../virtual-machines/windows/sql/virtual-machines-windows-sql-performance.md).
 
 ## <a name="next-steps"></a>Nästa steg
 

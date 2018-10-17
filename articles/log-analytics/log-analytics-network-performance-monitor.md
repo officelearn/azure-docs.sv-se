@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 02/20/2018
 ms.author: abshamsft
 ms.component: ''
-ms.openlocfilehash: 953a004f48bfd9bd68b9500d312240c45cbf3292
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: 634958265193a1dedb7c860c34f712160e4120d2
+ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49321911"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49353299"
 ---
 # <a name="network-performance-monitor-solution-in-azure"></a>Network Performance Monitor-lösning i Azure
 
@@ -257,7 +257,7 @@ Alla data som är exponerade grafiskt via instrumentpanelen för övervakning av
 
 Övervakare av nätverksprestanda använder aviseringar funktionerna i [Azure Monitor](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-unified-alerts).
 
-Det innebär att alla aviseringar hanteras med hjälp av [åtgärdsgrupper](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-action-groups#overview).  
+Det innebär att alla meddelanden som hanteras med hjälp av [åtgärdsgrupper](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-action-groups#overview).  
 
 Om du är en NPM-användare som skapar en avisering via OMS: 
 1. Du ser en länk som kommer att omdirigera dig till Azure-portalen. Klicka på den för att få åtkomst till portalen.
@@ -270,6 +270,10 @@ Om du är en NPM-användare som skapar en avisering via Azure-portalen:
 2. Om du vill ange din e-post direkt en åtgärd grupp med namnet **NPM e-post ActionGroup** skapas och e-post-ID: t har lagts till som åtgärdsgruppen.
 3. Om du väljer att använda åtgärdsgrupper, måste du välja en tidigare skapad åtgärdsgrupp. Du kan lära dig hur du skapar en åtgärdsgrupp [här.](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-action-groups#create-an-action-group-by-using-the-azure-portal) 
 4. Du kan använda Hantera aviseringar länk för att hantera dina aviseringar när aviseringen har skapats. 
+
+Varje gång du skapar en avisering skapar NPM en frågebaserade loggvarningsregel i Azure Monitor. Den här frågan är triggerred var 5: e minut som standard. Med Azure monitor debiteras inte för de första 250 logga aviseringsregler skapade och Varningsregler ovan begränsa 250 loggvarningsregler debiteras enligt [aviseringar prissättning i Azure Monitor sidan med priser](https://azure.microsoft.com/en-us/pricing/details/monitor/).
+Meddelanden debiteras separat enligt [meddelanden prissättningen i Azure Monitor pricig sidan](https://azure.microsoft.com/en-us/pricing/details/monitor/).
+
 
 ## <a name="pricing"></a>Prissättning
 

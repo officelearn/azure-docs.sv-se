@@ -9,26 +9,27 @@ ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: cwatson
 ms.reviewer: sngun
-ms.openlocfilehash: adcd91a8f1b3368d03f4b634e7aef40104d953e3
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: 5b15b5f8188f2077b3e9cb17ab3794e881a4deb3
+ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47393647"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49353450"
 ---
 # <a name="understand-how-the-reservation-discount-is-applied-to-azure-cosmos-db"></a>Förstå hur reservationsrabatten tillämpas på Azure Cosmos DB
 
-När du köper en Azure Cosmos DB reserverad kapacitet tillämpas reservationsrabatten automatiskt till Azure Cosmos DB-resurser som matchar de attribut och mängden reservationen. En reservation omfattar dataflödet som tillhandahållits för Azure Cosmos DB-resurser och inte tas upp i programvara, nätverk, lagring, eller fördefinierade behållare avgifter.
+När du köper en Azure Cosmos DB reserverad kapacitet tillämpas reservationsrabatten automatiskt till Azure Cosmos DB-resurser som matchar de attribut och mängden reservationen. En reservation täcker dataflödet som tillhandahållits för Azure Cosmos DB-resurser. Den tas upp inte i programvara, nätverk, lagring, eller fördefinierade behållare avgifter.
 
 ## <a name="reservation-discount-applied-to-azure-cosmos-db-accounts"></a>Reservationsrabatten tillämpas på Azure Cosmos DB-konton
 
-En reservationsrabatten tillämpas [etablerat dataflöde](../cosmos-db/request-units.md) när det gäller begäransenheter per second(RU/s) per timme för timme. detta. Reservationsrabatten tillämpas automatiskt till andra Cosmos DB-resurser som matchar reservationen attribut för Azure Cosmos DB-resurser som inte kör hela timmen. Rabatten kan använda för Azure Cosmos DB-resurserna som körs samtidigt. Om du inte har Cosmos DB-resurserna som körs under hela timmen och som matchar reservationen attribut kan får du inte ut mesta möjliga av rabatten för den timmen.
+En reservationsrabatten tillämpas [etablerat dataflöde](../cosmos-db/request-units.md) när det gäller begäransenheter per sekund (RU/s) per timme för timme. detta. Reservationsrabatten tillämpas automatiskt till andra Cosmos DB-resurser som matchar reservationen attribut för Azure Cosmos DB-resurser som inte kör hela timmen. Rabatten kan använda för Azure Cosmos DB-resurserna som körs samtidigt. Om du inte har Cosmos DB-resurserna som körs under hela timmen och som matchar reservationen attribut kan får du inte ut mesta möjliga av rabatten för den timmen.
 
-* Rabatterna nivåindelas vilket innebär att reservationer med högre begäransenheter ger större rabatter.  
-* Då reservationen köptes gäller rabatter för alla regioner i förhållandet motsvarar den på begäran prissättning för olika regioner. Reservation rabatt förhållanden i varje region finns i [reservationsrabatten per region](#reservation-discount-per-region) i den här artikeln.
+Rabatterna nivåindelas. Reservationer med högre begäransenheter ger större rabatter. 
+
+Då reservationen köptes gäller rabatter för alla regioner i förhållandet motsvarar den på begäran prissättning för olika regioner. Reservation rabatt förhållanden i varje region, finns det [reservationsrabatten per region](#reservation-discount-per-region) i den här artikeln.
 
 ## <a name="reservation-discount-per-region"></a>Reservationsrabatten per region
-Reservationsrabatten tillämpas på Azure Cosmos DB dataflöde kostnader per timme för timme. detta på enskild prenumeration eller registrerats/kontoomfånget. Rabatten gäller att mäta användningen i olika regioner i följande förhållanden:
+Reservationsrabatten tillämpas på Azure Cosmos DB dataflöde kostnader per timme för timme. detta. Används på enskild prenumeration eller registrerats/konto omfånget. Rabatten gäller att mäta användningen i olika regioner i följande förhållanden:
 
 |Mätaren beskrivning  |Region |Förhållandet mellan  |
 |---------|---------|---------|
@@ -70,15 +71,15 @@ Reservationsrabatten tillämpas på Azure Cosmos DB dataflöde kostnader per tim
 Beakta följande krav för en reservation:
 
 * Nödvändiga genomströmning: 50 000 RU/s  
-* Regioner som används: 2. 
+* Regioner som används: 2 
 
-I det här fallet är dina totala kostnader för på begäran för 500 kvantitet av 100 RU/s i dessa två regioner för ett totalt antal RU/s användning av 100 000 varje timme. 
+I det här fallet är dina totala kostnader för på begäran för 500 kvantitet av 100 RU/s i dessa två regioner. Totalt antal RU/s förbrukningen är 100 000 varje timme. 
 
 **Scenario 1**
 
-Till exempel om du behöver Azure Cosmos DB-distributioner i regionerna ”USA, Central Nord” och ”USA, västra” och om varje region har ett dataflöde förbrukning av 50 000 RU/s. En reservationsköp på 100 000 RU/s skulle helt balansera dina kostnader för på begäran.
+Anta exempelvis att du behöver Azure Cosmos DB-distributioner i norra centrala USA och västra USA. Varje region har ett dataflöde förbrukning av 50 000 RU/s. En reservationsköp på 100 000 RU/s skulle helt balansera dina kostnader för på begäran.
 
-Den rabatt som omfattas av en reservation beräknas som (dataflöde konsumtion * reservation_discount_ratio_for_that_region). Reservation rabatt kvoten är ”1” för ”USA, Central Nord” och ”USA, västra” regioner. Totalt antal rabatterade RU/s är 100 000 RU/s (det här värdet beräknas som: 50 000 * 1 + 50 000 * 1 = 100 000 RU/s), och du behöver inte betala ytterligare avgifter vid de användningsbaserad betalning. 
+Rabatt som omfattar en reservation beräknas som: dataflöde konsumtion * reservation_discount_ratio_for_that_region. För Norra centrala USA och västra USA-regioner är reservation rabatt kvoten 1. Totalt antal rabatterade RU/s är 100 000. Det här värdet beräknas som: 50 000 * 1 + 50 000 * 1 = 100 000 RU/s. Du behöver att betala ytterligare avgifter vid de användningsbaserad betalning. 
 
 |Mätaren beskrivning | Region |Användning av dataflöde (RU/s) |Reservationsrabatten tillämpas på RU/s |
 |---------|---------|---------|---------|
@@ -87,18 +88,18 @@ Den rabatt som omfattas av en reservation beräknas som (dataflöde konsumtion *
 
 **Scenario 2**
 
-Till exempel om du behöver Azure Cosmos DB-distributioner i ”Australien, centrala 2” och ”Frankrike, Syd” regioner, och om varje region har ett dataflöde förbrukning av 50 000 RU/s. En reservationsköp på 100 000 RU/s är tillämpliga på följande sätt (förutsatt att Australien centrala 2 användning har rabatterade först):
+Anta exempelvis att du behöver Azure Cosmos DB-distributioner i regionerna Australien, centrala 2 och Frankrike, Syd. Varje region har ett dataflöde förbrukning av 50 000 RU/s. En reservationsköp på 100 000 RU/s är tillämpliga på följande sätt (förutsatt att Australien centrala 2 användning har rabatterade först):
 
 |Mätaren beskrivning | Region |Användning av dataflöde (RU/s) |Reservationsrabatten tillämpas på RU/s |
 |---------|---------|---------|---------|
 |Azure Cosmos DB - 100 RU/s/timme – Australien, centrala 2  |  Australien, centrala 2   |  50,000  |  50,000   |
 |Azure Cosmos DB - 100 RU/s/timme - Frankrike, Syd  |  Frankrike, södra   |  50,000 |  15,384  |
 
-50 000 enheter för användning i regionen ”Australien, centrala 2” motsvarar 75 000 RU/s för fakturerbar användning (eller normaliserade användning). Det här värdet beräknas som (dataflöde förbrukning * reservation_discount_ratio_for_that_region) som är lika med 75 000 RU/s (det här värdet beräknas som: 50 000 * 1.5 = 75 000 RU/s) för fakturerbar eller normaliserad användning. 
+Användning av en 50 000 enheter i regionen Australien, centrala 2 motsvarar 75 000 RU/s för fakturerbar användning (eller normaliserade användning). Det här värdet beräknas som: dataflöde konsumtion * reservation_discount_ratio_for_that_region. Beräkningen är lika med 75 000 RU/s för fakturerbar eller normaliserad användning. Det här värdet beräknas som: 50 000 * 1.5 = 75 000 RU/s.
 
-100 000 RU/s reservationsköp skulle förskjutning 75 000 RU/s i ”Australien, centrala 2” och lämnar 25 000 RU/s till ”Frankrike, Syd”-regionen. Från den återstående 25 000 RU/s, en reservationsrabatten på 15,384 RU/s (det här värdet beräknas som: 25 000 / 1.625 = 15,384 RU/s) gäller för ”Frankrike, Syd” region. Den återstående 34,616 RU/s i ”Frankrike, Syd” region debiteras enligt normal priserna för användningsbaserad betalning. 
+100 000 RU/s för reservationsköp skulle förskjuta 75 000 RU/s i Australien centrala 2. Den lämnar 25 000 RU/s till Frankrike, Syd-region. Från den återstående 25 000 RU/s tillämpas en reservation rabatt på 15,384 RU/s till Frankrike, Syd-region. Rabattvärde beräknas som: 25 000 / 1.625 = 15,384 RU/s. Den återstående 34,616 RU/s i regionen Frankrike, Syd debiteras enligt normal priserna för användningsbaserad betalning. 
 
-Azure faktureringssystem tilldelar reservationen fakturering fördelen för den första instansen som har bearbetats som matchar reservationen konfigurationen (till exempel Australien centrala 2 i det här fallet).
+Azure faktureringssystem tilldelar reservationen fakturering fördelen för den första instansen som ska bearbetas och som matchar reservationen konfigurationen. Det är exempelvis Australien centrala 2 i det här fallet.
 
 För att förstå och visa tillämpningen av dina Azure reservationer i fakturering användningsrapporter, se [förstå Azure reservation användning](../billing/billing-understand-reserved-instance-usage-ea.md).
 
@@ -108,8 +109,8 @@ Om du vill veta mer om Azure reservationer, finns i följande artiklar:
 
 * [Vad är Azure reservationer?](../billing/billing-save-compute-costs-reservations.md)  
 * [Betala i förskott för Azure Cosmos DB-resurser med Azure Cosmos DB reserverad kapacitet](../cosmos-db/cosmos-db-reserved-capacity.md)  
-* [Betala i förskott för beräkningsresurser för SQL-databas med Azure SQL Database reserverad kapacitet](../sql-database/sql-database-reserved-capacity.md)  
-* [Hantera Azure Reservations](../billing/billing-manage-reserved-vm-instance.md)  
+* [Förskottsbetala för SQL Database-beräkningsresurser med reserverad kapacitet för Azure SQL Database](../sql-database/sql-database-reserved-capacity.md)  
+* [Hantera Azure-reservationer](../billing/billing-manage-reserved-vm-instance.md)  
 * [Förstå användningen av reservation för prenumerationen med användningsbaserad betalning](../billing/billing-understand-reserved-instance-usage.md)  
 * [Förstå användningen av reserverade för din Enterprise-registrering](../billing/billing-understand-reserved-instance-usage-ea.md)  
 * [Förstå användningen av reserverade för CSP-prenumerationer](https://docs.microsoft.com/partner-center/azure-reservations)

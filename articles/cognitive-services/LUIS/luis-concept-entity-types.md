@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: 3ed10ac428b7ce2e528ccf46e34c1d394523bdec
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: e6bb0735de94d0baaac3a8504ec1811cfbfff27f
+ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47042456"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49353925"
 ---
 # <a name="entities-in-luis"></a>Entiteter i LUIS
 
@@ -93,7 +93,7 @@ LUIS erbjuder många typer av enheter. färdiga entiteter, anpassad dator lärt 
 Granska [gränser](luis-boundaries.md#model-boundaries) att förstå hur många av varje typ av enhet du kan lägga till en modell.
 
 ## <a name="entity-roles"></a>Entiteten roller
-Entiteten [roller](luis-concept-roles.md) används i endast mönster. 
+Entiteten [roller](luis-concept-roles.md) gäller för anpassade och fördefinierade entiteter och som används i endast mönster. 
 
 ## <a name="composite-vs-hierarchical-entities"></a>Sammansatta vs hierarkisk entiteter
 Sammansatta entiteter och hierarkisk entiteter både har överordnade och underordnade relationer och är datorn lärt dig. Machine learning kan LUIS för att förstå entiteter baserat på olika kontexter (placering av ord). Sammansatta entiteter är mer flexibla eftersom de låter olika enhetstyper som underordnade. En hierarkisk entitet underordnade är bara enkla enheter. 

@@ -8,14 +8,14 @@ ms.topic: article
 ms.date: 09/05/2018
 ms.author: tamram
 ms.component: common
-ms.openlocfilehash: 67e0731c1f10bb635baa4e0d1a26dce0a336b555
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: c06dc83f8b460e6215448fbc9e4ac42c749b5922
+ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44090363"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49354010"
 ---
-# <a name="authenticate-access-to-blobs-and-queues-with-azure-managed-identities-for-azure-resources-preview"></a>Autentisera åtkomsten till blobbar och köer med Azure hanterade identiteter för Azure-resurser (förhandsgranskning)
+# <a name="authenticate-access-to-blobs-and-queues-with-managed-identities-for-azure-resources-preview"></a>Autentisera åtkomsten till blobbar och köer med hanterade identiteter för Azure-resurser (förhandsgranskning)
 
 Azure Blob- och Queue storage har stöd för Azure Active Directory (Azure AD)-autentisering med [hanterade identiteter för Azure-resurser](../../active-directory/managed-identities-azure-resources/overview.md). Du kan använda hanterade identiteter för Azure-resurser för att autentisera åtkomst till blobbar och köer från program som körs i Azure-datorer (VM), funktionsappar, skalningsuppsättningar för virtuella datorer och andra. Med hjälp av hanterade identiteter för Azure-resurser och utnyttja kraften i Azure AD-autentisering kan du undvika lagring av autentiseringsuppgifter med dina program som körs i molnet.  
 

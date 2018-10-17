@@ -8,12 +8,12 @@ ms.component: custom-speech
 ms.topic: article
 ms.date: 07/26/2018
 ms.author: wolfma
-ms.openlocfilehash: cac82fb7378a16663346666ad6576589bcaa5664
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: c08cc34631afdec4a4b08b4c599b79e1a161558c
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49093966"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49364165"
 ---
 # <a name="support-and-help-options"></a>Alternativ för support och hjälp
 
@@ -28,7 +28,7 @@ Har du precis börjat utforska funktionerna i Speech-tjänsten? Implementerar du
 
 ## <a name="stay-informed"></a>Håll dig informerad
 
-Nyheter om Cognitive Services som samlas in i den [Cognitive Services-blogg](https://azure.microsoft.com/en-us/blog/topics/cognitive-services/). Den senaste informationen om Speech service spåra den [tal serviceblogg](https://azure.microsoft.com/en-us/blog/tag/speech-service/).
+Nyheter om Cognitive Services som samlas in i den [Cognitive Services-blogg](https://azure.microsoft.com/blog/topics/cognitive-services/). Den senaste informationen om Speech service spåra den [tal serviceblogg](https://azure.microsoft.com/blog/tag/speech-service/).
 
 ## <a name="search"></a>Search
 

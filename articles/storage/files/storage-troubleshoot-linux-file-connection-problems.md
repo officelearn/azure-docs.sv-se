@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 05/11/2018
 ms.author: jeffpatt
 ms.component: files
-ms.openlocfilehash: 0f99913ab252b94d475f920bd734e68ff5f3b3d3
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 31a0ffc2937f6d93a630bf6ce474d7dcf20c923f
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39525128"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49364395"
 ---
 # <a name="troubleshoot-azure-files-problems-in-linux"></a>Felsöka problem i Azure Files i Linux
 
@@ -82,7 +82,7 @@ Vissa Linux-distributioner stöder ännu inte krypteringsfunktionerna i SMB 3.0 
 
 ### <a name="solution"></a>Lösning
 
-Krypteringsfunktionen för SMB 3.0 för Linux introducerades i 4.11 kernel. Den här funktionen gör det möjligt för montering av Azure-filresursen från lokala eller en annan Azure-region. Vid tidpunkten för publiceringen har den här funktionen anpassats till nr 17.04 från Ubuntu och Ubuntu 16,10. Om din Linux SMB-klienten inte har stöd för kryptering, montera Azure-filer med hjälp av SMB 2.1 från en virtuell Linux-dator som är i samma datacenter som filen storage-konto.
+Krypteringsfunktionen för SMB 3.0 för Linux introducerades i 4.11 kernel. Den här funktionen gör det möjligt för montering av Azure-filresursen från lokala eller en annan Azure-region. Vid tidpunkten för publiceringen har den här funktionen anpassats till nr 17.04 från Ubuntu och Ubuntu 16,10. Om din Linux SMB-klienten inte har stöd för kryptering, montera Azure filer med hjälp av SMB 2.1 från en virtuell Linux-dator som är i samma datacenter som filen och kontrollera den [säker överföring krävs]( https://docs.microsoft.com/en-us/azure/storage/common/storage-require-secure-transfer) inställningen är inaktiverad på lagring konto. 
 
 <a id="slowperformance"></a>
 ## <a name="slow-performance-on-an-azure-file-share-mounted-on-a-linux-vm"></a>Långsam prestanda på en Azure-filresursen monteras på en Linux VM
@@ -149,7 +149,8 @@ Vanliga orsaker till det här problemet är:
 - Minsta SMB/CIFS version 2.1 är inte installerad på klienten.
 - SMB 3.0-kryptering stöds inte på klienten. SMB 3.0-kryptering är tillgängligt i Ubuntu 16,4 tum och senare, SUSE 12,3 och senare. Andra distributioner kräver kernel 4.11 och senare.
 - Du försöker ansluta till ett lagringskonto via TCP-port 445 som inte stöds.
-- Du försöker försöker ansluta till Azure-filresurs från en Azure virtuell dator och den virtuella datorn finns inte i samma region som lagringskontot.
+- Du försöker ansluta till Azure-filresurs från en Azure-dator och den virtuella datorn finns inte i samma region som lagringskontot.
+- Om [säker överföring krävs]( https://docs.microsoft.com/en-us/azure/storage/common/storage-require-secure-transfer) är aktiverad på lagringskontot, Azure Files kan anslutningar som använder SMB 3.0 med kryptering.
 
 ### <a name="solution"></a>Lösning
 

@@ -11,19 +11,19 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/20/2018
+ms.date: 10/16/2018
 ms.author: jeffgilb
-ms.reviewer: jeffgo
-ms.openlocfilehash: ad899739dab1dc51d64368d2136ab87f73f6f3a0
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.reviewer: quying
+ms.openlocfilehash: 360661402289ab9b06eb01be447dc98942c93302
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "36300918"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49364106"
 ---
 # <a name="sql-resource-provider-maintenance-operations"></a>Underhåll-åtgärder för SQL-resursprovider
 
-SQL-resursprovider körs på en låst virtuell dator. Om du vill aktivera underhållsåtgärder som du behöver uppdatera den virtuella datorns säkerhet. Om du vill göra detta med hjälp av principen om lägsta behörighet, kan du använda [PowerShell tillräckligt Administration JEA ()](https://docs.microsoft.com/en-us/powershell/jea/overview) endpoint *DBAdapterMaintenance*. Installationspaketet resource provider innehåller ett skript för den här åtgärden.
+SQL-resursprovider körs på en låst virtuell dator. Om du vill aktivera underhållsåtgärder som du behöver uppdatera den virtuella datorns säkerhet. Om du vill göra detta med hjälp av principen om lägsta behörighet, kan du använda [PowerShell tillräckligt Administration JEA ()](https://docs.microsoft.com/powershell/jea/overview) endpoint *DBAdapterMaintenance*. Installationspaketet resource provider innehåller ett skript för den här åtgärden.
 
 ## <a name="patching-and-updating"></a>Uppdatering
 
@@ -53,9 +53,9 @@ Om du vill ändra inställningarna, Välj **Bläddra** &gt; **ADMINISTRATIONSRES
 
 ## <a name="secrets-rotation"></a>Hemligheter rotation
 
-*Dessa anvisningar gäller endast för Azure Stack integrerade system Version 1804 och senare. Försök inte att rotera hemligheter i förväg 1804 Azure Stack-versioner.*
+*Dessa anvisningar gäller endast för integrerade Azure Stack-system.*
 
-När du använder resursprovidrar SQL- och MySQL med Azure Stack integrerade system, kan du rotera hemligheterna för följande infrastruktur (distribution):
+När du använder resursprovidrar SQL- och MySQL med Azure Stack integrerade system, ansvarar Azure Stack-operatör för att rotera följande resource provider infrastruktur hemligheter för att säkerställa att de inte upphör:
 
 - Externt SSL-certifikat [angav under distributionen](azure-stack-pki-certs.md).
 - Resource provider VM lokala administratörslösenordet anges under distributionen.

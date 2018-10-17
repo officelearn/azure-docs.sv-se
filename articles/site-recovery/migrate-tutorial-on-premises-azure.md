@@ -5,15 +5,15 @@ services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 07/16/2018
+ms.date: 09/12/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: bc04483c35162c0b461fd03c63aaa894b1bc199a
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.openlocfilehash: bd41244192efa1333bc90bec8c00f38aaaa7f612
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39070685"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44714997"
 ---
 # <a name="migrate-on-premises-machines-to-azure"></a>Migrera lokala datorer till Azure
 
@@ -40,10 +40,7 @@ Innan du börjar är det bra att granska [VMware](vmware-azure-architecture.md)-
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
-- Enheter som exporteras av paravirtualiserade drivrutiner stöds inte.
- 
-> [!WARNING]
-> Det är möjligt att migrera virtuella datorer på andra virtualiseringsplattformar (andra än VMware och Hyper-V), till exempel XenServer, genom att behandla de virtuella datorerna som fysiska servrar. Den här metoden har dock inte testats och validerats av Microsoft och fungerar kanske inte. Till exempel kan det hända att virtuella datorer som körs på XenServer-plattformen inte körs i Azure såvida inte XenServer-verktygen och de paravirtualiserade lagrings- och nätverksdrivrutinerna avinstalleras från den virtuella datorn innan du påbörjar migreringen.
+Enheter som exporteras av paravirtualiserade drivrutiner stöds inte.
 
 
 ## <a name="create-a-recovery-services-vault"></a>skapar ett Recovery Services-valv
@@ -124,10 +121,43 @@ Kör en redundansväxling för de datorer som du vill migrera.
 
 I vissa fall kräver redundans ytterligare bearbetning som tar cirka 8 till 10 minuter att slutföra. Du kanske märker att redundanstiden är längre för fysiska servrar, VMware Linux-datorer, virtuella VMware-datorer som inte har aktiverat DHCP-tjänsten och virtuella VMware-datorer som inte har följande startdrivrutiner: storvsc, vmbus, storflt, intelide, atapi.
 
+## <a name="after-migration"></a>Efter migrering
+
+När datorerna har migrerats till Azure, finns det ett antal steg du bör utföra.
+
+Vissa steg kan automatiseras som en del av migreringsprocessen med den inbyggda funktionen automationsskript i [återställningsplanerna]( https://docs.microsoft.com/azure/site-recovery/site-recovery-runbook-automation)   
+
+
+### <a name="post-migration-steps-in-azure"></a>Eftermigreringssteg i Azure
+
+- Utför alla finjusteringar av appen efter migreringen som att uppdatera databasanslutningssträngar och webbserverkonfigurationer. 
+- Utför slutlig program- och migreringsacceptanstestning på det migrerade programmet som nu körs i Azure.
+- [Azure VM-agenten](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-windows) hanterar VM-interaktion med Azure-infrastrukturkontrollanten. Det krävs för vissa Azure-tjänster, som Azure Backup, Site Recovery och Azure Security.
+    - Om du migrerar VMware-datorer och fysiska servrar, installerar installationsprogrammet för Mobilitetstjänsten tillgängliga Azure VM-agenter på Windows-datorer. På virtuella Linux-datorer rekommenderar vi att du installerar agenten efter redundansväxling. a
+    - Om du migrerar virtuella Azure-datorer till en sekundär region, måste Azure VM-agenten etableras på den virtuella datorn före migreringen.
+    - Om du migrerar virtuella Hyper-V-datorer till Azure, ska du installera Azure VM-agenten på den virtuella Azure-datorn efter migreringen.
+- Ta bort alla Site Recovery-providers/agenter manuellt från den virtuella datorn. Om du migrerar virtuella VMware-datorer eller fysiska servrar [avinstallera Mobilitetstjänsten][vmware-azure-install-mobility-service.md#uninstall-mobility-service-on-a-windows-server-computer] från den virtuella Azure-datorn.
+- För ökat skydd:
+    - Skydda data genom att säkerhetskopiera virtuella Azure-datorer med Azure Backup-tjänsten. [Läs mer]( https://docs.microsoft.com/azure/backup/quick-backup-vm-portal).
+    - Håll arbetsbelastningar i körning och kontinuerligt tillgängliga genom att replikera virtuella Azure-datorer till en sekundär region med Site Recovery. [Läs mer](azure-to-azure-quickstart.md).
+- För ökad säkerhet:
+    - Lås och begränsa åtkomsten för inkommande trafik med Azure Security Centers [just-in-time-administration]( https://docs.microsoft.com/azure/security-center/security-center-just-in-time).
+    - Begränsa nätverkstrafik till hanteringsslutpunkter med [nätverkssäkerhetsgrupper](https://docs.microsoft.com/azure/virtual-network/security-overview).
+    - Distribuera [Azure Disk Encryption](https://docs.microsoft.com/azure/security/azure-security-disk-encryption-overview) för att säkra diskar och skydda data från stöld och obehörig åtkomst.
+    - Läs mer om [ att skydda IaaS-resurser]( https://azure.microsoft.com/services/virtual-machines/secure-well-managed-iaas/ ) och besök [Azure Security Center](https://azure.microsoft.com/services/security-center/ ).
+- För övervakning och hantering:
+    - Överväg att distribuera [Azure Cost Management](https://docs.microsoft.com/azure/cost-management/overview) för att övervaka användning och utgifter.
+
+### <a name="post-migration-steps-on-premises"></a>Lokala eftermigreringssteg
+
+- Flytta över apptrafiken till den app som körs på den migrerade Azure-VM-instansen.
+- Ta bort de lokala virtuella datorerna från ditt lokala VM-inventarie.
+- Ta bort de lokala virtuella datorerna från lokala säkerhetskopior.
+- Uppdatera eventuell intern dokumentation för att ange den nya platsen och IP-adressen för de virtuella Azure-datorerna.
+
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här självstudiekursen migrerade du lokala virtuella datorer till virtuella Azure-datorer. Nu när du har migrerat virtuella datorer:
-- [Konfigurera haveriberedskap](azure-to-azure-replicate-after-migration.md) för de migrerade virtuella datorerna.
-- Dra nytta av Azures [säkra och välhanterade molnfunktioner](https://azure.microsoft.com/services/virtual-machines/secure-well-managed-iaas/) för att hantera dina virtuella datorer i Azure.
+I den här självstudiekursen migrerade du lokala virtuella datorer till virtuella Azure-datorer. Nu kan du [konfigurera haveriberedskap](azure-to-azure-replicate-after-migration.md) för de virtuella Azure-datorerna till en sekundär Azure-region.
+
   

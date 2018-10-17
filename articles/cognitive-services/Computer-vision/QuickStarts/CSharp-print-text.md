@@ -1,44 +1,45 @@
 ---
-title: 'Snabbstart: OCR med API:et för visuellt innehåll och C# | Microsoft Docs'
-titleSuffix: Microsoft Cognitive Services
-description: I den här snabbstarten ska du extrahera tryckt text från en bild med hjälp av Visuellt innehåll och C# i Cognitive Services.
+title: 'Snabbstart: Extrahera tryckt text (OCR) – REST, C# – Visuellt innehåll'
+titleSuffix: Azure Cognitive Services
+description: I den här snabbstarten extraherar du tryckt text från en bild med hjälp av API:et för visuellt innehåll med C#.
 services: cognitive-services
 author: noellelacharite
-manager: nolachar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: computer-vision
 ms.topic: quickstart
-ms.date: 08/28/2018
+ms.date: 09/10/2018
 ms.author: v-deken
-ms.openlocfilehash: 46193e7aa27285a887005a67bb662449e18d7b36
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: d3074b9c5b62ea41aa0ee4c577a18b9f582dc80a
+ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43772336"
+ms.lasthandoff: 09/15/2018
+ms.locfileid: "45631539"
 ---
-# <a name="quickstart-extract-printed-text-ocr---rest-c35"></a>Snabbstart: Extrahera tryckt text (OCR) – REST, C&#35;
+# <a name="quickstart-extract-printed-text-ocr-using-the-rest-api-and-c35-in-computer-vision"></a>Snabbstart: Extrahera tryckt text (OCR) med hjälp av REST API:et och C&#35 i Visuellt innehåll
 
-I den här snabbstarten ska du extrahera tryckt text, även kallat optisk teckenläsning (OCR), från en bild med hjälp av Visuellt innehåll.
+I den här snabbstarten extraherar du tryckt text med optisk teckenläsning (OCR) från en bild med hjälp av REST API:et för visuellt innehåll. Med metoden [OCR](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fc) kan du identifiera tryckt text i en bild och extrahera de tecken som identifieras till en teckenström som kan användas på en dator.
+
+Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/ai/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=cognitive-services) innan du börjar.
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
-För att använda Visuellt innehåll behöver du en prenumerationsnyckel. Mer information finns i avsnittet [Obtaining Subscription Keys](../Vision-API-How-to-Topics/HowToSubscribe.md) (Hämta prenumerationsnycklar).
+- Du måste ha [Visual Studio 2015](https://visualstudio.microsoft.com/downloads/) eller senare.
+- Du måste ha en prenumerationsnyckel för Visuellt innehåll. Du kan skaffa en prenumerationsnyckel genom att följa anvisningarna i [Skaffa prenumerationsnycklar](../Vision-API-How-to-Topics/HowToSubscribe.md).
 
-## <a name="ocr-request"></a>OCR-begäran
+## <a name="create-and-run-the-sample-application"></a>Skapa och kör exempelappen
 
-Med metoden [OCR](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fc) kan du identifiera tryckt text i en bild och extrahera de tecken som identifieras i en teckenström som kan användas på en dator.
+Skapa exemplet i Visual Studio enligt följande:
 
-För att köra exemplet följer du dessa steg:
-
-1. Skapa en ny Visual C#-konsolapp i Visual Studio.
+1. Skapa en ny Visual Studio-lösning i Visual Studio med Visual C#-konsolprogrammallen.
 1. Installera NuGet-paketet Newtonsoft.Json.
     1. Klicka på **Verktyg** på menyn, välj **NuGet Package Manager** (NuGet-pakethanteraren) och välj sedan **Manage NuGet Packages for Solution** (Hantera NuGet-paket för lösning).
     1. Klicka på fliken **Bläddra** och skriv ”Newtonsoft.Json” i rutan **Sök**.
     1. Välj **Newtonsoft.Json** när det visas och klicka på kryssrutan bredvid namnet på ditt projekt och sedan på **Installera**.
-1. Ersätt `Program.cs` med följande kod.
-1. Ersätt `<Subscription Key>` med en giltig prenumerationsnyckel.
-1. Ändra värdet `uriBase` till den plats där du hämtade dina prenumerationsnycklar om det behövs.
+1. Ersätt koden i `Program.cs` med följande kod och gör sedan följande ändringar i koden där det behövs:
+    1. Ersätt värdet för `subscriptionKey` med din prenumerationsnyckel.
+    1. Ersätt värdet för `uriBase` med slutpunktsadressen för metoden [OCR](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fc) från den Azure-region där du fått dina prenumerationsnycklar om det behövs.
 1. Kör programmet.
 1. Ange sökvägen till en lokal bild i kommandotolken.
 
@@ -57,12 +58,12 @@ namespace CSHttpClientSample
         // Replace <Subscription Key> with your valid subscription key.
         const string subscriptionKey = "<Subscription Key>";
 
-        // You must use the same region in your REST call as you used to
-        // get your subscription keys. For example, if you got your
-        // subscription keys from westus, replace "westcentralus" in the URL
+        // You must use the same Azure region in your REST API method as you used to
+        // get your subscription keys. For example, if you got your subscription keys
+        // from the West US region, replace "westcentralus" in the URL
         // below with "westus".
         //
-        // Free trial subscription keys are generated in the westcentralus region.
+        // Free trial subscription keys are generated in the West Central US region.
         // If you use a free trial subscription key, you shouldn't need to change
         // this region.
         const string uriBase =
@@ -77,7 +78,7 @@ namespace CSHttpClientSample
 
             if (File.Exists(imageFilePath))
             {
-                // Make the REST API call.
+                // Call the REST API method.
                 Console.WriteLine("\nWait a moment for the results to appear.\n");
                 MakeOCRRequest(imageFilePath).Wait();
             }
@@ -104,30 +105,36 @@ namespace CSHttpClientSample
                 client.DefaultRequestHeaders.Add(
                     "Ocp-Apim-Subscription-Key", subscriptionKey);
 
-                // Request parameters.
+                // Request parameters. 
+                // The language parameter doesn't specify a language, so the 
+                // method detects it automatically.
+                // The detectOrientation parameter is set to true, so the method detects and
+                // and corrects text orientation before detecting text.
                 string requestParameters = "language=unk&detectOrientation=true";
 
-                // Assemble the URI for the REST API Call.
+                // Assemble the URI for the REST API method.
                 string uri = uriBase + "?" + requestParameters;
 
                 HttpResponseMessage response;
 
-                // Request body. Posts a locally stored JPEG image.
+                // Read the contents of the specified local image
+                // into a byte array.
                 byte[] byteData = GetImageAsByteArray(imageFilePath);
 
+                // Add the byte array as an octet stream to the request body.
                 using (ByteArrayContent content = new ByteArrayContent(byteData))
                 {
-                    // This example uses content type "application/octet-stream".
+                    // This example uses the "application/octet-stream" content type.
                     // The other content types you can use are "application/json"
                     // and "multipart/form-data".
                     content.Headers.ContentType =
                         new MediaTypeHeaderValue("application/octet-stream");
 
-                    // Make the REST API call.
+                    // Asynchronously call the REST API method.
                     response = await client.PostAsync(uri, content);
                 }
 
-                // Get the JSON response.
+                // Asynchronously get the JSON response.
                 string contentString = await response.Content.ReadAsStringAsync();
 
                 // Display the JSON response.
@@ -147,9 +154,11 @@ namespace CSHttpClientSample
         /// <returns>The byte array of the image data.</returns>
         static byte[] GetImageAsByteArray(string imageFilePath)
         {
+            // Open a read-only file stream for the specified file.
             using (FileStream fileStream =
                 new FileStream(imageFilePath, FileMode.Open, FileAccess.Read))
             {
+                // Read the file's contents into a byte array.
                 BinaryReader binaryReader = new BinaryReader(fileStream);
                 return binaryReader.ReadBytes((int)fileStream.Length);
             }
@@ -158,85 +167,89 @@ namespace CSHttpClientSample
 }
 ```
 
-## <a name="ocr-response"></a>OCR-svar
+## <a name="examine-the-response"></a>Granska svaret
 
-Om åtgärden lyckades innehåller OCR-resultatet text, en avgränsningsruta för områden, linjer och ord, till exempel:
+Ett svar som anger att åtgärden lyckades returneras i JSON. Exempelprogrammet parsar och visar ett lyckat svar i konsolfönstret enligt följande exempel:
 
 ```json
 {
-   "language": "en",
-   "textAngle": -1.5000000000000335,
-   "orientation": "Up",
-   "regions": [
-      {
-         "boundingBox": "154,49,351,575",
-         "lines": [
-            {
-               "boundingBox": "165,49,340,117",
-               "words": [
-                  {
-                     "boundingBox": "165,49,63,109",
-                     "text": "A"
-                  },
-                  {
-                     "boundingBox": "261,50,244,116",
-                     "text": "GOAL"
-                  }
-               ]
-            },
-            {
-               "boundingBox": "165,169,339,93",
-               "words": [
-                  {
-                     "boundingBox": "165,169,339,93",
-                     "text": "WITHOUT"
-                  }
-               ]
-            },
-            {
-               "boundingBox": "159,264,342,117",
-               "words": [
-                  {
-                     "boundingBox": "159,264,64,110",
-                     "text": "A"
-                  },
-                  {
-                     "boundingBox": "255,266,246,115",
-                     "text": "PLAN"
-                  }
-               ]
-            },
-            {
-               "boundingBox": "161,384,338,119",
-               "words": [
-                  {
-                     "boundingBox": "161,384,86,113",
-                     "text": "IS"
-                  },
-                  {
-                     "boundingBox": "274,387,225,116",
-                     "text": "JUST"
-                  }
-               ]
-            },
-            {
-               "boundingBox": "154,506,341,118",
-               "words": [
-                  {
-                     "boundingBox": "154,506,62,111",
-                     "text": "A"
-                  },
-                  {
-                     "boundingBox": "248,508,247,116",
-                     "text": "WISH"
-                  }
-               ]
-            }
-         ]
-      }
-   ]
+    "language": "en",
+    "textAngle": -1.5000000000000335,
+    "orientation": "Up",
+    "regions": [
+        {
+            "boundingBox": "154,49,351,575",
+            "lines": [
+                {
+                    "boundingBox": "165,49,340,117",
+                    "words": [
+                        {
+                            "boundingBox": "165,49,63,109",
+                            "text": "A"
+                        },
+                        {
+                            "boundingBox": "261,50,244,116",
+                            "text": "GOAL"
+                        }
+                    ]
+                },
+                {
+                    "boundingBox": "165,169,339,93",
+                    "words": [
+                        {
+                            "boundingBox": "165,169,339,93",
+                            "text": "WITHOUT"
+                        }
+                    ]
+                },
+                {
+                    "boundingBox": "159,264,342,117",
+                    "words": [
+                        {
+                            "boundingBox": "159,264,64,110",
+                            "text": "A"
+                        },
+                        {
+                            "boundingBox": "255,266,246,115",
+                            "text": "PLAN"
+                        }
+                    ]
+                },
+                {
+                    "boundingBox": "161,384,338,119",
+                    "words": [
+                        {
+                            "boundingBox": "161,384,86,113",
+                            "text": "IS"
+                        },
+                        {
+                            "boundingBox": "274,387,225,116",
+                            "text": "JUST"
+                        }
+                    ]
+                },
+                {
+                    "boundingBox": "154,506,341,118",
+                    "words": [
+                        {
+                            "boundingBox": "154,506,62,111",
+                            "text": "A"
+                        },
+                        {
+                            "boundingBox": "248,508,247,116",
+                            "text": "WISH"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
 }
 ```
+
+## <a name="clean-up-resources"></a>Rensa resurser
+
+Ta bort Visual Studio-lösningen när den inte längre behövs. Detta gör du genom att öppna Utforskaren, navigera till mappen där du skapade Visual Studio-lösningen och ta bort mappen.
 
 ## <a name="next-steps"></a>Nästa steg
 

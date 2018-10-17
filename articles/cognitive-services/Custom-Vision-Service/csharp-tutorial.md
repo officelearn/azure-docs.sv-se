@@ -1,50 +1,51 @@
 ---
-title: Använd Custom Vision Service från ett C#-program – Azure Cognitive Services | Microsoft Docs
-description: Utforska en grundläggande C#-app som använder anpassat API för visuellt innehåll i Microsoft Cognitive Services. Skapa ett projekt, lägga till taggar, ladda upp bilder, träna ditt projekt och göra en förutsägelse genom att använda standardslutpunkt.
+title: 'Självstudier: Skapa en Windows-app för Custom Vision Service med C#'
+titlesuffix: Azure Cognitive Services
+description: Skapa ett projekt, lägg till taggar, ladda upp bilder, träna ditt projekt och gör en förutsägelse genom att använda standardslutpunkten.
 services: cognitive-services
 author: anrothMSFT
-manager: corncar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: custom-vision
-ms.topic: article
+ms.topic: tutorial
 ms.date: 05/03/2018
 ms.author: anroth
-ms.openlocfilehash: d3c2ffb0fd9578458bd07241eed4a87cf70d3c3c
-ms.sourcegitcommit: a62cbb539c056fe9fcd5108d0b63487bd149d5c3
-ms.translationtype: MT
+ms.openlocfilehash: 9e5ed71d4620f7ffeac8acb15f90d67964a86870
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42617442"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46366649"
 ---
-# <a name="use-the-custom-vision-service-from-a-c35-application"></a>Använd Custom Vision Service från en C&#35; program
+# <a name="tutorial-use-the-custom-vision-service-from-a-c-application"></a>Självstudier: Använd Custom Vision Service från ett C#-program
 
-Lär dig hur du använder Custom Vision Service från ett C#-program. När den har skapats kan du lägga till taggar, ladda upp bilder, träna projektet, hämta projektets standard förutsägelse slutpunkts-URL och använder slutpunkten programmatiskt en bild. Använd det här exemplet med öppen källkod som en mall för att skapa din egen app för Windows med hjälp av Custom Vision Service API.
+Lär dig att använda Custom Vision Service från ett C#-program. När den har skapats kan du lägga till taggar, ladda upp bilder, träna projektet, hämta slutpunkts-URL:en för projektets standardförutsägelse och använda slutpunkten för att testa en avbildning programmatiskt. Använd det här exemplet med öppen källkod som en mall för att skapa din egen app för Windows med hjälp av Custom Vision Service-API:et.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
-* En utgåva av Visual Studio 2017 för Windows.
+* Valfri version av Visual Studio 2017 för Windows.
 
-## <a name="get-the-custom-vision-sdk-and-samples"></a>Hämta Custom Vision SDK och exempel
-Om du vill skapa det här exemplet behöver du Custom Vision SDK NuGet-paket:
+## <a name="get-the-custom-vision-sdk-and-samples"></a>Hämta Custom Vision-SDK:n och exempel
+Om du vill skapa det här exemplet behöver du Custom Vision SDK NuGet-paketet:
 
 * [Microsoft.Azure.CognitiveServices.Vision.CustomVision.Training](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.CustomVision.Training/)
 * [Microsoft.Azure.CognitiveServices.Vision.CustomVision.Prediction](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.CustomVision.Prediction/)
 
-Du kan ladda ned bilder tillsammans med den [C#-exempel](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/CustomVision).
+Du kan ladda ned bilder tillsammans med [C#-exemplet](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/CustomVision).
 
-## <a name="get-the-training-and-prediction-keys"></a>Hämta nycklar Inlärnings- och förutsägelsetransaktioner
+## <a name="get-the-training-and-prediction-keys"></a>Hämta utbildningen och förutsägelsenycklarna
 
-För att få nycklarna som används i det här exemplet kan du gå till den [Custom Vision-webbsida](https://customvision.ai) och välj den __kugghjulsikonen__ i det övre högra hörnet. I den __konton__ och kopiera värdena från den __utbildning nyckeln__ och __förutsägelse nyckeln__ fält.
+Om du vill ha nycklarna som används i det här exemplet kan du gå till [Custom Vision-webbsidan](https://customvision.ai) och välja __kugghjulsikonen__ i det övre högra hörnet. Kopiera värdena från fälten __Utbildningsnyckel__ och __Förutsägelsenyckel__ i avsnittet __Konton__.
 
-![Bild av nycklar UI](./media/csharp-tutorial/training-prediction-keys.png)
+![Bild av nyckel-UI:et](./media/csharp-tutorial/training-prediction-keys.png)
 
 ## <a name="understand-the-code"></a>Förstå koden
 
-I Visual Studio, öppna projektet i den `Samples/CustomVision.Sample/` för SDK-projektet.
+Öppna projektet i SDK-projektets `Samples/CustomVision.Sample/`-katalog i Visual Studio.
 
-Det här programmet använder nyckeln utbildning som hämtades tidigare för att skapa ett nytt projekt med namnet __mitt nya projekt__. Det laddar sedan upp bilder för att träna och testa en klassificerare. Klassificeraren anger om ett träd är en __Viol__ eller en __japanska Välj ut__.
+Det här programmet använder den utbildningsnyckel som du hämtade tidigare för att skapa ett nytt projekt med namnet __Mitt nya projekt__. Det laddar sedan upp bilder för att träna och testa en klassificerare. Klassificeraren anger om ett träd är en __hemlockgran__ eller ett __japanskt körsbärsträd__.
 
-I följande kodavsnitt implementera de primära funktionerna i det här exemplet:
+I följande kodavsnitt implementeras de primära funktionerna i det här exemplet:
 
 * __Skapa ett nytt projekt för Custom Vision Service__:
 
@@ -100,7 +101,7 @@ I följande kodavsnitt implementera de primära funktionerna i det här exemplet
     }
     ```
 
-* __Ange en standard-iteration för förutsägelse slutpunkten__:
+* __Ange en standarditeration för förutsägelseslutpunkten__:
 
     ```csharp
     // The iteration is now trained. Make it the default project endpoint
@@ -109,14 +110,14 @@ I följande kodavsnitt implementera de primära funktionerna i det här exemplet
     Console.WriteLine("Done!\n");
     ```
 
-* __Skapa en slutpunkt för förutsägelse__:
+* __Skapa en förutsägelseslutpunkt__:
  
     ```csharp
     // Create a prediction endpoint, passing in obtained prediction key
     PredictionEndpoint endpoint = new PredictionEndpoint() { ApiKey = predictionKey };
     ```
  
-* __Skicka en avbildning till slutpunkten för förutsägelse__:
+* __Skicka en avbildning till förutsägelseslutpunkten__:
 
     ```csharp
     // Make a prediction against the new project
@@ -132,15 +133,15 @@ I följande kodavsnitt implementera de primära funktionerna i det här exemplet
 
 ## <a name="run-the-application"></a>Köra programmet
 
-1. Gör följande ändringar för att lägga till Inlärnings- och förutsägelsetransaktioner nycklar för programmet:
+1. Lägg till utbildnings- och förutsägelsenycklarna till programmet genom att göra följande ändringar:
 
-    * Lägg till din __utbildning nyckeln__ till följande rad:
+    * Lägg till din __utbildningsnyckel__ på följande rad:
 
         ```csharp
         string trainingKey = "<your key here>";
         ```
 
-    * Lägg till din __förutsägelse nyckeln__ till följande rad:
+    * Lägg till din __förutsägelsenyckel__ på följande rad:
 
         ```csharp
         string predictionKey = "<your key here>";
@@ -159,4 +160,4 @@ I följande kodavsnitt implementera de primära funktionerna i det här exemplet
             Japanese Cherry: 0.0%
     ```
 
-3. Tryck på valfri tangent för att avsluta programmet.
+3. Avsluta programmet genom att trycka på valfri tangent.

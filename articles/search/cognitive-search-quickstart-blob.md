@@ -8,12 +8,12 @@ ms.service: search
 ms.topic: quickstart
 ms.date: 05/01/2018
 ms.author: heidist
-ms.openlocfilehash: 3dda4c330f2dc620662c476aa4e5dbfe3a60fa76
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 85016ffb412b9f8773606639eb1496ac8ad251a7
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39003704"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45730000"
 ---
 # <a name="quickstart-create-a-cognitive-search-pipeline-using-skills-and-sample-data"></a>Snabbstart: Skapa en pipeline för kognitiv sökning med kunskaper och exempeldata
 
@@ -32,6 +32,9 @@ Du kan prova kognitiva sökning i en Azure Search-tjänst som skapats i någon a
 * Västra Europa
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
+
+> [!NOTE]
+> Kognitiv sökning är tillgängligt som en förhandsversion. Kompetenskörning och extrahering av avbildning och normalisering erbjuds för närvarande kostnadsfritt. Priserna för de här funktionerna meddelas längre fram. 
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 

@@ -1,44 +1,46 @@
 ---
-title: 'Snabbstart: OCR med API:et för visuellt innehåll och Go | Microsoft Docs'
-titleSuffix: Microsoft Cognitive Services
-description: I den här snabbstarten ska du extrahera tryckt text från en bild med hjälp av Visuellt innehåll och Go i Cognitive Services.
+title: 'Snabbstart: Extrahera tryckt text (OCR) – REST, Go – Visuellt innehåll'
+titleSuffix: Azure Cognitive Services
+description: I den här snabbstarten extraherar du tryckt text från en bild med hjälp av API:et för visuellt innehåll med Go.
 services: cognitive-services
 author: noellelacharite
-manager: nolachar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: computer-vision
 ms.topic: quickstart
 ms.date: 08/28/2018
 ms.author: v-deken
-ms.openlocfilehash: b0de66e31c3537198831dd0f31590dbaf3fda89b
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: 459b53dbde08e2729951249e984f075449943e31
+ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43772196"
+ms.lasthandoff: 09/15/2018
+ms.locfileid: "45629584"
 ---
-# <a name="quickstart-extract-printed-text-ocr---rest-go"></a>Snabbstart: Extrahera tryckt text (OCR) – REST, Go
+# <a name="quickstart-extract-printed-text-ocr-using-the-rest-api-and-go-in-computer-vision"></a>Snabbstart: Extrahera utskriven text (OCR) med hjälp av REST API:et och Go i Visuellt innehåll
 
-I den här snabbstarten ska du extrahera tryckt text, även kallat optisk teckenläsning (OCR), från en bild med hjälp av Visuellt innehåll.
+I den här snabbstarten extraherar du tryckt text med optisk teckenläsning (OCR) från en bild med hjälp av REST API:et för visuellt innehåll. Med metoden [OCR](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fc) kan du identifiera tryckt text i en bild och extrahera de tecken som identifieras till en teckenström som kan användas på en dator.
+
+Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/ai/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=cognitive-services) innan du börjar.
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
-För att använda Visuellt innehåll behöver du en prenumerationsnyckel. Mer information finns i avsnittet [Obtaining Subscription Keys](../Vision-API-How-to-Topics/HowToSubscribe.md) (Hämta prenumerationsnycklar).
+- Du måste ha [Go](https://golang.org/dl/) installerat.
+- Du måste ha en prenumerationsnyckel för Visuellt innehåll. Du kan skaffa en prenumerationsnyckel genom att följa anvisningarna i [Skaffa prenumerationsnycklar](../Vision-API-How-to-Topics/HowToSubscribe.md).
 
-## <a name="ocr-request"></a>OCR-begäran
+## <a name="create-and-run-the-sample"></a>Skapa och köra exemplet
 
-Med metoden [OCR](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fc) kan du identifiera tryckt text i en bild och extrahera de tecken som identifieras i en teckenström som kan användas på en dator.
+Så här skapar du och kör exemplet:
 
-För att köra exemplet följer du dessa steg:
-
-1. Kopiera följande kod till ett redigeringsprogram.
-1. Ersätt `<Subscription Key>` med en giltig prenumerationsnyckel.
-1. Ändra värdet `uriBase` till den plats där du hämtade dina prenumerationsnycklar om det behövs.
-1. Du kan också ändra värdet `imageUrl` till den bild som du vill analysera.
-1. Spara filen med tillägget `.go`.
-1. Öppna en kommandotolk på en dator där Go är installerat.
-1. Skapa filen, till exempel: `go build get-printed-text.go`.
-1. Kör filen, till exempel: `get-printed-text`.
+1. Kopiera följande kod till en textredigerare.
+1. Gör följande ändringar i koden där det behövs:
+    1. Ersätt värdet för `subscriptionKey` med din prenumerationsnyckel.
+    1. Ersätt värdet för `uriBase` med slutpunktsadressen för metoden [OCR](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fc) från den Azure-region där du fått dina prenumerationsnycklar om det behövs.
+    1. Du kan också ersätta värdet för `imageUrl` med webbadressen till en annan bild som du vill analysera.
+1. Spara koden som en fil med tillägget `.go`. Till exempel `get-printed-text.go`.
+1. Öppna ett kommandotolksfönster.
+1. Kompilera paketet från filen genom att köra kommandot `go build` i kommandotolken. Till exempel `go build get-printed-text.go`.
+1. Kör det kompilerade paketet i kommandotolken. Till exempel `get-printed-text`.
 
 ```go
 package main
@@ -53,12 +55,17 @@ import (
 )
 
 func main() {
-    // For example, subscriptionKey = "0123456789abcdef0123456789ABCDEF"
+    // Replace <Subscription Key> with your valid subscription key.
     const subscriptionKey = "<Subscription Key>"
 
-    // You must use the same location in your REST call as you used to get your
-    // subscription keys. For example, if you got your subscription keys from
-    // westus, replace "westcentralus" in the URL below with "westus".
+    // You must use the same Azure region in your REST API method as you used to
+    // get your subscription keys. For example, if you got your subscription keys
+    // from the West US region, replace "westcentralus" in the URL
+    // below with "westus".
+    //
+    // Free trial subscription keys are generated in the West Central US region.
+    // If you use a free trial subscription key, you shouldn't need to change
+    // this region.
     const uriBase =
         "https://westcentralus.api.cognitive.microsoft.com/vision/v2.0/ocr"
     const imageUrl = "https://upload.wikimedia.org/wikipedia/commons/thumb/a/af/" +
@@ -110,9 +117,9 @@ func main() {
 }
 ```
 
-## <a name="ocr-response"></a>OCR-svar
+## <a name="examine-the-response"></a>Granska svaret
 
-Om åtgärden lyckades innehåller OCR-resultatet text, en avgränsningsruta för områden, linjer och ord, till exempel:
+Ett svar som anger att åtgärden lyckades returneras i JSON. Exempelprogrammet parsar och visar ett lyckat svar i kommandotolkens fönster enligt följande exempel:
 
 ```json
 {
@@ -213,9 +220,13 @@ Om åtgärden lyckades innehåller OCR-resultatet text, en avgränsningsruta fö
 }
 ```
 
+## <a name="clean-up-resources"></a>Rensa resurser
+
+Ta bort det kompilerade paketet och filen som paketet kompilerades från när du inte längre behöver dem. Stäng sedan kommandotolkens fönster och textredigeraren.
+
 ## <a name="next-steps"></a>Nästa steg
 
-Utforska API:erna för visuellt innehåll som används för att analysera en bild, identifiera kändisar och landmärken, skapa en miniatyrbild och extrahera tryckt och handskriven text. Du kan snabbt experimentera med API:erna för visuellt innehåll genom att prova [Open API-testkonsolen](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa/console).
+Utforska API:et för visuellt innehåll, som används för att analysera en bild, identifiera kändisar och landmärken, skapa en miniatyrbild och extrahera tryckt och handskriven text. Du kan snabbt experimentera med API:et för visuellt innehåll genom att prova [Open API-testkonsolen](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa/console).
 
 > [!div class="nextstepaction"]
-> [Utforska API:er för visuellt innehåll](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44)
+> [Utforska API:et för visuellt innehåll](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44)

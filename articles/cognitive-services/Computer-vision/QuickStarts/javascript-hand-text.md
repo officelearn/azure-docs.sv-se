@@ -1,43 +1,48 @@
 ---
-title: 'Snabbstart: API:et för visuellt innehåll och JavaScript | Microsoft Docs'
-titleSuffix: Microsoft Cognitive Services
-description: I den här snabbstarten ska du extrahera handskriven text från en bild med hjälp av Visuellt innehåll och JavaScript i Cognitive Services.
+title: 'Snabbstart: Extrahera handskriven text – REST, JavaScript – Visuellt innehåll'
+titleSuffix: Azure Cognitive Services
+description: I den här snabbstarten ska du extrahera handskriven text från en bild med hjälp av API för visuellt innehåll med JavaScript.
 services: cognitive-services
 author: noellelacharite
-manager: nolachar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: computer-vision
 ms.topic: quickstart
 ms.date: 08/28/2018
 ms.author: v-deken
-ms.openlocfilehash: c6b52bfdf1c42499772da1e5f72897baa65a4786
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: 82c51c95bf8a538ce50dd190cce737b0295abc6e
+ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43771930"
+ms.lasthandoff: 09/15/2018
+ms.locfileid: "45634684"
 ---
-# <a name="quickstart-extract-handwritten-text---rest-javascript"></a>Snabbstart: Extrahera handskriven text – REST, JavaScript
+# <a name="quickstart-extract-handwritten-text-using-the-rest-api-and-javascript-in-computer-vision"></a>Snabbstart: Extrahera handskriven text med hjälp av REST-API och JavaScript i Visuellt innehåll
 
-I den här snabbstarten extraherar du handskriven text från en bild med hjälp av Visuellt innehåll.
+I den här snabbstarten extraherar du handskriven text från en bild med hjälp av REST API för visuellt innehåll. Med hjälp av metoderna [Recognize Text](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/587f2c6a154055056008f200) (Identifiera text) och [Get Recognize Text Operation Result](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/587f2cf1154055056008f201) (Hämta resultat av identifiering av text) kan du identifiera handskriven text i en bild och extrahera sedan identifierade tecken till en datorteckenström.
+
+> [!IMPORTANT]
+> Till skillnad från [OCR](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fc)-metoden så körs metoden [Identifiera text](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/587f2c6a154055056008f200) asynkront. Den här metoden returnerar inte någon information i en svarsbrödtext. I stället returnerar metoden Identifiera text en URI i värdet i svarsrubrikfältet `Operation-Content`. Du kan sedan anropa denna URI, som representerar metoden [Get Recognize Text Operation Result](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/587f2cf1154055056008f201), så att du både kan kontrollera status och returnera resultatet för metodanropet Identifiera text.
+
+Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/ai/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=cognitive-services) innan du börjar.
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
-För att använda Visuellt innehåll behöver du en prenumerationsnyckel. Mer information finns i avsnittet [Obtaining Subscription Keys](../Vision-API-How-to-Topics/HowToSubscribe.md) (Hämta prenumerationsnycklar).
+Du måste ha en prenumerationsnyckel för Visuellt innehåll. Du kan skaffa en prenumerationsnyckel genom att följa anvisningarna i [Skaffa prenumerationsnycklar](../Vision-API-How-to-Topics/HowToSubscribe.md).
 
-## <a name="recognize-text-request"></a>Begäran om att identifiera text
+## <a name="create-and-run-the-sample"></a>Skapa och köra exemplet
 
-Med hjälp av metoderna [Recognize Text](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/587f2c6a154055056008f200) (Identifiera text) och [Get Recognize Text Operation Result](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/587f2cf1154055056008f201) (Hämta resultat av identifiering av text) kan du identifiera handskriven text i en bild och extrahera identifierade tecken till en datorteckenström.
+Så här skapar du och kör exemplet:
 
-För att köra exemplet följer du dessa steg:
-
-1. Kopiera följande och spara det till en fil såsom `handwriting.html`.
-1. Ersätt `<Subscription Key>` med en giltig prenumerationsnyckel.
-1. Ändra värdet `uriBase` till den plats där du hämtade dina prenumerationsnycklar om det behövs.
-1. Dra och släpp filen i webbläsaren.
-1. Klicka på knappen `Read image`.
-
-I det här exemplet används jQuery 1.9.0. Ett exempel som använder JavaScript utan jQuery finns i [Generera en miniatyrbild](javascript-thumb.md).
+1. Kopiera följande kod till en textredigerarere.
+1. Gör följande ändringar i koden när så behövs:
+    1. Ersätt värdet för `subscriptionKey` med din prenumerationsnyckel.
+    1. Ersätt värdet för `uriBase` med slutpunktsadressen för metoden [Identifiera text](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/587f2c6a154055056008f200) från Azure-regionen där du fått dina prenumerationsnycklar om det behövs.
+    1. Du kan också ersätta värdet för `value`-attributet för `inputImage`-kontrollen med webbadressen till en annan bild från vilken du vill extrahera handskriven text.
+1. Spara koden som en fil med tillägget `.html`. Till exempel `get-handwriting.html`.
+1. Öppna ett webbläsarfönster.
+1. Dra och släpp filen till webbläsarfönstret i webbläsaren.
+1. När webbsidan visas i webbläsaren väljer du knappen **Läs bild**.
 
 ```html
 <!DOCTYPE html>
@@ -57,19 +62,18 @@ I det här exemplet används jQuery 1.9.0. Ett exempel som använder JavaScript 
         // Replace <Subscription Key> with your valid subscription key.
         var subscriptionKey = "<Subscription Key>";
 
-        // You must use the same region in your REST call as you used to get your
-        // subscription keys. For example, if you got your subscription keys from
-        // westus, replace "westcentralus" in the URI below with "westus".
+        // You must use the same Azure region in your REST API method as you used to
+        // get your subscription keys. For example, if you got your subscription keys
+        // from the West US region, replace "westcentralus" in the URL
+        // below with "westus".
         //
-        // Free trial subscription keys are generated in the westcentralus region.
+        // Free trial subscription keys are generated in the West Central US region.
         // If you use a free trial subscription key, you shouldn't need to change
         // this region.
         var uriBase =
             "https://westcentralus.api.cognitive.microsoft.com/vision/v2.0/recognizeText";
 
         // Request parameter.
-        // Note: The request parameter changed for APIv2.
-        // For APIv1, it is "handwriting": "true".
         var params = {
             "mode": "Handwritten",
         };
@@ -186,11 +190,9 @@ Image to read:
 </html>
 ```
 
-## <a name="recognize-text-response"></a>Svar på identifiering av text
+## <a name="examine-the-response"></a>Granska svaret
 
-Ett svar som anger att åtgärden lyckades returneras i JSON. Handskriftresultatet returnerade text, en avgränsningsruta för områden, linjer och ord.
-
-Programmet producerar utdata som liknar följande JSON:
+Ett svar som anger att åtgärden lyckades returneras i JSON. Exempelwebbsidan tolkar och visar ett lyckat svar i webbläsarfönstret liknar följande exempel:
 
 ```json
 {
@@ -468,9 +470,13 @@ Programmet producerar utdata som liknar följande JSON:
 }
 ```
 
+## <a name="clean-up-resources"></a>Rensa resurser
+
+Ta bort din runbook när den inte längre behövs.
+
 ## <a name="next-steps"></a>Nästa steg
 
-Utforska ett JavaScript-program som använder Visuellt innehåll för att utföra optisk teckenläsning (OCR), skapa miniatyrbilder med smart beskärning och identifiera, kategorisera, tagga och beskriv visuella funktioner, inklusive ansikten, i en bild. Du kan snabbt experimentera med API:erna för visuellt innehåll genom att prova [Open API-testkonsolen](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa/console).
+Utforska ett JavaScript-program som använder Visuellt innehåll för att utföra optisk teckenläsning (OCR), skapa miniatyrbilder med smart beskärning och identifiera, kategorisera, tagga och beskriv visuella funktioner, inklusive ansikten, i en bild. Du kan experimentera med API för visuellt innehåll i [Open API-testkonsolen](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa/console).
 
 > [!div class="nextstepaction"]
 > [Självstudie: API för visuellt innehåll med JavaScript](../Tutorials/javascript-tutorial.md)

@@ -1,41 +1,45 @@
 ---
-title: 'Snabbstart: API:et för visuellt innehåll och JavaScript | Microsoft Docs'
-titleSuffix: Microsoft Cognitive Services
-description: I den här snabbstarten skapar du en miniatyrbild från en bild med hjälp av Visuellt innehåll med JavaScript i Cognitive Services.
+title: 'Snabbstart: Generera en miniatyrbild – REST, JavaScript – Visuellt innehåll'
+titleSuffix: Azure Cognitive Services
+description: I den här snabbstarten genererar du en miniatyrbild från en bild med hjälp av API för visuellt innehåll och JavaScript.
 services: cognitive-services
 author: noellelacharite
-manager: nolachar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: computer-vision
 ms.topic: quickstart
 ms.date: 08/28/2018
 ms.author: v-deken
-ms.openlocfilehash: 60da5216ed6b1bfc8d5e5ec04c02e93e1e85335c
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: ef0cdad796623b4453f71e8b593ba4304a41ee0f
+ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43772157"
+ms.lasthandoff: 09/15/2018
+ms.locfileid: "45629465"
 ---
-# <a name="quickstart-generate-a-thumbnail---rest-javascript"></a>Snabbstart: Skapa en miniatyrbild – REST, JavaScript
+# <a name="quickstart-generate-a-thumbnail-using-the-rest-api-and-javascript-in-computer-vision"></a>Snabbstart: Generera en miniatyrbild med hjälp av REST-API:et och JavaScript i Visuellt innehåll
 
-I den här snabbstarten skapar du en miniatyrbild från en bild med hjälp av Visuellt innehåll.
+I den här snabbstarten genererar du en miniatyrbild från en bild med hjälp av REST-API:et. Med metoden [Get Thumbnail](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fb) kan du generera en miniatyrbild av en bild. Du anger höjden och bredden, som kan skilja sig från den ursprungliga bildens proportioner. Visuellt innehåll använder smart beskärning för att identifiera det område som är intressant och generera koordinater för beskärning baserat på det området.
+
+Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/ai/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=cognitive-services) innan du börjar.
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
-För att använda Visuellt innehåll behöver du en prenumerationsnyckel. Mer information finns i avsnittet [Obtaining Subscription Keys](../Vision-API-How-to-Topics/HowToSubscribe.md) (Hämta prenumerationsnycklar).
+Du måste ha en prenumerationsnyckel för Visuellt innehåll. Du kan skaffa en prenumerationsnyckel genom att följa anvisningarna i [Skaffa prenumerationsnycklar](../Vision-API-How-to-Topics/HowToSubscribe.md).
 
-## <a name="get-thumbnail-request"></a>Begäran om att hämta miniatyrbild
+## <a name="create-and-run-the-sample"></a>Skapa och köra exemplet
 
-Med metoden [Get Thumbnail](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fb) (Hämta miniatyrbild) kan du skapa en miniatyrbild av en bild. Du anger höjden och bredden, som kan skilja sig från den ursprungliga bildens proportioner. Visuellt innehåll använder smart beskärning för att identifiera det område som är intressant och generera koordinater för beskärning baserat på det området.
+Så här skapar du och kör exemplet:
 
-För att köra exemplet följer du dessa steg:
-
-1. Kopiera följande och spara det till en fil, t.ex. `thumbnail.html`.
-1. Ersätt `<Subscription Key>` med en giltig prenumerationsnyckel.
-1. Ändra värdet `uriBase` till den plats där du hämtade dina prenumerationsnycklar om det behövs.
-1. Dra och släpp filen i din webbläsare.
-1. Klicka på knappen `Generate thumbnail`.
+1. Kopiera följande kod till en textredigerarere.
+1. Gör följande ändringar i koden när så behövs:
+    1. Ersätt värdet för `subscriptionKey` med din prenumerationsnyckel.
+    1. Ersätt värdet för `uriBase` med slutpunktsadressen för metoden [Get Thumbnail](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fb) från Azure-regionen där du fått dina prenumerationsnycklar om det behövs.
+    1. Du kan också ersätta värdet för `value`-attributet för `inputImage`-kontrollen med webbadressen till en annan bild som du vill analysera.
+1. Spara koden som en fil med tillägget `.html`. Till exempel `get-thumbnail.html`.
+1. Öppna ett webbläsarfönster.
+1. Dra och släpp filen till webbläsarfönstret i webbläsaren.
+1. När webbsidan visas i webbläsaren väljer du knappen **Generera miniatyrbild**.
 
 ```html
 <!DOCTYPE html>
@@ -54,11 +58,12 @@ För att köra exemplet följer du dessa steg:
         // Replace <Subscription Key> with your valid subscription key.
         var subscriptionKey = "<Subscription Key>";
 
-        // You must use the same region in your REST call as you used to get your
-        // subscription keys. For example, if you got your subscription keys from
-        // westus, replace "westcentralus" in the URI below with "westus".
+        // You must use the same Azure region in your REST API method as you used to
+        // get your subscription keys. For example, if you got your subscription keys
+        // from the West US region, replace "westcentralus" in the URL
+        // below with "westus".
         //
-        // Free trial subscription keys are generated in the westcentralus region.
+        // Free trial subscription keys are generated in the West Central US region.
         // If you use a free trial subscription key, you shouldn't need to change
         // this region.
         var uriBase =
@@ -155,19 +160,17 @@ Image for thumbnail:
 </html>
 ```
 
-## <a name="get-thumbnail-response"></a>Svar från miniatyrhämtning
+## <a name="examine-the-response"></a>Granska svaret
 
-Om åtgärden lyckas innehåller svaret binärfilen för miniatyrbilden. Om begäran misslyckas innehåller svaret en felkod och ett meddelande som beskriver vad som gick fel. Följande text är ett exempel på ett lyckat svar.
+Ett lyckat svar returneras i form av binärdata som representerar bilddata för miniatyrbilden. Om begäran lyckas så genereras miniatyrbilden från binärdata i svaret och visas i webbläsarfönstret. Om begäran misslyckas visas svaret i konsolfönstret. Svaret för en misslyckad begäran innehåller en felkod och ett meddelande som hjälper dig att avgöra vad som gick fel.
 
-```text
-Response:
+## <a name="clean-up-resources"></a>Rensa resurser
 
-"Content-Type: image/jpeg\r\n"
-```
+Ta bort din runbook när den inte längre behövs.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Utforska ett JavaScript-program som använder Visuellt innehåll för att utföra optisk teckenläsning (OCR), skapa miniatyrbilder med smart beskärning och identifiera, kategorisera, tagga och beskriv visuella funktioner, inklusive ansikten, i en bild. Du kan snabbt experimentera med API:erna för visuellt innehåll genom att prova [Open API-testkonsolen](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa/console).
+Utforska ett JavaScript-program som använder Visuellt innehåll för att utföra optisk teckenläsning (OCR), skapa miniatyrbilder med smart beskärning och identifiera, kategorisera, tagga och beskriv visuella funktioner, inklusive ansikten, i en bild. Du kan experimentera med API för visuellt innehåll i [Open API-testkonsolen](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa/console).
 
 > [!div class="nextstepaction"]
 > [Självstudie: API för visuellt innehåll med JavaScript](../Tutorials/javascript-tutorial.md)

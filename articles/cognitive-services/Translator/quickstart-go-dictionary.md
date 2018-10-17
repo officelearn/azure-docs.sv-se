@@ -1,21 +1,21 @@
 ---
-title: Hitta alternativa översättningar med Translator Text och Go | Microsoft Docs
-titleSuffix: Microsoft Cognitive Services
-description: I den här snabbstarten hittar du alternativa översättningar och exempel på termer i ett sammanhang med Translator Text-API:et med Go i Cognitive Services.
+title: 'Snabbstart: Hitta alternativa översättningar – Translator Text, Go'
+titleSuffix: Azure Cognitive Services
+description: I den här snabbstarten hittar du alternativa översättningar och exempel på termer i ett sammanhang med Translator Text-API:et med Go.
 services: cognitive-services
 author: noellelacharite
-manager: nolachar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-text
 ms.topic: quickstart
 ms.date: 06/29/2018
 ms.author: nolachar
-ms.openlocfilehash: a076418dbf969a61107c28f191457fc336a8b907
-ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
+ms.openlocfilehash: 4ea21673c993c6dd9478f42bfee790b62317946f
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "43771292"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46128884"
 ---
 # <a name="quickstart-find-alternate-translations-and-usage-with-go"></a>Snabbstart: Hitta alternativa översättningar och alternativ användning med Go
 
@@ -34,7 +34,7 @@ Följande hämtar alternativa översättningar för ett or med hjälp av metoden
 1. Skapa ett nytt Go-projekt i valfri kodredigerare.
 2. Lägg till koden nedan.
 3. Ersätt värdet `subscriptionKey` med en giltig åtkomstnyckel för din prenumeration.
-4. Spara filen med tillägget ".go".
+4. Spara filen med tillägget .go.
 5. Öppna en kommandotolk på en dator där Go är installerat.
 6. Skapa filen, till exempel "go build quickstart-lookup.go".
 7. Kör filen, till exempel: "quickstart-lookup".
@@ -174,7 +174,7 @@ Följande hämtar sammanhangsbaserade exempel på hur du använder en term i en 
 1. Skapa ett nytt Go-projekt i valfri kodredigerare.
 2. Lägg till koden nedan.
 3. Ersätt värdet `subscriptionKey` med en giltig åtkomstnyckel för din prenumeration.
-4. Spara filen med tillägget ".go".
+4. Spara filen med tillägget .go.
 5. Öppna en kommandotolk på en dator där Go är installerat.
 6. Skapa filen, till exempel "go build quickstart-examples.go".
 7. Kör filen, till exempel: "quickstart-examples".
@@ -282,7 +282,7 @@ Ett svar som anger att åtgärden lyckades returneras i JSON, som du ser i följ
 
 ## <a name="next-steps"></a>Nästa steg
 
-Utforska Go-paket för Cognitive Services-API:er via [Azure SDK för Go](https://github.com/Azure/azure-sdk-for-go) på GitHub.
+Utforska Go-paket för API:er för Cognitive Services via [Azure SDK för Go](https://github.com/Azure/azure-sdk-for-go) på GitHub.
 
 > [!div class="nextstepaction"]
 > [Utforska Go-paket på GitHub](https://github.com/Azure/azure-sdk-for-go/tree/master/services/cognitiveservices)

@@ -1,64 +1,65 @@
 ---
-title: Kom igång med API länka entiteten | Microsoft Docs
-description: Analysera text och länka med namnet entiteter till relevanta poster i en kunskapsbas med entiteten länka API i kognition Services.
+title: 'Självstudier: Skapa en entitetslänkande app – C#'
+titlesuffix: Azure Cognitive Services
+description: Analysera text och länka namngivna entiteter till relevanta poster i en kunskapsbas med hjälp av API för Entity Linking.
 services: cognitive-services
 author: DavidLiCIG
-manager: wkwok
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: entity-linking-intelligence
-ms.topic: article
+ms.topic: tutorial
 ms.date: 07/06/2016
 ms.author: davl
-ms.openlocfilehash: 54c4a3bbb3637c248bd7705ed291633368b542c9
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
-ms.translationtype: MT
+ms.openlocfilehash: 907b4cab483f1bf63a864094530784f9c632a1c8
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35351771"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46365646"
 ---
-# <a name="get-started-with-entity-linking-api-in-c35"></a>Kom igång med entiteten länka API i C&#35;
+# <a name="tutorial-build-an-entity-linking-app-with-c"></a>Självstudier: Skapa en entitetslänkande app med C#
 
-Länkning av Microsofts entiteten är ett verktyg för behandling av naturligt språk att analysera text och länka med namnet entiteter till relevanta poster i en knowledge base. 
+Microsofts Entity Linking är ett verktyg för bearbetning av naturligt språk som används för att analysera text och länka namngivna entiteter till relevanta poster i en kunskapsdatabas. 
 
-Den här självstudiekursen utforskar entitet länkar med entiteten länka klientbiblioteket som ett NuGet paket. 
+Den här guiden utforskar entitetslänkning med hjälp av Entity Linking-klientbiblioteket som ett NuGet-paket. 
 
 ### <a name="Prerequisites">Förutsättningar</a>
 
 - Visual Studio 2015
-- En kognitiva Microsoft Services API-nyckel
-- Installera klienten för bibliotek och exempel
-- Microsoft-enhet länka NuGet-paketet
+- En API-nyckel för Microsoft Cognitive Services
+- Hämta klientbiblioteket och exempel
+- Microsoft Entity Linking NuGet-paket
 
-Du kan hämta entiteten länka Intelligence Service API klientbiblioteket via [SDK](https://www.github.com/microsoft/cognitive-entitylinking-windows). Hämtade zip-filen måste extraheras till en valfri mapp, många användare väljer du mappen för Visual Studio 2015.
+Du kan ladda ned Entity Linking Intelligence Service API Client Library via [SDK](https://www.github.com/microsoft/cognitive-entitylinking-windows). Den hämtade zip-filen måste extraheras till en mapp som du väljer. Många användare väljer mappen för Visual Studio 2015.
 
-### <a name="step-1-subscribe-entity-linking-intelligence-service-and-get-your-own-key">Steg 1: Prenumerera entitet länka Intelligence-tjänsten och hämta din nyckel</a>
-Innan du använder tjänsten för entiteten Intelligence koppling, måste du registrera dig för en API-nyckel. Se [prenumerationer](https://www.microsoft.com/cognitive-services/en-us/sign-up). Både den primära och sekundära nyckeln kan användas i den här självstudiekursen.
+### <a name="step-1-subscribe-entity-linking-intelligence-service-and-get-your-own-key">Steg 1: Prenumerera på Entity Linking Intelligence Service och få din nyckel</a>
+Innan du börjar använda Entity Linking Intelligence Service måste du registrera dig för en API-nyckel. Se [prenumerationer](https://www.microsoft.com/cognitive-services/en-us/sign-up). Både den primära och sekundära nyckeln kan användas i den här självstudien.
 
 ### <a name="step-2-create-a-new-project-in-visual-studio"> Steg 2: Skapa ett nytt projekt i Visual Studio</a>
 
-Börja med att skapa ett nytt projekt i Visual Studio. Starta först, Visual Studio 2015 från Start-menyn. Skapa sedan ett nytt projekt genom att välja **installerat → mallar → Visual C# → Windows Universal → tom App** för projektmallen för:
+Låt oss börja med att skapa ett nytt projekt i Visual Studio. Starta först Visual Studio 2015 från Start-menyn. Skapa sedan ett nytt projekt genom att välja **Installerat → Mallar → Visual C# → Windows Universal → Tom app** för din projektmall:
 
  ![Skapa en universell app](./Images/CreateUWP.png)
 
-### <a name="step-3-add-the-entity-linking-nuget-package-to-your-project">Steg 3: Lägg till entiteten länka NuGet-paket i projektet</a>
+### <a name="step-3-add-the-entity-linking-nuget-package-to-your-project">Steg 3: Lägg till Entity Linking NuGet-paketet till ditt projekt</a>
 
-Entiteten länkning av kognitiva Services släpps som ett NuGet.org paket och måste installeras innan du kan använda den.
-Om du vill lägga till den i projektet, gå till den **Solution Explorer** , högerklicka på projektet och välj **hantera Nuget-paket**.
+Entity Linking för Cognitive Services släpps som ett NuGet.org-paket och måste installeras innan du kan använda det.
+Om du vill lägga till det i projektet går du till fliken **Solution Explorer**, högerklickar på projektet och väljer **Hantera Nuget-paket**.
 
-Först i den **NuGet Package Manager** fönstret Välj NuGet.org som din **Paketkällan** i det övre högra hörnet. Välj **Bläddra** i det övre vänstra hörnet och i sökrutan skriver du ”ProjectOxford.EntityLinking”. Välj den **Microsoft.ProjectOxford.EntityLinking** NuGet-paketet och klickar på **installera**.
+Välj först NuGet.org som din **Paketkälla** i det övre högra hörnet i fönstret **NuGet-pakethanteraren**. Välj **Bläddra** i det övre vänstra hörnet och i skriv ”ProjectOxford.EntityLinking” i sökrutan. Välj NuGet-paketet **Microsoft.ProjectOxford.EntityLinking** och klicka på **Installera**.
 
-Sök sedan efter Newtonsoft.Json och installera. Om du uppmanas att granska ändringar, klickar du på **OK**. Om du ges EntityLinking licensvillkoren klickar du på **jag accepterar**.
+Sök sedan efter Newtonsoft.Json och installera. Klicka på **OK** om du uppmanas att granska ändringarna. Om visas licensvillkoren för EntityLinking visas klickar du på **Jag accepterar**.
 
-Entiteten länka installeras som en del av ditt program. Du kan kontrollera detta genom att kontrollera som den ** Microsoft.ProjectOxford.EntityLinking** referens finns som en del av projektet i Solution Explorer.
+Entity Linking installeras som en del av ditt program. Du kan bekräfta detta genom att kontrollera att referensen ** Microsoft.ProjectOxford.EntityLinking** finns som en del av ditt projekt i Solution Explorer.
 
- ![Med nuget-biblioteket i projektet](./Images/NugetLibraryInProject.png)
+ ![Inkluderade nuget-biblioteket i projektet](./Images/NugetLibraryInProject.png)
  
-### <a name="step-4-add-an-input-and-output-text-block-to-your-apps-xaml">Steg 4: Lägga till indata och utdata textblock till din app XAML</a>
-Navigera till ** MainPage.xaml ** i **Solution Explorer**, dubbelklicka sedan på filen som ska öppnas i ett nytt fönster. Av praktiska skäl, du kan dubbelklicka på den **XAML** knappen i den **Designer** fliken döljs i **visuell Designer** och reservera allt utrymme för kodvyn.
+### <a name="step-4-add-an-input-and-output-text-block-to-your-apps-xaml">Steg 4: Lägg till in- och utdatatextblock i appens XAML</a>
+Gå till ** MainPage.xaml ** i **Solution Explorer** och dubbelklicka på filen som öppnas i ett nytt fönster. För enkelhetens skull kan du dubbelklicka på **XAML**-knappen på fliken **Designer**. Då döljs **Visuell designer** och reservera allt utrymme för kodvyn.
 
- ![Med nuget-biblioteket i projektet](./Images/UWPMainPage.png)
+ ![Inkluderade nuget-biblioteket i projektet](./Images/UWPMainPage.png)
  
-Som en tjänst, är det bästa sättet att visualisera funktionen att skapa indata och ett textblock för utdata. Det gör du genom att lägga till följande XAML i den **rutnätet**. Den här koden lägger till tre komponenter, en inkommande textruta, ett utdata textblock och en start-knappen.
+Det bästa sättet att visualisera funktionen som en tjänst är att skapa in- och utdatatextblock. Gör detta genom att lägga till följande XAML i **rutnätet**. Den här koden lägger till tre komponenter, en textruta för textinmatning, ett utdatatextblock och en startknapp.
  
  ```XAML
  <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
@@ -73,17 +74,17 @@ Som en tjänst, är det bästa sättet att visualisera funktionen att skapa inda
 </Grid>
  ```
  
-### <a name="step-5-proceed-to-add-entity-linking-intelligence-service">Steg 5: Fortsätta att lägga till entiteten länka Intelligence Service</a>
+### <a name="step-5-proceed-to-add-entity-linking-intelligence-service">Steg 5: Fortsätt med att lägga till Entity Linking Intelligence Service</a>
  
-Användargränssnittet har skapats. Innan du använder tjänsten entitet länkar, som vi behöver lägger du till hanteraren klickar på knappen. Öppna **MainPage.xaml** från **Solution Explorer**. Lägga till en hanterare för button_Click i slutet av knappen.
+Användargränssnittet skapas nu. Innan du använder Entity Linking Service måste du lägga till knapptryckningshanteraren. Öppna **MainPage.xaml** från **Solution Explorer**. Lägg till en knapptryckningshanterare vid slutet av knappen.
  
  ```XAML
  <Button x:Name="button" Grid.Row="2" Content="Get Result" Click="button_Click" />
  ```
  
-En hanterare för klickar på knappen måste implementeras i koden. Öppna **MainPage.xaml.cs** från **Solution Explorer** att implementera klickar på knappen. EntityLinkingServiceClient är en Omslutning för att hämta entiteten länka svar. Argumentet konstruktorn för EntityLinkingServiceClient är nyckeln kognitiva tjänster prenumeration. Klistra in nyckeln prenumeration som du fick i **steg 1** att anropa tjänsten entitet länkning. 
+En knapptryckningshanterare måste implementeras i koden. Implementera knapptryckningen genom att öppna **MainPage.xaml.cs** från **Solution Explorer**. EntityLinkingServiceClient är en adapter för hämtning av Entity Linking-svar. Konstruktorargumentetet för EntityLinkingServiceClient är Cognitive Services-prenumerationsnyckeln. Klistra in prenumerationsnyckeln som du fick i **steg 1** för att anropa Entity Linking-tjänsten. 
 
-Nedan visas exempelkod som lägger till ”wikipediaId” i svaret med hjälp av tjänsten för entiteten koppling. 
+Nedan visas exempelkod som lägger till ”wikipediaId” i svaret med hjälp av tjänsten Entity Linking. 
  
  ```csharp
  private async void button_Click(object sender, RoutedEventArgs e)
@@ -96,11 +97,11 @@ Nedan visas exempelkod som lägger till ”wikipediaId” i svaret med hjälp av
 }
  ```
  
-Nu är du redo att köra ditt första naturligt språk entitet länka App bearbetas. Tryck på den **F5-tangenten** att kompilera och starta programmet. Klistra in text kodavsnitt eller stycken i inmatningsrutan. Tryck på knappen ”Hämta resultatet” och notera identifierade enheter i utdatablock.
+Nu är du redo att köra din första entitetslänkningsapp för bearbetning på naturligt språk. Kompilera och starta programmet genom att trycka på **F5**. Klistra in textkodfragment eller stycken i inmatningsrutan. Tryck på knappen Hämta resultat och notera de identifierade enheterna i utdatablocket.
  
- ![Resultat för UWP-exempel](./Images/DemoCodeResult.png)
+ ![UWP-exempelresultat](./Images/DemoCodeResult.png)
  
 ### <a name="summary">Sammanfattning</a>
  
-Du har lärt dig hur du skapar ett program för att utnyttja entitet länka Intelligence Service klientbiblioteket med bara några få rader C# och XAML-kod i den här självstudiekursen. 
+I den här självstudien har du lärt dig hur du skapar ett program för att utnyttja Entity Linking Intelligence Service Client Library med bara några rader av C#- och XAML-kod. 
 

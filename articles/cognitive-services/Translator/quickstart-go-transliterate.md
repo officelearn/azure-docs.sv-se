@@ -1,21 +1,21 @@
 ---
-title: Konvertera text från skript med Translator Text och Go | Microsoft Docs
-titleSuffix: Microsoft Cognitive Services
-description: I den här snabbstarten konverterar du text i ett språk från ett skript till ett annat med hjälp av Translator Text-API:et med Go i Cognitive Services.
+title: 'Snabbstart: Konvertera textskript – Translator Text, Go'
+titleSuffix: Azure Cognitive Services
+description: I den här snabbstarten ska du få konvertera text i ett språk från ett skript till ett annat med hjälp av Translator Text-API:et med Go.
 services: cognitive-services
 author: noellelacharite
-manager: nolachar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-text
 ms.topic: quickstart
 ms.date: 06/29/2018
 ms.author: nolachar
-ms.openlocfilehash: f01fe38ef0605ad399edc03b52dc5b8ecc75275b
-ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
+ms.openlocfilehash: c4930e03f5d366eb3f21b44c5be90c20230065c3
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "43771303"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46126759"
 ---
 # <a name="quickstart-transliterate-text-with-go"></a>Snabbstart: Transkribera text med Go
 
@@ -34,7 +34,7 @@ Följande kod konverterar text i ett språk från ett skript till ett annat skri
 1. Skapa ett nytt Go-projekt i valfri kodredigerare.
 2. Lägg till koden nedan.
 3. Ersätt värdet `subscriptionKey` med en giltig åtkomstnyckel för din prenumeration.
-4. Spara filen med tillägget ".go".
+4. Spara filen med tillägget .go.
 5. Öppna en kommandotolk på en dator där Go är installerat.
 6. Skapa filen, till exempel "go build quickstart-transliterate.go".
 7. Kör filen, till exempel: "quickstart-transliterate".
@@ -123,7 +123,7 @@ Ett svar som anger att åtgärden lyckades returneras i JSON, som du ser i följ
 
 ## <a name="next-steps"></a>Nästa steg
 
-Utforska Go-paket för Cognitive Services-API:er via [Azure SDK för Go](https://github.com/Azure/azure-sdk-for-go) på GitHub.
+Utforska Go-paket för API:er för Cognitive Services via [Azure SDK för Go](https://github.com/Azure/azure-sdk-for-go) på GitHub.
 
 > [!div class="nextstepaction"]
 > [Utforska Go-paket på GitHub](https://github.com/Azure/azure-sdk-for-go/tree/master/services/cognitiveservices)

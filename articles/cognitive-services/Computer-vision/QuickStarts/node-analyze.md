@@ -1,53 +1,57 @@
 ---
-title: 'Snabbstart: Analysera bilder med API:et för visuellt innehåll och Node.js | Microsoft Docs'
-titleSuffix: Microsoft Cognitive Services
-description: I den här snabbstarten ska du analysera en bild med hjälp av Visuellt innehåll och Node.js i Cognitive Services.
+title: 'Snabbstart: Analysera en fjärrbild – REST, Node.js – Visuellt innehåll'
+titleSuffix: Azure Cognitive Services
+description: I den här snabbstarten analyserar du en bild med hjälp av API:et för visuellt innehåll med Node.js.
 services: cognitive-services
 author: noellelacharite
-manager: nolachar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: computer-vision
 ms.topic: quickstart
 ms.date: 08/28/2018
 ms.author: v-deken
-ms.openlocfilehash: dab6547e08b1b01a9090a817d728c86359c680f2
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: 76174a14720502a444fb86a337445caf1910ff78
+ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43772168"
+ms.lasthandoff: 09/15/2018
+ms.locfileid: "45631591"
 ---
-# <a name="quickstart-analyze-a-remote-image---rest-nodejs"></a>Snabbstart: Analysera en fjärrbild – REST, Node.js
+# <a name="quickstart-analyze-a-remote-image-using-the-rest-api-with-nodejs-in-computer-vision"></a>Snabbstart: Analysera en fjärrbild med hjälp av REST API:et med Node.js i Visuellt innehåll
 
-I den här snabbstarten ska du analysera en bild för att extrahera visuella funktioner med hjälp av Visuellt innehåll.
+I den här snabbstarten analyserar du en fjärrlagrad bild för att extrahera visuella funktioner med hjälp av REST API:et för visuellt innehåll. Med metoden [Analyze Image](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) (Analysera bild) kan du extrahera visuella funktioner baserat på bildinnehåll.
+
+Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/ai/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=cognitive-services) innan du börjar.
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
-För att använda Visuellt innehåll behöver du en prenumerationsnyckel. Mer information finns i avsnittet [Obtaining Subscription Keys](../Vision-API-How-to-Topics/HowToSubscribe.md) (Hämta prenumerationsnycklar).
+- Du måste ha [Node.js](https://nodejs.org) 4.x eller senare installerat.
+- Du måste ha [npm](https://www.npmjs.com/) installerat.
+- Du måste ha en prenumerationsnyckel för Visuellt innehåll. Du kan skaffa en prenumerationsnyckel genom att följa anvisningarna i [Skaffa prenumerationsnycklar](../Vision-API-How-to-Topics/HowToSubscribe.md).
 
-## <a name="analyze-image-request"></a>Bildanalysbegäran
+## <a name="create-and-run-the-sample"></a>Skapa och köra exemplet
 
-Med metoden [Analyze Image](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) (Analysera bild) kan du extrahera visuella funktioner baserat på bildinnehåll. Du kan ladda upp en bild eller ange en bild-URL och välja vilka funktioner som ska returneras, inklusive:
+Så här skapar du och kör exemplet:
 
-* En detaljerad lista över taggar relaterade till bildinnehållet.
-* En beskrivning av bildinnehållet i en fullständig mening.
-* Koordinater, kön och ålder för ansikten som finns i bilden.
-* Bildtyp (ClipArt eller en linjeteckning).
-* Den mest framträdande färgen, accentfärgen eller huruvida en bild är svartvit.
-* Kategorin som definierats i den här [taxonomin](../Category-Taxonomy.md).
-* Innehåller bilden innehåll som inte är lämpligt för barn?
+1. Installera npm-paketet [`request`](https://www.npmjs.com/package/request).
+   1. Öppna ett kommandotolksfönster som administratör.
+   1. Kör följande kommando:
 
-För att köra exemplet följer du dessa steg:
+      ```console
+      npm install request
+      ```
 
-1. Kopiera följande kod till ett redigeringsprogram.
-1. Ersätt `<Subscription Key>` med en giltig prenumerationsnyckel.
-1. Ändra värdet `uriBase` till den plats där du hämtade dina prenumerationsnycklar om det behövs.
-1. Du kan också ändra värdet `imageUrl` till den bild som du vill analysera.
-1. Du kan också ändra språket för svar (`'language': 'en'`).
-1. Spara filen med tillägget `.js`.
-1. Öppna Node.js-kommandotolken och kör filen, till exempel: `node myfile.js`.
+   1. Stäng kommandotolkens fönster när paketet har installerats.
 
-I det här exemplet används [request](https://www.npmjs.com/package/request)-paketet för npm.
+1. Kopiera följande kod till en textredigerare.
+1. Gör följande ändringar i koden där det behövs:
+    1. Ersätt värdet för `subscriptionKey` med din prenumerationsnyckel.
+    1. Ersätt värdet för `uriBase` med slutpunktsadressen för metoden [Analysera bild](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) från den Azure-region där du fått dina prenumerationsnycklar om det behövs.
+    1. Du kan också ersätta värdet för `imageUrl` med webbadressen till en annan bild som du vill analysera.
+    1. Du kan också ersätta värdet för parametern `language` för begäran med ett annat språk.
+1. Spara koden som en fil med tillägget `.js`. Till exempel `analyze-image.js`.
+1. Öppna ett kommandotolksfönster.
+1. Kör filen i kommandotolken med kommandot `node`. Till exempel `node analyze-image.js`.
 
 ```nodejs
 'use strict';
@@ -94,9 +98,9 @@ request.post(options, (error, response, body) => {
 });
 ```
 
-## <a name="analyze-image-response"></a>Bildanalyssvar
+## <a name="examine-the-response"></a>Granska svaret
 
-Ett svar som anger att åtgärden lyckades returneras i JSON, till exempel:
+Ett svar som anger att åtgärden lyckades returneras i JSON. Exemplet parsar och visar ett lyckat svar i kommandotolksfönstret enligt följande exempel:
 
 ```json
 {
@@ -164,9 +168,22 @@ Ett svar som anger att åtgärden lyckades returneras i JSON, till exempel:
 }
 ```
 
+## <a name="clean-up-resources"></a>Rensa resurser
+
+När du inte behöver filen längre kan du ta bort den och sedan avinstallera npm-paketet `request`. Avinstallera paketet på följande sätt:
+
+1. Öppna ett kommandotolksfönster som administratör.
+2. Kör följande kommando:
+
+   ```console
+   npm uninstall request
+   ```
+
+3. Stäng kommandotolkens fönster när paketet har avinstallerats.
+
 ## <a name="next-steps"></a>Nästa steg
 
-Utforska API:erna för visuellt innehåll som används för att analysera en bild, identifiera kändisar och landmärken, skapa en miniatyrbild och extrahera tryckt och handskriven text. Du kan snabbt experimentera med API:erna för visuellt innehåll genom att prova [Open API-testkonsolen](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa/console).
+Utforska API:erna för visuellt innehåll som används för att analysera en bild, identifiera kändisar och landmärken, skapa en miniatyrbild och extrahera tryckt och handskriven text. Du kan snabbt experimentera med API:et för visuellt innehåll genom att prova [Open API-testkonsolen](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa/console).
 
 > [!div class="nextstepaction"]
-> [Utforska API:er för visuellt innehåll](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44)
+> [Utforska API:et för visuellt innehåll](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44)

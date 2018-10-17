@@ -1,185 +1,116 @@
 ---
-title: Bing avbildningen överför efter insikter | Microsoft Docs
-description: Konsolprogram som använder Bing avbildningen Sök-API för att ladda upp en bild och få insikter om bilden.
+title: 'Självstudier: Extrahera avbildningsinformation med hjälp av C# – API för bildsökning i Bing'
+titleSuffix: Azure Cognitive Services
+description: Använd den här artikeln om du vill skapa ett C#-program som extraherar avbildningsinformation med hjälp av API för bildsökning i Bing.
 services: cognitive-services
-author: mikedodaro
-manager: rosh
+author: aahill
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-image-search
-ms.topic: article
-ms.date: 12/07/2017
-ms.author: v-gedod
-ms.openlocfilehash: f0bf32a9951527a072fffe464f6b5f50d0f237a2
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
-ms.translationtype: MT
+ms.topic: tutorial
+ms.date: 9/14/2018
+ms.author: aahi
+ms.openlocfilehash: 96d011a04c97d309409062a286bdd7a17db9cda5
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35351459"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46297664"
 ---
-# <a name="tutorial-bing-image-upload-for-insights"></a>Självstudier: Bing avbildningen överför efter insikter
+# <a name="tutorial-extract-image-details-using-the-bing-image-search-api-and-c"></a>Självstudier: Extrahera avbildningsinformation med hjälp av API för bildsökning i Bing och C#
 
-Bing avbildningen Sök API ger en `POST` alternativ för att överföra en avbildning och söka efter information som är relevanta för bilden. Den här C#-konsolprogram överför en bild med slutpunkten Image-sökning och få information om bilden.
-Resultatet är en kort, JSON-objekt, till exempel följande:
+Det finns flera [slutpunkter](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/image-search-endpoint) tillgängliga via API för bildsökning i Bing. Slutpunkten `/details` accepterar en POST-begäran med en avbildning och kan returnera olika typer av information om avbildningen. Det här C#-programmet skickar en avbildning med hjälp av detta API och visar informationen som returneras av Bing, vilket är JSON-objekt, som t.ex. följande:
 
-![[JSON-resultaten]](media/cognitive-services-bing-images-api/jsonResult.jpg)
+![[JSON-resultat]](media/cognitive-services-bing-images-api/jsonResult.jpg)
 
 I den här självstudien beskrivs hur du:
 
 > [!div class="checklist"]
-> * Sök bild `/details` slutpunkt i en `POST` begäran
+> * Använda `/details`-slutpunkten för Bildsökning i en `POST`-begäran
 > * Ange huvuden för begäran
-> * Använd URL-parametrar för att ange resultat
-> * Överför avbildningen data och skicka den `POST` begäran
+> * Specificera resultet med hjälp av URL-parametrar
+> * Ladda upp avbildningsdata och skicka `POST`-begäran
 > * Skriv ut JSON-resultat till konsolen
 
-## <a name="app-components"></a>Komponenter för appar
+Källkoden till det här exemplet finns på [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/Tutorials/BingGetSimilarImages.cs).
 
-Självstudiekurs programmet innehåller tre delar:
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
-> [!div class="checklist"]
-> * Slutpunktskonfigurationen för att ange Bing Image-sökning slutpunkt och nödvändiga rubriker
-> * Bild filöverföringar för `POST` begäran till slutpunkten
-> * Parsning av JSON-resultat som är information som returnerades från den `POST` begäran
+* Valfri version av [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/).
 
-## <a name="scenario-overview"></a>Scenarioöversikt
-Det finns [tre Image-sökning slutpunkter](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/image-search-endpoint). Den `/details` endpoint kan använda en `POST` begäran med bilddata i brödtexten i begäran.
+[!INCLUDE [cognitive-services-bing-image-search-signup-requirements](../../../includes/cognitive-services-bing-image-search-signup-requirements.md)]
+
+## <a name="construct-an-image-details-search-request"></a>Skapa en sökbegäran för avbildningsinformation
+
+Följande är `/details`-slutpunkten, vilken godkänner POST-förfrågningar med avbildningsdata i brödtexten.
 ```
 https://api.cognitive.microsoft.com/bing/v7.0/images/details
 ```
-Den `modules` följande för URL-parametern `/details?` anger vilken typ av information om resultaten innehåller:
+
+När du skapar sökbegärans URL följer `modules`-parametern slutpunkten ovan och anger vilka typer av information som resultatet kommer att innehålla:
+
 * `modules=All`
-* `modules=RecognizedEntities` (personer eller platser som visas i bilden)
+* `modules=RecognizedEntities` (personer eller platser som visas på bilden)
 
-Ange `modules=All` i den `POST` förfrågan om att hämta JSON-text som innehåller följande lista:
-* `bestRepresentativeQuery` -en Bing-fråga som returnerar bilder liknar den överförda bilden
-* `detectedObjects` till exempel en avgränsningsram eller aktiva punkter i avbildningen
-* `image` metadata
-* `imageInsightsToken` -token för en efterföljande `GET` begäran som hämtar `RecognizedEntities` (personer eller platser som visas i bilden) 
-* `imageTags`
-* `pagesIncluding` -Webbsidor med avbildningen
-* `relatedSearches`
-* `visuallySimilarImages`
+Specificera `modules=All` i POST-begäran för att få JSON-text som innehåller följande:
 
-Ange `modules=RecognizedEntities` i den `POST` förfrågan om att hämta endast den `imageInsightsToken`, som används i ett efterföljande `GET` begäran. Den identifierar eller placerar visas i bilden.
+* `bestRepresentativeQuery` – en Bing-fråga som returnerar bilder som liknar den uppladdade bilden
+* `detectedObjects` – objekt funna i bilden
+* `image` – bildens metadata
+* `imageInsightsToken` – en token för senare GET-förfrågningar som hämtar `RecognizedEntities` (personer eller platser som visas på bilden) från bilden.
+* `imageTags` – taggar för bilden
+* `pagesIncluding` – webbsidor som inkluderar bilden
+* `relatedSearches` – sökningar som baseras på informationen i bilden.
+* `visuallySimilarImages` – liknande bilder på webben.
 
-## <a name="webclient-and-headers-for-the-post-request"></a>WebClient och huvuden för POST-begäran
-Skapa en `WebClient` objektet och ange rubrikerna. Alla förfrågningar till Bing Search API kräver en `Ocp-Apim-Subscription-Key`. En `POST` begäran om att ladda upp en avbildning måste även ange `ContentType: multipart/form-data`.
+Specificera `modules=RecognizedEntities` i POST-begäran för att bara få `imageInsightsToken`, som kan användas i en efterföljande GET-begäran för att identifiera personer eller platser på bilden.
 
-```
-            WebClient client = new WebClient();
-            client.Headers["Ocp-Apim-Subscription-Key"] = accessKey;
-            client.Headers["ContentType"] = "multipart/form-data"; 
-```
+## <a name="create-a-webclient-object-and-set-headers-for-the-api-request"></a>Skapa ett WebClient-objekt och ange huvuden för API-begäran
 
-## <a name="upload-the-image-and-get-results"></a>Överför avbildningen och få resultat
+Skapa ett `WebClient`-objekt och konfigurera rubrikerna. Alla förfrågningar till API för sökning i Bing kräver en `Ocp-Apim-Subscription-Key`. En `POST`-begäran om att ladda upp en bild måste även specificera `ContentType: multipart/form-data`.
 
-Den `WebClient` klassen innehåller den `UpLoadFile` metod för att formatera data för den `POST` begäran. Formateras den `RequestStream` och anropar `HttpWebRequest`, undvika mycket komplex.
-Anropa `WebClient.UpLoadFile` med den `/details` slutpunkt och image-filen ska överföras. Svaret är binära data som enkelt kan omvandlas till JSON. 
-
-Använda JSON-text för att initiera en instans av den `SearchResult` struktur (finns i [programkällkod](tutorial-image-post-source.md) för kontext).
-```        
-         const string uriBase = "https://api.cognitive.microsoft.com/bing/v7.0/images/details";
-
-        // The image to upload. Replace with your file and path.
-        const string imageFile = "ansel-adams-tetons-snake-river.jpg";
-            
-        byte[] resp = client.UploadFile(uriBase + "?modules=All", imageFile);
-        var json = System.Text.Encoding.Default.GetString(resp);
-
-        // Create result object for return
-        var searchResult = new SearchResult()
-        {
-            jsonResult = json,
-            relevantHeaders = new Dictionary<String, String>()
-        };
+```javascript
+WebClient client = new WebClient();
+client.Headers["Ocp-Apim-Subscription-Key"] = accessKey;
+client.Headers["ContentType"] = "multipart/form-data";
 ```
 
-## <a name="print-the-results"></a>Skriva ut resultatet
-Resten av koden Parsar JSON-resultat och skriver ut den till konsolen.
+## <a name="upload-the-image-and-display-the-results"></a>Ladda upp bilden och visa resultaten
 
+`WebClient`-klassens `UpLoadFile()`-metod formaterar data för `POST`-begäran, bl.a. för att formatera `RequestStream` och anropa `HttpWebRequest`.
+
+Anropa `WebClient.UpLoadFile()` med `/details`-slutpunkten och den avbildningsfil som ska laddas upp. Använd JSON-svaret till att initiera en instans av `SearchResult`-strukturen och spara svaret.
+
+```javascript        
+const string uriBase = "https://api.cognitive.microsoft.com/bing/v7.0/images/details";
+// The image to upload. Replace with your file and path.
+const string imageFile = "your-image.jpg";
+byte[] resp = client.UploadFile(uriBase + "?modules=All", imageFile);
+var json = System.Text.Encoding.Default.GetString(resp);
+// Create result object for return
+var searchResult = new SearchResult()
+{
+    jsonResult = json,
+    relevantHeaders = new Dictionary<String, String>()
+};
 ```
-        /// <summary>
-        /// Formats the given JSON string by adding line breaks and indents.
-        /// </summary>
-        /// <param name="json">The raw JSON string to format.</param>
-        /// <returns>The formatted JSON string.</returns>
-        static string JsonPrettyPrint(string json)
-        {
-            if (string.IsNullOrEmpty(json))
-                return string.Empty;
+Det här JSON-svaret kan sedan skrivas ut till konsolen.
 
-            json = json.Replace(Environment.NewLine, "").Replace("\t", "");
+## <a name="use-an-image-insights-token-in-a-request"></a>Använda en avbildningsinsiktstoken i en begäran
 
-            StringBuilder sb = new StringBuilder();
-            bool quote = false;
-            bool ignore = false;
-            char last = ' ';
-            int offset = 0;
-            int indentLength = 2;
+Om du vill använda `ImageInsightsToken` som returnerades med resultatet av en `POST`, så kan du lägga till den i en `GET` begäran. Exempel:
 
-            foreach (char ch in json)
-            {
-                switch (ch)
-                {
-                    case '"':
-                        if (!ignore) quote = !quote;
-                        break;
-                    case '\\':
-                        if (quote && last != '\\') ignore = true;
-                        break;
-                }
-
-                if (quote)
-                {
-                    sb.Append(ch);
-                    if (last == '\\' && ignore) ignore = false;
-                }
-                else
-                {
-                    switch (ch)
-                    {
-                        case '{':
-                        case '[':
-                            sb.Append(ch);
-                            sb.Append(Environment.NewLine);
-                            sb.Append(new string(' ', ++offset * indentLength));
-                            break;
-                        case '}':
-                        case ']':
-                            sb.Append(Environment.NewLine);
-                            sb.Append(new string(' ', --offset * indentLength));
-                            sb.Append(ch);
-                            break;
-                        case ',':
-                            sb.Append(ch);
-                            sb.Append(Environment.NewLine);
-                            sb.Append(new string(' ', offset * indentLength));
-                            break;
-                        case ':':
-                            sb.Append(ch);
-                            sb.Append(' ');
-                            break;
-                        default:
-                            if (quote || ch != ' ') sb.Append(ch);
-                            break;
-                    }
-                }
-                last = ch;
-            }
-
-            return sb.ToString().Trim();
-        }
-```
-## <a name="get-request-using-the-imageinsightstoken"></a>Hämta begäran med ImageInsightsToken
-Att använda den `ImageInsightsToken` returneras med resultatet av en `POST`, skapa en `GET` begäran på följande:
 ```
 https://api.cognitive.microsoft.com/bing/v7.0/images/details?InsightsToken="bcid_A2C4BB81AA2C9EF8E049C5933C546449*ccid_osS7gaos*mid_BF7CC4FC4A882A3C3D56E644685BFF7B8BACEAF2
 ```
-Om det finns identifierbar personer eller platser i avbildningen kan returnerar denna begäran information om dessa.
-Den [Snabbstart](https://docs.microsoft.com/azure/cognitive-services/bing-image-search) innehåller flera kodexempel.
+
+Om det finns identifierbara personer eller platser på bilden returnerar begäran information om dem.
 
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Bing avbildningen Sök API-referens](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference)
+> [Visa bilder och sökalternativ i en enda enskild webbapp ](tutorial-bing-image-search-single-page-app.md)
 
+## <a name="see-also"></a>Se även
+
+* [Referens för API för bildsökning i Bing](//docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference)

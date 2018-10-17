@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 08/14/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: b2bb187e5ad55b466da0b9b06ffbb047ac539717
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: 20a57a0d528fa6a291aa66f91ff6ddd71053f478
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43105007"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46297068"
 ---
 # <a name="tutorial-prepare-an-application-for-azure-kubernetes-service-aks"></a>Självstudie: Förbereda ett program för Azure Kubernetes Service (AKS)
 
@@ -35,7 +35,7 @@ I efterföljande självstudier laddas containeravbildningen upp till ett Azure C
 
 Den här självstudiekursen förutsätter grundläggande kunskaper om grundläggande Docker-begrepp som containrar, containeravbildningar och `docker`-kommandon. Läs mer om grunderna för containrar i [Kom igång med Docker][docker-get-started].
 
-För att slutföra den här självstudien behöver du en lokal Docker-utvecklingsmiljö. Docker tillhandahåller paket som konfigurerar Docker i ett [Mac][docker-for-mac]-, [Windows][docker-for-windows]- eller [Linux][docker-for-linux]-system.
+För att slutföra den här självstudien behöver du en lokal Docker-utvecklingsmiljö som kör Linux-containrar. Docker tillhandahåller paket som konfigurerar Docker i ett [Mac][docker-for-mac]-, [Windows][docker-for-windows]- eller [Linux][docker-for-linux]-system.
 
 Azure Cloud Shell inkluderar inte de Docker-komponenter som krävs för att slutföra stegen i dessa självstudier. Därför rekommenderar vi att du använder en fullständig Docker-utvecklingsmiljö.
 

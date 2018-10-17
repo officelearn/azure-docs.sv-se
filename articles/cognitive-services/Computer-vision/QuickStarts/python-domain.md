@@ -1,51 +1,49 @@
 ---
-title: 'Snabbstart: Använda en domänmodell med Visuellt innehåll och Python | Microsoft Docs'
-titleSuffix: Microsoft Cognitive Services
-description: I den här snabbstarten använder du domänmodeller för att identifiera kända personer och landmärken i en bild med hjälp av Visuellt innehåll och Python i Cognitive Services.
+title: 'Snabbstart: Använda en domänmodell – REST, Python – Visuellt innehåll'
+titleSuffix: Azure Cognitive Services
+description: I den här snabbstarten använder du domänmodeller för att identifiera kända personer och landmärken i en bild med hjälp av API:et för visuellt innehåll med Python.
 services: cognitive-services
 author: noellelacharite
-manager: nolachar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: computer-vision
 ms.topic: quickstart
 ms.date: 08/28/2018
 ms.author: v-deken
-ms.openlocfilehash: 357cab72c0a6c9a2254350c84cda91c366ac685a
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: 93027e2f9cd3a9b0e9c6ef261b8af876022632a4
+ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43771933"
+ms.lasthandoff: 09/15/2018
+ms.locfileid: "45632457"
 ---
-# <a name="quickstart-use-a-domain-model---rest-python"></a>Snabbstart: Använda en domänmodell – REST, Python
+# <a name="quickstart-use-a-domain-model-using-the-rest-api-and-python-in-computer-vision"></a>Snabbstart: Använd en domänmodell med hjälp av REST API:et och Python i Visuellt innehåll
 
-I den här snabbstarten använder du domänmodeller för att identifiera kända personer och landmärken i en bild med hjälp av Visuellt innehåll.
+I den här snabbstarten använder du en domänmodell för att identifiera landmärken eller kändisar i en fjärrlagrad bild med hjälp av REST API för visuellt innehåll. Med metoden [Recognize Domain Specific Content](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e200) (Identifiera domänspecifikt innehåll) kan du tillämpa en domänspecifik modell för att känna igen innehåll i en bild.
 
 Du kan köra den här snabbstarten steg för steg med hjälp av en Jupyter-anteckningsbok på [MyBinder](https://mybinder.org). Starta Binder med den här knappen:
 
 [![Binder](https://mybinder.org/badge.svg)](https://mybinder.org/v2/gh/Microsoft/cognitive-services-notebooks/master?filepath=VisionAPI.ipynb)
 
+Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/ai/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=cognitive-services) innan du börjar.
+
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
-För att använda Visuellt innehåll behöver du en prenumerationsnyckel. Mer information finns i avsnittet [Obtaining Subscription Keys](../Vision-API-How-to-Topics/HowToSubscribe.md) (Hämta prenumerationsnycklar).
+- Du måste ha [Python](https://www.python.org/downloads/) installerat om du vill köra exemplet lokalt.
+- Du måste ha en prenumerationsnyckel för Visuellt innehåll. Du kan skaffa en prenumerationsnyckel genom att följa anvisningarna i [Skaffa prenumerationsnycklar](../Vision-API-How-to-Topics/HowToSubscribe.md).
 
-## <a name="identify-celebrities-and-landmarks"></a>Identifiera kända personer och landmärken
+## <a name="create-and-run-the-landmarks-sample"></a>Skapa och köra exemplet med landmärken
 
-Med metoden [Recognize Domain Specific Content](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e200) (Identifiera domänspecifikt innehåll) kan du identifiera en specifik uppsättning objekt i en bild. De två domänspecifika modeller som är tillgängliga för närvarande är _kändisar_ och _landmärken_.
+Så här skapar du och kör exemplet med landmärken:
 
-För att köra exemplet följer du dessa steg:
-
-1. Kopiera följande kod till en ny Python-skriptfil.
-1. Ersätt `<Subscription Key>` med en giltig prenumerationsnyckel.
-1. Ändra värdet `vision_base_url` till den plats där du hämtade dina prenumerationsnycklar, om det behövs.
-1. Du kan även ändra `image_url`-värdet till en annan bild.
-1. Kör skriptet.
-
-Följande kod använder Python `requests`-biblioteket för att anropa API:et för visuellt innehåll Analysera bild. Det returnerar resultatet som ett JSON-objekt. API-nyckeln skickas via `headers`-ordlistan. Den modell som ska användas skickas via `params`-ordlistan.
-
-## <a name="landmark-identification"></a>Identifiering av landmärken
-
-### <a name="recognize-landmark-request"></a>Begäran om landmärkesidentifiering
+1. Kopiera följande kod till en textredigerare.
+1. Gör följande ändringar i koden där det behövs:
+    1. Ersätt värdet för `subscription_key` med din prenumerationsnyckel.
+    1. Ersätt värdet för `vision_base_url` med slutpunktens URL för resursen för Visuellt innehåll i den Azure-region där du fick dina prenumerationsnycklar, om så behövs.
+    1. Du kan också ersätta värdet för `image_url` med webbadressen till en annan bild som du vill identifiera landmärken i.
+1. Spara koden som en fil med tillägget `.py`. Till exempel `get-landmarks.py`.
+1. Öppna ett kommandotolksfönster.
+1. I kommandotolken kör du exemplet med kommandot `python`. Till exempel `python get-landmarks.py`.
 
 ```python
 import requests
@@ -95,9 +93,9 @@ plt.axis("off")
 _ = plt.title(landmark_name, size="x-large", y=-0.1)
 ```
 
-### <a name="recognize-landmark-response"></a>Svar från landmärkesidentifiering
+## <a name="examine-the-response-for-the-landmarks-sample"></a>Granska svaret för exemplet med landmärken
 
-Ett svar som anger att åtgärden lyckades returneras i JSON, till exempel:
+Ett svar som anger att åtgärden lyckades returneras i JSON. Exempelwebbsidan parsar och visar ett lyckat svar i kommandotolkens fönster enligt följande exempel:
 
 ```json
 {
@@ -118,9 +116,18 @@ Ett svar som anger att åtgärden lyckades returneras i JSON, till exempel:
 }
 ```
 
-## <a name="celebrity-identification"></a>Identifiering av kända personer
+## <a name="create-and-run-the-celebrities-sample"></a>Skapa och köra exemplet med kändisar
 
-### <a name="recognize-celebrity-request"></a>Begäran om kändisidentifiering
+Så här skapar du och kör exemplet med landmärken:
+
+1. Kopiera följande kod till en textredigerare.
+1. Gör följande ändringar i koden där det behövs:
+    1. Ersätt värdet för `subscription_key` med din prenumerationsnyckel.
+    1. Ersätt värdet för `vision_base_url` med slutpunktens URL för resursen för Visuellt innehåll i den Azure-region där du fick dina prenumerationsnycklar, om så behövs.
+    1. Du kan också ersätta värdet för `image_url` med webbadressen till en annan bild som du vill identifiera kändisar i.
+1. Spara koden som en fil med tillägget `.py`. Till exempel `get-celebrities.py`.
+1. Öppna ett kommandotolksfönster.
+1. I kommandotolken kör du exemplet med kommandot `python`. Till exempel `python get-celebrities.py`.
 
 ```python
 import requests
@@ -163,9 +170,10 @@ plt.axis("off")
 _ = plt.title(celebrity_name, size="x-large", y=-0.1)
 ```
 
-### <a name="recognize-celebrity-response"></a>Svar från kändisidentifiering
+## <a name="examine-the-response-for-the-celebrities-sample"></a>Granska svaret för exemplet med kändisar
 
-Ett svar som anger att åtgärden lyckades returneras i JSON, till exempel:
+Ett svar som anger att åtgärden lyckades returneras i JSON. Exempelwebbsidan parsar och visar ett lyckat svar i kommandotolkens fönster enligt följande exempel:
+
 
 ```json
 {
@@ -192,9 +200,13 @@ Ett svar som anger att åtgärden lyckades returneras i JSON, till exempel:
 }
 ```
 
+## <a name="clean-up-resources"></a>Rensa resurser
+
+Ta bort filerna för båda exemplen när de inte längre behövs.
+
 ## <a name="next-steps"></a>Nästa steg
 
-Utforska ett Python-program som använder Visuellt innehåll för att utföra optisk teckenläsning (OCR), skapa miniatyrbilder med smart beskärning och identifiera, kategorisera, tagga och beskriv visuella funktioner, inklusive ansikten, i en bild. Du kan snabbt experimentera med API:erna för visuellt innehåll genom att prova [Open API-testkonsolen](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa/console).
+Utforska ett Python-program som använder Visuellt innehåll för att utföra optisk teckenläsning (OCR), skapa miniatyrbilder med smart beskärning och identifiera, kategorisera, tagga och beskriv visuella funktioner, inklusive ansikten, i en bild. Du kan snabbt experimentera med API:et för visuellt innehåll genom att prova [Open API-testkonsolen](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa/console).
 
 > [!div class="nextstepaction"]
 > [Självstudie: API för visuellt innehåll med Python](../Tutorials/PythonTutorial.md)

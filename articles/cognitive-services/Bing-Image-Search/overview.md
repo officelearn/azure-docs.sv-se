@@ -1,6 +1,7 @@
 ---
-title: Vad är bildsökning i Bing? | Microsoft Docs
-description: Lär dig hur du använder API för bildsökning i Bing för att söka efter bilder på webben.
+title: Vad är bildsökning i Bing?
+titleSuffix: Azure Cognitive Services
+description: Med API:et för bildsökning i Bing kan du använda Bings kognitiva bildsökningsfunktioner i programmet. Genom att skicka användarsökfrågor med API:et kan du hämta och visa relevanta och högkvalitativa avbildningar som liknar Bing-avbildningar.
 services: cognitive-services
 author: aahill
 manager: cgronlun
@@ -10,12 +11,12 @@ ms.component: bing-image-search
 ms.topic: overview
 ms.date: 10/11/2017
 ms.author: aahi
-ms.openlocfilehash: ebf8c28b843768a9081a0086b10e4adf04572ea1
-ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
+ms.openlocfilehash: 5d5d69eea3a064679cbc5ddc41891a73e77e55ea
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/13/2018
-ms.locfileid: "42889290"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46295367"
 ---
 # <a name="what-is-bing-image-search"></a>Vad är bildsökning i Bing?
 
@@ -40,9 +41,9 @@ Bildsökning i Bing hittar och returnerar främst relevanta bilder från en sök
 
 API:et för bildsökning i Bing är en RESTful-webbtjänst, vilket innebär att den är enkel att anropa från alla programmeringsspråk som kan göra HTTP-begäranden och tolka JSON. Du kan använda tjänsten med hjälp av antingen [REST API](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/quickstarts/csharp?)eller [SDK](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/image-search-sdk-quickstart).
 
-1. Skapa ett [Cognitive Services-API-konto](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) med åtkomst till API:er för Bing-sökresultat. Om du inte har någon Azure-prenumeration kan du [skapa ett konto](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) kostnadsfritt. 
+1. Skapa ett [Cognitive Services-API-konto](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) med åtkomst till API:er för Bing-sökresultat. Om du inte har någon Azure-prenumeration kan du [skapa ett konto](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) kostnadsfritt.
 2. Skicka en begäran till API:et med en giltig [sökfråga](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/concepts/bing-image-search-sending-queries).
-3. Bearbeta API-svaret genom att tolka det returnerade JSON-meddelandet. 
+3. Bearbeta API-svaret genom att tolka det returnerade JSON-meddelandet.
 
 ## <a name="next-steps"></a>Nästa steg
 
@@ -64,4 +65,4 @@ För att komma igång snabbt med din första API-begäran kan du lära dig att:
 
 * I ämnet om att [hämta bilder från webben med API:et för bildsökning i Bing](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/concepts/bing-image-search-get-images) beskriver vi hur du söker efter och hämtar bilder från webben.
 
-* I avsnittet om att [skicka och arbeta med sökfrågor](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/concepts/bing-image-search-sending-queries) beskriver vi hur du skapar, anpassar och pivoterar sökfrågor. 
+* I avsnittet om att [skicka och arbeta med sökfrågor](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/concepts/bing-image-search-sending-queries) beskriver vi hur du skapar, anpassar och pivoterar sökfrågor.

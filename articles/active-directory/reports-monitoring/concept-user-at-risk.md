@@ -14,12 +14,12 @@ ms.component: report-monitor
 ms.date: 11/14/2017
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 030774716e1af4a7d6817d64ae66ded2bcaf4081
-ms.sourcegitcommit: 1af4bceb45a0b4edcdb1079fc279f9f2f448140b
+ms.openlocfilehash: fde063cb593ca1f610dc35cd044fe41e34ab9202
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "41920782"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45578385"
 ---
 # <a name="users-flagged-for-risk-security-report-in-the-azure-active-directory-portal"></a>Användare som flaggats i säkerhetsrapporten i Azure Active Directory-portalen
 
@@ -29,9 +29,9 @@ Azure Active Directory identifierar misstänkta åtgärder relaterade till dina 
 
 De identifierade riskhändelserna används för att beräkna:
 
-- **Riskfyllda inloggningar** – En riskfylld inloggning indikerar ett potentiellt inloggningsförsök av någon annan än användarkontots ägare. Mer information finns i avsnittet om [riskfyllda inloggningar](../identity-protection/overview.md#risky-sign-ins). 
+- **Riskfyllda inloggningar** – En riskfylld inloggning indikerar ett potentiellt inloggningsförsök av någon annan än användarkontots ägare. Mer information finns i [Så här konfigurerar du principen för inloggningsrisk](../identity-protection/howto-sign-in-risk-policy.md). 
 
-- **Användare som har flaggats för risk** – En användare som har flaggats för risk indikerar att ett användarkonto kan ha komprometterats. Mer information finns i avsnittet om [användare som har flaggats för risk](../identity-protection/overview.md#users-flagged-for-risk).  
+- **Användare som har flaggats för risk** – En användare som har flaggats för risk indikerar att ett användarkonto kan ha komprometterats. Mer information finns i [Så här konfigurerar du principen för användarrisk](../identity-protection/howto-user-risk-policy.md).  
 
 I Azure-portalen hittar du säkerhetsrapporter på bladet **Azure Active Directory** i avsnittet **Säkerhet**.  
 
@@ -78,13 +78,13 @@ Dialogrutan tillhandahåller ett alternativ för att:
 
 Rapporten om användare som flaggats för risk i Azure Active Directory Premium-versionerna innehåller följande:
 
-- En [lista över användarkonton](../identity-protection/overview.md#users-flagged-for-risk) som kan ha drabbats 
+- En lista över användarkonton som kan ha drabbats 
 
 - Sammanställd information om de [riskhändelsetyper](concept-risk-events.md) som har identifierats
 
 - Ett alternativ för att ladda ned rapporten
 
-- Ett alternativ för att konfigurera en [princip för att åtgärda användarrisker](../identity-protection/overview.md#user-risk-security-policy)  
+- Ett alternativ för att konfigurera en [princip för att åtgärda användarrisker](../identity-protection/howto-user-risk-policy.md)  
 
 
 ![Riskfyllda inloggningar](./media/concept-user-at-risk/71.png)
@@ -103,7 +103,7 @@ När du väljer en användare får du en detaljerad rapportvy för den här anv�
 ![Riskfyllda inloggningar](./media/concept-user-at-risk/324.png)
 
 
-Om du vill undersöka en riskhändelse, markerar du en på listan för att öppna bladet med **Information** om den riskhändelsen. På bladet **Information** har du möjlighet att antingen [stänga en riskhändelse manuellt](../identity-protection/overview.md#closing-risk-events-manually) eller återaktivera en manuellt stängd riskhändelse. 
+Om du vill undersöka en riskhändelse, markerar du en på listan för att öppna bladet med **Information** om den riskhändelsen. På bladet **Information** har du möjlighet att antingen stänga en riskhändelse manuellt eller återaktivera en manuellt stängd riskhändelse. 
 
 
 ![Riskfyllda inloggningar](./media/concept-user-at-risk/325.png)

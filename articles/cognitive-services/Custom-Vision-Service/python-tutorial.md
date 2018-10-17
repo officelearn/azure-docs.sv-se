@@ -1,37 +1,38 @@
 ---
-title: Skapa en Custom Vision Service Python-självstudie – Azure Cognitive Services | Microsoft Docs
-description: Utforska en grundläggande Python-app som använder anpassat API för visuellt innehåll i Microsoft Cognitive Services. Skapa ett projekt, lägga till taggar, ladda upp bilder, träna ditt projekt och göra en förutsägelse med hjälp av standardslutpunkt.
+title: 'Självstudie: Skapa ett projekt för bildklassificering – Custom Vision Service, Python'
+titlesuffix: Azure Cognitive Services
+description: Skapa ett projekt, lägg till taggar, ladda upp bilder, träna ditt projekt och gör en förutsägelse med hjälp av standardslutpunkten.
 services: cognitive-services
 author: areddish
-manager: chbuehle
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: custom-vision
-ms.topic: article
+ms.topic: tutorial
 ms.date: 08/28/2018
 ms.author: areddish
-ms.openlocfilehash: df0bdc0bbd2768566336323851f366c9ae280a88
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
-ms.translationtype: MT
+ms.openlocfilehash: 14b805a60637a889698132e169d5a41670a8bce0
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44301607"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46363385"
 ---
-# <a name="custom-vision-api-python-tutorial"></a>Anpassade Vision API Python-självstudier
+# <a name="tutorial-create-an-image-classification-project-using-the-custom-vision-service-with-python"></a>Självstudie: Skapa ett projekt för bildklassificering med hjälp av Custom Vision Service med Python
 
-Lär dig hur du skapar ett projekt för klassificering av avbildning med Custom Vision Service och ett grundläggande Python-skript. När den har skapats kan du lägga till taggar, ladda upp bilder, träna projektet, hämta projektets standard förutsägelse slutpunkts-URL och använder programmatiskt en bild. Använd det här exemplet med öppen källkod som en mall för att skapa din egen app med hjälp av anpassat API för visuellt innehåll.
+Lär dig hur du skapar ett projekt för bildklassificering med hjälp av Custom Vision Service och ett grundläggande Python-skript. När projektet har skapats kan du lägga till taggar, ladda upp bilder, träna projektet, hämta slutpunkts-URL:en för projektets standardförutsägelse och använda projektet för att testa en bild programmatiskt. Använd det här exemplet med öppen källkod som mall för att skapa en egen app med hjälp av API för Custom Vision.
 
 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
-- Python 2.7 + eller Python 3.5 +.
+- Python 2.7+ eller Python 3.5+.
 - Pip-verktyget.
 
-## <a name="get-the-training-and-prediction-keys"></a>Hämta nycklar Inlärnings- och förutsägelsetransaktioner
+## <a name="get-the-training-and-prediction-keys"></a>Hämta utbildnings- och förutsägelsenycklarna
 
-För att få nycklarna som används i det här exemplet kan du gå till den [Custom Vision-webbsida](https://customvision.ai) och välj den __kugghjulsikonen__ i det övre högra hörnet. I den __konton__ och kopiera värdena från den __utbildning nyckeln__ och __förutsägelse nyckeln__ fält.
+För att hämta nycklarna som används i det här exemplet går du till [Custom Vision-webbsidan](https://customvision.ai) och väljer __kugghjulsikonen__ i det övre högra hörnet. Kopiera värdena från fälten __Utbildningsnyckel__ och __Förutsägelsenyckel__ i avsnittet __Konton__.
 
-![Bild av nycklar UI](./media/python-tutorial/training-prediction-keys.png)
+![Bild av nyckelanvändargränssnittet](./media/python-tutorial/training-prediction-keys.png)
 
 ## <a name="install-the-custom-vision-service-sdk"></a>Installera Custom Vision Service SDK
 
@@ -41,18 +42,18 @@ Om du vill installera Custom Vision Service SDK, använder du följande kommando
 pip install azure-cognitiveservices-vision-customvision
 ```
 
-## <a name="get-example-images"></a>Hämta exempel bilder
+## <a name="get-example-images"></a>Hämta exempel på bilder
 
-Det här exemplet använder avbildningar från den `Samples/Images` katalogen i den [ https://github.com/Microsoft/Cognitive-CustomVision-Windows ](https://github.com/Microsoft/Cognitive-CustomVision-Windows/tree/master/Samples/Images) projekt. Klona eller ladda ned och extrahera projektet till utvecklingsmiljön.
+Det här exemplet använder bilderna från katalogen `Samples/Images` i projektet [https://github.com/Microsoft/Cognitive-CustomVision-Windows](https://github.com/Microsoft/Cognitive-CustomVision-Windows/tree/master/Samples/Images). Klona eller ladda ned och extrahera projektet till utvecklingsmiljön.
 
-## <a name="create-a-custom-vision-service-project"></a>Skapa ett projekt för Custom Vision Service
+## <a name="create-a-custom-vision-service-project"></a>Skapa ett Custom Vision Service-projekt
 
-Om du vill skapa ett nytt projekt för Custom Vision Service, skapa ny fil med namnet `sample.py`. Använd följande kod som filinnehållet:
+För att skapa ett nytt Custom Vision Service-projekt börjar du med att skapa en ny fil med namnet `sample.py`. Använd följande kod som filinnehåll:
 
 > [!IMPORTANT]
-> Ange den `training_key` till utbildning nyckelvärdet som hämtades tidigare.
+> Ställ in `training_key` till det utbildningsnyckelvärde som du hämtade tidigare.
 >
-> Ange den `prediction_key` till förutsägelse nyckelvärdet som hämtades tidigare.
+> Ställ in `prediction_key` till det förutsägelsenyckelvärde som du hämtade tidigare.
 
 ```python
 from azure.cognitiveservices.vision.customvision.training import training_api
@@ -69,9 +70,9 @@ print ("Creating project...")
 project = trainer.create_project("My Project")
 ```
 
-## <a name="add-tags-to-your-project"></a>Lägg till taggar i projektet
+## <a name="add-tags-to-your-project"></a>Lägga till taggar till projektet
 
-Lägg till taggar i projektet genom att lägga till följande kod i slutet av den `sample.py` fil:
+Lägg till nedanstående kod i slutet av filen `sample.py` för att lägga till taggar till ditt projekt:
 
 ```python
 # Make two tags in the new project
@@ -81,11 +82,11 @@ cherry_tag = trainer.create_tag(project.id, "Japanese Cherry")
 
 ## <a name="upload-images-to-the-project"></a>Ladda upp bilder till projektet
 
-Infoga följande kod efter det taggen har skapandet för att lägga till exempelbilderna i projektet. Den här koden överför avbildningen med motsvarande taggen:
+Infoga följande kod efter att taggen har skapats för att lägga till exempelbilder i projektet. Den här koden laddar upp bilden med motsvarande tagg:
 
 > [!IMPORTANT]
 >
-> Ändra sökvägen till bilderna utifrån där du hämtade Cognitive-CustomVision-Windows-projektet tidigare.
+> Ändra sökvägen till bilderna baserat på var du laddade ned Cognitive-CustomVision-Windows-projektet tidigare.
 
 ```python
 base_image_url = "https://raw.githubusercontent.com/Microsoft/Cognitive-CustomVision-Windows/master/Samples/"
@@ -117,7 +118,7 @@ for image_num in range(1,10):
 
 ## <a name="train-the-project"></a>Träna projektet
 
-För att träna klassificeraren, lägger du till följande kod i slutet av den `sample.py` fil:
+Lägg till nedanstående kod i slutet av filen `sample.py` för att träna klassificeraren:
 
 ```python
 import time
@@ -136,7 +137,7 @@ print ("Done!")
 
 ## <a name="get-and-use-the-default-prediction-endpoint"></a>Hämta och använda standardslutpunkten för förutsägelse
 
-Om du vill skicka en avbildning till slutpunkten för förutsägelse och hämta förutsägelsen, lägger du till följande kod i slutet av den `sample.py` fil:
+Om du vill skicka en bild till slutpunkten för förutsägelse och hämta förutsägelsen, lägger du till följande kod i slutet av filen `sample.py`:
 
 ```python
 from azure.cognitiveservices.vision.customvision.prediction import prediction_endpoint
@@ -161,15 +162,15 @@ for prediction in results.predictions:
     print ("\t" + prediction.tag_name + ": {0:.2f}%".format(prediction.probability * 100))
 ```
 
-## <a name="run-the-example"></a>Kör exempel
+## <a name="run-the-example"></a>Köra exemplet
 
-Kör lösningen. De förutsagda resultaten som visas på konsolen.
+Kör lösningen. Förutsägelseresultatet visas i konsolen.
 
 ```
 python sample.py
 ```
 
-Utdata från programmet liknar följande text:
+Programmets utdata ser ut ungefär som nedanstående text:
 
 ```
 Creating project...

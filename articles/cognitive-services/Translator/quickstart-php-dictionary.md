@@ -1,21 +1,21 @@
 ---
-title: Hitta alternativa översättningar med Translator Text och PHP | Microsoft Docs
-titleSuffix: Microsoft Cognitive Services
-description: I den här snabbstarten hittar du alternativa översättningar och exempel på termer i ett sammanhang med Translator Text-API:et med PHP i Cognitive Services.
+title: 'Snabbstart: Hitta alternativa översättningar – Translator Text, PHP'
+titleSuffix: Azure Cognitive Services
+description: I den här snabbstarten hittar du alternativa översättningar och exempel på termer i ett sammanhang med Translator Text-API:et med PHP.
 services: cognitive-services
 author: noellelacharite
-manager: nolachar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-text
 ms.topic: quickstart
 ms.date: 06/22/2018
 ms.author: nolachar
-ms.openlocfilehash: 3f3f98d42a327602352735db97ad1844061aa3a2
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 85b19be02ed019a9834783c8f6c951593e0fd0d5
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "43771093"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46123104"
 ---
 # <a name="quickstart-find-alternate-translations-and-usage-with-php"></a>Snabbstart: Hitta alternativa översättningar och alternativ användning med PHP
 

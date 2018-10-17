@@ -1,3 +1,20 @@
+---
+title: ta med fil
+description: ta med fil
+services: storage
+author: tamram
+ms.service: storage
+ms.topic: include
+ms.date: 09/15/2018
+ms.author: tamram
+ms.custom: include file
+ms.openlocfilehash: 075e19ecb078bbbd5be0d46ed58405b18ebc8334
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.translationtype: HT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45738475"
+---
 ## <a name="set-up-your-development-environment"></a>Ställ in din utvecklingsmiljö
 Konfigurera sedan din utvecklingsmiljö i Visual Studio så att du är redo att testa kodexemplen i den här guiden.
 
@@ -41,7 +58,7 @@ Du har två miljöalternativ för att köra exemplen i den här guiden:
 * Du kan köra din kod mot ett Azure Storage-konto i molnet. 
 * Du kan köra din kod mot en Azure-lagringsemulator. Lagringsemulatorn är en lokal miljö som emulerar ett Azure Storage-konto i molnet. Emulatorn är ett kostnadsfritt alternativ för att testa och felsöka din kod medan ditt program är under utveckling. Emulatorn använder sig av ett välkänt konto och nyckel. Mer information finns i [Använd Azure Storage-emulatorn för utveckling och testning](../articles/storage/common/storage-use-emulator.md).
 
-Om målet är ett lagringskonto i molnet kopierar du den primära åtkomstnyckeln för ditt lagringskonto från Azure Portal. Mer information finns i [Visa och kopiera åtkomstnycklar för lagring](../articles/storage/common/storage-create-storage-account.md#view-and-copy-storage-access-keys).
+Om målet är ett lagringskonto i molnet kopierar du den primära åtkomstnyckeln för ditt lagringskonto från Azure Portal. Mer information finns i [Åtkomstnycklar](../articles/storage/common/storage-account-manage.md#access-keys).
 
 > [!NOTE]
 > Du kan använda lagringsemulatorn för att undvika kostnader associerade med Azure Storage. Men även om du väljer att använda ett Azure-lagringskonto i molnet, kommer kostnaderna för att genomföra den här guiden vara minimala.

@@ -1,48 +1,47 @@
 ---
-title: 'Snabbstart: Skapa en miniatyrbild med API:et för visuellt innehåll och C# | Microsoft Docs'
-titleSuffix: Microsoft Cognitive Services
-description: I den här snabbstarten ska du skapa en miniatyrbild från en bild med hjälp av Visuellt innehåll med C# i Cognitive Services.
+title: 'Snabbstart: Skapa en miniatyrbild – REST, C# – Visuellt innehåll'
+titleSuffix: Azure Cognitive Services
+description: I den här snabbstarten genererar du en miniatyrbild från en bild med hjälp av API för visuellt innehåll och C#.
 services: cognitive-services
 author: noellelacharite
-manager: nolachar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: computer-vision
 ms.topic: quickstart
 ms.date: 08/28/2018
 ms.author: v-deken
-ms.openlocfilehash: 0f5e3be75ce34d10c223e6a157a89fca12b9c3dc
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: f6353f0f99d34121e29de46c62e6f840a69806ed
+ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43772126"
+ms.lasthandoff: 09/15/2018
+ms.locfileid: "45630757"
 ---
-# <a name="quickstart-generate-a-thumbnail---rest-c35"></a>Snabbstart: Skapa en miniatyrbild – REST, C&#35;
+# <a name="quickstart-generate-a-thumbnail-using-the-rest-api-and-c35-in-computer-vision"></a>Snabbstart: Generera en miniatyrbild med REST-API:et och C&#35; i Visuellt innehåll
 
-I den här snabbstarten skapar du en miniatyrbild från en bild med hjälp av Visuellt innehåll.
+I den här snabbstarten genererar du en miniatyrbild från en bild med hjälp av REST-API:et för Visuellt innehåll. Med metoden [Get Thumbnail](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fb) kan du generera en miniatyrbild av en bild. Du anger höjden och bredden, som kan skilja sig från den ursprungliga bildens proportioner. Visuellt innehåll använder smart beskärning för att identifiera det område som är intressant och generera koordinater för beskärning baserat på det området.
+
+Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/ai/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=cognitive-services) innan du börjar.
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
-För att använda Visuellt innehåll behöver du en prenumerationsnyckel. Mer information finns i avsnittet [Obtaining Subscription Keys](../Vision-API-How-to-Topics/HowToSubscribe.md) (Hämta prenumerationsnycklar).
+- Du måste ha [Visual Studio 2015](https://visualstudio.microsoft.com/downloads/) eller senare.
+- Du måste ha en prenumerationsnyckel för Visuellt innehåll. Du kan skaffa en prenumerationsnyckel genom att följa anvisningarna i [Skaffa prenumerationsnycklar](../Vision-API-How-to-Topics/HowToSubscribe.md).
 
-## <a name="get-thumbnail-request"></a>Begäran om att hämta miniatyrbild
+## <a name="create-and-run-the-sample-application"></a>Skapa och kör exempelappen
 
-Med metoden [Get Thumbnail](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fb) (Hämta miniatyrbild) kan du skapa en miniatyrbild av en bild. Du anger höjden och bredden, som kan skilja sig från den ursprungliga bildens proportioner. Visuellt innehåll använder smart beskärning för att identifiera det område som är intressant och generera koordinater för beskärning baserat på det området.
+Om du vill köra exemplet i Visual Studio så vidta följande steg:
 
-För att köra exemplet följer du dessa steg:
-
-1. Skapa en ny Visual C#-konsolapp i Visual Studio.
+1. Skapa en ny Visual Studio-lösning i Visual Studio med Visual C#-konsolappsmallen.
 1. Installera NuGet-paketet Newtonsoft.Json.
     1. Klicka på **Verktyg** på menyn, välj **NuGet Package Manager** (NuGet-pakethanteraren) och välj sedan **Manage NuGet Packages for Solution** (Hantera NuGet-paket för lösning).
     1. Klicka på fliken **Bläddra** och skriv ”Newtonsoft.Json” i rutan **Sök**.
     1. Välj **Newtonsoft.Json** när det visas och klicka på kryssrutan bredvid namnet på ditt projekt och sedan på **Installera**.
-1. Ersätt `Program.cs` med följande kod.
-1. Ersätt `<Subscription Key>` med en giltig prenumerationsnyckel.
-1. Ändra värdet `uriBase` till den plats där du hämtade dina prenumerationsnycklar om det behövs.
+1. Ersätt koden i `Program.cs` med följande kod och gör sedan följande ändringar i koden där det behövs:
+    1. Ersätt värdet för `subscriptionKey` med din prenumerationsnyckel.
+    1. Ersätt värdet för `uriBase` med slutpunktsadressen för metoden [Get Thumbnail](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fb) från Azure-regionen där du fått dina prenumerationsnycklar om det behövs.
 1. Kör programmet.
 1. Ange sökvägen till en lokal bild i kommandotolken.
-
-Miniatyrbilden sparas i samma mapp som den lokala bilden med det ursprungliga namnet och suffixet "_thumb".
 
 ```csharp
 using Newtonsoft.Json.Linq;
@@ -59,12 +58,12 @@ namespace CSHttpClientSample
         // Replace <Subscription Key> with your valid subscription key.
         const string subscriptionKey = "<Subscription Key>";
 
-        // You must use the same region in your REST call as you used to
-        // get your subscription keys. For example, if you got your
-        // subscription keys from westus, replace "westcentralus" in the URL
+        // You must use the same Azure region in your REST API method as you used to
+        // get your subscription keys. For example, if you got your subscription keys
+        // from the West US region, replace "westcentralus" in the URL
         // below with "westus".
         //
-        // Free trial subscription keys are generated in the westcentralus region.
+        // Free trial subscription keys are generated in the West Central US region.
         // If you use a free trial subscription key, you shouldn't need to change
         // this region.
         const string uriBase =
@@ -80,7 +79,7 @@ namespace CSHttpClientSample
 
             if (File.Exists(imageFilePath))
             {
-                // Make the REST API call.
+                // Call the REST API method.
                 Console.WriteLine("\nWait a moment for the results to appear.\n");
                 MakeThumbNailRequest(imageFilePath).Wait();
             }
@@ -108,35 +107,41 @@ namespace CSHttpClientSample
                     "Ocp-Apim-Subscription-Key", subscriptionKey);
 
                 // Request parameters.
+                // The width and height parameters specify a thumbnail that's 
+                // 200 pixels wide and 150 pixels high.
+                // The smartCropping parameter is set to true, to enable smart cropping.
                 string requestParameters = "width=200&height=150&smartCropping=true";
 
-                // Assemble the URI for the REST API Call.
+                // Assemble the URI for the REST API method.
                 string uri = uriBase + "?" + requestParameters;
 
                 HttpResponseMessage response;
 
-                // Request body.
-                // Posts a locally stored JPEG image.
+                // Read the contents of the specified local image
+                // into a byte array.
                 byte[] byteData = GetImageAsByteArray(imageFilePath);
 
+                // Add the byte array as an octet stream to the request body.
                 using (ByteArrayContent content = new ByteArrayContent(byteData))
                 {
-                    // This example uses content type "application/octet-stream".
+                    // This example uses the "application/octet-stream" content type.
                     // The other content types you can use are "application/json"
                     // and "multipart/form-data".
                     content.Headers.ContentType =
                         new MediaTypeHeaderValue("application/octet-stream");
 
-                    // Make the REST API call.
+                    // Asynchronously call the REST API method.
                     response = await client.PostAsync(uri, content);
                 }
 
+                // Check the HTTP status code of the response. If successful, display
+                // display the response and save the thumbnail.
                 if (response.IsSuccessStatusCode)
                 {
                     // Display the response data.
                     Console.WriteLine("\nResponse:\n{0}", response);
 
-                    // Get the image data.
+                    // Get the image data for the thumbnail from the response.
                     byte[] thumbnailImageData =
                         await response.Content.ReadAsByteArrayAsync();
 
@@ -169,9 +174,11 @@ namespace CSHttpClientSample
         /// <returns>The byte array of the image data.</returns>
         static byte[] GetImageAsByteArray(string imageFilePath)
         {
+            // Open a read-only file stream for the specified file.
             using (FileStream fileStream =
                 new FileStream(imageFilePath, FileMode.Open, FileAccess.Read))
             {
+                // Read the file's contents into a byte array.
                 BinaryReader binaryReader = new BinaryReader(fileStream);
                 return binaryReader.ReadBytes((int)fileStream.Length);
             }
@@ -180,9 +187,11 @@ namespace CSHttpClientSample
 }
 ```
 
-## <a name="get-thumbnail-response"></a>Svar från miniatyrhämtning
+## <a name="examine-the-response"></a>Granska svaret
 
-Om åtgärden lyckas innehåller svaret binärfilen för miniatyrbilden. Om begäran misslyckas innehåller svaret en felkod och ett meddelande som beskriver vad som gick fel.
+Ett lyckat svar returneras i form av binärdata som representerar bilddata för miniatyrbilden. Om begäran lyckas sparas miniatyrbilden i samma mapp som den lokala bilden med det ursprungliga namnet och suffixet "_thumb". Om begäran misslyckas innehåller svaret en felkod och ett meddelande som beskriver vad som gick fel.
+
+Exempelprogrammet visar ett lyckat svar i konsolfönstret liknar följande exempel:
 
 ```text
 Response:
@@ -202,6 +211,10 @@ StatusCode: 200, ReasonPhrase: 'OK', Version: 1.1, Content: System.Net.Http.Stre
   Expires: -1
 }
 ```
+
+## <a name="clean-up-resources"></a>Rensa resurser
+
+När Visual Studio-lösningen inte längre behövs kan du ta bort den. Gör det genom att öppna Utforskaren, navigera till mappen där du skapade Visual Studio-lösningen och ta bort mappen.
 
 ## <a name="next-steps"></a>Nästa steg
 

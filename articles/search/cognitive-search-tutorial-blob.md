@@ -9,12 +9,12 @@ ms.devlang: NA
 ms.topic: tutorial
 ms.date: 07/11/2018
 ms.author: luisca
-ms.openlocfilehash: 35295f00b9264e4b6fba2ff9d293772c22b91c50
-ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
+ms.openlocfilehash: 4694d7a580c9544e43cf0b56b192b55c02257531
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38991981"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45730672"
 ---
 # <a name="tutorial-learn-how-to-call-cognitive-search-apis-preview"></a>Självstudie: Lär dig att anropa API:er för kognitiv sökning (förhandsversion)
 
@@ -32,6 +32,9 @@ I den här självstudien gör du REST API-anrop för att utföra följande uppgi
 Utdata är ett fulltextsökbart index i Azure Search. Du kan förbättra indexet med andra standardfunktioner som [synonymer](search-synonyms.md), [bedömningsprofiler](https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index), [analysverktyg](search-analyzers.md) och [filter](search-filters.md).
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
+
+> [!NOTE]
+> Kognitiv sökning är tillgängligt som en förhandsversion. Körning av kunskapsuppsättning och extrahering och normalisering av bilder erbjuds för närvarande kostnadsfritt. Priserna för dessa funktioner meddelas vid ett senare tillfälle. 
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
@@ -134,8 +137,7 @@ I det här steget definierar du en uppsättning med berikningssteg som du vill a
 
 + [Textuppdelning](cognitive-search-skill-textsplit.md) för att dela upp stort innehåll i mindre delar innan du anropar färdigheten extrahering av nyckelfraser. Extrahering av nyckelfraser accepterar indata på 50 000 tecken eller mindre. Några av exempelfilerna måste delas upp för att rymmas inom gränsen.
 
-+ 
-  [Igenkänning av namngiven enhet](cognitive-search-skill-named-entity-recognition.md) för extrahering av namnen och organisationerna från innehåll i blobcontainern.
++ [Igenkänning av namngiven enhet](cognitive-search-skill-named-entity-recognition.md) för extrahering av namnen och organisationerna från innehåll i blobcontainern.
 
 + [Extrahering av nyckelfraser](cognitive-search-skill-keyphrases.md) för att hämta viktigaste nyckelfraserna. 
 

@@ -1,49 +1,53 @@
 ---
-title: 'Snabbstart: Skapa en miniatyrbild med API:et för visuellt innehåll och Python | Microsoft Docs'
-titleSuffix: Microsoft Cognitive Services
-description: I den här snabbstarten ska du skapa en miniatyrbild från en bild med hjälp av Visuellt innehåll med Python i Cognitive Services.
+title: 'Snabbstart: Skapa en miniatyrbild – REST, Python – Visuellt innehåll'
+titleSuffix: Azure Cognitive Services
+description: I den här snabbstarten genererar du en miniatyrbild från en bild med hjälp av API för visuellt innehåll och Python.
 services: cognitive-services
 author: noellelacharite
-manager: nolachar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: computer-vision
 ms.topic: quickstart
 ms.date: 08/28/2018
 ms.author: v-deken
-ms.openlocfilehash: bc1d01cd4b8f15ba627d917825ee5205c34f5cdf
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: c5809b3dd62d87e2a1f3bde762d17bef6d5732ae
+ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43772115"
+ms.lasthandoff: 09/15/2018
+ms.locfileid: "45632933"
 ---
-# <a name="quickstart-generate-a-thumbnail---rest-python"></a>Snabbstart: Skapa en miniatyrbild – REST, Python
+# <a name="quickstart-generate-a-thumbnail-using-the-rest-api-and-python-in-computer-vision"></a>Snabbstart: Generera en miniatyrbild med hjälp av REST-API:t och Python i Visuellt innehåll
 
-I den här snabbstarten skapar du en miniatyrbild från en bild med hjälp av Visuellt innehåll.
+I den här snabbstarten genererar du en miniatyrbild från en bild med hjälp av REST-API:t i Visuellt innehåll. Med metoden [Get Thumbnail](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fb) kan du generera en miniatyrbild av en bild. Du anger höjden och bredden, som kan skilja sig från den ursprungliga bildens proportioner. Visuellt innehåll använder smart beskärning för att identifiera det område som är intressant och generera koordinater för beskärning baserat på det området.
 
 Du kan köra den här snabbstarten steg för steg med hjälp av en Jupyter-anteckningsbok på [MyBinder](https://mybinder.org). Starta Binder med den här knappen:
 
 [![Binder](https://mybinder.org/badge.svg)](https://mybinder.org/v2/gh/Microsoft/cognitive-services-notebooks/master?filepath=VisionAPI.ipynb)
 
+Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/ai/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=cognitive-services) innan du börjar.
+
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
 För att använda Visuellt innehåll behöver du en prenumerationsnyckel. Mer information finns i avsnittet [Obtaining Subscription Keys](../Vision-API-How-to-Topics/HowToSubscribe.md) (Hämta prenumerationsnycklar).
 
-## <a name="intelligently-generate-a-thumbnail"></a>Generera en miniatyrbild
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
-Med metoden [Get Thumbnail](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fb) (Hämta miniatyrbild) kan du skapa en miniatyrbild av en bild. Du anger höjden och bredden, som kan skilja sig från den ursprungliga bildens proportioner. Visuellt innehåll använder smart beskärning för att identifiera det område som är intressant och generera koordinater för beskärning baserat på det området.
+- Du måste ha [Python](https://www.python.org/downloads/) installerat om du vill köra exemplet lokalt.
+- Du måste ha en prenumerationsnyckel för Visuellt innehåll. Du kan skaffa en prenumerationsnyckel genom att följa anvisningarna i [Skaffa prenumerationsnycklar](../Vision-API-How-to-Topics/HowToSubscribe.md).
 
-För att köra exemplet följer du dessa steg:
+## <a name="create-and-run-the-sample"></a>Skapa och köra exemplet
 
-1. Kopiera följande kod till en ny Python-skriptfil.
-1. Ersätt `<Subscription Key>` med en giltig prenumerationsnyckel.
-1. Ändra värdet `vision_base_url` till den plats där du hämtade dina prenumerationsnycklar, om det behövs.
-1. Du kan också ändra `image_url`-värdet till en annan bild.
-1. Kör skriptet.
+Så här skapar du och kör exemplet:
 
-Följande kod använder Python `requests`-biblioteket för att anropa API:et för visuellt innehåll Analysera bild. API-nyckeln skickas via `headers`-ordlistan. Miniatyrbildens storlek skickas via `params`-ordlistan. Miniatyrbilden returneras som en bytematris i svaret.
-
-## <a name="get-thumbnail-request"></a>Begäran om att hämta miniatyrbild
+1. Kopiera följande kod till en textredigerarere.
+1. Gör följande ändringar i koden när så behövs:
+    1. Ersätt värdet för `subscription_key` med din prenumerationsnyckel.
+    1. Ersätt värdet för `vision_base_url` med slutpunktsadressen för resursen för visuellt innehåll i den Azure-region där du fick dina prenumerationsnycklar, om så behövs.
+    1. Du kan också ersätta värdet för `image_url` med webbadressen till en annan bild som du vill generera en miniatyrbild för.
+1. Spara koden som en fil med tillägget `.py`. Till exempel `get-thumbnail.py`.
+1. Öppna ett kommandotolksfönster.
+1. Kör exemplet genom att använda kommandot `python` i kommandotolken. Till exempel `python get-thumbnail.py`.
 
 ```python
 import requests
@@ -87,9 +91,13 @@ plt.axis("off")
 print("Thumbnail is {0}-by-{1}".format(*thumbnail.size))
 ```
 
+## <a name="examine-the-response"></a>Granska svaret
+
+Ett lyckat svar returneras i form av binärdata som representerar bilddata för miniatyrbilden. Om begäran lyckas så genereras miniatyrbilden från binärdata i svaret och visas i exemplet. Om begäran misslyckas visas svaret i kommandotolkens fönster. Svaret för en misslyckad begäran innehåller en felkod och ett meddelande som hjälper dig att avgöra vad som gick fel.
+
 ## <a name="next-steps"></a>Nästa steg
 
-Utforska ett Python-program som använder Visuellt innehåll för att utföra optisk teckenläsning (OCR), skapa miniatyrbilder med smart beskärning och identifiera, kategorisera, tagga och beskriv visuella funktioner, inklusive ansikten, i en bild. Du kan snabbt experimentera med API:erna för visuellt innehåll genom att prova [Open API-testkonsolen](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa/console).
+Utforska ett Python-program som använder Visuellt innehåll för att utföra optisk teckenläsning (OCR), skapa miniatyrbilder med smart beskärning och identifiera, kategorisera, tagga och beskriv visuella funktioner, inklusive ansikten, i en bild. Du kan experimentera med API för visuellt innehåll i [Open API-testkonsolen](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa/console).
 
 > [!div class="nextstepaction"]
 > [Självstudie: API för visuellt innehåll med Python](../Tutorials/PythonTutorial.md)

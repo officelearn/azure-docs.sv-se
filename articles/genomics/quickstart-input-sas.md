@@ -1,49 +1,47 @@
 ---
-title: Skicka ett arbetsflöde med SAS istället för en lagringskontonyckel | Microsoft Docs
+title: Skicka ett arbetsflöde med SAS istället för en lagringskontonyckel | Microsoft Genomics
 titleSuffix: Azure
 description: I den här snabbstarten förutsätts det att du har klienten msgen installerad och har lyckats köra provdata genom tjänsten.
-services: microsoft-genomics
+services: genomics
 author: grhuynh
-manager: jhubbard
-editor: jasonwhowell
+manager: cgronlun
 ms.author: grhuynh
-ms.service: microsoft-genomics
-ms.workload: genomics
+ms.service: genomics
 ms.topic: quickstart
 ms.date: 03/02/2018
-ms.openlocfilehash: 802e300ac453baa4ea9bd9183223315abced2ea1
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 9a22e4bb0949544e18237e789ca807e57ed59abf
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32177222"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45733505"
 ---
-# <a name="submit-a-workflow-using-a-sas-instead-of-a-storage-account-key"></a>Skicka ett arbetsflöde med SAS istället för en lagringskontonyckel
+# <a name="submit-a-workflow-to-microsoft-genomics-using-a-sas-instead-of-a-storage-account-key"></a>Skicka ett arbetsflöde till Microsoft Genomics med en SAS istället för en lagringskontonyckel 
 
 I den här snabbstarten får du se hur du skickar ett arbetsflöde till Microsoft Genomics-tjänsten med en config.txt-fil som innehåller [signaturer för delad åtkomst (SAS)](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1) istället för lagringskontonycklar. Den här funktionen är användbar om det finns några säkerhetsproblemen med lagringskontonyckeln som är synliga i filen config.txt. I den här artikeln förutsätts det att du redan har installerat och kört `msgen`-klienten och att du vet hur du använder Azure Storage. Om du har lyckats skickat ett arbetsflöde med tillhandahållna provdata är du redo att fortsätta med den här snabbstarten. 
 
 ## <a name="what-is-a-sas"></a>Vad är en SAS?
 En [signatur för delad åtkomst (Shared Access Signature, SAS)](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1) ger delegerad åtkomst till resurser på ditt lagringskonto. Med en SAS kan du bevilja åtkomst till resurser i ditt lagringskonto utan att dela dina kontonycklar. Det här är en viktig aspekt av att använda signaturer för delad åtkomst i dina program – en SAS är ett säkert sätt att dela dina lagringsresurser utan att kompromissa med lagringsnycklar.
 
-SAS som skickas till Microsoft Genomics ska vara en [SAS för tjänst](https://docs.microsoft.com/rest/api/storageservices/Constructing-a-Service-SAS) som endast delegerar åtkomst till bloben eller behållaren där indata- och utdatafiler lagras. 
+SAS som skickas till Microsoft Genomics ska vara en [SAS för tjänst](https://docs.microsoft.com/rest/api/storageservices/Constructing-a-Service-SAS) som endast delegerar åtkomst till bloben eller containern där indata- och utdatafiler lagras. 
 
 URI:n för en SAS-token (signatur för delad åtkomst) består av resursens URI för vilken SAS delegerar åtkomst, följt av SAS-token. SAS-token är frågesträngen som innehåller all information som krävs för att autentisera SAS, samt för att ange resursen, de behörigheter som krävs för åtkomst, tidsintervallet då signaturen är giltig, IP-adresser eller adressintervallet som stöds från vilka begäran kan härstamma från, protokollet som stöds som en begäran kan göras med, en valfri principidentifierare för åtkomst som är kopplad till begäran och själva signaturen. 
 
 ## <a name="sas-needed-for-submitting-a-workflow-to-the-microsoft-genomics-service"></a>SAS som krävs för att skicka ett arbetsflöde till tjänsten Microsoft Genomics
-Två eller fler SAS-token krävs för varje arbetsflöde som skickas till tjänsten Microsoft Genomics, en för varje indatafil och en för utdatabehållaren.
+Två eller fler SAS-token krävs för varje arbetsflöde som skickas till tjänsten Microsoft Genomics, en för varje indatafil och en för utdatacontainern.
 
 SAS för indatafilerna ska ha följande egenskaper:
-1.  Omfattning (konto, behållare, blob): blob
+1.  Omfattning (konto, container, blob): blob
 2.  Utgångsdatum: om 48 timmar
 3.  Behörigheter: läsa
 
-SAS för utdatabehållaren ska ha följande egenskaper:
-1.  Omfattning (konto, behållare, blob): behållare
+SAS för utdatacontainern ska ha följande egenskaper:
+1.  Omfattning (konto, container, blob): container
 2.  Utgångsdatum: om 48 timmar
 3.  Behörigheter: läsa, skriva, ta bort
 
 
-## <a name="create-a-sas-for-the-input-files-and-the-output-container"></a>Skapa en SAS för indatafiler och utdatabehållaren
+## <a name="create-a-sas-for-the-input-files-and-the-output-container"></a>Skapa en SAS för indatafiler och utdatacontainern
 Det finns två sätt att skapa ett SAS-token, antingen med Azure Storage Explorer eller programmässigt.  Om du skriver kod kan du skapa ditt SAS själv, eller använda Azure Storage SDK:n på det språk du önskar.
 
 
@@ -64,7 +62,7 @@ Om du vill skapa en SAS utan SDK kan du skapa SAS-frågesträngen direkt, inklus
 
 
 ## <a name="add-the-sas-to-the-configtxt-file"></a>Lägga till SAS till filen config.txt
-Om du vill köra ett arbetsflöde via tjänsten Microsoft Genomics med en SAS-frågesträng redigerar du filen config.txt för att ta bort nycklarna från config.txt-filen. Lägg sedan till SAS-frågesträngen (som börjar med ett `?`) till utdatabehållarens namn, som du ser. 
+Om du vill köra ett arbetsflöde via tjänsten Microsoft Genomics med en SAS-frågesträng redigerar du filen config.txt för att ta bort nycklarna från config.txt-filen. Lägg sedan till SAS-frågesträngen (som börjar med ett `?`) till utdatacontainerns namn, som du ser. 
 
 ![Genomics SAS-konfiguration](./media/quickstart-input-sas/genomics-sas-config.png "Genomics SAS-konfiguration")
 

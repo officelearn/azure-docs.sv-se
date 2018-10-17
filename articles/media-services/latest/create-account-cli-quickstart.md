@@ -12,12 +12,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 03/27/2018
 ms.author: juliako
-ms.openlocfilehash: 9168a66c3afcd8dd0b05de15f5833c516ddb2250
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: abed9fd8d466b582b534b365f4be4257f4986435
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38767110"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45736010"
 ---
 # <a name="quickstart-create-an-azure-media-services-account"></a>Snabbstart: Skapa ett Azure Media Services-konto
 
@@ -58,7 +58,7 @@ az group create -n <myresourcegroup> -l westus2
 
 När du skapar ett Media Services-konto, måste du ange ID:t för en Azure Storage-kontoresurs. Det angivna lagringskontot kopplas till ditt Media Services-konto. 
 
-Du måste ha ett **primärt** lagringskonto, men du kan även ha flera **sekundära** lagringskonton associerade med ditt Media Services-konto. Media Services stöder konton av typen **General-purpose v2** (GPv2) och **General-purpose v1** (GPv1). Endast blob-konton tillåts inte som **primära**. Mer information om lagringskonton finns i [Alternativ för Azure Storage-konton](../../storage/common/storage-account-options.md). 
+Du måste ha ett **primärt** lagringskonto, men du kan även ha flera **sekundära** lagringskonton associerade med ditt Media Services-konto. Media Services stöder konton av typen **General-purpose v2** eller **General-purpose v1**. Blob Storage-konton tillåts inte som **primära**. Mer information om lagringskonton finns i [kontoöversikten för Azure Storage](../../storage/common/storage-account-overview.md). 
 
 Följande kommando skapar ett lagringskonto som associeras med Media Services-kontot (primär). Ersätt platshållaren *storageaccountforams* i skriptet nedan. Längden på 'account_name' måste vara mindre än 24.
 

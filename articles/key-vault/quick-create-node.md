@@ -8,32 +8,32 @@ manager: sumedhb
 ms.service: key-vault
 ms.workload: identity
 ms.topic: quickstart
-ms.date: 08/08/2018
+ms.date: 09/05/2018
 ms.author: barclayn
 ms.custom: mvc
-ms.openlocfilehash: 4592b256dfda75e81a94034545cd54dbf0d71532
-ms.sourcegitcommit: 0fcd6e1d03e1df505cf6cb9e6069dc674e1de0be
+ms.openlocfilehash: 860294ebc7fbadd3eeefc4298ec740ca7f704587
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/14/2018
-ms.locfileid: "42023625"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44714402"
 ---
 # <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-using-a-node-web-app"></a>Snabbstart: Konfigurera och hämta en hemlighet från Azure Key Vault med hjälp av en Node-webbapp 
 
-Den här snabbstarten beskriver hur du lagrar en hemlighet i Key Vault och hur du hämtar den med hjälp av en webbapp. För att visa det hemliga värdet skulle du behöva köra detta i Azure. I snabbstarten används Node.js och hanterade tjänstidentiteter (MSI)
+Den här snabbstarten beskriver hur du lagrar en hemlighet i Key Vault och hur du hämtar den med hjälp av en webbapp. För att visa det hemliga värdet skulle du behöva köra detta i Azure. I snabbstarten används Node.js och hanterade identiteter för Azure-resurser.
 
 > [!div class="checklist"]
 > * Skapa ett nyckelvalv.
 > * Lagra en hemlighet i Key Vault.
 > * Hämta en hemlighet från Key Vault.
 > * Skapa ett Azure-webbprogram.
-> * [Aktivera hanterade tjänstidentiteter](https://docs.microsoft.com/azure/active-directory/managed-service-identity/overview).
+> * Aktivera en [hanterad identitet](https://docs.microsoft.com/azure/active-directory/managed-service-identity/overview) för webbappen.
 > * Bevilja de behörigheter som krävs för att webbprogrammet ska kunna läsa data från Key Vault.
 
 Försäkra dig om att du känner till [grundbegreppen](key-vault-whatis.md#basic-concepts) innan du fortsätter.
 
 >[!NOTE]
-För att förstå varför självstudien nedan är bästa praxis är det viktigt att du förstår vissa begrepp. Key Vault är en central lagringsplats för programmeringsbaserad lagring av hemligheter. Detta kräver att program och användare först autentiseras mot Key Vault, dvs. presenterar en hemlighet. Den här första hemligheten måste dessutom roteras med jämna mellanrum för att uppfylla de rekommenderade säkerhetsmetoderna. Men [hanterad tjänstidentitet (MSI)](../active-directory/managed-service-identity/overview.md) tilldelas program som körs i Azure en identitet som hanteras automatiskt av Azure. Detta löser **problemet med den första hemligheten** där användare och program kan följa bästa praxis utan att behöva bekymra sig om roteringen av den första hemligheten
+För att förstå varför självstudien nedan är bästa praxis är det viktigt att du förstår vissa begrepp. Key Vault är en central lagringsplats för programmeringsbaserad lagring av hemligheter. Detta kräver att program och användare först autentiseras mot Key Vault, dvs. presenterar en hemlighet. Den här första hemligheten måste dessutom roteras med jämna mellanrum för att uppfylla de rekommenderade säkerhetsmetoderna. Men med [hanterade identiteter för Azure-resurser](../active-directory/managed-identities-azure-resources/overview.md) tilldelas program som körs i Azure en identitet som hanteras automatiskt av Azure. Detta löser **problemet med den första hemligheten** där användare och program kan följa bästa praxis utan att behöva bekymra sig om roteringen av den första hemligheten
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
@@ -150,15 +150,15 @@ Nedan beskrivs de få steg som krävs
     Kommandot ovan skapar även en Git-aktiverad app som gör att du kan distribuera till Azure från din lokala git-lagringsplats. 
     Den lokala git-lagringsplatsen konfigureras med URL:en ”https://<username>@<app_name>.scm.azurewebsites.net/<app_name>.git”
 
-- Skapa en distributionsanvändare. När det föregående kommandot har slutförts kan du lägga till en Azure-fjärranslutning till din lokala Git-lagringsplats. Ersätt <url> med URL:en för den fjärranslutna Git-lagringsplats som du fick från Enable Git (Aktivera Git) för din app.
+- Skapa en distributionsanvändare När det föregående kommandot har slutförts kan du lägga till en Azure-fjärranslutning till din lokala Git-lagringsplats. Ersätt <url> med URL:en för den fjärranslutna Git-lagringsplats som du fick från Enable Git (Aktivera Git) för din app.
 
     ```
     git remote add azure <url>
     ```
 
-## <a name="enable-managed-service-identity"></a>Aktivera Hanterad tjänstidentitet
+## <a name="enable-a-managed-identity-for-the-web-app"></a>Aktivera en hanterad identitet för webbappen
 
-Azure Key Vault är ett sätt att lagra autentiseringsuppgifter samt andra nycklar och hemligheter på ett säkert sätt, men din kod måste autentiseras till Key Vault för att kunna hämta dem. Hanterad tjänstidentitet (MSI) löser detta problem på ett enklare sätt genom att ge Azure-tjänsterna en automatiskt hanterad identitet i Azure Active Directory (Azure AD). Du kan använda den här identiteten för att autentisera till alla tjänster som stöder Azure AD-autentisering, inklusive Key Vault, utan att behöva ha några autentiseringsuppgifter i koden.
+Azure Key Vault är ett sätt att lagra autentiseringsuppgifter samt andra nycklar och hemligheter på ett säkert sätt, men din kod måste autentiseras till Key Vault för att kunna hämta dem. [Hanterade identiteter för Azure-resurser (översikt)](../active-directory/managed-identities-azure-resources/overview.md) löser detta problem på ett enklare sätt genom att ge Azure-tjänsterna en automatiskt hanterad identitet i Azure Active Directory (Azure AD). Du kan använda den här identiteten för att autentisera till alla tjänster som stöder Azure AD-autentisering, inklusive Key Vault, utan att behöva ha några autentiseringsuppgifter i koden.
 
 Kör kommandot assign-identity för att skapa identiteten för det här programmet:
 
@@ -166,7 +166,7 @@ Kör kommandot assign-identity för att skapa identiteten för det här programm
 az webapp identity assign --name <app_name> --resource-group "<YourResourceGroupName>"
 ```
 
-Det här kommandot fungerar på samma sätt som när du går till portalen och väljer **På** för **Hanterad tjänstidentitet** i egenskaperna för webbprogrammet.
+Det här kommandot fungerar på samma sätt som när du går till portalen och väljer **På** för **Identitet/Systemtilldelad** i egenskaperna för webbprogrammet.
 
 ### <a name="assign-permissions-to-your-application-to-read-secrets-from-key-vault"></a>Tilldela behörigheter till ditt program att läsa hemligheter från Key Vault
 

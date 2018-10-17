@@ -1,21 +1,21 @@
 ---
-title: Hämta språk som stöds med Translator Text och Java | Microsoft Docs
-titleSuffix: Microsoft Cognitive Services
-description: I den här snabbstarten hämtar du en lista över språk som stöds för översättning, transkribering och ordlistesökningar med hjälp av Translator Text-API:t med Java i Cognitive Services.
+title: 'Snabbstart: Hämta språk som stöds – Translator Text, Java'
+titleSuffix: Azure Cognitive Services
+description: I den här snabbstarten hämtar du en lista över språk som stöds för översättning, transkribering och ordlistesökningar med hjälp av Translator Text-API:et med Java.
 services: cognitive-services
 author: noellelacharite
-manager: nolachar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-text
 ms.topic: quickstart
 ms.date: 06/21/2018
 ms.author: nolachar
-ms.openlocfilehash: af8b50d6600354601c8516c20a079028cefe2b16
-ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
+ms.openlocfilehash: 64954c06d90ff8110b77874846fe57072faf2f76
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "43770703"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46126980"
 ---
 # <a name="quickstart-get-supported-languages-with-java"></a>Snabbstart: Hämta språk som stöds med Java
 

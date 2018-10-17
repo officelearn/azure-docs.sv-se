@@ -1,30 +1,31 @@
 ---
-title: Kom igång med tjänsten Knowledge utforskning | Microsoft Docs
-description: Använd Knowledge utforskning Service (KES) för att skapa en motor för en interaktiv sökinställningar över academic publikationer i kognitiva Microsoft-tjänster.
+title: 'Exempel: Komma igång – API för tjänst för kunskapsutveckling'
+titlesuffix: Azure Cognitive Services
+description: Använd tjänsten för kunskapsutveckling (KES) API för att skapa en motor för en interaktiv sökupplevelse av akademiska publikationer.
 services: cognitive-services
 author: bojunehsu
-manager: stesp
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: knowledge-exploration
-ms.topic: article
+ms.topic: sample
 ms.date: 03/26/2016
 ms.author: paulhsu
-ms.openlocfilehash: 02dc9368eef02d6fa507335ef3171e923412acca
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
-ms.translationtype: MT
+ms.openlocfilehash: 6cee339793269af0e8060cce56f94fa81db6a6c5
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35352512"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46124025"
 ---
-<a name="getting-started"></a>
-# <a name="get-started-with-the-knowledge-exploration-service"></a>Kom igång med tjänsten Knowledge undersökning
-I den här genomgången använder Knowledge utforskning Service (KES) för att skapa motor för en interaktiv sökinställningar för academic publikationer. Du kan installera verktyget kommandoraden [ `kes.exe` ](CommandLine.md), och alla exempel filer från de [Knowledge utforskning Service SDK](https://www.microsoft.com/en-us/download/details.aspx?id=51488).
+# <a name="get-started-with-the-knowledge-exploration-service"></a>Kom igång med tjänsten för kunskapsutveckling
 
-Academic publikationer exempel innehåller ett exempel på 1000 academic rapporter som har publicerats av forskare på Microsoft.  Varje dokumentet är associerad med en rubrik, år, författare och nyckelord. Varje författare representeras av ett ID, namn och anknytningen vid tidpunkten för publikationen. Varje nyckelord kan associeras med en uppsättning synonymer (till exempel den nyckelordet ”support vector machine” kan associeras med synonymen ”svm”).
+I den här genomgången får du använda tjänsten för kunskapsutveckling (KES) API för att skapa en motor för en interaktiv sökupplevelse av akademiska publikationer. Du kan installera kommandoradsverktyget, [`kes.exe`](CommandLine.md), och alla exempel filer från [tjänsten för kunskapsutvecklings SDK](https://www.microsoft.com/en-us/download/details.aspx?id=51488).
 
-<a name="defining-schema"></a>
+Exemplet på akademiska publikationer innehåller ett exempel på 1 000 akademiska rapporter som har publicerats av forskare på Microsoft.  Varje dokumentet är associerad med en rubrik, år, författare och nyckelord. Varje författare representeras av ett ID, namn och anknytning vid tidpunkten för publiceringen. Varje nyckelord kan associeras med en uppsättning synonymer (till exempel nyckelordet ”dator för vektorstöd” kan vara associerat med synonymen ”svm”).
+
 ## <a name="define-the-schema"></a>Definiera schemat
-Schemat beskriver attributet strukturen för objekt i domänen. Den anger namn och datatyp för varje attribut i en JSON-format. I följande exempel är innehållet i filen *Academic.schema*.
+
+Schemat beskriver attributstrukturen för objekt i domänen. Det anger namn och datatyp för varje attribut i en JSON-fil. I följande exempel är innehållet i filen *Academic.schema*.
 
 ```json
 {
@@ -40,11 +41,11 @@ Schemat beskriver attributet strukturen för objekt i domänen. Den anger namn o
 }
 ```
 
-Här kan du definiera *rubrik*, *år*, och *nyckelordet* som en sträng, heltal och strängen attributet respektive. Eftersom författare representeras av ID, namn och anknytningen, definiera *författaren* som en sammansatt attribut med tre underordnade attribut: *Author.Id*, *Author.Name*, och *Author.Affiliation*.
+Här kan du definiera *rubrik*, *år* och *nyckelordet* som sträng, heltal respektive strängattributet. Eftersom författare representeras av ID, namn och anknytning, definierar du *författare* som ett sammansatt attribut med tre underordnade attribut: *Author.Id*, *Author.Name* och *Author.Affiliation*.
 
-Som standard attribut stöder alla åtgärder som är tillgängliga för datatypen, inklusive *är lika med*, *starts_with*, och *is_between*. Eftersom författare ID används bara internt som en identifierare, åsidosätta standardinställningen och ange *är lika med* som den enda åtgärden som indexeras.
+Som standard har attribut stöd för alla åtgärder som är tillgängliga för datatypen, inklusive *equals*, *starts_with* och *is_between*. Eftersom författar-ID endast används internt som identifierare, åsidosätts standardinställningen och *är lika med* anges som den enda åtgärden som indexeras.
 
-För den *nyckelordet* attribut, tillåter synonymer att matcha nyckelordet kanoniska värden genom att ange filen synonymen *Keyword.syn* i attributdefinitionen. Den här filen innehåller en lista över kanoniska och synonymen värde-par:
+För attributet *Nyckelord* kan synonymer matcha godkända nyckelordsvärden genom att ange synonymenfilen *Keyword.syn* i attributdefinitionen. Den här filen innehåller en lista över godkända och synonymenvärde-par:
 
 ```json
 ...
@@ -61,9 +62,9 @@ För den *nyckelordet* attribut, tillåter synonymer att matcha nyckelordet kano
 
 Mer information om schemadefinitionen finns [schemaformat](SchemaFormat.md).
 
-<a name="generating-data"></a>
-## <a name="generate-data"></a>Generera data
-Datafilen beskriver listan på publikationer att indexera med varje rad som anger attributvärden en papper i [JSON-formatet](http://json.org/).  Följande exempel är en rad från datafilen *Academic.data*, formaterad för att läsa:
+## <a name="generate-data"></a>Skapa data
+
+Datafilen beskriver listan över publikationer som ska indexera, där varje rad anger attributvärden för en artikel i [JSON-format](http://json.org/).  I följande exempel är en enda rad från datafilen *Academic.data*, formaterad för läsbarhet:
 
 ```
 ...
@@ -87,23 +88,23 @@ Datafilen beskriver listan på publikationer att indexera med varje rad som ange
 ...
 ```
 
-I den här fragment, anger du den *rubrik* och *år* attributet dokumentet som en JSON-strängen och nummer, respektive. Flera värden representeras med hjälp av JSON-matriser. Eftersom *författare* är ett sammansatt attribut varje värde representeras med hjälp av ett JSON-objekt som består av dess underordnade attribut. Attribut med saknade värden som *nyckelordet* i det här fallet kan uteslutas från JSON-representation.
+I det här kodfragmentet anger du attributen *Rubrik* och *År* för dokumentet som en JSON-sträng respektive en siffra. Flera värden representeras med hjälp av JSON-matriser. Eftersom *författare* är ett sammansatt attribut visas varje värde med hjälp av ett JSON-objekt som består av dess underordnade attribut. Attribut med saknade värden, till exempel *Nyckelord* kan i det här fallet uteslutas från JSON-representationen.
 
-För att skilja sannolikheten för olika rapporter, ange den relativa logg sannolikheten med hjälp av inbyggt *logprob* attribut. Få en sannolikhet *p* mellan 0 och 1 du beräkna loggen sannolikheten som loggen (*p*), där log() är funktionen den naturliga logaritmen.
+För att skilja sannolikheten för olika artiklar, anger du den relativa logaritmiska sannolikheten med hjälp av det inbyggda attributet *logprob*. För en sannolikhet *p* mellan 0 och 1 kan du beräkna den logaritmiska sannolikheten som log (*p*), där log() är den naturliga logaritmen.
 
-Mer information finns i [dataformat](DataFormat.md).
+Mer information finns i [Dataformat](DataFormat.md).
 
-<a name="building-index"></a>
-## <a name="build-a-compressed-binary-index"></a>Skapa en komprimerad binärt index
-När du har en schemafilen och datafilen, du kan skapa en komprimerad binärt index för dataobjekt med hjälp av [ `kes.exe build_index` ](CommandLine.md#build_index-command). I det här exemplet skapar du indexfilen *Academic.index* från filen inmatningsschemat *Academic.schema* och datafil *Academic.data*. Ange följande kommando:
+## <a name="build-a-compressed-binary-index"></a>Skapa ett komprimerat binärt index
+
+När du har en schemafil och datafil kan du skapa ett komprimerat binärt index för dataobjekt med hjälp av [`kes.exe build_index`](CommandLine.md#build_index-command). I det här exemplet skapar du indexfilen *Academic.index* från filinmatningsschemat *Academic.schema* och datafilen *Academic.data*. Ange följande kommando:
 
 `kes.exe build_index Academic.schema Academic.data Academic.index`
 
-För snabb prototyper utanför Azure, [ `kes.exe build_index` ](CommandLine.md#build_index-command) kan bygga lokalt, small index från filer som innehåller upp till 10 000 objekt. För större datafiler, kan du antingen köra kommandot inifrån en [Windows VM i Azure](../../../articles/virtual-machines/windows/quick-create-portal.md), eller utföra en fjärransluten version i Azure. Mer information finns i [skala upp](#scaling-up).
+För snabba prototyper utanför Azure kan [`kes.exe build_index`](CommandLine.md#build_index-command) skapa lokala, små index från filer som innehåller upp till 10 000 objekt. För större filer, kan du antingen köra kommandot inifrån en [Windows-dator i Azure](../../../articles/virtual-machines/windows/quick-create-portal.md) eller utföra en fjärransluten kompilering i Azure. Mer information finns i [Skala upp](#scaling-up).
 
-<a name="authoring-grammar"></a>
-## <a name="use-an-xml-grammar-specification"></a>Använda en XML-grammatik specifikation
-Grammatiken anger vilken naturligt språk frågor som tjänsten kan tolka samt hur dessa frågor med naturligt språk översätts till semantisk fråga uttryck. I det här exemplet använder du grammatik som anges i *academic.xml*:
+## <a name="use-an-xml-grammar-specification"></a>Använd en specifikation med XML-grammatik
+
+Grammatik anger uppsättning frågor med naturligt språk som tjänsten kan tolka samt hur dessa frågor med naturligt språk översätts till semantiska frågeuttryck. I det här exemplet använder du grammatik enligt *academic.xml*:
 
 ```xml
 <grammar root="GetPapers">
@@ -196,73 +197,73 @@ Grammatiken anger vilken naturligt språk frågor som tjänsten kan tolka samt h
 </grammar>
 ```
 
-Mer information om syntaxen som grammatik specifikationen finns [Grammar Format](GrammarFormat.md).
+Mer information om vilken grammatiksyntaxen finns i [Grammatikformat](GrammarFormat.md).
 
-<a name="compiling-grammar"></a>
 ## <a name="compile-the-grammar"></a>Kompilera grammatik
-När du har en XML-grammatik specifikation du kompilera den till en binär grammatik med [ `kes.exe build_grammar` ](CommandLine.md#build_grammar-command). Observera att om grammatiken importerar ett schema, schemafilen måste finnas i samma sökväg som grammatik XML. I det här exemplet skapar du filen binär grammatik *Academic.grammar* från XML-grammatik indatafilen *Academic.xml*. Ange följande kommando:
+
+När du har en XML-grammatik-specifikation kan du kompilera den till en binär grammatik med [`kes.exe build_grammar`](CommandLine.md#build_grammar-command). Observera att om grammatik importerar ett schema måste schemafilen finnas i samma sökväg som grammatik-XML. I det här exemplet skapar du den binära grammatikfilen *Academic.grammar* från indatafilen för XML-grammatik *Academic.xml*. Ange följande kommando:
 
 `kes.exe build_grammar Academic.xml Academic.grammar`
 
-<a name="hosting-index"></a>
 ## <a name="host-the-grammar-and-index-in-a-web-service"></a>Värd för grammatik och index i en webbtjänst
-För snabb prototyper, du kan vara värd för grammatik och index i en webbtjänst på den lokala datorn med hjälp av [ `kes.exe host_service` ](CommandLine.md#host_service-command). Du kan sedan komma åt tjänsten via [webb-API: er](WebAPI.md) att validera data är korrekt och grammatik design. I det här exemplet är värd för grammatikfilen *Academic.grammar* och indexfilen *Academic.index* på http://localhost:8000/. Ange följande kommando:
+
+För snabba prototyper kan du lagra grammatik och index i en webbtjänst på den lokala datorn med hjälp av [`kes.exe host_service`](CommandLine.md#host_service-command). Du kan sedan komma åt tjänsten via [webb-API:er](WebAPI.md) för att bekräfta att dina data är korrekta och med korrekt grammatik. I det här exemplet kan du lagra grammatikfilen *Academic.grammar* och indexeringsfilen *Academic.index* på http://localhost:8000/. Ange följande kommando:
 
 `kes.exe host_service Academic.grammar Academic.index --port 8000`
 
-Detta startar en lokal instans av webbtjänsten. Du kan testa tjänsten interaktivt genom att besöka `http::localhost:<port>` från en webbläsare. Mer information finns i [testar tjänsten](#testing-service).
+Detta startar en lokal instans av webbtjänsten. Du kan testa tjänsten interaktivt genom att besöka `http::localhost:<port>` från en webbläsare. Mer information finns i [testa tjänsten](#testing-service).
 
-Du kan också direkt anropa olika [webb-API: er](WebAPI.md) att testa tolkning av naturligt språk, fråga slutförande, structured query utvärdering och histogram beräkning. Stoppa tjänsten genom att ange ”Avsluta” i den `kes.exe host_service` Kommandotolken och tryck på Ctrl + C. Här följer några exempel:
+Du kan också anropa olika [webb-API: er](WebAPI.md) direkt för att testa tolkning av naturligt språk, frågeslutföring, strukturerad frågeutvärdering och histogramberäkning. Stoppa tjänsten genom att ange ”Avsluta” i kommandotolken för `kes.exe host_service` eller trycka på Ctrl + C. Här följer några exempel:
 
-* [http://localhost:8000/interpret?query=papers av susan t dumais](http://localhost:8000/interpret?query=papers%20by%20susan%20t%20dumais)
-* [http://localhost:8000/interpret?query=papers susan t d & slutförd = 1](http://localhost:8000/interpret?query=papers%20by%20susan%20t%20d&complete=1)
-* [http://localhost:8000/evaluate?expr=Composite(Author.Name=='susan t dumais') & attributes=Title,Year,Author.Name,Author.Id & count = 2](http://localhost:8000/evaluate?expr=Composite%28Author.Name==%27susan%20t%20dumais%27%29&attributes=Title,Year,Author.Name,Author.Id&count=2)
-* [http://localhost:8000/calchistogram?expr=And(Composite(Author.Name=='susan t dumais'), år > = 2013) & attribut = år, nyckelord och count = 4](http://localhost:8000/calchistogram?expr=And%28Composite%28Author.Name=='susan%20t%20dumais'%29,Year>=2013%29&attributes=Year,Keyword&count=4)
+* [http://localhost:8000/interpret?query=papers by susan t dumais](http://localhost:8000/interpret?query=papers%20by%20susan%20t%20dumais)
+* [http://localhost:8000/interpret?query=papers susan t d & fullständig = 1](http://localhost:8000/interpret?query=papers%20by%20susan%20t%20d&complete=1)
+* [http://localhost:8000/evaluate?expr=Composite(Author.Name=='susan t dumais')&attributes=Title,Year,Author.Name,Author.Id&count=2](http://localhost:8000/evaluate?expr=Composite%28Author.Name==%27susan%20t%20dumais%27%29&attributes=Title,Year,Author.Name,Author.Id&count=2)
+* [http://localhost:8000/calchistogram?expr=And(Composite(Author.Name=='susan t dumais'),Year>=2013)&attributes=Year,Keyword&count=4](http://localhost:8000/calchistogram?expr=And%28Composite%28Author.Name=='susan%20t%20dumais'%29,Year>=2013%29&attributes=Year,Keyword&count=4)
 
-Utanför Azure, [ `kes.exe host_service` ](CommandLine.md#host_service-command) är begränsad till index för upp till 10 000 objekt. Andra gränser är en API som 10 begäranden per sekund och totalt 1000 begäranden innan processen avslutas automatiskt. Om du vill kringgå dessa begränsningar, kör du kommandot inifrån en [Windows VM i Azure](../../../articles/virtual-machines/windows/quick-create-portal.md), eller om du vill distribuera till en Azure-molntjänst med hjälp av den [ `kes.exe deploy_service` ](CommandLine.md#deploy_service-command) kommando. Mer information finns i [distribuera tjänsten](#deploying-service).
+Utanför Azure, [`kes.exe host_service`](CommandLine.md#host_service-command) är begränsad till index för upp till 10 000 objekt. Andra begränsningar inkluderar en API-hastighet på 10 förfrågningar per sekund och totalt 1000 begäranden innan processen avslutas automatiskt. Om du vill kringgå dessa begränsningar, kör du kommandot inifrån en [Windows-dator i Azure](../../../articles/virtual-machines/windows/quick-create-portal.md) eller distribuerar till en Azure-molntjänst med hjälp av kommandot [`kes.exe deploy_service`](CommandLine.md#deploy_service-command). Mer information finns i [Distribuera tjänsten](#deploying-service).
 
-<a name="scaling-up"></a>
-## <a name="scale-up-to-host-larger-indices"></a>Skala upp värden större indexen
-När du kör `kes.exe` utanför Azure, indexet är begränsad till 10 000 objekt. Du kan skapa och vara värd för större index med hjälp av Azure. Registrera dig för en [kostnadsfri utvärderingsversion](https://azure.microsoft.com/pricing/free-trial/). Om du prenumererar på Visual Studio eller MSDN, du kan också [aktivera prenumerantförmåner](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/). Dessa erbjuder vissa Azure-krediter varje månad.
+## <a name="scale-up-to-host-larger-indices"></a>Skala upp till större index
 
-Att tillåta `kes.exe` åtkomst till ett Azure-konto [hämta filen Azure Publiceringsinställningar](https://portal.azure.com/#blade/Microsoft_Azure_ClassicResources/PublishingProfileBlade) från Azure-portalen. Om du uppmanas logga in på önskat Azure-konto. Spara filen som *AzurePublishSettings.xml* i arbetskatalogen varifrån `kes.exe` körs.
+När du kör `kes.exe` utanför Azure är indexet begränsat till 10 000 objekt. Du kan skapa och vara värd för större index med hjälp av Azure. Registrera dig för en [kostnadsfri utvärderingsversion](https://azure.microsoft.com/pricing/free-trial/). Om du prenumererar på Visual Studio eller MSDN kan du också [aktivera prenumerantförmåner](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/). Dessa erbjuder Azure-krediter varje månad.
 
-Det finns två sätt att skapa och stora index. Först är att förbereda schemat och datafiler i en Windows-dator i Azure. Kör sedan [ `kes.exe build_index` ](#building-index) och skapa index lokalt på den virtuella datorn, utan storleksbegränsningar. Det resulterande indexet kan finnas lokalt på den virtuella datorn med hjälp av [ `kes.exe host_service` ](#hosting-service) för snabb prototyper igen utan begränsningar. Detaljerade anvisningar finns i [Azure VM kursen](../../../articles/virtual-machines/windows/quick-create-portal.md).
+För att tillåta `kes.exe` åtkomst till en Azure-konto, [hämta filen med Azure-publiceringsinställningar](https://portal.azure.com/#blade/Microsoft_Azure_ClassicResources/PublishingProfileBlade) från Azure-portalen. Om du uppmanas, logga in på det önskade Azure-kontot. Spara filen som *AzurePublishSettings.xml* i arbetskatalogen varifrån `kes.exe` körs.
 
-Den andra metoden är att genomföra en fjärransluten Azure version med hjälp av [ `kes.exe build_index` ](CommandLine.md#build_index-command) med den `--remote` parameter. Anger en Azure VM-storlek. När den `--remote` anges för parametern, kommandot skapar en tillfällig Azure VM av storleken. Därefter skapar index på den virtuella datorn, överför index till mål-blob storage, och tar bort den virtuella datorn när åtgärden har slutförts. Din Azure-prenumeration debiteras för kostnaden för den virtuella datorn när indexet skapas.
+Det finns två sätt att bygga och hantera stora index. Först är att förbereda schema- och datafilerna i en Windows-dator i Azure. Kör sedan [`kes.exe build_index`](#building-index) och skapa index lokalt på den virtuella datorn, utan storleksbegränsningar. Det resulterande indexet kan lagras lokalt på den virtuella datorn med hjälp av [`kes.exe host_service`](#hosting-service) för snabba prototyper, igen utan begränsningar. Detaljerade anvisningar finns i självstudien om [Virtuella Azure-datorer](../../../articles/virtual-machines/windows/quick-create-portal.md).
 
-Den här remote Azure build-funktionen kan [ `kes.exe build_index` ](CommandLine.md#build_index-command) ska köras i alla miljöer. När du utför en fjärransluten build indataargumenten schema och data kan vara lokala sökvägar eller [Azure-blobblagring](../../storage/blobs/storage-dotnet-how-to-use-blobs.md) URL: er. Argumentet utdata index måste vara en blob storage-URL. För att skapa ett Azure storage-konto, se [om Azure storage-konton](../../storage/common/storage-create-storage-account.md). Att kopiera filer effektivt till och från blobblagring, använder du den [AzCopy](../../storage/common/storage-use-azcopy.md) verktyget.
+Den andra metoden är att utföra en fjärransluten Azure-kompilering med hjälp av [`kes.exe build_index`](CommandLine.md#build_index-command) med parametern `--remote`. Detta anger en Azure VM-storlek. När parametern `--remote` har angetts skapar kommandot en temporär virtuell Azure-dator med den storleken. Det indexet kompileras sedan på den virtuella datorn som överför indexet till målbloblagringen och tar bort den virtuella datorn när detta har slutförts. Din Azure-prenumeration debiteras för kostnaden för den virtuella datorn medan index skapas.
 
-I det här exemplet kan du anta att följande blobblagringsbehållare redan har skapats: http://&lt;*konto*&gt;.blob.core.windows.net/&lt;*behållare* &gt;/. Den innehåller schemat *Academic.schema*, filen refererade synonymen *Keywords.syn*, och filen fullskaliga *Academic.full.data*. Du kan skapa fullständiga indexet via fjärranslutning med hjälp av följande kommando:
+Den här fjärrkompileringsversionen för Azure kan köra [`kes.exe build_index`](CommandLine.md#build_index-command) i alla miljöer. När du utför en fjärrkompilering kan argumenten för indataschema och data vara lokala sökvägar eller URL:er till [Azure blob-lagring](../../storage/blobs/storage-dotnet-how-to-use-blobs.md). Indexargument för utdata måste vara URL:er till blob-lagring. Om du vill skapa ett Azure Storage-konto läser du [Om Azure Storage-konton](../../storage/common/storage-create-storage-account.md). För att kopiera filer effektivt till och från blob-lagring använder du verktyget [AzCopy](../../storage/common/storage-use-azcopy.md).
+
+I det här exemplet kan du anta att följande blob storage-behållaren redan har skapats: http://&lt;*konto*&gt;.blob.core.windows.net/&lt;*behållare* &gt;/. Den innehåller schemat *Academic.schema*, den refererade synonymfilen *Keywords.syn* och den fullskaliga datafilen *Academic.full.data*. Du kan skapa fullständiga indexet via en fjärranslutning med hjälp av följande kommando:
 
 `kes.exe build_index http://<account>.blob.core.windows.net/<container>/Academic.schema http://<account>.blob.core.windows.net/<container>/Academic.full.data http://<account>.blob.core.windows.net/<container>/Academic.full.index --remote <vm_size>`
 
-Observera att det kan ta 5-10 minuter att etablera en temporay VM och skapa index. Snabb prototyper kan du:
+Observera att det kan ta 5 – 10 minuter att etablera en tillfällig virtuell dator för att skapa indexet. För snabba prototyper kan du:
 - Utveckla med en mindre mängd data lokalt på en dator.
-- Manuellt [skapa en Azure VM](../../../articles/virtual-machines/windows/quick-create-portal.md), [ansluta till den](../../../articles/virtual-machines/windows/quick-create-portal.md#connect-to-virtual-machine) via fjärrskrivbord, installera den [Knowledge utforskning Service SDK](https://www.microsoft.com/en-us/download/details.aspx?id=51488), och kör [ `kes.exe` ](CommandLine.md) från den virtuella datorn.
+- [Skapa en virtuell Azure-dator](../../../articles/virtual-machines/windows/quick-create-portal.md) manuellt, [anslut till den](../../../articles/virtual-machines/windows/quick-create-portal.md#connect-to-virtual-machine) via fjärrskrivbord, installera [SDK för tjänsten för kunskapsutveckling](https://www.microsoft.com/en-us/download/details.aspx?id=51488) och kör [`kes.exe`](CommandLine.md) från den virtuella datorn.
 
-Växling minskar skapar. För att undvika sidindelning, använder du en virtuell dator med tre gånger mängden RAM-minne som indata filstorleken för skapande av index. Använda en virtuell dator med 1 GB mer RAM-minne än vad index för värd. En lista över tillgängliga storlekar på VM, se [storlekar för virtuella datorer](../../../articles/virtual-machines/virtual-machines-windows-sizes.md).
+Växling gör skapandeprocessen långsammare. Om du vill undvika växling använder du en virtuell dator med tre gånger större RAM-minne än indatafilen som används för att kompilera indexet. Använd en virtuell dator med 1 GB mer RAM-minne än indexstorleken. En lista över tillgängliga storlekar på virtuella datorer finns i [storlekar på virtuella datorer](../../../articles/virtual-machines/virtual-machines-windows-sizes.md).
 
-<a name="deploying-service"></a>
 ## <a name="deploy-the-service"></a>Distribuera tjänsten
-När du har en grammatik och ett index är du redo att distribuera tjänsten till en Azure-molntjänst. Om du vill skapa en ny Azure-molntjänst finns [hur du skapar och distribuerar en tjänst i molnet](../../../articles/cloud-services/cloud-services-how-to-create-deploy-portal.md). Ange inte ett distributionspaket nu.  
 
-När du har skapat Molntjänsten kan du använda [ `kes.exe deploy_service` ](CommandLine.md#deploy_service-command) att distribuera tjänsten. En Azure-Molntjänsten har två distributionsplatser: produktions- och Förproduktion. För en tjänst som tar emot användartrafik live, bör du först distribuera till mellanlagringsplatsen. Vänta tills tjänsten startas och initieras. Du kan sedan skicka några begäranden om att verifiera distributionen och kontrollera att den skickar grundläggande tester.
+När du har grammatik och index är du redo att distribuera tjänsten till en Azure-molntjänst. Se [Skapa och distribuera en tjänst i molnet](../../../articles/cloud-services/cloud-services-how-to-create-deploy-portal.md) om du vill skapa en ny Azure-molntjänst. Ange inte ett distributionspaket nu.  
 
-[Växla](../../../articles/cloud-services/cloud-services-nodejs-stage-application.md) innehållet i mellanlagringsplatsen fack med produktionsplatsen, så att live trafik omdirigeras nu till den nyligen distribuerade tjänsten. Du kan upprepa processen när du distribuerar en uppdaterad version av tjänsten med nya data. Som med alla andra Azure-molntjänster, kan du eventuellt använda Azure-portalen för att konfigurera [automatisk skalning](../../../articles/cloud-services/cloud-services-how-to-scale-portal.md).
+När du har skapat molntjänsten kan du använda [`kes.exe deploy_service`](CommandLine.md#deploy_service-command) för att distribuera tjänsten. En Azure-molntjänst har två distributionsplatser: produktion och mellanlagring. För en tjänst som tar emot direkt användartrafik bör du först distribuera mellanlagringen. Vänta medan tjänsten startas och initieras. Du kan sedan skicka några begäranden för att verifiera distributionen och kontrollera att den med några grundläggande tester.
 
-I det här exemplet du distribuerar den *Academic* index till mellanlagringsplatsen för en befintlig molntjänst med *< vm_size >* virtuella datorer. Ange följande kommando:
+[Växla](../../../articles/cloud-services/cloud-services-nodejs-stage-application.md) innehållet i mellanlagringsfacket med produktionsplatsen så att live-trafik omdirigeras till den nyligen distribuerade tjänsten. Du kan upprepa den här processen när du distribuerar en uppdaterad version av tjänsten med nya data. Som med alla andra Azure-molntjänster kan du också använda Azure-portalen för att konfigurera [autoskalning](../../../articles/cloud-services/cloud-services-how-to-scale-portal.md).
+
+I det här exemplet distribuerar du indexet *Akademisk* till en mellanlagringsplats för en befintlig molntjänst med *< vm_size >* virtuella datorer. Ange följande kommando:
 
 `kes.exe deploy_service http://<account>.blob.core.windows.net/<container>/Academic.grammar http://<account>.blob.core.windows.net/<container>/Academic.index <serviceName> <vm_size> --slot Staging`
 
-En lista över tillgängliga storlekar på VM, se [storlekar för virtuella datorer](../../../articles/virtual-machines/virtual-machines-windows-sizes.md).
+En lista över tillgängliga storlekar på virtuella datorer finns i [storlekar på virtuella datorer](../../../articles/virtual-machines/virtual-machines-windows-sizes.md).
 
-När du distribuerar tjänsten, kan du anropa olika [webb-API: er](WebAPI.md) att testa tolkning av naturligt språk, fråga slutförande, structured query utvärdering och histogram beräkning.  
+När du har distribuerat tjänsten kan du anropa olika [webb-API: er](WebAPI.md) direkt för att testa tolkning av naturligt språk, frågeslutföring, strukturerad frågeutvärdering och histogramberäkning.  
 
-<a name="testing-service"></a>
 ## <a name="test-the-service"></a>Testa tjänsten
-Bläddra till värddatorn från en webbläsare för att felsöka en live-tjänst. För en lokal tjänst som distribuerats [host_service](#hosting-service), besök `http://localhost:<port>/`.  För en Azure cloud service distribueras [deploy_service](#deploying-service), besök `http://<serviceName>.cloudapp.net/`.
 
-Den här sidan innehåller en länk till information om grundläggande statistik för API-anrop, samt grammatik och index som finns på den här tjänsten. Den här sidan innehåller också ett interaktivt sökgränssnitt som visar hur du använder web API: er. Ange frågor i sökrutan för att se resultatet av den [tolka](interpretMethod.md), [utvärdera](evaluateMethod.md), och [calchistogram](calchistogramMethod.md) API-anrop. Den underliggande HTML-källan för den här sidan fungerar också som ett exempel på hur du integrerar web API: er i en app för att skapa en omfattande, interaktiva sökinställningar.
+Bläddra till värddatorn från en webbläsare för att felsöka en live-tjänst. För en lokal tjänst som distribuerats via [host_service](#hosting-service) går du till `http://localhost:<port>/`.  För en Azure-molntjänst som har distribuerats via [deploy_service](#deploying-service) går du till `http://<serviceName>.cloudapp.net/`.
+
+Den här sidan innehåller en länk till information om grundläggande statistik för API-anrop, samt grammatik och index som finns på den här tjänsten. Den här sidan innehåller också ett gränssnitt för interaktiv sökning som visar hur du använder webb-API:er. Ange frågor i sökrutan för att se resultaten av API-anropen [interpret](interpretMethod.md), [evaluate](evaluateMethod.md), och [calchistogram](calchistogramMethod.md). Den underliggande HTML-källan för den här sidan fungerar också som ett exempel på hur du integrerar webb-API:er i en app för att skapa en omfattande och interaktiv sökfunktion.
 
 

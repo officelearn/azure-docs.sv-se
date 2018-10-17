@@ -1,47 +1,57 @@
 ---
-title: 'Snabbstart: Använda en domänmodell med API:et för Visuellt innehåll och PHP | Microsoft Docs'
-titleSuffix: Microsoft Cognitive Services
-description: I den här snabbstarten ska du använda en domänmodell för att identifiera landmärken i en bild med hjälp av Visuellt innehåll och PHP i Cognitive Services.
+title: 'Snabbstart: Använda en domänmodell – REST, PHP – Visuellt innehåll'
+titleSuffix: Azure Cognitive Services
+description: I den här snabbstarten använder du en domänmodell för att identifiera landmärken i en bild med hjälp av API:et för Visuellt innehåll med PHP.
 services: cognitive-services
 author: noellelacharite
-manager: nolachar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: computer-vision
 ms.topic: quickstart
 ms.date: 08/28/2018
 ms.author: v-deken
-ms.openlocfilehash: 335065b45781dd2712f5416fb03a2f8726182472
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: 40a4fa90442a5771f6b221a25ddca46d3ebc4f5c
+ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43772255"
+ms.lasthandoff: 09/15/2018
+ms.locfileid: "45629499"
 ---
-# <a name="quickstart-use-a-domain-model---rest-php"></a>Snabbstart: Använda en domänmodell – REST, PHP
+# <a name="quickstart-use-a-domain-model-using-the-rest-api-and-php-in-computer-vision"></a>Snabbstart: Använd en domänmodell med hjälp av REST API:et och PHP i Visuellt innehåll
 
-I den här snabbstarten ska du använda en domänmodell för att identifiera landmärken eller kändisar i en bild med hjälp av Visuellt innehåll.
+I den här snabbstarten använder du en domänmodell för att identifiera landmärken eller kändisar i en fjärrlagrad bild med hjälp av REST API för visuellt innehåll. Med metoden [Recognize Domain Specific Content](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e200) (Identifiera domänspecifikt innehåll) kan du tillämpa en domänspecifik modell för att känna igen innehåll i en bild.
+
+Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/ai/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=cognitive-services) innan du börjar.
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
-För att använda Visuellt innehåll behöver du en prenumerationsnyckel. Mer information finns i avsnittet [Obtaining Subscription Keys](../Vision-API-How-to-Topics/HowToSubscribe.md) (Hämta prenumerationsnycklar).
+- Du måste ha [PHP](https://secure.php.net/downloads.php) installerat.
+- Du måste ha [Pear](https://pear.php.net) installerat.
+- Du måste ha en prenumerationsnyckel för Visuellt innehåll. Du kan skaffa en prenumerationsnyckel genom att följa anvisningarna i [Skaffa prenumerationsnycklar](../Vision-API-How-to-Topics/HowToSubscribe.md).
 
-## <a name="recognize-landmark-request"></a>Begäran om landmärkesidentifiering
+## <a name="create-and-run-the-sample"></a>Skapa och köra exemplet
 
-Med metoden [Recognize Domain Specific Content](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e200) (Identifiera domänspecifikt innehåll) kan du identifiera en specifik uppsättning objekt i en bild. De två domänspecifika modeller som är tillgängliga för närvarande är _kändisar_ och _landmärken_.
+Så här skapar du och kör exemplet:
 
-För att köra exemplet följer du dessa steg:
+1. Installera PHP5-paketet [`HTTP_Request2`](http://pear.php.net/package/HTTP_Request2).
+   1. Öppna ett kommandotolksfönster som administratör.
+   1. Kör följande kommando:
 
-1. Kopiera följande kod till ett redigeringsprogram.
-1. Ersätt `<Subscription Key>` med en giltig prenumerationsnyckel.
-1. Ändra `uriBase` till den plats där du hämtade dina prenumerationsnycklar om det behövs.
-1. Du kan också ange `imageUrl` till den bild som du vill analysera.
-1. Du kan också ange `domain` till `celebrities` om du vill använda modellen Kändisar.
-1. Spara filen med tillägget `.php`.
-1. Öppna filen i ett webbläsarfönster med PHP-stöd.
+      ```console
+      pear install HTTP_Request2
+      ```
 
-Följande exempel identifierar ett landmärke i en bild.
+   1. Stäng kommandotolkens fönster när paketet har installerats.
 
-Det här exemplet använder [HTTP_Request2](http://pear.php.net/package/HTTP_Request2)-paketet för PHP5.
+1. Kopiera följande kod till en textredigerare.
+1. Gör följande ändringar i koden där det behövs:
+    1. Ersätt värdet för `subscriptionKey` med din prenumerationsnyckel.
+    1. Ersätt värdet för `uriBase` med slutpunktsadressen för metoden [Identifiera domänspecifikt innehåll](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e200) från den Azure-region där du fått dina prenumerationsnycklar om det behövs.
+    1. Du kan också ersätta värdet för `imageUrl` med webbadressen till en annan bild som du vill analysera.
+    1. Du kan också ersätta värdet för parametern `domain` för begäran med `celebrites` om du vill använda domänmodellen `celebrities` i stället för `landmarks`.
+1. Spara koden som en fil med tillägget `.php`. Till exempel `use-domain-model.php`.
+1. Öppna ett webbläsarfönster med PHP-stöd.
+1. Dra och släpp filen till webbläsarfönstret.
 
 ```php
 <html>
@@ -105,9 +115,9 @@ catch (HttpException $ex)
 </html>
 ```
 
-## <a name="recognize-landmark-response"></a>Svar från landmärkesidentifiering
+## <a name="examine-the-response"></a>Granska svaret
 
-Ett svar som anger att åtgärden lyckades returneras i JSON, till exempel:
+Ett svar som anger att åtgärden lyckades returneras i JSON. Exempelwebbplatsen parsar och visar ett lyckat svar i webbläsarfönstret enligt följande exempel:
 
 ```json
 {
@@ -128,9 +138,22 @@ Ett svar som anger att åtgärden lyckades returneras i JSON, till exempel:
 }
 ```
 
+## <a name="clean-up-resources"></a>Rensa resurser
+
+När du inte behöver filen längre kan du ta bort den och sedan avinstallera PHP5-paketet `HTTP_Request2`. Avinstallera paketet på följande sätt:
+
+1. Öppna ett kommandotolksfönster som administratör.
+2. Kör följande kommando:
+
+   ```console
+   pear uninstall HTTP_Request2
+   ```
+
+3. Stäng kommandotolkens fönster när paketet har avinstallerats.
+
 ## <a name="next-steps"></a>Nästa steg
 
-Utforska API:erna för visuellt innehåll som används för att analysera en bild, identifiera kändisar och landmärken, skapa en miniatyrbild och extrahera tryckt och handskriven text. Du kan snabbt experimentera med API:erna för visuellt innehåll genom att prova [Open API-testkonsolen](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa/console).
+Utforska API:et för visuellt innehåll, som används för att analysera en bild, identifiera kändisar och landmärken, skapa en miniatyrbild och extrahera tryckt och handskriven text. Du kan snabbt experimentera med API:et för visuellt innehåll genom att prova [Open API-testkonsolen](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa/console).
 
 > [!div class="nextstepaction"]
-> [Utforska API:er för visuellt innehåll](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44)
+> [Utforska API:et för visuellt innehåll](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44)

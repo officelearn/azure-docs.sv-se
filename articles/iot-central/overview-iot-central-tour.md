@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: peterpr
-ms.openlocfilehash: 69898358026eab716c057f339d8594df43db136f
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 11112e01e38f85db9f71280c53c27b130275d86f
+ms.sourcegitcommit: 8b694bf803806b2f237494cd3b69f13751de9926
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34629379"
+ms.lasthandoff: 09/20/2018
+ms.locfileid: "46498274"
 ---
 # <a name="take-a-tour-of-the-azure-iot-central-ui"></a>Ta en rundtur i Azure IoT Central-användargränssnittet
 
@@ -39,7 +39,7 @@ Använd den vänstra navigeringsmenyn för att få åtkomst till de olika områd
 
 | Meny | Beskrivning |
 | ---- | ----------- |
-| ![Vänster navigeringsmeny](media/overview-iot-central-tour/navigationbar.png) | <ul><li>Knappen **Start** visar startsidan för ditt program. Som byggare kan du anpassa den här startsidan för dina operatörer.</li><li>Knappen **Device Explorer** (Enhetsutforskare) visar både enhetsmallar som har definierats i ditt program, samt simulerade och verkliga enheter som är associerade med varje enhetsmall. Som operatör kan du använda **Device Explorer** till att hantera dina anslutna enheter.</li><li>Med knappen **Device Sets** (Enhetsuppsättningar) kan du visa och skapa enhetsuppsättningar. Som operatör kan du skapa enhetsuppsättningar som en logisk samling av enheter som anges av en fråga.</li><li>Knappen **Analytics** (Analys) visar analys som härletts från enhetstelemetrin för enheter och enhetsuppsättningar. Som operatör kan du skapa anpassade vyer ovanpå enhetsdata för att kunna härleda insikter från ditt program.</li><li>Knappen **Application Builder** (Programbyggare) visar de verktyg som en byggare använder, exempelvis verktyget för att **skapa en enhetsmall**.</li><li>Knappen **Administration** visar programmets administrationssidor där administratören kan hantera programinställningar, användare och roller.</li></ul> |
+| ![Vänster navigeringsmeny](media/overview-iot-central-tour/navigationbar.png) | <ul><li>Knappen **Start** visar startsidan för ditt program. Som byggare kan du anpassa den här startsidan för dina operatörer.</li><li>Knappen **Device Explorer** (Enhetsutforskare) visar både enhetsmallar som har definierats i ditt program, samt simulerade och verkliga enheter som är associerade med varje enhetsmall. Som operatör kan du använda **Device Explorer** till att hantera dina anslutna enheter.</li><li>Med knappen **Device Sets** (Enhetsuppsättningar) kan du visa och skapa enhetsuppsättningar. Som operatör kan du skapa enhetsuppsättningar som en logisk samling av enheter som anges av en fråga.</li><li>Knappen **Analytics** (Analys) visar analys som härletts från enhetstelemetrin för enheter och enhetsuppsättningar. Som operatör kan du skapa anpassade vyer ovanpå enhetsdata för att kunna härleda insikter från ditt program.</li><li>Med knappen **Jobb** kan du ägna dig åt massenhetshantering genom att skapa och köra jobb och utföra uppdateringar i skala.</li><li>Knappen **Application Builder** (Programbyggare) visar de verktyg som en byggare använder, exempelvis verktyget för att **skapa en enhetsmall**.</li><li>Knappen **Administration** visar programmets administrationssidor där administratören kan hantera programinställningar, användare och roller.</li></ul> |
 
 ## <a name="search-help-and-support"></a>Sök, hjälp och support
 
@@ -81,6 +81,12 @@ På sidan med _enhetsuppsättningar_ visas de enhetsuppsättningar som har skapa
 ![Analyssidan](media/overview-iot-central-tour/analytics.png)
 
 På analyssidan visas diagram där du kan se hur enheter som är anslutna till ditt program fungerar. En operatör använder den här sidan för att övervaka och undersöka problem med anslutna enheter. Byggaren kan definiera vilka diagram som ska visas på den här sidan. Mer information finns i artikeln om att [skapa anpassad analys för Azure IoT Central-programmet](howto-create-analytics.md).
+
+## <a name="jobs"></a>Jobb
+
+![Sidan Jobb](media/overview-iot-central-tour/jobs.png)
+
+På sidan Jobb kan du utföra aktiviteter för massenhetshantering för dina enheter. Verktyget använder den här sidan för att uppdatera enhetsegenskaper, inställningar och kommandon. Mer information finns i artikeln [Köra ett jobb](howto-run-a-job.md).
 
 ## <a name="application-builder"></a>Application Builder
 

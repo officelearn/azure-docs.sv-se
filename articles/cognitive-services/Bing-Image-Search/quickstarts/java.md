@@ -1,42 +1,42 @@
 ---
-title: 'Snabbstart: Skicka sökfrågor med bildsökning i Bing och Java'
+title: 'Snabbstart: Utföra en bildsökning med Java – API för bildsökning i Bing'
 titleSuffix: Azure Cognitive Services
-description: Använd den här snabbstarten för att söka efter bilder på webben med hjälp av Bing Web Search API.
+description: Använd den här snabbstarten för att göra ditt första anrop till API för bildsökning i Bing och få ett JSON-svar. Det här enkla Java-programmet skickar en sökfråga till API:et och visar rådataresultat.
 services: cognitive-services
 documentationcenter: ''
 author: aahill
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-image-search
-ms.topic: article
+ms.topic: quickstart
 ms.date: 8/20/2018
 ms.author: aahi
-ms.openlocfilehash: 519667af255e3c1b39d336e7a399ba215803daa5
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
-ms.translationtype: MT
+ms.openlocfilehash: 5e002de273d50de9095c6e58b8e1a9fb9a05ed4f
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45577487"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46295350"
 ---
-# <a name="quickstart-send-search-queries-using-the-bing-image-search-rest-api-and-java"></a>Snabbstart: Skicka sökfrågor med Bings API för bildsökning REST och Java
+# <a name="quickstart-send-search-queries-using-the-bing-image-search-rest-api-and-java"></a>Snabbstart: Skicka sökfrågor med REST API för bildsökning i Bing och Java
 
-Använd den här snabbstarten att skicka ditt första anrop till sökning i Bing och få ett JSON-svar. Det här enkla Java-programmet skickar en sökfråga till API: et och visar rådataresultat.
+Använd den här snabbstarten för att göra ditt första anrop till API för bildsökning i Bing och få ett JSON-svar. Det här enkla Java-programmet skickar en sökfråga till API:et och visar rådataresultat.
 
-Även om det här programmet är skriven i Java, är API: et en RESTful-webb-tjänst som är kompatibla med de flesta programmeringsspråk.
+Även om det här programmet är skrivet i Java, är API:n en RESTful-webbtjänst som är kompatibel med de flesta programmeringsspråk.
 
-Källkoden för det här exemplet finns [på GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/java/Search/BingImageSearchv7Quickstart.java) med ytterligare felhantering och kod anteckningar.
+Källkoden för det här exemplet finns på [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/java/Search/BingImageSearchv7Quickstart.java) tillsammans med ytterligare felhantering och kodkommentarer.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
-* Den [Java Development Kit(JDK) 7 eller 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) 
+* [Java Development Kit(JDK) 7 eller 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
 
-* Den [Gson bibliotek](https://github.com/google/gson)
+* [Gson-biblioteket](https://github.com/google/gson)
 
 [!INCLUDE [cognitive-services-bing-image-search-signup-requirements](../../../../includes/cognitive-services-bing-image-search-signup-requirements.md)]
 
 ## <a name="create-and-initialize-a-project"></a>Skapa och initiera ett projekt
 
-1. Skapa ett nytt Java-projekt i din favorit-IDE eller redigerare och importera följande bibliotek.
+1. Skapa ett nytt Java-projekt i valfri IDE eller redigeringsprogram och importera följande bibliotek.
 
     ```java
     import java.net.*;
@@ -49,7 +49,7 @@ Källkoden för det här exemplet finns [på GitHub](https://github.com/Azure-Sa
     import com.google.gson.JsonParser;
     ```
 
-2. Skapa variabler för API-slutpunkter, din prenumerationsnyckel och Sök efter termer.
+2. Skapa variabler för API-slutpunkter, din prenumerationsnyckel och sökvillkor.
 
     ```java
     static String subscriptionKey = "enter key here";
@@ -60,7 +60,7 @@ Källkoden för det här exemplet finns [på GitHub](https://github.com/Azure-Sa
 
 ## <a name="construct-the-search-request-and-query"></a>Konstruera sökbegäran och fråga
 
-1. Använda variabler i det sista steget för att formatera en URL för API-begäran. Observera att sökordet måste vara URL-kodat innan du läggs till i begäran.
+1. Använda variabler från det sista steget för att formatera en URL för API-begäran. Observera att sökordet måste vara URL-kodat innan det läggs till i begäran.
 
     ```java
     // construct the search request URL (in the form of endpoint + query string)
@@ -69,9 +69,9 @@ Källkoden för det här exemplet finns [på GitHub](https://github.com/Azure-Sa
     connection.setRequestProperty("Ocp-Apim-Subscription-Key", subscriptionKey);
     ```
 
-## <a name="receive-and-process-the-json-response"></a>Tar emot och bearbetar JSON-svar
+## <a name="receive-and-process-the-json-response"></a>Ta emot och bearbeta JSON-svaret
 
-1. Ta emot JSON-svar från den bildsökning i Bing och konstruera resultatobjektet.
+1. Ta emot JSON-svar från API för bildsökning i Bing och konstruera resultatobjektet.
 
     ```java
     // receive JSON body
@@ -80,7 +80,7 @@ Källkoden för det här exemplet finns [på GitHub](https://github.com/Azure-Sa
     // construct result object for return
     SearchResults results = new SearchResults(new HashMap<String, String>(), response);
     ```
-2. Separera Bing-relaterade HTTP-huvuden från JSON-texten
+2. Separera de Bing-relaterade HTTP-huvudena från JSON-texten
     ```java
     // extract Bing-related HTTP headers
     Map<String, List<String>> headers = connection.getHeaderFields();
@@ -92,14 +92,14 @@ Källkoden för det här exemplet finns [på GitHub](https://github.com/Azure-Sa
     }
     ```
 
-3. Stäng dataströmmen och parsa svaret. Hämta det totala antalet returnerade sökresultat och miniatyren URL: en till det första resultatet i avbildningen. 
+3. Stäng dataströmmen och parsa svaret. Hämta det totala antalet returnerade sökresultat och miniatyr-URL:en till det första avbildningsresultatet.
 
     ```java
     stream.close();
     JsonParser parser = new JsonParser();
     JsonObject json = parser.parse(result.jsonResponse).getAsJsonObject();
-    //get the first image result from the JSON object, along with the total 
-    //number of images returned by the Bing Image Search API. 
+    //get the first image result from the JSON object, along with the total
+    //number of images returned by the Bing Image Search API.
     String total = json.get("totalEstimatedMatches").getAsString();
     JsonArray results = json.getAsJsonArray("value");
     JsonObject first_result = (JsonObject)results.get(0);
@@ -109,7 +109,7 @@ Källkoden för det här exemplet finns [på GitHub](https://github.com/Azure-Sa
 
 ## <a name="json-response"></a>JSON-svar
 
-Svar från den bildsökning i Bing returneras som JSON. Den här exempelsvaret har trunkerats för att visa ett enskilt resultat.
+Svar från API för bildsökning i Bing returneras som JSON. Det här exempelsvaret har trunkerats för att visa ett enskilt resultat.
 
 ```json
 {
@@ -158,12 +158,12 @@ Svar från den bildsökning i Bing returneras som JSON. Den här exempelsvaret h
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Bildsökning i Bing ensidesapp självstudien](../tutorial-bing-image-search-single-page-app.md)
+> [Självstudie om enkel app för bildsökning i Bing](../tutorial-bing-image-search-single-page-app.md)
 
-## <a name="see-also"></a>Se också 
+## <a name="see-also"></a>Se även
 
 * [Vad är bildsökning i Bing?](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/overview)  
-* [Prova en online Interaktiv demo](https://azure.microsoft.com/services/cognitive-services/bing-image-search-api/)  
-* [Hämta en kostnadsfri Cognitive Services-åtkomstnyckel](https://azure.microsoft.com/try/cognitive-services/?api=bing-image-search-api)  
+* [Prova en interaktiv demo online](https://azure.microsoft.com/services/cognitive-services/bing-image-search-api/)  
+* [Hämta en kostnadsfri åtkomstnyckel för Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=bing-image-search-api)  
 * [Dokumentation om Azure Cognitive Services](https://docs.microsoft.com/azure/cognitive-services)
-* [Referens för bildsökning i Bing](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference)
+* [Referens för API för bildsökning i Bing](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference)

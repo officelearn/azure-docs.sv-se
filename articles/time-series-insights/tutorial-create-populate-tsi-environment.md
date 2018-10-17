@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 06/04/2018
 ms.author: anshan
 manager: cshankar
-ms.openlocfilehash: 7faec1608845d218a738c70f147f79248a549dde
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: 46fecf6f1b2826f0e23b7b6c4f4511ce9a662d1c
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39626780"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46365697"
 ---
 # <a name="tutorial-create-an-azure-time-series-insights-environment"></a>Självstudier: Skapa en Azure Time Series Insights-miljö
 
@@ -26,11 +26,17 @@ Den här självstudien vägleder dig genom processen att skapa en Time Series In
 > * Kör en enhetssimulering för att strömma data till TSI-miljön
 > * Kontrollera simulerade telemetridata
 
+## <a name="video"></a>Video: 
+
+### <a name="in-this-video-we-show-you-how-to-use-an-azure-iot-solution-accelerator-to-generate-data-that-can-be-used-to-get-started-with-time-series-insightsbr"></a>I den här videon visar vi hur du använder en Azure IoT Solution Accelerator för att skapa data som kan användas för att komma igång med Time Series Insights.</br>
+
+> [!VIDEO https://www.youtube.com/embed/6ehNf6AJkFo]
+
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar. 
 
-Ditt Azure-inloggningskonto måste också vara medlem i rollen för prenumerationens ”ägare”. Mer information finns i [Lägg till eller ändra Azure-prenumerationsadministratörer](/azure/billing/billing-add-change-azure-subscription-administrator)
+Ditt Azure-inloggningskonto måste också vara medlem i prenumerationens ägarroll. Mer information finns i [Hantera åtkomst med hjälp av RBAC och Azure-portalen](/azure/role-based-access-control/role-assignments-portal)
 
 ## <a name="overview"></a>Översikt
 

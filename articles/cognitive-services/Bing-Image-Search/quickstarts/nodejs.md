@@ -1,48 +1,48 @@
 ---
-title: 'Snabbstart: Skicka sökfrågor med sökning i Bing med hjälp av Node.js'
+title: 'Snabbstart: Utföra en bildsökning med Node.js – API för bildsökning i Bing'
 titleSuffix: Azure Cognitive Services
-description: Använd den här snabbstarten för att söka efter bilder på webben med hjälp av Bing Web Search API.
+description: Använd den här snabbstarten för att skicka ditt första anrop till API:et för bildsökning i Bing och få ett JSON-svar. Det här enkla JavaScript-programmet skickar en sökfråga till API:et och visar rådataresultatet.
 services: cognitive-services
 documentationcenter: ''
 author: aahill
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-image-search
-ms.topic: article
+ms.topic: quickstart
 ms.date: 8/20/2018
 ms.author: aahi
-ms.openlocfilehash: 43f0cfec6aa2d4263b6a627736c2a432b2943145
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
-ms.translationtype: MT
+ms.openlocfilehash: 1584b3e0a1e1c560d42b5f8320d0e15ad6242918
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45576654"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46294602"
 ---
-# <a name="quickstart-send-search-queries-using-the-bing-image-search-rest-api-and-nodejs"></a>Snabbstart: Skicka sökfrågor med Bings API för bildsökning REST och Node.js
+# <a name="quickstart-send-search-queries-using-the-bing-image-search-rest-api-and-nodejs"></a>Snabbstart: Skicka sökfrågor med REST API för bildsökning i Bing och Node.js
 
-Använd den här snabbstarten att skicka ditt första anrop till sökning i Bing och få ett JSON-svar. Det här enkla JavaScript-programmet skickar en sökfråga till API: et och visar rådataresultat.
+Använd den här snabbstarten för att skicka ditt första anrop till API:et för bildsökning i Bing och få ett JSON-svar. Det här enkla JavaScript-programmet skickar en sökfråga till API:et och visar rådataresultatet.
 
-Även om det här programmet är skriven i JavaScript och körs i Node.js API: et är tjänsten en RESTful-webb-kompatibla de flesta programmeringsspråk.
+Även om det här programmet är skrivet i JavaScript och körs i Node.js, är API:et en RESTful-webbtjänst som är kompatibel med de flesta programmeringsspråk.
 
-Källkoden för det här exemplet finns [på GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/nodejs/Search/BingImageSearchv7Quickstart.js) med ytterligare felhantering och kod anteckningar.
+Källkoden för det här exemplet finns på [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/nodejs/Search/BingImageSearchv7Quickstart.js) tillsammans med ytterligare kommentarer om hantering av fel och kodanteckningar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 * Den senaste versionen av [Node.js](https://nodejs.org/en/download/).
 
-* Den [Library för JavaScript-begäran](https://github.com/request/request)
+* [Begäransbiblioteket för JavaScript](https://github.com/request/request)
 [!INCLUDE [cognitive-services-bing-image-search-signup-requirements](../../../../includes/cognitive-services-bing-image-search-signup-requirements.md)]
 
-## <a name="create-and-initialize-the-application"></a>Skapa och initiera programmet
+## <a name="create-and-initialize-the-application"></a>Skapa och initiera appen
 
-1. Skapa en ny JavaScript-fil i din favorit-IDE eller redigerare och ställa in kraven på Skyddstyperna och https.
+1. Skapa en ny JavaScript-fil i din favorit-IDE eller -redigerare och ange strikthet och https-krav.
 
     ```javascript
     'use strict';
     let https = require('https');
     ```
 
-2. Skapa variablerna för den API-slutpunkten, API för bildhantering sökvägen, din prenumerationsnyckel och Sök efter termer.
+2. Skapa variabler för API-slutpunkten, sökväg för bild-API, din prenumerationsnyckel och sökord.
     ```javascript
     let subscriptionKey = 'enter key here';
     let host = 'api.cognitive.microsoft.com';
@@ -52,7 +52,7 @@ Källkoden för det här exemplet finns [på GitHub](https://github.com/Azure-Sa
 
 ## <a name="construct-the-search-request-and-query"></a>Konstruera sökbegäran och fråga.
 
-1. Använda variabler i det sista steget för att formatera en URL för API-begäran. Observera att sökordet måste vara URL-kodat innan den skickas till API: et.
+1. Använd variablerna från det sista steget för att formatera en sök-URL för API-begäran. Observera att sökordet måste vara URL-kodat innan det skickas till API:et.
 
     ```javascript
     let request_params = {
@@ -65,7 +65,7 @@ Källkoden för det här exemplet finns [på GitHub](https://github.com/Azure-Sa
     };
     ```
 
-2. Använd begäran-biblioteket för att skicka din fråga till API: et. `response_handler` definieras i nästa avsnitt.
+2. Använd begäransbiblioteket för att skicka din fråga till API:et. `response_handler` definieras i nästa avsnitt.
     ```javascript
     let req = https.request(request_params, response_handler);
     req.end();
@@ -73,24 +73,24 @@ Källkoden för det här exemplet finns [på GitHub](https://github.com/Azure-Sa
 
 ## <a name="handle-and-parse-the-response"></a>Hantera och parsa svaret
 
-1. Definiera en funktion med namnet `response_handler` som tar ett HTTP-anrop `response`, som en parameter. Utför följande steg i den här funktionen:
-    
-    1. Definiera en variabel så att den innehåller brödtexten i JSON-svar.  
+1. Definiera en funktion med namnet `response_handler` som tar ett HTTP-anrop, `response`, som en parameter. Utför följande steg inom den här funktionen:
+
+    1. Definiera en variabel så att den innehåller brödtexten i JSON-svaret.  
         ```javascript
         let response_handler = function (response) {
             let body = '';
         };
         ```
 
-    2. Store brödtexten i svaret när den **data** flaggan kallas 
+    2. Lagra svarets brödtext när flaggan för **data** anropas.
         ```javascript
         response.on('data', function (d) {
             body += d;
         });
         ```
 
-    3. När en **slutet** flaggan stoppsignal JSON kan bearbetas och URL för bilden kan skrivas ut, tillsammans med det totala antalet returnerade avbildningar.
-    
+    3. När en flagga för **slut** signaleras kan JSON bearbetas och bildens URL kan skrivas ut tillsammans med det totala antalet returnerade bilder.
+
         ```javascript
         response.on('end', function () {
             let firstImageResult = imageResults.value[0];
@@ -102,7 +102,7 @@ Källkoden för det här exemplet finns [på GitHub](https://github.com/Azure-Sa
 
 ## <a name="json-response"></a>JSON-svar
 
-Svar från den bildsökning i Bing returneras som JSON. Den här exempelsvaret har trunkerats för att visa ett enskilt resultat.
+Svar från API för bildsökning i Bing returneras som JSON. Det här exempelsvaret har trunkerats för att visa ett enskilt resultat.
 
 ```json
 {
@@ -151,12 +151,12 @@ Svar från den bildsökning i Bing returneras som JSON. Den här exempelsvaret h
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Bildsökning i Bing ensidesapp självstudien](../tutorial-bing-image-search-single-page-app.md)
+> [Självstudie om enkel app för bildsökning i Bing](../tutorial-bing-image-search-single-page-app.md)
 
-## <a name="see-also"></a>Se också 
+## <a name="see-also"></a>Se även
 
 * [Vad är bildsökning i Bing?](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/overview)  
-* [Prova en online Interaktiv demo](https://azure.microsoft.com/services/cognitive-services/bing-image-search-api/)  
-* [Hämta en kostnadsfri Cognitive Services-åtkomstnyckel](https://azure.microsoft.com/try/cognitive-services/?api=bing-image-search-api)  
+* [Prova en interaktiv demo online](https://azure.microsoft.com/services/cognitive-services/bing-image-search-api/)  
+* [Hämta en kostnadsfri åtkomstnyckel för Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=bing-image-search-api)  
 * [Dokumentation om Azure Cognitive Services](https://docs.microsoft.com/azure/cognitive-services)
-* [Referens för bildsökning i Bing](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference)
+* [API-referens för bildsökning i Bing](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference)

@@ -6,26 +6,26 @@ author: prashanthyv
 manager: sumedhb
 ms.service: key-vault
 ms.topic: quickstart
-ms.date: 07/24/2018
+ms.date: 09/12/2018
 ms.author: barclayn
 ms.custom: mvc
-ms.openlocfilehash: a9ae1fb3243c31eb92231320c5ced93d80301a0d
-ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
+ms.openlocfilehash: 7f71e92513aedb1eb9c394c1e8f547173cfb4dbe
+ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42917442"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45604186"
 ---
 # <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-by-using-a-net-web-app"></a>Snabbstart: Konfigurera och hämta en hemlighet från Azure Key Vault med hjälp av en .net-webbapp
 
-Här följer du de steg som behövs för att ett Azure-webbprogram ska läsa information från Azure Key Vault med hjälp av hanterade tjänstidentiteter. Lär dig att:
+I den här snabbstarten följer du de steg som behövs för att få ett Azure-webbprogram att läsa information från Azure Key Vault med hjälp av hanterade identiteter för Azure-resurser. Lär dig att:
 
 > [!div class="checklist"]
 > * Skapa ett nyckelvalv.
 > * Lagra en hemlighet i nyckelvalvet.
 > * Hämta en hemlighet från nyckelvalvet.
 > * Skapa ett Azure-webbprogram.
-> * [Aktivera hanterade tjänstidentiteter](../active-directory/managed-service-identity/overview.md).
+> * Aktivera en [hanterad identitet](../active-directory/managed-identities-azure-resources/overview.md) för webbappen.
 > * Bevilja de behörigheter som krävs för att webbprogrammet ska kunna läsa data från nyckelvalvet.
 
 Innan du fortsätter rekommenderar vi att du läser avsnittet om [grundbegreppen](key-vault-whatis.md#basic-concepts).
@@ -33,7 +33,7 @@ Innan du fortsätter rekommenderar vi att du läser avsnittet om [grundbegreppen
 >[!NOTE]
 >Key Vault är en central lagringsplats för programmeringsbaserad lagring av hemligheter. Det här kräver att program och användare först autentiseras mot Key Vault, dvs. presenterar en hemlighet. Den här första hemligheten måste roteras med jämna mellanrum för att uppfylla de rekommenderade säkerhetsmetoderna. 
 >
->Med [hanterad tjänstidentitet (MSI) ](../active-directory/managed-service-identity/overview.md) ges program som körs i Azure identitet som Azure hanterar automatiskt. Det här löser *problemet med den första hemligheten* så att användare och program kan följa bästa praxis utan att behöva bekymra sig om roteringen av den första hemligheten.
+>Med [hanterade identiteter för Azure-resurser](../active-directory/managed-identities-azure-resources/overview.md) ges program som körs i Azure en identitet som hanteras automatiskt av Azure. Det här löser *problemet med den första hemligheten* så att användare och program kan följa bästa praxis utan att behöva bekymra sig om roteringen av den första hemligheten.
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
@@ -139,9 +139,9 @@ Publicera den här appen till Azure för att se den live som webbapp, och också
 
 >[!VIDEO https://sec.ch9.ms/ch9/e93d/a6ac417f-2e63-4125-a37a-8f34bf0fe93d/KeyVault_high.mp4]
 
-## <a name="enable-managed-service-identities"></a>Aktivera hanterade tjänstidentiteter
+## <a name="enable-a-managed-identity-for-the-web-app"></a>Aktivera en hanterad identitet för webbappen
 
-Azure Key Vault är ett sätt att lagra autentiseringsuppgifter samt andra nycklar och hemligheter på ett säkert sätt, men din kod måste autentiseras till Azure Key Vault för att kunna hämta dem. Hanterad tjänstidentitet gör det här enklare genom att ge Azure-tjänsterna en automatiskt hanterad identitet i Azure Active Directory (Azure AD). Du kan använda den här identiteten för att autentisera till alla tjänster som stöder Azure AD-autentisering, inklusive Key Vault, utan att behöva ha några autentiseringsuppgifter i koden.
+Azure Key Vault är ett sätt att lagra autentiseringsuppgifter samt andra nycklar och hemligheter på ett säkert sätt, men din kod måste autentiseras till Key Vault för att kunna hämta dem. [Hanterade identiteter för Azure-resurser (översikt)](../active-directory/managed-identities-azure-resources/overview.md) löser detta problem på ett enklare sätt genom att ge Azure-tjänsterna en automatiskt hanterad identitet i Azure Active Directory (Azure AD). Du kan använda den här identiteten för att autentisera till alla tjänster som stöder Azure AD-autentisering, inklusive Key Vault, utan att behöva ha några autentiseringsuppgifter i koden.
 
 1. Gå tillbaka till Azure CLI.
 2. Kör kommandot assign-identity för att skapa identiteten för det här programmet:
@@ -151,7 +151,7 @@ Azure Key Vault är ett sätt att lagra autentiseringsuppgifter samt andra nyckl
    ```
 
 >[!NOTE]
->Kommandot i den här proceduren fungerar på samma sätt som när du går till portalen och väljer **På** för **Hanterad tjänstidentitet** i egenskaperna för webbprogrammet.
+>Det här kommandot fungerar på samma sätt som när du går till portalen och väljer **På** för inställningen **Identitet/Systemtilldelad** i egenskaperna för webbappen.
 
 ## <a name="assign-permissions-to-your-application-to-read-secrets-from-key-vault"></a>Tilldela behörigheter till ditt program att läsa hemligheter från Key Vault
 
@@ -167,11 +167,11 @@ Kör sedan det här kommandot med namnet på ditt nyckelvalv och värdet för **
 
 ```azurecli
 
-az keyvault set-policy --name '<YourKeyVaultName>' --object-id <PrincipalId> --secret-permissions get
+az keyvault set-policy --name '<YourKeyVaultName>' --object-id <PrincipalId> --secret-permissions get list
 
 ```
 
-Nu när du kör programmet bör ditt hemliga värde hämtas.
+Nu när du kör programmet bör ditt hemliga värde hämtas. I kommandot ovan ger du Identity(MSI) för App Service behörighet att utföra åtgärderna **hämta** och **lista** i ditt Key Vault
 
 ## <a name="next-steps"></a>Nästa steg
 

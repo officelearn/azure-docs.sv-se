@@ -1,64 +1,64 @@
 ---
-title: 'Ansikts-API: et C#-självstudie | Microsoft Docs'
-titleSuffix: Microsoft Cognitive Services
-description: Skapa en enkel Windows-app som använder kognitiva tjänster Ansikts-API för att identifiera funktioner i ansikten i en bild.
+title: 'Självstudie: Ansikts-API C#'
+titleSuffix: Azure Cognitive Services
+description: Skapa en enkel Windows-app som använder Cognitive Services Ansikts-API för att identifiera ansiktsdrag på en bild.
 services: cognitive-services
 author: ghogen
-manager: douge
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: face-api
-ms.topic: conceptual
+ms.topic: tutorial
 ms.date: 05/07/2018
 ms.author: ghogen
-ms.openlocfilehash: b51760f889db27aa25e54582070ee7d3adcf66f8
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
-ms.translationtype: MT
+ms.openlocfilehash: 70414674e563cf3703d2cf3ebc57f09afcdf2691
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38665243"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46129530"
 ---
-# <a name="connecting-to-cognitive-services-face-api-by-using-connected-services-in-visual-studio"></a>Ansluta till Cognitive Services, Ansikts-API med Connected Services i Visual Studio
+# <a name="connecting-to-cognitive-services-face-api-by-using-connected-services-in-visual-studio"></a>Ansluta till Cognitive Services Ansikts-API med Connected Services i Visual Studio
 
-Med hjälp av Cognitive Services Ansikts-API kan du identifiera, analysera, organisera och tagga ansikten i foton.
+Med hjälp av Cognitive Services Ansikts-API kan du identifiera, analysera, organisera och tagga ansikten på foton.
 
-Den här artikeln och dess tillhörande artiklar innehåller information för att använda Visual Studio Connected Service-funktionen för Cognitive Services, Ansikts-API. Funktionen är tillgänglig i både Visual Studio 2017 15.7 eller senare, med Cognitive Services-tillägget installerat.
+Den här artikeln, och dess relaterade artiklar, innehåller information om hur man använder Visual Studios Connected Service-funktion för Cognitive Services Ansikts-API. Funktionen är tillgänglig i Visual Studio 2017 15.7 och senare med Cognitive Services-tillägget installerat.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 - **En Azure-prenumeration**. Om du inte har en prenumeration kan du registrera dig för ett [kostnadsfritt konto](https://azure.microsoft.com/pricing/free-trial/).
-- **Visual Studio 2017 version 15.7** med den **webbutveckling** arbetsbelastning som är installerad. [Hämta nu](https://aka.ms/vsdownload?utm_source=mscom&utm_campaign=msdocs).
+- **Visual Studio 2017 version 15.7** med arbetsbelastningen **Webbutveckling** installerad. [Ladda ned nu](https://aka.ms/vsdownload?utm_source=mscom&utm_campaign=msdocs).
 
 [!INCLUDE [vs-install-cognitive-services-vsix](../../../includes/vs-install-cognitive-services-vsix.md)]
 
-## <a name="create-a-project-and-add-support-for-cognitive-services-face-api"></a>Skapa ett projekt och lägga till stöd för Cognitive Services, Ansikts-API
+## <a name="create-a-project-and-add-support-for-cognitive-services-face-api"></a>Skapa ett projekt och lägga till stöd för Cognitive Services Ansikts-API
 
-1. Skapa ett nytt webbprojekt i ASP.NET Core. Med mallen tomt projekt. 
+1. Skapa ett nytt ASP.NET Core-webbprojekt. Använd den tomma projektmallen. 
 
-1. I **Solution Explorer**, Välj **Lägg till** > **Connected Service**.
-   Connected Service-sidan visas med tjänster som du kan lägga till i projektet.
+1. I **Solution Explorer** väljer du **Lägg till** > **Ansluten tjänst**.
+   Sidan Ansluten tjänst visas med tjänster som du kan lägga till i projektet.
 
-   ![Lägg till Connected Service menyobjekt](./media/vs-face-connected-service/Connected-Service-Menu.PNG)
+   ![Lägga till menyobjektet Ansluten tjänst](./media/vs-face-connected-service/Connected-Service-Menu.PNG)
 
-1. Meny med olika tjänster, Välj **Cognitive Services, Ansikts-API**.
+1. I menyn över tillgängliga tjänster väljer du **Cognitive Services Ansikts-API**.
 
-   ![Välj tjänsten för att ansluta till](./media/vs-face-connected-service/Cog-Face-Connected-Service-0.PNG)
+   ![Välja tjänst att ansluta till](./media/vs-face-connected-service/Cog-Face-Connected-Service-0.PNG)
 
-   Om du har loggat in Visual Studio och Azure-prenumeration som är associerade med ditt konto, visas en sida med en listruta med dina prenumerationer.
+   Om du har loggat in till Visual Studio och har en Azure-prenumeration som är associerad med ditt konto, visas en sida med en listruta med dina prenumerationer.
 
    ![Välj din prenumeration](media/vs-face-connected-service/Cog-Face-Connected-Service-1.PNG)
 
-1. Välj den prenumeration som du vill använda och välj sedan ett namn för Ansikts-API eller Välj länken Redigera för att ändra det automatiskt genererade namnet, väljer du resursgruppen och den prisnivå.
+1. Välj den prenumeration som du vill använda, välj ett namn för Ansikts-API:et och välj sedan länken Redigera för att ändra det automatiskt genererade namnet. Välj sedan resursgrupp och prisnivå.
 
-   ![Redigera anslutna tjänstinformation](media/vs-face-connected-service/Cog-Face-Connected-Service-2.PNG)
+   ![Redigera information om ansluten tjänst](media/vs-face-connected-service/Cog-Face-Connected-Service-2.PNG)
 
-   Följ länken för mer information på prisnivå.
+   Följ länken om du vill ha mer information om prisnivåer.
 
-1. Välj Lägg till att lägga till stöds för Connected Service.
-   Visual Studio ändrar ditt projekt för att lägga till NuGet-paket, poster i konfigurationsfilen och andra ändringar till stöd för en anslutning Ansikts-API.
+1. Välj Lägg till för att lägga till sådana som stöds för den anslutna tjänsten.
+   Visual Studio ändrar ditt projekt för att lägga till NuGet-paketen, konfigurationsfilsposter och andra ändringar till stöd för en anslutning till Ansikts-API.
 
-## <a name="use-the-face-api-to-detect-attributes-of-faces-in-an-image"></a>Använda Ansikts-API för att identifiera attribut för ansikten i en bild
+## <a name="use-the-face-api-to-detect-attributes-of-faces-in-an-image"></a>Använda Ansikts-API för att identifiera ansiktsattribut på en bild
 
-1. Lägg till följande using-satser i Startup.cs.
+1. Lägg till nedanstående med hjälp av instruktionerna i Startup.cs.
  
    ```csharp
    using System.IO;
@@ -68,7 +68,7 @@ Den här artikeln och dess tillhörande artiklar innehåller information för at
    using System.Net.Http.Headers;
    ```
  
-1. Lägg till ett fält för konfiguration och Lägg till en konstruktor som initierar fältet configuration i Start-klassen för att aktivera konfiguration i ditt program.
+1. Lägg till ett konfigurationsfält och lägg till en konstruktor som initierar konfigurationsfältet i Startup-klassen, så att Konfiguration aktiveras i programmet.
 
    ```csharp
       private IConfiguration configuration;
@@ -79,15 +79,15 @@ Den här artikeln och dess tillhörande artiklar innehåller information för at
       }
    ```
 
-1. Lägg till en bildmapp Wwwroot-mappen i projektet och lägga till en fil i Wwwroot-mappen. Exempelvis kan du använda en avbildning på den här [Ansikts-API-sidan](https://azure.microsoft.com/services/cognitive-services/face/). Högerklicka på en av avbildningarna, spara till den lokala hårddisken och sedan i Solution Explorer högerklickar du på bildmappen och choosee **Lägg till** > **befintligt objekt** att lägga till den i projektet. Ditt projekt bör se ut ungefär så här i Solution Explorer:
+1. Lägg till en bildfil i mappen wwwroot i projektet och lägg till en bildfil i din wwwroot-mapp. Som exempel kan du använda en av bilderna på den här [Ansikts-API-sidan](https://azure.microsoft.com/services/cognitive-services/face/). Högerklicka på en av bilderna, spara den på den lokala hårddisken och högerklicka sedan på bildmappen i Solution Explorer och välj **Lägg till** > **Befintligt objekt** för att lägga till den i projektet. Ditt projekt bör se ut ungefär så här i Solution Explorer:
  
-   ![bildmappen med bildfil](media/vs-face-connected-service/Cog-Face-Connected-Service-6.PNG)
+   ![Bildmapp med bildfil](media/vs-face-connected-service/Cog-Face-Connected-Service-6.PNG)
 
-1. Högerklicka på bildfilen, välja egenskaper och välj sedan **kopiera om nyare**.
+1. Högerklicka på bildfilen, välj Egenskaper och välj sedan **Kopiera om nyare**.
 
    ![Kopiera om nyare](media/vs-face-connected-service/Cog-Face-Connected-Service-5.PNG)
  
-1. Ersätt metoden konfigurera med följande kod för att komma åt Ansikts-API och testa en bild. Ändra imagePath strängen till rätt sökväg och filnamn för ansikts-avbildningen.
+1. Ersätt konfigurationsmetoden med följande kod för att komma åt Ansikts-API:et och testa en bild. Ändra imagePath-strängen till rätt sökväg och filnamn för din ansiktsbild.
 
    ```csharp
     // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -147,9 +147,9 @@ Den här artikeln och dess tillhörande artiklar innehåller information för at
             });
         }
    ```
-    Koden i det här steget skapar en HTTP-begäran med ett anrop till Ansikts-REST API, med hjälp av den nyckel som du har lagt till när du har lagt till den anslutna tjänsten.
+    Koden i det här steget skapar en HTTP-begäran med ett anrop till Ansikts-REST API:et med hjälp av den nyckel som du lade till när du lade till den anslutna tjänsten.
 
-1. Lägg till hjälpfunktioner GetImageAsByteArray och JsonPrettyPrint.
+1. Lägg till hjälpfunktionerna GetImageAsByteArray och JsonPrettyPrint.
 
    ```csharp
         /// <summary>
@@ -231,13 +231,13 @@ Den här artikeln och dess tillhörande artiklar innehåller information för at
         }
    ```
 
-1. Kör webbappen och se vad Ansikts-API som finns i avbildningen.
+1. Kör webbappen och se vad Ansikts-API:et hittade i bilden.
  
-   ![Ansikts-API-avbildningen och formaterade resultat](media/vs-face-connected-service/Cog-Face-Connected-Service-4.PNG)
+   ![Ansikts-API-bild och formaterade resultat](media/vs-face-connected-service/Cog-Face-Connected-Service-4.PNG)
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-När den inte längre behövs kan du ta bort resursgruppen. Detta tar bort cognitive service och relaterade resurser. Så här tar du bort resursgruppen via portalen:
+När den inte längre behövs tar du bort resursgruppen. Detta tar bort den kognitiva tjänsten och relaterade resurser. Så här tar du bort resursgruppen via portalen:
 
 1. Skriv namnet på resursgruppen i rutan Sök längst upp i portalen. När du ser resursgruppen du använde i den här snabbstarten bland sökresultaten väljer du den.
 1. Välj **Ta bort resursgrupp**.
@@ -245,4 +245,4 @@ När den inte längre behövs kan du ta bort resursgruppen. Detta tar bort cogni
 
 ## <a name="next-steps"></a>Nästa steg
 
-Läs mer om Ansikts-API genom att läsa den [Ansikts-API-dokumentation](Overview.md).
+Läs mer om Ansikts-API genom att läsa [dokumentationen om Ansikts-API](Overview.md).

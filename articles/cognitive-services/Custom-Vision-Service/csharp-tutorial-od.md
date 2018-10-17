@@ -1,51 +1,53 @@
 ---
-title: Skapa ett projekt för identifiering av objekt i C# - Custom Vision Service – Azure Cognitive Services | Microsoft Docs
-description: Utforska en grundläggande Windows-app som använder anpassat API för visuellt innehåll i Microsoft Cognitive Services. Skapa ett projekt, lägga till taggar, ladda upp bilder, träna ditt projekt och göra en förutsägelse genom att använda standardslutpunkt.
+title: 'Självstudie: Skapa ett projekt för objektidentifiering i C# – Custom Vision Service'
+titlesuffix: Azure Cognitive Services
+description: Skapa ett projekt, lägg till taggar, ladda upp bilder, träna ditt projekt och gör en förutsägelse genom att använda standardslutpunkten.
 services: cognitive-services
 author: areddish
-manager: chbuehle
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: custom-vision
-ms.topic: article
+ms.topic: tutorial
 ms.date: 05/07/2018
 ms.author: areddish
-ms.openlocfilehash: e3def864267a590c86a2dd6663561d8488081ad6
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
-ms.translationtype: MT
+ms.openlocfilehash: d04fb86abbc0f174e895c166d97fc5467831206f
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "36301088"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46366921"
 ---
-# <a name="use-custom-vision-api-to-build-an-object-detection-project-in-c35"></a>Använd anpassad API för visuellt innehåll för att skapa ett projekt för identifiering av objekt i C&#35; 
-Lär dig hur du använder ett grundläggande Windows-program som använder den API för visuellt innehåll för att skapa ett projekt för identifiering av objekt. När den har skapats kan du lägga till taggade regioner, ladda upp bilder, träna projektet, hämta projektets standard förutsägelse slutpunkts-URL och använder slutpunkten programmatiskt en bild. Använd det här exemplet med öppen källkod som en mall för att skapa din egen app för Windows med hjälp av anpassat API för visuellt innehåll.
+# <a name="tutorial-use-custom-vision-api-to-build-an-object-detection-project-in-c"></a>Självstudie: använd Custom Vision API för att skapa ett projekt för objektidentifiering i C#
 
-## <a name="prerequisites"></a>Förutsättningar
+Läs hur du använder ett grundläggande Windows-program som använder API för visuellt innehåll för att skapa ett projekt för objektidentifiering. När den har skapats kan du lägga till taggade regioner, ladda upp bilder, träna projektet, hämta slutpunkts-URL:en för projektets standardförutsägelse och använda slutpunkten för att testa en bild programmatiskt. Använd det här exemplet med öppen källkod som en mall för att skapa din egen app för Windows med hjälp av Custom Vision API:et.
 
-### <a name="get-the-custom-vision-sdk-and-samples"></a>Hämta Custom Vision SDK och exempel
-Om du vill skapa det här exemplet behöver du Custom Vision SDK NuGet-paket:
+## <a name="prerequisites"></a>Nödvändiga komponenter
+
+### <a name="get-the-custom-vision-sdk-and-samples"></a>Hämta Custom Vision-SDK:n och exempel
+Om du vill skapa det här exemplet behöver du Custom Vision SDK NuGet-paketen:
 
 * [Microsoft.Azure.CognitiveServices.Vision.CustomVision.Training](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.CustomVision.Training/)
 * [Microsoft.Azure.CognitiveServices.Vision.CustomVision.Prediction](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.CustomVision.Prediction/)
 
-Du kan ladda ned bilder tillsammans med den [C#-exempel](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/CustomVision).
+Du kan ladda ned bilder tillsammans med [C#-exemplet](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/CustomVision).
 
-## <a name="get-the-training-and-prediction-keys"></a>Hämta nycklar Inlärnings- och förutsägelsetransaktioner
+## <a name="get-the-training-and-prediction-keys"></a>Hämta utbildningen och förutsägelsenycklarna
 
-För att få nycklarna som används i det här exemplet kan du gå till den [Custom Vision-webbsida](https://customvision.ai) och välj den __kugghjulsikonen__ i det övre högra hörnet. I den __konton__ och kopiera värdena från den __utbildning nyckeln__ och __förutsägelse nyckeln__ fält.
+För att hämta nycklarna som används i det här exemplet går du till [Custom Vision-webbsidan](https://customvision.ai) och väljer __kugghjulsikonen__ i det övre högra hörnet. Kopiera värdena från fälten __Utbildningsnyckel__ och __Förutsägelsenyckel__ i avsnittet __Konton__.
 
-![Bild av nycklar UI](./media/csharp-tutorial/training-prediction-keys.png)
+![Bild på gränssnittet för nycklarna](./media/csharp-tutorial/training-prediction-keys.png)
 
 ## <a name="step-1-create-a-console-application"></a>Steg 1: Skapa ett konsolprogram
 
-I det här steget ska du skapa ett konsolprogram och förbereder nyckeln utbildning och bilder som behövs för det här exemplet:
+I det här steget ska du skapa ett konsolprogram och förbereder träningsnyckeln och bilder som behövs för det här exemplet:
 
-1. Starta Visual Studio 2015 Community Edition. 
+1. Starta Visual Studio 2015, Community-versionen. 
 2. Skapa ett nytt konsolprogram.
-3. Lägg till referenser till de två nuget-paket:
+3. Lägg till referenser till de två nuget-paketen:
     * Microsoft.Azure.CognitiveServices.Vision.CustomVision.Training
     * Microsoft.Azure.CognitiveServices.Vision.CustomVision.Prediction
 
-4. Ersätt innehållet i **Program.cs** med kod som följer.
+4. Ersätt innehållet i **Program.cs** med koden som följer.
 
 ```csharp
 using Microsoft.Azure.CognitiveServices.Vision.CustomVision.Prediction;
@@ -75,7 +77,7 @@ namespace SampleObjectDetection
 
 ## <a name="step-2-create-a-custom-vision-service-project"></a>Steg 2: Skapa ett projekt för Custom Vision Service
 
-Om du vill skapa ett nytt Custom Vision Service-projekt lägger du till följande kod i slutet av din **Main()** metod.
+Om du vill skapa ett nytt Custom Vision Service-projekt lägger du till följande kod i slutet av din **Main()**-metod.
 
 ```csharp
     // Find the object detection domain
@@ -89,7 +91,7 @@ Om du vill skapa ett nytt Custom Vision Service-projekt lägger du till följand
 
 ## <a name="step-3-add-tags-to-your-project"></a>Steg 3: Lägg till taggar i projektet
 
-Lägg till taggar i projektet genom att infoga följande kod efter anropet till **CreateProject()**:
+Infoga följande kod efter anropet till **CreateProject()** för att lägga till taggar i ditt projekt:
 
 ```csharp
     // Make two tags in the new project
@@ -97,9 +99,9 @@ Lägg till taggar i projektet genom att infoga följande kod efter anropet till 
     var scissorsTag = trainingApi.CreateTag(project.Id, "scissors");
 ```
 
-## <a name="step-4-upload-images-to-the-project"></a>Steg 4: Ladda upp bilder till projektet
+## <a name="step-4-upload-images-to-the-project"></a>Steg 4: överför bilder till projektet
 
-Vi behöver identifiera regionen för objektet med hjälp av normaliserade koordinater och en tagg för objektet identifiering projekt. Om du vill lägga till bilder och taggade regioner, infoga följande kod i slutet av den **Main()** metod:
+Vi behöver identifiera regionen för objektet med hjälp av normaliserade koordinater och en tagg för objektidentifieringsprojekt. Om du vill lägga till bilder och taggade regioner, infogar du följande kod i slutet av **Main()**-metoden:
 
 ```csharp
     Dictionary<string, double[]> fileToRegionMap = new Dictionary<string, double[]>()
@@ -175,10 +177,10 @@ Vi behöver identifiera regionen för objektet med hjälp av normaliserade koord
 
 ## <a name="step-5-train-the-project"></a>Steg 5: Träna projektet
 
-Nu när du har lagt till taggar och bilder i projektet, kan du träna den: 
+Nu när du har lagt till taggar och bilder i projektet, kan du träna det: 
 
-1. Infoga följande kod i slutet av **Main()**. Detta skapar den första upprepningen i projektet.
-2. Markera den här iterationen som standard iteration.
+1. Infoga följande kod i slutet av **Main()**-metoden. Detta skapar den första iterationen i projektet.
+2. Markera den här iterationen som standarditeration.
 
 ```csharp
     // Now there are images with tags start training the project
@@ -200,12 +202,12 @@ Nu när du har lagt till taggar och bilder i projektet, kan du träna den:
     Console.WriteLine("Done!\n");
 ```
 
-## <a name="step-6-get-and-use-the-default-prediction-endpoint"></a>Steg 6: Hämta och använda standardslutpunkten för förutsägelse
+## <a name="step-6-get-and-use-the-default-prediction-endpoint"></a>Steg 6: Hämta och använd standardslutpunkten för förutsägelse
 
 Nu är du redo att använda modellen för förutsägelse: 
 
-1. Hämta slutpunkten som är associerade med standard-iteration genom att infoga följande kod i slutet av **Main()**. 
-2. Skicka en testavbildning till projektet genom att använda den slutpunkten.
+1. Hämta slutpunkten som är associerad med standarditeration genom att infoga följande kod i slutet av **Main()**. 
+2. Skicka en testbild till projektet med denna slutpunkt.
 
 ```csharp
     // Now there is a trained endpoint, it can be used to make a prediction
@@ -232,6 +234,6 @@ Nu är du redo att använda modellen för förutsägelse:
     }
 ```
 
-## <a name="step-7-run-the-example"></a>Steg 7: Kör exempel
+## <a name="step-7-run-the-example"></a>Steg 7: kör exemplet
 
-Skapa och kör lösningen. De förutsagda resultaten som visas på konsolen.
+Skapa och kör lösningen. Förutsägelseresultaten visas i konsolen.

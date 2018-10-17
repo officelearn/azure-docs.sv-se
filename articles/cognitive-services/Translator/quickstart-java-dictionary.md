@@ -1,21 +1,21 @@
 ---
-title: Hitta alternativa översättningar med Translator Text och Java | Microsoft Docs
-titleSuffix: Microsoft Cognitive Services
-description: I den här snabbstarten hittar du alternativa översättningar och exempel på termer i ett sammanhang med Translator Text-API:et med Java i Cognitive Services.
+title: 'Snabbstart: Hitta alternativa översättningar – Translator Text, Java'
+titleSuffix: Azure Cognitive Services
+description: I den här snabbstarten hittar du alternativa översättningar och exempel på termer i ett sammanhang med Translator Text-API:et med Java.
 services: cognitive-services
 author: noellelacharite
-manager: nolachar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-text
 ms.topic: quickstart
 ms.date: 06/21/2018
 ms.author: nolachar
-ms.openlocfilehash: 0abb9c1a39b8183730bacde285eff05607754191
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: c0e7fc3d51772df40bd5da7c762c15c40ad5744f
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "43771135"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46127082"
 ---
 # <a name="quickstart-find-alternate-translations-and-usage-with-java"></a>Snabbstart: Hitta alternativa översättningar och alternativ användning med Java
 
@@ -23,7 +23,7 @@ I den här snabbstarten hittar du information om möjliga alternativa översätt
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
-Du behöver [JDK 7 eller 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) för att kompilera och köra den här koden. Du kan använda en Java IDE om du har en favoritutvecklingsmiljö, men en textredigerare fungerar också.
+Du behöver [JDK 7 eller 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) för att kompilera och köra den här koden. Du kan använda en Java IDE om du har en favoritutvecklingsmiljö, men en vanlig textredigerare fungerar också.
 
 För att använda Translator Text-API:et behöver du också en prenumerationsnyckel. Mer information finns i [How to sign up for the Translator Text API](translator-text-how-to-signup.md) (Så här registrerar du dig för Translator Text-API:et).
 

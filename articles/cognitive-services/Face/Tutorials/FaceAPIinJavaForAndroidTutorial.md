@@ -1,21 +1,21 @@
 ---
-title: Självstudie om Ansikts-API Java för Android | Microsoft Docs
-titleSuffix: Microsoft Cognitive Services
-description: I den här självstudien skapar du en enkel Android-app som använder Ansiktstjänsten för Cognitive Services för att identifiera och rama in ansikten i en bild.
+title: 'Självstudie: Identifiera och rama in ansikten i en bild – Ansiktsigenkänning, Java för Android'
+titleSuffix: Azure Cognitive Services
+description: I den här självstudien skapar du en enkel Android-app som använder Ansiktsigenkänning till att identifiera och rama in ansikten i en bild.
 services: cognitive-services
 author: noellelacharite
-manager: nolachar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: face-api
 ms.topic: tutorial
 ms.date: 07/12/2018
 ms.author: nolachar
-ms.openlocfilehash: ad7b85b378db9e9687b5f8081bc9832e91e9ee5e
-ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
+ms.openlocfilehash: 50185588b77f01bced9462d5fd1ad67bb5de6e08
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39125644"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46129734"
 ---
 # <a name="tutorial-create-an-android-app-to-detect-and-frame-faces-in-an-image"></a>Självstudie: Skapa en Android-app för att upptäcka och rama in ansikten i en bild
 

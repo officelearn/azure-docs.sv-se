@@ -1,25 +1,27 @@
 ---
-title: Translator Text – Identifiera språk från text med C# | Microsoft Docs
-titleSuffix: Microsoft Cognitive Services
-description: I den här snabbstarten ska du identifiera språket i källtexten med hjälp av Translator Text-API:et med C# i Cognitive Services.
+title: 'Snabbstart: Identifiera språk i text – Translator Text, C#'
+titleSuffix: Azure Cognitive Services
+description: I den här snabbstarten ska du identifiera språket i källtexten med hjälp av Translator Text-API:et med C#.
 services: cognitive-services
 author: noellelacharite
-manager: nolachar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-text
 ms.topic: quickstart
 ms.date: 06/15/2018
 ms.author: nolachar
-ms.openlocfilehash: 381478f3125371fbcb5f6466af68f63e4e04bb3f
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.openlocfilehash: b10072e01391da3845567c16fa7cc312ed23ceb2
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "43770634"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46368060"
 ---
 # <a name="quickstart-identify-language-from-text-with-c35"></a>Snabbstart: Identifiera språk i text med C&#35;
 
 I den här snabbstarten ska du identifiera språket i källtexten med hjälp av Translator Text-API:et.
+
+Källkoden till det här exemplet finns på [GitHub](https://github.com/MicrosoftTranslator/Text-Translation-API-V3-C-Sharp).
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 

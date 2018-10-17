@@ -10,12 +10,12 @@ ms.reviewer: v-mamcge, jasonh, kfile, anshan
 ms.workload: big-data
 ms.topic: overview
 ms.date: 01/26/2018
-ms.openlocfilehash: fa66ded9a35109f874bda00a4bde3af78b436cd5
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: f865086a7e57898adb7d43ec0c02c7d38ef0da9c
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39630729"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46365584"
 ---
 # <a name="what-is-azure-time-series-insights"></a>Vad är Azure Time Series Insights?
 
@@ -33,6 +33,12 @@ Time Series Insights har fyra nyckeluppgifter:
 Om du utvecklar ett program, vare sig det är för internt bruk eller för externa kunder, kan Time Series Insight användas som en serverdel för indexering, lagring och aggregering av tidsseriedata. Du kan skapa en anpassad visualisering och användarupplevelse.  Time Series Insights gör fråge-API:er tillgängliga för det här ändamålet.  
 
 Om du är osäker på om dina data är tidsserier är det här det som du bör känna till.  Tidsseriedata representerar ändringar i en tillgång eller en process över tid.  De är unika på så sätt att de har en tidsstämpel, och det mest optimala är att visa tid som en axel.  Tidsseriedata anländer normalt i tidsordning och behandlas vanligtvis som en infogad post i stället för en uppdatering av databasen.  Eftersom Time Series Insights samlar in och lagrar varje ny händelse som en rad mäts ändringar över tid, vilket gör det lättare att söka bakåt och förutsäga framtida ändringar.  I stora volymer kan det vara svårt att lagra, indexera, fråga, analysera och visualisera tidsseriedata.  
+
+## <a name="video"></a>Video: 
+
+### <a name="in-this-video-we-provide-an-overview-of-time-series-insights-a-cloud-based-iot-analytics-platformbr"></a>I den här videon ger vi en översikt över Time Series Insights, en molnbaserad IoT-analysplattform.</br>
+
+> [!VIDEO https://www.youtube.com/embed/qNc9gQTLROs]
 
 ## <a name="primary-scenarios"></a>Primära scenarier
 

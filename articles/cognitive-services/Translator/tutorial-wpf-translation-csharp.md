@@ -1,23 +1,23 @@
 ---
-title: 'Självstudier: Skriva en WPF-app för Translator Text med C# | Microsoft Docs'
-titleSuffix: Microsoft Cognitive Services
+title: 'Självstudier: Skriva en WPF-app för Translator Text med C#'
+titleSuffix: Azure Cognitive Services
 description: I den här självstudiekursen får du lära dig hur du använder Translator Text API till att översätta text, hämta en språkanpassad lista över språk som stöds med mera, genom att skapa en WPF-app med C#.
 services: cognitive-services
 author: noellelacharite
-manager: nolachar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-text
 ms.topic: tutorial
 ms.date: 07/20/2018
 ms.author: nolachar
-ms.openlocfilehash: 353c1d91b7925a84667ef1bb7c38ab87c6a89cc1
-ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
+ms.openlocfilehash: 97660985b275bbe4384acb3fc92be8aaa0b57881
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39716380"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46123971"
 ---
-# <a name="tutorial-write-a-wpf-application-for-translator-text-using-c35"></a>Självstudier: Skriva en WPF-app för Translator Text med C#&#35;
+# <a name="tutorial-write-a-wpf-application-for-translator-text-using-c35"></a>Självstudier: Skriva en WPF-app för Translator Text med C&#35;
 
 I den här självstudiekursen skapar du ett översättningsverktyg för interaktiva texter med hjälp av Translator Text API (V3), en del av Microsoft Cognitive Services i Azure. Du lär dig följande:
 
@@ -418,7 +418,7 @@ Om du gör en egen version av det här formuläret, behöver inte göra den *exa
 
 Filen med bakomliggande kod, `MainWindow.xaml.cs`, är där koden placeras och som så att programmet utför sin uppgift. Arbetet sker vid två tillfällen:
 
-* När programmet startar och `MainWindow` instansieras hämtar det språklistan över med hjälp av Translators  och API:er och fyller listmenyerna med dem. Den här uppgiften utförs en gång, i början av varje session.
+* När programmet startar och `MainWindow` instansieras hämtar det språklistan med hjälp av Translators  och API:er och fyller listmenyerna med dem. Den här uppgiften utförs en gång, i början av varje session.
 
 * När användaren klickar på knappen **Translate** (Översätt) hämtas användarens språkval och den text som användaren har angett. Sedan anropas API:et `Translate` för att utföra översättningen. Andra funktioner kan också anropas för att fastställa språket i texten och för att kontrollera stavningen innan texten översätts.
 
@@ -572,7 +572,7 @@ Att fylla menyerna handlar helt enkelt om att iterera över ordlistan `languageC
 > [!TIP]
 > Utan ett standardval för menyerna kan användaren klicka på **Translate** (Översätt) utan att först välja ett till- eller från-språk. Med standardinställningarna behöver du inte hantera det här problemet.
 
-Nu när `MainWindow` har initierats och användargränssnittet skapats väntar koden tills användaren klickar på  knappen **Translate** (Översätt).
+Nu när `MainWindow` har initierats och användargränssnittet skapats väntar koden tills användaren klickar på knappen **Translate** (Översätt).
 
 ## <a name="perform-translation"></a>Utföra översättning
 

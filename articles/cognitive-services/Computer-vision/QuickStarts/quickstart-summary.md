@@ -1,21 +1,21 @@
 ---
-title: 'Snabbstart: Sammanfattning av Visuellt innehåll | Microsoft Docs'
-titleSuffix: Microsoft Cognitive Services
-description: I de här snabbstarterna ska du analysera en bild, skapa en miniatyrbild och extrahera tryckt och handskriven text med hjälp av Visuellt innehåll i Cognitive Services.
+title: Snabbstartssammanfattning av API för visuellt innehåll
+titleSuffix: Azure Cognitive Services
+description: I de här snabbstarterna får du analysera en bild, skapa en miniatyrbild och extrahera tryckt och handskriven text med hjälp av API för visuellt innehåll.
 services: cognitive-services
 author: noellelacharite
-manager: nolachar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: computer-vision
 ms.topic: quickstart
 ms.date: 08/28/2018
 ms.author: v-deken
-ms.openlocfilehash: 94424de3f175e82cf8490bad98f4a775761979e4
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: 89502fe49f5eb4b9692d7ee4233c7c46d645b3fb
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43772283"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45576892"
 ---
 # <a name="quickstart-summary"></a>Snabbstart: Sammanfattning
 

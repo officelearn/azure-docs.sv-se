@@ -1,44 +1,56 @@
 ---
-title: 'Snabbstart: OCR med API:et för visuellt innehåll och Node.js | Microsoft Docs'
-titleSuffix: Microsoft Cognitive Services
-description: I den här snabbstarten ska du extrahera tryckt text från en bild med hjälp av Visuellt innehåll och Node.js i Cognitive Services.
+title: 'Snabbstart: Extrahera tryckt text (OCR) – REST, PHP – Visuellt innehåll'
+titleSuffix: Azure Cognitive Services
+description: I den här snabbstarten extraherar du tryckt text från en bild med hjälp av API:et för visuellt innehåll med Node.js.
 services: cognitive-services
 author: noellelacharite
-manager: nolachar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: computer-vision
 ms.topic: quickstart
 ms.date: 08/28/2018
 ms.author: v-deken
-ms.openlocfilehash: 73fe11800d7141c9e6e7272a0d008d2bcdf6d6af
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: af22b17d52b654438ae52c1eb85e523dbaf638fa
+ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43772003"
+ms.lasthandoff: 09/15/2018
+ms.locfileid: "45628921"
 ---
-# <a name="quickstart-extract-printed-text-ocr---rest-nodejs"></a>Snabbstart: Extrahera tryckt text (OCR) – REST, Node.js
+# <a name="quickstart-extract-printed-text-ocr-using-the-rest-api-and-nodejs-in-computer-vision"></a>Snabbstart: Extrahera utskriven text (OCR) med hjälp av REST API:et och Node.js i Visuellt innehåll
 
-I den här snabbstarten ska du extrahera tryckt text, även kallat optisk teckenläsning (OCR), från en bild med hjälp av Visuellt innehåll.
+I den här snabbstarten extraherar du tryckt text med optisk teckenläsning (OCR) från en bild med hjälp av REST API:et för visuellt innehåll. Med metoden [OCR](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fc) kan du identifiera tryckt text i en bild och extrahera de tecken som identifieras till en teckenström som kan användas på en dator.
+
+Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/ai/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=cognitive-services) innan du börjar.
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
-För att använda Visuellt innehåll behöver du en prenumerationsnyckel. Mer information finns i avsnittet [Obtaining Subscription Keys](../Vision-API-How-to-Topics/HowToSubscribe.md) (Hämta prenumerationsnycklar).
+- Du måste ha [Node.js](https://nodejs.org) 4.x eller senare installerat.
+- Du måste ha [npm](https://www.npmjs.com/) installerat.
+- Du måste ha en prenumerationsnyckel för Visuellt innehåll. Du kan skaffa en prenumerationsnyckel genom att följa anvisningarna i [Skaffa prenumerationsnycklar](../Vision-API-How-to-Topics/HowToSubscribe.md).
 
-## <a name="ocr-request"></a>OCR-begäran
+## <a name="create-and-run-the-sample"></a>Skapa och köra exemplet
 
-Med metoden [OCR](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fc) kan du identifiera tryckt text i en bild och extrahera de tecken som identifieras i en teckenström som kan användas på en dator.
+Så här skapar du och kör exemplet:
 
-För att köra exemplet följer du dessa steg:
+1. Installera npm-paketet [`request`](https://www.npmjs.com/package/request).
+   1. Öppna ett kommandotolksfönster som administratör.
+   1. Kör följande kommando:
 
-1. Kopiera följande kod till ett redigeringsprogram.
-1. Ersätt `<Subscription Key>` med en giltig prenumerationsnyckel.
-1. Ändra värdet `uriBase` till den plats där du hämtade dina prenumerationsnycklar om det behövs.
-1. Du kan också ändra värdet `imageUrl` till den bild som du vill analysera.
-1. Spara filen med tillägget `.js`.
-1. Öppna Node.js-kommandotolken och kör filen, till exempel: `node myfile.js`.
+      ```console
+      npm install request
+      ```
 
-I det här exemplet används [request](https://www.npmjs.com/package/request)-paketet för npm.
+   1. Stäng kommandotolkens fönster när paketet har installerats.
+
+1. Kopiera följande kod till en textredigerare.
+1. Gör följande ändringar i koden där det behövs:
+    1. Ersätt värdet för `subscriptionKey` med din prenumerationsnyckel.
+    1. Ersätt värdet för `uriBase` med slutpunktsadressen för metoden [OCR](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fc) från den Azure-region där du fått dina prenumerationsnycklar om det behövs.
+    1. Du kan också ersätta värdet för `imageUrl` med webbadressen till en annan bild som du vill extrahera tryckt text ur.
+1. Spara koden som en fil med tillägget `.js`. Till exempel `get-printed-text.js`.
+1. Öppna ett kommandotolksfönster.
+1. Kör filen i kommandotolken med kommandot `node`. Till exempel `node get-printed-text.js`.
 
 ```nodejs
 'use strict';
@@ -84,9 +96,9 @@ request.post(options, (error, response, body) => {
 });
 ```
 
-## <a name="ocr-response"></a>OCR-svar
+## <a name="examine-the-response"></a>Granska svaret
 
-Om åtgärden lyckades innehåller OCR-resultatet text, en avgränsningsruta för områden, linjer och ord, till exempel:
+Ett svar som anger att åtgärden lyckades returneras i JSON. Exemplet parsar och visar ett lyckat svar i kommandotolkens fönster enligt följande exempel:
 
 ```json
 {
@@ -187,9 +199,22 @@ Om åtgärden lyckades innehåller OCR-resultatet text, en avgränsningsruta fö
 }
 ```
 
+## <a name="clean-up-resources"></a>Rensa resurser
+
+När du inte behöver filen längre kan du ta bort den och sedan avinstallera npm-paketet `request`. Avinstallera paketet på följande sätt:
+
+1. Öppna ett kommandotolksfönster som administratör.
+2. Kör följande kommando:
+
+   ```console
+   npm uninstall request
+   ```
+
+3. Stäng kommandotolkens fönster när paketet har avinstallerats.
+
 ## <a name="next-steps"></a>Nästa steg
 
-Utforska API:erna för visuellt innehåll som används för att analysera en bild, identifiera kändisar och landmärken, skapa en miniatyrbild och extrahera tryckt och handskriven text. Du kan snabbt experimentera med API:erna för visuellt innehåll genom att prova [Open API-testkonsolen](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa/console).
+Utforska API:et för visuellt innehåll, som används för att analysera en bild, identifiera kändisar och landmärken, skapa en miniatyrbild och extrahera tryckt och handskriven text. Du kan snabbt experimentera med API:et för visuellt innehåll genom att prova [Open API-testkonsolen](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa/console).
 
 > [!div class="nextstepaction"]
-> [Utforska API:er för visuellt innehåll](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44)
+> [Utforska API:et för visuellt innehåll](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44)

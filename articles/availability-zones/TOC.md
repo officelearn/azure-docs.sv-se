@@ -22,8 +22,8 @@
 ### Skalningsuppsättningar för virtuella datorer
 #### [Skapa en skalningsuppsättning i en tillgänglighetszon](../virtual-machine-scale-sets/virtual-machine-scale-sets-use-availability-zones.md)
 
-### Load Balancer
-#### [Vad är belastningsutjämnare?](../load-balancer/load-balancer-standard-overview.md)
+### Lastbalanserare
+#### [Vad är lastbalanserare?](../load-balancer/load-balancer-standard-overview.md)
 #### [Load Balancer Standard och tillgänglighetszoner](../load-balancer/load-balancer-standard-availability-zones.md)
 
 #### [Skapa en zonredundant offentlig Standard Load Balancer](../load-balancer/load-balancer-get-started-internet-az-portal.md)
@@ -38,7 +38,7 @@
 ### [Offentlig IP-adress](../virtual-network/virtual-network-public-ip-address.md#create-a-public-ip-address)
 
 ### SQL Database
-#### [Tillgänglighetszoner med SQL Database](../sql-database/sql-database-high-availability.md#availability-zones)
+#### [Tillgänglighetszoner med SQL Database](../sql-database/sql-database-high-availability.md#zone-redundant-configuration)
 
 ### Storage
 #### [Zonredundant lagring](../storage/common/storage-redundancy-zrs.md)

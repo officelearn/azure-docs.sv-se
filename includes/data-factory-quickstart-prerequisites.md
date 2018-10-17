@@ -5,15 +5,15 @@ services: data-factory
 author: linda33wj
 ms.service: data-factory
 ms.topic: include
-ms.date: 08/20/2018
+ms.date: 10/01/2018
 ms.author: jingwang
 ms.custom: include file
-ms.openlocfilehash: ac6b53926ca6c44c8ec1e71db67321366aacb00e
-ms.sourcegitcommit: a62cbb539c056fe9fcd5108d0b63487bd149d5c3
+ms.openlocfilehash: 4b209953e957d0c2892bc5c6bca7a577992c5dee
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42617602"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48843110"
 ---
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
@@ -21,18 +21,26 @@ ms.locfileid: "42617602"
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
 
 ### <a name="azure-roles"></a>Azure-roller
-Om du vill skapa Data Factory-instanser måste det användarkonto du använder för att logga in på Azure vara medlem av rollerna *deltagare* eller *ägare*, eller vara *administratör* för Azure-prenumerationen. Om du vill visa vilka behörigheter du har i prenumerationen öppnar du Azure-portalen, väljer användarnamnet i det övre högra hörnet och väljer sedan **Behörigheter**. Om du har åtkomst till flera prenumerationer väljer du rätt prenumeration. För exempel på instruktioner om hur du lägger till en användare till en roll läser du artikeln [Lägg till roller](../articles/billing/billing-add-change-azure-subscription-administrator.md).
+Om du vill skapa Data Factory-instanser måste det användarkonto du använder för att logga in på Azure vara medlem av rollerna *deltagare* eller *ägare*, eller vara *administratör* för Azure-prenumerationen. Om du vill visa vilka behörigheter du har i prenumerationen öppnar du Azure-portalen, väljer användarnamnet i det övre högra hörnet och väljer sedan **Behörigheter**. Om du har åtkomst till flera prenumerationer väljer du rätt prenumeration. 
 
-För att skapa och hantera underordnade resurser (inklusive datauppsättningar, länkade tjänster, pipelines, utlösare och integrationskörningar) för Data Factory via redigerings- och övervakningsgränssnittet på Azure Portal måste du inneha rollen som **Data Factory-deltagare**. För att skapa och hantera underordnade resurser med PowerShell eller SDK räcker det att du har rollen som **deltagare**.
+För att skapa och hantera underordnade resurser för Data Factory – inklusive datauppsättningar, länkade tjänster, pipelines, utlösare och integreringskörningar – gäller följande krav:
+- För att kunna skapa och hantera underordnade resurser i Azure-portalen måste du tillhöra rollen **Data Factory-deltagare** på resursgruppsnivå eller högre.
+- För att skapa och hantera underordnade resurser med PowerShell eller SDK räcker det att du har rollen som **deltagare** på resursnivå eller högre.
+
+För exempel på instruktioner om hur du lägger till en användare till en roll läser du artikeln [Lägg till roller](../articles/billing/billing-add-change-azure-subscription-administrator.md).
+
+Mer information finns i följande artiklar:
+- [Rollen Data Factory-deltagare](../articles/role-based-access-control/built-in-roles.md#data-factory-contributor)
+- [Roller och behörigheter för Azure Data Factory](../articles/data-factory/concepts-roles-permissions.md)
 
 ### <a name="azure-storage-account"></a>Azure Storage-konto
 I den här snabbstarten använder du ett allmänt Azure Storage-konto (Blob Storage, för att vara specifik) som datalager för både *källa* och *destination*. Om du inte har något allmänt Azure Storage-konto finns det anvisningar om hur du skapar ett i artikeln [Skapa ett lagringskonto](../articles/storage/common/storage-quickstart-create-account.md). 
 
 #### <a name="get-the-storage-account-name-and-account-key"></a>Hämta lagringskontots namn och åtkomstnyckel
-Du använder namnet och nyckeln för Azure Storage-kontot i den här snabbstarten. Följande procedur innehåller steg för att få fram namnet och nyckeln för ditt lagringskonto: 
+Du behöver namnet och nyckeln för Azure Storage-kontot för den här snabbstarten. Följande procedur innehåller steg för att få fram namnet och nyckeln för ditt lagringskonto: 
 
 1. Öppna en webbläsare och gå till [Azure-portalen](https://portal.azure.com). Logga in med ditt användarnamn och lösenord för Azure. 
-2. Välj **Fler tjänster** i den vänstra menyn, filtrera på nyckelordet **Lagring** och välj **Lagringskonton**.
+2. Välj **Alla tjänster** i den vänstra menyn, filtrera på nyckelordet **Lagring** och välj **Lagringskonton**.
 
    ![Sök efter ett lagringskonto](media/data-factory-quickstart-prerequisites/search-storage-account.png)
 3. Filtrera på ditt lagringskonto (om det behövs) i listan med lagringskonton och välj sedan ditt lagringskonto. 
@@ -56,7 +64,7 @@ I det här avsnittet skapar du en blobcontainer med namnet **adftutorial** i Azu
 4. Välj **adftutorial** i listan med containrar. 
 
    ![Välja containern](media/data-factory-quickstart-prerequisites/seelct-adftutorial-container.png)
-1. På sidan **Container** väljer du **Ladda upp** i verktygsfältet.  
+5. På sidan **Container** väljer du **Ladda upp** i verktygsfältet.  
 
    ![Knappen för överföring](media/data-factory-quickstart-prerequisites/upload-toolbar-button.png)
 6. På sidan **Ladda upp blob** väljer du **Avancerat**.

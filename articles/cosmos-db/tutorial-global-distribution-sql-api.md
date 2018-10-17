@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 05/10/2017
 ms.author: rafats
 ms.custom: mvc
-ms.openlocfilehash: 1d0a660845052f51af84b78584787760e01f16a6
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 624c5e78287fac57b06f6b5112d2523e31256ae0
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38542654"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44049776"
 ---
 # <a name="set-up-azure-cosmos-db-global-distribution-using-the-sql-api"></a>Konfigurera global distribution i Azure Cosmos DB med SQL API:et
 
@@ -153,9 +153,9 @@ Exempelsvar
 * Alla PUT-, POST- och DELETE-förfrågningar måste gå till den angivna skriv-URI:n
 * Alla GET och andra skrivskyddade förfrågningar (t.ex. frågor) kan gå till vilken slutpunkt som helst som klienten väljer
 
-Skrivförfrågningar till skrivskyddade regioner misslyckas med HTTP-felkoden 403 (”Förbjudet”).
+Skrivförfrågningar till skrivskyddade regioner misslyckas med HTTP-felkoden 403 (Forbidden (Förbjudet)).
 
-Om skrivregionen ändras efter klientens inledande identifieringsfas, så kommer efterföljande skrivningar till föregående skrivregion att misslyckas med HTTP-felkoden 403 (”Förbjudet”). Klienten bör sedan få listan med regioner igen och därigenom få den uppdaterade skrivregionen.
+Om skrivregionen ändras efter klientens inledande identifieringsfas, så kommer efterföljande skrivningar till föregående skrivregion att misslyckas med HTTP-felkoden 403 (Forbidden (Förbjudet)). Klienten bör sedan få listan med regioner igen och därigenom få den uppdaterade skrivregionen.
 
 Och med detta är den här självstudiekursen klar. Mer information om hur du kan hantera ditt globalt replikerade kontos konsekvens finns i [Konsekvensnivåer i Azure Cosmos DB](consistency-levels.md). Mer information om hur global databasreplikering fungerar i Azure Cosmos DB finns i [Distribuera data globalt med Azure Cosmos DB](distribute-data-globally.md).
 

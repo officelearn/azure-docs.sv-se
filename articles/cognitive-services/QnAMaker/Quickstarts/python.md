@@ -1,47 +1,47 @@
 ---
 title: 'Snabbstart: Python för QnA Maker API (V4)'
 titleSuffix: Azure Cognitive Services
-description: Hämta information och exempel på kod som hjälper dig att snabbt komma igång med Microsoft Translator Text API i Microsoft Cognitive Services på Azure.
+description: Hämta information och kodexempel som hjälper dig att snabbt komma igång med Microsoft Translator Text API i Microsoft Cognitive Services i Azure.
 services: cognitive-services
 author: diberry
 manager: cgronlun
 ms.service: cognitive-services
-ms.technology: qna-maker
-ms.topic: article
+ms.component: qna-maker
+ms.topic: quickstart
 ms.date: 09/12/2018
 ms.author: diberry
-ms.openlocfilehash: 5e95bf768cc00935067edd3365cc3d101be6a00a
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
-ms.translationtype: MT
+ms.openlocfilehash: fe01e69b5ee730c4807e94e5f79dd11456d6aa1a
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47034749"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48886373"
 ---
 # <a name="quickstart-for-microsoft-qna-maker-api-with-python"></a>Snabbstart för Microsoft QnA Maker API med Python 
 <a name="HOLTop"></a>
 
-Den här artikeln visar hur du använder den [Microsoft QnA Maker API](../Overview/overview.md) med Python för att göra följande.
+Den här artikeln visar hur du använder [API:et för Microsoft QnA Maker](../Overview/overview.md) med Python för att göra följande.
 
 - [Skapa en ny kunskapsbas.](#Create)
 - [Uppdatera en befintlig kunskapsbas.](#Update)
-- [Hämta status för en begäran om att skapa eller uppdatera en kunskapsbas.](#Status)
+- [Hämta statusen på en begäran för att skapa eller uppdatera en kunskapsbas.](#Status)
 - [Publicera en befintlig kunskapsbas.](#Publish)
-- [Ersätt innehållet i en befintlig kunskapsbas.](#Replace)
+- [Ersätta innehållet i en befintlig kunskapsbas.](#Replace)
 - [Ladda ned innehållet i en kunskapsbas.](#GetQnA)
-- [Få svar på en fråga med en kunskapsbas.](#GetAnswers)
+- [Få svar på en fråga med hjälp av en kunskapsbas.](#GetAnswers)
 - [Få information om en kunskapsbas.](#GetKB)
 - [Få information om alla kunskapsbaser som hör till den angivna användaren.](#GetKBsByUser)
 - [Ta bort en kunskapsbas.](#Delete)
-- [Hämta de aktuella endpoint-nycklarna.](#GetKeys)
-- [Återskapa de aktuella endpoint-nycklarna.](#PutKeys)
-- [Hämta den aktuella uppsättningen word förändras.](#GetAlterations)
-- [Ersätt den aktuella uppsättningen word förändras.](#PutAlterations)
+- [Hämta de aktuella slutpunktsnycklarna.](#GetKeys)
+- [Återskapa de aktuella slutpunktsnycklarna.](#PutKeys)
+- [Hämta den aktuella uppsättningen med ordvariationer.](#GetAlterations)
+- [Ersätta den aktuella uppsättningen med ordvariationer.](#PutAlterations)
 
 [!INCLUDE [Code is available in Azure-Samples Github repo](../../../../includes/cognitive-services-qnamaker-python-repo-note.md)]
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
-Du behöver [Python 3.x](https://www.python.org/downloads/) att köra den här koden.
+Du behöver [Python 3.x](https://www.python.org/downloads/) för att köra koden.
 
 Du behöver ett [Cognitive Services API-konto](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) med **Microsoft QnA Maker API**. Du behöver prenumerationsnyckeln för en betalprenumeration från din [Azure-instrumentpanel](https://portal.azure.com/#create/Microsoft.CognitiveServices).
 
@@ -147,7 +147,7 @@ while False == done:
         done = True
 ```
 
-**Skapa kunskapsbas svar**
+**Svar från Skapa kunskapsbas**
 
 Ett svar som anger att åtgärden lyckades returneras i JSON, som du ser i följande exempel: 
 
@@ -287,7 +287,7 @@ while False == done:
         done = True
 ```
 
-**Uppdatera kunskapsbas svar**
+**Svar från Uppdatera kunskapsbas**
 
 Ett svar som anger att åtgärden lyckades returneras i JSON, som du ser i följande exempel: 
 
@@ -376,7 +376,7 @@ result = publish_kb (path, '')
 print (pretty_print(result))
 ```
 
-**Publicera kunskapsbas svar**
+**Publicera kunskapsbassvar**
 
 Ett svar som anger att åtgärden lyckades returneras i JSON, som du ser i följande exempel: 
 
@@ -390,9 +390,9 @@ Ett svar som anger att åtgärden lyckades returneras i JSON, som du ser i följ
 
 <a name="Replace"></a>
 
-## <a name="replace-knowledge-base"></a>Ersätt kunskapsbas
+## <a name="replace-knowledge-base"></a>Ersätta kunskapsbas
 
-Följande kod ersätter innehållet i den angivna kunskapen kodbas, med hjälp av den [Ersätt](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/knowledgebases_publish) metod.
+Följande kod ersätter innehållet i den angivna kunskapsbasen med hjälp av metoden [Ersätt](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/knowledgebases_publish).
 
 1. Skapa ett nytt Python-projekt i valfri IDE.
 2. Lägg till koden nedan.
@@ -464,7 +464,7 @@ result = replace_kb (path, content)
 print (pretty_print(result))
 ```
 
-**Ersätt kunskapsbas svar**
+**Svar från Ersätt kunskapsbas**
 
 Ett svar som anger att åtgärden lyckades returneras i JSON, som du ser i följande exempel: 
 
@@ -480,7 +480,7 @@ Ett svar som anger att åtgärden lyckades returneras i JSON, som du ser i följ
 
 ## <a name="download-the-contents-of-a-knowledge-base"></a>Ladda ned innehållet i en kunskapsbas
 
-Följande kod laddar ned innehållet i den angivna kunskapen kodbas, med hjälp av den [hämta kunskapsbas](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/knowledgebases_download) metod.
+Följande kod laddar ned innehållet i den angivna kunskapsbasen med hjälp av metoden [Ladda ned kunskapsbas](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/knowledgebases_download).
 
 1. Skapa ett nytt Python-projekt i valfri IDE.
 2. Lägg till koden nedan.
@@ -528,7 +528,7 @@ result = get_qna (path)
 print (pretty_print(result))
 ```
 
-**Ladda ned kunskapsbas svar**
+**Svar från Ladda ned kunskapsbas**
 
 Ett svar som anger att åtgärden lyckades returneras i JSON, som du ser i följande exempel: 
 
@@ -567,15 +567,15 @@ Ett svar som anger att åtgärden lyckades returneras i JSON, som du ser i följ
 
 <a name="GetAnswers"></a>
 
-## <a name="get-answers-to-a-question-using-a-knowledge-base"></a>Få svar på en fråga med en kunskapsbas
+## <a name="get-answers-to-a-question-using-a-knowledge-base"></a>Få svar på en fråga med hjälp av en kunskapsbas
 
-Följande kod hämtar svar på en fråga med hjälp av angivna kunskapsbasen, med den **Generera svar** metod.
+Följande kod hämtar svaret på en fråga med hjälp av dne angivna kunskapsbasen, med hjälp av metoden **Generera svar**.
 
 1. Skapa ett nytt Python-projekt i valfri IDE.
 1. Lägg till koden nedan.
-1. Ersätt den `host` värdet med namnet på webbplatsen för QnA Maker-prenumeration. Mer information finns i [skapa QnA Maker-tjänsten](../How-To/set-up-qnamaker-service-azure.md).
-1. Ersätt den `endpoint_key` värde med en giltig slutpunkt-nyckel för din prenumeration. Observera att detta inte är samma som din prenumerationsnyckel. Du kan hämta din slutpunkt-nycklar med hjälp av den [hämta slutpunkten nycklar](#GetKeys) metod.
-1. Ersätt den `kb` värdet med ID: T för kunskapsbas som du vill fråga efter svar. Observera att den här kunskapsbas måste redan har publicerats med hjälp av den [publicera](#Publish) metod.
+1. Ersätt värdet `host` med webbplatsnamnet för din QnA Maker-prenumeration. Mer information finns i [Skapa en QnA Maker-tjänst](../How-To/set-up-qnamaker-service-azure.md).
+1. Ersätt `endpoint_key`-värdet med en giltig slutpunktsnyckel för din prenumeration. Observera att detta inte är samma som din prenumerationsnyckel. Du kan hämta dina slutpunktsnycklar med hjälp av metoden [Hämta slutpunktsnycklar](#GetKeys).
+1. Ersätt `kb`-värdet med ID:t för den kunskapsbas som du vill få svar från. Observera att den här kunskapsbasen redan måste ha publicerats med hjälp av metoden [Publicera](#Publish).
 1. Kör programmet.
 
 ```python
@@ -629,7 +629,7 @@ result = get_answers (method, content)
 print (pretty_print(result))
 ```
 
-**Få svar-svar**
+**Svar från Hämta svar**
 
 Ett svar som anger att åtgärden lyckades returneras i JSON, som du ser i följande exempel: 
 
@@ -657,7 +657,7 @@ Ett svar som anger att åtgärden lyckades returneras i JSON, som du ser i följ
 
 ## <a name="get-information-about-a-knowledge-base"></a>Få information om en kunskapsbas
 
-Följande kod hämtar information om den angivna knowledge base med hjälp av den [kunskapsbas information](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/knowledgebases_getknowledgebasedetails) metod.
+Följande kod hämtar information om den angivna kunskapsbasen med hjälp av metoden [Hämta information om kunskapsbas](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/knowledgebases_getknowledgebasedetails).
 
 1. Skapa ett nytt Python-projekt i valfri IDE.
 2. Lägg till koden nedan.
@@ -702,7 +702,7 @@ result = get_kb (path)
 print (pretty_print(result))
 ```
 
-**Hämta kunskapsbas information svar**
+**Svar från Hämta information om kunskapsbas**
 
 Ett svar som anger att åtgärden lyckades returneras i JSON, som du ser i följande exempel: 
 
@@ -730,7 +730,7 @@ Ett svar som anger att åtgärden lyckades returneras i JSON, som du ser i följ
 
 ## <a name="get-all-knowledge-bases-for-a-user"></a>Hämta alla kunskapsbaser för en användare
 
-Följande kod hämtar information om alla kunskapsbaser för en viss användare med hjälp av den [hämta kunskapsbaser för användaren](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/knowledgebases_getknowledgebasesforuser) metod.
+Följande kod hämtar information om alla kunskapsbaser för en viss användare med hjälp av metoden [Hämta kunskapsbaser för användare](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/knowledgebases_getknowledgebasesforuser).
 
 1. Skapa ett nytt Python-projekt i valfri IDE.
 2. Lägg till koden nedan.
@@ -772,7 +772,7 @@ result = get_kbs (path)
 print (pretty_print(result))
 ```
 
-**Hämta kunskapsbaser för användarsvar**
+**Svar från Hämta kunskapsbaser för användare**
 
 Ett svar som anger att åtgärden lyckades returneras i JSON, som du ser i följande exempel: 
 
@@ -816,7 +816,7 @@ Press any key to continue.
 
 ## <a name="delete-a-knowledge-base"></a>Ta bort en kunskapsbas
 
-Följande kod tar du bort den angivna kunskapen kodbas, med hjälp av den [ta bort kunskapsbas](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/knowledgebases_delete) metod.
+Följande kod tar bort den angivna kunskapsbasen, met hjälp av metoden [Ta bort kunskapsbas](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/knowledgebases_delete).
 
 1. Skapa ett nytt Python-projekt i valfri IDE.
 2. Lägg till koden nedan.
@@ -867,7 +867,7 @@ result = delete_kb (path, '')
 print (pretty_print(result))
 ```
 
-**Ta bort kunskapsbas svar**
+**Ta bort kunskapsbassvar**
 
 Ett svar som anger att åtgärden lyckades returneras i JSON, som du ser i följande exempel: 
 
@@ -881,9 +881,9 @@ Ett svar som anger att åtgärden lyckades returneras i JSON, som du ser i följ
 
 <a name="GetKeys"></a>
 
-## <a name="get-endpoint-keys"></a>Hämta slutpunkten nycklar
+## <a name="get-endpoint-keys"></a>Hämta slutpunktsnycklar
 
-Följande kod hämtar de aktuella endpoint-nycklar med den [hämta slutpunkten nycklar](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/endpointkeys_getendpointkeys) metod.
+Följande kod hämtar de aktuella slutpunktsnycklarna med hjälp av metoden [Hämta slutpunktsnycklar](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/endpointkeys_getendpointkeys).
 
 1. Skapa ett nytt Python-projekt i valfri IDE.
 2. Lägg till koden nedan.
@@ -925,7 +925,7 @@ result = get_keys (path)
 print (pretty_print(result))
 ```
 
-**Hämta slutpunkten nycklar svar**
+**Svar från Hämta slutpunktsnycklar**
 
 Ett svar som anger att åtgärden lyckades returneras i JSON, som du ser i följande exempel: 
 
@@ -940,9 +940,9 @@ Ett svar som anger att åtgärden lyckades returneras i JSON, som du ser i följ
 
 <a name="PutKeys"></a>
 
-## <a name="refresh-endpoint-keys"></a>Uppdatera slutpunkten nycklar
+## <a name="refresh-endpoint-keys"></a>Uppdatera slutpunktsnycklar
 
-Följande kod återskapar de aktuella endpoint-nycklar med den [uppdatera slutpunkten nycklar](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/endpointkeys_refreshendpointkeys) metod.
+Följande kod återskapar de aktuella slutpunktsnycklarna med hjälp av metoden [Uppdatera slutpunktsnycklar](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/endpointkeys_refreshendpointkeys).
 
 1. Skapa ett nytt Python-projekt i valfri IDE.
 2. Lägg till koden nedan.
@@ -993,7 +993,7 @@ result = refresh_keys (path, '')
 print (pretty_print(result))
 ```
 
-**Uppdatera slutpunkten nycklar svar**
+**Svar från Uppdatera slutpunktsnycklar**
 
 Ett svar som anger att åtgärden lyckades returneras i JSON, som du ser i följande exempel: 
 
@@ -1008,9 +1008,9 @@ Ett svar som anger att åtgärden lyckades returneras i JSON, som du ser i följ
 
 <a name="GetAlterations"></a>
 
-## <a name="get-word-alterations"></a>Hämta word ändringar
+## <a name="get-word-alterations"></a>Hämta ordvariationer
 
-Följande kod hämtar de aktuella word-ändringar, med hjälp av den [hämta förändras](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75fc) metod.
+Följande kod hämtar de aktuella ordvariationerna med hjälp av metoden [Ladda ned variationer](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75fc).
 
 1. Skapa ett nytt Python-projekt i valfri IDE.
 2. Lägg till koden nedan.
@@ -1052,7 +1052,7 @@ result = get_alterations (path)
 print (pretty_print(result))
 ```
 
-**Hämta word förändras svar**
+**Svar från Hämta ordvariationer**
 
 Ett svar som anger att åtgärden lyckades returneras i JSON, som du ser i följande exempel: 
 
@@ -1073,9 +1073,9 @@ Ett svar som anger att åtgärden lyckades returneras i JSON, som du ser i följ
 
 <a name="PutAlterations"></a>
 
-## <a name="replace-word-alterations"></a>Ersätt word ändringar
+## <a name="replace-word-alterations"></a>Ersätt ordvariationer
 
-Följande kod ersätter de aktuella word-ändringar, med hjälp av den [Ersätt förändras](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75fd) metod.
+Följande kod ersätter de aktuella ordvariationerna med hjälp av metoden [Ersätt variationer](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75fd).
 
 1. Skapa ett nytt Python-projekt i valfri IDE.
 2. Lägg till koden nedan.
@@ -1136,7 +1136,7 @@ result = put_alterations (path, content)
 print (pretty_print(result))
 ```
 
-**Ersätt word förändras svar**
+**Svar från Ersätt ordvariationer**
 
 Ett svar som anger att åtgärden lyckades returneras i JSON, som du ser i följande exempel: 
 
@@ -1153,6 +1153,6 @@ Ett svar som anger att åtgärden lyckades returneras i JSON, som du ser i följ
 > [!div class="nextstepaction"]
 > [Referens för QnA Maker (V4) REST API](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75ff)
 
-## <a name="see-also"></a>Se också 
+## <a name="see-also"></a>Se även 
 
 [Översikt över QnA Maker](../Overview/overview.md)

@@ -1,66 +1,66 @@
 ---
-title: Datorn Vision C#-självstudie | Microsoft Docs
-titleSuffix: Microsoft Cognitive Services
-description: Ansluta till Cognitive Services för visuellt innehåll från en ASP.NET Core-webbapp.
+title: 'Självstudie: Visuellt innehåll, C#'
+titleSuffix: Azure Cognitive Services
+description: Anslut till API:et för visuellt innehåll via en ASP.NET Core-webbapp.
 services: cognitive-services
 author: ghogen
-manager: douge
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: computer-vision
-ms.topic: conceptual
+ms.topic: Tutorial
 ms.date: 03/01/2018
 ms.author: ghogen
-ms.openlocfilehash: 76ca1215144a5caa40971e1eda23f6462f7bf27b
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
-ms.translationtype: MT
+ms.openlocfilehash: ebfcabdea1e83a83af5eea8025ba5a411c3f9880
+ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38665257"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49077958"
 ---
-# <a name="connecting-to-cognitive-services-computer-vision-api-by-using-connected-services-in-visual-studio"></a>Ansluta till Cognitive Services API för visuellt innehåll med Connected Services i Visual Studio
+# <a name="use-connected-services-in-visual-studio-to-connect-to-the-computer-vision-api"></a>Använda Connected Services i Visual Studio för att ansluta till API för visuellt innehåll
 
-Med hjälp av Cognitive Services-datorn Vision API kan du extrahera innehållsrik information för att kategorisera och bearbeta visuella data och utföra datorstödd moderering av bilder hjälper dig att moderera dina tjänster.
+Genom att använda Cognitive Services API för visuellt innehåll kan du extrahera information att kategorisera och bearbeta visuella data, utföra datorstödd moderering av bilder som hjälper dig att moderera dina tjänster.
 
-Den här artikeln och dess tillhörande artiklar innehåller information för att använda Visual Studio Connected Service-funktionen för Cognitive Services API för visuellt innehåll. Funktionen är tillgänglig i både Visual Studio 2017 15.7 eller senare, med Cognitive Services-tillägget installerat.
+Den här artikeln, och dess relaterade artiklar, innehåller information om hur man använder Visual Studios Connected Service-funktion för Cognitive Services API för visuellt innehåll. Funktionen är tillgänglig i Visual Studio 2017 15.7 och senare med Cognitive Services-tillägget installerat.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 - **En Azure-prenumeration**. Om du inte har en prenumeration kan du registrera dig för ett [kostnadsfritt konto](https://azure.microsoft.com/pricing/free-trial/).
-- **Visual Studio 2017 version 15.7** med den **webbutveckling** arbetsbelastning som är installerad. [Hämta nu](https://aka.ms/vsdownload?utm_source=mscom&utm_campaign=msdocs).
+- **Visual Studio 2017 version 15.7** med arbetsbelastningen **Webbutveckling** installerad. [Ladda ned det nu](https://aka.ms/vsdownload?utm_source=mscom&utm_campaign=msdocs).
 
 [!INCLUDE [vs-install-cognitive-services-vsix](../../../includes/vs-install-cognitive-services-vsix.md)]
 
-## <a name="add-support-to-your-project-for-cognitive-services-computer-vision-api"></a>Lägger till stöd i ditt projekt för Cognitive Services API för visuellt innehåll
+## <a name="add-support-to-your-project-for-cognitive-services-computer-vision-api"></a>Lägg till stöd för ditt projekt för Cognitive Services API för visuellt innehåll
 
-1. Skapa ett nytt webbprojekt i ASP.NET Core. Med mallen tomt projekt. 
+1. Skapa ett nytt ASP.NET Core-webbprojekt. Använd den tomma projektmallen. 
 
-1. I **Solution Explorer**, Välj **Lägg till** > **Connected Service**.
-   Connected Service-sidan visas med tjänster som du kan lägga till i projektet.
+1. I **Solution Explorer** väljer du **Lägg till** > **Ansluten tjänst**.
+   Sidan Ansluten tjänst visas med tjänster som du kan lägga till i projektet.
 
-   ![Lägg till Connected Service menyobjekt](../media/vs-common/Connected-Service-Menu.PNG)
+   ![Lägga till menyobjektet Ansluten tjänst](../media/vs-common/Connected-Service-Menu.PNG)
 
-1. Meny med olika tjänster, Välj **Cognitive Services API för visuellt innehåll**.
+1. På menyn med tillgängliga tjänster väljer du **Cognitive Services API för visuellt innehåll**.
 
-   ![Välj tjänsten för att ansluta till](./media/vs-computer-vision-connected-service/Cog-Vision-Connected-Service-0.PNG)
+   ![Välja tjänst att ansluta till](./media/vs-computer-vision-connected-service/Cog-Vision-Connected-Service-0.PNG)
 
-   Om du har loggat in Visual Studio och Azure-prenumeration som är associerade med ditt konto, visas en sida med en listruta med dina prenumerationer.
+   Om du har loggat in till Visual Studio och har en Azure-prenumeration som är associerad med ditt konto, visas en sida med en listruta med dina prenumerationer.
 
    ![Välj din prenumeration](media/vs-computer-vision-connected-service/Cog-Vision-Connected-Service-1.PNG)
 
-1. Välj den prenumeration som du vill använda och välj sedan ett namn för den API för visuellt innehåll eller Välj länken Redigera för att ändra det automatiskt genererade namnet, väljer du resursgruppen och den prisnivå.
+1. Välj den prenumeration som du vill använda, välj ett namn för API:et för visuellt innehåll och välj sedan länken Redigera för att ändra det automatiskt genererade namnet. Välj sedan resursgrupp och prisnivå.
 
-   ![Redigera anslutna tjänstinformation](media/vs-computer-vision-connected-service/Cog-Vision-Connected-Service-2.PNG)
+   ![Redigera information om ansluten tjänst](media/vs-computer-vision-connected-service/Cog-Vision-Connected-Service-2.PNG)
 
-   Följ länken för mer information på prisnivå.
+   Följ länken om du vill ha mer information om prisnivåer.
 
-1. Välj Lägg till att lägga till stöds för Connected Service.
-   Visual Studio ändrar ditt projekt för att lägga till NuGet-paket, poster i konfigurationsfilen och andra ändringar till stöd för en anslutning i API för visuellt innehåll. Utdatafönstret visar loggen för vad som händer i projektet. Du bör se något som liknar följande:
+1. Välj Lägg till för att lägga till sådana som stöds för den anslutna tjänsten.
+   Visual Studio ändrar ditt projekt för att lägga till NuGet-paketen, konfigurationsfilposter och andra ändringar till stöd för en anslutning till API för visuellt innehåll. Utdatafönstret innehåller en logg över vad som händer i projektet. Det ser ut ungefär så här:
 
    ```output
    [4/26/2018 5:15:31.664 PM] Adding Computer Vision API to the project.
    [4/26/2018 5:15:32.084 PM] Creating new ComputerVision...
    [4/26/2018 5:15:32.153 PM] Creating new Resource Group...
-   [4/26/2018 5:15:40.286 PM] Installing NuGet package 'Microsoft.Azure.CognitiveServices.Vision.ComputerVision' version 1.0.2-preview.
+   [4/26/2018 5:15:40.286 PM] Installing NuGet package 'Microsoft.Azure.CognitiveServices.Vision.ComputerVision' version 2.1.0.
    [4/26/2018 5:15:44.117 PM] Retrieving keys...
    [4/26/2018 5:15:45.602 PM] Changing appsettings.json setting: ComputerVisionAPI_ServiceKey=<service key>
    [4/26/2018 5:15:45.606 PM] Changing appsettings.json setting: ComputerVisionAPI_ServiceEndPoint=https://australiaeast.api.cognitive.microsoft.com/vision/v2.0
@@ -68,9 +68,9 @@ Den här artikeln och dess tillhörande artiklar innehåller information för at
    [4/26/2018 5:15:46.747 PM] Successfully added Computer Vision API to the project.
    ```
  
-## <a name="use-the-computer-vision-api-to-detect-attributes-of-an-image"></a>Använd API för visuellt innehåll för att identifiera attribut för en avbildning
+## <a name="use-the-computer-vision-api-to-detect-attributes-of-an-image"></a>Använd API:et för visuellt innehåll för att identifiera attribut för en bild
 
-1. Lägg till följande using-satser i Startup.cs.
+1. Lägg till nedanstående med hjälp av instruktionerna i Startup.cs.
  
    ```csharp
    using System.IO;
@@ -80,7 +80,7 @@ Den här artikeln och dess tillhörande artiklar innehåller information för at
    using System.Net.Http.Headers;
    ```
  
-1. Lägg till ett fält för konfiguration och Lägg till en konstruktor som initierar configuration-fältet i den `Startup` klassen för att aktivera konfiguration i ditt program.
+1. Lägg till ett konfigurationsfält och lägg till en konstruktor som initierar konfigurationsfältet i `Startup`-klassen, så att konfiguration aktiveras i programmet.
 
    ```csharp
       private IConfiguration configuration;
@@ -91,15 +91,15 @@ Den här artikeln och dess tillhörande artiklar innehåller information för at
       }
    ```
 
-1. Lägg till en bildmapp Wwwroot-mappen i projektet och lägga till en fil i Wwwroot-mappen. Exempelvis kan du använda en avbildning på den här [API för visuellt innehåll sidan](https://azure.microsoft.com/services/cognitive-services/computer-vision/). Högerklicka på en av avbildningarna, spara till den lokala hårddisken och sedan i Solution Explorer högerklickar du på bildmappen och choosee **Lägg till** > **befintligt objekt** att lägga till den i projektet. Ditt projekt bör se ut ungefär så här i Solution Explorer: 
+1. Lägg till en bildfil i mappen wwwroot i projektet och lägg till en bildfil i din wwwroot-mapp. Som exempel kan du använda en av bilderna på den här [API för visuellt innehåll-sidan](https://azure.microsoft.com/services/cognitive-services/computer-vision/). Högerklicka på en av bilderna, spara den på den lokala hårddisken och högerklicka sedan på bildmappen i Solution Explorer och välj **Lägg till** > **Befintligt objekt** för att lägga till den i projektet. Ditt projekt bör se ut ungefär så här i Solution Explorer: 
   
-   ![bildmappen med bildfil](media/vs-computer-vision-connected-service/Cog-Vision-Connected-Service-3.PNG) 
+   ![Bildmapp med bildfil](media/vs-computer-vision-connected-service/Cog-Vision-Connected-Service-3.PNG) 
 
-1. Högerklicka på bildfilen, välja egenskaper och välj sedan **kopiera om nyare**. 
+1. Högerklicka på bildfilen, välj Egenskaper och välj sedan **Kopiera om nyare**. 
 
    ![Kopiera om nyare](media/vs-computer-vision-connected-service/Cog-Vision-Connected-Service-5.PNG) 
  
-1. Ersätt metoden konfigurera med följande kod för att komma åt den API för visuellt innehåll och testa en bild.
+1. Ersätt konfigurationsmetoden med följande kod för att komma åt API:et för visuellt innehåll och testa en bild.
 
    ```csharp
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -163,9 +163,9 @@ Den här artikeln och dess tillhörande artiklar innehåller information för at
         }
 
    ```
-    Den här koden skapar en HTTP-begäran med URI: N och image som binärt innehåll för ett anrop till den REST API för visuellt innehåll.
+    Koden här skapar en HTTP-begäran med URI:et och bilden som binärt innehåll för ett anrop till REST API för visuellt innehåll.
 
-1. Lägg till hjälpfunktioner GetImageAsByteArray och JsonPrettyPrint.
+1. Lägg till hjälpfunktionerna GetImageAsByteArray och JsonPrettyPrint.
 
    ```csharp
         /// <summary>
@@ -247,13 +247,13 @@ Den här artikeln och dess tillhörande artiklar innehåller information för at
         }
    ```
 
-1. Kör webbappen och se vad API för visuellt innehåll finns i din avbildning.
+1. Kör webbappen och se vad API för visuellt innehåll har hittat i bilden.
 
-   ![Avbildning av API för visuellt innehåll och formaterade resultat](media/vs-computer-vision-connected-service/Cog-Vision-Connected-Service-4.PNG)  
+   ![Bild och formaterat innehåll för API för visuellt innehåll](media/vs-computer-vision-connected-service/Cog-Vision-Connected-Service-4.PNG)  
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-När den inte längre behövs kan du ta bort resursgruppen. Detta tar bort cognitive service och relaterade resurser. Så här tar du bort resursgruppen via portalen:
+När den inte längre behövs tar du bort resursgruppen. Detta tar bort den kognitiva tjänsten och relaterade resurser. Så här tar du bort resursgruppen via portalen:
 
 1. Skriv namnet på resursgruppen i rutan Sök längst upp i portalen. När du ser resursgruppen du använde i den här snabbstarten bland sökresultaten väljer du den.
 2. Välj **Ta bort resursgrupp**.
@@ -261,4 +261,4 @@ När den inte längre behövs kan du ta bort resursgruppen. Detta tar bort cogni
 
 ## <a name="next-steps"></a>Nästa steg
 
-Läs mer om API för visuellt innehåll genom att läsa den [datorn Vision API-dokumentation](Home.md).
+Lär dig mer om API:et för visuellt innehåll genom att läsa [dokumentationen om API för visuellt innehåll](Home.md).

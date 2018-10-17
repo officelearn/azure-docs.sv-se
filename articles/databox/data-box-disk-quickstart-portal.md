@@ -12,15 +12,15 @@ ms.devlang: NA
 ms.topic: quickstart
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 08/28/2018
+ms.date: 09/07/2018
 ms.author: alkohli
 Customer intent: As an IT admin, I need to quickly deploy Data Box Disk so as to import data into Azure.
-ms.openlocfilehash: 596c4b15ea6ef76d4471bca6994377bf4d5ddc01
-ms.sourcegitcommit: a1140e6b839ad79e454186ee95b01376233a1d1f
+ms.openlocfilehash: b4ec329fc5b1f3df9e6641bee3e1378c3a4d09c6
+ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43143431"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44378354"
 ---
 # <a name="quickstart-deploy-azure-data-box-disk-using-the-azure-portal-preview"></a>Snabbstart: Distribuera Azure Data Box Disk med hjälp av Azure Portal (förhandsversion)
 
@@ -68,12 +68,12 @@ Data Box-disken skickas i en UPS Express-box. Öppna boxen och kontrollera att d
 
 Det här steget tar ungefär 5 minuter.
 
-1. Använd den medföljande kabeln för att ansluta disken till en Windows-dator som kör en version som stöds. Mer information om operativsystemversioner som stöds finns i [Systemkrav för Azure Data Box Disk](data-box-disk-system-requirements.md). 
+1. Använd den medföljande kabeln för att ansluta disken till en Windows-/Linux-dator som kör en version som stöds. Mer information om operativsystemversioner som stöds finns i [Systemkrav för Azure Data Box Disk](data-box-disk-system-requirements.md). 
 2. Så här låser du upp disken:
 
     1. På Azure Portal går du till **Allmänt > Enhetsinformation** och hämtar nyckeln.
-    2. Ladda ned och extrahera Data Box Disk-upplåsningsverktyget på den dator som används för att kopiera data till diskarna. 
-    3. Kör *DataBoxDiskUnlock.exe* och ange nyckeln. Om du sätter i nya diskar kör du upplåsningsverktyget igen och anger nyckeln. **Använd inte BitLocker-dialogrutan eller BitLocker-nyckeln för att låsa upp disken.** 
+    2. Ladda ned och extrahera det operativsystemspecifika Data Box Disk-upplåsningsverktyget på den dator som används för att kopiera data till diskarna. 
+    3. Kör upplåsningsverktyget för Data Box Disk och ange nyckeln. Om du sätter i nya diskar kör du upplåsningsverktyget igen och anger nyckeln. **Använd inte BitLocker-dialogrutan eller BitLocker-nyckeln för att låsa upp disken.** Mer information om hur du låser upp diskar finns i [Låsa upp diskar på en Windows-klient]() eller [Låsa upp diskar på en Linux-klient]().
     4. Diskens tilldelade enhetsbeteckning visas i verktyget. Skriv ned diskens enhetsbeteckning. Du behöver den i efterföljande steg.
 
 ## <a name="copy-data-and-verify"></a>Kopiera data och verifiera
@@ -86,9 +86,9 @@ Hur lång tid det tar att slutföra den här åtgärden beror på datastorleken.
 
     > [!NOTE] 
     > - Alla containrar och blobar måste följa [Azures namngivningskonventioner](data-box-disk-limits.md#azure-block-blob-and-page-blob-naming-conventions). Om dessa regler inte uppfylls misslyckas datauppladdningen till Azure.
-    > - Kontrollera att filerna inte överskrider ~4,7 TiB för blockblobar och ~ 8 TiB för sidblobar.
+    > - Kontrollera att filerna inte överskrider ~4,75 TiB för blockblobar och ~ 8 TiB för sidblobar.
 
-2. (Valfritt) När kopieringen är klar rekommenderar vi att du kör `AzureExpressDiskService.cmd` i mappen *AzureImportExport* för att generera kontrollsummor för verifiering. Beroende på datastorleken kan det här steget ta en stund. 
+2. (Valfritt) När kopieringen är klar rekommenderar vi att du kör `DataBoxDiskValidation.cmd` i mappen *AzureImportExport* för att generera kontrollsummor för verifiering. Beroende på datastorleken kan det här steget ta en stund. 
 3. Koppla från enheten. 
 
 

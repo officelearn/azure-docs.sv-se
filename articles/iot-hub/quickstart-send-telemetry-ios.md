@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 04/20/2018
 ms.author: kgremban
-ms.openlocfilehash: dbc1cc4a72d0346c92d506358c39a66a4d780b32
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: aecb9a1819060e0da6338e8e16bf681fad42dd22
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38309753"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44161925"
 ---
 # <a name="quickstart-send-telemetry-from-a-device-to-an-iot-hub-ios"></a>Snabbstart: Skicka telemetri från en enhet till en IoT-hubb (iOS)
 
@@ -33,16 +33,10 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 - Ladda ned kodexemplet från [Azure-exemplen](https://github.com/Azure-Samples/azure-iot-samples-ios/archive/master.zip) 
 - Den senaste versionen av [XCode](https://developer.apple.com/xcode/) med den senaste versionen av iOS SDK. Denna snabbstart har testats med XCode 9.3 och iOS 11.3.
 - Den senaste versionen av [CocoaPods](https://guides.cocoapods.org/using/getting-started.html).
-- CLI-verktyget iothub-explorer som läser telemetrin från IoT Hub. Vid installationen ska du först installera [Node.js](https://nodejs.org) v4.x.x eller senare och sedan köra följande kommando: 
-
-   ```sh
-   sudo npm install -g iothub-explorer
-   ```
 
 ## <a name="create-an-iot-hub"></a>Skapa en IoT Hub
 
 [!INCLUDE [iot-hub-quickstarts-create-hub](../../includes/iot-hub-quickstarts-create-hub.md)]
-
 
 ## <a name="register-a-device"></a>Registrera en enhet
 
@@ -64,14 +58,6 @@ En enhet måste vara registrerad vid din IoT-hubb innan den kan ansluta. I den h
    ```
 
    Anteckna enhetsanslutningssträngen. Den ser ut ungefär som `Hostname=...=`. Du använder det här värdet senare i artikeln.
-
-1. Du måste också ha en _tjänstanslutningssträng_ så att serverprogram kan ansluta till din IoT-hubb och hämta meddelanden från enheter till molnet. Följande kommando hämtar tjänstanslutningssträngen för din IoT-hubb:
-
-   ```azurecli-interactive
-   az iot hub show-connection-string --hub-name {YourIoTHubName} --output table
-   ```
-
-   Anteckna tjänstanslutningssträngen. Den ser ut ungefär som `Hostname=...=`. Du använder det här värdet senare i artikeln.
 
 ## <a name="send-simulated-telemetry"></a>Skicka simulerad telemetri
 
@@ -119,19 +105,19 @@ Följande skärmbild visar några exempelutdata från när programmet skickar si
 
 ## <a name="read-the-telemetry-from-your-hub"></a>Läsa telemetrin från din hubb
 
-Exempelappen du körde i XCode-emulatorn visar data om meddelanden som skickas från enheten. Du kan också visa data via din IoT-hubb när de tas emot. CLI-verktyget för `iothub-explorer` ansluter till slutpunkten **Events** på tjänstsidan i din IoT-hubb. 
+Exempelappen du körde i XCode-emulatorn visar data om meddelanden som skickas från enheten. Du kan också visa data via din IoT-hubb när de tas emot. CLI-tillägget för IoT Hub kan ansluta till **Events**-slutpunkten för tjänstsidan på din IoT Hub. Tillägget tar emot enhet-till-moln-meddelanden som skickats från din simulerade enhet. Ett IoT Hub-serverprogram körs normalt i molnet för att ta emot och bearbeta enhet-till-molnet-meddelanden.
 
-Öppna ett nytt terminalfönster. Kör följande kommando och ersätt {your hub service connection string} med den tjänstanslutningssträng du hämtade i början av artikeln:
+Kör följande Azure CLI-kommandon, där du ersätter `{YourIoTHubName}` med namnet på din IoT-hubb:
 
-```sh
-iothub-explorer monitor-events myiOSdevice --login "{your hub service connection string}"
+```azurecli-interactive
+az iot hub monitor-events --device-id myiOSdevice --hub-name {YourIoTHubName}
 ```
+
+Följande skärmbild visar utdata när tillägget tar emot telemetridata som skickats från den simulerade enheten till hubben:
 
 Följande skärmbild visar vilken typ av telemetri du ser i terminalfönstret:
 
 ![Visa telemetrin](media/quickstart-send-telemetry-ios/view-telemetry.png)
-
-Om du får ett felmeddelande när du kör kommandot iothub-explorer kontrollerar du att du använder *tjänstanslutningssträngen* för din IoT-hubb snarare än *enhetsanslutningssträngen* för din IoT-enhet. Båda anslutningssträngarna börjar med **Hostname={iothubname}**, men tjänstanslutningssträngen innehåller egenskapen **SharedAccessKeyName** medan enhetsanslutningssträngen innehåller **DeviceID**. 
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 

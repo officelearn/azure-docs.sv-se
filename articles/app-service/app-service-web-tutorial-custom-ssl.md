@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 08/24/2018
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: 2aca366e6a433e3e71cccb49a13638dedacc38d6
-ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
+ms.openlocfilehash: 700465279a43a8490c5863e7181c4c4d009ee97b
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42887514"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48857932"
 ---
 # <a name="tutorial-bind-an-existing-custom-ssl-certificate-to-azure-web-apps"></a>Självstudie: Binda ett befintligt anpassat SSL-certifikat till Azure Web Apps
 
@@ -66,7 +66,7 @@ Om du vill använda ett certifikat i App Service måste certifikatet uppfylla al
 
 ## <a name="prepare-your-web-app"></a>Förbereda din webbapp
 
-Om du vill binda ett anpassat SSL-certifikat till din webbapp måste din [App Service-plan](https://azure.microsoft.com/pricing/details/app-service/) finnas på nivån **Basic**, **Standard** eller **Premium**. I det här steget ser du till att webbappen har en prisnivå som stöds.
+Om du vill binda ett anpassat SSL-certifikat till din webbapp måste din [App Service-plan](https://azure.microsoft.com/pricing/details/app-service/) finnas på nivån **Basic**, **Standard**, **Premium** eller **Isolerad**. I det här steget ser du till att webbappen har en prisnivå som stöds.
 
 ### <a name="log-in-to-azure"></a>Logga in på Azure
 

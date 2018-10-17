@@ -14,12 +14,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 08/28/2018
 ms.author: barclayn
-ms.openlocfilehash: 50448691fb136278cf7fdf3687ffb3b13fbb54ca
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: f3ea500c8e48f4a509782657ad2fe750bf3a7ed6
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43122271"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44025663"
 ---
 # <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-using-powershell"></a>Snabbstart: Ställ in och hämta en hemlighet från Azure Key Vault med hjälp av PowerShell
 
@@ -105,4 +105,4 @@ Remove-AzureRmResourceGroup -Name ContosoResourceGroup
 I den här snabbstarten har du skapat ett nyckelvalv och lagrat en programnyckel i det. Om du vill lära dig mer om Key Vault och hur du kan använda det med dina program fortsätter du till självstudien om att använda webbprogram med Key Vault.
 
 > [!div class="nextstepaction"]
-> Om du vill lära dig att läsa en hemlighet från Key Vault via en webbapp genom att använda hanterade tjänstidentiteter fortsätter du med självstudien [Konfigurera en Azure-webbapp att läsa en hemlighet från Key Vault](quick-create-net.md)
+> Om du vill lära dig att läsa en hemlighet från Key Vault via en webbapp genom att använda hanterade identiteter för Azure-resurser fortsätter du med självstudierna [Konfigurera en Azure-webbapp att läsa en hemlighet från Key Vault](quick-create-net.md).

@@ -1,33 +1,33 @@
 ---
-title: Vad är entitetssökning i Bing? | Microsoft Docs
-description: Lär dig hur du använder den Entitetssökning i Bing för att söka på webben för entiteter och platser.
+title: Vad är entitetssökning i Bing?
+titlesuffix: Azure Cognitive Services
+description: Lär dig hur du använder API för entitetsökning i Bing för att söka efter entiteter och platser.
 services: cognitive-services
 author: swhite-msft
-manager: ehansen
-ms.assetid: 0B54E747-61BF-42AA-8788-E25D63F625FC
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-entity-search
-ms.topic: article
+ms.topic: overview
 ms.date: 07/06/2016
 ms.author: scottwhi
-ms.openlocfilehash: 275430bc6ee8f935978243e61f68713974648189
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
-ms.translationtype: MT
+ms.openlocfilehash: 2b3adf07a8522322434a6596475fa06c0df978e8
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39008118"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48813608"
 ---
 # <a name="what-is-bing-entity-search"></a>Vad är entitetssökning i Bing?
 
-Bing-Entitetssökning skickar en sökfråga till Bing och hämtar resultat som innehåller entiteter och platser. Plats resultat omfattar restauranger, hotell eller andra lokala företag. Bing returnerar platser om frågan anger namnet på det lokala företaget eller begär en typ av verksamhet (exempelvis restauranger i närheten). Bing returnerar entiteter om frågan anger välkända personer, platser (turistattraktioner, tillstånd, länder/regioner, osv.) eller saker.
+API:et för entitetsökning i Bing skickar en sökfråga till Bing och hämtar resultat som innehåller entiteter och platser. Platsresultat omfattar restauranger, hotell eller andra lokala företag. Bing returnerar platser om frågan anger namnet på det lokala företaget eller frågar efter en typ av verksamhet (exempelvis restauranger i närheten). Bing returnerar entiteter om frågan anger välkända personer, platser (turistattraktioner, delstater, länder/regioner osv.) eller saker.
 
 ## <a name="suggesting--using-search-terms"></a>Föreslå och använda söktermer
 
 Om du tillhandahåller en sökruta där användaren anger sin sökterm bör du använda [API för automatiska förslag i Bing ](../bing-autosuggest/get-suggested-search-terms.md) för att ge bättre funktioner. API:t returnerar föreslagna frågesträngar baserat på partiella söktermer som användaren skriver in.
 
-När användaren har angett sin sökterm kodar URL:en termen innan den ställer in [q](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#query) frågeparametern. Exempel: om användaren anger *Marcus Appel*anger `q` till *Marcus + Appel* eller *Marcus % 20Appel*.
+När användaren har angett sin sökterm kodar URL:en termen innan den ställer in [q](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#query) frågeparametern. Om användaren till exempel anger *Marcus Appel* anger du `q` till *Marcus + Appel* eller *Marcus%20Appel*.
 
-Om söktermen som innehåller en felstavning, Sök svaret innehåller en [QueryContext](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#querycontext) objekt. Objektet visas den ursprungliga stavningen och korrigerade stavningen som Bing används för sökningen.
+Om söktermen innehåller en felstavning inkluderar söksvaret ett [QueryContext](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#querycontext)-objekt. Objektet visar den ursprungliga stavningen och den korrigerade stavningen som Bing använde för sökningen.
 
 ```json
 "queryContext": {
@@ -38,21 +38,21 @@ Om söktermen som innehåller en felstavning, Sök svaret innehåller en [QueryC
 }
 ```
 
-## <a name="requesting-entities"></a>Begär entiteter
+## <a name="requesting-entities"></a>Begära entiteter
 
-En exempelbegäran, se [gör din första begäran](./quick-start.md).
+En exempelbegäran finns i [Göra din första begäran](./quick-start.md).
 
 ## <a name="the-response"></a>Svaret
 
-Svaret innehåller en [SearchResponse](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#searchresponse) objekt. Om Bing hittar en entitet eller plats som är relevant, objektet innehåller de `entities` fältet `places` fält eller båda. I annat fall innehåller objektet response inte något av fälten.
+Svaret innehåller ett [SearchResponse](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#searchresponse)-objekt. Om Bing hittar en entitet eller plats som är relevant innehåller objektet fältet `entities`, fältet `places` eller båda. Annars innehåller inte svarsobjektet något av fälten.
 > [!NOTE]
-> Entiteten svar stöder flera marknader, men svaret platser stöder endast oss företag platser. 
+> Entitetssvar stöder flera marknader, men svaret för platser stöder endast företagsplatser i USA. 
 
-Den `entities` fältet är en [EntityAnswer](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#entityanswer) objekt som innehåller en lista över [entitet](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#entity) objekt (se den `value` fältet). Listan kan innehålla en enda dominerande enhet, flera tvetydigheter entiteter eller båda. 
+Fältet `entities` är ett [EntityAnswer](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#entityanswer)-objekt som innehåller en lista över [Entity](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#entity)-objekt (se fältet `value`). Listan kan innehålla en enda dominerande entitet, flera entiteter som löser tvetydigheter eller båda. 
 
-En dominerande enhet är en entitet som Bing tror är den enda entitet som uppfyller begäran (det finns inga tveksamheter om vilka entitet uppfyller begäran). Om flera entiteter kan utföra den begärda åtgärden, innehåller listan mer än en tvetydigheter entitet. Om denna begäran använder generisk rubrik för en film franchise, innehåller sannolikt listan tvetydigheter entiteter. Men om begäran anger ett visst program från franchisen, sannolikt listan innehåller en enda dominerande enhet.
+En dominerande enhet är en entitet som Bing tror är den enda entitet som uppfyller begäran (det finns inga tvetydigheter om vilken entitet som uppfyller begäran). Om flera entiteter kan uppfylla begäran innehåller listan mer än en entitet som löser tvetydigheter. Om denna begäran till exempel använder den generiska titeln för en filmserie innehåller listan sannolikt entiteter som löser tvetydigheter. Men om begäran anger en viss titel från serien innehåller listan sannolikt en enda dominerande enhet.
 
-Entiteter innehåller välkända personligheter singers, aktörer, tävlande, modeller, t.ex.; platser och landmärken, till exempel montera Rainier eller Lincoln Memorial; och sådant som en rubrik för bananer, goldendoodle, bok eller film. Den [entityPresentationInfo](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#entitypresentationinfo) fältet innehåller tips som identifierar den enhetstyp. Exempel: om det är en person, film, djur eller finns. En lista över möjliga typer finns i [entitetstyper](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#entity-types)
+Entiteter innehåller välkända personer såsom sångare, skådespelare, idrottare, modeller osv., platser och landmärken såsom Mount Rainier eller Lincoln Memorial samt saker såsom en banan, goldendoodle, bok eller filmtitel. Fältet [entityPresentationInfo](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#entitypresentationinfo) innehåller tips som identifierar entitetens typ. Exempel kan vara huruvida den är en person, en film, ett djur eller en attraktion. En lista över möjliga typer finns i [Entitetstyper](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#entity-types)
 
 ```json
 "entityPresentationInfo": {
@@ -62,7 +62,7 @@ Entiteter innehåller välkända personligheter singers, aktörer, tävlande, mo
 }, ...
 ```
 
-Nedan visas ett svar som innehåller en dominerande ställning och tvetydigheter entitet.
+Nedan visas ett svar som innehåller en dominerande entitet och en entitet som löser tvetydigheter.
 
 ```json
 {
@@ -148,7 +148,7 @@ Nedan visas ett svar som innehåller en dominerande ställning och tvetydigheter
 }
 ```
 
-Entiteten innehåller en `name`, `description`, och `image` fält. När du visar de här fälten i din användarupplevelse, måste du attributet dem. Den `contractualRules` fältet innehåller en lista över upphovsrätter som du måste tillämpa. Avtalsenliga regeln identifierar det fält som information som gäller för. Information om hur du tillämpar attribution finns i [Attribution](#data-attribution).
+Entiteten innehåller fälten `name`, `description` och `image`. När du visar de här fälten i användarfunktionen måste du attributera dem. Fältet `contractualRules` innehåller en lista över attributioner som du måste tillämpa. Kontraktsregeln identifierar det fält som attributionen gäller för. Information om hur du tillämpar attribution finns i [Attribution](#data-attribution).
 
 ```json
 "contractualRules": [{
@@ -176,12 +176,12 @@ Entiteten innehåller en `name`, `description`, och `image` fält. När du visar
 }], ...
 ```
 
-När du visar entitetsinformation (namn, beskrivning och avbildningen), måste du också använda URL: en i den `webSearchUrl` fält för att länka till Bing search resultatsida som innehåller entiteten.
+När du visar entitetsinformationen (namn, beskrivning och bild) måste du även använda URL:en i fältet `webSearchUrl` för att länka till den Bing-sökresultatsida som innehåller entiteten.
 
 
-Den `places` fältet är en [LocalEntityAnswer](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#localentityanswer) objekt som innehåller en lista över [plats](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#place) objekt (se den `value` fältet). Listan innehåller en eller flera lokala enheter som uppfyller begäran.
+Fältet `places` är ett [LocalEntityAnswer](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#localentityanswer)-objekt som innehåller en lista över [Place](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#place)-objekt (se fältet `value`). Listan innehåller en eller flera lokala entiteter som uppfyller begäran.
 
-Platser är restaurang, hotell eller lokala företag. Den [entityPresentationInfo](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#entitypresentationinfo) fältet innehåller tips som identifierar den lokala entitetstypen. Listan innehåller en lista över tips som plats, LocalBusiness, restaurang. Varje efterföljande tipset i matrisen begränsar entitetens typ. En lista över möjliga typer finns i [entitetstyper](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#entity-types)
+Platser omfattar restauranger, hotell och lokala företag. Fältet [entityPresentationInfo](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#entitypresentationinfo) innehåller tips som identifierar den lokala entitetens typ. Listan innehåller en lista över tips såsom plats, lokalt företag och restaurang. Varje efterföljande tips i matrisen begränsar entitetens typ. En lista över möjliga typer finns i [Entitetstyper](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#entity-types)
 
 ```json
 "entityPresentationInfo": {
@@ -192,9 +192,9 @@ Platser är restaurang, hotell eller lokala företag. Den [entityPresentationInf
 }, ...
 ```
 > [!NOTE]
-> Entiteten svar stöder flera marknader, men svaret platser stöder endast oss företag platser. 
+> Entitetssvar stöder flera marknader, men svaret för platser stöder endast företagsplatser i USA. 
 
-Lokala medveten entitet frågor som *restaurang närheten* kräver användarens plats att tillhandahålla korrekta resultat. Dina begäranden bör alltid använda X sökplats och rubriker för X-MSEdge-ClientIP för att ange användarens plats. Om Bing tror frågan skulle med fördel användarens plats, anger den `askUserForLocation` i [QueryContext](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#querycontext) till **SANT**. 
+Platsmedvetna entitetsfrågor såsom *restaurang nära mig* kräver användarens plats för att tillhandahålla korrekta resultat. Dina begäranden bör alltid använda sidhuvidena X-Search-Location och X-MSEdge-ClientIP för att ange användarens plats. Om Bing tror frågan skulle kunna dra nytta av användarens plats anger fältet `askUserForLocation` i [QueryContext](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#querycontext) till **sant**. 
 
 ```json
 {
@@ -207,7 +207,7 @@ Lokala medveten entitet frågor som *restaurang närheten* kräver användarens 
 }
 ```
 
-Resultatet för en plats innehåller platsen namn, adress, telefonnummer och URL: en till dess webbplats. När du visar entitetsinformationen, måste du också använda URL: en i den `webSearchUrl` fält för att länka till Bing search resultatsida som innehåller entiteten.
+Platsresultat innehåller platsens namn, adress, telefonnummer och URL till entitetens webbplats. När du visar entitetsinformationen måste du även använda URL:en i fältet `webSearchUrl` för att länka till den Bing-sökresultatsida som innehåller entiteten.
 
 ```json
 "places": {
@@ -235,15 +235,15 @@ Resultatet för en plats innehåller platsen namn, adress, telefonnummer och URL
 ```
 
 > [!NOTE]
-> Du eller en tredje part för din räkning kan inte använda, behålla, lagra, cache, delar, eller distribuera alla data från API för entiteter för testning, utveckling, utbildning, distribuerar eller gör tillgänglig någon icke-Microsoft-tjänst eller funktion.  
+> Du eller en tredje part för din räkning får inte använda, behålla, lagra, cachelagra, dela eller distribuera data från entitets-API:et i syfte att testa, utveckla, träna, distribuera eller tillgängliggöra tjänster eller funktioner som inte kommer från Microsoft.  
 
-## <a name="data-attribution"></a>Data attribution
+## <a name="data-attribution"></a>Dataattribution
 
-I Bing svar innehåller information som ägs av tredje part. Du ansvarar för att se till att din användning är lämpligt, till exempel uppfyller en creative commons-licens användarupplevelsen kan förlita sig på.
+Bings entitets-API-svar innehåller information som ägs av tredje part. Du ansvarar för att se till att din användning är lämplig, till exempel genom att följa gällande Creative Commons-licenser som din användarfunktion är beroende av.
 
-Om ett svar eller ett resultat som innehåller den `contractualRules`, `attributions`, eller `provider` fält, du måste attributet data. Om svaret inte innehåller några av de här fälten, krävs ingen information. Om svaret innehåller den `contractualRules` fält och `attributions` och/eller `provider` fält, måste du använda avtalsenliga reglerna för att attributet data.
+Om ett svar eller resultat innehåller fälten `contractualRules`, `attributions` eller `provider` måste du attributera data. Om svaret inte innehåller några av de här fälten krävs ingen attribution. Om svaret innehåller fältet `contractualRules` och fälten `attributions` och/eller `provider` måste du använda kontraktsreglerna för att attributera data.
 
-I följande exempel visas en entitet som innehåller en MediaAttribution avtalsenliga regel och en avbildning som innehåller en `provider` fält. MediaAttribution regeln identifierar bilden som mål för regeln, så att du vill ignorera en bilds `provider` fältet och i stället använda MediaAttribution regeln för att ge information.  
+I följande exempel visas en entitet som innehåller en MediaAttribution-kontraktsregel och en bild som innehåller ett `provider`-fält. MediaAttribution-regeln identifierar bilden som målet för regeln, så du ignorerar bildens `provider`-fält och använder i stället MediaAttribution-regeln för att ge attribution.  
 
 ```json
 "value": [{
@@ -272,9 +272,9 @@ I följande exempel visas en entitet som innehåller en MediaAttribution avtalse
 }]
 ```
 
-Om en avtalsenliga regel innehåller den `targetPropertyName` fältet regeln gäller endast för fältet riktade. I annat fall regeln gäller för det överordnade objektet som innehåller den `contractualRules` fält.
+Om en kontraktsregel innehåller fältet `targetPropertyName` gäller regeln endast för målfältet. Annars gäller regeln för det överordnade objekt som innehåller fältet `contractualRules`.
 
-I följande exempel visas den `LinkAttribution` regeln innehåller den `targetPropertyName` fältet har regeln gäller för den `description` fält. Du måste inkludera en rad direkt efter den aktuella data som innehåller en hyperlänk till leverantörens webbplats för regler som gäller för specifika fält. Till exempel för att attributet beskrivning, inkludera en rad omedelbart efter en beskrivande text som innehåller en hyperlänk till data på leverantörens webbplats, i det här fallet att skapa en länk till contoso.com.
+I följande exempel innehåller regeln `LinkAttribution` fältet `targetPropertyName`, så regeln gäller för fältet `description`. För regler som gäller för specifika fält måste du inkludera en rad som följer omedelbart efter måldata som innehåller en hyperlänk till källans webbplats. Exempel: för att attributera beskrivningen inkluderar du en rad omedelbart efter den beskrivande texten som innehåller en hyperlänk till data på källans webbplats. I det här fallet skapar du en länk till contoso.com.
 
 ```json
 "entities": {
@@ -293,44 +293,44 @@ I följande exempel visas den `LinkAttribution` regeln innehåller den `targetPr
   
 ```
 
-### <a name="license-attribution"></a>Licens attribution
+### <a name="license-attribution"></a>Licensattribution
 
-Om listan över regler som avtalsenliga innehåller en [LicenseAttribution](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#licenseattribution) regeln, måste du visa meddelandet på raden direkt efter det innehåll som licensen gäller för. Den `LicenseAttribution` regel använder den `targetPropertyName` fält för att identifiera den egenskap som licensen gäller för.
+Om listan över kontraktsregler innehåller en [LicenseAttribution](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#licenseattribution)-regel måste du visa meddelandet på raden direkt efter det innehåll som licensen gäller för. `LicenseAttribution`-regeln använder fältet `targetPropertyName` för att identifiera den egenskap som licensen gäller för.
 
-Följande visar ett exempel som innehåller en `LicenseAttribution` regel.
+Följande visar ett exempel som innehåller en `LicenseAttribution`-regel.
 
-![Licens attribution](./media/cognitive-services-bing-entities-api/licenseattribution.png)
+![Licensattribution](./media/cognitive-services-bing-entities-api/licenseattribution.png)
 
-Licens-meddelande som du visar måste innehålla en hyperlänk till webbplatsen som innehåller information om licensen. Normalt kan göra du namnet på licensen som en hyperlänk. Om meddelandet är till exempel **Text under kopia av SA licens** och kopia av SA är namnet på licensen, du kan göra en kopia av SA en hyperlänk.
+Det licensmeddelande som du visar måste innehålla en hyperlänk till den webbplats som innehåller information om licensen. Normalt gör du namnet på licensen till en hyperlänk. Exempel: om meddelandet är **Text under CC-AV-SA-licensen** och CC-AV-SA är namnet på licensen, gör du CC-AV-SA till en hyperlänk.
 
-### <a name="link-and-text-attribution"></a>Länken och text attribution
+### <a name="link-and-text-attribution"></a>Länk- och textattribution
 
-Den [LinkAttribution](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#linkattribution) och [TextAttribution](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#textattribution) regler används vanligtvis för att identifiera leverantören av data. Den `targetPropertyName` fältet identifierar fältet som regeln gäller för.
+Reglerna [LinkAttribution](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#linkattribution) och [TextAttribution](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#textattribution) används vanligtvis för att identifiera källan till data. Fältet `targetPropertyName` identifierar det fält som regeln gäller för.
 
-Inkludera en rad som omedelbart efter det innehåll som gäller för uppgift till (till exempel riktade fältet) för att attributet providers. Raden ska stå tydligt för att visa att providers är källan för data. Till exempel ”Data från: contoso.com”. För `LinkAttribution` regler, måste du skapa en hyperlänk till leverantörens webbplats.
+För att attributera källorna inkluderar du en rad omedelbart efter det innehåll som attributionerna gäller för (till exempel målfältet). Raden ska vara tydligt märkt för att visa källorna till data. Ett exempel kan vara ”Data från: contoso.com”. För `LinkAttribution`-regler måste du skapa en hyperlänk till källans webbplats.
 
-Följande visar ett exempel som innehåller `LinkAttribution` och `TextAttribution` regler.
+Följande visar ett exempel som innehåller `LinkAttribution`- och `TextAttribution`-regler.
 
-![Länken text attribution](./media/cognitive-services-bing-entities-api/linktextattribution.png)
+![Länktextattribution](./media/cognitive-services-bing-entities-api/linktextattribution.png)
 
-### <a name="media-attribution"></a>Media attribution
+### <a name="media-attribution"></a>Medieattribution
 
-Om entiteten tas en bild och du visar det, måste du ange en klicka igenom länk till leverantörens webbplats. Om entiteten innehåller en [MediaAttribution](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#mediaattribution) regel, använder regelns URL för att skapa klicka igenom länk. Annars kan du använda URL: en som ingår i en bilds `provider` fält som du vill skapa klicka igenom länk.
+Om entiteten innehåller en bild och du visar den måste du tillhandahålla en klickbar länk till källans webbplats. Om entiteten innehåller en [MediaAttribution](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#mediaattribution)-regel använder du regelns URL för att skapa den klickbara länken. Annars använder du den URL som ingår i bildens `provider`-fält för att skapa den klickbara länken.
 
-Följande visar ett exempel som innehåller en bild `provider` fält och avtalsenliga regler. Eftersom exemplet inkluderar avtalsenliga regeln kan du ignorera avbildningens `provider` och Använd den `MediaAttribution` regeln.
+Följande visar ett exempel som innehåller en bilds `provider`-fält och kontraktsregler. Eftersom exemplet innehåller kontraktsregeln ignorerar du bildens `provider`-fält och tillämpar `MediaAttribution`-regeln.
 
-![Media attribution](./media/cognitive-services-bing-entities-api/mediaattribution.png)
+![Medieattribution](./media/cognitive-services-bing-entities-api/mediaattribution.png)
 
-### <a name="search-or-search-like-experience"></a>Sök i eller Sök-liknande upplevelse
+### <a name="search-or-search-like-experience"></a>Sökfunktion eller sökningsliknande funktion
 
-Precis som med API för webbsökning i Bing, kan Bing-Entitetssökning bara användas på grund av en direkt användarfråga eller Sök eller på grund av en åtgärd i en app eller en upplevelse som logiskt kan tolkas som en användares sökbegäran. För tydlighetens skull här följer några exempel på godkända Sök- eller Sök-liknande upplevelser.
+Precis som med API:et för webbsökning i Bing får API:et för entitetsökning i Bing bara användas som resultat av en direkt användarfråga eller -sökning eller som resultat av en åtgärd i en app eller en upplevelse som logiskt kan tolkas som en användares sökbegäran. För tydlighetens skull följer här några exempel på godkända sökfunktioner eller sökningsliknande funktioner.
 
 - Användaren anger en fråga direkt i en sökruta i en app
-- Användaren väljer viss text eller avbildning och begäranden ”mer information” eller ”mer information”
-- Användaren begär en sökning-robot om ett visst ämne
-- Användaren dwells på ett visst objekt eller en enhet i ett scenario för typ av visuell sökning
+- Användaren markerar viss text eller en bild och begär ”läs mer” eller ”mer information”
+- Användaren frågar en sökrobot om ett visst ämne
+- Användaren funderar på ett visst objekt eller en viss entitet i ett scenario med visuell sökning
 
-Om du inte är säker på om din upplevelse kan betraktas som en sökning-liknande upplevelse, rekommenderar vi att du kontrollerar med Microsoft.
+Om du inte är säker på om funktionen kan betraktas som en sökningsliknande funktion rekommenderar vi att du kontaktar Microsoft.
 
 ## <a name="throttling-requests"></a>Begränsningsbegäranden
 
@@ -338,9 +338,9 @@ Om du inte är säker på om din upplevelse kan betraktas som en sökning-liknan
 
 ## <a name="next-steps"></a>Nästa steg
 
-Kom igång snabbt med din första begäran, se [gör din första begäran](./quick-start.md).
+Kom igång snabbt med din första begäran genom att läsa [Göra din första begäran](./quick-start.md).
 
-Bekanta dig med den [Entitetssökning i Bing v7](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference) referens. Referensen innehåller rubriker och frågeparametrar som används för att begära sökresultat. Den omfattar även definitioner av svarsobjekten. 
+Bekanta dig med referensen till [API för entitetsökning i Bing v7](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference). Referensen innehåller de sidhuvuden och frågeparametrar som du använder för att begära sökresultat. Den omfattar även definitioner av svarsobjekten. 
 
 För att förbättra användarfunktionen för sökrutan läser du [API för automatiska förslag i Bing](../bing-autosuggest/get-suggested-search-terms.md). När användaren anger sina frågetermer kan du anropa det här API:t för att få relevanta frågetermer som har använts av andra användare.
 

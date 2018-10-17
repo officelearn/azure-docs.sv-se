@@ -12,14 +12,14 @@ ms.devlang: NA
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 09/25/2018
+ms.date: 10/10/2018
 ms.author: alkohli
-ms.openlocfilehash: 9bc84a9b08c4cfbdf7f24416c923e0dbd7076556
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: d606b7b536147b7e1d96bfb6cebf2522e5b4f85f
+ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47161938"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49078873"
 ---
 # <a name="tutorial-copy-data-to-azure-data-box"></a>Självstudie: Kopiera data till Azure Data Box 
 
@@ -88,11 +88,11 @@ Om du använder en Windows Server-värddator utför du stegen nedan för att ans
     The command completed successfully.
     ```
 
-4. Tryck på Windows + R. I fönstret **Kör** anger du `\\<device IP address>`. Klicka på **OK**. Utforskaren öppnas.
+4. Tryck på Windows + R. I fönstret **Kör** anger du `\\<device IP address>`. Klicka på **OK**. Utforskaren öppnas. Du bör nu kunna se resurserna som mappar.
     
     ![Ansluta till resursen via Utforskaren 2](media/data-box-deploy-copy-data/connect-shares-file-explorer1.png)
 
-5. Du bör nu kunna se resurserna som mappar. Skapa en mapp för de filer du vill kopiera (mallar i det här fallet). Ibland kan mapparna visas med ett grått kors. Korset anger inte ett feltillstånd. Mapparna flaggas av programmet för att spåra statusen.
+5.  **Skapa alltid en mapp för de filer som du vill kopiera under resursen och kopiera sedan filerna till den mappen**. Ibland kan mapparna visas med ett grått kors. Korset anger inte ett feltillstånd. Mapparna flaggas av programmet för att spåra statusen.
     
     ![Ansluta till resursen via Utforskaren 2](media/data-box-deploy-copy-data/connect-shares-file-explorer2.png) ![Ansluta till resursen via Utforskaren 2](media/data-box-deploy-copy-data/connect-shares-file-explorer2.png) 
 
@@ -239,11 +239,14 @@ Om du använder rsync-alternativet för en flertrådig kopia följer du dessa ri
 
  - Installera **CIFS Utils**- eller **NFS Utils**-paketet, beroende på vilket filsystem din Linux-klient använder.
 
-    `sudo apt-get install cifs-utils` `sudo apt-get install nfs-utils`
+    `sudo apt-get install cifs-utils`
+
+    `sudo apt-get install nfs-utils`
 
  -  Installera **Rsync** och **Parallel** (varierar beroende på distribuerad Linux-version).
 
     `sudo apt-get install rsync`
+   
     `sudo apt-get install parallel` 
 
  - Skapa en monteringspunkt.

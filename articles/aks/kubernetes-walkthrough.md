@@ -6,15 +6,15 @@ author: iainfoulds
 manager: jeconnoc
 ms.service: container-service
 ms.topic: quickstart
-ms.date: 07/31/2018
+ms.date: 09/24/2018
 ms.author: iainfou
 ms.custom: H1Hack27Feb2017, mvc, devcenter
-ms.openlocfilehash: f52551e9d57ccfc44502992b59412878c4092c0d
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: caf3607dbd33d75916ff65b0ab498fa228e2a823
+ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39436913"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49068927"
 ---
 # <a name="quickstart-deploy-an-azure-kubernetes-service-aks-cluster"></a>Snabbstart: Distribuera ett Azure Kubernetes Service-kluster (AKS)
 
@@ -26,7 +26,7 @@ I den här snabbstarten förutsätter vi att du har grundläggande kunskaper om 
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Om du väljer att installera och använda CLI lokalt måste du köra Azure CLI version 2.0.43 eller senare under den här snabbstarten. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI][azure-cli-install].
+Om du väljer att installera och använda CLI lokalt måste du köra Azure CLI version 2.0.46 eller senare under den här snabbstarten. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI][azure-cli-install].
 
 ## <a name="create-a-resource-group"></a>Skapa en resursgrupp
 
@@ -55,7 +55,7 @@ Resultat:
 
 ## <a name="create-aks-cluster"></a>Skapa AKS-kluster
 
-Använd kommandot [az aks create] [ az-aks-create] för att skapa ett AKS-kluster. I följande exempel skapas ett kluster med namnet *myAKSCluster* och en enda nod. Hälsoövervakning för container aktiveras också med hjälp av parametern *--enable-addons monitoring*. Mer information om att aktivera övervakningslösningen av containertillstånd finns i [Övervaka hälsotillstånd för Azure Kubernets Service][aks-monitor].
+Använd kommandot [az aks create] [ az-aks-create] för att skapa ett AKS-kluster. I följande exempel skapas ett kluster med namnet *myAKSCluster* och en enda nod. Azure Monitor för containrar aktiveras också med hjälp av parametern *--enable-addons monitoring*. Mer information om att aktivera övervakningslösningen av containertillstånd finns i [Övervaka hälsotillstånd för Azure Kubernets Service][aks-monitor].
 
 ```azurecli-interactive
 az aks create --resource-group myAKSCluster --name myAKSCluster --node-count 1 --enable-addons monitoring --generate-ssh-keys
@@ -114,6 +114,13 @@ spec:
       containers:
       - name: azure-vote-back
         image: redis
+        resources:
+          requests:
+            cpu: 100m
+            memory: 128Mi
+          limits:
+            cpu: 250m
+            memory: 256Mi
         ports:
         - containerPort: 6379
           name: redis
@@ -142,6 +149,13 @@ spec:
       containers:
       - name: azure-vote-front
         image: microsoft/azure-vote-front:v1
+        resources:
+          requests:
+            cpu: 100m
+            memory: 128Mi
+          limits:
+            cpu: 250m
+            memory: 256Mi
         ports:
         - containerPort: 80
         env:
@@ -209,16 +223,19 @@ När AKS-klustret skapades aktiverades övervakning för att registrera hälsom�
 Om du vill se aktuell status, drifttid och resursanvändning för Azure Vote-poddarna slutför du följande steg:
 
 1. Öppna en webbläsare till Azure-portalen [https://portal.azure.com][azure-portal].
-1. Välj din resursgrupp, till exempel *myResourceGroup*, och välj sedan ditt AKS-kluster, till exempel *myAKSCluster*. 
-1. Välj **Monitor container health** (Övervaka containerhälsa) > välj **standardnamnrymden** > välj sedan **Containers** (Containrar).
+1. Välj din resursgrupp, till exempel *myResourceGroup*, och välj sedan ditt AKS-kluster, till exempel *myAKSCluster*.
+1. Under **Övervakning** väljer du **Insights (förhandsversion)** på vänster sida
+1. Överst väljer du **+ Lägg till filter**
+1. Välj *Namnrymd* som egenskapen, och välj sedan *\<Alla förutom kube-system\>*
+1. Välja att visa **containrarna**.
 
-Det kan ta några minuter för dessa data att hämtas till Azure-portalen, enligt följande exempel:
+Containrarna *bak-azure-vote* och *azure-vote-front* visas enligt följande exempel:
 
-![Skapa AKS-kluster ett](media/kubernetes-walkthrough/view-container-health.png)
+![Visa hälsan för containrar som körs i AKS](media/kubernetes-walkthrough-portal/monitor-containers.png)
 
-Om du vill se loggar för podden `azure-vote-front` väljer du länken **Visa loggar** på höger sida av listan över containrar. Loggarna inkluderar strömmarna *stdout* och *stderr* från containern.
+Om du vill se loggar för podden `azure-vote-front` väljer du länken **Visa containerloggar** på höger sida av listan över containrar. Loggarna inkluderar strömmarna *stdout* och *stderr* från containern.
 
-![Skapa AKS-kluster ett](media/kubernetes-walkthrough/view-container-logs.png)
+![Visa containerloggarna i AKS](media/kubernetes-walkthrough-portal/monitor-container-logs.png)
 
 ## <a name="delete-cluster"></a>Ta bort klustret
 

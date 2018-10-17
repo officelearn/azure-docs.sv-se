@@ -8,12 +8,12 @@ ms.service: event-grid
 ms.topic: tutorial
 ms.date: 08/22/2018
 ms.author: tomfitz
-ms.openlocfilehash: 432436ee13519cf342313ad369c168ba764f9264
-ms.sourcegitcommit: a62cbb539c056fe9fcd5108d0b63487bd149d5c3
+ms.openlocfilehash: aad7a24d8b0e0bc74815cad3604db1cc21a6db96
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42616523"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44163234"
 ---
 # <a name="stream-big-data-into-a-data-warehouse"></a>Strömma stordata till ett datalager
 
@@ -184,6 +184,7 @@ Nu har du slutfört konfigurationen av händelsehubben, SQL-informationslagret, 
 
 ## <a name="next-steps"></a>Nästa steg
 
+* Läs om skillnaderna mellan Azures meddelandetjänster i [Välj mellan Azure-tjänster som levererar meddelanden](compare-messaging-services.md).
 * En introduktion till Event Grid finns i [Om Event Grid](overview.md).
 * En introduktion till Event Hubs Capture finns i [Enable Event Hubs Capture using the Azure portal](../event-hubs/event-hubs-capture-enable-through-portal.md) (Aktivera Event Hubs Capture med hjälp av Azure Portal).
 * Mer information om hur du konfigurerar och kör exemplet finns i [Event Hubs Capture- och Event Grid-exemplet](https://github.com/Azure/azure-event-hubs/tree/master/samples/e2e/EventHubsCaptureEventGridDemo).

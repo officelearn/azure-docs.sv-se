@@ -8,26 +8,57 @@ ms.service: application-gateway
 ms.topic: overview
 ms.custom: mvc
 ms.workload: infrastructure-services
-ms.date: 5/15/2018
+ms.date: 10/11/2018
 ms.author: victorh
-ms.openlocfilehash: 045443637c06745472458dd9e33670875a33352b
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 8352a95fa0701f6d2a0261d8d2fe2431971eccef
+ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34193075"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49068103"
 ---
 # <a name="what-is-azure-application-gateway"></a>Vad är Azure Application Gateway?
 
-Azure Application Gateway är en belastningsutjämnare för webbtrafik som gör det möjligt för dig att hantera trafik till dina webbappar. 
+Azure Application Gateway är en lastbalanserare för webbtrafik som gör det möjligt för dig att hantera trafik till dina webbappar. 
 
-Traditionella belastningsutjämnare fungerar med transportlagret (OSI lager 4 – TCP och UDP) och dirigera trafik baserat på källans IP-adress och port till en mål-IP-adress och -port. Men med Application Gateway kan du vara ännu mer specifik. Du kan till exempel dirigera trafik baserat på inkommande URL. Så om `/images` finns i inkommande URL kan du dirigera trafik till en specifik uppsättning servrar (kallas även pool) som har konfigurerats för avbildningar. Om `/video` finns i URL:en dirigeras trafiken dirigeras till en annan adresspool som har optimerats för videor.
+Traditionella lastbalanserare fungerar med transportlagret (OSI lager 4 – TCP och UDP) och dirigera trafik baserat på källans IP-adress och port till en mål-IP-adress och -port. Men med Application Gateway kan du vara ännu mer specifik. Du kan till exempel dirigera trafik baserat på inkommande URL. Så om `/images` finns i inkommande URL kan du dirigera trafik till en specifik uppsättning servrar (kallas även pool) som har konfigurerats för avbildningar. Om `/video` finns i URL:en dirigeras trafiken dirigeras till en annan adresspool som har optimerats för videor.
 
 ![imageURLroute](./media/application-gateway-url-route-overview/figure1-720.png)
 
 Den här typen av routning kallas belastningsutjämning för programlager (OSI lager 7). Azure Application Gateway kan göra URL-baserad routning med mera. 
 
-Följande funktioner ingår med Azure Application Gateway: 
+Följande funktioner ingår med Azure Application Gateway:
+
+## <a name="autoscaling-public-preview"></a>Offentlig förhandsversion av autoskalning
+
+Utöver de funktioner som beskrivs i den här artikeln erbjuder Application Gateway även en offentlig förhandsversion av en ny SKU [Standard_V2] som erbjuder autoskalning och andra viktiga prestandaförbättringar.
+
+- **Autoskalning** – Application Gateway- eller WAF-distributioner under autoskalnings-SKU kan skala upp eller ned baserat på föränderliga mönster i trafikbelastning. Automatisk skalning tar även bort behovet av att välja distributionsstorlek eller instansantal under etablering. 
+
+- **Zonredundans** – en Application Gateway- eller WAF-distribution kan sträcka sig över flera tillgänglighetszoner, vilket tar bort behovet av att etablera och skapa separata Application Gateway-instanser i varje zon med hjälp av en Traffic Manager.
+
+- **Statiskt VIP** – Application Gateway-VIP har nu stöd för den statiska VIP-typen exklusivt. Detta säkerställer att det VIP som är associerat med Application Gateway inte ändras även efter en omstart.
+
+- **Snabbare distributions och uppdateringstid** jämfört med den allmänt tillgängliga SKU:n. 
+
+- **5x bättre prestanda för SSL-avlastning** jämfört med den allmänt tillgängliga SKU:n.
+
+Mer information om funktionerna i den offentliga förhandsversionen av Application Gateway finns i avsnittet om [autoskalning och zonredundant Application Gateway (offentlig förhandsversion)](application-gateway-autoscaling-zone-redundant.md).
+
+## <a name="azure-kubernetes-service-aks-ingress-controller-preview"></a>Förhandsversion av Azure Kubernetes Service (AKS) Ingress-kontrollant 
+
+Application Gateway Ingress-kontrollanten körs som en pod i AKS-klustret och gör så att Application Gateway kan fungera som ingress för ett AKS-kluster. 
+
+Mer information finns i avsnittet om [Azure Application Gateway Ingress-kontrollant](https://azure.github.io/application-gateway-kubernetes-ingress/).
+
+## <a name="connection-draining"></a>Anslutningstömning
+
+Anslutningstömning hjälper dig att få korrekt borttagning av medlemmar i serverdelspoolen under planerade serviceuppdateringar. Den här inställningen aktiveras via serverdelens http-inställning och kan tillämpas på alla medlemmar i en serverdelspool i samband med regelskapandet. När den har aktiverats ser Application Gateway till att alla avregistreringsinstanser av en serverdelspool inte får någon ny begäran samtidigt som befintliga begäranden tillåts slutföras inom en konfigurerad tid. Detta gäller såväl serverdelsinstanser som uttryckligen tas bort från serverdelspoolen med hjälp av ett API-anrop som serverdelsinstanser som rapporteras som skadade enligt hälsoavsökningarna.
+
+## <a name="custom-error-pages"></a>Anpassade felsidor
+Med Application Gateway kan du skapa anpassade felsidor i stället för att visa standardmässiga felsidor. Du kan använda din egen varumärkesanpassning och layout med hjälp av en anpassad felsida.
+
+Mer information finns i [Skapa anpassade felsidor i Application Gateway](custom-error.md).
 
 ## <a name="secure-sockets-layer-ssl-termination"></a>Secure Sockets Layer-avslutning (SSL)
 

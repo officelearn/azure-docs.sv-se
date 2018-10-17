@@ -1,35 +1,36 @@
 ---
-title: Kör TensorFlow modellen i Python - anpassad Vision Service - Azure kognitiva Services | Microsoft Docs
-description: Kör TensorFlow modellen i Python
+title: 'Självstudie: Köra en TensorFlow-modell i Python – Custom Vision Service'
+titlesuffix: Azure Cognitive Services
+description: Kör en TensorFlow-modell i Python.
 services: cognitive-services
 author: areddish
-manager: chbuehle
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: custom-vision
-ms.topic: article
+ms.topic: tutorial
 ms.date: 05/17/2018
 ms.author: areddish
-ms.openlocfilehash: d31036404604104ca28328b6c8bc5d3ca74d83ea
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
-ms.translationtype: MT
+ms.openlocfilehash: 26427406b045b96f2f3f612e4444b7dc2afcefc6
+ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35355437"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48247320"
 ---
-# <a name="run-tensorflow-model-in-python"></a>Kör TensorFlow modellen i Python
+# <a name="tutorial-run-tensorflow-model-in-python"></a>Självstudie: Köra en TensorFlow-modell i Python
 
-När du har [exporteras TensorFlow modellen](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/export-your-model) från tjänsten anpassad Vision denna Snabbstart visas hur du använder den här modellen lokalt för att klassificera bilder.
+När du har [exporterat din TensorFlow-modell](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/export-your-model) från Custom Vision Service visar den här snabbstarten hur du använder den här modellen lokalt för att klassificera bilder.
 
 ## <a name="install-required-components"></a>Installera nödvändiga komponenter
 
-### <a name="prerequisites"></a>Förutsättningar
+### <a name="prerequisites"></a>Nödvändiga komponenter
 
-Den här självstudiekursen måste du göra följande:
+För att kunna använda självstudiekursen behöver du göra följande:
 
-- Installera Python 2.7 + eller Python 3.5 +.
+- Installera Python 2.7+ eller Python 3.5+.
 - Installera pip.
 
-Du måste också installera följande paket:
+Du kommer även att behöva installera följande paket:
 
 ```
 pip install tensorflow
@@ -38,9 +39,9 @@ pip install numpy
 pip install opencv-python
 ```
 
-## <a name="load-your-model-and-tags"></a>Läsa in din modell och taggar
+## <a name="load-your-model-and-tags"></a>Läsa in din modell och dina taggar
 
-Hämtade zip-filen innehåller en model.pb och en labels.txt. De här filerna motsvarar den tränade modellen och klassificeringsetiketter. Det första steget är att läsa in modellen i projektet.
+Den nedladdade zip-filen innehåller en model.pb och en labels.txt. De här filerna representerar den tränade modellen och klassificeringsetiketterna. Det första steget är att läsa in modellen i projektet.
 
 ```Python
 import tensorflow as tf
@@ -60,11 +61,11 @@ with open(labels_filename, 'rt') as lf:
         labels.append(l.strip())
 ```
 
-## <a name="prepare-an-image-for-prediction"></a>Förbereda en avbildning för en prognos
+## <a name="prepare-an-image-for-prediction"></a>Förbereda en bild för förutsägelse
 
-Det finns några steg för att förbereda avbildningen så att det är rätt form för förutsägelse. De här stegen efterlikna bildmanipulering som utförs under utbildning:
+Det finns några steg för att förbereda bilden så att den har rätt form för förutsägelse. De här stegen motsvarar den bildmanipulering som utförs under träning:
 
-### <a name="open-the-file-and-create-an-image-in-the-bgr-color-space"></a>Öppna filen och skapa en bild i området BGR färg
+### <a name="open-the-file-and-create-an-image-in-the-bgr-color-space"></a>Öppna filen och skapa en bild i BGR-färgområdet
 
 ```Python
 from PIL import Image
@@ -82,7 +83,7 @@ image = update_orientation(image)
 image = convert_to_opencv(image)
 ```
 
-### <a name="deal-with-images-with-a-dimension-1600"></a>Hantera avbildningar med en dimension > 1600
+### <a name="deal-with-images-with-a-dimension-1600"></a>Hantera bilder med en dimension över 1 600
 
 ```Python
 # If the image has either w or h greater than 1600 we resize it down respecting
@@ -90,7 +91,7 @@ image = convert_to_opencv(image)
 image = resize_down_to_1600_max_dim(image)
 ```
 
-### <a name="crop-the-largest-center-square"></a>Beskär största center kvadraten
+### <a name="crop-the-largest-center-square"></a>Beskär den största centrala fyrkanten
 
 ```Python
 # We next get the largest center square
@@ -99,7 +100,7 @@ min_dim = min(w,h)
 max_square_image = crop_center(image, min_dim, min_dim)
 ```
 
-### <a name="resize-down-to-256x256"></a>Ändra storlek till 256 x 256
+### <a name="resize-down-to-256x256"></a>Minska storleken till 256 x 256
 
 ```Python
 # Resize that square down to 256x256
@@ -107,7 +108,7 @@ augmented_image = resize_to_256_square(max_square_image)
 ```
 
 
-### <a name="crop-the-center-for-the-specific-input-size-for-the-model"></a>Beskär center för den specifika indata storleken för modellen
+### <a name="crop-the-center-for-the-specific-input-size-for-the-model"></a>Beskär mitten för den specifika indatastorleken för modellen
 
 ```Python
 # The compact models have a network size of 227x227, the model requires this size.
@@ -162,9 +163,9 @@ def update_orientation(image):
     return image
 ```
 
-## <a name="predict-an-image"></a>Förutsäga en avbildning
+## <a name="predict-an-image"></a>Förutsäga en bild
 
-När du har förberett som en tensor skicka vi den via modellen för en förutsägelse:
+När bilden har förberetts som en tensor kan vi skicka den via modellen för en förutsägelse:
 
 ```Python
 
@@ -177,9 +178,9 @@ with tf.Session() as sess:
     predictions, = sess.run(prob_tensor, {input_node: [augmented_image] })
 ```
 
-## <a name="view-the-results"></a>Visa resultaten
+## <a name="view-the-results"></a>Visa resultatet
 
-Resultaten av med bild tensor via modellen måste sedan mappas till etiketter.
+Resultatet av körningen av bildtensorn genom modellen behöver sedan mappas tillbaka till etiketterna.
 
 ```Python
     # Print the highest probability label
@@ -189,15 +190,15 @@ Resultaten av med bild tensor via modellen måste sedan mappas till etiketter.
 
     # Or you can print out all of the results mapping labels to probabilities.
     label_index = 0
-    for p in predictions:
-        truncated_probablity = np.float64(round(p,8))
+    for p in predictions[0]:
+        truncated_probablity = np.float64(np.round(p,8))
         print (labels[label_index], truncated_probablity)
         label_index += 1
 ```
 ## <a name="next-steps"></a>Nästa steg
 
-Du kan också omsluter modellen i ett mobilt program:
-* [Använd din exporterade Tensorflow modell i en Android-App](https://github.com/Azure-Samples/cognitive-services-android-customvision-sample)
-* [Använd din exporterade CoreML modell i ett Swift iOS-program](https://go.microsoft.com/fwlink/?linkid=857726)
-* [Använd din exporterade CoreML modell i ett iOS-program med Xamarin](https://github.com/xamarin/ios-samples/tree/master/ios11/CoreMLAzureModel)
+Du kan även omsluta modellen i ett mobilt program:
+* [Använda din exporterade Tensorflow-modell i ett Android-program](https://github.com/Azure-Samples/cognitive-services-android-customvision-sample)
+* [Använda din exporterade CoreML-modell i ett Swift iOS-program](https://go.microsoft.com/fwlink/?linkid=857726)
+* [Använda din exporterade CoreML-modell i ett iOS-program med Xamarin](https://github.com/xamarin/ios-samples/tree/master/ios11/CoreMLAzureModel)
 

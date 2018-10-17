@@ -2,19 +2,18 @@
 title: Snabbstart – skapa ett privat Docker-register i Azure med Azure CLI
 description: Lär dig snabbt att skapa ett privat Docker-containerregister med Azure CLI.
 services: container-registry
-author: mmacy
-manager: jeconnoc
+author: dlepow
 ms.service: container-registry
 ms.topic: quickstart
 ms.date: 03/03/2018
-ms.author: marsma
+ms.author: danlep
 ms.custom: H1Hack27Feb2017, mvc
-ms.openlocfilehash: b17df81dd1d972f3e559140e9f43963e9c8cab2a
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: 57c72056b669865278fa8109cd7f4963a1f0887a
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "42023989"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48855246"
 ---
 # <a name="quickstart-create-a-container-registry-using-the-azure-cli"></a>Snabbstart: Skapa ett containerregister med hjälp av Azure CLI
 
@@ -22,7 +21,7 @@ Azure Container Registry är en hanterad Docker-behållarregistertjänst som anv
 
 För den här snabbstarten krävs att du kör Azure CLI version 2.0.27 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI][azure-cli].
 
-Du måste också ha Docker installerat lokalt. Docker innehåller paket som enkelt kan konfigurera Docker på en [Mac][docker-mac]-, [Windows][docker-windows]- eller [Linux][docker-linux]-dator.
+Du måste också ha Docker installerat lokalt. Docker innehåller paket som enkelt kan konfigurera Docker på ett [macOS][docker-mac]-, [Windows][docker-windows]- eller [Linux][docker-linux]-system.
 
 ## <a name="create-a-resource-group"></a>Skapa en resursgrupp
 

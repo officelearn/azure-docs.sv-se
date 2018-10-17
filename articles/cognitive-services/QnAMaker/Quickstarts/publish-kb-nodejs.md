@@ -1,135 +1,97 @@
 ---
-title: 'Snabbstart: Publicera KnowledgeBase i Node.js – QnA Maker'
+title: 'Snabbstart: Publicera kunskapsbas – REST, Node.js – QnA Maker'
 titleSuffix: Azure Cognitive Services
-description: Publicera en kunskapsbas i Node.js för QnA Maker.
+description: Den här snabbstarten går igenom hur du programmatiskt publicerar din kunskapsbas (KB). Publicering skickar den senaste versionen av kunskapsbasen till ett dedikerat Azure Search-index och skapar en slutpunkt som kan anropas i ditt program eller en chattrobot.
 services: cognitive-services
 author: diberry
 manager: cgronlun
 ms.service: cognitive-services
-ms.technology: qna-maker
+ms.component: qna-maker
 ms.topic: quickstart
-ms.date: 09/12/2018
+ms.date: 10/02/2018
 ms.author: diberry
-ms.openlocfilehash: 00642661995e16bda9ad995e69545b28468779c5
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: c70b90a6e465c72193f63afd7ab9106579e2c634
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47040946"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48886618"
 ---
-# <a name="publish-a-knowledge-base-in-nodejs"></a>Publicera en kunskapsbas i Node.js
+# <a name="quickstart-publish-a-qna-maker-knowledge-base-in-nodejs"></a>Snabbstart: Publicera en QnA Maker-kunskapsbas i Node.js
 
-Följande kod publicerar en befintlig kunskapsbas med hjälp av metoden [Publish](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75fe) (Publicera).
+Den här snabbstarten går igenom hur du programmatiskt publicerar din kunskapsbas (KB). Publicering skickar den senaste versionen av kunskapsbasen till ett dedikerat Azure Search-index och skapar en slutpunkt som kan anropas i ditt program eller en chattrobot.
 
-[!INCLUDE [Code is available in Azure-Samples Github repo](../../../../includes/cognitive-services-qnamaker-nodejs-repo-note.md)]
+Den här snabbstarten anropar API:er för QnA Maker:
+* [Publish](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75fe) (Publicera) – detta API kräver inte någon information i brödtexten för begäran.
+
+## <a name="prerequisites"></a>Nödvändiga komponenter
+
+* [Node.js 6+](https://nodejs.org/en/download/)
+* Du måste ha en [QnA Maker-tjänst](../How-To/set-up-qnamaker-service-azure.md). Hämta nyckeln genom att välja **Nycklar** under **Resurshantering** på instrumentpanelen. 
+* ID för QnA Maker-kunskapsbas (KB) som finns i URL:en i kbid-frågesträngsparametern enligt nedan.
+
+    ![QnA Maker-kunskapsbas-ID](../media/qnamaker-quickstart-kb/qna-maker-id.png)
 
 Om du inte har en kunskapsbas ännu kan du kan skapa en exempelkunskapsbas för den här snabbstarten: [Skapa en ny kunskapsbas](create-new-kb-nodejs.md).
 
-1. Skapa ett nytt nodprojekt i ditt favoritutvecklingsverktyg.
-1. Lägg till koden nedan.
-1. Ersätt värdet `subscriptionKey` med en giltig prenumerationsnyckel.
-1. Ersätt värdet `kb` med ett giltigt kunskapsbas-ID. Du hittar värdet i någon av dina [QnA Maker-kunskapsbaser](https://www.qnamaker.ai/Home/MyServices). Välj den kunskapsbas som du vill publicera. När du är på sidan letar du reda på ”kdid=” i URL:en som visas nedan. Använd värdet för kodexemplet.
+[!INCLUDE [Code is available in Azure-Samples Github repo](../../../../includes/cognitive-services-qnamaker-nodejs-repo-note.md)]
 
-    ![QnA Maker-kunskapsbas-ID](../media/qnamaker-quickstart-kb/qna-maker-id.png)
-1. Kör programmet.
+## <a name="create-a-knowledge-base-nodejs-file"></a>Skapa en Node.js-fil för kunskapsbas
 
-``` Node.js
-'use strict';
+Skapa en fil som heter `publish-knowledge-base.js`.
 
-let fs = require ('fs');
-let https = require ('https');
+## <a name="add-required-dependencies"></a>Lägga till nödvändiga beroenden
 
-// **********************************************
-// *** Update or verify the following values. ***
-// **********************************************
+Längst upp i `publish-knowledge-base.js` lägger du till följande rader för att lägga till nödvändiga beroenden i projektet:
 
-// Replace this with a valid subscription key.
-let subscriptionKey = 'ENTER KEY HERE';
+[!code-nodejs[Add the dependencies](~/samples-qnamaker-nodejs/documentation-samples/quickstarts/publish-knowledge-base/publish-knowledge-base.js?range=1-4 "Add the dependencies")]
 
-// NOTE: Replace this with a valid knowledge base ID.
-let kb = 'ENTER ID HERE';
+## <a name="add-required-constants"></a>Lägg till nödvändiga konstanter
 
-let host = 'westus.api.cognitive.microsoft.com';
-let service = '/qnamaker/v4.0';
-let method = '/knowledgebases/';
+När du har lagt till nödvändiga beroenden lägger du till de konstanter som krävs för åtkomst till QnA Maker. Ersätt värdet för variabeln `subscriptionKey` med din egen QnA Maker-nyckel. 
 
-let pretty_print = function (s) {
-    return JSON.stringify(JSON.parse(s), null, 4);
-}
+[!code-nodejs[Add required constants](~/samples-qnamaker-nodejs/documentation-samples/quickstarts/publish-knowledge-base/publish-knowledge-base.js?range=10-17 "Add required constants")]
 
-// callback is the function to call when we have the entire response.
-let response_handler = function (callback, response) {
-    let body = '';
-    response.on ('data', function (d) {
-        body += d;
-    });
-    response.on ('end', function () {
-// Call the callback function with the status code, headers, and body of the response.
-        callback ({ status : response.statusCode, headers : response.headers, body : body });
-    });
-    response.on ('error', function (e) {
-        console.log ('Error: ' + e.message);
-    });
-};
+## <a name="add-knowledge-base-id"></a>Lägga till kunskapsbas-ID
 
-// Get an HTTP response handler that calls the specified callback function when we have the entire response.
-let get_response_handler = function (callback) {
-// Return a function that takes an HTTP response, and is closed over the specified callback.
-// This function signature is required by https.request, hence the need for the closure.
-    return function (response) {
-        response_handler (callback, response);
-    }
-}
+Efter de föregående konstanterna lägger du till kunskapsbas-ID:t och lägger till den i sökvägen:
 
-// callback is the function to call when we have the entire response from the POST request.
-let post = function (path, content, callback) {
-    let request_params = {
-        method : 'POST',
-        hostname : host,
-        path : path,
-        headers : {
-            'Content-Type' : 'application/json',
-            'Content-Length' : content.length,
-            'Ocp-Apim-Subscription-Key' : subscriptionKey,
-        }
-    };
+[!code-nodejs[Add knowledge base ID](~/samples-qnamaker-nodejs/documentation-samples/quickstarts/publish-knowledge-base/publish-knowledge-base.js?range=19-23 "Add knowledge base ID")]
 
-// Pass the callback function to the response handler.
-    let req = https.request (request_params, get_response_handler (callback));
-    req.write (content);
-    req.end ();
-}
+## <a name="add-supporting-functions"></a>Lägga till stödfunktioner
 
-// callback is the function to call when we have the response from the /knowledgebases POST method.
-let publish_kb = function (path, req, callback) {
-    console.log ('Calling ' + host + path + '.');
-// Send the POST request.
-    post (path, req, function (response) {
-// Extract the data we want from the POST response and pass it to the callback function.
-        if (response.status == '204') {
-            let result = {'result':'Success'};
-            callback (JSON.stringify(result));
-        }
-        else {
-            callback (response.body);
-        }
-    });
-}
+Sedan lägger du till följande stödfunktioner.
 
-var path = service + method + kb;
-publish_kb (path, '', function (result) {
-    console.log (pretty_print(result));
-});
-```
+1. Lägg till följande funktioner för att skriva ut JSON i ett lättläst format:
 
-## <a name="understand-what-qna-maker-returns"></a>Förstå vad QnA Maker returnerar
+   [!code-nodejs[Add supporting functions, step 1](~/samples-qnamaker-nodejs/documentation-samples/quickstarts/publish-knowledge-base/publish-knowledge-base.js?range=25-28 "Add supporting functions, step 1")]
 
-Ett svar som anger att åtgärden lyckades returneras i JSON, som du ser i följande exempel:
+2. Lägg till följande funktioner för att hantera HTTP-svaret för att få statusen för skapandeåtgärden:
 
-```json
-{
-  "result": "Success."
-}
+   [!code-nodejs[Add supporting functions, step 2](~/samples-qnamaker-nodejs/documentation-samples/quickstarts/publish-knowledge-base/publish-knowledge-base.js?range=30-52 "Add supporting functions, step 2")]
+
+## <a name="add-the-publishkb-function-and-main-function"></a>Lägga till funktionen publish_kb och Main-funktionen
+
+Följande kod gör en HTTPS-begäran för API för QnA Maker för att publicera en kunskapsbas och tar emot svaret:
+
+[!code-nodejs[Add POST request to publish KB](~/samples-qnamaker-nodejs/documentation-samples/quickstarts/publish-knowledge-base/publish-knowledge-base.js?range=54-71 "Add POST request to publish KB")]
+
+[!code-nodejs[Add the publish_kb function](~/samples-qnamaker-nodejs/documentation-samples/quickstarts/publish-knowledge-base/publish-knowledge-base.js?range=73-91 "Add the publish_kb function and main function")]
+
+## <a name="add-the-main-function"></a>Lägga till Main-funktionen
+
+Lägg till följande funktioner för att hantera begäran och svaret:
+
+[!code-nodejs[Add the main function](~/samples-qnamaker-nodejs/documentation-samples/quickstarts/publish-knowledge-base/publish-knowledge-base.js?range=94-97 "Add the main function")]
+
+## <a name="run-the-program"></a>Köra programmet
+
+Skapa och kör programmet. Det skickar automatiskt begäran till API för QnA Maker för att publicera kunskapsbasen, och sedan skrivs svaret ut till konsolfönstret.
+
+När din kunskapsbas har publicerats kan köra frågor mot den från slutpunkten med ett klientprogram eller en chattrobot. 
+
+```bash
+node publish-knowledge-base.js
 ```
 
 ## <a name="next-steps"></a>Nästa steg

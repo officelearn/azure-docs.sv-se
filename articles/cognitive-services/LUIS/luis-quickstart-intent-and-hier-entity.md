@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: tutorial
 ms.date: 09/09/2018
 ms.author: diberry
-ms.openlocfilehash: 92b6327cbb97ed871cd4b10977bcd73a81494e20
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: a469bc600715b2e276d6654596da50d75659aadb
+ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47042133"
+ms.lasthandoff: 10/06/2018
+ms.locfileid: "48831032"
 ---
 # <a name="tutorial-5-extract-contextually-related-data"></a>Självstudiekurs 5: Extrahera sammanhangsbaserade data
 I den här självstudien hittar du relaterade datadelar baserat på kontext. Till exempel är ett ursprung och målplatser för en fysisk flytt från en byggnad och ett kontor till en annan byggnad och ett annat kontor relaterade. För att generera en arbetsorder kan båda datadelarna krävas, och de är relaterade till varandra.  
@@ -39,20 +39,20 @@ Den hierarkiska entiteten passar bra för den här typen av data eftersom följa
 > * Lägg till platshierarkisk entitet med ursprung och underordnade destinationselement
 > * Träna
 > * Publicera
-> * Hämta avsikter och entiteter från slutpunkt
+> * Hämta avsikter och entiteter från en slutpunkt
 
 [!INCLUDE [LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
 
-## <a name="use-existing-app"></a>Använda befintlig app
-Fortsätta med den app som skapades i den senaste självstudien med namnet **HumanResources**. 
+## <a name="use-existing-app"></a>Använda en befintlig app
+Fortsätt med appen du skapade i föregående självstudie med namnet **HumanResources**. 
 
-Om du inte har HumanResources-appen från den tidigare självstudiekursen använder du följande steg:
+Om du inte har appen HumanResources från föregående självstudie gör du så här:
 
-1.  Ladda ned och spara [app JSON-filen](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/tutorials/custom-domain-list-HumanResources.json).
+1.  Ladda ned och spara [JSON-filen för appen](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/tutorials/custom-domain-list-HumanResources.json).
 
-2. Importera JSON till en ny app.
+2. Importera JSON-koden till en ny app.
 
-3. Från avsnittet **Hantera** går du till fliken **Versioner**, klonar versionen och ger den namnet `hier`. Kloning är ett bra sätt att prova på olika LUIS-funktioner utan att påverka originalversionen. Eftersom versionsnamnet används som en del av URL-vägen får namnet inte innehålla några tecken som inte är giltiga i en URL. 
+3. I avsnittet **Hantera** går du till fliken **Versioner**, klonar versionen och ger den namnet `hier`. Kloning är ett bra sätt att prova på olika LUIS-funktioner utan att påverka originalversionen. Eftersom versionsnamnet används i webbadressen får namnet inte innehålla några tecken som är ogiltiga i webbadresser. 
 
 ## <a name="remove-prebuilt-number-entity-from-app"></a>Ta bort fördefinierad nummerentitet från appen
 Om du vill se hela yttrandet och märka de underordnade delarna i hierarkin kan du ta bort den fördefinierade nummerentiteten tillfälligt.
@@ -61,7 +61,7 @@ Om du vill se hela yttrandet och märka de underordnade delarna i hierarkin kan 
 
 2. Välj **Entities** (Entiteter) på den vänstra menyn.
 
-3. Välj ellipsknappen (***...***) till höger om nummerentiteten i listan. Välj **Ta bort**. 
+3. Markera kryssrutan till vänster om nummerentiteten i listan. Välj **Ta bort**. 
 
 ## <a name="add-utterances-to-moveemployee-intent"></a>Lägga till yttranden till avsikten MoveEmployee
 

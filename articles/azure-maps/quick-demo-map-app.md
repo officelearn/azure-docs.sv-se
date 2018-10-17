@@ -3,25 +3,24 @@ title: Interaktiv kartsökning med Azure Maps | Microsoft Docs
 description: Snabbstart för Azure – Starta en interaktiv demokartsökning med hjälp av Azure Maps
 author: dsk-2015
 ms.author: dkshir
-ms.date: 05/07/2018
+ms.date: 09/10/2018
 ms.topic: quickstart
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 002d9820cb4414d8f33cdd362e28f31e7e8b6273
-ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
+ms.openlocfilehash: cf39ad460d163a996bd2e0aa522d634cf485d83a
+ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38989562"
+ms.lasthandoff: 09/13/2018
+ms.locfileid: "45541559"
 ---
 # <a name="launch-an-interactive-search-map-using-azure-maps"></a>Starta en interaktiv kartsökning med hjälp av Azure Maps
 
-Den här artikeln visar funktionerna i Azure Maps för att skapa en karta som ger användarna en interaktiv sökupplevelse. I artikeln beskrivs också de grundläggande stegen för att skapa ditt eget Maps-konto och hur du får kontonyckeln för att använda demowebbappen. 
+Den här artikeln visar funktionerna i Azure Maps för att skapa en karta som ger användarna en interaktiv sökupplevelse. I artikeln beskrivs också de grundläggande stegen för att skapa ditt eget Maps-konto och hur du får kontonyckeln för att använda demowebbappen.
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
-
 
 ## <a name="log-in-to-the-azure-portal"></a>Logga in på Azure-portalen
 
@@ -31,36 +30,34 @@ Logga in på [Azure-portalen](https://portal.azure.com/).
 
 1. Klicka på **Skapa en resurs** längst upp till vänster i [Azure Portal](https://portal.azure.com).
 2. Skriv **Maps** i rutan *Sök på Marketplace*.
-3. Bland *resultaten* väljer du **Maps**. Klicka på knappen **Skapa** som visas nedanför kartan. 
+3. Bland *resultaten* väljer du **Maps**. Klicka på knappen **Skapa** som visas nedanför kartan.
 4. Ange följande värden på sidan **Skapa Maps-konto**:
-    - *Namn* för ditt nya konto. 
+    - *Namn* för ditt nya konto.
     - Den *Prenumeration* som ska användas för det här kontot.
     - *Resursgrupp* för kontot. Du kan välja att *skapa ny* eller *använda befintlig* resursgrupp.
     - Välj en *Resursgruppsplats*.
-    - Läs *licensen* och *sekretesspolicyn* och markera kryssrutan för att godkänna villkoren. 
+    - Läs *licensen* och *sekretesspolicyn* och markera kryssrutan för att godkänna villkoren.
     - Klicka slutligen på knappen **Skapa**.
 
     ![Skapa Maps-konto i portalen](./media/quick-demo-map-app/create-account.png)
 
-5. Efter att kontot har skapats öppnar du det och går till inställningarna i kontomenyn. Klicka på **Nycklar** för att granska de primära och sekundära prenumerationsnycklarna för ditt Azure Maps-konto. Kopiera värdet för **Primär nyckel** till din lokala Urklipp för användning i följande avsnitt. 
+5. Efter att kontot har skapats öppnar du det och går till inställningarna i kontomenyn. Klicka på **Nycklar** för att granska de primära och sekundära prenumerationsnycklarna för ditt Azure Maps-konto. Kopiera värdet för **Primär nyckel** till din lokala Urklipp för användning i följande avsnitt.
 
 ## <a name="download-the-application"></a>Hämta programmet
 
 1. Ladda ned eller kopiera innehållet i filen [interactiveSearch.html](https://github.com/Azure-Samples/azure-maps-samples/blob/master/src/interactiveSearch.html).
 2. Spara innehållet i filen lokalt som **AzureMapDemo.html** och öppna den i ett textredigeringsprogram.
-3. Sök efter strängen `<insert-key>` och ersätt den med värdet för **Primärnyckel** som hämtades i föregående avsnitt. 
-
+3. Sök efter strängen `<insert-key>` och ersätt den med värdet för **Primärnyckel** som hämtades i föregående avsnitt.
 
 ## <a name="launch-the-application"></a>Starta programmet
 
 1. Öppna filen **AzureMapDemo.html** i en webbläsare.
 2. Observera att kartan visar staden Los Angeles. Zooma in och ut om du vill se hur kartan automatiskt återges med mer eller mindre information beroende på zoomnivån. 
-3. Ändra kartans standardmittpunkt. I filen **AzureMapDemo.html** söker du efter variabeln med namnet **center**. Ersätt variabelns parvärde för longitud, latitud med de nya värdena **[-74.0060, 40.7128]**. Spara filen och uppdatera webbläsaren. 
-3. Prova den interaktiva sökupplevelsen. I sökrutan i det övre vänstra hörnet i demowebbappen söker du efter **restauranger**. 
-4. Flytta musen över listan med adresser/platser som visas under sökrutan och observera hur motsvarande nål på kartan visar information om den platsen. Observera att namnen och adresserna som visas är fiktiva för att skydda privata företag. 
+3. Ändra kartans standardmittpunkt. I filen **AzureMapDemo.html** söker du efter variabeln med namnet **center**. Ersätt variabelns parvärde för longitud, latitud med de nya värdena **[-74.0060, 40.7128]**. Spara filen och uppdatera webbläsaren.
+4. Prova den interaktiva sökupplevelsen. I sökrutan i det övre vänstra hörnet i demowebbappen söker du efter **restauranger**.
+5. Flytta musen över listan med adresser/platser som visas under sökrutan och observera hur motsvarande nål på kartan visar information om den platsen. Observera att namnen och adresserna som visas är fiktiva för att skydda privata företag.
 
     ![Interaktiv sökning i webbapp](./media/quick-demo-map-app/interactive-search.png)
-
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 

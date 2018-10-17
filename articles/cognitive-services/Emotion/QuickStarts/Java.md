@@ -1,33 +1,34 @@
 ---
-title: Känslo-API Java för Snabbstart för Android | Microsoft Docs
-description: Hämta information och en kodexempel för att hjälpa dig att snabbt komma igång med Java Känslo-API för Android i kognitiva Services.
+title: 'Snabbstart: Känsloigenkänning i ansikten i en bild – Känslo-API, Java'
+description: Hämta information och kodexempel som hjälper dig att snabbt komma igång med Känslo-API med Java för Android.
 services: cognitive-services
 author: anrothMSFT
-manager: corncar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: emotion-api
-ms.topic: article
+ms.topic: quickstart
 ms.date: 05/23/2017
 ms.author: anroth
-ms.openlocfilehash: 0e7d3991b195a83a8b87e306b3b34fbed2098581
-ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
-ms.translationtype: MT
+ROBOTS: NOINDEX
+ms.openlocfilehash: 5c845c07eff2d4627dd756a49f4b3fee2fca6a7a
+ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37018034"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48237628"
 ---
-# <a name="emotion-api-java-for-android-quick-start"></a>Känslo-API Java för Snabbstart för Android
+# <a name="quickstart-build-an-app-to-recognize-emotions-on-faces-in-an-image"></a>Snabbstart: Bygg en app för känsloigenkänning i ansikten i en bild.
 
 > [!IMPORTANT]
-> Förhandsgranskning av video API avslutas på 30 oktober 2017. Prova den nya [Video indexeraren API Preview](https://azure.microsoft.com/services/cognitive-services/video-indexer/) enkelt extrahera insikter från videor och förbättra innehållsidentifiering upplevelser, till exempel sökresultat med hjälp av tal, ytor, tecken och känslor. [Läs mer](https://docs.microsoft.com/azure/cognitive-services/video-indexer/video-indexer-overview).
+> Känslo-API:et kommer att bli inaktuellt den 15 februari 2019. Funktionen för känsloigenkänning är nu allmänt tillgänglig som en del av [Ansikts-API:et](https://docs.microsoft.com/azure/cognitive-services/face/). 
 
-Den här artikeln innehåller information och en kodexempel för att hjälpa dig att snabbt komma igång med den [Känslo känner igen metoden](https://westus.dev.cognitive.microsoft.com/docs/services/5639d931ca73072154c1ce89/operations/563b31ea778daf121cc3a5fa) i Känslo-API Android klientbiblioteket. Exemplet visar hur du kan använda Java för att identifiera emotikoner uttryckt av personer. 
+Den här artikeln innehåller information och ett kodexempel som hjälper dig att snabbt komma igång med [metoden Recognize för känsloigenkänning](https://westus.dev.cognitive.microsoft.com/docs/services/5639d931ca73072154c1ce89/operations/563b31ea778daf121cc3a5fa) i Känslo-API:et i Android-klientbiblioteket. I exemplet kan du se hur du kan använda Java för att identifiera känslor som uttrycks av personer.
 
-## <a name="prerequisites"></a>Förutsättningar
-* Hämta Java Känslo-API för Android SDK [här](https://github.com/Microsoft/Cognitive-emotion-android)
-* Hämta din kostnadsfria prenumerationen nyckel [här](https://azure.microsoft.com/try/cognitive-services/)
+## <a name="prerequisites"></a>Nödvändiga komponenter
+* Hämta Känslo-API:et för Java för Android-SDK:t [här](https://github.com/Microsoft/Cognitive-emotion-android)
+* Hämta din kostnadsfria prenumerationsnyckel [här](https://azure.microsoft.com/try/cognitive-services/)
 
-## <a name="recognize-emotions-java-for-android-example-request"></a>Identifiera emotikoner Java för Android Exempelbegäran
+## <a name="recognize-emotions-java-for-android-example-request"></a>Exempelbegäran för känsloigenkänning med Java för Android
 
 ```java
 // // This sample uses the Apache HTTP client from HTTP Components (http://hc.apache.org/httpcomponents-client-ga/)
@@ -50,7 +51,7 @@ public class Main
         try
         {
             // NOTE: You must use the same region in your REST call as you used to obtain your subscription keys.
-            //   For example, if you obtained your subscription keys from westcentralus, replace "westus" in the 
+            //   For example, if you obtained your subscription keys from westcentralus, replace "westus" in the
             //   URL below with "westcentralus".
             URIBuilder uriBuilder = new URIBuilder("https://westus.api.cognitive.microsoft.com/emotion/v1.0/recognize");
 
@@ -81,13 +82,13 @@ public class Main
 }
 ```
 
-## <a name="recognize-emotions-sample-response"></a>Identifiera emotikoner Exempelsvar
-Lyckade anrop returnerar en matris av framsidan poster och deras associerade känslo poäng rangordnas efter ansikte rektangel storlek i fallande ordning. Ett tomt svar anger att ingen ytor upptäcktes. Känslo-posten innehåller följande fält:
-* faceRectangle - placering av ansikte i avbildningen.
-* resultat - Place poängen för varje yta i bilden. 
+## <a name="recognize-emotions-sample-response"></a>Exempelsvar för känsloigenkänning
+Ett genomfört anrop returnerar en matris med ansiktsposter och deras associerade känsloresultat, rankade efter ansiktsrektangelns storlek i fallande ordning. Ett tomt svar indikerar att inga ansikten kändes igen. En känslopost innehåller följande fält:
+* faceRectangle – ansiktsrektangelns placering i bilden.
+* scores – känsloresultat för varje ansikte i bilden.
 
 ```json
-application/json 
+application/json
 [
   {
     "faceRectangle": {

@@ -1,6 +1,6 @@
 ---
-title: Säkra Azure SQL Database-anslutningar från App Service med hanterade tjänstidentiteter | Microsoft Docs
-description: Lär dig hur du gör dina databasanslutningar säkrare med hjälp av hanterade tjänstidentiteter, och hur du använder detta även i andra Azure-tjänster.
+title: Säkra Azure SQL Database-anslutningar från App Service med en hanterad identitet | Microsoft Docs
+description: Lär dig hur du gör dina databasanslutningar säkrare med hjälp av en hanterad identitet, och hur du använder den i andra Azure-tjänster.
 services: app-service\web
 documentationcenter: dotnet
 author: cephalin
@@ -14,24 +14,24 @@ ms.topic: tutorial
 ms.date: 04/17/2018
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: 173588c0200666c52f3ac0a5d2e70d667cfe3294
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 3125db03dc13f70524fd094736f50b563ef712a4
+ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39445569"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44379935"
 ---
-# <a name="tutorial-secure-sql-database-connection-with-managed-service-identity"></a>Självstudie: Säkra SQL Database-anslutningar med hanterade tjänstidentiteter
+# <a name="tutorial-secure-azure-sql-database-connection-from-app-service-using-a-managed-identity"></a>Självstudie: Säkra Azure SQL Database-anslutningar från App Service med en hanterad identitet
 
-Med [App Service ](app-service-web-overview.md) får du en automatiskt uppdaterad webbvärdtjänst i Azure med hög skalbarhet. Dessutom får du en [hanterad tjänstidentitet](app-service-managed-service-identity.md) för din app. Det här är en användningsklar lösning som skyddar åtkomsten till [Azure SQL Database](/azure/sql-database/) och andra Azure-tjänster. Med hanterade tjänstidentiteter i App Service blir dina appar säkrare eftersom du inte har några hemligheter i dina appar. Du har till exempel inga inloggningsuppgifter i anslutningssträngarna. I den här självstudien kommer du att lägga till en hanterad tjänstidentitet i den ASP.NET-exempelapp du skapade i [Självstudie: Skapa en ASP.NET-app i Azure med SQL Database](app-service-web-tutorial-dotnet-sqldatabase.md). När du är färdig ansluter exempelappen säkert till SQL Database utan att du behöver använda användarnamn och lösenord.
+Med [App Service ](app-service-web-overview.md) får du en automatiskt uppdaterad webbvärdtjänst i Azure med hög skalbarhet. Dessutom får du en [hanterad identitet](app-service-managed-service-identity.md) för din app. Det här är en användningsklar lösning som skyddar åtkomsten till [Azure SQL Database](/azure/sql-database/) och andra Azure-tjänster. Med hanterade identiteter i App Service blir dina appar säkrare eftersom du inte har några hemligheter i dina appar. Du har till exempel inga inloggningsuppgifter i anslutningssträngarna. I den här självstudien kommer du att lägga till en hanterad identitet i den ASP.NET-exempelapp du skapade i [Självstudie: Skapa en ASP.NET-app i Azure med SQL Database](app-service-web-tutorial-dotnet-sqldatabase.md). När du är färdig ansluter exempelappen säkert till SQL Database utan att du behöver använda användarnamn och lösenord.
 
 Du lär dig att:
 
 > [!div class="checklist"]
-> * Aktivera hanterade tjänstidentiteter
-> * Ge SQL Database åtkomst till tjänstidentiteten
+> * Aktivera hanterade identiteter
+> * Ge SQL Database åtkomst till den hanterade identiteten
 > * Konfigurera programkoden för autentisering med SQL Database med hjälp av Azure Active Directory-autentisering
-> * Ge lägsta möjliga behörighetsnivå till tjänstidentiteten i SQL Database
+> * Ge lägsta möjliga behörighetsnivå till den hanterade identiteten i SQL Database
 
 > [!NOTE]
 > Azure Active Directory-autentisering är _annorlunda_ jämfört med [integrerad Windows-autentisering](/previous-versions/windows/it-pro/windows-server-2003/cc758557(v=ws.10)) i lokal Active Directory (AD DS). AD DS och Azure Active Directory använder helt olika autentiseringsprotokoll. Mer information finns i [Skillnaden mellan Windows Server AD DS och AD Azure](../active-directory/fundamentals/understand-azure-identity-solutions.md#the-difference-between-windows-server-ad-ds-and-azure-ad).
@@ -46,9 +46,9 @@ Den här artikeln fortsätter där du slutade i [Självstudie: Skapa en ASP.NET-
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-## <a name="enable-managed-service-identity"></a>Aktivera hanterade tjänstidentiteter
+## <a name="enable-managed-identities"></a>Aktivera hanterade identiteter
 
-När du ska aktivera en tjänstidentitet för din Azure-app använder du kommandot [az webapp identity assign](/cli/azure/webapp/identity?view=azure-cli-latest#az-webapp-identity-assign) i Cloud Shell. Ersätt *\<app name>* i följande kommando.
+När du ska aktivera en hanterad identitet för din Azure-app använder du kommandot [az webapp identity assign](/cli/azure/webapp/identity?view=azure-cli-latest#az-webapp-identity-assign) i Cloud Shell. Ersätt *\<app name>* i följande kommando.
 
 ```azurecli-interactive
 az webapp identity assign --resource-group myResourceGroup --name <app name>
@@ -73,13 +73,13 @@ az ad sp show --id <principalid>
 
 ## <a name="grant-database-access-to-identity"></a>Bevilja databasåtkomst till identiteten
 
-Nu ger du databasåtkomst till appens tjänstidentitet med hjälp av kommandot [`az sql server ad-admin create`](/cli/azure/sql/server/ad-admin?view=azure-cli-latest#az-sql-server-ad-admin_create) i Cloud Shell. Ersätt *\<server_name>* och <principalid_from_last_step > i följande kommando. Skriv ett administratörsnamn för *\<admin_user>*.
+Nu ger du databasåtkomst till appens hanterade identitet med hjälp av kommandot [`az sql server ad-admin create`](/cli/azure/sql/server/ad-admin?view=azure-cli-latest#az-sql-server-ad-admin_create) i Cloud Shell. Ersätt *\<server_name>* och <principalid_from_last_step > i följande kommando. Skriv ett administratörsnamn för *\<admin_user>*.
 
 ```azurecli-interactive
 az sql server ad-admin create --resource-group myResourceGroup --server-name <server_name> --display-name <admin_user> --object-id <principalid_from_last_step>
 ```
 
-Den hanterade tjänstidentiteten har nu åtkomst till din Azure SQL Database-server.
+Den hanterade identiteten har nu åtkomst till din Azure SQL Database-server.
 
 ## <a name="modify-connection-string"></a>Ändra anslutningssträngen
 
@@ -119,7 +119,7 @@ public MyDatabaseContext(SqlConnection conn) : base(conn, true)
 }
 ```
 
-Den här konstruktorn konfigurerar ett anpassat SqlConnection-objekt så att en åtkomsttoken för Azure SQL Database från App Service används. Med denna åtkomsttoken autentiseras App Service-appen hos Azure SQL Database med den hanterade tjänstidentiteten. Mer information finns i [Hämta token för Azure-resurser](app-service-managed-service-identity.md#obtaining-tokens-for-azure-resources). Med instruktionen `if` kan du fortsätta att testa appen lokalt med LocalDB.
+Den här konstruktorn konfigurerar ett anpassat SqlConnection-objekt så att en åtkomsttoken för Azure SQL Database från App Service används. Med denna åtkomsttoken autentiseras App Service-appen hos Azure SQL Database med den hanterade identiteten. Mer information finns i [Hämta token för Azure-resurser](app-service-managed-service-identity.md#obtaining-tokens-for-azure-resources). Med instruktionen `if` kan du fortsätta att testa appen lokalt med LocalDB.
 
 > [!NOTE]
 > `SqlConnection.AccessToken` stöds för närvarande bara i .NET Framework 4.6 och senare, inte i [.NET Core](https://www.microsoft.com/net/learn/get-started/windows).
@@ -141,7 +141,7 @@ I **Solution Explorer**: Högerklicka på projektet **DotNetAppSqlDb** och välj
 
 ![Publicera från Solution Explorer](./media/app-service-web-tutorial-dotnet-sqldatabase/solution-explorer-publish.png)
 
-Klicka på **Publicera** på publiceringssidan. När du ser din att göra-lista på den nya webbsidan ansluter din app till databasen med hjälp av den hanterade tjänstidentiteten.
+Klicka på **Publicera** på publiceringssidan. När du ser din att göra-lista på den nya webbsidan ansluter din app till databasen med hjälp av den hanterade identiteten.
 
 ![Azure-webbapp efter Code First Migration](./media/app-service-web-tutorial-dotnet-sqldatabase/this-one-is-done.png)
 
@@ -151,11 +151,11 @@ Du ska nu kunna redigera att göra-listan som innan.
 
 ## <a name="grant-minimal-privileges-to-identity"></a>Ge lägsta möjliga behörigheter till identiteten
 
-I de föregående stegen har du antagligen lagt märke till att din hanterade tjänstidentitet är ansluten till SQL Server som Azure AD-administratör. Om du vill ge lägsta möjliga behörighetsnivå till din hanterade tjänstidentitet måste du logga in på Azure SQL Database-servern som Azure AD-administratör och sedan lägga till Azure Active Directory-gruppen som innehåller tjänstidentiteten. 
+I de föregående stegen har du antagligen lagt märke till att din hanterade identitet är ansluten till SQL Server som Azure AD-administratör. Om du vill ge lägsta möjliga behörighetsnivå till din hanterade identitet måste du logga in på Azure SQL Database-servern som Azure AD-administratör och sedan lägga till Azure Active Directory-gruppen som innehåller den hanterade identiteten. 
 
-### <a name="add-managed-service-identity-to-an-azure-active-directory-group"></a>Lägga till den hanterade tjänstidentiteten i en Azure Active Directory-grupp
+### <a name="add-managed-identity-to-an-azure-active-directory-group"></a>Lägga till den hanterade identiteten i en Azure Active Directory-grupp
 
-Öppna Cloud Shell och lägg till den hanterade tjänstidentiteten för din app i en ny Azure Active Directory-grupp med namnet _myAzureSQLDBAccessGroup_, på det sätt som visas i följande skript:
+Öppna Cloud Shell och lägg till den hanterade identiteten för din app i en ny Azure Active Directory-grupp med namnet _myAzureSQLDBAccessGroup_, på det sätt som visas i följande skript:
 
 ```azurecli-interactive
 groupid=$(az ad group create --display-name myAzureSQLDBAccessGroup --mail-nickname myAzureSQLDBAccessGroup --query objectId --output tsv)
@@ -168,7 +168,7 @@ Om du vill se fullständiga JSON-utdata för varje kommando använder du paramet
 
 ### <a name="reconfigure-azure-ad-administrator"></a>Konfigurera om Azure AD-administratören
 
-Tidigare tilldelade du den hanterade tjänstidentiteten som Azure AD-administratör för SQL Database. Du kan inte använda den här identiteten för interaktiv inloggning (när du ska lägga till databasanvändare), så du måste använda en riktig Azure AD-användare. Om du vill lägga till din Azure AD-användare följer du stegen i [Etablera en Azure Active Directory-administratör för din Azure SQL Database-server](../sql-database/sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-azure-sql-database-server). 
+Tidigare tilldelade du den hanterade identiteten som Azure AD-administratör för SQL Database. Du kan inte använda den här identiteten för interaktiv inloggning (när du ska lägga till databasanvändare), så du måste använda en riktig Azure AD-användare. Om du vill lägga till din Azure AD-användare följer du stegen i [Etablera en Azure Active Directory-administratör för din Azure SQL Database-server](../sql-database/sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-azure-sql-database-server). 
 
 ### <a name="grant-permissions-to-azure-active-directory-group"></a>Ge behörigheter till Azure Active Directory-gruppen
 
@@ -204,10 +204,10 @@ GO
 Vad du lärt dig:
 
 > [!div class="checklist"]
-> * Aktivera hanterade tjänstidentiteter
-> * Ge SQL Database åtkomst till tjänstidentiteten
+> * Aktivera hanterade identiteter
+> * Ge SQL Database åtkomst till den hanterade identiteten
 > * Konfigurera programkoden för autentisering med SQL Database med hjälp av Azure Active Directory-autentisering
-> * Ge lägsta möjliga behörighetsnivå till tjänstidentiteten i SQL Database
+> * Ge lägsta möjliga behörighetsnivå till den hanterade identiteten i SQL Database
 
 Gå vidare till nästa självstudie där du får lära dig att mappa ett anpassat DNS-namn till webbappen.
 

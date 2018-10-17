@@ -13,14 +13,15 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 05/01/2017
+ms.date: 06/11/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: b573208107b07b47b471d9c5247b362ef144099e
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 0fd843b150148057399a4e05f5e25a728cd4ae56
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44298518"
 ---
 # <a name="tutorial-use-azure-security-center-to-monitor-windows-virtual-machines"></a>Självstudiekurs: Övervaka virtuella Windows-datorer i Azure Security Center
 
@@ -46,12 +47,13 @@ Security Center gör mer än att identifiera data och lämna rekommendationer f�
 
 ## <a name="set-up-data-collection"></a>Konfigurera datainsamling
 
-Innan du kan få en överblick över säkerhetskonfigurationerna för virtuella datorer måste du ställa in datainsamling i Security Center. Detta innebär att du måste aktivera insamling av data och skapa ett Azure-lagringskonto för att lagra de data som samlats in. 
+Innan du kan få en överblick över säkerhetskonfigurationerna för virtuella datorer måste du ställa in datainsamling i Security Center. I det här ingår att aktivera datainsamling. Då installeras automatiskt Microsoft Monitoring Agent på alla virtuella datorer i din prenumeration.
 
 1. Gå till instrumentpanelen i Security Center, klicka på **Säkerhetsprincip** och markera sedan din prenumeration. 
-2. Välj **På** för **Datainsamling**.
-3. Skapa ett lagringskonto genom att välja **Välj ett lagringskonto**. Välj **OK**.
-4. På bladet **Säkerhetsprincip** väljer du **Spara**. 
+2. För **Datainsamling** i **Automatisk etablering** väljer du **På**.
+3. För **Standardkonfiguration för arbetsyta** lämnar du värdet **Använd arbetsyta/arbetsytor som skapats av Security Center (standard)**.
+4. Under **Säkerhetshändelser** behåller du standardalternativet **Vanliga**.
+4. Klicka på **Spara** längst upp på sidan. 
 
 Datainsamlingsagenten från Security Center installeras på alla virtuella datorer och datainsamlingen påbörjas. 
 
@@ -59,26 +61,13 @@ Datainsamlingsagenten från Security Center installeras på alla virtuella dator
 
 Säkerhetsprinciper används för att definiera objekten för vilka Security Center samlar in data och lämnar rekommendationer. Du kan använda olika säkerhetsprinciper för olika uppsättningar av Azure-resurser. Även om Azures standardresurser ska utvärderas mot alla principobjekt kan du inaktivera enskilda principobjekt för alla Azure-resurser eller för en viss resursgrupp. Detaljerad information om säkerhetsprinciper i Security Center finns i [Ange säkerhetsprinciper i Azure Security Center](../../security-center/security-center-policies.md). 
 
-Så här konfigurerar du en säkerhetsprincip för alla Azure-resurser:
+Så här ställer du in en säkerhetsprincip för en hel prenumeration:
 
-1. Gå till instrumentpanelen i Security Center, klicka på **Säkerhetsprincip** och markera sedan din prenumeration.
-2. Välj **Skyddsprincip**.
-3. Aktivera eller inaktivera principobjekt som du vill koppla till alla Azure-resurser.
-4. När du är klar med inställningarna väljer du **OK**.
-5. På bladet **Säkerhetsprincip** väljer du **Spara**. 
+1. Gå till instrumentpanelen i Security Center, välj **Säkerhetsprincip** och välj sedan din prenumeration.
+2. På bladet **Säkerhetsprincip** väljer du **Säkerhetsprincip**. 
+3. På bladet ** Säkerhetsprincip – Säkerhetsprincip ** aktiverar eller inaktiverar du de principposter du vill använda för prenumerationen.
+4. När du är färdig väljer du **Spara** längst upp på bladet. 
 
-Så här konfigurerar du en princip för en viss resursgrupp:
-
-1. Gå till instrumentpanelen i Security Center, klicka på **Säkerhetsprincip** och markera sedan en resursgrupp.
-2. Välj **Skyddsprincip**.
-3. Aktivera eller inaktivera principobjekt som du vill tillämpa på resursgrupper.
-4. Under **ARV** väljer du **Unik**.
-5. När du är klar med inställningarna väljer du **OK**.
-6. På bladet **Säkerhetsprincip** väljer du **Spara**.  
-
-Du kan också stänga av datainsamling för en viss resursgrupp på den här sidan.
-
-I följande exempel skapas en unik princip för en resursgrupp med namnet *myResoureGroup*. Rekommendationer för diskkryptering och brandvägg för webbaserade program är inaktiverade i den här principen.
 
 ![Unik princip](./media/tutorial-azure-security/unique-policy.png)
 
@@ -90,8 +79,8 @@ När data samlats in sammanställs information om resurshälsa för varje virtue
 
 Så här visar du information om resurshälsa:
 
-1.  Gå till instrumentpanelen i Security Center och välj **Compute** under **Resurssäkerhetshälsa**. 
-2.  På bladet **Compute** väljer du **Virtuella datorer**. Den här vyn visar en sammanfattning av konfigurationsstatusarna för alla dina virtuella datorer.
+1.  Under **Skydd** på instrumentpanelen i Security Center väljer du **Beräkning**. 
+2.  På bladet **Beräkning** väljer du **Virtuella datorer och vanliga datorer**. Den här vyn visar en sammanfattning av konfigurationsstatusarna för alla dina virtuella datorer.
 
 ![Beräkningshälsa](./media/tutorial-azure-security/compute-health.png)
 
@@ -105,7 +94,7 @@ Gör så här för att visa en lista över alla rekommendationer:
 
 1. Gå till instrumentpanelen i Security Center och välj **Rekommendationer**.
 2. Välj en specifik rekommendation. Då visas en lista över alla resurser som rekommendationen gäller för.
-3. Välj en viss resurs för att kunna tillämpa en rekommendation. 
+3. Välj en resurs om du vill tillämpa en rekommendation. 
 4. Följ reparationsstegen. 
 
 I många fall kan Security Center tillhandahålla lämpliga åtgärder som du kan vidta för att följa en rekommendation utan att behöva lämna Security Center. I följande exempel identifierar Security Center en nätverkssäkerhetsgrupp som har en regel för obegränsat inkommande. På rekommendationssidan kan du klicka på knappen **Redigera regler för inkommande trafik**. Användargränssnittet som behövs för att ändra regeln visas. 
@@ -118,14 +107,14 @@ I takt med att rekommendationerna åtgärdats markeras de som lösta.
 
 Utöver konfigurationsrekommendationer för resurserna visas även aviseringar om identifierade säkerhetshot. Funktionen för säkerhetsvarningar sammanställer de data som samlas in från varje virtuell dator, Azures nätverksloggar och anslutna partnerlösningar i syfte att upptäcka säkerhetshot mot Azure-resurserna. Mer information om hur hotidentifieringsfunktionerna i Security Center fungerar finns i [Identifieringsfunktioner i Azure Security Center](../../security-center/security-center-detection-capabilities.md).
 
-Om du vill kunna använda funktionen för säkerhetsvarningar måste du uppgradera prisnivån för Security Center från *Kostnadsfri* till *Standard*. Om du uppgraderar till en högre prisnivå kan du använda dig av en **kostnadsfri utvärderingsversion** i 30 dagar. 
+Om du vill kunna använda funktionen för säkerhetsvarningar måste du uppgradera prisnivån för Security Center från *Kostnadsfri* till *Standard*. Om du uppgraderar till en högre prisnivå kan du använda dig av en **kostnadsfri utvärderingsversion** i 60 dagar. 
 
 Så här ändrar du prisnivån:  
 
 1. Gå till instrumentpanelen i Security Center, klicka på **Säkerhetsprincip** och markera sedan din prenumeration.
 2. Välj **Prisnivå**.
-3. Välj ny nivå och sedan **Välj**.
-4. På bladet **Säkerhetsprincip** väljer du **Spara**. 
+3. Välj **Standard** och klicka sedan på **Spara** längst upp på bladet.
+
 
 När du har ändrat prisnivån fylls diagrammet för säkerhetsvarningarna på i takt med att säkerhetshoten upptäcks.
 
@@ -144,7 +133,7 @@ I den här självstudiekursen har du konfigurerat Azure Security Center och gran
 > * Visa och åtgärda problem med konfigurationshälsan
 > * Granska identifierade hot
 
-Gå vidare till nästa kurs om du vill lära dig hur du skapar en CI/CD-pipeline med Visual Studio Team Services och en virtuell Windows-dator som kör IIS.
+Gå vidare till nästa kurs om du vill lära dig hur du skapar en CI/CD-pipeline med Azure DevOps Services och en virtuell Windows-dator som kör IIS.
 
 > [!div class="nextstepaction"]
-> [Visual Studio Team Services CI/CD-pipeline](./tutorial-vsts-iis-cicd.md)
+> [Azure Pipelines(./tutorial-vsts-iis-cicd.md)

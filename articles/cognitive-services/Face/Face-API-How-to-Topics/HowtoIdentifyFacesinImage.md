@@ -1,72 +1,72 @@
 ---
-title: Identifiera personerna bakom i bilder Ansikts-API | Microsoft Docs
-titleSuffix: Microsoft Cognitive Services
-description: Använd Ansikts-API i kognitiva Services för att identifiera ytor i bilder.
+title: 'Exempel: Identifiera ansikten i bilder – Ansikts-API'
+titleSuffix: Azure Cognitive Services
+description: Använda Ansikts-API för att identifiera ansikten i bilder.
 services: cognitive-services
 author: SteveMSFT
-manager: corncar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: face-api
-ms.topic: article
+ms.topic: sample
 ms.date: 03/01/2018
 ms.author: sbowles
-ms.openlocfilehash: 3f75db176055d9f784ec978497d7cae077ff629f
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
-ms.translationtype: MT
+ms.openlocfilehash: a26f7d6057f92fd3ab92405ecca6965dbd6e37ad
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35355389"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46129079"
 ---
-# <a name="how-to-identify-faces-in-images"></a>Så här identifierar du ytor i bilder
+# <a name="example-how-to-identify-faces-in-images"></a>Exempel: Identifiera ansikten i en bild
 
-Den här guiden visar hur du identifierar okänd ytor med PersonGroups som skapas från kända personer i förväg. Exemplen är skrivna i C# med hjälp av klientbiblioteket Ansikts-API.
+Den här guiden visar hur du identifiera okända ansikten med PersonGroups, som skapas från kända personer i förväg. Exemplen är skrivna i C#- med Ansikts-API-klientbiblioteket.
 
-## <a name="concepts"></a> Begrepp
+## <a name="concepts"></a>Begrepp
 
-Om du inte är bekant med följande begrepp i den här guiden söker du efter definitioner i vår [ordlista](../Glossary.md) när som helst:
+Om du inte är bekant med följande begrepp i den här guiden kan du söka efter definitioner i vår [ordlista](../Glossary.md) när som helst:
 
-- Står inför – identifiera
-- Står inför – identifiera
+- Ansiktsigenkänning – Känna igen
+- Ansiktsigenkänning – identifiera
 - PersonGroup
 
-## <a name="preparation"></a> Förberedelse
+## <a name="preparation"></a>Förberedelse
 
 I det här exemplet visar vi följande:
 
-- Så här skapar du en PersonGroup - den här PersonGroup innehåller en lista över kända personer.
-- Hur du tilldelar varje person - ytor dessa ytor används som utgångspunkt för att identifiera personer. Det rekommenderas att använda Rensa främre ytorna, precis som foto-ID. En bra uppsättning foton ska innehålla ytor samma person på olika utgör, kläder färger eller hår format.
+- Så här skapar du en PersonGroup – denna PersonGroup innehåller en lista över kända personer.
+- Så här tilldelar du ansikten till varje person – Dessa ansikten används som utgångspunkt för att identifiera personer. Det rekommenderas att du använder tydliga ansikten framifrån, som din legitimation. En bra uppsättning bilder bör ha samma persons ansikte från olika vinklar, med olika kläder eller frisyrer.
 
-Om du vill utföra demonstration av det här exemplet måste du förbereda en massa bilder:
+Om du vill demonstrera det här exemplet måste du förbereda ett antal bilder:
 
-- Några foton med personens ansikte. [Klicka här för att ladda ned exempel foton](https://github.com/Microsoft/Cognitive-Face-Windows/tree/master/Data) för Anna, faktura och Clare.
-- En serie test foton som eventuellt kan inte innehålla ytor Anna, faktura eller Clare används för att testa identifiering. Du kan också välja vissa exempel bilder från föregående länk.
+- Några foton med personens ansikte. [Klicka här för att ladda ned exempelfoton](https://github.com/Microsoft/Cognitive-Face-Windows/tree/master/Data) för Anna, Bill och Clare.
+- Som eventuellt får innehåller Anna, Bill eller Clares ansikten används för att testa identifieringen. Du kan också välja några bildexempel från länken ovan.
 
-## <a name="step1"></a> Steg 1: Ge API-anrop
+## <a name="step-1-authorize-the-api-call"></a>Steg 1: Auktorisera API-anrop
 
-Varje anrop till Ansikts-API kräver en nyckel för prenumerationen. Den här nyckeln kan vara antingen skickas via en frågesträngsparameter eller anges i huvudet i begäran. Om du vill överföra prenumerationen nyckeln via frågesträng, referera till URL: en för den [står inför – identifiera](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) som exempel:
+Varje anrop till ett ansikts-API för visuellt innehåll kräver en prenumerationsnyckel. Nyckeln kan antingen skickas via en frågesträngparameter eller anges i begärans sidhuvud. Om du vill skicka prenumerationsnyckeln via frågesträngen ska du använda URL:en för [Ansiktsigenkänning– identifiera](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) som exempel:
 ```
 https://westus.api.cognitive.microsoft.com/face/v1.0/detect[?returnFaceId][&returnFaceLandmarks][&returnFaceAttributes]
 &subscription-key=<Subscription key>
 ```
 
-Alternativt kan nyckeln prenumeration kan också ange i HTTP-frågehuvudet: **ocp-apim-prenumeration-nyckel: &lt;prenumeration nyckeln&gt;**  när du använder ett klientbibliotek nyckeln prenumeration skickas via konstruktorn för klassen FaceServiceClient. Exempel:
+Alternativt kan prenumerationsnyckeln också anges i HTTP-frågehuvudet: **ocp-apim-subscription-key: &lt;Prenumerationsnyckel&gt;**  När du använder ett klientbibliotek skickas prenumerationsnyckeln via konstruktor i klassen FaceServiceClient. Exempel:
  
 ```CSharp 
 faceServiceClient = new FaceServiceClient("<Subscription Key>");
 ```
  
-Nyckeln för prenumerationen kan hämtas från Marketplace-sidan i din Azure-portalen. Se [prenumerationer](https://azure.microsoft.com/try/cognitive-services/).
+Prenumerationsnyckeln kan hämtas från Marketplace-sidan på Azure-portalen. See [Prenumerationer](https://azure.microsoft.com/try/cognitive-services/).
 
-## <a name="step2"></a> Steg 2: Skapa PersonGroup
+## <a name="step-2-create-the-persongroup"></a>Steg 2: Skapa PersonGroup
 
-Vi har skapat en PersonGroup med namnet ”MyFriends” som innehåller tre personer i det här steget: Anna faktura och Clare. Varje person har flera ytor registrerad. Ytor måste identifieras från avbildningar. När alla av de här stegen har du en PersonGroup som på följande bild:
+I det här steget ska vi skapat en PersonGroup med namnet ”MyFriends” som innehåller tre personer: Anna, Bill och Clare. Varje person har flera registrerade ansikten. Ansiktena måste identifieras från bilderna. När alla av de här stegen har du en PersonGroup som på följande bild:
 
-![HowToIdentify1](../Images/group.image.1.jpg)
+![Identifiering1](../Images/group.image.1.jpg)
 
-### <a name="step2-1"></a> 2.1 definiera personer för PersonGroup
-En person är en grundläggande identifiera. En person kan ha en eller flera kända ytor registrerad. Men en PersonGroup är en samling personer och varje person definieras inom en viss PersonGroup. Identifieringen görs mot en PersonGroup. Aktiviteten är så att skapa en PersonGroup och sedan skapa personer, till exempel Anna, faktura och Clare.
+### <a name="21-define-people-for-the-persongroup"></a>2.1 Definiera personer för PersonGroup
+En person är en grundläggande enhet för identifiering. En person kan ha ett eller flera kända ansikten registrerade. Men en PersonGroup är en uppsättning personer och varje person definieras inom en viss PersonGroup. Identifieringen sker mot en PersonGroup. Därför är uppgiften att skapa en PersonGroup och sedan skapa personer, till exempel Anna, Bill och Clare.
 
-Först måste du skapa en ny PersonGroup. Detta utförs med hjälp av den [PersonGroup - skapa](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395244) API. Motsvarande klientbiblioteket API är CreatePersonGroupAsync metod för klassen FaceServiceClient. Grupp-ID som angetts är unik för varje prenumeration att skapa gruppen – du kan också hämta, uppdatera eller ta bort PersonGroups med andra PersonGroup APIs. När en grupp definieras personer kan sedan definieras i den med hjälp av den [PersonGroup Person - skapa](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523c) API. Metoden klienten biblioteket är CreatePersonAsync. Du kan lägga till står inför varje person när de skapas.
+Först måste du skapa en ny PersonGroup. Detta sker med hjälp av API:et [PersonGroup – skapa](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395244). Motsvarande klientbibliotek-API är metoden CreatePersonGroupAsync för klassen FaceServiceClient. Det grupp-ID som anges för att skapa gruppen är unikt för varje prenumeration – du kan också hämta, uppdatera eller ta bort PersonGroups med andra PersonGroup API:er. När en grupp har definierats kan personer sedan definieras i den med hjälp av API:et [PersonGroup Person – skapa](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523c). Klientbibliotekmetoden är CreatePersonAsync. Du kan lägga till ett ansikte till varje person efter att de har skapats.
 
 ```CSharp 
 // Create an empty PersonGroup
@@ -83,12 +83,12 @@ CreatePersonResult friend1 = await faceServiceClient.CreatePersonAsync(
  
 // Define Bill and Clare in the same way
 ```
-### <a name="step2-2"></a> 2.2 identifiera ytor och registrera dem till rätt person
-Identifiering görs genom att skicka en ”POST” webbegäran till den [står inför – identifiera](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) API med bildfilen i brödtexten för HTTP-begäran. När du använder klientbiblioteket körs ansikte identifiering via metoden DetectAsync för klassen FaceServiceClient.
+### <a name="step2-2"></a> 2.2 Identifiera ansikten och registrera dem till rätt person
+Identifiering görs genom att skicka en ”POST” webb-begäran till den [Ansiktsigenkänning – identifiera](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) API med bildfilen i HTTP-begärandetexten. När du använder klientbiblioteket körs ansiktsigenkänning via DetectAsync-metod för klassen FaceServiceClient.
 
-Varje yta har identifierats kan du anropa [PersonGroup Person – Lägg till min](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523b) att lägga till rätt person.
+För varje ansikte som har identifierats kan du anropa [PersonGroup Person – Lägg till ansikte](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523b) för att lägga till den till rätt person.
 
-Följande kod visar processen för hur du identifierar ett ansikte från en avbildning och lägga till den i en person:
+Visar processen för att känna igen ett ansikte från en bild och lägga till det till en person:
 ```CSharp 
 // Directory contains image files of Anna
 const string friend1ImageDir = @"D:\Pictures\MyFriends\Anna\";
@@ -104,16 +104,17 @@ foreach (string imagePath in Directory.GetFiles(friend1ImageDir, "*.jpg"))
 }
 // Do the same for Bill and Clare
 ``` 
-Observera att om bilden innehåller mer än en yta, endast de största står inför har lagts till. Du kan lägga till andra ytor personen genom att skicka en sträng i formatet ”targetFace = vänstra, övre, bredden och höjden” till [PersonGroup Person - lägga till står inför](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523b) API: er targetFace frågeparameter eller använder den valfria parametern targetFace för den AddPersonFaceAsync metod för att lägga till andra ytor. Varje yta som lagts till personen som kommer att få en unik beständiga ansikts-ID som kan användas i [PersonGroup Person – ta bort ansikte](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523e) och [står inför – identifiera](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239).
-## <a name="step3"></a> Steg 3: Träna PersonGroup
+Observera att om bilderna innehåller mer än ett ansikte läggs endast det största ansiktet till. Du kan lägga till andra ansikten till personen genom att skicka en sträng i formatet ”targetFace = vänster, övre, bredd och höjd” till [PersonGroup Person – Lägg till ansikte](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523b) API: er targetFace Frågeparametern, eller använder den valfria parametern targetFace för metoden AddPersonFaceAsync för att lägga till andra ansikten. Varje ansikte som lagts till personen får ett unikt beständigt ansikts-ID som kan användas i [PersonGroup Person – ta bort ansikte](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523e) och [Ansiktsigenkänning – identifiera](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239).
 
-PersonGroup måste utbildas innan en identifiering kan utföras med hjälp av den. Det har till retrained efter att lägga till eller ta bort någon, eller om en person har registrerade framsidan redigeras. Utbildningen görs den [PersonGroup – Train](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395249) API. När du använder klientbiblioteket är bara ett anrop till metoden TrainPersonGroupAsync:
+## <a name="step-3-train-the-persongroup"></a>Steg 3: Träna PersonGroup
+
+PersonGroup måste utbildas innan en identifiering kan utföras med hjälp av den. Dessutom måste den utbildas om efter att du har lagt till eller tagit bort en person eller om en person har redigerat sitt registrerade ansikte. Utbildningen sker genom API:et [PersonGroup – Utbilda](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395249). När du använder klientbiblioteket är det bara ett anrop till metoden TrainPersonGroupAsync:
  
 ```CSharp 
 await faceServiceClient.TrainPersonGroupAsync(personGroupId);
 ```
  
-Utbildningen är en asynkron åtgärd. Den kan inte slutföras även efter att metoden TrainPersonGroupAsync returneras. Du kan behöva läsa status utbildning av [PersonGroup - Erhåll Status för utbildning](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395247) API eller GetPersonGroupTrainingStatusAsync metoden av klientbiblioteket. Följande kod visar en enkel logik om väntande PersonGroup utbildning för att avsluta:
+Utbildningen är en asynkron process. Det kanske inte har slutförts även efter att metoden TrainPersonGroupAsync returneras. Du kan behöva fråga efter utbildningsstatusen med API:et [PersonGroup – Hämta status för utbildning](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395247) eller GetPersonGroupTrainingStatusAsync-metoden för klientbiblioteket. Följande kod visar en enkel logik om pågående PersonGroup-utbildning som ska slutföras:
  
 ```CSharp 
 TrainingStatus trainingStatus = null;
@@ -130,12 +131,14 @@ while(true)
 } 
 ``` 
 
-## <a name="step4"></a> Steg 4: Identifiera ett ansikte mot en definierad PersonGroup
-När du utför identifieringar, Ansikts-API kan beräkna likhet av ett test ansikte bland alla ytor i en grupp och returnerar den mest jämförbara som för att testa yta. Detta görs via den [står inför – identifiera](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239) API eller metoden IdentifyAsync av klientbiblioteket.
+## <a name="step-4-identify-a-face-against-a-defined-persongroup"></a>Steg 4: Identifiera ett ansikte mot en definierad PersonGroup
 
-De testa står inför måste identifieras med hjälp av de föregående stegen och sedan ansikte ID skickas till identifiera API som andra argument. Flera ansikte ID: N kan identifieras på en gång och resultatet innehåller alla identifiera resultat. Som standard returnerar identifiera endast en person som bäst matchar de står inför test. Om du vill kan ange du valfri parameter maxNumOfCandidatesReturned för att identifiera returnera flera kandidater.
+När du utför identifiering kan Ansikts-API beräkna likheten mellan ett testansikte bland alla ansikten i en grupp och returnerar den mest jämförbara personen för att testansiktet. Detta görs via API:et [Ansiktsigenkänning – Identifiera](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239) eller metoden IdentifyAsync för klientbiblioteket.
 
-Följande kod visar processen att identifiera:
+Testansiktet måste identifieras med föregående steg och sedan måste ansikts:ID:t skickas till API:et identifiera som ett andra argument. Flera ansikts-ID:n kan identifiera på en gång och resultatet kommer att innehålla alla identifieringsresultat. Som standard returneras identifiering bara en person som bäst matchar testansiktet. Om du vill kan du ange den valfria parametern maxNumOfCandidatesReturned så att identifiera returnerar fler kandidater.
+
+Följande kod visar hur du identifierar:
+
 ```CSharp 
 string testImageFile = @"D:\Pictures\test_img1.jpg";
 
@@ -163,27 +166,27 @@ using (Stream s = File.OpenRead(testImageFile))
 }
 ``` 
 
-När du är klar med steg som kan du försöka att identifiera olika ytor och se om ytor Anna, faktura eller Clare korrekt identifieras, enligt bilder som har överförts för identifiering av står inför. Se följande exempel:
+När du är klar med stegen kan du försöka att identifiera olika ansikten och se om Anna, Bill och Clares ansikten kan identifieras korrekt enligt bilderna som laddas upp för ansiktsavkänning. Se följande exempel:
 
-![HowToIdentify2](../Images/identificationResult.1.jpg )
+![Identifiera2](../Images/identificationResult.1.jpg )
 
-## <a name="step5"></a> Steg 5: Begäran för storskaliga
+## <a name="step-5-request-for-large-scale"></a>Steg 5: Begäran för storskaliga
 
-Som är känd kan en PersonGroup innehålla upp till 10 000 personer på grund av begränsningar i föregående design.
-Mer information om upp till miljoner skala scenarier finns [hur funktionen storskaliga](how-to-use-large-scale.md).
+En PersonGroup kan som sagt innehålla upp till 10 000 personer på grund av begränsningen hos den föregående designen.
+Mer information om scenarier med upp till miljontals personer finns i [Så här använder du den storskaliga funktionen](how-to-use-large-scale.md).
 
-## <a name="summary"></a> Sammanfattning
+## <a name="summary"></a>Sammanfattning
 
-I den här guiden har du lärt dig hur du skapar en PersonGroup och identifiera en person. Följande är en snabb påminnelse funktioner beskrivs tidigare och visas:
+I den här guiden har du lärt dig hur du skapar en PersonGroup och identifiera en person. Det följande är en snabb påminnelse om de viktiga aspekter som förklarats och beskrivits tidigare:
 
-- Identifiera står med i [står inför – identifiera](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d) API
-- Skapa PersonGroups med hjälp av den [PersonGroup - skapa](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395244) API
-- Skapa personer som använder den [PersonGroup Person - skapa](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523c) API
-- Träna en PersonGroup med hjälp av den [PersonGroup – Train](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395249) API
-- Identifiera okänt ytor mot PersonGroup med hjälp av den [står inför – identifiera](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239) API
+- Identifiera ansikten med hjälp av API:et [Ansiktsigenkänning – Identifiera](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d)
+- Skapa PersonGroups med hjälp av API:et [PersonGroup – Skapa](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395244)
+- Skapa personer med hjälp av API:et [PersonGroup Person – Skapa](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523c)
+- Träna en PersonGroup med hjälp av API:et [PersonGroup – träna](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395249)
+- Identifiera okända ansikten mot en PersonGroup med hjälp av API:et [Ansiktsigenkänning – identifiera](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239)
 
-## <a name="related"></a> Närliggande information
+## <a name="related-topics"></a>Relaterade ämnen
 
-- [Hur du identifierar står i avbildningen](HowtoDetectFacesinImage.md)
-- [Hur du lägger till står](how-to-add-faces.md)
-- [Hur du använder funktionen storskaliga](how-to-use-large-scale.md)
+- [Känna igen ansikten i en bild](HowtoDetectFacesinImage.md)
+- [Lägga till ansikten](how-to-add-faces.md)
+- [Känna igen storskaliga funktioner](how-to-use-large-scale.md)

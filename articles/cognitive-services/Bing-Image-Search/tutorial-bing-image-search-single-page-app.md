@@ -1,86 +1,89 @@
 ---
-title: Webbprogram för Bing Image-sökning sida | Microsoft Docs
-description: Visar hur du använder Bing avbildningen Sök API i en enda sida webbprogram.
+title: 'Självstudier: Skapa ensidig webbapp – API för bildsökning i Bing'
+titleSuffix: Azure cognitive services
+description: Med API för bildsökning i Bing kan du söka på webben efter relevanta bilder med hög kvalitet. Använd den här självstudien för att skapa ett enkelsidigt program som kan skicka sökfrågor till API:et och visa resultaten inom webbsidan.
 services: cognitive-services
-author: v-jerkin
-manager: ehansen
+author: aahi
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-image-search
-ms.topic: article
-ms.date: 10/04/2017
-ms.author: v-jerkin
-ms.openlocfilehash: d0e1dc24513c8fc3a405cf1c18f531a0c58fad13
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
-ms.translationtype: MT
+ms.topic: tutorial
+ms.date: 9/12/2018
+ms.author: aahi
+ms.openlocfilehash: e37cb9b9412d257ab238f23b90e4a1077070b2b6
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35354600"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46297459"
 ---
-# <a name="tutorial-single-page-web-app"></a>Självstudier: Single-page-webbprogram
+# <a name="tutorial-create-a-single-page-app-using-the-bing-image-search-api"></a>Självstudier: Skapa en ensidesapp med hjälp av API för bildsökning i Bing
 
-Bing avbildningen Sök-API kan du söka på webben och hämta avbildningen resultat som är relevanta för frågan. I den här självstudiekursen kommer vi skapa en enkel sida webbprogram som använder Bing avbildningen Sök-API för att visa sökresultat höger på sidan. Programmet innehåller komponenter för HTML, CSS och JavaScript.
+Med API för bildsökning i Bing kan du söka på webben efter relevanta bilder med hög kvalitet. Använd den här självstudien för att skapa ett enkelsidigt program som kan skicka sökfrågor till API:et och visa resultaten inom webbsidan. Den här självstudiekursen liknar motsvarande [självstudiekurs](../Bing-Web-Search/tutorial-bing-web-search-single-page-app.md) för webbsökning i Bing.
 
-<!-- Remove until we can sanitize images
-![[Single-page Bing Image Search app]](media/cognitive-services-bing-images-api/image-search-spa-demo.png)
--->
-
-> [!NOTE]
-> JSON- och HTTP-rubriker längst ned på sidan avslöja JSON-svar och HTTP-begäraninformation när du klickar på. Dessa uppgifter är användbara när utforska tjänsten.
-
-Appen självstudiekurs visar hur du:
+I den här självstudieappen visas hur du:
 
 > [!div class="checklist"]
-> * Utför ett Bing avbildningen Sök API-anrop i JavaScript
-> * Skicka Sökalternativ till Bing avbildningen Sök-API
-> * Visa sökresultat
-> * Bläddra igenom sökresultat
-> * Hantera Bing klient-ID och API-prenumeration nyckeln
-> * Hantera fel som kan uppstå
+> * Anropa API för bildsökning i Bing i JavaScript
+> * Förbättra sökresultat med hjälp av alternativ för sökning
+> * Visa och bläddra igenom sökresultat
+> * Begära och hantera en API-prenumerationsnyckel och klient-ID för Bing.
 
-Sidan självstudiekursen är helt självständigt; den använder inte någon extern ramverk, formatmallar eller även bildfiler. Den använder endast brett stöd JavaScript språkfunktioner och fungerar med aktuella versioner av alla större webbläsare.
+Den fullständiga källkoden till det här exemplet finns på [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/tree/master/Tutorials/Bing-Image-Search).
 
-I den här självstudien diskuterar vi endast delar av källkoden. Fullständig källkoden finns [på en separat sida](tutorial-bing-image-search-single-page-app-source.md). Kopiera och klistra in den här koden i en textredigerare och spara den som `bing.html`.
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
-> [!NOTE]
-> Den här kursen är avsevärt liknar den [sida Bing webbsökning app kursen](../Bing-Web-Search/tutorial-bing-web-search-single-page-app.md), men endast behandlar bilden sökresultat.
+* Den senaste versionen av [Node.js](https://nodejs.org/).
+* Ramverket [Express.js](https://expressjs.com/) för Node.js. Installationsinstruktioner för källkoden finns i gitHub-exemplets readme-fil.
 
-## <a name="app-components"></a>Komponenter för appar
+[!INCLUDE [cognitive-services-bing-image-search-signup-requirements](../../../includes/cognitive-services-bing-image-search-signup-requirements.md)]
 
-Som ett enda sida webbprogram innehåller självstudiekursen programmet tre delar:
+## <a name="manage-and-store-user-subscription-keys"></a>Hantera och lagra användarens prenumerationsnycklar
 
-> [!div class="checklist"]
-> * HTML - definierar struktur och innehåll på sidan
-> * CSS - definierar utseendet på sidan
-> * JavaScript - definierar beteendet för sidan
+Det här programmet använder webbläsarens beständiga lagring för att lagra prenumerationsnycklar för API:et. Om ingen nyckel lagras frågar webbsidan användaren om nyckeln och lagrar den för senare användning. Om nyckeln senare avvisas av API appen tas den bort från lagringen.
 
-Den här kursen täcker inte de flesta av HTML- eller CSS i detalj, som de är enkla.
 
-HTML-koden innehåller formuläret som användaren anger en fråga och väljer sökalternativ. Formuläret är ansluten till JavaScript som faktiskt utför sökning efter den `<form>` taggens `onsubmit` attribut:
-
-```html
-<form name="bing" onsubmit="return newBingImageSearch(this)">
-```
-
-Den `onsubmit` hanteraren returnerar `false`, vilket håller formuläret från att skickas till en server. JavaScript-koden i själva verket har arbetet med att samla in nödvändig information i formuläret och sökningen.
-
-HTML-koden innehåller även avdelningar (HTML `<div>` taggar) där sökresultatet visas.
-
-## <a name="managing-subscription-key"></a>Hantera prenumerationen nyckel
-
-Om du vill undvika att behöva innehåller nyckel för Bing Search API-prenumeration i koden, använder vi webbläsarens beständig lagring för att lagra nyckeln. Om ingen nyckel lagras vi efterfrågar den nyckeln och spara den för senare användning. Om nyckeln senare avvisas av API: Ogiltig vi lagrade nyckeln så att användaren är igen.
-
-Vi definiera `storeValue` och `retrieveValue` funktioner som använder antingen det `localStorage` objekt (om webbläsaren stöder den) eller en cookie. Vår `getSubscriptionKey()` funktionen använder dessa funktioner för att lagra och hämta användarens nyckel.
+Vi definierar funktionerna `storeValue` och `retrieveValue`, antingen med objektet `localStorage` (inte i alla webbläsare) eller en cookie.
 
 ```javascript
-// cookie names for data we store
+// Cookie names for data being stored
 API_KEY_COOKIE   = "bing-search-api-key";
 CLIENT_ID_COOKIE = "bing-search-client-id";
-
+// The Bing Image Search API endpoint
 BING_ENDPOINT = "https://api.cognitive.microsoft.com/bing/v7.0/images/search";
 
-// ... omitted definitions of storeValue() and retrieveValue()
+try { //Try to use localStorage first
+    localStorage.getItem;   
 
-// get stored API subscription key, or prompt if it's not found
+    window.retrieveValue = function (name) {
+        return localStorage.getItem(name) || "";
+    }
+    window.storeValue = function(name, value) {
+        localStorage.setItem(name, value);
+    }
+} catch (e) {
+    //If the browser doesn't support localStorage, try a cookie
+    window.retrieveValue = function (name) {
+        var cookies = document.cookie.split(";");
+        for (var i = 0; i < cookies.length; i++) {
+            var keyvalue = cookies[i].split("=");
+            if (keyvalue[0].trim() === name) return keyvalue[1];
+        }
+        return "";
+    }
+    window.storeValue = function (name, value) {
+        var expiry = new Date();
+        expiry.setFullYear(expiry.getFullYear() + 1);
+        document.cookie = name + "=" + value.trim() + "; expires=" + expiry.toUTCString();
+    }
+}
+```
+
+Funktionen `getSubscriptionKey()` försöker hämta en tidigare lagrad nyckel med hjälp av `retrieveValue`. Det inte går att hitta en nyckel kommer användaren att uppmanas att ange en nyckel som lagras med `storeValue`.
+
+```javascript
+
+// Get the stored API subscription key, or prompt if it's not found
 function getSubscriptionKey() {
     var key = retrieveValue(API_KEY_COOKIE);
     while (key.length !== 32) {
@@ -92,39 +95,46 @@ function getSubscriptionKey() {
 }
 ```
 
-HTML `<form>` taggen `onsubmit` anrop av `bingWebSearch` funktionen för att returnera sökresultat. `bingWebSearch` använder `getSubscriptionKey` att autentisera varje fråga. Enligt tidigare definition `getSubscriptionKey` efterfrågar nyckeln om nyckeln inte har registrerats. Nyckeln lagras sedan för fortlöpande användning av programmet.
+HTML-taggen `<form>` `onsubmit` anropar `bingWebSearch`-funktionen för att returnera sökresultat. `bingWebSearch` använder `getSubscriptionKey` för att autentisera varje fråga. Som du ser i den föregående definitionen ber `getSubscriptionKey` användaren om nyckeln om nyckeln inte har registrerats. Nyckeln lagras sedan för fortlöpande användning av programmet.
 
 ```html
-<form name="bing" onsubmit="this.offset.value = 0; return bingWebSearch(this.query.value, 
-    bingSearchOptions(this), getSubscriptionKey())">
+<form name="bing" onsubmit="this.offset.value = 0; return bingWebSearch(this.query.value,
+bingSearchOptions(this), getSubscriptionKey())">
 ```
 
-## <a name="selecting-search-options"></a>Att välja alternativ för sökning
+## <a name="send-search-requests"></a>Skicka sökförfrågningar
 
-![[Bing avbildningen formulär]](media/cognitive-services-bing-images-api/image-search-spa-form.png)
+Det här programmet använder ett HTML `<form>` för att inledningsvis skicka användarsökförfrågningar med hjälp av attributet `onsubmit` för att anropa `newBingImageSearch()`.
 
-HTML-formulär innehåller följande kontroller:
+```html
+<form name="bing" onsubmit="return newBingImageSearch(this)">
+```
 
-| | |
-|-|-|
-|`where`|En nedrullningsbar meny för att välja marknaden (plats och language) som används för sökningen.|
-|`query`|Fältet att ange sökvillkor.|
-|`aspect`|Alternativknappar för att välja proportioner funna bilder: ungefär kvadrat bred eller högt.|
-|`color`|Väljer färg eller svartvitt eller en färg som överväger.
-|`when`|Listrutan för att du kan också begränsa sökningen till den senaste dag, vecka eller månad.|
-|`safe`|En kryssruta som anger om du använder Bings säker sökning för att filtrera bort ”vuxna” resultat.|
-|`count`|Dolda fält. Antal sökresultat ska returneras för varje begäran. Ändra om du vill visa färre eller fler resultat per sida.|
-|`offset`|Dolda fält. Förskjutning av första sökresultatet i begäran. används för sidindelning. Den återställs till `0` på en ny begäran.|
-|`nextoffset`|Dolda fält. Vid mottagning av ett sökresultat kan det här fältet är inställt på värdet för den `nextOffset` i svaret. Med det här fältet undviks överlappande resultat på efterföljande sidor.|
-|`stack`|Dolda fält. En JSON-kodad lista med förskjutningar föregående sidor i sökresultat för att gå tillbaka till föregående sidor.|
+`onsubmit`-hanteraren returnerar `false`, som ser till att formuläret inte skickas.
 
-> [!NOTE]
-> Bing Image-sökning erbjuder många fler Frågeparametrar. Vi använder bara några av dem här.
+## <a name="select-search-options"></a>Välj sökalternativ
 
-Vårt JavaScript-funktionen `bingSearchOptions()` konverterar dessa fält till en partiell frågesträng i det format som krävs av API: T för Bing Search.
+![[Bildsökformulär i Bing]](media/cognitive-services-bing-images-api/image-search-spa-form.png)
+
+Sökning i Bing tillhandahåller flera [filtrerfrågeparametrar](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#filter-query-parameters) för att begränsa och filtrera sökresultaten. HTML-formulär i det här programmet använder och visar följande parameteralternativ:
+
+|              |                                                                                                                                                                                    |
+|--------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `where`      | En listruta för att välja marknad (plats och språk) som används för sökningen.                                                                                             |
+| `query`      | Textfältet för att ange sökvillkor.                                                                                                                                 |
+| `aspect`     | Alternativknapparna för att välja proportioner för den hittade bilden: ungefär kvadratisk, bred eller hög.                                                                                     |
+| `color`      |                                                                                                                                                                                    |
+| `when`       | Listruta för att valfritt begränsa sökningen till den senaste dagen, veckan eller månaden.                                                                                          |
+| `safe`       | En kryssruta som anger om du vill använda Bing SafeSearch-funktionen för att filtrera bort ”vuxeninnehåll”.                                                                                      |
+| `count`      | Dolt fält. Antal sökresultat som returneras för varje begäran. Ändra om du vill visa färre eller fler resultat per sida.                                                            |
+| `offset`     | Dolt fält. Förskjutningen av det första sökresultatet i begäran. Används för växling. Den återställs till `0` vid en ny begäran.                                                           |
+| `nextoffset` | Dolt fält. Vid mottagning av ett sökresultat anges fältet som värdet för `nextOffset` i svaret. Med hjälp av det här fältet undviks överlappande resultat på efterföljande sidor. |
+| `stack`      | Dolt fält. En JSON-kodad lista med förskjutningar i de föregående sidorna med sökresultat för att gå tillbaka till föregående sidor.                                                      |
+
+Funktionen `bingSearchOptions()` formaterar dessa alternativ till en partiell frågesträng som kan användas i appens API-begäranden.  
 
 ```javascript
-// build query options from the HTML form
+// Build query options from the HTML form
 function bingSearchOptions(form) {
 
     var options = [];
@@ -146,11 +156,10 @@ function bingSearchOptions(form) {
 }
 ```
 
-Funktionen Säker sökning kan till exempel vara `strict`, `moderate`, eller `off`, med `moderate` som standard. Men formuläret använder en kryssruta som har bara två lägen. JavaScript-kod konverterar den här inställningen på antingen `strict` eller `off` (används inte `moderate`).
+## <a name="performing-the-request"></a>Utföra förfrågan
 
-## <a name="performing-the-request"></a>Begäran utfördes
+Beroende på sökfrågan, alternativsträngen och API-nyckeln använder funktionen `BingImageSearch()` ett XMLHttpRequest-objekt för att göra begäran till Bing-bildsökningsslutpunkten.
 
-Baserat på frågan, alternativ strängen och API-nyckeln i `BingImageSearch` använder funktionen ett `XMLHttpRequest` objekt att begära slutpunkten Bing Image-sökning.
 
 ```javascript
 // perform a search given query, options string, and API key
@@ -169,7 +178,7 @@ function bingImageSearch(query, options, key) {
     // open the request
     try {
         request.open("GET", queryurl);
-    } 
+    }
     catch (e) {
         renderErrorMessage("Bad request (invalid URL)\n" + queryurl);
         return false;
@@ -180,10 +189,10 @@ function bingImageSearch(query, options, key) {
     request.setRequestHeader("Accept", "application/json");
     var clientid = retrieveValue(CLIENT_ID_COOKIE);
     if (clientid) request.setRequestHeader("X-MSEdge-ClientID", clientid);
-    
+
     // event handler for successful response
     request.addEventListener("load", handleBingResponse);
-    
+
     // event handler for erorrs
     request.addEventListener("error", function() {
         renderErrorMessage("Error completing request");
@@ -200,7 +209,7 @@ function bingImageSearch(query, options, key) {
 }
 ```
 
-Vid slutförande av HTTP-begäran JavaScript-anrop vår `load` händelsehanterare, den `handleBingResponse()` funktionen sköta en lyckad HTTP GET-begäran-API: et. 
+När HTTP-begäran har slutförts anropar JavaScript `handleBingResponse()`-belastningshändelsehanteraren, för att hantera en lyckad HTTP GET-begäran.
 
 ```javascript
 // handle Bing search request results
@@ -219,7 +228,7 @@ function handleBingResponse() {
 
     // show raw JSON and HTTP request
     showDiv("json", preFormat(JSON.stringify(jsobj, null, 2)));
-    showDiv("http", preFormat("GET " + this.responseURL + "\n\nStatus: " + this.status + " " + 
+    showDiv("http", preFormat("GET " + this.responseURL + "\n\nStatus: " + this.status + " " +
         this.statusText + "\n" + this.getAllResponseHeaders()));
 
     // if HTTP response is 200 OK, try to render search results
@@ -267,21 +276,11 @@ function handleBingResponse() {
 ```
 
 > [!IMPORTANT]
-> En lyckad HTTP-begäran har *inte* nödvändigtvis som själva lyckades sökningen. Om ett fel uppstår i search-åtgärd, returnerar en 200 HTTP - statuskod Bing avbildningen Sök-API och innehåller information om fel i JSON-svar. Dessutom returnerar begäran har begränsad hastighet, ett tomt svar på API: et.
+> Lyckade HTTP-begäranden kan innehålla information om misslyckade sökningar. Om ett fel uppstår i sökåtgärden returnerar API för bildsökning i Bing en icke-200-HTTP-statuskod och felinformation i JSON-svaret. Om begäran var begränsad returnerar API:et ett tomt svar.
 
-Mycket av koden i båda av de här funktionerna är dedikerad till felhantering. Fel kan inträffa i följande steg:
+## <a name="display-the-search-results"></a>Visa sökresultat
 
-|Fas|Potentiella fel|Hanteras av|
-|-|-|-|
-|Byggnaden JavaScript request-objektet|Ogiltig URL|`try`/`catch` block|
-|Skickar begäran|Nätverksfel, avbrutna anslutningar|`error` och `abort` händelsehanterare|
-|Sökningen|Ogiltig förfrågan, ogiltigt JSON hastighetsbegränsningar|testar i `load` händelsehanterare|
-
-Fel hanteras genom att anropa `renderErrorMessage()` med alla detaljer kända om felet. Om svaret klarat fullständig gauntlet fel tester, som vi kallar `renderSearchResults()` att visa sökresultat på sidan.
-
-## <a name="displaying-search-results"></a>Visa sökresultat
-
-Den huvudsakliga funktionen för att visa sökresultaten är `renderSearchResults()`. Den här funktionen tar JSON som returneras av Bing avbildningen söktjänsten och återgivningar bilderna och relaterade sökningar, om sådana finns.
+Sökresultaten visas som funktionen `renderSearchResults()`, vilket tar den JSON som returneras av tjänsten för bildsökning i Bing och anropar en lämplig återgivningsfunktion på returnerade bilder och relaterade sökningar.
 
 ```javascript
 function renderSearchResults(results) {
@@ -290,14 +289,14 @@ function renderSearchResults(results) {
     var pagingLinks = renderPagingLinks(results);
     showDiv("paging1", pagingLinks);
     showDiv("paging2", pagingLinks);
-    
+
     showDiv("results", renderImageResults(results.value));
     if (results.relatedSearches)
         showDiv("sidebar", renderRelatedItems(results.relatedSearches));
 }
 ```
 
-De huvudsakliga avbildningen sökresultaten visas som den översta `value` objekt i JSON-svar. Vi skickar dem till vår funktionen `renderImageResults()`, som går igenom dem och anropar en separat funktion för att återge varje objekt i HTML-format. Den resulterande HTML returneras till `renderSearchResults()`, där den infogas i den `results` division på sidan.
+Sökresultaten returneras som `value`-objekt på den översta nivån i JSON-svaret. Dessa skickas till `renderImageResults()`, som går igenom resultaten och konverterar varje objekt till HTML-format.
 
 ```javascript
 function renderImageResults(items) {
@@ -315,39 +314,42 @@ function renderImageResults(items) {
 }
 ```
 
-Bing avbildningen Sök API returnerar upp till fyra olika typer av relaterade resultat i sin egen översta objektet. De är:
+API för bildsökning i Bing kan returnera fyra typer av sökförslag för att vägleda användarnas sökmiljöer, var och en i den översta objektnivån:
 
-|||
-|-|-|
-|`pivotSuggestions`|Frågor som ersätter ett pivot ord i ursprungliga sökning med en annan. Till exempel om du söker efter ”röda blommor” en pivot-word kan vara ”red” och förslag på en pivot kan vara ”gula blommor”.|
-|`queryExpansions`|Frågor som begränsar ursprungliga sökningen genom att lägga till flera villkor. Till exempel om du söker efter ”Microsoft Surface” en ökning av frågan kan vara ”Microsoft Surface Pro”.|
-|`relatedSearches`|Frågor som också har registrerats av andra användare som har registrerats ursprungliga sökningen. Sökningen till exempel om du söker efter ”Mount Rainier” en relaterad kan gå ”om Mt. Saint Helens ”.|
-|`similarTerms`|Frågor med liknande innebörd för den ursprungliga sökningen. Till exempel om du söker efter ”kattungar” kanske motsvarande period ”gulliga”.|
+| Förslag         | Beskrivning                                                                                                                                                                                                         |
+|--------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `pivotSuggestions` | Frågor som ersätter ett pivotord i den ursprungliga sökningen med ett annat. Om du till exempel söker efter ”röda blommor” kan ett pivotord vara ”röda”, och ett pivotförslag kan vara ”gula blommor”. |
+| `queryExpansions`  | Frågor som begränsar den ursprungliga sökningen genom att lägga till fler termer. Om du exempelvis söker efter ”Microsoft Surface” kan en frågeexpansion vara ”Microsoft Surface Pro”.                                   |
+| `relatedSearches`  | Frågor som också har angetts av andra användare som registrerade den ursprungliga sökningen. Om du till exempel söker efter ”Mount Rainier” kan en relaterad sökning vara ”Mt. Saint Helens.”                       |
+| `similarTerms`     | Frågor vars innebörd liknar den ursprungliga sökningen. Om du exempelvis söker efter ”kattungar” kan en liknande term vara ”gulliga”.                                                                   |
 
-Som tidigare setts i `renderSearchResults()`, vi återge endast den `relatedItems` förslag och placera den resulterande länkar i sidans sidopanelen.
+Med detta program återges endast `relatedItems`-förslag och de resulterande länkarna placeras i sidans sidopanel.
 
-## <a name="rendering-result-items"></a>Återgivning resultatet objekt
+## <a name="rendering-search-results"></a>Återgivning av sökresultat
 
-I vårt JavaScript-kod är ett objekt, `searchItemRenderers`, som innehåller *återgivning:* funktioner som genererar HTML-kod för varje typ av sökresultatet.
+I programmet innehåller `searchItemRenderers`-objektet återgivningsfunktioner som genererar HTML för varje typ av sökresultat.
 
 ```javascript
-searchItemRenderers = { 
+searchItemRenderers = {
     images: function(item, index, count) { ... },
     relatedSearches: function(item) { ... }
 }
 ```
 
-En renderare funktion kan acceptera följande parametrar:
+En funktion för återgivning kan acceptera följande parametrar:
 
-| | |
-|-|-|
-|`item`|JavaScript-objekt som innehåller objektets egenskaper, till exempel dess URL och dess beskrivning.|
-|`index`|Index över resultatobjekt i dess samling.|
-|`count`|Antal objekt i samlingen Sök resultatobjekt.|
+| Parameter         | Beskrivning                                                                                              |
+|---------|----------------------------------------------------------------------------------------------|
+| `item`  | JavaScript-objekt som innehåller objektets egenskaper, som dess webbadress och en beskrivning. |
+| `index` | Index för resultatobjektet i en samling.                                          |
+| `count` | Antal objekt i sökresultatets objektsamling.                                  |
 
-Den `index` och `count` parametrar kan användas för att antalet resultat för att generera särskilda HTML för början eller slutet av en samling om du vill infoga radbrytningar efter ett visst antal objekt, och så vidare. Om en renderare inte behöver den här funktionen, behöver det inte godkänna dessa två parametrar.
+Parametrarna `index` och `count` används för att numrera resultat, generera HTML-kod för samlingar och ordna innehåll. Mer specifikt:
 
-Låt oss ta en närmare titt på den `images` renderare:
+* Beräknar storleken på miniatyrbilderna (bredd varierar med minst 120 bildpunkter medan höjden högst får vara 90 bildpunkter).
+* Skapar HTML `<img>`-tagg för att visa miniatyrbilden.
+* Skapar HTML `<a>`-taggar som länkar till bilden och den sida som innehåller den.
+* Skapar beskrivning som visar information om bilden och den plats som den finns på.
 
 ```javascript
     images: function (item, index, count) {
@@ -357,7 +359,7 @@ Låt oss ta en närmare titt på den `images` renderare:
         if (index === 0) html.push("<p class='images'>");
         var title = escape(item.name) + "\n" + getHost(item.hostPageDisplayUrl);
         html.push("<p class='images' style='max-width: " + width + "px'>");
-        html.push("<img src='"+ item.thumbnailUrl + "&h=" + height + "&w=" + width + 
+        html.push("<img src='"+ item.thumbnailUrl + "&h=" + height + "&w=" + width +
             "' height=" + height + " width=" + width + "'>");
         html.push("<br>");
         html.push("<nobr><a href='" + item.contentUrl + "'>Image</a> - ");
@@ -367,51 +369,44 @@ Låt oss ta en närmare titt på den `images` renderare:
     }, // relatedSearches renderer omitted
 ```
 
-Vår bilder renderare-funktionen:
+Miniatyrbildernas `height` och `width` används i både `<img>`-taggen och fälten `h` och `w` i miniatyrbildens webbadress. På så sätt kan Bing returnera [en miniatyrbild](resize-and-crop-thumbnails.md) med den exakta storleken.
 
-> [!div class="checklist"]
-> * Beräknar storlek på miniatyrbilderna bild (bredd varierar, med minst 120 bildpunkter, medan höjd bestäms till 90 bildpunkter).
-> * Skapar HTML `<img>` tagg för att visa bilden i avbildningen. 
-> * Skapar HTML `<a>` taggar som länkar till avbildningen och den sida som innehåller den.
-> * Skapar beskrivning som visar information om bilden och den plats som den är aktiverad.
+## <a name="persisting-client-id"></a>Bestående klient-ID
 
-Vi testa den `index` variabeln för att infoga en `<p>` tag innan det första resultatet av avbildningen. Miniatyrer annars butt visa varandra och radbyte efter behov i webbläsarfönstret.
+Svar från API:er för Bing Search kan innehålla ett `X-MSEdge-ClientID`-huvud som ska skickas tillbaka till API:et med efterföljande förfrågningar. Om flera API:er för Bing-sökning används ska samma klient-ID användas för dem om möjligt.
 
-Storlek på miniatyrbilderna används i både den `<img>` tagg och `h` och `w` fält i URL: en på miniatyrbilden. Den [miniatyr Bing-tjänsten](resize-and-crop-thumbnails.md) levererar en miniatyr av exakt den storleken.
+När `X-MSEdge-ClientID`-huvudet tillhandahålls kan Bing-API:er associera alla sökningar för en användare, vilket är användbart i
 
-## <a name="persisting-client-id"></a>Spara klient-ID
+Först hjälper Bing-sökmotorn till med att tillämpa den senaste kontext på sökningarna för att hitta resultat som bättre tillfredsställer användaren. Om en användare tidigare har sökt efter termer som exempelvis relaterar till segling kan en senare sökning efter ”knopar” returnera information om knopar som används vid segling.
 
-Svar från Bing search API: er kan innehålla en `X-MSEdge-ClientID` rubrik som ska skickas tillbaka till API: et med efterföljande förfrågningar. Om flera Bing Search API: er används måste samma klient-ID användas med dem om möjligt.
+Därefter väljer Bing slumpmässigt ut användare som ska prova nya funktioner innan de blir allmänt tillgängliga. Genom att tillhandahålla samma klient-ID med varje begäran säkerställs att användare som har valts för att se en funktion alltid ser den. Utan klient-ID kan användaren se en funktion som sedan försvinner, till synes slumpmässigt, i sökresultatet.
 
-Att tillhandahålla den `X-MSEdge-ClientID` sidhuvudet tillåter Bing-API: er att koppla alla sökningar för en användare, som har två viktiga fördelar.
-
-Först och hjälper främst Bing sökmotor att tillämpa tidigare kontexten sökningar att hitta resultat som bättre uppfyller användaren. Om en användare har har sökt efter villkor som rör avseglingen, till exempel kan företrädesvis senare söka efter ”knutar” kan returnera information om knutar som används i avseglingen.
-
-Andra väljer Bing slumpmässigt användarna får nya funktioner innan de blir allmänt tillgänglig. Att tillhandahålla samma klient-ID för varje begäran säkerställer att användare som har valts för att se en funktion alltid se den. Utan klient-ID kan användaren ser en funktion som visas och försvinner, till synes slumpmässigt, i sökresultaten.
-
-Webbläsaren säkerhetsprinciper (CORS) kan hindra den `X-MSEdge-ClientID` huvudet från att vara tillgängliga för JavaScript. Den här begränsningen uppstår när search-svar har ett annat ursprung från sidan som begärt det. Du bör hantera den här principen genom att lägga upp ett skript på servern som innehåller API-anrop på samma domän som webbsidan i en produktionsmiljö. Eftersom skriptet har samma ursprung som webbsida, den `X-MSEdge-ClientID` huvudet är sedan tillgängliga för JavaScript.
+Säkerhetsprinciper för webbläsaren (CORS) kan hindra att `X-MSEdge-ClientID`-huvudet visas för JavaScript. Den här begränsningen uppstår när söksvaret har ett annat ursprung än sidan som begärt det. I en produktionsmiljö bör du hantera den här principen genom att lägga upp ett serverskript som gör API-anrop på samma domän som webbsidan. Eftersom skriptet har samma ursprung som webbsidan är sedan `X-MSEdge-ClientID`-huvudet tillgängligt för JavaScript.
 
 > [!NOTE]
-> I en produktionsmiljö webbprogram ska du utföra begäran serversidan ändå. Annars måste Bing Search API-nyckeln ingå i webbsidan där den är tillgänglig för alla som visar källa. Du debiteras för användning i alla under din API prenumeration nyckel även begäranden obehöriga personer så att det är viktigt att inte visa din nyckel.
+> Du bör utföra begäran på serversidan i ett produktionsklart webbprogram ändå. I annat fall måste API-nyckeln för Bing-sökning inkluderas i webbsidan där den är tillgänglig för alla som visar källan. Du debiteras för all användning under din API-prenumerationsnyckel, även begäranden som görs av obehöriga personer, så det är viktigt att inte exponera nyckeln.
 
-Du kan göra sökningen Bing webb-API-begäran via en proxyserver för CORS för utveckling. Svaret från en sådan proxy har en `Access-Control-Expose-Headers` huvud som whitelists svarshuvuden och gör dem tillgängliga för JavaScript.
+I utvecklingssyfte kan du begära API för webbsökning i Bing via en CORS-proxy. Svaret från en sådan proxy har ett `Access-Control-Expose-Headers`-huvud som vitlistar svarshuvuden och gör dem tillgängliga för JavaScript.
 
-Det är lätt att installera en CORS-proxy för att tillåta huvud-ID för våra självstudier app åtkomst till klienten. Första, om du inte redan har det, [installera Node.js](https://nodejs.org/en/download/). Sedan kör du följande kommando i Kommandotolken:
+Det är enkelt att installera en CORS-proxy för att tillåta att självstudien får åtkomst till klientens ID-huvud. [Installera Node.js](https://nodejs.org/en/download/) om du inte redan har det. Sedan kör du följande kommando ett kommandofönster:
 
     npm install -g cors-proxy-server
 
-Ändra Bing webbsökning slutpunkten i HTML-filen:
+Ändra slutpunkten för webbsökning i Bing i HTML-filen till:
 
     http://localhost:9090/https://api.cognitive.microsoft.com/bing/v7.0/search
 
-Slutligen starta CORS-proxy med följande kommando:
+Slutligen startar du CORS-proxyn med följande kommando:
 
     cors-proxy-server
 
-Lämna Kommandotolken öppen när du använder appen självstudiekursen; stänger fönstret stoppar proxyn. I avsnittet nedan sökresultaten utbyggbara HTTP-huvuden, kan du nu se den `X-MSEdge-ClientID` huvud (bland andra) och kontrollera att det är samma för varje begäran.
+Lämna kommandofönstret öppet medan du använder självstudieappen. Om du stänger fönstret stoppas proxyn. I det expanderbara avsnittet om HTTP-huvuden nedan kan du nu se `X-MSEdge-ClientID`-huvudet (bland annat) under sökresultatet och du kan kontrollera att det är samma för varje begäran.
 
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Bing avbildningen Sök API-referens](//docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference)
+> [Extrahera avbildningsinformation med hjälp av API för bildsökning i Bing](tutorial-image-post.md)
 
+## <a name="see-also"></a>Se även
+
+* [API-referens för bildsökning i Bing](//docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference)

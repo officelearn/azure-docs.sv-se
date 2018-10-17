@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 05/18/2018
 ms.author: ryanwi
-ms.openlocfilehash: a1e8c53263093554bb616ec130cd17a0d6d4339c
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: 7573746b91f057d83a299d54801785118cc1c878
+ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43302923"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44380139"
 ---
 # <a name="tutorial-deploy-a-net-application-in-a-windows-container-to-azure-service-fabric"></a>Självstudiekurs: Distribuera ett .NET-program i en Windows-container till Azure Service Fabric
 
@@ -225,7 +225,7 @@ Följ distributionsförloppet i utdatafönstret  När programmet har distribuera
 ![Fabrikam-webbexempel][fabrikam-web-page-deployed]
 
 ## <a name="set-up-continuous-integration-and-deployment-cicd-with-a-service-fabric-cluster"></a>Konfigurera kontinuerlig integrering och distribution (CI/CD) med ett Service Fabric-kluster
-Lär dig hur du använder VSTS för att konfigurera CI/CD-programdistribution till ett Service Fabric-kluster i [Självstudie: Distribuera ett program med CI/CD till ett Service Fabric-kluster](service-fabric-tutorial-deploy-app-with-cicd-vsts.md). Den process som beskrivs i självstudien är densamma för det här projektet (FabrikamFiber), förutom att du hoppar nedladdningen av Voting-exemplet och använder FabrikamFiber som namnet på lagringsplatsen i stället för Voting.
+Mer information om hur du använder Azure DevOps för att konfigurera en CI/CD-programdistribution till ett Service Fabric-kluster finns i [Självstudiekurs: Distribuera ett program med CI/CD till ett Service Fabric-kluster](service-fabric-tutorial-deploy-app-with-cicd-vsts.md). Den process som beskrivs i självstudien är densamma för det här projektet (FabrikamFiber), förutom att du hoppar nedladdningen av Voting-exemplet och använder FabrikamFiber som namnet på lagringsplatsen i stället för Voting.
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 När du är klar tar du bort alla resurser du skapat.  Det enklaste sättet att göra det är att ta bort resursgrupperna som innehåller Service Fabric-klustret, Azure SQL-databasen och Azure Container Registry.
@@ -254,8 +254,7 @@ I den här självstudiekursen lärde du dig att:
 > * Skapa ett Azure-containerregister
 > * Distribuera ett Service Fabric-program till Azure
 
-I nästa del av kursen lär du dig att konfigurera [övervakning för containern](service-fabric-tutorial-monitoring-wincontainers.md).
-
+I nästa del av självstudierna lär du dig hur du [distribuerar ett containerprogram med CI/CD till ett Service Fabric-kluster](service-fabric-tutorial-deploy-container-app-with-cicd-vsts.md).
 
 [link-fabrikam-github]: https://aka.ms/fabrikamcontainer
 [link-azure-powershell-install]: /powershell/azure/install-azurerm-ps

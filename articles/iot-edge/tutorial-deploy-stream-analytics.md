@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 6997d40603bd6ebf39f8797a3e354e92c04da58d
-ms.sourcegitcommit: 42405ab963df3101ee2a9b26e54240ffa689f140
+ms.openlocfilehash: de856aed32b596209f7af2861b76ed6648d0caca
+ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47422753"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49067830"
 ---
 # <a name="tutorial-deploy-azure-stream-analytics-as-an-iot-edge-module-preview"></a>Självstudie: Distribuera Azure Stream Analytics som en IoT Edge-modul (förhandsversion)
 
@@ -139,7 +139,9 @@ I det här avsnittet används de tre elementen för indata, utdata och fråga f�
 
 För att förbereda Stream Analytics-jobbet för distribution till en IoT Edge-enhet måste du associera jobbet med en container i ett lagringskonto. När du sedan distribuerar jobbet exporteras jobbdefinitionen till lagringscontainern. 
 
-1. Under **Konfigurera** väljer du **inställningar för IoT Edge**.
+1. Under **Konfigurera** väljer du **Inställningar för lagringskonto**.
+
+1. Välj **Lägg till lagringskonto**. 
 
 1. Välj ditt **Lagringskonto** från den nedrullningsbara menyn.
 

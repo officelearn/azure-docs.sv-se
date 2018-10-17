@@ -1,63 +1,56 @@
 ---
-title: Analysera en fjärrbild med Visuellt innehåll och Python | Microsoft Docs
-titleSuffix: Microsoft Cognitive Services
-description: I den här snabbstarten ska du analysera en fjärrbild med Visuellt innehåll och Python i Cognitive Services.
+title: 'Snabbstart: Analysera en fjärrbild REST, Python – Visuellt innehåll'
+titleSuffix: Azure Cognitive Services
+description: I den här snabbstarten analyserar du en fjärrbild med hjälp av API:et för visuellt innehåll med Python.
 services: cognitive-services
 author: noellelacharite
-manager: nolachar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: computer-vision
 ms.topic: quickstart
 ms.date: 08/28/2018
 ms.author: v-deken
-ms.openlocfilehash: 65f9b0d4fb007a6a9b8ef489ca59f384e047a0dd
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: 1fc7c58ec4e5c200ae62c70698db7ec813d82703
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43772339"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48883949"
 ---
-# <a name="quickstart-analyze-a-remote-image---rest-python"></a>Snabbstart: Analysera en fjärrbild – REST, Python
+# <a name="quickstart-analyze-a-remote-image-using-the-rest-api-and-python-in-computer-vision"></a>Snabbstart: Analysera en fjärrbild med hjälp av REST-API:et och Python i Visuellt innehåll
 
-I den här snabbstarten ska du analysera en fjärrbild med hjälp av Visuellt innehåll. Om du vill analysera en lokal bild läser du [Analysera en lokal bild med Python](python-disk.md).
+I den här snabbstarten analyserar du en fjärrlagrad bild för att extrahera visuella funktioner med hjälp av REST API för visuellt innehåll. Med metoden [Analyze Image](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) (Analysera bild) kan du extrahera visuella funktioner baserat på bildinnehåll.
 
 Du kan köra den här snabbstarten steg för steg med hjälp av en Jupyter-anteckningsbok på [MyBinder](https://mybinder.org). Starta Binder med den här knappen:
 
 [![Binder](https://mybinder.org/badge.svg)](https://mybinder.org/v2/gh/Microsoft/cognitive-services-notebooks/master?filepath=VisionAPI.ipynb)
 
+Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/ai/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=cognitive-services) innan du börjar.
+
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
-För att använda Visuellt innehåll behöver du en prenumerationsnyckel. Mer information finns i avsnittet [Obtaining Subscription Keys](../Vision-API-How-to-Topics/HowToSubscribe.md) (Hämta prenumerationsnycklar).
+- Du måste ha [Python](https://www.python.org/downloads/) installerat om du vill köra exemplet lokalt.
+- Du måste ha en prenumerationsnyckel för Visuellt innehåll. Du kan skaffa en prenumerationsnyckel genom att följa anvisningarna i [Skaffa prenumerationsnycklar](../Vision-API-How-to-Topics/HowToSubscribe.md).
 
-## <a name="analyze-a-remote-image"></a>Analysera en fjärrbild
+## <a name="create-and-run-the-sample"></a>Skapa och köra exemplet
 
-Med metoden [Analyze Image](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) (Analysera bild) kan du extrahera visuella funktioner baserat på innehållet. Du kan ladda upp en bild eller ange en bild-URL och välja vilka funktioner som ska returneras, inklusive:
+Så här skapar du och kör exemplet:
 
-* En detaljerad lista över taggar relaterade till bildinnehållet.
-* En beskrivning av innehållet i en fullständig mening.
-* Koordinater, kön och ålder för ansikten som finns i bilden.
-* Bildtyp (ClipArt eller en linjeteckning).
-* Den mest framträdande färgen, accentfärgen eller om en bild är svartvit.
-* Kategorin som definierats i den här [taxonomin](../Category-Taxonomy.md).
-* Innehåller bilden innehåll som inte är lämpligt för barn?
-
-För att köra exemplet följer du dessa steg:
-
-1. Kopiera följande kod till en ny Python-skriptfil.
-1. Ersätt `<Subscription Key>` med en giltig prenumerationsnyckel.
-1. Ändra värdet `vision_base_url` till den plats där du hämtade dina prenumerationsnycklar, om det behövs.
-1. Du kan också ändra `image_url`-värdet till en annan bild.
-1. Kör skriptet.
-
-Följande kod använder Python `requests`-biblioteket för att anropa API:et för visuellt innehåll Analysera bild. Det returnerar resultatet som ett JSON-objekt. API-nyckeln skickas via `headers`-ordlistan. De typer av funktioner som ska identifieras skickas via `params`-ordlistan.
-
-## <a name="analyze-image-request"></a>Bildanalysbegäran
+1. Kopiera följande kod till en textredigerare.
+1. Gör nedanstående ändringar i koden där det behövs:
+    1. Ersätt värdet för `subscription_key` med din prenumerationsnyckel.
+    1. Ersätt värdet för `vision_base_url` med slutpunktens URL för resursen för Visuellt innehåll i den Azure-region där du fick dina prenumerationsnycklar, om så behövs.
+    1. Du kan också ersätta värdet för `image_url` med webbadressen till en annan bild som du vill analysera.
+1. Spara koden som en fil med tillägget `.py`. Till exempel `analyze-image.py`.
+1. Öppna ett kommandotolksfönster.
+1. I kommandotolken kör du exemplet med kommandot `python`. Till exempel `python analyze-image.py`.
 
 ```python
 import requests
 # If you are using a Jupyter notebook, uncomment the following line.
 #%matplotlib inline
 import matplotlib.pyplot as plt
+import json
 from PIL import Image
 from io import BytesIO
 
@@ -89,7 +82,7 @@ response.raise_for_status()
 # The 'analysis' object contains various fields that describe the image. The most
 # relevant caption for the image is obtained from the 'description' property.
 analysis = response.json()
-print(analysis)
+print(json.dumps(response.json()))
 image_caption = analysis["description"]["captions"][0]["text"].capitalize()
 
 # Display the image and overlay it with the caption.
@@ -97,11 +90,12 @@ image = Image.open(BytesIO(requests.get(image_url).content))
 plt.imshow(image)
 plt.axis("off")
 _ = plt.title(image_caption, size="x-large", y=-0.1)
+plt.show()
 ```
 
-## <a name="analyze-image-response"></a>Bildanalyssvar
+## <a name="examine-the-response"></a>Granska svaret
 
-Ett svar som anger att åtgärden lyckades returneras i JSON, till exempel:
+Ett svar som anger att åtgärden lyckades returneras i JSON. Exempelwebbsidan parsar och visar ett lyckat svar i kommandotolkens fönster enligt följande exempel:
 
 ```json
 {
@@ -175,9 +169,13 @@ Ett svar som anger att åtgärden lyckades returneras i JSON, till exempel:
 }
 ```
 
+## <a name="clean-up-resources"></a>Rensa resurser
+
+Ta bort filen när den inte längre behövs.
+
 ## <a name="next-steps"></a>Nästa steg
 
-Utforska ett Python-program som använder Visuellt innehåll för att utföra optisk teckenläsning (OCR), skapa miniatyrbilder med smart beskärning och identifiera, kategorisera, tagga och beskriv visuella funktioner, inklusive ansikten, i en bild. Du kan snabbt experimentera med API:erna för visuellt innehåll genom att prova [Open API-testkonsolen](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa/console).
+Utforska ett Python-program som använder Visuellt innehåll för att utföra optisk teckenläsning (OCR), skapa miniatyrbilder med smart beskärning och identifiera, kategorisera, tagga och beskriv visuella funktioner, inklusive ansikten, i en bild. Du kan experimentera med API för visuellt innehåll i [Open API-testkonsolen](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa/console).
 
 > [!div class="nextstepaction"]
 > [Självstudie: API för visuellt innehåll med Python](../Tutorials/PythonTutorial.md)

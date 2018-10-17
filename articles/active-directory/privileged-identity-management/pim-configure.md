@@ -13,16 +13,16 @@ ms.topic: overview
 ms.date: 03/07/2018
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: ff4e5322ac9ccc0bbfd0706ca9f4863670bbf1b5
-ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
+ms.openlocfilehash: af93ade2a7031aeda5b4108649c59a8d6c1393ce
+ms.sourcegitcommit: 06724c499837ba342c81f4d349ec0ce4f2dfd6d6
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43186219"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46465868"
 ---
 # <a name="what-is-azure-ad-privileged-identity-management"></a>Vad är Azure AD Privileged Identity Management?
 
-Med Azure Active Directory (AD) Privileged Identity Management kan du hantera, kontrollera och övervaka åtkomst inom din organisation. Detta innefattar åtkomsten till resurser i Azure AD, Azure Resources (förhandsversion) och andra Microsoft Online-tjänster som Office 365 och Microsoft Intune.
+Med Azure Active Directory (Azure AD) Privileged Identity Management kan du hantera, kontrollera och övervaka åtkomst inom din organisation. Detta innefattar åtkomsten till resurser i Azure AD, Azure Resources och andra Microsoft Online-tjänster som Office 365 och Microsoft Intune.
 
 > [!NOTE]
 > När du aktiverar Privileged Identity Management för din klientorganisation krävs en giltig Azure AD Premium P2- eller Enterprise Mobility + Security E5-licens (betald licens eller utvärderingslicens) för varje användare som interagerar med eller får en förmån från tjänsten. Exempel innefattar användare/användare i en grupp som:
@@ -39,11 +39,11 @@ Organisationer behöver minimera antalet personer som har åtkomst till skyddad 
 
 Med Azure AD Privileged Identity Management kan din organisation:
 
-- Se vilka användare som har tilldelats privilegierade roller för att hantera Azure-resurser (förhandsversion), samt vilka användare som har tilldelats administrativa roller i Azure AD.
-- Aktivera administrativ åtkomst ”just in time” och på begäran till Microsoft Online-tjänster som Office 365 och Intune, och till Azure-resurser (förhandsversion) i prenumerationer, resursgrupper och enskilda resurser, t.ex. virtuella datorer. 
--   Visa en historik över administratörsaktivering, inklusive vilka ändringar administratörer har gjort i Azure-resurser (förhandsversion).
+- Se vilka användare som har tilldelats privilegierade roller för att hantera Azure-resurser, samt vilka användare som har tilldelats administrativa roller i Azure AD
+- Aktivera administrativ åtkomst ”just in time” och på begäran till Microsoft Online-tjänster som Office 365 och Intune, och till Azure-resurser i prenumerationer, resursgrupper och enskilda resurser, t.ex. virtuella datorer 
+- Visa en historik över administratörsaktivering, inklusive vilka ändringar administratörer har gjort i Azure-resurser
 - Få meddelanden om ändringar i administratörstilldelningar.
-- Kräva godkännande för att aktivera privilegierade administratörsroller i Azure AD (förhandsversion). 
+- Kräva godkännande för att aktivera privilegierade administratörsroller i Azure AD
 - Granska medlemskap i administrativa roller och kräva att användare anger en motivering för fortsatt medlemskap.
 
 I Azure AD kan Azure AD Privileged Identity Management hantera användare som tilldelats till inbyggda Azure AD-organisationsroller, t.ex. Global administratör. I Azure kan Azure AD Privileged Identity Management hantera användare och grupper som tilldelats via Azure RBAC-roller, t.ex. Ägare och Deltagare.
@@ -100,17 +100,17 @@ För Azure RBAC-roller kan endast en prenumerationsadministratör, en resursäga
 
 ## <a name="privileged-identity-management-overview-entry-point"></a>Privileged Identity Management – översikt (startpunkt)
 
-Azure AD Privileged Identity Management har stöd för administration av Azure AD-katalogroller och roller för Azure-resurser (förhandsversion). Funktionen för roller för Azure-resurser skiljer sig från administrativa roller i Azure AD. Azure-resursroller ger behörighet på detaljnivå för den resurs där de är tilldelade, samt alla underordnade resurser i resurshierarkin (detta kallas arv). [Lär dig mer om RBAC, resurshierarkin och arv](../../role-based-access-control/role-assignments-portal.md). PIM för både Azure AD-katalogroller och Azure-resurser (förhandsversion) kan administreras via relevant länk under avsnittet Hantera på den vänstra navigeringsmenyn från PIM-översiktens startpunkt.
+Azure AD Privileged Identity Management har stöd för administration av Azure AD-katalogroller och roller för Azure-resurser. Funktionen för roller för Azure-resurser skiljer sig från administrativa roller i Azure AD. Azure-resursroller ger behörighet på detaljnivå för den resurs där de är tilldelade, samt alla underordnade resurser i resurshierarkin (detta kallas arv). [Lär dig mer om RBAC, resurshierarkin och arv](../../role-based-access-control/role-assignments-portal.md). PIM för både Azure AD-katalogroller och Azure-resurser kan administreras via relevant länk under avsnittet Hantera på den vänstra navigeringsmenyn från PIM-översiktens startpunkt.
 
 I PIM kan du enkelt aktivera roller, visa väntande aktiveringar/begäranden, väntande godkännanden (för Azure AD-katalogroller) och granskningar som väntar på ditt svar i avsnittet Uppgifter på den vänstra navigeringsmenyn.
 
-När du använder något av menyalternativen i Uppgifter från översiktens startpunkt innehåller den resulterande vyn resultat för både Azure AD-katalogroller och Azure-resursroller (förhandsversion).
+När du använder något av menyalternativen i Uppgifter från översiktens startpunkt innehåller den resulterande vyn resultat för både Azure AD-katalogroller och Azure-resursroller.
 
 ![Snabbstart](./media/pim-configure/quick-start.png)
 
-Mina roller innehåller en lista över aktiva och berättigade rolltilldelningar för Azure AD-katalogroller och Azure-resursroller (förhandsversion). [Lär dig mer om hur du aktiverar berättigade rolltilldelningar](pim-how-to-activate-role.md).
+Mina roller innehåller en lista över aktiva och berättigade rolltilldelningar för Azure AD-katalogroller och Azure-resursroller. [Lär dig mer om hur du aktiverar berättigade rolltilldelningar](pim-how-to-activate-role.md).
 
-Aktiveringen av roller för Azure-resurser (förhandsversion) introducerar nya funktioner som gör att berättigade medlemmar i en roll kan schemalägga aktiveringen till ett framtida datum eller en framtida tidpunkt och välja en specifik varaktighet för aktiveringen inom den maxgräns som tillåts av administratörer.
+Aktiveringen av roller för Azure-resurser introducerar nya funktioner som gör att berättigade medlemmar i en roll kan schemalägga aktiveringen till ett framtida datum eller en framtida tidpunkt och välja en specifik varaktighet för aktiveringen inom den maxgräns som tillåts av administratörer.
 
 ![](./media/pim-configure/activations.png)
 
@@ -126,15 +126,15 @@ Azure AD Privileged Identity Manager innehåller en administratörsinstrumentpan
 * Det antal användare som har tilldelats varje privilegierad roll  
 * Antalet berättigade och permanenta administratörer
 * Ett diagram över aktiveringar av privilegierade roller i din katalog
-*   Antalet tilldelningar som är just-in-time, tidsbegränsade och permanenta för Azure-resursroller (förhandsversion)
-*   Användare och grupper med nya rolltilldelningar under de senaste 30 dagarna (Azure-resursroller)
+* Antalet tilldelningar som är just-in-time, tidsbegränsade och permanenta för Azure-resursroller
+* Användare och grupper med nya rolltilldelningar under de senaste 30 dagarna (Azure-resursroller)
 
 
 ![PIM-instrumentpanel – skärmbild](./media/pim-configure/PIM_Admin_Overview.png)
 
 ## <a name="privileged-role-management"></a>Hantering av privilegierade roller
 
-Med Azure AD Privileged Identity Management kan du hantera administratörerna genom att lägga till eller ta bort permanenta eller berättigade administratörer till varje roll för Azure AD-katalogroller. Med PIM för Azure-resurser (förhandsversion) kan ägare, administratörer för användaråtkomst och globala administratörer som aktiverar hantering av prenumerationer i deras klientorganisationer tilldela användare eller grupper till Azure-resursroller som berättigad (just-in-time-åtkomst) eller tidsbunden (kräver ingen aktivering) åtkomst med ett start- och slutdatum/tid, eller permanent (om det har aktiverats i rollinställningarna).
+Med Azure AD Privileged Identity Management kan du hantera administratörerna genom att lägga till eller ta bort permanenta eller berättigade administratörer till varje roll för Azure AD-katalogroller. Med PIM för Azure-resurser kan ägare, administratörer för användaråtkomst och globala administratörer som aktiverar hantering av prenumerationer i deras klientorganisationer tilldela användare eller grupper till Azure-resursroller som berättigad (just-in-time-åtkomst) eller tidsbunden (kräver ingen aktivering) åtkomst med ett start- och slutdatum/tid, eller permanent (om det har aktiverats i rollinställningarna).
 
 ![PIM: lägg till/ta bort administratörer – skärmbild](./media/pim-configure/PIM_AddRemove.png)
 
@@ -146,13 +146,13 @@ Med hjälp av [rollinställningarna](pim-how-to-change-default-settings.md) kan 
 * Rollaktiveringsmeddelandet
 * Den information som en användare måste ange under rollaktiveringsprocessen
 * Tjänstbiljett eller incidentnummer
-* [Krav för godkännandearbetsflöde – förhandsversion](./azure-ad-pim-approval-workflow.md)
+* [Krav för godkännandearbetsflöde](./azure-ad-pim-approval-workflow.md)
 
 ![PIM-inställningar – administratörsaktivering – skärmbild](./media/pim-configure/PIM_Settings_w_Approval_Disabled.png)
 
 Observera att knapparna för **multifaktorautentisering** i bilden är inaktiverade. För vissa mycket privilegierade roller krävs multifaktorautentisering (MFA) för extra skydd.
 
-Med hjälp av rollinställningarna för Azure-resursroller (förhandsversion) kan administratörer konfigurera inställningar för just-in-time- och direkttilldelning, inklusive:
+Med hjälp av rollinställningarna för Azure-resursroller kan administratörer konfigurera inställningar för just-in-time- och direkttilldelning, inklusive:
 
 - Möjligheten att tilldela användare eller grupper till roller utan ett slutdatum/tid (permanent tilldelning)
 - Standardvaraktigheten för en tilldelning (när den är inte permanent)
@@ -173,7 +173,7 @@ Rollaktiveringen kan anpassas. I PIM-inställningarna kan du kontrollera aktiver
 
 ## <a name="review-role-activity"></a>Granska rollaktivitet
 
-Det finns två sätt att spåra hur anställda och administratörer använder privilegierade roller. Det första alternativet är att använda [Granskningshistorik för katalogroller](pim-how-to-use-audit-log.md). Granskningshistorikloggarna spårar ändringar i privilegierade rolltilldelningar, rollaktiveringshistorik samt ändringar av inställningar för Azure-resursroller (förhandsversion). 
+Det finns två sätt att spåra hur anställda och administratörer använder privilegierade roller. Det första alternativet är att använda [Granskningshistorik för katalogroller](pim-how-to-use-audit-log.md). Granskningshistorikloggarna spårar ändringar i privilegierade rolltilldelningar, rollaktiveringshistorik samt ändringar av inställningar för Azure-resursroller. 
 
 ![PIM-aktiveringshistorik – skärmbild](./media/pim-configure/PIM_ActivationHistory.png)
 

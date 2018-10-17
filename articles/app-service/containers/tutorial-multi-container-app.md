@@ -15,16 +15,16 @@ ms.topic: tutorial
 ms.date: 06/25/2018
 ms.author: msangapu
 ms.custom: mvc
-ms.openlocfilehash: e99d6e917df1bf3bbb4658524f1b3e249a01da72
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: ff3659bd0f4001424ce27484f08a645f364c2ef6
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39433892"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44054646"
 ---
 # <a name="tutorial-create-a-multi-container-preview-app-in-web-app-for-containers"></a>Självstudie: Skapa en app med flera containrar (förhandsversion) med Web App for Containers
 
-Med [Web App for Containers](app-service-linux-intro.md) får du ett flexibelt sätt att använda Docker-avbildningar. I den här självstudien lär du dig hur du skapar en app med flera containrar med hjälp av WordPress och MySQL. Du genomför den här självstudiekursen i Cloud Shell men du kan även köra dessa kommandon lokalt med [Cloud Shell](/cli/azure/install-azure-cli) (2.0.32 eller senare).
+Med [Web App for Containers](app-service-linux-intro.md) får du ett flexibelt sätt att använda Docker-avbildningar. I den här självstudien lär du dig hur du skapar en app med flera containrar med hjälp av WordPress och MySQL. Du genomför den här självstudiekursen i Cloud Shell men du kan även köra dessa kommandon lokalt med kommandoradsgränssnittet [Azure CLI](/cli/azure/install-azure-cli) (2.0.32 eller senare).
 
 I den här kursen får du lära du dig att:
 > [!div class="checklist"]
@@ -588,6 +588,30 @@ När databasen skapas visar Cloud Shell information som ser ut ungefär så här
 }
 ```
 
+### <a name="create-a-multi-container-app-kubernetes"></a>Skapa en app för flera containrar (Kubernetes)
+
+I Cloud Shell skapar du en [webbapp](app-service-linux-intro.md) med flera containrar i resursgruppen `myResourceGroup` och App Service-planen `myAppServicePlan` med kommandot [az webapp create](/cli/azure/webapp?view=azure-cli-latest#az-webapp-create). Glöm inte att ersätta _\<app_name>_ med ett unikt appnamn.
+
+```bash
+az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app_name> --multicontainer-config-type kube --multicontainer-config-file kubernetes-wordpress.yml
+```
+
+När webbappen har skapats visar en Cloud Shell utdata liknande den i följande exempel:
+
+```json
+{
+  "availabilityState": "Normal",
+  "clientAffinityEnabled": true,
+  "clientCertEnabled": false,
+  "cloningInfo": null,
+  "containerSize": 0,
+  "dailyMemoryTimeQuota": 0,
+  "defaultHostName": "<app_name>.azurewebsites.net",
+  "enabled": true,
+  < JSON data removed for brevity. >
+}
+```
+
 ### <a name="configure-database-variables-in-wordpress"></a>Konfigurera databasvariabler i WordPress
 
 För att ansluta WordPress-appen till den nya MySQL-servern konfigurerar du ett par WordPress-specifika miljövariabler. Du kan göra denna ändring med hjälp av kommandot [az webapp config appsettings set](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) i Cloud Shell. Appinställningar är skifteslägeskänsliga och avgränsas med blanksteg.
@@ -645,30 +669,6 @@ När appinställningen har skapats visar Cloud Shell information som ser ut unge
     "value": "TRUE"
   }
 ]
-```
-
-### <a name="create-a-multi-container-app-kubernetes"></a>Skapa en app för flera containrar (Kubernetes)
-
-I Cloud Shell skapar du en [webbapp](app-service-linux-intro.md) med flera containrar i resursgruppen `myResourceGroup` och App Service-planen `myAppServicePlan` med kommandot [az webapp create](/cli/azure/webapp?view=azure-cli-latest#az-webapp-create). Glöm inte att ersätta _\<app_name>_ med ett unikt appnamn.
-
-```bash
-az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app_name> --multicontainer-config-type kube --multicontainer-config-file kubernetes-wordpress.yml
-```
-
-När webbappen har skapats visar en Cloud Shell utdata liknande den i följande exempel:
-
-```json
-{
-  "availabilityState": "Normal",
-  "clientAffinityEnabled": true,
-  "clientCertEnabled": false,
-  "cloningInfo": null,
-  "containerSize": 0,
-  "dailyMemoryTimeQuota": 0,
-  "defaultHostName": "<app_name>.azurewebsites.net",
-  "enabled": true,
-  < JSON data removed for brevity. >
-}
 ```
 
 ### <a name="browse-to-the-app"></a>Bläddra till appen

@@ -1,19 +1,21 @@
 ---
-title: 'Snabbstart: Använda Python för att anropa API för webbsökning i Bing'
+title: 'Snabbstart: Utföra en sökning med Python – API för webbsökning i Bing'
+titleSuffix: Azure Cognitive Services
 description: I den här snabbstarten lär du dig att göra ditt första anrop API för webbsökning i Bing med Python och att ta emot ett JSON-svar.
 services: cognitive-services
 author: erhopf
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-web-search
 ms.topic: quickstart
 ms.date: 8/16/2018
 ms.author: erhopf
-ms.openlocfilehash: cd53a323a07617284e82004a6b3feed57b6e15e2
-ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
+ms.openlocfilehash: 22dc88d2b924587818f7767105872f01f2e43faf
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42888615"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46129156"
 ---
 # <a name="quickstart-use-python-to-call-the-bing-web-search-api"></a>Snabbstart: Använda Python för att anropa API för webbsökning i Bing  
 

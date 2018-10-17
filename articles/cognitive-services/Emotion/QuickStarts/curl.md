@@ -1,35 +1,37 @@
 ---
-title: Känslo-API cURL Snabbstart | Microsoft Docs
-description: Hämta information och exempel på kod för att snabbt komma igång med Känslo-API med cURL i kognitiva Services.
+title: 'Snabbstart: Känsloigenkänning i ansikten i en bild – Känslo-API, cURL'
+titlesuffix: Azure Cognitive Services
+description: Hämta information och kodexempel som hjälper dig att snabbt komma igång med Känslo-API:et med cURL.
 services: cognitive-services
 author: anrothMSFT
-manager: corncar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: emotion-api
-ms.topic: article
+ms.topic: quickstart
 ms.date: 05/23/2017
 ms.author: anroth
-ms.openlocfilehash: a7ca2cac718797462bb4dc889b3f1361b252435e
-ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
-ms.translationtype: MT
+ROBOTS: NOINDEX
+ms.openlocfilehash: dfdaa89c9d29e419539f385f601dc7f264bf838e
+ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37021106"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48237083"
 ---
-# <a name="emotion-api-curl-quick-start"></a>Känslo-API cURL Snabbstart
+# <a name="quickstart-build-an-app-to-recognize-emotions-on-faces-in-an-image"></a>Snabbstart: Bygg en app för känsloigenkänning i ansikten i en bild.
 
 > [!IMPORTANT]
-> Förhandsgranskning av video API avslutas på 30 oktober 2017. Prova den nya [Video indexeraren API Preview](https://azure.microsoft.com/services/cognitive-services/video-indexer/) enkelt extrahera insikter från videor och förbättra innehållsidentifiering upplevelser, till exempel sökresultat med hjälp av tal, ytor, tecken och känslor. [Läs mer](https://docs.microsoft.com/azure/cognitive-services/video-indexer/video-indexer-overview).
+> Känslo-API:et kommer att bli inaktuellt den 15 februari 2019. Funktionen för känsloigenkänning är nu allmänt tillgänglig som en del av [Ansikts-API:et](https://docs.microsoft.com/azure/cognitive-services/face/).
 
-Den här artikeln innehåller information och kodexempel som hjälper dig att snabbt komma igång med den [Känslo-API känner igen metoden](https://westus.dev.cognitive.microsoft.com/docs/services/5639d931ca73072154c1ce89/operations/563b31ea778daf121cc3a5fa) med cURL för att identifiera emotikoner uttryckt genom en eller flera personer i en bild. 
+Den här artikeln innehåller information och kodexempel som hjälper dig att snabbt komma igång med att använda [metoden Recognize för Känslo-API:et](https://westus.dev.cognitive.microsoft.com/docs/services/5639d931ca73072154c1ce89/operations/563b31ea778daf121cc3a5fa) med cURL för att känna igen känslor som uttrycks av en eller flera personer i en bild.
 
 ## <a name="prerequisite"></a>Krav
-* Hämta din kostnadsfria prenumerationen nyckel [här](https://azure.microsoft.com/try/cognitive-services/)
+* Få din kostnadsfria prenumerationsnyckel [här](https://azure.microsoft.com/try/cognitive-services/)
 
-## <a name="recognize-emotions-curl-example-request"></a>Identifiera emotikoner cURL exempel begäran
+## <a name="recognize-emotions-curl-example-request"></a>Exempelbegäran för känsloigenkänning med cURL
 
 > [!NOTE]
-> Du måste använda samma plats i REST-anrop som du använde för att hämta dina nycklar för prenumerationen. Till exempel om du har köpt din prenumeration nycklar från westcentralus Ersätt ”westus” i URL-Adressen nedan med ”westcentralus”.
+> Du måste använda samma plats i REST-anropet som du använde för att hämta prenumerationsnycklarna. Om du till exempel hämtade prenumerationsnycklarna från regionen westcentralus (USA, västra centrala), ersätter du ”westus” i URL:en nedan med ”westcenbtralus”.
 
 ```json
 @ECHO OFF
@@ -38,16 +40,16 @@ curl -v -X POST "https://westus.api.cognitive.microsoft.com/emotion/v1.0/recogni
 -H "Content-Type: application/json"
 -H "Ocp-Apim-Subscription-Key: {subscription key}"
 
---data-ascii "{body}" 
+--data-ascii "{body}"
 ```
 
-## <a name="recognize-emotions-sample-response"></a>Identifiera emotikoner Exempelsvar
-Lyckade anrop returnerar en matris av framsidan poster och deras associerade känslo poäng rangordnas efter ansikte rektangel storlek i fallande ordning. Ett tomt svar anger att ingen ytor upptäcktes. Känslo-posten innehåller följande fält:
-* faceRectangle - placering av ansikte i avbildningen.
-* resultat - Place poängen för varje yta i bilden. 
+## <a name="recognize-emotions-sample-response"></a>Exempelsvar för känsloigenkänning
+Ett genomfört anrop returnerar en matris med ansiktsposter och deras associerade känsloresultat, rankade efter ansiktsrektangelns storlek i fallande ordning. Ett tomt svar indikerar att inga ansikten kändes igen. En känslopost innehåller följande fält:
+* faceRectangle – ansiktsrektangelns placering i bilden.
+* scores – känsloresultat för varje ansikte i bilden.
 
 ```json
-application/json 
+application/json
 [
   {
     "faceRectangle": {
@@ -68,4 +70,3 @@ application/json
     }
   }
 ]
-

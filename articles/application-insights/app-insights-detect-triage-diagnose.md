@@ -12,14 +12,14 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.custom: mvc
 ms.topic: overview
-ms.date: 06/26/2017
+ms.date: 09/06/2018
 ms.author: mbullwin
-ms.openlocfilehash: b83d08b9dac4fccc033ad4537afd343a6fbe02c2
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: 799593758bf24924d91d38bd6a626b945247183b
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/01/2017
-ms.locfileid: "23947321"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44050246"
 ---
 # <a name="overview-of-application-insights-for-devops"></a>Översikt över Application Insights för DevOps
 
@@ -64,7 +64,7 @@ Men en viktigare detalj är att en avisering om eventuella fel skickas till utve
 ## <a name="monitor-performance"></a>Övervaka prestanda
 På översiktssidan i Application Insights finns det ett diagram som visar flera olika [viktiga mått](app-insights-web-monitor-performance.md).
 
-![Olika mått](./media/app-insights-detect-triage-diagnose/05-perfMetrics.png)
+![Skärmbild av översiktdiagram för KPI-prestanda](./media/app-insights-detect-triage-diagnose/overview-graphs.png)
 
 Webbläsarens sidhämtningstid beräknas från telemetri som skickas direkt från webbsidor. Serversvarstid, antal serverförfrågningar och antal misslyckade förfrågningar mäts alla på webbservern och skickas till Application Insights därifrån.
 
@@ -72,7 +72,7 @@ Marcela är lite bekymrad över grafen för serversvar. Den här grafen visar de
 
 Hon öppnar serverdiagrammen:
 
-![Olika mått](./media/app-insights-detect-triage-diagnose/06.png)
+![Olika mått](./media/app-insights-detect-triage-diagnose/002-servers.png)
 
 Det verkar inte finnas några tecken på resursbegränsningar där, så kanske är topparna på serversvarsdiagrammen bara ett sammanträffande.
 
@@ -154,7 +154,7 @@ Undantag och händelser visas på bladet för [diagnostiksökning](app-insights-
 ## <a name="monitor-proactively"></a>Övervaka proaktivt
 Marcela sitter inte bara och väntar på aviseringar. Kort efter varje ny distribution tittar hon på [svarstider](app-insights-web-monitor-performance.md), både de övergripande siffrorna och tabellen med de långsammaste förfrågningarna, samt antalet undantag.  
 
-![Graf för svarstid och rutnät med serversvarstider.](./media/app-insights-detect-triage-diagnose/09-dependencies.png)
+![Graf för svarstid och rutnät med serversvarstider.](./media/app-insights-detect-triage-diagnose/response-time.png)
 
 Hon kan bedöma prestandaeffekten för varje distribution, och jämför normalt varje vecka med den föregående. Om det sker en plötslig försämring tar hon upp det med aktuella utvecklare.
 
@@ -168,8 +168,6 @@ Däremot kan en dramatisk och stabil ökning i grafen med antal undantag eller s
 En bra prioriteringstaktik är att prova själv. Om du stöter på samma problem vet du att det är på riktigt.
 
 Hur stor andel av användarna påverkas? Man kan få fram ett ungefärligt svar genom att dela felfrekvensen med antalet sessioner.
-
-![Diagram över misslyckade förfrågningar och sessioner](./media/app-insights-detect-triage-diagnose/10-failureRate.png)
 
 När svaren är långsamma jämför man tabellen med förfrågningarna med långsammast svar med användningsfrekvensen för varje sida.
 
@@ -203,7 +201,6 @@ Utvecklingsteamet på Fabrikam Banks använder en mer strukturerad metod för pr
 * Man konfigurerar prestandamål för särskilda mått på översiktssidan för Application Insights.
 * Man utformar prestandamått i programmet redan från början, t.ex. mått som mäter användarnas väg genom ”trattar”.  
 
-
 ## <a name="monitor-user-activity"></a>Övervaka användaraktivitet
 När svarstiden är konsekvent bra och det finns få undantag kan utvecklingsteamet gå vidare till användarvänlighet. Man kan tänka på hur man kan förbättra användarnas upplevelse, och hur man kan uppmuntra fler användare att uppnå önskade mål.
 
@@ -211,7 +208,7 @@ Application Insights kan också användas för att få veta hur användarna anv�
 
 En typisk användarresa genom webbplatsen har till exempel en tydlig ”tratt”. Många kunder tittar på räntorna för olika typer av lån. Ett mindre antal går vidare till att fylla i offertformuläret. Av de som får en offert är det få som går vidare till att ta ett lån.
 
-![Antal sidvisningar](./media/app-insights-detect-triage-diagnose/12-funnel.png)
+![Antal sidvisningar](./media/app-insights-detect-triage-diagnose/funnel.png)
 
 Genom att fundera över var de flesta kunderna försvinner kan företaget lista ut hur man kan få fler kunder vidare till trattens ände. I vissa fall kan det vara ett fel med användarupplevelsen (UX), knappen ”nästa” kanske är svår att hitta, eller så är inte anvisningarna tillräckligt tydliga. Det är ännu mer sannolikt att det finns affärsorsaker till bortfallet: kanske är låneräntorna för höga.
 

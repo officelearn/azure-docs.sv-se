@@ -1,21 +1,21 @@
 ---
-title: Hämta meningslängden med Translator Text och Node.js | Microsoft Docs
-titleSuffix: Microsoft Cognitive Services
-description: I den här snabbstarten ska du hämta längden på meningar i text med hjälp av Translator Text-API:et med Node.js i Cognitive Services.
+title: 'Snabbstart: Hämta meningslängder – Translator Text, Nods.js'
+titleSuffix: Azure Cognitive Services
+description: I den här snabbstarten ska du hämta längden på meningar i text med hjälp av Translator Text-API:et med Node.js.
 services: cognitive-services
 author: noellelacharite
-manager: nolachar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-text
 ms.topic: quickstart
 ms.date: 06/21/2018
 ms.author: nolachar
-ms.openlocfilehash: 42fe27df2f0d6aacecfe2b9b01ad0061c2fea646
-ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
+ms.openlocfilehash: 9a55642ae41eb311121c9e334472a8afbc8d9925
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "43770959"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46127215"
 ---
 # <a name="quickstart-get-sentence-lengths-with-nodejs"></a>Snabbstart: Hämta meningslängden med Node.js
 

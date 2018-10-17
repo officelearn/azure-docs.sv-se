@@ -6,13 +6,13 @@ author: mamccrea
 ms.author: mamccrea
 ms.reviewer: mamccrea
 ms.topic: overview
-ms.date: 09/24/2018
-ms.openlocfilehash: 152a145601dcf4282ec0a3a3b6ebcf37bd11848b
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.date: 10/04/2018
+ms.openlocfilehash: ade162d0261b765336cbff9ea8a6429f9bd2d871
+ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46992974"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48801849"
 ---
 # <a name="hdinsight-40-overview-preview"></a>Översikt över HDInsight 4.0 (förhandsversion)
 
@@ -93,6 +93,12 @@ Det finns ingen uppgraderingsväg som stöds från tidigare versioner av HDI til
 * HDI 4.0 stöder inte MapReduce. Använd Tez i stället. Läs mer om [Apache Tez](https://tez.apache.org/).
 
 * Hive-vyn finns inte längre i HDI 4.0. 
+
+* Shell-tolken i Apache Zeppelin stöds inte i Spark och i Interaktiva frågekluster.
+
+* Det går inte att *inaktivera* LLAP i ett Spark-LLAP-kluster. Du kan bara inaktivera LLAP.
+
+* Azure Data Lake Storage Gen2 kan inte spara Juypter-anteckningsböcker i ett Spark-kluster.
 
 ## <a name="next-steps"></a>Nästa steg
 

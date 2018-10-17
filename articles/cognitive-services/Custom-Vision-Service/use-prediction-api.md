@@ -1,52 +1,53 @@
 ---
-title: Använd Custom Vision Service förutsägelse slutpunkt - Azure Cognitive Services | Microsoft Docs
-description: 'Lär dig hur du använder API: T programmatiskt bilder med din klassificerare för Custom Vision Service.'
+title: 'Exempel: Använd förutsägelseslutpunkt för att programmatiskt testa bilder med klassificerare – Custom Vision'
+titlesuffix: Azure Cognitive Services
+description: Lär dig hur du använder API:et för att programmatiskt testa bilder med din klassificerare för Custom Vision Service.
 services: cognitive-services
 author: anrothMSFT
-manager: corncar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: custom-vision
-ms.topic: article
+ms.topic: sample
 ms.date: 05/03/2018
 ms.author: anroth
-ms.openlocfilehash: d7f9b90db06811e16cd0cd6ad2b32a27912cfee5
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
-ms.translationtype: MT
+ms.openlocfilehash: 3a81f3cef6aaeb5c98022d9fc93f4d84f3f58a6e
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43341801"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46363657"
 ---
-# <a name="use-the-prediction-endpoint-to-test-images-programmatically-with-a-custom-vision-service-classifier"></a>Använd förutsägelse-slutpunkten för att testa avbildningar via programmering med en klassificerare för Custom Vision Service
+# <a name="use-the-prediction-endpoint-to-test-images-programmatically-with-a-custom-vision-service-classifier"></a>Använd förutsägelseslutpunkten för att testa bilder programmatiskt med en klassificerare för Custom Vision Service
 
-När du träna din modell testa du avbildningar via programmering genom att skicka dem till förutsägelse-API. 
+När du tränar din modell kan du testa bilder programmatiskt genom att skicka dem till förutsägelse-API:et. 
 
 > [!NOTE]
-> Det här dokumentet visar hur du använder C# för att skicka en avbildning förutsägelse-API: et. Mer information och exempel på användning av API: et finns i den [förutsägelse-API-referens](https://go.microsoft.com/fwlink/?linkid=865445).
+> Det här dokumentet visar hur du använder C# för att skicka en bild till förutsägelse-API:et. Mer information och exempel på användning av API:et finns i [Referens för förutsägelse-API](https://go.microsoft.com/fwlink/?linkid=865445).
 
-## <a name="get-the-url-and-prediction-key"></a>Hämta nyckel för URL- och förutsägelsetransaktioner
+## <a name="get-the-url-and-prediction-key"></a>Hämta URL och förutsägelsenyckel
 
-Från den [Custom Vision-webbsida](https://customvision.ai), markera projektet och välj sedan den __prestanda__ fliken. Att visa information om hur du använder förutsägelse-API, inklusive den __förutsägelse-key__väljer __förutsägelse URL__. För projekt som är kopplade till en Azure-resurs din __förutsägelse-key__ finns också i den [Azure-portalen](https://portal.azure.com) för associerade Azure-resurs under __nycklar__. Kopiera följande information för användning i programmet:
+Från [Custom Vision-webbsidan](https://customvision.ai), markera projektet och välj sedan fliken __prestanda__. För att visa information om hur du använder förutsägelse-API, inklusive __förutsägelsenyckel__ väljer du __förutsägelse-URL__. För projekt som är kopplade till en Azure-resurs kan din __förutsägelsenyckel__ också hittas i [Azure Portal](https://portal.azure.com) för associerad Azure-resurs under __nycklar__. Kopiera följande information för användning i programmet:
 
-* __URL: en__ för att använda en __bildfil__.
-* __Förutsägelse-key__ värde.
+* __URL__ för att använda en __bildfil__.
+* Värde för __Förutsägelsenyckel__.
 
 > [!TIP]
-> Om du har flera iterationer kan styra du vilken som används genom att ange den som standard. Välj iteration från den __iterationer__ avsnittet och välj sedan __ange som standard__ överst på sidan.
+> Om du har flera iterationer kan du styra vilken som används genom att ange den som standard. Välj iteration från avsnittet __iterationer__ och välj sedan __ange som standard__ överst på sidan.
 
-![Fliken prestanda visas med en röd rektangel omger URL: en förutsägelse.](./media/use-prediction-api/prediction-url.png)
+![Prestandafliken visas med en röd rektangel runt förutsägelse-URL:en.](./media/use-prediction-api/prediction-url.png)
 
 ## <a name="create-the-application"></a>Skapa programmet
 
-1. Skapa ett nytt C#-konsolprogram i Visual Studio.
+1. Skapa ett nytt C#-konsolprogram från Visual Studio.
 
-2. Använd följande kod som huvudstycket i den __Program.cs__ fil.
+2. Använd följande kod som brödtext i filen __Program.cs__.
 
     > [!IMPORTANT]
     > Ändra följande information:
     >
-    > * Ange den __namnområde__ till namnet på ditt projekt.
-    > * Ange den __förutsägelse-Key__ värde som du fick tidigare på raden som börjar med `client.DefaultRequestHeaders.Add("Prediction-Key",`.
-    > * Ange den __URL__ värde som du fick tidigare på raden som börjar med `string url =`.
+    > * Ange __namnområdet__ till namnet på ditt projekt.
+    > * Ange det värde för __förutsägelsenyckeln__ som du fick tidigare på raden som börjar med `client.DefaultRequestHeaders.Add("Prediction-Key",`.
+    > * Ange det värde för __URL__ som du fick tidigare på raden som börjar med `string url =`.
 
     ```csharp
     using System;
@@ -103,9 +104,9 @@ Från den [Custom Vision-webbsida](https://customvision.ai), markera projektet o
     }
     ```
 
-## <a name="use-the-application"></a>Använda programmet
+## <a name="use-the-application"></a>Använd programmet
 
-När du kör programmet, ange sökvägen till en bildfil. Avbildningen skickas till API: et och resultaten returneras som JSON-dokument. Följande JSON är ett exempel på svaret
+När du kör programmet, ange sökvägen till en bildfil. Bilden skickas till API:et och resultaten returneras som ett JSON-dokument. Följande JSON är ett exempel på svaret
 
 ```json
 {
@@ -122,4 +123,4 @@ När du kör programmet, ange sökvägen till en bildfil. Avbildningen skickas t
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Exportera modellen för mobil användning](export-your-model.md)
+[Exportera modellen för mobilanvändning](export-your-model.md)

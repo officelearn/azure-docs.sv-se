@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: quickstart
 ms.date: 06/20/2018
 ms.author: jingwang
-ms.openlocfilehash: d314c04a40155fccc99660bacdb9f646ce77b22f
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: a4e41408a3af2e6bb68c14f2e34bf1141bf349c1
+ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43107596"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48017815"
 ---
 # <a name="use-the-copy-data-tool-to-copy-data"></a>Kopiera data med verktyget Kopiera data 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service that you are using:"]
@@ -52,13 +52,9 @@ I den här snabbstarten använder du Azure-portalen för att skapa en datafabrik
 1. För **Version** väljer du **V2**.
 1. För **Plats** väljer du en plats för datafabriken. 
 
-   Endast platser som stöds visas på listan. Datalager (som Azure Storage och Azure SQL Database) och beräkningar (som HDInsight) som används i Data Factory kan finnas på andra platser/regioner.
+   I listan visas endast platser som Data Factory har stöd för och var dina Azure Data Factory-metadata kommer att lagras. Observera att de associerade datalagren (såsom Azure Storage och Azure SQL Database) och beräkningar (som HDInsight) som används i Data Factory kan köras i andra regioner.
 
-1. Välj **fäst till instrumentpanelen**.     
 1. Välj **Skapa**.
-1. Du ser följande panel på instrumentpanelen med statusen **Distribuerar datafabrik**: 
-
-    ![Panelen Distribuerar datafabrik](media/quickstart-create-data-factory-copy-data-tool/deploying-data-factory.png)
 1. När datafabriken har skapats visas sidan **Datafabrik**. Välj panelen **Författare och övervakare** för att starta användargränssnittet för Azure Data Factory på en separat flik.
    
    ![Startsidan för datafabriken med panelen Författare och övervakare](./media/quickstart-create-data-factory-copy-data-tool/data-factory-home-page.png)

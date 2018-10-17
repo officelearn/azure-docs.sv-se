@@ -1,5 +1,5 @@
 ---
-title: 'Självstudie: Träna en modell för avbildningsklassificering med Azure Machine Learning'
+title: 'Självstudie: Träna en modell för avbildningsklassificering med Azure Machine Learning-tjänsten'
 description: Den här självstudien visar hur du använder Azure Machine Learning-tjänsten för att träna en modell för avbildningsklassificering med scikit-learn i en Python Jupyter-anteckningsbok. Den här självstudien är del ett i en serie med två delar.
 services: machine-learning
 ms.service: machine-learning
@@ -9,18 +9,18 @@ author: hning86
 ms.author: haining
 ms.reviewer: sgilley
 ms.date: 09/24/2018
-ms.openlocfilehash: 6fbca5e83d8ab4b3c34c6448c7a2303697da623b
-ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
+ms.openlocfilehash: 7110d8df5ee837829f97fec8ab26d929689e3436
+ms.sourcegitcommit: 4edf9354a00bb63082c3b844b979165b64f46286
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47181406"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48785146"
 ---
-# <a name="tutorial-1-train-an-image-classification-model-with-azure-machine-learning"></a>Självstudie 1: Träna en modell för avbildningsklassificering med Azure Machine Learning
+# <a name="tutorial-1-train-an-image-classification-model-with-azure-machine-learning-service"></a>Självstudie #1: Träna en modell för avbildningsklassificering med Azure Machine Learning-tjänsten
 
 I den här självstudien ska du träna en maskininlärningsmodell, både lokalt och på fjärranslutna beräkningsresurser. Du ska använda tränings- och distributionsarbetsflödet för Azure Machine Learning-tjänsten (förhandsversion) i en Python Jupyter-anteckningsbok.  Du kan sedan använda anteckningsboken som en mall för att träna din egen maskininlärningsmodell med egna data. Den här självstudien är **del ett i en självstudieserie i två delar**.  
 
-Den här självstudien tränar en enkel logistikregression med hjälp av [MNIST](http://yann.lecun.com/exdb/mnist/)-datauppsättningen och [scikit-learn](http://scikit-learn.org) med Azure Machine Learning.  MNIST är en populär datauppsättning som består av 70 000 gråskalebilder. Varje bild är en handskriven siffra på 28 × 28 pixlar, som representerar ett tal från 0 till 9. Målet är att skapa en klassificerare för flera klasser som identifierar siffran som en viss bild representerar. 
+Den här självstudien tränar en enkel logistikregression med hjälp av [MNIST](http://yann.lecun.com/exdb/mnist/)-datauppsättningen och [scikit-learn](http://scikit-learn.org) med Azure Machine Learning-tjänsten.  MNIST är en populär datauppsättning som består av 70 000 gråskalebilder. Varje bild är en handskriven siffra på 28 × 28 pixlar, som representerar ett tal från 0 till 9. Målet är att skapa en klassificerare för flera klasser som identifierar siffran som en viss bild representerar. 
 
 Lär dig att:
 
@@ -37,7 +37,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 
 ## <a name="get-the-notebook"></a>Hämta anteckningsboken
 
-Den här självstudien är tillgänglig som en Jupyter-anteckningsbok. Använd någon av de två metoderna nedan för att klona [GitHub-databasen med exempelanteckningsböckerna för maskininlärning](https://github.com/Azure/MachineLearningNotebooks) och kör `tutorials/01.train-models.ipynb`-anteckningsboken:
+Självstudien finns tillgänglig som en [Jupyter Notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/tutorials/01.train-models.ipynb). Kör `01.train-models.ipynb`-anteckningsboken antingen i Azure Notebooks eller i din egen Jupyter-anteckningsboksserver.
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-in-azure-notebook.md)]
 
@@ -454,7 +454,7 @@ compute_target.delete()
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här självstudien för Azure Machine Learning har du använt Python för att:
+I den här självstudien för Azure Machine Learning-tjänsten har du använt Python för att:
 
 > [!div class="checklist"]
 > * Ställ in din utvecklingsmiljö

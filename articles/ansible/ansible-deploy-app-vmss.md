@@ -7,13 +7,13 @@ author: tomarcher
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
-ms.date: 08/24/2018
-ms.openlocfilehash: 762c14b5b6e30f6410a8d572d69651c803f079c2
-ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
+ms.date: 09/11/2018
+ms.openlocfilehash: 3512cb7eda9f9e5a6e18dc83f6523029b17a9de2
+ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42918094"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44391478"
 ---
 # <a name="deploy-applications-to-virtual-machine-scale-sets-in-azure-using-ansible"></a>Distribuera program till skalningsuppsättningar för virtuella datorer i Azure med Ansible
 Med Ansible kan du automatisera distributionen och konfigurationen av resurser i din miljö. Du kan distribuera program till Azure med Ansible. I den här artikeln får du se hur du distribuerar ett Java-program till en Azure VM-skalningsuppsättning (VMSS).  
@@ -31,7 +31,7 @@ Med Ansible kan du automatisera distributionen och konfigurationen av resurser i
 
 ## <a name="get-host-information"></a>Hämta värdinformation
 
-I den här delen visas hur du använder Ansible för att hämta värdinformation för en grupp med virtuella Azure-datorer. Nedan finns ett Ansible-spelboksexempel. Koden hämtar de offentliga IP-adresserna och belastningsutjämnaren i den angivna resursgruppen och skapar en värdgrupp med namnet **saclesethosts** i inventeringen. 
+I den här delen visas hur du använder Ansible för att hämta värdinformation för en grupp med virtuella Azure-datorer. Nedan finns ett Ansible-spelboksexempel. Koden hämtar de offentliga IP-adresserna och belastningsutjämnaren i den angivna resursgruppen och skapar en värdgrupp med namnet **scalesethosts** i inventeringen. 
 
 Spara följande exempelspelbok som `get-hosts-tasks.yml`: 
 

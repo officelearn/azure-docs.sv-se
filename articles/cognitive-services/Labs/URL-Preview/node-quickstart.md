@@ -1,39 +1,41 @@
 ---
-title: Node.js Snabbstart för Project URL Preview - kognitiva Microsoft-tjänster | Microsoft Docs
-description: Komma igång med URL-förhandsgranskning i kognitiva Microsoft-tjänster i Azure.
+title: 'Snabbstart: Förhandsgranskning av projekt-URL, Node.js'
+titlesuffix: Azure Cognitive Services
+description: Kom igång med URL-förhandsgranskning i Microsoft Cognitive Services på Azure.
 services: cognitive-services
 author: mikedodaro
+manager: cgronlun
 ms.service: cognitive-services
-ms.technology: project-url-preview
-ms.topic: article
+ms.component: project-url-preview
+ms.topic: quickstart
 ms.date: 03/16/2018
-ms.author: rosh, v-gedod
-ms.openlocfilehash: 195033d2740b11873baae095cec028dc8d19ce49
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
-ms.translationtype: MT
+ms.author: rosh
+ms.openlocfilehash: b8410127ed9a0444ab400eb3242868a85bd5b2c9
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35354012"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48883575"
 ---
-# <a name="url-preview-node-quickstart"></a>URL: en förhandsgranskning nod Snabbstart
+# <a name="quickstart-url-preview-with-nodejs"></a>Snabbstart: URL-förhandsgranskning med Node.js 
 
-Noden med följande exempel skapas en förhandsgranskning för URL: en för webbplatsen SwiftKey: https://swiftkey.com/en.
+Node-exemplet nedan skapar en URL-förhandsgranskning för webbplatsen SwiftKey: https://swiftkey.com/en.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
-Hämta en åtkomstnyckel för den kostnadsfria utvärderingsversionen [kognitiva Services Labs](https://aka.ms/answersearchsubscription)
+Hämta en åtkomstnyckel för den kostnadsfria utvärderingsversionen av [Cognitive Services Labs](https://aka.ms/answersearchsubscription)
 
-## <a name="code-scenario"></a>Koden scenario 
+## <a name="code-scenario"></a>Kodscenario 
 
-Följande kod hämtar URL förhandsgranska data.
-De är implementerade i följande steg:
-1. Deklarera variabler för att ange slutpunkten av värd och sökväg.
-2. Ange fråge-URL för att förhandsgranska och Lägg till Frågeparametern.  
+Följande kod hämtar data om URL-förhandsgranskning.
+De implementeras i följande steg:
+1. Deklarera variabler för att specificera slutpunkten med hjälp av värd och sökväg.
+2. Ange fråge-URL för att förhandsgranska, och lägga till frågeparametern.  
 3. Skapa en hanterarfunktion för svaret.
-4. Definiera sökfunktionen som skapar begäran och lägger till den *Ocp-Apim-prenumeration-nyckeln* huvud.
-5. Kör sökfunktionen. 
+4. Definiera sökfunktionen som skapar begäran och lägger till rubriken *Ocp-Apim-Subscription-Key*.
+5. Köra sökfunktionen. 
 
-Den fullständiga koden för den här demon följande:
+Här följer den fullständiga koden för demon:
 
 ````
 'use strict';
@@ -84,7 +86,7 @@ Search();
 ````
 
 ## <a name="next-steps"></a>Nästa steg
-- [C#-kodexempel](csharp.md)
-- [Java-Snabbstart](java-quickstart.md)
-- [JavaScript-Snabbstart](javascript.md)
-- [Python-Snabbstart](python-quickstart.md)
+- [Exempelkod för C#](csharp.md)
+- [Snabbstart för Java](java-quickstart.md)
+- [Snabbstart för JavaScript](javascript.md)
+- [Snabbstart för Python](python-quickstart.md)

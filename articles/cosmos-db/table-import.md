@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 11/28/2017
 ms.author: sngun
-ms.openlocfilehash: 905815259707116759e0b980690fac108ab81c7b
-ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
+ms.openlocfilehash: 8614bf7009afab8c005d2ffb8b1a78f3694d2af7
+ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43186838"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48247517"
 ---
 # <a name="migrate-your-data-to-azure-cosmos-db-table-api-account"></a>Migrera data till Azure Cosmos DB Table-API-konto
 
@@ -30,7 +30,9 @@ Den här självstudien omfattar följande uppgifter:
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
-* Öka dataflödet: Hur lång tid datamigreringen tar beror på hur stort dataflöde du anger för en enskild container eller en uppsättning containrar. Du bör öka dataflödet för större datamigreringar. När du har slutfört migreringen kan du minska dataflödet för att sänka kostnaderna. Mer information om hur du ökar dataflödet på Azure Portal finns i avsnittet om prestandanivåer och prisnivåer i Azure Cosmos DB.
+* **Öka dataflödet:** Hur lång tid datamigreringen tar beror på hur stort dataflöde du anger för en enskild container eller en uppsättning containrar. Du bör öka dataflödet för större datamigreringar. När du har slutfört migreringen kan du minska dataflödet för att sänka kostnaderna. Mer information om hur du ökar dataflödet i Azure Portal finns i avsnittet om prestandanivåer och prisnivåer i Azure Cosmos DB.
+
+* **Skapa Azure Cosmos DB-resurser:** Innan du börjar migrera data skapar du alla dina tabeller i förväg från Azure-portalen. Om du migrerar till ett Azure Cosmos DB-konto som har dataflöde på databasnivå anger du en partitionsnyckel när du skapar Azure Cosmos DB-tabellerna.
 
 ## <a name="data-migration-tool"></a>Datamigreringsverktyget
 

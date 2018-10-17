@@ -1,31 +1,31 @@
 ---
 title: Vad är Project Answer Search?
 titlesuffix: Azure Cognitive Services
-description: Introduktion till Svarssökning projekt.
+description: Introduktion till Project Answer Search.
 services: cognitive-services
 author: mikedodaro
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: project-answer-search
-ms.topic: article
+ms.topic: overview
 ms.date: 04/13/2018
 ms.author: rosh
-ms.openlocfilehash: 87fe7b008e3e7c6cd8d1a9a870c0fb8ce2f6a7cd
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
-ms.translationtype: MT
+ms.openlocfilehash: 5658054b3cc77db20edd64f6c560ee5d4a58eb46
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48868266"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48883728"
 ---
 # <a name="what-is-project-answer-search"></a>Vad är Project Answer Search?
-Projektet svar Search API använder Bing v7 slutpunkten för att få svar på interrogative frågor. En fråga som ”hur är omkrets jorden”? Returnerar ett svar med faktauppgifter.  En fråga om en person, plats eller sak returnerar information om entiteten identifieras av frågan. Dessa scenarier kan vara användbart i program, till exempel konversationsanpassade robotar, messaging appar, läsare, osv.  
+Project Answer Search API använder Bing v7-slutpunkten för att hämta svar på interrogativa frågor. En fråga som ”What is the circumference of the earth?” (Hur stor är jordens omkrets?) returnerar ett svar med faktauppgifter.  En fråga om en person, plats eller sak returnerar information om den entitet som identifieras av frågan. Dessa scenarier kan vara användbara i tillämpningar som konversationsrobotar, meddelandeappar, läsare osv.  
 
-Svar som beror på scenariot query-frågor returnerar: webbsidor är alltid returneras, medan [fakta](fact-queries.md) och/eller [entiteter](entity-queries.md) returneras om det behövs.
+Frågor returnerar svar som beror på frågescenariot: webbplatser returneras alltid medan [fakta](fact-queries.md) och/eller [entiteter](entity-queries.md) returneras om de är relevanta.
 
 ## <a name="endpoint"></a>Slutpunkt
-Skicka en begäran till svar Search API-slutpunkt för att få svar på en fråga eller information om en person, plats eller sak. Använd rubriker och URL-parametrar för olika specifikationer.  Inkludera *Ocp-Apim-Subscription-Key* huvud med en giltig token.  Marknaden-parametern är obligatorisk. Endast `en-us` marknaden stöds för närvarande.
+För att hämta svar på en fråga eller information om en person skickar du en begäran till Answer Search API-slutpunkten. Använd sidhuvudena och URL-parametrarna för olika specifikationer.  Inkludera sidhuvudet *Ocp-Apim-Subscription-Key* med en giltig token.  Marknadsparametern krävs. För närvarande stöds endast marknaden `en-us`.
 
-Följande fråga hämtar svar på frågan: ”Vad är omkrets jorden”?
+Följande fråga hämtar svar på frågan: ”What is the circumference of the earth?” (Hur stor är jordens omkrets?)
 
 GET:
 ````
@@ -33,11 +33,11 @@ https://api.labs.cognitive.microsoft.com/answerSearch/v7.0/search?q=what+is+circ
 
 ````
 
-URL-parameter `q=` krävs för att ange objekt av search.
+URL-parametern `q=` krävs för att ange objektet för sökningen.
 
-## <a name="response-object"></a>-Svarsobjekt
+## <a name="response-object"></a>Svarsobjekt
 
-Svaret innehåller HTTP-rubriker, webbsidor, fakta och entiteter.
+Svaret innehåller HTTP-sidhuvuden, webbplatser, fakta och/eller entiteter.
 
 ````
 BingAPIs-TraceId: AB2E75C998614ADB8EBF5110DF648298
@@ -239,22 +239,22 @@ JSON Response:
 ````
 
 ## <a name="terms-of-use"></a>Användningsvillkor
-Svarssökning för projektet och projekt Video trender är föremål för de [Bing Search Använd och visa krav](use-display-requirements.md).
+Project Answer Search och Project Video Trends är föremål för [kraven för användning och visning för Bing-sökning](use-display-requirements.md).
 
-Du eller en tredje part för din räkning kan inte använda, behålla, lagra, cache, delar, eller distribuera alla data från API: et för URL-förhandsgranskning för testning, utveckling, utbildning, distribuerar eller gör tillgänglig någon icke-Microsoft-tjänst eller funktion. 
+Du eller en tredje part för din räkning får inte använda, behålla, lagra, cachelagra, dela eller distribuera data från API:et för URL-förhandsgranskning i syfte att testa, utveckla, träna, distribuera eller tillgängliggöra tjänster eller funktioner som inte kommer från Microsoft. 
 
 ## <a name="throttling-requests"></a>Begränsningsbegäranden
 
 [!INCLUDE [cognitive-services-bing-throttling-requests](../../../../includes/cognitive-services-bing-throttling-requests.md)]
 
 
-## <a name="data-attribution"></a>Data attribution  
+## <a name="data-attribution"></a>Dataattribution  
 
-Projektet Svarssökning svar innehåller information som ägs av tredje part. Du ansvarar för att se till att din användning är lämpligt, till exempel uppfyller en creative commons-licens användarupplevelsen kan förlita sig på.  
+Project Answer Search-svar innehåller information som ägs av tredje part. Du ansvarar för att se till att din användning är lämplig, till exempel genom att följa gällande Creative Commons-licenser som din användarfunktion är beroende av.  
   
-Om ett svar eller ett resultat som innehåller den `contractualRules`, `attributions`, eller `provider` fält, du måste attributet data. Om svaret inte innehåller några av de här fälten, krävs ingen information. Om svaret innehåller den `contractualRules` fält och `attributions` och/eller `provider` fält, måste du använda avtalsenliga reglerna för att attributet data.  
+Om ett svar eller resultat innehåller fälten `contractualRules`, `attributions` eller `provider` måste du attributera data. Om svaret inte innehåller några av de här fälten krävs ingen attribution. Om svaret innehåller fältet `contractualRules` och fälten `attributions` och/eller `provider` måste du använda kontraktsreglerna för att attributera data.  
   
-I följande exempel visas en entitet som innehåller en MediaAttribution avtalsenliga regel och en avbildning som innehåller en `provider` fält. MediaAttribution regeln identifierar bilden som mål för regeln, så att du vill ignorera en bilds `provider` fältet och i stället använda MediaAttribution regeln för att ge information.  
+I följande exempel visas en entitet som innehåller en MediaAttribution-kontraktsregel och en bild som innehåller ett `provider`-fält. MediaAttribution-regeln identifierar bilden som målet för regeln, så du ignorerar bildens `provider`-fält och använder i stället MediaAttribution-regeln för att ge attribution.  
   
 ```  
         "value" : [{
@@ -283,10 +283,10 @@ I följande exempel visas en entitet som innehåller en MediaAttribution avtalse
         }]
 ```  
   
-Om en avtalsenliga regel innehåller den `targetPropertyName` fältet regeln gäller endast för fältet riktade. I annat fall regeln gäller för det överordnade objektet som innehåller den `contractualRules` fält.  
+Om en kontraktsregel innehåller fältet `targetPropertyName` gäller regeln endast för målfältet. Annars gäller regeln för det överordnade objekt som innehåller fältet `contractualRules`.  
   
   
-I följande exempel visas den `LinkAttribution` regeln innehåller den `targetPropertyName` fältet har regeln gäller för den `description` fält. Du måste inkludera en rad direkt efter den aktuella data som innehåller en hyperlänk till leverantörens webbplats för regler som gäller för specifika fält. Till exempel för att attributet beskrivning, inkludera en rad omedelbart efter en beskrivande text som innehåller en hyperlänk till data på leverantörens webbplats, i det här fallet att skapa en länk till en.wikipedia.org.  
+I följande exempel innehåller regeln `LinkAttribution` fältet `targetPropertyName`, så regeln gäller för fältet `description`. För regler som gäller för specifika fält måste du inkludera en rad som följer omedelbart efter måldata som innehåller en hyperlänk till källans webbplats. Exempel: för att attributera beskrivningen inkluderar du en rad omedelbart efter den beskrivande texten som innehåller en hyperlänk till data på källans webbplats. I det här fallet skapar du en länk till en.wikipedia.org.  
   
 ```  
 "entities" : {  
@@ -305,36 +305,36 @@ I följande exempel visas den `LinkAttribution` regeln innehåller den `targetPr
   
 ```  
 
-### <a name="license-attribution"></a>Licens Attribution  
+### <a name="license-attribution"></a>Licensattribution  
 
-Om listan över regler som avtalsenliga innehåller en [LicenseAttribution](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#licenseattribution) regeln, måste du visa meddelandet på raden direkt efter det innehåll som licensen gäller för. Den `LicenseAttribution` regel använder den `targetPropertyName` fält för att identifiera den egenskap som licensen gäller för.  
+Om listan över kontraktsregler innehåller en [LicenseAttribution](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#licenseattribution)-regel måste du visa meddelandet på raden direkt efter det innehåll som licensen gäller för. `LicenseAttribution`-regeln använder fältet `targetPropertyName` för att identifiera den egenskap som licensen gäller för.  
   
-Följande visar ett exempel som innehåller en `LicenseAttribution` regel.  
+Följande visar ett exempel som innehåller en `LicenseAttribution`-regel.  
   
-![Licens attribution](./media/licenseattribution.png)  
+![Licensattribution](./media/licenseattribution.png)  
   
-Licens-meddelande som du visar måste innehålla en hyperlänk till webbplatsen som innehåller information om licensen. Normalt kan göra du namnet på licensen som en hyperlänk. Om meddelandet är till exempel **Text under kopia av SA licens** och kopia av SA är namnet på licensen, du kan göra en kopia av SA en hyperlänk.  
+Det licensmeddelande som du visar måste innehålla en hyperlänk till den webbplats som innehåller information om licensen. Normalt gör du namnet på licensen till en hyperlänk. Exempel: om meddelandet är **Text under CC-AV-SA-licensen** och CC-AV-SA är namnet på licensen, gör du CC-AV-SA till en hyperlänk.  
   
-### <a name="link-and-text-attribution"></a>Länken och Text Attribution  
+### <a name="link-and-text-attribution"></a>Länk- och textattribution  
 
-Den [LinkAttribution](reference.md#linkattribution) och [TextAttribution](reference.md#textattribution) regler används vanligtvis för att identifiera leverantören av data. Den `targetPropertyName` fältet identifierar fältet som regeln gäller för.  
+Reglerna [LinkAttribution](reference.md#linkattribution) och [TextAttribution](reference.md#textattribution) används vanligtvis för att identifiera källan till data. Fältet `targetPropertyName` identifierar det fält som regeln gäller för.  
   
-Inkludera en rad som omedelbart efter det innehåll som gäller för uppgift till (till exempel riktade fältet) för att attributet providers. Raden ska stå tydligt för att visa att providers är källan för data. Till exempel ”Data från: en.wikipedia.org”. För `LinkAttribution` regler, måste du skapa en hyperlänk till leverantörens webbplats.  
+För att attributera källorna inkluderar du en rad omedelbart efter det innehåll som attributionerna gäller för (till exempel målfältet). Raden ska vara tydligt märkt för att visa källorna till data. Ett exempel kan vara ”Data från: en.wikipedia.org”. För `LinkAttribution`-regler måste du skapa en hyperlänk till källans webbplats.  
   
-Följande visar ett exempel som innehåller `LinkAttribution` och `TextAttribution` regler.  
+Följande visar ett exempel som innehåller `LinkAttribution`- och `TextAttribution`-regler.  
   
-![Länken text attribution](./media/linktextattribution.png)  
+![Länktextattribution](./media/linktextattribution.png)  
 
-### <a name="media-attribution"></a>Media Attribution  
+### <a name="media-attribution"></a>Medieattribution  
 
-Om entiteten tas en bild och du visar det, måste du ange en klicka igenom länk till leverantörens webbplats. Om entiteten innehåller en [MediaAttribution](reference.md#mediaattribution) regel, använder regelns URL för att skapa klicka igenom länk. Annars kan du använda URL: en som ingår i en bilds `provider` fält som du vill skapa klicka igenom länk.  
+Om entiteten innehåller en bild och du visar den måste du tillhandahålla en klickbar länk till källans webbplats. Om entiteten innehåller en [MediaAttribution](reference.md#mediaattribution)-regel använder du regelns URL för att skapa den klickbara länken. Annars använder du den URL som ingår i bildens `provider`-fält för att skapa den klickbara länken.  
   
-Följande visar ett exempel som innehåller en bild `provider` fält och avtalsenliga regler. Eftersom exemplet innehåller avtalsenliga regeln, ignoreras avbildningens `provider` och Använd den `MediaAttribution` regeln.  
+Följande visar ett exempel som innehåller en bilds `provider`-fält och kontraktsregler. Eftersom exemplet innehåller kontraktsregeln ignorerar du bildens `provider`-fält och tillämpar `MediaAttribution`-regeln.  
   
-![Media attribution](./media/mediaattribution.png)  
+![Medieattribution](./media/mediaattribution.png)  
 
 ## <a name="next-steps"></a>Nästa steg
 - [Snabbstart för C#](c-sharp-quickstart.md)
 - [Snabbstart för Java](java-quickstart.md)
-- [Snabbstart för noden](node-quickstart.md)
-- [Python-Snabbstart](python-quickstart.md)
+- [Snabbstart för Node](node-quickstart.md)
+- [Snabbstart för Python](python-quickstart.md)

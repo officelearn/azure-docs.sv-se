@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: peterpr
-ms.openlocfilehash: a2601f55bbc7e99321689afdafcab3135b94bd5b
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: 7121c83aea75f3b23820a7b0504fa704ec9f3016
+ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43702552"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "45984313"
 ---
 # <a name="tutorial-define-a-new-device-type-in-your-azure-iot-central-application"></a>Självstudie: Definiera en ny enhetstyp i Azure IoT Central-programmet
 
@@ -427,7 +427,7 @@ Nu när du har definierat enhetsmallen **Ansluten luftkonditioneringsenhet** kan
     | Rubrik                   | Serienummer |
     | Inställningar och egenskaper | Serienummer |
 
-    ![Egenskapsinställningar för serienummer](./media/tutorial-define-device-type/propertysettings1.png)
+    ![Egenskapsinställningar för serienummer](./media/tutorial-define-device-type/propertysettings3.png)
 
     Välja sedan **Spara**.
 
@@ -442,7 +442,7 @@ Nu när du har definierat enhetsmallen **Ansluten luftkonditioneringsenhet** kan
     | Rubrik                   | Version av inbyggd programvara |
     | Inställningar och egenskaper | Version av inbyggd programvara |
 
-    ![Egenskapsinställningar för serienummer](./media/tutorial-define-device-type/propertysettings2.png)
+    ![Egenskapsinställningar för serienummer](./media/tutorial-define-device-type/propertysettings3.png)
 
     Välja sedan **Spara**.
 

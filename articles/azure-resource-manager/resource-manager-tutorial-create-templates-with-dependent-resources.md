@@ -13,18 +13,18 @@ ms.devlang: na
 ms.date: 09/07/2018
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: e5ced038d5f1ab57939221a0392ab436560c348d
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: fe6313c059a1dd1050240ead5f7ca8e3e1512aa6
+ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44160518"
+ms.lasthandoff: 10/01/2018
+ms.locfileid: "47584521"
 ---
 # <a name="tutorial-create-azure-resource-manager-templates-with-dependent-resources"></a>Självstudie: Skapa Azure Resource Manager-mallar med beroende resurser
 
 Lär dig hur du skapar en Azure Resource Manager-mall för att distribuera flera resurser.  När du har skapat mallen distribuerar du mallen med hjälp av Cloud Shell från Azure-portalen.
 
-Vissa resurser kan inte distribueras förrän en annan resurs finns. Till exempel kan du inte skapa den virtuella datorn förrän dess lagringskonto och nätverksgränssnitt finns. Du kan definiera den här relationen genom att göra en resurs beroende av de andra resurserna. Resource Manager utvärderar beroenden mellan resurser och distribuerar dem i beroendeordning. När resurserna inte är beroende av varandra distribuerar Resource Manager dem parallellt. Mer information finns på sidan om att [definiera ordningen för distribution av resurser i Azure Resource Manager-mallar](./resource-group-define-dependencies.md).
+I den här självstudien skapar du ett lagringskonto, en virtuell dator, ett virtuellt nätverk och några andra beroende resurser. Vissa resurser kan inte distribueras förrän en annan resurs finns. Till exempel kan du inte skapa den virtuella datorn förrän dess lagringskonto och nätverksgränssnitt finns. Du kan definiera den här relationen genom att göra en resurs beroende av de andra resurserna. Resource Manager utvärderar beroenden mellan resurser och distribuerar dem i beroendeordning. När resurserna inte är beroende av varandra distribuerar Resource Manager dem parallellt. Mer information finns på sidan om att [definiera ordningen för distribution av resurser i Azure Resource Manager-mallar](./resource-group-define-dependencies.md).
 
 Den här självstudien omfattar följande uppgifter:
 
@@ -33,7 +33,7 @@ Den här självstudien omfattar följande uppgifter:
 > * Utforska mallen
 > * Distribuera mallen
 
-Anvisningarna i den här självstudien skapar en virtuell dator, ett virtuellt nätverk och några andra beroende resurser. 
+Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
@@ -176,4 +176,9 @@ När Azure-resurserna inte längre behövs rensar du de resurser som du har dist
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här självstudien utvecklar och distribuerar du en mall för att skapa en virtuell dator, ett virtuellt nätverk och de beroende resurserna. Mer information om mallar finns i [Förstå strukturen och syntaxen för Azure Resource Manager-mallar](./resource-group-authoring-templates.md).
+I den här självstudien utvecklar och distribuerar du en mall för att skapa en virtuell dator, ett virtuellt nätverk och de beroende resurserna. Information om hur du lär dig att distribuera Azure-resurser baserat på villkor finns i:
+
+
+> [!div class="nextstepaction"]
+> [Använda villkor](./resource-manager-tutorial-use-conditions.md)
+

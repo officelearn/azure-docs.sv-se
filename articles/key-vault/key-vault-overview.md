@@ -14,20 +14,20 @@ ms.topic: overview
 ms.custom: mvc
 ms.date: 07/17/2018
 ms.author: barclayn
-ms.openlocfilehash: b509bf9575c3fdeedd1673d4ffe1395d46e3d919
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.openlocfilehash: aae7836448ff27b4c80d7bb53e108034ee52db1c
+ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44051620"
+ms.lasthandoff: 10/01/2018
+ms.locfileid: "47586299"
 ---
 # <a name="what-is-azure-key-vault"></a>Vad är Azure Key Vault?
 
 Azure Key Vault kan hjälpa dig att lösa följande problem
-- Azure Key Vault kan användas för säker lagring av och kontrollerad åtkomst till token, lösenord, certifikat, API-nycklar och andra hemligheter
-- Azure Key Vault kan även användas som nyckelhanteringslösning. Med Azure Key Vault är det enkelt att skapa och kontrollera de krypteringsnycklar som används för att kryptera dina data. 
-- Azure Key Vault är också en tjänst där du enkelt kan etablera, hantera och distribuera offentliga och privata SSL/TLS-certifikat (Secure Sockets Layer/Transport Layer Security) för användning med Azure och dina interna anslutna resurser. 
-- Hemligheter och nycklar kan skyddas antingen med programvara eller med FIPS 140-2 Level 2-verifierade HSM:er
+- **Hantering av hemligheter** – Azure Key Vault kan användas för säker lagring av och kontrollerad åtkomst till token, lösenord, certifikat, API-nycklar och andra hemligheter
+- **Nyckelhantering** – Azure Key Vault kan även användas som nyckelhanteringslösning. Med Azure Key Vault är det enkelt att skapa och kontrollera de krypteringsnycklar som används för att kryptera dina data. 
+- **Hantering av certifikat** – Azure Key Vault är också en tjänst där du enkelt kan etablera, hantera och distribuera offentliga och privata SSL/TLS-certifikat (Secure Sockets Layer/Transport Layer Security) för användning med Azure och dina interna anslutna resurser. 
+- **Lagra hemligheter som backas upp av Hardware Security-moduler** – Hemligheterna och nycklarna kan skyddas av programvara eller FIPS 140-2 nivå 2-validerade HS-moduler
 
 ## <a name="why-use-azure-key-vault"></a>Därför ska du använda Azure Key Vault
 
@@ -65,7 +65,7 @@ Det ingår ett flertal steg när du lagrar värdefulla data. Säkerhetsinformati
 
 - Eliminera behovet av intern expertis inom maskinvarusäkerhetsmoduler
 - Du kan skala upp med kort varsel vid tillfälliga toppar i organisationens användning.
-- Innehållet i dina nyckelvarv kan replikeras inom en region och till en sekundär region. Key Vault säkerställer tillgängligheten och gör att administratören inte behöver utlösa redundansväxlingen manuellt.
+- Innehållet i dina nyckelvarv kan replikeras inom en region och till en sekundär region. Det här säkerställer tillgängligheten och gör att administratören inte behöver utlösa redundansen manuellt.
 - Du har tillgång till vanliga administrationsalternativ för Azure via portalen, Azure CLI:t och PowerShell.
 - Vissa uppgifter kring certifikat som du köper från offentliga certifikatutfärdare automatiseras, som registrering och förnyelse.
 
@@ -73,7 +73,7 @@ Dessutom kan du särskilja programhemligheter i Azure Key Vaults. Program kan d�
 
 ### <a name="integrate-with-other-azure-services"></a>Integrera med andra Azure-tjänster
 
-Som säker lagring i Azure så har Key Vault använts till att förenkla scenarier som [Azure Disk Encryption](../security/azure-security-disk-encryption.md), funktionen [alltid krypterad]( https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-database-engine) i SQL Server och Azure SQL samt [Azure-webbappar]( https://docs.microsoft.com/azure/app-service/web-sites-purchase-ssl-web-site). Själva Key Vault kan integreras med lagringskonton, händelsehubbar och Log Analytics.
+Som säker lagring i Azure så har Key Vault använts till att förenkla scenarier som [Azure Disk Encryption](../security/azure-security-disk-encryption.md), funktionen [alltid krypterad]( https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-database-engine) i SQL Server och Azure SQL Database samt [Azure-webbappar]( https://docs.microsoft.com/azure/app-service/web-sites-purchase-ssl-web-site). Key Vault kan i sig integreras med lagringskonton, händelsehubbar och Log Analytics.
 
 ## <a name="next-steps"></a>Nästa steg
 

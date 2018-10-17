@@ -1,7 +1,7 @@
 ## <a name="verify-the-output"></a>Verifiera utdata
-Pipelinen skapar automatiskt utdatamappen i blobbehållaren adftutorial. Filen emp.txt kopieras från indatamappen till utdatamappen. 
+Pipelinen skapar automatiskt utdatamappen i blobcontainern adftutorial. Filen emp.txt kopieras från indatamappen till utdatamappen. 
 
-1. På behållarsidan **adftutorial** i Azure-portalen klickar du på **Uppdatera** för att se utdatamappen. 
+1. På containersidan **adftutorial** i Azure-portalen klickar du på **Uppdatera** för att se utdatamappen. 
     
     ![Uppdatera](media/data-factory-quickstart-verify-output-cleanup/output-refresh.png)
 2. Klicka på **output** i mapplistan. 
@@ -16,6 +16,8 @@ När du tar bort en resursgrupp tas alla resurser inklusive datafabriker i den b
 ```powershell
 Remove-AzureRmResourceGroup -ResourceGroupName $resourcegroupname
 ```
+
+Obs! Det kan ta en stund att ta bort en resursgrupp. Ha tålamod under processen
 
 Om du bara vill ta bort datafabriken och inte hela resursgruppen kör du följande kommando: 
 

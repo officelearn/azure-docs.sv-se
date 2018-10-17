@@ -9,14 +9,14 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: tutorial
-ms.date: 06/21/2018
+ms.date: 09/11/2018
 ms.author: jingwang
-ms.openlocfilehash: 1be4769a8a07ac5d4a968ed5aa15ed2e0a2b6db2
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: c1f94c04db69ad44203ef1ada1c3b9fa3df2d779
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43086834"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44718099"
 ---
 # <a name="copy-data-from-azure-blob-storage-to-a-sql-database-by-using-the-copy-data-tool"></a>Kopiera data från Azure Blob Storage till en SQL-databas med verktyget för att kopiera data
 > [!div class="op_single_selector" title1="Select the version of the Data Factory service that you're using:"]
@@ -72,13 +72,7 @@ Förbered din Blob Storage och SQL-databas för självstudien genom att utföra 
     CREATE CLUSTERED INDEX IX_emp_ID ON dbo.emp (ID);
     ```
 
-1. Ge Azure-tjänsterna åtkomst till SQL Server. Kontrollera att inställningen **Tillåt åtkomst till Azure-tjänster** är aktiverad för servern som kör SQL Server. Med den här inställningen kan Data Factory skriva data till din SQL-serverinstans. Gör så här för att kontrollera och aktivera inställningen:
-
-    a. Till vänster väljer du **Fler tjänster** och sedan **SQL-servrar**.
-
-    b. Välj server och sedan **INSTÄLLNINGAR** > **Brandvägg**.
-
-    c. På sidan **Brandväggsinställningar** ställer du in alternativet **Tillåt åtkomst till Azure-tjänster** till **PÅ**.
+2. Ge Azure-tjänsterna åtkomst till SQL Server. Kontrollera att inställningen **Tillåt åtkomst till Azure-tjänster** är aktiverad för servern som kör SQL Database. Med den här inställningen kan Data Factory skriva data till din databasinstans. För att kontrollera och aktivera den här inställningen går du till Azure SQL-servern > **Säkerhet** > **Brandväggar och virtuella nätverk** > ställ in **Tillåt åtkomst till Azure-tjänster** till **PÅ**.
 
 ## <a name="create-a-data-factory"></a>Skapa en datafabrik
 

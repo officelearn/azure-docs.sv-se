@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 09/27/2018
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: 27600cd4656f70b4cd01745667c0e0fd2a2f4997
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: 33b95c1b0e3d654ce8bb6eda3e96b7b3e9c9bc13
+ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47405827"
+ms.lasthandoff: 10/06/2018
+ms.locfileid: "48831491"
 ---
 # <a name="tutorial-deploy-a-linux-service-fabric-cluster-into-an-azure-virtual-network"></a>Självstudie: Distribuera ett Service Fabric kluster i Linux till ett virtuellt Azure-nätverk
 
@@ -85,9 +85,9 @@ Den här mallen distribuerar ett säkert kluster med fem virtuella datorer och e
 
 ### <a name="service-fabric-cluster"></a>Service Fabric-kluster
 
-Ett Linux-kluster distribueras med följande egenskaper:
+I resursen **Microsoft.ServiceFabric/clusters** distribueras ett Linux-kluster med följande egenskaper:
 
-* en enkel nodtyp
+* en enda nodtyp
 * fem noder i den primära nodtypen (kan konfigureras i mallparametrarna)
 * OS: Ubuntu 16.04 LTS (kan konfigureras i mallparametrarna)
 * skyddat certifikat (kan konfigureras i mallparametrarna)
@@ -99,7 +99,7 @@ Ett Linux-kluster distribueras med följande egenskaper:
 
 ### <a name="azure-load-balancer"></a>Azure-lastbalanserare
 
-En lastbalanserare distribueras som söker av och reglerar följande portar:
+I resursen **Microsoft.Network/loadBalancers** har en belastningsutjämnare konfigurerats och avsökningar samt regler har konfigurerats för följande portar:
 
 * klientanslutningsslutpunkt: 19000
 * HTTP-gatewayslutpunkt: 19080
@@ -108,7 +108,7 @@ En lastbalanserare distribueras som söker av och reglerar följande portar:
 
 ### <a name="virtual-network-and-subnet"></a>Virtuellt nätverk och undernät
 
-Namnen på det virtuella nätverket och undernätet deklareras också i mallparametrarna.  Adressutrymmen för det virtuella nätverket och undernätet deklareras också i mallparametrarna:
+Namnen på det virtuella nätverket och undernätet deklareras också i mallparametrarna.  Adressutrymmen i det virtuella nätverket och undernätet deklareras också i mallparametrarna och konfigureras i resursen **Microsoft.Network/virtualNetworks**:
 
 * det virtuella nätverkets adressutrymme: 10.0.0.0/16
 * Service Fabric-undernätsadressutrymme: 10.0.2.0/24

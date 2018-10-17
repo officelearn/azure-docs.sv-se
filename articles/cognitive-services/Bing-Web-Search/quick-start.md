@@ -1,53 +1,54 @@
 ---
-title: Webb-API Sök Snabbstart | Microsoft Docs
-description: Visar hur du kommer igång med Bing webb-API för sökning.
+title: Snabbstart för webb-API för webbsökning
+titleSuffix: Azure Cognitive Services
+description: Visar hur du kommer igång med API:et för webbsökning i Bing.
 services: cognitive-services
 author: swhite-msft
-manager: ehansen
+manager: cgronlun
 ms.assetid: 27B4B51A-D017-44C8-8E4E-9684DC553886
 ms.service: cognitive-services
 ms.component: bing-web-search
-ms.topic: article
+ms.topic: quickstart
 ms.date: 04/15/2017
 ms.author: scottwhi
-ms.openlocfilehash: 0b8c4678a518985a4be3ee426a85b0a85dd2365d
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
-ms.translationtype: MT
+ms.openlocfilehash: af32abe1c61c44b14d0f70033aee54aa7eba7c8b
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35351747"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46126249"
 ---
-# <a name="your-first-bing-search-query"></a>Sökfrågan första Bing
+# <a name="your-first-bing-search-query"></a>Din första Bing-sökfråga
 
-Du måste hämta en nyckel för prenumerationen kognitiva Services innan du kan göra din första anropet. Om du vill få en nyckel finns [försök kognitiva Services](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api).
+Innan du kan göra ditt första anrop måste du skaffa en prenumerationsnyckel för Cognitive Services. Information om hur du skaffar en nyckel finns i [Testa Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api).
 
-För att få sökresultaten kan skickar du en GET-begäran till följande slutpunkt:  
-  
+För att få resultat från en webbsökning skickar du en GET-begäran till följande slutpunkt:  
+
 ```
 https://api.cognitive.microsoft.com/bing/v7.0/search
 ```  
 
 Begäran måste använda HTTPS-protokollet.
 
-Vi rekommenderar att alla begäranden som kommer från en server. Distribuera nyckeln som en del av ett klientprogram ger mer möjlighet för skadliga tredjeparts att komma åt den. Dessutom ger samtal från en server en enkel uppgradering för framtida versioner av API: et.  
-  
-Begäran måste ange den [q](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#query) frågeparameter som innehåller användarens sökord. Men det är valfritt, begäran måste också ange den [mkt](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#mkt) frågeparameter som identifierar marknaden där du vill att resultaten från. En lista över valfria fråga parametrar som `responseFilter` och `textDecorations`, se [frågeparametrar](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#query-parameters). Alla parametervärden för frågan måste vara URL-kodade.  
-  
-Begäran måste ange den [Ocp-Apim-prenumeration-nyckeln](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#subscriptionkey) huvud. Även om det är valfritt, uppmanas du att ange följande huvuden:  
-  
--   [Användaragent](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#useragent)  
+Vi rekommenderar att alla förfrågningar kommer från en server. Om nyckeln distribueras som en del av ett klientprogram ökar risken för att en illvillig tredje part kan komma åt den. Anrop från en server innebär dessutom att det bara finns en enda uppgraderingspunkt för framtida versioner av API:et.  
+
+Begäran måste innehålla frågeparametern [q](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#query), som innehåller användarens sökterm. Även om det är valfritt bör begäran även innehålla frågeparametern [mkt](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#mkt), som identifierar marknaden som du vill att resultatet ska komma från. En lista över valfria frågeparametrar som `responseFilter` och `textDecorations` finns i [Frågeparametrar](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#query-parameters). Alla frågeparametervärden måste vara URL-kodade.  
+
+Begäran måste innehålla huvudet [Ocp-Apim-Subscription-Key](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#subscriptionkey). Även om det är valfritt rekommenderar vi även att följande huvuden finns med:  
+
+-   [User-Agent](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#useragent)  
 -   [X-MSEdge-ClientID](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#clientid)  
--   [X-Sök-ClientIP](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#clientip)  
--   [X sökplats](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#location)  
+-   [X-Search-ClientIP](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#clientip)  
+-   [X-Search-Location](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#location)  
 
-Klientens IP- och plats huvuden är viktiga för att returnera var medveten om innehållet. Om användarens frågan är till exempel *färdas + erfarenheter*, de är förmodligen intresserad erfarenheter närheten deras plats. Om du vill att resultaten ska innehålla erfarenheter som är nära användarens plats måste du inkludera rubriken plats och du kan också klienten IP-huvudet. Det är mindre viktigt om frågetermen uttryckligen nämns en plats (till exempel färdas + erfarenheter florida + nycklar). 
+Sidhuvuden för klientens IP-adress och platsen är viktiga för att returnera platsmedvetet innehåll. Om användarens fråga är till exempel *segling + lektioner* är de förmodligen intresserade av lektioner i närheten av deras plats. Om du vill att resultatet ska innehålla lektioner som finns nära användarens plats måste du inkludera platssidhuvudet och eventuellt klientens IP-sidhuvud. Det är mindre viktigt om söktermen uttryckligen nämner en plats (till exempel segling+lektioner+stockholm).
 
-En lista över alla begärande- och svarshuvuden, finns i [huvuden](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#headers).
+En lista över alla sidhuvuden för begäranden och svar finns i [Sidhuvuden](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#headers).
 
 ## <a name="the-request"></a>Begäran
 
-Nedan visas en sökbegäran som innehåller alla föreslagna frågeparametrar och rubriker. Om det är första gången du anropar någon av API: er för Bing inte med klient-ID-huvudet. Ta bara med klient-ID om du har tidigare påbörjat en Bing-API och Bing returnerade ett klient-ID för användare och enhet kombination. 
-  
+Nedan visas en sökbegäran som innehåller alla föreslagna frågeparametrar och sidhuvuden. Om det är den första gången du anropar ett Bing-API inkluderar du inte klientens ID-huvud. Inkludera endast klient-ID om du har anropat ett Bing-API förut och om Bing returnerade ett klient-ID för användar- och enhetskombinationen.
+
 ```  
 GET https://api.cognitive.microsoft.com/bing/v7.0/search?q=sailing+lessons+seattle&mkt=en-us HTTP/1.1  
 Ocp-Apim-Subscription-Key: 123456789ABCDE  
@@ -57,7 +58,7 @@ X-MSEdge-ClientID: <blobFromPriorResponseGoesHere>
 Host: api.cognitive.microsoft.com  
 ```  
 
-Nedan visas svaret på den tidigare begäranden. Exemplet visar också Bing-specifika svarshuvuden.
+Nedan visas svaret på den tidigare begäran. Exemplet visar också Bing-specifika svarshuvuden.
 
 ```
 BingAPIs-TraceId: 76DD2C2549B94F9FB55B4BD6FEB6AC
@@ -265,6 +266,6 @@ BingAPIs-Market: en-US
 
 ## <a name="next-steps"></a>Nästa steg
 
-Prova att använda API: et. Gå till [webbkonsolen Sök API testa](https://dev.cognitive.microsoft.com/docs/services/56b43eeccf5ff8098cef3807/operations/56b4447dcf5ff8098cef380d). 
+Testa API:et. Gå till [testningskonsolen för webbsöknings-API:et](https://dev.cognitive.microsoft.com/docs/services/56b43eeccf5ff8098cef3807/operations/56b4447dcf5ff8098cef380d).
 
-Mer information om förbrukar svar-objekt finns [söka på webben](./search-the-web.md).
+Mer information om hur du använder svarsobjekten finns i [Söka efter videor på webben](./search-the-web.md).

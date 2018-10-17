@@ -1,38 +1,38 @@
 ---
-title: Entiteten Sök SDK nod quickstart | Microsoft Docs
-description: Installationsprogrammet för entiteten Sök SDK-konsolprogram.
-titleSuffix: Azure cognitive services
+title: 'Snabbstart: SDK för entitetssökning i Bing, Node'
+titleSuffix: Azure Cognitive Services
+description: Konfigurera för SDK för entitetssökning-konsolprogrammet med Node.
 services: cognitive-services
 author: mikedodaro
-manager: rosh
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-entity-search
-ms.topic: article
+ms.topic: quickstart
 ms.date: 02/12/2018
 ms.author: v-gedod
-ms.openlocfilehash: 2904ecfed33334458f9b6a9ca2500cd0bfef13bc
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
-ms.translationtype: MT
+ms.openlocfilehash: 1f2a5f6a1473cde40928ada6e30f6bd9b780543d
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "35355737"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48814890"
 ---
-# <a name="entity-search-sdk-node-quickstart"></a>Entiteten Sök SDK nod Snabbstart
+# <a name="quickstart-bing-entity-search-sdk-with-node"></a>Snabbstart: SDK för entitetssökning i Bing med Node
 
-Bing enheten Sök SDK innehåller funktionerna i REST-API för entiteten frågor och resultaten för tolkning. 
+SDK för entitetssökning i Bing innehåller funktionerna i REST API:et för entitetsfrågor och parsning av resultat. 
 
-Den [källkoden för C# Bing enheten Sök SDK-exempel](https://github.com/Azure-Samples/cognitive-services-node-sdk-samples/blob/master/Samples/entitySearch.js) är tillgänglig på Git-hubben.
+[Källkoden till exemplen med SDK:t för entitetssökning i Bing med C#](https://github.com/Azure-Samples/cognitive-services-node-sdk-samples/blob/master/Samples/entitySearch.js) är tillgänglig på Git Hub.
 ## <a name="application-dependencies"></a>Programberoenden
 
-Om du vill konfigurera ett konsolprogram med Bing enheten Sök SDK kör `npm install azure-cognitiveservices-entitysearch` i din utvecklingsmiljö.
+Om du vill konfigurera ett konsolprogram med SDK:t för entitetssökning i Bing kör du `npm install azure-cognitiveservices-entitysearch` i din utvecklingsmiljö.
 
-## <a name="entity-search-client"></a>Entiteten Sök klienten
-Hämta en [kognitiva åtkomstnyckeln](https://azure.microsoft.com/try/cognitive-services/) under *Sök*. Skapa en instans av den `CognitiveServicesCredentials`:
+## <a name="entity-search-client"></a>Klient för entitetssökning
+Hämta en [Cognitive Services-åtkomstnyckel](https://azure.microsoft.com/try/cognitive-services/) under *Sök*. Skapa en instans av `CognitiveServicesCredentials`:
 ```
 const CognitiveServicesCredentials = require('ms-rest-azure').CognitiveServicesCredentials;
 let credentials = new CognitiveServicesCredentials('YOUR-ACCESS-KEY');
 ```
-Sedan skapa en instans av klienten och söka efter resultat:
+Skapa sedan en instans av klienten och sök efter resultat:
 ```
 const EntitySearchAPIClient = require('azure-cognitiveservices-entitysearch');
 
@@ -47,9 +47,9 @@ entitySearchApiClient.entitiesOperations.search('seahawks').then((result) => {
 });
 
 ```
-Kod som skrivs ut `result.value` objekt till konsolen utan att tolka all text.  Resultaten, om någon per kategori, kommer att omfatta:
-- _skriv: 'Sak'
-- _skriv: 'ImageObject'
+Koden skriver ut `result.value`-objekt till konsolen utan parsning av texten.  I resultaten, om sådana finns för respektive kategori, ingår:
+- _type: 'Thing'
+- _type: 'ImageObject'
 
 <!-- Removing until we can replace with a sanitized version.
 ![Entity results](media/entity-search-sdk-node-quickstart-results.png)
@@ -57,4 +57,4 @@ Kod som skrivs ut `result.value` objekt till konsolen utan att tolka all text.  
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Kognitiva services SDK för Node.js-exempel](https://github.com/Azure-Samples/cognitive-services-node-sdk-samples)
+[Exempel med Cognitive Services SDK för Node.js](https://github.com/Azure-Samples/cognitive-services-node-sdk-samples)

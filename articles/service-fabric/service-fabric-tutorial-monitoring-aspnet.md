@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 09/14/2017
 ms.author: dekapur
 ms.custom: mvc
-ms.openlocfilehash: 30dd3f4a467f19efd2edc7ca26305ee2e7ff05a5
-ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
+ms.openlocfilehash: b592ac10d483bbf0ca058e87f819b8f67847c54e
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "41918281"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44296116"
 ---
 # <a name="tutorial-monitor-and-diagnose-an-aspnet-core-application-on-service-fabric-using-application-insights"></a>Självstudie: Övervaka och diagnostisera en ASP.NET Core-app för Service Fabric med Application Insights
 
@@ -38,7 +38,7 @@ I den här självstudieserien får du lära du dig att:
 > * [Skapa ett .NET Service Fabric-program](service-fabric-tutorial-create-dotnet-app.md)
 > * [Distribuera programmet till ett fjärrkluster](service-fabric-tutorial-deploy-app-to-party-cluster.md)
 > * [Lägga till en HTTPS-slutpunkt i en klienttjänst i ASP.NET Core](service-fabric-tutorial-dotnet-app-enable-https-endpoint.md)
-> * [Konfigurera CI/CD med hjälp av Visual Studio Team Services](service-fabric-tutorial-deploy-app-with-cicd-vsts.md)
+> * [Konfigurera CI/CD med hjälp av Azure Pipelines](service-fabric-tutorial-deploy-app-with-cicd-vsts.md)
 > * Konfigurera övervakning och diagnostik för programmet
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter

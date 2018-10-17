@@ -11,19 +11,19 @@ ms.workload: data-services
 ms.topic: quickstart
 ms.date: 06/20/2018
 ms.author: jingwang
-ms.openlocfilehash: 0638aaa9165bcf760dabca330f6ee396807e4597
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: fc4b1dce1b01d9294cf422c910f39d68cbd49c87
+ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43087962"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48018255"
 ---
 # <a name="create-a-data-factory-by-using-the-azure-data-factory-ui"></a>Skapa en datafabrik med hjälp av gränssnittet i Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service that you are using:"]
 > * [Version 1](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
 > * [Aktuell version](quickstart-create-data-factory-portal.md)
 
-Den här snabbstarten beskriver hur du använder Azure Data Factory-användargränssnittet till att skapa och övervaka en datafabrik. Den pipeline du skapar i den här datafabriken *kopierar* data från en mapp till en annan mapp i Azure Blob Storage. Om du vill se en självstudie som visar hur du *omvandlar* data med Azure Data Factory går du till [Tutorial: Transform data using Spark](tutorial-transform-data-spark-portal.md) (Självstudie: Omvandla data med Spark). 
+Den här snabbstarten beskriver hur du använder Azure Data Factory-användargränssnittet till att skapa och övervaka en datafabrik. Den pipeline du skapar i den här datafabriken *kopierar* data från en mapp till en annan mapp i Azure Blob Storage. Om du vill se en självstudie som visar hur du *omvandlar* data med Azure Data Factory går du till [Tutorial: Transform data using Spark](tutorial-transform-data-spark-portal.md) (Självstudie: Omvandla data med Spark).
 
 > [!NOTE]
 > Om du inte har använt Azure Data Factory tidigare kan du läsa [Introduktion till Azure Data Factory](data-factory-introduction.md). 
@@ -38,7 +38,7 @@ Om du tittar på den här videon får du hjälp med att förstå Data Factory-an
 
 1. Starta webbläsaren **Microsoft Edge** eller **Google Chrome**. Användargränssnittet för Data Factory stöds för närvarande bara i webbläsarna Microsoft Edge och Google Chrome.
 1. Gå till [Azure-portalen](https://portal.azure.com). 
-1. Välj **Nytt** på den vänstra menyn, välj **Data och analys** och välj sedan **Data Factory**. 
+1. Välj **Skapa en resurs** på den vänstra menyn, välj **Analys** och välj sedan **Data Factory**. 
    
    ![Valet Data Factory i fönstret Nytt](./media/quickstart-create-data-factory-portal/new-azure-data-factory-menu.png)
 1. På sidan **Ny datafabrik** anger du **ADFTutorialDataFactory** som **Namn**. 
@@ -58,12 +58,10 @@ Om du tittar på den här videon får du hjälp med att förstå Data Factory-an
 1. För **Version** väljer du **V2**.
 1. För **Plats** väljer du en plats för datafabriken.
 
-   I listan visas endast platser som kan användas i Data Factory. Datalager (som Azure Storage och Azure SQL Database) och beräkningar (som HDInsight) som används i Data Factory kan finnas på andra platser.
-1. Välj **fäst till instrumentpanelen**.     
-1. Välj **Skapa**.
-1. Du ser följande panel på instrumentpanelen med statusen **Distribuerar datafabrik**: 
+   I listan visas endast platser som Data Factory har stöd för och var dina Azure Data Factory-metadata kommer att lagras. Observera att de associerade datalagren (såsom Azure Storage och Azure SQL Database) och beräkningar (som HDInsight) som används i Data Factory kan köras i andra regioner.
 
-   ![Panelen Distribuerar datafabrik](media//quickstart-create-data-factory-portal/deploying-data-factory.png)
+1. Välj **Skapa**.
+
 1. När datafabriken har skapats visas sidan **Datafabrik**. Välj panelen **Författare och övervakare** för att starta användargränssnittet för Azure Data Factory på en separat flik.
    
    ![Startsidan för datafabriken med panelen Författare och övervakare](./media/quickstart-create-data-factory-portal/data-factory-home-page.png)
@@ -88,7 +86,7 @@ I den här proceduren skapar du en länkad tjänst för att länka ditt Azure St
 
    c. Välj **Testanslutning** och bekräfta att Data Factory-tjänsten kan ansluta till lagringskontot. 
 
-   d. Välj **Spara** för att spara den länkade tjänsten. 
+   d. Välj **Slutför** för att spara den länkade tjänsten. 
 
    ![Inställningar för länkad Azure Storage-tjänst](./media/quickstart-create-data-factory-portal/azure-storage-linked-service.png) 
 
@@ -128,7 +126,7 @@ I den länkade tjänstinställningen angav du Azure-lagringskontot som innehåll
 
    c. Ange**OutputDataset** i tabellen **Allmänt** som namn.
 
-   d. I fliken **Anslutning** väljer du **AzureStorageLinkedService** som länkad tjänsten och anger **adftutorial/utdata** för mappen. Om **utdatamappen** inte finns skapas kopieringsaktiviteten vid körningen.
+   d. I fliken **Anslutning** väljer du **AzureStorageLinkedService** som länkad tjänsten och anger **adftutorial/utdata** för mappen, i katalogfältet. Om **utdatamappen** inte finns skapas kopieringsaktiviteten vid körningen.
 
 ## <a name="create-a-pipeline"></a>Skapa en pipeline 
 I den här proceduren skapar och verifierar du en pipeline med en kopieringsaktivitet som använder uppsättningar för indata och utdata. Kopieringsaktiviteten kopierar data från filen som anges i inställningarna för datauppsättningen för indata till filen som anges i inställningarna för datauppsättningen för utdata. Om datauppsättningen för indata endast anger en mapp (inte filnamnet) kopierar kopieringsaktiviteten alla filer i källmappen till målet. 
@@ -138,7 +136,7 @@ I den här proceduren skapar och verifierar du en pipeline med en kopieringsakti
    ![Meny för att skapa en ny pipeline](./media/quickstart-create-data-factory-portal/new-pipeline-menu.png)
 1. In fliken **Allmänt** anger du **CopyPipeline** som **Name**. 
 
-1. Gå till verktygsfältet **Aktiviteter** och expandera **Dataflöde**. Dra aktiviteten **Kopiera** från verktygslådan **Aktiviteter** till pipelinedesignytan. Du kan också söka efter aktiviteter i verktygslådan **Aktiviteter**. Ange **CopyFromBlobToBlob** som **Namn**.
+1. Gå till verktygsfältet **Aktiviteter** och expandera **Flytta och transformera**. Dra aktiviteten **Kopiera** från verktygslådan **Aktiviteter** till pipelinedesignytan. Du kan också söka efter aktiviteter i verktygslådan **Aktiviteter**. Ange **CopyFromBlobToBlob** som **Namn**.
 
    ![Allmänna inställningar för kopieringsaktivitet](./media/quickstart-create-data-factory-portal/copy-activity-general-settings.png)
 1. Växla till fliken **Källa** i inställningarna för kopieringsaktiviteten och välj **InputDataset** som **Källdatauppsättning**.
@@ -205,7 +203,7 @@ Den här proceduren är valfri i den här självstudien. Du kan skapa en *schema
    Observera värdena i kolumnen **Aktiverad av**. Den manuella körningen av utlösaren var från steget (**Trigger Now**) (Utlös nu) du gjorde tidigare. 
 
    ![Lista med utlösta körningar](./media/quickstart-create-data-factory-portal/monitor-triggered-runs.png)
-1. Välj nedåtpilen bredvid **Pipelinekörningar** för att växla till vyn **Trigger Runs** (Utlösarkörningar). 
+1. Växla till vyn **Trigger Runs** (Utlösarkörningar). 
 
    ![Växla till vyn ”Trigger Runs” (Utlösarkörningar)](./media/quickstart-create-data-factory-portal/monitor-trigger-runs.png)    
 1. Bekräfta att en utdatafil har skapats för varje pipelinekörning fram till det angivet slutdatum och angiven sluttid i **utdatamappen**. 

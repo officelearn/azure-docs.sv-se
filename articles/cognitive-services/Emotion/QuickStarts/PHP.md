@@ -1,34 +1,36 @@
 ---
-title: Känslo-API PHP Snabbstart | Microsoft Docs
-description: Hämta information och exempel på kod för att snabbt komma igång med Känslo-API med PHP i kognitiva Services.
+title: 'Snabbstart: Känsloigenkänning i ansikten i en bild – Känslo-API, PHP'
+titlesuffix: Azure Cognitive Services
+description: Hämta information och kodexempel som hjälper dig att snabbt komma igång med Känslo-API med PHP.
 services: cognitive-services
 author: anrothMSFT
-manager: corncar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: emotion-api
-ms.topic: article
+ms.topic: quickstart
 ms.date: 05/23/2017
 ms.author: anroth
-ms.openlocfilehash: 987d5a3eedaa17f1127be34e5f90ec2456fab99b
-ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
-ms.translationtype: MT
+ROBOTS: NOINDEX
+ms.openlocfilehash: c3dffa3c42df4a30b634417b551dd0e8af04145b
+ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37019405"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48239514"
 ---
-# <a name="emotion-api-php-quick-start"></a>Känslo-API PHP Snabbstart
+# <a name="quickstart-build-an-app-to-recognize-emotions-on-faces-in-an-image"></a>Snabbstart: Bygga en app för känsloigenkänning i ansikten i en bild.
 
 > [!IMPORTANT]
-> Förhandsgranskning av video API avslutas på 30 oktober 2017. Prova den nya [Video indexeraren API Preview](https://azure.microsoft.com/services/cognitive-services/video-indexer/) enkelt extrahera insikter från videor och förbättra innehållsidentifiering upplevelser, till exempel sökresultat med hjälp av tal, ytor, tecken och känslor. [Läs mer](https://docs.microsoft.com/azure/cognitive-services/video-indexer/video-indexer-overview).
+> Känslo-API:et kommer att bli inaktuellt den 15 februari 2019. Funktionen för känsloigenkänning är nu allmänt tillgänglig som en del av [Ansikts-API:et](https://docs.microsoft.com/azure/cognitive-services/face/). 
 
-Den här artikeln innehåller information och kodexempel som hjälper dig att snabbt komma igång med PHP och [Känslo-API känner igen metoden](https://westus.dev.cognitive.microsoft.com/docs/services/5639d931ca73072154c1ce89/operations/563b31ea778daf121cc3a5fa) att identifiera emotikoner uttryckt genom en eller flera personer i en bild. 
+Den här artikeln innehåller information och kodexempel som hjälper dig att snabbt komma igång med hjälp av PHP och [Känslo-API:et metoden Recognize](https://westus.dev.cognitive.microsoft.com/docs/services/5639d931ca73072154c1ce89/operations/563b31ea778daf121cc3a5fa) för att känna igen känslor som uttrycks av en eller flera personer i en bild.
 
 ## <a name="prerequisite"></a>Krav
-* Hämta din kostnadsfria prenumerationen nyckel [här](https://azure.microsoft.com/try/cognitive-services/)
+* Få din kostnadsfria prenumerationsnyckel [här](https://azure.microsoft.com/try/cognitive-services/)
 
-## <a name="recognize-emotions-php-example-request"></a>Identifiera emotikoner PHP Exempelbegäran
+## <a name="recognize-emotions-php-example-request"></a>Exempelbegäran för känsloigenkänning med PHP
 
-Ändra REST-URL Om du vill använda den plats där du har köpt din prenumeration nycklar, ändra brödtexten till en URL till den bild som du vill testa och Ersätt ”Ocp-Apim-prenumeration-Key”-värdet med giltig prenumeration-nyckel.
+Ändra REST URL:en för att använda platsen där du fick dina prenumerationsnycklar, ändra texten till en URL för en bild som du vill testa och ersätta värdet ”Ocp-Apim-Subscription-Key” med din giltiga prenumerationsnyckel.
 
 ```php
 <?php
@@ -36,7 +38,7 @@ Den här artikeln innehåller information och kodexempel som hjälper dig att sn
 require_once 'HTTP/Request2.php';
 
 // NOTE: You must use the same region in your REST call as you used to obtain your subscription keys.
-//   For example, if you obtained your subscription keys from westcentralus, replace "westus" in the 
+//   For example, if you obtained your subscription keys from westcentralus, replace "westus" in the
 //   URL below with "westcentralus".
 $request = new Http_Request2('https://westus.api.cognitive.microsoft.com/emotion/v1.0/recognize');
 $url = $request->getUrl();
@@ -75,13 +77,13 @@ catch (HttpException $ex)
 ?>
 ```
 
-## <a name="recognize-emotions-sample-response"></a>Identifiera emotikoner Exempelsvar
-Lyckade anrop returnerar en matris av framsidan poster och deras associerade känslo poäng rangordnas efter ansikte rektangel storlek i fallande ordning. Ett tomt svar anger att ingen ytor upptäcktes. Känslo-posten innehåller följande fält:
-* faceRectangle - placering av ansikte i avbildningen.
-* resultat - Place poängen för varje yta i bilden. 
+## <a name="recognize-emotions-sample-response"></a>Exempelsvar för känsloigenkänning
+Ett genomfört anrop returnerar en matris med ansiktsposter och deras associerade känsloresultat, rankade efter ansiktsrektangelns storlek i fallande ordning. Ett tomt svar indikerar att inga ansikten kändes igen. En känslopost innehåller följande fält:
+* faceRectangle – ansiktsrektangelns placering i bilden.
+* scores – känsloresultat för varje ansikte i bilden.
 
 ```json
-application/json 
+application/json
 [
   {
     "faceRectangle": {
@@ -102,4 +104,3 @@ application/json
     }
   }
 ]
-

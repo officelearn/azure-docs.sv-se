@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 08/25/2018
 ms.author: markvi
 ms.reviewer: sandeo
-ms.openlocfilehash: bc2b391457d7652b62558c9a752376b07b50a8c1
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: 2f020bdf79811c959e07d753231fc133fe597861
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47391821"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48855194"
 ---
 # <a name="tutorial-configure-hybrid-azure-active-directory-join-for-federated-domains"></a>Självstudier: Konfigurera Hybrid Azure Active Directory-anslutningar för federerade domäner
 
@@ -78,7 +78,9 @@ Vid Azure AD-hybridkoppling måste enheterna ha åtkomst till följande Microsof
 - Din organisations STS (federerade domäner)
 - https://autologon.microsoftazuread-sso.com (Om du använder eller planerar att använda enkel inloggning)
 
-Om din organisation kräver Internetåtkomst via en utgående proxy från och med Windows 10 1709 kan du konfigurera proxyinställningarna på datorn med hjälp av ett grupprincipobjekt (GPO). Om du använder en äldre version av Windows än Windows 10 1709 måste du implementera Web Proxy Auto-Discovery (WPAD) för att datorer med Windows 10 ska kunna utföra enhetsregistrering med Azure AD. 
+Från och med Windows 10 1803 gäller att om den omedelbara Hybrid Azure AD-anslutningen för federerad domäner såsom AD FS misslyckas så förlitar vi oss på Azure AD Connect för att synkronisera det datorobjekt i Azure AD som därefter används för att slutföra enhetsregistreringen för Hybrid Azure AD-anslutningen.
+
+Om din organisation kräver Internetåtkomst via en utgående proxy från och med Windows 10 1709 kan du konfigurera [proxyinställningarna på datorn med hjälp av ett grupprincipobjekt (GPO)](https://blogs.technet.microsoft.com/netgeeks/2018/06/19/winhttp-proxy-settings-deployed-by-gpo/). Om datorn kör en tidigare version av Windows än Windows 10 1709 måste du implementera Web Proxy Auto-Discovery (WPAD) för att datorer med Windows 10 ska kunna utföra enhetsregistrering med Azure AD. 
 
 Om din organisation kräver Internetåtkomst via en autentiserad proxyserver för utgående trafik måste du se till att dina Windows 10-datorer kan autentisera till den utgående proxyn. Eftersom Windows 10-datorer utför enhetsregistrering med maskinkontext måste autentiseringen för den utgående proxyn konfigureras med maskinkontext. Kontrollera konfigurationskraven med leverantören av den utgående proxyn. 
 

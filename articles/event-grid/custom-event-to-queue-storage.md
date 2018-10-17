@@ -5,19 +5,19 @@ services: event-grid
 keywords: ''
 author: tfitzmac
 ms.author: tomfitz
-ms.date: 07/05/2018
+ms.date: 10/09/2018
 ms.topic: quickstart
 ms.service: event-grid
-ms.openlocfilehash: d550812f9cb23fd17d3c73c851a306190be293fa
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 7ca8311c97faed980555c46d977a5df85c20353d
+ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39423648"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49067472"
 ---
 # <a name="route-custom-events-to-azure-queue-storage-with-azure-cli-and-event-grid"></a>Dirigera anpassade händelser till Azure Queue Storage med Azure CLI och Event Grid
 
-Azure Event Grid är en händelsetjänst för molnet. Azure Queue Storage är en av de händelsehanterare som stöds. I den här artikeln använder du Azure CLI för att skapa ett anpassat ämne, prenumerera på ämnet och utlösa händelsen för att visa resultatet. Du skickar händelser till Queue Storage.
+Azure Event Grid är en händelsetjänst för molnet. Azure Queue Storage är en av de händelsehanterare som stöds. I den här artikeln använder du Azure CLI för att skapa ett anpassat ämne, prenumerera på det anpassade ämnet och utlösa händelsen för att visa resultatet. Du skickar händelser till Queue Storage.
 
 [!INCLUDE [quickstarts-free-trial-note.md](../../includes/quickstarts-free-trial-note.md)]
 
@@ -39,7 +39,7 @@ az group create --name gridResourceGroup --location westus2
 
 ## <a name="create-a-custom-topic"></a>Skapa en anpassat ämne
 
-Ett event grid-ämne tillhandahåller en användardefinierad slutpunkt där du publicerar dina händelser. I följande exempel skapas det anpassade ämnet i din resursgrupp. Ersätt `<topic_name>` med ett unikt namn för ditt ämne. Ämnesnamnet måste vara unikt eftersom det representeras av en DNS-post.
+Ett event grid-ämne tillhandahåller en användardefinierad slutpunkt där du publicerar dina händelser. I följande exempel skapas det anpassade ämnet i din resursgrupp. Ersätt `<topic_name>` med ett unikt namn för ditt anpassade ämne. Ämnesnamnet för händelserutnätet måste vara unikt eftersom det representeras av en DNS-post.
 
 ```azurecli-interactive
 # if you have not already installed the extension, do it now.
@@ -51,7 +51,7 @@ az eventgrid topic create --name <topic_name> -l westus2 -g gridResourceGroup
 
 ## <a name="create-queue-storage"></a>Skapa Queue Storage
 
-Innan du prenumererar på ämnet ska vi ska slutpunkten för händelsemeddelandet. Du skapar en Queue Storage för att samla in händelserna.
+Innan du prenumererar på det anpassade ämnet ska vi ska slutpunkten för händelsemeddelandet. Du skapar en Queue Storage för att samla in händelserna.
 
 ```azurecli-interactive
 storagename="<unique-storage-name>"
@@ -61,9 +61,9 @@ az storage account create -n $storagename -g gridResourceGroup -l westus2 --sku 
 az storage queue create --name $queuename --account-name $storagename
 ```
 
-## <a name="subscribe-to-a-topic"></a>Prenumerera på ett ämne
+## <a name="subscribe-to-a-custom-topic"></a>Prenumerera på ett anpassat ämne
 
-Du prenumererar på ett ämne för att ange för Event Grid vilka händelser du vill följa. I följande exempel prenumererar vi på det ämne du just skapat, och resurs-ID:t för Queue Storage skickas som slutpunkt. Med Azure CLI skickar du Queue Storage-ID:t som slutpunkten. Slutpunkten är i formatet:
+Du prenumererar på ett anpassat ämne för att informera Event Grid om vilka händelser du vill spåra. I följande exempel prenumererar vi på det anpassade ämne du just skapat, och överför resurs-id:t för Queue Storage som slutpunkt. Med Azure CLI skickar du Queue Storage-ID:t som slutpunkten. Slutpunkten är i formatet:
 
 `/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/Microsoft.Storage/storageAccounts/<storage-name>/queueservices/default/queues/<queue-name>`
 
@@ -81,6 +81,8 @@ az eventgrid event-subscription create \
   --endpoint $queueid
 ```
 
+Det konto som skapar händelseprenumerationen måste ha skrivbehörighet till Queue Storage.
+
 Om du använder REST API:et för att skapa prenumerationen skickar du ID:t för lagringskontot och namnet på kön som en separat parameter.
 
 ```json
@@ -93,22 +95,22 @@ Om du använder REST API:et för att skapa prenumerationen skickar du ID:t för 
   ...
 ```
 
-## <a name="send-an-event-to-your-topic"></a>Skicka en händelse till ditt ämne
+## <a name="send-an-event-to-your-custom-topic"></a>Skicka en händelse till ditt anpassade ämne
 
-Nu ska vi utlösa en händelse och se hur Event Grid distribuerar meddelandet till slutpunkten. Först måste vi ta fram URL och nyckel för det anpassade ämnet. Än en gång, använd din ämnesnamn för `<topic_name>`.
+Nu ska vi utlösa en händelse och se hur Event Grid distribuerar meddelandet till slutpunkten. Först måste vi ta fram URL och nyckel för det anpassade ämnet. Använd återigen ditt anpassade ämnesnamn för `<topic_name>`.
 
 ```azurecli-interactive
 endpoint=$(az eventgrid topic show --name <topic_name> -g gridResourceGroup --query "endpoint" --output tsv)
 key=$(az eventgrid topic key list --name <topic_name> -g gridResourceGroup --query "key1" --output tsv)
 ```
 
-Förenkla den här artikeln genom att använda exempelhändelsedata att skicka till ämnet. Ett program eller en Azure-tjänst skulle vanligtvis skicka sådana händelsedata. CURL är ett verktyg som skickar HTTP-förfrågningar. I den här artikeln använder vi CURL till att skicka händelsen till ämnet.  Följande exempel skickar tre händelser till Event Grid-ämnet:
+För att förenkla den här artikeln skickar du exempelhändelsedata till det anpassade ämnet. Ett program eller en Azure-tjänst skulle vanligtvis skicka sådana händelsedata. CURL är ett verktyg som skickar HTTP-förfrågningar. I den här artikeln använder vi CURL för att skicka en händelse till det anpassade ämnet.  Följande exempel skickar tre händelser till Event Grid-ämnet:
 
 ```azurecli-interactive
 for i in 1 2 3
 do
-   body=$(eval echo "'$(curl https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/event-grid/customevent.json)'")
-   curl -X POST -H "aeg-sas-key: $key" -d "$body" $endpoint
+   event='[ {"id": "'"$RANDOM"'", "eventType": "recordInserted", "subject": "myapp/vehicles/motorcycles", "eventTime": "'`date +%Y-%m-%dT%H:%M:%S%z`'", "data":{ "make": "Ducati", "model": "Monster"},"dataVersion": "1.0"} ]'
+   curl -X POST -H "aeg-sas-key: $key" -d "$event" $endpoint
 done
 ```
 

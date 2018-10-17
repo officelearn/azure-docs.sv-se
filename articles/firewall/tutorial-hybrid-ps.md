@@ -5,14 +5,14 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: tutorial
-ms.date: 9/25/2018
+ms.date: 10/2/2018
 ms.author: victorh
-ms.openlocfilehash: 919051a945d423a104b286e9c5703c5b749cf026
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 27221ac4b23f52dd6976a959e6e5529eb0cc89fa
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46946467"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48856079"
 ---
 # <a name="tutorial-deploy-and-configure-azure-firewall-in-a-hybrid-network-using-azure-powershell"></a>Självstudie: Distribuera och konfigurera Azure Firewall i ett hybridnätverk med hjälp av Azure PowerShell
 
@@ -134,6 +134,28 @@ $VNetSpoke = New-AzureRmVirtualNetwork -Name $VnetNameSpoke -ResourceGroupName $
 -Location $Location1 -AddressPrefix $VNetSpokePrefix -Subnet $Spokesub,$GWsubSpoke
 ```
 
+## <a name="create-and-configure-the-onprem-vnet"></a>Skapa och konfigurera det virtuella OnPrem-nätverket
+
+Definiera de undernät som ska ingå i det virtuella nätverket:
+
+```azurepowershell
+$Onpremsub = New-AzureRmVirtualNetworkSubnetConfig -Name $SNNameOnprem -AddressPrefix $SNOnpremPrefix
+$GWOnpremsub = New-AzureRmVirtualNetworkSubnetConfig -Name $SNnameGW -AddressPrefix $SNGWOnpremPrefix
+```
+
+Skapa nu det virtuella OnPrem-nätverket:
+
+```azurepowershell
+$VNetOnprem = New-AzureRmVirtualNetwork -Name $VNetnameOnprem -ResourceGroupName $RG1 `
+-Location $Location1 -AddressPrefix $VNetOnpremPrefix -Subnet $Onpremsub,$GWOnpremsub
+```
+Begär en offentlig IP-adress som ska allokeras till den gateway som du ska skapa för det virtuella nätverket. Observera att *AllocationMethod* är **Dynamic**. Du kan inte ange den IP-adress som du vill använda. Den allokeras dynamiskt till gatewayen. 
+
+  ```azurepowershell
+  $gwOnprempip = New-AzureRmPublicIpAddress -Name $GWOnprempipName -ResourceGroupName $RG1 `
+  -Location $Location1 -AllocationMethod Dynamic
+```
+
 ## <a name="configure-and-deploy-the-firewall"></a>Konfigurera och distribuera brandväggen
 
 Distribuera nu brandväggen till det virtuella hubbnätverket.
@@ -154,11 +176,13 @@ $AzfwPrivateIP
 
 ### <a name="configure-network-rules"></a>Konfigurera nätverksregler
 
+<!--- $Rule2 = New-AzureRmFirewallNetworkRule -Name "AllowPing" -Protocol ICMP -SourceAddress $SNOnpremPrefix `
+   -DestinationAddress $VNetSpokePrefix -DestinationPort *--->
+
 ```azurepowershell
 $Rule1 = New-AzureRmFirewallNetworkRule -Name "AllowWeb" -Protocol TCP -SourceAddress $SNOnpremPrefix `
    -DestinationAddress $VNetSpokePrefix -DestinationPort 80
-$Rule2 = New-AzureRmFirewallNetworkRule -Name "AllowPing" -Protocol ICMP -SourceAddress $SNOnpremPrefix `
-   -DestinationAddress $VNetSpokePrefix -DestinationPort *
+
 $Rule3 = New-AzureRmFirewallNetworkRule -Name "AllowRDP" -Protocol TCP -SourceAddress $SNOnpremPrefix `
    -DestinationAddress $VNetSpokePrefix -DestinationPort 3389
 
@@ -182,7 +206,7 @@ Set-AzureRmFirewall -AzureFirewall $Azfw
 
 ## <a name="create-and-connect-the-vpn-gateways"></a>Skapa och ansluta VPN-gatewayer
 
-De virtuella hubb- och OnPrem-nätverken är anslutna via en VPN-gateway.
+De virtuella hubb- och OnPrem-nätverken är anslutna via VPN-gatewayer.
 
 ### <a name="create-a-vpn-gateway-for-the-hub-vnet"></a>Skapa en VPN-gateway för det virtuella hubbnätverket
 
@@ -262,27 +286,7 @@ Visa värdena när cmdleten är klar. I följande exempel visas anslutningsstatu
 "egressBytesTransferred": 4142431
 ```
 
-## <a name="create-and-configure-the-onprem-vnet"></a>Skapa och konfigurera det virtuella OnPrem-nätverket
 
-Definiera de undernät som ska ingå i det virtuella nätverket:
-
-```azurepowershell
-$Onpremsub = New-AzureRmVirtualNetworkSubnetConfig -Name $SNNameOnprem -AddressPrefix $SNOnpremPrefix
-$GWOnpremsub = New-AzureRmVirtualNetworkSubnetConfig -Name $SNnameGW -AddressPrefix $SNGWOnpremPrefix
-```
-
-Skapa nu det virtuella OnPrem-nätverket:
-
-```azurepowershell
-$VNetOnprem = New-AzureRmVirtualNetwork -Name $VNetnameOnprem -ResourceGroupName $RG1 `
--Location $Location1 -AddressPrefix $VNetOnpremPrefix -Subnet $Onpremsub,$GWOnpremsub
-```
-Begär en offentlig IP-adress som ska allokeras till den gateway som du ska skapa för det virtuella nätverket. Observera att *AllocationMethod* är **Dynamic**. Du kan inte ange den IP-adress som du vill använda. Den allokeras dynamiskt till gatewayen. 
-
-  ```azurepowershell
-  $gwOnprempip = New-AzureRmPublicIpAddress -Name $GWOnprempipName -ResourceGroupName $RG1 `
-  -Location $Location1 -AllocationMethod Dynamic
-```
 
 ## <a name="peer-the-hub-and-spoke-vnets"></a>Peera de virtuella hubb- och ekernätverken
 
@@ -300,6 +304,9 @@ Add-AzureRmVirtualNetworkPeering -Name SpoketoHub -VirtualNetwork $VNetSpoke -Re
 Därefter skapar du några vägar: 
 - En väg från hubbgateway-undernätet till ekerundernätet via brandväggens IP-adress
 - En standardväg från ekerundernätet via brandväggens IP-adress
+
+> [!NOTE]
+> Azure Firewall lär sig dina lokala nätverk med hjälp av BGP. Detta kan innefatta en standardväg, som dirigerar Internettrafik tillbaka genom ditt lokala nätverk. Om du i stället vill att Internettrafik ska skickas direkt från brandväggen till Internet lägger du till en användardefinierad standardväg (0.0.0.0/0) på AzureFirewallSubnet med nästa hopp-typ **Internet**. Den trafik som är avsedd för ditt lokala nätverk tvingas fortfarande att överföras via VPN/ExpressRoute-gatewayen med hjälp av de mer specifika vägar som lärts in från BGP.
 
 ```azurepowershell
 #Create a route table
@@ -397,8 +404,9 @@ Set-AzureRmVMExtension `
     -TypeHandlerVersion 1.4 `
     -SettingString '{"commandToExecute":"powershell Add-WindowsFeature Web-Server"}' `
     -Location $Location1
+```
 
-#Create a host firewall rule to allow ping in
+<!---#Create a host firewall rule to allow ping in
 Set-AzureRmVMExtension `
     -ResourceGroupName $RG1 `
     -ExtensionName IIS `
@@ -407,8 +415,8 @@ Set-AzureRmVMExtension `
     -ExtensionType CustomScriptExtension `
     -TypeHandlerVersion 1.4 `
     -SettingString '{"commandToExecute":"powershell New-NetFirewallRule –DisplayName “Allow ICMPv4-In” –Protocol ICMPv4"}' `
-    -Location $Location1
-```
+    -Location $Location1--->
+
 
 ### <a name="create-the-onprem-virtual-machine"></a>Skapa den virtuella OnPrem-datorn
 Det här är en enkel virtuell dator som du kan ansluta till med hjälp av fjärrskrivbord till den offentliga IP-adressen. Därifrån kan du sedan ansluta till OnPrem-servern via brandväggen. När du uppmanas anger du användarnamn och lösenord för den virtuella datorn.
@@ -431,10 +439,10 @@ $NIC.IpConfigurations.privateipaddress
 ```
 
 1. Från Azure-portalen ansluter du till den virtuella datorn **VM-Onprem**.
-2. Öppna en Windows PowerShell-kommandotolk på **VM-Onprem** och pinga den privata IP-adressen för **VM-spoke-01**.
+<!---2. Open a Windows PowerShell command prompt on **VM-Onprem**, and ping the private IP for **VM-spoke-01**.
 
-   Du bör få ett svar.
-1. Öppna en webbläsare på **VM-Onprem** och gå till http://\<privat IP-ress för VM-spoke-01\>
+   You should get a reply.--->
+2. Öppna en webbläsare på **VM-Onprem** och gå till http://\<privat IP-ress för VM-spoke-01\>
 
    Du bör se standardsidan för Internet Information Services.
 
@@ -444,7 +452,7 @@ $NIC.IpConfigurations.privateipaddress
 
 Nu har du verifierat att brandväggsreglerna fungerar:
 
-- Du kan pinga servern på det virtuella ekernätverket.
+<!---- You can ping the server on the spoke VNet.--->
 - Du kan bläddra i webbservern på det virtuella ekernätverket.
 - Du kan ansluta till servern på det virtuella ekernätverket med hjälp av RDP.
 

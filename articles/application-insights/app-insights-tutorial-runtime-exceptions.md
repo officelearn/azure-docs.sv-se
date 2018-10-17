@@ -10,12 +10,12 @@ ms.service: application-insights
 ms.custom: mvc
 ms.topic: tutorial
 manager: carmonm
-ms.openlocfilehash: 7c2e67605cd2489f2c8d9da5ac80386056464afa
-ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
+ms.openlocfilehash: f45cb6a47756fae7b75d8c3df80a0bc754742063
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42815121"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44299017"
 ---
 # <a name="find-and-diagnose-run-time-exceptions-with-azure-application-insights"></a>Hitta och diagnostisera körningsundantag med Azure Application Insights
 
@@ -101,6 +101,15 @@ Alla data som samlas in av Application Insights lagras i Azure Log Analytics, s�
     ![Kod](media/app-insights-tutorial-runtime-exceptions/codelens.png)
 
 9. Klicka på **Analyze impact** (Analysera påverkan) för att öppna Application Insights Analytics.  Det fylls i med flera frågor som kan ge detaljerad information om misslyckade förfrågningar, till exempel vilka användare, webbläsare och regioner som påverkas.<br><br>![Analys](media/app-insights-tutorial-runtime-exceptions/analytics.png)<br>
+
+## <a name="add-work-item"></a>Lägg till arbetsobjekt
+Om du ansluter Application Insights till ett spårningssystem som Azure DevOps eller GitHub kan du skapa ett arbetsobjekt direkt från Application Insights.
+
+1. Återgå till panelen **Exception Properties** (Egenskaper för undantag) i Application Insights.
+2. Klicka på **Nytt arbetsobjekt**.
+3. Panelen **Nytt arbetsobjekt** öppnas med detaljer om undantaget ifyllda.  Du kan lägga till ytterligare information innan du sparar objektet.
+
+    ![Nytt arbetsobjekt](media/app-insights-tutorial-runtime-exceptions/new-work-item.png)
 
 ## <a name="next-steps"></a>Nästa steg
 Nu när du har lärt dig hur du identifierar körningsundantag går du vidare till nästa självstudie, där du får lära dig hur du identifierar och diagnostiserar prestandaproblem.

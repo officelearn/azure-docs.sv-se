@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 06/28/2018
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: 4aac44d46b6c5d202431aa34a1dc7b962466c799
-ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
+ms.openlocfilehash: 1af74cc44391c95fba781cbce14e9118ca36c14b
+ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37346196"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49078502"
 ---
 # <a name="tutorial-create-and-deploy-an-application-with-an-aspnet-core-web-api-front-end-service-and-a-stateful-back-end-service"></a>Självstudie: Skapa och distribuera en app med en ASP.NET Core Web API-klientdelstjänst och en tillståndskänslig serverdelstjänst
 
@@ -40,10 +40,10 @@ I den här självstudieserien får du lära du dig att:
 > * Skapa ett .NET Service Fabric-program
 > * [Distribuera programmet till ett fjärrkluster](service-fabric-tutorial-deploy-app-to-party-cluster.md)
 > * [Lägga till en HTTPS-slutpunkt i en klienttjänst i ASP.NET Core](service-fabric-tutorial-dotnet-app-enable-https-endpoint.md)
-> * [Konfigurera CI/CD med hjälp av Visual Studio Team Services](service-fabric-tutorial-deploy-app-with-cicd-vsts.md)
-> * [Konfigurera övervakning och diagnostik för programmet](service-fabric-tutorial-monitoring-aspnet.md)
+> * [Konfigurera CI/CD med hjälp av Azure Pipelines](service-fabric-tutorial-deploy-app-with-cicd-vsts.md)
+> * [konfigurera övervakning och diagnostik för programmet](service-fabric-tutorial-monitoring-aspnet.md)
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Innan du börjar den här självstudien:
 * om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
@@ -326,7 +326,7 @@ I Solution Explorer öppnar du *VotingWeb/PackageRoot/ServiceManifest.xml*.  Let
 
 Uppdatera också värdet för egenskapen Application URL i projektet Voting så att webbläsare öppnar rätt port när du felsöker appen.  Välj projektet **Voting** i Solution Explorer och uppdatera egenskapen **Application URL** till **8080**.
 
-![Application URL](./media/service-fabric-tutorial-deploy-app-to-party-cluster/application-url.png)
+![Program-URL](./media/service-fabric-tutorial-deploy-app-to-party-cluster/application-url.png)
 
 ### <a name="deploy-and-run-the-voting-application-locally"></a>Distribuera och köra appen Voting lokalt
 Du kan nu köra appen Voting och felsöka den. Tryck på **F5** i Visual Studio så att du distribuerar appen till ditt lokala Service Fabric-kluster i felsökningsläge. Det här går inte om du inte öppnade Visual Studio som **administratör** tidigare.
@@ -455,6 +455,9 @@ I nästa steg ansluter du de två tjänsterna och får webbprogrammets klientdel
 I Service Fabric har du full flexibilitet i kommunikationen med tillförlitliga tjänster. I ett och samma program kan du ha tjänster som är tillgängliga TCP. Andra tjänster som kan nås via ett HTTP-REST-API och ännu fler tjänster kan vara tillgängliga via webbsockets. Bakgrundsinformation om de tillgängliga alternativen och vilka kompromisser du kan behöva göra finns i [Kommunicera med tjänster](service-fabric-connect-and-communicate-with-services.md).
 
 I den här självstudien använder du [ASP.NET Core Web API](service-fabric-reliable-services-communication-aspnetcore.md) och [Omvänd proxy för Service Fabric](service-fabric-reverseproxy.md) så att VotingWeb-webbtjänsten i klientdelen kan kommunicera med VotingData-tjänsten i serverdelen. Den omvända proxyn är som standard konfigurerad att använda port 19081, och det bör fungera i den här självstudien. Porten anges i ARM-mallen som används för att skapa klustret. Om du vill veta vilken port som används tittar du i klustermallen i resursen **Microsoft.ServiceFabric/clusters**, eller på elementet HttpApplicationGatewayEndpoint i klustrets manifest.
+
+> [!NOTE]
+> Omvänd proxy stöds endast i ett kluster som kör Windows 8 och senare eller Windows Server 2012 och senare.
 
 <u>Resursen Microsoft.ServiceFabric/clusters, reverseProxyEndpointPort</u>
 

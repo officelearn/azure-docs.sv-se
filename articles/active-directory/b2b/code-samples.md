@@ -1,45 +1,45 @@
 ---
 title: Azure Active Directory B2B-samarbetskod och PowerShell-exempel | Microsoft Docs
-description: Kod och PowerShell-exempel för Azure Active Directory B2B-samarbete
+description: Kod- och PowerShell-exempel för Azure Active Directory B2B-samarbete
 services: active-directory
 ms.service: active-directory
 ms.component: B2B
-ms.topic: article
+ms.topic: sample
 ms.date: 04/11/2017
 ms.author: mimart
 author: msmimart
 manager: mtillman
 ms.reviewer: sasubram
-ms.openlocfilehash: f9740aba27b7a593fdf2b465f539d305d24333de
-ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
-ms.translationtype: MT
+ms.openlocfilehash: d0f2669610f2086c29d52d95c9796e6a2939622e
+ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "35649257"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "45985454"
 ---
 # <a name="azure-active-directory-b2b-collaboration-code-and-powershell-samples"></a>Azure Active Directory B2B-samarbetskod och PowerShell-exempel
 
 ## <a name="powershell-example"></a>PowerShell-exempel
-Du kan bulk-inbjudan externa användare till en organisation från e-postadresser som du har lagrat i en. CSV-fil.
+Du kan massinbjuda externa användare till en organisation från e-postadresser som du har lagrat i en .CSV-fil.
 
-1. Förbereda den. CSV skapa en ny CSV-fil och namnge den invitations.csv. I det här exemplet filen sparas i C:\data och innehåller följande information:
+1. Förbered .CSV-filen skapa en ny CSV-fil och namnge den invitations.csv. I det här exemplet sparas filen i C:\data och innehåller följande information:
   
   Namn                  |  InvitedUserEmailAddress
   --------------------- | --------------------------
-  Gmail B2B Inbjudens     | b2binvitee@gmail.com
-  Outlook B2B inbjudens   | b2binvitee@outlook.com
+  Gmail B2B-inbjuden     | b2binvitee@gmail.com
+  Outlook B2B-inbjuden   | b2binvitee@outlook.com
 
 
-2. Få den senaste Azure AD PowerShell för att använda de nya cmdletarna, måste du installera den uppdaterade Azure AD PowerShell-modulen, som du kan hämta från [Powershell-modulen version sidan](https://www.powershellgallery.com/packages/AzureADPreview)
+2. Hämta den senaste Azure AD PowerShell För att använda de nya cmdletarna så måste du installera den uppdaterade Azure AD PowerShell-modulen som du kan hämta från [Powershell-modulens versionssida](https://www.powershellgallery.com/packages/AzureADPreview)
 
-3. Logga in på din innehavare
+3. Logga in på ditt innehav
 
     ```
     $cred = Get-Credential
     Connect-AzureAD -Credential $cred
     ```
 
-4. Kör PowerShell-cmdlet
+4. Kör PowerShell-cmdleten
 
   ```
   $invitations = import-csv C:\data\invitations.csv
@@ -48,13 +48,13 @@ Du kan bulk-inbjudan externa användare till en organisation från e-postadresse
   foreach ($email in $invitations) {New-AzureADMSInvitation -InvitedUserEmailAddress $email.InvitedUserEmailAddress -InvitedUserDisplayName $email.Name -InviteRedirectUrl https://wingtiptoysonline-dev-ed.my.salesforce.com -InvitedUserMessageInfo $messageInfo -SendInvitationMessage $true}
   ```
 
-Denna cmdlet skickar en inbjudan till e-postadresser i invitations.csv. Ytterligare funktioner från den här cmdleten:
+Den här cmdleten skickar en inbjudan till e-postadresserna i invitations.csv. Ytterligare funktioner för den här cmdleten inkluderar:
 - Anpassad text i e-postmeddelandet
-- Inklusive ett visningsnamn för inbjuden användare
-- Skicka meddelanden till CCs eller helt och hållet förhindra e-postmeddelanden
+- Inkludera ett visningsnamn för den inbjudna användaren
+- Skicka meddelanden till CC eller förhindra e-postmeddelanden helt
 
 ## <a name="code-sample"></a>Kodexempel
-Här visar vi hur du anropar inbjudan API, i ”appspecifika” läge för att hämta inlösen URL för den resurs som du bjuder in B2B-användaren. Målet är att skicka ett e-postmeddelande med anpassade inbjudan. E-postmeddelandet kan bestå av en HTTP-klienten, så att du kan anpassa hur den ser ut och skicka den via Graph API.
+Här visar vi hur du anropar inbjudan API:et i appspecifikt läge för att hämta inlösens-URL:en för den resurs som du bjuder in B2B-användaren till. Målet är att skicka ett anpassat e-postmeddelande med inbjudan. E-postmeddelandet kan bestå av en HTTP-klienten så att du kan anpassa hur den ser ut och skicka den via Graph API.
 
 ```
 namespace SampleInviteApp

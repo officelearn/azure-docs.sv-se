@@ -12,14 +12,14 @@ ms.devlang: NA
 ms.topic: quickstart
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 09/24/2018
+ms.date: 10/04/2018
 ms.author: alkohli
-ms.openlocfilehash: 514b2a026ea34f4bd82f13ebc73c09f71637ce30
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: fe15167a5e88dbc9a97383c9a074a32c91f4219a
+ms.sourcegitcommit: 4edf9354a00bb63082c3b844b979165b64f46286
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46978360"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48784645"
 ---
 # <a name="quickstart-deploy-azure-data-box-using-the-azure-portal"></a>Snabbstart: Distribuera Azure Data Box med Azure-portalen
 
@@ -31,16 +31,17 @@ Detaljerade stegvisa distributions- och spårningsinstruktioner finns i [Självs
 
 Innan du börjar:
 
-- Kontrollera att prenumerationen du använder för Data Box-tjänsten är någon av följande typer:
+- Kontrollera att den prenumeration du använder för Data Box-tjänsten är någon av följande typer:
     - Microsoft Enterprise-avtal (EA). Läs mer om [EA-prenumerationer](https://azure.microsoft.com/pricing/enterprise-agreement/).
     - Leverantör av molnlösningar (CSP). Läs mer om [Azure CSP-program](https://docs.microsoft.com/azure/cloud-solution-provider/overview/azure-csp-overview).
     - Förbrukning – användningsbaserad betalning. Mer information om Azures [prenumerationer med användningsbaserad betalning](https://azure.microsoft.com/offers/ms-azr-0003p/).
+    - Microsoft Azure-sponsring. Läs mer om [Azure-sponsringsprogrammet](https://azure.microsoft.com/en-in/offers/ms-azr-0036p/). 
 
-- Kontrollera att du har ägar- eller deltagaråtkomst till prenumerationen för att skapa en Data Box-order.
+- Kontrollera att du har ägar- eller deltagaråtkomst till prenumerationen för att skapa en Data Box-beställning.
 - Granska [säkerhetsföreskrifterna för din Data Box](data-box-safety.md).
 - Du har en värddator som har de data du vill kopiera över till Data Box. Värddatorn måste
     - Köra ett [operativsystem som stöds](data-box-system-requirements.md).
-    - Vara ansluten till ett höghastighetsnätverk. Vi rekommenderar starkt att du har minst en 10 GbE anslutning. Om en 10 GbE anslutning inte är tillgänglig kan en 1 GbE datalänk användas med kopieringshastigheten påverkas. 
+    - Vara ansluten till höghastighetsnätverk. Vi rekommenderar starkt att du har minst en 10 GbE anslutning. Om en 10 GbE anslutning inte är tillgänglig kan en 1 GbE datalänk användas med kopieringshastigheten påverkas. 
 - Du måste ha tillgång till en plan yta där du kan placera Data Box. Om du vill placera enheten på en standardrackhylla måste du ha en 7U-plats i datacenterracket. Du kan placera enheten liggande eller stående i racket.
 - Du har skaffat följande kablar för att ansluta Data Box till värddatorn.
     - Två 10 GbE SFP+ Twinax-kopparkablar (använd med DATA 1-, DATA 2-nätverksgränssnitt)

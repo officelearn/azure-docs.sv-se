@@ -13,15 +13,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 09/20/2018
+ms.date: 10/03/2018
 ms.author: markvi
-ms.reviewer: jairoc
-ms.openlocfilehash: f9664e22be5d7a17dd2a2a7c328593d8168c26f0
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.reviewer: spunukol
+ms.openlocfilehash: 1b8a6e6a6b5f482a4e3575c4da18a02a958c4081
+ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47434746"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48249374"
 ---
 # <a name="how-to-manage-the-stale-devices-in-azure-ad"></a>Instruktioner: Hantera inaktuella enheter i Azure AD
 
@@ -101,7 +101,7 @@ Definiera en tidsram som är din indikator för en inaktuell enhet. När du defi
 
 ### <a name="disable-devices"></a>Inaktivera enheter
 
-Det är inte lämpligt att ta bort en enhet direkt som verkar vara inaktuell eftersom du inte kan ångra en borttagning om det har gjorts en falsk positiv identifiering. Vi rekommenderar att inaktivera en enhet under en respitperiod innan den tas bort. Definiera i din princip en tidsram för att inaktivera en princip innan den tas bort.
+Det är inte lämpligt att ta bort en enhet direkt som verkar vara inaktuell eftersom du inte kan ångra en borttagning om det har gjorts en falsk positiv identifiering. Vi rekommenderar att inaktivera en enhet under en respitperiod innan den tas bort. Definiera i din princip en tidsram för att inaktivera en enhet innan den tas bort.
 
 
 ### <a name="mdm-controlled-devices"></a>MDM-kontrollerade enheter
@@ -111,7 +111,7 @@ Om din enhet kontrolleras av Intune eller någon annan MDM-lösning fasar du ut 
 
 ### <a name="system-managed-devices"></a>Systemhanterade enheter
 
-Ta inte bort systemhanterade enheter. Det finns vanligtvis enheter som auto-pilot. När dessa enheter tagits bort kan de inte etableras igen. Den nya cmdleten Get-MmsolDevice exkluderar systemhanterade enheter som standard. 
+Ta inte bort systemhanterade enheter. Det finns vanligtvis enheter som auto-pilot. När dessa enheter tagits bort kan de inte etableras igen. Den nya cmdleten `get-msoldevice` exkluderar systemhanterade enheter som standard. 
 
 
 ### <a name="hybrid-azure-ad-joined-devices"></a>Hybrid Azure AD-anslutna enheter
@@ -137,7 +137,7 @@ Inaktivera eller ta bort Azure AD-registrerade enheter i Azure AD.
 
 
 
-## <a name="cleanup-stale-devices-in-the-azure-portal"></a>Rensa inaktuella enheter i Azure-portalen  
+## <a name="clean-up-stale-devices-in-the-azure-portal"></a>Rensa inaktuella enheter i Azure-portalen  
 
 Du kan rensa inaktuella enheter i Azure-portalen men det är effektivare att hantera processen med hjälp av ett PowerShell-skript. Använd den senaste PowerShell V1-modulen för att använda tidsstämpelfiltret och för att filtrera bort systemhanterade enheter som auto-pilot. Här rekommenderar vi inte att använda PowerShell V2.
 
@@ -150,7 +150,9 @@ En typisk rutin består av följande steg:
 
 3. Inaktivera enheten med hjälp av cmdleten [Disable-MsolDevice](https://docs.microsoft.com/powershell/module/msonline/disable-msoldevice?view=azureadps-1.0). 
 
-4. Ta bort enheten med hjälp av cmdleten [Remove-MsolDevice](https://docs.microsoft.com/powershell/module/msonline/remove-msoldevice?view=azureadps-1.0).
+4. Vänta på respitperioden för det angivna antalet dagar innan du tar bort enheten.
+
+5. Ta bort enheten med hjälp av cmdleten [Remove-MsolDevice](https://docs.microsoft.com/powershell/module/msonline/remove-msoldevice?view=azureadps-1.0).
 
 ### <a name="get-the-list-of-devices"></a>Hämta listan över enheter
 

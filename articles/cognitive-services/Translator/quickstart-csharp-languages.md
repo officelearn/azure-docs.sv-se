@@ -1,25 +1,27 @@
 ---
-title: Hämta språk som stöds med Translator Text och C# | Microsoft Docs
-titleSuffix: Microsoft Cognitive Services
-description: I den här snabbstarten hämtar du en lista över språk som stöds för översättning, transkribering och ordlistesökningar med hjälp av Translator Text-API:t med C# i Cognitive Services.
+title: 'Snabbstart: Hämta språk som stöds – Translator Text API, C#'
+titleSuffix: Azure Cognitive Services
+description: I den här snabbstarten hämtar du en lista över språk som stöds för översättning, transkribering och ordlistesökningar med hjälp av Translator Text-API:t med C#.
 services: cognitive-services
 author: noellelacharite
-manager: nolachar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-text
 ms.topic: quickstart
 ms.date: 06/15/2018
 ms.author: nolachar
-ms.openlocfilehash: 001f4bc67170d28dd56d6f8a773586c5e6968503
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.openlocfilehash: 967e978518debb5aef071807b1482d6f225c062f
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "43770606"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46367720"
 ---
 # <a name="quickstart-get-supported-languages-with-c35"></a>Snabbstart: Hämta språk som stöds med C&#35;
 
 I den här snabbstarten hämtar du en lista över språk som stöds för översättning, transkribering och ordlistesökningar med hjälp av Translator Text-API:t.
+
+Källkoden till det här exemplet finns på [GitHub](https://github.com/MicrosoftTranslator/Text-Translation-API-V3-C-Sharp).
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 

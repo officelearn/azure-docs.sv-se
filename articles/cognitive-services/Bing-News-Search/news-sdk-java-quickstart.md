@@ -1,30 +1,30 @@
 ---
-title: Bing News Sök SDK Java quickstart | Microsoft Docs
-description: Lär dig hur du ställer in konsolprogram Bing News Sök SDK.
+title: 'Snabbstart: SDK för nyhetssökning i Bing, Java'
 titleSuffix: Azure Cognitive Services
+description: Lär dig hur du konfigurerar konsolprogrammet för SDK för nyhetssökning i Bing.
 services: cognitive-services
 author: mikedodaro
-manager: rosh
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-news-search
-ms.topic: article
+ms.topic: quickstart
 ms.date: 02/16/2018
 ms.author: v-gedod
-ms.openlocfilehash: a6d4baf307fa3edcc0886d32204f2872fe310ce2
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
-ms.translationtype: MT
+ms.openlocfilehash: 7919f13e8c5aaa592a416190d3cd11edbf31af2c
+ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35355266"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48802485"
 ---
-# <a name="bing-news-search-sdk-java-quickstart"></a>Bing News Sök SDK Java-Snabbstart
+# <a name="quickstart-bing-news-search-sdk-with-java"></a>Snabbstart: SDK för nyhetssökning i Bing med Java
 
-Bing News Sök SDK innehåller REST API-funktioner för Nyheter frågor och resultaten för tolkning. 
+SDK för nyhetssökning i Bing tillhandhåller REST API-funktionerna för nyhetsfrågor och parsning av resultat. 
 
-Den [källkoden för Java Bing News Sök SDK-exempel](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples/tree/master/Search/BingNewsSearch) är tillgänglig på Git-hubben.
+[Källkoden till exemplen med SDK:t för nyhetssökning i Bing med Java](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples/tree/master/Search/BingNewsSearch) är tillgänglig på GitHub.
 
 ## <a name="application-dependencies"></a>Programberoenden
-Hämta en [kognitiva åtkomstnyckeln](https://azure.microsoft.com/try/cognitive-services/) under **Sök**. Installera beroenden Bing News Sök SDK via Maven, Gradle eller ett annat hanteringssystem för beroendet. Filen Maven POM kräver deklarationen:
+Hämta en [Cognitive Services-åtkomstnyckel](https://azure.microsoft.com/try/cognitive-services/) under **Sök**. Installera SDK för nyhetssökning i Bing med hjälp av Maven eller Gradle eller något annat beroendehanteringssystem. Maven POM-filen kräver deklarationen:
 ```
   <dependencies>
     <dependency>
@@ -34,8 +34,8 @@ Hämta en [kognitiva åtkomstnyckeln](https://azure.microsoft.com/try/cognitive-
     </dependency>
   </dependencies>
 ```
-## <a name="news-search-client"></a>Nyheter Sök klienten
-Lägg till import till klassen implementeringen.
+## <a name="news-search-client"></a>Klient för nyhetssökning
+Lägg till importen i implementeringen av klassen.
 ```
 import com.microsoft.azure.cognitiveservices.newssearch.*;
 import com.microsoft.azure.cognitiveservices.newssearch.implementation.NewsInner;
@@ -48,7 +48,7 @@ import okhttp3.Request;
 import okhttp3.Response;
 import java.io.IOException;
 ```
-Implementera den **NewsSearchAPIImpl** klienten, vilket kräver en instans av den **ServiceClientCredentials** klass.
+Implementera klienten **NewsSearchAPIImpl**, som kräver en instans av klassen **ServiceClientCredentials**.
 ```
 public static NewsSearchAPIImpl getClient(final String subscriptionKey) {
     return new NewsSearchAPIImpl("https://api.cognitive.microsoft.com/bing/v7.0/",
@@ -74,7 +74,7 @@ public static NewsSearchAPIImpl getClient(final String subscriptionKey) {
 
 
 ```
-Sök efter nyheter med den enda fråga ”Quantum beräknar”. Filtrera sökningen med den *marknaden* och *antal* parametrar. Kontrollera antalet resultat. Skriva ut information om det första resultatet news: namn, URL, publiceringsdatum, beskrivning, providernamn och Totalt antal uppskattade matchar.
+Sök efter nyheter med den enskilda frågan ”Quantum Computing” (kvantberäkning). Filtrera sökningen med parametrarna *market* och *count*. Verifiera antalet resultat. Skriv ut information om det första nyhetsresultatet: namn, URL, publiceringsdatum, beskrivning, providernamn och totalt antal uppskattade matchningar.
 ```
 public static void newsSearch(String subscriptionKey)
 {
@@ -121,7 +121,7 @@ public static void newsSearch(String subscriptionKey)
 }
 
 ```
-Sök efter de senaste nyheterna ”styrs av datorn”. Filtrera sökningen med den *dokumentens* och *sortBy* parametrar. Kontrollera antalet resultat. Skriva ut information om det första resultatet news: namn, URL, publiceringsdatum, beskrivning, providernamn och Totalt antal uppskattade matchar.
+Sök efter nyheter om ”Artificial Intelligence” (artificiell intelligens). Filtrera sökningen med parametrarna *freshness* och *sortBy*. Verifiera antalet resultat. Skriv ut information om det första nyhetsresultatet: namn, URL, publiceringsdatum, beskrivning, providernamn och totalt antal uppskattade matchningar.
 ```
 /**
  * Search recent news for (Artificial Intelligence) with the freshness and sortBy parameters.
@@ -172,7 +172,7 @@ public static void newsSearchWithFilters(String subscriptionKey)
 }
 
 ```
-Sök nyheter **kategori** för *film och TV underhållning* ämnen och Använd den *säker sökning* funktion. Kontrollera antalet resultat. Skriv ut kategori, namn, URL, beskrivning, publiceringsdatum och provider-namn för det första resultatet nyheter.
+Sök efter **nyhetskategori** för ämnena *film och TV-underhållning* och använd funktionen *säker sökning*. Verifiera antalet resultat. Skriv ut kategori, namn, URL, beskrivning, publiceringsdatum och providernamn för det första nyhetsresultatet.
 ```
 /**
  * Search the news category for (movie and TV entertainment) with safe search. Verify the number of results. 
@@ -223,7 +223,7 @@ public static void newsCategory(String subscriptionKey)
 }
 
 ```
-Sök efter trender nyheter. Kontrollera antalet resultat. Skriv ut namn, frågetexten, Webbadress för sökning och nyheter Sök-URL för det första resultatet nyheter.
+Sök efter trendande nyhetsämnen. Verifiera antalet resultat. Skriva ut namn, frågetext, webbsöknings-URL och nyhetssöknings-URL för det första nyhetsresultatet.
 ```
 public static void trendingTopics(String subscriptionKey)
 {
@@ -265,7 +265,7 @@ public static void trendingTopics(String subscriptionKey)
     }
 }
 ```
-Lägg till de metoder som beskrivs i den här artikeln till en klass med en huvudsakliga funktion för att köra koden.
+Lägg till de metoder som beskrivs i den här artikeln till en klass med en huvudsaklig funktion för att köra koden.
 ```
 package javaNewsSDK;
 import com.microsoft.azure.cognitiveservices.newssearch.*;
@@ -286,6 +286,6 @@ public class NewsSearchSDK {
 ```
 ## <a name="next-steps"></a>Nästa steg
 
-[Kognitiva Services SDK för Java-exempel](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples)
+[Exempel med Cognitive Services SDK för Java](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples)
 
 

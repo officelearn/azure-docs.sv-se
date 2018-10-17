@@ -1,21 +1,21 @@
 ---
-title: Översätta text med Translator Text och Go | Microsoft Docs
-titleSuffix: Microsoft Cognitive Services
-description: I den här snabbstarten ska du översätta text från ett språk till ett annat med hjälp av Translator Text-API:et med Go i Cognitive Services.
+title: 'Snabbstart: Översätta text – Translator Text, Go'
+titleSuffix: Azure Cognitive Services
+description: I den här snabbstarten ska du översätta text från ett språk till ett annat med Translator Text-API:et med Go.
 services: cognitive-services
 author: noellelacharite
-manager: nolachar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-text
 ms.topic: quickstart
 ms.date: 06/29/2018
 ms.author: nolachar
-ms.openlocfilehash: 72d4a3bc7563d6427335f1536f787eab6d7a0de4
-ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
+ms.openlocfilehash: df8b938c9541a4f57a337065af0ab02fe6815c6d
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "43771317"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46126708"
 ---
 # <a name="quickstart-translate-text-with-go"></a>Snabbstart: Översätta text med Go
 
@@ -134,7 +134,7 @@ Ett svar som anger att åtgärden lyckades returneras i JSON, som du ser i följ
 
 ## <a name="next-steps"></a>Nästa steg
 
-Utforska Go-paket för Cognitive Services-API:er via [Azure SDK för Go](https://github.com/Azure/azure-sdk-for-go) på GitHub.
+Utforska Go-paket för API:er för Cognitive Services via [Azure SDK för Go](https://github.com/Azure/azure-sdk-for-go) på GitHub.
 
 > [!div class="nextstepaction"]
 > [Utforska Go-paket på GitHub](https://github.com/Azure/azure-sdk-for-go/tree/master/services/cognitiveservices)

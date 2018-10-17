@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 07/12/2018
 ms.author: ryanwi,mikhegn
 ms.custom: mvc
-ms.openlocfilehash: dc105c02354e0e83c4f9a1bad7c94a98643effd0
-ms.sourcegitcommit: 1af4bceb45a0b4edcdb1079fc279f9f2f448140b
+ms.openlocfilehash: 68ff8ae6a055ee609e3b4f87c4847c6f2a55a9da
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "41918691"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44300706"
 ---
 # <a name="tutorial-deploy-a-service-fabric-application-to-a-cluster-in-azure"></a>Självstudie: Distribuera en Service Fabric-app till ett kluster i Azure
 
@@ -36,7 +36,7 @@ I den här självstudieserien får du lära du dig att:
 > * [Skapa ett .NET Service Fabric-program](service-fabric-tutorial-create-dotnet-app.md).
 > * Distribuera programmet till ett fjärrkluster.
 > * [Lägga till en HTTPS-slutpunkt i en klienttjänst i ASP.NET Core](service-fabric-tutorial-dotnet-app-enable-https-endpoint.md).
-> * [Konfigurera CI/CD med hjälp av Visual Studio Team Services](service-fabric-tutorial-deploy-app-with-cicd-vsts.md).
+> * [Konfigurera CI/CD med hjälp av Azure Pipelines](service-fabric-tutorial-deploy-app-with-cicd-vsts.md).
 > * [Konfigurera övervakning och diagnostik för programmet](service-fabric-tutorial-monitoring-aspnet.md).
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
@@ -65,7 +65,7 @@ För den här självstudien får du två alternativ för distribution av röstni
 * Publicera till ett befintligt kluster i din prenumeration. Du kan skapa Service Fabric-kluster via [Azure-portalen](https://portal.azure.com) med hjälp av [PowerShell](./scripts/service-fabric-powershell-create-secure-cluster-cert.md)- eller [Azure CLI](./scripts/cli-create-cluster.md)-skript, eller från en [Azure Resource Manager-mall](service-fabric-tutorial-create-vnet-and-windows-cluster.md).
 
 > [!NOTE]
-> Många tjänster använder omvänd proxy när de kommunicerar med varandra. Kluster som skapas från Visual Studio och partkluster har en omvänd proxy som är aktiverad som standard. Om du använder ett befintligt kluster måste du [aktivera omvänd proxy i klustret](service-fabric-reverseproxy-setup.md#).
+> Många tjänster använder omvänd proxy när de kommunicerar med varandra. Kluster som skapas från Visual Studio och partkluster har en omvänd proxy som är aktiverad som standard. Om du använder ett befintligt kluster måste du [aktivera omvänd proxy i klustret](service-fabric-reverseproxy-setup.md).
 
 
 ### <a name="find-the-voting-web-service-endpoint-for-your-azure-subscription"></a>Hitta webbtjänstslutpunkten för röstning för din Azure-prenumeration

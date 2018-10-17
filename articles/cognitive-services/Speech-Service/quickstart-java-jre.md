@@ -5,16 +5,16 @@ description: Lär dig att känna igen tal i Java (Windows eller Linux)
 services: cognitive-services
 author: fmegen
 ms.service: cognitive-services
-ms.technology: Speech
+ms.component: Speech
 ms.topic: quickstart
 ms.date: 09/24/2018
 ms.author: fmegen
-ms.openlocfilehash: 00603c467ec96e52fc2b7745263153a68d20f584
-ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
+ms.openlocfilehash: c0963fa8453dd51dfb05af20a5468e1eed1fc7cf
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47053970"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48885229"
 ---
 # <a name="quickstart-recognize-speech-in-java-on-windows-or-linux-by-using-the-speech-sdk"></a>Snabbstart: Känna igen tal i Java i Windows eller Linux med hjälp av Speech SDK
 
@@ -69,17 +69,17 @@ Om du använder Ubuntu 16.04 kör du följande kommandon innan du startar Eclips
 
 1. Öppna filen **pom.xml** och redigera den.
 
-   * I slutet av filen, före sluttaggen `</project>`, skapar du ett databasavsnitt med en referens till Maven-databasen för Speech SDK, som du ser här:
+   * I slutet av filen, före sluttaggen `</project>`, skapar du ett `repositories`-element med en referens till Maven-databasen för Speech SDK, som du ser här:
 
      [!code-xml[POM Repositories](~/samples-cognitive-services-speech-sdk/quickstart/java-jre/pom.xml#repositories)]
 
-  * Efter avsnittet lägger du även till ett avsnitt för beroenden, med Speech SDK version 1.0.0 som ett beroende:
+  * Lägg även till ett `dependencies`-element med Speech SDK-version 1.0.0 som ett beroende:
 
      [!code-xml[POM Dependencies](~/samples-cognitive-services-speech-sdk/quickstart/java-jre/pom.xml#dependencies)]
 
    * Spara ändringarna.
 
-## <a name="add-sample-code"></a>Lägg till exempelkod
+## <a name="add-sample-code"></a>Lägga till exempelkod
 
 1. Du lägger till en ny tom klass i Java-projektet genom att välja **Arkiv** > **Nytt** > **Klass**.
 

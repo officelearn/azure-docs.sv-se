@@ -8,14 +8,14 @@ services: iot-hub
 ms.devlang: python
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 04/30/2018
+ms.date: 09/07/2018
 ms.author: dobett
-ms.openlocfilehash: 7d5f2246eec20144a30e0abbc31038bdf04ab2b0
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: 2d851bc8d5af7f824512cc9f14e6b1120026dd07
+ms.sourcegitcommit: 4edf9354a00bb63082c3b844b979165b64f46286
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43339284"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48785163"
 ---
 # <a name="quickstart-send-telemetry-from-a-device-to-an-iot-hub-and-read-the-telemetry-from-the-hub-with-a-back-end-application-python"></a>Snabbstart: Skicka telemetri från en enhet till en IoT-hubb och läs telemetrin från navet med ett serverdelsprogram (Python)
 
@@ -33,7 +33,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 
 De två exempelprogram som du kör i den här snabbstarten skrivs med Python. Du behöver ha Python 2.7.x eller 3.5.x på utvecklingsdatorn.
 
-Du kan hämta Python för flera plattformar från [Python.org](https://www.python.org/downloads/).
+Du kan hämta Python för flera plattformar från [Python.org](https://www.python.org/downloads/). Python-installationsprogrammet som du väljer ska baseras på arkitekturen i systemet som du arbetar med. Om systemets processorarkitektur är 32-bitars ska du hämta x86, vilket är det standardiserade installationsprogrammet på Python.org, och för 64-bitars arkitekturen ska du ladda ned installationsprogrammet för x86-64.
 
 Du kan kontrollera den aktuella versionen av Python på utvecklingsdatorn med någon av följande kommandon:
 
@@ -46,20 +46,6 @@ python3 --version
 ```
 
 Ladda ned Python-exempelprojektet från https://github.com/Azure-Samples/azure-iot-samples-python/archive/master.zip och extrahera ZIP-arkivet.
-
-Om du vill installera CLI-verktyget som läser telemetri från IoT-hubben måste du först installera Node.js v4.x.x eller senare installerat på utvecklingsdatorn. Du kan ladda ned Node.js för flera plattformar från [nodejs.org](https://nodejs.org).
-
-Du kan kontrollera den aktuella versionen av Node.js på utvecklingsdatorn med följande kommando:
-
-```cmd/sh
-node --version
-```
-
-Kör följande kommando om du vill installera `iothub-explorer` CLI-verktyget:
-
-```cmd/sh
-npm install -g iothub-explorer
-```
 
 ## <a name="create-an-iot-hub"></a>Skapa en IoT Hub
 
@@ -85,14 +71,6 @@ En enhet måste vara registrerad vid din IoT-hubb innan den kan ansluta. I den h
     ```
 
     Anteckna enhetsanslutningssträngen. Den ser ut ungefär som `Hostname=...=`. Du kommer att använda det här värdet senare i snabbstarten.
-
-1. Du måste också ha en _tjänstanslutningssträng_ för att kunna aktivera `iothub-explorer` CLI-verktyget och ansluta till din IoT-hubb och hämta meddelanden. Följande kommando hämtar tjänstanslutningssträngen för din IoT-hubb:
-
-    ```azurecli-interactive
-    az iot hub show-connection-string --hub-name {YourIoTHubName} --output table
-    ```
-
-    Anteckna tjänstanslutningssträngen. Den ser ut ungefär som `Hostname=...=`. Du kommer att använda det här värdet senare i snabbstarten. Tjänstanslutningssträngen skiljer sig från enhetsanslutningssträngen.
 
 ## <a name="send-simulated-telemetry"></a>Skicka simulerad telemetri
 
@@ -122,15 +100,15 @@ Det simulerade enhetsprogrammet ansluter till en enhetsspecifik slutpunkt på di
 
 ## <a name="read-the-telemetry-from-your-hub"></a>Läsa telemetrin från din hubb
 
-CLI-verktyget för `iothub-explorer` ansluter till slutpunkten **Events** på tjänstsidan i din IoT-hubb. Verktyget tar emot enhet-till-moln-meddelanden som skickats från din simulerade enhet. Ett IoT Hub-serverprogram körs normalt i molnet för att ta emot och bearbeta enhet-till-molnet-meddelanden.
+CLI-tillägget för IoT-hubben kan ansluta till **Events**-slutpunkten för tjänstsidan på din IoT-hubb. Tillägget tar emot enhet-till-moln-meddelanden som skickats från din simulerade enhet. Ett IoT Hub-serverprogram körs normalt i molnet för att ta emot och bearbeta enhet-till-molnet-meddelanden.
 
-Kör följande kommandon i ett annat terminalfönster och ersätt `{your hub service connection string}` med den tjänstanslutningssträng du antecknade tidigare:
+Kör följande Azure CLI-kommandon, där du ersätter `{YourIoTHubName}` med namnet på din IoT-hubb:
 
-```cmd/sh
-iothub-explorer monitor-events MyPythonDevice --login "{your hub service connection string}"
+```azurecli-interactive
+az iot hub monitor-events --device-id MyPythonDevice --hub-name {YourIoTHubName}
 ```
 
-Följande skärmbild visar utdata när verktyget tar emot telemetri som skickats av den simulerade enheten till hubben:
+Följande skärmbild visar utdata när tillägget tar emot telemetri som skickats av den simulerade enheten till hubben:
 
 ![Kör serverdelsprogrammet](media/quickstart-send-telemetry-python/ReadDeviceToCloud.png)
 

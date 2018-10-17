@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 04/24/2018
 ms.author: jdial
 ms.custom: mvc
-ms.openlocfilehash: 31a3a0618330b74c611afcdf70560ce47eeb85e3
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.openlocfilehash: 7cccb47bd7489e88649ee82c4d52c72af0d91e8e
+ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42023783"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44390953"
 ---
 # <a name="what-is-azure-network-watcher"></a>Vad är Azure Network Watcher?
 
@@ -36,6 +36,8 @@ Slutpunkterna kan vara en annan virtuell dator (VM), ett fullständigt domännam
 Om en slutpunkt inte kan nås, informerar anslutningens felsökning dig om orsaken. Möjliga orsaker är DNS-problem med namnmatchning, CPU, minne eller brandvägg i operativsystemet på en virtuell dator, hopptypen för en anpassad väg, eller en säkerhetsregel för den virtuella datorn eller undernätet i den utgående anslutningen. Läs mer om [säkerhetsregler](../virtual-network/security-overview.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#security-rules) och [hopptyper för vägar](../virtual-network/virtual-networks-udr-overview.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json) i Azure.
 
 Anslutningsövervakaren visar också den minsta, genomsnittliga och högsta svarstid som observerats över tid. När du har sett vilken svarstid en anslutning har, kan du kanske minska svarstiden genom att flytta Azure-resurserna till olika Azure-regioner. Läs mer om hur du avgör [relativa svarstider mellan Azure-regioner och Internetleverantörer](#determine-relative-latencies-between-azure-regions-and-internet-service-providers), samt hur du övervakar kommunikationen mellan en virtuell dator och en slutpunkt med [anslutningsövervakaren](connection-monitor.md). Om du hellre vill testa en anslutning vid en specifik tidpunkt, i stället för att övervaka anslutningen över tid som du gör med anslutningsövervakaren, använder du [anslutningsfelsökning](#connection-troubleshoot).
+
+Övervakaren för nätverksprestanda är en molnbaserad lösning för övervakning av hybridnätverk som hjälper dig att övervaka nätverkets prestanda mellan olika punkter i din nätverksinfrastruktur. Du kan också övervaka nätverksanslutningar till tjänsten och programslutpunkterna samt övervaka prestanda för Azure ExpressRoute. Övervakaren för nätverksprestanda identifierar nätverksproblem som blockering av svartlistad trafik, routningsfel och problem som inte kan identifieras med vanliga nätverksövervakningsmetoder. Lösningen genererar aviseringar och meddelar dig när ett tröskelvärde överskrids för en nätverkslänk. Detta säkerställer att problem med nätverksprestanda upptäcks i god tid och att källan till problemet kan ringas in till ett visst nätverkssegment eller enhet. Läs mer om [övervakaren av nätverksprestanda](../log-analytics/log-analytics-network-performance-monitor.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
 
 ### <a name="view-resources-in-a-virtual-network-and-their-relationships"></a>Visa resurser i ett virtuellt nätverk och deras relationer
 

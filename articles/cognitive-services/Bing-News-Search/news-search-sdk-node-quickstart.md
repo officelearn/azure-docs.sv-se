@@ -1,44 +1,44 @@
 ---
-title: Nyheter Sök SDK nod quickstart | Microsoft Docs
-description: Ställ in nyheter Sök SDK-konsolprogram
-titleSuffix: Azure cognitive services
+title: 'Snabbstart: SDK för nyhetssökning i Bing, Node'
+titleSuffix: Azure Cognitive Services
+description: Konfigurera konsolprogrammet för SDK för nyhetssökning i Bing
 services: cognitive-services
 author: mikedodaro
-manager: rosh
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-news-search
-ms.topic: article
+ms.topic: quickstart
 ms.date: 02/12/2018
 ms.author: v-gedod
-ms.openlocfilehash: 4ae99aa100b697a0dd75863c6f0c3c556dfa3d21
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
-ms.translationtype: MT
+ms.openlocfilehash: 2279a6475ab8c39b3ff599f7244caea59d622651
+ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35355284"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48803009"
 ---
-# <a name="news-search-sdk-node-quickstart"></a>Nyheter Sök SDK nod Snabbstart
+# <a name="quickstart-bing-news-search-sdk-with-node"></a>Snabbstart: SDK för nyhetssökning i Bing med Node
 
-Bing News Sök SDK innehåller funktionerna i REST-API för Nyheter frågor och resultaten för tolkning. 
+SDK för nyhetssökning i Bing innehåller funktionerna i REST API:et för nyhetsfrågor och parsning av resultat. 
 
-Den [källkoden för noden Bing News Sök SDK-exempel](https://github.com/Azure-Samples/cognitive-services-node-sdk-samples/blob/master/Samples/newsSearch.js) är tillgänglig på Git-hubben.
+[Källkoden till exemplen med SDK:t för nyhetssökning i Bing med Node](https://github.com/Azure-Samples/cognitive-services-node-sdk-samples/blob/master/Samples/newsSearch.js) är tillgänglig på Git Hub.
 
 ## <a name="application-dependencies"></a>Programberoenden
 
-Om du vill konfigurera ett konsolprogram med Bing News Sök SDK kör `npm install azure-cognitiveservices-newssearch` i din utvecklingsmiljö.
+Om du vill konfigurera ett konsolprogram med SDK:t för nyhetssökning i Bing kör du `npm install azure-cognitiveservices-newssearch` i din utvecklingsmiljö.
 
-## <a name="news-search-client"></a>Nyheter Sök klienten
-Hämta en [kognitiva åtkomstnyckeln](https://azure.microsoft.com/try/cognitive-services/) under *Sök*. Skapa en instans av den `CognitiveServicesCredentials`:
+## <a name="news-search-client"></a>Klient för nyhetssökning
+Hämta en [Cognitive Services-åtkomstnyckel](https://azure.microsoft.com/try/cognitive-services/) under *Sök*. Skapa en instans av `CognitiveServicesCredentials`:
 ```
 const CognitiveServicesCredentials = require('ms-rest-azure').CognitiveServicesCredentials;
 let credentials = new CognitiveServicesCredentials('YOUR-ACCESS-KEY');
 ```
-Sedan skapa en instans av klienten:
+Instansiera sedan klienten:
 ```
 const NewsSearchAPIClient = require('azure-cognitiveservices-newssearch');
 let client = new NewsSearchAPIClient(credentials);
 ```
-Använd klienten för att söka med en frågetext, i det här fallet 'Vinter olympiad':
+Använd klienten för att söka med frågetext, i det här fallet ”Winter Olympics”:
 ```
 client.newsOperations.search('Winter Olympics').then((result) => {
     console.log(result.value);
@@ -47,11 +47,11 @@ client.newsOperations.search('Winter Olympics').then((result) => {
 });
 
 ```
-Kod som skrivs ut `result.value` objekt till konsolen utan att tolka all text. Resultaten, om någon per kategori, kommer att omfatta:
-- _skriv: 'NewsArticle'
-- _skriv: 'Webbsida ”
-- _skriv: 'VideoObject'
-- _skriv: 'ImageObject'
+Koden skriver ut `result.value`-objekt till konsolen utan parsning av texten. I resultaten, om sådana finns för respektive kategori, ingår:
+- _type: 'NewsArticle'
+- _type: 'WebPage'
+- _type: 'VideoObject'
+- _type: 'ImageObject'
 
 <!-- Remove until we can replace with santized version
 ![News results](media/node-sdk-quickstart-results.png)
@@ -59,4 +59,4 @@ Kod som skrivs ut `result.value` objekt till konsolen utan att tolka all text. R
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Kognitiva services SDK för Node.js-exempel](https://github.com/Azure-Samples/cognitive-services-node-sdk-samples)
+[Exempel med Cognitive Services SDK för Node.js](https://github.com/Azure-Samples/cognitive-services-node-sdk-samples)

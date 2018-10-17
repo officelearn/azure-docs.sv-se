@@ -14,12 +14,12 @@ ms.topic: quickstart
 ms.date: 06/12/2018
 ms.author: ccompy
 ms.custom: mvc
-ms.openlocfilehash: df4730078b890353c697b0e9213fb66cdb4e7f9b
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: e9d1f77a85d4b5cfb5bb7d3cb80380be3c79315d
+ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39436700"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44378286"
 ---
 # <a name="create-and-use-an-internal-load-balancer-with-an-app-service-environment"></a>Skapa och använda en intern lastbalanserare med en App Service-miljö #
 
@@ -56,7 +56,7 @@ Det finns några saker som du inte kan göra när du använder en ILB ASE:
 
 Så här skapar du en intern belastningsutjämnare i apptjänstmiljö:
 
-1. I Azure-portalen väljer du **Skapa en resurs** > **Webb och mobilt** > **App Service Environment**.
+1. I Azure-portalen väljer du **Skapa en resurs** > **Webb** > **App Service Environment**.
 
 1. Välj din prenumeration.
 
@@ -209,7 +209,7 @@ SCM-webbplatsens namn tar dig till Kudu-konsolen som heter **Avancerad portal** 
 
 I App Service för flera innehavare och i en extern ASE finns det enkel inloggning mellan Azure-portalen och Kudu-konsolen. För ILB ASE måste du emellertid använda dina pucliceringsautentiseringsuppgifter för att logga in på Kudu-konsolen.
 
-Internetbaserade CI-system, t.ex GitHub och Visual Studio Team Services, fungerar fortfarande med en ILB ASE om Build Agent är tillgänglig via Internet och på samma nätverk som ILB ASE. För Visual Studio Team Services gäller att om Build Agent har skapats på samma virtuella nätverk som ILB ASE (olika undernät går bra) kan den hämta koden från VSTS-git och distribuera till ILB ASE. Om du inte vill skapa en egen Build Agent måste du använda ett CI-system som använder en pull-modell, till exempel Dropbox.
+Internetbaserade CI-system, t.ex GitHub och Azure DevOps, fungerar fortfarande med en ILB ASE om Build Agent är tillgänglig via Internet och på samma nätverk som ILB ASE. För Azure DevOps gäller att om Build Agent har skapats på samma virtuella nätverk som ILB ASE (olika undernät går bra) kan den hämta koden från Azure DevOps-git och distribuera till ILB ASE. Om du inte vill skapa en egen Build Agent måste du använda ett CI-system som använder en pull-modell, till exempel Dropbox.
 
 Publiceringsslutpunkterna för appar i en ILB ASE använder domänen som ILB ASE skapades med. Den här domänen visas i appens publiceringsprofil och i appens portalblad (**Översikt** > **Essentials** och även **Egenskaper**). Om du har en ILB ASE med underdomänen *contoso.net* och en app som heter *mytest* ska du använda *mytest.contoso.net* för FTP och *mytest.scm.contoso.net* för webbdistribution.
 

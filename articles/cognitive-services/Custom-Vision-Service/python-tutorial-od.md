@@ -1,26 +1,27 @@
 ---
-title: Objekt-identifiering med Python och anpassade-API för visuellt innehåll – Azure Cognitive Services | Microsoft Docs
-description: Utforska en grundläggande Windows-app som använder anpassat API för visuellt innehåll i Microsoft Cognitive Services. Skapa ett projekt, lägga till taggar, ladda upp bilder, träna ditt projekt och göra en förutsägelse med hjälp av standardslutpunkt.
+title: 'Självstudie: Skapa ett projekt för objektidentifiering – API för Custom Vision, Python'
+titlesuffix: Azure Cognitive Services
+description: Skapa ett projekt, lägg till taggar, ladda upp bilder, träna ditt projekt och gör en förutsägelse genom att använda standardslutpunkten.
 services: cognitive-services
 author: areddish
-manager: chbuehle
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: custom-vision
-ms.topic: article
+ms.topic: tutorial
 ms.date: 05/03/2018
 ms.author: areddish
-ms.openlocfilehash: 37bdb9ebf7c74586c728e171a9897903b8ad2ee8
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
-ms.translationtype: MT
+ms.openlocfilehash: f49f5ab32d834b32de54be2d96c3671ad46f79f3
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39213589"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46363708"
 ---
-# <a name="use-custom-vision-api-to-build-an-object-detection-project-with-python"></a>Använd anpassad API för visuellt innehåll för att skapa ett projekt för identifiering av objekt med Python
+# <a name="tutorial-build-an-object-detection-project-with-python"></a>Självstudie: Skapa ett projekt för objektidentifiering med Python
 
-Utforska ett grundläggande Python-skript som använder den API för visuellt innehåll för att skapa ett projekt för identifiering av objekt. När den har skapats kan du lägga till taggade regioner, ladda upp bilder, träna projektet, hämta projektets standard förutsägelse slutpunkts-URL och använder slutpunkten programmatiskt en bild. Använd det här exemplet med öppen källkod som en mall för att skapa din egen app med hjälp av anpassat API för visuellt innehåll.
+Utforska ett grundläggande Python-skript som använder API för visuellt innehåll för att skapa ett projekt för objektidentifiering. När den har skapats kan du lägga till taggade regioner, ladda upp bilder, träna projektet, hämta slutpunkts-URL:en för projektets standardförutsägelse och använda slutpunkten för att testa en bild programmatiskt. Använd det här exemplet med öppen källkod som en mall för att skapa din egen app med hjälp av API för Custom Vision.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 I självstudiekursen måste du göra följande:
 
@@ -32,25 +33,25 @@ Det här exemplet har utvecklats för Python.
 
 ### <a name="get-the-custom-vision-sdk"></a>Hämta Custom Vision SDK
 
-Om du vill skapa det här exemplet måste du installera Python SDK för anpassat API för visuellt innehåll:
+Om du vill skapa det här exemplet måste du installera Python SDK för API för Custom Vision:
 
 ```
 pip install azure-cognitiveservices-vision-customvision
 ```
 
-Du kan ladda ned bilder med den [Python-exempel](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples).
+Du kan ladda ned bilderna med [Python-exemplen](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples).
 
-## <a name="step-1-get-the-training-and-prediction-keys"></a>Steg 1: Hämta nycklar för Inlärnings- och förutsägelsetransaktioner
+## <a name="step-1-get-the-training-and-prediction-keys"></a>Steg 1: Hämta utbildningen och förutsägelsenycklarna
 
-För att få nycklarna som används i det här exemplet kan du gå till den [Custom Vision plats](https://customvision.ai) och välj den __kugghjulsikonen__ i det övre högra hörnet. I den __konton__ och kopiera värdena från den __utbildning nyckeln__ och __förutsägelse nyckeln__ fält.
+Om du vill ha nycklarna som används i det här exemplet kan du gå till [Custom Vision-sidan](https://customvision.ai) och välja __kugghjulsikonen__ i det övre högra hörnet. Kopiera värdena från fälten __Utbildningsnyckel__ och __Förutsägelsenyckel__ i avsnittet __Konton__.
 
-![Bild av nycklar UI](./media/python-tutorial/training-prediction-keys.png)
+![Bild av nyckel-UI:et](./media/python-tutorial/training-prediction-keys.png)
 
-Det här exemplet använder avbildningar från [den här platsen](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples/tree/master/samples/vision/images).
+Det här exemplet används bilder från [den här platsen](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples/tree/master/samples/vision/images).
 
 ## <a name="step-2-create-a-custom-vision-service-project"></a>Steg 2: Skapa ett projekt för Custom Vision Service
 
-Om du vill skapa ett nytt projekt för Custom Vision Service skapar en skriptfil för sample.py och Lägg till följande innehåll. Observera skillnaden mellan att skapa en objektidentifiering och avbildning klassificering projekt är den domän som har angetts i create_project-anropet.
+Om du vill skapa ett nytt projekt för Custom Vision Service skapar du en skriptfil, sample.py, och lägger till följande innehåll. Observera att skillnaden mellan att skapa ett projekt för objektidentifiering och bildklassificering är den domän som har angetts i create_project-anropet.
 
 ```Python
 from azure.cognitiveservices.vision.customvision.training import training_api
@@ -82,9 +83,9 @@ scissors_tag = trainer.create_tag(project.id, "scissors")
 
 ## <a name="step-4-upload-images-to-the-project"></a>Steg 4: Ladda upp bilder till projektet
 
-Du måste ladda upp avbildningen, regioner och taggar för objektet identifiering projekt. Regionen är i normaliserade coordiantes och anger platsen där objektet taggade.
+Du måste ladda upp bild, regioner och taggar för objektidentifieringsprojekt. Regionen är i normaliserade koordinater och anger platsen för det taggade objektet.
 
-Infoga följande kod efter det taggen har skapandet för att lägga till de bilder, region och taggar i projektet. Observera att regionerna för den här självstudien är hårdkodad infogade med kod. Vilka regioner ange rutan i normaliserade koordinater.
+Infoga följande kod efter att taggen har skapats för att lägga till bilder, region och taggar i projektet. Observera att regionerna för den här självstudien är hårdkodade i linje med koden. Regionerna anger avgränsningsfältet i normaliserade koordinater.
 
 ```Python
 
@@ -158,10 +159,10 @@ trainer.create_images_from_files(project.id, images=tagged_images_with_regions)
 
 ## <a name="step-5-train-the-project"></a>Steg 5: Träna projektet
 
-Nu när du har lagt till taggar och bilder i projektet, kan du träna den: 
+Nu när du har lagt till taggar och bilder i projektet, kan du träna det: 
 
-1. Infoga följande kod. Detta skapar den första upprepningen i projektet. 
-2. Markera den här iterationen som standard iteration.
+1. Infoga följande kod. Detta skapar den första iterationen i projektet. 
+2. Markera den här iterationen som standarditeration.
 
 ```Python
 import time
@@ -178,12 +179,12 @@ trainer.update_iteration(project.id, iteration.id, is_default=True)
 print ("Done!")
 ```
 
-## <a name="step-6-get-and-use-the-default-prediction-endpoint"></a>Steg 6: Hämta och använda standardslutpunkten för förutsägelse
+## <a name="step-6-get-and-use-the-default-prediction-endpoint"></a>Steg 6: Hämta och använd standardslutpunkten för förutsägelse
 
 Nu är du redo att använda modellen för förutsägelse: 
 
-1. Hämta slutpunkten som är associerade med standard-iteration. 
-2. Skicka en testavbildning till projektet med slutpunkten.
+1. Hämta slutpunkten som är associerad med standarditeration. 
+2. Skicka en testbild till projektet med denna slutpunkt.
 
 ```Python
 from azure.cognitiveservices.vision.customvision.prediction import prediction_endpoint
@@ -202,9 +203,9 @@ for prediction in results.predictions:
     print ("\t" + prediction.tag_name + ": {0:.2f}%".format(prediction.probability * 100), prediction.bounding_box.left, prediction.bounding_box.top, prediction.bounding_box.width, prediction.bounding_box.height)
 ```
 
-## <a name="step-7-run-the-example"></a>Steg 7: Kör exempel
+## <a name="step-7-run-the-example"></a>Steg 7: Kör exemplet
 
-Kör lösningen. De förutsagda resultaten som visas på konsolen.
+Kör lösningen. Förutsägelseresultaten visas i konsolen.
 
 ```
 python sample.py

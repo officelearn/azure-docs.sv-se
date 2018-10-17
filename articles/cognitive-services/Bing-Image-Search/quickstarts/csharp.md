@@ -1,42 +1,41 @@
 ---
-title: 'Snabbstart: Skicka search frågor med den bildsökning i Bing och'
+title: 'Snabbstart: Utföra en bildsökning med C# – API för bildsökning i Bing'
 titleSuffix: Azure Cognitive Services
-description: Använd den här snabbstarten för att söka efter bilder på webben med hjälp av Bing Web Search API.
+description: Använd den här snabbstarten för att skicka ditt första anrop till API:et för bildsökning i Bing och få ett JSON-svar. Den här enkla C#-appen skickar en HTTP-bildsökningsfråga till API:et och visar webbadressen till den första bild som returneras.
 services: cognitive-services
-documentationcenter: ''
 author: aahill
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-image-search
-ms.topic: article
+ms.topic: quickstart
 ms.date: 9/07/2018
 ms.author: aahi
-ms.openlocfilehash: 22eb54f6adec0335dd89a5ae906117542bb11717
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
-ms.translationtype: MT
+ms.openlocfilehash: 897e380092b029855ac6c986c1126ca4b2d657a9
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45580420"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46296657"
 ---
-# <a name="quickstart-send-search-queries-using-the-bing-image-search-api-and-c"></a>Snabbstart: Skicka sökfrågor med bildsökning i Bing och C#
+# <a name="quickstart-send-search-queries-using-the-bing-image-search-api-and-c"></a>Snabbstart: Skicka sökfrågor med API för bildsökning i Bing och C#
 
-Använd den här snabbstarten för att göra din första anropet till sökning i Bing och visa ett sökresultat från JSON-svar. Det här enkla C#-programmet skickar en sökfråga för HTTP-bild-API: et och visar Webbadressen till den första bilden som returneras.
+Använd den här snabbstarten för att skicka ditt första anrop till API:et för bildsökning i Bing och få ett JSON-svar. Den här enkla C#-appen skickar en HTTP-bildsökningsfråga till API:et och visar webbadressen till den första bild som returneras.
 
-Det här programmet är skriven i C# är API: et en RESTful-webb-tjänst som är kompatibla med de flesta programmeringsspråk.
+Även om det här programmet är skrivet i C#, är API:n en RESTful-webbtjänst som är kompatibel med de flesta programmeringsspråk.
 
-Källkoden för det här exemplet finns [på GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/dotnet/Search/BingImageSearchv7Quickstart.cs) med ytterligare felhantering och kod anteckningar.
+Källkoden för det här exemplet finns på [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/dotnet/Search/BingImageSearchv7Quickstart.cs) tillsammans med ytterligare kommentarer om hantering av fel och kodanteckningar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
-* En utgåva av [Visual Studio 2017](https://www.visualstudio.com/downloads/).
-* Den [Json.NET](https://www.newtonsoft.com/json) framework, tillgänglig som ett NuGet-paket. 
-* Om du använder Linux/Mac OS, det här programmet kan köras med [Mono](http://www.mono-project.com/).
+* Valfri version av [Visual Studio 2017](https://www.visualstudio.com/downloads/).
+* [Json.NET](https://www.newtonsoft.com/json) framework, tillgänglig som ett NuGet-paket.
+* Om du använder Linux/Mac OS kan det här programmet köras med [Mono](http://www.mono-project.com/).
 
 [!INCLUDE [cognitive-services-bing-image-search-signup-requirements](../../../../includes/cognitive-services-bing-image-search-signup-requirements.md)]
 
 ## <a name="create-and-initialize-a-project"></a>Skapa och initiera ett projekt
 
-1. Skapa en ny konsol-lösning med namnet `BingSearchApisQuickStart` i Visual Studio. Lägg sedan till följande namnrymder i huvudsakliga kodfilen.
+1. skapa en ny konsollösning med namnet `BingSearchApisQuickStart` i Visual Studio. Lägg sedan till följande namnrymder i huvudkodfilen.
 
     ```csharp
     using System;
@@ -46,7 +45,7 @@ Källkoden för det här exemplet finns [på GitHub](https://github.com/Azure-Sa
     using Newtonsoft.Json.Linq;
     ```
 
-2. Skapa variabler för API-slutpunkter, din prenumerationsnyckel och Sök efter termer.
+2. Skapa variabler för API-slutpunkten, din prenumerationsnyckel och sökvillkor.
 
     ```csharp
     //...
@@ -61,10 +60,10 @@ Källkoden för det här exemplet finns [på GitHub](https://github.com/Azure-Sa
     //...
     ```
 
-## <a name="create-a-struct-to-format-the-bing-image-search-response"></a>Skapa en struct för att formatera bildsökning i Bing-svar
+## <a name="create-a-struct-to-format-the-bing-image-search-response"></a>Skapa en struct för att formatera sökresultaten från Bing-bildsökningen
 
-Definiera en `SearchResult` struct för att innehålla bildsökningsresultat och JSON-rubrikinformation.
-    
+Definiera en `SearchResult`-struct som ska innehålla bildsökningsresultatet och JSON-rubrikinformation.
+
 ```csharp
     namespace BingSearchApisQuickstart
     {
@@ -81,7 +80,7 @@ Definiera en `SearchResult` struct för att innehålla bildsökningsresultat och
 
 ## <a name="create-a-method-to-send-search-requests"></a>Skapa en metod för att skicka sökförfrågningar
 
-Skapa en metod med namnet `BingImageSearch` att utföra anrop till API: et och ange returtypen den `SearchResult` struct som skapades tidigare.
+Skapa en metod med namnet `BingImageSearch` för att utföra anrop till API:et och ange returtypen som `SearchResult`-structen som skapades tidigare.
 
 ```csharp
 //...
@@ -97,11 +96,11 @@ namespace BingSearchApisQuickstart
 //...
 ```
 
-## <a name="create-and-handle-an-image-search-request"></a>Skapa och hantera en sökbegäran för avbildning
- 
-I den `BingImageSearch` metoden utför följande steg.
+## <a name="create-and-handle-an-image-search-request"></a>Skapa och hantera en bildsökningsbegäran
 
-1. Skapa URI för sökbegäran. Observera att söktermen `toSearch` måste vara formaterad innan du läggs till strängen. 
+Utför följande steg i metoden `BingImageSearch`.
+
+1. Konstruera URI för sökbegäran. Observera att sökordet `toSearch` måste vara formatteras innan det läggs till i strängen.
 
     ```csharp
     static SearchResult BingImageSearch(string toSearch){
@@ -110,7 +109,7 @@ I den `BingImageSearch` metoden utför följande steg.
     //...
     ```
 
-2. Utföra webb-begäran och få ett svar som en JSON-sträng.
+2. Utför webbegäran och få ett svar som en JSON-sträng.
 
     ```csharp
     WebRequest request = WebRequest.Create(uriQuery);
@@ -119,7 +118,7 @@ I den `BingImageSearch` metoden utför följande steg.
     string json = new StreamReader(response.GetResponseStream()).ReadToEnd();
     ```
 
-3. Skapa resultatobjektet sökning och extrahera Bing HTTP-huvuden. Returnerar `searchResult`.
+3. Skapa sökresultatsobjektet och extrahera Bing-HTTP-rubriker. Returnera seda `searchResult`.
 
     ```csharp
     // Create the result object for return
@@ -138,9 +137,9 @@ I den `BingImageSearch` metoden utför följande steg.
     return searchResult;
     ```
 
-## <a name="process-and-view-the-response"></a>Processen och visa svaret
+## <a name="process-and-view-the-response"></a>Bearbeta och visa svaret
 
-1. I main-metoden anropa `BingImageSearch()` och lagra returnerade svaret. Sedan deserialisera JSON till ett objekt.
+1. Anropa `BingImageSearch()` i huvudmetoden och lagra det returnerade svaret. Deserialisera sedan JSON till ett objekt.
 
     ```csharp
     SearchResult result = BingImageSearch(searchTerm);
@@ -148,19 +147,19 @@ I den `BingImageSearch` metoden utför följande steg.
     dynamic jsonObj = Newtonsoft.Json.JsonConvert.DeserializeObject(result.jsonResult);
     ```
 
-2. Hämta den första returnerade bilden från `jsonObj`, och skriver ut rubriken och en URL till avbildningen. 
+2. Hämta den första returnerade bilden från `jsonObj` och skriv ut rubriken och en URL till bilden.
     ```csharp
     var firstJsonObj = jsonObj["value"][0];
     Console.WriteLine("Title for the first image result: " + firstJsonObj["name"]+"\n");
-    //After running the application, copy the output URL into a browser to see the image. 
+    //After running the application, copy the output URL into a browser to see the image.
     Console.WriteLine("URL for the first image result: " + firstJsonObj["webSearchUrl"]+"\n");
     ```  
-       
-3. Se till att ta bort din prenumerationsnyckel från programkoden.
+
+3. Kom ihåg att ta bort din prenumerationsnyckel från programkoden.
 
 ## <a name="json-response"></a>JSON-svar
 
-Svar från den bildsökning i Bing returneras som JSON. Den här exempelsvaret har trunkerats för att visa ett enskilt resultat.
+Svar från API för bildsökning i Bing returneras som JSON. Det här exempelsvaret har trunkerats för att visa ett enskilt resultat.
 
 ```json
 {
@@ -209,12 +208,12 @@ Svar från den bildsökning i Bing returneras som JSON. Den här exempelsvaret h
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Bildsökning i Bing ensidesapp självstudien](../tutorial-bing-image-search-single-page-app.md)
+> [Självstudie om enkel app för bildsökning i Bing](../tutorial-bing-image-search-single-page-app.md)
 
-## <a name="see-also"></a>Se också 
+## <a name="see-also"></a>Se även
 
 * [Vad är bildsökning i Bing?](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/overview)  
-* [Prova en online Interaktiv demo](https://azure.microsoft.com/services/cognitive-services/bing-image-search-api/)  
-* [Hämta en kostnadsfri Cognitive Services-åtkomstnyckel](https://azure.microsoft.com/try/cognitive-services/?api=bing-image-search-api)  
+* [Prova en interaktiv demo online](https://azure.microsoft.com/services/cognitive-services/bing-image-search-api/)  
+* [Hämta en kostnadsfri åtkomstnyckel för Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=bing-image-search-api)  
 * [Dokumentation om Azure Cognitive Services](https://docs.microsoft.com/azure/cognitive-services)
-* [Referens för bildsökning i Bing](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference)
+* [API-referens för bildsökning i Bing](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference)

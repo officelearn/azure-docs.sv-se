@@ -2,16 +2,17 @@
 title: Köra ett programåterställningstest för lokala datorer till Azure med Azure Site Recovery | Microsoft Docs
 description: Lär dig mer om hur du kör ett programåterställningstest från lokala datorer till Azure med Azure Site Recovery
 author: rayne-wiselman
+manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 08/13/2018
+ms.date: 10/10/2018
 ms.author: raynew
-ms.openlocfilehash: 33cbe29771573bd234548f549ed6027fb5801945
-ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
+ms.openlocfilehash: 3be3631d8d917fe9ff85e8471a35ac2ddece80b7
+ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/13/2018
-ms.locfileid: "41920785"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49078162"
 ---
 # <a name="run-a-disaster-recovery-drill-to-azure"></a>Köra ett programåterställningstest till Azure
 
@@ -19,7 +20,7 @@ I den här självstudien visar vi hur du kör ett programåterställningstest f�
 
 Den här är den fjärde kursen i en serie som illustrerar hur du ställer in haveriberedskap i Azure för lokala virtuella VMware-datorer eller virtuella Hyper-V-datorer.
 
-Den här kursen förutsätter att du har slutfört de första tre självstudierna: 
+Den här kursen förutsätter att du har slutfört de första tre självstudierna:
     - I den [första självstudien](tutorial-prepare-azure.md), konfigurerade vi Azure komponenter som krävs för katastrofåterställning för VMware.
     - I den [andra kursen](vmware-azure-tutorial-prepare-on-premises.md) förberedde vi lokala komponenter för katastrofåterställning och granskade förutsättningarna.
     - I den [tredje kursen](vmware-azure-tutorial.md) ställde vi in och aktiverade replikering för våra lokala VMware VM.
@@ -44,6 +45,14 @@ Kontrollera den virtuella datorns egenskaper innan du kör ett redundanstest, oc
 4. Du kan visa och ändra inställningar för nätverk, inklusive det nätverk/undernät där den virtuella Azure-datorn kommer att finnas efter redundansen och den IP-adress som kommer att tilldelas till den.
 5. I **Diskar** kan du se information om operativsystemet och vilka datadiskar som finns på den virtuella datorn.
 
+## <a name="create-a-network-for-test-failover"></a>Skapa ett nätverk för redundanstest
+
+Vi rekommenderar att du för redundanstest väljer ett nätverk som är isolerat från produktionsnätverkets återställningsplats specifik i inställningarna för **Beräkning och nätverk** för varje virtuella dator. Som standard, när du skapar ett virtuellt Azure-nätverk är det isolerat från andra nätverk. Testnätverket ska efterlikna produktionsnätverket:
+
+- Testnätverket ska ha samma antal undernät som produktionsnätverket. Undernäten ska ha samma namn.
+- Textnätverket ska använda samma IP-adressintervall.
+- Uppdatera DNS för testnätverket med IP-adressen som anges för DNS-VM i inställningarna i **Beräkning och nätverk**. Mer information finns i [Saker att tänka på vid redundanstestning för Active Directory](site-recovery-active-directory.md#test-failover-considerations).
+
 ## <a name="run-a-test-failover-for-a-single-vm"></a>Köra ett redundanstest för en enstaka virtuell dator
 
 När du kör ett redundanstest händer följande:
@@ -64,6 +73,12 @@ Kör redundanstestet på följande sätt:
 7. Vill du ta bort virtuella Azure-datorer som skapades under redundanstestningen klickar du på **Rensa redundanstestning** på den virtuella datorn. I **Kommentarer** skriver du och sparar eventuella observationer från redundanstestningen.
 
 I vissa fall kräver redundans ytterligare bearbetning som tar cirka 8 till 10 minuter att slutföra. Du kanske märker att redundanstiden är längre för VMware Linux-datorer, virtuella VMware-datorer som inte har aktiverat DHCP-tjänsten och virtuella VMware-datorer som inte har följande startdrivrutiner: storvsc, vmbus, storflt, intelide, atapi.
+
+## <a name="prepare-to-connect-to-azure-vms-after-failover"></a>Förbereda för att ansluta till virtuella Azure-datorer efter en redundansväxling
+
+Om du vill ansluta till virtuella Azure-datorer med RDP/SSH efter en redundansväxling följer du kraven som sammanfattas i tabellen [här](site-recovery-test-failover-to-azure.md#prepare-to-connect-to-azure-vms-after-failover).
+
+Följ stegen som beskrivs [här](site-recovery-failover-to-azure-troubleshoot.md) för att felsöka eventuella anslutningsproblem efter redundans.
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 08/15/2018
 ms.author: anithaa
 ms.custom: ''
-ms.openlocfilehash: dcc0456637c17e779593b121025596149398afba
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: 3bae20a7d6eea298dd09d24c0c5b53365784b3d0
+ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47410229"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48239191"
 ---
 # <a name="virtual-network-service-endpoints"></a>Slutpunkter för virtuellt nätverk
 
@@ -49,7 +49,7 @@ De mest uppdaterade meddelandena finns på sidan för [Azure Virtual Network-upp
 
 Tjänstslutpunkter har följande fördelar:
 
-- **Förbättrad säkerhets för dina Azure-tjänstresurser**: Med tjänstslutpunkter kan Azure-tjänstresurser skyddas i ditt virtuella nätverk. När tjänstresurser skyddas i ett virtuellt nätverk ökar säkerheten genom att den offentliga internetåtkomsten till resurserna tas bort helt, så att endast trafik från ditt virtuella nätverk tillåts.
+- **Förbättrad säkerhet för dina Azure-tjänstresurser**: privat adressutrymme för virtuella nätverk kan överlappa och kan därför inte användas för att unikt identifiera trafik från ditt virtuella nätverk. Tjänstslutpunkter ger dig möjligheten att skydda Azure-tjänstresurser i ditt virtuella nätverk genom att utöka identitet för virtuellt nätverk till tjänsten. När tjänstslutpunkter är aktiverade i ditt virtuella nätverk kan du skydda Azure-tjänstresurserna i nätverket genom att lägga till en virtuell nätverksregel för resurserna. Detta ger bättre säkerhet genom att helt ta bort åtkomst till offentlig Internetåtkomst för resurser och endast tillåta nätverk från ditt virtuella nätverk.
 - **Optimala vägar för Azure-tjänsttrafik från ditt virtuella nätverk**: I dag tvingar alla vägar i ditt virtuella nätverk som tvingar internettrafik till dina lokala och/eller virtuella enheter, s.k. tvingad tunneltrafik, även Azure-tjänsttrafiken att ta samma väg som internettrafiken. Med tjänstslutpunkter får du optimal routning för Azure-trafiken. 
 
   Slutpunkter tar alltid tjänsttrafiken direkt från ditt virtuella nätverk till tjänsten i Microsoft Azure-stamnätverket. Om du behåller trafiken i Azure-stamnätverket kan du fortsätta att granska och övervaka den utgående internettrafiken från dina virtuella nätverk, via tvingad tunneltrafik, utan att tjänsttrafiken påverkas. Läs mer om [användardefinierade vägar och tvingad tunneltrafik](virtual-networks-udr-overview.md).

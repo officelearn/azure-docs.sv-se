@@ -6,15 +6,15 @@ author: seanmck
 manager: jeconnoc
 ms.service: container-instances
 ms.topic: overview
-ms.date: 07/19/2018
+ms.date: 10/02/2018
 ms.author: seanmck
 ms.custom: mvc
-ms.openlocfilehash: 953d1dfd633f2fee52a2e6d197c6f32e7ab053f7
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.openlocfilehash: 33d6d89e91ecdec00c1b17ecddf91128e9d07526
+ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39160458"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48802108"
 ---
 # <a name="azure-container-instances"></a>Azure Container Instances
 
@@ -54,9 +54,19 @@ Azure Container Instances stöder Windows-bilder baserat på LTSC-versioner (Lon
 
 Azure Container Instances stöder schemaläggning av [grupper med flera behållare](container-instances-container-groups.md) som delar en värddator, lokalt nätverk, lagring och livscykel. Det gör att du kan kombinera din huvudprogramcontainer med andra stödrollscontainrar, t.ex. sidecar-filer för loggning.
 
+## <a name="virtual-network-deployment-preview"></a>Distribution av virtuellt nätverk (förhandsversion)
+
+Den här funktionen i Azure Container Instances, som för närvarande är en förhandsversion, möjliggör [distribution av containerinstanser i ett virtuellt Azure-nätverk](container-instances-vnet.md). Genom att distribuera containerinstanser till ett undernät i ditt virtuella nätverk kan de kommunicera säkert med andra resurser i det virtuella nätverket, inklusive sådana som finns lokalt (via [VPN gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md) eller [ExpressRoute](../expressroute/expressroute-introduction.md)).
+
+> [!IMPORTANT]
+> Distribution av containergrupper till ett virtuellt nätverk är för närvarande en förhandsversion och vissa [begränsningar gäller](container-instances-vnet.md#preview-limitations). Förhandsversioner är tillgängliga för dig under förutsättning att du godkänner de [kompletterande användningsvillkoren][terms-of-use]. Vissa aspekter av funktionen kan ändras innan den är allmänt tillgänglig (GA).
+
 ## <a name="next-steps"></a>Nästa steg
 
 Försök att distribuera en container till Azure med ett enda kommando med hjälp av vår snabbstartsguide:
 
 > [!div class="nextstepaction"]
 > [Azure Container Instances Snabbstart](container-instances-quickstart.md)
+
+<!-- LINKS - External -->
+[terms-of-use]: https://azure.microsoft.com/support/legal/preview-supplemental-terms/

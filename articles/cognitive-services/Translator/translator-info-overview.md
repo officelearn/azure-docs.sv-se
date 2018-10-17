@@ -1,26 +1,27 @@
 ---
-title: Översikt över Microsofts Translator Text API – Azure Cognitive Services |Microsoft Docs
+title: Vad är Translator Text API?
+titlesuffix: Azure Cognitive Services
 description: Integrera Translator Text API i program, på webbplatser och i verktyg och andra lösningar för att tillhandahålla användarupplevelser för flera språk.
 services: cognitive-services
 author: noellelacharite
-manager: nolachar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-text
 ms.topic: overview
 ms.date: 05/10/2018
 ms.author: nolachar
-ms.openlocfilehash: bfbb316ac41045add7f424b5d478581aa226fc19
-ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
+ms.openlocfilehash: 47ac3c81b85424a5cacab00863cd88fab9463fb9
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "42889327"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46124668"
 ---
-# <a name="what-is-microsoft-translator"></a>Vad är Microsoft Translator?
+# <a name="what-is-translator-text-api"></a>Vad är Translator Text API?
 
-Microsoft Translator Text API kan integreras smidigt i program, på webbplatser och i verktyg och andra lösningar för att tillhandahålla användarupplevelser på [fler än 60 språk](languages.md). Lösningen kan användas på valfri maskinvaruplattform och i alla operativsystem för översättningar av text till text.
+Translator Text API kan integreras smidigt i program, på webbplatser och i verktyg och andra lösningar för att tillhandahålla användarupplevelser på [fler än 60 språk](languages.md). Lösningen kan användas på valfri maskinvaruplattform och i alla operativsystem för översättningar av text till text.
 
-Microsoft Translator Text API är en del av Microsofts [Cognitive Services-API](https://docs.microsoft.com/azure/#pivot=products&panel=ai). Det här är en samling algoritmer för maskininlärning och AI i molnet som är enkla att använda i utvecklingsprojekt.
+Translator Text API är en del av Azure [API för Cognitive Services](https://docs.microsoft.com/azure/#pivot=products&panel=ai) med maskininlärning och AI-algoritmer i molnet, som lätt kan användas i dina utvecklingsprojekt.
 
 ## <a name="about-microsoft-translator"></a>Om Microsoft Translator
 

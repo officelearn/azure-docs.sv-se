@@ -1,25 +1,27 @@
 ---
-title: Översätta text med Translator Text och C# | Microsoft Docs
-titleSuffix: Microsoft Cognitive Services
-description: I den här snabbstarten ska du översätta text från ett språk till ett annat med hjälp av Translator Text-API:et med C# i Cognitive Services.
+title: 'Snabbstart: Översätta text – Translator Text, Go, C#'
+titleSuffix: Azure Cognitive Services
+description: I den här snabbstarten ska du översätta text från ett språk till ett annat med Translator Text-API med C#.
 services: cognitive-services
 author: noellelacharite
-manager: nolachar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-text
 ms.topic: quickstart
 ms.date: 06/15/2018
 ms.author: nolachar
-ms.openlocfilehash: 7923cf3249beaf713b91ba0e5ea4f70f34841b3c
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.openlocfilehash: e60b2a9ea7c56352a1b4dfb65537ba6dc57fcb68
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "43770631"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46365969"
 ---
 # <a name="quickstart-translate-text-with-c35"></a>Snabbstart: Översätta text med C&#35;
 
 I den här snabbstarten ska du översätta text från ett språk till ett annat med Translator Text-API:et.
+
+Källkoden till det här exemplet finns på [GitHub](https://github.com/MicrosoftTranslator/Text-Translation-API-V3-C-Sharp).
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 

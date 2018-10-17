@@ -1,45 +1,45 @@
 ---
-title: Entiteten Sök quickstart API C# | Microsoft Docs
-description: Installationsprogrammet för entiteten Sök SDK-konsolprogram.
-titleSuffix: Azure cognitive services entity search API C# quickstart
+title: 'Snabbstart: SDK för entitetssökning i Bing, C#'
+titleSuffix: Azure Cognitive Services
+description: Konfigurera för SDK för entitetssökning-konsolprogrammet med C#.
 services: cognitive-services
 author: mikedodaro
-manager: rosh
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-entity-search
-ms.topic: article
+ms.topic: quickstart
 ms.date: 01/30/2018
 ms.author: v-gedod
-ms.openlocfilehash: 185e1b4fc1b7ef2aa5964e2e95314727f8e1b0a5
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
-ms.translationtype: MT
+ms.openlocfilehash: abf7e4344bea88fd86b86135ffab30672d77922e
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35355245"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48814114"
 ---
-# <a name="entity-search-sdk-c-quickstart"></a>Entiteten Sök SDK C# Snabbstart
+# <a name="quickstart-bing-entity-search-sdk-with-c"></a>Snabbstart: SDK för entitetssökning i Bing med C#
 
-Sök-API Bing enheten innehåller funktionerna i REST-API för entiteten Sök och tolka resultaten.
+API för entitetsökning i Bing innehåller funktionerna i REST API:et för entitetssökning och parsning av resultatet.
 
-Den [källkoden för C# Bing enheten Sök SDK-exempel](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/BingSearchv7/BingEntitySearch) är tillgänglig på Git-hubben.
+[Källkoden till exemplen med SDK:t för entitetssökning i Bing med C#](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/BingSearchv7/BingEntitySearch) är tillgänglig på GitHub.
 
 ## <a name="application-dependencies"></a>Programberoenden
 
-Om du vill konfigurera ett konsolprogram med Bing enheten Sök SDK, bläddra till den `Manage NuGet Packages` alternativet från Solution Explorer i Visual Studio.  Lägg till den `Microsoft.Azure.CognitiveServices.Search.EntitySearch` paketet.
+Om du vill konfigurera ett konsolprogram med hjälp av SDK:n för entitetssökning i Bing, bläddrar du till alternativet `Manage NuGet Packages` från Solution Explorer i Visual Studio.  Lägg till paketet `Microsoft.Azure.CognitiveServices.Search.EntitySearch`.
 
-Installera den [NuGet entitet Sök paketet](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Search.EntitySearch/1.2.0) installerar även beroenden, inklusive följande sammansättningar:
+När du installerar [NuGet-paketet för entitetssökning](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Search.EntitySearch/1.2.0) installeras även beroenden, inklusive följande sammansättningar:
 * Microsoft.Rest.ClientRuntime
 * Microsoft.Rest.ClientRuntime.Azure
 * Newtonsoft.Json
 
-## <a name="entity-search-client"></a>Entiteten Sök klienten
-Att skapa en instans av den `EntitySearchAPI` klienten, lägger till med direktiven:
+## <a name="entity-search-client"></a>Klient för entitetssökning
+Om du vill skapa en instans av `EntitySearchAPI`-klienten lägger du till användningsdirektiv:
 ```
 using Microsoft.Azure.CognitiveServices.Search.EntitySearch;
 using Microsoft.Azure.CognitiveServices.Search.EntitySearch.Models;
 
 ```
-Sedan skapa en instans av klienten:
+Instansiera sedan klienten:
 ```
 var client = new EntitySearchAPI(new ApiKeyServiceClientCredentials("YOUR-ACCESS-KEY"));
 
@@ -50,7 +50,7 @@ Använd klienten för att söka med en frågetext:
 var entityData = client.Entities.Search(query: "Satya Nadella");
 
 ```
-Tolka resultatet av föregående fråga:
+Parsa resultaten från den föregående frågan:
 ```
 if (entityData?.Entities?.Value?.Count > 0)
 {
@@ -74,8 +74,8 @@ else
 
 ```
 
-## <a name="complete-console-application"></a>Fullständig konsolprogram
-Följande konsolprogrammet letar upp en enhet på frågan ”Satya Nadella” och skriver ut en kort beskrivning.
+## <a name="complete-console-application"></a>Slutföra konsolprogram
+Följande konsolprogram letar upp en enda entitet på frågan ”Satya Nadella” och skriver ut en kort beskrivning.
 ```
 using System;
 using System.Linq;
@@ -141,7 +141,7 @@ namespace EntitySrchSDK
 ```
 
 ## <a name="ambiguous-results"></a>Tvetydiga resultat
-Följande kod hanterar disambiguation resultaten för en tvetydig fråga ”William Gates”.
+Följande kod löser tvetydigheter i resultat för den tvetydiga frågan ”William Gates”.
 ```
        public static void HandlingDisambiguation(EntitySearchAPI client)
         {
@@ -197,8 +197,8 @@ Följande kod hanterar disambiguation resultaten för en tvetydig fråga ”Will
 
 ```
 
-## <a name="entitydata-places"></a>EntityData platser
-Följande kod letar upp en lagring ”Microsoft Store” och skriver ut sitt telefonnummer.
+## <a name="entitydata-places"></a>EntityData-platser
+Följande kod söker efter den enskilda butiken ”Microsoft Store” och skriver ut dess telefonnummer.
 ```
         public static void StoreLookup(EntitySearchAPI client)
         {
@@ -234,8 +234,8 @@ Följande kod letar upp en lagring ”Microsoft Store” och skriver ut sitt tel
         }
 
 ```
-## <a name="entityscenario-list"></a>EntityScenario lista
-Följande kod hämtar en lista över ”Seattle hotell” och skriver ut sina namn och telefonnummer.
+## <a name="entityscenario-list"></a>EntityScenario-lista
+Följande kod söker efter en lista över ”Seattle restaurants” (restauranger i Seattle) och skriver ut deras namn och telefonnummer.
 ```
        public static void MultipleRestaurantLookup(EntitySearchAPI client)
         {
@@ -286,7 +286,7 @@ Följande kod hämtar en lista över ”Seattle hotell” och skriver ut sina na
 
 ```
 ## <a name="error-results"></a>Felresultat
-Följande kod utlöser en felaktig begäran och visar hur du läser felsvar.
+Följande kod utlöser en felaktig begäran och visar hur du läser felsvaret.
 ```
         public static void Error(EntitySearchAPI client)
         {
@@ -316,4 +316,4 @@ Följande kod utlöser en felaktig begäran och visar hur du läser felsvar.
 ```
 ## <a name="next-steps"></a>Nästa steg
 
-[Kognitiva services .NET SDK-exempel](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/BingSearchv7)
+[Exempel med Cognitive Services SDK för .NET](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/BingSearchv7)

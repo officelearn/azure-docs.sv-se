@@ -1,43 +1,45 @@
 ---
-title: Python Snabbstart för Project URL Preview - kognitiva Microsoft-tjänster | Microsoft Docs
-description: Skriptexempel att snabbt komma igång med projektet URL förhandsversionen i Microsoft kognitiva Services på Azure.
+title: 'Snabbstart: Förhandsgranskning av projekt-URL, Python'
+titlesuffix: Azure Cognitive Services
+description: Skriptexempel för att snabbt komma igång med att använda förhandsgranskningen av projekt-URL med Python.
 services: cognitive-services
 author: mikedodaro
+manager: cgronlun
 ms.service: cognitive-services
-ms.technology: project-url-preview
-ms.topic: article
+ms.component: project-url-preview
+ms.topic: quickstart
 ms.date: 03/29/2018
-ms.author: rosh, v-gedod
-ms.openlocfilehash: 78b2d83b02aa9ea32509029c7456e04e420b8572
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
-ms.translationtype: MT
+ms.author: rosh
+ms.openlocfilehash: c4af701188c6453bd3c067b838519c32862af13d
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35354015"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48867280"
 ---
-# <a name="url-preview-python-quickstart"></a>URL: en förhandsgranskning Python-Snabbstart
+# <a name="quickstart-url-preview-with-python"></a>Snabbstart: URL-förhandsgranskning med Python
 
-I följande exempel för Python skapas en förhandsgranskning för URL: en för webbplatsen SwiftKey: https://swiftkey.com/en.
+Följande Python-exempel skapar en URL-förhandsgranskning för webbplatsen SwiftKey: https://swiftkey.com/en.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
-Hämta en åtkomstnyckel för den kostnadsfria utvärderingsversionen [kognitiva Services Labs](https://aka.ms/answersearchsubscription)
+Få en åtkomstnyckel för den kostnadsfria utvärderingsversionen av [Cognitive Services Labs](https://aka.ms/answersearchsubscription)
 
-Det här exemplet använder Python 3,6.
+I det här exemplet används Python 3.6.
 
-## <a name="code-scenario"></a>Koden scenario 
+## <a name="code-scenario"></a>Kodscenario 
 
 Följande kod skapar en URL-förhandsgranskning.
-De är implementerade i följande steg:
-1. Deklarera variabler för att ange slutpunkten av värd och sökväg.
-2. Ange fråge-URL för att förhandsgranska och Lägg till Frågeparametern.  
-3. Ange Frågeparametern.
-4. Definiera sökfunktionen som skapar begäran och lägger till den *Ocp-Apim-prenumeration-nyckeln* huvud.
-5. Ange den *Ocp-Apim-prenumeration-nyckeln* huvud. 
-6. Kontrollera anslutningen och skicka begäran.
-7. Skriva ut JSON-resultaten.
+Den implementeras i följande steg:
+1. Deklarera variabler för att specificera slutpunkten med hjälp av värd och sökväg.
+2. Ange den fråge-URL som ska förhandsgranskas och lägg till frågeparametern.  
+3. Ange frågeparametern.
+4. Definiera den sökfunktion som skapar begäran och lägger till nyckeln *Ocp-Apim-Subscription-Key*.
+5. Ange nyckeln *Ocp-Apim-Subscription-Key*. 
+6. Upprätta anslutningen och skicka begäran.
+7. Skriv ut JSON-resultaten.
 
-Den fullständiga koden för den här demon följande:
+Här följer den fullständiga koden för demon:
 
 ````
 import http.client, urllib.parse
@@ -64,7 +66,7 @@ result = get_preview ()
 print (json.dumps(json.loads(result), indent=4))
 ````
 ## <a name="next-steps"></a>Nästa steg
-- [C#-Snabbstart](csharp.md)
-- [Java-Snabbstart](java-quickstart.md)
-- [JavaScript-Snabbstart](javascript.md)
+- [Snabbstart för C#](csharp.md)
+- [Snabbstart för Java](java-quickstart.md)
+- [Snabbstart för JavaScript](javascript.md)
 - [Snabbstart för nod-URL](node-quickstart.md)

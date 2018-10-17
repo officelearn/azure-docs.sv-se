@@ -1,33 +1,32 @@
 ---
-title: Snabbstart för entiteter Sök API | Microsoft Docs
-description: Visar hur du kommer igång med Bing entiteter Sök-API.
+title: 'Snabbstart: API för entitetssökning i Bing'
+description: Visar hur du kommer igång med API:et för entitetssökning i Bing.
 services: cognitive-services
 author: swhite-msft
-manager: ehansen
-ms.assetid: B206A254-B7E9-49FF-AFD5-87B1E4D6D30B
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-entity-search
-ms.topic: article
+ms.topic: quickstart
 ms.date: 07/06/2017
 ms.author: scottwhi
-ms.openlocfilehash: 12031d2447920c7e2d6180f35cf4fb29aa1b6150
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
-ms.translationtype: MT
+ms.openlocfilehash: ffc9ebb21c6646b1a39af4659053adf4157d204b
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35351525"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48813965"
 ---
-# <a name="making-your-first-entities-request"></a>Gör din första entiteter för begäran
+# <a name="quickstart-making-your-first-bing-entity-search-request"></a>Snabbstart: Göra din första begäran för Entitetssökning i Bing
 
-Sök-API för entiteten skickar en fråga till Bing och hämtar resultat som innehåller entiteter och platser. Det inkluderar plats resultaten hotell, hotell eller andra lokala företag. Frågan kan ange namnet på det lokala företaget för platser, eller be en lista (till exempel hotell närheten). Entiteten resultat innehåller personer, platser eller saker. I den här kontexten används turistattraktioner, tillstånd, länder och så vidare. 
+API:et för entitetsökning i Bing skickar en sökfråga till Bing och hämtar resultat som innehåller entiteter och platser. Platsresultat omfattar restauranger, hotell eller andra lokala företag. För platser kan frågan specificera namnet på det lokala företaget eller fråga efter en lista (exempelvis restauranger i närheten). Entitetsresultat omfattar personer, platser eller saker. Plats i det här sammanhanget är turistattraktioner, delstater, länder osv. 
 
-## <a name="first-steps"></a>Första stegen
+## <a name="first-steps"></a>De första stegen
 
-Du måste hämta en nyckel för prenumerationen kognitiva Services innan du kan göra din första anropet. Om du vill få en nyckel finns [försök kognitiva Services](https://azure.microsoft.com/try/cognitive-services/?api=bing-entities-search-api). (Om Sök-API för enheter som inte visas överst klickar du på den **Sök** fliken och rulla nedåt tills du ser det.)
+Innan du kan göra ditt första anrop måste du skaffa en prenumerationsnyckel för Cognitive Services. Information om hur du skaffar en nyckel finns i [Testa Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=bing-entities-search-api). (Om API:et för entitetssökning inte visas högst upp klickar du på fliken **Sök** och rullar nedåt tills du ser det.)
 
 ## <a name="the-endpoint"></a>Slutpunkten
 
-För att hämta entiteten och placera sökresultat, skicka en GET-begäran till följande slutpunkt:  
+För att få sökresultat för entitet och plats skickar du en GET-begäran till följande slutpunkt:  
   
 ```
 https://api.cognitive.microsoft.com/bing/v7.0/entities
@@ -35,26 +34,26 @@ https://api.cognitive.microsoft.com/bing/v7.0/entities
 
 Begäran måste använda HTTPS-protokollet.
 
-Vi rekommenderar att alla begäranden som kommer från en server. Distribuera nyckeln som en del av ett klientprogram ger större möjlighet för en skadlig tredje part att komma åt den. Dessutom ger samtal från en server en enkel uppgradering för framtida versioner av API: et.
+Vi rekommenderar att alla förfrågningar kommer från en server. Om nyckeln distribueras som en del av ett klientprogram ökar risken för att en illvillig tredje part kan komma åt den. Anrop från en server innebär dessutom att det bara finns en enda uppgraderingspunkt för framtida versioner av API:et.
 
-## <a name="specifying-query-parameters-and-headers"></a>Ange frågeparametrar och rubriker
+## <a name="specifying-query-parameters-and-headers"></a>Specificera frågeparametrar och huvuden
 
-Begäran måste ange den [q](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#query) frågeparameter som innehåller användarens sökord. Begäran måste även ange den [mkt](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#mkt) frågeparameter som identifierar marknaden där du vill att resultaten från. En lista med valfria parametrar finns [frågeparametrar](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#query-parameters). URL: en koda alla Frågeparametrar.  
+Begäran måste innehålla frågeparametern [q](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#query), som innehåller användarens sökterm. Begäran måste även specificera frågeparametern [mkt](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#mkt), som identifierar den marknad som du vill att resultatet ska komma från. En lista över valfria frågeparametrar finns i [Frågeparametrar](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#query-parameters). URL-koda alla frågeparametrar.  
   
-Begäran måste ange den [Ocp-Apim-prenumeration-nyckeln](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#subscriptionkey) huvud. Även om det är valfritt, uppmanas du att ange följande huvuden:  
+Begäran måste innehålla huvudet [Ocp-Apim-Subscription-Key](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#subscriptionkey). Även om det är valfritt rekommenderar vi även att följande huvuden finns med:  
   
--   [Användaragent](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#useragent)  
+-   [User-Agent](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#useragent)  
 -   [X-MSEdge-ClientID](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#clientid)  
 -   [X-MSEdge-ClientIP](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#clientip)  
--   [X sökplats](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#location)  
+-   [X-Search-Location](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#location)  
 
-Klientens IP- och plats huvuden är viktiga för att returnera var medveten om innehållet.  
+Sidhuvuden för klientens IP-adress och platsen är viktiga för att returnera platsmedvetet innehåll.  
 
-En lista över alla begärande- och svarshuvuden, finns i [huvuden](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#headers).
+En lista över alla sidhuvuden för begäranden och svar finns i [Sidhuvuden](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#headers).
 
 ## <a name="the-request"></a>Begäran
 
-Nedan visas en begäran om enheter som innehåller alla föreslagna frågeparametrar och rubriker. 
+Nedan visas en entitetsbegäran som innehåller alla föreslagna frågeparametrar och huvuden. 
 
 ```  
 GET https://api.cognitive.microsoft.com/bing/v7.0/entities?q=mount+rainier&mkt=en-us HTTP/1.1  
@@ -66,11 +65,11 @@ X-MSEdge-ClientID: <blobFromPriorResponseGoesHere>
 Host: api.cognitive.microsoft.com  
 ```  
 
-Om det är första gången du anropar någon av API: er för Bing inte med klient-ID-huvudet. Ta bara med klient-ID om du har tidigare påbörjat en Bing-API och Bing returnerade ett klient-ID för användare och enhet kombination.
+Om det är den första gången du anropar ett Bing-API inkluderar du inte klientens ID-huvud. Inkludera endast klient-ID om du har anropat ett Bing-API förut och om Bing returnerade ett klient-ID för användar- och enhetskombinationen.
 
 ## <a name="the-response"></a>Svaret
 
-Nedan visas svaret på den tidigare begäranden. Exemplet visar också Bing-specifika svarshuvuden. Information om objektet response finns [SearchResponse](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#searchresponse).
+Nedan visas svaret på den tidigare begäran. Exemplet visar också Bing-specifika svarshuvuden. Mer information om svarsobjektet finns i [SearchResponse](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#searchresponse).
 
 ```
 BingAPIs-TraceId: 76DD2C2549B94F9FB55B4BD6FEB6AC
@@ -137,8 +136,8 @@ BingAPIs-Market: en-US
 
 ## <a name="next-steps"></a>Nästa steg
 
-Prova att använda API: et. Gå till [entiteter söka API testning konsolen](https://dev.cognitive.microsoft.com/docs/services/7a3fb374be374859a823b79fd938cc65/). 
+Testa API:et. Gå till [testningskonsolen för entitetssöknings-API:et](https://dev.cognitive.microsoft.com/docs/services/7a3fb374be374859a823b79fd938cc65/). 
 
-Mer information om förbrukar svar-objekt finns [söka på webben för entiteter och platser](./search-the-web.md).
+Mer information om hur du använder svarsobjekten finns på sidan om att [söka efter videor på webben](./search-the-web.md).
 
-Se till att läsa [Bing användas och visa krav](./use-display-requirements.md) så att du inte delar någon av reglerna om hur du använder sökresultatet.
+Se till att läsa [Bing Use and Display Requirements](./use-display-requirements.md) (Krav för användning och visning i Bing) så att du inte bryter mot någon av reglerna om användning av sökresultat.

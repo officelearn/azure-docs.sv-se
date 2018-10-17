@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.date: 03/30/2018
 ms.author: dech
 ms.custom: mvc
-ms.openlocfilehash: 771c4a33603ddf262df3b35992d318d34de6c2dc
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: af6faa6abcc54ef11e066d3a348dac28b23c7af4
+ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43698119"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49079097"
 ---
 # <a name="use-data-migration-tool-to-migrate-your-data-to-azure-cosmos-db"></a>Migrera data till Azure Cosmos DB med hjälp av migreringsverktyget 
 
@@ -42,7 +42,9 @@ Innan du följer anvisningarna i den här artikeln bör du se till att du har in
 
 * [Microsoft .NET Framework 4.51](https://www.microsoft.com/download/developer-tools.aspx) eller högre.
 
-* Öka dataflödet: Hur lång tid datamigreringen tar beror på hur stort dataflöde du anger för en enskild samling eller en uppsättning samlingar. Du bör öka dataflödet för större datamigreringar. När du har slutfört migreringen kan du minska dataflödet för att sänka kostnaderna. Mer information om hur du ökar dataflödet i Azure Portal finns i avsnittet om prestandanivåer och prisnivåer i Azure Cosmos DB.
+* **Öka dataflödet:** Hur lång tid datamigreringen tar beror på hur stort dataflöde du anger för en enskild samling eller en uppsättning samlingar. Du bör öka dataflödet för större datamigreringar. När du har slutfört migreringen kan du minska dataflödet för att sänka kostnaderna. Mer information om hur du ökar dataflödet i Azure Portal finns i avsnittet om prestandanivåer och prisnivåer i Azure Cosmos DB.
+
+* **Skapa Azure Cosmos DB-resurser:** Innan du börjar migrera data skapar du alla dina samlingar i förväg från Azure-portalen. Om du migrerar till ett Azure Cosmos DB-konto som har dataflöde på databasnivå anger du en partitionsnyckel när du skapar Azure Cosmos DB-samlingar.
 
 ## <a id="Overviewl"></a>Översikt
 Datamigreringsverktyget är en lösning med öppen källkod som importerar data till Azure Cosmos DB från olika källor, inklusive:
@@ -201,7 +203,7 @@ Importverktyget försöker härleda typinformationen för värden utan citatteck
 Det finns två saker att lägga märke till när det gäller CSV-import:
 
 1. Som standard tas värden utan citattecken alltid bort för flikar och blanksteg, medan värden inom citattecken sparas som de är. Den här funktionen kan åsidosättas med kryssrutan Trim quoted values (Rensa värden inom citattecken) eller kommandoradsalternativet /s.TrimQuoted.
-2. Som standard behandlas null utan citattecken som ett null-värde. Den här funktionen kan åsidosättas (dvs. behandla null utan citattecken som en ”null”-sträng) med kryssrutan Treat unquoted NULL as string (Behandla NULL utan citattecken som en sträng) eller kommandoradsalternativet /s.NoUnquotedNulls.
+2. Som standard behandlas null utan citattecken som ett null-värde. Den här funktionen kan åsidosättas (dvs. behandla null utan citattecken som en null-sträng) med kryssrutan Treat unquoted NULL as string (Behandla NULL utan citattecken som en sträng) eller kommandoradsalternativet /s.NoUnquotedNulls.
 
 Här följer ett kommandoradsexempel för CSV-import:
 
@@ -522,6 +524,14 @@ Du kan välja att förenkla resulterande JSON, vilket ökar storleken på det re
       }
     ]
     }]
+
+Här är ett kommandoradsexempel på hur du kan exportera JSON-filen till Azure Blob Storage:
+
+```
+dt.exe /ErrorDetails:All /s:DocumentDB /s.ConnectionString:"AccountEndpoint=<CosmosDB Endpoint>;AccountKey=<CosmosDB Key>;Database=<CosmosDB database_name>" /s.Collection:<CosmosDB collection_name>
+/t:JsonFile /t.File:"blobs://<Storage account key>@<Storage account name>.blob.core.windows.net:443/<Container_name>/<Blob_name>"
+/t.Overwrite
+```
 
 ## <a name="advanced-configuration"></a>Avancerad konfiguration
 På skärmen Avancerad konfiguration anger du platsen för loggfilen där du vill att eventuella fel skrivs. Följande regler gäller för den här sidan:

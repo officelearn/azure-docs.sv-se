@@ -8,22 +8,22 @@ manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 07/31/2018
-ms.openlocfilehash: b364dfb033c3af640892bb305d7df3c916dd3fef
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: a6ad40f90e12bbf4dd85c3cbd22839d39a734ca1
+ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43095775"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44391173"
 ---
 # <a name="deploy-to-azure-app-service-by-using-the-jenkins-plugin"></a>Distribuera till Azure App Service med plugin-programmet Jenkins 
 
 Om du vill distribuera en Java-webbapp till Azure kan du använda Azure CLI i [Jenkins Pipeline](/azure/jenkins/execute-cli-jenkins-pipeline) eller [plugin-programmet Jenkins för Azure App Service](https://plugins.jenkins.io/azure-app-service). Plugin-programmet Jenkins version 1.0 har stöd för kontinuerlig distribution med Web Apps-funktionen i Azure App Service via:
-* Git eller FTP.
+* filuppladdning.
 * Docker för Web Apps på Linux.
 
 I den här guiden får du lära dig att:
 > [!div class="checklist"]
-> * Konfigurera Jenkins för distribution av Web Apps via Git eller FTP.
+> * Konfigurera Jenkins för distribution av Web Apps via filuppladdning.
 > * Konfigurera Jenkins för distribution av Web App for Containers.
 
 ## <a name="create-and-configure-a-jenkins-instance"></a>Skapa och konfigurera en Jenkins-instans
@@ -37,7 +37,7 @@ Om du inte redan har ett Jenkins-original börjar du med [lösningsmallen](insta
 
 Du kan använda plugin-programmet Jenkins för att distribuera en webbapp på valfritt språk som stöds av Web Apps, till exempel C#, PHP, Java eller Node.js. I den här självstudien använder vi en [enkel Java-webbapp för Azure](https://github.com/azure-devops/javawebappsample). Om du vill förgrena lagringsplatsen till ditt eget GitHub-konto väljer du knappen **Fork** (Förgrening) i det övre högra hörnet i GitHub-gränssnittet.  
 > [!NOTE]
-> Java JDK och Maven krävs för att skapa Java-projektet. Installera komponenterna på Jenkins-originalet, eller på VM-agenten om du använder agenten för kontinuerlig integrering. 
+> Java JDK och Maven krävs för att skapa Java-projektet. Installera komponenterna på Jenkins-originalet, eller på VM-agenten om du använder agenten för kontinuerlig integrering. Om du distribuerar ett Java SE-program måste det även finnas en ZIP-fil på versionsservern.
 
 Installera komponenterna genom att logga in till Jenkins-instansen med SSH och köra följande kommandon:
 
@@ -60,7 +60,11 @@ Du behöver ett Azure-tjänsthuvudnamn för att kunna distribuera till Azure.
 
 ## <a name="configure-jenkins-to-deploy-web-apps-by-uploading-files"></a>Konfigurera Jenkins för distribution av Web Apps med filuppladdning
 
-Distribuera ditt projekt till Web Apps genom att ladda upp dina versionsartefakter (till exempel en WAR-fil i Java) med Git eller FTP.
+För att distribuera projektet till Web Apps kan du ladda upp dina byggartefakter genom filuppladdning. Azure App Service har stöd för flera olika distributionsalternativ. Jenkins-pluginprogrammet för Azure App Service gör det enkelt för dig och hämtar distributionsalternativ baserat på filtypen. 
+
+* För Java EE-program används [WAR-distribution](/azure/app-service/app-service-deploy-zip#deploy-war-file).
+* För Java SE-program används [ZIP-distribution](/azure/app-service/app-service-deploy-zip#deploy-zip-file).
+* För övriga språk används [Git-distribution](/azure/app-service/app-service-deploy-local-git).
 
 Innan du konfigurerar jobbet i Jenkins behöver du en Azure App Service-plan och en webbapp för att köra Java-appen.
 
@@ -127,7 +131,7 @@ Plugin-programmet Jenkins i Azure App Service är klart för pipeline. Du kan re
 
 Web Apps på Linux har stöd för distributioner med Docker. För att kunna distribuera webbappen med Docker måste du ange en Dockerfile som paketerar webbappen med en tjänst-CLR till en Docker-avbildning. Plugin-programmet Jenkins skapar sedan avbildningen, skickar den till ett Docker-register och distribuerar avbildningen till webbappen.
 
-Web Apps på Linux kan också användas med traditionella distributionsmetoder som Git och FTP, men endast för inbyggda språk (.NET Core, Node.js, PHP och Ruby). För andra språk än dessa måste du paketera programkoden och tjänst-CLR:en tillsammans i en Docker-avbildning och använda Docker för distributionen.
+Web Apps på Linux kan också användas med traditionella distributionsmetoder som Git och filuppladdning, men endast för inbyggda språk (.NET Core, Node.js, PHP och Ruby). För andra språk än dessa måste du paketera programkoden och tjänst-CLR:en tillsammans i en Docker-avbildning och använda Docker för distributionen.
 
 Innan du konfigurerar jobbet i Jenkins behöver du ha en webbapp på Linux. Du behöver också ha ett containerregister för lagring och hantering av dina privata avbildningar av Docker-containrar. Du kan skapa containerregistret med DockerHub. I det här exemplet använder vi Azure Container Registry.
 
@@ -232,5 +236,5 @@ I den här självstudien använde du plugin-programmet Jenkins för Azure App Se
 Du har lärt dig att:
 
 > [!div class="checklist"]
-> * Konfigurera Jenkins för distribution av Azure App Service med FTP 
+> * Konfigurera Jenkins för distribution av Azure App Service med filuppladdning 
 > * Konfigurera Jenkins för distribution av Web App för containrar 

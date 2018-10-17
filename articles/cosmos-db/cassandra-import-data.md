@@ -9,12 +9,12 @@ ms.author: govindk
 ms.topic: tutorial
 ms.date: 09/24/2018
 ms.reviewer: sngun
-ms.openlocfilehash: 0bf5e47513ded4b2c65e7291db497e53a42776a8
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: f73a201a25bb2f975e8a261a6c21aa7b066c3a7c
+ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46976184"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48247858"
 ---
 # <a name="migrate-your-data-to-azure-cosmos-db-cassandra-api-account"></a>Migrera data till Azure Cosmos DB Cassandra API-konto
 
@@ -62,7 +62,7 @@ När du har identifierat kraven för din befintliga arbetsbelastning bör du ska
 
 ## <a name="prerequisites-for-migration"></a>Förutsättningar för migrering
 
-* **Skapa tabeller i kontot för Cassandra-API:et för Azure Cosmos DB:** Innan du börjar migrera data skapar du alla dina tabeller i förväg från Azure-portalen eller från cqlsh.
+* **Skapa tabeller i kontot för Cassandra-API:et för Azure Cosmos DB:** Innan du börjar migrera data skapar du alla dina tabeller i förväg från Azure-portalen eller från cqlsh. Om du migrerar till ett Azure Cosmos DB-konto som har dataflöde på databasnivå ser du till att tillhandahålla en partitionsnyckel när du skapar Azure Cosmos DB-containrar.
 
 * **Öka dataflödet:** Hur lång tid datamigreringen tar beror på hur stort dataflöde du etablerade för tabellerna i Azure Cosmos DB. Öka dataflödet under migreringen. Med ett högre dataflöde kan du undvika begränsningar och migrera snabbare. När du har slutfört migreringen kan du minska dataflödet för att sänka kostnaderna. Mer information om hur du ökar dataflödet finns i [Ange dataflöde](set-throughput.md) för Azure Cosmos DB-containrar. Vi rekommenderar också att du har ett Azure Cosmos DB-konto i samma region som din källdatabas. 
 

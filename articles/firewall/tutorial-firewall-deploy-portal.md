@@ -6,15 +6,15 @@ author: vhorne
 manager: jpconnock
 ms.service: firewall
 ms.topic: tutorial
-ms.date: 09/24/2018
+ms.date: 10/5/2018
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: ff8df51011ef664950ecfeb9eef0b201306c8ad5
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 8fb459d197c15cf7760a924c7161fed59cc1caac
+ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47221675"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48801887"
 ---
 # <a name="tutorial-deploy-and-configure-azure-firewall-using-the-azure-portal"></a>Självstudie: Distribuera och konfigurera Azure Firewall via Azure Portal
 
@@ -186,6 +186,10 @@ För undernätet **Workload-SN** ställer du in att den utgående standardvägen
 10. Klicka på **Undernät** och sedan på **Associera**.
 11. Klicka på **Virtuellt nätverk** och välj sedan **Test-FW-VN**.
 12. I fältet **Undernät** klickar du på **Workload-SN**.
+
+    > [!IMPORTANT]
+    > Se till att du bara väljer **Workload-SN**-undernätet för den här vägen, annars fungerar inte brandväggen som den ska.
+
 13. Klicka på **OK**.
 14. Klicka på **Vägar** och sedan på **Lägg till**.
 15. I fältet **Vägnamn** skriver du **FW-DG**.
@@ -193,8 +197,8 @@ För undernätet **Workload-SN** ställer du in att den utgående standardvägen
 17. I fältet **Nästa hopptyp** väljer du **Virtuell installation**.
 
     Azure Firewall är egentligen en hanterad tjänst, men en virtuell installation fungerar i det här fallet.
-1. I fältet **Nästa hoppadress** skriver du brandväggens privata IP-adress som du skrev ned tidigare.
-2. Klicka på **OK**.
+18. I fältet **Nästa hoppadress** skriver du brandväggens privata IP-adress som du skrev ned tidigare.
+19. Klicka på **OK**.
 
 
 ## <a name="configure-application-rules"></a>konfigurera programregler

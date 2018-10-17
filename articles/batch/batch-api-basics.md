@@ -15,12 +15,12 @@ ms.workload: big-compute
 ms.date: 08/22/2018
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f1c933c9dcb3e3e2c2cb267073386d4b9c4e2022
-ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
+ms.openlocfilehash: 8b6e543a4835410368e752e70e7e8cb6d8805c0e
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/23/2018
-ms.locfileid: "42746026"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45735587"
 ---
 # <a name="develop-large-scale-parallel-compute-solutions-with-batch"></a>Utveckla storskaliga parallella beräkningslösningar med Batch
 
@@ -79,11 +79,13 @@ Du kan köra flera Batch-arbetsbelastningar i samma Batch-konto eller distribuer
 
 De flesta Batch-lösningar använder Azure Storage för lagring av resursfiler och utdatafiler. Till exempel brukar Batch-aktiviteterna (inklusive standardaktiviteter, startaktiviteter, jobbförberedelse- och jobbpubliceringsaktiviteter) definiera resursfiler som finns i ett lagringskonto.
 
-Batch har stöd för följande [kontoalternativ](../storage/common/storage-account-options.md) för Azure Storage:
+Batch stöder följande typer av Azure Storage-konton:
 
 * GPv2-konton (General-purpose v2) 
 * GPv1-konton (General-purpose v1)
 * Blob Storage-konton (stöds för närvarande för pooler i VM-konfigurationen)
+
+Mer information om lagringskonton finns i [kontoöversikten för Azure Storage](../storage/common/storage-account-overview.md).
 
 Du kan associera ett lagringskonto till Batch-kontot när du skapar Batch-kontot, eller senare. Betänk dina kostnads- och prestandakrav när du väljer lagringskonto. Till exempel har alternativen med GPv2- och blob storage-konto stöd för större [kapacitet och skalbarhet](https://azure.microsoft.com/blog/announcing-larger-higher-scale-storage-accounts/) jämfört med GPv1. (Kontakta Azure-supporten för att begära en ökning av en lagringsgräns.) De här alternativen kan förbättra prestandan för Batch-lösningar som innehåller ett stort antal parallella uppgifter som kan läsa från eller skriva till lagringskontot.
 
@@ -540,7 +542,7 @@ Om vissa av dina aktiviteter misslyckas kan Batch-klientprogrammet eller Batch-t
 [net_rdpfile]: https://msdn.microsoft.com/library/azure/Mt272127.aspx
 [vnet]: https://msdn.microsoft.com/library/azure/dn820174.aspx#bk_netconf
 
-[py_add_user]: https://docs.microsoft.com/en-us/python/azure/?view=azure-python
+[py_add_user]: https://docs.microsoft.com/python/azure/?view=azure-python
 
 [batch_rest_api]: https://msdn.microsoft.com/library/azure/Dn820158.aspx
 [rest_add_job]: https://msdn.microsoft.com/library/azure/mt282178.aspx

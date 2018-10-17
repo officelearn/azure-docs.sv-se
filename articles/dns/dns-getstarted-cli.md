@@ -7,12 +7,12 @@ ms.service: dns
 ms.topic: quickstart
 ms.date: 7/16/2018
 ms.author: victorh
-ms.openlocfilehash: 3fb39558ff99c35786dedc133a9d1d1a450b5928
-ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
+ms.openlocfilehash: f80488f555cfa3b7be6f35b9f23ea0a501a27fd9
+ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39090130"
+ms.lasthandoff: 10/06/2018
+ms.locfileid: "48831605"
 ---
 # <a name="quickstart-create-an-azure-dns-zone-and-record-using-azure-cli"></a>Snabbstart: Skapa en Azure DNS-zon och post med Azure CLI
 
@@ -20,7 +20,7 @@ Den här artikeln visar hur du skapar din första DNS-zon och DNS-post med hjäl
 
 En DNS-zon används som värd åt DNS-posterna för en viss domän. Om du vill låta Azure DNS vara värd för din domän så måste du skapa en DNS-zon för det domännamnet. Varje DNS-post för din domän skapas sedan i den här DNS-zonen. Om du vill publicera din DNS-zon på Internet måste du konfigurera namnservrarna för domänen. Dessa steg beskrivs nedan.
 
-Azure DNS stöder nu också privata DNS-zoner (för närvarande i förhandsversion). Mer information om privata DNS-zoner finns i [Using Azure DNS for private domains](private-dns-overview.md) (Använda Azure DNS för privata domäner). Ett exempel på hur man kan skapa en privat DNS-zon finns i [Kom igång med privata Azure DNS-zoner med CLI](./private-dns-getstarted-cli.md).
+Azure DNS stöder nu också privata DNS-zoner (för närvarande i förhandsversion). Mer information om privata DNS-zoner finns i [Using Azure DNS for private domains](private-dns-overview.md) (Använda Azure DNS för privata domäner). Ett exempel på hur du kan skapa en privat DNS-zon finns i [Kom igång med privata Azure DNS-zoner med CLI](./private-dns-getstarted-cli.md).
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -46,9 +46,9 @@ az network dns zone create -g MyResourceGroup -n contoso.com
 
 ## <a name="create-a-dns-record"></a>Skapa en DNS-post
 
-Skapa en DNS-post genom att använda kommandot `az network dns record-set [record type] add-record`. Mer information, om exempelvis A-poster, finns i `azure network dns record-set A add-record -h`.
+Skapa en DNS-post genom att använda kommandot `az network dns record-set [record type] add-record`. Hjälp om A-poster finns i `azure network dns record-set A add-record -h`.
 
-I följande exempel skapas en post med det relativa namnet "www" i resursgruppen "MyResourceGroup" i DNS-zonen "contoso.com". Postuppsättningens fullständigt kvalificerade namn är ”www.contoso.com”. Postens typ är "A", IP-adressen är "1.2.3.4" och en standard-TTL på 3 600 sekunder (1 timme) används.
+I följande exempel skapas en post med det relativa namnet ”www” i resursgruppen ”MyResourceGroup” i DNS-zonen ”contoso.com”. Postuppsättningens fullständigt kvalificerade namn är ”www.contoso.com”. Postens typ är ”A”, IP-adressen är ”1.2.3.4” och en standard-TTL på 3600 sekunder (1 timme) används.
 
 ```azurecli
 az network dns record-set a add-record -g MyResourceGroup -z contoso.com -n www -a 1.2.3.4
@@ -56,7 +56,7 @@ az network dns record-set a add-record -g MyResourceGroup -z contoso.com -n www 
 
 ## <a name="view-records"></a>Visa poster
 
-Om du vill visa en lista med DNS-poster i din zon använder du:
+Om du vill visa en lista med DNS-poster i din zon kör du:
 
 ```azurecli
 az network dns record-set list -g MyResourceGroup -z contoso.com
@@ -64,7 +64,7 @@ az network dns record-set list -g MyResourceGroup -z contoso.com
 
 ## <a name="update-name-servers"></a>Uppdatera namnservrar
 
-När du är nöjd med konfigurationen av DNS-zonen och DNS-posterna måste du konfigurera ditt domännamn för användning med Azure DNS-namnservrarna. Det gör att andra användare på Internet kan hitta dina DNS-poster.
+När du är nöjd med konfigurationen av DNS-zonen och DNS-posterna måste du konfigurera ditt domännamn att använda Azure DNS-namnservrarna så att andra användare på Internet kan hitta dina DNS-poster.
 
 Namnservrarna för din zon anges av `az network dns zone show`-kommandot. Använd JSON-utdata (se följande exempel) om du vill se namnservernamnen.
 

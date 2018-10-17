@@ -10,14 +10,14 @@ ms.reviewer: klam, LADocs
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 01/12/2018
-ms.openlocfilehash: 43f826414ae7f279c23f6e9e2e39d4d21267e158
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: 70d7adc9ea8c65a7e6a21165864b7e6d661c6f8c
+ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43124026"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48042299"
 ---
-# <a name="check-traffic-with-a-schedule-based-logic-app"></a>Kontrollera trafik med en schemabaserad logikapp
+# <a name="check-traffic-on-a-schedule-with-azure-logic-apps"></a>Kontrollera trafik enligt ett schema med Azure Logic Apps
 
 Med Azure Logic Apps kan du automatisera arbetsflöden som körs enligt ett schema. Den här kursen visar hur du kan skapa en [logikapp](../logic-apps/logic-apps-overview.md) med en utlösare som körs varje morgon på vardagar och kontrollerar restiden, inklusive trafik, mellan två platser. Om tiden överskrider en viss gräns, skickar logikappen ett e-postmeddelande med restiden och den extra tid som krävs för att nå ditt mål.
 
@@ -60,7 +60,7 @@ Logga in på <a href="https://portal.azure.com" target="_blank">Azure Portal</a>
    | Inställning | Värde | Beskrivning | 
    | ------- | ----- | ----------- | 
    | **Namn** | LA-TravelTime | Logikappens namn | 
-   | **Prenumeration** | <*ditt-Azure-prenumerationsnamn*> | Azure-prenumerationens namn | 
+   | **Prenumeration** | <*your-Azure-subscription-name*> | Azure-prenumerationens namn | 
    | **Resursgrupp** | LA-TravelTime-RG | Namnet på den [Azure-resursgrupp](../azure-resource-manager/resource-group-overview.md) som används för att organisera relaterade resurser | 
    | **Plats** | USA, östra 2 | Regionen där informationen om logikappen ska lagras | 
    | **Log Analytics** | Av | Behåll inställningen **Av** för diagnostisk loggning. | 

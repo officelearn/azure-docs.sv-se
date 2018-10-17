@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 08/28/2018
 ms.author: apimpm
-ms.openlocfilehash: ea6078088417099045006f81dcaf1f769bbd64d7
-ms.sourcegitcommit: 2b2129fa6413230cf35ac18ff386d40d1e8d0677
+ms.openlocfilehash: b5a38b9f16224c8b2b128b464106fe83d018b308
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43246823"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46129768"
 ---
 # <a name="import-an-azure-function-app-as-an-api-in-azure-api-management"></a>Importera en Azure-funktionsapp som API i Azure API Management | Microsoft Docs
 
@@ -71,9 +71,11 @@ Följ stegen nedan och skapa ett nytt API från en Azure-funktionsapp.
     > [!NOTE]
     > Du kan endast importera de funktioner som är baserade på HTTP-utlösare och som har auktoriseringsnivåinställningen *Anonym* eller *Funktion*.
 
-7. Redigera de förifyllda fälten om det behövs. Klicka på **Skapa**.
+7. Växla till vyn **Fullständig** och tilldela **Produkten** till ditt nya API. Redigera de förifyllda fälten om det behövs.
 
     ![Lägg till från funktionsapp](./media/import-function-app-as-api/add-06.png)
+
+8. Klicka på **Skapa**.
 
 ## <a name="append-azure-function-app-to-api"></a> Lägg till Azure-funktionsapp till befintligt API
 

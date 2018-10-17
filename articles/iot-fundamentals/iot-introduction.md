@@ -1,19 +1,18 @@
 ---
-title: Introduktion till Sakernas Internet (IoT) i Azure
-description: Översikt över Azure IoT samt relaterade tjänster och tekniker.
-author: BryanLa
-manager: timlt
+title: Introduktion till Azure och Sakernas Internet (IoT)
+description: Översikt över Azure IoT och de tjänster som ingår
+author: robinsh
 ms.service: iot-fundamentals
 services: iot-fundamentals
 ms.topic: overview
-ms.date: 05/18/2018
-ms.author: bryanla
-ms.openlocfilehash: ed96181606e2db4102aa609973ade9ecbfde6c90
-ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
+ms.date: 10/09/2018
+ms.author: robinsh
+ms.openlocfilehash: d7e5949be9ea09f94ff6ee86c9f996f2e203eac7
+ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39187282"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49069445"
 ---
 # <a name="introduction-to-azure-and-the-internet-of-things"></a>Introduktion till Azure och Sakernas Internet
 
@@ -28,10 +27,10 @@ I följande diagram visas nyckelelement för en typisk IoT-lösningsarkitektur. 
 * Andra verksamhetsspecifika program.
 * Mänskliga operatörer via en instrumentpanel eller annan presentationsenhet.
 
-![IoT-lösningsarkitektur][img-solution-architecture]
+![IoT-lösningsarkitektur](./media/iot-introduction/iot-reference-architecture.png)
 
 > [!NOTE]
-> En detaljerad beskrivning av IoT-arkitekturen finns i [Microsoft Azure IoT Reference Architecture][lnk-refarch] (Referensarkitektur för Microsoft Azure IoT).
+> En detaljerad beskrivning av IoT-arkitekturen finns i [Microsoft Azure IoT Reference Architecture](https://aka.ms/iotrefarchitecture) (Referensarkitektur för Microsoft Azure IoT).
 
 ### <a name="device-connectivity"></a>Enhetsanslutning
 
@@ -82,8 +81,10 @@ Slutanvändarna kan interagera med IoT-lösningen och enheterna via ett presenta
 
 Azure IoT förenklar IoT-projekt och löser problem till exempel med säkerhet, inkompatibilitet mellan infrastrukturer och skalning av IoT-lösningen. Här är hur:
 
-**Flexibel** <br>
-Accelerera din IoT-resa
+### <a name="agile"></a>Flexibel
+
+Accelerera din IoT-resa.
+
 * Skala: börja litet och utöka till önskad storlek, var som helst och överallt – upp till miljoner enheter och terabyte av data i de flesta regioner över hela världen.
 
 * Öppna: använd vad du har, eller modernisera för framtiden genom att ansluta till enheter, programvara och tjänster enligt behov.
@@ -92,8 +93,9 @@ Accelerera din IoT-resa
 
 * Takt: distribuera snabbare, med snabbare tid till marknad och hålls steget före konkurrenterna inom IoT-lösningar och -innovationer.
 
-**Omfattande** <br>
-Påverka marknaden
+### <a name="comprehensive"></a>Omfattande
+
+Påverka marknaden.
 
 * Fullständig: Microsoft är den enda IoT-lösningsleverantören med en fullständig plattform från enheter till moln med funktioner för stordata och analys samt hanterade tjänster.
 
@@ -103,8 +105,9 @@ Påverka marknaden
 
 * Enhetscentrerad: med Microsoft IoT kan du ansluta allt, från äldre utrustning till ett brett spektrum av certifierad maskinvara, med möjligheten att skapa egna enheter över såväl gränssystem som mobila och inbäddade system.
 
-**Skydda** <br>
-Lös den svåraste delen av IoT – säkerhet
+### <a name="secure"></a>Skydda
+
+Lös den svåraste delen av IoT – säkerhet.
 
 * Tillhandahåll: med Microsoft IoT samordnar du din vision med teknik, bästa praxis och funktioner för att lösa den svåraste delen av IoT – säkerhet.
 
@@ -116,69 +119,21 @@ Lös den svåraste delen av IoT – säkerhet
 
 ## <a name="next-steps"></a>Nästa steg
 
-Läs mer om följande tekniker och lösningar, eller bekanta dig med listan över Azure IoT-tjänster i innehållsförteckningen till vänster.
+Utforska följande områden med tekniker och lösningar.
 
-<ul class="panelContent cardsF">  
-    <li>
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>Lösningar</h3>
-                        <a href="/azure/iot-suite">IoT-lösningsacceleratorer</a><br/>
-                        <a href="/azure/iot-central">IoT Central</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </li>
-    <li>
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>Plattformstjänster</h3>
-                        <a href="/azure/iot-hub">IoT Hub</a><br/>
-                        <a href="/azure/iot-dps">IoT Hub Device Provisioning Service</a><br/>
-                        <a href="/azure/azure-maps">Maps</a><br/>
-                        <a href="/azure/time-series-insights">Time Series Insights</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </li>  
-    <li>
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>Edge</h3>
-                        <a href="/azure/iot-edge">IoT Edge</a><br/>
-                        <a href="/azure/iot-edge/how-iot-edge-works">Vad är IoT Edge?</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </li>      
-</ul>
+**Lösningar**
 
-[img-paas-saas-technologies-solutions]: media/index/paas-saas-technologies-solutions.png
-[img-solution-architecture]: ./media/iot-introduction/iot-reference-architecture.png
-[img-dashboard]: ./media/iot-introduction/iot-suite.png
+* [IoT-lösningsacceleratorer](/azure/iot-suite)
+* [IoT Central](/azure/iot-central)
 
-[lnk-device-sdks]: https://github.com/Azure/azure-iot-sdks
-[lnk-iot-central-land]: https://docs.microsoft.com/microsoft-iot-central/
-[lnk-iot-dps-land]: /azure/iot-dps/index.yml
-[lnk-iot-edge-land]: /azure/iot-edge/index.yml
-[lnk-iot-hub-land]: /azure/iot-hub/index.md
-[lnk-iot-maps-land]: /azure/maps/index.yml
-[lnk-iot-sa-land]: ../iot-accelerators/index.yml
-[lnk-iot-tsi-land]: /azure/time-series-insights/index.yml
+**Plattformstjänster**
 
-[lnk-iot-hub]: ../iot-hub/about-iot-hub.md
-[lnk-iot-sa]: ../iot-accelerators/about-iot-accelerators.md
-[lnk-machinelearning]: http://azure.microsoft.com/documentation/services/machine-learning/
-[lnk-protocol-gateway]:  ../iot-hub/iot-hub-protocol-gateway.md
-[lnk-refarch]: https://aka.ms/iotrefarchitecture
+* [IoT Hub](/azure/iot-hub)
+* [IoT Hub Device Provisioning Service](/azure/iot-dps)
+* [Azure Maps](/azure/azure-maps/)
+* [Time Series Insights](/azure/time-series-insights)
 
+**Edge**
 
+* [Översikt över IoT Edge](/azure/iot-edge)
+* [Vad är IoT Edge](/azure/how-iot-edge-works)

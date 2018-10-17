@@ -3,21 +3,20 @@ title: Skapa och publicera ett Azure-hanterat program för tjänstkatalogen | Mi
 description: Visar hur du skapar ett Azure-hanterat program som är avsett för medlemmar i din organisation.
 services: managed-applications
 author: tfitzmac
-manager: timlt
 ms.service: managed-applications
 ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
-ms.date: 06/08/2018
+ms.date: 10/04/2018
 ms.author: tomfitz
-ms.openlocfilehash: 3b1da6e9068be3c96cce5973f29344fe7e4b4872
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: a2e6e78268f97136533b4f72ce28373642b6c394
+ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47095848"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48801275"
 ---
-# <a name="publish-a-managed-application-for-internal-consumption"></a>Publicera ett hanterat program för internt bruk
+# <a name="create-and-publish-a-managed-application-definition"></a>Skapa och publicera en definition för det hanterade programmet
 
 Du kan skapa och publicera Azure-[hanterade program](overview.md) som är avsedda för medlemmar i din organisation. En IT-avdelning kan exempelvis publicera hanterade program som säkerställer efterlevnaden av organisationens standarder. Dessa hanterade program är tillgängliga via tjänstkatalogen, inte på Azure Marketplace.
 
@@ -215,80 +214,7 @@ New-AzureRmManagedApplicationDefinition `
 
 Du har åtkomst till definitionen för hanterade program, men du vill kontrollera att andra användare i din organisation kan komma åt den. Ge dem minst rollen Läsare på definitionen. De kan ha ärvt den här åtkomstnivån från prenumerationen eller resursgruppen. För att kontrollera vem som har åtkomst till definitionen och lägga till användare eller grupper, se [Använda rollbaserad behörighet för att hantera åtkomst till resurserna i din Azure-prenumeration](../role-based-access-control/role-assignments-portal.md).
 
-## <a name="create-the-managed-application"></a>Skapa det hanterade programmet
-
-Du kan distribuera det hanterade programmet via portalen, PowerShell eller Azure CLI.
-
-### <a name="powershell"></a>PowerShell
-
-Först ska vi använda PowerShell för att distribuera det hanterade programmet.
-
-```powershell
-# Create resource group
-New-AzureRmResourceGroup -Name applicationGroup -Location westcentralus
-
-# Get ID of managed application definition
-$appid=(Get-AzureRmManagedApplicationDefinition -ResourceGroupName appDefinitionGroup -Name ManagedStorage).ManagedApplicationDefinitionId
-
-# Create the managed application
-New-AzureRmManagedApplication `
-  -Name storageApp `
-  -Location westcentralus `
-  -Kind ServiceCatalog `
-  -ResourceGroupName applicationGroup `
-  -ManagedApplicationDefinitionId $appid `
-  -ManagedResourceGroupName "InfrastructureGroup" `
-  -Parameter "{`"storageAccountNamePrefix`": {`"value`": `"demostorage`"}, `"storageAccountType`": {`"value`": `"Standard_LRS`"}}"
-```
-
-Nu finns det hanterade programmet och den hanterade infrastrukturen i prenumerationen.
-
-### <a name="portal"></a>Portalen
-
-Nu ska vi använda portalen för att distribuera det hanterade programmet. Du kan se användargränssnittet som du skapade i paketet.
-
-1. Gå till Azure Portal. Välj **+ Skapa en resurs** och sök efter **tjänstkatalog**.
-
-   ![Sök efter tjänstkatalog](./media/publish-service-catalog-app/create-new.png)
-
-1. Välj **Tjänstkatalogen för hanterade program**.
-
-   ![Välj tjänstkatalog](./media/publish-service-catalog-app/select-service-catalog-managed-app.png)
-
-1. Välj **Skapa**.
-
-   ![Välj Skapa](./media/publish-service-catalog-app/select-create.png)
-
-1. Leta upp det hanterade program som du vill skapa i listan över tillgängliga lösningar och välj det. Välj **Skapa**.
-
-   ![Leta upp det hanterade programmet](./media/publish-service-catalog-app/find-application.png)
-
-   Om du inte ser definition för hanterade program via portalen kan du behöva ändra dina portalinställningar. Välj **Katalog- och prenumerationsfilter**.
-
-   ![Välj prenumerationsfilter](./media/publish-service-catalog-app/select-filter.png)
-
-   Kontrollera att det globala prenumerationsfiltret innehåller den prenumeration som innehåller den hanterade programdefinitionen.
-
-   ![Kontrollera prenumerationsfilter](./media/publish-service-catalog-app/check-global-filter.png)
-
-   När du har valt prenumerationen, börja om från början genom att skapa tjänsten kataloghanterat program. Nu bör du se den.
-
-1. Ange grundläggande information som krävs för det hanterade programmet. Ange prenumerationen och en ny resursgrupp som ska innehålla det hanterade programmet. Välj **USA, västra centrala** för platsen. När du är klar väljer du **OK**.
-
-   ![Ange parametrar för det hanterade programmet](./media/publish-service-catalog-app/add-basics.png)
-
-1. Ange värden som är specifika för resurserna i det hanterade programmet. När du är klar väljer du **OK**.
-
-   ![Ange resursparametrar](./media/publish-service-catalog-app/add-storage-settings.png)
-
-1. Mallen verifierar de värden du angett. Om verifieringen lyckas väljer du **OK** för att starta distributionen.
-
-   ![Verifiera det hanterade programmet](./media/publish-service-catalog-app/view-summary.png)
-
-När distributionen är klar finns det hanterade programmet i en resursgrupp med namnet applicationGroup. Lagringskontot finns i en resursgrupp med namnet applicationGroup, samt ett hash-kodat strängvärde.
-
 ## <a name="next-steps"></a>Nästa steg
 
-* En introduktion till hanterade program finns i [Managed application overview](overview.md) (Översikt över hanterade program).
-* Exempelprojekt hittar du i [exempelprojekten för Azure-hanterade program](sample-projects.md).
-* Se [Kom igång med CreateUiDefinition](create-uidefinition-overview.md) för att lära dig om hur du skapar en UI-definitionsfil för ett hanterat program.
+* Information om hur du publicerar ditt hanterade program till Azure Marketplace finns i [Azure-hanterade program på Marketplace](publish-marketplace-app.md).
+* Information om hur du distribuerar en instans av ett hanterat program finns i [Distribuera tjänstkatalogapp via Azure-portalen](deploy-service-catalog-quickstart.md).

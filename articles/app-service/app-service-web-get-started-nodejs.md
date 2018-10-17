@@ -15,12 +15,12 @@ ms.topic: quickstart
 ms.date: 09/27/2018
 ms.author: cephalin;msangapu
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 05dd53fdfda5446cf848a7b8503a09bc5e5c2d20
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: 347fc291fc7357481bfdc88c9019c3d688925c2f
+ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47433471"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49067525"
 ---
 # <a name="create-a-nodejs-web-app-in-azure"></a>Skapa en Node.js-webbapp i Azure
 
@@ -46,10 +46,15 @@ För att slutföra den här snabbstarten behöver du:
 
 Ladda ned exempelprojektet för Node.js från [https://github.com/Azure-Samples/nodejs-docs-hello-world/archive/master.zip](https://github.com/Azure-Samples/nodejs-docs-hello-world/archive/master.zip) och extrahera ZIP-arkivet.
 
-Navigera till rotkatalogen för Node.js-exempelprojektet i ett terminalfönster (det som innehåller _index.js_).
+Öppna _index.js_ och leta reda på följande rad:
 
-> [!NOTE]
-> Du behöver inte använda vår exempelapp. Du kan använda din egen Node-kod om du vill. Kom dock ihåg att PORTEN för din app anges vid körning av Azure och är tillgänglig som `process.env.PORT`. Om du använder Express ska du ha en kontroll vid start (`app.listen`) för `process.env.PORT || 3000`. Om du inte gör detta och porten inte matchar det som anges vid körning av Azure visas meddelandet `Service Unavailable`. 
+```javascript
+var port = process.env.PORT || 1337;
+```
+
+App Service lägger in process.env.PORT i ditt program, så att koden använder variabeln för att veta vilken port som ska lyssna. 
+
+Navigera till rotkatalogen för Node.js-exempelprojektet i ett terminalfönster (det som innehåller _index.js_).
 
 ## <a name="run-the-app-locally"></a>Köra appen lokalt
 
@@ -68,7 +73,7 @@ Nu kan du se **Hello World**-meddelandet från exempelappen på sidan.
 Tryck på **Ctrl+C** i terminalfönstret för att avsluta webbservern.
 
 > [!NOTE]
-> I Azure App Service körs appen i IIS med [iisnode](https://github.com/tjanczuk/iisnode). Om du vill att appen ska kunna köras med iisnode finns det en web.config-fil i appens rotkatalog. Filen kan läsas av IIS, och iisnode-relaterade inställningar dokumenteras i [iisnode GitHub-lagringsplatsen](https://github.com/tjanczuk/iisnode/blob/master/src/samples/configuration/web.config).
+> I Azure App Service körs appen i IIS med [iisnode](https://github.com/Azure/iisnode). Om du vill att appen ska kunna köras med iisnode finns det en web.config-fil i appens rotkatalog. Filen kan läsas av IIS, och iisnode-relaterade inställningar dokumenteras i [iisnode GitHub-lagringsplatsen](https://github.com/Azure/iisnode/blob/master/src/samples/configuration/web.config).
 
 [!INCLUDE [Create ZIP file](../../includes/app-service-web-create-zip.md)]
 

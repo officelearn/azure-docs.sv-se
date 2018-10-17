@@ -1,45 +1,45 @@
 ---
-title: 'Snabbstart: Använda PHP för att anropa API för textanalys | Microsoft Docs'
+title: 'Snabbstart: Anropa API:et för textanalys med hjälp av PHP'
 titleSuffix: Azure Cognitive Services
-description: Hämta information och exempel på kod som hjälper dig att snabbt komma igång med API för textanalys i Microsoft Cognitive Services på Azure.
+description: Få information och kodexempel som hjälper dig att snabbt komma igång med att använda API för textanalys i Microsoft Cognitive Services på Azure.
 services: cognitive-services
-documentationcenter: ''
-author: ashmaka
+author: noellelacharite
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: text-analytics
-ms.topic: article
-ms.date: 08/30/2018
-ms.author: ashmaka
-ms.openlocfilehash: 602988747f54c3dbdfa933986d47b631b757db65
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
-ms.translationtype: MT
+ms.topic: quickstart
+ms.date: 10/01/2018
+ms.author: nolachar
+ms.openlocfilehash: 99761cf5105535105a7dd9576a32a79e0ae39768
+ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44298717"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48247798"
 ---
-# <a name="quickstart-using-php-to-call-the-text-analytics-cognitive-service"></a>Snabbstart: Använda PHP för att anropa tjänsten Text Analytics Cognitive
+# <a name="quickstart-using-php-to-call-the-text-analytics-cognitive-service"></a>Snabbstart: Anropa den kognitiva tjänsten för textanalys med hjälp av PHP
 <a name="HOLTop"></a>
 
-Den här artikeln visar hur du [identifiera språk](#Detect), [analysera sentiment](#SentimentAnalysis), [extrahera nyckelfraser](#KeyPhraseExtraction), och [identifiera länkade entiteter](#Entities) med hjälp av den [Text Analytics API: er](//go.microsoft.com/fwlink/?LinkID=759711) med PHP.
+I den här artikeln kan du se hur du [identifierar språk](#Detect), [analyserar attityder](#SentimentAnalysis), [extraherar diskussionsämnen](#KeyPhraseExtraction) och [identifierar länkade entiteter](#Entities) med [API:er för textanalys](//go.microsoft.com/fwlink/?LinkID=759711) med PHP.
 
-Referera till den [API-definitioner](//go.microsoft.com/fwlink/?LinkID=759346) för teknisk dokumentation för API: erna.
+Se [API-definitionerna](//go.microsoft.com/fwlink/?LinkID=759346) för teknisk dokumentation för API:erna.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
-Du måste ha en [Cognitive Services API-konto](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) med **API för textanalys**. Du kan använda den **kostnadsfri nivå för 5 000 transaktioner per månad** att slutföra den här snabbstarten.
+Du måste ha ett [Cognitive Services API-konto](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) med **API för textanalys**. Du kan använda den **kostnadsfria nivån för 5 000 transaktioner/månad** för att slutföra den här snabbstarten.
 
-Du måste också ha den [slutpunkt och åtkomstnyckel](../How-tos/text-analytics-how-to-access-key.md) som genererades för dig när du registrerade dig. 
+Du måste även ha [slutpunkten och åtkomstnyckeln](../How-tos/text-analytics-how-to-access-key.md) som genererades åt dig vid registreringen. 
 
 <a name="Detect"></a>
 
 ## <a name="detect-language"></a>Identifiera språk
 
-Language identifiering API identifierar språket för dokument, med hjälp av den [identifiera språk metoden](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c7).
+API:et för språkidentifiering identifierar språket i ett textdokument, med metoden [Detect Language](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c7) (Identifiera språk).
 
-1. Skapa ett nytt PHP-projekt i din favorit-IDE.
+1. Skapa ett nytt PHP-projekt i valfri IDE.
 2. Lägg till koden nedan.
-3. Ersätt den `accessKey` värde med en giltig åtkomstnyckel för din prenumeration.
-4. Ersätt plats i `host` (för närvarande `westus`) till den region som du registrerat dig för.
+3. Ersätt värdet `accessKey` med en giltig åtkomstnyckel för din prenumeration.
+4. Ersätt platsen i `host` (för närvarande `westus`) till den region du har registrerat dig för.
 5. Kör programmet.
 
 ```php
@@ -53,7 +53,7 @@ Language identifiering API identifierar språket för dokument, med hjälp av de
 // **********************************************
 
 // Replace the accessKey string value with your valid access key.
-$accessKey = 'ENTER KEY HERE';
+$accessKey = 'enter key here';
 
 // Replace or verify the region.
 
@@ -64,7 +64,7 @@ $accessKey = 'ENTER KEY HERE';
 // NOTE: Free trial access keys are generated in the westcentralus region, so if you are using
 // a free trial access key, you should not need to change this region.
 $host = 'https://westus.api.cognitive.microsoft.com';
-$path = '/text/analytics/v2.0/';
+$path = '/text/analytics/v2.0/languages';
 
 function DetectLanguage ($host, $path, $key, $data) {
 
@@ -83,7 +83,7 @@ function DetectLanguage ($host, $path, $key, $data) {
         )
     );
     $context  = stream_context_create ($options);
-    $result = file_get_contents ($host . $path . 'languages', false, $context);
+    $result = file_get_contents ($host . $path, false, $context);
     return $result;
 }
 
@@ -95,18 +95,20 @@ $data = array (
     )
 );
 
-print "Please wait a moment for the results to appear.\n\n";
+print "Please wait a moment for the results to appear.";
 
 $result = DetectLanguage ($host, $path, $accessKey, $data);
 
-echo json_encode (json_decode ($result), JSON_PRETTY_PRINT) . "\n\n";
+echo json_encode (json_decode ($result), JSON_PRETTY_PRINT);
+?>
 ```
 
-**Svaret för identifiering av språk**
+**Svar vid språkidentifiering**
 
-Ett lyckat svar returneras i JSON, som visas i följande exempel: 
+Ett svar som anger att åtgärden lyckades returneras i JSON, som du ser i följande exempel: 
 
 ```json
+
 {
    "documents": [
       {
@@ -144,16 +146,45 @@ Ett lyckat svar returneras i JSON, som visas i följande exempel:
 
    ]
 }
+
+
 ```
 <a name="SentimentAnalysis"></a>
 
 ## <a name="analyze-sentiment"></a>Analysera sentiment
 
-API för Attitydstextanalys Analysis detexts känsla av en uppsättning textposter, med hjälp av den [Sentiment metoden](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c9). I följande exempel poängsätter två dokument, en i engelska och en annan på spanska.
+API:et för attitydanalys identifierar attityden i en uppsättning textposter, med metoden [Sentiment](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c9) (Attityd). I följande exempel poängsätts två dokument, ett på engelska och ett annat på spanska.
 
-Lägg till följande kod i koden från den [föregående avsnitt](#Detect).
+1. Skapa ett nytt PHP-projekt i valfri IDE.
+2. Lägg till koden nedan.
+3. Ersätt värdet `accessKey` med en giltig åtkomstnyckel för din prenumeration.
+4. Ersätt platsen i `host` (för närvarande `westus`) till den region du har registrerat dig för.
+5. Kör programmet.
 
 ```php
+<?php
+
+// NOTE: Be sure to uncomment the following line in your php.ini file.
+// ;extension=php_openssl.dll
+
+// **********************************************
+// *** Update or verify the following values. ***
+// **********************************************
+
+// Replace the accessKey string value with your valid access key.
+$accessKey = 'enter key here';
+
+// Replace or verify the region.
+
+// You must use the same region in your REST API call as you used to obtain your access keys.
+// For example, if you obtained your access keys from the westus region, replace 
+// "westcentralus" in the URI below with "westus".
+
+// NOTE: Free trial access keys are generated in the westcentralus region, so if you are using
+// a free trial access key, you should not need to change this region.
+$host = 'https://westus.api.cognitive.microsoft.com';
+$path = '/text/analytics/v2.0/sentiment';
+
 function GetSentiment ($host, $path, $key, $data) {
 
     $headers = "Content-type: text/json\r\n" .
@@ -171,7 +202,7 @@ function GetSentiment ($host, $path, $key, $data) {
         )
     );
     $context  = stream_context_create ($options);
-    $result = file_get_contents ($host . $path . 'sentiment', false, $context);
+    $result = file_get_contents ($host . $path, false, $context);
     return $result;
 }
 
@@ -182,16 +213,17 @@ $data = array (
     )
 );
 
-print "Please wait a moment for the results to appear.\n\n";
+print "Please wait a moment for the results to appear.";
 
 $result = GetSentiment ($host, $path, $accessKey, $data);
 
-echo json_encode (json_decode ($result), JSON_PRETTY_PRINT) . "\n\n";
+echo json_encode (json_decode ($result), JSON_PRETTY_PRINT);
+?>
 ```
 
-**Sentiment analysis svar**
+**Svar vid attitydanalys**
 
-Ett lyckat svar returneras i JSON, som visas i följande exempel: 
+Ett svar som anger att åtgärden lyckades returneras i JSON, som du ser i följande exempel: 
 
 ```json
 {
@@ -213,11 +245,38 @@ Ett lyckat svar returneras i JSON, som visas i följande exempel:
 
 ## <a name="extract-key-phrases"></a>Extrahera nyckelfraser
 
-Key frasen extrahering API: et extraherar nyckelfraser från en text dokument, med hjälp av den [Nyckelfraser metoden](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c6). I följande exempel extraherar viktiga fraser för både engelska och spanska dokument.
+API:et för extrahering av diskussionsämnen extraherar diskussionsämnen från ett textdokument, med metoden [Key Phrases](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c6) (Diskussionsämnen). I följande exempel extraheras diskussionsämnen för både engelska och spanska dokument.
 
-Lägg till följande kod i koden från den [föregående avsnitt](#SentimentAnalysis).
+1. Skapa ett nytt PHP-projekt i valfri IDE.
+2. Lägg till koden nedan.
+3. Ersätt värdet `accessKey` med en giltig åtkomstnyckel för din prenumeration.
+4. Ersätt platsen i `host` (för närvarande `westus`) till den region du har registrerat dig för.
+5. Kör programmet.
 
 ```php
+<?php
+
+// NOTE: Be sure to uncomment the following line in your php.ini file.
+// ;extension=php_openssl.dll
+
+// **********************************************
+// *** Update or verify the following values. ***
+// **********************************************
+
+// Replace the accessKey string value with your valid access key.
+$accessKey = 'enter key here';
+
+// Replace or verify the region.
+
+// You must use the same region in your REST API call as you used to obtain your access keys.
+// For example, if you obtained your access keys from the westus region, replace 
+// "westcentralus" in the URI below with "westus".
+
+// NOTE: Free trial access keys are generated in the westcentralus region, so if you are using
+// a free trial access key, you should not need to change this region.
+$host = 'https://westus.api.cognitive.microsoft.com';
+$path = '/text/analytics/v2.0/keyPhrases';
+
 function GetKeyPhrases ($host, $path, $key, $data) {
 
     $headers = "Content-type: text/json\r\n" .
@@ -235,7 +294,7 @@ function GetKeyPhrases ($host, $path, $key, $data) {
         )
     );
     $context  = stream_context_create ($options);
-    $result = file_get_contents ($host . $path . 'keyPhrases', false, $context);
+    $result = file_get_contents ($host . $path, false, $context);
     return $result;
 }
 
@@ -247,16 +306,18 @@ $data = array (
     )
 );
 
-print "Please wait a moment for the results to appear.\n\n";
+print "Please wait a moment for the results to appear.";
 
 $result = GetKeyPhrases ($host, $path, $accessKey, $data);
 
-echo json_encode (json_decode ($result), JSON_PRETTY_PRINT) . "\n\n";
+echo json_encode (json_decode ($result), JSON_PRETTY_PRINT);
+?>
+
 ```
 
-**Svaret för extrahering av diskussionsämne**
+**Svar vid extrahering av diskussionsämne**
 
-Ett lyckat svar returneras i JSON, som visas i följande exempel: 
+Ett svar som anger att åtgärden lyckades returneras i JSON, som du ser i följande exempel: 
 
 ```json
 {
@@ -296,13 +357,40 @@ Ett lyckat svar returneras i JSON, som visas i följande exempel:
 
 <a name="Entities"></a>
 
-## <a name="identify-linked-entities"></a>Identifiera länkade entiteter
+## <a name="identify-entities"></a>Identifiera entiteter
 
-API för Entity Linking identifierar välkända entiteter i en text dokument, med hjälp av den [Entitetslänkning metoden](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/5ac4251d5b4ccd1554da7634). I följande exempel identifierar entiteter för dokument på engelska.
+API:et för entiteter identifierar välkända entiteter i ett textdokument med hjälp av [metoden Entiteter](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1-Preview/operations/5ac4251d5b4ccd1554da7634). I följande exempel identifieras entiteter för engelska dokument.
 
-Lägg till följande kod i koden från den [föregående avsnitt](#KeyPhraseExtraction).
+1. Skapa ett nytt PHP-projekt i valfri IDE.
+2. Lägg till koden nedan.
+3. Ersätt värdet `accessKey` med en giltig åtkomstnyckel för din prenumeration.
+4. Ersätt platsen i `host` (för närvarande `westus`) till den region du har registrerat dig för.
+5. Kör programmet.
 
 ```php
+<?php
+
+// NOTE: Be sure to uncomment the following line in your php.ini file.
+// ;extension=php_openssl.dll
+
+// **********************************************
+// *** Update or verify the following values. ***
+// **********************************************
+
+// Replace the accessKey string value with your valid access key.
+$accessKey = 'enter key here';
+
+// Replace or verify the region.
+
+// You must use the same region in your REST API call as you used to obtain your access keys.
+// For example, if you obtained your access keys from the westus region, replace 
+// "westcentralus" in the URI below with "westus".
+
+// NOTE: Free trial access keys are generated in the westcentralus region, so if you are using
+// a free trial access key, you should not need to change this region.
+$host = 'https://westus.api.cognitive.microsoft.com';
+$path = '/text/analytics/v2.1-preview/entities';
+
 function GetEntities ($host, $path, $key, $data) {
 
     $headers = "Content-type: text/json\r\n" .
@@ -320,95 +408,192 @@ function GetEntities ($host, $path, $key, $data) {
         )
     );
     $context  = stream_context_create ($options);
-    $result = file_get_contents ($host . $path . 'entities', false, $context);
+    $result = file_get_contents ($host . $path, false, $context);
     return $result;
 }
 
 $data = array (
     'documents' => array (
-        array ( 'id' => '1', 'language' => 'en', 'text' => 'I really enjoy the new XBox One S. It has a clean look, it has 4K/HDR resolution and it is affordable.' ),
-        array ( 'id' => '2', 'language' => 'en', 'text' => 'The Seattle Seahawks won the Super Bowl in 2014.' )
+        array ( 'id' => '1', 'language' => 'en', 'text' => 'Jeff bought three dozen eggs because there was a 50% discount.' ),
+        array ( 'id' => '2', 'language' => 'en', 'text' => 'The Great Depression began in 1929. By 1933, the GDP in America fell by 25%.' )
     )
 );
 
-print "Please wait a moment for the results to appear.\n\n";
+print "Please wait a moment for the results to appear.";
 
 $result = GetEntities ($host, $path, $accessKey, $data);
 
-echo json_encode (json_decode ($result), JSON_PRETTY_PRINT) . "\n\n";
+echo json_encode (json_decode ($result), JSON_PRETTY_PRINT);
 ?>
+
 ```
 
-**Entiteten länkande svar**
+**Svar vid entitetextrahering**
 
-Ett lyckat svar returneras i JSON, som visas i följande exempel: 
+Ett svar som anger att åtgärden lyckades returneras i JSON, som du ser i följande exempel: 
 
 ```json
 {
-    "documents": [
+    "Documents": [
         {
-            "id": "1",
-            "entities": [
+            "Id": "1",
+            "Entities": [
                 {
-                    "name": "Xbox One",
-                    "matches": [
+                    "Name": "Jeff",
+                    "Matches": [
                         {
-                            "text": "XBox One",
-                            "offset": 23,
-                            "length": 8
+                            "Text": "Jeff",
+                            "Offset": 0,
+                            "Length": 4
                         }
                     ],
-                    "wikipediaLanguage": "en",
-                    "wikipediaId": "Xbox One",
-                    "wikipediaUrl": "https://en.wikipedia.org/wiki/Xbox_One",
-                    "bingId": "446bb4df-4999-4243-84c0-74e0f6c60e75"
+                    "Type": "Person"
                 },
                 {
-                    "name": "Ultra-high-definition television",
-                    "matches": [
+                    "Name": "three dozen",
+                    "Matches": [
                         {
-                            "text": "4K",
-                            "offset": 63,
-                            "length": 2
+                            "Text": "three dozen",
+                            "Offset": 12,
+                            "Length": 11
                         }
                     ],
-                    "wikipediaLanguage": "en",
-                    "wikipediaId": "Ultra-high-definition television",
-                    "wikipediaUrl": "https://en.wikipedia.org/wiki/Ultra-high-definition_television",
-                    "bingId": "7ee02026-b6ec-878b-f4de-f0bc7b0ab8c4"
+                    "Type": "Quantity",
+                    "SubType": "Number"
+                },
+                {
+                    "Name": "50",
+                    "Matches": [
+                        {
+                            "Text": "50",
+                            "Offset": 49,
+                            "Length": 2
+                        }
+                    ],
+                    "Type": "Quantity",
+                    "SubType": "Number"
+                },
+                {
+                    "Name": "50%",
+                    "Matches": [
+                        {
+                            "Text": "50%",
+                            "Offset": 49,
+                            "Length": 3
+                        }
+                    ],
+                    "Type": "Quantity",
+                    "SubType": "Percentage"
                 }
             ]
         },
         {
-            "id": "2",
-            "entities": [
+            "Id": "2",
+            "Entities": [
                 {
-                    "name": "2013 Seattle Seahawks season",
-                    "matches": [
+                    "Name": "Great Depression",
+                    "Matches": [
                         {
-                            "text": "Seattle Seahawks",
-                            "offset": 4,
-                            "length": 16
+                            "Text": "The Great Depression",
+                            "Offset": 0,
+                            "Length": 20
                         }
                     ],
-                    "wikipediaLanguage": "en",
-                    "wikipediaId": "2013 Seattle Seahawks season",
-                    "wikipediaUrl": "https://en.wikipedia.org/wiki/2013_Seattle_Seahawks_season",
-                    "bingId": "eb637865-4722-4eca-be9e-0ac0c376d361"
+                    "WikipediaLanguage": "en",
+                    "WikipediaId": "Great Depression",
+                    "WikipediaUrl": "https://en.wikipedia.org/wiki/Great_Depression",
+                    "BingId": "d9364681-98ad-1a66-f869-a3f1c8ae8ef8"
+                },
+                {
+                    "Name": "1929",
+                    "Matches": [
+                        {
+                            "Text": "1929",
+                            "Offset": 30,
+                            "Length": 4
+                        }
+                    ],
+                    "Type": "DateTime",
+                    "SubType": "DateRange"
+                },
+                {
+                    "Name": "By 1933",
+                    "Matches": [
+                        {
+                            "Text": "By 1933",
+                            "Offset": 36,
+                            "Length": 7
+                        }
+                    ],
+                    "Type": "DateTime",
+                    "SubType": "DateRange"
+                },
+                {
+                    "Name": "Gross domestic product",
+                    "Matches": [
+                        {
+                            "Text": "GDP",
+                            "Offset": 49,
+                            "Length": 3
+                        }
+                    ],
+                    "WikipediaLanguage": "en",
+                    "WikipediaId": "Gross domestic product",
+                    "WikipediaUrl": "https://en.wikipedia.org/wiki/Gross_domestic_product",
+                    "BingId": "c859ed84-c0dd-e18f-394a-530cae5468a2"
+                },
+                {
+                    "Name": "United States",
+                    "Matches": [
+                        {
+                            "Text": "America",
+                            "Offset": 56,
+                            "Length": 7
+                        }
+                    ],
+                    "WikipediaLanguage": "en",
+                    "WikipediaId": "United States",
+                    "WikipediaUrl": "https://en.wikipedia.org/wiki/United_States",
+                    "BingId": "5232ed96-85b1-2edb-12c6-63e6c597a1de",
+                    "Type": "Location"
+                },
+                {
+                    "Name": "25",
+                    "Matches": [
+                        {
+                            "Text": "25",
+                            "Offset": 72,
+                            "Length": 2
+                        }
+                    ],
+                    "Type": "Quantity",
+                    "SubType": "Number"
+                },
+                {
+                    "Name": "25%",
+                    "Matches": [
+                        {
+                            "Text": "25%",
+                            "Offset": 72,
+                            "Length": 3
+                        }
+                    ],
+                    "Type": "Quantity",
+                    "SubType": "Percentage"
                 }
             ]
         }
     ],
-    "errors": []
+    "Errors": []
 }
 ```
 
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Textanalys med Powerbi](../tutorials/tutorial-power-bi-key-phrases.md)
+> [Textanalys med Power BI](../tutorials/tutorial-power-bi-key-phrases.md)
 
-## <a name="see-also"></a>Se också 
+## <a name="see-also"></a>Se även 
 
- [Översikt över text Analytics](../overview.md)  
+ [Översikt över Textanalys](../overview.md)  
  [Vanliga frågor och svar (FAQ)](../text-analytics-resource-faq.md)

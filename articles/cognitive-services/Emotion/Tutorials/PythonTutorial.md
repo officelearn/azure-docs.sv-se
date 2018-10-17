@@ -1,38 +1,40 @@
 ---
-title: Känslo-API Python kursen | Microsoft Docs
-description: Använd en Jupyter-anteckningsbok att lära dig hur du använder kognitiva Services Känslo-API med Python. Visualisera dina resultat genom att använda populära bibliotek.
+title: 'Självstudie: Känsloigenkänning i ett ansikte på en bild – Känslo-API, Python'
+titlesuffix: Azure Cognitive Services
+description: Använ en Jupyter Notebook för att lära dig hur du använder Känslo-API med Python. Visualisera dina resultat med hjälp av populära bibliotek.
 services: cognitive-services
 author: anrothMSFT
-manager: corncar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: emotion-api
-ms.topic: article
+ms.topic: tutorial
 ms.date: 05/23/2017
 ms.author: anroth
-ms.openlocfilehash: 70c8ca48c651601f3d7cbb3717c32bfe112176fe
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
-ms.translationtype: MT
+ROBOTS: NOINDEX
+ms.openlocfilehash: 31e346cd9a3f43f8181ebee4474ae6c9ee2cc6fc
+ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35352398"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48237865"
 ---
-# <a name="emotion-api-using-python-tutorial"></a>Känslo-API: et med Python självstudiekursen
+# <a name="tutorial-use-the-emotion-api-with-a-jupyter-notebook--python"></a>Självstudie: Använda Känslo-API med Jupyter Notebook och Python.
 
 > [!IMPORTANT]
-> Förhandsgranskning av video API avslutas på 30 oktober 2017. Prova den nya [Video indexeraren API Preview](https://azure.microsoft.com/services/cognitive-services/video-indexer/) enkelt extrahera insikter från videor och förbättra innehållsidentifiering upplevelser, till exempel sökresultat med hjälp av tal, ytor, tecken och känslor. [Läs mer](https://docs.microsoft.com/azure/cognitive-services/video-indexer/video-indexer-overview).
+> Känslo-API:et blir inaktuellt den 15 februari 2019. Funktionen för känsloigenkänning är nu allmänt tillgänglig som en del av [ansikts-API:et](https://docs.microsoft.com/azure/cognitive-services/face/). 
 
-Om du vill göra det enklare att komma igång med Känslo-API, visar Jupyter-anteckningsbok länkade nedan hur du använder API i Python och visualisera dina resultat med hjälp av vissa populära bibliotek. 
+För att göra det lätt att komma igång med Känslo-API visar Jupyter Notebook som är länkad nedan hur du använder API:et i Python och hur du visualiserar dina resultat med hjälp av några populära bibliotek.
 
-[Länka till bärbara datorer i GitHub](https://github.com/Microsoft/Cognitive-Emotion-Python/blob/master/Jupyter%20Notebook/Emotion%20Analysis%20Example.ipynb)
+[Länka till anteckningsbok i GitHub](https://github.com/Microsoft/Cognitive-Emotion-Python/blob/master/Jupyter%20Notebook/Emotion%20Analysis%20Example.ipynb)
 
-### <a name="using-the-jupyter-notebook"></a>Med Jupyter-anteckningsbok
+### <a name="using-the-jupyter-notebook"></a>Använda Jupyter Notebook
 
-Om du vill använda den bärbara datorn interaktivt, behöver du klona den och kör det i Jupyter. Mer information om hur du kommer igång med interaktiva Jupyter-anteckningsböcker, följer du anvisningarna http://jupyter.readthedocs.org/en/latest/install.html. 
+Om du vill använda anteckningsboken interaktivt måste du klona den och köra den i Jupyter. Om du vill lära dig hur du kommer igång med Jupyter Notebook följer du instruktionerna på http://jupyter.readthedocs.org/en/latest/install.html.
 
-Om du vill använda den här anteckningsboken, behöver du en prenumeration nyckel för Känslo-API. Besök den [prenumerationssidan](https://azure.microsoft.com/try/cognitive-services/) att logga. På sidan ”inloggning” använda ditt Microsoft-konto för att logga in och du kommer att kunna prenumerera på och hämta ledigt nycklar. När du har slutfört registreringsprocessen klistrar du in din nyckel i avsnittet variables visas nedan. Primärt eller den sekundära nyckeln fungerar.
+Om du vill använda den här anteckningsboken behöver du en prenumerationsnyckel för känslo-API:et. Besök [prenumerationssidan](https://azure.microsoft.com/try/cognitive-services/) för att registrera dig. På sidan ”inloggning” använder du ditt Microsoft-konto för inloggning och du kommer att kunna prenumerera och få kostnadsfria nycklar. När du har slutfört registreringen klistrar du in din nyckeln i avsnittet för variabler som visas nedan. Den primära eller sekundära nyckeln fungerar.
 
 ```
-Python Example 
+Python Example
 
 #Variables
 

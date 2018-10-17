@@ -1,5 +1,5 @@
 ---
-title: Komma igång med Azure Table Storage och Table-API:et för Azure Cosmos DB med hjälp av .NET | Microsoft Docs
+title: Kom igång med Azure Table Storage och Table-API:et för Azure Cosmos DB med hjälp av .NET
 description: Lagra strukturerade data i molnet med Azure Table Storage eller Table-API:et för Azure Cosmos DB.
 services: cosmos-db
 author: SnehaGunda
@@ -10,12 +10,12 @@ ms.devlang: dotnet
 ms.topic: sample
 ms.date: 08/17/2018
 ms.author: sngun
-ms.openlocfilehash: c084a08ffef868af751d065c5857a9b67a12485f
-ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ms.openlocfilehash: 00bc950493e7b4eaad4a2165779f5c8151070aee
+ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "41918035"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48042588"
 ---
 # <a name="get-started-with-azure-table-storage-and-the-azure-cosmos-db-table-api-using-net"></a>Kom igång med Azure Table Storage och Table-API:et för Azure Cosmos DB med hjälp av .NET
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
@@ -105,7 +105,7 @@ Du har tre miljöalternativ för att köra exemplen i den här guiden:
 * Du kan köra din kod mot ett Azure Cosmos DB-konto i molnet.
 * Du kan köra din kod mot en Azure-lagringsemulator. Lagringsemulatorn är en lokal miljö som emulerar ett Azure Storage-konto i molnet. Emulatorn är ett kostnadsfritt alternativ för att testa och felsöka din kod medan ditt program är under utveckling. Emulatorn använder sig av ett välkänt konto och nyckel. Mer information finns i [Använd Azure Storage-emulatorn för utveckling och testning](../storage/common/storage-use-emulator.md).
 
-Om målet är ett lagringskonto i molnet kopierar du den primära åtkomstnyckeln för ditt lagringskonto från Azure Portal. Mer information finns i [Visa och kopiera åtkomstnycklar för lagring](../storage/common/storage-create-storage-account.md#view-and-copy-storage-access-keys).
+Om målet är ett lagringskonto i molnet kopierar du den primära åtkomstnyckeln för ditt lagringskonto från Azure Portal. Mer information finns i [Åtkomstnycklar för lagringskonto](../storage/common/storage-account-manage.md#access-keys).
 
 > [!NOTE]
 > Du kan använda lagringsemulatorn för att undvika kostnader associerade med Azure Storage. Men även om du väljer att använda ett Azure-lagringskonto i molnet, kommer kostnaderna för att genomföra det här exemplet vara minimala.
@@ -121,7 +121,6 @@ Mer information om anslutningssträngar finns i [Konfigurera en anslutningssträ
 
 > [!NOTE]
 > Din kontonyckel liknar rotlösenordet för lagringskontot. Var alltid noga med att skydda din lagringskontonyckel. Undvik att dela ut den till andra användare, hårdkoda den eller spara den i en oformaterad textfil som andra har åtkomst till. Återskapa din nyckel med hjälp av Azure Portal om du misstänker att den komprometterats.
-> 
 > 
 
 För att konfigurera din anslutningssträng öppnar du `app.config`-filen i Solutions Explorer i Visual Studio. Lägg till innehållet i `<appSettings>`-elementet enligt nedan. Ersätt `account-name` med namnet på ditt konto och `account-key` med din åtkomstnyckel:

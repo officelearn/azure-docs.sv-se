@@ -8,16 +8,16 @@ ms.service: dns
 ms.topic: quickstart
 ms.date: 6/13/2018
 ms.author: victorh
-ms.openlocfilehash: 3ec2c44c168b47fd66d1ffa9a0c8d0069600ecb0
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 0acb5bf18c078d8b7eb6a5c14a61fcef622f9f2d
+ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46958109"
+ms.lasthandoff: 10/06/2018
+ms.locfileid: "48831135"
 ---
 # <a name="quickstart-configure-azure-dns-for-name-resolution-using-the-azure-portal"></a>Snabbstart: Konfigurera Azure DNS för namnmatchning med hjälp av Azure-portalen
 
- Du kan konfigurera Azure DNS för att matcha värdnamn i din offentliga domän. Om du till exempel skulle köpa domännamnet contoso.com från en domännamnsregistrator kan du konfigurera Azure DNS för att vara värd för domänen contoso.com och matcha www.contoso.com till IP-adressen till din webbserver eller webbapp.
+ Du kan konfigurera Azure DNS för att matcha värdnamn i din offentliga domän. Om du till exempel skulle köpa domännamnet contoso.com från en domännamnsregistrator kan du konfigurera Azure DNS för att vara värd för domänen contoso.com och matcha www.contoso.com till IP-adressen för din webbserver eller webbapp.
 
 I den här snabbstarten skapar du en testdomän och skapar sedan en adresspost med namnet ”www” för att matcha IP-adressen 10.10.10.10.
 
@@ -43,7 +43,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 
    | **Inställning** | **Värde** | **Detaljer** |
    |---|---|---|
-   |**Namn**|contoso.xyz|Namnet på DNS-zonen i det här exemplet. Du kan använda valfritt värde för den här snabbstarten så länge det inte redan har konfigurerats på Azure DNS-servrarna. Ett verkligt värde skulle vara en domän som du har köpt från en domännamnsregistrator.|
+   |**Namn**|contoso.xyz|Namnet på DNS-zonen för det här exemplet kan vara vilket värde som helst för den här snabbstarten, så länge det inte redan har konfigurerats på Azure DNS-servrarna. Ett verkligt värde skulle vara en domän som du har köpt från en domännamnsregistrator.|
    |**Prenumeration**|[Din prenumeration]|Välj en prenumeration att skapa DNS-zonen i.|
    |**Resursgrupp**|**Skapa ny:** dns-test|Skapa en resursgrupp. Resursgruppens namn måste vara unikt inom den prenumeration du valde. |
    |**Plats**|Östra USA||
@@ -74,7 +74,7 @@ Eftersom du inte faktiskt köper ett verkligt domännamn i den här snabbstarten
 
 ## <a name="test-the-name-resolution"></a>Testa namnmatchningen
 
-Nu när du har en testzon med en ”A”-testpost kan du testa namnmatchningen med ett verktyg som heter nslookup. 
+Nu när du har en testzon med en ”A”-testpost kan du testa namnmatchningen med ett verktyg som heter *nslookup*. 
 
 1. Först måste du veta vilka Azure DNS-namnservrar som ska användas med nslookup. 
 
@@ -96,7 +96,7 @@ Du bör se något som liknar följande skärmbild:
 
 ![nslookup](media/dns-getstarted-portal/nslookup.PNG)
 
-Detta verifierar att namnmatchningen fungerar korrekt. www.contoso.xyz matchar till 10.10.10.10, precis enligt din konfiguration.
+Detta verifierar att namnmatchningen fungerar korrekt. www.contoso.xyz matchar till 10.10.10.10, precis enligt din konfiguration!
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 

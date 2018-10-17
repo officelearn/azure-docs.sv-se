@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: quickstart
 ms.date: 09/19/2018
 ms.author: cshoe
-ms.openlocfilehash: a325029ded60a1cd8274743a88f7a4d410466dea
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 6e23e888a1c90e1c6c7eecf25491f048e9077f11
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46987585"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48857898"
 ---
 # <a name="quickstart-upload-download-list-and-delete-blobs-using-azure-storage-v10-sdk-for-javascript-preview"></a>Snabbstart: Ladda upp, hämta, lista och ta bort blobar med Azure Storage v10 SDK för JavaScript (förhandsversion)
 
@@ -128,7 +128,7 @@ Nästa uppsättning konstanter hjälper till att visa syftet med filstorleksber�
 const ONE_MEGABYTE = 1024 * 1024;
 const FOUR_MEGABYTES = 4 * ONE_MEGABYTE;
 ```
-Begäranden som görs av API:et kan konfigureras med tidsgränser efter ett visst intervall. Klassen *Aborter* ansvarar för att hantera tidsgränser för begäranden och den efterföljande konstanten används för att definiera tidsgränser som används i det här exemplet.
+Begäranden som görs av API:et kan konfigureras med tidsgränser efter ett visst intervall. Klassen [Aborter](/javascript/api/%40azure/storage-blob/aborter?view=azure-node-preview) ansvarar för att hantera tidsgränser för begäranden och den efterföljande konstanten används för att definiera tidsgränser som används i det här exemplet.
 ```javascript
 const ONE_MINUTE = 60 * 1000;
 ```
@@ -163,13 +163,13 @@ const serviceURL = new ServiceURL(`https://${STORAGE_ACCOUNT_NAME}.blob.core.win
 ```
 Följande klasser används i det här kodblocket:
 
-- Klassen *SharedKeyCredential* ansvarar för att omsluta autentiseringsuppgifterna för lagringskontot och skicka dem till en pipeline som begär dem.
+- Klassen [SharedKeyCredential](/javascript/api/%40azure/storage-blob/sharedkeycredential?view=azure-node-preview) ansvarar för att omsluta autentiseringsuppgifterna för lagringskontot och skicka dem till en pipeline som begär dem.
 
-- Klassen *StorageURL* ansvarar för att skapa en ny pipeline.
+- Klassen [StorageURL](/javascript/api/%40azure/storage-blob/storageurl?view=azure-node-preview) ansvarar för att skapa en ny pipeline.
 
-- *ServiceURL* modellerar en URL som används i REST-API:et. Med instanser av den här klassen kan du utföra åtgärder som att lista containrar och tillhandahålla kontextinformation för att generera container-URL:er.
+- [ServiceURL](/javascript/api/%40azure/storage-blob/serviceurl?view=azure-node-preview) modellerar en URL som används i REST-API:et. Med instanser av den här klassen kan du utföra åtgärder som att lista containrar och tillhandahålla kontextinformation för att generera container-URL:er.
 
-*ServiceURL*-instansen används med instanserna *ContainerURL* och *BlockBlobURL* för att hantera containrar och blobar i ditt lagringskonto.
+*ServiceURL*-instansen används med instanserna [ContainerURL](/javascript/api/%40azure/storage-blob/containerurl?view=azure-node-preview) och [BlockBlobURL](/javascript/api/%40azure/storage-blob/blockbloburl?view=azure-node-preview) för att hantera containrar och blobar i ditt lagringskonto.
 
 ```javascript
 const containerURL = ContainerURL.fromServiceURL(serviceURL, containerName);
@@ -202,7 +202,7 @@ En Aborter ger dig kontroll över begäranden genom att låta dig:
 - ange hur lång tid som ska tilldelas en grupp med begäranden
 - ange hur länge en enskild begäran får köra i batchen
 - avbryta begäranden
-- använda den statiska medlemmen *Aborter.None* för att helt förhindra att begäranden stoppas på grund av en timeout.
+- använda den statiska medlemmen *Aborter.none* för att helt förhindra att begäranden stoppas på grund av en timeout
 
 ### <a name="show-container-names"></a>Visa namn på containrar
 Konton kan lagra ett stort antal containrar. Följande kod visar hur du listar containrar på ett segmentbaserat sätt, vilket gör att du kan gå igenom ett stort antal containrar. Instanser av *ServiceURL* och *Aborter* skickas till funktionen *showContainerNames*.

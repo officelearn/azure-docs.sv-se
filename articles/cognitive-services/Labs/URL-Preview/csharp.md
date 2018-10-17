@@ -1,43 +1,45 @@
 ---
-title: Snabbstartsguide – C# Project URL Preview - kognitiva Microsoft-tjänster | Microsoft Docs
-description: Komma igång med projektet URL förhandsgranskning i kognitiva Microsoft-tjänster i Azure.
+title: 'Snabbstart: Förhandsgranskning av projekt-URL, C#'
+titlesuffix: Azure Cognitive Services
+description: Kom igång med förhandsgranskning av projekt-URL med C#.
 services: cognitive-services
 author: mikedodaro
+manager: cgronlun
 ms.service: cognitive-services
-ms.technology: project-url-preview
-ms.topic: article
+ms.component: project-url-preview
+ms.topic: quickstart
 ms.date: 03/16/2018
-ms.author: rosh, v-gedod
-ms.openlocfilehash: 17d44bd0c23d0a1e67da5a0e91248700d3166c1a
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
-ms.translationtype: MT
+ms.author: rosh
+ms.openlocfilehash: 8d31d3a83f9873ce550b9c78626eea0d96ac39bb
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35354027"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48867450"
 ---
-# <a name="url-preview-query-in-c"></a>URL: en förhandsgranskning frågan i C#
+# <a name="quickstart-url-preview-query-in-c"></a>Snabbstart: URL-förhandsgranskningsfråga med C#
 
-Följande C#-exempel skapar en förhandsgranskning för URL: en för webbplatsen SwiftKey: https://swiftkey.com/en.
+Följande C#-exempel skapar en URL-förhandsgranskning för webbplatsen SwiftKey: https://swiftkey.com/en.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
-Du behöver [Visual Studio 2017](https://www.visualstudio.com/downloads/) att köra den här koden i Windows. (Ledigt Community Edition fungerar).
+Du behöver [Visual Studio 2017](https://www.visualstudio.com/downloads/) för att köra den här koden i Windows. (Den kostnadsfria Community Edition fungerar.)
 
-Hämta en åtkomstnyckel för den kostnadsfria utvärderingsversionen [kognitiva Services Labs](https://aka.ms/answersearchsubscription)
+Få en åtkomstnyckel för den kostnadsfria utvärderingsversionen av [Cognitive Services Labs](https://aka.ms/answersearchsubscription)
 
-## <a name="code-scenario"></a>Koden scenario
+## <a name="code-scenario"></a>Kodscenario
 
-Följande C#-kod skapar en URL-förhandsgranskning av webbplatsen SwiftKey: https://swiftkey.com/en. 
+Följande C#-kod skapar en URL-förhandsgranskning för webbplatsen SwiftKey: https://swiftkey.com/en. 
 
-De är implementerade i följande steg:
-1. Deklarera variabler för att ange slutpunkten och fråge-URL för förhandsgranskning.  
+Den implementeras i följande steg:
+1. Deklarera variabler för att ange slutpunkten och en fråge-URL att förhandsgranska.  
 2. Skapa begäran.
-3. Lägg till den *Ocp-Apim-prenumeration-nyckeln* huvud. 
+3. Lägg till sidhuvudet *Ocp-Apim-Subscription-Key*. 
 4. Kör webbegäran asynkront. 
-5. Läsa svaret.
-6. Skriva ut sidhuvuden och JSON-resultat till konsolen.
+5. Läs svaret.
+6. Skriv ut sidhuvuden och JSON-resultaten till konsolen.
 
-**Källkoden**
+**Källkod**
 
 ```
 using System;
@@ -153,15 +155,15 @@ namespace UrlPrevCshp
 ```
 ## <a name="running-the-application"></a>Köra programmet
 
-Att köra programmet:
+Så här kör du programmet:
 
-1. Skapa en ny konsol lösning i Visual Studio.
+1. Skapa en ny konsollösning i Visual Studio.
 2. Ersätt `Program.cs` med den angivna koden.
-3. Ersätt den `YOUR-ACCESS-KEY` värde med en giltig åtkomstnyckeln för din prenumeration.
+3. Ersätt värdet `YOUR-ACCESS-KEY` med en giltig åtkomstnyckel för din prenumeration.
 4. Kör programmet.
 
 ## <a name="next-steps"></a>Nästa steg
-- [Java-Snabbstart](java-quickstart.md)
-- [JavaScript-Snabbstart](javascript.md)
-- [Noden Snabbstart](node-quickstart.md)
-- [Python-Snabbstart](python-quickstart.md)
+- [Snabbstart för Java](java-quickstart.md)
+- [Snabbstart för JavaScript](javascript.md)
+- [Snabbstart för Node](node-quickstart.md)
+- [Snabbstart för Python](python-quickstart.md)

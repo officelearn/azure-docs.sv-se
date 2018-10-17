@@ -2,18 +2,17 @@
 title: Kvoter och regional tillgänglighet för Azure Container Instances
 description: Standardkvoter och regional tillgänglighet för tjänsten Azure Container Instances.
 services: container-instances
-author: mmacy
-manager: jeconnoc
+author: dlepow
 ms.service: container-instances
 ms.topic: overview
 ms.date: 02/27/2018
-ms.author: marsma
-ms.openlocfilehash: 1bc890abc8b406ae75f292f37775e4cb62cf0473
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.author: danlep
+ms.openlocfilehash: 427dd8bd4abb72e2750752d828e189921401e9e0
+ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39115283"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48902366"
 ---
 # <a name="quotas-and-region-availability-for-azure-container-instances"></a>Kvoter och regional tillgänglighet för Azure Container Instances
 
@@ -29,11 +28,11 @@ Azure Container Instances är tillgängligt i följande regioner med angivna pro
 
 | Plats | Operativsystem | Processor | Minne (GB) |
 | -------- | -- | :---: | :-----------: |
-| USA, västra, USA, östra, Europa, västra, Europa, norra | Linux | 4 | 14 |
-| USA, Väst 2, Asien, sydöstra | Linux | 2 | 7 |
-| Australien, östra, USA, östra 2, USA, centrala | Linux | 1 | 1.5 |
-| USA, västra, USA, östra, Europa, västra, Europa, norra | Windows | 4 | 14 |
-| USA, Väst 2, Asien, sydöstra | Windows | 2 | 3.5 |
+| USA, östra; Europa, norra; Europa, västra; USA, västra; USA, västra 2 | Linux | 4 | 14 |
+| Australien, östra; USA, östra 2; Asien, sydöstra | Linux | 2 | 7 |
+| Indien, centrala; USA, södra centrala | Linux | 2 | 3.5 |
+| USA, östra; Europa, västra; USA, västra | Windows | 4 | 14 |
+| Australien, östra; Indien, centrala; USA, östra 2; Europa, norra; USA, södra centrala; Asien, sydöstra; USA, västra 2 | Windows | 2 | 3.5 |
 
 Containerinstanser som har skapats inom dessa resursgränser finns i mån av tillgång i distributionsregionen. Om en region har hög belastning kan du uppleva fel vid distribution av instanser. Du kan försöka lindra sådana distributionsfel genom att prova att distribuera instanser med lägre processor- och minnesinställningar. Du kan även prova att genomföra distributionen senare.
 

@@ -12,14 +12,14 @@ ms.devlang: NA
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 09/24/2018
+ms.date: 10/03/2018
 ms.author: alkohli
-ms.openlocfilehash: d649095a6b1b9f692a6795e96c9f15631d36e3e2
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 05bfba9fffa7db75ef4e1a1167b3170a775e1d34
+ms.sourcegitcommit: 4edf9354a00bb63082c3b844b979165b64f46286
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46974518"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48785468"
 ---
 # <a name="tutorial-return-azure-data-box-and-verify-data-upload-to-azure"></a>Självstudie: Skicka tillbaka Azure Data Box och verifiera datauppladdning till Azure
 
@@ -39,7 +39,10 @@ Innan du börjar ska du se till att du har slutfört [självstudien om att kopie
 ## <a name="ship-data-box-back"></a>Skicka tillbaka Data Box
 
 1. Kontrollera att enheten är avstängd och kablarna har tagits bort. Rulla upp strömkabeln som levererades med enheten och placera kabeln säkert på baksidan av enheten.
-2. Kontrollera att adressetiketten visas på E-ink-skärmen och boka hämtning hos ett transportföretag. Om etiketten är skadad, har tappats bort eller inte visas på E-ink-skärmen laddar du ned adressetiketten från Azure-portalen och fäster den på enheten. Öppna **Översikt > Ladda ned adressetikett**.
+2. Om enheten levereras i USA kontrollerar du att fraktsedeln visas på E-ink-skärmen och bokar hämtning hos ett transportföretag. Om etiketten är skadad, har tappats bort eller inte visas på E-ink-skärmen laddar du ned adressetiketten från Azure-portalen och fäster den på enheten. Öppna **Översikt > Ladda ned adressetikett**. 
+
+    Om enheten levereras i Europa visar E-ink-skärmen inte fraktsedeln. I stället inkluderas returfraktsedeln i det genomskinliga facket under leveransfraktsedeln. Ta bort den gamla fraktsedeln och se till att fraktsedeln är väl synlig.
+    
 3. Om du returnerar enheten i USA bokar du upphämtning med UPS. Om du returnerar enheten i Europa via DHL bokar du upphämtning på DHL:s webbplats. Navigera till DHL-webbplatsen för ditt land. Under Våra divisioner klickar du på DHL Express. Välj **Skicka > Skicka online**. 
 
     Identifiera ditt fraktsedelsnummer och klicka på **Boka upphämtning**.

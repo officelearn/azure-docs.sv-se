@@ -1,28 +1,29 @@
 ---
-title: Projektet svaret fakta sökfråga - kognitiva Microsoft-tjänster | Microsoft Docs
-description: Frågor om fakta projektet svaret sökning
+title: 'Snabbstart: Project Answer Search-faktafråga'
+titlesuffix: Azure Cognitive Services
+description: Fråga efter fakta med Project Answer Search
 services: cognitive-services
 author: mikedodaro
-manager: rosh
+manager: cgronlun
 ms.service: cognitive-services
-ms.technology: project-answer-search
-ms.topic: article
+ms.component: project-answer-search
+ms.topic: quickstart
 ms.date: 04/16/2018
-ms.author: rosh, v-gedod
-ms.openlocfilehash: 0a9d1925d5ae26f40824676fbebdcb0ffc450c53
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
-ms.translationtype: MT
+ms.author: rosh
+ms.openlocfilehash: ae8a42b95df70cff9cb845d4d553fbbb33cbdec9
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35353958"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48868363"
 ---
-# <a name="query-for-facts"></a>Frågan för fakta
+# <a name="quickstart-query-for-facts"></a>Snabbstart: Fråga efter fakta
 
-Om frågan är för ett faktum, till exempel ett datum eller identifierbar information visas svaret kan innehålla `facts` svar. Fakta för svar innehålla relevanta resultat som extraheras från stycken i webbdokument.  De här frågorna returnerar alltid webbsidor, och [fakta](fact-queries.md) och/eller [entiteter](entity-queries.md) är beroende av frågan.
+Om du vill fråga efter fakta, till exempel ett datum eller identifierbar information, kan svaret innehålla `facts`-svar. Faktasvar innehåller relevanta resultat som extraheras från stycken i webbdokument.  Dessa frågor returnerar alltid webbsidor, och [fakta](fact-queries.md) och/eller [entiteter](entity-queries.md) är frågeberoende.
 
-Frågor, till exempel valentines + 2016, när + är + ramadan anses vara datum-relaterade frågor. Om Bing avgör att frågan är relaterade till datum, svaret innehåller en `facts` svar. 
+Frågor som alla+hjärtans+dag+2016 eller när+är+ramadan är exempel på datumrelaterade frågor. Om Bing avgör att frågan är datumrelaterad innehåller svaret ett `facts`-svar. 
 
-Följande exempel är ett datum-relaterade `facts` svar. 
+Följande exempel är ett datumrelaterat `facts`-svar. 
 
 **Fråga:**
 ````
@@ -30,7 +31,7 @@ https://labsportalppe.azure-api.net/answerSearch/v7.0/search?q=valentines+2016
 
 ````
 
-**Svar:** den `subjectName` fältet innehåller en Visa version av användarens fråga som du kan använda som en etikett när du visar faktumet. Om frågesträngen är valentines + 2016, kan Bing ändra den hjärtans dag 2016. Beskrivningsfältet innehåller faktum.
+**Svar:** Fältet `subjectName` innehåller en visningsversion av användarens fråga som du kan använda som en etikett när du visar fakta. Om frågesträngen är alla+hjärtans+dag+2016 kan Bing ändra det till Alla hjärtans dag 2016. Beskrivningsfältet innehåller faktainformationen.
 
 ````
 {   
@@ -58,7 +59,7 @@ https://labsportalppe.azure-api.net/answerSearch/v7.0/search?q=valentines+2016
 
 ````
 
-Frågan ”Varför är sky blå”? Returnerar ett exempel på ett knowledge-relaterade svar.
+Frågan ”Varför är himlen blå?” returnerar ett exempel på ett kunskapsrelaterat svar.
 
 **Fråga:**
 
@@ -67,7 +68,7 @@ https://api.labs.cognitive.microsoft.com/answerSearch/v7.0/search?q=why+is+the+s
 
 ````
 
-**Svar:** den `value/description` fältet innehåller knowledge eller information som begärs av frågan.
+**Svar:** Fältet `value/description` innehåller kunskapen eller informationen som efterfrågas i frågan.
 
 ````
   "facts": {
@@ -114,13 +115,13 @@ https://api.labs.cognitive.microsoft.com/answerSearch/v7.0/search?q=why+is+the+s
 ````
 
 ## <a name="tabular-data"></a>Tabelldata
-I vissa fall fakta kan returneras som `_type: StructuredValue/TabularData`. Följande fråga hämtar tabelldata med kontrasterande information om kaffe och te.
+Ibland kan fakta returneras som `_type: StructuredValue/TabularData`. Följande fråga hämtar tabelldata med kontrasterande information om kaffe och te.
 
 ````
 https://labsportalppe.azure-api.net/answerSearch/v7.0/search?q=coffee+vs+tea&mkt=en-us 
 
 ````
-Den `facts` resultat innehåller följande rader och celler:
+`facts`-resultatet innehåller följande rader och celler:
 ````
     "value": [
       {
@@ -198,7 +199,7 @@ Den `facts` resultat innehåller följande rader och celler:
 ````
 
 ## <a name="next-steps"></a>Nästa steg
-- [C#-Snabbstart](c-sharp-quickstart.md)
-- [Java-Snabbstart](java-quickstart.md)
-- [Noden Snabbstart](node-quickstart.md)
-- [Python-Snabbstart](python-quickstart.md)
+- [Snabbstart för C#](c-sharp-quickstart.md)
+- [Snabbstart för Java](java-quickstart.md)
+- [Snabbstart för Node](node-quickstart.md)
+- [Snabbstart för Python](python-quickstart.md)

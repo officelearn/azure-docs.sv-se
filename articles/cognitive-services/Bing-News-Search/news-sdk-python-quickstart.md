@@ -1,53 +1,53 @@
 ---
-title: Nyheter Sök SDK Python quickstart | Microsoft Docs
-description: Installationsprogrammet för Nyheter Sök SDK-konsolprogram.
-titleSuffix: Azure News Search SDK Python quickstart
+title: 'Snabbstart: SDK för nyhetssökning i Bing, Python'
+titleSuffix: Azure Cognitive Services
+description: Konfigurera konsolprogrammet för SDK för nyhetssökning i Bing.
 services: cognitive-services
 author: mikedodaro
-manager: rosh
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-news-search
-ms.topic: article
+ms.topic: quickstart
 ms.date: 02/14/2018
 ms.author: v-gedod
-ms.openlocfilehash: 6d212d1477ecf583a038e33e72aab3d60f6aa050
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
-ms.translationtype: MT
+ms.openlocfilehash: 8e4343b053835c0fc2219373ad60f96c7b80636a
+ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35355272"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48803349"
 ---
-# <a name="news-search-sdk-python-quickstart"></a>Nyheter Sök SDK Python Snabbstart
+# <a name="quickstart-bing-news-search-sdk-with-python"></a>Snabbstart: SDK för nyhetssökning i Bing med Python
 
-Nyheter Sök SDK innehåller funktionerna i REST API för webb-frågor och tolkning resultat. 
+SDK:t för nyhetssökning i Bing innehåller funktionerna i REST API:et för webbfrågor och parsning av resultat. 
 
-Den [källkoden för Python Bing News Sök SDK-exempel](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples/blob/master/samples/search/news_search_samples.py) är tillgänglig på Git-hubben.
+[Källkoden till exemplen med SDK:t för nyhetssökning i Bing med Python](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples/blob/master/samples/search/news_search_samples.py) är tillgänglig på Git Hub.
 
 ## <a name="application-dependencies"></a>Programberoenden
-Om du inte redan har det installera Python. SDK är kompatibelt med Python 2.7, 3.3, 3.4, 3.5 och 3,6.
+Installera Python om du inte redan har det. Detta SDK är kompatibelt med Python 2.7, 3.3, 3.4, 3.5 och 3.6.
 
-Allmänna rekommendationer för utveckling av Python är att använda en [virtuell miljö](https://docs.python.org/3/tutorial/venv.html). Installera och starta den virtuella miljön med den [venv modulen](https://pypi.python.org/pypi/virtualenv). Du måste installera virtuell miljö för Python 2.7.
+Den allmänna rekommendationen för Python-utveckling är att använda en [virtuell miljö](https://docs.python.org/3/tutorial/venv.html). Installera och initiera den virtuella miljön med [venv-modulen](https://pypi.python.org/pypi/virtualenv). Du måste installera virtualenv för Python 2.7.
 ```
 python -m venv mytestenv
 ```
-Installera Bing News Sök SDK beroenden:
+Installera beroenden för SDK:t för nyhetssökning i Bing:
 ```
 cd mytestenv
 python -m pip install azure-cognitiveservices-search-newssearch
 ```
-## <a name="news-search-client"></a>Nyheter Sök klienten
-Hämta en [kognitiva åtkomstnyckeln](https://azure.microsoft.com/try/cognitive-services/) under *Sök*. Lägg till importen:
+## <a name="news-search-client"></a>Klient för nyhetssökning
+Hämta en [Cognitive Services-åtkomstnyckel](https://azure.microsoft.com/try/cognitive-services/) under *Sök*. Lägg till importer:
 ```
 from azure.cognitiveservices.search.newssearch import NewsSearchAPI
 from msrest.authentication import CognitiveServicesCredentials
 
 subscription_key = "YOUR-SUBSCRIPTION-KEY"
 ```
-Skapa en instans av `CognitiveServicesCredentials`. Skapa en instans av klienten:
+Skapa en instans av `CognitiveServicesCredentials`. Instansiera klienten:
 ```
 client = NewsSearchAPI(CognitiveServicesCredentials(subscription_key))
 ```
-Sök efter resultat och skriva ut det första resultatet webbsida:
+Sök efter resultat och skriv ut resultatet på den första webbsidan:
 ```
 news_result = client.news.search(query="Quantum Computing", market="en-us", count=10)
 print("Search news for query \"Quantum Computing\" with market and count")
@@ -65,7 +65,7 @@ else:
     print("Didn't see any news result data..")
 
 ```
-Söka med filter för de senaste nyheterna ”artificiell Intelligence” med `freshness` och `sortBy` parametrar. Kontrollera antalet resultat och skriva ut `totalEstimatedMatches`, `name`, `url`, `description`, `published time`, och `name of provider` för det första nyheter objekt resultatet.
+Sök med filter efter de senaste nyheterna om ”artificiell intelligens” med parametrarna `freshness` och `sortBy`. Kontrollera antalet resultat och skriv ut `totalEstimatedMatches`, `name`, `url`, `description`, `published time` och `name of provider` för det första nyhetsresultatet.
 ```
 def news_search_with_filtering(subscription_key):
 
@@ -95,7 +95,7 @@ def news_search_with_filtering(subscription_key):
         print("Encountered exception. {}".format(err))
 
 ```
-Sök kategori Nyheter för filmer och TV underhållning med säker sökning. Kontrollera antalet resultat och skriva ut `category`, `name`, `url`, `description`, `published time`, och `name of provider` för det första nyheter objekt resultatet.
+Sök efter kategorinyheter för film och TV-underhållning med säker sökning. Kontrollera antalet resultat och skriv ut `category`, `name`, `url`, `description`, `published time` och `name of provider` för det första nyhetsresultatet.
 ```
 def news_category(subscription_key):
 
@@ -126,7 +126,7 @@ def news_category(subscription_key):
 
 
 ```
-Sök trender Nyheter i Bing.  Kontrollera antalet resultat och skriva ut `name`, `text of query`, `webSearchUrl`, `newsSearchUrl`, och `image Url` för det första resultatet nyheter.
+Sök efter populära nyhetsämnen i Bing.  Kontrollera antalet resultat och skriv ut `name`, `text of query`, `webSearchUrl`, `newsSearchUrl` och `image Url` för det första nyhetsresultatet.
 ```
 def news_trending(subscription_key):
 
@@ -154,6 +154,6 @@ def news_trending(subscription_key):
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Kognitiva Services Python SDK-exempel](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples)
+[Exempel med Cognitive Services SDK för Python](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples)
 
 

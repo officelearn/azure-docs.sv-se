@@ -1,26 +1,27 @@
 ---
-title: Objekt-identifiering med Java och anpassade-API för visuellt innehåll – Azure Cognitive Services | Microsoft Docs
-description: Utforska en grundläggande Windows-app som använder anpassat API för visuellt innehåll i Microsoft Cognitive Services. Skapa ett projekt, lägga till taggar, ladda upp bilder, träna ditt projekt och göra en förutsägelse med hjälp av standardslutpunkt.
+title: 'Självstudie: Skapa ett projekt för objektidentifiering – API för Custom Vision, Java'
+titlesuffix: Azure Cognitive Services
+description: Skapa ett projekt, lägg till taggar, ladda upp bilder, träna ditt projekt och gör en förutsägelse med hjälp av standardslutpunkten.
 services: cognitive-services
 author: areddish
-manager: chbuehle
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: custom-vision
-ms.topic: article
+ms.topic: tutorial
 ms.date: 08/28/2018
 ms.author: areddish
-ms.openlocfilehash: 333447c6390b269d0665a2d00009307105d58996
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
-ms.translationtype: MT
+ms.openlocfilehash: 661242e4962a8218c48d7ea66d8a6f728b5154c8
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44305705"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46365040"
 ---
-# <a name="use-custom-vision-api-to-build-an-object-detection-project-with-java"></a>Använd anpassad API för visuellt innehåll för att skapa ett projekt för identifiering av objekt med Java
+# <a name="tutorial-build-an-object-detection-project-with-java"></a>Självstudie: Skapa ett projekt för objektidentifiering med Java
 
-Utforska ett grundläggande Java-program som använder den API för visuellt innehåll för att skapa ett projekt för identifiering av objekt. När den har skapats kan du lägga till taggade regioner, ladda upp bilder, träna projektet, hämta projektets standard förutsägelse slutpunkts-URL och använder slutpunkten programmatiskt en bild. Använd det här exemplet med öppen källkod som en mall för att skapa din egen app med hjälp av anpassat API för visuellt innehåll.
+Utforska ett grundläggande Java-program som använder API för visuellt innehåll för att skapa ett projekt för objektidentifiering. När den har skapats kan du lägga till taggade regioner, ladda upp bilder, träna projektet, hämta slutpunkts-URL:en för projektets standardförutsägelse och använda slutpunkten för att testa en bild programmatiskt. Använd det här exemplet med öppen källkod som en mall för att skapa din egen app med hjälp av API för Custom Vision.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 I självstudiekursen måste du göra följande:
 
@@ -29,32 +30,32 @@ I självstudiekursen måste du göra följande:
 
 ## <a name="install-the-custom-vision-service-sdk"></a>Installera Custom Vision Service SDK
 
-Du kan installera SDK: N för Custom Vision från maven-centrallager:
-* [Utbildning SDK](https://mvnrepository.com/artifact/com.microsoft.azure.cognitiveservices/azure-cognitiveservices-customvision-training)
-* [Förutsägelse SDK](https://mvnrepository.com/artifact/com.microsoft.azure.cognitiveservices/azure-cognitiveservices-customvision-prediction)
+Du kan installera SDK för Custom Vision från maven-centrallager:
+* [Training SDK](https://mvnrepository.com/artifact/com.microsoft.azure.cognitiveservices/azure-cognitiveservices-customvision-training)
+* [Prediction SDK](https://mvnrepository.com/artifact/com.microsoft.azure.cognitiveservices/azure-cognitiveservices-customvision-prediction)
 
-## <a name="get-the-training-and-prediction-keys"></a>Hämta nycklar Inlärnings- och förutsägelsetransaktioner
+## <a name="get-the-training-and-prediction-keys"></a>Hämta utbildnings- och förutsägelsenycklarna
 
-För att få nycklarna som används i det här exemplet kan du gå till den [Custom Vision plats](https://customvision.ai) och välj den __kugghjulsikonen__ i det övre högra hörnet. I den __konton__ och kopiera värdena från den __utbildning nyckeln__ och __förutsägelse nyckeln__ fält.
+Om du vill ha nycklarna som används i det här exemplet kan du gå till [Custom Vision-sidan](https://customvision.ai) och välja __kugghjulsikonen__ i det övre högra hörnet. Kopiera värdena från fälten __Utbildningsnyckel__ och __Förutsägelsenyckel__ i avsnittet __Konton__.
 
-![Bild av nycklar UI](./media/python-tutorial/training-prediction-keys.png)
+![Bild på gränssnittet för nycklarna](./media/python-tutorial/training-prediction-keys.png)
 
 ## <a name="understand-the-code"></a>Förstå koden
 
-Den fullständiga projekt, inklusive bilder, är tillgänglig från den [Custom Vision Azure-exempel för Java-lagringsplatsen](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples/tree/master). 
+Den fullständiga projekt, inklusive bilder, är tillgänglig från [Custom Vision Azure-exempel för Java-lagringsplatsen](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples/tree/master). 
 
-Använd din favorit Java-IDE för att öppna den `Vision/CustomVision` projekt. 
+Använd din favorit Java-IDE för att öppna projektet `Vision/CustomVision`. 
 
-Det här programmet använder nyckeln utbildning som hämtades tidigare för att skapa ett nytt projekt med namnet __exempelprojektet Java OD__. Det laddar sedan upp bilder för att träna och testa en detektor för objektet. Objektet detektor identifierar regioner som innehåller en __förgrening__ eller ett par __sax__.
+Det här programmet använder den utbildningsnyckel som du hämtade tidigare för att skapa ett nytt projekt med namnet __Exampelprojekt med Java OD__. Det laddar sedan upp bilder för att träna och testa en objektidentifierare. Objektetidentifieraren identifierar regioner som innehåller en __gaffel__ eller en __sax__.
 
-I följande kodavsnitt implementera de primära funktionerna i det här exemplet:
+I följande kodavsnitt implementeras de primära funktionerna i det här exemplet:
 
 ## <a name="create-a-custom-vision-service-project"></a>Skapa ett projekt för Custom Vision Service
 
-Observera skillnaden mellan att skapa en objektidentifiering och avbildning klassificering projekt är den domän som har angetts i createProject-anropet.
+Observera att skillnaden mellan att skapa ett projekt för objektidentifiering och bildklassificering är den domän som har angetts i createProject-anropet.
 
 > [!IMPORTANT]
-> Ange den `trainingApiKey` till utbildning nyckelvärdet som hämtades tidigare.
+> Ställ in `trainingApiKey` till det utbildningsnyckelvärde som du hämtade tidigare.
 
 ```java
 final String trainingApiKey = "insert your training key here";
@@ -88,7 +89,7 @@ Project project = trainer.createProject()
     .execute();
 ```
 
-## <a name="add-tags-to-your-project"></a>Lägg till taggar i projektet
+## <a name="add-tags-to-your-project"></a>Lägga till taggar till projektet
 
 ```java
 // create fork tag
@@ -106,7 +107,7 @@ Tag scissorsTag = trainer.createTag()
 
 ## <a name="upload-images-to-the-project"></a>Ladda upp bilder till projektet
 
-Du måste ladda upp avbildningen, regioner och taggar för objektet identifiering projekt. Regionen är i normaliserade koordinater och anger platsen där objektet taggade.
+Du måste ladda upp bild, regioner och taggar för objektidentifieringsprojekt. Regionen är i normaliserade koordianater och anger platsen för det taggade objektet.
 
 
 ```java
@@ -175,7 +176,7 @@ for (int i = 1; i <= 20; i++) {
 }
 ```
 
-Föregående kodfragment koden använder två hjälpfunktioner som hämta bilder som resursen dataströmmar och överföra dem till tjänsten.
+Föregående kodfragment använder två hjälpfunktioner som hämtar bilderna som resursdataströmmar och överför dem till tjänsten.
 
 ```java
 private static void AddImageToProject(Trainings trainer, Project project, String fileName, byte[] contents, UUID tag, double[] regionValues)
@@ -218,9 +219,9 @@ private static byte[] GetImage(String folder, String fileName)
 }
 ```
 
-## <a name="train-the-project"></a>Träna projektet
+## <a name="train-the-project"></a>Utbilda projektet
 
-Detta skapar den första upprepningen i projektet och markerar den här iterationen som standard iteration. 
+Detta skapar den första upprepningen i projektet och markerar den här upprepningen som standardupprepningen. 
 
 ```java
 System.out.println("Training...");
@@ -238,7 +239,7 @@ trainer.updateIteration(project.id(), iteration.id(), iteration.withIsDefault(tr
 ## <a name="get-and-use-the-default-prediction-endpoint"></a>Hämta och använda standardslutpunkten för förutsägelse
 
 > [!IMPORTANT]
-> Ange den `predictionApiKey` till förutsägelse nyckelvärdet som hämtades tidigare.
+> Ställ in `predictionApiKey` till det förutsägelsenyckelvärde som du hämtade tidigare.
 
 ```java
 final String predictionApiKey = "insert your prediction key here";
@@ -273,9 +274,9 @@ for (Prediction prediction: results.predictions())
 }
 ```
 
-## <a name="run-the-example"></a>Kör exempel
+## <a name="run-the-example"></a>Köra exemplet
 
-De förutsagda resultaten som visas på konsolen tillsammans med vissa loggning för att visa förlopp.
+Förutsägelseresultaten visas på konsolen tillsammans med viss loggningsinformation som visar förloppet.
 
 Kompilera och kör lösningen med maven:
 

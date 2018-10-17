@@ -1,64 +1,65 @@
 ---
-title: Datorn Vision API JavaScript kursen | Microsoft Docs
-description: Utforska en grundläggande JavaScript-app som använder datorn Vision API i kognitiva Microsoft-tjänster. Utföra OCR, skapa miniatyrbilder och arbeta med visuella funktioner i en bild.
+title: 'Självstudie: API för visuellt innehåll med JavaScript'
+titlesuffix: Azure Cognitive Services
+description: Utforska en grundläggande JavaScript-app som använder API för visuellt innehåll i Azure Cognitive Services. Utför OCR, skapa miniatyrer och arbeta med visuella funktioner i en bild.
 services: cognitive-services
 author: KellyDF
-manager: corncar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: computer-vision
-ms.topic: article
+ms.topic: tutorial
 ms.date: 09/19/2017
 ms.author: kefre
-ms.openlocfilehash: 89bdc0524e07c1cb6a1473e0a52791fe20271e06
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
-ms.translationtype: MT
+ms.openlocfilehash: 6dc6eec729fc1be3f0a859834597bf2d5785d9bc
+ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35351912"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "45984933"
 ---
-# <a name="computer-vision-api-javascript-tutorial"></a>Datorn Vision API JavaScript självstudiekursen
+# <a name="tutorial-computer-vision-api-javascript"></a>Självstudie: API för visuellt innehåll med JavaScript
 
-Den här kursen visar funktionerna i Microsoft kognitiva tjänster datorn Vision REST API.
+Den här självstudien visar funktionerna i Azure Cognitive Services REST API för visuellt innehåll.
 
-Utforska ett JavaScript-program som använder datorn Vision REST API för att utföra OCR (OCR), skapa smart beskäras miniatyrer plus identifiera, kategorisera taggen och beskriver visual funktioner, inklusive ansikten, i en bild. Det här exemplet kan du skicka en bild-URL för analys eller bearbetning. Du kan använda det här exemplet med öppen källkod som en mall för att skapa din egen app i JavaScript för att använda datorn Vision REST API.
+Utforska ett JavaScript-program som använder REST API för visuellt innehåll för att utföra optisk teckenigenkänning (OCR), skapa miniatyrbilder med smart beskärning och identifiera, kategorisera, tagga och beskriva visuella funktioner, inklusive ansikten i en bild. Det här exemplet låter dig skicka en bild-URL för analys eller bearbetning. Du kan använda det här exemplet med öppen källkod som en mall för att skapa din egen app i JavaScript och använda REST API för visuellt innehåll.
 
-JavaScript formuläret programmet har redan skrivits, men datorn Vision fungerar inte. I kursen får du lägger till kod specifika dator Vision REST API för att slutföra programmets funktioner.
+JavaScript-formulärprogrammet har redan skrivits, men har inga funktioner för visuellt innehåll. I den här självstudien får du lägga till den specifika koden för REST API för visuellt innehåll för att slutföra programmets funktioner.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 ### <a name="platform-requirements"></a>Plattformskrav
 
-Den här självstudiekursen har utvecklats med en enkel textredigerare.
+Den här självstudien har utvecklats med en enkel textredigerare.
 
-### <a name="subscribe-to-computer-vision-api-and-get-a-subscription-key"></a>Prenumerera på datorn Vision API och få en nyckel för prenumeration 
+### <a name="subscribe-to-computer-vision-api-and-get-a-subscription-key"></a>Prenumerera på API för visuellt innehåll och få en prenumerationsnyckel 
 
-Innan du skapar exemplet måste du prenumerera på datorn Vision API som ingår i kognitiva Microsoft-tjänster. Prenumerationen och information om nyckelhantering finns [prenumerationer](https://azure.microsoft.com/try/cognitive-services/). Både de primära och sekundära nycklarna är giltiga i den här kursen. 
+Innan du skapar exemplet, måste du prenumerera på API för visuellt innehåll som ingår i Azure Cognitive Services. Information om prenumeration och nyckelhantering finns i [Prenumerationer](https://azure.microsoft.com/try/cognitive-services/). Både de primära och sekundära nycklarna kan användas i den här självstudien. 
 
-## <a name="download-the-tutorial-project"></a>Hämta projektet självstudiekursen
+## <a name="download-the-tutorial-project"></a>Hämta självstudieprojektet
 
-Klona den [kognitiva Services JavaScript datorn Vision kursen](https://github.com/Azure-Samples/cognitive-services-javascript-computer-vision-tutorial), eller hämta ZIP-filen och extrahera till en tom katalog.
+Klona [Cognitive Services-självstudien för visuellt innehåll med JavaScript](https://github.com/Azure-Samples/cognitive-services-javascript-computer-vision-tutorial), eller hämta ZIP-filen och extrahera den till en tom katalog.
 
-Om du föredrar att använda färdiga kursen med alla självstudiekursen koden som lagts till kan du använda filerna i den **slutförd** mapp.
+Om du föredrar att använda den färdiga självstudien med alla självstudiekoder tillagda så kan du använda filerna i mappen **Slutförd**.
 
-## <a name="add-the-tutorial-code"></a>Lägg till självstudiekursen kod
+## <a name="add-the-tutorial-code"></a>Lägg till självstudiekoden
 
-JavaScript-programmet har konfigurerats med sex .html-filer, en för varje funktion. Visar en annan funktion i datorn Vision för varje fil (analysera OCR osv). Sex självstudiekursen avsnitt har inte beroenden, så du kan lägga till självstudiekursen koden till en fil, alla sex filer eller ett par av filer. Och du kan lägga till självstudiekursen koden till filer i valfri ordning.
+JavaScript-programmet har konfigurerats med sex .html-filer, en för varje funktion. Varje fil visar en annan funktion för visuellt innehåll (analysera OCR, osv). De sex självstudiedelarna har inga beroenden så du kan lägga till självstudiekoden på en fil, alla sex filer eller bara ett par filer. Och du kan lägga till självstudiekoden i filerna i valfri ordning.
 
-Nu sätter vi igång.
+Då sätter vi igång.
 
 ## <a name="analyze-an-image"></a>Analysera en bild
 
-Funktionen Analysera i datorn Vision analyserar en bild för fler än 2 000 okänt objekt, levande människor, landskap och åtgärder. När analysen är klar, returnerar analysera ett JSON-objekt som beskriver avbildningen med beskrivande taggar, färg analys, beskrivningar och mycket mer.
+Funktionen Analysera i API för visuellt innehåll analyserar en bild efter fler än 2 000 identifierbara objekt, levande varelser, landskap och åtgärder. När analysen är klar, returnerar analysera ett JSON-objekt som beskriver bilden med beskrivande taggar, färganalys, beskrivningar och mer.
 
-Utför följande steg för att slutföra funktionen Analysera i självstudiekursen programmet:
+Utför följande steg för att slutföra analyserafunktionen i självstudieprogrammet:
 
-### <a name="analyze-step-1-add-the-event-handler-code-for-the-form-button"></a>Analysera steg 1: Lägg till händelsekod för hanteraren för knappen formulär
+### <a name="analyze-step-1-add-the-event-handler-code-for-the-form-button"></a>Analysera steg 1: Lägg till händelsehanterarkoden för formulär-knappen
 
-Öppna den **analyze.html** filen i en textredigerare och leta upp den **analyzeButtonClick** funktionen längst ned i filen.
+Öppna filen **analyze.html** i en textredigerare och leta upp funktionen **analyzeButtonClick** i slutet av filen.
 
-Den **analyzeButtonClick** händelsehanterare rensar formuläret, visar bilden som anges i URL-Adressen, anropar sedan den **AnalyzeImage** funktion för att analysera avbildningen.
+Händelsehanterarfunktionen **analyzeButtonClick** rensar formuläret, visar den bild som angetts i URL:en och anropar sedan funktionen **AnalyzeImage** för att analysera bilden.
 
-Kopiera och klistra in följande kod i den **analyzeButtonClick** funktion.
+Kopiera och klistra in följande kod till funktionen **analyzeButtonClick**.
 
 ```javascript
 function analyzeButtonClick() {
@@ -76,11 +77,11 @@ function analyzeButtonClick() {
 }
 ```
 
-### <a name="analyze-step-2-add-the-wrapper-for-the-rest-api-call"></a>Analysera steg 2: Lägg till Omslutning för REST API-anrop
+### <a name="analyze-step-2-add-the-wrapper-for-the-rest-api-call"></a>Analysera steg 2: Lägg till adaptern för REST API-anropet
 
-Den **AnalyzeImage** funktionen radbryts REST API-anropet för att analysera en bild. Vid en lyckad RETUR formaterad JSON analysen ska visas i den angivna textområde och etiketten ska visas i det angivna intervallet.
+Funktionen **AnalyzeImage** omsluter REST API-anropet för att analysera en bild. Vid en lyckad retur, visas den formaterade JSON-analysen i det angivna textområdet och beskrivningen visas i det angivna intervallet.
 
-Kopiera och klistra in den **AnalyzeImage** fungerar kod precis under den **analyzeButtonClick** funktion.
+Kopiera och klistra in funktionskoden **AnalyzeImage** under funktionen **analyzeButtonClick**.
 
 ```javascript
 /* Analyze the image at the specified URL by using Microsoft Cognitive Services Analyze Image API.
@@ -152,21 +153,21 @@ function AnalyzeImage(sourceImageUrl, responseTextArea, captionSpan) {
 
 ### <a name="analyze-step-3-run-the-application"></a>Analysera steg 3: kör programmet
 
-Spara den **analyze.html** filen och öppna den i en webbläsare. Placera din prenumeration nyckel till den **prenumeration nyckeln** fältet och kontrollera att du använder rätt region i **prenumeration Region**. Ange en URL till en bild för att analysera och klicka sedan på den **analysera avbildningen** för att analysera en avbildning och visa resultatet.
+Spara filen **analyze.html** och öppna den i en webbläsare. Placera din prenumerationsnyckel i fältet **Prenumerationsnyckel** och kontrollera att du använder rätt region i **Prenumerationsregion**. Ange en URL för en bild som ska analyseras och klicka sedan på knappen **Analysera bild** för att analysera bilden och se resultatet.
 
-## <a name="recognize-a-landmark"></a>Identifiera en Landmärke
+## <a name="recognize-a-landmark"></a>Identifiera ett landmärke
 
-Funktionen Landmärke i datorn Vision analyserar en bild för naturlig och artificiell landmärken, till exempel Berg eller berömda byggnader. När analysen är klar, returnerar Landmärke ett JSON-objekt som identifierar landmärken hittades i avbildningen.
+Funktionen landmärken i visuellt innehåll analyserar en bild efter naturliga och konstgjorda landmärken, till exempel berg eller berömda byggnader. När analysen är klar, returnerar Landmärke ett JSON-objekt som identifierar landmärken i bilden.
 
-Utför följande steg för att slutföra funktionen Landmärke i självstudiekursen programmet:
+Utför följande steg för att slutföra funktionen Landmärken i självstudiekursen:
 
-### <a name="landmark-step-1-add-the-event-handler-code-for-the-form-button"></a>Landmärke steg 1: Lägg till händelsekod för hanteraren för knappen formulär
+### <a name="landmark-step-1-add-the-event-handler-code-for-the-form-button"></a>Landmärke steg 1: Lägg till händelsehanterarkoden för formulärknappen
 
-Öppna den **landmark.html** filen i en textredigerare och leta upp den **landmarkButtonClick** funktionen längst ned i filen.
+Öppna filen **landmark.html** i en textredigerare och leta upp funktionen **landmarkButtonClick** i slutet av filen.
 
-Den **landmarkButtonClick** händelsehanterare rensar formuläret, visar bilden som anges i URL-Adressen, anropar sedan den **IdentifyLandmarks** funktion för att analysera avbildningen.
+Händelsehanterarfunktionen **landmarkButtonClick** rensar formuläret, visar den bild som angetts i URL-Adressen och anropar sedan **IdentifyLandmarks**-funktionen för att analysera bilden.
 
-Kopiera och klistra in följande kod i den **landmarkButtonClick** funktion.
+Kopiera och klistra in följande kod i funktionen **landmarkButtonClick**.
 
 ```javascript
 function landmarkButtonClick() {
@@ -184,11 +185,11 @@ function landmarkButtonClick() {
 }
 ```
 
-### <a name="landmark-step-2-add-the-wrapper-for-the-rest-api-call"></a>Landmärke steg 2: Lägg till Omslutning för REST API-anrop
+### <a name="landmark-step-2-add-the-wrapper-for-the-rest-api-call"></a>Landmärke steg 2: Lägg till adaptern för REST API-anropet
 
-Den **IdentifyLandmarks** funktionen radbryts REST API-anropet för att analysera en bild. Vid en lyckad RETUR formaterad JSON analysen ska visas i den angivna textområde och etiketten ska visas i det angivna intervallet.
+Funktionen **IdentifyLandmarks** omsluter REST API-anropet för att analysera en bild. Vid en lyckad retur, visas den formaterade JSON-analysen i det angivna textområdet och beskrivningen visas i det angivna intervallet.
 
-Kopiera och klistra in den **IdentifyLandmarks** fungerar kod precis under den **landmarkButtonClick** funktion.
+Kopiera och klistra in funktionskoden **IdentifyLandmarks** under funktionen **landmarkButtonClick**.
 
 ```javascript
 /* Identify landmarks in the image at the specified URL by using Microsoft Cognitive Services 
@@ -259,21 +260,21 @@ function IdentifyLandmarks(sourceImageUrl, responseTextArea, captionSpan) {
 
 ### <a name="landmark-step-3-run-the-application"></a>Landmärke steg 3: kör programmet
 
-Spara den **landmark.html** filen och öppna den i en webbläsare. Placera din prenumeration nyckel till den **prenumeration nyckeln** fältet och kontrollera att du använder rätt region i **prenumeration Region**. Ange en URL till en bild för att analysera och klicka sedan på den **analysera avbildningen** för att analysera en avbildning och visa resultatet.
+Spara filen **landmark.html** och öppna den i en webbläsare. Placera din prenumerationsnyckel i fältet **Prenumerationsnyckel** och kontrollera att du använder rätt region i **Prenumerationsregion**. Ange en URL för en bild som ska analyseras och klicka sedan på knappen **Analysera bild** för att analysera bilden och se resultatet.
 
 ## <a name="recognize-celebrities"></a>Identifiera kändisar
 
-Funktionen Kändisars i datorn Vision analyserar en avbildning för berömda personer. När analysen är klar, returnerar Kändisars ett JSON-objekt som identifierar Kändisars hittades i avbildningen.
+Funktionen kändisar i visuellt innehåll analyserar en bild efter kända personer. När analysen är klar, returnerar Kändisar ett JSON-objekt som identifierar de kändisar som identifierats i bilden.
 
-Utför följande steg för att slutföra funktionen Kändisars i självstudiekursen programmet:
+Utför följande steg för att slutföra funktionen Kändisar i självstudiekursen:
 
-### <a name="celebrities-step-1-add-the-event-handler-code-for-the-form-button"></a>Kändisars steg 1: Lägg till händelsekod för hanteraren för knappen formulär
+### <a name="celebrities-step-1-add-the-event-handler-code-for-the-form-button"></a>Kändisar steg 1: Lägg till händelsehanterarkoden för formulärknappen
 
-Öppna den **celebrities.html** filen i en textredigerare och leta upp den **celebritiesButtonClick** funktionen längst ned i filen.
+Öppna filen **celebrities.html** i en textredigerare och leta upp funktionen **celebritiesButtonClick** i slutet av filen.
 
-Den **celebritiesButtonClick** händelsehanterare rensar formuläret, visar bilden som anges i URL-Adressen, anropar sedan den **IdentifyCelebrities** funktion för att analysera avbildningen.
+Händelsehanterarfunktionen **celebritiesButtonClick** rensar formuläret, visar den bild som angetts i URL:en och anropar sedan **IdentifyCelebrities**-funktionen för att analysera bilden.
 
-Kopiera och klistra in följande kod i den **celebritiesButtonClick** funktion.
+Kopiera och klistra in följande kod i **celebritiesButtonClick**-funktionen.
 
 ```javascript
 function celebritiesButtonClick() {
@@ -291,7 +292,7 @@ function celebritiesButtonClick() {
 }
 ```
 
-### <a name="celebrities-step-2-add-the-wrapper-for-the-rest-api-call"></a>Kändisars steg 2: Lägg till Omslutning för REST API-anrop
+### <a name="celebrities-step-2-add-the-wrapper-for-the-rest-api-call"></a>Kändisar steg 2: Lägg till adaptern för REST API-anropet
 
 ```javascript
 /* Identify celebrities in the image at the specified URL by using Microsoft Cognitive Services 
@@ -360,23 +361,23 @@ function IdentifyCelebrities(sourceImageUrl, responseTextArea, captionSpan) {
 }
 ```
 
-### <a name="celebrities-step-3-run-the-application"></a>Kändisars steg 3: kör programmet
+### <a name="celebrities-step-3-run-the-application"></a>Kändisar steg 3: kör programmet
 
-Spara den **celebrities.html** filen och öppna den i en webbläsare. Placera din prenumeration nyckel till den **prenumeration nyckeln** fältet och kontrollera att du använder rätt region i **prenumeration Region**. Ange en URL till en bild för att analysera och klicka sedan på den **analysera avbildningen** för att analysera en avbildning och visa resultatet.
+Spara filen **celebrities.html** och öppna den i en webbläsare. Placera din prenumerationsnyckel i fältet **Prenumerationsnyckel** och kontrollera att du använder rätt region i **Prenumerationsregion**. Ange en URL för en bild som ska analyseras och klicka sedan på knappen **Analysera bild** för att analysera bilden och se resultatet.
 
-## <a name="intelligently-generate-a-thumbnail"></a>Intelligent Generera en miniatyrbild
+## <a name="intelligently-generate-a-thumbnail"></a>Generera en miniatyrbild
 
-Funktionen miniatyren i datorn Vision genererar en miniatyrbild från en avbildning. Med hjälp av den **Smart Beskär** funktionen funktionen miniatyr identifierar intresseområde i en avbildning och center miniatyren i det här området för att skapa fler aesthetically tilltalande miniatyrbilder.
+Miniatyrfunktionen i visuellt innehåll skapar en miniatyrbild från en bild. Med hjälp av funktionen **Smart beskärning** så identifierar miniatyrfunktionen intresseområdet i en bild och centrerar miniatyrbilden i det här området att skapa mer estetiskt tilltalande miniatyrbilder.
 
-Utför följande steg för att slutföra funktionen miniatyren i självstudiekursen programmet:
+Utför följande steg för att slutföra miniatyrfunktionen i självstudiekursen:
 
-### <a name="thumbnail-step-1-add-the-event-handler-code-for-the-form-button"></a>Miniatyrer steg 1: Lägg till händelsekod för hanteraren för knappen formulär
+### <a name="thumbnail-step-1-add-the-event-handler-code-for-the-form-button"></a>Miniatyr steg 1: Lägg till händelsehanterarkoden för formulärknappen
 
-Öppna den **thumbnail.html** filen i en textredigerare och leta upp den **thumbnailButtonClick** funktionen längst ned i filen.
+Öppna filen **thumbnail.html** i en textredigerare och leta upp funktionen **thumbnailButtonClick** i slutet av filen.
 
-Den **thumbnailButtonClick** händelsehanterare rensar formuläret, visar bilden som anges i URL-Adressen, anropar sedan den **getThumbnail** funktionen två gånger för att skapa två miniatyrer, en smart beskäras och en utan smart Beskär.
+Händelsehanterarfunktionen **thumbnailButtonClick** rensar formuläret, visar den bild som angetts i URL:en och anropar sedan **getThumbnail**-funktionen två gånger för att skapa två miniatyrer, en med smart beskärning och en utan.
 
-Kopiera och klistra in följande kod i den **thumbnailButtonClick** funktion.
+Kopiera och klistra in följande kod i **thumbnailButtonClick**-funktionen.
 
 ```javascript
 function thumbnailButtonClick() {
@@ -402,11 +403,11 @@ function thumbnailButtonClick() {
 }
 ```
 
-### <a name="thumbnail-step-2-add-the-wrapper-for-the-rest-api-call"></a>Miniatyrer steg 2: Lägg till Omslutning för REST API-anrop
+### <a name="thumbnail-step-2-add-the-wrapper-for-the-rest-api-call"></a>Miniatyr steg 2: Lägg till adaptern för REST API-anropet
 
-Den **getThumbnail** funktionen radbryts REST API-anropet för att analysera en bild. Vid en lyckad RETUR visas miniatyren i det angivna img-elementet.
+Funktionen **getThumbnail** omsluter REST API-anropet för att analysera en bild. Vid en lyckad retur så visas miniatyrbilden i det angivna img-elementet.
 
-Kopiera och klistra in följande **getThumbnail** funktion att de bara under den **thumbnailButtonClick** funktion.
+Kopiera och klistra in följande **getThumbnail**-funktion under **thumbnailButtonClick**-funktionen.
 
 ```javascript
 /* Get a thumbnail of the image at the specified URL by using Microsoft Cognitive Services
@@ -481,23 +482,23 @@ function getThumbnail (sourceImageUrl, smartCropping, imageElement, responseText
 }
 ```
 
-### <a name="thumbnail-step-3-run-the-application"></a>Miniatyrer steg 3: kör programmet
+### <a name="thumbnail-step-3-run-the-application"></a>Miniatyrbild steg 3: kör programmet
 
-Spara den **thumbnail.html** filen och öppna den i en webbläsare. Placera din prenumeration nyckel till den **prenumeration nyckeln** fältet och kontrollera att du använder rätt region i **prenumeration Region**. Ange en URL till en bild för att analysera och klicka sedan på den **generera miniatyrbilder** för att analysera en avbildning och visa resultatet.
+Spara filen **thumbnail.html** och öppna den i en webbläsare. Placera din prenumerationsnyckel i fältet **Prenumerationsnyckel** och kontrollera att du använder rätt region i **Prenumerationsregion**. Ange en URL för en bild som ska analyseras och klicka sedan på knappen **Skapa miniatyrer** för att analysera bilden och se resultatet.
 
-## <a name="read-printed-text-ocr"></a>Läs ut text (OCR)
+## <a name="read-printed-text-ocr"></a>Läs tryckt text (OCR)
 
-Funktionen OCR (OCR) i datorn Vision analyserar en avbildning av tryckt text. När analysen är klar returnerar OCR ett JSON-objekt som innehåller texten och platsen för texten i bilden.
+Optisk teckenigenkänning (OCR)-funktionen för visuellt innehåll analyserar en bild av tryckt text. När analysen är klar, returnerar OCR en JSON-objekt som innehåller texten och placeringen av texten i bilden.
 
-Utför följande steg för att slutföra funktionen OCR i självstudiekursen programmet:
+Utför följande steg för att slutföra OCR-funktionen i självstudien:
 
-### <a name="ocr-step-1-add-the-event-handler-code-for-the-form-button"></a>OCR steg 1: Lägg till händelsekod för hanteraren för knappen formulär
+### <a name="ocr-step-1-add-the-event-handler-code-for-the-form-button"></a>OCR steg 1: Lägg till händelsehanterarkoden för formulär-knappen
 
-Öppna den **ocr.html** filen i en textredigerare och leta upp den **ocrButtonClick** funktionen längst ned i filen.
+Öppna filen **ocr.html** i en textredigerare och leta upp funktionen **ocrButtonClick** i slutet av filen.
 
-Den **ocrButtonClick** händelsehanterare rensar formuläret, visar bilden som anges i URL-Adressen, anropar sedan den **ReadOcrImage** funktion för att analysera avbildningen.
+Händelsehanterarfunktionen **ocrButtonClick** rensar formuläret, visar den bild som angetts i URL:en och anropar sedan funktionen **ReadOcrImage** för att analysera bilden.
 
-Kopiera och klistra in följande kod i den **ocrButtonClick** funktion.
+Kopiera och klistra in följande kod till funktionen **ocrButtonClick**.
 
 ```javascript
 function ocrButtonClick() {
@@ -515,11 +516,11 @@ function ocrButtonClick() {
 }
 ```
 
-### <a name="ocr-step-2-add-the-wrapper-for-the-rest-api-call"></a>OCR steg 2: Lägg till Omslutning för REST API-anrop
+### <a name="ocr-step-2-add-the-wrapper-for-the-rest-api-call"></a>OCR steg 2: Lägg till adaptern för REST API-anropet
 
-Den **ReadOcrImage** funktionen radbryts REST API-anropet för att analysera en bild. Returnerar formaterad JSON som beskriver texten vid en lyckad och platsen för texten som ska visas i den angivna textområde.
+Funktionen **ReadOcrImage** omsluter REST API-anropet för att analysera en bild. Vid en lyckad retur, visas formaterad JSON som beskriver texten och dess plats i det angivna textområdet.
 
-Kopiera och klistra in följande **ReadOcrImage** funktion att de bara under den **ocrButtonClick** funktion.
+Kopiera och klistra in följande **ReadOcrImage**-funktion under **ocrButtonClick**-funktionen.
 
 ```javascript
 /* Recognize and read printed text in an image at the specified URL by using Microsoft Cognitive 
@@ -578,21 +579,21 @@ function ReadOcrImage(sourceImageUrl, responseTextArea) {
 
 ### <a name="ocr-step-3-run-the-application"></a>OCR steg 3: kör programmet
 
-Spara den **ocr.html** filen och öppna den i en webbläsare. Placera din prenumeration nyckel till den **prenumeration nyckeln** fältet och kontrollera att du använder rätt region i **prenumeration Region**. Ange en URL till en bild för att läsa och klicka sedan på den **Läs avbildningen** för att analysera en avbildning och visa resultatet.
+Spara filen **ocr.html** och öppna den i en webbläsare. Placera din prenumerationsnyckel i fältet **Prenumerationsnyckel** och kontrollera att du använder rätt region i **Prenumerationsregion**. Ange en URL till en textbild för att läsa och klicka sedan på knappen **Läs bild** för att analysera en bild och se resultatet.
 
-## <a name="read-handwritten-text-handwriting-recognition"></a>Läsa handskriven text (handskriftsigenkänning)
+## <a name="read-handwritten-text-handwriting-recognition"></a>Läs handskriven text (handskriftsigenkänning)
 
-Funktionen handskriftsigenkänning i datorn Vision analyserar en avbildning av handskriven text. När analysen är klar returnerar handskriftsigenkänning ett JSON-objekt som innehåller texten och platsen för texten i bilden.
+Funktionen handskriftsigenkänning i API för visuellt innehåll analyserar en bild av handskriven text. När analysen är klar returnerar handskriftsigenkänning ett JSON-objekt som innehåller texten och placeringen av texten i bilden.
 
-Utför följande steg för att slutföra funktionen handskriftsigenkänning i självstudiekursen programmet:
+Utför följande steg för att slutföra funktionen handskriftsigenkänning i självstudieprogrammet:
 
-### <a name="handwriting-recognition-step-1-add-the-event-handler-code-for-the-form-button"></a>Handskriftsigenkänning Recognition steg 1: Lägg till händelsekod för hanteraren för knappen formulär
+### <a name="handwriting-recognition-step-1-add-the-event-handler-code-for-the-form-button"></a>Handskriftsigenkänning steg 1: Lägg till händelsehanterarkoden för formulärknappen
 
-Öppna den **handwriting.html** filen i en textredigerare och leta upp den **handwritingButtonClick** funktionen längst ned i filen.
+Öppna filen **handwriting.html** i en textredigerare och leta upp funktionen **handwritingButtonClick** i slutet av filen.
 
-Den **handwritingButtonClick** händelsehanterare rensar formuläret, visar bilden som anges i URL-Adressen, anropar sedan den **HandwritingImage** funktion för att analysera avbildningen.
+Händelsehanterarfunktionen **handwritingButtonClick** rensar formuläret, visar den avbildning som angetts i URL-Adressen och anropar sedan **HandwritingImage**-funktionen för att analysera avbildningen.
 
-Kopiera och klistra in följande kod i den **handwritingButtonClick** funktion.
+Kopiera och klistra in följande kod i **handwritingButtonClick**-funktionen.
 
 ```javascript
 function handwritingButtonClick() {
@@ -609,13 +610,13 @@ function handwritingButtonClick() {
 }
 ```
 
-### <a name="handwriting-recognition-step-2-add-the-wrapper-for-the-rest-api-call"></a>Handskriftsigenkänning Recognition steg 2: Lägg till Omslutning för REST API-anrop
+### <a name="handwriting-recognition-step-2-add-the-wrapper-for-the-rest-api-call"></a>Handskriftsigenkänning steg 2: Lägg till adaptern för REST API-anropet
 
-Den **ReadHandwrittenImage** funktionen radbryts två REST API-anrop som behövs för att analysera en bild. Eftersom handskriftsigenkänning är en tidskrävande process, används en process i två steg. Det första anropet skickar bilden för bearbetning. Det andra anropet hämtar identifierade texten när bearbetningen är klar.
+Funktionen **ReadHandwrittenImage** omsluter de två REST API-anrop som behövs för att analysera en bild. Eftersom handskriftsigenkänning är en tidskrävande process så används en tvåstegsprocess. Det första anropet skickar bilden för bearbetning. Det andra anropet hämtar den identifierade texten när bearbetningen är klar.
 
-Efter texten som har hämtats ska formaterad JSON som beskriver texten och platsen för texten som visas i den angivna textområde.
+Efter att texten hämtas, visas formaterad JSON som beskriver texten och dess plats i det angivna textområdet.
 
-Kopiera och klistra in följande **ReadHandwrittenImage** funktion att de bara under den **handwritingButtonClick** funktion.
+Kopiera och klistra in följande **ReadHandwrittenImage**-funktion under **handwritingButtonClick**-funktionen.
 
 ```javascript
 /* Recognize and read text from an image of handwriting at the specified URL by using Microsoft 
@@ -735,11 +736,11 @@ function ReadHandwrittenImage(sourceImageUrl, responseTextArea) {
 }
 ```
 
-### <a name="handwriting-recognition-step-3-run-the-application"></a>Handskriftsigenkänning Recognition steg 3: kör programmet
+### <a name="handwriting-recognition-step-3-run-the-application"></a>Handskriftsigenkänning steg 3: kör programmet
 
-Spara den **handwriting.html** filen och öppna den i en webbläsare. Placera din prenumeration nyckel till den **prenumeration nyckeln** fältet och kontrollera att du använder rätt region i **prenumeration Region**. Ange en URL till en bild för att läsa och klicka sedan på den **Läs avbildningen** för att analysera en avbildning och visa resultatet.
+Spara filen **handwriting.html** och öppna den i en webbläsare. Placera din prenumerationsnyckel i fältet **Prenumerationsnyckel** och kontrollera att du använder rätt region i **Prenumerationsregion**. Ange en URL till en textbild för att läsa och klicka sedan på knappen **Läs bild** för att analysera en bild och se resultatet.
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Datorn Vision API C&#35; självstudiekursen](CSharpTutorial.md)
-- [Datorn Vision API Python självstudiekursen](PythonTutorial.md)
+- [Självstudie: API för visuellt innehåll med C&#35;](CSharpTutorial.md)
+- [Självstudie: API för visuellt innehåll med Python](PythonTutorial.md)

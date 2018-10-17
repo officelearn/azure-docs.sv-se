@@ -1,44 +1,44 @@
 ---
-title: 'Snabbstart: Skicka sökfrågor med bildsökning i Bing och PHP'
+title: 'Snabbstart: Utför en bildsökning med PHP – API för bildsökning i Bing'
 titleSuffix: Azure Cognitive Services
-description: Använd den här snabbstarten för att söka efter bilder på webben med hjälp av Bing Web Search API.
+description: Använd den här snabbstarten för att skicka ditt första anrop till API:et för bildsökning i Bing och få ett JSON-svar. Det enkla programmet i den här artikeln skickar en sökfråga och visar rådataresultat.
 services: cognitive-services
 documentationcenter: ''
 author: aahill
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-image-search
-ms.topic: article
+ms.topic: quickstart
 ms.date: 9/07/2018
 ms.author: aahi
-ms.openlocfilehash: ebf8c0269e070c9047d730e58b8e2d3824124e1a
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
-ms.translationtype: MT
+ms.openlocfilehash: ac3de25773249119535ac6f3bd063ff6b9b7831e
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45574206"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46295537"
 ---
-# <a name="quickstart-send-search-queries-using-the-bing-image-search-rest-api-and-php"></a>Snabbstart: Skicka sökfrågor med Bings API för bildsökning REST och PHP
+# <a name="quickstart-send-search-queries-using-the-bing-image-search-rest-api-and-php"></a>Snabbstart: Skicka sökfrågor med REST API för bildsökning i Bing och PHP
 
-Använd den här snabbstarten att skicka ditt första anrop till sökning i Bing och få ett JSON-svar. Enkelt program i den här artikeln skickar en sökfråga och visar rådataresultat.
+Använd den här snabbstarten för att skicka ditt första anrop till API:et för bildsökning i Bing och få ett JSON-svar. Det enkla programmet i den här artikeln skickar en sökfråga och visar rådataresultat.
 
-Även om det här programmet är skriven i PHP, är API: et en RESTful-webb-tjänst som är kompatibel med alla programmeringsspråk som kan göra HTTP-begäranden och parsa JSON.
+Det här programmet är skrivet i PHP, men API:n är en RESTful-webbtjänst som är kompatibel med alla programmeringsspråk som kan göra HTTP-begäranden och parsa JSON.
 
-Källkoden för det här exemplet finns [på GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/java/Search/BingImageSearchv7.java).
+Källkoden till det här exemplet finns [på GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/java/Search/BingImageSearchv7.java).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 * [PHP 5.6.x eller senare](http://php.net/downloads.php).
 
 [!INCLUDE [cognitive-services-bing-image-search-signup-requirements](../../../../includes/cognitive-services-bing-image-search-signup-requirements.md)]
 
-## <a name="create-and-initialize-the-application"></a>Skapa och initiera programmet
+## <a name="create-and-initialize-the-application"></a>Skapa och initiera appen
 
-Följ dessa steg om du vill köra det här programmet.
+Följ dessa steg om du vill köra programmet.
 
-1. Se till att säkra HTTP-stöd är aktiverat i din `php.ini` fil. Den här filen finns på Windows, i `C:\windows`.
-2. Skapa ett nytt PHP-projekt i din favorit-IDE eller redigerare.
-3. Definiera API-slutpunkter, din prenumerationsnyckel och Sök efter termer.
+1. Kontrollera att säkert HTTP-stöd är aktiverat i din `php.ini`-fil. I Windows finns den här filen i `C:\windows`.
+2. Skapa ett nytt PHP-projekt i valfri IDE eller redigeringsprogram.
+3. definiera API-slutpunkten, din prenumerationsnyckel och sökvillkor.
 
     ```php
     $endpoint = 'https://api.cognitive.microsoft.com/bing/v7.0/images/search';
@@ -46,9 +46,9 @@ Följ dessa steg om du vill köra det här programmet.
     $accessKey = 'enter key here';
     $term = 'tropical ocean';
     ```
-## <a name="construct-and-perform-a-http-request"></a>Skapa och utföra en HTTP-begäran
+## <a name="construct-and-perform-a-http-request"></a>Skapa och utför en HTTP-begäran
 
-1. Använda variabler i det sista steget för att förbereda en HTTP-begäran Sök-API: et för avbildningen.
+1. Använda variablerna i det sista steget för att förbereda en HTTP-begäran till API:et för bildsökning.
 
     ```php
     $headers = "Ocp-Apim-Subscription-Key: $key\r\n";
@@ -56,16 +56,16 @@ Följ dessa steg om du vill köra det här programmet.
                             'header' => $headers,
                             'method' => 'GET' ));
     ```
-2. Utföra webb-begäran och få JSON-svar.
+2. Utför webbegäran och få JSON-svaret.
 
     ```php
     $context = stream_context_create($options);
     $result = file_get_contents($url . "?q=" . urlencode($query), false, $context);
     ```
 
-## <a name="process-and-print-the-json"></a>Bearbeta och skriva ut JSON
+## <a name="process-and-print-the-json"></a>Bearbeta och skriv ut JSON
 
-Bearbeta och skriva ut det returnerade JSON-svaret.
+Bearbeta och skriv ut det returnerade JSON-svaret.
 
     ```php
     $headers = array();
@@ -78,9 +78,9 @@ Bearbeta och skriva ut det returnerade JSON-svaret.
         return array($headers, $result);
     ```
 
-## <a name="sample-json-response"></a>Exempel-JSON-svar
+## <a name="sample-json-response"></a>JSON-exempelsvar
 
-Svar från den bildsökning i Bing returneras som JSON. Den här exempelsvaret har trunkerats för att visa ett enskilt resultat.
+Svar från API för bildsökning i Bing returneras som JSON. Det här exempelsvaret har trunkerats för att visa ett enskilt resultat.
 
 ```json
 {
@@ -129,12 +129,12 @@ Svar från den bildsökning i Bing returneras som JSON. Den här exempelsvaret h
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Bildsökning i Bing ensidesapp självstudien](../tutorial-bing-image-search-single-page-app.md)
+> [Självstudie om enkel app för bildsökning i Bing](../tutorial-bing-image-search-single-page-app.md)
 
-## <a name="see-also"></a>Se också 
+## <a name="see-also"></a>Se även
 
 * [Vad är bildsökning i Bing?](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/overview)  
-* [Prova en online Interaktiv demo](https://azure.microsoft.com/services/cognitive-services/bing-image-search-api/)  
-* [Hämta en kostnadsfri Cognitive Services-åtkomstnyckel](https://azure.microsoft.com/try/cognitive-services/?api=bing-image-search-api)  
+* [Prova en interaktiv demo online](https://azure.microsoft.com/services/cognitive-services/bing-image-search-api/)  
+* [Hämta en kostnadsfri åtkomstnyckel för Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=bing-image-search-api)  
 * [Dokumentation om Azure Cognitive Services](https://docs.microsoft.com/azure/cognitive-services)
-* [Referens för bildsökning i Bing](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference)
+* [API-referens för bildsökning i Bing](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference)

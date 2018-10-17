@@ -1,6 +1,6 @@
 ## <a name="create-a-project-zip-file"></a>Skapa en ZIP-fil av projektet
 
-Skapa ett ZIP-arkiv med allt i projektet. Följande kommando använder standardverktyget i terminalen:
+Kontrollera att du fortfarande befinner dig i rotkatalogen för exempelprojektet. Skapa ett ZIP-arkiv med allt i projektet. Följande kommando använder standardverktyget i terminalen:
 
 ```
 # Bash

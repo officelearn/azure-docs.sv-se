@@ -1,31 +1,33 @@
 ---
-title: Java-Snabbstart för Project URL Preview - kognitiva Microsoft-tjänster | Microsoft Docs
-description: Skriptexempel att komma igång med projektet URL förhandsversionen i Microsoft kognitiva Services på Azure.
+title: 'Snabbstart: Förhandsgranskning av projekt-URL, Java'
+titlesuffix: Azure Cognitive Services
+description: Skriptexempel för att komma igång med URL-förhandsgranskning av projekt med Java.
 services: cognitive-services
 author: mikedodaro
+manager: cgronlun
 ms.service: cognitive-services
-ms.technology: project-url-preview
-ms.topic: article
+ms.component: project-url-preview
+ms.topic: quickstart
 ms.date: 04/24/2018
 ms.author: rosh, v-gedod
-ms.openlocfilehash: 2de74f48882605bfcf05f65723ba5d8993587f51
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
-ms.translationtype: MT
+ms.openlocfilehash: 95e33ceddc2fbbab51d3c4f0164b410847430244
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35354030"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48867127"
 ---
-# <a name="url-preview-java-quickstart"></a>URL: en förhandsgranskning Java-Snabbstart
+# <a name="quickstart-url-preview-with-java"></a>Snabbstart: URL-förhandsgranskning med Java
 
-Java-exemplet skapar en förhandsgranskning för URL: en för webbplatsen SwiftKey: https://swiftkey.com/en.
+Java-exemplet nedan skapar en URL-förhandsgranskning för webbplatsen SwiftKey: https://swiftkey.com/en.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
-Hämta en åtkomstnyckel för den kostnadsfria utvärderingsversionen [kognitiva Services Labs](https://aka.ms/answersearchsubscription)
+Hämta en åtkomstnyckel för den kostnadsfria utvärderingsversionen av [Cognitive Services Labs](https://aka.ms/answersearchsubscription)
 
 ## <a name="request"></a>Förfrågan 
 
-Följande kod skapar en `WebRequest`anger rubriken åtkomst och lägger till en frågesträng för ”https://swiftkey.com/en”.  Sedan skickar en begäran och tilldelar svar till en sträng som innehåller JSON-texten.
+Följande kod skapar en `WebRequest`, anger huvudet för åtkomstnyckeln och lägger till en frågesträng för ”https://swiftkey.com/en”.  Därefter skickar den en begäran och tilldelar svaret till en sträng som ska innehålla JSON-texten.
 
 ````
     // construct URL of search request (endpoint + query string)
@@ -47,13 +49,13 @@ Följande kod skapar en `WebRequest`anger rubriken åtkomst och lägger till en 
     SearchResults results = new SearchResults(new HashMap<String, String>(), response);
 ````
 
-## <a name="complete-code"></a>Fullständiga koden
+## <a name="complete-code"></a>Fullständig kod
 
-Sök-API Bing svar returnerar resultat från Bing sökmotor.
-1. Hämtar eller installerar gson-biblioteket.
-2. Skapa ett nytt Java-projekt i din favorit IDE eller -redigeraren.
+Bing Answer Search API returnerar resultatet från Bing-sökmotorn.
+1. Hämta eller installera gson-biblioteket.
+2. Skapa ett nytt Java-projekt i den IDE eller redigerare du föredrar.
 3. Lägg till koden nedan.
-4. Ersätt värdet för subscriptionKey med en giltig snabbtangent för din prenumeration.
+4. Ersätt värdet för subscriptionKey med en giltig åtkomstnyckel för din prenumeration.
 5. Kör programmet.
 
 ````
@@ -166,7 +168,7 @@ class SearchResults{
 ````
 
 ## <a name="next-steps"></a>Nästa steg
-- [C#-Snabbstart](csharp.md)
-- [JavaScript-Snabbstart](javascript.md)
-- [Noden Snabbstart](node-quickstart.md)
-- [PYthon-Snabbstart](python-quickstart.md)
+- [Snabbstart för C#](csharp.md)
+- [Snabbstart för JavaScript](javascript.md)
+- [Snabbstart för Node](node-quickstart.md)
+- [Snabbstart för PYthon](python-quickstart.md)

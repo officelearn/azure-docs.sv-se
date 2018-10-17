@@ -5,20 +5,23 @@ services: service-fabric-mesh
 keywords: ''
 author: rwike77
 ms.author: ryanwi
-ms.date: 06/27/2018
+ms.date: 10/1/2018
 ms.topic: overview
 ms.service: service-fabric-mesh
 manager: timlt
-ms.openlocfilehash: 65a9b1afcc0e1e6d4fcbb60a38ab0764e6fe2f18
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: 361e742b3d9b7a5d2d12aafd15233077c967b825
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39226452"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48888205"
 ---
 # <a name="what-is-service-fabric-mesh"></a>Vad är Service Fabric Mesh?
 
-Azure Service Fabric Mesh är en fullständigt hanterad tjänst som gör att utvecklare kan distribuera mikrotjänstprogram utan att hantera virtuella datorer, lagring eller nätverk. Program som finns i Service Fabric Mesh körs och skalas utan att du att behöver bekymra dig om den infrastruktur som driver det.  Service Fabric Mesh består av kluster med tusentals datorer.  Alla klusteråtgärder är dolda från utvecklaren. Du behöver bara ladda upp din kod och ange resurser som du behöver, tillgänglighetskrav och resursbegränsningar.  Service Fabric Mesh allokerar automatiskt den infrastruktur som begärs av din programdistribution och hanterar även infrastrukturfel, vilket gör att dina program får hög tillgänglighet. Du behöver bara bry dig om programmets hälsotillstånd och svarstid, inte infrastrukturen.  
+Den här videon ger en snabb översikt över Service Fabric Mesh.
+> [!VIDEO https://www.youtube.com/embed/7qWeVGzAid0]
+
+Azure Service Fabric Mesh är en fullständigt hanterad tjänst som gör att utvecklare kan distribuera mikrotjänstprogram utan att hantera virtuella datorer, lagring eller nätverk. Program som finns i Service Fabric Mesh körs och skalas utan att du att behöver bekymra dig om den infrastruktur som driver det.  Service Fabric Mesh består av kluster med tusentals datorer.  Alla klusteråtgärder är dolda från utvecklaren. Du behöver bara ladda upp din kod och ange resurser som du behöver, tillgänglighetskrav och resursbegränsningar.  Service Fabric Mesh allokerar automatiskt infrastrukturen och hanterar infrastrukturfel, så att dina program har hög tillgänglighet. Du behöver bara bry dig om programmets hälsotillstånd och svarstid, inte infrastrukturen.  
 
 [!INCLUDE [preview note](./includes/include-preview-note.md)]
 
@@ -30,7 +33,7 @@ Service Fabric Mesh stöder alla programmeringsspråk och ramverk som kan köras
 
 Med Service Fabric Mesh kan du:
 
-- ”Lift and shift” befintliga program till containrar för att modernisera och köra dina aktuella program i stor skala. 
+- ”Lift and shift” befintliga program till containrar för att modernisera och köra dina aktuella program i stor skala.
 - Skapa och distribuera nya mikrotjänstprogram skalenligt i Azure.  Integrera med andra Azure-tjänster eller befintliga program som körs i containrar. Varje mikrotjänst är en del av ett säkert, nätverksisolerat program med resursstyrningsprinciper som definierats för CPU-kärnor, minne, diskutrymme och mer.
 - Integrera med och utöka befintliga program utan att ändra dessa program. Använda ditt egna virtuella nätverk för att ansluta befintliga program till det nya programmet.  
 - Modernisera dina befintliga Cloud Services-program genom att migrera till Service Fabric Mesh.  
@@ -43,13 +46,10 @@ Med Service Fabric Mesh kan du:
 
 - Distribuera och hantera program utan att explicit etablera och hantera infrastruktur.  Service Fabric Mesh etablerar, uppgraderar, korrigeringar och underhåller den underliggande infrastrukturen åt dig.
 - Konfigurera kontinuerlig integrering med integrerade verktyg för att enkelt paketera och distribuera program.
-- Utnyttja alla funktioner i Azure Resource Manager-resurser (till exempel spårningslogg och [rollbaserad åtkomstkontroll (RBAC)](/azure/role-based-access-control/overview)) eftersom alla resurser (såsom program, tjänster, hemligheter osv.) som du distribuerar till SF Mesh-tjänsten i Azure är Azure Resource Manager-resurser. 
+- Utnyttja alla funktioner i Azure Resource Manager-resurser (till exempel spårningslogg och [rollbaserad åtkomstkontroll](/azure/role-based-access-control/overview)) eftersom alla resurser som program, tjänster, hemligheter och så vidare, som du distribuerar till Service Fabric Mesh-tjänsten i Azure är Azure Resource Manager-resurser.
 - Distribuera och hantera resurser med hjälp av [Azure-portalen](https://portal.azure.com), Resource Manager-mallar eller Azure CLI/PowerShell-bibliotek.
-- Konfigurera driftsövervakning och -avisering med hjälp av [Application Insights](/azure/application-insights/) (eller valfritt verktyg) för att registrera spårningar för drifts- och diagnostikdata från plattformen. 
+- Konfigurera driftsövervakning och -avisering med hjälp av [Application Insights](/azure/application-insights/) (eller valfritt verktyg) för att registrera spårningar för drifts- och diagnostikdata från plattformen.
 - Få diagnostikinformation för program som skickas ut från programmodellen med hjälp av [Application Insights](/azure/application-insights/) eller valfritt verktyg.
-- Optimera resursanvändningen genom att ange regler för automatisk skalning för tjänster i programdefinitionen.  (kommer snart)
-- Skapa nätverksisolering och säkerhetsgränser för program – en kraftfull funktion i kombination med Hyper-V-containrar. Isolera nätverkstrafiken till och från de tjänster som använder flera IP-adresser per tjänst och isolerade virtuella nätverk per program.  (kommer snart) 
-
 
 ## <a name="mission-critical-platform-capabilities"></a>Uppdragskritiska plattformsfunktioner
 

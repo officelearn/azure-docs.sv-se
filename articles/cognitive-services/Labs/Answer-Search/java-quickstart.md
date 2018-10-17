@@ -1,33 +1,34 @@
 ---
-title: Projektet svaret Sök Java Snabbstart - kognitiva Microsoft-tjänster | Microsoft Docs
-description: Starta projektet svaret sökning i Java.
+title: 'Snabbstart: Project Answer Search, Java'
+titlesuffix: Azure Cognitive Services
+description: Börja använda Project Answer Search i Java.
 services: cognitive-services
 author: mikedodaro
-manager: rosh
+manager: cgronlun
 ms.service: cognitive-services
-ms.technology: project-answer-search
-ms.topic: article
+ms.component: project-answer-search
+ms.topic: quickstart
 ms.date: 04/13/2018
-ms.author: rosh, v-gedod
-ms.openlocfilehash: 4e1f606e1564981589e638e0e51a8b42633ca7b0
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
-ms.translationtype: MT
+ms.author: rosh
+ms.openlocfilehash: 1e10ecf685aaf5b60b94a5e9e0d8e118f45e5168
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35353940"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48867049"
 ---
-# <a name="project-answer-search-query-in-java"></a>Projektet svaret sökfråga i Java
-Den här artikeln använder Java för att demonstrera API Bing svaret sökning, en del av Microsoft kognitiva Services på Azure. API: et är en REST-webbtjänst kompatibel med alla programmeringsspråk som kan göra HTTP-begäranden och parsa JSON.
+# <a name="quickstart-project-answer-search-query-in-java"></a>Snabbstart: Project Answer Search-fråga i Java
+Den här artikeln använder Java för att demonstrera Bing Answer Search API, som är en del av Microsoft Cognitive Services i Azure. API:et är en REST-webbtjänst som är kompatibel med alla programmeringsspråk som kan göra HTTP-begäranden och parsa JSON.
  
-Exempelkoden använder Java med minimal externa beroenden.  Du kan också köra det på Linux- eller Mac OS X med Mono.
+Exempelkoden använder Java med minimala externa beroenden.  Du kan också köra den på Linux eller Mac OS X med Mono.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
-Hämta en åtkomstnyckel för den kostnadsfria utvärderingsversionen [kognitiva Services Labs](https://aka.ms/answersearchsubscription)
+Hämta en åtkomstnyckel för den kostnadsfria utvärderingsversionen av [Cognitive Services Labs](https://aka.ms/answersearchsubscription)
 
 ## <a name="request"></a>Förfrågan 
 
-Följande kod skapar en `WebRequest`anger rubriken åtkomst och lägger till en frågesträng för ”Gibraltar”.  Sedan skickar en begäran och tilldelar svar till en sträng som innehåller JSON-texten.
+Följande kod skapar en `WebRequest`, anger huvudet för åtkomstnyckeln och lägger till en frågesträng för ”Gibraltar”.  Därefter skickar den en begäran och tilldelar svaret till en sträng som ska innehålla JSON-texten.
 
 ````
     static String host = "https://api.labs.cognitive.microsoft.com";
@@ -47,13 +48,13 @@ Följande kod skapar en `WebRequest`anger rubriken åtkomst och lägger till en 
     SearchResults results = new SearchResults(new HashMap<String, String>(), response);
 ````
 
-## <a name="complete-code"></a>Fullständiga koden
+## <a name="complete-code"></a>Fullständig kod
 
-Sök-API Bing svar returnerar resultat från Bing sökmotor.
-1. Hämtar eller installerar gson-biblioteket.
-2. Skapa ett nytt Java-projekt i din favorit IDE eller -redigeraren.
+Bing Answer Search API returnerar resultatet från Bing-sökmotorn.
+1. Hämta eller installera gson-biblioteket.
+2. Skapa ett nytt Java-projekt i den IDE eller redigerare du föredrar.
 3. Lägg till koden nedan.
-4. Ersätt värdet för subscriptionKey med en giltig snabbtangent för din prenumeration.
+4. Ersätt värdet för subscriptionKey med en giltig åtkomstnyckel för din prenumeration.
 5. Kör programmet.
 
 ````
@@ -150,6 +151,6 @@ public class KnowledgeSrch {
 ````
 
 ## <a name="next-steps"></a>Nästa steg
-- [C#-Snabbstart](c-sharp-quickstart.md)
-- [Java-Snabbstart](java-quickstart.md)
-- [Noden Snabbstart](node-quickstart.md)
+- [Snabbstart för C#](c-sharp-quickstart.md)
+- [Snabbstart för Java](java-quickstart.md)
+- [Snabbstart för Node](node-quickstart.md)

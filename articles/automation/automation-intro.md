@@ -10,12 +10,12 @@ keywords: azure automation, DSC, powershell, desired state configuration, update
 ms.date: 03/15/2018
 ms.custom: mvc
 ms.topic: overview
-ms.openlocfilehash: ce30a9eb11cd951ca7d8197c15c3becba333f5a9
-ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
+ms.openlocfilehash: e09a1b1c1a849e9957c2969da2b8e4c1d00347ff
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/11/2018
-ms.locfileid: "34053784"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44297710"
 ---
 # <a name="an-introduction-to-azure-automation"></a>En introduktion till Azure Automation
 
@@ -65,7 +65,7 @@ I [Automation-galleriet](automation-runbook-gallery.md) kan du söka efter runbo
 
 Azure Automation kan användas under hela livscykeln för din infrastruktur och dina program. Överför kunskap till systemet om hur organisationen levererar och underhåller arbetsbelastningar. Skriv på vanliga språk som PowerShell, Desired State Configuration, Python och grafiska runbook-flöden. Få en fullständig inventering av distribuerade resurser för målanpassning, rapportering och efterlevnad. Identifiera ändringar som kan leda till felaktig konfiguration och få bättre efterlevnad.
 
-* **Skapa/distribuera resurser** – Distribuera virtuella datorer i en hybridmiljö med runbooks och Azure Resource Manager-mallar. Integrera i utvecklingsverktyg som Jenkins och Visual Studio Team Services.
+* **Skapa/distribuera resurser** – Distribuera virtuella datorer i en hybridmiljö med runbooks och Azure Resource Manager-mallar. Integrera i utvecklingsverktyg som Jenkins och Azure DevOps.
 * **Konfigurera virtuella datorer** – Utvärdera och konfigurera Windows- och Linux-datorer med önskad konfiguration för infrastrukturen och programmet.
 * **Övervaka** – Identifiera ändringar på datorer som orsakar problem och åtgärda eller eskalera till hanteringssystem.
 * **Skydda** – Placera den virtuella datorn i karantän om en säkerhetsvarning genereras. Ange gästkrav.

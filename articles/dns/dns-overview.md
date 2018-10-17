@@ -7,12 +7,12 @@ ms.service: dns
 ms.topic: overview
 ms.date: 9/24/2018
 ms.author: victorh
-ms.openlocfilehash: e3e04bf7e35b22a56465810f476323ed217e047a
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: f68281f71ed525798410fb80b0d0175d38050c40
+ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46967633"
+ms.lasthandoff: 10/06/2018
+ms.locfileid: "48829927"
 ---
 # <a name="what-is-azure-dns"></a>Vad är Azure DNS?
 
@@ -24,11 +24,11 @@ Följande funktioner ingår med Azure DNS:
 
 ## <a name="reliability-and-performance"></a>Tillförlitlighet och prestanda
 
-DNS-domäner i Azure DNS finns på Azures globala nätverk med DNS-namnservrar. Azure DNS använder anycast-nätverk så att varje DNS-fråga besvaras av den närmast tillgängliga DNS-servern. Detta ger både snabb prestanda och hög tillgänglighet för din domän.
+DNS-domäner i Azure DNS finns på Azures globala nätverk med DNS-namnservrar. Azure DNS använder anycast-nätverk så att varje DNS-fråga besvaras av den närmast tillgängliga DNS-servern med både snabb prestanda och hög tillgänglighet för din domän.
 
 ## <a name="security"></a>Säkerhet
 
-Azure DNS-tjänsten bygger på Azure Resource Manager. Därmed får du Resource Manager-funktioner som:
+Azure DNS-tjänsten bygger på Azure Resource Manager och erbjuder bland annat följande funktioner:
 
 * [rollbaserad åtkomstkontroll](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#access-control) – för att kontrollera vem som har åtkomst till specifika åtgärder för din organisation.
 
@@ -41,9 +41,9 @@ Mer information finns i [Så skyddar du DNS-zoner och -poster](dns-protect-zones
 
 ## <a name="ease-of-use"></a>Användbarhet
 
-Azure DNS-tjänsten kan hantera DNS-poster för dina Azure-tjänster och kan även tillhandahålla DNS för din externa resurser. Azure DNS är integrerat i Azure-portalen och använder samma autentiseringsuppgifter, supportkontrakt och fakturering som dina andra Azure-tjänster. 
+Azure DNS-tjänsten kan hantera DNS-poster för dina Azure-tjänster och tillhandahåller DNS för dina externa resurser. Azure DNS är integrerat i Azure-portalen och använder samma autentiseringsuppgifter, supportkontrakt och fakturering som dina andra Azure-tjänster. 
 
-DNS-debitering baseras på det antal DNS-zoner som tillhandahålls i Azure och på antalet DNS-frågor. Mer information om prissättning finns på sidan om [prisinformation för Azure DNS](https://azure.microsoft.com/pricing/details/dns/).
+Debiteringen i DNS baseras på antalet DNS-zoner som tillhandahålls i Azure och antalet DNS-frågor som mottagits. Mer information om prissättning finns på sidan om [prisinformation för Azure DNS](https://azure.microsoft.com/pricing/details/dns/).
 
 Dina domäner och poster kan hanteras med hjälp av Azure-portalen, Azure PowerShell-cmdlets och plattformsoberoende Azure CLI. Program som kräver automatisk DNS-hantering kan integreras med tjänsten med hjälp av REST API och SDK:er.
 

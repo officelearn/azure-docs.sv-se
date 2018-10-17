@@ -6,15 +6,15 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 07/06/2018
+ms.date: 10/10/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 4638b697dcaa0d4c11bae1878a94f76f6237d4a4
-ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
+ms.openlocfilehash: 0404774f1cb347ceead8b78d1a9a6506712dea5c
+ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42154789"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49069105"
 ---
 # <a name="set-up-disaster-recovery-for-azure-vms-to-a-secondary-azure-region"></a>Konfigurera haveriberedskap för virtuella Azure-datorer till en sekundär Azure-region
 
@@ -169,6 +169,19 @@ Om du vill åsidosätta standardinställningarna för replikering klickar du på
 
 > [!IMPORTANT]
   Om du aktiverar konsekvens för flera virtuella datorer kommunicerar datorer i replikeringsgruppen med varandra på port 20004. Se till att det inte finns någon brandvägg som blockerar den interna kommunikationen mellan de virtuella datorerna på port 20004. Om du vill att virtuella datorer med Linux ska vara med i en replikeringsgrupp måste du se till att du manuellt öppnar för utgående trafik på port 20004 enligt riktlinjerna för den specifika Linux-versionen.
+
+### <a name="configure-encryption-settings"></a>Konfigurera krypteringsinställningar
+
+Om den virtuella källdatorn har Azure-diskkryptering (ADE) aktiverad visas nedanstående avsnitt med krypteringsinställningar.
+
+- **Diskkrypteringsnyckelvalv**: som standard skapar Azure Site Recovery ett nytt nyckelvalv i målregionen med namn som har suffixet ”asr” baserat på den virtuella källdatorns diskkrypteringsnycklar. Om det nyckelvalv som skapades av Azure Site Recovery redan finns återanvänds det.
+- **Nyckelkrypteringsnyckelvalv**: som standard skapar Azure Site Recovery ett nytt nyckelvalv i målregionen med namn som har suffixet ”asr” baserat på den virtuella källdatorns nyckelkrypteringsnycklar. Om det nyckelvalv som skapades av Azure Site Recovery redan finns återanvänds det.
+
+Klicka på ”Anpassa” intill krypteringsinställningarna för att åsidosätta standardvärdena och välja anpassade nyckelvalv.
+
+>[!NOTE]
+>Endast virtuella Azure-datorer som kör Windows OS och är [aktiverade för kryptering med Azure AD-appen](https://aka.ms/ade-aad-app) stöds för närvarande av Azure Site Recovery.
+>
 
 ### <a name="track-replication-status"></a>Spåra replikeringsstatus
 

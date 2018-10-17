@@ -15,24 +15,24 @@ ms.devlang: na
 ms.topic: overview
 ms.date: 10/27/2017
 ms.author: gokuma
-ms.openlocfilehash: 62c8ff225b9c649afa7532ad5edfdd627e573d81
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: a6f085b0fa11f117b181714a3b92cdc3a7c9e9a9
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47032248"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48870680"
 ---
 # <a name="introduction-to-azure-data-science-virtual-machine-for-linux-and-windows"></a>Introduktion till Azure Data Science Virtual Machine för Linux och Windows
 
-Den virtuella datorn för datavetenskap (DSVM) är en anpassad VM-avbildning i Microsoft Azure-molnet som skapats specifikt för datavetenskap. Många populära verktyg för datavetenskap och annat finns förinstallerade och förkonfigurerade så att du kan börja direkt med att skapa intelligenta program för avancerade analyser. Den är tillgänglig på Windows Server och Linux. Vi erbjuder Windows-versionen av DSVM på Server 2016 och Server 2012. Vi erbjuder Linux-versioner av DSVM på Ubuntu 16.04 LTS och CentOS 7.4.
+Den virtuella datorn för datavetenskap (DSVM) är en anpassad VM-avbildning i Microsoft Azure-molnet som skapats specifikt för datavetenskap. Många populära verktyg för datavetenskap och annat finns förinstallerade och förkonfigurerade så att du kan börja direkt med att skapa intelligenta program för avancerade analyser. Det finns i Windows Server och Linux. Vi erbjuder Windows-versionen av DSVM på Server 2016 och Server 2012. Vi erbjuder Linux-versioner av DSVM på Ubuntu 16.04 LTS och CentOS 7.4.
 
 Det här avsnittet tar upp vad du kan göra med den virtuella datorn för datavetenskap, beskriver några viktiga scenarier för användning av den virtuella datorn, specificerar viktiga funktioner i Windows- och Linux-versionerna och innehåller instruktioner om hur du kommer igång med dem.
 
 
 ## <a name="what-can-i-do-with-the-data-science-virtual-machine"></a>Vad kan jag göra med den virtuella datorn för datavetenskap?
-Målet med den virtuella datorn för datavetenskap (DSVM) är att ge datapersonal på alla kunskapsnivåer och i alla roller en smidig, förkonfigurerad och helt integrerad datavetenskapsmiljö. I stället för att distribuera en jämförbar arbetsyta på egen hand kan du etablera en DSVM – och på så sätt spara dagar eller till och med _veckor_ på installation, konfiguration och pakethanteringsprocesser. När din DSVM har allokerats kan du omedelbart börja arbeta med ditt datavetenskapsprojekt.
+Målet med den virtuella datorn för datavetenskap (DSVM) är att ge datapersonal på alla kunskapsnivåer och inom alla branscher en smidig, förkonfigurerad och helt integrerad datavetenskapsmiljö. I stället för att distribuera en jämförbar arbetsyta på egen hand kan du etablera en DSVM – och på så sätt spara dagar eller till och med _veckor_ på installation, konfiguration och pakethanteringsprocesser. När din DSVM har allokerats kan du omedelbart börja arbeta med ditt datavetenskapsprojekt.
 
-Den virtuella datorn för datavetenskap har utformats och konfigurerats för att arbeta med en rad olika användningsscenarier. Du kan skala upp eller ned miljön när projektbehoven ändras. Du kan använda det språk du föredrar för att programmera datavetenskapsuppgifter. Du kan installera andra verktyg och anpassa systemet efter dina specifika behov.
+Den virtuella datorn för datavetenskap har utformats och konfigurerats för att arbeta med en rad olika användningsscenarier. Du kan skala upp eller ned din miljö när projektbehoven ändras, använda det språk du föredrar för att programmera datavetenskapsuppgifter och installera andra verktyg för att anpassa systemet efter dina specifika behov.
 
 ## <a name="key-scenarios"></a>Viktiga scenarier
 I det här avsnittet föreslås några viktiga scenarier som den virtuella datorn för datavetenskap kan distribueras för.
@@ -47,13 +47,13 @@ Företagsutbildare och lärare som undervisar i datavetenskap erbjuder normalt e
 Datavetenskapstävlingar/”hackathons” eller storskalig datamodellering och -utforskning kräver utskalad maskinvarukapacitet, vanligtvis under kort tid. Den virtuella datorn för datavetenskap kan bidra till att replikera datavetenskapsmiljön snabbt på begäran, på utskalade servrar där experiment som kräver kraftfulla beräkningsresurser kan köras.
 
 ### <a name="short-term-experimentation-and-evaluation"></a>Kortsiktig experimentering och utvärdering
-Den virtuella datorn för datavetenskap kan användas för att utvärdera och lära sig verktyg, till exempel Microsoft ML Server, SQL Server, Visual Studio-verktyg, Jupyter, deep learning-/ML-verktyg och nya verktyg som är populära i communityn, med minimal konfiguration. Eftersom den virtuella datorn för datavetenskap kan konfigureras snabbt kan den användas i andra kortsiktiga användningsscenarier, till exempel för att replikera publicerade experiment, köra demonstrationer, följa genomgångar under onlinesessioner eller konferenssjälvstudier.
+Den virtuella datorn för datavetenskap kan användas för att utvärdera och lära sig verktyg, till exempel Microsoft ML Server, SQL Server, Visual Studio-verktyg, Jupyter, deep learning-/ML-verktyg och nya verktyg som är populära i communityn, med minimal konfiguration. Eftersom den virtuella datorn för datavetenskap kan konfigureras snabbt kan den användas i andra kortsiktiga användningsscenarier, till exempel för att replikera publicerade experiment, köra demonstrationer, följa genomgångar under onlinesessioner och konferenssjälvstudier.
 
 ### <a name="deep-learning"></a>Deep learning
-Den virtuella datorn för datavetenskap kan användas som utbildningsmodell med hjälp av deep learning-algoritmer på GPU-baserad maskinvara (grafikprocessorer). Genom att utnyttja Azure-molnets VM-skalningsfunktioner hjälper DSVM dig att använda GPU-baserad maskinvara i molnet enligt behov. Det går att växla till en GPU-baserad virtuell dator vid utbildning av stora modeller eller behov av snabba beräkningar samtidigt som samma OS-disk behålls.  Windows Server 2016-versionen av DSVM levereras förinstallerad med GPU-drivrutiner, -ramverk och GPU-versioner av deep learning-ramverk. I Linux är deep learning på GPU aktiverat på DSVM för både CentOS och Ubuntu. Du kan distribuera Ubuntu-, CentOS- eller Windows 2016-versionen av den virtuella datorn för datavetenskap till en icke GPU-baserad virtuell Azure-dator. Då återställs alla deep learning-ramverk till CPU-läget. 
+Den virtuella datorn för datavetenskap kan användas som utbildningsmodeller med hjälp av deep learning-algoritmer på GPU-baserad maskinvara (grafikprocessorer). Genom att utnyttja Azure-molnets VM-skalningsfunktioner hjälper DSVM dig att använda GPU-baserad maskinvara i molnet enligt behov. Det går att växla till en GPU-baserad virtuell dator vid utbildning av stora modeller eller behov av snabba beräkningar samtidigt som samma OS-disk behålls.  Windows Server 2016-versionen av DSVM levereras förinstallerad med GPU-drivrutiner, -ramverk och GPU-versioner av deep learning-ramverk. I Linux-utgåvan är deep learning på GPU aktiverat på DSVM för både CentOS och Ubuntu. Du kan distribuera Ubuntu-, CentOS- eller Windows 2016-versionen av den virtuella datorn för datavetenskap till en icke GPU-baserad virtuell Azure-dator. Då återställs alla deep learning-ramverk till CPU-läget. 
 
 ## <a name="whats-included-in-the-data-science-vm"></a>Vad ingår i den virtuella datorn för datavetenskap?
-Många populära datavetenskaps- och deep learning-verktyg har redan installerats och konfigurerats på den virtuella datorn för datavetenskap. Den innehåller också verktyg som gör det enkelt att arbeta med olika Azure-produkter för data och analys. Du kan utforska och skapa förutsägelsemodeller för storskaliga datamängder med hjälp av Microsoft ML Server (R, Python) eller SQL Server 2017. En mängd andra verktyg från communityn för öppen källkod och från Microsoft ingår också, samt exempelkod och -anteckningsböcker. I följande tabell specificeras och jämförs huvudkomponenterna som ingår i Windows- och Linux-versionerna av den virtuella datorn för datavetenskap.
+Många populära datavetenskaps- och deep learning-verktyg har redan installerats och konfigurerats på den virtuella datorn för datavetenskap. Den innehåller också verktyg som gör det enkelt att arbeta med olika Azure-data och analys-produkter, till exempel Microsoft ML Server (R, Python) för att skapa prediktiva modeller eller SQL Server 2017 för utforskning av storskaliga datauppsättningar. En mängd andra verktyg från communityn för öppen källkod och från Microsoft ingår också, samt exempelkod och -anteckningsböcker. I följande tabell specificeras och jämförs huvudkomponenterna som ingår i Windows- och Linux-versionerna av den virtuella datorn för datavetenskap.
 
 
 | **Verktyg**                                                           | **Windows-version** | **Linux-version** |

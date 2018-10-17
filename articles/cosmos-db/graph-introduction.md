@@ -8,57 +8,42 @@ ms.service: cosmos-db
 ms.component: cosmosdb-graph
 ms.devlang: na
 ms.topic: overview
-ms.date: 01/05/2017
+ms.date: 09/05/2018
 ms.author: lbosq
-ms.openlocfilehash: a0eec8aec315eefcbcc859828fa68ea0ccee6190
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: 143aa1f26110b68e4dcf417c93b04f65e2993e89
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43695358"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44051654"
 ---
 # <a name="introduction-to-azure-cosmos-db-gremlin-api"></a>Introduktion till Azure Cosmos DB: Gremlin-API
 
-[Azure Cosmos DB](introduction.md) är den globalt distribuerade databastjänsten för flera datamodeller från Microsoft för verksamhetskritiska program. Azure Cosmos DB erbjuder följande funktioner, som alla backas upp av [branschledande serviceavtal](https://azure.microsoft.com/support/legal/sla/cosmos-db/):
+[Azure Cosmos DB](introduction.md) är den globalt distribuerade databastjänsten för flera datamodeller från Microsoft för verksamhetskritiska program. Den stöder flera databasmodeller och dokument, nyckelvärden, diagram och kolumndatamodeller. Azure Cosmos DB Gremlin API används för att lagra och bearbeta diagramdata. Gremlin-API:t har stöd för modellering av diagramdata och innehåller API:er för att bläddra i diagramdata.
 
-* [Nyckelfärdig global distribution](distribute-data-globally.md)
-* [Elastisk skalbarhet av dataflöden och lagringsutrymme](partition-data.md) över hela världen
-* Svarstider på enstaka millisekunder vid 99:e percentilen
-* [Fem väldefinierade konsekvensnivåer](consistency-levels.md)
-* Garanterat hög tillgänglighet 
+Den här artikeln ger en översikt över Azure Cosmos DB Gremlin-API och förklarar hur du kan använda den för att lagra massiva diagram med miljarder brytpunkter och kanter. Du kan fråga diagrammen med svarstider på millisekunder och enkelt utveckla diagrammets struktur och schema. Du kan ställa frågor mot Azure Cosmos DB med diagramtraverseringsspråket [Apache TinkerPop](http://tinkerpop.apache.org) eller [Gremlin](http://tinkerpop.apache.org/docs/current/reference/#graph-traversal-steps).
 
-Azure Cosmos DB [indexerar alla data automatiskt](http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf) utan att du behöver bry dig om schema- eller indexhantering. Den stöder flera modeller och dokument, nyckelvärden, diagram och kolumndatamodeller.
-
-Gremlin-API i Azure Cosmos DB innehåller:
-
-- Diagrammodellering.
-- Bläddrings-API:er.
-- Nyckelfärdig global distribution.
-- Elastisk skalbarhet av lagring och dataflöde med mindre än 10 ms svarstider för läsning och mindre än 15 ms vid 99:e percentilen.
-- Automatisk indexering med omedelbar frågetillgänglighet.
-- Justerbara konsekvensnivåer.
-- Serviceavtal med 99,99 % tillgänglighet för alla konton i en region och alla konton i flera regioner med avslappnad konsekvens och 99,999 % lästillgänglighet för alla flerregions-databaskonton.
-
-Du kan ställa frågor mot Azure Cosmos DB med diagramtraverseringsspråket [Apache TinkerPop](http://tinkerpop.apache.org) eller [Gremlin](http://tinkerpop.apache.org/docs/current/reference/#graph-traversal-steps).
-
-Den här artikeln ger en översikt över Azure Cosmos DB Gremlin-API och förklarar hur du kan använda den för att lagra massiva diagram med miljarder brytpunkter och kanter. Du kan fråga diagrammen med svarstider på millisekunder och enkelt utveckla diagrammets struktur och schema.
-
-## <a name="graph-database"></a>Diagramdatabas
+## <a name="what-is-a-graph-database"></a>Vad är en diagramdatabas?
 Data som de visas i verkligheten är naturligt sammanlänkade. Traditionell datamodellering fokuserar på entiteter. För många program finns det även ett behov av att modellera eller att modellera både entiteter och relationer på ett naturligt sätt.
 
-Ett [diagram](http://mathworld.wolfram.com/Graph.html) är en struktur som består av [brytpunkter](http://mathworld.wolfram.com/GraphVertex.html) och [kanter](http://mathworld.wolfram.com/GraphEdge.html). Både brytpunkterna och kanterna kan ha ett godtyckligt antal egenskaper. Brytpunkter betecknar diskreta objekt, till exempel en person, en plats eller en händelse. Kanter betecknar relationer mellan brytpunkter. En person kan till exempel känna till en annan person, vara inblandad i en händelse och nyligen ha varit på en plats. Egenskaper uttrycker information om brytpunkterna och kanterna. Exempelegenskaper inkluderar en brytpunkt som har ett namn, ålder och kant som har en tidsstämpel och/eller en vikt. Mer formellt, kallas den här modellen för ett [egenskapsdiagram](http://tinkerpop.apache.org/docs/current/reference/#intro). Azure Cosmos DB stöder egenskapsdiagram-modellen.
+Ett [diagram](http://mathworld.wolfram.com/Graph.html) är en struktur som består av [brytpunkter](http://mathworld.wolfram.com/GraphVertex.html) och [kanter](http://mathworld.wolfram.com/GraphEdge.html). Både brytpunkterna och kanterna kan ha ett godtyckligt antal egenskaper. 
+
+* **Brytpunkter** – Brytpunkter betecknar diskreta objekt, till exempel en person, en plats eller en händelse. 
+
+* **Kanter** – Kanter betecknar relationer mellan brytpunkter. En person kan till exempel känna till en annan person, vara inblandad i en händelse och nyligen ha varit på en plats. 
+
+* **Egenskaper** – Egenskaper uttrycker information om brytpunkterna och kanterna. Exempelegenskaperna har en brytpunkt för namn och ålder. En kant med tidsstämpel och/eller en vikt. Mer formellt, kallas den här modellen för ett [egenskapsdiagram](http://tinkerpop.apache.org/docs/current/reference/#intro). Azure Cosmos DB stöder egenskapsdiagram-modellen.
 
 Följande exempeldiagram visar till exempel relationerna mellan personer, mobila enheter, intressen och operativsystem:
 
 ![Exempeldatabas som visar personer, enheter och intressen](./media/graph-introduction/sample-graph.png)
 
-Diagram är användbara för att förstå en mängd olika datauppsättningar inom vetenskap, teknik och företagsvärlden. Diagramdatabaser låter dig modellera och lagra diagram på ett naturligt och effektivt sätt, vilket gör dem användbara för många scenarier. Diagramdatabaser är vanligtvis NoSQL-databaser eftersom användningsfallen ofta också kräver schemaflexibilitet och snabba iterationer.
-
-Diagram erbjuder en ny och kraftfull teknik för datamodellering. Men bara det här faktumet är inte en tillräcklig anledning att använda en diagramdatabas. För många användningsfall och mönster som involverar diagrambläddring, kan diagram överträffa traditionella SWL- och NoSQL-databaser i storlek. Den här prestandaskillnaden förstärks ytterligare vid bläddring av mer än en relation som en vän av en vän.
+Diagramdatabaser låter dig modellera och lagra diagram på ett naturligt och effektivt sätt, vilket gör dem användbara för många scenarier. Diagramdatabaser är vanligtvis NoSQL-databaser eftersom användningsfallen ofta också kräver schemaflexibilitet och snabba iterationer.
 
 Du kan kombinera den snabba bläddringen som diagramdatabaser erbjuder med diagramalgoritmer som djup först-sökningar, bredd först-sökningar och Dijkstras algoritm för att lösa problem inom olika domäner som sociala nätverk, innehållshantering, geospatiala och rekommendationer.
 
-## <a name="planet-scale-graphs-with-azure-cosmos-db"></a>Diagram på planetskala med Azure Cosmos DB
+## <a name="features-of-azure-cosmos-db-graph-database"></a>Funktioner i diagramdatabasen Azure Cosmos DB
+ 
 Azure Cosmos DB är en fullständigt hanterad diagramdatabas som erbjuder global distribution, elastisk skalbarhet av lagring och dataflöde, automatisk indexering och frågor, justerbara konsekvensnivåer och stöd för TinkerPop-standarden.
 
 ![Azure Cosmos DB-diagramarkitektur](./media/graph-introduction/cosmosdb-graph-architecture.png)
@@ -96,7 +81,8 @@ Azure Cosmos DB erbjuder följande differentierade funktioner jämfört med andr
 Azure Cosmos DB kan också använda flera modeller som dokument och diagram i samma containrar/databaser. Du kan använda en dokumentcontainer och lagra diagramdata sida vid sida med dokument. Du kan använda både SQL-frågor via JSON och Gremlin-frågor för att fråga efter samma data som ett diagram.
 
 ## <a name="get-started"></a>Kom igång
-Du kan använda Azure-kommandoradsgränssnittet (CLI), Azure PowerShell eller Azure Portal med stöd för Gremlin-API för att skapa Azure Cosmos DB-konton. När du har skapat konton, erbjuder Azure-portalen en tjänstslutpunkt som `https://<youraccount>.gremlin.cosmosdb.azure.com`, vilket erbjuder en WebSocket-klientdel för Gremlin. Du kan konfigurera dina TinkerPop-kompatibla verktyg som [Gremlin konsolen](http://tinkerpop.apache.org/docs/current/reference/#gremlin-console), för att ansluta till den här slutpunkten och skapa program i Java, Node.js och Gremlin-klientdrivrutiner.
+
+Du kan använda Azure-kommandoradsgränssnittet (CLI), Azure PowerShell eller Azure-portalen för att skapa och komma åt Azure Cosmos DB Gremlin API-konton. När du har skapat ett konto kommer du åt diagramdatabaserna inom kontot med hjälp av en Gremlin-API-tjänstslutpunkt `https://<youraccount>.gremlin.cosmosdb.azure.com`, som tillhandahåller en WebSocket-klientdel för Gremlin. Du kan konfigurera dina TinkerPop-kompatibla verktyg som [Gremlin konsolen](http://tinkerpop.apache.org/docs/current/reference/#gremlin-console), för att ansluta till den här slutpunkten och skapa program i Java, Node.js och Gremlin-klientdrivrutiner.
 
 Följande tabell visar populära Gremlin-drivrutiner som du kan använda mot Azure Cosmos DB:
 
@@ -109,7 +95,33 @@ Följande tabell visar populära Gremlin-drivrutiner som du kan använda mot Azu
 | [PHP](https://packagist.org/packages/brightzone/gremlin-php) | [Gremlin-PHP på GitHub](https://github.com/PommeVerte/gremlin-php) | [Skapa diagram med PHP](create-graph-php.md) |
 | [Gremlin-konsol](https://tinkerpop.apache.org/downloads.html) | [TinkerPop-dokument](http://tinkerpop.apache.org/docs/current/reference/#gremlin-console) |  [Skapa diagram med Gremlin-konsolen](create-graph-gremlin-console.md) |
 
-## <a name="scenarios-for-graph-support-of-azure-cosmos-db"></a>Scenarier för diagramstöd för Azure Cosmos DB
+## <a name="graph-database-design-considerations"></a>Designöverväganden för diagramdatabasen
+
+Om det vid diagramutformning tas ett beslut att modellera en entitet som en egen brytpunkt, i stället för som en egenskap hos andra brytpunktsentiteter, påverkas både prestanda och kostnader. Huvuddrivrutinen för det här beslutet beror i första hand på hur data kommer att efterfrågas, samt skalbarheten i själva modellen.
+
+Tänk igenom följande frågor innan du börjar planera hur entiteten ska modelleras:
+
+* Vilka entiteter måste hämtas som brytpunkter för de flesta av mina frågor?
+
+* Vilken information som jag lagt till i diagrammet används i filtreringssyfte?
+
+* Vilka entiteter utgör kopplingar till andra entiteter som sedan hämtas för att man ska få tillgång till deras värden?
+
+* Vilka uppgifter måste min fråga hämta och vilka RU-kostnader ska de generera?
+
+Tänk dig följande diagramdesign:
+
+![Exempel på designöverväganden för diagram](./media/graph-introduction/graph-design-considerations-example.png)
+
+* Beroende på frågorna är det möjligt att relationen Distrikt -> Butik används unikt för filtrera brytpunkterna för butik. Ett exempel på detta är om frågorna är av typen ”hämta alla butiker som hör till ett visst distrikt”. Om så är fallet kanske du ska dölja entiteten Distrikt som självständig brytpunkt och istället låta den bli en egenskap i brytpunkten för Butik. 
+
+* Den här metoden har fördelen att den sänker kostnaderna för att hämta varje brytpunkt för Butik genom att hämta tre diagramobjekt i taget (Distrikt, Distrikt -> Butik, Butik) till en enskild brytpunkt för Butik. Detta kan ge prestandaförbättringar och en lägre kostnad per fråga.
+
+* Brytpunkten Butik länkas till två olika entiteter – Personal och Produkt. Detta gör Butik till en obligatorisk brytpunkt, eftersom den ger tillgång till fler bläddringsmöjligheter.  
+
+
+
+## <a name="scenarios-that-can-use-gremlin-api"></a>Scenarier där Gremlin-API:t kan användas
 Här följer några scenarier där diagramstödet för Azure Cosmos DB kan användas:
 
 * Sociala nätverk

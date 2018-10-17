@@ -1,21 +1,21 @@
 ---
-title: Hämta språk som stöds med Translator Text och Python | Microsoft Docs
-titleSuffix: Microsoft Cognitive Services
-description: I den här snabbstarten hämtar du en lista över språk som stöds för översättning, transkribering och ordlistesökningar med hjälp av Translator Text-API:t med Java i Cognitive Services.
+title: 'Snabbstart: Hämta språk som stöds – Translator Text, Python'
+titleSuffix: Azure Cognitive Services
+description: I den här snabbstarten hämtar du en lista över språk som stöds för översättning, transkribering och ordlistesökningar med hjälp av Translator Text-API:et med Java.
 services: cognitive-services
 author: noellelacharite
-manager: nolachar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-text
 ms.topic: quickstart
 ms.date: 06/21/2018
 ms.author: nolachar
-ms.openlocfilehash: 3ae3c6be814f79541e39eddd3be137b71cc1a494
-ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
+ms.openlocfilehash: a68a1b31cb844a4873bf34c6a292beeb2a4b61c0
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "43771007"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46121744"
 ---
 # <a name="quickstart-get-supported-languages-with-python"></a>Snabbstart: Hämta språk som stöds med Python
 
@@ -74,7 +74,7 @@ f.write (json)
 f.close
 ```
 
-## <a name="languages-response"></a>Languages-svar
+## <a name="languages-response"></a>Språksvar
 
 Ett svar som anger att åtgärden lyckades returneras i JSON, som du ser i följande exempel:
 

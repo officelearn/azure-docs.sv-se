@@ -1,56 +1,57 @@
 ---
-title: Skapa en Custom Vision Service Java-självstudie – Azure Cognitive Services | Microsoft Docs
-description: Utforska en grundläggande Java-app som använder anpassat API för visuellt innehåll i Microsoft Cognitive Services. Skapa ett projekt, lägga till taggar, ladda upp bilder, träna ditt projekt och göra en förutsägelse med hjälp av standardslutpunkt.
+title: 'Självstudie: Skapa ett projekt för bildklassificering – Custom Vision Service, Java'
+titlesuffix: Azure Cognitive Services
+description: Skapa ett projekt, lägg till taggar, ladda upp bilder, träna ditt projekt och gör en förutsägelse med hjälp av standardslutpunkten.
 services: cognitive-services
 author: areddish
-manager: chbuehle
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: custom-vision
-ms.topic: article
+ms.topic: tutorial
 ms.date: 08/28/2018
 ms.author: areddish
-ms.openlocfilehash: a83a2f5cac9281a4cd79c1a0cead0f2af82d73df
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
-ms.translationtype: MT
+ms.openlocfilehash: 9a7f50e0eb33016d6a2d8f28be047b327135c51f
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44305711"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46367363"
 ---
-# <a name="use-custom-vision-api-to-build-an-image-classification-project-with-java"></a>Använd anpassad API för visuellt innehåll för att skapa ett projekt för klassificering av avbildning med Java
+# <a name="tutorial-build-an-image-classification-project-with-java"></a>Självstudie: Skapa ett projekt för bildklassificering med Java
 
-Lär dig hur du skapar ett projekt för klassificering av avbildning med Custom Vision Service med hjälp av Java. När den har skapats kan du lägga till taggar, ladda upp bilder, träna projektet, hämta projektets standard förutsägelse slutpunkts-URL och använder programmatiskt en bild. Använd det här exemplet med öppen källkod som en mall för att skapa din egen app med hjälp av anpassat API för visuellt innehåll.
+Lär dig hur du skapar ett projekt för bildklassificering med hjälp av Custom Vision Service och Java. När projektet har skapats kan du lägga till taggar, ladda upp bilder, träna projektet, hämta slutpunkts-URL:en för projektets standardförutsägelse och använda projektet för att testa en bild programmatiskt. Använd det här exemplet med öppen källkod som en mall för att skapa din egen app med hjälp av API för Custom Vision.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 - JDK 7 eller 8 installerat.
-- Maven har installerats.
+- Maven installerat.
 
-## <a name="get-the-training-and-prediction-keys"></a>Hämta nycklar Inlärnings- och förutsägelsetransaktioner
+## <a name="get-the-training-and-prediction-keys"></a>Hämta utbildnings- och förutsägelsenycklarna
 
-För att få nycklarna som används i det här exemplet kan du gå till den [Custom Vision-webbsida](https://customvision.ai) och välj den __kugghjulsikonen__ i det övre högra hörnet. I den __konton__ och kopiera värdena från den __utbildning nyckeln__ och __förutsägelse nyckeln__ fält.
+För att hämta nycklarna som används i det här exemplet går du till [Custom Vision-webbsidan](https://customvision.ai) och väljer __kugghjulsikonen__ i det övre högra hörnet. Kopiera värdena från fälten __Utbildningsnyckel__ och __Förutsägelsenyckel__ i avsnittet __Konton__.
 
-![Bild av nycklar UI](./media/python-tutorial/training-prediction-keys.png)
+![Bild på gränssnittet för nycklarna](./media/python-tutorial/training-prediction-keys.png)
 
 ## <a name="install-the-custom-vision-service-sdk"></a>Installera Custom Vision Service SDK
 
-Du kan installera SDK: N för Custom Vision från maven-centrallager:
-* [Utbildning SDK](https://mvnrepository.com/artifact/com.microsoft.azure.cognitiveservices/azure-cognitiveservices-customvision-training)
-* [Förutsägelse SDK](https://mvnrepository.com/artifact/com.microsoft.azure.cognitiveservices/azure-cognitiveservices-customvision-prediction)
+Du kan installera SDK för Custom Vision från maven-centrallager:
+* [Training SDK](https://mvnrepository.com/artifact/com.microsoft.azure.cognitiveservices/azure-cognitiveservices-customvision-training)
+* [Prediction SDK](https://mvnrepository.com/artifact/com.microsoft.azure.cognitiveservices/azure-cognitiveservices-customvision-prediction)
 
 ## <a name="understand-the-code"></a>Förstå koden
 
-Den fullständiga projekt, inklusive bilder, är tillgänglig från den [Custom Vision Azure-exempel för Java-lagringsplatsen](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples/tree/master). 
+Den fullständiga projekt, inklusive bilder, är tillgänglig från [Custom Vision Azure-exempel för Java-lagringsplatsen](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples/tree/master). 
 
-Använd din favorit Java-IDE för att öppna den `Vision/CustomVision` projekt. 
+Använd din favorit Java-IDE för att öppna projektet `Vision/CustomVision`. 
 
-Det här programmet använder nyckeln utbildning som hämtades tidigare för att skapa ett nytt projekt med namnet __Java exempelprojektet__. Det laddar sedan upp bilder för att träna och testa en klassificerare. Klassificeraren anger om ett träd är en __Viol__ eller en __japanska Välj ut__.
+Det här programmet använder den utbildningsnyckel som du hämtade tidigare för att skapa ett nytt projekt med namnet __Exampelprojekt med Java__. Det laddar sedan upp bilder för att träna och testa en klassificerare. Klassificeraren anger om ett träd är en __hemlockgran__ eller ett __japanskt körsbärsträd__.
 
-I följande kodavsnitt implementera de primära funktionerna i det här exemplet:
+I följande kodavsnitt implementeras de primära funktionerna i det här exemplet:
 
 ## <a name="create-a-custom-vision-service-project"></a>Skapa ett projekt för Custom Vision Service
 
 > [!IMPORTANT]
-> Ange den `trainingApiKey` till utbildning nyckelvärdet som hämtades tidigare.
+> Ställ in `trainingApiKey` till det utbildningsnyckelvärde som du hämtade tidigare.
 
 ```java
 final String trainingApiKey = "insert your training key here";
@@ -64,7 +65,7 @@ Project project = trainer.createProject()
             .execute();
 ```
 
-## <a name="add-tags-to-your-project"></a>Lägg till taggar i projektet
+## <a name="add-tags-to-your-project"></a>Lägga till taggar till projektet
 
 ```java
 // create hemlock tag
@@ -82,7 +83,7 @@ Tag cherryTag = trainer.createTag()
 
 ## <a name="upload-images-to-the-project"></a>Ladda upp bilder till projektet
 
-I exemplet är konfigurerad att ta med bilder i slutpaketet. Bilder att läsa från jar resursdel och överförts till tjänsten.
+Exemplet är konfigurerat för att visa bilderna i slutpaketet. Bilderna lösas från resursdelen för jar och överförs till tjänsten.
 
 ```java
 System.out.println("Adding images...");
@@ -99,7 +100,7 @@ for (int i = 1; i <= 10; i++) {
 }
 ```
 
-Föregående kodfragment koden använder två hjälpfunktioner som hämta bilder som resursen dataströmmar och överföra dem till tjänsten.
+Föregående kodfragment använder två hjälpfunktioner som hämtar bilderna som resursdataströmmar och överför dem till tjänsten.
 
 ```java
 private static void AddImageToProject(Trainings trainer, Project project, String fileName, byte[] contents, UUID tag)
@@ -131,9 +132,9 @@ private static byte[] GetImage(String folder, String fileName)
 }
 ```
 
-## <a name="train-the-project"></a>Träna projektet
+## <a name="train-the-project"></a>Utbilda projektet
 
-Detta skapar den första upprepningen i projektet och markerar den här iterationen som standard iteration. 
+Detta skapar den första upprepningen i projektet och markerar den här upprepningen som standardupprepningen. 
 
 ```java
 System.out.println("Training...");
@@ -153,7 +154,7 @@ trainer.updateIteration(project.id(), iteration.id(), iteration.withIsDefault(tr
 ## <a name="get-and-use-the-default-prediction-endpoint"></a>Hämta och använda standardslutpunkten för förutsägelse
 
 > [!IMPORTANT]
-> Ange den `predictionApiKey` till förutsägelse nyckelvärdet som hämtades tidigare.
+> Ställ in `predictionApiKey` till det förutsägelsenyckelvärde som du hämtade tidigare.
 
 ```java
 final String predictionApiKey = "insert your prediction key here";
@@ -181,7 +182,7 @@ for (Prediction prediction: results.predictions())
 }
 ```
 
-## <a name="run-the-example"></a>Kör exempel
+## <a name="run-the-example"></a>Köra exemplet
 
 Kompilera och kör lösningen med maven:
 
@@ -189,7 +190,7 @@ Kompilera och kör lösningen med maven:
 mvn compile exec:java
 ```
 
-Utdata från programmet liknar följande text:
+Programmets utdata ser ut ungefär som nedanstående text:
 
 ```
 Creating project...

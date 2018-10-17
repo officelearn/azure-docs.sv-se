@@ -8,14 +8,14 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: video-indexer
 ms.topic: overview
-ms.date: 09/15/2018
+ms.date: 10/10/2018
 ms.author: nolachar
-ms.openlocfilehash: fd92e91989bd1a37626227b327d644c9d704ab6c
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.openlocfilehash: cf761342bb434100920c3888f2f441b9f8c8de08
+ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45983022"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49077924"
 ---
 # <a name="what-is-video-indexer"></a>Vad är Video Indexer?
 
@@ -38,8 +38,8 @@ Azure Video Indexer är ett molnprogram som bygger på Azure-medieanalys, Azure 
 - **Extrahering av varumärken**: Extraherar varumärken från tal och visuell text.
 - **Ansiktsigenkänning**: Identifierar och grupperar ansikten som visas i videon.
 - **Extrahering av miniatyrer för ansikten (”bästa ansikte”)**: Identifierar automatiskt det bäst avbildade ansiktet i varje grupp med ansikten (baserat på kvalitet, storlek och position framifrån) och extraherar det som en bildtillgång.
-- **Identifiering av kända personer**: Identifierar kändisar i videon baserat på en databas med 1 miljon kändisar. Källan kommer från IMDB, Wikipedia och populära LinkedIn-påverkare.
-- **Anpassad ansiktsidentifiering**: Identifierar ansikten i videon baserat på en anpassad modell som tränats för det specifika kontot.
+- **Identifiering av kända personer**: Video Indexer identifierar automatiskt över en miljon kända personer – som världsledare, skådespelare, idrottsprofiler, forskare, affärs- och teknikledare från hela världen. Information om dessa kändisar kan också finnas på olika kända webbplatser, till exempel IMDB och Wikipedia.
+- **Kontobaserad ansiktsidentifiering**: Video Indexer tränar en modell för ett visst konto. Sedan kan det identifiera ansikten i videor baserat på modellen som tränats specifikt för videor i det kontot.
 - **Moderering av textinnehåll**: Identifierar stötande text i ljudavskriften.
 - **Scenidentifiering**: Avgör när en scen ändras i videon.
 - **Identifiering av svarta bildrutor**: Identifierar svarta bildrutor som visas i videon.

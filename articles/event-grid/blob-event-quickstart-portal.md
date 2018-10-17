@@ -8,12 +8,12 @@ ms.author: tomfitz
 ms.date: 08/13/2018
 ms.topic: quickstart
 ms.service: event-grid
-ms.openlocfilehash: a47beb3e4299c62ec4b7959b4834d0440fee06f7
-ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
+ms.openlocfilehash: 17fba267e85c7b1421e632930c8bea2bfaf6ff5f
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/23/2018
-ms.locfileid: "42744593"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45736503"
 ---
 # <a name="create-and-route-blob-storage-events-with-the-azure-portal-and-event-grid"></a>Skapa och dirigera Blob Storage-händelser med Azure Portal och Event Grid
 
@@ -37,7 +37,7 @@ När du är klar kan se du att händelsedata som har skickats till webbappen.
 
    ![Välj Storage](./media/blob-event-quickstart-portal/create-storage.png)
 
-1. För händelser måste du skapa antingen ett [Blob Storage-konto](../storage/common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#blob-storage-accounts) eller ett [v2-lagringskonto för generell användning](../storage/common/storage-account-options.md#general-purpose-v2-accounts). För program som bara behöver lagring av block- eller tilläggsblobbar, rekommenderar vi att du använder Blob-lagringskonton. Ange värden för Blob- eller StorageV2-kontot. Ange ett unikt namn för kontot. När du har angett alla värden väljer du **Skapa**.
+1. Skapa ett v2-lagringskonto för allmän användning eller ett Blob Storage-konto om du vill prenumerera på händelser. Mer information finns i [Skapa ett lagringskonto](../storage/common/storage-quickstart-create-account.md).
 
    ![Startsteg](./media/blob-event-quickstart-portal/provide-blob-values.png)
 

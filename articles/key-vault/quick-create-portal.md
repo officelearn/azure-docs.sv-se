@@ -14,20 +14,20 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 05/10/2018
 ms.author: barclayn
-ms.openlocfilehash: e7b9b87a7727b75588759d408292419d1fdccb83
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.openlocfilehash: 864c80fe0ab8b061439b5a80a111edbd1b2004b6
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42022434"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44027035"
 ---
 # <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-using-the-azure-portal"></a>Snabbstart: Ställ in och hämta en hemlighet från Azure Key Vault med hjälp av Azure-portalen
 
-Azure Key Vault är en molntjänst som fungerar som säkert lager för hemligheter. Du kan på ett säkert sätt lagra nycklar, lösenord, certifikat och andra hemligheter. Mer information om Key Vault finns i [översikten](key-vault-overview.md). Du kan skapa och hantera Azure-nyckelvalv via Azure Portal. I den här snabbstarten skapar du ett nyckelvalv. När du har gjort det kommer du att lagra en hemlighet.
+Azure Key Vault är en molntjänst som tillhandahåller ett säkert lager för hemligheter. Du kan på ett säkert sätt lagra nycklar, lösenord, certifikat och andra hemligheter. Du kan skapa och hantera Azure-nyckelvalv via Azure Portal. I den här snabbstarten skapar du ett nyckelvalv och använder sedan det för att lagra en hemlighet. Mer information om nyckelvalv finns i [översikten](key-vault-overview.md).
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-## <a name="log-into-azure"></a>Logga in på Azure
+## <a name="sign-in-to-azure"></a>Logga in på Azure
 
 Logga in på Azure Portal på http://portal.azure.com.
 
@@ -40,8 +40,8 @@ Logga in på Azure Portal på http://portal.azure.com.
 3. Välj **Key Vault** i listan med resultat.
 4. Välj **Skapa** i avsnittet Key Vault.
 5. Ange följande information i avsnittet **Skapa nyckelvalv** avsnittet Ange följande information:
-    - **Namn**: I den här snabbstarten använder vi **Contoso-vault2**. Du måste ange ett unikt namn när du testar funktionen.
-    - **Prenumeration**: Välj den prenumeration du vill använda i den här snabbstarten.
+    - **Namn**: Ett unikt namn krävs. I den här snabbstarten använder vi **Contoso-vault2**. 
+    - **Prenumeration**: Välj en prenumeration.
     - Under **Resursgrupp** väljer du **Skapa ny** och anger ett resursgruppsnamn.
     - Välj en plats i listrutan **Plats**.
     - Markera kryssrutan **Fäst på instrumentpanelen**.
@@ -61,9 +61,9 @@ Nu är ditt Azure-konto det enda kontot med behörighet att utföra åtgärder i
 
 När du ska lägga till en hemlighet i valvet behöver du bara utföra några ytterligare steg. I det här fallet lägger vi till ett lösenord som kan användas av ett program. Lösenordet kallas **ExamplePassword** och vi lagrar värdet **Pa$$w0rd** i det.
 
-1. Välj **Hemligheter** på egenskapssidan för Key Vault.
+1. Välj **Hemligheter** på egenskapssidorna för Key Vault.
 2. Klicka på **Generera/importera**.
-3. Välj följande på skärmen **Skapa en hemlighet**:
+3. Välj följande värden på skärmen **Skapa en hemlighet**:
     - **Uppladdningsalternativ**: Manuell.
     - **Namn**: ExamplePassword.
     - **Värde**: Pa$$w0rd.
@@ -88,4 +88,4 @@ När du inte behöver resursgruppen längre så tar du bort den. Då tas även n
 I den här snabbstarten har du skapat ett nyckelvalv och lagrat en hemlighet. Om du vill lära dig mer om Key Vault och hur du kan använda det med dina program fortsätter du till självstudien om att använda webbprogram med Key Vault.
 
 > [!div class="nextstepaction"]
-> Om du vill lära dig att läsa en hemlighet från Key Vault via en webbapp genom att använda hanterade tjänstidentiteter fortsätter du med självstudien [Konfigurera en Azure-webbapp att läsa en hemlighet från Key Vault](quick-create-net.md)
+> Om du vill lära dig att läsa en hemlighet från Key Vault via en webbapp genom att använda hanterade identiteter för Azure-resurser fortsätter du med självstudierna [Konfigurera en Azure-webbapp att läsa en hemlighet från Key Vault](quick-create-net.md).

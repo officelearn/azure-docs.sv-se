@@ -11,16 +11,16 @@ ms.service: azure-functions
 ms.custom: mvc
 ms.devlang: azure-cli
 manager: jeconnoc
-ms.openlocfilehash: 608d15afaaff15ad960a0fe8b7a56854f41662b6
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 1cf20a4a93ef1b5bfb9c7818f35be5e75e45a3d2
+ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46993416"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48901098"
 ---
 # <a name="create-your-first-function-running-on-linux-using-the-azure-cli-preview"></a>Skapa din första funktion som körs på Linux med hjälp av Azure CLI (förhandsversion)
 
-Med hjälp av Azure Functions kan Linux användas som värd för funktionerna i en Azure App Service-standardcontainer. Du kan även [använda en egen anpassad container](functions-create-function-linux-custom-image.md). Den här funktionen ges för närvarande i förhandsversion och kräver [Functions 2.0 runtime](functions-versions.md), som också finns som förhandsversion.
+Med hjälp av Azure Functions kan Linux användas som värd för funktionerna i en Azure App Service-standardcontainer. Du kan även [använda en egen anpassad container](functions-create-function-linux-custom-image.md). Den här funktionen är för närvarande i förhandsversion och kräver [Functions 2.0-runtime](functions-versions.md).
 
 Det här snabbstartsavsnittet visar dig hur du kan använda Azure Functions med Azure CLI för att skapa den första appen i Linux som ligger i App Service-standardcontainern. Själva funktionskoden distribueras till avbildningen från en GitHub-exempellagringsplats.    
 
@@ -83,6 +83,18 @@ Eftersom `myAppServicePlan` är en Linux-plan används den inbyggda Docker-avbil
 
 >[!NOTE]  
 >Exempellagringsplatsen omfattar för närvarande två skriptfiler, [deploy.sh](https://github.com/Azure-Samples/functions-quickstart-linux/blob/master/deploy.sh) och [.deployment](https://github.com/Azure-Samples/functions-quickstart-linux/blob/master/.deployment). Filen .deployment talar om för distributionsprocessen att den ska använda deploy.sh som [anpassat distributionsskript](https://github.com/projectkudu/kudu/wiki/Custom-Deployment-Script). I den nuvarande förhandsversionen krävs skript för att distribuera funktionsappen i en Linux-avbildning.  
+
+## <a name="configure-the-function-app"></a>Konfigurera funktionsappen
+
+Projektet på GitHub-lagringsplatsen kräver version 1.x av Functions-runtime. Om du anger programinställningen för `FUNCTIONS_WORKER_RUNTIME` som `~1` så fästs funktionsappen till den senaste 1.x-versionen. Ange programinställningar med kommandot [az functionapp config appsettings set](https://docs.microsoft.com/cli/azure/functionapp/config/appsettings#set).
+
+I följande Azure CLI-kommando är <app_name> namnet på funktionsappen.
+
+```azurecli-interactive
+az functionapp config appsettings set --name <app_name> \
+--resource-group myResourceGroup \
+--settings FUNCTIONS_WORKER_RUNTIME=~1
+```
 
 [!INCLUDE [functions-test-function-code](../../includes/functions-test-function-code.md)]
 

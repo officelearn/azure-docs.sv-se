@@ -1,6 +1,6 @@
 ---
 title: Konfigurera Azure Data Box| Microsoft Docs
-description: Lär dig mer om programvaran och nätverkskraven för din Azure Data Box-enhet
+description: Lär dig hur du kabelansluter och ansluter till Azure Data Box
 services: databox
 documentationcenter: NA
 author: alkohli
@@ -12,14 +12,14 @@ ms.devlang: NA
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 09/24/2018
+ms.date: 10/03/2018
 ms.author: alkohli
-ms.openlocfilehash: 6623744a26d79ccbc8b68ba84baf3a37024e0ed7
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: f9671e3acdb71affe2187258582254561785780e
+ms.sourcegitcommit: 4edf9354a00bb63082c3b844b979165b64f46286
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46952315"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48785645"
 ---
 # <a name="tutorial-cable-and-connect-to-your-azure-data-box"></a>Självstudie: Kabelansluta och ansluta till Azure Data Box
 
@@ -36,12 +36,12 @@ I den här guiden får du lära dig att:
 Innan du börjar ska du kontrollera att:
 
 1. Du har slutfört [självstudien Beställa Azure Data Box](data-box-deploy-ordered.md).
-2. Du har fått din Data Box och att orderstatusen i portalen är **Levererad**. 
+2. Du har fått din Data Box och att orderstatusen i portalen är **Levererad**. Det finns en adressetikett i den genomskinliga fickan som är fäst under den befintliga etiketten på enheten. Spara etiketten – du behöver den till returleveransen.
 3. Du har läst [säkerhetsföreskrifterna för Data Box](data-box-safety.md).
 4. Du har fått en jordad strömkabel att använda med lagringsenheten på 100 TB.
 5. Du har en värddator som har de data du vill kopiera över till Data Box. Värddatorn måste
     - Köra ett [operativsystem som stöds](data-box-system-requirements.md).
-    - Vara ansluten till höghastighetsnätverk. Vi rekommenderar starkt att du har minst en 10 GbE anslutning. Om en 10 GbE anslutning inte är tillgänglig kan en 1 GbE datalänk användas med kopieringshastigheten påverkas. 
+    - Vara ansluten till höghastighetsnätverk. Vi rekommenderar starkt att du har en anslutning på minst 10 GbE. Om en 10 GbE anslutning inte är tillgänglig kan en 1 GbE datalänk användas, men då påverkas kopieringshastigheten. 
 6. Du måste ha tillgång till en plan yta där du kan placera Data Box. Om du vill placera enheten på en standardrackhylla måste du ha en 7U-plats i datacenterracket. Du kan placera enheten liggande eller stående i racket.
 7. Du har skaffat följande kablar för att ansluta Data Box till värddatorn.
     - Två 10 GbE SFP+ Twinax-kopparkablar (använd med DATA 1-, DATA 2-nätverksgränssnitt)
@@ -62,7 +62,7 @@ Kabelanslut enheten med hjälp av följande steg.
     2. Använd RJ-45 CAT 6-kabeln till att ansluta MGMT-porten i ena änden och en bärbar dator i den andra änden.            
     3. Använd RJ-45 CAT 6A-kabeln till att ansluta DATA 3-porten i ena änden. DATA 3 konfigureras som 10 GbE om du ansluter via RJ-45 CAT 6A-kabel och som 1 GbE om du ansluter via RJ-45 CAT 6-kabel.
     4. Använd 10 GbE SFP+ Twinax-kopparkablarna för att ansluta till DATA 1- respektive DATA 2-porten. 
-    5. Den andra änden av kablarna från dataportarna ansluts till värddatorn via en 10 GbE-switch.
+    5. De andra ändarna av kablarna från dataportarna ansluts till värddatorn via en 10 GbE-switch.
 
 4. Leta reda på strömknappen på enhetens frontpanel. Slå på enheten.
 

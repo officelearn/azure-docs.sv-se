@@ -3,7 +3,7 @@ title: Azure Security Center-självstudie – Definiera och utvärdera säkerhet
 description: Azure Security Center-självstudie – Definiera och utvärdera säkerhetsprinciper
 services: security-center
 documentationcenter: na
-author: TerryLanfear
+author: rkarlin
 manager: mbaldwin
 editor: ''
 ms.assetid: 2d248817-ae97-4c10-8f5d-5c207a8019ea
@@ -13,14 +13,14 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/30/2018
-ms.author: terrylan
-ms.openlocfilehash: 15c69bce87ede96eb3a7bc0bada4e4f6a6669abb
-ms.sourcegitcommit: 99a6a439886568c7ff65b9f73245d96a80a26d68
+ms.date: 08/30/2018
+ms.author: rkarlin
+ms.openlocfilehash: fcd3c2a95cea0a838fc16149a0a74fad95ea3300
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39358616"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44027069"
 ---
 # <a name="tutorial-define-and-assess-security-policies"></a>Självstudie: Definiera och utvärdera säkerhetsprinciper
 Security Center hjälper till att säkerställa efterlevnaden av företagets eller bestämmelsemässiga säkerhetskrav med säkerhetsprinciper för att definiera den önskade konfigurationen för arbetsbelastningarna. När du definierar principer för dina Azure-prenumerationer och anpassar dem till typen av arbetsbelastning eller dina datas känslighet kan Security Center tillhandahålla säkerhetsrekommendationer för dina resurser för beräkning, program, nätverk, data och lagring samt identitet och åtkomst. I den här självstudien får du lära dig hur man:
@@ -42,8 +42,7 @@ Security Center skapar automatiskt en standardsäkerhetsprincip för var och en 
 
   ![Säkerhetsprincip](./media/tutorial-security-policy/tutorial-security-policy-fig1.png)  
 
-3. Under **PRINCIPKOMPONENTER** väljer du **Säkerhetsprincip**
-4. För varje säkerhetskonfiguration du vill övervaka väljer du **På**. Security Center utvärderar kontinuerligt miljöns konfiguration och när det finns säkerhetsrisker genererar Security Center en säkerhetsrekommendation. Välj **Av** om säkerhetskonfigurationen inte är rekommenderad eller relevant. I till exempel en dev/test-miljö kanske du inte kräver samma säkerhetsnivå som för en produktionsmiljö. När du har valt de principer som gäller för din miljö klickar du på **Spara**.
+3. Under **Compute och appar**, **Nätverk** och **Data** sätter du alla säkerhetskonfigurationer som ska övervakas till **På**. Security Center utvärderar kontinuerligt miljöns konfiguration och när det finns säkerhetsrisker genererar Security Center en säkerhetsrekommendation. Välj **Av** om säkerhetskonfigurationen inte är rekommenderad eller relevant. I till exempel en dev/test-miljö kanske du inte kräver samma säkerhetsnivå som för en produktionsmiljö. När du har valt de principer som gäller för din miljö klickar du på **Spara**.
 
   ![Säkerhetskonfiguration](./media/tutorial-security-policy/tutorial-security-policy-fig6.png)  
 

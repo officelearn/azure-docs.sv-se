@@ -1,25 +1,25 @@
 ---
-title: 'Snabbstart: Köra ett arbetsflöde genom Microsoft Genomics-tjänsten | Microsoft Docs'
+title: 'Snabbstart: Köra ett arbetsflöde genom Microsoft Genomics'
 description: I den här snabbstarten får du se hur du läser in indata i Azure Blob Storage och kör ett arbetsflöde genom Microsoft Genomics-tjänsten.
-services: microsoft-genomics
+services: genomics
 author: grhuynh
-manager: jhubbard
-editor: jasonwhowell
+manager: cgronlun
 ms.author: grhuynh
-ms.service: microsoft-genomics
-ms.workload: genomics
+ms.service: genomics
 ms.topic: quickstart
 ms.date: 12/07/2017
-ms.openlocfilehash: 4387e1c935ada99e1f9c335fb7e1b67905c01188
-ms.sourcegitcommit: 7b845d3b9a5a4487d5df89906cc5d5bbdb0507c8
+ms.openlocfilehash: e1d10b578d33ba8d96f43666b82e94ef5503fe77
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/14/2018
-ms.locfileid: "42023468"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45731095"
 ---
 # <a name="quickstart-run-a-workflow-through-the-microsoft-genomics-service"></a>Snabbstart: Köra ett arbetsflöde genom Microsoft Genomics-tjänsten
 
-Microsoft Genomics är en skalbar, säker tjänst för sekundär analys som snabbt kan bearbeta ett genom, från råläsningar till produktion av anpassade läsningar och variantanrop. Kom igång med några få steg: 
+I den här snabbstarten får du se hur du läser in indata i Azure Blob Storage och kör ett arbetsflöde genom Microsoft Genomics-tjänsten. Microsoft Genomics är en skalbar, säker tjänst för sekundär analys som snabbt kan bearbeta ett genom, från råläsningar till produktion av anpassade läsningar och variantanrop. 
+
+Kom igång med några få steg: 
 1.  Konfigurera: Skapa ett Microsoft Genomics-konto via Azure-portalen och installera Microsoft Genomics Python-klienten i din lokala miljö. 
 2.  Ladda upp indata: Skapa ett Microsoft Azure Storage-konto via Azure portal och ladda upp indatafiler. Indatafilerna ska vara parkopplade slutläsningar (FASTQ- eller BAM-filer).
 3.  Kör: Använd kommandoradsgränssnittet i Microsoft Genomics för att köra arbetsflöden genom Microsoft Genomics-tjänsten. 

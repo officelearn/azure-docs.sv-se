@@ -1,27 +1,27 @@
 ---
-title: Azure snabbstart – Skapa en blob i objektlagring med hjälp av .NET | Microsoft Docs
-description: I den här snabbstarten skapar du ett lagringskonto och en container i objektlagring (Blob). Sedan använder du lagringsklientbiblioteket för .NET och laddar upp en blob till Azure Storage, laddar ned en blob och listar blobarna i en container.
+title: 'Snabbstart: Skapa en blob i objektlagring med hjälp av .NET – Azure Storage'
+description: I den här snabbstarten får du lära dig använda Azure Storage-klientbiblioteket för .NET för att skapa en behållare och en blob i bloblagring (objekt). Du får lära dig hur du hämtar bloben till din lokala dator och hur du visar alla blobar i en container.
 services: storage
 author: tamram
 ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
-ms.date: 05/22/2018
+ms.date: 08/27/2018
 ms.author: tamram
-ms.openlocfilehash: d5a9c87246a175cc7455113c36caa59d59a79226
-ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
+ms.openlocfilehash: cde8516b93c2aac0cb74d9c9599168c8e6a70472
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39399693"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45734141"
 ---
-# <a name="quickstart-upload-download-and-list-blobs-using-net"></a>Snabbstart: Ladda upp, ladda ned och lista blobar med .NET
+# <a name="quickstart-use-net-to-create-a-blob-in-object-storage"></a>Snabbstart: Skapa en blob i objektlagring med hjälp av .NET
 
-I den här snabbstarten får du lära dig att använda .NET-klientbiblioteket för Azure Storage för att ladda upp, ladda ned och lista blockblobar i en container.
-
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
+I den här snabbstarten får du lära dig använda Azure Storage-klientbiblioteket för .NET för att skapa en behållare och en blob i bloblagring (objekt). Du får lära dig hur du hämtar bloben till din lokala dator och hur du visar alla blobar i en container.
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
+
+Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
 För att slutföra den här snabbstarten måste du först skapa ett Azure-lagringskonto i [Azure-portalen](https://portal.azure.com/#create/Microsoft.StorageAccount-ARM). Hjälp med att skapa kontot finns i [Skapa ett lagringskonto](../common/storage-quickstart-create-account.md).
 

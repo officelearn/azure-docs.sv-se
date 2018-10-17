@@ -10,12 +10,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory
 ms.component: B2C
-ms.openlocfilehash: 4953cb0db428de19268cdd90661f7818b06b6945
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: 47589b8cb8aa6e8d1cacaa028948242431f02c44
+ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43343870"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45604798"
 ---
 # <a name="tutorial-enable-single-page-app-authentication-with-accounts-using-azure-active-directory-b2c"></a>Självstudiekurs: Aktivera autentisering av app med en enda sida med konton med hjälp av Azure Active Directory B2C
 
@@ -41,7 +41,7 @@ I den här guiden får du lära dig att:
 
 Program måste [registreras](../active-directory/develop/developer-glossary.md#application-registration) i katalogen innan de kan ta emot [åtkomsttoken](../active-directory/develop/developer-glossary.md#access-token) från Azure Active Directory. Programregistrering skapar ett [program-ID](../active-directory/develop/developer-glossary.md#application-id-client-id) för appen i din katalog. 
 
-Logga in på [Azure Portal](https://portal.azure.com/) som global administratör för Azure AD B2C-katalogen.
+Logga in på [Azure-portalen](https://portal.azure.com/) som global administratör för Azure AD B2C-katalogen.
 
 [!INCLUDE [active-directory-b2c-switch-b2c-tenant](../../includes/active-directory-b2c-switch-b2c-tenant.md)]
 
@@ -145,7 +145,7 @@ Så här ändrar du appinställningarna:
     // The current application coordinates were pre-registered in a B2C directory.
     var applicationConfig = {
         clientID: '<Application ID for your SPA obtained from portal app registration>',
-        authority: "https://fabrikamb2c.b2clogin.com/tfp/fabrikamb2c.onmicrosoft.com/B2C_1_SiUpIn",
+        authority: "https://fabrikamb2c.b2clogin.com/tfp/fabrikamb2c.onmicrosoft.com/B2C_1_<Sign-up or sign-in policy name>",
         b2cScopes: ["https://fabrikamb2c.onmicrosoft.com/demoapi/demo.read"],
         webApi: 'https://fabrikamb2chello.azurewebsites.net/hello',
     };

@@ -1,21 +1,21 @@
 ---
-title: 'Snabbstart: Ansikts-API med Go | Microsoft Docs'
-titleSuffix: Microsoft Cognitive Services
-description: I den här snabbstarten identifierar du ansikten med Ansikts-API:et med Go i Cognitive Services.
+title: 'Snabbstart: Identifiera ansikten i en bild – Ansikts-API Go'
+titleSuffix: Azure Cognitive Services
+description: I den här snabbstarten identifierar du ansikten med hjälp av Ansikts-API:et med Go.
 services: cognitive-services
 author: noellelacharite
-manager: nolachar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: face-api
 ms.topic: quickstart
 ms.date: 06/25/2018
 ms.author: nolachar
-ms.openlocfilehash: e4d7f3f605b110f51488d9a7f483fc2832a149b9
-ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
+ms.openlocfilehash: 0c8a70153ac9a54f3e46e5fb1a2ee3404a960dd3
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "43771236"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46125433"
 ---
 # <a name="quickstart-detect-faces-in-an-image-using-go"></a>Snabbstart: Identifiera ansikten i en bild med Go
 
@@ -300,7 +300,7 @@ Ett svar som anger att åtgärden lyckades returneras i JSON, till exempel:
 
 ## <a name="next-steps"></a>Nästa steg
 
-Utforska ansikts-API:er som används för att identifiera ansikten i en bild, avgränsa ansikten med rektanglar och returnera attribut som ålder och kön.
+Utforska de ansikts-API:er som används för att identifiera ansikten i en bild, avgränsa ansikten med rektanglar och returnera attribut som ålder och kön.
 
 > [!div class="nextstepaction"]
 > [Ansikts-API:er](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236)

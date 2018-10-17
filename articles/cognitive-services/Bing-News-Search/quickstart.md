@@ -1,27 +1,27 @@
 ---
-title: Snabbstart för Nyheter API för webbsökning | Microsoft Docs
-description: Visar hur du kommer igång med den nyhetssökning i Bing.
+title: 'Snabbstart: API för nyhetssökning i Bing'
+titlesuffix: Azure Cognitive Services
+description: Visar hur du kommer igång med API:et för nyhetssökning i Bing.
 services: cognitive-services
 author: swhite-msft
-manager: ehansen
-ms.assetid: 9CF6EAF3-42D8-4321-983C-4AC3896E8E03
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-news-search
-ms.topic: article
+ms.topic: quickstart
 ms.date: 04/15/2017
 ms.author: scottwhi
-ms.openlocfilehash: b3f2b36034ab33b4f5eec2d138103c3e4d8e21f4
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
-ms.translationtype: MT
+ms.openlocfilehash: bc3d2e43983791cf8f666660675a7dd537f04d77
+ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47034339"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48802533"
 ---
-# <a name="your-first-news-search-query"></a>Sökfrågan första Nyheter
+# <a name="quickstart-your-first-news-search-query"></a>Snabbstart: Din första nyhetssökfråga
 
-Innan du kan göra ditt första anrop, måste du få en prenumerationsnyckel för Cognitive Services. För att få en nyckel kan se [prova Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=bing-news-search-api).
+Innan du kan göra ditt första anrop måste du skaffa en prenumerationsnyckel för Cognitive Services. Information om hur du skaffar en nyckel finns i [Testa Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=bing-news-search-api).
 
-För att få nyheter endast sökresultat kan skickar du en GET-begäran till slutpunkten för följande:
+För att få resultat från en nyhetssökning skickar du en GET-begäran till följande slutpunkt:
 
 ```http
 https://api.cognitive.microsoft.com/bing/v7.0/news/search
@@ -29,24 +29,24 @@ https://api.cognitive.microsoft.com/bing/v7.0/news/search
 
 Begäran måste använda HTTPS-protokollet.
 
-Vi rekommenderar att alla förfrågningar som kommer från en server. Distribuera nyckeln som en del av ett klientprogram ger större möjlighet för en skadlig från tredje part att komma åt den. Dessutom ger gör anrop från en server en enda uppgradera framtida versioner av API: et.
+Vi rekommenderar att alla förfrågningar kommer från en server. Om nyckeln distribueras som en del av ett klientprogram ökar risken för att en illvillig tredje part kan komma åt den. Anrop från en server innebär dessutom att det bara finns en enda uppgraderingspunkt för framtida versioner av API:et.
 
-Begäran måste ange den [q](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference#query) frågeparameter som innehåller användarens sökterm. Men det är valfritt, begäran bör också ange den [mkt](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference#mkt) frågeparameter som identifierar marknaden där du vill att resultatet kommer från. En lista över valfria frågeparametrar som `freshness` och `textDecorations`, se [frågeparametrar](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference#query-parameters). Alla frågeparametervärden måste vara URL-kodas.
+Begäran måste innehålla frågeparametern [q](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference#query), som innehåller användarens sökterm. Även om det är valfritt bör begäran även innehålla frågeparametern [mkt](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference#mkt), som identifierar marknaden som du vill att resultatet ska komma från. En lista över valfria frågeparametrar som `freshness` och `textDecorations` finns i [Frågeparametrar](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference#query-parameters). Alla frågeparametervärden måste vara URL-kodade.
 
-Begäran måste ange den [Ocp-Apim-Subscription-Key](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference#subscriptionkey) rubrik. Även om det är valfritt, uppmanas du att ange följande huvuden:
+Begäran måste innehålla huvudet [Ocp-Apim-Subscription-Key](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference#subscriptionkey). Även om det är valfritt rekommenderar vi även att följande huvuden finns med:
 
-- [Användaragent](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference#useragent)
+- [User-Agent](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference#useragent)
 - [X-MSEdge-ClientID](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference#clientid)
 - [X-Search-ClientIP](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference#clientip)
-- [X-Sök-plats](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference#location)
+- [X-Search-Location](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference#location)
 
-Sidhuvuden för klientens IP- och plats är viktiga för att returnera plats medveten innehåll.
+Sidhuvuden för klientens IP-adress och platsen är viktiga för att returnera platsmedvetet innehåll.
 
-En lista över alla sidhuvuden för begäran och svar finns i [rubriker](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference#headers).
+En lista över alla sidhuvuden för begäranden och svar finns i [Sidhuvuden](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference#headers).
 
 ## <a name="the-request"></a>Begäran
 
-Nedan visas en news-begäran som innehåller de föreslagna frågeparametrar och rubriker. Om det är den första gången du anropar ett Bing-API inkluderar du inte klientens ID-huvud. Inkludera endast klient-ID om du har anropat ett Bing-API förut och om Bing returnerade ett klient-ID för användar- och enhetskombinationen.
+Nedan visas en nyhetsbegäran som innehåller alla föreslagna frågeparametrar och sidhuvuden. Om det är den första gången du anropar ett Bing-API inkluderar du inte klientens ID-huvud. Inkludera endast klient-ID om du har anropat ett Bing-API förut och om Bing returnerade ett klient-ID för användar- och enhetskombinationen.
 
 ```http
 GET https://api.cognitive.microsoft.com/bing/v7.0/news/search?q=sailing+dinghies&mkt=en-us HTTP/1.1
@@ -60,7 +60,7 @@ Host: api.cognitive.microsoft.com
 
 ## <a name="the-response"></a>Svaret
 
-Nedan visas svaret på den tidigare begäran. Exemplet visar också svarshuvuden.
+Nedan visas svaret på den tidigare begäran. Exemplet visar också svarshuvudena.
 
 ```
 BingAPIs-TraceId: 994974CC8D994C95A5C31387296A510A
@@ -282,10 +282,10 @@ X-MSEdge-Ref: Ref A: 994974CC8D994C95A5C31387296A510A Ref B: BY3EDGE0207 Ref C: 
 
 ## <a name="next-steps"></a>Nästa steg
 
-Prova att använda API: et. Gå till [nyheter API testning Sökkonsol](https://dev.cognitive.microsoft.com/docs/services/56b43f72cf5ff8098cef380a/operations/56f02400dbe2d91900c68553).
+Testa API:et. Gå till [testningskonsolen för nyhetssöknings-API:et](https://dev.cognitive.microsoft.com/docs/services/56b43f72cf5ff8098cef380a/operations/56f02400dbe2d91900c68553).
 
-Mer information om hur du använder svarsobjekten finns i [vad är nyhetssökning i Bing?](./search-the-web.md). Du hittar också mer information om följande vanliga åtgärder:
+Mer information om hur du använder svarsobjekten finns i [What is Bing News Search?](./search-the-web.md) (Vad är nyhetssökning i Bing?). Du hittar också mer information om följande vanliga åtgärder:
 
-- [Hämta dagens de senaste](./search-the-web.md#getting-todays-top-news)
-- [Få nyheter efter kategori](./search-the-web.md#getting-news-by-category)
+- [Hämta dagens viktigaste nyheter](./search-the-web.md#getting-todays-top-news)
+- [Hämta nyheter i en viss kategori](./search-the-web.md#getting-news-by-category)
 - [Hämta populära nyheter](./search-the-web.md#getting-trending-news)

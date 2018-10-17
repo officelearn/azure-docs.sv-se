@@ -7,15 +7,15 @@ manager: jeconnoc
 ms.service: batch
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 01/16/2018
+ms.date: 09/06/2018
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: b5431feec23e2e0681967a9fe0345edc1db567aa
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: d22e5111a0413c1774d4d41290741414c82039f7
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2018
-ms.locfileid: "31513834"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48814839"
 ---
 # <a name="quickstart-run-your-first-azure-batch-job-with-the-net-api"></a>Snabbstart: Kör ditt första Azure Batch-jobb med .NET-API
 
@@ -27,7 +27,7 @@ Denna snabbstart kör ett Azure Batch-jobb från ett C#-program som bygger på A
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
-* [Visual Studio IDE](https://www.visualstudio.com/vs) (Visual Studio 2015 eller senare). 
+* [Visual Studio 2017](https://www.visualstudio.com/vs) eller [.NET Core 2.1](https://www.microsoft.com/net/download/dotnet-core/2.1) för Linux, macOS eller Windows. 
 
 * Ett Batch-konto och ett länkat Azure Storage-konto. För att skapa dessa konton finns Batch-snabbstart med hjälp av [Azure-portalen](quick-create-portal.md) eller [Azure CLI](quick-create-cli.md). 
 
@@ -47,7 +47,7 @@ git clone https://github.com/Azure-Samples/batch-dotnet-quickstart.git
 
 Gå till den katalog som innehåller filen med Visual Studio-lösningen `BatchDotNetQuickstart.sln`.
 
-Öppna lösningsfilen i Visual Studio och uppdatera strängarna med autentiseringsuppgifterna i `program.cs` med värdena för dina konton. Till exempel:
+Öppna lösningsfilen i Visual Studio och uppdatera strängarna med autentiseringsuppgifterna i `program.cs` med värdena för dina konton. Exempel:
 
 ```csharp
 // Batch account credentials
@@ -60,9 +60,11 @@ private const string StorageAccountName = "mystorageaccount";
 private const string StorageAccountKey  = "xxxxxxxxxxxxxxxxy4/xxxxxxxxxxxxxxxxfwpbIC5aAWA8wDu+AFXZB827Mt9lybZB1nUcQbQiUrkPtilK5BQ==";
 ```
 
+[!INCLUDE [batch-credentials-include](../../includes/batch-credentials-include.md)]
+
 ## <a name="build-and-run-the-app"></a>Skapa och kör appen
 
-Om du vill se Batch arbetsflödet jobba ska du skapa och köra appen. När du har kört appen ska du granska koden för att lära dig hur varje del av appen fungerar. 
+Om du vill se Batch-arbetsflödet i praktiken skapar och kör du programmet i Visual Studio eller på kommandoraden med kommandona `dotnet build` och `dotnet run`. När du har kört appen ska du granska koden för att lära dig hur varje del av appen fungerar. Till exempel i Visual Studio:
 
 * Högerklicka på lösningen i Solution Explorer och klicka på **Skapa lösning**. 
 
@@ -102,7 +104,7 @@ Körningen tar normalt runt 5 minuter om du kör appen med standardkonfiguration
 
 .NET-appen i den här snabbstarten gör följande:
 
-* Överför tre små textfiler till en blobb-behållare på ditt Azure-lagringskonto. Dessa filer är indata som ska bearbetas av Batch.
+* Överför tre små textfiler till en blobcontainer i ditt Azure-lagringskonto. Dessa filer är indata som ska bearbetas av Batch.
 * Skapar en pool med beräkningsnoder som kör Windows Server.
 * Skapar ett jobb och tre aktiviteter som ska köras på noderna. Varje aktivitet bearbetar en av indatafilerna på en kommandorad för Windows. 
 * Visar filer som returneras av aktiviteterna.
@@ -117,14 +119,14 @@ För att interagera med ett lagringskonto använder appen Azure Storage-klientbi
 CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
 ```
 
-Appen använder referensen `blobClient` för att skapa en behållare i lagringskontot och för att överföra filer till behållaren. De lagrade filerna har definierats som Batch [ResourceFile](/dotnet/api/microsoft.azure.batch.resourcefile)-objekt som Batch kan hämta senare till beräkningsnoder.
+Appen använder referensen `blobClient` för att skapa en container i lagringskontot och för att överföra filer till containern. De lagrade filerna har definierats som Batch [ResourceFile](/dotnet/api/microsoft.azure.batch.resourcefile)-objekt som Batch kan hämta senare till beräkningsnoder.
 
 ```csharp
 List<string> inputFilePaths = new List<string>
 {
-    @"..\..\taskdata0.txt",
-    @"..\..\taskdata1.txt",
-    @"..\..\taskdata2.txt"
+    "taskdata0.txt",
+    "taskdata1.txt",
+    "taskdata2.txt"
 };
 
 List<ResourceFile> inputFiles = new List<ResourceFile>();
@@ -192,7 +194,7 @@ try
 
     job.Commit(); 
 }
-...       
+...
 ```
 
 ### <a name="create-tasks"></a>Skapa aktiviteter
@@ -232,7 +234,7 @@ foreach (CloudTask task in completedtasks)
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-Appen tar automatiskt bort den lagringsbehållare den skapar och ger dig möjlighet att ta bort Batch-poolen och jobbet. Du debiteras för poolen medan noderna körs, även om inga jobb är schemalagda. Ta bort poolen när du inte längre behöver den. När du tar bort poolen raderas alla aktivitetsutdata på noderna.
+Appen tar automatiskt bort den lagringscontainer den skapar och ger dig möjlighet att ta bort Batch-poolen och jobbet. Du debiteras för poolen medan noderna körs, även om inga jobb är schemalagda. Ta bort poolen när du inte längre behöver den. När du tar bort poolen raderas alla aktivitetsutdata på noderna.
 
 När de inte längre behövs tar du bort resursgruppen, Batch-kontot och lagringskontot. Om du vill göra det i Azure-portalen väljer du resursgruppen för Batch-kontot och klickar på **Ta bort resursgrupp**.
 

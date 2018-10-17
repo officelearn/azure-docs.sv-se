@@ -3,18 +3,18 @@ title: Hitta vägen med Azure Maps | Microsoft Docs
 description: Rutt till en orienteringspunkt med hjälp av Azure Maps
 author: dsk-2015
 ms.author: dkshir
-ms.date: 09/04/2018
+ms.date: 10/02/2018
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 68d7df575e3d413780b8181c11dd59a22469708b
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: 3bf1aa6d1b9bd65c28ef99ddbac71fb75daf99e7
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45578945"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48816726"
 ---
 # <a name="route-to-a-point-of-interest-using-azure-maps"></a>Rutt till en orienteringspunkt med hjälp av Azure Maps
 
@@ -126,14 +126,16 @@ För den här självstudien anger du startpunkt som Microsoft, och målpunkt som
         padding: 50
     });
 
-    // Add pins to the map for the start and end point of the route
-    map.addPins([startPin, destinationPin], {
-        name: "route-pins",
-        textFont: "SegoeUi-Regular",
-        textOffset: [0, -20]
+    map.addEventListener("load", function () { 
+        // Add pins to the map for the start and end point of the route
+        map.addPins([startPin, destinationPin], {
+            name: "route-pins",
+            textFont: "SegoeUi-Regular",
+            textOffset: [0, -20]
+        });
     });
     ```
-    **map.setCameraBounds** justerar kartfönstret enligt koordinaterna för start- och slutpunkterna. API:et **map.addPins** lägger till punkterna i Kartkontroll som visuella komponenter.
+    **map.setCameraBounds** justerar kartfönstret enligt koordinaterna för start- och slutpunkterna. **map.addEventListener** ser till att alla mappfunktioner som lagts till på kartan läses in först när kartan har lästs in helt. API:et **map.addPins** i händelselyssnaren lägger till punkterna i Kartkontroll som visuella komponenter.
 
 3. Spara filen **MapRoute.html** och uppdatera webbläsaren. Nu är kartan centrerad över Seattle, och du kan se de runda blå kartnålarna som markerar startpunkten, och den blå kartnålen som markerar slutpunkten.
 
@@ -143,7 +145,7 @@ För den här självstudien anger du startpunkt som Microsoft, och målpunkt som
 
 ## <a name="get-directions"></a>Hämta anvisningar
 
-Det här avsnittet visar hur du använder API:et Route Service i Azure Maps för att hitta rutten från en viss startpunkt till ett mål. Route Service tillhandahåller API:er för att planera den *snabbaste*, *kortaste*, *, miljövänligaste* eller *mest spännande* rutten mellan två platser. Användare kan även planera rutter i framtiden genom att använda Azures omfattande historiska trafikdatabas för att förutsäga hur snabba olika rutter är på olika dagar och tidpunkter. Mer information finns i [Hämta väganvisningar](https://docs.microsoft.com/rest/api/maps/route/getroutedirections).
+Det här avsnittet visar hur du använder API:et Route Service i Azure Maps för att hitta rutten från en viss startpunkt till ett mål. Route Service tillhandahåller API:er för att planera den *snabbaste*, *kortaste*, *, miljövänligaste* eller *mest spännande* rutten mellan två platser. Användare kan även planera rutter i framtiden genom att använda Azures omfattande historiska trafikdatabas för att förutsäga hur snabba olika rutter är på olika dagar och tidpunkter. Mer information finns i [Hämta väganvisningar](https://docs.microsoft.com/rest/api/maps/route/getroutedirections). Samtliga följande funktioner ska läggas till **i kartinläsningsfunktionen eventListener i kartan**, så att de laddas först när kartan har lästs in helt.
 
 1. Lägg först till ett lager på kartan för att visa vägen eller *linestring*. Lägg till följande JavaScript-kod i *script*-blocket.
 
@@ -204,6 +206,10 @@ I den här självstudiekursen lärde du dig att:
 > * Skapa en ny webbsida med API:n för kartkontroll
 > * Ställa in adresskoordinater
 > * Fråga Route Service om vägbeskrivning till orienteringspunkt
+
+Du kan komma åt kodexemplet för den här självstudien här:
+
+> [Hitta vägen med Azure Maps](https://github.com/Azure-Samples/azure-maps-samples/blob/master/src/route.html)
 
 Nästa självstudie visar hur du skapar en vägfråga med begränsningar som resläge eller typ av last och visar sedan flera vägar på samma karta.
 

@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: tutorial
 ms.date: 09/25/2018
 ms.author: diberry
-ms.openlocfilehash: f8350d46fecff726dd9f591fe3df0272f556b3e7
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: ce5b704a7ac251621698352608ea3eefa4629aea
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47168221"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48886593"
 ---
 # <a name="tutorial-luis-bot-in-c"></a>Självstudie: LUIS-robot i C#
 Använd C# och skapa en chattrobot som är integrerad med språkförståelse (LUIS). Den här roboten använder HomeAutomation-appen för att implementera en robotlösning. Roboten bygger på Azures [webbappsrobot](https://docs.microsoft.com/azure/bot-service/) med [Bot Framework version](https://github.com/Microsoft/botbuilder-js) v4.
@@ -286,20 +286,20 @@ Lägg till kod i `BasicBot.cs`-filen för att hantera de nya avsikterna.
 
     ```JSON
     TurnOn intent found, JSON response: {"$instance":{“HomeAutomation_Device”:[{“startIndex”:23,“endIndex”:29,“score”:0.9776345,“text”:“lights”,“type”:“HomeAutomation.Device”}],“HomeAutomation_Room”:[{“startIndex”:12,“endIndex”:22,“score”:0.9079433,“text”:“livingroom”,“type”:“HomeAutomation.Room”}]},“HomeAutomation_Device”:[“lights”],“HomeAutomation_Room”:[“livingroom”]}
-    ```    ```
+    ```    
 
-## Learn more about Bot Framework
-Azure Bot service uses the Bot Framework SDK. Learn more about the SDK and bot framework:
+## <a name="learn-more-about-bot-framework"></a>Läs mer om Bot Framework
+Azure Bot Service använder Bot Framework SDK. Lär dig mer om SDK och Bot Framework:
 
-* [Azure Bot Service](https://docs.microsoft.com/en-us/azure/bot-service/bot-service-overview-introduction?view=azure-bot-service-4.0) v4 documentation
-* [Bot Builder Samples](https://github.com/Microsoft/botbuilder-samples)
+* Dokumentation om [Azure Bot Service](https://docs.microsoft.com/en-us/azure/bot-service/bot-service-overview-introduction?view=azure-bot-service-4.0) v4
+* [Bot Builder-exempel](https://github.com/Microsoft/botbuilder-samples)
 * [Bot Builder SDK](https://docs.microsoft.com/en-us/javascript/api/botbuilder-core/?view=botbuilder-ts-latest)
-* [Bot Builder tools](https://github.com/Microsoft/botbuilder-tools):
+* [Bot Builder-verktyg](https://github.com/Microsoft/botbuilder-tools):
 
-## Next steps
+## <a name="next-steps"></a>Nästa steg
 
-You created an Azure bot service, copied the bot secret and `.bot` file path, downloaded the zip file of the code. You added the prebuilt HomeAutomation domain to the LUIS app created as part of the new Azure bot service, then trained and published the app again. You extracted the code project, created an environment file (`.env`), and set the bot secret and the `.bot` file path. In the bot.js file, you added code to handle the two new intents. Then you tested the bot in the bot emulator to see the LUIS response for an utterance of one of the new intents. 
+I den här självstudien skapade du en Azure-robottjänst, kopierade robothemligheten och `.bot`-filsökvägen och laddade ned ZIP-filen för koden. Du lade till den fördefinierade HomeAutomation-domänen till LUIS-appen som skapades som en del av den nya Azure-robottjänsten och tränade appen och publicerade den sedan igen. Du extraherade kodprojektet, skapade en miljöfil (`.env`) och definierade robothemligheten och `.bot`-filsökvägen. I filen bot.js lade du till kod för att hantera de två nya avsikterna. Sedan testade du roboten i robotemulatorn för att se LUIS-svaret för ett uttryck för en av de nya avsikterna. 
 
 
 > [!div class="nextstepaction"]
-> [Build a custom domain in LUIS](luis-quickstart-intents-only.md)
+> [Skapa en anpassad domän i LUIS](luis-quickstart-intents-only.md)

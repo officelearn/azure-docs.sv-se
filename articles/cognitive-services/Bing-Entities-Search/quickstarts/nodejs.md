@@ -1,39 +1,39 @@
 ---
-title: Node.JS Snabbstart för kognitiva tjänster i Azure, Bing enheten Sök API | Microsoft Docs
-description: Hämta information och exempel på kod för att snabbt komma igång med Bing enheten Sök API i kognitiva Microsoft-tjänster i Azure.
+title: 'Snabbstart: API för entitetssökning i Bing, Node.js'
+titlesuffix: Azure Cognitive Services
+description: Hämta information och kodexempel som hjälper dig att snabbt komma igång med API:et för entitetssökning i Bing.
 services: cognitive-services
-documentationcenter: ''
 author: v-jaswel
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-entity-search
-ms.topic: article
+ms.topic: quickstart
 ms.date: 11/28/2017
 ms.author: v-jaswel
-ms.openlocfilehash: 7396976453c240d5ea9a767f8c26ac96d10d1e1f
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
-ms.translationtype: MT
+ms.openlocfilehash: b14bcece77b17e79ec9e39bbb6bb64ae34abd3a0
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35354849"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48815162"
 ---
-# <a name="quickstart-for-microsoft-bing-entity-search-api-with-nodejs"></a>Snabbstart för Microsoft Bing enheten sökning API med Node.JS 
-<a name="HOLTop"></a>
+# <a name="quickstart-for-bing-entity-search-api-with-nodejs"></a>Snabbstart för API för entitetssökning i Bing med Node.js
 
-Den här artikeln visar hur du använder den [Bing enheten Sök](https://docs.microsoft.com/azure/cognitive-services/bing-entities-search/search-the-web) API med Node.JS.
+I den här artikeln kan du se hur du använder API:et för [entitetssökning i Bing](https://docs.microsoft.com/azure/cognitive-services/bing-entities-search/search-the-web) med Node.js.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
-Du behöver [Node.js 6](https://nodejs.org/en/download/) att köra den här koden.
+Du behöver [Node.js 6](https://nodejs.org/en/download/) för att köra den här koden.
 
-Du måste ha en [kognitiva Services API-konto](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) med **Bing enheten Sök API**. Den [kostnadsfri utvärderingsversion](https://azure.microsoft.com/try/cognitive-services/?api=bing-entity-search-api) är tillräcklig för den här snabbstarten. Du måste åtkomstnyckel som tillhandahållits när du aktiverar din kostnadsfria utvärderingsversion eller du kan använda en betald prenumeration nyckel från instrumentpanelen i Azure.
+Du måste ha ett [API-konto för Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) med **API:et för entitetssökning i Bing**. Det räcker med en [kostnadsfri utvärderingsversion](https://azure.microsoft.com/try/cognitive-services/?api=bing-entity-search-api) för den här snabbstarten. Du behöver den åtkomstnyckel som du fick när du aktiverade din kostnadsfria utvärderingsversion, eller så kan du använda en betald prenumerationsnyckel från instrumentpanelen i Azure.
 
-## <a name="search-entities"></a>Sök enheter
+## <a name="search-entities"></a>Entitetssökning
 
-Följ dessa steg om du vill köra det här programmet.
+Följ dessa steg för att köra programmet.
 
-1. Skapa ett nytt Node.JS-projekt i din favorit IDE.
+1. Skapa ett nytt Node.js-projekt i valfri IDE.
 2. Lägg till koden nedan.
-3. Ersätt den `key` värde med en giltig snabbtangent för din prenumeration.
+3. Ersätt värdet `key` med en giltig åtkomstnyckel för din prenumeration.
 4. Kör programmet.
 
 ```nodejs
@@ -90,7 +90,7 @@ Search ();
 
 **Svar**
 
-Ett lyckat svar returneras i JSON, som visas i följande exempel: 
+Ett svar som anger att åtgärden lyckades returneras i JSON, som du ser i följande exempel: 
 
 ```json
 {
@@ -158,6 +158,6 @@ Ett lyckat svar returneras i JSON, som visas i följande exempel:
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Bing enheten Sök kursen](../tutorial-bing-entities-search-single-page-app.md)
-> [Bing enheten Sök översikt](../search-the-web.md )
+> [Självstudie om entitetssökning i Bing](../tutorial-bing-entities-search-single-page-app.md)
+> [Översikt över entitetssökning i Bing](../search-the-web.md )
 > [API-referens](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference)

@@ -1,20 +1,19 @@
 ---
-title: Snabbstart – Snabbstart för Azure Kubernetes-klusterportal
-description: Lär dig att snabbt skapa ett Kubernetes-kluster för Linux-containrar i AKS med Azure-portalen.
+title: Snabbstart – Skapa ett Azure Kubernetes Service-kluster i portalen
+description: Lär dig hur du använder Azure-portalen till att snabbt skapa ett Azure Kubernetes Service-kluster (AKS) och sedan distribuera och övervaka ett program.
 services: container-service
 author: iainfoulds
-manager: jeconnoc
 ms.service: container-service
 ms.topic: quickstart
-ms.date: 07/27/2018
+ms.date: 09/24/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: aceddc2594065c9c36f8dbf63fce2ad03577a383
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 5d70f00294b1f08d2cc4cede6575efd3149599dd
+ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39443375"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49067471"
 ---
 # <a name="quickstart-deploy-an-azure-kubernetes-service-aks-cluster"></a>Snabbstart: Distribuera ett Azure Kubernetes Service-kluster (AKS)
 
@@ -40,15 +39,13 @@ Du skapar ett AKS-kluster genom att slutföra följande steg:
     - *SKALA*: Välj en storlek på virtuell dator för AKS-noderna. VM-storleken **kan inte** ändras efter att ett AKS-kluster har distribuerats.
         - Välj även det antal noder som ska distribueras till klustret. För den här snabbstarten ställer du in **Nodantal** till *1*. Antalet noder **kan** justeras efter att klustret har distribuerats.
     
-    ![Skapa AKS-kluster – ange grundläggande information](media/kubernetes-walkthrough-portal/create-cluster-1.png)
+    ![Skapa AKS-kluster – ange grundläggande information](media/kubernetes-walkthrough-portal/create-cluster-basics.png)
 
     Välj **Nästa: Autentisering** när det är klart.
 
 1. **Autentisering**: Konfigurera följande alternativ:
     - Skapa ett nytt tjänsthuvudnamn eller *Konfigurera* för att använda ett befintligt. Du måste ange ID och hemlighet för SPN-klienten om du använder ett befintligt SPN.
     - Aktivera alternativet för kontroller för rollbaserad åtkomstkontroll (RBAC) för Kubernetes. De här kontrollerna ger mer detaljerad kontroll över åtkomst till de Kubernetes-resurser som har distribuerats i ditt AKS-kluster.
-
-    ![Skapa AKS-kluster – konfigurera autentisering](media/kubernetes-walkthrough-portal/create-cluster-2.png)
 
     Välj **Nästa: nätverk** när du är klar.
 
@@ -59,7 +56,7 @@ Du skapar ett AKS-kluster genom att slutföra följande steg:
     
     Välj **Nästa: övervakning** när du är klar.
 
-1. När du distribuerar ett AKS-kluster, kan Azure Container Insights konfigureras för att övervaka hälsotillståndet för AKS-klustret och poddar som körs i klustret. Mer information om övervakning av hälsotillstånd för containrar finns i [Övervaka hälsotillstånd för Azure Kubernets Service][aks-monitor].
+1. När du distribuerar ett AKS-kluster, kan Azure Monitor för containrar konfigureras för att övervaka hälsotillståndet för AKS-klustret och poddar som körs i klustret. Mer information om övervakning av hälsotillstånd för containrar finns i [Övervaka hälsotillstånd för Azure Kubernets Service][aks-monitor].
 
     Välj **Ja** för att aktivera övervakning av containern och välj en befintlig Log Analytics-arbetsyta eller skapa en ny.
     
@@ -93,7 +90,7 @@ Följande exempelutdata visar den enskilda nod som skapades i föregående steg.
 
 ```
 NAME                       STATUS    ROLES     AGE       VERSION
-aks-agentpool-14693408-0   Ready     agent     10m       v1.10.5
+aks-agentpool-14693408-0   Ready     agent     10m       v1.11.2
 ```
 
 ## <a name="run-the-application"></a>Köra programmet
@@ -117,6 +114,13 @@ spec:
       containers:
       - name: azure-vote-back
         image: redis
+        resources:
+          requests:
+            cpu: 100m
+            memory: 128Mi
+          limits:
+            cpu: 250m
+            memory: 256Mi
         ports:
         - containerPort: 6379
           name: redis
@@ -145,6 +149,13 @@ spec:
       containers:
       - name: azure-vote-front
         image: microsoft/azure-vote-front:v1
+        resources:
+          requests:
+            cpu: 100m
+            memory: 128Mi
+          limits:
+            cpu: 250m
+            memory: 256Mi
         ports:
         - containerPort: 80
         env:
@@ -209,13 +220,20 @@ azure-vote-front   LoadBalancer   10.0.37.27   52.179.23.131   80:30572/TCP   2m
 
 När du skapade klustret aktiverades övervakning av containerinsikter. Den här övervakningsfunktionen tillhandahåller hälsomått för både AKS-klustret och de poddar som körs i klustret. Mer information om övervakning av hälsotillstånd för containrar finns i [Övervaka hälsotillstånd för Azure Kubernets Service][aks-monitor].
 
-Det kan ta några minuter för dessa data att hämtas till Azure Portal. Om du vill se aktuell status, drifttid och resursanvändning för Azure Vote poddarna bläddrar du tillbaka till AKS-resursen i Azure-portalen, till exempel *myAKSCluster*. Välj **Monitor Container Health** (Övervaka hälsotillstånd för container) > välj **standardnamnrymden** > välj sedan **Containers** (Containrar).  Containrarna *azure-vote-back* och *azure-vote-front* visas:
+Det kan ta några minuter för dessa data att hämtas till Azure Portal. Om du vill se aktuell status, drifttid och resursanvändning för Azure Vote poddarna bläddrar du tillbaka till AKS-resursen i Azure-portalen, till exempel *myAKSCluster*. Du kan sedan komma åt hälsostatusen så här:
+
+1. Under **Övervakning** väljer du **Insights (förhandsversion)** på vänster sida
+1. Överst väljer du **+ Lägg till filter**
+1. Välj *Namnrymd* som egenskapen, och välj sedan *\<Alla förutom kube-system\>*
+1. Välja att visa **containrarna**.
+
+Containrarna *bak-azure-vote* och *azure-vote-front* visas enligt följande exempel:
 
 ![Visa hälsan för containrar som körs i AKS](media/kubernetes-walkthrough-portal/monitor-containers.png)
 
-Om du vill se loggar för podden `azure-vote-front` väljer du länken **Visa loggar** på höger sida av listan över containrar. Loggarna inkluderar strömmarna *stdout* och *stderr* från containern.
+Om du vill se loggar för podden `azure-vote-front` väljer du länken **Visa containerloggar** på höger sida av listan över containrar. Loggarna inkluderar strömmarna *stdout* och *stderr* från containern.
 
-![Visa containerloggarna i AKS](media/kubernetes-walkthrough-portal/monitor-containers-logs.png)
+![Visa containerloggarna i AKS](media/kubernetes-walkthrough-portal/monitor-container-logs.png)
 
 ## <a name="delete-cluster"></a>Ta bort klustret
 
@@ -224,6 +242,9 @@ När klustret inte längre behövs, kan du ta bort klusterresursen. Alla associe
 ```azurecli-interactive
 az aks delete --resource-group myResourceGroup --name myAKSCluster --no-wait
 ```
+
+> [!NOTE]
+> När du tar bort klustret tas Azure Active Directory-tjänstens huvudnamn, som används av AKS-klustret, inte bort. Stegvisa instruktioner om hur du tar bort tjänstens huvudnamn finns i dokumentationen om [viktiga överväganden och borttagning av AKS-tjänsten][sp-delete].
 
 ## <a name="get-the-code"></a>Hämta koden
 
@@ -258,3 +279,4 @@ Om du vill lära dig mer om AKS, och gå igenom ett exempel med fullständig dis
 [aks-network]: ./networking-overview.md
 [aks-tutorial]: ./tutorial-kubernetes-prepare-app.md
 [http-routing]: ./http-application-routing.md
+[sp-delete]: kubernetes-service-principal.md#additional-considerations

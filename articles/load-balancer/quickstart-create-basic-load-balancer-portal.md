@@ -1,6 +1,6 @@
 ---
-title: 'Snabbstart: Skapa en offentlig grundläggande belastningsutjämnare med Azure Portal | Microsoft Docs'
-description: Den här snabbstarten visar hur du skapar en offentlig grundläggande belastningsutjämnare med Azure Portal.
+title: 'Snabbstart: Skapa en offentlig grundläggande lastbalanserare med Azure Portal | Microsoft Docs'
+description: Den här snabbstarten visar hur du skapar en offentlig grundläggande lastbalanserare med Azure Portal.
 services: load-balancer
 documentationcenter: na
 author: KumudD
@@ -17,16 +17,16 @@ ms.workload: infrastructure-services
 ms.date: 03/22/2018
 ms.author: kumud
 ms.custom: mvc
-ms.openlocfilehash: 49fa4cf9b24c432b0956f930a1429e1cdf827f1b
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: 7451d6ade7f8b042a68f456e604e2919cacab0a5
+ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/18/2018
-ms.locfileid: "34304886"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44378439"
 ---
-# <a name="quickstart-create-a-public-basic-load-balancer-by-using-the-azure-portal"></a>Snabbstart: Skapa en offentlig grundläggande belastningsutjämnare med Azure Portal
+# <a name="quickstart-create-a-public-basic-load-balancer-by-using-the-azure-portal"></a>Snabbstart: Skapa en offentlig grundläggande lastbalanserare med Azure Portal
 
-Med belastningsutjämning får du högre tillgänglighet och skala genom att inkommande förfrågningar sprids över flera virtuella datorer. Du kan använda Azure Portal för att skapa en belastningsutjämnare som belastningsutjämnar virtuella datorer. Den här snabbstarten visar hur du skapar nätverksresurser, serverdelsservrar och en belastningsutjämnare på grundläggande prisnivå.
+Med belastningsutjämning får du högre tillgänglighet och skala genom att inkommande förfrågningar sprids över flera virtuella datorer. Du kan använda Azure Portal för att skapa en lastbalanserare som lastbalanserar virtuella datorer. Den här snabbstarten visar hur du skapar nätverksresurser, serverdelsservrar och en lastbalanserare på grundläggande prisnivå.
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar. 
 
@@ -34,24 +34,24 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 
 Logga in på [Azure Portal](http://portal.azure.com) för alla uppgifter i den här snabbstarten.
 
-## <a name="create-a-basic-load-balancer"></a>Skapa en grundläggande belastningsutjämnare
+## <a name="create-a-basic-load-balancer"></a>Skapa en grundläggande lastbalanserare
 
-I det här avsnittet skapar du en offentlig grundläggande belastningsutjämning med hjälp av portalen. Den offentliga IP-adressen konfigureras automatiskt som belastningsutjämnarens serverdel när du skapar den offentliga IP-adressen och belastningsutjämnarens resurs genom att använda portalen. Namnet på klientdelen är **LoadBalancerFrontend**.
+I det här avsnittet skapar du en offentlig grundläggande lastbalansering med hjälp av portalen. Den offentliga IP-adressen konfigureras automatiskt som lastbalanserarens serverdel när du skapar den offentliga IP-adressen och lastbalanserarens resurs genom att använda portalen. Namnet på klientdelen är **myLoadBalancer**.
 
-1. Längst upp till vänster i portalen väljer du **Skapa en resurs** > **Netverk** > **Belastningsutjämnare**.
-2. I fönstret **Skapa belastningsutjämnare** anger du dessa värden:
-   - **myLoadBalancer** för namnet på belastningsutjämnaren
-   - **Public** för typ av belastningsutjämnare 
+1. Längst upp till vänster i portalen väljer du **Skapa en resurs** > **Netverk** > **Lastbalanserare**.
+2. I fönstret **Skapa lastbalanserare** anger du dessa värden:
+   - **myLoadBalancer** för namnet på lastbalanseraren
+   - **Public** för typ av lastbalanserare 
    - **myPublicIP** för den offentliga IP-adress som du måste skapa med **SKU**-uppsättningen som **Grundläggande** och **Tilldelning** som **Dynamisk**
    - **myResourceGroupLB** för namnet på den nya resursgruppen
 3. Välj **Skapa**.
    
-![Skapa en belastningsutjämnare](./media/load-balancer-get-started-internet-portal/1-load-balancer.png)
+![Skapa en lastbalanserare](./media/load-balancer-get-started-internet-portal/1-load-balancer.png)
 
 
 ## <a name="create-back-end-servers"></a>Skapa serverdelsservrar
 
-I det här avsnittet skapar du ett virtuellt nätverk och du skapar två virtuella datorer för serverdelspoolen för din grundläggande belastningsutjämnare. Du kan sedan installera IIS (Internet Information Services) på de virtuella datorerna för att testa belastningsutjämnaren.
+I det här avsnittet skapar du ett virtuellt nätverk och du skapar två virtuella datorer för serverdelspoolen för din grundläggande lastbalanserare. Du kan sedan installera IIS (Internet Information Services) på de virtuella datorerna för att testa lastbalanseraren.
 
 ### <a name="create-a-virtual-network"></a>Skapa ett virtuellt nätverk
 1. Uppe till vänster i portalen väljer du **Nytt** > **Nätverk** > **Virtuellt nätverk**.
@@ -128,14 +128,14 @@ I det här avsnittet skapar du nätverkssäkerhetsgruppsregler som tillåter att
    - Slutför arbetet genom att följa anvisningarna i guiden. 
 7. Upprepa steg 1 till 6 för den virtuella datorn **myVM2**.
 
-## <a name="create-resources-for-the-basic-load-balancer"></a>Skapa resurser för den grundläggande belastningsutjämnaren
+## <a name="create-resources-for-the-basic-load-balancer"></a>Skapa resurser för den grundläggande lastbalanseraren
 
-I det här avsnittet konfigurerar du inställningar för belastningsutjämnaren för en serverdelsadresspool och en hälsoavsökning. Du anger regler för belastningsutjämnare och NAT.
+I det här avsnittet konfigurerar du inställningar för lastbalanseraren för en serverdelsadresspool och en hälsoavsökning. Du anger regler för lastbalanserare och NAT.
 
 
 ### <a name="create-a-back-end-address-pool"></a>Skapa en backend-adresspool
 
-För att distribuera trafik till de virtuella datorerna finns en adresspool på serverdelen som innehåller IP-adresserna för de virtuella nätverkskort som är anslutna till belastningsutjämnaren. Skapa serverdelsadresspoolen **myBackendPool** så att den omfattar **VM1** och **VM2**.
+För att distribuera trafik till de virtuella datorerna finns en adresspool på serverdelen som innehåller IP-adresserna för de virtuella nätverkskort som är anslutna till lastbalanseraren. Skapa serverdelsadresspoolen **myBackendPool** så att den omfattar **VM1** och **VM2**.
 
 1. Välj **Alla resurser** i den vänstra menyn och välj sedan **myLoadBalancer** i resurslistan.
 2. Under **Inställningar** väljer du **Serverdelspooler** och sedan **Lägg till**.
@@ -147,11 +147,11 @@ För att distribuera trafik till de virtuella datorerna finns en adresspool på 
 
    ![Lägga till i serverdelsadresspoolen](./media/load-balancer-get-started-internet-portal/3-load-balancer-backend-02.png)
 
-3. Kontrollera att inställningen för serverdelspoolens belastningsutjämnare visar båda de virtuella datorerna **VM1** och **VM2**.
+3. Kontrollera att inställningen för serverdelspoolens lastbalanserare visar båda de virtuella datorerna **VM1** och **VM2**.
 
 ### <a name="create-a-health-probe"></a>Skapa en hälsoavsökning
 
-Om du vill att den grundläggande belastningsutjämnaren ska övervaka status för din app kan du använda en hälsoavsökning. Hälsoavsökningen lägger till eller tar bort virtuella datorer dynamiskt från belastningsutjämnarens rotation baserat på deras svar på hälsokontroller. Skapa en hälsoavsökning med namnet **myHealthProbe** så att du kan övervaka de virtuella datorernas hälsotillstånd.
+Om du vill att den grundläggande lastbalanseraren ska övervaka status för din app kan du använda en hälsoavsökning. Hälsoavsökningen lägger till eller tar bort virtuella datorer dynamiskt från lastbalanserarens rotation baserat på deras svar på hälsokontroller. Skapa en hälsoavsökning med namnet **myHealthProbe** så att du kan övervaka de virtuella datorernas hälsotillstånd.
 
 1. Välj **Alla resurser** i den vänstra menyn och välj sedan **myLoadBalancer** i resurslistan.
 2. Under **Inställningar** väljer du **Hälsoavsökningar** och sedan **Lägg till**.
@@ -164,26 +164,26 @@ Om du vill att den grundläggande belastningsutjämnaren ska övervaka status f�
 
    ![Lägga till en avsökning](./media/load-balancer-get-started-internet-portal/4-load-balancer-probes.png)
 
-### <a name="create-a-load-balancer-rule"></a>Skapa en belastningsutjämningsregel
+### <a name="create-a-load-balancer-rule"></a>Skapa en lastbalanseringsregel
 
-Du använder en belastningsutjämningsregel för att definiera hur trafiken ska distribueras till de virtuella datorerna. Du definierar klientdelens IP-konfiguration för inkommande trafik och serverdelens IP-pool för att ta emot trafik, samt även nödvändig käll- och målport. 
+Du använder en lastbalanseringsregel för att definiera hur trafiken ska distribueras till de virtuella datorerna. Du definierar klientdelens IP-konfiguration för inkommande trafik och serverdelens IP-pool för att ta emot trafik, samt även nödvändig käll- och målport. 
 
-Skapa en belastningsutjämningsregel med namnet **myLoadBalancerRuleWeb** för att avlyssna port 80 i klientdelen **LoadBalancerFrontEnd**. Regeln används även för att skicka belastningsutjämnad nätverkstrafik till serverdelsadresspoolen **myBackEndPool**, också det med port 80. 
+Skapa en lastbalanseringsregel med namnet **myLoadBalancerRuleWeb** för att avlyssna port 80 i klientdelen **LoadBalancerFrontEnd**. Regeln används även för att skicka belastningsutjämnad nätverkstrafik till serverdelsadresspoolen **myBackEndPool**, också det med port 80. 
 
 1. Välj **Alla resurser** i den vänstra menyn och välj sedan **myLoadBalancer** i resurslistan.
 2. Under **Inställningar** väljer du **Belastningsutjämningsregler** och väljer sedan **Lägg till**.
 3. Använd dessa värden och välj sedan **OK**:
-   - **myHTTPRule** för belastningsutjämningsregelns namn
+   - **myHTTPRule** för lastbalanseringsregelns namn
    - **TCP** för protokolltypen
    - **80** för portnumret
    - **80** för serverdelsport
    - **myBackendPool** för serverdelspoolens namn
    - **myHealthProbe** för hälsoavsökningens namn
     
-   ![Lägga till en belastningsutjämningsregel](./media/load-balancer-get-started-internet-portal/5-load-balancing-rules.png)
+   ![Lägga till en lastbalanseringsregel](./media/load-balancer-get-started-internet-portal/5-load-balancing-rules.png)
 
-## <a name="test-the-load-balancer"></a>Testa belastningsutjämnaren
-1. Hitta den offentliga IP-adressen för belastningsutjämnaren på skärmen **Översikt**. Välj **Alla resurser** och sedan **myPublicIP**.
+## <a name="test-the-load-balancer"></a>Testa lastbalanseraren
+1. Hitta den offentliga IP-adressen för lastbalanseraren på skärmen **Översikt**. Välj **Alla resurser** och sedan **myPublicIP**.
 
 2. Kopiera den offentliga IP-adressen och klistra in den i webbläsarens adressfält. IIS-webbserverns standardsida visas i webbläsaren.
 
@@ -191,11 +191,11 @@ Skapa en belastningsutjämningsregel med namnet **myLoadBalancerRuleWeb** för a
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-Du kan ta bort resursgruppen, belastningsutjämnaren och alla relaterade resurser när du inte längre behöver dem. Markera den resursgrupp som innehåller belastningsutjämnaren och sedan klicka på **Ta bort**.
+Du kan ta bort resursgruppen, lastbalanseraren och alla relaterade resurser när du inte längre behöver dem. Markera den resursgrupp som innehåller lastbalanseraren och sedan klicka på **Ta bort**.
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här snabbstarten skapade du en resursgrupp, nätverksresurser och serverdelsservrar. Du använde sedan de här resurserna för att skapa en grundläggande belastningsutjämnare. Om du vill läsa mer om Azure Load Balancer fortsätter du till självstudierna för Azure Load Balancer.
+I den här snabbstarten skapade du en resursgrupp, nätverksresurser och serverdelsservrar. Du använde sedan de här resurserna för att skapa en grundläggande lastbalanserare. Om du vill läsa mer om Azure Load Balancer fortsätter du till självstudierna för Azure Load Balancer.
 
 > [!div class="nextstepaction"]
 > [Självstudier om Azure Load Balancer](tutorial-load-balancer-basic-internal-portal.md)

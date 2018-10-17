@@ -1,22 +1,27 @@
 ---
-title: Översikt över Web Language Model API – Azure Cognitive Services | Microsoft Docs
+title: Översikt över Web Language Model API
+titleSuffix: Azure Cognitive Services
 description: Web Language Model API i Microsoft Cognitive Services innehåller de senaste verktygen för bearbetning av naturligt språk.
 services: cognitive-services
 author: piyushbehre
-manager: yanbo
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: web-language-model
 ms.topic: overview
 ms.date: 08/12/2016
 ms.author: pibehre
-ms.openlocfilehash: dc5dc0519e33e024014033ac5260004482b419c2
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ROBOTS: NOINDEX
+ms.openlocfilehash: f6cfaa05a6107d3e1ef689103da43960ea4df366
+ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47096963"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48039999"
 ---
 # <a name="what-is-the-web-language-model-api-preview"></a>Vad är Web Language Model API? (Förhandsversion)
+
+> [!IMPORTANT]
+> Förhandsversionen av Web Language Model togs ur bruk den 9 augusti 2018. Vi rekommenderar att du använder [Azure Machine Learning-textanalysmoduler](https://docs.microsoft.com/en-us/azure/machine-learning/studio-module-reference/text-analytics) för textbearbetning och -analys.
 
 Web Language Model API i Microsoft Cognitive Services är en REST-baserad molntjänst med de senaste verktygen för bearbetning av naturligt språk. Med detta API kan ditt program använda sig av big data i form av språkmodeller som tränats upp med korpus i webbskala som Bing samlat in på den amerikanska marknaden.
 

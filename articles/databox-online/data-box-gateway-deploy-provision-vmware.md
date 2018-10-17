@@ -12,15 +12,15 @@ ms.devlang: NA
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 09/26/2018
+ms.date: 10/01/2018
 ms.author: alkohli
 ms.custom: ''
-ms.openlocfilehash: 5a173340be424c74c76da659816b1b95b74c465f
-ms.sourcegitcommit: 3150596c9d4a53d3650cc9254c107871ae0aab88
+ms.openlocfilehash: a96aa2ee8b474bcc4e3e9362d6b1ba755e3fdbc3
+ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47419550"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48017456"
 ---
 # <a name="tutorial-provision-azure-data-box-gateway-in-vmware-preview"></a>Självstudie: Etablera Azure Data Box Gateway i VMware (förhandsversion)
 
@@ -94,9 +94,9 @@ Om du vill skapa en virtuell enhet måste du ha följande:
 
 Utför följande steg för att etablera en virtuell enhet i ditt hypervisor-program.
 
-1. Kopiera avbildningen av den virtuella enheten i ditt system. Du har laddat ned den här virtuella avbildningen (två filer) via Azure-portalen. Anteckna den plats dit du har kopierat avbildningen eftersom du använder den här avbildningen senare i proceduren.
+1. Kopiera avbildningen av den virtuella enheten i ditt system. Du har laddat ned den här virtuella avbildningen (två filer) via Azure-portalen. Anteckna den plats dit du kopierade avbildningen eftersom du använder den här avbildningen senare under proceduren.
 
-2. Logga in på ESXi-servern med vSphere-klienten. Du måste ha administratörsbehörighet för att kunna skapa en virtuell dator.
+2. Logga in på ESXi-servern med vSphere-webbklienten. Du måste ha administratörsbehörighet för att kunna skapa en virtuell dator.
 
    ![](./media/data-box-gateway-deploy-provision-vmware/image1.png)
   
@@ -104,7 +104,10 @@ Utför följande steg för att etablera en virtuell enhet i ditt hypervisor-prog
 
    ![](./media/data-box-gateway-deploy-provision-vmware/image2.png)
 
-4. I det högra fönstret, under **Datastores** (Datalager), väljer du det datalager där du vill ladda upp VMDK. Datalagret måste vara av typen VMFS 5. Datalagret måste också ha tillräckligt med ledigt utrymme för OS- och datadiskarna.
+4. I det högra fönstret, under **Datastores** (Datalager), väljer du det datalager där du vill ladda upp VMDK. 
+
+    - Datalagret måste vara av typen VMFS5. 
+    - Datalagret måste också ha tillräckligt med ledigt utrymme för OS- och datadiskarna.
    
 5. Högerklicka och välj **Browse Datastore** (Bläddra i datalager).
 
@@ -145,11 +148,11 @@ Utför följande steg för att etablera en virtuell enhet i ditt hypervisor-prog
 15. På sidan **Select storage** (Välj lagring) väljer du ett datalager du vill använda för att etablera den virtuella datorn. Klicka på **Nästa**.
 
     ![](./media/data-box-gateway-deploy-provision-vmware/image12.png)
-16. På sidan **Customize settings** (Anpassa inställningar) anger du 4 i **CPU**, 8 192 MB (eller mer) i **Memory** (Minne), 2 TB (eller mer) i **Hard disk 1** (Hårddisk). Välj att lägga till typen **SCSI hard disk** (SCSI-hårddisk). I det här fallet var det LSI Logic SAS. **De statiska IDE-diskarna stöds inte.** **Hard disk 1** (Hårddisk 1) är den virtuella datadisken. Observera att du inte kan komprimera disken när den har etablerats.
+16. På sidan **Customize settings** (Anpassa inställningar) anger du 4 i **CPU**, 8 192 MB (eller mer) i **Memory** (Minne), 2 TB (eller mer) i **Hard disk 1** (Hårddisk). Välj **SCSI-hårddisk** som ska läggas till. I det här fallet var det LSI Logic SAS. **De statiska IDE-diskarna stöds inte.** **Hard disk 1** (Hårddisk 1) är den virtuella datadisken. Observera att du inte kan komprimera disken när den har etablerats.
 
     ![](./media/data-box-gateway-deploy-provision-vmware/image13.png)
 
-    På samma sidan klickar du på **Add hard disk** (Lägg till hårddisk) och väljer sedan **Existing hard disk** (Befintlig hårddisk). Det här lägger till en OS-disk. 
+    På samma sidan klickar du på **Add hard disk** (Lägg till hårddisk) och väljer sedan **Existing hard disk** (Befintlig hårddisk). Välj VMDK-filen i datalagret. Detta lägger till en OS-disk. 
 
      ![](./media/data-box-gateway-deploy-provision-vmware/image14.png)
 

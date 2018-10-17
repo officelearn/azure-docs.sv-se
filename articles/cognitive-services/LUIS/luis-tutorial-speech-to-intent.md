@@ -1,102 +1,102 @@
 ---
-title: Använd tal C# SDK med LUIS
+title: Använda Speech C# SDK med LUIS
 titleSuffix: Azure Cognitive Services
-description: Med taltjänsten kan du använda en enskild begäran att ta emot ljud och returnera LUIS förutsägelse JSON-objekt. I den här artikeln får du hämta och använda ett C#-projekt i Visual Studio ska säga ett uttryck i en mikrofon och ta emot information om LUIS förutsägelse. Projektet använder tal NuGet-paketet, som redan ingår som en referens.
+description: Med Speech-tjänsten kan du använda en enskild begäran för att ta emot ljud och returnera LUIS JSON-förutsägelseobjekt. I den här artikeln laddar du ned och använder ett C#-projekt i Visual Studio för att tala in ett yttrande i en mikrofon och ta emot LUIS-förutsägelseinformation. Projektet använder Speech NuGet-paketet, som redan ingår som referens.
 services: cognitive-services
 author: diberry
 manager: cgronlun
 ms.service: cognitive-services
-ms.technology: language-understanding
-ms.topic: article
+ms.component: language-understanding
+ms.topic: tutorial
 ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: fb17e2d8c0ef1df5a6d4965730d3ddd3764d58f5
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
-ms.translationtype: MT
+ms.openlocfilehash: f98d640f032fed5f91df8e9d4fb55d3f20550339
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48868759"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48883932"
 ---
-# <a name="integrate-speech-service"></a>Integrera Speech service
-Den [taltjänst](https://docs.microsoft.com/azure/cognitive-services/Speech-Service/) kan du använda en enskild begäran att ta emot ljud och returnera LUIS förutsägelse JSON-objekt. I den här artikeln får du hämta och använda ett C#-projekt i Visual Studio ska säga ett uttryck i en mikrofon och ta emot information om LUIS förutsägelse. Projektet använder tal [NuGet](https://www.nuget.org/packages/Microsoft.CognitiveServices.Speech/) paketet, som redan ingår som en referens. 
+# <a name="integrate-speech-service"></a>Integrera Speech-tjänsten
+Med [Speech-tjänsten](https://docs.microsoft.com/azure/cognitive-services/Speech-Service/) kan du använda en enskild begäran för att ta emot ljud och returnera LUIS JSON-förutsägelseobjekt. I den här artikeln laddar du ned och använder ett C#-projekt i Visual Studio för att tala in ett yttrande i en mikrofon och ta emot LUIS-förutsägelseinformation. Projektet använder Speech [NuGet](https://www.nuget.org/packages/Microsoft.CognitiveServices.Speech/)-paketet, som redan ingår som referens. 
 
-I den här artikeln behöver du en kostnadsfri [LUIS] [ LUIS] webbplats-konto för att kunna importera programmet.
+För den här artikeln behöver du ett kostnadsfritt [LUIS][LUIS]-webbplatskonto för att importera programmet.
 
 ## <a name="create-luis-endpoint-key"></a>Skapa LUIS-slutpunktsnyckel
-I Azure-portalen [skapa](luis-how-to-azure-subscription.md#create-luis-endpoint-key) en **Språkförståelse** (LUIS)-nyckel. 
+I Azure-portalen [skapar](luis-how-to-azure-subscription.md#create-luis-endpoint-key) du en **Language Understanding**-nyckel (LUIS). 
 
-## <a name="import-human-resources-luis-app"></a>Importera personalfrågor LUIS app
-Avsikter och yttranden för den här artikeln kommer från den personal LUIS-app som är tillgängliga från den [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples) Github-lagringsplatsen. Ladda ned den [HumanResources.json](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/tutorials/HumanResources.json) fil, spara den med den `.json` -tillägget och [importera](luis-how-to-start-new-app.md#import-new-app) den i LUIS. 
+## <a name="import-human-resources-luis-app"></a>Importera LUIS-appen Human Resources
+Avsikterna och yttrandena för den här artikeln kommer från LUIS-appen Human Resources, som är tillgänglig från GitHub-lagringsplatsen [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples). Ladda ned filen [HumanResources.json](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/tutorials/HumanResources.json), spara den med `.json`-tillägget och [importera](luis-how-to-start-new-app.md#import-new-app) den i LUIS. 
 
-Den här appen har avsikter, entiteter och yttranden som rör personal-domänen. Exempel yttranden är:
+Den här appen har avsikter, entiteter och yttranden som rör Human Resources-domänen. Här är några exempelyttranden:
 
 |Exempel på yttranden|
 |--|
-|Vem är John Smith manager?|
-|Vem som hanterar John Smith?|
-|Var är formuläret 123456?|
-|Måste jag helst betald?|
+|Who is John Smith's manager? (Vem är John Smiths chef?)|
+|Who does John Smith manage? (Vem är John Smith chef för?)|
+|Where is Form 123456? (Var är formuläret 123456?)|
+|Do I have any paid time off? (Har jag någon betald semester?)|
 
 
-## <a name="add-keyphrase-prebuilt-entity"></a>Lägg till KeyPhrase fördefinierade entitet
-När du har importerat appen, Välj **entiteter**, sedan **hantera förskapade entiteter**. Lägg till den **KeyPhrase** entitet. Entiteten KeyPhrase extraherar viktiga föremålet från uttryck.
+## <a name="add-keyphrase-prebuilt-entity"></a>Lägga till fördefinierad KeyPhrase-entitet
+När du har importerat appen väljer du **Entiteter** och sedan **Hantera fördefinierade entiteter**. Lägg till **KeyPhrase**-entiteten. KeyPhrase-entiteten extraherar nyckelämnen från yttrandet.
 
 ## <a name="train-and-publish-the-app"></a>Träna och publicera appen
-1. I det övre, högra navigeringsfältet, väljer du den **träna** knappen för att träna LUIS-app.
+1. I det övre högra navigeringsfältet väljer du knappen **Träna** för att träna LUIS-appen.
 
-2. Välj **hantera** uppe till höger fält, Välj **nycklar och slutpunkter** i det vänstra navigeringsfönstret. 
+2. Välj **Hantera** i fältet uppe till höger och välj **Nycklar och slutpunkter** i det vänstra navigeringsfönstret. 
 
-3. På den **nycklar och slutpunkter** sidan bör du tilldela LUIS-nyckel som skapas i den [skapa LUIS slutpunktsnyckeln](#create-luis-endpoint-key) avsnittet.
+3. På sidan **Nycklar och slutpunkter** tilldelar du den LUIS-nyckel som skapades i avsnittet [Skapa LUIS-slutpunktsnyckel](#create-luis-endpoint-key).
 
-  Samla in app-ID på den här sidan, publicera region och prenumerations-ID för den LUIS-nyckeln som skapats i den [skapa LUIS slutpunktsnyckeln](#create-luis-endpoint-key) avsnittet. Du behöver ändra koden för att använda de här värdena senare i den här artikeln. 
+  På den här sidan samlar du in app-ID, publiceringsregion och prenumerations-ID för den LUIS-nyckel som skapades i avsnittet [Skapa LUIS-slutpunktsnyckel](#create-luis-endpoint-key). Du behöver ändra koden för att använda de här värdena senare i den här artikeln. 
   
-  Gör **inte** använder den kostnadsfria starter-nyckeln för den här övningen. Endast en **Språkförståelse** nyckeln som skapats i Azure-portalen kommer att fungera i den här övningen. 
+  Använd **inte** den kostnadsfria startnyckeln för den här övningen. Endast en **Language Understanding**-nyckel som skapats i Azure-portalen fungerar i den här övningen. 
 
-  https://**REGION**.api.cognitive.microsoft.com/luis/v2.0/apps/**APPID**? prenumerationsnyckel =**LUISKEY**& q =
+  https://**REGION**.api.cognitive.microsoft.com/luis/v2.0/apps/**APPID**?subscription-key=**LUISKEY**&q=
 
 
-4. Publicera LUIS-app genom att välja den **publicera** knappen i övre högra fältet. 
+4. Publicera LUIS-appen genom att välja knappen **Publicera** i det övre högra fältet. 
 
 ## <a name="audio-device"></a>Ljudenhet
-Den här artikeln används enheten på datorn. Det kan vara ett headset med mikrofon eller en inbyggd ljudenhet. Kontrollera ljud inkommande nivåer för att se om du bör tala högre än vanligt om du vill att ditt tal som identifieras av enheten. 
+Den här artikeln använder ljudenheten på datorn. Det kan vara ett headset med mikrofon eller en inbyggd ljudenhet. Kontrollera nivåerna för inkommande ljud för att se om du bör tala högre än vanligt för att ditt tak ska identifieras av enheten. 
 
-## <a name="download-the-luis-sample-project"></a>Ladda ned LUIS Sample-projekt
- Klona eller ladda ned den [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples) lagringsplats. Öppna den [tal till avsikt projekt](https://github.com/Microsoft/LUIS-Samples/tree/master/documentation-samples/tutorial-speech-intent-recognition) med Visual Studio och återställa NuGet-paketen. VS-lösningsfilen är.\LUIS-Samples-master\documentation-samples\tutorial-speech-intent-recognition\csharp\csharp_samples.sln.
+## <a name="download-the-luis-sample-project"></a>Ladda ned LUIS-exempelprojektet
+ Klona eller ladda ned lagringsplatsen [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples). Öppna [Tal till avsikt-projektet](https://github.com/Microsoft/LUIS-Samples/tree/master/documentation-samples/tutorial-speech-intent-recognition) med Visual Studio och återställ NuGet-paketen. VS-lösningsfilen är .\LUIS-Samples-master\documentation-samples\tutorial-speech-intent-recognition\csharp\csharp_samples.sln.
 
-Tal-SDK ingår redan som en referens. 
+Speech SDK ingår redan som referens. 
 
-[![](./media/luis-tutorial-speech-to-intent/nuget-package.png "Skärmbild av Visual Studio 2017 med Microsoft.CognitiveServices.Speech NuGet-paketet")](./media/luis-tutorial-speech-to-intent/nuget-package.png#lightbox)
+[![](./media/luis-tutorial-speech-to-intent/nuget-package.png "Skärmbild av Visual Studio 2017 som visar NuGet-paketet Microsoft.CognitiveServices.Speech")](./media/luis-tutorial-speech-to-intent/nuget-package.png#lightbox)
 
-## <a name="modify-the-c-code"></a>Ändra C#-kod
-Öppna den `Program.cs` filen och ändra följande variabler:
+## <a name="modify-the-c-code"></a>Ändra C#-koden
+Öppna filen `Program.cs` och ändra följande variabler:
 
 |Variabelnamn|Syfte|
 |--|--|
-|LUIS_assigned_endpoint_key|Motsvarar endpoint URL: er tilldelas prenumeration-key-värde från publiceringssidan|
-|LUIS_endpoint_key_region|Motsvarar första underdomänen för slutpunkts-URL, till exempel `westus`|
-|LUIS_app_ID|Motsvarar slutpunkts-URL-väg följa **appar /**|
+|LUIS_assigned_endpoint_key|Motsvarar slutpunkt-URL:ens tilldelade prenumerationsnyckelvärde från sidan Publicera|
+|LUIS_endpoint_key_region|Motsvarar slutpunkt-URL:ens första underdomän, till exempel `westus`|
+|LUIS_app_ID|Motsvarar slutpunkt-URL:ens väg efter **apps/**|
 
-Den `Program.cs` filen har redan personalfrågor avsikter mappad.
+Filen `Program.cs` har redan Human Resources-avsikterna mappade.
 
-Skapa och köra appen. 
+Skapa och kör appen. 
 
-## <a name="test-code-with-utterance"></a>Testa kod med uttryck
-Tala i mikrofonen ”som är godkända tandläkare i Redmond”?.
+## <a name="test-code-with-utterance"></a>Testa kod med yttrande
+Tala in följande i mikrofonen: ”Who are the approved dentists in Redmond?” (Vilka är godkända tandläkare i Redmond?).
 
 [!code-console[Command line response from spoken utterance](~/samples-luis/documentation-samples/tutorial-speech-intent-recognition/console-output.txt "Command line response from spoken utterance")]
 
-Rätt avsikten **GetEmployeeBenefits**, hittades med 85%. Entiteten keyPhrase returnerades. 
+Den rätta avsikten, **GetEmployeeBenefits**, hittades med 85 % konfidensbedömning. KeyPhrase-entiteten returnerades. 
 
-Tal-SDK: N Returnerar hela LUIS-svaret. 
+Speech SDK returnerar hela LUIS-svaret. 
 
 ## <a name="clean-up-resources"></a>Rensa resurser
-Ta bort appen LUIS HumanResources när de inte längre behövs. Om du vill göra det, Välj appen och sedan i kontextuella verktygsfältet ovanför listan **ta bort**. På popup-dialogrutan **Delete app?** (Ta bort appen?) väljer du **Ok**.
+Ta bort LUIS-appen Human Resources när den inte längre behövs. För att göra det markerar du appen, går till det kontextuella verktygsfältet ovanför listan och väljer **Ta bort**. På popup-dialogrutan **Delete app?** (Ta bort appen?) väljer du **Ok**.
 
-Kom ihåg att ta bort LUIS-Samples-katalogen när du är klar med exempelkoden.
+Kom ihåg att ta bort katalogen LUIS-Samples när du är klar med exempelkoden.
 
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Integrera LUIS med en BOT](luis-csharp-tutorial-build-bot-framework-sample.md)
+> [Integrera LUIS med en robot](luis-csharp-tutorial-build-bot-framework-sample.md)
 
 [LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions#luis-website

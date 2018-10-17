@@ -10,12 +10,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory
 ms.component: B2C
-ms.openlocfilehash: 469a3662b5bc4db467dde3285d557ac8bbae368e
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: 2b70ed174331b88f9afc9aa30d14a585986496a5
+ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39609097"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45604349"
 ---
 # <a name="tutorial-grant-access-to-an-aspnet-web-api-from-a-web-app-using-azure-active-directory-b2c"></a>Självstudier: Bevilja åtkomst till ett ASP.NET webb-API från en webbapp med Azure Active Directory B2C
 
@@ -40,19 +40,13 @@ I den här guiden får du lära dig att:
 
 Webb-API-resurser måste vara registrerade i klientorganisationen innan de kan godkänna och svara på en [begäran från en skyddad resurs](../active-directory/develop/developer-glossary.md#resource-server) från [klientprogram](../active-directory/develop/developer-glossary.md#client-application) som använder en [åtkomsttoken](../active-directory/develop/developer-glossary.md#access-token) från Azure Active Directory. Registrering skapar [programmet och tjänstens huvudnamnsobjekt](../active-directory/develop/developer-glossary.md#application-object) i klientorganisationen. 
 
-1. Logga in på [Azure Portal](https://portal.azure.com/) som global administratör för Azure AD B2C-klientorganisationen.
+Logga in på [Azure Portal](https://portal.azure.com/) som global administratör för din Azure AD B2C-klientorganisationen.
 
-2. Kontrollera att du använder katalogen som innehåller din Azure AD B2C-klient genom att växla till den i det övre högra hörnet i Azure-portalen. Välj din prenumerationsinformation och välj därefter **Växla katalog**.
+[!INCLUDE [active-directory-b2c-switch-b2c-tenant](../../includes/active-directory-b2c-switch-b2c-tenant.md)]
 
-    ![Växla kataloger](./media/active-directory-b2c-tutorials-web-api/switch-directories.png)
+1. Välj **Alla tjänster** på menyn högst upp till vänster i Azure-portalen och sök efter och välj **Azure AD B2C**. Du bör nu använda den klient som du skapade i den föregående självstudien.
 
-3. Välj den katalog som innehåller din klient.
-
-    ![Välj katalog](./media/active-directory-b2c-tutorials-web-api/select-directory.png)
-
-4. Välj **Alla tjänster** på menyn högst upp till vänster i Azure-portalen och sök efter och välj **Azure AD B2C**. Du bör nu använda den klient som du skapade i den föregående självstudien.
-
-5. Välj **Program** och välj sedan **Lägg till**.
+2. Välj **Program** och välj sedan **Lägg till**.
 
     Registrera webb-API-exemplet i klientorganisationen med följande inställningar.
     
@@ -67,7 +61,7 @@ Webb-API-resurser måste vara registrerade i klientorganisationen innan de kan g
     | **URI för app-id** | myAPISample | URI:n identifierar API:et i klientorganisationen. Det gör att flera API:er kan registreras per klientorganisation. [Omfång](../active-directory/develop/developer-glossary.md#scopes) styr åtkomsten till den skyddade API-resursen och definieras med URI:n för app-ID. |
     | **Inbyggd klient** | Nej | Eftersom det här är ett webb-API och inte en intern klient väljer du Nej. |
     
-6. Klicka på **Skapa** för att registrera API:et.
+3. Klicka på **Skapa** för att registrera API:et.
 
 Registrerade API visas i programlistan för Azure AD B2C-klientorganisationen. Välj webb-API i listan. Webb-API:ets egenskapsruta visas.
 

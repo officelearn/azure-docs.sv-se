@@ -10,12 +10,12 @@ ms.component: video-indexer
 ms.topic: sample
 ms.date: 09/15/2018
 ms.author: juliako
-ms.openlocfilehash: e84411535b82b3e4861b529f490bdde0eb25fd42
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.openlocfilehash: f3889d1cddce92cbdd3049d4421bfdffc69da41e
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45983892"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48884313"
 ---
 # <a name="example-upload-and-index-your-videos"></a>Exempel: Ladda upp och indexera dina videor  
 
@@ -36,6 +36,11 @@ Artikeln beskriver också några av de parametrar du kan ange i API:t för att �
 - När du laddar upp videon baserat på URL:en (rekommenderas) måste slutpunkten skyddas med TLS 1.2 (eller senare)
 - Alternativet för bytematris är begränsat till 2 GB och tidsgränsen uppnås efter 30 min
 - URL:en som anges i parametern `videoURL` måste kodas
+
+> [!Tip]
+> Det rekommenderas att du använder .NET Framework version 4.6.2 eller senare eftersom äldre .NET Framework-versioner inte använder TLS 1.2 som standard.
+>
+> Om du måste använda äldre .NET Framework lägger du till en rad i koden innan du gör REST API-anropet:  <br/> System.Net.ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls | SecurityProtocolType.Tls11 | SecurityProtocolType.Tls12;
 
 ## <a name="configurations-and-params"></a>Konfigurationer och parametrar
 
@@ -243,8 +248,14 @@ public class AccountContractSlim
     public string AccessToken { get; set; }
 }
 ```
+## <a name="common-errors"></a>Vanliga fel
 
+De statuskoder som visas i följande tabell kan returneras av uppladdingsåtgärden.
 
+|Statuskod|ErrorType (i svarstexten)|Beskrivning|
+|---|---|---|
+|400|VIDEO_ALREADY_IN_PROGRESS|Samma video håller redan på att bearbetas i det angivna kontot.|
+|400|VIDEO_ALREADY_FAILED|Samma video misslyckades med att bearbetas i det angivna kontot för mindre än 2 timmar sedan. API-klienter ska vänta minst 2 timmar innan en video laddas upp på nytt.|
 
 ## <a name="next-steps"></a>Nästa steg
 

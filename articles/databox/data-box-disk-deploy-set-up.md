@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 09/24/2018
 ms.author: alkohli
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: e4a913aaeb6eeb3c58b70dbcd714f1360875594f
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: b1e647c6aee251bebd257db5e4e631deba0be3fa
+ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47161544"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49068816"
 ---
 # <a name="tutorial-unpack-connect-and-unlock-azure-data-box-disk"></a>Självstudie: Packa upp, ansluta och låsa upp en Azure Data Box-disk
 
@@ -76,12 +76,14 @@ Beroende på om du är ansluten till en Windows- eller Linux-klient är skiljer 
 Anslut och lås upp diskarna genom att följa stegen nedan.
      
 1. Gå till **Allmänt > Enhetsinformation**. 
-2. Ladda ned de Data Box Disk-verktyg som motsvarar Windows-klienten. 
+2. Ladda ned de Data Box Disk-verktyg som motsvarar Windows-klienten. Den här verktygsuppsättningen innehåller 3 verktyg: Data Box Disk Unlock, Data Box Disk Validation samt Data Box Disk Split Copy. 
+
+    I den här proceduren använder du endast verktyget Data Box Disk Unlock. De andra två verktygen används senare.
 
     > [!div class="nextstepaction"]
     > [Ladda ned Data Box Disk-verktyg för Windows](http://aka.ms/databoxdisktoolswin)         
 
-3. Extrahera verktyget på samma dator som du använder för att kopiera data.
+3. Extrahera verktygsuppsättningen på samma dator som du använder för att kopiera data. 
 4. Öppna ett kommandotolksfönster eller kör Windows PowerShell som administratör på samma dator.
 5. (Valfritt) Kontrollera att den dator som du använder för att låsa upp disken uppfyller operativsystemskraven genom att köra systemkontrollkommandot. Ett exempel på utdata visas nedan. 
 

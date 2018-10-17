@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 07/23/2018
+ms.date: 10/05/2018
 ms.author: spelluru
-ms.openlocfilehash: fe41728b6f08ba767dbcb40d0595b9f7cdc79615
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 6696d6e7e53e98dfab2a65c7c66825936020f33c
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39420207"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48856649"
 ---
 # <a name="tutorial-set-up-a-classroom-lab"></a>Självstudie: Konfigurera ett klassrumslabb 
 I självstudien konfigurerar du ett klassrumslabb med virtuella datorer som används av eleverna i klassrummet.  
@@ -40,76 +40,66 @@ Om du vill konfigurera ett klassrumslabb i ett labbkonto måste du vara medlem i
 1. Gå till [webbplatsen för Azure Lab Services](https://labs.azure.com). 
 2. Välj **Logga in** och ange dina autentiseringsuppgifter. Azure Lab Services har stöd för organisationskonton och Microsoft-konton. 
 3. Utför följande i fönstret **Nytt labb**: 
-    1. Ange ett **namn** på klassrumslabbet. 
-    2. Välj **storlek** för den virtuella dator som du tänker använda i klassrummet.
-    3. Välj **avbildning** som ska användas för att skapa den virtuella datorn.
-    4. Ange **standardautentiseringsuppgifter** för inloggning på de virtuella datorerna i labbet. 
-    7. Välj **Spara**.
+    1. Ange ett **namn** på ditt labb. 
+    2. Ange det högsta **antalet användare** som är tillåtet i labbet. 
+    6. Välj **Spara**.
 
         ![Skapa ett klassrumslabb](../media/tutorial-setup-classroom-lab/new-lab-window.png)
-1. När labbet har skapats väljer du **Gå till mitt labb**. 
+4. På sidan för att **välja specifikationer för virtuell dator** utför du följande steg:
+    1. Välj en **storlek** för virtuella datorer (VM) som skapas i labbet. 
+    2. Välj den **region** där du vill att de virtuella datorerna ska skapas. 
+    3. Välj den **VM-avbildning**  som ska användas för att skapa virtuella datorer i labbet. 
+    4. Välj **Nästa**.
 
-    ![Gå till mitt labb](../media/tutorial-setup-classroom-lab/go-to-my-lab.png)
+        ![Ange VM-specifikationer](../media/tutorial-setup-classroom-lab/select-vm-specifications.png)    
+5. På sidan **Ange autentiseringsuppgifter** anger du standardautentiseringsuppgifter för alla virtuella datorer i labbet. 
+    1. Ange **namnet på användaren** för alla virtuella datorer i labbet.
+    2. Ange **lösenordet** för användaren. 
+
+        > [!IMPORTANT]
+        > Anteckna namnet och lösenordet. De kommer inte att visas igen.
+    3. Välj **Skapa**. 
+
+        ![Ange autentiseringsuppgifter](../media/tutorial-setup-classroom-lab/set-credentials.png)
+6. På sidan **Konfigurera mall** kan du se statusen för labbskapandeprocessen. Det tar upp till 20 minuter att skapa mallen i labbet. 
+
+    ![Konfigurera mall](../media/tutorial-setup-classroom-lab/configure-template.png)
+7. När konfigurationen av mallen har slutförts visas följande sida: 
+
+    ![Konfigurera mallsidan när det är klart](../media/tutorial-setup-classroom-lab/configure-template-after-complete.png)
+8. Följande steg är valfria i den här självstudien: 
+    1. Starta mallen för den virtuella datorn genom att välja **Starta**.
+    2. Anslut till mallen för den virtuella datorn genom att välja **Anslut**. 
+    3. Installera och konfigurera programvaran på mallen för den virtuella datorn. 
+    4. **Stoppa** den virtuella datorn.  
+    5. Ange en **beskrivning** för mallen
+
+        ![Nästa på sidan Konfigurera mall](../media/tutorial-setup-classroom-lab/configure-template-next.png)
+9. Välj **Nästa** på mallsidan. 
+10. På sidan **Publicera mallen** utför du någon av följande åtgärder. 
+    1. Om du vill publicera mallen omedelbart markerar du kryssrutan för *I understand I can't modify the template after publishing (Jag förstår att jag inte kan ändra mallen efter publicering). Den här processen kan bara göras en gång och den kan ta upp till en timme*. Välj sedan **Publicera**.  
+
+        > [!WARNING]
+        > När du väl har publicerat kan du inte ångra publiceringen. 
+    2. Om du vill publicera senare väljer **Spara till senare**. Du kan publicera mallen för den virtuella datorn när guiden har slutförts. Mer information om hur du konfigurerar och publicerar när guiden slutförts finns i avsnittet [Publicera mallen](how-to-manage-classroom-labs.md#publish-the-template) i artikeln om att [hantera klassrumslabb](how-to-manage-classroom-labs.md).
+
+        ![Publicera mall](../media/tutorial-setup-classroom-lab/publish-template.png)
+11. Du ser **förloppet för publiceringen**  av mallen. Den här processen kan ta upp till en timma. 
+
+    ![Publicera mall – förlopp](../media/tutorial-setup-classroom-lab/publish-template-progress.png)
+12. Du ser följande sida när mallen har publicerats. Välj **Done** (Klar).
+
+    ![Publicera mall – lyckades](../media/tutorial-setup-classroom-lab/publish-success.png)
 1. **Instrumentpanelen** för labbet visas. 
     
     ![Instrumentpanel för klassrumslabb](../media/tutorial-setup-classroom-lab/classroom-lab-home-page.png)
-
-## <a name="configure-usage-policy"></a>Konfigurera användningsprincip
-
-1. Välj **Användningsprincip**. 
-2. I inställningarna för **Användningsprincip** anger du det **antal användare** som får använda labbet.
-3. Välj **Spara**. 
-
-    ![Användningsprincip](../media/tutorial-setup-classroom-lab/usage-policy-settings.png)
-
-
-## <a name="set-up-the-template"></a>Konfigurera mallen 
-En mall i ett labb är en basavbildning av en virtuell dator som alla användares virtuella datorer skapas från. Konfigurera mallen för virtuella datorer så att den är konfigurerad med exakt det som du vill förse labbanvändarna med. Du kan ange ett namn och en beskrivning av mallen som visas för labbanvändarna. Publicera mallen så att instanser av den virtuella malldatorn är tillgängliga för labbanvändarna. 
-
-### <a name="set-title-and-description"></a>Ange rubrik och beskrivning
-1. I avsnittet **Mall** väljer du **Redigera** (pennikonen) för mallen. 
-2. I fönstret **Användarvy** anger du en **rubrik** för mallen.
-3. Ange en **beskrivning** för mallen.
-4. Välj **Spara**.
-
-    ![Beskrivning av klassrumslabb](../media/tutorial-setup-classroom-lab/lab-description.png)
-
-### <a name="set-up-the-template-vm"></a>Konfigurera den virtuella malldatorn
- Du ansluter till den virtuella malldatorn och installerar program som krävs på den innan du gör den tillgänglig för dina studenter. 
-
-1. Vänta tills den virtuella malldatorn är klar. När den är klar bör knappen **Starta** aktiveras. För att starta den virtuella datorn väljer du **Starta**.
-
-    ![Starta den virtuella malldatorn](../media/tutorial-setup-classroom-lab/start-template-vm.png)
-1. För att ansluta till den virtuella datorn väljer du **Anslut** och följer instruktionerna. 
-
-    ![Ansluta till den virtuella malldatorn](../media/tutorial-setup-classroom-lab/connect-template-vm.png)
-1. Installera all programvara som krävs för studenterna ska kunna utföra labbet (till exempel Visual Studio, Azure Storage Explorer osv.). 
-2. Koppla från (stäng fjärrskrivbordssessionen) den virtuella malldatorn. 
-3. **Stoppa** den virtuella malldatorn genom att välja **Stoppa**. 
-
-    ![Stoppa den virtuella malldatorn](../media/tutorial-setup-classroom-lab/stop-template-vm.png)
-
-### <a name="publish-the-template"></a>Publicera mallen 
-När du publicerar en mall skapar Azure Lab Services virtuella datorer i labbet med hjälp av mallen. Antalet virtuella datorer som skapas i den här processen är samma som det högsta antalet användare som tillåts i labbet. Du kan definiera antalet i användningsprincipen för labbet. Alla virtuella datorer har samma konfiguration som mallen. 
-
-1. Välj **Publicera** i avsnittet **Mall**. 
-
-    ![Publicera den virtuella malldatorn](../media/tutorial-setup-classroom-lab/public-access.png)
-1. I fönstret **Publicera** väljer du alternativet **Publicerad**. 
-2. Välj sedan knappen **Publicera**. Den här processen kan ta lite tid beroende på hur många virtuella datorer som skapas, vilket är samma som det antal användare som tillåts i labbet.
-    
-    > [!IMPORTANT]
-    > När en mall har publicerats kan publiceringen inte tas bort. 
-4. Växla till sidan **Virtuella datorer** och bekräfta att du ser virtuella datorer som är i tillståndet **Otilldelad**. De här virtuella datorerna har inte tilldelats till studenter ännu. 
-
-    ![Virtuella datorer](../media/tutorial-setup-classroom-lab/virtual-machines.png)
-5. Vänta tills de virtuella datorerna har skapats. De måste vara i tillstånd **Stoppad**. Du kan starta en virtuell dator för studenter, ansluta till den virtuella datorn, stoppa den virtuella datorn och ta bort den virtuella datorn på den här sidan. Du kan starta dem på den här sidan eller låta studenterna starta de virtuella datorerna. 
+4. Växla till sidan **Virtuella datorer** och bekräfta att du ser virtuella datorer som är i tillståndet **Otilldelad**. De här virtuella datorerna har inte tilldelats till studenter ännu. De måste vara i tillstånd **Stoppad**. Du kan starta en virtuell dator för studenter, ansluta till den virtuella datorn, stoppa den virtuella datorn och ta bort den virtuella datorn på den här sidan. Du kan starta dem på den här sidan eller låta studenterna starta de virtuella datorerna. 
 
     ![Virtuella datorer i stoppat tillstånd](../media/tutorial-setup-classroom-lab/virtual-machines-stopped.png)
 
 ## <a name="send-registration-link-to-students"></a>Skicka en registreringslänk till eleverna
 
-1. Växla till vyn **Instrumentpanel**. 
+1. Växla till vyn med **instrumentpanelen** genom att välja **Instrumentpanel** på den vänstra menyn. 
 2. Välj panelen **Användarregistrering**.
 
     ![Länk för elevregistrering](../media/tutorial-setup-classroom-lab/dashboard-user-registration-link.png)
@@ -117,6 +107,7 @@ När du publicerar en mall skapar Azure Lab Services virtuella datorer i labbet 
 
     ![Länk för elevregistrering](../media/tutorial-setup-classroom-lab/registration-link.png)
 2. I dialogrutan **Användarregistrering** väljer du **Stäng**. 
+3. Dela registreringslänken med en student så att studenten kan registrera sig för klassen. 
 
 
 ## <a name="next-steps"></a>Nästa steg

@@ -1,36 +1,37 @@
 ---
-title: Entiteten länka Intelligence Service API | Microsoft Docs
-description: Lär dig mer om att använda entiteten länka Intelligence Service API för länkning av entiteten uppgifter i kognitiva Services.
+title: Vad är API:et för intelligent tjänst för entitetslänkning?
+titlesuffix: Azure Cognitive Services
+description: Lär dig hur du använder API:t för intelligent tjänst för entitetslänkningsuppgifter.
 services: cognitive-services
 author: DavidLiCIG
-manager: wkwok
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: entity-linking-intelligence
-ms.topic: article
+ms.topic: overview
 ms.date: 03/28/2016
 ms.author: davl
-ms.openlocfilehash: 662295c42a421fe76892e6e5aac7b7e7178d6155
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
-ms.translationtype: MT
+ms.openlocfilehash: b0f839e8f33e9ff48d2ad526621167a89e3b9be8
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35351582"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46366190"
 ---
-# <a name="entity-linking-intelligence-service-api"></a>API för Entity Linking Intelligence Service
+# <a name="what-is-the-entity-linking-intelligence-service-api"></a>Vad är API:et för intelligent tjänst för entitetslänkning?
 
-Välkommen till Microsoft entitet länka Intelligence Service, en webbtjänst som skapats för att hjälpa utvecklare med aktiviteter som rör entitet länkning.
+Välkommen till den intelligenta tjänsten för entitetslänkning, en webbtjänst som skapats för att hjälpa utvecklare med uppgifter som rör entitetslänkning.
 
 ## <a name="entity-linking"></a>Entity Linking
 
-Ibland kan en word olika kontexter användas som en namngiven enhet, ett verb eller andra word-formulär inom en viss mening. När exempelvis ”times” används som namngiven entitet kan det fortfarande referera till två olika entiteter som ”The New York Times” eller ”Times Square”. Givet ett visst stycke i ett dokument, entiteten länka Intelligence tjänsten känner igen och identifiera varje separat entitet baserat på dess kontext.  
+Ibland kan ett ord användas som en namngiven entitet, ett verb eller en annan ordform i en viss mening. När exempelvis ”times” används som namngiven entitet kan det fortfarande referera till två olika entiteter som ”The New York Times” eller ”Times Square”. Den intelligenta tjänsten för entitetslänkning känner igen och identifierar varje separat entitet baserat på kontexten i ett visst stycke i ett dokument.  
 
-Bilden nedan visar ett exempel på entiteten länkning. Mer specifikt när du använder Wikipedia entitet länka Intelligence tjänsten identifierar alla entiteter som nämns i indatatexten och länkar dem till relevanta referenspunkter enligt sid-ID.
+Bilden nedan visar ett exempel på entitetslänkning. Mer specifikt, när du använder Wikipedia känner tjänsten för intelligent entitetslänkning igen alla entiteter som nämns i indatan och länkar dem till ett sido-ID.
 
- ![Entiteten länka exempel för Mars](./Images/EntityLinkingSample1.png)
+ ![Entitetslänkningsexempel för Mars](./Images/EntityLinkingSample1.png)
  
 ## <a name="get-started"></a>Kom igång
  
-För att snabbt gå igenom entitet länka grundläggande funktioner och prenumeration process, finns våra komma igång-kursen.
-[Komma igång med entitet länka API i C#](GettingStarted.md)
+För att snabbt gå igenom entitetslänkningens grundläggande funktioner och prenumerationsprocessen kan du besöka vår självstudie för att komma igång.
+[Komma igång med API:er i C# för entitetslänkning](GettingStarted.md)
 
 

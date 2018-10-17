@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/23/2018
+ms.date: 10/01/2018
 ms.author: pareshmu
-ms.openlocfilehash: 72cb9871b1e0f08d8c368116eae13a8402af9f60
-ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
+ms.openlocfilehash: 22288165876972888428450f16aa2460a211c9a6
+ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42815228"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48042930"
 ---
 # <a name="expressroute-partners-and-peering-locations"></a>ExpressRoute-partners och peeringplatser
 
@@ -44,8 +44,8 @@ Följande tabell innehåller en karta över Azures regioner till ExpressRoute-pl
 | --- | --- | --- |
 | **Nordamerika** |USA, östra; USA, västra; USA, östra 2; USA, västra 2; USA, centrala; USA, södra centrala; USA, norra centrala; USA västra centrala; Kanada, centrala; Kanada, östra |Atlanta, Chicago, Dallas, Denver, Las Vegas, Los Angeles, Miami, New York, San Antonio, Seattle, Silicon Valley, Washington DC, Montreal, Quebec City, Toronto |
 | **Sydamerika** |Södra Brasilien |Sao Paulo |
-| **Europa** |Frankrike, centrala; Frankrike, södra; Europa, norra; Europa, västra; Storbritannien, västra; Storbritannien, södra |Amsterdam, Dublin, London, Newport (Wales), Paris |
-| **Asien** |Östra Asien, Sydostasien |Hongkong SAR, Singapore, Singapore2 |
+| **Europa** |Frankrike, centrala; Frankrike, södra; Europa, norra; Europa, västra; Storbritannien, västra; Storbritannien, södra |Amsterdam, Amsterdam2, Dublin, London, Marseille, Newport (Wales), Paris |
+| **Asien** |Östra Asien, Sydostasien |Hongkong SAR, Kuala Lumpur, Singapore, Singapore2 |
 | **Japan** |Västra Japan, östra Japan |Osaka, Tokyo |
 | **Australien** |Sydöstra Australien, östra Australien |Melbourne, Sydney |
 | **Australiensiska myndigheter** | Centrala Australien, Centrala Australien 2 |Canberra, Canberra2 | 
@@ -100,7 +100,7 @@ I följande tabell visas platser efter tjänstleverantör. Om du vill visa tillg
 | **Internet2** |Stöds |Stöds |Washington DC |
 | **[Internet Initiative Japan Inc. - IIJ](http://www.iij.ad.jp/en/news/pressrelease/2015/1216-2.html)** |Stöds |Stöds |Osaka, Tokyo |
 | **[Internet Solutions – Cloud Connect](https://www.is.co.za/solution/cloud-connect/)** |Stöds |Stöds |Kapstaden, Johannesburg, London |
-| **[Interxion](http://www.interxion.com/why-interxion/colocate-with-the-clouds/Microsoft-Azure/)** |Stöds |Stöds |Amsterdam, Dublin, London, Paris |
+| **[Interxion](http://www.interxion.com/why-interxion/colocate-with-the-clouds/Microsoft-Azure/)** |Stöds |Stöds |Amsterdam, Amsterdam2, Dublin, Marseille, London, Paris |
 | **[IX Reach](https://www.ixreach.com/services/cloud-connectivity/microsoft-azure/)**|Stöds |Stöds | Silicon Valley, Toronto |
 | **Jisc** |Stöds |Stöds |London |
 | **[KINX](https://www.kinx.net/service/network/cloudhub/ms-expressroute/?lang=en)** |Stöds |Stöds |Seoul |
@@ -119,7 +119,7 @@ I följande tabell visas platser efter tjänstleverantör. Om du vill visa tillg
 | **[Optus](https://www.optus.com.au/enterprise/networking/network-connectivity/express-link)** |Stöds |Stöds |Melbourne+ , Sydney |
 | **[Orange](http://www.orange-business.com/en/products/business-vpn-galerie)** |Stöds |Stöds |Amsterdam, Hongkong SAR, London, Paris+, Silicon Valley, Singapore, Sydney, Washington DC |
 | **[PacketFabric](https://www.packetfabric.com/packetcor/microsoft-azure/)** |Stöds |Stöds |Chicago, Silicon Valley, Washington DC |
-| **PCCW Global Limited** |Stöds |Stöds |Hongkong SAR |
+| **PCCW Global Limited** |Stöds |Stöds |Chicago, Hongkong, London |
 | **[Sejong Telecom](https://www.sejongtelecom.net/en/pages/service/cloud_ms)** |Stöds |Stöds |Seoul |
 | **[SIFY](http://telecom.sify.com/azure-expressroute.html)** |Stöds |Stöds |Chennai, Mumbai |
 | **[SingTel](http://info.singtel.com/about-us/news-releases/singtel-provide-secure-private-access-microsoft-azure-public-cloud)** |Stöds |Stöds |Singapore, Singapore2 |
@@ -134,7 +134,7 @@ I följande tabell visas platser efter tjänstleverantör. Om du vill visa tillg
 | **[Telstra Corporation](http://www.telstra.com.au/business-enterprise/network-services/networks/cloud-direct-connect/)** |Stöds |Stöds |Melbourne, Sydney |
 | **[Telus](http://www.telus.com)** |Stöds |Stöds |Montreal, Toronto |
 | **[Teraco](https://www.teraco.co.za/services/africa-cloud-exchange/)** |Stöds |Stöds |Kapstaden, Johannesburg |
-| **TIME** | Kommer snart | Kommer snart | Kuala Lumpur |
+| **TIME** | Stöds | Stöds | Kuala Lumpur |
 | **[UOLDIVEO](http://www.uoldiveo.com.br/solucoes/cloud.html#rmcl)** |Stöds |Stöds |Sao Paulo |
 | **[Verizon](http://www.verizonenterprise.com/products/networking/secure-cloud-interconnect/)** |Stöds |Stöds |Amsterdam, Chicago, Dallas, Hongkong, London, Silicon Valley, Singapore, Sydney, Tokyo, Washington DC |
 | **[Vodafone](http://www.vodafone.com/business/global-enterprise/global-connectivity/vodafone-ip-vpn-cloud-connect)** |Stöds |Stöds inte |London |

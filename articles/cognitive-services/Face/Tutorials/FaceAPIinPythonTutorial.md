@@ -1,41 +1,41 @@
 ---
-title: Ansikts API Python kursen | Microsoft Docs
-titleSuffix: Microsoft Cognitive Services
-description: Lär dig använda Ansikts-API med Python SDK för att identifiera mänsklig ytor i en bild i kognitiva Services.
+title: 'Självstudie: Identifiera och rama in ansikten i en bild – Ansiktsigenkänning, Python'
+titleSuffix: Azure Cognitive Services
+description: Lär dig mer om att använda Ansikts-API med Python SDK för att identifiera ansikten i en bild.
 services: cognitive-services
 author: SteveMSFT
-manager: corncar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: face-api
-ms.topic: article
+ms.topic: tutorial
 ms.date: 03/01/2018
 ms.author: sbowles
-ms.openlocfilehash: 90d74d8df2ed59e6f3313ef7c620284d1022a667
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
-ms.translationtype: MT
+ms.openlocfilehash: 6cc3ac25d2196c0275b445503b79b9ac06a791d3
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37049119"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46127745"
 ---
-# <a name="getting-started-with-face-api-in-python-tutorial"></a>Komma igång med framsidan API i Python självstudiekursen
+# <a name="tutorial-detect-and-frame-faces-with-the-face-api-and-python"></a>Självstudie: Känna igen och rama in ansikten med API för ansiktsigenkänning och Python 
 
-I kursen får du lära dig att anropa Ansikts-API: N via Python SDK, för att identifiera mänsklig ytor i en bild.
+I den här självstudien får du lära dig att anropa API för ansiktsigenkänning via Python SDK för att identifiera ansikten i en bild.
 
-## <a name="prerequisites"></a> Nödvändiga komponenter
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
-Om du vill använda den här kursen behöver du göra följande:
+I självstudiekursen måste du göra följande:
 
 - Installera Python 2.7 + eller Python 3.5 +.
 - Installera pip.
-- Installera Python SDK för Ansikts-API: N på följande sätt:
+- Installera Python SDK för API för ansiktsigenkänning på följande sätt:
 
 ```bash
 pip install cognitive_face
 ```
 
-- Hämta en [prenumeration nyckeln](https://azure.microsoft.com/try/cognitive-services/) för kognitiva Microsoft-tjänster. Du kan använda din primära eller den sekundära nyckeln i den här självstudiekursen. (Observera att du måste ha en giltig prenumeration för att använda alla Ansikts-API: er).
+- Hämta en [prenumerationsnyckel](https://azure.microsoft.com/try/cognitive-services/) för Microsoft Cognitive Services. Du kan använda din primära eller sekundära nyckel i den här självstudien. (Observera att du måste ha en giltig prenumerationsnyckel om du vill använda API:er för ansiktsigenkänning).
 
-## <a name="sdk-example"></a> Identifiera ett ansikte i en bild
+## <a name="detect-a-face-in-an-image"></a>Identifiera ett ansikte i en bild
 
 ```python
 import cognitive_face as CF
@@ -52,15 +52,15 @@ faces = CF.face.detect(img_url)
 print(faces)
 ```
 
-Nedan visas ett exempel resultat. Det är en `list` av identifierade ytor. Varje objekt i listan är en `dict` -instans där `faceId` är ett unikt ID för de identifierade står inför och `faceRectangle` beskriver positionen för de identifierade står inför. Ett ID står inför upphör att gälla i 24 timmar.
+Nedan visas ett exempelresultat. Det är en `list` av identifierade ansikten. Varje objekt i listan är en `dict`-instans där `faceId` är ett unikt ID för det identifierade ansiktet och `faceRectangle` beskriver positionen för det identifierade ansiktet. Ett ansikts-ID upphör att gälla efter 24 timmar.
 
 ```python
 [{u'faceId': u'68a0f8cf-9dba-4a25-afb3-f9cdf57cca51', u'faceRectangle': {u'width': 89, u'top': 66, u'height': 89, u'left': 446}}]
 ```
 
-## <a name="draw-rectangles-around-the-faces"></a>Rita rektanglar runt ytor
+## <a name="draw-rectangles-around-the-faces"></a>Rita rektanglar runt varje ansikte
 
-Du kan med json-koordinater som du har fått från det föregående kommandot för att Rita rektanglar på bilden för att visuellt representerar varje yta. Du behöver `pip install Pillow` att använda den `PIL` avbildning modulen.  Lägg till följande längst upp i filen:
+Du kan använda json-koordinaterna från föregående kommando för att rita rektanglar på bilden för att visa varje ansikte visuellt. Du måste `pip install Pillow` för att använda avbildningsmodulen `PIL`.  Lägg till följande överst i filen:
 
 ```python
 import requests
@@ -68,7 +68,7 @@ from io import BytesIO
 from PIL import Image, ImageDraw
 ```
 
-Sedan när `print(faces)`, bland annat följande i skriptet:
+Sedan när `print(faces)`, inkluderar du följande i ditt skript:
 
 ```python
 #Convert width height to a point in a rectangle
@@ -93,9 +93,9 @@ for face in faces:
 img.show()
 ```
 
-## <a name='further'></a> Vidare
+## <a name="further-exploration"></a>Ytterligare utforskning
 
-Den här kursen ger ett GUI-exempel för att hjälpa dig att utforska vidare Ansikts-API. Om du vill köra den först installera [wxPython](https://wxpython.org/pages/downloads/) kör kommandon nedan.
+Den här självstudien innehåller ett exempel på ett grafiskt användargränssnitt som hjälper dig att utforska API för ansiktsigenkänning ytterligare. För att köra den installerar du först [wxPython](https://wxpython.org/pages/downloads/) och kör kommandona nedan.
 
 ```bash
 git clone https://github.com/Microsoft/Cognitive-Face-Python.git
@@ -103,11 +103,11 @@ cd Cognitive-Face-Python
 python sample
 ```
 
-## <a name="summary"></a> Sammanfattning
+## <a name="summary"></a>Sammanfattning
 
-I den här kursen har du lärt dig den grundläggande processen för att använda Ansiktsigenkännings-API: N via anropar Python SDK. Mer information om API-information finns i anvisningar och [API-referens för](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236).
+I den här självstudien har du lärt dig det grundläggande sättet att använda API för ansiktsigenkänning för att anropa Python SDK. Mer information om API-information finns i anvisningar och [API-referens](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236).
 
-## <a name="related"></a> Närliggande information
+## <a name="related-topics"></a>Relaterade ämnen
 
-- [Komma igång med CSharp riktade API](FaceAPIinCSharpTutorial.md)
-- [Komma igång med Ansikts-API i Java för Android](FaceAPIinJavaForAndroidTutorial.md)
+- [Komma igång med API för ansiktsigenkänning i CSharp](FaceAPIinCSharpTutorial.md)
+- [ Komma igång med API för ansiktsigenkänning i Java för Android](FaceAPIinJavaForAndroidTutorial.md)

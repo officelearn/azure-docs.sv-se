@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: tutorial
 ms.date: 6/27/2018
 ms.author: dineshm
-ms.openlocfilehash: 7d951a959da28187a5971ee218f2bd921d331727
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: fd9dfaa2042cae0923c919f4e76d7b59a170918e
+ms.sourcegitcommit: 06724c499837ba342c81f4d349ec0ce4f2dfd6d6
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43301806"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46466038"
 ---
 # <a name="tutorial-access-azure-data-lake-storage-gen2-preview-data-with-azure-databricks-using-spark"></a>Självstudie: Få åtkomst till Azure Data Lake Storage Gen2-data (förhandsversion) med Azure Databricks med hjälp av Spark
 
@@ -22,7 +22,6 @@ I den här självstudien får du lära dig hur du kör Spark-frågor i ett Azure
 > [!div class="checklist"]
 > * Skapa ett Databricks-kluster
 > * Mata in ostrukturerade data i ett lagringskonto
-> * Utlösa en Azure-funktion för att bearbeta data
 > * Köra analyser på dina data i Blob Storage
 
 ## <a name="prerequisites"></a>Krav
@@ -36,11 +35,8 @@ Den här självstudien visar hur du använder och frågar efter flyginformation 
 
 Börja med att skapa ett nytt [Azure Data Lake Storage Gen2-konto](quickstart-create-account.md) och ge det ett unikt namn. Gå sedan till lagringskontot för att hämta konfigurationsinställningar.
 
-> [!IMPORTANT]
-> I förhandsversionen fungerar Azure Functions endast med Azure Data Lake Storage Gen2-konton som skapats med en ostrukturerad namnrymd.
-
 1. Under **Inställningar** klickar du på **Åtkomstnycklar**.
-3. Klicka på **Kopiera** bredvid **key1** för att kopiera nyckelvärdet.
+2. Klicka på **Kopiera** bredvid **key1** för att kopiera nyckelvärdet.
 
 Både kontonamnet och nyckeln behövs i senare steg i den här självstudien. Öppna ett textredigeringsprogram och spara kontonamnet och nyckeln för framtida bruk.
 
@@ -74,7 +70,7 @@ Nästa steg är att skapa ett [Databricks-kluster](https://docs.azuredatabricks.
 
 ### <a name="copy-source-data-into-the-storage-account"></a>Kopiera källdata till lagringskontot
 
-Sedan använder du AzCopy för att kopiera data från *.csv*-filen till Azure Storage. Öppna kommandotolken och ange följande kommandon. Se till att ersätta platshållarna `<DOWNLOAD_FILE_PATH>`, `<ACCOUNT_NAME>` och `<ACCOUNT_KEY>` med motsvarande värden som du sparade i ett tidigare steg.
+Sedan använder du AzCopy för att kopiera data från *.csv*-filen till Azure Storage. Öppna kommandotolken och ange följande kommandon. Se till att ersätta platshållarna `<DOWNLOAD_FILE_PATH>` och `<ACCOUNT_KEY>` med motsvarande värden som du sparade i ett tidigare steg.
 
 ```bash
 set ACCOUNT_NAME=<ACCOUNT_NAME>
@@ -159,7 +155,7 @@ Kör följande skript om du vill skapa dataramar för dina datakällor:
 acDF = spark.read.format('csv').options(header='true', inferschema='true').load(accountsource + "/<YOUR_CSV_FILE_NAME>.csv")
 acDF.write.parquet(accountsource + '/parquet/airlinecodes')
 
-#read the existing parquet file for the flights database that was created via the Azure Function
+#read the existing parquet file for the flights database that was created earlier
 flightDF = spark.read.format('parquet').options(header='true', inferschema='true').load(accountsource + "/parquet/flights")
 
 #print the schema of the dataframes

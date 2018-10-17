@@ -15,18 +15,18 @@ ms.topic: overview
 ms.date: 01/04/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: 68c3306656ade6ce95a3f18fec19de32bd9cf319
-ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
+ms.openlocfilehash: c8d72e473831da13e05598256bcb24660003368a
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39170845"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44300791"
 ---
 # <a name="web-apps-overview"></a>Översikt över Web Apps
 
 *Azure App Service Web Apps* (eller bara Web Apps) är en tjänst som kan användas som värd för webbprogram, REST API:er och mobila serverdelar. Du kan utveckla i det språk du föredrar, oavsett om det är .NET, .NET Core, Java, Ruby, Node.js, PHP eller Python. Program körs och skalas enkelt i Windows-baserade miljöer. Mer information om Linux-baserade miljöer finns i [App Service i Linux](containers/app-service-linux-intro.md). 
 
-Web Apps lägger inte bara till kraften hos Microsoft Azure i ditt program, t.ex. säkerhet, belastningsutjämning, automatisk skalning och automatiserad hantering. Du kan även dra nytta av dess DevOps-funktioner, t.ex. löpande utveckling från VSTS, GitHub, Docker Hub och andra källor, pakethantering, mellanlagringsmiljöer, anpassade domäner och SSL-certifikat. 
+Web Apps lägger inte bara till kraften hos Microsoft Azure i ditt program, t.ex. säkerhet, belastningsutjämning, automatisk skalning och automatiserad hantering. Du kan även dra nytta av dess DevOps-funktioner, t.ex. löpande utveckling från Azure DevOps, GitHub, Docker Hub och andra källor, pakethantering, mellanlagringsmiljöer, anpassade domäner och SSL-certifikat. 
 
 Med App Service betalar du för de Azure-beräkningsresurer du använder. De beräkningsresurser du använder fastställs av _App Service-planen_ som du använder för att köra Web Apps. Mer information finns i [App Service plans in Azure Web Apps](azure-web-sites-web-hosting-plans-in-depth-overview.md) (App Service-planer i Azure Web Apps).
 
@@ -35,7 +35,7 @@ Med App Service betalar du för de Azure-beräkningsresurer du använder. De ber
 Här följer några funktioner i App Service Web Apps:
 
 * **Flera språk och ramverk** – Web Apps har förstklassigt stöd för ASP.NET, ASP.NET Core, Java, Ruby, Node.js, PHP och Python. Du kan också köra [PowerShell och andra skript och körbara filer](web-sites-create-web-jobs.md) som bakgrundstjänster.
-* **DevOps-optimering** – Konfigurera [kontinuerlig integrering och distribution](app-service-continuous-deployment.md) med Visual Studio Team Services, GitHub, BitBucket, Docker Hub eller Azure Container Registry. Flytta upp uppdateringar via [test- och mellanlagringsmiljöer](web-sites-staged-publishing.md). Hantera dina appar i Web Apps med [Azure PowerShell](/powershell/azureps-cmdlets-docs) eller det [plattformsoberoende kommandoradsgränssnittet (CLI)](/cli/azure/install-azure-cli).
+* **DevOps-optimering** – Konfigurera [kontinuerlig integrering och distribution](app-service-continuous-deployment.md) med Azure DevOps, GitHub, BitBucket, Docker Hub eller Azure Container Registry. Flytta upp uppdateringar via [test- och mellanlagringsmiljöer](web-sites-staged-publishing.md). Hantera dina appar i Web Apps med [Azure PowerShell](/powershell/azureps-cmdlets-docs) eller det [plattformsoberoende kommandoradsgränssnittet (CLI)](/cli/azure/install-azure-cli).
 * **Global skala med hög tillgänglighet** – skala [upp](web-sites-scale.md) och [ned](../monitoring-and-diagnostics/insights-how-to-scale.md) manuellt och automatiskt. Hantera appar var som helst i Microsofts globala datacenterinfrastruktur med hög tillgänglighet tack vare [serviceavtalet](https://azure.microsoft.com/support/legal/sla/app-service/) för App Service.
 * **Anslutningar till SaaS-plattformar och lokala data** – välj bland fler än 50 [anslutningsappar](../connectors/apis-list.md) för företagssystem (till exempel SAP), SaaS-tjänster (till exempel Salesforce) och internettjänster (till exempel Facebook). Åtkomst till lokala data via [hybridanslutningar ](../biztalk-services/integration-hybrid-connection-overview.md) och [Azure Virtual Networks](web-sites-integrate-with-vnet.md).
 * **Säkerhet och efterlevnad** – App Service [uppfyller ISO, SOC och PCI](https://www.microsoft.com/en-us/trustcenter). Autentisera användare med [Azure Active Directory](app-service-mobile-how-to-configure-active-directory-authentication.md) eller med social inloggning ([Google](app-service-mobile-how-to-configure-google-authentication.md), [Facebook](app-service-mobile-how-to-configure-facebook-authentication.md), [Twitter](app-service-mobile-how-to-configure-twitter-authentication.md) och [Microsoft](app-service-mobile-how-to-configure-microsoft-authentication.md)). Skapa [IP-adressbegränsningar](app-service-ip-restrictions.md) och [hantera tjänstidentiteter](app-service-managed-service-identity.md).

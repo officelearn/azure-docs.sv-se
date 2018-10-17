@@ -1,26 +1,25 @@
 ---
-title: Snabbstart – Skapa din första Azure Container Instances-behållare med PowerShell
-description: I den här snabbstarten använder du Azure PowerShell för att distribuera en Windows-behållare i Azure Container Instances
+title: Snabbstart – Kör ett program i Azure Container Instances
+description: I den här snabbstarten använder du Azure PowerShell för att distribuera ett program i en dockercontainer i Azure Container Instances
 services: container-instances
-author: mmacy
-manager: jeconnoc
+author: dlepow
 ms.service: container-instances
 ms.topic: quickstart
-ms.date: 05/11/2018
-ms.author: marsma
+ms.date: 10/02/2018
+ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: 4a1d338304dbd5e2845768b7bf0273eed23af0ec
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 33444e810a2deebee11e535c73ce3e249f42b340
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38453574"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48854651"
 ---
-# <a name="quickstart-create-your-first-container-in-azure-container-instances"></a>Snabbstart: Skapa din första behållare i Azure Container Instances
+# <a name="quickstart-run-an-application-in-azure-container-instances"></a>Snabbstart: Kör ett program i Azure Container Instances
 
-Azure Container Instances gör det enkelt att skapa och hantera Docker-behållare i Azure, utan att behöva etablera virtuella datorer eller gå upp till en högre tjänstnivå. I den här snabbstarten skapar du en Windows-behållare i Azure och gör den tillgänglig på Internet med ett fullständigt kvalificerat domännamn (FQDN). Den här åtgärden utförs med ett enda kommando. Inom kort kan du se programmet köras i webbläsaren:
+Använd Azure Container Instances för att snabbt och enkelt köra dockercontainrar i Azure. Du behöver inte distribuera virtuella datorer eller använda en komplett plattform för containerorkestrering, som Kubernetes. I den här snabbstarten använder du Azure-portalen för att skapa en Windows-container i Azure och göra dess program tillgängligt med ett fullständigt kvalificerat domännamn (FQDN). Några sekunder efter du kört ett enskilt distributionskommando kan du bläddra till programmet som körs:
 
-![App som distribuerats via Azure Container Instances visas i webbläsare][qs-powershell-01]
+![App som distribuerats via Azure Container Instances visas i webbläsaren][qs-powershell-01]
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
 
@@ -30,29 +29,31 @@ Om du väljer att installera och använda PowerShell lokalt kräver den här sj�
 
 ## <a name="create-a-resource-group"></a>Skapa en resursgrupp
 
-Skapa en Azure-resursgrupp med [New-AzureRmResourceGroup][New-AzureRmResourceGroup]. En resursgrupp är en logisk behållare där Azure-resurser distribueras och hanteras.
+Azure-containerinstanser måste, precis som alla Azure-resurser, distribueras i en resursgrupp. Resursgrupper gör det enkelt att organisera och hantera relaterade Azure-resurser.
+
+Skapa först en resursgrupp med namnet *myResourceGroup* på platsen *eastus* (USA, östra) med följande [New-AzureRmResourceGroup][New-AzureRmResourceGroup]-kommando:
 
  ```azurepowershell-interactive
 New-AzureRmResourceGroup -Name myResourceGroup -Location EastUS
 ```
 
-## <a name="create-a-container"></a>Skapa en behållare
+## <a name="create-a-container"></a>Skapa en container
 
-Du kan skapa en behållare genom att ange ett namn, en Docker-avbildning och en Azure-resursgrupp i cmdleten [New-AzureRmContainerGroup][New-AzureRmContainerGroup]. Du kan också göra behållaren tillgänglig på Internet med hjälp av en DNS-namnetikett.
+Nu när du har en resursgrupp kan du köra en container i Azure. Om du vill skapa en containerinstans med Azure PowerShell anger du ett resursgruppsnamn, ett instansnamn för containern och avbildningen av dockercontainern till cmdleten [New-AzureRmContainerGroup][New-AzureRmContainerGroup]. Du kan exponera dina containrar till internet genom att ange en eller flera portar som ska öppnas, en DNS-namnetikett eller båda. I den här snabbstarten distribuerar du en container med en DNS-namnetikett som är värd för Internet Information Services (IIS) som körs i Nano Server.
 
-Kör följande kommando för att starta en Nano Server-behållare som kör Internet Information Services (IIS). Värdet `-DnsNameLabel` måste vara unikt i den Azure-region där du skapar instansen, så du kan behöva ändra värdet för att det ska vara unikt.
+Kör följande kommando för att starta en instans av containern. Värdet `-DnsNameLabel` måste vara unikt inom den Azure-region som du skapar instansen i. Om du får felmeddelandet ”DNS name label not available” (DNS-namnetikett inte tillgänglig) kan du prova en annan DNS-namnetikett.
 
  ```azurepowershell-interactive
 New-AzureRmContainerGroup -ResourceGroupName myResourceGroup -Name mycontainer -Image microsoft/iis:nanoserver -OsType Windows -DnsNameLabel aci-demo-win
 ```
 
-Om några sekunder bör du få ett svar på din begäran. Först har behållaren statusen **Creating** (skapas) men den bör starta inom någon minut. Du kan kontrollera status för distributionen med hjälp av cmdleten [Get-AzureRmContainerGroup][Get-AzureRmContainerGroup]:
+Inom några sekunder bör du få ett första svar från Azure. Containerns `ProvisioningState` är initialt **Skapa**, men bör flyttas till **Lyckades** inom en minut eller två. Kontrollera distributionsstatusen med hjälp av cmdleten [Get-AzureRmContainerGroup][Get-AzureRmContainerGroup]:
 
  ```azurepowershell-interactive
 Get-AzureRmContainerGroup -ResourceGroupName myResourceGroup -Name mycontainer
 ```
 
-Behållarens etableringsstatus, fullständiga kvalificerade domännamn (FQDN) och IP-adress visas i cmdletens utdata:
+Containerns etableringsstatus, fullständiga kvalificerade domännamn (FQDN) och IP-adress visas i cmdletens utdata:
 
 ```console
 PS Azure:\> Get-AzureRmContainerGroup -ResourceGroupName myResourceGroup -Name mycontainer
@@ -78,7 +79,7 @@ State                    : Pending
 Events                   : {}
 ```
 
-När behållaren **ProvisioningState** flyttas till `Succeeded` navigerar du till dess `Fqdn` i webbläsaren:
+När containerns `ProvisioningState` är **Lyckades** navigerar du till dess `Fqdn` i webbläsaren. Om du ser en webbsida som liknar följande – grattis! Du har distribuerat ett program som körs i en dockercontainer till Azure.
 
 ![IIS som distribuerats via Azure Container Instances visas i webbläsaren][qs-powershell-01]
 
@@ -92,7 +93,7 @@ Remove-AzureRmContainerGroup -ResourceGroupName myResourceGroup -Name mycontaine
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här snabbstarten har du skapat en Azure-behållarinstans utifrån en avbildning som finns i det offentliga Docker Hub-registret. Om du vill skapa en behållare på egen hand och distribuera den till Azure Container Instances från ett privat Azure-behållarregister, går du vidare till självstudien för Azure Container Instances.
+I den här snabbstarten har du skapat en Azure-containerinstans utifrån en avbildning som finns i det offentliga Docker Hub-registret. Om du vill skapa en avbildning av en container och distribuera den från ett privat Azure-containerregister, går du vidare till självstudien för Azure Container Instances.
 
 > [!div class="nextstepaction"]
 > [Azure Container Instances-självstudie](./container-instances-tutorial-prepare-app.md)

@@ -1,36 +1,38 @@
 ---
-title: JavaScript-Snabbstart för projektet URL-förhandsgranskning – Microsoft Cognitive Services | Microsoft Docs
-description: Skriptexempel för att snabbt komma igång med API för Bing URL-förhandsgranskning i Microsoft Cognitive Services på Azure.
+title: 'Snabbstart: Förhandsgranskning av projekt-URL, JavaScript'
+titlesuffix: Azure Cognitive Services
+description: Skriptexempel för att snabbt komma igång med API för URL-förhandsgranskning i Bing med JavaScript.
 services: cognitive-services
 author: mikedodaro
+manager: cgronlun
 ms.service: cognitive-services
-ms.technology: project-url-preview
-ms.topic: article
+ms.component: project-url-preview
+ms.topic: quickstart
 ms.date: 03/16/2018
-ms.author: rosh, v-gedod
-ms.openlocfilehash: dda6f7c105dfbadc3c22f0c008aa8759fe12fa03
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
-ms.translationtype: MT
+ms.author: rosh
+ms.openlocfilehash: b10e33a0947057c35bb6227cc43f92c4f0a56ceb
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43301360"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48869473"
 ---
-# <a name="url-preview-in-javascript"></a>URL-förhandsgranskning i JavaScript 
+# <a name="quickstart-url-preview-in-javascript"></a>Snabbstart: URL-förhandsgranskning i JavaScript 
 
-Följande enkelsidigt program använder JavaScript för att skapa en URL-förhandsgranskning för webbplatsen SwiftKey: https://swiftkey.com/en. 
+Följande enkelsidiga program använder JavaScript för att skapa en URL-förhandsgranskning för webbplatsen SwiftKey: https://swiftkey.com/en. 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
-Hämta en åtkomstnyckel för den kostnadsfria utvärderingsversionen [Cognitive Services Labs](https://labs.cognitive.microsoft.com/en-us/project-url-preview)
+Få en åtkomstnyckel för den kostnadsfria utvärderingsversionen av [Cognitive Services Labs](https://labs.cognitive.microsoft.com/en-us/project-url-preview)
 
-## <a name="code-scenario"></a>Kod scenario
-I följande javascript-exempel innehåller en textruta indataobjektet där användaren anger URL: en för att förhandsgranska.  När användaren klickar på **förhandsversion** knappen onclick metoden vägar till `getPreview` där koden genererar en webbegäran till den **UrlPreview** slutpunkt.
+## <a name="code-scenario"></a>Kodscenario
+Följande JavaScript-exempel innehåller ett indataobjekt som är en textruta, där användaren anger URL:en som ska förhandsgranskas.  När användaren klickar på knappen **Preview** (Förhandsgranska) dirigerar onclick-metoden till `getPreview` där kod genererar en webbegäran till **UrlPreview**-slutpunkten.
 
-Koden skapar en *XMLHttpRequest*, lägger till den *Ocp-Apim-Subscription-Key* rubrik och nyckel, och skickar en begäran.  Den lägger till en asynkron händelsehanterare för att bearbeta svaret.
+Koden skapar en *XMLHttpRequest*, lägger till huvudet och nyckeln *Ocp-Apim-Subscription-Key* och skickar begäran.  En asynkron händelsehanterare läggs till för att bearbeta svaret.
 
-Om svaret returnerar har, hanteraren tilldelar JSON-texten i svaret på den `demo` punkt på sidan. Andra element i svaret är inställda på följande punkter för visning.
+Om svaret returneras tilldelar hanteraren JSON-texten för svaret till `demo`-stycket på sidan. Andra svarselement ställs in på följande stycken för visning.
 
-**Rå JSON-svar**
+**Råsvar från JSON**
 
 ````
 {
@@ -46,21 +48,21 @@ Om svaret returnerar har, hanteraren tilldelar JSON-texten i svaret på den `dem
 
 ````
 
-**Köra demo**
+**Demo som körs**
 
-![Url-förhandsgranskning för JavaScript-exempel](./media/java-script-demo.png)
+![Exempel på URL-förhandsgranskning i JavaScript](./media/java-script-demo.png)
 
 ## <a name="running-the-application"></a>Köra programmet
 
-Att köra programmet:
+Så här kör du programmet:
 
-1. Ersätt den `YOUR-SUBSCRIPTION-KEY` värde med en giltig åtkomstnyckel för din prenumeration.
-2. Spara HTML och skript till en fil med .html-tillägget.
-3. Köra webbsidan i en webbläsare.
-4. Använd den befintliga URL: en, eller ange en annan i textrutan.
-5. Klicka på den **förhandsversion** knappen.
+1. Ersätt värdet `YOUR-SUBSCRIPTION-KEY` med en giltig åtkomstnyckel för din prenumeration.
+2. Spara HTML och skript i en fil med tillägget .html.
+3. Kör webbsida i en webbläsare.
+4. Använd den befintliga URL:en eller ange en annan i textrutan.
+5. Klicka på knappen **Preview** (Förhandsgranska).
 
-**Källkoden:**
+**Källkod:**
 
 ```
 <!DOCTYPE html>
@@ -129,5 +131,5 @@ Att köra programmet:
 ## <a name="next-steps"></a>Nästa steg
 - [Snabbstart för C#](csharp.md)
 - [Snabbstart för Java](java-quickstart.md)
-- [Snabbstart för noden](node-quickstart.md)
-- [Python-Snabbstart](python-quickstart.md)
+- [Snabbstart för Node](node-quickstart.md)
+- [Snabbstart för Python](python-quickstart.md)

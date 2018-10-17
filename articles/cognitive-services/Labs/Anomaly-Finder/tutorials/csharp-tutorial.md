@@ -1,71 +1,72 @@
 ---
-title: Avvikelseidentifiering identifiering av C#-app – Microsoft Cognitive Services | Microsoft Docs
-description: 'Utforska en C#-app som använder API: T för Avvikelseidentifiering identifiering i Microsoft Cognitive Services. Skicka ursprungliga datapunkter till API: et och få det förväntade värdet och avvikelseidentifiering punkter.'
+title: 'Självstudie: Avvikelseidentifiering, C#'
+titlesuffix: Azure Cognitive Services
+description: Utforska en C#-app som använder API:et för avvikelseidentifiering. Skicka ursprungliga datapunkter till API:et och få det förväntade värdet och avvikelsepunkter.
 services: cognitive-services
 author: chliang
 manager: bix
 ms.service: cognitive-services
-ms.technology: anomaly-detection
-ms.topic: article
+ms.component: anomaly-detection
+ms.topic: tutorial
 ms.date: 05/01/2018
 ms.author: chliang
-ms.openlocfilehash: fb434bd668b065fbdbaac39f2926676bcc90e794
-ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
-ms.translationtype: MT
+ms.openlocfilehash: f99ce765c1d9417fd5ca88b49214eca8a3b0bf49
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48247832"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48887657"
 ---
-# <a name="anomaly-detection-c-application"></a>Avvikelseidentifiering identifiering av C#-program
+# <a name="tutorial-anomaly-detection-with-c-application"></a>Självstudie: Självstudie: Avvikelseidentifiering med C#-program
 
 [!INCLUDE [PrivatePreviewNote](../../../../../includes/cognitive-services-anomaly-finder-private-preview-note.md)]
 
-Utforska ett grundläggande Windows-program som använder API: T för Avvikelseidentifiering för att identifiera avvikelser från angivna indata. I exempel skickar time series-data till API: T för Avvikelseidentifiering identifiering med din prenumerationsnyckel och sedan hämtar alla avvikelser punkter och förväntat värde för varje datapunkt från API: et.
+Utforska ett grundläggande Windows-program som använder API:et för avvikelseidentifiering för att identifiera avvikelser från indatan. I exemplet skickas tidsseriedata till API:et för avvikelseidentifiering tillsammans med din prenumerationsnyckel, och därefter hämtas alla avvikelsepunkter och det förväntade värdet för varje datapunkt från API:et.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 ### <a name="platform-requirements"></a>Plattformskrav
 
 Exemplet har utvecklats för .NET Framework med hjälp av [Visual Studio 2017, Community Edition](https://www.visualstudio.com/products/visual-studio-community-vs). 
 
-### <a name="subscribe-to-anomaly-detection-and-get-a-subscription-key"></a>Prenumerera på identifiering av avvikelser och få en prenumerationsnyckel 
+### <a name="subscribe-to-anomaly-detection-and-get-a-subscription-key"></a>Prenumerera på avvikelseidentifiering och få en prenumerationsnyckel 
 
 [!INCLUDE [GetSubscriptionKey](../includes/get-subscription-key.md)]
 
-## <a name="get-and-use-the-example"></a>Hämta och använda exemplet
+## <a name="get-and-use-the-example"></a>Hämta och använd exemplet
 
-Du kan klona Avvikelseidentifiering-exempelprogram till din dator från [Github](https://github.com/MicrosoftAnomalyDetection/csharp-sample.git). 
+Du kan klona exempelprogrammet för avvikelseidentifiering till din dator från [Github](https://github.com/MicrosoftAnomalyDetection/csharp-sample.git). 
 <a name="Step1"></a>
-### <a name="install-the-example"></a>Installera i exempel
+### <a name="install-the-example"></a>Installera exemplet
 
-Öppna Sample\AnomalyDetectionSample.sln i ditt GitHub-skrivbord.
+Öppna Sample\AnomalyDetectionSample.sln på ditt GitHub-skrivbord.
 
 <a name="Step2"></a>
 ### <a name="build-the-example"></a>Skapa exemplet
 
-Tryck på Ctrl + Skift + B, eller på Build på menyfliksområdet-menyn och välj sedan skapa lösning.
+Tryck på Ctrl + Skift + B, eller klicka på Skapa i menyfliksområdet och välj sedan Skapa lösning.
 
 <a name="Step3"></a>
-### <a name="run-the-example"></a>Kör exempel
+### <a name="run-the-example"></a>Kör exemplet
 
-1. När bygget har slutförts, trycker du på **F5** eller klicka på **starta** på menyn menyfliksområdet för att köra exemplet.
-2. Leta upp fönstret Avvikelseidentifiering användaren gränssnitt med textrutan redigera läsa ”{your_subscription_key}”.
-3. Ersätt filen request.json, som innehåller exempeldata, med dina egna data och klicka sedan på ”Skicka”. Microsoft tar emot de data du ladda upp och använda dem för att identifiera eventuella avvikelseidentifiering punkter mellan sedan. De data som du läser in sparas inte i Microsofts server. För att identifiera avvikelser punkten igen, behöver du överföra data igen.
-4. Om data är bra, märker Identifieringsresultat avvikelseidentifiering i fältet ”svar”. Om något fel inträffar, visas information om felet i fältet svar.
+1. När exemplet har skapats trycker du på **F5** eller klickar på **Start** i menyfliksområdet för att köra exemplet.
+2. Leta reda på användargränssnittsfönstret Avvikelseidentifiering med textredigeringsrutan ”{your_subscription_key}”.
+3. Ersätt filen request.json, som innehåller exempeldata, med dina egna data och klicka sedan på Skicka. Microsoft tar emot de data du laddar upp och använder dem för att identifiera eventuella avvikelsepunkter mellan dem. De data som du läser in sparas inte i Microsofts server. För att identifiera avvikelsepunkten igen behöver du ladda upp datan igen.
+4. Om datan är bra hittar du resultaten av avvikelseidentifieringen i fältet Svar. Om ett fel inträffar visas även information om felet i fältet Svar.
 
 <a name="Review"></a>
-### <a name="read-the-result"></a>Läsa
+### <a name="read-the-result"></a>Avläs resultatet
 
 [!INCLUDE [diagrams](../includes/diagrams.md)]
 
 <a name="Review"></a>
-### <a name="review-and-learn"></a>Granska och lär dig
+### <a name="review-and-learn"></a>Granska och lär
 
-Nu när du har ett program som körs kan vi ska gå igenom hur exempelappen kan integreras med Cognitive Services-teknik. Det här steget gör det enklare att antingen fortsätta att bygga på den här appen eller utveckla din egen app med hjälp av Microsoft för Avvikelseidentifiering.
+Nu när programmet körs ska vi se hur exempelappen kan integreras med Cognitive Services-teknik. Steget gör att du enklare kan bygga vidare på appen eller utveckla en egen app med hjälp av Microsofts avvikelseidentifiering.
 
-Den här exempel-appen kan använda av identifiering av avvikelser Restful API slutpunkt.
+Den här exempelappen använder Restful API-slutpunkten för avvikelseidentifiering.
 
-Granska hur Restful API: et hämtar används i exempelprogrammet kan vi titta på ett kodstycke från **AnomalyDetectionClient.cs**. Filen innehåller koden kommentarer som du anger ”NYCKELN EXEMPLET kod börjar här” och ”nyckel EXEMPLET kod slutar här” för att hjälpa dig att hitta den kod som kodfragment reproduceras nedan.
+För att se hur Restful-API:et används i exempelprogrammet kan vi titta på ett kodavsnitt från **AnomalyDetectionClient.cs**. Filen innehåller kodkommentarer som anger ”KEY SAMPLE CODE STARTS HERE” (PRIMÄR EXEMPELKOD STARTAR HÄR) och ”KEY SAMPLE CODE ENDS HERE” (PRIMÄR EXEMPELKOD SLUTAR HÄR) för att hjälpa dig att hitta de kodavsnitt som återges nedan.
 
 ```csharp
             // ----------------------------------------------------------------------
@@ -80,7 +81,7 @@ Granska hur Restful API: et hämtar används i exempelprogrammet kan vi titta p�
 
 ```
 ### <a name="request"></a>**Förfrågan**
-Kodfragmentet nedan visar hur du använder HttpClient för att skicka din prenumeration nyckeln och data pekar på slutpunkten för API: T för Avvikelseidentifiering identifiering.
+Kodavsnittet nedan visar hur du använder HttpClient för att skicka prenumerationsnyckeln och datapunkter till slutpunkten för API:et för avvikelseidentifiering.
 
 ```csharp
     public async Task<string> Request(string baseAddress, string endpoint, string subscriptionKey, string requestData)

@@ -1,91 +1,92 @@
 ---
-title: Webbprogram för Bing enheten Sök sida | Microsoft Docs
-description: Visar hur du använder Bing enheten Sök API i en enda sida webbprogram.
+title: 'Självstudie: Enkelsidig webbapp med Entitetssökning i Bing'
+titlesuffix: Azure Cognitive Services
+description: Visar hur du använder API för entitetsökning i Bing i ett enkelsidigt webbprogram.
 services: cognitive-services
 author: v-jerkin
-manager: ehansen
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-entity-search
-ms.topic: article
+ms.topic: tutorial
 ms.date: 12/08/2017
 ms.author: v-jerkin
-ms.openlocfilehash: 91c60913cd806baf100e5511cbf59299bf9a84f0
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
-ms.translationtype: MT
+ms.openlocfilehash: 9aabecbec144797b9fbafdff7179213b68921447
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35354921"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48815553"
 ---
-# <a name="tutorial-single-page-web-app"></a>Självstudier: Single-page-webbprogram
+# <a name="tutorial-single-page-web-app"></a>Självstudie: Enkelsidig webbapp
 
-Bing enheten Sök-API kan du söka efter information på webben om *entiteter* och *placeras.* Du kan begära typ av resultat, eller både och, i en given fråga. Definitionerna av platser och enheter som anges nedan.
+Med API:et för entitetsökning i Bing kan du söka efter information på webben om *entiteter* och *platser*. Du kan begära endera typ av resultat eller båda i en given fråga. Definitionerna av platser och entiteter visas nedan.
 
 |||
 |-|-|
-|Entiteter|Välkända personer, platser och saker som du Sök efter namn|
-|Platser|Hotell, hotell och andra lokala företag som du hittar namnet *eller* efter typ (italienska hotell)|
+|Entiteter|Välkända personer, platser och saker som du hittar med hjälp av namn|
+|Platser|Restauranger, hotell och andra lokala företag som du hittar med hjälp av namn *eller* efter typ (italienska restauranger)|
 
-I den här självstudiekursen kommer vi skapa en enda sida webbprogram som använder Bing enheten Sök-API för att visa sökresultat höger på sidan. Programmet innehåller komponenter för HTML, CSS och JavaScript.
+I de här självstudierna skapar vi ett enkelsidigt program som använder API:et för entitetsökning i Bing för att visa sökresultat till höger på sidan. Programmet innehåller komponenterna HTML, CSS och JavaScript.
 
-API: et kan du prioritera resultaten efter plats. Du kan be enheten för en egen plats i en mobil app. I en webbapp som du kan använda den `getPosition()` funktion. Det här anropet fungerar endast i säkra kontexter men ger inte en exakt plats. Användaren kan också söka efter entiteter nära en annan plats än sina egna.
+Med API:et kan du prioritera resultat efter plats. I en mobilapp kan du fråga enheten om dess egen plats. I webbappen kan du använda funktionen `getPosition()`. Det här anropet fungerar dock bara i säkra sammanhang och ger kanske inte en exakt plats. Dessutom vill användaren kanske söka efter entiteter nära en plats som inte är användarens egen plats.
 
-Vår app uppmanas därför Bing Maps-tjänsten för att erhålla latitud och longitud från en plats som anges av användaren. Användaren kan ange namnet på en Landmärke (”utrymme nålen”) eller en fullständig eller partiell adress (”New York City”) och Bing Maps API innehåller koordinaterna.
+Därför använder vår app Bing Maps-tjänsten för att hämta latitud och longitud från en användarangiven plats. Användaren kan sedan ange namnet på ett landmärke (”Space Needle”) eller en fullständig eller partiell adress (”New York City”) så ger Bing Maps API koordinaterna.
 
 <!-- Remove until we can replace with a sanitized version.
 ![[Single-page Bing Entity Search app]](media/entity-search-spa-demo.png)
 -->
 
 > [!NOTE]
-> JSON- och HTTP-rubriker längst ned på sidan avslöja JSON-svar och HTTP-begäraninformation när du klickar på. Dessa uppgifter är användbara när utforska tjänsten.
+> JSON- och HTTP-huvudena längst ned på sidan visar JSON-svar och information om HTTP-begäran när de klickas. Den här informationen är användbar när du utforskar tjänsten.
 
-Appen självstudiekurs visar hur du:
+I den här självstudieappen visas hur du:
 
 > [!div class="checklist"]
-> * Utför ett Bing enheten Sök API-anrop i JavaScript
-> * Utföra en Bing Maps `locationQuery` API-anrop i JavaScript
-> * Skicka Sökalternativ till API-anrop
+> * Utföra ett API-anrop för entitetsökning i Bing i JavaScript
+> * Utföra ett `locationQuery` API-anrop för entitetsökning i Bing i JavaScript
+> * Skicka sökalternativ till API-anropen
 > * Visa sökresultat
-> * Hantera Bing klient-ID och API-prenumeration nycklarna
-> * Åtgärda eventuella fel som kan uppstå
+> * Hantera Bing-klient-ID och prenumerationsnyckeln för API:et
+> * Hantera eventuella fel som kan uppstå
 
-Sidan självstudiekursen är helt självständigt; den använder inte någon extern ramverk, formatmallar eller även bildfiler. Den använder endast brett stöd JavaScript språkfunktioner och fungerar med aktuella versioner av alla större webbläsare.
+Självstudiekurssidan är helt självständigt. Den använder inte några externa ramverk, formatmallar eller ens bildfiler. Den använder endast JavaScript-språkfunktioner som stöds och fungerar med aktuella versioner av alla större webbläsare.
 
-I den här självstudien diskuterar vi endast delar av källkoden. Fullständig källkoden finns [på en separat sida](tutorial-bing-entities-search-single-page-app-source.md). Kopiera och klistra in den här koden i en textredigerare och spara den som `bing.html`.
+I den här självstudien diskuterar vi endast vissa delar av källkoden. Den fullständiga källkoden finns [på en separat sida](tutorial-bing-entities-search-single-page-app-source.md). Kopiera och klistra in den här koden i en textredigerare och spara den som `bing.html`.
 
 > [!NOTE]
-> Den här självstudiekursen liknar avsevärt den [sida Bing webbsökning app kursen](../Bing-Web-Search/tutorial-bing-web-search-single-page-app.md), men endast behandlar sökresultat för entiteten.
+> Den här självstudien liknar i stora delar [självstudien om enkelsidiga app för Webbsökning i Bing](../Bing-Web-Search/tutorial-bing-web-search-single-page-app.md), men den behandlar endast entitetssökresultat.
 
-## <a name="app-components"></a>Komponenter för appar
+## <a name="app-components"></a>Appkomponenter
 
-Som ett enda sida webbprogram innehåller självstudiekursen programmet tre delar:
+Som andra enkelsidiga webbappar innehåller det här självstudieprogrammet tre delar:
 
 > [!div class="checklist"]
-> * HTML - definierar struktur och innehåll på sidan
-> * CSS - definierar utseendet på sidan
-> * JavaScript - definierar beteendet för sidan
+> * HTML – definierar struktur och innehåll på sidan
+> * CSS – definierar utseendet på sidan
+> * JavaScript – definierar beteendet för sidan
 
-Den här kursen täcker inte de flesta av HTML- eller CSS i detalj, som de är enkla.
+Den här kursen täcker inte det mesta av HTML eller CSS i detalj eftersom de är förhållandevis enkla.
 
-HTML-koden innehåller formuläret som användaren anger en fråga och väljer sökalternativ. Formuläret är ansluten till JavaScript som faktiskt utför sökning efter den `<form>` taggens `onsubmit` attribut:
+HTML-koden innehåller sökformuläret där användaren anger en fråga och väljer sökalternativ. Formuläret är kopplat till det JavaScript som i själva verket utför sökningen med hjälp av `<form>`-taggens attribut `onsubmit`:
 
 ```html
 <form name="bing" onsubmit="return newBingEntitySearch(this)">
 ```
 
-Den `onsubmit` hanteraren returnerar `false`, vilket håller formuläret från att skickas till en server. JavaScript-koden i själva verket har arbetet med att samla in nödvändig information i formuläret och sökningen.
+`onsubmit`-hanteraren returnerar `false`, som ser till att formuläret inte skickas till en server. JavaScript-koden utför den faktiska insamlingen av nödvändig information i formuläret och sökningen.
 
-Sökningen görs i två faser. Om användaren har angett en plats-begränsning, görs först en Bing Maps-fråga för att konvertera den till koordinater. Återanropet för den här frågan sedan av systemtillstånd aktiveras Bing enheten sökfråga.
+Sökningen görs i två faser. Om användaren har angett en platsbegränsning görs först en Bing Maps-fråga för att konvertera den till koordinater. Motringningen för den här frågan inleder sedan Entitetssökning i Bing-frågan.
 
-HTML-koden innehåller även avdelningar (HTML `<div>` taggar) där sökresultatet visas.
+HTML-koden innehåller också avdelningar (HTML `<div>`-taggar) där sökresultatet visas.
 
-## <a name="managing-subscription-keys"></a>Hantera prenumerationen nycklar
+## <a name="managing-subscription-keys"></a>Hantera prenumerationsnycklar
 
 > [!NOTE]
-> Den här appen kräver prenumeration nycklar för Bing Search-API och Bing Maps API. Du kan använda en [utvärderingsversion Bing söknyckeln](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) och en [grundläggande Bing Maps nyckeln](https://www.microsoft.com/maps/create-a-bing-maps-key).
+> Den här appen kräver prenumerationsnycklar för både API:et för Bing-sökning och API för Bing Maps. Du kan använda en [utvärderingsnyckel för Bing-sökning](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) och en [grundläggande Bing Maps-nyckel](https://www.microsoft.com/maps/create-a-bing-maps-key).
 
-Vi använder webbläsarens beständig lagring för att lagra dem om du vill undvika att inkludera tangenterna Bing Search och Bing Maps API-prenumeration i koden. Om antingen nyckeln inte har lagrats, vi efterfrågar det och spara den för senare användning. Om nyckeln senare avvisas av API: Ogiltig vi lagrade nyckeln så uppmanas användaren för den vid nästa sökningen.
+För att undvika att lägga till prenumerationsnycklarna för API:et för Bing Search och API:et för Bing Maps i koden använder vi webbläsarens beständiga lagring för att lagra dem. Om någon av nycklarna inte har lagrats frågar vi efter den lagrar den för senare användning. Om nyckeln senare avvisas av API:et ogiltigförklarar vi den lagrade nyckeln så att användaren tillfrågas om den vid nästa sökning.
 
-Vi definiera `storeValue` och `retrieveValue` funktioner som använder antingen det `localStorage` objekt (om webbläsaren stöder den) eller en cookie. Vår `getSubscriptionKey()` funktionen använder dessa funktioner för att lagra och hämta användarens nyckel.
+Vi definierar funktionerna `storeValue` och `retrieveValue` som använder antingen objektet `localStorage` (om webbläsaren stöder det) eller en cookie. Vår `getSubscriptionKey()`-funktion använder dessa funktioner för att lagra och hämta användarens nyckel.
 
 ```javascript
 // cookie names for data we store
@@ -119,30 +120,30 @@ function getSearchSubscriptionKey() {
 }
 ```
 
-HTML `<body>` taggen innehåller ett `onload` attribut som anropar `getSearchSubscriptionKey()` och `getMapsSubscriptionKey()` när sidan har lästs in. Dessa anrop fungera att uppmana användaren att ange sina nycklar omedelbart om de inte har angett dem ännu.
+HTML-taggen `<body>` innehåller ett `onload`-attribut som anropar `getSearchSubscriptionKey()` och `getMapsSubscriptionKey()` när sidan har lästs in. Dessa anrop frågar omedelbart användaren om dess nycklar om nycklarna inte har angetts ännu.
 
 ```html
 <body onload="document.forms.bing.query.focus(); getSearchSubscriptionKey(); getMapsSubscriptionKey();">
 ```
 
-## <a name="selecting-search-options"></a>Att välja alternativ för sökning
+## <a name="selecting-search-options"></a>Välja sökalternativ
 
-![[Bing enheten formulär]](media/entity-search-spa-form.png)
+![[Formulär för Entitetssökning i Bing]](media/entity-search-spa-form.png)
 
-HTML-formulär innehåller följande kontroller:
+HTML-formuläret innehåller följande kontroller:
 
 | | |
 |-|-|
-|`where`|En nedrullningsbar meny för att välja marknaden (plats och language) som används för sökningen.|
-|`query`|Fältet att ange sökvillkor.|
-|`safe`|En kryssruta som anger om säker sökning är aktiverad (begränsar ”vuxna” resultaten)|
-|`what`|En meny för att välja att söka efter personer, platser eller båda.|
-|`mapquery`|Fältet som användaren kan ange en fullständig eller partiell adress, ett Landmärke osv att Bing enheten returnerade mer relevant sökresultat.|
+|`where`|En nedrullningsbar meny för att välja marknad (plats och språk) som används för sökningen.|
+|`query`|Textfältet för att ange sökvillkor.|
+|`safe`|En kryssruta som anger huruvida SafeSearch är aktiverat (begränsar ”vuxna” resultat)|
+|`what`|En meny för att välja att söka efter entiteter, platser eller båda.|
+|`mapquery`|Det textfältet där användaren kan ange en fullständig eller partiell adress, ett landmärken osv. för att hjälpa Entitetssökning i Bing att returnera mer relevanta resultat.|
 
 > [!NOTE]
-> Det finns för närvarande platser resultat endast i USA. Den `where` och `what` menyer har kod för att tillämpa den här begränsningen. Om du väljer en-US marknad när platser har valts i den `what` menyn `what` ändras till något. Om du väljer platser när en-US marknad har valts i den `where` menyn `where` ändringar i USA.
+> Platsresultat är för närvarande endast tillgängliga i USA. Menyerna `where` och `what` innehåller kod för att framtvinga den här begränsningen. Om du väljer en icke-amerikansk marknad medan Platser har valts i menyn `what` ändras `what` till Vad som helst. Om du väljer Platser medan en icke-amerikansk marknad har valts i menyn `where` ändras `where` till USA.
 
-Vårt JavaScript-funktionen `bingSearchOptions()` konverterar dessa fält till en partiell frågesträng för Bing Search-API.
+Vår JavaScript-funktion `bingSearchOptions()` konverterar dessa fält till en partiell frågesträng för API:et för Bing-sökning.
 
 ```javascript
 // build query options from the HTML form
@@ -156,17 +157,17 @@ function bingSearchOptions(form) {
 }
 ```
 
-Funktionen Säker sökning kan till exempel vara `strict`, `moderate`, eller `off`, med `moderate` som standard. Men formuläret använder en kryssruta som har bara två lägen. JavaScript-kod konverterar den här inställningen på antingen `strict` eller `off` (används inte `moderate`).
+Till exempel kan SafeSearch-funktionen vara `strict`, `moderate` eller `off`, där `moderate` är standardvärdet. Vårt formulär använder dock en kryssruta som bara har två tillstånd. JavaScript-koden konverterar den här inställningen till antingen `strict` eller `off` (vi använder inte `moderate`).
 
-Den `mapquery` fält som inte hanteras i `bingSearchOptions()` eftersom den används för Bing Maps plats frågan, inte för Bing enheten sökning.
+Fältet `mapquery` hanteras inte i `bingSearchOptions()` eftersom det används för Bing Maps-platsfrågan, inte för Entitetssökning i Bing.
 
 ## <a name="obtaining-a-location"></a>Hämta en plats
 
-Bing Maps API erbjuder en [ `locationQuery` metoden](//msdn.microsoft.com/library/ff701711.aspx), som vi använder för att hitta latitud och longitud för platsen användaren anger. Dessa koordinater skickas till Bing enheten Sök-API med användarens begäran. Sökresultaten prioritera entiteter och platser som närmar sig den angivna platsen.
+API:et för Bing Maps erbjuder en [`locationQuery`-metod](//msdn.microsoft.com/library/ff701711.aspx), som vi använder för att hitta latitud och longitud för den plats som användaren anger. Dessa koordinater skickas till API:et för entitetsökning i Bing med användarens begäran. Sökresultaten prioritera entiteter och platser som är nära den angivna platsen.
 
-Det går inte att komma åt Bing Maps-API med hjälp av en vanlig `XMLHttpRequest` fråga i en webbapp eftersom tjänsten inte har stöd för cross-origin-frågor. Det stöder Lyckligtvis hanteras JSONP (”P” är för ”utfyllnad”). Ett hanteras JSONP-svar är en vanlig JSON-svar kapslas in i ett funktionsanrop. Begäran gjordes genom att använda en `<script>` tagg i dokumentet. (Läser in skript omfattas inte webbläsaren säkerhetsprinciper.)
+Vi kan inte komma åt API:et för Bing Maps med hjälp av en vanlig `XMLHttpRequest`-fråga i en webbapp eftersom tjänsten inte har stöd för frågor med olika ursprung. Som tur är stöder den JSONP (”P” står för ”padded”, dvs. utfylld). Ett JSONP-svar är ett vanligt JSON-svar som är omslutet i ett funktionsanrop. Begäran görs genom att en `<script>`-tagg infogas i dokumentet. (Inläsning av skript omfattas inte av säkerhetsprinciper för webbläsare.)
 
-Den `bingMapsLocate()` funktionen skapas och infogas i `<script>` tagg för frågan. Den `jsonp=bingMapsCallback` segmentet i frågesträngen anger namnet på funktionen som ska anropas med svaret.
+Funktionen `bingMapsLocate()` skapar och infogar `<script>`-taggen för frågan. `jsonp=bingMapsCallback`-segmentet av frågesträngen anger namnet på den funktion som ska anropas med svaret.
 
 ```javascript
 function bingMapsLocate(where) {
@@ -197,9 +198,9 @@ function bingMapsLocate(where) {
 ```
 
 > [!NOTE]
-> Om Bing Maps API inte svarar på `bingMapsCallBack()` -funktionen anropas aldrig. Normalt som skulle innebära att `bingEntitySearch()` inte anropas och sökresultaten enheten visas inte. Undvik det här scenariot `bingMapsLocate()` anger också en timer att anropa `bingEntitySearch()` efter fem sekunder. Det finns logik i Återanropsfunktionen att undvika sökningen entitet två gånger.
+> Om API:et för Bing Maps inte svarar anropas aldrig `bingMapsCallBack()`-funktionen. Normalt innebär det att `bingEntitySearch()` inte anropas och att entitetssökresultatet inte visas. För att undvika det här scenariot anger `bingMapsLocate()` även en timer för att anropa `bingEntitySearch()` efter fem sekunder. Det finns logik i motringningsfunktionen för att undvika att entitetssökningen utförs två gånger.
 
-När frågan har slutförts på `bingMapsCallback()` funktionen anropas, enligt begäran.
+När frågan är klar anropas `bingMapsCallback()`-funktionen enligt begäran.
 
 ```javascript
 function bingMapsCallback(response) {
@@ -246,15 +247,15 @@ function bingMapsCallback(response) {
 }
 ```
 
-Tillsammans med latitud och longitud Bing enheten sökfråga kräver en *radius* som anger precisionen för platsinformationen. Vi beräkna radius med hjälp av *angränsande ruta* i Bing Maps-svaret. Markeringsrutan är en rektangel som omger hela platsen. Till exempel om användaren anger `NYC`, innehåller ungefär centrala koordinater i New York City och en avgränsningsram som omfattar staden. 
+Utöver latitud och longitud kräver Entitetssökning i Bing-frågan en *radie* som anger precisionen hos platsinformationen. Vi beräknar radien med hjälp av *avgränsningsfältet* som anges i Bing Maps-svaret. Avgränsningsfältet är en rektangel som omger hela platsen. Om användaren till exempel anger `NYC` innehåller resultatet ungefärliga centrala koordinater för New York City och ett avgränsningsfält som omfattar staden. 
 
-Vi först beräkna avstånd från primära koordinaterna till var och en av de fyra hörn rutan med hjälp av funktionen `haversineDistance()` (visas inte). Vi använder den största av dessa fyra avstånd som radien. Minsta radius är en kilometer. Det här värdet används också som standard om det finns inga avgränsningsram i svaret.
+Först beräknar vi avstånden från de primära koordinaterna till var och en av fyra hörnen i avgränsningsfältet med hjälp av funktionen `haversineDistance()` (visas inte). Vi använder det största av dessa fyra avstånd som radien. Den minsta radien är en kilometer. Det här värdet används även som standard om inget avgränsningsfält anges i svaret.
 
-Efter att ha beviljats koordinaterna och radien, vi sedan anropa `bingEntitySearch()` att utföra den faktiska sökningen.
+Nu när vi har hämtat koordinaterna och radien anropar vi `bingEntitySearch()` för att utföra den faktiska sökningen.
 
-## <a name="performing-the-search"></a>Sökningen
+## <a name="performing-the-search"></a>Genomföra sökningen
 
-Baserat på frågan, en plats, en sträng med alternativ och API-nyckeln i `BingEntitySearch()` funktion gör Bing enheten sökbegäran.
+Baserat på frågan, en plats, en alternativsträng och API-nyckeln utför `BingEntitySearch()`-funktionen Entitetssökning i Bing-begäran.
 
 ```javascript
 // perform a search given query, location, options string, and API keys
@@ -307,7 +308,7 @@ function bingEntitySearch(query, latlong, options, key) {
 }
 ```
 
-Vid slutförande av HTTP-begäran JavaScript-anrop vår `load` händelsehanterare, den `handleBingResponse()` funktionen sköta en lyckad HTTP GET-begäran-API: et. 
+När HTTP-begäran har slutförts anropar JavaScript vår `load`-händelsehanterare, funktionen `handleBingResponse()`, för att hantera en lyckad HTTP GET-begäran till API:et. 
 
 ```javascript
 // handle Bing search request results
@@ -375,43 +376,43 @@ function handleBingResponse() {
 ```
 
 > [!IMPORTANT]
-> En lyckad HTTP-begäran har *inte* nödvändigtvis som själva lyckades sökningen. Om ett fel uppstår i search-åtgärd, returnerar en 200 HTTP - statuskod Bing enheten Sök-API och innehåller information om fel i JSON-svar. Dessutom returnerar begäran har begränsad hastighet, ett tomt svar på API: et.
+> En lyckad HTTP-begäran betyder *inte* nödvändigtvis att själva sökningen lyckades. Om ett fel uppstår i sökåtgärden returnerar API:et för entitetsökning i Bing en icke-200-HTTP-statuskod och inkluderar felinformation i JSON-svaret. Om begäran var begränsad returnerar API:et ett tomt svar.
 
-Mycket av koden i båda av de här funktionerna är dedikerad till felhantering. Fel kan inträffa i följande steg:
+En stor del av koden i de båda föregående funktionerna är dedikerade för felhantering. Fel kan inträffa i följande steg:
 
-|Fas|Potentiella fel|Hanteras av|
+|Fas|Potentiella fel|Hanterat av|
 |-|-|-|
-|Byggnaden JavaScript request-objektet|Ogiltig URL|`try`/`catch` block|
-|Skickar begäran|Nätverksfel, avbrutna anslutningar|`error` och `abort` händelsehanterare|
-|Sökningen|Ogiltig förfrågan, ogiltigt JSON hastighetsbegränsningar|testar i `load` händelsehanterare|
+|Skapa objekt för JavaScript-begäran|Ogiltig URL|`try`/`catch` blockera|
+|Skapa förfrågan|Nätverksfel, avbrutna anslutningar|`error` och `abort` händelsehanterare|
+|Genomföra sökningen|Ogiltig begäran, ogiltig JSON, hastighetsbegränsningar|tests i `load` händelsehanterare|
 
-Fel hanteras genom att anropa `renderErrorMessage()` med alla detaljer kända om felet. Om svaret klarat fullständig gauntlet fel tester, som vi kallar `renderSearchResults()` att visa sökresultat på sidan.
+Fel hanteras genom att anropa `renderErrorMessage()` med all känd information om felet. Om svaret klarar alla feltester anropar vi `renderSearchResults()` för att visa sökresultatet på sidan.
 
 ## <a name="displaying-search-results"></a>Visa sökresultat
 
-Sök-API Bing enheten [kräver att du vill visa resultat i en angiven ordning](use-display-requirements.md). Eftersom API: et kan returnera två olika typer av svar, det räcker inte att gå igenom den översta `Entities` eller `Places` samling i JSON-svar och visa resultat. (Om du vill bara en typ av resultat av använder den `responseFilter` Frågeparametern.)
+API:et för entitetsökning i Bing [kräver att du visar resultat i en angiven ordning](use-display-requirements.md). Eftersom API:et kan returnera två olika typer av svar räcker det inte att gå igenom samlingen `Entities` eller `Places` på toppnivå i JSON-svaret och visar de resultaten. (Om du bara vill ha en typ av resultat använder du `responseFilter`-frågeparametern.)
 
-I stället, använder vi den `rankingResponse` samling i sökresultaten kan sortera resultaten för visning. Det här objektet refererar till objekt i den `Entitiess` och/eller `Places` samlingar.
+I stället använder vi `rankingResponse`-samlingen i sökresultatet för att sortera resultaten för visning. Det här objektet refererar till objekt i samlingen `Entitiess` och/eller `Places`.
 
-`rankingResponse` kan innehålla upp till tre samlingar av sökresultat avses `pole`, `mainline`, och `sidebar`. 
+`rankingResponse` kan innehålla upp till tre samlingar för sökresultat som anges som `pole`, `mainline` och `sidebar`. 
 
-`pole`, om det finns är mest relevant sökresultatet och ska visas på en framträdande plats. `mainline` refererar till den största delen av sökresultatet. Likriktade resultaten ska visas omedelbart efter `pole` (eller först och om `pole` finns inte). 
+Om `pole` finns är den det mest relevanta sökresultatet och bör visas på en framträdande plats. `mainline` refererar till den största delen av sökresultaten. Huvudresultat bör visas omedelbart efter `pole` (eller först om `pole` inte finns). 
 
-Slutligen. `sidebar` refererar till extra sökresultat. De kan visas i en verklig sidopanelen eller bara efter likriktade resultaten. Vi har valt den senare för våra självstudier app.
+Slutligen refererar `sidebar` till extra sökresultat. De kan visas i en faktisk sidopanel eller helt enkelt efter huvudresultaten. För självstudieappen har vi valt det senare.
 
-Varje objekt i en `rankingResponse` samling refererar till de faktiska resultatet sökobjekt på två olika men motsvarande sätt.
+Varje objekt i en `rankingResponse`-samling refererar till de faktiska sökresultatobjekten på två olika men likvärdiga sätt.
 
 | | |
 |-|-|
-|`id`|Den `id` ser ut som en URL, men ska inte användas för länkar. Den `id` typ av en rangordning resultat som matchar den `id` av antingen en sökning resultatobjekt i en samling i svaret, *eller* en samling för hela svaret (som `Entities`).
-|`answerType`<br>`resultIndex`|Den `answerType` refererar till den översta svar-samling som innehåller resultatet (till exempel `Entities`). Den `resultIndex` refererar till det resultatet index i samlingen. Om `resultIndex` är utelämnas rangordning resultatet som refererar till hela samlingen.
+|`id`|`id` ser ut som en URL men ska inte användas för länkar. `id`-typen av ett rankningsresultat matchar `id` för antingen en ett sökresultatobjekt i en svarssamling *eller* en hel svarssamling (t.ex. `Entities`).
+|`answerType`<br>`resultIndex`|`answerType` refererar till den svarssamling på toppnivå som innehåller resultatet (till exempel `Entities`). `resultIndex` refererar till resultatets index i den samlingen. Om `resultIndex` är utelämnas refererar rankningsresultatet till hela samlingen.
 
 > [!NOTE]
-> Mer information om den här delen av search-svar finns [rang resultat](rank-results.md).
+> Mer information om den här delen av söksvaret finns i [Rangordna resultat](rank-results.md).
 
-Du kan använda vilken metod för att hitta refererade Sök resultatobjekt passar ditt program. I våra självstudier koden som vi använder den `answerType` och `resultIndex` att hitta varje sökresultat.
+Du kan använda den metod för att hitta det refererade sökresultatobjekt som bäst passar ditt program. I självstudiekoden använder vi `answerType` och `resultIndex` för att hitta varje sökresultat.
 
-Slutligen är det dags att titta på vår funktionen `renderSearchResults()`. Den här funktionen itererar över tre `rankingResponse` samlingar som representerar de tre avsnitten i sökresultaten. För varje avsnitt som vi kallar `renderResultsItems()` att återge resultaten för avsnittet.
+Slutligen är det dags att titta på funktionen `renderSearchResults()`. Den här funktionen itererar över tre `rankingResponse`-samlingar som representerar de tre avsnitten i sökresultaten. För varje avsnitt anropar vi `renderResultsItems()` för att rendera resultaten för det avsnittet.
 
 ```javascript
 // render the search results given the parsed JSON response
@@ -429,9 +430,9 @@ function renderSearchResults(results) {
 }
 ```
 
-## <a name="rendering-result-items"></a>Återgivning resultatet objekt
+## <a name="rendering-result-items"></a>Rendering av resultatobjekt
 
-I vårt JavaScript-kod är ett objekt, `searchItemRenderers`, som innehåller *återgivning:* funktioner som genererar HTML-kod för varje typ av sökresultatet.
+I JavaScript-koden finns objektet `searchItemRenderers`, som innehåller *renderare:* funktioner som genererar HTML för varje typ av sökresultat.
 
 ```javascript
 searchItemRenderers = { 
@@ -440,17 +441,17 @@ searchItemRenderers = {
 }
 ```
 
-En renderare funktion kan acceptera följande parametrar:
+En funktion för rendering kan acceptera följande parametrar:
 
 | | |
 |-|-|
-|`item`|JavaScript-objekt som innehåller objektets egenskaper, till exempel dess URL och dess beskrivning.|
-|`index`|Index över resultatobjekt i dess samling.|
-|`count`|Antal objekt i samlingen Sök resultatobjekt.|
+|`item`|JavaScript-objekt som innehåller objektets egenskaper, som dess webbadress och en beskrivning.|
+|`index`|Index för resultatobjektet i en samling.|
+|`count`|Antal objekt i sökresultatets objektsamling.|
 
-Den `index` och `count` parametrar kan användas för att antalet resultat för att generera särskilda HTML för början eller slutet av en samling om du vill infoga radbrytningar efter ett visst antal objekt, och så vidare. Om en renderare inte behöver den här funktionen, behöver det inte godkänna dessa två parametrar. Faktum är använder vi inte dem i återgivning för våra självstudier app.
+Parametrarna `index` och `count` kan användas till att numrera resultat, för att generera särskilda HTML-filer för början eller slutet av en samling, för att infoga radbrytningar efter ett visst antal objekt och så vidare. Om en renderare inte behöver den här funktionen behöver den inte godkänna dessa två parametrar. I själva verket använder vi dem inte i renderarna för självstudieappen.
 
-Låt oss ta en närmare titt på den `entities` renderare:
+Låt oss ta en närmare titt på `entities`-renderaren:
 
 ```javascript
     entities: function(item) {
@@ -501,51 +502,51 @@ Låt oss ta en närmare titt på den `entities` renderare:
     }, // places renderer omitted
 ```
 
-Vår entitet renderare funktionen:
+Entitetsrenderarfunktionen:
 
 > [!div class="checklist"]
-> * Skapar HTML `<img>` tagg för att visa bildens miniatyr, om sådana finns. 
-> * Skapar HTML `<a>` tagg som länkar till den sida som innehåller bilden.
-> * Skapar beskrivning som visar information om bilden och den plats som den är aktiverad.
-> * Inkluderar entitetens klassificering med Visa-tips om alla.
-> * Innehåller en länk till en Bing-sökning för att få mer information om entiteten.
-> * Visar alla licens- eller tillskrivningar information som krävs av datakällor.
+> * Skapar `<img>`-HTML-taggen för att visa miniatyrbilden, om sådan finns. 
+> * Skapar den `<a>`-HTML-tagg som länkar till den sida som innehåller bilden.
+> * Skapar beskrivning som visar information om bilden och den plats som den finns på.
+> * Inkluderar entitetens klassificering med hjälp av visningstips, om sådana finns.
+> * Inkluderar en länk till en Bing-sökning för att få mer information om entiteten.
+> * Visar eventuell licensierings- eller attributionsinformation som krävs av datakällor.
 
-## <a name="persisting-client-id"></a>Spara klient-ID
+## <a name="persisting-client-id"></a>Bestående klient-ID
 
-Svar från Bing search API: er kan innehålla en `X-MSEdge-ClientID` rubrik som ska skickas tillbaka till API: et med efterföljande förfrågningar. Om flera Bing Search API: er används måste samma klient-ID användas med dem om möjligt.
+Svar från API:er för Bing-sökning kan innehålla ett `X-MSEdge-ClientID`-sidhuvud som ska skickas tillbaka till API:et med efterföljande förfrågningar. Om flera API:er för Bing Search används ska samma klient-ID användas för dem om möjligt.
 
-Att tillhandahålla den `X-MSEdge-ClientID` sidhuvudet tillåter Bing-API: er att koppla alla sökningar för en användare, som har två viktiga fördelar.
+När `X-MSEdge-ClientID`-huvudet tillhandahålls kan Bing-API:er associera alla sökningar för en användare, vilket innebär två viktiga fördelar.
 
-Först och hjälper främst Bing sökmotor att tillämpa tidigare kontexten sökningar att hitta resultat som bättre uppfyller användaren. Om en användare har har sökt efter villkor som rör avseglingen, till exempel kan företrädesvis senare söka efter ”dockningsstationer” kan returnera information om platser att docka en segelbåt.
+Först hjälper Bing-sökmotorn till med att tillämpa den senaste kontext på sökningarna för att hitta resultat som bättre tillfredsställer användaren. Om en användare tidigare har sökt efter termer som exempelvis relaterar till segling kan en senare sökning efter ”hamnar” returnera information om platser där segelbåtar kan förtöjas.
 
-Andra väljer Bing slumpmässigt användarna får nya funktioner innan de blir allmänt tillgänglig. Att tillhandahålla samma klient-ID för varje begäran säkerställer att användare som har valts för att se en funktion alltid se den. Utan klient-ID kan användaren ser en funktion som visas och försvinner, till synes slumpmässigt, i sökresultaten.
+Därefter väljer Bing slumpmässigt ut användare som ska prova nya funktioner innan de blir allmänt tillgängliga. Genom att tillhandahålla samma klient-ID med varje begäran säkerställs att användare som har valts för att se en funktion alltid ser den. Utan klient-ID kan användaren se en funktion som sedan försvinner, till synes slumpmässigt, i sökresultatet.
 
-Webbläsaren säkerhetsprinciper (CORS) kan hindra den `X-MSEdge-ClientID` huvudet från att vara tillgängliga för JavaScript. Den här begränsningen uppstår när search-svar har ett annat ursprung från sidan som begärt det. Du bör hantera den här principen genom att lägga upp ett skript på servern som innehåller API-anrop på samma domän som webbsidan i en produktionsmiljö. Eftersom skriptet har samma ursprung som webbsida, den `X-MSEdge-ClientID` huvudet är sedan tillgängliga för JavaScript.
+Säkerhetsprinciper för webbläsaren (CORS) kan hindra att `X-MSEdge-ClientID`-huvudet visas för JavaScript. Den här begränsningen uppstår när söksvaret har ett annat ursprung än sidan som begärt det. I en produktionsmiljö bör du hantera den här principen genom att lägga upp ett serverskript som gör API-anrop på samma domän som webbsidan. Eftersom skriptet har samma ursprung som webbsidan är sedan `X-MSEdge-ClientID`-huvudet tillgängligt för JavaScript.
 
 > [!NOTE]
-> I en produktionsmiljö webbprogram ska du utföra begäran serversidan ändå. Annars måste Bing Search API-nyckeln ingå i webbsidan där den är tillgänglig för alla som visar källa. Du debiteras för användning i alla under din API prenumeration nyckel även begäranden obehöriga personer så att det är viktigt att inte visa din nyckel.
+> Du bör utföra begäran på serversidan i ett produktionsklart webbprogram ändå. I annat fall måste API-nyckeln för Bing-sökning inkluderas i webbsidan där den är tillgänglig för alla som visar källan. Du debiteras för all användning under din API-prenumerationsnyckel, även begäranden som görs av obehöriga personer, så det är viktigt att inte exponera nyckeln.
 
-Du kan göra sökningen Bing webb-API-begäran via en proxyserver för CORS för utveckling. Svaret från en sådan proxy har en `Access-Control-Expose-Headers` huvud som whitelists svarshuvuden och gör dem tillgängliga för JavaScript.
+I utvecklingssyfte kan du begära API för webbsökning i Bing via en CORS-proxy. Svaret från en sådan proxy har ett `Access-Control-Expose-Headers`-huvud som vitlistar svarshuvuden och gör dem tillgängliga för JavaScript.
 
-Det är lätt att installera en CORS-proxy för att tillåta huvud-ID för våra självstudier app åtkomst till klienten. Första, om du inte redan har det, [installera Node.js](https://nodejs.org/en/download/). Sedan kör du följande kommando i Kommandotolken:
+Det är enkelt att installera en CORS-proxy för att tillåta att självstudien får åtkomst till klientens ID-huvud. [Installera Node.js](https://nodejs.org/en/download/) om du inte redan har det. Sedan kör du följande kommando ett kommandofönster:
 
     npm install -g cors-proxy-server
 
-Ändra Bing webbsökning slutpunkten i HTML-filen:
+Ändra slutpunkten för webbsökning i Bing i HTML-filen till:
 
     http://localhost:9090/https://api.cognitive.microsoft.com/bing/v7.0/search
 
-Slutligen starta CORS-proxy med följande kommando:
+Slutligen startar du CORS-proxyn med följande kommando:
 
     cors-proxy-server
 
-Lämna Kommandotolken öppen när du använder appen självstudiekursen; stänger fönstret stoppar proxyn. I avsnittet nedan sökresultaten utbyggbara HTTP-huvuden, kan du nu se den `X-MSEdge-ClientID` huvud (bland andra) och kontrollera att det är samma för varje begäran.
+Lämna kommandofönstret öppet medan du använder självstudieappen. Om du stänger fönstret stoppas proxyn. I det expanderbara avsnittet om HTTP-huvuden nedan kan du nu se `X-MSEdge-ClientID`-huvudet (bland annat) under sökresultatet och du kan kontrollera att det är samma för varje begäran.
 
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Bing enheten Sök API-referens](//docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference)
+> [Referens för API för entitetsökning i Bing](//docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference)
 
 > [!div class="nextstepaction"]
-> [Bing Maps API-dokumentation](//msdn.microsoft.com/library/dd877180.aspx)
+> [Dokumentation till API för Bing Maps](//msdn.microsoft.com/library/dd877180.aspx)

@@ -5,15 +5,15 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: include
-ms.date: 09/10/2018
+ms.date: 10/05/2018
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: de744a4a23b246223ed0f42f3d079b1ac2e5521a
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 761b68ca99df8ae5b4d379b95e7d2a300f7e6238
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47008844"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48874004"
 ---
 ### <a name="what-is-the-difference-between-an-azure-virtual-network-gateway-vpn-gateway-and-an-azure-virtual-wan-vpngateway"></a>Vad är skillnaden mellan en virtuell nätverksgateway i Azure (VPN Gateway) och en Azure Virtual WAN-vpngateway?
 
@@ -21,7 +21,11 @@ Virtual WAN tillhandahåller storskalig plats-till-plats-anslutning och byggs f�
 
 ### <a name="which-device-providers-virtual-wan-partners-are-supported-at-launch-time"></a>Vilken enhetsprovider (Virtual WAN-partner) stöds vid start? 
 
-Just nu stöds den helt automatiserade Virtual WAN-upplevelsen i Citrix och Riverbed. Mer information finns i [Virtual WAN-partner](https://go.microsoft.com/fwlink/p/?linkid=2019615).
+Just nu stöds den helt automatiserade Virtual WAN-upplevelsen av många partner. Mer information finns i [Virtual WAN-partner](https://go.microsoft.com/fwlink/p/?linkid=2019615). 
+
+### <a name="what-are-the-virtual-wan-partner-automation-steps"></a>Vilka är automatiseringsstegen för virtuella WAN-partner?
+
+Information om automatiseringssteg för partner finns i avsnittet om [automatisering för virtuella WAN-partner](../articles/virtual-wan/virtual-wan-configure-automation-providers.md).
 
 ### <a name="am-i-required-to-use-a-preferred-partner-device"></a>Måste jag använda en önskad partnerenhet?
 
@@ -41,7 +45,7 @@ Ja, Virtual WAN introducerar ny Resource Manager-resurser. Mer information finns
 
 ### <a name="how-many-vpn-devices-can-connect-to-a-single-hub"></a>Hur många VPN-enheter kan ansluta till en enda hubb?
 
-Upp till 100 anslutningar stöds per virtuell hubb. Varje anslutning består av två tunnlar i konfigurationen aktiv-aktiv. Tunnlarna avslutas i en Azure Virtual Hub-vpngateway.
+Upp till 1 000 anslutningar stöds per virtuell hubb. Varje anslutning består av två tunnlar i konfigurationen aktiv-aktiv. Tunnlarna avslutas i en Azure Virtual Hub-vpngateway.
 
 ### <a name="can-the-on-premises-vpn-device-connect-to-multiple-hubs"></a>Kan den lokala VPN-enheten ansluta till flera hubbar?
 
@@ -66,7 +70,6 @@ Nej. Det virtuella NVA-nätverket kan inte ha en virtuell nätverksgateway om de
 ### <a name="is-there-support-for-bgp"></a>Stöds BGP?
 
 Ja, BGP stöds. För att säkerställa att routningar från ett virtuellt NVA-VNet annonseras på ett lämpligt sätt måste ekrar inaktivera BGP om de är anslutna till ett virtuellt NVA-VNet, som i sin tur är anslutet till en virtuell hubb. Anslut dessutom eker-VNet till den virtuella hubben för att säkerställa att VNet-ekervägarna sprids till lokala system.
-Kan jag dirigera trafik med hjälp av UDR i den virtuella hubben?
 
 ### <a name="can-i-direct-traffic-using-udr-in-the-virtual-hub"></a>Kan jag dirigera trafik med hjälp av UDR i den virtuella hubben?
 
@@ -94,7 +97,7 @@ Ja.
 
 ### <a name="how-is-virtual-wan-different-from-the-existing-azure-virtual-network-gateway"></a>Hur skiljer sig Virtual WAN från den befintliga Azure Virtual Network-gatewayen?
 
-Det virtuella privata nätverkets Virtual Network-gateway är begränsad till 30 tunnlar. För anslutningar bör du använda Virtual WAN för ett storskaligt virtuellt privat nätverk. Du kan ansluta upp till 100 grenanslutningar med 2 Gbit/s i hubben. En anslutning är en aktiv-aktiv-tunnel från den lokala VPN-enheten till den virtuella hubben. Du kan ha en hubb per region, vilket innebär att du kan ansluta fler än 100 grenar mellan hubbar.
+Det virtuella privata nätverkets Virtual Network-gateway är begränsad till 30 tunnlar. För anslutningar bör du använda Virtual WAN för ett storskaligt virtuellt privat nätverk. Du kan ansluta upp till 1 000 grenanslutningar med 2 Gb/s i hubben för alla regioner förutom regionen Västra centrala. För regionen Västra centrala är 20 Gbit/s är tillgängligt. Vi kommer att lansera 20 Gbit/s till ytterligare regioner i framtiden. En anslutning är en aktiv-aktiv-tunnel från den lokala VPN-enheten till den virtuella hubben. Du kan ha en hubb per region, vilket innebär att du kan ansluta fler än 1 000 grenar mellan hubbar.
 
 ### <a name="does-this-virtual-wan-require-expressroute-from-each-site"></a>Kräver detta Virtual WAN ExpressRoute från varje plats?
 
@@ -102,7 +105,7 @@ Nej, Virtual WAN kräver inte ExpressRoute från varje plats. Virtual WAN använ
 
 ### <a name="is-there-a-network-throughput-limit-when-using-azure-virtual-wan"></a>Finns det någon gräns för nätverksdataflöde vid användning av Azure Virtual WAN?
 
-Antalet grenar är begränsat till 100 anslutningar per hubb/region och totalt 2 G i hubben.
+Antalet grenar är begränsat till 1 000 anslutningar per hubb/region och totalt 2 G i hubben. Undantaget är USA, västra centrala, som har högst 20 Gbit/s. Vi kommer att lansera 20 Gbit/s till andra regioner i framtiden.
 
 ### <a name="does-virtual-wan-allow-the-on-premises-device-to-utilize-multiple-isps-in-parallel-or-is-it-always-a-single-vpn-tunnel"></a>Tillåter Virtual WAN att den lokala enheten använder flera Internetleverantörer samtidigt eller är det alltid en enda VPN-tunnel?
 
@@ -110,7 +113,7 @@ Ja, du kan ha tunnlar i aktiv-aktiv (2 tunnlar = 1 Azure Virtual WAN-anslutning)
 
 ### <a name="how-is-traffic-routed-on-the-azure-backbone"></a>Hur dirigeras trafiken i Azures stamnät?
 
-Trafiken följer följande mönster: grenenhet ->ISP->Microsoft Edge->Microsoft DC->Microsoft Edge->ISP->grenenhet.
+Trafiken följer följande mönster: grenenhet ->ISP->Microsoft Edge->Microsoft DC->Microsoft Edge->ISP->grenenhet
 
 ### <a name="in-this-model-what-do-you-need-at-each-site-just-an-internet-connection"></a>Vad behöver du på varje plats i den här modellen? Bara en Internetanslutning?
 

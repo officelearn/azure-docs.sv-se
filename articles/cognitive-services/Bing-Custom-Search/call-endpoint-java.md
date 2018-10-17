@@ -1,40 +1,41 @@
 ---
-title: Anropa slutpunkten med Java – Bing Custom Search - Microsoft Cognitive Services
-description: Den här snabbstarten visar hur du begär sökresultat från din anpassade Sökinstans genom att använda Java för att anropa anpassad sökning i Bing-slutpunkten.
+title: 'Snabbstart: Anropa slutpunkt med hjälp av Java – Anpassad sökning i Bing'
+titlesuffix: Azure Cognitive Services
+description: Den här snabbstarten visar hur du begär sökresultat från din anpassade sökinstans genom att använda Java för att anropa slutpunkten för Anpassad sökning i Bing.
 services: cognitive-services
 author: brapel
-manager: ehansen
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-custom-search
-ms.topic: conceptual
+ms.topic: quickstart
 ms.date: 05/07/2018
 ms.author: v-brapel
-ms.openlocfilehash: 7ef4de749d5b9152bbe043a26d3c60fe7f09f869
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
-ms.translationtype: MT
+ms.openlocfilehash: ba1eb9799bc95dede081c6f1a6d972896c126da6
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46951822"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48814125"
 ---
-# <a name="call-bing-custom-search-endpoint-java"></a>Anropa anpassad sökning i Bing slutpunkt (Java)
+# <a name="quickstart-call-bing-custom-search-endpoint-java"></a>Snabbstart: Anropa slutpunkten för Anpassad sökning i Bing (Java)
 
-Den här snabbstarten visar hur du begär sökresultat från din anpassade Sökinstans som använder Java för att anropa anpassad sökning i Bing-slutpunkten. 
+Den här snabbstarten visar hur du begär sökresultat från din anpassade sökinstans genom att använda Java för att anropa slutpunkten för Anpassad sökning i Bing. 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Följande krävs för att slutföra den här snabbstarten:
 
-- En färdiga att använda anpassad Sökinstans. Se [skapar din första Bing Custom Search-instans](quick-start.md).
-- [Java](https://www.java.com) installerad.
-- En prenumerationsnyckel. Du kan få en prenumerationsnyckel när du aktiverar din [kostnadsfri utvärderingsversion](https://azure.microsoft.com/try/cognitive-services/?api=bing-custom-search), eller du kan använda en betald prenumerationsnyckel från instrumentpanelen i Azure (se [Cognitive Services API-konto](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)).    
+- En anpassad sökinstans som är redo att användas. Se sidan om att [skapa din första instans för Anpassad sökning i Bing](quick-start.md).
+- [Java](https://www.java.com) installerat.
+- En prenumerationsnyckel. Du kan få en prenumerationsnyckel när du aktiverar din [kostnadsfria utvärderingsversion](https://azure.microsoft.com/try/cognitive-services/?api=bing-custom-search), eller så kan du använda en betald prenumerationsnyckel från instrumentpanelen i Azure (se [Cognitive Services API-konto](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)).    
 
 ## <a name="run-the-code"></a>Kör koden
 
 Följ dessa steg om du vill köra det här exemplet:
 
-1. Med hjälp av Java IDE föredrar, skapa ett paket.  
+1. Med hjälp av valfri Java IDE skapar du ett paket.  
   
-2. Skapa en fil med namnet CustomSrchJava.java i paketet och kopiera följande kod till den. Ersätt **YOUR-SUBSCRIPTION-KEY** och **YOUR-anpassad-CONFIG-ID** med din prenumerationsnyckel och konfiguration-ID.  
+2. Skapa en fil med namnet CustomSrchJava.java i paketet och kopiera följande kod till den. Ersätt **YOUR-SUBSCRIPTION-KEY** och **YOUR-CUSTOM-CONFIG-IDID** med din prenumerationsnyckel och ditt konfigurations-ID.  
   
     ```java
     import java.io.InputStream;
@@ -135,6 +136,6 @@ Följ dessa steg om du vill köra det här exemplet:
 4. Kör programmet.
     
 ## <a name="next-steps"></a>Nästa steg
-- [Konfigurera din värdbaserade användargränssnitt](./hosted-ui.md)
-- [Använda decoration markörer för att markera text](./hit-highlighting.md)
-- [Sidan webbsidor](./page-webpages.md)
+- [Konfigurera värdbaserad UI-upplevelse](./hosted-ui.md)
+- [Använda dekorationsmarkörer för att markera text](./hit-highlighting.md)
+- [Webbsidor för sida](./page-webpages.md)

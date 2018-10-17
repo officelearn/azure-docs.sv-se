@@ -1,44 +1,44 @@
 ---
-title: Nyheter Sök quickstart SDK C# | Microsoft Docs
-description: Installationsprogrammet för News search SDK-konsolprogram.
-titleSuffix: Azure cognitive services News search SDK C# quickstart
+title: 'Snabbstart: SDK för nyhetssökning i Bing, C#'
+titleSuffix: Azure Cognitive Services
+description: Konfiguration av konsolprogrammet för SDK för nyhetssökning i Bing.
 services: cognitive-services
 author: mikedodaro
-manager: rosh
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-news-search
-ms.topic: article
+ms.topic: quickstart
 ms.date: 01/30/2018
 ms.author: v-gedod
-ms.openlocfilehash: e803fd579c6b71b8b1754546446715795a12087a
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
-ms.translationtype: MT
+ms.openlocfilehash: 416557b11ebef953411fb6fabcddb72d08dcb5af
+ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35355275"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48802992"
 ---
-# <a name="news-search-sdk-c-quickstart"></a>Nyheter Sök SDK C# Snabbstart
+# <a name="quickstart-bing-news-search-sdk-with-c"></a>Snabbstart: SDK för nyhetssökning i Bing med C#
 
-Bing News Sök SDK innehåller funktionerna i REST-API för Nyheter frågor och resultaten för tolkning. 
+SDK för nyhetssökning i Bing innehåller funktionerna i REST API:et för nyhetsfrågor och parsning av resultat. 
 
-Den [källkoden för C# Bing News Sök SDK-exempel](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/BingSearchv7/BingNewsSearch) är tillgänglig på Git-hubben.
+[Källkoden till exemplen med SDK:t för nyhetssökning i Bing med C#](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/BingSearchv7/BingNewsSearch) är tillgänglig på GitHub.
 
 ## <a name="application-dependencies"></a>Programberoenden
 
-Om du vill konfigurera ett konsolprogram med Bing News Sök SDK, bläddra till den `Manage NuGet Packages` alternativet från Solution Explorer i Visual Studio.  Lägg till den `Microsoft.Azure.CognitiveServices.Search.NewsSearch` paketet.
+Om du vill konfigurera ett konsolprogram med hjälp av SDK:n för nyhetssökning i Bing bläddrar du till alternativet `Manage NuGet Packages` från Solution Explorer i Visual Studio.  Lägg till paketet `Microsoft.Azure.CognitiveServices.Search.NewsSearch`.
 
-Installera den [NuGet nyheter Sök SDK-paketet](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Search.NewsSearch/1.2.0) installeras även beroenden, inklusive:
+När du installerar [NuGet SDK-paketet för nyhetssökning](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Search.NewsSearch/1.2.0) installeras även beroenden, inklusive:
 * Microsoft.Rest.ClientRuntime
 * Microsoft.Rest.ClientRuntime.Azure
 * Newtonsoft.Json
 
-## <a name="news-search-client"></a>Nyheter Sök klienten
-Att skapa en instans av den `NewsSearchAPI` klienten, lägger till med direktivet:
+## <a name="news-search-client"></a>Klient för nyhetssökning
+För att skapa en instans av `NewsSearchAPI`-klienten lägger du till med hjälp av direktiv:
 ```
 using Microsoft.Azure.CognitiveServices.Search.NewsSearch;
 
 ```
-Sedan skapa en instans av klienten:
+Instansiera sedan klienten:
 ```
 var client = new NewsSearchAPI(new ApiKeyServiceClientCredentials("YOUR-ACCESS-KEY"));
 
@@ -50,7 +50,7 @@ var newsResults = client.News.SearchAsync(query: "Quantum  Computing", market: "
 Console.WriteLine("Search news for query \"Quantum  Computing\" with market and count");
 
 ```
-Parsa nyheter som returneras i resultatet av den föregående frågan:
+Parsa de nyheter som returneras i resultaten från den föregående frågan:
 ```
 if (newsResults.Value.Count > 0)
 {
@@ -71,9 +71,9 @@ else
 }
 
 ```
-## <a name="complete-console-application"></a>Fullständig konsolprogram
+## <a name="complete-console-application"></a>Slutföra konsolprogram
 
-Följande konsolprogrammet utförs tidigare definierade frågan och söker Nyheter för ”Quantum datoranvändning”. Begäran innehåller `market` och `count` parametrar. Koden kontrollerar antalet resultat och skriver ut `totalEstimatedMatches`, `name`, `url`, `description`, `published time` och `name` av `provider` för det första resultatet nyheter.
+Följande konsolprogram kör den tidigare definierade frågan och söker i nyheterna för ”Quantum Computing” (kvantberäkning). Begäran innehåller parametrarna `market` och `count`. Koden verifierar antalet resultat och skriver ut `totalEstimatedMatches`, `name`, `url`, `description`, `published time` och `name` för `provider` för det första nyhetsresultatet.
 
 ```
 using System;
@@ -136,8 +136,8 @@ namespace NewsSrchSDK
 }
 
 ```
-## <a name="recent-news-freshness-and-sortby-parameters"></a>De senaste nyheterna och dokumentens i sortBy parametrar
-Följande kod efter de senaste nyheterna ”artificiell Intelligence” med `freshness` och `sortBy` parametrar. Den kontrollerar antalet resultat och skriver ut `totalEstimatedMatches`, `name`, `url`, `description`, `published time`, och `name` för det första resultatet nyheter-providern.
+## <a name="recent-news-freshness-and-sortby-parameters"></a>De senaste nyheterna, parametrarna freshness och sortBy
+Följande kod söker i de senaste nyheterna om ”Artificial Intelligence” (artificiell intelligens) med parametrarna `freshness` och `sortBy`. Den verifierar antalet resultat och skriver ut `totalEstimatedMatches`, `name`, `url`, `description`, `published time` och `name` av källan för det första nyhetsresultatet.
 ```
         public static void NewsSearchWithFilters(NewsSearchAPI client)
         {
@@ -179,8 +179,8 @@ Följande kod efter de senaste nyheterna ”artificiell Intelligence” med `fre
 
 ```
 
-## <a name="category-news-safe-search"></a>Kategori nyheter, säker sökning
-Följande kod söker kategori Nyheter för filmer och TV underhållning med säker sökning.  Den kontrollerar antalet resultat och skriver ut `category`, `name`, `url`, `description`, `published time`, och `name` för det första resultatet nyheter-providern.
+## <a name="category-news-safe-search"></a>Kategorinyheter, säker sökning
+Följande kod söker efter kategorinyheter för film och TV-underhållning med säker sökning.  Den verifierar antalet resultat och skriver ut `category`, `name`, `url`, `description`, `published time` och `name` för källan för det första nyhetsresultatet.
 ```
         public static void NewsCategory(NewsSearchAPI client)
         {
@@ -221,8 +221,8 @@ Följande kod söker kategori Nyheter för filmer och TV underhållning med säk
         }
 
 ```
-## <a name="trending-topics"></a>Trender avsnitt
-Följande kod söker trender Nyheter i Bing. Den kontrollerar antalet resultat och skriver ut `name`, `text of query`, `webSearchUrl`, `newsSearchUrl`, och `image.Url` för det första resultatet nyheter.
+## <a name="trending-topics"></a>Trendande ämnen
+Följande kod söker efter nyheter med trändande ämnen i Bing. Den verifierar antalet resultat och skriver ut `name`, `text of query`, `webSearchUrl`, `newsSearchUrl` och `image.Url` för det första nyhetsresultatet.
 ```
         public static void TrendingTopics(NewsSearchAPI client)
         {
@@ -265,4 +265,4 @@ Följande kod söker trender Nyheter i Bing. Den kontrollerar antalet resultat o
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Kognitiva services .NET SDK-exempel](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/BingSearchv7)
+[Exempel med Cognitive Services SDK för .NET](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/BingSearchv7)

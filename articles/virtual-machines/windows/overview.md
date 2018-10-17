@@ -1,5 +1,5 @@
 ---
-title: Översikt över Windows Virtual Machines | Microsoft Docs
+title: Översikt över virtuella Windows-datorer – Azure | Microsoft Docs
 description: Läs mer om hur du skapar och hanterar virtuella Windows-datorer i Azure.
 services: virtual-machines-windows
 documentationcenter: ''
@@ -13,15 +13,15 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 07/17/2017
+ms.date: 10/04/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: e12b8153494eaefb1f7e2d27fc667ef0070c68d0
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: 6ec151222bda3d87386cc3be4c54821775880795
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "41917582"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48816845"
 ---
 # <a name="overview-of-windows-virtual-machines-in-azure"></a>Översikt över virtuella Windows-datorer i Azure
 
@@ -83,9 +83,9 @@ I den här tabellen hittar du några olika sätt för att hitta informationen om
 | Metod | Beskrivning |
 | --- | --- |
 | Azure Portal |Värdena anges automatiskt åt dig när du väljer en avbildning som du vill använda. |
-| Azure PowerShell |[Get-AzureRMVMImagePublisher](https://docs.microsoft.com/powershell/module/azurerm.compute/get-azurermvmimagepublisher) -Location "location"<BR>[Get-AzureRMVMImageOffer](https://docs.microsoft.com/powershell/module/azurerm.compute/get-azurermvmimageoffer) -Location "location" -Publisher "publisherName"<BR>[Get-AzureRMVMImageSku](/powershell/module/azurerm.compute/get-azurermvmimagesku) -Location "location" -Publisher "publisherName" -Offer "offerName" |
+| Azure PowerShell |[Get-AzureRMVMImagePublisher](https://docs.microsoft.com/powershell/module/azurerm.compute/get-azurermvmimagepublisher) -Location *location*<BR>[Get-AzureRMVMImageOffer](https://docs.microsoft.com/powershell/module/azurerm.compute/get-azurermvmimageoffer) -Location *location* -Publisher *publisherName*<BR>[Get-AzureRMVMImageSku](/powershell/module/azurerm.compute/get-azurermvmimagesku) -Location *location* -Publisher *publisherName* -Offer *offerName* |
 | REST API:er |[Lista över avbildningsutgivare](https://docs.microsoft.com/rest/api/compute/platformimages/platformimages-list-publishers)<BR>[Lista över avbildningserbjudanden](https://docs.microsoft.com/rest/api/compute/platformimages/platformimages-list-publisher-offers)<BR>[Lista över avbildnings-SKU:er](https://docs.microsoft.com/rest/api/compute/platformimages/platformimages-list-publisher-offer-skus) |
-| Azure CLI |[az vm image list-publishers](https://docs.microsoft.com/cli/azure/vm/image?view=azure-cli-latest#az_vm_image_list_publishers) --location "location"<BR>[az vm image list-offers](https://docs.microsoft.com/cli/azure/vm/image?view=azure-cli-latest#az_vm_image_list_offers) --location "location" --publisher "publisherName"<BR>[az vm image list-skus](https://docs.microsoft.com/cli/azure/vm?view=azure-cli-latest#az_vm_list_skus) --location "location" --publisher "publisherName" --offer "offerName"|
+| Azure CLI |[az vm image list-publishers](https://docs.microsoft.com/cli/azure/vm/image?view=azure-cli-latest#az_vm_image_list_publishers) --location *location*<BR>[az vm image list-offers](https://docs.microsoft.com/cli/azure/vm/image?view=azure-cli-latest#az_vm_image_list_offers) --location *location* --publisher *publisherName*<BR>[az vm image list-skus](https://docs.microsoft.com/cli/azure/vm?view=azure-cli-latest#az_vm_list_skus) --location *location* --publisher *publisherName* --offer *offerName*|
 
 Du kan välja att [ladda upp och använda en egen avbildning](upload-generalized-managed.md#upload-the-vhd-to-your-storage-account). Om du gör det används inte utgivarnamn, erbjudande och sku.
 
@@ -124,7 +124,7 @@ Den här tabellen innehåller information som hjälper dig att komma igång med 
 | REST API:er |[Skapa eller uppdatera en virtuell dator](https://docs.microsoft.com/rest/api/compute/virtualmachines/virtualmachines-create-or-update) |
 | Azure CLI |[Skapa en VM med Azure CLI](https://docs.microsoft.com/azure/virtual-machines/scripts/virtual-machines-windows-cli-sample-create-vm) |
 
-Man hoppas att det aldrig händer, men ibland går något fel. Om det händer kan du läsa informationen i [Felsöka distributionsproblem i Resource Manager när du skapar en virtuell Windows-dator i Azure](troubleshoot-deployment-new-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+Man hoppas att det aldrig händer, men ibland går något fel. Om det händer kan du läsa informationen i [Felsöka distributionsproblem i Resource Manager när du skapar en virtuell Windows-dator i Azure](../troubleshooting/troubleshoot-deployment-new-vm-windows.md).
 
 ## <a name="how-do-i-manage-the-vm-that-i-created"></a>Hur hanterar jag den virtuella datorn som jag skapat?
 Virtuella datorer kan hanteras från en webbläsarbaserad portal, kommandoradsverktyg med skriptstöd eller direkt från API:erna. Några vanliga hanteringsuppgifter som du kan utföra är att få information om en virtuell dator, logga in på en virtuell dator, hantera tillgänglighet och göra säkerhetskopior.
@@ -141,10 +141,10 @@ I den här tabellen visar vi några exempel på hur du kan få information om en
 | Azure CLI |Information om hur du använder Azure CLI till att hantera virtuella datorer finns i [Azure CLI-referensen](https://docs.microsoft.com/cli/azure/vm). |
 
 ### <a name="log-on-to-the-vm"></a>Logga in på den virtuella datorn
-Du använder knappen Anslut på Azure Portal för att [starta en fjärrskrivbordssession (RDP)](connect-logon.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Ibland kan det bli fel när någon försöker använda en fjärranslutning. Om det händer kan du läsa hjälpinformationen i [Felsöka Remote Desktop-anslutningar till en virtuell dator i Azure-dator som kör Windows](troubleshoot-rdp-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+Du använder knappen Anslut på Azure Portal för att [starta en fjärrskrivbordssession (RDP)](connect-logon.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Ibland kan det bli fel när någon försöker använda en fjärranslutning. Om det händer kan du läsa hjälpinformationen i [Felsöka Remote Desktop-anslutningar till en virtuell dator i Azure-dator som kör Windows](../troubleshooting/troubleshoot-rdp-connection.md).
 
 ### <a name="manage-availability"></a>Hantera tillgänglighet
-Det är viktigt att förstå hur du [säkerställer hög tillgänglighet](manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) för ditt program. I den här konfigurationen skapar du flera virtuella datorer för att försäkra dig om att minst en körs.
+Det är viktigt att förstå hur du [säkerställer hög tillgänglighet](manage-availability.md) för ditt program. I den här konfigurationen skapar du flera virtuella datorer för att försäkra dig om att minst en körs.
 
 För att distributionen ska kunna omfattas av vårt 99,95 VM-serviceavtal behöver du distribuera två eller flera virtuella datorer som kör arbetsbelastningen i en [tillgänglighetsuppsättning](tutorial-availability-sets.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Den här konfigurationen säkerställer att dina virtuella datorer distribueras via flera feldomäner och på värdar med olika underhållsfönster. I det fullständiga[Azure-serviceavtalet](https://azure.microsoft.com/support/legal/sla/virtual-machines/) förklaras den garanterade tillgängligheten för Azure som helhet.
 
@@ -152,5 +152,5 @@ För att distributionen ska kunna omfattas av vårt 99,95 VM-serviceavtal behöv
 Ett [Recovery Services-valv](../../backup/backup-introduction-to-azure-backup.md) används för att skydda data och tillgångar i både Azure Backup- och Azure Site Recovery-tjänster. Du kan använda ett Recovery Services-valv till att [distribuera och hantera säkerhetskopior för Resource Manager-distribuerade virtuella datorer som använder PowerShell](../../backup/backup-azure-vms-automation.md). 
 
 ## <a name="next-steps"></a>Nästa steg
-* Om du har för avsikt att arbeta med virtuella datorer i Linux kan du läsa mer i [Azure och Linux](../linux/overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
-* Ta reda på mer om riktlinjerna för konfiguration av infrastrukturen i [Genomgång av en exempelinfrastruktur i Azure](infrastructure-example.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+* Om du har för avsikt att arbeta med virtuella datorer i Linux kan du läsa mer i [Azure och Linux](../linux/overview.md).
+* Ta reda på mer om riktlinjerna för konfiguration av infrastrukturen i [Genomgång av en exempelinfrastruktur i Azure](infrastructure-example.md).

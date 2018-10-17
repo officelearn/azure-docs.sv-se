@@ -9,15 +9,15 @@ manager: cgronlund
 ms.custom: include file
 ms.topic: include
 ms.date: 07/27/2018
-ms.openlocfilehash: dcd2854585e2c776f361aa4718af6b99d8cbb593
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: fb874d06fbccc7e1db542a5d063b9b6acd35b83f
+ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47002076"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48240157"
 ---
 >[!IMPORTANT]
->Resurser som har skapats kan användas som förutsättningar för att andra självstudier och instruktionsartiklar om Azure Machine Learning. 
+>Resurser som har skapats kan användas som förutsättningar för att andra självstudier och instruktionsartiklar om Azure Machine Learning-tjänsten. 
 
 
 Om du inte ska använda det du har skapat här kan du ta bort de resurser som du nyss har skapat med den här snabbstarten, så att du inte behöver betala något.

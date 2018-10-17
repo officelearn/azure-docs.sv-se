@@ -9,15 +9,15 @@ ms.service: event-grid
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 06/20/2018
+ms.date: 09/29/2018
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: 922c87f2d577aff86d51a1fde53f221ebd2fa82c
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 2d94389ade02cb6e61f192e9b9e8adb8f8ceec31
+ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39446698"
+ms.lasthandoff: 10/01/2018
+ms.locfileid: "47585585"
 ---
 # <a name="automate-resizing-uploaded-images-using-event-grid"></a>Automatisera storleksändring av överförda bilder med Event Grid
 
@@ -43,6 +43,16 @@ För att slutföra den här självstudien behöver du:
 Du måste ha slutfört föregående Blob Storage-självstudie: [Överför bilddata i molnet med Azure Storage][previous-tutorial].
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+
+Om du inte redan har registrerat resursprovidern Event Grid i din prenumeration kontrollerar du att den är registrerad.
+
+```azurepowershell-interactive
+Register-AzureRmResourceProvider -ProviderNamespace Microsoft.EventGrid
+```
+
+```azurecli-interactive
+az provider register --namespace Microsoft.EventGrid
+```
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -91,8 +101,10 @@ storageConnectionString=$(az storage account show-connection-string \
 az functionapp config appsettings set --name <function_app> \
 --resource-group myResourceGroup \
 --settings myblobstorage_STORAGE=$storageConnectionString \
-myContainerName=thumbnails
+myContainerName=thumbnails FUNCTIONS_EXTENSION_VERSION=~2
 ```
+
+Inställningen `FUNCTIONS_EXTENSION_VERSION=~2` får funktionsappen att köra version 2.x av Azure Functions-körningen.
 
 Nu kan du distribuera ett funktionskodprojekt till den här funktionsappen.
 
@@ -111,8 +123,7 @@ az functionapp deployment source config --name <function_app> \
 ```
 
 # <a name="nodejstabnodejs"></a>[Node.js](#tab/nodejs)
-Storleksändringsfunktionen för exemplet Node.js är tillgängligt på [GitHub](https://github.com/Azure-Samples/storage-blob-resize-function-node). Distribuera funktionskodprojektet till funktionsappen med kommandot [az functionapp deployment source config](/cli/azure/functionapp/deployment/source#config). 
-
+Storleksändringsfunktionen för exemplet Node.js är tillgängligt på [GitHub](https://github.com/Azure-Samples/storage-blob-resize-function-node). Distribuera funktionskodprojektet till funktionsappen med kommandot [az functionapp deployment source config](/cli/azure/functionapp/deployment/source#config).
 
 I följande kommando är `<function_app>` namnet på funktionsappen som du skapade tidigare.
 

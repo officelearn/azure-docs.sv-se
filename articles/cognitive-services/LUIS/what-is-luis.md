@@ -7,14 +7,14 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: overview
-ms.date: 08/15/2018
+ms.date: 10/06/2018
 ms.author: diberry
-ms.openlocfilehash: a8e9deb7c677d04634b223045adc2d31fa74ba6e
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 0520c00ab20ca7210b3bb13567f9998e7231be43
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47033047"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48867688"
 ---
 # <a name="what-is-language-understanding-luis"></a>Vad är Language Understanding Intelligent Service (LUIS)?
 
@@ -151,7 +151,7 @@ Det minsta JSON-slutpunktssvaret innehåller frågeyttrandet och avsikten med h�
 
 ## <a name="improve-model-prediction"></a>Förbättra modellförutsägelse
 
-När en LUIS-modell har publicerats och får verkliga användaryttranden har LUIS flera metoder att förbättra förutsägelsernas precision: [aktiv inlärning](#active-learning) för slutpunktsyttranden, [fraslistor](#phrase-lists) för inkludering av domänord och [mönster](#patterns) för att minska antalet yttranden som krävs.
+När en LUIS-modell har publicerats och får verkliga användaryttranden har LUIS flera metoder att förbättra förutsägelsernas precision: [aktiv inlärning](luis-concept-review-endpoint-utterances.md) för slutpunktsyttranden, [fraslistor](luis-concept-feature.md) för inkludering av domänord och [mönster](luis-concept-patterns.md) för att minska antalet yttranden som krävs.
 <!--
 ### Active learning
 
@@ -171,25 +171,37 @@ Patterns allow you to simplify an intent's utterance collection into common [tem
 Author LUIS from the [authoring](https://aka.ms/luis-authoring-apis) APIs or from the LUIS portal. Query the published prediction endpoint of the model from the [endpoint](https://aka.ms/luis-endpoint-apis) APIs.
 -->
 
-## <a name="integrating-with-luis"></a>Integrera med LUIS
+## <a name="development-lifecycle"></a>Utvecklingscykel
+LUIS tillhandahåller verktyg, versionshantering och samarbete med andra LUIS-författare för att integrera i den fullständiga utvecklingscykeln på nivån för klientprogrammet och språkmodellen. 
+
+## <a name="implementing-luis"></a>Implementera LUIS
 LUIS kan, som REST-API, användas med alla produkter, tjänster eller ramverk som gör en HTTP-begäran. Följande lista innehåller de främsta Microsoft-produkterna och -tjänsterna som används med LUIS.
 
-Microsoft-klientprogram för LUIS är:
+Det vanligaste klientprogram för LUIS är:
 * [Web app bot](https://docs.microsoft.com/azure/bot-service/?view=azure-bot-service-3.0) skapar snabbt en LUIS-aktiverad chattrobot för att prata med en användare via textinmatning. Använder [Bot Framework][bot-framework] version [3.x](https://github.com/Microsoft/BotBuilder) eller [4.x](https://github.com/Microsoft/botbuilder-dotnet) för en komplett robotupplevelse.
-* [Windows Mixed Reality](https://docs.microsoft.com/windows/mixed-reality/) – är dig mer med den här [kursen om mixad verklighet](https://docs.microsoft.com/windows/mixed-reality/mr-azure-303) med LUIS. 
 
-Microsoft-verktyg för att använda LUIS med en robot:
+Verktyg för att snabbt och enkelt använda LUIS med en robot:
+* [LUIS CLI](https://github.com/Microsoft/botbuilder-tools/tree/master/packages/LUIS) NPM-paketet innehåller redigering och förutsägelse med antingen ett fristående kommandoradsverktyg eller import. 
+* [LUISGen](https://github.com/Microsoft/botbuilder-tools/tree/master/packages/LUISGen) LUISGen är ett verktyg för att generera starkt typbestämd C#- och TypeScript-källkod från en exporterad LUIS-modell.
 * Med [Dispatch](https://aka.ms/dispatch-tool) kan flera LUIS- och QnA Maker-appar användas via en överordnad app som använder en dispatcher-modell.
-* Med [Conversation learner](https://docs.microsoft.com/azure/cognitive-services/labs/conversation-learner/overview) kan du skapa robotkonversationer snabbare med LUIS.
-* [Project personality chat](https://docs.microsoft.com/azure/cognitive-services/project-personality-chat/overview) för att hantera robotsmåprat.
+* [LUDown](https://github.com/Microsoft/botbuilder-tools/tree/master/packages/Ludown) LUDown är ett kommandoradsverktyg som hjälper dig att hantera språkmodeller för din robot.
 
 Andra Cognitive Services-tjänster som används med LUIS:
 * Med [QnA Maker][qnamaker] kan flera typer av text kombineras till en kunskapsbas med frågor och svar.
 * [API för stavningskontroll i Bing](../bing-spell-check/proof-text.md) kontrollerar texten innan förutsägelse. 
 * [Speech Service](../Speech-Service/overview.md) konverterar begäranden med talat språk till text. 
+* Med [Conversation learner](https://docs.microsoft.com/azure/cognitive-services/labs/conversation-learner/overview) kan du skapa robotkonversationer snabbare med LUIS.
+* [Project personality chat](https://docs.microsoft.com/azure/cognitive-services/project-personality-chat/overview) för att hantera robotsmåprat.
+<!--
+## Other ways of implementing LUIS
+
+A client application for LUIS is:
+* [Windows Mixed Reality](https://docs.microsoft.com/windows/mixed-reality/) - learn more with this [Mixed reality course](https://docs.microsoft.com/windows/mixed-reality/mr-azure-303) with LUIS. 
 
 
+Labs: 
 
+-->
 ## <a name="next-steps"></a>Nästa steg
 
 Skapa en ny LUIS-app med en [fördefinierad](luis-get-started-create-app.md) eller [anpassad](luis-quickstart-intents-only.md) domän. [Fråga slutpunkten för förutsägelse](luis-get-started-cs-get-intent.md) för en offentlig IoT-app.

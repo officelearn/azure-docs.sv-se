@@ -9,12 +9,12 @@ author: hning86
 ms.author: haining
 ms.reviewer: sgilley
 ms.date: 09/24/2018
-ms.openlocfilehash: eda4a1dabd20eee73cfbfa4dc0dd2b0eaa56788e
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: b1ae3fb5de3e28f44ef39731f49a33e2086255a1
+ms.sourcegitcommit: 4edf9354a00bb63082c3b844b979165b64f46286
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47031245"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48785349"
 ---
 # <a name="tutorial-2--deploy-an-image-classification-model-in-azure-container-instance-aci"></a>Självstudie nr 2: Distribuera en bildklassificeringsmodell i Azure Container Instances (ACI)
 
@@ -35,14 +35,14 @@ ACI är inte idealiskt för produktionsdistributioner, men den fungerar bra vid 
 
 ## <a name="get-the-notebook"></a>Hämta anteckningsboken
 
-Självstudien finns tillgänglig som en Jupyter Notebook. Använd någon av dessa metoder till att köra `tutorials/02.deploy-models.ipynb`-anteckningsboken:
+Denna självstudie finns tillgänglig som en [Jupyter Notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/tutorials/02.deploy-models.ipynb). Kör anteckningsboken `02.deploy-models.ipynb` antingen i Azure Notebooks eller i din egen Jupyter Notebook-server.
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-in-azure-notebook.md)]
 
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
-Slutför modellträningen i anteckningsboken [Självstudie 1: Träna en bildklassificeringsmodell med Azure Machine Learning](tutorial-train-models-with-aml.md).  
+Slutför modellträningen i anteckningsboken [Självstudie 1: Träna en bildklassificeringsmodell med Azure Machine Learning-tjänsten](tutorial-train-models-with-aml.md).  
 
 
 ## <a name="set-up-the-environment"></a>Konfigurera miljön
@@ -374,7 +374,7 @@ service.delete()
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här självstudien för Azure Machine Learning använde du Python till att:
+I den här självstudien för Azure Machine Learning-tjänsten har du använt Python för att:
 
 > [!div class="checklist"]
 > * Konfigurera din testmiljö
@@ -383,4 +383,4 @@ I den här självstudien för Azure Machine Learning använde du Python till att
 > * Distribuera modellen till ACI
 > * Testa den distribuerade modellen
  
-Du kan också prova självstudien [Automatiskt algoritmval]() om du vill se hur Azure Machine Learning automatiskt väljer och finjusterar den bästa algoritmen för din modell och sedan skapar modellen åt dig.
+Du kan också prova självstudien [Automatiskt algoritmval]() om du vill se hur Azure Machine Learning-tjänsten automatiskt väljer och finjusterar den bästa algoritmen för din modell och sedan skapar modellen åt dig.

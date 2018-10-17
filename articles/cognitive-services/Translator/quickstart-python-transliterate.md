@@ -1,21 +1,21 @@
 ---
-title: Konvertera text från skript med Translator Text och Python | Microsoft Docs
-titleSuffix: Microsoft Cognitive Services
-description: I den här snabbstarten konverterar du text i ett språk från ett skript till ett annat med hjälp av Translator Text-API:et med Python i Cognitive Services.
+title: 'Quickstart: Convert text script – Translator Text, Python'
+titleSuffix: Azure Cognitive Services
+description: I den här snabbstarten ska du konvertera text i ett språk från ett skript till ett annat med hjälp av Translator Text-API:et med Python.
 services: cognitive-services
 author: noellelacharite
-manager: nolachar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-text
 ms.topic: quickstart
 ms.date: 06/21/2018
 ms.author: nolachar
-ms.openlocfilehash: 41fb0f72c5974a1ab034680a820dca6aa7bbdc6d
-ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
+ms.openlocfilehash: 24fe0dc23703bdca4ce74ba1a527990a70ac2ffc
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "43770884"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46122119"
 ---
 # <a name="quickstart-transliterate-text-with-python"></a>Snabbstart: Transkribera text med Python
 

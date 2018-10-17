@@ -3,7 +3,7 @@ title: Azure Security Center-snabbstart – Publicera dina Linux-datorer till Se
 description: I den här snabbstarten får du veta hur du publicerar dina Linux-datorer till Security Center.
 services: security-center
 documentationcenter: na
-author: TerryLanfear
+author: rkarlin
 manager: MBaldwin
 editor: ''
 ms.assetid: 61e95a87-39c5-48f5-aee6-6f90ddcd336e
@@ -13,14 +13,14 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/22/2018
-ms.author: terrylan
-ms.openlocfilehash: 05e4bed0f9b4dfb6d1879408085447ef53db8655
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.date: 09/02/2018
+ms.author: rkarlin
+ms.openlocfilehash: 1eab54d16dcc0facace9a51a4cf5b5d1243baf4f
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38630105"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44025401"
 ---
 # <a name="quickstart-onboard-linux-computers-to-azure-security-center"></a>Snabbstart: Publicera Linux-datorer till Azure Security Center
 När du har publicerat dina Azure-prenumerationer kan du aktivera Security Center för Linux-resurser som körs utanför Azure, till exempel lokalt eller i andra moln, genom att etablera Linux-agenten.
@@ -39,13 +39,12 @@ Innan du startar den här snabbstarten måste du ha standardnivån i Security Ce
 
  ![Översikt över Security Center][2]
 
-3. På huvudmenyn i Security Center väljer du **Kom igång med avancerad säkerhet**.
-4. Välj **Vill du lägga till datorer som inte är Azure-datorer?**.
-   ![Kom igång med avancerad säkerhet][3]
+3. På huvudmenyn i Security Center väljer du **Komma igång**.
+4. Välj fliken **Kom igång**. ![Komma igång][3]
 
-5. Vid **Lägg till datorer som inte är Azure-datorer** visas en lista över dina Log Analytics-arbetsytor. Om det är tillämpligt innehåller listan standardarbetsytan som har skapats för dig av Security Center när automatisk etablering aktiverades. Välj den här arbetsytan eller någon annan arbetsyta som du vill använda.
+5. Klicka på **Konfigurera** under **Lägg till datorer som inte är Azure-datorer** så visas en lista över dina Log Analytics-arbetsytor. Om det är tillämpligt innehåller listan standardarbetsytan som har skapats för dig av Security Center när automatisk etablering aktiverades. Välj den här arbetsytan eller någon annan arbetsyta som du vill använda.
 
-    ![Lägga till en dator som inte är en Azure-dator][4]
+    ![Lägga till en dator som inte är en Azure-dator](./media/quick-onboard-linux-computer/non-azure.png)
 
 6.  På sidan **Direktagent**, under **LADDA NED OCH INTEGRERA AGENT FOR LINUX** väljer du **kopieringsknappen** för att kopiera kommandot *wget*.
 
@@ -91,7 +90,7 @@ I den här snabbstarten etablerade du agenten på en Linux-dator. Om du vill lä
 <!--Image references-->
 [1]: ./media/quick-onboard-linux-computer/portal.png
 [2]: ./media/quick-onboard-linux-computer/overview.png
-[3]: ./media/quick-onboard-linux-computer/onboard-windows-computer.png
+[3]: ./media/quick-onboard-linux-computer/get-started.png
 [4]: ./media/quick-onboard-linux-computer/add-computer.png
 [5]: ./media/quick-onboard-linux-computer/pgrep-command.png
 [6]: ./media/quick-onboard-linux-computer/logs-for-agent.png

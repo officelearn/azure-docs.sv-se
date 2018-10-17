@@ -10,12 +10,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory
 ms.component: B2C
-ms.openlocfilehash: 54ddafbf0e4fe02bfc1445aad23ac3e20b42acb0
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: efe975fa4f89a262faef82df3cc79820d393b60e
+ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43339394"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45605767"
 ---
 # <a name="tutorial-grant-access-to-an-aspnet-core-web-api-from-a-single-page-app-using-azure-active-directory-b2c"></a>Självstudier: Bevilja åtkomst till ett ASP.NET Core webb-API från en ensidesapp med Azure Active Directory B2C
 
@@ -46,9 +46,9 @@ Logga in på [Azure Portal](https://portal.azure.com/) som global administratör
 
 [!INCLUDE [active-directory-b2c-switch-b2c-tenant](../../includes/active-directory-b2c-switch-b2c-tenant.md)]
 
-1. Välj **Azure AD B2C** i listan över tjänster i Azure Portal.
+1. Välj **Alla tjänster** på menyn högst upp till vänster i Azure-portalen och sök efter och välj **Azure AD B2C**. Du bör nu använda den klient som du skapade i den föregående självstudien.
 
-2. I B2C-inställningarna klickar du på **Program** och sedan på **Lägg till**.
+2. Välj **Program** och välj sedan **Lägg till**.
 
     Registrera webb-API-exemplet i klientorganisationen med följande inställningar.
     
@@ -59,7 +59,7 @@ Logga in på [Azure Portal](https://portal.azure.com/) som global administratör
     | **Namn** | Hello Core API | Ange ett **Namn** som beskriver ditt webb-API för utvecklare. |
     | **Ta med webbapp/webb-API** | Ja | Välj **Ja** om det är ett webb-API. |
     | **Tillåt implicit flöde** | Ja | Välj **Ja** eftersom API:et använder [OpenID Connect-inloggning](active-directory-b2c-reference-oidc.md). |
-    | **Svarswebbadress** | `http://localhost:44332` | Svarswebbadresser är slutpunkter där Azure AD B2C returnerar de token som API:et begär. I den här självstudien körs webb-API-exemplet lokalt (localhost) och lyssnar på port 5000. |
+    | **Svarswebbadress** | `http://localhost:5000` | Svarswebbadresser är slutpunkter där Azure AD B2C returnerar de token som API:et begär. I de här självstudierna körs exempelwebb-API:et lokalt (localhost) och lyssnar på port 5000 (då de konfigurerats till senare i den här självstudien). |
     | **URI för app-id** | HelloCoreAPI | URI:n identifierar API:et i klientorganisationen. Det gör att flera API:er kan registreras per klientorganisation. [Omfång](../active-directory/develop/developer-glossary.md#scopes) styr åtkomsten till den skyddade API-resursen och definieras med URI:n för app-ID. |
     | **Inbyggd klient** | Nej | Eftersom det här är ett webb-API och inte en intern klient väljer du Nej. |
     
@@ -111,7 +111,7 @@ Om du vill anropa ett skyddat webb-API från en app måste du ge appen åtkomst 
 
 5. Klicka på **OK**.
 
-**My sample single page app** är registrerad för att anropa det skyddade **Hello Core API:et**. En användare [autentiserar](../active-directory/develop/developer-glossary.md#authentication) med Azure AD B2C för att använda WPF-skrivbordsappen. Skrivbordsappen får ett [auktoriseringsbeviljande](../active-directory/develop/developer-glossary.md#authorization-grant) från Azure AD B2C som ger tillgång till det skyddade webb-API:et.
+**My sample single page app** är registrerad för att anropa det skyddade **Hello Core API:et**. En användare [autentiserar](../active-directory/develop/developer-glossary.md#authentication) med Azure AD B2C för att använda ensideappen. Ensidesappen får ett [auktoriseringsbeviljande](../active-directory/develop/developer-glossary.md#authorization-grant) från Azure AD B2C som ger tillgång till det skyddade webb-API:et.
 
 ## <a name="update-code"></a>Uppdatera kod
 
@@ -158,7 +158,7 @@ Om du vill tillåta ensidesappen att anropa ASP.NET Core webb-API:et, måste du 
         builder.WithOrigins("http://localhost:6420").AllowAnyHeader().AllowAnyMethod());
     ```
 
-3. Öppna filen **launchSettings.json** under **Egenskaper**, leta upp inställningen *applicationURL* och registrera värdet, som du ska använda i nästa avsnitt.
+3. Öppna filen **launchSettings.json** under **egenskaper**, leta upp inställningen **iisSettings** *applicationURL* och ange porten som registrerats för API för svars-URL`http://localhost:5000`.
 
 ### <a name="configure-the-single-page-app"></a>Konfigurera ensidesappen
 
@@ -174,7 +174,7 @@ Så här ändrar du appinställningarna:
         clientID: '<Application ID for your SPA obtained from portal app registration>',
         authority: "https://<your-tenant-name>.b2clogin.com/tfp/<your-tenant-name>.onmicrosoft.com/B2C_1_SiUpIn",
         b2cScopes: ["https://<Your tenant name>.onmicrosoft.com/HelloCoreAPI/demo.read"],
-        webApi: 'http://localhost:64791/api/values',
+        webApi: 'http://localhost:5000/api/values',
     };
     ```
 

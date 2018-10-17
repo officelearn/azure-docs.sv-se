@@ -1,38 +1,38 @@
 ---
-title: 'Snabbstart: Skicka sökfrågor med REST API för bildsökning i Bing och Ruby'
-description: I den här snabbstarten har skickar du sökfrågor till Bing Search API att hämta en lista över relevanta avbildningar med hjälp av Ruby.
+title: 'Snabbstart: Utföra en bildsökning med Ruby – API för bildsökning i Bing'
+description: Använd den här snabbstarten för att skicka ditt första anrop till API:et för bildsökning i Bing och få ett JSON-svar. Det här enkla Ruby-programmet skickar en sökfråga till API:et och visar rådataresultat.
 services: cognitive-services
 documentationcenter: ''
 author: aahill
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-image-search
-ms.topic: article
+ms.topic: quickstart
 ms.date: 8/20/2018
 ms.author: aahi
-ms.openlocfilehash: fdc22971a369effbca31e23305ee57739852a50b
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
-ms.translationtype: MT
+ms.openlocfilehash: 4c2c91b42af46ba42bdda84d7b8b77987c7ea818
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45578809"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46297340"
 ---
 # <a name="quickstart-send-search-queries-using-the-rest-api-and-ruby"></a>Snabbstart: Skicka sökfrågor med hjälp av REST API och Ruby
 
-Använd den här snabbstarten att skicka ditt första anrop till sökning i Bing och få ett JSON-svar. Den här enkla Ruby-programmet skickar en sökfråga till API: et och visar rådataresultat.
+Använd den här snabbstarten för att skicka ditt första anrop till API:et för bildsökning i Bing och få ett JSON-svar. Det här enkla Ruby-programmet skickar en sökfråga till API:et och visar rådataresultat.
 
-Även om det här programmet är skrivna i Ruby, är API: et en RESTful-webb-tjänst som är kompatibla med de flesta programmeringsspråk.
+Även om det här programmet är skrivet i Ruby, är API:n en RESTful-webbtjänst som är kompatibel med de flesta programmeringsspråk.
 
-Källkoden för det här exemplet är tillgänglig på [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/ruby/Search/BingImageSearchv7.rb).
-## <a name="prerequisites"></a>Förutsättningar
+Källkoden till det här exemplet finns på [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/ruby/Search/BingImageSearchv7.rb).
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
-* [Den senaste versionen av Ruby](https://www.ruby-lang.org/en/downloads/).
+* Senaste versionen av [Ruby](https://www.ruby-lang.org/en/downloads/).
 
 [!INCLUDE [cognitive-services-bing-image-search-signup-requirements](../../../../includes/cognitive-services-bing-image-search-signup-requirements.md)]
 
-## <a name="create-and-initialize-the-application"></a>Skapa och initiera programmet
+## <a name="create-and-initialize-the-application"></a>Skapa och initiera appen
 
-1. importera följande paket till din fil med kod.
+1. importera följande paket till din kodfil.
 
     ```ruby
     require 'net/https'
@@ -40,7 +40,7 @@ Källkoden för det här exemplet är tillgänglig på [GitHub](https://github.c
     require 'json'
     ```
 
-2. Skapa variablerna för den API-slutpunkten, API för bildhantering sökvägen, din prenumerationsnyckel och Sök efter termer.
+2. Skapa variabler för API-slutpunkten, sökväg för bild-API, din prenumerationsnyckel och sökord.
 
     ```ruby
     uri  = "https://api.cognitive.microsoft.com"
@@ -50,7 +50,7 @@ Källkoden för det här exemplet är tillgänglig på [GitHub](https://github.c
 
 ## <a name="format-and-make-an-api-request"></a>Formatera och göra en API-begäran
 
-Använda variabler i det sista steget för att formatera en URL för API-begäran. Skicka begäran.
+Använd variablerna från det sista steget för att formatera en sök-URL för API-begäran. Skicka sedan begäran.
 
 ```ruby
 uri = URI(uri + path + "?q=" + URI.escape(term))
@@ -64,9 +64,9 @@ response = Net::HTTP.start(uri.host, uri.port, :use_ssl => uri.scheme == 'https'
 end
 ```
 
-## <a name="process-and-print-the-json"></a>Bearbeta och skriva ut JSON 
+## <a name="process-and-print-the-json"></a>Bearbeta och skriva ut JSON
 
-När du har fått svar kan du parsa JSON och hämta värden från den. Till exempel miniatyrbilden URL: en till det första resultatet och det totala antalet returnerade avbildningar.
+När du har fått svar kan du parsa JSON och hämta värden från den. Hämta till exempel det totala antalet returnerade sökresultat och miniatyr-URL:en till det första avbildningsresultatet.
 
 ```ruby
 response.each_header do |key, value|
@@ -86,7 +86,7 @@ puts "Url to the thumbnail of the first returned search result: #{first_result}"
 
 ## <a name="sample-json-response"></a>Exempel-JSON-svar
 
-Svar från den bildsökning i Bing returneras som JSON. Den här exempelsvaret har trunkerats för att visa ett enskilt resultat.
+Svar från API för bildsökning i Bing returneras som JSON. Det här exempelsvaret har trunkerats för att visa ett enskilt resultat.
 
 ```json
 {
@@ -136,12 +136,12 @@ Svar från den bildsökning i Bing returneras som JSON. Den här exempelsvaret h
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Bildsökning i Bing ensidesapp självstudien](../tutorial-bing-image-search-single-page-app.md)
+> [Självstudie om enkel app för bildsökning i Bing](../tutorial-bing-image-search-single-page-app.md)
 
-## <a name="see-also"></a>Se också 
+## <a name="see-also"></a>Se även
 
 * [Vad är bildsökning i Bing?](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/overview)  
-* [Prova en online Interaktiv demo](https://azure.microsoft.com/services/cognitive-services/bing-image-search-api/)  
-* [Hämta en kostnadsfri Cognitive Services-åtkomstnyckel](https://azure.microsoft.com/try/cognitive-services/?api=bing-image-search-api)  
+* [Prova en interaktiv demo online](https://azure.microsoft.com/services/cognitive-services/bing-image-search-api/)  
+* [Hämta en kostnadsfri åtkomstnyckel för Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=bing-image-search-api)  
 * [Dokumentation om Azure Cognitive Services](https://docs.microsoft.com/azure/cognitive-services)
-* [Referens för bildsökning i Bing](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference)
+* [API-referens för bildsökning i Bing](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference)

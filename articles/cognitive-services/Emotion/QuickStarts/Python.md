@@ -1,36 +1,37 @@
 ---
-title: Känslo-API Python Snabbstart | Microsoft Docs
-description: Hämta information och exempel på kod för att snabbt komma igång med Känslo-API med Python i kognitiva Services.
+title: 'Snabbstart: Känsloigenkänning i ansikten i en bild – Känslo-API, Python'
+description: Hämta information och kodexempel som hjälper dig att snabbt komma igång med Känslo-API med Python.
 services: cognitive-services
 author: anrothMSFT
-manager: corncar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: emotion-api
-ms.topic: article
+ms.topic: quickstart
 ms.date: 02/05/2018
 ms.author: anroth
-ms.openlocfilehash: ff1f6b2ddc872d0ee63d9885b04b1f007bc86e33
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
-ms.translationtype: MT
+ROBOTS: NOINDEX
+ms.openlocfilehash: c7611628918cf40800d173dc9404b0948b9a68a4
+ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35351630"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48236575"
 ---
-# <a name="emotion-api-python-quickstart"></a>Känslo-API Python Snabbstart
+# <a name="quickstart-build-an-app-to-recognize-emotions-on-faces-in-an-image"></a>Snabbstart: Skapa en app för att känna igen känslor i ansikten på en bild.
 
 > [!IMPORTANT]
-> Förhandsgranskning av video API upphörde 30 oktober 2017. Prova den nya [Video indexeraren API Preview](https://azure.microsoft.com/services/cognitive-services/video-indexer/) enkelt extrahera insikter från videor och förbättra innehållsidentifiering upplevelser, till exempel sökresultat med hjälp av tal, ytor, tecken och känslor. [Läs mer](https://docs.microsoft.com/azure/cognitive-services/video-indexer/video-indexer-overview).
+> Känslo-API:et blir inaktuellt den 15 februari 2019. Funktionen för känsloigenkänning är nu allmänt tillgänglig som en del av [ansikts-API:et](https://docs.microsoft.com/azure/cognitive-services/face/). 
 
-Den här genomgången innehåller information och kodexempel som hjälper dig att snabbt komma igång med den [Känslo-API känner igen metoden](https://westus.dev.cognitive.microsoft.com/docs/services/5639d931ca73072154c1ce89/operations/563b31ea778daf121cc3a5fa) med Python att identifiera emotikoner uttryckt genom en eller flera personer i en bild. 
+Den här genomgången innehåller information och kodexempel som hjälper dig att snabbt komma igång med hjälp av [Känslo-API:et metoden Recognize](https://westus.dev.cognitive.microsoft.com/docs/services/5639d931ca73072154c1ce89/operations/563b31ea778daf121cc3a5fa) med Python för att känna igen känslor som uttrycks av en eller flera personer i en bild.
 
-Du kan köra det här exemplet som en Jupyter-anteckningsbok på [MyBinder](https://mybinder.org) genom att klicka på Starta Binder badge: [ ![Binder](https://mybinder.org/badge.svg)](https://mybinder.org/v2/gh/Microsoft/cognitive-services-notebooks/master?filepath=EmotionAPI.ipynb)
+Du kan köra det här exemplet som en Jupyter Notebook på [MyBinder](https://mybinder.org) genom att klicka på ikonen för att starta Binder: [![Binder](https://mybinder.org/badge.svg)](https://mybinder.org/v2/gh/Microsoft/cognitive-services-notebooks/master?filepath=EmotionAPI.ipynb)
 
 
 ## <a name="prerequisite"></a>Krav
-Hämta din kostnadsfria prenumerationen nyckel [här](https://azure.microsoft.com/try/cognitive-services/)
+Hämta din kostnadsfria prenumerationsnyckel [här](https://azure.microsoft.com/try/cognitive-services/)
 
-## <a name="running-the-walkthrough"></a>Kör den här genomgången
-Om du vill fortsätta med den här genomgången ersätta `subscription_key` med API-nyckel som du fick tidigare.
+## <a name="running-the-walkthrough"></a>Köra genomgången
+För at fortsätta med den här genomgången ersätter du `subscription_key` med den API-nyckel som du hämtade tidigare.
 
 
 ```python
@@ -38,29 +39,29 @@ subscription_key = None
 assert subscription_key
 ```
 
-Kontrollera att tjänst-URL som motsvarar den region som du använde när du ställer in API-nyckeln. Om du använder en utvärderingsversion nyckel, behöver du inte göra några ändringar.
+Kontrollera att tjänst-URL:en motsvarar den region som du använde när du konfigurerade API-nyckeln. Om du använder en utvärderingsnyckel behöver du inte göra några ändringar.
 
 
 ```python
 emotion_recognition_url = "https://westus.api.cognitive.microsoft.com/emotion/v1.0/recognize"
 ```
 
-Den här genomgången använder avbildningar som lagras på disk. Du kan också använda avbildningar som är tillgängliga via en offentligt tillgänglig URL. Mer information finns i [REST API-dokumentation](https://westus.dev.cognitive.microsoft.com/docs/services/5639d931ca73072154c1ce89/operations/563b31ea778daf121cc3a5fa).
+Den här genomgången använder bilder som lagras på disk. Du kan även använda bilder som är tillgängliga via en offentligt tillgänglig URL. Mer information finns i [dokumentationen om REST API](https://westus.dev.cognitive.microsoft.com/docs/services/5639d931ca73072154c1ce89/operations/563b31ea778daf121cc3a5fa).
 
-Eftersom bilddata skickas som en del av frågans brödtext, Lägg märke till att du måste ange den `Content-Type` sidhuvud till `application/octet-stream`. Om du skickar in en avbildning via en URL, Kom ihåg att ange rubriken för:
+Observera att eftersom bilddata skickas som en del av begärandetexten så behöver du ange `Content-Type`-huvudet till `application/octet-stream`. Om du skickar in en bild via en URL bör du komma ihåg att ange huvudet till:
 ```python
 header = {'Ocp-Apim-Subscription-Key': subscription_key }
 ```
-Skapa en ordlista med URL:
+skapa en ordlista som innehåller URL:en:
 ```python
 data = {'url': image_url}
 ```
-och klara att för att den `requests` med hjälp av:
+och skicka den till `requests`-biblioteket med hjälp av:
 ```python
 requests.post(emotion_recognition_url, headers=headers, json=image_data)
 ```
 
-Först hämta några exempel avbildningar från den [Känslo-API](https://azure.microsoft.com/services/cognitive-services/emotion/) plats.
+Först laddar du ned några exempelbilder från platsen för [Känslo-API](https://azure.microsoft.com/services/cognitive-services/emotion/).
 
 
 ```bash
@@ -101,9 +102,9 @@ analysis
 
 
 
-Returnerade JSON-objekt innehåller ytor som har identifierats tillsammans med identifierade emotikoner omgivande rutorna. Varje känslo är associerad med ett värde mellan 0 och 1 där fler poäng är mer indikation på en känsla än en lägre poäng. 
+Det returnerade JSON-objektet innehåller avgränsningsfälten för de ansikten som identifierades samt de identifierade känslorna. Varje känsla har en poäng mellan 0 och 1, där en högre poäng är en starkare indikation för en känsla än en lägre poäng.
 
-Följande rader med kod identifierade emotikoner på ytor på avbildningen med hjälp av `matplotlib` bibliotek. Om du vill minska oreda visas endast de översta tre emotikoner.
+Följande kodrader identifierade känslorna i ansikten på bilden med hjälp av `matplotlib`-biblioteket. För att minska informationsmängden visas endast de tre främsta känslorna.
 
 
 ```python
@@ -129,7 +130,7 @@ for face in analysis:
 _ = plt.axis("off")
 ```
 
-Den `annotate_image` funktionen visas nästa kan användas för att överlagra emotikoner ovanpå en avbildningsfil anges dess sökväg i filsystemet. Den är baserad på koden för anrop till Känslo-API som visades tidigare.
+Funktionen `annotate_image` som visas härnäst kan användas för att överlägga känslor ovanpå en bildfil givet dess sökväg i filsystemet. Den bygger på koden för att anropa till Känslo-API som visades tidigare.
 
 
 ```python
@@ -156,7 +157,7 @@ def annotate_image(image_path):
     _ = plt.axis("off")
 ```
 
-Slutligen den `annotate_image` funktionen kan anropas på en avbildningsfil som visas i följande rad:
+Slutligen kan funktionen `annotate_image` anropas på en bildfil på det sätt som visas på följande rad:
 
 
 ```python

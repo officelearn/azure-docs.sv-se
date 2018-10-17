@@ -12,15 +12,15 @@ ms.devlang: dotNet
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 02/06/2018
+ms.date: 010/01/2018
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: da9e1ce17e21f4d87286c0be5d425419f6ed0300
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: 1af4cdb361c1db378991201fc42f17dcbf67fe67
+ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47408518"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48238773"
 ---
 # <a name="tutorial-scale-a-service-fabric-cluster-in-azure"></a>Självstudie: Skala ut ett Service Fabric-kluster i Azure
 
@@ -121,7 +121,7 @@ Inskalning fungerar på samma sätt som utskalning, men du använder ett lägre 
 > [!NOTE]
 > Den här delen gäller endast hållbarhetsnivån *Brons*. Mer information om hållbarhet finns i [Kapacitetsplanering för Service Fabric-kluster][durability].
 
-När du skalar in en VM-skalningsuppsättning tar skalningsuppsättningen (i de flesta fall) bort instansen av den virtuella datorn som skapades senast. Därför behöver du hitta den matchande (senaste skapade) Service Fabric-noden. Du hittar den senaste noden genom att kontrollera vilken av Service Fabric-noderna som har det största `NodeInstanceId`-egenskapsvärdet. Kodexemplen nedan sorteras efter nodinstansen och returnerar information om den instans som har det högsta ID-värdet.
+Om du vill hålla noderna i klustret jämnt fördelade över uppgraderings- och feldomäner och därmed möjliggöra jämn användning av dem, bör den senast skapade noden tas bort först. Med andra ord bör noderna tas bort i omvänd ordning mot hur de skapades. Den senast skapade noden är den som har den största egenskapsvärdet för `virtual machine scale set InstanceId`. Kodexemplen nedan returnerar den senast skapade noden.
 
 ```powershell
 Get-ServiceFabricNode | Sort-Object { $_.NodeName.Substring($_.NodeName.LastIndexOf('_') + 1) } -Descending | Select-Object -First 1

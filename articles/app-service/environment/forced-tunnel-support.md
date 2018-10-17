@@ -14,12 +14,12 @@ ms.topic: quickstart
 ms.date: 05/29/2018
 ms.author: ccompy
 ms.custom: mvc
-ms.openlocfilehash: 082275e2acd81e34c057f863651528eb46e8501e
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.openlocfilehash: ba93aab14c8eaccf9e3ed9ae9db0d169f41dddea
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37114981"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44024053"
 ---
 # <a name="configure-your-app-service-environment-with-forced-tunneling"></a>Konfigurera App Service Environment med tvingande dirigering
 
@@ -105,7 +105,7 @@ Utför följande steg för att tunnla all utgående trafik från din ASE, förut
 
 3. Hämta de adresser som ska användas för all utgående trafik från din App Service Environment till Internet. Om du dirigerar trafiken lokalt är dessa adresser dina NAT- eller gateway-IP-adresser. Om du vill dirigera den utgående trafiken för App Service Environment genom en NVA är den utgående adressen den offentliga IP-adressen för NVA.
 
-4. _Ange utgående adresser i en befintlig App Service Environment:_ Gå till resource.azure.com och till Subscription/<subscription id>/resourceGroups/<ase resource group>/providers/Microsoft.Web/hostingEnvironments/<ase name>. Du kan då se den JSON som beskriver App Service Environment. Kontrollera att det står **läsa/skriva** längst upp. Välj **Redigera**. Gå längst ned på sidan. Ändra värdet i **userWhitelistedIpRanges** från **null** till något som liknar följande. Använd de adresser som du vill ange som utgående adressintervall. 
+4. _Ange utgående adresser i en befintlig App Service Environment:_ Gå till resource.azure.com och till Subscription/\<subscription id>/resourceGroups/\<ase resource group>/providers/Microsoft.Web/hostingEnvironments/\<ase name>. Du kan då se den JSON som beskriver App Service Environment. Kontrollera att det står **läsa/skriva** längst upp. Välj **Redigera**. Gå längst ned på sidan. Ändra värdet i **userWhitelistedIpRanges** från **null** till något som liknar följande. Använd de adresser som du vill ange som utgående adressintervall. 
 
         "userWhitelistedIpRanges": ["11.22.33.44/32", "55.66.77.0/24"] 
 

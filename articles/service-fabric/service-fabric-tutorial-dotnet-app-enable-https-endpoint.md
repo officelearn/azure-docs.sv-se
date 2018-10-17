@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 04/12/2018
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: 70bbeabe2c2b14e8e0dcccac9ffa63f2e19230a2
-ms.sourcegitcommit: 0fcd6e1d03e1df505cf6cb9e6069dc674e1de0be
+ms.openlocfilehash: 27167b011e23befda5d0c3703adeafc1581f4b98
+ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/14/2018
-ms.locfileid: "41920885"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48268943"
 ---
 # <a name="tutorial-add-an-https-endpoint-to-an-aspnet-core-web-api-front-end-service-using-kestrel"></a>Självstudie: Lägga till en HTTPS-slutpunkt i en klienttjänst i webb-API:t för ASP.NET Core med hjälp av Kestrel
 
@@ -41,8 +41,8 @@ I den här självstudieserien får du lära du dig att:
 > * [Skapa ett .NET Service Fabric-program](service-fabric-tutorial-deploy-app-to-party-cluster.md)
 > * [Distribuera programmet till ett fjärrkluster](service-fabric-tutorial-deploy-app-to-party-cluster.md)
 > * Lägga till en HTTPS-slutpunkt i en klienttjänst i ASP.NET Core
-> * [Konfigurera CI/CD med hjälp av Visual Studio Team Services](service-fabric-tutorial-deploy-app-with-cicd-vsts.md)
-> * [Konfigurera övervakning och diagnostik för programmet](service-fabric-tutorial-monitoring-aspnet.md)
+> * [Konfigurera CI/CD med hjälp av Azure Pipelines](service-fabric-tutorial-deploy-app-with-cicd-vsts.md)
+> * [konfigurera övervakning och diagnostik för programmet](service-fabric-tutorial-monitoring-aspnet.md)
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
@@ -232,6 +232,7 @@ powershell.exe -ExecutionPolicy Bypass -Command ".\SetCertAccess.ps1"
 ```
 
 Ändra egenskaperna för filen *Setup.bat* så att **Kopiera till utdatakatalog** får värdet ”Kopiera om nyare”.
+
 ![Ange filegenskaper][image1]
 
 Öppna Solution Explorer, högerklicka på **VotingWeb**, välj **Lägg till**->**Nytt objekt** och lägg till en ny fil med namnet ”SetCertAccess.ps1”.  Redigera filen *SetCertAccess.ps1* och lägg till följande skript:
@@ -265,7 +266,7 @@ if ($cert -eq $null)
     $hasPermissionsAlready = ($acl.Access | where {$_.IdentityReference.Value.Contains($userGroup.ToUpperInvariant()) -and $_.FileSystemRights -eq [System.Security.AccessControl.FileSystemRights]::FullControl}).Count -eq 1
 
     if ($hasPermissionsAlready){
-        Write-Host "Account $userGroupCertificate already has permissions to certificate '$subject'." -ForegroundColor Green
+        Write-Host "Account $userGroup already has permissions to certificate '$subject'." -ForegroundColor Green
         return $false;
     } else {
         Write-Host "Need add permissions to '$subject' certificate..." -ForegroundColor DarkYellow
@@ -281,8 +282,9 @@ if ($cert -eq $null)
     }
 }
 
-Modify the *SetCertAccess.ps1* file properties to set **Copy to Output Directory** to "Copy if newer".
 ```
+
+Ändra *SetCertAccess.ps1*-filegenskaperna så att **Kopiera till utdatakatalog** anges till ”Kopiera om nyare”.
 
 ### <a name="run-the-setup-script-as-a-local-administrator"></a>Köra konfigurationsskriptet som lokal administratör
 
@@ -442,7 +444,7 @@ I den här självstudiedelen lärde du dig att:
 
 Gå vidare till nästa kurs:
 > [!div class="nextstepaction"]
-> [Konfigurera CI/CD med hjälp av Visual Studio Team Services](service-fabric-tutorial-deploy-app-with-cicd-vsts.md)
+> [Konfigurera CI/CD med hjälp av Azure Pipelines](service-fabric-tutorial-deploy-app-with-cicd-vsts.md)
 
 [image1]: ./media/service-fabric-tutorial-dotnet-app-enable-https-endpoint/SetupBatProperties.png
 [image2]: ./media/service-fabric-tutorial-dotnet-app-enable-https-endpoint/VotingAppLocal.png

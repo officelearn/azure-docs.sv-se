@@ -5,19 +5,23 @@ services: event-grid
 keywords: ''
 author: tfitzmac
 ms.author: tomfitz
-ms.date: 07/05/2018
+ms.date: 10/02/2018
 ms.topic: quickstart
 ms.service: event-grid
-ms.openlocfilehash: ec85a866279412232aa23fad8f975d1642525772
-ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
+ms.openlocfilehash: 630130bde0440a8a5f51589386f42214f27af59a
+ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42022723"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48040634"
 ---
 # <a name="create-and-route-custom-events-with-the-azure-portal-and-event-grid"></a>Skapa och dirigera anpassade händelser med Azure Portal och Event Grid
 
-Azure Event Grid är en händelsetjänst för molnet. I den här artikeln använder du Azure Portal för att skapa ett anpassat ämne, prenumerera på ämnet och utlösa händelsen för att visa resultatet. Du kan skicka händelsen till en Azure-funktion som loggar händelsedata. När du är klar ser du att händelsedata har skickats till en slutpunkt och loggats.
+Azure Event Grid är en händelsetjänst för molnet. I den här artikeln använder du Azure-portalen för att skapa ett anpassat ämne, prenumerera på det anpassade ämnet och utlösa händelsen för att visa resultatet. Normalt kan du skicka händelser till en slutpunkt som bearbetar informationen om händelsen och utför åtgärder. Men för att enkelt beskriva den här artikeln kan skicka du händelser till en webbapp som samlar in och visar meddelanden.
+
+När du är klar kan se du att händelsedata som har skickats till webbappen.
+
+![Visa resultat](./media/custom-event-quickstart-portal/view-result.png)
 
 [!INCLUDE [quickstarts-free-trial-note.md](../../includes/quickstarts-free-trial-note.md)]
 
@@ -61,77 +65,61 @@ Ett event grid-ämne tillhandahåller en användardefinierad slutpunkt där du p
 
    ![Namnkonflikt](./media/custom-event-quickstart-portal/name-conflict.png)
 
-## <a name="create-an-azure-function"></a>Skapa en Azure-funktion
+## <a name="create-a-message-endpoint"></a>Skapa en slutpunkt för meddelanden
 
-Innan du prenumererar på ämnet ska vi ska slutpunkten för händelsemeddelandet. I den här artikeln använder du Azure Functions för att skapa en funktionsapp för slutpunkten.
+Innan du prenumererar på det anpassade ämnet ska vi ska slutpunkten för händelsemeddelandet. Slutpunkten utför vanligtvis åtgärder baserat på informationen om händelsen. För att förenkla den här snabbstarten kan du distribuera en [förskapad webbapp](https://github.com/Azure-Samples/azure-event-grid-viewer) som visar meddelanden om händelser. Den distribuerade lösningen innehåller en App Service-plan,en webbapp för App Service och källkod från GitHub.
 
-1. Om du vill skapa en funktion, så välj **Skapa en resurs**.
+1. Välj **Deploy to Azure** (Distribuera till Azure) för att distribuera lösningen till din prenumeration. Ange parametervärdena i Azure Portal.
 
-   ![Skapa en resurs](./media/custom-event-quickstart-portal/create-resource-small.png)
+   <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2Fazure-event-grid-viewer%2Fmaster%2Fazuredeploy.json" target="_blank"><img src="http://azuredeploy.net/deploybutton.png"/></a>
 
-1. Välj **Beräkna** och **Funktionsapp**.
+1. Det kan ta några minuter att slutföra distributionen. Efter distributionen har slutförts kan du visa webbappen för att kontrollera att den körs. I en webbläsare navigerar du till: `https://<your-site-name>.azurewebsites.net`
 
-   ![Skapa funktion](./media/custom-event-quickstart-portal/create-function.png)
+1. Du ser webbplatsen men det har inte publicerats händelser till den än.
 
-1. Ge Azure-funktionen ett unikt namn. Använd inte det namn som visas på bilden. Välj den resursgrupp som du skapade i den här artikeln. Använd **Förbrukningsplan** som värdplan. Använda det föreslagna nya lagringskontot. Du kan stänga av Application Insights. När du har angett värdena, så välj **Skapa**.
+   ![Visa ny webbplats](./media/custom-event-quickstart-portal/view-site.png)
 
-   ![Ange funktionsvärden](./media/custom-event-quickstart-portal/provide-function-values.png)
+## <a name="subscribe-to-custom-topic"></a>Prenumerera på anpassat ämne
 
-1. När distributionen är klar väljer du **Gå till resurs**.
+Du prenumererar på ett Event Grid-ämne därför att du vill ange för Event Grid vilka händelser du vill följa och vart du vill skicka händelserna.
 
-   ![Gå till resurs](./media/custom-event-quickstart-portal/go-to-resource.png)
+1. Välj det anpassade ämnet i portalen.
 
-1. Välj **+** bredvid **Funktioner**.
+   ![Välja anpassat ämne](./media/custom-event-quickstart-portal/select-custom-topic.png)
 
-   ![Lägg till funktion](./media/custom-event-quickstart-portal/add-function.png)
+1. Välj **+ Händelseprenumeration**.
 
-1. Välj **Anpassad funktion** bland de tillgängliga alternativen.
+   ![Lägga till händelseprenumeration](./media/custom-event-quickstart-portal/new-event-subscription.png)
 
-   ![Anpassad funktion](./media/custom-event-quickstart-portal/select-custom-function.png)
+1. Välj **Webhook** som typ av slutpunkt. Ange ett namn för händelseprenumerationen.
 
-1. Rulla nedåt tills du hittar **Event Grid-utlösare**. Välj **C#**.
+   ![Ange värden för händelseprenumerationen](./media/custom-event-quickstart-portal/provide-subscription-values.png)
 
-   ![Välj event grid-utlösare](./media/custom-event-quickstart-portal/select-event-grid-trigger.png)
+1. Välj **Välj en slutpunkt**. 
 
-1. Acceptera standardvärdena och välj **Skapa**.
+1. För webhookens slutpunkt anger du webbappens webbadress och lägger till `api/updates` till startsidans webbadress. Välj **Bekräfta val**.
 
-   ![Ny funktion](./media/custom-event-quickstart-portal/new-function.png)
+   ![Ange slutpunktens webbadress](./media/custom-event-quickstart-portal/provide-endpoint.png)
 
-Din funktion kan nu ta emot händelser.
+1. När du är klar att tillhandahålla händelseprenumerationens värden väljer du **Skapa**.
 
-## <a name="subscribe-to-a-topic"></a>Prenumerera på ett ämne
+Visa ditt webbprogram igen och observera att en händelse för verifieringen av prenumerationen har skickats till den. Välj ögonikonen för att utöka informationen om händelsen. Händelserutnätet skickar valideringshändelsen så att slutpunkten kan bekräfta att den vill ta emot händelsedata. Webbappen inkluderar kod för att verifiera prenumerationen.
 
-Du prenumererar på ett ämne därför att du vill ange för Event Grid vilka händelser du vill följa och vart du vill skicka händelserna.
-
-1. Välj **Lägg till Event Grid-prenumeration** i din Azure-funktion.
-
-   ![Lägg till event grid-prenumeration](./media/custom-event-quickstart-portal/add-event-grid-subscription.png)
-
-1. Ange värden för prenumerationen. Välj **Event Grid-ämnen** som ämnestyp. När det gäller prenumeration- och resursgrupp, så markera den prenumerations- och resursgrupp där du skapade ditt anpassade ämne. Välj t.ex. ditt anpassade ämnes namn. Prenumerationsslutpunkten fylls automatiskt med funktionens URL.
-
-   ![Ange prenumerationsvärden](./media/custom-event-quickstart-portal/provide-subscription-values.png)
-
-1. Öppna funktionens loggfiler innan händelsen utlöses, så att du kan se händelseinformationen när den skickas. Välj **Loggar** längst ned i Azure-funktionen.
-
-   ![Välj loggar](./media/custom-event-quickstart-portal/select-logs.png)
-
-Nu ska vi utlösa en händelse och se hur Event Grid distribuerar meddelandet till slutpunkten. Du kan förenkla den här artikeln genom att skicka exempelhändelsedata till det anpassade ämnet med Cloud Shell. Ett program eller en Azure-tjänst skulle vanligtvis skicka sådana händelsedata.
-
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+![Visa prenumerationshändelse](./media/custom-event-quickstart-portal/view-subscription-event.png)
 
 ## <a name="send-an-event-to-your-topic"></a>Skicka en händelse till ditt ämne
 
-Du kan använda antingen Azure CLI eller PowerShell och skicka en testhändelse till det anpassade ämnet.
+Nu ska vi utlösa en händelse och se hur Event Grid distribuerar meddelandet till slutpunkten. Du kan använda antingen Azure CLI eller PowerShell och skicka en testhändelse till det anpassade ämnet. Ett program eller en Azure-tjänst skulle vanligtvis skicka sådana händelsedata.
 
-I det första exemplet används Azure CLI. URL och nyckel för ämnet hämtas, och exempeldata för händelsen. Använd ditt ämnesnamn för `<topic_name>`. Använd `echo "$body"` om du vill se den fullständiga händelsen. Elementet `data` av JSON är händelsens nyttolast. All välformulerad JSON kan stå i det här fältet. Du kan också använda ämnesfältet för avancerad omdirigering och filtrering. CURL är ett verktyg som skickar HTTP-förfrågningar.
+I det första exemplet används Azure CLI. URL och nyckel för det anpassade ämnet hämtas, och exempeldata för händelsen. Använd ditt anpassade ämnesnamn för `<topic_name>`. Exempelhändelsedata skapas. Elementet `data` av JSON är händelsens nyttolast. All välformulerad JSON kan stå i det här fältet. Du kan också använda ämnesfältet för avancerad omdirigering och filtrering. CURL är ett verktyg som skickar HTTP-förfrågningar.
 
 ```azurecli-interactive
 endpoint=$(az eventgrid topic show --name <topic_name> -g myResourceGroup --query "endpoint" --output tsv)
 key=$(az eventgrid topic key list --name <topic_name> -g myResourceGroup --query "key1" --output tsv)
 
-body=$(eval echo "'$(curl https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/event-grid/customevent.json)'")
+event='[ {"id": "'"$RANDOM"'", "eventType": "recordInserted", "subject": "myapp/vehicles/motorcycles", "eventTime": "'`date +%Y-%m-%dT%H:%M:%S%z`'", "data":{ "make": "Ducati", "model": "Monster"},"dataVersion": "1.0"} ]'
 
-curl -X POST -H "aeg-sas-key: $key" -d "$body" $endpoint
+curl -X POST -H "aeg-sas-key: $key" -d "$event" $endpoint
 ```
 
 I det andra exemplet används PowerShell för att utföra liknande steg.
@@ -165,9 +153,25 @@ $body = "["+(ConvertTo-Json $htbody)+"]"
 Invoke-WebRequest -Uri $endpoint -Method POST -Body $body -Headers @{"aeg-sas-key" = $keys.Key1}
 ```
 
-Du har utlöst händelsen och Event Grid skickade meddelandet till den slutpunkt som du konfigurerade när du prenumererade. Titta på loggarna om du vill se händelseinformationen.
+Du har utlöst händelsen och Event Grid skickade meddelandet till den slutpunkt som du konfigurerade när du prenumererade. Visa din webbapp om du vill se händelsen som du har skickat.
 
-![Visa loggar](./media/custom-event-quickstart-portal/view-log-entry.png)
+```json
+[{
+  "id": "1807",
+  "eventType": "recordInserted",
+  "subject": "myapp/vehicles/motorcycles",
+  "eventTime": "2017-08-10T21:03:07+00:00",
+  "data": {
+    "make": "Ducati",
+    "model": "Monster"
+  },
+  "dataVersion": "1.0",
+  "metadataVersion": "1",
+  "topic": "/subscriptions/{subscription-id}/resourceGroups/{resource-group}/providers/Microsoft.EventGrid/topics/{topic}"
+}]
+```
+
+
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 

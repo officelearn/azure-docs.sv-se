@@ -12,12 +12,12 @@ ms.topic: quickstart
 ms.date: 09/19/2017
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: 84783472adda9a4a74670f0579790aac69feb23d
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: e48eac4cdc1e98e21a122850b1dc7d3e8f4efe07
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44095002"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48854532"
 ---
 # <a name="add-messages-to-an-azure-storage-queue-using-functions"></a>Lägga till meddelanden i en Azure Storage-kö med Functions
 
@@ -25,7 +25,7 @@ I Azure Functions kan du använda indata- och utdatabindningar för att skapa da
 
 ![Kömeddelande som visas i Storage Explorer](./media/functions-integrate-storage-queue-output-binding/function-queue-storage-output-view-queue.png)
 
-## <a name="prerequisites"></a>Nödvändiga komponenter 
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 För att slutföra den här snabbstarten behöver du:
 
@@ -39,15 +39,19 @@ I det här avsnittet använder du portalens användargränssnitt för att lägga
 
 1. Öppna sidan för funktionsappen som du skapade i [Skapa din första funktion i Azure Portal](functions-create-first-azure-function.md) på sidan för funktionsappar i Azure Portal. Detta gör du genom att välja **Alla tjänster > Funktionsappar** och sedan markera din funktionsapp.
 
-2. Välj funktionen som du skapade i den tidigare snabbstarten.
+1. Välj funktionen som du skapade i den tidigare snabbstarten.
 
 1. Välj **Integrera > Nya utdata > Azure Queue Storage**.
 
 1. Klicka på **Välj**.
-    
+
     ![Lägg till en Queue Storage-utdatabindning i en funktion på Azure Portal.](./media/functions-integrate-storage-queue-output-binding/function-add-queue-storage-output-binding.png)
 
-3. Under **Azure Queue Storage-utdata** använder du inställningarna som anges i tabellen under den här skärmbilden: 
+1. Om du får ett meddelande om att **tilläggen inte har installerats** väljer du **Installera** för att installera tillägget för Storage-bindningar i funktionsappen. Det kan ta någon minut.
+
+    ![Installera tillägget för Storage-bindning](./media/functions-integrate-storage-queue-output-binding/functions-integrate-install-binding-extension.png)
+
+1. Under **Azure Queue Storage-utdata** använder du inställningarna som anges i tabellen under den här skärmbilden: 
 
     ![Lägg till en Queue Storage-utdatabindning i en funktion på Azure Portal.](./media/functions-integrate-storage-queue-output-binding/function-add-queue-storage-output-binding-2.png)
 
@@ -57,52 +61,58 @@ I det här avsnittet använder du portalens användargränssnitt för att lägga
     | **Lagringskontoanslutning** | AzureWebJobsStorage | Du kan antingen använda den lagringskontoanslutning som redan används i funktionsappen eller skapa en ny.  |
     | **Könamn**   | utkö    | Namnet på kön som ska anslutas till i ditt Storage-konto. |
 
-4. Klicka på **Spara** för att lägga till bindningen.
- 
+1. Klicka på **Spara** för att lägga till bindningen.
+
 Nu när du har definierat en utdatabindning måste du uppdatera koden så att bindningen används när meddelanden läggs till i en kö.  
 
 ## <a name="add-code-that-uses-the-output-binding"></a>Lägg till kod som använder utdatabindning
 
 I det här avsnittet lägger du till kod som skriver ett meddelande till utdatakön. Meddelandet innehåller värdet som skickades till HTTP-utlösaren i frågesträngen. Om frågesträngen till exempel innehåller `name=Azure` så är kömeddelandet *Name passed to the function: Azure* (Namn som skickats till funktionen: Azure).
 
-1. Välj din funktion så att funktionskoden visas i redigeraren. 
+1. Välj din funktion så att funktionskoden visas i redigeraren.
 
-2. För en C#-funktion lägger du till en metodparameter för bindningen och skriver kod för att använda den:
+1. Uppdatera funktionskoden beroende på ditt funktionsspråk:
 
-   Lägg till en **outputQueueItem**-parameter till metodsignaturen som visas i följande exempel. Parameternamnet är samma som du angav för **Meddelandeparameternamn** när du skapade bindningen.
+    # <a name="ctabcsharp"></a>[C\#](#tab/csharp)
 
-   ```cs   
-   public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, 
-       ICollector<string> outputQueueItem, TraceWriter log)
-   {
-       ...
-   }
-   ```
+    Lägg till en **outputQueueItem**-parameter till metodsignaturen som visas i följande exempel.
 
-   I meddelandetexten för C#-funktionen precis före `return`-instruktionen lägger du till kod som använder parametern för att skapa ett kömeddelande.
+    ```cs
+    public static async Task<IActionResult> Run(HttpRequest req,
+        ICollector<string> outputQueueItem, ILogger log)
+    {
+        ...
+    }
+    ```
 
-   ```cs
-   outputQueueItem.Add("Name passed to the function: " + name);     
-   ```
+    I meddelandetexten för funktionen precis före `return`-instruktionen lägger du till kod som använder parametern för att skapa ett kömeddelande.
 
-3. För en JavaScript-funktion lägger du till kod som använder utdatabindningen till `context.bindings`-objektet för att skapa ett kömeddelande. Lägg till den här koden före `context.done`-instruktionen.
+    ```cs
+    outputQueueItem.Add("Name passed to the function: " + name);
+    ```
 
-   ```javascript
-   context.bindings.outputQueueItem = "Name passed to the function: " + 
-               (req.query.name || req.body.name);
-   ```
+    # <a name="javascripttabnodejs"></a>[JavaScript](#tab/nodejs)
 
-4. Välj **Spara** för att spara ändringarna.
- 
-## <a name="test-the-function"></a>Testa funktionen 
+    Lägg till kod som använder utdatabindningen till `context.bindings`-objektet för att skapa ett kömeddelande. Lägg till den här koden före `context.done`-instruktionen.
+
+    ```javascript
+    context.bindings.outputQueueItem = "Name passed to the function: " + 
+                (req.query.name || req.body.name);
+    ```
+
+    ---
+
+1. Välj **Spara** för att spara ändringarna.
+
+## <a name="test-the-function"></a>Testa funktionen
 
 1. Välj **Kör** när kodändringarna har sparats. 
 
     ![Lägg till en Queue Storage-utdatabindning i en funktion på Azure Portal.](./media/functions-integrate-storage-queue-output-binding/functions-test-run-function.png)
 
-   Observera att **Begärandetexten** innehåller värdet `name` *Azure*. Värdet visas i kömeddelandet som skapas när funktionen anropas.
-
-   Som ett alternativ till att välja **Kör** här kan du anropa funktionen genom att ange en URL i en webbläsare och ange värdet `name` i frågesträngen. Webbläsarmetoden visas i den [tidigare snabbstarten](functions-create-first-azure-function.md#test-the-function).
+    Observera att **Begärandetexten** innehåller värdet `name` *Azure*. Värdet visas i kömeddelandet som skapas när funktionen anropas.
+    
+    Som ett alternativ till att välja **Kör** här kan du anropa funktionen genom att ange en URL i en webbläsare och ange värdet `name` i frågesträngen. Webbläsarmetoden visas i den [tidigare snabbstarten](functions-create-first-azure-function.md#test-the-function).
 
 2. Kontrollera i loggfilerna att funktionen har slutförts utan fel. 
 

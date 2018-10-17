@@ -8,14 +8,14 @@ ms.service: managed-applications
 ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
-ms.date: 07/11/2018
+ms.date: 10/04/2018
 ms.author: tomfitz
-ms.openlocfilehash: 628a936d85eb94a1ee332205047527b0f9795d50
-ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
+ms.openlocfilehash: 67797f3bc5eadc126bad1051e793a8d3bc4590e5
+ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38990522"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48800952"
 ---
 # <a name="azure-managed-applications-overview"></a>Översikt över Azure Managed Applications
 
@@ -25,13 +25,13 @@ Ett hanterat program liknar en lösningsmall i Marketplace med en viktig skillna
 
 ## <a name="advantages-of-managed-applications"></a>Fördelar med hanterade program
 
-Hanterade program minskar hindren för användare som använder dina lösningar. De behöver inga kunskaper om molninfrastruktur för att använda din lösning. Användare har begränsad åtkomst till viktiga resurser. De behöver inte oroa sig för att göra misstag i hanteringen. 
+Hanterade program minskar hindren för användare som använder dina lösningar. De behöver inga kunskaper om molninfrastruktur för att använda din lösning. Konsumenter har begränsad åtkomst till viktiga resurser och behöver inte bekymra sig om att göra fel vid hanteringen. 
 
 Med hanterade program kan du etablera en fortlöpande relation med dina användare. Du definierar villkoren för hanteringen av programmet och alla kostnader hanteras via Azure-fakturering.
 
 Trots att kunder distribuerar hanterade program i sina prenumerationer måste de inte underhålla, uppdatera eller utföra service på dem. Du kan se till att alla kunder använder godkända versioner. Kunder måste inte utveckla programspecifika domänkunskaper för att hantera programmen. Kunder hämtar automatiskt programuppdateringar utan att behöva tänka på felsökning och att diagnostisera problem med programmen. 
 
-För IT-team gör hanterade program att de kan erbjuda förhandsgodkända lösningar till användare i organisationen. Du ser till att lösningarna uppfyller organisationens standarder.
+För IT-team gör hanterade program att de kan erbjuda förhandsgodkända lösningar till användare i organisationen. Du vet att lösningarna uppfyller organisationens standarder.
 
 ## <a name="types-of-managed-applications"></a>Typer av hanterade program
 
@@ -41,7 +41,7 @@ Du kan publicera dina hanterade program externt eller internt.
 
 ### <a name="service-catalog"></a>Tjänstkatalog
 
-Tjänstkatalogen är en intern katalog med godkända lösningar för användare i en organisation. Du använder katalogen för att säkerställa kompatibilitet med vissa organisationsstandarder samtidigt som de tillhandahåller lösningar för organisationer. De anställda kan använder katalogen till att enkelt hitta program som rekommenderas och godkänts av IT-avdelningen. De ser de hanterade program som andra personer i organisationen delar med dem.
+Tjänstkatalogen är en intern katalog med godkända lösningar för användare i en organisation. Du använder katalogen för att uppfylla organisationsstandarder samtidigt som de tillhandahåller lösningar för organisationer. De anställda kan använder katalogen till att enkelt hitta program som rekommenderas och godkänts av IT-avdelningen. De ser de hanterade program som andra personer i organisationen delar med dem.
 
 Information om att publicera en tjänstkatalog för hanterade program finns i [Skapa tjänstkatalogprogram](publish-service-catalog-app.md).
 
@@ -77,6 +77,7 @@ Du kan använda [Azure Policy](../azure-policy/azure-policy-introduction.md) fö
 
 ## <a name="next-steps"></a>Nästa steg
 
-* En introduktion till att definiera och distribuera ett hanterat problem finns i [Skapa och distribuera Azure-hanterat program med Azure CLI](managed-apps-quickstart-cli.md)
-* Information om att publicera ett internt program finns i [Skapa tjänstkatalogprogram](publish-service-catalog-app.md).
-* Mer information om hur du publicerar program på Marketplace finns i [Använda marknadsplatsprogram](publish-marketplace-app.md).
+I den här artikeln har du lärt dig om fördelarna med att använda hanterade program. Gå till nästa artikel för att skapa en definition för det hanterade programmet.
+
+> [!div class="nextstepaction"]
+> [Snabbstart: Publicera en definition av Azure-hanterat program](publish-managed-app-definition-quickstart.md)

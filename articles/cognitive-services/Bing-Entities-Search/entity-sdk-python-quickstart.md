@@ -1,42 +1,42 @@
 ---
-title: Entiteten Sök SDK Python quickstart | Microsoft Docs
-description: Installationsprogrammet för entiteten Sök SDK-konsolprogram.
-titleSuffix: Azure Entity Search SDK Python quickstart
+title: 'Snabbstart: SDK för entitetssökning i Bing, Python'
+titlesuffix: Azure Cognitive Services
+description: Konfiguration av konsolprogrammet för SDK för entitetssökning i Bing.
 services: cognitive-services
 author: mikedodaro
-manager: rosh
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-entity-search
-ms.topic: article
+ms.topic: quickstart
 ms.date: 02/15/2018
 ms.author: v-gedod
-ms.openlocfilehash: 95449fa3753291269e1a83d1431df3bf0cbe372f
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
-ms.translationtype: MT
+ms.openlocfilehash: 908373a216d0b14bb2dd41d3bb740b5582ac3ab1
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35355251"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48814244"
 ---
-# <a name="entity-search-sdk-python-quickstart"></a>Entiteten Sök SDK Python Snabbstart
+# <a name="quickstart-bing-entity-search-sdk-with-python"></a>Snabbstart: SDK för entitetssökning i Bing med Python
 
-Entiteten Sök SDK innehåller funktionerna i REST API för webb-frågor och tolkning resultat.
+SDK för entitetssökning i Bing innehåller funktionerna i REST API:et för webbfrågor och parsning av resultat.
 
-Den [källkoden för Python Bing enheten Sök SDK-exempel](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples/blob/master/samples/search/entity_search_samples.py) är tillgänglig på Git-hubben.
+[Källkoden till exempel med SDK:t för entitetssökning i Bing med Python](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples/blob/master/samples/search/entity_search_samples.py) är tillgänglig på Git Hub.
 
 ## <a name="application-dependencies"></a>Programberoenden
-Om du inte redan har det installera Python. SDK är kompatibelt med Python 2.7, 3.3, 3.4, 3.5 och 3,6.
+Installera Python om du inte redan har det. Detta SDK är kompatibelt med Python 2.7, 3.3, 3.4, 3.5 och 3.6.
 
-Allmänna rekommendationer för utveckling av Python är att använda en [virtuell miljö](https://docs.python.org/3/tutorial/venv.html). Installera och starta den virtuella miljön med den [venv modulen](https://pypi.python.org/pypi/virtualenv). Du måste installera virtuell miljö för Python 2.7.
+Den allmänna rekommendationen för Python-utveckling är att använda en [virtuell miljö](https://docs.python.org/3/tutorial/venv.html). Installera och initiera den virtuella miljön med [venv-modulen](https://pypi.python.org/pypi/virtualenv). Du måste installera virtualenv för Python 2.7.
 ```
 python -m venv mytestenv
 ```
-Installera Bing enheten Sök SDK beroenden:
+Installera beroenden för SDK för entitetssökning i Bing:
 ```
 cd mytestenv
 python -m pip install azure-cognitiveservices-search-entitysearch
 ```
-## <a name="entity-search-client"></a>Entiteten Sök klienten
-Hämta en [kognitiva åtkomstnyckeln](https://azure.microsoft.com/try/cognitive-services/) under *Sök*. Lägg till importen:
+## <a name="entity-search-client"></a>Klient för entitetssökning
+Hämta en [Cognitive Services-åtkomstnyckel](https://azure.microsoft.com/try/cognitive-services/) under *Sök*. Lägg till importer:
 ```
 from azure.cognitiveservices.search.entitysearch import EntitySearchAPI
 from azure.cognitiveservices.search.entitysearch.models import Place, ErrorResponseException
@@ -44,11 +44,11 @@ from msrest.authentication import CognitiveServicesCredentials
 
 subscription_key = "YOUR-SUBSCRIPTION-KEY"
 ```
-Skapa en instans av den `CognitiveServicesCredentials`. Skapa en instans av klienten:
+Skapa en instans av `CognitiveServicesCredentials`. Instantiera klienten:
 ```
 client = EntitySearchAPI(CognitiveServicesCredentials(subscription_key))
 ```
-Söka efter en enda entitet (Gibralter) och skriva ut en kort beskrivning:
+Sök efter en enda entitet (Gibraltar) och skriv ut en kort beskrivning:
 ```
 entity_data = client.entities.search(query="Gibralter")
 
@@ -68,7 +68,7 @@ else:
     print("Didn't see any data..")
 
 ```
-Söka efter och hantera disambiguation resultat för en tvetydig fråga (William Gates).
+Sök efter och hantera tvetydiga resultat för en tvetydig fråga (William Gates).
 ```
 def handling_disambiguation(subscription_key):
 
@@ -112,7 +112,7 @@ def handling_disambiguation(subscription_key):
         print("Encountered exception. {}".format(err))
 
 ```
-Söka efter en lagring (Microsoft Store) och skriva ut sitt telefonnummer.
+Sök efter ett lager (Microsoft Store) och skriv ut telefonnumret.
 ```
 def store_lookup(subscription_key):
 
@@ -153,7 +153,7 @@ def store_lookup(subscription_key):
         print("Encountered exception. {}".format(err))
 
 ```
-Söka efter en lista över hotell (Seattle hotell) och skriva ut sina namn och telefonnummer.
+Sök efter en lista över restauranger (restauranger i Stockholm) och skriv ut deras namn och telefonnummer.
 ```
 def multiple_restaurant_lookup(subscription_key):
 
@@ -192,7 +192,7 @@ def multiple_restaurant_lookup(subscription_key):
         print("Encountered exception. {}".format(err))
 
 ```
-Utlös en felaktig begäran och Läs felsvar.
+Utlös en felaktig begäran och läs felsvaret.
 ```
 def error(subscription_key):
 
@@ -216,5 +216,5 @@ def error(subscription_key):
 ```
 ## <a name="next-steps"></a>Nästa steg
 
-[Kognitiva Services Python SDK-exempel](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples)
+[Exempel med Cognitive Services SDK för Python](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples)
 

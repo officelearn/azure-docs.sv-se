@@ -9,12 +9,12 @@ ms.reviewer: jmartens
 author: garyericson
 ms.author: garye
 ms.date: 09/24/2018
-ms.openlocfilehash: 6e0294f99d1c2291e84bf2ac5d5b1f771222b551
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: 660e5515b765e133d5bc9309be5439209b957353
+ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47433420"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48238534"
 ---
 # <a name="what-is-azure-machine-learning-service-preview"></a>Vad är tjänsten Azure Machine Learning (förhandsversion)?
 
@@ -48,7 +48,7 @@ Du kan hantera de distribuerade modellerna och spåra flera körningar när du e
 Azure Machine Learning-tjänsten kan skapa en modell automatiskt och automatiskt justera den åt dig.
 Ett exempel finns i [Tutorial: Automatically train a classification model with Azure Automated Machine Learning](tutorial-auto-train-models.md) (Självstudie: Träna automatiskt en klassificeringsmodell med Azure Automated Machine Learning).
 
-Eller så kan du använda Azure Machine Learning <a href="http://aka.ms/aml-sdk" target="_blank">SDK</a> för Python tillsammans med Python-paket med öppen källkod och skapa och själv träna mycket exakta maskininlärnings- och djupinlärningsmodeller på en Azure Machine Learning-arbetsyta.
+Eller så kan du använda Azure Machine Learning <a href="http://aka.ms/aml-sdk" target="_blank">SDK</a> för Python tillsammans med Python-paket med öppen källkod och skapa och själv träna mycket exakta maskininlärnings- och djupinlärningsmodeller på en Azure Machine Learning-tjänstens arbetsyta.
 Du kan välja bland många maskininlärningskomponenter som är tillgängliga i Python-paket med öppen källkod, till exempel följande:
 
 - <a href="http://scikit-learn.org/stable/" target="_blank">Scikit-learn</a>
@@ -80,7 +80,7 @@ Om du inte är prenumerant kan du [öppna ett Azure-konto utan kostnad](https://
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Skapa en arbetsyta för maskininlärning genom att följa anvisningarna i artikeln [Använda Azure-portalen för att komma igång](quickstart-get-started.md)
+- Skapa en arbetsyta för maskininlärningstjänsten genom att följa anvisningarna i artikeln [Använda Azure-portalen för att komma igång](quickstart-get-started.md)
  
 - Gå den heltäckande kursen [Train an image classification model with Azure Machine Learning](tutorial-train-models-with-aml.md) (Träna en bildklassificeringsmodell med Azure Machine Learning) om du vill lära dig hur du tränar och distribuerar modeller med Azure Machine Learning-tjänsten
 

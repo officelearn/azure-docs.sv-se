@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 09/27/2018
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: 1ee3000ab26dbb0eea33de828812959fe709aaa2
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: 2f503a534f79440e6e6c572b7fb29ce3048ee7bc
+ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47410025"
+ms.lasthandoff: 10/06/2018
+ms.locfileid: "48831577"
 ---
 # <a name="tutorial-deploy-a-service-fabric-windows-cluster-into-an-azure-virtual-network"></a>Självstudie: Distribuera ett Service Fabric Windows-kluster till ett virtuellt Azure-nätverk
 
@@ -88,7 +88,7 @@ Den här mallen distribuerar ett säkert kluster med fem virtuella datorer och e
 
 ### <a name="service-fabric-cluster"></a>Service Fabric-kluster
 
-Ett Windows-kluster distribueras med följande egenskaper:
+I resursen **Microsoft.ServiceFabric/kluster** konfigureras ett Windows-kluster med följande egenskaper:
 
 * en enda nodtyp
 * fem noder av den primära nodtypen (kan konfigureras i mallparametrarna)
@@ -103,7 +103,7 @@ Ett Windows-kluster distribueras med följande egenskaper:
 
 ### <a name="azure-load-balancer"></a>Azure-lastbalanserare
 
-En lastbalanserare distribueras och avsökningar och regler konfigureras för följande portar:
+I resursen **Microsoft.Network/loadBalancers** har en belastningsutjämnare konfigurerats och avsökningar samt regler har konfigurerats för följande portar:
 
 * klientanslutningsslutpunkt: 19000
 * HTTP-gatewayslutpunkt: 19080
@@ -111,16 +111,16 @@ En lastbalanserare distribueras och avsökningar och regler konfigureras för f�
 * programport: 443
 * omvänd proxy för Service Fabric: 19081
 
-Om du behöver andra programportar måste du justera resursen Microsoft.Network/loadBalancers och Microsoft.Network/networkSecurityGroups för att låta trafiken komma in.
+Om du behöver andra programportar måste du justera resursen **Microsoft.Network/loadBalancers** och **Microsoft.Network/networkSecurityGroups** för att låta trafiken komma in.
 
 ### <a name="virtual-network-subnet-and-network-security-group"></a>Virtuellt nätverk, undernät och nätverkssäkerhetsgrupp
 
-Namnen på det virtuella nätverket, undernätet och nätverkssäkerhetsgruppen deklareras i mallparametrarna.  Adressutrymmen för det virtuella nätverket och undernätet deklareras också i mallparametrarna:
+Namnen på det virtuella nätverket, undernätet och nätverkssäkerhetsgruppen deklareras i mallparametrarna.  Adressutrymmen i det virtuella nätverket och undernätet deklareras också i mallparametrarna och konfigureras i resursen **Microsoft.Network/virtualNetworks**:
 
 * det virtuella nätverkets adressutrymme: 172.16.0.0/20
 * Service Fabric-undernätets adressutrymme: 172.16.2.0/23
 
-Följande regler för inkommande trafik är aktiverade i nätverkssäkerhetsgruppen. Du kan ändra portvärdena genom att ändra mallvariablerna.
+Följande regler för inkommande trafik är aktiverade i resursen **Microsoft.Network/networkSecurityGroups**. Du kan ändra portvärdena genom att ändra mallvariablerna.
 
 * ClientConnectionEndpoint (TCP): 19000
 * HttpGatewayEndpoint (HTTP/TCP): 19080
@@ -131,7 +131,7 @@ Följande regler för inkommande trafik är aktiverade i nätverkssäkerhetsgrup
 * Portintervall för program – 49152 till 65534 (används för kommunikation mellan tjänster och öppnas inte i lastbalanseraren)
 * Blockera alla andra portar
 
-Om du behöver andra programportar måste du justera resursen Microsoft.Network/loadBalancers och Microsoft.Network/networkSecurityGroups för att låta trafiken komma in.
+Om du behöver andra programportar måste du justera resursen **Microsoft.Network/loadBalancers** och **Microsoft.Network/networkSecurityGroups** för att låta trafiken komma in.
 
 ## <a name="set-template-parameters"></a>Ställa in mallparametrar
 

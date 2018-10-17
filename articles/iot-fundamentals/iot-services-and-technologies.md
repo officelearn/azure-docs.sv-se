@@ -1,27 +1,28 @@
 ---
 title: Azure Sakernas Internet (IoT)-tekniker och -lösningar
 description: Anger samlingen av PaaS-/SaaS-tekniker och -lösningar som är tillgängliga för att skapa en Azure IoT-lösning.
-author: BryanLa
-manager: timlt
+author: robinsh
 ms.service: iot-fundamentals
 services: iot-fundamentals
 ms.topic: overview
-ms.date: 05/18/2018
-ms.author: bryanla
-ms.openlocfilehash: e875ec599323b3d037ba704d4cc54a48ff9b1b57
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.date: 10/09/2018
+ms.author: robinsh
+ms.openlocfilehash: 6a44c36b5dd87c28db3de34a6858e29fb5730117
+ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34631419"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49067342"
 ---
 # <a name="azure-iot-technologies-and-solutions-paas-and-saas"></a>Azure IoT-tekniker och befintliga lösningar: PaaS och SaaS
 
 Microsoft har skapat en portfölj som har stöd för alla kunder, vilket gör att alla kan komma åt fördelarna med digital transformering. Azure IoT-produktportfölj är en översikt över tillgängliga PaaS-/SaaS-tekniker och -lösningar. Den innehåller de två sökvägarna som är tillgängliga för att skapa din egen lösning:
+
 - Plattform som en tjänst (PaaS): Skapa ditt program med [Azure IoT-lösningsacceleratorer](https://www.azureiotsolutions.com/), en samling förkonfigurerade företagslösningar som gör det möjligt att påskynda utvecklingen av anpassade IoT-lösningar.
+
 - Programvara som en tjänst (SaaS): Kom igång snabbt med [Azure IoT Central](https://azure.microsoft.com/services/iot-central/), den nya SaaS-lösningen för att utveckla IoT-program utan att utsättas för komplexiteten hos IoT-lösningen. Om din organisation saknar resurser för att skapa en egen IoT-lösning, är Azure IoT Central en kodlös IoT-lösning som kan skapa enhetsmodeller, instrumentpaneler och regler på några få minuter.
 
-![Azure IoT-tekniker och -lösningar][img-paas-saas-technologies-solutions]
+![Azure IoT-tekniker och -lösningar](./media/iot-comparison/paas-saas-technologies-solutions.png)
 
 ## <a name="solutions"></a>Lösningar
 
@@ -77,9 +78,9 @@ Att välja Azure IoT-produkt är en viktig del av planeringen av IoT-lösningen.
 
 Beslutet vilken produkt som ska användas för att skapa IoT-lösningen bestäms slutligen av:
 
-* Dina affärskrav.
+* Dina affärskrav
 * Typ av lösning som du vill skapa
-* Din organisations kunskaper för att skapa och hantera lösningen på lång sikt.
+* Din organisations kunskaper för att skapa och hantera lösningen på lång sikt
 
 ## <a name="technologies-paas"></a>Tekniker (PaaS)
 
@@ -88,7 +89,7 @@ Med den mest omfattande IoT-portföljen för plattformstjänster möjliggör Pla
 ### <a name="device-support"></a>Stöd för enheter
 
 Känn dig säker med att komma igång med ditt IoT-projekt genom att utnyttja [Azure IoT Starter Kits](https://catalog.azureiotsuite.com/kits) (Azure IoT-startpaket) eller genom att välja från hundratals enheter som är certifierade för IoT i [enhetskatalogen](http://catalog.azureiotsuite.com/). Alla enheter är plattformsoberoende och testade för att smidigt ansluta till IoT Hub.
-Anslut alla dina enheter till Azure IoT med [enhets-SDK:er](/azure/iot-hub/iot-hub-devguide-sdks) med öppen källkod. SDK:erna har stöd för flera olika operativsystem som till exempel Linux och Windows, samt även realtidsoperativsystem och flera olika programmeringsspråk, till exempel [C](https://github.com/Azure/azure-iot-sdk-c), [Node.js](https://github.com/Azure/azure-iot-sdk-node), [Java](https://github.com/Azure/azure-iot-sdk-java), [.NET](https://github.com/Azure/azure-iot-sdk-csharp) och [Python](https://github.com/Azure/azure-iot-sdk-python).
+Anslut alla dina enheter till Azure IoT med [enhets-SDK](/azure/iot-hub/iot-hub-devguide-sdks) er med öppen källkod. SDK:erna har stöd för flera olika operativsystem som till exempel Linux och Windows, samt även realtidsoperativsystem och flera olika programmeringsspråk, till exempel [C](https://github.com/Azure/azure-iot-sdk-c), [Node.js](https://github.com/Azure/azure-iot-sdk-node), [Java](https://github.com/Azure/azure-iot-sdk-java), [.NET](https://github.com/Azure/azure-iot-sdk-csharp) och [Python](https://github.com/Azure/azure-iot-sdk-python).
 
 ### <a name="iot"></a>IoT 
 [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub/) är en helt hanterad tjänst som möjliggör tillförlitlig och säker dubbelriktad kommunikation mellan flera miljoner IoT-enheter och som tillhandahåller en serverdel för lösningar av den här typen. Azure IoT Hub Device Provisioning är en hjälptjänst för IoT Hub som möjliggör zero-touch och just-in-time-etablering till rätt IoT-hubb utan mänsklig interaktion, vilket gör att kunderna kan etablera miljontals enheter på ett säkert och skalbart sätt.
@@ -96,20 +97,12 @@ Anslut alla dina enheter till Azure IoT med [enhets-SDK:er](/azure/iot-hub/iot-h
 ### <a name="edge"></a>Edge
 [Azure IoT Edge](https://azure.microsoft.com/services/iot-edge/) är en tjänst i Sakernas Internet (IoT). Den här tjänsten är avsedd för kunder som vill analysera data på enheter, dvs. ”vid gränsen”. Genom att flytta delar av din arbetsbelastning till gränsen, kommer du får minskad latens och ha alternativ för offline-scenarier.
 
-
 ### <a name="data-and-analytics"></a>Data och analys
 Dra nytta av en matris av Azure-data och -analyser med PaaS-erbjudanden i din IoT-lösning, från att ta molnintelligens till gränsen med Azure Machine Learning till att lagra IoT-enhetsdata på ett kostnadseffektivt sätt med Azure Data Lake för att visualisera stora mängder data från IoT-enheter med [Azure Time Series Insights](https://azure.microsoft.com/services/time-series-insights/).
 
 ### <a name="visualization-and-integration"></a>Visualisering och integrering
 Microsoft Azure erbjuder en komplett molnlösning som kombinerar en ständigt växande samling integrerade molntjänster med ett branschledande åtagande att leverera skydd och sekretess för dina data. Lär dig mer om [Microsoft Azure](https://azure.microsoft.com/).
 
-
-
-
-
 ## <a name="next-steps"></a>Nästa steg
 
-Kolla in avsnittet [Kom igång](/azure/iot-hub/iot-hub-get-started) för att uppleva IoT-funktioner snabbt och enkelt. Eller för en mer detaljerad praktisk erfarenhet, prova en av våra [Självstudier](/azure/iot-edge/tutorial-simulate-device-windows).
-
-[img-paas-saas-technologies-solutions]: media/iot-comparison/paas-saas-technologies-solutions.png
-
+Ta en titt på [Kom igång-avsnittet i IoT Hub-dokumentationen](/azure/iot-hub/iot-hub-get-started) för att använda IoT-funktioner snabbt och enkelt. Eller för en mer detaljerad praktisk erfarenhet, prova en av våra [IoT Edge-självstudier](/azure/iot-edge/tutorial-simulate-device-windows).

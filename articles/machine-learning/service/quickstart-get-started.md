@@ -1,6 +1,6 @@
 ---
-title: 'Snabbstart: Skapa en arbetsyta för maskininlärning – Azure'
-description: Använd Azure-portalen för att skapa en Azure Machine Learning-arbetsyta. Den här arbetsytan är själva grunden i molnet för att experimentera, träna och distribuera maskininlärningsmodeller med Azure Machine Learning-tjänsten.
+title: 'Snabbstart: Skapa en arbetsyta för maskininlärning i Azure-portalen – Azure Machine Learning'
+description: Använd Azure-portalen för att skapa en arbetsyta för Azure Machine Learning-tjänsten. Den här arbetsytan är själva grunden i molnet för att experimentera, träna och distribuera maskininlärningsmodeller med Azure Machine Learning-tjänsten.
 services: machine-learning
 ms.service: machine-learning
 ms.component: core
@@ -9,16 +9,16 @@ ms.reviewer: sgilley
 author: rastala
 ms.author: roastala
 ms.date: 09/24/2018
-ms.openlocfilehash: c1610291e06255e2c724268f63d740f7e4debea4
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: b6f0201a36a676e7647b9f5e60bc2df3415b9594
+ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46959996"
+ms.lasthandoff: 10/06/2018
+ms.locfileid: "48831338"
 ---
-# <a name="quickstart-get-started-with-azure-machine-learning-service"></a>Snabbstart: Kom igång med Azure Machine Learning-tjänsten
+# <a name="quickstart-use-the-azure-portal-to-get-started-with-azure-machine-learning-service"></a>Snabbstart: Använda Azure-portalen för att komma igång med Azure Machine Learning-tjänsten
 
-I den här snabbstarten ska du använda Azure-portalen för att skapa en Azure Machine Learning-arbetsyta. Den här arbetsytan är själva grunden i molnet för att experimentera, träna och distribuera maskininlärningsmodeller med Azure Machine Learning-tjänsten. 
+I den här snabbstarten använder du Azure-portalen för att skapa en Azure Machine Learning-arbetsyta. Den här arbetsytan är själva grunden i molnet för att experimentera, träna och distribuera maskininlärningsmodeller med Azure Machine Learning-tjänsten. 
 
 I den här kursen ska du:
 
@@ -28,7 +28,7 @@ I den här kursen ska du:
 
 För att underlätta för dig läggs följande Azure-resurser till automatiskt till din arbetsyta om de är tillgängliga i din region: [containerregister](https://azure.microsoft.com/services/container-registry/), [lagring](https://azure.microsoft.com/services/storage/), [programinsikter](https://azure.microsoft.com/services/application-insights/) och [nyckelvalv](https://azure.microsoft.com/services/key-vault/).
 
-Du kan använda de resurser som du skapar i andra självstudier och instruktionsartiklar om Azure Machine Learning. Som med andra Azure-tjänster finns det begränsningar för vissa resurser (för t.ex. BatchAI-klusterstorleken) som är associerade med Azure Machine Learning-tjänsten. Läs [den här](how-to-manage-quotas.md) artikeln om standardgränserna och hur du begär högre kvot.
+De resurser som du skapar kan användas som förutsättningar för andra självstudier och instruktionsartiklar om Azure Machine Learning-tjänsten. Som med andra Azure-tjänster finns det begränsningar för vissa resurser (för t.ex. BatchAI-klusterstorleken) som är associerade med Azure Machine Learning-tjänsten. Läs [den här](how-to-manage-quotas.md) artikeln om standardgränserna och hur du begär högre kvot.
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
@@ -37,7 +37,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 
 [!INCLUDE [aml-create-portal](../../../includes/aml-create-in-portal.md)]
 
-På sidan för arbetsytan klickar du på `Explore your Azure Machine Learning Workspace`
+På sidan för arbetsytan klickar du på `Explore your Azure Machine Learning service workspace`
 
  ![Utforska arbetsyta](./media/quickstart-get-started/explore_aml.png)
 
@@ -69,9 +69,9 @@ Tillsammans med två anteckningsböcker ser du en `config.json`-fil.  Den här k
 
 Klicka på `01.run-experiment.ipynb` för att öppna anteckningsboken.
 
-Du kan köra cellerna en i taget genom att använda `Shift`+`Enter`.  Eller så kan du använda menyn `Cells` > `Run All` för att köra hela anteckningsboken.
+Du kan köra cellerna en i taget genom att använda `Shift`+`Enter`.  Eller så kan du använda menyn `Cells` > `Run All` för att köra hela anteckningsboken.  När [*] visas intill en cell, körs den.  När koden för cellen har slutförts visas ett tal.
 
-Du kan uppmanas att logga in.  Kopiera koden i meddelandet, klicka på länken och klistra sedan in koden i det nya fönstret.  Glöm inte att kopiera ett blanksteg före eller efter koden.
+Du kan bli uppmanad att logga in.  Kopiera koden i meddelandet, klicka på länken och klistra sedan in koden i det nya fönstret.  Glöm inte att kopiera ett blanksteg före eller efter koden.  Logga in med samma konto som du använde i Azure-portalen.
 
  ![inloggning](./media/quickstart-get-started/login.png)
 
@@ -124,7 +124,7 @@ Du kan också behålla resursgruppen, men ta bort en enskild arbetsyta genom att
 
 ## <a name="next-steps"></a>Nästa steg
 
-Du har nu skapat resurserna som krävs för att börja experimentera och distribuera modeller. Du har också kört lite kod i en anteckningsbok och utforskat körningshistoriken från koden på arbetsytan i molnet.
+Nu har du skapat de resurser som krävs för att du ska kunna experimentera och distribuera modeller. Du har också kört lite kod i en anteckningsbok och utforskat körningshistoriken från koden på arbetsytan i molnet.
 
 För mer djupgående beskrivningar av arbetsflödet rekommenderar vi att du går självstudiekurserna om Azure Machine Learning för att träna och distribuera en modell.  
 

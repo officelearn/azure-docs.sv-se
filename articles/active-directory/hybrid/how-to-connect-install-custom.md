@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/28/2018
+ms.date: 10/04/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: e984dc985100bcdabbee4fb86bd1819a329301a5
-ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
+ms.openlocfilehash: 95a0ffc6deecb7fd3bd6fce740f578352fdf2d66
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47452640"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48888171"
 ---
 # <a name="custom-installation-of-azure-ad-connect"></a>Anpassad installation av Azure AD Connect
 Du använder **anpassade inställningar** för Azure AD Connect om du behöver fler installationsalternativ. Du använder dem till exempel om du har flera skogar eller om du vill konfigurera valfria funktioner som inte omfattas av snabbinstallationen. De används i samtliga fall där en [**snabbinstallation**](how-to-connect-install-express.md) inte uppfyller dina distributions- eller topologikrav.
@@ -156,12 +156,19 @@ I en komplett produktionsdistribution blir det svårt att underhålla en enda gr
 ### <a name="optional-features"></a>Valfria funktioner
 På den här sidan kan du välja de valfria funktionerna för dina specifika scenarier.
 
+>[!WARNING]
+>Azure AD Connect version **1.0.8641.0** och äldre förlitar sig på Azure Access Control-tjänsten för tillbakaskrivning av lösenord.  Den här tjänsten dras in den 7 november 2018.  Om du använder någon av de här versionerna av Azure AD Connect och har aktiverat tillbakaskrivning av lösenord, kanske användarna inte kan ändra eller återställa sina lösenord när tjänsten har dragits in. Tillbakaskrivning av lösenord med de här versionerna av Azure AD Connect stöds inte.
+>
+>Mer information om Azure Access Control-tjänsten finns i [Migrera från Azure Access Control Service](../develop/active-directory-acs-migration.md)
+>
+>Klicka [här](https://www.microsoft.com/en-us/download/details.aspx?id=47594) om du vill ladda ned den senaste versionen av Azure AD Connect.
+
 ![Valfria funktioner](./media/how-to-connect-install-custom/optional2.png)
 
 > [!WARNING]
 > Om DirSync eller Azure AD Sync är aktiverat för närvarande ska du inte aktivera någon av tillbakaskrivningsfunktionerna i Azure AD Connect.
->
->
+
+
 
 | Valfria funktioner | Beskrivning |
 | --- | --- |
@@ -190,6 +197,9 @@ Beroende på vilka tjänster du valde i det föregående steget visas alla attri
 
 ### <a name="directory-extension-attribute-sync"></a>Synkronisering av katalogtilläggsattribut
 Du kan utvidga schemat i Azure AD med anpassade attribut som läggs till av din organisation eller andra attribut i Active Directory. Om du vill använda den här funktionen väljer du **Synkronisering av katalogtilläggsattribut** på sidan **Valfria funktioner**. Du kan markera fler attribut som ska synkroniseras på den här sidan.
+
+>[!NOTE]
+>Rutan Tillgängliga attribut är skiftlägeskänslig.
 
 ![Katalogtillägg](./media/how-to-connect-install-custom/extension2.png)
 

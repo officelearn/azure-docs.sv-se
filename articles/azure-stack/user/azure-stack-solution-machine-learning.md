@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 09/26/2018
 ms.author: mabrigg
 ms.reviewer: Anjay.Ajodha
-ms.openlocfilehash: c195f2ee24b61a57c098d5214a37f65e80845074
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: 28ff8dbf073596e5f9565c56ae903af6af68f3e2
+ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47410212"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49353724"
 ---
 # <a name="tutorial-create-an-edge-machine-learning-solution-with-azure-and-azure-stack"></a>Självstudier: Skapa en edge-machine learning-lösning med Azure och Azure Stack
 
@@ -210,7 +210,7 @@ Placera den nya DSVM i samma resursgrupp som det nyligen skapade lagringskontot.
 
     d.  För den **Diagnostiklagringskonto**, Välj det lagringskonto som skapades tidigare.
 
-    e.  Obs: Med AAD aktiverats och konfigurerats för Azure-prenumeration, hanterad tjänstidentitet aktiveras också.
+    e.  Obs: Med AAD aktiverats och konfigurerats för Azure-prenumeration, hanterade identiteter för Azure-resurser kan aktiveras också.
 
 2.  Välj **OK**.
 

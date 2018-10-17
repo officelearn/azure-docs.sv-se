@@ -1,43 +1,45 @@
 ---
-title: Python Snabbstart för Microsoft kognitiva Services, projekt svaret Sök | Microsoft Docs
-description: Python exempel komma igång med projektet svaret sökning, kognitiva Microsoft-tjänster i Azure.
+title: 'Snabbstart: Project Answer Search, Python'
+titlesuffix: Azure Cognitive Services
+description: Python-exempel för att komma igång med Project Answer Search.
 services: cognitive-services
 author: mikedodaro
+manager: cgronlun
 ms.service: cognitive-services
-ms.technology: project-answer-search
-ms.topic: article
+ms.component: project-answer-search
+ms.topic: quickstart
 ms.date: 04/13/2018
 ms.author: rosh, v-gedod
-ms.openlocfilehash: 9cb5406c616ed8e96d73c00c788a0d20f66dcabd
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
-ms.translationtype: MT
+ms.openlocfilehash: c33a88b65dcdf5ddddff9f5109afbe0cca7247c4
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35353931"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48869837"
 ---
-# <a name="project-answer-search-python-quickstart"></a>Projektet svaret Sök Python Snabbstart
+# <a name="quickstart-project-answer-search-with-python"></a>Snabbstart för Project Answer Search med Python
 
-I följande exempel Python skapar och skickar en begäran om information om ”Berg i Gibraltar”.
+I följande Python-exempel skapas och skickas en begäran om information om ”Gibraltarklippan”.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
-Hämta en åtkomstnyckel för den kostnadsfria utvärderingsversionen [kognitiva Services Labs](https://aka.ms/answersearchsubscription)
+Få en åtkomstnyckel för den kostnadsfria utvärderingsversionen av [Cognitive Services Labs](https://aka.ms/answersearchsubscription)
 
-Det här exemplet används Python 3.6.4
+I det här exemplet används Python 3.6.4
 
-## <a name="code-scenario"></a>Koden scenario 
+## <a name="code-scenario"></a>Kodscenario 
 
 Följande kod skapar en URL-förhandsgranskning.
-De är implementerade i följande steg:
-1. Deklarera variabler för att ange slutpunkten av värd och sökväg.
-2. Ange fråge-URL för att förhandsgranska och Lägg till Frågeparametern.  
-3. Ange Frågeparametern.
-4. Definiera sökfunktionen som skapar begäran och lägger till den *Ocp-Apim-prenumeration-nyckeln* huvud.
-5. Ange den *Ocp-Apim-prenumeration-nyckeln* huvud. 
-6. Kontrollera anslutningen och skicka begäran.
-7. Skriva ut JSON-resultaten.
+Den implementeras i följande steg:
+1. Deklarera variabler för att specificera slutpunkten med hjälp av värd och sökväg.
+2. Ange den fråge-URL som ska förhandsgranskas och lägg till frågeparametern.  
+3. Ange frågeparametern.
+4. Definiera den sökfunktion som skapar begäran och lägger till nyckeln *Ocp-Apim-Subscription-Key*.
+5. Ange nyckeln *Ocp-Apim-Subscription-Key*. 
+6. Upprätta anslutningen och skicka begäran.
+7. Skriv ut JSON-resultaten.
 
-Den fullständiga koden för den här demon följande:
+Här följer den fullständiga koden för demon:
 
 ````
 import http.client, urllib.parse
@@ -65,6 +67,6 @@ print (json.dumps(json.loads(result), indent=4))
 
 ````
 ## <a name="next-steps"></a>Nästa steg
-- [C#-Snabbstart](c-sharp-quickstart.md)
-- [Java-Snabbstart](java-quickstart.md)
-- [Noden Snabbstart](node-quickstart.md)
+- [Snabbstart för C#](c-sharp-quickstart.md)
+- [Snabbstart för Java](java-quickstart.md)
+- [Snabbstart för Node](node-quickstart.md)

@@ -1,40 +1,37 @@
 ---
-title: Snabbstart – Skapa din första Azure Container Instances-behållare | Azure Docs
-description: I den här snabbstarten använder du kommandogränssnittet i Azure för att distribuera en behållare i Azure Container Instances
+title: Snabbstart – Köra ett program i Azure Container Instances
+description: I den här snabbstarten använder du Azure PowerShell för att distribuera ett program som körs i en Docker-container i Azure Container Instances
 services: container-instances
-author: mmacy
-manager: jeconnoc
+author: dlepow
 ms.service: container-instances
 ms.topic: quickstart
-ms.date: 05/11/2018
-ms.author: marsma
+ms.date: 10/02/2018
+ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: 07632e85719e2d0d446b8f718dbc64d2e9d77617
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 7db3d9a076fe9ff5b8bbf970705b82a3f0d5ce54
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39441382"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48855671"
 ---
-# <a name="quickstart-create-your-first-container-in-azure-container-instances"></a>Snabbstart: Skapa din första behållare i Azure Container Instances
+# <a name="quickstart-run-an-application-in-azure-container-instances"></a>Snabbstart: Köra ett program i Azure Container Instances
 
-Azure Container Instances gör det enkelt att skapa och hantera Docker-behållare i Azure, utan att behöva etablera virtuella datorer eller gå upp till en högre tjänstnivå. I den här snabbstarten skapar du en container i Azure och gör den tillgänglig på Internet med ett fullständigt kvalificerat domännamn (FQDN). Den här åtgärden utförs med ett enda kommando. Inom några sekunder visas det här i webbläsaren:
+Använd Azure Container Instances för att snabbt och enkelt köra Docker-containrar i Azure. Du behöver inte distribuera virtuella datorer eller använda en komplett plattform för containerorkestrering, som Kubernetes. I den här snabbstarten använder du Azure-portalen för att skapa en container i Azure och göra programmet tillgängligt med ett fullständigt kvalificerat domännamn (FQDN). Några sekunder efter att du har kört ett enskilt distributionskommando kan du gå till det program som körs:
 
-![App som distribuerats via Azure Container Instances visas i webbläsare][aci-app-browser]
+![Program som distribuerats till Azure Container Instances visas i en webbläsare][aci-app-browser]
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt][azure-account] konto innan du börjar.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Du kan använda Azure Cloud Shell eller en lokal installation av Azure CLI för att genomföra den här snabbstarten. Om du väljer att installera och använda CLI lokalt måste du köra Azure CLI version 2.0.27 eller senare under den här snabbstarten. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI][azure-cli-install].
+Du kan använda Azure Cloud Shell eller en lokal installation av Azure CLI för att genomföra den här snabbstarten. Om du vill använda den lokalt måste du ha version 2.0.27 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI][azure-cli-install].
 
 ## <a name="create-a-resource-group"></a>Skapa en resursgrupp
 
-Azure Container Instances måste precis som alla Azure-resurser placeras i en Azure-resursgrupp, en logisk samling dit Azure-resurser distribueras och hanteras.
+Azure-containerinstanser (liksom alla Azure-resurser) måste distribueras till en resursgrupp. Resursgrupper gör det enkelt att se och hantera relaterade Azure-resurser.
 
-Skapa en resursgrupp med kommandot [az group create][az-group-create].
-
-I följande exempel skapas en resursgrupp med namnet *myResourceGroup* på platsen *eastus*.
+Skapa först en resursgrupp med namnet *myResourceGroup* på platsen *eastus* med följande [az group create][az-group-create]-kommando:
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location eastus
@@ -42,21 +39,21 @@ az group create --name myResourceGroup --location eastus
 
 ## <a name="create-a-container"></a>Skapa en container
 
-Du kan skapa en behållare genom att ange ett namn, en dockeravbildning och en Azure-resursgrupp med kommandot [az container create][az-container-create]. Du kan också göra containern tillgänglig på Internet genom att ange en DNS-namnetikett. I den här snabbstarten distribuerar du en container som är värd för en liten webbapp som skrivits i [Node.js][node-js].
+Nu när du har en resursgrupp kan du köra en container i Azure. Om du vill skapa en containerinstans med Azure CLI anger du ett resursgruppsnamn, ett containerinstansnamn och en Docker-containeravbildning till kommandot [az container create][az-container-create]. Du kan exponera dina containrar för internet genom att ange en eller flera portar som ska öppnas, en DNS-namnetikett eller bådadera. I den här snabbstarten distribuerar du en container med en DNS-namnetikett som är värd för en liten webbapp som skrivits i Node.js.
 
-Kör följande kommando för att starta en instans av containern. Värdet `--dns-name-label` måste vara unikt i den Azure-region där du skapar instansen, så du kan behöva ändra värdet för att det ska vara unikt.
+Kör följande kommando för att starta en instans av containern. Värdet `--dns-name-label` måste vara unikt i den Azure-region där du skapar instansen. Om du får felmeddelandet ”DNS-namnetiketten är inte tillgänglig” provar du med en annan DNS-namnetikett.
 
 ```azurecli-interactive
 az container create --resource-group myResourceGroup --name mycontainer --image microsoft/aci-helloworld --dns-name-label aci-demo --ports 80
 ```
 
-Om några sekunder bör du få ett svar på din begäran. Först har containern statusen **Creating** (skapas) men den bör starta inom några sekunder. Du kan kontrollera statusen med kommandot [az container show][az-container-show]:
+Inom några sekunder bör du få ett svar från Azure CLI om att distributionen har slutförts. Kontrollera distributionens status med kommandot [az container show][az-container-show]:
 
 ```azurecli-interactive
 az container show --resource-group myResourceGroup --name mycontainer --query "{FQDN:ipAddress.fqdn,ProvisioningState:provisioningState}" --out table
 ```
 
-När du kör kommandot visas containerns fullständiga domännamn (FQDN) och dess etableringsstatus:
+När du kör kommandot visas containerns fullständiga domännamn (FQDN) och dess etableringsstatus.
 
 ```console
 $ az container show --resource-group myResourceGroup --name mycontainer --query "{FQDN:ipAddress.fqdn,ProvisioningState:provisioningState}" --out table
@@ -65,15 +62,17 @@ FQDN                               ProvisioningState
 aci-demo.eastus.azurecontainer.io  Succeeded
 ```
 
-När containern övergår till statusen **Lyckades** går du till dess FQDN i din webbläsare:
+När containerns `ProvisioningState` är **Lyckades**, navigerar du till dess fullständiga domännamn (FQDN) i webbläsaren. Om du ser en webbsida som liknar följande – grattis! Du har distribuerat ett program som körs i en Docker-container till Azure.
 
 ![Skärmbild från webbläsaren som visar ett program som körs i en instans av Azure-containern][aci-app-browser]
 
+Om programmet inte visas direkt kan du behöva vänta några sekunder medan DNS sprids, och sedan uppdatera din webbläsare.
+
 ## <a name="pull-the-container-logs"></a>Hämta containerloggarna
 
-Att visa loggar för en containerinstans är användbart när du felsöker problem med din container eller det program som den kör.
+Om du behöver felsöka en container eller det program som körs av containern (eller bara se dess utdata), börjar du med att granska loggarna för containerinstansen.
 
-Hämta behållarens loggar med kommandot [az container logs][az-container-logs]:
+Hämta containerinstansloggarna med kommandot [az container logs][az-container-logs]:
 
 ```azurecli-interactive
 az container logs --resource-group myResourceGroup --name mycontainer
@@ -82,15 +81,16 @@ az container logs --resource-group myResourceGroup --name mycontainer
 Utdata visar loggarna för containern och bör även visa de HTTP GET-förfrågningar som genererades när du granskade programmet i webbläsaren.
 
 ```console
-$ az container logs --resource-group myResourceGroup -n mycontainer
+$ az container logs --resource-group myResourceGroup --name mycontainer
 listening on port 80
-::ffff:10.240.255.105 - - [15/Mar/2018:21:18:26 +0000] "GET / HTTP/1.1" 200 1663 "-" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.146 Safari/537.36"
-::ffff:10.240.255.105 - - [15/Mar/2018:21:18:26 +0000] "GET /favicon.ico HTTP/1.1" 404 150 "http://aci-demo.eastus.azurecontainer.io/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.146 Safari/537.36"
+::ffff:10.240.255.105 - - [01/Oct/2018:18:25:51 +0000] "GET / HTTP/1.0" 200 1663 "-" "-"
+::ffff:10.240.255.106 - - [01/Oct/2018:18:31:04 +0000] "GET / HTTP/1.1" 200 1663 "-" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.100 Safari/537.36"
+::ffff:10.240.255.106 - - [01/Oct/2018:18:31:04 +0000] "GET /favicon.ico HTTP/1.1" 404 150 "http://aci-demo.eastus.azurecontainer.io/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.100 Safari/537.36"
 ```
 
 ## <a name="attach-output-streams"></a>Ansluta utdataströmmar
 
-Förutom att eftersläpa loggarna kan du ansluta dina lokala standardströmmar för utdata och fel till containerns dataström.
+Förutom att granska loggarna kan du ansluta dina lokala standardströmmar för utdata och fel till containerns dataström.
 
 Börja med att köra kommandot [az container attach][az-container-attach] för att ansluta din lokala konsol till behållarens utdataströmmar:
 
@@ -132,9 +132,15 @@ az container list --resource-group myResourceGroup --output table
 
 Containern **MinContainer** ska inte visas i kommandots utdata. Om du inte har några andra containrar i resursgruppen visas inga utdata.
 
+Om du är klar med resursgruppen *myResourceGroup* och alla resurser i den, tar du bort den med kommandot [az group delete][az-group-delete]:
+
+```azurecli-interactive
+az group delete --name myResourceGroup
+```
+
 ## <a name="next-steps"></a>Nästa steg
 
-I den här snabbstarten har du skapat en Azure-containerinstans utifrån en avbildning som finns i det offentliga Docker Hub-registret. Om du vill skapa en behållare på egen hand och distribuera den till Azure Container Instances från ett privat Azure-behållarregister, går du vidare till självstudien för Azure Container Instances.
+I den här snabbstarten skapade du en Azure-containerinstans med en avbildning som finns i det offentliga Docker Hub-registret. Om du vill skapa en container på egen hand och distribuera den från ett privat Azure-containerregister går du vidare till självstudien för Azure Container Instances.
 
 > [!div class="nextstepaction"]
 > [Azure Container Instances-självstudie](./container-instances-tutorial-prepare-app.md)
@@ -157,6 +163,7 @@ Om du vill testa alternativ för att köra containrar i ett orkestreringssystem 
 [az-container-logs]: /cli/azure/container#az-container-logs
 [az-container-show]: /cli/azure/container#az-container-show
 [az-group-create]: /cli/azure/group#az-group-create
+[az-group-delete]: /cli/azure/group#az-group-delete
 [azure-cli-install]: /cli/azure/install-azure-cli
 [container-service]: ../aks/kubernetes-walkthrough.md
 [service-fabric]: ../service-fabric/service-fabric-quickstart-containers.md

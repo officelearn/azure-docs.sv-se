@@ -6,14 +6,14 @@ author: tamram
 ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
-ms.date: 08/27/2018
+ms.date: 10/09/2018
 ms.author: tamram
-ms.openlocfilehash: 3f0418e9ccdc5fe3babd2f1ac4482795994fe3b4
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 336fecf95dab36dcf00b5a0c92b700297622cc6d
+ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46996136"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48902985"
 ---
 # <a name="quickstart-use-azure-storage-explorer-to-create-a-blob-in-object-storage"></a>Snabbstart: Skapa en blob i objektlagring med hjälp av Azure Storage Explorer
 
@@ -79,7 +79,7 @@ Ladda ned blobar med hjälp av **Azure Storage Explorer** genom att markera en b
 
 ## <a name="manage-snapshots"></a>Hantera ögonblicksbilder
 
-I Azure Storage Explorer kan du ta och hantera [ögonblicksbilder](storage-blob-snapshots.md) av dina blobar. Ta en ögonblickbild av en blob genom att högerklicka på den och välja **Make Snapshot** (Skapa ögonblicksbild). Visa en ögonblickbild av en blob genom att högerklicka på den och välja **Manage Snapshots** (Hantera ögonblicksbilder). En lista över ögonblicksbilder för bloben visas på den aktuella fliken.
+I Azure Storage Explorer kan du ta och hantera [ögonblicksbilder](storage-blob-snapshots.md) av dina blobar. Om du vill ta en ögonblicksbild av en blob högerklickar du på bloben och väljer **Skapa ögonblicksbild**. Visa en ögonblickbild av en blob genom att högerklicka på den och välja **Manage Snapshots** (Hantera ögonblicksbilder). En lista över ögonblicksbilder för bloben visas på den aktuella fliken.
 
 ![Microsoft Azure Storage Explorer – lista med blobar i en container](media/storage-quickstart-blobs-storage-explorer/snapshots.png)
 

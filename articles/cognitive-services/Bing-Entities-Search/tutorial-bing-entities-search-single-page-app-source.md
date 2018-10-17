@@ -1,24 +1,25 @@
 ---
-title: Webbprogram för Bing Image-sökning sida (källkod) | Microsoft Docs
-description: Källkoden för kursen visar hur du använder Bing avbildningen Sök API i en enda sida webbprogram.
+title: 'Självstudie: Enkelsidig webbapp med entitetssökning i Bing (källkod)'
+titlesuffix: Azure Cognitive Services
+description: Källkod för självstudie som visar hur du använder API:et för entitetssökning i Bing i ett webbprogram med en enda sida.
 services: cognitive-services
 author: v-jerkin
-manager: ehansen
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-entity-search
-ms.topic: article
+ms.topic: tutorial
 ms.date: 10/04/2017
 ms.author: v-jerkin
-ms.openlocfilehash: 988d4c809fdfb528c9cef2b3cdbefa00c274d33e
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
-ms.translationtype: MT
+ms.openlocfilehash: 09cb10002be43d65ff10e3c238a880cf138aa064
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35351600"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48815060"
 ---
-# <a name="tutorial-single-page-web-app-source"></a>Självstudier: Single-page app webbadress
+# <a name="tutorial-single-page-web-app-source"></a>Självstudie: Enkelsidig webbappkälla
 
-Detta är klar källkoden som beskrivs i den [sida app kursen](tutorial-bing-entities-search-single-page-app.md) för Bing Image-sökning. Kör appen genom att kopiera källkoden i anteckningar eller något annat textredigeringsprogram och spara den som `bing.html`. Öppna sedan den sparade filen i Microsoft Edge eller en annan populära webbläsare.
+Det här är den fullständiga källkoden som beskrivs i [självstudien om appar med en enda sida](tutorial-bing-entities-search-single-page-app.md) för entitetssökning i Bing. Om du vill köra appen kopierar du källkoden till Anteckningar eller ett annat textredigeringsprogram och sparar den som `bing.html`. Öppna sedan den sparade filen i Microsoft Edge eller en annan populär webbläsare.
 
 ```html
 <!DOCTYPE html>

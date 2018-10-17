@@ -1,37 +1,37 @@
 ---
-title: Snabbstart för Bing Autosuggest API med Java | Microsoft Docs
-description: Hämta information och exempel på kod för att snabbt komma igång med Bing Autosuggest API i kognitiva Azure-tjänster.
+title: 'Snabbstart: API för automatiska förslag i Bing, Java'
+titlesuffix: Azure Cognitive Services
+description: Hämta information och kodexempel som hjälper dig att snabbt komma igång med API:et för automatiska förslag i Bing.
 services: cognitive-services
-documentationcenter: ''
 author: v-jaswel
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-autosuggest
-ms.topic: article
+ms.topic: quickstart
 ms.date: 09/14/2017
 ms.author: v-jaswel
-ms.openlocfilehash: c3a6b7119521772dbb60f3702c84e9bbd94217c4
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
-ms.translationtype: MT
+ms.openlocfilehash: 6f79416c28631a47209558fd0c415ae79cff93bc
+ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35354771"
+ms.lasthandoff: 10/06/2018
+ms.locfileid: "48831406"
 ---
-# <a name="quickstart-for-bing-autosuggest-api-with-java"></a>Snabbstart för Bing Autosuggest API med Java
-<a name="HOLTop"></a>
+# <a name="quickstart-for-bing-autosuggest-api-with-java"></a>Snabbstart för API för automatiska förslag i Bing med Java
 
-Den här artikeln visar hur du använder den [Bing Autosuggest API](https://azure.microsoft.com/services/cognitive-services/autosuggest/) med Java. Bing Autosuggest API returnerar en lista över föreslagna frågor baserat på den partiella frågesträngen användaren skriver i sökrutan. Du skulle normalt anropa denna API varje gång användaren anger ett nytt tecken i sökrutan och sedan visa förslagen i listrutan i sökrutan. Den här artikeln visar hur du skickar en begäran som returnerar de föreslagna frågesträngarna för *seglar*.
+Den här artikeln visar hur du använder [API:et för automatiska förslag i Bing](https://azure.microsoft.com/services/cognitive-services/autosuggest/) med Java. API för automatiska förslag i Bing returnerar en lista över föreslagna frågor baserat på den partiella frågesträng som användaren anger i sökrutan. Normalt skulle du anropa detta API varje gång som användaren skriver ett nytt tecken i sökrutan, och sedan visa förslagen i listrutan i sökrutan. Den här artikeln visar hur du skickar en begäran som returnerar de föreslagna frågesträngarna för *sail* (segla).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
-Du behöver [JDK 7 eller 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) att kompilera och köra den här koden. Du kan använda en Java-IDE om du har en favorit, men det räcker en textredigerare.
+Du behöver [JDK 7 eller 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) för att kompilera och köra den här koden. Du kan använda en Java IDE om du föredrar det, men ett redigeringsprogram fungerar också bra.
 
-Du måste ha en [kognitiva Services API-konto](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) med **Bing Autosuggest API v7**. Den [kostnadsfri utvärderingsversion](https://azure.microsoft.com/try/cognitive-services/#search) är tillräcklig för den här snabbstarten. Du måste åtkomstnyckel som tillhandahållits när du aktiverar din kostnadsfria utvärderingsversion eller du kan använda en betald prenumeration nyckel från instrumentpanelen i Azure.
+Du måste ha ett [API-konto för Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) med **API:et för automatiska förslag i Bing v7**. Det räcker med en [kostnadsfri utvärderingsversion](https://azure.microsoft.com/try/cognitive-services/#search) för den här snabbstarten. Du behöver den åtkomstnyckel som du fick när du aktiverade din kostnadsfria utvärderingsversion, eller så kan du använda en betald prenumerationsnyckel från instrumentpanelen i Azure.
 
-## <a name="get-autosuggest-results"></a>Automatiska förslag resultat
+## <a name="get-autosuggest-results"></a>Få resultat för automatiska förslag
 
-1. Skapa ett nytt Java-projekt i din favorit IDE.
+1. Skapa ett nytt Java-projekt i din favoritutvecklingsmiljö.
 2. Lägg till koden nedan.
-3. Ersätt den `subscriptionKey` värde med en giltig snabbtangent för din prenumeration.
+3. Ersätt värdet `subscriptionKey` med en giltig åtkomstnyckel för din prenumeration.
 4. Kör programmet.
 
 ```java
@@ -117,7 +117,7 @@ public class Autosuggest {
 
 ### <a name="response"></a>Svar
 
-Ett lyckat svar returneras i JSON, som visas i följande exempel: 
+Ett svar som anger att åtgärden lyckades returneras i JSON, som du ser i följande exempel: 
 
 ```json
 {
@@ -186,9 +186,9 @@ Ett lyckat svar returneras i JSON, som visas i följande exempel:
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Självstudier för Bing Autosuggest](../tutorials/autosuggest.md)
+> [Självstudie för automatiska förslag i Bing](../tutorials/autosuggest.md)
 
-## <a name="see-also"></a>Se också
+## <a name="see-also"></a>Se även
 
-- [Vad är för Bing Autosuggest?](../get-suggested-search-terms.md)
-- [API för Bing Autosuggest v7-referens](https://docs.microsoft.com/rest/api/cognitiveservices/bing-autosuggest-api-v7-reference)
+- [Vad är Automatiska förslag i Bing?](../get-suggested-search-terms.md)
+- [Referens för API för automatiska förslag i Bing v7](https://docs.microsoft.com/rest/api/cognitiveservices/bing-autosuggest-api-v7-reference)

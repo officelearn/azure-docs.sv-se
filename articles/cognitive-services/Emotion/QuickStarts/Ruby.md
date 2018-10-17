@@ -1,40 +1,42 @@
 ---
-title: Känslo-API Ruby Snabbstart | Microsoft Docs
-description: Hämta information och exempel på kod för att snabbt komma igång med Känslo-API med Ruby i kognitiva Services.
+title: 'Snabbstart: Känsloigenkänning i ansikten i en bild – Känslo-API, Ruby'
+titlesuffix: Azure Cognitive Services
+description: Hämta information och exempel på kod som hjälper dig att snabbt komma igång med känslo-API med Ruby.
 services: cognitive-services
 author: anrothMSFT
-manager: corncar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: emotion-api
-ms.topic: article
+ms.topic: quickstart
 ms.date: 05/23/2017
 ms.author: anroth
-ms.openlocfilehash: 733127bb3656d86a7f3f57cd26c72909900f4899
-ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
-ms.translationtype: MT
+ROBOTS: NOINDEX
+ms.openlocfilehash: bcab24334c1ee4e47061ce6ea28bd60039e17b3f
+ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37021057"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48239037"
 ---
-# <a name="emotion-api-ruby-quick-start"></a>Känslo-API Ruby Snabbstart
+# <a name="quickstart-build-an-app-to-recognize-emotions-on-faces-in-an-image"></a>Snabbstart: Skapa en app för att känna igen känslor i ansikten på en bild.
 
 > [!IMPORTANT]
-> Förhandsgranskning av video API avslutas på 30 oktober 2017. Prova den nya [Video indexeraren API Preview](https://azure.microsoft.com/services/cognitive-services/video-indexer/) enkelt extrahera insikter från videor och förbättra innehållsidentifiering upplevelser, till exempel sökresultat med hjälp av tal, ytor, tecken och känslor. [Läs mer](https://docs.microsoft.com/azure/cognitive-services/video-indexer/video-indexer-overview).
+> Känslo-API:et blir inaktuellt den 15 februari 2019. Funktionen för känsloigenkänning är nu allmänt tillgänglig som en del av [ansikts-API:et](https://docs.microsoft.com/azure/cognitive-services/face/). 
 
-Den här artikeln innehåller information och kodexempel som hjälper dig att snabbt komma igång med den [Känslo-API känner igen metoden](https://westus.dev.cognitive.microsoft.com/docs/services/5639d931ca73072154c1ce89/operations/563b31ea778daf121cc3a5fa) med Ruby att identifiera emotikoner uttryckt genom en eller flera personer i en bild.
+Den här artikeln innehåller information och kodexempel som hjälper dig att snabbt komma igång med hjälp av [metoden Recognize för Känslo-API:et](https://westus.dev.cognitive.microsoft.com/docs/services/5639d931ca73072154c1ce89/operations/563b31ea778daf121cc3a5fa) med Ruby för att känna igen känslor som uttrycks av en eller flera personer i en bild.
 
 ## <a name="prerequisite"></a>Krav
-* Hämta din kostnadsfria prenumerationen nyckel [här](https://azure.microsoft.com/try/cognitive-services/)
+* Få din kostnadsfria prenumerationsnyckel [här](https://azure.microsoft.com/try/cognitive-services/)
 
-## <a name="recognize-emotions-ruby-example-request"></a>Identifiera emotikoner Ruby Exempelbegäran
+## <a name="recognize-emotions-ruby-example-request"></a>Exempelbegäran för känsloigenkänning med Ruby
 
-Ändra REST-URL: en om du vill använda den plats där du har köpt din prenumeration nycklar, Ersätt ”Ocp-Apim-prenumeration-Key”-värdet med giltig prenumeration-nyckel och lägga till en URL till ett foto till den `body` variabeln.
+Ändra REST URL:en för att använda platsen där du fick dina prenumerationsnycklar, ersätt värdet ”Ocp-Apim-Subscription-Key” med din giltiga prenumerationsnyckel och lägg till en webbadress till variabeln `body`.
 
 ```ruby
 require 'net/http'
 
 # NOTE: You must use the same region in your REST call as you used to obtain your subscription keys.
-#   For example, if you obtained your subscription keys from westcentralus, replace "westus" in the 
+#   For example, if you obtained your subscription keys from westcentralus, replace "westus" in the
 #   URL below with "westcentralus".
 uri = URI('https://westus.api.cognitive.microsoft.com/emotion/v1.0/recognize')
 uri.query = URI.encode_www_form({
@@ -56,13 +58,13 @@ puts response.body
 
 ```
 
-## <a name="recognize-emotions-sample-response"></a>Identifiera emotikoner Exempelsvar
-Lyckade anrop returnerar en matris av framsidan poster och deras associerade känslo poäng rangordnas efter ansikte rektangel storlek i fallande ordning. Ett tomt svar anger att ingen ytor upptäcktes. Känslo-posten innehåller följande fält:
-* faceRectangle - placering av ansikte i avbildningen.
-* resultat - Place poängen för varje yta i bilden. 
+## <a name="recognize-emotions-sample-response"></a>Exempelsvar för känsloigenkänning
+Ett genomfört anrop returnerar en matris med ansiktsposter och deras associerade känsloresultat, rankade efter ansiktsrektangelns storlek i fallande ordning. Ett tomt svar indikerar att inga ansikten kändes igen. En känslopost innehåller följande fält:
+* faceRectangle – ansiktsrektangelns placering i bilden.
+* scores – känsloresultat för varje ansikte i bilden.
 
 ```json
-application/json 
+application/json
 [
   {
     "faceRectangle": {

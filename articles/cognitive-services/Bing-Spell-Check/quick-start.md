@@ -1,34 +1,34 @@
 ---
-title: Snabbstart för Bing stavningskontroll kontrollera API | Microsoft Docs
-description: Visar hur du kommer igång med Bing stavningskontroll kontrollera API.
+title: 'Snabbstart: API för stavningskontroll i Bing'
+titlesuffix: Azure Cognitive Services
+description: Visar hur du kommer igång med API för stavningskontroll i Bing.
 services: cognitive-services
 author: swhite-msft
-manager: ehansen
-ms.assetid: AF8EB1F0-386D-4555-9354-735611435F04
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-spell-check
-ms.topic: article
+ms.topic: quickstart
 ms.date: 06/21/2016
 ms.author: scottwhi
-ms.openlocfilehash: cae8353e5be6e70eca90e5995b29b6774fc7d6a9
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
-ms.translationtype: MT
+ms.openlocfilehash: 29ee7cb4ee648d20b425939553ba31cd9ac150f0
+ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35351501"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48804199"
 ---
-# <a name="your-first-spell-check-request"></a>Din första stavningskontroll begäran
+# <a name="quickstart-your-first-spell-check-request"></a>Snabbstart: Din första stavningskontrollsförfrågan
 
-Du måste hämta en nyckel för prenumerationen kognitiva Services innan du kan göra din första anropet. Om du vill få en nyckel finns [försök kognitiva Services](https://azure.microsoft.com/try/cognitive-services/?api=spellcheck-api).
+Innan du kan göra ditt första anrop måste du skaffa en prenumerationsnyckel för Cognitive Services. Information om hur du skaffar en nyckel finns i [Testa Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=spellcheck-api).
 
-Om du vill kontrollera en textsträng för stavningen och grammatikfel skickar du en GET-begäran till följande slutpunkt:  
+Om du vill kontrollera stavning och grammatikfel i en textsträng skickar du en GET-begäran till följande slutpunkt:  
   
 ```
 https://api.cognitive.microsoft.com/bing/v5.0/spellcheck
 ```
 
 > [!NOTE]
-> V7 förhandsgranskningsslutpunkten:
+> Slutpunkt för V7-förhandsversion:
 > 
 > ```
 > https://api.cognitive.microsoft.com/bing/v7.0/spellcheck
@@ -36,22 +36,22 @@ https://api.cognitive.microsoft.com/bing/v5.0/spellcheck
   
 Begäran måste använda HTTPS-protokollet.
 
-Vi rekommenderar att alla begäranden som kommer från en server. Distribuera nyckeln som en del av ett klientprogram ger mer möjlighet för skadliga tredjeparts att komma åt den. Dessutom ger samtal från en server en enkel uppgradering för framtida versioner av API: et.
+Vi rekommenderar att alla förfrågningar kommer från en server. Om nyckeln distribueras som en del av ett klientprogram ökar risken för att en illvillig tredje part kan komma åt den. Anrop från en server innebär dessutom att det bara finns en enda uppgraderingspunkt för framtida versioner av API:et.
 
-Begäran måste ange den [text](https://docs.microsoft.com/rest/api/cognitiveservices/bing-spell-check-api-v5-reference#text) frågeparameter som innehåller en textsträng att bevis. Även om det är valfritt, begäran måste också ange den [mkt](https://docs.microsoft.com/rest/api/cognitiveservices/bing-spell-check-api-v5-reference#mkt) frågeparameter som identifierar marknaden där du vill att resultaten från. En lista över valfria fråga parametrar som `mode`, se [frågeparametrar](https://docs.microsoft.com/rest/api/cognitiveservices/bing-spell-check-api-v5-reference#query-parameters). Alla parametervärden för frågan måste vara URL-kodade.  
+Begäran måste innehålla frågeparametern [text](https://docs.microsoft.com/rest/api/cognitiveservices/bing-spell-check-api-v5-reference#text), som innehåller textsträngens som ska kontrolleras. Även om det är valfritt bör begäran även innehålla frågeparametern [mkt](https://docs.microsoft.com/rest/api/cognitiveservices/bing-spell-check-api-v5-reference#mkt), som identifierar marknaden som du vill att resultatet ska komma från. En lista över valfria frågeparametrar som `mode` finns i [Frågeparametrar](https://docs.microsoft.com/rest/api/cognitiveservices/bing-spell-check-api-v5-reference#query-parameters). Alla frågeparametervärden måste vara URL-kodade.  
   
-Begäran måste ange den [Ocp-Apim-prenumeration-nyckeln](https://docs.microsoft.com/rest/api/cognitiveservices/bing-spell-check-api-v5-reference#subscriptionkey) huvud. Även om det är valfritt, uppmanas du att ange följande huvuden:  
+Begäran måste innehålla huvudet [Ocp-Apim-Subscription-Key](https://docs.microsoft.com/rest/api/cognitiveservices/bing-spell-check-api-v5-reference#subscriptionkey). Även om det är valfritt rekommenderar vi även att följande huvuden finns med:  
   
--   [Användaragent](https://docs.microsoft.com/rest/api/cognitiveservices/bing-spell-check-api-v5-reference#useragent)  
+-   [User-Agent](https://docs.microsoft.com/rest/api/cognitiveservices/bing-spell-check-api-v5-reference#useragent)  
 -   [X-MSEdge-ClientID](https://docs.microsoft.com/rest/api/cognitiveservices/bing-spell-check-api-v5-reference#clientid)  
--   [X-Sök-ClientIP](https://docs.microsoft.com/rest/api/cognitiveservices/bing-spell-check-api-v5-reference#clientip)  
--   [X sökplats](https://docs.microsoft.com/rest/api/cognitiveservices/bing-spell-check-api-v5-reference#location)  
+-   [X-Search-ClientIP](https://docs.microsoft.com/rest/api/cognitiveservices/bing-spell-check-api-v5-reference#clientip)  
+-   [X-Search-Location](https://docs.microsoft.com/rest/api/cognitiveservices/bing-spell-check-api-v5-reference#location)  
 
-En lista över alla begärande- och svarshuvuden, finns i [huvuden](https://docs.microsoft.com/rest/api/cognitiveservices/bing-spell-check-api-v5-reference#headers).
+En lista över alla sidhuvuden för begäranden och svar finns i [Sidhuvuden](https://docs.microsoft.com/rest/api/cognitiveservices/bing-spell-check-api-v5-reference#headers).
 
 ## <a name="the-request"></a>Begäran
 
-Nedan visas en förfrågan som innehåller alla föreslagna frågeparametrar och rubriker. Om det är första gången du anropar någon av API: er för Bing inte med klient-ID-huvudet. Ta bara med klient-ID om du har tidigare påbörjat en Bing-API och Bing returnerade ett klient-ID för användare och enhet kombination. 
+Nedan visas en begäran som innehåller alla föreslagna frågeparametrar och sidhuvuden. Om det är den första gången du anropar ett Bing-API inkluderar du inte klientens ID-huvud. Inkludera endast klient-ID om du har anropat ett Bing-API förut och om Bing returnerade ett klient-ID för användar- och enhetskombinationen. 
   
 ```  
 GET https://api.cognitive.microsoft.com/bing/v5.0/spellcheck?text=when+its+your+turn+turn,+john,+come+runing&mkt=en-us HTTP/1.1  
@@ -64,7 +64,7 @@ Host: api.cognitive.microsoft.com
 ```  
 
 > [!NOTE]
-> V7 Preview begäran:
+> Begäran om V7-förhandsversion:
 
 > ```  
 > GET https://api.cognitive.microsoft.com/bing/v7.0/spellcheck?text=when+its+your+turn+turn,+john,+come+runing&mkt=en-us HTTP/1.1
@@ -75,7 +75,7 @@ Host: api.cognitive.microsoft.com
 > Host: api.cognitive.microsoft.com  
 > ```  
 
-Nedan visas svaret på den tidigare begäranden. Exemplet visar också Bing-specifika svarshuvuden.
+Nedan visas svaret på den tidigare begäran. Exemplet visar också Bing-specifika svarshuvuden.
 
 ```
 BingAPIs-TraceId: 76DD2C2549B94F9FB55B4BD6FEB6AC
@@ -126,7 +126,7 @@ BingAPIs-Market: en-US
 
 ## <a name="next-steps"></a>Nästa steg
 
-Prova att använda API: et. Gå till [Stavningskontrolls Kontrollera API Testing-konsolen](https://dev.cognitive.microsoft.com/docs/services/56e73033cf5ff80c2008c679/operations/57855119bca1df1c647bc358). 
+Testa API:et. Gå till [testningskonsolen för stavningskontrolls-API](https://dev.cognitive.microsoft.com/docs/services/56e73033cf5ff80c2008c679/operations/57855119bca1df1c647bc358). 
 
-Mer information om förbrukar svar-objekt finns [stavningskontroll kontrollera textsträngar](./proof-text.md).
+Mer information om hur du använder svarsobjekten finns i [Spell check text strings](./proof-text.md) (Stavningskolla textsträngar).
 

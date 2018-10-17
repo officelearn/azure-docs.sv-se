@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: overview
-ms.date: 08/27/2018
+ms.date: 10/03/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: ae2d312feb0fcefab85bcbbd2db7ac46c328213f
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: a23e9dc8fad52bac85de834c53d2c710423211c7
+ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43104990"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48269249"
 ---
 # <a name="what-is-azure-analysis-services"></a>Vad är Azure Analysis Services?
 
@@ -39,7 +39,7 @@ Azure Analysis Services är tillgängligt på nivåerna **Developer**, **Basic**
 
 ### <a name="developer-tier"></a>Developer-nivå
 
-Den här nivån rekommenderas för utvärderings-, utvecklings- och testscenarier. En enskild plan inkluderar samma funktioner som på Standard-nivån, men funktionerna för processorkraft, QPU:er och minnesstorlek är begränsade. Skalning av frågerepliker är inte tillgängligt på den här nivån. Den här nivån omfattas inte av något serviceavtal.
+Den här nivån rekommenderas för utvärderings-, utvecklings- och testscenarier. En enskild plan inkluderar samma funktioner som på Standard-nivån, men funktionerna för processorkraft, QPU:er och minnesstorlek är begränsade. Skalning av frågerepliker *är inte tillgängligt* på den här nivån. Den här nivån omfattas inte av något serviceavtal.
 
 |Planera  |QPU:er  |Minne (GB)  |
 |---------|---------|---------|
@@ -102,6 +102,7 @@ Azure Analysis Services stöds i regioner över hela världen. Planer som stöds
 |Region  | Planer som stöds | Frågerepliker (endast standardplaner) |
 |---------|---------|:---------:|
 |Sydöstra Australien     | B1, B2, S0, S1, S2, S4, D1       |    1     |
+|Östra Australien     |    B1, B2, S0, S1, S2, S4, D1    <br>S8, S9    |    3<br>1     |
 |Östra Japan  |   B1, B2, S0, S1, S2, S4, D1       |    1     |
 |Sydostasien     |     B1, B2, S0, S1, S2, S4, S8, S9, D1     |   1      |
 |Indien, västra     |    B1, B2, S0, S1, S2, S4, D1     |    1     |

@@ -1,26 +1,23 @@
 ---
 title: Jämföra Flow, Logic Apps, Functions och WebJobs – Azure
 description: 'Jämför Microsofts molntjänster som är optimerade för integreringsuppgifter: Flow, Logic Apps, Functions och WebJobs.'
-services: functions,app-service\logic
+services: functions, logic-apps
 documentationcenter: na
 author: ggailey777
-manager: cfowler
-tags: ''
+manager: jeconnoc
 keywords: microsoft flow, flow, logic apps, azure functions, functions, azure webjobs, webjobs, event processing, dynamic compute, serverless architecture
-ms.service: functions
+ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: overview
-ms.tgt_pltfrm: multiple
-ms.workload: na
 ms.date: 04/09/2018
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: 9e79cba0b186ace97609409f49369ac89b5a1eeb
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.openlocfilehash: 789b572a1d3b049bcfd9a739182c49c4da27fc96
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39346291"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48817015"
 ---
 # <a name="compare-flow-logic-apps-functions-and-webjobs"></a>Jämföra Flow, Logic Apps, Functions och WebJobs
 
@@ -56,7 +53,7 @@ Tabellen nedan hjälper dig att avgöra om Flow eller Logic Apps passar bäst f�
 
 Functions och Logic Apps är Azure-tjänster som möjliggör serverlösa arbetsbelastningar. Azure Functions är en serverlös beräkningstjänst, medan Azure Logic Apps tillhandahåller serverlösa arbetsflöden. Komplexa *orkestreringarna* kan skapas med båda. En orkestrering är en samling funktioner eller steg, som kallas *åtgärder* som utförs i Logic Apps, som körs för att utföra en komplicerad uppgift. För att till exempel bearbeta en batch med order kanske du kör flera instanser av en funktion parallellt, väntar tills alla instanser har slutförts och kör sedan en funktion som beräknar ett totalt resultat.
 
-Med Azure Functions utvecklar du orkestreringarna genom att skriva kod och använda [tillägget Varaktiga funktioner](durable-functions-overview.md) (i förhandsversion). Med Logic Apps skapar du orkestreringarna genom att använda ett grafiskt användargränssnitt eller redigera konfigurationsfiler.
+Med Azure Functions utvecklar du orkestreringarna genom att skriva kod och använda [tillägget Varaktiga funktioner](durable-functions-overview.md). Med Logic Apps skapar du orkestreringarna genom att använda ett grafiskt användargränssnitt eller redigera konfigurationsfiler.
 
 Du kan kombinera tjänsterna när du skapar en orkestrering och anropa funktioner från logikappar och logikappar från funktioner. Välj hur du skapar varje orkestrering utifrån tjänsternas funktioner eller vad du föredrar. I följande tabell visas några av de viktigaste skillnaderna mellan tjänsterna:
  
@@ -65,7 +62,7 @@ Du kan kombinera tjänsterna när du skapar en orkestrering och anropa funktione
 | Utveckling | Kod först (imperativt) | Designer först (deklarativt) |
 | Anslutning | [Ett dussintal inbyggda bindningstyper](functions-triggers-bindings.md#supported-bindings), skriv kod för anpassade bindningar | [Stor samling anslutningsprogram](../connectors/apis-list.md), [Enterprise-integrationspaket för B2B-scenarier](../logic-apps/logic-apps-enterprise-integration-overview.md), [skapa egna anslutningsprogram](../logic-apps/custom-connector-overview.md) |
 | Åtgärder | Varje aktivitet är en Azure-funktion. Skriv kod för aktivitetsfunktioner |[Stor samling färdiga åtgärder](../logic-apps/logic-apps-workflow-actions-triggers.md)|
-| Övervakning | [Azure Application Insights](../application-insights/app-insights-overview.md) | [Azure Portal](../logic-apps/quickstart-create-first-logic-app-workflow.md), [Operations Management Suite](../logic-apps/logic-apps-monitor-your-logic-apps-oms.md), [Log Analytics](../logic-apps/logic-apps-monitor-your-logic-apps.md)|
+| Övervakning | [Azure Application Insights](../application-insights/app-insights-overview.md) | [Azure-portalen](../logic-apps/quickstart-create-first-logic-app-workflow.md), [Log Analytics](../logic-apps/logic-apps-monitor-your-logic-apps.md)|
 | Hantering | [REST API](durable-functions-http-api.md), [Visual Studio](https://docs.microsoft.com/azure/vs-azure-tools-resources-managing-with-cloud-explorer) | [Azure Portal](../logic-apps/quickstart-create-first-logic-app-workflow.md), [REST API](https://docs.microsoft.com/rest/api/logic/), [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.logicapp/?view=azurermps-5.6.0), [Visual Studio](https://docs.microsoft.com/azure/logic-apps/manage-logic-apps-with-visual-studio) |
 | Körningskontext | Kan köras [lokalt](functions-runtime-overview.md) eller i molnet. | Körs bara i molnet.|
 

@@ -6,16 +6,16 @@ description: >
 services: cognitive-services
 author: wolfma61
 ms.service: cognitive-services
-ms.technology: Speech
+ms.component: Speech
 ms.topic: tutorial
 ms.date: 09/24/2018
 ms.author: wolfma
-ms.openlocfilehash: 16424c44003be14e3ba04f6b5cce0ce518a0d7e8
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: 9210aaf2ddfa917ff480f4126c02137f46788dc3
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47063038"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48884358"
 ---
 # <a name="tutorial-recognize-intents-from-speech-using-the-speech-sdk-for-c"></a>Självstudie: Identifiera avsikter från tal med hjälp av Speech SDK för C#
 
@@ -123,7 +123,7 @@ Följande avsnitt innehåller en beskrivning av koden.
 Det första steget i att identifiera avsikter är att skapa en talkonfiguration från din LUIS-slutpunktsnyckel och region. Talkonfigurationer kan användas för att skapa igenkännare för de olika funktionerna i Speech SDK. Talkonfigurationen har flera sätt att ange den prenumeration som du vill använda. Här använder vi `FromSubscription`, som tar prenumerationsnyckeln och regionen.
 
 > [!NOTE]
-> Använd nyckeln och regionen för din LUIS-prenumeration, inte din Speech-prenumeration.
+> Använd nyckeln och regionen för din LUIS-prenumeration, inte för en Speech-tjänstprenumeration.
 
 Nästa steg är att skapa en avsiktsigenkännare med hjälp av `new IntentRecognizer(config)`. Eftersom konfigurationen redan vet vilken prenumeration du ska använda behöver du inte ange prenumerationsnyckeln och slutpunkten igen när du skapar igenkännaren.
 
@@ -166,7 +166,7 @@ Självstudieprogrammet parsar inte JSON-resultatet, utan visar det endast i kons
 
 ## <a name="specify-recognition-language"></a>Ange igenkänningsspråk
 
-Som standard känner LUIS igen avsikter på amerikansk engelska (`en-us`). Genom att tilldela en kod för nationella inställningar till egenskapen `SpeechRecognitionLanguage` i talkonfigurationen kan du känna igen avsikter på andra språk. Lägg exempelvis till `config.SpeechRecognitionLanguage = "de-de";` i självstudieprogrammet innan du skapar igenkännaren om du vill känna igen avsikter på tyska. Se [Språk som stöds](supported-languages.md#speech-to-text).
+Som standard känner LUIS igen avsikter på amerikansk engelska (`en-us`). Genom att tilldela en kod för nationella inställningar till egenskapen `SpeechRecognitionLanguage` i talkonfigurationen kan du känna igen avsikter på andra språk. Lägg exempelvis till `config.SpeechRecognitionLanguage = "de-de";` i självstudieprogrammet innan du skapar igenkännaren om du vill känna igen avsikter på tyska. Se [Språk som stöds](language-support.md#speech-to-text).
 
 ## <a name="continuous-recognition-from-a-file"></a>Kontinuerlig igenkänning från en fil
 

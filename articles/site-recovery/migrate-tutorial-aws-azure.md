@@ -6,15 +6,15 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 08/24/2018
+ms.date: 10/10/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 48714d71edcf54726eb362c7f56950a1350fd52b
-ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
+ms.openlocfilehash: 04e7506562d29e37abb65b7a760fbc9bd707e2c6
+ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42885333"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49078944"
 ---
 # <a name="migrate-amazon-web-services-aws-vms-to-azure"></a>Migrera virtuella AWS-datorer (Amazon Web Services) till Azure
 
@@ -239,10 +239,9 @@ I vissa scenarier kräver redundans ytterligare bearbetning. Bearbetningen tar 8
 Kör en riktig redundansväxling för EC2-instanserna för att migrera dem till virtuella Azure-datorer:
 
 1. I **Skyddade objekt** > **Replikerade objekt**, klickar du på AWS-instanser och därefter på **Redundans**.
-2. I **Redundans** väljer du en **Återställningspunkt** att redundansväxla till. Välj den senaste återställningspunkten.
-3. Välj **Stäng datorn innan du påbörjar redundans** om du vill använda Site Recovery för att stänga av virtuella källdatorer innan du utlöser redundansväxling. Redundansväxlingen fortsätter även om avstängningen misslyckas. Du kan följa redundansförloppet på sidan **Jobb**.
-4. Kontrollera att den virtuella datorn visas i **Replikerade objekt**.
-5. Högerklicka på varje virtuell dator och välj sedan **Slutför migrering**. Detta avslutar migreringsprocessen, stoppar replikeringen för virtuella datorer i AWS och stoppar Site Recovery-debitering för den virtuella datorn.
+2. I **Redundans** väljer du en **Återställningspunkt** att redundansväxla till. Välj den senaste återställningspunkten och starta redundansväxlingen. Du kan följa redundansförloppet på sidan **Jobb**.
+1. Kontrollera att den virtuella datorn visas i **Replikerade objekt**.
+2. Högerklicka på varje virtuell dator och välj sedan **Slutför migrering**. Detta avslutar migreringsprocessen, stoppar replikeringen för virtuella datorer i AWS och stoppar Site Recovery-debitering för den virtuella datorn.
 
     ![Slutföra migrering](./media/migrate-tutorial-aws-azure/complete-migration.png)
 

@@ -1,6 +1,6 @@
 ---
-title: Självstudien Distribuera ett Azure Stream Analytics-jobb med CI/CD med hjälp av VSTS
-description: Den här artikeln beskriver hur du distribuerar ett Stream Analytics-jobb med CI/CD med hjälp av VSTS.
+title: 'Självstudie: Distribuera ett Azure Stream Analytics-jobb med CI/CD med hjälp av Azure Pipelines'
+description: Den här artikeln beskriver hur du distribuerar ett Stream Analytics-jobb med CI/CD med hjälp av Azure DevOps Services.
 services: stream-analytics
 author: su-jie
 ms.author: sujie
@@ -9,22 +9,22 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: tutorial
 ms.date: 7/10/2018
-ms.openlocfilehash: d4f1e188a1a145ba3be5fb45d2b0ea4d0bfd57a7
-ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
+ms.openlocfilehash: adacbaf718c5ef293b4ee3fa833083704aa41f5c
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/15/2018
-ms.locfileid: "41919443"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44297950"
 ---
-# <a name="tutorial-deploy-an-azure-stream-analytics-job-with-cicd-using-vsts"></a>Självstudie: Distribuera ett Azure Stream Analytics-jobb med CI/CD med hjälp av VSTS
-Den här artikeln beskriver hur du konfigurerar kontinuerlig integrering och distribution för ett Azure Stream Analytics-jobb med hjälp av Visual Studio Team Services. 
+# <a name="tutorial-deploy-an-azure-stream-analytics-job-with-cicd-using-azure-pipelines"></a>Självstudie: Distribuera ett Azure Stream Analytics-jobb med CI/CD med hjälp av Azure Pipelines
+Den här artikeln beskriver hur du konfigurerar kontinuerlig integrering och distribution för ett Azure Stream Analytics-jobb med hjälp av Azure Pipelines. 
 
 I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
 > * lägga till källkontroll i projektet
-> * Skapa en byggesdefinition i Team Services
-> * skapa en versionsdefinition i Team Services
+> * Skapa en bygg-pipeline i Azure Pipelines
+> * Skapa en versionspipeline i Azure Pipelines
 > * distribuera och uppgradera ett program automatiskt.
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
@@ -33,7 +33,7 @@ Se till att du har följande innan du börjar:
 * Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * Installera [Visual Studio](stream-analytics-tools-for-visual-studio-install.md) och arbetsbelastningen **Azure development** (Azure-utveckling) eller **Data Storage and Processing** (Datalagring och bearbetning).
 * Skapa ett [Stream Analytics-projekt i Visual Studio](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-quick-create-vs).
-* Skapa ett [Visual Studio Team Services](https://visualstudio.microsoft.com/team-services/)-konto.
+* Skapa en [Azure DevOps](https://visualstudio.microsoft.com/team-services/)-organisation.
 
 ## <a name="configure-nuget-package-dependency"></a>Konfigurera NuGet-paketberoende
 För att kunna utföra automatiskt skapande och automatisk distribution på en valfri virtuell dator måste du använda NuGet-paketet `Microsoft.Azure.StreamAnalytics.CICD`. Den ger verktygen för MSBuild, lokal körning och distribution som stöder processerna för kontinuerlig integrering och distribution av Stream Analytics Visual Studio-projekt. Mer information finns i [Stream Analytics CI/CD-verktyg](stream-analytics-tools-for-visual-studio-cicd.md).
@@ -47,34 +47,35 @@ Lägg till **packages.config** till projektkatalogen.
 </packages>
 ```
 
-## <a name="share-your-visual-studio-solution-to-a-new-team-services-git-repo"></a>Dela Visual Studio-lösningen till en ny Team Services Git-lagringsplats
-Dela programkällfilerna till ett teamprojekt i Team Services så att du kan generera byggen.  
+## <a name="share-your-visual-studio-solution-to-a-new-azure-repos-git-repo"></a>Dela Visual Studio-lösningen till en ny Azure Repos Git-lagringsplats
+
+Dela programkällfilerna till ett projekt i Azure DevOps så att du kan generera byggen.  
 
 1. Skapa en ny lokal Git-lagringsplats för projektet genom att välja alternativet för att **lägga till källkontroll** och sedan **Git** i statusfältet i det nedre högra hörnet av Visual Studio. 
 
-2. I vyn för **synkronisering** i **Team Explorer** väljer du knappen för att **publicera Git-lagringsplatsen** under alternativet för att **push-överföra till Visual Studio Team Services**.
+2. I vyn för **synkronisering** i **Team Explorer** väljer du knappen för att **publicera Git-lagringsplatsen** under alternativet för att **push-överföra till Azure DevOps Services**.
 
    ![Push-överföring med Git-lagringsplats](./media/stream-analytics-tools-visual-studio-cicd-vsts/publishgitrepo.png)
 
-3. Verifiera din e-postadress och välj ditt konto i listrutan **Team Services-domän**. Skriv in lagringsplatsens namn och välj **Publicera lagringsplats**.
+3. Verifiera din e-postadress och välj din organisation i listrutan **Azure DevOps Services-domän**. Skriv in lagringsplatsens namn och välj **Publicera lagringsplats**.
 
    ![Push-överföring med Git-lagringsplats](./media/stream-analytics-tools-visual-studio-cicd-vsts/publishcode.png)
 
-    När du publicerar lagringsplatsen skapas ett nytt teamprojekt i kontot med samma namn som den lokala lagringsplatsen. Om du vill skapa lagringsplatsen i ett befintlig teamprojekt klickar du på **Avancerat** bredvid **namnet på databasen** och väljer ett teamprojekt. Du kan visa koden i webbläsaren genom att välja alternativet för att **visa på webben**.
+    När du publicerar lagringsplatsen skapas ett nytt projekt i organisationen med samma namn som den lokala lagringsplatsen. Om du vill skapa lagringsplatsen i ett befintligt projekt klickar du på **Avancerat** bredvid **namnet på databasen** och väljer ett projekt. Du kan visa koden i webbläsaren genom att välja alternativet för att **visa på webben**.
  
-## <a name="configure-continuous-delivery-with-vsts"></a>Konfigurera kontinuerlig leverans med VSTS
-En Team Services-byggesdefinition beskriver ett arbetsflöde som består av byggesåtgärder som utförs i tur och ordning. Ta reda på mer om [byggesdefinitioner för Team Services](https://www.visualstudio.com/docs/build/define/create). 
+## <a name="configure-continuous-delivery-with-azure-devops"></a>Konfigurera kontinuerlig leverans med Azure DevOps
+En Azure Pipelines-bygg-pipeline beskriver ett arbetsflöde som består av byggesåtgärder som utförs i tur och ordning. Läs mer om [Azure Pipelines bygg-pipelines](https://docs.microsoft.com/azure/devops/pipelines/get-started-designer?view=vsts&tabs=new-nav). 
 
-En versionsdefinition för Team Services beskriver ett arbetsflöde som distribuerar ett programpaket till ett kluster. När de används tillsammans kör byggesdefinitionen och versionsdefinitionen hela arbetsflödet med början på källfiler och slutar med ett program som körs i klustret. Lär dig mer om [versionsdefinitioner för Team Services](https://www.visualstudio.com/docs/release/author-release-definition/more-release-definition).
+En versionspipeline för Azure Pipelines beskriver ett arbetsflöde som distribuerar ett programpaket till ett kluster. När de används tillsammans kör bygg-pipelinen och versionspipelinen hela arbetsflödet med början på källfiler och slutar med ett program som körs i klustret. Läs mer om [Azure Pipelines versionspipelines](https://docs.microsoft.com/azure/devops/pipelines/release/define-multistage-release-process?view=vsts).
 
-### <a name="create-a-build-definition"></a>Skapa en byggesdefinition
-Öppna en webbläsare och gå till det teamprojekt som du just skapade i [Visual Studio Team Services](https://app.vsaex.visualstudio.com/). 
+### <a name="create-a-build-pipeline"></a>Skapa en bygg-pipeline
+Öppna en webbläsare och gå till det projekt som du just skapade i [Azure DevOps](https://app.vsaex.visualstudio.com/). 
 
-1. Under fliken **Build & Release** (Bygge och version) väljer du **Builds** (Byggen) och sedan **+ New** (+ Nytt).  Välj **VSTS Git** och **Fortsätt**.
+1. Under fliken **Build & Release** (Bygge och version) väljer du **Builds** (Byggen) och sedan **+ New** (+ Nytt).  Välj **Azure DevOps Services Git** och **Fortsätt**.
     
     ![Välj källa](./media/stream-analytics-tools-visual-studio-cicd-vsts/build-select-source.png)
 
-2. I **Välj en mall** klickar du på **Tom process** för att börja med en tom definition.
+2. I **Välj en mall** klickar du på **Tom process** för att börja med en tom pipeline.
     
     ![Välj byggesmall](./media/stream-analytics-tools-visual-studio-cicd-vsts/build-select-template.png)
 
@@ -82,7 +83,7 @@ En versionsdefinition för Team Services beskriver ett arbetsflöde som distribu
     
     ![Utlösarstatus](./media/stream-analytics-tools-visual-studio-cicd-vsts/build-trigger.png)
 
-4. Byggen utlöses också vid push-överföring och incheckning. Om du vill kontrollera förloppet för bygget växlar du till fliken **Builds** (Byggen).  När du har kontrollerat att bygget körs rätt måste du definiera en versionsdefinition som distribuerar programmet till ett kluster. Högerklicka på ellipsen intill byggesdefinitionen och välj **redigera**.
+4. Byggen utlöses också vid push-överföring och incheckning. Om du vill kontrollera förloppet för bygget växlar du till fliken **Builds** (Byggen).  När du har kontrollerat att bygget körs rätt måste du definiera en versionspipeline som distribuerar programmet till ett kluster. Högerklicka på ellipsen intill bygg-pipelinen och välj **Redigera**.
 
 5.  I **Uppgifter** anger du "Hosted" som **Agent queue** (Agentkö).
     
@@ -125,17 +126,17 @@ En versionsdefinition för Team Services beskriver ett arbetsflöde som distribu
     
     ![Ange egenskaper](./media/stream-analytics-tools-visual-studio-cicd-vsts/build-deploy-2.png)
 
-12. Klicka på **Save & Queue** (Spara och köa) för att testa byggesdefinition.
+12. Klicka på **Save & Queue** (Spara och köa) för att testa bygg-pipelinen.
     
     ![Ange åsidosättningsparametrar](./media/stream-analytics-tools-visual-studio-cicd-vsts/build-save-queue.png)
 
 ### <a name="failed-build-process"></a>Misslyckad byggeprocess
-Det kan hända att du får fel för nulldistributionsparametrar om du inte åsidosatte mallparametrarna i **Azure Resource Group Deployment**-uppgiften för byggesdefinitionen. Gå tillbaka till byggesdefinitionen och åsidosätt nullparametrarna för att åtgärda problemet.
+Det kan hända att du får fel för nulldistributionsparametrar om du inte åsidosatte mallparametrarna i **Azure Resource Group Deployment**-uppgiften för bygg-pipelinen. Gå tillbaka till bygg-pipelinen och åsidosätt nullparametrarna för att åtgärda problemet.
 
    ![Byggeprocessen misslyckades](./media/stream-analytics-tools-visual-studio-cicd-vsts/build-process-failed.png)
 
 ### <a name="commit-and-push-changes-to-trigger-a-release"></a>Checka in och push-överför ändringar för att utlösa en frisläppning
-Kontrollera att pipelinen för den kontinuerliga integreringen fungerar genom att kontrollera kodändringar i Team Services.    
+Kontrollera att pipelinen för den kontinuerliga integreringen fungerar genom att kontrollera kodändringar i Azure DevOps.    
 
 När du skriver koden spåras dina ändringar automatiskt av Visual Studio. Genomför ändringar av den lokala Git-lagringsplatsen genom att välja ikonen väntande ändringar från statusfältet längst ned till höger.
 
@@ -143,11 +144,11 @@ När du skriver koden spåras dina ändringar automatiskt av Visual Studio. Geno
 
     ![Checka in och push-överför ändringar](./media/stream-analytics-tools-visual-studio-cicd-vsts/build-push-changes.png)
 
-2. Välj statusfältikonen för de opublicerade ändringarna eller vyn Synkronisera i Team Explorer. Välj **Push** (Push-överföring) för att uppdatera koden i Team Services/TFS.
+2. Välj statusfältikonen för de opublicerade ändringarna eller vyn Synkronisera i Team Explorer. Välj **Push** (Push-överföring) för att uppdatera koden i Azure DevOps.
 
     ![Checka in och push-överför ändringar](./media/stream-analytics-tools-visual-studio-cicd-vsts/build-push-changes-2.png)
 
-När du skickar ändringar till Team Services via push-överföring utlöser ett bygge automatiskt.  När byggesdefinitionen har slutförts skapas en version automatiskt och börjar uppdatera jobbet i klustret.
+När du skickar ändringar till Azure DevOps Services via push-överföring utlöses ett bygge automatiskt.  När bygg-pipelinen har slutförts skapas en version automatiskt och börjar uppdatera jobbet i klustret.
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 

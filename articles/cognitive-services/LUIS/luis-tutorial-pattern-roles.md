@@ -1,118 +1,118 @@
 ---
-title: 'Självstudie 4: Mönstret roller för kontexten relaterade data'
+title: 'Självstudie 4: Mönsterroller för kontextrelaterade data'
 titleSuffix: Azure Cognitive Services
-description: Använda ett mönster för att extrahera data från en mall för välutformat-uttryck. Mall-uttryck används en enkel enhet och roller för att extrahera relaterade data, till exempel ursprungsplatsen och målplatsen.
+description: Använd ett mönster för att extrahera data från ett välformaterat mallyttrande. Mallyttranden använder en enkel entitet och roller för att extrahera relaterade data, till exempel ursprungsplatsen och målplatsen.
 services: cognitive-services
 author: diberry
 manager: cgronlun
 ms.service: cognitive-services
-ms.technology: language-understanding
-ms.topic: article
+ms.component: language-understanding
+ms.topic: tutorial
 ms.date: 09/09/2018
 ms.author: diberry
-ms.openlocfilehash: 2c3705d28d6496c3d20999231de98572bc26e3be
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
-ms.translationtype: MT
+ms.openlocfilehash: c7e7b100242d6ceb35172b872f2fb6ff7f4b402b
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47160255"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48886168"
 ---
-# <a name="tutorial-4-extract-contextually-related-patterns"></a>Självstudie 4: Extrahera sammanhangsmässigt relaterade mönster
+# <a name="tutorial-4-extract-contextually-related-patterns"></a>Självstudie 4: Extrahera kontextuellt relaterade mönster
 
-I den här självstudien använder du ett mönster för att extrahera data från en mall för välutformat-uttryck. Mall-uttryck används en enkel enhet och roller för att extrahera relaterade data, till exempel ursprungsplatsen och målplatsen.  När du använder mönster, behövs färre exempel yttranden för avsikten.
+I den här självstudien använder du ett mönster för att extrahera data från ett välformaterat mallyttrande. Mallyttranden använder en enkel entitet och roller för att extrahera relaterade data, till exempel ursprungsplatsen och målplatsen.  När du använder mönster behövs färre exempelyttranden för avsikten.
 
-Syftet med roller är att extrahera sammanhangsmässigt relaterade entiteter i ett uttryck. I uttryck, `Move new employee Robert Williams from Sacramento and San Francisco`, ursprung stad och mål stad värden är relaterade till varandra och Använd vanliga språk för att ange varje plats. 
+Syftet med roller är att extrahera kontextrelaterade entiteter i ett yttrande. I yttrandet `Move new employee Robert Williams from Sacramento and San Francisco`, är ursprungsstadens och destinationsstadens värden relaterade till varandra och använder vanliga språk för att ange varje plats. 
 
 
-Namnet på den nya medarbetaren Billy Patterson ingår inte i listan entiteten **medarbetare** ännu. Namnet på nya medarbetaren extraheras först för att skicka namnet till ett externt system att skapa autentiseringsuppgifter för företaget. När företagets autentiseringsuppgifter skapas, anställd autentiseringsuppgifterna läggs till i listan entiteten **medarbetare**.
+Namnet på den nya medarbetaren Billy Patterson finns inte på listentiteten för **medarbetare** ännu. Namnet på nya medarbetaren extraheras först för att skicka namnet till ett externt system för att skapa autentiseringsuppgifter för företaget. När företagets autentiseringsuppgifter skapas läggs medarbetarens autentiseringsuppgifter till i listentiteten **medarbetare**.
 
-Ny medarbetare och familj måste flyttas från den nuvarande ort till en stad där det fiktiva företaget finns. Eftersom en ny medarbetare kan komma från någon annan stad, måste platserna som ska identifieras. En fast lista, till exempel en lista över entitet fungerar inte eftersom endast orter i listan skulle extraheras.
+Den nya medarbetaren och familjen måste flyttas från sin nuvarande ort till en stad där det fiktiva företaget finns. Eftersom en ny medarbetare kan komma från en annan stad måste platserna identifieras. En fast lista, till exempel en listentitet, fungerar inte eftersom endast orter i listan skulle extraheras.
 
-De roll som är associerade med original och beskrivning städer måste vara unikt för alla entiteter. Ett enkelt sätt att kontrollera att rollerna som är unika är att koppla dem till den innehållande entiteten via en namnstrategin. Den **NewEmployeeRelocation** entiteten är en enkel enhet med två roller: **NewEmployeeReloOrigin** och **NewEmployeeReloDestination**. Relo är kort för dataflytt.
+Rollnamnen som är associerade med ursprungs- och destinationsstäderna måste vara unika för alla entiteter. Ett enkelt sätt att kontrollera att rollerna är unika är att koppla dem till den innehållande entiteten via en namnstrategi. Entiteten **NewEmployeeRelocation** är en enkel entitet med två roller: **NewEmployeeReloOrigin** och **NewEmployeeReloDestination**. Relo står för flytt.
 
-Eftersom exempel uttryck `Move new employee Robert Williams from Sacramento and San Francisco` har endast datorn lärt dig entiteter, är det viktigt att tillhandahålla tillräckligt med exempel yttranden med intentionen så att entiteterna som har identifierats.  
+Eftersom exempelyttrandet `Move new employee Robert Williams from Sacramento and San Francisco` endast har maskininlärda entiteter är det viktigt att tillhandahålla tillräckligt med exempelyttranden för intentionen så att avsikterna identifieras.  
 
-**Medan mönster kan du ge färre exempel yttranden, om entiteterna inte identifieras, matchar inte mönstret.**
+**Med mönster kan du ge färre exempelyttranden, men om entiteterna inte identifieras matchar inte mönstret.**
 
-Om du har problem med enkel enhet identifiering eftersom det är ett namn, till exempel en stad kan du överväga att lägga till en fras lista med liknande värden. Detta hjälper att identifiera namnet på staden genom att ge LUIS en ytterligare signal om den typ av ord eller fraser. Fras listor att endast mönstret genom att hjälpa med entiteten identifiering, vilket är nödvändigt för att mönstret ska matcha. 
+Om du har problem med enkel entitetsidentifiering eftersom det är ett namn, till exempel på en stad, kan du överväga att lägga till en fraslista med liknande värden. Detta gör det enklare att identifiera namnet på staden eftersom LUIS får ytterligare en signal om den typen av ord eller fraser. Fraslistor hjälper endast mönstret genom att hjälpa till med entitetsidentifieringen, vilket är nödvändigt för att mönstret ska matcha. 
 
-**I den här självstudien får du lära dig hur du:**
+**I den här självstudiekursen får du lära du dig att:**
 
 > [!div class="checklist"]
-> * Använd befintliga självstudieappen
+> * Använda en befintlig självstudieapp
 > * Skapa nya entiteter
 > * Skapa ny avsikt
 > * Träna
 > * Publicera
-> * Hämta avsikter och entiteter från slutpunkten
+> * Hämta avsikter och entiteter från en slutpunkt
 > * Skapa mönster med roller
-> * Skapa frasen lista över städer
-> * Hämta avsikter och entiteter från slutpunkten
+> * Skapa en fraslista över städer
+> * Hämta avsikter och entiteter från en slutpunkt
 
 [!include[LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
 
-## <a name="use-existing-app"></a>Använd befintlig app
-Fortsätt med den app som skapats i den sista självstudien med namnet **ska**. 
+## <a name="use-existing-app"></a>Använda en befintlig app
+Fortsätt med appen du skapade i föregående självstudie med namnet **HumanResources**. 
 
-Om du inte har appen ska från den tidigare självstudiekursen, använder du följande steg:
+Om du inte har appen HumanResources från föregående självstudie gör du så här:
 
-1.  Hämta och spara [app JSON-fil](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/tutorials/custom-domain-patterns-HumanResources-v2.json).
+1.  Ladda ned och spara [JSON-filen för appen](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/tutorials/custom-domain-patterns-HumanResources-v2.json).
 
-2. Importera JSON till en ny app.
+2. Importera JSON-koden till en ny app.
 
-3. Från den **hantera** avsnittet på den **versioner** fliken klona versionen och ge den namnet `roles`. Kloning är ett bra sätt att prova på olika LUIS-funktioner utan att påverka originalversionen. Eftersom versionsnamnet används som en del av URL: en väg, får inte namnet innehålla några tecken som inte är giltiga i en URL.
+3. I avsnittet **Hantera** går du till fliken **Versioner**, klonar versionen och ger den namnet `roles`. Kloning är ett bra sätt att prova på olika LUIS-funktioner utan att påverka originalversionen. Eftersom versionsnamnet används i webbadressen får namnet inte innehålla några tecken som är ogiltiga i webbadresser.
 
 ## <a name="create-new-entities"></a>Skapa nya entiteter
 
 1. [!include[Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
 
-2. Välj **entiteter** i det vänstra navigeringsfönstret. 
+2. Välj **Entities** (Entiteter) i det vänstra navigeringsfönstret. 
 
 3. Välj **Create new entity** (Skapa ny entitet).
 
-4. I popup-fönstret, ange `NewEmployee` som en **enkel** entitet.
+4. I popup-fönstret anger du `NewEmployee` som en **enkel** entitet.
 
 5. Välj **Create new entity** (Skapa ny entitet).
 
-6. I popup-fönstret, ange `NewEmployeeRelocation` som en **enkel** entitet.
+6. I popup-fönstret anger du `NewEmployeeRelocation` som en **enkel** entitet.
 
 7. Välj **NewEmployeeRelocation** från listan över entiteter. 
 
-8. Ange den första rollen som `NewEmployeeReloOrigin` och välj Ange.
+8. Ange den första rollen som `NewEmployeeReloOrigin` och välj Retur.
 
-9. Ange den andra rollen som `NewEmployeeReloDestination` och välj Ange.
+9. Ange den andra rollen som `NewEmployeeReloDestination` och välj Retur.
 
 ## <a name="create-new-intent"></a>Skapa ny avsikt
-Märkning entiteter i de här stegen kan vara enklare om entiteten fördefinierade keyPhrase tas bort innan du börjar som sedan läggs tillbaka när du är klar med stegen i det här avsnittet. 
+Etiketteringen av entiteter i de här stegen kan vara enklare om du tar bort den fördefinierade entiteten keyPhrase innan du börjar och sedan lägger tillbaka den när du är klar med stegen i det här avsnittet. 
 
-1. Välj **avsikter** i det vänstra navigeringsfönstret.
+1. Välj **Intents** (Avsikter) i det vänstra navigeringsfönstret.
 
 2. Välj **Create new intent** (Skapa ny avsikt). 
 
-3. Ange `NewEmployeeRelocationProcess` som avsiktlig namn i popup-dialogrutan.
+3. Ange `NewEmployeeRelocationProcess` som avsiktsnamn i popup-dialogrutan.
 
-4. Ange följande exempel talade, märkning nya entiteter. Enhet och roll värdena är visas med fet stil. Kom ihåg att växla till den **token visa** om det lättare att märka texten. 
+4. Ange följande exempelyttranden som etiketterar nya entiteter. Enhet och rollvärdena är visas med fet stil. Kom ihåg att växla till **tokenvyn** om det är lättare att etikettera texten. 
 
-    Du anger inte rollen för entiteten när märkning i avsikten. Du göra det senare när du skapar mönstret. 
+    Du anger inte entitetens roll när du etiketterar avsikten. Du gör det senare när du skapar mönstret. 
 
     |Yttrande|NewEmployee|NewEmployeeRelocation|
     |--|--|--|
     |Flytta **Bob Jones** från **Seattle** till **Los Colinas**|Bob Jones|Seattle, Los Colinas|
     |Flytta **Dave C. Cooper** från **Redmond** till **New York City**|Dave C. Cooper|Redmond, New York City|
-    |Flytta **Jim Paul Smith** från **Toronto** till **västra Vancouver**|Jim Paul Smith|Toronto, västra Vancouver|
-    |Flytta **J. Benson** från **Boston** till **Staines vid Thames**|J. Benson|Boston, Staines vid Thames|
+    |Flytta **Jim Paul Smith** från **Toronto** till **West Vancouver**|Jim Paul Smith|Toronto, West Vancouver|
+    |Flytta **J. Benson** från **Boston** till **Staines-upon-Thames**|J. Benson|Boston, Staines-upon-Thames|
     |Flytta **Travis ”Trav” Hinton** från **Castelo Branco** till **Orlando**|Travis ”Trav” Hinton|Castelo Branco Orlando|
     |Flytta **Trevor Nottington III** från **Aranda de Duero** till **Boise**|Trevor Nottington III|Aranda de Duero, Boise|
-    |Flytta **Dr. Greg Williams** från **Orlando** till **Ellicott stad**|Dr. Greg Williams|Orlando, Ellicott stad|
-    |Flytta **Robert ”Bobby” Gregson** från **Kansas Stad** till **San Juan Capistrano**|Robert ”Bobby” Gregson|Kansas City, San Juan Capistrano|
+    |Flytta **Dr. Greg Williams** från **Orlando** till **Ellicott City**|Dr. Greg Williams|Orlando, Ellicott City|
+    |Flytta **Robert ”Bobby” Gregson** från **Kansas City** till **San Juan Capistrano**|Robert ”Bobby” Gregson|Kansas City, San Juan Capistrano|
     |Flytta **Patti Owens** från **Bellevue** till **Rockford**|Patti Owens|Bellevue, Rockford|
-    |Flytta **Johanna Bartlet** från **Tuscan** till **Santa Fe**|Johanna Bartlet|Tuscan, Santa Fe|
+    |Flytta **Johanna Bartlet** från **Toscana** till **Santa Fe**|Johanna Bartlet|Toscana, Santa Fe|
 
-    Medarbetarnamn har prefixet, räkna ord, syntax och suffix olika. Detta är viktigt för LUIS för att förstå variationer av ett nytt medarbetarnamn. Stadsnamnen har också en mängd olika räkna ord och syntax. Den här olika är viktigt att lära LUIS hur dessa entiteter kan visas i en användares uttryck. 
+    Medarbetarens namn har en blandning av prefix, ordräkning, syntax och suffix. Det är viktigt för LUIS för att förstå variationerna av ett nytt medarbetarnamn. Stadsnamnen har också en mängd olika ordräkningar och syntax. Det här variationerna är viktiga för att lära LUIS hur entiteterna kan visas i en användares yttrande. 
     
-    Om någon entitet av samma ordräkning och inga andra varianter, skulle du lär LUIS att den här entiteten har bara den ordräkning eller inga andra ändringar. LUIS skulle inte kunna korrekt förutse en bredare uppsättning variationer eftersom den inte visades någon. 
+    Om någon entitet hade haft samma ordräkning och inga andra varianter skulle du lära LUIS att den här entiteten bara har den ordräkningen och inga andra variationer. LUIS skulle inte kunna förutse en bredare uppsättning variationer korrekt eftersom det inte visades. 
 
-    Om du har tagit bort entiteten keyPhrase lägga tillbaka det i appen nu.
+    Om du har tagit bort entiteten keyPhrase lägger du till den i appen igen nu.
 
 ## <a name="train"></a>Träna
 
@@ -122,7 +122,7 @@ Märkning entiteter i de här stegen kan vara enklare om entiteten fördefiniera
 
 [!INCLUDE [LUIS How to Publish steps](../../../includes/cognitive-services-luis-tutorial-how-to-publish.md)]
 
-## <a name="get-intent-and-entities-from-endpoint"></a>Hämta avsikt och entiteter från slutpunkten
+## <a name="get-intent-and-entities-from-endpoint"></a>Hämta avsikter och entiteter från slutpunkten
 
 1. [!INCLUDE [LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)] 
 
@@ -212,32 +212,32 @@ Märkning entiteter i de här stegen kan vara enklare om entiteten fördefiniera
     }  
     ```
 
-Avsiktshantering förutsägelse poängen är endast 50%. Om klientprogrammet kräver en hög siffra, måste det kan åtgärdas. Entiteter har inte förväntad antingen.
+Avsiktsresultatet är endast cirka 50 %. Om klientprogrammet kräver en hög siffra måste det åtgärdas. Entiteterna var inte heller förutsagda.
 
-En av platserna som har extraherats men den andra platsen var inte. 
+En av platserna har extraherats men inte den andra. 
 
-Mönster hjälper förutsägelse poäng, men entiteterna måste att korrekt förutse innan mönstret matchar uttryck. 
+Mönster förbättrar förutsägelseresultatet, men entiteterna måste vara korrekt förutsagda innan mönstret matchar yttrandet. 
 
-## <a name="pattern-with-roles"></a>Mönstret med roller
+## <a name="pattern-with-roles"></a>Mönster med roller
 
-1. Välj **skapa** i det övre navigeringsfältet.
+1. Välj **Skapa** i det övre navigeringsfältet.
 
-2. Välj **mönster** i det vänstra navigeringsfönstret.
+2. Välj **Mönster** i det vänstra navigeringsfönstret.
 
-3. Välj **NewEmployeeRelocationProcess** från den **väljer ett intent** listrutan. 
+3. Välj **NewEmployeeRelocationProcess** i listrutan **Select an intent** (Välj en avsikt). 
 
 4. Ange följande mönster: `move {NewEmployee} from {NewEmployeeRelocation:NewEmployeeReloOrigin} to {NewEmployeeRelocation:NewEmployeeReloDestination}[.]`
 
-    Om du träna, publicera och fråga slutpunkten kan du bli besviken att se att entiteterna inte hittas, så mönstret matchade därför förutsägelsen inte förbättra. Det här är en följd av finns inte tillräckligt med exempel yttranden med märkta entiteter. I stället för att lägga till fler exempel, lägger du till en fras lista för att åtgärda problemet.
+    Om du tränar, publicera och frågar slutpunkten kan du bli besviken när du ser att entiteterna inte hittas. Alltså matchade inte mönstret och därför förbättrades inte förutsägelsen. Det här är en följd av att det inte finns tillräckligt med exempelyttranden med etiketterade entiteter. I stället för att lägga till fler exempel lägger du till en fraslista för att åtgärda problemet.
 
-## <a name="cities-phrase-list"></a>Städer frasen lista
-Städer, som t.ex. namn på personer är svårt att de kan vara en blandning av ord och skiljetecken. Städerna region och världen är kända så LUIS måste en fras över städer att börja lära dig. 
+## <a name="cities-phrase-list"></a>Fraslista för städer
+Städer, precis som namn på personer, är svåra på så sätt att de kan vara en blandning av ord och skiljetecken. Städerna i regionerna och världen är kända, så LUIS behöver en fraslista över städer för att börja lära sig. 
 
-1. Välj **frasen lista** från den **förbättra apprestanda** avsnitt i den vänstra menyn. 
+1. Välj **Fraslista** i avsnittet **Förbättra apprestanda** på den vänstra menyn. 
 
-2. Namnge listan `Cities` och Lägg till följande `values` lista:
+2. Namnge listan `Cities` och lägg till följande `values` för listan:
 
-    |Värdena för frasen lista|
+    |Värdena i fraslistan|
     |--|
     |Seattle|
     |San Diego|
@@ -248,11 +248,11 @@ Städer, som t.ex. namn på personer är svårt att de kan vara en blandning av 
     |Miami|
     |Dallas|
 
-    Lägg inte till varje stad i världen eller även varje stad i regionen. LUIS måste kunna generalisera vilken stad är i listan. Se till att välja **dessa värden är utbytbara** valda. Den här inställningen innebär att orden i listan på behandlas som synonymer. 
+    Lägg inte till varje stad i världen eller varje stad i regionen. LUIS måste kunna generalisera vad som är en stad i listan. Se till att ha **These values are interchangeable** (De här värdena är utbytbara) markerat. Den här inställningen innebär att orden i listan behandlas som synonymer. 
 
 3. Träna och publicera appen.
 
-## <a name="get-intent-and-entities-from-endpoint"></a>Hämta avsikt och entiteter från slutpunkten
+## <a name="get-intent-and-entities-from-endpoint"></a>Hämta avsikter och entiteter från slutpunkten
 
 1. [!include[Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
 
@@ -368,18 +368,18 @@ Städer, som t.ex. namn på personer är svårt att de kan vara en blandning av 
 }
     ```
 
-Avsiktshantering poängen är nu mycket högre och role-namn är en del av svaret för entiteten.
+Avsiktspoängen är nu mycket högre och rollnamnen är en del av entitetssvaret.
 
-## <a name="hierarchical-entities-versus-roles"></a>Hierarkisk entiteter jämfört med roller
+## <a name="hierarchical-entities-versus-roles"></a>Hierarkiska entiteter jämfört med roller
 
-I den [hierarkiska självstudien](luis-quickstart-intent-and-hier-entity.md), **MoveEmployee** avsikt upptäckte när du ska flytta en befintlig medarbetare från en kontorsbyggnad och till en annan. Exempel yttranden hade ursprung- och målplatserna men använde inte roller. I stället har ursprung och målet underordnade till den hierarkiska entiteten. 
+I den [hierarkiska självstudien](luis-quickstart-intent-and-hier-entity.md) identifieras avsikten **MoveEmployee** när du ska flytta en befintlig medarbetare från en kontorsbyggnad till en annan. Exempelyttrandena hade ursprungs- och destinationsplatserna men använde inte roller. I stället var ursprung och destination underordnade den hierarkiska entiteten. 
 
-I den här självstudien identifierar appen personalfrågor yttranden om att flytta nya anställda från en stad till en annan. Dessa två typer av uttryck är samma men löst till olika LUIS-funktioner.
+I den här självstudien identifierar appen Human Resources yttranden om att flytta nya medarbetare från en stad till en annan. Dessa två typer av yttranden är desamma men löses med olika LUIS-funktioner.
 
-|Självstudier|Exempel-uttryck|Original och beskrivning platser|
+|Självstudier|Exempeluttryck|Ursprungs- och destinationsplatser|
 |--|--|--|
-|[Hierarkiska (inga roller)](luis-quickstart-intent-and-hier-entity.md)|MV Jill Jones från **a-2349** till **b-1298**|a-2349, b-1298|
-|Den här självstudien (med roller)|Flytta Bengt Patterson från **Yuma** till **Denver**.|Yuma Denver|
+|[Hierarkiska (inga roller)](luis-quickstart-intent-and-hier-entity.md)|flytta Jill Jones från **a-2349** till **b-1298**|a-2349, b-1298|
+|Den här självstudien (med roller)|Flytta Billy Patterson från **Yuma** till **Denver**.|Yuma, Denver|
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
@@ -387,7 +387,7 @@ I den här självstudien identifierar appen personalfrågor yttranden om att fly
 
 ## <a name="next-steps"></a>Nästa steg
 
-Den här självstudien lagt till en entitet med roller och syftet med exempel yttranden. Första slutpunkten förutsägelser med entiteten korrekt förutse avsikt men med ett låga förtroenderesultat. Endast en av de två entiteterna upptäcktes. Därefter självstudien lagt till ett mönster som används för rollerna entiteten och en fras lista för att öka värdet för stadsnamn i talade. Andra slutpunkten förutsägelsen returnerade en hög exakthet poäng och hitta båda rollerna för entiteten. 
+I den här självstudien har en entitet med roller lagts till, och en avsikt med exempelyttranden. Den första slutpunktens förutsägelse med entiteten förutsåg avsikten korrekt men med låga förtroendepoäng. Endast en av de två entiteterna upptäcktes. Därefter lade självstudien till ett mönster som använde entitetsrollerna, och en fraslista för att öka värdet för stadsnamn i yttrandena. Den andra slutpunktens förutsägelse returnerade en mycket tillförlitlig poäng och hittade de båda entitetsrollerna. 
 
 > [!div class="nextstepaction"]
-> [Läs om bästa praxis för LUIS-appar](luis-concept-best-practices.md)
+> [Lär dig de bästa metoderna för LUIS-appar](luis-concept-best-practices.md)

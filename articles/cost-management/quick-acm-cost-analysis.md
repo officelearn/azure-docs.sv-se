@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 09/21/2018s
+ms.date: 10/10/2018
 ms.topic: quickstart
 ms.service: cost-management
 manager: dougeby
 ms.custom: ''
-ms.openlocfilehash: 9092629c7bef46cdb7c464fca5e22d4aea0da9fc
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 12b7a605350b07565660e9e4d1334b286aa5ac00
+ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47041548"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49079114"
 ---
 # <a name="quickstart-explore-and-analyze-costs-with-cost-analysis"></a>Snabbstart: Utforska och analysera kostnader med kostnadsanalys
 
@@ -34,13 +34,21 @@ I den här snabbstarten lär du dig att:
 
 Kostnadsanalys är tillgängligt för alla [Enterprise-avtalskunder (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/). Du måste minst ha skrivskyddad åtkomst till ett eller flera av följande omfång för att visa kostnadsdata.
 
-- Faktureringskonto
-- Avdelning
-- Registreringskonto
-- Hanteringsgrupp
-- Prenumeration
-- Resursgrupp
+- *Faktureringskontots* omfattning definieras vid https://ea.azure.com, och företagsadministratörsbehörighet krävs. Ingen EA-förinställning krävs. Faktureringsinformation i kostnadsanalys sammanställs för alla prenumerationer i Enterprise-avtalet. Faktureringskontot kallas ofta *Företagsavtal* eller *Registrering*.
 
+- Omfånget *avdelning* definieras vid https://ea.azure.com och kräver avdelningsadministratörsbehörighet. Inställningen för **DA-visningsdebitering** i EA-portalen måste aktiveras. Faktureringsinformation i kostnadsanalys sammanställs för alla prenumerationer som hör till det registreringskonto som är kopplat till avdelningen.
+
+- Omfånget för *registreringskontot* definieras vid https://ea.azure.com och kontoinnehavarbehörighet krävs. Inställningen **AO-visningsdebitering** i EA-portalen måste aktiveras. Faktureringsinformation i kostnadsanalys sammanställs för alla prenumerationer som hör till registreringskontot. Registreringskontot kallas ofta *kontoägare*.
+
+- Omfånget *hanteringsgrupp* definieras vid https://portal.azure.com, och behörighetsnivån för Cost Management Reader (eller Reader) krävs. Inställningen **AO-visningsdebitering** i EA-portalen måste aktiveras. Faktureringsinformation i kostnadsanalys sammanställs för alla prenumerationer under hanteringsgruppen.
+
+- Omfånget för *prenumeration* definieras vid https://portal.azure.com, och behörighetsnivån för Cost Management Reader (eller Reader) krävs. Inställningen **AO-visningsdebitering** i EA-portalen måste aktiveras. Faktureringsinformation i kostnadsanalys sammanställs för alla resurser och resursgrupper i prenumerationen.
+
+- Omfånget *resursgrupp* definieras vid https://portal.azure.com, och behörighetsnivån Cost Management Reader (eller Reader) krävs. Inställningen **AO-visningsdebitering** i EA-portalen måste aktiveras. Faktureringsinformation i kostnadsanalys sammanställs för alla resurser och i resursgruppen.
+
+
+
+Mer information om hur du konfigurerar inställningar för **DA-visningsdebitering** och **AO-visningsdebitering** finns i [Aktivera åtkomst till kostnader](../billing/billing-enterprise-mgmt-grp-troubleshoot-cost-view.md#enabling-access-to-costs).
 
 ## <a name="sign-in-to-azure"></a>Logga in på Azure
 
@@ -94,6 +102,11 @@ Pivotdiagram under vyn Totalt längst upp visar vyer för olika grupperings- och
 ![Fullständiga data för aktuell vy](./media/quick-acm-cost-analysis/full-data-set.png)
 
 I föregående bild visas resursgruppnamn. Visning av taggar för resurser är inte tillgängligt i någon av vyerna, filtren eller grupperna för kostnadsanalys.
+
+När du grupperar kostnader efter ett specifikt attribut visas de tio viktigaste kostnadsfaktorerna från högsta till lägsta. Om det finns fler än tio grupper visas de nio viktigaste grupperna plus gruppen **Others** (Övriga), där alla övriga grupper ingår.
+
+*Klassiska* virtuella datorer (Azure Service Management eller ASM), nätverk och lagringsresurser delar inte detaljerad faktureringsinformation. De slås samman som **klassiska tjänster** när du grupperar kostnader.
+
 
 ## <a name="download-cost-analysis-data"></a>Ladda ned kostnadsanalysdata
 

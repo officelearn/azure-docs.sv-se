@@ -6,22 +6,22 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 07/06/2018
+ms.date: 10/10/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 93626e6a8f199841b285fb8a6e302e6c3054db0d
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: b1b903b945a60cebe2001a1ae41201b9b665c556
+ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37918041"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49078825"
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-on-premises-vmware-vms"></a>Konfigurera katastrofåterställning till Azure för lokala virtuella VMware-datorer
 
 [Azure Site Recovery](site-recovery-overview.md) bidrar till din BCDR-strategi för affärskontinuitet och haveriberedskap genom att hålla dina företagsprogram igång och köra dem vid planerade och oplanerade avbrott. Site Recovery hanterar och samordnar haveriberedskap för lokala datorer och virtuella Azure-datorer, inklusive replikering, redundans och återställning.
 
 
-I den här självstudien visar vi hur du konfigurerar och aktiverar replikering för en virtuell VMware-dator till Azure med Azure Site Recovery. Självstudier är utformade för att visa dig hur du distribuerar Site Recovery med grundläggande inställningar. De använder den enklaste sökvägen och visar inte alla alternativ. I den här guiden får du lära dig hur man:
+I den här självstudien visar vi hur du konfigurerar och aktiverar replikering för en virtuell VMware-dator till Azure med Azure Site Recovery. Självstudier är utformade för att visa dig hur du distribuerar Site Recovery med grundläggande inställningar. De använder den enklaste sökvägen och visar inte alla alternativ. I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
 > * Ange replikeringskälla och mål.
@@ -132,7 +132,7 @@ Om du vill lägga till ett extra nätverkskort i konfigurationsservern gör du d
 4. Välj **Installera VMware PowerCLI**. Kontrollera att alla webbläsarfönster är stängda innan du gör detta. Välj sedan **Fortsätt**.
 5. I **Verifiera installationskonfiguration** verifieras förutsättningarna innan du fortsätter.
 6. I **Konfigurera vCenter Server/vSphere ESXi-server** anger du FQDN eller IP-adress för vCenter-servern eller vSphere-värden där de virtuella datorer som du vill replikera är placerade. Ange porten som servern lyssnar på. Ange ett eget namn som ska användas för VMware-servern i valvet.
-7. Ange de autentiseringsuppgifter som ska användas av konfigurationsservern för att ansluta till VMware-servern. Site Recovery använder dessa autentiseringsuppgifter för att automatiskt identifiera virtuella VMware-datorer som är tillgängliga för replikering. Välj **Lägg till** och välj sedan **Fortsätt**.
+7. Ange de uppgifter för användarautentisering som ska användas av konfigurationsservern för att ansluta till VMware-servern. Kontrollera att användarnamn och lösenord är korrekta och att de ingår i gruppen Administratörer på den virtuella datorn som ska skyddas. Site Recovery använder dessa autentiseringsuppgifter för att automatiskt identifiera virtuella VMware-datorer som är tillgängliga för replikering. Välj **Lägg till** och välj sedan **Fortsätt**.
 8. I **Konfigurera autentiseringsuppgifter för virtuell dator** anger du det användarnamn och lösenord som ska användas för att automatiskt installera mobilitetstjänsten på virtuella datorer, när replikering har aktiverats.
     - För Windows-datorer måste kontot ha lokal administratörsbehörighet på de datorer som du vill replikera.
     - För Linux anger du information för rotkontot.

@@ -6,15 +6,15 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 07/06/2018
+ms.date: 09/11/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 1f7856edef3bb93300fce0ff00d9434400e239f8
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: e9ed0ba8d24f30f67dbb315848dc4c260cae4f50
+ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37917059"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44391376"
 ---
 # <a name="fail-over-and-fail-back-vmware-vms-and-physical-servers-replicated-to-azure"></a>Redundansväxla och återställa virtuella VMware-datorer och fysiska servrar som replikeras till Azure
 
@@ -67,7 +67,7 @@ Kontrollera VM-egenskaperna och se till att den virtuella datorn uppfyller [Azur
 1. I **Inställningar** > **Replikerade objekt** klickar du på VM > **Redundans**.
 
 2. I **Redundans** väljer du en **återställningspunkt** att redundansväxla till. Du kan välja något av följande alternativ:
-   - **Senaste** (standard): Det här alternativet bearbetar först alla data som skickas till Site Recovery. De ger det lägsta målet för återställningspunkten eftersom Azure VM skapas efter att redundansen har fått alla data som replikerades till Site Recovery när redundansen utlöstes.
+   - **Senaste**: Det här alternativet bearbetar först alla data som skickas till Site Recovery. De ger det lägsta målet för återställningspunkten eftersom Azure VM skapas efter att redundansen har fått alla data som replikerades till Site Recovery när redundansen utlöstes.
    - **Senaste bearbetade**: Alternativet redundansväxlar den virtuella datorn till den senaste återställningspunkt som bearbetats av Site Recovery. Med det här alternativet läggs ingen tid på bearbetning av data, så den ger ett lågt mål för återställningstiden.
    - **Senaste appkonsekventa**: Det här alternativet redundansväxlar den virtuella datorn till den senaste appkonsekventa återställningspunkten som bearbetats av Site Recovery.
    - **Anpassad**: Ange en återställningspunkt.
@@ -82,11 +82,14 @@ I vissa fall kräver redundans ytterligare bearbetning som tar cirka 8 till 10 m
 
 ## <a name="connect-to-failed-over-virtual-machine-in-azure"></a>Ansluta till redundansväxlade virtuella datorer i Azure
 
-1. After redundans går du till den virtuella datorn och verifierar den genom att [ansluta](../virtual-machines/windows/connect-logon.md) till den.
-2. När du har verifierat klickar du på **Genomför** och slutför återställningspunkten för den virtuella datorn efter redundans. När detta genomförs tas alla andra tillgängliga återställningspunkter bort. Nu är du klart med redundans-aktiviteten.
+1. Om du vill ansluta till virtuella Azure-datorer med RDP/SSH efter en redundansväxling följer du kraven som sammanfattas i tabellen [här](site-recovery-test-failover-to-azure.md#prepare-to-connect-to-azure-vms-after-failover).
+2. After redundans går du till den virtuella datorn och verifierar den genom att [ansluta](../virtual-machines/windows/connect-logon.md) till den.
+3. När du har verifierat klickar du på **Genomför** och slutför återställningspunkten för den virtuella datorn efter redundans. När detta genomförs tas alla andra tillgängliga återställningspunkter bort. Nu är du klart med redundans-aktiviteten.
 
 >[!TIP]
 > Med **Ändra återställningspunkt** kan du välja en annan återställningspunkt efter redundans, om du inte är nöjd med den redundansväxlade virtuella datorn. När du har tryckt på **Genomför** är det här alternativet inte längre tillgängligt.
+
+Följ stegen som beskrivs [här](site-recovery-failover-to-azure-troubleshoot.md) för att felsöka eventuella anslutningsproblem efter redundans.
 
 ## <a name="preparing-for-reprotection-of-azure-vm"></a>Förbereda för återaktivering av den virtuella Azure-datorn
 

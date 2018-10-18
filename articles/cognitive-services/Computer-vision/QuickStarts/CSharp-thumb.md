@@ -3,19 +3,19 @@ title: 'Snabbstart: Skapa en miniatyrbild – REST, C# – Visuellt innehåll'
 titleSuffix: Azure Cognitive Services
 description: I den här snabbstarten genererar du en miniatyrbild från en bild med hjälp av API för visuellt innehåll och C#.
 services: cognitive-services
-author: noellelacharite
+author: PatrickFarley
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: computer-vision
 ms.topic: quickstart
 ms.date: 08/28/2018
-ms.author: v-deken
-ms.openlocfilehash: f6353f0f99d34121e29de46c62e6f840a69806ed
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.author: pafarley
+ms.openlocfilehash: b3822fee5d729064375e5088cb207aebfa74f8ac
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45630757"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49342056"
 ---
 # <a name="quickstart-generate-a-thumbnail-using-the-rest-api-and-c35-in-computer-vision"></a>Snabbstart: Generera en miniatyrbild med REST-API:et och C&#35; i Visuellt innehåll
 
@@ -30,16 +30,16 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 
 ## <a name="create-and-run-the-sample-application"></a>Skapa och kör exempelappen
 
-Om du vill köra exemplet i Visual Studio så vidta följande steg:
+Skapa exemplet i Visual Studio enligt följande:
 
-1. Skapa en ny Visual Studio-lösning i Visual Studio med Visual C#-konsolappsmallen.
+1. Skapa en ny Visual Studio-lösning i Visual Studio med Visual C#-konsolprogrammallen.
 1. Installera NuGet-paketet Newtonsoft.Json.
     1. Klicka på **Verktyg** på menyn, välj **NuGet Package Manager** (NuGet-pakethanteraren) och välj sedan **Manage NuGet Packages for Solution** (Hantera NuGet-paket för lösning).
     1. Klicka på fliken **Bläddra** och skriv ”Newtonsoft.Json” i rutan **Sök**.
     1. Välj **Newtonsoft.Json** när det visas och klicka på kryssrutan bredvid namnet på ditt projekt och sedan på **Installera**.
 1. Ersätt koden i `Program.cs` med följande kod och gör sedan följande ändringar i koden där det behövs:
     1. Ersätt värdet för `subscriptionKey` med din prenumerationsnyckel.
-    1. Ersätt värdet för `uriBase` med slutpunktsadressen för metoden [Get Thumbnail](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fb) från Azure-regionen där du fått dina prenumerationsnycklar om det behövs.
+    1. Ersätt värdet för `uriBase` med slutpunkt-URL:en för metoden [Get Thumbnail](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fb) från Azure-regionen där du fått dina prenumerationsnycklar, om så krävs.
 1. Kör programmet.
 1. Ange sökvägen till en lokal bild i kommandotolken.
 
@@ -214,7 +214,7 @@ StatusCode: 200, ReasonPhrase: 'OK', Version: 1.1, Content: System.Net.Http.Stre
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-När Visual Studio-lösningen inte längre behövs kan du ta bort den. Gör det genom att öppna Utforskaren, navigera till mappen där du skapade Visual Studio-lösningen och ta bort mappen.
+Ta bort Visual Studio-lösningen när den inte längre behövs. Detta gör du genom att öppna Utforskaren, navigera till mappen där du skapade Visual Studio-lösningen och ta bort mappen.
 
 ## <a name="next-steps"></a>Nästa steg
 

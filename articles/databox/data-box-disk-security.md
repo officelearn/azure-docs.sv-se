@@ -1,26 +1,19 @@
 ---
-title: Översikt över Microsoft Azure Data Box Disk | Microsoft Docs i data
+title: Microsoft Azure Data Box Disk – översikt| Microsoft Docs i data
 description: Beskriver Azure Data Box Disk, en molnlösning som gör det möjligt att överföra stora mängder data till Azure
 services: databox
-documentationcenter: NA
 author: alkohli
-manager: twooley
-editor: ''
-ms.assetid: ''
 ms.service: databox
-ms.devlang: NA
+ms.subservice: disk
 ms.topic: overview
-ms.custom: mvc
-ms.tgt_pltfrm: NA
-ms.workload: TBD
 ms.date: 07/10/2018
 ms.author: alkohli
-ms.openlocfilehash: ecdf604cf15ec68875b67f2a4c990103b3375243
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 569442f5dfdf96f03a95f7210bfe1ed7dc3af8de
+ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39009747"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49091495"
 ---
 # <a name="azure-data-box-disk-security-and-data-protection-preview"></a>Säkerhet och dataskydd i Azure Data Box Disk (förhandsversion)
 
@@ -103,5 +96,5 @@ Mer information finns i Microsofts sekretesspolicy på [Säkerhetscenter](https:
 ## <a name="next-steps"></a>Nästa steg
 
 - Gå igenom [kraven för Data Box Disk](data-box-disk-system-requirements.md).
-- Förstå [Data Box Disk-gränserna](data-box-disk-limits.md).
-- Distribuera snabbt [Azure Data Box Disk](data-box-disk-quickstart-portal.md) på Azure Portal.
+- Förstå [Data Box Disk-begränsningarna](data-box-disk-limits.md).
+- Distribuera snabbt [Azure Data Box Disk](data-box-disk-quickstart-portal.md) på Azure-portalen.

@@ -3,19 +3,19 @@ title: 'Snabbstart: Generera en miniatyrbild – REST, JavaScript – Visuellt i
 titleSuffix: Azure Cognitive Services
 description: I den här snabbstarten genererar du en miniatyrbild från en bild med hjälp av API för visuellt innehåll och JavaScript.
 services: cognitive-services
-author: noellelacharite
+author: PatrickFarley
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: computer-vision
 ms.topic: quickstart
 ms.date: 08/28/2018
-ms.author: v-deken
-ms.openlocfilehash: ef0cdad796623b4453f71e8b593ba4304a41ee0f
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.author: pafarley
+ms.openlocfilehash: e221e2f65182092123ba3a61cf8d8844d9b6ee96
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45629465"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49343086"
 ---
 # <a name="quickstart-generate-a-thumbnail-using-the-rest-api-and-javascript-in-computer-vision"></a>Snabbstart: Generera en miniatyrbild med hjälp av REST-API:et och JavaScript i Visuellt innehåll
 
@@ -31,8 +31,8 @@ Du måste ha en prenumerationsnyckel för Visuellt innehåll. Du kan skaffa en p
 
 Så här skapar du och kör exemplet:
 
-1. Kopiera följande kod till en textredigerarere.
-1. Gör följande ändringar i koden när så behövs:
+1. Kopiera följande kod till en textredigerare.
+1. Gör nedanstående ändringar i koden där det behövs:
     1. Ersätt värdet för `subscriptionKey` med din prenumerationsnyckel.
     1. Ersätt värdet för `uriBase` med slutpunktsadressen för metoden [Get Thumbnail](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fb) från Azure-regionen där du fått dina prenumerationsnycklar om det behövs.
     1. Du kan också ersätta värdet för `value`-attributet för `inputImage`-kontrollen med webbadressen till en annan bild som du vill analysera.
@@ -166,7 +166,7 @@ Ett lyckat svar returneras i form av binärdata som representerar bilddata för 
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-Ta bort din runbook när den inte längre behövs.
+Ta bort filen när den inte längre behövs.
 
 ## <a name="next-steps"></a>Nästa steg
 

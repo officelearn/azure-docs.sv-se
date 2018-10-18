@@ -3,23 +3,23 @@ title: 'Snabbstart: Extrahera tryckt text (OCR) – REST, JavaScript – Visuell
 titleSuffix: Azure Cognitive Services
 description: I den här snabbstarten ska du extrahera tryckt text från en bild med hjälp av API för visuellt innehåll med JavaScript.
 services: cognitive-services
-author: noellelacharite
+author: PatrickFarley
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: computer-vision
 ms.topic: quickstart
 ms.date: 09/10/2018
-ms.author: v-deken
-ms.openlocfilehash: df4d60170c676e7e2666a8a3c7179cf4b90b15eb
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.author: pafarley
+ms.openlocfilehash: a804a5131f1989d39e73eb0bddc88e1b87cf5e32
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45634021"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49341726"
 ---
 # <a name="quickstart-extract-printed-text-ocr-using-the-rest-api-and-javascript-in-computer-vision"></a>Snabbstart: Extrahera utskriven text (OCR) med hjälp av REST-API och JavaScript i visuellt innehåll
 
-I den här snabbstarten ska du extrahera tryckt text med optisk teckenläsning (OCR), från en bild med hjälp av REST API för visuellt innehåll. Med metoden [OCR](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fc) kan du identifiera tryckt text i en bild och extrahera de tecken som identifieras i en teckenström som kan användas på en dator.
+I den här snabbstarten ska du extrahera tryckt text med optisk teckenläsning (OCR), från en bild med hjälp av REST API för visuellt innehåll. Med metoden [OCR](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fc) kan du identifiera tryckt text i en bild och extrahera de tecken som identifieras till en teckenström som kan användas på en dator.
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/ai/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=cognitive-services) innan du börjar.
 
@@ -31,8 +31,8 @@ Du måste ha en prenumerationsnyckel för Visuellt innehåll. Du kan skaffa en p
 
 Så här skapar du och kör exemplet:
 
-1. Kopiera följande kod till en textredigerarere.
-1. Gör följande ändringar i koden när så behövs:
+1. Kopiera följande kod till en textredigerare.
+1. Gör nedanstående ändringar i koden där det behövs:
     1. Ersätt värdet för `subscriptionKey` med din prenumerationsnyckel.
     1. Ersätt värdet för `uriBase` med slutpunktsadressen för metoden [OCR](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fc) från Azure-regionen där du fått dina prenumerationsnycklar om det behövs.
     1. Du kan också ersätta värdet för `value`-attributet för `inputImage`-kontrollen med webbadressen till en annan bild som du vill analysera.
@@ -245,7 +245,7 @@ Ett svar som anger att åtgärden lyckades returneras i JSON. Exempelwebbsidan t
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-Ta bort din runbook när den inte längre behövs.
+Ta bort filen när den inte längre behövs.
 
 ## <a name="next-steps"></a>Nästa steg
 

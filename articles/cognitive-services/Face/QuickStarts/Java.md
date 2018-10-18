@@ -3,19 +3,19 @@ title: 'Snabbstart: Identifiera ansikten i en bild – Ansikts-API, Java'
 titleSuffix: Azure Cognitive Services
 description: I den här snabbstarten identifierar du ansikten med hjälp av Ansikts-API:et med Java.
 services: cognitive-services
-author: noellelacharite
+author: PatrickFarley
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: face-api
 ms.topic: quickstart
 ms.date: 05/10/2018
-ms.author: nolachar
-ms.openlocfilehash: c43db84bc04dd8fb17f9b3f6e37deba9daced598
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.author: pafarley
+ms.openlocfilehash: 42a8b13b87623b92ee0fe92db4e6a0caff5c3a1b
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46122798"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49339123"
 ---
 # <a name="quickstart-detect-faces-in-an-image-using-java"></a>Snabbstart: Identifiera ansikten i en bild med Java
 

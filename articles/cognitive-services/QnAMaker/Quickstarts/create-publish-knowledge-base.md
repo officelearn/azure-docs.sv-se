@@ -9,12 +9,12 @@ ms.component: qna-maker
 ms.topic: quickstart
 ms.date: 09/12/2018
 ms.author: diberry
-ms.openlocfilehash: 85b4630492d5f5b3fb71d563b0947d8a72ae4e1d
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: 99f9259c9fa73a9ba4842b2684cde8a44f73145a
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48886590"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49389674"
 ---
 # <a name="quickstart-create-train-and-publish-your-knowledge-base"></a>Snabbstart: Skapa, öva och publicera en egen kunskapsbas
 
@@ -41,7 +41,7 @@ Du kan skapa en QnA Maker-kunskapsbas (KB) av eget innehåll, till exempel vanli
 
 5. I steg 3 ska du tilldela din kunskapsbas namnet **My Sample QnA KB**.
 
-6. Välj tre typer av datakällor om du vill lägga till innehåll i din kunskapsbas. Under **Populate your KB** (fyll i kunskapsbasen) i steg 4 lägger du till webbadressen för [BitLocker Recovery FAQ](https://docs.microsoft.com/en-us/windows/security/information-protection/bitlocker/bitlocker-overview-and-requirements-faq) i rutan **URL**.
+6. Välj tre typer av datakällor om du vill lägga till innehåll i din kunskapsbas. Under **Populate your KB** (fyll i kunskapsbasen) i steg 4 lägger du till webbadressen för [BitLocker Recovery FAQ](https://docs.microsoft.com/windows/security/information-protection/bitlocker/bitlocker-overview-and-requirements-faq) i rutan **URL**.
 
    ![Välj en QnA-tjänstkunskapsbas](../media/qnamaker-quickstart-kb/add-datasources.png)
 

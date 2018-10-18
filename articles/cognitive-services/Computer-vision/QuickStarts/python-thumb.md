@@ -3,19 +3,19 @@ title: 'Snabbstart: Skapa en miniatyrbild – REST, Python – Visuellt innehål
 titleSuffix: Azure Cognitive Services
 description: I den här snabbstarten genererar du en miniatyrbild från en bild med hjälp av API för visuellt innehåll och Python.
 services: cognitive-services
-author: noellelacharite
+author: PatrickFarley
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: computer-vision
 ms.topic: quickstart
 ms.date: 08/28/2018
-ms.author: v-deken
-ms.openlocfilehash: c5809b3dd62d87e2a1f3bde762d17bef6d5732ae
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.author: pafarley
+ms.openlocfilehash: b98c78e0845d6390fee66dd6518acd7b8eb91f37
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45632933"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49342270"
 ---
 # <a name="quickstart-generate-a-thumbnail-using-the-rest-api-and-python-in-computer-vision"></a>Snabbstart: Generera en miniatyrbild med hjälp av REST-API:t och Python i Visuellt innehåll
 
@@ -40,14 +40,14 @@ För att använda Visuellt innehåll behöver du en prenumerationsnyckel. Mer in
 
 Så här skapar du och kör exemplet:
 
-1. Kopiera följande kod till en textredigerarere.
-1. Gör följande ändringar i koden när så behövs:
+1. Kopiera följande kod till en textredigerare.
+1. Gör nedanstående ändringar i koden där det behövs:
     1. Ersätt värdet för `subscription_key` med din prenumerationsnyckel.
     1. Ersätt värdet för `vision_base_url` med slutpunktsadressen för resursen för visuellt innehåll i den Azure-region där du fick dina prenumerationsnycklar, om så behövs.
     1. Du kan också ersätta värdet för `image_url` med webbadressen till en annan bild som du vill generera en miniatyrbild för.
 1. Spara koden som en fil med tillägget `.py`. Till exempel `get-thumbnail.py`.
 1. Öppna ett kommandotolksfönster.
-1. Kör exemplet genom att använda kommandot `python` i kommandotolken. Till exempel `python get-thumbnail.py`.
+1. Kör exemplet i kommandotolken med kommandot `python`. Till exempel `python get-thumbnail.py`.
 
 ```python
 import requests

@@ -3,8 +3,8 @@ title: Självstudie – Konfigurera Azure CDN cachelagringsregler | Microsoft Do
 description: I den här självstudiekursen får du ställa in en global regel för cachelagring i Azure CDN och en anpassad regel för cachelagring.
 services: cdn
 documentationcenter: ''
-author: dksimpson
-manager: akucer
+author: mdgattuso
+manager: danielgi
 editor: ''
 ms.service: cdn
 ms.workload: tbd
@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/20/2018
-ms.author: v-deasim
+ms.author: magattus
 ms.custom: mvc
-ms.openlocfilehash: a4b5a6a44fe9271f6ff9627c1c5623f0031f23ca
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 10d06d2e792b476a4c973029241d6cb98c0dd444
+ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34608975"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49094079"
 ---
 # <a name="tutorial-set-azure-cdn-caching-rules"></a>Självstudie: Konfigurera Azure CDN-cachelagringsregler
 
@@ -32,7 +32,7 @@ Den här självstudien beskriver hur du kan använda cachelagringsregler i Azure
 
 - Anpassade cachelagringsregler: Du kan ange en eller flera anpassade cachelagringsregler för varje slutpunkt i din profil. Anpassade cachelagringsregler matchar specifika sökvägar och filnamnstillägg, bearbetas i ordning och åsidosätter den globala cacheregeln om sådan finns. 
 
-I den här guiden får du lära dig hur man:
+I den här guiden får du lära dig att:
 > [!div class="checklist"]
 > - Öppna sidan för cachelagringsregler.
 > - Skapa en global cachelagringsregel.

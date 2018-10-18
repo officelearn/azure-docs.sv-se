@@ -8,12 +8,12 @@ manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 07/31/2018
-ms.openlocfilehash: a6ad40f90e12bbf4dd85c3cbd22839d39a734ca1
-ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
+ms.openlocfilehash: 5f76d18662105df6d278e09e047baa13773ab4ac
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44391173"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49319361"
 ---
 # <a name="deploy-to-azure-app-service-by-using-the-jenkins-plugin"></a>Distribuera till Azure App Service med plugin-programmet Jenkins 
 
@@ -36,8 +36,10 @@ Om du inte redan har ett Jenkins-original börjar du med [lösningsmallen](insta
 * [Azure App Service](https://plugins.jenkins.io/azure-app-service) version 0.1
 
 Du kan använda plugin-programmet Jenkins för att distribuera en webbapp på valfritt språk som stöds av Web Apps, till exempel C#, PHP, Java eller Node.js. I den här självstudien använder vi en [enkel Java-webbapp för Azure](https://github.com/azure-devops/javawebappsample). Om du vill förgrena lagringsplatsen till ditt eget GitHub-konto väljer du knappen **Fork** (Förgrening) i det övre högra hörnet i GitHub-gränssnittet.  
+
 > [!NOTE]
 > Java JDK och Maven krävs för att skapa Java-projektet. Installera komponenterna på Jenkins-originalet, eller på VM-agenten om du använder agenten för kontinuerlig integrering. Om du distribuerar ett Java SE-program måste det även finnas en ZIP-fil på versionsservern.
+>
 
 Installera komponenterna genom att logga in till Jenkins-instansen med SSH och köra följande kommandon:
 
@@ -48,7 +50,7 @@ sudo apt-get install -y maven
 
 Om du vill distribuera till Web App for Containers installerar du Docker på Jenkins-originalet eller på den VM-agent som används för kompileringen. Instruktioner finns i [Installera Docker på Ubuntu](https://docs.docker.com/engine/installation/linux/ubuntu/).
 
-##<a name="service-principal"></a> Lägg till ett Azure-tjänsthuvudnamn till autentiseringsuppgifterna för Jenkins
+## <a name="service-principal"></a> Lägg till ett Azure-tjänsthuvudnamn till autentiseringsuppgifterna för Jenkins
 
 Du behöver ett Azure-tjänsthuvudnamn för att kunna distribuera till Azure. 
 

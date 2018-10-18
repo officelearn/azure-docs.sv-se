@@ -9,12 +9,12 @@ manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 06/04/2018
-ms.openlocfilehash: 9b6a7187827622443c3cb29566dfb5eef840d595
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.openlocfilehash: 7ae97274b03dda4dcf5150c8faacc7d406dad9fd
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43666203"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49389623"
 ---
 # <a name="use-terraform-to-create-an-azure-virtual-machine-scale-set"></a>Använd Terraform för att skapa en VM-skalningsuppsättning för Azure
 
@@ -38,7 +38,7 @@ I den här självstudien lär du dig använda [Azure Cloud Shell](/azure/cloud-s
 
 - **Installera Terraform**: Följ anvisningarna i artikeln [Terraform and configure access to Azure](/azure/virtual-machines/linux/terraform-install-configure) (Terraform och konfigurera åtkomst till Azure)
 
-- **Skapa ett SSH-nyckelpar**: Om du inte redan har ett SSH-nyckelpar så följer du instruktionerna i artikeln [How to create and use an SSH public and private key pair for Linux VMs in Azure](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/mac-create-ssh-keys) (Så här skapar och använder du ett offentligt och ett privat SSH-nyckelpar för virtuella Linux-datorer i Azure).
+- **Skapa ett SSH-nyckelpar**: Om du inte redan har ett SSH-nyckelpar så följer du instruktionerna i artikeln [How to create and use an SSH public and private key pair for Linux VMs in Azure](https://docs.microsoft.com/azure/virtual-machines/linux/mac-create-ssh-keys) (Så här skapar och använder du ett offentligt och ett privat SSH-nyckelpar för virtuella Linux-datorer i Azure).
 
 ## <a name="create-the-directory-structure"></a>Skapa katalogstrukturen
 

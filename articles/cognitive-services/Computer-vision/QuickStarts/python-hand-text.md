@@ -3,26 +3,26 @@ title: 'Snabbstart: Extrahera handskriven text – REST, Python – Visuellt inn
 titleSuffix: Azure Cognitive Services
 description: I den här snabbstarten ska du extrahera handskriven text från en bild med hjälp av API för visuellt innehåll med Python.
 services: cognitive-services
-author: noellelacharite
+author: PatrickFarley
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: computer-vision
 ms.topic: quickstart
 ms.date: 08/28/2018
-ms.author: v-deken
-ms.openlocfilehash: 91cff6205af70968b6397af9756a5385ddb0c989
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.author: pafarley
+ms.openlocfilehash: 58860fa1f65f90cdd314eb2c8cb7e1f54faa2344
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45631369"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49341760"
 ---
 # <a name="quickstart-extract-handwritten-text-using-the-rest-api-and-python-in-computer-vision"></a>Snabbstart: Extrahera handskriven text med hjälp av REST-API och Python i Visuellt innehåll
 
-I den här snabbstarten extraherar du handskriven text från en bild med hjälp av REST API för visuellt innehåll. Med hjälp av metoderna [Recognize Text](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/587f2c6a154055056008f200) (Identifiera text) och [Get Recognize Text Operation Result](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/587f2cf1154055056008f201) (Hämta resultat av identifiering av text) kan du identifiera handskriven text i en bild och extrahera sedan identifierade tecken till en datorteckenström.
+I den här snabbstarten extraherar du handskriven text från en bild med hjälp av REST API för visuellt innehåll. Med hjälp av metoderna [Recognize Text](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/587f2c6a154055056008f200) (Identifiera text) och [Get Recognize Text Operation Result](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/587f2cf1154055056008f201) (Hämta resultat för åtgärden Identifiera text) kan du identifiera handskriven text i en bild och sedan extrahera identifierade tecken till en teckenström som kan användas på en dator.
 
 > [!IMPORTANT]
-> Till skillnad från [OCR](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fc)-metoden så körs metoden [Identifiera text](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/587f2c6a154055056008f200) asynkront. Den här metoden returnerar inte någon information i en svarsbrödtext. I stället returnerar metoden Identifiera text en URI i värdet i svarsrubrikfältet `Operation-Content`. Du kan sedan anropa denna URI, som representerar metoden [Get Recognize Text Operation Result](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/587f2cf1154055056008f201), så att du både kan kontrollera status och returnera resultatet för metodanropet Identifiera text.
+> Till skillnad från metoden [OCR](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fc) så körs metoden [Identifiera text](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/587f2c6a154055056008f200) asynkront. Den här metoden returnerar inte någon information i en svarsbrödtext. I stället returnerar metoden Identifiera text en URI i värdet i svarsrubrikfältet `Operation-Content`. Du kan sedan anropa denna URI, som representerar metoden [Hämta resultat för åtgärden Identifiera text](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/587f2cf1154055056008f201), så att du både kan kontrollera status och returnera resultaten för metodanropet Identifiera text.
 
 Du kan köra den här snabbstarten steg för steg med hjälp av en Jupyter-anteckningsbok på [MyBinder](https://mybinder.org). Starta Binder med den här knappen:
 
@@ -39,14 +39,14 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 
 Så här skapar du och kör exemplet:
 
-1. Kopiera följande kod till en textredigerarere.
-1. Gör följande ändringar i koden när så behövs:
+1. Kopiera följande kod till en textredigerare.
+1. Gör nedanstående ändringar i koden där det behövs:
     1. Ersätt värdet för `subscription_key` med din prenumerationsnyckel.
     1. Ersätt värdet för `vision_base_url` med slutpunktens API för visuellt innehåll i den Azure-region där du fick dina prenumerationsnycklar, om så behövs.
     1. Du kan också ersätta värdet för `image_url` med webbadressen till en annan bild från vilken du vill extrahera handskriven text.
 1. Spara koden som en fil med tillägget `.py`. Till exempel `get-handwritten-text.py`.
 1. Öppna ett kommandotolksfönster.
-1. Kör exemplet genom att använda kommandot `python` i kommandotolken. Till exempel `python get-handwritten-text.py`.
+1. Kör exemplet i kommandotolken med kommandot `python`. Till exempel `python get-handwritten-text.py`.
 
 ```python
 import requests
@@ -127,7 +127,7 @@ _ = plt.axis("off")
 
 ## <a name="examine-the-response"></a>Granska svaret
 
-Ett svar som anger att åtgärden lyckades returneras i JSON. Exempelwebbsidan tolkar och visar ett lyckat svar i kommandotolkens fönster liknar följande exempel:
+Ett svar som anger att åtgärden lyckades returneras i JSON. Exempelwebbsidan parsar och visar ett lyckat svar i kommandotolkens fönster enligt följande exempel:
 
 ```json
 {
@@ -407,7 +407,7 @@ Ett svar som anger att åtgärden lyckades returneras i JSON. Exempelwebbsidan t
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-Ta bort din runbook när den inte längre behövs.
+Ta bort filen när den inte längre behövs.
 
 ## <a name="next-steps"></a>Nästa steg
 

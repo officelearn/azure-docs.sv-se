@@ -10,12 +10,12 @@ ms.author: mimart
 author: msmimart
 manager: mtillman
 ms.reviewer: sasubram
-ms.openlocfilehash: d0f2669610f2086c29d52d95c9796e6a2939622e
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.openlocfilehash: 9d2fa8ec96f629ff85d785897398bc9af52ab3bc
+ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45985454"
+ms.lasthandoff: 10/12/2018
+ms.locfileid: "49165767"
 ---
 # <a name="azure-active-directory-b2b-collaboration-code-and-powershell-samples"></a>Azure Active Directory B2B-samarbetskod och PowerShell-exempel
 
@@ -34,14 +34,14 @@ Du kan massinbjuda externa användare till en organisation från e-postadresser 
 
 3. Logga in på ditt innehav
 
-    ```
+    ```powershell
     $cred = Get-Credential
     Connect-AzureAD -Credential $cred
     ```
 
 4. Kör PowerShell-cmdleten
 
-  ```
+  ```powershell
   $invitations = import-csv C:\data\invitations.csv
   $messageInfo = New-Object Microsoft.Open.MSGraph.Model.InvitedUserMessageInfo
   $messageInfo.customizedMessageBody = "Hey there! Check this out. I created an invitation through PowerShell"
@@ -56,7 +56,7 @@ Den här cmdleten skickar en inbjudan till e-postadresserna i invitations.csv. Y
 ## <a name="code-sample"></a>Kodexempel
 Här visar vi hur du anropar inbjudan API:et i appspecifikt läge för att hämta inlösens-URL:en för den resurs som du bjuder in B2B-användaren till. Målet är att skicka ett anpassat e-postmeddelande med inbjudan. E-postmeddelandet kan bestå av en HTTP-klienten så att du kan anpassa hur den ser ut och skicka den via Graph API.
 
-```
+```csharp
 namespace SampleInviteApp
 {
     using System;

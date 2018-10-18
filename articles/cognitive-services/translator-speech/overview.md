@@ -10,15 +10,17 @@ ms.component: translator-speech
 ms.topic: overview
 ms.date: 3/5/2018
 ms.author: v-jansko
-ROBOTS: NOINDEX
-ms.openlocfilehash: fd974d153e9db48b25c1b732b9719c21b16b5e01
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 77e60fe39f7cbb985ee0e7ed2785805e80c389ae
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46948782"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49341148"
 ---
 # <a name="what-is-translator-speech-api"></a>Vad är Translator Speech API?
+
+[!INCLUDE [Deprecation note](../../../includes/cognitive-services-translator-speech-deprecation-note.md)]
+
 Translator Speech API kan användas för att lägga till talöversättning, heltäckande och i realtid, program, verktyg och lösningar som kräver talöversättning på flera språk oberoende av måloperativsystem och utvecklingsspråk. API:et kan användas för både tal till tal- och tal till text-översättning.
 
 Translator Text API är en del av Microsofts [Azure Cognitive Services-API-samling](https://docs.microsoft.com/azure/#pivot=products&panel=cognitive). Det här är en samling algoritmer för maskininlärning och AI i molnet som är enkla att använda i utvecklingsprojekt.

@@ -3,19 +3,19 @@ title: 'Snabbstart: Generera en miniatyrbild – REST, Java – Visuellt innehå
 titleSuffix: Azure Cognitive Services
 description: I den här snabbstarten genererar du en miniatyrbild från en bild med hjälp av API för visuellt innehåll och Java.
 services: cognitive-services
-author: noellelacharite
+author: PatrickFarley
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: computer-vision
 ms.topic: quickstart
 ms.date: 08/28/2018
-ms.author: v-deken
-ms.openlocfilehash: 8627a3b2e5f0a1e250401bdddc1870381979dca8
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.author: pafarley
+ms.openlocfilehash: a29fd161e788a0c10e5fcb5cd5cd735e1f2cf1b4
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47225922"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49343590"
 ---
 # <a name="quickstart-generate-a-thumbnail-using-the-rest-api-and-java-in-computer-vision"></a>Snabbstart: Generera en miniatyrbild med hjälp av REST-API:t och Java i Visuellt innehåll
 
@@ -164,7 +164,7 @@ public class Main {
 
 ## <a name="examine-the-response"></a>Granska svaret
 
-Ett lyckat svar returneras i form av binärdata som representerar bilddata för miniatyrbilden. Om förfrågningen lyckas så genereras miniatyren från binärdata i svaret. Miniatyrbilden visas sedan i ett separat fönster som exempelappen skapar. Om förfrågningen misslyckas visas svaret i konsolfönstret. Svaret för en misslyckad förfrågning innehåller en felkod och ett meddelande som hjälper dig att avgöra vad som gick fel.
+Ett lyckat svar returneras i form av binärdata som representerar bilddata för miniatyrbilden. Om förfrågningen lyckas så genereras miniatyren från binärdata i svaret. Miniatyrbilden visas sedan i ett separat fönster som exempelappen skapar. Om förfrågningen misslyckas visas svaret i konsolfönstret. Svaret för en misslyckad begäran innehåller en felkod och ett meddelande som hjälper dig att avgöra vad som gick fel.
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 

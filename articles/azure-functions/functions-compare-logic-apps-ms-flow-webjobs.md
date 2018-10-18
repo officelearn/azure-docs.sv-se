@@ -12,12 +12,12 @@ ms.topic: overview
 ms.date: 04/09/2018
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: 789b572a1d3b049bcfd9a739182c49c4da27fc96
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.openlocfilehash: e449703dd8d012037af9540397ecd3b7bc0c7e7f
+ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48817015"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49114654"
 ---
 # <a name="compare-flow-logic-apps-functions-and-webjobs"></a>Jämföra Flow, Logic Apps, Functions och WebJobs
 
@@ -84,7 +84,7 @@ Azure Functions bygger på WebJobs-SDK:n, och delar därför många händelseutl
 
 |  | Functions | WebJobs med Webjobs-SDK:n |
 | --- | --- | --- |
-|[Serverlös appmodell](https://azure.microsoft.com/overview/serverless-computing/) med [automatisk skalning](functions-scale.md#how-the-consumption-plan-works)|✔||
+|[Serverlös appmodell](https://azure.microsoft.com/solutions/serverless/) med [automatisk skalning](functions-scale.md#how-the-consumption-plan-works)|✔||
 |[Utveckla och testa i webbläsaren](functions-create-first-azure-function.md) |✔||
 |[Betala per användning](functions-scale.md#consumption-plan)|✔||
 |[Integrering med Logic Apps](functions-twitter-email.md)|✔||

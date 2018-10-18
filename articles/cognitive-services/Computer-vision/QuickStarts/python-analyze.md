@@ -3,19 +3,19 @@ title: 'Snabbstart: Analysera en fjärrbild REST, Python – Visuellt innehåll'
 titleSuffix: Azure Cognitive Services
 description: I den här snabbstarten analyserar du en fjärrbild med hjälp av API:et för visuellt innehåll med Python.
 services: cognitive-services
-author: noellelacharite
+author: PatrickFarley
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: computer-vision
 ms.topic: quickstart
 ms.date: 08/28/2018
-ms.author: v-deken
-ms.openlocfilehash: 1fc7c58ec4e5c200ae62c70698db7ec813d82703
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.author: pafarley
+ms.openlocfilehash: 8f8503277ec03bd6036431bcacd3719dac7378de
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48883949"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49338751"
 ---
 # <a name="quickstart-analyze-a-remote-image-using-the-rest-api-and-python-in-computer-vision"></a>Snabbstart: Analysera en fjärrbild med hjälp av REST-API:et och Python i Visuellt innehåll
 
@@ -43,7 +43,7 @@ Så här skapar du och kör exemplet:
     1. Du kan också ersätta värdet för `image_url` med webbadressen till en annan bild som du vill analysera.
 1. Spara koden som en fil med tillägget `.py`. Till exempel `analyze-image.py`.
 1. Öppna ett kommandotolksfönster.
-1. I kommandotolken kör du exemplet med kommandot `python`. Till exempel `python analyze-image.py`.
+1. Kör exemplet i kommandotolken med kommandot `python`. Till exempel `python analyze-image.py`.
 
 ```python
 import requests

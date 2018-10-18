@@ -3,8 +3,8 @@ title: Självstudie – Lägga till Azure CDN i en Azure App Service-webbapp | M
 description: I den här självstudien lägger du till ett Content Delivery Network (CDN) i en Azure App Service-webbapp för att cachelagra och leverera statiska filer från servrar nära dina kunder runtom i världen.
 services: cdn
 documentationcenter: ''
-author: dksimpson
-manager: cfowler
+author: mdgattuso
+manager: danielgi
 editor: ''
 ms.assetid: ''
 ms.service: cdn
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 05/14/2018
-ms.author: v-deasim
+ms.author: magattus
 ms.custom: mvc
-ms.openlocfilehash: d1c92c3a7731198b693b797e0794cd4c26eaa4c3
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: db4a9a43a971f66870c2079762b9c62802122baa
+ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46976639"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49093331"
 ---
 # <a name="tutorial-add-azure-cdn-to-an-azure-app-service-web-app"></a>Självstudie: Lägga till Azure CDN i en Azure App Service-webbapp
 

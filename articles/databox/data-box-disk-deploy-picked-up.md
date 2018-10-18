@@ -2,25 +2,19 @@
 title: Skicka tillbaka Microsoft Azure Data Box-disk| Microsoft Docs
 description: I den här självstudien förklarar vi hur du skickar tillbaka Azure Data Box-disken till Microsoft
 services: databox
-documentationcenter: NA
 author: alkohli
-manager: twooley
-editor: ''
-ms.assetid: ''
 ms.service: databox
-ms.devlang: NA
+ms.subservice: disk
 ms.topic: tutorial
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 07/10/2018
 ms.author: alkohli
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: 783c837bbb9ce22e7354252523e6725753776836
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: f971a1bed0391e809e19ff5bb0508d153319faf4
+ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39011066"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49094011"
 ---
 # <a name="tutorial-return-azure-data-box-disk-and-verify-data-upload-to-azure"></a>Självstudie: Skicka tillbaka Azure Data Box-disken och verifiera datauppladdning till Azure
 
@@ -88,7 +82,7 @@ När kopieringen har slutförts och du har kontrollerat att alla data finns i Az
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här kursen har du lärt dig om Azure Data Box-diskar och bland annat om att:
+I den här självstudien om Azure Data Box Disk har du bland annat lärt dig att:
 
 > [!div class="checklist"]
 > * Skicka Data Box-disk till Microsoft

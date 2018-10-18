@@ -11,19 +11,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 10/12/2018
+ms.date: 10/16/2018
 ms.author: raiye
-ms.openlocfilehash: b37600fe8d0616454264b67553149223746318d8
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: 7540f12f888108ed7091cece575b6d25131ef47b
+ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49322030"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49377522"
 ---
 # <a name="azure-guest-os"></a>Azure gäst-OS
 Följande tabeller visar Microsoft Security Response Center (MSRC) uppdateringarna tillämpas på Gästoperativsystemet i Azure. Sök i den här artikeln för att avgöra om en viss uppdatering gäller för Gästoperativsystem som du använder. Uppdateringar alltid överför för speciellt [familj] [ family-explain] de introducerades i.
 
-## <a name="september-guest-os"></a>September gäst-OS
+## <a name="september-2018-guest-os"></a>September 2018 gäst-OS
 | Produktkategori | Överordnad KB-artikel | Beskrivning av säkerhetsrisk | Gäst-OS | Datum som introducerades |
 | --- | --- | --- | --- | --- |
 | Rel 18-09 | [4457131] | Windows 10-säkerhet | 5.23 | Den 11 september 2018 |
@@ -45,7 +45,7 @@ Följande tabeller visar Microsoft Security Response Center (MSRC) uppdateringar
 | Gäller inte | [4344153] | Insamling av augusti ej säkerhet .NET 3.5 | 4.58 | Den 14 augusti 2018 |
 | Gäller inte | [4344147] | Augusti ej säkerhet .NET 4 x rollup | 4.58 | Den 14 augusti 2018 |
 
-## <a name="august-guest-os"></a>Augusti gäst-OS
+## <a name="august-2018-guest-os"></a>Augusti 2018 gäst-OS
 | Produktkategori | Överordnad KB-artikel | Beskrivning av säkerhetsrisk | Gäst-OS | Datum som introducerades |
 | --- | --- | --- | --- | --- |
 | Rel 18-08 | [4343887] | Windows 10-säkerhet | 5.22 | Den 14 augusti 2018 |
@@ -68,7 +68,7 @@ Följande tabeller visar Microsoft Security Response Center (MSRC) uppdateringar
 | Gäller inte | [4338424] |Insamling av juli ej säkerhet .NET 3.5 |3.64 | Den 10 juli 2018 |
 | Gäller inte | [4338415] |Juli ej säkerhet .NET 4 x rollup |3.64 | Den 10 juli 2018 |
 
-## <a name="july-guest-os"></a>Juli gäst-OS
+## <a name="july-2018-guest-os"></a>Juli 2018 gäst-OS
 | Produktkategori | Överordnad KB-artikel | Beskrivning av säkerhetsrisk | Gäst-OS | Datum som introducerades |
 | --- | --- | --- | --- | --- |
 | Rel 18-07 | [4338814] |Windows 10-säkerhet |5.21 |Den 10 juli 2018 |
@@ -88,7 +88,7 @@ Följande tabeller visar Microsoft Security Response Center (MSRC) uppdateringar
 | Gäller inte | [4284855] |Insamling av juni icke-säkerhet |3.63 |12 juni 2018 |
 | Gäller inte | [4284815] |Insamling av juni icke-säkerhet |med 4,56 |12 juni 2018 |
 
-## <a name="june-guest-os"></a>Juni gäst-OS
+## <a name="june-2018-guest-os"></a>Juni 2018 gäst-OS
 | Produktkategori | Överordnad KB-artikel | Beskrivning av säkerhetsrisk | Gäst-OS | Datum som introducerades |
 | --- | --- | --- | --- | --- |
 | Rel 18-06 | [4284880] |Windows 10-säkerhet |5.20 |12 juni 2018 |
@@ -113,7 +113,7 @@ Följande tabeller visar Microsoft Security Response Center (MSRC) uppdateringar
 | Gäller inte | [4096417] |.NET 4.5 x ej säkerhetsrelaterade kan versionen |4.55 |8 maj 2018 |
 | Gäller inte | [4132216] |Kan SSU |5.20 |8 maj 2018 |
 
-## <a name="may-guest-os"></a>Kan gästoperativsystem
+## <a name="may-2018-guest-os"></a>Maj 2018 gäst-OS
 | Produktkategori | Överordnad KB-artikel | Beskrivning av säkerhetsrisk | Gäst-OS | Datum som introducerades |
 | --- | --- | --- | --- | --- |
 | Rel 18 05 | [4103721], [4103727], [4103723] |Windows 10-säkerhet |5.19 |8 maj 2018 |
@@ -133,7 +133,7 @@ Följande tabeller visar Microsoft Security Response Center (MSRC) uppdateringar
 | Gäller inte | [4093753] |Tidszon update |2.74, 3,61, 4.74 |10 april 2018 |
 
 
-## <a name="april-guest-os"></a>April gäst-OS
+## <a name="april-2018-guest-os"></a>April 2018 gäst-OS
 | Produktkategori | Överordnad KB-artikel | Beskrivning av säkerhetsrisk | Gäst-OS | Datum som introducerades |
 | --- | --- | --- | --- | --- |
 | Rel 18-04 | [4093119] |Windows 10-säkerhet |5.18 |10 april 2018 |
@@ -147,7 +147,7 @@ Följande tabeller visar Microsoft Security Response Center (MSRC) uppdateringar
 | Gäller inte | [4088877] |Insamling av mars icke-säkerhet |3,60 |13 mars 2018 |
 | Gäller inte | [4088876] |Insamling av mars icke-säkerhet |4,53 |13 mars 2018 |
 
-## <a name="march-guest-os"></a>Mars gäst-OS
+## <a name="march-2018-guest-os"></a>Mars 2018 gäst-OS
 | Produktkategori | Överordnad KB-artikel | Beskrivning av säkerhetsrisk | Gäst-OS | Datum som introducerades |
 | --- | --- | --- | --- | --- |
 | Rel 18-03 | [4088787], [4088776] |Windows 10-säkerhet |5,17 |13 mars 2018 |
@@ -160,7 +160,7 @@ Följande tabeller visar Microsoft Security Response Center (MSRC) uppdateringar
 | Gäller inte | [4074837] |Tidszon update |2.72, 3.59, 4.52 |13 februari 2018 |
 
 
-## <a name="february-guest-os"></a>Februari gäst-OS
+## <a name="february-2018-guest-os"></a>Februari 2018 gäst-OS
 | Produktkategori | Överordnad KB-artikel | Beskrivning av säkerhetsrisk | Gäst-OS | Datum som introducerades |
 | --- | --- | --- | --- | --- |
 | Rel 18-02 | [4074590], [4074588] |Windows 10-säkerhet |5.16 |13 februari 2018 |
@@ -174,7 +174,7 @@ Följande tabeller visar Microsoft Security Response Center (MSRC) uppdateringar
 | Gäller inte | [4054175], [4054171] |Insamling av januari .NET |3,58 |Den 4 januari 2018 |
 | Gäller inte | [4054177], [4054170] |Insamling av januari .NET |4.51 |Den 4 januari 2018 |
 
-## <a name="january-guest-os"></a>Januari gäst-OS
+## <a name="january-2018-guest-os"></a>Januari 2018 gäst-OS
 | Produktkategori | Överordnad KB-artikel | Beskrivning av säkerhetsrisk | Gäst-OS | Datum som introducerades |
 | --- | --- | --- | --- | --- |
 | Rel 18-01 | [4056898], [4056897], [4056899] |Endast Windows-säkerhet |2.70, 3.57, 4,50 |Den 3 januari 2018 |
@@ -186,7 +186,7 @@ Följande tabeller visar Microsoft Security Response Center (MSRC) uppdateringar
 
 
 
-## <a name="december-guest-os"></a>December gäst-OS
+## <a name="december-2017-guest-os"></a>December 2017 gäst-OS
 | Produktkategori | Överordnad KB-artikel | Beskrivning av säkerhetsrisk | Gäst-OS | Datum som introducerades |
 | --- | --- | --- | --- | --- |
 | Rel 17 – 12 | [4053579], [4054517] |Säkerhetsuppdateringar för Windows 10 |4.49, 5.14 |12 december 2017 |
@@ -198,7 +198,7 @@ Följande tabeller visar Microsoft Security Response Center (MSRC) uppdateringar
 | Gäller inte | [4048958] |Insamling av november icke-säkerhet |4.49 |14 november 2017 |
 | Gäller inte | [4049068] |Uppdatering för december tidszon |2.69, 3.56, 4.49 |12 december 2017 |
 
-## <a name="november-guest-os"></a>November gäst-OS
+## <a name="november-2017-guest-os"></a>November 2017 gäst-OS
 | Produktkategori | Överordnad KB-artikel | Beskrivning av säkerhetsrisk | Gäst-OS | Datum som introducerades |
 | --- | --- | --- | --- | --- |
 | Rel 17-11 | [4048953] |Windows 10-uppdateringar |5.13 |14 november 2017 |
@@ -212,7 +212,7 @@ Följande tabeller visar Microsoft Security Response Center (MSRC) uppdateringar
 | Gäller inte | [3191565] |Uppdatering för Windows Management Framework 5.1  |3.55 |14 november 2017 |
 | Gäller inte | [3191564] |Uppdatering för Windows Management Framework 5.1  |4.48 |14 november 2017 |
 
-## <a name="october-guest-os"></a>Oktober gäst-OS
+## <a name="october-2017-guest-os"></a>Oktober 2017 gäst-OS
 | Produktkategori | Överordnad KB-artikel | Beskrivning av säkerhetsrisk | Gäst-OS | Datum som introducerades |
 | --- | --- | --- | --- | --- |
 | Rel 17-10 | [4041691] |Windows 10-uppdateringar |5.12 |Den 10 oktober 2017 |
@@ -226,7 +226,7 @@ Följande tabeller visar Microsoft Security Response Center (MSRC) uppdateringar
 | Gäller inte | [4040979] |Insamling av september .NET icke-säkerhet |3.54 |Den 12 september 2017 |
 | Gäller inte | [4040981] |Insamling av september .NET icke-säkerhet |4.47 |Den 12 september 2017 |
 
-## <a name="september-guest-os"></a>September gäst-OS
+## <a name="september-2017-guest-os"></a>September 2017 gäst-OS
 | Produktkategori | Överordnad KB-artikel | Beskrivning av säkerhetsrisk | Gäst-OS | Datum som introducerades |
 | --- | --- | --- | --- | --- |
 | Rel 17-09 | [4038782] |Windows 10-uppdateringar |5.11 |Den 12 september 2017 |
@@ -238,7 +238,7 @@ Följande tabeller visar Microsoft Security Response Center (MSRC) uppdateringar
 | Gäller inte | [4034665] |Insamling av augusti icke-säkerhet |5.11 |Den 8 augusti 2017 |
 | Gäller inte | [4034681] |Insamling av augusti icke-säkerhet |4.46 |Den 8 augusti 2017 |
 
-## <a name="august-guest-os"></a>Augusti gäst-OS
+## <a name="august-2017-guest-os"></a>Augusti 2017 gäst-OS
 | Produktkategori | Överordnad KB-artikel | Beskrivning av säkerhetsrisk | Gäst-OS | Datum som introducerades |
 | --- | --- | --- | --- | --- |
 | Rel 17-07 | [4034658] |Windows 10-uppdateringar |5.10 |Den 8 augusti 2017 |
@@ -252,7 +252,7 @@ Följande tabeller visar Microsoft Security Response Center (MSRC) uppdateringar
 | Rel 17-07 | [4025331] |Insamling av juli icke-säkerhet |3.52 |11 juli 2017 |
 | Rel 17-07 | [4025336] |Insamling av juli icke-säkerhet |4.45 |11 juli 2017 |
 
-## <a name="july-guest-os"></a>Juli gäst-OS
+## <a name="july-2017-guest-os"></a>Juli 2017 gäst-OS
 | Produktkategori | Överordnad KB-artikel | Beskrivning av säkerhetsrisk | Gäst-OS | Datum som introducerades |
 | --- | --- | --- | --- | --- |
 | Rel 17-07 | [4025339] |Windows 10-uppdateringar |5.9 |11 juli 2017 |
@@ -266,7 +266,7 @@ Följande tabeller visar Microsoft Security Response Center (MSRC) uppdateringar
 | Gäller inte | [4022724] |Insamling av juni icke-säkerhet |3.51 |Den 13 juni 2017 |
 | Gäller inte | [4022726] |Insamling av juni icke-säkerhet |4.44 |Den 13 juni 2017 |
 
-## <a name="june-guest-os"></a>Juni gäst-OS
+## <a name="june-2017-guest-os"></a>Juni 2017 gäst-OS
 | Produktkategori | Överordnad KB-artikel | Beskrivning av säkerhetsrisk | Gäst-OS | Datum som introducerades |
 | --- | --- | --- | --- | --- |
 | Rel 17-06 | [4019472] |WS 2016 OS kvalitet förbättringar |5.8 |Den 9 maj 2017 |
@@ -294,7 +294,7 @@ Följande tabeller visar Microsoft Security Response Center (MSRC) uppdateringar
 | Gäller inte | [4014510] |Kan .NET insamling av icke-säkerhet |4.43 |Den 9 maj 2017 |
 | Gäller inte | [4014512] |Kan .NET insamling av icke-säkerhet |4.43 |Den 9 maj 2017 |
 
-## <a name="may-guest-os"></a>Kan gästoperativsystem
+## <a name="may-2017-guest-os"></a>Maj 2017 gäst-OS
 | Produktkategori | Överordnad KB-artikel | Beskrivning av säkerhetsrisk | Gäst-OS | Datum som introducerades |
 | --- | --- | --- | --- | --- |
 | Rel 17 05 | [4019472] |WS 2016 OS kvalitet förbättringar |5.7 | Den 9 maj 2017 |
@@ -322,7 +322,7 @@ Följande tabeller visar Microsoft Security Response Center (MSRC) uppdateringar
 | Gäller inte | [4015550] |Insamling av april icke-säkerhet |4.42 | 11 april 2017 |
 | Gäller inte | [4013418] |Servicing Stack-uppdatering |5.7 | 14 mars 2017 |
 
-## <a name="april-guest-os"></a>April gäst-OS
+## <a name="april-2017-guest-os"></a>April 2017 gäst-OS
 | Produktkategori | Överordnad KB-artikel | Beskrivning av säkerhetsrisk | Gäst-OS | Datum som introducerades |
 | --- | --- | --- | --- | --- |
 | Rel 17-04 |  [4015217]  |WS 2016 OS kvalitet förbättringar | 5.6 | 11 april 2017 |
@@ -342,7 +342,7 @@ Följande tabeller visar Microsoft Security Response Center (MSRC) uppdateringar
 | Rel 17-04 |  [4012217]  |Mars 2017 månatliga kvalitet insamling av säkerhet för Windows Server 2012 |3.48 | 11 april 2017 |
 | Rel 17-04 |  [4012216]  |Mars 2017 månatliga kvalitet insamling av säkerhet för Windows 8.1 och Windows Server 2012 R2 |4.41 | 11 april 2017 |
 
-## <a name="march-guest-os"></a>Mars gäst-OS
+## <a name="march-2017-guest-os"></a>Mars 2017 gäst-OS
 | Produktkategori | Överordnad KB-artikel | Beskrivning av säkerhetsrisk | Gäst-OS | Datum som introducerades |
 | --- | --- | --- | --- | --- |
 | Rel 17-03 |  [4013429] |Förbättringar och korrigeringar | 5.5 | 14 mars 2017 |
@@ -356,12 +356,12 @@ Följande tabeller visar Microsoft Security Response Center (MSRC) uppdateringar
 | Gäller inte |  [3205401] |December 2016 månatliga kvalitet insamling av säkerhet för Windows 8.1 och Windows Server 2012 R2 |4.40 |14 mars 2017 |
 | Gäller inte |  [3211320] |Servicing stack-uppdatering för Windows 10 Version 1607 och Windows Server 2016: 24 januari 2017 |5.5 |14 mars 2017 |
 
-## <a name="january-guest-os"></a>Januari gäst-OS
+## <a name="january-2017-guest-os"></a>Januari 2017 gäst-OS
 | Anslags-ID | Överordnad KB-artikel | Beskrivning av säkerhetsrisk | Gäst-OS | Datum som introducerades |
 | --- | --- | --- | --- | --- |
 | MS17-004 | [3216771] |Säkerhetsuppdatering för lokala Security Authority Subsystem Service |2.59 |10 januari 2017 |
 
-## <a name="december-guest-os"></a>December gäst-OS
+## <a name="december-2016-guest-os"></a>December 2016-Gästoperativsystem
 | Anslags-ID | Överordnad KB-artikel | Beskrivning av säkerhetsrisk | Gäst-OS | Datum som introducerades |
 | --- | --- | --- | --- | --- |
 | MS16-144 |[3204059] |Kumulativ säkerhetsuppdatering för Internet Explorer |2.58, 3.46, 4.39 |13 december 2016 |
@@ -378,7 +378,7 @@ Följande tabeller visar Microsoft Security Response Center (MSRC) uppdateringar
 | Gäller inte |[3197877] |November 2016 månatliga kvalitet insamling av säkerhet för Windows Server 2012 |3.46 |13 december 2016 |
 | Gäller inte |[3197874] |November 2016 månatliga kvalitet insamling av säkerhet för Windows 8.1 och Windows Server 2012 R2 |4.39 |13 december 2016 |
 
-## <a name="november-guest-os"></a>November gäst-OS
+## <a name="november-2016-guest-os"></a>November 2016-Gästoperativsystem
 | Anslags-ID | Överordnad KB-artikel | Beskrivning av säkerhetsrisk | Gäst-OS | Datum som introducerades |
 | --- | --- | --- | --- | --- |
 | MS16-129 |[3199057] |Kumulativ säkerhetsuppdatering för Microsoft Edge |5.3 |8 november 2016 |
@@ -403,7 +403,7 @@ Följande tabeller visar Microsoft Security Response Center (MSRC) uppdateringar
 | Gäller inte |[3199986] |Servicing stack-uppdatering för Windows 10 Version 1607: 27 oktober 2016 |5.3 |8 november 2016 |
 | Gäller inte |[3197954] |Kumulativ uppdatering för Windows 10 Version 1607 och Windows Server 2016: 27 oktober 2016 |5.3 |8 november 2016 |
 
-## <a name="october-guest-os"></a>Oktober gäst-OS
+## <a name="october-2016-guest-os"></a>Oktober 2016-Gästoperativsystem
 | Anslags-ID | Överordnad KB-artikel | Beskrivning av säkerhetsrisk | Gäst-OS | Datum som introducerades |
 | --- | --- | --- | --- | --- |
 | MS16-118 |[3192887] |Kumulativ säkerhetsuppdatering för Internet Explorer |4.37, 3.44, 2.56 |11 oktober 2016 |
@@ -418,7 +418,7 @@ Följande tabeller visar Microsoft Security Response Center (MSRC) uppdateringar
 | Gäller inte |[3185279] |September 2016 Samlad uppdatering för Windows 8.1 och Windows Server 2012 R2 |4.37 |11 oktober 2016 |
 | Gäller inte |[3194798] |Kumulativ uppdatering för Windows 10 Version 1607 och Windows Server 2016 |5.2 |11 oktober 2016 |
 
-## <a name="september-guest-os"></a>September gäst-OS
+## <a name="september-2016-guest-os"></a>September 2016-Gästoperativsystem
 | Anslags-ID | Överordnad KB-artikel | Beskrivning av säkerhetsrisk | Gäst-OS | Datum som introducerades |
 | --- | --- | --- | --- | --- |
 | MS16-104 |[3183038] |Kumulativ säkerhetsuppdatering för Internet Explorer |4.36, 3.43, 2.55 |Den 13 september 2016 |
@@ -435,7 +435,7 @@ Följande tabeller visar Microsoft Security Response Center (MSRC) uppdateringar
 | Gäller inte |[3179575] |Augusti 2016 Samlad uppdatering för Windows Server 2012 |3.43 |Den 13 september 2016 |
 | Gäller inte |[3179574] |Samlad uppdatering för Windows RT 8.1, Windows 8.1 och Windows Server 2012 R2 i augusti 2016 |4.36 |Den 13 september 2016 |
 
-## <a name="august-guest-os"></a>Augusti gäst-OS
+## <a name="august-2016-guest-os"></a>Augusti 2016-Gästoperativsystem
 | Anslags-ID | Överordnad KB-artikel | Beskrivning av säkerhetsrisk | Gäst-OS | Datum som introducerades |
 | --- | --- | --- | --- | --- |
 | MS16-095 |[3177356] |Kumulativ säkerhetsuppdatering för Internet Explorer |4.35, 3.42, 2.54 |Den 9 augusti 2016 |
@@ -449,7 +449,7 @@ Följande tabeller visar Microsoft Security Response Center (MSRC) uppdateringar
 | Gäller inte |[3172615] |Juli 2016 Samlad uppdatering för Windows Server 2012 |3.42 |Den 9 augusti 2016 |
 | Gäller inte |[3172614] |Samlad uppdatering för Windows RT 8.1, Windows 8.1 och Windows Server 2012 R2 i juli 2016 |4.35 |Den 9 augusti 2016 |
 
-## <a name="july-guest-os"></a>Juli gäst-OS
+## <a name="july-2016-guest-os"></a>Juli 2016-Gästoperativsystem
 | Anslags-ID | Överordnad KB-artikel | Beskrivning av säkerhetsrisk | Gäst-OS | Datum som introducerades |
 | --- | --- | --- | --- | --- |
 | MS16-084 |[3169991] |Kumulativ säkerhetsuppdatering för Internet Explorer |4.34, 3.41, 2.53 |12 juli 2016 |
@@ -465,7 +465,7 @@ Följande tabeller visar Microsoft Security Response Center (MSRC) uppdateringar
 | Gäller inte |[3161606] |Samlad uppdatering för Windows RT 8.1, Windows 8.1 och Windows Server 2012 R2 i juni 2016 |4.34 |12 juli 2016 |
 | Gäller inte |[3139923] |Windows installer (MSI) reparera fungerar inte när MSI-paketet installeras på en HTTP dela i Windows |4.34 |12 juli 2016 |
 
-## <a name="june-guest-os"></a>Juni gäst-OS
+## <a name="june-2016-guest-os"></a>Juni 2016-Gästoperativsystem
 | Anslags-ID | Överordnad KB-artikel | Beskrivning av säkerhetsrisk | Gäst-OS | Datum som introducerades |
 | --- | --- | --- | --- | --- |
 | MS16-035 |[3141780] |Säkerhetsuppdatering för .NET Framework för att hantera säkerhet funktionen kringgå |4.33, 3.40, 2.52 |Den 14 juni 2016 |
@@ -492,7 +492,7 @@ Följande tabeller visar Microsoft Security Response Center (MSRC) uppdateringar
 | Gäller inte |[3156418] |Samlad uppdatering för maj 2016 för Windows RT 8.1, Windows 8.1 och Windows Server 2012 R2 |4.33 |Den 14 juni 2016 |
 | Gäller inte |[3153731] |Uppdatering maj 2016 DST för Azerbajdzjan, Chile, Haiti och Marocko i Windows |4.33, 3.40, 2.52 |Den 14 juni 2016 |
 
-## <a name="may-guest-os"></a>Kan gästoperativsystem
+## <a name="may-2016-guest-os"></a>Maj 2016-Gästoperativsystem
 | Anslags-ID | Överordnad KB-artikel | Beskrivning av säkerhetsrisk | Gäst-OS | Datum som introducerades |
 | --- | --- | --- | --- | --- |
 | MS16-051 |[3155533] |Kumulativ säkerhetsuppdatering för Internet Explorer |4.32, 3.39, 2.51 |10 maj 2016 |
@@ -510,7 +510,7 @@ Följande tabeller visar Microsoft Security Response Center (MSRC) uppdateringar
 | Gäller inte |[3123245] |Uppdatera förbättrar port överbelastning identifiering i Windows Server 2012 R2  |4.32 |10 maj 2016 |
 | Gäller inte |[Inaktivera RC4] | Microsoft security advisory: uppdatera för att inaktivera RC4  |4.32, 3.39, 2.51 |10 maj 2016 |
 
-## <a name="april-guest-os"></a>April gäst-OS
+## <a name="april-2016-guest-os"></a>April 2016-Gästoperativsystem
 | Anslags-ID | Överordnad KB-artikel | Beskrivning av säkerhetsrisk | Gäst-OS | Datum som introducerades |
 | --- | --- | --- | --- | --- |
 | MS16-037 |[3148531] |Kumulativ säkerhetsuppdatering för Internet Explorer |4.31, 3.38, 2.50 |12 april 2016 |
@@ -521,7 +521,7 @@ Följande tabeller visar Microsoft Security Response Center (MSRC) uppdateringar
 | MS16-047 |[3148527] |Säkerhetsuppdatering för Security Account Manager Remote Protocol |4.31, 3.38, 2.50 |12 april 2016 |
 | MS16-048 |[3148528] |Säkerhetsuppdatering för CSRSS |4.31, 3.38 |12 april 2016 |
 
-## <a name="march-guest-os"></a>Mars gäst-OS
+## <a name="march-2016-guest-os"></a>Mars 2016-Gästoperativsystem
 | Anslags-ID | Överordnad KB-artikel | Beskrivning av säkerhetsrisk | Gäst-OS | Datum som introducerades |
 | --- | --- | --- | --- | --- |
 | MS16-023 |[3142015] |Kumulativ säkerhetsuppdatering för Internet Explorer |4.30, 3.37, 2.49 |Den 8 mars 2016 |
@@ -534,7 +534,7 @@ Följande tabeller visar Microsoft Security Response Center (MSRC) uppdateringar
 | MS16-033 |[3143142] |USB-masslagringsenheter klassdrivrutin att åtgärda rättighetsökning säkerhetsuppdatering |4.30, 3.37, 2.49 |Den 8 mars 2016 |
 | MS16-034 |[3143145] |Säkerhetsuppdateringar för kernelläge drivrutinen till adressen utökade rättigheter |4.30, 3.37, 2.49 |Den 8 mars 2016 |
 
-## <a name="february-guest-os"></a>Februari gäst-OS
+## <a name="february-2016-guest-os"></a>Februari 2016-Gästoperativsystem
 | Anslags-ID | Överordnad KB-artikel | Beskrivning av säkerhetsrisk | Gäst-OS | Datum som introducerades |
 | --- | --- | --- | --- | --- |
 | MS16-009 |[3134220] |Kumulativ säkerhetsuppdatering för Internet Explorer |4.29, 3.36, 2.48 |Den 9 februari 2016 |
@@ -549,7 +549,7 @@ Följande tabeller visar Microsoft Security Response Center (MSRC) uppdateringar
 | Ny utgåva-MS15 118 |[3104507] |Säkerhetsuppdateringar för .NET Framework att åtgärda rättighetsökning |4.29, 3.36, 2.48 |Den 9 februari 2016 |
 | Ny utgåva-MS15-128 |[3104503] |Säkerhetsuppdateringar för Microsoft grafik-komponent att åtgärda fjärrkörning av kod |4.29, 3.36, 2.48 |Den 9 februari 2016 |
 
-## <a name="january-guest-os"></a>Januari gäst-OS
+## <a name="january-2016-guest-os"></a>Januari 2016-Gästoperativsystem
 | Anslags-ID | Överordnad KB-artikel | Beskrivning av säkerhetsrisk | Gäst-OS | Datum som introducerades |
 | --- | --- | --- | --- | --- |
 | MS16-001 |[3124903] |Kumulativ säkerhetsuppdatering för Internet Explorer |4.28, 3.35, 2.47 |12 januari 2016 |
@@ -562,7 +562,7 @@ Följande tabeller visar Microsoft Security Response Center (MSRC) uppdateringar
 | Microsoft säkerhetsmeddelande |[3123479] |Utfasning av SHA-1-hash-algoritm för Microsoft Root Certificate Program |4.28, 3.35, 2.47 |12 januari 2016 |
 | Microsoft säkerhetsmeddelande |[2736233] |Uppdateringar för ActiveX stoppbitar |4.28, 3.35, 2.47 |12 januari 2016 |
 
-## <a name="december-guest-os"></a>December gäst-OS
+## <a name="december-2015-guest-os"></a>December 2015 gäst-OS
 | Anslags-ID | Överordnad KB-artikel | Beskrivning av säkerhetsrisk | Gäst-OS | Datum som introducerades |
 | --- | --- | --- | --- | --- |
 | MS15 124 |[3116180] |Kumulativ säkerhetsuppdatering för Internet Explorer |4.27, 3.34, 2.46 |Den 8 december 2015 |
@@ -574,7 +574,7 @@ Följande tabeller visar Microsoft Security Response Center (MSRC) uppdateringar
 | MS15 134 |[3108669] |Säkerhetsuppdatering för Windows Media Center för att åtgärda fjärrkörning av kod |4.27, 3.34, 2.46 |Den 8 december 2015 |
 | MS15 135 |[3119075] |Säkerhetsuppdatering för Windows drivrutiner i kernelläge att åtgärda rättighetsökning |4.27, 3.34, 2.46 |Den 8 december 2015 |
 
-## <a name="november-guest-os"></a>November gäst-OS
+## <a name="november-2015-guest-os"></a>November 2015 gäst-OS
 | Anslags-ID | Överordnad KB-artikel | Beskrivning av säkerhetsrisk | Gäst-OS | Datum som introducerades |
 | --- | --- | --- | --- | --- |
 | MS15 112 |[3104517] |Kumulativ säkerhetsuppdatering för Internet Explorer |4.26, 3.33, 2.45 |Den 10 november 2015 |
@@ -588,7 +588,7 @@ Följande tabeller visar Microsoft Security Response Center (MSRC) uppdateringar
 | MS15 122 |[3105256] |Säkerhetsuppdatering för Kerberos att åtgärda Security funktionen kringgå |4.26, 3.33, 2.45 |Den 10 november 2015 |
 | Microsoft säkerhetsmeddelande |[3097966] |Oavsiktligt rapporterat digitala certifikat möjliggör förfalskning |4.26, 3.33, 2.45 |Den 10 november 2015 |
 
-## <a name="october-guest-os"></a>Oktober gäst-OS
+## <a name="october-2015-guest-os"></a>Oktober 2015 gäst-OS
 | Anslags-ID | Överordnad KB-artikel | Beskrivning av säkerhetsrisk | Gäst-OS | Datum som introducerades |
 | --- | --- | --- | --- | --- |
 | MS15 106 |[3096441] |Kumulativ säkerhetsuppdatering för Internet Explorer |4.25, 3.32, 2.44 |13 oktober 2015 |
@@ -597,7 +597,7 @@ Följande tabeller visar Microsoft Security Response Center (MSRC) uppdateringar
 | MS15 111 |[3096447] |Säkerhetsuppdatering för Windows Kernel att åtgärda rättighetsökning |4.25, 3.32, 2.44 |13 oktober 2015 |
 | Microsoft säkerhetsmeddelande |[3092627] |Uppdatering september 2015 för att åtgärda Windows eller program hänger sig när du har installerat säkerhetsuppdateringen 3076895 |4.25, 3.32, 2.44 |13 oktober 2015 |
 
-## <a name="september-guest-os"></a>September gäst-OS
+## <a name="september-2015-guest-os"></a>September 2015 gäst-OS
 | Anslags-ID | Överordnad KB-artikel | Beskrivning av säkerhetsrisk | Gäst-OS | Datum som introducerades |
 | --- | --- | --- | --- | --- |
 | MS15 093 |[3088903] |Säkerhetsuppdatering för Internet Explorer |4.24, 3.31, 2.43 |Den 8 september 2015 |
@@ -609,7 +609,7 @@ Följande tabeller visar Microsoft Security Response Center (MSRC) uppdateringar
 | MS15-102 |[3089657] |Säkerhetsproblem i Windows uppgiftshantering möjliggör rättighetsökning |4.24, 3.31, 2.43 |Den 8 september 2015 |
 | MS15 105 |[3091287] |Säkerhetsproblem i Windows Hyper-V möjliggör säkerhet funktionen kringgå |4.24 |Den 8 september 2015 |
 
-## <a name="august-guest-os"></a>Augusti gäst-OS
+## <a name="august-2015-guest-os"></a>Augusti 2015 gäst-OS
 | Anslags-ID | Överordnad KB-artikel | Beskrivning av säkerhetsrisk | Gäst-OS | Datum som introducerades |
 | --- | --- | --- | --- | --- |
 | MS15-079 |[3082442] |Kumulativ säkerhetsuppdatering för Internet Explorer |4.23, 3.30, 2.42 |11 augusti 2015 |
@@ -621,7 +621,7 @@ Följande tabeller visar Microsoft Security Response Center (MSRC) uppdateringar
 | MS15-089 |[3060716] |Säkerhetsproblem i Microsoft Windows möjliggör rättighetsökning |4.23, 3.30, 2.42 |11 augusti 2015 |
 | MS15 090 |[3076949] |Säkerhetsproblem i WebDAV möjliggör avslöjande av Information |4.23, 3.30, 2.42 |11 augusti 2015 |
 
-## <a name="july-guest-os"></a>Juli gäst-OS
+## <a name="july-2015-guest-os"></a>Juli 2015 gäst-OS
 | Anslags-ID | Överordnad KB-artikel | Beskrivning av säkerhetsrisk | Gäst-OS | Datum som introducerades |
 | --- | --- | --- | --- | --- |
 | MS15-065 |[3076321] |Kumulativ säkerhetsuppdatering för Internet Explorer |4.22, 3.29, 2.41 |Den 14 juli 2015 |
@@ -638,7 +638,7 @@ Följande tabeller visar Microsoft Security Response Center (MSRC) uppdateringar
 | MS15-077 |[3077657] |Säkerhetsproblem i ATM teckensnitt drivrutinen möjliggör rättighetsökning |4.22, 3.29, 2.41 |Den 14 juli 2015 |
 | Ej tillämpligt |[3057154] |Uppdatera om du vill begränsa användningen av DES-kryptering |4.22, 3.29, 2.41 |Den 14 juli 2015 |
 
-## <a name="june-guest-os"></a>Juni gäst-OS
+## <a name="june-2015-guest-os"></a>Juni 2015 gäst-OS
 | Anslags-ID | Överordnad KB-artikel | Beskrivning av säkerhetsrisk | Gäst-OS | Datum som introducerades |
 | --- | --- | --- | --- | --- |
 | MS15-056 |[3058515] |Kumulativ säkerhetsuppdatering för Internet Explorer |4.21, 3.28, 2.40 |Den 9 juni 2015 |
@@ -648,7 +648,7 @@ Följande tabeller visar Microsoft Security Response Center (MSRC) uppdateringar
 | MS15-062 |[3062577] |Säkerhetsproblem i Active Directory Federation Services möjliggör rättighetsökning |4.21, 3.28, 2.40 |Den 9 juni 2015 |
 | MS15-063 |[3063858] |Säkerhetsproblem i Windows Kernel möjliggör rättighetsökning |4.21, 3.28, 2.40 |Den 9 juni 2015 |
 
-## <a name="may-guest-os"></a>Kan gästoperativsystem
+## <a name="may-2015-guest-os"></a>Maj 2015 gäst-OS
 | Anslags-ID | Överordnad KB-artikel | Beskrivning av säkerhetsrisk | Gäst-OS | Datum som introducerades |
 | --- | --- | --- | --- | --- |
 | MS15-043 |[3049563] |Kumulativ säkerhetsuppdatering för Internet Explorer |4.20, 3.27, 2.39 |Den 12 maj 2015 |
@@ -671,12 +671,12 @@ Följande tabeller visar Microsoft Security Response Center (MSRC) uppdateringar
 | MS15-042 |[3047234] |Säkerhetsproblem i Windows Hyper-V möjliggör Denial of Service |4.20, 3.27, 2.39 |17 april 2015 |
 | Ej tillämpligt |[3045755] |Uppdatering för att förbättra PKU2U-autentisering |4.20, 3.27, 2.39 |17 april 2015 |
 
-## <a name="april-guest-os"></a>April gäst-OS
+## <a name="april-2015-guest-os"></a>April 2015 gäst-OS
 | Anslags-ID | Överordnad KB-artikel | Beskrivning av säkerhetsrisk | Gäst-OS | Datum som introducerades |
 | --- | --- | --- | --- | --- |
 | [MS15-034] |[3042553] |Säkerhetsproblem i HTTP.sys möjliggör fjärrkörning av kod |4.19, 3.26, 2.38 |17 april 2015 |
 
-## <a name="march-guest-os"></a>Mars gäst-OS
+## <a name="march-2015-guest-os"></a>Mars 2015 gäst-OS
 | Anslags-ID | Överordnad KB-artikel | Beskrivning av säkerhetsrisk | Gäst-OS | Datum som introducerades |
 | --- | --- | --- | --- | --- |
 | MS15-018 |[3032359] |Kumulativ säkerhetsuppdatering för Internet Explorer |4.18, 3.25, 2.37 |Gäller inte |
@@ -696,7 +696,7 @@ Följande tabeller visar Microsoft Security Response Center (MSRC) uppdateringar
 >
 >
 
-## <a name="february-guest-os"></a>Februari gäst-OS
+## <a name="february-2015-guest-os"></a>Februari 2015 gäst-OS
 | Anslags-ID | Överordnad KB-artikel | Beskrivning av säkerhetsrisk | Gäst-OS | Datum som introducerades |
 | --- | --- | --- | --- | --- |
 | MS15-009 |[3034682] |Säkerhetsuppdatering för Internet Explorer |4.17, 3.24, 2.36 |Gäller inte |
@@ -707,7 +707,7 @@ Följande tabeller visar Microsoft Security Response Center (MSRC) uppdateringar
 | MS15-016 |[3029944] |Säkerhetsproblem i Microsoft grafik komponenten möjliggör avslöjande av Information |4.17, 3.24, 2.36 |Gäller inte |
 | Gäller inte |[3004375] |Uppdatering för att förbättra Windows kommandot rad-granskning<p/>**Obs**: Detta är installerat men nyckeln så att den är avstängd |4.17, 3.24, 2.36 |Gäller inte |
 
-## <a name="january-guest-os"></a>Januari gäst-OS
+## <a name="january-2015-guest-os"></a>Januari 2015 gäst-OS
 | Anslags-ID | Överordnad KB-artikel | Beskrivning av säkerhetsrisk | Gäst-OS | Datum som introducerades |
 | --- | --- | --- | --- | --- |
 | MS15-001 |[3023266] |Säkerhetsproblem i Windows AppCompatCache möjliggör utökade rättigheter |4.16, 3.23, 2.35 |Jan 19 2015 |
@@ -723,7 +723,7 @@ Följande tabeller visar Microsoft Security Response Center (MSRC) uppdateringar
 | MS15-002 |[3020393] |Säkerhetsproblem i Windows Telnet-tjänsten kan orsaka fjärrkörning av kod |4.16, 3.23, 2.35 |Jan 19 2015 |
 
 
-## <a name="december-guest-os"></a>December gäst-OS
+## <a name="december-2014-guest-os"></a>December 2014 gäst-OS
 | Anslags-ID | Överordnad KB-artikel | Beskrivning av säkerhetsrisk | Gäst-OS | Datum som introducerades |
 | --- | --- | --- | --- | --- |
 | Gäller inte |[3013776] |System låses när du använder ett domänkonto för att starta ett program |4.15, 3.22, 2.34 |Jan 13 2015 |

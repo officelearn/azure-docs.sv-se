@@ -28,7 +28,7 @@ Den här artikeln innehåller vanliga frågor (FAQ) om nätverket prestanda Öve
 
 [Övervakaren av nätverksprestanda](/azure/networking/network-monitoring-overview) är en molnbaserad [hybrid nätverksövervakning](log-analytics-network-performance-monitor-performance-monitor.md) som hjälper dig att övervaka nätverksprestanda mellan olika platser i din nätverksinfrastruktur. Du kan också övervaka nätverksanslutningar till [slutpunkter för tjänsten och programmet](log-analytics-network-performance-monitor-service-endpoint.md) och [övervaka prestanda för Azure ExpressRoute](log-analytics-network-performance-monitor-expressroute.md). 
 
-Övervakare av nätverksprestanda identifierar nätverksproblem som trafik blackholing, routning fel och problem som konventionella nätverk övervakning metoder som inte kan identifiera. Lösningen genererar aviseringar och meddelar dig när en tröskelvärdet överskrids för en nätverkslänk. Det säkerställer rätt tid identifiering av problem med nätverksprestanda och localizes orsaken till problemet till en viss nätverkssegment eller enhet. 
+Övervakare av nätverksprestanda identifierar nätverksproblem som trafik blackholing, routning fel och problem som konventionella nätverk övervakning metoder som inte kan identifiera. Lösningen genererar aviseringar och meddelar dig när ett tröskelvärde överskrids för en nätverkslänk. Detta säkerställer att problem med nätverksprestanda upptäcks i god tid och att källan till problemet kan ringas in till ett visst nätverkssegment eller enhet. 
 
 Mer information om de olika funktionerna som stöds av [Övervakare av nätverksprestanda](https://docs.microsoft.com/azure/networking/network-monitoring-overview) finns tillgänglig online.
 

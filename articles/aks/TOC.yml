@@ -30,6 +30,18 @@ items:
     href: tutorial-kubernetes-upgrade-cluster.md
 - name: Begrepp
   items:
+  - name: Kluster och arbetsbelastningar
+    href: concepts-clusters-workloads.md
+  - name: Åtkomst och identitet
+    href: concepts-identity.md
+  - name: Säkerhet
+    href: concepts-security.md
+  - name: Nätverk
+    href: concepts-network.md
+  - name: Storage
+    href: concepts-storage.md
+  - name: Skala
+    href: concepts-scale.md
   - name: Kvoter och regionala begränsningar
     href: container-service-quotas.md
   - name: Migrera från ACS till AKS
@@ -71,12 +83,12 @@ items:
       href: azure-files-volume.md
   - name: Konfigurera nätverk
     items:
-    - name: Nätverksöversikt
-      href: networking-overview.md
-    - name: Statisk IP-adress
-      href: static-ip.md
-    - name: Intern lastbalanserare
+    - name: Skapa eller använda ett befintligt virtuellt nätverk
+      href: configure-advanced-networking.md
+    - name: Skapa en intern lastbalanserare
       href: internal-lb.md
+    - name: Använda en statisk IP-adress
+      href: static-ip.md
     - name: Ingress
       items:
       - name: Skapa en grundläggande kontrollant
@@ -182,9 +194,9 @@ items:
     href: https://azure.microsoft.com/resources/videos/index/?services=container-service&sort=newest
   - name: VANLIGA FRÅGOR OCH SVAR
     href: faq.md
-ms.openlocfilehash: a050be092d1216a00a7d73e383086709dc6d15fc
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: 5bce64990b8fbf9ad6bd5af01631544189f35a93
+ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47405370"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49376302"

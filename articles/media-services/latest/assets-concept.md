@@ -1,83 +1,92 @@
 ---
 title: Tillgångar i Azure Media Services | Microsoft Docs
-description: Den här artikeln ger en förklaring av tillgångar är och hur de används i Azure Media Services.
+description: Den här artikeln innehåller en förklaring av vad tillgångar är och hur de används av Azure Media Services.
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 03/19/2018
+ms.date: 10/15/2018
 ms.author: juliako
-ms.openlocfilehash: 61555eb6cca6995215ce43051abbda9aa43539ec
-ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
+ms.openlocfilehash: fcb4500a1e4503d90b00528544ae98fa93e16191
+ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36284846"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49379234"
 ---
 # <a name="assets"></a>Tillgångar
 
-En **tillgången** innehåller digitala filer (inklusive video, ljud, bilder, miniatyrsamlingar, textspår och filer med dold textning) och metadata om dessa filer. När digitala filer överförs till en tillgång, kan de användas i Media Services encoding och direktöverföring av arbetsflöden.
+En **tillgången** innehåller digitala filer (inklusive video, ljud, bilder, miniatyrsamlingar, textspår och filer med dold textning) och metadata om dessa filer. När de digitala filerna överförs till en tillgång, kan de användas i Media Services kodning och strömning arbetsflöden.
 
-En tillgång som är mappad till en blobbbehållare i den [Azure Storage-konto](storage-account-concept.md) och filerna i tillgången lagras som blockblobar i behållaren. Du kan interagera med tillgångsfiler i behållare med lagring SDK-klienter.
+En tillgång är mappad till en blobbehållare i den [Azure Storage-konto](storage-account-concept.md) och filer i tillgången lagras som blockblobar i den behållaren. Du kan interagera med tillgångsfiler i behållare med hjälp av Storage SDK-klienter.
 
-Azure Media Services stöder Blob nivåerna när kontot använder allmänna v2 (GPv2) lagring. Med GPv2, kan du flytta filer att kyla ner eller kall lagringsplats. Kalla lagring är lämplig för arkivering källfilerna när det inte längre behövs (till exempel när de har kodats.)
+Azure Media Services stöder Blob nivåerna när kontot använder för generell användning v2 (GPv2) lagring. Med GPv2, kan du flytta filer till lågfrekvent eller kall lagring. Kall lagring är lämplig för arkivering av källfilerna när det inte längre behövs (till exempel när de har kodats.)
 
-I Media Services v3 skapas indata jobb från tillgångar eller från http (s)-URL: er. Om du vill skapa en tillgång som kan användas som indata för jobbet finns [skapar ett jobb indata från en lokal fil](job-input-from-local-file-how-to.md).
+I Media Services v3 kan jobbindata skapas från tillgångar eller från http (s)-URL: er. Om du vill skapa en tillgång som kan användas som indata för jobbet [skapa en jobbindata från en lokal fil](job-input-from-local-file-how-to.md).
 
-Läs om [storage-konton i Media Services](storage-account-concept.md) och [transformeringar och jobb](transform-concept.md).
+Läs även om [storage-konton i Media Services](storage-account-concept.md) och [transformeringar och jobb](transform-concept.md).
 
-## <a name="asset-definition"></a>Definition av tillgångsinformation
+## <a name="asset-definition"></a>Definition av tillgången
 
-I följande tabell visas tillgångens egenskaper och ger deras definitioner.
+I följande tabell visar tillgångens egenskaper och ger definitionerna.
 
 |Namn|Typ|Beskrivning|
 |---|---|---|
-|Id|sträng|Fullständiga resurs-ID för resursen.|
+|id|sträng|Fullständigt kvalificerade resurs-ID för resursen.|
 |namn|sträng|Namnet på resursen.|
-|properties.alternateId |sträng|Alternativt ID för tillgången.|
-|properties.assetId |sträng|Tillgångsinformation-ID.|
-|Properties.container |sträng|Namnet på blob-behållaren tillgången.|
+|properties.alternateId |sträng|Alternativa ID för tillgången.|
+|properties.assetId |sträng|Plats-ID.|
+|Properties.container |sträng|Namnet på blob-behållare för tillgången.|
 |Properties.Created |sträng|Skapandedatum för tillgången.|
 |properties.description |sträng|Beskrivning för tillgången.|
 |properties.lastModified |sträng|Senaste ändringsdatum för tillgången.|
 |properties.storageAccountName |sträng|Namnet på lagringskontot.|
-|properties.storageEncryptionFormat |AssetStorageEncryptionFormat |Tillgångsinformation krypteringsformat. En NONE eller MediaStorageEncryption.|
+|properties.storageEncryptionFormat |AssetStorageEncryptionFormat |Krypteringsformat tillgången. En NONE eller MediaStorageEncryption.|
 |typ|sträng|Typ av resursen.|
 
-Se för en fullständig definition [tillgångar](https://docs.microsoft.com/rest/api/media/assets).
+Läs den fullständiga definitionen [tillgångar](https://docs.microsoft.com/rest/api/media/assets).
 
-## <a name="filtering-ordering-paging"></a>Filtrera, sortera, sidindelning
+## <a name="filtering-ordering-paging"></a>Filtrering, skrivordning, växling
 
-Media Services stöder följande alternativ för OData-frågan för tillgångar: 
+Media Services har stöd för följande OData-frågealternativ för tillgångar: 
 
 * $filter 
 * $orderby 
 * $top 
 * $skiptoken 
 
+Operatorn beskrivning:
+
+* EQ = lika med
+* Ne = inte lika med
+* Ge = större än eller lika med
+* Le = mindre än eller lika med
+* Gt = större än
+* Lt = mindre än
+
 ### <a name="filteringordering"></a>Filtrering/ordning
 
-Följande tabell visar hur dessa alternativ kan tillämpas på Egenskaper för tillgångsinformation: 
+I följande tabell visar hur dessa alternativ kan tillkomma för tillgången egenskaper: 
 
-|Namn|Filter|Ordning|
+|Namn|Filter|Beställa|
 |---|---|---|
-|Id|Stöder:<br/>Lika med<br/>Större än<br/>Mindre än|Stöder:<br/>Stigande<br/>Fallande|
-|namn|||
-|properties.alternateId |Stöder:<br/>Lika med||
-|properties.assetId |Stöder:<br/>Lika med||
+|id|||
+|namn|Har stöd för: Eq, Gt, Lt|Stöder: stigande och fallande|
+|properties.alternateId |Stöder: Eq||
+|properties.assetId |Stöder: Eq||
 |Properties.container |||
-|Properties.Created|Stöder:<br/>Lika med<br/>Större än<br/>Mindre än|Stöder:<br/>Stigande<br/>Fallande|
+|Properties.Created|Har stöd för: Eq, Gt, Lt| Har stöd för: Stigande och fallande|
 |properties.description |||
 |properties.lastModified |||
 |properties.storageAccountName |||
 |properties.storageEncryptionFormat | ||
 |typ|||
 
-Följande C#-exempel filtrerar på Skapad datum:
+I följande C#-exempel filtrerar på Skapad datum:
 
 ```csharp
 var odataQuery = new ODataQuery<Asset>("properties/created lt 2018-05-11T17:39:08.387Z");
@@ -86,13 +95,16 @@ var firstPage = await MediaServicesArmClient.Assets.ListAsync(CustomerResourceGr
 
 ### <a name="pagination"></a>Sidbrytning
 
-Sidbrytning stöds för var och en av de fyra aktiverade sorteringsordningar. 
+Sidbrytning stöds för var och en av fyra aktiverade sorteringsordningar. Sidstorleken är för närvarande 1 000.
 
-Om ett frågesvar innehåller många (för närvarande via 1000)-objekt, tjänsten returnerar ett ”\@odata.nextLink” egenskapen för att hämta nästa sida i resultaten. Detta kan användas för att bläddra igenom hela resultatmängden. Sidstorleken kan inte konfigureras av användaren. 
+> [!TIP]
+> Du bör alltid använda nästa länk för att räkna upp samlingen och inte är beroende av en viss storlek.
 
-Om tillgångar skapas eller tas bort vid växling genom insamling, syns ändringarna i returnerade resultat (om ändringarna i en del av den samling som inte har hämtats.) 
+Om ett frågesvar innehåller många objekt, tjänsten returnerar en ”\@odata.nextLink” egenskapen för att hämta nästa sida i resultatet. Detta kan användas för att bläddra igenom hela resultatmängden. Du kan inte konfigurera sidstorleken. 
 
-Följande C#-exempel visar hur du räkna upp alla tillgångar i kontot.
+Om tillgångar skapas eller tas bort vid bläddring genom samlingen, syns ändringarna i de returnerade resultaten (om dessa ändringar finns i en del av den samling som inte har hämtats.) 
+
+I följande C#-exempel visar hur du räknar upp via alla tillgångar i kontot.
 
 ```csharp
 var firstPage = await MediaServicesArmClient.Assets.ListAsync(CustomerResourceGroup, CustomerAccountName);
@@ -104,24 +116,23 @@ while (currentPage.NextPageLink != null)
 }
 ```
 
-REST-exempel finns [tillgångar - lista](https://docs.microsoft.com/rest/api/media/assets/list)
+REST-exempel finns i [tillgångar - listan](https://docs.microsoft.com/rest/api/media/assets/assets_list)
 
 
 ## <a name="storage-side-encryption"></a>Kryptering för lagring på serversidan
 
-För att skydda dina tillgångar vilande ska tillgångarna krypteras med kryptering för lagring på serversidan. Följande tabell visar hur sida lagringskryptering fungerar i Media Services:
+Resurserna som ska krypteras av kryptering för lagring på serversidan för att skydda dina tillgångar i vila. I följande tabell visar hur kryptering för lagring på serversidan fungerar i Media Services:
 
-|Krypteringsalternativ|Beskrivning|Media Services v2|Media Services v3|
+|Krypteringsalternativet|Beskrivning|Media Services v2|Media Services v3|
 |---|---|---|---|
-|Media Services-Lagringskryptering|AES-256-kryptering, nyckel hanteras av Media Services|Stöd för<sup>(1)</sup>|Stöds inte<sup>(2)</sup>|
-|[Lagringstjänstens kryptering av vilande Data](https://docs.microsoft.com/azure/storage/common/storage-service-encryption)|Kryptering på serversidan som erbjuds av Azure Storage, nyckel hanteras av Azure eller av kunden|Stöds|Stöds|
-|[Kryptering på klientsidan](https://docs.microsoft.com/azure/storage/common/storage-client-side-encryption)|Klientsidans kryptering som erbjuds av Azure storage, nyckel som hanteras av kunden i Key Vault|Stöds inte|Stöds inte|
+|Media Services-Lagringskryptering|AES-256-kryptering, viktiga hanteras av Media Services|Stöd för<sup>(1)</sup>|Stöds inte<sup>(2)</sup>|
+|[Kryptering av lagringstjänst för vilande Data](https://docs.microsoft.com/azure/storage/common/storage-service-encryption)|Kryptering på serversidan som erbjuds av Azure Storage, nyckel hanteras av Azure eller av kunden|Stöds|Stöds|
+|[Storage Client Side Encryption](https://docs.microsoft.com/azure/storage/common/storage-client-side-encryption)|Client side encryption som erbjuds av Azure storage, nyckel som hanteras av kunden i Key Vault|Stöds inte|Stöds inte|
 
-<sup>1</sup> medan Media Services stöder hantering av innehållet i klartext/utan någon form av kryptering, göra så rekommenderas inte.
+<sup>1</sup> medan Media Services har stöd för hantering av innehållet i klartext/utan någon form av kryptering, göra så rekommenderas inte.
 
-<sup>2</sup> i Media Services v3 lagringskryptering (AES 256-kryptering) är bara stöds för bakåtkompatibilitet när dina tillgångar har skapats med Media Services v2. Vilket innebär att v3 fungerar med befintlig lagring krypterad tillgångar, men tillåter inte att skapa nya.
+<sup>2</sup> i Media Services v3 lagringskryptering (AES-256-kryptering) är bara stöds för bakåtkompatibilitet när dina tillgångar skapades med Media Services v2. Vilket innebär att v3 fungerar med befintliga lagring krypteras tillgångar, men tillåter inte skapandet av nya.
 
 ## <a name="next-steps"></a>Nästa steg
 
-> [!div class="nextstepaction"]
-> [Strömma en fil](stream-files-dotnet-quickstart.md)
+[Strömma en fil](stream-files-dotnet-quickstart.md)

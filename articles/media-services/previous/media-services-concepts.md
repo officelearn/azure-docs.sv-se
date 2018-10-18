@@ -133,7 +133,7 @@ Mer information finns i:
 * [Arbeta med kanaler som tar emot liveuppspelningar med flera bithastigheter från lokala kodare](media-services-live-streaming-with-onprem-encoders.md)
 * [Kvoter och begränsningar](media-services-quotas-and-limitations.md).
 
-## <a name="protecting-content"></a>Skydda innehållet
+## <a name="protecting-content"></a>Skydda innehåll
 ### <a name="dynamic-encryption"></a>Dynamisk kryptering
 Azure Media Services kan du skydda dina mediefiler från den tidpunkt som den lämnar din dator via lagrings-, bearbetnings- och leverans. Media Services kan du leverera ditt innehåll dynamiskt krypterad med Standard AES (Advanced Encryption) (med 128-bitars krypteringsnycklar) och gemensam kryptering (CENC) med PlayReady och/eller Widevine DRM. Media Services tillhandahåller också en tjänst för leverans av nycklar för AES och PlayReady-licenser till auktoriserade klienter.
 

@@ -1,10 +1,16 @@
 ### YamlMime:YamlDocument
+ms.openlocfilehash: 0183261a561e139105a93421af06f581b67fb926
+ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
+ms.translationtype: MT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49393598"
 documentType: LandingData
 title: Användardokumentation om Azure Stack-operator
 metadata:
   document_id: cbf798da-6f1a-7d4d-7707-5d5e02589e22
   title: Dokumentation om Azure Stack-operator – självstudier, API-referens
-  description: Lär dig hur du använder Azure-stacken för att leverera Azure-tjänster från ditt datacenter. Läs och demonstrerar funktioner från en Development Kit eller integrerade system.
+  description: Lär dig hur du använder Azure Stack för att leverera Azure-tjänster från ditt datacenter. Lär dig och demonstrera funktioner från en Development Kit eller integrerade system.
   services: azure-stack
   author: jeffgilb
   manager: femila
@@ -12,21 +18,15 @@ metadata:
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
-  ms.date: 04/13/2018
+  ms.date: 10/16/2018
   ms.author: jeffgilb
-  ms.openlocfilehash: 9da39d733c51c637fdf13d1fb9c5649276ea8a23
-  ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
-  ms.translationtype: MT
-  ms.contentlocale: sv-SE
-  ms.lasthandoff: 04/23/2018
-  ms.locfileid: "31786544"
 abstract:
-  description: Microsoft Azure Stack är en plattform för hybridmoln som du kan använda för att tillhandahålla Azure-tjänster från ditt datacenter. Lär dig hur du hanterar Azure Stack integrerade system-infrastrukturen och hur du vill erbjuda tjänster med våra Snabbstart och självstudier.<br/><br/>Om du använder en Azure-stacken som använder tjänster eller bygger appar för Azure-stacken, se vår <a href="/azure/azure-stack/user">användardokumentation</a>.<br/><br/>Om du är operatör Azure-stacken är intresserad av i den Azure Stack Development Kit (ASDK), en enda nod distribution av Azure-stacken som du kan hämta och använda gratis Se vår <a href="/azure/azure-stack/asdk">ASDK dokumentationen</a>.
+  description: Microsoft Azure Stack är en plattform för hybridmoln som du kan använda för att tillhandahålla Azure-tjänster från ditt datacenter. Lär dig hur du hanterar infrastrukturen för Azure Stack-integrerade system och erbjuder tjänster med våra snabbstarter och självstudier.<br/><br/>Om du är en Azure Stack-användare som använder tjänster eller bygger appar för Azure Stack, se vår <a href="/azure/azure-stack/user">användardokumentation</a>.<br/><br/>Om du är intresserad av i den Azure Stack Development Kit (ASDK), en nod-distribution av Azure Stack som du kan hämta och använda gratis Azure Stack-operatör finns i vår <a href="/azure/azure-stack/asdk">ASDK dokumentation</a>.
 sections:
 - title: Snabbstart
   items:
   - type: paragraph
-    text: Ställ in maskinvaran och distribuera Azure Stack Development Kit.
+    text: Konfigurera din maskinvara och distribuera Azure Stack Development Kit.
   - type: list
     style: icon48
     items:
@@ -41,9 +41,11 @@ sections:
   - type: list
     style: ordered
     items:
-    - html: <a href="/azure/azure-stack/azure-stack-tutorial-tenant-vm">Erbjuder virtuella datorer på Azure-stacken</a>
-    - html: <a href="/azure/azure-stack/azure-stack-tutorial-sql-server">Erbjuder SQL-databaser på Azure-stacken</a>
-    - html: <a href="/azure/azure-stack/azure-stack-tutorial-app-service">Erbjuder Webbappar på Azure-stacken</a>
+    - html: <a href="/azure/azure-stack/azure-stack-tutorial-tenant-vm">Virtual Machines på Azure Stack-erbjudande</a>
+    - html: <a href="/azure/azure-stack/azure-stack-tutorial-sql-server">Erbjud SQL-databaser på Azure Stack</a>
+    - html: <a href="/azure/azure-stack/azure-stack-tutorial-sql">Skapa SQL-databaser med hög tillgänglighet</a>
+    - html: <a href="/azure/azure-stack/azure-stack-tutorial-mysql">Skapa högtillgängliga MySQL-databaser</a>
+    - html: <a href="/azure/azure-stack/azure-stack-tutorial-app-service">Web Apps på Azure Stack-erbjudande</a>
 - title: Kostnadsfri videoutbildning för Pluralsight
   items:
   - type: list

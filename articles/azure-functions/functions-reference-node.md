@@ -297,7 +297,7 @@ Den `context.req` (begäran) objekt har följande egenskaper:
 | _rawBody_     | Brödtexten i meddelandet som en sträng.                           |
 
 
-### <a name="response-object"></a>-Svarsobjekt
+### <a name="response-object"></a>Svarsobjekt
 
 Den `context.res` ()-svarsobjekt har följande egenskaper:
 

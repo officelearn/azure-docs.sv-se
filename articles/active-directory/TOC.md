@@ -105,6 +105,7 @@
 #### [Arkivera aktivitetsloggar till ett Azure Storage-konto](reports-monitoring/quickstart-azure-monitor-route-logs-to-storage-account.md)
 #### [Integrera aktivitetsloggar med Splunk med Azure Monitor](reports-monitoring/tutorial-integrate-activity-logs-with-splunk.md)
 #### [Integrera aktivitetsloggar med SumoLogic med Azure Monitor](reports-monitoring/howto-integrate-activity-logs-with-sumologic.md)
+#### [Integrera aktivitetsloggar med Log Analytics med Azure Monitor](reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md)
 
 ### Referens
 #### [Kvarhållning](reports-monitoring/reference-reports-data-retention.md)

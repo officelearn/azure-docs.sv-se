@@ -34,32 +34,40 @@ items:
     href: cli-samples.md
 - name: Begrepp
   items:
-  - name: Tillgångar
-    href: assets-concept.md
-  - name: Innehållsskydd
-    items:
-    - name: Översikt
-      href: content-protection-overview.md
-    - name: Multi-DRM-system med åtkomstkontroll
-      href: design-multi-drm-system-with-access-control.md
-  - name: Kodning
+  - name: Analysera innehåll
+    href: analyzing-video-audio-files-concept.md
+  - name: Koda innehåll
     items:
     - name: Översikt
       href: encoding-concept.md
     - name: Generera anpassningsbar bithastighetsstege automatiskt
       href: autogen-bitrate-ladder.md
-  - name: Liveuppspelning
-    href: live-streaming-overview.md
-  - name: Medieintelligens
-    href: intelligence-concept.md
-  - name: Reagerar på händelser
-    href: reacting-to-media-services-events.md
-  - name: Lagringskonton
+  - name: Undersöka entiteter
+    items:
+    - name: Tillgångar
+      href: assets-concept.md
+    - name: Principer för innehållsnycklar
+      href: content-key-policy-concept.md
+    - name: Slutpunkter för direktuppspelning
+      href: streaming-endpoint-concept.md
+    - name: Positionerare för direktuppspelning
+      href: streaming-locators-concept.md
+    - name: Principer för direktuppspelning
+      href: streaming-policy-concept.md
+    - name: Transformeringar och jobb
+      href: transform-concept.md
+  - name: Undersöka lagringskonton
     href: storage-account-concept.md
-  - name: Slutpunkter för direktuppspelning
-    href: streaming-endpoint-concept.md
-  - name: Transformeringar och jobb
-    href: transform-concept.md
+  - name: Hantera Event Grid-händelser
+    href: reacting-to-media-services-events.md
+  - name: Skydda innehåll
+    items:
+    - name: Översikt
+      href: content-protection-overview.md
+    - name: Multi-DRM-system med åtkomstkontroll
+      href: design-multi-drm-system-with-access-control.md
+  - name: Direktuppspelning i realtid
+    href: live-streaming-overview.md
 - name: Instruktionsguider
   items:
   - name: Migrera från v2 till v3
@@ -68,17 +76,23 @@ items:
     href: create-account-cli-how-to.md
   - name: Åtkomst till API:er – CLI
     href: access-api-cli-how-to.md
-  - name: Övervaka händelser för jobbtillstånd – CLI
-    href: job-state-events-cli-how-to.md
-  - name: Anpassa förinställningar för transformering – .NET Core
-    href: customize-encoder-presets-how-to.md
-  - name: Överföra innehåll
+  - name: Använda Event Grid
     items:
-    - name: Från HTTPS – .NET
+    - name: Övervaka händelser – portalen
+      href: monitor-events-portal-how-to.md
+    - name: Övervaka händelser – CLI
+      href: job-state-events-cli-how-to.md
+  - name: Koda
+    items:
+    - name: Anpassa förinställningar för transformering – .NET Core
+      href: customize-encoder-presets-how-to.md
+  - name: Ladda upp
+    items:
+    - name: Från HTTP(:er) – .NET
       href: job-input-from-http-how-to.md
     - name: Från en lokal fil – .NET
       href: job-input-from-local-file-how-to.md
-  - name: Skydda innehåll
+  - name: Skydda
     items:
     - name: Med AES-128 – .NET
       href: protect-with-aes128.md
@@ -86,12 +100,10 @@ items:
       href: protect-with-drm.md
 - name: Referens
   items:
-  - name: OpenAPI-specifikation (Swagger)
-    href: https://github.com/Azure/azure-rest-api-specs/tree/master/specification/mediaservices/resource-manager/Microsoft.Media/preview/2018-03-30-preview
-  - name: Azure CLI
-    href: https://aka.ms/ams-v3-cli-ref
   - name: REST
     href: https://aka.ms/ams-v3-rest-ref
+  - name: Azure CLI
+    href: https://aka.ms/ams-v3-cli-ref
   - name: .NET
     href: https://aka.ms/ams-v3-dotnet-ref
   - name: Java
@@ -136,15 +148,17 @@ items:
       href: https://aka.ms/ams-v3-python-sdk
     - name: Node .js
       href: https://aka.ms/ams-v3-nodejs-sdk
+    - name: Ruby
+      href: https://aka.ms/ams-v3-ruby-sdk
   - name: Viktig information
     href: release-notes.md
   - name: Kvoter och begränsningar
     href: limits-quotas-constraints.md
   - name: VANLIGA FRÅGOR OCH SVAR
     href: frequently-asked-questions.md
-ms.openlocfilehash: 48d64137b0a64479061a50e2015800a18eb126a6
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: bdbc91876dc08558881a44c52144d1c2ed28cc47
+ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47226151"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49378917"

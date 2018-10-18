@@ -10,12 +10,12 @@ ms.topic: article
 ms.date: 10/12/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: a12549a52171afc1c95588f9a2b259829e170fcc
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
-ms.translationtype: MT
+ms.openlocfilehash: a14462ec5311a9b82293ba7f6e9ae76dc1972b36
+ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49389963"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49355558"
 ---
 # <a name="azure-ad-connectconfigure-ad-ds-connector-account-permissions"></a>Azure AD Connect: Konfigurera behörigheterna för AD DS-koppling 
 
@@ -42,7 +42,7 @@ Följande tabell innehåller en sammanfattning av de behörigheter som krävs f�
 | Tillbakaskrivning av grupp |Läsa, skapa, uppdatera och ta bort grupp objekt för synkroniserade **Office 365-grupper**.  Mer information finns i [tillbakaskrivning av grupp](how-to-connect-preview.md#group-writeback).|
 
 ## <a name="using-the-adsyncconfig-powershell-module"></a>Med ADSyncConfig PowerShell-modulen 
-Modulen ADSyncConfig kräver den [Remote verktyg för fjärrserveradministration (RSAT) för AD DS](https://docs.microsoft.com/windows-server/remote/remote-server-administration-tools) eftersom den är beroende av AD DS PowerShell-modulen och verktyg. Om du vill installera RSAT för AD DS, öppna en Windows PowerShell-fönster med ”Kör som administratör” och kör: 
+Modulen ADSyncConfig kräver den [Remote verktyg för fjärrserveradministration (RSAT) för AD DS](https://docs.microsoft.com/en-us/windows-server/remote/remote-server-administration-tools) eftersom den är beroende av AD DS PowerShell-modulen och verktyg. Om du vill installera RSAT för AD DS, öppna en Windows PowerShell-fönster med ”Kör som administratör” och kör: 
 
 ``` powershell
 Install-WindowsFeature RSAT-AD-Tools 

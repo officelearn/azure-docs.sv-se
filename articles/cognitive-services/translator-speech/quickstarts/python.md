@@ -10,18 +10,19 @@ ms.component: translator-speech
 ms.topic: quickstart
 ms.date: 07/17/2018
 ms.author: v-jaswel
-ROBOTS: NOINDEX
-ms.openlocfilehash: 601e8473482cf6d90151b221309aef4d48d368d0
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: f6386fbb54ab78def289f5eee9f957bb7a11ff65
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46979023"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49341231"
 ---
 # <a name="quickstart-translator-speech-api-with-python"></a>Snabbstart: Translator Speech API med Python
 <a name="HOLTop"></a>
 
-Den här artikeln visar hur du använder Translator Speech API för att översätta ord som sägs i en .wav-fil.
+[!INCLUDE [Deprecation note](../../../../includes/cognitive-services-translator-speech-deprecation-note.md)]
+
+Den här artikeln visar hur du använder Translator Speech API för att översätta ord som sägs i en WAV-fil.
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
@@ -122,7 +123,7 @@ client.run_forever()
 
 **Talöversättningssvar**
 
-Om du lyckas skapas en fil med namnet ”speak2.wav”. Filen innehåller översättningen av ord som sägs i ”speak.wav”.
+Om åtgärden lyckas skapas en fil med namnet ”speak2.wav”. Filen innehåller översättningen av orden som sägs i ”speak.wav”.
 
 [Överst på sidan](#HOLTop)
 

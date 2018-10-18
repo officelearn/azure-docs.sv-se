@@ -7,7 +7,7 @@
 # Kom igång
 ## [Skapa och hantera konto](media-services-portal-create-account.md)
 ## [Konfigurera din utvecklingsmiljö](media-services-set-up-computer.md)
-### [.NET](media-services-dotnet-how-to-use.md)
+### [NET](media-services-dotnet-how-to-use.md)
 ### [REST](media-services-rest-how-to-use.md)  
 ## [Använda AAD-autentisering för att komma åt API](media-services-use-aad-auth-to-access-ams-api.md)
 ### [Hantera AAD-autentisering med hjälp av portalen](media-services-portal-get-started-with-aad.md)
@@ -17,22 +17,22 @@
 ### [Skapa och konfigurera AAD-appar med hjälp av Azure PowerShell](media-services-powershell-create-and-configure-aad-app.md)
 
 ## Leverera video på begäran
-### [Azure-portalen](media-services-portal-vod-get-started.md)
+### [Azure Portal](media-services-portal-vod-get-started.md)
 ### [.NET SDK](media-services-dotnet-get-started.md)
 ### [Java](media-services-java-how-to-use.md)
 ### [REST](media-services-rest-get-started.md)
 ## Utföra liveuppspelning
-### [Azure-portalen](media-services-portal-live-passthrough-get-started.md)
-### [.NET](media-services-dotnet-live-encode-with-onpremises-encoders.md)
+### [Azure Portal](media-services-portal-live-passthrough-get-started.md)
+### [NET](media-services-dotnet-live-encode-with-onpremises-encoders.md)
 
 # Gör så här för att
 ## Hantera
 ### Entiteter
-#### [.NET](media-services-dotnet-manage-entities.md)
+#### [NET](media-services-dotnet-manage-entities.md)
 #### [REST](media-services-rest-manage-entities.md)
 ### [Slutpunkter för direktuppspelning](media-services-streaming-endpoints-overview.md)
-#### [Azure-portalen](media-services-portal-manage-streaming-endpoints.md)
-#### [.NET](media-services-dotnet-manage-streaming-endpoints.md)
+#### [Azure Portal](media-services-portal-manage-streaming-endpoints.md)
+#### [NET](media-services-dotnet-manage-streaming-endpoints.md)
 ### Lagring
 #### [Uppdatera Media Services efter återställning av lagringsåtkomstnycklar](media-services-roll-storage-access-keys.md)
 #### [Hantera tillgångar över flera lagringskonton](meda-services-managing-multiple-storage-accounts.md)
@@ -43,8 +43,8 @@
 ### [Miljö](postman-environment.md)
 ## Överföra innehåll
 ### Överföra filer till ett konto
-#### [Azure-portalen](media-services-portal-upload-files.md)
-#### [.NET](media-services-dotnet-upload-files.md)
+#### [Azure Portal](media-services-portal-upload-files.md)
+#### [NET](media-services-dotnet-upload-files.md)
 #### [REST](media-services-rest-upload-files.md)
 ### [Överföra stora filer med Aspera](media-services-upload-files-with-aspera.md)
 ### [Ladda upp filer med StorSimple](media-services-upload-files-from-storsimple.md)
@@ -57,13 +57,14 @@
 #### [Format och codecs för Media Encoder Standard](media-services-media-encoder-standard-formats.md)
 #### [Använda MES för att generera en bithastighetsstege automatiskt](media-services-autogen-bitrate-ladder-with-mes.md)
 #### Koda med Media Encoder Standard
-##### [Azure-portalen](media-services-portal-encode.md)
-##### [.NET](media-services-dotnet-encode-with-media-encoder-standard.md)
+##### [Azure Portal](media-services-portal-encode.md)
+##### [NET](media-services-dotnet-encode-with-media-encoder-standard.md)
 ##### [REST](media-services-rest-encode-asset.md)
 #### [Avancerad kodning med MES](media-services-advanced-encoding-with-mes.md)
 ##### [Anpassa förval för Media Encoder Standard](media-services-custom-mes-presets-with-dotnet.md)
 ##### [Generera miniatyrer med Media Encoder Standard med .NET](media-services-dotnet-generate-thumbnail-with-mes.md)
 ##### [Beskära videoklipp med Media Encoder Standard](media-services-crop-video.md)
+##### [Skapa en miniatyrsprite](generate-thumbnail-sprite.md)
 #### MES-scheman
 ##### [Media Encoder Standard-schema](media-services-mes-schema.md)
 ##### [Inkommande metadata](media-services-input-metadata-schema.md)
@@ -103,7 +104,7 @@
 ##### [Premium-arbetsflöde med flera indatafiler](media-services-media-encoder-premium-workflow-multiplefilesinput.md)
 ### [Skapa en uppgift som genererar fMP4-segment](media-services-generate-fmp4-chunks.md)
 ### Mediebearbetare
-#### [.NET](media-services-get-media-processor.md)
+#### [NET](media-services-get-media-processor.md)
 #### [REST](media-services-rest-get-media-processor.md)
 ### [Felkoder](media-services-encoding-error-codes.md)
 ### Inaktuell
@@ -112,11 +113,11 @@
 ## [Strömma live](media-services-manage-channels-overview.md)
 ### [Lokala kodare](media-services-live-streaming-with-onprem-encoders.md)
 #### [Rekommenderade lokala kodare](media-services-recommended-encoders.md)
-#### [Azure-portalen](media-services-portal-live-passthrough-get-started.md)
-#### [.NET](media-services-dotnet-live-encode-with-onpremises-encoders.md)
+#### [Azure Portal](media-services-portal-live-passthrough-get-started.md)
+#### [NET](media-services-dotnet-live-encode-with-onpremises-encoders.md)
 ### [Liveuppspelning med molnkodare](media-services-manage-live-encoder-enabled-channels.md)
-#### [Azure-portalen](media-services-portal-creating-live-encoder-enabled-channel.md)
-#### [.NET](media-services-dotnet-creating-live-encoder-enabled-channel.md)
+#### [Azure Portal](media-services-portal-creating-live-encoder-enabled-channel.md)
+#### [NET](media-services-dotnet-creating-live-encoder-enabled-channel.md)
 ### [Konfigurera lokala kodare för användning med molnkodare](media-services-live-encoders-overview.md)
 #### [FMLE-kodare](media-services-configure-fmle-live-encoder.md)
 #### [Haivision KB-kodare](media-services-configure-kb-live-encoder.md)
@@ -131,7 +132,7 @@
 ### [Konfigurera kortkommandon](media-services-azure-media-clipper-keyboard-shortcuts.md)
 ### [Konfigurera lokalisering](media-services-azure-media-clipper-localization.md)
 ### [Skicka urklippningsjobb](media-services-azure-media-clipper-submit-job.md)
-### [Azure-portalen](media-services-azure-media-clipper-portal.md)
+### [Azure Portal](media-services-azure-media-clipper-portal.md)
 
 ## [Skydda innehåll](media-services-content-protection-overview.md)
 ### [Lagringskryptering](media-services-rest-storage-encryption.md)
@@ -144,17 +145,17 @@
 ### [Konfigurera i Azure Portal](media-services-portal-protect-content.md)
 ### [Leverera DRM-licenser](media-services-deliver-keys-and-licenses.md)
 ### Skapa ContentKeys
-#### [.NET](media-services-dotnet-create-contentkey.md)
+#### [NET](media-services-dotnet-create-contentkey.md)
 #### [REST](media-services-rest-create-contentkey.md)
 ### Översikter över licensmallen
 #### [PlayReady-licensmall](media-services-playready-license-template-overview.md)
 #### [Widevine-licensmall](media-services-widevine-license-template-overview.md)
 ### Konfigurera tillgångsleveransprinciper
-#### [.NET](media-services-dotnet-configure-asset-delivery-policy.md)
+#### [NET](media-services-dotnet-configure-asset-delivery-policy.md)
 #### [REST](media-services-rest-configure-asset-delivery-policy.md)
 ### Konfigurera principen för auktorisering av innehållsnycklar
-#### [Azure-portalen](media-services-portal-configure-content-key-auth-policy.md)
-#### [.NET](media-services-dotnet-configure-content-key-auth-policy.md)
+#### [Azure Portal](media-services-portal-configure-content-key-auth-policy.md)
+#### [NET](media-services-dotnet-configure-content-key-auth-policy.md)
 #### [REST](media-services-rest-configure-content-key-auth-policy.md)
 ### [Skicka autentiseringstoken till AMS](media-services-pass-authentication-tokens.md)
 ### Referensdesign
@@ -176,15 +177,15 @@
 ### [Bearbeta med Content Moderator](media-services-content-moderation.md)
 
 ## [Konfigurera telemetri](media-services-telemetry-overview.md)
-###[.NET](media-services-dotnet-telemetry.md)
+###[NET](media-services-dotnet-telemetry.md)
 ###[REST](media-services-rest-telemetry.md)
 
 ## Skala
 ### [Mediebearbetning](media-services-scale-media-processing-overview.md)
-#### [Azure-portalen](media-services-portal-scale-media-processing.md)
-#### [.NET](media-services-dotnet-encoding-units.md)
+#### [Azure Portal](media-services-portal-scale-media-processing.md)
+#### [NET](media-services-dotnet-encoding-units.md)
 ### Slutpunkter för direktuppspelning
-#### [Azure-portalen](media-services-portal-scale-streaming-endpoints.md)
+#### [Azure Portal](media-services-portal-scale-streaming-endpoints.md)
 
 ## [Leverera innehåll](media-services-deliver-content-overview.md)
 ### [Dynamisk paketering](media-services-dynamic-packaging-overview.md)
@@ -193,8 +194,8 @@
 #### [Skapa filter med REST](media-services-rest-dynamic-manifest.md)
 ### [CDN-cachelagringsprincip i Media Services-tillägget](../../cdn/cdn-caching-policy.md?toc=%2fazure%2fmedia-services%2ftoc.json)
 ### Publicera innehåll
-#### [Azure-portalen](media-services-portal-publish.md)
-#### [.NET](media-services-deliver-streaming-content.md)
+#### [Azure Portal](media-services-portal-publish.md)
+#### [NET](media-services-deliver-streaming-content.md)
 #### [REST](media-services-rest-deliver-streaming-content.md)
 ### [Leverera efter hämtning](media-services-deliver-asset-download.md)
 ### [Scenario vid direktuppspelningsredundans](media-services-implement-failover.md)
@@ -216,8 +217,8 @@
 ## Övervaka
 ### Kontrollera jobbförlopp
 #### [REST](media-services-rest-check-job-progress.md)
-#### [Azure-portalen](media-services-portal-check-job-progress.md)
-#### [.NET](media-services-check-job-progress.md)
+#### [Azure Portal](media-services-portal-check-job-progress.md)
+#### [NET](media-services-check-job-progress.md)
 ### [Övervaka jobbaviseringar med kölagring](media-services-dotnet-check-job-progress-with-queues.md)
 ### [Övervaka jobbaviseringar med webhookar](media-services-dotnet-check-job-progress-with-webhooks.md)
 
@@ -231,7 +232,7 @@
 ## [Kodexempel](https://azure.microsoft.com/resources/samples/?service=media-services)
 ## [Azure PowerShell (Resource Manager)](/powershell/module/azurerm.media)
 ## [Azure PowerShell (Service Management)](/powershell/module/servicemanagement/azure/?view=azuresmps-3.7.0)
-## [.NET](/dotnet/api/microsoft.windowsazure.mediaservices.client)
+## [NET](/dotnet/api/microsoft.windowsazure.mediaservices.client)
 ## [REST](/rest/api/media/mediaservice)
 ## Specifikationer
 ### [Live-inmatning – specifikation för live-inmatning av fragmenterad MP4](media-services-fmp4-live-ingest-overview.md)

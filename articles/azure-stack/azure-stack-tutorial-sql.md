@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 10/16/2018
 ms.author: jeffgilb
 ms.reviewer: quying
-ms.openlocfilehash: cb659a79f374b7a48cd3cc29f9f46bc6598c04dc
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
+ms.openlocfilehash: 17f06a08388720c4483ef1c187edf20ec8359121
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/17/2018
-ms.locfileid: "49366821"
+ms.locfileid: "49386391"
 ---
 # <a name="tutorial-offer-highly-available-sql-databases"></a>Självstudie: Erbjuder högtillgänglig SQL-databaser
 
@@ -123,7 +123,7 @@ På sekundära SQL-instanser (Ersätt < availability_group_name > med AlwaysOn t
 >  ![Sekundär SQL-instans-skript](./media/azure-stack-tutorial-sqlrp/sql2.png)
 
 ### <a name="configure-contained-database-authentication"></a>Konfigurera innesluten databas-autentisering
-Innan du lägger till en innesluten databas till en tillgänglighetsgrupp, kontrollerar du att alternativet innesluten databas authentication server är inställd på 1 på varje server-instansen som är värd för en tillgänglighetsreplik för tillgänglighetsgruppen. Mer information finns i [innesluten Databasautentisering](https://docs.microsoft.com/en-us/sql/database-engine/configure-windows/contained-database-authentication-server-configuration-option?view=sql-server-2017).
+Innan du lägger till en innesluten databas till en tillgänglighetsgrupp, kontrollerar du att alternativet innesluten databas authentication server är inställd på 1 på varje server-instansen som är värd för en tillgänglighetsreplik för tillgänglighetsgruppen. Mer information finns i [innesluten Databasautentisering](https://docs.microsoft.com/sql/database-engine/configure-windows/contained-database-authentication-server-configuration-option?view=sql-server-2017).
 
 Med dessa kommandon anger alternativet innesluten databas authentication server för varje SQL Server-instans i tillgänglighetsgruppen:
 

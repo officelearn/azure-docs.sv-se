@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/04/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: ebbb231e7d9eefa8eb681b0e14c711e2c4f1fad7
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
-ms.translationtype: MT
+ms.openlocfilehash: 93bd04ce654b8403ab3cd69ecd6837b97063e5e8
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
+ms.translationtype: HT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/17/2018
-ms.locfileid: "49386527"
+ms.locfileid: "49363954"
 ---
 # <a name="unified-alerting--monitoring-in-azure-monitor-replaces-classic-alerting--monitoring"></a>Enhetlig aviseringar och övervakning i Azure Monitor ersätter klassiska aviseringar och övervakning
 
@@ -49,8 +49,8 @@ Nyare mätvärden för Azure-resurser är tillgängliga som:
 Som vi nämnt tidigare, klassisk övervakning och avisering plattform för närvarande användas från den [aviseringar (klassisk) avsnittet](monitoring-overview-alerts-classic.md) av Azure portal kommer att dras tillbaka i kommande månader får de har ersatts av det nyare systemet.
 Äldre klassisk övervakning och avisering tas ur bruk den 30 juni 2019; inklusive stängningen av relaterade API: er, Azure portal-gränssnittet och tjänster i den. Mer specifikt kan att dessa funktioner bli inaktuell:
 
-- Äldre (klassisk) mått och aviseringar för Azure-resurser som för närvarande tillgänglig via [aviseringar (klassisk) avsnittet](monitoring-overview-alerts-classic.md) av Azure portal, tillgänglig som [microsoft.insights/alertrules](https://docs.microsoft.com/rest/api/monitor/alertrules) resurs
-- Äldre (klassisk)-plattformen och anpassade mått för Application Insights samt aviseringar på dem som för närvarande tillgänglig via [aviseringar (klassisk) avsnittet](monitoring-overview-alerts-classic.md) av Azure-portalen och tillgänglig som [microsoft.insights/ alertrules](https://docs.microsoft.com/rest/api/monitor/alertrules) resurs
+- Äldre (klassisk) mått och aviseringar för Azure-resurser som för närvarande tillgänglig via [aviseringar (klassisk) avsnittet](monitoring-overview-alerts-classic.md) av Azure portal, tillgänglig som [microsoft.insights/alertrules](https://docs.microsoft.com/en-us/rest/api/monitor/alertrules) resurs
+- Äldre (klassisk)-plattformen och anpassade mått för Application Insights samt aviseringar på dem som för närvarande tillgänglig via [aviseringar (klassisk) avsnittet](monitoring-overview-alerts-classic.md) av Azure-portalen och tillgänglig som [microsoft.insights/ alertrules](https://docs.microsoft.com/en-us/rest/api/monitor/alertrules) resurs
 - Äldre (klassisk) Felavvikelser avisering för närvarande tillgängligt som [Smart identifiering i Application Insights](../application-insights/app-insights-proactive-diagnostics.md) på Azure portal, med aviseringar har konfigurerats visas i [aviseringar (klassisk) avsnittet](monitoring-overview-alerts-classic.md) i Azure Portal
 
 Alla klassiska övervakning och avisering system, inklusive motsvarande [API](https://msdn.microsoft.com/library/azure/dn931945.aspx), [PowerShell](insights-alerts-powershell.md), [CLI](insights-alerts-command-line-interface.md), [Azure-portalsidan och [resursmall](monitoring-enable-alerts-using-template.md) är användbar tills juni 2019. Efter detta datum kommer kommer klassiska övervakning och aviseringar tjänsten att dras tillbaka och inte längre tillgänglig för användning. När alla aviseringsregler som förblir desamma i aviseringar (klassisk) utöver juni 2019 fortsätter att köras, men inte är tillgängligt för ändring.

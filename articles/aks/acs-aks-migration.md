@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 06/13/2018
 ms.author: nobun
 ms.custom: mvc
-ms.openlocfilehash: e42b0e7bd1bce40b7c58d75cb07f5a3f8afa5836
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
-ms.translationtype: MT
+ms.openlocfilehash: d26e849cf775e0c645ae97e4b67b5918bbbabd55
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
+ms.translationtype: HT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/17/2018
-ms.locfileid: "49385049"
+ms.locfileid: "49361386"
 ---
 # <a name="migrating-from-azure-container-service-acs-to-azure-kubernetes-service-aks"></a>Migrera från Azure Container Service (ACS) till Azure Kubernetes Service (AKS)
 
@@ -53,7 +53,7 @@ Exempel:
 | agentpool0 | 3 | Standard_D8_v2 | Linux |
 | agentpool1 | 1 | Standard_D2_v2 | Windows |
 
-Eftersom fler virtuella datorer ska distribueras till din prenumeration vid migrering, bör du kontrollera att dina kvoter och begränsningar är tillräckliga för de här resurserna. Du kan lära dig mer genom att granska [Azure-prenumeration och tjänstbegränsningar](https://docs.microsoft.com/azure/azure-subscription-service-limits). Du kan kontrollera dina aktuella kvoter, välja den [prenumerationsbladet](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) i Azure portal, Välj din prenumeration och välj sedan `Usage + quotas`.
+Eftersom fler virtuella datorer ska distribueras till din prenumeration vid migrering, bör du kontrollera att dina kvoter och begränsningar är tillräckliga för de här resurserna. Du kan lära dig mer genom att granska [Azure-prenumeration och tjänstbegränsningar](https://docs.microsoft.com/en-us/azure/azure-subscription-service-limits). Du kan kontrollera dina aktuella kvoter, välja den [prenumerationsbladet](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) i Azure portal, Välj din prenumeration och välj sedan `Usage + quotas`.
 
 ### <a name="networking"></a>Nätverk
 
@@ -86,7 +86,7 @@ Det finns flera faktorer att tänka på om du migrerar befintliga beständiga vo
 2. Ögonblicksbild diskar
 3. Skapa nya Managed Disks från ögonblicksbilder
 4. Skapa beständiga volymer i AKS
-5. Uppdatera Pod-specifikationer till [använda befintliga volymer](https://docs.microsoft.com/azure/aks/azure-disk-volume) i stället för PersistentVolumeClaims (statisk allokering)
+5. Uppdatera Pod-specifikationer till [använda befintliga volymer](https://docs.microsoft.com/en-us/azure/aks/azure-disk-volume) i stället för PersistentVolumeClaims (statisk allokering)
 6. Distribuera program till AKS
 7. Verifiera
 8. Peka trafik på AKS-kluster
@@ -112,7 +112,7 @@ Om inte, en metod för möjliga migreringen omfattar följande steg:
 4. Verifiera
 5. Peka trafik på AKS-kluster
 
-I fall där du vill starta med en tom filresurs och göra en kopia av källdata kan du använda den [ `az storage file copy` ](https://docs.microsoft.com/cli/azure/storage/file/copy?view=azure-cli-latest) kommandon för att migrera dina data.
+I fall där du vill starta med en tom filresurs och göra en kopia av källdata kan du använda den [ `az storage file copy` ](https://docs.microsoft.com/en-us/cli/azure/storage/file/copy?view=azure-cli-latest) kommandon för att migrera dina data.
 
 ### <a name="deployment-strategy"></a>Distributionsstrategi
 
@@ -134,7 +134,7 @@ Det finns också flera verktyg för öppen källkod som kan hjälpa att, beroend
 
 ### <a name="1-create-an-aks-cluster"></a>1. Skapa ett AKS-kluster
 
-Du kan följa dokumenten till [skapa ett AKS-kluster](https://docs.microsoft.com/azure/aks/create-cluster) via Azure portal, Azure CLI eller Resource Manager-mall.
+Du kan följa dokumenten till [skapa ett AKS-kluster](https://docs.microsoft.com/en-us/azure/aks/create-cluster) via Azure portal, Azure CLI eller Resource Manager-mall.
 
 > Du hittar Azure Resource Manager-exempelmallar för AKS i den [Azure/AKS](https://github.com/Azure/AKS/tree/master/examples/vnet) arkivet på GitHub
 

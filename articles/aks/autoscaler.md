@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 07/19/18
 ms.author: sakthivetrivel
 ms.custom: mvc
-ms.openlocfilehash: e16c82f7c49bf90fc074732d0a989b9de94a52c5
-ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
-ms.translationtype: MT
+ms.openlocfilehash: 6ec39116596c7abb7b1d26f864cdb57d839c88be
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
+ms.translationtype: HT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/17/2018
-ms.locfileid: "49375859"
+ms.locfileid: "49365143"
 ---
 # <a name="cluster-autoscaler-on-azure-kubernetes-service-aks---preview"></a>Autoskalningen-kluster på Azure Kubernetes Service (AKS) – förhandsversion
 
@@ -26,22 +26,11 @@ Den här artikeln beskriver hur du distribuerar klustret autoskalningen på agen
 > Azure Kubernetes Service (AKS) kluster autoskalningen-integrering är för närvarande i **förhandsversion**. Förhandsversioner görs tillgängliga för dig under förutsättning att du godkänner [kompletterande användningsvillkor](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Vissa aspekter av funktionen kan ändras innan den är allmänt tillgänglig (GA).
 >
 
-## <a name="prerequisites-and-considerations"></a>Krav och överväganden
+## <a name="prerequisites"></a>Förutsättningar
 
 Det här dokumentet förutsätter att du har ett RBAC-aktiverade AKS-kluster. Om du behöver ett AKS-kluster finns i den [Snabbstart för Azure Kubernetes Service (AKS)][aks-quick-start].
 
  Om du vill använda kluster autoskalningen ditt kluster med Kubernetes v1.10.X eller högre och måste vara RBAC-aktiverade. Om du vill uppgradera ditt kluster, kan du läsa artikeln om [uppgradera ett AKS-kluster][aks-upgrade].
-
-Definiera resursbegäranden för poddarna. Klustret autoskalningen ser ut på vilka resurser begär görs av poddar, inte resurserna som faktiskt används som vågräta pod autoskalningen har. I den `spec: containers` avsnittet av din distributionsdefinitionen definierar kraven på CPU och minne. I följande exempel kodfragment begär 0,5 virtuella processorer och 64Mb minne på noden:
-
-  ```yaml
-  resources:
-    requests:
-      cpu: 500m
-      memory: 64Mb
-  ```
-
-När klustret autoskalningen används bör du undvika att skala antalet noder manuellt. Klustret autoskalningen kanske inte kan fastställa rätt antal beräkningsresurser krävs och står i konflikt med antalet noder som du definierar manuellt.
 
 ## <a name="gather-information"></a>Samla in information
 

@@ -8,16 +8,16 @@ ms.date: 6/20/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: df1ca1358d1b111d8412d730575eb7bf66c8ebdf
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 079a22ebaa7abfec7e8db142bc8f277ff12ab77e
+ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46950020"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49394977"
 ---
 # <a name="create-a-linux-iot-edge-device-that-acts-as-a-transparent-gateway"></a>Skapa en Linux IoT Edge-enhet som fungerar som en transparent gateway
 
-Den här artikeln innehåller detaljerade anvisningar för att använda en IoT Edge-enhet som en transparent gateway. I resten av den här artikeln termen *IoT Edge-gateway* refererar till en IoT Edge-enhet som används som en transparent gateway. Mer information finns i [hur en IoT Edge-enhet kan användas som en gateway][lnk-edge-as-gateway], vilket ger en översikt.
+Den här artikeln innehåller detaljerade anvisningar för att använda en IoT Edge-enhet som en transparent gateway. I resten av den här artikeln termen *IoT Edge-gateway* refererar till en IoT Edge-enhet som används som en transparent gateway. Mer information finns i [hur en IoT Edge-enhet kan användas som en gateway](./iot-edge-as-gateway.md), vilket ger en översikt.
 
 >[!NOTE]
 >För närvarande:
@@ -27,9 +27,9 @@ Den här artikeln innehåller detaljerade anvisningar för att använda en IoT E
 
 Hårda del om hur du skapar en transparent gateway ansluter på ett säkert sätt gatewayen till efterföljande enheter. Azure IoT Edge kan du använda PKI-infrastruktur för att ställa in säkra TLS-anslutningar mellan dessa enheter. I det här fallet vi så att en underordnad enhet att ansluta till en IoT Edge-enhet som fungerar som en transparent gateway.  Om du vill skydda rimliga, bör underordnad enhet bekräftar identiteten hos Edge-enhet eftersom du bara vill att dina enheter som ansluter till din gateway och inte en potentiellt skadliga gateway.
 
-Du kan skapa någon infrastruktur för certifikat som gör det förtroendet som krävs för din enhet-gateway-topologi. I den här artikeln förutsätter vi att samma inställningar för certifikat som du använder för att aktivera [X.509 CA-säkerheten] [ lnk-iothub-x509] i IoT Hub, som innebär att ett X.509 CA-certifikat som är kopplad till en specifik IoT-hubb (IoT hub ägaren CA ), och en serie med certifikat som signerats med den här Certifikatutfärdaren och en CA för Edge-enhet.
+Du kan skapa någon infrastruktur för certifikat som gör det förtroendet som krävs för din enhet-gateway-topologi. I den här artikeln förutsätter vi att samma inställningar för certifikat som du använder för att aktivera [X.509 CA-säkerheten](../iot-hub/iot-hub-x509ca-overview.md) i IoT Hub, som omfattar ett X.509 CA-certifikat som är kopplad till en specifik IoT-hubb (IoT hub ägaren CA) och en serie med certifikat registrerat med den här Certifikatutfärdaren och en Certifikatutfärdare för Edge-enhet.
 
-![Installationsprogram för gateway][1]
+![Installationsprogram för gateway](./media/how-to-create-transparent-gateway/gateway-setup.png)
 
 Gatewayen anger certifikatutfärdarcertifikatet Edge-enhet till underordnade enheten under initiering av anslutningen. Underordnad enhet kontrollerar om du vill kontrollera att Edge-enhetens CA-certifikat som har signerats av CA-certifikatet ägare. Den här processen kan underordnade enheten för att kontrollera gatewayen kommer från en betrodd källa.
 
@@ -37,8 +37,8 @@ Följande steg vägleder dig genom processen att skapa certifikat och installera
 
 ## <a name="prerequisites"></a>Förutsättningar
 1.  Installera Azure IoT Edge-körningen på en Linux-enhet som du vill använda som en transparent gateway.
-   * [Linux x64][lnk-install-linux-x64]
-   * [Linux ARM32][lnk-install-linux-arm]
+   * [Linux x64](./how-to-install-iot-edge-linux.md)
+   * [Linux ARM32](./how-to-install-iot-edge-linux-arm.md)
 
 2.  Hämta skript för att generera certifikat som krävs inte är i produktion med följande kommando. Dessa skript hjälper dig att skapa nödvändiga certifikat att ställa in en transparent gateway. 
 
@@ -61,7 +61,7 @@ Följande steg vägleder dig genom processen att skapa certifikat och installera
       ```
 
 ## <a name="certificate-creation"></a>Skapandet av certifikat
-1.  Skapa ägare CA-certifikat och en mellanliggande certifikat. Dessa är placerade i `$WRKDIR`.
+1.  Skapa ägare CA-certifikat och en mellanliggande certifikat. Dessa certifikat är placerade i `$WRKDIR`.
 
    ```cmd
    ./certGen.sh create_root_and_intermediate
@@ -134,7 +134,7 @@ En av de viktigaste funktionerna i Azure IoT Edge är möjligheten att distribue
 6. I steget granska mallen väljer **skicka**.
 
 ## <a name="installation-on-the-downstream-device"></a>Installation på den underordnade enheten
-En underordnad enhet kan vara program med hjälp av den [Azure IoT-enhetens SDK][lnk-devicesdk], t.ex. den enkla som beskrivs i [ansluta enheten till IoT-hubben med hjälp av .NET] [ lnk-iothub-getstarted]. En underordnad enhet programmet måste lita på den **ägare CA** certifikat för att kunna verifiera TLS-anslutningar till gatewayenheter. Det här steget kan vanligtvis utföras på två sätt: på operativsystemsnivån, eller (för vissa språk) på programnivå.
+En underordnad enhet kan vara program med hjälp av den [Azure IoT-enhetens SDK](../iot-hub/iot-hub-devguide-sdks.md), t.ex. den enkla som beskrivs i [ansluta enheten till IoT-hubben med hjälp av .NET](../iot-hub/quickstart-send-telemetry-dotnet.md). En underordnad enhet programmet måste lita på den **ägare CA** certifikat för att kunna verifiera TLS-anslutningar till gatewayenheter. Det här steget kan vanligtvis utföras på två sätt: på operativsystemsnivån, eller (för vissa språk) på programnivå.
 
 ### <a name="os-level"></a>OS-nivå
 Installera det här certifikatet i certifikatarkivet OS kan alla program du använder ägaren CA-certifikat som ett betrott certifikat.
@@ -149,10 +149,10 @@ Installera det här certifikatet i certifikatarkivet OS kan alla program du anv�
     Du bör se ett meddelande om ”uppdaterar certifikat i /etc/ssl/certs... 1 lade till 0 bort; gjorts ”.
 
 * Windows - här är ett exempel på hur du installerar ett CA-certifikat på en Windows-värd.
-  * På menyn starttypen i ”hantera certifikat”. Detta bör ta fram ett verktyg som kallas `certlm`.
-  * Gå till certifikat lokal dator--> betrodda rotcertifikat--> certifikat--> höger Klicka--> alla uppgifter--> Import för att starta guiden Importera certifikat.
-  * Följ stegen enligt anvisningarna och importera certifikatet filen $CERTDIR/certs/azure-iot-test-only.root.ca.cert.pem.
-  * När du är klar visas meddelandet ”importerades”.
+  1. På menyn starttypen i ”hantera certifikat”. Detta bör ta fram ett verktyg som kallas `certlm`.
+  2. Gå till **certifikat lokal dator** > **betrodda rotcertifikat** > **certifikat** > Högerklicka på > **Alla uppgifter** > **importera** att starta guiden Importera certifikat.
+  3. Följ stegen enligt anvisningarna och importera certifikatet filen $CERTDIR/certs/azure-iot-test-only.root.ca.cert.pem.
+  4. När du är klar visas meddelandet ”importerades”.
 
 ### <a name="application-level"></a>Programnivå
 Du kan lägga till följande fragment för att lita på ett certifikat i PEM-format för .NET-program. Initiera variabeln `certPath` med `$CERTDIR/certs/azure-iot-test-only.root.ca.cert.pem`.
@@ -169,7 +169,7 @@ Du kan lägga till följande fragment för att lita på ett certifikat i PEM-for
    ```
 
 ## <a name="connect-the-downstream-device-to-the-gateway"></a>Underordnade ansluts till gateway
-Med en anslutningssträng som refererar till värdnamnet för gateway-enheten måste du initiera enhets-sdk för IoT Hub. Detta görs genom att lägga till den `GatewayHostName` som enhetens anslutningssträng. Här är exempelvis en exempel enhetens anslutningssträng för en enhet som vi läggs den `GatewayHostName` egenskapen:
+Initiera IoT Hub device SDK med en anslutningssträng som refererar till värdnamnet för gateway-enheten. Detta görs genom att lägga till den `GatewayHostName` som enhetens anslutningssträng. Här är exempelvis en exempel enhetens anslutningssträng för en enhet som vi läggs den `GatewayHostName` egenskapen:
 
    ```
    HostName=yourHub.azure-devices.net;DeviceId=yourDevice;SharedAccessKey=XXXYYYZZZ=;GatewayHostName=mygateway.contoso.com
@@ -187,31 +187,9 @@ IoT Edge-körningen kan dirigera meddelanden som skickas från underordnade enhe
    { "routes":{ "sensorToAIInsightsInput1":"FROM /messages/* WHERE NOT IS_DEFINED($connectionModuleId) INTO BrokeredEndpoint(\"/modules/ai_insights/inputs/input1\")", "AIInsightsToIoTHub":"FROM /messages/modules/ai_insights/outputs/output1 INTO $upstream" } }
    ```
 
-Referera till den [modulen sammansättning artikeln] [ lnk-module-composition] för mer information om meddelanderoutning.
+Referera till den [modulen sammansättning artikeln](./module-composition.md) för mer information om meddelanderoutning.
 
-[!INCLUDE [](../../includes/iot-edge-extended-offline-preview.md)]
+[!INCLUDE [iot-edge-offline-preview](../../includes/iot-edge-extended-offline-preview.md)]
 
 ## <a name="next-steps"></a>Nästa steg
-[Förstå de krav och verktyg för att utveckla IoT Edge-moduler][lnk-module-dev].
-
-<!-- Images -->
-[1]: ./media/how-to-create-transparent-gateway/gateway-setup.png
-
-<!-- Links -->
-[lnk-install-linux-x64]: ./how-to-install-iot-edge-linux.md
-[lnk-install-linux-arm]: ./how-to-install-iot-edge-linux-arm.md
-[lnk-module-composition]: ./module-composition.md
-[lnk-devicesdk]: ../iot-hub/iot-hub-devguide-sdks.md
-[lnk-tutorial1-win]: tutorial-simulate-device-windows.md
-[lnk-tutorial1-lin]: tutorial-simulate-device-linux.md
-[lnk-edge-as-gateway]: ./iot-edge-as-gateway.md
-[lnk-module-dev]: module-development.md
-[lnk-iothub-getstarted]: ../iot-hub/quickstart-send-telemetry-dotnet.md
-[lnk-iothub-x509]: ../iot-hub/iot-hub-x509ca-overview.md
-[lnk-iothub-secure-deployment]: ../iot-hub/iot-hub-security-deployment.md
-[lnk-iothub-tokens]: ../iot-hub/iot-hub-devguide-security.md#security-tokens
-[lnk-iothub-throttles-quotas]: ../iot-hub/iot-hub-devguide-quotas-throttling.md
-[lnk-iothub-devicetwins]: ../iot-hub/iot-hub-devguide-device-twins.md
-[lnk-iothub-c2d]: ../iot-hub/iot-hub-devguide-messages-c2d.md
-[lnk-ca-scripts]: https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md
-[lnk-modbus-module]: https://github.com/Azure/iot-edge-modbus
+[Förstå de krav och verktyg för att utveckla IoT Edge-moduler](module-development.md).

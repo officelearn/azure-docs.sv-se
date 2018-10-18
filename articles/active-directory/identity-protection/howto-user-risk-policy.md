@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 11/08/2017
 ms.author: markvi
 ms.reviewer: raluthra
-ms.openlocfilehash: a54403b7794d26d87c810f5cd20050db35c078f1
-ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
+ms.openlocfilehash: 3ba8c93d158a6ff80c3db788924503e9d4e87242
+ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47054350"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49378127"
 ---
 # <a name="how-to-configure-the-user-risk-policy"></a>Så här: Konfigurera riskprincip för användare
 
@@ -41,7 +41,7 @@ Alla riskhändelser som har identifierats för en användare och inte löses kal
 Riskprincip för användare är en automatisk åtgärd som du kan konfigurera för en viss användare risknivå. Du kan använda en riskprincip för användare för att blockera åtkomst till resurser eller kräva ändring av lösenordet för att komma tillbaka ett användarkonto till ett rent tillstånd.
 
 
-## <a name="how-do-i-access-the-sign-in-risk-policy"></a>Hur kommer jag åt inloggningsrisk principen?
+## <a name="how-do-i-access-the-user-risk-policy"></a>Hur kommer jag åt riskprincip för användare?
    
 Princip för inloggninsrisk-är i den **konfigurera** avsnittet på den [Azure AD Identity Protection-sidan](https://portal.azure.com/#blade/Microsoft_AAD_ProtectionCenter/IdentitySecurityDashboardMenuBlade/SignInPolicy).
    
@@ -73,7 +73,7 @@ Dialogrutan princip konfiguration får du ett alternativ för att beräkna effek
 
 ![Uppskattad påverkan](./media/howto-user-risk-policy/15.png)
 
-## <a name="what-you-should-know"></a>Vad du bör känna till
+## <a name="what-you-should-know"></a>Det här bör du känna till
 
 Du kan ange en riskprincip för att blockera användare vid inloggning beroende på risknivån.
 

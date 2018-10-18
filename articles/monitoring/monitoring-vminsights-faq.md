@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/19/2018
 ms.author: magoedte
-ms.openlocfilehash: 308a447ff99cd11ad6a28df0bdb515764b0f546b
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: 282620342d2348868ceab5257de7415a9cb2147c
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47063463"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49388371"
 ---
 # <a name="azure-monitor-for-vms-frequently-asked-questions"></a>Vanliga och frågor svar om Azure Monitor för virtuella datorer
 Den här Microsoft-FAQ är en lista över vanliga frågor om Azure Monitor för virtuella datorer i Microsoft Azure. Om du har ytterligare frågor om lösningen går du till den [diskussionsforum](https://feedback.azure.com/forums/34192--general-feedback) och ställa frågor. När en fråga är vanliga vi lägga till det i den här artikeln så att den finns snabbt och enkelt.
@@ -76,7 +76,7 @@ I Azure Monitor för virtuella datorer kartan funktionen är baserad på Tjänst
 Detta kan inträffa olika orsaker.  I fall där det finns en lucka i datainsamling vi föreställer raderna som prickad.  Om du har ändrat data samplingsfrekvensen för prestandaräknare som är aktiverad (standardinställningen är att samla in data var 60: e sekund), du kan se prickade linjer i diagrammet om du väljer en smal tidsintervall för diagrammet och din samplingsfrekvensen är mindre än bucket-storleken som används i diagrammet (till exempel samplingsfrekvens är var tionde minut och varje bucket i diagrammet är 5 minuter).  Raderna som diagrammet ska visas som heldragna linjer i stället för punkterna i det här fallet ska göra att välja fler tid att visa.
 
 ## <a name="are-groups-supported-with-azure-monitor-for-vms"></a>Grupper stöds med Azure Monitor för virtuella datorer?
-Prestanda-funktionen stöder grupper baserat på de markerade resurserna inom en viss arbetsyta, samt gruppering baserad på en viss Azure virtual machine scale Sets och Molntjänsten.
+Ja, när du installerar beroendeagenten som vi samlar in information från de virtuella datorerna ska visa grupper baserat på prenumerationen, resursgruppen, VM-skalningsuppsättningar och molntjänster.  Om du har använt Tjänstkarta och har skapat datorgrupper, visas dessa också.  Datorgrupper visas också i filtret grupper om du har skapat dem för den arbetsyta som du visar. 
 
 ## <a name="how-do-i-see-the-details-for-what-is-driving-the-95th-percentile-line-in-the-aggregate-performance-charts"></a>Hur kan jag se information för vad som aktiverar den 95: e percentilen linjediagram i samlingen prestanda?
 Listan sorteras som standard för att visa de virtuella datorer som har det högsta värdet för den 95: e percentilen för det valda måttet förutom tillgängligt minne i diagrammet, som visar datorer med det lägsta värdet för 5: e percentilen.  Klicka på diagrammet öppnas den **topp-N** vy med den lämpliga mått har valts.

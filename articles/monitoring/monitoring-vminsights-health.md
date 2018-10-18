@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/24/2018
+ms.date: 10/15/2018
 ms.author: magoedte
-ms.openlocfilehash: 5c9211486fa40e49afd91eba7c432990b0ee860b
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: 84314f64d8a96e65f63cb5c6051f7f5e902cd682
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47160629"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49387829"
 ---
 # <a name="understand-the-health-of-your-azure-virtual-machines-with-azure-monitor-for-vms"></a>Förstå hälsotillståndet för virtuella datorer i Azure med Azure Monitor för virtuella datorer
 Azure innehåller flera tjänster som individuellt utför en viss roll eller en uppgift i övervakningsutrymmet, men ger en djupgående hälsotillstånd perspektiv av operativsystemet som körs på virtuella Azure-datorer inte var tillgänglig.  Medan du kan övervaka för olika villkor med hjälp av Log Analytics och Azure Monitor, har de inte utvecklats modellera och representerar hälsan för kärnkomponenter eller övergripande hälsa för den virtuella datorn.  Med Azure Monitor för virtuella datorer hälsotillstånd funktion kan övervakar det proaktivt tillgänglighet och prestanda för Windows eller Linux gästoperativsystemet med en modell som representerar viktiga komponenter och deras relationer villkor som anger hur hälsotillståndet för de komponenter, och varnar dig när ett feltillstånd har identifierats.  
@@ -31,7 +31,7 @@ Den här artikeln hjälper dig att snabbt utvärdera, undersöka och lösa probl
 Information om hur du konfigurerar Azure Monitor för virtuella datorer finns i [aktivera Azure Monitor för virtuella datorer](monitoring-vminsights-onboard.md).
 
 ## <a name="monitoring-configuration-details"></a>Information om övervakning
-Det här avsnittet beskrivs standardkriteriet för hälsotillstånd som definierats för att övervaka Azure Windows och Linux-datorer.
+Det här avsnittet beskrivs standardkriteriet för hälsotillstånd som definierats för att övervaka Azure Windows och Linux-datorer. Alla health-villkor är förinställd på att aviseringen när det felaktiga villkoret uppfylls. 
 
 ### <a name="windows-vms"></a>Virtuella Windows-datorer
 
@@ -110,7 +110,7 @@ Om du vill visa insamling av hälsotillstånd för alla dina virtuella datorer i
 
 ![VM-Insights övervakningsvyn från Azure Monitor](./media/monitoring-vminsights-health/vminsights-aggregate-health.png)
 
-Från den **prenumeration** och **resursgrupp** nedrullningsbara listor, väljer den lämpligaste som innehåller virtuella datorer har integrerats för mål om du vill visa deras hälsotillstånd. 
+Från den **prenumeration** och **resursgrupp** listrutor, Välj lämplig resursgruppen som innehåller de virtuella datorerna relaterade till gruppen för att visa deras rapporterade hälsotillstånd.  Ditt val har endast gäller för funktionen hälsotillstånd och inget prestanda eller kartan.
 
 På den **hälsotillstånd** fliken du kan lära dig följande:
 
@@ -253,21 +253,29 @@ Totalt antal VM-hälsa aviseringar kategoriserade efter allvarlighetsgrad är ti
 
 ![Exempel på alla allvarlighetsgrad 1-aviseringar](./media/monitoring-vminsights-health/vminsights-sev1-alerts-01.png)
 
+På den **aviseringar** kan den inte omfattar endast om du vill visa aviseringar som matchar ditt val, men också filtreras efter **resurstyp** till att bara visa health-aviseringar som aktiverats av den virtuella datorresursen.  Detta återges i listan över aviseringar under kolumnen **målresursen**, där det visar Azure-VM som varningen skapades för när de specifika Hälsokriterier feltillstånd uppfylldes.  
+
+Aviseringar från andra typer av resurser eller tjänster är inte avsedda att inkluderas i den här vyn, som aviseringar baserat på Log Analytics frågor eller mått aviseringar som du normalt skulle visa från standard Azure Monitor [alla aviseringar](../monitoring-and-diagnostics/monitoring-overview-alerts.md#all-alerts-page) sidan. 
+
 Du kan filtrera den här vyn genom att välja värden i listrutorna överst på sidan.
 
 |Kolumn |Beskrivning | 
 |-------|------------| 
 |Prenumeration |Välj en Azure-prenumeration. Bara aviseringar i den valda prenumerationen ingår i vyn. | 
 |Resursgrupp |Välj en enskild resursgrupp. Endast aviseringar med mål i den valda resursgruppen ingår i vyn. | 
-|Resurstyp |Välj en eller flera resurstyper. Endast aviseringar med mål för det valda ingår i vyn. Den här kolumnen är endast tillgänglig när en resursgrupp har angetts. | 
+|Resurstyp |Välj en eller flera resurstyper. Som standard bara de aviseringar som mål **virtuella datorer** har valts och ingår i den här vyn. Den här kolumnen är endast tillgänglig när en resursgrupp har angetts. | 
 |Resurs |Välj en resurs. Endast aviseringar med den här resursen som ett mål som ingår i vyn. Den här kolumnen är endast tillgänglig när du har angett en resurstyp. | 
 |Severity |välja en allvarlighetsgrad för avisering eller välj *alla* att inkludera aviseringar för alla allvarlighetsgrader. | 
 |Övervakningsvillkor |Välj ett övervakningsvillkor att filtrera aviseringar om de har *Fired* av systemet eller *löst* av systemet om villkoret är inte längre aktiv. Eller välj *alla* att inkludera aviseringar av alla villkor. | 
 |Tillstånd för avisering |Välj en aviseringstillståndet *New*, *Bekräfta*, *stängd*, eller välj *alla* att inkludera aviseringar av alla tillstånd. | 
-|Övervaka tjänsten |Välj en tjänst, eller välj *alla* att inkludera alla tjänster. Endast aviseringar från Infrastruktursinsikter har stöd för den här funktionen. | 
+|Övervaka tjänsten |Välj en tjänst, eller välj *alla* att inkludera alla tjänster. Endast varningar från *VM insikter* stöds för den här funktionen.| 
 |Tidsintervall| Bara de aviseringar som utlösts inom det valda tidsfönstret ingår i vyn. Värden som stöds är den senaste timmen, de senaste 24 timmarna, de senaste 7 dagarna och de senaste 30 dagarna. | 
 
-Den **Avisera detalj** visas när du väljer en avisering genom att tillhandahålla information om aviseringen och så att du kan ändra tillståndet. Mer information om att arbeta med Varningsregler och hantera aviseringar finns [skapa, visa och hantera aviseringar med hjälp av Azure Monitor](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md).
+Den **Avisera detalj** visas när du väljer en avisering genom att tillhandahålla information om aviseringen och så att du kan ändra tillståndet. Mer information om hur du hanterar aviseringar finns [skapa, visa och hantera aviseringar med hjälp av Azure Monitor](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md).  
+
+>[!NOTE]
+>Det finns inte stöd för att skapa nya aviseringar baserat på kriterier för hälsotillstånd eller ändra befintliga hälsotillstånd aviseringsregler i Azure Monitor från portalen för just nu.  
+>
 
 ![Information om fönstret om markerad avisering](./media/monitoring-vminsights-health/alert-details-pane-01.png)
 

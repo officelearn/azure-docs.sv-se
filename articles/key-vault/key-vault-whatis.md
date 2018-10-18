@@ -14,20 +14,20 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/05/2018
 ms.author: barclayn
-ms.openlocfilehash: 7e98853b5b2ccc779dca970337fc44217977c8c9
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: 56a1ebcfbb6dda9bc96aa241bd2b8d753022181a
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49342577"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49385873"
 ---
 # <a name="what-is-azure-key-vault"></a>Vad är Azure Key Vault?
 
 Azure Key Vault kan hjälpa dig att lösa följande problem
-- **Hantering av hemligheter** – Azure Key Vault kan användas för att lagra säkert och väl styr åtkomsten till token, lösenord, certifikat, API-nycklar och andra hemligheter
-- **Hantering av nycklar** – Azure Key Vault kan också användas som en lösning för hantering av nycklar. Med Azure Key Vault är det enkelt att skapa och kontrollera de krypteringsnycklar som används för att kryptera dina data. 
-- **Certifikathantering** – Azure Key Vault är också en tjänst som gör att du enkelt etablera, hantera och distribuera offentliga och privata Secure Sockets Layer/Transport Layer Security (SSL/TLS)-certifikat för användning med Azure och den interna ansluten resurser. 
-- **Store hemligheter som backas upp av Hardware Security Modules** -hemligheter och nycklar kan skyddas genom programvara eller FIPS 140-2 Level 2 verifierar HSM: er
+- **Hantering av hemligheter** – Azure Key Vault kan användas för säker lagring av och kontrollerad åtkomst till token, lösenord, certifikat, API-nycklar och andra hemligheter
+- **Nyckelhantering** – Azure Key Vault kan även användas som nyckelhanteringslösning. Med Azure Key Vault är det enkelt att skapa och kontrollera de krypteringsnycklar som används för att kryptera dina data. 
+- **Hantering av certifikat** – Azure Key Vault är också en tjänst där du enkelt kan etablera, hantera och distribuera offentliga och privata SSL/TLS-certifikat (Secure Sockets Layer/Transport Layer Security) för användning med Azure och dina interna anslutna resurser. 
+- **Lagra hemligheter som backas upp av Hardware Security-moduler** – Hemligheterna och nycklarna kan skyddas av programvara eller FIPS 140-2 nivå 2-validerade HS-moduler
 
 ## <a name="basic-concepts"></a>Grundläggande begrepp
 
@@ -35,7 +35,7 @@ Azure Key Vault är ett verktyg för att lagra och komma åt hemligheter på ett
 
 Grunden finns 3 sätt att autentisera till Key Vault
 
-1. **Med hjälp av [hanterade identiteter för Azure-resurser](https://docs.microsoft.com/en-us/azure/active-directory/managed-identities-azure-resources/overview)**  (**rekommenderas och bästa praxis**): när du distribuerar en App på en virtuell dator i Azure kan du tilldela en identitet till den virtuella datorn som har åtkomst till Key Vault. Du kan också tilldela identiteter till andra azure-resurser som listas [här](https://docs.microsoft.com/en-us/azure/active-directory/managed-identities-azure-resources/overview). Fördelen med den här metoden är appen / tjänsten hanterar inte rotation för den första hemligheten. Azure roterar automatiskt identiteten. 
+1. **Med hjälp av [hanterade identiteter för Azure-resurser](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview)**  (**rekommenderas och bästa praxis**): när du distribuerar en App på en virtuell dator i Azure kan du tilldela en identitet till den virtuella datorn som har åtkomst till Key Vault. Du kan också tilldela identiteter till andra azure-resurser som listas [här](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview). Fördelen med den här metoden är appen / tjänsten hanterar inte rotation för den första hemligheten. Azure roterar automatiskt identiteten. 
 2. **Med hjälp av tjänstens huvudnamn och certifikat:** 2 alternativ är att använda ett huvudnamn för tjänsten och en tillhörande certifikat som har åtkomst till Key Vault. Ansvaret för att rotera certifikatet är på programmets ägare eller utvecklare och därför rekommenderas detta inte
 3. **Med hjälp av tjänstens huvudnamn och hemlighet:** det 3 alternativet (rekommenderas inte) är att använda ett huvudnamn för tjänsten och en hemlighet för att autentisera till Key Vault
 

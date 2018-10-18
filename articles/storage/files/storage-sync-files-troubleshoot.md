@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 09/06/2018
 ms.author: jeffpatt
 ms.component: files
-ms.openlocfilehash: b53be5a5683ca8fcc8760a2d4cb7e766904a44a3
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.openlocfilehash: d240bafa543633999a74ef66efcfd7130a4a7b7a
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49167672"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49389284"
 ---
 # <a name="troubleshoot-azure-file-sync"></a>Felsök Azure File Sync
 Använd Azure File Sync för att centralisera din organisations filresurser i Azure Files, samtidigt som den flexibilitet, prestanda och kompatibilitet för en lokal filserver. Azure File Sync omvandlar Windows Server till ett snabbt cacheminne för din Azure-filresurs. Du kan använda alla protokoll som är tillgänglig på Windows Server för att komma åt dina data lokalt, inklusive SMB, NFS och FTPS. Du kan ha så många cacheminnen som du behöver över hela världen.
@@ -133,8 +133,8 @@ Utför följande steg för att lösa problemet:
 
 1. Öppna Aktivitetshanteraren på servern och kontrollera övervakaren lagring för synkronisering (AzureStorageSyncMonitor.exe)-processen körs. Om processen inte körs, först försöka starta om servern. Om du startar om servern inte löser problemet, uppgraderar du Azure File Sync-agenten till version [3.3.0.0]( https://support.microsoft.com/help/4457484/update-rollup-for-azure-file-sync-agent-september-2018) om inte installerade.
 2. Kontrollera inställningarna för brandväggen och proxyservern är korrekt konfigurerade:
-    - Om servern finns bakom en brandvägg kan du kontrollera att port 443 för utgående trafik tillåts. Om brandväggen begränsar trafik till specifika domäner, kontrollerar du de domäner som anges i brandväggen [dokumentation](https://docs.microsoft.com/en-us/azure/storage/files/storage-sync-files-firewall-and-proxy#firewall) är tillgängliga.
-    - Om servern finns bakom en proxyserver kan du konfigurera datoromfattande eller appspecifika proxyinställningarna genom att följa stegen i proxyn [dokumentation](https://docs.microsoft.com/en-us/azure/storage/files/storage-sync-files-firewall-and-proxy#proxy).
+    - Om servern finns bakom en brandvägg kan du kontrollera att port 443 för utgående trafik tillåts. Om brandväggen begränsar trafik till specifika domäner, kontrollerar du de domäner som anges i brandväggen [dokumentation](https://docs.microsoft.com/azure/storage/files/storage-sync-files-firewall-and-proxy#firewall) är tillgängliga.
+    - Om servern finns bakom en proxyserver kan du konfigurera datoromfattande eller appspecifika proxyinställningarna genom att följa stegen i proxyn [dokumentation](https://docs.microsoft.com/azure/storage/files/storage-sync-files-firewall-and-proxy#proxy).
 
 <a id="endpoint-noactivity-sync"></a>**Serverslutpunkten har en hälsostatus ”ingen aktivitet” och Servertillstånd på bladet registrerade servrar är ”Online”**  
 
@@ -343,7 +343,7 @@ Det här felet uppstår när det finns ett problem med den interna databasen som
 | **Felsträng** | ECS_E_AGENT_VERSION_BLOCKED |
 | **Reparation krävs** | Ja |
 
-Det här felet uppstår om Azure File Sync-agent-version som installerats på servern inte stöds. Lös problemet, [uppgradera]( https://docs.microsoft.com/en-us/azure/storage/files/storage-files-release-notes#upgrade-paths) till en [agentversion som stöds]( https://docs.microsoft.com/en-us/azure/storage/files/storage-files-release-notes#supported-versions).
+Det här felet uppstår om Azure File Sync-agent-version som installerats på servern inte stöds. Lös problemet, [uppgradera]( https://docs.microsoft.com/azure/storage/files/storage-files-release-notes#upgrade-paths) till en [agentversion som stöds]( https://docs.microsoft.com/azure/storage/files/storage-files-release-notes#supported-versions).
 
 <a id="-2134351810"></a>**Du har nått lagringsgränsen för Azure file-resursen.**  
 | | |

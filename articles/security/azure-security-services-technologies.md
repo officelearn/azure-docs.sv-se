@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/25/2018
 ms.author: barclayn
-ms.openlocfilehash: 0addad1db4d9f897736a7793c5489897bca2cd38
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: 32174af9edcd6da7b87b6b38c0824fa7f07aa8f9
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47093434"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49384895"
 ---
 # <a name="security-services-and-technologies-available-on-azure"></a>Säkerhetstjänster och teknologier som är tillgängliga på Azure
 
@@ -48,7 +48,7 @@ Framöver kommer den här listan ändrar och växa, precis som Azure gör. Se ti
 | [Azure Storage signaturer för delad åtkomst](../storage/common/storage-dotnet-shared-access-signature-part-1.md)|En signatur för delad åtkomst ger delegerad åtkomst till resurser i ditt storage-konto.  |
 |[Azure Storage-Kontonycklar](../storage/common/storage-create-storage-account.md)| En kontroll åtkomstmetod för Azure-lagring som används för autentisering när lagringskontot används. |
 |[Azure-filresurser med SMB 3.0-kryptering](../storage/files/storage-files-introduction.md)|Ett nätverk säkerhetsteknik som möjliggör automatisk nätverkskryptering för Server Message Block (SMB)-protokoll för fildelning. |
-|[Azure Storage Analytics](https://docs.microsoft.com/en-us/rest/api/storageservices/Storage-Analytics)| Loggning och mått generera teknik för data i ditt storage-konto. |
+|[Azure Storage Analytics](https://docs.microsoft.com/rest/api/storageservices/Storage-Analytics)| Loggning och mått generera teknik för data i ditt storage-konto. |
 
 <!------>
 
@@ -58,8 +58,8 @@ Framöver kommer den här listan ändrar och växa, precis som Azure gör. Se ti
 | [Azure&nbsp;SQL&nbsp;brandvägg](../sql-database/sql-database-firewall-configure.md)|En nätverks-åtkomstfunktion som skyddar mot nätverksbaserade attacker i databasen. |
 |[Azure&nbsp;SQL&nbsp;Cell&nbsp;nivå kryptering](https://blogs.msdn.microsoft.com/sqlsecurity/2015/05/12/recommendations-for-using-cell-level-encryption-in-azure-sql-database/)| En databas säkerhetsteknik som erbjuder kryptering på en detaljerad nivå.  |
 | [Azure&nbsp;SQL&nbsp;krypterad anslutning](../sql-database/sql-database-control-access.md)|För att erbjuda säkerhet, kontrollerar SQL Database åtkomsten med hjälp av brandväggsregler som begränsar anslutning efter IP-adress, autentiseringsmekanismer kräver att användare bevisar sin identitet och auktoriseringsmekanismer begränsar användare till specifika åtgärder och data. |
-| [Azure SQL alltid kryptering](https://docs.microsoft.com/en-us/sql/relational-databases/security/encryption/always-encrypted-database-engine?view=sql-server-2017)|Skyddar känsliga data, till exempel kreditkortsnummer eller nationella identifikationsnummer (till exempel amerikanska personnummer), lagras i Azure SQL Database eller SQL Server-databaser.  |
-| [Azure&nbsp;SQL&nbsp;Transparent datakryptering](https://docs.microsoft.com/en-us/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql?view=azuresqldb-current)| En databas säkerhetsfunktion som krypterar lagring av en hel databas. |
+| [Azure SQL alltid kryptering](https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-database-engine?view=sql-server-2017)|Skyddar känsliga data, till exempel kreditkortsnummer eller nationella identifikationsnummer (till exempel amerikanska personnummer), lagras i Azure SQL Database eller SQL Server-databaser.  |
+| [Azure&nbsp;SQL&nbsp;Transparent datakryptering](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql?view=azuresqldb-current)| En databas säkerhetsfunktion som krypterar lagring av en hel databas. |
 | [Azure SQL Database-granskning](../sql-database/sql-database-auditing.md)|En databas med granskning funktion som spårar databashändelser och skriver dem till en granskningslogg i ditt Azure storage-konto.  |
 
 

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/03/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: ea9eecbc1d59b80e5454a2677e897588d258c96a
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: c0045af02b307bff686d47dd8fc4aabb290711a4
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48874097"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49400196"
 ---
 # <a name="frequently-asked-questions-about-azure-iaas-vm-disks-and-managed-and-unmanaged-premium-disks"></a>Vanliga frågor och svar om virtuella Azure IaaS-datorer och hanterade och ohanterade premiumdiskar
 
@@ -171,7 +171,7 @@ I följande exempel visas den *properties.storageProfile.osDisk* avsnittet för 
 En fullständig mall exempel på hur du skapar en Standard SSD-disk med en mall finns i [skapa en virtuell dator från en Windows-avbildning med Standard SSD-Datadiskar](https://github.com/azure/azure-quickstart-templates/tree/master/101-vm-with-standardssd-disk/).
 
 **Kan jag omvandla mitt befintliga diskar till Standard SSD?**
-Ja, det kan du. Referera till [konvertera Azure managed disks-lagring från standard till premium, och vice versa](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/convert-disk-storage) för allmänna riktlinjer för att konvertera Managed Disks. Och Använd följande värde för att uppdatera disktypen till SSD som Standard.
+Ja, det kan du. Referera till [konvertera Azure managed disks-lagring från standard till premium, och vice versa](https://docs.microsoft.com/azure/virtual-machines/windows/convert-disk-storage) för allmänna riktlinjer för att konvertera Managed Disks. Och Använd följande värde för att uppdatera disktypen till SSD som Standard.
 -AccountType StandardSSD_LRS
 
 **Vad är fördelen med att använda Standard SSD-diskar i stället för HDD?**

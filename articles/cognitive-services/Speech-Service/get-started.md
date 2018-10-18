@@ -9,12 +9,12 @@ ms.component: speech-service
 ms.topic: article
 ms.date: 09/24/2018
 ms.author: erhopf
-ms.openlocfilehash: 4530ecca973054ee73a02ca4e047dfe52ea90d04
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.openlocfilehash: 7ca423a4953dbe05af119d6b6eb12976c722e374
+ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49166193"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49393277"
 ---
 # <a name="try-the-speech-service-for-free"></a>Prova Speech Service kostnadsfritt
 
@@ -67,7 +67,7 @@ När du har skapat ditt Azure-konto, följer du stegen i nästa avsnitt för att
 
 Lägga till en tal-tjänstresurs (kostnadsfritt eller betalt nivå) på Azure-kontot:
 
-1. Logga in på den [Azure-portalen](https://ms.portal.azure.com/) med ditt Microsoft-konto.
+1. Logga in på den [Azure-portalen](https://portal.azure.com/) med ditt Microsoft-konto.
 
 1. Välj **skapa en resurs** på upp till vänster på portalen.
 

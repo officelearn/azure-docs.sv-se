@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 04/26/2018
 ms.author: seguler
 ms.component: common
-ms.openlocfilehash: 3863c2eeb73997361a6a903f0b382a8c50ad6d4f
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.openlocfilehash: 1aff2ecdec83886d40d12b76e64a14a81451e89e
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48870765"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49386696"
 ---
 # <a name="transfer-data-with-azcopy-on-linux"></a>Överföra data med AzCopy i Linux
 
@@ -713,7 +713,7 @@ Mer information om Azure Storage och AzCopy finns i följande resurser:
 * [Använda Blob Storage från Python](../blobs/storage-python-how-to-use-blob-storage.md)
 
 ### <a name="azure-storage-blog-posts"></a>Azure Storage-blogginlägg:
-* [Vi presenterar AzCopy i Linux-förhandsvisningen](https://azure.microsoft.com/en-in/blog/announcing-azcopy-on-linux-preview/)
+* [Vi presenterar AzCopy i Linux-förhandsvisningen](https://azure.microsoft.com/blog/announcing-azcopy-on-linux-preview/)
 * [Introduktion till Azure Storage Data Movement Library förhandsversion](https://azure.microsoft.com/blog/introducing-azure-storage-data-movement-library-preview-2/)
 * [AzCopy: Introduktion till synkron kopia och anpassade innehållstyp](http://blogs.msdn.com/b/windowsazurestorage/archive/2015/01/13/azcopy-introducing-synchronous-copy-and-customized-content-type.aspx)
 * [AzCopy: Meddelande om allmän tillgänglighet av AzCopy 3.0 plus förhandsversionen av AzCopy 4.0 med stöd för tabell och fil](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/10/29/azcopy-announcing-general-availability-of-azcopy-3-0-plus-preview-release-of-azcopy-4-0-with-table-and-file-support.aspx)

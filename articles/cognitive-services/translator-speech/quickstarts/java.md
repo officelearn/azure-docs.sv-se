@@ -10,18 +10,19 @@ ms.component: translator-speech
 ms.topic: quickstart
 ms.date: 3/5/2018
 ms.author: v-jaswel
-ROBOTS: NOINDEX
-ms.openlocfilehash: dde7d3dc7c1a744da9a22c0e4c0a483a186aa327
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 4147e164434109a90a2a044565a1fb0b2e1b48bf
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46969469"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49386511"
 ---
 # <a name="quickstart-translator-speech-api-with-java"></a>Snabbstart: Translator Speech API med Java 
 <a name="HOLTop"></a>
 
-Den här artikeln visar hur du använder Translator Speech API för att översätta ord som sägs i en .wav-fil.
+[!INCLUDE [Deprecation note](../../../../includes/cognitive-services-translator-speech-deprecation-note.md)]
+
+Den här artikeln visar hur du använder Translator Speech API för att översätta ord som sägs i en WAV-fil.
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
@@ -38,7 +39,7 @@ Du behöver följande filer.
 - [javax-websocket-client-impl-9.4.11.v20180605.jar (eller senare)](https://mvnrepository.com/artifact/org.eclipse.jetty.websocket/javax-websocket-client-impl)
 - [jetty-client-9.4.11.v20180605.jar (eller senare)](https://mvnrepository.com/artifact/org.eclipse.jetty/jetty-client)
 
-Du behöver en WAV-fil med namnet ”speak.wav” i samma mapp som den körbara filen som du kompilerar från koden nedan. Den här WAV-filen bör vara en 16-bitars 16 kHz-fil i PCM-standardformat. Du kan hämta en sådan WAV-fil från [Text till tal-API:et](https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/rest-apis#text-to-speech).
+Du behöver en WAV-fil med namnet ”speak.wav” i samma mapp som den körbara filen som du kompilerar från koden nedan. Den här WAV-filen bör vara en 16-bitars 16 kHz-fil i PCM-standardformat. Du kan hämta en sådan WAV-fil från [Text till tal-API:et](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis#text-to-speech).
 
 Du behöver ett [Cognitive Services API-konto](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) med **Microsoft Translator Speech API**. Du behöver prenumerationsnyckeln för en betalprenumeration från din [Azure-instrumentpanel](https://portal.azure.com/#create/Microsoft.CognitiveServices).
 

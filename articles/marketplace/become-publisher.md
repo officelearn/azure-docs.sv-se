@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 06/05/2018
 ms.author: ellacroi
-ms.openlocfilehash: 745b26661d34357e44b6a7c2ed6e40f3195781f1
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.openlocfilehash: 35feb1b2aa593d403b3b54781ddbba41964d15e5
+ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48238001"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49394841"
 ---
 # <a name="become-a-cloud-marketplace-publisher"></a>Bli en Cloud Marketplace-utgivare
 
@@ -97,7 +97,7 @@ Enskild registrering i [Dev Center](https://developer.microsoft.com/store/regist
 När du har slutfört den [Dev Center](https://developer.microsoft.com/store/register) registrering, länka ditt Partner-profil för molnet med dina [Dev Center](https://developer.microsoft.com/store/register) (se detaljerade anvisningar här). Det här steget måste utföras innan du publicerar ditt transact-erbjudande. 
 
 >[!Note]
->För att avstå från registrering-avgift $99 Developer Center, fylla i registreringsformuläret för marketplace och du får ett e-postmeddelande som innehåller din kampanjkoden. 
+>För att avstå från registrering-avgift $99 Developer Center, Slutför den [marketplace registreringsformuläret](https://azuremarketplace.microsoft.com/en-us/sell/signup) och du får ett e-postmeddelande som innehåller din kampanjkoden. 
 
 >[!Important]
 >Verifiera att din organisation inte redan har ett Dev Center-konto för att undvika dubbla konton innan du skapar ett Microsoft Dev Center-konto. Mer information finns i [registrera i Dev Center](https://docs.microsoft.com/azure/marketplace/register-dev-center) avsnittet.

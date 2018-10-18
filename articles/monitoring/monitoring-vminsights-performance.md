@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/17/2018
+ms.date: 10/16/2018
 ms.author: magoedte
-ms.openlocfilehash: 06073197254245727cfa41020f060d904a4e50f9
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 63549768f616e60e92c853047525c18cefdaddb4
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46957581"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49386288"
 ---
 # <a name="how-to-chart-performance-with-azure-monitor-for-vms"></a>Hur du diagrammet prestanda med Azure Monitor för virtuella datorer
 Azure Monitor för virtuella datorer innehåller en uppsättning prestandadiagram som är inriktade på flera nyckeltal (KPI: er) för att bestämma hur bra en virtuell dator fungerar. Diagrammen visar Resursanvändning under en viss tid så att du kan identifiera flaskhalsar, avvikelser, eller växla till ett perspektiv som lista varje dator om du vill visa resursanvändningen baserat på mått som har valts. Det finns ett stort antal element att överväga när du hanterar prestanda, fokuserar Azure Monitor för virtuella datorer på operativsystemet så som detta visas via processor, minne, nätverkskort och diskar. Prestanda kompletterar hälsotillstånd övervakningsfunktionen och hjälper till att exponera problem som indikerar ett möjligt system komponentfel, support justering och optimering för att uppnå effektivitet eller stöd för kapacitetsplanering.  
@@ -33,7 +33,9 @@ Från Azure Monitor ger funktionen prestanda en vy för flera virtuella datorer 
 
 ![VM insikter prestanda Top N listvy](./media/monitoring-vminsights-performance/vminsights-performance-aggview-01.png)
 
-På den **Top N diagram** fliken om du har mer än en Log Analytics-arbetsytan, Välj den som är integrerad med lösningen från den **arbetsytan** Väljaren överst på sidan.  Du sedan välja den **grupp** väljare, en prenumeration, resursgrupp eller specifik dator under en angiven tidsperiod.  Som standard visar i diagrammen de senaste 24 timmarna.  Med hjälp av den **TimeRange** Väljaren, som du kan fråga efter historiska tidsintervall på upp till 30 dagar att visa hur prestanda tittat i förflutna.   
+På den **Top N diagram** fliken om du har mer än en Log Analytics-arbetsyta, väljer arbetsytan aktiverad med lösningen från den **arbetsytan** Väljaren överst på sidan. Den **grupp** väljare returnerar prenumerationer, resursgrupper, [datorgrupper](../log-analytics/log-analytics-computer-groups.md), och VM scale sets med datorer som är relaterade till den valda arbetsytan som du kan använda för att ytterligare filtrera resultaten i diagrammen på den här sidan och andra sidor. Ditt val har endast gäller för funktionen prestanda och inget hälsotillstånd eller kartan.  
+
+Som standard visar i diagrammen de senaste 24 timmarna. Med hjälp av den **TimeRange** Väljaren, som du kan fråga efter historiska tidsintervall på upp till 30 dagar att visa hur prestanda tittat i förflutna.   
 
 De fem kapacitet användning diagrammen som visas på sidan är:
 
@@ -100,6 +102,9 @@ Följande kapacitet användning diagrammen tillhandahålls:
 * Byte Receive Rate – standardvärden som visar Genomsnittligt antal byte som tagits emot
 
 ![VM insikter prestanda direkt visa från virtuella datorn](./media/monitoring-vminsights-performance/vminsights-performance-directvm-01.png)
+
+## <a name="alerting-and-alert-management"></a>Hantering av varningar och aviseringar 
+Prestandamått aktiverad som en del av Azure Monitor för virtuella datorer inkluderar inte förkonfigurerade Varningsregler. Det finns hälsovarningar för prestandaproblem som upptäckts på din Azure-VM, låg, till exempel hög processoranvändning, lågt minne, diskutrymme osv, dessa hälsovarningar tillämpas endast på de virtuella datorerna är anslutna till samma Log Analytics-arbetsytan integrerad med Azure Monitor för virtuella datorer. Om du behöver flexibiliteten att ange dina egna villkor eller logic kan du skapa anpassade aviseringsregler genom att följa [skapa, visa och hantera aviseringar med hjälp av Azure Monitor](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md). 
 
 ## <a name="next-steps"></a>Nästa steg
 Läs hur du använder funktionen hälsotillstånd i [visa Azure Monitor för virtuella datorer Health](monitoring-vminsights-health.md), eller om du vill visa identifierade programberoenden, se [visa Azure Monitor för virtuella datorer kartan](monitoring-vminsights-maps.md). 

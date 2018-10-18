@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 9/20/2018
 ms.author: anandh
-ms.openlocfilehash: f79be44d33a327f3ead8d950885cb5d47ce3a015
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: 67778a269aa962b3184bf55c692154570e8357ba
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47414633"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49387403"
 ---
 # <a name="performance-diagnostics-for-azure-virtual-machines"></a>Prestandadiagnostik för virtuella Azure-datorer
 
@@ -103,7 +103,7 @@ Efter överföringen visas en ny rapport för diagnostik i Azure-portalen.
 Använd den **inställningar** knapp i verktygsfältet för att ändra storage-konto där diagnostik insikter och utdata kan lagras. Du kan använda samma lagringskonto för flera virtuella datorer som använder Prestandadiagnostik. När du ändrar lagringskontot, raderas inte den gamla rapporter och insikter. Men visas de inte längre i listan över rapporter för diagnostik. 
 
 ## <a name="review-insights-and-performance-diagnostics-report"></a>Granska insikter och diagnostik prestandarapport
-Varje kör diagnostik innehåller en lista över insikter och rekommendationer, berörda resurser, loggfiler och andra omfattande diagnostikinformation som samlas in, plus en rapport för visning offline. En fullständig lista över alla diagnostikdata som samlas in finns [vilken typ av information som samlas in av PerfInsights?](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/how-to-use-perfinsights#what-kind-of-information-is-collected-by-perfinsights) 
+Varje kör diagnostik innehåller en lista över insikter och rekommendationer, berörda resurser, loggfiler och andra omfattande diagnostikinformation som samlas in, plus en rapport för visning offline. En fullständig lista över alla diagnostikdata som samlas in finns [vilken typ av information som samlas in av PerfInsights?](https://docs.microsoft.com/azure/virtual-machines/windows/how-to-use-perfinsights#what-kind-of-information-is-collected-by-perfinsights) 
 
 ### <a name="select-a-performance-diagnostics-report"></a>Välj en diagnostik prestandarapport
 Du kan använda rapportlistan diagnostik för att hitta alla diagnostik-rapporter som kördes. Listan innehåller information om analysen som användes, insikter som hittades och deras effektnivåer. Välj en rad för att visa mer information.
@@ -123,7 +123,7 @@ Du kan välja en insikt om du vill visa mer information om de berörda resurser 
 ![Skärmbild av en prestandainformation diagnostik insight](media/performance-diagnostics/insight-detail.png)
 
 ### <a name="download-and-review-the-full-performance-diagnostics-report"></a>Ladda ned och granska den fullständiga prestandarapporten för diagnostik
-Du kan använda den **ladda ned rapporten** för att ladda ned en HTML-rapport som innehåller ytterligare omfattande diagnostikinformation, t.ex lagring och nätverkskonfiguration, prestandaräknare, spårningar, lista över processer, och loggar. Innehållet är beroende av den markerade analysen. Rapporten kan innehålla ytterligare information och interaktiva diagram som är relaterade till hög CPU-användning, hög diskanvändning och processer som förbrukar mycket minne för avancerad felsökning. Läs mer om diagnostik prestandarapporten [granskningsrapport diagnostik](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/how-to-use-perfinsights#review-the-diagnostics-report).
+Du kan använda den **ladda ned rapporten** för att ladda ned en HTML-rapport som innehåller ytterligare omfattande diagnostikinformation, t.ex lagring och nätverkskonfiguration, prestandaräknare, spårningar, lista över processer, och loggar. Innehållet är beroende av den markerade analysen. Rapporten kan innehålla ytterligare information och interaktiva diagram som är relaterade till hög CPU-användning, hög diskanvändning och processer som förbrukar mycket minne för avancerad felsökning. Läs mer om diagnostik prestandarapporten [granskningsrapport diagnostik](https://docs.microsoft.com/azure/virtual-machines/windows/how-to-use-perfinsights#review-the-diagnostics-report).
 
 ## <a name="manage-performance-diagnostics-reports"></a>Hantera prestanda diagnostik rapporter
 Du kan ta bort en eller flera prestanda diagnostik rapporter med hjälp av den **ta bort rapporten** knappen.

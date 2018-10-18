@@ -4,7 +4,7 @@ description: En heltäckande beskrivning av datavetenskap som används av lösni
 services: machine-learning
 author: fboylu
 manager: cgronlun
-editor: ''
+editor: cgronlun
 ms.assetid: 2e8b66db-91eb-432b-b305-6abccca25620
 ms.service: machine-learning
 ms.component: team-data-science-process
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/11/2018
 ms.author: fboylu
-ms.openlocfilehash: 7802aa8ea9798b18d5424c2342ba63c01406b25a
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 2a5d8540dba491dec8b2da227b0e84c10ff09c77
+ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47221714"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49395017"
 ---
 # <a name="azure-ai-guide-for-predictive-maintenance-solutions"></a>Azure AI-guide för lösningar för förebyggande underhåll
 
@@ -256,7 +256,7 @@ Det här avsnittet beskrivs teknik huvudsakliga modellering för kontaktar probl
 > beror i samråd med domänen som är experten.
 
 ### <a name="binary-classification"></a>Binär klassificering
-Binär klassificering används för att _sannolikhet utrustning misslyckas i en framtida tidsperiod_ – kallas den _framtida horizon period X_. X bestäms av problem i verksamheten och data till hands i samråd med domänen som är experten. Exempel är:
+Binär klassificering används för att _sannolikhet utrustning misslyckas i en framtida tidsperiod_ – kallas den _framtida horizon period X_. X bestäms av problem i verksamheten och data till hands i samråd med domänen som är experten. Några exempel:
 - _minsta ledtid_ krävs för att ersätta komponenter, distribuera Underhåll resurser, utföra underhåll för att undvika ett problem som kan uppstå under denna tid.
 - _minsta antal händelser_ som kan inträffa innan ett problem uppstår.
 

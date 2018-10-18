@@ -16,12 +16,12 @@ ms.component: report-monitor
 ms.date: 07/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 59b33bcc75890372a7b27b9aca40ad1e22c58281
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.openlocfilehash: c60dc354fa0c5f64ece9acae95744477c145bc27
+ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46364286"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49393634"
 ---
 # <a name="integrate-azure-ad-logs-with-splunk-by-using-azure-monitor-preview"></a>Integrera Azure AD-loggar med Splunk med hjälp av Azure Monitor (förhandsversion)
 
@@ -55,4 +55,4 @@ Om du vill använda den här funktionen behöver du:
 
 * [Tolka schema för spårningsloggar i Azure Monitor](reference-azure-monitor-audit-log-schema.md)
 * [Tolka schema för inloggningsloggar i Azure Monitor](reference-azure-monitor-sign-ins-log-schema.md)
-* [Vanliga frågor och kända problem](concept-activity-logs-in-azure-monitor.md#frequently-asked-questions)
+* [Vanliga frågor och kända problem](concept-activity-logs-azure-monitor.md#frequently-asked-questions)

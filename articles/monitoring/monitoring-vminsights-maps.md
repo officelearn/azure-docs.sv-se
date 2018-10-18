@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/17/2018
 ms.author: magoedte
-ms.openlocfilehash: e75409e791c00dc0a5bec591aecfbaa019df8f81
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 5d9aa8e144109b41144bb8b09447b8701d04f87e
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47225170"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49389997"
 ---
 # <a name="using-azure-monitor-for-vms-map-to-understand-application-components"></a>Med Azure Monitor för virtuella datorer kartan och förstå programkomponenter
-Visa identifierade program kan observeras komponenter för Windows och Linux-datorer som körs i Azure-miljön på två sätt med Azure Monitor för virtuella datorer från en virtuell dator direkt eller i grupper med virtuella datorer från Azure Monitor. 
+Visa de identifierade programkomponenterna i Windows och Linux virtuella datorer som körs i Azure är din miljö kan observeras på två sätt med Azure Monitor för virtuella datorer från en virtuell dator direkt eller i grupper med virtuella datorer från Azure Monitor. 
 
 Den här artikeln hjälper dig att förstå upplevelse mellan två perspektiv och hur du använder funktionen kartan. Information om hur du konfigurerar Azure Monitor för virtuella datorer finns i [aktivera Azure Monitor för virtuella datorer](monitoring-vminsights-onboard.md).
 
@@ -107,7 +107,9 @@ Funktionen karta innehåller en global vy över dina virtuella datorer och deras
 
 ![Azure Monitor Konsekvens karta: översikt](./media/monitoring-vminsights-maps/map-multivm-azure-monitor-01.png)
 
-Från den **arbetsytan** Väljaren överst på sidan om du har mer än en Log Analytics-arbetsyta väljer du det som är integrerad med lösningen och har virtuella datorer som rapporterar till den.  Du sedan välja den **grupp** väljare, en prenumeration eller resursgrupp grupp för att visa en uppsättning virtuella datorer och deras beroenden som matchar gruppen under en angiven tidsperiod.  Kartan visas som standard de senaste 30 minuterna.  Med hjälp av den **TimeRange** Väljaren, som du kan fråga efter historiska tidsintervall på upp till en timme att visa hur beroenden tittat tidigare (exempelvis under en incident eller innan en ändring inträffat).   
+Från den **arbetsytan** Väljaren överst på sidan om du har mer än en Log Analytics-arbetsyta väljer du den arbetsyta som har aktiverats med lösningen och har virtuella datorer som rapporterar till den. Den **grupp** väljare returnerar prenumerationer, resursgrupper, [datorgrupper](../log-analytics/log-analytics-computer-groups.md), och VM scale sets med datorer som är relaterade till den valda arbetsytan. Ditt val har endast gäller för funktionen kartan och inget prestanda eller kartan.
+
+Kartan visas som standard de senaste 30 minuterna. Med hjälp av den **TimeRange** Väljaren, som du kan fråga efter historiska tidsintervall på upp till en timme att visa hur beroenden tittat tidigare (exempelvis under en incident eller innan en ändring inträffat).   
 
 ## <a name="next-steps"></a>Nästa steg
 Läs hur du använder funktionen hälsotillstånd i [visa Azure VM-hälsa](monitoring-vminsights-health.md), eller för att identifiera flaskhalsar och totala användningen med din prestanda för virtuella datorer, se [visa Azure Monitor för prestanda för virtuella datorer](monitoring-vminsights-performance.md). 

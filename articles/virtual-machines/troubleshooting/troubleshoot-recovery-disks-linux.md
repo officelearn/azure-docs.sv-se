@@ -1,12 +1,25 @@
-<a name="-headarticlesvirtual-machinestroubleshootingtroubleshoot-recovery-disks-linuxmd"></a><<<<<<< HEAD:articles/virtual-machines/troubleshooting/troubleshoot-recovery-disks-linux.md
 ---
-
-Rubrik: använda en Linux felsöknings-VM med Azure CLI | Microsoft Docs beskrivning: Lär dig att felsöka problem med Linux VM genom att ansluta operativsystemdisken till en virtuell dator med Azure CLI-tjänster för återställning: virtuella datorer linux documentationCenter: '' författare: genlin manager: jeconnoc editor: ''
-
-MS.Service: virtuella datorer linux ms.devlang: azurecli ms.topic: felsökning ms.tgt_pltfrm: vm-linux ms.workload: infrastruktur ms.date: 2017-02-16 ms.author: genli
-
+title: Använda en Linux felsöknings-VM med Azure CLI | Microsoft Docs
+description: Lär dig att felsöka problem med Linux VM genom att ansluta operativsystemdisken till en virtuell dator med hjälp av Azure CLI för återställning
+services: virtual-machines-linux
+documentationCenter: ''
+authors: genlin
+manager: jeconnoc
+editor: ''
+ms.service: virtual-machines-linux
+ms.devlang: azurecli
+ms.topic: troubleshooting
+ms.tgt_pltfrm: vm-linux
+ms.workload: infrastructure
+ms.date: 02/16/2017
+ms.author: genli
+ms.openlocfilehash: 2f10a231c4edc3e01d3f8c5f7f4db1854f83044d
+ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
+ms.translationtype: MT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49392410"
 ---
-
 # <a name="troubleshoot-a-linux-vm-by-attaching-the-os-disk-to-a-recovery-vm-with-the-azure-cli"></a>Felsöka en Linux-VM genom att koppla OS-disken till en virtuell dator med Azure CLI för återställning
 Om din Linux-dator (VM) påträffar ett fel vid start- eller disk, kan du behöva utföra felsökningssteg direkt på den virtuella hårddisken. Ett vanligt exempel är ett ogiltigt värde i `/etc/fstab` som förhindrar den virtuella datorn från att kunna starta. Den här artikeln beskriver hur du använder Azure CLI för att ansluta den virtuella hårddisken till en annan Linux VM att åtgärda eventuella fel och sedan återskapa den ursprungliga virtuella datorn. 
 

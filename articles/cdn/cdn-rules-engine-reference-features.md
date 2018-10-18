@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/09/2018
 ms.author: magattus
-ms.openlocfilehash: c5f486498e357927880ae51c1fec13a00296b457
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: d5be292c66a07f43b40d12e10e4939d9d91559e1
+ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49093367"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49395249"
 ---
 # <a name="azure-cdn-rules-engine-features"></a>Azure CDN regelmotor – funktioner
 Den här artikeln innehåller detaljerade beskrivningar av tillgängliga funktioner för Azure Content Delivery Network (CDN) [regelmotor](cdn-rules-engine.md).
@@ -1256,7 +1256,7 @@ Den här URL-omdirigering kan uppnås genom följande konfiguration: ![URL-omdir
         - URL för begäran (efter omdirigering): http:\//cdn.mydomain.com/resources/widgets.pdf  
     - Exempelscenario #2: 
         - Exempel på begäran (Edge CNAME URL): http:\//marketing.mydomain.com/brochures/widgets.pdf 
-        - URL för begäran (efter omdirigering): http:\//cdn.mydomain.com/resources/widgets.pdf Exempelscenario
+        - URL för begäran (efter omdirigering): http:\//cdn.mydomain.com/resources/widgets.pdf
     - Exempelscenario #3: 
         - Exempel på begäran (Edge CNAME URL): http:\//brochures.mydomain.com/campaignA/final/productC.ppt 
         - URL för begäran (efter omdirigering): http:\//cdn.mydomain.com/resources/campaignA/final/productC.ppt  

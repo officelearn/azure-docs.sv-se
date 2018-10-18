@@ -1,10 +1,10 @@
 ---
-title: Migrera från Azure Media Services-v2 v3 | Microsoft Docs
-description: Den här artikeln beskriver ändringar som introducerades i Azure Media Services v3 och visar skillnaderna mellan två versioner.
+title: Migrera från Azure Media Services v2 till v3 | Microsoft Docs
+description: Den här artikeln redogörs för ändringar som introducerades i Azure Media Services v3 och visar skillnaderna mellan två versioner.
 services: media-services
 documentationcenter: na
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 tags: ''
 keywords: azure media services, strömma, sändning, live, offline
@@ -13,62 +13,59 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: media
-ms.date: 06/12/2018
+ms.date: 10/16/2018
 ms.author: juliako
-ms.openlocfilehash: a382af644d30f9f0ebb586273c982ef1766f50b0
-ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
+ms.openlocfilehash: a17bad5beb651aaa085c626296c200a00c30647e
+ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36295689"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49376370"
 ---
-# <a name="migrate-from-media-services-v2-to-v3"></a>Migrera från Media Services-v2 v3
+# <a name="migrate-from-media-services-v2-to-v3"></a>Migrera från Media Services v2 till v3
 
-> [!NOTE]
-> Den senaste versionen av Azure Media Services är en förhandsversion och kallas ibland för v3.
+Den här artikeln redogörs för ändringar som introducerades i Azure Media Services (AMS) v3 och visar skillnaderna mellan två versioner.
 
-Den här artikeln beskriver ändringar som introducerades i Azure Media Services (AMS) v3 och visar skillnaderna mellan två versioner.
+## <a name="why-should-you-move-to-v3"></a>Varför bör du flytta till v3?
 
-## <a name="why-should-you-move-to-v3"></a>Varför bör du flytta v3?
+### <a name="api-is-more-approachable"></a>API: et är mer programmera
 
-### <a name="api-is-more-approachable"></a>API: T är mer användarvänligt
-
-*  v3 baseras på en enhetlig API-yta som innehåller funktioner för både hantering och åtgärder som bygger på Azure Resource Manager. Azure Resource Manager-mallar kan användas för att skapa och distribuera transformeringar, Strömningsslutpunkter, LiveEvents och mycket mer.
-* Öppna API (aka Swagger) dokumentet.
-* SDK för .net, .net Core, Node.js, Python, Java, Ruby.
-* Azure CLI-integrering.
+*  v3 baseras på en enhetlig API-yta som innehåller funktioner för både hantering och åtgärder som bygger på Azure Resource Manager. Azure Resource Manager-mallar kan användas för att skapa och distribuera transformeringar, -slutpunkter för direktuppspelning, LiveEvents med mera.
+* Öppna API (även kallat Swagger) specifikationsdokument.
+* SDK: er som är tillgängliga för .net, .net Core, Node.js, Python, Java, Ruby.
+* Integrering med Azure CLI.
 
 ### <a name="new-features"></a>Nya funktioner
 
-* Kodning nu stöder infognings HTTPS-(indata Url-baserade).
-* Transformeringar är nya i v3. En transformering används för att dela konfigurationer, skapa Azure Resource Manager-mallar och isolera kodningsinställningar för en viss kund eller klient. 
+* Encoding nu stöder HTTPS mata in (Url-baserad indata).
+* Transformeringar är nya i v3. En transformering används för att dela konfigurationer, skapa Azure Resource Manager-mallar och isolera kodningsinställningar för en specifik kund eller klient. 
 * En tillgång kan ha flera StreamingLocators med olika inställningar för dynamisk paketering och dynamisk kryptering.
-* Innehållsskydd har stöd för flera viktiga funktioner. 
-* LiveEvent Preview stöder dynamisk paketering och dynamisk kryptering. Detta gör att innehållsskydd på Preview samt DASH och HLS paketering.
-* LiveOuput är enklare att använda än entiteten äldre Program. 
-* Stöd för RBAC på enheter som har lagts till.
+* Content protection har stöd för flera viktiga funktioner. 
+* LiveEvent Preview stöder dynamisk paketering och dynamisk kryptering. Detta gör det möjligt för innehållsskydd på förhandsversion som DASH och HLS paketering.
+* LiveOuput är enklare att använda än äldre Program entiteten. 
+* RBAC-stöd på entiteter har lagts till.
 
 ## <a name="changes-from-v2"></a>Ändringar från v2
 
-* I Media Services v3 lagringskryptering (AES 256-kryptering) är bara stöds för bakåtkompatibilitet när dina tillgångar har skapats med Media Services v2. Vilket innebär att v3 fungerar med befintlig lagring krypterad tillgångar, men tillåter inte att skapa nya.
+* I Media Services v3 lagringskryptering (AES-256-kryptering) är bara stöds för bakåtkompatibilitet när dina tillgångar skapades med Media Services v2. Vilket innebär att v3 fungerar med befintliga lagring krypteras tillgångar, men tillåter inte skapandet av nya.
 
-    För tillgångar som skapats med v3 Media Services stöder den [Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-service-encryption?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) storage kryptering på serversidan.
+    För tillgångar som har skapats med v3, Media Services stöder den [Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-service-encryption?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) storage kryptering på serversidan.
     
-* Media Services SDK frikopplat från Storage SDK: N som ger mer kontroll över Storage SDK: N används och undviker problem med versionshantering. 
-* V3 är alla kodning bithastigheter i bitar per sekund. Detta skiljer sig REST-v2 Media Encoder Standard förinställningar. Till exempel bithastighet i v2 måste anges som 128, men det skulle vara 128000 i v3. 
-* AssetFiles AccessPolicies, IngestManifests finns inte i v3.
-* ContentKeys är inte längre en entitet-egenskapen för StreamingLocator.
-* Händelsen rutnätet support ersätter NotificationEndpoints.
-* Vissa entiteter ändrades
+* Media Services SDK: er frikopplad från Storage-SDK som ger mer kontroll över Storage SDK: N används och på så sätt undviker problem med versionshantering. 
+* I v3 är alla kodning bithastigheter i bitar per sekund. Detta skiljer sig från REST-v2 förinställningar för Media Encoder Standard. Till exempel bithastigheten i v2 skulle anges som 128, men det skulle vara 128000 i v3. 
+* AssetFiles, AccessPolicies, IngestManifests finns inte i v3.
+* ContentKeys är inte längre en entitet, egenskapen för StreamingLocator.
+* Event Grid stöd ersätter NotificationEndpoints.
+* Vissa entiteter har bytt namn
 
-  * JobOutput ersätter uppgiften nu bara en del av jobbet.
+  * JobOutput ersätter uppgiften ska nu bara en del av jobbet.
   * LiveEvent ersätter kanal.
   * LiveOutput ersätter programmet.
   * StreamingLocator ersätter lokaliserare.
 
 ## <a name="code-changes"></a>Kodändringar
 
-### <a name="create-an-asset-and-upload-a-file"></a>Skapa en tillgång och överför en fil 
+### <a name="create-an-asset-and-upload-a-file"></a>Skapa en tillgång och överföra en fil 
 
 #### <a name="v2"></a>v2
 
@@ -133,18 +130,18 @@ new Job {Input = jobInput, Outputs = jobOutputs});
 1. Skapa ContentKeyAuthorizationPolicyOption
 2. Skapa ContentKeyAuthorizationPolicy
 3. Skapa AssetDeliveryPolicy
-4. Skapa tillgång och överföra innehåll eller skicka jobbet och använda utdatatillgången
-5. Associera AssetDeliveryPolicy med tillgångsinformation
+4. Skapa tillgång och överföra innehåll eller skicka jobb och Använd utdatatillgången
+5. Associera AssetDeliveryPolicy med tillgången
 6. Skapa ContentKey
-7. Koppla ContentKey till tillgångsinformation
+7. Koppla ContentKey till tillgången
 8. Skapa AccessPolicy
 9. Skapa positionerare
 
 #### <a name="v3"></a>v3
 
-1. Skapa princip för innehåll nycklar
+1. Skapa innehåll viktiga princip
 2. Skapa tillgång
-3. Överföra innehåll eller använda tillgångsinformation som JobOutput
+3. Ladda upp innehåll eller använder tillgången som JobOutput
 4. Skapa StreamingLocator
 
 ## <a name="next-steps"></a>Nästa steg

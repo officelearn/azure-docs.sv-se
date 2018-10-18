@@ -9,12 +9,12 @@ ms.date: 07/25/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 28aa2904f63a9802305d24fec1650f84e38601ab
-ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
+ms.openlocfilehash: c6700dc4bc0cc458e34e129b2468daad88ecc8be
+ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39258441"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49393465"
 ---
 # <a name="deploy-and-monitor-iot-edge-modules-at-scale-using-the-azure-portal"></a>Distribuera och övervaka IoT Edge-moduler i stor skala med Azure portal
 
@@ -39,11 +39,11 @@ Innan du kan skapa en distribution måste ha för att kunna ange vilka enheter s
 }
 ```
 
-Mer information om enhetstvillingar och taggar finns i [förstå och använda enhetstvillingar i IoT Hub][lnk-device-twin].
+Mer information om enhetstvillingar och taggar finns i [förstå och använda enhetstvillingar i IoT Hub](../iot-hub/iot-hub-devguide-device-twins.md).
 
 ## <a name="create-a-deployment"></a>Skapa en distribution
 
-1. I den [Azure-portalen][lnk-portal]går du till din IoT-hubb. 
+1. I den [Azure-portalen](https://portal.azure.com)går du till din IoT-hubb. 
 1. Välj **IoT Edge**.
 1. Välj **Lägg till IoT Edge-distribution**.
 
@@ -77,7 +77,7 @@ Lägga till anpassad kod som en modul, eller att manuellt lägga till en Azure-t
 1. Välj **IoT Edge-modul**.
 1. Ge din modul en **namn**.
 1. För den **URI för avbildning** anger behållaravbildningen för din modul. 
-1. Ange någon **behållare skapa alternativ** som ska överföras till behållaren. Mer information finns i [docker skapa][lnk-docker-create].
+1. Ange någon **behållare skapa alternativ** som ska överföras till behållaren. Mer information finns i [docker skapa](https://docs.docker.com/engine/reference/commandline/create/).
 1. Använd den nedrullningsbara menyn för att välja en **omstartsprincip**. Välj bland följande alternativ: 
    * **Alltid** -modulen startas alltid om ifall den stänger av någon anledning.
    * **Aldrig** -modulen aldrig startas om ifall den stänger av någon anledning.
@@ -117,11 +117,11 @@ Granska information om din distribution, och välj sedan **skicka**.
 
 Använd följande steg för att visa information om en distribution och övervakning av enheter som kör den:
 
-1. Logga in på den [Azure-portalen] [ lnk-portal] och navigera till din IoT-hubb. 
+1. Logga in på den [Azure-portalen](https://portal.azure.com) och navigera till din IoT-hubb. 
 1. Välj **IoT Edge**.
 1. Välj **IoT Edge-distributioner**. 
 
-   ![Visa IoT Edge-distributioner][1]
+   ![Visa IoT Edge-distributioner](./media/how-to-deploy-monitor/iot-edge-deployments.png)
 
 1. Granska listan över distributionen. Du kan visa följande information för varje distribution:
    * **ID** -namnet på distributionen.
@@ -144,11 +144,11 @@ Om du uppdaterar målvillkoret, inträffar följande uppdateringar:
 
 Om du vill ändra en distribution, använder du följande steg: 
 
-1. Logga in på den [Azure-portalen] [ lnk-portal] och navigera till din IoT-hubb. 
+1. Logga in på den [Azure-portalen](https://portal.azure.com) och navigera till din IoT-hubb. 
 1. Välj **IoT Edge**.
 1. Välj **IoT Edge-distributioner**. 
 
-   ![Visa IoT Edge-distributioner][1]
+   ![Visa IoT Edge-distributioner](./media/how-to-deploy-monitor/iot-edge-deployments.png)
 
 1. Välj distributionen som du vill ändra. 
 1. Gör uppdateringar i följande fält: 
@@ -156,17 +156,17 @@ Om du vill ändra en distribution, använder du följande steg:
    * Etiketter 
    * Prioritet 
 1. Välj **Spara**.
-1. Följ stegen i [övervaka en distribution] [ anchor-monitor] och se ändringarna lanseras. 
+1. Följ stegen i [övervaka en distribution](#monitor-a-deployment) och se ändringarna lanseras. 
 
 ## <a name="delete-a-deployment"></a>Ta bort en distribution
 
 När du tar bort en distribution kan ta några enheter på deras nästa högsta prioritet distribution. Om din enhet inte uppfyller målvillkoret för alla andra distributioner, tas sedan moduler inte bort när distributionen har tagits bort. 
 
-1. Logga in på den [Azure-portalen] [ lnk-portal] och navigera till din IoT-hubb. 
+1. Logga in på den [Azure-portalen](https://portal.azure.com) och navigera till din IoT-hubb. 
 1. Välj **IoT Edge**.
 1. Välj **IoT Edge-distributioner**. 
 
-   ![Visa IoT Edge-distributioner][1]
+   ![Visa IoT Edge-distributioner](./media/how-to-deploy-monitor/iot-edge-deployments.png)
 
 1. Använd kryssrutan för att välja den distribution som du vill ta bort. 
 1. Välj **Ta bort**.
@@ -174,16 +174,4 @@ När du tar bort en distribution kan ta några enheter på deras nästa högsta 
 
 ## <a name="next-steps"></a>Nästa steg
 
-Läs mer om [distribuerar moduler till gränsenheter][lnk-deployments].
-
-<!-- Images -->
-[1]: ./media/how-to-deploy-monitor/iot-edge-deployments.png
-
-<!-- Links -->
-[lnk-device-twin]: ../iot-hub/iot-hub-devguide-device-twins.md
-[lnk-portal]: https://portal.azure.com
-[lnk-docker-create]: https://docs.docker.com/engine/reference/commandline/create/
-[lnk-deployments]: module-deployment-monitoring.md
-
-<!-- Anchor links -->
-[anchor-monitor]: #monitor-a-deployment
+Läs mer om [distribuerar moduler till gränsenheter](module-deployment-monitoring.md).

@@ -9,22 +9,22 @@ ms.date: 07/25/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: c94a58a19558350c3c20377ce750f6758f688c0d
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: a3d073e9fd7c535ea84d6e4dbbf8003a6c55725b
+ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46998516"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49394620"
 ---
 # <a name="deploy-and-monitor-iot-edge-modules-at-scale-using-the-azure-cli"></a>Distribuera och övervaka IoT Edge-moduler i stor skala med Azure CLI
 
 [!INCLUDE [iot-edge-how-to-deploy-monitor-selector](../../includes/iot-edge-how-to-deploy-monitor-selector.md)]
 
-Azure IoT Edge kan du flytta analys vid gränsen och tillhandahåller ett molngränssnitt så att du kan hantera och övervaka din IoT Edge-enheter utan att behöva fysisk åtkomst till var och en. Möjlighet att hantera enheter blir allt viktigare som IOT-lösningar växer större och mer komplexa. Azure IoT Edge är utformat för att stödja dina affärsmål, oavsett hur många enheter som du lägger till.
+Azure IoT Edge kan du flytta analys vid gränsen ger ett molngränssnitt så att du kan hantera och övervaka din IoT Edge-enheter via fjärranslutning. Möjlighet att hantera enheter blir allt viktigare som IOT-lösningar växer större och mer komplexa. Azure IoT Edge är utformat för att stödja dina affärsmål, oavsett hur många enheter som du lägger till.
 
 Du kan hantera enskilda enheter och distribuera moduler till dem i taget. Om du vill göra ändringar på enheter i stor skala, du kan dock skapa en **IoT Edge automatisk distribution**, vilket är en del av automatisk hantering av enheter i IoT Hub. Distributioner är dynamisk processer som gör att du kan distribuera flera moduler till flera enheter på samma gång, spåra status och hälsa moduler och göra ändringar när det behövs. 
 
-I den här artikeln kan du ställa in Azure CLI och IoT-tillägget. Sedan får du lära dig hur du distribuerar moduler till en uppsättning IoT Edge-enheter och övervaka förloppet med hjälp av de tillgängliga CLI-kommandona.
+I den här artikeln kan du ställa in Azure CLI och IoT-tillägget. Sedan kan du lära dig hur du distribuerar moduler till en uppsättning IoT Edge-enheter och övervaka förloppet med hjälp av de tillgängliga CLI-kommandona.
 
 ## <a name="cli-prerequisites"></a>CLI-krav
 
@@ -128,7 +128,7 @@ Innan du kan skapa en distribution måste ha för att kunna ange vilka enheter s
 }
 ```
 
-Mer information om enhetstvillingar och taggar finns i [förstå och använda enhetstvillingar i IoT Hub][lnk-device-twin].
+Mer information om enhetstvillingar och taggar finns i [förstå och använda enhetstvillingar i IoT Hub](../iot-hub/iot-hub-devguide-device-twins.md).
 
 ## <a name="create-a-deployment"></a>Skapa en distribution
 
@@ -209,16 +209,4 @@ az iot edge deployment delete --deployment-id [deployment id] --hub-name [hub na
 
 ## <a name="next-steps"></a>Nästa steg
 
-Läs mer om [distribuerar moduler till gränsenheter][lnk-deployments].
-
-<!-- Images -->
-[1]: ./media/how-to-deploy-monitor/iot-edge-deployments.png
-
-<!-- Links -->
-[lnk-device-twin]: ../iot-hub/iot-hub-devguide-device-twins.md
-[lnk-portal]: https://portal.azure.com
-[lnk-docker-create]: https://docs.docker.com/engine/reference/commandline/create/
-[lnk-deployments]: module-deployment-monitoring.md
-
-<!-- Anchor links -->
-[anchor-monitor]: #monitor-a-deployment
+Läs mer om [distribuerar moduler till gränsenheter](module-deployment-monitoring.md).

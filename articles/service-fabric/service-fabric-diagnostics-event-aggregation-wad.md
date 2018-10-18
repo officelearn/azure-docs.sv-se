@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/03/2018
 ms.author: srrengar
-ms.openlocfilehash: fe8cf752337bdb3fcd61ce6aa9f3e5cb834fb0aa
-ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
+ms.openlocfilehash: a870c99718ecafe8af33e13be9aa46631888c8cb
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2018
-ms.locfileid: "49310971"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49389691"
 ---
 # <a name="event-aggregation-and-collection-using-windows-azure-diagnostics"></a>Händelsen aggregering och samling med Windows Azure Diagnostics
 > [!div class="op_single_selector"]
@@ -65,7 +65,7 @@ Nu när du aggregering av händelser i Azure Storage, [konfigurera Log Analytics
 ## <a name="deploy-the-diagnostics-extension-through-azure-resource-manager"></a>Distribuera det via Azure Resource Manager-diagnostiktillägget
 
 ### <a name="create-a-cluster-with-the-diagnostics-extension"></a>Skapa ett kluster med diagnostics-tillägg
-Om du vill skapa ett kluster med hjälp av Resource Manager, som du behöver lägga till diagnostikkonfigurationen JSON till den fullständiga Resource Manager-mallen innan du skapar klustret. Vi tillhandahåller ett exempel fem VM-kluster Resource Manager-mall med diagnostiky har lagts till som en del av vår Resource Manager-exempelmallar. Du kan se dem på den här platsen i Azure-exempelgalleri: [kluster med fem noder med exempel för diagnostik Resource Manager-mall](https://azure.microsoft.com/en-in/resources/templates/service-fabric-secure-cluster-5-node-1-nodetype/).
+Om du vill skapa ett kluster med hjälp av Resource Manager, som du behöver lägga till diagnostikkonfigurationen JSON till den fullständiga Resource Manager-mallen innan du skapar klustret. Vi tillhandahåller ett exempel fem VM-kluster Resource Manager-mall med diagnostiky har lagts till som en del av vår Resource Manager-exempelmallar. Du kan se dem på den här platsen i Azure-exempelgalleri: [kluster med fem noder med exempel för diagnostik Resource Manager-mall](https://azure.microsoft.com/resources/templates/service-fabric-secure-cluster-5-node-1-nodetype/).
 
 Om du vill visa inställningen för diagnostik i Resource Manager-mallen, öppna filen azuredeploy.JSON och Sök efter **IaaSDiagnostics**. Om du vill skapa ett kluster med hjälp av den här mallen, Välj den **distribuera till Azure** knappen som är tillgängliga på den föregående länken.
 

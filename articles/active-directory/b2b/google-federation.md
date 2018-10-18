@@ -10,12 +10,12 @@ ms.author: mimart
 author: msmimart
 manager: mtillman
 ms.reviewer: mal
-ms.openlocfilehash: 4ffe6cf3f1da4c149d1cb39856d02fc40acd20cf
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.openlocfilehash: 396fb947a95ebc634ab0dea24d20f35126bc006e
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45984800"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49389453"
 ---
 # <a name="add-google-as-an-identity-provider-for-b2b-guest-users"></a>Lägga till Google som en identitetsprovider för gästanvändare för B2B
 
@@ -68,7 +68,7 @@ Skapa först ett nytt projekt i konsolen för Google-utvecklare att skaffa en kl
 Nu ställer du Google-klient-ID och klienthemlighet, antingen genom att skriva in den i Azure AD-portalen eller med hjälp av PowerShell. Var noga med att testa federationkonfigurationen Google genom att bjuda in dig själv med hjälp av en Gmail-adress och försök att lösa in inbjudan med inbjudna Google-konto. 
 
 #### <a name="to-configure-google-federation-in-the-azure-ad-portal"></a>Konfigurera Google federation i Azure AD-portalen 
-1. Gå till [Azure-portalen](https://portal.azure.com). I den vänstra rutan väljer **Azure Active Directory**. 
+1. Gå till [Azure-portalen](https://portal.azure.com). Välj **Azure Active Directory** i den vänstra rutan. 
 2. Välj **organisationens relationer**.
 3. Välj **identitetsprovidrar**, och klicka sedan på den **Google** knappen.
 4. Ange ett namn. Ange klient-ID och klienthemlighet som du fick tidigare. Välj **Spara**. 
@@ -84,13 +84,13 @@ Nu ställer du Google-klient-ID och klienthemlighet, antingen genom att skriva i
    `New-AzureADMSIdentityProvider -Type Google -Name Google -ClientId [Client ID] -ClientSecret [Client secret]`
  
    > [!NOTE]
-   > Använda klient-id och klienthemligheten från den app som du skapade i ”steg 1: Konfigurera en Google developer-projekt”. Mer information finns i den [New AzureADMSIdentityProvider](https://docs.microsoft.com/en-us/powershell/module/azuread/new-azureadmsidentityprovider?view=azureadps-2.0-preview) artikeln. 
+   > Använda klient-id och klienthemligheten från den app som du skapade i ”steg 1: Konfigurera en Google developer-projekt”. Mer information finns i den [New AzureADMSIdentityProvider](https://docs.microsoft.com/powershell/module/azuread/new-azureadmsidentityprovider?view=azureadps-2.0-preview) artikeln. 
  
 ## <a name="how-do-i-remove-google-federation"></a>Hur tar jag bort Google federation?
 Du kan ta bort din Google federation-konfiguration. Om du gör det Google-gästanvändare som har redan utnyttjat sin inbjudan kommer inte att kunna logga in, men du kan ge dem åtkomst till dina resurser igen genom att ta bort dem från katalogen och bjuda in dem igen. 
  
 ### <a name="to-delete-google-federation-in-the-azure-ad-portal"></a>Ta bort Google federation i Azure AD-portalen: 
-1. Gå till [Azure-portalen](https://portal.azure.com). I den vänstra rutan väljer **Azure Active Directory**. 
+1. Gå till [Azure-portalen](https://portal.azure.com). Välj **Azure Active Directory** i den vänstra rutan. 
 2. Välj **organisationens relationer**.
 3. Välj **identitetsprovidrar**, och klicka sedan på den **Google** knappen.
 4. Välj **Google**, och välj sedan **ta bort**. 
@@ -108,4 +108,4 @@ Du kan ta bort din Google federation-konfiguration. Om du gör det Google-gästa
     `Remove-AzureADMSIdentityProvider -Id Google-OAUTH`
 
    > [!NOTE]
-   > Mer information finns i [Remove-AzureADMSIdentityProvider](https://docs.microsoft.com/en-us/powershell/module/azuread/Remove-AzureADMSIdentityProvider?view=azureadps-2.0-preview). 
+   > Mer information finns i [Remove-AzureADMSIdentityProvider](https://docs.microsoft.com/powershell/module/azuread/Remove-AzureADMSIdentityProvider?view=azureadps-2.0-preview). 

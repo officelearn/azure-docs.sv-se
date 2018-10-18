@@ -9,12 +9,12 @@ ms.date: 10/05/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 88ea4b2eab57684bc5455c0d8eb23a5d62f9dd77
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.openlocfilehash: b04f909d58e1555cad9f34b682f9062bbd96cd0e
+ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48817522"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49394739"
 ---
 # <a name="update-the-iot-edge-runtime"></a>Uppdatera IoT Edge-körningen
 
@@ -24,10 +24,11 @@ Två komponenter i en IoT Edge-enhet måste uppdateras om du vill flytta till en
 
 Du hittar den senaste versionen av Azure IoT Edge [Azure IoT Edge släpper](https://github.com/Azure/azure-iotedge/releases).
 
-
 ## <a name="update-the-security-daemon"></a>Uppdatera daemonen säkerhet
 
 Daemon för IoT Edge-security är en intern komponent som måste uppdateras via Pakethanteraren på IoT Edge-enheten. 
+
+Kontrollera vilken version av daemonen security som körs på din enhet med hjälp av kommandot `iotedge version`. 
 
 ### <a name="linux-devices"></a>Linux-enheter
 
@@ -59,6 +60,10 @@ Install-SecurityDaemon -Manual -ContainerOS <Windows or Linux>
 ## <a name="update-the-runtime-containers"></a>Uppdatera körningsbehållarna
 
 Hur du uppdaterar Edge-agent och Edge hub behållare beror på om du använder löpande taggar (till exempel 1.0) eller särskilda taggar (till exempel 1.0.2) i distributionen. 
+
+Kontrollera versionen av IoT Edge-agenten och Edge hub-moduler för närvarande på din enhet med hjälp av kommandona `iotedge logs edgeAgent` eller `iotedge logs edgeHub`. 
+
+  ![Visa behållarversion](./media/how-to-update-iot-edge/container-version.png)
 
 ### <a name="understand-iot-edge-tags"></a>Förstå IoT Edge-taggar
 
@@ -117,5 +122,4 @@ I manifestet för en JSON-distribution, uppdatera modulen avbildningar i den **s
 
 Visa senast [Azure IoT Edge släpper](https://github.com/Azure/azure-iotedge/releases).
 
-Håll dig uppdaterad med de senaste uppdateringarna och meddelandet i den [Sakernas Internet-bloggen](https://azure.microsoft.com/blog/topics/internet-of-things/
-) 
+Håll dig uppdaterad med de senaste uppdateringarna och meddelandet i den [Sakernas Internet-bloggen](https://azure.microsoft.com/blog/topics/internet-of-things/) 

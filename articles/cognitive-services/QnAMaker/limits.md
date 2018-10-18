@@ -10,12 +10,12 @@ ms.component: qna-maker
 ms.topic: article
 ms.date: 09/12/2018
 ms.author: tulasim
-ms.openlocfilehash: efdcf57fb0f175be51e6b9f8e72e4a02fcbeb5f3
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: 76024266a8ae3eb03e910e140184a07ae363e881
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47162329"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49384971"
 ---
 # <a name="qna-maker-limits"></a>QnA Maker gränser
 Omfattande lista över gränserna över QnA Maker.
@@ -29,7 +29,7 @@ Omfattande lista över gränserna över QnA Maker.
 |Publicerade kunskapsbaser maxantalet (högsta antal index--1 (reserverade för test)|2|14|49|199|199|2999|
 
 ## <a name="extraction-limits"></a>Extrahering av gränser
-* Maximalt antal filer som kan extraheras och maximal filstorlek: se [QnAMaker priser](https://azure.microsoft.com/en-in/pricing/details/cognitive-services/qna-maker/)
+* Maximalt antal filer som kan extraheras och maximal filstorlek: se [QnAMaker priser](https://azure.microsoft.com/pricing/details/cognitive-services/qna-maker/)
 * Maximalt antal djup-länkar som kan crawlas för extrahering av kunskapsbaser från vanliga frågor och svar HTML-sidor: 20
 
 ## <a name="metadata-limits"></a>Metadata-gränser
@@ -49,7 +49,7 @@ Omfattande lista över gränserna över QnA Maker.
 * Längden på filnamnet: 200
 * Filformat som stöds: ”TSV”, ”.pdf”, ”.txt”, ”.docx”, ”.xlsx”.
 * Maximalt antal alternativa frågor: 100
-* Maximalt antal frågor svar-par: beror på den [Azure Search-nivå](https://docs.microsoft.com/en-in/azure/search/search-limits-quotas-capacity#document-limits) valt 
+* Maximalt antal frågor svar-par: beror på den [Azure Search-nivå](https://docs.microsoft.com/azure/search/search-limits-quotas-capacity#document-limits) valt 
 
 ## <a name="create-knowledge-base-call-limits"></a>Skapa kunskapsbas anrop begränsningar:
 Dessa representerar gränser för varje skapa kunskapsbas åtgärden. det vill säga att klicka på *skapa KB* eller anropa CreateKnowledgeBase API.

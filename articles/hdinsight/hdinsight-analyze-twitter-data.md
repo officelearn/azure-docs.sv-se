@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 05/25/2017
 ms.author: jasonh
 ROBOTS: NOINDEX
-ms.openlocfilehash: abf9cd311af141a646c56f452ded77a914bc1d2f
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: 294353cfcfba617ab19e703f11f35402bcf7ea82
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43093306"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49387589"
 ---
 # <a name="analyze-twitter-data-using-hive-in-hdinsight"></a>Analysera Twitter-data med Hive i HDInsight
 Sociala webbplatser är en av större Drivande faktorer för big data-införande. Offentliga API: er som tillhandahålls av webbplatser som Twitter är en bra källa till data för att analysera och förstå populära trender.
@@ -72,7 +72,7 @@ Det första steget att använda OAuth är att skapa ett nytt program i Twitter-u
 
 **Skapa ett Twitter-program**
 
-1. Logga in på [ https://apps.twitter.com/ ](https://apps.twitter.com/). Klicka på den **registrera dig nu** länkar om du inte har ett Twitter-konto.
+1. Logga in på [https://apps.twitter.com/](https://apps.twitter.com/). Klicka på den **registrera dig nu** länkar om du inte har ett Twitter-konto.
 2. Klicka på **Skapa ny App**.
 3. Ange **namn**, **beskrivning**, **webbplats**. Du kan göra upp en URL för den **webbplats** fält. I följande tabell visas några exempelvärden som ska användas:
 
@@ -95,7 +95,7 @@ I den här självstudien använder du Windows PowerShell för att göra-webbtjä
 
 **Att hämta tweets**
 
-1. Öppna Windows-PowerShell Integrated Scripting Environment (ISE). (På startskärmen i Windows 8, skriver **PowerShell_ISE** och klicka sedan på **Windows PowerShell ISE**. Se [starta Windows PowerShell i Windows 8 och Windows](https://docs.microsoft.com/en-us/powershell/scripting/setup/starting-windows-powershell?view=powershell-6)
+1. Öppna Windows-PowerShell Integrated Scripting Environment (ISE). (På startskärmen i Windows 8, skriver **PowerShell_ISE** och klicka sedan på **Windows PowerShell ISE**. Se [starta Windows PowerShell i Windows 8 och Windows](https://docs.microsoft.com/powershell/scripting/setup/starting-windows-powershell?view=powershell-6)
 2. Kopiera följande skript i skriptfönstret:
 
     ```powershell

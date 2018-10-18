@@ -2,17 +2,17 @@
 title: Konfigurera IPSec-transportläge för Windows-värdar – Azure ExpressRoute privat peering | Microsoft Docs
 description: Så här att aktivera IPSec-transportläge mellan virtuella Azure Windows-datorer och lokala Windows-värdar via ExpressRoute privat peering med hjälp av grupprincipobjekt och organisationsenheter.
 services: expressroute
-author: cherylmc
+author: fabferri
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 10/01/2018
-ms.author: cherylmc
-ms.openlocfilehash: 4ac0753c3f663aad6a1393e633ff81abb89579ef
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.date: 10/17/2018
+ms.author: fabferri
+ms.openlocfilehash: 1b228f0238c678c0cea4a6be2a6c3e0b929ed4d6
+ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49346991"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49394345"
 ---
 # <a name="configure-ipsec-transport-mode-for-expressroute-private-peering"></a>Konfigurera IPSec-transportläge för ExpressRoute privat peering
 

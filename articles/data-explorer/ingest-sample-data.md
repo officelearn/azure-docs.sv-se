@@ -2,18 +2,18 @@
 title: Mata in exempeldata i Azure Data Explorer
 description: Läs mer om hur du mata in (load) väderrelaterade exempeldata i Azure Data Explorer.
 services: data-explorer
-author: mgblythe
-ms.author: mblythe
+author: orspod
+ms.author: v-orspod
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 7eb0e48a5b66775ac97ed0cab751db0ef367f667
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 7fdd32f9263b4d1694a0516a98b681ba8744ab6b
+ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46964623"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49394586"
 ---
 # <a name="ingest-sample-data-into-azure-data-explorer"></a>Mata in exempeldata i Azure Data Explorer
 
@@ -24,15 +24,15 @@ Den här artikeln visar hur du mata in (load) exempeldata i en Azure Data Explor
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-[En testkluster och databas](create-cluster-database-portal.md)
+[Ett testkluster och en databas](create-cluster-database-portal.md)
 
 ## <a name="ingest-data"></a>Mata in data
 
-Den **StormEvents** exempeldatauppsättning innehåller väder-relaterade data från den [National Lagringsprotokollet för miljöinformation](https://www.ncdc.noaa.gov/stormevents/).
+I exempeldatauppsättningen **StormEvents** finns väderrelaterade data från [National Centers for Environmental Information](https://www.ncdc.noaa.gov/stormevents/).
 
-1. Logga in på [ https://dataexplorer.azure.com ](https://dataexplorer.azure.com).
+1. Logga in på [https://dataexplorer.azure.com](https://dataexplorer.azure.com).
 
-1. I det övre vänstra av programmet, väljer **Lägg till klustret**.
+1. Överst till vänster i programmet väljer du **Lägg till kluster**.
 
 1. I den **Lägg till klustret** dialogrutan, ange din kluster-URL i formatet `https://<ClusterName>.<Region>.kusto.windows.net/`och välj sedan **Lägg till**.
 
@@ -57,6 +57,6 @@ Den **StormEvents** exempeldatauppsättning innehåller väder-relaterade data f
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Skriva frågor](write-queries.md)
+[Skriv frågor](write-queries.md)
 
 [Azure Data Explorer-datainmatning](ingest-data-overview.md)

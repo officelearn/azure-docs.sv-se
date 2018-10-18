@@ -11,13 +11,13 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 10/15/2018
-ms.openlocfilehash: 372f1a0b7e2ad07612caaac478aea14693e002fa
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.date: 10/17/2018
+ms.openlocfilehash: 526b6ac9c510b13461181d76c0032602d8f3f435
+ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49352310"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49377990"
 ---
 # <a name="hyperscale-service-tier-preview-for-up-to-100-tb"></a>Hyperskala tjänstnivå (förhandsversion) för upp till 100 TB
 
@@ -148,8 +148,8 @@ Hyperskala tjänstnivå är för närvarande i offentlig förhandsversion och ä
 
 | Problem | Beskrivning |
 | :---- | :--------- |
-| ManageBackups fönstret för en logisk server inte visar filtreras hyperskala databaser från SQLServer ->  | Hyperskala har en annan metod för att hantera säkerhetskopior, och därför långsiktig kvarhållning och punkt i tiden säkerhetskopiering kvarhållningsinställningar gäller inte / ogiltigförklaras. Hyperskala databaser visas därför inte i fönstret hantera säkerhetskopiering. |
-| Återställning från tidpunkt | När en databas har migrerats till hyperskala tjänstnivån, stöds inte återställning till point-in-tIme.|
+| Fönstret hantera säkerhetskopior för en logisk server inte visar filtreras hyperskala databaser från SQLServer ->  | Hyperskala har en annan metod för att hantera säkerhetskopior, och därför långsiktig kvarhållning och punkt i tiden säkerhetskopiering kvarhållningsinställningar gäller inte / ogiltigförklaras. Hyperskala databaser visas därför inte i fönstret hantera säkerhetskopiering. |
+| Återställning från tidpunkt | När en databas har migrerats till hyperskala tjänstnivån, stöds inte återställning till en punkt i tid före migreringen.|
 | Om en databasfil växer under migreringen på grund av en aktiv arbetsbelastning och korsar 1 TB per fil gräns, misslyckas migreringen | Åtgärder: <br> -Om möjligt, migrera databasen när det finns ingen uppdatering av arbetsbelastningar som körs.<br> -Försök igen migreringen, kommer att kunna så länge gränsen på 1 TB inte uppnås under migreringen.|
 | Hanterad instans stöds inte för närvarande | Stöds för närvarande inte |
 | Migrering till hyperskala är för närvarande en enkel åtgärd | När en databas har migrerats till hyperskala, kan inte migreras direkt till en icke-hyperskala tjänstnivå. För närvarande är det enda sättet att migrera en databas från hyperskala till icke-hyperskala att exportera/importera med hjälp av en BACPAC-fil.|

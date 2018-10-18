@@ -4,21 +4,21 @@ description: Den här artikeln ger en översikt över innehållsskydd med Media 
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/30/2018
+ms.date: 10/15/2018
 ms.author: juliako
-ms.openlocfilehash: 2a3e94d37a926bd36b780b45eb3d6cb29fb73597
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: f8ef92a335dd6faee076356dbffc873b08afbdc0
+ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39521762"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49394294"
 ---
 # <a name="content-protection-overview"></a>Content protection-översikt
 
@@ -149,9 +149,7 @@ I exempel visas hur du:
 
 2. Skapa en StreamingLocator som är konfigurerad för att strömma en krypterad tillgång. 
 
-  Det här exemplet vi ställer in **StreamingPolicyName** till **PredefinedStreamingPolicy.SecureStreaming** som har stöd för kuvert och cenc kryptering och anger två nycklar för den StreamingLocator. 
-
-  Om du vill kryptera med FairPlay, ange den **StreamingPolicyName** till **PredefinedStreamingPolicy.SecureStreamingWithFairPlay**.
+  Du kan till exempel ange StreamingLocator.StreamingPolicyName till principen ”Predefined_MultiDrmCencStreaming”. Den här principen indikerar att du vill att två innehållsnycklar (kuvert och CENC) ska skapas och ställas in för positioneraren. Krypteringarna för kuvert, PlayReady och Widevine tillämpas därför (nyckeln levereras till uppspelningsklienten utifrån de konfigurerade DRM-licenserna). Om du vill kryptera dataströmmen med CBCS (FairPlay), använder du ”Predefined_MultiDrmStreaming”.
 
 3. Skapa en test-token.
 

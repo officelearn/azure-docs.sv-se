@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 7/20/2018
 ms.author: msfussell
-ms.openlocfilehash: a420033d96a1366a79f5f2032693c38d7eca4ac3
-ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
+ms.openlocfilehash: 70ea33f2c3e3a79d1754b72d12e8fc27689e38ea
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/06/2018
-ms.locfileid: "48830981"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49387946"
 ---
 # <a name="dns-service-in-azure-service-fabric"></a>DNS-tjänsten i Azure Service Fabric
 DNS-tjänsten är en valfri systemtjänst som du kan aktivera i klustret för att identifiera andra tjänster med hjälp av DNS-protokollet. 
@@ -132,7 +132,7 @@ När programmet har distribuerats, visar tjänstinstansen i Service Fabric explo
 
 ![Tjänsteslutpunkter](./media/service-fabric-dnsservice/service-fabric-explorer-dns.png)
 
-I följande exempel anger DNS-namnet för en tillståndskänslig tjänst till `statefulsvc.app`. Tjänsten använder en namngiven partitioneringsschema. Observera att partitionsnamnen på är gemena. Det här är ett krav för partitioner som ska användas i DNS-frågor Mer information finns i [gör DNS-frågor på en tillståndskänslig tjänst partition](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-dnsservice#preview-making-dns-queries-on-a-stateful-service-partition).
+I följande exempel anger DNS-namnet för en tillståndskänslig tjänst till `statefulsvc.app`. Tjänsten använder en namngiven partitioneringsschema. Observera att partitionsnamnen på är gemena. Det här är ett krav för partitioner som ska användas i DNS-frågor Mer information finns i [gör DNS-frågor på en tillståndskänslig tjänst partition](https://docs.microsoft.com/azure/service-fabric/service-fabric-dnsservice#preview-making-dns-queries-on-a-stateful-service-partition).
 
 ```xml
     <Service Name="Stateful1" ServiceDnsName="statefulsvc.app" />

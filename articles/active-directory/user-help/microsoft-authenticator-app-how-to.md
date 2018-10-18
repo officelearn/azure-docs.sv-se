@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 07/30/2018
 ms.author: lizross
 ms.reviewer: librown
-ms.openlocfilehash: 5b8264667e09e7dd6c048fae11e363ee8dfdca33
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.openlocfilehash: a88a0d9105942502b634f3be7c3279167ea590c6
+ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49165384"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49393260"
 ---
 # <a name="get-started-with-the-microsoft-authenticator-app"></a>Kom igång med Microsoft Authenticator-appen
 
@@ -25,7 +25,7 @@ Förhindra obehörig åtkomst till konton och för att stoppa olagliga transakti
 
 När du använder appen för tvåstegsverifiering kan fungera i ett av två sätt:
 
-- **Meddelande om.** Appen skickar ett meddelande till din enhet. Kontrollera att meddelandet är rätt och välj sedan **Kontrollera**. Om du inte ser meddelandet, Välj **neka**. Användare har möjlighet att markera en begäran som bedrägeri om de nekar. 
+- **Meddelande om.** Appen skickar ett meddelande till din enhet. Kontrollera att meddelandet är rätt och välj sedan **Kontrollera**. Om du inte ser meddelandet, Välj **neka**. När du klickar på **neka**, kan du också markera på begäran som falska.
 
 - **Verifieringskod.** När du har skrivit ditt användarnamn och lösenord kan du öppna appen och kopiera den Verifieringskod som tillhandahålls på den **konton** skärmen in på skärmen inloggning. Verifieringskoden fungerar som en andra formen av autentisering.
 

@@ -10,16 +10,16 @@ ms.reviewer: klam, estfan, LADocs
 ms.custom: vs-azure
 ms.topic: article
 ms.date: 03/30/2017
-ms.openlocfilehash: 97c928c34a18a5d4f3549c348a273df268ee1db0
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: 068e5399073959d2c5aa6c4bbeb0d7bccf7d05e6
+ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43123316"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49393787"
 ---
 # <a name="overview-azure-serverless-with-azure-logic-apps-and-azure-functions"></a>Översikt: Azure utan server med Azure Logic Apps och Azure Functions
 
-Program utan Server erbjuder fördelar med sänkt hastigheten på utveckling, minskad krävs kod och enkelhet med skalning.  Den här artikeln hamnar i olika attribut för serverlösa lösningar och serverfria erbjudandena i Azure.
+[Serverlös](https://azure.microsoft.com/solutions/serverless/) program erbjuder fördelar med sänkt hastigheten på utveckling, minskad krävs kod och enkelhet med skalning.  Den här artikeln hamnar i olika attribut för serverlösa lösningar och serverfria erbjudandena i Azure.
 
 ## <a name="what-is-serverless"></a>Vad är utan Server?
 

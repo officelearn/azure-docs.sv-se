@@ -4,25 +4,25 @@ description: Den här artikeln beskrivs hur Media Services använder storage-kon
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 03/19/2018
+ms.date: 10/16/2018
 ms.author: juliako
-ms.openlocfilehash: 883aecaa82f1a83af22bf345d364c2b43776e559
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: dbd8dea32bbd4cacefd64e91541ab20b1056731e
+ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45732217"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49379049"
 ---
 # <a name="storage-accounts"></a>Lagringskonton
 
 När du skapar ett Media Services-konto, måste du ange namnet på en Azure Storage-kontoresurs. Det angivna lagringskontot kopplas till ditt Media Services-konto. 
 
-Du måste ha ett **primära** storage-konto och du kan ha valfritt antal **sekundära** lagringskonton som är associerade med ditt Media Services-konto. Media Services stöder konton av typen **General-purpose v2** (GPv2) och **General-purpose v1** (GPv1). 
+Du måste ha ett **primärt** lagringskonto, men du kan även ha flera **sekundära** lagringskonton associerade med ditt Media Services-konto. Media Services stöder konton av typen **General-purpose v2** (GPv2) och **General-purpose v1** (GPv1). 
 
 >[!NOTE]
 > Endast blob-konton tillåts inte som **primära**. 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 12/06/2017
 ms.author: dekapur
-ms.openlocfilehash: 7aa7fc2620fa02af4a720a97eece3c0734252245
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: feb9d0a01cbba75fc9868f5a603d494c5c09ae2e
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "42060311"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49386305"
 ---
 # <a name="manage-applications-and-services-as-azure-resource-manager-resources"></a>Hantera program och tjänster som Azure Resource Manager-resurser
 
@@ -264,7 +264,7 @@ Följande utdrag visar de olika typerna av resurser som kan hanteras via en mall
 Om klustret redan är igång och vissa program som du vill hantera som Resurshanterarens resurser redan har distribuerats på den, i stället för att avlägsna program och omdistribuera dem. Du kan använda ett PUT-anrop med samma API: er för att få programmen får bekräftas som Resource Manager-resurser. 
 
 > [!NOTE]
-> Så att en uppgradering av klustret att ignorera feltillstånd appar kunden kan ange ”maxPercentUnhealthyApplications: 100” i avsnittet ”upgradeDescription/healthPolicy”; detaljerade beskrivningar för alla inställningar finns i [dokumentation om Service fabric REST API kluster uppgradera Policy](https://docs.microsoft.com/en-us/rest/api/servicefabric/sfrp-model-clusterupgradepolicy).
+> Så att en uppgradering av klustret att ignorera feltillstånd appar kunden kan ange ”maxPercentUnhealthyApplications: 100” i avsnittet ”upgradeDescription/healthPolicy”; detaljerade beskrivningar för alla inställningar finns i [dokumentation om Service fabric REST API kluster uppgradera Policy](https://docs.microsoft.com/rest/api/servicefabric/sfrp-model-clusterupgradepolicy).
 
 ## <a name="next-steps"></a>Nästa steg
 

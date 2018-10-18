@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/12/2018
 ms.author: cawa
-ms.openlocfilehash: 7e73f676f47de8256928224aae55ea30eb414ddf
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: 708b80787337d549ebc5e66bca21e734620616ac
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49344769"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49388313"
 ---
 # <a name="microsoft-azure-storage-explorer-release-notes"></a>Viktig information om Microsoft Azure Lagringsutforskaren
 
@@ -72,7 +72,7 @@ Den här artikeln innehåller viktig information om Azure Storage Explorer 1.4.3
 ./StorageExplorer.exe --disable-gpu
 ```
 
-* Linux-användare behöver du installera [.NET Core 2.0](https://docs.microsoft.com/en-us/dotnet/core/linux-prerequisites?tabs=netcore2x).
+* Linux-användare behöver du installera [.NET Core 2.0](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x).
 * För användare på Ubuntu 14.04 behöver du kontrollera GCC är uppdaterad – detta kan göras genom att köra följande kommandon och sedan starta om datorn:
 
     ```
@@ -160,7 +160,7 @@ Den här artikeln innehåller viktig information om Azure Storage Explorer 1.4.3
 ./StorageExplorer.exe --disable-gpu
 ```
 
-* Linux-användare behöver du installera [.NET Core 2.0](https://docs.microsoft.com/en-us/dotnet/core/linux-prerequisites?tabs=netcore2x).
+* Linux-användare behöver du installera [.NET Core 2.0](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x).
 * För användare på Ubuntu 14.04 behöver du kontrollera GCC är uppdaterad – detta kan göras genom att köra följande kommandon och sedan starta om datorn:
 
     ```
@@ -215,7 +215,7 @@ Den här artikeln innehåller viktig information om Azure Storage Explorer 1.4.3
 ./StorageExplorer.exe --disable-gpu
 ```
 
-* Linux-användare behöver du installera [.NET Core 2.0](https://docs.microsoft.com/en-us/dotnet/core/linux-prerequisites?tabs=netcore2x).
+* Linux-användare behöver du installera [.NET Core 2.0](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x).
 * För användare på Ubuntu 14.04 behöver du kontrollera GCC är uppdaterad – detta kan göras genom att köra följande kommandon och sedan starta om datorn:
 
     ```
@@ -275,7 +275,7 @@ Den här artikeln innehåller viktig information om Azure Storage Explorer 1.4.3
 ./StorageExplorer.exe --disable-gpu
 ```
 
-* Linux-användare behöver du installera [.NET Core 2.0](https://docs.microsoft.com/en-us/dotnet/core/linux-prerequisites?tabs=netcore2x).
+* Linux-användare behöver du installera [.NET Core 2.0](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x).
 * För användare på Ubuntu 14.04 behöver du kontrollera GCC är uppdaterad – detta kan göras genom att köra följande kommandon och sedan starta om datorn:
 
     ```
@@ -332,7 +332,7 @@ Den här artikeln innehåller viktig information om Azure Storage Explorer 1.4.3
 ./StorageExplorer.exe --disable-gpu
 ```
 
-* Linux-användare behöver du installera [.NET Core 2.0](https://docs.microsoft.com/en-us/dotnet/core/linux-prerequisites?tabs=netcore2x).
+* Linux-användare behöver du installera [.NET Core 2.0](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x).
 * För användare på Ubuntu 14.04 behöver du kontrollera GCC är uppdaterad – detta kan göras genom att köra följande kommandon och sedan starta om datorn:
 
     ```
@@ -389,7 +389,7 @@ Den här artikeln innehåller viktig information om Azure Storage Explorer 1.4.3
 ./StorageExplorer.exe --disable-gpu
 ```
 
-* Linux-användare behöver du installera [.NET Core 2.0](https://docs.microsoft.com/en-us/dotnet/core/linux-prerequisites?tabs=netcore2x).
+* Linux-användare behöver du installera [.NET Core 2.0](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x).
 * För användare på Ubuntu 14.04 behöver du kontrollera GCC är uppdaterad – detta kan göras genom att köra följande kommandon och sedan starta om datorn:
 
     ```
@@ -410,7 +410,7 @@ Den här artikeln innehåller viktig information om Azure Storage Explorer 1.4.3
 
 ### <a name="new"></a>Ny
 * Lagringsutforskaren stöder nu användning av Azurite. Obs: anslutningen till Azurite är hårdkodad att standardslutpunkterna för utveckling.
-* Lagringsutforskaren stöder nu åtkomstnivåerna för endast Blob- och GPV2-konton. Mer information om åtkomstnivåerna [här](https://docs.microsoft.com/en-us/azure/storage/blobs/storage-blob-storage-tiers).
+* Lagringsutforskaren stöder nu åtkomstnivåerna för endast Blob- och GPV2-konton. Mer information om åtkomstnivåerna [här](https://docs.microsoft.com/azure/storage/blobs/storage-blob-storage-tiers).
 * En starttid krävs inte längre när du genererar en SAS.
 
 ### <a name="fixes"></a>Korrigeringar
@@ -443,7 +443,7 @@ Den här artikeln innehåller viktig information om Azure Storage Explorer 1.4.3
 ./StorageExplorer.exe --disable-gpu
 ```
 
-* Linux-användare behöver du installera [.NET Core 2.0](https://docs.microsoft.com/en-us/dotnet/core/linux-prerequisites?tabs=netcore2x).
+* Linux-användare behöver du installera [.NET Core 2.0](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x).
 * För användare på Ubuntu 14.04 behöver du kontrollera GCC är uppdaterad – detta kan göras genom att köra följande kommandon och sedan starta om datorn:
 
     ```
@@ -470,7 +470,7 @@ Den här artikeln innehåller viktig information om Azure Storage Explorer 1.4.3
 * Det finns nu Storage Explorer feedback på GitHub. Du kan nå sidan problem genom att klicka på Feedback i nederkant vänstra hörnet eller genom att gå till [ https://github.com/Microsoft/AzureStorageExplorer/issues ](https://github.com/Microsoft/AzureStorageExplorer/issues). Gärna förslag, rapportera problem, ställa frågor eller lämna andra former av feedback.
 * Om du använder SSL-certifikat problem och kan inte hitta felaktiga certifikatet nu kan du starta Lagringsutforskaren från kommandoraden med den `--ignore-certificate-errors` flaggan. När startas med den här flaggan ignorerar Lagringsutforskaren SSL-certifikatfel.
 * Det finns nu ett ”Hämta” alternativ på snabbmenyn för blob- och objekt.
-* Förbättrad tillgänglighet och stöd för Skärmläsaren. Om du förlitar dig om dessa funktioner finns i vår [hjälpmedel dokumentation](https://docs.microsoft.com/en-us/azure/vs-azure-tools-storage-explorer-accessibility) för mer information.
+* Förbättrad tillgänglighet och stöd för Skärmläsaren. Om du förlitar dig om dessa funktioner finns i vår [hjälpmedel dokumentation](https://docs.microsoft.com/azure/vs-azure-tools-storage-explorer-accessibility) för mer information.
 * Lagringsutforskaren använder nu Electron 1.8.3
 
 ### <a name="breaking-changes"></a>Icke-bakåtkompatibla ändringar
@@ -509,7 +509,7 @@ Den här artikeln innehåller viktig information om Azure Storage Explorer 1.4.3
 ./StorageExplorer.exe --disable-gpu
 ```
 
-* Linux-användare behöver du installera [.NET Core 2.0](https://docs.microsoft.com/en-us/dotnet/core/linux-prerequisites?tabs=netcore2x).
+* Linux-användare behöver du installera [.NET Core 2.0](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x).
 * För användare på Ubuntu 14.04 behöver du kontrollera GCC är uppdaterad – detta kan göras genom att köra följande kommandon och sedan starta om datorn:
 
     ```

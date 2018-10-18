@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry, michmcla
-ms.openlocfilehash: a8bcbc37ffba2caace0934c5414e1ccfd6fbb558
-ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
+ms.openlocfilehash: 67f99e68bc4091d076e27aee06c2851bc77e6fc7
+ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48901999"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49378932"
 ---
 # <a name="what-are-authentication-methods"></a>Vad är autentiseringsmetoder?
 
@@ -148,11 +148,13 @@ Microsoft Authenticator-appen eller andra appar från tredje part kan användas 
 > För lösenordsåterställning via självbetjäning när bara en metod krävs för återställning av verifieringskoden är det enda alternativet som är tillgängliga för användare **att säkerställa högsta säkerhetsnivå**.
 >
 
-## <a name="oath-hardware-tokens"></a>OATH-token för maskinvara
+## <a name="oath-hardware-tokens-public-preview"></a>OATH-maskinvarutoken (offentlig förhandsversion)
 
 OATH är en öppen standard som anger hur enstaka lösenord (OTP) koder genereras. Azure AD stöder användning av OATH-TOTP SHA-1-token på 30 sekunder eller 60-sekunders olika. Kunder kan skaffa dessa token från leverantören av valfri. Observera att hemliga nycklar är begränsad till 128 tecken, vilket inte kanske är kompatibel med alla token.
 
 ![Ladda upp OATH-token till bladet MFA Server OATH-token i Azure portal](media/concept-authentication-methods/oath-tokens-azure-ad.png)
+
+OATH-token för maskinvara som stöds som en del av en offentlig förhandsversion. Mer information om förhandsversioner finns [kompletterande användningsvillkor för förhandsversioner av Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)
 
 När token är upptagna måste de laddas upp i en fil med kommaavgränsade värden (CSV)-filformat, inklusive UPN, serienummer, hemlig nyckel, tidsintervall, tillverkare och modell som exemplet nedan visar.
 

@@ -10,12 +10,12 @@ ms.component: qna-maker
 ms.topic: quickstart
 ms.date: 09/12/2018
 ms.author: diberry
-ms.openlocfilehash: fe01e69b5ee730c4807e94e5f79dd11456d6aa1a
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: ac871aebd1b78750a5a3712d40486d4f7d3c3de7
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48886373"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49388083"
 ---
 # <a name="quickstart-for-microsoft-qna-maker-api-with-python"></a>Snabbstart för Microsoft QnA Maker API med Python 
 <a name="HOLTop"></a>
@@ -119,8 +119,8 @@ req = {
     }
   ],
   "urls": [
-    "https://docs.microsoft.com/en-in/azure/cognitive-services/qnamaker/faqs",
-    "https://docs.microsoft.com/en-us/bot-framework/resources-bot-framework-faq"
+    "https://docs.microsoft.com/azure/cognitive-services/qnamaker/faqs",
+    "https://docs.microsoft.com/bot-framework/resources-bot-framework-faq"
   ],
   "files": []
 }
@@ -252,7 +252,7 @@ req = {
       }
     ],
     'urls': [
-      'https://docs.microsoft.com/en-us/azure/cognitive-services/Emotion/FAQ'
+      'https://docs.microsoft.com/azure/cognitive-services/Emotion/FAQ'
     ]
   },
   'update' : {
@@ -376,7 +376,7 @@ result = publish_kb (path, '')
 print (pretty_print(result))
 ```
 
-**Publicera kunskapsbassvar**
+**Svar från Publicera kunskapsbas**
 
 Ett svar som anger att åtgärden lyckades returneras i JSON, som du ser i följande exempel: 
 
@@ -390,7 +390,7 @@ Ett svar som anger att åtgärden lyckades returneras i JSON, som du ser i följ
 
 <a name="Replace"></a>
 
-## <a name="replace-knowledge-base"></a>Ersätta kunskapsbas
+## <a name="replace-knowledge-base"></a>Ersätt kunskapsbas
 
 Följande kod ersätter innehållet i den angivna kunskapsbasen med hjälp av metoden [Ersätt](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/knowledgebases_publish).
 
@@ -552,7 +552,7 @@ Ett svar som anger att åtgärden lyckades returneras i JSON, som du ser i följ
     {
       "id": 2,
       "answer": "QnA Maker provides an FAQ data source that you can query from your bot or application. Although developers will find this useful, content owners will especially benefit from this tool. QnA Maker is a completely no-code way of managing the content that powers your bot or application.",
-      "source": "https://docs.microsoft.com/en-in/azure/cognitive-services/qnamaker/faqs",
+      "source": "https://docs.microsoft.com/azure/cognitive-services/qnamaker/faqs",
       "questions": [
         "Who is the target audience for the QnA Maker tool?"
       ],
@@ -643,7 +643,7 @@ Ett svar som anger att åtgärden lyckades returneras i JSON, som du ser i följ
       "answer": "Yes. However, shadow copies made prior to enabling BitLocker will be automatically deleted when BitLocker is enabled on software-encrypted drives. If you are using a hardware encrypted drive, the shadow copies are retained.",
       "score": 17.3,
       "id": 62,
-      "source": "https://docs.microsoft.com/en-us/windows/security/information-protection/bitlocker/bitlocker-frequently-asked-questions",
+      "source": "https://docs.microsoft.com/windows/security/information-protection/bitlocker/bitlocker-frequently-asked-questions",
       "metadata": []
     },
 ...
@@ -715,8 +715,8 @@ Ett svar som anger att åtgärden lyckades returneras i JSON, som du ser i följ
   "name": "QnA Maker FAQ",
   "userId": "2280ef5917bb4ebfa1aae41fb1cebb4a",
   "urls": [
-    "https://docs.microsoft.com/en-in/azure/cognitive-services/qnamaker/faqs",
-    "https://docs.microsoft.com/en-us/bot-framework/resources-bot-framework-faq"
+    "https://docs.microsoft.com/azure/cognitive-services/qnamaker/faqs",
+    "https://docs.microsoft.com/bot-framework/resources-bot-framework-faq"
   ],
   "sources": [
     "Custom Editorial"
@@ -797,8 +797,8 @@ Ett svar som anger att åtgärden lyckades returneras i JSON, som du ser i följ
       "name": "QnA Maker FAQ",
       "userId": "2280ef5917bb4ebfa1aae41fb1cebb4a",
       "urls": [
-        "https://docs.microsoft.com/en-in/azure/cognitive-services/qnamaker/faqs",
-        "https://docs.microsoft.com/en-us/bot-framework/resources-bot-framework-faq"
+        "https://docs.microsoft.com/azure/cognitive-services/qnamaker/faqs",
+        "https://docs.microsoft.com/bot-framework/resources-bot-framework-faq"
       ],
       "sources": [
         "Custom Editorial"
@@ -816,7 +816,7 @@ Press any key to continue.
 
 ## <a name="delete-a-knowledge-base"></a>Ta bort en kunskapsbas
 
-Följande kod tar bort den angivna kunskapsbasen, met hjälp av metoden [Ta bort kunskapsbas](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/knowledgebases_delete).
+Följande kod tar bort den angivna kunskapsbasen med hjälp av metoden [Ta bort kunskapsbas](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/knowledgebases_delete).
 
 1. Skapa ett nytt Python-projekt i valfri IDE.
 2. Lägg till koden nedan.
@@ -867,7 +867,7 @@ result = delete_kb (path, '')
 print (pretty_print(result))
 ```
 
-**Ta bort kunskapsbassvar**
+**Svar från Ta bort kunskapsbas**
 
 Ett svar som anger att åtgärden lyckades returneras i JSON, som du ser i följande exempel: 
 

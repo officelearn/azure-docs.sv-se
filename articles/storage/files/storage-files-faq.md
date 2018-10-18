@@ -7,12 +7,12 @@ ms.service: storage
 ms.date: 10/04/2018
 ms.author: renash
 ms.component: files
-ms.openlocfilehash: 20a87148e3c0df29e5f4dffd74a8f5389e3658b9
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
+ms.openlocfilehash: 29f09034988acde3643eebe368445caab035fabd
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/17/2018
-ms.locfileid: "49364566"
+ms.locfileid: "49387511"
 ---
 # <a name="frequently-asked-questions-faq-about-azure-files"></a>Vanliga frågor (och svar FAQ) om Azure Files
 [Azure Files](storage-files-introduction.md) erbjuder fullständigt hanterade filresurser i molnet som är tillgängliga via vanliga [Server Message Block (SMB) protokollet](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx). Du kan montera Azure-filresurser samtidigt på molnet eller lokala distributioner av Windows, Linux och macOS. Du kan också cachelagra Azure-filresurser på Windows Server-datorer med hjälp av Azure File Sync för snabb åtkomst nära där data används.
@@ -242,7 +242,7 @@ Den här artikeln innehåller vanliga frågor och svar om Azure Files och funkti
 * <a id="data-compliance-policies"></a>
 **Vilka data efterlevnadsprinciper har stöd för Azure Files?**  
 
-   Azure Files körs ovanpå samma lagringsarkitektur som används i andra lagringstjänster i Azure Storage. Azure Files gäller efterlevnadsprinciper för samma data som används i andra Azure-lagringstjänster. Mer information om kompatibilitet för Azure Storage-data som du kan referera till [Azure Storage-efterlevnadserbjudanden](https://docs.microsoft.com/en-us/azure/storage/common/storage-compliance-offerings), och gå till den [Microsoft Trust Center](https://microsoft.com/en-us/trustcenter/default.aspx).
+   Azure Files körs ovanpå samma lagringsarkitektur som används i andra lagringstjänster i Azure Storage. Azure Files gäller efterlevnadsprinciper för samma data som används i andra Azure-lagringstjänster. Mer information om kompatibilitet för Azure Storage-data som du kan referera till [Azure Storage-efterlevnadserbjudanden](https://docs.microsoft.com/azure/storage/common/storage-compliance-offerings), och gå till den [Microsoft Trust Center](https://microsoft.com/en-us/trustcenter/default.aspx).
 
 ## <a name="on-premises-access"></a>Lokal åtkomst
 * <a id="expressroute-not-required"></a>
@@ -258,7 +258,7 @@ Den här artikeln innehåller vanliga frågor och svar om Azure Files och funkti
 ## <a name="backup"></a>Backup
 * <a id="backup-share"></a>
 **Hur delar jag säkerhetskopiera min Azure?**  
-    Du kan använda periodiska [resursögonblicksbilder](storage-snapshots-files.md) för skydd mot oavsiktliga borttagningar. Du kan också använda AzCopy, Robocopy eller ett verktyg för säkerhetskopiering från tredje part som kan säkerhetskopiera en monterad filresurs. Azure Backup erbjuder säkerhetskopiering av Azure Files. Läs mer om [säkerhetskopiera Azure-filresurser med Azure Backup](https://docs.microsoft.com/en-us/azure/backup/backup-azure-files).
+    Du kan använda periodiska [resursögonblicksbilder](storage-snapshots-files.md) för skydd mot oavsiktliga borttagningar. Du kan också använda AzCopy, Robocopy eller ett verktyg för säkerhetskopiering från tredje part som kan säkerhetskopiera en monterad filresurs. Azure Backup erbjuder säkerhetskopiering av Azure Files. Läs mer om [säkerhetskopiera Azure-filresurser med Azure Backup](https://docs.microsoft.com/azure/backup/backup-azure-files).
 
 ## <a name="share-snapshots"></a>Ögonblicksbilder av filresurser
 

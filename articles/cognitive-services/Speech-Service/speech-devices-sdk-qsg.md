@@ -9,12 +9,12 @@ ms.component: speech
 ms.topic: article
 ms.date: 05/18/2018
 ms.author: erhopf
-ms.openlocfilehash: 53e159c7fc357d0c3776102294f4871863cbf4a5
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.openlocfilehash: 300e2d593dfe00b2d7348c7eaf15b0f26ec7e0dd
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49167383"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49389895"
 ---
 # <a name="get-started-with-the-speech-devices-sdk"></a>Kom igång med SDK för tal-enheter
 
@@ -39,9 +39,9 @@ Innan du börjar utveckla med tal Devices SDK måste du samla in information och
 
 * Hämta en [Speech service prenumerationsnyckel](get-started.md). Du kan hämta en 30-dagars kostnadsfri utvärderingsversion eller hämta en nyckel från instrumentpanelen i Azure.
 
-* Om du vill använda tjänsten tal taligenkänning prenumerera på den [tjänst för Språkförståelse](https://azure.microsoft.com/services/cognitive-services/language-understanding-intelligent-service/) (LUIS) och [få en prenumerationsnyckel](https://docs.microsoft.com/en-us/azure/cognitive-services/luis/azureibizasubscription). 
+* Om du vill använda tjänsten tal taligenkänning prenumerera på den [tjänst för Språkförståelse](https://azure.microsoft.com/services/cognitive-services/language-understanding-intelligent-service/) (LUIS) och [få en prenumerationsnyckel](https://docs.microsoft.com/azure/cognitive-services/luis/azureibizasubscription). 
 
-    Du kan [skapa en enkel LUIS-modell](https://docs.microsoft.com/en-us/azure/cognitive-services/luis/) eller Använd exemplet LUIS-modell, LUIS-example.json. Exemplet LUIS-modellen är tillgänglig från den [tal Devices SDK hämtningsplats](https://shares.datatransfer.microsoft.com/). Ladda upp din modell JSON-filen till den [LUIS portal](https://www.luis.ai/home)väljer **importera ny app**, och välj sedan JSON-filen.
+    Du kan [skapa en enkel LUIS-modell](https://docs.microsoft.com/azure/cognitive-services/luis/) eller Använd exemplet LUIS-modell, LUIS-example.json. Exemplet LUIS-modellen är tillgänglig från den [tal Devices SDK hämtningsplats](https://shares.datatransfer.microsoft.com/). Ladda upp din modell JSON-filen till den [LUIS portal](https://www.luis.ai/home)väljer **importera ny app**, och välj sedan JSON-filen.
 
 ## <a name="set-up-the-development-kit"></a>Ställ in i development kit
 

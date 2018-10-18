@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
-ms.date: 08/10/2018
+ms.date: 10/16/2018
 ms.author: spelluru
-ms.openlocfilehash: f13e46b310f4f9048b38ab50ce0241d1b2b3161b
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: 00ae254a9e9d40ec88802f2f46666aff72cb242a
+ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47395703"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49377658"
 ---
 # <a name="how-to-use-service-bus-topics-and-subscriptions-with-nodejs"></a>Använd Service Bus-ämnen och prenumerationer med Node.js
 
@@ -61,7 +61,7 @@ Ladda ned Node.js Azure-paketet om du vill använda Service Bus. Det här pakete
    ├── xml2js@0.2.7 (sax@0.5.2)
    └── request@2.21.0 (json-stringify-safe@4.0.0, forever-agent@0.5.0, aws-sign@0.3.0, tunnel-agent@0.3.0, oauth-sign@0.3.0, qs@0.6.5, cookie-jar@0.3.0, node-uuid@1.4.0, http-signature@0.9.11, form-data@0.0.8, hawk@0.13.1)
    ```
-3. Du kan köra manuellt i **ls** kommando för att kontrollera att en **nod\_moduler** mappen har skapats. I den mappen hittar den **azure** paket som innehåller de bibliotek som du behöver komma åt Service Bus-ämnen.
+3. Du kan köra manuellt i **ls** kommando för att kontrollera att en **nod\_moduler** mappen har skapats. I den mappen, hitta den **azure** paket som innehåller de bibliotek som du behöver komma åt Service Bus-ämnen.
 
 ### <a name="import-the-module"></a>Importera modulen
 Med hjälp av anteckningar eller något annat textredigeringsprogram, Lägg till följande överst i **server.js** i appen:
@@ -73,7 +73,7 @@ var azure = require('azure');
 ### <a name="set-up-a-service-bus-connection"></a>Skapa en Service Bus-anslutning
 Azure-modulen läser miljövariabeln `AZURE_SERVICEBUS_CONNECTION_STRING` för anslutningssträngen som du fick från det tidigare steget ”hämta i autentiseringsuppgifterna”. Om den här miljövariabeln inte har angetts måste du ange informationen när du anropar `createServiceBusService`.
 
-Ett exempel för att ställa in miljövariabler för ett Azure Cloud Services, finns i [Node.js molntjänst med Storage][Node.js Cloud Service with Storage].
+Ett exempel för att ställa in miljövariabler för ett Azure Cloud Services, finns i [miljövariabler](../container-instances/container-instances-environment-variables.md#azure-cli-example).
 
 
 
@@ -127,7 +127,7 @@ function (returnObject, finalCallback, next)
 
 I den här motringning och efter bearbetning i `returnObject` (svaret från begäran till servern), återanropet som måste antingen anropa bredvid (om det finns) om du vill fortsätta att bearbeta andra filter eller anropa `finalCallback` att avsluta tjänstanrop.
 
-Azure SDK för Node.js innehåller två filter som implementerar logik för omförsök: **ExponentialRetryPolicyFilter** och **LinearRetryPolicyFilter**. Detta skapar en **ServiceBusService** objekt som använder den **ExponentialRetryPolicyFilter**:
+Azure SDK för Node.js innehåller två filter som implementerar logik för omförsök: **ExponentialRetryPolicyFilter** och **LinearRetryPolicyFilter**. Följande kod skapar en **ServiceBusService** objekt som använder den **ExponentialRetryPolicyFilter**:
 
 ```javascript
 var retryOperations = new azure.ExponentialRetryPolicyFilter();
@@ -242,7 +242,7 @@ Om du vill skicka ett meddelande till en Service Bus-ämne, ditt program måste 
 Meddelanden som skickas till Service Bus-ämnen är **BrokeredMessage** objekt.
 **BrokeredMessage** objekt har en uppsättning standardegenskaper (t.ex `Label` och `TimeToLive`), en ordlista som används för att lagra anpassade egenskaper för programspecifika och en brödtext med strängdata. Ett program kan konfigurera meddelandets brödtext genom att skicka ett strängvärde till den `sendTopicMessage` och alla obligatoriska standardegenskaper fylls med standardvärden.
 
-I följande exempel visar hur du skickar fem testmeddelanden till `MyTopic`. Den `messagenumber` egenskapsvärdet för varje meddelande varierar på upprepning av loopen (detta avgör vilka prenumerationer som får det):
+I följande exempel visar hur du skickar fem testmeddelanden till `MyTopic`. Den `messagenumber` egenskapsvärdet för varje meddelande varierar på upprepning av loopen (den här egenskapen avgör vilka prenumerationer som får det):
 
 ```javascript
 var message = {
@@ -268,7 +268,7 @@ Service Bus-ämnena stöder en maximal meddelandestorlek på 256 kB på [standar
 ## <a name="receive-messages-from-a-subscription"></a>Ta emot meddelanden från en prenumeration
 Meddelanden tas emot från en prenumeration med hjälp av den `receiveSubscriptionMessage` metoden på den **ServiceBusService** objekt. Som standard tas meddelanden bort från prenumerationen eftersom de är skrivskyddade. Du kan dock ange den valfria parametern `isPeekLock` till **SANT** att läsa (peek) och låsa meddelandet utan att ta bort den från prenumerationen.
 
-Standardbeteendet för att läsa och radera meddelandet som en del av åtgärden ta emot är den enklaste modellen och fungerar bäst för scenarier där ett program kan tolerera icke-bearbetning av ett meddelande om ett fel inträffar. Tänk dig ett scenario där konsumenten utfärdar en receive-begäran och sedan kraschar innan bearbetningen för att förstå det här beteendet. Eftersom Service Bus har markerat meddelandet som Förbrukat, har sedan när programmet startas om och börjar förbruka meddelanden igen, det missat meddelandet som förbrukades innan kraschen.
+Standardbeteendet för att läsa och radera meddelandet som en del av åtgärden ta emot är den enklaste modellen och fungerar bäst för scenarier där ett program kan tolerera icke-bearbetning av ett meddelande när ett fel uppstår. Tänk dig ett scenario där konsumenten utfärdar en receive-begäran och sedan kraschar innan bearbetningen för att förstå det här beteendet. Eftersom Service Bus har markerat meddelandet som Förbrukat, har sedan när programmet startas om och börjar förbruka meddelanden igen, det missat meddelandet som förbrukades innan kraschen.
 
 Om den `isPeekLock` parametern är inställd på **SANT**, ta emot blir en åtgärd i två steg, vilket gör det möjligt att stödprogram som inte tolererar att missade. När Service Bus tar emot en begäran, det upp nästa meddelande att använda låser det för att förhindra att andra användare från att ta emot den och tillbaka till programmet.
 När programmet kan bearbeta meddelandet (eller lagrar den på ett tillförlitligt sätt för framtida bearbetning), den är klar det andra steget i processen genom att anropa **deleteMessage** metoden och skickar meddelandet att ta bort som en parameter. Den **deleteMessage** metoden markerar meddelandet som Förbrukat och tas bort från prenumerationen.

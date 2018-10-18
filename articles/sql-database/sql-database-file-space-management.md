@@ -12,19 +12,19 @@ ms.author: moslake
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 09/14/2018
-ms.openlocfilehash: ee3b8c274b769cd570d70c5e0dfae939e030ecf5
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: 803bab4f0b91e2612abceedfa09baedaaea2a55e
+ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49352437"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49377952"
 ---
 # <a name="manage-file-space-in-azure-sql-database"></a>Hantera utrymmet i Azure SQL Database
 Den här artikeln beskrivs olika typer av lagringsutrymme i Azure SQL Database och steg som kan utföras när utrymmet som allokerats för databaser och elastiska pooler måste hanteras uttryckligen.
 
 ## <a name="overview"></a>Översikt
 
-I Azure SQL Database finns arbetsbelastningmönster där allokeringen av underliggande datafiler för databaser kan bli större än mängden data som används sidor. Detta kan inträffa när utrymme används ökar och data raderas. Det beror på att utrymme allokeras inte frigörs automatiskt när data tas bort.
+I Azure SQL Database finns arbetsbelastningmönster där allokeringen av underliggande datafiler för databaser kan bli större än mängden data som används sidor. Det här tillståndet kan inträffa när utrymme används ökar och data raderas. Anledningen är allokerade utrymmet inte frigörs automatiskt när data tas bort.
 
 Övervaka användning av utrymme och minska storleken på datafiler kan vara nödvändigt i följande scenarier:
 - Tillåt datatillväxt i en elastisk pool när den fil som allokerats för dess databaser når maximal poolstorlek.
@@ -32,11 +32,11 @@ I Azure SQL Database finns arbetsbelastningmönster där allokeringen av underli
 - Tillåtet att ändra en enkel databas eller elastisk pool till en annan tjänstnivå eller prestandanivå med en lägre maxstorleken.
 
 ### <a name="monitoring-file-space-usage"></a>Övervaka användning av diskutrymme
-De flesta mätvärden i storage utrymme visas i Azure portal och följande API: er mäta endast mängden data som används sidor:
+De flesta mätvärden i storage utrymme visas i Azure portal och följande API: er endast mäta storleken på data som används sidor:
 - Azure Resource Manager baserade mått API: er, inklusive PowerShell [get-mått](https://docs.microsoft.com/powershell/module/azurerm.insights/get-azurermmetric)
 - T-SQL: [sys.dm_db_resource_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database)
 
-Dock följande API: er också mäta hur mycket utrymme som allokerats för databaser och elastiska pooler:
+Dock följande API: er också mäta storleken på disken för databaser och elastiska pooler:
 - T-SQL: [sys.resource_stats](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database)
 - T-SQL: [sys.elastic_pool_resource_stats](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-elastic-pool-resource-stats-azure-sql-database)
 
@@ -110,7 +110,7 @@ Förstå följande storage utrymme kvantiteter är viktiga för att hantera filu
 |**Datautrymme som används**|Summering av datautrymme som används av alla databaser i den elastiska poolen.||
 |**Data som allokerats**|Summan av data som har allokerats av alla databaser i den elastiska poolen.||
 |**Data som har allokerats men används inte**|Skillnaden mellan mängden data som allokerats och datautrymme som används av alla databaser i den elastiska poolen.|Den här datamängden representerar den maximala mängden utrymme som allokerats för den elastiska poolen som kan vara frigöras genom att minska storleken på databasfiler för data.|
-|**Maximal datastorlek**|Högsta mängden utrymme som kan användas av den elastiska poolen för alla dess databaser.|Det tilldelade utrymmet för den elastiska poolen får inte överskrida den maximala storleken för elastisk pool.  Om detta inträffar kan allokerat utrymme som är oanvända återtas genom att minska storleken på databasfiler för data.|
+|**Maximal datastorlek**|Högsta mängden utrymme som kan användas av den elastiska poolen för alla dess databaser.|Det tilldelade utrymmet för den elastiska poolen får inte överskrida den maximala storleken för elastisk pool.  Om detta tillstånd inträffar kan allokerat utrymme som inte används vara frigöras genom att minska storleken på databasfiler för data.|
 ||||
 
 ## <a name="query-an-elastic-pool-for-storage-space-information"></a>Fråga en elastisk pool för information om diskutrymme
@@ -131,7 +131,7 @@ ORDER BY end_time DESC
 
 ### <a name="elastic-pool-data-space-allocated-and-unused-allocated-space"></a>Elastisk pool datautrymme allokeras och oanvända allokerat utrymme
 
-Ändra följande PowerShell-skript för att returnera en tabell som listar det tilldelade utrymmet och oanvända allokerat utrymme för varje databas i en elastisk pool. Tabellen beställningar databaser från de som har störst oanvända allokerat utrymme för att den minsta uppsättningen oanvända allokerat utrymme.  Enheter av frågeresultatet är i MB.  
+Ändra följande PowerShell-skript för att returnera en tabell som listar det tilldelade utrymmet och oanvända allokerat utrymme för varje databas i en elastisk pool. Tabellen beställningar databaser från dessa databaser med störst oanvända allokerat utrymme för att den minsta uppsättningen oanvända allokerat utrymme.  Enheter av frågeresultatet är i MB.  
 
 Resultatet av frågan för att fastställa det tilldelade utrymmet för varje databas i poolen kan läggas till tillsammans att fastställa det totala utrymmet som allokerats för den elastiska poolen. Det tilldelade utrymmet för elastisk pool får inte överskrida den maximala storleken för elastisk pool.  
 
@@ -201,17 +201,35 @@ ORDER BY end_time DESC
 
 ## <a name="reclaim-unused-allocated-space"></a>Frigöra oanvänt allokerade utrymme
 
-När databaser har identifierats för att frigöra oanvänt allokerade utrymme, ändrar du följande kommando för att minska datafiler för varje databas.
+### <a name="dbcc-shrink"></a>DBCC förminskas
+
+När databaser har identifierats för att frigöra oanvänt allokerade utrymme, ändra namnet på databasen i följande kommando för att minska datafiler för varje databas.
 
 ```sql
 -- Shrink database data space allocated.
 DBCC SHRINKDATABASE (N'db1')
 ```
 
+Det här kommandot kan påverka databasens prestanda när den körs, och om möjligt ska köras under perioder med låg belastning.  
+
 Mer information om det här kommandot finns i [SHRINKDATABASE](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-shrinkdatabase-transact-sql). 
 
-> [!IMPORTANT] 
-> Överväg att återskapande databasindex efter databasfiler för data är krympas, index kan bli fragmenterad och förlora effektiviteten prestanda optimering. Om detta inträffar bör index återskapas. Mer information om fragmentering och bygga om index finns i [Reorganize och bygg om index](https://docs.microsoft.com/sql/relational-databases/indexes/reorganize-and-rebuild-indexes).
+### <a name="auto-shrink"></a>Automatisk förminskas
+
+Du kan också kan automatiskt förminskas aktiveras för en databas.  Automatisk förminskas minskar filen komplex och påverkar mindre databasprestanda än SHRINKDATABASE eller SHRINKFILE.  Automatisk förminskas kan vara särskilt användbart för att hantera elastiska pooler med många databaser.  Automatisk förminskas är dock mindre effektiva i frigöra utrymme än SHRINKDATABASE och SHRINKFILE.
+Ändra namnet på databasen i följande kommando om du vill aktivera automatisk förminskas.
+
+
+```sql
+-- Enable auto-shrink for the database.
+ALTER DATABASE [db1] SET AUTO_SHRINK ON
+```
+
+Mer information om det här kommandot finns i [databasen in](https://docs.microsoft.com/en-us/sql/t-sql/statements/alter-database-transact-sql-set-options?view=sql-server-2017) alternativ. 
+
+### <a name="rebuild-indexes"></a>Återskapa index
+
+När data för databasfilerna är krympas index kan bli fragmenterad och förlora effektiviteten prestanda optimering. Om prestandaförsämring, Överväg att bygga om databasindex. Mer information om fragmentering och bygga om index finns i [Reorganize och bygg om index](https://docs.microsoft.com/sql/relational-databases/indexes/reorganize-and-rebuild-indexes).
 
 ## <a name="next-steps"></a>Nästa steg
 

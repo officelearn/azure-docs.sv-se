@@ -6,15 +6,15 @@ ms.service: automation
 ms.component: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 10/08/2018
+ms.date: 10/17/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 66f3558a4314b1639d54d4e8ea6814eea9064073
-ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
+ms.openlocfilehash: 2b1a6e2921fdaf9ede1184cfc02c3f61f63c60ac
+ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49113894"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49393772"
 ---
 # <a name="runbook-execution-in-azure-automation"></a>Runbook-körning i Azure Automation
 
@@ -135,19 +135,11 @@ Get-AzureRmLog -ResourceId $JobResourceID -MaxRecord 1 | Select Caller
 
 ## <a name="fair-share"></a>Rättmätiga del
 
-För att kunna dela resurser mellan alla runbooks i molnet, kommer Azure Automation tillfälligt bort jobb efter det har körts i tre timmar. Under denna tid jobb för [PowerShell-baserade runbooks](automation-runbook-types.md#powershell-runbooks) stoppas och är inte startas. Jobbet status visas **stoppad**. Den här typen av runbook startas alltid om från början, eftersom de inte stöder kontrollpunkter.
+För att kunna dela resurser mellan alla runbooks i molnet, kommer Azure Automation tillfälligt ta bort eller stoppa alla jobb som har körts i mer än tre timmar. Jobb för [PowerShell-baserade runbooks](automation-runbook-types.md#powershell-runbooks) och [Python runbooks](automation-runbook-types.md#python-runbooks) stoppas och startas om inte, och visar stoppad för jobbets status.
 
-[PowerShell-Arbetsflödesbaserade runbooks](automation-runbook-types.md#powershell-workflow-runbooks) återupptas från deras senaste [kontrollpunkt](https://docs.microsoft.com/system-center/sma/overview-powershell-workflows#bk_Checkpoints). När du har kört tre timmar, runbook-jobbet har pausats av tjänsten och dess status visas **som körs, väntar på resurser**. När en sandbox blir tillgängligt runbook sker en automatisk omstart av Automation-tjänsten och återupptar från den senaste kontrollpunkten. Det här beteendet är normalt PowerShell-arbetsflöde att pausa/starta om. Om runbook igen överskrider tre timmars körning, processen upprepas, upp till tre gånger. Efter den tredje omstarten, om runbooken fortfarande inte har slutförts inom tre timmar sedan runbook-jobbet misslyckades och jobbstatusen visas **misslyckades, väntar på resurser**. I så fall får du följande undantag fel.
+För tidskrävande aktiviteter rekommenderar vi att du använder en [Hybrid Runbook Worker](automation-hrw-run-runbooks.md#job-behavior). Hybrid Runbook Worker begränsas inte av rättmätiga del och inte har en begränsning på hur lång tid en runbook kan köra. Det andra jobbet [gränser](../azure-subscription-service-limits.md#automation-limits) gäller både Azure sandbox-miljöer och Hybrid Runbook Worker. Även om Hybrid Runbook Worker inte begränsas av tre timmar rättmätiga del gränsen, runbooks kördes på dem fortfarande ha utvecklats för att stödja omstart beteenden från oväntat lokala infrastruktur problem.
 
-*Jobbet kan inte fortsätta att köra eftersom den upprepade gånger har avlägsnats från samma kontrollpunkten. Kontrollera att din Runbook inte utför tidskrävande operationer utan att spara sitt tillstånd.*
-
-Det här beteendet är att skydda tjänsten från runbooks som körs på obestämd tid utan att slutföra, eftersom de inte göra det i nästa kontrollpunkt utan att tas bort från minnet igen.
-
-Om runbooken har inga kontrollpunkter eller jobbet hade inte nå den första kontrollpunkten innan tas bort från minnet, startas sedan om från början.
-
-För tidskrävande aktiviteter rekommenderar vi att du använder en [Hybrid Runbook Worker](automation-hrw-run-runbooks.md#job-behavior). Hybrid Runbook Worker begränsas inte av rättmätiga del och inte har en begränsning på hur lång tid en runbook kan köra. Det andra jobbet [gränser](../azure-subscription-service-limits.md#automation-limits) gäller både Azure sandbox-miljöer och Hybrid Runbook Worker.
-
-Om du använder en PowerShell Workflow-runbook i Azure, när du skapar en runbook, bör du kontrollera dags att utföra alla aktiviteter mellan två kontrollpunkter inte överskrider tre timmar. Du kan behöva lägga till kontrollpunkter till din runbook för att se till att det inte uppnår sin gräns för den här tre timmar eller dela upp långa åtgärder. Din runbook kan till exempel köra en reindex på en stor SQL-databas. Om den här enda åtgärden inte slutförs inom gränsen på rättmätiga del, tas bort från minnet jobbet och startas om från början. I det här fallet bör du dela upp reindex åtgärden i flera steg, t.ex omindexering en tabell i taget, och infoga en kontrollpunkt efter varje åtgärd så att jobbet återupptas efter den senaste åtgärden har slutförts.
+Ett annat alternativ är att optimera runbook med hjälp av underordnade runbooks. Om din runbook igenom samma funktion på ett antal resurser, till exempel en databasåtgärd på flera databaser kan du flytta funktionen till en [underordnad runbook](automation-child-runbooks.md) och anropa det med den [ Start-AzureRMAutomationRunbook](/powershell/module/azurerm.automation/start-azurermautomationrunbook) cmdlet. Var och en av dessa underordnade runbooks körs parallellt i separata processer, vilket minskar den överordnade runbookens totala körningstid. Du kan använda den [Get-AzureRmAutomationJob](/powershell/module/azurerm.automation/Get-AzureRmAutomationJob) cmdlet i din runbook för att kontrollera jobbstatus för varje underordnad om det finns åtgärder som måste utföras när den underordnade runbooken har slutförts.
 
 ## <a name="next-steps"></a>Nästa steg
 

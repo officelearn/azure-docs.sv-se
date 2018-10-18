@@ -9,12 +9,12 @@ ms.date: 03/05/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: f57db00894dab80f96f45111331d47a173520ced
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: ac729963e63bd97c83719e21dad3ad2cfc9b4fee
+ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39576006"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49392802"
 ---
 # <a name="install-the-iot-edge-runtime-on-windows-iot-core---preview"></a>Installera IoT Edge-körningen på Windows IoT Core – förhandsversion
 
@@ -27,7 +27,7 @@ Den här artikeln beskriver distribuera runtime på en tavla för utveckling som
 ## <a name="install-the-container-runtime"></a>Installera runtime behållare
 
 1. Konfigurera din tavla med **skapa 17134 (RS4)** IoT Core-avbildning. 
-1. Aktivera enheten, sedan [logga in via en fjärranslutning med PowerShell][lnk-powershell].
+1. Aktivera enheten, sedan [logga in via en fjärranslutning med PowerShell](https://docs.microsoft.com/windows/iot-core/connect-your-device/powershell).
 1. Installera runtime för behållare i PowerShell-konsolen: 
 
    ```powershell
@@ -45,15 +45,8 @@ Den här artikeln beskriver distribuera runtime på en tavla för utveckling som
 
 ## <a name="finish-installing"></a>Installationen är klar
 
-Installera IoT Edge Security Daemon och konfigurera den med hjälp av anvisningarna i [i den här artikeln][lnk-install-windows-on-windows]
+Installera IoT Edge Security Daemon och konfigurera den med hjälp av anvisningarna i [i den här artikeln](how-to-install-iot-edge-windows-with-windows.md)
 
 ## <a name="next-steps"></a>Nästa steg
 
-Nu när du har en enhet som kör IoT Edge-körningen, lär du dig hur du [distribuera och övervaka IoT Edge-moduler i stor skala][lnk-deploy].
-
-<!--Links-->
-[lnk-install-windows-on-windows]: how-to-install-iot-edge-windows-with-windows.md
-[lnk-powershell]: https://docs.microsoft.com/windows/iot-core/connect-your-device/powershell
-[lnk-deploy]: how-to-deploy-monitor.md
-[lnk-docker-install]: https://docs.docker.com/engine/installation/linux/docker-ce/binaries#install-server-and-client-binaries-on-windows
-[lnk-docker-containers]: https://docs.microsoft.com/virtualization/windowscontainers/quick-start/quick-start-windows-10#2-switch-to-windows-containers
+Nu när du har en enhet som kör IoT Edge-körningen, lär du dig hur du [distribuera och övervaka IoT Edge-moduler i stor skala](how-to-deploy-monitor.md).

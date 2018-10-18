@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 08/24/2018
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: 700465279a43a8490c5863e7181c4c4d009ee97b
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: abd751cf867fea2e634161c4cf0b1e84acbe18c6
+ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48857932"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49354116"
 ---
 # <a name="tutorial-bind-an-existing-custom-ssl-certificate-to-azure-web-apps"></a>Självstudie: Binda ett befintligt anpassat SSL-certifikat till Azure Web Apps
 
@@ -64,45 +64,7 @@ Om du vill använda ett certifikat i App Service måste certifikatet uppfylla al
 > [!NOTE]
 > **ECC-certifikat (Elliptic Curve Cryptography)** kan fungera med App Service, men behandlas inte i den här artikeln. Din certifikatutfärdare kan visa hur du skapar ECC-certifikat.
 
-## <a name="prepare-your-web-app"></a>Förbereda din webbapp
-
-Om du vill binda ett anpassat SSL-certifikat till din webbapp måste din [App Service-plan](https://azure.microsoft.com/pricing/details/app-service/) finnas på nivån **Basic**, **Standard**, **Premium** eller **Isolerad**. I det här steget ser du till att webbappen har en prisnivå som stöds.
-
-### <a name="log-in-to-azure"></a>Logga in på Azure
-
-Öppna [Azure-portalen](https://portal.azure.com).
-
-### <a name="navigate-to-your-web-app"></a>Navigera till din webbapp
-
-Klicka på **App Services** i menyn till vänster och sedan på namnet på din webbapp.
-
-![Välja webbapp](./media/app-service-web-tutorial-custom-ssl/select-app.png)
-
-Du har kommit till hanteringssidan för din webbapp.  
-
-### <a name="check-the-pricing-tier"></a>Kontrollera prisnivån
-
-I det vänstra navigeringsfältet på webbappsidan bläddrar du till avsnittet **Inställningar** och väljer **Skala upp (App Service-plan)**.
-
-![Skala upp-menyn](./media/app-service-web-tutorial-custom-ssl/scale-up-menu.png)
-
-Kontrollera att webbappen inte är på nivån **F1** eller **D1**. Appens aktuella nivå markeras med en mörkblå ruta.
-
-![Kontrollera prisnivå](./media/app-service-web-tutorial-custom-ssl/check-pricing-tier.png)
-
-Anpassat SSL stöds inte på nivån **F1** eller **D1**. Om du behöver skala upp följer du stegen i nästa avsnitt. I annat fall stänger du sidan **Skala upp** och går vidare till [Ladda upp och binda SSL-certifikat](#upload).
-
-### <a name="scale-up-your-app-service-plan"></a>Skala upp App Service-planen
-
-Välj någon av betalnivåerna (**B1**, **B2**, **B3** eller någon nivå i kategorin **Produktion**). Klicka på **Visa ytterligare alternativ** om du vill se fler alternativ.
-
-Klicka på **Verkställ**.
-
-![Välja prisnivå](./media/app-service-web-tutorial-custom-ssl/choose-pricing-tier.png)
-
-När du ser följande meddelande har skalningsåtgärden slutförts.
-
-![Uppskalningsmeddelande](./media/app-service-web-tutorial-custom-ssl/scale-notification.png)
+[!INCLUDE [Prepare your web app](../../includes/app-service-ssl-prepare-app.md)]
 
 <a name="upload"></a>
 

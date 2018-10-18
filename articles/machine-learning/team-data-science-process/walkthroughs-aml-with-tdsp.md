@@ -1,10 +1,10 @@
 ---
-title: HDInsight Spark genomgång med hjälp av PySpark och Scala i Azure | Microsoft Docs
-description: Exempel på Team av vetenskapliga data som beskriver genom att använda PySpark och Scala på ett Azure HDInsight Spark att göra förutsägelseanalyser.
+title: Genomgångar för HDInsight Spark med PySpark och Scala på Azure | Microsoft Docs
+description: Exempel på Team Data Science Process som går genom att använda PySpark och Scala i ett Azure HDInsight Spark att göra förutsägelseanalyser.
 services: machine-learning
 documentationcenter: ''
 author: deguhath
-manager: jhubbard
+manager: cgronlun
 editor: cgronlun
 ms.assetid: ''
 ms.service: machine-learning
@@ -15,30 +15,30 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/04/2017
 ms.author: deguhath
-ms.openlocfilehash: 55b1fbf3aa7dab9c732dab65661f199c60413b4a
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 278fb386e757b64b35b4d1baaf04dcc54c20ee67
+ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34838457"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49392580"
 ---
-# <a name="team-data-science-structured-projects-in-azure-machine-learning-workbench"></a>Datavetenskap strukturerad grupprojekt i Azure Machine Learning arbetsstationen
+# <a name="team-data-science-structured-projects-in-azure-machine-learning-workbench"></a>Team Data Science strukturerade projekt i Azure Machine Learning Workbench
 
-Dessa självstudier och exempel visar hur du skapar Team datavetenskap strukturerad projekt med Azure Machine Learning-arbetsstationen. En översikt över Team av vetenskapliga data, se [datavetenskap Process](overview.md). En översikt över Spark i HDInsight, se [introduktion till Spark i HDInsight](../../hdinsight/spark/apache-spark-overview.md).
+Dessa självstudier och exempel visar hur du skapar Team Data Science strukturerade projekt med Azure Machine Learning Workbench. En översikt över Team Data Science Process, se [Data Science Process](overview.md). En översikt över Apache Spark i HDInsight finns i [introduktion till Spark i HDInsight](../../hdinsight/spark/apache-spark-overview.md).
 
-Ytterligare datavetenskap genomgångar som kör Team datavetenskap Process grupperas efter den **plattform** som de använder. Se [genomgång köra Team av vetenskapliga data](walkthroughs.md) för en specificering av de här exemplen.
+Ytterligare data science genomgångar som kör Team Data Science Process är grupperade efter den **plattform** som de använder. Se [genomgångar kör Team Data Science Process](walkthroughs.md) för en specifikation av de här exemplen.
 
-## <a name="classify-uci-incomes-in-azure-machine-learning-workbench"></a>Klassificera UCI inkomster i Azure Machine Learning arbetsstationen
+## <a name="classify-uci-incomes-in-azure-machine-learning-workbench"></a>Klassificera inkomster UCI i Azure Machine Learning Workbench
 
-En självstudiekurs visar hur skapar ett TDSP projekt i Azure Machine Learning arbetsstationen finns [Team datavetenskap processen Självstudier: klassificera UCI inkomster i Azure Machine Learning arbetsstationen](../desktop-workbench/scenario-tdsp-classifying-us-incomes.md) 
+En självstudie som visar hur skapa ett projekt med TDSP i Azure Machine Learning Workbench, finns i [Team Data Science Process Tutorial: klassificera UCI inkomster i Azure Machine Learning Workbench](../desktop-workbench/scenario-tdsp-classifying-us-incomes.md) 
 
 
-## <a name="biomedical-entity-recognition-using-natural-language-processing-with-deep-learning"></a>Biomedicinska entitet bokföring med hjälp av naturligt språk bearbetning med djup Learning
+## <a name="biomedical-entity-recognition-using-natural-language-processing-with-deep-learning"></a>Biomedicinsk Enhetsidentifiering med bearbetning av naturligt språk med Djupinlärning
 
-Ett exempel som använder ett TDSP instansierad projekt i Azure Machine Learning arbetsstationen finns [biomedicinska entitet bokföring med hjälp av naturligt språk bearbetning med djup Learning](../desktop-workbench/scenario-tdsp-biomedical-recognition.md)
+Ett exempel som använder ett projekt med TDSP-instans i Azure Machine Learning Workbench finns [biomedicinsk med bearbetning av naturligt språk med Djupinlärning](../desktop-workbench/scenario-tdsp-biomedical-recognition.md)
 
 ## <a name="next-steps"></a>Nästa steg
 
-En beskrivning av de viktiga komponenter som utgör teamet datavetenskap Process finns [Team datavetenskap processöversikt](overview.md).
+En beskrivning av de viktigaste komponenterna som utgör Team Data Science Process finns i [Team Data Science Process översikt](overview.md).
 
-En beskrivning av livscykeln Team av vetenskapliga data som du kan använda för att strukturera datavetenskap projekt finns [Team datavetenskap Process livscykel](lifecycle.md). Livscykeln beskrivs stegen från början till slut att projekt vanligtvis följer när de utförs. 
+En beskrivning av livscykeln för Team Data Science Process som du kan använda för att strukturera dina dataforskningsprojekt finns [Team Data Science Process-livscykeln](lifecycle.md). Livscykeln beskrivs stegen, från början till slut att projekt vanligtvis följer när de utförs. 

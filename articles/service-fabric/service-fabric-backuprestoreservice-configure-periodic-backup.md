@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/01/2018
 ms.author: hrushib
-ms.openlocfilehash: 4aeb37d656dcb5ebca1a48253c418186dfca0a7a
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: eeaa0e9a940f16c2416418959c98cd17e4816afc
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45575431"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49387641"
 ---
 # <a name="understanding-periodic-backup-configuration-in-azure-service-fabric"></a>Förstå periodiska konfiguration av säkerhetskopiering i Azure Service Fabric
 
@@ -155,23 +155,23 @@ Anta att dessa program behov för säkerhetskopiering av data är följande
 
 För att åtgärda dessa behov för säkerhetskopiering av data, säkerhetskopieringspolicyer BP_1 att BP_5 skapas och säkerhetskopiering är aktiverat på följande sätt.
 1. MyApp_A
-    1. Skapa säkerhetskopieringsprincip, _BP_1_, med frekvensbaserad Säkerhetskopieringsschemat där frekvensen är inställd på 24 timmar. och lagring som konfigurerats för att använda lagringsplats för säkerhetskopior _BackupStore1_. Aktivera den här principen för program, _MyApp_A_ med [aktivera programmet Säkerhetskopiering](https://docs.microsoft.com/en-in/rest/api/servicefabric/sfclient-api-enableapplicationbackup) API. Den här åtgärden aktiverar säkerhetskopiering av data med hjälp av säkerhetskopieringsprincipen _BP_1_ för alla partitioner i _Reliable Stateful services_ och _Reliable Actors_ som hör till programmet  _MyApp_A_.
+    1. Skapa säkerhetskopieringsprincip, _BP_1_, med frekvensbaserad Säkerhetskopieringsschemat där frekvensen är inställd på 24 timmar. och lagring som konfigurerats för att använda lagringsplats för säkerhetskopior _BackupStore1_. Aktivera den här principen för program, _MyApp_A_ med [aktivera programmet Säkerhetskopiering](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-enableapplicationbackup) API. Den här åtgärden aktiverar säkerhetskopiering av data med hjälp av säkerhetskopieringsprincipen _BP_1_ för alla partitioner i _Reliable Stateful services_ och _Reliable Actors_ som hör till programmet  _MyApp_A_.
 
-    2. Skapa säkerhetskopieringsprincip, _BP_2_, med frekvensbaserad Säkerhetskopieringsschemat där frekvensen är inställd på 1 timme. och lagring som konfigurerats för att använda lagringsplats för säkerhetskopior _BackupStore1_. Aktivera den här principen för tjänsten _SvcA3_ med [aktivera tjänsten säkerhetskopiering](https://docs.microsoft.com/en-in/rest/api/servicefabric/sfclient-api-enableservicebackup) API. Den här åtgärden åsidosätts spridda principen _BP_1_ genom att uttryckligen har aktiverats säkerhetskopieringsprincip _BP_2_ för alla partitioner i tjänsten _SvcA3_ leder till säkerhetskopiering av data med hjälp av backup principen _BP_2_ för de här partitionerna.
+    2. Skapa säkerhetskopieringsprincip, _BP_2_, med frekvensbaserad Säkerhetskopieringsschemat där frekvensen är inställd på 1 timme. och lagring som konfigurerats för att använda lagringsplats för säkerhetskopior _BackupStore1_. Aktivera den här principen för tjänsten _SvcA3_ med [aktivera tjänsten säkerhetskopiering](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-enableservicebackup) API. Den här åtgärden åsidosätts spridda principen _BP_1_ genom att uttryckligen har aktiverats säkerhetskopieringsprincip _BP_2_ för alla partitioner i tjänsten _SvcA3_ leder till säkerhetskopiering av data med hjälp av backup principen _BP_2_ för de här partitionerna.
 
-    3. Skapa säkerhetskopieringsprincip, _BP_3_, med frekvensbaserad Säkerhetskopieringsschemat där frekvensen är inställd på 24 timmar. och lagring som konfigurerats för att använda lagringsplats för säkerhetskopior _BackupStore2_. Aktivera den här principen för partitionen _SvcA1_P2_ med [aktivera Partition säkerhetskopiering](https://docs.microsoft.com/en-in/rest/api/servicefabric/sfclient-api-enablepartitionbackup) API. Den här åtgärden åsidosätts spridda principen _BP_1_ genom att uttryckligen har aktiverats säkerhetskopieringsprincip _BP_3_ för partitionen _SvcA1_P2_.
+    3. Skapa säkerhetskopieringsprincip, _BP_3_, med frekvensbaserad Säkerhetskopieringsschemat där frekvensen är inställd på 24 timmar. och lagring som konfigurerats för att använda lagringsplats för säkerhetskopior _BackupStore2_. Aktivera den här principen för partitionen _SvcA1_P2_ med [aktivera Partition säkerhetskopiering](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-enablepartitionbackup) API. Den här åtgärden åsidosätts spridda principen _BP_1_ genom att uttryckligen har aktiverats säkerhetskopieringsprincip _BP_3_ för partitionen _SvcA1_P2_.
 
 2. MyApp_B
-    1. Skapa säkerhetskopieringsprincip, _BP_4_med tidsbaserade Säkerhetskopieringsschemat där schematyp frekvensen är inställd på veckovis, kör dagar är inställd på söndag och körtider anges till 8:00:00. Lagring som konfigurerats för att använda lagringsplats för säkerhetskopior _BackupStore1_. Aktivera den här principen för tjänsten _SvcB1_ med [aktivera tjänsten säkerhetskopiering](https://docs.microsoft.com/en-in/rest/api/servicefabric/sfclient-api-enableservicebackup) API. Den här åtgärden aktiverar säkerhetskopiering av data med hjälp av säkerhetskopieringsprincipen _BP_4_ för alla partitioner i tjänsten _SvcB1_.
+    1. Skapa säkerhetskopieringsprincip, _BP_4_med tidsbaserade Säkerhetskopieringsschemat där schematyp frekvensen är inställd på veckovis, kör dagar är inställd på söndag och körtider anges till 8:00:00. Lagring som konfigurerats för att använda lagringsplats för säkerhetskopior _BackupStore1_. Aktivera den här principen för tjänsten _SvcB1_ med [aktivera tjänsten säkerhetskopiering](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-enableservicebackup) API. Den här åtgärden aktiverar säkerhetskopiering av data med hjälp av säkerhetskopieringsprincipen _BP_4_ för alla partitioner i tjänsten _SvcB1_.
 
-    2. Skapa säkerhetskopieringsprincip, _BP_5_, med tidsbaserade Säkerhetskopieringsschemat där schematyp frekvensen är inställd på varje dag och körtider anges till 8:00:00. Lagring som konfigurerats för att använda lagringsplats för säkerhetskopior _BackupStore1_. Aktivera den här principen för partitionen _SvcB2_P1_ med [aktivera Partition säkerhetskopiering](https://docs.microsoft.com/en-in/rest/api/servicefabric/sfclient-api-enablepartitionbackup) API. Den här åtgärden aktiverar säkerhetskopiering av data med hjälp av säkerhetskopieringsprincipen _BP_5_ för partitionen _SvcB2_P1_.
+    2. Skapa säkerhetskopieringsprincip, _BP_5_, med tidsbaserade Säkerhetskopieringsschemat där schematyp frekvensen är inställd på varje dag och körtider anges till 8:00:00. Lagring som konfigurerats för att använda lagringsplats för säkerhetskopior _BackupStore1_. Aktivera den här principen för partitionen _SvcB2_P1_ med [aktivera Partition säkerhetskopiering](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-enablepartitionbackup) API. Den här åtgärden aktiverar säkerhetskopiering av data med hjälp av säkerhetskopieringsprincipen _BP_5_ för partitionen _SvcB2_P1_.
 
 Följande diagram visar uttryckligen aktiverade principer för säkerhetskopiering och sprids principer för säkerhetskopiering.
 
 ![Service Fabric-Programhierarki][0]
 
 ## <a name="disable-backup"></a>Inaktivera säkerhetskopiering
-Principer för säkerhetskopiering kan inaktiveras när det finns inget behov av att säkerhetskopierade data. Säkerhetskopiera principen är aktiverad på en _programmet_ kan endast inaktiveras på samma _programmet_ med [inaktivera säkerhetskopia på programnivå](https://docs.microsoft.com/en-in/rest/api/servicefabric/sfclient-api-disableapplicationbackup) API, säkerhetskopiering principen är aktiverad på en _service_ kan inaktiveras på samma _service_ med [inaktivera tjänsten Backup](https://docs.microsoft.com/en-in/rest/api/servicefabric/sfclient-api-disableservicebackup) API, och säkerhetskopiera principen är aktiverad på en _partition_ kan inaktiveras på samma _partition_ med [inaktivera Backup för Partition](https://docs.microsoft.com/en-in/rest/api/servicefabric/sfclient-api-disablepartitionbackup) API.
+Principer för säkerhetskopiering kan inaktiveras när det finns inget behov av att säkerhetskopierade data. Säkerhetskopiera principen är aktiverad på en _programmet_ kan endast inaktiveras på samma _programmet_ med [inaktivera säkerhetskopia på programnivå](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-disableapplicationbackup) API, säkerhetskopiering principen är aktiverad på en _service_ kan inaktiveras på samma _service_ med [inaktivera tjänsten Backup](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-disableservicebackup) API, och säkerhetskopiera principen är aktiverad på en _partition_ kan inaktiveras på samma _partition_ med [inaktivera Backup för Partition](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-disablepartitionbackup) API.
 
 * Inaktiverar princip för säkerhetskopiering för en _program_ stoppar alla regelbundna säkerhetskopior som sker till följd av spridningen av principen för säkerhetskopiering till tillförlitliga tillståndskänslig tjänstpartitioner eller Reliable Actor-partitioner.
 

@@ -13,12 +13,12 @@ ms.topic: troubleshooting
 ms.workload: infrastructure-services
 ms.date: 09/18/2018
 ms.author: vashan, rajraj, changov
-ms.openlocfilehash: d9d9e9cdb791504c864cae20d1248ba78a180a4c
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: b951d0b8d91729340cf382e70f72511fb009053e
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49320279"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49386560"
 ---
 # <a name="troubleshooting-api-throttling-errors"></a>Felsökning av API-begränsningsfel 
 
@@ -26,7 +26,7 @@ Azure Compute-begäranden kan att begränsas på en prenumeration och på basis 
 
 ## <a name="throttling-by-azure-resource-manager-vs-resource-providers"></a>Begränsning av Azure Resource Manager vs Resursprovidrar  
 
-Azure Resource Manager sker valideringen av autentisering och första ordningen och begränsningar för all inkommande API-begäranden som åtkomsten till Azure. Hastighetsbegränsningar för anrop till Azure Resource Manager och relaterade diagnostiska HTTP-svarshuvuden beskrivs [här](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-manager-request-limits).
+Azure Resource Manager sker valideringen av autentisering och första ordningen och begränsningar för all inkommande API-begäranden som åtkomsten till Azure. Hastighetsbegränsningar för anrop till Azure Resource Manager och relaterade diagnostiska HTTP-svarshuvuden beskrivs [här](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-request-limits).
  
 När en Azure API-klient hämtar en begränsning fel, är HTTP-status 429 för många förfrågningar. Information om den begärandebegränsning utförs av Azure Resource Manager eller en underliggande resursprovider som CRP och inspektera de `x-ms-ratelimit-remaining-subscription-reads` för GET-begäranden och `x-ms-ratelimit-remaining-subscription-writes` svarshuvuden för icke-GET-begäranden. Om det återstående antalet anrop närmar sig 0, har prenumerationens Allmänt anrop gränsen som definierats av Azure Resource Manager nåtts. Aktiviteter med hjälp av alla prenumerationsklienter räknas samman. Begränsningen i annat fall kommer från resursprovidern mål (det som beskrivs i den `/providers/<RP>` begäran-URL-segmentet). 
 
@@ -88,4 +88,4 @@ Enligt beskrivningen ovan, varje begränsning fel innehåller den `Retry-After` 
 
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information om riktlinjer för återförsök för andra tjänster i Azure finns i [vägledningen om återförsök för specifika tjänster](https://docs.microsoft.com/en-us/azure/architecture/best-practices/retry-service-specific)
+Mer information om riktlinjer för återförsök för andra tjänster i Azure finns i [vägledningen om återförsök för specifika tjänster](https://docs.microsoft.com/azure/architecture/best-practices/retry-service-specific)

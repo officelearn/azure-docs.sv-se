@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: timlt
-ms.openlocfilehash: a40f4489e63c30a101dd708b5a175c25788fb04b
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 51e96065f726fadd528323157609034b5bb3f151
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46976762"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49387896"
 ---
 # <a name="how-to-roll-x509-device-certificates"></a>Hur du ska distribuera X.509-enhetscertifikat
 
@@ -52,7 +52,7 @@ När en enhet har etablerats via automatisk etablering, den startas upp och kont
 
 När ett nytt lövcertifikat har återställts till enheten, kan den inte längre ansluta till IoT hub eftersom den använder ett nytt certifikat för att ansluta. IoT hub kan endast identifiera enheten med det gamla certifikatet. Resultatet av anslutningsförsök till enheten kommer att felmeddelandet ”obehörig” anslutning. För att lösa det här felet måste du uppdatera registreringspost för enheten att kompensera för enhetens nya lövcertifikatet. Etableringstjänsten kan sedan uppdatera IoT Hub device registerinformationen efter behov när enheten är nätverkskonfigurationsinställningar. 
 
-Ett möjligt undantag till den här anslutningsfel är ett scenario där du har skapat en [Registreringsgruppen](concepts-service.md#enrollment-group) för din enhet i etableringstjänsten. I det här fallet om du inte löpande rot- eller mellanliggande certifikat i enhetens certifikatkedja, identifieras sedan enheten om det nya certifikatet ingår i förtroendekedjan som definierats i registreringsgruppen. Om det här scenariot uppstår som en reaktion på en säkerhetsöverträdelse, bör du minst svartlista specifik enhet certifikaten i gruppen som anses vara brott mot. Mer information finns i [Svartlista specifika enheter i en registreringsgrupp](https://docs.microsoft.com/en-us/azure/iot-dps/how-to-revoke-device-access-portal#blacklist-specific-devices-in-an-enrollment-group).
+Ett möjligt undantag till den här anslutningsfel är ett scenario där du har skapat en [Registreringsgruppen](concepts-service.md#enrollment-group) för din enhet i etableringstjänsten. I det här fallet om du inte löpande rot- eller mellanliggande certifikat i enhetens certifikatkedja, identifieras sedan enheten om det nya certifikatet ingår i förtroendekedjan som definierats i registreringsgruppen. Om det här scenariot uppstår som en reaktion på en säkerhetsöverträdelse, bör du minst svartlista specifik enhet certifikaten i gruppen som anses vara brott mot. Mer information finns i [Svartlista specifika enheter i en registreringsgrupp](https://docs.microsoft.com/azure/iot-dps/how-to-revoke-device-access-portal#blacklist-specific-devices-in-an-enrollment-group).
 
 Uppdaterar poster för registrering för certifikat som återkallas görs på den **hantera registreringar** sidan. Följ dessa steg för att komma åt sidan:
 

@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/11/2018
 ms.author: nisoneji
-ms.openlocfilehash: dba323b8cd57dd33c1477027f853cba3c95c8a07
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: 40a8e2e6d994608d4aa26f6d9b3723c0ee27d3db
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49092515"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49387250"
 ---
 # <a name="cost-estimation-report-by-azure-site-recovery-deployment-planner"></a>Rapporten Kostnadsuppskattning från Distributionshanteraren för Azure Site Recovery 
 
@@ -143,7 +143,7 @@ Så här lägger du till virtuella datorer manuellt:
 
 **Antal DR-tester under ett år**: Antalet gånger som du utför DR-tester under ett år. Standardvärdet är fyra gånger per år. Antalet kan ändras för specifika virtuella datorer eller för alla virtuella datorer. Ange det nya värdet i den övre raden och välj **Använd för alla**. Den totala kostnaden för DR-tester är baserad på antalet DR-tester under ett år och varaktigheten för varje DR-test. 
 
-**Varaktighet för varje DR-test (dagar)**: Varaktigheten för varje DR-test. Standardvärdet är sju dagar var 90:e dag enligt förmånen [Disaster Recovery Software Assurance](https://azure.microsoft.com/en-in/pricing/details/site-recovery). Perioden kan ändras för specifika virtuella datorer eller för alla virtuella datorer. Ange ett nytt värde i den övre raden och välj **Använd för alla**. Totalkostnad för DR-tester beräknas baserat på antalet DR-tester under ett år och varaktigheten för varje DR-testperiod.
+**Varaktighet för varje DR-test (dagar)**: Varaktigheten för varje DR-test. Standardvärdet är sju dagar var 90:e dag enligt förmånen [Disaster Recovery Software Assurance](https://azure.microsoft.com/pricing/details/site-recovery). Perioden kan ändras för specifika virtuella datorer eller för alla virtuella datorer. Ange ett nytt värde i den övre raden och välj **Använd för alla**. Totalkostnad för DR-tester beräknas baserat på antalet DR-tester under ett år och varaktigheten för varje DR-testperiod.
  
 **OS-typ**: Den virtuella datorns operativsystem. Det är antingen Windows eller Linux. Om OS-typen är Windows kan du använda Azure Hybrid-förmånen för den virtuella datorn. 
 

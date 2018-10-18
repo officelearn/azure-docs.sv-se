@@ -9,12 +9,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/10/2018
 ms.author: sujayt
-ms.openlocfilehash: 0e9c5c7ebaaa0a51d723340751e8ea82bfb96b5e
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: 49773e076ed8bb06ff76f9f654b914a709051fb5
+ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47433675"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49378626"
 ---
 # <a name="support-matrix-for-replicating-from-one-azure-region-to-another"></a>Stöd matrix för replikering från en Azure-region till en annan
 
@@ -28,7 +28,7 @@ Den här artikeln sammanfattar konfigurationer som stöds och komponenter när d
 --- | ---
 **Azure Portal** | Stöds
 **PowerShell** | [Replikering från Azure till Azure med PowerShell](azure-to-azure-powershell.md)
-**REST API** | Stöds för närvarande inte
+**REST-API** | Stöds för närvarande inte
 **CLI** | Stöds för närvarande inte
 
 
@@ -69,7 +69,7 @@ Den nedan support som gäller för alla arbetsbelastningar som körs på den nä
 - SUSE Linux Enterprise Server 12 SP1, SP2, SP3 [ (kernel-versioner som stöds)](#supported-suse-linux-enterprise-server-12-kernel-versions-for-azure-virtual-machines)
 - SUSE Linux Enterprise Server 11 SP3
 - SUSE Linux Enterprise Server 11 SP4
-- Oracle Enterprise Linux 6.4, 6.5, 6.6, 6.7 som kör Red Hat kompatibla kernel eller Unbreakable Enterprise Kernel version 3 (UEK3)
+- Oracle Linux 6.4, 6.5, 6.6, 6.7 som kör Red Hat kompatibla kernel eller Unbreakable Enterprise Kernel version 3 (UEK3)
 
 (För att replikera datorer från SLES 11 SP3 till SLES 11 SP4 kan inte uppgradera. Om en replikerad dator har uppgraderats från SLES 11SP3 till SLES 11 SP4, måste du du inaktivera replikering och skydda datorn igen efter uppgraderingen.)
 

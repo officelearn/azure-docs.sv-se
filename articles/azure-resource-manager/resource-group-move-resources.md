@@ -10,14 +10,14 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/25/2018
+ms.date: 10/17/2018
 ms.author: tomfitz
-ms.openlocfilehash: 33d5560f2bfef04678cf7a2236fd920385d68aac
-ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
+ms.openlocfilehash: c32c4f97a963485e87e36afc44e9cea2ebcebd90
+ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47452164"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49394422"
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>Flytta resurser till ny resursgrupp eller prenumeration
 
@@ -110,7 +110,7 @@ Kontakta [stöder](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpA
 
 ## <a name="validate-move"></a>Verifiera flytt
 
-Den [verifiera flyttåtgärden](/rest/api/resources/resources/validatemoveresources) kan du testa ditt move-scenario utan att faktiskt flytta resurserna. Använd den här åtgärden för att avgöra om flytten lyckas. Om du vill köra den här åtgärden, måste den:
+Den [verifiera flyttåtgärden](/rest/api/resources/resources/resources_validatemoveresources) kan du testa ditt move-scenario utan att faktiskt flytta resurserna. Använd den här åtgärden för att avgöra om flytten lyckas. Om du vill köra den här åtgärden, måste den:
 
 * namn på resursgrupp för källa
 * resurs-ID för målresursgruppen
@@ -219,7 +219,7 @@ Följande lista innehåller en allmän översikt över Azure-tjänster som kan f
 * Search
 * Service Bus
 * Service Fabric
-* Service Fabric-nät
+* Service Fabric Mesh
 * SignalR Service
 * Storage - konton i olika regioner kan inte flyttas på samma gång. Använd i stället separata åtgärder för varje region.
 * Storage (klassisk) – Se [begränsningar för klassisk distribution](#classic-deployment-limitations)

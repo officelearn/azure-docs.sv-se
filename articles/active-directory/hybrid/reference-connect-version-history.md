@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 09/06/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: f3b80af1dfaca921efbe656356e85aeb353a576b
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 93bd141b591cda5ec6ff1d9d042222070d3146e6
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46315310"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49390320"
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect: Versionshistorik
 Azure Active Directory (Azure AD)-teamet uppdaterar regelbundet Azure AD Connect med nya funktioner. Inte alla tillägg gäller för alla målgrupper.
@@ -112,7 +112,7 @@ Nya funktioner och förbättringar
 
 ### <a name="fixed-issues"></a>Åtgärdade problem 
 
-- Den här versionen uppdaterar SQL Server Express-installationen till SQL Server 2012 SP4, som bland annat innehåller korrigeringar för flera säkerhetsrisker.  Se [här](https://support.microsoft.com/en-ca/help/4018073/sql-server-2012-service-pack-4-release-information) för mer information om SQL Server 2012 SP4.
+- Den här versionen uppdaterar SQL Server Express-installationen till SQL Server 2012 SP4, som bland annat innehåller korrigeringar för flera säkerhetsrisker.  Se [här](https://support.microsoft.com/help/4018073/sql-server-2012-service-pack-4-release-information) för mer information om SQL Server 2012 SP4.
 - Synkronisera Regelbearbetning: utgående anslutning till Synkroniseringsregler utan delta villkor ska vara ej tillämpade om överordnad synkronisering regeln inte längre är tillämplig
 - Flera hjälpmedel korrigeringar har tillämpats på Synchronization Service Manager-UI och Regelredigeraren synkronisering
 - Azure AD Connect-guiden: Fel vid skapande av AD-anslutningskontot när Azure AD Connect finns i en arbetsgrupp

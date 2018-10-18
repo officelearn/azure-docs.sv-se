@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/18/2018
 ms.author: pbutlerm
-ms.openlocfilehash: e01fc839e901b39618990946a11ee8883dbe5f74
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: 3b046022990e95e65ed02880bd3fefbd78bcad28
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48811754"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49387369"
 ---
 # <a name="publish-a-virtual-machine-to-azure-marketplace"></a>Publicera en virtuell dator på Azure Marketplace
 
@@ -43,7 +43,7 @@ Följande tekniska och icke-tekniska krav som gäller för att publicera en virt
 
 -   [Så här felsöker du vanliga problem som uppstod vid skapande av virtuell Hårddisk](https://docs.microsoft.com/azure/marketplace-publishing/marketplace-publishing-vm-image-creation-troubleshooting)
 
--   [Säkerhetsrekommendationer för Azure Marketplace-avbildningar](https://docs.microsoft.com/en-us/azure/security/security-recommendations-azure-marketplace-images)
+-   [Säkerhetsrekommendationer för Azure Marketplace-avbildningar](https://docs.microsoft.com/azure/security/security-recommendations-azure-marketplace-images)
 
 
 ### <a name="non-technical-business-requirements"></a>Icke-teknisk (affärskrav)

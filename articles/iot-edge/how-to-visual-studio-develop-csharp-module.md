@@ -9,12 +9,12 @@ ms.author: xshi
 ms.date: 09/24/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 9cc8e1db577859ad7637902a5ccd5a044efcd033
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 768ff899ca2c71cb32fe29bdd5d58654d8f7d431
+ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46978530"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49394756"
 ---
 # <a name="use-visual-studio-2017-to-develop-and-debug-c-modules-for-azure-iot-edge-preview"></a>Använd Visual Studio 2017 för att utveckla och felsöka C#-moduler för Azure IoT Edge (förhandsversion)
 
@@ -90,6 +90,21 @@ Den **IoTEdgeModule1** project är en .net Core 2,1 konsolprogram. Den innehåll
 C#-modul som medföljer lösningen standardkoden finns på **IoTEdgeModule1** > **Program.cs**. Modulen och filen deployment.template.json ställs in så att du kan skapa lösningen, push-överföra den till behållarregistret och distribuera den till en enhet för att börja testa utan att röra kod. Modulen är utformat för att helt enkelt ta indata från en källa (i det här fallet modulen tempSensor som simulerar data) och skicka det till IoT Hub. 
 
 När du är redo att anpassa mallen C# med din egen kod kan använda den [Azure IoT Hub SDK: er](../iot-hub/iot-hub-devguide-sdks.md) att skapa moduler adressen nyckeln måste för IoT-lösningar som säkerhet, hantering av enheter och tillförlitlighet. 
+
+## <a name="initialize-iotegehubdev-with-iot-edge-device-connection-string"></a>Initiera **iotegehubdev** med anslutningssträngen för IoT Edge-enhet
+
+1. Du behöver anslutningssträngen för alla IoT Edge-enhet, kan du kopiera värdet för ”primär anslutningssträng” från Cloud Explorer i Visual Studio 2017 följer. Kopiera inte anslutningssträngen för icke-Edge-enhet, ikonen för IoT Edge-enhet skiljer sig från det icke-Edge-enhet.
+
+   ![Kopiera anslutningssträngen för Edge-enhet](./media/how-to-visual-studio-develop-csharp-module/copy-edge-conn-string.png)
+
+2. Du behöver högerklickar du på **AzureIoTEdgeApp1** projektet för att öppna snabbmenyn och klicka sedan på **ange Edge Enhetsanslutningssträngen**, visas fönstret för Azure IoT Edge-inställningar.
+
+   ![Öppna Set Edge-Anslutningsfönster sträng](./media/how-to-visual-studio-develop-csharp-module/set-edge-conn-string.png)
+
+3. I fönstret Inställningar ange anslutningssträngen som du fick i det första steget och klicka på **OK** knappen.
+
+>[!NOTE]
+>Detta är endast arbete, du bara behöver köra det här steget en gång på en dator, alla efterföljande Azure IoT-Edge lösningar får om kostnadsfritt. Naturligtvis kan du ställa det här steget om anslutningssträngen är ogiltig eller om du behöver ändra till ytterligare en anslutningssträng.
 
 ## <a name="build-and-debug-single-c-module"></a>Skapa och Felsök enda C#-modul
 
@@ -190,7 +205,10 @@ I stegen i snabbstartsartikeln som du följde för att konfigurera IoT Edge-enhe
 
 2. I **Cloud Explorer**, expandera din prenumeration, hitta Azure IoT Hub och Azure IoT Edge-enheten som du vill distribuera.
 
-3. Högerklicka på IoT Edge-enhet för att skapa distribution för den, måste du välja distribution manifestfilen under den `$AzureIoTEdgeApp1\config\Debug|Release\deployment.json`.
+3. Högerklicka på IoT Edge-enhet för att skapa distribution för den, måste du välja distribution manifestfilen under den `$AzureIoTEdgeAppSolutionDir\config\deployment.(amd64|amd64.debug|windows-amd64).json`.
+
+>>[!NOTE]
+>>Du måste inte välja `$AzureIoTEdgeAppSolutionDir\config\deployment_for_local_debug.json`
 
 4. Klicka på uppdateringsknappen. Du bör se de nya modulerna som körs tillsammans med den **TempSensor** modulen och **$edgeAgent** och **$edgeHub**.
 

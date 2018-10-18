@@ -11,20 +11,20 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/01/2018
 ms.author: tomfitz
-ms.openlocfilehash: f19708d232080b53446bedd9316fcf9d7772890d
-ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
+ms.openlocfilehash: a5a2300bd0b768b4a29b01e75f9558c4923ac11c
+ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/01/2018
-ms.locfileid: "47585806"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49395140"
 ---
-# <a name="enable-safe-deployment-practices-with-azure-deployment-manager-public-preview"></a>Aktivera säker distribution metoder med Azure Deployment Manager (förhandsversion)
+# <a name="enable-safe-deployment-practices-with-azure-deployment-manager-private-preview"></a>Aktivera säker distribution metoder med Azure Deployment Manager (privat förhandsversion)
 
 För att distribuera tjänsten i många regioner och kontrollera att den körs som förväntat i varje region, kan du använda Distributionshanteraren för Azure för att samordna en stegvis distribution av tjänsten. Precis som för alla Azure-distribution, du definierar resurser för din tjänst i [Resource Manager-mallar](resource-group-authoring-templates.md). När du har skapat mallarna använda Deployment Manager för att beskriva topologin för din tjänst och hur den ska distribueras.
 
 Deployment Manager är en funktion i Resource Manager. Det utökar din funktioner under distributionen. Använd Deployment Manager när du har en komplex tjänst som måste distribueras till flera regioner. Av mellanlagring för distribution av tjänsten, kan du hitta potentiella problem innan den har distribuerats till alla regioner. Om du inte behöver extra säkerhetsåtgärder för en stegvis distribution kan använda standarden [distributionsalternativ](resource-group-template-deploy-portal.md) för Resource Manager. Deployment Manager integreras sömlöst med alla befintliga verktyg från tredje part som har stöd för Resource Manager-distributioner, till exempel kontinuerlig integrering och kontinuerlig leverans (CI/CD)-erbjudanden. 
 
-Azure Deployment Manager finns i offentlig förhandsversion. För att använda Azure Deployment Manager måste slutföra den [fyllt i registreringsformuläret](https://aka.ms/admsignup). Hjälp dig förbättra funktionen genom att tillhandahålla [feedback](https://aka.ms/admfeedback).
+Azure Deployment Manager är i privat förhandsversion. För att använda Azure Deployment Manager måste slutföra den [fyllt i registreringsformuläret](https://aka.ms/admsignup). Hjälp dig förbättra funktionen genom att tillhandahålla [feedback](https://aka.ms/admfeedback).
 
 Om du vill använda Deployment Manager, måste du skapa fyra filer:
 
@@ -37,7 +37,7 @@ Du kan distribuera mallen topologin innan du distribuerar mallen distributionen.
 
 ## <a name="supported-locations"></a>Platser som stöds
 
-Den offentliga förhandsversionen stöds Deployment Manager-resurser i centrala USA och östra USA 2. När du definierar resurser i din topologi och distribuera mallar, som serviceenheter, artefaktkällor och distributioner som beskrivs i den här artikeln måste du ange en av dessa regioner för platsen. De resurser som du distribuerar för att skapa din tjänst, till exempel virtuella datorer, lagringskonton och webbappar, stöds dock i alla sina [standardplatserna](https://azure.microsoft.com/global-infrastructure/services/?products=all).  
+För förhandsversionen stöds Deployment Manager-resurser i centrala USA och östra USA 2. När du definierar resurser i din topologi och distribuera mallar, som serviceenheter, artefaktkällor och distributioner som beskrivs i den här artikeln måste du ange en av dessa regioner för platsen. De resurser som du distribuerar för att skapa din tjänst, till exempel virtuella datorer, lagringskonton och webbappar, stöds dock i alla sina [standardplatserna](https://azure.microsoft.com/global-infrastructure/services/?products=all).  
 
 ## <a name="identity-and-access"></a>Identitet och åtkomst
 
@@ -89,7 +89,7 @@ I följande exempel visas det allmänna formatet för artefakten-källan.
 
 Mer information finns i [artifactSources mallreferensen](/azure/templates/Microsoft.DeploymentManager/artifactSources).
 
-### <a name="service-topology"></a>Tjänsten topologi
+### <a name="service-topology"></a>Tjänsttopologi
 
 I följande exempel visas det allmänna formatet för topologi tjänstresurs. Du kan ange resurs-ID för artefakten källan som innehåller mallar och parameterfilerna. Tjänsten topologin innehåller alla service-resurser. För att säkerställa artefakt-källan är tillgänglig, service-topologin är beroende av den.
 

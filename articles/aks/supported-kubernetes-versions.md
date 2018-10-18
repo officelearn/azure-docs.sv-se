@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 09/21/2018
 ms.author: saudas
-ms.openlocfilehash: 6b55825107ae8872b146b3ad4fde0ef4b917b71d
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: d8da717b83b43395309c695a4f9edaeda8144a8b
+ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47047995"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49379203"
 ---
 # <a name="supported-kubernetes-versions-in-azure-kubernetes-service-aks"></a>Kubernetes-versioner som stöds i Azure Kubernetes Service (AKS)
 
@@ -32,6 +32,29 @@ Exempel: om AKS introducerar *1.11.x* idag finns också stöd för *1.10.a* + *1
 När en ny delversion introduceras är de äldsta mindre version och patch versioner som stöds föråldrade. 15 dagar före lanseringen av den nya minor-version och kommande versionen dras tillbaka görs ett meddelande via uppdatering av Azure-kanaler. I exemplet ovan var *1.11.x* har lanserats utgångna versioner är *1.7.g* + *1.7.h*.
 
 När du distribuerar ett AKS-kluster i portalen eller med Azure CLI kan har klustret alltid värdet n-1 minor-version och senaste korrigeringen. Exempel: om AKS stöder *1.11.x*, *1.10.a* + *1.10.b*, *1.9.c* + *1,9 d* , *1.8.e* + *1.8F*, standardversionen för nya kluster är *1.10.b*.
+
+## <a name="list-currently-supported-versions"></a>Lista över versioner som stöds för närvarande
+
+Om du vill ta reda på vilka versioner som är tillgängliga för din prenumeration och region kan du använda den [az aks get-versioner] [ az-aks-get-versions] kommando. I följande exempel visar en lista över tillgängliga Kubernetes-versioner för den *EastUS* region:
+
+```azurecli-interactive
+az aks get-versions --location eastus --output table
+```
+
+Utdata liknar följande exempel som visar att Kubernetes-version *1.11.3* finns den senaste versionen:
+
+```
+KubernetesVersion    Upgrades
+-------------------  ----------------------
+1.11.3               None available
+1.11.2               1.11.3
+1.10.8               1.11.2, 1.11.3
+1.10.7               1.10.8, 1.11.2, 1.11.3
+1.9.10               1.10.7, 1.10.8
+1.9.9                1.9.10, 1.10.7, 1.10.8
+1.8.15               1.9.9, 1.9.10
+1.8.14               1.8.15, 1.9.9, 1.9.10
+```
 
 ## <a name="faq"></a>VANLIGA FRÅGOR OCH SVAR
 
@@ -65,3 +88,4 @@ Information om hur du uppgraderar klustret finns i [uppgradera ett kluster i Azu
 
 <!-- LINKS - Internal -->
 [aks-upgrade]: upgrade-cluster.md
+[az-aks-get-versions]: /cli/azure/aks#az-aks-get-versions

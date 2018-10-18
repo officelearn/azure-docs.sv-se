@@ -16,12 +16,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/01/2017
 ms.author: negat
-ms.openlocfilehash: 1716ebf1d3490511d7102c8c756c78c0f0c55291
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.openlocfilehash: e03016b80b0a7043a72e55b6c8b68b67b55283b1
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43669936"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49388134"
 ---
 # <a name="design-considerations-for-scale-sets"></a>Designöverväganden för Skalningsuppsättningar
 Den här artikeln beskriver designöverväganden för Skalningsuppsättningar för virtuella datorer. Information om Virtual Machine Scale Sets finns i [översikt över Skaluppsättningar för virtuell dator](virtual-machine-scale-sets-overview.md).
@@ -33,8 +33,8 @@ I allmänhet är skalningsuppsättningar användbara för att distribuera infras
 
 - När du anger skalningsuppsättningen konfiguration kan du uppdatera den *kapacitet* egenskapen att distribuera flera virtuella datorer samtidigt. Den här processen är bättre än att skriva ett skript för att dirigera distribuera många enskilda virtuella datorer samtidigt.
 - Du kan [använder Azure Autoscale för att automatiskt skala en skalningsuppsättning](./virtual-machine-scale-sets-autoscale-overview.md) men inte för enskilda virtuella datorer.
-- Du kan [återställa avbildningen av de virtuella datorerna med skalningsuppsättningarna](https://docs.microsoft.com/en-us/rest/api/compute/virtualmachinescalesets/reimage) men [inte enskilda virtuella datorer](https://docs.microsoft.com/rest/api/compute/virtualmachines).
-- Du kan [overprovision](https://docs.microsoft.com/en-us/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-design-overview#overprovisioning) skalningsuppsättningar i virtuella datorer för ökad tillförlitlighet och svarstider för snabbare distribution. Du kan därför överetablerar enskilda virtuella datorer, såvida inte du skriva anpassad kod för att utföra den här åtgärden.
+- Du kan [återställa avbildningen av de virtuella datorerna med skalningsuppsättningarna](https://docs.microsoft.com/rest/api/compute/virtualmachinescalesets/reimage) men [inte enskilda virtuella datorer](https://docs.microsoft.com/rest/api/compute/virtualmachines).
+- Du kan [overprovision](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-design-overview#overprovisioning) skalningsuppsättningar i virtuella datorer för ökad tillförlitlighet och svarstider för snabbare distribution. Du kan därför överetablerar enskilda virtuella datorer, såvida inte du skriva anpassad kod för att utföra den här åtgärden.
 - Du kan ange en [versionsuppgraderingsprincipen](./virtual-machine-scale-sets-upgrade-scale-set.md) att göra det lättare att distribuera uppgraderingar för virtuella datorer i din skalningsuppsättning. Med enskilda virtuella datorer, måste du dirigera uppdateringar själv.
 
 ### <a name="vm-specific-features"></a>VM-specifika funktioner

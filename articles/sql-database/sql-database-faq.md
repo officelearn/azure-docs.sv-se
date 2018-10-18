@@ -11,13 +11,13 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 10/15/2018
-ms.openlocfilehash: 46df47bf145e5fc4a1846c33fdf0426840befdcd
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.date: 10/17/2018
+ms.openlocfilehash: 61950a1afda1fefdfab95f6d63420387dc2e2ac7
+ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49340737"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49378643"
 ---
 # <a name="sql-database-frequently-asked-questions-faq"></a>Vanliga frågor (och svar FAQ) om SQL-databas
 
@@ -127,7 +127,7 @@ Ja, kan du enkelt konvertera din databas till stöds prestanda ändamålet med h
 
 ## <a name="can-i-upgrade-or-downgrade-between-the-general-purpose-and-business-critical-service-tiers"></a>Jag kan uppgradera eller nedgradera mellan generell användning och affärskritisk-tjänstnivåer
 
-Ja, med vissa begränsningar. Ditt mål-SKU måste uppfylla maximala databas eller elastisk pool-storlek som du har konfigurerat för den befintliga distributionen. Om du använder [Azure Hybrid-förmånen för SQL Server](../virtual-machines/windows/hybrid-use-benefit-licensing.md), SKU affärskritisk är endast tillgänglig för kunder med Enterprise Edition-licenser. Endast de användare som migrerats från en lokal plats till generell användning med Azure Hybrid-förmånen för SQL Server med Enterprise Edition-licenser kan uppgradera till affärskritisk. Mer information finns i [vad är Azure Hybrid Use-förmånen för SQL Server specifika rättigheter](../virtual-machines/windows/hybrid-use-benefit-licensing.md)?
+Ja, med vissa begränsningar. Ditt mål-SKU måste uppfylla maximala databas eller elastisk pool-storlek som du har konfigurerat för den befintliga distributionen. Om du använder [Azure Hybrid-förmånen för SQL Server](../virtual-machines/windows/hybrid-use-benefit-licensing.md), SKU affärskritisk är endast tillgänglig för kunder med Enterprise Edition-licenser. Endast de användare som migrerats från en lokal plats till generell användning med Azure Hybrid-förmånen för SQL Server med Enterprise Edition-licenser kan uppgradera till affärskritisk. Mer information finns i [vad är Azure Hybrid-förmånen för SQL Server specifika rättigheter](../virtual-machines/windows/hybrid-use-benefit-licensing.md)?
 
 Den här konverteringen resulterar inte i driftstopp och kan inledas via Azure portal, PowerShell, Azure CLI, T-SQL eller REST API. Se [Hantera enkla databaser](sql-database-single-database-scale.md) och [hantera elastiska pooler](sql-database-elastic-pool.md).
 

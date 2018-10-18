@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 10/01/2018
 ms.author: cherylmc
-ms.openlocfilehash: c1fbc99702e077e600f01959224f3321e7543e59
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: 8ef231982cfdc9a2c4387ee47e651fdf1af0baaf
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48044407"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49388433"
 ---
 # <a name="expressroute-circuits-and-routing-domains"></a>ExpressRoute-kretsar och routningsdomäner
  Måste du sortera en *ExpressRoute-krets* att ansluta din lokala infrastruktur till Microsoft via en anslutningsleverantör. Följande bild visar en logisk representation av anslutningen mellan ditt WAN-nätverk och Microsoft.
@@ -82,7 +82,7 @@ Om du väljer att alla tre peeringsessioner, har du tre par med BGP-sessioner (e
 ## <a name="expressroute-health"></a>ExpressRoute-hälsa
 ExpressRoute-kretsar kan övervakas för tillgänglighet, anslutning till virtuella nätverk och bandbredd användning med hjälp av [Övervakare av nätverksprestanda](https://docs.microsoft.com/azure/networking/network-monitoring-overview) (NPM).
 
-NPM övervakar hälsotillståndet för Azures privata peering och Microsofts peering.  Kolla in våra [publicera](https://azure.microsoft.com/en-in/blog/monitoring-of-azure-expressroute-in-preview/) för mer information.
+NPM övervakar hälsotillståndet för Azures privata peering och Microsofts peering.  Kolla in våra [publicera](https://azure.microsoft.com/blog/monitoring-of-azure-expressroute-in-preview/) för mer information.
 
 ## <a name="next-steps"></a>Nästa steg
 * Hitta en tjänstleverantör. Se [ExpressRoute-tjänsten leverantörer och platser](expressroute-locations.md).

@@ -2,18 +2,18 @@
 title: 'Snabbstart: Skapa ett Azure Data Explorer-kluster och -databas'
 description: I den här snabbstarten får du lära dig hur du skapar ett Azure Data Explorer-kluster och en -databas och matar in data (läsa in).
 services: data-explorer
-author: mgblythe
-ms.author: mblythe
+author: orspod
+ms.author: v-orspod
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: quickstart
 ms.date: 09/24/2018
-ms.openlocfilehash: 3280709c59edfd5d8e810c7ab33aa615e13f4b93
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 6aff31c662a845028a02cecd7a99837f92bc87e5
+ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46974722"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49394229"
 ---
 # <a name="quickstart-create-an-azure-data-explorer-cluster-and-database"></a>Snabbstart: Skapa ett Azure Data Explorer-kluster och -databas
 
@@ -117,9 +117,9 @@ Om du planerar att följa våra andra snabbstarter och självstudier kan du spar
 
 1. Välj **Resursgrupper** i Azure Portal längst till vänster och välj sedan den resursgrupp du skapat.  
 
-    Om den vänstra menyn döljs väljer du ![Knappen Expandera](media/create-cluster-database-portal/expand.png) för att expandera den.
+    Om den vänstra menyn är dold väljer du ![Knappen Expandera](media/create-cluster-database-portal/expand.png) för att expandera den.
 
-   ![Välj en resursgrupp att ta bort](media/create-cluster-database-portal/delete-resources-select.png)
+   ![Välj den resursgrupp som ska tas bort](media/create-cluster-database-portal/delete-resources-select.png)
 
 1. Under **test-resource-group** väljer du **Ta bort resursgrupp**.
 

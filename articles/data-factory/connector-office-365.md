@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/15/2018
 ms.author: jingwang
-ms.openlocfilehash: 8a36053fe3189a72c33ea14445a6b064260eec01
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: c9252380581e77049e9464316ca77cc135f784b6
+ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49318324"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49377609"
 ---
 # <a name="copy-data-from-office-365-into-azure-using-azure-data-factory-preview"></a>Kopiera data från Office 365 till Azure med hjälp av Azure Data Factory (förhandsversion) 
 
@@ -125,7 +125,7 @@ För att kopiera data från Office 365, stöds följande egenskaper:
 |:--- |:--- |:--- |
 | typ | Type-egenskapen för datauppsättningen måste anges till: **Office365Table** | Ja |
 | tableName | Namn på datauppsättning för att extrahera från Office 365. Se [här](https://github.com/OfficeDev/MS-Graph-Data-Connect/wiki/Capabilities#datasets) lista över tillgängliga för extrahering av Office 365-datauppsättningar. | Ja |
-| Predikatet | Ett predikat uttryck som kan användas för att filtrera specifika rader att extrahera från Office 365.  Finns här för att ta reda på vilka kolumner som kan användas för filtrering med predikat för varje tabell och uttrycksformatet filter. | Nej<br>(Om ingen predikatet anges är standardvärdet att extrahera data för de senaste 30 dagarna) |
+| Predikatet | Ett predikat uttryck som kan användas för att filtrera specifika rader att extrahera från Office 365.  Se [här](https://github.com/OfficeDev/MS-Graph-Data-Connect/wiki/Capabilities#filters) att ta reda på vilka kolumner som kan användas för filtrering med predikat för varje tabell och uttrycksformatet filter. | Nej<br>(Om ingen predikatet anges är standardvärdet att extrahera data för de senaste 30 dagarna) |
 
 **Exempel**
 

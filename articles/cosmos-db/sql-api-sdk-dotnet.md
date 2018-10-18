@@ -12,16 +12,16 @@ ms.topic: reference
 ms.date: 03/09/2018
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 76ad14bb52e2eedbfa1450c53a8b947719fef310
-ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
+ms.openlocfilehash: 27b7b4efdb14872ee2d841e17d2e253b6c7c30c3
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/06/2018
-ms.locfileid: "48830792"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49389777"
 ---
 # <a name="azure-cosmos-db-net-sdk-for-sql-api-download-and-release-notes"></a>Azure Cosmos DB .NET SDK för SQL-API: ladda ned och viktig information
 > [!div class="op_single_selector"]
-> * [.NET](sql-api-sdk-dotnet.md)
+> * [NET](sql-api-sdk-dotnet.md)
 > * [.NET-Ändringsfeed](sql-api-sdk-dotnet-changefeed.md)
 > * [.NET Core](sql-api-sdk-dotnet-core.md)
 > * [Node.js](sql-api-sdk-node.md)
@@ -50,6 +50,10 @@ ms.locfileid: "48830792"
 </table></br>
 
 ## <a name="release-notes"></a>Viktig information
+### <a name="a-name213213"></a><a name="2.1.3"/>2.1.3
+
+* Uppdaterade System.Net.Security till 4.3.2.
+
 ### <a name="a-name212212"></a><a name="2.1.2"/>2.1.2
 
 * Diagnostikspårning förbättringar
@@ -331,6 +335,7 @@ Alla begäranden till Azure Cosmos DB med hjälp av en pensionerad SDK avvisas a
 
 | Version | Utgivningsdatum | Slutdatum |
 | --- | --- | --- |
+| [2.1.3](#2.1.3) |15 oktober 2018 |--- |
 | [2.1.2](#2.1.2) |04 oktober 2018 |--- |
 | [2.1.1](#2.1.1) |27 september 2018 |--- |
 | [2.1.0](#2.1.0) |21 september 2018 |--- |

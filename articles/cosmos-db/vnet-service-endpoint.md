@@ -9,12 +9,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/07/2018
 ms.author: govindk
-ms.openlocfilehash: a4758e5597876112fa7a85850786491e22af8c83
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 868f465cc651043d3ef4b1735b4b528252572dbb
+ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47037150"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49378093"
 ---
 # <a name="secure-access-to-an-azure-cosmos-db-account-by-using-azure-virtual-network-service-endpoint"></a>Skydda åtkomst till ett Azure Cosmos DB-konto med hjälp av Azure Virtual Network-tjänstslutpunkt
 
@@ -226,7 +226,7 @@ Ja, virtuella nätverk som skapats i olika regioner kan komma åt genom den nya 
 
 Ja, tjänstslutpunkt för virtuellt nätverk och en brandvägg kan finnas tillsammans. I allmänhet bör du kontrollera att åtkomst till portalen alltid är aktiverat innan du konfigurerar en tjänstslutpunkt för virtuellt nätverk så att du kan visa de mått som är kopplade till behållaren.
 
-### <a name="can-i-allow-access-to-other-azure-services-from-a-given-azure-region-when-service-endpoint-access-is-enabled-for-azure-cosmos-db"></a>Kan jag ”Tillåt åtkomst till andra Azure-tjänster från en viss Azure-region” när tjänstens slutpunkt åtkomst är aktiverat för Azure Cosmos DB?  
+### <a name="can-i-accept-connections-from-within-public-azure-datacenters-when-service-endpoint-access-is-enabled-for-azure-cosmos-db"></a>Kan jag ”acceptera anslutningar från offentliga Azure-Datacenter” när tjänstens slutpunkt åtkomst är aktiverat för Azure Cosmos DB?  
 
 Detta krävs bara när du vill att Azure Cosmos DB-kontot som kan nås av andra Azure första part tjänster som Azure Data factory, Azure Search eller någon tjänst som distribueras i angivna Azure-region.
 

@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 07/30/2018
 ms.author: barbkess
 ms.reviewer: asmalser
-ms.openlocfilehash: 9170f6f90b9e9b0a310f3b078c82dcab3f179fb3
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: 935fef5ea988908787ae04688985606acec41bfd
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49321316"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49387285"
 ---
 # <a name="automate-user-provisioning-and-deprovisioning-to-saas-applications-with-azure-active-directory"></a>Automatisera etablering och avetablering för SaaS-program med Azure Active Directory
 
@@ -267,9 +267,9 @@ Användning av dynamiska grupper kan dock påverka prestandan för slutpunkt til
 
 Nej. När konfigurerad att ”synkronisera enbart tilldelade användare och grupper”, kan Azure AD-tjänst för användaretablering inte läsa eller etablera användare som finns i kapslade grupper. Det är bara kunna läsa och etablera användare som är direkta medlemmar av gruppen uttryckligen tilldelad.
 
-Detta är en begränsning av ”gruppbaserad tilldelningar till program”, som också påverkar enkel inloggning och beskrivs i [hantera åtkomst till SaaS-program med hjälp av en grupp](https://docs.microsoft.com/en-us/azure/active-directory/users-groups-roles/groups-saasapps ).
+Detta är en begränsning av ”gruppbaserad tilldelningar till program”, som också påverkar enkel inloggning och beskrivs i [hantera åtkomst till SaaS-program med hjälp av en grupp](https://docs.microsoft.com/azure/active-directory/users-groups-roles/groups-saasapps ).
 
-Som en lösning kan du måste uttryckligen tilldela (eller på annat sätt [omfång i](https://docs.microsoft.com/en-us/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts)) de grupper som innehåller de användare som behöver etableras.
+Som en lösning kan du måste uttryckligen tilldela (eller på annat sätt [omfång i](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts)) de grupper som innehåller de användare som behöver etableras.
 
 ## <a name="related-articles"></a>Relaterade artiklar
 

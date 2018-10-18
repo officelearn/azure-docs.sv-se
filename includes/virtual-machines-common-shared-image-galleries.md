@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/20/2018
 ms.author: akjosh; cynthn
 ms.custom: include file
-ms.openlocfilehash: 6a64d85cc476c7494a1730959b96e9480115cd90
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 56f48f6676b3c878effe788316024e642c17ff5a
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47048127"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49400204"
 ---
 Delade bildgalleriet är en tjänst som hjälper dig att skapa struktur och organisation runt dina anpassade VM-avbildningar. Delade bildgalleriet innehåller tre huvudsakliga tillämpning
 - Enkel hantering
@@ -75,9 +75,9 @@ Delade galleri med avbildningar kan du automatiskt replikera dina avbildningar t
 ## <a name="access"></a>Access
 Delade avbildningen och delade Avbildningsversion är alla resurser som delad avbildningsgalleriet, de kan delas med hjälp av den inbyggda interna Azure RBAC styr. Du kan använda RBAC för att dela dessa resurser till andra användare, tjänstens huvudnamn och grupper i din organisation. Omfånget för delning av dessa resurser är i samma AD-klient. När en användare har åtkomst till delade Avbildningsversion, kan de distribuera en virtuell dator eller en VM-skalningsuppsättning i någon av de prenumerationer som de har åtkomst till inom samma AD-klient som delad versionsnumret för avbildningen.  Här är delningsapplikationen matrisen som hjälper dig att förstå vad användaren får åtkomst till:
 
-| Delade med användaren     | Delade bildgalleri | Delade bild | Delade Avbildningsversion |
+| Delade med användaren     | Delat bildgalleri | Delade bild | Delade Avbildningsversion |
 |----------------------|----------------------|--------------|----------------------|
-| Delade bildgalleri | Ja                  | Ja          | Ja                  |
+| Delat bildgalleri | Ja                  | Ja          | Ja                  |
 | Delade bild         | Nej                   | Ja          | Ja                  |
 | Delade Avbildningsversion | Nej                   | Nej           | Ja                  |
 
@@ -146,7 +146,7 @@ Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Compute
 
 **F.** Kan jag skapa en Avbildningsversion från en särskild disk?
 
- A. Nej, vi stöder för närvarande inte specialiserade diskar som bilder. Om du har en särskild disk kan du behöva [skapa en virtuell dator från den virtuella Hårddisken](https://docs.microsoft.com/azure/virtual-machines/windows/create-vm-specialized-portal#create-a-vm-from-a-disk) genom att koppla specializeddisk till en ny virtuell dator. När du har en aktiv virtuell dator, måste du följa anvisningarna för att skapa en hanterad avbildning från [Windows VM] (https://docs.microsoft.com/en-us/azure/virtual-machines/windows/tutorial-custom-images) eller [Linux VM](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/tutorial-custom-images). När du har en generaliserad avbildning av hanterade kan starta du processen med att skapa en delad Bildbeskrivning och versionsnumret för avbildningen.
+ A. Nej, vi stöder för närvarande inte specialiserade diskar som bilder. Om du har en särskild disk kan du behöva [skapa en virtuell dator från den virtuella Hårddisken](https://docs.microsoft.com/azure/virtual-machines/windows/create-vm-specialized-portal#create-a-vm-from-a-disk) genom att koppla specializeddisk till en ny virtuell dator. När du har en aktiv virtuell dator, måste du följa anvisningarna för att skapa en hanterad avbildning från [Windows VM] (https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-custom-images) eller [Linux VM](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-custom-images). När du har en generaliserad avbildning av hanterade kan starta du processen med att skapa en delad Bildbeskrivning och versionsnumret för avbildningen.
 
 
 **F.** Kan jag skapa en delad bildgalleriet och avbildningsdefinitionen Avbildningsversion via Azure portal?

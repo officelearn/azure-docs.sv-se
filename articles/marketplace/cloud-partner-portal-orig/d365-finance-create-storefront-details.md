@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/17/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 0c7db9b6439bf7dbf7422d1278370c67c9c6aa51
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: f69a7f9ca94c0a83098300f01e9413b342bd4ae8
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48811281"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49389396"
 ---
 <a name="how-to-fill-out-the-storefront-details-form"></a>Fylla i formuläret med butik
 ===========================================
@@ -57,7 +57,7 @@ Det måste finnas en aktiv hjälplänk som hjälper kunder att online produkthj�
 
 ### <a name="supported-countriesregions"></a>Länder/regioner
 
-Det här fältet anger de länder/regioner där ditt erbjudande blir tillgänglig för utvärdering. Du kan endast välja länder där Microsoft Dynamics 365 Business Central är redan tillgänglig eller i en förhandsversion. Aktuell lista finns i [länder och översättningar stöds](https://docs.microsoft.com/en-gb/dynamics-nav/compliance/apptest-countries-and-translations).
+Det här fältet anger de länder/regioner där ditt erbjudande blir tillgänglig för utvärdering. Du kan endast välja länder där Microsoft Dynamics 365 Business Central är redan tillgänglig eller i en förhandsversion. Aktuell lista finns i [länder och översättningar stöds](https://docs.microsoft.com/dynamics-nav/compliance/apptest-countries-and-translations).
 
 ![Välj länder och översättningar stöds](./media/d365-financials/image008.png)
 

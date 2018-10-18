@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.component: compliance
 ms.date: 09/04/2018
 ms.author: rolyon
-ms.openlocfilehash: 9fa966999e220ea4357d5b5c37f0038c75fe2339
-ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
+ms.openlocfilehash: b6cc81a49875739a61aa397a65eb70c6b4f082ef
+ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45607929"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49393991"
 ---
 # <a name="azure-active-directory-terms-of-use-feature"></a>Användningsvillkorsfunktion för Azure Active Directory
 Användningsvillkoren för Azure AD tillhandahåller en enkel metod som organisationer kan använda för att presentera information för slutanvändare. Den här presentationen gör att användare kan se relevanta ansvarsfriskrivningar för juridiska krav eller efterlevnadskrav. Den här artikeln beskriver hur du kommer igång med användningsvillkor för Azure AD.
@@ -128,7 +128,7 @@ Användarna behöver bara godkänna villkoren en gång och de ser inte användni
 ### <a name="how-users-can-review-their-terms-of-use"></a>Hur användarna kan granska deras användningsvillkor
 Användare kan granska och se användningsvillkoren som de har godkänt genom att använda följande procedur.
 
-1. Logga in på [ https://myapps.microsoft.com ](https://myapps.microsoft.com).
+1. Logga in på [https://myapps.microsoft.com](https://myapps.microsoft.com).
 
 1. Klicka på ditt namn i övre det övre högra hörnet och välj **Profil** i listrutan.
 
@@ -242,4 +242,4 @@ S: du kan [granska tidigare godkända användningsvillkor](#how-users-can-review
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Best practices for conditional access in Azure Active Directory](../../cognitive-services/qnamaker/concepts/best-practices.md) (Metodtips för villkorlig åtkomst i Azure Active Directory)
+- [Best practices for conditional access in Azure Active Directory](../../active-directory/conditional-access/best-practices.md) (Metodtips för villkorlig åtkomst i Azure Active Directory)

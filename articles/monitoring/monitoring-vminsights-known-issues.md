@@ -12,19 +12,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/03/2018
+ms.date: 10/15/2018
 ms.author: magoedte
-ms.openlocfilehash: 43000993c6a26ef8d44e941f5235ebad7aeee66f
-ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
+ms.openlocfilehash: 6d1f1d1ae07ec32262f655fd6ed7205a70e252f4
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48248074"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49385099"
 ---
 # <a name="known-issues-with-azure-monitor-for-vms"></a>Kända problem med Azure Monitor för virtuella datorer
 
 Följande är kända problem med hälsotillstånd-funktionen i Azure Monitor för virtuella datorer:
 
+- Funktionen hälsotillstånd är onbaorded till de virtuella datorerna är anslutna till Log Analytics-arbetsytan när onboarding är initierad och klar från en enda virtuell dator.
 - Om en Azure-dator inte finns längre eftersom det har tagits bort eller ta bort visas den i VM-listvyn i tre till sju dagar. Dessutom när du klickar på tillståndet för en virtuell dator har tagits bort eller borttagna skulle starta den **hälsotillstånd diagnostik** vy för den, som sedan hamnar i en loop för inläsning. Väljer namnet på en borttagen virtuell dator startar ett blad med ett meddelande om den virtuella datorn har tagits bort.
 - Tidsperiod och frekvensen för health-villkor kan inte ändras i den här versionen. 
 - Health-villkor kan inte inaktiveras. 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/16/2018
 ms.author: jeedes
-ms.openlocfilehash: 02e7d9d26b389e82365f3447cceb5566244236f1
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 618437d0007668800e0a14e8233db1676be2a364
+ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39440916"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49379271"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-linkedin-learning"></a>Självstudier: Azure Active Directory-integrering med LinkedIn Learning
 
@@ -59,7 +59,7 @@ För att konfigurera integrering av LinkedIn Learning i Azure AD, som du behöve
 
 **Utför följande steg för att lägga till LinkedIn Learning från galleriet:**
 
-1. I den  **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon. 
+1. I den **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon. 
 
     ![Active Directory][1]
 
@@ -110,7 +110,7 @@ I det här avsnittet ska du aktivera Azure AD enkel inloggning i Azure-portalen 
 
     ![Konfigurera enkel inloggning](./media/linkedinlearning-tutorial/tutorial_linkedin_admin_01.png)
 
-1. Klicka på **eller klicka här om du vill läsa in och kopiera enskilda fält i formuläret** och kopiera **entitets-Id** och **Assertion konsument Access (ACS)-Url**
+1. Klicka på **eller klicka här om du vill läsa in och kopiera enskilda fält i formuläret** och kopiera **entitets-Id** och **Assertion konsument Service (ACS)-Url**
 
     ![Konfigurera enkel inloggning](./media/linkedinlearning-tutorial/tutorial_linkedin_admin_03.png)
 
@@ -120,9 +120,9 @@ I det här avsnittet ska du aktivera Azure AD enkel inloggning i Azure-portalen 
 
     a. I den **identifierare** textrutan anger du den **entitets-ID** kopieras från LinkedIn-portalen 
 
-    b. I den **svars-URL** textrutan anger du den **Assertion konsument Access (ACS) Url** kopieras från LinkedIn-portalen
+    b. I den **svars-URL** textrutan anger du den **Assertion konsument Service (ACS) Url** kopieras från LinkedIn-portalen
 
-1. Om du vill konfigurera enkel inloggning i **SP-initierat**, klickar du på Visa avancerade URL alternativet med inställningen i konfigurationsavsnittet och konfigurera inloggnings URL med följande mönster:
+1. Om du vill konfigurera enkel inloggning i **SP-initierat**, klicka sedan på Visa avancerade URL alternativet med inställningen i konfigurationsavsnittet anger du inloggnings-URL: en.  Att skapa din inloggnings-URL: en kopia i **Assertion konsument Service (ACS) Url** och Ersätt /saml/ med/inloggning /.   När du som har gjorts, ska inloggnings-URL: en ha följande mönster:
 
     `https://www.linkedin.com/checkpoint/enterprise/login/<AccountId>?application=learning&applicationInstanceId=<InstanceId>`
 

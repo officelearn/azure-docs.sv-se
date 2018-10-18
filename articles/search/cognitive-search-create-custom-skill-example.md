@@ -9,12 +9,12 @@ ms.devlang: NA
 ms.topic: conceptual
 ms.date: 06/29/2018
 ms.author: luisca
-ms.openlocfilehash: 4dfc4d250cae80e7837db5cfbcc3af15390b2bb4
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: d78959ba415c837e931edcc0278de84daa879bc1
+ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49352344"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49393958"
 ---
 # <a name="example-create-a-custom-skill-using-the-text-translate-api"></a>Exempel: Skapa en anpassad kunskap med hjälp av översätta Text-API
 
@@ -245,14 +245,6 @@ När du är nöjd med funktionsbeteende, kan du publicera den.
 1. När distributionen är klar kan du Observera webbplatsens URL. Det är adressen till funktionsappen i Azure. 
 
 1. I den [Azure-portalen](https://portal.azure.com), navigera till resursgruppen och leta efter funktionen översätta du publicerat. Under den **hantera** avsnittet bör du se Värdnycklar. Välj den **kopia** ikonen för den *standard* värdnyckel.  
-
-## <a name="update-ssl-settings"></a>Uppdatera SSL-inställningar
-
-Alla Azure-funktioner som skapats efter den 30 juni 2018 har inaktiverat TLS 1.0, som inte är kompatibel med anpassade funktioner.
-
-1. I den [Azure-portalen](https://portal.azure.com), navigera till resursgruppen och leta efter funktionen översätta du publicerat. Under den **plattformsfunktioner** avsnittet bör du se SSL.
-
-1. När du har valt SSL, bör du ändra den **minsta TLS-version** 1,0. TLS 1.2-funktioner stöds inte ännu som anpassade funktioner.
 
 ## <a name="test-the-function-in-azure"></a>Testa funktionen i Azure
 

@@ -12,16 +12,16 @@ ms.topic: reference
 ms.date: 03/22/2018
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ca4113050069698c74a5d1e7903d068946123543
-ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
+ms.openlocfilehash: 8243d1e297fa778d4fa27f8365d9bb0a935d21e5
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/06/2018
-ms.locfileid: "48830114"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49388012"
 ---
 # <a name="azure-cosmos-db-net-core-sdk-for-sql-api-release-notes-and-resources"></a>Azure Cosmos DB .NET Core SDK för SQL-API: viktig information och resurser
 > [!div class="op_single_selector"]
-> * [.NET](sql-api-sdk-dotnet.md)
+> * [NET](sql-api-sdk-dotnet.md)
 > * [.NET-Ändringsfeed](sql-api-sdk-dotnet-changefeed.md)
 > * [.NET Core](sql-api-sdk-dotnet-core.md)
 > * [Node.js](sql-api-sdk-node.md)
@@ -52,6 +52,10 @@ ms.locfileid: "48830114"
 ## <a name="release-notes"></a>Viktig information
 
 Azure Cosmos DB .NET Core SDK har funktionsparitet med den senaste versionen av den [Azure Cosmos DB .NET SDK](sql-api-sdk-dotnet.md).
+
+### <a name="a-name213213"></a><a name="2.1.3"/>2.1.3
+
+* Uppdaterade System.Net.Security till 4.3.2.
 
 ### <a name="a-name212212"></a><a name="2.1.2"/>2.1.2
 
@@ -208,6 +212,7 @@ Om du har frågor som rör detta SDK kan skicka till [StackOverflow](http://stac
 
 | Version | Utgivningsdatum | Slutdatum |
 | --- | --- | --- |
+| [2.1.3](#2.1.3) |15 oktober 2018 |--- |
 | [2.1.2](#2.1.2) |04 oktober 2018 |--- |
 | [2.1.1](#2.1.1) |27 september 2018 |--- |
 | [2.1.0](#2.1.0) |21 september 2018 |--- |

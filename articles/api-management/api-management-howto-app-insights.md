@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/20/2018
 ms.author: apimpm
-ms.openlocfilehash: a660b36f383eaf1fd0e868200ad7f59aba0f8225
-ms.sourcegitcommit: 7b845d3b9a5a4487d5df89906cc5d5bbdb0507c8
+ms.openlocfilehash: 52e034f9a0c11c2b27888d181304bc16c3369e4a
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/14/2018
-ms.locfileid: "42055392"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49390031"
 ---
 # <a name="how-to-integrate-azure-api-management-with-azure-application-insights"></a>Hur du integrerar Azure API Management med Azure Application Insights
 
@@ -51,12 +51,12 @@ Innan du kan använda Azure Application Insights, måste du först skapa en inst
     ![App Insights loggare](media/api-management-howto-app-insights/apim-app-insights-logger-2.png)  
 
 > [!NOTE]
-> Bakom scenen, en [loggaren](https://docs.microsoft.com/en-us/rest/api/apimanagement/logger/createorupdate) entitet skapas i din API Management-instans som innehåller Instrumenteringsnyckeln för Application Insights-instans.
+> Bakom scenen, en [loggaren](https://docs.microsoft.com/rest/api/apimanagement/logger/createorupdate) entitet skapas i din API Management-instans som innehåller Instrumenteringsnyckeln för Application Insights-instans.
 
 ## <a name="enable-application-insights-logging-for-your-api"></a>Aktivera loggning för Application Insights för ditt API
 
 1. Gå till din **Azure API Management-tjänstinstans** i den **Azure-portalen**.
-2. Välj **API: er** på menyn till vänster.
+2. Välj **API:er** i menyn till vänster.
 3. Klicka på ditt API i det här fallet **Demokonferens-API**.
 4. Gå till den **inställningar** fliken från det översta fältet.
 5. Rulla ned till den **diagnostikloggar** avsnittet.  
@@ -68,13 +68,13 @@ Innan du kan använda Azure Application Insights, måste du först skapa en inst
 10. Klicka på **Spara**.
 
 > [!NOTE]
-> Bakom scenen, en [diagnostiska](https://docs.microsoft.com/en-us/rest/api/apimanagement/diagnostic/createorupdate) entitet med namnet 'applicationinsights' skapas på API-nivå.
+> Bakom scenen, en [diagnostiska](https://docs.microsoft.com/rest/api/apimanagement/diagnostic/createorupdate) entitet med namnet 'applicationinsights' skapas på API-nivå.
 
 | Inställningsnamn                        | Värdetyp                        | Beskrivning                                                                                                                                                                                                                                                                                                                                      |
 |-------------------------------------|-----------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Aktivera                              | boolesk                           | Anger om detta API har aktiverats.                                                                                                                                                                                                                                                                                                |
 | Mål                         | Azure Application Insights-logg | Anger Azure Application Insights loggaren som ska användas                                                                                                                                                                                                                                                                                           |
-| Sampling (%)                        | decimaltal                           | Värden mellan 0 och 100 (procent). <br/> Anger vilken procentandel av förfrågningar kommer att loggas till Azure Application Insights. 0% sampling innebär noll förfrågningar loggas, medan sampling med 100% innebär att alla begäranden som loggats. <br/> Den här inställningen används för att minska prestanda följderna av att logga begäranden till Azure Application Insights (se avsnittet nedan). |
+| Sampling (%)                        | decimal                           | Värden mellan 0 och 100 (procent). <br/> Anger vilken procentandel av förfrågningar kommer att loggas till Azure Application Insights. 0% sampling innebär noll förfrågningar loggas, medan sampling med 100% innebär att alla begäranden som loggats. <br/> Den här inställningen används för att minska prestanda följderna av att logga begäranden till Azure Application Insights (se avsnittet nedan). |
 | Alltid logga fel                   | boolesk                           | Om den här inställningen väljs alla fel loggas till Azure Application Insights, oavsett den **Sampling** inställningen.                                                                                                                                                                                                                  |
 | Grundalternativ: rubriker              | lista                              | Anger sidhuvuden som kommer att loggas till Azure Application Insights för begäranden och svar.  Standard: inga rubriker loggas.                                                                                                                                                                                                             |
 | Grundalternativ: Första byten i brödtexten  | heltal                           | Anger hur många första byten i texten som loggas i Azure Application Insights för begäranden och svar.  Standard: brödtext loggas inte.                                                                                                                                                                                              |
@@ -123,5 +123,5 @@ Hoppar över loggning av rubriker och brödtext för begäranden och svar har oc
 
 ## <a name="next-steps"></a>Nästa steg
 
-+ Läs mer om [Azure Application Insights](https://docs.microsoft.com/en-us/azure/application-insights/).
++ Läs mer om [Azure Application Insights](https://docs.microsoft.com/azure/application-insights/).
 + Överväg att [loggning med Azure Event Hubs](api-management-howto-log-event-hubs.md).

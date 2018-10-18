@@ -9,16 +9,16 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 09/25/2018
+ms.date: 10/16/2018
 ms.author: juliako
-ms.openlocfilehash: ed2550c1df4645933fb968c54ee536995c810136
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 4001d0e21e7a0c8977d785463fb54aa4de45786c
+ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47219337"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49378745"
 ---
-# <a name="azure-media-services-v3-preview-release-notes"></a>Azure Media Services v3 (förhandsversion) viktig information 
+# <a name="azure-media-services-v3-release-notes"></a>Azure Media Services v3 viktig information 
 
 Om du vill hålla dig uppdaterad med den senaste utvecklingen, innehåller den här artikeln information om:
 
@@ -28,18 +28,93 @@ Om du vill hålla dig uppdaterad med den senaste utvecklingen, innehåller den h
 * Inaktuell funktion
 * Planer för ändringar
 
-## <a name="may-07-2018"></a>07 maj 2018
+## <a name="october-2018---ga"></a>Oktober 2018, GA
+
+Det här avsnittet beskrivs Azure Media Services (AMS) oktober uppdateringar.
+
+### <a name="rest-v3-ga-release"></a>REST v3 GA-version
+
+Den [REST v3 GA-version](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/mediaservices/resource-manager/Microsoft.Media/stable/2018-07-01) innehåller fler API: er för Live, konto/tillgången manifest nivåfilter och DRM-stöd.
+
+#### <a name="azure-cli-20"></a>Azure CLI 2.0
+ 
+Azure CLI 2.0-modul för alla funktioner, inklusive Live, Innehållsprinciper nyckel, konto/tillgången filter, Streaming principer.
+
+#### <a name="azure-resource-management"></a>Azure Resource Management 
+
+Stöd för Azure-resurshantering kan enhetlig hantering och åtgärder API (nu allt från en plats).
+
+Från och med den här versionen kan använda du Resource Manager-mallar för att skapa Live-händelser.
+
+#### <a name="improvement-of-asset-operations"></a>Förbättring av tillgången åtgärder 
+
+Följande förbättringar introducerades:
+
+- Mata in från http (s)-URL: er eller Azure Blob Storage SAS URL: er.
+- Anger du namn på egna behållare för tillgångar. 
+- Enklare utdata-stöd för att skapa anpassade arbetsflöden med Azure Functions.
+
+#### <a name="new-transform-object"></a>Nytt Transform-objekt
+
+Den nya **transformera** objektet förenklar Encoding-modellen. Nytt objekt gör det enkelt att skapa och dela kodning Resource Manager-mallar och förinställningar. 
+
+#### <a name="azure-active-directory-authentication-and-rbac"></a>Azure Active Directory-autentisering och RBAC
+
+Azure AD-autentisering och rollbaserad åtkomstkontroll (RBAC) aktivera säker transformeringar, LiveEvents, Innehållsprinciper till nyckeln eller tillgångar efter roll eller användare i Azure AD.
+
+#### <a name="client-sdks"></a>Klient-SDK: er  
+
+Språk som stöds i Media Services v3: .NET Core, Java, Node.js, Ruby, Typescript, Python, Go.
+
+#### <a name="live-encoding-updates"></a>Live encoding uppdateringar
+
+Följande uppdateringar för live encoding introduceras:
+
+- Nya läget för låg latens för live-(10 sekunder slutpunkt till slutpunkt).
+- Förbättrad RTMP support (ökad stabilitet och mer käll-kodare stöder).
+- RTMPS säker mata in.
+
+    När du skapar en LiveEvent kan du nu hämta 4 infognings-URL: er. 4 mata in URL: er är nästan identiska, har samma strömmande token (AppId), bara den numeriska delen port är olika. Två av de URL: er är primär och sekundär för RTMPS. 
+- 24 timmars transkodning stöd. 
+- Förbättrat stöd för ad-signalering i RTMP via SCTE35.
+
+#### <a name="improved-event-grid-support"></a>Förbättrat stöd för Event Grid
+
+Du kan se följande Event Grid stöd förbättringar:
+
+- Azure EventGrid-integrering för enklare utveckling med Logic Apps och Azure Functions. 
+- Prenumerera på händelser på kodning och Live Channels.
+
+### <a name="cmaf-support"></a>CMAF support
+
+Stöd för CMAF och 'cbcs' kryptering för (iOS 11 +) för Apple HLS och MPEG-DASH spelare som har stöd för CMAF.
+
+### <a name="video-indexer"></a>Video Indexer
+
+Video Indexer GA-versionen har vi tillkännagav i augusti. Ny information om funktioner som stöds för närvarande finns i [vad är Video Indexer](../../cognitive-services/video-indexer/video-indexer-overview.md?toc=/azure/media-services/video-indexer/toc.json&bc=/azure/media-services/video-indexer/breadcrumb/toc.json). 
+
+### <a name="plans-for-changes"></a>Planer för ändringar
+
+Azure CLI-versionen kommer på 10/23/2018.
+
+### <a name="known-issues"></a>Kända problem
+
+Kunder som använde förhandsversionen av API för tillgång eller AccountFilters som påverkas av följande problem.
+
+Om du har skapat tillgångar eller kontofilter mellan 09/28 och 10/12 med Media Services v3 CLI eller API: er, måste du ta bort alla tillgångar och AccountFilters och återskapa dem på grund av en versionskonflikt. 
+
+## <a name="may-2018---preview"></a>Maj 2018 - förhandsversion
 
 ### <a name="net-sdk"></a>.NET SDK
 
 Följande funktioner finns i .net SDK:
 
-1. **Omvandlar** och **jobb** att koda eller analysera medieinnehåll. Exempel finns i [Stream filer](stream-files-tutorial-with-api.md) och [analysera](analyze-videos-tutorial-with-api.md).
-2. **StreamingLocators** för att publicera och strömning av innehåll till slutanvändarens enheter
-3. **StreamingPolicies** och **ContentKeyPolicies** konfigurera viktiga leverans- och content protection (DRM) när du levererar innehåll.
-4. **LiveEvents** och **LiveOutputs** att konfigurera för inmatning och arkivering av liveuppspelningsinnehåll.
-5. **Tillgångar** att lagra och publicera medieinnehåll i Azure Storage. 
-6. **Strömningsslutpunkter** du konfigurerar och skalar dynamisk paketering, kryptering och strömning för både live och på begäran medieinnehåll.
+* **Omvandlar** och **jobb** att koda eller analysera medieinnehåll. Exempel finns i [Stream filer](stream-files-tutorial-with-api.md) och [analysera](analyze-videos-tutorial-with-api.md).
+* **StreamingLocators** för att publicera och strömning av innehåll till slutanvändarens enheter
+* **StreamingPolicies** och **ContentKeyPolicies** konfigurera viktiga leverans- och content protection (DRM) när du levererar innehåll.
+* **LiveEvents** och **LiveOutputs** att konfigurera för inmatning och arkivering av liveuppspelningsinnehåll.
+* **Tillgångar** att lagra och publicera medieinnehåll i Azure Storage. 
+* **Strömningsslutpunkter** du konfigurerar och skalar dynamisk paketering, kryptering och strömning för både live och på begäran medieinnehåll.
 
 ### <a name="known-issues"></a>Kända problem
 

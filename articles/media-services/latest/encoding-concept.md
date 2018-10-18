@@ -4,19 +4,19 @@ description: Det här avsnittet beskriver hur du kodning med Azure Media Service
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 04/21/2018
+ms.date: 10/15/2018
 ms.author: juliako
-ms.openlocfilehash: 69c5516ee503d774b143bb2d83f09ea863a00b31
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: 452502d5d6a0a35f642de7e14b2a7ee7fc573bfa
+ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47091557"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49378677"
 ---
 # <a name="encoding-with-azure-media-services"></a>Kodning med Azure Media Services
 
@@ -26,9 +26,7 @@ Om du vill koda med Media Services v3, måste du skapa en transformering och ett
 
 När kodning med Azure Media Services, använder du förinställningar som talar om kodaren hur inkommande mediefiler ska bearbetas. Du kan till exempel ange video upplösning och/eller antalet ljud kanaler som du vill i det kodade innehållet. 
 
-Du kan komma igång snabbt med en av de rekommenderade inbyggda förinställningar baserat på branschens bästa praxis eller du kan välja att skapa en anpassad förinställning om du vill rikta in dina specifika krav för scenario eller enhet. 
-
-Hitta information om kodaren i den [OpenAPI-specifikation](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/mediaservices/resource-manager/Microsoft.Media/preview/2018-03-30-preview). 
+Du kan komma igång snabbt med en av de rekommenderade inbyggda förinställningar baserat på branschens bästa praxis eller du kan välja att skapa en anpassad förinställning om du vill rikta in dina specifika krav för scenario eller enhet. Mer information finns i [Encoding med Azure Media Services](encoding-concept.md). 
 
 ## <a name="built-in-presets"></a>Inbyggda förinställningar
 
@@ -71,7 +69,7 @@ Du kan använda någon av följande stöds Media Services v3 SDK: erna för att 
 
 * [Azure CLI](https://docs.microsoft.com/cli/azure/ams?view=azure-cli-latest)
 * [REST](https://docs.microsoft.com/rest/api/media/transforms)
-* [.NET](https://docs.microsoft.com/dotnet/api/overview/azure/mediaservices/management?view=azure-dotnet)
+* [NET](https://docs.microsoft.com/dotnet/api/overview/azure/mediaservices/management?view=azure-dotnet)
 * [Java](https://docs.microsoft.com/java/api/overview/azure/mediaservices)
 * [Python](https://docs.microsoft.com/python/api/overview/azure/media-services?view=azure-python)
 

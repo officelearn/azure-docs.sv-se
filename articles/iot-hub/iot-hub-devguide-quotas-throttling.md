@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 09/05/2018
 ms.author: dobett
-ms.openlocfilehash: 377f28f4798a1ffb6423c1f4d9f4e34b4fc60234
-ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
+ms.openlocfilehash: b7ef5d2853cdf4a7b09aa52c510c268cb42a245f
+ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48018850"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49395164"
 ---
 # <a name="reference---iot-hub-quotas-and-throttling"></a>Referens – IoT Hub-kvoter och begränsningar
 
@@ -75,9 +75,9 @@ IoT Hub tillämpar andra begränsningar:
 | Enhet-till-moln-meddelanden | Maximal meddelandestorlek på 256 KB |
 | Moln-till-enhet-meddelanden<sup>1</sup> | Maximal meddelandestorlek 64 KB. Högsta antalet väntande meddelanden för leverans är 50. |
 | Direkt metod<sup>1</sup> | Maximal direkt metod Nyttolaststorlek är 128 KB. |
-| Konfigurationer | 20 konfigurationer per hubb. |
-| Edge-distributioner | 20 distributioner per hubb. 20 moduler per distribution. |
-| Twins | Maximal storlek per twin avsnittet (taggar, önskade egenskaper, rapporterade egenskaper) är 8 KB |
+| Automatisk enhetskonfigurationer<sup>1</sup> | 100 konfigurationer per hubb för betalda SKU: N. 20 konfigurationer per kostnadsfria SKU-hubb. |
+| Automatisk Edge-distributioner<sup>1</sup> | 20 moduler per distribution. 100 distributioner per hubb för betalda SKU: N. 20 distributioner per kostnadsfria SKU-hubb. |
+| Twins<sup>1</sup> | Maximal storlek per twin avsnittet (taggar, önskade egenskaper, rapporterade egenskaper) är 8 KB |
 
 <sup>1</sup>den här funktionen är inte tillgänglig i basic-nivån för IoT Hub. Mer information finns i [hur du väljer rätt IoT-hubb](iot-hub-scaling.md).
 

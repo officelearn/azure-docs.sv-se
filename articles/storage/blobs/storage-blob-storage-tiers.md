@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 09/11/2018
 ms.author: kuhussai
 ms.component: blobs
-ms.openlocfilehash: 6acea70ca929310fe37f36fe98698e6adb76101b
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 922e7ed5d55f50b2069dad71ead73d9ef4475ed0
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46997836"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49389912"
 ---
 # <a name="azure-blob-storage-premium-preview-hot-cool-and-archive-storage-tiers"></a>Azure Blob storage: Premium (förhandsversion), frekvent, lågfrekvent och arkivlagringsnivå
 
@@ -113,7 +113,7 @@ Blobar i alla tre lagringsnivåer kan finnas tillsammans i samma konto. En blob 
 Data som lagras i Premium-åtkomstnivå kan inte nivåindelas för frekvent, lågfrekvent eller Arkiv med [ange Blobnivå](/rest/api/storageservices/set-blob-tier) eller med hjälp av Livscykelhantering för Azure Blob Storage. För att flytta data, måste du synkront kopiera blobar från Premium-åtkomst till frekvent med hjälp av den [placera Block från URL: en API](/rest/api/storageservices/put-block-from-url) eller en version av AzCopy som har stöd för detta API. Den *placera Block från URL: en* API synkront kopierar data på servern, vilket innebär att anropet har slutförts bara en gång alla data flyttas från den ursprungliga serverplatsen till målplatsen.
 
 ### <a name="blob-lifecycle-management"></a>Livscykelhantering för BLOB
-Livscykelhantering för Blob Storage (förhandsversion) erbjuder en omfattande, regel-baserad princip som du kan använda för att överföra data till bästa åtkomstnivå och för att ta bort data i slutet av livscykeln. Se [hantering av Azure Blob storage-livscykeln](https://docs.microsoft.com/en-us/azure/storage/common/storage-lifecycle-managment-concepts) vill veta mer.  
+Livscykelhantering för Blob Storage (förhandsversion) erbjuder en omfattande, regel-baserad princip som du kan använda för att överföra data till bästa åtkomstnivå och för att ta bort data i slutet av livscykeln. Se [hantering av Azure Blob storage-livscykeln](https://docs.microsoft.com/azure/storage/common/storage-lifecycle-managment-concepts) vill veta mer.  
 
 ### <a name="blob-level-tiering-billing"></a>Fakturering för blobnivåindelning
 

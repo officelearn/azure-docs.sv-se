@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/24/2018
+ms.date: 10/17/2018
 ms.author: celested
 ms.reviewer: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: e76097c0d0cbaf14f2fc2b1a407bc2d320a2091d
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 73edb518a7e0c89b3ef510c6e528b6fa76f8dca5
+ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46964418"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49393429"
 ---
 # <a name="azure-active-directory-code-samples-v2-endpoint"></a>Kodexempel för Azure Active Directory (V2-slutpunkt)
 
@@ -49,8 +49,8 @@ Detta exempel visar hur du skriver ett enkelsidigt program som skyddas med Azure
  Plattform |  Anropar Microsoft Graph
  -------- |  ---------------------
 ![JavaScript](media/sample-v2-code/logo_js.png) JavaScript (msal.js)  | [JavaScript-graphapi-web-v2](https://github.com/Azure-Samples/active-directory-javascript-graphapi-web-v2)
-![Angular JS](media/sample-v2-code/logo_angular.png) JavaScript (msal AngularJS) | [MsalAngularjsDemoApp](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-angularjs/samples/MsalAngularjsDemoApp)
-![Angular](media/sample-v2-code/logo_angular.png) JavaScript (msal Angular) | [MSALAngularDemoApp](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-angular/samples/MSALAngularDemoApp)
+![Angular JS](media/sample-v2-code/logo_angular.png) JavaScript (MSAL AngularJS) | [MsalAngularjsDemoApp](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-angularjs/samples/MsalAngularjsDemoApp)
+![Angular](media/sample-v2-code/logo_angular.png) JavaScript (MSAL Angular) | [MSALAngularDemoApp](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-angular/samples/MSALAngularDemoApp)
 
 ## <a name="web-applications"></a>Webbprogram
 
@@ -65,15 +65,17 @@ Följande exempel illustrerar webbprogram som loggar in användare. Några exemp
 
 ## <a name="desktop-and-mobile-public-client-apps"></a>Stationära och mobila offentliga klientappar
 
-Följande exempel visar offentlig klient program (desktop/mobila program) som har åtkomst till Microsoft Graph eller dina egna webb-API för namnet på en användare som använder interaktiv inloggning. Alla dessa klientprogram använder MicroSoft Authentication Libraries (MSAL)
+Följande exempel visar offentlig klient program (desktop/mobila program) som har åtkomst till Microsoft Graph eller dina egna webb-API för namnet på en användare. Alla dessa klientprogram använder MicroSoft Authentication Libraries (MSAL)
 
-Klientprogram | Plattform | Anropar Microsoft Graph | En ASP.NET Core 2.0 webb-API-anrop
------------------- | -------- |  -------------------- | -------------------------
-Desktop (WPF)      | ![.NET / C#](media/sample-v2-code/logo_NET.png) | [DotNet-desktop-msgraph-v2](http://github.com/azure-samples/active-directory-dotnet-desktop-msgraph-v2) <p/> [DotNet-admin-begränsade-scope-v2](https://github.com/azure-samples/active-directory-dotnet-admin-restricted-scopes-v2) | [DotNet-intern-aspnetcore-v2](https://GitHub.com/azure-samples/active-directory-dotnet-native-aspnetcore-v2)
-Mobile (UWP)   | ![.NET / C# (UWP)](media/sample-v2-code/logo_windows.png) | [DotNet-intern-uwp-v2](https://github.com/azure-samples/active-directory-dotnet-native-uwp-v2) |
-Mobil (Android, iOS, UWP)   | ![.NET / C# (Xamarin)](media/sample-v2-code/logo_xamarin.png) | [xamarin-intern-v2](https://Github.com/azure-samples/active-directory-xamarin-native-v2) |
-Mobile (iOS)       | ![iOS / Objective C eller swift](media/sample-v2-code/logo_iOS.png) | [IOS-swift-intern-v2](https://github.com/azure-samples/active-directory-ios-swift-native-v2) <p/> [IOS-intern-nxoauth2-v2](https://github.com/azure-samples/active-directory-ios-native-nxoauth2-v2) |
-Mobil (Android)   | ![Android / Java](media/sample-v2-code/logo_Android.png) |   [Android-intern-v2](https://github.com/azure-samples/active-directory-android-native-v2 ) |
+Klientprogram | Plattform | Flow/bevilja | Anropar Microsoft Graph | En ASP.NET Core 2.0 webb-API-anrop
+------------------ | -------- |  ----------| ---------- | -------------------------
+Desktop (WPF)      | ![.NET / C#](media/sample-v2-code/logo_NET.png) | Interaktiv | [DotNet-desktop-msgraph-v2](http://github.com/azure-samples/active-directory-dotnet-desktop-msgraph-v2) <p/> [DotNet-admin-begränsade-scope-v2](https://github.com/azure-samples/active-directory-dotnet-admin-restricted-scopes-v2) | [DotNet-intern-aspnetcore-v2](https://GitHub.com/azure-samples/active-directory-dotnet-native-aspnetcore-v2)
+Fjärrskrivbord (konsol)   | ![.NET / C# (skrivbord)](media/sample-v2-code/logo_NET.png) | Integrerad Windows-autentisering |[DotNet-iwa-v2](https://github.com/azure-samples/active-directory-dotnet-iwa-v2)
+Fjärrskrivbord (konsol)   | ![.NET / C# (skrivbord)](media/sample-v2-code/logo_NETcore.png) | Användarnamn/lösenord |[dotnetcore-upp-v2](https://github.com/azure-samples/active-directory-dotnetcore-up-v2)
+Mobile (UWP)   | ![.NET / C# (UWP)](media/sample-v2-code/logo_windows.png) | Interaktiv |[DotNet-intern-uwp-v2](https://github.com/azure-samples/active-directory-dotnet-native-uwp-v2) |
+Mobil (Android, iOS, UWP)   | ![.NET / C# (Xamarin)](media/sample-v2-code/logo_xamarin.png) | Interaktiv |[xamarin-intern-v2](https://Github.com/azure-samples/active-directory-xamarin-native-v2) |
+Mobile (iOS)       | ![iOS / Objective C eller swift](media/sample-v2-code/logo_iOS.png) | Interaktiv |[IOS-swift-intern-v2](https://github.com/azure-samples/active-directory-ios-swift-native-v2) <p/> [IOS-intern-nxoauth2-v2](https://github.com/azure-samples/active-directory-ios-native-nxoauth2-v2) |
+Mobil (Android)   | ![Android / Java](media/sample-v2-code/logo_Android.png) | Interaktiv |  [Android-intern-v2](https://github.com/azure-samples/active-directory-android-native-v2 ) |
 
 ## <a name="daemon-applications"></a>Daemon för program
 
@@ -81,9 +83,16 @@ Följande exempel på ett program som ansluter till Microsoft Graph med identite
 
 Klientprogram | Plattform | Flow/bevilja | Anropar Microsoft Graph
 ------------------ | -------- | ---------- | --------------------
+Konsolen | ![.NET Core](media/sample-v2-code/logo_NETcore.png)<p/> ASP.NET  | Klientautentiseringsuppgifter | [dotnetcore-daemon-v2](https://github.com/azure-samples/active-directory-dotnetcore-daemon-v2)
 Webbapp | ![ASP.NET](media/sample-v2-code/logo_NETframework.png)<p/> ASP.NET  | Klientautentiseringsuppgifter | [DotNet-daemon-v2](https://github.com/azure-samples/active-directory-dotnet-daemon-v2)
 
-> Ett exempel på ett fjärrskrivbord daemonprogram finns på eftersläpningen.
+## <a name="headless-applications"></a>Fjärradministrerad program
+
+Följande exempel visar offentlig klient program som körs på en enhet utan att en webbläsare. De här apparna kan vara kommandoradsverktyg eller appar som körs på Linux/Mac eller iOT-program. Exemplen funktionen appar får åtkomst till Microsoft Graph namnet på en användare som loggar in interaktivt på en annan enhet (till exempel en mobiltelefon). Alla dessa klientprogram använder MicroSoft Authentication Libraries (MSAL)
+
+Klientprogram | Plattform | Flow/bevilja | Anropar Microsoft Graph
+------------------ | -------- |  ----------| ----------
+Fjärrskrivbord (konsol)   | ![.NET / C# (skrivbord)](media/sample-v2-code/logo_NETcore.png) | Kodflöde för enhet |[dotnetcore-devicecodeflow-v2](https://github.com/azure-samples/active-directory-dotnetcore-devicecodeflow-v2)
 
 ## <a name="web-apis"></a>Webb-API:er
 

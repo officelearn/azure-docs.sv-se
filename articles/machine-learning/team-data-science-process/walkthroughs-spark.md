@@ -1,10 +1,10 @@
 ---
-title: HDInsight Spark genomgång med hjälp av PySpark och Scala i Azure | Microsoft Docs
-description: Exempel på Team av vetenskapliga data som beskriver genom att använda PySpark och Scala på ett Azure HDInsight Spark att göra förutsägelseanalyser.
+title: Genomgångar för HDInsight Spark med PySpark och Scala på Azure | Microsoft Docs
+description: Exempel på Team Data Science Process som går genom att använda PySpark och Scala i ett Azure HDInsight Spark att göra förutsägelseanalyser.
 services: machine-learning
 documentationcenter: ''
 author: deguhath
-manager: jhubbard
+manager: cgronlun
 editor: cgronlun
 ms.assetid: ''
 ms.service: machine-learning
@@ -15,41 +15,41 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/04/2017
 ms.author: deguhath
-ms.openlocfilehash: 05f8748be8fd14bef212ee7bd5c2320f1b577536
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 2fd6d556e908c47baf3c58c46172c0684b66cdd9
+ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34838967"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49394288"
 ---
-# <a name="hdinsight-spark-data-science-walkthroughs-using-pyspark-and-scala-on-azure"></a>Med hjälp av PySpark och Scala på Azure HDInsight Spark datavetenskap genomgång
+# <a name="hdinsight-spark-data-science-walkthroughs-using-pyspark-and-scala-on-azure"></a>HDInsight Spark data science genomgångar med PySpark och Scala på Azure
 
-Dessa genomgång använda PySpark och Scala på en Azure Spark-klustret för att göra förutsägelseanalyser. De följer stegen som beskrivs i Team av vetenskapliga data. En översikt över Team av vetenskapliga data, se [datavetenskap Process](overview.md). En översikt över Spark i HDInsight, se [introduktion till Spark i HDInsight](../../hdinsight/spark/apache-spark-overview.md).
+PySpark och Scala använder på ett Azure Spark-kluster dessa genomgångar för att göra förutsägelseanalyser. De följer du anvisningarna i Team Data Science Process. En översikt över Team Data Science Process, se [Data Science Process](overview.md). En översikt över Apache Spark i HDInsight finns i [introduktion till Spark i HDInsight](../../hdinsight/spark/apache-spark-overview.md).
 
-Ytterligare datavetenskap genomgångar som kör Team datavetenskap Process grupperas efter den **plattform** som de använder. Se [genomgång köra Team av vetenskapliga data](walkthroughs.md) för en specificering av de här exemplen.
+Ytterligare data science genomgångar som kör Team Data Science Process är grupperade efter den **plattform** som de använder. Se [genomgångar kör Team Data Science Process](walkthroughs.md) för en specifikation av de här exemplen.
 
-## <a name="predict-taxi-tips-using-pyspark-on-azure-spark"></a>Förutsäga taxi tips med hjälp av PySpark på Azure Spark
+## <a name="predict-taxi-tips-using-pyspark-on-azure-spark"></a>Förutsäg taxitips med PySpark på Azure Spark
 
-Den [använda Spark på Azure HDInsight](spark-overview.md) genomgången använder data från New York taxibilar för att förutsäga om ett tips är betald och intervallet för belopp förväntas vara betald. Den använder teamet vetenskap av data i ett scenario med en [Azure HDInsight Spark-kluster](https://azure.microsoft.com/services/hdinsight/) för att lagra, utforska, och funktionen tekniker data från offentligt tillgängliga NYC taxi resan och färdavgiften dataset. Det här översiktsavsnittet ställer du in med ett HDInsight Spark-kluster och Jupyter PySpark anteckningsböcker som används i resten av den här genomgången. Dessa anteckningsböcker visar hur du utforska dina data och hur du skapar och använda modeller. Avancerade undersökning och modellering bärbar dator visar hur du inkludera korsvalidering, hyper-parametern omfattande, och modellerar utvärdering.
+Den [använda Spark på Azure HDInsight](spark-overview.md) genomgången använder data från New York-taxibilar för att förutsäga om ett tips är betalas ut och intervallet för mängder förväntas betalas. Den använder Team Data Science Process i ett scenario med en [Azure HDInsight Spark-kluster](https://azure.microsoft.com/services/hdinsight/) för att lagra, utforska, och funktion engineer data från offentligt tillgängliga NYC taxi resa och färdavgiften datauppsättning. Det här översiktsavsnittet ställer du in med ett HDInsight Spark-kluster och Jupyter PySpark anteckningsböcker som används i resten av den här genomgången. Dessa anteckningsböcker visar hur du utforska dina data och sedan hur du skapar och använda modeller. Avancerade utforskning och modellering anteckningsboken visar hur du inkluderar korsvalidering, hyper-parametern oinskränkt, och modellera utvärdering.
 
 ### <a name="data-exploration-and-modeling-with-spark"></a>Datagranskning och modellering med Spark 
-Utforska datauppsättningen och skapa poängsätta och utvärdera modeller för maskininlärning genom att utföra den [skapa binär klassificering och regression modeller för data med Spark MLlib toolkit](spark-data-exploration-modeling.md) avsnittet.
+Utforska datauppsättningen och skapa, poäng och utvärdera maskininlärningsmodeller genom att utföra den [skapa binär klassificering och regression modeller för data med Spark MLlib toolkit](spark-data-exploration-modeling.md) avsnittet.
 
 ### <a name="model-consumption"></a>Modell-förbrukning
-Information om hur du poängsätta klassificering och regression modeller som skapats i det här avsnittet finns [poängsätta och utvärdera Spark-inbyggda machine learning-modeller](spark-model-consumption.md).
+Läs hur du bedöma klassificerings- och regressionsmodeller modeller som skapats i det här avsnittet i [poäng och utvärdera Spark-byggda machine learning-modeller](spark-model-consumption.md).
 
-### <a name="cross-validation-and-hyperparameter-sweeping"></a>Korsvalidering och hyperparameter omfattande
-Se [avancerade datagranskning och modellering med Spark](spark-advanced-data-exploration-modeling.md) på hur modeller kan vara tränas med omfattande korsvalidering och hyper-parametern.
+### <a name="cross-validation-and-hyperparameter-sweeping"></a>Korsvalidering och finjustering oinskränkt
+Se [avancerad datagranskning och modellering med Spark](spark-advanced-data-exploration-modeling.md) om hur modeller kan tränas med hjälp av oinskränkt korsvalidering och hyper-parametern.
 
 
-## <a name="predict-taxi-tips-using-scala-on-azure-spark"></a>Förutsäga taxi tips på Azure Spark Scala
+## <a name="predict-taxi-tips-using-scala-on-azure-spark"></a>Förutsäg taxitips med hjälp av Scala på Azure Spark
 
-Den [Använd Scala med Spark på Azure](scala-walkthrough.md) genomgången använder data från New York taxibilar för att förutsäga om ett tips är betald och intervallet för belopp förväntas vara betald. Den visar hur du använder Scala för övervakade maskininlärning uppgifter med Spark-machine learning-biblioteket (MLlib) och SparkML paket i ett Azure HDInsight Spark-kluster. Den vägleder dig igenom de aktiviteter som utgör den [datavetenskap Process](http://aka.ms/datascienceprocess): datapåfyllning och undersökning, visualisering, funktionen tekniker, modellering och förbrukning av modellen. Modeller som skapats är logistic och linjär regression, slumpmässiga skogar och toning ökat träd.
+Den [använda Scala med Spark på Azure](scala-walkthrough.md) genomgången använder data från New York-taxibilar för att förutsäga om ett tips är betalas ut och intervallet för mängder förväntas betalas. Den visar hur du använder Scala för övervakade machine learning-uppgifter med de Spark machine learning-biblioteket (MLlib) och SparkML paket på ett Azure HDInsight Spark-kluster. Vi går igenom de aktiviteter som utgör den [Data Science Process](http://aka.ms/datascienceprocess): datainmatning och utforskning, visualisering, funktionsframställning, modellering och förbrukning av modellen. Modeller som byggts är logistic och linjär regression, slumpmässiga skogar och gradient bättre träd.
 
 
 ## <a name="next-steps"></a>Nästa steg
 
-En beskrivning av de viktiga komponenter som utgör teamet datavetenskap Process finns [Team datavetenskap processöversikt](overview.md).
+En beskrivning av de viktigaste komponenterna som utgör Team Data Science Process finns i [Team Data Science Process översikt](overview.md).
 
-En beskrivning av livscykeln Team av vetenskapliga data som du kan använda för att strukturera datavetenskap projekt finns [Team datavetenskap Process livscykel](lifecycle.md). Livscykeln beskrivs stegen från början till slut att projekt vanligtvis följer när de utförs. 
+En beskrivning av livscykeln för Team Data Science Process som du kan använda för att strukturera dina dataforskningsprojekt finns [Team Data Science Process-livscykeln](lifecycle.md). Livscykeln beskrivs stegen, från början till slut att projekt vanligtvis följer när de utförs. 
 

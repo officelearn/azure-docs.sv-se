@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/26/2018
 ms.author: v-jamebr
-ms.openlocfilehash: 97f33a1c0c42b534dafd1e4ed378b655b339395a
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.openlocfilehash: aa84dc4cb23a0fa2fa854e1f3d6da1234ec00bd6
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42058261"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49386645"
 ---
 # <a name="certificates-and-security-on-linux-clusters"></a>Certifikat och säkerhet i Linux-kluster
 
@@ -35,7 +35,7 @@ Om du installerar certifikatet från Azure Key Vault genom att använda antingen
 
 ## <a name="certificates-referenced-in-the-application-manifest"></a>Certifikat som refereras till i applikationsmanifestet
 
-Certifikat som har angetts i programmet för Manifestets, till exempel via den [ **SecretsCertificate** ](https://docs.microsoft.com/azure/service-fabric/service-fabric-service-model-schema-elements#secretscertificate-element) eller [ **EndpointCertificate** ](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-service-model-schema-elements#endpointcertificate-element)element, måste finnas i den */var/lib/sfcerts* directory. De element som används för att ange certifikat i applikationsmanifestet träder inte attributet sökväg så att certifikat som måste finnas i standardkatalogen. De här elementen tar en valfri **X509StoreName** attribut. Standardvärdet är ”Mina”, som pekar mot den */var/lib/sfcerts* på Linux-noder. Andra värden är odefinierade för ett Linux-kluster. Vi rekommenderar att du tar bort den **X509StoreName** attribut för appar som körs på Linux-kluster. 
+Certifikat som har angetts i programmet för Manifestets, till exempel via den [ **SecretsCertificate** ](https://docs.microsoft.com/azure/service-fabric/service-fabric-service-model-schema-elements#secretscertificate-element) eller [ **EndpointCertificate** ](https://docs.microsoft.com/azure/service-fabric/service-fabric-service-model-schema-elements#endpointcertificate-element)element, måste finnas i den */var/lib/sfcerts* directory. De element som används för att ange certifikat i applikationsmanifestet träder inte attributet sökväg så att certifikat som måste finnas i standardkatalogen. De här elementen tar en valfri **X509StoreName** attribut. Standardvärdet är ”Mina”, som pekar mot den */var/lib/sfcerts* på Linux-noder. Andra värden är odefinierade för ett Linux-kluster. Vi rekommenderar att du tar bort den **X509StoreName** attribut för appar som körs på Linux-kluster. 
 
 ## <a name="certificates-referenced-in-the-configuration-package-settingsxml"></a>Certifikat som refereras till i konfigurationspaketet (Settings.xml)
 

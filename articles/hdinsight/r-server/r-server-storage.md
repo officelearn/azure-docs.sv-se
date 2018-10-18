@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/27/2018
-ms.openlocfilehash: 5bd5919efa84f2dd22929075b806747b413ac346
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 4c3b36891030ae97f382d5e1d0623fa7c698dbf6
+ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43051801"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49395102"
 ---
 # <a name="azure-storage-solutions-for-ml-services-on-azure-hdinsight"></a>Azure Storage-lösningar för ML-tjänster på Azure HDInsight
 
@@ -159,7 +159,7 @@ Följande kommandon används för att konfigurera Data Lake Store-konto med Revo
 
 ## <a name="use-azure-file-storage-with-ml-services-on-hdinsight"></a>Använd Azure File storage med ML-tjänster på HDInsight
 
-Det finns också ett praktiskt data lagringsalternativ för användning på kantnoden heter [Azure Files] ((https://azure.microsoft.com/services/storage/files/). Det gör att du kan montera en Azure Storage-filresurs till Linux-filsystem. Det här alternativet kan vara praktiskt för att lagra datafiler, R-skript och resultatobjekt som kan behövas senare, särskilt när det klokt att använda interna filsystemet på gränsnoden i stället för HDFS. 
+Det finns också ett praktiskt data lagringsalternativ för användning på kantnoden heter [Azure Files](https://azure.microsoft.com/services/storage/files/). Det gör att du kan montera en Azure Storage-filresurs till Linux-filsystem. Det här alternativet kan vara praktiskt för att lagra datafiler, R-skript och resultatobjekt som kan behövas senare, särskilt när det klokt att använda interna filsystemet på gränsnoden i stället för HDFS. 
 
 En stor fördel med Azure Files är att filresurserna kan monteras och används av alla system som har ett operativsystem som stöds, till exempel Windows eller Linux. Det kan till exempel användas av en annan HDInsight-kluster som du eller någon i teamet har, av en Azure-dator eller genom ett lokalt system. Mer information finns i:
 

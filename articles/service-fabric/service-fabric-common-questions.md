@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/18/2017
 ms.author: chackdan
-ms.openlocfilehash: fe86e94e745ae9ba65636ab0d1ccfead83261515
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: 70372f30ffaea1fafda3f76d4754489ae89a0a7c
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49094266"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49390184"
 ---
 # <a name="commonly-asked-service-fabric-questions"></a>Vanliga frågor och svar om Service Fabric
 
@@ -126,7 +126,7 @@ Nej. Lågprioriterade virtuella datorer stöds inte.
 Här följer innebär för ditt program att hämta autentiseringsuppgifter för att autentisera till KeyVault:
 
 A. Under dina program build/förpackning jobb, kan du hämta ett certifikat till din SF-app-paket för data och används för att autentisera till KeyVault.
-B. För VM-skalningsuppsättningen MSI aktiverat värdar, kan du utveckla en enkel PowerShell SetupEntryPoint för din SF-app att hämta [en åtkomsttoken från MSI-slutpunkten](https://docs.microsoft.com/en-us/azure/active-directory/managed-service-identity/how-to-use-vm-token), och sedan [hämta dina hemligheter från KeyVault](https://docs.microsoft.com/en-us/powershell/module/azurerm.keyvault/Get-AzureKeyVaultSecret?view=azurermps-6.5.0)
+B. För VM-skalningsuppsättningen MSI aktiverat värdar, kan du utveckla en enkel PowerShell SetupEntryPoint för din SF-app att hämta [en åtkomsttoken från MSI-slutpunkten](https://docs.microsoft.com/azure/active-directory/managed-service-identity/how-to-use-vm-token), och sedan [hämta dina hemligheter från KeyVault](https://docs.microsoft.com/powershell/module/azurerm.keyvault/Get-AzureKeyVaultSecret?view=azurermps-6.5.0)
 
 ## <a name="application-design"></a>Programmets Design
 

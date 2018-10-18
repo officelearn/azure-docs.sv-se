@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 10/12/2018
 ms.author: sethm
 ms.reviewer: justini
-ms.openlocfilehash: 2e40f0520c0f5e605974f883b3327699ff26313e
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: 3843898ba2d7cdd3697236a9f4cc19070c6f07c3
+ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49321826"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49395181"
 ---
 # <a name="azure-stack-1808-update"></a>Uppdatering av Azure Stack 1808
 
@@ -261,6 +261,10 @@ Här följer efter installation kända problem för den här build-versionen.
    2. Om du har konfigurerat en miljö med flera organisationer kan misslyckas distribuera virtuella datorer i en prenumeration som är associerade med en gästkatalogen med ett internt felmeddelande. Följ dessa steg för att lösa problemet:
       1. Tillämpa den [1808 Azure Stack snabbkorrigering](https://support.microsoft.com/help/4467062/).
       2. Följ stegen i [i den här artikeln](azure-stack-enable-multitenancy.md#registering-azure-stack-with-the-guest-directory) att konfigurera om var och en av dina gäst-kataloger.
+      
+<!-- 3179561 - IS --> 
+- Managed Disks-användning rapporteras i timmar, enligt beskrivningen i den [vanliga frågor om användning i Azure Stack](azure-stack-usage-related-faq.md#managed-disks). Fakturering för Azure Stack används dock månadspriset i stället så att du felaktigt kan debiteras för Managed Disks-användning på eller före September 27. Vi har tillfälligt inaktiverats avgifterna för Managed Disks efter 27 September tills fakturering problemet åtgärdas. Om du har debiterats felaktigt för Managed Disks-användning, kontakta Microsoft Support för fakturering.
+Användningsrapporter som genereras från API: er för Azure Stack-användning visa rätt antal och kan användas.
 
 <!-- 2869209 – IS, ASDK --> 
 - När du använder den [ **Lägg till AzsPlatformImage** cmdlet](https://docs.microsoft.com/powershell/module/azs.compute.admin/add-azsplatformimage?view=azurestackps-1.4.0), måste du använda den **- OsUri** parameter som lagringskontot URI där disken har laddats upp. Om du använder den lokala sökvägen på disken kan cmdleten misslyckas med följande fel: *tidskrävande åtgärden misslyckades med statusen ”misslyckades”*. 

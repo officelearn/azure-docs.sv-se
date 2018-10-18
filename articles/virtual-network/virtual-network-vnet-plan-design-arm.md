@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/16/2018
 ms.author: jdial
-ms.openlocfilehash: 1ec60300d179edf69e32dc07653b6c69c7cc8e52
-ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
+ms.openlocfilehash: cf540caebd5f993cdba0d85f4109a6e78e201658
+ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/15/2018
-ms.locfileid: "42060902"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49378762"
 ---
 # <a name="plan-virtual-networks"></a>Planera virtuella datornätverk
 
@@ -93,7 +93,7 @@ Du kan ansluta ett virtuellt nätverk till andra virtuella nätverk med peerkopp
 
 ### <a name="peering"></a>Peering
 
-När du använder [virtuell nätverkspeering](virtual-network-peering-overview.md), de virtuella nätverken kan finnas i samma eller olika, Azure-regioner som stöds. De virtuella nätverken kan finnas i samma eller olika Azure-prenumerationer, så länge båda prenumerationerna är tilldelade till samma Azure Active Directory-klient. Innan du skapar en peering, bör du bekanta dig med alla peer-kopplingen [krav och begränsningar](virtual-network-manage-peering.md#requirements-and-constraints). Bandbredd mellan resurser i virtuella nätverk peer-kopplats i samma region är samma som om resurserna fanns i samma virtuella nätverk.
+När du använder [virtuell nätverkspeering](virtual-network-peering-overview.md), de virtuella nätverken kan finnas i samma eller olika, Azure-regioner som stöds. De virtuella nätverken kan finnas i samma eller olika Azure-prenumerationer (även prenumerationer som hör till olika Azure Active Directory-klienter). Innan du skapar en peering, bör du bekanta dig med alla peer-kopplingen [krav och begränsningar](virtual-network-manage-peering.md#requirements-and-constraints). Bandbredd mellan resurser i virtuella nätverk peer-kopplats i samma region är samma som om resurserna fanns i samma virtuella nätverk.
 
 ### <a name="vpn-gateway"></a>VPN gateway
 

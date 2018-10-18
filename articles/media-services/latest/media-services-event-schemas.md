@@ -4,19 +4,19 @@ description: Beskriver de egenskaper som har angetts för Media Services-händel
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: reference
-ms.date: 08/17/2018
+ms.date: 10/16/2018
 ms.author: juliako
-ms.openlocfilehash: a6a6c459e170627d26aa1445f4f4dd193965fe70
-ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
+ms.openlocfilehash: 44e195055c74babd903cf4fb830167ab92951d4a
+ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "42058834"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49376796"
 ---
 # <a name="azure-event-grid-schemas-for-media-services-events"></a>Azure Event Grid-scheman för Media Services-händelser
 
@@ -26,14 +26,56 @@ En lista över exempel på skript och självstudier finns i [medietjänster hän
 
 ## <a name="available-event-types"></a>Tillgängliga händelsetyper
 
-Media Services genererar följande händelsetyper:
+### <a name="job-related-event-types"></a>Jobbet relaterade händelsetyper
+
+Media Services genererar den **jobbet** relaterade händelsetyper som beskrivs nedan. Det finns två kategorier för de **jobbet** relaterade händelser: ”Monitoring jobbet tillståndsändringar” och ”övervakning jobbet utdata tillståndsändringar”. 
+
+Du kan registrera dig för alla händelser genom att prenumerera på händelsen JobStateChange. Eller så kan du prenumerera på specifika händelser endast (till exempel sluttillstånd som JobErrored, JobFinished och JobCanceled). 
+
+#### <a name="monitoring-job-state-changes"></a>Övervakning jobbets status ändras
 
 | Händelsetyp | Beskrivning |
 | ---------- | ----------- |
-| Microsoft.Media.JobStateChange| Jobbets tillstånd ändras. |
+| Microsoft.Media.JobStateChange| Hämta en händelse för alla ändringar för jobbets status. |
+| Microsoft.Media.JobScheduled| Få en händelse när jobbet övergår till schemalagda tillstånd. |
+| Microsoft.Media.JobProcessing| Få en händelse när jobbet övergår till status för bearbetning. |
+| Microsoft.Media.JobCanceling| Få en händelse när jobbet övergår till avbryter tillstånd. |
+| Microsoft.Media.JobFinished| Få en händelse när jobbet övergår till slutfört tillstånd. Det här är ett slutgiltigt tillstånd som innehåller utdata för jobbet.|
+| Microsoft.Media.JobCanceled| Få en händelse när jobbet övergår till avbrutna tillstånd. Det här är ett slutgiltigt tillstånd som innehåller utdata för jobbet.|
+| Microsoft.Media.JobErrored| Få en händelse när jobbet övergår till feltillstånd. Det här är ett slutgiltigt tillstånd som innehåller utdata för jobbet.|
+
+#### <a name="monitoring-job-output-state-changes"></a>Övervakning jobbets utdata status ändras
+
+| Händelsetyp | Beskrivning |
+| ---------- | ----------- |
+| Microsoft.Media.JobOutputStateChange| Hämta en händelse för alla jobbutdata tillstånd ändras. |
+| Microsoft.Media.JobOutputScheduled| Få en händelse när jobbutdata övergår till schemalagda tillstånd. |
+| Microsoft.Media.JobOutputProcessing| Få en händelse när jobbutdata övergår till status för bearbetning. |
+| Microsoft.Media.JobOutputCanceling| Få en händelse när jobbutdata övergår till avbryter tillstånd.|
+| Microsoft.Media.JobOutputFinished| Få en händelse när jobbet utdata övergår till slutfört tillstånd.|
+| Microsoft.Media.JobOutputCanceled| Få en händelse när jobbet utdata övergår till har avbrutits tillstånd.|
+| Microsoft.Media.JobOutputErrored| Få en händelse när jobbutdata övergår till feltillstånd.|
+
+### <a name="live-event-types"></a>Typer av Live-händelse
+
+Media Services genererar även den **Live** händelsetyper som beskrivs nedan. Det finns två kategorier för de **Live** händelser: stream på händelser och spåra på händelser. 
+
+#### <a name="stream-level-events"></a>Stream-på händelser
+
+Stream-nivå händelser aktiveras per stream eller anslutning. Varje händelse har en `StreamId` parameter som identifierar anslutning eller stream. Varje stream eller anslutningen har en eller flera spårar av olika typer. En anslutning från en kodare kan till exempel ha ett ljudspår och fyra video spår. Händelsetyper stream är:
+
+| Händelsetyp | Beskrivning |
+| ---------- | ----------- |
 | Microsoft.Media.LiveEventConnectionRejected | Kodarens anslutningsförsöket. |
 | Microsoft.Media.LiveEventEncoderConnected | Kodaren upprättar anslutningen med live-händelse. |
 | Microsoft.Media.LiveEventEncoderDisconnected | Kodaren kopplar från. |
+
+#### <a name="track-level-events"></a>Spåra på händelser
+
+Spåra på händelser aktiveras per spår. Spåra händelsetyper är:
+
+| Händelsetyp | Beskrivning |
+| ---------- | ----------- |
 | Microsoft.Media.LiveEventIncomingDataChunkDropped | Media-servern avslutar datagruppen eftersom den är för sent eller har ett överlappande tidsstämpel (tidsstämpel av nya data-segmentet är mindre än sluttiden tidigare datagruppen). |
 | Microsoft.Media.LiveEventIncomingStreamReceived | Media-servern tar emot första data-segmentet för varje spår i stream eller anslutning. |
 | Microsoft.Media.LiveEventIncomingStreamsOutOfSync | Media-server identifierar ljud och video strömmar är inte synkroniserade. Använda som en varning eftersom användarupplevelsen inte påverkas. |
@@ -41,24 +83,9 @@ Media Services genererar följande händelsetyper:
 | Microsoft.Media.LiveEventIngestHeartbeat | Publicerade var 20: e sekund för varje spår när direktsändningen körs. Tillhandahåller mata in hälsoöversikt. |
 | Microsoft.Media.LiveEventTrackDiscontinuityDetected | Media-server identifierar avbrott i den inkommande kursen. |
 
-Det finns två kategorier för de **Live** händelser: stream på händelser och spåra på händelser. 
+## <a name="event-schemas-and-properties"></a>Händelsescheman och egenskaper
 
-Stream-nivå händelser aktiveras per stream eller anslutning. Varje händelse har en `StreamId` parameter som identifierar anslutning eller stream. Varje stream eller anslutningen har en eller flera spårar av olika typer. En anslutning från en kodare kan till exempel ha ett ljudspår och fyra video spår. Händelsetyper stream är:
-
-* LiveEventConnectionRejected
-* LiveEventEncoderConnected
-* LiveEventEncoderDisconnected
-
-Spåra på händelser aktiveras per spår. Spåra händelsetyper är:
-
-* LiveEventIncomingDataChunkDropped
-* LiveEventIncomingStreamReceived
-* LiveEventIncomingStreamsOutOfSync
-* LiveEventIncomingVideoStreamsOutOfSync
-* LiveEventIngestHeartbeat
-* LiveEventTrackDiscontinuityDetected
-
-## <a name="jobstatechange"></a>JobStateChange
+### <a name="jobstatechange"></a>JobStateChange
 
 I följande exempel visas schemat för den **JobStateChange** händelse: 
 
@@ -89,7 +116,142 @@ Dataobjektet har följande egenskaper:
 
 Där jobbets status kan vara något av värdena: *i kö*, *schemalagd*, *bearbetning*, *slutfört*, *fel*, *Har avbrutits*, *avbryts*
 
-## <a name="liveeventconnectionrejected"></a>LiveEventConnectionRejected
+### <a name="jobscheduled"></a>JobScheduled
+### <a name="jobprocessing"></a>JobProcessing
+### <a name="jobcanceling"></a>JobCanceling
+
+För varje-slutlig jobbet tillståndsändring (till exempel JobScheduled, JobProcessing, JobCanceling) ut exempel-schemat ungefär så här:
+
+```json
+[{
+  "topic": "/subscriptions/<subscription-id>/resourceGroups/<rg-name>/providers/Microsoft.Media/mediaservices/<account-name>",
+  "subject": "transforms/VideoAnalyzerTransform/jobs/<job-id>",
+  "eventType": "Microsoft.Media.JobProcessing",
+  "eventTime": "2018-10-12T16:12:18.0839935",
+  "id": "a0a6efc8-f647-4fc2-be73-861fa25ba2db",
+  "data": {
+    "previousState": "Scheduled",
+    "state": "Processing",
+    "correlationData": {
+      "TestKey1": "TestValue1",
+      "testKey2": "testValue2"
+    }
+  },
+  "dataVersion": "1.0",
+  "metadataVersion": "1"
+}]
+```
+
+### <a name="jobfinished"></a>JobFinished
+### <a name="jobcanceled"></a>JobCanceled
+### <a name="joberrored"></a>JobErrored
+
+För varje sista tillståndsändring jobb (till exempel JobFinished, JobCanceled, JobErrored) ut exempel schemat ungefär så här:
+
+```json
+[{
+  "topic": "/subscriptions/<subscription-id>/resourceGroups/<rg-name>/providers/Microsoft.Media/mediaservices/<account-name>",
+  "subject": "transforms/VideoAnalyzerTransform/jobs/<job-id>",
+  "eventType": "Microsoft.Media.JobFinished",
+  "eventTime": "2018-10-12T16:25:56.4115495",
+  "id": "9e07e83a-dd6e-466b-a62f-27521b216f2a",
+  "data": {
+    "outputs": [
+      {
+        "@odata.type": "#Microsoft.Media.JobOutputAsset",
+        "assetName": "output-7640689F",
+        "error": null,
+        "label": "VideoAnalyzerPreset_0",
+        "progress": 100,
+        "state": "Finished"
+      }
+    ],
+    "previousState": "Processing",
+    "state": "Finished",
+    "correlationData": {
+      "TestKey1": "TestValue1",
+      "testKey2": "testValue2"
+    }
+  },
+  "dataVersion": "1.0",
+  "metadataVersion": "1"
+}]
+```
+
+Dataobjektet har följande egenskaper:
+
+| Egenskap  | Typ | Beskrivning |
+| -------- | ---- | ----------- |
+| Utdata | Matris | Hämtar utdata för jobbet.|
+
+### <a name="joboutputstatechange"></a>JobOutputStateChange
+
+I följande exempel visas schemat för den **JobOutputStateChange** händelse:
+
+```json
+[{
+  "topic": "/subscriptions/<subscription-id>/resourceGroups/<rg-name>/providers/Microsoft.Media/mediaservices/<account-name>",
+  "subject": "transforms/VideoAnalyzerTransform/jobs/<job-id>",
+  "eventType": "Microsoft.Media.JobOutputStateChange",
+  "eventTime": "2018-10-12T16:25:56.0242854",
+  "id": "dde85f46-b459-4775-b5c7-befe8e32cf90",
+  "data": {
+    "previousState": "Processing",
+    "output": {
+      "@odata.type": "#Microsoft.Media.JobOutputAsset",
+      "assetName": "output-7640689F",
+      "error": null,
+      "label": "VideoAnalyzerPreset_0",
+      "progress": 100,
+      "state": "Finished"
+    },
+    "jobCorrelationData": {
+      "TestKey1": "TestValue1",
+      "testKey2": "testValue2"
+    }
+  },
+  "dataVersion": "1.0",
+  "metadataVersion": "1"
+}]
+```
+
+### <a name="joboutputscheduled"></a>JobOutputScheduled
+### <a name="joboutputprocessing"></a>JobOutputProcessing
+### <a name="joboutputfinished"></a>JobOutputFinished
+### <a name="joboutputcanceling"></a>JobOutputCanceling
+### <a name="joboutputcanceled"></a>JobOutputCanceled
+### <a name="joboutputerrored"></a>JobOutputErrored
+
+För varje JobOutput i tillståndsändring ut exempel schemat ungefär så här:
+
+```json
+[{
+  "topic": "/subscriptions/<subscription-id>/resourceGroups/<rg-name>/providers/Microsoft.Media/mediaservices/<account-name>",
+  "subject": "transforms/VideoAnalyzerTransform/jobs/<job-id>",
+  "eventType": "Microsoft.Media.JobOutputProcessing",
+  "eventTime": "2018-10-12T16:12:18.0061141",
+  "id": "f1fd5338-1b6c-4e31-83c9-cd7c88d2aedb",
+  "data": {
+    "previousState": "Scheduled",
+    "output": {
+      "@odata.type": "#Microsoft.Media.JobOutputAsset",
+      "assetName": "output-7640689F",
+      "error": null,
+      "label": "VideoAnalyzerPreset_0",
+      "progress": 0,
+      "state": "Processing"
+    },
+    "jobCorrelationData": {
+      "TestKey1": "TestValue1",
+      "testKey2": "testValue2"
+    }
+  },
+  "dataVersion": "1.0",
+  "metadataVersion": "1"
+}]
+```
+
+### <a name="liveeventconnectionrejected"></a>LiveEventConnectionRejected
 
 I följande exempel visas schemat för den **LiveEventConnectionRejected** händelse: 
 
@@ -136,7 +298,7 @@ Resultatkoderna är:
 | MPE_INGEST_BITRATE_AGGREGATED_EXCEEDED | Sammanställda bithastighet överskrider högsta tillåtna gränsen. |
 | MPE_RTMP_FLV_TAG_TIMESTAMP_INVALID | Tidsstämpel för video- eller ljudinnehåll FLVTag kan inte användas med RTMP-kodare. |
 
-## <a name="liveeventencoderconnected"></a>LiveEventEncoderConnected
+### <a name="liveeventencoderconnected"></a>LiveEventEncoderConnected
 
 I följande exempel visas schemat för den **LiveEventEncoderConnected** händelse: 
 
@@ -169,7 +331,7 @@ Dataobjektet har följande egenskaper:
 | EncoderIp | sträng | IP-Adressen för kodaren. |
 | EncoderPort | sträng | Porten till kodaren från där den här strömmen är på gång. |
 
-## <a name="liveeventencoderdisconnected"></a>LiveEventEncoderDisconnected
+### <a name="liveeventencoderdisconnected"></a>LiveEventEncoderDisconnected
 
 I följande exempel visas schemat för den **LiveEventEncoderDisconnected** händelse: 
 
@@ -225,7 +387,7 @@ Resultatkoder för korrekt frånkoppling är:
 | MPI_REST_API_CHANNEL_STOP | Kanalen underhållsarbeten. |
 | MPI_STREAM_HIT_EOF | EOF stream skickas av kodaren. |
 
-## <a name="liveeventincomingdatachunkdropped"></a>LiveEventIncomingDataChunkDropped
+### <a name="liveeventincomingdatachunkdropped"></a>LiveEventIncomingDataChunkDropped
 
 I följande exempel visas schemat för den **LiveEventIncomingDataChunkDropped** händelse: 
 
@@ -258,10 +420,10 @@ Dataobjektet har följande egenskaper:
 | TrackName | sträng | Namnet på kursen. |
 | Bithastighet | heltal | Bithastighet av kursen. |
 | Tidsstämpel | sträng | Tidsstämpel datagruppen släppts. |
-| tidsskalan | sträng | Tidsskalan för tidsstämpeln. |
+| Tidsskala | sträng | Tidsskalan för tidsstämpeln. |
 | Resultatkod | sträng | Orsaken till i listrutan för data-segmentet. **FragmentDrop_OverlapTimestamp** eller **FragmentDrop_NonIncreasingTimestamp**. |
 
-## <a name="liveeventincomingstreamreceived"></a>LiveEventIncomingStreamReceived
+### <a name="liveeventincomingstreamreceived"></a>LiveEventIncomingStreamReceived
 
 I följande exempel visas schemat för den **LiveEventIncomingStreamReceived** händelse: 
 
@@ -301,9 +463,9 @@ Dataobjektet har följande egenskaper:
 | EncoderIp | sträng  | IP-Adressen för kodaren. |
 | EncoderPort | sträng | Porten till kodaren från där den här strömmen är på gång. |
 | Tidsstämpel | sträng | Första tidsstämpel datagruppen som tagits emot. |
-| tidsskalan | sträng | Tidsskalan där timestamp representeras. |
+| Tidsskala | sträng | Tidsskalan där timestamp representeras. |
 
-## <a name="liveeventincomingstreamsoutofsync"></a>LiveEventIncomingStreamsOutOfSync
+### <a name="liveeventincomingstreamsoutofsync"></a>LiveEventIncomingStreamsOutOfSync
 
 I följande exempel visas schemat för den **LiveEventIncomingStreamsOutOfSync** händelse: 
 
@@ -319,7 +481,9 @@ I följande exempel visas schemat för den **LiveEventIncomingStreamsOutOfSync**
       "minLastTimestamp": "319996",
       "typeOfStreamWithMinLastTimestamp": "Audio",
       "maxLastTimestamp": "366000",
-      "typeOfStreamWithMaxLastTimestamp": "Video"
+      "typeOfStreamWithMaxLastTimestamp": "Video",
+      "timescaleOfMinLastTimestamp": "10000000", 
+      "timescaleOfMaxLastTimestamp": "10000000"       
     },
     "dataVersion": "1.0",
     "metadataVersion": "1"
@@ -335,8 +499,10 @@ Dataobjektet har följande egenskaper:
 | TypeOfTrackWithMinLastTimestamp | sträng | Typ av spåra (ljud eller video) med minsta senaste tidsstämpel. |
 | MaxLastTimestamp | sträng | Högst alla tidsstämplar bland alla spår (ljud eller video). |
 | TypeOfTrackWithMaxLastTimestamp | sträng | Typ av spåra (ljud eller video) med maximalt senaste tidsstämpel. |
+| TimescaleOfMinLastTimestamp| sträng | Hämtar tidsskalan ”MinLastTimestamp” visas.|
+| TimescaleOfMaxLastTimestamp| sträng | Hämtar tidsskalan ”MaxLastTimestamp” visas.|
 
-## <a name="liveeventincomingvideostreamsoutofsync"></a>LiveEventIncomingVideoStreamsOutOfSync
+### <a name="liveeventincomingvideostreamsoutofsync"></a>LiveEventIncomingVideoStreamsOutOfSync
 
 I följande exempel visas schemat för den **LiveEventIncomingVideoStreamsOutOfSync** händelse: 
 
@@ -352,7 +518,8 @@ I följande exempel visas schemat för den **LiveEventIncomingVideoStreamsOutOfS
       "FirstTimestamp": "2162058216",
       "FirstDuration": "2000",
       "SecondTimestamp": "2162057216",
-      "SecondDuration": "2000"
+      "SecondDuration": "2000",
+      "timescale": "10000000"      
     },
     "dataVersion": "1.0"
   }
@@ -367,8 +534,9 @@ Dataobjektet har följande egenskaper:
 | FirstDuration | sträng | Varaktighet datagruppen med första tidsstämpel. |
 | SecondTimestamp | sträng  | Tidsstämpel som togs emot för vissa andra spåra/kvalitetsnivå av typen video. |
 | SecondDuration | sträng | Varaktighet datagruppen med andra tidsstämpel. |
+| Tidsskala | sträng | Tidsskalan tidsstämplar och varaktighet.|
 
-## <a name="liveeventingestheartbeat"></a>LiveEventIngestHeartbeat
+### <a name="liveeventingestheartbeat"></a>LiveEventIngestHeartbeat
 
 I följande exempel visas schemat för den **LiveEventIngestHeartbeat** händelse: 
 
@@ -409,7 +577,7 @@ Dataobjektet har följande egenskaper:
 | Bithastighet | heltal | Bithastighet av kursen. |
 | IncomingBitrate | heltal | Beräknad bithastighet baserat på datasegment som kommer från kodaren. |
 | LastTimestamp | sträng | Senaste tidsstämpel togs emot för ett spår i senaste 20 sekunder. |
-| tidsskalan | sträng | Tidsskalan där tidsstämplar uttrycks. |
+| Tidsskala | sträng | Tidsskalan där tidsstämplar uttrycks. |
 | OverlapCount | heltal | Antal datasegment hade överlappas tidsstämplar i senaste 20 sekunder. |
 | DiscontinuityCount | heltal | Antal avbrott som observerats under de senaste 20 sekunder. |
 | NonIncreasingCount | heltal | Antal datasegment med tidsstämplar som tidigare har tagits emot senaste 20 sekunder. |
@@ -417,7 +585,7 @@ Dataobjektet har följande egenskaper:
 | Status | sträng | Status för live-händelse. |
 | Felfri | Bool | Anger om mata in är felfri baserat på antalet och flaggor. Felfri är SANT om OverlapCount = 0 & & DiscontinuityCount = 0 & & NonIncreasingCount = 0 & & UnexpectedBitrate = false. |
 
-## <a name="liveeventtrackdiscontinuitydetected"></a>LiveEventTrackDiscontinuityDetected
+### <a name="liveeventtrackdiscontinuitydetected"></a>LiveEventTrackDiscontinuityDetected
 
 I följande exempel visas schemat för den **LiveEventTrackDiscontinuityDetected** händelse: 
 
@@ -454,9 +622,9 @@ Dataobjektet har följande egenskaper:
 | PreviousTimestamp | sträng | Tidsstämpel för det föregående fragmentet. |
 | NewTimestamp | sträng | Tidsstämpel för det aktuella fragmentet. |
 | DiscontinuityGap | sträng | Mellanrummet mellan ovan två tidsstämplar. |
-| tidsskalan | sträng | Tidsskalan i vilka både tidsstämpel och avbrott mellanrum representeras. |
+| Tidsskala | sträng | Tidsskalan i vilka både tidsstämpel och avbrott mellanrum representeras. |
 
-## <a name="common-event-properties"></a>Gemensamma händelseegenskaper
+### <a name="common-event-properties"></a>Gemensamma händelseegenskaper
 
 En händelse har följande översta data:
 

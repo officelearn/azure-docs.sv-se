@@ -11,22 +11,22 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: sashan, moslake
 manager: craigg
-ms.date: 10/15/2018
-ms.openlocfilehash: 52f49e0b590219c34750501ae85ccc0def572f44
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.date: 10/17/2018
+ms.openlocfilehash: ddb9e36775a815c07d40cecd61360c3e5b9c2611
+ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49352862"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49378779"
 ---
-# <a name="vcore-service-tiers-azure-hybrid-use-benefit-and-migration"></a>vCore-tjänstnivåer, Azure Hybrid Use Benefit och migrering
+# <a name="vcore-service-tiers-azure-hybrid-benefit-and-migration"></a>vCore-tjänstnivåer, Azure Hybrid-förmånen och migrering
 
 Den vCore-baserade inköpsmodellen kan du oberoende skala beräknings- och lagringsresurser, matcha lokala prestanda och optimera pris. Du kan också välja maskinvarusystem:
 
 - Gen 4 – upp till 24 logiska processorer bygger på Intel E5-2673 v3 (Haswell) 2,4 GHz-processorer, vCore = 1 sidor (fysiska kärnor), 7 GB per kärna, anslutna SSD
 - Gen 5 – upp till 80 logiska processorer som baseras på Intel E5-2673 v4 (Broadwell) 2,3 GHz-processorer, vCore = 1 LP (hyper-tråd), 5.5. GB per kärna, snabb eNVM SSD
 
-vCore-modellen kan du använda [Azure Hybrid Use-förmånen för SQL Server](https://azure.microsoft.com/pricing/hybrid-benefit/) att få kostnadsbesparingar.
+vCore-modellen kan du använda [Azure Hybrid-förmånen för SQL Server](https://azure.microsoft.com/pricing/hybrid-benefit/) att få kostnadsbesparingar.
 
 > [!NOTE]
 > Information om DTU-baserade tjänstnivåer finns i [DTU-baserade tjänstnivåer](sql-database-service-tiers-dtu.md). Information om hur man skiljer DTU-baserade tjänstnivåer och vCore-baserade tjänstnivåer finns i [Azure SQL Database köpa modeller](sql-database-service-tiers.md).
@@ -58,7 +58,7 @@ Tabellen nedan hjälper dig att förstå skillnaderna mellan dessa två nivåer:
 
 Se [SQL Database vanliga frågor och svar](sql-database-faq.md) svar på vanliga frågor och svar.
 
-## <a name="azure-hybrid-use-benefit"></a>Azure Hybrid-förmånen
+## <a name="azure-hybrid-benefit"></a>Azure Hybrid-förmån
 
 I den vCore-baserade inköpsmodellen, kan du byta dina befintliga licenser för rabatterade priser på SQL-databas med hjälp av den [Azure Hybrid-förmånen för SQL Server](../virtual-machines/windows/hybrid-use-benefit-licensing.md). Den här Azure-förmån kan du använda en lokal SQL Server-licenser för att spara upp till 30% på Azure SQL Database med hjälp av en lokal SQL Server-licenser med Software Assurance.
 

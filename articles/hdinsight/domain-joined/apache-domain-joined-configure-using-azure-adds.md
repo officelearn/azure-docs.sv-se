@@ -8,12 +8,12 @@ ms.author: hrasheed
 ms.reviewer: hrasheed
 ms.topic: conceptual
 ms.date: 10/9/2018
-ms.openlocfilehash: 93a6480cdab0153d0febad376c93b9321a87deda
-ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
+ms.openlocfilehash: 851fa7c6a970d725a52bc84d7d057472e09c3ee9
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49114901"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49388348"
 ---
 # <a name="configure-a-hdinsight-cluster-with-enterprise-security-package-by-using-azure-active-directory-domain-services"></a>Konfigurera ett HDInsight-kluster med Enterprise Security Package med hjälp av Azure Active Directory Domain Services
 
@@ -53,7 +53,7 @@ Visa hälsotillståndet för din Azure Active Directory Domain Services genom at
 
 ![Azure Active Directory Domain Services-hälsa](./media/apache-domain-joined-configure-using-azure-adds/hdinsight-aadds-health.png)
 
-Bör du se till att alla de [krävs portar](https://docs.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd772723(v=ws.10)#communication-to-domain-controllers) är vitlistade i AAD-DS-undernät NSG-regler om AAD-DS skyddas av en Nätverkssäkerhetsgrupp. 
+Bör du se till att alla de [krävs portar](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd772723(v=ws.10)#communication-to-domain-controllers) är vitlistade i AAD-DS-undernät NSG-regler om AAD-DS skyddas av en Nätverkssäkerhetsgrupp. 
 
 ## <a name="create-and-authorize-a-managed-identity"></a>Skapa och auktorisera en hanterad identitet
 > [!NOTE]

@@ -4,16 +4,16 @@ description: Lär dig att felsöka problem med Azure Automation-runbooks
 services: automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 07/13/2018
+ms.date: 10/17/2018
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: b02f1b04756f1e3f01426e58c5f8c625cb746f05
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: b8c6b82af1a71f5e2df7dd555c7ceb91b8ccd292
+ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47163910"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49394558"
 ---
 # <a name="troubleshoot-errors-with-runbooks"></a>Felsöka fel med runbooks
 
@@ -32,14 +32,14 @@ Unknown_user_type: Unknown User Type
 
 #### <a name="cause"></a>Orsak
 
-Det här felet uppstår om Tillgångsnamn autentiseringsuppgifter inte är giltigt eller om användarnamnet och lösenordet som användes för att konfigurera Automation-autentiseringsuppgiftstillgång inte är giltiga.
+Det här felet uppstår om Tillgångsnamn autentiseringsuppgifter är inte giltigt eller om användarnamnet och lösenordet som användes för att konfigurera Automation-autentiseringsuppgiftstillgång är ogiltiga.
 
 #### <a name="resolution"></a>Lösning
 
 För att avgöra vad som är fel, gör du följande:  
 
 1. Se till att det inte finns några specialtecken, inklusive den **@** tecknet i Automation namn på autentiseringsuppgift tillgång som du använder för att ansluta till Azure.  
-2. Kontrollera att du kan använda användarnamn och lösenord som lagras i Azure Automation-autentiseringsuppgift i din lokala PowerShell ISE-redigerare. Du kan göra detta genom att köra följande cmdlets i PowerShell ISE:  
+2. Kontrollera att du kan använda användarnamn och lösenord som lagras i Azure Automation-autentiseringsuppgift i din lokala PowerShell ISE-redigerare. Du kan göra Kontrollera användarnamnet och lösenordet är korrekt genom att köra följande cmdlets i PowerShell ISE:  
 
    ```powershell
    $Cred = Get-Credential  
@@ -51,7 +51,7 @@ För att avgöra vad som är fel, gör du följande:
 
 3. Om autentiseringen misslyckas lokalt, innebär det att du inte har konfigurerat dina autentiseringsuppgifter för Azure Active Directory korrekt. Referera till [autentisering i Azure med Azure Active Directory](https://azure.microsoft.com/blog/azure-automation-authenticating-to-azure-using-azure-active-directory/) blogginlägg för att skaffa Azure Active Directory-konto som har ställts in korrekt.  
 
-4. Om det verkar vara ett tillfälligt fel, försök att lägga till logik för omprövning i en autentisering vana att göra autentisering mer robust.
+4. Om det ser ut som ett tillfälligt fel, försök att lägga till logik för omprövning i en autentisering vana att göra autentisering mer robust.
 
    ```powershell
    # Get the connection "AzureRunAsConnection"
@@ -79,7 +79,7 @@ För att avgöra vad som är fel, gör du följande:
 
 #### <a name="issue"></a>Problem
 
-Du får följande felmeddelande när du arbetar med den `Select-AzureSubscription` eller `Select-AzureRmSubscription` cmdlets.:
+Du får följande felmeddelande när du arbetar med den `Select-AzureSubscription` eller `Select-AzureRmSubscription` cmdletar:
 
 ```
 The subscription named <subscription name> cannot be found.
@@ -87,11 +87,11 @@ The subscription named <subscription name> cannot be found.
 
 #### <a name="error"></a>Fel
 
-Det här felet uppstår om prenumerationens namn inte är giltigt eller om den Azure Active Directory-användare som försöker hämta information om prenumerationen inte har konfigurerats som en administratör för prenumerationen.
+Det här felet uppstår om prenumerationens namn är inte giltigt eller om den Azure Active Directory-användare som försöker hämta information om prenumerationen inte är konfigurerad som en administratör för prenumerationen.
 
 #### <a name="resolution"></a>Lösning
 
-För att avgöra om du har autentiserat korrekt till Azure och har åtkomst till den prenumeration som du försöker markera, gör du följande:  
+För att avgöra om du har korrekt autentiserad till Azure och har åtkomst till den prenumeration som du försöker att välja, gör du följande:  
 
 1. Se till att du kör den **Add-AzureAccount** cmdlet innan du kör den **Select-AzureSubscription** cmdlet.  
 2. Om du fortfarande ser det här felmeddelandet, ändra din kod genom att lägga till den **- AzureRmContext** parameter som följer efter den **Add-AzureAccount** cmdlet och sedan köra koden.
@@ -196,8 +196,8 @@ The term 'Connect-AzureRmAccount' is not recognized as the name of a cmdlet, fun
 
 Det här felet kan orsakas av följande orsaker:
 
-1. Modulen som innehåller cmdlet: en har inte importerats till automation-konto
-2. Modulen containg cmdleten har importerats men är inaktuell
+1. Modulen som innehåller cmdlet: en är inte importeras till automation-konto
+2. Modulen som innehåller cmdlet: en har importerats men är inaktuell
 
 #### <a name="resolution"></a>Lösning
 
@@ -205,7 +205,7 @@ Det här felet kan lösas genom att fylla i en av följande uppgifter:
 
 Om modulen är en Azure-modulen, se [så här uppdaterar du Azure PowerShell-moduler i Azure Automation](../automation-update-azure-modules.md) att lära dig hur du uppdaterar dina moduler i ditt automation-konto.
 
-Om det är en separat modul, se till att modulen i importerade i ditt Automation-konto.
+Om det är en separat modul, kontrollera att modulen i importerade i ditt Automation-konto.
 
 ### <a name="job-attempted-3-times"></a>Scenario: Runbook-jobbstart gjordes tre gånger, men det gick inte att starta varje gång
 
@@ -221,11 +221,11 @@ The job was tried three times but it failed
 
 Det här felet kan orsakas av följande orsaker:
 
-1. Minnesgräns. Det finns dokumenterade begränsningar för hur mycket minne som allokerats till en Sandbox [Automation tjänstbegränsningar](../../azure-subscription-service-limits.md#automation-limits) så att ett jobb kan misslyckas den om den använder mer än 400 MB minne.
+1. Minnesgräns. Det finns dokumenterade begränsningar för hur mycket minne tilldelas till en Sandbox [Automation tjänstbegränsningar](../../azure-subscription-service-limits.md#automation-limits) så att ett jobb kan misslyckas den om den använder mer än 400 MB minne.
 
 1. Nätverket Sockets. Azure sandbox-miljöer är begränsade till 1000 samtidiga nätverk sockets enligt beskrivningen i [Automation tjänstbegränsningar](../../azure-subscription-service-limits.md#automation-limits).
 
-1. Modulen inkompatibel. Detta kan inträffa om modulberoenden inte är rätt och om inte din runbook vanligtvis returnerar ett ”kommando inte hittas” eller ”det går inte att binda parametern” meddelande.
+1. Modulen inkompatibel. Det här felet kan inträffa om modulberoenden inte är rätt och om de inte är, din runbook returnerar vanligtvis ett ”kommando inte hittas” eller ”det går inte att binda parametern” meddelande.
 
 #### <a name="resolution"></a>Lösning
 
@@ -251,7 +251,7 @@ Cannot convert the <ParameterType> value of type Deserialized <ParameterType> to
 
 #### <a name="cause"></a>Orsak
 
-Om din runbook är ett PowerShell-arbetsflöde, lagrar komplexa objekt i ett avserialiserat format för att bevara din runbook tillstånd om arbetsflödet pausas.
+Om din runbook är ett PowerShell-arbetsflöde, lagrar komplexa objekt i en avserialiserat format för att bevara din runbook tillstånd om arbetsflödet pausas.
 
 #### <a name="resolution"></a>Lösning
 
@@ -303,37 +303,39 @@ Det här felet beror på när PowerShell-motorn inte kan hitta den cmdlet som du
 Någon av följande lösningar problemet på:  
 
 * Kontrollera att du har angett korrekt cmdlet-namn.  
-* Kontrollera att cmdleten finns i ditt Automation-konto och att det inte finns några konflikter. Om du vill kontrollera om cmdlet: en är tillgänglig, öppnar du en runbook i redigeringsläge och Sök efter den cmdlet som du vill söka efter i biblioteket eller kör `Get-Command <CommandName>`. När du har godkänt som cmdlet: en är tillgänglig för kontot och det finns inga namnet står i konflikt med andra cmdletar eller runbooks kan lägga till den på arbetsytan och se till att du använder en giltig parameter som angetts i din runbook.  
+* Kontrollera att cmdleten finns i ditt Automation-konto och att det inte finns några konflikter. Om du vill kontrollera om cmdlet: en är tillgänglig, öppnar du en runbook i redigeringsläge och Sök efter den cmdlet som du vill söka efter i biblioteket eller kör `Get-Command <CommandName>`. När du har verifierat som cmdlet: en är tillgänglig för kontot och det finns inga namnet står i konflikt med andra cmdletar eller runbooks kan lägga till den på arbetsytan och se till att du använder en giltig parameter som angetts i din runbook.  
 * Om du har en namnkonflikt och cmdlet: en är tillgänglig i två olika moduler, kan du lösa detta genom att använda det fullständigt kvalificerade namnet för cmdleten. Du kan till exempel använda **ModuleName\CmdletName**.  
-* Om du kör runbook lokala platser i en hybrid worker-grupp och sedan kontrollera att är modulen/cmdleten installerad på den dator som är värd för hybrid worker.
-
-### <a name="evicted-from-checkpoint"></a>Scenario: En tidskrävande runbook misslyckas konsekvent med undantaget: ”jobbet kan inte fortsätta att köras eftersom det upprepade gånger har avlägsnats från samma kontrollpunkten”
-
-#### <a name="issue"></a>Problem
-
-Det här beteendet är avsiktligt på grund av ”rättmätiga del” övervakning av processer i Azure Automation, som automatiskt inaktiverar en runbook om den körs längre än tre timmar. Returneras följande felmeddelande ger dock inte ”vad är nästa steg” alternativ.
-
-#### <a name="cause"></a>Orsak
-
-En runbook kan stängas av för ett antal orsaker. Pausar inträffar oftast på grund av fel. Till exempel ett undantagsfel i en runbook, ett nätverksfel eller en krasch på den Runbook Worker som kör runbook orsak runbook att pausa och starta från den senaste kontrollpunkten när återupptas.
-
-#### <a name="resolution"></a>Lösning
-
-Den dokumenterade lösningen för att undvika det här problemet är att använda kontrollpunkter i ett arbetsflöde. Mer information, referera till [Learning PowerShell-arbetsflöden](../automation-powershell-workflow.md#checkpoints). En mer omfattande beskrivning av ”rättmätiga del” och kontrollpunkt kan hittas i den här bloggen artikeln [med hjälp av kontrollpunkter i Runbooks](https://azure.microsoft.com/blog/azure-automation-reliable-fault-tolerant-runbook-execution-using-checkpoints/).
+* Om du körs runbook lokala platser i en hybrid worker-grupp och sedan kontrollera att är modulen/cmdleten installerad på den dator som är värd för hybrid worker.
 
 ### <a name="long-running-runbook"></a>Scenario: En tidskrävande runbook kan inte slutföras
 
 #### <a name="issue"></a>Problem
 
-Det här beteendet är avsiktligt i Azure sandboxar på grund av ”rättmätiga del” övervakning av processer i Azure Automation, som automatiskt inaktiverar en runbook om den körs längre än tre timmar.
+Din runbook visas i en **stoppad** tillstånd efter körning i tre timmar. Du kan också få felet:
+
+```
+The job was evicted and subsequently reached a Stopped state. The job cannot continue running
+```
+
+Det här beteendet är avsiktligt i Azure sandboxar på grund av ”rättmätiga del” övervakning av processer i Azure Automation, som automatiskt stoppar en runbook om den körs längre än tre timmar. Status för en runbook som varar längre än tidsgränsen fair-share skiljer sig av runbook-typen. PowerShell och Python runbooks är inställda på att en **stoppad** status. PowerShell Workflow-runbooks är inställda på **misslyckades**.
 
 #### <a name="cause"></a>Orsak
 
-Runbook kördes över 3 timme gränsen som tillåts av rättmätiga del i en Azure-Sandbox
+Runbook kördes över 3 timme gränsen som tillåts av rättmätiga del i en Azure-Sandboxen.
 
 #### <a name="resolution"></a>Lösning
 
-Den rekommenderade lösningen är att köra runbook på en [Hybrid Runbook Worker](../automation-hrw-run-runbooks.md). Hybrid Worker-arbeten begränsas inte av den [rättmätiga del](../automation-runbook-execution.md#fair-share) 3 timme runbook gränsen som Azure sandbox-miljöer.
+En rekommenderad lösning är att köra runbook en [Hybrid Runbook Worker](../automation-hrw-run-runbooks.md).
+
+Hybrid Worker-arbeten inte begränsas av de [rättmätiga del](../automation-runbook-execution.md#fair-share) 3 timme runbook gränsen som Azure sandbox-miljöer. Hybrid Runbook Worker-arbeten inte är begränsad av tre timmar rättmätiga del gränsen runbooks kördes på Hybrid Runbook Worker bör fortfarande utvecklas för att stödja omstart beteenden vid oväntade lokala infrastruktur problem.
+
+Ett annat alternativ är att optimera runbooken genom att skapa [underordnade runbooks](../automation-child-runbooks.md). Om din runbook igenom samma funktion på ett antal resurser, till exempel en databasåtgärd på flera databaser kan du flytta funktionen till en underordnad runbook. Var och en av dessa underordnade runbooks körs parallellt i separata processer, vilket minskar den överordnade runbookens totala körningstid.
+
+PowerShell-cmdlets som gör att underordnad runbook scenario är:
+
+[Start-AzureRMAutomationRunbook](/powershell/module/AzureRM.Automation/Start-AzureRmAutomationRunbook) – denna cmdlet kan du starta en runbook och skicka parametrar till en runbook
+
+[Get-AzureRmAutomationJob](/powershell/module/azurerm.automation/get-azurermautomationjob) – denna cmdlet kan du kontrollera jobbstatus för varje underordnad om det finns åtgärder som måste utföras när den underordnade runbooken har slutförts.
 
 ## <a name="common-errors-when-importing-modules"></a>Vanliga fel när du importerar moduler
 
@@ -350,7 +352,7 @@ Några vanliga orsaker som en modul inte kan importera till Azure Automation är
 * Strukturen matchar inte strukturen som Automation måste det finnas i.
 * Modulen är beroende av en annan modul som inte har distribuerats till ditt Automation-konto.
 * Modulen saknar dess beroenden i mappen.
-* Den `New-AzureRmAutomationModule` cmdlet som används för att ladda upp modulen, och du inte har gett den fullständiga lagringssökväg eller har inte att läsa in modulen med hjälp av en offentligt tillgänglig URL.
+* Den `New-AzureRmAutomationModule` cmdlet som används för att ladda upp modulen och have't får fullständig lagringssökväg eller har inte lästs in modulen med hjälp av en offentligt tillgänglig URL.
 
 #### <a name="resolution"></a>Lösning
 

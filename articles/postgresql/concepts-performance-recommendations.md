@@ -7,19 +7,19 @@ ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 09/26/2018
-ms.openlocfilehash: 6de302dbcfa9d6d1d2b311f41b03d8e54aeb63f6
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: 46a4e69ecb08276e12ccc197de2d3ad838628b78
+ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47395448"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49378609"
 ---
 # <a name="performance-recommendations-in-azure-database-for-postgresql"></a>Prestandarekommendationer i Azure Database för PostgreSQL
 
 **Gäller för:** Azure Database för PostgreSQL 9.6 och 10
 
 > [!IMPORTANT]
-> Prestandarekommendationer är i offentlig förhandsversion i ett begränsat antal regioner.
+> Prestandarekommendationer finns i offentlig förhandsversion.
 
 Funktionen Prestandarekommendationer identifierar de översta index som kan skapas i Azure Database for PostgreSQL-server för att förbättra prestanda. För att skapa indexrekommendationer beaktar funktionen olika egenskaper i databasen, inklusive dess schema och arbetsbelastningen som rapporterats av Query Store. När du implementerar en rekommendation för prestanda, bör kunderna testa prestanda för att utvärdera effekten av ändringarna. 
 

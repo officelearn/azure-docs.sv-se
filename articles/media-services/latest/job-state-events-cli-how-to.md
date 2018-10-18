@@ -1,6 +1,6 @@
 ---
-title: Dirigera Azure Media Services-händelser till en anpassad webbslutpunkt | Microsoft Docs
-description: Använd Azure Event Grid prenumererar du på Media Services jobbet statusändringshändelsen.
+title: Övervaka Azure Media Services-händelser med Event Grid med CLI | Microsoft Docs
+description: Den här artikeln visar hur du prenumererar på Event Grid för att övervaka Azure Media Services-händelser.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -9,22 +9,18 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 09/20/2018
+ms.date: 10/15/2018
 ms.author: juliako
-ms.openlocfilehash: e7268a066acf41c454de0c66aa21603199d85a60
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 8145b4eb3c39511eb9cd0ed052c36b8338191d4f
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47034849"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49389504"
 ---
-# <a name="route-azure-media-services-events-to-a-custom-web-endpoint-using-cli"></a>Dirigera Azure Media Services-händelser till en anpassad webbslutpunkt med CLI
+# <a name="create-and-monitor-media-services-events-with-event-grid-using-the-azure-cli"></a>Skapa och övervaka Media Services-händelser med Event Grid med Azure CLI
 
-Azure Event Grid är en händelsetjänst för molnet. I den här artikeln använder Azure CLI för att prenumerera på Azure Media Services jobbet tillståndsändringshändelser och utlösa händelsen för att visa resultatet. 
-
-Normalt kan du skicka händelser till en slutpunkt som svarar på händelsen, exempelvis en webhook eller Azure Function. Den här självstudien visar hur du skapar och ställer in en webhook.
-
-När du slutför stegen som beskrivs i den här artikeln ser du att händelsedata har skickats till en slutpunkt.
+Azure Event Grid är en händelsetjänst för molnet. I den här artikeln använder du Azure CLI för att prenumerera på händelser för Azure Media Services-kontot. Sedan kan utlösa du händelser för att visa resultatet. Normalt kan du skicka händelser till en slutpunkt som bearbetar informationen om händelsen och utför åtgärder. I den här artikeln får skicka du händelser till en webbapp som samlar in och visar meddelandena.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -35,147 +31,88 @@ När du slutför stegen som beskrivs i den här artikeln ser du att händelsedat
 
 - Installera den [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). Den här artikeln kräver Azure CLI version 2.0 eller senare. Kör `az --version` för att se vilken version du har. Du kan också använda den [Azure Cloud Shell](https://shell.azure.com/bash).
 
-## <a name="enable-event-grid-resource-provider"></a>Aktivera Event Grid-resursprovider
+## <a name="create-a-message-endpoint"></a>Skapa en slutpunkt för meddelanden
 
-Första du behöver göra är se till att du har aktiverat på din prenumeration Event Grid-resursprovidern. 
+Innan du prenumererar på händelser för Media Services-kontot ska vi ska slutpunkten för händelsemeddelandet. Slutpunkten utför vanligtvis åtgärder baserat på informationen om händelsen. I den här artikeln får du distribuera en [färdiga webbapp](https://github.com/Azure-Samples/azure-event-grid-viewer) som visar meddelandena som händelsen. Den distribuerade lösningen innehåller en App Service-plan,en webbapp för App Service och källkod från GitHub.
 
-I den **Azure** portalen gör du följande:
+1. Välj **Deploy to Azure** (Distribuera till Azure) för att distribuera lösningen till din prenumeration. Ange parametervärdena i Azure Portal.
 
-1. Gå till prenumerationer.
-2. Välj din prenumeration.
-3. Välj Resursprovidrar under inställningar.
-4. Sök efter ”EventGrid”.
-5. Kontrollera att Event Grid är registrerad. Om inte, trycker du på den **registrera** knappen.  
+   <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2Fazure-event-grid-viewer%2Fmaster%2Fazuredeploy.json" target="_blank"><img src="http://azuredeploy.net/deploybutton.png"/></a>
 
-## <a name="create-a-generic-azure-function-webhook"></a>Skapa en allmän webhook i Azure-funktion 
+1. Det kan ta några minuter att slutföra distributionen. Efter distributionen har slutförts kan du visa webbappen för att kontrollera att den körs. I en webbläsare navigerar du till: `https://<your-site-name>.azurewebsites.net`
 
-### <a name="create-a-message-endpoint"></a>Skapa en slutpunkt för meddelanden
+Om du byter till webbplatsen ”Azure Grid Loggboken” kan se du den har inga händelser ännu.
+   
+[!INCLUDE [event-grid-register-provider-portal.md](../../../includes/event-grid-register-provider-portal.md)]
 
-Skapa en slutpunkt som samlar in meddelandena så att du kan visa dem innan du prenumererar på Event Grid-artikeln.
+## <a name="log-in-to-azure"></a>Logga in på Azure
 
-Skapa en funktion som utlöses av en allmän webhook enligt beskrivningen i den [allmän webhook](https://docs.microsoft.com/azure/azure-functions/functions-create-generic-webhook-triggered-function) artikeln. I de här självstudierna i **C#** koden används.
+Logga in i [Azure Portal](http://portal.azure.com) och starta **CloudShell** för att köra CLI-kommandon som visas i nästa steg.
 
-När webhooken har skapats kan du kopiera URL: en genom att klicka på den *hämta Funktionswebbadress* länken högst upp på den **Azure** portalfönstret. Du behöver inte den sista delen av URL: en (*& clientID = standard*).
+[!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]
 
-![Skapa en webhook](./media/job-state-events-cli-how-to/generic_webhook_files.png)
+Om du väljer att installera och använda CLI lokalt måste du ha Azure CLI version 2.0 eller senare. Kör `az --version` för att se vilken version du har. Om du behöver installera eller uppgradera kan du läsa informationen i [Installera Azure CLI](/cli/azure/install-azure-cli). 
 
-### <a name="validate-the-webhook"></a>Verifiera webhooken
+## <a name="set-the-azure-subscription"></a>Ange Azure-prenumeration
 
-När du registrerar din egen webhook-slutpunkt med Event Grid skickar det du en POST-begäran med en enkel valideringskod att bevisa ägarskapet för slutpunkten. Din app behöver ska svara på eko tillbaka verifieringskoden. Event Grid leverera inte händelser till webHook-slutpunkter som inte har validerades. Mer information finns i [Event Grid säkerhet och autentisering](https://docs.microsoft.com/azure/event-grid/security-authentication). Det här avsnittet definierar två delar som måste definieras för verifiering för att skicka.
+Med följande kommando anger du ID för den Azure-prenumeration som du vill använda för Media Services-kontot. Du kan se en lista över prenumerationer som du har åtkomst till under [Prenumerationer](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade).
 
-#### <a name="update-the-source-code"></a>Uppdatera källkoden
-
-När du har skapat din webhook i **run.csx** filen visas i webbläsaren. Ersätt standardkoden med följande kod. 
-
-```csharp
-#r "Newtonsoft.Json"
-
-using System;
-using System.Net;
-using Newtonsoft.Json;
-
-public static async Task<object> Run(HttpRequestMessage req, TraceWriter log)
-{
-    log.Info($"Webhook was triggered!");
-
-    string jsonContent = await req.Content.ReadAsStringAsync();
-    string eventGridValidation = 
-        req.Headers.FirstOrDefault( x => x.Key == "Aeg-Event-Type" ).Value?.FirstOrDefault();
-
-    dynamic eventData = JsonConvert.DeserializeObject(jsonContent);
-
-    log.Info($"event: {eventData}");
-
-    if (eventGridValidation != String.Empty)
-    {
-        if (eventData[0].data.validationCode !=String.Empty && eventData[0].eventType == "Microsoft.EventGrid.SubscriptionValidationEvent")
-        {
-            return req.CreateResponse(HttpStatusCode.OK, new 
-            {
-                validationResponse = eventData[0].data.validationCode
-            });
-        }
-    }
-    
-    log.Info(jsonContent);
-
-    return req.CreateResponse(HttpStatusCode.OK);
-}
+```azurecli-interactive
+az account set --subscription mySubscriptionId
 ```
+ 
+[!INCLUDE [media-services-cli-create-v3-account-include](../../../includes/media-services-cli-create-v3-account-include.md)]
 
-#### <a name="update-test-request-body"></a>Uppdatera begärandetexten för testning
+## <a name="subscribe-to-media-services-events"></a>Prenumerera på händelser för Media Services
 
-Till höger om den **Azure** portalfönstret som du ser två flikar: **visa filer** och **Test**. Välj fliken **Test**. I den **Begärandetext**, klistra in följande json. Du kan klistra in den skick behöver inte ändra alla värden.
+Du prenumererar på en artikel som talar om Event Grid vilka händelser som du vill spåra. I följande exempel prenumererar vi på Media Services-konto du just skapat, och URL: en från webbplatsen som du har skapat som slutpunkt för händelseavisering. 
 
-```json
-[{
-  "id": "2d1781af-3a4c-4d7c-bd0c-e34b19da4e66",
-  "topic": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
-  "subject": "",
-  "data": {
-    "validationCode": "512d38b6-c7b8-40c8-89fe-f46f9e9622b6"
-  },
-  "eventType": "Microsoft.EventGrid.SubscriptionValidationEvent",
-  "eventTime": "2017-08-06T22:09:30.740323Z"
-}
-]
-```
+Ersätt `<event_subscription_name>` med ett unikt namn för din händelseprenumeration. För `<resource_group_name>` och `<ams_account_name>`, använder du värden som du använde när du skapar Media Services-kontot. För den `<endpoint_URL>`anger URL: en för webbappen och lägga till `api/updates` till den URL-Adressen. Genom att ange slutpunkten när du prenumererar kan hantera Event Grid omdirigeringen av händelser till denna slutpunkt. 
 
-Tryck på **spara och kör** överst i fönstret.
+1. Hämta resurs-id
 
-![Begärandetext](./media/job-state-events-cli-how-to/generic_webhook_test.png)
+    ```azurecli-interactive
+    amsResourceId=$(az ams account show --name <ams_account_name> --resource-group <resource_group_name> --query id --output tsv)
+    ```
 
-## <a name="register-for-the-event-grid-subscription"></a>Registrera dig för Event Grid-prenumeration 
+    Exempel:
 
-Du prenumererar på en artikel som talar om Event Grid vilka händelser som du vill spåra. I följande exempel prenumererar vi på Media Services-konto du just skapat, och URL: en från Azure Function-webhook som du har skapat som slutpunkt för händelseavisering. 
+    ```
+    amsResourceId=$(az ams account show --name amsaccount --resource-group amsResourceGroup --query id --output tsv)
+    ```
 
-Ersätt `<event_subscription_name>` med ett unikt namn för din händelseprenumeration. För `<resource_group_name>` och `<ams_account_name>`, använder du värden som du använde när du skapar Media Services-kontot. För den `<endpoint_URL>` klistra in din slutpunkts-URL. Ta bort *& clientID = standard* från URL: en. Genom att ange en slutpunkt när du prenumererar kan Event Grid hantera omdirigeringen av händelser till denna slutpunkt. 
+2. Prenumerera på händelser
 
-```cli
-amsResourceId=$(az ams account show --name <ams_account_name> --resource-group <resource_group_name> --query id --output tsv)
+    ```azurecli-interactive
+    az eventgrid event-subscription create \
+    --resource-id $amsResourceId \
+    --name <event_subscription_name> \
+    --endpoint <endpoint_URL>
+    ```
 
-az eventgrid event-subscription create \
-  --resource-id $amsResourceId \
-  --name <event_subscription_name> \
-  --endpoint <endpoint_URL>
-```
+    Exempel:
 
-Media Services-konto resource ID-värdet ser ut ungefär så här:
+    ```
+    az eventgrid event-subscription create --resource-id $amsResourceId --name amsTestEventSubscription --endpoint https://amstesteventgrid.azurewebsites.net/api/updates/
+    ```    
 
-```
-/subscriptions/81212121-2f4f-4b5d-a3dc-ba0015515f7b/resourceGroups/amsResourceGroup/providers/Microsoft.Media/mediaservices/amstestaccount
-```
+    > [!TIP]
+    > Du kan få verifieringsvarning handskakning. Ge det ett par minuter och handskakningen bör verifiera.
 
-## <a name="test-the-events"></a>Testa händelser
+Nu ska vi utlösa händelser för att se hur Event Grid distribuerar meddelandet till slutpunkten.
 
-Kör ett kodningsjobb. Till exempel som beskrivs i den [Stream videofiler](stream-files-dotnet-quickstart.md) Snabbstart.
+## <a name="send-an-event-to-your-endpoint"></a>Skicka en händelse till din slutpunkt
 
-Du har utlöst händelsen och Event Grid skickade meddelandet till den slutpunkt du konfigurerade när du startade prenumerationen. Bläddra till webhooken som du skapade tidigare. Klicka på **övervakaren** och **uppdatera**. Du ser ändras tillståndet för jobbets händelser: ”i kö”, ”schemalagd”, ”bearbetnings”, ”klar”, ”Error”, ”har avbrutits”, ”avbryter”.  Mer information finns i [Media Services Händelsescheman](media-services-event-schemas.md).
+Du kan utlösa händelser för Media Services-kontot genom att köra ett kodningsjobb. Du kan följa [snabbstarten](stream-files-dotnet-quickstart.md) att koda en fil och börja skicka händelser. 
 
-I följande exempel visar schemat för händelsen JobStateChange:
+Visa ditt webbprogram igen och observera att en händelse för verifieringen av prenumerationen har skickats till den. Händelserutnätet skickar valideringshändelsen så att slutpunkten kan bekräfta att den vill ta emot händelsedata. Slutpunkten har att ställa in `validationResponse` till `validationCode`. Mer information finns i [Event Grid säkerhet och autentisering](../../event-grid/security-authentication.md). Du kan visa koden för webbappen om du vill se hur den validerar prenumerationen.
 
-```json
-[{
-  "topic": "/subscriptions/<subscription id>/resourceGroups/amsResourceGroup/providers/Microsoft.Media/mediaservices/amsaccount",
-  "subject": "transforms/VideoAnalyzerTransform/jobs/<job id>",
-  "eventType": "Microsoft.Media.JobStateChange",
-  "eventTime": "2018-04-20T21:17:26.2534881",
-  "id": "<id>",
-  "data": {
-    "previousState": "Scheduled",
-    "state": "Processing"
-  },
-  "dataVersion": "1.0",
-  "metadataVersion": "1"
-}]
-```
+> [!TIP]
+> Välj ögonikonen för att utöka informationen om händelsen. Uppdatera inte sidan, om du vill visa alla händelser.
 
-![Testa händelser](./media/job-state-events-cli-how-to/test_events.png)
+![Visa prenumerationshändelse](./media/monitor-events-portal/view-subscription-event.png)
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Reagera på händelser](reacting-to-media-services-events.md)
+[Ladda upp, koda och strömma](stream-files-tutorial-with-api.md)
 
-## <a name="see-also"></a>Se också
-
-[Azure CLI](https://docs.microsoft.com/en-us/cli/azure/ams?view=azure-cli-latest)

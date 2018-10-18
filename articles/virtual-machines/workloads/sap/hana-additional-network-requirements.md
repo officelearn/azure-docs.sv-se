@@ -14,76 +14,59 @@ ms.workload: infrastructure
 ms.date: 09/10/2018
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8ee89553846309bd96f3cad3648e337488cf07d3
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: 2f4c74076f2763addc1f2b971d8ea0ca29ce6fd0
+ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44164734"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49393006"
 ---
-# <a name="additional-network-requirements"></a>Ytterligare krav
+# <a name="additional-network-requirements-for-large-instances"></a>Ytterligare krav för stora instanser
 
-Ibland kan du ha ytterligare krav som en del av distributionen av stora HANA-instanser. Den här artikeln visar de följande krav:
-- [Att lägga till fler IP-adresser eller undernät ](#adding-more-ip-addresses-or-subnets)
-- [Att lägga till virtuella vetworks](#adding-vnets)
-- [Öka bandbredden för expressroute-krets](#increasing-expressroute-circuit-bandwidth)
-- [Att lägga till en ytterligare expressroute-krets](#adding-an-additional-expressroute-circuit)
-- [Tar bort ett undernät](#deleting-a-subnet)
-- [Tar bort ett virtuellt nätverk](#deleting-a-vnet)
-- [Tar bort en uttrycklig router-krets](#deleting-an-expressroute-circuit)
+Du kan ha ytterligare krav som en del av en distribution av stora instanser av SAP HANA på Azure.
 
+## <a name="add-more-ip-addresses-or-subnets"></a>Lägga till fler IP-adresser eller undernät
 
-## <a name="adding-more-ip-addresses-or-subnets"></a>Att lägga till fler IP-adresser eller undernät
+Använd Azure portal, PowerShell eller Azure CLI när du lägger till fler IP-adresser eller undernät.
 
-Använda Azure-portalen, PowerShell eller CLI när att lägga till flera IP-adresser eller undernät.
+Lägg till det nya IP-adressintervallet som ett nytt intervall till virtuella nätverkets adressutrymme, i stället för att generera ett nytt aggregerade intervall. Skicka den här ändringen till Microsoft. På så sätt kan du ansluta från det nya IP-adressintervallet till HANA stora instanser enheterna i din klient. Du kan öppna en supportförfrågan för Azure att hämta den nya virtuella nätverkets adressutrymme har lagts till. När du fått en bekräftelse, utföra nästa steg.
 
-I det här fallet är rekommendationen att lägga till det nya IP-adressintervallet som nytt intervall i det virtuella nätverkets adressutrymme i stället för att generera ett nytt aggregerade intervall. I båda fallen måste du skicka den här ändringen till Microsoft för att tillåta anslutning av det nya IP-adressintervallet till stora HANA-instansen-enheter i din klient. Du kan öppna en supportförfrågan för Azure att hämta det nya VNet-adressutrymmet som har lagts till. När du fått en bekräftelse, utföra nästa steg.
+Om du vill skapa ett ytterligare undernät från Azure-portalen, [skapa ett virtuellt nätverk med Azure portal](../../../virtual-network/manage-virtual-network.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#create-a-virtual-network). Om du vill skapa en från PowerShell [skapa ett virtuellt nätverk med hjälp av PowerShell](../../../virtual-network/manage-virtual-network.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#create-a-virtual-network).
 
-Om du vill skapa ett ytterligare undernät från Azure-portalen finns i artikeln [skapa ett virtuellt nätverk med Azure portal](../../../virtual-network/manage-virtual-network.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#create-a-virtual-network), och för att skapa från PowerShell, se [skapa ett virtuellt nätverk med hjälp av PowerShell](../../../virtual-network/manage-virtual-network.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#create-a-virtual-network).
+## <a name="add-virtual-networks"></a>Lägg till virtuella nätverk
 
-## <a name="adding-vnets"></a>Att lägga till virtuella nätverk
+När du först ansluta en eller flera Azure-nätverk, kanske du vill ansluta fler håller på att som har åtkomst till SAP HANA på Azure (stora instanser). Först måste skicka en supportförfrågan för Azure. I din begäran, innehåller den information som identifierar den specifika Azure-distributionen. Även innehålla utrymme för IP-adressintervall eller intervall med Azure virtuella nätverkets adressutrymme. SAP HANA på Microsoft Service Management ger sedan nödvändig information du behöver att ansluta ytterligare virtuella nätverk och Azure ExpressRoute. För alla virtuella nätverk behöver du en unik auktorisering för att ansluta till ExpressRoute-krets till stora HANA-instanser.
 
-När du har anslutit först en eller flera virtuella Azure-nätverk, kanske du vill lägga till ytterligare som har åtkomst till SAP HANA på Azure (stora instanser). Först, skicka en supportförfrågan för Azure, i din begäran innehåller både den information som identifierar den specifika Azure-distributionen och de IP-utrymme adressintervall för Azure VNet-adressutrymmet. SAP HANA på Azure Service Management ger sedan nödvändig information du behöver att ansluta ytterligare virtuella nätverk och ExpressRoute. För varje virtuellt nätverk behöver du en unik nyckel för auktorisering att ansluta till ExpressRoute-krets till stora HANA-instanser.
+## <a name="increase-expressroute-circuit-bandwidth"></a>Öka ExpressRoute-kretsens bandbredd
 
-Steg för att lägga till ett nytt Azure VNet:
+Konsultera SAP HANA på Microsoft Service Management. Om de rekommenderar att du ökar bandbredden för SAP HANA på Azure (stora instanser) ExpressRoute-krets, skapa en supportförfrågan för Azure. (Du kan begära en ökning av en enda kretsbandbredden upp till högst 10 Gbit/s). Sedan visas meddelandet när åtgärden har slutförts; Du behöver inte göra något annat att aktivera den här högre hastighet i Azure.
 
-1. Fullständig det första steget i onboarding-processen finns i den _skapar virtuella Azure-nätverket_ avsnittet.
-2. Fullständig det andra steget i onboarding-processen finns i den _skapar gateway-undernät_ avsnittet.
-3. För att ansluta dina ytterligare virtuella nätverk till HANA stora instans ExpressRoute-kretsen, öppna en supportförfrågan för Azure med information om det nya VNet och begär en ny nyckel för auktorisering.
-4. När ett meddelande om att auktoriseringen har slutförts, användning av Microsoft tillhandahåller autentiseringsinformationen för att slutföra tredje steget i onboarding-processen finns i den _länka virtuella nätverk_ avsnittet.
+## <a name="add-an-additional-expressroute-circuit"></a>Lägg till en ytterligare ExpressRoute-krets
 
-## <a name="increasing-expressroute-circuit-bandwidth"></a>Öka ExpressRoute-kretsens bandbredd
+Konsultera SAP HANA på Microsoft Service Management. Om de rekommenderar att du kan lägga till en ytterligare ExpressRoute-krets, skapa en supportförfrågan för Azure (inklusive en begäran att hämta auktoriseringsinformation att ansluta till den nya kretsen). Innan du gör begäran, måste du definiera adressutrymmet som används på de virtuella nätverken. SAP HANA på Microsoft Service Management kan sedan ger behörighet.
 
-Konsultera SAP HANA på Azure Service Management. Om du bör öka bandbredden för SAP HANA på Azure (stora instanser) ExpressRoute-krets, skapar du en supportförfrågan för Azure. (Du kan begära en ökning av en enda kretsbandbredden upp till högst 10 Gbit/s). Sedan visas meddelandet när åtgärden har slutförts; Ingen ytterligare åtgärd krävs för att aktivera den här högre hastighet i Azure.
+När den nya kretsen har skapats och SAP HANA på Microsoft Service Management-konfigurationen är klar kan få du ett meddelande med informationen du behöver att fortsätta. Det går inte att ansluta virtuella Azure-nätverk till den här ytterligare kretsen om de redan är anslutna till en annan SAP HANA på Azure (stor instans) ExpressRoute-kretsen i samma Azure-region.
 
-## <a name="adding-an-additional-expressroute-circuit"></a>Att lägga till en ytterligare ExpressRoute-krets
+## <a name="delete-a-subnet"></a>Ta bort ett undernät
 
-Konsultera SAP HANA på Azure Service Management om du är bäst att en ytterligare ExpressRoute-krets krävs, gör en supportbegäran för att skapa en ny ExpressRoute-krets (och att hämta information om tillstånd att ansluta till den) Azure. Adressutrymmet som ska användas på de virtuella nätverken måste definieras innan du gör begäran, i ordning för SAP HANA på Azure Service Management för auktorisering.
+Du kan använda Azure portal, PowerShell eller Azure CLI för att ta bort ett virtuellt nätverksundernät. Om ditt Azure-nätverk IP-adressintervall eller en adress adressutrymme var ett sammansatt adressintervall, finns det inga Följ åt dig med Microsoft. (Observera att det virtuella nätverket fortfarande sprids BGP vägen adressutrymmet som innehåller undernätet som har tagits bort.) Du har definierat i Azure virtuella nätverkets adressutrymme adressintervall eller en adress som flera IP-adressintervall, varav en tilldelades till undernätet har tagits bort. Glöm inte att ta bort som från din virtuella nätverkets adressutrymme. Ett meddelande i SAP HANA på Microsoft Service Management ta bort den från de intervall som du kan kommunicera med SAP HANA på Azure (stora instanser).
 
-När den nya kretsen har skapats och SAP HANA på Azure Service Management-konfigurationen är klar kan ska du ta emot meddelanden med informationen du behöver att fortsätta. Följ stegen ovan för att skapa och ansluta det nya VNet till den här ytterligare kretsen. Det går inte att ansluta virtuella Azure-nätverk till den här ytterligare kretsen om de redan är anslutna till en annan SAP HANA på Azure (stor instans) ExpressRoute-kretsen i samma Azure-Region.
+Mer information finns i [ta bort ett undernät](../../../virtual-network/virtual-network-manage-subnet.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#delete-a-subnet).
 
-## <a name="deleting-a-subnet"></a>Tar bort ett undernät
+## <a name="delete-a-virtual-network"></a>Ta bort ett virtuellt nätverk
 
-Azure portal, PowerShell eller CLI kan användas för att ta bort ett virtuellt nätverk undernät. Om din Azure VNet-IP-adress olika/Azure VNet-adressutrymmet var ett sammansatt adressintervall, finns det inga Följ åt dig med Microsoft. Förutom att det virtuella nätverket fortfarande sprider adressutrymme för BGP-väg innehåller som det borttagna undernätet. Om du har definierat i Azure VNet-IP-adress olika/Azure VNet-adressutrymmet som flera IP-adressintervall som någon har tilldelats till ditt borttagna undernät, bör du ta bort som utanför din VNet-adressutrymmet och därefter meddela SAP HANA på Azure Service Management till ta bort den från de intervall som du kan kommunicera med SAP HANA på Azure (stora instanser).
+Mer information finns i [ta bort ett virtuellt nätverk](../../../virtual-network/manage-virtual-network.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#delete-a-virtual-network).
 
-Om du vill ta bort ett undernät, se [ta bort ett undernät](../../../virtual-network/virtual-network-manage-subnet.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#delete-a-subnet) för mer information om hur du skapar undernät.
+SAP HANA på Microsoft Service Management tar bort de befintliga tillstånd på SAP HANA på Azure (stora instanser) ExpressRoute-krets. Det tar också bort Azure-nätverk IP-adressintervall eller en adress adressutrymmet för kommunikation med stora HANA-instanser.
 
-## <a name="deleting-a-vnet"></a>Tar bort ett virtuellt nätverk
+När du tar bort det virtuella nätverket, öppnar du en supportförfrågan för Azure att ge utrymme för IP-adressintervall eller intervall som ska tas bort.
 
-Om du vill ta bort ett virtuellt nätverk, se [ta bort ett virtuellt nätverk](../../../virtual-network/manage-virtual-network.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#delete-a-virtual-network). SAP HANA på Azure Service Management tar bort de befintliga tillstånd på SAP HANA på Azure (stora instanser) ExpressRoute-krets och ta bort Azure VNet-IP-adress intervall/Azure VNet-adressutrymmet för kommunikation med stora HANA-instanser.
+Säkerställ att du tar bort allt genom att ta bort ExpressRoute-anslutning, den virtuella nätverksgatewayen, den offentliga IP-gateway för virtuellt nätverk och det virtuella nätverket.
 
-När det virtuella nätverket har tagits bort, kan du öppna en supportförfrågan för Azure att tillhandahålla de IP-utrymme adressintervall som ska tas bort.
+## <a name="delete-an-expressroute-circuit"></a>Ta bort en ExpressRoute-krets
 
-Säkerställ allt tas bort genom att ta bort följande objekt:
+Ta bort en ytterligare SAP HANA på Azure (stora instanser) ExpressRoute-krets, öppna en supportförfrågan för Azure med SAP HANA på Microsoft Service Management. Begäran att kretsen tas bort. I Azure-prenumeration kan du ta bort eller behålla det virtuella nätverket, vid behov. Dock måste du ta bort anslutningen mellan HANA stora instanser ExpressRoute-kretsen och den länkade virtuella nätverksgatewayen.
 
-- ExpressRoute-anslutning, VNet-Gateway, offentlig IP för VNet-Gateway och virtuellt nätverk
+## <a name="next-steps"></a>Nästa steg
 
-## <a name="deleting-an-expressroute-circuit"></a>Tar bort en ExpressRoute-krets
-
-Om du vill ta bort en ytterligare SAP HANA på Azure (stora instanser) ExpressRoute-krets, öppna en supportförfrågan för Azure med SAP HANA på Azure Service Management och begära att kretsen ska tas bort. I Azure-prenumeration kan du ta bort eller behålla det virtuella nätverket efter behov. Dock måste du ta bort anslutningen mellan HANA stora instanser ExpressRoute-kretsen och den länkade VNet-gatewayen.
-
-Om du även vill ta bort ett virtuellt nätverk, följ anvisningarna på tar bort ett virtuellt nätverk i avsnittet ovan.
-
-**Nästa steg**
-
-- Se [installera och konfigurera SAP HANA (stora instanser) på Azure](hana-installation.md).
+- [Installera och konfigurera SAP HANA (stora instanser) i Azure](hana-installation.md)

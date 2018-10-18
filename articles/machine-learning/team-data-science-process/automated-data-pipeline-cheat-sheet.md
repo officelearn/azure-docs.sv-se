@@ -1,10 +1,10 @@
 ---
-title: Azure Machine Learning automated data pipeline fusklapp | Microsoft Docs
-description: En utskrivbar fusklapp som visar hur du ställer in en pipeline för automatisk data till din Azure Machine Learning-webbtjänst om dina data är lokalt, strömning i Azure, eller i en fristående molntjänst.
+title: Azure Machine Learning automatiserad facit för data-pipeline | Microsoft Docs
+description: En utskrivbar fusklapp som visar hur du ställer in en automatiserad datapipeline till din Azure Machine Learning-webbtjänst om dina data är på plats, strömning i Azure eller i en fristående molntjänst.
 services: machine-learning
 documentationcenter: ''
 author: garyericson
-manager: jhubbard
+manager: cgronlun
 editor: cgronlun
 ms.assetid: 22674d6b-4491-4805-a3ac-d423611177bb
 ms.service: machine-learning
@@ -15,23 +15,23 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2017
 ms.author: garye
-ms.openlocfilehash: 54a3aca4c3519948a9e18d035565f746964b38bc
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: cd08f6a31f431900a2cb7ed9ed222409f9583b55
+ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34836168"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49393379"
 ---
 # <a name="cheat-sheet-for-an-automated-data-pipeline-for-azure-machine-learning-predictions"></a>Facit för en automatiserad datapipeline för Azure Machine Learning-förutsägelser
-Den **Microsoft Azure Machine Learning automated data pipeline fusklapp** kan du bläddra igenom den teknik som du kan använda för att hämta data till Machine Learning-webbtjänst där den kan bedömas av din prediktiva analysmodell.
+Den **Microsoft Azure Machine Learning automated data pipeline-facit** kan du navigera genom den teknik som du kan använda för att få dina data till din Machine Learning-webbtjänsten där det kan mätas genom dina förutsägande analys modell.
 
-Beroende på om dina data är lokalt, i molnet, eller direktuppspelning realtid, det finns olika metoder som är tillgängliga för att flytta data till din slutpunkt för webbtjänsten för resultatfunktioner.
-Den här fusklapp vägleder dig genom de beslut du måste fatta och erbjuder länkar till artiklar som hjälper dig att utveckla din lösning.
+Beroende på om dina data är lokalt, i molnet, eller strömning i realtid, det finns olika sätt som är tillgängliga för att flytta data till din slutpunkt för webbtjänsten för bedömning.
+Den här lathunden vägleder dig genom de beslut som du behöver göra och ger länkar till artiklar som hjälper dig att utveckla din lösning.
 
-## <a name="download-the-machine-learning-automated-data-pipeline-cheat-sheet"></a>Hämta fusklapp för Machine Learning automatiserade data pipeline
-När du har hämtat fusklapp du skriva ut det i tabloidformat (11 x 17 i).
+## <a name="download-the-machine-learning-automated-data-pipeline-cheat-sheet"></a>Ladda ned facit för Machine Learning automatiserade pipeline
+När du har hämtat facit kan du skriva ut det i tabloidformat (11 x 17 tum).
 
-Hämta fusklapp här:  **[Microsoft Azure Machine Learning automated data pipeline fusklapp](http://download.microsoft.com/download/C/C/7/CC726F8B-2E6F-4C20-9B6F-AFBEE8253023/microsoft-machine-learning-operationalization-cheat-sheet_v1.pdf)**
+Ladda ned här facit:  **[Microsoft Azure Machine Learning automatiserad pipeline-facit för data](http://download.microsoft.com/download/C/C/7/CC726F8B-2E6F-4C20-9B6F-AFBEE8253023/microsoft-machine-learning-operationalization-cheat-sheet_v1.pdf)**
 
 ![Översikt över funktioner i Microsoft Azure Machine Learning Studio][op-cheat-sheet]
 
@@ -39,9 +39,9 @@ Hämta fusklapp här:  **[Microsoft Azure Machine Learning automated data pipeli
 
 
 ## <a name="more-help-with-machine-learning-studio"></a>Mer hjälp med Machine Learning Studio
-* En översikt över Microsoft Azure Machine Learning, se [introduktion till maskininlärning på Microsoft Azure](../studio/what-is-machine-learning.md).
-* En förklaring av hur du distribuerar en bedömningsprofil webbtjänst finns [distribuera en Azure Machine Learning-webbtjänst](../studio/publish-a-machine-learning-web-service.md).
-* En beskrivning av hur du använder en bedömningsprofil webbtjänst finns [använda en Azure Machine Learning-webbtjänst](../studio/consume-web-services.md).
+* En översikt över Microsoft Azure Machine Learning, se [introduktion till machine learning på Microsoft Azure](../studio/what-is-machine-learning.md).
+* En förklaring av hur du distribuerar en bedömning av webbtjänsten finns i [distribuera en Azure Machine Learning-webbtjänst](../studio/publish-a-machine-learning-web-service.md).
+* En beskrivning av hur du använder en bedömning av webbtjänsten finns [hur du använder en Azure Machine Learning-webbtjänst](../studio/consume-web-services.md).
 
 [!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
 

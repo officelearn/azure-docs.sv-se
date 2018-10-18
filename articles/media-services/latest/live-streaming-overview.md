@@ -4,29 +4,29 @@ description: Det här avsnittet ger en översikt över liveuppspelning med Azure
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 06/06/2018
+ms.date: 10/16/2018
 ms.author: juliako
-ms.openlocfilehash: e9ecf1ba3022ca057fa09bad2413aa19d902ae23
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: 533aa505c38d3cbfb46d70acecd43cc66614b13d
+ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38972187"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49378144"
 ---
 # <a name="live-streaming-with-azure-media-services-v3"></a>Liveuppspelning med Azure Media Services v3
 
 När du ska leverera liveuppspelningshändelser med Azure Media Services ingår oftast följande komponenter:
 
 * En kamera som används för att sända en händelse.
-* En live-videokodare som konverterar signaler från kameran (eller en annan enhet, till exempel bärbara datorer) till dataströmmar som skickas till Media Services live-tjänst för liveuppspelning. Signalerna också innefatta annonsbaserad SCTE 35 och Ad-tips. 
-* Media Services liveströmningstjänsten kan du mata in, förhandsgranska, paket, registrera, kryptera och skicka innehållet till dina kunder eller till ett nätverk för Innehållsleverans för vidare distribution.
+* En live-videokodare som konverterar signaler från kameran (eller en annan enhet, till exempel bärbara datorer) till dataströmmar som skickas till tjänsten Lös strömning. Signalerna också innefatta annonsbaserad SCTE 35 och Ad-tips. 
+* Media Services Live Streaming-tjänsten kan du mata in, förhandsgranska, paket, registrera, kryptera och skicka innehållet till dina kunder eller till ett nätverk för Innehållsleverans för vidare distribution.
 
 Den här artikeln ger en detaljerad översikt och inkluderar diagram över viktiga komponenter som ingår i direktsänd strömning med Media Services.
 
@@ -40,6 +40,17 @@ Media Services kan du leverera ditt innehåll dynamiskt krypterad (**dynamisk kr
 
 Om du vill kan du också använda **dynamisk filtrering**, som kan användas för att styra antalet spår, format, bithastighet som skickas till spelarna. Media Services stöder också ad-insättning.
 
+### <a name="new-live-encoding-improvements"></a>Nya förbättringar för Live encoding
+
+Följande nya förbättringar har utförts i den senaste versionen.
+
+- Nya läget för låg latens för live-(10 sekunder slutpunkt till slutpunkt).
+- Förbättrad RTMP support (ökad stabilitet och mer käll-kodare stöder).
+- RTMPS säker mata in.
+
+    När du skapar en LiveEvent du nu få 4 mata in URL: er. 4 mata in URL: er är nästan identiska, har samma strömmande token (AppId), bara den numeriska delen port är olika. Två av de URL: er är primär och sekundär för RTMPS.   
+- 24-timmars transkodning stöd. 
+- Förbättrat stöd för ad-signalering i RTMP via SCTE35.
 
 ## <a name="liveevent-types"></a>LiveEvent typer
 

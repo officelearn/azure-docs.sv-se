@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/02/2018
 ms.author: apimpm
-ms.openlocfilehash: 8c4ae9c7b8be8cf390ad4ad6d99cd1ec41cd3d08
-ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
+ms.openlocfilehash: ce4ff33a8af9cf864ad4902599a0ab18b2b27182
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/15/2018
-ms.locfileid: "42055400"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49387233"
 ---
 # <a name="how-to-save-and-configure-your-api-management-service-configuration-using-git"></a>Spara och konfigurera din API Management-tjänstkonfigurationen med Git
 
@@ -219,14 +219,14 @@ Den slutliga inställningen `$ref-policy`, mappar till den globala principfilen 
 ### <a name="apis-folder"></a>API: er för mappen
 Den `apis` mappen innehåller en mapp för varje API i tjänstinstansen, som innehåller följande objekt.
 
-* `apis\<api name>\configuration.json` -Detta är konfigurationen för API: et och innehåller information om URL: en för backend-tjänsten och åtgärderna. Det här är samma information som skulle returneras om du anropar [hämta ett visst API](https://docs.microsoft.com/en-us/rest/api/apimanagement/api/get) med `export=true` i `application/json` format.
-* `apis\<api name>\api.description.html` -Detta är beskrivningen av API: et och motsvarar den `description` egenskapen för den [API-entiteten](https://docs.microsoft.com/en-us/java/api/com.microsoft.azure.storage.table._entity_property).
-* `apis\<api name>\operations\` – den här mappen innehåller `<operation name>.description.html` filer som mappar till åtgärder i API: et. Varje fil innehåller en beskrivning av en enda åtgärd i API: T, som mappar till den `description` egenskapen för den [åtgärden entitet](https://docs.microsoft.com/en-us/rest/api/visualstudio/operations/list#operationproperties) i REST-API.
+* `apis\<api name>\configuration.json` -Detta är konfigurationen för API: et och innehåller information om URL: en för backend-tjänsten och åtgärderna. Det här är samma information som skulle returneras om du anropar [hämta ett visst API](https://docs.microsoft.com/rest/api/apimanagement/api/get) med `export=true` i `application/json` format.
+* `apis\<api name>\api.description.html` -Detta är beskrivningen av API: et och motsvarar den `description` egenskapen för den [API-entiteten](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.table._entity_property).
+* `apis\<api name>\operations\` – den här mappen innehåller `<operation name>.description.html` filer som mappar till åtgärder i API: et. Varje fil innehåller en beskrivning av en enda åtgärd i API: T, som mappar till den `description` egenskapen för den [åtgärden entitet](https://docs.microsoft.com/rest/api/visualstudio/operations/list#operationproperties) i REST-API.
 
 ### <a name="groups-folder"></a>mappen grupper
 Den `groups` mappen innehåller en mapp för varje grupp som definierats i tjänstinstansen.
 
-* `groups\<group name>\configuration.json` -Detta är konfigurationen för gruppen. Det här är samma information som skulle returneras om du anropar den [hämta en specifik grupp](https://docs.microsoft.com/en-us/rest/api/apimanagement/group/get) igen.
+* `groups\<group name>\configuration.json` -Detta är konfigurationen för gruppen. Det här är samma information som skulle returneras om du anropar den [hämta en specifik grupp](https://docs.microsoft.com/rest/api/apimanagement/group/get) igen.
 * `groups\<group name>\description.html` -Detta är beskrivningen av gruppen och motsvarar den `description` egenskapen för den [gruppen entitet](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-group-entity).
 
 ### <a name="policies-folder"></a>för principmappen
@@ -246,7 +246,7 @@ Den `portalStyles` mappen innehåller konfigurations- och style sheets developer
 ### <a name="products-folder"></a>produkter mapp
 Den `products` mappen innehåller en mapp för varje produkt som definierats i tjänstinstansen.
 
-* `products\<product name>\configuration.json` -Detta är konfigurationen för produkten. Det här är samma information som skulle returneras om du anropar den [hämta en specifik produkt](https://docs.microsoft.com/en-us/rest/api/apimanagement/product/get) igen.
+* `products\<product name>\configuration.json` -Detta är konfigurationen för produkten. Det här är samma information som skulle returneras om du anropar den [hämta en specifik produkt](https://docs.microsoft.com/rest/api/apimanagement/product/get) igen.
 * `products\<product name>\product.description.html` -Detta är beskrivningen av produkten och motsvarar den `description` egenskapen för den [produktentiteten](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-product-entity) i REST-API.
 
 ### <a name="templates"></a>mallar

@@ -18,7 +18,7 @@
 #### [Azure CLI](data-lake-analytics-manage-use-cli.md)
 #### [Azure PowerShell](data-lake-analytics-manage-use-powershell.md)
 ### SDK:er
-#### [.NET](data-lake-analytics-manage-use-dotnet-sdk.md)
+#### [NET](data-lake-analytics-manage-use-dotnet-sdk.md)
 #### [Python](data-lake-analytics-manage-use-python-sdk.md)
 #### [Java](data-lake-analytics-manage-use-java-sdk.md)
 #### [Node.js](data-lake-analytics-manage-use-nodejs.md)
@@ -69,9 +69,9 @@
 
 # Referens
 ## [Azure PowerShell](/powershell/module/azurerm.datalakeanalytics)
-## [.NET](/dotnet/api/microsoft.azure.management.datalake.analytics)
+## [NET](/dotnet/api/microsoft.azure.management.datalake.analytics)
 ## [Node.js](https://www.npmjs.com/package/azure-arm-datalake-analytics)
-## [Python](https://docs.microsoft.com/en-us/python/api/overview/azure/data-lake-analytics?view=azure-python)
+## [Python](https://docs.microsoft.com/python/api/overview/azure/data-lake-analytics?view=azure-python)
 ## [REST](/rest/api/datalakeanalytics/)
 ## [CLI](https://docs.microsoft.com/cli/azure/dla)
 

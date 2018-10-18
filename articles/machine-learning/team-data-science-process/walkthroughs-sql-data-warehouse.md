@@ -1,10 +1,10 @@
 ---
-title: Med hjälp av T-SQL och Python på Azure SQL Data Warehouse datavetenskap genomgång | Microsoft Docs
-description: Exempel som beskriver genom att använda SQL Data Warehouse att göra förutsägelseanalyser.
+title: Med hjälp av T-SQL och Python på Azure SQL Data Warehouse data science genomgångar | Microsoft Docs
+description: Exempel som vägleder genom att använda SQL Data Warehouse för att göra förutsägelseanalyser.
 services: machine-learning
 documentationcenter: ''
 author: deguhath
-manager: jhubbard
+manager: cgronlun
 editor: cgronlun
 ms.assetid: ''
 ms.service: machine-learning
@@ -15,27 +15,27 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/04/2017
 ms.author: deguhath
-ms.openlocfilehash: d026fc8240a7f48a80c4f6bed37c33f4b6146565
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 9fcc4f9c8a3adc6443ea99606758a00ef8cc2e77
+ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34838923"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49392753"
 ---
-# <a name="sql-data-warehouse-data-science-walkthroughs-using-t-sql-and-python-on-azure"></a>Med hjälp av T-SQL och Python på Azure SQL Data Warehouse datavetenskap genomgång
+# <a name="sql-data-warehouse-data-science-walkthroughs-using-t-sql-and-python-on-azure"></a>SQL Data Warehouse data science genomgångar med T-SQL och Python på Azure
 
-Dessa genomgångar av användning av SQL Data Warehouse för att göra förutsägelseanalyser. De följer stegen som beskrivs i Team av vetenskapliga data. En översikt över Team av vetenskapliga data, se [datavetenskap Process](overview.md). En introduktion till SQL Data Warehouse finns [vad är Azure SQL Data Warehouse?](../../sql-data-warehouse/sql-data-warehouse-overview-what-is.md)
+Dessa genomgångar utnyttjar SQL Data Warehouse för att göra förutsägelseanalyser. De följer du anvisningarna i Team Data Science Process. En översikt över Team Data Science Process, se [Data Science Process](overview.md). En introduktion till SQL Data Warehouse finns i [vad är Azure SQL Data Warehouse?](../../sql-data-warehouse/sql-data-warehouse-overview-what-is.md)
 
-Ytterligare datavetenskap genomgångar som kör Team datavetenskap Process grupperas efter den **plattform** som de använder. Se [genomgång köra Team av vetenskapliga data](walkthroughs.md) för en specificering av de här exemplen.
+Ytterligare data science genomgångar som kör Team Data Science Process är grupperade efter den **plattform** som de använder. Se [genomgångar kör Team Data Science Process](walkthroughs.md) för en specifikation av de här exemplen.
 
 
-## <a name="predict-taxi-tips-using-t-sql-and-ipython-notebooks-with-sql-data-warehouse"></a>Förutsäga taxi tips med T-SQL och IPython bärbara datorer med SQL Data Warehouse
+## <a name="predict-taxi-tips-using-t-sql-and-ipython-notebooks-with-sql-data-warehouse"></a>Förutsäg taxitips med hjälp av T-SQL och IPython-anteckningsböcker med SQL Data Warehouse
 
-Den [Använd SQL Data Warehouse genomgången](sqldw-walkthrough.md) visar hur du skapar och distribuerar maskininlärning klassificering och regression modeller med SQL Data Warehouse (SQL DW) för ett offentligt tillgängliga NYC Taxitransport resa och avgiften dataset.
+Den [Använd SQL Data Warehouse genomgången](sqldw-walkthrough.md) visar hur du skapar och distribuerar machine learning klassificerings- och regressionsmodeller modeller med SQL Data Warehouse (SQL DW) för ett offentligt tillgängliga NYC Taxitransport resa och avgiften datauppsättning.
 
 
 ## <a name="next-steps"></a>Nästa steg
 
-En beskrivning av de viktiga komponenter som utgör teamet datavetenskap Process finns [Team datavetenskap processöversikt](overview.md).
+En beskrivning av de viktigaste komponenterna som utgör Team Data Science Process finns i [Team Data Science Process översikt](overview.md).
 
-En beskrivning av livscykeln Team av vetenskapliga data som du kan använda för att strukturera datavetenskap projekt finns [Team datavetenskap Process livscykel](lifecycle.md). Livscykeln beskrivs stegen från början till slut att projekt vanligtvis följer när de utförs. 
+En beskrivning av livscykeln för Team Data Science Process som du kan använda för att strukturera dina dataforskningsprojekt finns [Team Data Science Process-livscykeln](lifecycle.md). Livscykeln beskrivs stegen, från början till slut att projekt vanligtvis följer när de utförs. 

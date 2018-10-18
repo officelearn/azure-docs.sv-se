@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/09/2018
 ms.author: bryanla
-ms.openlocfilehash: d5cc634451c5412f9a3339c8d2d26654c4d5c1b8
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: 60920aaa62d8472eaca8f929c62ce1c0af08f9a4
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44298921"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49385642"
 ---
 # <a name="get-started-with-key-vault-certificates"></a>Kom igång med Key Vault-certifikat
 Följande scenarier beskriver flera av de primära användningarna av Key Vault-certifikat management-tjänsten, inklusive de ytterligare steg som krävs för att skapa din första certifikatet i ditt nyckelvalv.
@@ -83,7 +83,7 @@ Obs! – den här processen via steg 3.1 är en onetime åtgärd.
       -   Information om förnyelse - > t.ex. 90 dagar innan certifikatet går ut  
 
   - Process för att skapa ett certifikat är vanligtvis en asynkron åtgärd och omfattar avsökning nyckelvalvet för status för åtgärd för att skapa certifikatet.  
-[Åtgärd för hämtning av certifikat](https://docs.microsoft.com/en-us/rest/api/keyvault/getcertificateoperation)  
+[Åtgärd för hämtning av certifikat](https://docs.microsoft.com/rest/api/keyvault/getcertificateoperation)  
       -   Status: slutfört, misslyckades. information om fel eller avbruten  
       -   På grund av hur lång tid att skapa kan en avbrottsåtgärd initieras. Knappen Avbryt kanske eller kanske inte effektiva.  
 

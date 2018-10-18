@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/17/2018
 ms.author: dobett
 ms.custom: include file
-ms.openlocfilehash: 4809881276da752ac6eb08773fb8be145dc5f4c7
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
+ms.openlocfilehash: ffd5da239f8e271a8c9b2aaf3f6d5fd9f885c79c
+ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/17/2018
-ms.locfileid: "49367024"
+ms.locfileid: "49400410"
 ---
 ## <a name="create-a-device-identity"></a>Skapa en enhetsidentitet
 
@@ -21,19 +21,19 @@ I det här avsnittet ska du använda den [Azure-portalen](https://portal.azure.c
 
 1. Logga in på [Azure-portalen](https://portal.azure.com)
 
-1. Välj **alla resurser** och hitta din IoT hub-resurs.
+2. Välj **alla resurser** och hitta din IoT hub-resurs.
 
-1. När din IoT hub-resurs öppnas, klickar du på den **IoT-enheter** för och klicka sedan på **Lägg till** högst upp. 
+3. När din IoT hub-resurs öppnas, klickar du på den **IoT-enheter** för och klicka sedan på **Lägg till** högst upp. 
 
     ![Skapa en enhetsidentitet i portalen](./media/iot-hub-get-started-create-device-identity-portal/create-identity-portal.png)
 
-1. Ange ett namn för den nya enheten, till exempel **myDeviceId**, och klicka på **spara**. Den här åtgärden skapar en ny enhetsidentitet för IoT-hubben.
+4. Ange ett namn för den nya enheten, till exempel **myDeviceId**, och klicka på **spara**. Den här åtgärden skapar en ny enhetsidentitet för IoT-hubben.
 
    [!INCLUDE [iot-hub-pii-note-naming-device](iot-hub-pii-note-naming-device.md)]
 
    ![Lägg till en ny enhet](./media/iot-hub-get-started-create-device-identity-portal/create-a-device.png)
 
-1. I listan över enheter klickar du på den nyligen skapade enheten och kopiera den **anslutningssträngen---primärnyckel** för senare användning.
+5. I listan över enheter klickar du på den nyligen skapade enheten och kopiera den **anslutningssträngen---primärnyckel** för senare användning.
 
     ![Enhetens anslutningssträng](./media/iot-hub-get-started-create-device-identity-portal/device-details.png)
 

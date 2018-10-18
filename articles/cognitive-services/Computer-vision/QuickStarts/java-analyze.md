@@ -3,19 +3,19 @@ title: 'Snabbstart: Analysera en fjärrbild REST, Java – Visuellt innehåll'
 titleSuffix: Azure Cognitive Services
 description: I den här snabbstarten får du analysera en bild med hjälp av API för visuellt innehåll med Java.
 services: cognitive-services
-author: noellelacharite
+author: PatrickFarley
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: computer-vision
 ms.topic: quickstart
 ms.date: 08/28/2018
-ms.author: v-deken
-ms.openlocfilehash: 901fb2c592d78bf26e36e0ecd0417ee995bc5771
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.author: pafarley
+ms.openlocfilehash: 6dae10262c40a127cb24dd40f0d5389c0cdd7c20
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45631097"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49340026"
 ---
 # <a name="quickstart-analyze-a-remote-image-using-the-rest-api-and-java-in-computer-vision"></a>Snabbstart: Analysera en fjärrbild med hjälp av REST-API:et och Java i Visuellt innehåll
 
@@ -54,7 +54,7 @@ Så här skapar du och kör exemplet:
 
 1. Ersätt public-klassen `Main` med följande kod och gör sedan följande ändringar i koden där det behövs:
    1. Ersätt värdet för `subscriptionKey` med din prenumerationsnyckel.
-   1. Ersätt värdet för `uriBase` med slutpunktsadressen för metoden [Analyze Image](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) från Azure-regionen där du fått dina prenumerationsnycklar om det behövs.
+   1. Ersätt värdet för `uriBase` med slutpunktsadressen för metoden [Analysera bild](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) från den Azure-region där du fått dina prenumerationsnycklar om det behövs.
    1. Du kan också ersätta värdet för `imageToAnalyze` med webbadressen till en annan bild som du vill analysera.
 1. Spara och kompilera sedan Java-projektet.
 1. Om du använder en IDE kör du `Main`. Annars öppnar du en kommandotolk och kör den kompilerade klassen med kommandot `java`. Till exempel `java Main`.
@@ -127,7 +127,7 @@ public class Main {
 
 ## <a name="examine-the-response"></a>Granska svaret
 
-Ett svar som anger att åtgärden lyckades returneras i JSON. Exempelprogrammet tolkar och visar ett lyckat svar i konsolfönstret liknar följande exempel:
+Ett svar som anger att åtgärden lyckades returneras i JSON. Exempelprogrammet parsar och visar ett lyckat svar i konsolfönstret enligt följande exempel:
 
 ```json
 REST Response:

@@ -3,19 +3,19 @@ title: 'Snabbstart: Extrahera handskriven text – REST, C# – Visuellt innehå
 titleSuffix: Azure Cognitive Services
 description: I den här snabbstarten extraherar du handskriven text från en bild med hjälp av API:et för visuellt innehåll med C#.
 services: cognitive-services
-author: noellelacharite
+author: PatrickFarley
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: computer-vision
 ms.topic: quickstart
 ms.date: 09/10/2018
-ms.author: v-deken
-ms.openlocfilehash: bf7eae1bc7d0b0db1eaa37b2ab84dc21ef9712b7
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.author: pafarley
+ms.openlocfilehash: f63cebd7a4af5b2289470ef34a80c8680aa981fd
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45628583"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49340349"
 ---
 # <a name="quickstart-extract-handwritten-text-using-the-rest-api-and-c35-in-computer-vision"></a>Snabbstart: Extrahera handskriven text med hjälp av REST API:et och C&#35; i Visuellt innehåll
 
@@ -42,7 +42,7 @@ Skapa exemplet i Visual Studio enligt följande:
     1. Välj **Newtonsoft.Json** när det visas och klicka på kryssrutan bredvid namnet på ditt projekt och sedan på **Installera**.
 1. Ersätt koden i `Program.cs` med följande kod och gör sedan följande ändringar i koden där det behövs:
     1. Ersätt värdet för `subscriptionKey` med din prenumerationsnyckel.
-    1. Ersätt värdet för `uriBase` med slutpunktsadressen för metoden [Identifiera text](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/587f2c6a154055056008f200)från den Azure-region där du fått dina prenumerationsnycklar om det behövs.
+    1. Ersätt värdet för `uriBase` med slutpunktsadressen för metoden [Identifiera text](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/587f2c6a154055056008f200) från den Azure-region där du fått dina prenumerationsnycklar om det behövs.
 1. Kör programmet.
 1. Ange sökvägen till en lokal bild i kommandotolken.
 

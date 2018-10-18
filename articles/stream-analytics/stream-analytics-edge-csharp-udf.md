@@ -9,12 +9,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: tutorial
 ms.date: 09/24/2018
-ms.openlocfilehash: cad5ec059c88290b94919c58ff6bd1071a2b8fdf
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: d593930705c7455d03e20af2affd2de3c418d4a5
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46972136"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49389076"
 ---
 # <a name="tutorial-write-a-c-user-defined-function-for-an-azure-stream-analytics-edge-job-in-visual-studio-preview"></a>Självstudie: Skriva en C#-användardefinierad funktion för ett Azure Stream Analytics Edge-jobb i Visual Studio (förhandsversion)
 
@@ -37,7 +37,7 @@ Innan du börjar bör du kontrollera att du har slutfört följande krav:
 
 ## <a name="create-a-container-in-your-azure-storage-account"></a>Skapa en behållare i ditt Azure Storage-konto
 
-Containern du skapar används för att lagra kompilerade C#-paketet och distribuera dem till din IoT Edge-enhet. Använd en särskild container för varje Stream Analytics-jobb. Det går inte att använda samma container för flera Stream Analytics Edge-jobb. Om du redan har ett lagringskonto med befintliga containrar kan du använda dem. Annars måste du [skapa en ny container](https://docs.microsoft.com/en-us/azure/storage/blobs/storage-quickstart-blobs-portal). 
+Containern du skapar används för att lagra kompilerade C#-paketet och distribuera dem till din IoT Edge-enhet. Använd en särskild container för varje Stream Analytics-jobb. Det går inte att använda samma container för flera Stream Analytics Edge-jobb. Om du redan har ett lagringskonto med befintliga containrar kan du använda dem. Annars måste du [skapa en ny container](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal). 
 
 ## <a name="create-a-stream-analytics-edge-project-in-visual-studio"></a>Skapa ett Stream Analytics Edge-projekt i Visual Studio
 
@@ -146,7 +146,7 @@ När du har testat din fråga lokalt väljer du **skicka till Azure** i skriptre
 ![Skicka in ditt Stream Analytics Edge-jobb till Azure från Visual Studio](./media/stream-analytics-edge-csharp-udf/stream-analytics-udf-submit-job.png)
 
 ## <a name="deploy-to-iot-edge-devices"></a>Distribuera till IoT Edge-enheter
-Ditt Stream Analytics-jobb är nu redo att distribueras som en IoT Edge-modul. Följ snabbstarten om [IoT Edge](https://docs.microsoft.com/en-us/azure/iot-edge/quickstart) för att skapa en IoT-hubb, registrera en IoT Edge-enhet och installera och starta IoT Edge-körningen på din enhet. Följ sedan självstudien om att [distribuera jobbet](https://docs.microsoft.com/en-us/azure/iot-edge/tutorial-deploy-stream-analytics#deploy-the-job) om du vill distribuera ditt Stream Analytics-jobb som en IoT Edge-modul. 
+Ditt Stream Analytics-jobb är nu redo att distribueras som en IoT Edge-modul. Följ snabbstarten om [IoT Edge](https://docs.microsoft.com/azure/iot-edge/quickstart) för att skapa en IoT-hubb, registrera en IoT Edge-enhet och installera och starta IoT Edge-körningen på din enhet. Följ sedan självstudien om att [distribuera jobbet](https://docs.microsoft.com/azure/iot-edge/tutorial-deploy-stream-analytics#deploy-the-job) om du vill distribuera ditt Stream Analytics-jobb som en IoT Edge-modul. 
 
 ## <a name="next-steps"></a>Nästa steg
 

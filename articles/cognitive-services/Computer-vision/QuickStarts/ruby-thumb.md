@@ -3,19 +3,19 @@ title: 'Snabbstart: Generera en miniatyrbild – REST, Ruby – Visuellt innehå
 titleSuffix: Azure Cognitive Services
 description: I den här snabbstarten genererar du en miniatyrbild från en bild med hjälp av API:et för visuellt innehåll med Ruby.
 services: cognitive-services
-author: noellelacharite
+author: PatrickFarley
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: computer-vision
 ms.topic: quickstart
 ms.date: 08/28/2018
-ms.author: v-deken
-ms.openlocfilehash: 117e1fcc49aea5b3cef3e8d3b299a1eec90527db
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.author: pafarley
+ms.openlocfilehash: 16cfadb1b1dec90324739427656a6587ba6314cc
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45632950"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49343052"
 ---
 # <a name="quickstart-generate-a-thumbnail-using-the-rest-api-and-ruby-in-computer-vision"></a>Snabbstart: Generera en miniatyrbild med hjälp av REST API:et och Ruby i Visuellt innehåll
 
@@ -33,7 +33,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 Så här skapar du och kör exemplet:
 
 1. Kopiera följande kod till en textredigerare.
-1. Gör följande ändringar i koden där det behövs:
+1. Gör nedanstående ändringar i koden där det behövs:
     1. Ersätt `<Subscription Key>` med din prenumerationsnyckel.
     1. Ersätt `https://westcentralus.api.cognitive.microsoft.com/vision/v2.0/analyze` med slutpunktsadressen för metoden [Get Thumbnail](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fb) i Azure-regionen där du fått dina prenumerationsnycklar om det behövs.
     1. Du kan också ersätta `https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/Shorkie_Poo_Puppy.jpg/1280px-Shorkie_Poo_Puppy.jpg\` med webbadressen till en annan bild som du vill generera en miniatyrbild för.
@@ -75,7 +75,7 @@ end
 
 ## <a name="examine-the-response"></a>Granska svaret
 
-Ett lyckat svar returneras i form av binärdata som representerar bilddata för miniatyrbilden. Om förfrågningen misslyckas visas svaret i konsolfönstret. Svaret för den misslyckade begäran innehåller en felkod och ett meddelande som hjälper att avgöra vad som gick fel.
+Ett lyckat svar returneras i form av binärdata som representerar bilddata för miniatyrbilden. Om förfrågningen misslyckas visas svaret i konsolfönstret. Svaret för en misslyckad begäran innehåller en felkod och ett meddelande som hjälper dig att avgöra vad som gick fel.
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
@@ -83,7 +83,7 @@ Ta bort filen när den inte längre behövs.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Utforska API:et för visuellt innehåll, som används för att analysera en bild, identifiera kändisar och landmärken, skapa en miniatyrbild och extrahera tryckt och handskriven text. Du kan snabbt experimentera med API:et för visuellt innehåll genom att prova [Open API-testkonsolen](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa/console).
+Utforska API:et för visuellt innehåll, som används för att analysera en bild, identifiera kändisar och landmärken, skapa en miniatyrbild och extrahera tryckt och handskriven text. Du kan experimentera med API för visuellt innehåll i [Open API-testkonsolen](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa/console).
 
 > [!div class="nextstepaction"]
-> [Utforska API:et för visuellt innehåll](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44)
+> [Utforska API för visuellt innehåll](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44)

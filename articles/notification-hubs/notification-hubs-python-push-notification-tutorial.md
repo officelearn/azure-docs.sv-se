@@ -14,12 +14,12 @@ ms.devlang: php
 ms.topic: article
 ms.date: 04/14/2018
 ms.author: dimazaid
-ms.openlocfilehash: 339029f14c4fd9a0158f2b7a4fb80bf03bd83cf3
-ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
+ms.openlocfilehash: b0aa61c86b08a4fe2eddb5eb1fb5b33c4cb901a0
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/15/2018
-ms.locfileid: "42059567"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49386595"
 ---
 # <a name="how-to-use-notification-hubs-from-python"></a>Hur du använder Notification Hubs från Python
 [!INCLUDE [notification-hubs-backend-how-to-selector](../../includes/notification-hubs-backend-how-to-selector.md)]
@@ -261,7 +261,7 @@ Med den här klassen skriva skicka Meddelandemetoder inuti den **NotificationHub
 Dessa metoder kan du skicka en HTTP POST-begäran till /messages slutpunkten för din meddelandehubb, med rätt brödtext och rubriker för att skicka meddelandet.
 
 ### <a name="using-debug-property-to-enable-detailed-logging"></a>Använda debug-egenskapen för att aktivera detaljerad loggning
-Aktivera felsökning egenskapen vid initiering av Meddelandehubben skriver ut detaljerad loggningsinformation om HTTP-begäran och svaret dump samt detaljerade meddelandet skicka resultatet. Den [Notification Hubs TestSend egenskapen](https://docs.microsoft.com/en-us/previous-versions/azure/reference/dn495827(v=azure.100)) returnerar detaljerad information om skicka meddelanderesultat. Använda det – initiera med följande kod:
+Aktivera felsökning egenskapen vid initiering av Meddelandehubben skriver ut detaljerad loggningsinformation om HTTP-begäran och svaret dump samt detaljerade meddelandet skicka resultatet. Den [Notification Hubs TestSend egenskapen](https://docs.microsoft.com/previous-versions/azure/reference/dn495827(v=azure.100)) returnerar detaljerad information om skicka meddelanderesultat. Använda det – initiera med följande kod:
 
     hub = NotificationHub("myConnectionString", "myNotificationHubName", isDebug)
 

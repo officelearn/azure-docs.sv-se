@@ -10,12 +10,12 @@ ms.component: qna-maker
 ms.topic: quickstart
 ms.date: 09/12/2018
 ms.author: diberry
-ms.openlocfilehash: 1bdaa2cd67e6ee772085fd8c3b60c55a74a8df16
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: bbcd031f80010f10ab36440b703ac6dd55a8ced2
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48884907"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49387420"
 ---
 # <a name="quickstart-for-microsoft-qna-maker-api-with-nodejs"></a>Snabbstart för Microsoft QnA Maker API med Node.js 
 <a name="HOLTop"></a>
@@ -175,8 +175,8 @@ let req = {
     }
   ],
   "urls": [
-    "https://docs.microsoft.com/en-in/azure/cognitive-services/qnamaker/faqs",
-    "https://docs.microsoft.com/en-us/bot-framework/resources-bot-framework-faq"
+    "https://docs.microsoft.com/azure/cognitive-services/qnamaker/faqs",
+    "https://docs.microsoft.com/bot-framework/resources-bot-framework-faq"
   ],
   "files": []
 };
@@ -369,7 +369,7 @@ let req = {
       }
     ],
     'urls': [
-      'https://docs.microsoft.com/en-us/azure/cognitive-services/Emotion/FAQ'
+      'https://docs.microsoft.com/azure/cognitive-services/Emotion/FAQ'
     ]
   },
   'update' : {
@@ -805,7 +805,7 @@ Ett svar som anger att åtgärden lyckades returneras i JSON, som du ser i följ
     {
       "id": 2,
       "answer": "QnA Maker provides an FAQ data source that you can query from your bot or application. Although developers will find this useful, content owners will especially benefit from this tool. QnA Maker is a completely no-code way of managing the content that powers your bot or application.",
-      "source": "https://docs.microsoft.com/en-in/azure/cognitive-services/qnamaker/faqs",
+      "source": "https://docs.microsoft.com/azure/cognitive-services/qnamaker/faqs",
       "questions": [
         "Who is the target audience for the QnA Maker tool?"
       ],
@@ -822,11 +822,11 @@ Ett svar som anger att åtgärden lyckades returneras i JSON, som du ser i följ
 
 ## <a name="get-answers-to-a-question-using-a-knowledge-base"></a>Få svar på en fråga med hjälp av en kunskapsbas
 
-Följande kod hämtar svaret på en fråga med hjälp av den angivna kunskapsbasen, med metoden **Generera svar**.
+Följande kod hämtar svaret på en fråga med hjälp av dne angivna kunskapsbasen, med hjälp av metoden **Generera svar**.
 
 1. Skapa ett nytt Node.js-projekt i valfri IDE.
 1. Lägg till koden nedan.
-1. Ersätt `host`-värdet med webbplatsnamnet för din QnA Maker-prenumeration. Mer information finns i [Skapa en QnA Maker-tjänst](../How-To/set-up-qnamaker-service-azure.md).
+1. Ersätt värdet `host` med webbplatsnamnet för din QnA Maker-prenumeration. Mer information finns i [Skapa en QnA Maker-tjänst](../How-To/set-up-qnamaker-service-azure.md).
 1. Ersätt `endpoint_key`-värdet med en giltig slutpunktsnyckel för din prenumeration. Observera att detta inte är samma som din prenumerationsnyckel. Du kan hämta dina slutpunktsnycklar med hjälp av metoden [Hämta slutpunktsnycklar](#GetKeys).
 1. Ersätt `kb`-värdet med ID:t för den kunskapsbas som du vill få svar från. Observera att den här kunskapsbasen redan måste ha publicerats med hjälp av metoden [Publicera](#Publish).
 1. Kör programmet.
@@ -939,7 +939,7 @@ Ett svar som anger att åtgärden lyckades returneras i JSON, som du ser i följ
       "answer": "Yes. However, shadow copies made prior to enabling BitLocker will be automatically deleted when BitLocker is enabled on software-encrypted drives. If you are using a hardware encrypted drive, the shadow copies are retained.",
       "score": 17.3,
       "id": 62,
-      "source": "https://docs.microsoft.com/en-us/windows/security/information-protection/bitlocker/bitlocker-frequently-asked-questions",
+      "source": "https://docs.microsoft.com/windows/security/information-protection/bitlocker/bitlocker-frequently-asked-questions",
       "metadata": []
     },
 ...
@@ -1053,8 +1053,8 @@ Ett svar som anger att åtgärden lyckades returneras i JSON, som du ser i följ
   "name": "QnA Maker FAQ",
   "userId": "2280ef5917bb4ebfa1aae41fb1cebb4a",
   "urls": [
-    "https://docs.microsoft.com/en-in/azure/cognitive-services/qnamaker/faqs",
-    "https://docs.microsoft.com/en-us/bot-framework/resources-bot-framework-faq"
+    "https://docs.microsoft.com/azure/cognitive-services/qnamaker/faqs",
+    "https://docs.microsoft.com/bot-framework/resources-bot-framework-faq"
   ],
   "sources": [
     "Custom Editorial"
@@ -1177,8 +1177,8 @@ Ett svar som anger att åtgärden lyckades returneras i JSON, som du ser i följ
       "name": "QnA Maker FAQ",
       "userId": "2280ef5917bb4ebfa1aae41fb1cebb4a",
       "urls": [
-        "https://docs.microsoft.com/en-in/azure/cognitive-services/qnamaker/faqs",
-        "https://docs.microsoft.com/en-us/bot-framework/resources-bot-framework-faq"
+        "https://docs.microsoft.com/azure/cognitive-services/qnamaker/faqs",
+        "https://docs.microsoft.com/bot-framework/resources-bot-framework-faq"
       ],
       "sources": [
         "Custom Editorial"

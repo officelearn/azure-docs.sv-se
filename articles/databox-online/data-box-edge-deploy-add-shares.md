@@ -1,27 +1,20 @@
 ---
 title: Överföra data med Azure Data Box Edge | Microsoft Docs
 description: Lär dig hur du lägger till och ansluter till resurser på en Data Box Edge-enhet.
-services: databox-edge-gateway
-documentationcenter: NA
+services: databox
 author: alkohli
-manager: twooley
-editor: ''
-ms.assetid: ''
-ms.service: databox-edge-gateway
-ms.devlang: NA
+ms.service: databox
+ms.subservice: edge
 ms.topic: tutorial
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 10/08/2018
 ms.author: alkohli
-ms.custom: ''
 Customer intent: As an IT admin, I need to understand how to add and connect to shares on Data Box Edge so I can use it to transfer data to Azure.
-ms.openlocfilehash: b5c63a255547bae03acbec771593eac97d474003
-ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
+ms.openlocfilehash: 61d427c22f2ac57627ac04a91748e4e6cf8c4e55
+ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/06/2018
-ms.locfileid: "48833100"
+ms.lasthandoff: 10/12/2018
+ms.locfileid: "49165371"
 ---
 # <a name="tutorial-transfer-data-with-azure-data-box-edge-preview"></a>Självstudie: Överföra data med Azure Data Box Edge (förhandsversion)
 

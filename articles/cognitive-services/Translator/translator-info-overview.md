@@ -10,12 +10,12 @@ ms.component: translator-text
 ms.topic: overview
 ms.date: 05/10/2018
 ms.author: nolachar
-ms.openlocfilehash: 47ac3c81b85424a5cacab00863cd88fab9463fb9
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: c0004960b7a234d374ec0ae1bdc2f6576b197705
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46124668"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49385034"
 ---
 # <a name="what-is-translator-text-api"></a>Vad är Translator Text API?
 
@@ -27,7 +27,7 @@ Translator Text API är en del av Azure [API för Cognitive Services](https://do
 
 Microsoft Translator är en molnbaserad maskinöversättningstjänst. Kärnan i tjänsten är Translator Text API och [Translator Speech API](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-translation). De finns i olika Microsoft-produkter och tjänster och används av tusentals företag över hela världen i program och arbetsflöden i syfte att nå en världsomspännande publik.
 
-Vi erbjuder också talöversättning via [förhandsversionen av taltjänsten i Cognitive Services](https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/). Här kombineras det befintliga Translator Speech API, API för Bing-taligenkänning och Custom Speech Service (förhandsversion) till en enhetlig och helt anpassningsbar tjänst.  
+Vi erbjuder också talöversättning via [förhandsversionen av taltjänsten i Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/speech-service/). Här kombineras det befintliga Translator Speech API, API för Bing-taligenkänning och Custom Speech Service (förhandsversion) till en enhetlig och helt anpassningsbar tjänst.  
 
 Läs mer om [Microsoft Translator-tjänsten](https://www.microsoft.com/en-us/translator/home.aspx)
 

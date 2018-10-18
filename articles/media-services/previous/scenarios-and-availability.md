@@ -4,21 +4,21 @@ description: Det här avsnittet ger en översikt över Microsoft Azure Media Ser
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 07/10/2017
-ms.author: juliako;anilmur
-ms.openlocfilehash: 8381cdfffd34ffa25d1b87be3a3aca3de69c2802
-ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
+ms.date: 10/15/2018
+ms.author: juliako
+ms.openlocfilehash: 0e9537f09049d5fe056819e6f8b9718cfc52f489
+ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34809291"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49352822"
 ---
 # <a name="scenarios-and-availability-of-media-services-features-across-datacenters"></a>Scenarier och tillgängligheten för Media Services-funktioner i datacenter
 
@@ -158,7 +158,7 @@ AMS-kunder kan skala slutpunkter för direktuppspelning, mediebearbetning och la
     Mer information finns i [Skala mediebearbetning](media-services-portal-scale-media-processing.md).
 * Du kan även skala ditt Media Services-konto genom att lägga till lagringskonton. Varje lagringskonto är begränsat till 500 TB. Du kan välja att koppla flera lagringskonton för till ett enda Media Services-konto om du vill expandera din lagring utöver standardbegränsningarna. Mer information finns i [Hantera lagringskonton](meda-services-managing-multiple-storage-accounts.md).
 
-##<a id="availability"></a> Tillgänglighet för Media Services-funktioner i datacenter
+## <a id="availability"></a> Tillgänglighet för Media Services-funktioner i datacenter
 
 Det här avsnittet innehåller information om tillgängligheten för Media Services-funktioner i datacenter.
 

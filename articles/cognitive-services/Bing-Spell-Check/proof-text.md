@@ -10,12 +10,12 @@ ms.component: bing-spell-check
 ms.topic: overview
 ms.date: 05/03/2018
 ms.author: nolachar
-ms.openlocfilehash: 81c80ab6c8d10d263de96566f5554709a2404a24
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: 4caa05ffa96dbc15922fed85edfdefdb68ead68b
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48802601"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49361719"
 ---
 # <a name="what-is-bing-spell-check-api"></a>Vad är API för Bing-stavningskontroll?
 
@@ -36,7 +36,7 @@ Den här stavningskontrollen klarar alla ordbehandlingsscenarier:
 
 ## <a name="spell-check-modes"></a>Stavningskontrollslägen
 
-Detta API har två korrigeringslägen, `Proof` och `Spell`.  Prova några exempel [här](https://azure.microsoft.com/en-us/services/cognitive-services/spell-check/).
+Detta API har två korrigeringslägen, `Proof` och `Spell`.  Prova några exempel [här](https://azure.microsoft.com/services/cognitive-services/spell-check/).
 ### <a name="proof---for-documents-scenario"></a>Korrektur – för dokumentscenarier
 Standardläget är `Proof`. Stavningsläget `Proof` ger de mest omfattande kontrollerna, och lägger till versaler, grundläggande interpunktion och andra funktioner när du skapar dokument. Det är bara tillgängligt för en-US (amerikansk engelska), es-ES (spanska), pt-BR (portugisiska) (Obs! endast i betaversion för spanska och portugisiska). För övriga marknader anger du lägesfrågeparametern till Stavning. 
 <br /><br/>**Ob!**  Om frågetexten är längre än 4 096 tecken kortas den av till 4 096 tecken innan den bearbetas. 

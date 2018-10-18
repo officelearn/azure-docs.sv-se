@@ -11,17 +11,17 @@ ms.topic: overview
 ms.date: 08/12/2016
 ms.author: pibehre
 ROBOTS: NOINDEX
-ms.openlocfilehash: f6cfaa05a6107d3e1ef689103da43960ea4df366
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: 79b126fc33175b7cd6df96ab07cd7b726d6065a7
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48039999"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49389946"
 ---
 # <a name="what-is-the-web-language-model-api-preview"></a>Vad är Web Language Model API? (Förhandsversion)
 
 > [!IMPORTANT]
-> Förhandsversionen av Web Language Model togs ur bruk den 9 augusti 2018. Vi rekommenderar att du använder [Azure Machine Learning-textanalysmoduler](https://docs.microsoft.com/en-us/azure/machine-learning/studio-module-reference/text-analytics) för textbearbetning och -analys.
+> Förhandsversionen av Web Language Model togs ur bruk den 9 augusti 2018. Vi rekommenderar att du använder [Azure Machine Learning-textanalysmoduler](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/text-analytics) för textbearbetning och -analys.
 
 Web Language Model API i Microsoft Cognitive Services är en REST-baserad molntjänst med de senaste verktygen för bearbetning av naturligt språk. Med detta API kan ditt program använda sig av big data i form av språkmodeller som tränats upp med korpus i webbskala som Bing samlat in på den amerikanska marknaden.
 

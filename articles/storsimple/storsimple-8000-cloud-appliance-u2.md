@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/08/2017
 ms.author: alkohli
-ms.openlocfilehash: 77154d596eb9202c4f9d1063ba7f4e1ec4855181
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.openlocfilehash: 33be58ae3ac5fcc8d0b35b240f9f378ccce134cc
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43665013"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49387693"
 ---
 # <a name="deploy-and-manage-a-storsimple-cloud-appliance-in-azure-update-3-and-later"></a>Distribuera och hantera en StorSimple Cloud Appliance-installation i Azure (Uppdatering 3 eller senare)
 
@@ -265,7 +265,7 @@ Om du vill stoppa alla kostnader måste du ta bort molninstallationen. Om du vil
 ## <a name="troubleshoot-internet-connectivity-errors"></a>Felsöka problem med Internetanslutning
 Om det inte finns någon Internetanslutning när molninstallationen skapas, så misslyckas åtgärden. Du kan felsöka problem med Internetanslutningen genom att utföra följande steg i Azure Portal:
 
-1. [Skapa en virtuell Windows-dator i Azure-portalen](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/quick-create-portal). Den virtuella datorn måste använda samma lagringskonto, virtuella nätverk och undernät som används av molninstallationen. Om det finns en befintlig Windows Server-värd i Azure som använder samma lagringskonto, virtuella nätverk och undernät, kan du även använda den för att felsöka Internetanslutningen.
+1. [Skapa en virtuell Windows-dator i Azure-portalen](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-portal). Den virtuella datorn måste använda samma lagringskonto, virtuella nätverk och undernät som används av molninstallationen. Om det finns en befintlig Windows Server-värd i Azure som använder samma lagringskonto, virtuella nätverk och undernät, kan du även använda den för att felsöka Internetanslutningen.
 2. Logga in via fjärrinloggning på den virtuella datorn som skapades i föregående steg.
 3. Öppna ett kommandofönster i den virtuella datorn (Win + R och skriv sedan `cmd`).
 4. Kör följande cmd i prompten.

@@ -12,12 +12,12 @@ ms.date: 09/07/2017
 ms.author: lizross
 ms.reviewer: piotrci
 ms.custom: it-pro
-ms.openlocfilehash: bce7a060908e8043390fdce729161cad48a644be
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: a0a992e62e7b1e375ff2591aa82bdc7733e9d26f
+ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45731078"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49394705"
 ---
 # <a name="how-to-sign-up-for-azure-active-directory-premium"></a>Gör så här: Registrera dig för Azure Active Directory Premium
 Du kan köpa och associera Azure Active Directory (Azure AD) Premium till din Azure-prenumeration. Om du behöver skapa en ny Azure-prenumeration måste du även aktivera din licensieringsplan och åtkomst till Azure AD-tjänsten.
@@ -27,11 +27,11 @@ Du kan köpa och associera Azure Active Directory (Azure AD) Premium till din Az
 
 Innan du registrerar dig för Active Directory Premium 1 eller Premium 2 måste du först ta reda på vilken av dina befintliga prenumerationer eller planer som ska användas:
 
-    - Via din befintliga Azure- eller Office 365-prenumeration
+- Via din befintliga Azure- eller Office 365-prenumeration
 
-    - Via din Enterprise Mobility + Security-licensieringsplan
+- Via din Enterprise Mobility + Security-licensieringsplan
 
-    - Via en Microsoft-volymlicensieringsplan
+- Via en Microsoft-volymlicensieringsplan
 
 Om du registrerar dig med din Azure-prenumeration med redan köpta och aktiverade Azure AD-licenser kan du automatiskt aktivera licenser i samma katalog. Om så inte är fallet måste du ändå aktivera din licensplan och din Azure AD-åtkomst. Mer information om hur du aktiverar din licensplan finns i [Aktivera din nya licensplan](#activate-your-new-license-plan). Mer information om hur du aktiverar din Azure AD-åtkomst finns i [Aktivera din Azure AD åtkomst](#activate-your-azure-ad-access). 
 
@@ -43,20 +43,20 @@ Enterprise Mobility + Security är en programsvit som består av Azure AD Premiu
 
 Mer information om EMS finns på webbplatsen [Enterprise Mobility + Security](https://www.microsoft.com/cloud-platform/enterprise-mobility-security).
 
-    - Testa EMS med en kostnadsfri [Enterprise Mobility + Security E5-utvärderingsversion](https://signup.microsoft.com/Signup?OfferId=87dd2714-d452-48a0-a809-d2f58c4f68b7&ali=1)
+- Testa EMS med en kostnadsfri [Enterprise Mobility + Security E5-utvärderingsversion](https://signup.microsoft.com/Signup?OfferId=87dd2714-d452-48a0-a809-d2f58c4f68b7&ali=1)
 
-    - Köp [Enterprise Mobility + Security E5-licenser](https://signup.microsoft.com/Signup?OfferId=e6de2192-536a-4dc3-afdc-9e2602b6c790&ali=1)
+- Köp [Enterprise Mobility + Security E5-licenser](https://signup.microsoft.com/Signup?OfferId=e6de2192-536a-4dc3-afdc-9e2602b6c790&ali=1)
 
-    - Köp [Enterprise Mobility + Security E3-licenser](https://signup.microsoft.com/Signup?OfferId=4BBA281F-95E8-4136-8B0F-037D6062F54C&ali=1)
+- Köp [Enterprise Mobility + Security E3-licenser](https://signup.microsoft.com/Signup?OfferId=4BBA281F-95E8-4136-8B0F-037D6062F54C&ali=1)
 
 ## <a name="sign-up-using-your-microsoft-volume-licensing-plan"></a>Registrera dig med en Microsoft-volymlicensieringsplan
 Via din Microsoft-volymlicensieringsplan kan du registrera dig för Azure AD Premium med hjälp av något av följande två program, baserat på antalet licenser som du vill ha:
 
-    - **För 250 eller fler licenser.** [Microsoft Enterprise-avtal](https://www.microsoft.com/en-us/licensing/licensing-programs/enterprise.aspx)
+- **För 250 eller fler licenser.** [Microsoft Enterprise-avtal](https://www.microsoft.com/en-us/licensing/licensing-programs/enterprise.aspx)
 
-    - **För 5 till 250-licenser.** [Open** Volume License](https://www.microsoft.com/en-us/licensing/licensing-programs/open-license.aspx)
+- **För 5 till 250-licenser.** [Open Volume License](https://www.microsoft.com/en-us/licensing/licensing-programs/open-license.aspx)
 
-    Mer information om köp via volymlicensiering finns i [Köpa via volymlicensieringsprogram](https://www.microsoft.com/en-us/licensing/how-to-buy/how-to-buy.aspx).
+Mer information om köp via volymlicensiering finns i [Köpa via volymlicensieringsprogram](https://www.microsoft.com/en-us/licensing/how-to-buy/how-to-buy.aspx).
 
 ## <a name="activate-your-new-license-plan"></a>Aktivera din nya licensplan
 Om du har registrerat dig med hjälp av en ny Azure AD-licensieringsplan måste du aktivera den för din organisation med hjälp av den e-postbekräftelse som skickas efter köpet.

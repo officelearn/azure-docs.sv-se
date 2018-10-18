@@ -1,26 +1,18 @@
 ---
 title: Översikt över Microsoft Azure Data Box Gateway | Microsoft Docs
 description: Beskriver Azure Data Box Gateway, en lagringslösning med virtuell installation som gör det möjligt att överföra data till Azure
-services: databox-edge-gateway
-documentationcenter: NA
+services: databox
 author: alkohli
-manager: twooley
-editor: ''
-ms.assetid: ''
-ms.service: databox-edge-gateway
-ms.devlang: NA
+ms.service: databox
 ms.topic: overview
-ms.custom: ''
-ms.tgt_pltfrm: NA
-ms.workload: TBD
 ms.date: 09/24/2018
 ms.author: alkohli
-ms.openlocfilehash: 9c12674a66582ede04b4cf9d311238d61816afec
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 4f1ab6d955c81ce6f7b141eef42341f43bb379f6
+ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46969554"
+ms.lasthandoff: 10/12/2018
+ms.locfileid: "49165325"
 ---
 # <a name="what-is-azure-data-box-gateway-preview"></a>Vad är Azure Data Box Gateway (förhandsversion)? 
 
@@ -48,7 +40,7 @@ Data Box Gateway har följande fördelar:
 - **Enkel dataöverföring** – Gör det enkelt att flytta data till och från Azure Storage, lika enkelt som att arbeta med en lokal nätverksresurs.  
 - **Höga prestanda** – Tar bort problemen med nätverksdatatransport med överföringar med höga prestanda till och från Azure. 
 - **Snabb åtkomst** – Cachelagrar de senaste filerna för snabb åtkomst av lokala filer.  
-- **Begränsad bandbreddsanvändning** – Data kan skrivas till Azure även om nätverket begränsar användningen vid tider med hög belastning.  
+- **Begränsad bandbreddsanvändning** – data kan skrivas till Azure även om nätverket begränsar användningen vid tider med hög belastning.  
 
 ## <a name="key-capabilities"></a>De viktigaste funktionerna
 
@@ -59,7 +51,7 @@ Data Box Gateway har följande funktioner:
 |Hastighet     | Helt automatiserad och optimerad dataöverföring och bandbredd.|
 |Protokoll som stöds     | Stöd för SMB- och NFS-standardprotokoll för datainmatning. <br> Mer information om versioner som stöds finns i [systemkraven för Data Box Gateway](data-box-gateway-system-requirements.md).|
 |Dataåtkomst     | Direktåtkomst till data från Azure Storage-blobar och Azure Files med moln-API:er för ytterligare databehandling i molnet.|
-|Snabb åtkomst     | Lokal cache på enheten för snabb åtkomst till de senaste använda filerna.|
+|Snabb åtkomst     | Lokal cache på enheten för snabb åtkomst till de senast använda filerna.|
 |Offlineuppladdning     | Frånkopplat läge stöder scenarier med offlineuppladdning.|
 |Datauppdatering     | Möjlighet att uppdatera lokala filer med det senaste från molnet.|
 |Kryptering    | BitLocker-stöd för lokal kryptering av data och skydda dataöverföring till molnet via *https*       |
@@ -105,12 +97,12 @@ Data Box Gateway-lösningen består av Data Box Gateway-resurs, virtuell Data Bo
 
 Den fysiska Data Box Edge-enheten, Azure-resursen och mållagringskontot som du vill överföra data till behöver inte alla finnas i samma region.
 
-- **Resurstillgänglighet** – För den här versionen är Data Box Edge-resursen tillgänglig i följande regioner:
+- **Resurstillgänglighet** – för den här versionen är Data Box Edge-resursen tillgänglig i följande regioner:
     - **USA** – USA, västra 2 och USA, östra
     - **EU** – Europa, västra
     - **Asien och stillahavsområdet** – Sydostasien
 
-- **Destinationslagringskonton** – De lagringskonton som lagrar data som är tillgängliga i alla Azure-regioner. 
+- **Destinationslagringskonton** – de lagringskonton som lagrar data som är tillgängliga i alla Azure-regioner. 
 
     För optimala prestanda bör de regioner där lagringskonton lagrar Data Box-data ligga nära den plats där enheten finns. Ett lagringskonto som är långt från enheten leder till långa svarstider och långsammare prestanda. 
 

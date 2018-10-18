@@ -1,7 +1,7 @@
 ---
-title: 'Snabbstart: Anropa slutpunkt med Node.js – Anpassad sökning i Bing'
+title: 'Snabbstart: Anropa slutpunkt med hjälp av C# – Anpassad sökning i Bing'
 titlesuffix: Azure Cognitive Services
-description: I den här snabbstarten visas hur du begär sökresultat från din anpassade sökinstans genom att låta Node.js anropa slutpunkten för anpassad sökning i Bing.
+description: Den här snabbstarten visar hur du begär sökresultat från din anpassade sökinstans genom att använda C# för att anropa slutpunkten för Anpassad sökning i Bing.
 services: cognitive-services
 author: brapel
 manager: cgronlun
@@ -10,24 +10,25 @@ ms.component: bing-custom-search
 ms.topic: quickstart
 ms.date: 05/07/2018
 ms.author: v-brapel
-ms.openlocfilehash: af77b4c06b61cda4fd18d19ac3578129004c4914
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.openlocfilehash: 1c3b1031c2d08b1f346216b54d351c99f01db933
+ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48816709"
+ms.lasthandoff: 10/12/2018
+ms.locfileid: "49167315"
 ---
-# <a name="quickstart-call-bing-custom-search-endpoint-nodejs"></a>Snabbstart: Anropa slutpunkten för anpassad sökning i Bing (Node.js)
+# <a name="quickstart-call-bing-custom-search-endpoint-c"></a>Snabbstart: Anropa slutpunkten för anpassad sökning i Bing (C#)
 
-I den här snabbstarten visas hur du begär sökresultat från din anpassade sökinstans genom att låta Node.js anropa slutpunkten för anpassad sökning i Bing. 
+Den här snabbstarten visar hur du begär sökresultat från din anpassade sökinstans genom att använda C# för att anropa slutpunkten för Anpassad sökning i Bing. 
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Följande krävs för att slutföra den här snabbstarten:
 
-- En färdig anpassad sökinstans. Läs [Skapa din första instans för anpassad sökning i Bing](quick-start.md).
-- [Node.js](https://www.nodejs.org/) installerat.
+- En anpassad sökinstans som är redo att användas. Se sidan om att [skapa din första instans för Anpassad sökning i Bing](quick-start.md).
+- [.NET Core](https://www.microsoft.com/net/download/core) installerat.
 - En prenumerationsnyckel. Du kan få en prenumerationsnyckel när du aktiverar din [kostnadsfria utvärderingsversion](https://azure.microsoft.com/try/cognitive-services/?api=bing-custom-search), eller så kan du använda en betald prenumerationsnyckel från instrumentpanelen i Azure (se [Cognitive Services API-konto](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)).    
+
 
 ## <a name="run-the-code"></a>Kör koden
 
@@ -37,48 +38,99 @@ Följ dessa steg om du vill köra det här exemplet:
   
 2. Gå till mappen som du nyss skapade från en kommandotolk eller terminal.  
   
-3. Installera nodmodulen för **begäran**:
-    <pre>
-    npm install request
-    </pre>  
-    
-4. Skapa en fil med namnet BingCustomSearch.js i mappen du skapade och kopiera följande kod till den. Ersätt **YOUR-SUBSCRIPTION-KEY** och **YOUR-CUSTOM-CONFIG-IDID** med din prenumerationsnyckel och ditt konfigurations-ID.  
+3. Kör följande kommandon:
+    ```
+    dotnet new console -o BingCustomSearch
+    cd BingCustomSearch
+    dotnet add package Newtonsoft.Json
+    dotnet restore
+    ```
   
-    ``` javascript
-    var request = require("request");
+4. Kopiera följande kod till Program.cs. Ersätt **YOUR-SUBSCRIPTION-KEY** och **YOUR-CUSTOM-CONFIG-IDID** med din prenumerationsnyckel och ditt konfigurations-ID.
+
+    ```csharp
+    using System;
+    using System.Net.Http;
+    using System.Web;
+    using Newtonsoft.Json;
     
-    var subscriptionKey = 'YOUR-SUBSCRIPTION-KEY';
-    var customConfigId = 'YOUR-CUSTOM-CONFIG-ID';
-    var searchTerm = 'microsoft';
+    namespace bing_custom_search_example_dotnet
+    {
+        class Program
+        {
+            static void Main(string[] args)
+            {
+                var subscriptionKey = "YOUR-SUBSCRIPTION-KEY";
+                var customConfigId = "YOUR-CUSTOM-CONFIG-ID";
+                var searchTerm = args.Length > 0 ? args[0]: "microsoft";            
     
-    var options = {
-        url: 'https://api.cognitive.microsoft.com/bingcustomsearch/v7.0/search?' + 
-          'q=' + searchTerm + 
-          '&customconfig=' + customConfigId,
-        headers: {
-            'Ocp-Apim-Subscription-Key' : subscriptionKey
+                var url = "https://api.cognitive.microsoft.com/bingcustomsearch/v7.0/search?" +
+                    "q=" + searchTerm +
+                    "&customconfig=" + customConfigId;
+    
+                var client = new HttpClient();
+                client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", subscriptionKey);
+                var httpResponseMessage = client.GetAsync(url).Result;
+                var responseContent = httpResponseMessage.Content.ReadAsStringAsync().Result;
+                BingCustomSearchResponse response = JsonConvert.DeserializeObject<BingCustomSearchResponse>(responseContent);
+                
+                for(int i = 0; i < response.webPages.value.Length; i++)
+                {                
+                    var webPage = response.webPages.value[i];
+                    
+                    Console.WriteLine("name: " + webPage.name);
+                    Console.WriteLine("url: " + webPage.url);                
+                    Console.WriteLine("displayUrl: " + webPage.displayUrl);
+                    Console.WriteLine("snippet: " + webPage.snippet);
+                    Console.WriteLine("dateLastCrawled: " + webPage.dateLastCrawled);
+                    Console.WriteLine();
+                }            
+            }
+        }
+    
+        public class BingCustomSearchResponse
+        {        
+            public string _type{ get; set; }            
+            public WebPages webPages { get; set; }
+        }
+    
+        public class WebPages
+        {
+            public string webSearchUrl { get; set; }
+            public int totalEstimatedMatches { get; set; }
+            public WebPage[] value { get; set; }        
+        }
+    
+        public class WebPage
+        {
+            public string name { get; set; }
+            public string url { get; set; }
+            public string displayUrl { get; set; }
+            public string snippet { get; set; }
+            public DateTime dateLastCrawled { get; set; }
+            public string cachedPageUrl { get; set; }
+            public OpenGraphImage openGraphImage { get; set; }        
+        }
+        
+        public class OpenGraphImage
+        {
+            public string contentUrl { get; set; }
+            public int width { get; set; }
+            public int height { get; set; }
         }
     }
+    ```
+6. Skapa programmet med hjälp av följande kommando. Observera den DLL-sökväg som refereras av kommandoutdata.
+
+    <pre>
+    dotnet build 
+    </pre>
     
-    request(options, function(error, response, body){
-        var searchResponse = JSON.parse(body);
-        for(var i = 0; i < searchResponse.webPages.value.length; ++i){
-            var webPage = searchResponse.webPages.value[i];
-            console.log('name: ' + webPage.name);
-            console.log('url: ' + webPage.url);
-            console.log('displayUrl: ' + webPage.displayUrl);
-            console.log('snippet: ' + webPage.snippet);
-            console.log('dateLastCrawled: ' + webPage.dateLastCrawled);
-            console.log();
-        }
-    })
-    ```  
-  
-6. Kör koden med följande kommando:  
-  
-    ```    
-    node BingCustomSearch.js
-    ``` 
+7. Kör programmet med hjälp av följande kommando och ersätt **PATH TO OUTPUT** (sökvägen till utdata) med den DLL-sökväg som refereras till i steg 6.
+
+    <pre>    
+    dotnet **PATH TO OUTPUT**
+    </pre>
 
 ## <a name="next-steps"></a>Nästa steg
 - [Konfigurera värdbaserad UI-upplevelse](./hosted-ui.md)

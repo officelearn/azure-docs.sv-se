@@ -14,12 +14,12 @@ ms.devlang: multiple
 ms.topic: get-started-article
 ms.date: 09/15/2018
 ms.author: spelluru
-ms.openlocfilehash: 9e7e853ad7562bf5d449479ad730a5dabd6a97b8
-ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
+ms.openlocfilehash: 2173a24eb3bbaafe9dcf25461eb5357ba3a6e7ad
+ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/01/2018
-ms.locfileid: "47585432"
+ms.lasthandoff: 10/12/2018
+ms.locfileid: "49166907"
 ---
 # <a name="azure-service-bus-to-event-grid-integration-overview"></a>Översikt över integration av Azure Service Bus till Event Grid
 
@@ -179,7 +179,7 @@ Härifrån kan du utforska andra installationsalternativ eller [testa händelser
 * Läs mer om [Event Grid](https://docs.microsoft.com/azure/event-grid/).
 * Läs mer om [Azure Functions](https://docs.microsoft.com/azure/azure-functions/).
 * Läs mer om [Logic Apps](https://docs.microsoft.com/azure/logic-apps/).
-* Läs mer om [Service Bus](https://docs.microsoft.com/azure/azure-functions/).
+* Läs mer om [Service Bus](https://docs.microsoft.com/azure/service-bus/).
 
 [1]: ./media/service-bus-to-event-grid-integration-concept/sbtoeventgrid1.png
 [19]: ./media/service-bus-to-event-grid-integration-concept/sbtoeventgriddiagram.png

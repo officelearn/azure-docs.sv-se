@@ -10,17 +10,17 @@ ms.custom: quick start connect, mvc
 ms.devlang: java
 ms.topic: quickstart
 ms.date: 09/24/2018
-ms.openlocfilehash: fcb707f886b960335e69a6af3e485634ebb0a506
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 89271385ad7d8d1e4290ce95b977ea4e43a8c2f2
+ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46974042"
+ms.lasthandoff: 10/12/2018
+ms.locfileid: "49167587"
 ---
 # <a name="quickstart-build-a-cassandra-app-with-java-and-azure-cosmos-db"></a>Snabbstart: Skapa en Cassandra-app med Java och Azure Cosmos DB
 
 > [!div class="op_single_selector"]
-> * [.NET](create-cassandra-dotnet.md)
+> * [NET](create-cassandra-dotnet.md)
 > * [Java](create-cassandra-java.md)
 > * [Node.js](create-cassandra-nodejs.md)
 > * [Python](create-cassandra-python.md)
@@ -54,7 +54,7 @@ Innan du kan börja skapa en dokumentdatabas måste du skapa ett Cassandra-konto
 
 Nu ska vi övergå till att arbeta med kod. Vi ska klona en Cassandra API-app från GitHub, ange anslutningssträngen och köra appen. Du kommer att se hur lätt det är att arbeta med data programmässigt. 
 
-1. Öppna en kommandotolk. Skapa en ny mapp som heter `git-samples`. Stäng kommandotolken.
+1. Öppna en kommandotolk. Skapa en ny mapp med namnet `git-samples`. Stäng sedan kommandotolken.
 
     ```bash
     md "C:\git-samples"
@@ -152,7 +152,7 @@ Följande kodavsnitt är från filen `src/main/java/com/azure/cosmosdb/cassandra
 
 Gå nu tillbaka till Azure-portalen för att hämta information om din anslutningssträng och kopiera den till appen. Informationen i anslutningssträngen gör det möjligt för appen att kommunicera med den värdbaserade databasen.
 
-1. I [Azure-portalen](http://portal.azure.com/) väljer du **Anslutningssträng**. 
+1. På [Azure-portalen](http://portal.azure.com/) väljer du **Anslutningssträng**. 
 
     ![Visa och kopiera ett användarnamn från Azure-portalen, sidan Anslutningssträng](./media/create-cassandra-java/keys.png)
 
@@ -164,7 +164,7 @@ Gå nu tillbaka till Azure-portalen för att hämta information om din anslutnin
 
     Rad 2 i config.properties bör nu se ut ungefär så här 
 
-    `cassandra_host=cosmos-db-quickstarts.cassandra.cosmosdb.azure.com`
+    `cassandra_host=cosmos-db-quickstart.cassandra.cosmosdb.azure.com`
 
 3. Gå tillbaka till portalen och kopiera värdet ANVÄNDARNAMN. Klistra in värdet för ANVÄNDARNAMN från portalen över `<cassandra endpoint username>` på rad 4.
 
@@ -208,7 +208,7 @@ Gå nu tillbaka till Azure-portalen för att hämta information om din anslutnin
 
     Tryck på CTRL + C om du vill stoppa körning av programmet och stänga konsolfönstret.
 
-4. I **Datautforskaren** i Azure-portalen kan du fråga, ändra och arbeta med dessa nya data. 
+4. I **Datautforskaren** på Azure-portalen kan du fråga, ändra och arbeta med dessa nya data. 
 
     ![Visa data i Datautforskaren](./media/create-cassandra-java/data-explorer.png)
 

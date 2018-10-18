@@ -4,25 +4,22 @@ description: Följ stegen i den här snabbstarten för att skapa ett Azure Media
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: cflower
+manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 03/27/2018
+ms.date: 10/15/2018
 ms.author: juliako
-ms.openlocfilehash: abed9fd8d466b582b534b365f4be4257f4986435
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: de54571308b737b9160a39ee4ba5d4b2d9f15775
+ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45736010"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49376541"
 ---
 # <a name="quickstart-create-an-azure-media-services-account"></a>Snabbstart: Skapa ett Azure Media Services-konto
-
-> [!NOTE]
-> Den senaste versionen av Azure Media Services (2018-03-30) finns som förhandsversion. Den här versionen kallas även v3. 
 
 Oavsett om du är utvecklare eller innehållsskapare, behöver du ett Media Services-konto för att lagra, kryptera, koda, hantera och strömma medieinnehåll i Azure. När du skapar ett Media Services-konto, måste du ange ID:t för en Azure Storage-kontoresurs. Det angivna lagringskontot kopplas till ditt Media Services-konto. Lagringskontoresursen måste finnas i samma geografiska område som Media Services-kontot.  
 

@@ -3,19 +3,19 @@ title: 'Snabbstart: Analysera en fjärrbild REST, PHP – Visuellt innehåll'
 titleSuffix: Azure Cognitive Services
 description: I den här snabbstarten analyserar du en bild med hjälp av API för visuellt innehåll med PHP.
 services: cognitive-services
-author: noellelacharite
+author: PatrickFarley
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: computer-vision
 ms.topic: quickstart
 ms.date: 09/10/2018
-ms.author: v-deken
-ms.openlocfilehash: bc7803860e092d23c245bd425fc27f11fac41047
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.author: pafarley
+ms.openlocfilehash: d9e65b5fa42cc9026f8b1e3f18901f988c38cc46
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45629452"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49341012"
 ---
 # <a name="quickstart-analyze-a-remote-image-using-the-rest-api-and-php-in-computer-vision"></a>Snabbstart: Analysera en fjärrbild med hjälp av REST-API:et och PHP i Visuellt innehåll
 
@@ -33,22 +33,22 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 
 Så här skapar du och kör exemplet:
 
-1. Installera PHP5 [`HTTP_Request2`](http://pear.php.net/package/HTTP_Request2)-paketet.
-   1. Öppna Kommandotolken som administratör.
+1. Installera PHP5-paketet [`HTTP_Request2`](http://pear.php.net/package/HTTP_Request2).
+   1. Öppna ett kommandotolksfönster som administratör.
    1. Kör följande kommando:
 
       ```console
       pear install HTTP_Request2
       ```
 
-   1. Stäng kommandotolkens fönster när paketet har installerats.
+   1. Stäng kommandotolksfönstret när paketet har installerats.
 
-1. Kopiera följande kod till en textredigerarere.
-1. Gör följande ändringar i koden när så behövs:
+1. Kopiera följande kod till en textredigerare.
+1. Gör nedanstående ändringar i koden där det behövs:
     1. Ersätt värdet för `subscriptionKey` med din prenumerationsnyckel.
-    1. Ersätt värdet för `uriBase` med slutpunktsadressen för metoden [Analyze Image](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) från Azure-regionen där du fått dina prenumerationsnycklar om det behövs.
+    1. Ersätt värdet för `uriBase` med slutpunktsadressen för metoden [Analysera bild](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) från den Azure-region där du fått dina prenumerationsnycklar om det behövs.
     1. Du kan också ersätta värdet för `imageUrl` med webbadressen till en annan bild som du vill analysera.
-    1. Du kan också ersätta värdet för frågeparametern `language` med ett annat språk.
+    1. Du kan också ersätta värdet för parametern `language` för begäran med ett annat språk.
 1. Spara koden som en fil med tillägget `.php`. Till exempel `analyze-image.php`.
 1. Öppna ett webbläsarfönster med PHP-stöd.
 1. Dra och släpp filen till webbläsarfönstret.
@@ -115,7 +115,7 @@ catch (HttpException $ex)
 
 ## <a name="examine-the-response"></a>Granska svaret
 
-Ett svar som anger att åtgärden lyckades returneras i JSON. Exempelwebbplatsen tolkar och visar ett lyckat svar i webbläsarfönstret liknar följande exempel:
+Ett svar som anger att åtgärden lyckades returneras i JSON. Exempelwebbplatsen parsar och visar ett lyckat svar i webbläsarfönstret enligt följande exempel:
 
 ```json
 {
@@ -175,20 +175,20 @@ Ett svar som anger att åtgärden lyckades returneras i JSON. Exempelwebbplatsen
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-När du inte behöver filen längre kan du ta bort den och sedan avinstallera PHP5 `HTTP_Request2`-paketet. Avinstallera paketet på följande sätt:
+När du inte behöver filen längre kan du ta bort den och sedan avinstallera PHP5-paketet `HTTP_Request2`. Avinstallera paketet på följande sätt:
 
-1. Öppna Kommandotolken som administratör.
+1. Öppna ett kommandotolksfönster som administratör.
 2. Kör följande kommando:
 
    ```console
    pear uninstall HTTP_Request2
    ```
 
-3. Stäng kommandotolkens fönster när paketet har avinstallerats.
+3. Stäng kommandotolksfönstret när paketet har avinstallerats.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Utforska det API för visuellt innehåll som används för att analysera en bild, identifiera kändisar och landmärken, skapa en miniatyrbild och extrahera tryckt och handskriven text. Du kan experimentera med API för visuellt innehåll i [Open API-testkonsolen](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa/console).
+Utforska API:et för visuellt innehåll, som används för att analysera en bild, identifiera kändisar och landmärken, skapa en miniatyrbild och extrahera tryckt och handskriven text. Du kan experimentera med API för visuellt innehåll i [Open API-testkonsolen](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa/console).
 
 > [!div class="nextstepaction"]
 > [Utforska API för visuellt innehåll](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44)

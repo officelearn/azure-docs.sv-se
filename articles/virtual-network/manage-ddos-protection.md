@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/06/2018
 ms.author: jdial
-ms.openlocfilehash: 59cfcc72abee100b95cf17033083827fbb30f9f5
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 66b2930e06cef1a31602df3d358c78f42c8cd2cf
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46986701"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49406372"
 ---
 # <a name="manage-azure-ddos-protection-standard-using-the-azure-portal"></a>Hantera Azure DDoS Protection Standard med hjälp av Azure portal
 
@@ -158,7 +158,7 @@ Attack minskning rapporter använder Netflow protocol data som sammanställs som
 
     - **Arkivera till ett lagringskonto**: Data skrivs till ett Azure Storage-konto. Mer information om det här alternativet finns [Arkivera diagnostikloggar](../monitoring-and-diagnostics/monitoring-archive-diagnostic-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
     - **Stream till en händelsehubb**: gör en logg mottagare att hämta loggar med en Azure-Händelsehubb. Event hubs möjliggör integrering med Splunk eller andra SIEM-system. Mer information om det här alternativet finns [Stream diagnostikloggar till en händelsehubb](../monitoring-and-diagnostics/monitoring-stream-diagnostic-logs-to-event-hubs.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
-    - **Skicka till Log Analytics**: skriver loggar till Azure OMS Log Analytics-tjänsten. Mer information om det här alternativet finns [samla in loggar för användning i Log Analytics](../log-analytics/log-analytics-azure-storage.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+    - **Skicka till Log Analytics**: skriver loggar till Azure Log Analytics-tjänsten. Mer information om det här alternativet finns [samla in loggar för användning i Log Analytics](../log-analytics/log-analytics-azure-storage.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
 Både inkrementella och efter attack minskning rapporterna innehåller följande fält
 - Attackvektorer
@@ -180,8 +180,8 @@ Attack minskning Flow loggar kan du granska förlorad trafik vidarebefordras tra
 
     - **Arkivera till ett lagringskonto**: Data skrivs till ett Azure Storage-konto. Mer information om det här alternativet finns [Arkivera diagnostikloggar](../monitoring-and-diagnostics/monitoring-archive-diagnostic-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
     - **Stream till en händelsehubb**: gör en logg mottagare att hämta loggar med en Azure-Händelsehubb. Event hubs möjliggör integrering med Splunk eller andra SIEM-system. Mer information om det här alternativet finns [Stream diagnostikloggar till en händelsehubb](../monitoring-and-diagnostics/monitoring-stream-diagnostic-logs-to-event-hubs.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
-    - **Skicka till Log Analytics**: skriver loggar till Azure OMS Log Analytics-tjänsten. Mer information om det här alternativet finns [samla in loggar för användning i Log Analytics](../log-analytics/log-analytics-azure-storage.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
-7. Om du vill visa loggarna flödesdata i Azure analytics-instrumentpanelen, kan du importera exempelinstrumentpanel från https://github.com/Anupamvi/Azure-DDoS-Protection/raw/master/flowlogsbyip.zip
+    - **Skicka till Log Analytics**: skriver loggar till Azure Log Analytics-tjänsten. Mer information om det här alternativet finns [samla in loggar för användning i Log Analytics](../log-analytics/log-analytics-azure-storage.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+1. Om du vill visa loggarna flödesdata i Azure analytics-instrumentpanelen, kan du importera exempelinstrumentpanel från https://github.com/Anupamvi/Azure-DDoS-Protection/raw/master/flowlogsbyip.zip
 
 Flödesloggar har följande fält: 
 - Käll-IP-adress

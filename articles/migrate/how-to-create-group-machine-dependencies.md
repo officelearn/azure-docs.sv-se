@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: article
 ms.date: 09/21/2018
 ms.author: raynew
-ms.openlocfilehash: ac1cf5a30dee29f2737a05133aed774e86f78932
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: de093976a318b2658ff4009f4c5e314851f66b81
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47163434"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49403817"
 ---
 # <a name="group-machines-using-machine-dependency-mapping"></a>Gruppera datorer med datorberoende mappning
 
@@ -35,7 +35,7 @@ Om du vill använda visualisering av beroenden, måste du koppla en Log Analytic
 > Du kan inte ändra arbetsytan som är kopplad till ett migreringsprojekt.
 
 ### <a name="download-and-install-the-vm-agents"></a>Hämta och installera VM-agenterna
-När du konfigurerar en arbetsyta, måste du hämta och installera agenter på varje lokal dator som du vill utvärdera. Dessutom om du har datorer med utan internet-anslutning, måste du hämta och installera [OMS gateway](../log-analytics/log-analytics-oms-gateway.md) på dem.
+När du konfigurerar en arbetsyta, måste du hämta och installera agenter på varje lokal dator som du vill utvärdera. Dessutom, om du har datorer som saknar Internetanslutning måste du ladda ned och installera [Log Analytics gateway](../log-analytics/log-analytics-oms-gateway.md) på dem.
 
 1. I **översikt**, klickar du på **hantera** > **datorer**, och välj datorn som krävs.
 2. I den **beroenden** kolumnen, klickar du på **installera agenter**.

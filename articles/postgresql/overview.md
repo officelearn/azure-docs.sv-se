@@ -2,20 +2,20 @@
 title: Översikt över relationsdatabastjänsten i Azure Database for PostgreSQL
 description: Innehåller en översikt för relationsdatabastjänsten i Azure Database for PostgreSQL.
 services: postgresql
-author: kamathsun
-ms.author: sukamat
+author: rachel-msft
+ms.author: raagyema
 manager: kfile
 editor: jasonwhowell
 ms.custom: mvc
 ms.service: postgresql
 ms.topic: overview
-ms.date: 06/02/2018
-ms.openlocfilehash: fab3aa7d0b1fe0f4fafd4b2fdca24ad0e8a3d03c
-ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
+ms.date: 06/15/2018
+ms.openlocfilehash: 86a8b824479173024b1a14bb8612073ffbfac468
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34737239"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47092165"
 ---
 # <a name="what-is-azure-database-for-postgresql"></a>Vad är Azure Database for PostgreSQL?
 
@@ -56,7 +56,7 @@ Tjänsten Azure Database for PostgreSQL använder lagringskryptering för data i
 Tjänsten Azure Database for PostgreSQL är som standard konfigurerad för att kräva [SSL-anslutningssäkerhet](./concepts-ssl-connection-security.md) för data i rörelse över nätverket. Framtvingande av SSL-anslutningar mellan databasservern och klientprogrammen hjälper till att skydda mot ”man in the middle”-attacker genom att kryptera dataströmmen mellan servern och programmet. Du kan även välja att inaktivera SSL-kravet för anslutning till databastjänsten om klientprogrammet inte har stöd för SSL-anslutning.
 
 ## <a name="contacts"></a>Contacts
-För frågor eller förslag som du kan ha om att arbeta med Azure Database for MySQL, skickar du ett e-postmeddelande till Azure Database for MySQL-teamet ([@Ask Azure DB för PostgreSQL](mailto:AskAzureDBforPostgreSQL@service.microsoft.com)). Observera att detta inte är ett alias för teknisk support.
+För frågor eller förslag som du kan ha om att arbeta med Azure Database for PostgreSQL, skickar du ett e-postmeddelande till Azure Database for PostgreSQL-teamet ([@Ask Azure DB för PostgreSQL](mailto:AskAzureDBforPostgreSQL@service.microsoft.com)). Observera att detta inte är ett alias för teknisk support.
 
 Tänk dessutom på följande kontaktpunkter efter behov:
 - Kontakta Azure Support genom att [skicka in ett supportärende från Azure-portalen](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).

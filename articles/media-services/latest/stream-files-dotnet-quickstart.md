@@ -4,28 +4,29 @@ description: Följ stegen i den här snabbstarten för att skapa ett nytt Azure 
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 keywords: azure media services, strömma
 ms.service: media-services
 ms.workload: media
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 04/08/2018
+ms.date: 09/25/2018
 ms.author: juliako
-ms.openlocfilehash: 48f85311f38d7e4ab1414dfc22c111b92163740e
-ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
+ms.openlocfilehash: 8bef52bb7cb56646b0f09e2cb7910bab3f55e0c0
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42023635"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47223550"
 ---
 # <a name="quickstart-stream-video-files---net"></a>Snabbstart: Strömma videofiler – .NET
 
 > [!NOTE]
 > Den senaste versionen av Azure Media Services är en förhandsversion och kallas ibland för v3. För att börja använda v3 API:er ska du skapa ett nytt Media Services-konto såsom beskrivs i den här snabbstarten. 
 
-Den här snabbstarten visar hur lätt det är att börja strömma video på en mängd olika webbläsare och enheter med Azure Media Services. Exemplet i det här ämnet kodar innehåll som du gör tillgängligt via en HTTPS-URL. 
+Den här snabbstarten visar hur lätt det är att koda och börja strömma video på en mängd olika webbläsare och enheter med Azure Media Services. Ett indatainnehåll kan anges med HTTP-URL:er, SAS-URL:er eller sökvägar till filer i Azure Blob Storage.
+Exemplet i det här ämnet kodar innehåll som du gör tillgängligt via en HTTPS-URL. Observera att AMS v3 för närvarande inte stöder segmentvis överföringskodning över HTTPS-URL:er.
 
 I slutet av snabbstarten kommer du att kunna strömma en video.  
 

@@ -10,15 +10,15 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 08/27/2018
+ms.date: 09/07/2018
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 57d5f7039831c9fd617926f20f3ff001b22ef314
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: d48374d7919be3d141ea199e8238a220dbfe0332
+ms.sourcegitcommit: 3150596c9d4a53d3650cc9254c107871ae0aab88
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43097893"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47419533"
 ---
 # <a name="tutorial-create-an-azure-resource-manager-template-for-deploying-an-encrypted-storage-account"></a>Självstudie: Skapa en Azure Resource Manager-mall för att distribuera ett krypterat lagringskonto
 
@@ -112,9 +112,14 @@ Så använder du den variabel som definieras i mallen:
 Målet med den här självstudien är att definiera en mall för att skapa ett krypterat lagringskonto.  Exempelmallen skapar bara ett grundläggande okrypterat lagringskonto. För att hitta den krypteringsrelaterade konfigurationen kan du använda mallreferensen för Azure Storage-kontot.
 
 1. Bläddra till [Azure-mallar](https://docs.microsoft.com/azure/templates/).
-2. Från innehållsförteckningen till vänster väljer du **Referens**->**Lagring**->**Lagringskonton**. Du kan också ange **lagring** i fältet **Filtrera efter rubrik**.  Sidan innehåller schemat för definition av information för lagringskonto.
-3. Utforska den krypteringsrelaterade informationen.  
-4. I egenskapselementet (properties) i resursdefinitionen för lagringskontot lägger du till följande json:
+2. I **filtrera efter rubrik**, ange **lagringskonton**.
+3. Välj **Referens/Mallreferens/Lagring/Lagringskonto** enligt följande skärmbild:
+
+    ![Resource Manager, mallreferens, lagringskonto](./media/resource-manager-tutorial-create-encrypted-storage-accounts/resource-manager-template-resources-reference-storage-accounts.png)
+
+    resource-manager-mall-resurser-referens-lagring-konton
+1. Utforska den krypteringsrelaterade informationen.  
+1. I egenskapselementet (properties) i resursdefinitionen för lagringskontot lägger du till följande json:
 
     ```json
     "encryption": {
@@ -151,7 +156,7 @@ När Azure-resurserna inte längre behövs rensar du de resurser som du har dist
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här självstudien lärde du dig hur du använder mallreferensen för att anpassa en befintlig mall. Den mall som används i den här självstudien innehåller bara en Azure-resurs.  I nästa självstudie utvecklar du en mall med flera resurser. Några av resurserna har beroende resurser.
+I den här självstudien lärde du dig hur du använder mallreferensen för att anpassa en befintlig mall. Du hittar mer information om att skapa flera instanser av lagringskonton i:
 
 > [!div class="nextstepaction"]
-> [Skapa flera resurser](./resource-manager-tutorial-create-templates-with-dependent-resources.md)
+> [Skapa flera instanser](./resource-manager-tutorial-create-multiple-instances.md)

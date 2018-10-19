@@ -11,14 +11,14 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-xamarin
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 05/25/2018
+ms.date: 09/24/2018
 ms.author: crdun
-ms.openlocfilehash: b2dafbcf0e41e7387157590e145f74430686321c
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: ef371447e851fece207d77fe656283abe3dc4164
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38307127"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47063871"
 ---
 # <a name="create-a-xamarinforms-app-with-azure"></a>Skapa en Xamarin.Forms-app med Azure
 
@@ -58,7 +58,7 @@ Visual Studio Tools för Xamarin behövs för att öppna lösningen. Läs mer i 
 
 ### <a name="visual-studio"></a>Visual Studio
 
-1. Gå till [Azure-portalen].
+1. Gå till [Azure Portal].
 
 2. På inställningsbladet för mobilappen klickar du på **Snabbstart** (under Distribution) > **Xamarin.Forms**. I steg 3 klickar du på **Skapa ny app** om det alternativet inte redan är förvalt.  Klicka sedan på **Hämta**.
 
@@ -72,7 +72,7 @@ Visual Studio Tools för Xamarin behövs för att öppna lösningen. Läs mer i 
 
 ### <a name="visual-studio-for-mac"></a>Visual Studio för Mac
 
-1. Gå till [Azure-portalen].
+1. Gå till [Azure Portal].
 
 2. På inställningsbladet för mobilappen klickar du på **Snabbstart** (under Distribution) > **Xamarin.Forms**. I steg 3 klickar du på **Skapa ny app** om det alternativet inte redan är förvalt.  Klicka sedan på **Hämta**.
 
@@ -181,7 +181,9 @@ En post-begäran skickas till den nya Mobile Apps-serverdelen som finns på Azur
 
 ## <a name="troubleshooting"></a>Felsökning
 
-Om du får problem med att skapa lösningen kan du köra pakethanteraren för NuGet och uppdatera till den senaste versionen av Xamarin.Forms. I Android-projektet uppdaterar du stödpaketen för Xamarin.Android. Snabbstartsprojekt innehåller inte alltid de senaste versionerna.
+Om du får problem med att skapa lösningen kan du köra pakethanteraren för NuGet och uppdatera till den senaste versionen av `Xamarin.Forms`. I Android-projektet uppdaterar du stödpaketen för `Xamarin.Android`. Snabbstartsprojekt innehåller inte alltid de senaste versionerna.
+
+Observera att alla supportpaket som det refereras till i ditt Android-projekt måste ha samma version. [Azure Mobile Apps NuGet-paketet](https://www.nuget.org/packages/Microsoft.Azure.Mobile.Client/) har ett `Xamarin.Android.Support.CustomTabs`-beroende för Android-plattformen, så om ditt projekt använder nyare supportpaket behöver du installera det här paketet i erfordrad version direkt för att undvika konflikter.
 
 ## <a name="next-steps"></a>Nästa steg
 
@@ -211,4 +213,4 @@ Om du får problem med att skapa lösningen kan du köra pakethanteraren för Nu
 <!-- URLs. -->
 [Install Xamarin]: https://docs.microsoft.com/xamarin/cross-platform/get-started/installation/
 [Mobile app SDK]: http://go.microsoft.com/fwlink/?LinkId=257545
-[Azure-portalen]: https://portal.azure.com/
+[Azure Portal]: https://portal.azure.com/

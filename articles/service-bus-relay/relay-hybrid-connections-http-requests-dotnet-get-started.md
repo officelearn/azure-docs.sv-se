@@ -14,12 +14,12 @@ ms.tgt_pltfrm: dotnet
 ms.workload: na
 ms.date: 08/16/2018
 ms.author: spelluru
-ms.openlocfilehash: 4f7aa0b0c5142237f3b6fc66bb8593302c95f5af
-ms.sourcegitcommit: d2f2356d8fe7845860b6cf6b6545f2a5036a3dd6
+ms.openlocfilehash: e66a1651a46cfaeb7fb8b232eeb7cf6a2fb8044d
+ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41919194"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47451230"
 ---
 # <a name="get-started-with-relay-hybrid-connections-http-requests-in-net"></a>Komma igång med HTTP-begäranden för Relay-hybridanslutningar i .NET
 [!INCLUDE [relay-selector-hybrid-connections](../../includes/relay-selector-hybrid-connections.md)]
@@ -64,9 +64,14 @@ För att skicka meddelanden till Relay skriver du ett C#-konsolprogram i Visual 
 [!INCLUDE [relay-hybrid-connections-http-requests-dotnet-get-started-client](../../includes/relay-hybrid-connections-http-requests-dotnet-get-started-client.md)]
 
 ## <a name="5-run-the-applications"></a>5. Köra programmen
-1. Kör serverprogrammet.
-2. Kör klientprogrammet och skriv in lite text.
-3. Se till att serverprogramkonsolen visar den text som angavs i klientprogrammet.
+1. Kör serverprogrammet. Du kan se följande text i konsolfönstret:
+
+    ```
+    Online
+    Server listening
+    ```
+1. Kör klientprogrammet. `hello!` visas i klientfönstret. Klienten har skickat en HTTP-begäran till servern och servern svarade med en `hello!`. 
+3. Om du vill stänga konsolfönstret nu trycker du på **RETUR** i båda konsolfönsterna. 
 
 Grattis, du har skapat ett end-to-end hybridanslutningsprogram!
 

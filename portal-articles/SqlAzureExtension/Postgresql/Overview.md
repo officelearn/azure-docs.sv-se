@@ -8,16 +8,16 @@ ms.service: postgresql
 ms.topic: article
 ms.date: 05/10/2017
 ms.author: sewatson
-ms.openlocfilehash: 9c930d1171b77ddf0bb6621fbf012f98816fd763
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6282acaf165d2f31a1a1ac525dad75ebc64a2a7c
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23073851"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47434797"
 ---
 # <a name="azure-database-for-postgresql-documentation"></a>Azure Database för PostgreSQL-dokumentation
 
-Azure Database för PostgreSQL är en relationsdatabastjänst baserad på Postgres-databasmotorn för öppen källkod. Det är en fullständigt hanterad databas som tjänst, för hantering av verksamhetskritiska arbetsbelastningar med förutsägbara prestanda, säkerhet, hög tillgänglighet och dynamisk skalbarhet.  Utveckla program med Azure Database för PostgreSQL och använd valfria verktyg för öppen källkod och plattform.  Lär dig hur du använder Azure Database med våra snabbstarter, självstudier och exempel.
+Azure Database for PostgreSQL är en relationsdatabastjänst baserad på Postgres-databasmotorn med öppen källkod. Det är en fullständigt hanterad databas som tjänst, för hantering av verksamhetskritiska arbetsbelastningar med förutsägbara prestanda, säkerhet, hög tillgänglighet och dynamisk skalbarhet.  Utveckla program med Azure Database for PostgreSQL och använd valfria verktyg och plattform med öppen källkod.  Lär dig hur du använder Azure Database med våra snabbstarter, självstudier och exempel.
 
 ## <a name="5-minute-quickstarts"></a>Snabbstarter på 5 minuter
 
@@ -31,7 +31,7 @@ Lär dig att skapa en PostgreSQL-databas med:
 Lär dig att:
 
 - Utforma en databas: [Azure Portal](/azure/postgresql/tutorial-design-database-using-azure-portal) |  [Azure CLI](/azure/postgresql/tutorial-design-database-using-azure-cli)
-- [Skapa en webbapp med Python och CLI](/azure/app-service-web/app-service-web-tutorial-docker-python-postgresql-app?toc=%2fazure%2fpostgresql%2ftoc.json)
+- [Skapa en webbapp med Python och CLI](/azure/app-service/containers/tutorial-python-postgresql-app?toc=%2fazure%2fpostgresql%2ftoc.json)
 
 ## <a name="samples"></a>Exempel 
 

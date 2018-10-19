@@ -34,16 +34,43 @@
 <!-- Following section is for Cloud Partner Portal (CPP). -->
 
 # [Partnerportalen i molnet](./cloud-partner-portal-orig/cloud-partner-portal-getting-started-with-the-cloud-partner-portal.md) 
-## Virtuella datorer
-### [Kontoregistrering i Dev Center](./cloud-partner-portal-orig/cloud-partner-portal-dev-center-accounts-registration.md)
-### [Skapa erbjudande för virtuell dator](./cloud-partner-portal-orig/cloud-partner-portal-publish-virtual-machine.md)
-### [Privata SKU:er](./cloud-partner-portal-orig/cloud-partner-portal-azure-private-skus.md)
-### [Riktlinjer för SEO](./cloud-partner-portal-orig/cloud-partner-portal-seo-guidance.md)
-### [Sätt igång med erbjudande](./cloud-partner-portal-orig/cloud-partner-portal-make-offer-live-on-Azure-Marketplace.md)
-### [Uppdatera befintligt erbjudande](./cloud-partner-portal-orig/cloud-partner-portal-update-existing-offer.md)
-### [Ta bort erbjudande](./cloud-partner-portal-orig/cloud-partner-portal-delete-an-offer.md)
-### [Migrera erbjudanden](./cloud-partner-portal-orig/cloud-partner-portal-how-to-migrate-to-the-new-cloud-partner-portal.md)
-### [Automatisera publicering av erbjudanden](./cloud-partner-portal-orig/cloud-partner-portal-automate-offer-publishing.md)
+
+<!-- remove comment markers after toc gets published with iot edge section  -->
+<!-- 
+## [Virtual machine offer](./cloud-partner-portal/virtual-machine/cpp-virtual-machine-offer.md)
+### [Prerequisites](./cloud-partner-portal/virtual-machine/cpp-prerequisites.md)
+### [Create VM offer](./cloud-partner-portal/virtual-machine/cpp-create-offer.md)
+#### [Offer Settings tab](./cloud-partner-portal/virtual-machine/cpp-offer-settings-tab.md)
+#### [SKUs tab](./cloud-partner-portal/virtual-machine/cpp-skus-tab.md)
+#### [Test Drive tab](./cloud-partner-portal/virtual-machine/cpp-test-drive-tab.md)
+#### [Marketplace tab](./cloud-partner-portal/virtual-machine/cpp-marketplace-tab.md)
+#### [Support tab](./cloud-partner-portal/virtual-machine/cpp-support-tab.md)
+### [Create VM technical assets](./cloud-partner-portal/virtual-machine/cpp-create-technical-assets.md)
+#### [Create VHD](./cloud-partner-portal/virtual-machine/cpp-create-vhd.md)
+#### [Common VHD creation issues](./cloud-partner-portal/virtual-machine/cpp-common-vhd-creation-issues.md)
+#### [Connect to VM](./cloud-partner-portal/virtual-machine/cpp-connect-vm.md)
+#### [Configure VM](./cloud-partner-portal/virtual-machine/cpp-configure-vm.md)
+#### [Deploy VM from VHDs](./cloud-partner-portal/virtual-machine/cpp-deploy-vm-vhd.md)
+##### [VHD Deployment Template (JSON)](./cpp-deploy-json-template.md)
+#### [Certify VM image](./cloud-partner-portal/virtual-machine/cpp-certify-vm.md)
+#### [Get SAS URI](./cloud-partner-portal/virtual-machine/cpp-get-sas-uri.md)
+#### [Common SAS URL issues](./cloud-partner-portal/virtual-machine/cpp-common-sas-url-issues.md)
+### [Publish VM offer](./cloud-partner-portal/virtual-machine/cpp-publish-offer.md)
+### [Update existing offer](./cloud-partner-portal/virtual-machine/cpp-update-existing-offer.md) -->
+
+<!-- Following legacy VM section was replaced.  -->
+<!-- 
+## Virtual machines
+### [Dev center account registration](./cloud-partner-portal-orig/cloud-partner-portal-dev-center-accounts-registration.md)
+### [Author virtual machine offer](./cloud-partner-portal-orig/cloud-partner-portal-publish-virtual-machine.md)
+### [Private SKUs](./cloud-partner-portal-orig/cloud-partner-portal-azure-private-skus.md)
+### [SEO guidance](./cloud-partner-portal-orig/cloud-partner-portal-seo-guidance.md)
+### [Make offer live](./cloud-partner-portal-orig/cloud-partner-portal-make-offer-live-on-Azure-Marketplace.md)
+### [Update existing offer](./cloud-partner-portal-orig/cloud-partner-portal-update-existing-offer.md)
+### [Delete offer](./cloud-partner-portal-orig/cloud-partner-portal-delete-an-offer.md)
+### [Migrate offers](./cloud-partner-portal-orig/cloud-partner-portal-how-to-migrate-to-the-new-cloud-partner-portal.md)
+### [Automate offer publishing](./cloud-partner-portal-orig/cloud-partner-portal-automate-offer-publishing.md)
+-->
 
 ## Azure-program
 ### [Kontoregistrering i Dev Center](./cloud-partner-portal-orig/cloud-partner-portal-dev-center-accounts-registration.md)
@@ -63,10 +90,24 @@
 
 ## [Containrar](./cloud-partner-portal-orig/cloud-partner-portal-containers-guide.md)
 
-## IoT Edge-moduler
-### [Skapa ett erbjudande för IoT Edge-moduler](./cloud-partner-portal-orig/cloud-partner-portal-create-iot-edge-module-offer.md)
-### [Certifiering av IoT Edge-moduler](./cloud-partner-portal-orig/cloud-partner-portal-iot-edge-module-certification-process.md)
-### [Vanliga frågor och svar för IoT Edge-moduler](./cloud-partner-portal-orig/cloud-partner-portal-iot-edge-module-faq.md)
+## [Erbjudande för IoT Edge-moduler](./cloud-partner-portal/iot-edge-module/cpp-offer-process-parts.md)
+### [Förutsättningar](./cloud-partner-portal/iot-edge-module/cpp-prerequisites.md)
+### [Skapa erbjudande för IoT Edge-moduler](./cloud-partner-portal/iot-edge-module/cpp-create-offer.md)
+#### [fliken Erbjudandeinställningar](./cloud-partner-portal/iot-edge-module/cpp-offer-settings-tab.md)
+#### [fliken SKU:er](./cloud-partner-portal/iot-edge-module/cpp-skus-tab.md)
+#### [fliken Marketplace](./cloud-partner-portal/iot-edge-module/cpp-marketplace-tab.md)
+#### [fliken Stöd](./cloud-partner-portal/iot-edge-module/cpp-support-tab.md)
+### [Skapa tekniska tillgångar för IoT Edge-moduler](./cloud-partner-portal/iot-edge-module/cpp-create-technical-assets.md)
+### [Publicera erbjudande för IoT Edge-moduler](./cloud-partner-portal/iot-edge-module/cpp-publish-offer.md)
+### [Uppdatera befintligt erbjudande](./cloud-partner-portal/iot-edge-module/cpp-update-existing-offer.md)
+
+<!-- Following legacy IoT section was replaced.  -->
+<!-- 
+## IoT Edge modules
+### [Create an IoT Edge module offer](./cloud-partner-portal-orig/cloud-partner-portal-create-iot-edge-module-offer.md)
+### [IoT Edge module certification](./cloud-partner-portal-orig/cloud-partner-portal-iot-edge-module-certification-process.md)
+### [IoT Edge module FAQ](./cloud-partner-portal-orig/cloud-partner-portal-iot-edge-module-faq.md)
+-->
 
 ## Hantera leads
 ### [Konfigurera kundleads](./cloud-partner-portal-orig/cloud-partner-portal-get-customer-leads.md)

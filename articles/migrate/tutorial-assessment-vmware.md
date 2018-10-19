@@ -4,15 +4,15 @@ description: Beskriver hur du identifierar och utvärderar lokala virtuella VMwa
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: tutorial
-ms.date: 08/20/2018
+ms.date: 09/21/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 00d416d6211d9a67a69eb22620bdac6a501e23e7
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.openlocfilehash: b2bb6636aef9e26a81988d344f04f23c23ea1622
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43666672"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47161887"
 ---
 # <a name="discover-and-assess-on-premises-vmware-vms-for-migration-to-azure"></a>Utforska och utvärdera lokala virtuella VMware-datorer för migrering till Azure
 
@@ -35,7 +35,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 - **VMware**: De virtuella datorer som du planerar att migrera måste hanteras av vCenter Server som kör version 5.5, 6.0 eller 6.5. Du måste dessutom ha en ESXi-värd som kör version 5.0 eller senare för att kunna distribuera den virtuella insamlardatorn.
 - **vCenter Server-konto**: Du behöver ett skrivskyddat konto för att få åtkomst till vCenter Server. Azure Migrate använder kontot till att identifiera de lokala virtuella datorerna.
 - **Behörigheter**: På vCenter Server måste du ha behörighet för att kunna skapa en virtuell dator genom att importera en fil i .OVA-format.
-- **Statistikinställningar**: Statistikinställningarna för vCenter Server ska vara inställda på nivå 3 innan du startar distributionen. Om det är lägre än nivå 3 kommer utvärderingen att fungera, men prestandadata för lagring och nätverk samlas inte in. Storleksrekommendationerna i det här fallet kommer att göras baserat på prestandadata för CPU och minne, samt konfigurationsdata för disk och nätverkskort.
+- **Inställningar för statistik**: det här kravet gäller endast modellen för engångsupptäckt. För att engångsupptäckten ska fungera ska statistikinställningarna för vCenter Server vara inställda på nivå 3 innan du startar distributionen. Om det är lägre än nivå 3 kommer utvärderingen att fungera, men prestandadata för lagring och nätverk samlas inte in. Storleksrekommendationerna i det här fallet kommer att göras baserat på prestandadata för CPU och minne, samt konfigurationsdata för disk och nätverkskort.
 
 ## <a name="create-an-account-for-vm-discovery"></a>Skapa ett konto för identifiering av VM
 
@@ -47,9 +47,9 @@ Azure Migrate måste ha åtkomst till VMware-servrar för att automatiskt kunna 
 - Om du vill begränsa åtkomsten tilldelar du rollen Ingen åtkomst med Sprid till underordnat objekt till underordnade objekt (vSphere-värdar, datalager, virtuella datorer och nätverk).
 
 
-## <a name="log-in-to-the-azure-portal"></a>Logga in på Azure-portalen
+## <a name="sign-in-to-the-azure-portal"></a>Logga in på Azure Portal
 
-Logga in på [Azure-portalen](https://portal.azure.com).
+Logga in på [Azure Portal](https://portal.azure.com).
 
 ## <a name="create-a-project"></a>Skapa ett projekt
 
@@ -57,10 +57,9 @@ Logga in på [Azure-portalen](https://portal.azure.com).
 2. Sök efter **Azure Migrate** och välj tjänsten **Azure Migrate** i sökresultaten. Klicka sedan på **Skapa**.
 3. Ange ett projektnamn och Azure-prenumerationen för projektet.
 4. Skapa en ny resursgrupp.
-5. Ange platsen där du vill skapa projektet och klicka sedan på **Skapa**. Du kan bara skapa ett Azure Migrate-projekt i regionen USA, västra centrala eller USA, östra. Du kan dock fortfarande planera migreringen för alla Azure-platser. Den angivna platsen för projektet används bara för att lagra de metadata som samlats in från lokala virtuella datorer.
+5. Ange den geografiska plats där du vill skapa projektet och klicka sedan på **Skapa**. Du kan endast skapa ett Azure Migrate-projekt i regionen västra centrala USA. Du kan dock fortfarande planera migreringen för alla Azure-platser. Den angivna geografiska platsen för projektet används bara för att lagra de metadata som samlats in från lokala virtuella datorer.
 
     ![Azure Migrate](./media/tutorial-assessment-vmware/project-1.png)
-
 
 
 ## <a name="download-the-collector-appliance"></a>Hämta insamlingsprogrammet
@@ -68,7 +67,15 @@ Logga in på [Azure-portalen](https://portal.azure.com).
 Azure Migrate skapar en lokal virtuell dator som kallas för insamlarprogram. Den här virtuella datorn identifierar lokala virtuella VMware-datorer och skickar metadata om dem till Azure Migrate-tjänsten. Om du vill konfigurera insamlarprogrammet hämtar du en .OVA-fil och importerar den till den lokala vCenter-servern för att skapa den virtuella datorn.
 
 1. I Azure Migrate-projektet klickar du på **Komma igång** > **Identifiera och utvärdera** > **Identifiera datorer**.
-2. I **Identifiera datorer** klickar du på **Ladda ned** för att ladda ned .OVA-filen.
+2. I **identifiera datorer**, finns det två alternativ för installationen, klicka på **hämta** för att ladda ned rätt program baserat på dina inställningar.
+
+    a. **Engångsidentifiering:** Tillämpningen för den här modellen kommunicerar med vCenter Server för att samla in metadata om de virtuella datorerna. För insamling av prestandadata för de virtuella datorerna, förlitar den sig på historiska prestandadata som lagras i vCenter Server och samlar in prestandahistoriken för den senaste månaden. I den här modellen samlar Azure Migrate in genomsnittlig beräkning (jämfört med högsta beräkning) för varje mått, [Läs mer] (https://docs.microsoft.com/azure/migrate/concepts-collector#what-data-is-collected). Eftersom detta är en engångsidentifiering återspeglas inte ändringar i den lokala miljön när identifieringen är klar. Om du vill att ändringarna ska återspeglas behöver göra en ny identifiering av samma miljö för samma projekt.
+
+    b. **Kontinuerlig identifiering:** Installation för den här modellen profilerar kontinuerligt den lokala miljön för att samla in användningsdata i realtid för varje virtuell dator. I den här modellen samlas högsta beräkningar in för varje mått (processoranvändning, minnesanvändning osv.). Den här modellen är inte beroende av statistikinställningarna för vCenter Server för insamling av prestandadata. Du kan stoppa kontinuerlig profileringen när som helst från programmet.
+
+    > [!NOTE]
+    > Funktionen kontinuerlig identifiering är i förhandsversion.
+
 3. I **Kopiera projektautentiseringsuppgifterna** kopierar du projekt-ID och nyckel. Du behöver dem när du konfigurerar insamlaren.
 
     ![Hämta .OVA-fil](./media/tutorial-assessment-vmware/download-ova.png)
@@ -83,53 +90,50 @@ Kontrollera att .OVA-filen är säker innan du distribuerar den.
     - Exempel på användning: ```C:\>CertUtil -HashFile C:\AzureMigrate\AzureMigrate.ova SHA256```
 3. Den genererade hashen måste matcha nedanstående inställningar.
 
+#### <a name="one-time-discovery"></a>Engångsidentifiering
+
   För OVA-version 1.0.9.14
 
-    **Algoritm** | **Hash-värde**
-    --- | ---
-    MD5 | 6d8446c0eeba3de3ecc9bc3713f9c8bd
-    SHA1 | e9f5bdfdd1a746c11910ed917511b5d91b9f939f
-    SHA256 | 7f7636d0959379502dfbda19b8e3f47f3a4744ee9453fc9ce548e6682a66f13c
+  **Algoritm** | **Hash-värde**
+  --- | ---
+  MD5 | 6d8446c0eeba3de3ecc9bc3713f9c8bd
+  SHA1 | e9f5bdfdd1a746c11910ed917511b5d91b9f939f
+  SHA256 | 7f7636d0959379502dfbda19b8e3f47f3a4744ee9453fc9ce548e6682a66f13c
 
   För OVA-version 1.0.9.12
 
-    **Algoritm** | **Hash-värde**
-    --- | ---
-    MD5 | d0363e5d1b377a8eb08843cf034ac28a
-    SHA1 | df4a0ada64bfa59c37acf521d15dcabe7f3f716b
-    SHA256 | f677b6c255e3d4d529315a31b5947edfe46f45e4eb4dbc8019d68d1d1b337c2e
+  **Algoritm** | **Hash-värde**
+  --- | ---
+  MD5 | d0363e5d1b377a8eb08843cf034ac28a
+  SHA1 | df4a0ada64bfa59c37acf521d15dcabe7f3f716b
+  SHA256 | f677b6c255e3d4d529315a31b5947edfe46f45e4eb4dbc8019d68d1d1b337c2e
 
   För OVA-version 1.0.9.8
 
-    **Algoritm** | **Hash-värde**
-    --- | ---
-    MD5 | b5d9f0caf15ca357ac0563468c2e6251
-    SHA1 | d6179b5bfe84e123fabd37f8a1e4930839eeb0e5
-    SHA256 | 09c68b168719cb93bd439ea6a5fe21a3b01beec0e15b84204857061ca5b116ff
+  **Algoritm** | **Hash-värde**
+  --- | ---
+  MD5 | b5d9f0caf15ca357ac0563468c2e6251
+  SHA1 | d6179b5bfe84e123fabd37f8a1e4930839eeb0e5
+  SHA256 | 09c68b168719cb93bd439ea6a5fe21a3b01beec0e15b84204857061ca5b116ff
 
-    För OVA-version 1.0.9.7
 
-    **Algoritm** | **Hash-värde**
-    --- | ---
-    MD5 | d5b6a03701203ff556fa78694d6d7c35
-    SHA1 | f039feaa10dccd811c3d22d9a59fb83d0b01151e
-    SHA256 | e5e997c003e29036f62bf3fdce96acd4a271799211a84b34b35dfd290e9bea9c
+  För OVA-version 1.0.9.7
 
-    För OVA-version 1.0.9.5
+  **Algoritm** | **Hash-värde**
+  --- | ---
+  MD5 | d5b6a03701203ff556fa78694d6d7c35
+  SHA1 | f039feaa10dccd811c3d22d9a59fb83d0b01151e
+  SHA256 | e5e997c003e29036f62bf3fdce96acd4a271799211a84b34b35dfd290e9bea9c
 
-    **Algoritm** | **Hash-värde**
-    --- | ---
-    MD5 | fb11ca234ed1f779a61fbb8439d82969
-    SHA1 | 5bee071a6334b6a46226ec417f0d2c494709a42e
-    SHA256 | b92ad637e7f522c1d7385b009e7d20904b7b9c28d6f1592e8a14d88fbdd3241c  
+#### <a name="continuous-discovery"></a>Kontinuerlig identifiering
 
-    För OVA-version 1.0.9.2
+  För OVA-version 1.0.10.4
 
-    **Algoritm** | **Hash-värde**
-    --- | ---
-    MD5 | 7326020e3b83f225b794920b7cb421fc
-    SHA1 | a2d8d496fdca4bd36bfa11ddf460602fa90e30be
-    SHA256 | f3d9809dd977c689dda1e482324ecd3da0a6a9a74116c1b22710acc19bea7bb2  
+  **Algoritm** | **Hash-värde**
+  --- | ---
+  MD5 | 2ca5b1b93ee0675ca794dd3fd216e13d
+  SHA1 | 8c46a52b18d36e91daeae62f412f5cb2a8198ee5
+  SHA256 | 3b3dec0f995b3dd3c6ba218d436be003a687710abab9fcd17d4bdc90a11276be
 
 ## <a name="create-the-collector-vm"></a>Skapa den virtuella insamlardatorn
 
@@ -170,7 +174,7 @@ Importera den nedladdade filen till vCenter Server.
     - I **Samlingens omfattning** väljer du en omfattning för identifieringen av virtuella datorer. Insamlaren kan bara identifiera virtuella datorer i angivet omfång. Omfånget kan anges till en viss mapp, ett datacenter eller ett kluster. Det får inte innehålla fler än 1 500 virtuella datorer. [Lär dig mer](how-to-scale-assessment.md) om hur du kan identifiera en större miljö.
 
 7. I **Specify migration project** (Ange migreringsprojekt) anger du det projekt-ID och den nyckel för Azure Migrate som du kopierade från portalen. Om du inte kopierade dem öppnar du Azure Portal från den virtuella insamlardatorn. På projektsidan **Översikt** klickar du på **Identifiera datorer** och kopierar värdena.  
-8. I **View collection progress** (Visa insamlingsförlopp) övervakar du identifieringen och kontrollerar att de metadata som samlas in från virtuella datorer finns i ett omfång. Insamlaren visar en ungefärlig identifieringstid. [Lär dig mer](https://docs.microsoft.com/azure/migrate/concepts-collector#what-data-is-collected) om vilka data som samlas in av Azure Migrate-insamlaren.
+8. Övervaka identifieringsstatus i **visa insamlingsförloppet**. Lär dig mer])https://docs.microsoft.com/azure/migrate/concepts-collector#what-data-is-collected) om vilka data som samlas in av Azure Migrate-insamlaren.
 
 > [!NOTE]
 > Insamlaren har endast stöd för ”Engelska (USA)” som operativsystemspråk och gränssnittsspråk i insamlaren.
@@ -180,9 +184,11 @@ Importera den nedladdade filen till vCenter Server.
 
 ### <a name="verify-vms-in-the-portal"></a>Verifiera virtuella datorer i portalen
 
-Identifieringstiden beror på hur många virtuella datorer du identifierar. Vid 100 virtuella datorer tar det cirka en timme att slutföra identifieringen efter att insamlaren är klar.
+För engångsidentifiering beror identifieringstiden på hur många virtuella datorer du identifierar. För 100 virtuella datorer tar det normalt, när insamlaren är klar, cirka en timme för konfigurationen och datainsamling att slutföras. Du kan skapa utvärderingar (både prestandabaserade och som lokala utvärderingar) direkt när identifieringen är klar.
 
-1. I projektet Migreringshanteraren klickar du på **Hantera** > **Datorer**.
+För kontinuerlig identifiering (i förhandsversion) kommer insamlaren kontinuerligt profilera den lokala miljön och fortsätta skicka prestandadata med ett intervall på en timma. Du kan granska datorer i portalen en timme efter att identifieringen startades. Vi rekommenderar starkt att vänta minst en dag innan du skapar några prestandabaserade utvärderingar för de virtuella datorerna.
+
+1. I migrationsprojektet klickar du på **Hantera** > **Datorer**.
 2. Kontrollera att de virtuella datorer som du vill identifiera visas i portalen.
 
 
@@ -197,6 +203,9 @@ Efter att virtuella datorer har identifierats, kan du gruppera dem och skapa en 
 5. Klicka på **Skapa utvärdering** för att skapa gruppen och utvärderingen.
 6. När utvärderingen har skapats kan du se den i **Översikt** > **Instrumentpanel**.
 7. Klicka på **Exportera utvärdering** för att ladda ned den som en Excel-fil.
+
+> [!NOTE]
+> För kontinuerlig identifiering rekommenderar vi starkt att vänta minst en dag, efter du har startat identifieringen, innan du skapar en utvärdering. Om du vill uppdatera en befintlig utvärdering med de senaste prestandadata, kan du använda kommandot **beräkna om** för utvärdering för att uppdatera den.
 
 ### <a name="assessment-details"></a>Information om utvärdering
 
@@ -248,13 +257,23 @@ För prestandabaserade storleksändringar behöver Azure Migrate användningsdat
    81 %–100 % | 5 stjärnor
 
 En utvärdering kanske inte har tillgång till alla datapunkter på grund av någon av följande orsaker:
-- Statistikinställningen i vCenter Server har inte angetts till nivå 3. Om statistikinställningen i vCenter Server är lägre än nivå 3 så görs ingen insamling av prestandadata för disk och nätverk från vCenter Server. I det här fallet är rekommendationen från Azure Migrate för disk och nätverk inte användningsbaserad. Utan att överväga diskens IOPS/dataflöde kan inte Azure Migrate veta om disken behöver en Premium-disk i Azure. Därför rekommenderar Azure Migrate Standard-diskar för alla diskar.
+
+**Engångsidentifiering**
+
+- Statistikinställningen i vCenter Server har inte angetts till nivå 3. Eftersom engångsidentifieringsmodellen beror på statistikinställningarna i vCenter Server görs, om statistikinställningen i vCenter Server är lägre än nivå 3, ingen insamling av prestandadata för disk och nätverk från vCenter Server. I det här fallet är rekommendationen från Azure Migrate för disk och nätverk inte användningsbaserad. Utan att överväga diskens IOPS/dataflöde kan inte Azure Migrate veta om disken behöver en Premium-disk i Azure. Därför rekommenderar Azure Migrate Standard-diskar för alla diskar.
 - Statistikinställningen i vCenter Server var inställd på nivå 3 under en kort period, innan identifieringen drog igång. Vi tänker oss exempelvis ett scenario där du ändrar statistikinställningen till nivå 3 i dag och sätter igång identifieringen med insamlingsprogrammet i morgon (efter 24 timmar). Om du skapar en utvärdering för en dag, har du alla datapunkter och säkerhetsomdömet för utvärderingen blir 5 stjärnor. Men om du ändrar varaktigheten i utvärderingsegenskaperna till en månad går säkerhetsomdömet ned om prestandadata från disken och nätverket för den senaste månaden inte är tillgängliga. Om du vill undersöka prestandadata för den senaste månaden rekommenderar vi att du behåller statistikinställningen för vCenter Server på nivå 3 i en månad innan du startar identifieringen.
-- Några virtuella datorer stängdes av under perioden som utvärderingen utfördes. Om några virtuella datorer stängdes av under en viss period så kommer vCenter Server inte att ha prestandadata för den perioden.
+
+**Kontinuerlig identifiering**
+
+- Du profilerade inte din miljö för hela den varaktighet för vilken du skapar utvärderingen. Om du skapar utvärderingen med varaktigheten inställd på 1 dag, måste du vänta minst en dag efter att du börjar identifieringen för att alla datapunkter ska ha samlats in.
+
+**Vanliga orsaker**  
+
+- Några virtuella datorer stängdes av under perioden som utvärderingen utfördes. Om några virtuella datorer stängdes av under en viss period så kommer vi inte att kunna samla in prestandadata för den perioden.
 - Några virtuella datorer skapades under perioden som utvärderingen utförs. Om du till exempel skapar en utvärdering för prestandahistoriken för den senaste månaden, men några virtuella datorer skapades i miljön för en vecka sedan. I sådana fall är prestandahistoriken för de nya virtuella datorerna inte med för hela perioden.
 
 > [!NOTE]
-> Om säkerhetsomdömet för någon utvärdering är lägre än 4 stjärnor rekommenderar vi att du ändrar nivån för statistikinställningar i vCenter Server till 3, väntar så länge som du vill att utvärderingen ska utvärdera (en dag/en vecka/en månad) och sedan utför en identifiering och en utvärdering. Om det föregående inte kan utföras kan prestandabaserade storleksändringar vara mindre tillförlitliga och därför rekommenderar vi att du byter till *storleksändringar av typen "som lokalt"* genom att ändra utvärderingsegenskaperna.
+> Om säkerhetsomdömet för någon utvärdering är lägre än 4 stjärnor för engångsidentifieringsmodellen, rekommenderar vi att du ändrar nivån för statistikinställningar i vCenter Server till 3, väntar så länge som du vill att utvärderingen ska utvärdera (en dag/en vecka/en månad) och sedan utför en identifiering och en utvärdering. Vänta minst en dag med att profilera miljön för identifiering av modellen för kontinuerlig upptäckt och *beräkna om* utvärderingen sedan. Om det föregående inte kan utföras kan prestandabaserade storleksändringar vara mindre tillförlitliga och därför rekommenderar vi att du byter till *storleksändringar av typen "som lokalt"* genom att ändra utvärderingsegenskaperna.
 
 ## <a name="next-steps"></a>Nästa steg
 

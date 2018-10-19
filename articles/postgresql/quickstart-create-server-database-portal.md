@@ -10,12 +10,12 @@ ms.service: postgresql
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 03/20/2018
-ms.openlocfilehash: 002ec2f99e488af76654c2391416e4b90e16e4c0
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: d32fb6e1a85865d89a2f8ee1483eb8fd599b4bb6
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43050235"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47408920"
 ---
 # <a name="quickstart-create-an-azure-database-for-postgresql-server-in-the-azure-portal"></a>Snabbstart: Skapa en Azure Database for PostgreSQL-server i Azure Portal
 
@@ -50,7 +50,7 @@ Följ de här stegen för att skapa en Azure Database för PostgreSQL-server:
     inloggning för serveradministratör |*myadmin*| Ett eget inloggningskonto att använda när du ansluter till servern. Inloggningsnamnet för administratören får inte vara **azure_superuser,** **azure_pg_admin,** **admin,** **administrator,** **root,** **guest,** eller **public**. Det får inte börja med **pg_**.
     Lösenord |Ditt lösenord| Ett nytt lösenord för serverns administratörskonto. Det måste innehålla mellan 8 och 128 tecken. Lösenordet måste innehålla tecken från tre av följande kategorier: engelska versala bokstäver, engelska gemena bokstäver, siffror (0 till och med 9) och icke-alfanumeriska tecken (!, $, #, % osv.).
     Plats|Den region som är närmast dina användare| Den plats som är närmast dina användare.
-    Version|Den senaste versionen| Den senaste PostgreSQL-versionen, om du inte har andra särskilda krav.
+    Version|Senaste huvudversion| Den senaste PostgreSQL-huvudversionen, om du inte har andra särskilda krav.
     Prisnivå | **Generell användning**, **Gen 4**, **2 virtuella kärnor**, **5 GB**, **7 dagar**, **Geografiskt redundant** | Konfigurationerna för beräkning, lagring och säkerhetskopiering för den nya servern. Välj **Prisnivå**. Sedan väljer du fliken **Generell användning**. *Gen 4*, *2 virtuella kärnor*, *5 GB*, och *7 dagar* är standardvärdena för **Compute-generering**, **Virtuell kärna** , **Lagring** och **Kvarhållningsperiod för säkerhetskopior**. Du kan lämna dessa skjutreglage som de är. Välj **Geografiskt redundant** bland **redundansalternativen för säkerhetskopiering** om du vill använda geo-redundant lagring för dina serversäkerhetskopior. Spara den valda prisnivån genom att välja **OK**. På nästa skärmbild visas dessa val.
 
     > [!IMPORTANT]
@@ -78,17 +78,10 @@ Azure Database för PostgreSQL skapar en brandvägg på server-nivå. Den förhi
 
 3. Under **Brandväggsregler** väljer du den tomma textrutan i kolumnen **Regelnamn** och börjar skapa brandväggsregeln. 
 
-    I den här snabbstarten vill vi tillåta alla IP-adresser till servern. Fyll i textrutan i varje kolumn med följande värden:
+   Fyll i fälten med ett namn och IP-adressintervall samt start- och slutdatum för klienter som kommer att ha åtkomst till din server. Om det är en enskild IP-adress använder du samma värde för start-IP och slut-IP.
 
-    Regelnamn | Start-ip | Slut-ip 
-    ---|---|---
-    AllowAllIps | 0.0.0.0 | 255.255.255.255
-
-     ![Konfigurera brandväggsregler](./media/quickstart-create-database-portal/5-firewall-2.png)
+   ![Konfigurera brandväggsregler](./media/quickstart-create-database-portal/5-firewall-2.png)
      
-      > [!NOTE]
-      > För produktionsinstanser bör du endast ställa in dina brandväggsregler att acceptera inkommande begäranden från kända IP-adresser.  De här inställningarna är endast som exempel.
-      >
 
 4. Välj **Spara** i det övre verktygsfältet på sidan **Anslutningssäkerhet**. Vänta tills meddelandet visas som talar om att uppdateringen av anslutningssäkerhet har slutförts innan du fortsätter.
 

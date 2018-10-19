@@ -34,6 +34,7 @@
 ## Administrera en hanterad domän
 ### [Administrera en hanterad domän](active-directory-ds-admin-guide-administer-domain.md)
 ### [Administrera DNS på en hanterad domän](active-directory-ds-admin-guide-administer-dns.md)
+### [Uppdatera e-postaviseringar](active-directory-ds-notifications.md)
 ### Konfigurera säker LDAP för en hanterad domän
 #### [Uppgift 1: Hämta ett certifikat för säkert LDAP](active-directory-ds-admin-guide-configure-secure-ldap.md)
 #### [Uppgift 2: Exportera certifikatet för säkert LDAP](active-directory-ds-admin-guide-configure-secure-ldap-export-pfx.md)

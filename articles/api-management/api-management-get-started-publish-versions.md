@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.custom: mvc
 ms.topic: tutorial
-ms.date: 11/19/2017
+ms.date: 06/15/2018
 ms.author: apimpm
-ms.openlocfilehash: 1cbe63184578f7d1e72992577a11c58b9b83a002
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: a7e5051248a579b0943fa69620215b060bd1e235
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33937325"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47092701"
 ---
 # <a name="publish-multiple-versions-of-your-api"></a>Publicera flera versioner av ditt API 
 
@@ -44,7 +44,7 @@ I den här guiden får du lära dig att:
 
 ![Snabbmenyn för API – lägg till version](media/api-management-getstarted-publish-versions/AddVersionMenu.png)
 
-1. Välj **Conference API** (konferens-API) från listan över API.
+1. Välj **Demo Conference API** från listan över API.
 2. Välj snabbmenyn (**...** ) bredvid.
 3. Välj **+ Lägg till version**.
 
@@ -58,37 +58,39 @@ Med Azure API Management kan du välja hur du låter dina anropare ange vilken v
 ![Skärmen Lägg till version](media/api-management-getstarted-publish-versions/AddVersion.PNG)
 
 1. Låt **sökvägen** vara **versionsschemat**.
-2. Lägg till **v1** som **versions-ID**.
+2. Lägg till **v1** som **namn** och **versions-ID**.
 
     > [!TIP]
     > Om du väljer **rubrik** eller **frågesträng** som versionsschema, måste du ange ytterligare ett värde – namnet på rubriken eller frågesträngsparametern.
 
-3. Ange en beskrivning om du vill.
-4. Välj **Skapa** för att ställa in den nya versionen.
-5. Under **Big Conference API** (storkonferens API) i listan över API:er visas nu två distinkta API:er – **Ursprungliga** och **v1**.
+3. Välj **Skapa** för att ställa in den nya versionen.
+4. Under **Demo Conference API** (storkonferens API) i listan över API:er visas nu två distinkta API:er – **Ursprungliga** och **v1**.
 
     ![Versioner som listas under API i Azure Portal](media/api-management-getstarted-publish-versions/VersionList.PNG)
 
     > [!Note]
     > Om du lägger till en version till ett API som inte är versionshanterat, skapas en **ursprunglig version** automatiskt, som svarar på en standard-URL. Detta säkerställer att eventuella befintliga anrop inte störs när ytterligare en version läggs till. Om du skapar ett nytt API med versioner som är aktiverat i början, skapas inte en ursprunglig version.
 
-6. Du kan nu redigera och konfigurera **v1** som ett API som skiljer sig från det **ursprungliga**. Ändringar i de olika versionerna påverkar inte varandra.
+5. Du kan nu redigera och konfigurera **v1** som ett API som skiljer sig från det **ursprungliga**. Ändringar i de olika versionerna påverkar inte varandra.
 
 ## <a name="add-the-version-to-a-product"></a>Lägga till versionen till en produkt
 
 För att en anropare ska kunna se den nya versionen, måste den läggas till en **produkt**.
 
 1. Välj **produkter** från sidan för den klassiska distributionsmodellen.
+
+    ![API Management-produkter](media/api-management-getstarted-publish-versions/Products.png)
+
 2. Välj **Obegränsad**.
 3. Välj **API:er**.
 4. Välj **Lägg till**.
-5. Välj **Conference API, Version v1** (Konferens-API, version v1).
+5. Välj **Demo Conference API, Version v1** (Demokonferens-API, version v1).
 6. Navigera till sidan för hantering av tjänsten och markera **API:er**.
 
 ## <a name="browse-the-developer-portal-to-see-the-version"></a>Gå till utvecklarportalen för att se versionen
 
 1. Välj **Utvecklarportal** i den översta menyn.
-2. Välj **API:er**, kontrollera att **konferens-API** visar versionerna **Ursprunglig** och **v1**.
+2. Välj **API:er**, kontrollera att **Demo konferens-API** visar versionerna **Ursprunglig** och **v1**.
 3. Välj **v1**.
 4. Observera **Fråge-URL** för den första åtgärden i listan. Det visar att URL-sökvägen för API:et innehåller **v1**.
 
@@ -107,4 +109,4 @@ I den här guiden får du lära dig att:
 Gå vidare till nästa kurs:
 
 > [!div class="nextstepaction"]
-> [Uppgradera och skala](upgrade-and-scale.md)
+> [Anpassa stilen på utvecklingsportalens sidor](api-management-customize-styles.md)

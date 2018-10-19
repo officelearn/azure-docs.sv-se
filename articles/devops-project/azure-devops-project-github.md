@@ -1,5 +1,5 @@
 ---
-title: Skapa en CI/CD-pipeline för din befintliga kod med Azure DevOps-projekt | VSTS-självstudie
+title: Skapa en CI/CD-pipeline för din befintliga kod med Azure DevOps-projekt | Självstudie för Azure DevOps Services
 description: DevOps-projekt gör det enkelt att komma igång med Azure. Det hjälper dig att använda egen kod och din GitHub-lagringsplats för att starta en app på en Azure-tjänst med några enkla få steg.
 services: vsts
 documentationcenter: vs-devops-build
@@ -17,12 +17,12 @@ ms.date: 07/09/2018
 author: mlearned
 ms.custom: mvc
 monikerRange: vsts
-ms.openlocfilehash: 192992917432a64c2f9f81761e22bf7d9205703a
-ms.sourcegitcommit: 30221e77dd199ffe0f2e86f6e762df5a32cdbe5f
+ms.openlocfilehash: 4e0e28ff9ea14e42e1df7ce35bb90e8720a0d0b6
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39205569"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47407305"
 ---
 # <a name="create-a-cicd-pipeline-for-your-existing-code-with-the-azure-devops-project"></a>Skapa en CI/CD-pipeline för din befintliga kod med Azure DevOps-projektet
 
@@ -33,9 +33,9 @@ Du kommer att:
 > [!div class="checklist"]
 > * Skapa ett Azure DevOps-projekt
 > * Konfigurera åtkomst till din GitHub-lagringsplats och välj ett ramverk
-> * Konfigurera VSTS och en Azure-prenumeration 
+> * Konfigurera Azure DevOps Services och en Azure-prenumeration 
 > * Genomför ändringar i GitHub och distribuera automatiskt till Azure
-> * Granska VSTS-CI/CD-pipelinen
+> * Granska CI/CD-pipelinen för Azure DevOps Services
 > * Konfigurera övervakning med Azure Application Insights
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
@@ -45,7 +45,7 @@ Du kommer att:
 
 ## <a name="sign-in-to-the-azure-portal"></a>Logga in på Azure Portal
 
-Azure DevOps-projektet skapar en CI/CD-pipeline i VSTS.  Du kan skapa ett **nytt VSTS**-konto eller använda ett **befintligt konto**.  Azure DevOps-projektet skapar även **Azure-resurser** i den **Azure-prenumeration** som du väljer.
+Azure DevOps-projektet skapar en CI/CD-pipeline i Azure DevOps Services.  Du kan skapa en **ny Azure DevOps Services-organisation** eller använda en **befintlig organisation**.  Azure DevOps-projektet skapar även **Azure-resurser** i den **Azure-prenumeration** som du väljer.
 
 1. Logga in i [Microsoft Azure-portalen](https://portal.azure.com).
 
@@ -65,13 +65,11 @@ Azure DevOps-projektet skapar en CI/CD-pipeline i VSTS.  Du kan skapa ett **nytt
 
 1. Programramverket som du valde i föregående steg avgör vilka typer av distributionsmål som finns tillgängliga för Azure-tjänsten här.  Välj **target service** (måltjänsten) du önskar.  När du är klar väljer du **Nästa**.
 
-## <a name="configure-vsts-and-an-azure-subscription"></a>Konfigurera VSTS och en Azure-prenumeration 
+## <a name="configure-azure-devops-services-and-an-azure-subscription"></a>Konfigurera Azure DevOps Services och en Azure-prenumeration 
 
-1. Skapa ett **nytt** VSTS-konto eller välj ett **befintligt** konto.  Välj ett **namn** för ditt VSTS-projekt.  Välj din **Azure-prenumeration**, **plats** och välj ett **namn** för ditt program.  När du är klar väljer du **Klar**.
+1. Skapa en **ny** Azure DevOps Services-organisation eller använd en **befintlig** organisation.  Välj ett **namn** för ditt Azure DevOps-projekt.  Välj din **Azure-prenumeration**, **plats** och välj ett **namn** för ditt program.  När du är klar väljer du **Klar**.
 
-    ![Ange VSTS-information](_img/azure-devops-project-github/vstsazureinfo.png)
-
-1. **Projektinstrumentpanelen** läses in i Azure-portalen på några minuter.  Ett exempelprogram konfigureras i en lagringsplats i VSTS-kontot, en version körs och programmet distribueras till Azure.  Den här instrumentpanelen ger insyn i din **kodlagringsplats** på GitHub, **VSTS CI/CD-pipeline** och i ditt **program i Azure**.  På höger sida av instrumentpanelen väljer du **Bläddra** för att visa programmet som körs.
+1. **Azure DevOps-projektinstrumentpanelen** läses in i Azure-portalen på några minuter.  Ett exempelprogram konfigureras på en lagringsplats i Azure DevOps Services-organisationen, en version körs och programmet distribueras till Azure.  Den här instrumentpanelen ger insyn i GitHub-**kodlagringsplatsen**, **CI/CD-pipelinen för Azure DevOps Services** och ditt **program i Azure**.  På höger sida av instrumentpanelen väljer du **Bläddra** för att visa dt program som körs.
 
     ![Instrumentpanelsvy](_img/azure-devops-project-github/dashboardnopreview.png) 
     
@@ -79,41 +77,41 @@ Azure DevOps-projektet konfigurerar automatiskt en CI-version och släpper utlö
 
 ## <a name="commit-changes-to-github-and-automatically-deploy-to-azure"></a>Genomför ändringar i GitHub och distribuera automatiskt till Azure 
 
-Nu är du redo att samarbeta med ett team på din app med en CI/CD-process som automatiskt distribuerar ditt senaste arbete till din webbplats.  Varje ändring i GitHub-lagringsplatsen startar en version i VSTS och en VSTS Release Management-definition kör en distribution till Azure.
+Nu är du redo att samarbeta med ett team på din app med en CI/CD-process som automatiskt distribuerar ditt senaste arbete till din webbplats.  Varje ändring i GitHub-lagringsplatsen startar en version i Azure DevOps och en CD-pipeline för Azure DevOps kör en distribution till Azure.
 
 1.  Gör en ändring i ditt program och **genomför** ändringen till GitHub-lagringsplatsen.
-2.  Efter en liten stund startar en version i VSTS.  Du kan övervaka versionstillståndet med instrumentpanelen för DevOps-projektet eller i webbläsaren med ditt VSTS-konto.
+2.  Efter en liten stund startar en version i Azure DevOps Services.  Du kan övervaka versionstillståndet med Azure DevOps-projektets instrumentpanel eller i webbläsaren med din Azure DevOps Services-organisation.
 3.  När versionen har slutförts **uppdaterar du ditt program** i webbläsaren för att kontrollera dina ändringar.
 
-## <a name="examine-the-vsts-cicd-pipeline"></a>Granska VSTS-CI/CD-pipelinen
+## <a name="examine-the-azure-devops-services-cicd-pipeline"></a>Granska CI/CD-pipelinen för Azure DevOps Services
 
-Azure DevOps-projektet konfigurerade automatiskt en fullständig VSTS-CI/CD-pipeline i VSTS-kontot.  Utforska och anpassa pipelinen efter behov.  Följ stegen nedan för att bekanta dig med VSTS-versionen och versionsdefinitioner.
+Azure DevOps-projektet har automatiskt konfigurerat en CI/CD-pipeline för Azure DevOps Services i Azure DevOps Services-organisationen.  Utforska och anpassa pipelinen efter behov.  Följ stegen nedan för att bekanta dig med bygg- och versionspipelinerna för Azure DevOps Services.
 
-1. Välj **Skapa pipelines** **längst upp** på instrumentpanelen för Azure DevOps-projektet.  Den här länken öppnar en flik i webbläsaren och öppnar VSTS-versionsdefinitionen för det nya projektet.
+1. Välj **Skapa pipelines** **längst upp** på Azure DevOps-projektets instrumentpanel.  Den här länken öppnar en flik i webbläsaren och öppnar bygg-pipelinen för Azure DevOps Services för det nya projektet.
 
-1. Flytta markören till höger om versionsdefinition bredvid fältet **Status**. Välj den **ellips** som visas.  Den här åtgärden öppnar en meny där du kan starta flera aktiviteter, till exempel att lägga till en ny version i en kö, pausa en version och redigera versionsdefinitionen.
+1. Flytta markören till höger om bygg-pipelinen bredvid fältet **Status**. Välj den **ellips** som visas.  Den här åtgärden öppnar en meny där du kan starta flera aktiviteter, till exempel lägga till en ny version i en kö, pausa en version och redigera bygg-pipelinen.
 
 1. Välj **Redigera**.
 
-1. Från den här vyn **granskar du de olika uppgifterna** för versionsdefinitionen.  Versionen utför olika uppgifter som att hämta källor från Git-lagringsplatsen, återställa beroenden och publicera utdata för distributioner.
+1. Från den här vyn **granskar du de olika uppgifterna** för bygg-pipelinen.  Versionen utför olika uppgifter som att hämta källor från Git-lagringsplatsen, återställa beroenden och publicera utdata för distributioner.
 
-1. Längst upp i versionsdefinitionen väljer du **build definition name** (namn på versionsdefinitionen).
+1. Välj **bygg-pipelinens namn** längst upp i bygg-pipelinen.
 
-1. Ändra **namnet** på din versionsdefinition till något mer beskrivande.  Välj **Save & queue** (Spara och köa) och välj sedan **Spara**.
+1. Ändra **namnet** på din bygg-pipeline till något mer beskrivande.  Välj **Save & queue** (Spara och köa) och välj sedan **Spara**.
 
-1. Under ditt versionsdefinitionsnamn väljer du **Historik**.  Du kan se en spårningslogg över de senaste ändringarna för versionen.  VSTS spårar alla ändringar som görs på versionsdefinition, vilket gör att du kan jämföra versioner.
+1. Under ditt bygg-pipelinenamn väljer du **Historik**.  Du kan se en spårningslogg över de senaste ändringarna för versionen.  Azure DevOps Services spårar alla ändringar som görs av bygg-pipelinen, vilket innebär att du kan jämföra versioner.
 
 1. Välj **Utlösare**.  Azure DevOps-projektet skapade automatiskt en CI-utlösare, och varje incheckning till lagringsplatsen startar en ny version.  Du kan välja att inkludera eller exkludera grenar från CI-processen.
 
 1. Välj **Kvarhållning**.  Baserat på ditt scenario kan du ange principer för att behålla eller ta bort ett visst antal versioner.
 
-1. Välj **Build and Release** (Build-versioner och versioner) och sedan **Versioner**.  Azure DevOps-projektet skapade en VSTS-versionsdefinition för att hantera distributioner till Azure.
+1. Välj **Build and Release** (Build-versioner och versioner) och sedan **Versioner**.  Azure DevOps-projektet skapade en Azure DevOps Services-versionspipeline för att hantera distributioner till Azure.
 
-1. På vänster sida i webbläsaren väljer du **ellipsen** bredvid din versionsdefinition och sedan väljer du **redigera**.
+1. På vänster sida i webbläsaren väljer du **ellipsen** bredvid din versionspipeline och sedan väljer du **Redigera**.
 
-1. Versionsdefinitionen innehåller en **pipeline** som definierar lanseringsprocessen.  Under **Artefakter** väljer du **Släpp**.  Den versionsdefinition du undersökte i de föregående stegen skapar de utdata som används för artefakten. 
+1. Versionspipelinen innehåller en **pipeline** som definierar släpprocessen.  Under **Artefakter** väljer du **Släpp**.  Den bygg-pipeline du undersökte i de föregående stegen skapar de utdata som används för artefakten. 
 
-1. På höger sida av ikonen **Släpp** väljer du **Utlösare av kontinuerlig distribution**.  Den här versionsdefinitionen har en aktiverad CD-utlösare som kör en distribution varje gång en ny versionsartefakt är tillgänglig.  Du kan även inaktivera utlösaren så att dina distributioner kräver manuell körning. 
+1. På höger sida av ikonen **Släpp** väljer du **Utlösare av kontinuerlig distribution**.  Den här versionspipelinen har en aktiverad CD-utlösare som kör en distribution varje gång en ny versionsartefakt är tillgänglig.  Du kan även inaktivera utlösaren så att dina distributioner kräver manuell körning. 
 
 1. På vänster sida i webbläsaren väljer du **Uppgifter**.  Uppgifter är de aktiviteter som distributionsprocessen utför.  I det här exemplet skapades en uppgift för att distribuera till **Azure App-tjänsten**.
 
@@ -159,17 +157,17 @@ När de inte längre behövs kan du ta bort Azure App-tjänsten och relaterade r
 
 ## <a name="next-steps"></a>Nästa steg
 
-När du konfigurerade CI/CD-processen i den här självstudien skapades automatiskt en build-versions- och en versionsdefinition i VSTS-projektet. Du kan ändra dessa build-versions- och versionsdefinitioner för att uppfylla behoven i ditt team. Du har lärt dig att:
+När du konfigurerade CI/CD-processen i den här självstudien, skapades automatiskt en bygg- och versionspipeline i Azure DevOps-projektet. Du kan ändra dessa bygg- och versionspipelines för att tillgodose ditt teams behov. Du har lärt dig att:
 
 > [!div class="checklist"]
 > * Skapa ett Azure DevOps-projekt
 > * Konfigurera åtkomst till din GitHub-lagringsplats och välj ett ramverk
-> * Konfigurera VSTS och en Azure-prenumeration 
+> * Konfigurera Azure DevOps Services och en Azure-prenumeration 
 > * Genomför ändringar i GitHub och distribuera automatiskt till Azure
-> * Granska VSTS-CI/CD-pipelinen
+> * Granska CI/CD-pipelinen för Azure DevOps Services
 > * Konfigurera övervakning med Azure Application Insights
 
-Mer information om VSTS-pipeline finns i den här självstudien:
+Mer information om CI/CD-pipelinen för Azure DevOps Services finns i den här självstudien:
 
 > [!div class="nextstepaction"]
-> [Anpassa CD-process](https://docs.microsoft.com/vsts/pipelines/release/define-multistage-release-process?view=vsts)
+> [Anpassa CD-process](https://docs.microsoft.com/azure/devops/pipelines/release/define-multistage-release-process?view=vsts)

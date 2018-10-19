@@ -9,13 +9,13 @@ editor: jasonwhowell
 ms.service: mysql
 ms.custom: mvc
 ms.topic: quickstart
-ms.date: 03/20/2018
-ms.openlocfilehash: dea380378aa1b6c2203c76f5c48e5af400ec8719
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.date: 09/12/2018
+ms.openlocfilehash: f26cadf28205359b111a8f92b8fadcbd9f26f958
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35266711"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47407629"
 ---
 # <a name="create-an-azure-database-for-mysql-server-by-using-the-azure-portal"></a>Skapa en Azure Database för MySQL-server med Azure Portal
 
@@ -26,7 +26,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt Azure-kont
 ## <a name="sign-in-to-the-azure-portal"></a>Logga in på Azure Portal
 Öppna webbläsaren och gå sedan till [Azure Portal](https://portal.azure.com/). Ange dina autentiseringsuppgifter och logga in på portalen. Standardvyn är instrumentpanelen.
 
-## <a name="create-an-azure-database-for-mysql-server"></a>Skapa en Azure Database för MySQL-server
+## <a name="create-an-azure-database-for-mysql-server"></a>Skapa en Azure Database for MySQL-server
 Du skapar en Azure Database för MySQL-server med en definierad uppsättning [Compute- och Storage-resurser](./concepts-compute-unit-and-storage.md). Du skapar servern i en [Azure-resursgrupp](../azure-resource-manager/resource-group-overview.md).
 
 Följ de här stegen för att skapa en Azure Database för MySQL-server:
@@ -51,7 +51,7 @@ Följ de här stegen för att skapa en Azure Database för MySQL-server:
     Lösenord | *Ditt val* | Ange ett nytt lösenord för serverns administratörskonto. Det måste innehålla mellan 8 och 128 tecken. Lösenordet måste innehålla tecken från tre av följande kategorier: engelska versala bokstäver, engelska gemena bokstäver, siffror (0-9) och icke-alfanumeriska tecken (!, $, #, % osv).
     Bekräfta lösenord | *Ditt val*| Bekräfta administratörslösenordet.
     Plats | *Regionen som ligger närmast dina användare*| Välj den plats som är närmast dina användare eller dina andra Azure-program.
-    Version | *Den senaste versionen*| Välj den senaste versionen (om du inte har särskilda behov som gör att du måste ha en annan version).
+    Version | *Senaste huvudversion*| Välj den senaste huvudversionen (om du inte har särskilda behov som gör att du måste ha en annan version).
     Prisnivå | **Generell användning**, **Gen 4**, **2 virtuella kärnor**, **5 GB**, **7 dagar**, **Geografiskt redundant** | Konfigurationerna för beräkning, lagring och säkerhetskopiering för den nya servern. Välj **Prisnivå**. Sedan väljer du fliken **Generell användning**. *Gen 4*, *2 virtuella kärnor*, *5 GB*, och *7 dagar* är standardvärdena för **Compute-generering**, **Virtuell kärna** , **Lagring** och **Kvarhållningsperiod för säkerhetskopior**. Du kan lämna dessa skjutreglage som de är. Välj **Geografiskt redundant** bland **redundansalternativen för säkerhetskopiering** om du vill använda geo-redundant lagring för dina serversäkerhetskopior. Spara den valda prisnivån genom att välja **OK**. På nästa skärmbild visas dessa val.
   
     > [!IMPORTANT]
@@ -74,17 +74,11 @@ Azure Database för MySQL-tjänsten skapar en brandvägg på servernivå. Den f�
 
 2. På serversidan väljer du **Anslutningssäkerhet**.
 
-3.  Under **Brandväggsregler** väljer du den tomma textrutan i kolumnen **Regelnamn** och börjar skapa brandväggsregeln. 
-
-   I den här snabbstartsguiden ska vi tillåta alla IP-adresser till servern genom att fylla i rutorna i varje kolumn med följande värden:
-
-   Regelnamn | Start-ip | Slut-ip 
-   ---|---|---
-   AllowAllIps |  0.0.0.0 | 255.255.255.255
+3.  Under **Brandväggsregler** väljer du den tomma textrutan i kolumnen **Regelnamn** och börjar skapa brandväggsregeln. Ange exakt intervall av IP-adresser för de klienter som kommer att åtkomst till den här servern.
    
-   ![Anslutningssäkerhet – Brandväggsregler](./media/quickstart-create-mysql-server-database-using-azure-portal/5_firewall-settings.png)
+   ![Anslutningssäkerhet – Brandväggsregler](./media/quickstart-create-mysql-server-database-using-azure-portal/5-firewall-2.png)
 
-   Det är inte säkert att tillåta alla IP-adresser. Det här exemplet tillhandahålls för enkelhetens skull, men du behöver känna till de exakta IP-adressintervallen om du vill lägga till program och användare i ett verkligt scenario. 
+
 
 4. Välj **Spara** i det övre verktygsfältet på sidan **Anslutningssäkerhet**. Vänta tills meddelandet visas som talar om att uppdateringen har slutförts innan du fortsätter. 
 

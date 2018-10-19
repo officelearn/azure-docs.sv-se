@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.custom: mvc
 ms.topic: tutorial
-ms.date: 11/27/2017
+ms.date: 06/15/2018
 ms.author: apimpm
-ms.openlocfilehash: 4383ce3788f6fade5299d69ef99b80221c58d9e7
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 916d0cf37ab3588091d4ca2d45f43a5669afe4f1
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33936991"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47094903"
 ---
 # <a name="mock-api-responses"></a>Simulera API-svar
 
@@ -46,7 +46,7 @@ Slutför följande snabbstart: [Skapa en Azure API Management-instans](get-start
 
 Stegen i det här avsnittet visar hur du skapar ett tomt API utan serverdel. Det visar även hur du lägger till en åtgärd i API:et. Ett fel genereras när du anropar åtgärden efter att du slutfört stegen i det här avsnittet. Du kommer inte få fel när du slutför stegen i avsnittet ”Aktivera simulerade svar”.
 
-1. Välj **API: er** under **API-HANTERING**.
+1. I **API Management-tjänsten** väljer du **API**.
 2. Välj **+ Lägg till API** på den vänstra menyn.
 3. Välj **Tomt API** i listan.
 4. Ange *Test-API* för **Visningsnamn**.
@@ -57,14 +57,13 @@ Stegen i det här avsnittet visar hur du skapar ett tomt API utan serverdel. Det
 
 1. Välj det API som du skapade i föregående steg.
 2. Klicka på **+ Lägg till åtgärd**.
-
-    ![Svar från simulerade åtgärder](./media/mock-api-responses/mock-api-responses02.png)
+    ![Svar från simulerade åtgärder](./media/mock-api-responses/mock-api-responses-add-operation.png)
 
     |Inställning|Värde|Beskrivning|
     |---|---|---|
+    |**Visningsnamn**|*Testanrop*|Det här namnet visas i **utvecklarportalen**.|
     |**URL** (HTTP-verb)|HÄMTA|Du kan välja någon av de fördefinierade HTTP-verben.|
     |**URL** |*/test*|En URL-sökväg för API:et. |
-    |**Visningsnamn**|*Testanrop*|Det här namnet visas i **utvecklarportalen**.|
     |**Beskrivning**||Ange en beskrivning av åtgärden för att tillhandahålla dokumentation för utvecklare som använder detta API i **utvecklarportalen**.|
     |Fliken **Fråga**||Du kan lägga till frågeparametrar. Förutom att tillhandahålla namn och beskrivning, kan du även ange värden som kan tilldelas till den här parametern. Ett av värdena kan vara markerat som standard (valfritt).|
     |Fliken **Begäran**||Du kan definiera innehållstyper för begäran, exempel och scheman. |
@@ -75,18 +74,19 @@ Stegen i det här avsnittet visar hur du skapar ett tomt API utan serverdel. Det
 5. Välj **200 OK** från listan.
 6. Under rubriken **Återangivelser** till höger väljer du **+ Lägg till återgivning**.
 7. Ange ”*application/json*” i sökrutan och välj sedan innehållstypen **application/json**.
-8. I textrutan **Exempel** anger du *{ 'sampleField' : 'test' }*.
-9. Välj **Spara**.
+8. I textrutan **Exempel** anger du `{ 'sampleField' : 'test' }`.
+9. Välj **Skapa**.
 
 ## <a name="enable-response-mocking"></a>Aktivera simulerade svar
 
 1. Välj det API som du skapade i stege ”Skapa ett test-API”.
 2. Välj den teståtgärd som du lade till.
-2. I fönstret till höger klickar du på fliken **Design**.
-3. I fönstret **Inkommande bearbetning** klickar du på pennikonen.
-4. I fliken **Simulering** väljer du **Statiska svar** för **Simuleringsbeteende**.
-5. I textrutan **API Management returnerar följande svar:** skriver du **200 OK, application/json**. Det här alternativet anger att ditt API ska returnera svars-exemplet som du definierade i föregående avsnitt.
-6. Välj **Spara**.
+3. I fönstret till höger klickar du på fliken **Design**.
+4. I fönstret **Inkommande bearbetning** klickar du på pennikonen.
+5. I fliken **Simulering** väljer du **Statiska svar** för **Simuleringsbeteende**.
+6. I textrutan **API Management returnerar följande svar:** skriver du **200 OK, application/json**. Det här alternativet anger att ditt API ska returnera svars-exemplet som du definierade i föregående avsnitt.
+    ![Aktivera simulerade svar](./media/mock-api-responses/mock-api-responses-set-mocking.png)
+7. Klicka på **Spara**.
 
 ## <a name="test-the-mocked-api"></a>Testa det simulerade API:et
 
@@ -97,8 +97,9 @@ Stegen i det här avsnittet visar hur du skapar ett tomt API utan serverdel. Det
     > [!TIP]
     > Ett gult fält med texten **Simulering har aktiverats** anger att svaren som returneras från API-hanteringen är simulerade, och inte riktiga svar från serverdelen.
 
-3. Välj **Skicka** för att göra ett testanrop.
-4. **HTTP-svaret** visar den JSON som användes som ett exempel i den första delen av självstudien.
+4. Välj **Skicka** för att göra ett testanrop.
+5. **HTTP-svaret** visar den JSON som användes som ett exempel i den första delen av självstudien.
+    ![Aktivera simulerade svar](./media/mock-api-responses/mock-api-responses-test-response.png)
 
 ## <a name="video"></a>Video
 

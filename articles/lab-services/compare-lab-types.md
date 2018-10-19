@@ -13,20 +13,22 @@ ms.devlang: na
 ms.topic: overview
 ms.date: 05/17/2018
 ms.author: spelluru
-ms.openlocfilehash: 7e86ba2b7fc729bd4663503282a936a5eaddf3ca
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 8cf779f203850ca03942ba2395baf07412712610
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34637881"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47092977"
 ---
 # <a name="compare-managed-labs-in-azure-lab-services-and-devtest-labs"></a>Jämföra hanterade labb och DevTest Labs i Azure Lab Services
 Du kan skapa två typer av labb, **hanterade labb** med Azure Lab Services och **anpassade labb** med Azure DevTest Labs. Om du bara vill ange precis vad du behöver i ett labb och låta tjänsten konfigurera och hantera den infrastruktur som krävs för labbet, väljer du något av de **hanterade labben**. För närvarande är **klassrumslabb** den enda typen av hanterat labb som du kan skapa med Azure Lab Services. Om du vill hantera din egen infrastruktur kan du skapa ett labb med hjälp av Azure DevTest Labs.
 
 Följande avsnitt innehåller mer information om dessa labb. 
 
-## <a name="managed-labs"></a>Hanterade labb
-Hanterade labb bjuder på olika typer av labb som passar för dina specifika behov. För närvarande stöder Azure Lab Services endast **klassrumslabb** som ett hanterat labb. Med hanterade labb kommer du igång direkt med minimal konfigurering. Tjänsten hanterar all infrastrukturhantering för labbet, från att skapa virtuella datorer till att hantera fel och skala infrastrukturen. För att kunna skapa ett hanterat labb måste du först skapa ett labbkonto för din organisation. Labbkontot fungerar som det centrala kontot där alla labb i organisationen hanteras. 
+## <a name="managed-lab-types"></a>Hanterade labbtyper
+Med Azure Lab Services kan du skapa laboratorier vars infrastruktur hanteras av Azure. I den här artikeln kallas de för hanterade labb. Hanterade labb bjuder på olika typer av labb som passar för dina specifika behov. Den enda typen av hanterade labb som stöds är för närvarande **klassrumslabb**. 
+
+Med hanterade labb kommer du igång direkt med minimal konfigurering. Tjänsten hanterar all infrastrukturhantering för labbet, från att skapa virtuella datorer till att hantera fel och skala infrastrukturen. För att kunna skapa ett hanterat labb, till exempel ett klassrumslabb, måste du först skapa ett labbkonto för din organisation. Labbkontot fungerar som det centrala kontot där alla labb i organisationen hanteras. 
 
 När du skapar och använder Azure-resurser i dessa hanterade labb, skapar och hanterar tjänsten resurser i interna Microsoft-prenumerationer. De skapas inte i din egen Azure-prenumeration. Tjänsten håller reda på användningen av dessa resurser i interna Microsoft-prenumerationer. Denna användning faktureras tillbaka till din Azure-prenumeration som innehåller labbkontot.   
 
@@ -51,11 +53,11 @@ Här följer några **användningsfall för DevTest Labs**:
 - Erbjud utbildningssessioner till dina kunder med ett labb som konfigurerats med den senaste versionen av din produkt. Ge varje kund ett begränsat antal timmar för att använda labbet. 
 
 
-## <a name="managed-labs-vs-devtest-labs"></a>Hanterade labb jämfört med DevTest Labs
+## <a name="managed-lab-types-vs-devtest-labs"></a>Hanterade labbtyper jämfört med DevTest Labs
 I följande tabell jämförs två typer av labb som stöds av Azure Lab Services: 
 
 | Funktioner | Hanterade labb | DevTest Labs |
-| -------- | ----------------  | ---------- |
+| -------- | ----------------- | ---------- |
 | Hantering av Azure-infrastrukturen i labbet |  Hanteras automatiskt av tjänsten | Du hanterar på egen hand  |
 | Inbyggd motståndskraft mot infrastruktursproblem | Hanteras automatiskt av tjänsten | Du hanterar på egen hand  |
 | Prenumerationshantering | Tjänsten hanterar tilldelning av resurser i Microsoft-prenumerationer som stöder tjänsten. Skalning hanteras automatiskt av tjänsten | Du hanterar det på egen hand i din egen Azure-prenumeration. Ingen automatisk skalning av prenumerationer |

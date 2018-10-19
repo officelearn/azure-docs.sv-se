@@ -6,12 +6,12 @@ author: mscurrell
 ms.author: markscu
 ms.date: 08/02/2018
 ms.topic: tutorial
-ms.openlocfilehash: 8df9054e069540398c137290e682bb4160b4a799
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: 46c65cd7ac5734134fa7c4ad6fd85f39d1188e28
+ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "40036637"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47392565"
 ---
 # <a name="tutorial-render-a-blender-scene-using-batch-explorer"></a>Självstudie: Rendera en Blender-scen med Batch Explorer
 
@@ -24,11 +24,11 @@ I den här guiden får du lära dig att:
 > * Rendera flera bildrutor
 > * Visa och ladda ned de renderade bildrutefilerna
 
-Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
-
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
-Ett Azure Batch-konto med ett tillhörande lagringskonto.  Se någon av Snabbstart-artiklarna om Batch, till exempel [CLI-artikeln](https://docs.microsoft.com/azure/batch/quick-create-cli) för at skapa ett Batch-konto.
+Du behöver en användningsbaserad prenumeration eller annat Azure-köpalternativ för att använda renderingsprogram i Batch för betalning per användningstillfälle. Användningsbaserad licensiering stöds inte om du använder ett kostnadsfritt Azure-erbjudande som ger penningkredit.
+
+Du behöver ett Azure Batch-konto med ett tillhörande lagringskonto.  Se någon av Snabbstart-artiklarna om Batch, till exempel [CLI-artikeln](https://docs.microsoft.com/azure/batch/quick-create-cli) för at skapa ett Batch-konto.
 
 En kärnkvot med låg prioritet på minst 50 kärnor krävs för storleken på virtuell dator och antal virtuella datorer som anges i den här självstudien. Standardkvoten kan användas men mindre storlek på virtuell dator måste användas, vilket betyder att bilderna kan ta längre tid att rendera. Processen för att begära en ökad kärnkvot beskrivs i [den här artikeln](https://docs.microsoft.com/azure/batch/batch-quota-limit).
 

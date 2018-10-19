@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
-ms.openlocfilehash: c0b42c3efd5e015eaf1fbd750f835d8de8818de9
-ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
+ms.openlocfilehash: d99b76faf618439e51735d5f1096fd4f1cfd2364
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43185859"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47038297"
 ---
 # <a name="tutorial-customize-the-azure-iot-central-operators-view"></a>Självstudie: Anpassa operatörsvyn i Azure IoT Central
 
@@ -50,9 +50,9 @@ Som byggare kan du definiera vilken information som ska visas på en enhetsinst
 
     ![Välja den anslutna luftkonditioneringsenheten](media/tutorial-customize-operator/selectdevice.png)
 
-    När du gör en ändring i en enhet, till exempel **Ansluten luftkonditionering-1**, görs ändringen i den underliggande mallen. Mer information finns i [Skapa en ny version av enhetsmallen](howto-version-devicetemplate.md).
+    När du är i en enhet, till exempel **Ansluten luftkonditionering-1**, kan du välja **Redigera mall** för att göra en ändring i den underliggande mallen. Mer information finns i [Skapa en ny version av enhetsmallen](howto-version-devicetemplate.md).
 
-3. Om du vill redigera instrumentpanelen väljer du **Instrumentpanel**:
+3. Om du vill redigera instrumentpanelen väljer du **Instrumentpanel** och välj **Redigera mall**:
 
     ![Sidan Instrumentpanel för enhetsmall](media/tutorial-customize-operator/dashboard.png)
 
@@ -77,11 +77,13 @@ Som byggare kan du definiera vilken information som ska visas på en enhetsinst
 
     ![Redigera instrumentpanelens layout](media/tutorial-customize-operator/dashboardlayout.png)
 
+7. Klicka på **klar** när du är klar med ändringarna.
+
 ## <a name="configure-your-settings-layout"></a>Konfigurera layouten för dina inställningar
 
 Som byggare kan du också konfigurera operatörsvyn för enhetsinställningarna. En operatör använder enhetsinställningssidan till att konfigurera en enhet. Till exempel använder operatören inställningssidan till att ange måltemperaturen för kylskåpet.
 
-1. Om du vill redigera inställningslayouten för din anslutna luftkonditionering väljer du **Inställningar**:
+1. Om du vill redigera inställningslayouten för din anslutna luftkonditionering väljer du **Inställningar** och välj **Redigera mall**:
 
     ![Sidan Inställningar](media/tutorial-customize-operator/settings.png)
 
@@ -89,14 +91,16 @@ Som byggare kan du också konfigurera operatörsvyn för enhetsinställningarna.
 
     ![Redigera inställningslayouten](media/tutorial-customize-operator/settingslayout.png)
 
+3. Klicka på **klar** när du är klar med ändringarna.
+
 > [!NOTE]
-> Du kan inte redigera inställningarnas värden i **Designläge**.
+> Du kan inte redigera inställningarnas värden i läget **Redigera mall**.
 
 ## <a name="configure-your-properties-layout"></a>Konfigurera layouten för dina egenskaper
 
 Du kan också konfigurera operatörsvyn för enhetsegenskaperna, förutom instrumentpanelen och inställningar. En operatör använder enhetens egenskapssida till att hantera enhetsmetadata. Till exempel använder operatören egenskapssidan för att visa enhetens serienummer eller uppdatera kontaktuppgifterna för tillverkaren.
 
-1. Om du vill redigera egenskapslayouten för din anslutna luftkonditionering väljer du **Egenskaper**:
+1. Om du vill redigera egenskapslayouten för din anslutna luftkonditionering väljer du **Egenskaper** och välj **Redigera mall**:
 
     ![Sidan Egenskaper](media/tutorial-customize-operator/properties.png)
 
@@ -104,16 +108,18 @@ Du kan också konfigurera operatörsvyn för enhetsegenskaperna, förutom instru
 
     ![Redigera egenskapslayouten](media/tutorial-customize-operator/propertieslayout.png)
 
+3. Klicka på **klar** när du är klar med ändringarna.
+
 > [!NOTE]
-> Du kan inte redigera egenskapernas värden i **Designläge**.
+> Du kan inte redigera egenskapernas värden i läget **Redigera mall**.
 
 ## <a name="preview-the-connected-air-conditioner-device-as-an-operator"></a>Förhandsgranska den anslutna luftkonditioneringsenheten som operatör
 
-I **Designläge** kan du anpassa instrumentpanel, inställningar och egenskaper för en operatör. Om du stänger av **Designläge** ser du programmet som en operatör.
+I läget **Redigera mall** kan du anpassa instrumentpanel, inställningar och egenskaper för en operatör. Om du inte är i läget **Redigera mall**, kan du visa programmet som en operatör.
 
-1. Om du vill se den anslutna luftkonditioneringsenheten som operatör måste du stänga av **Designläge**. Stäng av **Designläge** i **Designläge** högst upp till höger på sidan.
+1. Om du vill se den anslutna luftkonditioneringsenheten som operatör måste du klicka på **Klar** för att sluta redigera mallen. Detta återför dig till en operatörsvy av enheten.
 
-2. Om du vill uppdatera serienumret för enheten, redigerar du värdet i serienummerpanelen och väljer **Spara**:
+2. Om du vill uppdatera platsen för enheten, redigerar du värdet i platspanelen och väljer **Spara**:
 
     ![Redigera ett egenskapsvärde](media/tutorial-customize-operator/editproperty.png)
 
@@ -131,7 +137,7 @@ I **Designläge** kan du anpassa instrumentpanel, inställningar och egenskaper 
 
 När en byggare eller operatör loggar in på ett Azure IoT Central-program, ser de en startsida. Som byggare kan du konfigurera innehållet på startsidan så att det mest användbara och relevanta innehållet visas för operatören.
 
-1. Anpassa standardstartsidan genom att gå till sidan **Start** och aktivera **Designläge** högst upp till höger på sidan. När **Designläge** aktiveras visas en panel från höger med en lista över objekt som du kan lägga till på startsidan.
+1. Anpassa standardstartsidan genom att gå till sidan **Start** och väljer **Redigera** högst upp till höger på sidan. När du väljer **Redigera** visas en panel från höger med en lista över objekt som du kan lägga till på startsidan.
 
     ![Sidan Application Builder](media/tutorial-customize-operator/builderhome.png)
 
@@ -150,7 +156,7 @@ När en byggare eller operatör loggar in på ett Azure IoT Central-program, ser
 
 ## <a name="preview-the-default-home-page-as-an-operator"></a>Förhandsgranska standardstartsidan som operatör
 
-Om du vill förhandsgranska startsidan som operatör stänger du av **Designläge** längst upp till höger på sidan:
+Om du vill förhandsgranska startsidan som operatör och sluta redigera, väljer du **Klar** längst upp till höger på sidan
 
 ![Växla designläge](media/tutorial-customize-operator/operatorviewhome.png)
 

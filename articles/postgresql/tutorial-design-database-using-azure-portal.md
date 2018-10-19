@@ -10,12 +10,12 @@ ms.service: postgresql
 ms.custom: tutorial, mvc
 ms.topic: tutorial
 ms.date: 03/20/2018
-ms.openlocfilehash: 181e31530960f031dd2785b852c0ae15c21af782
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 6a3241e15cc72d1d50862a9dec14c23712ec4226
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/23/2018
-ms.locfileid: "30186316"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47406390"
 ---
 # <a name="tutorial-design-an-azure-database-for-postgresql-using-the-azure-portal"></a>Självstudie: Utforma Azure Database for PostgreSQL med Azure Portal
 
@@ -34,7 +34,7 @@ I den här självstudien använder du Azure-portalen till att:
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/) konto innan du börjar.
 
-## <a name="log-in-to-the-azure-portal"></a>Logga in på Azure Portal
+## <a name="log-in-to-the-azure-portal"></a>Logga in på Azure-portalen
 Logga in på [Azure-portalen](https://portal.azure.com).
 
 ## <a name="create-an-azure-database-for-postgresql"></a>Skapa en Azure Database för PostgreSQL
@@ -85,7 +85,7 @@ Azure Database for PostgreSQL-tjänsten använder en brandvägg på servernivå.
 
 2.  På serversidan väljer du **Anslutningssäkerhet**. 
 
-3.  Klicka i textrutan under **regelnamn** och lägg till en ny brandväggsregel som vitlistar IP-adressintervallet för anslutningen. I den här självstudien tillåter vi alla IP-adresser genom att skriva in **Regelnamn = AllowAllIps**, **Start-IP-adress = 0.0.0.0** och **Slut-IP-adress = 255.255.255.255**. Därefter klickar vi på **Spara**. Du kan ställa in en specifik brandväggsregel som omfattar ett mindre IP-intervall för att kunna ansluta från ditt nätverk.
+3.  Klicka i textrutan under **regelnamn** och lägg till en ny brandväggsregel som vitlistar IP-adressintervallet för anslutningen. Ange IP-adressintervall. Klicka på **Spara**.
 
    ![Azure Database för PostgreSQL – Skapa brandväggsregel](./media/tutorial-design-database-using-azure-portal/5-firewall-2.png)
 

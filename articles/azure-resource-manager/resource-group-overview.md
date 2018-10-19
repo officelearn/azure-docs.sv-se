@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/30/2018
+ms.date: 09/26/2018
 ms.author: tomfitz
-ms.openlocfilehash: 24add63639f5fffe18e4b4468bfd78600a38c5f3
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: dc73bbd775da31faecf236716a2b028171438b7c
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46969299"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47220897"
 ---
 # <a name="azure-resource-manager-overview"></a>Översikt över Azure Resource Manager
 Infrastrukturen för ditt program består normalt av många komponenter – kanske en virtuell dator, ett lagringskonto och ett virtuellt nätverk eller en webbapp, en databas, en databasserver och tjänster från tredje part. Du ser inte de här komponenterna som separata entiteter, utan som relaterade delar av samma enhet som är beroende av varandra. Du vill distribuera, hantera och övervaka dem som en grupp. Med Azure Resource Manager kan du arbeta med resurserna i en lösning som en grupp. Du kan distribuera, uppdatera eller ta bort alla resurser i lösningen i en enda, samordnad åtgärd. Du använder en mall för distributionen. Mallen kan användas i olika miljöer, till exempel för testning, mellanlagring och produktion. Resource Manager tillhandahåller säkerhets-, gransknings- och taggningsfunktioner som hjälper dig att hantera dina resurser efter distributionen. 
@@ -155,6 +155,12 @@ När du har definierat mallen är du redo att distribuera resurser till Azure. I
 * [Distribuera resurser med Resource Manager-mallar och Azure Portal](resource-group-template-deploy-portal.md)
 * [Distribuera resurser med Resource Manager-mallar och Resource Manager REST API](resource-group-template-deploy-rest.md)
 
+## <a name="safe-deployment-practices"></a>Säkra distributionsmetoder
+
+När du distribuerar en komplex tjänst till Azure kan du behöva distribuera tjänsten till flera regioner och kontrollera dess tillstånd innan du fortsätter till nästa steg. Samordna en stegvis distribution av tjänsten genom att använda [Azures distributionshanterare](deployment-manager-overview.md). Genom att mellanlagra distribution av tjänsten kan du upptäcka potentiella problem innan den har distribuerats till alla regioner. Om du inte behöver dessa försiktighetsåtgärder är distributionsåtgärderna i föregående avsnitt det bästa alternativet.
+
+Distributionshanteraren finns för närvarande i en offentlig förhandsversion.
+
 ## <a name="tags"></a>Taggar
 Resource Manager innehåller en taggningsfunktion som du kan använda för att kategorisera resurser utifrån dina hanterings- eller faktureringskrav. Använd taggar om du har en komplex samling resursgrupper och resurser och behöver visualisera dessa tillgångar på ett sätt som passar dig. Du kan till exempel tagga resurser som har en liknande roll i organisationen eller som tillhör samma avdelning. Utan taggar kan användare i din organisation skapa flera resurser som kan vara svåra att identifiera och hantera längre fram. Du kan till exempel vilja ta bort alla resurser för ett visst projekt. Om de här resurserna inte är taggade för projektet måste du hitta dem manuellt. Taggning kan vara ett bra sätt att minska onödiga kostnader i din prenumeration. 
 
@@ -176,20 +182,6 @@ I följande exempel visas en tagg som tillämpas på en virtuell dator.
   }
 ]
 ```
-
-Om du vill hämta alla resurser med ett visst taggvärde använder du följande PowerShell-cmdlet:
-
-```powershell
-Find-AzureRmResource -TagName costCenter -TagValue Finance
-```
-
-Alternativt kan du använda följande Azure CLI-kommando:
-
-```azurecli
-az resource list --tag costCenter=Finance
-```
-
-Du kan också visa taggade resurser via Azure Portal.
 
 [Användningsrapporten](../billing/billing-understand-your-bill.md) för din prenumeration innehåller taggnamn och -värden, vilket betyder att du kan dela upp kostnader efter taggar. Mer information om taggar finns i [Ordna dina Azure-resurser med hjälp av taggar](resource-group-using-tags.md).
 
@@ -228,29 +220,8 @@ I vissa fall kanske du vill köra kod eller skript som använder resurser, men i
 
 Du kan också låsa viktiga resurser explicit för att förhindra att användare tar bort eller ändrar dem. Mer information finns i [Låsa resurser med Azure Resource Manager](resource-group-lock-resources.md).
 
-## <a name="activity-logs"></a>Aktivitetsloggar
-Resource Manager loggar alla åtgärder som skapar, ändrar eller tar bort en resurs. Du kan använda aktivitetsloggarna för att hitta ett fel när du felsöker eller övervakar hur en användare i organisationen ändrat en resurs. Du kan filtrera loggarna med många olika värden, inklusive vilken användare som initierade åtgärden. Information om hur du arbetar med aktivitetsloggar finns i [View activity logs to manage Azure resources](resource-group-audit.md) (Visa aktivitetsloggar för att hantera Azure-resurser).
-
 ## <a name="customized-policies"></a>Anpassade principer
 Med Resource Manager kan du hantera resurser genom att skapa anpassade principer. De typer av principer som du skapar kan inkludera olika scenarier. Du kan tillämpa en namngivningskonvention på resurser, begränsa vilka typer och instanser av resurser som kan distribueras eller begränsa vilka regioner som kan vara värd för en viss typ av resurs. Du kan kräva ett taggvärde på resurser för att organisera faktureringen efter avdelningar. Du skapar principer för att minska kostnaderna och upprätthålla konsekvensen i din prenumeration. 
-
-Du definierar principer med JSON och sedan använder du dessa principer antingen i hela prenumerationen eller i en resursgrupp. Principer skiljer sig från den rollbaserade åtkomstkontrollen eftersom de tillämpas på resurstyper.
-
-I följande exempel visas en princip som säkerställer taggkonsekvens genom att ange att alla resurser som innehåller en costCenter-tagg.
-
-```json
-{
-  "if": {
-    "not" : {
-      "field" : "tags",
-      "containsKey" : "costCenter"
-    }
-  },
-  "then" : {
-    "effect" : "deny"
-  }
-}
-```
 
 Det finns många fler typer av principer som du kan skapa. Mer information finns i [Vad är Azure Policy?](../azure-policy/azure-policy-introduction.md).
 

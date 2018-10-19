@@ -3,18 +3,17 @@ title: Privata Docker-containerregister i Azure
 description: Introduktion till Azure Container Registry-tjänsten, som tillhandahåller molnbaserade, hanterade, privata Docker-register.
 services: container-registry
 author: stevelas
-manager: jeconnoc
 ms.service: container-registry
 ms.topic: overview
-ms.date: 05/08/2018
+ms.date: 09/25/2018
 ms.author: stevelas
 ms.custom: mvc
-ms.openlocfilehash: f282d7d6950278d0c270009256cf054a0d630e60
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: 5d60144c6b3aada74e4b89c905085835dd5b32d2
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43120643"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47031355"
 ---
 # <a name="introduction-to-private-docker-container-registries-in-azure"></a>Introduktion till privata Docker-containerregister i Azure
 
@@ -28,12 +27,12 @@ Information om Docker och containrar finns i [Docker-översikt](https://docs.doc
 
 Hämta avbildningar från ett Azure-containerregister till olika distributionsmål:
 
-* **Skalbart dirigeringssystem** som hanterar program i containrar över kluster med värdar, inklusive [DC/OS](https://docs.mesosphere.com/), [Docker Swarm](https://docs.docker.com/swarm/) och [Kubernetes](http://kubernetes.io/docs/).
+* **Skalbart dirigeringssystem** som hanterar program i containrar över kluster med värdar, inklusive [Kubernetes](http://kubernetes.io/docs/), [DC/OS](https://docs.mesosphere.com/) och [Docker Swarm](https://docs.docker.com/swarm/).
 * **Azure-tjänster** som stöder att skapa och köra program i skala, inkluderar [Azure Kubernetes Service (AKS)](../aks/index.yml), [App Service](../app-service/index.yml), [Batch](../batch/index.yml), [ Service Fabric](/azure/service-fabric/), med mera.
 
-Utvecklare kan även skicka till ett behållarregister som en del av ett arbetsflöde för utveckling av container. Du kan till exempel arbeta mot ett containerregister från ett verktyg för löpande integrering och distribution som [Visual Studio Team Services](https://www.visualstudio.com/docs/overview) eller [Jenkins](https://jenkins.io/).
+Utvecklare kan även skicka till ett behållarregister som en del av ett arbetsflöde för utveckling av container. Du kan till exempel arbeta mot ett containerregister från ett verktyg för löpande integrering och distribution som [Azure DevOps Services](https://www.visualstudio.com/docs/overview) eller [Jenkins](https://jenkins.io/).
 
-Konfigurera [ACR Build](#azure-container-registry-build)-skaparaktiviteter för att automatiskt återskapa programavbildningar när deras basavbildningar uppdateras. Använd ACR Build för att automatisera avbildningsversioner när ditt team checkar in kod till en Git-lagringsplats. *ACR Build är för närvarande under förhandsgranskning.*
+Konfigurera [ACR Tasks](#azure-container-registry-build) för att automatiskt återskapa programavbildningar när deras basavbildningar uppdateras. Använd ACR Tasks för att automatisera avbildningsversioner när ditt team checkar in kod till en Git-lagringsplats.
 
 ## <a name="key-concepts"></a>Viktiga begrepp
 
@@ -51,14 +50,14 @@ Konfigurera [ACR Build](#azure-container-registry-build)-skaparaktiviteter för 
 
 * **Container** – En container definierar programvara och dess beroenden och är inneslutna i ett komplett filsystem, inklusive kod, runtime, systemverktyg och bibliotek. Kör Docker-containrar baserat på Windows- eller Linux-avbildningar som du hämtar från ett containerregister. Containrar som körs på en enskild dator delar operativsystemets kernel. Docker-containrar är helt portabla till alla större Linux-distributioner, macOS och Windows.
 
-## <a name="azure-container-registry-build-preview"></a>Azure Container Registry Build (förhandsversion)
+## <a name="azure-container-registry-tasks"></a>Azure Container Registry Tasks
 
-[Azure Container Registry Build](container-registry-build-overview.md) (ACR Build) är en uppsättning funktioner i Azure Container Registry som tillhandahåller strömlinjeformade och effektiva avbildningsversioner för Docker-behållaren i Azure. Använd ACR Build för att utöka din utvecklings inre-loop till molnet genom att avlasta `docker build`-åtgärder till Azure. Konfigurera skaparuppgifter för att automatisera din korrigeringspipeline för operativsystems- och ramverkscontainrar och skapa avbildningar automatiskt när ditt team checkar in kod för källkontroll.
+[Azure Container Registry Tasks](container-registry-tasks-overview.md) (ACR Tasks) är en uppsättning funktioner i Azure Container Registry som tillhandahåller strömlinjeformade och effektiva avbildningsversioner för Docker-behållaren i Azure. Använd ACR Tasks för att utöka din utvecklings inre-loop till molnet genom att avlasta `docker build`-åtgärder till Azure. Konfigurera skaparuppgifter för att automatisera din korrigeringspipeline för operativsystems- och ramverkscontainrar och skapa avbildningar automatiskt när ditt team checkar in kod för källkontroll.
 
-[!INCLUDE [container-registry-build-preview-note](../../includes/container-registry-build-preview-note.md)]
+[Uppgifter i flera steg](container-registry-tasks-overview.md#multi-step-tasks-preview), en förhandsversion av ACR Tasks som innehåller steg-baserad aktivitetsdefinition och körning för att skapa, testa och patcha behållaravbildningar i molnet. Uppgiftsstegen definierar enskilda behållaravbildningars bygg- och push-åtgärder. De kan också definiera körningen av en eller flera behållare så varje steg använder behållaren som sin körningsmiljö.
 
 ## <a name="next-steps"></a>Nästa steg
 
 * [Skapa ett containerregister med hjälp av Azure Portal](container-registry-get-started-portal.md)
 * [Skapa ett containerregister med hjälp av Azure CLI](container-registry-get-started-azure-cli.md)
-* [Automatisera korrigering av operativsystem och ramverk med ACR Build](container-registry-build-overview.md) (förhandsversion)
+* [Automatisera korrigering av operativsystem och ramverk med ACR Tasks](container-registry-tasks-overview.md)

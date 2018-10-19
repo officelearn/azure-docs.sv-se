@@ -1,102 +1,100 @@
 ---
-title: Tjänstens huvudnamn för Azure Kubernetes-kluster
-description: Skapa och hantera en tjänsts huvudnamn för Azure Active Directory för ett Kubernetes-kluster i AKS
+title: Tjänstens huvudnamn för Azure Kubernetes Service (AKS)
+description: Skapa och hantera ett tjänstobjekt för Azure Active Directory för ett kluster i Azure Kubernetes Service (AKS)
 services: container-service
 author: iainfoulds
-manager: jeconnoc
 ms.service: container-service
 ms.topic: get-started-article
-ms.date: 04/19/2018
+ms.date: 09/26/2018
 ms.author: iainfou
-ms.custom: mvc
-ms.openlocfilehash: 4ad0fc3fdb7d5b7c14f13fd6c279915974558dc9
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: ef3139c4b3f06644b219e177fad0c094ed600fb6
+ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39578804"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47394598"
 ---
 # <a name="service-principals-with-azure-kubernetes-service-aks"></a>Tjänstens huvudnamn med Azure Kubernetes Service (AKS)
 
-Ett AKS-kluster kräver ett [Azure Active Directory-huvudnamn för tjänsten][aad-service-principal] för att kunna interagera med Azure-API:er. Tjänstens huvudnamn krävs för att dynamiskt skapa och hantera resurser som [Azure Load Balancer][azure-load-balancer-overview].
+Om ett AKS-kluster ska kunna interagera med Azure-API:er måste det ha ett [Azure Active Directory-huvudnamn för tjänsten][aad-service-principal]. Tjänstens huvudnamn krävs för att dynamiskt skapa och hantera andra Azure-resurser som en Azure-lastbalanserare eller containerregister (ACR).
 
-Den här artikeln beskriver olika alternativ för att konfigurera ett huvudnamn för tjänsten för ett Kubernetes-kluster i AKS.
+Den här artikeln visar hur du skapar och använder ett tjänstens huvudnamn för AKS-kluster.
 
 ## <a name="before-you-begin"></a>Innan du börjar
 
+För att skapa ett Azure AD-huvudnamn för tjänsten måste du ha behörighet att registrera ett program med din Azure AD-klientorganisation, samt behörighet att tilldela programmet till en roll i din prenumeration. Om du inte har de behörigheter som du behöver kan du be din Azure AD- eller prenumerationsadministratör att tilldela de nödvändiga behörigheterna eller att skapa ett tjänstens huvudnamn att använda med AKS-klustret.
 
-För att skapa ett Azure AD-huvudnamn för tjänsten måste du ha behörighet att registrera ett program med din Azure AD-klientorganisation, samt behörighet att tilldela programmet till en roll i din prenumeration. Om du inte har de behörigheter som du behöver kan du be din Azure AD- eller prenumerationsadministratör att tilldela de nödvändiga behörigheterna eller att skapa ett huvudnamn för tjänsten för Kubernetes-klustret.
+Du måste också ha installerat och konfigurerat Azure CLI version 2.0.46 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI][install-azure-cli].
 
-Du måste också ha installerat och konfigurerat Azure CLI version 2.0.27 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI][install-azure-cli].
+## <a name="automatically-create-and-use-a-service-principal"></a>Skapa och använda ett tjänstens huvudnamn automatiskt
 
-## <a name="create-sp-with-aks-cluster"></a>Skapa SP med AKS-kluster
+När du skapar ett AKS-kluster i Azure Portal eller använder kommandot [az aks create][az-aks-create] så kan Azure automatiskt generera ett tjänstens huvudnamn.
 
-När du distribuerar ett AKS-kluster med kommandot `az aks create` har du möjlighet att automatiskt generera ett huvudnamn för tjänsten.
+Ett tjänstens huvudnamn har inte angetts i följande Azure CLI-exempel. I det här scenariot skapar Azure CLI ett tjänstens huvudnamn för AKS-klustret. Om ditt Azure-konto ska kunna slutföra åtgärden måste det ha rätt behörigheter för att skapa ett tjänstens huvudnamn.
 
-I följande exempel skapas ett AKS-kluster och eftersom ett befintlig huvudnamn för tjänsten inte har angetts så skapas ett för klustret. Kontot måste ha rätt behörigheter för att skapa ett huvudnamn för tjänsten för att kunna slutföra den här åtgärden.
-
-```azurecli-interactive
+```azurecli
 az aks create --name myAKSCluster --resource-group myResourceGroup --generate-ssh-keys
 ```
 
-## <a name="use-an-existing-sp"></a>Använda en befintlig SP
+## <a name="manually-create-a-service-principal"></a>Skapa ett tjänstens huvudnamn manuellt
 
-Ett befintligt Azure AD-huvudnamn för tjänsten kan användas eller skapas i förväg för användning med ett AKS-kluster. Det här är användbart när du distribuerar ett kluster från Azure Portal där du måste ange information om tjänstens huvudnamn. När du använder ett befintligt huvudnamn för tjänsten måste klienthemligheten konfigureras som ett lösenord.
-
-## <a name="pre-create-a-new-sp"></a>Skapa en ny SP i förväg
-
-Använd kommandot [az ad sp create-for-rbac][az-ad-sp-create] för att skapa tjänstens huvudnamn med Azure CLI.
+Använd kommandot [az ad sp create-for-rbac][az-ad-sp-create] om du vill skapa ett tjänstens huvudnamn med Azure CLI manuellt. I följande exempel visas förhindrar parametern `--skip-assignment` eventuella ytterligare tilldelningar från att göras:
 
 ```azurecli-interactive
 az ad sp create-for-rbac --skip-assignment
 ```
 
-De utdata som genereras liknar följande. Anteckna `appId` och `password`. De här värdena används när du skapar ett AKS-kluster.
+De utdata som genereras påminner om de i följande exempel. Anteckna dina egna `appId` och `password`. De här värdena används när du skapar ett AKS-kluster i nästa avsnitt.
 
 ```json
 {
-  "appId": "7248f250-0000-0000-0000-dbdeb8400d85",
-  "displayName": "azure-cli-2017-10-15-02-20-15",
-  "name": "http://azure-cli-2017-10-15-02-20-15",
-  "password": "77851d2c-0000-0000-0000-cb3ebc97975a",
-  "tenant": "72f988bf-0000-0000-0000-2d7cd011db47"
+  "appId": "559513bd-0c19-4c1a-87cd-851a26afd5fc",
+  "displayName": "azure-cli-2018-09-25-21-10-19",
+  "name": "http://azure-cli-2018-09-25-21-10-19",
+  "password": "e763725a-5eee-40e8-a466-dc88d980f415",
+  "tenant": "72f988bf-86f1-41af-91ab-2d7cd011db48"
 }
 ```
 
-## <a name="use-an-existing-sp"></a>Använda en befintlig SP
+## <a name="specify-a-service-principal-for-an-aks-cluster"></a>Ange ett tjänstens huvudnamn för ett AKS-kluster
 
-När du använder ett huvudnamn för tjänsten som skapats i förväg anger du `appId` och `password` som argumentvärden till kommandot `az aks create`.
+Om du vill använda ett befintligt huvudnamn för tjänsten när du skapar ett AKS-kluster med kommandot [az aks create][az-aks-create] så använd parametrarna `--service-principal` och `--client-secret` för att ange `appId` och `password` från utdata från kommandot [az ad sp create-for-rbac][az-ad-sp-create]:
 
 ```azurecli-interactive
-az aks create --resource-group myResourceGroup --name myAKSCluster --service-principal <appId> --client-secret <password>
+az aks create \
+    --resource-group myResourceGroup \
+    --name myAKSCluster \
+    --service-principal <appId> \
+    --client-secret <password>
 ```
 
-Om du distribuerar ett AKS-kluster med hjälp av Azure Portal så anger du värdet `appId` i fältet **Service principal client ID** (Klient-ID för tjänstens huvudnamn) och värdet `password` i fältet **Service principal client secret** (Klienthemlighet för tjänstens huvudnamn) i konfigurationsformuläret för AKS-klustret.
+Om du distribuerar ett AKS-kluster med hjälp av Azure Portal, så välj **Konfigurera tjänstens huvudnamn** i dialogrutan **Skapa Kubernetes-kluster** på sidan *Autentisering*. Välj **Använd befintlig** och ange följande värden:
 
-![Bild som illustrerar hur du navigerar till Azure Vote](media/container-service-kubernetes-service-principal/sp-portal.png)
+- **Klient-ID för tjänstens huvudnamn** är *appId*
+- **Klienthemligheten för tjänstens huvudnamn** är värdet *lösenord*
+
+![Bild som illustrerar hur du navigerar till Azure Vote](media/kubernetes-service-principal/portal-configure-service-principal.png)
 
 ## <a name="additional-considerations"></a>Annat som är bra att tänka på
 
-Tänk på följande när du arbetar med AKS och Azure AD-tjänstens huvudnamn.
+Tänk på följande när du använder AKS och Azure AD-tjänstens huvudnamn.
 
-* Tjänstobjektet för Kubernetes är en del av klusterkonfigurationen. Men använd inte identiteten för att distribuera klustret.
-* Varje tjänstobjekt är associerat med ett Azure AD-program. Tjänstobjektet för ett Kubernetes-kluster kan associeras med ett giltigt Azure Active Directory-programnamn (till exempel: `https://www.contoso.org/example`). URL:en för programmet behöver inte vara en verklig slutpunkt.
-* När du anger **Klient-ID** för tjänstens huvudnamn använder du värdet för `appId`.
-* På virtuella huvud- och noddatorer i Kubernetes-klustret lagras autentiseringsuppgifterna för tjänstobjektet i filen `/etc/kubernetes/azure.json`.
-* Om du använder kommandot `az aks create` för att generera tjänstobjektet automatiskt skrivs autentiseringsuppgifterna för tjänstobjektet till filen `~/.azure/aksServicePrincipal.json` på den dator som används för att köra kommandot.
-* När du tar bort ett AKS-kluster som skapats av `az aks create` tas tjänstens huvudnamn som skapades automatiskt inte bort. Om du vill ta bort tjänstens huvudnamn hämtar du först ID för tjänsten huvudnamn med [az ad app-listan][az-ad-app-list]. Följande exempel frågar efter klustret med namnet *myAKSCluster* och tar sedan bort app-ID med [az ad app-borttagningen][az-ad-app-delete]. Byt ut dessa namn mot dina egna värden:
+- Tjänstobjektet för Kubernetes är en del av klusterkonfigurationen. Men använd inte identiteten för att distribuera klustret.
+- Varje tjänstobjekt är associerat med ett Azure AD-program. Tjänstobjektet för ett Kubernetes-kluster kan associeras med ett giltigt Azure Active Directory-programnamn (t.ex. *https://www.contoso.org/example*). URL:en för programmet behöver inte vara en verklig slutpunkt.
+- När du anger **Klient-ID** för tjänstens huvudnamn använder du värdet för `appId`.
+- På virtuella huvud- och noddatorer i Kubernetes-klustret lagras autentiseringsuppgifterna för tjänstobjektet i filen `/etc/kubernetes/azure.json`
+- Om du använder kommandot [az aks create][az-aks-create] för att generera tjänstobjektet automatiskt skrivs autentiseringsuppgifterna för tjänstobjektet till filen `~/.azure/aksServicePrincipal.json` på den dator som används för att köra kommandot.
+- När du tar bort ett AKS-kluster som skapats av [az aks create][az-aks-create] tas tjänstens huvudnamn som skapades automatiskt inte bort.
+    - Om du vill ta bort tjänstens huvudnamn hämtar du först ID för tjänsten huvudnamn med [az ad app-listan][az-ad-app-list]. Följande exempel frågar efter klustret med namnet *myAKSCluster* och tar sedan bort app-ID med [az ad app-borttagningen][az-ad-app-delete]. Byt ut dessa namn mot dina egna värden:
 
-    ```azurecli-interactive
-    az ad app list --query "[?displayName=='myAKSCluster'].{Name:displayName,Id:appId}" --output table
-    az ad app delete --id <appId>
-    ```
+        ```azurecli
+        az ad app list --query "[?displayName=='myAKSCluster'].{Name:displayName,Id:appId}" --output table
+        az ad app delete --id <appId>
+        ```
 
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information om Azure Active Directory-tjänstens huvudnamn finns i programdokumentationen för Azure AD.
-
-> [!div class="nextstepaction"]
-> [Objekt för program och tjänstens huvudnamn][service-principal]
+Mer information om Azure Active Directory-tjänstens huvudnamn finns i [Objekt för program och tjänstens huvudnamn][service-principal]
 
 <!-- LINKS - internal -->
 [aad-service-principal]:../active-directory/develop/app-objects-and-service-principals.md
@@ -108,3 +106,4 @@ Mer information om Azure Active Directory-tjänstens huvudnamn finns i programdo
 [user-defined-routes]: ../load-balancer/load-balancer-overview.md
 [az-ad-app-list]: /cli/azure/ad/app#az-ad-app-list
 [az-ad-app-delete]: /cli/azure/ad/app#az-ad-app-delete
+[az-aks-create]: /cli/azure/aks#az-aks-create

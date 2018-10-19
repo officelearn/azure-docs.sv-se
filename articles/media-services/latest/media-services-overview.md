@@ -4,7 +4,7 @@ description: Den här artikeln innehåller en översikt av Media Services och in
 services: media-services
 documentationcenter: na
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 tags: ''
 keywords: azure media services, strömma, sändning, live, offline
@@ -13,15 +13,15 @@ ms.devlang: multiple
 ms.topic: overview
 ms.tgt_pltfrm: multiple
 ms.workload: media
-ms.date: 07/14/2018
+ms.date: 09/25/2018
 ms.author: juliako
 ms.custom: mvc
-ms.openlocfilehash: 6c3fb7391c25628ba12526a04c022215bdbd9d40
-ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
+ms.openlocfilehash: 3641806870c3eab0b3a05f538015a72d9a0b34ef
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39325939"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47221946"
 ---
 # <a name="what-is-azure-media-services-v3"></a>Vad är Azure Media Services v3?
 
@@ -55,7 +55,7 @@ v3 baseras på en enhetlig API-yta som innehåller funktioner för både hanteri
 Den här versionen innehåller följande funktioner:  
 
 * **Transformeringar** som hjälper dig att definiera enkla arbetsflöden för mediebearbetning eller analys. Transformering är ett recept för bearbetning av dina video- och ljudfiler. Du kan sedan använda det flera gånger för att bearbeta alla filer i innehållsbiblioteket, genom att skicka jobb till transformeringen.
-* **Jobb** för att bearbeta (koda eller analysera) dina videor. Ett indatainnehåll kan anges för ett jobb med HTTP(s)-URL:er, SAS-URL:er eller sökvägar till filer i Azure Blob Storage. 
+* **Jobb** för att bearbeta (koda eller analysera) dina videor. Ett indatainnehåll kan anges för ett jobb med HTTP-URL:er, SAS-URL:er eller sökvägar till filer i Azure Blob Storage. AMS v3 stöder för närvarande inte segmentvis överföringskodning över HTTPS-URL:er.
 * **Meddelanden** som övervakar jobbförlopp eller -tillstånd eller start/stopp av Livekanal och felhändelser. Meddelanden är integrerade med Azure Event Grids meddelandesystem. Du kan enkelt prenumerera på händelser för flera resurser i Azure Media Services. 
 * **Azure Resource Manager**-mallar kan användas för att skapa och distribuera transformeringar, strömningsslutpunkter, kanaler med mera.
 * **Rollbaserad åtkomstkontroll** kan ställas in på resursnivå, så att du kan låsa åtkomst till specifika resurser som transformeringar och kanaler med mera.

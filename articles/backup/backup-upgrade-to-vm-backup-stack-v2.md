@@ -7,14 +7,14 @@ manager: vijayts
 tags: azure-resource-manager, virtual-machine-backup
 ms.service: backup
 ms.topic: conceptual
-ms.date: 8/1/2018
+ms.date: 10/3/2018
 ms.author: trinadhk
-ms.openlocfilehash: 6f19a536861d236a82cc77a17570d8e3004a2ba1
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: 9152733e189aec25a5c024de7f9a3582c29218a3
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48888279"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49406542"
 ---
 # <a name="upgrade-to-azure-vm-backup-stack-v2"></a>Uppgradera till säkerhetskopiering för Azure stack V2
 
@@ -28,8 +28,8 @@ Resource Manager-distributionsmodellen för uppgradering till säkerhetskopierin
 
 * Möjlighet att använda en ohanterad virtuell dator ursprungliga lagringskonton, när du återställer. Denna möjlighet finns även när den virtuella datorn har diskar som är fördelade på storage-konton. Det går snabbare återställningsåtgärder för en mängd olika VM-konfigurationer.
     > [!NOTE]
-    > Den här möjligheten är inte samma som åsidosätter den ursprungliga virtuella datorn.
-    >
+    > Den här möjligheten är inte samma som ersätter den virtuella datorn diskar med data från återställningspunkten. 
+    
 
 ## <a name="whats-changing-in-the-new-stack"></a>Vad ändras om den nya stacken?
 För närvarande består säkerhetskopieringsjobbet av två faser:

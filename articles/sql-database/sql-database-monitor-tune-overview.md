@@ -12,12 +12,12 @@ ms.author: v-daljep
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 10/16/2018
-ms.openlocfilehash: dca23940053fa6bf1f716ffa1a6fa0bcd7b41c91
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
-ms.translationtype: HT
+ms.openlocfilehash: dc83dbcd9e4338476277f94fa6c84cad6b7e5066
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49362627"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49405063"
 ---
 # <a name="monitoring-and-performance-tuning"></a>Övervakning och prestandajustering
 
@@ -62,7 +62,7 @@ Du kan identifiera körs minnesrelaterade prestandaproblem på flera olika sätt
 
 Först måste vara säker på att detta inte är en hög CPU, körs minnesrelaterade prestandaproblem. Om den inte är nästa steg att identifiera övre väntar som är associerade med din arbetsbelastning.  Vanliga metoder för att visa upp vänta kategorier av typen:
 
-- Den [Query Store](https://docs.microsoft.com/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store) innehåller vänta statistik per fråga över tid. I Query Store kombineras vänta typer i vänta kategorier. Mappningen av vänta kategorier för att vänta typer finns i [sys.query_store_wait_stats](https://docs.microsoft.com/en-us/sql/relational-databases/system-catalog-views/sys-query-store-wait-stats-transact-sql?view=sql-server-2017#wait-categories-mapping-table).
+- Den [Query Store](https://docs.microsoft.com/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store) innehåller vänta statistik per fråga över tid. I Query Store kombineras vänta typer i vänta kategorier. Mappningen av vänta kategorier för att vänta typer finns i [sys.query_store_wait_stats](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-query-store-wait-stats-transact-sql?view=sql-server-2017#wait-categories-mapping-table).
 - [sys.dm_db_wait_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-wait-stats-azure-sql-database) returnerar information om den väntar påträffades av trådar som körs under åtgärden. Du kan använda den här aggregerade vyn för att diagnostisera prestandaproblem med Azure SQL Database och med specifika frågor och -batchar.
 - [sys.dm_os_waiting_tasks](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-os-waiting-tasks-transact-sql) returnerar information om kön vänta på uppgifter som väntar på några resurser.
 

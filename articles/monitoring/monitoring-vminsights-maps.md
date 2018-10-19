@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/17/2018
 ms.author: magoedte
-ms.openlocfilehash: 5d9aa8e144109b41144bb8b09447b8701d04f87e
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: 8641b6cfb14bceb248cc587095a9d3469ce2c9e0
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49389997"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49402157"
 ---
 # <a name="using-azure-monitor-for-vms-map-to-understand-application-components"></a>Med Azure Monitor för virtuella datorer kartan och förstå programkomponenter
-Visa de identifierade programkomponenterna i Windows och Linux virtuella datorer som körs i Azure är din miljö kan observeras på två sätt med Azure Monitor för virtuella datorer från en virtuell dator direkt eller i grupper med virtuella datorer från Azure Monitor. 
+Visa de identifierade programkomponenterna i Windows och Linux-datorer som körs i Azure som din miljö kan observeras på två sätt med Azure Monitor för virtuella datorer från en virtuell dator direkt eller i grupper med virtuella datorer från Azure Monitor. 
 
 Den här artikeln hjälper dig att förstå upplevelse mellan två perspektiv och hur du använder funktionen kartan. Information om hur du konfigurerar Azure Monitor för virtuella datorer finns i [aktivera Azure Monitor för virtuella datorer](monitoring-vminsights-onboard.md).
 

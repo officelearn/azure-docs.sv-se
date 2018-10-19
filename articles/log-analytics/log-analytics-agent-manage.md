@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 03/30/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: e00ccc4d55da805538801a0a8f3ee5502d871fab
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: eaf6aa538a4733528b52b1417c2d53318064e068
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48042316"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49405404"
 ---
 # <a name="managing-and-maintaining-the-log-analytics-agent-for-windows-and-linux"></a>Hantering och underhåll av Log Analytics-agenten för Windows och Linux
 
@@ -34,7 +34,7 @@ Efter den första distributionen av Windows eller Linux-agenten för Log Analyti
 
 1. Logga in på datorn med ett konto som har administrativa rättigheter.
 2. Öppna **Kontrollpanelen**.
-3. Välj **Microsoft Monitoring Agent** och klicka sedan på den **Azure Log Analytics (OMS)** fliken.
+3. Välj **Microsoft Monitoring Agent** och klicka sedan på den **Azure Log Analytics** fliken.
 4. Om du tar bort en arbetsyta, markera den och klicka sedan på **ta bort**. Upprepa det här steget för en arbetsyta som du vill att agenten att sluta rapportera till.
 5. Om du lägger till en arbetsyta, klickar du på **Lägg till** på den **lägga till en Log Analytics-arbetsyta** dialogrutan, klistra in arbetsyte-ID och Arbetsytenyckel (primärnyckel). Om datorn ska rapportera till en Log Analytics-arbetsyta i Azure Government-molnet väljer du Azure US Government från listrutan Azure-molnet. 
 6. Spara ändringarna genom att klicka på **OK**.
@@ -101,7 +101,7 @@ Följande steg visar hur du konfigurerar om Linux-agenten om du vill registrera 
 Agent-tjänsten behöver inte startas om för att ändringarna ska börja gälla.
 
 ## <a name="update-proxy-settings"></a>Inställningar för proxy 
-Konfigurera agenten för kommunikation till tjänsten via en proxyserver eller [OMS-gatewayen](log-analytics-oms-gateway.md) efter distributionen kan du använda någon av följande metoder för att slutföra den här uppgiften.
+Konfigurera agenten för kommunikation till tjänsten via en proxyserver eller [Log Analytics gateway](log-analytics-oms-gateway.md) efter distributionen kan du använda någon av följande metoder för att slutföra den här uppgiften.
 
 ### <a name="windows-agent"></a>Windows-agenten
 
@@ -110,7 +110,7 @@ Konfigurera agenten för kommunikation till tjänsten via en proxyserver eller [
 1. Logga in på datorn med ett konto som har administrativa rättigheter.
 2. Öppna **Kontrollpanelen**.
 3. Välj **Microsoft Monitoring Agent** och klicka sedan på den **proxyinställningar** fliken.
-4. Klicka på **använder en proxyserver** och anger URL och portnummer för proxyservern eller gateway. Om din proxyserver eller OMS-gatewayen kräver autentisering anger du användarnamn och lösenord för att autentisera och klicka sedan på **OK**. 
+4. Klicka på **använder en proxyserver** och anger URL och portnummer för proxyservern eller gateway. Om din proxyserver eller Log Analytics gateway kräver autentisering anger du användarnamn och lösenord för att autentisera och klicka sedan på **OK**. 
 
 #### <a name="update-settings-using-powershell"></a>Uppdatera inställningar med hjälp av PowerShell 
 
@@ -141,7 +141,7 @@ $healthServiceSettings.SetProxyInfo($ProxyDomainName, $ProxyUserName, $cred.GetN
 ```  
 
 ### <a name="linux-agent"></a>Linux-agenten
-Utför följande steg om Linux-datorerna måste kommunicera via en proxyserver eller OMS-gatewayen till Log Analytics.  Konfigurationsvärdet för proxyn har följande syntax `[protocol://][user:password@]proxyhost[:port]`.  Egenskapen *proxyhost* accepterar ett fullständigt domännamn eller en fullständig IP-adress för proxyservern.
+Utför följande steg om Linux-datorerna måste kommunicera via en proxyserver eller Log Analytics-gateway.  Konfigurationsvärdet för proxyn har följande syntax `[protocol://][user:password@]proxyhost[:port]`.  Egenskapen *proxyhost* accepterar ett fullständigt domännamn eller en fullständig IP-adress för proxyservern.
 
 1. Redigera filen `/etc/opt/microsoft/omsagent/proxy.conf` genom att köra följande kommandon och ändra värdena enligt dina specifika inställningar.
 
@@ -185,7 +185,9 @@ Kör följande kommando för att ta bort agenten på Linux-datorn.  Argumentet *
 ## <a name="configure-agent-to-report-to-an-operations-manager-management-group"></a>Konfigurera agent rapporterar till en Operations Manager-hanteringsgrupp
 
 ### <a name="windows-agent"></a>Windows-agenten
-Utför följande steg om du vill konfigurera i OMS-agenten för Windows att rapportera till en hanteringsgrupp för System Center Operations Manager. 
+Utför följande steg om du vill konfigurera Log Analytics-agenten för Windows att rapportera till en hanteringsgrupp för System Center Operations Manager.
+
+[!INCLUDE [log-analytics-agent-note](../../includes/log-analytics-agent-note.md)] 
 
 1. Logga in på datorn med ett konto som har administrativa rättigheter.
 2. Öppna **Kontrollpanelen**. 
@@ -199,7 +201,9 @@ Utför följande steg om du vill konfigurera i OMS-agenten för Windows att rapp
 10. Klicka på **OK** att Stäng den **lägga till en Hanteringsgrupp** dialogrutan och klicka sedan på **OK** att Stäng den **egenskaper för Microsoft Monitoring Agent** dialogrutan.
 
 ### <a name="linux-agent"></a>Linux-agenten
-Utför följande steg om du vill konfigurera OMS-agenten för Linux för att rapportera till en hanteringsgrupp för System Center Operations Manager. 
+Utför följande steg om du vill konfigurera Log Analytics-agenten för Linux för att rapportera till en hanteringsgrupp för System Center Operations Manager. 
+
+[!INCLUDE [log-analytics-agent-note](../../includes/log-analytics-agent-note.md)]
 
 1. Redigera filen `/etc/opt/omi/conf/omiserver.conf`
 2. Kontrollera att den rad som början med `httpsport=` definierar port 1270. Exempel: `httpsport=1270`

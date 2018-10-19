@@ -14,16 +14,16 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/26/2018
 ms.author: srrengar
-ms.openlocfilehash: f99206fe673f69c78bf130026207ed58344ccea5
-ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
+ms.openlocfilehash: 68e0192756db539767dd808d0f0d408e77c2ae1b
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39324433"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49405658"
 ---
 # <a name="performance-monitoring-with-the-windows-azure-diagnostics-extension"></a>Övervakning av programprestanda med Windows Azure Diagnostics-tillägget
 
-Det här dokumentet beskriver steg som krävs för att ställa in insamling av prestandaräknare via Windows Azure Diagnostics SÄKERHETSSPECIFIKA-tillägg för Windows-kluster. För Linux-kluster, konfigurerar du den [OMS-agenten](service-fabric-diagnostics-oms-agent.md) att samla in prestandaräknare för noderna. 
+Det här dokumentet beskriver steg som krävs för att ställa in insamling av prestandaräknare via Windows Azure Diagnostics SÄKERHETSSPECIFIKA-tillägg för Windows-kluster. För Linux-kluster, konfigurerar du den [Log Analytics-agenten](service-fabric-diagnostics-oms-agent.md) att samla in prestandaräknare för noderna. 
 
  > [!NOTE]
 > Tillägget WAD ska distribueras i klustret för de här stegen arbeta åt dig. Om det inte har ställts in, gå till [händelse aggregering och samling med Windows Azure Diagnostics](service-fabric-diagnostics-event-aggregation-wad.md).  

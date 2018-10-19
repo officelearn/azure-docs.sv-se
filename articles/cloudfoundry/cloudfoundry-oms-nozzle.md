@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 07/22/2017
 ms.author: ningk
-ms.openlocfilehash: c58c2b255d269aef7e8b3fea62d003ad0c16ef0a
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: 0039536caf917a051f0ddabd6be7cf2b1be90ba2
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38971256"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49404910"
 ---
 # <a name="deploy-azure-log-analytics-nozzle-for-cloud-foundry-system-monitoring"></a>Distribuera Azure Log Analytics Nozzle för Cloud Foundry systemövervakning
 
@@ -56,14 +56,14 @@ Se till att Rubygems har installerats innan du konfigurerar UAA kommandoradsklie
 
 ### <a name="3-create-a-log-analytics-workspace-in-azure"></a>3. Skapa en Log Analytics-arbetsyta i Azure
 
-Du kan skapa Log Analytics-arbetsytan manuellt eller genom att använda en mall. Mallen distribuerar en inställning av förkonfigurerade OMS KPI-vyer och aviseringar för OMS-konsolen. 
+Du kan skapa Log Analytics-arbetsytan manuellt eller genom att använda en mall. Mallen distribuerar en inställning av förkonfigurerade KPI-vyer och aviseringar för Log Analytics-konsolen. 
 
 #### <a name="to-create-the-workspace-manually"></a>Att skapa arbetsytan manuellt:
 
 1. Sök i listan över tjänster på Azure Marketplace i Azure-portalen och välj sedan Log Analytics.
 2. Välj **skapa**, och välj sedan alternativ för följande objekt:
 
-   * **OMS-arbetsyta**: Skriv ett namn för din arbetsyta.
+   * **Log Analytics-arbetsyta**: Skriv ett namn för din arbetsyta.
    * **Prenumeration**: Om du har flera prenumerationer väljer du det som är samma som din CF-distribution.
    * **Resursgrupp**: du kan skapa en ny resursgrupp eller Använd samma med CF distributionen.
    * **Plats**: Ange platsen.
@@ -71,19 +71,19 @@ Du kan skapa Log Analytics-arbetsytan manuellt eller genom att använda en mall.
 
 Mer information finns i [Kom igång med Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-get-started).
 
-#### <a name="to-create-the-oms-workspace-through-the-oms-monitoring-template-from-azure-market-place"></a>Skapa OMS-arbetsytan via OMS övervakning mallen från Azure Marketplace:
+#### <a name="to-create-the-log-analytics-workspace-through-the-monitoring-template-from-azure-market-place"></a>Skapa Log Analytics-arbetsytan via mallen övervakning från Azure Marketplace:
 
 1. Öppna Azure-portalen.
 2. Klicka på tecknet ”+” eller ”skapa en resurs” i det övre vänstra hörnet.
-3. Skriv ”Cloud Foundry” i sökfönstret och välj ”OMS Cloud Foundry lösning för övervakning av”.
-4. OMS Cloud Foundry som övervakning lösning front mallsidan har lästs in, klicka på ”Skapa” om du vill starta bladet mall.
+3. Skriv ”Cloud Foundry” i sökfönstret och välj ”Cloud Foundry lösning för övervakning av”.
+4. I Cloud Foundry övervakning lösning front mallsidan har lästs in, klicka på ”Skapa” om du vill starta bladet mall.
 5. Ange de obligatoriska parametrarna:
-    * **Prenumeration**: Välj en Azure-prenumeration för OMS-arbetsyta, vanligtvis samma med Cloud Foundry-distribution.
-    * **Resursgrupp**: Välj en befintlig resursgrupp eller skapa en ny nyckel för OMS-arbetsytan.
+    * **Prenumeration**: Välj en Azure-prenumeration för Log Analytics-arbetsytan, vanligtvis samma med Cloud Foundry-distribution.
+    * **Resursgrupp**: Välj en befintlig resursgrupp eller skapa en ny nyckel för Log Analytics-arbetsytan.
     * **Plats för resursgruppen**: Välj platsen för resursgruppen.
     * **OMS_Workspace_Name**: Ange ett namn för arbetsytan om arbetsytan inte finns, mallen skapar en ny.
     * **OMS_Workspace_Region**: Välj en plats för arbetsytan.
-    * **OMS_Workspace_Pricing_Tier**: välja OMS-arbetsyta SKU. Se den [priser vägledning](https://azure.microsoft.com/pricing/details/log-analytics/) referens.
+    * **OMS_Workspace_Pricing_Tier**: Välj Log Analytics-arbetsytan SKU. Se den [priser vägledning](https://azure.microsoft.com/pricing/details/log-analytics/) referens.
     * **Juridiska villkor**: Klicka på juridiska villkor, och klicka sedan på ”Skapa” vid accepterande av juridiska villkor.
 - När alla parametrar anges, klickar du på ”Skapa” om du vill distribuera mallen. När distributionen är klar visas status på fliken meddelande.
 
@@ -137,8 +137,8 @@ cd oms-log-analytics-firehose-nozzle
 Du kan nu ange miljövariabler i filen manifest.yml i den aktuella katalogen. Nedan visas appmanifestet för Nozzle. Ersätt värdena med din specifika information för Log Analytics-arbetsytan.
 
 ```
-OMS_WORKSPACE             : Log Analytics workspace ID: open OMS portal from your Log Analytics workspace, select Settings, and select connected sources.
-OMS_KEY                   : OMS key: open OMS portal from your Log Analytics workspace, select Settings, and select connected sources.
+OMS_WORKSPACE             : Log Analytics workspace ID: Open your Log Analytics workspace in the Azure portal, select **Advanced settings**, select **Connected Sources**, and select **Windows Servers**.
+OMS_KEY                   : OMS key: Open your Log Analytics workspace in the Azure portal, select **Advanced settings**, select **Connected Sources**, and select **Windows Servers**.
 OMS_POST_TIMEOUT          : HTTP post timeout for sending events to Log Analytics. The default is 10 seconds.
 OMS_BATCH_TIME            : Interval for posting a batch to Log Analytics. The default is 10 seconds.
 OMS_MAX_MSG_NUM_PER_BATCH : The maximum number of messages in a batch to Log Analytics. The default is 1000.
@@ -177,11 +177,11 @@ cf apps
 ```
 Kontrollera att OMS Nozzle programmet körs.
 
-## <a name="view-the-data-in-the-oms-portal"></a>Visa data i OMS-portalen
+## <a name="view-the-data-in-the-azure-portal"></a>Visa data i Azure portal
 
-Om du har distribuerat OMS övervakningslösning via Marketplace-mall, gå till Azure portal och finns OMS-lösning. Du hittar lösningen i resursgruppen som du angav i mallen. Klicka på lösningen, bläddra till ”OMS-konsolen”, förkonfigurerade vyer visas i listan med översta Cloud Foundry system KPI: er, programdata, aviseringar och VM-hälsa mått. 
+Om du har distribuerat övervakningslösning via Marketplace-mall, gå till Azure portal och leta upp lösningen. Du hittar lösningen i resursgruppen som du angav i mallen. Klicka på lösningen, bläddra i ”Log Analytics-konsolen” förkonfigurerade vyerna visas i listan med översta Cloud Foundry system KPI: er, programdata, aviseringar och VM-hälsa mått. 
 
-Om du har skapat OMS-arbetsytan manuellt, följer du stegen nedan för att skapa vyer och aviseringar:
+Om du har skapat Log Analytics-arbetsytan manuellt, följer du stegen nedan för att skapa vyer och aviseringar:
 
 ### <a name="1-import-the-oms-view"></a>1. Importera OMS-vy
 
@@ -246,6 +246,6 @@ Azure Log Analytics Nozzle är öppen källkod. Skicka dina frågor och feedback
 
 ## <a name="next-step"></a>Nästa steg
 
-Från PCF2.0, är VM-prestandamått överförs till Azure log analytics nozzle med System mått vidarebefordrare och integrerade i OMS-arbetsytan. Du behöver inte längre OMS-agenten för VM-prestandamått. Du kan dock fortfarande använda OMS-agenten att samla in Syslog-information. OMS-agenten har installerats som en Bosh tillägg till dina CF virtuella datorer. 
+Från PCF2.0, är VM-prestandamått överförs till Azure log analytics nozzle med System mått vidarebefordrare och integrerade i Log Analytics-arbetsytan. Du behöver inte längre Log Analytics-agenten för VM-prestandamått. Du kan dock fortfarande använda Log Analytics-agenten att samla in Syslog-information. Log Analytics-agenten har installerats som en Bosh tillägg till dina CF virtuella datorer. 
 
-Mer information finns i [distribuera OMS-agent till Cloud Foundry-distributionen](https://github.com/Azure/oms-agent-for-linux-boshrelease).
+Mer information finns i [distribuerar Log Analytics-agenten i Cloud Foundry distributionen](https://github.com/Azure/oms-agent-for-linux-boshrelease).

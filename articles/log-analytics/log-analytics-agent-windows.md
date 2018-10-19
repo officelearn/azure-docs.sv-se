@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 03/12/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: e4140bfa3053798be56f3af9512c11d3ff0e58c0
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: 677cd65b011ed69868564617ff79b7a57947c230
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48042163"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49404451"
 ---
 # <a name="connect-windows-computers-to-the-log-analytics-service-in-azure"></a>Ansluta Windows-datorer till Log Analytics-tjänsten i Azure
 
@@ -54,7 +54,7 @@ Följande steg installerar och konfigurerar agenten för Log Analytics i Azure o
 2. På sidan **Välkommen** klickar du på **Nästa**.
 3. På sidan **Licensvillkor** läser du licensen och klickar sedan på **Jag accepterar**.
 4. På sidan **Målmapp** ändrar du eller behåller standardinstallationsmappen och klickar sedan på **Nästa**.
-5. På sidan **Installationsalternativ för agent** väljer du att ansluta agenten till Azure Log Analytics (OMS) och klickar sedan på **Nästa**.   
+5. På den **installationsalternativ för Agent** väljer du att ansluta agenten till Azure Log Analytics och klickar sedan på **nästa**.   
 6. På sidan **Azure Log Analytics** gör du följande:
    1. Klistra in **Id för arbetsyta** och **Arbetsytenyckel (primär nyckel)** som du kopierade tidigare.  Om datorn ska rapportera till en Log Analytics-arbetsyta i Azure Government-molnet väljer du **Azure US Government** i listrutan **Azure Cloud**.  
    2. Om datorn behöver kommunicera via en proxyserver till Log Analytics-tjänsten klickar du på **Avancerat** och anger URL och portnummer för proxyservern.  Om proxyservern kräver autentisering anger du användarnamn och lösenord för att autentisera hos proxyservern och klickar sedan på **Nästa**.  
@@ -160,7 +160,7 @@ För att hämta den här koden från installationspaket för agenten direkt, du 
 
 När installationen av agenten är klar, verifierar den anslutits och rapportering kan utföras på två sätt.  
 
-Från datorn i **Kontrollpanelen**, hitta objektet **Microsoft Monitoring Agent**.  Markera den och på den **Azure Log Analytics (OMS)** fliken agenten ska visa ett meddelande om: **The Microsoft Monitoring Agent har anslutits till tjänsten Microsoft Operations Management Suite.**<br><br> ![MMA-anslutningsstatus till Log Analytics](media/log-analytics-quick-collect-windows-computer/log-analytics-mma-laworkspace-status.png)
+Från datorn i **Kontrollpanelen**, hitta objektet **Microsoft Monitoring Agent**.  Markera den och på den **Azure Log Analytics** fliken agenten ska visa ett meddelande om: **The Microsoft Monitoring Agent har anslutits till tjänsten Microsoft Operations Management Suite.**<br><br> ![MMA-anslutningsstatus till Log Analytics](media/log-analytics-quick-collect-windows-computer/log-analytics-mma-laworkspace-status.png)
 
 Du kan också utföra en enkel loggsökning i Azure-portalen.  
 

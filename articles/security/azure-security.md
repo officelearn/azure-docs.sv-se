@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: 81eb23a0955bbc6a5f9dcd95c6874f0c5a8c286c
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: ce2b4304ea53be7e9a7be42b8a7fb30f713d85f8
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47434049"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49405216"
 ---
 # <a name="introduction-to-azure-security"></a>Introduktion till Azure-säkerhet
 ## <a name="overview"></a>Översikt
@@ -74,10 +74,10 @@ De inbyggda funktionerna ordnas i sex (6) funktionsområden: åtgärder, program
 ## <a name="operations"></a>Åtgärder
 Det här avsnittet innehåller ytterligare information om viktiga funktioner i säkerhetsåtgärder och översiktlig information om dessa funktioner.
 
-### <a name="operations-management-suite-security-and-audit-dashboard"></a>Operations Management Suite säkerhet och granskning instrumentpanel
-Den [OMS säkerhet och Granskningslösning](https://docs.microsoft.com/azure/operations-management-suite/oms-security-getting-started) ger en heltäckande översikt över din organisations IT-säkerhetsstatus med [inbyggda sökfrågor](https://blogs.technet.microsoft.com/msoms/2016/01/21/easy-microsoft-operations-management-suite-search-queries/) för viktiga problem som kräver din uppmärksamhet. Instrumentpanelen för [Säkerhet och granskning](https://technet.microsoft.com/library/mt484091.aspx) är startsidan för allt som rör säkerheten i OMS. Det ger en övergripande inblick i säkerhetstillståndet hos dina datorer. Här kan du också visa alla händelser från de senaste 24 timmarna, sju dagarna eller ett annat anpassat tidsintervall.
+### <a name="security-and-audit-dashboard"></a>Säkerhet och granskning instrumentpanel
+Den [säkerhet och Granskningslösning](https://docs.microsoft.com/azure/operations-management-suite/oms-security-getting-started) ger en heltäckande översikt över din organisations IT-säkerhetsstatus med [inbyggda sökfrågor](https://blogs.technet.microsoft.com/msoms/2016/01/21/easy-microsoft-operations-management-suite-search-queries/) för viktiga problem som kräver din uppmärksamhet. Den [säkerhet och granskning](https://technet.microsoft.com/library/mt484091.aspx) instrumentpanelen är startsidan för allt som rör säkerhet i Log Analytics. Det ger en övergripande inblick i säkerhetstillståndet hos dina datorer. Här kan du också visa alla händelser från de senaste 24 timmarna, sju dagarna eller ett annat anpassat tidsintervall.
 
-Du kan dessutom konfigurera OMS säkerhet och efterlevnad av [automatiskt utföra specifika åtgärder](https://blogs.technet.microsoft.com/robdavies/2016/04/20/simple-look-at-oms-alert-remediation-with-runbooks-part-1/) när en viss händelse identifieras.
+Du kan dessutom konfigurera säkerhet och efterlevnad av [automatiskt utföra specifika åtgärder](https://blogs.technet.microsoft.com/robdavies/2016/04/20/simple-look-at-oms-alert-remediation-with-runbooks-part-1/) när en viss händelse identifieras.
 
 ### <a name="azure-resource-manager"></a>Azure Resource Manager
 [Azure Resource Manager ](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-deployment-model) kan du arbeta med resurserna i din lösning som en grupp. Du kan distribuera, uppdatera eller ta bort alla resurser i lösningen i en enda, samordnad åtgärd. Du använder en [Azure Resource Manager-mall](https://blogs.technet.microsoft.com/canitpro/2015/06/29/devops-basics-infrastructure-as-code-arm-templates/) för distribution och mallen kan användas i olika miljöer, till exempel testning, mellanlagring och produktion. Resource Manager tillhandahåller säkerhets-, gransknings- och taggningsfunktioner som hjälper dig att hantera dina resurser efter distributionen.
@@ -95,7 +95,7 @@ Om det finns krascher, fel eller prestandaproblem kan söka du igenom dessa data
 [Azure Monitor](https://docs.microsoft.com/azure/monitoring-and-diagnostics/) erbjuder visualisering, fråga, routning, aviseringar, Automatisk skala och automatisering på data både från Azure-infrastrukturen ([aktivitetsloggen](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs)) och varje enskild Azure-resurs ([diagnostik Loggar](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs)). Du kan använda Azure Monitor för att varna dig om säkerhetsrelaterade händelser som genereras i Azure-loggar.
 
 ### <a name="log-analytics"></a>Log Analytics
-[Log Analytics](https://azure.microsoft.com/documentation/services/log-analytics/) en del av [Operations Management Suite](https://www.microsoft.com/cloud-platform/operations-management-suite) – innehåller en IT-hanteringslösningen för både lokalt och från tredje part molnbaserad infrastruktur (till exempel AWS) utöver Azure-resurser. Data från Azure Monitor kan dirigeras direkt till Log Analytics så att du kan se mått och loggar i hela din miljö på samma ställe.
+[Log Analytics](https://azure.microsoft.com/documentation/services/log-analytics/) – innehåller en IT-hanteringslösningen för både lokalt och från tredje part molnbaserad infrastruktur (till exempel AWS) utöver Azure-resurser. Data från Azure Monitor kan dirigeras direkt till Log Analytics så att du kan se mått och loggar i hela din miljö på samma ställe.
 
 Log Analytics kan vara användbart i kriminaltekniska och andra säkerhetsanalys som verktyget gör det möjligt att snabbt söka igenom stora mängder säkerhetsrelaterade transaktioner med en metod för flexibla frågor. Dessutom kan den lokala [loggar för brandväggen och proxyservern kan exporteras till Azure och göras tillgängliga för analys med hjälp av Log Analytics.](https://docs.microsoft.com/azure/log-analytics/log-analytics-proxy-firewall)
 

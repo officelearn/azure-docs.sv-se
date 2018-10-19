@@ -10,12 +10,12 @@ ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
 ms.assetid: 5c1b1e15-3b6c-49dc-98a6-bdbe7cb75339
 ms.date: 07/21/2017
-ms.openlocfilehash: a08cd6289fc85b79ccec731126a33a9549d60546
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: c2e487f421d2dfc875efde82c078f557f7bd03d2
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43123541"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49405743"
 ---
 # <a name="monitor-status-set-up-diagnostics-logging-and-turn-on-alerts-for-azure-logic-apps"></a>Övervaka status, konfigurera diagnostikloggning och aktivera aviseringar för Azure Logic Apps
 
@@ -90,7 +90,9 @@ Innan du börjar måste du har en Log Analytics-arbetsyta. Lär dig [hur du skap
 
    1. Välj **skicka till Log Analytics**. 
    2. Under **Log Analytics**, Välj **konfigurera**. 
-   3. Under **OMS-arbetsytor**, Välj Log Analytics-arbetsytan ska användas för loggning.
+   3. Under **OMS-arbetsytor**, Välj arbetsytan som ska användas för loggning.
+   > [!NOTE]
+   > OMS-arbetsytor kallas nu för Log Analytics-arbetsytor.
    4. Under **Log**väljer den **WorkflowRuntime** kategori.
    5. Välj det mått intervallet.
    6. När du är klar väljer du **Spara**.

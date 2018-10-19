@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 10/11/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 67a987d9b491ba6813e900c293529ed677c45757
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.openlocfilehash: c89d312f7a667a279ff2f17b38b612a90c7bcddb
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49167689"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49406066"
 ---
 # <a name="update-management-solution-in-azure"></a>Lösningen för uppdateringshantering i Azure
 
@@ -212,7 +212,7 @@ Om du vill skapa en ny uppdateringsdistribution, Välj **distribution av schemau
 | Grupper för att uppdatera (förhandsversion)|Definiera en fråga som baseras på en kombination av prenumeration, resursgrupper, platser och taggar för att skapa en dynamisk grupp med virtuella Azure-datorer ska ingå i din distribution. Mer information finns i [dynamiska grupper](automation-update-management.md#using-dynamic-groups)|
 | Datorer som ska uppdateras |Välj en sparad sökning, importerat gruppen, eller välja dator från listrutan och Välj enskilda datorer. Om du väljer **Datorer** visas beredskapen för datorn i kolumnen **Uppdatera agentberedskap**.</br> Mer om de olika metoderna för att skapa datorgrupper i Log Analytics finns i dokumentationen om [datorgrupper i Log Analytics](../log-analytics/log-analytics-computer-groups.md) |
 |Uppdatera klassificeringar|Välj de uppdateringsklassificeringar som du behöver|
-|Inkludera/exkludera uppdateringar|Då öppnas det **ta med eller undanta** sidan. Uppdateringar för inkluderas eller uteslutas är på en separat flik. Mer information om hur inkludering hanteras finns [inkludering beteende](automation-update-management.md#inclusion-behavior) |
+|Inkludera/exkludera uppdateringar|Då öppnas det **ta med eller undanta** sidan. Uppdateringar som ska inkluderas eller exkluderas visas på en separat flik. Mer information om hur inkludering hanteras finns [inkludering beteende](automation-update-management.md#inclusion-behavior) |
 |Schemainställningar|Välj tid att starta och välj antingen en gång eller återkommande för upprepningen|
 | Förskript och efterskript|Välj skript ska köras före och efter distributionen|
 | Underhållsperiod |Antal minuter som angetts för uppdateringar. Värdet får inte vara mindre än 30 minuter och högst 6 timmar |
@@ -264,7 +264,7 @@ sudo yum -q --security check-update
 
 Det finns för närvarande inga metoden stöds-metoden för att aktivera interna klassificering-data tillgängliga på CentOS. För närvarande tillhandahålls endast mån support till kunder som kanske har aktiverat det på egen hand.
 
-## <a name="ports"></a>Portar
+##<a name="ports"></a>Planera för nätverk
 
 Följande adresser krävs för hantering av uppdateringar. Kommunikation till dessa adresser sker via port 443.
 

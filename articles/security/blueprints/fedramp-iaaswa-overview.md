@@ -1,6 +1,6 @@
 ---
-title: Azure-säkerhet och efterlevnad modell - IaaS webbprogram för FedRAMP
-description: Azure-säkerhet och efterlevnad modell - IaaS webbprogram för FedRAMP
+title: Azure-säkerhet och efterlevnad skissen - IaaS-webbprogram för FedRAMP
+description: Azure-säkerhet och efterlevnad skissen - IaaS-webbprogram för FedRAMP
 services: security
 documentationcenter: na
 author: jomolesk
@@ -14,201 +14,201 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/08/2018
 ms.author: jomolesk
-ms.openlocfilehash: 6a2a72f46c4d5faacb7d5871f4c917a5cd578e96
-ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
+ms.openlocfilehash: f5ba6a001f8933283e0867367ef7bd8d3918c3fd
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34809173"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49405386"
 ---
-# <a name="azure-security-and-compliance-blueprint-iaas-web-application-for-fedramp"></a>Azure-säkerhet och efterlevnad utkast: IaaS webbprogram för FedRAMP
+# <a name="azure-security-and-compliance-blueprint-iaas-web-application-for-fedramp"></a>Azure-säkerhet och efterlevnad skiss: IaaS-webbprogram för FedRAMP
 
 ## <a name="overview"></a>Översikt
 
-Den [Federal Risk och auktorisering hanteringsprogram (FedRAMP)](https://www.fedramp.gov) är ett US government hela program som tillhandahåller en standardiserad metod för utvärdering av säkerheten, auktorisering och kontinuerlig övervakning för molnet produkter och tjänster. Den här Azure-säkerhet och efterlevnad utkast Automation vägledning för distribution av en FedRAMP-kompatibel infrastruktur som en tjänst (IaaS) miljö som är lämplig för ett enkelt Internet-riktade webbprogram. Den här lösningen automatiserar distributionen och konfigurationen av Azure-resurser för en vanliga Referensarkitektur visar sätt där kunder kan uppfylla specifika krav för säkerhet och efterlevnad och fungerar som grund för kunder att bygga och Konfigurera sina egna lösningar på Azure. Lösningen implementerar en deluppsättning av kontroller från FedRAMP hög baslinje, baserat på NIST SP 800 53. Mer information om FedRAMP kraven och den här lösningen finns i [kompatibilitet dokumentationen](#compliance-documentation).
+Den [Federal Risk and Authorization Management Program (FedRAMP)](https://www.fedramp.gov) är ett program för amerikanska regeringen som ger en standardiserad metod för säkerhetsbedömningar, auktorisering och kontinuerlig övervakning för molnprodukter och tjänster. Den här Azure-säkerhet och efterlevnad skissen Automation ger vägledning för distribution av en FedRAMP-kompatibla infrastruktur som en tjänst (IaaS)-miljö som är lämplig för ett enkelt webbprogram mot Internet. Den här lösningen automatiserar distributionen och konfigurationen av Azure-resurser för en vanliga Referensarkitektur visar sätt där kunder kan uppfylla specifika krav för säkerhet och efterlevnad och fungerar som en grund för kunder att bygga och Konfigurera sina egna lösningar på Azure. Lösningen implementerar en deluppsättning av kontroller från FedRAMP High-baslinje, baserat på SP NIST 800-53. Mer information om FedRAMP krav och den här lösningen finns i den [efterlevnad dokumentation](#compliance-documentation).
 > [!NOTE]
 > Den här lösningen distribueras till Azure Government.
 
-Den här Azure-säkerhet och efterlevnad utkast Automation distribuerar automatiskt en IaaS web application Referensarkitektur med förkonfigurerade säkerhetsåtgärder för att hjälpa kunderna att uppnå kompatibilitet med FedRAMP krav. Lösningen består av mallar för Azure Resource Manager och PowerShell-skript som hjälper resource distribution och konfiguration.
+Den här Azure-säkerhet och efterlevnad skissen Automation distribuerar automatiskt en IaaS web Referensarkitektur för program med förkonfigurerade säkerhetskontroller för att hjälpa kunder att uppnå efterlevnad med FedRAMP krav. Lösningen består av Azure Resource Manager-mallar och PowerShell-skript som hjälper resource distribution och konfiguration.
 
-Den här arkitekturen är avsett att utgöra grunden för kunder att justera sina särskilda krav och ska inte användas som – i en produktionsmiljö. Distribuera ett program till den här miljön utan ändringar är inte tillräcklig för helt uppfyller kraven för FedRAMP hög baslinjen. Observera följande:
-- Den här arkitekturen ger en baslinje för att hjälpa kunderna att använda Azure på ett sätt som FedRAMP-kompatibel.
-- Kunder ansvarar för att utföra lämpliga säkerhet och efterlevnad bedömning av någon lösning som skapats med den här arkitekturen kraven kan variera baserat på egenskaperna för varje kund implementering.
+Den här arkitekturen är avsedd att fungera som en grund för kunder att anpassa sig till sina specifika krav och ska inte användas som-är i en produktionsmiljö. Det räcker inte att distribuera ett program i den här miljön utan ändringar att helt uppfylla kraven för FedRAMP High-baslinje. Observera följande:
+- Den här arkitekturen ger en baslinje för att hjälpa kunder som använder Azure på ett sätt som FedRAMP-kompatibla.
+- Kunderna ansvarar för att utföra lämpliga säkerhet och efterlevnad bedömning av alla lösningar som skapats med den här arkitekturen kraven kan variera beroende på specifika för varje kund-implementering.
 
-För en snabb överblick över hur den här lösningen fungerar, titta på den här [video](https://aka.ms/fedrampblueprintvideo) förklarar och visar dess distribution.
+Titta på den här för en snabb överblick över hur den här lösningen fungerar [video](https://aka.ms/fedrampblueprintvideo) hon förklarar och visar dess distribution.
 
 Klicka på [här](https://aka.ms/fedrampblueprintrepo) anvisningar för distribution.
 
 ## <a name="architecture-diagram-and-components"></a>Diagram över arkitektur och komponenter
-Den här lösningen distribuerar en Referensarkitektur för ett IaaS-webbprogram med en SQL Server-serverdel. Arkitekturen innehåller en webbnivå, datanivå, Active Directory-infrastruktur, Programgateway och belastningsutjämnare. Virtuella datorer distribueras på nivåerna web och data som har konfigurerats i en Tillgänglighetsuppsättning och SQL Server-instanserna är konfigurerade i en AlwaysOn-tillgänglighetsgrupp för hög tillgänglighet. Virtuella datorer är anslutna till en domän och principer för Active Directory-grupper används för att framtvinga säkerhet och efterlevnad konfigurationer på driftsystemnivå. En skyddsmiljö-värd innehåller en säker anslutning för administratörer att komma åt distribuerade resurser. **Azure rekommenderar att konfigurera en VPN- eller Azure ExpressRoute-anslutning för hanterings- och import till referens arkitektur undernät.**
+Den här lösningen används en Referensarkitektur för en IaaS-webbprogram med en SQL Server-serverdel. Arkitekturen innehåller en webbnivå, datanivån, Active Directory-infrastruktur, Application Gateway och belastningsutjämnare. Virtuella datorer distribueras på nivåerna web och data är konfigurerade i en Tillgänglighetsuppsättning och SQL Server-instanserna är konfigurerade i en AlwaysOn-tillgänglighetsgrupp för hög tillgänglighet. Virtuella datorer är anslutna till en domän och Active Directory-grupprinciper används för att tillämpa säkerhets- och konfigurationer på driftsystemnivå. En skyddsmiljö-värd ger en säker anslutning för administratörer att få åtkomst till distribuerade resurser. **Azure rekommenderar att du konfigurerar en VPN- eller Azure ExpressRoute-anslutning för hantering och import till undernätet för referens-arkitektur.**
 
-![IaaS-webbprogram för FedRAMP referens Arkitekturdiagram](images/fedramp-iaaswa-architecture.png?raw=true "IaaS webbprogram för FedRAMP referens Arkitekturdiagram")
+![IaaS-webbprogram för FedRAMP-referens för Arkitekturdiagram](images/fedramp-iaaswa-architecture.png?raw=true "IaaS-webbprogram för FedRAMP-referens för Arkitekturdiagram")
 
-Den här lösningen använder följande Azure-tjänster. Information om arkitektur för distribution finns i den [distributionsarkitektur](#deployment-architecture) avsnitt.
+Den här lösningen använder följande Azure-tjänster. Information om distributionsarkitekturen finns i den [distributionsarkitektur](#deployment-architecture) avsnittet.
 
 - Azure Virtual Machines
-    - (1) skyddsmiljö värden (Windows Server 2016 Datacenter)
+    - (1) skyddsmiljö-värd (Windows Server 2016 Datacenter)
     - (2) active Directory-domänkontrollant (Windows Server 2016 Datacenter)
-    - (2) SQL Server-klusternod (SQL Server-2017 på Windows Server 2016)
+    - (2) SQL Server-klusternod (SQL Server 2017 på Windows Server 2016)
     - (2) web/IIS (Windows Server 2016 Datacenter)
 - Tillgänglighetsuppsättningar
     - (1) active Directory-domänkontrollanter
-    - (1) SQL klusternoder
+    - (1) SQL-klusternoder
     - (1) web/IIS
 - Azure Virtual Network
     - ((1) /16 virtuella nätverk
     - (5) /24 undernät
-    - DNS-inställningarna är inställda på båda domänkontrollanterna
+    - DNS-inställningar är inställda på båda domänkontrollanterna
 - Azure Load Balancer
 - Azure Application Gateway
-    - (1) Brandvägg Programgateway aktiverad
-        - brandväggsläge: förebyggande
-        - Regelsamlingen: OWASP 3.0
-        - lyssnare: port 443
+    - (1) WAF-Programgateway aktiverat
+        - Brandväggsläge: dataförlustskydd
+        - Regeluppsättning: OWASP 3.0
+        - Lyssnare: port 443
 - Azure Storage
-    - (7) Geo-redundant lagringskonton
-- Azure-molnet vittne
+    - (7) Geo-redundant storage-konton
+- Azure Molnvittne
 - Recovery Services-valv
 - Azure Key Vault
-- Azure Active Directory (AD Azure)
+- Azure Active Directory (Azure AD)
 - Azure Resource Manager
-- Operations Management Suite (OMS)
+- Log Analytics
 - Azure Monitor
 
-## <a name="deployment-architecture"></a>Arkitektur för distribution
+## <a name="deployment-architecture"></a>Distributionsarkitektur för
 
-I följande avsnitt beskrivs element för utveckling och implementering.
+I följande avsnitt finns element för utveckling och implementering.
 
-**Skyddsmiljö värden**: skyddsmiljö värden är den enda post som innehåller en säker anslutning för administratörer att komma åt distribuerade resurser. Skyddsmiljön värdens NSG tillåter anslutningar enbart på TCP-port 3389 för RDP. Kunder kan konfigurera ytterligare skyddsmiljö värden för att uppfylla organisationens krav för systemhärdning.
+**Skyddsmiljö-värd**: skyddsmiljö-värd är den enda posten som tillhandahåller en säker anslutning för administratörer att få åtkomst till distribuerade resurser. Skyddade värdens NSG tillåter anslutningar enbart på TCP-port 3389 för RDP. Kunder kan konfigurera ytterligare skyddsmiljö-värd för att uppfylla kraven för organisation av systemhärdning.
 
 ### <a name="virtual-network"></a>Virtuellt nätverk
 Arkitekturen definierar ett privat virtuellt nätverk med ett adressutrymme för 10.200.0.0/16.
 
-**Nätverkssäkerhetsgrupper**: den här lösningen distribuerar resurser i en arkitektur med ett separat undernät, databasen undernät, Active Directory-undernät och hantering av undernät i ett virtuellt nätverk. Undernät är logiskt åtskilda av reglerna för nätverkssäkerhetsgrupper tillämpas på individuella undernät för att begränsa trafik mellan undernät att endast som krävs för system-och hanteringsfunktioner.
+**Nätverkssäkerhetsgrupper**: den här lösningen används resurser i en arkitektur med ett separat undernät, databas-undernät, Active Directory-undernät och hanteringsundernätet i ett virtuellt nätverk. Undernät är logiskt åtskilda av reglerna för nätverkssäkerhetsgrupper tillämpas på de enskilda undernäten att begränsa trafik mellan undernät för att endast som krävs för system och hanteringsfunktioner.
 
-Kontrollera konfigurationen för [nätverkssäkerhetsgrupper](https://github.com/Azure/fedramp-iaas-webapp/blob/master/nestedtemplates/virtualNetworkNSG.json) distribueras med den här lösningen. Kunder kan konfigurera nätverkssäkerhetsgrupper genom att redigera filen ovan med [denna dokumentation](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg) som en vägledning.
+Finns på konfigurationen för [nätverkssäkerhetsgrupper](https://github.com/Azure/fedramp-iaas-webapp/blob/master/nestedtemplates/virtualNetworkNSG.json) distribueras med den här lösningen. Kunder kan konfigurera nätverkssäkerhetsgrupper genom att redigera filen ovan med [den här dokumentationen](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg) som vägledning.
 
 Varje undernät har en dedikerad nätverkssäkerhetsgrupp (NSG):
-- 1 NSG för Programgateway (LBNSG)
-- 1 NSG för skyddsmiljön värden (MGTNSG)
+- 1 NSG för Application Gateway (LBNSG)
+- 1 NSG för skyddsmiljö-värd (MGTNSG)
 - 1 NSG för primära och sekundära domänkontrollanter (ADNSG)
 - 1 NSG för SQL-servrar (SQLNSG)
-- 1 NSG för Webbnivå (WEBNSG)
+- 1 NSG för Webbnivån (WEBNSG)
 
 **Undernät**: varje undernät som är associerad med dess motsvarande NSG.
 
 ### <a name="data-at-rest"></a>Vilande data
 
-Arkitekturen skyddar data i vila med hjälp av flera åtgärder för kryptering.
+Arkitekturen skyddar vilande data med hjälp av flera åtgärder för kryptering.
 
-**Azure Storage**: för att uppfylla kraven för datakryptering för data i vila kan använda alla lagringskonton [Lagringstjänstens kryptering](https://docs.microsoft.com/azure/storage/common/storage-service-encryption).
+**Azure Storage**: för att uppfylla kraven för datakryptering för data i vila, alla storage-konton används [Lagringstjänstkryptering](https://docs.microsoft.com/azure/storage/common/storage-service-encryption).
 
-**SQL Server**: SQL Server är konfigurerad för att använda [Transparent Data kryptering (TDE)](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption), som utför realtid kryptering och dekryptering av data och loggfilen filer att skydda information i vila. TDE ger försäkran om att lagrade data inte har omfattas obehörig åtkomst.
+**SQL Server**: SQL Server är konfigurerad för att använda [Transparent datakryptering (TDE)](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption), som utför i realtid kryptering och dekryptering av data och loggfiler att skydda information i vila. TDE ger garantier att lagras data inte har omfattas av obehörig åtkomst.
 
 Kunder kan också konfigurera följande säkerhetsåtgärder för SQL Server:
--   [AD-autentisering och auktorisering](https://docs.microsoft.com/azure/sql-database/sql-database-aad-authentication) gör det möjligt för Identitetshantering av databasanvändare och andra Microsoft-tjänster på en central plats.
--   [SQL database auditing](https://docs.microsoft.com/azure/sql-database/sql-database-auditing-get-started) spårar databashändelser och skriver dem till en granskningslogg logga in ett Azure storage-konto-databas.
--   [Regler i brandväggen](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure) förhindra all åtkomst till databasservrar tills rätt behörigheter. Brandväggen ger åtkomst till databaser baserat på vilken IP-adress som varje begäran kommer från.
--   [SQL-Hotidentifiering](https://docs.microsoft.com/azure/sql-database/sql-database-threat-detection-get-started) aktiverar identifiering och svar på potentiella hot allteftersom de sker genom att tillhandahålla säkerhetsaviseringar för misstänkta databasaktiviteter, potentiella säkerhetsrisker, SQL injection attacker och avvikande databaser mönster.
--   [Always Encrypted kolumner](https://docs.microsoft.com/azure/sql-database/sql-database-always-encrypted-azure-key-vault) känsliga data aldrig ska visas i klartext i databassystemet. När du har aktiverat datakryptering endast klientprogram eller appservrar med tillgång till nycklarna kan komma åt oformaterad text data.
--   [SQL-databas dynamisk datamaskning](https://docs.microsoft.com/azure/sql-database/sql-database-dynamic-data-masking-get-started) kan göras efter den referens för arkitekturen distribuerar. Kunderna måste du justera inställningar för att uppfylla sina databasschemat för dynamisk datamaskering.
+-   [AD-autentisering och auktorisering](https://docs.microsoft.com/azure/sql-database/sql-database-aad-authentication) gör det möjligt för Identitetshantering för databasanvändare och andra Microsoft-tjänster på en central plats.
+-   [SQL-databasgranskning](https://docs.microsoft.com/azure/sql-database/sql-database-auditing-get-started) spårar databasen händelser och skriver dem till en granskningslogg i ett Azure storage-konto.
+-   [Brandväggsregler](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure) förhindrar all åtkomst till databasservrar tills rätt behörigheter beviljas. Brandväggen ger åtkomst till databaser baserat på vilken IP-adress som varje begäran kommer från.
+-   [SQL Threat Detection](https://docs.microsoft.com/azure/sql-database/sql-database-threat-detection-get-started) gör det möjligt att identifiera och bemöta potentiella hot allteftersom de sker genom att tillhandahålla säkerhetsaviseringar för misstänkta databasaktiviteter, potentiella svagheter, SQL-inmatningsattacker och avvikande databasåtkomst mönster.
+-   [Alltid krypterad kolumner](https://docs.microsoft.com/azure/sql-database/sql-database-always-encrypted-azure-key-vault) se till att känsliga data aldrig visas som oformaterad text i databassystemet. När du har aktiverat kryptering av data, endast klientprogram eller app-servrar med åtkomst till nycklarna kan komma åt data i klartext.
+-   [SQL Database dynamisk datamaskning](https://docs.microsoft.com/azure/sql-database/sql-database-dynamic-data-masking-get-started) kan göras efter referensarkitekturen distribuerar. Kunder kommer att behöva justera dynamisk datamaskning inställningar för att uppfylla sina databasschemat.
 
-**Azure Disk Encryption**: Azure Disk Encryption används som krypteras Windows IaaS virtuella diskar. [Azure Disk Encryption](https://docs.microsoft.com/azure/security/azure-security-disk-encryption) utnyttjar funktionen BitLocker för Windows-volymkryptering för Operativsystemet och datadiskarna. Lösningen är integrerad med Azure Key Vault hjälper dig att kontrollera och hantera disk krypteringsnycklarna.
+**Azure Disk Encryption**: Azure Disk Encryption används som krypteras Windows IaaS VM-diskar. [Azure Disk Encryption](https://docs.microsoft.com/azure/security/azure-security-disk-encryption) utnyttjar BitLocker-funktion i Windows för att kryptera volymer OS och datadiskar. Lösningen är integrerad med Azure Key Vault för att styra och hantera diskkrypteringsnycklar.
 
 ### <a name="identity-management"></a>Identitetshantering
 
 Följande tekniker hanteringsfunktioner identitet i Azure-miljön:
-- [Azure Active Directory (AD Azure)](https://azure.microsoft.com/services/active-directory/) är Microsofts flera innehavare molnbaserad katalog och identity management-tjänsten.
-- Autentisering till ett kunden distribuerade webbprogram kan utföras med hjälp av Azure AD. Mer information finns i [integrera program med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications).  
-- [Azure rollbaserad åtkomstkontroll (RBAC)](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal) aktiverar exakt fokuserad åtkomsthantering för Azure. Prenumerationen åtkomst begränsas till administratör för prenumerationen och åtkomst till resurser kan begränsas baserat på användarrollen.
-- En distribuerad IaaS Active Directory-instans innehåller Identitetshantering på OS-nivå för distribuerade IaaS virtuella datorer.
+- [Azure Active Directory (Azure AD)](https://azure.microsoft.com/services/active-directory/) Microsofts molnbaserade katalog- och identitetstjänst management multiklienttjänst.
+- Autentisering till ett kund-distribuerade program kan utföras med hjälp av Azure AD. Mer information finns i [integrera program med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications).  
+- [Azure rollbaserad åtkomstkontroll (RBAC)](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal) aktiverar exakt fokuserade åtkomsthantering för Azure. Prenumerationsåtkomst är begränsad till administratör för prenumerationen och åtkomst till resurser kan begränsas baserat på användarrollen.
+- En distribuerad IaaS Active Directory-instans innehåller Identitetshantering på operativsystemnivå för distribuerade IaaS-datorer.
 
 ### <a name="security"></a>Säkerhet
-**Hantering av hemligheter**: lösningen använder [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) för hantering av nycklar och hemligheter. Azure Key Vault hjälper dig att skydda krypteringsnycklar och hemligheter som används av molnprogram och molntjänster. Azure Key Vault hjälper dig hantera IaaS virtuell disk-krypteringsnycklar och hemligheter för denna Referensarkitektur.
+**Hantering av hemligheter**: lösningen använder [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) för hantering av nycklar och hemligheter. Azure Key Vault hjälper dig att skydda krypteringsnycklar och hemligheter som används av molnprogram och molntjänster. Azure Key Vault hjälper till att hantera IaaS VM diskkrypteringsnycklar och hemligheter för denna Referensarkitektur.
 
-**Hantering av korrigering**: Windows-datorer som distribueras med den här Azure-säkerhet och efterlevnad utkast Automation är som standard konfigurerad att ta emot automatiska uppdateringar från Windows Update-tjänsten. Den här lösningen också distribuerar Azure Automation-lösningen som distributioner kan skapas för att distribuera korrigeringsfiler till Windows-servrar när det behövs.
+**Uppdateringshantering**: Windows virtuella datorer som distribueras av den här Azure-säkerhet och efterlevnad skissen Automation är konfigurerade som standard för att ta emot automatiska uppdateringar från Windows Update-tjänsten. Den här lösningen används också Azure Automation-lösningen genom vilka distributioner kan skapas för att distribuera uppdateringar till Windows-servrar när det behövs.
 
-**Skydd mot skadlig kod**: [Microsoft Antimalware](https://docs.microsoft.com/azure/security/azure-security-antimalware) för virtuella datorer ger realtidsskydd funktion som hjälper dig att identifiera och ta bort virus, spionprogram och annan skadlig programvara med konfigurerbara aviseringar När känd skadlig eller oönskad programvara försöker installeras eller köras på den skyddade virtuella datorer.
+**Skydd mot skadlig kod**: [Microsoft Antimalware](https://docs.microsoft.com/azure/security/azure-security-antimalware) för virtuella datorer ger realtidsskydd som hjälper att identifiera och ta bort virus, spionprogram och annan skadlig programvara, med konfigurerbara aviseringar När känd skadlig eller oönskad programvara försöker installera eller köra på den skyddade virtuella datorer.
 
-**Programgateway**: arkitekturen minskar risken för säkerhetsproblem med hjälp av en Programgateway med Brandvägg för webbaserade program (Brandvägg) och OWASP ruleset aktiverat. Ytterligare funktioner är:
+**Application Gateway**: arkitekturen minskar risken för säkerhetsproblem med en Programgateway med Brandvägg för webbaserade program (WAF) och OWASP-regeluppsättning aktiverat. Ytterligare funktioner är följande:
 
-- [Slutpunkt till slutpunkt SSL](https://docs.microsoft.com/azure/application-gateway/application-gateway-end-to-end-ssl-powershell)
+- [Slutpunkt till slutpunkt-SSL](https://docs.microsoft.com/azure/application-gateway/application-gateway-end-to-end-ssl-powershell)
 - Aktivera [SSL-avlastning](https://docs.microsoft.com/azure/application-gateway/application-gateway-ssl-portal)
-- Inaktivera [TLS version 1.0 och v1.1](https://docs.microsoft.com/azure/application-gateway/application-gateway-end-to-end-ssl-powershell)
-- [Brandvägg för webbaserade program](https://docs.microsoft.com/azure/application-gateway/application-gateway-web-application-firewall-overview) (Brandvägg läge)
-- [Förebyggande läge](https://docs.microsoft.com/azure/application-gateway/application-gateway-web-application-firewall-portal) med OWASP 3.0 RuleSet-metod
+- Inaktivera [TLS v1.0 och v1.1](https://docs.microsoft.com/azure/application-gateway/application-gateway-end-to-end-ssl-powershell)
+- [Brandvägg för webbaserade program](https://docs.microsoft.com/azure/application-gateway/application-gateway-web-application-firewall-overview) (WAF-läge)
+- [Förhindringsläge](https://docs.microsoft.com/azure/application-gateway/application-gateway-web-application-firewall-portal) med OWASP 3.0 regeluppsättning
 
 ### <a name="business-continuity"></a>Verksamhetskontinuitet
 
-**Hög tillgänglighet**: minst en virtuell dator är tillgänglig under en planerad eller oplanerad underhållshändelse, uppfyller 99,95% SLA för Azure. Lösningen distribuerar alla webbnivå och data tjänstnivån virtuella datorer i en [Tillgänglighetsuppsättning](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-availability-sets). Tillgänglighetsuppsättningar se till att de virtuella datorerna är fördelade på flera kluster isolerade maskinvara för att förbättra tillgänglighet. Dessutom lösningen distribueras de virtuella datorerna i SQL Server i en Tillgänglighetsuppsättning som en [AlwaysOn-tillgänglighetsgruppen](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-availability-group-overview). Always On availability group funktionen ger för hög tillgänglighet och katastrofåterställning funktioner.
+**Hög tillgänglighet**: minst en virtuell dator är tillgänglig under en planerad eller oplanerad underhållshändelse, uppfyller 99,95% serviceavtalet för Azure. Lösningen har distribuerats alla webbnivån och data nivå virtuella datorer i en [Tillgänglighetsuppsättning](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-availability-sets). Tillgänglighetsuppsättningarna ser till att de virtuella datorerna distribueras över flera isolerade maskinvarukluster att förbättra tillgängligheten. Dessutom är den här lösningen används SQL Server-datorer i en Tillgänglighetsuppsättning som en [AlwaysOn-tillgänglighetsgrupp](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-availability-group-overview). Always On availability group funktionen ger funktioner för hög tillgänglighet och katastrofåterställning.
 
-**Recovery Services-ventilen**: den [Återställningstjänstvalvet](https://docs.microsoft.com/azure/backup/backup-azure-recovery-services-vault-overview) inrymmer säkerhetskopierade data och skyddar alla konfigurationer av virtuella datorer i Azure i den här arkitekturen. Med ett Recovery Services-valv kan kunder återställa filer och mappar från en IaaS-VM utan att återställa hela den virtuella datorn, aktivera snabbare återställning.
+**Recovery Services-valv**: den [Recovery Services-valv](https://docs.microsoft.com/azure/backup/backup-azure-recovery-services-vault-overview) lagrar säkerhetskopierade data och skyddar alla konfigurationer av Azure-datorer i den här arkitekturen. Med ett Recovery Services-valv kan kunder återställa filer och mappar från en IaaS-VM utan att återställa hela VM, att aktivera återställningen går snabbare.
 
-**Molnet vittne**: [moln vittne](https://docs.microsoft.com/windows-server/failover-clustering/whats-new-in-failover-clustering#BKMK_CloudWitness) är en typ av kvorumvittne för redundanskluster i Windows Server 2016 som utnyttjar Azure som skiljedom punkten. Vittne molnet, precis som alla andra kvorumvittne hämtar en omröstning och kan delta i kvorum beräkningar, men den använder standard allmänt tillgängliga Azure Blob Storage. Detta eliminerar pålägget extra underhåll av virtuella datorer finns i ett offentligt moln.
+**Molnet vittne**: [Molnvittne](https://docs.microsoft.com/windows-server/failover-clustering/whats-new-in-failover-clustering#BKMK_CloudWitness) är en typ av kvorumvittne för redundanskluster i Windows Server 2016 som utnyttjar Azure som skiljedom. Molnvittnet, precis som alla andra kvorumvittnen, får en röst och kan delta i kvorumberäkningar, men den använder standard allmänt tillgängliga Azure Blob Storage. Detta eliminerar pålägget extra underhåll av virtuella datorer som finns i ett offentligt moln.
 
-### <a name="logging-and-auditing"></a>Granskning och loggning
+### <a name="logging-and-auditing"></a>Loggning och granskning
 
-OMS innehåller utförlig loggning av system- och användaraktivitet samt systemhälsa. OMS [logganalys](https://docs.microsoft.com/azure/security/azure-security-disk-encryption) lösningen samlar in och analyserar data som genereras av resurser i Azure och lokala miljöer.
+Log Analytics tillhandahåller omfattande loggning av system- och användaraktivitet, samt filsystemets hälsa. Den [Log Analytics](https://docs.microsoft.com/azure/security/azure-security-disk-encryption) lösningen samlar in och analyserar data som genereras av resurser i Azure och lokala miljöer.
 
-- **Aktivitetsloggar:**[aktivitetsloggar](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs) ger kunskaper om åtgärder som utförs på resurser i en prenumeration. Aktivitetsloggar kan hjälpa dig att bestämma en åtgärd initieraren tid på förekomst och status.
-- **Diagnostikloggar:**[diagnostikloggar](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs) är alla loggar som orsakat av varje resurs. Dessa loggar är Windows-händelsesystemloggar, Azure storage-loggar, Key Vault granskningsloggar och Programgateway loggar för åtkomst och brandväggen.
-- **Arkivering av logg:** alla diagnostikloggar skriva till en central och krypterad Azure storage-konto för arkivering. Kvarhållning konfigureras av användaren, upp till 730 dagar till bevarande organisation-specifika krav. Dessa loggar ansluta till Azure Log Analytics för bearbetning, lagring och rapportering av instrumentpanelen.
+- **Aktivitetsloggar:**[aktivitetsloggar](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs) ger information om åtgärder som utförts på resurser i en prenumeration.   Aktivitetsloggar kan hjälpa dig att fastställa en åtgärd initierare för förekomst och status.
+- **Diagnostikloggar:**[diagnostikloggar](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs) är alla loggar som genereras av varje resurs.   Dessa loggar är Windows-händelsesystemloggar, Azure storage-loggar, granskningsloggar för Key Vault och åtkomst och brandväggen loggar i Application Gateway.
+- **Arkivera loggen:** alla diagnostikloggar skriva till en central och krypterade Azure storage-konto för arkivering. Kvarhållning konfigureras av användaren, upp till 730 dagar att uppfylla kraven för specifika kvarhållning. Dessa loggar kan ansluta till Azure Log Analytics för bearbetning, lagring och -instrumentpanelsrapportering.
 
-Dessutom installeras följande OMS-lösningar som en del av denna arkitektur. Observera att det är kundens ansvar för att konfigurera dessa lösningar för att justera FedRAMP säkerhetsåtgärder:
--   [AD-bedömning](https://docs.microsoft.com/azure/log-analytics/log-analytics-ad-assessment): I Active Directory Health Check lösningen utvärderar risk och hälsotillståndet för miljöer med regelbundna intervall och ger en prioriterad lista med rekommendationer som är specifika för en distribuerad serverinfrastruktur.
--   [Program mot skadlig kod Assessment](https://docs.microsoft.com/azure/log-analytics/log-analytics-malware): det program mot skadlig kod rapporter om status för skadlig kod, hot och skydd.
--   [Azure Automation](https://docs.microsoft.com/azure/automation/automation-hybrid-runbook-worker): I Azure Automation-lösningen lagrar, kör och hanterar runbooks.
--   [Säkerhet och granska](https://docs.microsoft.com/azure/operations-management-suite/oms-security-getting-started): på säkerhet och granska instrumentpanelen ger en övergripande inblick i säkerhetsstatusen på resurser genom att tillhandahålla mått på säkerhetsdomäner anmärkningsvärda problem, identifieringar, hotinformation och vanliga säkerhetsfrågor.
--   [SQL-bedömning](https://docs.microsoft.com/azure/log-analytics/log-analytics-sql-assessment): The SQL Health Check lösningen utvärderar risk och hälsotillståndet för miljöer med regelbundna intervall och ger kunder med en prioriterad lista med rekommendationer som är specifika för en distribuerad serverinfrastruktur.
--   [Uppdateringshantering](https://docs.microsoft.com/azure/operations-management-suite/oms-solution-update-management): det uppdateringshantering lösningen kan kundhantering av operativsystemet, säkerhetsuppdateringar, inklusive statusen tillgängliga uppdateringar och processen för att installera nödvändiga uppdateringar.
--   [Agenthälsa](https://docs.microsoft.com/azure/operations-management-suite/oms-solution-agenthealth): den Agenthälsa lösningen rapporterar hur många agenter distribueras och deras geografiska spridning samt hur många agenter som inte svarar och antalet agenter som skickar användningsdata.
--   [Azure aktivitetsloggar](https://docs.microsoft.com/azure/log-analytics/log-analytics-activity): den aktivitet Log Analytics-lösning som hjälper till med analys av Azure aktivitetsloggar över alla Azure-prenumerationer för en kund.
--   [Ändringsspårning](https://docs.microsoft.com/azure/log-analytics/log-analytics-activity): Change Tracking lösningen ger kunder möjlighet att enkelt identifiera ändringar i miljön.
+Dessutom installeras följande övervakningslösningar som en del av den här arkitekturen. Observera att det är kundens ansvar att konfigurera dessa lösningar för att anpassas till FedRAMP säkerhetskontroller:
+-   [AD-bedömning](https://docs.microsoft.com/azure/log-analytics/log-analytics-ad-assessment): The Health kontroll av Active Directory lösningen utvärderar risker och hälsotillstånd i server-miljöer med regelbundna intervall och ger en prioriterad lista över rekommendationer som är specifika för den distribuerade serverinfrastrukturen.
+-   [Utvärdering av program mot skadlig kod](https://docs.microsoft.com/azure/log-analytics/log-analytics-malware): The program mot skadlig kod rapporterar status för skadlig kod, hot och skydd.
+-   [Azure Automation](https://docs.microsoft.com/azure/automation/automation-hybrid-runbook-worker): med Azure Automation-lösningen lagrar, kör och hanterar runbooks.
+-   [Säkerhet och granskning](https://docs.microsoft.com/azure/operations-management-suite/oms-security-getting-started): The säkerhet och granskning instrumentpanelen innehåller en övergripande inblick i säkerhetstillståndet hos resurser genom att tillhandahålla mått på säkerhetsdomäner anmärkningsvärda problem, identifieringar, hotintelligens och vanliga säkerhetsfrågor.
+-   [SQL-bedömning](https://docs.microsoft.com/azure/log-analytics/log-analytics-sql-assessment): The SQL-hälsa och kontrollera lösningen utvärderar risker och hälsotillstånd i server-miljöer med regelbundna intervall och tillhandahåller kunder med en prioriterad lista över rekommendationer som är specifika för den distribuerade serverinfrastrukturen.
+-   [Hantering av uppdateringar](https://docs.microsoft.com/azure/operations-management-suite/oms-solution-update-management): uppdateringshanteringslösningen kan kundhantering av säkerhetsuppdateringar för operativsystemet, inklusive statusen för tillgängliga uppdateringar och processen för att installera nödvändiga uppdateringar.
+-   [Agenthälsa](https://docs.microsoft.com/azure/operations-management-suite/oms-solution-agenthealth): The agenthälsolösningen rapporterar hur många agenter distribueras och deras geografisk fördelning, samt hur många agenter som inte svarar och antalet agenter som skickar driftdata.
+-   [Azure-aktivitetsloggar](https://docs.microsoft.com/azure/log-analytics/log-analytics-activity): The Activity Log Analytics-lösning som hjälper till med analys av Azure-aktivitetsloggar för alla Azure-prenumerationer för en kund.
+-   [Ändringsspårning](https://docs.microsoft.com/azure/log-analytics/log-analytics-activity): The Change Tracking solution gör att kunder enkelt kan identifiera ändringar i miljön.
 
-**Azure-Monitor**
-[Azure-Monitor](https://docs.microsoft.com/azure/monitoring-and-diagnostics/) hjälper användarna att spåra prestanda, upprätthålla säkerheten och identifiera trender genom att aktivera organisationer att granska, skapa aviseringar och arkivera data, inklusive spårning av API-anrop i kundernas Azure-resurser.
+**Azure Monitor**
+[Azure Monitor](https://docs.microsoft.com/azure/monitoring-and-diagnostics/) hjälper användare att spåra prestanda, upprätthålla säkerhet och identifiera trender genom att organisationer kan granska, skapa aviseringar och arkivera data, inklusive spårning av API-anrop i kunders Azure-resurser.
 
 ## <a name="threat-model"></a>Hotmodell
-Flödesdiagram för data för denna Referensarkitektur är tillgänglig för [hämta](https://aka.ms/fedrampWAdfd) eller finns nedan. Den här modellen hjälper kunder att förstå punkterna i risken i infrastrukturen för system när ändringar görs.
+Dataflödesdiagram för denna Referensarkitektur är tillgängligt för [hämta](https://aka.ms/fedrampWAdfd) eller finns nedan. Den här modellen kan hjälpa kunderna att förstå punkterna i risken i system-infrastruktur när du gör ändringar.
 
-![IaaS-webbprogram för FedRAMP hotmodell](images/fedramp-iaaswa-threat-model.png?raw=true "IaaS Web Flersvalsstart för FedRAMP hotmodell")
+![IaaS-webbprogram för FedRAMP hotmodell](images/fedramp-iaaswa-threat-model.png?raw=true "IaaS Web Applicaiton för FedRAMP hotmodell")
 
-## <a name="compliance-documentation"></a>Dokumentation för efterlevnad
+## <a name="compliance-documentation"></a>Dokumentation om efterlevnad
 
-Den [Azure-säkerhet och efterlevnad modell - FedRAMP hög kunden ansvar matrisen](https://aka.ms/blueprinthighcrm) visar en lista över alla säkerhetskontroller som krävs av FedRAMP hög baslinjen. Matrisen anger om genomförandet av varje kontroll ansvarar för Microsoft, kund, eller delas mellan två.
+Den [Azure säkerhet och efterlevnad skissen - FedRAMP hög kundens ansvar matrisen](https://aka.ms/blueprinthighcrm) visar en lista över alla säkerhetskontroller som krävs av FedRAMP High-baslinje. Matrisen anger om implementeringen av varje kontroll ansvarar för Microsoft, kunden, eller delas mellan två.
 
-Den [Azure-säkerhet och efterlevnad modell - FedRAMP IaaS Web Application hög kontroll implementering Matrix](https://aka.ms/blueprintwacim) visar en lista över alla säkerhetskontroller som krävs av FedRAMP hög baslinjen. Matrisen innehåller information som omfattas kontroller av IaaS web application arkitektur, inklusive detaljerade beskrivningar av hur implementeringen uppfyller kraven för varje skyddad kontroll.
+Den [Azure säkerhet och efterlevnad skissen - FedRAMP IaaS Web Application hög kontroll implementering Matrix](https://aka.ms/blueprintwacim) visar en lista över alla säkerhetskontroller som krävs av FedRAMP High-baslinje. Matrisen innehåller information som kontroller omfattas av IaaS webbprogramarkitektur, inklusive detaljerade beskrivningar av hur implementeringen uppfyller kraven för varje skyddad kontroll.
 
 ## <a name="deploy-the-solution"></a>Distribuera lösningen
 
-Den här Azure-säkerhet och efterlevnad utkast Automation består av JSON-konfigurationsfiler och PowerShell-skript som hanteras av Azure Resource Manager API-tjänsten för att distribuera resurser i Azure. Detaljerade stegvisa anvisningar finns [här](https://aka.ms/fedrampblueprintrepo).
+Den här Azure-säkerhet och efterlevnad skissen Automation består av JSON-konfigurationsfiler och PowerShell-skript som hanteras av Azure Resource Manager API-tjänsten för att distribuera resurser i Azure. Distribution av detaljerade instruktioner finns [här](https://aka.ms/fedrampblueprintrepo).
 > [!NOTE]
 > Den här lösningen distribueras till Azure Government.
 
 #### <a name="quickstart"></a>Snabbstart
-1. Klona eller hämta [detta](https://aka.ms/fedrampblueprintrepo) GitHub-lagringsplatsen till din lokala arbetsstation.
+1. Klona eller ladda ned [detta](https://aka.ms/fedrampblueprintrepo) GitHub-lagringsplatsen till den lokala arbetsstationen.
 
-2. Kör PowerShell-skript före distributionen: azure-blueprint/predeploy/Orchestration_InitialSetup.ps1.
+2. Kör PowerShell-skript före: azure-blueprint/predeploy/Orchestration_InitialSetup.ps1.
 
-3. Klicka på knappen nedan, logga in på Azure-portalen, ange de obligatoriska parametrarna för ARM-mallen och klicka på **inköp**.
+3. Klicka på knappen nedan, logga in på Azure portal, anger du de obligatoriska parametrarna för ARM-mallen och klicka på **köp**.
 
     [![Distribuera till Azure](http://azuredeploy.net/AzureGov.png)](https://portal.azure.us/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Ffedramp-iaas-webapp%2Fmaster%2Fazuredeploy.json)
 
 ## <a name="guidance-and-recommendations"></a>Vägledning och rekommendationer
-### <a name="vpn-and-expressroute"></a>VPN- och ExpressRoute
-En säker VPN-tunnel eller [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) måste konfigureras för att upprätta en anslutning till resurser som har distribuerats som en del av denna Referensarkitektur för IaaS-webbprogram. Kunder kan genom på lämpligt sätt att skapa en VPN eller ExpressRoute, lägga till ett lager av dataskydd under överföring.
+### <a name="vpn-and-expressroute"></a>VPN och ExpressRoute
+En säker VPN-tunnel eller [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) måste konfigureras för att upprätta en anslutning till resurser som har distribuerats som en del av denna Referensarkitektur för IaaS-webbprogram. Genom på lämpligt sätt att konfigurera en VPN eller ExpressRoute, kan kunderna lägga till ett lager säkerhet för data under överföring.
 
-Genom att implementera en säker VPN-tunnel med Azure, kan du skapa en virtuell privat anslutning mellan ett lokalt nätverk och ett Azure Virtual Network. Den här anslutningen sker via Internet och ger kunder möjlighet att på ett säkert sätt ”tunnel” information i en krypterad anslutning mellan kundens nätverk och Azure. Plats-till-plats VPN är en säker, mogen teknik som har distribuerats av företag i alla storlekar för åren. Den [IPSec-tunnelläge](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2003/cc786385(v=ws.10)) används i det här alternativet som en krypteringsmekanism för.
+Genom att implementera en säker VPN-tunnel med Azure kan du skapa en virtuell privat anslutning mellan ett lokalt nätverk och Azure Virtual Network. Den här anslutningen sker via Internet och kan kunderna på ett säkert sätt ”tunnel” informationen i en krypterad anslutning mellan kundens nätverk och Azure. Plats-till-plats-VPN är en säker, mogen teknik som har distribuerats av företag av alla storlekar för flera decennier. Den [IPSec-tunnelläge](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2003/cc786385(v=ws.10)) används i det här alternativet som en krypteringsmekanism.
 
-Eftersom trafiken i VPN-tunnel passerar Internet med en plats-till-plats-VPN, erbjuder Microsoft en annan, ännu mer säker anslutning. Azure ExpressRoute är en fast WAN länken mellan Azure och en lokal plats eller en värdleverantör för Exchange. Som det inte går att ExpressRoute anslutningar över Internet, erbjuder dessa anslutningar mer tillförlitlighet, högre hastighet, lägre latens och högre säkerhet än vanliga anslutningar över Internet. Dessutom eftersom det här är en direkt anslutning av kundens telekommunikation providern data överföras inte via Internet och därför visas inte för den.
+Eftersom trafik i VPN-tunneln passerar via Internet med en plats-till-plats-VPN, erbjuder Microsoft alternativ för en annan ännu mer säker anslutning. Azure ExpressRoute är en dedikerad WAN länk mellan Azure och en lokal plats eller en värdbaserade Exchange-provider. När ExpressRoute-anslutningar inte går via Internet, är dessa anslutningar mer tillförlitlighet, snabbare hastigheter, kortare svarstider och högre säkerhet än vanliga anslutningar via Internet. Dessutom eftersom detta är en direkt anslutning av kundens telekommunikation providern kan data följer inte med dig via Internet och därför visas inte för den.
 
-Bästa praxis för att implementera en säker hybrid-nätverk som utökar ett lokalt nätverk till Azure [tillgängliga](https://docs.microsoft.com/azure/architecture/reference-architectures/dmz/secure-vnet-hybrid).
+Bästa praxis för att implementera ett säkert hybridnätverk som utökar ett lokalt nätverk till Azure [tillgängliga](https://docs.microsoft.com/azure/architecture/reference-architectures/dmz/secure-vnet-hybrid).
 
 ## <a name="disclaimer"></a>Ansvarsfriskrivning
 
-- Det här dokumentet är endast i informativt syfte. MICROSOFT LÄMNAR INGA GARANTIER, UTTRYCKLIGA, UTTRYCKLIGA ELLER UNDERFÖRSTÅDDA, AVSEENDE INFORMATIONEN I DET HÄR DOKUMENTET. Detta dokument tillhandahålls ”som-är”. Information och åsikter som uttrycks i detta dokument, inklusive Webbadresser och andra webbplatsreferenser, kan ändras utan föregående meddelande. Kunder som det här dokumentet ansvar använder den.  
-- Det här dokumentet innehåller inte kunder inga juridiska rättigheter till någon immateriell egendom i någon Microsoft-produkt eller -lösningar.  
+- Det här dokumentet är endast i informationssyfte. MICROSOFT LÄMNAR INGA GARANTIER, UTTRYCKLIGA, UNDERFÖRSTÅDDA ELLER LAGSTADGADE, VAD GÄLLER INFORMATIONEN I DET HÄR DOKUMENTET. Detta dokument tillhandahålls ”som – är”. Information och åsikter som uttrycks i detta dokument, inklusive Webbadresser och andra webbplatsreferenser, kan ändras utan föregående meddelande. Kunder i det här dokumentet bär risken för användningen av den.  
+- Det här dokumentet ger inte kunder med inga juridiska rättigheter till någon immateriell egendom i någon Microsoft-produkt eller lösningar.  
 - Kunderna får kopiera och använda det här dokumentet som intern referens.  
-- Vissa rekommendationerna i det här dokumentet kan resultera i ökade data, nätverk eller beräkning Resursanvändning i Azure och kan öka kostnaderna för en kund Azure licens eller prenumeration.  
-- Den här arkitekturen är avsett att utgöra grunden för kunder att justera sina särskilda krav och ska inte användas som – i en produktionsmiljö.
-- Det här dokumentet har utvecklats som referens och ska inte användas för att definiera alla metoder som en kund kan uppfylla specifika efterlevnadskrav och -förordningar. Kunder bör söka juridiskt stöd från sin organisation på godkända kund-implementeringar.
+- Vissa rekommendationerna i det här dokumentet kan leda till ökad data, nätverk och beräkning Resursanvändning i Azure och öka kostnaderna för en kunds Azure-licens eller prenumeration.  
+- Den här arkitekturen är avsedd att fungera som en grund för kunder att anpassa sig till sina specifika krav och ska inte användas som-är i en produktionsmiljö.
+- Det här dokumentet har utvecklats som en referens och ska inte användas för att definiera alla innebär som en kund kan uppfylla specifika efterlevnadskrav och föreskrifter. Kunder bör söka juridiskt stöd från organisationen på godkända kundimplementeringar.

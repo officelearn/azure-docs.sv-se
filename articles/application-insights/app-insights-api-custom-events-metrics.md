@@ -13,12 +13,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 09/16/2018
 ms.author: mbullwin
-ms.openlocfilehash: 3de3a7b15f2ebef549f925f6604956ca16f4551b
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: 4e44a82969b0b91b04174d8643cf136abf14a575
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49388100"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49405250"
 ---
 # <a name="application-insights-api-for-custom-events-and-metrics"></a>Application Insights API för anpassade händelser och mått
 
@@ -154,7 +154,7 @@ telemetry.trackEvent({name: "WinGame"});
 
 Telemetri är tillgänglig i den `customEvents` tabellen i [Application Insights Analytics](app-insights-analytics.md). Varje rad som representerar ett anrop till `trackEvent(..)` i din app.
 
-Om [sampling](app-insights-sampling.md) är i drift, egenskapen itemCount visar ett värde större än 1. För exempel itemCount == 10 sätt att för 10 anrop till trackEvent() processen sampling endast skickas en av dem. För att få en korrekt antal anpassade händelser, bör du använda därför använda koden som `customEvent | summarize sum(itemCount)`.
+Om [sampling](app-insights-sampling.md) är i drift, egenskapen itemCount visar ett värde större än 1. För exempel itemCount == 10 sätt att för 10 anrop till trackEvent() processen sampling endast skickas en av dem. För att få en korrekt antal anpassade händelser, bör du använda därför använda koden som `customEvents | summarize sum(itemCount)`.
 
 ## <a name="getmetric"></a>GetMetric
 

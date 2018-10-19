@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/24/2018
 ms.author: daseidma;bwren
-ms.openlocfilehash: a68c35ba2f740720e3d7940d6fafa2dcfe183589
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: 70cf6fe1e2256ba2ed58d020111669e59d9db56b
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47064383"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49405522"
 ---
 # <a name="configure-service-map-in-azure"></a>Konfigurera Tjänstkarta i Azure
 Tjänstkarta identifierar automatiskt programkomponenter i Windows- och Linux-system och mappar kommunikationen mellan olika tjänster. Du kan använda den för att visa dina servrar som du tänker på dem, sammankopplat system som levererar viktiga tjänster. Tjänstkarta visar anslutningar mellan servrar, processer och portar i alla TCP-anslutna arkitekturer utan konfiguration som krävs, än installation av en agent.
@@ -138,22 +138,22 @@ Tjänstkarta hämtar data från Microsoft Dependency agenten. Beroendeagenten ä
 | System Center Operations Manager-hanteringsgrupp | Ja | Service Map analyserar och samlar in data från Windows och Linux-agenter i en ansluten [System Center Operations Manager-hanteringsgrupp](../log-analytics/log-analytics-om-agents.md). <br><br>En direktanslutning från System Center Operations Manager-agentdatorn till Log Analytics krävs. |
 | Azure Storage-konto | Nej | Tjänstkarta samlar in data från agentdatorer, så det finns inga data från den för att samla in från Azure Storage. |
 
-På Windows, Microsoft Monitoring Agent (MMA) används av både System Center Operations Manager och Log Analytics att samla in och skicka övervakningsdata. (Den här agenten kallas den System Center Operations Manager-agenten, OMS-agenten, Log Analytics-agenten, MMA eller Direct Agent beroende på kontext.) System Center Operations Manager och Log Analytics tillhandahåller olika out-nyckelfärdig versioner av MMA. Båda dessa versioner kan rapportera till System Center Operations Manager, till Log Analytics eller till båda.  
+På Windows, Microsoft Monitoring Agent (MMA) används av både System Center Operations Manager och Log Analytics att samla in och skicka övervakningsdata. (Den här agenten kallas System Center Operations Manager-agenten, Log Analytics-agenten, MMA eller Direktagent, beroende på kontext.) System Center Operations Manager och Log Analytics tillhandahåller olika out-nyckelfärdig versioner av MMA. Båda dessa versioner kan rapportera till System Center Operations Manager, till Log Analytics eller till båda.  
 
 På Linux, Log Analytics-agenten för Linux samlar och skickar övervakning av data till Log Analytics. Du kan använda Service Map på servrar med Log Analytics-agenter är anslutna direkt till tjänsten eller som rapporterar till en Operations Manager-hanteringsgrupp som är integrerat med Log Analytics.  
 
 I den här artikeln ska vi ska referera till alla agenter om Linux eller Windows ansluten till en System Center Operations Manager-hanteringsgrupp eller direkt till Log Analytics, som den *Log Analytics-agenten*. 
 
-Tjänstkarta-agenten överföra inte några data själva och det kräver inte ändringar i brandväggar eller portar. Data i Tjänstkarta överförs alltid genom Log Analytics-agenten till Log Analytics-tjänsten, antingen direkt eller via OMS-gatewayen.
+Tjänstkarta-agenten överföra inte några data själva och det kräver inte ändringar i brandväggar eller portar. Data i Tjänstkarta överförs alltid genom Log Analytics-agenten till Log Analytics-tjänsten antingen direkt eller via Log Analytics-gateway.
 
 ![Tjänstkarta-agenter](media/monitoring-service-map/agents.png)
 
 Om du är en System Center Operations Manager-kund med en hanteringsgrupp som är ansluten till Log Analytics:
 
 - Om System Center Operations Manager-agenter kan komma åt Internet för att ansluta till Log Analytics, krävs ingen ytterligare konfiguration.  
-- Om System Center Operations Manager-agenter inte kan komma åt Log Analytics via Internet, måste du konfigurera OMS-gatewayen ska fungera med System Center Operations Manager.
+- Om System Center Operations Manager-agenter inte kan komma åt Log Analytics via Internet, måste du konfigurera Log Analytics-gatewayen ska fungera med System Center Operations Manager.
   
-Om din Windows- eller Linux-datorer inte kan ansluta direkt till tjänsten, måste du konfigurera Log Analytics-agenten för att ansluta till Log Analytics med hjälp av OMS-gatewayen. Mer information om hur du distribuerar och konfigurerar OMS-gatewayen finns [ansluter datorer utan Internetåtkomst med OMS-gatewayen](../log-analytics/log-analytics-oms-gateway.md).  
+Om din Windows- eller Linux-datorer inte kan ansluta direkt till tjänsten, måste du konfigurera Log Analytics-agenten för att ansluta till Log Analytics-arbetsytan med hjälp av gatewayen. Mer information om hur du distribuerar och konfigurerar Log Analytics-gateway finns [ansluter datorer utan Internetåtkomst med Log Analytics-gateway](../log-analytics/log-analytics-oms-gateway.md).  
 
 ### <a name="management-packs"></a>Hanteringspaket
 När Tjänstkarta har aktiverats i Log Analytics-arbetsytan kan vidarebefordras ett hanteringspaket på 300 KB till alla Windows-servrar i den arbetsytan. Om du använder System Center Operations Manager-agenter i en [ansluten hanteringsgrupp](../log-analytics/log-analytics-om-agents.md), Tjänstkarta-hanteringspaket distribueras från System Center Operations Manager. 

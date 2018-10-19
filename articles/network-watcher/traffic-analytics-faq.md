@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/08/2018
 ms.author: jdial
-ms.openlocfilehash: debefb329304235818b7b441122b90ae9a2834a9
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: 69d2d80e40400cc7fa40aeb5a163dce5036905ab
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45578318"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49402768"
 ---
 # <a name="traffic-analytics-frequently-asked-questions"></a>Vanliga och frågor svar om trafikanalys
 
@@ -77,9 +77,9 @@ Ja.
 
 Ja. Om du väljer en befintlig arbetsyta kan du kontrollera att den har migrerats till det nya frågespråket. Om du inte vill uppgradera arbetsytan måste du skapa en ny. Läs mer om det nya frågespråket [uppgradering av Azure Log Analytics till ny loggsökning](../log-analytics/log-analytics-log-search-upgrade.md).
 
-## <a name="can-my-azure-storage-account-be-in-one-subscription-and-my-operations-management-suite-workspace-be-in-a-different-subscription"></a>Kan min Azure Storage-konto i en prenumeration och min Operations Management Suite-arbetsyta är i en annan prenumeration?
+## <a name="can-my-azure-storage-account-be-in-one-subscription-and-my-log-analytics-workspace-be-in-a-different-subscription"></a>Kan min Azure Storage-konto i en prenumeration och min Log Analytics-arbetsyta är i en annan prenumeration?
 
-Ja, Azure Storage-kontot kan vara i en prenumeration och Operations Management Suite-arbetsytan kan vara i en annan prenumeration.
+Ja, Azure Storage-kontot kan vara i en prenumeration och Log Analytics-arbetsytan kan vara i en annan prenumeration.
 
 ## <a name="can-i-store-raw-logs-in-a-different-subscription"></a>Kan jag lagra loggarna i en annan prenumeration?
 
@@ -115,7 +115,7 @@ Om problemet kvarstår kan du ställa frågor i den [User voice-forumet](https:/
 
 Du kanske ser det här meddelandet eftersom:
 - Trafikanalys nyligen har aktiverats och kan inte ännu har sammanställd tillräckligt med data att dra användbara slutsatser.
-- Du använder den kostnadsfria versionen av Operations Management Suite-arbetsyta och det överskrider kvotgränserna. Du kan behöva använda en arbetsyta med en större kapacitet.
+- Du använder den kostnadsfria versionen av Log Analytics-arbetsytan och det överskrider kvotgränserna. Du kan behöva använda en arbetsyta med en större kapacitet.
     
 Om problemet kvarstår kan du ställa frågor i den [User voice-forumet](https://feedback.azure.com/forums/217313-networking?category_id=195844).
     

@@ -11,16 +11,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/28/2018
+ms.date: 10/17/2018
 ms.author: barbkess
-ms.reviewer: harshja
+ms.reviewer: japere
 ms.custom: it-pro
-ms.openlocfilehash: 23bf9d5fb26ee3a0f224f7a8acc2b0539a5c1607
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.openlocfilehash: c9c21b9beb891a685d7e264ec55817c0045455bc
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39364618"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49406285"
 ---
 # <a name="understand-azure-ad-application-proxy-connectors"></a>Förstå Azure AD Application Proxy-anslutningar
 
@@ -79,7 +79,7 @@ Kopplingar kommer automatiskt att belastningsutjämna inom en anslutningsgrupp, 
 |4|16|320|1150|
 |8|32|270|1190|
 |16|64|245|1200*|
-\* Den här datorn hade en anslutning på högst 800. Vi använde 200 anslutning Standardgränsen för alla andra datorer.
+\* Den här datorn används en anpassad inställning för att öka vissa standardgränser för anslutning utöver .net rekommenderade inställningar. Vi rekommenderar att köra ett test med standardinställningarna innan du kontaktar supporten för att få den här gränsen som har ändrats för din klient.
  
 >[!NOTE]
 >Det finns inte mycket skillnaden i maximala TPS mellan 4 och 8 datorer med 16 kärnor. Den största skillnaden mellan de som finns i den förväntade svarstiden.  

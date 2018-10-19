@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 07/13/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: e42bc63b0c2b6edf4dc0de204bbac5fe90071a67
-ms.sourcegitcommit: fc5555a0250e3ef4914b077e017d30185b4a27e6
+ms.openlocfilehash: 7410dadabf9fda2eb36531991d1d7ff3c3747e2c
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39480520"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49406525"
 ---
 # <a name="applications-types-that-can-be-used-in-active-directory-b2c"></a>Typer av program som kan användas i Active Directory B2C
 
@@ -88,11 +88,6 @@ Accept: application/json
 
 Webb-API:et kan sedan använda token för att verifiera API-anroparens identitet och för att extrahera information om anroparen från anspråk som är kodade i token. Mer information om vilka typer av token och anspråk som är tillgängliga för en app finns i [referens för Azure AD B2C-token](active-directory-b2c-reference-tokens.md).
 
-> [!NOTE]
-> Azure AD B2C stöder för närvarande endast webb-API:er som används av egna välkända klienter. En fullständig app kan exempelvis omfatta en iOS-App, ett Android-program och ett backend-webb-API. Den här arkitekturen stöds fullt ut. Ge en partnerklient, till exempel en annan iOS-programmet, som åtkomst till samma webb API inte stöds för närvarande. Alla komponenter i ditt fullständiga program måste dela ett enda program-ID.
->
->
-
 Ett webb-API kan ta emot token från många typer av klienter, inklusive webbprogram, fjärrskrivbord och mobilprogram, en sida program, server-deamon och andra webb-API: er. Här är ett exempel på det fullständiga flödet för ett webbprogram som anropar ett webb-API:
 
 1. Webbprogrammet körs en princip och användaren Slutför användarupplevelsen.
@@ -114,11 +109,6 @@ Mer information om hur du skyddar ett webb-API med hjälp av Azure AD B2C finns 
 Program som är installerade på enheter, till exempel bärbara och stationära program behöver ofta åtkomst till backend-tjänster eller webb-API: er åt användare. Du kan lägga till anpassade identitetshanteringsmiljöer i dina interna program och på ett säkert sätt anropa backend-tjänster med hjälp av Azure AD B2C och [OAuth 2.0-auktoriseringskodflödet](active-directory-b2c-reference-oauth-code.md).  
 
 I det här flödet att programmet kör [principer](active-directory-b2c-reference-policies.md) och tar emot en `authorization_code` från Azure AD när användaren uppfyller principen. Den `authorization_code` representerar programmets behörighet att anropa backend-tjänster för den användare som för närvarande är inloggad. Programmet kan sedan byta den `authorization_code` i bakgrunden för en `id_token` och en `refresh_token`.  Programmet kan använda den `id_token` att autentisera till en backend-webb API i HTTP-förfrågningar. Den kan också använda `refresh_token` för att hämta en ny `id_token` när en äldre upphör att gälla.
-
-> [!NOTE]
-> Azure AD-B2C stöder för närvarande endast token som används för att komma åt en programmets egen backend-webbtjänst. Fullständig programmet kan exempelvis omfatta en iOS-App, ett Android-program och ett backend-webb-API. Den här arkitekturen stöds fullt ut. Så att dina iOS-program att få åtkomst till ett partnerwebb-API med hjälp av OAuth 2.0-åtkomsttoken stöds inte för närvarande. Alla komponenter i ditt fullständiga program måste dela ett enda program-ID.
->
->
 
 ## <a name="current-limitations"></a>Aktuella begränsningar
 

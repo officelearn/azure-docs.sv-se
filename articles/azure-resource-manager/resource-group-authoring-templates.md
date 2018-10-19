@@ -14,17 +14,42 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/30/2018
 ms.author: tomfitz
-ms.openlocfilehash: 129d02bea6fe3668a308da0ab2a46ca8b59928e7
-ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
+ms.openlocfilehash: 1b982bddc951e710ba3bfa5fe8621d6595b95a52
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/13/2018
-ms.locfileid: "45542252"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49405352"
 ---
 # <a name="understand-the-structure-and-syntax-of-azure-resource-manager-templates"></a>Förstå strukturen och syntaxen för Azure Resource Manager-mallar
 Den här artikeln beskriver strukturen för en Azure Resource Manager-mall. Den anger de olika avsnitten i en mall och egenskaperna som är tillgängliga i dessa avsnitt. Mallen består av JSON och uttryck som du kan använda för att skapa värden för din distribution. En stegvis självstudiekurs om hur du skapar en mall finns i [skapa din första Azure Resource Manager-mall](resource-manager-create-first-template.md).
 
+## <a name="quickstarts-and-tutorials"></a>Snabbstarter och självstudier
+
+Använd följande snabbstarter och självstudier för att lära dig hur du utvecklar resource manager-mallar:
+
+- Snabbstarter
+
+  	|Titel|Beskrivning|
+  	|------|-----|
+  	|[Använda Azure Portal](./resource-manager-quickstart-create-templates-use-the-portal.md)|Skapa en mall med hjälp av portalen och hur du redigerar och distribuera mallen.|
+  	|[Använd Visual Studio Code](./resource-manager-quickstart-create-templates-use-visual-studio-code.md)|Använd Visual Studio Code för att skapa och redigera mallar och hur du använder Azure Cloud shell för att distribuera mallar.|
+  	|[Använd Visual Studio](./vs-azure-tools-resource-groups-deployment-projects-create-deploy.md)|Använd Visual Studio för att skapa, redigera och distribuera mallar.|
+
+- Självstudier
+
+  	|Titel|Beskrivning|
+  	|------|-----|
+  	|[Använda mallreferensen](./resource-manager-tutorial-create-encrypted-storage-accounts.md)|Använda referensdokumentationen för mallar för att utveckla mallar. I självstudierna hitta schema för storage-konto och Använd informationen för att skapa ett krypterat lagringskonto.|
+  	|[Skapa flera instanser](./resource-manager-tutorial-create-multiple-instances.md)|Skapa flera instanser av Azure-resurser. I självstudiekursen ska skapa du flera instanser av storage-konto.|
+  	|[Ange distributionsordning för resursen](./resource-manager-tutorial-create-templates-with-dependent-resources.md)|Definiera resursberoenden. I självstudien skapar du ett virtuellt nätverk, en virtuell dator och beroende Azure-resurser. Du lär dig hur beroenden som har definierats.|
+  	|[Använda villkor](./resource-manager-tutorial-use-conditions.md)|Distribuera resurser baserat på vissa parametervärden. I självstudien definierar du en mall för att skapa ett nytt lagringskonto eller Använd ett befintligt lagringskonto baserat på värdet för en parameter.|
+  	|[Integrera nyckelvalv](./resource-manager-tutorial-use-key-vault.md)|Hämta hemligheter/lösenord från Azure Key Vault. I självstudien skapar du en virtuell dator.  Lösenord för virtuella datorn administratören hämtas från ett Key Vault.|
+  	|[Skapa länkade mallar](./resource-manager-tutorial-create-linked-templates.md)|Modularize mallar och anropa andra mallar från en mall. I självstudien skapar du ett virtuellt nätverk, en virtuell dator och alla beroende resurser.  Det beroende lagringskontot har definierats i en länkad mall. |
+  	|[Använda praxis för säker distribution](./deployment-manager-tutorial.md)|Använd Azure Deployment manager. |
+
 ## <a name="template-format"></a>Mallformat
+
 I sin enklaste struktur har en mall följande element:
 
 ```json

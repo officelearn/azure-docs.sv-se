@@ -14,23 +14,23 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: tomsh
-ms.openlocfilehash: 706e946e61f7d5f48ce5071e90d724af717449d9
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: 724603fdb80e6fce7d5b8756655d23a6c32d5558
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45575226"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49405471"
 ---
 # <a name="azure-operational-security-overview"></a>Översikt över Azure driftsäkerhet
 [Azure driftsäkerhet](https://docs.microsoft.com/azure/security/azure-operational-security) refererar till de tjänster, kontroller och funktioner som är tillgängliga för användare för att skydda sina data, program och andra resurser i Microsoft Azure. Det är ett ramverk som innehåller den kunskap som en mängd funktioner som är unika för Microsoft. Funktionerna omfattar Microsoft Security Development Lifecycle (SDL), Microsoft Security Response Center-program och djup medvetenhet om hotlandskapet.
 
-## <a name="operations-management-suite"></a>Operations Management Suite
+##  <a name="azure-management-services"></a>Azure-hanteringstjänster
 En IT-driftsteamet ansvarar för att hantera infrastruktur med datacenter, program och data, inklusive stabilitet och säkerheten för dessa system. Informationshämtning säkerhet över ökar komplexa IT-miljöer ofta kräver dock organisationer att cobble ihop data från flera system för säkerhet och hantering.
 
-[Microsoft Operations Management Suite](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-overview) är en molnbaserad IT-hanteringslösning som hjälper dig att hantera och skydda dina lokala och molnbaserade infrastruktur. Dess huvudfunktioner tillhandahåller följande tjänster som körs i Azure. Varje tjänst tillhandahåller en specifik hanteringsfunktion. Du kan kombinera tjänster för olika hanteringsscenarier. 
+[Microsoft Log Analytics](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-overview) är en molnbaserad IT-hanteringslösning som hjälper dig att hantera och skydda dina lokala och molnbaserade infrastruktur. Dess huvudfunktioner tillhandahåller följande tjänster som körs i Azure. Azure innehåller flera tjänster som hjälper dig att hantera och skydda dina lokala och molnbaserade infrastruktur. Varje tjänst tillhandahåller en specifik hanteringsfunktion. Du kan kombinera tjänster för olika hanteringsscenarier. 
 
-### <a name="log-analytics"></a>Log Analytics
-[Azure Log Analytics](http://azure.microsoft.com/documentation/services/log-analytics) tillhandahåller övervakning för Operations Management Suite genom att samla in data från hanterade resurser i en central databas. Dessa data kan omfatta händelser, prestandadata eller anpassade data via API: et. När data har samlats in, är den tillgänglig för avisering, analys och export. 
+### <a name="azure-monitor"></a>Azure Monitor
+[Azure Monitor](https://docs.microsoft.com/en-us/azure/azure-monitor/overview) samlar in data från hanterade sourcesa i central datalager. Dessa data kan omfatta händelser, prestandadata eller anpassade data via API: et. När data har samlats in, är den tillgänglig för avisering, analys och export. 
 
 Du kan konsolidera data från olika källor och kombinera data från dina Azure-tjänster med din befintliga lokala miljö. Log Analytics skiljer också en tydlig insamling av data från de åtgärder som vidtagits på dessa data så att alla åtgärder är tillgängliga för alla typer av data.
 
@@ -85,7 +85,7 @@ Security Center utvärderar konfigurationen av dina resurser för att identifier
 >[!Note]
 >Mer information om roller och tillåtna åtgärder i Security Center finns i [behörigheter i Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-permissions).
 
-Security Center använder Microsoft Monitoring Agent. Det här är samma agent med Operations Management Suite och Log Analytics-tjänsten. Data som samlas in från agenten lagras i en befintlig logganalys [arbetsytan](https://docs.microsoft.com/azure/log-analytics/log-analytics-manage-access) som är associerade med din Azure-prenumeration eller en ny arbetsyta med hänsyn till geoplats för den virtuella datorn.
+Security Center använder Microsoft Monitoring Agent. Det här är samma agent som använder tjänsten Log Analytics. Data som samlas in från agenten lagras i en befintlig logganalys [arbetsytan](https://docs.microsoft.com/azure/log-analytics/log-analytics-manage-access) som är associerade med din Azure-prenumeration eller en ny arbetsyta med hänsyn till geoplats för den virtuella datorn.
 
 ## <a name="azure-monitor"></a>Azure Monitor
 Prestandaproblem i din molnapp kan påverka din verksamhet. Med flera sammankopplade komponenter och ofta versioner kan försämringar inträffa när som helst. Och om du utvecklar en app kan användarna identifiera vanligtvis problem som du hittade i testet. Du bör veta om de här problemen omedelbart och du bör ha verktyg för att diagnostisera och lösa problem.
@@ -155,8 +155,8 @@ Mogen DevOps läkare anta flera av följande metoder. Dessa metoder [omfattar pe
 -   [Mikrotjänster](https://www.visualstudio.com/learn/what-are-microservices/) arkitektur som används för att isolera användningsområden i små återanvändbara tjänster.  Den här arkitekturen möjliggör skalbarhet och effektivitet.
 
 ## <a name="next-steps"></a>Nästa steg
-Läs om lösningen för Operations Management Suite säkerhet och granskning i följande artiklar:
+Läs om lösningen för säkerhet och granskning i följande artiklar:
 
 - [Säkerhet och efterlevnad](https://www.microsoft.com/cloud-platform/security-and-compliance)
-- [Övervaka och svara på säkerhetsaviseringar i lösningen för Operations Management Suite säkerhet och granskning](https://docs.microsoft.com/azure/operations-management-suite/oms-security-responding-alerts)
-- [Övervaka resurser i lösningen för Operations Management Suite säkerhet och granskning](https://docs.microsoft.com/azure/operations-management-suite/oms-security-monitoring-resources)
+- [Azure Security Center](https://docs.microsoft.com/en-us/azure/security-center/security-center-intro)
+- [Azure Monitor](https://docs.microsoft.com/en-us/azure/azure-monitor/overview)

@@ -12,12 +12,12 @@ ms.author: ronitr
 ms.reviewer: vanto
 manager: craigg
 ms.date: 10/15/2018
-ms.openlocfilehash: bd40faf8a77a8940dc78375ec516c39742540231
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: b18f7efa09b33def2851967b5fc78bb1ddbc61e6
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49352847"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49404927"
 ---
 # <a name="get-started-with-sql-database-auditing"></a>Kom igång med SQL-databasgranskning
 
@@ -79,7 +79,7 @@ I följande avsnitt beskrivs konfigurationen av granskning med Azure portal.
 
     ![Navigeringsfönster][3]
 
-5. **Nya** – nu har du flera alternativ för att konfigurera där granskningsloggar ska skrivas. Du kan skriva loggar till ett Azure storage-konto, till en OMS-arbetsyta för användning av Log Analytics eller till event hub för förbrukning med händelsehubben. Du kan konfigurera en kombination av dessa alternativ och granskningsloggar skrivs till var och en.
+5. **Nya** – nu har du flera alternativ för att konfigurera där granskningsloggar ska skrivas. Du kan skriva loggar till ett Azure storage-konto, till en Log Analytics-arbetsyta för användning av Log Analytics eller till event hub för förbrukning med händelsehubben. Du kan konfigurera en kombination av dessa alternativ och granskningsloggar skrivs till var och en.
 
     ![lagringsalternativ](./media/sql-database-auditing-get-started/auditing-select-destination.png)
 
@@ -87,9 +87,9 @@ I följande avsnitt beskrivs konfigurationen av granskning med Azure portal.
 
     ![storage account](./media/sql-database-auditing-get-started/auditing_select_storage.png)
 
-7. Konfigurera granskning för skrivning loggar till en OMS-arbetsyta, väljer **Log Analytics (förhandsversion)** och öppna **Log Analytics information**. Välj eller skapa OMS-arbetsyta där loggarna sparas, och klicka sedan på **OK**.
+7. Konfigurera granskning för skrivning loggar till en Log Analytics-arbetsyta, väljer **Log Analytics (förhandsversion)** och öppna **Log Analytics information**. Välj eller skapa Log Analytics-arbetsyta där loggarna sparas, och klicka sedan på **OK**.
 
-    ![OMS](./media/sql-database-auditing-get-started/auditing_select_oms.png)
+    ![Log Analytics](./media/sql-database-auditing-get-started/auditing_select_oms.png)
 
 8. Konfigurera granskning för skrivning loggar till en händelsehubb, Välj **Event Hub (förhandsversion)** och öppna **information om Händelsehubb**. Välj händelsehubb där loggarna sparas, och klicka sedan på **OK**. Var noga med att event hub finns i samma region som din databas och server.
 
@@ -109,10 +109,10 @@ Om du har valt att skriva granskningsloggar till Log Analytics:
 
 - Klicka på **öppna i OMS** överst i den **granskningsposter** vyn loggar öppnas i Log Analytics, där du kan anpassa tidsintervallet och sökfrågan.
 
-    ![Öppna i OMS](./media/sql-database-auditing-get-started/auditing_open_in_oms.png)
+    ![Öppna i Log Analytics](./media/sql-database-auditing-get-started/auditing_open_in_oms.png)
 
 - Du kan också du kan också komma åt granskningsloggarna från Log Analytics-bladet. Öppna Log Analytics-arbetsytan och under **Allmänt** klickar du på **loggar**. Du kan börja med en enkel fråga, till exempel: *Sök ”SQLSecurityAuditEvents”* att visa granskningen loggar.
-    Härifrån kan du också använda [Operations Management Suite (OMS) Log Analytics](../log-analytics/log-analytics-log-search.md) att köra avancerade sökningar på din granskningsloggdata. Log Analytics ger dig operational realtidsinsikter med integrerad sökning och anpassade instrumentpaneler för snabb analys av miljontals poster över alla dina arbetsbelastningar och servrar. Ytterligare användbar information om OMS Log Analytics-frågespråket och kommandon finns i [Log Analytics Sök referens](../log-analytics/log-analytics-log-search.md).
+    Härifrån kan du också använda [Log Analytics](../log-analytics/log-analytics-log-search.md) att köra avancerade sökningar på din granskningsloggdata. Log Analytics ger dig operational realtidsinsikter med integrerad sökning och anpassade instrumentpaneler för snabb analys av miljontals poster över alla dina arbetsbelastningar och servrar. Ytterligare användbar information om Log Analytics-frågespråket och kommandon finns i [Log Analytics Sök referens](../log-analytics/log-analytics-log-search.md).
 
 Om du har valt att skriva granskningsloggar till Event Hub:
 

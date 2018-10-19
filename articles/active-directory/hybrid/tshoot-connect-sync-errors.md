@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 05/31/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 5180aa935ed5ab1a263c8dd002c2009ec89d5d86
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: cb2b4bdee445587b32516c8db869170ab067b8d3
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46311222"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49406865"
 ---
 # <a name="troubleshooting-errors-during-synchronization"></a>Felsök fel under synkronisering
 Fel kan uppstå när identitetsdata synkroniseras från Windows Server Active Directory (AD DS) till Azure Active Directory (AD Azure). Den här artikeln innehåller en översikt över olika typer av synkroniseringsfel några möjliga scenarier som orsakar dessa fel och potentiella sätt att åtgärda felen. Den här artikeln innehåller vanliga fel och kan inte omfatta alla eventuella fel.
@@ -178,7 +178,7 @@ b. Attributet UserPrincipalName följer inte formatet som krävs.
 a. Se till att attributet userPrincipalName har stöds tecken och format som krävs.
 
 #### <a name="related-articles"></a>Relaterade artiklar
-* [Förbereda för att etablera användare via katalogsynkronisering på Office 365](https://support.office.com/en-us/article/Prepare-to-provision-users-through-directory-synchronization-to-Office-365-01920974-9e6f-4331-a370-13aea4e82b3e)
+* [Förbereda för att etablera användare via katalogsynkronisering på Office 365](https://support.office.com/article/Prepare-to-provision-users-through-directory-synchronization-to-Office-365-01920974-9e6f-4331-a370-13aea4e82b3e)
 
 ### <a name="federateddomainchangeerror"></a>FederatedDomainChangeError
 #### <a name="description"></a>Beskrivning

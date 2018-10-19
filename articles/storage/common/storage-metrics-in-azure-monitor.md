@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 09/05/2017
 ms.author: fryu
 ms.component: common
-ms.openlocfilehash: 8fe4fdfa88a5aea4b8df49d9c00fa7f6b1768209
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
+ms.openlocfilehash: fea6ece6e40d869aea7e52718fbf07bede34e1a5
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49363443"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49406712"
 ---
 # <a name="azure-storage-metrics-in-azure-monitor"></a>Azure Storage-mått i Azure Monitor
 
@@ -23,7 +23,7 @@ Azure Monitor innehåller enhetligt användargränssnitt för övervakning över
 
 ## <a name="access-metrics"></a>Åtkomst-mått
 
-Azure Monitor innehåller flera sätt att åtkomst mått. Du kan komma åt dem från den [Azure-portalen](https://portal.azure.com), Azure Monitor-API: er (REST och .net) och lösningar för dataanalys, till exempel Operations Management Suite och Event Hubs. Mer information finns i [Azure Monitor Metrics](../../monitoring-and-diagnostics/monitoring-overview-metrics.md).
+Azure Monitor innehåller flera sätt att åtkomst mått. Du kan komma åt dem från den [Azure-portalen](https://portal.azure.com), Azure Monitor-API: er (REST och .net) och lösningar för dataanalys, till exempel Händelsehubbar. Mer information finns i [Azure Monitor Metrics](../../monitoring-and-diagnostics/monitoring-overview-metrics.md).
 
 Mått är aktiverade som standard och du kan komma åt de senaste 93 dagarna data. Om du vill behålla data under en längre tid kan du arkivera måttdata till ett Azure Storage-konto. Detta är konfigurerat i [diagnostikinställningar](../../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md) i Azure Monitor.
 

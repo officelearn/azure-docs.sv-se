@@ -1,6 +1,6 @@
 ---
-title: Ansluta till virtuella Azure-nätverk från Azure Logic Apps
-description: För att komma åt Azure-nätverk från Azure Logic Apps kan du skapa privata, dedikerade och isolerade integration service-miljöer som håller logikappar och andra resurser som är separata från offentligt eller ”global” Azure
+title: Ansluta till virtuella Azure-nätverk från Azure Logic Apps via en integration service-miljö (ISE)
+description: Skapa en integration service-miljö (ISE) så att logic apps och integrationskonton kan komma åt Azure-nätverk, utan att förlora privata och isolerade från offentligt eller ”global” Azure
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
@@ -9,23 +9,21 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 09/25/2018
-ms.openlocfilehash: 354c31014448b914b33d2bef5483efc78092f726
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: b4e4e801c3c54b635f2f13b319257018ea544c03
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47391929"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49404128"
 ---
-# <a name="create-isolated-environments-to-access-azure-virtual-networks-from-azure-logic-apps"></a>Skapa isolerade miljöer för att komma åt Azure-nätverk från Azure Logic Apps
+# <a name="connect-to-azure-virtual-networks-from-azure-logic-apps-through-an-integration-service-environment-ise"></a>Ansluta till virtuella Azure-nätverk från Azure Logic Apps via en integration service-miljö (ISE)
 
 > [!NOTE]
 > Den här funktionen är i *privat förhandsgranskning*. Att begära åtkomst, [skapa din begäran om att ansluta till här](https://aka.ms/iseprivatepreview).
 
-För integrationsscenarier där dina logic apps och integrationskonton behöver åtkomst till en [Azure-nätverk](../virtual-network/virtual-networks-overview.md), kan du skapa en [ *integreringstjänstmiljön* (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) som länkar till det virtuella nätverket och distribuerar Logic Apps-tjänsten i ditt nätverk. När du skapar logikappar och integrationskonton, väljer du den här ISE som deras plats. Dina logikappar och integrationskonton kan sedan direkt åtkomst till resurser, till exempel virtuella datorer (VM), servrar, system och tjänster i ditt virtuella nätverk. 
+För integrationsscenarier där dina logic apps och integrationskonton behöver åtkomst till en [Azure-nätverk](../virtual-network/virtual-networks-overview.md), skapa en [ *integreringstjänstmiljön* (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), vilket är en privat och isolerad miljö som använder dedikerade lagring och andra resurser åtskilda från offentligt eller *globala* Logic Apps-tjänsten. Den här separationen minskar också påverkas som andra Azure-klienter kan ha på din apps prestanda. Du kan länka den här ISE till din Azure-nätverk som distribuerar sedan Logic Apps-tjänsten till ditt virtuella nätverk. När du skapar ett logic app eller varje konto, Välj den här ISE som deras plats. Ditt logic app eller varje konto kan sedan direkt åtkomst till resurser, till exempel virtuella datorer (VM), servrar, system och tjänster i ditt virtuella nätverk. 
 
 ![Välj integreringstjänstmiljö](./media/connect-virtual-network-vnet-isolated-environment/select-logic-app-integration-service-environment.png)
-
-Din ISE är en privat och isolerad miljö som använder dedikerade lagringsutrymmen och andra resurser som existerar separat från offentligt eller *globala* Logic Apps-tjänsten. Den här separationen hjälper också att minska risken för andra Azure-klienter kan ha på din apps prestanda. 
 
 Den här artikeln visar hur du utför dessa uppgifter:
 

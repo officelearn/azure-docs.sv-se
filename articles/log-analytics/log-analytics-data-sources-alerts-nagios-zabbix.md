@@ -1,6 +1,6 @@
 ---
-title: Samla in Nagios och Zabbix-aviseringar i OMS Log Analytics | Microsoft Docs
-description: Nagios och Zabbix är verktyg med öppen källkod. Du kan samla in aviseringar från de här verktygen till Log Analytics för att analysera dem tillsammans med aviseringar från andra källor.  Den här artikeln beskriver hur du konfigurerar OMS-agenten för Linux för att samla in varningar från dessa system.
+title: Samla in Nagios och Zabbix-aviseringar i Log Analytics | Microsoft Docs
+description: Nagios och Zabbix är verktyg med öppen källkod. Du kan samla in aviseringar från de här verktygen till Log Analytics för att analysera dem tillsammans med aviseringar från andra källor.  Den här artikeln beskriver hur du konfigurerar Log Analytics-agenten för Linux för att samla in varningar från dessa system.
 services: log-analytics
 documentationcenter: ''
 author: mgoedtel
@@ -15,18 +15,19 @@ ms.workload: infrastructure-services
 ms.date: 04/13/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: e668b2e989571d911c967d08d8012b11adaebd4d
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: eb129ebe6d63396934cbcda509d711cc63a5ee1b
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48041042"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49402948"
 ---
-# <a name="collect-alerts-from-nagios-and-zabbix-in-log-analytics-from-oms-agent-for-linux"></a>Samla in varningar från Nagios och Zabbix i Log Analytics från OMS-agenten för Linux 
-[Nagios](https://www.nagios.org/) och [Zabbix](http://www.zabbix.com/) är öppen källkod övervakningsverktyg. Du kan samla in aviseringar från de här verktygen till Log Analytics för att analysera dem tillsammans med [aviseringar från andra källor](log-analytics-alerts.md).  Den här artikeln beskriver hur du konfigurerar OMS-agenten för Linux för att samla in varningar från dessa system.
+# <a name="collect-alerts-from-nagios-and-zabbix-in-log-analytics-from-log-analytics-agent-for-linux"></a>Samla in varningar från Nagios och Zabbix i Log Analytics från Log Analytics-agenten för Linux 
+[!INCLUDE [log-analytics-agent-note](../../includes/log-analytics-agent-note.md)]
+[Nagios](https://www.nagios.org/) och [Zabbix](http://www.zabbix.com/) är öppen källkod övervakningsverktyg. Du kan samla in aviseringar från de här verktygen till Log Analytics för att analysera dem tillsammans med [aviseringar från andra källor](log-analytics-alerts.md).  Den här artikeln beskriver hur du konfigurerar Log Analytics-agenten för Linux för att samla in varningar från dessa system.
  
 ## <a name="prerequisites"></a>Förutsättningar
-Samla in varningar från Nagios versionen har stöd för OMS-agenten för Linux 4.2.x och Zabbix upp till version 2.x.
+Samla in varningar från Nagios versionen har stöd för Log Analytics-agenten för Linux 4.2.x och Zabbix upp till version 2.x.
 
 ## <a name="configure-alert-collection"></a>Konfigurera varningssamlingen
 

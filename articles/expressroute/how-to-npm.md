@@ -1,6 +1,6 @@
 ---
-title: Konfigurera nätverket Prestandaövervakaren för Azure ExpressRoute-kretsar | Microsoft Docs
-description: Konfigurera molnbaserade nätverksövervakning (NPM) för Azure ExpressRoute-kretsar. Detta omfattar övervakning över privata ExpressRoute-peering och Microsoft-peering.
+title: Konfigurera Övervakare av nätverksprestanda för Azure ExpressRoute-kretsar | Microsoft Docs
+description: Konfigurera molnbaserade nätverksövervakning (NPM) för Azure ExpressRoute-kretsar. Detta omfattar övervakning över ExpressRoute privat peering och Microsofts peering.
 documentationcenter: na
 services: expressroute
 author: cherylmc
@@ -14,256 +14,256 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/28/2018
 ms.author: cherylmc
-ms.openlocfilehash: 47f219b7319e4d2bbadf03954f7bd7f6f39da3b4
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.openlocfilehash: d334fdba48f248bb7989c2b549517413b1ef793c
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37128987"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49404349"
 ---
 # <a name="configure-network-performance-monitor-for-expressroute"></a>Konfigurera övervakare av nätverksprestanda för ExpressRoute
 
-Network Performance Monitor (NPM) är en molnbaserad nätverk övervakningslösning som övervakar anslutning mellan Azure-molndistributioner och lokala platser (avdelningskontor, etc.). NPM är en del av logganalys. NPM erbjuder ett tillägg för ExpressRoute där du kan övervaka nätverkets prestanda över ExpressRoute-kretsar som är konfigurerade för att använda privat peering eller Microsoft-peering. När du konfigurerar NPM för ExpressRoute kan du identifiera problem för att identifiera och eliminera. Den här tjänsten är också tillgänglig för Azure Government-molnet.
+Övervakare för nätverk-prestanda (NPM) är en molnbaserad lösning för nätverksövervakning som övervakar anslutning mellan distributioner av Azure-molnet och lokala platser (avdelningskontor, osv.). NPM är en del av Log Analytics. NPM erbjuder ett tillägg för ExpressRoute som låter dig övervaka nätverkets prestanda över ExpressRoute-kretsar som är konfigurerade för att använda privat peering eller Microsoft-peering. När du konfigurerar NPM för ExpressRoute, kan du identifiera nätverksproblem för att identifiera och eliminera. Den här tjänsten är också tillgängligt för Azure Government-molnet.
 
 Du kan:
 
-* Övervaka förluster eller fördröjningar mellan olika Vnet och Ställ in aviseringar
+* Övervaka dataförluster och svarstider mellan olika virtuella nätverk och Ställ in aviseringar
 
 * Övervaka alla sökvägar (inklusive redundanta sökvägar) i nätverket
 
-* Felsökning av nätverksproblem med tillfälliga och tidpunkt i som är svåra att replikera
+* Felsök tillfälliga och point-in-time nätverksproblem som är svåra att replikera
 
-* Att fastställa ett visst segment i nätverket som ansvarar för försämrade prestanda
+* Att fastställa ett visst segment i nätverket som ligger bakom den försämrade prestandan
 
-* Hämta genomströmning per virtuellt nätverk (om du har agenter som installerats i varje virtuellt nätverk)
+* Beräkna dataflöde per virtuellt nätverk (om du har agenter som installerats i varje virtuellt nätverk)
 
-* Se ExpressRoute systemtillståndet från en tidigare punkt i tiden
+* Se ExpressRoute systemtillståndet från en tidigare tidpunkt i tid
 
 ## <a name="workflow"></a>Arbetsflöde
 
-Övervakning agenter är installerade på flera servrar, både lokalt och i Azure. Agenterna kommunicera med varandra, men inte skickar data, de skicka paket för TCP-handskakningen. Kommunikation mellan agenterna kan Azure för att mappa nätverkstopologi och sökvägen trafiken kan ta.
+Övervakningsagenterna installeras på flera servrar, både lokalt och i Azure. Agenterna kommunicerar med varandra, men inte skickar data kan de skicka TCP handshake-paket. Kommunikation mellan agenterna kan Azure för att mappa nätverkets topologi och sökvägen kan ta en trafiken.
 
-1. Skapa en arbetsyta för NPM. Det här är samma som en OMS-arbetsyta.
+1. Skapa en arbetsyta för NPM. Det här är samma som en Log Analytics-arbetsyta.
 2. Installera och konfigurera programvaruagenter: 
-    * Installera övervakning agenter på lokala servrar och virtuella Azure-datorer (för att privat peering).
-    * Konfigurera inställningarna för övervakning agenten servrarna så att övervakningsagenter kommunicera. (Öppna portar i brandväggen, osv.)
-3. Konfigurera regler för nätverkssäkerhetsgrupper (NSG) för att tillåta övervakning agenten installeras på virtuella Azure-datorer kan kommunicera med lokal övervakning agenter.
-4. Konfigurera övervakning: automatiskt identifiera och hantera vilka nätverk som visas i NPM.
+    * Installera övervakningsagenter på lokala servrar och virtuella Azure-datorer (för privat peering).
+    * Konfigurera inställningar på övervakningsservrar agent för att tillåta övervakningsagenterna att kommunicera. (Öppna portar i brandväggen, osv.)
+3. Konfigurera regler för nätverkssäkerhetsgrupper (NSG) för att tillåta övervakningsagenten installeras på Azure virtuella datorer ska kunna kommunicera med en lokal övervakning av agenter.
+4. Konfigurera övervakning: automatiskt upptäcka och hantera vilka nätverk som är synliga i NPM.
 
-Om du redan använder Network Performance Monitor för att övervaka andra objekt eller tjänster och du redan har arbetsytan i något av regionerna som stöds, kan du hoppa över steg 1 och 2 och börjar din konfiguration med steg3.
+Om du redan använder Övervakare av nätverksprestanda för att övervaka andra objekt eller tjänster och du redan har arbetsytan i en av regionerna som stöds, kan du hoppa över steg 1 och steg 2 och börjar din konfiguration med steg3.
 
 ## <a name="configure"></a>Steg 1: Skapa en arbetsyta
 
-Skapa en arbetsyta i den prenumeration som har Vnet-länk till ExpressRoute circuit(s).
+Skapa en arbetsyta i den prenumeration som har virtuella nätverk-länk till ExpressRoute-kretsar.
 
-1. I den [Azure-portalen](https://portal.azure.com), Välj den prenumeration som har Vnet peerkoppla till ExpressRoute-krets. Sök sedan efter listan över tjänster i den **Marketplace** för 'Network Performance Monitor'. Återkommer, klicka för att öppna den **Network Performance Monitor** sidan.
+1. I den [Azure-portalen](https://portal.azure.com), Välj den prenumeration som har de virtuella nätverken peer-kopplas till ExpressRoute-kretsen. Sök sedan i listan över tjänster i den **Marketplace** för ”Network Performance Monitor”. I returnering, klickar du på för att öppna den **Övervakare av nätverksprestanda** sidan.
 
    >[!NOTE]
-   >Du kan skapa en ny arbetsyta eller använda en befintlig arbetsyta. Om du vill använda en befintlig arbetsyta måste du se till att arbetsytan har migrerats till det nya språket i fråga. [Mer information...](https://docs.microsoft.com/azure/log-analytics/log-analytics-log-search-upgrade)
+   >Du kan skapa en ny arbetsyta eller använda en befintlig arbetsyta. Om du vill använda en befintlig arbetsyta måste du se till att arbetsytan har migrerats till det nya frågespråket. [Mer information...](https://docs.microsoft.com/azure/log-analytics/log-analytics-log-search-upgrade)
    >
 
    ![portal](.\media\how-to-npm\3.png)<br><br>
-2. Längst ned i huvudsakliga **Network Performance Monitor** klickar du på **skapa** att öppna **Network Performance Monitor - skapa nya lösningen** sidan. Klicka på **OMS-arbetsyta - Välj en arbetsyta** att öppna sidan arbetsytor. Klicka på **+ Skapa ny arbetsyta** att öppna sidan arbetsytan.
-3. På den **OMS-arbetsytan** väljer **Skapa nytt**, konfigurera följande inställningar:
+2. Längst ned i huvudsakliga **Övervakare av nätverksprestanda** klickar du på **skapa** att öppna **Network Performance Monitor - Skapa ny lösning** sidan. Klicka på **Log Analytics-arbetsyta – Välj en arbetsyta** att öppna sidan arbetsytor. Klicka på **+ Skapa ny arbetsyta** att öppna sidan för arbetsytan.
+3. På den **Log Analytics-arbetsytan** väljer **Skapa ny**, konfigurera följande inställningar:
 
-  * OMS-arbetsyta - ange ett namn för din arbetsyta.
-  * Prenumeration – om du har flera prenumerationer, Välj den du vill koppla till det nya arbetsområdet.
+  * Log Analytics-arbetsyta – ange ett namn för din arbetsyta.
+  * Prenumeration – om du har flera prenumerationer väljer du den du vill associera med den nya arbetsytan.
   * Resursgrupp – skapa en resursgrupp eller Använd en befintlig.
-  * Plats – den här platsen används för att ange platsen för lagringskontot som används för agenten anslutning loggarna.
-  * Prisnivån - Välj prisnivå.
+  * Plats – den här platsen används för att ange platsen för det lagringskonto som används för agentloggarna som anslutningen.
+  * Prisnivå – Välj prisnivå.
   
     >[!NOTE]
     >ExpressRoute-kretsen kan finnas var som helst i världen. Det behöver inte finnas i samma region som arbetsytan.
     >
   
     ![arbetsyta](.\media\how-to-npm\4.png)<br><br>
-4. Klicka på **OK** att spara och distribuera inställningar för mallen. När mallen validerar klickar du på **skapa** att distribuera på arbetsytan.
-5. Efter att arbetsytan har distribuerats, navigera till den **NetworkMonitoring(name)** resurs som du skapade. Verifiera inställningarna och klicka sedan på **lösningen kräver ytterligare konfiguration**.
+4. Klicka på **OK** att spara och distribuera inställningar för mallen. När mallen verifierar klickar du på **skapa** att distribuera arbetsytan.
+5. När arbetsytan har distribuerats, går du till den **NetworkMonitoring(name)** resurs som du skapade. Verifiera inställningarna och klicka sedan på **ytterligare konfiguration krävs för lösningen**.
 
    ![ytterligare konfigurering](.\media\how-to-npm\5.png)
 
 ## <a name="agents"></a>Steg 2: Installera och konfigurera agenter
 
-### <a name="download"></a>2.1: ladda ned installationsfilen agent
+### <a name="download"></a>2.1: ladda ned installationsfilen för agenten
 
-1. Gå till den **gemensamma inställningar för** för den **nätverkskonfigurationen Performance Monitor** sidan för din resurs. Klickar du på agenten som motsvarar serverns processor från den **installera OMS-agenter** avsnittet och hämta installationsfilen.
+1. Gå till den **gemensamma inställningar för** fliken den **konfiguration av övervakaren av nätverksprestanda** för din resurs. Klickar du på agenten som motsvarar din server processor från den **installera Log Analytics-agenter** avsnittet och ladda ned installationsfilen.
 2. Kopiera den **arbetsyte-ID** och **primärnyckel** till anteckningar.
-3. Från den **konfigurera OMS-agenter för övervakning med hjälp av TCP-protokollet** avsnittet måste du ladda ned Powershell-skript. PowerShell-skriptet kan du öppna den relevanta brandväggsporten för TCP-transaktioner.
+3. Från den **konfigurera Log Analytics-agenter för övervakning med TCP-protokoll** avsnittet, ladda ned Powershell-skriptet. PowerShell-skriptet kan du öppna den relevanta brandväggsporten för TCP-transaktioner.
 
   ![PowerShell-skript](.\media\how-to-npm\7.png)
 
-### <a name="installagent"></a>2.2: Installera en övervakningsagent på varje övervakning server (för varje virtuella nätverk som du vill övervaka)
+### <a name="installagent"></a>2.2: Installera en övervakningsagent på varje Övervakningsservern (på varje virtuellt nätverk som du vill övervaka)
 
-Vi rekommenderar att du installerar minst två agenter på varje sida av ExpressRoute-anslutning för redundans (till exempel lokalt, virtuella Azure-nätverk). Agenten måste installeras på en Windows-Server (2008 SP1 eller senare). Övervakning med hjälp av Windows Desktop OS- och Linux-Operativsystemdatorn ExpressRoute-kretsar stöds inte. Använd följande steg för att installera agenter:
+Vi rekommenderar att du installerar minst två agenter på båda sidor av ExpressRoute-anslutning för redundans (exempelvis lokala, virtuella Azure-nätverk). Agenten måste installeras på en Windows-Server (2008 SP1 eller senare). Övervakning av ExpressRoute-kretsar som använder Windows Desktop OS och Linux-operativsystem stöds inte. Använd följande steg för att installera agenter:
    
   >[!NOTE]
-  >Agenter pushas av SCOM (omfattar [MMA](https://technet.microsoft.com/library/dn465154(v=sc.12).aspx)) kanske inte kan identifiera deras plats konsekvent om de finns i Azure. Vi rekommenderar att du inte använder de här agenterna i virtuella Azure-nätverk för att övervaka ExpressRoute.
+  >Agenter som skickas av SCOM (innehåller [MMA](https://technet.microsoft.com/library/dn465154(v=sc.12).aspx)) kanske inte kan identifiera deras plats konsekvent om de finns i Azure. Vi rekommenderar att du inte använder de här agenterna i virtuella Azure-nätverk för att övervaka ExpressRoute.
   >
 
-1. Kör **installationsprogrammet** att installera agenten på varje server som du vill använda för att övervaka ExpressRoute. Den server du använder för att övervaka kan antingen vara en virtuell dator eller lokalt och måste ha tillgång till Internet. Du måste installera minst en agent lokalt och en agent på varje nätverkssegment som du vill övervaka i Azure.
+1. Kör **installationsprogrammet** att installera agenten på varje server som du vill använda för att övervaka ExpressRoute. Den server du använder för att övervaka kan antingen vara en virtuell dator eller på plats och måste ha Internetåtkomst. Du måste installera minst en agenten lokalt och en agent på varje nätverkssegment som du vill övervaka i Azure.
 2. På sidan **Välkommen** klickar du på **Nästa**.
-3. På den **licensvillkoren** sidan, Läs licensvillkoren och klicka sedan på **jag accepterar**.
-4. På den **målmappen** , ändra eller behålla standardinstallationsmappen, och klickar sedan på **nästa**.
-5. På den **installationsalternativ för Agent** sidan kan du ansluta agenten till Azure logganalys eller Operations Manager. Eller lämna alternativen tomt om du vill konfigurera agenten senare. När du har gjort dina selection(s) klickar du på **nästa**.
+3. På den **licensvillkoren** sidan, läser du licensen och klicka sedan på **jag accepterar**.
+4. På den **målmapp** sidan, ändra eller Behåll standardinstallationsmappen och klickar sedan på **nästa**.
+5. På den **installationsalternativ för Agent** sidan som du kan välja att ansluta agenten till Azure Log Analytics eller Operations Manager. Eller så kan du lämna alternativen tomt om du vill konfigurera agenten senare. När du har gjort dina val klickar du på **nästa**.
 
-  * Om du väljer att ansluta till **Azure logganalys**, klistra in den **arbetsyte-ID** och **Arbetsytenyckel** (primärnyckel) som du kopierade i anteckningar i föregående avsnitt. Klicka sedan på **Nästa**.
+  * Om du väljer att ansluta till **Azure Log Analytics**, klistra in den **arbetsyte-ID** och **Arbetsytenyckel** (primärnyckel) som du kopierade till anteckningar i föregående avsnitt. Klicka sedan på **Nästa**.
 
     ![ID och nyckel](.\media\how-to-npm\8.png)
-  * Om du vill ansluta till **Operations Manager**på den **Hanteringsgruppkonfiguration** anger du den **Hanteringsgruppnamn**, **Management Server** , och **Hanteringsserverporten**. Klicka sedan på **Nästa**.
+  * Om du väljer att ansluta till **Operations Manager**på den **Hanteringsgruppkonfiguration** anger du den **Hanteringsgruppnamn**, **Management Server** , och **Hanteringsserverport**. Klicka sedan på **Nästa**.
 
     ![Operations Manager](.\media\how-to-npm\9.png)
-  * På den **Agentåtgärdskontot** och välj någon av **lokalt System** konto, eller **domän eller lokalt datorkonto**. Klicka sedan på **Nästa**.
+  * På den **Agentåtgärdskontot** väljer du antingen den **lokalt System** konto, eller **domän eller lokalt datorkonto**. Klicka sedan på **Nästa**.
 
     ![Konto](.\media\how-to-npm\10.png)
-6. På den **klar att installera** sidan Granska dina val och klicka sedan på **installera**.
+6. På den **klar att installera** sidan, kontrollerar du valen och klickar sedan på **installera**.
 7. På sidan **Konfigurationen har slutförts** klickar du på **Slutför**.
-8. När du är klar visas Microsoft Monitoring Agent på Kontrollpanelen. Du kan granska konfigurationen av det och kontrollera att agenten är ansluten till Azure logganalys (OMS). När du är ansluten, agenten visas ett meddelande om: **i Microsoft Monitoring Agent har lyckats ansluta till tjänsten Microsoft Operations Management Suite**.
+8. När du är klar visas Microsoft Monitoring Agent på Kontrollpanelen. Du kan granska konfigurationen där och kontrollera att agenten är ansluten till Azure Log Analytics. När du är ansluten, agenten visar ett meddelande om: **The Microsoft Monitoring Agent har anslutits till tjänsten Microsoft Operations Management Suite**.
 
-9. Upprepa proceduren för varje VNET som du behöver övervakas.
+9. Upprepa proceduren för varje virtuellt nätverk som du behöver som ska övervakas.
 
 ### <a name="proxy"></a>2.3: konfigurera proxyinställningar (valfritt)
 
-Om du använder en webbproxy för att få åtkomst till Internet, kan du använda följande steg för att konfigurera proxyinställningar för Microsoft Monitoring Agent. Utför de här stegen för varje server. Om du har många servrar att konfigurera är det kanske enklare att använda ett skript för att automatisera processen. I så fall, se [konfigurera proxyinställningar för Microsoft Monitoring Agent använder ett skript för](../log-analytics/log-analytics-windows-agent.md).
+Om du använder en webbproxy för att få åtkomst till Internet, kan du använda följande steg för att konfigurera proxyinställningar för Microsoft Monitoring Agent. Utföra dessa steg för varje server. Om du har många servrar att konfigurera är det kanske enklare att använda ett skript för att automatisera processen. I så, fall Se [konfigurera proxyinställningar för Microsoft Monitoring Agent med hjälp av ett skript](../log-analytics/log-analytics-windows-agent.md).
 
-Konfigurera proxyinställningar för Microsoft Monitoring Agent via Kontrollpanelen:
+Konfigurera proxyinställningar för Microsoft Monitoring Agent med Kontrollpanelen:
 
 1. Öppna den **Kontrollpanelen**.
 2. Öppna **Microsoft Monitoring Agent**.
 3. Klicka på fliken **Proxyinställningar**.
-4. Välj **använder en proxyserver** och ange URL och portnummer, om en sådan krävs. Om proxyservern kräver autentisering anger du användarnamn och lösenord för att få åtkomst till proxyservern.
+4. Välj **använder en proxyserver** och anger du URL och portnummer, om en sådan krävs. Om proxyservern kräver autentisering anger du användarnamn och lösenord för att få åtkomst till proxyservern.
 
-  ![proxy](.\media\how-to-npm\11.png)
+  ![Proxy](.\media\how-to-npm\11.png)
 
-### <a name="verifyagent"></a>2.4: Verifiera agent
+### <a name="verifyagent"></a>2.4: Verifiera agentanslutning
 
-Du kan enkelt kontrollera om dina agenter kommunicerar.
+Du kan enkelt kontrollera om agenterna kommunicerar.
 
-1. Öppna på en server med en övervakningsagent på **Kontrollpanelen**.
+1. På en server med övervakningsagenten, öppna den **Kontrollpanelen**.
 2. Öppna den **Microsoft Monitoring Agent**.
-3. Klicka på den **Azure logganalys** fliken.
-4. I den **Status** kolumn, bör du se att agenten har ansluten till logganalys.
+3. Klicka på den **Azure Log Analytics** fliken.
+4. I den **Status** kolumn, bör du se att agenten har ansluten till Log Analytics.
 
   ![status](.\media\how-to-npm\12.png)
 
-### <a name="firewall"></a>2.5: öppna portar i brandväggen på övervakning agenten servrarna
+### <a name="firewall"></a>2.5: Öppna brandväggsportar på övervakningsservrar för agenten
 
-Om du vill använda TCP-protokollet måste du öppna portar i brandväggen för att säkerställa att övervakning agenterna kan kommunicera.
+För att använda TCP-protokollet, måste du öppna portar i brandväggen för att säkerställa att övervakningsagenterna kan kommunicera.
 
-Du kan köra ett PowerShell-skript för att skapa registernycklar som krävs av Network Performance Monitor. Det här skriptet skapar även Windows-brandväggsreglerna för att tillåta övervakning agenter för att skapa TCP-anslutningar med varandra. Registernycklar som skapats av skriptet ange om du vill logga debug-loggar och sökvägen för filen loggar. Den definierar även agent TCP-port som används för kommunikation. Skriptet anges automatiskt värden för nycklarna. Du bör inte ändra dessa nycklar manuellt.
+Du kan köra ett PowerShell-skript för att skapa de registernycklar som krävs av Network Performance Monitor. Det här skriptet skapar även Windows-brandväggsregler som tillåter övervakning av agenter för att skapa TCP-anslutningar med varandra. De registernycklar som skapats av skriptet anger du om du vill logga debug-loggarna och sökvägen för filen loggar. Den definierar även agent-TCP-port som används för kommunikation. Värdena för dessa nycklar anges automatiskt av skriptet. Du bör inte ändra dessa nycklar manuellt.
 
-Port 8084 öppnas som standard. Du kan använda en anpassad port genom att ange parametern portNumber om du till skriptet. Om du gör det måste du ange samma port för alla servrar som du kör skriptet.
+Som standard öppnas port 8084. Du kan använda en anpassad port genom att ange parametern portNumber om du till skriptet. Om du gör det måste du ange samma port för alla servrar där du kör skriptet.
 
 >[!NOTE]
->'EnableRules' PowerShell-skriptet konfigurerar Windows-brandväggsreglerna endast på den server där skriptet körs. Om du har en brandvägg för nätverk, bör du kontrollera att den tillåter trafik för TCP-porten som används av Network Performance Monitor.
+>'EnableRules' PowerShell-skriptet konfigurerar regler för Windows-brandväggen endast på den server där skriptet körs. Om du har en brandvägg, bör du se till att den tillåter trafik till TCP-port som används av Övervakare av nätverksprestanda.
 >
 >
 
-Öppna ett PowerShell-fönster med administrativ behörighet på agentservrar. Kör den [EnableRules](https://aka.ms/npmpowershellscript) PowerShell-skript (som du hämtade tidigare). Använd inte några parametrar.
+Öppna ett PowerShell-fönster med administratörsbehörighet på agentservrar. Kör den [EnableRules](https://aka.ms/npmpowershellscript) PowerShell-skript (som du hämtade tidigare). Använd inte några parametrar.
 
 ![PowerShell_Script](.\media\how-to-npm\script.png)
 
 ## <a name="opennsg"></a>Steg 3: Konfigurera regler för nätverkssäkerhetsgrupper
 
-Om du vill övervaka agentservrar som finns i Azure måste du konfigurera regler för nätverkssäkerhetsgrupper (NSG) för att tillåta TCP-trafik på en port som används av NPM för syntetiska transaktioner. Standardporten är 8084. Detta gör att en övervakning agenten är installerad på en Azure-VM för att kommunicera med en lokal övervakningsagent.
+Om du vill övervaka agentservrar som finns i Azure måste du konfigurera regler för nätverkssäkerhetsgrupper (NSG) för att tillåta TCP-trafik på en port som används av NPM för syntetiska transaktioner. Standardporten är 8084. På så sätt kan en övervakningsagent som är installerad på en virtuell Azure-dator ska kunna kommunicera med en lokal övervakningsagent.
 
-Mer information om NSG finns [Nätverkssäkerhetsgrupper](../virtual-network/virtual-networks-create-nsg-arm-portal.md).
+Läs mer om NSG [Nätverkssäkerhetsgrupper](../virtual-network/virtual-networks-create-nsg-arm-portal.md).
 
 >[!NOTE]
->Kontrollera att du har installerat agenterna (server-agenten lokalt och Azure-server-agent) och har kört PowerShell-skriptet innan du fortsätter med det här steget.
+>Se till att du har installerat agenterna (både den lokala server-agenten och Azure server-agenten) och har kört PowerShell-skriptet innan du fortsätter med det här steget.
 >
 
-## <a name="setupmonitor"></a>Steg 4: Identifiera peering anslutningar
+## <a name="setupmonitor"></a>Steg 4: Identifiera peering-anslutningar
 
-1. Navigera till översiktsikon Network Performance Monitor genom att gå till den **alla resurser** sidan och klicka på listan över godkända NPM arbetsytan.
+1. Gå till översiktspanelen Övervakare av nätverksprestanda genom att gå till den **alla resurser** sidan och klicka på listan över godkända NPM-arbetsytan.
 
-  ![npm-arbetsytan](.\media\how-to-npm\npm.png)
-2. Klicka på den **Network Performance Monitor** översiktsikon att öppna den på instrumentpanelen. Instrumentpanelen innehåller en ExpressRoute-sida, som visar att ExpressRoute är i ett okonfigurerat tillstånd. Klicka på **installationsprogram** att öppna sidan Network Performance Monitor-konfiguration.
+  ![npm-arbetsyta](.\media\how-to-npm\npm.png)
+2. Klicka på den **Övervakare av nätverksprestanda** panelen för att ta fram på instrumentpanelen. Instrumentpanelen innehåller en ExpressRoute-sida som visar att ExpressRoute är i ett okonfigurerat tillstånd. Klicka på **Funktionsinstallation** att öppna konfigurationssidan för Övervakare av nätverksprestanda.
 
-  ![Installationsprogram för](.\media\how-to-npm\npm2.png)
-3. Gå till fliken 'ExpressRoute Peerings' på panelen vänster på konfigurationssidan. Klicka sedan på **identifiera nu**.
+  ![funktionsinstallation](.\media\how-to-npm\npm2.png)
+3. Gå till fliken ExpressRoute-Peerings på panelen till vänster på konfigurationssidan. Klicka sedan på **identifiera nu**.
 
   ![upptäck](.\media\how-to-npm\13.png)
-4. När identifieringen har slutförts visas en lista som innehåller följande:
-  * Alla anslutningar Microsoft peering i ExpressRoute-circuit(s) som är associerade med den här prenumerationen.
-  * Alla privata peering anslutningar som ansluter till Vnet som är associerade med den här prenumerationen.
+4. När identifieringen har slutförts visas en lista som innehåller följande objekt:
+  * Alla anslutningar som Microsoft peering i ExpressRoute-kretsar som är associerade med den här prenumerationen.
+  * Alla privata peering-anslutningarna som ansluter till de virtuella nätverken som är associerade med den här prenumerationen.
             
-## <a name="configmonitor"></a>Steg 5: Konfigurera bildskärmar
+## <a name="configmonitor"></a>Steg 5: Konfigurera Övervakare
 
-I det här avsnittet kan du konfigurera övervakarna. Följ stegen för typ av peering som du vill övervaka: **privat peering**, eller **Microsoft-peering**.
+I det här avsnittet konfigurerar du övervakarna. Följ stegen för typ av peering som du vill övervaka: **privat peering**, eller **Microsoft-peering**.
 
 ### <a name="private-peering"></a>Privat peering
 
-För att privat peering när identifieringen har slutförts visas kommer regler för unika **krets namnet** och **VNet namn**. Inledningsvis har reglerna inaktiverats.
+För privat peering när identifieringen har slutförts visas kommer regler för unika **Kretsnamn** och **namn på virtuellt nätverk**. Inledningsvis är är dessa regler inaktiverade.
 
 ![regler](.\media\how-to-npm\14.png)
 
-1. Kontrollera den **övervaka den här peering** kryssrutan.
-2. Markera kryssrutan **aktivera övervakning av hälsotillstånd för den här peering**.
-3. Välj villkor som övervakning. Du kan ange anpassade tröskelvärden för att generera hälsa händelser genom att skriva tröskelvärden. När värdet för villkoret går över dess valda tröskelvärdet för det valda nätverk/undernätverk paret, skapas en hälsohändelse.
-4. Klicka på lokal agenter **lägga till agenter** för att lägga till de lokala servrar som du vill övervaka privat peering-anslutning. Se till att du endast välja agenter som har nätverksanslutning till slutpunkten för Microsoft-tjänst som du angav i avsnittet för steg 2. Lokal-agenter måste kunna nå slutpunkten med hjälp av ExpressRoute-anslutningen.
+1. Kontrollera den **övervaka denna peering** kryssrutan.
+2. Markera kryssrutan **aktivera övervakning av hälsotillstånd för denna peering**.
+3. Välj villkor som övervakning. Du kan ange anpassade tröskelvärden för att generera health-händelser genom att skriva tröskelvärdena. När värdet för villkoret går över det valda tröskelvärdet för den valda nätverk/undernätverk-par, genereras en hälsotillståndshändelse.
+4. Klicka på LOKALT AGENTERNA **Lägg till agenter** för att lägga till de lokala servrar som du vill övervaka privata peering-anslutningen. Se till att du bara väljer agenter som har nätverksanslutning till slutpunkten för Microsoft-tjänst som du angav i avsnittet för steg 2. Lokala agenter måste kunna nå slutpunkten med hjälp av ExpressRoute-anslutning.
 5. Spara inställningarna.
-6. När du aktiverar regler och välja värden och agenter som du vill övervaka, är en Vänta ungefär 30 till 60 minuter för värden att börja fylla och **ExpressRoute övervakning** paneler ska bli tillgänglig.
+6. När du aktiverar reglerna och välja värden och agenter som du vill övervaka, det finns en Vänta ungefär 30 – 60 minuter för värden för att börja fylla och **ExpressRoute-övervakning** paneler ska bli tillgänglig.
 
 ### <a name="microsoft-peering"></a>Microsoft-peering
 
-På Microsoft peering anslutningarna som du vill övervaka och konfigurera inställningar för Microsoft-peering.
+På Microsoft peering-anslutningarna som du vill övervaka och konfigurera inställningar för Microsoft-peering.
 
-1. Kontrollera den **övervaka den här peering** kryssrutan. 
-2. (Valfritt) Du kan ändra mål Microsoft tjänsteslutpunkt. Som standard väljer NPM en Microsoft-tjänstslutpunkt som mål. NPM övervakar anslutningen mellan din lokala servrar och slutpunkten målet via ExpressRoute. 
-    * Om du vill ändra den här slutpunkten mål klickar du på den **(redigera)** länken under **mål:**, och välj en annan Microsoft mål tjänstslutpunkten från listan över URL: er.
+1. Kontrollera den **övervaka denna peering** kryssrutan. 
+2. (Valfritt) Du kan ändra mål Microsoft tjänsteslutpunkt. Som standard väljer NPM en Microsoft-tjänstslutpunkt som mål. NPM övervakar anslutningen mellan dina lokala servrar och mål slutpunkten via ExpressRoute. 
+    * Om du vill ändra den här slutpunkten för målet klickar du på den **(redigera)** länka **mål:**, och välj en annan Microsoft target tjänstslutpunkt i listan över URL: er.
       ![Redigera mål](.\media\how-to-npm\edit_target.png)<br>
 
-    * Du kan använda en anpassad URL eller IP-adress. Det här alternativet är särskilt relevant om du använder Microsoft-peering för att upprätta en anslutning till Azure PaaS-tjänster, till exempel Azure Storage, SQL-databaser och webbplatser som erbjuds på offentliga IP-adresser. Det gör du genom att klicka på länken **(Använd anpassad URL eller IP-adress i stället)** längst ned i listan över URL: en anger offentliga slutpunkten för din Azure PaaS-tjänst som är ansluten via Microsoft ExpressRoute-peering.
+    * Du kan använda en anpassad URL eller IP-adress. Det här alternativet är särskilt relevant om du använder Microsoft-peering för att upprätta en anslutning till Azure PaaS-tjänster, till exempel Azure Storage, SQL-databaser och webbplatser som erbjuds på offentliga IP-adresser. Gör detta genom att klicka på länken **(Använd anpassad URL eller IP-adress istället)** längst ned i URL-listan sedan ange den offentliga slutpunkten för din Azure PaaS-tjänst som är anslutna via ExpressRoute Microsoft-peering.
     ![Anpassad URL](.\media\how-to-npm\custom_url.png)<br>
 
-    * Om du använder de här valfria inställningarna kan du kontrollera att endast Microsoft tjänstslutpunkten valt här. Slutpunkten måste vara ansluten till ExpressRoute och kan nås av lokala agenter.
-3. Markera kryssrutan **aktivera övervakning av hälsotillstånd för den här peering**.
-4. Välj villkor som övervakning. Du kan ange anpassade tröskelvärden för att generera hälsa händelser genom att skriva tröskelvärden. När värdet för villkoret går över dess valda tröskelvärdet för det valda nätverk/undernätverk paret, skapas en hälsohändelse.
-5. Klicka på lokal agenter **lägga till agenter** för att lägga till de lokala servrar som du vill övervaka Microsoft peering-anslutning. Se till att du endast välja agenter som har en anslutning till tjänsten Microsoft-slutpunkter som du angav i avsnittet för steg 2. Lokal-agenter måste kunna nå slutpunkten med hjälp av ExpressRoute-anslutningen.
+    * Om du använder dessa valfria inställningar, se till att endast Microsoft-tjänstslutpunkt väljs här. Slutpunkten måste vara anslutna till ExpressRoute och kan nås av den lokala agenter.
+3. Markera kryssrutan **aktivera övervakning av hälsotillstånd för denna peering**.
+4. Välj villkor som övervakning. Du kan ange anpassade tröskelvärden för att generera health-händelser genom att skriva tröskelvärdena. När värdet för villkoret går över det valda tröskelvärdet för den valda nätverk/undernätverk-par, genereras en hälsotillståndshändelse.
+5. Klicka på LOKALT AGENTERNA **Lägg till agenter** för att lägga till de lokala servrar som du vill övervaka Microsoft-peering-anslutningen. Se till att du bara väljer agenter som har anslutning till Microsoft-tjänstslutpunkter som du angav i avsnittet för steg 2. Lokala agenter måste kunna nå slutpunkten med hjälp av ExpressRoute-anslutning.
 6. Spara inställningarna.
-7. När du aktiverar regler och välja värden och agenter som du vill övervaka, är en Vänta ungefär 30 till 60 minuter för värden att börja fylla och **ExpressRoute övervakning** paneler ska bli tillgänglig.
+7. När du aktiverar reglerna och välja värden och agenter som du vill övervaka, det finns en Vänta ungefär 30 – 60 minuter för värden för att börja fylla och **ExpressRoute-övervakning** paneler ska bli tillgänglig.
 
 ## <a name="explore"></a>Steg 6: Visa övervakning paneler
 
-När du ser övervakning paneler övervakas dina ExpressRoute-kretsar och anslutningen resurser av NPM. Du kan klicka på ikonen för Microsoft-Peering och öka detaljnivån på hälsotillståndet för Microsoft-Peering-anslutningar.
+När du ser övervakning panelerna övervakas din ExpressRoute-kretsar och anslutningsresurser av NPM. Du kan klicka på panelen för Microsoft-Peering att öka detaljnivån för hälsotillståndet för Microsoft-Peering-anslutningar.
 
 ![övervakning av paneler](.\media\how-to-npm\15.png)
 
-### <a name="dashboard"></a>Sidan för nätverk Prestandaövervakaren
+### <a name="dashboard"></a>Network Performance Monitor-sidan
 
-Sidan NPM innehåller en sida för ExpressRoute som visar en översikt över hälsotillståndet för ExpressRoute-kretsar och peerkopplingar.
+NPM-sidan innehåller en sida för ExpressRoute som visar en översikt över hälsotillståndet för ExpressRoute-kretsar och peer-kopplingar.
 
 ![Instrumentpanel](.\media\how-to-npm\dashboard.png)
 
 ### <a name="circuits"></a>Lista över kretsar
 
-Visa en lista över alla övervakade ExpressRoute-kretsar klickar du på den **ExpressRoute-kretsar** panelen. Du kan välja en krets och visa dess hälsotillstånd, trend diagram för paketförlust, bandbreddsanvändning och svarstid. Diagrammen är interaktiva. Du kan välja en anpassad tidsfönstret för att rita upp diagram. Du kan dra muspekaren över ett område på diagrammet för att zooma in och visa detaljerade datapunkter.
+Visa en lista över alla ExpressRoute-kretsar som övervakas, klickar du på den **ExpressRoute-kretsar** panelen. Du kan välja en krets och visa dess hälsotillstånd, trenddiagram för paketförlust, nyttjandet av bandbredd och latens. Diagrammen är interaktiva. Du kan välja ett anpassat tidsintervall för diagrammen. Du kan dra musen över ett område i diagrammet för att zooma in och se detaljerade datapunkter.
 
 ![circuit_list](.\media\how-to-npm\circuits.png)
 
-#### <a name="trend"></a>Trend för dataförlust, svarstid och genomströmning
+#### <a name="trend"></a>Trend över förlust, svarstid och dataflöde
 
-Diagram för bandbredd, svarstid och dataförlust är interaktiva. Du kan zooma in en del av dessa diagram med hjälp av musen kontroller. Du kan också se bandbredd, svarstid och förlust av data för andra intervall genom att klicka på **tidsvärdet**, som finns under åtgärder-knappen längst upp till vänster.
+Bandbredd, svarstid och förlust diagram är interaktiva. Du kan zooma in en del av dessa diagram med hjälp av musen kontroller. Du kan också se bandbredd, svarstid och förlust av data för andra intervall genom att klicka på **datum/tid**, som finns under knappen åtgärder i det övre vänstra hörnet.
 
 ![Trend](.\media\how-to-npm\16.png)
 
 ### <a name="peerings"></a>Peerkopplingar lista
 
-Visa en lista över alla anslutningar till virtuella nätverk via privat peering, klicka på **privata Peerings** panelen på instrumentpanelen. Här, kan du välja en virtuell nätverksanslutning och visa dess hälsotillstånd, trend diagram för paketförlust, bandbreddsanvändning och svarstid.
+Visa en lista över alla anslutningar till virtuella nätverk över privat peering, genom att klicka på den **privat Peerings** panelen på instrumentpanelen. Här kan du kan välja en virtuell nätverksanslutning och visa dess hälsotillstånd, trenddiagram för paketförlust, nyttjandet av bandbredd och latens.
 
 ![kretsen lista](.\media\how-to-npm\peerings.png)
 
 ### <a name="nodes"></a>Visa noder
 
-Visa en lista över alla länkar mellan lokala noder och Azure virtuella datorer/Microsoft slutpunkter för den valda peering ExpressRoute-anslutningen, klicka **visa nodlänkar**. Du kan visa hälsostatus för varje länk samt trend förluster eller fördröjningar associerade.
+Visa en lista över alla länkar mellan lokala noder och Azure virtuella datorer/Microsoft Tjänsteslutpunkter för den valda ExpressRoute-peering-anslutningen, genom att klicka på **visa nodlänkar**. Du kan visa hälsotillståndet för varje länk, samt trenden för förlust och fördröjning som är kopplade till standardrisknivåer.
 
 ![Visa noder](.\media\how-to-npm\nodes.png)
 
 ### <a name="topology"></a>Kretsen topologi
 
-Om du vill visa krets topologi, klickar du på den **topologi** panelen. Då kommer du till vyn topologin för den valda krets eller peering. Diagram över topologi ger svarstid för varje segment i nätverket. Varje nivå 3-hopp representeras av en nod i diagrammet. Klicka på ett hopp visar mer information om hopp.
+Om du vill visa krets topologi, klickar du på den **topologi** panelen. Då kommer du till vyn topologin för den valda krets eller -peering. Diagram över topologi ger svarstiden för varje segment i nätverket. Varje nivå 3-hopp representeras av en nod i diagrammet. När du klickar på ett hopp visar mer information om hoppet.
 
-Du kan öka synlighet att inkludera lokalt hopp genom att flytta skjutreglaget nedan **filter**. Flytta skjutreglaget till vänster eller höger, ökar/minskar antalet hopp i diagrammet topologi. Fördröjning mellan varje segment visas, vilket gör att för snabbare isolering av fördröjningar segment i nätverket.
+Du kan öka hur mycket av att inkludera den lokala hopp genom att flytta skjutreglaget nedan **filter**. Flytta skjutreglaget till vänster eller höger, ökar/minskar antalet hopp i diagrammet topologi. Fördröjning mellan varje segment är synliga, vilket gör att för snabbare isolering med lång svarstid segment i nätverket.
 
 ![filter](.\media\how-to-npm\topology.png)
 

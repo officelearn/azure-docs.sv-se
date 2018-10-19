@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/01/2017
 ms.author: TomSh
-ms.openlocfilehash: eab55f6e2bf909ccdbdb30a8ced34dbc58d3954a
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 862143aec0ac54abb3c62677c5a1ab1c15007edb
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44721338"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49405573"
 ---
 # <a name="azure-security-technical-capabilities"></a>Tekniska funktioner för Azure-säkerhet
 
@@ -398,17 +398,17 @@ Dessutom checklistan:
 
 Azure driftsäkerhet bygger på ett ramverk som innehåller den kunskap som en olika funktioner som är unika för Microsoft, inklusive på Microsoft Security Development Lifecycle (SDL), Microsoft Security Response Center-program , och djup medvetenhet om hotlandskapet.
 
-### <a name="microsoft-operations-management-suiteoms"></a>Microsoft operations management Suite
+### <a name="microsoft-azure-log-analytics"></a>Microsoft Azure Log Analytics
 
-[Microsoft Operations Management Suite (OMS)](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-overview) är IT-hanteringslösningen för hybridmoln. Används fristående eller om du vill utöka den befintliga System Center-distributionen, OMS får du maximal flexibilitet och kontroll för molnbaserad hantering av infrastrukturen.
+[Log Analytics](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-overview) är IT-hanteringslösningen för hybridmoln. Används fristående eller om du vill utöka den befintliga distributionen av System Center Log Analytics får du maximal flexibilitet och kontroll för molnbaserad hantering av infrastrukturen.
 
-![Microsoft operations management Suite](media/azure-security-technical-capabilities/azure-security-technical-capabilities-fig8.png)
+![Log Analytics](media/azure-security-technical-capabilities/azure-security-technical-capabilities-fig8.png)
 
-Med OMS kan hantera du en instans i alla moln, inklusive lokala, Azure, AWS, Windows Server, Linux, VMware och OpenStack, till en lägre kostnad än konkurrenskraftiga lösningar. OMS erbjuder skapats för den molnbaserade världen, ett nytt sätt att hantera ditt företag som är det snabbaste och mest kostnadseffektiva sättet att uppfylla nya utmaningar och hantera nya arbetsbelastningar, program och molnmiljöer.
+Du kan hantera en instans i alla moln, inklusive lokala, Azure, AWS, Windows Server, Linux, VMware och OpenStack, till en lägre kostnad än konkurrenskraftiga lösningar med Log Analytics. Byggd för den molnbaserade världen, tillhandahåller Log Analytics en ny metod för att hantera ditt företag är det snabbaste och mest kostnadseffektiva sättet att uppfylla nya utmaningar och hantera nya arbetsbelastningar, program och molnmiljöer.
 
 ### <a name="log-analytics"></a>Log Analytics
 
-[Log Analytics](http://azure.microsoft.com/documentation/services/log-analytics) tillhandahåller övervakning för OMS genom att samla in data från hanterade resurser i en central databas. Dessa data kan omfatta händelser, prestandadata eller anpassade data via API:t. När data har samlats in är de tillgängliga för avisering, analys och export.
+[Log Analytics](http://azure.microsoft.com/documentation/services/log-analytics) tillhandahåller övervakning genom att samla in data från hanterade resurser i en central databas. Dessa data kan omfatta händelser, prestandadata eller anpassade data via API:t. När data har samlats in är de tillgängliga för avisering, analys och export.
 
 ![Log Analytics](media/azure-security-technical-capabilities/azure-security-technical-capabilities-fig9.png)
 

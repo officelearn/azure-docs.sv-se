@@ -4,20 +4,20 @@ description: Lär dig att felsöka problem med hantering av uppdateringar
 services: automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 08/08/2018
+ms.date: 10/17/2018
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: 2e47320d5ad88edfa8ea6122f3a0abd104230974
-ms.sourcegitcommit: 7b845d3b9a5a4487d5df89906cc5d5bbdb0507c8
+ms.openlocfilehash: 41883fd677d276f8f26721fdccc3ded020c3278b
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/14/2018
-ms.locfileid: "42055395"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49405238"
 ---
 # <a name="troubleshooting-issues-with-update-management"></a>Felsökning av problem med hantering av uppdateringar
 
-Den här artikeln beskriver lösningar för att lösa problem som kan uppstå när du använder hantering av uppdateringar.
+Den här artikeln beskriver lösningar för att lösa problem som du kan köra över när du använder hantering av uppdateringar.
 
 ## <a name="general"></a>Allmänt
 
@@ -36,7 +36,7 @@ The components for the 'Update Management' solution have been enabled, and now t
 Det här felet kan orsakas av följande orsaker:
 
 1. Kommunikation till Automation-kontot blockeras.
-2. Virtuell dator som har integrerats kan ha kom från en klonade datorn som inte var Sysprep med Microsoft Monitoring Agent installerad.
+2. Den virtuella datorn som det gäller kanske har kommit från en klonad dator som inte är Sysprep med Microsoft Monitoring Agent installerad.
 
 #### <a name="resolution"></a>Lösning
 
@@ -87,7 +87,7 @@ The certificate presented by the service <wsid>.oms.opinsights.azure.com was not
 
 #### <a name="cause"></a>Orsak
 
-Det kan finnas en proxy, gateway eller brandvägg som blockerar nätverkskommunikation.
+Det kan finnas en gateway, en proxy eller en brandvägg som blockerar nätverkskommunikation.
 
 #### <a name="resolution"></a>Lösning
 
@@ -110,6 +110,28 @@ Hybrid Runbook Worker gick inte att generera ett självsignerat certifikat
 #### <a name="resolution"></a>Lösning
 
 Kontrollera system-kontot har läsbehörighet till mappen **C:\ProgramData\Microsoft\Crypto\RSA** och försök igen.
+
+### <a name="hresult"></a>Scenario: Datorn visas som ej utvärderat och visar ett HResult-undantag
+
+#### <a name="issue"></a>Problem
+
+Du har datorer som visas som **ej utvärderat** under **efterlevnad**, och du ser ett Undantagsmeddelande under den.
+
+#### <a name="cause"></a>Orsak
+
+Windows update är inte korrekt konfigurerad på datorn.
+
+#### <a name="resolution"></a>Lösning
+
+Dubbelklicka på undantaget som visas i rött att se hela Undantagsmeddelandet. Kontrollera i följande tabell för möjliga lösningar eller åtgärder som ska vidtas:
+
+|Undantag  |Lösning eller åtgärd  |
+|---------|---------|
+|`Exception from HRESULT: 0x……C`     | Sök efter den relevanta felkoden i [Windows uppdatera kod fellistan](https://support.microsoft.com/help/938205/windows-update-error-code-list) att ha ytterligare information om orsaken till undantaget.        |
+|`0x8024402C` eller `0x8024401C`     | Felen är problem med nätverksanslutningen. Se till att datorn har rätt nätverksanslutningen till hantering av uppdateringar. Se avsnittet om [nätverksplanering](../automation-update-management.md#ports) en lista över portar och adresser som krävs.        |
+|`0x8024402C`     | Om du använder en WSUS-server kontrollerar du registervärdena `WUServer` och `WUStatusServer` under registernyckeln `HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate` har korrekt WSUS-servern.        |
+|`The service cannot be started, either because it is disabled or because it has no enabled devices associated with it. (Exception from HRESULT: 0x80070422)`     | Kontrollera att Windows Update-tjänsten (wuauserv) körs och har inte inaktiverats.        |
+|Allmänt undantag     | Gör en sökning efter möjliga lösningar på internet och arbeta med den lokala IT-supporten.         |
 
 ## <a name="linux"></a>Linux
 

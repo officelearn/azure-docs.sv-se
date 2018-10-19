@@ -1,6 +1,6 @@
 ---
-title: Ansluta datorer med hjälp av OMS-gatewayen | Microsoft Docs
-description: Anslut dina enheter och datorer som övervakas av Operations Manager med OMS-gatewayen och skicka data till Azure Automation och Log Analytics-tjänsten när de inte har Internetåtkomst.
+title: Ansluta datorer med hjälp av Log Analytics-gateway | Microsoft Docs
+description: Anslut dina enheter och datorer som övervakas av Operations Manager med Log Analytics-gateway för att skicka data till Azure Automation och Log Analytics-tjänsten när de inte har Internetåtkomst.
 services: log-analytics
 documentationcenter: ''
 author: mgoedtel
@@ -15,34 +15,34 @@ ms.topic: conceptual
 ms.date: 08/02/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: ac1b04d0b8c50939ff04a87a11fd1a315c2266ff
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: 463af7fc77b1f8e7d58e0dc8acbfdad336301269
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48042841"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49404689"
 ---
-# <a name="connect-computers-without-internet-access-using-the-oms-gateway"></a>Ansluta datorer utan Internetåtkomst med OMS-gatewayen
-Det här dokumentet beskriver hur du konfigurerar kommunikationen med Azure Automation och Log Analytics med hjälp av OMS-Gateway när det är direkt ansluten eller Operations Manager övervakade datorer har inte Internetåtkomst.  OMS-gatewayen, som är en vanlig HTTP-proxy som har stöd för HTTP-tunnel med hjälp av kommandot HTTP ansluta, kan samla in data och skicka den till Azure Automation och Log Analytics för deras räkning.  
+# <a name="connect-computers-without-internet-access-using-the-log-analytics-gateway"></a>Ansluta datorer utan Internetåtkomst med Log Analytics-gateway
+Det här dokumentet beskriver hur du konfigurerar kommunikationen med Azure Automation och Log Analytics med Log Analytics-gateway när det är direkt ansluten eller Operations Manager övervakade datorer har inte Internetåtkomst.  Log Analytics-gateway, som är en vanlig HTTP-proxy som har stöd för HTTP-tunnel med hjälp av kommandot HTTP ansluta, kan samla in data och skicka den till Azure Automation och Log Analytics för deras räkning.  
 
-OMS-gatewayen stöder:
+Log Analytics-gateway har stöd för:
 
 * Azure Automation Hybrid Runbook Worker  
 * Windows-datorer med Microsoft Monitoring Agent som är direkt anslutna till en Log Analytics-arbetsyta
-* Linux-datorer med OMS-agenten för Linux som är direkt anslutna till en Log Analytics-arbetsyta  
+* Linux-datorer med Log Analytics-agenten för Linux som är direkt anslutna till en Log Analytics-arbetsyta  
 * System Center Operations Manager 2012 SP1 med UR7 och Operations Manager 2012 R2 UR3, Operations Manager 2016 och hanteringsgruppen för Operations Manager version 1801 integrerat med Log Analytics.  
 
-Om din IT-säkerhetsprinciper inte tillåter att datorer i nätverket för att ansluta till Internet, till exempel försäljning (POS) enheter eller servrar som stöder IT-tjänster, men du behöver att ansluta till Azure Automation och Log Analytics för att hantera och övervaka dem , de kan konfigureras för att kommunicera direkt med OMS-gatewayen och ta emot configuration och vidarebefordra data å deras vägnar.  Om dessa datorer är konfigurerade med OMS-agenten för att ansluta direkt till en Log Analytics-arbetsyta, alla datorer i stället att kommunicera med OMS-gatewayen.  Gatewayen överför data från agenter till tjänsten direkt, analysera data under överföring inte.
+Om din IT-säkerhetsprinciper inte tillåter att datorer i nätverket för att ansluta till Internet, till exempel försäljning (POS) enheter eller servrar som stöder IT-tjänster, men du behöver att ansluta till Azure Automation och Log Analytics för att hantera och övervaka dem , de kan konfigureras för att kommunicera direkt med Log Analytics-gatewayen tar emot konfiguration och vidarebefordra data å deras vägnar.  Om dessa datorer är konfigurerade med Log Analytics-agenten för att ansluta direkt till en Log Analytics-arbetsyta, alla datorer i stället att kommunicera med Log Analytics-gateway.  Gatewayen överför data från agenter till tjänsten direkt, analysera data under överföring inte.
 
-När en hanteringsgrupp för Operations Manager är integrerat med Log Analytics kan-hanteringsservrar konfigureras för att ansluta till OMS-gatewayen och mottagning av konfigurationsinformation och skicka insamlade data, beroende på lösningen som du har aktiverat.  Operations Manager-agenter skickar vissa data som Operations Manager-aviseringar, konfigurationskontrollen, instansutrymmet och kapacitetsdata till hanteringsservern. Andra stora volymer data, till exempel IIS-loggar, prestanda och säkerhetshändelser skickas direkt till OMS-gatewayen.  Om du har en eller flera Operations Manager Gateway-servrar som distribuerats i en DMZ eller andra isolerat nätverk för att övervaka obetrodd system kan inte kan den kommunicera med en OMS-Gateway.  Operations Manager Gateway-servrar kan endast rapportera till en hanteringsserver.  När en Operations Manager-hanteringsgrupp konfigureras för att kommunicera med OMS-gatewayen, konfigurationsinformation proxy distribueras automatiskt till alla agenthanterade datorer som är konfigurerad för att samla in data för Log Analytics, även om den inställningen är tom.    
+När en hanteringsgrupp för Operations Manager är integrerat med Log Analytics kan-hanteringsservrar konfigureras för att ansluta till Log Analytics-gatewayen till mottagning av konfigurationsinformation och skicka insamlade data, beroende på lösningen som du har aktiverat.  Operations Manager-agenter skickar vissa data som Operations Manager-aviseringar, konfigurationskontrollen, instansutrymmet och kapacitetsdata till hanteringsservern. Andra stora volymer data, till exempel IIS-loggar, prestanda och säkerhetshändelser skickas direkt till Log Analytics-gateway.  Om du har en eller flera Operations Manager Gateway-servrar som distribuerats i en DMZ eller andra isolerat nätverk för att övervaka obetrodd system kan inte kan den kommunicera med en Log Analytics-gateway.  Operations Manager Gateway-servrar kan endast rapportera till en hanteringsserver.  När en Operations Manager-hanteringsgrupp konfigureras för att kommunicera med Log Analytics-gateway, distribueras konfigurationsinformation proxy automatiskt till alla agenthanterade datorer som konfigureras för att samla in data för Log Analytics, även Om inställningen är tom.    
 
 Att tillhandahålla hög tillgänglighet för direkt ansluten eller Operations-hanteringsgrupper som kommunicerar med Log Analytics via gatewayen, du kan använda Utjämning av nätverksbelastning att omdirigera och distribuera trafiken mellan flera gateway-servrar.  Om en gateway-servern slutar fungera kan dirigeras trafiken till en annan tillgänglig nod.  
 
-OMS-agenten måste finnas på den dator som kör OMS-gatewayen att identifiera tjänstens slutpunkter som tjänsten behöver för att kommunicera med och övervaka OMS-gatewayen för att analysera dess prestanda eller händelsedata.
+Log Analytics-agenten måste finnas på den dator som kör Log Analytics-gateway att identifiera tjänstens slutpunkter som tjänsten behöver för att kommunicera med och övervaka Log Analytics-gateway för att analysera dess prestanda eller händelsedata.
 
 Varje agent måste ha nätverksanslutning till sin gateway så att agenterna kan automatiskt att överföra data till och från gatewayen. Du bör inte installera gatewayen på en domänkontrollant.
 
-Följande diagram visar dataflödet från direkta agenter till Azure Automation och Log Analytics med hjälp av gateway-servern.  Agenter måste ha sina proxykonfiguration som matchar samma port OMS-gatewayen är konfigurerad för att kommunicera med tjänsten.  
+Följande diagram visar dataflödet från direkta agenter till Azure Automation och Log Analytics med hjälp av gateway-servern.  Agenter måste ha sina proxykonfiguration som matchar samma port Log Analytics-gatewayen har konfigurerats för att kommunicera med tjänsten.  
 
 ![direkt-agentens kommunikation med tjänster diagram](./media/log-analytics-oms-gateway/oms-omsgateway-agentdirectconnect.png)
 
@@ -52,17 +52,17 @@ Följande diagram visar dataflödet från en Operations Manager-hanteringsgrupp 
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-När du anger att en dator för att köra OMS-Gateway, måste datorn ha följande:
+När du anger att en dator för att köra Log Analytics-gateway, måste datorn ha följande:
 
 * Windows 10, Windows 8.1, Windows 7
 * Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2, Windows Server 2008
 * .NET framework 4.5
 * Minst en 4-kärnor och 8 GB minne 
-* OMS-agenten för Windows 
+* Log Analytics-agenten för Windows 
 
 ### <a name="language-availability"></a>Tillgängliga språk
 
-OMS-gatewayen är tillgänglig på följande språk:
+Log Analytics-gatewayen är tillgänglig på följande språk:
 
 - Förenklad kinesiska
 - Traditionell kinesiska
@@ -82,7 +82,7 @@ OMS-gatewayen är tillgänglig på följande språk:
 - Spanska (internationell)
 
 ### <a name="supported-encryption-protocols"></a>Krypteringsprotokoll som stöds
-OMS-gatewayen har endast stöd för Transport Layer Security (TLS) 1.0, 1.1 och 1.2.  Det har inte stöd för Secure Sockets Layer (SSL).  Om du vill se till att skydda data under överföringen till Log Analytics, rekommenderar vi starkt att du kan konfigurera gatewayen att använda minst Transport Layer Security (TLS) 1.2. Äldre versioner av TLS/Secure Sockets Layer (SSL) har påträffats sårbara och de fungerar fortfarande för närvarande för att tillåta bakåtkompatibilitet kompatibilitet, de arbetar **rekommenderas inte**.  Mer information [skickar data på ett säkert sätt med hjälp av TLS 1.2](log-analytics-data-security.md#sending-data-securely-using-tls-12). 
+Log Analytics-gateway har endast stöd för Transport Layer Security (TLS) 1.0, 1.1 och 1.2.  Det har inte stöd för Secure Sockets Layer (SSL).  Om du vill se till att skydda data under överföringen till Log Analytics, rekommenderar vi starkt att du kan konfigurera gatewayen att använda minst Transport Layer Security (TLS) 1.2. Äldre versioner av TLS/Secure Sockets Layer (SSL) har påträffats sårbara och de fungerar fortfarande för närvarande för att tillåta bakåtkompatibilitet kompatibilitet, de arbetar **rekommenderas inte**.  Mer information [skickar data på ett säkert sätt med hjälp av TLS 1.2](log-analytics-data-security.md#sending-data-securely-using-tls-12). 
 
 ### <a name="supported-number-of-agent-connections"></a>Tillåtna antalet agenten anslutningar
 Följande tabell visar det tillåtna antalet agenter som kommunicerar med en gateway-server.  Det här stödet är baserad på agenter som överför ~ 200KB data var 6: e sekund. Datavolym per agent testas är ungefär 2,7 GB per dag.
@@ -92,9 +92,9 @@ Följande tabell visar det tillåtna antalet agenter som kommunicerar med en gat
 |-CPU: Intel XEON v3 CPU E5 2660 \@ 2,6 GHz 2 kärnor<br> -Minne: 4 GB<br> -Nätverksbandbredd: 1 Gbit/s| 600|  
 |-CPU: Intel XEON v3 CPU E5 2660 \@ 2,6 GHz 4 kärnor<br> -Minne: 8 GB<br> -Nätverksbandbredd: 1 Gbit/s| 1000|  
 
-## <a name="download-the-oms-gateway"></a>Ladda ned OMS-gatewayen
+## <a name="download-the-log-analytics-gateway"></a>Ladda ned Log Analytics-gatewayen
 
-Det finns två sätt att hämta den senaste versionen av OMS Gateway installationsfilen.
+Det finns två sätt att hämta den senaste versionen av installationsfilen för Log Analytics-gateway.
 
 1. Ladda ned från den [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=54443).
 
@@ -104,18 +104,18 @@ Det finns två sätt att hämta den senaste versionen av OMS Gateway installatio
    1. Välj en arbetsyta.
    1. I bladet för din arbetsytan under **Allmänt**, klickar du på **Snabbstart**.
    1. Under **Välj en datakälla för att ansluta till arbetsytan**, klickar du på **datorer**.
-   1. I den **Direktagent** bladet klickar du på **ladda ned OMS-gatewayen**.<br><br> ![ladda ned OMS-Gateway](./media/log-analytics-oms-gateway/download-gateway.png)
+   1. I den **Direktagent** bladet klickar du på **ladda ned Log Analytics gateway**.<br><br> ![ladda ned Log Analytics-gatewayen](./media/log-analytics-oms-gateway/download-gateway.png)
 
 eller 
 
    1. I bladet för din arbetsytan under **inställningar**, klickar du på **avancerade inställningar**.
-   1. Gå till **anslutna källor** > **Windows-servrar** och klicka på **ladda ned OMS-gatewayen**.
+   1. Gå till **anslutna källor** > **Windows-servrar** och klicka på **ladda ned Log Analytics gateway**.
 
-## <a name="install-the-oms-gateway"></a>Installera OMS-gatewayen
+## <a name="install-the-log-analytics-gateway"></a>Installera Log Analytics-gateway
 
 Utför följande steg för att installera en gateway.  Om du har installerat en tidigare version, tidigare kallad *vidarebefordrare för Log Analytics*, den kommer att uppgraderas till den här versionen.  
 
-1. Målmappen, dubbelklicka på **OMS Gateway.msi**.
+1. Målmappen, dubbelklicka på **Log Analytics gateway.msi**.
 1. På sidan **Välkommen** klickar du på **Nästa**.<br><br> ![Installationsguiden för gateway](./media/log-analytics-oms-gateway/gateway-wizard01.png)<br> 
 1. På den **licensavtal** väljer **jag accepterar villkoren i licensavtalet** du godkänner LICENSAVTALET och klicka sedan på **nästa**.
 1. På den **Port och proxy-adress** sidan:
@@ -126,23 +126,23 @@ Utför följande steg för att installera en gateway.  Om du har installerat en 
 1. Om du inte har Microsoft Update aktiverat visas Microsoft Update-sidan där du kan välja att aktivera den. Gör ett val och klicka sedan på **nästa**. I annat fall Fortsätt till nästa steg.
 1. På den **målmapp** kan antingen lämna standardmappen C:\Program Files\OMS Gateway eller ange den plats där du vill installera gatewayen och klicka sedan på **nästa**.
 1. På den **redo att installera** klickar du på **installera**. User Account Control visas begär behörighet att installera. I så, fall klickar du på **Ja**.
-1. När installationen är klar klickar du på **Slutför**. Du kan kontrollera att tjänsten körs genom att öppna snapin-modulen services.msc och kontrollera att **OMS-gatewayen** visas i listan över tjänster och den status är **kör**.<br><br> ![Tjänster – OMS-Gateway](./media/log-analytics-oms-gateway/gateway-service.png)  
+1. När installationen är klar klickar du på **Slutför**. Du kan kontrollera att tjänsten körs genom att öppna snapin-modulen services.msc och kontrollera att **Log Analytics gateway** visas i listan över tjänster och den status är **kör**.<br><br> ![Tjänster – Log Analytics-gateway](./media/log-analytics-oms-gateway/gateway-service.png)  
 
 ## <a name="configure-network-load-balancing"></a>Konfigurera Utjämning av nätverksbelastning 
-Du kan konfigurera gatewayen för hög tillgänglighet med hjälp av Utjämning av nätverksbelastning (NLB) med hjälp av Microsoft Network (Utjämning av nätverksbelastning) eller maskinvarubaserade belastningsutjämnare.  Belastningsutjämnaren hanterar trafik genom att omdirigera begärda anslutningarna från OMS-agenter eller Operations Manager-hanteringsservrar för dess noder. Om en Gateway-servern slutar fungera kan omdirigeras trafiken till andra noder.
+Du kan konfigurera gatewayen för hög tillgänglighet med hjälp av Utjämning av nätverksbelastning (NLB) med hjälp av Microsoft Network (Utjämning av nätverksbelastning) eller maskinvarubaserade belastningsutjämnare.  Belastningsutjämnaren hanterar trafik genom att omdirigera begärda anslutningarna från Log Analytics-agenter eller Operations Manager-hanteringsservrar för dess noder. Om en Gateway-servern slutar fungera kan omdirigeras trafiken till andra noder.
 
 Om du vill lära dig att utforma och distribuera en Windows Server 2016 nätverksbelastningsutjämnande kluster, se [Utjämning av nätverksbelastning](https://technet.microsoft.com/windows-server-docs/networking/technologies/network-load-balancing).  Följande steg beskriver hur du konfigurerar en Microsoft Utjämning av nätverksbelastning kluster.  
 
 1. Logga in på den Windows-server som är medlem i NLB-kluster med ett administratörskonto.  
 1. Öppna Hanteraren för Utjämning av nätverksbelastning i Serverhanteraren, klicka på **verktyg**, och klicka sedan på **hanteraren för Utjämning av nätverksbelastning**.
-1. Högerklicka på klustrets IP-adress för att ansluta en OMS-Gateway-server med Microsoft Monitoring Agent installerad, och klicka sedan på **Lägg till värddator till klustret**.<br><br> ![Nätverket läsa in belastningsutjämning Manager – Lägg till värd i klustret](./media/log-analytics-oms-gateway/nlb02.png)<br> 
+1. Högerklicka på klustrets IP-adress för att ansluta en Log Analytics gateway-servern med Microsoft Monitoring Agent installerad, och klicka sedan på **Lägg till värddator till klustret**.<br><br> ![Nätverket läsa in belastningsutjämning Manager – Lägg till värd i klustret](./media/log-analytics-oms-gateway/nlb02.png)<br> 
 1. Ange IP-adressen för gateway-servern som du vill ansluta till.<br><br> ![Utjämning av nätverksbelastning – Lägg till värd i klustret: ansluta](./media/log-analytics-oms-gateway/nlb03.png) 
     
-## <a name="configure-oms-agent-and-operations-manager-management-group"></a>Konfigurera OMS-agenten och Operations Manager-hanteringsgrupp
-Följande avsnitt innehåller anvisningar om hur du konfigurerar direktanslutna OMS-agenter, en Operations Manager-hanteringsgrupp eller Azure Automation Hybrid Runbook Worker med OMS-gatewayen kan kommunicera med Azure Automation och Log Analytics.  
+## <a name="configure-log-analytics-agent-and-operations-manager-management-group"></a>Konfigurera Log Analytics-agenten och Operations Manager-hanteringsgrupp
+Följande avsnitt innehåller anvisningar om hur du konfigurerar direktanslutna Log Analytics-agenter, en Operations Manager-hanteringsgrupp eller Azure Automation Hybrid Runbook Worker med Log Analytics-gatewayen att kommunicera med Azure Automation eller loggfil Analytics.  
 
-### <a name="configure-standalone-oms-agent"></a>Konfigurera fristående OMS-agent
-Information om krav och anvisningar om hur du installerar OMS-agenten på Windows-datorer ansluta direkt till Log Analytics finns i [ansluta Windows-datorer till Log Analytics](log-analytics-windows-agents.md) eller Linux-datorer finns i [ansluta Linux datorer till Log Analytics](log-analytics-quick-collect-linux-computer.md). På att ange en proxyserver när du konfigurerar agenten kan ersätta du värdet med IP-adressen för OMS-Gateway-servern och dess portnummer.  Om du har distribuerat flera gateway-servrar bakom Utjämning av nätverksbelastning, är proxykonfiguration för OMS-agenten den virtuella IP-adressen för Utjämning av nätverksbelastning.  
+### <a name="configure-standalone-log-analytics-agent"></a>Konfigurera fristående Log Analytics-agenten
+Information om krav och anvisningar om hur du installerar Log Analytics-agenten på Windows-datorer ansluta direkt till Log Analytics finns i [ansluta Windows-datorer till Log Analytics](log-analytics-windows-agents.md) eller Linux-datorer finns i [ Anslut Linux-datorer till Log Analytics](log-analytics-quick-collect-linux-computer.md). På att ange en proxyserver när du konfigurerar agenten kan ersätta du värdet med IP-adressen för Log Analytics gateway-servern och dess portnummer.  Om du har distribuerat flera gateway-servrar bakom Utjämning av nätverksbelastning, är proxykonfiguration för Log Analytics-agenten den virtuella IP-adressen för Utjämning av nätverksbelastning.  
 
 Information som rör Automation Hybrid Runbook Worker finns i [distribuera Hybrid Runbook Worker](../automation/automation-hybrid-runbook-worker.md).
 
@@ -167,24 +167,24 @@ Om det här är första gången registrerar din Operations Manager-hanteringsgru
 
     `netsh winhttp set proxy <proxy>:<port>`
 
-När du har slutfört integrationen med Log Analytics, kan du ta bort ändringen genom att köra `netsh winhttp reset proxy` och sedan använda den **konfigurera proxyservern** alternativet i Operations-konsolen för att ange OMS Gateway-servern. 
+När du har slutfört integrationen med Log Analytics, kan du ta bort ändringen genom att köra `netsh winhttp reset proxy` och sedan använda den **konfigurera proxyservern** alternativet i Operations-konsolen för att ange Log Analytics gateway-servern. 
 
 1. Öppna Operations Manager-konsolen och under **Operations Management Suite**, klickar du på **anslutning** och klicka sedan på **Konfigurera proxyserver**.<br><br> ![Operations Manager – Konfigurera proxyserver](./media/log-analytics-oms-gateway/scom01.png)<br> 
-1. Välj **använder en proxyserver för att få åtkomst till Operations Management Suite** och sedan ange IP-adressen för OMS-Gateway-servern eller den virtuella IP-adressen för Utjämning av nätverksbelastning. Se till att du börjar med den `http://` prefix.<br><br> ![Operations Manager – proxyserveradress](./media/log-analytics-oms-gateway/scom02.png)<br> 
+1. Välj **använder en proxyserver för att få åtkomst till Operations Management Suite** och sedan ange IP-adressen för Log Analytics gateway-servern eller den virtuella IP-adressen för Utjämning av nätverksbelastning. Se till att du börjar med den `http://` prefix.<br><br> ![Operations Manager – proxyserveradress](./media/log-analytics-oms-gateway/scom02.png)<br> 
 1. Klicka på **Slutför**. Operations Manager-hanteringsgrupp har nu konfigurerats för att kommunicera via gateway-servern till Log Analytics-tjänsten.
 
 ### <a name="configure-operations-manager---specific-agents-use-proxy-server"></a>Konfigurera Operations Manager - specifik agenter använder för proxyserver
-För stora och komplexa miljöer vill du kanske bara specifika servrar (eller grupper) för att använda OMS-Gateway-servern.  Du kan inte uppdatera Operations Manager-agenten för dessa servrar direkt när det här värdet skrivs över med globalt värde för hanteringsgruppen.  Du måste i stället Åsidosätt regeln används för att skicka dessa värden.  
+För stora och komplexa miljöer vill du kanske bara specifika servrar (eller grupper) för att använda Log Analytics gateway-servern.  Du kan inte uppdatera Operations Manager-agenten för dessa servrar direkt när det här värdet skrivs över med globalt värde för hanteringsgruppen.  Du måste i stället Åsidosätt regeln används för att skicka dessa värden.  
 
 > [!NOTE] 
-> Samma konfiguration metod kan användas för att tillåta användning av flera OMS-Gateway-servrar i din miljö.  Du kan till exempel kräva specifika OMS-Gateway-servrar som anges på basis av per region.
+> Samma konfiguration metod kan användas för att tillåta användning av flera Log Analytics gateway-servrar i din miljö.  Du kan till exempel kräva specifika Log Analytics gateway-servrar måste anges på basis av per region.
 >  
 
 1. Öppna Operations Manager-konsolen och välj den **redigering** arbetsyta.  
 1. I arbetsytan redigering väljer **regler** och klicka på den **omfång** i Operations Manager-verktygsfältet. Om den här knappen inte är tillgänglig, kontrollera att du har ett objekt och inte en mapp markerad i övervakningsfönstret. Den **omfång för Hanteringspaketobjekt** dialogrutan visar en lista över vanliga riktade klasser, grupper eller objekt. 
 1. Typ **Hälsotjänsten** i den **leta efter** fältet och markera den i listan.  Klicka på **OK**.  
 1. Sök efter regeln **Advisor Proxy inställningen regeln** och klicka på i verktygsfältet för driftkonsolen, **åsidosätter** och peka sedan på **åsidosätta Rule\For ett specifikt objekt i klassen: tjänsten för hälsotillstånd**  och välja ett specifikt objekt i listan.  Du kan också skapa en anpassad grupp som innehåller hälsotillstånd objektet av de servrar som du vill tillämpa den här åsidosättningen och sedan använda åsidosättningen för gruppen.
-1. I den **egenskaper för åsidosättning** dialogrutan, klicka för att markera kryssrutan i den **åsidosätta** kolumnen bredvid den **WebProxyAddress** parametern.  I den **åsidosättningsvärde** fältet, anger du Webbadressen till OMS-Gateway-server säkerställer att du börjar med den `http://` prefix.  
+1. I den **egenskaper för åsidosättning** dialogrutan, klicka för att markera kryssrutan i den **åsidosätta** kolumnen bredvid den **WebProxyAddress** parametern.  I den **åsidosättningsvärde** fältet, anger du Webbadressen till Log Analytics gateway server säkerställer att du börjar med den `http://` prefix.  
 
     >[!NOTE]
     > Du behöver inte aktivera regeln eftersom den redan hanteras automatiskt med en åsidosättning finns i Microsoft System Center Advisor säker referens åsidosätta management pack riktar in sig på Microsoft System Center Advisor övervakning av servergrupp.
@@ -198,7 +198,7 @@ Om du har Automation Hybrid Runbook Worker i din miljö kan ange följande manue
 
 Du behöver veta den Azure-region där Automation-kontot finns i följande steg. Att hitta platsen:
 
-1. Logga in på [Azure-portalen](https://portal.azure.com/).
+1. Logga in på [Azure Portal](https://portal.azure.com/).
 1. Välj Azure Automation-tjänsten.
 1. Välj lämpligt Azure Automation-konto.
 1. Visa dess region under **plats**.<br><br> ![Azure-portalen – platsen för Automation](./media/log-analytics-oms-gateway/location.png)  
@@ -237,20 +237,20 @@ Använd följande tabeller för att identifiera URL: en för varje plats:
 
 Om datorn registreras automatiskt som en Hybrid Runbook Worker för uppdatering med hjälp av lösningen för uppdateringshantering, följer du dessa steg:
 
-1. Lägg till Runtime jobbdata tjänstens webbadresser i listan tillåtna värden på OMS-gatewayen. Exempel: `Add-OMSGatewayAllowedHost we-jobruntimedata-prod-su1.azure-automation.net`
-1. Starta om OMS-Gateway-tjänsten med hjälp av följande PowerShell-cmdlet: `Restart-Service OMSGatewayService`
+1. Lägg till Runtime jobbdata tjänstens webbadresser i listan tillåtna värden på Log Analytics-gateway. Exempel: `Add-OMSGatewayAllowedHost we-jobruntimedata-prod-su1.azure-automation.net`
+1. Starta om gatewaytjänsten Log Analytics med hjälp av följande PowerShell-cmdlet: `Restart-Service OMSGatewayService`
 
 Om datorn är implementerad i Azure Automation med hjälp av cmdleten Hybrid Runbook Worker-registrering, gör du följande:
 
-1. Lägg till Registreringswebbadress för agent-tjänsten i listan tillåtna värden på OMS-gatewayen. Exempel: `Add-OMSGatewayAllowedHost ncus-agentservice-prod-1.azure-automation.net`
-1. Lägg till Runtime jobbdata tjänstens webbadresser i listan tillåtna värden på OMS-gatewayen. Exempel: `Add-OMSGatewayAllowedHost we-jobruntimedata-prod-su1.azure-automation.net`
-1. Starta om OMS-gatewayen.
+1. Lägg till Registreringswebbadress för agent-tjänsten i listan tillåtna värden på Log Analytics-gateway. Exempel: `Add-OMSGatewayAllowedHost ncus-agentservice-prod-1.azure-automation.net`
+1. Lägg till Runtime jobbdata tjänstens webbadresser i listan tillåtna värden på Log Analytics-gateway. Exempel: `Add-OMSGatewayAllowedHost we-jobruntimedata-prod-su1.azure-automation.net`
+1. Starta om gatewaytjänsten Log Analytics.
     `Restart-Service OMSGatewayService`
 
 ## <a name="useful-powershell-cmdlets"></a>Användbara PowerShell-cmdletar
-Med hjälp av cmdlet: ar kan du utföra uppgifter som behövs för att uppdatera inställningar för OMS-gatewayen. Innan du använder dem, måste du:
+Med hjälp av cmdlet: ar kan du utföra uppgifter som behövs för att uppdatera konfigurationsinställningar för Log Analytics-gateway. Innan du använder dem, måste du:
 
-1. Installera OMS-gatewayen (MSI).
+1. Installera Log Analytics-gateway (MSI).
 1. Öppna ett PowerShell-konsolfönster.
 1. Ange följande kommando för att importera modulen: `Import-Module OMSGateway`
 1. Om inget fel inträffade i föregående steg, modulen har importerats och cmdletarna som kan användas. Typ `Get-Module OMSGateway`
@@ -272,11 +272,11 @@ Om du får ett felmeddelande i steg 3 importerades inte modulen. Felet kan intr�
 | `Get-OMSGatewayAllowedClientCertificate` | |Hämtar för närvarande tillåtna klienten certifikatämnen (endast lokalt konfigurerade tillåtna ämnen, inkluderas inte automatiskt hämtade tillåtna ämnen) |`Get-`<br>`OMSGatewayAllowed`<br>`ClientCertificate` |  
 
 ## <a name="troubleshooting"></a>Felsökning
-Du måste också ha OMS-agenten installerad för att samla in händelser som loggats av gateway.<br><br> ![Loggboken – OMS Gateway-loggar](./media/log-analytics-oms-gateway/event-viewer.png)
+Du måste också ha Log Analytics-agenten installerad för att samla in händelser som loggats av gatewayen.<br><br> ![Loggboken – Log Analytics gateway Log](./media/log-analytics-oms-gateway/event-viewer.png)
 
-**Händelse-ID för OMS-Gateway och beskrivningar**
+**Log Analytics gateway händelse-ID och beskrivningar**
 
-I följande tabell visar de händelse-ID och beskrivningar för OMS Gateway logghändelser.
+I följande tabell visar de händelse-ID och beskrivningar för Log Analytics gateway logghändelser.
 
 | **ID** | **Beskrivning** |
 | --- | --- |
@@ -291,24 +291,24 @@ I följande tabell visar de händelse-ID och beskrivningar för OMS Gateway logg
 | 104 |Inte ett HTTP-ansluta kommando |
 | 105 |Målservern är inte i listan över tillåtna eller målporten är inte säker port (443) <br> <br> Se till att MMA-agenten på din Gateway-server och agenter som kommunicerar med gatewayen är ansluten till samma Log Analytics-arbetsytan. |
 | 105 |FEL TcpConnection – ogiltigt klientcertifikat: CN = Gateway <br><br> Se till att: <br>    <br> &#149;Du använder en Gateway med versionsnumret 1.0.395.0 eller större. <br> &#149;MMA-agenten på din Gateway-server och agenter som kommunicerar med Gateway är anslutna till samma Log Analytics-arbetsytan. |
-| 106 |OMS-gatewayen har endast stöd för TLS 1.0, TLS 1.1 och 1.2.  Det stöder inte SSL. För alla stöds inte TLS/SSL-protokollversion genererar OMS-gatewayen händelse-ID 106.|
+| 106 |Log Analytics-gatewayen har endast stöd för TLS 1.0, TLS 1.1 och 1.2.  Det stöder inte SSL. För alla stöds inte TLS/SSL-protokollversion genererar Log Analytics gateway händelse-ID 106.|
 | 107 |TLS-sessionen har verifierats |
 
 **Prestandaräknare för att samla in**
 
-I följande tabell visas de tillgängliga prestandaräknarna för OMS-gatewayen. Du kan lägga till räknare med Prestandaövervakaren.
+I följande tabell visas prestandaräknarna som är tillgängliga för Log Analytics-gateway. Du kan lägga till räknare med Prestandaövervakaren.
 
 | **Namn** | **Beskrivning** |
 | --- | --- |
-| OMS Gateway/aktiv-klientanslutning |Antal aktiva klientnätverksanslutningar (TCP) |
-| Antal för OMS-Gateway/fel |Antal fel |
-| OMS-gatewayen/ansluten klienten |Antal anslutna klienter |
-| Antal för OMS-Gateway/avvisande |Antal avvisningar på grund av eventuella verifieringsfel för TLS |
+| Log Analytics Gateway/aktiv-klientanslutning |Antal aktiva klientnätverksanslutningar (TCP) |
+| Antal för log Analytics Gateway/fel |Antal fel |
+| Log Analytics-gatewayen/ansluten klient |Antal anslutna klienter |
+| Log Analytics Gateway/avvisande antal |Antal avvisningar på grund av eventuella verifieringsfel för TLS |
 
-![OMS-Gateway-prestandaräknare](./media/log-analytics-oms-gateway/counters.png)
+![Logga Analytics gateway-prestandaräknare](./media/log-analytics-oms-gateway/counters.png)
 
 ## <a name="get-assistance"></a>Få hjälp
-När du har loggat in på Azure Portal, skapar du en begäran för att få hjälp med OMS-gatewayen eller andra Azure-tjänst eller funktion i en tjänst.
+När du har loggat in på Azure Portal, skapar du en begäran för att få hjälp med Log Analytics-gateway eller andra Azure-tjänst eller funktion i en tjänst.
 Be om hjälp, klicka på frågetecknet symbolen i det övre högra hörnet i portalen och klicka sedan på **ny supportbegäran**. Slutför formuläret för begäran av nytt stöd.
 
 ![Ny supportbegäran](./media/log-analytics-oms-gateway/support.png)

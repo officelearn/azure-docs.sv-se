@@ -12,12 +12,12 @@ ms.author: moslake
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 09/14/2018
-ms.openlocfilehash: 803bab4f0b91e2612abceedfa09baedaaea2a55e
-ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
+ms.openlocfilehash: bbcd5de0d6c2b43b220d5010093eccc1c9a76269
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49377952"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49406302"
 ---
 # <a name="manage-file-space-in-azure-sql-database"></a>Hantera utrymmet i Azure SQL Database
 Den här artikeln beskrivs olika typer av lagringsutrymme i Azure SQL Database och steg som kan utföras när utrymmet som allokerats för databaser och elastiska pooler måste hanteras uttryckligen.
@@ -216,7 +216,7 @@ Mer information om det här kommandot finns i [SHRINKDATABASE](https://docs.micr
 
 ### <a name="auto-shrink"></a>Automatisk förminskas
 
-Du kan också kan automatiskt förminskas aktiveras för en databas.  Automatisk förminskas minskar filen komplex och påverkar mindre databasprestanda än SHRINKDATABASE eller SHRINKFILE.  Automatisk förminskas kan vara särskilt användbart för att hantera elastiska pooler med många databaser.  Automatisk förminskas är dock mindre effektiva i frigöra utrymme än SHRINKDATABASE och SHRINKFILE.
+Du kan också kan automatiskt förminskas aktiveras för en databas.  Automatisk förminskas minskar filen komplex och påverkar mindre databasprestanda än SHRINKDATABASE eller SHRINKFILE.  Automatisk förminskas kan vara särskilt användbart för att hantera elastiska pooler med många databaser.  Automatisk förminskas kan dock vara mindre effektiva i frigöra utrymme än SHRINKDATABASE och SHRINKFILE.
 Ändra namnet på databasen i följande kommando om du vill aktivera automatisk förminskas.
 
 

@@ -15,12 +15,12 @@ ms.date: 09/12/2018
 ms.author: barbkess
 ms.reviewer: japere
 ms.custom: it-pro
-ms.openlocfilehash: e67428116c66c05d83efbb217d7ec81f75124051
-ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
+ms.openlocfilehash: 06df705aabce06c37f04de3fb5046d822f9f981e
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/13/2018
-ms.locfileid: "45540853"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49404961"
 ---
 # <a name="work-with-existing-on-premises-proxy-servers"></a>Arbeta med befintliga lokala proxyservrar
 
@@ -120,7 +120,7 @@ Tillåt åtkomst till följande slutpunkter för inledande registrering:
 Om du inte kan du ansluta efter FQDN och måste du ange IP-intervall i stället, kan du använda följande alternativ:
 
 * Tillåt anslutningen utgående åtkomst till alla måldatorer.
-* Tillåt åtkomst till utgående anslutning till alla de [Azure datacenter IP-adressintervall](https://www.microsoft.com/en-gb/download/details.aspx?id=41653). Den stora utmaningen med hjälp av listan med Azure-datacenter IP-adressintervall är uppdaterad varje vecka. Du måste placera en process för att säkerställa att din åtkomstregler uppdateras. Endast med hjälp av en delmängd av IP-adresser kan det leda till att din konfiguration och dela.
+* Tillåt åtkomst till utgående anslutning till alla de [Azure datacenter IP-adressintervall](https://www.microsoft.com//download/details.aspx?id=41653). Den stora utmaningen med hjälp av listan med Azure-datacenter IP-adressintervall är uppdaterad varje vecka. Du måste placera en process för att säkerställa att din åtkomstregler uppdateras. Endast med hjälp av en delmängd av IP-adresser kan det leda till att din konfiguration och dela.
 
 #### <a name="proxy-authentication"></a>Proxyautentisering
 

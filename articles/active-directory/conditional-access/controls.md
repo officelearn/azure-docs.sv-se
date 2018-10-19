@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 08/28/2018
+ms.date: 10/18/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: 6f66deff9052b79265222f052bebb8439a95d269
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: 065eee57b78ea10d5e8079de3a938dc00dd60ee2
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49352752"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49406780"
 ---
 # <a name="what-are-access-controls-in-azure-active-directory-conditional-access"></a>Vad är åtkomstkontroller i Azure Active Directory villkorlig åtkomst? 
 
@@ -105,7 +105,7 @@ Med godkända appar, behöver du en klientapp som försöker få åtkomst till d
 Du kan kräva att en användare i din klient samtycker till att användningsvillkoren innan de ges tillgång till en resurs. Som administratör kan du konfigurera och anpassa användningsvillkoren genom att överföra en PDF-dokumentet. Om en användare som ingår i beviljas omfånget för den här kontrollen åtkomst till ett program endast om det har har accepterat användningsvillkoren. 
 
 
-### <a name="custom-controls"></a>Anpassade kontroller 
+### <a name="custom-controls-preview"></a>Anpassade kontroller (förhandsversion) 
 
 Du kan skapa anpassade kontroller för villkorlig åtkomst som omdirigerar användarna till en kompatibel tjänst för att uppfylla ytterligare krav utanför Azure Active Directory. På så sätt kan du använda vissa externa multifaktorautentisering och verifiering leverantörer att genomdriva regler för villkorlig åtkomst eller för att skapa din egen anpassade tjänst. För att uppfylla den här kontrollen, en användares webbläsare omdirigeras till den externa tjänsten, utför alla nödvändiga autentisering eller validering aktiviteter och sedan omdirigeras tillbaka till Azure Active Directory. Om användaren har har autentiserats eller verifierats, fortsätter användaren i flödet för villkorlig åtkomst. 
 

@@ -8,12 +8,12 @@ ms.service: security
 ms.topic: article
 ms.date: 05/14/2018
 ms.author: jomolesk
-ms.openlocfilehash: 6a777418c5381f1f52bae31ad4e697248587fc6d
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: 84e26212b1102d693b84e5b66fbd606da2673934
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45576552"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49405947"
 ---
 # <a name="azure-security-and-compliance-blueprint-data-warehouse-for-gdpr"></a>Azure-säkerhet och efterlevnad skiss: Data Warehouse för GDPR
 
@@ -66,7 +66,7 @@ Den här lösningen använder följande Azure-tjänster. Mer information om dist
 - Azure Active Directory
 - Recovery Services-valv
 - Azure Key Vault
-- Operations Management Suite (OMS)
+- Log Analytics
 - Azure Data Catalog
 - Azure Security Center
 
@@ -83,7 +83,7 @@ Följande avsnitt beskriver elementen distribution och implementering.
 
 Den här lösningen skapar en virtuell dator som en domänansluten skyddsmiljö-värd med följande konfigurationer:
 -   [Tillägget mot skadlig kod](https://docs.microsoft.com/azure/security/azure-security-antimalware)
--   [OMS-tillägg](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-extensions-oms)
+-   [Log Analytics-tillägget](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-extensions-oms)
 -   [Azure Diagnostics-tillägg](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-extensions-diagnostics-template)
 -   [Azure Disk Encryption](https://docs.microsoft.com/azure/security/azure-security-disk-encryption) med Azure Key Vault
 -   En [princip för automatisk avstängning](https://azure.microsoft.com/blog/announcing-auto-shutdown-for-vms-using-azure-resource-manager/) du minskar användningen av virtuella datorresurser som
@@ -100,7 +100,7 @@ Denna Referensarkitektur definierar ett privat virtuellt nätverk med ett adress
 
 Var och en av NSG: erna har specifika portar och protokoll som är öppna så att lösningen fungerar på ett säkert sätt och korrekt. Dessutom kan är följande konfigurationer aktiverade för varje NSG:
   - [Diagnostiska loggar och händelser](https://docs.microsoft.com/azure/virtual-network/virtual-network-nsg-manage-log) är aktiverade och lagras i ett lagringskonto
-  - OMS Log Analytics är ansluten till den [NSG-diagnostik](https://github.com/krnese/AzureDeploy/blob/master/AzureMgmt/AzureMonitor/nsgWithDiagnostics.json)
+  - Log Analytics är ansluten till den [NSG-diagnostik](https://github.com/krnese/AzureDeploy/blob/master/AzureMgmt/AzureMonitor/nsgWithDiagnostics.json)
 
 **Undernät**: varje undernät som är associerad med dess motsvarande NSG.
 
@@ -140,7 +140,7 @@ Följande tekniker ger funktioner för att hantera åtkomst till personliga data
 - Diagnostikloggar för Key Vault har aktiverats med en period av minst 365 dagar.
 - Tillåtna kryptografiska åtgärder för nycklar är begränsade till de som krävs.
 
-**Uppdateringshantering**: Windows-datorer som distribueras som en del av denna Referensarkitektur är konfigurerade som standard för att ta emot automatiska uppdateringar från Windows Update-tjänsten. Den här lösningen innehåller också OMS [Azure Automation](https://docs.microsoft.com/azure/automation/automation-intro) tjänst genom vilken uppdaterade distributioner kan skapas för patch virtuella datorer när det behövs.
+**Uppdateringshantering**: Windows-datorer som distribueras som en del av denna Referensarkitektur är konfigurerade som standard för att ta emot automatiska uppdateringar från Windows Update-tjänsten. Den här lösningen innehåller också de [Azure Automation](https://docs.microsoft.com/azure/automation/automation-intro) tjänst genom vilken uppdaterade distributioner kan skapas för patch virtuella datorer när det behövs.
 
 **Skydd mot skadlig kod**: [Microsoft Antimalware](https://docs.microsoft.com/azure/security/azure-security-antimalware) för virtuella datorer ger realtidsskydd som hjälper att identifiera och ta bort virus, spionprogram och annan skadlig programvara, med konfigurerbara aviseringar När känd skadlig eller oönskad programvara försöker installera eller köra på den skyddade virtuella datorer.
 
@@ -152,12 +152,12 @@ Följande tekniker ger funktioner för att hantera åtkomst till personliga data
 **Recovery Services-valv**: den [Recovery Services-valv](https://docs.microsoft.com/azure/backup/backup-azure-recovery-services-vault-overview) lagrar säkerhetskopierade data och skyddar alla konfigurationer av Azure-datorer i den här arkitekturen. Med ett Recovery Services-valv kan kunder återställa filer och mappar från en IaaS-VM utan att återställa hela VM, att aktivera återställningen går snabbare.
 
 ### <a name="logging-and-auditing"></a>Loggning och granskning
-[Operations Management Suite (OMS)](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-overview) innehåller utförlig loggning av system- och användaraktivitet samt filsystemets hälsa. OMS [Log Analytics](https://azure.microsoft.com/services/log-analytics/) lösningen samlar in och analyserar data som genereras av resurser i Azure och lokala miljöer.
+[Log Analytics](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-overview) innehåller utförlig loggning av system- och användaraktivitet samt filsystemets hälsa. Den [Log Analytics](https://azure.microsoft.com/services/log-analytics/) lösningen samlar in och analyserar data som genereras av resurser i Azure och lokala miljöer.
 - **Aktivitetsloggar**: [aktivitetsloggar](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs) ger information om åtgärder som utförts på resurser i en prenumeration. Aktivitetsloggar kan hjälpa dig att fastställa en åtgärd initierare för förekomst och status.
 - **Diagnostikloggar**: [diagnostikloggar](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs) omfattar alla loggar som genereras av varje resurs. Loggarna finns Windows-händelsesystemloggar och Azure Blob storage, tabeller och köloggar.
 - **Logga arkivering**: alla diagnostikloggar skriva till en central och krypterade Azure storage-konto för arkivering. Kvarhållning konfigureras av användaren, upp till 730 dagar att uppfylla kraven för specifika kvarhållning. Dessa loggar kan ansluta till Azure Log Analytics för bearbetning, lagring och -instrumentpanelsrapportering.
 
-Dessutom ingår följande OMS-lösningar som en del av den här arkitekturen:
+Dessutom ingår följande Log Analytics-lösningar som en del av den här arkitekturen:
 -   [AD-bedömning](https://docs.microsoft.com/azure/log-analytics/log-analytics-ad-assessment): The Health kontroll av Active Directory lösningen utvärderar risker och hälsotillstånd i server-miljöer med regelbundna intervall och ger en prioriterad lista över rekommendationer som är specifika för den distribuerade serverinfrastrukturen.
 -   [Utvärdering av program mot skadlig kod](https://docs.microsoft.com/azure/log-analytics/log-analytics-malware): The program mot skadlig kod rapporterar status för skadlig kod, hot och skydd.
 -   [Azure Automation](https://docs.microsoft.com/azure/automation/automation-hybrid-runbook-worker): med Azure Automation-lösningen lagrar, kör och hanterar runbooks.

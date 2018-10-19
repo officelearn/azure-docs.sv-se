@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 01/08/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 9fd06a8680a52ac0002f20da88d563ad1cbdb79a
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: 845bc46ec56bfd6681c4fb318a57de19f66c0edf
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48041347"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49403887"
 ---
 # <a name="troubleshooting-the-log-analytics-vm-extension"></a>Felsökning av Log Analytics VM-tillägget
 Du får hjälp med att felsöka fel som du kan uppleva med Log Analytics VM-tillägg för Windows och Linux-datorer som körs på Microsoft Azure och ger förslag på lösningar för att lösa dem.
@@ -61,16 +61,17 @@ Om den *Microsoft Monitoring Agent* VM-tillägget inte installera eller rapporte
 Mer information finns i [felsökning av Windows-tillägg](../virtual-machines/windows/extensions-oms.md).
 
 ## <a name="troubleshooting-linux-vm-extension"></a>Felsökning av Linux VM-tillägg
-Om den *OMS-agenten för Linux* VM-tillägget inte installera eller rapporter, kan du utföra följande steg för att felsöka problemet.
+[!INCLUDE [log-analytics-agent-note](../../includes/log-analytics-agent-note.md)] 
+Om den *Log Analytics-agenten för Linux* VM-tillägget inte installera eller rapporter, kan du utföra följande steg för att felsöka problemet.
 
 1. Om du har tilläggsstatusen *okänd* kontrollera om Azure VM-agenten har installerats och fungerar korrekt genom att granska loggfilen för VM-agenten `/var/log/waagent.log`
    * VM-agenten installeras inte om loggen inte finns.
    * [Installera Azure VM-agenten på virtuella Linux-datorer](log-analytics-quick-collect-azurevm.md#enable-the-log-analytics-vm-extension)
-2. För andra felaktiga statusar granska OMS-agenten för Linux VM-tillägget loggfiler `/var/log/azure/Microsoft.EnterpriseCloud.Monitoring.OmsAgentForLinux/*/extension.log` och `/var/log/azure/Microsoft.EnterpriseCloud.Monitoring.OmsAgentForLinux/*/CommandExecution.log`
-3. Om tilläggsstatusen är felfri, men data överförs inte granska OMS-agenten för Linux-loggfiler i `/var/opt/microsoft/omsagent/log/omsagent.log`
+2. För andra felaktiga statusar granska Log Analytics-agenten för Linux VM-tillägget loggfiler `/var/log/azure/Microsoft.EnterpriseCloud.Monitoring.OmsAgentForLinux/*/extension.log` och `/var/log/azure/Microsoft.EnterpriseCloud.Monitoring.OmsAgentForLinux/*/CommandExecution.log`
+3. Om tilläggsstatusen är felfri, men data överförs inte granska Log Analytics-agenten för Linux-loggfiler i `/var/opt/microsoft/omsagent/log/omsagent.log`
 
 Mer information finns i [felsökning av Linux-tillägg](../virtual-machines/linux/extensions-oms.md).
 
 ## <a name="next-steps"></a>Nästa steg
 
-Ytterligare felsökningsinformation relaterat till OMS-agenten för Linux som ligger på datorer utanför Azure, se [felsöka Azure Log Analytics Linux Agent](log-analytics-agent-linux-support.md).  
+Ytterligare felsökningsinformation som rör Log Analytics-agenten för Linux som ligger på datorer utanför Azure, se [felsöka Azure Log Analytics Linux Agent](log-analytics-agent-linux-support.md).  

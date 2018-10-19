@@ -8,12 +8,12 @@ ms.service: security
 ms.topic: article
 ms.date: 05/14/2018
 ms.author: jomolesk
-ms.openlocfilehash: 26227e1a6766a80bbcef3cfda3f2faee82396fe3
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: c51ce44d1f6c2dcacaed09a490e46ad3af1ec9dc
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45577062"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49406695"
 ---
 # <a name="azure-security-and-compliance-blueprint---paas-web-application-for-gdpr"></a>Azure-säkerhet och efterlevnad skissen - PaaS webbprogram för GDPR
 
@@ -33,7 +33,7 @@ Den här referensarkitekturen och associerade Implementeringsguide hotmodell är
 - Kunderna ansvarar för att utföra lämpliga säkerhet och efterlevnad utvärderingar av alla lösningar som skapats med den här arkitekturen kraven kan variera beroende på specifika för varje kund-implementering.
 
 ## <a name="architecture-diagram-and-components"></a>Diagram över arkitektur och komponenter
-Den här lösningen tillhandahåller en Referensarkitektur för ett PaaS-webbprogram med en Azure SQL Database-serverdel. Webbprogrammet är värd för en isolerad Azure App Service Environment, vilket är en privat, dedikerad miljö i ett Azure-datacenter. Den miljö belastningsutjämning trafik för webbprogrammet över datorer som hanteras av Azure. Den här arkitekturen omfattar också nätverkssäkerhetsgrupper, ett Application Gateway, Azure DNS och belastningsutjämnare. Application Insights är dessutom realtid hantering av programprestanda och analytics genom Operations Management Suite (OMS). **Azure rekommenderar att du konfigurerar en VPN eller ExpressRoute-anslutning för hantering och import till undernätet för referens-arkitektur.**
+Den här lösningen tillhandahåller en Referensarkitektur för ett PaaS-webbprogram med en Azure SQL Database-serverdel. Webbprogrammet är värd för en isolerad Azure App Service Environment, vilket är en privat, dedikerad miljö i ett Azure-datacenter. Den miljö belastningsutjämning trafik för webbprogrammet över datorer som hanteras av Azure. Den här arkitekturen omfattar också nätverkssäkerhetsgrupper, ett Application Gateway, Azure DNS och belastningsutjämnare. Azure Monitor är dessutom realtidsanalys av systemhälsan. **Azure rekommenderar att du konfigurerar en VPN eller ExpressRoute-anslutning för hantering och import till undernätet för referens-arkitektur.**
 
 ![PaaS Web Applicaiton för GDPR-referens för Arkitekturdiagram](images/gdpr-paaswa-architecture.png?raw=true "PaaS Web Applicaiton för Arkitekturdiagram för GDPR-referens")
 
@@ -51,7 +51,6 @@ Den här lösningen använder följande Azure-tjänster. Information om distribu
 - nätverkssäkerhetsgrupper
 - Azure DNS
 - Azure Storage
-- Operations Management Suite (OMS)
 - Azure Monitor
 - Application Insights
 - Azure Security Center
@@ -92,7 +91,7 @@ Arkitekturen definierar ett privat virtuellt nätverk med ett adressutrymme för
 
 Var och en av NSG: erna har specifika portar och protokoll som är öppna så att lösningen fungerar på ett säkert sätt och korrekt. Dessutom kan är följande konfigurationer aktiverade för varje NSG:
   - [Diagnostiska loggar och händelser](https://docs.microsoft.com/azure/virtual-network/virtual-network-nsg-manage-log) är aktiverade och lagras i ett lagringskonto
-  - OMS Log Analytics är ansluten till den [NSG-diagnostik](https://github.com/krnese/AzureDeploy/blob/master/AzureMgmt/AzureMonitor/nsgWithDiagnostics.json)
+  - Log Analytics är ansluten till den [NSG-diagnostik](https://github.com/krnese/AzureDeploy/blob/master/AzureMgmt/AzureMonitor/nsgWithDiagnostics.json)
 
 **Undernät**: varje undernät som är associerad med dess motsvarande NSG.
 
@@ -156,12 +155,12 @@ Följande tekniker ger funktioner för att hantera åtkomst till personliga data
 
 ### <a name="logging-and-auditing"></a>Loggning och granskning
 
-OMS innehåller utförlig loggning av system- och användaraktivitet samt filsystemets hälsa. OMS [Log Analytics](https://azure.microsoft.com/services/log-analytics/) lösningen samlar in och analyserar data som genereras av resurser i Azure och lokala miljöer.
+Azure Monitor innehåller utförlig loggning av system- och användaraktivitet samt filsystemets hälsa. Den samlar in och analyserar data som genereras av resurser i Azure och lokala miljöer.
 - **Aktivitetsloggar**: [aktivitetsloggar](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs) ger information om åtgärder som utförts på resurser i en prenumeration. Aktivitetsloggar kan hjälpa dig att fastställa en åtgärd initierare för förekomst och status.
 - **Diagnostikloggar**: [diagnostikloggar](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs) omfattar alla loggar som genereras av varje resurs. Dessa loggar är Windows-händelsesystemloggar, Azure Storage-loggar, granskningsloggar för Key Vault och åtkomst och brandväggen loggar i Application Gateway.
 - **Arkivera loggen**: alla diagnostikloggar skriva till en central och krypterade Azure storage-konto för arkivering. Kvarhållning konfigureras av användaren, upp till 730 dagar att uppfylla kraven för specifika kvarhållning. Dessa loggar kan ansluta till Azure Log Analytics för bearbetning, lagring och -instrumentpanelsrapportering.
 
-Dessutom ingår följande OMS-lösningar som en del av den här arkitekturen:
+Dessutom kan ingår följande övervakningslösningar som en del av den här arkitekturen:
 -   [AD-bedömning](https://docs.microsoft.com/azure/log-analytics/log-analytics-ad-assessment): The Health kontroll av Active Directory lösningen utvärderar risker och hälsotillstånd i server-miljöer med regelbundna intervall och ger en prioriterad lista över rekommendationer som är specifika för den distribuerade serverinfrastrukturen.
 -   [Utvärdering av program mot skadlig kod](https://docs.microsoft.com/azure/log-analytics/log-analytics-malware): The program mot skadlig kod rapporterar status för skadlig kod, hot och skydd.
 -   [Azure Automation](https://docs.microsoft.com/azure/automation/automation-hybrid-runbook-worker): med Azure Automation-lösningen lagrar, kör och hanterar runbooks. I den här lösningen hjälper runbooks att samla in loggar från Application Insights och Azure SQL Database.

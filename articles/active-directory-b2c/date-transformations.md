@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: b287e7f3846de4391de02cce2cedd6a5df3cbc4a
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.openlocfilehash: ac7cc404998fed6897de1bed4b6bd31fca43e820
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49167655"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49405828"
 ---
 # <a name="date-claims-transformations"></a>Datum anspråk omvandlingar
 
@@ -25,12 +25,12 @@ Den här artikeln innehåller exempel för att använda anspråk datumtransforme
 
 ## <a name="assertdatetimeisgreaterthan"></a>AssertDateTimeIsGreaterThan 
 
-Kontrollerar att ett datum och tid anspråk (strängdatatypen) är större än ett andra datum och tid Anspråkstypen (sträng data) och utlöser ett undantag.
+Kontrollerar att ett datum och tid anspråk (strängdatatypen) är senare än ett andra datum och tid Anspråkstypen (sträng data) och utlöser ett undantag.
 
 | Objekt | TransformationClaimType | Datatyp | Anteckningar |
 | ---- | ----------------------- | --------- | ----- |
-| InputClaim | leftOperand | sträng | Typ första anspråk som ska vara större än det andra anspråket. |
-| InputClaim | rightOperand | sträng | Typ av andra anspråk, vilket ska vara mindre än det första anspråket. |
+| InputClaim | leftOperand | sträng | Typ första anspråk som ska vara senare än andra anspråk. |
+| InputClaim | rightOperand | sträng | Andra anspråkets typ, och måste vara tidigare än det första anspråket. |
 | Indataparametrar | AssertIfEqualTo | boolesk | Anger om kontrollen ska skicka om den vänstra operanden är lika med den högra operanden. |
 | Indataparametrar | AssertIfRightOperandIsNotPresent | boolesk | Anger om kontrollen ska skicka om högeroperanden saknas. |
 | Indataparametrar | TreatAsEqualIfWithinMillseconds | int | Anger antalet millisekunder att tillåta mellan två datum-tid att tänka på tiderna som är lika med (till exempel till konto för klocka skeva). |
@@ -39,7 +39,7 @@ Den **AssertDateTimeIsGreaterThan** anspråkstransformering utförs alltid från
 
 ![AssertStringClaimsAreEqual körning](./media/date-transformations/assert-execution.png)
 
-I följande exempel jämförs det `currentDateTime` anspråk med den `approvedDateTime` anspråk. Ett fel genereras om `currentDateTime` är större än `approvedDateTime`. Transformeringen behandlar värden som lika om ändringarna är inom 5 minuter (30000 millisekunder) skillnaden.
+I följande exempel jämförs det `currentDateTime` anspråk med den `approvedDateTime` anspråk. Ett fel genereras om `currentDateTime` är senare än `approvedDateTime`. Transformeringen behandlar värden som lika om ändringarna är inom 5 minuter (30000 millisekunder) skillnaden.
 
 ```XML
 <ClaimsTransformation Id="AssertApprovedDateTimeLaterThanCurrentDateTime" TransformationMethod="AssertDateTimeIsGreaterThan">
@@ -138,17 +138,17 @@ Hämta den aktuella UTC-datum och tid och lägga till värdet i en ClaimType.
 
 ## <a name="datetimecomparison"></a>DateTimeComparison
 
-Avgöra om ett datum/tid är större, mindre eller lika med en annan. Resultatet är ett nytt booleskt ClaimType booleskt värde med ett värde för SANT eller FALSKT.
+Avgöra om ett datum/tid är senare, tidigare eller lika med en annan. Resultatet är ett nytt booleskt ClaimType booleskt värde med ett värde av `true` eller `false`.
 
 | Objekt | TransformationClaimType | Datatyp | Anteckningar |
 | ---- | ----------------------- | --------- | ----- |
-| InputClaim | firstDateTime | Datum/tid | Den första datum/tid att jämföra. Null-värde genereras ett undantag. |
-| InputClaim | secondDateTime | Datum/tid | Den andra datum/tid att slutföra. Null-värde behandlar som aktuella datetTime. |
+| InputClaim | firstDateTime | Datum/tid | Den första datum/tid att jämföra oavsett om den tidigare eller senare än andra datum/tid. Null-värde genereras ett undantag. |
+| InputClaim | secondDateTime | Datum/tid | Den andra datum/tid att jämföra oavsett om den tidigare eller senare än första datum/tid. Null-värde behandlas som den aktuella datetTime. |
 | Indataparametrar | Operator | sträng | Något av följande värden: samma, senare än eller tidigare än. |
 | Indataparametrar | timeSpanInSeconds | int | Lägg till timespan i första datum/tid. |
 | outputClaim | Resultatet | boolesk | ClaimType som skapas när den här ClaimsTransformation har anropats. |
 
-Använd detta anspråk omvandlingen att fastställa om två ClaimTypes är lika med, större eller mindre från varandra. Du kan till exempel lagra den senaste gången en användare som godkänt dina villkor av tjänster (TOS). När 3 månader kan du be användaren att få åtkomst till förklaringar igen.
+Använd detta anspråk omvandlingen att fastställa om två ClaimTypes är lika med, senare eller tidigare än andra. Du kan till exempel lagra den senaste gången en användare som godkänt dina villkor av tjänster (TOS). När 3 månader kan du be användaren att få åtkomst till förklaringar igen.
 Om du vill köra anspråksomvandling, måste du först hämta den aktuella datumet/tiden och senaste gången användaren godkänner även förklaringar.
 
 ```XML

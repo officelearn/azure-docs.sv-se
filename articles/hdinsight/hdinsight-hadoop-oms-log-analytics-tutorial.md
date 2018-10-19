@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/15/2018
 ms.author: jasonh
-ms.openlocfilehash: 87d1593327ab45f064c6f6b19dfbe3882baaa446
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: 1a526bfdd951e4dc2897ec52c03bfbe96ee14d4c
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43109524"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49403686"
 ---
 # <a name="use-azure-log-analytics-to-monitor-hdinsight-clusters"></a>Använda Azure Log Analytics för att övervaka HDInsight-kluster
 
@@ -93,7 +93,7 @@ Dessa är tillgängliga HDInsight-lösningar:
 
 Anvisningar om hur du installerar en lösning finns i [lösningar i Azure](../monitoring/monitoring-solutions.md#install-a-management-solution). Du kan experimentera genom att installera en Monotiring för HDInsight Hadoop-lösning. När det är klart visas en **HDInsightHadoop** panelen visas under **sammanfattning**. Välj den **HDInsightHadoop** panelen. Det ser ut som HDInsightHadoop lösningen:
 
-![HDInsight OMS Hadoop-övervakning lösningsvy](media/hdinsight-hadoop-oms-log-analytics-tutorial/hdinsight-oms-hdinsight-hadoop-monitoring-solution.png)
+![HDInsight-lösningen för övervakningsvyn](media/hdinsight-hadoop-oms-log-analytics-tutorial/hdinsight-oms-hdinsight-hadoop-monitoring-solution.png)
 
 Rapporten visar inte några aktiviteter eftersom klustret är ett helt nytt kluster.
 

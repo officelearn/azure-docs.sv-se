@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 07/26/2018
 ms.author: iainfou
-ms.openlocfilehash: 011654dcbad21c3e8cea51d6ab98eeca461e4685
-ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
+ms.openlocfilehash: 7caa98b65b35d1eb1a000f1e9099fbf8eb3f8861
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49068833"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49406049"
 ---
 # <a name="enable-and-review-kubernetes-master-node-logs-in-azure-kubernetes-service-aks"></a>Aktivera och granska Kubernetes huvudnoden loggar i Azure Kubernetes Service (AKS)
 
@@ -37,9 +37,12 @@ Log Analytics är aktiverat och hanteras i Azure-portalen. Öppna Azure portal i
 1. I listan över tillgängliga loggar, väljer du de loggar som du vill aktivera som *kube apiserver*, *kube-controller-manager*, och *kube-schemaläggare*. Du kan gå tillbaka och ändra insamlade loggar när Log Analytics är aktiverade.
 1. När du är klar väljer **spara** att aktivera insamling av valda loggarna.
 
-I följande exempel portal skärmbild visas den *diagnostikinställningar* fönstret och sedan på alternativet för att skapa en OMS-arbetsyta:
+I följande exempel portal skärmbild visas den *diagnostikinställningar* fönstret och sedan på alternativet för att skapa en Log Analytics-arbetsyta:
 
-![Aktivera OMS-arbetsyta för Log Analytics för AKS-kluster](media/view-master-logs/enable-oms-log-analytics.png)
+![Aktivera Log Analytics-arbetsyta för Log Analytics för AKS-kluster](media/view-master-logs/enable-oms-log-analytics.png)
+
+>[!NOTE]
+>OMS-arbetsytor kallas nu för Log Analytics-arbetsytor. 
 
 ## <a name="schedule-a-test-pod-on-the-aks-cluster"></a>Schemalägga en test-pod på AKS-kluster
 
@@ -75,7 +78,7 @@ pod/nginx created
 
 ## <a name="view-collected-logs"></a>Visa insamlade loggar
 
-Det kan ta några minuter för diagnostikloggar till aktiveras och visas i OMS-arbetsytan. I Azure-portalen väljer du resursgruppen för din Log Analytics-arbetsyta som *myResourceGroup*, väljer din Log Analytics-resurs, till exempel *myAKSLogs*.
+Det kan ta några minuter för diagnostikloggar till aktiveras och visas i Log Analytics-arbetsytan. I Azure-portalen väljer du resursgruppen för din Log Analytics-arbetsyta som *myResourceGroup*, väljer din Log Analytics-resurs, till exempel *myAKSLogs*.
 
 ![Välj Log Analytics-arbetsytan för AKS-kluster](media/view-master-logs/select-log-analytics-workspace.png)
 

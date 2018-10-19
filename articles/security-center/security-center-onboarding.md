@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/02/2018
 ms.author: rkarlin
-ms.openlocfilehash: 50055befaa0a5f0bb03bda18e01edfb751e49369
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: d5a4cfa3a91b82aa0f5b1725f86c732fecf632d4
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44380003"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49405454"
 ---
 # <a name="onboarding-to-azure-security-center-standard-for-enhanced-security"></a>Kom igång med Azure Security Center Standard för ökad säkerhet
 Uppgradera till Security Center Standard att dra nytta av förbättrad säkerhetshantering och skydd mot hot i dina hybridmolnarbetsbelastningar.  Du kan prova Standard kostnadsfritt under 60 dagar. Se de Säkerhetscenter [prissättningssidan](https://azure.microsoft.com/pricing/details/security-center/) för mer information.
@@ -42,13 +42,13 @@ Du kan uppgradera en hel Azure-prenumeration till standardnivån som ärvs av al
 
 ## <a name="upgrade-an-azure-subscription-or-workspace"></a>Uppgradera ett Azure-prenumeration eller arbetsyta
 Uppgradera en prenumeration eller en arbetsyta till Standard:
-1. Huvudmenyn i Security Center, Välj **komma igång**.
+1. På huvudmenyn i Security Center väljer du **Komma igång**.
   ![Komma igång](./media/security-center-onboarding/get-started.png)
-2. Under **uppgradera**, listar Security Center prenumerationer och arbetsytor som är behöriga för registrering. 
-   - Du kan klicka på den expanderbara **gäller din utvärderingsversion** att se en lista över alla prenumerationer och arbetsytor med deras utvärderingsversion berättigande status.
+2. Under **Uppgradera** listar Security Center prenumerationer och arbetsytor som är behöriga för registrering. 
+   - Du kan klicka på den expanderbara texten **Använd din utvärderingsversion** för att se en lista över alla prenumerationer och arbetsytor med deras berättigandestatus för utvärderingsversion.
    -    Du kan uppgradera prenumerationer och arbetsytor som inte är berättigade till utvärderingsversionen.
-   -    Du kan välja berättigade arbetsytor och prenumerationer Påbörja din utvärderingsperiod.
-3.  Klicka på **starta utvärdering** Påbörja din utvärderingsperiod på de valda prenumerationerna.
+   -    Du kan välja berättigade arbetsytor och prenumerationer för att påbörja din utvärderingsperiod.
+3.  Klicka på **Starta utvärdering** för att påbörja din utvärderingsperiod för de valda prenumerationerna.
   ![Välj prenumeration](./media/security-center-onboarding/select-subscription.png)
 
 
@@ -63,13 +63,13 @@ Security Center kan övervaka säkerhetsstatusen för icke-Azure-datorer men du 
 ### <a name="add-new-non-azure-computers-from-getting-started"></a>Lägga till nya Azure-datorer från **komma igång**
 
 1. Gå tillbaka till **komma igång**.   
-2. Välj den **börjar** fliken.
+2. Välj fliken **Kom igång**.
 
   ![Icke-Azure](./media/security-center-onboarding/non-azure.png)
 
-3. Klicka på **konfigurera** under **lägga till nya Azure-datorer**. En lista över dina logganalysarbetsytor visas. Om det är tillämpligt innehåller listan standardarbetsytan som har skapats för dig av Security Center när automatisk etablering aktiverades. Välj den här arbetsytan eller någon annan arbetsyta som du vill använda.
+3. Klicka på **Konfigurera** under **Lägg till datorer som inte är Azure-datorer**. En lista över dina Log Analytics-arbetsytor visas. Om det är tillämpligt innehåller listan standardarbetsytan som har skapats för dig av Security Center när automatisk etablering aktiverades. Välj den här arbetsytan eller någon annan arbetsyta som du vill använda.
 
-  ![Lägg till icke-Azure-dator][7]
+  ![Lägga till en dator som inte är en Azure-dator][7]
 
 Om du har befintliga arbetsytor kan de visas under **lägga till nya icke-Azure-datorer**. Du kan lägga till datorer till en befintlig arbetsyta eller skapa en ny arbetsyta. Klicka på länken om du vill skapa en ny arbetsyta **lägga till en ny arbetsyta**.
 
@@ -82,6 +82,8 @@ Om du har befintliga arbetsytor kan de visas under **lägga till nya icke-Azure-
    ![Lägg till en ny arbetsyta][4]
 
 2. Under **säkerhet och granskning**väljer **OMS-arbetsyta** att skapa en ny arbetsyta.
+> [!NOTE]
+> OMS-arbetsytor kallas nu för Log Analytics-arbetsytor.
 3. Under **OMS-arbetsyta**, anger du informationen för din arbetsyta.
 4. Under **OMS-arbetsyta**väljer **OK**.  När du väljer OK, du får en länk för att hämta en Windows- eller Linux-agent och nycklar för arbetsyte-ID för användning vid konfigureringen av agenten.
 5. Under **säkerhet och granskning**väljer **OK**.

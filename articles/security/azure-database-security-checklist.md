@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: tomsh
-ms.openlocfilehash: 7682a733c5630c16d9684ec3cb9e7757b03a8b1b
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: f6e8ed1725b7ba2a0cba8523ae03c0306337aba0
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48855943"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49402515"
 ---
 # <a name="azure-database-security-checklist"></a>Checklista för Azure database-säkerhet
 
@@ -46,7 +46,7 @@ Vi rekommenderar att du läser den [säkerhetsmetoder för Azure Database](https
 |Checklista för kategori| Beskrivning|
 | ------------ | -------- |
 |**Skydda Data**||
-| <br> Kryptering under överföring/överföring| <ul><li>[Transport Layer Security](https://docs.microsoft.com/windows-server/security/tls/transport-layer-security-protocol), för kryptering av data när data flyttas till nätverk.</li><li>Databasen kräver säker kommunikation från klienter baserat på den [TDS (Tabular Data Stream)](https://msdn.microsoft.com/en-in/library/dd357628.aspx) protokollet via TLS (Transport Layer Security).</li></ul> |
+| <br> Kryptering under överföring/överföring| <ul><li>[Transport Layer Security](https://docs.microsoft.com/windows-server/security/tls/transport-layer-security-protocol), för kryptering av data när data flyttas till nätverk.</li><li>Databasen kräver säker kommunikation från klienter baserat på den [TDS (Tabular Data Stream)](https://msdn.microsoft.com/library/dd357628.aspx) protokollet via TLS (Transport Layer Security).</li></ul> |
 |<br>Vilande kryptering| <ul><li>[Transparent datakryptering](http://go.microsoft.com/fwlink/?LinkId=526242)när inaktiva data lagras fysiskt i någon digital form.</li></ul>|
 |**Kontrollera åtkomst**||  
 |<br> Åtkomst till databasen | <ul><li>[Autentisering](https://docs.microsoft.com/azure/sql-database/sql-database-control-access) (Azure Active Directory-autentisering) AD-autentisering använder identiteter som hanteras av Azure Active Directory.</li><li>[Auktorisering](https://docs.microsoft.com/azure/sql-database/sql-database-control-access) och ge användare så få behörigheter som krävs.</li></ul> |

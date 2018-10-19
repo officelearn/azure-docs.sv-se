@@ -10,12 +10,12 @@ ms.topic: article
 ms.date: 08/15/2017
 ms.author: luywang
 ms.component: disks
-ms.openlocfilehash: 5d3c2f09a6e4c45aa477cd85911147eab6de7a2c
-ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
+ms.openlocfilehash: 7378331e5f7540d807c76511226fcd2ed99883fa
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39714714"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49404145"
 ---
 # <a name="migrate-to-premium-storage-by-using-azure-site-recovery"></a>Migrera till Premium Storage med hjälp av Azure Site Recovery
 
@@ -77,8 +77,10 @@ Du kan använda Site Recovery för att migrera virtuella Azure IaaS-datorer mell
 ### <a name="step-1-create-a-recovery-services-vault"></a>Steg 1: Skapa ett Recovery Services-valv
 
 1. Öppna [Azure-portalen](https://portal.azure.com).
-2. Välj **skapa en resurs** > **Management** > **Backup och Site Recovery (OMS)**. Du kan även välja **Bläddra** > **Recovery Services-valv** > **Lägg till**. 
-3. Ange en region som virtuella datorer kommer att replikeras till. Välj den region där din virtuella källdatorer och källa storage-konton är huruvida i samma region. 
+2. Välj **skapa en resurs** > **Management** > **Backup och Site Recovery (OMS)**. Du kan även välja **Bläddra** > **Recovery Services-valv** > **Lägg till**.
+   >[!NOTE]
+   >Backup och Site Recovery var tidigare en del av den ![OMS suite](https://github.com/MicrosoftDocs/azure-docs-pr/pull/azure-monitor/azure-monitor-rebrand.md#retirement-of-operations-management-suite-brand).
+1. Ange en region som virtuella datorer kommer att replikeras till. Välj den region där din virtuella källdatorer och källa storage-konton är huruvida i samma region. 
 
 ### <a name="step-2-choose-your-protection-goals"></a>Steg 2: Välja skyddsmål 
 

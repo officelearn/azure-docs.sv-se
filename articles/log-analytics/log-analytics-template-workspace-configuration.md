@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 06/11/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: f1cf38dd5687e14b0183de03b8eda41fe39808e3
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: a715c300cc5490eef9dbe7971dabe1733fd47f49
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48041382"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49402226"
 ---
 # <a name="manage-log-analytics-using-azure-resource-manager-templates"></a>Hantera Log Analytics med hjälp av Azure Resource Manager-mallar
 Du kan använda [Azure Resource Manager-mallar](../azure-resource-manager/resource-group-authoring-templates.md) du skapar och konfigurerar Log Analytics-arbetsytor. Exempel på de uppgifter du kan utföra med mallar:
@@ -178,7 +178,7 @@ I följande exempel i mallen visas hur du:
       "minValue": 7,
       "maxValue": 730,
       "metadata": {
-        "description": "Number of days of retention. Free plans can only have 7 days, Standalone and OMS plans include 30 days for free"
+        "description": "Number of days of retention. Free plans can only have 7 days, Standalone and Log Analytics plans include 30 days for free"
       }
     },
     "location": {
@@ -518,7 +518,7 @@ Azure Snabbstart mallgalleriet innehåller ett antal mallar för Log Analytics, 
 * [Distribuera en virtuell dator som kör Linux med Log Analytics VM-tillägg](https://azure.microsoft.com/documentation/templates/201-oms-extension-ubuntu-vm/)
 * [Övervaka Azure Site Recovery med en befintlig Log Analytics-arbetsyta](https://azure.microsoft.com/documentation/templates/asr-oms-monitoring/)
 * [Övervaka Azure Web Apps med en befintlig Log Analytics-arbetsyta](https://azure.microsoft.com/documentation/templates/101-webappazure-oms-monitoring/)
-* [Lägg till ett befintligt lagringskonto i OMS](https://azure.microsoft.com/resources/templates/oms-existing-storage-account/)
+* [Lägg till ett befintligt lagringskonto i Log Analytics](https://azure.microsoft.com/resources/templates/oms-existing-storage-account/)
 
 ## <a name="next-steps"></a>Nästa steg
 * [Distribuera Windows-agenten till Azure virtuella datorer med Resource Manager-mall](../virtual-machines/windows/extensions-oms.md).

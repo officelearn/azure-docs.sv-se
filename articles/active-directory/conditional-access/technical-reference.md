@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 04/11/2018
 ms.author: markvi
 ms.reviewer: spunukol
-ms.openlocfilehash: e44b68a2ed2786b449e2680ca4a8ca531058b85c
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: 445611338b0b2895d83626e8cf450dc8d1cb27a6
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47432824"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49406407"
 ---
 # <a name="azure-active-directory-conditional-access-settings-reference"></a>Inställningsreferens för villkorlig åtkomst till Azure Active Directory
 
@@ -182,8 +182,8 @@ Den här inställningen påverkar åtkomstförsök från följande mobilappar oc
 |E-post/kalender/personer app, Outlook 2016 Outlook 2013 (med modern autentisering)|Office 365 Exchange Online|Windows 10|
 |MFA- och platspolicy för appar. Enhetsbaserade principer stöds inte. |Alla Mina appar apptjänst|Android och iOS|
 |Microsoft Teams-tjänster – detta styr alla tjänster som stöder Microsoft Teams och alla dess klient Apps - Windows-skrivbordet och iOS, Android, WP och Webbklient|Microsoft Teams|Windows 10, Windows 8.1, Windows 7, iOS, Android och macOS |
-|Office 2016-appar, Office 2013 (med modern autentisering), OneDrive synkronisera klient (se [anteckningar](https://support.office.com/en-US/article/Azure-Active-Directory-conditional-access-with-the-OneDrive-sync-client-on-Windows-028d73d7-4b86-4ee0-8fb7-9a209434b04e))|Office 365 SharePoint Online|Windows 8.1, Windows 7|
-|Office 2016-appar, universella Office-appar, Office 2013 (med modern autentisering), OneDrive-Synkroniseringsklienten (se [anteckningar](https://support.office.com/en-US/article/Azure-Active-Directory-conditional-access-with-the-OneDrive-sync-client-on-Windows-028d73d7-4b86-4ee0-8fb7-9a209434b04e)), Office-grupper stöd planeras i framtiden, stöd för SharePoint-appar planeras i framtiden|Office 365 SharePoint Online|Windows 10|
+|Office 2016-appar, Office 2013 (med modern autentisering), OneDrive synkronisera klient (se [anteckningar](https://support.office.com/article/Azure-Active-Directory-conditional-access-with-the-OneDrive-sync-client-on-Windows-028d73d7-4b86-4ee0-8fb7-9a209434b04e))|Office 365 SharePoint Online|Windows 8.1, Windows 7|
+|Office 2016-appar, universella Office-appar, Office 2013 (med modern autentisering), OneDrive-Synkroniseringsklienten (se [anteckningar](https://support.office.com/article/Azure-Active-Directory-conditional-access-with-the-OneDrive-sync-client-on-Windows-028d73d7-4b86-4ee0-8fb7-9a209434b04e)), Office-grupper stöd planeras i framtiden, stöd för SharePoint-appar planeras i framtiden|Office 365 SharePoint Online|Windows 10|
 |Office 2016 för macOS (Word, Excel, PowerPoint, OneNote endast). OneDrive för företag-stöd planeras för framtiden|Office 365 SharePoint Online|Mac OS X|
 |Office-mobilappar|Office 365 SharePoint Online|Android, iOS|
 |Office Yammer-appen|Office 365 Yammer|Windows 10, iOS och Android|

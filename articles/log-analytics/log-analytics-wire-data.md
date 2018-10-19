@@ -1,6 +1,6 @@
 ---
 title: Wire Data-lösning i Log Analytics| Microsoft Docs
-description: Kommunikationsdata (wire data) är konsoliderade nätverks- och prestandadata från datorer med OMS-agenter, inklusive Operations Manager och Windows-anslutna agenter. Nätverksdata kombineras med dina loggdata, vilket hjälper dig att korrelera data.
+description: Wire-data är konsoliderade nätverks- och data från datorer med Log Analytics-agenter. Nätverksdata kombineras med dina loggdata, vilket hjälper dig att korrelera data.
 services: log-analytics
 documentationcenter: ''
 author: mgoedtel
@@ -15,20 +15,20 @@ ms.topic: conceptual
 ms.date: 10/03/2018
 ms.author: magoedte
 ms.component: na
-ms.openlocfilehash: 9ee388e8d33d293240e70ccf79ec8d3c445dffd1
-ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
+ms.openlocfilehash: 61ceea60962acc2e1ec032df49683e8a28381dd7
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48269165"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49405369"
 ---
 # <a name="wire-data-20-preview-solution-in-log-analytics"></a>Wire Data 2.0-lösning (förhandsversion) i Log Analytics
 
 ![Wire Data-symbol](./media/log-analytics-wire-data/wire-data2-symbol.png)
 
-Kommunikationsdata (wire data) är konsoliderade nätverks- och prestandadata från datorer med OMS-agenter, inklusive Operations Manager och Windows-anslutna agenter. Nätverksdata kombineras med dina övriga loggdata, vilket hjälper dig att korrelera data.
+Wire-data är konsoliderade nätverks- och data som samlats in från Windows-anslutna och ansluten Linux-datorer med Log Analytics-agenten, inklusive de som övervakas av Operations Manager i din miljö. Nätverksdata kombineras med dina övriga loggdata, vilket hjälper dig att korrelera data.
 
-Förutom OMS-agenten använder Wire Data-lösningen Microsofts beroendeagenter som du installerar på datorer i din IT-infrastruktur. Beroendeagenterna övervakar nätverksdata som skickas till och från dina datorer på nätverksnivåerna 2–3 i [OSI-modellen](https://en.wikipedia.org/wiki/OSI_model), inklusive de olika protokoll och portar som används. Informationen skickas sedan till Log Analytics med hjälp av agenter.  
+Förutom att Log Analytics-agenten använder Wire Data-lösningen Microsoft Beroendeagenter som du installerar på datorer i din IT-infrastruktur. Beroendeagenterna övervakar nätverksdata som skickas till och från dina datorer på nätverksnivåerna 2–3 i [OSI-modellen](https://en.wikipedia.org/wiki/OSI_model), inklusive de olika protokoll och portar som används. Informationen skickas sedan till Log Analytics med hjälp av agenter.  
 
 >[!NOTE]
 >Om du redan har distribuerat Service Map eller överväger Service Map eller [Azure Monitor för virtuella datorer](../monitoring/monitoring-vminsights-overview.md), det finns en ny anslutning mått datauppsättning de samla in och lagra i Log Analytics som ger jämförbara information till Wire-Data.
@@ -65,22 +65,22 @@ Wire Data hämtar sina data från Microsofts beroendeagent. Beroendeagenten bero
 | System Center Operations Manager-hanteringsgrupp | Ja | Wire Data analyserar och samlar in data från Windows- och Linux-agenter i en ansluten [System Center Operations Manager-hanteringsgrupp](log-analytics-om-agents.md). <br><br> En direktanslutning från System Center Operations Manager-agentdatorn till Log Analytics krävs. |
 | Azure Storage-konto | Nej | Wire Data samlar in data från agentdatorer, så det finns inte några data att samla in från Azure Storage. |
 
-I Windows används MMA (Microsoft Monitoring Agent) av både System Center Operations Manager och Log Analytics till att samla in och skicka data. Beroende på kontext kallas agenten för System Center Operations Manager-agenten, OMS-agenten, Log Analytics-agenten, MMA eller Direct Agent. System Center Operations Manager och Log Analytics innehåller något olika versioner av MMA. Båda dessa versioner kan rapportera till System Center Operations Manager, till Log Analytics eller till båda.
+I Windows används MMA (Microsoft Monitoring Agent) av både System Center Operations Manager och Log Analytics till att samla in och skicka data. Beroende på kontext kallas agenten för System Center Operations Manager-agenten, Log Analytics-agenten, MMA eller Direct Agent. System Center Operations Manager och Log Analytics innehåller något olika versioner av MMA. Båda dessa versioner kan rapportera till System Center Operations Manager, till Log Analytics eller till båda.
 
 På Linux, Log Analytics-agenten för Linux samlar in och skickar data till Log Analytics. Du kan använda Wire-Data på servrar med anslutna direkt till Log Analytics-agenter eller på servrar som ansluter till Log Analytics via System Center Operations Manager-hanteringsgrupper.
 
-Beroendeagenten överför inte några data och kräver inte att brandväggar och portar ändras. Data i Wire Data överförs alltid genom Log Analytics-agenten till Log Analytics, antingen direkt eller via OMS-gatewayen.
+Beroendeagenten överför inte några data och kräver inte att brandväggar och portar ändras. Data i Wire-Data skickas alltid av Log Analytics-agenten till Log Analytics, antingen direkt eller via Log Analytics-gateway.
 
 ![agentdiagram](./media/log-analytics-wire-data/agents.png)
 
 Om du är en System Center Operations Manager-användare med en hanteringsgrupp som är ansluten till Log Analytics:
 
 - Ingen ytterligare konfiguration krävs när System Center Operations Manager-agenter har åtkomst till Internet för att ansluta till Log Analytics.
-- Du måste konfigurera OMS-gatewayen till att fungera med System Center Operations Manager när System Center Operations Manager-agenter inte har åtkomst till Log Analytics via Internet.
+- Du måste konfigurera Log Analytics-gatewayen ska fungera med System Center Operations Manager när System Center Operations Manager-agenter inte kan komma åt Log Analytics via Internet.
 
-Om din Windows- eller Linux-datorer inte kan ansluta direkt till tjänsten, måste du konfigurera Log Analytics-agenten för att ansluta till Log Analytics med hjälp av OMS-gatewayen. Du kan ladda ned OMS-gatewayen från [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=52666).
+Om din Windows- eller Linux-datorer inte kan ansluta direkt till tjänsten, måste du konfigurera Log Analytics-agenten för att ansluta till Log Analytics med Log Analytics-gateway. Du kan ladda ned Log Analytics-gateway från den [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=52666).
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 - Kräver lösningen [Insikter och analys](https://www.microsoft.com/cloud-platform/operations-management-suite-pricing).
 - Om du använder en tidigare version av Wire Data-lösningen måste du först bort den. Alla data som hämtats via den ursprungliga Wire Data-lösningen är dock fortfarande tillgängliga i Wire Data 2.0 och loggsökningen.
@@ -211,7 +211,7 @@ Beroendeagenten installeras på Windows-datorer med InstallDependencyAgent-Windo
 
 Använd följande steg för att installera beroendeagenten på varje dator som kör Windows:
 
-1. Installera OMS-agenten genom att följa stegen i [Samla in data från Windows-datorer i din miljö](log-analytics-windows-agent.md).
+1. Installera Log Analytics-agenten följa stegen i [samla in data från Windows-datorer i din miljö](log-analytics-windows-agent.md).
 2. Hämta Windows beroendeagent med hjälp av länken i föregående avsnitt och kör den sedan med hjälp av följande kommando: `InstallDependencyAgent-Windows.exe`
 3. Följ guiden för att installera agenten.
 4. Om beroendeagenten inte startar kan du se om det finns detaljerad felinformation i loggarna. Loggkatalogen för Windows-agenter är %Programfiles%\Microsoft Dependency Agent\logs.
@@ -237,7 +237,7 @@ Beroendeagenten installeras på Linux-datorer med InstallDependencyAgent-Linux64
 
 Använd följande steg för att installera beroendeagenten på varje dator som kör Linux:
 
-1. Installera OMS-agenten genom att följa stegen i [Samla in data från Linux-datorer i din miljö](log-analytics-quick-collect-linux-computer.md#obtain-workspace-id-and-key).
+1. Installera Log Analytics-agenten följa stegen i [samla in data från Linux-datorer i din miljö](log-analytics-quick-collect-linux-computer.md#obtain-workspace-id-and-key).
 2. Ladda ned Linux-beroendeagenten med hjälp av länken i föregående avsnitt och installera den som rot med hjälp av följande kommando: sh InstallDependencyAgent-Linux64.bin
 3. Om beroendeagenten inte startar kan du se om det finns detaljerad felinformation i loggarna. På Linux-agenter är loggkatalogen: /var/opt/microsoft/dependency-agent/log.
 

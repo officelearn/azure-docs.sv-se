@@ -15,16 +15,18 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/19/2017
 ms.author: cherylmc
-ms.openlocfilehash: bdd6f90fe97408bd45a72adf58bfdc190207de46
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 12f1f8bbcb103d0882059cadc12bc1a8b9d40bdb
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38651944"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49404553"
 ---
 # <a name="modify-local-network-gateway-settings-using-the-azure-portal"></a>Ändra gateway-inställningar för lokalt nätverk med hjälp av Azure portal
 
 Ibland ändra inställningarna för din lokala nätverksgateway AddressPrefix eller GatewayIPAddress. Den här artikeln visar hur du ändrar inställningar för din lokala nätverksgateway. Du kan också ändra dessa inställningar med hjälp av en annan metod genom att välja ett annat alternativ i listan nedan:
+
+Innan du tar bort anslutningen kan du ladda ned konfigurationen för dina enheter som ansluter för att få den definierade PSK. På så sätt kan du behöver inte definiera om den på den andra sidan.
 
 > [!div class="op_single_selector"]
 > * [Azure Portal](vpn-gateway-modify-local-network-gateway-portal.md)

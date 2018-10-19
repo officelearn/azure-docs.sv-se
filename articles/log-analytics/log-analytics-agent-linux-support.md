@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 10/15/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: a889307138564bd56168d9561a56fc391704a459
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: 01b3fe57cd52149c5c1191345b42bd8544202652
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49318987"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49404587"
 ---
 # <a name="how-to-troubleshoot-issues-with-the-log-analytics-agent-for-linux"></a>Så här felsöker du problem med Log Analytics-agenten för Linux 
 
@@ -161,12 +161,20 @@ Ta bort kommentarerna i följande avsnitt nedan utdata-plugin-programmet genom a
 * Proxyn som anges under publiceringen var felaktig
 * Log Analytics och Azure Automation-tjänstslutpunkter är inte tillåten i ditt datacenter 
 
+<<<<<<< HEAD
+### <a name="resolutions"></a>Lösningar
+1. Reonboard till Log Analytics med Log Analytics-agenten för Linux med hjälp av följande kommando med alternativet `-v` aktiverat. På så sätt kan utförliga utdata för den agent som ansluter via proxy till Log Analytics. 
+`/opt/microsoft/omsagent/bin/omsadmin.sh -w <Log Analytics Workspace ID> -s <Log Analytics Workspace Key> -p <Proxy Conf> -v`
+
+  [!INCLUDE [log-analytics-agent-note](../../includes/log-analytics-agent-note.md)]
+=======
 ### <a name="resolution"></a>Lösning
 1. Reonboard till Log Analytics-tjänsten med Log Analytics-agenten för Linux med hjälp av följande kommando med alternativet `-v` aktiverat. Det gör att utförliga utdata för den agent som ansluter via proxy till Log Analytics-tjänsten. 
 `/opt/microsoft/omsagent/bin/omsadmin.sh -w <Workspace ID> -s <Workspace Key> -p <Proxy Conf> -v`
+>>>>>>> fa48342aa69f6626ec310992464ba935729675b3
 
 2. Läs avsnittet [uppdatera proxyinställningar](log-analytics-agent-manage.md#update-proxy-settings) att verifiera att du har konfigurerat agenten för kommunikation via en proxyserver korrekt.    
-* Kontrollera att följande slutpunkter för Log Analytics-tjänsten är vitlistade:
+* Kontrollera att följande slutpunkter i Log Analytics är vitlistade:
 
     |Agentresurs| Portar | Riktning |
     |------|---------|----------|  
@@ -185,7 +193,11 @@ Ta bort kommentarerna i följande avsnitt nedan utdata-plugin-programmet genom a
 
 1. Kontrollera tiden på Linux-server med kommandot datum. Om tiden är +/-15 minuter efter den aktuella tiden, misslyckas onboarding. Till rätt detta Uppdatera datum och/eller tidszonen för din Linux-server. 
 2. Kontrollera att du har installerat den senaste versionen av Log Analytics-agenten för Linux.  Den senaste versionen nu meddelar dig om tidsförskjutningsintervallet som orsakar onboarding felet.
+<<<<<<< HEAD
+3. Reonboard med rätt arbetsyte-ID och Arbetsytenyckel följa installationsinstruktionerna tidigare i det här avsnittet.
+=======
 3. Reonboard med rätt arbetsyte-ID och Arbetsytenyckel följa installationsinstruktionerna tidigare i den här artikeln.
+>>>>>>> fa48342aa69f6626ec310992464ba935729675b3
 
 ## <a name="issue-you-see-a-500-and-404-error-in-the-log-file-right-after-onboarding"></a>Problem: Du ser ett 500 och 404-fel i loggfilen direkt efter integreringen
 Det här är ett känt problem som uppstår vid första överföring av Linux-data till Log Analytics-arbetsytan. Detta påverkar inte data som skickas eller service-upplevelse.
@@ -194,6 +206,17 @@ Det här är ett känt problem som uppstår vid första överföring av Linux-da
 
 ### <a name="probable-causes"></a>Troliga orsaker
 
+<<<<<<< HEAD
+- Det gick inte att publicera i Log Analytics
+- Anslutning till Log Analytics är blockerad
+- Log Analytics-agenten för Linux-data som säkerhetskopieras
+
+### <a name="resolutions"></a>Lösningar
+1. Kontrollera om onboarding Log Analytics lyckades genom att kontrollera om det finns följande fil: `/etc/opt/microsoft/omsagent/<workspace id>/conf/omsadmin.conf`
+2. Reonboard med hjälp av den `omsadmin.sh` kommandoradsinstruktioner
+3. Om du använder en proxyserver, referera till proxy Lösningssteg som angavs tidigare.
+4. I vissa fall när Log Analytics-agenten för Linux inte kan kommunicera med tjänsten data på agenten är i kö till den fullständiga buffertstorleken, vilket är 50 MB. Log Analytics-agenten för Linux ska startas genom att köra följande kommando: `/opt/microsoft/omsagent/bin/service_control restart [<workspace id>]`. 
+=======
 - Kom igång med Log Analytics-tjänsten misslyckades
 - Anslutning till Log Analytics-tjänsten är blockerad
 - Log Analytics-agenten för Linux-data som säkerhetskopieras
@@ -203,9 +226,10 @@ Det här är ett känt problem som uppstår vid första överföring av Linux-da
 2. Reonboard med hjälp av den `omsadmin.sh` kommandoradsinstruktioner
 3. Om du använder en proxyserver, referera till proxy Lösningssteg som angavs tidigare.
 4. I vissa fall när Log Analytics-agenten för Linux inte kan kommunicera med tjänsten data på agenten är i kö till den fullständiga buffertstorleken, vilket är 50 MB. Agenten ska startas genom att köra följande kommando: `/opt/microsoft/omsagent/bin/service_control restart [<workspace id>]`. 
+>>>>>>> fa48342aa69f6626ec310992464ba935729675b3
 
     >[!NOTE]
-    >Det här problemet löses i agenten version 1.1.0-28 och senare.
+    >This issue is fixed in agent version 1.1.0-28 and later.
 
 
 ## <a name="issue-you-are-not-seeing-forwarded-syslog-messages"></a>Problem: Du ser inte vidarebefordrade Syslog-meddelanden 

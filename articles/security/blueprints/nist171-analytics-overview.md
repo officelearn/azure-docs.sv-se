@@ -8,12 +8,12 @@ ms.service: security
 ms.topic: article
 ms.date: 07/31/2018
 ms.author: jomolesk
-ms.openlocfilehash: 02db944e96c74d865026a17a3871dbad2835cf1d
-ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
+ms.openlocfilehash: f4d8f4a927415426248860b07a40e7294c84de59
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47056092"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49406969"
 ---
 # <a name="azure-security-and-compliance-blueprint---data-analytics-for-nist-sp-800-171"></a>Azure-säkerhet och efterlevnad skissen - dataanalys för SP NIST 800-171
 
@@ -136,7 +136,7 @@ Azure-tjänster logga stor utsträckning system- och användaraktivitet samt sys
 - **Aktivitetsloggar**: [aktivitetsloggar](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs) ger information om åtgärder som utförts på resurser i en prenumeration. Aktivitetsloggar kan hjälpa dig att fastställa en åtgärd initierare för förekomst och status.
 - **Diagnostikloggar**: [diagnostikloggar](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs) omfattar alla loggar som genereras av varje resurs. Dessa loggar är Windows-händelsesystemloggar, Storage-loggar, granskningsloggar för Key Vault och Azure Application Gateway-loggar för åtkomst och brandväggen. Alla diagnostikloggar skriva till en central och krypterade Azure storage-konto för arkivering. Användare kan konfigurera kvarhållningsperioden, upp till 730 dagar att uppfylla deras specifika krav.
 
-**Log Analytics**: loggar konsolideras i [Log Analytics](https://azure.microsoft.com/services/log-analytics/) för bearbetning, lagring och -instrumentpanelsrapportering. När data har samlats in ordnas de i separata tabeller för varje datatyp i Operations Management Suite-arbetsytor. På så sätt kan analyseras alla data tillsammans oavsett originalkälla. Security Center integrerar med Log Analytics. Kunder kan använda Log Analytics-frågor för att komma åt deras säkerhet händelsedata och kombinera dem med data från andra tjänster.
+**Log Analytics**: loggar konsolideras i [Log Analytics](https://azure.microsoft.com/services/log-analytics/) för bearbetning, lagring och -instrumentpanelsrapportering. När data har samlats in ordnas de i separata tabeller för varje datatyp i Log Analytics-arbetsytor. På så sätt kan analyseras alla data tillsammans oavsett originalkälla. Security Center integrerar med Log Analytics. Kunder kan använda Log Analytics-frågor för att komma åt deras säkerhet händelsedata och kombinera dem med data från andra tjänster.
 
 Följande Log Analytics [hanteringslösningar](https://docs.microsoft.com/azure/log-analytics/log-analytics-add-solutions) ingår som en del av den här arkitekturen:
 -   [Active Directory-utvärderingen](https://docs.microsoft.com/azure/log-analytics/log-analytics-ad-assessment): The Health kontroll av Active Directory-lösningen utvärderar risker och hälsotillstånd i server-miljöer med regelbundna intervall. Det ger en prioriterad lista över rekommendationer som är specifika för den distribuerade serverinfrastrukturen.

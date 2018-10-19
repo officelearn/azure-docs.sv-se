@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/15/2018
 ms.author: bwren
-ms.openlocfilehash: e3620bbf92cab926d56c4de0817f833b61cf2b03
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: d1fdec8e3a959aaeb68d4b63a1c71d6ef1ddd054
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46125093"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49406329"
 ---
 # <a name="office-365-management-solution-in-azure-preview"></a>Lösning för Office 365 i Azure (förhandsversion)
 
@@ -37,7 +37,7 @@ Följande krävs innan den här lösningen som den installeras och konfigureras.
 
 - Organisationens prenumeration på Office 365.
 - Autentiseringsuppgifter för ett användarkonto som är en Global administratör.
-- För att få granskningsdata, måste du [konfigurera granskning](https://support.office.com/en-us/article/Search-the-audit-log-in-the-Office-365-Security-Compliance-Center-0d4d0f35-390b-4518-800e-0c7ec95e946c?ui=en-US&rs=en-US&ad=US#PickTab=Before_you_begin) i din Office 365-prenumeration.  Observera att [granskning av postlådan](https://technet.microsoft.com/library/dn879651.aspx) konfigureras separat.  Du kan fortfarande installera lösningen för och samla in andra data om granskning inte har konfigurerats.
+- För att få granskningsdata, måste du [konfigurera granskning](https://support.office.com/article/Search-the-audit-log-in-the-Office-365-Security-Compliance-Center-0d4d0f35-390b-4518-800e-0c7ec95e946c?ui=en-US&rs=en-US&ad=US#PickTab=Before_you_begin) i din Office 365-prenumeration.  Observera att [granskning av postlådan](https://technet.microsoft.com/library/dn879651.aspx) konfigureras separat.  Du kan fortfarande installera lösningen för och samla in andra data om granskning inte har konfigurerats.
  
 
 ## <a name="management-packs"></a>Hanteringspaket
@@ -477,7 +477,7 @@ Du kan ta bort Office 365-hanteringslösning som använder processen i [ta bort 
 
 ## <a name="data-collection"></a>Datainsamling
 ### <a name="supported-agents"></a>Agenter som stöds
-Office 365-lösningen inte hämta data från någon av de [OMS-agenter](../log-analytics/log-analytics-data-sources.md).  Den hämtar data direkt från Office 365.
+Office 365-lösningen inte hämta data från någon av de [Log Analytics-agenter](../log-analytics/log-analytics-data-sources.md).  Den hämtar data direkt från Office 365.
 
 ### <a name="collection-frequency"></a>Insamlingsfrekvens
 Det kan ta några timmar innan data inledningsvis samlas in. När den börjar samla in, Office 365 skickar en [webhook-meddelande](https://msdn.microsoft.com/office-365/office-365-management-activity-api-reference#receiving-notifications) med detaljerade data till Log Analytics varje gång en post skapas. Den här posten finns i Log Analytics inom ett par minuter efter mottagandet.
@@ -518,7 +518,7 @@ Följande egenskaper är gemensamma för alla Office 365-poster.
 | Organisations-ID | GUID för organisationens Office 365-klient. Det här värdet kommer alltid att samma för din organisation, oavsett Office 365-tjänst där det inträffar. |
 | RecordType | Typ av åtgärder som utförs. |
 | ResultStatus | Anger om åtgärden (anges i egenskapen Operation) lyckades eller inte. Möjliga värden är Succeeded, PartiallySucceded eller Failed. Värdet är för administratörsaktivitet för Exchange, antingen SANT eller FALSKT. |
-| UserId | UPN (User Principal Name) för den användare som utförde den åtgärd som resulterade i posten loggades, till exempel my_name@my_domain_name. Observera att poster för aktiviteter som utförs av Systemkonton (som SHAREPOINT\system eller NTAUTHORITY\SYSTEM) ingår också. | 
+| Användar-ID | UPN (User Principal Name) för den användare som utförde den åtgärd som resulterade i posten loggades, till exempel my_name@my_domain_name. Observera att poster för aktiviteter som utförs av Systemkonton (som SHAREPOINT\system eller NTAUTHORITY\SYSTEM) ingår också. | 
 | UserKey | Ett alternativt ID för den användare som identifieras i användar-ID-egenskapen.  Den här egenskapen har fyllts i med unikt passport-ID (PUID) för händelser som utförs av användare i SharePoint, OneDrive för företag och Exchange. Den här egenskapen kan även ange samma värde som egenskapen användar-ID för händelser som inträffar i andra tjänster och händelser som utförs av systemkonton|
 | UserType | Typ av användare som utförde åtgärden.<br><br>Administratör<br>Program<br>DcAdmin<br>Vanliga<br>Reserverad<br>ServicePrincipal<br>System |
 

@@ -10,12 +10,12 @@ ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
 ms.assetid: bb7d9432-b697-44db-aa88-bd16ddfad23f
 ms.date: 07/21/2017
-ms.openlocfilehash: fd48dfaf7b863ab026da1758751509d9911ae01e
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 63aa455851633d1e49fd1b26861aaac8a670ef15
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46948017"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49404792"
 ---
 # <a name="monitor-b2b-messages-and-set-up-logging-for-integration-accounts-in-azure-logic-apps"></a>Övervaka B2B-meddelanden och konfigurera loggning för integrationskonton i Azure Logic Apps
 
@@ -58,7 +58,9 @@ Du kan aktivera loggning antingen direkt från ditt integrationskonto eller [via
 
    1. Välj **skicka till Log Analytics**. 
    2. Under **Log Analytics**, Välj **konfigurera**. 
-   3. Under **OMS-arbetsytor**, Välj Log Analytics-arbetsytan ska användas för loggning.
+   3. Under **OMS-arbetsytor**, Välj Log Analytics-arbetsytan ska användas för loggning. 
+   > [!NOTE]
+   > OMS-arbetsytor kallas nu för Log Analytics-arbetsytor. 
    4. Under **Log**väljer den **IntegrationAccountTrackingEvents** kategori.
    5. Välj **Spara**.
 
@@ -93,6 +95,8 @@ Du kan aktivera loggning antingen direkt från ditt integrationskonto eller [via
    1. Välj **skicka till Log Analytics**. 
    2. Under **Log Analytics**, Välj **konfigurera**. 
    3. Under **OMS-arbetsytor**, Välj Log Analytics-arbetsytan ska användas för loggning.
+   > [!NOTE]
+   > OMS-arbetsytor kallas nu för Log Analytics-arbetsytor.
    4. Under **Log**väljer den **IntegrationAccountTrackingEvents** kategori.
    5. När du är klar väljer du **Spara**.
 
@@ -129,6 +133,6 @@ Azure stöder dessa spåra schematyper där alla har åtgärdat scheman utom typ
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Spåra B2B-meddelanden i Log Analytics](../logic-apps/logic-apps-track-b2b-messages-omsportal.md "spåra B2B-meddelanden i OMS")
+* [Spåra B2B-meddelanden i Azure Log Analytics](../logic-apps/logic-apps-track-b2b-messages-omsportal.md "spåra B2B-meddelanden i Azure Log Analytics")
 * [Mer information om Enterprise-Integrationspaketet](../logic-apps/logic-apps-enterprise-integration-overview.md "Lär dig mer om Enterprise-Integrationspaket")
 

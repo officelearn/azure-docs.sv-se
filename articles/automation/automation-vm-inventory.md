@@ -10,12 +10,12 @@ ms.author: jehunte
 ms.date: 03/30/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 30569c3a89de320769d433b5b3a4af9cf4e08e66
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: 761bb1a6974afd5e7b851efb0c60101ab7d8958b
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47091414"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49403618"
 ---
 # <a name="manage-an-azure-virtual-machine-with-inventory-collection"></a>Hantera en virtuell Azure-dator med inventeringssamling
 
@@ -29,7 +29,7 @@ Den här artikeln förutsätter att du har en virtuell dator för att konfigurer
 
 ## <a name="sign-in-to-the-azure-portal"></a>Logga in på Azure Portal
 
-Logga in på [Azure-portalen](https://portal.azure.com/).
+Logga in på [Azure Portal](https://portal.azure.com/).
 
 ## <a name="enable-inventory-collection-from-the-virtual-machine-resource-page"></a>Aktivera inventeringssamling via en virtuell dators resurssida
 
@@ -114,6 +114,10 @@ Ta bort den virtuella datorn från inventeringshantering:
 1. Välj **Log Analytics** i den vänstra rutan på Azure Portal och välj sedan den arbetsyta du använde när du integrerade den virtuella datorn.
 2. I fönstret **Log Analytics** väljer du **Virtuella datorer** under kategorin **Datakällor för arbetsyta** på **resursmenyn**.
 3. Välj den virtuella dator du vill koppla bort från listan. Den virtuella datorn har en grön bock bredvid texten **Den här arbetsytan** i kolumnen **OMS-anslutning**.
+
+   >[!NOTE]
+   >OMS kallas nu för Log Analytics.
+   
 4. Överst på nästa sida väljer du **Koppla från**.
 5. Välj **Ja** i bekräftelsefönstret.
     Den här åtgärden kopplar från datorn från hanteringen.

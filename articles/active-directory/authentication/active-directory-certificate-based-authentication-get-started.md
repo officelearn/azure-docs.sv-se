@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: annaba
-ms.openlocfilehash: ea65dcca3e5de06d1bc966b3e7cb6b608260a053
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: 27febb01b04bd8ac82b8cd428afce78dc57f8b8d
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48803978"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49403574"
 ---
 # <a name="get-started-with-certificate-based-authentication-in-azure-active-directory"></a>Kom igång med certifikatbaserad autentisering i Azure Active Directory
 
@@ -37,7 +37,7 @@ Följande instruktioner för att konfigurera certifikatbaserad autentisering, m�
 
 - Certifikatbaserad autentisering (CBA) stöds endast för federerade miljöer för webbläsarprogram eller interna klienter som använder modern autentisering (ADAL). Det enda undantaget är Exchange Active Sync (EAS) för Exchange Online (EXO), som kan användas för federerade och hanterade konton.
 - Rotcertifikatutfärdaren och alla mellanliggande certifikatutfärdare måste konfigureras i Azure Active Directory.
-- Varje certifikatutfärdare måste ha en certifikatet lista över återkallade (certifikat CRL) som kan refereras via en Internetuppkopplad URL: en.
+- Varje certifikatutfärdare måste ha en certifikatet lista över återkallade (certifikat CRL) som kan refereras via en internet-ansluten-URL.
 - Du måste ha minst en certifikatutfärdare som konfigurerats i Azure Active Directory. Du kan hitta relaterade stegen i den [konfigurera certifikatutfärdarna](#step-2-configure-the-certificate-authorities) avsnittet.
 - För Exchange ActiveSync-klienter, måste klientcertifikatet ha användarens dirigerbara e-postadress i Exchange online i huvudnamn eller RFC822 namn-värde i fältet alternativt mottagarnamn. Azure Active Directory mappar RFC822 värdet till attributet proxyadress i katalogen.
 - Klientenheten måste ha åtkomst till minst en certifikatutfärdare som utfärdar certifikat.
@@ -60,7 +60,7 @@ Det finns relaterad information för följande enhetsplattformar:
 Om du vill konfigurera din certifikatutfärdare i Azure Active Directory, för varje certifikatutfärdare, överför du följande:
 
 * Den offentliga delen av certifikatet i *.cer* format
-* Den Internetuppkopplade URL: er var att finnas i listor över återkallade certifikat (CRL)
+* URL: er för webbservergrupper på internet som där den listor över återkallade certifikat (CRL) finns
 
 Schemat för en certifikatutfärdare ser ut så här:
 
@@ -178,7 +178,7 @@ Om din inloggning lyckades, sedan vet du att:
 
 1. Installera ett mobila Office-program (till exempel OneDrive) på din testenhet.
 3. Starta programmet.
-4. Ange ditt användarnamn och välj sedan det användarcertifikat som du vill använda.
+4. Ange ditt användarnamn och välj sedan användarcertifikatet för som du vill använda.
 
 Du bör vara har loggat in.
 

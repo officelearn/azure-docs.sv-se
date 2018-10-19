@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/26/2018
 ms.author: bwren
-ms.openlocfilehash: 3154a2f8b283f68ec3e10ba621ccba3ee6d77de2
-ms.sourcegitcommit: 465ae78cc22eeafb5dfafe4da4b8b2138daf5082
+ms.openlocfilehash: 82cfa9e62dcc6b3a72dcb1ccf97f1f52a88a75c4
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44324758"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49404111"
 ---
 # <a name="data-collection-details-for-management-solutions-in-azure"></a>Data samling information om lösningar i Azure
 Den här artikeln innehåller en lista över [hanteringslösningar](monitoring-solutions.md) tillgängliga från Microsoft med länkar till deras detaljerad dokumentation.  Det innehåller även information om deras metod och frekvensen för insamling av data till Log Analytics.  Du kan använda informationen i den här artikeln för att identifiera de olika lösningarna som är tillgängliga och förstå datakrav för flödet och anslutningen för olika lösningar. 
@@ -34,7 +34,7 @@ Förklaringar av kolumnerna är följande:
 - **Operations Manager** -identiska agenten som Microsoft monitoring agent. I den här konfigurationen har [är ansluten till en Operations Manager-hanteringsgrupp](../log-analytics/log-analytics-om-agents.md) som är ansluten till Log Analytics. 
 -  **Azure Storage** -lösningen samlar in data från ett Azure storage-konto. 
 - **Operations Manager som krävs?** – En ansluten hanteringsgrupp för Operations Manager krävs för insamling av hanteringslösningen. 
-- **Operations Manager agent-data skickas via hanteringsgruppen** – om agenten [är ansluten till en SCOM-hanteringsgrupp](../log-analytics/log-analytics-om-agents.md), och sedan data skickas till Log Analytics från hanteringsservern. I det här fallet behöver agenten inte att ansluta direkt till Log Analytics. Om den här rutan inte är markerat, sedan skickas data från agenten direkt till Log Analytics även om agenten är ansluten till en SCOM-hanteringsgrupp. det antingen måste kunna kommunicera med Log Analytics genom en [OMS-gatewayen](../log-analytics/log-analytics-oms-gateway.md).
+- **Operations Manager agent-data skickas via hanteringsgruppen** – om agenten [är ansluten till en SCOM-hanteringsgrupp](../log-analytics/log-analytics-om-agents.md), och sedan data skickas till Log Analytics från hanteringsservern. I det här fallet behöver agenten inte att ansluta direkt till Log Analytics. Om den här rutan inte är markerat, sedan skickas data från agenten direkt till Log Analytics även om agenten är ansluten till en SCOM-hanteringsgrupp. Den måste kunna kommunicera med Log Analytics genom den [Log Analytics gateway](../log-analytics/log-analytics-oms-gateway.md).
 - **Insamlingsfrekvens** – anger hur ofta att data har samlats in av hanteringslösningen. 
 
 

@@ -7,22 +7,22 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 09/21/2018
 ms.author: cherylmc
-ms.openlocfilehash: c33bec76fe17336221c873778c2993d75fec81e8
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: ce4bc88f6b599bb3f5f760b2ba83c81f2b6acc5f
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46962240"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49405186"
 ---
 # <a name="about-expressroute-direct-preview"></a>Dirigera om ExpressRoute (förhandsversion)
 
-ExpressRoute Direct ger kunderna möjlighet att ansluta direkt till Microsofts globala nätverk på peering-platser strategiskt distribueras över hela världen. ExpressRoute Direct innehåller dubbla 100Gbps anslutning som har stöd för aktiv/aktiv-anslutningar i stor skala. 
+Med ExpressRoute Direct får kunder möjligheten att ansluta direkt till Microsofts globala nätverk vid peering-platser strategiskt fördelade runt om i världen. ExpressRoute Direct innehåller dubbla 100 Gbit/s-anslutningar som har stöd för aktiv/aktiv-anslutningar i stor skala. 
 
-Viktiga funktioner som tillhandahåller ExpressRoute Direct omfattar, men är inte begränsade till:
+Viktiga funktioner som tillhandahåller ExpressRoute Direct inkludera, men inte begränsat till:
 
-* Omfattande Datapåfyllning till tjänster som Storage och Cosmos DB 
-* Fysisk isolering för branscher som regleras och krävs dedikerad och isolerade anslutning som: Bank, myndigheter och detaljhandel 
-* Detaljerad kontroll över krets distribution baserad på affärsenhet
+* Stora datainmatningar till tjänster som Storage och Cosmos DB 
+* Fysisk isolering för branscher som är reglerade och kräver dedikerade och isolerade anslutningar, till exempel bankväsende, myndigheter och detaljhandel 
+* Detaljerad kontroll över kretsfördelning utifrån affärsenheter
 
 > [!IMPORTANT]
 > ExpressRoute Direct förhandsvisas just nu.
@@ -31,20 +31,20 @@ Viktiga funktioner som tillhandahåller ExpressRoute Direct omfattar, men är in
 
 ## <a name="enroll-in-the-preview"></a>Registrera dig för förhandsversionen
 
-Innan du kan utnyttja ExpressRoute direct, måste du först registrera din prenumeration i förhandsversionen. Skicka ett e-postmeddelande till <ExpressRouteDirect@microsoft.com> med ditt prenumerations-ID om du vill registrera dig. ExpressRoute Direct är en funktion i företagsklass. Ange ytterligare information:
+Du måste registrera din prenumeration i förhandsgranskningen innan du använder ExpressRoute direkt. Skicka ett e-postmeddelande till <ExpressRouteDirect@microsoft.com> med ditt prenumerations-ID om du vill registrera dig. ExpressRoute Direct är en funktion i företagsklass. Ange ytterligare information:
 
 * Scenarier som du vill utföra med **ExpressRoute Direct**
 * Inställningar för plats - finns i [Partners och peeringplatser](expressroute-locations-providers.md) för en fullständig lista över alla platser
 * Tidslinje för implementering
-* Frågor om tjänsterna
+* Andra frågor
 
 ## <a name="expressroute-using-a-service-provider-and-expressroute-direct"></a>ExpressRoute med en tjänstleverantör och ExpressRoute Direct
 
 | **ExpressRoute med en tjänstleverantör** | **ExpressRoute Direct** | 
 | --- | --- | 
-| Använder tjänstleverantör för att möjliggöra snabb onboarding och anslutning till befintlig infrastruktur | Kräver 100Gbps infrastruktur och fullständig hantering av alla lager
+| Använder tjänstleverantör för att möjliggöra snabb onboarding och anslutning till befintlig infrastruktur | Kräver 100 Gbit/s infrastruktur och fullständig hantering av alla lager
 | Kan integreras med hundratals av inklusive Ethernet och MPLS-leverantörer | Direct eller dedikerad kapacitet för reglerade branscher och enorma datainmatning | 
-| Kretsar SKU: er från 50 Mbit/s – 10 Gbit/s | Kretsar SKU: er från 1 Gbit/s 100Gbps
+| Kretsar SKU: er från 50 Mbit/s – 10 Gbit/s | Kretsar SKU: er från 5 Gbit/s till 100 GB/s (5 Gbit/s, 10 Gbit/s, 40 Gbit/s, 100 Gbit/s)
 | Optimerad för enskild klient | Optimerad för enskild klient-/ molntjänstleverantörer / flera affärsenheter
 
 ## <a name="expressroute-direct-circuits"></a>Direct för ExpressRoute-kretsar
@@ -57,7 +57,7 @@ Funktionerna i de flesta fall motsvarar kretsar som använder en ExpressRoute-le
 
 ## <a name="circuit-skus"></a>Kretsen SKU: er
 
-ExpressRoute Direct stöder scenarier för inmatning av massiva data i Azure storage och andra tjänster för stordata. ExpressRoute circuits på ExpressRoute Direct nu också stöd för **40G** och **100G** krets SKU: er. 
+ExpressRoute Direct stöder scenarier för inmatning av massiva data i Azure storage och andra tjänster för stordata. ExpressRoute circuits på ExpressRoute Direct nu också stöd för **40 Gbit/s** och **100 Gbit/s** krets SKU: er. 
 
 ## <a name="vlan-tagging"></a>VLAN-märkning
 

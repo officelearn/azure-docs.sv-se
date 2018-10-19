@@ -8,21 +8,21 @@ ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: 6096833381db7ef0d2f011d517aaad4ae63ce4d6
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: 6ec07d02e61d50aa588d75ba7337eb9237e11207
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45576875"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49402905"
 ---
 # <a name="create-a-log-alert-with-a-resource-manager-template"></a>Skapa en loggavisering med en Resource Manager-mall
 Den här artikeln visar hur du kan hantera [loggaviseringar](monitor-alerts-unified-log.md) programmässigt i skala, i Azure med hjälp av [Azure Resource Manager-mall](..//azure-resource-manager/resource-group-authoring-templates.md) via [Azure Powershell](../azure-resource-manager/resource-group-template-deploy.md) och [Azure CLI](../azure-resource-manager/resource-group-template-deploy-cli.md). För närvarande Azure Alerts stöder loggaviseringar på frågor från [Azure Log Analytics](../log-analytics/log-analytics-tutorial-viewdata.md) och [Azure Application Insights](../application-insights/app-insights-analytics-tour.md).
 
 ## <a name="managing-log-alert-on-log-analytics"></a>Hantera log avisering på Log Analytics
-Log avisering för [Azure Log Analytics](../log-analytics/log-analytics-tutorial-viewdata.md) ingår i den [nya Azure-aviseringar uppleva](monitoring-overview-unified-alerts.md); medan den fortfarande körs av Log Analytics-API: er och förblir kompatibilitet med schemat använde tidigare för att hantera [aviseringar i OMS-portalen](..//log-analytics/log-analytics-alerts-creating.md).
+Log avisering för [Azure Log Analytics](../log-analytics/log-analytics-tutorial-viewdata.md) ingår i den [nya Azure-aviseringar uppleva](monitoring-overview-unified-alerts.md); medan den fortfarande körs av Log Analytics-API: er och är kompatibelt med schema använde tidigare.
 
 > [!NOTE]
-> Från och den 14 maj 2018 börjar alla aviseringar i en arbetsyta automatiskt kopieras till Azure. En användare kan frivilligt initiera utökade aviseringar till Azure innan den 14 maj 2018. Mer information finns i [utöka aviseringar från OMS i Azure](monitoring-alerts-extend.md). 
+> Från och den 14 maj 2018 började alla aviseringar i en arbetsyta automatiskt ska utöka till Azure. Mer information finns i [utöka aviseringarna till Azure](monitoring-alerts-extend.md). 
 
 ### <a name="using-azure-resource-manager-template"></a>Med hjälp av Azure Resource Manager-mall
 Loggaviseringar för Log Analytics skapas från Varningsregler som kör en sparad sökning med regelbundna intervall. Om resultatet av frågan matchar de angivna villkoren, skapas en aviseringspost och en eller flera åtgärder körs. 

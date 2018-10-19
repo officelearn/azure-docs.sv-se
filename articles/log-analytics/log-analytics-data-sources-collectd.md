@@ -1,5 +1,5 @@
 ---
-title: Samla in data från insamlade i OMS Log Analytics | Microsoft Docs
+title: Samla in data från insamlade i Log Analytics | Microsoft Docs
 description: Insamlade är en Linux-daemon för öppen källkod som regelbundet samlar in data från program och system nivåinformation.  Den här artikeln innehåller information om att samla in data från insamlade i Log Analytics.
 services: log-analytics
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 05/02/2017
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: eb053ef8fc66ff9d71a9576b71eb4edfcd688638
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: a1f28103f8faabae166f09185db3f3e1fee7a5ab
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48041298"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49404604"
 ---
 # <a name="collect-data-from-collectd-on-linux-agents-in-log-analytics"></a>Samla in data från insamlade på Linux-agenter i Log Analytics
 [Insamlade](https://collectd.org/) är en Linux-daemon för öppen källkod som regelbundet samlar in prestandamått från program och system nivåinformation. Exempelprogram är Java Virtual Machine (JVM), MySQL-Server och Nginx. Den här artikeln innehåller information om att samla in prestandadata från insamlade i Log Analytics.
@@ -29,7 +29,9 @@ En fullständig lista över tillgängliga plugin-program finns på [tabellen av 
 
 ![Översikt över insamlade](media/log-analytics-data-sources-collectd/overview.png)
 
-Följande insamlade konfiguration ingår i OMS-agenten för Linux att vidarebefordra insamlade data till OMS-agenten för Linux.
+Följande insamlade konfiguration ingår i Log Analytics-agenten för Linux för att vidarebefordra insamlade data till Log Analytics-agenten för Linux.
+
+[!INCLUDE [log-analytics-agent-note](../../includes/log-analytics-agent-note.md)]
 
     LoadPlugin write_http
 
@@ -52,12 +54,12 @@ Följande insamlade konfiguration ingår i OMS-agenten för Linux att vidarebefo
        </URL>
     </Plugin>
 
-Insamlade konfigurationen använder standard`write_http` plugin-program för att skicka mätvärden prestandadata via port 26000 till OMS-agenten för Linux. 
+Insamlade konfigurationen använder standard`write_http` plugin-program för att skicka mätvärden prestandadata via port 26000 till Log Analytics-agenten för Linux. 
 
 > [!NOTE]
 > Den här porten kan konfigureras till ett egendefinierat porten om det behövs.
 
-OMS-agenten för Linux också lyssnar på port 26000 för insamlade mått och konverterar dem till OMS-schemat mått. Följande är OMS-agenten för Linux-konfiguration `collectd.conf`.
+Log Analytics-agenten för Linux också lyssnar på port 26000 för insamlade mått och konverterar dem till Log Analytics-schemat mått. Följande är Log Analytics-agenten för Linux-konfiguration `collectd.conf`.
 
     <source>
       type http
@@ -72,19 +74,19 @@ OMS-agenten för Linux också lyssnar på port 26000 för insamlade mått och ko
 
 ## <a name="versions-supported"></a>Versioner som stöds
 - Log Analytics stöder för närvarande insamlade version 4.8 och senare.
-- OMS-agenten för Linux v1.1.0-217 eller högre krävs för insamlade mått samling.
+- Log Analytics-agenten för Linux v1.1.0-217 eller högre krävs för insamlade mått samling.
 
 
 ## <a name="configuration"></a>Konfiguration
 Följande är de grundläggande stegen för att konfigurera insamling av insamlade data i Log Analytics.
 
-1. Konfigurera insamlade för att skicka data till OMS-agenten för Linux med hjälp av plugin-programmet write_http.  
-2. Konfigurera OMS-agenten för Linux för att lyssna efter insamlade data på rätt port.
-3. Starta om insamlade och OMS-agenten för Linux.
+1. Konfigurera insamlade för att skicka data till Log Analytics-agenten för Linux med hjälp av plugin-programmet write_http.  
+2. Konfigurera Log Analytics-agenten för Linux för att lyssna efter insamlade data på rätt port.
+3. Starta om insamlade och Log Analytics-agenten för Linux.
 
 ### <a name="configure-collectd-to-forward-data"></a>Konfigurera insamlade för att vidarebefordra data 
 
-1. Att vidarebefordra insamlade data till OMS-agenten för Linux, `oms.conf` måste läggas till i insamlades konfigurationskatalogen. Mål för den här filen är beroende av Linux-distribution på din dator.
+1. Att vidarebefordra insamlade data till Log Analytics-agenten för Linux, `oms.conf` måste läggas till i insamlades konfigurationskatalogen. Mål för den här filen är beroende av Linux-distribution på din dator.
 
     Om din insamlade config katalog finns i /etc/collectd.d/:
 
@@ -103,12 +105,12 @@ Följande är de grundläggande stegen för att konfigurera insamling av insamla
         sudo cp /etc/opt/microsoft/omsagent/sysconf/omsagent.d/collectd.conf /etc/opt/microsoft/omsagent/<workspace id>/conf/omsagent.d/
         sudo chown omsagent:omiusers /etc/opt/microsoft/omsagent/<workspace id>/conf/omsagent.d/collectd.conf
 
-3. Starta om insamlade och OMS-agenten för Linux med följande kommandon.
+3. Starta om insamlade och Log Analytics-agenten för Linux med följande kommandon.
 
     sudo service insamlade omstart sudo /opt/microsoft/omsagent/bin/service_control omstart
 
 ## <a name="collectd-metrics-to-log-analytics-schema-conversion"></a>Insamlade mått till Log Analytics schemakonverteringen
-Om du vill upprätthålla en bekant modell mellan infrastruktur-mått som redan har samlats in av OMS-agenten för Linux och den nya måtten som samlas in av insamlade följande schemamappning används:
+Om du vill upprätthålla en modell med välbekanta infrastruktur mått som redan har samlats in av Log Analytics-agenten för Linux och den nya måtten som samlas in av insamlade följande schemamappning används:
 
 | Insamlade mått fält | Log Analytics-fält |
 |:--|:--|

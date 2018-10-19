@@ -1,6 +1,6 @@
 ---
-title: Samla in programprestanda på Linux i OMS Log Analytics | Microsoft Docs
-description: Den här artikeln innehåller information för att konfigurera OMS-agenten för Linux för att samla in prestandaräknare för MySQL och Apache HTTP Server.
+title: Samla in programprestanda på Linux i Log Analytics | Microsoft Docs
+description: Den här artikeln innehåller information för att konfigurera Log Analytics-agenten för Linux för att samla in prestandaräknare för MySQL och Apache HTTP Server.
 services: log-analytics
 documentationcenter: ''
 author: mgoedtel
@@ -15,26 +15,27 @@ ms.workload: infrastructure-services
 ms.date: 05/04/2017
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 5120fa869d9c3fe28630b189b84b9c3e3f5577e2
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: df5e55c2c03fec13ada258be91f0d98b7ce70d94
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48044577"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49406168"
 ---
 # <a name="collect-performance-counters-for-linux-applications-in-log-analytics"></a>Samla in prestandaräknare för Linux-program i Log Analytics 
-Den här artikeln innehåller information för att konfigurera den [OMS-agenten för Linux](https://github.com/Microsoft/OMS-Agent-for-Linux) att samla in prestandaräknare för specifika program.  De program som ingår i den här artikeln är:  
+[!INCLUDE [log-analytics-agent-note](../../includes/log-analytics-agent-note.md)]
+Den här artikeln innehåller information för att konfigurera den [Log Analytics-agenten för Linux](https://github.com/Microsoft/OMS-Agent-for-Linux) att samla in prestandaräknare för specifika program.  De program som ingår i den här artikeln är:  
 
 - [MySQL](#MySQL)
 - [Apache HTTP-Server](#apache-http-server)
 
 ## <a name="mysql"></a>MySQL
-Om MySQL-Server eller MariaDB-Server har upptäckts på datorn när OMS-agenten är installerad, installeras en provider för MySQL-Server för prestandaövervakning automatiskt. Den här providern ska ansluta till den lokala MySQL-/ MariaDB-servern att exponera prestandastatistik. Autentiseringsuppgifterna för MySQL-användare måste konfigureras så att providern har åtkomst till MySQL-servern.
+Om MySQL-Server eller MariaDB-Server har upptäckts på datorn när Log Analytics-agenten är installerad, installeras en provider för MySQL-Server för prestandaövervakning automatiskt. Den här providern ska ansluta till den lokala MySQL-/ MariaDB-servern att exponera prestandastatistik. Autentiseringsuppgifterna för MySQL-användare måste konfigureras så att providern har åtkomst till MySQL-servern.
 
 ### <a name="configure-mysql-credentials"></a>Konfigurera autentiseringsuppgifterna för MySQL
 MySQL OMI-providern kräver en förkonfigurerad MySQL-användare och installerat MySQL-klientbibliotek för att fråga efter prestanda- och hälsoinformation från MySQL-instans.  Dessa autentiseringsuppgifter lagras i en authentication-fil som lagras på Linux-agenten.  Autentiseringsfilen anger vilka bind-adressen och porten MySQL-instans lyssnar på och vilka autentiseringsuppgifter som ska använda för att samla in mått.  
 
-Under installationen av OMS-agenten för Linux MySQL OMI ska provider genomsöka MySQL my.cnf-konfigurationsfilerna (standardplatserna) för bind-adressen och porten och delvis ange MySQL OMI autentiseringsfilen.
+Under installationen av Log Analytics-agenten för Linux MySQL OMI ska provider skanna MySQL my.cnf-konfigurationsfilerna (standardplatserna) för bind-adressen och porten och delvis ange MySQL OMI autentiseringsfilen.
 
 MySQL-autentiseringsfilen lagras på `/var/opt/microsoft/mysql-cimprov/auth/omsagent/mysql-auth`.
 
@@ -115,7 +116,7 @@ Dessa behörigheter kan beviljas genom att köra följande kommandon för bevilj
 
 ### <a name="define-performance-counters"></a>Definiera prestandaräknare
 
-När du konfigurerar OMS-agenten för Linux för att skicka data till Log Analytics, måste du konfigurera prestandaräknarna som samlar in.  Stegen nedan i [Windows och Linux prestanda datakällor i Log Analytics](log-analytics-data-sources-windows-events.md) med räknarna i följande tabell.
+När du har konfigurerat Log Analytics-agenten för Linux för att skicka data till Log Analytics, måste du konfigurera prestandaräknarna som samlar in.  Stegen nedan i [Windows och Linux prestanda datakällor i Log Analytics](log-analytics-data-sources-windows-events.md) med räknarna i följande tabell.
 
 | Objektnamn | Räknarnamn |
 |:--|:--|
@@ -151,7 +152,7 @@ sudo /opt/microsoft/apache-cimprov/bin/apache_config.sh -u
 
 ### <a name="define-performance-counters"></a>Definiera prestandaräknare
 
-När du konfigurerar OMS-agenten för Linux för att skicka data till Log Analytics, måste du konfigurera prestandaräknarna som samlar in.  Stegen nedan i [Windows och Linux prestanda datakällor i Log Analytics](log-analytics-data-sources-windows-events.md) med räknarna i följande tabell.
+När du har konfigurerat Log Analytics-agenten för Linux för att skicka data till Log Analytics, måste du konfigurera prestandaräknarna som samlar in.  Stegen nedan i [Windows och Linux prestanda datakällor i Log Analytics](log-analytics-data-sources-windows-events.md) med räknarna i följande tabell.
 
 | Objektnamn | Räknarnamn |
 |:--|:--|

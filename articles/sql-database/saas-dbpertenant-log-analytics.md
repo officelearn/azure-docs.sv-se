@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: billgib
 manager: craigg
 ms.date: 04/01/2018
-ms.openlocfilehash: 60139915e8d8dca382f4ef62b5129f1a84e7e80d
-ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
+ms.openlocfilehash: b207af3bed40f6287f60b25638f3091fa187aa6f
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47056717"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49405080"
 ---
 # <a name="set-up-and-use-log-analytics-with-a-multitenant-sql-database-saas-app"></a>Konfigurera och använda Log Analytics med en multitenant SQL Database SaaS-app
 
@@ -42,7 +42,7 @@ För Azure SQL Database är övervakning och avisering tillgängligt för databa
 
 För scenarion med stora volymer, kan du använda Log Analytics för övervakning och avisering. Log Analytics är en separat Azure-tjänst som möjliggör analys över diagnostikloggar och telemetri som samlas in i en arbetsyta från potentiellt många tjänster. Log Analytics tillhandahåller ett inbyggt frågespråk och visualiseringsverktyg som tillåter operationell dataanalys. SQL Analytics-lösningen innehåller flera fördefinierade elastisk pool och databasövervakning och aviseringar och frågor. Log Analytics tillhandahåller också en designer för anpassade vyer.
 
-Log Analytics-arbetsytor och Analyslösningar öppna i Azure-portalen och i Operations Management Suite. Azure-portalen är den nya åtkomstpunkten, men det kan vara bakom Operations Management Suite-portalen på vissa områden.
+OMS-arbetsytor kallas nu för Log Analytics-arbetsytor. Log Analytics-arbetsytor och Analyslösningar öppna i Azure-portalen. Azure-portalen är den nya åtkomstpunkten, men det kan vara vad som finns bakom Operations Management Suite-portalen på vissa områden.
 
 ### <a name="create-performance-diagnostic-data-by-simulating-a-workload-on-your-tenants"></a>Skapa prestanda diagnostiska data genom att simulera en arbetsbelastning på klienterna 
 
@@ -70,12 +70,12 @@ Log Analytics är en separat tjänst som måste konfigureras. Log Analytics saml
 1. I PowerShell ISE öppnar *... \\WingtipTicketsSaaS-MultiTenantDb-master\\inlärningsmoduler\\prestandaövervakning och hantering\\Log Analytics\\Demo-LogAnalytics.ps1*.
 1. Tryck på F5 för att köra skriptet.
 
-Nu kan du öppna Log Analytics i Azure-portalen eller Operations Management Suite-portalen. Det tar några minuter att samla in telemetri i Log Analytics-arbetsytan och göra den synlig. Ju längre lämnar du systemet samla in diagnostikdata, Ju mer intressant upplevelsen är. 
+Nu kan du öppna Log Analytics i Azure-portalen. Det tar några minuter att samla in telemetri i Log Analytics-arbetsytan och göra den synlig. Ju längre lämnar du systemet samla in diagnostikdata, Ju mer intressant upplevelsen är. 
 
 ## <a name="use-log-analytics-and-the-sql-analytics-solution-to-monitor-pools-and-databases"></a>Använd Log Analytics och SQL Analytics-lösningen för att övervaka pooler och databaser
 
 
-Öppna Log Analytics och Operations Management Suite-portalen för att titta på telemetri som samlats in för databaser och pooler i den här övningen.
+I den här övningen ska du öppna Log Analytics i Azure-portalen och titta på telemetri som samlats in för databaser och pooler.
 
 1. Bläddra till [Azure-portalen](https://portal.azure.com). Välj **alla tjänster** att öppna Log Analytics. Sök sedan efter Log Analytics.
 
@@ -127,9 +127,9 @@ Nu kan du öppna Log Analytics i Azure-portalen eller Operations Management Suit
 
 1. Tillbaka i Log Analytics-arbetsyta väljer **OMS-portalen** att öppna det på arbetsytan.
 
-    ![Operations Management Suite-portalen panelen](media/saas-dbpertenant-log-analytics/log-analytics-workspace-oms-portal.png)
+    ![Log Analytics-arbetsyta](media/saas-dbpertenant-log-analytics/log-analytics-workspace-oms-portal.png)
 
-Du kan utforska loggen och mätdata data i arbetsytan ytterligare i Operations Management Suite-portalen. 
+Du kan utforska loggen och mätdata data ytterligare i Log Analytics-arbetsytan. 
 
 Övervakning och avisering i Log Analytics baseras på frågor över data i arbetsytan, till skillnad från aviseringar som definieras för varje resurs i Azure-portalen. Du kan basera aviseringar på frågor, för att definiera en avisering som söker i alla databaser, i stället för att definiera en per databas. Frågor begränsas bara av data som är tillgängliga på arbetsytan.
 

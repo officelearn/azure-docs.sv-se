@@ -10,12 +10,12 @@ ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: zeyadr
 manager: femila
-ms.openlocfilehash: ba6bfe8240c758806c4ff3e46ab08fdacad83db9
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.openlocfilehash: e205fce8b718e68200face33447e37cd3317298f
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48243247"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49405492"
 ---
 # <a name="azure-blockchain-workbench-troubleshooting"></a>Azure Blockchain Workbench felsökning
 
@@ -24,7 +24,7 @@ Ett PowerShell-skript kan hjälpa till med felsökning utvecklare eller stöd f�
 * Blockchain-nätverket, till exempel Ethereum
 * Blockchain Workbench mikrotjänster
 * Application Insights
-* Azure Monitoring (OMS)
+* Azure Monitoring (Log Analytics)
 
 Du kan använda informationen för att avgöra nästa steg och fastställa orsaken till problem. 
 
@@ -36,7 +36,7 @@ PowerShell felsöka skriptet finns på GitHub. [Ladda ned en zip-fil](https://gi
 git clone https://github.com/Azure-Samples/blockchain.git
 ```
 
-## <a name="run-the-script"></a>Kör skript
+## <a name="run-the-script"></a>Kör skriptet
 [!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install.md)]
 
 Kör den `collectBlockchainWorkbenchTroubleshooting.ps1` skript för att samla in loggar och skapa en ZIP-fil som innehåller en mapp med information om felsökning. Exempel:
@@ -52,9 +52,9 @@ Skriptet godkänner följande parametrar:
 | ResourceGroupName | Namnet på Azure-resursgrupp där Blockchain Workbench har distribuerats. | Ja |
 | OutputDirectory | Sökväg till skapa utdata. ZIP-filen. Om den inte anges som standard den aktuella katalogen. | Nej |
 | LookbackHours | Antal timmar som ska användas för att hämta telemetri. Standardvärdet är 24 timmar. Högsta tillåtna värde är 90 timmar | Nej |
-| OmsSubscriptionId | Prenumerations-ID där OMS har distribuerats. Skicka bara den här parametern om OMS för blockchain-nätverk som distribueras utanför Blockchain Workbench resursgrupp.| Nej |
-| OmsResourceGroup |Den resursgrupp där OMS har distribuerats. Skicka bara den här parametern om OMS för blockchain-nätverk som distribueras utanför Blockchain Workbench resursgrupp.| Nej |
-| OmsWorkspaceName | Namnet på OMS-arbetsytan. Endast skicka den här parametern om OMS för blockchain-nätverk som distribueras utanför Blockchain Workbench resursgrupp | Nej |
+| OmsSubscriptionId | Prenumerations-ID där Log Analytics har distribuerats. Skicka bara den här parametern om logganalys för blockchain-nätverk som distribueras utanför Blockchain Workbench resursgrupp.| Nej |
+| OmsResourceGroup |Den resursgrupp där Log Analytics har distribuerats. Skicka bara den här parametern om logganalys för blockchain-nätverk som distribueras utanför Blockchain Workbench resursgrupp.| Nej |
+| OmsWorkspaceName | Namnet på Log Analytics-arbetsytan. Endast skicka den här parametern om logganalys för blockchain-nätverk som distribueras utanför Blockchain Workbench resursgrupp | Nej |
 
 ## <a name="what-is-collected"></a>Vad samlas in?
 

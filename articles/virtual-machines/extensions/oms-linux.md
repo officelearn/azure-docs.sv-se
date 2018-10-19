@@ -15,18 +15,21 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 09/24/2018
 ms.author: roiyz
-ms.openlocfilehash: bab579b540dbeed8ecbff8925547509edb1d78c9
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: dc0d7857dbbbdc862878201ba9d47632d2b5affd
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49352384"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49404859"
 ---
 # <a name="log-analytics-virtual-machine-extension-for-linux"></a>Logga Analytics tillägg för virtuell dator för Linux
 
 ## <a name="overview"></a>Översikt
 
 Log Analytics tillhandahåller funktioner för övervakning, varningar och aviseringar reparation i molnet och lokala resurser. Tillägget för virtuell dator Log Analytics-agenten för Linux är publicerat och stöds av Microsoft. Tillägget Log Analytics-agenten installeras på virtuella Azure-datorer och registreras virtuella datorer i en befintlig Log Analytics-arbetsyta. Det här dokumentet beskriver de plattformar som stöds, konfigurationer och distributionsalternativ för Log Analytics-tillägget för virtuell dator för Linux.
+
+>[!NOTE]
+>Som en del av pågående övergången från Microsoft Operations Management Suite (OMS) till Azure Monitor betecknas OMS-agenten för Windows eller Linux som Log Analytics-agenten för Windows och Log Analytics-agenten för Linux.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -210,13 +213,13 @@ Tillägget utförande-utdatan loggas till följande fil:
 | 9 | Aktivera som kallas för tidigt | [Uppdatera Azure Linux Agent](https://docs.microsoft.com/azure/virtual-machines/linux/update-agent) till den senaste tillgängliga versionen. |
 | 10 | Virtuell dator är redan ansluten till en Log Analytics-arbetsyta | Om du vill ansluta den virtuella datorn till arbetsytan som angetts i schemat för tillägget stopOnMultipleConnections inställd på false i offentliga inställningar eller ta bort den här egenskapen. Den här virtuella datorn debiteras när för varje arbetsyta som den är ansluten till. |
 | 11 | Ogiltig konfiguration som angetts för tillägget | Följ föregående exempel för att ange alla egenskapsvärden som krävs för distributionen. |
-| 17 | Installationsfel för OMS-paketet | 
+| 17 | Logga Analytics paketet installationsfel | 
 | 19 | OMI paketet installationsfel | 
 | 20 | Installationsfel för SCX-paket |
 | 51 | Det här tillägget stöds inte på den Virtuella datorns operativsystem | |
-| 55 | Det går inte att ansluta till OMS-tjänsten eller paket som krävs saknas eller dpkg package manager är låst| Kontrollera att datorn är ansluten till Internet eller att en giltig HTTP-proxy har angetts. Dessutom kan kontrollera för arbetsyte-ID och kontrollera curl och tar är installerade. |
+| 55 | Det går inte att ansluta till Log Analytics-tjänsten eller paket som krävs saknas eller dpkg Pakethanteraren är låst| Kontrollera att datorn är ansluten till Internet eller att en giltig HTTP-proxy har angetts. Dessutom kan kontrollera för arbetsyte-ID och kontrollera curl och tar är installerade. |
 
-Ytterligare information kan hittas på den [felsökningsguide för OMS Agent for Linux](../../log-analytics/log-analytics-azure-vmext-troubleshoot.md).
+Ytterligare information kan hittas på den [felsökningsguide för Log Analytics-agenten för Linux](../../log-analytics/log-analytics-azure-vmext-troubleshoot.md).
 
 ### <a name="support"></a>Support
 

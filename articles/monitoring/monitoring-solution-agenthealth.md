@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/19/2017
 ms.author: magoedte
-ms.openlocfilehash: f0737c6a6ff228b92a030242faf7f4d634bdd9f2
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: e9ac4b7f7a0900f8b49f95c0db9ba5e9c962fa0e
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45733200"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49404043"
 ---
 #  <a name="agent-health-solution-in-azure"></a>Agenthälsolösning i Azure
 Agenthälsolösningen i Azure hjälper dig att förstå vilka av alla agenter som rapporterar direkt till Log Analytics-arbetsyta eller en System Center Operations Manager-hanteringsgrupp ansluten till Log Analytics, som inte svarar och skicka operativa data.  Du kan också hålla reda på hur många agenter distribueras, var de är fördelade geografiskt och utföra andra frågor för att övervaka distributionen av agenter i Azure, andra miljöer i molnet eller lokalt.    
@@ -65,7 +65,7 @@ Klicka på panelen **Agenthälsa** för att öppna instrumentpanelen för **Agen
 | Distribution enligt Agent-kategori | En partition av olika typer av agenter som skickar händelser för pulsslag: direkta agenter, OpsMgr-agenter eller OpsMgr Management Server.|
 | Distribution enligt hanteringsgrupp | En partition av olika SCOM-hanteringsgrupper i din miljö.|
 | Geoplats för agenter | En partition av olika länder där du har agenter och det sammanlagda antalet agenter som har installerats i varje land.|
-| Antalet installerade Gateways | Antalet servrar som har installerat gatewayen för Log Analytics och en lista över dessa servrar.|
+| Antalet installerade Gateways | Antalet servrar som har installerad Log Analytics-gateway och en lista över dessa servrar.|
 
 ![Agenthälsa på instrumentpanelen - exempel](./media/monitoring-solution-agenthealth/agenthealth-solution-dashboard.png)  
 
@@ -85,7 +85,7 @@ En post med en typ av **pulsslag** skapas.  Dessa poster har egenskaper enligt f
 | OSMinorVersion | Lägre operativsystemversion.|
 | Version | Log Analytics-agenten eller Operations Manager Agent-version.|
 | SCAgentChannel | Värdet är *Direkt* och/eller *SCManagementServer*.|
-| IsGatewayInstalled | Om Log Analytics Gateway har installerats är värdet *SANT*, annars är värdet *FALSKT*.|
+| IsGatewayInstalled | Om Log Analytics-gatewayen har installerats är värdet *SANT*, annars är värdet *FALSKT*.|
 | ComputerIP | IP-adressen för datorn.|
 | RemoteIPCountry | Geografisk plats där datorn har distribuerats.|
 | ManagementGroupName | Namn på Operations Manager-hanteringsgrupp.|

@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 01/15/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: f8fe86712b59a896d1f431ef677f592ced382db8
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: e20ae31ae64483d4d11b793f1c8656107413c05d
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46312076"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49406202"
 ---
 # <a name="identity-synchronization-and-duplicate-attribute-resiliency"></a>Identitetssynkronisering och duplicerad attributåterhämtning
 Duplicerad Attributåterhämtning är en funktion i Azure Active Directory åtgärdar problem som orsakas av **UserPrincipalName** och **ProxyAddress** står i konflikt när du kör något av Microsofts synkroniseringsverktyg för.
@@ -122,7 +122,7 @@ Du kan visa directory synkroniseringsfel i administrationscentret för Office 36
 
 ![Aktiva användare](./media/how-to-connect-syncservice-duplicate-attribute-resiliency/1234.png "aktiva användare")
 
-Anvisningar om hur du visar katalogen synkroniseringsfel i Office 365 Administrationscenter finns i [identifiera directory synkroniseringsfel i Office 365](https://support.office.com/en-us/article/Identify-directory-synchronization-errors-in-Office-365-b4fc07a5-97ea-4ca6-9692-108acab74067).
+Anvisningar om hur du visar katalogen synkroniseringsfel i Office 365 Administrationscenter finns i [identifiera directory synkroniseringsfel i Office 365](https://support.office.com/article/Identify-directory-synchronization-errors-in-Office-365-b4fc07a5-97ea-4ca6-9692-108acab74067).
 
 ### <a name="identity-synchronization-error-report"></a>Felrapport för synkronisering av identitet
 När ett objekt med en dubblettattribut konflikt hanteras med den här nya funktionen ett meddelande som ingår i standard identitet felrapport för synkronisering av e-postmeddelandet som skickas till tekniska meddelanden kontakta för klienten. Det finns dock en viktig förändring i det här beteendet. Tidigare skulle information om en konflikt dubblettattribut inkluderas i varje efterföljande felrapport tills konflikten har lösts. Med den här nya funktionen visas endast felmeddelanden för en viss konflikt en gång – då attributet som står i konflikt har placerats i karantän.
@@ -173,5 +173,5 @@ Det måste peka på [ https://aka.ms/duplicateattributeresiliency ](https://aka.
 ## <a name="see-also"></a>Se också
 * [Azure AD Connect-synkronisering](how-to-connect-sync-whatis.md)
 * [Integrera dina lokala identiteter med Azure Active Directory](whatis-hybrid-identity.md)
-* [Identifiera directory synkroniseringsfel i Office 365](https://support.office.com/en-us/article/Identify-directory-synchronization-errors-in-Office-365-b4fc07a5-97ea-4ca6-9692-108acab74067)
+* [Identifiera directory synkroniseringsfel i Office 365](https://support.office.com/article/Identify-directory-synchronization-errors-in-Office-365-b4fc07a5-97ea-4ca6-9692-108acab74067)
 

@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 02/20/2018
 ms.author: abshamsft
 ms.component: ''
-ms.openlocfilehash: f08b9e60a632428a120f9cfa50d29f1454e0b1d5
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: 73978609d018eb43ab8031dc6e8261861e1ee3bf
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48041178"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49402552"
 ---
 # <a name="expressroute-monitor"></a>ExpressRoute-övervakning
 
@@ -36,7 +36,7 @@ Du kan använda funktionen för Azure ExpressRoute-övervakning [Övervakare av 
 För att öppna konfigurationen för Övervakare av nätverksprestanda, öppna den [Network Performance Monitor-lösningen](log-analytics-network-performance-monitor.md) och välj **konfigurera**.
 
 ### <a name="configure-network-security-group-rules"></a>Konfigurera regler för nätverkssäkerhetsgrupper 
-För servrar i Azure som används för övervakning via Övervakare av nätverksprestanda, kan du konfigurera regler för nätverkssäkerhetsgrupper (NSG) för att tillåta TCP-trafik på porten som används av Övervakare av nätverksprestanda för syntetiska transaktioner. Standardporten är 8084. Den här konfigurationen kan Operations Management Suite-agenten installeras på Azure virtuella datorer ska kunna kommunicera med en lokal övervakningsagent. 
+För servrar i Azure som används för övervakning via Övervakare av nätverksprestanda, kan du konfigurera regler för nätverkssäkerhetsgrupper (NSG) för att tillåta TCP-trafik på porten som används av Övervakare av nätverksprestanda för syntetiska transaktioner. Standardporten är 8084. Den här konfigurationen kan Log Analytics-agenten installeras på Azure virtuella datorer ska kunna kommunicera med en lokal övervakningsagent. 
 
 Mer information om Nätverkssäkerhetsgrupper finns i [Nätverkssäkerhetsgrupper](../virtual-network/manage-network-security-group.md). 
 

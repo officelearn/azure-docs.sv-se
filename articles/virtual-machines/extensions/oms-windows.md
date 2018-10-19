@@ -15,33 +15,33 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 03/14/2017
 ms.author: roiyz
-ms.openlocfilehash: 02fa19cad56f1a31ad60c597df1b004710cb5b50
-ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
+ms.openlocfilehash: 12f7c52f916f385ddf95cf16aa89c4848ab7c118
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47452096"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49406610"
 ---
 # <a name="log-analytics-virtual-machine-extension-for-windows"></a>Logga Analytics tillägg för virtuell dator för Windows
 
-Log Analytics ger övervakningsfunktionerna i molnet och lokala resurser. Tillägget för virtuell dator Log Analytics-agenten för Windows är publicerat och stöds av Microsoft. Tillägget Log Analytics-agenten installeras på virtuella Azure-datorer och registreras virtuella datorer i en befintlig Log Analytics-arbetsyta. Det här dokumentet beskriver de plattformar som stöds, konfigurationer och distributionsalternativ för Log Analytics-tillägget för virtuell dator för Windows.
+Log Analytics ger övervakningsfunktionerna i molnet och lokala resurser. Log Analytics-agenten VM-tillägget för Windows är publicerat och stöds av Microsoft. Tillägget Log Analytics-agenten installeras på virtuella Azure-datorer och registreras virtuella datorer i en befintlig Log Analytics-arbetsyta. Det här dokumentet beskriver de plattformar som stöds, konfigurationer och distributionsalternativ för Log Analytics-tillägget för virtuell dator för Windows.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
 ### <a name="operating-system"></a>Operativsystem
 
-Tillägget Log Analytics-agenten versioner för Windows kan köras mot Windows Server 2008 R2, 2012, 2012 R2 och 2016.
+Log Analytics-agenttillägg versioner för Windows kan köras mot Windows Server 2008 R2, 2012, 2012 R2 och 2016.
 
 ### <a name="azure-security-center"></a>Azure Security Center
 
 Azure Security Center automatiskt etablerar Log Analytics-agenten och ansluter den med standard log analytics-arbetsyta för Azure-prenumerationen. Om du använder Azure Security Center kan inte köra stegen i det här dokumentet. Detta skriver över den konfigurerade arbetsytan och bryta länken med Azure Security Center.
 
 ### <a name="internet-connectivity"></a>Internetanslutning
-Tillägget Log Analytics-agenten för Windows kräver att den virtuella måldatorn är ansluten till internet. 
+Log Analytics-agenttillägg för Windows kräver att den virtuella måldatorn är ansluten till internet. 
 
 ## <a name="extension-schema"></a>Tilläggsschema
 
-Följande JSON visar schemat för tillägget Log Analytics-agenten. Tillägget kräver att arbetsytan Id och arbetsytenyckel från Log Analytics-målarbetsytan. Dessa kan hittas i inställningarna för arbetsytan på Azure-portalen. Eftersom arbetsytenyckeln ska behandlas som känsliga data, ska den lagras i en skyddad Konfigurationsinställningen. Azure VM-tillägget skyddade inställningsdata krypteras och dekrypteras bara på den virtuella måldatorn. Observera att **workspaceId** och **workspaceKey** är skiftlägeskänsliga.
+Följande JSON visar schemat för Log Analytics-agenttillägg. Tillägget kräver att arbetsytan Id och arbetsytenyckel från Log Analytics-målarbetsytan. Dessa kan hittas i inställningarna för arbetsytan på Azure-portalen. Eftersom arbetsytenyckeln ska behandlas som känsliga data, ska den lagras i en skyddad Konfigurationsinställningen. Azure VM-tillägget skyddade inställningsdata krypteras och dekrypteras bara på den virtuella måldatorn. Observera att **workspaceId** och **workspaceKey** är skiftlägeskänsliga.
 
 ```json
 {
@@ -81,7 +81,7 @@ Följande JSON visar schemat för tillägget Log Analytics-agenten. Tillägget k
 
 ## <a name="template-deployment"></a>Malldistribution
 
-Azure VM-tillägg kan distribueras med Azure Resource Manager-mallar. JSON-schemat som beskrivs i föregående avsnitt kan användas i en Azure Resource Manager-mall för att köra tillägget Log Analytics-agenten under en malldistribution för Azure Resource Manager. En exempelmall med Log Analytics-agenten VM-tillägget kan hittas på den [Azure Quick Start-galleriet](https://github.com/Azure/azure-quickstart-templates/tree/master/201-oms-extension-windows-vm). 
+Azure VM-tillägg kan distribueras med Azure Resource Manager-mallar. JSON-schemat som beskrivs i föregående avsnitt kan användas i en Azure Resource Manager-mall för att köra tillägget för Log Analytics-agent under en malldistribution för Azure Resource Manager. En exempelmall som innehåller VM-tillägg för Log Analytics-agenten finns på den [Azure Quick Start-galleriet](https://github.com/Azure/azure-quickstart-templates/tree/master/201-oms-extension-windows-vm). 
 
 JSON för tillägg för virtuell dator kan kapslas i resursen för virtuella datorer eller placeras i roten eller översta nivån i en Resource Manager JSON-mall. Placeringen av JSON påverkar värdet för resursnamn och typ. Mer information finns i [ange namn och typ för underordnade resurser](../../azure-resource-manager/resource-manager-templates-resources.md#child-resources). 
 
@@ -140,7 +140,7 @@ När du monterar tillägget JSON i roten på mallen resursnamnet innehåller en 
 
 ## <a name="powershell-deployment"></a>PowerShell-distribution
 
-Den `Set-AzureRmVMExtension` kommando kan användas för att distribuera Log Analytics-agenten tillägget för virtuell dator till en befintlig virtuell dator. Innan du kör kommandot, måste de offentliga och privata konfigurationerna lagras i en PowerShell-hash-tabell. 
+Den `Set-AzureRmVMExtension` kommando kan användas för att distribuera Log Analytics agent-tillägget för virtuell dator till en befintlig virtuell dator. Innan du kör kommandot, måste de offentliga och privata konfigurationerna lagras i en PowerShell-hash-tabell. 
 
 ```powershell
 $PublicSettings = @{"workspaceId" = "myWorkspaceId"}

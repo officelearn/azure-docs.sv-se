@@ -1,5 +1,0 @@
-> [!IMPORTANT]
-> Funktionen Azure DNS Private Zone är för närvarande en hanterad förhandsversion och kräver att du registrerar dig för att ta fram graderingar förhandsversionen av Powershell-modulen/SDK: N. Om du vill registrera dig för den här förhandsversionen kan e- [ AzureDNS-PrivateZone@microsoft.com ](mailto:AzureDNS-PrivateZone@microsoft.com) med din prenumerationsinformation. Exemplen i den här artikeln förutsätter att du redan har registrerat dig för förhandsversionen och har fått förhandsversionen av Powershell-modulen/SDK: N. Med den aktuella offentliga Powershell-modulen fungerar inte för den här funktionen för förhandsgranskning.
-
-Den här förhandsversionen tillhandahålls utan serviceavtal och ska inte användas för produktionsarbetsbelastningar. Vissa funktioner kanske inte stöds eller har begränsad funktionalitet, eller så är de inte tillgängliga på alla Azure-platser. Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-

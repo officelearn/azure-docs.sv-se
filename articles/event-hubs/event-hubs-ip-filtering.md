@@ -1,5 +1,5 @@
 ---
-title: Azure Event Hubs IP-anslutningsfilter | Microsoft Docs
+title: Azure Event Hubs IP filtrerar | Microsoft Docs
 description: Använd IP-filtrering för blockerar anslutningar från specifika IP-adresser till Azure Event Hubs.
 services: event-hubs
 documentationcenter: ''
@@ -10,20 +10,20 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/08/2018
 ms.author: spelluru
-ms.openlocfilehash: c229a6f84096ecca892b74f7ce65cb831fa50be3
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: d0114821b5239146f64dde0b01652dc320994585
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48886187"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49408157"
 ---
 # <a name="use-ip-filters"></a>IP-filter
 
-För scenarier där Azure Event Hubs endast är tillgänglig från vissa välkända platser, den *IP-adressfilter* funktionen kan du konfigurera regler för avvisar eller tar emot trafik som kommer från specifika IPv4-adresser. Dessa adresser kan exempelvis vara de för en företagets NAT-gateway.
+För scenarier där Azure Event Hubs måste vara endast tillgängliga från vissa välkända platser, den *IP-adressfilter* funktionen kan du konfigurera regler för avvisar eller tar emot trafik som kommer från specifika IPv4-adresser. Dessa adresser kan exempelvis vara de för en företagets NAT-gateway.
 
 ## <a name="when-to-use"></a>När du ska använda detta
 
-Två viktiga användningsfall där det är bra att blockera Event Hubs-slutpunkter för vissa IP-adresser är följande:
+Två viktiga användningsfall där det är bra att blockera Event Hubs för vissa IP-adresser är följande:
 
 - Händelsehubbar ska ta emot trafik från ett angivet intervall med IP-adresser och avvisa allt annat. Exempel: du använder Event Hubs med [Azure Express Route] [ express-route] skapa privata anslutningar till din lokala infrastruktur. 
 - Du måste avvisa trafik från IP-adresser som har identifierats som misstänkt av Event Hubs-administratör.
@@ -47,12 +47,12 @@ Om du vill acceptera adresserna i intervallet 70.37.104.0/24 och avvisa allt ann
 > [!NOTE]
 > Avvisa IP-adresser kan det förhindra att interagera med Händelsehubbar andra Azure-tjänster (till exempel Azure Stream Analytics, Azure Virtual Machines eller Device Explorer i portalen).
 
-### <a name="creating-a-virtual-network-rule-with-azure-resource-manager-templates"></a>Skapa en regel för virtuella nätverk med Azure Resource Manager-mallar
+### <a name="creating-an-ip-filter-rule-with-azure-resource-manager-templates"></a>Skapa en IP-filterregeln med Azure Resource Manager-mallar
 
 > [!IMPORTANT]
 > Virtuella nätverk stöds i **standard** och **dedikerade** nivåerna för Event Hubs. Det stöds inte på basic-nivå. 
 
-Följande Resource Manager-mallen gör det möjligt att lägga till en regel för virtuella nätverk till ett befintligt namnområde för Event Hubs.
+Följande Resource Manager-mallen gör det möjligt att lägga till en IP-filterregeln i en befintlig Event Hubs-namnområdet.
 
 Mallparametrar:
 

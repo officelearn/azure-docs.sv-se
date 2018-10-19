@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 09/21/2018
 ms.author: snehaa
-ms.openlocfilehash: 2b704edee55f7d15da1b59d8f8b357b9ba7ca8f3
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.openlocfilehash: e39cf260cc4931fc0dddc4922479522cb521d08e
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48239225"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49407069"
 ---
 # <a name="azure-migrate---frequently-asked-questions-faq"></a>Azure Migrate – och vanliga frågor svar (FAQ)
 
@@ -62,7 +62,7 @@ Ytterligare komponenter (till exempel ett virusskyddsprogram) kan läggas till i
 
 ### <a name="what-data-is-collected-by-azure-migrate"></a>Vilka data som samlas in av Azure Migrate?
 
-Azure Migrate stöder två typer av identifieringen, installationen-baserad identifiering och agentbaserad identifiering.
+Azure Migrate stöder två typer av identifiering: installationsbaserad identifiering och agentbaserad identifiering.
 Installationen-baserade identifieringen samlar in metadata om lokala virtuella datorer, den fullständiga listan med metadata som samlas in av installationen som listas nedan:
 
 **Konfigurationsdata för den virtuella datorn**
@@ -86,7 +86,7 @@ Installationen-baserade identifieringen samlar in metadata om lokala virtuella d
   - Nätverk in
   - Nätverk ut
 
-Agentbaserad identifiering är ett alternativ som är tillgängliga ovanpå installation-baserade identifieringen och hjälper kunder att [visualisera beroenden](how-to-create-group-machine-dependencies.md) för de lokala virtuella datorerna. Beroendeagenter samla in information som FQDN, operativsystem, IP-adress, MAC-adress, processer som körs i den virtuella datorn och de inkommande/utgående TCP-anslutningarna från den virtuella datorn. Agentbaserad identifiering är valfritt och du kan välja att inte installera agenterna om du inte vill att visualisera beroenden för de virtuella datorerna.
+Agentbaserad identifiering är ett alternativ som är tillgängligt utöver installationsbaserad identifiering och hjälper kunder att [visualisera beroenden](how-to-create-group-machine-dependencies.md) för deras lokala virtuella datorer. Beroendeagenterna samlar in information som FQDN, operativsystem, IP-adress, MAC-adress, processer som körs på den virtuella datorn och de inkommande/utgående TCP-anslutningarna från den virtuella datorn. Agentbaserad identifiering är valfritt och du kan välja att inte installera agenterna om du inte vill att visualisera beroenden för de virtuella datorerna.
 
 ### <a name="would-there-be-any-performance-impact-on-the-analyzed-esxi-host-environment"></a>Skulle det finnas en prestandaförsämring på analyserade ESXi värdmiljön?
 
@@ -98,7 +98,7 @@ Vi har introducerat kontinuerlig profilering av prestandadata (som finns i förh
 
 Data som samlas in av insamlingsprogrammet lagras på Azure-plats som du anger när du skapar migration-projekt. Data lagras säkert i en Microsoft-prenumeration och tas bort när användaren tar bort Azure Migrate-projektet.
 
-För visualisering av beroenden, om du installerar agenter på de virtuella datorerna, lagras data som samlas in av beroendeagenter i USA i en OMS-arbetsyta som skapats i användarens prenumeration. Dessa data tas bort när du tar bort OMS-arbetsytan i din prenumeration. [Läs mer](https://docs.microsoft.com/azure/migrate/concepts-dependency-visualization).
+För visualisering av beroenden, om du installerar agenter på de virtuella datorerna, lagras data som samlas in av agenterna beroende i USA i en Log Analytics-arbetsyta som skapades i användarens prenumeration. Dessa data tas bort när du tar bort logganalys-arbetsytan i din prenumeration. [Läs mer](https://docs.microsoft.com/azure/migrate/concepts-dependency-visualization).
 
 ### <a name="is-the-data-encrypted-at-rest-and-while-in-transit"></a>Data krypteras i vila och under överföring?
 
@@ -151,7 +151,7 @@ Ja, Azure Migrate nu kan du bifoga en befintlig arbetsyta i migreringsprojektet 
 
 ### <a name="can-i-export-the-dependency-visualization-report"></a>Kan jag exportera visualisering beroenderapport?
 
-Nej, visualiseringen av beroenden kan inte exporteras. Men eftersom Azure Migrate använder Tjänstkarta för visualisering av beroenden, du kan använda den [Service Map REST API: er](https://docs.microsoft.com/rest/api/servicemap/machines/listconnections) att hämta beroendena i json-format.
+Nej, beroendevisualiseringen kan inte exporteras. Men eftersom Azure Migrate använder Tjänstkarta för visualisering av beroenden, du kan använda den [Service Map REST API: er](https://docs.microsoft.com/rest/api/servicemap/machines/listconnections) att hämta beroendena i json-format.
 
 ### <a name="how-can-i-automate-the-installation-of-microsoft-monitoring-agent-mma-and-dependency-agent"></a>Hur kan jag automatisera installationen av Microsoft Monitoring Agent (MMA) och beroendeagenten?
 

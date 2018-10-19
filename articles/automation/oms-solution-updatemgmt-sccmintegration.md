@@ -1,5 +1,5 @@
 ---
-title: Rikta uppdateringar med hjälp av SCCM-samlingar i Azure Automation - uppdateringshantering
+title: Rikta uppdateringar med hjälp av SCCM-samlingar i Azure Automation - hantering av uppdateringar
 description: Den här artikeln är avsedd att hjälpa dig att konfigurera System Center Configuration Manager med den här lösningen för att hantera uppdateringar av SCCM-hanterade datorer.
 services: automation
 ms.service: automation
@@ -9,24 +9,24 @@ ms.author: gwallace
 ms.date: 03/19/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 3ea95899d48b68c78af5fdc45167b08b5e0fc1ee
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: b42ce119db2c435f05424cceb5bb90627668bece
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34195353"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49407205"
 ---
 # <a name="integrate-system-center-configuration-manager-with-update-management"></a>Integrera System Center Configuration Manager med uppdateringshantering
 
 Kunder som har investerat i System Center Configuration Manager för att hantera datorer, servrar och mobila enheter är också beroende av dess styrka och mognad vid hantering av programuppdateringar som en del av sin cykel för hantering av programuppdatering (SUM).
 
-Du kan rapportera och uppdatera hanterade Windows-servrar genom att skapa och före mellanlagring distributioner av programuppdateringar i Configuration Manager och få detaljerad statusinformation för slutförda distributioner med hjälp av den [uppdatera hanteringslösning](automation-update-management.md). Om du använder Configuration Manager för rapportering av uppdateringen kompatibilitet men inte för att hantera distributioner med Windows-servrar, kan du fortsätta rapportering i Configuration Manager när säkerhetsuppdateringar hanteras med uppdatera hanteringslösningen.
+Du kan rapportera och uppdatera hanterade Windows-servrar genom att skapa och förinstallera programuppdateringsdistributioner i Configuration Manager och få detaljerad status för slutförda uppdateringsdistributioner med den [lösningen för uppdateringshantering](automation-update-management.md). Om du använder Configuration Manager för uppdatering av efterlevnadsrapportering men inte för att hantera uppdateringsdistributioner med dina Windows-servrar kan fortsätta du att rapportera till Configuration Manager medan säkerhetsuppdateringar hanteras med lösningen för uppdateringshantering.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-* Du måste ha den [uppdatering hanteringslösning](automation-update-management.md) lagts till i ditt Automation-konto.
+* Du måste ha den [uppdateringshanteringslösningen](automation-update-management.md) lagts till i ditt Automation-konto.
 * Windows-servrar som för närvarande hanteras av System Center Configuration Manager-miljön måste också rapportera till arbetsytan Log Analytics som även har lösningen för uppdateringshantering aktiverad.
-* Den här funktionen är aktiverad i System Center Configuration Manager aktuella versionen 1606 och högre. Om du vill integrera webbplatsen för central administration av Configuration Manager eller en fristående primär webbplats med Log Analytics och importera samlingar läser du [Anslut Konfigurationshanteraren till Log Analytics](../log-analytics/log-analytics-sccm.md).  
+* Den här funktionen är aktiverad i System Center Configuration Manager current branch-versionen 1606 och högre. Om du vill integrera webbplatsen för central administration av Configuration Manager eller en fristående primär webbplats med Log Analytics och importera samlingar läser du [Anslut Konfigurationshanteraren till Log Analytics](../log-analytics/log-analytics-sccm.md).  
 * Windows-agenter måste antingen konfigureras för att kommunicera med en WSUS-server (Windows Server Update Services) eller ha åtkomst till Microsoft Update om de inte får säkerhetsuppdateringar från Configuration Manager.   
 
 Hur du hanterar klienter som finns i Azure IaaS med den befintliga Configuration Manager-miljön beror främst på anslutningen mellan dina Azure-datacenter och din infrastruktur. Den här anslutningen påverkar alla ändringar du kan behöva göra i Configuration Manager-infrastrukturen och relaterade kostnader för att stödja de nödvändiga ändringarna. För att förstå vilka överväganden för planering du behöver utvärdera innan du fortsätter kan du läsa [vanliga frågor och svar om Configuration Manager på Azure](/sccm/core/understand/configuration-manager-on-azure#networking).
@@ -35,19 +35,19 @@ Hur du hanterar klienter som finns i Azure IaaS med den befintliga Configuration
 
 ### <a name="manage-software-updates-from-configuration-manager"></a>Hantera programuppdateringar från Configuration Manager 
 
-Utför följande steg om du kommer att fortsätta att hantera distributioner från Configuration Manager. Azure Automation ansluter till Configuration Manager att installera uppdateringar för klientdatorer som är ansluten till logganalys-arbetsytan. Uppdateringsinnehållet är tillgängligt från cachelagringen från klientdatorn som om distributionen hanterades av Configuration Manager.
+Utför följande steg om du kommer att fortsätta att hantera distributioner från Configuration Manager. Azure Automation ansluter till Configuration Manager att tillämpa uppdateringar för klientdatorer som är anslutna till Log Analytics-arbetsytan. Uppdateringsinnehållet är tillgängligt från cachelagringen från klientdatorn som om distributionen hanterades av Configuration Manager.
 
-1. Skapa en programuppdateringsdistribution från den översta nivån i Configuration Manager-hierarkin med metoden som beskrivs i informationen om att [distribuera programuppdateringar](/sccm/sum/deploy-use/deploy-software-updates). Den enda inställning som måste vara konfigurerad annorlunda än en standarddistribution är alternativet **Installera inte programuppdateringar** för att kontrollera distributionspaketets hämtningsbeteende. Det här beteendet hanteras av uppdatera hanteringslösningen genom att skapa en schemalagd uppdateringsdistribution i nästa steg.
+1. Skapa en programuppdateringsdistribution från den översta nivån i Configuration Manager-hierarkin med metoden som beskrivs i informationen om att [distribuera programuppdateringar](/sccm/sum/deploy-use/deploy-software-updates). Den enda inställning som måste vara konfigurerad annorlunda än en standarddistribution är alternativet **Installera inte programuppdateringar** för att kontrollera distributionspaketets hämtningsbeteende. Det här beteendet hanteras av lösningen för uppdateringshantering genom att skapa en schemalagd uppdateringsdistribution i nästa steg.
 
-1. Välj i Azure Automation **uppdateringshantering**. Skapa en ny distribution som beskrivs i följande [skapar en distribution](automation-tutorial-update-management.md#schedule-an-update-deployment) och välj **importeras grupper** på den **typen** listrutan för att välja rätt Configuration Manager-samling. Tänk på följande viktiga punkter: en. Om ett underhållsfönster har definierats för den valda enhetssamlingen i Configuration Manager, medlemmar i samlingen respektera den i stället för den **varaktighet** inställningen som definieras i schemalagd distribution.
-    b. Medlemmar i målsamlingen måste ha en anslutning till Internet (antingen direkt, via en proxyserver eller OMS-gateway).
+1. I Azure Automation, väljer **uppdateringshantering**. Skapa en ny distribution genom att följa stegen som beskrivs i [skapa en Uppdateringsdistribution](automation-tutorial-update-management.md#schedule-an-update-deployment) och välj **importerade grupper** på den **typ** listrutan att välja rätt Configuration Manager-samling. Tänk på följande viktiga punkter: en. Om ett underhållsfönster har definierats på den valda enhetssamlingen i Configuration Manager kan medlemmar i samlingen respekterar det i stället för den **varaktighet** angiven i den schemalagda distributionen.
+    b. Medlemmar i målsamlingen måste ha en anslutning till Internet (antingen direkt, via en proxyserver eller Log Analytics-gateway).
 
-När du har slutfört distributionen av uppdateringen via Azure Automation måldatorer som är medlemmar i den valda datorgruppen kommer att installera uppdateringar på den schemalagda tiden från sina lokala klientcachen. Du kan [visa status för uppdateringsdistributionen](automation-tutorial-update-management.md#view-results-of-an-update-deployment) för att övervaka resultatet av distributionen.
+När du har slutfört distributionen av uppdateringen via Azure Automation, installerar de måldatorer som är medlemmar i den valda datorgruppen uppdateringar vid den schemalagda tiden från sin lokala klientcache. Du kan [visa status för uppdateringsdistributionen](automation-tutorial-update-management.md#view-results-of-an-update-deployment) för att övervaka resultatet av distributionen.
 
 ### <a name="manage-software-updates-from-azure-automation"></a>Hantera programuppdateringar från Azure Automation
 
 För att hantera uppdateringar för virtuella Windows Server-datorer som är Configuration Manager-klienter måste du konfigurera klientens princip för att avaktivera funktionen för hantering av programuppdatering för alla klienter som hanteras av lösningen. Som standard riktar sig klientinställningarna till alla enheter i hierarkin. Mer information om den här principen och hur du konfigurerar den finns i [how to configure client settings in System Center Configuration Manager](/sccm/core/clients/deploy/configure-client-settings) (konfigurera klientinställningar i System Center Configuration Manager).
 
-När du utför den här konfigurationsändringen måste du skapa en ny distribution som beskrivs i följande [skapar en distribution](automation-tutorial-update-management.md#schedule-an-update-deployment) och välj **importeras grupper** på den **typen** listrutan och välj lämplig Configuration Manager-samling.
+När du har utfört konfigurationsändringen skapar du en ny distribution genom att följa stegen som beskrivs i [skapa en Uppdateringsdistribution](automation-tutorial-update-management.md#schedule-an-update-deployment) och välj **importerade grupper** på den **typen** listrutan att välja lämplig Configuration Manager-samling.
 
 ## <a name="next-steps"></a>Nästa steg

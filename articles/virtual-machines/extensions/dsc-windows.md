@@ -14,12 +14,12 @@ ms.tgt_pltfrm: windows
 ms.workload: ''
 ms.date: 03/26/2018
 ms.author: robreed
-ms.openlocfilehash: b9e96473a6f66dcbc675da1553deaed4ad61b249
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.openlocfilehash: 1d65238115ca57a3fcc8047a27c8161aaa144ce4
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45630948"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49407715"
 ---
 # <a name="powershell-dsc-extension"></a>PowerShell DSC-tillägg
 
@@ -130,7 +130,7 @@ Följande JSON visar schemat för inställningsavsnittet av DSC-tillägget i en 
 
 ## <a name="template-deployment"></a>Malldistribution
 
-Azure VM-tillägg kan distribueras med Azure Resource Manager-mallar. Mallar är perfekt när du distribuerar en eller flera virtuella datorer som kräver konfiguration efter distribution. En Resource Manager-mall som inkluderar OMS Agent VM-tillägget kan hittas på den [Azure Quick Start-galleriet](https://github.com/Azure/azure-quickstart-templates/tree/052db5feeba11f85d57f170d8202123511f72044/dsc-extension-iis-server-windows-vm). 
+Azure VM-tillägg kan distribueras med Azure Resource Manager-mallar. Mallar är perfekt när du distribuerar en eller flera virtuella datorer som kräver konfiguration efter distribution. En Resource Manager-mall som innehåller VM-tillägg för Log Analytics-agenten finns på den [Azure Quick Start-galleriet](https://github.com/Azure/azure-quickstart-templates/tree/052db5feeba11f85d57f170d8202123511f72044/dsc-extension-iis-server-windows-vm). 
 
 JSON-konfiguration för tillägg för virtuell dator kan kapslas i resursen för virtuella datorer eller placeras i roten eller översta nivån i en Resource Manager JSON-mall. Placeringen av JSON-konfigurationen påverkar värdet för resursnamn och typ. 
 
@@ -139,7 +139,7 @@ När kapsla tillägget resursen JSON placeras i den `"resources": []` objekt av 
 
 ## <a name="azure-cli-deployment"></a>Azure CLI-distribution
 
-Azure CLI kan användas för att distribuera OMS Agent VM-tillägget till en befintlig virtuell dator. Ersätt OMS-nyckel och ID för OMS med de från OMS-arbetsytan. 
+Azure CLI kan användas för att distribuera VM-tillägg för Log Analytics-agenten till en befintlig virtuell dator. Ersätt nyckel för Log Analytics och Log Analytics-ID med de från Log Analytics-arbetsytan. 
 
 ```azurecli
 az vm extension set \

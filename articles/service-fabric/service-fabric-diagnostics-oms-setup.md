@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 9/11/2018
 ms.author: srrengar
-ms.openlocfilehash: a73a288852eea713623b65324853761e10fad282
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 68374cd1675f76555ff313b42e35bdf2aed96874
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47220474"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49408089"
 ---
 # <a name="set-up-log-analytics-for-a-cluster"></a>Konfigurera Log Analytics för ett kluster
 
@@ -51,7 +51,7 @@ Om du använder Windows, fortsätter du med följande steg för att ansluta Log 
 
 ### <a name="connect-the-log-analytics-workspace-to-your-cluster"></a>Ansluta Log Analytics-arbetsytan till ditt kluster 
 
-1. Arbetsytan måste vara anslutna till diagnostikdata som kommer från ditt kluster. Gå till resursgruppen där du skapade Service Fabric-analys-lösningen. Välj **ServiceFabric\<nameOfWorkspace\>**  och gå till dess översiktssidan. Därifrån kan ändra du lösningsinställningar, inställningar för arbetsyta och åtkomst till Log Analytics-arbetsytan.
+1. Arbetsytan måste vara anslutna till diagnostikdata som kommer från ditt kluster. Gå till resursgruppen där du skapade Service Fabric-analys-lösningen. Välj **ServiceFabric\<nameOfWorkspace\>**  och gå till dess översiktssidan. Därifrån kan du ändra inställningar för lösning, inställningar för arbetsyta och få åtkomst till Log Analytics-arbetsytan.
 
 2. På den vänstra menyn under **datakällor för arbetsyta**väljer **lagringskontologgar**.
 
@@ -80,7 +80,7 @@ Du kan använda och ändra [den här exempelmallen](https://github.com/Azure-Sam
 
 * Skapar ett Service Fabric-kluster med 5 noder
 * Skapar en Log Analytics-arbetsyta och Service Fabric-lösning
-* Konfigurerar OMS-agenten för att samla in och skicka 2 exempel prestandaräknare till arbetsytan
+* Konfigurerar Log Analytics-agenten för att samla in och skicka 2 exempel prestandaräknare till arbetsytan
 * Konfigurerar WAD för att samla in Service Fabric och skickar dem till Azure storage-tabeller (WADServiceFabric * EventTable)
 * Konfigurerar Log Analytics-arbetsytan för att läsa händelserna från dessa tabeller
 

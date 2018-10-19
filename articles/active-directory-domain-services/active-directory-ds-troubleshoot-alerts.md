@@ -12,15 +12,15 @@ ms.component: domain-services
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
-ms.date: 02/28/2018
+ms.topic: article
+ms.date: 10/17/2018
 ms.author: ergreenl
-ms.openlocfilehash: 6be67a92c95ccf1161ffeeb636ee4f998c65fa05
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.openlocfilehash: 0eb028e419f05843da308c824d79a8f4e1883fb2
+ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39503697"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49429753"
 ---
 # <a name="azure-ad-domain-services---troubleshoot-alerts"></a>Azure AD Domain Services - felsöka aviseringar
 Den här artikeln innehåller felsökningsguider för alla aviseringar som kan uppstå på din hanterade domän.
@@ -39,7 +39,7 @@ Välj felsökningsstegen som relaterar till ID eller meddelande i aviseringen.
 | AADDS105 | *Tjänstens huvudnamn med program-ID ”d87dcbc6-a371-462e-88e3-28ad15ec4e64” har tagits bort och sedan återskapas. Återskapning lämnas bakom inkonsekvent behörigheter på Azure AD Domain Services-resurser som behövs för att underhålla din hanterade domän. Synkronisering av lösenord på den hanterade domänen kan påverkas.* | [Programmet för synkronisering av lösenord är inaktuell](active-directory-ds-troubleshoot-service-principals.md#alert-aadds105-password-synchronization-application-is-out-of-date) |
 | AADDS500 | *Den hanterade domänen senast synkroniserades med Azure AD på [date]. Användare kan inte logga in på den hanterade domänen eller gruppmedlemskap kanske inte är synkroniserad med Azure AD.* | [Synkronisering inte har utförts på ett tag](#aadds500-synchronization-has-not-completed-in-a-while) |
 | AADDS501 | *Den hanterade domänen senast säkerhetskopierades på [date].* | [En säkerhetskopia som inte har vidtagits på ett tag](#aadds501-a-backup-has-not-been-taken-in-a-while) |
-| AADDS502 | *Certifikatet för säkert LDAP för den hanterade domänen upphör att gälla [date]].* | [Upphör att gälla certifikatet för säkert LDAP](active-directory-ds-troubleshoot-ldaps.md#aadds502-secure-ldap-certificate-expiring) |
+| AADDS502 | *Certifikatet för säkert LDAP för den hanterade domänen upphör att gälla [date].* | [Upphör att gälla certifikatet för säkert LDAP](active-directory-ds-troubleshoot-ldaps.md#aadds502-secure-ldap-certificate-expiring) |
 | AADDS503 | *Den hanterade domänen har inaktiverats eftersom den Azure-prenumeration som är associerade med domänen inte är aktiv.* | [Inaktiveringen på grund av inaktiverad prenumeration](#aadds503-suspension-due-to-disabled-subscription) |
 | AADDS504 | *Den hanterade domänen har pausats på grund av en ogiltig konfiguration. Tjänsten har inte kan hantera, korrigera eller uppdatera domänkontrollanterna för den hanterade domänen under en längre tid.* | [Inaktiveringen på grund av en ogiltig konfiguration](#aadds504-suspension-due-to-an-invalid-configuration) |
 

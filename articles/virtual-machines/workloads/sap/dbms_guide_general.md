@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 09/06/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e46503f8dc97f58db1cd5acfd2122e2895fb15b0
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: 3948c226f13f0ff358f9ca467f19cf0e48795911
+ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44162316"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49429903"
 ---
 # <a name="considerations-for-azure-virtual-machines-dbms-deployment-for-sap-workload"></a>Överväganden för distribution av Azure virtuella datorer DBMS för SAP-arbetsbelastningar
 [1114181]:https://launchpad.support.sap.com/#/notes/1114181
@@ -216,7 +216,7 @@ För distributioner för M-serien rekommenderas att använda Azure Write Acceler
 
 
 ### <a name="azure-non-persistent-disks"></a>Azure-icke-beständiga diskar
-Virtuella Azure-datorer erbjuder icke-beständiga diskar när en virtuell dator har distribuerats. Allt innehåll på dessa enheter kommer att rensas vid omstart av en virtuell dator. Det är därför en tanke på att data och log/gör om-filer med databaser under inga omständigheter finns på dessa icke bestående enheter. Det kan finnas undantag för några av databaserna, om enheterna icke bestående skulle kunna vara lämplig för tempdb och temp registerutrymmen. Men Undvik att använda dessa enheter för virtuella datorer i A-serien eftersom dessa icke bestående enheter är begränsade i dataflöde med den Virtuella datorserien. Mer information finns i artikeln [förstå den temporära enheten på Windows Azure Virtual Machines](https://blogs.msdn.microsoft.com/mast/2013/12/06/understanding-the-temporary-drive-on-windows-azure-virtual-machines/)
+Virtuella Azure-datorer erbjuder icke-beständiga diskar när en virtuell dator har distribuerats. Allt innehåll på dessa enheter kommer att rensas vid omstart av en virtuell dator. Det är därför en tanke på att data och log/gör om-filer med databaser under inga omständigheter finns på dessa icke bestående enheter. Det kan finnas undantag för några av databaserna, om enheterna icke bestående skulle kunna vara lämplig för tempdb och temp registerutrymmen. Men Undvik att använda dessa enheter för virtuella datorer i A-serien eftersom dessa icke bestående enheter är begränsade i dataflöde med den Virtuella datorserien. Mer information finns i artikeln [förstå den temporära enheten på Windows-datorer i Azure](https://blogs.msdn.microsoft.com/mast/2013/12/06/understanding-the-temporary-drive-on-windows-azure-virtual-machines/)
 
 - - -
 > ![Windows][Logo_Windows] Windows

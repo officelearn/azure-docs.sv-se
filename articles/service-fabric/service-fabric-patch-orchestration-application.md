@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 5/22/2018
 ms.author: nachandr
-ms.openlocfilehash: f43715b9c419aab1f5b95e140eac72642ef74198
-ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
+ms.openlocfilehash: a8b2070b6f5b10cb60c6658aefc8cc90331ecfd9
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/23/2018
-ms.locfileid: "42746905"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49409364"
 ---
 # <a name="patch-the-windows-operating-system-in-your-service-fabric-cluster"></a>Uppdatera Windows-operativsystemet i Service Fabric-klustret
 
@@ -29,7 +29,9 @@ ms.locfileid: "42746905"
 >
 >
 
-Patch orchestration application är ett Azure Service Fabric-program som automatiserar operativsystemet uppdatering i Service Fabric-kluster utan avbrott.
+[Azure VM-skalningsuppsättningen automatisk operativsystemuppgradering bild](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade) är den bästa metoden för att se till att ditt operativsystem korrigerade i Azure och Patch Orchestration Application (POA) är en omslutning runt Service Fabrics RepairManager system service som gör configuration baserade OS patch schemaläggning för icke-Azure-värdbaserade kluster. POA krävs inte för icke-Azure-värdbaserade kluster, men schemaläggning patch-installationen genom att uppgradera domäner som krävs för att korrigera värdar för Service Fabric-kluster utan avbrott.
+
+POA är ett Azure Service Fabric-program som automatiserar operativsystemet uppdatering i Service Fabric-kluster utan avbrott.
 
 Patch orchestration appen tillhandahåller följande funktioner:
 

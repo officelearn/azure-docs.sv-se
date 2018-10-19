@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 01/16/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: b38ce59a80d3fa78449892c8a76ed70b4dc698d3
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: f7fe7cee39468558ce503c050d5574e4be15ebf5
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48041497"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49407177"
 ---
 # <a name="monitor-surface-hubs-with-log-analytics-to-track-their-health"></a>Övervaka Surface Hub med Log Analytics för att spåra deras hälsa
 
@@ -51,7 +51,7 @@ Intune är en Microsoftprodukt som låter dig centralt hantera Log Analytics-kon
 1. Logga in på Intune.
 2. Gå till **inställningar** > **anslutna källor**.
 3. Skapa eller redigera en princip som baseras på Surface Hub-mallen.
-4. Gå till avsnittet OMS (Azure Operational Insights) av principen och lägga till Log Analytics *arbetsyte-ID* och *Arbetsytenyckel* till principen.
+4. Gå till avsnittet Azure Operational Insights av principen och lägga till Log Analytics *arbetsyte-ID* och *Arbetsytenyckel* till principen.
 5. Spara principen.
 6. Associera principen med den aktuella gruppen med enheter.
 
@@ -66,9 +66,9 @@ Om du inte använder Intune för att hantera din miljö kan du registrera enhete
 
 1. Öppna från dina Surface Hub **inställningar**.
 2. Ange administratörsautentiseringsuppgifter för enheten när du tillfrågas.
-3. Klicka på **enheten**, och under **övervakning**, klickar du på **konfigurera inställningar för OMS**.
+3. Klicka på **enheten**, och under **övervakning**, klickar du på **konfigurera inställningar för Log Analytics**.
 4. Välj **aktivera övervakning**.
-5. I inställningsdialogrutan för OMS Log Analytics som skriver **arbetsyte-ID** och Skriv den **Arbetsytenyckel**.  
+5. I inställningsdialogrutan för Log Analytics, skriver du den Log Analytics **arbetsyte-ID** och Skriv den **Arbetsytenyckel**.  
    ![Inställningar](./media/log-analytics-surface-hubs/settings.png)
 6. Klicka på **OK** att slutföra konfigurationen.
 

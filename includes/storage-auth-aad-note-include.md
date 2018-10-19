@@ -8,14 +8,14 @@ ms.topic: include
 ms.date: 10/09/2018
 ms.author: tamram
 ms.custom: include file
-ms.openlocfilehash: ac7aa294dee25a6dea4ec2ee614f2b2d34d3a6bc
-ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
+ms.openlocfilehash: 2d641287bcf095f13719667a91b7f61295309b5d
+ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49117685"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49430365"
 ---
-> [!IMPORTANT]
+> [!NOTE]
 > - Förhandsversionen av Azure AD-autentisering för blobbar och köer är endast avsedd för icke-produktion användning. Produktion servicenivåavtal (SLA) är inte tillgängliga. Om Azure AD-autentisering inte stöds ännu för ditt scenario, fortsätta att använda auktorisering för delad nyckel eller SAS-token i dina program.
 >
 > - RBAC-rolltilldelningar kan ta upp till fem minuter att sprida i förhandsversionen.
@@ -27,5 +27,8 @@ ms.locfileid: "49117685"
 > - Azure-portalen stöder för närvarande inte använder Azure AD-autentiseringsuppgifter för att läsa och skriva data i kön. Kön data nås via dina lagringskontonycklar.
 >
 > - [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) används för närvarande din lagringskontonyckel för att komma åt data för blob och kö.
+>
+> - Azure Files stöder autentisering med Azure AD via SMB för domänanslutna datorer endast (förhandsversion). Läs om hur du använder Azure AD via SMB för Azure Files i [översikt av Azure Active Directory-autentisering över SMB för Azure Files (förhandsversion)](../articles/storage/files/storage-files-active-directory-overview.md).
+
 
 

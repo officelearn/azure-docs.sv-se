@@ -9,12 +9,12 @@ ms.service: machine-learning
 ms.component: core
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 950d985ca87cce484edeb7930ca1bda34d812f33
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: 13820dd511d31217b79385e893edbb55a3a57693
+ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49344140"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49430031"
 ---
 # <a name="tune-hyperparameters-for-your-model"></a>Justera hyperparametrar för din modell
 
@@ -141,8 +141,9 @@ param_sampling = BayesianParameterSampling( {
 ```
 
 > [!NOTE]
-> Bayesian sampling har inte stöd för tidig uppsägning princip (se [ange en princip för tidig uppsägning](#specify-an-early-termination-policy)). När du använder Bayesian parametern sampling anger `early_termination_policy = None`, eller lämna den `early_termination_policy` parametern.
-`
+> Bayesian sampling har inte stöd för tidig uppsägning princip (se [ange en princip för tidig uppsägning](#specify-early-termination-policy)). När du använder Bayesian parametern sampling anger `early_termination_policy = None`, eller lämna den `early_termination_policy` parametern.
+
+<a name='specify-primary-metric-to-optimize'/>
 
 ## <a name="specify-primary-metric"></a>Ange primär mått
 
@@ -158,9 +159,11 @@ primary_metric_goal=PrimaryMetricGoal.MAXIMIZE
 
 Optimera körs för att maximera ”precision”.  Se till att logga in det här värdet i dina utbildningsskript.
 
+<a name='log-metrics-for-hyperparameter-tuning'/>
+
 ### <a name="log-metrics-for-hyperparameter-tuning"></a>Log mått för finjustering av hyperparametrar
 
-Skriptet utbildning för din modell måste logga in mått som är relevanta under modellträning. När du konfigurerar den finjustering av hyperparametrar kan ange du primära mått som ska använda för att utvärdera kör prestanda. (Se [ett primära mått att optimera](#specify-a-primary-metric-to-optimize).)  I skriptet utbildning, måste du logga mätvärdet så att den är tillgänglig för finjustering justering processen.
+Skriptet utbildning för din modell måste logga in mått som är relevanta under modellträning. När du konfigurerar den finjustering av hyperparametrar kan ange du primära mått som ska använda för att utvärdera kör prestanda. (Se [ett primära mått att optimera](#specify-primary-metric-to-optimize).)  I skriptet utbildning, måste du logga mätvärdet så att den är tillgänglig för finjustering justering processen.
 
 Logga in med det här måttet i utbildning skriptet med följande exempel kodfragment:
 
@@ -171,6 +174,8 @@ run_logger.log("accuracy", float(val_accuracy))
 ```
 
 Skriptet utbildning beräknar den `val_accuracy` och loggar som ”Precision” som används som primär måttet. Varje gång som måttet loggas som den tas emot av finjustering justering service. Det är upp till modellen utvecklaren att fastställa hur ofta du vill rapportera det här måttet.
+
+<a name='specify-early-termination-policy'/>
 
 ## <a name="specify-early-termination-policy"></a>Ange princip för tidig uppsägning
 
@@ -297,7 +302,7 @@ experiment = Experiment(workspace, experiment_name)
 hyperdrive_run = experiment.submit(hyperdrive_run_config)
 ```
 
-`experiment_name` är namnet som du tilldelar till din finjustering justering experiment, och `workspace` är arbetsytan där du vill skapa experimentet (Mer information om experiment finns i [hur fungerar Azure Machine Learning-tjänsten?](/concept-azure-machine-learning-architecture.md))
+`experiment_name` är namnet som du tilldelar till din finjustering justering experiment, och `workspace` är arbetsytan där du vill skapa experimentet (Mer information om experiment finns i [hur fungerar Azure Machine Learning-tjänsten?](concept-azure-machine-learning-architecture.md))
 
 ## <a name="visualize-experiment"></a>Visualisera experiment
 
@@ -320,7 +325,7 @@ Du kan dessutom identifiera sambandet mellan prestanda och värdena för enskild
 
 ![finjustering justering parallella koordinater](media/how-to-tune-hyperparameters/HyperparameterTuningParallelCoordinates.png)
 
-Du kan visualisera dina finjustering justering körs i Azure web-portalen. Läs mer om hur du visar ett experiment i webbportalen, [hur du spårar expirements](/how-to-track-experiments.md/#view-the-experiment-in-the-web-portal).
+Du kan visualisera dina finjustering justering körs i Azure web-portalen. Läs mer om hur du visar ett experiment i webbportalen, [hur du spårar experiment](how-to-track-experiments.md#view-the-experiment-in-the-web-portal).
 
 ![finjustering justering portal](media/how-to-tune-hyperparameters/HyperparameterTuningPortal.png)
 

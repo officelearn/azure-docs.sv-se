@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: ae2fab560ca9579860aeba91f9322c6521a83de1
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: 1465ba23f6fed85f0d4164f8e3fdc8c38be43ad3
+ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47168049"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49427747"
 ---
 # <a name="how-to-enable-password-reset-from-windows-7-8-and-81"></a>Så här: aktivera lösenordsåterställning från Windows 7, 8 och 8.1
 
@@ -76,6 +76,8 @@ HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Authentication\Credential Provide
 
 * Aktivera utförlig loggning genom att skapa en REG_DWORD: ”EnableLogging”, och anger värdet 1.
 * Om du vill inaktivera utförlig loggning, ändra REG_DWORD ”EnableLogging” till 0.
+
+Om din Windows 7, 8 och 8.1-datorer är bakom en proxyserver eller brandvägg, ska HTTPS-trafik (443) till passwordreset.microsoftonline.com tillåtas.
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -10,16 +10,16 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 05/21/2018
 ms.author: maquaran
-ms.openlocfilehash: 6c4dafa5b15548b3dbc02a9c093232197b3f1400
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 553917a29b3564fff71d6ab994ec199891cbaae7
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44716561"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49409109"
 ---
 # <a name="net-change-feed-processor-sdk-download-and-release-notes"></a>.NET change Feed Processor SDK: Ladda ned och viktig information
 > [!div class="op_single_selector"]
-> * [.NET](sql-api-sdk-dotnet.md)
+> * [NET](sql-api-sdk-dotnet.md)
 > * [.NET-Ändringsfeed](sql-api-sdk-dotnet-changefeed.md)
 > * [.NET Core](sql-api-sdk-dotnet-core.md)
 > * [Node.js](sql-api-sdk-node.md)
@@ -42,6 +42,12 @@ ms.locfileid: "44716561"
 ## <a name="release-notes"></a>Viktig information
 
 ### <a name="v2-builds"></a>v2-versioner
+
+### <a name="a-name220220"></a><a name="2.2.0"/>2.2.0
+* Tillagt stöd för partitionerade lånet samlingar. Partitionsnyckeln måste definieras som /id.
+* Mindre icke-bakåtkompatibel ändring:-metoderna i gränssnittet IChangeFeedDocumentClient och klassen ChangeFeedDocumentClient har ändrats för att inkludera RequestOptions och CancellationToken parametrar. IChangeFeedDocumentClient är en avancerad utökningsbarhet som gör det möjligt att tillhandahålla anpassad implementering av Dokumentklienten att använda med Change Feed Processor, t.ex. skapa snygga DocumentClient och komma åt alla anrop till det att göra extra spårning felhantering , osv. Med den här uppdateringen måste den kod som implementerar IChangeFeedDocumentClient ändras för att inkludera nya parametrar i implementeringen.
+* Mindre diagnostikförbättringar.
+
 
 ### <a name="a-name210210"></a><a name="2.1.0"/>2.1.0
 * Lagt till nya API: et, uppgift&lt;IReadOnlyList&lt;RemainingPartitionWork&gt; &gt; IRemainingWorkEstimator.GetEstimatedRemainingWorkPerPartitionAsync(). Detta kan användas för att få uppskattade arbetet för varje partition.

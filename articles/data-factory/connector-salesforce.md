@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/17/2018
 ms.author: jingwang
-ms.openlocfilehash: 4da56b275c2b224d56b8296dd480e638a27a03a1
-ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
+ms.openlocfilehash: bc98fc2465c280c41a77823de239a5572c5d27e4
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49379102"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49409585"
 ---
 # <a name="copy-data-from-and-to-salesforce-by-using-azure-data-factory"></a>Kopiera data från och till Salesforce med hjälp av Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -186,7 +186,7 @@ För att kopiera data från Salesforce, ange typ av datakälla i kopieringsaktiv
 | Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | typ | Type-egenskapen för aktiviteten kopieringskälla måste anges till **SalesforceSource**. | Ja |
-| DocumentDB |Använd anpassad fråga för att läsa data. Du kan använda [Salesforce objektet Query Language (SOQL)](https://developer.salesforce.com/docs/atlas.en-us.soql_sosl.meta/soql_sosl/sforce_api_calls_soql.htm) fråge- eller SQL-92 fråga. Se fler tips i [fråga tips](#query-tips) avsnittet. | Nej (om ”tableName” i datauppsättningen har angetts) |
+| DocumentDB |Använd anpassad fråga för att läsa data. Du kan använda [Salesforce objektet Query Language (SOQL)](https://developer.salesforce.com/docs/atlas.en-us.soql_sosl.meta/soql_sosl/sforce_api_calls_soql.htm) fråge- eller SQL-92 fråga. Se fler tips i [fråga tips](#query-tips) avsnittet. Om frågan inte anges, hämtas alla data i Salesforce-objekt som angetts i ”objectApiName” i datauppsättningen. | Nej (om ”objectApiName” i datauppsättningen har angetts) |
 | readBehavior | Anger om du vill fråga efter befintliga poster eller fråga efter alla poster, inklusive de har tagits bort. Om inte anges är standardbeteendet för den tidigare versionen. <br>Tillåtna värden: **fråga** (standard), **queryAll**.  | Nej |
 
 > [!IMPORTANT]

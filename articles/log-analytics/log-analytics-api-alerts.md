@@ -1,6 +1,6 @@
 ---
-title: Med hjälp av OMS Log Analytics avisering REST API
-description: 'Log Analytics avisering REST-API kan du skapa och hantera aviseringar i Log Analytics som är en del av Operations Management Suite (OMS).  Den här artikeln innehåller information om API: et och flera exempel för att utföra olika åtgärder.'
+title: Med hjälp av Log Analytics avisering REST API
+description: 'Log Analytics avisering REST-API kan du skapa och hantera aviseringar i Log Analytics som ingår i Log Analytics.  Den här artikeln innehåller information om API: et och flera exempel för att utföra olika åtgärder.'
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -15,17 +15,17 @@ ms.workload: infrastructure-services
 ms.date: 04/10/2018
 ms.author: bwren
 ms.component: ''
-ms.openlocfilehash: b178744911d03547509de58e35be5cd99e046391
-ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
+ms.openlocfilehash: 85cf55b4117208266e247316b1050e3988a2ce23
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49079063"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49409160"
 ---
 # <a name="create-and-manage-alert-rules-in-log-analytics-with-rest-api"></a>Skapa och hantera Varningsregler i Log Analytics med REST API
-Log Analytics avisering REST-API kan du skapa och hantera aviseringar i Operations Management Suite (OMS).  Den här artikeln innehåller information om API: et och flera exempel för att utföra olika åtgärder.
+Log Analytics avisering REST-API kan du skapa och hantera aviseringar i Log Analytics.  Den här artikeln innehåller information om API: et och flera exempel för att utföra olika åtgärder.
 
-Log Analytics Search REST API är RESTful och kan nås via Azure Resource Manager REST API. I det här dokumentet hittar du exempel där API: T hämtas från en PowerShell från kommandoraden med hjälp av [ARMClient](https://github.com/projectkudu/ARMClient), ett kommandoradsverktyg för öppen källkod som förenklar anropar API: et för Azure Resource Manager. Användning av ARMClient och PowerShell är ett av många alternativ för att få åtkomst till Log Analytics Search-API. Du kan använda RESTful Azure Resource Manager-API för att göra anrop till OMS-arbetsytor och utföra sökkommandon i dem med de här verktygen. API: et kommer mata ut sökresultat till dig i JSON-format, så att du kan använda sökresultaten på många olika sätt programmässigt.
+Log Analytics Search REST API är RESTful och kan nås via Azure Resource Manager REST API. I det här dokumentet hittar du exempel där API: T hämtas från en PowerShell från kommandoraden med hjälp av [ARMClient](https://github.com/projectkudu/ARMClient), ett kommandoradsverktyg för öppen källkod som förenklar anropar API: et för Azure Resource Manager. Användning av ARMClient och PowerShell är ett av många alternativ för att få åtkomst till Log Analytics Search-API. Du kan använda RESTful Azure Resource Manager-API för att göra anrop till Log Analytics-arbetsytor och utföra sökkommandon i dem med de här verktygen. API: et kommer mata ut sökresultat till dig i JSON-format, så att du kan använda sökresultaten på många olika sätt programmässigt.
 
 ## <a name="prerequisites"></a>Förutsättningar
 Aviseringar kan för närvarande kan bara skapas med en sparad sökning i Log Analytics.  Du kan referera till den [Log Search REST API](log-analytics-log-search-api.md) för mer information.
@@ -67,7 +67,7 @@ Följande är ett exempelsvar för ett schema.
 ```
 
 ### <a name="creating-a-schedule"></a>Skapa ett schema
-Använda Put-metoden med ett unikt schema-ID för att skapa ett nytt schema.  Observera att två scheman inte kan ha samma ID även om de är associerade med olika sparade sökningar.  När du skapar ett schema i OMS-konsolen, skapas en GUID för schema-ID.
+Använda Put-metoden med ett unikt schema-ID för att skapa ett nytt schema.  Observera att två scheman inte kan ha samma ID även om de är associerade med olika sparade sökningar.  När du skapar ett schema i Log Analytics-konsolen, skapas en GUID för schema-ID.
 
 > [!NOTE]
 > Namnet på alla sparade sökningar, scheman och åtgärder som skapats med Log Analytics-API måste vara i gemener.
@@ -102,7 +102,7 @@ Alla åtgärder har egenskaper i följande tabell.  Olika typer av aviseringar h
 ### <a name="retrieving-actions"></a>Hämta åtgärder
 
 > [!NOTE]
-> Från och den 14 maj 2018 utökas alla aviseringar i en offentliga Azure-molninstans av Log Analytics-arbetsyta automatiskt till Azure. En användare kan frivilligt initiera utökade aviseringar till Azure innan den 14 maj 2018. Mer information finns i [utöka aviseringar från OMS i Azure](../monitoring-and-diagnostics/monitoring-alerts-extend.md). För användare som utökar aviseringar till Azure, styrs nu åtgärder i Azure åtgärdsgrupper. När en arbetsyta och dess aviseringar har utökats till Azure, hämta eller lägga till åtgärder med hjälp av den [åtgärd grupp API](https://docs.microsoft.com/rest/api/monitor/actiongroups).
+> Från och den 14 maj 2018 utökas alla aviseringar i en offentliga Azure-molninstans av Log Analytics-arbetsyta automatiskt till Azure. En användare kan frivilligt initiera utökade aviseringar till Azure innan den 14 maj 2018. Mer information finns i [utöka aviseringar från Log Analytics i Azure](../monitoring-and-diagnostics/monitoring-alerts-extend.md). För användare som utökar aviseringar till Azure, styrs nu åtgärder i Azure åtgärdsgrupper. När en arbetsyta och dess aviseringar har utökats till Azure, hämta eller lägga till åtgärder med hjälp av den [åtgärd grupp API](https://docs.microsoft.com/rest/api/monitor/actiongroups).
 
 Använda Get-metoden för att hämta alla åtgärder för ett schema.
 
@@ -113,7 +113,7 @@ Använd Get-metoden med åtgärds-ID för att hämta en viss åtgärd för ett s
     armclient get /subscriptions/{Subscription ID}/resourceGroups/OI-Default-East-US/providers/Microsoft.OperationalInsights/workspaces/{Workspace Name}/savedSearches/{Subscription ID}/schedules/{Schedule ID}/actions/{Action ID}?api-version=2015-03-20
 
 ### <a name="creating-or-editing-actions"></a>Skapa eller redigera åtgärder
-Använda Put-metoden med en åtgärds-ID som är unik för schema för att skapa en ny åtgärd.  När du skapar en åtgärd i OMS-konsolen, måste ett GUID för åtgärden-ID.
+Använda Put-metoden med en åtgärds-ID som är unik för schema för att skapa en ny åtgärd.  När du skapar en åtgärd i Log Analytics-konsolen, måste ett GUID för åtgärden-ID.
 
 > [!NOTE]
 > Namnet på alla sparade sökningar, scheman och åtgärder som skapats med Log Analytics-API måste vara i gemener.
@@ -125,7 +125,7 @@ Format för förfrågan för att skapa en ny åtgärd varierar åtgärdstyp så 
 ### <a name="deleting-actions"></a>Ta bort åtgärder
 
 > [!NOTE]
-> Från och den 14 maj 2018 utökas alla aviseringar i en offentliga Azure-molninstans av Log Analytics-arbetsyta automatiskt till Azure. En användare kan frivilligt initiera utökade aviseringar till Azure innan den 14 maj 2018. Mer information finns i [utöka aviseringar från OMS i Azure](../monitoring-and-diagnostics/monitoring-alerts-extend.md). För användare som utökar aviseringar till Azure, styrs nu åtgärder i Azure åtgärdsgrupper. När en arbetsyta och dess aviseringar har utökats till Azure, hämta eller lägga till åtgärder med hjälp av den [åtgärd grupp API](https://docs.microsoft.com/rest/api/monitor/actiongroups).
+> Från och den 14 maj 2018 utökas alla aviseringar i en offentliga Azure-molninstans av Log Analytics-arbetsyta automatiskt till Azure. En användare kan frivilligt initiera utökade aviseringar till Azure innan den 14 maj 2018. Mer information finns i [utöka aviseringar från Log Analytics i Azure](../monitoring-and-diagnostics/monitoring-alerts-extend.md). För användare som utökar aviseringar till Azure, styrs nu åtgärder i Azure åtgärdsgrupper. När en arbetsyta och dess aviseringar har utökats till Azure, hämta eller lägga till åtgärder med hjälp av den [åtgärd grupp API](https://docs.microsoft.com/rest/api/monitor/actiongroups).
 
 Använda Delete-metoden med åtgärds-ID för att ta bort en åtgärd.
 
@@ -146,7 +146,7 @@ Ett schema måste ha en Aviseringsåtgärd.  Aviseringsåtgärder har en eller f
 | Webhook-åtgärder | Skicka data från aviseringar, till önskade tjänsten som JSON |Inte krävs, om aviseringar har utökats till Azure|
 
 > [!NOTE]
-> Från och den 14 maj 2018 utökas alla aviseringar i en offentliga Azure-molninstans av Log Analytics-arbetsyta automatiskt till Azure. En användare kan frivilligt initiera utökade aviseringar till Azure innan den 14 maj 2018. Mer information finns i [utöka aviseringar från OMS i Azure](../monitoring-and-diagnostics/monitoring-alerts-extend.md).
+> Från och den 14 maj 2018 utökas alla aviseringar i en offentliga Azure-molninstans av Log Analytics-arbetsyta automatiskt till Azure. En användare kan frivilligt initiera utökade aviseringar till Azure innan den 14 maj 2018. Mer information finns i [utöka aviseringar från Log Analytics i Azure](../monitoring-and-diagnostics/monitoring-alerts-extend.md).
 
 #### <a name="thresholds"></a>Tröskel
 En Aviseringsåtgärd bör ha ett och endast ett tröskelvärde.  När resultatet av en sparad sökning matchar tröskelvärdet i en åtgärd som är associerade med sökningen, körs alla andra processer i åtgärden.  En åtgärd kan också innehålla endast ett tröskelvärde så att den kan användas med åtgärder från andra typer som inte innehåller tröskelvärden.
@@ -355,7 +355,7 @@ Använda Put-metoden med en befintlig åtgärds-ID om du vill ändra en åtgärd
 E-postaviseringar skicka e-post till en eller flera mottagare.  De kan innehålla egenskaperna i följande tabell.
 
 > [!NOTE]
-> Från och den 14 maj 2018 utökas alla aviseringar i en offentliga Azure-molninstans av Log Analytics-arbetsyta automatiskt till Azure. En användare kan frivilligt initiera utökade aviseringar till Azure innan den 14 maj 2018. Mer information finns i [utöka aviseringar från OMS i Azure](../monitoring-and-diagnostics/monitoring-alerts-extend.md). Åtgärder som e-postavisering styrs nu i Azure åtgärdsgrupper för användare som utökar aviseringar till Azure. När en arbetsyta och dess aviseringar har utökats till Azure, hämta eller lägga till åtgärder med hjälp av den [åtgärd grupp API](https://docs.microsoft.com/rest/api/monitor/actiongroups).
+> Från och den 14 maj 2018 utökas alla aviseringar i en offentliga Azure-molninstans av Log Analytics-arbetsyta automatiskt till Azure. En användare kan frivilligt initiera utökade aviseringar till Azure innan den 14 maj 2018. Mer information finns i [utöka aviseringar från Log Analytics i Azure](../monitoring-and-diagnostics/monitoring-alerts-extend.md). Åtgärder som e-postavisering styrs nu i Azure åtgärdsgrupper för användare som utökar aviseringar till Azure. När en arbetsyta och dess aviseringar har utökats till Azure, hämta eller lägga till åtgärder med hjälp av den [åtgärd grupp API](https://docs.microsoft.com/rest/api/monitor/actiongroups).
    
 
 | Egenskap  | Beskrivning |
@@ -396,16 +396,16 @@ Använda Put-metoden med en befintlig åtgärds-ID om du vill ändra en e postå
     armclient put /subscriptions/{Subscription ID}/resourceGroups/OI-Default-East-US/providers/Microsoft.OperationalInsights/workspaces/{Workspace Name}/savedSearches/{Search ID}/schedules/{Schedule ID}/actions/myemailaction?api-version=2015-03-20 $emailJson
 
 #### <a name="remediation-actions"></a>Åtgärder
-Reparationer startar en runbook i Azure Automation som försöker åtgärda problemet som identifierats av aviseringen.  Du måste skapa en webhook för den runbook som används i en Reparationsåtgärd och anger sedan URI: N i egenskapen WebhookUri.  När du skapar den här åtgärden med hjälp av OMS-konsolen, skapas automatiskt en ny webhook för runbooken.
+Reparationer startar en runbook i Azure Automation som försöker åtgärda problemet som identifierats av aviseringen.  Du måste skapa en webhook för den runbook som används i en Reparationsåtgärd och anger sedan URI: N i egenskapen WebhookUri.  När du skapar den här åtgärden med hjälp av Azure-portalen skapas automatiskt en ny webhook för runbooken.
 
 > [!NOTE]
-> Från och den 14 maj 2018 utökas alla aviseringar i en offentliga Azure-molninstans av Log Analytics-arbetsyta automatiskt till Azure. En användare kan frivilligt initiera utökade aviseringar till Azure innan den 14 maj 2018. Mer information finns i [utöka aviseringar från OMS i Azure](../monitoring-and-diagnostics/monitoring-alerts-extend.md). För användare som utökar aviseringar till Azure, styrs nu åtgärder som att åtgärder med hjälp av runbook i Azure åtgärdsgrupper. När en arbetsyta och dess aviseringar har utökats till Azure, hämta eller lägga till åtgärder med hjälp av den [åtgärd grupp API](https://docs.microsoft.com/rest/api/monitor/actiongroups).
+> Från och den 14 maj 2018 utökas alla aviseringar i en offentliga Azure-molninstans av Log Analytics-arbetsyta automatiskt till Azure. En användare kan frivilligt initiera utökade aviseringar till Azure innan den 14 maj 2018. Mer information finns i [utöka aviseringar från Log Analytics i Azure](../monitoring-and-diagnostics/monitoring-alerts-extend.md). För användare som utökar aviseringar till Azure, styrs nu åtgärder som att åtgärder med hjälp av runbook i Azure åtgärdsgrupper. När en arbetsyta och dess aviseringar har utökats till Azure, hämta eller lägga till åtgärder med hjälp av den [åtgärd grupp API](https://docs.microsoft.com/rest/api/monitor/actiongroups).
 
 Reparationer innehålla egenskaper i följande tabell.
 
 | Egenskap  | Beskrivning |
 |:--- |:--- |
-| RunbookName |Namnet på runbooken. Detta måste matcha en publicerad runbook i automation-kontot som konfigurerats i Automation-lösningen i OMS-arbetsytan. |
+| RunbookName |Namnet på runbooken. Detta måste matcha en publicerad runbook i automation-kontot som konfigurerats i Automation-lösningen i Log Analytics-arbetsytan. |
 | WebhookUri |URI för webhooken. |
 | Förfallodatum |Upphör att gälla och tid för webhooken.  Om webhooken inte har en giltighetstid, kan det vara valfritt giltigt framtida datum. |
 
@@ -458,7 +458,7 @@ Följande är ett komplett exempel att skapa en ny e-postavisering.  Detta skapa
 Webhook-åtgärder kan du starta en process genom att anropa en URL och att du kan också tillhandahålla en nyttolast som ska skickas.  De liknar åtgärder förutom de är avsedda för webhooks som kan anropa processer än Azure Automation-runbooks.  Användaren kan även ange ytterligare alternativ för att tillhandahålla en nyttolast som ska levereras till fjärr-processen.
 
 > [!NOTE]
-> Från och den 14 maj 2018 utökas alla aviseringar i en offentliga Azure-molninstans av Log Analytics-arbetsyta automatiskt till Azure. En användare kan frivilligt initiera utökade aviseringar till Azure innan den 14 maj 2018. Mer information finns i [utöka aviseringar från OMS i Azure](../monitoring-and-diagnostics/monitoring-alerts-extend.md). För användare som utökar aviseringar till Azure, styrs nu åtgärder som att Webhook i Azure åtgärdsgrupper. När en arbetsyta och dess aviseringar har utökats till Azure, hämta eller lägga till åtgärder med hjälp av den [åtgärd grupp API](https://docs.microsoft.com/rest/api/monitor/actiongroups).
+> Från och den 14 maj 2018 utökas alla aviseringar i en offentliga Azure-molninstans av Log Analytics-arbetsyta automatiskt till Azure. En användare kan frivilligt initiera utökade aviseringar till Azure innan den 14 maj 2018. Mer information finns i [utöka aviseringar från Log Analytics i Azure](../monitoring-and-diagnostics/monitoring-alerts-extend.md). För användare som utökar aviseringar till Azure, styrs nu åtgärder som att Webhook i Azure åtgärdsgrupper. När en arbetsyta och dess aviseringar har utökats till Azure, hämta eller lägga till åtgärder med hjälp av den [åtgärd grupp API](https://docs.microsoft.com/rest/api/monitor/actiongroups).
 
 
 Webhook-åtgärder har inte ett tröskelvärde men i stället ska läggas till ett schema som har en Aviseringsåtgärd med ett tröskelvärde.  

@@ -11,14 +11,14 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: sharadag
-ms.openlocfilehash: 253ec8c0d1d6725e6ae5c47c79882284c633d6e9
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 05f77665352ee306f5684d5c7a09b27d4fe17650
+ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46984474"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49426826"
 ---
-# <a name="load-balancing-with-azures-application-delivery-suite"></a>Belastningsutjämning med Azure application delivery suite
+# <a name="load-balancing-with-azures-application-delivery-suite"></a>Belastningsutjämning med Azures paket för programleverans
 
 ## <a name="introduction"></a>Introduktion
 Microsoft Azure tillhandahåller flera global och regionala tjänster för att hantera hur nätverkstrafiken distribueras och belastningsutjämnade: Traffic Manager, ytterdörren Service, Application Gateway och belastningsutjämnare.  Tillsammans med många Azure-regioner och zonindelade hjälper arkitektur, tillsammans med dessa tjänster dig att skapa robusta, skalbara program med höga prestanda.
@@ -36,7 +36,7 @@ Kombinera global och regionala tjänster i ditt program ger en slutpunkt till sl
 - Prestanda routning för att skicka begäranden till närmaste serverdelen när det gäller svarstider.
 - Prioritet routning för att dirigera all trafik till en serverdel med andra serverdelar som tillbaka upp.
 - Viktad resursallokering routning, som distribuerar trafik baserat på det värde som tilldelas varje serverdel.
-- Geografisk routning för att säkerställa att beställare som finns i vissa geografiska områden riktas till serverdelar mappas till de regionerna (till exempel alla förfrågningar från Spanien ska dirigeras till östra USA Azure-region)
+- Geografisk routning för att säkerställa att beställare som finns i vissa geografiska områden riktas till serverdelar mappas till de regionerna (till exempel alla förfrågningar från Spanien ska dirigeras till den centrala Frankrike-Azure-regionen)
 - Undernät routning som gör det möjligt att mappa IP-adress intervall servrar så att begäranden som kommer från de som ska skickas till angivna serverdelen (till exempel alla användare som ansluter från ditt företags HQ IP-adressintervall bör få olika webbinnehåll än allmänna användare)
 
 Klienten ansluter direkt till den serverdelen. Med Azure Traffic Manager identifierar när en serverdel är i feltillstånd och sedan omdirigeras klienterna till en annan felfri instans. Referera till [Azure Traffic Manager](../traffic-manager/traffic-manager-overview.md) dokumentation för mer information om tjänsten.
@@ -83,8 +83,8 @@ Följande diagram illustrerar arkitekturen i det här scenariot:
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Lär dig hur du [skapa en ytterdörren](quickstart-create-front-door.md).
-- Lär dig [hur ytterdörren fungerar](front-door-routing-architecture.md).
+- Läs hur du [skapar en Front Door](quickstart-create-front-door.md).
+- Läs [hur Front Door fungerar](front-door-routing-architecture.md).
 
 <!--Image references-->
 [1]: ./media/front-door-lb-with-azure-app-delivery-suite/application-delivery-figure1.png

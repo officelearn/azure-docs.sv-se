@@ -1,21 +1,21 @@
 ---
-title: Premium, frekvent, lågfrekvent och arkivlagring för BLOB - Azure Storage
-description: Premium, frekvent, lågfrekvent och arkivlagring för Azure storage-konton.
+title: Premium, frekvent, lågfrekvent lagring och Arkivlagring lagring för BLOB - Azure Storage
+description: Premium, lagring för frekvent, lågfrekvent lagring och Arkivlagring för Azure storage-konton.
 services: storage
 author: kuhussai
 ms.service: storage
 ms.topic: article
-ms.date: 09/11/2018
+ms.date: 10/18/2018
 ms.author: kuhussai
 ms.component: blobs
-ms.openlocfilehash: 922e7ed5d55f50b2069dad71ead73d9ef4475ed0
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: 3aad10c398aa4f009ab29f4684cc500b6fb428e7
+ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49389912"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49427594"
 ---
-# <a name="azure-blob-storage-premium-preview-hot-cool-and-archive-storage-tiers"></a>Azure Blob storage: Premium (förhandsversion), frekvent, lågfrekvent och arkivlagringsnivå
+# <a name="azure-blob-storage-premium-preview-hot-cool-and-archive-storage-tiers"></a>Azure Blob storage: Premium (förhandsversion), frekvent, lågfrekvent och Arkivlagringsnivå
 
 ## <a name="overview"></a>Översikt
 
@@ -33,23 +33,23 @@ Följande överväganden medföljer olika lagringsnivåer:
 
 - Arkivlagringsnivån är endast tillgänglig på blobnivån och inte på lagringskontonivån.
  
-- Data i den lågfrekventa lagringsnivån klarar lite lägre tillgänglighet, men kräver fortfarande hög hållbarhet och liknande åtkomsttid och dataflödesegenskaper som data i frekvent lagringsnivå. För data på den lågfrekventa lagringsnivån är serviceavtal med lägre tillgänglighet och högre åtkomstkostnader jämfört med frekventa data godtagbara med tanke på de lägre lagringskostnaderna.
+- Data i den lågfrekventa lagringsnivån klarar lite lägre tillgänglighet, men kräver fortfarande hög hållbarhet och liknande time-åtkomst och dataflödesegenskaper som data frekvent åtkomstnivå. För lågfrekventa data, ett serviceavtal med lägre tillgänglighet och högre är åtkomstkostnader jämfört med frekventa data godtagbara med tanke på de lägre lagringskostnaderna.
 
 - Arkivlagring är i frånkopplat tillstånd och erbjuder de lägsta lagringskostnaderna men även de högsta åtkomstkostnaderna.
  
-- Endast frekventa och lågfrekventa lagringsnivåer (ej arkiv) kan anges på kontonivå.
+- Endast frekvent och lågfrekvent lagringsnivåer kan anges på kontonivå. Arkivnivån kan för närvarande inte anges på kontonivå.
  
-- Alla nivåer kan ställas in på objektnivå.
+- Frekvent, lågfrekvent, och lagringsnivån kan ställas in på objektnivå.
 
 Data som lagras i molnet växer i exponentiell takt. Om du vill hålla kontroll på och optimera kostnaderna för dina växande lagringsbehov är det en bra idé att ordna data baserat på attribut som åtkomstfrekvens och planerad kvarhållningsperiod. Data som lagras i molnet kan vara olika beroende på hur de genereras, bearbetas och används under livslängden. Vissa data används aktivt och ändras under livslängden. Vissa data används ofta i början av livslängden och sedan minskar användning drastiskt när dessa data blir äldre. Vissa data förblir inaktiva i molnet och används sällan, eller kanske aldrig, när de har lagrats.
 
-För varje scenario finns en lagringsnivå som är optimerad för motsvarande åtkomstmönster. Med nivåerna för frekvent åtkomst, lågfrekvent åtkomst samt arkivlagringsnivån uppfyller Azure Blob Storage behovet av olika lagringsnivåer med olika prissättningsmodeller.
+För varje scenario finns en lagringsnivå som är optimerad för motsvarande åtkomstmönster. Med frekvent, lågfrekvent och Arkivlagringsnivå Azure Blob storage behovet av olika lagringsnivåer med olika prissättningsmodeller.
 
 ## <a name="storage-accounts-that-support-tiering"></a>Lagringskonton med stöd för flera lagringsnivåer
 
-För användning av olika lagringsnivåer (frekvent, lågfrekvent eller arkivlagring) krävs ett Blob Storage eller GPv2-konto (General Purpose v2). GPv1-konton (General Purpose v1) har inte stöd för flera lagringsnivåer. Kunder kan dock enkelt konvertera sina befintliga GPv1- eller Blob Storage-konton till GPv2-konton via en enklicksprocess i Azure Portal. GPv2 har en ny prisstruktur för blobbar, filer, och köer, och ger också åtkomst till en mängd andra nya lagringsfunktioner. I framtiden kommer vissa nya funktioner och rabatter dessutom endast att erbjudas för GPv2-konton. Kunderna bör därför överväga att använda GPv2-konton, men först efter att ha granskat priserna för alla tjänster, eftersom vissa arbetsbelastningar kan bli dyrare med GPv2 än GPv1. Mer information finns i [kontoöversikten för Azure Storage](../common/storage-account-overview.md).
+Du kan endast datanivå dina data för lagring av objekt för att frekvent, lågfrekvent eller Arkiv i Blob storage- eller generell användning v2 (GPv2)-konton. GPv1-konton (General Purpose v1) har inte stöd för flera lagringsnivåer. Kunder kan dock enkelt konvertera sina befintliga GPv1- eller Blob Storage-konton till GPv2-konton via en enklicksprocess i Azure Portal. GPv2 har en ny prisstruktur för blobbar, filer, och köer, och ger också åtkomst till en mängd andra nya lagringsfunktioner. I framtiden kommer vissa nya funktioner och rabatter dessutom endast att erbjudas för GPv2-konton. Kunderna bör därför överväga att använda GPv2-konton, men först efter att ha granskat priserna för alla tjänster, eftersom vissa arbetsbelastningar kan bli dyrare med GPv2 än GPv1. Mer information finns i [kontoöversikten för Azure Storage](../common/storage-account-overview.md).
 
-På Blob Storage- och GPv2-konton visas attributet för **åtkomstnivå** på kontonivå, vilket innebär att du kan ange standardlagringsnivån som frekvent eller lågfrekvent för alla blobar i lagringskontot där nivån inte har angetts på objektnivå. För objekt där nivån har ställts in på objektnivå används inte nivåinställningen för kontot. Nivån arkivlagring kan endast anges på objektnivå. Du kan växla mellan dessa lagringsnivåer när som helst.
+BLOB storage- och GPv2-konton visas den **åtkomstnivå** attributet på kontonivå, vilket gör att du kan ange standardlagringsnivån som frekvent eller lågfrekvent för alla blobar i lagringskontot som inte har en explicit nivå angiven på den objektnivå. För objekt där nivån har ställts in på objektnivå används inte nivåinställningen för kontot. Nivån Arkivlagring kan endast tillämpas på objektnivå. Du kan växla mellan dessa lagringsnivåer när som helst.
 
 ## <a name="premium-access-tier"></a>Premium-åtkomstnivå
 
@@ -69,14 +69,14 @@ Läs hur du registrera dig för förhandsversionen av Premium åtkomst nivå i [
 
 ## <a name="hot-access-tier"></a>Frekvent åtkomstnivå
 
-Frekvent lagring har högre kostnader för lagring än lågfrekvent lagring och arkivlagring, men de lägsta åtkomstkostnaderna. Exempelscenarier för frekvent lagringsnivå:
+Frekvent lagring har högre kostnader för lagring än lågfrekvent lagring och Arkivlagring lagring, men de lägsta åtkomstkostnaderna. Exempelscenarier för frekvent lagringsnivå är:
 
 * Data används aktivt eller förväntas användas ofta (både för att läsa och skriva).
-* Data som mellanlagras för bearbetning och eventuell migrering till lågfrekvent åtkomstnivå.
+* Data som mellanlagras för bearbetning och eventuell migrering till lågfrekvent lagringsnivå.
 
 ## <a name="cool-access-tier"></a>Lågfrekvent åtkomstnivå
 
-Lågfrekvent lagring har lägre kostnader för lagring och högre åtkomstkostnader jämfört med frekvent lagring. Den här nivån är avsedd för data som är kvar på den lågfrekventa nivån i minst 30 dagar. Exempelscenarier för lågfrekvent lagringsnivå:
+Lågfrekvent lagring har lägre kostnader för lagring och högre åtkomstkostnader jämfört med frekvent lagring. Den här nivån är avsedd för data som är kvar på den lågfrekventa nivån i minst 30 dagar. Exempelscenarier för lågfrekvent lagringsnivå är:
 
 * Datauppsättningar för kortsiktig säkerhetskopiering och haveriberedskap.
 * Äldre medieinnehåll som inte visas så ofta längre, men som förväntas vara tillgängligt direkt vid behov.
@@ -84,11 +84,11 @@ Lågfrekvent lagring har lägre kostnader för lagring och högre åtkomstkostna
 
 ## <a name="archive-access-tier"></a>Arkivåtkomstnivå
 
-Arkivlagring har lägst lagringskostnad och högre kostnader för datahämtning jämfört med frekvent och lågfrekvent lagring. Den här nivån är avsedd för data som kan tolerera flera timmars fördröjning vid hämtning och som finns kvar på arkivnivån i minst 180 dagar.
+Arkivlagring har lägst lagringskostnad och högre kostnader för datahämtning jämfört med frekvent och lågfrekvent lagring. Den här nivån är avsedd för data som kan tolerera flera timmars svarstid för hämtning och finns kvar på arkivnivån i minst 180 dagar.
 
-När en blob finns i arkivlagring är den i offline-tillstånd och kan inte läsas (förutom metadata), kopieras, skrivas över eller ändras. Du kan inte heller ta ögonblicksbilder av en blob i arkivlagring. Du kan emellertid använda befintliga åtgärder för att ta bort, lista, hämta blob-egenskaper/-metadata eller ändra nivå för din blob.
+Även om en blob finns i arkivlagring, den är offline och kan inte läsas (förutom metadata, som är online och tillgänglig), kopieras, skrivas över eller ändras. Inte heller kan du ta ögonblicksbilder av en blob i arkivlagring. Du kan emellertid använda befintliga åtgärder för att ta bort, lista, hämta blob-egenskaper/-metadata eller ändra nivå för din blob.
 
-Exempelscenarier för arkivlagringsnivå:
+Exempelscenarier för arkivlagringsnivå är:
 
 * Långsiktig säkerhetskopiering, sekundär säkerhetskopiering och datauppsättningar för arkivering
 * Ursprungliga rådata som måste bevaras, även efter att de har bearbetats till ett slutligt användbart format. (*Till exempel* mediefiler i RAW-format som har omkodats till andra format.)
@@ -97,11 +97,11 @@ Exempelscenarier för arkivlagringsnivå:
 ### <a name="blob-rehydration"></a>Återuppväckning av blob
 Om du vill läsa data i arkivlagring måste du först ändra nivå för din blob till frekvent eller lågfrekvent. Processen kallas återuppväckning och kan ta upp till 15 timmar. Stora rekommenderas för optimala prestanda. Återställning av flera små blobbar samtidigt kan ta ännu längre tid.
 
-Under återuppväckning kan du kontrollera blobegenskapen **Arkivstatus** för att se om nivån har ändrats. Status är ”rehydrate-pending-to-hot” eller ”rehydrate-pending-to-cool” beroende på målnivån. När åtgärden har slutförts tas blobegenskapen Arkivstatus bort och blobegenskapen **Åtkomstnivå** anger den nya nivån: frekvent eller lågfrekvent.  
+Under återuppväckning kan du kontrollera blobegenskapen **Arkivstatus** för att se om nivån har ändrats. Status är ”rehydrate-pending-to-hot” eller ”rehydrate-pending-to-cool” beroende på målnivån. Statusegenskapen Arkiv tas bort när åtgärden har slutförts, och **åtkomstnivå** blob-egenskapen återspeglar den nya frekvent eller lågfrekvent nivå.  
 
 ## <a name="blob-level-tiering"></a>Blobnivåindelning
 
-Med blobnivåindelning kan du ändra nivå för dina data på objektnivå med hjälp av en enda åtgärd som kallas [Ange blobnivå](/rest/api/storageservices/set-blob-tier). Du kan enkelt ändra åtkomstnivå för en blob mellan frekvent, lågfrekvent eller arkivnivå när användningsmönster ändras, utan att behöva flytta data mellan konton. Alla nivåändringar sker omedelbart. Men kan en blob återuppväcks från arkivet ta flera timmar. 
+Med blobnivåindelning kan du ändra nivå för dina data på objektnivå med hjälp av en enda åtgärd som kallas [Ange blobnivå](/rest/api/storageservices/set-blob-tier). Du kan enkelt ändra åtkomstnivå för en blob mellan nivåerna frekvent, lågfrekvent eller arkivnivå när användningsmönster ändras, utan att behöva flytta data mellan konton. Alla nivåändringar sker omedelbart. Men kan en blob återuppväcks från arkivet ta flera timmar. 
 
 Tiden för den senaste ändringen på blobnivån är tillgänglig via blobegenskapen **Ändringstid för åtkomstnivå**. Om en blob finns i arkivnivån kan kan inte den skrivas över, så att ladda upp samma blob inte tillåts i det här scenariot. Du kan skriva över en blob i en frekvent eller lågfrekvent nivå, som ärver fall den nya bloben nivån för bloben som skrevs över.
 
@@ -117,17 +117,17 @@ Livscykelhantering för Blob Storage (förhandsversion) erbjuder en omfattande, 
 
 ### <a name="blob-level-tiering-billing"></a>Fakturering för blobnivåindelning
 
-När en blob flyttas till en mer lågfrekvent nivå (frekvent -> lågfrekvent, frekvent -> Arkiv eller lågfrekvent -> Arkiv) faktureras åtgärden som en skrivning till målnivån där Skrivåtgärden (per 10 000) och kostnaderna för dataskrivning (per GB) för målnivån tillämpas. Om en blob flyttas till en mer frekvent nivå (arkiv -> lågfrekvent, arkiv -> frekvent eller lågfrekvent -> frekvent) faktureras åtgärden som en läsning från källnivån och avgifter för läsåtgärden (per 10 000) och datahämtning (per GB) för källnivån tillämpas.
+När en blob flyttas till en mer lågfrekvent nivå (frekvent -> lågfrekvent, frekvent -> Arkiv eller lågfrekvent -> Arkiv) faktureras åtgärden som en skrivning till målnivån där Skrivåtgärden (per 10 000) och kostnaderna för dataskrivning (per GB) för målnivån tillämpas. Om en blob flyttas till en varmare nivå (Arkiv -> lågfrekvent, Arkiv -> frekvent eller lågfrekvent -> frekvent) faktureras åtgärden som en läsning från källnivån där Läsåtgärden (per 10 000) och kostnaderna för datahämtning (per GB) för källnivån tillämpas.
 
-Om du ändrar kontonivån från frekvent till lågfrekvent debiteras du för skrivåtgärder (per 10 000) för blobbar som saknar angiven nivå, men endast i GPv2-konton. Det finns ingen kostnad för den här ändringen i Blob storage-konton. Du debiteras för både läsåtgärder (per 10 000) och datahämtning (per GB) om du växlar ditt Blob Storage- eller GPv2-konto från lågfrekvent till frekvent. Kostnader för tidig borttagning av blobbar från lågfrekvent lagring eller arkivlagring kan också tillkomma.
+Om du ändrar kontonivån från frekvent till lågfrekvent debiteras du för skrivåtgärder (per 10 000) för alla blobbar utan en angiven lagringsnivå i GPv2-konton. Det finns ingen kostnad för den här ändringen i Blob storage-konton. Du kommer att debiteras för både läsåtgärder (per 10 000) och datahämtning (per GB) om du växlar ditt Blob storage eller GPv2-konto från lågfrekvent till frekvent. Avgifter för tidig borttagning för alla blobbar som flyttas från lågfrekvent nivå eller arkivnivå nivå kan också tillkomma.
 
 ### <a name="cool-and-archive-early-deletion"></a>Tidig borttagning i lågfrekvent lagring och i arkivlagring
 
-Utöver kostnaderna per GB och per månad kan kostnader tillkomma för tidig borttagning. För blobbar som flyttas till lågfrekvent lagring (gäller endast GPv2-konton) är den minsta lagringstiden 30 dagar, och för blobbar som flyttas till arkivlagring är den minsta lagringstiden 180 dagar. Den här kostnaden beräknas proportionellt. Exempel: Om en blob flyttas till arkivlagring och sedan tas bort eller flyttas till frekvent nivå efter 45 dagar, debiteras du en avgift för tidig borttagning motsvarande 135 (180 minus 45) dagars arkivlagring av blobben.
+Utöver de per GB per månad kan kostnader en blob flyttas till lågfrekvent lagring (endast GPv2-konton) är föremål för en tidig borttagningsperiod på 30 dagar och en blob flyttas till arkivlagring kan en tidig borttagningsperiod på 180 dagar. Den här kostnaden beräknas proportionellt. Exempel: om en blob flyttas till arkivet och sedan tas bort eller flyttas till frekvent nivå efter 45 dagar debiteras du en tidig borttagningsavgift som motsvarar 135 (180 minus 45) dagars blobben Arkiv.
 
 ## <a name="comparison-of-the-storage-tiers"></a>Jämförelse av lagringsnivåerna
 
-Följande tabell innehåller en jämförelse av lagringsnivåerna: frekvent, lågfrekvent och arkiv.
+Följande tabell visar en jämförelse av frekvent, lågfrekvent och Arkivlagringsnivå.
 
 | | **Frekvent lagringsnivå** | **Lågfrekvent lagringsnivå** | **Arkivlagringsnivå**
 | ---- | ----- | ----- | ----- |
@@ -176,11 +176,11 @@ I det här avsnittet visas följande scenarier på Azure Portal:
 Alla lagringskonton används en prissättningsmodell för blobblagring baserat på vilken nivå av varje blob. Tänk på följande för debitering:
 
 * **Lagringskostnader**: Utöver mängden data som lagras varierar lagringskostnaden beroende på lagringsnivå. Kostnaden per gigabyte minskas när nivån blir mer lågfrekvent.
-* **Kostnader för dataåtkomst**: Kostnaderna för dataåtkomst ökar när nivån blir mer lågfrekvent. För data på den lågfrekventa- och arkivlagringsnivån debiteras du en åtkomstavgift per gigabyte för läsningar.
+* **Kostnader för dataåtkomst**: Kostnaderna för dataåtkomst ökar när nivån blir mer lågfrekvent. För data i Coolbar och arkivlagringsnivån debiteras du en per-åtkomst gigabyte för läsningar.
 * **Transaktionskostnader**: Du debiteras en kostnad per transaktion för alla nivåer som ökar när nivån blir mer lågfrekvent.
 * **Dataöverföringskostnader för geo-replikering**: Den här avgiften gäller endast konton med konfigurerad geo-replikering, inklusive GRS och RA-GRS. Dataöverföring för geo-replikering debiteras per gigabyte.
 * **Kostnader för utgående dataöverföring**: Utgående dataöverföringar (data som överförs utanför en Azure-region) debiteras för bandbreddsanvändning per gigabyte, på samma sätt som för allmänna lagringskonton.
-* **Ändring av lagringsnivå**: Om du byter lagringskontonivå från lågfrekvent till frekvent utgår en avgift motsvarande läsningen av alla data på lagringskontot. Om du byter lagringskontonivå från frekvent till lågfrekvent utgår dock en avgift som motsvarar skrivningen av alla data till den lågfrekventa nivån (gäller endast GPv2-konton).
+* **Ändringar av lagringsnivån**: byter lagringskontonivå från lågfrekvent till frekvent utgår en avgift motsvarande läsningen av alla data i lagringskontot. Dock utgår byter lagringskontonivå från frekvent till lågfrekvent en avgift motsvarande Skrivningen av alla data till den lågfrekventa nivån (endast GPv2-konton).
 
 > [!NOTE]
 > Mer information om priser för Blob storage-konton finns i [priser för Azure Storage](https://azure.microsoft.com/pricing/details/storage/) sidan. Mer information om kostnaderna för utgående dataöverföring finns på sidan [Prisinformation om Dataöverföringar](https://azure.microsoft.com/pricing/details/data-transfers/).
@@ -193,62 +193,62 @@ Vi rekommenderar att du använder GPv2 i stället för Blob Storage-konton om du
 
 Prisstrukturen för GPv1- och GPv2-konton skiljer sig åt, så kunderna bör noggrant utvärdera båda alternativen innan de bestämmer sig för att använda GPv2-konton. Du kan enkelt konvertera ett befintligt Blob Storage eller GPv1-konto till GPv2 via en enklicksprocess. Mer information finns i [kontoöversikten för Azure Storage](../common/storage-account-overview.md).
 
-**Kan jag lagra objekt på alla tre lagringsnivåer (frekvent, lågfrekvent och arkiv) inom samma konto?**
+**Kan jag lagra objekt på alla tre (frekvent, lågfrekvent och Arkiv) lagringsnivåerna i samma konto?**
 
-Ja. Attributet **Åtkomstnivå** på kontonivå används som standardlagringsnivå för alla objekt i kontot som inte har en egen angiven nivå. Med blobnivåindelningen kan du ange åtkomstnivå på objektnivå oavsett vilken åtkomstnivå som angetts för kontot. Blobar från alla tre lagringsnivåer (frekvent, lågfrekvent eller arkiv) kan finnas samtidigt i samma konto.
+Ja. Attributet **Åtkomstnivå** på kontonivå används som standardlagringsnivå för alla objekt i kontot som inte har en egen angiven nivå. Med blobnivåindelningen kan du ange åtkomstnivå på objektnivå oavsett vilken åtkomstnivå som angetts för kontot. Blobar från alla tre lagringsnivåer (frekvent, lågfrekvent eller Arkiv) kan finnas i samma konto.
 
 **Kan jag ändra standardlagringsnivå för mitt Blob- eller GPv2-lagringskonto?**
 
-Ja, du kan ändra standardlagringsnivå med attributet **Åtkomstnivå** för lagringskontot. Ändringar av lagringsnivån gäller för alla objekt som lagras i kontot som inte har en uttryckligen inställd nivå. Om du ändrar lagringsnivå från frekvent till lågfrekvent tillkommer kostnader för skrivåtgärder (per 10 000) för alla blobar utan en angiven lagringsnivå (gäller endast GPv2-konton). Om du ändrar nivå från lågfrekvent till frekvent tillkommer kostnader för läsåtgärder (per 10 000) och datahämtning (per GB) för alla blobar i Blob Storage- och GPv2-konton.
+Ja, du kan ändra standardlagringsnivå med attributet **Åtkomstnivå** för lagringskontot. Ändringar av lagringsnivån gäller för alla objekt som lagras i kontot som inte har en uttryckligen inställd nivå. Lagringsnivå från frekvent till lågfrekvent tillkommer kostnader för skrivåtgärder (per 10 000) för alla blobbar utan en angiven lagringsnivå i GPv2-konton och ändrar från lågfrekvent till frekvent tillkommer läsåtgärder (per 10 000) och datahämtning (per GB) avgifter för alla blobbar i Blob storage och GPv2-konton.
 
-**Kan jag ange arkivlagring som standardnivå för mitt konto?**
+**Kan jag ange Mina standardåtkomstnivån till arkivet?**
 
-Nej. Endast frekvent och lågfrekvent lagringsnivå kan anges som standardnivå för konton. Arkivlagringsnivån kan endast anges på objektnivå.
+Nej. Endast frekvent och lågfrekvent lagringsnivå kan anges som standardnivå för kontot. Arkivlagringsnivån kan endast anges på objektnivå.
 
-**I vilka regioner är lagringsnivåerna frekvent, lågfrekvent och arkivlagring tillgängliga?**
+**Där kan regioner är lagringsnivåerna frekvent, lågfrekvent lagring och Arkivlagring tillgängliga?**
 
-Frekvent och lågfrekvent lagring och blobnivåindelning är tillgängligt i alla regioner. Arkivlagring är inledningsvis endast tillgängligt i vissa regioner. En fullständig lista finns under [Tillgängliga Azure-produkter efter region](https://azure.microsoft.com/regions/services/).
+Lagringsnivåerna frekvent och lågfrekvent tillsammans med blob-nivå är tillgängliga i alla regioner. Arkivlagring är inledningsvis endast tillgängligt i vissa regioner. En fullständig lista finns under [Tillgängliga Azure-produkter efter region](https://azure.microsoft.com/regions/services/).
 
-**Beter sig blobarna på lågfrekvent lagringsnivå annorlunda än på frekvent lagringsnivå?**
+**Sig blobarna på lågfrekvent lagringsnivå annorlunda än de i frekvent lagringsnivå?**
 
-Blobar på frekvent lagringsnivå har samma svarstid som blobbar i GPv1-, GPv2- och Blob Storage-konton. Blobar på lågfrekvent lagringsnivå har liknande svarstid (i millisekunder) som blobbar i GPv1-, GPv2- och Blob Storage-konton. Blobar på arkivlagringsnivå har flera timmars svarstid i GPv1-, GPv2- och Blob Storage-konton.
+Blobbar på frekvent lagringsnivå har samma svarstid som blobbar i GPv1, GPv2 och Blob storage-konton. Blobbar på lågfrekvent lagringsnivå har liknande svarstid (i millisekunder) som blobbar i GPv1, GPv2 och Blob storage-konton. Blobbar på arkivlagringsnivå har flera timmars svarstid i GPv1, GPv2 och Blob storage-konton.
 
-Blobbar på lågfrekvent lagringsnivå har något lägre tillgänglighetsnivå (enligt SLA) än blobbar som lagras på frekvent lagringsnivå. Mer information finns i [SLA för Storage](https://azure.microsoft.com/support/legal/sla/storage/v1_2/).
+Blobbar på lågfrekvent lagringsnivå har en något lägre tillgänglighetsnivå (enligt SLA) än blobbar som lagras på frekvent lagringsnivå. Mer information finns i [SLA för Storage](https://azure.microsoft.com/support/legal/sla/storage/v1_2/).
 
-**Kan samma åtgärder användas för lagringsnivåerna frekvent, lågfrekvent och arkivlagring?**
+**Är åtgärder mellan nivåerna frekvent, lågfrekvent lagring och Arkivlagring samma?**
 
-Ja. På lagringsnivåerna frekvent och lågfrekvent fungerar alla åtgärder på samma sätt. På arkivnivå är vissa åtgärder giltiga (som ta bort, lista, hämta blobegenskaper/metadata och ange blobåtkomstnivå), och dessa fungerar på samma sätt som på frekvent och lågfrekvent nivå. En blob kan inte läsas eller ändras om lagringsnivån är arkivlagring.
+Ja. Alla åtgärder mellan frekvent och lågfrekvent är 100% konsekventa. Alla giltiga arkivåtgärderna, inklusive ta bort, är lista, hämta blobegenskaper/metadata och Ställ in blobbnivå 100% konsekventa med frekvent och lågfrekvent. En blob kan inte läsas eller ändras i arkivnivån.
 
-**När jag återställer en blob från arkivlagring till frekvent eller lågfrekvent lagring, hur vet jag när processen är klar?**
+**När du återställer en blob från arkivlagring till frekvent eller lågfrekvent lagring, hur vet jag när processen är klar?**
 
-Under återställning kan du använda åtgärden Hämta blobegenskaper och kontrollera attributet **Arkivstatus** för att se när nivåändringen har genomförts. Status är ”rehydrate-pending-to-hot” eller ”rehydrate-pending-to-cool” beroende på målnivån. När åtgärden har slutförts tas blobegenskapen Arkivstatus bort och blobegenskapen **Åtkomstnivå** anger den nya nivån: frekvent eller lågfrekvent.  
+Under återställning kan du använda åtgärden Hämta blobegenskaper och kontrollera attributet **Arkivstatus** för att se när nivåändringen har genomförts. Status är ”rehydrate-pending-to-hot” eller ”rehydrate-pending-to-cool” beroende på målnivån. Statusegenskapen Arkiv tas bort när åtgärden har slutförts, och **åtkomstnivå** blob-egenskapen återspeglar den nya frekvent eller lågfrekvent nivå.  
 
 **När jag har angett nivå för en blob: hur lång tid tar det innan jag börjar debiteras för den nya nivån?**
 
-Varje blob faktureras alltid enligt den nivå som anges av blobens **åtkomstnivå** egenskapen. När du ställer in en ny nivå för en blob i **åtkomstnivå** egenskapen omedelbart visar den nya nivån för alla typer av ändringar. Extrahera en blob från arkivlagring till frekvent eller lågfrekvent nivå kan dock ta flera timmar. I det här fallet debiteras du arkivnivån tills processen är klar, då den **åtkomstnivå** egenskapen visar den nya nivån. Du debiteras då för den bloben till frekvent eller lågfrekvent betalning.
+Varje blob faktureras alltid enligt den nivå som anges av blobens **åtkomstnivå** egenskapen. När du ställer in en ny nivå för en blob i **åtkomstnivå** egenskapen omedelbart visar den nya nivån för alla typer av ändringar. Extrahera en blob från arkivlagring till en frekvent eller lågfrekvent nivå kan dock ta flera timmar. I det här fallet debiteras du arkivnivån tills processen är klar, då den **åtkomstnivå** egenskapen visar den nya nivån. Du debiteras då för den bloben som frekvent eller lågfrekvent hastighet.
 
-**Hur kan jag se om jag påförs en avgift för tidig borttagning när jag tar bort eller flyttar en blob från lågfrekvent lagring eller arkivlagring?**
+**Hur vet jag om jag påförs en avgift för tidig borttagning när du tar bort eller flyttar en blob från lågfrekvent lagring eller arkivlagring?**
 
-Om en blob tas bort eller flyttas från lågfrekvent lagring (endast GPv2-konton) inom 30 dagar, eller från arkivlagring inom 180 dagar, påförs en proportionellt beräknad avgift för tidig borttagning. Du kan fastställa hur länge en blob har lagrats på nivån för lågfrekvent nivå eller arkivnivå genom att markera den **ändringstid för nivån** blobegenskapen som innehåller en tidsstämpel för den senaste ändringen. Mer information finns under [Tidig borttagning från lågfrekvent lagring och arkivlagring](#cool-and-archive-early-deletion).
+En blob tas bort eller flyttas från lågfrekvent lagring (endast GPv2-konton) eller arkivnivån 30 dagar och 180 dagar, påförs en proportionellt beräknad avgift för tidig borttagning. Du kan fastställa hur länge en blob har lagrats på nivån för lågfrekvent nivå eller arkivnivå genom att markera den **ändringstid för nivån** blobegenskapen som innehåller en tidsstämpel för den senaste ändringen. Se [lågfrekvent lagring och tidig borttagning i arkivet](#cool-and-archive-early-deletion) mer information.
 
-**Vilka Azure-verktyg och SDK:er stöder blobnivåindelning och arkivlagring?**
+**Vilka Azure-verktyg och SDK: er stöder blobnivåindelning och arkivlagring?**
 
-Azure Portal, PowerShell, CLI-verktyg och klientbiblioteken för .NET, Java, Python och Node.js har stöd för blobnivåindelning och arkivlagring.  
+Azure-portalen, PowerShell och CLI verktyg och klientbibliotek för .NET, Java, Python och Node.js alla stöd för blobnivåindelning och arkivlagring.  
 
-**Hur mycket data kan jag lagra på lagringsnivåerna frekvent, lågfrekvent och arkiv?**
+**Hur mycket data kan jag lagra nivåerna frekvent, lågfrekvent lagring och Arkivlagring?**
 
 Datalagringsbegränsningar och andra begränsningar anges på kontonivå, inte på lagringsnivå. Därför kan du välja att använda hela ditt lagringsutrymme i en nivå eller i alla tre nivåer. Mer information finns i [skalbarhet för lagring av Azure- och prestandamål](../common/storage-scalability-targets.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
 
 ## <a name="next-steps"></a>Nästa steg
 
-### <a name="evaluate-hot-cool-and-archive-in-gpv2-blob-storage-accounts"></a>Utvärdera frekvent/lågfrekvent lagring och arkivlagring i GPv2-/Blob Storage-konton
+### <a name="evaluate-hot-cool-and-archive-in-gpv2-blob-storage-accounts"></a>Utvärdera frekvent, lågfrekvent lagring och Arkivlagring i gpv2-/ Blob storage-konton
 
-[Kontrollera tillgängligheten för frekvent/lågfrekvent lagring och arkivlagring efter region](https://azure.microsoft.com/regions/#services)
+[Kontrollera tillgängligheten för frekvent, lågfrekvent lagring och Arkivlagring efter region](https://azure.microsoft.com/regions/#services)
 
 [Hantera livscykeln för Azure Blob-lagring](https://docs.microsoft.com/azure/storage/common/storage-lifecycle-managment-concepts)
 
 [Utvärdera användningen av dina aktuella lagringskonton genom att aktivera mätvärden i Azure Storage.](../common/storage-enable-and-view-metrics.md)
 
-[Kontrollera priser för frekvent/lågfrekvent lagring och arkivlagring i Blob Storage-/GPv2-konton efter region](https://azure.microsoft.com/pricing/details/storage/)
+[Kontrollera frekvent, lågfrekvent lagring och Arkivlagring priser i Blob storage- och GPv2-konton efter region](https://azure.microsoft.com/pricing/details/storage/)
 
 [Se priser för dataöverföring](https://azure.microsoft.com/pricing/details/data-transfers/)

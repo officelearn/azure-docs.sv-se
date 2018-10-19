@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/07/2018
 ms.author: sngun
-ms.openlocfilehash: 68eb567235897641d5d4027160f62c5aa6e7e4f9
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 26500f3e557a27046edc5c833b8c8d88ae266e68
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46963397"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49409007"
 ---
 # <a name="azure-cosmos-db-diagnostic-logging"></a>Azure Cosmos DB Diagnostisk loggning
 
@@ -356,11 +356,14 @@ Diagnostikloggar görs tillgängliga i ditt konto för två timmar från den tid
 
 Om du har valt den **skicka till Log Analytics** när du har aktiverat Diagnostisk loggning diagnostiska data från din behållare vidarebefordras till logganalys inom två timmar. När du tittar på Log Analytics omedelbart efter att du aktiverar loggning, visas inte några data. Bara vänta två timmar och försök igen. 
 
-Innan du visa loggarna och se om Log Analytics-arbetsytan har uppgraderats för att använda det nya Log Analytics-frågespråket. Du kan kontrollera genom att öppna den [Azure-portalen](https://portal.azure.com)väljer **Log Analytics** längst till vänster, välj sedan namnet på arbetsytan som du ser i nästa bild. Den **OMS-arbetsyta** visas:
+Innan du visa loggarna och se om Log Analytics-arbetsytan har uppgraderats för att använda det nya Log Analytics-frågespråket. Du kan kontrollera genom att öppna den [Azure-portalen](https://portal.azure.com)väljer **Log Analytics** längst till vänster, välj sedan namnet på arbetsytan som du ser i nästa bild. Den **Log Analytics-arbetsyta** visas:
 
 ![Log Analytics i Azure portal](./media/logging/azure-portal.png)
 
-Om du ser följande meddelande på den **OMS-arbetsyta** sidan din arbetsyta inte har uppgraderats för att använda det nya språket. Läs mer om hur du uppgraderar till det nya frågespråket [uppgradera Azure Log Analytics-arbetsytan till ny loggsökning](../log-analytics/log-analytics-log-search-upgrade.md). 
+>[!NOTE]
+>OMS-arbetsytor kallas nu för Log Analytics-arbetsytor.  
+
+Om du ser följande meddelande på den **Log Analytics-arbetsyta** sidan din arbetsyta inte har uppgraderats för att använda det nya språket. Läs mer om hur du uppgraderar till det nya frågespråket [uppgradera Azure Log Analytics-arbetsytan till ny loggsökning](../log-analytics/log-analytics-log-search-upgrade.md). 
 
 ![Meddelande för uppgradering av log Analytics](./media/logging/upgrade-notification.png)
 

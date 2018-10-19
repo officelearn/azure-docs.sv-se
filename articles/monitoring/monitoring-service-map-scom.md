@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/21/2017
 ms.author: bwren;dairwin
-ms.openlocfilehash: 5aca1400ddfe1522cd9dc8d68d8cba8a222e4d21
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: 6fc6afa9c0ccbddcfa408556dee92618fe63c8fb
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44095206"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49407120"
 ---
 # <a name="service-map-integration-with-system-center-operations-manager"></a>Tjänstkarta-integrering med System Center Operations Manager
   > [!NOTE]
@@ -45,6 +45,9 @@ Du kan aktivera integrering mellan Operations Manager och Service Map genom att 
 
 ## <a name="configure-the-service-map-integration"></a>Konfigurera Service Map-integrering
 När du har installerat en ny nod i hanteringspaketet Tjänstkarta **Tjänstkarta**, visas under **Operations Management Suite** i den **Administration** fönstret. 
+
+>[!NOTE]
+>[Operations Management Suite har en samling tjänster](https://github.com/MicrosoftDocs/azure-docs-pr/pull/azure-monitor/azure-monitor-rebrand.md#retirement-of-operations-management-suite-brand) som finns med Log Analytics, vilket är nu en del av [Azure Monitor](https://github.com/MicrosoftDocs/azure-docs-pr/pull/azure-monitor/overview.md).
 
 Om du vill konfigurera Service Map integration, gör du följande:
 
@@ -104,7 +107,12 @@ Mappen Tjänstkarta har fyra noder:
     ![Diagram för Operations Manager-distribuerade program](media/monitoring-service-map/scom-dad.png)
 
 ## <a name="edit-or-delete-the-workspace"></a>Redigera eller ta bort arbetsytan
-Du kan redigera eller ta bort den konfigurerade arbetsytan via den **kartan tjänstöversikt** fönstret (**Administration** fönstret > **Operations Management Suite**  >  **Service Map**). Du kan konfigurera endast en Log Analytics-arbetsyta för tillfället.
+Du kan redigera eller ta bort den konfigurerade arbetsytan via den **kartan tjänstöversikt** fönstret (**Administration** fönstret > **Operations Management Suite**  >  **Service Map**).
+
+>[!NOTE]
+>[Operations Management Suite har en samling tjänster](https://github.com/MicrosoftDocs/azure-docs-pr/pull/azure-monitor/azure-monitor-rebrand.md#retirement-of-operations-management-suite-brand) som finns med Log Analytics, vilket är nu en del av [Azure Monitor](https://github.com/MicrosoftDocs/azure-docs-pr/pull/azure-monitor/overview.md).
+
+Du kan konfigurera endast en Log Analytics-arbetsyta för tillfället.
 
 ![Fönstret Redigera arbetsyta för Operations Manager](media/monitoring-service-map/scom-edit-workspace.png)
 

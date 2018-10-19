@@ -1,5 +1,5 @@
 ---
-title: SQLServer på Windows Azure-datorer vanliga frågor och svar | Microsoft Docs
+title: SQLServer på Windows-datorer i Azure vanliga frågor och svar | Microsoft Docs
 description: Den här artikeln innehåller svar på vanliga frågor om SQL Server körs på virtuella Azure-datorer.
 services: virtual-machines-windows
 documentationcenter: ''
@@ -15,20 +15,20 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 07/12/2018
 ms.author: v-shysun
-ms.openlocfilehash: 48df858095cb867954460ec858567e41ed330063
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 906cec35c30c277ac1e8bc641d12fe37c29413dd
+ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39009268"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49427186"
 ---
-# <a name="frequently-asked-questions-for-sql-server-running-on-windows-azure-virtual-machines"></a>Vanliga frågor om SQL Server som körs på Windows Azure Virtual Machines
+# <a name="frequently-asked-questions-for-sql-server-running-on-windows-virtual-machines-in-azure"></a>Vanliga frågor om SQL Server som körs på Windows-datorer i Azure
 
 > [!div class="op_single_selector"]
 > * [Windows](virtual-machines-windows-sql-server-iaas-faq.md)
 > * [Linux](../../linux/sql/sql-server-linux-faq.md)
 
-Den här artikeln innehåller svar på några av de vanligaste frågorna om att köra [SQL Server på Windows Azure Virtual Machines](https://azure.microsoft.com/services/virtual-machines/sql-server/).
+Den här artikeln innehåller svar på några av de vanligaste frågorna om att köra [SQL Server på Windows-datorer i Azure](https://azure.microsoft.com/services/virtual-machines/sql-server/).
 
 > [!NOTE]
 > Den här artikeln fokuserar på frågor som är specifika för SQL Server på virtuella Windows-datorer. Om du kör SQL Server på virtuella Linux-datorer finns i den [Linux vanliga frågor och svar](../../linux/sql/sql-server-linux-faq.md).

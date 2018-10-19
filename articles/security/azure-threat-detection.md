@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: 9b688ca6faaa7e0d84dff0ae28e2a9b8b8279490
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: 33a9cc0a7b3d18004e19d73a0d9b91bf33cdb055
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37856886"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49408837"
 ---
 # <a name="azure-advanced-threat-detection"></a>Azure avancerad hotidentifiering
 
-Azure erbjuder inbyggda funktioner för identifiering av Avancerat via tjänster som Azure Active Directory (AD Azure), Azure Operations Management Suite (OMS) och Azure Security Center. Den här samlingen av tjänster och funktioner som ger ett snabbt och enkelt sätt att förstå vad som händer i din Azure-distributioner.
+Azure erbjuder inbyggda funktioner för identifiering av Avancerat via tjänster som Azure Active Directory (AD Azure), Azure Log Analytics och Azure Security Center. Den här samlingen av tjänster och funktioner som ger ett snabbt och enkelt sätt att förstå vad som händer i din Azure-distributioner.
 
 Azure tillhandahåller en mängd olika alternativ för att konfigurera och anpassa säkerheten för att uppfylla kraven för din appdistributioner. Den här artikeln beskriver hur du uppfyller dessa krav.
 
@@ -75,21 +75,21 @@ PIM hjälper dig att:
 
 -   Få aviseringar om åtkomst till en privilegierad roll.
 
-## <a name="operations-management-suite"></a>Operations Management Suite
+## <a name="azure-log-analytics"></a>Azure Log Analytics
 
-[Operations Management Suite (OMS)](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-overview) är en Microsoft molnbaserade IT-hanteringslösning som hjälper dig att hantera och skydda dina lokala och molnbaserade infrastruktur. Eftersom OMS implementeras som en molnbaserad tjänst, kan du ha den igång snabbt med minsta möjliga investering i infrastrukturtjänster. Nya säkerhetsfunktioner levereras automatiskt, sparar löpande underhåll och Uppgraderingskostnader.
+[Log Analytics](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-overview) är en Microsoft molnbaserade IT-hanteringslösning som hjälper dig att hantera och skydda dina lokala och molnbaserade infrastruktur. Eftersom Log Analytics har implementerats som en molnbaserad tjänst kan kan du ha den igång snabbt med minsta möjliga investering i infrastrukturtjänster. Nya säkerhetsfunktioner levereras automatiskt, sparar löpande underhåll och Uppgraderingskostnader.
 
-Förutom att tillhandahålla värdefulla tjänster på egen hand kan OMS integreras med System Center-komponenter, till exempel [System Center Operations Manager](https://blogs.technet.microsoft.com/cbernier/2013/10/23/monitoring-windows-azure-with-system-center-operations-manager-2012-get-me-started/), för att utöka dina befintliga säkerhets hanteringsinvestering i molnet. System Center och OMS kan tillsammans tillhandahålla en komplett hybridhanteringsmiljö.
+Förutom att tillhandahålla värdefulla tjänster på egen hand, Log Analytics kan integreras med System Center-komponenter, till exempel [System Center Operations Manager](https://blogs.technet.microsoft.com/cbernier/2013/10/23/monitoring-windows-azure-with-system-center-operations-manager-2012-get-me-started/), för att utöka dina befintliga säkerhets hanteringsinvestering i molnet. System Center och Log Analytics kan hjälpa dig för att skapa en fullständig hybridhantering upplevelse.
 
 ### <a name="holistic-security-and-compliance-posture"></a>Heltäckande säkerhets- och efterlevnadsstatus
 
-Den [säkerhets- och Granskningslösningen instrumentpanelen](https://docs.microsoft.com/azure/operations-management-suite/oms-security-getting-started) ger en heltäckande översikt över din organisations IT-säkerhetsstatus, med inbyggda sökfrågor för viktiga problem som kräver din uppmärksamhet. Instrumentpanelen för säkerhet och granskning är startsidan för allt som rör säkerheten i OMS. Den innehåller en översikt över säkerhetsstatusen för dina datorer. Du kan också visa alla händelser från de senaste 24 timmarna, 7 dagar eller anpassad tidsram.
+Den [Log Analytics säkerhet och granskning instrumentpanelen](https://docs.microsoft.com/azure/operations-management-suite/oms-security-getting-started) ger en heltäckande översikt över din organisations IT-säkerhetsstatus, med inbyggda sökfrågor för viktiga problem som kräver din uppmärksamhet. Instrumentpanelen för säkerhet och granskning är startsidan för allt som rör säkerhet i Log Analytics. Den innehåller en översikt över säkerhetsstatusen för dina datorer. Du kan också visa alla händelser från de senaste 24 timmarna, 7 dagar eller anpassad tidsram.
 
-OMS-instrumentpaneler kan du snabbt och lätt att förstå den övergripande säkerhetstillståndet för alla miljöer, allt inom ramen för IT-avdelningen, inklusive programvara som uppdatering av utvärdering, utvärdering av program mot skadlig kod och konfigurationsbaslinjer. Loggdata för säkerhet är allmänt tillgänglig för att effektivisera processer för säkerhets- och granskning.
+Log Analytics kan du snabbt och lätt att förstå den övergripande säkerhetstillståndet för alla miljöer, allt inom ramen för IT-avdelningen, inklusive programvara som uppdatering av utvärdering, utvärdering av program mot skadlig kod och konfigurationsbaslinjer. Loggdata för säkerhet är allmänt tillgänglig för att effektivisera processer för säkerhets- och granskning.
 
-![Säkerhets- och Granskningslösningen instrumentpanelen](./media/azure-threat-detection/azure-threat-detection-fig3.jpg)
+![Instrumentpanelen för Log Analytics säkerhet och granskning](./media/azure-threat-detection/azure-threat-detection-fig3.jpg)
 
-Säkerhets- och Granskningslösningen instrumentpanelen är uppdelad i fyra huvudkategorier:
+Log Analytics säkerhet och granskning instrumentpanelen är uppdelad i fyra huvudkategorier:
 
 -   **Säkerhetsdomäner**: kan du ytterligare utforska säkerhetsposter över tid, åtkomst skadlig kod utvärderingar, av kontroll av uppdateringar, visa nätverkssäkerhet, identitet, och komma åt information; Visa datorer med säkerhetshändelser; och snabbt komma åt Azure Instrumentpanelen för Security Center.
 
@@ -102,25 +102,25 @@ Säkerhets- och Granskningslösningen instrumentpanelen är uppdelad i fyra huvu
 -   **Vanliga säkerhetsfrågor**: Visar en lista över de vanligaste säkerhetsfrågorna som du kan använda för att övervaka din miljö. När du väljer en fråga, Sök-rutan öppnas och visar resultatet för frågan.
 
 ### <a name="insight-and-analytics"></a>Insikter och analys
-I mitten av [Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview) är OMS-databasen, som är värd för Azure.
+I mitten av [Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview) är lagringsplatsen, som är värd för Azure.
 
 ![Diagrammet insikter och analys](./media/azure-threat-detection/azure-threat-detection-fig4.png)
 
 Du samla in data till databasen från anslutna källor genom att konfigurera datakällor och lägga till lösningar i din prenumeration.
 
-![OMS-instrumentpanelen ](./media/azure-threat-detection/azure-threat-detection-fig5.png)
+![Log Analytics-instrumentpanelen ](./media/azure-threat-detection/azure-threat-detection-fig5.png)
 
 Datakällor och lösningar skapar olika posttyper med sin egen uppsättning egenskaper, men du kan fortfarande analysera dem tillsammans i förfrågningar till databasen. Du kan använda samma verktyg och metoder för att arbeta med en mängd olika data som samlas in av olika källor.
 
 
-De flesta interaktionen med Log Analytics sker via OMS-portalen, som körs i alla webbläsare och ger åtkomst till konfigurationsinställningar och flera olika verktyg för att analysera och agera utifrån insamlade data. Från portalen kan använda du:
+De flesta interaktionen med Log Analytics är via Azure-portalen, som körs i alla webbläsare och ger åtkomst till konfigurationsinställningar och flera olika verktyg för att analysera och agera utifrån insamlade data. Från portalen kan använda du:
 * [Loggsökningar](https://docs.microsoft.com/azure/log-analytics/log-analytics-log-searches) där du skapar förfrågningar för att analysera insamlade data.
 * [Instrumentpaneler](https://docs.microsoft.com/azure/log-analytics/log-analytics-dashboards), som du kan anpassa med grafiska vyer över dina mest värdefulla sökningar.
 * [Lösningar](https://docs.microsoft.com/azure/log-analytics/log-analytics-add-solutions), som ger ytterligare funktioner och analysverktyg.
 
 ![Analysverktyg](./media/azure-threat-detection/azure-threat-detection-fig6.png)
 
-Lösningar lägger till funktioner i Log Analytics. De främst körs i molnet och ger analys av data som samlas in i OMS-databasen. Lösningar kan också definiera nya typer av poster som ska samlas in som kan analyseras med loggsökningar eller genom att använda en ytterligare användargränssnitt som lösningen tillhandahåller i OMS-instrumentpanelen.
+Lösningar lägger till funktioner i Log Analytics. De främst körs i molnet och ger analys av data som samlas in i Log Analytics-databasen. Lösningar kan också definiera nya typer av poster som ska samlas in som kan analyseras med loggsökningar eller genom att använda en ytterligare användargränssnitt som lösningen tillhandahåller i Log Analytics-instrumentpanelen.
 
 Instrumentpanelen för säkerhet och granskning är ett exempel på dessa typer av lösningar.
 
@@ -353,13 +353,13 @@ Med verktyg som hjälper att upptäcka skugg-IT, utvärdera risker, genomdriva p
 
 Cloud App Security integrerar synlighet i molnet genom:
 
--   Via Cloud Discovery för att mappa och identifiera molnmiljön och molnapparna som din organisation använder.
+-   via Cloud Discovery för att mappa och identifiera molnmiljön och molnapparna som din organisation använder.
 
 -   Sanktionering och förbud mot appar i molnet.
 
--   Med hjälp av enkla att distribuera appanslutningsverktyg som utnyttjar providerns API: er för synlighet och styrning av appar som du ansluter till.
+-   med hjälp av enkla att distribuera appanslutningsverktyg som utnyttjar providerns API: er för synlighet och styrning av appar som du ansluter till.
 
--   Stöd för kontinuerlig kontroll genom inställningen och kontinuerligt finjustera, principer.
+-   stöd för kontinuerlig kontroll genom inställningen och kontinuerligt finjustera, principer.
 
 På insamling av data från dessa källor kör Cloud App Security avancerad analys på den. Den omedelbart aviserar avvikande aktiviteter och ger dig bättre insyn i molnmiljön. Du kan konfigurera en princip i Cloud App Security och använda den för att skydda allt innehåll i molnmiljön.
 

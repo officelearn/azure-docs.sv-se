@@ -10,14 +10,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/11/2018
+ms.date: 10/18/2018
 ms.author: douglasl
-ms.openlocfilehash: 20ee69654a6b19365c9b7c46e1fa11e102168365
-ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
+ms.openlocfilehash: f744e379521fe62f4b3fbbad0cc524ccb3e1b18d
+ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2018
-ms.locfileid: "49309373"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49429396"
 ---
 # <a name="create-a-trigger-that-runs-a-pipeline-in-response-to-an-event"></a>Skapa en utlösare som kör en pipeline som svar på en händelse
 
@@ -71,23 +71,26 @@ Följande tabell innehåller en översikt över de element som är relaterade ti
 | **JSON-Element** | **Beskrivning** | **Typ** | **Tillåtna värden** | **Krävs** |
 | ---------------- | --------------- | -------- | ------------------ | ------------ |
 | **Omfång** | Resurs-ID för Azure Resource Manager för Lagringskontot. | Sträng | Azure Resource Manager-ID | Ja |
-| **händelser** | Typ av händelser som orsakar den här utlösaren utlöses. | Matris    | Microsoft.Storage.BlobCreated Microsoft.Storage.BlobDeleted | Ja, vilken kombination som helst. |
-| **blobPathBeginsWith** | Blobbsökvägen måste börja med det angivna mönstret för utlösare utlöses. Till exempel utlöses ”/ poster/objekt/december /' endast en utlösare för blobbar i mappen december under behållaren poster. | Sträng   | | Minst en av de här egenskaperna måste anges: blobPathBeginsWith, blobPathEndsWith. |
-| **blobPathEndsWith** | Blobbsökväg måste avslutas med det angivna mönstret för utlösare utlöses. Till exempel kommer ”december/boxes.csv” endast innan utlösaren utlöser för BLOB-objekt med namnet rutor i en mapp för december. | Sträng   | | Minst en av de här egenskaperna måste anges: blobPathBeginsWith, blobPathEndsWith. |
+| **händelser** | Typ av händelser som orsakar den här utlösaren utlöses. | Matris    | Microsoft.Storage.BlobCreated Microsoft.Storage.BlobDeleted | Ja, valfri kombination av dessa värden. |
+| **blobPathBeginsWith** | Blobbsökvägen måste börja med det angivna mönstret för utlösaren utlöses. Till exempel `/records/blobs/december/` bara utlöses utlösaren för blobbar i den `december` mapp under den `records` behållare. | Sträng   | | Du måste ange ett värde för minst en av de här egenskaperna: `blobPathBeginsWith` eller `blobPathEndsWith`. |
+| **blobPathEndsWith** | Blobbsökväg måste avslutas med det angivna mönstret för utlösaren utlöses. Till exempel `december/boxes.csv` bara utlöses utlösaren för BLOB-objekt med namnet `boxes` i en `december` mapp. | Sträng   | | Du måste ange ett värde för minst en av de här egenskaperna: `blobPathBeginsWith` eller `blobPathEndsWith`. |
 
 ## <a name="examples-of-event-based-triggers"></a>Exempel på händelsebaserade utlösare
 
 Det här avsnittet innehåller exempel på inställningar för händelsebaserade utlösare.
 
--   **Blobbsökväg som börjar med**('/ containername / ”) – tar emot händelser för alla blobar i behållaren.
--   **Blobbsökväg som börjar med**(”/ mappnamn/blobar/containername”) – tar emot händelser för alla blobar i behållaren för containername och mappnamn mappen. Du kan också referera till en undermapp; till exempel ”/ containername/blobar/mappnamn/undermappsnamn /'.
--   **Blobbsökväg som börjar med**('/ containername/blobs/foldername/file.txt ”) – tar emot händelser för en blob med namnet fil.txt i mappnamn mapp under behållaren containername.
--   **Blobbsökväg slutar med**('fil.txt') – Receives händelser för en blob med namnet fil.txt på valfri sökväg.
--   **Blobbsökväg slutar med**('/ containername/blobs/file.txt ”) – tar emot händelser för en blob med namnet fil.txt under behållaren containername.
--   **Blobbsökväg slutar med**('foldername/file.txt') – Receives händelser för en blob med namnet fil.txt i mappnamn mapp under någon behållare.
+> [!IMPORTANT]
+> Du behöver ta den `/blobs/` segmentet i sökvägen som visas i följande exempel, när du anger behållaren och mappen, behållare och filen eller behållare, mapp och fil.
 
-> [!NOTE]
-> Du behöver ta den `/blobs/` segmentet i sökvägen när du anger behållaren och mappen, behållare och filen eller behållare, mapp och fil.
+| Egenskap  | Exempel | Beskrivning |
+|---|---|---|
+| **Sökväg till BLOB börjar med** | `/containername/` | Tar emot händelser för alla blobar i behållaren. |
+| **Sökväg till BLOB börjar med** | `/containername/blobs/foldername/` | Tar emot händelser för alla blobbar i den `containername` behållare och `foldername` mapp. |
+| **Sökväg till BLOB börjar med** | `/containername/blobs/foldername/subfoldername/` | Du kan också referera till en undermapp. |
+| **Sökväg till BLOB börjar med** | `/containername/blobs/foldername/file.txt` | Tar emot händelser för en blob med namnet `file.txt` i den `foldername` mapp under den `containername` behållare. |
+| **Blobbsökväg slutar med** | `file.txt` | Tar emot händelser för en blob med namnet `file.txt` jag valfri sökväg. |
+| **Blobbsökväg slutar med** | `/containername/blobs/file.txt` | Tar emot händelser för en blob med namnet `file.txt` under behållaren `containername`. |
+| **Blobbsökväg slutar med** | `foldername/file.txt` | Tar emot händelser för en blob med namnet `file.txt` i `foldername` mapp under någon behållare. |
 
 ## <a name="next-steps"></a>Nästa steg
 Detaljerad information om utlösare finns i [Pipelinekörning och utlösare](concepts-pipeline-execution-triggers.md#triggers).

@@ -1,6 +1,6 @@
 ---
-title: Åtkomst till Azure-nätverk från Azure Logic Apps
-description: Den här översikten visar hur isolerade logic apps kan ansluta till virtuella Azure-nätverk från integreringstjänstmiljöer (ISEs) som använder privata och dedikerade resurser
+title: Åtkomst till Azure-nätverk från Azure Logic Apps med integration service-miljöer (ISEs)
+description: Den här översikten beskriver hur integreringstjänstmiljöer (ISEs) hjälper logikappar att få åtkomst till virtuella Azure-nätverk
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
@@ -9,19 +9,19 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 09/24/2018
-ms.openlocfilehash: 9546b8ca33ef7da2d570b547446858e2a4099234
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: f21af23cf0b7b121441b1433f382db60ef7f13fe
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47393164"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49408667"
 ---
-# <a name="access-to-azure-virtual-network-resources-from-isolated-azure-logic-apps"></a>Åtkomst till Azure Virtual Network-resurser från isolerad Azure Logic Apps
+# <a name="access-to-azure-virtual-network-resources-from-azure-logic-apps-by-using-integration-service-environments-ises"></a>Åtkomst till Azure Virtual Network-resurser från Azure Logic Apps med hjälp av integreringstjänstmiljöer (ISEs)
 
 > [!NOTE]
 > Den här funktionen är i *privat förhandsgranskning*. Att begära åtkomst, [skapa din begäran om att ansluta till här](https://aka.ms/iseprivatepreview).
 
-Ibland kan dina logic apps och integrationskonton behöver åtkomst till skyddade resurser, till exempel virtuella datorer (VM) och andra system och tjänster i en [Azure-nätverk](../virtual-network/virtual-networks-overview.md). För att ge den här åtkomsten, kan du [skapa en *integreringstjänstmiljön* (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment.md) som plats för att skapa dina logic apps och integrationskonton. 
+Ibland kan dina logic apps och integrationskonton behöver åtkomst till skyddade resurser, till exempel virtuella datorer (VM) och andra system och tjänster i en [Azure-nätverk](../virtual-network/virtual-networks-overview.md). Om du vill konfigurera den här åtkomsten, kan du [skapa en *integreringstjänstmiljön* (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment.md) som du använder som platsen för dina logic apps och integrationskonton. 
 
 ![Välj integreringstjänstmiljö](./media/connect-virtual-network-vnet-isolated-environment-overview/select-logic-app-integration-service-environment.png)
 

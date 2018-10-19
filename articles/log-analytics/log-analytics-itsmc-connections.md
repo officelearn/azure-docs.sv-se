@@ -1,6 +1,6 @@
 ---
 title: Stöd för anslutningar med IT Service Management Connector i Azure Log Analytics | Microsoft Docs
-description: Den här artikeln innehåller information om hur du ansluter din ITSM-produkter/tjänster med IT Service Management Connector (ITSMC) i OMS Log Analytics för att centralt övervaka och hantera ITSM-arbetsuppgifter.
+description: Den här artikeln innehåller information om hur du ansluter din ITSM-produkter/tjänster med IT Service Management Connector (ITSMC) i Azure Monitor för att centralt övervaka och hantera ITSM-arbetsuppgifter.
 documentationcenter: ''
 author: jyothirmaisuri
 manager: riyazp
@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 05/24/2018
 ms.author: v-jysur
 ms.component: ''
-ms.openlocfilehash: 50ab09d39fc0c224a97b6cf0c758c55026ac8ce7
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: 190e173e035716431c92533e42ded97e147f21a7
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48042852"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49409211"
 ---
 # <a name="connect-itsm-productsservices-with-it-service-management-connector"></a>Träffa IT Service Management Connector ITSM-produkter/tjänster
 Den här artikeln innehåller information om hur du konfigurerar anslutningen mellan din ITSM-produkt/tjänst och IT Service Management Connector (ITSMC) i Log Analytics för att centralt hantera dina arbetsuppgifter. Läs mer om ITSMC [översikt](log-analytics-itsmc-overview.md).
@@ -76,7 +76,7 @@ Använd följande procedur för att ansluta din System Center Service Manager-in
 | **Klienthemlighet**   | Ange klienthemlighet genereras för detta ID.   |
 | **Datasynkroniseringsomfång**   | Välj Service Manager-arbetsuppgifter som du vill synkronisera via ITSMC.  Dessa fungerar objekt har importerats till Log Analytics. **Alternativ:** incidenter, ändringsbegäranden.|
 | **Synkronisera Data** | Ange antalet tidigare dagar som du vill att data från. **Maxgränsen**: 120 dagar. |
-| **Skapa nytt konfigurationsobjekt i ITSM-lösning** | Välj det här alternativet om du vill skapa konfigurationsobjekt i ITSM-produkten. När du väljer skapar OMS berörda konfigurationsobjekt som konfigurationsobjekt (när det gäller icke-existerande CIs) i ITSM-system som stöds. **Standard**: inaktiverad. |
+| **Skapa nytt konfigurationsobjekt i ITSM-lösning** | Välj det här alternativet om du vill skapa konfigurationsobjekt i ITSM-produkten. När du väljer skapar Log Analytics berörda konfigurationsobjekt som konfigurationsobjekt (när det gäller icke-existerande CIs) i ITSM-system som stöds. **Standard**: inaktiverad. |
 
 ![Service manager-anslutningen](./media/log-analytics-itsmc/service-manager-connection.png)
 
@@ -199,7 +199,7 @@ Kontrollera att följande krav är uppfyllda:
     - [Konfigurera OAuth för Geneva](https://docs.servicenow.com/bundle/geneva-servicenow-platform/page/administer/security/task/t_SettingUpOAuth.html)
 
 
-- Installera appen användare för Microsoft OMS-integrering (ServiceNow-app). [Läs mer](https://store.servicenow.com/sn_appstore_store.do#!/store/application/ab0265b2dbd53200d36cdc50cf961980/1.0.1 ).
+- Installera appen användare för Microsoft Log Analytics-integrering (ServiceNow-app). [Läs mer](https://store.servicenow.com/sn_appstore_store.do#!/store/application/ab0265b2dbd53200d36cdc50cf961980/1.0.1 ).
 - Skapa integration användarroll för användaren appen är installerad. Information om hur du skapar rollen integration är [här](#create-integration-user-role-in-servicenow-app).
 
 ### <a name="connection-procedure"></a>**Proceduren för anslutning**
@@ -221,7 +221,7 @@ Använd följande procedur för att skapa en ServiceNow-anslutning:
 
 | **Fält** | **Beskrivning** |
 | --- | --- |
-| **Anslutningsnamn**   | Skriv ett namn för den ServiceNow-instans som du vill ansluta med ITSMC.  Du använder det här namnet senare i OMS när du konfigurerar arbetsobjekt i den här ITSM / visa detaljerad logganalys. |
+| **Anslutningsnamn**   | Skriv ett namn för den ServiceNow-instans som du vill ansluta med ITSMC.  Du använder det här namnet senare i Log Analytics när du konfigurerar arbetsobjekt i den här ITSM / visa detaljerad logganalys. |
 | **Partnertyp**   | Välj **ServiceNow**. |
 | **Användarnamn**   | Typ integration användarnamnet som du skapade i ServiceNow-app för anslutningen till ITSMC. Mer information: [skapa ServiceNow app användarrollen](#create-integration-user-role-in-servicenow-app).|
 | **Lösenord**   | Ange lösenordet som är associerade med det här användarnamnet. **Obs**: användarnamn och lösenord används för att generera autentiseringstoken endast och lagras inte någonstans i ITSMC-tjänsten.  |
@@ -247,6 +247,9 @@ Läs mer: [skapa ITSM-arbetsuppgifter från Azure-aviseringar](log-analytics-its
 Användare nedan:
 
 1.  Gå till den [ServiceNow store](https://store.servicenow.com/sn_appstore_store.do#!/store/application/ab0265b2dbd53200d36cdc50cf961980/1.0.1) och installera den **användaren appen för ServiceNow och Microsoft OMS-integrering** i din ServiceNow-instans.
+   
+   >[!NOTE]
+   >Som en del av pågående övergången från Microsoft Operations Management Suite (OMS) till Azure Monitor kallas OMS nu till Log Analytics.     
 2.  Gå till det vänstra navigeringsfältet ServiceNow-instans, Sök och välj Microsoft OMS integrator efter installationen.  
 3.  Klicka på **checklista för installationen**.
 

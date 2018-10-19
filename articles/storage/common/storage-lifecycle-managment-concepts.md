@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 04/30/2018
 ms.author: yzheng
 ms.component: common
-ms.openlocfilehash: 25e6fba6ac8aa34c0c30fd61f5fe297b94720439
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 05e7a7e3c2824a9b47ff723e91103611871d7ed2
+ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46983675"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49429566"
 ---
 # <a name="managing-the-azure-blob-storage-lifecycle-preview"></a>Hantera Azure Blob Storage livscykel (förhandsversion)
 
@@ -37,7 +37,7 @@ Princip för livscykelhantering är tillgängligt med både generell användning
 Funktionen för hantering av livscykeln är kostnadsfritt i förhandsversionen. Kunderna debiteras den vanliga åtgärd kostnaden för den [lista Blobar](https://docs.microsoft.com/rest/api/storageservices/list-blobs) och [ange Blobnivå](https://docs.microsoft.com/rest/api/storageservices/set-blob-tier) API-anrop. Se [blockblobpriserna](https://azure.microsoft.com/pricing/details/storage/blobs/) mer information om priser.
 
 ## <a name="register-for-preview"></a>Registrera dig för förhandsversion 
-Om du vill registrera i offentlig förhandsversion, behöver du ansöka om att registrera den här funktionen till din prenumeration. När din begäran har godkänts (inom ett par dagar), har alla befintliga och nya GPv2 eller Blob Storage-konto i USA, västra 2, västra centrala USA och Västeuropa funktionen aktiverad. I förhandsversionen stöds endast blockblob. Precis som med de flesta förhandsversionerna av ska den här funktionen inte användas för produktionsarbetsbelastningar tills den når GA.
+Om du vill registrera i offentlig förhandsversion, behöver du ansöka om att registrera den här funktionen till din prenumeration. När din begäran har godkänts (inom ett par dagar), har alla befintliga och nya GPv2 eller Blob Storage-konto i USA, västra 2, västra centrala USA, östra USA 2 och Västeuropa funktionen aktiverad. I förhandsversionen stöds endast blockblob. Precis som med de flesta förhandsversionerna av ska den här funktionen inte användas för produktionsarbetsbelastningar tills den når GA.
 
 Kör följande PowerShell eller CLI-kommandon för att skicka en begäran.
 
@@ -69,7 +69,7 @@ Om funktionen är godkänd och registrerats korrekt, bör du få ”Registered�
 
 ## <a name="add-or-remove-policies"></a>Lägga till eller ta bort principer 
 
-Du kan lägga till, redigera eller ta bort en princip med hjälp av Azure-portalen [PowerShell](https://www.powershellgallery.com/packages/AzureRM.Storage/5.0.3-preview), [REST API: er](https://docs.microsoft.com/rest/api/storagerp/storageaccounts/createorupdatemanagementpolicies), eller klientverktyg på följande språk: [.NET](https://www.nuget.org/packages/Microsoft.Azure.Management.Storage/8.0.0-preview), [Python](https://pypi.org/project/azure-mgmt-storage/2.0.0rc3/), [Node.js]( https://www.npmjs.com/package/azure-arm-storage/v/5.0.0), [Ruby](   https://rubygems.org/gems/azure_mgmt_storage/versions/0.16.2). 
+Du kan lägga till, redigera eller ta bort en princip med hjälp av Azure-portalen [PowerShell](https://www.powershellgallery.com/packages/AzureRM.Storage/5.0.3-preview), [REST API: er](https://docs.microsoft.com/rest/api/storagerp/managementpolicies/managementpolicies_createorupdate), eller klientverktyg på följande språk: [.NET](https://www.nuget.org/packages/Microsoft.Azure.Management.Storage/8.0.0-preview), [Python](https://pypi.org/project/azure-mgmt-storage/2.0.0rc3/), [Node.js]( https://www.npmjs.com/package/azure-arm-storage/v/5.0.0), [Ruby](   https://rubygems.org/gems/azure_mgmt_storage/versions/0.16.2). 
 
 ### <a name="azure-portal"></a>Azure Portal
 
@@ -316,6 +316,10 @@ För data som ändras och komma åt regelbundet under hela dess livslängd, anv�
   ]
 }
 ```
+## <a name="faq"></a>VANLIGA FRÅGOR OCH SVAR
+### <a name="i-created-a-new-policy-why-are-the-actions-specified-not-executed-immediately"></a>Jag har skapat en ny princip, varför anges åtgärderna som utförs inte omedelbart? 
+
+Livscykelprincipen körs en gång om dagen av plattformen. När en ny princip har angetts, kan det ta upp till 24 timmar för åtgärder som lagringsnivåer eller borttagningen är initierad och körs.  
 
 ## <a name="next-steps"></a>Nästa steg
 

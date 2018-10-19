@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/15/2018
 ms.author: jasonh
-ms.openlocfilehash: 9550468e8bc9b93216fd4c1ecf144415badfc7dc
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: 18ee51e54c1e44ba3affd6ca49bed5360211fa9c
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43103665"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49408188"
 ---
 # <a name="query-azure-log-analytics-to-monitor-hdinsight-clusters"></a>Fråga Azure Log Analytics för att övervaka HDInsight-kluster
 
@@ -32,7 +32,7 @@ Lär dig några grundläggande scenarier för hur du använder Azure Log Analyti
 
 Lär dig hur du söker efter specifika mått för ditt HDInsight-kluster.
 
-1. Öppna OMS-arbetsytan som är kopplad till ditt HDInsight-kluster från Azure-portalen.
+1. Öppna Log Analytics-arbetsytan som är kopplad till ditt HDInsight-kluster från Azure-portalen.
 2. Välj den **Loggsökning** panelen.
 3. Skriver du följande fråga i sökrutan för att söka efter alla mått för alla tillgängliga mått för alla HDInsight-kluster som konfigurerats att använda Azure Log Analytics och välj sedan **kör**.
 
@@ -65,7 +65,7 @@ Lär dig hur du söker efter specifika mått för ditt HDInsight-kluster.
 
 Lär dig hur du söker felmeddelanden under en viss tidsperiod. De här stegen är bara ett exempel på hur du kan komma fram till felmeddelandet du är intresserad av. Du kan använda en egenskap som är tillgänglig för att leta efter felen som du vill hitta.
 
-1. Öppna OMS-arbetsytan som är kopplad till ditt HDInsight-kluster från Azure-portalen.
+1. Öppna Log Analytics-arbetsytan som är kopplad till ditt HDInsight-kluster från Azure-portalen.
 2. Välj den **Loggsökning** panelen.
 3. Skriv följande fråga för att söka efter alla felmeddelanden för alla HDInsight-kluster som är konfigurerad för att använda Azure Log Analytics och välj sedan **kör**. 
 
@@ -117,7 +117,7 @@ Redigera eller ta bort en befintlig avisering:
 3. Välj den avisering du vill redigera eller ta bort.
 4. Du har följande alternativ: **spara**, **Ignorera**, **inaktivera**, och **ta bort**.
 
-    ![HDInsight Log Analytics OMS borttagning av redigera](media/hdinsight-hadoop-oms-log-analytics-use-queries/hdinsight-log-analytics-edit-alert.png)
+    ![HDInsight Log Analytics borttagning av redigera](media/hdinsight-hadoop-oms-log-analytics-use-queries/hdinsight-log-analytics-edit-alert.png)
 
 Mer information finns i [erfarenhet av Varningsregler i Log Analytics](../log-analytics/log-analytics-alerts-creating.md).
 

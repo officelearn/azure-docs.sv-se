@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 03/30/2018
 ms.author: roiyz
-ms.openlocfilehash: ae2458b6fc650961c63da2f7644dbd54d27fc2a8
-ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
+ms.openlocfilehash: d93fc81241053418ea2ff0576d50cbaefa0df9fb
+ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47452113"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49428563"
 ---
 # <a name="azure-virtual-machine-agent-overview"></a>Översikt över Azure VM-agenten
 Microsoft Azure VM-agenten (VM-agenten) är en säker och enkel process som hanterar kommunikation mellan virtuella datorer (VM) med Azure-Infrastrukturkontrollanten. VM-agenten har en primär roll i att aktivera och köra Azure virtual machine-tillägg. VM-tillägg aktivera efter distribution konfiguration av virtuell dator, till exempel installera och konfigurera programvara. VM-tillägg också aktivera funktioner, som att återställa lösenordet för administratörer av en virtuell dator. VM-tillägg kan inte köras utan Azure VM-agenten.
@@ -100,7 +100,8 @@ foreach ($vm in $vms) {
 ```
 
 ### <a name="manual-detection"></a>Manuell identifiering
-När inloggad på en Windows Azure VM, kan du använda Aktivitetshanteraren för att undersöka processer som körs. Om du vill söka efter Azure VM-agenten, öppna Aktivitetshanteraren, klicka på den *information* fliken och leta efter ett processnamn **WindowsAzureGuestAgent.exe**. Förekomst av den här processen anger att den Virtuella datoragenten är installerad.
+
+När inloggad på en virtuell Windows-dator, kan du använda Aktivitetshanteraren för att undersöka processer som körs. Om du vill söka efter Azure VM-agenten, öppna Aktivitetshanteraren, klicka på den *information* fliken och leta efter ett processnamn **WindowsAzureGuestAgent.exe**. Förekomst av den här processen anger att den Virtuella datoragenten är installerad.
 
 
 ## <a name="upgrade-the-vm-agent"></a>Uppgradera VM-agenten

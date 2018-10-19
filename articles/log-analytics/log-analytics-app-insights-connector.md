@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 06/29/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 4157b812fbb17b524a21814f41e0e4ec43e39e70
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: 7c6d91da0634e7f847af01d1c057607ab095cdf6
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48042095"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49408216"
 ---
 # <a name="application-insights-connector-management-solution-preview"></a>Lösning för Application Insights-Anslutningsapp (förhandsversion)
 
@@ -58,8 +58,8 @@ Till skillnad från de flesta andra Log Analytics-lösningar, inte som samlas in
 ## <a name="configuration"></a>Konfiguration
 
 1. Aktivera Azure Web Apps Analytics-lösningen från den [Azure marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.ApplicationInsights?tab=Overview) eller genom att använda processen som beskrivs i [lägga till Log Analytics-lösningar från lösningsgalleriet](log-analytics-add-solutions.md).
-2. I OMS-portalen klickar du på **inställningar** &gt; **Data** &gt; **Application Insights**.
-3. Under **Välj en prenumeration**, Välj en prenumeration med Application Insights-resurser och sedan under **programnamn**, Välj ett eller flera program.
+2. Bläddra till [Azure-portalen](https://portal.azure.com). Välj **alla tjänster** att öppna Application Insights. Sök sedan efter Application Insights. 
+3. Under **prenumerationer**, Välj en prenumeration med Application Insights-resurser och sedan under **namn**, Välj ett eller flera program.
 4. Klicka på **Spara**.
 
 Data blir tillgängliga i cirka 30 minuter och Application Insights-panelen uppdateras med data, som på följande bild:
@@ -133,7 +133,7 @@ Perspektivet komponenter uppdateras beroende på frågan. Det innebär att du ka
 
 ### <a name="pivot-to-an-app-in-the-azure-portal"></a>Växla över till en app i Azure portal
 
-Application Insights-anslutningsprogram blad är utformade så att du kan växla över till den valda appen Application Insights *när du använder OMS-portalen*. Du kan använda lösningen övervakningsplattform på hög nivå som hjälper dig att felsöka en app. När du ser ett potentiellt problem i någon av dina anslutna program, kan du antingen fördjupa dig i den i Log Analytics-sökningen eller du kan växla över direkt till appen Application Insights.
+Application Insights-anslutningsprogram blad är utformade så att du kan växla över till den valda appen Application Insights *när du använder Azure-portalen*. Du kan använda lösningen övervakningsplattform på hög nivå som hjälper dig att felsöka en app. När du ser ett potentiellt problem i någon av dina anslutna program, kan du antingen fördjupa dig i den i Log Analytics-sökningen eller du kan växla över direkt till appen Application Insights.
 
 Pivottabell, klickar du på ellipserna (**...** ) som visas i slutet av varje rad och välj **öppna i Application Insights**.
 

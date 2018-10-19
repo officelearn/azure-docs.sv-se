@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 05/24/2018
 ms.author: v-jysur
 ms.component: ''
-ms.openlocfilehash: 5f5b03090f374f936e03d487596ca0462feea348
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: b99c14e6022fa34d41caaa02bfc9feecb3c840ce
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48042436"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49407511"
 ---
 # <a name="connect-azure-to-itsm-tools-using-it-service-management-connector"></a>Ansluta Azure till ITSM-verktyg som använder IT Service Management Connector
 
@@ -63,9 +63,13 @@ Innan du kan skapa en anslutning, måste du lägga till lösning för ITSM-anslu
     ![Lägg till ITSMC lösning](./media/log-analytics-itsmc/add-itsmc-solution.png)
 
 3.  I den **OMS-arbetsyta** väljer Azure Log Analytics-arbetsytan där du vill installera lösningen.
+   >[!NOTE]
+   >Som en del av pågående övergången från Microsoft Operations Management Suite (OMS) till Azure Monitor, är OMS-arbetsytor kallas nu för Log Analytics-arbetsytor.
 4.  I den **inställningar för OMS-arbetsyta** väljer du den resursgrupp där du vill skapa resursen lösning.
 
     ![ITSMC arbetsyta](./media/log-analytics-itsmc/itsmc-solution-workspace.png)
+    >[!NOTE]
+    >Som en del av pågående övergången från Microsoft Operations Management Suite (OMS) till Azure Monitor, är OMS-arbetsytor kallas nu för Log Analytics-arbetsytor.
 
 5.  Klicka på **Skapa**.
 
@@ -250,7 +254,7 @@ ServiceDeskWorkItemType_s = ”ändra begäran”
 | Category_s | Kategori |
 | Title_s|  Kort beskrivning |
 | Description_s|  Anteckningar |
-| CreatedDate_t|  Öppnat |
+| CreatedDate_t|  Öppnas |
 | ClosedDate_t| Stängd|
 | ResolvedDate_t|Löst|
 | Dator  | Konfigurationsobjekt |
@@ -290,7 +294,7 @@ ServiceDeskWorkItemType_s = ”ändra begäran”
     - Kontrollera att webbappen har distribuerats och hybridanslutning har skapats. Gå till Webbappens URL som beskrivs i dokumentationen för att kontrollera anslutningen är upprättad med en lokal Service Manager-datorn genom den [hybridanslutning](log-analytics-itsmc-connections.md#configure-the-hybrid-connection).  
 
 2.  Om du inte komma har synkroniserats data från ServiceNow till Log Analytics, se till att ServiceNow instans inte är i viloläge. ServiceNow Dev instanser går ibland i viloläge när det är inaktivt under en lång period. Annars rapportera problemet.
-3.  Om OMS-aviseringar utlöses men fungerar objekt skapas inte i ITSM-produkten eller konfigurationsobjekt är inte skapat/kopplad till arbetsobjekt eller allmän information, se ut på följande platser:
+3.  Om Log Analytics-aviseringar utlöses men fungerar objekt skapas inte i ITSM-produkten eller konfigurationsobjekt är inte skapat/kopplad till arbetsobjekt eller allmän information, se ut på följande platser:
  -  ITSMC: Lösningen visar en sammanfattning av anslutningar/objekt/arbetsdatorer osv. Klicka på panelen visar **Connector-Status**, som tar dig till **Loggsökning** med relevanta fråga. Titta på loggposter med LogType_S som fel för mer information.
  - **Loggsöknings-** sida: Visa fel/relaterade informationen direkt med hjälp av frågan `*`ServiceDeskLog_CL`*`.
 

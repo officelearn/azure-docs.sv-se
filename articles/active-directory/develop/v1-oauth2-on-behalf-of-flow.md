@@ -17,12 +17,12 @@ ms.date: 06/06/2017
 ms.author: celested
 ms.reviewer: hirsin, nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: cf62d961d7bd2b6ff2cb03ee577368f2ee7b8452
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: f795b58be760bae0743b05d2827c0e9f8bdb10c6
+ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49318840"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49430093"
 ---
 # <a name="service-to-service-calls-using-delegated-user-identity-in-the-on-behalf-of-flow"></a>Tjänst till tjänst-anrop med hjälp av delegerad användaridentitet i On-Behalf-Of-flöde
 Den OAuth 2.0 Behalf (OBO) flow fungerar användningsfall där ett program anropar en tjänst/webb-API, som i sin tur måste anropa en annan tjänst/webb-API. Tanken är att sprida delegerade användaren identitets- och behörigheter genom begärandekedjan. För mellannivå-tjänsten ska göra autentiserade begäranden till den underordnade tjänsten, behöver så skydda en åtkomsttoken från Azure Active Directory (Azure AD), användarens räkning.
@@ -43,6 +43,9 @@ De steg som följer utgör On-Behalf-Of-flöde och beskrivs med hjälp av följa
 3. Azure AD-slutpunkten för utfärdande verifierar API A autentiseringsuppgifter med token A och utfärdar en åtkomsttoken för API-B (token B).
 4. Token B har angetts i auktoriseringshuvudet för begäran till API B.
 5. Data från den skyddade resursen returneras av API B.
+
+>[!NOTE]
+>Publik anspråk i en åtkomst-token som används för att begära en token för en underordnad tjänst måste vara id för tjänsten skickar OBO-förfrågan och token måste vara signerade med Azure Active Directory global signeringsnyckeln (som är standard för program som är registrerade via **appregistreringar** i portalen)
 
 ## <a name="register-the-application-and-service-in-azure-ad"></a>Registrera den och en tjänst i Azure AD
 Registrera både klientprogrammet och tjänsten mellannivå i Azure AD.
@@ -82,8 +85,8 @@ När du använder en delad hemlighet, innehåller en tjänst-till-tjänst begär
 
 | Parameter |  | Beskrivning |
 | --- | --- | --- |
-| _typ av beviljande |obligatorisk | Typ av token begäran. Värdet måste vara begäran med hjälp av en JWT **urn: ietf:params:oauth:grant-typ: jwt-ägarautentisering**. |
-| försäkran |obligatorisk | Värdet för den token som används i begäran. |
+| _typ av beviljande |obligatorisk | Typ av token begäran. Eftersom en begäran om OBO använder en JWT-token för åtkomst, värdet måste vara **urn: ietf:params:oauth:grant-typ: jwt-ägarautentisering**. |
+| försäkran |obligatorisk | Värdet för den åtkomst-token som används i begäran. |
 | client_id |obligatorisk | App-ID som tilldelats till tjänsten anropande under registreringen med Azure AD. För att hitta App-ID i hanteringsportalen för Azure, klickar du på **Active Directory**, klickar du på katalogen och klicka sedan på namnet på programmet. |
 | client_secret |obligatorisk | Nyckeln som har registrerats för den anropande tjänsten i Azure AD. Det här värdet ska ha har antecknat vid tidpunkten för registrering. |
 | resurs |obligatorisk | App-ID URI för den mottagande tjänsten (säker resurs). För att hitta URI: N för App-ID i hanteringsportalen för Azure, klickar du på **Active Directory**, klickar du på katalogen, klickar du på namnet på programmet, klickar du på **alla inställningar** och klicka sedan på **egenskaper**. |
@@ -114,7 +117,7 @@ En begäran för tjänst-till-tjänst åtkomst-token med ett certifikat innehål
 
 | Parameter |  | Beskrivning |
 | --- | --- | --- |
-| _typ av beviljande |obligatorisk | Typ av token begäran. Värdet måste vara begäran med hjälp av en JWT **urn: ietf:params:oauth:grant-typ: jwt-ägarautentisering**. |
+| _typ av beviljande |obligatorisk | Typ av token begäran. Eftersom en begäran om OBO använder en JWT-token för åtkomst, värdet måste vara **urn: ietf:params:oauth:grant-typ: jwt-ägarautentisering**. |
 | försäkran |obligatorisk | Värdet för den token som används i begäran. |
 | client_id |obligatorisk | App-ID som tilldelats till tjänsten anropande under registreringen med Azure AD. För att hitta App-ID i hanteringsportalen för Azure, klickar du på **Active Directory**, klickar du på katalogen och klicka sedan på namnet på programmet. |
 | client_assertion_type |obligatorisk |Värdet måste vara `urn:ietf:params:oauth:client-assertion-type:jwt-bearer` |
@@ -201,8 +204,54 @@ GET /me?api-version=2013-11-08 HTTP/1.1
 Host: graph.windows.net
 Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6InowMzl6ZHNGdWl6cEJmQlZLMVRuMjVRSFlPMCIsImtpZCI6InowMzl6ZHNGdWl6cEJmQlZLMVRuMjVRSFlPMCJ9.eyJhdWQiOiJodHRwczovL2dyYXBoLndpbmRvd3MubmV0IiwiaXNzIjoiaHR0cHM6Ly9zdHMud2luZG93cy5uZXQvMjYwMzljY2UtNDg5ZC00MDAyLTgyOTMtNWIwYzUxMzRlYWNiLyIsImlhdCI6MTQ5MzQyMzE2OCwibmJmIjoxNDkzNDIzMTY4LCJleHAiOjE0OTM0NjY5NTEsImFjciI6IjEiLCJhaW8iOiJBU1FBMi84REFBQUE1NnZGVmp0WlNjNWdBVWwrY1Z0VFpyM0VvV2NvZEoveWV1S2ZqcTZRdC9NPSIsImFtciI6WyJwd2QiXSwiYXBwaWQiOiI2MjUzOTFhZi1jNjc1LTQzZTUtOGU0NC1lZGQzZTMwY2ViMTUiLCJhcHBpZGFjciI6IjEiLCJlX2V4cCI6MzAyNjgzLCJmYW1pbHlfbmFtZSI6IlRlc3QiLCJnaXZlbl9uYW1lIjoiTmF2eWEiLCJpcGFkZHIiOiIxNjcuMjIwLjEuMTc3IiwibmFtZSI6Ik5hdnlhIFRlc3QiLCJvaWQiOiIxY2Q0YmNhYy1iODA4LTQyM2EtOWUyZi04MjdmYmIxYmI3MzkiLCJwbGF0ZiI6IjMiLCJwdWlkIjoiMTAwMzNGRkZBMTJFRDdGRSIsInNjcCI6IlVzZXIuUmVhZCIsInN1YiI6IjNKTUlaSWJlYTc1R2hfWHdDN2ZzX0JDc3kxa1l1ekZKLTUyVm1Zd0JuM3ciLCJ0aWQiOiIyNjAzOWNjZS00ODlkLTQwMDItODI5My01YjBjNTEzNGVhY2IiLCJ1bmlxdWVfbmFtZSI6Im5hdnlhQGRkb2JhbGlhbm91dGxvb2sub25taWNyb3NvZnQuY29tIiwidXBuIjoibmF2eWFAZGRvYmFsaWFub3V0bG9vay5vbm1pY3Jvc29mdC5jb20iLCJ1dGkiOiJ4Q3dmemhhLVAwV0pRT0x4Q0dnS0FBIiwidmVyIjoiMS4wIn0.cqmUVjfVbqWsxJLUI1Z4FRx1mNQAHP-L0F4EMN09r8FY9bIKeO-0q1eTdP11Nkj_k4BmtaZsTcK_mUygdMqEp9AfyVyA1HYvokcgGCW_Z6DMlVGqlIU4ssEkL9abgl1REHElPhpwBFFBBenOk9iHddD1GddTn6vJbKC3qAaNM5VarjSPu50bVvCrqKNvFixTb5bbdnSz-Qr6n6ACiEimiI1aNOPR2DeKUyWBPaQcU5EAK0ef5IsVJC1yaYDlAcUYIILMDLCD9ebjsy0t9pj_7lvjzUSrbMdSCCdzCqez_MSNxrk1Nu9AecugkBYp3UVUZOIyythVrj6-sVvLZKUutQ
 ```
+## <a name="service-to-service-calls-using-a-saml-assertion-obtained-with-an-oauth20-on-behalf-of-flow"></a>Tjänst till tjänst-anrop med hjälp av en SAML-försäkran som hämtas med en OAuth2.0 på-flöde
+
+Vissa OAuth-baserade webbtjänsterna services behöver åtkomst till andra API: er som har stöd för SAML-intyg i icke-interaktivt flöden för webbtjänsten.  Azure Active Directory kan ge en SAML-försäkran som svar på en on-behalf-of-flöde med en SAML-baserad webbtjänst som en målresurs. 
+
+>[!NOTE] 
+>Det här är en förlängning av inte är standard i on-behalf-of flöde för OAuth 2.0 som gör att ett OAuth2-baserade program till åtkomst API slutpunkter för webbtjänster som använder SAML-token.  
+
+>[!TIP]
+>Om du anropar en webbtjänst för SAML skyddas från ett frontend-webbprogram, du helt enkelt anropa API: et och starta ett flöde för normal interaktiv autentisering som används av användarna befintlig session.  Du behöver bara Överväg att använda en OBO-flöde när en tjänst till tjänst-anrop krävs en SAML-token för användarkontext.
+
+### <a name="obtain-a-saml-token-using-an-obo-request-with-a-shared-secret"></a>Hämta en SAML-token med en OBO-begäran med en delad hemlighet
+En tjänst-till-tjänst-begäran för att hämta en SAML-försäkran innehåller följande parametrar:
+
+| Parameter |  | Beskrivning |
+| --- | --- | --- |
+| _typ av beviljande |obligatorisk | Typ av token begäran. Värdet måste vara begäran med hjälp av en JWT **urn: ietf:params:oauth:grant-typ: jwt-ägarautentisering**. |
+| försäkran |obligatorisk | Värdet för den åtkomst-token som används i begäran.|
+| client_id |obligatorisk | App-ID som tilldelats till tjänsten anropande under registreringen med Azure AD. För att hitta App-ID i hanteringsportalen för Azure, klickar du på **Active Directory**, klickar du på katalogen och klicka sedan på namnet på programmet. |
+| client_secret |obligatorisk | Nyckeln som har registrerats för den anropande tjänsten i Azure AD. Det här värdet ska ha har antecknat vid tidpunkten för registrering. |
+| resurs |obligatorisk | App-ID URI för den mottagande tjänsten (säker resurs). Det här är den resurs som kommer att målgruppen för SAML-token.  För att hitta URI: N för App-ID i hanteringsportalen för Azure, klickar du på **Active Directory**, klickar du på katalogen, klickar du på namnet på programmet, klickar du på **alla inställningar** och klicka sedan på **egenskaper**. |
+| requested_token_use |obligatorisk | Anger hur begäran ska bearbetas. Värdet måste vara i On-Behalf-Of-flöde **on_behalf_of**. |
+| requested_token_type | obligatorisk | Anger vilken typ av token begärs.  Värdet kan vara ”urn: ietf:params:oauth:token-typ: saml2” eller ”urn: ietf:params:oauth:token-typ: saml1” beroende på kraven för resursen ifråga. |
+
+
+Svaret innehåller en UTF8 och Base64url kodad SAML token. 
+
+SubjectConfirmationData för SAML-försäkran som kommer från ett OBO-anrop: Om målprogrammet kräver ett mottagarens värde i SubjectConfirmationData så det måste anges som en icke-jokertecken svars-URL i programkonfigurationen för resursen.
+
+Noden SubjectConfirmationData får inte innehålla en InResponseTo attributet eftersom det inte är en del av en SAML-svar.  Programmet som tar emot SAML-token behov för att kunna acceptera SAML-försäkran utan ett InResponseTo-attribut.
+
+Medgivande: För att få en SAML-token som innehåller användardata på en flöde för OAuth medgivande måste ha beviljats.  Se https://docs.microsoft.com/azure/active-directory/develop/v1-permissions-and-consent för information om behörighet och hämta administratörens godkännande.
+
+### <a name="response-with-saml-assertion"></a>Svar med SAML-försäkran
+
+| Parameter | Beskrivning |
+| --- | --- |
+| token_type |Anger typ tokenu värdet. Den enda typen som har stöd för Azure AD är **ägar**. Mer information om ägar-token finns i den [Framework för OAuth 2.0-auktorisering: ägar-Token användning (RFC 6750)](http://www.rfc-editor.org/rfc/rfc6750.txt). |
+| omfång |Omfattning åtkomst beviljas i token. |
+| expires_in |Hur lång tid den åtkomst-token är giltig (i sekunder). |
+| expires_on |Den tid då den åtkomst-token upphör att gälla. Datumet visas som hur många sekunder en från 1970-01-01T0:0:0Z UTC tills de upphör att gälla. Det här värdet används för att fastställa livslängd för cachelagrade token. |
+| resurs |App-ID URI för den mottagande tjänsten (säker resurs). |
+| access_token |SAML-försäkran returneras i parametern access_token. |
+| refresh_token |Uppdateringstoken. Anropa tjänsten kan använda denna token för att begära en annan åtkomsttoken när den aktuella SAML-försäkran upphör att gälla. |
+
+token_type: ägar expires_in:3296 ext_expires_in:0 expires_on:1529627844 resurs:https://api.contoso.com access_token: <Saml assertion> issued_token_type:urn:ietf:params:oauth:token-typ: saml2 refresh_token: <Refresh token>
+
 ## <a name="client-limitations"></a>Klientbegränsningar
-Offentliga klienter med jokertecken svars-URL kan inte använda en `id_token` för OBO flöden. Men en konfidentiell klient fortfarande lösa in **åtkomst** token som köpts via implicit beviljande av flödet, även om den offentliga klienten har ett jokertecken omdirigerings-URI som har registrerats.
+Offentliga klienter med jokertecken svars-URL kan inte använda en `id_token` för OBO flöden. En konfidentiell klient kan dock fortfarande lösa in åtkomsttoken som köpts via implicit beviljande av flödet även om offentlig klient har jokertecken redirect URI-registreras.
 
 ## <a name="next-steps"></a>Nästa steg
 Läs mer om OAuth 2.0-protokollet och ett annat sätt att utföra tjänst till tjänst-autentisering via klientautentiseringsuppgifter.

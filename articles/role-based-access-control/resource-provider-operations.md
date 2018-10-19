@@ -13,12 +13,12 @@ ms.workload: identity
 ms.date: 09/27/2018
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: d9cf46a1fd28985d9ca98d173bbef17380b7de21
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: f3f5b656b4c90c3b39fc317160eea7ce8fea25ff
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49354401"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49409738"
 ---
 # <a name="azure-resource-manager-resource-provider-operations"></a>Azure Resource Manager åtgärder för resursprovider
 
@@ -3938,16 +3938,16 @@ Den här artikeln visar en lista över åtgärderna som är tillgängliga för v
 > [!div class="mx-tdCol2BreakAll"]
 > | Åtgärdstyp | Åtgärd | Beskrivning |
 > | --- | --- | --- |
-> | Åtgärd | Microsoft.OperationsManagement/managementAssociations/delete | Ta bort befintlig Hanteringskoppling |
-> | Åtgärd | Microsoft.OperationsManagement/managementAssociations/read | Hämta befintlig Hanteringskoppling |
-> | Åtgärd | Microsoft.OperationsManagement/managementAssociations/write | Skapa ny Hanteringskoppling |
-> | Åtgärd | Microsoft.OperationsManagement/managementConfigurations/delete | Ta bort befintlig Hanteringskonfiguration |
-> | Åtgärd | Microsoft.OperationsManagement/managementConfigurations/read | Hämta befintlig Hanteringskonfiguration |
-> | Åtgärd | Microsoft.OperationsManagement/managementConfigurations/write | Skapa ny Hanteringskonfiguration |
+> | Åtgärd | Microsoft.OperationsManagement/managementAssociations/delete | Ta bort befintlig Hanteringskoppling. |
+> | Åtgärd | Microsoft.OperationsManagement/managementAssociations/read | Hämta befintlig Hanteringskoppling. |
+> | Åtgärd | Microsoft.OperationsManagement/managementAssociations/write | Skapa ny Hanteringskoppling. |
+> | Åtgärd | Microsoft.OperationsManagement/managementConfigurations/delete | Ta bort befintlig Hanteringskonfiguration. |
+> | Åtgärd | Microsoft.OperationsManagement/managementConfigurations/read | Hämta befintlig Hanteringskonfiguration. |
+> | Åtgärd | Microsoft.OperationsManagement/managementConfigurations/write | Skapa en ny Management-konfiguration. |
 > | Åtgärd | Microsoft.OperationsManagement/register/action | Registrera en prenumeration på en resursprovider. |
-> | Åtgärd | Microsoft.OperationsManagement/solutions/delete | Ta bort befintlig OMS-lösning |
-> | Åtgärd | Microsoft.OperationsManagement/solutions/read | Hämta befintlig OMS-lösning |
-> | Åtgärd | Microsoft.OperationsManagement/solutions/write | Skapa ny OMS-lösning |
+> | Åtgärd | Microsoft.OperationsManagement/solutions/delete | Ta bort befintliga övervakningslösning. |
+> | Åtgärd | Microsoft.OperationsManagement/solutions/read | Hämta befintlig lösning för övervakning. |
+> | Åtgärd | Microsoft.OperationsManagement/solutions/write | Skapa ny lösning för övervakning. |
 
 ## <a name="microsoftpolicyinsights"></a>Microsoft.PolicyInsights
 

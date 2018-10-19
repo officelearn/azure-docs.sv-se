@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 03/01/2017
 ms.author: cynthn
-ms.openlocfilehash: 2e8be5b1183c04b5144eb38ee3c2a7d7dd2946e6
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.openlocfilehash: 10c72f84a13eb1edb653d23722cb03ee97298c6b
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37932773"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49407630"
 ---
 # <a name="azure-virtual-machine-powershell-samples"></a>Azure VM-PowerShell-exempel
 
@@ -34,5 +34,5 @@ I följande tabell innehåller länkar till PowerShell-exempelskript som skapar 
 | [Skapa en virtuell dator och kör konfigurationsskript](./../scripts/virtual-machines-linux-powershell-sample-create-vm-nginx.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Skapar en virtuell dator och använder tillägget för anpassat skript för Azure för att installera NGINX. |
 | [Skapa en virtuell dator med WordPress installerad](./../scripts/virtual-machines-linux-powershell-sample-create-vm-wordpress.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Skapar en virtuell dator och använder tillägget för anpassat skript för Azure för att installera WordPress. |
 |**Övervaka virtuella datorer**||
-| [Övervaka en virtuell dator med Operations Management Suite](./../scripts/virtual-machines-linux-powershell-sample-create-vm-oms.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Skapar en virtuell dator, Operations Management Suite-agenten installeras och registreras den virtuella datorn i en OMS-arbetsyta.  |
+| [Övervaka en virtuell dator med Azure Log Analytics](./../scripts/virtual-machines-linux-powershell-sample-create-vm-oms.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Skapar en virtuell dator, installerar Log Analytics-agenten och registrerar den virtuella datorn i en Log Analytics-arbetsyta.  |
 | | |

@@ -9,12 +9,12 @@ ms.component: speech-service
 ms.topic: article
 ms.date: 10/12/2018
 ms.author: wolfma
-ms.openlocfilehash: 3a9da3b0f2165dadd99691c6dc9e41cbf3d48620
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: 7f637014c5f3e246d67ae051f9304e2f2536d725
+ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49340009"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49427390"
 ---
 # <a name="release-notes"></a>Viktig information
 
@@ -22,12 +22,12 @@ ms.locfileid: "49340009"
 
 Förbättrad tillförlitlighet och felkorrigeringar:
 
-* Åtgärda potentiella allvarligt fel på grund av konkurrenstillstånd i tar bort Igenkännande
-* Åtgärda potentiella allvarligt fel vid Odefinierad egenskaper.
-* Ytterligare fel och kontroll av parametern.
-* Mål-C: åtgärda möjliga allvarligt fel som orsakats av åsidosätta i NSString namn.
-* Objectice C: justera visningen av API
-* JavaScript: korrigeringar om händelser och sina nyttolaster.
+* Fast potentiella allvarligt fel på grund av konkurrenstillstånd i tar bort Igenkännande
+* Fast potentiella allvarligt fel vid Odefinierad egenskaper.
+* Har lagts till ytterligare fel och kontroll av parametern.
+* Mål-C: fast möjliga allvarligt fel på grund av att namnet åsidosätta i NSString.
+* Mål-C: justeras synligheten för API: et
+* JavaScript: Fasta om händelser och sina nyttolaster.
 * Dokumentation om förbättringar.
 
 I vår [exempellagringsplatsen](https://aka.ms/csspeech/samples), ett nytt stickprov för JavaScript har lagts till.

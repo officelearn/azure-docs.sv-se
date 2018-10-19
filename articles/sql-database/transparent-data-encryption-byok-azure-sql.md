@@ -12,12 +12,12 @@ ms.author: aliceku
 ms.reviewer: vanto
 manager: craigg
 ms.date: 10/05/2018
-ms.openlocfilehash: aff1d59000a95f2b8f029b9db30ff1facb2f8ba6
-ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
+ms.openlocfilehash: 32d1956741f739234a3fdea7034f2f1e33a4c082
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49114676"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49408233"
 ---
 # <a name="azure-sql-transparent-data-encryption-bring-your-own-key-support"></a>Azure SQL Transparent datakryptering: Bring Your Own Key-stöd
 
@@ -67,8 +67,6 @@ När TDE först konfigureras för att använda ett TDE-skydd från Key Vault, sk
   > Om Azure AD Identity **av misstag har tagits bort eller återkallas serverns behörigheter** med hjälp av den nyckelvalvets åtkomstprincip, servern förlorat åtkomst till nyckelvalvet och transparent Datakryptering krypteras databaser tas bort inom 24 timmar.
 
 - När du använder brandväggar och virtuella nätverk med Azure Key Vault, måste du konfigurera följande: 
-  - Tillåta åtkomst från ”valda nätverk” 
-  - Lägg till befintliga virtuella nätverk och välj SQL Database-nätverket om det är tillämpligt (detta är valfritt för singleton-databaser och krävs för hanterade instanser) 
   - Tillåt att betrodda Microsoft-tjänster kringgår den här brandväggen – väljer Ja 
          
     > [!NOTE] 

@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 03/22/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 433914bc4501b13ba65015d15b0c513a38bf1273
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: 9a2193d78d564ad4a8c175a5116fa7dc9ebda256
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48041670"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49408752"
 ---
 # <a name="connect-configuration-manager-to-log-analytics"></a>Anslut Konfigurationshanteraren till Log Analytics
 Du kan ansluta din miljö för System Center Configuration Manager till Azure Log Analytics att synkronisera enheten samlingsdata och referera till dessa samlingar i Log Analytics och Azure Automation.  
@@ -40,7 +40,7 @@ Följande steg sammanfattar hur du konfigurerar Configuration Manager-integrerin
 6. I Log Analytics [importera samlingar från Configuration Manager](#import-collections) som datorgrupper.
 7. Visa data från Configuration Manager som i Log Analytics, [datorgrupper](log-analytics-computer-groups.md).
 
-Du kan läsa mer om hur du ansluter Configuration Manager till OMS på [synkronisera data från Configuration Manager till Microsoft Operations Management Suite](https://technet.microsoft.com/library/mt757374.aspx).
+Du kan läsa mer om hur du ansluter Configuration Manager till Log Analytics på [synkronisera data från Configuration Manager till Microsoft Log Analytics](https://technet.microsoft.com/library/mt757374.aspx).
 
 ## <a name="grant-configuration-manager-with-permissions-to-log-analytics"></a>Bevilja Configuration Manager med behörigheter till Log Analytics
 I följande procedur du bevilja den *deltagare* roll i Log Analytics-arbetsytan till AD-program och tjänstens huvudnamn som du skapade tidigare för Configuration Manager.  Om du inte redan har en arbetsyta, se [skapa en arbetsyta i Azure Log Analytics](log-analytics-quick-create-workspace.md) innan du fortsätter.  På så sätt kan Configuration Manager för att autentisera och ansluta till Log Analytics-arbetsytan.  
@@ -59,20 +59,24 @@ I följande procedur du bevilja den *deltagare* roll i Log Analytics-arbetsytan 
 ## <a name="download-and-install-the-agent"></a>Ladda ned och installera agenten
 I artikeln [ansluta Windows-datorer till Log Analytics-tjänsten i Azure](log-analytics-agent-windows.md) att förstå metoderna som är tillgängliga för att installera Microsoft Monitoring Agent på den dator där Configuration Manager-tjänsten anslutningen platssystemrollen.  
 
-## <a name="add-an-oms-connection-to-configuration-manager"></a>Lägg till en OMS-anslutning till Configuration Manager
-För att lägga till en OMS-anslutning, Configuration Manager-miljön måste ha en [tjänstanslutningspunkten](https://technet.microsoft.com/library/mt627781.aspx) konfigurerats för online-läge.
+## <a name="add-a-log-analytics-connection-to-configuration-manager"></a>Lägg till en Log Analytics-anslutning till Configuration Manager
+För att lägga till Log Analytics-anslutning, Configuration Manager-miljön måste ha en [tjänstanslutningspunkten](https://technet.microsoft.com/library/mt627781.aspx) konfigurerats för online-läge.
 
-1. I den **Administration** arbetsytan av Configuration Manager, Välj **OMS-anslutningsprogrammet**. Då öppnas det **guiden för Lägg till OMS-anslutning**. Välj **Nästa**.
+1. I den **Administration** arbetsytan av Configuration Manager, Välj **OMS-anslutningsprogrammet**. Då öppnas det **guiden Lägg till Log Analytics-anslutning**. Välj **Nästa**.
+
+   >[!NOTE]
+   >OMS kallas nu för Log Analytics.
+   
 2. På den **Allmänt** skärmen, bekräfta att du har gjort följande åtgärder och att du har informationen om varje objekt och välj sedan **nästa**.
 
    1. I Azure-portalen, du har registrerat Configuration Manager som en Webbapp och/eller webb-API-app och som du har den [klient-ID från registreringen](../active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad.md).
    2. Du har skapat en app hemlig nyckel för registrerad app i Azure Active Directory i Azure-portalen.  
-   3. Du har angett den registrerade webbappen med behörighet att komma åt OMS i Azure-portalen.  
-      ![Anslutning till OMS guiden fliken Allmänt](./media/log-analytics-sccm/sccm-console-general01.png)
+   3. Du har angett den registrerade webbappen med behörighet att komma åt Log Analytics i Azure-portalen.  
+      ![Anslutning till Log Analytics guiden fliken Allmänt](./media/log-analytics-sccm/sccm-console-general01.png)
 3. På den **Azure Active Directory** skärmen, konfigurera anslutningsinställningarna till Log Analytics genom att tillhandahålla ditt **klient**, **klient-ID**, och **klienten Hemlig nyckel**och välj sedan **nästa**.  
-   ![Anslutning till OMS guiden Azure Active Directory-sidan](./media/log-analytics-sccm/sccm-wizard-tenant-filled03.png)
+   ![Anslutning till Log Analytics guiden Azure Active Directory-sidan](./media/log-analytics-sccm/sccm-wizard-tenant-filled03.png)
 4. Om du gör alla andra procedurer, sedan informationen på den **OMS anslutningskonfiguration** skärmen visas automatiskt på den här sidan. Information om vilka inställningar som ska visas för dina **Azure-prenumeration**, **Azure-resursgrupp**, och **Operations Management Suite-arbetsyta**.  
-   ![Anslutningen till OMS-anslutning i guiden OMS-sida](./media/log-analytics-sccm/sccm-wizard-configure04.png)
+   ![Anslutningen till Log Analytics guiden Log Analytics-anslutning sida](./media/log-analytics-sccm/sccm-wizard-configure04.png)
 5. Guiden ansluter till tjänsten Log Analytics med hjälp av informationen som du har indata. Välj enhetssamlingar som du vill synkronisera med tjänsten och klicka sedan på **Lägg till**.  
    ![Välj samlingar](./media/log-analytics-sccm/sccm-wizard-add-collections05.png)
 6. Verifiera dina anslutningsinställningar på den **sammanfattning** skärmen och välj sedan **nästa**. Den **förlopp** skärmen visar anslutningsstatus och sedan ska **Slutför**.
@@ -91,7 +95,7 @@ Om lösenord eller klientens hemliga nyckel upphör att gälla någonsin eller t
 2. Den här sidan, klicka på den **Azure Active Directory** fliken för att visa dina **klient**, **klient-ID**, **utgångsdatum för klientens hemliga nyckel**. **Kontrollera** din **klientens hemliga nyckel** om det har gått ut.
 
 ## <a name="import-collections"></a>Importera samlingar
-När du har lagt till en OMS-anslutning till Configuration Manager och har installerat agenten på datorn som kör Configuration Manager-tjänstanslutning platssystemrollen, nästa steg är att importera samlingar från Configuration Manager i Log Analytics som datorgrupper.
+När du har lagt till en Log Analytics-anslutning till Configuration Manager och har installerat agenten på datorn som kör Configuration Manager-tjänstanslutning platssystemrollen, nästa steg är att importera samlingar från Configuration Manager i loggen Analytics som datorgrupper.
 
 När du har slutfört inledande konfiguration för att importera enhetssamlingar från hierarkin hämtas medlemskapsinformation samling var tredje timme om du vill behålla det aktuella medlemskapet. Du kan välja att inaktivera det när som helst.
 
@@ -103,7 +107,7 @@ När du har slutfört inledande konfiguration för att importera enhetssamlingar
    ![Datorgrupper - SCCM-fliken](./media/log-analytics-sccm/sccm-computer-groups01.png)
 
 ## <a name="view-data-from-configuration-manager"></a>Visa data från Configuration Manager
-När du har lagt till en OMS-anslutning till Configuration Manager och har installerat agenten på den dator som kör Configuration Manager service anslutning platssystemrollen, skickas data från agenten till Log Analytics. I Log Analytics, Configuration Manager-samlingar visas som [datorgrupper](log-analytics-computer-groups.md). Du kan visa grupper från den **Configuration Manager** sidan **Settings\Computer grupper**.
+När du har lagt till en Log Analytics-anslutning till Configuration Manager och har installerat agenten på den dator som kör Configuration Manager service anslutning platssystemrollen, skickas data från agenten till Log Analytics. I Log Analytics, Configuration Manager-samlingar visas som [datorgrupper](log-analytics-computer-groups.md). Du kan visa grupper från den **Configuration Manager** sidan **Settings\Computer grupper**.
 
 När samlingarna har importerats kan du se hur många datorer med samlingsmedlemskap har identifierats. Du kan också se antalet samlingar som har importerats.
 

@@ -8,12 +8,12 @@ ms.date: 09/18/2018
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: e3770fe29d6f1073a0ca6507fdf57059cbd3727e
-ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
+ms.openlocfilehash: f5906a93e92691cb6046fb04a9fd83f3484e17b8
+ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49067549"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49427407"
 ---
 # <a name="azure-policy-definition-structure"></a>Azure Policy-definitionsstruktur
 
@@ -200,7 +200,7 @@ Ett villkor utvärderas om en **fältet** uppfyller vissa villkor. Villkor som s
 När du använder den **som** och **notLike** villkor, kan du ange ett jokertecken `*` i värdet.
 Värdet får inte innehålla fler än ett jokertecken `*`.
 
-När du använder den **matchar** och **notMatch** villkor, ger `#` som representerar en siffra, `?` för en bokstav och ett annat tecken som motsvarar det faktiska tecknet. Exempel finns i [Tillåt flera namn mönster](../samples/allow-multiple-name-patterns.md).
+När du använder den **matchar** och **notMatch** villkor, ger `#` som representerar en siffra, `?` för en bokstav, `.` så att den matchar alla tecken och alla andra tecken till Ange det faktiska tecknet. Exempel finns i [Tillåt flera namn mönster](../samples/allow-multiple-name-patterns.md).
 
 ### <a name="fields"></a>Fält
 

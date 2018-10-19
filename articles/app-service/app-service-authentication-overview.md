@@ -14,12 +14,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 08/24/2018
 ms.author: mahender,cephalin
-ms.openlocfilehash: 46f8602583329a0516edb9af59e53754ca349555
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: 6aa7f8c3b9d21d9c55aee3ce49f2bc140769a855
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43336812"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49408072"
 ---
 # <a name="authentication-and-authorization-in-azure-app-service"></a>Autentisering och auktorisering i Azure App Service
 
@@ -63,9 +63,9 @@ App Service tillhandahåller en inbyggd token store, som är en lagringsplats i 
 - Publicera till den autentiserade användarens Facebook-tidslinje
 - läsa användarens företagsdata från Azure Active Directory Graph API eller även Microsoft Graph
 
-Id-token, åtkomsttoken och uppdateringstoken cachelagras för den autentiserade sessionen och de är endast kan nås av den associerade användaren.  
-
 Vanligtvis måste du skriva kod för att samla in, lagra och uppdatera dessa token i ditt program. Med token store, som du precis [hämta token](app-service-authentication-how-to.md#retrieve-tokens-in-app-code) när du behöver dem och [berätta för App Service för att uppdatera dem](app-service-authentication-how-to.md#refresh-access-tokens) när de blir ogiltig. 
+
+Id-token, åtkomsttoken och uppdateringstoken cachelagras för den autentiserade sessionen och de är endast kan nås av den associerade användaren.  
 
 Om du inte behöver arbeta med token i din app kan inaktivera du av tokenarkiv.
 
@@ -80,7 +80,7 @@ App Service använder [federerad identitet](https://en.wikipedia.org/wiki/Federa
 | Leverantör | Logga in slutpunkt |
 | - | - |
 | [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md) | `/.auth/login/aad` |
-| [Microsoft-konto](../active-directory/develop/active-directory-appmodel-v2-overview.md) | `/.auth/login/microsoftaccount` |
+| [Microsoft-konto](../active-directory/develop/v2-overview.md) | `/.auth/login/microsoftaccount` |
 | [Facebook](https://developers.facebook.com/docs/facebook-login) | `/.auth/login/facebook` |
 | [Google](https://developers.google.com/+/web/api/rest/oauth) | `/.auth/login/google` |
 | [Twitter](https://developer.twitter.com/en/docs/basics/authentication) | `/.auth/login/twitter` |

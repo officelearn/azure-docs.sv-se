@@ -10,12 +10,12 @@ ms.component: translator-text
 ms.topic: conceptual
 ms.date: 03/27/2018
 ms.author: v-jansko
-ms.openlocfilehash: eaf65bef28110d73378c213ae4781a409b86e1bd
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: 74fcfa0e1474d7d2a25d0bf9d0476fb1bb870334
+ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46128187"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49429515"
 ---
 # <a name="translator-text-api-v2-to-v3-migration"></a>Translator Text API V2 till V3-migrering
 
@@ -32,23 +32,23 @@ Slutet av det här dokumentet innehåller användbara länkar du vill veta mer.
 * Transkribera – en transliterate metod har lagts till API: et. Den här metoden konverterar ord och meningar i ett skript (t.ex. Arabiska) till ett annat skript (t.ex. Latinsk).
 * Språk – en ny metod som ”språk” levererar språkinformation, i JSON-format för användning med ”översätta', '-ordlista' och 'transkribera' metoder.
 * Ny i Översätt - nya funktioner har lagts till metoden ”översätta” att ha stöd för vissa funktioner som fanns i V2-API som separata metoder. Ett exempel är TranslateArray.
-* Tala metoden - Text till tal-funktioner stöds inte längre i Microsoft Translator-API. Text till tal-funktionen är tillgänglig i Azure Cognitive services API för Bing-taligenkänning.
+* Tala metoden - Text till tal-funktioner stöds inte längre i Microsoft Translator-API. Text till tal-funktionen är tillgänglig i [Microsoft Speech Service](https://docs.microsoft.com/azure/cognitive-services/speech-service/text-to-speech).
 
 Följande lista över V2 och V3 metoder identifierar V3-metoder och API: er som tillhandahåller de funktioner som medföljde V2.
 
 | V2 API-metoden   | V3 API-kompatibilitet |
 |:----------- |:-------------|
-| Översätt     | Översätt          |
-| TranslateArray      | Översätt          |
-| GetLanguageNames      | Språk          |
-| GetLanguagesForTranslate     | Språk        |
-| GetLanguagesForSpeak      | Cognitive Services API för taligenkänning         |
-| Tala     | Cognitive Services API för taligenkänning          |
-| Upptäcka     | Upptäcka         |
-| DetectArray     | Upptäcka         |
-| AddTranslation     | Microsoft Translator HUB API         |
-| AddTranslationArray    | Microsoft Translator HUB API          |
-| BreakSentences      | BreakSentence         |
+| Översätt     | [Översätt](reference/v3-0-translate.md)          |
+| TranslateArray      | [Översätt](reference/v3-0-translate.md)        |
+| GetLanguageNames      | [Språk](reference/v3-0-languages.md)         |
+| GetLanguagesForTranslate     | [Språk](reference/v3-0-languages.md)       |
+| GetLanguagesForSpeak      | [Microsoft Speech-tjänsten](https://docs.microsoft.com/azure/cognitive-services/speech-service/language-support#text-to-speech)         |
+| Tala     | [Microsoft Speech-tjänsten](https://docs.microsoft.com/azure/cognitive-services/speech-service/text-to-speech)          |
+| Upptäcka     | [Identifiera](reference/v3-0-detect.md)         |
+| DetectArray     | [Identifiera](reference/v3-0-detect.md)         |
+| AddTranslation     | [Microsoft Translator Hub API](https://hub.microsofttranslator.com/Help/Download/Microsoft%20Translator%20Hub%20API%20Guide.pdf)         |
+| AddTranslationArray    | [Microsoft Translator Hub API](https://hub.microsofttranslator.com/Help/Download/Microsoft%20Translator%20Hub%20API%20Guide.pdf)          |
+| BreakSentences      | [BreakSentence](reference/v3-0-break-sentence.md)       |
 | GetTranslations      | Funktionen stöds inte längre         |
 | GetTranslationsArray      | Funktionen stöds inte längre         |
 

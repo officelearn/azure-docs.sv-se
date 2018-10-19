@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 01/19/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 43faf1b29f602d2930a2b5764dd83ea4ce1fc9ac
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: 4f9882ce94827e490b676fdf421095eae40420d5
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48043657"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49407732"
 ---
 # <a name="optimize-your-sql-environment-with-the-sql-server-health-check-solution-in-log-analytics"></a>Optimera din SQL-miljö med lösningen för hälsokontroll för SQL Server i Log Analytics
 
@@ -86,7 +86,7 @@ Använd följande information för att ställa in Operations Manager kör som-ko
 >
 
 1. Öppna driftkonsolen i Operations Manager, och klicka sedan på **Administration**.
-2. Under **kör som-konfiguration**, klickar du på **profiler**, och öppna **OMS SQL utvärdering av kör som-profil**.
+2. Under **kör som-konfiguration**, klickar du på **profiler**, och öppna **SQL utvärdering av kör som-profil**.
 3. På den **kör som-konton** klickar du på **Lägg till**.
 4. Välj en Windows kör som-konto som innehåller de autentiseringsuppgifter som krävs för SQL Server, eller klicka på **New** att skapa en.
 
@@ -123,7 +123,7 @@ Använd följande information för att ställa in Operations Manager kör som-ko
     import-module OperationsManager
     New-SCOMManagementGroupConnection "<your management group name>"
 
-    $profile = Get-SCOMRunAsProfile -DisplayName "OMS SQL Assessment Run As Profile"
+    $profile = Get-SCOMRunAsProfile -DisplayName "SQL Assessment Run As Profile"
     $account = Get-SCOMrunAsAccount | Where-Object {$_.Name -eq "<your run as account name>"}
     Set-SCOMRunAsProfile -Action "Add" -Profile $Profile -Account $Account
 ```

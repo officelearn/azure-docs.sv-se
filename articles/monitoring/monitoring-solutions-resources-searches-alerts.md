@@ -14,12 +14,12 @@ ms.workload: infrastructure-services
 ms.date: 06/18/2018
 ms.author: bwren, vinagara
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8f5dba7ba1c21e33f23cf8917c93e478eadf5f88
-ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
+ms.openlocfilehash: 06c01a7c87c43931a27c03b2014995be6c2678eb
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48269538"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49409075"
 ---
 # <a name="adding-log-analytics-saved-searches-and-alerts-to-management-solution-preview"></a>Lägga till Log Analytics sparade sökningar och aviseringar till lösning för hantering (förhandsversion)
 
@@ -54,7 +54,7 @@ I följande tabell visas den API-versionen för resursen i det här exemplet.
 
 
 ## <a name="saved-searches"></a>Sparade sökningar
-Inkludera [sparade sökningar](../log-analytics/log-analytics-log-searches.md) i en lösning för att tillåta användare att köra frågor mot data som samlas in av din lösning.  Sparade sökningar visas under **Favoriter** i OMS-portalen och **sparade sökningar** i Azure-portalen.  En sparad sökning krävs också för varje avisering.   
+Inkludera [sparade sökningar](../log-analytics/log-analytics-log-searches.md) i en lösning för att tillåta användare att köra frågor mot data som samlas in av din lösning.  Sparade sökningar visas under **sparade sökningar** i Azure-portalen.  En sparad sökning krävs också för varje avisering.   
 
 [Sparade log Analytics-sökningen](../log-analytics/log-analytics-log-searches.md) resurser har en typ av `Microsoft.OperationalInsights/workspaces/savedSearches` och har följande struktur.  Detta inkluderar vanliga variabler och parametrar så att du kan kopiera och klistra in det här kodfragmentet i dina lösningsfilen och ändra parameternamnen. 
 
@@ -90,7 +90,7 @@ I följande tabell beskrivs varje egenskap för en sparad sökning.
 [Azure loggaviseringar](../monitoring-and-diagnostics/monitor-alerts-unified-log.md) skapas av Azure Varningsregler som kör angivna loggfrågor med jämna mellanrum.  Om resultatet av frågan matchar angivna villkor, skapas en aviseringspost och en eller flera åtgärder körs med hjälp av [åtgärdsgrupper](../monitoring-and-diagnostics/monitoring-action-groups.md).  
 
 > [!NOTE]
-> Från och den 14 maj 2018 börjar alla aviseringar i en offentliga Azure-molninstans av Log Analytics-arbetsyta automatiskt kopieras till Azure. En användare kan frivilligt initiera utökade aviseringar till Azure innan den 14 maj 2018. Mer information finns i [utöka aviseringar från OMS i Azure](../monitoring-and-diagnostics/monitoring-alerts-extend.md). För användare som utökar aviseringar till Azure, styrs nu åtgärder i Azure åtgärdsgrupper. När en arbetsyta och dess aviseringar har utökats till Azure, hämta eller lägga till åtgärder med hjälp av den [åtgärdsgrupp – Azure Resource Manager-mall](../monitoring-and-diagnostics/monitoring-create-action-group-with-resource-manager-template.md).
+> Från och den 14 maj 2018 började alla aviseringar i en offentliga Azure-molninstans av Log Analytics-arbetsyta kopieras till Azure. Mer information finns i [utöka aviseringarna till Azure](../monitoring-and-diagnostics/monitoring-alerts-extend.md). För användare som utökar aviseringar till Azure, styrs nu åtgärder i Azure åtgärdsgrupper. När en arbetsyta och dess aviseringar har utökats till Azure, hämta eller lägga till åtgärder med hjälp av den [åtgärdsgrupp – Azure Resource Manager-mall](../monitoring-and-diagnostics/monitoring-create-action-group-with-resource-manager-template.md).
 
 Aviseringsregler i en hanteringslösning består av följande tre olika resurser.
 
@@ -146,7 +146,7 @@ Ett schema kan ha flera åtgärder. En åtgärd kan definiera en eller flera pro
 Åtgärder kan definieras med hjälp av [åtgärdsgrupp] eller åtgärd resurs.
 
 > [!NOTE]
-> Från och den 14 maj 2018 börjar alla aviseringar i en offentliga Azure-molninstans av Log Analytics-arbetsyta automatiskt kopieras till Azure. En användare kan frivilligt initiera utökade aviseringar till Azure innan den 14 maj 2018. Mer information finns i [utöka aviseringar från OMS i Azure](../monitoring-and-diagnostics/monitoring-alerts-extend.md). För användare som utökar aviseringar till Azure, styrs nu åtgärder i Azure åtgärdsgrupper. När en arbetsyta och dess aviseringar har utökats till Azure, hämta eller lägga till åtgärder med hjälp av den [åtgärdsgrupp – Azure Resource Manager-mall](../monitoring-and-diagnostics/monitoring-create-action-group-with-resource-manager-template.md).
+> Från och den 14 maj 2018 alla aviseringar i en offentliga Azure-molninstans av Log Analytics-arbetsyta som började automatiskt ska utöka till Azure. Mer information finns i [utöka aviseringarna till Azure](../monitoring-and-diagnostics/monitoring-alerts-extend.md). För användare som utökar aviseringar till Azure, styrs nu åtgärder i Azure åtgärdsgrupper. När en arbetsyta och dess aviseringar har utökats till Azure, hämta eller lägga till åtgärder med hjälp av den [åtgärdsgrupp – Azure Resource Manager-mall](../monitoring-and-diagnostics/monitoring-create-action-group-with-resource-manager-template.md).
 
 
 Det finns två typer av åtgärden resursen som anges av den **typ** egenskapen.  Ett schema som kräver en **avisering** åtgärd, som definierar varningsregeln och vilka åtgärder vidtas när en avisering skapas. Åtgärden resurser har en typ av `Microsoft.OperationalInsights/workspaces/savedSearches/schedules/actions`.  
@@ -242,7 +242,7 @@ För användare som har utökat sin aviseringar i Azure – bör ett schema nu h
 Varje schema har en **avisering** åtgärd.  Detta definierar information om aviseringen och eventuellt meddelande- och reparationsloggarna åtgärder.  Ett meddelande skickas ett e-postmeddelande till en eller flera adresser.  En reparation startar en runbook i Azure Automation att försöka åtgärda ett identifierat problem.
 
 > [!NOTE]
-> Från och den 14 maj 2018 börjar alla aviseringar i en offentliga Azure-molninstans av Log Analytics-arbetsyta automatiskt kopieras till Azure. En användare kan frivilligt initiera utökade aviseringar till Azure innan den 14 maj 2018. Mer information finns i [utöka aviseringar från OMS i Azure](../monitoring-and-diagnostics/monitoring-alerts-extend.md). För användare som utökar aviseringar till Azure, styrs nu åtgärder i Azure åtgärdsgrupper. När en arbetsyta och dess aviseringar har utökats till Azure, hämta eller lägga till åtgärder med hjälp av den [åtgärdsgrupp – Azure Resource Manager-mall](../monitoring-and-diagnostics/monitoring-create-action-group-with-resource-manager-template.md).
+> Från och den 14 maj 2018 alla aviseringar i en offentliga Azure-molninstans av Log Analytics-arbetsyta som började automatiskt ska utöka till Azure. Mer information finns i [utöka aviseringarna till Azure](../monitoring-and-diagnostics/monitoring-alerts-extend.md). För användare som utökar aviseringar till Azure, styrs nu åtgärder i Azure åtgärdsgrupper. När en arbetsyta och dess aviseringar har utökats till Azure, hämta eller lägga till åtgärder med hjälp av den [åtgärdsgrupp – Azure Resource Manager-mall](../monitoring-and-diagnostics/monitoring-create-action-group-with-resource-manager-template.md).
 
 ##### <a name="emailnotification"></a>EmailNotification
  Det här avsnittet är valfritt inkluderar den om du vill att aviseringen för att skicka e-post till en eller flera mottagare.

@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 07/03/2018
+ms.date: 10/18/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: a629c598c94e44713f8990871c46272dc48b1359
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 6280544a42d0d5012b01446ec8c3bc386ef861dd
+ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46296285"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49428427"
 ---
 # <a name="authentication-and-user-permissions"></a>Autentisering och användarbehörigheter
 Azure Analysis Services använder Azure Active Directory (Azure AD) för identity management- och användarautentisering. Alla användare skapa, hantera eller ansluta till en Azure Analysis Services server måste ha en giltig användaridentitet i en [Azure AD-klient](../active-directory/fundamentals/active-directory-administer.md) i samma prenumeration.
@@ -27,7 +27,7 @@ Alla program och verktyg använder en eller flera av Analysis Services [klientbi
 
 Samtliga tre klientbibliotek stöder både Azure AD interaktiva flödet och icke-interaktiv autentiseringsmetoder. Två metoder för icke-interaktivt, Active Directory-lösenord och Active Directory-integrerad autentisering metoder kan användas i program som använder AMOMD och MSOLAP. Dessa två metoder innebär aldrig popup-dialogrutor.
 
-Klientprogram som Excel och Power BI Desktop och verktyg som SSMS och SSDT installera de senaste versionerna av bibliotek när har uppdaterats till den senaste versionen. Power BI Desktop, SSMS och SSDT uppdateras varje månad. Excel är [uppdateras med Office 365](https://support.office.com/en-us/article/When-do-I-get-the-newest-features-in-Office-2016-for-Office-365-da36192c-58b9-4bc9-8d51-bb6eed468516). Office 365-uppdateringar är uppstår mer sällan, och vissa organisationer använder den uppskjutna kanalen, vilket innebär ska skjutas upp upp till tre månader.
+Klientprogram som Excel och Power BI Desktop och verktyg som SSMS och SSDT installera de senaste versionerna av bibliotek när har uppdaterats till den senaste versionen. Power BI Desktop, SSMS och SSDT uppdateras varje månad. Excel är [uppdateras med Office 365](https://support.office.com/article/When-do-I-get-the-newest-features-in-Office-2016-for-Office-365-da36192c-58b9-4bc9-8d51-bb6eed468516). Office 365-uppdateringar är uppstår mer sällan, och vissa organisationer använder den uppskjutna kanalen, vilket innebär ska skjutas upp upp till tre månader.
 
 Beroende på klientprogram eller verktyg som du använder, skilja vilken typ av autentisering och hur du loggar in sig. Varje program stöder olika funktioner för att ansluta till molntjänster som Azure Analysis Services.
 

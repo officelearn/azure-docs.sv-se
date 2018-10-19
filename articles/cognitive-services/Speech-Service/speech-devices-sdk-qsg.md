@@ -9,12 +9,12 @@ ms.component: speech
 ms.topic: article
 ms.date: 05/18/2018
 ms.author: erhopf
-ms.openlocfilehash: 300e2d593dfe00b2d7348c7eaf15b0f26ec7e0dd
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: 0d788223ddc0f79199d19b700956fd87b46dd95b
+ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49389895"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49429090"
 ---
 # <a name="get-started-with-the-speech-devices-sdk"></a>Kom igång med SDK för tal-enheter
 
@@ -144,11 +144,10 @@ Om du vill köra testerna ROOBO och verifiera din development kit-konfiguration,
         exit
         ```
 
-    * Kopiera filer kws.table, kws_g.fst, kws_k.fst och words_kw.txt till enhetens \data\keyword mapp. Kör följande kommandon i Kommandotolken. Om du har skapat en [anpassade wake word](speech-devices-sdk-create-kws.md), kws.table-filen som genereras från webben finns i samma katalog som kws.table, kws_g.fst, kws_k.fst och words_kw.txt filerna. Ett ord på anpassad aktivering, Använd den `adb push C:\SDSDK\Android-Sample-Release\keyword\[wake_word_name]\kws.table /data/keyword` kommandot för att skicka filen kws.table till dev-paket:
+    * Kopiera filer kws.table, kws_k.fst och words_kw.txt till enhetens \data\keyword mapp. Kör följande kommandon i Kommandotolken. Om du har skapat en [anpassade wake word](speech-devices-sdk-create-kws.md), kws.table-filen som genereras från webben finns i samma katalog som kws.table, kws_k.fst och words_kw.txt-filer. Ett ord på anpassad aktivering, Använd den `adb push C:\SDSDK\Android-Sample-Release\keyword\[wake_word_name]\kws.table /data/keyword` kommandot för att skicka filen kws.table till dev-paket:
 
         ```
         adb push C:\SDSDK\Android-Sample-Release\keyword\kws.table /data/keyword
-        adb push C:\SDSDK\Android-Sample-Release\keyword\Computer\kws_g.fst /data/keyword
         adb push C:\SDSDK\Android-Sample-Release\keyword\Computer\kws_k.fst /data/keyword
         adb push C:\SDSDK\Android-Sample-Release\keyword\Computer\words_kw.txt /data/keyword
         ```

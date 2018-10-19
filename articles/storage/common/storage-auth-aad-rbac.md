@@ -5,21 +5,23 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 09/07/2018
+ms.date: 10/15/2018
 ms.author: tamram
 ms.component: common
-ms.openlocfilehash: c26eee05a59a10036138f81086b3f6a9e0de6d5d
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: 5da34e8e79c0df88cfad0b398aa8e1c22f158489
+ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45737302"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49428887"
 ---
-# <a name="manage-access-rights-to-azure-storage-data-with-rbac-preview"></a>Hantera åtkomsträttigheter till Azure Storage-data med RBAC (förhandsversion)
+# <a name="manage-access-rights-to-azure-blob-and-queue-data-with-rbac-preview"></a>Hantera åtkomstbehörigheter till Azure Blob- och ködata med RBAC (förhandsversion)
 
 Azure Active Directory (Azure AD) auktoriserar åtkomsträttigheter till skyddade resurser via [rollbaserad åtkomstkontroll (RBAC)](https://docs.microsoft.com/azure/role-based-access-control/overview). Azure Storage definierar en uppsättning inbyggda RBAC-roller som omfattar vanliga uppsättningar av behörigheter som används för åtkomst till behållare eller köer. När en RBAC-roll tilldelas till en Azure AD-identitet identitet beviljas åtkomst till dessa resurser, enligt det angivna omfånget. Åtkomst kan begränsas till nivån för prenumerationen, resursgruppen, storage-konto eller en enskild behållare eller en kö. Du kan tilldela åtkomsträttigheter för Azure Storage-resurser med Azure-portalen, Azure kommandoradsverktyg och Azure Management API: er. 
 
 En Azure AD-identitet kan vara en användare, grupp eller program tjänstens huvudnamn eller det kan vara en hanterad identitet för Azure-resurser. Ett säkerhetsobjekt kan vara en användare, grupp eller program tjänstens huvudnamn. En [hanterad identitet för Azure-resurser](../../active-directory/managed-identities-azure-resources/overview.md) är ett automatiskt hanterad identitet som används för att autentisera från program som körs i Azure-datorer, funktionsappar, skalningsuppsättningar för virtuella datorer och andra. En översikt av identitet i Azure AD finns i [förstå Azure-identitetslösningar](https://docs.microsoft.com/azure/active-directory/understand-azure-identity-solutions).
+
+[!INCLUDE [storage-auth-aad-note-include](../../../includes/storage-auth-aad-note-include.md)]
 
 ## <a name="rbac-roles-for-blobs-and-queues"></a>RBAC-roller för blobbar och köer
 

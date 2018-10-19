@@ -9,12 +9,12 @@ ms.workload: core
 ms.topic: article
 ms.date: 09/18/2018
 ms.author: shvija
-ms.openlocfilehash: 27052759ccc4664ea95ea19cb52bebeec6fec5ae
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: 6d5b52c8a5dd0306a349cac5e67eecc809005c6f
+ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48803366"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49429192"
 ---
 # <a name="receive-events-from-azure-event-hubs-using-nodejs"></a>Ta emot händelser från Azure Event Hubs med hjälp av Node.js
 
@@ -57,7 +57,7 @@ SDK: N som du har klonat innehåller flera exempel som visar dig hur du tar emot
 
 1. Öppna projektet i Visual Studio Code. 
 2. Skapa en fil med namnet **.env** under den **processor** mapp. Kopiera och klistra in exemplet miljövariabler från den **sample.env** i rotmappen.
-3. Konfigurera händelsehubbens anslutningssträng, händelsehubbens namn och slutpunkt för lagring. Du kan kopiera anslutningssträngen för din händelsehubb från **anslutning anslutningssträng-primär** viktiga under **RootManageSharedAccessKey** på sidan Händelsehubb i Azure-portalen. Detaljerade anvisningar finns i [hämta anslutningssträngen](event-hubs-quickstart-portal.md#create-an-event-hubs-namespace).
+3. Konfigurera händelsehubbens anslutningssträng, händelsehubbens namn och slutpunkt för lagring. Du kan kopiera anslutningssträngen för din händelsehubb från **anslutning anslutningssträng-primär** viktiga under **RootManageSharedAccessKey** på sidan Händelsehubb i Azure-portalen. Detaljerade anvisningar finns i [hämta anslutningssträngen](event-hubs-create.md#create-an-event-hubs-namespace).
 4. På din Azure-CLI, navigerar du till den **processor** mappsökväg. Installera paket i noden och skapa projektet genom att köra följande kommandon:
 
     ```nodejs

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/12/2018
 ms.author: vinynigam
-ms.openlocfilehash: 008eac235cd6b75c4c1d95b64e91923dad5a5106
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: 2821f3fa07d8d9ada02da212084639c93e469d0b
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49355577"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49408888"
 ---
 # <a name="network-performance-monitor-solution-faq"></a>Vanliga frågor och svar Network Performance Monitor-lösningen
 
@@ -61,7 +61,7 @@ Du kan visa mer information om de relativa fördelarna med varje protokoll [här
 ### <a name="how-can-i-configure-a-node-to-support-monitoring-using-tcp-protocol"></a>Hur kan jag konfigurera en nod för övervakning med hjälp av TCP-protokollet?
 För att noden har stöd för övervakning med TCP-protokoll: 
 * Kontrollera att noden plattformen är Windows Server (2008 SP1 eller senare).
-* Kör [EnableRules.ps1](https://aka.ms/npmpowershellscript) Powershell-skript på noden. Se [instruktioner](log-analytics-network-performance-monitor.md#configure-operations-management-suite-agents-for-monitoring) för mer information.
+* Kör [EnableRules.ps1](https://aka.ms/npmpowershellscript) Powershell-skript på noden. Se [instruktioner](log-analytics-network-performance-monitor.md#configure-log-analytics-agents-for-monitoring) för mer information.
 
 
 ### <a name="how-can-i-change-the-tcp-port-being-used-by-npm-for-monitoring"></a>Hur kan jag ändra TCP-port som används av NPM för att övervaka?

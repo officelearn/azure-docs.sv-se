@@ -1,6 +1,6 @@
 ---
 title: Samla in Log Analytics-data med en runbook i Azure Automation | Microsoft Docs
-description: Stegvis självstudie som visar hur du skapar en runbook i Azure Automation för att samla in data till OMS-databasen för analys av Log Analytics.
+description: Stegvis självstudie som visar hur du skapar en runbook i Azure Automation för att samla in data till databasen för analys av Log Analytics.
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/27/2017
 ms.author: bwren
-ms.openlocfilehash: d3e8e876a6c01123d65c1e8df13328bdd5fad71f
-ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
+ms.openlocfilehash: f1a106a4f99c09134b8784e98ca547db51ce0eae
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37347161"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49409517"
 ---
 # <a name="collect-data-in-log-analytics-with-an-azure-automation-runbook"></a>Samla in data i Log Analytics med en Azure Automation-runbook
 Du kan samla in en betydande mängd data i Log Analytics från olika källor, inklusive [datakällor](../log-analytics/log-analytics-data-sources.md) på agenter och även [data som samlas in från Azure](../log-analytics/log-analytics-azure-storage.md).  Det finns en scenarier om när du behöver samla in data som inte är tillgängliga via dessa källor som standard.  I dessa fall kan du använda den [HTTP Data Collector API](../log-analytics/log-analytics-data-collector-api.md) att skriva data till Log Analytics från en REST API-klient.  En vanlig metod att utföra den här Datasamlingen med hjälp av en runbook i Azure Automation.   
@@ -56,7 +56,7 @@ PowerShell-galleriet ger dig dock ett snabbt alternativ att distribuera en modul
 
 
 ## <a name="2-create-automation-variables"></a>2. Skapa Automation-variabler
-[Automationsvariabler](..\automation\automation-variables.md) innehålla värden som kan användas av alla runbooks i ditt Automation-konto.  De gör runbooks mer flexibel genom att du kan ändra dessa värden utan att redigera den faktiska runbooken. Varje begäran från HTTP Data Collector API kräver ID och nyckel för OMS-arbetsytan och variabler för tillgångar är perfekt för att lagra den här informationen.  
+[Automationsvariabler](..\automation\automation-variables.md) innehålla värden som kan användas av alla runbooks i ditt Automation-konto.  De gör runbooks mer flexibel genom att du kan ändra dessa värden utan att redigera den faktiska runbooken. Varje begäran från HTTP Data Collector API kräver ID och nyckel för Log Analytics-arbetsytan och variabler för tillgångar är perfekt för att lagra den här informationen.  
 
 ![Variabler](media/monitoring-runbook-datacollect/variables.png)
 

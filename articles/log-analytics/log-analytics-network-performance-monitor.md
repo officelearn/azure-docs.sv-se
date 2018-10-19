@@ -15,21 +15,21 @@ ms.topic: conceptual
 ms.date: 02/20/2018
 ms.author: abshamsft
 ms.component: ''
-ms.openlocfilehash: 634958265193a1dedb7c860c34f712160e4120d2
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: bf10226b1d3b2153e0e17d4126c35402d096a857
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49353299"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49409245"
 ---
 # <a name="network-performance-monitor-solution-in-azure"></a>Network Performance Monitor-lösning i Azure
 
 ![Network Performance Monitor symbol](./media/log-analytics-network-performance-monitor/npm-symbol.png)
 
 
-Network Performance Monitor är en molnbaserad hybridnätverk övervakningslösning som hjälper dig att övervaka nätverkets prestanda mellan olika platser i din nätverksinfrastruktur. Du kan också övervaka nätverksanslutningar till tjänsten och slutpunkterna och övervaka prestanda för Azure ExpressRoute. 
+Network Performance Monitor är en molnbaserad hybridnätverk övervakningslösning som hjälper dig att övervaka nätverkets prestanda mellan olika platser i din nätverksinfrastruktur. Du kan också övervaka nätverksanslutningar till tjänsten och programslutpunkterna samt övervaka prestanda för Azure ExpressRoute. 
 
-Övervakare av nätverksprestanda identifierar nätverksproblem som trafik blackholing, routning fel och problem som konventionella nätverk övervakning metoder som inte kan identifiera. Lösningen genererar aviseringar och meddelar dig när en tröskelvärdet överskrids för en nätverkslänk. Det säkerställer rätt tid identifiering av problem med nätverksprestanda och localizes orsaken till problemet till en viss nätverkssegment eller enhet. 
+Övervakare av nätverksprestanda identifierar nätverksproblem som trafik blackholing, routning fel och problem som konventionella nätverk övervakning metoder som inte kan identifiera. Lösningen genererar aviseringar och meddelar dig när ett tröskelvärde överskrids för en nätverkslänk. Detta säkerställer att problem med nätverksprestanda upptäcks i god tid och att källan till problemet kan ringas in till ett visst nätverkssegment eller enhet. 
 
 Övervakare av nätverksprestanda innehåller tre breda funktioner: 
 
@@ -65,17 +65,17 @@ Använd basic-processer för att installera agenter på [ansluta Windows-datorer
 
 ### <a name="where-to-install-the-agents"></a>Var du vill installera agenter 
 
-* **Övervakare av nätverksprestanda**: Installera Operations Management Suite-agenterna på minst en nod kopplad till varje undernätverk som du vill övervaka nätverksanslutningar till andra undernätverk.
+* **Övervakare av nätverksprestanda**: Installera Log Analytics-agenter på minst en nod kopplad till varje undernätverk som du vill övervaka nätverksanslutningar till andra undernätverk.
 
     För att övervaka en nätverkslänk, installera agenter på båda slutpunkterna för länken. Om du är osäker på om topologin för ditt nätverk, kan du installera agenter på servrar med kritiska arbetsbelastningar som du vill övervaka nätverkets prestanda. Till exempel om du vill övervaka nätverksanslutningen mellan en webbserver och en server som kör SQL, installera en agent på båda servrarna. Agenter övervakar nätverksanslutningen (länkar) mellan värdar, inte själva värdarna. 
 
-* **Tjänsten Anslutningsövervakare**: Installera en Operations Management Suite-agenten på varje nod som du vill övervaka nätverksanslutningar till tjänsteslutpunkt. Ett exempel är om du vill övervaka nätverksanslutningar till Office 365 från office platserna O1, O2 och O3. Installera Operations Management Suite-agenten på minst en nod i O1 och O2 O3. 
+* **Tjänsten Anslutningsövervakare**: Installera en Log Analytics-agenten på varje nod som du vill övervaka nätverksanslutningar till tjänsteslutpunkt. Ett exempel är om du vill övervaka nätverksanslutningar till Office 365 från office platserna O1, O2 och O3. Installera Log Analytics-agenten på minst en nod i O1 och O2 O3. 
 
-* **ExpressRoute-övervakning**: installera minst en Operations Management Suite-agenten i Azure-nätverk. Även installera minst en agent i din lokala undernätverket som är anslutna via ExpressRoute privat peering.  
+* **ExpressRoute-övervakning**: installera minst en Log Analytics-agenten i Azure-nätverk. Även installera minst en agent i din lokala undernätverket som är anslutna via ExpressRoute privat peering.  
 
-### <a name="configure-operations-management-suite-agents-for-monitoring"></a>Konfigurera Operations Management Suite-agenter för övervakning 
+### <a name="configure-log-analytics-agents-for-monitoring"></a>Konfigurera Log Analytics-agenter för övervakning 
 
-Övervakare av nätverksprestanda använder syntetiska transaktioner för att övervaka nätverksprestanda mellan käll- och agenter. Du kan välja mellan TCP och ICMP som protokoll för övervakning i Prestandaövervakaren och tjänsten Anslutningsövervakare. Endast TCP är tillgängligt som övervakning protokoll för ExpressRoute-övervakning. Kontrollera att brandväggen tillåter kommunikation mellan Operations Management Suite-agenter som används för övervakning på det protokoll som du väljer. 
+Övervakare av nätverksprestanda använder syntetiska transaktioner för att övervaka nätverksprestanda mellan käll- och agenter. Du kan välja mellan TCP och ICMP som protokoll för övervakning i Prestandaövervakaren och tjänsten Anslutningsövervakare. Endast TCP är tillgängligt som övervakning protokoll för ExpressRoute-övervakning. Kontrollera att brandväggen tillåter kommunikation mellan Log Analytics-agenter som används för övervakning på det protokoll som du väljer. 
 
 * **TCP-protokollet**: Om du väljer TCP som protokoll för övervakning, öppna brandväggsporten för agenterna som används för övervakning av nätverksprestanda och ExpressRoute-övervakning för att kontrollera att agenterna kan ansluta till varandra. Öppna porten genom att köra den [EnableRules.ps1](https://aka.ms/npmpowershellscript) PowerShell-skript utan några parametrar i ett PowerShell-fönster med administratörsbehörighet.
 
@@ -109,7 +109,7 @@ Använd basic-processer för att installera agenter på [ansluta Windows-datorer
 
    ![Övervakare av nätverksprestanda nätverksikon](media/log-analytics-network-performance-monitor/npm-config.png)
 
-4. På den **installationsprogrammet** du se att alternativet att installera Operations Management Suite-agenter och konfigurera agenter för övervakning i den **gemensamma inställningar för** vy. Som tidigare förklarats om du har installerat och konfigurerat Operations Management Suite-agenter, väljer den **installationsprogrammet** vy för att konfigurera funktionen du vill använda. 
+4. På den **installationsprogrammet** kan du se alternativet att installera Log Analytics-agenter och konfigurera agenter för övervakning i den **gemensamma inställningar för** vy. Som tidigare förklarats om du har installerat och konfigurerat Log Analytics-agenter, väljer den **installationsprogrammet** vy för att konfigurera funktionen du vill använda. 
 
    **Övervakare av nätverksprestanda**: Välj protokollet som ska användas för syntetiska transaktioner i den **standard** Prestandaövervakaren regel och välj **spara och fortsätt**. Den här protokollval innehåller endast för systemgenererade Standardregeln. Du måste välja protokollet som varje gång du skapar en regel för Prestandaövervakaren uttryckligen. Du alltid gå till den **standard** regel inställningar för den **Prestandaövervakaren** fliken (den visas när du har slutfört konfigurationen dag 0) och senare ändrar protokollet. Om du inte vill rPerfomance bildskärmar, kan du inaktivera Standardregeln från den **standard** regel inställningar för den **Prestandaövervakaren** fliken.
 
@@ -135,7 +135,7 @@ Använd basic-processer för att installera agenter på [ansluta Windows-datorer
     
 Övervakning för dessa peer-kopplingar är först i ett inaktiverat tillstånd. Välj varje peering som du vill övervaka och konfigurera övervakning för dem från Informationsvyn till höger. Välj **spara** att spara konfigurationen. Mer information finns i artikeln ”konfigurera ExpressRoute-övervakning”. 
 
-När installationen är klar tar 30 minuter till en timme innan informationen som ska visas. Medan lösningen sammanställer data från ditt nätverk, visas meddelandet *ytterligare konfiguration krävs för lösningen* på Network Performance Monitor **översikt** panelen. När data samlas in och indexeras, den **översikt** panelen ändras och informerar dig om din nätverkets tillstånd i en sammanfattning. Du kan sedan redigera övervakning av noderna på vilka Operations Management Suite-agenter är installerade, samt de undernät som identifieras från din miljö.
+När installationen är klar tar 30 minuter till en timme innan informationen som ska visas. Medan lösningen sammanställer data från ditt nätverk, visas meddelandet *ytterligare konfiguration krävs för lösningen* på Network Performance Monitor **översikt** panelen. När data samlas in och indexeras, den **översikt** panelen ändras och informerar dig om din nätverkets tillstånd i en sammanfattning. Du kan sedan redigera övervakning av noderna på vilka Log Analytics-agenter är installerade, samt de undernät som identifieras från din miljö.
 
 #### <a name="edit-monitoring-settings-for-subnets-and-nodes"></a>Redigera övervakningsinställningar för undernät och noder 
 
@@ -176,7 +176,7 @@ I följande tabell visas data samlingsmetoder och annan information om hur data 
  
 
  
-Lösningen använder syntetiska transaktioner för att utvärdera hälsotillståndet i nätverket. Operations Management Suite-agenter installerade vid olika tidpunkter i nätverkspaket exchange TCP eller ICMP Echo med varandra. Om agenterna använder TCP-paket eller ICMP Echo beror på det protokoll som du har valt för övervakning. I processen Läs agenter fram och åter tid och paket förlust, om sådana. Varje agent utför regelbundet, en spårningsrutt för att andra agenter att hitta alla olika vägar i nätverket som ska testas. Med dessa data kan härleda agenterna nätverksfördröjning och paket förlustsiffror. Testerna upprepas var femte sekund. Data sammanställs av agenter för cirka tre minuter innan det överförs till Log Analytics-tjänsten.
+Lösningen använder syntetiska transaktioner för att utvärdera hälsotillståndet i nätverket. Log Analytics-agenter installerade vid olika tidpunkter i nätverkspaket exchange TCP eller ICMP Echo med varandra. Om agenterna använder TCP-paket eller ICMP Echo beror på det protokoll som du har valt för övervakning. I processen Läs agenter fram och åter tid och paket förlust, om sådana. Varje agent utför regelbundet, en spårningsrutt för att andra agenter att hitta alla olika vägar i nätverket som ska testas. Med dessa data kan härleda agenterna nätverksfördröjning och paket förlustsiffror. Testerna upprepas var femte sekund. Data sammanställs av agenter för cirka tre minuter innan det överförs till Log Analytics-tjänsten.
 
 
 
@@ -259,7 +259,7 @@ Alla data som är exponerade grafiskt via instrumentpanelen för övervakning av
 
 Det innebär att alla meddelanden som hanteras med hjälp av [åtgärdsgrupper](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-action-groups#overview).  
 
-Om du är en NPM-användare som skapar en avisering via OMS: 
+Om du är en NPM-användare som skapar en avisering via Log Analytics: 
 1. Du ser en länk som kommer att omdirigera dig till Azure-portalen. Klicka på den för att få åtkomst till portalen.
 2. Klicka på panelen Övervakare av nätverksprestanda. 
 3. Gå till Konfigurera.  

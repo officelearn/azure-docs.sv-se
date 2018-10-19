@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/22/2017
 ms.author: cwatson
-ms.openlocfilehash: 623856f05eed44eca3752d56f047f9bb282bdc8e
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: 38cfd354f11ef3d888ad70e71549868d398495f5
+ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47392099"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49429651"
 ---
 # <a name="manage-access-to-billing-information-for-azure-using-role-based-access-control"></a>Hantera åtkomst till faktureringsinformation för Azure med hjälp av rollbaserad åtkomstkontroll
 
@@ -67,7 +67,7 @@ Rollen Billing Reader har skrivskyddad åtkomst till faktureringsinformation fö
     ![Skärmbild som visar vad Billing Reader kan se i Azure-portalen](./media/billing-manage-access/billing-reader-view.png)
 
 > [!NOTE]
-> Billing Reader-funktionen är en förhandsversion och stöder ännu inte företagsprenumerationer (EA) eller icke-globala moln.
+> Billing Reader-funktionen är en förhandsversion och har stöd inte för icke-globala moln. Enterprise-prenumerationer kan visa kostnaderna om enterprise-administratören har aktiverat visa debiteringar.
 
 ## <a name="adding-users-to-other-roles"></a>Lägga till användare i andra roller
 

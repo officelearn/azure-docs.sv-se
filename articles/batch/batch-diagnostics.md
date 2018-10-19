@@ -15,12 +15,12 @@ ms.workload: big-compute
 ms.date: 04/05/2018
 ms.author: danlep
 ms.custom: ''
-ms.openlocfilehash: 98bd088d4995bd1444b059531dc5b19d0283f551
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 0c045d82e47d2554c2767e6f52491c780618abc2
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46965542"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49409534"
 ---
 # <a name="batch-metrics-alerts-and-logs-for-diagnostic-evaluation-and-monitoring"></a>Batch-mått, aviseringar och loggar för diagnostisk utvärdering och övervakning
 
@@ -85,7 +85,7 @@ Andra valfritt mål för diagnostikloggar:
 
 * Stream Batch diagnostiklogg händelser till en [Azure Event Hub](../event-hubs/event-hubs-what-is-event-hubs.md). Event Hubs kan mata in miljontals händelser per sekund, vilket du kan omvandla och lagra med hjälp av valfri leverantör av realtidsanalys. 
 
-* Skicka diagnostikloggar till [Azure Log Analytics](../log-analytics/log-analytics-overview.md), där du kan analysera dem i Operations Management Suite (OMS)-portalen eller exportera dem för analys i Power BI eller Excel.
+* Skicka diagnostikloggar till [Azure Log Analytics](../log-analytics/log-analytics-overview.md), där du kan analysera dem eller exportera dem för analys i Power BI eller Excel.
 
 > [!NOTE]
 > Du kan medföra ytterligare kostnader för att lagra eller bearbeta diagnostiklogg data med Azure-tjänster. 

@@ -10,12 +10,12 @@ ms.component: core
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 1297881373943143578695490531d147d7f5523d
-ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
+ms.openlocfilehash: 798960f30ae13f42c0198cf4bf63412192edc63e
+ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49115330"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49429838"
 ---
 # <a name="train-models-with-automated-machine-learning-in-the-cloud"></a>Träna modeller med automatiserade maskininlärning i molnet
 
@@ -110,7 +110,7 @@ def get_data():
 
 ## <a name="configure-experiment"></a>Konfigurera experiment
 
-Ange inställningar för `AutoMLConfig`.  (Finns i en [fullständig lista över parametrar]() och deras möjliga värden.)
+Ange inställningar för `AutoMLConfig`.  (Finns i en [fullständig lista över parametrar](how-to-configure-auto-train.md#configure-experiment) och deras möjliga värden.)
 
 I inställningarna för `run_configuration` är inställd på den `run_config` objekt som innehåller de inställningar och konfiguration för DSVM.  
 
@@ -141,7 +141,7 @@ automl_config = AutoMLConfig(task='classification',
 
 ## <a name="submit-training-experiment"></a>Skicka träningsexperiment
 
-Nu skicka konfigurationen för att automatiskt välja algoritmen, hyper parametrar och träna modellen. (Läs [mer information om inställningar]() för den `submit` metoden.)
+Nu skicka konfigurationen för att automatiskt välja algoritmen, hyper parametrar och träna modellen.
 
 ```python
 from azureml.core.experiment import Experiment

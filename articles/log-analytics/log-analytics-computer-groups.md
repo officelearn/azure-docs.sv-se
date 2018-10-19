@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 05/03/2018
 ms.author: bwren
 ms.component: ''
-ms.openlocfilehash: 7e4889148a752b552f8bd65702ea5dda450ded31
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: 81eacf464c90d56c4ebeae1d1cefbd6f2f0fdab8
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48044305"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49408548"
 ---
 # <a name="computer-groups-in-log-analytics-log-searches"></a>Datorgrupper i Log Analytics loggsökningar
 
@@ -62,7 +62,7 @@ Använd följande procedur för att skapa en datorgrupp från en loggsökning i 
 
 
 ### <a name="active-directory"></a>Active Directory
-När du konfigurerar Log Analytics för att importera Active Directory-gruppmedlemskap, analyserar gruppmedlemskap för alla domänanslutna datorer med OMS-agenten.  En datorgrupp skapas i Log Analytics för varje säkerhetsgrupp i Active Directory och varje dator läggs till i de datorgrupper som motsvarar de säkerhetsgrupper som de är medlemmar i.  Det här medlemskapet uppdateras kontinuerligt var fjärde timme.  
+När du konfigurerar Log Analytics för att importera Active Directory-gruppmedlemskap, analyserar gruppmedlemskap för alla domänanslutna datorer med Log Analytics-agenten.  En datorgrupp skapas i Log Analytics för varje säkerhetsgrupp i Active Directory och varje dator läggs till i de datorgrupper som motsvarar de säkerhetsgrupper som de är medlemmar i.  Det här medlemskapet uppdateras kontinuerligt var fjärde timme.  
 
 Du konfigurerar Log Analytics för att importera Active Directory-säkerhetsgrupper från Log Analytics **avancerade inställningar** i Azure-portalen.  Välj **datorgrupper**, **Active Directory**, och sedan **importera Active Directory-gruppmedlemskap från datorer**.  Det krävs ingen ytterligare konfiguration.
 
@@ -71,7 +71,7 @@ Du konfigurerar Log Analytics för att importera Active Directory-säkerhetsgrup
 När grupper har importerats visas på menyn antalet datorer med gruppmedlemskap har identifierats och antalet grupper som importeras.  Du kan klicka på någon av dessa länkar för att returnera den **ComputerGroup** poster med den här informationen.
 
 ### <a name="windows-server-update-service"></a>Windows Server Update Service
-När du konfigurerar Log Analytics för att importera WSUS-gruppmedlemskap, analyserar målobjekt gruppmedlemskap för alla datorer med OMS-agenten.  Om du använder klientsidan har mål, alla datorer som är ansluten till Log Analytics och är en del av alla WSUS riktar in sig på grupper dess gruppmedlemskap som importerats till Log Analytics. Om du använder serversidan ska med använder OMS agenten installeras på WSUS-servern för information som ska importeras till Log Analytics gruppmedlemskap.  Det här medlemskapet uppdateras kontinuerligt var fjärde timme. 
+När du konfigurerar Log Analytics för att importera WSUS-gruppmedlemskap, analyserar målobjekt gruppmedlemskap för alla datorer med Log Analytics-agenten.  Om du använder klientsidan har mål, alla datorer som är ansluten till Log Analytics och är en del av alla WSUS riktar in sig på grupper dess gruppmedlemskap som importerats till Log Analytics. Om du använder serversidan ska med använder Log Analytics agenten installeras på WSUS-servern för information som ska importeras till Log Analytics gruppmedlemskap.  Det här medlemskapet uppdateras kontinuerligt var fjärde timme. 
 
 Du konfigurerar Log Analytics för att importera WSUS-grupper från Log Analytics **avancerade inställningar** i Azure-portalen.  Välj **datorgrupper**, **WSUS**, och sedan **importera WSUS-gruppmedlemskap**.  Det krävs ingen ytterligare konfiguration.
 

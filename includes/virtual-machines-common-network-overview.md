@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/11/2018
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: 61a64981d13c49a6245cc3cf494a78a777cf6d9c
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: d750ac7a5ac847a8c1eb5a9c91bb42804c2eebe0
+ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "40044614"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49437032"
 ---
 När du skapar en virtuell Azure-dator (VM) måste du skapa ett [virtuellt nätverk](../articles/virtual-network/virtual-networks-overview.md) (VNet) eller använda ett befintligt VNet. Du måste också bestämma hur dina virtuella datorer är avsedda att användas på VNet. Det är viktigt att [planera innan du skapar resurser](../articles/virtual-network/virtual-network-vnet-plan-design-arm.md) och att säkerställa att du förstår [begränsningarna för nätverksresurser](../articles/azure-subscription-service-limits.md#networking-limits).
 
@@ -68,7 +68,7 @@ Den här tabellen anger de metoder som du kan använda för att skapa en IP-adre
 
 | Metod | Beskrivning |
 | ------ | ----------- |
-| [Azure-portalen](../articles/virtual-network/virtual-network-deploy-static-pip-arm-portal.md) | Som standard är offentliga IP-adresser dynamiska och den adress som är associerad med dem kan ändras när den virtuella datorn har stoppats eller tagits bort. För att garantera att den virtuella datorn alltid använder samma offentliga IP-adress skapar du en statisk offentlig IP-adress. Som standard tilldelar portalen en dynamisk privat IP-adress till ett NIC när du skapar en virtuell dator. Du kan ändra den här IP-adress till statisk när den virtuella datorn har skapats.|
+| [Azure Portal](../articles/virtual-network/virtual-network-deploy-static-pip-arm-portal.md) | Som standard är offentliga IP-adresser dynamiska och den adress som är associerad med dem kan ändras när den virtuella datorn har stoppats eller tagits bort. För att garantera att den virtuella datorn alltid använder samma offentliga IP-adress skapar du en statisk offentlig IP-adress. Som standard tilldelar portalen en dynamisk privat IP-adress till ett NIC när du skapar en virtuell dator. Du kan ändra den här IP-adress till statisk när den virtuella datorn har skapats.|
 | [Azure PowerShell](../articles/virtual-network/virtual-network-deploy-static-pip-arm-ps.md) | Du använder [New-AzureRmPublicIpAddress](/powershell/module/azurerm.network/new-azurermpublicipaddress) med parametern **- AllocationMethod** som dynamisk eller statisk. |
 | [Azure CLI](../articles/virtual-network/virtual-network-deploy-static-pip-arm-cli.md) | Du använder [az network public-ip create](https://docs.microsoft.com/cli/azure/network/public-ip#create) med parametern **--allocation-method** som dynamisk eller statisk. |
 | [Mall](../articles/virtual-network/template-samples.md) | Använd [Nätverksgränssnitt i ett virtuellt nätverk med offentliga IP-adresser](https://github.com/Azure/azure-quickstart-templates/tree/master/101-nic-publicip-dns-vnet) som en vägledning för att distribuera en offentlig IP-adress med en mall. |
@@ -79,7 +79,7 @@ När du skapat en offentlig IP-adress kan du associera den med en virtuell dator
 
 Ett undernät är ett intervall med IP-adresser i VNet. Du kan dela upp ett VNet i flera undernät av organisations- och säkerhetsskäl. Varje NIC i en virtuell Dator är ansluten till ett undernät i ett VNet. NICs som är anslutna till undernät (samma eller olika) inom ett VNet, kan kommunicera med varandra utan övrig konfiguration.
 
-När du installerar ett VNet anger du topologin, inklusive tillgängliga adressutrymmen och undernät. Om VNet ska anslutas till andra VNets eller lokala nätverk måste du välja adressintervall som inte överlappar varandra. IP-adresser är privata och inte kan nås från Internet, vilket endast gäller för icke-dirigerbara IP-adresser som 10.0.0.0/8, 172.16.0.0/12 eller 192.168.0.0/16. Azure behandlar nu alla adressintervall som en del av det privata VNet:ets IP-adressutrymme som endast kan nås inom VNet, inom sammankopplade VNets och från din lokala plats. 
+När du installerar ett VNet anger du topologin, inklusive tillgängliga adressutrymmen och undernät. Om VNet ska anslutas till andra VNets eller lokala nätverk måste du välja adressintervall som inte överlappar varandra. IP-adresser är privata och inte kan nås från Internet, som endast gäller för icke-dirigerbara IP-adresser som 10.0.0.0/8, 172.16.0.0/12 eller 192.168.0.0/16. Azure behandlar nu alla adressintervall som en del av det privata VNet:ets IP-adressutrymme som endast kan nås inom VNet, inom sammankopplade VNets och från din lokala plats. 
 
 Om du arbetar inom en organisation där någon annan ansvarar för interna nätverk ska du tala med denna person innan du väljer ditt adressutrymme. Kontrollera att det inte finns någon överlappning och meddela vilket utrymme som du vill använda, så att ingen använder samma IP-adressintervall. 
 
@@ -89,7 +89,7 @@ Den här tabellen anger de metoder som du kan använda för att skapa ett VNet o
 
 | Metod | Beskrivning |
 | ------ | ----------- |
-| [Azure-portalen](../articles/virtual-network/quick-create-portal.md) | Om du låter Azure skapa ett VNet när du skapar en virtuell dator är namnet en kombination av resursgruppens namn som innehåller VNet och **-vnet**. Adressutrymmet är 10.0.0.0/24, det nödvändiga undernätets namn är **standard**, och adressintervallet för undernätet är 10.0.0.0/24. |
+| [Azure Portal](../articles/virtual-network/quick-create-portal.md) | Om du låter Azure skapa ett VNet när du skapar en virtuell dator är namnet en kombination av resursgruppens namn som innehåller VNet och **-vnet**. Adressutrymmet är 10.0.0.0/24, det nödvändiga undernätets namn är **standard**, och adressintervallet för undernätet är 10.0.0.0/24. |
 | [Azure PowerShell](../articles/virtual-network/quick-create-powershell.md) | Du använder [New-AzureRmVirtualNetworkSubnetConfig](https://docs.microsoft.com/powershell/module/azurerm.network/New-AzureRmVirtualNetworkSubnetConfig) och [New-AzureRmVirtualNetwork](https://docs.microsoft.com/powershell/module/azurerm.network/New-AzureRmVirtualNetwork) för att skapa ett undernät och ett VNet. Du kan också använda [Add-AzureRmVirtualNetworkSubnetConfig](/powershell/module/azurerm.network/add-azurermvirtualnetworksubnetconfig) för att lägga till ett undernät i ett befintligt VNet. |
 | [Azure CLI](../articles/virtual-network/quick-create-cli.md) | Undernät och VNet skapas på samma gång. Ange en **--subnet-name**-parameter till [az network vnet create](https://docs.microsoft.com/cli/azure/network/vnet#create) med namnet på undernätet. |
 | Mall | Det enklaste sättet att skapa ett virtuellt nätverk och undernät är att hämta en befintlig mall, till exempel [virtuellt nätverk med två undernät](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vnet-two-subnets), och modifiera den efter dina behov. |
@@ -110,26 +110,23 @@ Den här tabellen anger de metoder som du kan använda för att skapa en nätver
 
 | Metod | Beskrivning |
 | ------ | ----------- |
-| [Azure-portalen](../articles/virtual-network/tutorial-filter-network-traffic.md) | När du skapar en virtuell dator i Azure-portalen skapas en NSG automatiskt och kopplas till det NIC som portalen skapar. Namnet på denna NSG är en kombination av namnet på den virtuella datorn och **-nsg**. Denna NSG innehåller en inkommande regel med prioritet 1000, tjänst inställd på RDP, protokoll inställt på TCP, port inställd på 3389 och åtgärd inställd på Tillåt. Om du vill tillåta annan inkommande trafik till den virtuella datorn måste du lägga till ytterligare regler i NSG. |
+| [Azure Portal](../articles/virtual-network/tutorial-filter-network-traffic.md) | När du skapar en virtuell dator i Azure-portalen skapas en NSG automatiskt och kopplas till det NIC som portalen skapar. Namnet på denna NSG är en kombination av namnet på den virtuella datorn och **-nsg**. Denna NSG innehåller en inkommande regel med prioritet 1000, tjänst inställd på RDP, protokoll inställt på TCP, port inställd på 3389 och åtgärd inställd på Tillåt. Om du vill tillåta annan inkommande trafik till den virtuella datorn måste du lägga till ytterligare regler i NSG. |
 | [Azure PowerShell](../articles/virtual-network/tutorial-filter-network-traffic.md) | Använd [New-AzureRmNetworkSecurityRuleConfig](https://docs.microsoft.com/powershell/module/azurerm.network/New-AzureRmNetworkSecurityRuleConfig) och ange nödvändig regelinformation. Använd [New-AzureRmNetworkSecurityGroup](https://docs.microsoft.com/powershell/module/azurerm.network/New-AzureRmNetworkSecurityGroup) för att skapa NSG. Använd [Set-AzureRmVirtualNetworkSubnetConfig](https://docs.microsoft.com/powershell/module/azurerm.network/Set-AzureRmVirtualNetworkSubnetConfig) för att konfigurera NSG för undernätet. Använd [Set AzureRmVirtualNetwork](/powershell/module/azurerm.network/set-azurermvirtualnetwork) för att lägga till NSG till VNet. |
 | [Azure CLI](../articles/virtual-network/tutorial-filter-network-traffic-cli.md) | Använd [az network nsg create](https://docs.microsoft.com/cli/azure/network/nsg#create) för att först skapa NSG. Använd [az network nsg rule create](https://docs.microsoft.com/cli/azure/network/nsg/rule#create) för att lägga till regler i NSG. Använd [az network vnet subnet update](https://docs.microsoft.com/cli/azure/network/vnet/subnet#update) för att lägga till NSG i undernätet. |
 | [Mall](../articles/virtual-network/template-samples.md) | Använd [Skapa en nätverkssäkerhetsgrupp ](https://github.com/Azure/azure-quickstart-templates/tree/master/101-security-group-create) som en vägledning för att distribuera en säkerhetsgrupp i nätverket med hjälp av en mall. |
 
 ## <a name="load-balancers"></a>Lastbalanserare
 
-
-  [Azure Load Balancer](../articles/load-balancer/load-balancer-overview.md) levererar hög tillgänglighet och nätverksprestanda till dina program. En lastbalanserare kan konfigureras för att [balansera inkommande internettrafik](../articles/load-balancer/load-balancer-internet-overview.md) till virtuella datorer eller [balansera trafik mellan virtuella datorer i ett VNet](../articles/load-balancer/load-balancer-internal-overview.md). En lastbalanserare kan även balansera trafik mellan lokala datorer och virtuella datorer mellan lokala nätverk eller vidarebefordra extern trafik till en specifik virtuell dator.
+[Azure Load Balancer](../articles/load-balancer/load-balancer-overview.md) levererar hög tillgänglighet och nätverksprestanda till dina program. En lastbalanserare kan konfigureras för att [balansera inkommande internettrafik](../articles/load-balancer/load-balancer-internet-overview.md) till virtuella datorer eller [balansera trafik mellan virtuella datorer i ett VNet](../articles/load-balancer/load-balancer-internal-overview.md). En lastbalanserare kan även balansera trafik mellan lokala datorer och virtuella datorer mellan lokala nätverk eller vidarebefordra extern trafik till en specifik virtuell dator.
 
 Lastbalanseraren mappar inkommande och utgående trafik mellan den offentlig IP-adressen och porten på lastbalanseraren och den privata IP-adressen och porten för den virtuella datorn.
 
 Du måste också beakta dessa konfigurationselement när du skapar en lastbalanserare:
 
-- 
-  **Frontend IP-konfiguration** – En lastbalanserare kan innehålla en eller flera frontend IP-adresser, även kallat virtuella IP-adresser (VIPs). Dessa IP-adresser fungerar som ingresser för trafiken.
+- **Frontend IP-konfiguration** – En lastbalanserare kan innehålla en eller flera frontend IP-adresser, även kallat virtuella IP-adresser (VIPs). Dessa IP-adresser fungerar som ingresser för trafiken.
 - **Backend adresspool** – IP-adresser som är associerade med det NIC till vilket belastningen distribueras.
 - **NAT-regler** – Definierar hur inkommande trafik flödar genom frontend IP-adressen och distribueras till backend IP-adressen.
-- 
-  **Lastbalanseringsregler** – Mappar en given frontend-IP och portkombination till en uppsättning med backend-IP-adresser och portkombinationer. En enskild lastbalanserare kan ha flera regler för lastbalansering. Varje regel är en kombination av en frontend-IP och port och backend-IP och port som associeras med virtuella datorer.
+- **Lastbalanseringsregler** – Mappar en given frontend-IP och portkombination till en uppsättning med backend-IP-adresser och portkombinationer. En enskild lastbalanserare kan ha flera regler för lastbalansering. Varje regel är en kombination av en frontend-IP och port och backend-IP och port som associeras med virtuella datorer.
 - **[Probes](../articles/load-balancer/load-balancer-custom-probe-overview.md)** – Övervakar hälsotillståndet för virtuella datorer. När en avsökning inte svarar slutar lastbalanseraren att skicka nya anslutningar till den ohälsosamma virtuella datorn. Befintliga anslutningar påverkas inte och nya anslutningar skickas till felfria virtuella datorer.
 
 Den här tabellen anger de metoder som du kan använda för att skapa en internetuppkopplad lastbalanserare.
@@ -162,7 +159,7 @@ Den här tabellen anger de metoder som du kan använda för att skapa en virtuel
 
 | Metod | Beskrivning |
 | ------ | ----------- |
-| [Azure-portalen](../articles/virtual-machines/windows/quick-create-portal.md) | Använder standardinställningarna för nätverk som nämndes tidigare för att skapa en virtuell dator med ett enskilt NIC. Om du vill skapa en virtuell dator med flera NICs måste du använda en annan metod. |
+| [Azure Portal](../articles/virtual-machines/windows/quick-create-portal.md) | Använder standardinställningarna för nätverk som nämndes tidigare för att skapa en virtuell dator med ett enskilt NIC. Om du vill skapa en virtuell dator med flera NICs måste du använda en annan metod. |
 | [Azure PowerShell](../articles/virtual-machines/windows/tutorial-manage-vm.md) | Inkluderar användningen av [Add-AzureRmVMNetworkInterface](/powershell/module/azurerm.compute/add-azurermvmnetworkinterface) för att lägga till det NIC som du skapade tidigare i konfigurationen av den virtuella datorn. |
 | [Azure CLI](../articles/virtual-machines/linux/create-cli-complete.md) | Skapa och ansluta en virtuell dator till ett virtuellt nätverk, undernät och nätverkskort som bygger som enskilda steg. |
 | [Mall](../articles/virtual-machines/windows/ps-template.md) | Använd [Mycket enkel distribution av virtuella Windows-datorer](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-simple-windows) som en vägledning för att distribuera en virtuell dator med hjälp av en mall. |

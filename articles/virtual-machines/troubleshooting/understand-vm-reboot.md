@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/11/2018
 ms.author: genli
-ms.openlocfilehash: dd9a2c6a5b2183d4909b6bcfd24dc1fae401c785
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: fa316ee47e6fdabacf22e1e419bfd501620dd83d
+ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47414698"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49429158"
 ---
 # <a name="understand-a-system-reboot-for-azure-vm"></a>Förstå en omstart av systemet för Azure VM
 
@@ -73,7 +73,7 @@ Andra scenarier som vanligtvis orsakar den virtuella datorn ska startas om inneh
 ### <a name="azure-security-center-and-windows-update"></a>Azure Security Center och Windows Update
 Azure Security Center övervakar dagliga Windows och Linux-datorer efter saknade uppdateringar av operativsystemet. Security Center hämtar en lista med tillgängliga säkerhetsuppdateringar och viktiga uppdateringar från Windows Update eller Windows Server Update Services (WSUS), beroende på vilken tjänst som har konfigurerats på en virtuell Windows-dator. Security Center söker också efter de senaste uppdateringarna för Linux-system. Om den virtuella datorn saknar en systemuppdatering, rekommenderar Security Center att du installerar uppdateringar. Tillämpningen av dessa systemuppdateringar styrs via de Säkerhetscenter i Azure-portalen. När du installerar vissa uppdateringar kan det krävas omstarter av Virtuella datorer. Mer information finns i [tillämpa systemuppdateringar i Azure Security Center](../../security-center/security-center-apply-system-updates.md).
 
-Som lokala servrar, Azure inte hämta uppdateringar från Windows Update till Windows Azure virtuella datorer, eftersom dessa datorer är avsedda att hanteras av sina användare. Du är, men uppmuntras att lämna inställningen för automatisk uppdatering för Windows. Automatisk installation av uppdateringar från Windows Update kan även orsaka omstarter när uppdateringarna tillämpas. Mer information finns i [Windows Update vanliga frågor och svar](https://support.microsoft.com/help/12373/windows-update-faq).
+Som lokala servrar, Azure inte hämta uppdateringar från Windows Update till Windows virtuella datorer, eftersom dessa datorer är avsedda att hanteras av sina användare. Du är, men uppmuntras att lämna inställningen för automatisk uppdatering för Windows. Automatisk installation av uppdateringar från Windows Update kan även orsaka omstarter när uppdateringarna tillämpas. Mer information finns i [Windows Update vanliga frågor och svar](https://support.microsoft.com/help/12373/windows-update-faq).
 
 ### <a name="other-situations-affecting-the-availability-of-your-vm"></a>Andra situationer som påverkar tillgängligheten för din virtuella dator
 Det finns andra fall där Azure aktivt kan inaktivera användningen av en virtuell dator. Du får e-postmeddelanden innan den här åtgärden tas, så har du chansen att lösa de underliggande problem. Exempel på problem som påverkar VM-tillgänglighet är säkerhetsöverträdelser och förfallodatum för betalningsmetoder.

@@ -9,12 +9,12 @@ ms.author: raymondl
 author: raymondlaghaeian
 ms.reviewer: sgilley
 ms.date: 09/24/2018
-ms.openlocfilehash: e796feaf8ef25eaa91b7db810a11a67da13e9df1
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.openlocfilehash: 8a736516a598eee051b416834d2b737211e66b96
+ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48237185"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49429474"
 ---
 # <a name="deploy-web-services-to-azure-container-instances"></a>Distribuera webbtjänster till Azure Container Instances 
 
@@ -82,10 +82,10 @@ aciconfig = AciWebservice.deploy_configuration(cpu_cores = 1,
 
 > Hoppa över det här kravet om du är [distribuera från en modellfil](#deploy-from-model-file) (`Webservice.deploy()`).
 
-Registrera en modell ska använda [ `Webservice.deploy_from_model` ](#deploy-from-registered-model) eller [ `Webservice.deploy_from_image` ](#deploy-from-image). Eller om du redan har en registrerad modell, hämta.
+Registrera en modell ska använda [Webservice.deploy_from_model](#deploy-from-registered-model) eller [Webservice.deploy_from_image](#deploy-from-image). Eller om du redan har en registrerad modell, hämta.
 
 ### <a name="retrieve-a-registered-model"></a>Hämta en registrerad modell
-Om du använder Azure Machine Learning för att träna din modell kan modellen redan registreras i din arbetsyta.  Till exempel det sista steget i den [tränar en modell](tutorial-train-models-with-aml.md) självstudien] registrerade modellen.  Du kan sedan hämta den registrerade modellen för distribution.
+Om du använder Azure Machine Learning för att träna din modell kan modellen redan registreras i din arbetsyta.  Till exempel det sista steget i den [träna en modellsjälvstudie](tutorial-train-models-with-aml.md) registrerade modellen.  Du kan sedan hämta den registrerade modellen för distribution.
 
 ```python
 from azureml.core.model import Model
@@ -109,7 +109,7 @@ model = Model.register(model_path = "sklearn_mnist_model.pkl",
                         workspace = ws)
 ```
 
-
+<a name='deploy-from-model-file'/>
 ## <a name="option-1-deploy-from-model-file"></a>Alternativ 1: Distribuera från modellfilen
 
 För att distribuera från en modellfil kräver minst mängd kod för att skriva, men ger även den minsta uppsättningen kontroll över vid namngivning av komponenter. Det här alternativet börjar med en modellfil och registrerar den till arbetsytan för dig.  Du kan inte namnge modellen eller associera taggar eller en beskrivning för den.  
@@ -148,6 +148,7 @@ Det här alternativet använder SDK-metoden Webservice.deploy().
 
 1. Du kan nu [testa webbtjänsten](#test-web-service).
 
+<a name='deploy-from-registered-model'/>
 ## <a name="option-2-deploy-from-registered-model"></a>Alternativ 2: Distribuera från registrerade modellen
 
 För att distribuera en registrerad modellfil tar några fler rader med kod och tillåter vissa kontroll över vid namngivning av utdata. Det här alternativet är ett praktiskt sätt att distribuera en registrerad modell som du redan har.  Men det går inte att du namnger Docker-avbildningen.  
@@ -173,6 +174,7 @@ Det här alternativet använder SDK-metoden Webservice.deploy_from_model().
 
 1. Du kan nu [testa webbtjänsten](#test-web-service).
 
+<a name='deploy-from-image'/>
 ## <a name="option-3-deploy-from-image"></a>Alternativ 3: Distribuera från avbildningen
 
 Distribuera en registrerad modell (`model`) med hjälp av `Webservice.deploy_from_image()`. Den här metoden kan du skapa Docker-avbildningen separat och sedan distribuera från avbildningen.
@@ -215,6 +217,7 @@ Den här metoden ger dig de flesta kontroll över hur du skapar och namnger komp
 
 Nu kan du testa webbtjänsten.
 
+<a name='test-web-service'/>
 ## <a name="test-the-web-service"></a>Testa webbtjänsten
 
 Webbtjänsten är samma oavsett vilken metod du använde.  För att få förutsägelser kan använda den `run` metoden för tjänsten.  

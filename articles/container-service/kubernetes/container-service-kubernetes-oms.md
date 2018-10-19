@@ -1,6 +1,6 @@
 ---
-title: Övervaka Azure Kubernetes kluster - Verksamhetsstyrning
-description: Övervaka Kubernetes kluster i Azure Container Service med hjälp av logganalys
+title: Övervaka Azure Kubernetes-kluster – åtgärdshantering
+description: Övervaka Kubernetes-kluster i Azure Container Service med hjälp av Log Analytics
 services: container-service
 author: bburns
 manager: jeconnoc
@@ -9,32 +9,32 @@ ms.topic: article
 ms.date: 12/09/2016
 ms.author: bburns
 ms.custom: mvc
-ms.openlocfilehash: 3b014ce4c91d1dc9fae744ef4b528c98f9f787b3
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: a353fe3803b2d93c151559076960df06eb260bfe
+ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32164327"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49426421"
 ---
-# <a name="monitor-an-azure-container-service-cluster-with-log-analytics"></a>Övervaka ett Azure Container Service-kluster med logganalys
+# <a name="monitor-an-azure-container-service-cluster-with-log-analytics"></a>Övervaka ett Azure Container Service-kluster med Log Analytics
 
 [!INCLUDE [aks-preview-redirect.md](../../../includes/aks-preview-redirect.md)]
 
 ## <a name="prerequisites"></a>Förutsättningar
-Den här genomgången förutsätter att du har [skapas ett Kubernetes-kluster med Azure Container Service](container-service-kubernetes-walkthrough.md).
+Den här genomgången förutsätter att du har [skapade ett Kubernetes-kluster med Azure Container Service](container-service-kubernetes-walkthrough.md).
 
-Det förutsätts även att du har den `az` Azure cli och `kubectl` verktygen som installeras.
+Den förutsätter också att du har den `az` Azure cli och `kubectl` tools har installerats.
 
-Du kan testa om du har den `az` installerat genom att köra verktyget:
+Du kan testa om du har den `az` verktyget installerat genom att köra:
 
 ```console
 $ az --version
 ```
 
-Om du inte har den `az` verktyget är installerat, det finns instruktioner [här](https://github.com/azure/azure-cli#installation).
-Du kan också använda [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview), som har den `az` Azure cli och `kubectl` verktyg som redan har installerat för du.
+Om du inte har den `az` verktyget installerat, det finns anvisningar [här](https://github.com/azure/azure-cli#installation).
+Du kan också använda [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview), som har den `az` Azure cli och `kubectl` verktyg som installerats för dig.
 
-Du kan testa om du har den `kubectl` installerat genom att köra verktyget:
+Du kan testa om du har den `kubectl` verktyget installerat genom att köra:
 
 ```console
 $ kubectl version
@@ -45,61 +45,61 @@ Om du inte har `kubectl` installerat, kan du köra:
 $ az acs kubernetes install-cli
 ```
 
-Kontrollera att du har kubernetes nycklar som installerats i din kubectl verktyg som du kan köra:
+Kontrollera att du har kubernetes-nycklar som installerats i din kubectl-verktyg som du kan köra:
 ```console
 $ kubectl get nodes
 ```
 
-Om ovanstående kommando felen ut, måste du installera kubernetes klustret nycklar i kubectl-verktyget. Du kan göra det med följande kommando:
+Om ovanstående kommando felen ut, måste du installera kubernetes-kluster nycklar i ditt kubectl-verktyg. Du kan göra det med följande kommando:
 ```console
 RESOURCE_GROUP=my-resource-group
 CLUSTER_NAME=my-acs-name
 az acs kubernetes get-credentials --resource-group=$RESOURCE_GROUP --name=$CLUSTER_NAME
 ```
 
-## <a name="monitoring-containers-with-log-analytics"></a>Övervakning av behållare med logganalys
+## <a name="monitoring-containers-with-log-analytics"></a>Behållarövervakning med Log Analytics
 
-Logganalys är Microsofts molnbaserade IT lösning som hjälper dig att hantera och skydda dina lokala och molnet infrastruktur. Behållaren lösningen är en lösning i logganalys som hjälper dig att visa behållaren inventering, prestanda och loggar på en enda plats. Du kan granska, Felsök behållare genom att visa loggarna på central plats och hitta störningar förbrukar överdriven behållare på en värd.
+Log Analytics är Microsofts molnbaserade IT-hanteringslösning som hjälper dig att hantera och skydda dina lokala och molnbaserade infrastruktur. Behållarlösningen är en lösning i Log Analytics, som hjälper dig att visa behållaren inventering, prestanda och loggar på en enda plats. Du kan granska, Felsök behållare genom att visa loggarna på central plats och ta bort störande förbrukar överflödiga behållare på en värd.
 
 ![](media/container-service-monitoring-oms/image1.png)
 
-Mer information om behållaren lösning hittar du den [behållare lösning logganalys](../../log-analytics/log-analytics-containers.md).
+Mer information om Behållarlösningen finns i den [behållare lösning Log Analytics](../../log-analytics/log-analytics-containers.md).
 
-## <a name="installing-log-analytics-on-kubernetes"></a>Installera logganalys på Kubernetes
+## <a name="installing-log-analytics-on-kubernetes"></a>Installera Log Analytics på Kubernetes
 
 ### <a name="obtain-your-workspace-id-and-key"></a>Hämta ditt arbetsyte-ID och nyckel
-Agenten tala med tjänsten den måste konfigureras med en arbetsyte-ID och en arbetsyta för Log Analytics. Få arbetsyte-ID och nyckel måste du skapa ett konto på <https://mms.microsoft.com>.
-Följ stegen för att skapa ett konto. När du är klar att skapa kontot, måste du skaffa din ID och nyckel genom att klicka på **inställningar**, sedan **anslutna källor**, och sedan **Linux-servrar**, enligt nedan.
+Agenten att kommunicera med tjänsten den måste konfigureras med en arbetsyte-ID och arbetsytenyckel för en för Log Analytics. Hämta arbetsytans ID och nyckel måste du skapa ett konto på <https://mms.microsoft.com>.
+Följ stegen för att skapa ett konto. När du är klar att skapa konto, du kan hämta ditt ID och nyckel genom att klicka på den **Log Analytics** bladet och sedan namnet på din arbetsyta. Sedan, under **avancerade inställningar**, **anslutna källor**, och sedan **Linux-servrar**, hittar du den information du behöver enligt nedan.
 
  ![](media/container-service-monitoring-oms/image5.png)
 
-### <a name="install-the-log-analytics-agent-using-a-daemonset"></a>Installera agenten Log Analytics med hjälp av en DaemonSet
+### <a name="install-the-log-analytics-agent-using-a-daemonset"></a>Installera Log Analytics-agenten med hjälp av ett DaemonSet
 DaemonSets som används av Kubernetes för att köra en instans av en behållare på varje värd i klustret.
 Det är perfekt för att köra övervakningsagenter.
 
-Här är den [DaemonSet YAML filen](https://github.com/Microsoft/OMS-docker/tree/master/Kubernetes). Spara den på en fil med namnet `oms-daemonset.yaml` och ersätter värdena platshållare för `WSID` och `KEY` med ditt arbetsyte-ID och nyckel i filen.
+Här är den [DaemonSet YAML-fil](https://github.com/Microsoft/OMS-docker/tree/master/Kubernetes). Spara den till en fil med namnet `oms-daemonset.yaml` och ersätter värdena för platshållare för `WSID` och `KEY` med arbetsyte-ID och nyckel i filen.
 
-När du har lagt till ditt arbetsyte-ID och nyckel DaemonSet konfigurationen kan du kan installera logganalys-agenten på klustret med det `kubectl` kommandoradsverktyget:
+När du har lagt till ditt arbetsyte-ID och nyckel DaemonSet konfigurationen, du kan installera Log Analytics-agenten på klustret med den `kubectl` kommandoradsverktyget:
 
 ```console
 $ kubectl create -f oms-daemonset.yaml
 ```
 
-### <a name="installing-the-log-analytics-agent-using-a-kubernetes-secret"></a>Installerar agenten Log Analytics med hjälp av en Kubernetes hemlighet
-Du kan använda Kubernetes hemlighet som en del av DaemonSet YAML-filen för att skydda ditt logganalys arbetsyte-ID och nyckel.
+### <a name="installing-the-log-analytics-agent-using-a-kubernetes-secret"></a>Installera Log Analytics-agenten med hjälp av en Kubernetes-hemlighet
+Du kan använda Kubernetes-hemlighet som en del av DaemonSet YAML-fil för att skydda ditt Log Analytics arbetsyte-ID och nyckel.
 
- - Kopiera skriptet och hemliga mallfilen DaemonSet YAML-filen (från [databasen](https://github.com/Microsoft/OMS-docker/tree/master/Kubernetes)) och kontrollera att de finns i samma katalog.
-      - Hemligt genererar skript - hemlighet gen.sh
+ - Kopiera skriptet och hemliga mallfilen DaemonSet YAML-fil (från [databasen](https://github.com/Microsoft/OMS-docker/tree/master/Kubernetes)) och kontrollera att de finns i samma katalog.
+      - Hemligheten som genererar skript - hemlighet gen.sh
       - Hemlig mall - hemlighet template.yaml
-   - Filen DaemonSet YAML - omsagent-ds-secrets.yaml
- - Kör skriptet. Skriptet begär Log Analytics arbetsyte-ID och primärnyckel. Infoga som och skriptet skapar en hemlig yaml-fil så att du kan köra den.
+   - DaemonSet YAML-fil – omsagent-ds-secrets.yaml
+ - Kör skriptet. Skriptet begär Log Analytics arbetsyte-ID och den primärnyckeln. Infoga som och skriptet skapar en hemlig yaml-fil så att du kan köra den.
    ```
    #> sudo bash ./secret-gen.sh
    ```
 
-   - Skapa hemligheter baljor genom att köra följande: ``` kubectl create -f omsagentsecret.yaml ```
+   - Skapa hemligheter pod genom att köra följande: ``` kubectl create -f omsagentsecret.yaml ```
 
-   - Om du vill kontrollera, kör du följande:
+   - Du kan kontrollera genom att köra följande:
 
    ```
    root@ubuntu16-13db:~# kubectl get secrets
@@ -120,7 +120,7 @@ Du kan använda Kubernetes hemlighet som en del av DaemonSet YAML-filen för att
    KEY:    88 bytes
    ```
 
-  - Skapa din omsagent daemon set genom att köra ``` kubectl create -f omsagent-ds-secrets.yaml ```
+  - Skapa din omsagent daemon-set genom att köra ``` kubectl create -f omsagent-ds-secrets.yaml ```
 
 ### <a name="conclusion"></a>Sammanfattning
-Klart! Du ska kunna se data som flödar till instrumentpanelen logganalys efter några minuter.
+Klart! Efter några minuter bör du kunna se data flöda till instrumentpanelen i Log Analytics.

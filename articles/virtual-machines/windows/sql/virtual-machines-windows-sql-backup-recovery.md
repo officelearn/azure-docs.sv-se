@@ -15,16 +15,16 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/04/2018
 ms.author: mikeray
-ms.openlocfilehash: d46c55f809d24529ea5deeb4d84de44dae876a4b
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: e0a47da168ae9371979290b3febc9d767e8755d7
+ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38968994"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49428019"
 ---
 # <a name="backup-and-restore-for-sql-server-in-azure-virtual-machines"></a>Säkerhetskopiering och återställning för SQL Server i Azure Virtual Machines
 
-Den här artikeln innehåller råd om säkerhetskopiering och återställning av tillgängliga alternativ för SQL Server som körs i Windows Azure virtuella datorer. Azure-lagring underhålls tre kopior av varje virtuell dator i Azure-disk att garantera skydd mot dataförlust eller skadade fysisk data. Därför till skillnad från lokalt behöver du inte fokusera på maskinvarufel. Du bör dock fortfarande att säkerhetskopiera SQL Server-databaser som skydd mot fel på program eller användare som oavsiktligt data infogningar och borttagningar. I så fall kan är det viktigt för att kunna återställa till en specifik tidpunkt.
+Den här artikeln innehåller råd om säkerhetskopiering och återställning av tillgängliga alternativ för SQL Server körs på en Windows-dator i Azure. Azure-lagring underhålls tre kopior av varje virtuell dator i Azure-disk att garantera skydd mot dataförlust eller skadade fysisk data. Därför till skillnad från lokalt behöver du inte fokusera på maskinvarufel. Du bör dock fortfarande att säkerhetskopiera SQL Server-databaser som skydd mot fel på program eller användare som oavsiktligt data infogningar och borttagningar. I så fall kan är det viktigt för att kunna återställa till en specifik tidpunkt.
 
 Den första delen av den här artikeln innehåller en översikt över tillgängliga säkerhetskopiering och återställningsalternativ. Detta åtföljs av avsnitt som innehåller mer information om varje strategi.
 
@@ -42,7 +42,7 @@ I följande avsnitt beskrivs varje alternativ i detalj. Den sista delen av den h
 
 ## <a id="autoamted"></a> Automatisk säkerhetskopiering
 
-Automatisk säkerhetskopiering innehåller en automatisk säkerhetskopiering för SQL Server Standard och Enterprise-versioner som körs i en Windows Azure VM. Den här tjänsten tillhandahålls av den [SQL Server IaaS Agent-tillägget](virtual-machines-windows-sql-server-agent-extension.md), som installeras automatiskt på SQL Server Windows-avbildningar i Azure-portalen.
+Automatisk säkerhetskopiering innehåller en automatisk säkerhetskopiering för SQL Server Standard och Enterprise-versioner som körs i en Windows-dator i Azure. Den här tjänsten tillhandahålls av den [SQL Server IaaS Agent-tillägget](virtual-machines-windows-sql-server-agent-extension.md), som installeras automatiskt på SQL Server Windows-avbildningar i Azure-portalen.
 
 Alla databaser som säkerhetskopieras till en Azure storage-konto som du konfigurerar. Säkerhetskopieringar kan krypteras och bibehålls i upp till 30 dagar.
 
@@ -144,7 +144,7 @@ I följande tabell sammanfattas funktionerna med varje alternativ för säkerhet
 | Säkerhetskopieringen till anslutna diskar på den virtuella datorn |   |   | ![Ja](./media/virtual-machines-windows-sql-backup-recovery/yes.png) |
 | Central anpassningsbara backup-rapporter |   | ![Ja](./media/virtual-machines-windows-sql-backup-recovery/yes.png) |   |
 | Konsoliderade e-postaviseringar för fel |   | ![Ja](./media/virtual-machines-windows-sql-backup-recovery/yes.png) |   |
-| Anpassa övervakning utifrån OMS |   | ![Ja](./media/virtual-machines-windows-sql-backup-recovery/yes.png) |   |
+| Anpassa övervakning baserat på Log Analytics |   | ![Ja](./media/virtual-machines-windows-sql-backup-recovery/yes.png) |   |
 | Övervaka säkerhetskopieringsjobb med SSMS eller Transact-SQL-skript | ![Ja](./media/virtual-machines-windows-sql-backup-recovery/yes.png) | ![Ja](./media/virtual-machines-windows-sql-backup-recovery/yes.png) | ![Ja](./media/virtual-machines-windows-sql-backup-recovery/yes.png) |
 | Återställ databasen med SSMS eller Transact-SQL-skript | ![Ja](./media/virtual-machines-windows-sql-backup-recovery/yes.png) |   | ![Ja](./media/virtual-machines-windows-sql-backup-recovery/yes.png) |
 

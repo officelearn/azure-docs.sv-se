@@ -10,12 +10,12 @@ ms.component: translator-text
 ms.topic: reference
 ms.date: 03/29/2018
 ms.author: v-jansko
-ms.openlocfilehash: 9282d8af30cbfb3346394bcd71510faf8d8c8a21
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: 243ee16f8de8add8283581c8c03a37594797864b
+ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46129394"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49430042"
 ---
 # <a name="translator-text-api-v30"></a>Translator Text API v3.0
 
@@ -95,8 +95,48 @@ Exempelvis skulle en kund med en kostnadsfri utvärderingsprenumeration får fö
 ```
 {
   "error": {
-    "code":403000,
-    "message":"The subscription has exceeded its free quota."
+    "code":403001,
+    "message":"The operation is not allowed because the subscription has exceeded its free quota."
     }
 }
 ```
+Felkoden är en 6-siffrig nummer kombinera 3-siffriga HTTP-statuskoden följt av ett 3-siffriga tal till ytterligare kategorisera felet. Vanliga felkoder finns:
+
+| Kod | Beskrivning |
+|:----|:-----|
+| 400000| En begäran om indata är inte giltig.|
+| 400001| ”Omfång”-parametern är ogiltig.|
+| 400002| ”Kategori”-parametern är ogiltig.|
+| 400003| Ett språk Specificerare är ogiltig eller saknas.|
+| 400004| En target skriptet specificerare (”till” skript ”) är ogiltig eller saknas.|
+| 400005| En indata-text är ogiltig eller saknas.|
+| 400006| Kombinationen av språket och skriptet är inte giltig.|
+| 400018| En källa skriptet specificerare (”från” skript ”) är ogiltig eller saknas.|
+| 400019| En av det angivna språket stöds inte.|
+| 400020| Ett av elementen i matrisen med-indata är inte giltig.|
+| 400021| Parametern API-versionen är ogiltig eller saknas.|
+| 400023| En parets angivet språk är inte giltig.|
+| 400035| Källspråk (”från” fält) är inte giltig.|
+| 400036| Målspråk (”till” fält) är ogiltig eller saknas.|
+| 400042| Någon av följande alternativ för angivna (”alternativ”) är inte giltig.|
+| 400043| Klienten trace-ID (ClientTraceId fält eller rubrik för X-ClientTranceId) är ogiltig eller saknas.|
+| 400050| Indatatexten är för långt.|
+| 400064| Parametern ”översättning” är ogiltig eller saknas.|
+| 400070| Antalet mål skript (ToScript parameter) matchar inte target språk (för att parametern).|
+| 400071| Värdet är inte giltigt för TextType.|
+| 400072| Matris med indata-text har för många element.|
+| 400073| Skript-parametern är inte giltig.|
+| 400074| Brödtexten i begäran är inte giltig JSON.|
+| 400075| Språk-par och kategori kombinationen är inte giltig.|
+| 400077| Den tillåtna storleken har överskridits.|
+| 400079| Den anpassade system som begärdes för översättning av från och till språk finns inte.|
+| 401000| Begäran har inte behörighet eftersom autentiseringsuppgifterna är saknas eller är ogiltig.|
+| 401015| ”De angivna autentiseringsuppgifterna är för API för taligenkänning. Den här begäran kräver autentiseringsuppgifter för Text-API. Använd en prenumeration på Translator Text API ”.|
+| 403000| Åtgärden tillåts inte.|
+| 403001| Åtgärden tillåts inte eftersom prenumerationen har överskridit den lediga kvoten.|
+| 405000| Begärandemetoden stöds inte för den begärda resursen.|
+| 415000| Content-Type-huvud är ogiltig eller saknas.|
+| 429000, 429001, 429002| Servern avvisade begäran eftersom klienten skickar för många förfrågningar. Minska frekvensen av begäranden för att undvika begränsning.|
+| 500000| Det uppstod ett oväntat fel. Om felet kvarstår kan du rapportera det med datum/tid för fel, begär identifierare från svarshuvud X-RequestId och klient-ID från begärandehuvudet X-ClientTraceId.|
+| 503000| Tjänsten är otillgänglig. Försök igen. Om felet kvarstår kan du rapportera det med datum/tid för fel, begär identifierare från svarshuvud X-RequestId och klient-ID från begärandehuvudet X-ClientTraceId.|
+

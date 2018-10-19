@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: ''
+ms.date: 05/09/2018
 ms.author: haroldw
-ms.openlocfilehash: d400512c2e96e0e24bbf965b2e201adf92ccbb0f
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: 39febceff58127fb9777ace6e3063fbe41605b79
+ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47434899"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49426455"
 ---
 # <a name="post-deployment-tasks"></a>Uppgifter efter distribution
 
@@ -82,7 +82,7 @@ På Azure Portal:
 
   ![Appregistrering](media/openshift-post-deployment/app-registration.png)
 
-6.  Klicka på steg 1: Välj API och klicka sedan på **Windows Azure Active Directory (Microsoft.Azure.ActiveDirectory)**. Klicka på **Välj** längst ned på sidan.
+6.  Klicka på steg 1: Välj API och klicka sedan på **Azure Active Directory (Microsoft.Azure.ActiveDirectory)**. Klicka på **Välj** längst ned på sidan.
 
   ![Appregistrering väljer API](media/openshift-post-deployment/app-registration-select-api.png)
 
@@ -174,7 +174,7 @@ I OpenShift-konsolen visas nu två alternativ för autentisering: htpasswd_auth 
 
 ## <a name="monitor-openshift-with-log-analytics"></a>Övervaka OpenShift med Log Analytics
 
-Om du vill övervaka OpenShift med Log Analytics kan du använda ett av två alternativ: OMS-Agent installeras på VM-värd eller OMS-behållaren. Den här artikeln innehåller instruktioner för distribution av OMS-behållaren.
+Om du vill övervaka OpenShift med Log Analytics kan du använda ett av två alternativ: Log Analytics-agentinstallationen på VM-värd eller Log Analytics-behållare. Den här artikeln innehåller instruktioner för distribution av Log Analytics-behållaren.
 
 ## <a name="create-an-openshift-project-for-log-analytics-and-set-user-access"></a>Skapa ett projekt med OpenShift för Log Analytics och ange användaråtkomst
 
@@ -276,7 +276,7 @@ Distribuera hemlighetsfilen:
 oc create -f ocp-secret.yml
 ```
 
-Distribuera OMS-agenten daemon uppsättningen:
+Distribuera daemon-uppsättningen Log Analytics-agenten:
 
 ```bash
 oc create -f ocp-omsagent.yml

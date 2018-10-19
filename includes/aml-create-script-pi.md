@@ -10,11 +10,11 @@ ms.custom: include file
 ms.topic: include
 ms.date: 07/27/2018
 ms.openlocfilehash: e86f2cc9fd2da585ad13b088442ebef9b55f186a
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
-ms.translationtype: HT
+ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47010756"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49431675"
 ---
 I samma katalog som **aml_config/config.json** skapar du ett skript med namnet **pi.py**.
 

@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/02/2018
+ms.date: 10/18/2018
 ms.author: shvija
-ms.openlocfilehash: 32f99b43a37277e70d209f1f315dcb398c2b5931
-ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
+ms.openlocfilehash: 12d8f3764dc52d8e76c3fb4599f6913fc8791f73
+ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "40004800"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49426149"
 ---
 # <a name="automatically-scale-up-azure-event-hubs-throughput-units"></a>Skala automatiskt upp Azure Event Hubs-dataflödesenheter
 
@@ -27,6 +27,8 @@ Azure Event Hubs är en mycket skalbar dataströmningsplattform. Event Hubs anv�
 
 * Ingående datataxa överskrida set-dataflödesenheter.
 * Datataxa utgående begäran överskrider set-dataflödesenheter.
+
+Händelsehubbtjänsten ökar dataflödet när belastningen ökar den minsta överskrids utan några förfrågningar som misslyckas med ServerBusy fel.
 
 ## <a name="how-auto-inflate-works"></a>Så här fungerar automatisk ökning
 
@@ -54,6 +56,10 @@ Det här alternativet, kan du börja i liten skala med dina dataflödesenheter o
 Du kan också aktivera automatisk ökning med hjälp av den **skala** alternativ i inställningsfönstret i portalen:
  
 ![](./media/event-hubs-auto-inflate/event-hubs-auto-inflate2.png)
+
+
+> [!NOTE]
+> När du tillämpar den automatisk ökning av konfigurationen för att öka antalet throughput units, Event Hubs-tjänsten genererar diagnostikloggar som tillhandahåller information om när och varför det ökade dataflödet. 
 
 ### <a name="enable-auto-inflate-using-an-azure-resource-manager-template"></a>Aktivera automatisk ökning med en Azure Resource Manager-mall
 
@@ -101,6 +107,7 @@ Du kan aktivera automatisk ökning under en malldistribution för Azure Resource
 ```
 
 Läs den fullständiga mallen, den [skapa Event Hubs-namnområdet och aktivera ökning](https://github.com/Azure/azure-quickstart-templates/tree/master/201-eventhubs-create-namespace-and-enable-inflate) mall på GitHub.
+
 
 ## <a name="next-steps"></a>Nästa steg
 

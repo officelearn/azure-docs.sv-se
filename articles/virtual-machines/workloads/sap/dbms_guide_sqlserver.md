@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 09/26/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3cefecdf0f87483a1fb544d1eb4e3e514e388259
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: 90b4bc17de60baa59d6c159105674468a63d10f9
+ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47406931"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49430178"
 ---
 # <a name="sql-server-azure-virtual-machines-dbms-deployment-for-sap-netweaver"></a>SQL Server Azure virtuella datorer DBMS-distribution för SAP NetWeaver
 
@@ -418,7 +418,7 @@ Den andra metoden som beskrivs närmare i artikeln [SQL Server-säkerhetskopieri
 
 
 ### <a name="automated-backup-for-sql-server"></a>Automatiserad säkerhetskopiering för SQL Server
-Automatisk säkerhetskopiering innehåller en automatisk säkerhetskopiering för SQL Server Standard och Enterprise-versioner som körs i en Windows Azure VM. Den här tjänsten tillhandahålls av den [SQL Server IaaS Agent-tillägget](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-agent-extension), som installeras automatiskt på SQL Server Windows-avbildningar i Azure-portalen. Om du distribuerar dina egna OS-avbildningar med SQL Server installerat kan behöva du installera VM-tillägg separat. Steg som krävs finns dokumenterade i den här [artikeln](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-agent-extension).
+Automatisk säkerhetskopiering innehåller en automatisk säkerhetskopiering för SQL Server Standard och Enterprise-versioner som körs i en Windows-dator i Azure. Den här tjänsten tillhandahålls av den [SQL Server IaaS Agent-tillägget](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-agent-extension), som installeras automatiskt på SQL Server Windows-avbildningar i Azure-portalen. Om du distribuerar dina egna OS-avbildningar med SQL Server installerat kan behöva du installera VM-tillägg separat. Steg som krävs finns dokumenterade i den här [artikeln](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-agent-extension).
 
 Mer information om funktionerna i den här metoden finns i följande artiklar:
 

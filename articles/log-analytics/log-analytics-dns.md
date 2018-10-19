@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 03/20/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 9bb7adaeec89979ff86920b4bfd74c6399bda298
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: 9ac8d876e9c79e5aadfcf834e18e94f6ac8b3a30
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48043675"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49408480"
 ---
 # <a name="gather-insights-about-your-dns-infrastructure-with-the-dns-analytics-preview-solution"></a>Samla in information om DNS-infrastrukturen med förhandsversionen av DNS Analytics-lösning
 
@@ -46,7 +46,7 @@ I följande tabell beskrivs de anslutna källor som stöds av den här lösninge
 | --- | --- | --- |
 | [Windows-agenter](log-analytics-windows-agent.md) | Ja | Lösningen samlar in DNS-information från Windows-agenter. |
 | [Linux-agenter](log-analytics-linux-agents.md) | Nej | Lösningen samlar inte in DNS-information från direkt Linux-agenter. |
-| [System Center Operations Manager-hanteringsgrupp](log-analytics-om-agents.md) | Ja | Lösningen samlar in DNS-information från agenter i en ansluten hanteringsgrupp för Operations Manager. En direktanslutning från Operations Manager-agenten till Operations Management Suite krävs inte. Data vidarebefordras från hanteringsgruppen till Operations Management Suite-databasen. |
+| [System Center Operations Manager-hanteringsgrupp](log-analytics-om-agents.md) | Ja | Lösningen samlar in DNS-information från agenter i en ansluten hanteringsgrupp för Operations Manager. En direktanslutning från Operations Manager-agenten till Log Analytics krävs inte. Data vidarebefordras från hanteringsgruppen till Log Analytics-arbetsytan. |
 | [Azure Storage-konto](log-analytics-azure-storage.md) | Nej | Azure storage används inte av lösningen. |
 
 ### <a name="data-collection-details"></a>Information om insamling av data
@@ -58,7 +58,7 @@ Lösningen samlar in DNS-inventering och DNS-händelse-relaterade data från DNS
 Använd följande information för att konfigurera lösningen:
 
 - Du måste ha en [Windows](log-analytics-windows-agent.md) eller [Operations Manager](log-analytics-om-agents.md) agenten på varje DNS-server som du vill övervaka.
-- Du kan lägga till DNS Analytics-lösningen i din Operations Management Suite-arbetsyta från den [Azure Marketplace](https://aka.ms/dnsanalyticsazuremarketplace). Du kan också använda metoden som beskrivs i [lägga till Log Analytics-lösningar från lösningsgalleriet](log-analytics-add-solutions.md).
+- Du kan lägga till DNS Analytics-lösningen i Log Analytics-arbetsytan från den [Azure Marketplace](https://aka.ms/dnsanalyticsazuremarketplace). Du kan också använda metoden som beskrivs i [lägga till Log Analytics-lösningar från lösningsgalleriet](log-analytics-add-solutions.md).
 
 Lösningen börjar samla in data utan behov av ytterligare konfiguration. Du kan dock använda följande konfiguration för att anpassa datainsamling.
 
@@ -76,11 +76,11 @@ Klicka på instrumentpanelen för lösningen **Configuration** att öppna sidan 
 
 ## <a name="management-packs"></a>Hanteringspaket
 
-Om du använder Microsoft Monitoring Agent för att ansluta till Operations Management Suite-arbetsytan installeras följande hanteringspaket:
+Om du använder Microsoft Monitoring Agent för att ansluta till Log Analytics-arbetsytan installeras följande hanteringspaket:
 
 - Microsoft DNS-Data Collector-informationspaketet (Microsft.IntelligencePacks.Dns)
 
-Om din hanteringsgrupp för Operations Manager är ansluten till Operations Management Suite-arbetsytan kan installeras följande hanteringspaket i Operations Manager när du lägger till den här lösningen. Det finns ingen konfiguration som krävs eller underhåll av dessa hanteringspaket:
+Om din hanteringsgrupp för Operations Manager är ansluten till Log Analytics-arbetsytan kan installeras följande hanteringspaket i Operations Manager när du lägger till den här lösningen. Det finns ingen konfiguration som krävs eller underhåll av dessa hanteringspaket:
 
 - Microsoft DNS-Data Collector-informationspaketet (Microsft.IntelligencePacks.Dns)
 - Konfiguration av Microsoft System Center Advisor DNS Analytics (Microsoft.IntelligencePack.Dns.Configuration)
@@ -91,7 +91,7 @@ Mer information om hur lösningens hanteringspaket uppdateras finns i [Anslut Op
 
 Det här avsnittet beskrivs alla instrumentpanelen funktioner och hur de används.
 
-När du har lagt till lösningen till din arbetsyta, ger panelen på sidan Översikt över Operations Management Suite en snabb sammanfattning av DNS-infrastrukturen. Den innehåller antalet DNS-servrar där data samlas in. Den innehåller också antalet begäranden som görs av klienter du löser skadliga domäner under de senaste 24 timmarna. När du klickar på panelen öppnas instrumentpanelen för lösningen.
+När du har lagt till lösningen till din arbetsyta, översikt över Log Analytics-sidan på Azure portal innehåller ett **visa lösningar** länk till en snabb sammanfattning av DNS-infrastrukturen. Den innehåller antalet DNS-servrar där data samlas in. Den innehåller också antalet begäranden som görs av klienter du löser skadliga domäner under de senaste 24 timmarna. När du klickar på panelen öppnas instrumentpanelen för lösningen.
 
 ![DNS Analytics-ikonen](./media/log-analytics-dns/dns-tile.png)
 
@@ -185,7 +185,7 @@ På sidan Log Search kan du skapa en fråga. Du kan filtrera sökresultaten geno
 
 Det finns två sätt som du kan ge feedback:
 
-- **UserVoice**. Publicera idéer om DNS Analytics-funktioner att arbeta med. Gå till den [Operations Management Suite UserVoice-sida](https://aka.ms/dnsanalyticsuservoice).
+- **UserVoice**. Publicera idéer om DNS Analytics-funktioner att arbeta med. Gå till den [Log Analytics UserVoice-sida](https://aka.ms/dnsanalyticsuservoice).
 - **Ansluta till vår kohort**. Vi är alltid intresserade med nya kunder ansluta till vår kohorter för att få snabb åtkomst till nya funktioner och hjälp oss att förbättra DNS-analys. Om du vill ansluta till vår kohorter fyller [den här snabba undersökningen](https://aka.ms/dnsanalyticssurvey).
 
 ## <a name="next-steps"></a>Nästa steg

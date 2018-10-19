@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 10/25/2017
 ms.author: cbrooks
 ms.component: common
-ms.openlocfilehash: bcb772185f0a16183b8a6c9674419781ef41be3e
-ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
+ms.openlocfilehash: 98972b0c52470e6a404090d993c21a47b11cd660
+ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49068544"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49427153"
 ---
 # <a name="configure-azure-storage-firewalls-and-virtual-networks"></a>Konfigurera Azure Storage-brandväggar och virtuella nätverk
 Azure Storage tillhandahåller en skiktbaserad säkerhetsmodell som gör att du kan skydda dina storage-konton till en specifik uppsättning tillåtna nätverk.  Om Nätverksregler har konfigurerats endast program från tillåtna nätverk kan komma åt ett storage-konto.  När du anropar från ett tillåtna nätverk programmen kräver rätt auktorisering (en giltig åtkomstnyckel eller SAS-token) att komma åt lagringskontot.
@@ -188,7 +188,9 @@ Tillåtna internet-adressintervall kan anges med hjälp av [CIDR-notation](https
 > Små adressintervall med hjälp av ”/ 31” eller ”/ 32” prefix storlekar inte stöds.  Dessa områden ska konfigureras med regler för enskilda IP-adress.
 >
 
-IP-Nätverksregler är bara tillåtna för **offentliga internet** IP-adresser.  IP-adressintervall som reserverats för privata nätverk (som definieras i RFC 1918) är inte tillåtna i IP-regler.  Privata nätverk innehåller adresser som börjar med *10.\** , *172.16.\** , och *192.168.\** .
+IP-Nätverksregler är bara tillåtna för **offentliga internet** IP-adresser.  IP-adressintervall som är reserverade för privata nätverk (enligt definitionen i [RFC 1918](https://tools.ietf.org/html/rfc1918#section-3)) är inte tillåtna i IP-regler.  Privata nätverk innehåller adresser som börjar med *10.\** , *172.16.\**   -  *172.31.\**, och *192.168.\** .
+
+Observera att IP-Nätverksregler har ingen effekt på förfrågningar som kommer från samma Azure-region som lagringskontot.  Använd virtual network-regler för att tillåta begäranden för samma region.
 
 Endast IPV4-adresser stöds just nu.
 

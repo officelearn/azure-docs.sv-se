@@ -9,12 +9,12 @@ ms.component: speech
 ms.topic: article
 ms.date: 04/28/2018
 ms.author: erhopf
-ms.openlocfilehash: ab2bc9a83feadd9ece8876559e730e7bc955908a
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.openlocfilehash: 93fbf33ee35c49e7afc36bf5afbae1da0fe1c56f
+ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49165478"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49430212"
 ---
 # <a name="create-a-custom-wake-word-by-using-the-speech-service"></a>Skapa ett anpassat wake ord med Speech-tjänsten
 
@@ -52,10 +52,6 @@ Innan du kan använda ett anpassat wake ord med din enhet, måste du skapa wake 
 1. Skapa ett nytt konto med den e-postadress som du har fått inbjudan för Azure Active Directory. 
 
     ![Skapa ett nytt konto](media/speech-devices-sdk/wake-word-1.png)
- 
-1.  När du har loggat in, Fyll i formuläret och välj sedan **starta min resa mot**.
-
-    ![har loggat in](media/speech-devices-sdk/wake-word-3.png)
  
 1. Den **anpassad Wake Word** sidan är inte tillgänglig för allmänheten, så det finns ingen direkt koppling som tar dig det. Anpassad talfunktionen kräver en Azure-prenumerationer, men funktionen anpassade Wake Word inte. Om du har fått den **inga prenumerationer hittades.** felsidan, bara Ersätt den **”prenumerationer? errorMessage = ingen % 20Subscriptions % 20found”** med ”**customkws**” i URL: en och träffar på RETUR. URL: en ska vara något av följande: https://westus.cris.ai/customkws, https://eastasia.cris.ai/customkws eller https://northeurope.cris.ai/customkws, beroende på var din region är.
 

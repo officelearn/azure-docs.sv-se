@@ -12,12 +12,12 @@ ms.author: xiwu
 ms.reviewer: douglasl
 manager: craigg
 ms.date: 04/01/2018
-ms.openlocfilehash: a5792998654ed1d334e514591da3bef9805a5e79
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: 712c729a214cdab66961fb399c9d797a758fcf7b
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47163366"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49409687"
 ---
 # <a name="monitor-sql-data-sync-with-log-analytics"></a>Övervaka SQL Data Sync med Log Analytics 
 
@@ -97,7 +97,7 @@ Mer information om hur du skapar en runbook finns i [min första PowerShell-runb
 
     2.  Synkroniseringsgruppen information.
 
-    3.  OMS-information. Hitta denna information på OMS-portalen | Inställningar | Anslutna källor. Mer information om hur du skickar data till Log Analytics finns i [skicka data till Log Analytics med HTTP Data Collector API (förhandsversion)](../log-analytics/log-analytics-data-collector-api.md).
+    3.  Logga Analytics information. Hitta denna information i Azure Portal | Inställningar | Anslutna källor. Mer information om hur du skickar data till Log Analytics finns i [skicka data till Log Analytics med HTTP Data Collector API (förhandsversion)](../log-analytics/log-analytics-data-collector-api.md).
 
 11. Kör en runbook i rutan. Kontrollera att det lyckades.
 
@@ -117,7 +117,7 @@ Så här schemalägger runbook:
 
 4.  Välj **skapa ett nytt schema.**
 
-5.  Ange **upprepning** återkommande och ange intervallet du vill. Använd samma intervall här i skriptet och i OMS.
+5.  Ange **upprepning** återkommande och ange intervallet du vill. Använd samma intervall här i skriptet och i Log Analytics.
 
 6.  Välj **Skapa**.
 
@@ -129,7 +129,7 @@ Så här schemalägger runbook:
 
 Om du vill skapa en avisering som använder Log Analytics, gör du följande. Du måste ha Log Analytics som är kopplad till en Log Analytics-arbetsyta som ett krav.
 
-1.  I OMS-portalen väljer du **Loggsökning**.
+1.  I Azure-portalen väljer du **Loggsökning**.
 
 2.  Skapa en fråga för att välja fel och varningar av synkroniseringsgruppen inom det intervallet som du har valt. Exempel:
 
@@ -147,9 +147,9 @@ Om du vill skapa en avisering som använder Log Analytics, gör du följande. Du
 
 6.  Klicka på **Spara**. De angivna mottagarna nu ta emot e-postaviseringar när fel uppstår.
 
-## <a name="create-an-oms-view-for-monitoring"></a>Skapa en OMS-vy för övervakning
+## <a name="create-a-log-analytics-view-for-monitoring"></a>Skapa en Log Analytics-vy för övervakning
 
-Det här steget skapar en OMS-vy för att visuellt övervaka alla angivna synkroniseringsgrupper. Vyn innehåller flera komponenter:
+Det här steget skapar en Log Analytics-vy för att visuellt övervaka alla angivna synkroniseringsgrupper. Vyn innehåller flera komponenter:
 
 -   En översiktsikon som visar hur många fel, lyckade och varningar har alla synkroniseringsgrupper.
 
@@ -157,9 +157,9 @@ Det här steget skapar en OMS-vy för att visuellt övervaka alla angivna synkro
 
 -   En panel för varje Synkroniseringsgrupp som visar antalet fel, har slutförts, och varningar och de senaste felmeddelandena.
 
-Om du vill konfigurera vyn OMS, gör du följande:
+Om du vill konfigurera Log Analytics-vy, gör du följande:
 
-1.  På startsidan OMS väljer du plus till vänster och öppna den **Vydesigner**.
+1.  På sidan Log Analytics, väljer du plus till vänster och öppna den **Vydesigner**.
 
 2.  Välj **Import** i det översta fältet i view Designer. Välj sedan exempelfilen ”DataSyncLogOMSView”.
 

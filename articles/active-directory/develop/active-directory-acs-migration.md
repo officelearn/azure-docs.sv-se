@@ -16,12 +16,12 @@ ms.workload: identity
 ms.date: 10/03/2018
 ms.author: celested
 ms.reviewer: jlu, annaba, hirsin
-ms.openlocfilehash: 3e4b4e904fd4615458e8d873baa1bf30588fe81d
-ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
+ms.openlocfilehash: 4fd7617bf45608cdae15919a40920ea0d214acb8
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48249442"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49407479"
 ---
 # <a name="how-to-migrate-from-the-azure-access-control-service"></a>Så här: migrera från Azure Access Control service
 
@@ -225,7 +225,7 @@ Om du vill använda WS-Federation eller WIF för att integrera med Azure AD, rek
 
 En annan metod är att följa [detta kodexempel](https://github.com/Azure-Samples/active-directory-dotnet-webapp-wsfederation), vilket ger något annorlunda instruktioner för att konfigurera WS-Federation. Det här kodexemplet använder inte WIF, men i stället ASP.NET 4.5 OWIN-mellanprogrammet. Men instruktionerna för registrering av appen är giltiga för appar som använder WIF och kräver inte en Azure AD Premium-licens. 
 
-Om du väljer den här metoden måste du förstå [signeringsnyckel i Azure AD](https://docs.microsoft.com/azure/active-directory/develop/active-directory-signing-key-rollover). Den här metoden använder Azure AD globala signeringsnyckel till problemet token. Som standard uppdateras WIF inte automatiskt Signeringsnycklar. När Azure AD roterar dess globala Signeringsnycklar, måste implementeringen WIF förberedas för att godkänna ändringarna. Mer information finns i [viktig information om signeringsnyckel i Azure AD](https://msdn.microsoft.com/en-us/library/azure/dn641920.aspx).
+Om du väljer den här metoden måste du förstå [signeringsnyckel i Azure AD](https://docs.microsoft.com/azure/active-directory/develop/active-directory-signing-key-rollover). Den här metoden använder Azure AD globala signeringsnyckel till problemet token. Som standard uppdateras WIF inte automatiskt Signeringsnycklar. När Azure AD roterar dess globala Signeringsnycklar, måste implementeringen WIF förberedas för att godkänna ändringarna. Mer information finns i [viktig information om signeringsnyckel i Azure AD](https://msdn.microsoft.com/library/azure/dn641920.aspx).
 
 Om du kan integrera med Azure AD via OpenID Connect eller OAuth-protokoll, rekommenderar vi då. Vi har en omfattande dokumentation och vägledning om hur du integrerar Azure AD i ditt webbprogram som är tillgängliga i vår [utvecklarguide för Azure AD](https://aka.ms/aaddev).
 

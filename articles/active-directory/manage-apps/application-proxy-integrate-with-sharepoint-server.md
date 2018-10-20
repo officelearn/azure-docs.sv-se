@@ -11,16 +11,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/06/2017
+ms.date: 10/19/2018
 ms.author: barbkess
-ms.reviewer: harshja
+ms.reviewer: japere
 ms.custom: it-pro
-ms.openlocfilehash: fcd02e264d5e85b1bef7e75d2a6375d6bf5e18c0
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.openlocfilehash: ad0ab8790c9d66dbba87d466e9661ef8cf33eef3
+ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39363957"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49456906"
 ---
 # <a name="enable-remote-access-to-sharepoint-with-azure-ad-application-proxy"></a>Aktivera fjärråtkomst till SharePoint med Azure AD Application Proxy
 
@@ -194,7 +194,7 @@ Din sista steget är att säkerställa att SharePoint hittar webbplatsen baserat
 
 3. I listrutan bredvid **alternativa åtkomst mappning samling**väljer **ändra alternativa åtkomst mappning samling**.
 4. Välj din plats – till exempel **SharePoint – 80**.
-5. Du kan välja att lägga till publicerade URL: en som en intern Webbadress eller en offentlig URL. Det här exemplet använder en offentlig URL som extranätet.
+5. Du kan välja att lägga till publicerade URL: en som en intern Webbadress eller en offentlig URL. Det här exemplet använder en offentlig URL som extranätet. Om du använder en anpassad port måste du inkludera den anpassa porten i Webbadressen.
 6. Klicka på **redigera offentliga URL: er** i den **extranät** sökväg, och sedan ange den externa URL: en som skapades när du har publicerat programmet. Ange till exempel **https://sharepoint-iddemo.msappproxy.net**.
 
   ![Att ange sökvägen](./media/application-proxy-integrate-with-sharepoint-server/alternate-access3.png)

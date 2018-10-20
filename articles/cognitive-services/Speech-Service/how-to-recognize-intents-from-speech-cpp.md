@@ -1,21 +1,21 @@
 ---
 title: Identifiera avsikter från tal med hjälp av tal-SDK för C++
-titleSuffix: Microsoft Cognitive Services
-description: >
-  Lär dig hur du identifierar intentioner från tal från en fil eller en mikrofon med hjälp av tal-SDK för C++.
+titleSuffix: Azure Cognitive Services
+description: Lär dig hur du identifierar intentioner från tal från en fil eller en mikrofon med hjälp av tal-SDK för C++.
 services: cognitive-services
 author: wolfma61
+manager: cgronlun
 ms.service: cognitive-services
-ms.component: Speech
-ms.topic: article
+ms.component: speech-service
+ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: wolfma
-ms.openlocfilehash: bbcea97918d377a6d40b95fe61592f7a79e8f5f4
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: 48fc330c62ec8f6ce8c25c79c85db622bcaa4282
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48883796"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49466502"
 ---
 # <a name="recognize-intents-from-speech-by-using-the-speech-sdk-for-c"></a>Identifiera avsikter från tal med hjälp av tal-SDK för C++
 

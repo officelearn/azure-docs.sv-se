@@ -7,34 +7,33 @@ manager: femila
 ms.service: event-hubs
 ms.workload: core
 ms.topic: article
-ms.date: 07/26/2018
+ms.date: 10/16/2018
 ms.author: sethm
-ms.openlocfilehash: 762e21cfc7d16b614eb637c569f8bfc5b6115db1
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: bb77ed69ae8f2229cbd62afa545cac9f048689e8
+ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43703797"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49458011"
 ---
 # <a name="send-events-to-event-hubs-using-python"></a>Skicka händelser till Event Hubs med hjälp av Python
 
-Azure Event Hubs är en mycket skalbar Händelsehanteringssystem som kan hantera flera miljoner händelser per sekund programmen kan bearbeta och analysera stora datamängder som produceras av anslutna enheter och andra system. När samlats in i en händelsehubb, du kan ta emot och hantera händelser med hjälp av pågående hanterare eller vidarebefordran till andra system för analys av.
+Azure Event Hubs är en strömningstjänst för stordata och händelseinmatningstjänst som kan ta emot och bearbeta flera miljoner händelser per sekund. Azure Event Hubs kan bearbeta och lagra händelser, data eller telemetri som produceras av distribuerade program och enheter. Data som skickas till en händelsehubb kan omvandlas och lagras med valfri provider för realtidsanalys eller batchbearbetnings-/lagringsadaptrar. Detaljerad översikt över Event Hubs finns i [översikt av Händelsehubbar](event-hubs-about.md) och [Event Hubs-funktioner](event-hubs-features.md).
 
-Mer information om Händelsehubbar finns i [översikt av Händelsehubbar][Event Hubs overview].
+Den här självstudien beskrivs hur du skickar händelser till en händelsehubb från ett program som skrivits i Python. 
 
-Den här självstudien beskrivs hur du skickar händelser till en händelsehubb från ett program som skrivits i Python. Om du vill ta emot händelser, se [motsvarande Receive-artikel](event-hubs-python-get-started-receive.md).
-
-Koden i den här självstudiekursen kommer från [dessa GitHub-exempel](https://github.com/Azure/azure-event-hubs-python/tree/master/examples), som du kan kontrollera för att se fullständiga fungerande program, inklusive importuttryck och variabeldeklarationer. Andra exempel finns i samma mapp i GitHub.
+> [!NOTE]
+> Du kan hämta den här snabbstarten som ett exempel från den [GitHub](https://github.com/Azure/azure-event-hubs-python/tree/master/examples), Ersätt `EventHubConnectionString` och `EventHubName` strängarna med värdena för din händelsehubb, och kör den. Du kan också följa stegen i den här kursen och skapa dina egna.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
 För att slutföra den här självstudien, finns följande förhandskrav:
 
 - Python 3.4 och senare.
-- En befintlig Event Hubs-namnområde och event hub. Du kan skapa dessa enheter genom att följa instruktionerna i [i den här artikeln](event-hubs-create.md). 
 
-[!INCLUDE [create-account-note](../../includes/create-account-note.md)]
 
+## <a name="create-an-event-hubs-namespace-and-an-event-hub"></a>Skapa ett namnområde för Event Hubs och en händelsehubb
+Det första steget är att använda [Azure Portal](https://portal.azure.com) till att skapa ett namnområde av typen Event Hubs och hämta de autentiseringsuppgifter för hantering som programmet behöver för att kommunicera med händelsehubben. Om du vill skapa ett namnområde och en händelsehubb följer du anvisningarna i [i den här artikeln](event-hubs-create.md), fortsätter sedan enligt följande steg i den här självstudien.
 
 ## <a name="install-python-package"></a>Installera Python-paketet
 
@@ -98,23 +97,18 @@ except KeyboardInterrupt:
     pass
 ```
 
-## <a name="send-events"></a>Skicka händelser
+## <a name="run-application-to-send-events"></a>Kör programmet för att skicka händelser
 
 Öppna en kommandotolk med Python i dess sökväg för att köra skriptet och kör sedan det här kommandot:
 
 ```bash
 start python send.py
 ```
+
+Grattis! Du har nu skickat meddelanden till en händelsehubb.
  
 ## <a name="next-steps"></a>Nästa steg
-
-Nu när du har skickat händelser till en event hub med Python, för att ta emot händelser i [motsvarande Receive-artikel](event-hubs-python-get-started-receive.md).
-
-Finns på följande sidor om du vill veta mer om Event Hubs:
-
-* [Översikt av händelsehubbar][Event Hubs overview]
-* [Skapa en Event Hub](event-hubs-create.md)
-* [Vanliga frågor och svar om Event Hubs](event-hubs-faq.md)
+I den här snabbstarten har du skickat meddelanden till en händelsehubb med hjälp av Python. Läs hur du tar emot händelser från en event hub med Python i [ta emot händelser från event hub - Python](event-hubs-python-get-started-receive.md).
 
 <!-- Links -->
 [Event Hubs overview]: event-hubs-about.md

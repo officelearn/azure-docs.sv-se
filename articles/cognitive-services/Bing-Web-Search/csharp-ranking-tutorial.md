@@ -10,13 +10,13 @@ ms.service: cognitive-services
 ms.component: bing-web-search
 ms.topic: conceptual
 ms.date: 05/08/2017
-ms.author: brumbaug
-ms.openlocfilehash: 3e55830fcfdbea91581a75fcfc343fd522485c5a
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.author: bking
+ms.openlocfilehash: ebe95c8ebad8c7d6b77d98dc0d590a4d38d76b94
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46123410"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49465975"
 ---
 # <a name="build-a-console-app-search-client-in-c"></a>Skapa en app search konsolklient i C#
 
@@ -32,7 +32,7 @@ Den här kursen visar hur du:
 Om du vill följa självstudiekursen behöver du:
 
 - Visual Studio. Om du inte har det, [ladda ned och installera den kostnadsfria Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/).
-- En prenumerationsnyckel för Bing Web Search API. Om du inte har någon, [registrera dig för en kostnadsfri utvärderingsversion](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api).
+- En prenumerationsnyckel för Bing Web Search API. Om du inte har redan har en kan du registrera dig för [en kostnadsfri utvärderingsversion](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api).
 
 ## <a name="create-a-new-console-app-project"></a>Skapa ett nytt Console App-projekt
 

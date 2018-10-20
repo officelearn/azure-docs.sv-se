@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: timlt
-ms.openlocfilehash: 51fea4fa1973fbe92242f1995d892cd5b038a29b
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 9553d1dd5dd8d8ff11ea480618b471b9898985e3
+ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46991648"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49456566"
 ---
 # <a name="how-to-provision-legacy-devices-using-symmetric-keys"></a>Hur du etablerar äldre enheter med symmetriska nycklar
 
@@ -26,7 +26,7 @@ Den här artikeln förutsätter att varken en HSM eller ett certifikat är ett g
 
 Den här artikeln förutsätter också att uppdaterats sker i en säker miljö för att förhindra obehörig åtkomst till den överordnade gruppnyckeln eller härledda enhetsnyckeln.
 
-Den här artikeln är riktade mot en Windows-arbetsstation. Du kan dock utföra procedurerna i Linux. En Linux-exempel finns i [hur man etablerar för flera innehavare](how-to-provision-multitenant.md).
+Den här artikeln riktar sig till en Windows-arbetsstation. Du kan dock utföra procedurerna i Linux. Ett Linux-exempel finns i informationen om att [etablera för flera innehavare](how-to-provision-multitenant.md).
 
 
 ## <a name="overview"></a>Översikt
@@ -47,13 +47,13 @@ Koden för enheten som visas i den här artikeln följer samma mönster som den 
 * Senaste versionen av [Git](https://git-scm.com/download/) installerad.
 
 
-## <a name="prepare-an-azure-iot-c-sdk-development-environment"></a>Förbered en utvecklingsmiljö för Azure IoT C SDK
+## <a name="prepare-an-azure-iot-c-sdk-development-environment"></a>Förbereda en utvecklingsmiljö för Azure IoT C SDK
 
-I det här avsnittet, förbereder du en utvecklingsmiljö som används för att skapa den [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c). 
+I det här avsnittet förbereder du en utvecklingsmiljö som används för att skapa [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c). 
 
-SDK innehåller exempelkod för den simulerade enheten. Denna simulerade enhet kommer att försöka etablera under startsekvens för enheten.
+SDK innehåller exempelkod för den simulerade enheten. Den här simulerade enheten försöker etablera under enhetens startsekvens.
 
-1. Ladda ned den 3.11.4 den [CMake-buildsystemet](https://cmake.org/download/). Kontrollera den hämta binära filen med hjälp av det motsvarande kryptografiska hashvärdet. I följande exempel används Windows PowerShell för att verifiera den kryptografisk hashen för version 3.11.4 av x64 MSI-distributionen:
+1. Ladda ned version 3.11.4 av [CMake-buildsystemet](https://cmake.org/download/). Kontrollera den hämta binära filen med hjälp av det motsvarande kryptografiska hashvärdet. I följande exempel används Windows PowerShell för att verifiera den kryptografisk hashen för version 3.11.4 av x64 MSI-distributionen:
 
     ```PowerShell
     PS C:\Downloads> $hash = get-filehash .\cmake-3.11.4-win64-x64.msi
@@ -61,7 +61,7 @@ SDK innehåller exempelkod för den simulerade enheten. Denna simulerade enhet k
     True
     ```
     
-    Följande hash-värden för version 3.11.4 har visas på webbplatsen CMake när detta skrivs:
+    Följande hash-värden för version 3.11.4 visades på CMake-webbplatsen när detta skrevs:
 
     ```
     6dab016a6b82082b8bcd0f4d1e53418d6372015dd983d29367b9153f1a376435  cmake-3.11.4-Linux-x86_64.tar.gz
@@ -71,7 +71,7 @@ SDK innehåller exempelkod för den simulerade enheten. Denna simulerade enhet k
 
     Det är viktigt att förutsättningarna för Visual Studio (Visual Studio och arbetsbelastningen ”Desktop development with C++” (Skrivbordsutveckling med C++)) är installerade på datorn **innan** installationen av `CMake` påbörjas. När förutsättningarna är uppfyllda och nedladdningen har verifierats installerar du CMake-byggesystemet.
 
-2. Öppna en kommandotolk eller Git Bash-gränssnittet. Kör följande kommando för att klona databasen för Azure IoT C SDK på GitHub:
+2. Öppna en kommandotolk eller Git Bash-gränssnittet. Kör följande kommando för att klona Azure IoT C SDK GitHub-lagringsplatsen:
     
     ```cmd/sh
     git clone https://github.com/Azure/azure-iot-sdk-c.git --recursive
@@ -87,10 +87,10 @@ SDK innehåller exempelkod för den simulerade enheten. Denna simulerade enhet k
     cd cmake
     ```
 
-4. Kör följande kommando, vilket skapar en version av SDK som är specifika för din utvecklingsplattform för klienten. En Visual Studio-lösning för den simulerade enheten genereras i `cmake`-katalogen. 
+4. Kör följande kommando som skapar en version av SDK:t som är specifik för plattformen i din utvecklingsklient. En Visual Studio-lösning för den simulerade enheten genereras i `cmake`-katalogen. 
 
     ```cmd
-    cmake -Duse_prov_client:BOOL=ON ..
+    cmake -Dhsm_type_symm_key:BOOL=ON ..
     ```
     
     Om `cmake` inte hittar din C++-kompilerare kan du få kompileringsfel när du kör kommandot ovan. Om det händer ska du försöka köra det här kommandot i [kommandotolken i Visual Studio](https://docs.microsoft.com/dotnet/framework/tools/developer-command-prompt-for-vs). 
@@ -98,7 +98,7 @@ SDK innehåller exempelkod för den simulerade enheten. Denna simulerade enhet k
     När bygget är klart ser de sista utdataraderna ut ungefär som följande utdata:
 
     ```cmd/sh
-    $ cmake -Duse_prov_client:BOOL=ON ..
+    $ cmake -Dhsm_type_symm_key:BOOL=ON ..
     -- Building for: Visual Studio 15 2017
     -- Selecting Windows SDK version 10.0.16299.0 to target Windows 10.0.17134.
     -- The C compiler identification is MSVC 19.12.25835.0
@@ -124,7 +124,7 @@ SDK innehåller exempelkod för den simulerade enheten. Denna simulerade enhet k
 
     - **Typ av attestering**: Välj **symmetrisk nyckel**.
 
-    - **Generera nycklar automatiskt**: den här kryssrutan.
+    - **Generera nycklar automatiskt**: Markera den här kryssrutan.
 
     - **Välj hur du vill tilldela enheter till hubs**: Välj **statisk konfiguration** så att du kan tilldela till en specifik hubb.
 
@@ -132,7 +132,7 @@ SDK innehåller exempelkod för den simulerade enheten. Denna simulerade enhet k
 
     ![Lägg till grupp för registrering för symmetrisk nyckelattestering](./media/how-to-legacy-device-symm-key/symm-key-enrollment-group.png)
 
-4. När du har sparat din registrering, den **primärnyckel** och **sekundärnyckel** genereras och läggs till post för registrering. Symmetrisk nyckel registreringsgruppen visas som **mylegacydevices** under den *gruppnamn* kolumnen i den *Registreringsgrupper* fliken. 
+4. När du har sparat din registrering genereras **primärnyckeln** och **sekundärnyckel** och läggs till registreringsposten. Symmetrisk nyckel registreringsgruppen visas som **mylegacydevices** under den *gruppnamn* kolumnen i den *Registreringsgrupper* fliken. 
 
     Öppna registreringen och kopiera värdet för din genererade **primärnyckel**. Den här nyckeln är din master gruppnyckel.
 
@@ -230,7 +230,7 @@ Den här exempelkoden simulerar en startsekvens för enheten som skickar en beg�
     static const char* id_scope = "0ne00002193";
     ```
 
-5. Hitta definitionen för funktionen `main()` i samma fil. Kontrollera att den `hsm_type` variabeln anges till `SECURE_DEVICE_TYPE_SYMMETRIC_KEY` enligt nedan:
+5. Hitta definitionen för funktionen `main()` i samma fil. Kontrollera att variabeln `hsm_type` är inställd på `SECURE_DEVICE_TYPE_SYMMETRIC_KEY` enligt nedan:
 
     ```c
     SECURE_DEVICE_TYPE hsm_type;
@@ -241,9 +241,9 @@ Den här exempelkoden simulerar en startsekvens för enheten som skickar en beg�
 
 6. Högerklicka på projektet **prov\_dev\_client\_sample** och välj **Set as Startup Project** (Ange som startprojekt). 
 
-7. I Visual Studio *Solution Explorer* och navigera till den **hsm\_security\_klienten** projekt och expandera den. Expandera **källfiler**, och öppna **hsm\_klienten\_key.c**. 
+7. I fönstret *Solution Explorer* i Visual Studio går du till projektet **hsm\_security\_client** och expanderar det. Expandera **Källfiler** och öppna **hsm\_client\_key.c**. 
 
-    Hitta deklaration av den `REGISTRATION_NAME` och `SYMMETRIC_KEY_VALUE` konstanter. Gör följande ändringar i filen och spara filen.
+    Hitta deklarationen för konstanterna `REGISTRATION_NAME` och `SYMMETRIC_KEY_VALUE`. Gör följande ändringar i filen och spara filen.
 
     Uppdatera värdet för den `REGISTRATION_NAME` konstant med den **unika registrerings-ID för din enhet**.
     
@@ -256,7 +256,7 @@ Den här exempelkoden simulerar en startsekvens för enheten som skickar en beg�
 
 7. I Visual Studio-menyn väljer du **Felsökning** > **Starta utan felsökning** för att köra lösningen. I meddelandet för att omkompilera projektet klickar du på **Ja**, för att omkompilera projektet innan du kör.
 
-    Följande utdata är ett exempel på den simulerade enheten har startas och ansluta till etablering tjänstinstansen som ska tilldelas till en IoT-hubb:
+    Följande utdata är ett exempel på när den simulerade enheten lyckas med starten och ansluter till etableringstjänstinstansen för att tilldelas en IoT-hubb:
 
     ```cmd
     Provisioning API Version: 1.2.8
@@ -273,7 +273,7 @@ Den här exempelkoden simulerar en startsekvens för enheten som skickar en beg�
     Press enter key to exit:
     ```
 
-8. Navigera till IoT-hubb som din simulerade enhet har tilldelats i portalen och klicka på den **IoT-enheter** fliken. Vid lyckad etablering av den simulerade till hubben visas dess enhets-ID på den **IoT-enheter** bladet med *STATUS* som **aktiverat**. Du kan behöva klicka på den **uppdatera** längst upp. 
+8. I portalen går du till den IoT-hubb som din simulerade enhet tilldelades och klickar på fliken **IoT-enheter**. Vid lyckad etablering av den simulerade enheten till hubben visas dess enhets-ID på bladet **IoT-enheter** med *STATUS* **aktiverad**. Du kan behöva klicka på knappen **Uppdatera** längst upp. 
 
     ![Enheten är registrerad på IoT-hubben](./media/how-to-legacy-device-symm-key/hub-registration.png) 
 

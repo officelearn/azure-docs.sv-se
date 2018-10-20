@@ -1,24 +1,25 @@
 ---
-title: Cognitive Services tal SDK-dokumentation | Microsoft Docs
+title: Dokumentation om Speech Service SDK
+titlesuffix: Azure Cognitive Services
 description: Viktig information – vad som har ändrats i de senaste versionerna
-titleSuffix: Microsoft Cognitive Services
 services: cognitive-services
 author: wolfma61
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: speech-service
-ms.topic: article
+ms.topic: conceptual
 ms.date: 10/12/2018
 ms.author: wolfma
-ms.openlocfilehash: 7f637014c5f3e246d67ae051f9304e2f2536d725
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: b5e4d239121b2449a45dfce826c99765f1c3f4be
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/19/2018
-ms.locfileid: "49427390"
+ms.locfileid: "49471149"
 ---
 # <a name="release-notes"></a>Viktig information
 
-## <a name="cognitive-services-speech-sdk-101"></a>Cognitive Services tal SDK 1.0.1
+## <a name="speech-service-sdk-101"></a>Taltjänst-SDK 1.0.1
 
 Förbättrad tillförlitlighet och felkorrigeringar:
 

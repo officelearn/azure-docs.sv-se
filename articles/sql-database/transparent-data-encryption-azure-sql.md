@@ -12,12 +12,12 @@ ms.author: aliceku
 ms.reviewer: vanto
 manager: craigg
 ms.date: 10/15/2018
-ms.openlocfilehash: 94a3a502d5756d57cfebdf6698a4435dc1e19948
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: 0d5b7e484024294eb5c95b632dbef85c377b717e
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49353041"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49469035"
 ---
 # <a name="transparent-data-encryption-for-sql-database-and-data-warehouse"></a>Transparent datakryptering för SQL Database och Data Warehouse
 
@@ -113,17 +113,17 @@ Om du vill konfigurera transparent datakryptering via REST API, måste du vara a
 
 | Kommando | Beskrivning |
 | --- | --- |
-|[Skapa eller uppdatera Server](https://docs.microsoft.com/rest/api/sql/servers/servers_createorupdate)|Lägger till en Azure Active Directory-identitet till en SQL Server-instans (används för att bevilja åtkomst till Key Vault)|
-|[Skapa eller uppdatera servernyckel](https://docs.microsoft.com/rest/api/sql/serverkeys/serverkeys_createorupdate)|Lägger till en Key Vault-nyckel till en SQL Server-instans|
-|[Ta bort servernyckeln](https://docs.microsoft.com/rest/api/sql/serverkeys/serverkeys_delete)|Tar bort en nyckel med Key Vault från en SQL Server-instans|
-|[Hämta för Server](https://docs.microsoft.com/rest/api/sql/serverkeys/serverkeys_get)|Hämtar en specifik Key Vault-nyckel från en SQL Server-instans|
-|[Lista servernycklar av servern](https://docs.microsoft.com/rest/api/sql/serverkeys/serverkeys_listbyserver)|Hämtar Key Vault-nycklar för en SQL Server-instans |
-|[Skapa eller uppdatera Krypteringsskyddet](https://docs.microsoft.com/rest/api/sql/encryptionprotectors/encryptionprotectors_createorupdate)|Anger krypteringsskyddet transparent data för en SQL Server-instans|
-|[Hämta Krypteringsskyddet](https://docs.microsoft.com/rest/api/sql/encryptionprotectors/encryptionprotectors_get)|Hämtar krypteringsskyddet transparent data för en SQL Server-instans|
-|[Lista kryptering skydd av servern](https://docs.microsoft.com/rest/api/sql/encryptionprotectors/encryptionprotectors_listbyserver)|Hämtar transparent data encryption skydd för en SQL Server-instans |
-|[Skapa eller uppdatera Transparent Data Encryption konfiguration](https://docs.microsoft.com/rest/api/sql/transparentdataencryptions/transparentdataencryptions_createorupdate)|Aktiverar eller inaktiverar transparent datakryptering för en databas|
-|[Hämta konfiguration för Transparent kryptering](https://docs.microsoft.com/rest/api/sql/transparentdataencryptions/transparentdataencryptions_get)|Hämtar transparent data encryption konfigurationen för en databas|
-|[Transparent Data Encryption Configuration Listresultaten](https://docs.microsoft.com/rest/api/sql/transparentdataencryptionactivities/transparentdataencryptionactivities_listbyconfiguration)|Hämtar kryptering resultatet för en databas|
+|[Skapa eller uppdatera Server](https://docs.microsoft.com/rest/api/sql/servers/createorupdate)|Lägger till en Azure Active Directory-identitet till en SQL Server-instans (används för att bevilja åtkomst till Key Vault)|
+|[Skapa eller uppdatera servernyckel](https://docs.microsoft.com/rest/api/sql/serverkeys/createorupdate)|Lägger till en Key Vault-nyckel till en SQL Server-instans|
+|[Ta bort servernyckeln](https://docs.microsoft.com/rest/api/sql/serverkeys/delete)|Tar bort en nyckel med Key Vault från en SQL Server-instans|
+|[Hämta för Server](https://docs.microsoft.com/rest/api/sql/serverkeys/get)|Hämtar en specifik Key Vault-nyckel från en SQL Server-instans|
+|[Lista servernycklar av servern](https://docs.microsoft.com/rest/api/sql/serverkeys/listbyserver)|Hämtar Key Vault-nycklar för en SQL Server-instans |
+|[Skapa eller uppdatera Krypteringsskyddet](https://docs.microsoft.com/rest/api/sql/encryptionprotectors/createorupdate)|Anger krypteringsskyddet transparent data för en SQL Server-instans|
+|[Hämta Krypteringsskyddet](https://docs.microsoft.com/rest/api/sql/encryptionprotectors/get)|Hämtar krypteringsskyddet transparent data för en SQL Server-instans|
+|[Lista kryptering skydd av servern](https://docs.microsoft.com/rest/api/sql/encryptionprotectors/listbyserver)|Hämtar transparent data encryption skydd för en SQL Server-instans |
+|[Skapa eller uppdatera Transparent Data Encryption konfiguration](https://docs.microsoft.com/rest/api/sql/transparentdataencryptions/createorupdate)|Aktiverar eller inaktiverar transparent datakryptering för en databas|
+|[Hämta konfiguration för Transparent kryptering](https://docs.microsoft.com/rest/api/sql/transparentdataencryptions/get)|Hämtar transparent data encryption konfigurationen för en databas|
+|[Transparent Data Encryption Configuration Listresultaten](https://docs.microsoft.com/rest/api/sql/transparentdataencryptionactivities/listbyconfiguration)|Hämtar kryptering resultatet för en databas|
 
 ## <a name="next-steps"></a>Nästa steg
 

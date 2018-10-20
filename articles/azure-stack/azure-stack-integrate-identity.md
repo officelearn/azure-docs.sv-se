@@ -6,16 +6,16 @@ author: jeffgilb
 manager: femila
 ms.service: azure-stack
 ms.topic: article
-ms.date: 10/02/2018
+ms.date: 10/19/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
 keywords: ''
-ms.openlocfilehash: 4ba890f4763fc77981917d9311cf2bf6c97ec80f
-ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
+ms.openlocfilehash: 6548693b91283665704be8fc83a483a9d20dc41b
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48902451"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49470554"
 ---
 # <a name="azure-stack-datacenter-integration---identity"></a>Integrering med Azure Stack datacenter - identitet
 Du kan distribuera Azure Stack med Azure Active Directory (AD Azure) eller Active Directory Federation Services (AD FS) som identitetsleverantör man. Du måste göra valet innan du distribuerar Azure Stack. Distributionen med hjälp av AD FS är kallas även distribuera Azure Stack i frånkopplat läge.
@@ -70,6 +70,17 @@ Följande information krävs som indata för automation-parametrar:
 |---------|---------|---------|
 |CustomADGlobalCatalog|FQDN för målet Active Directory-skog<br>som du vill integrera med|Contoso.com|
 |CustomADAdminCredentials|En användare med läsbehörighet för LDAP|YOURDOMAIN\graphservice|
+
+### <a name="configure-active-directory-sites"></a>Konfigurera Active Directory-platser
+
+Konfigurera den närmaste Active Directory-plats till Azure Stack-distribution för Active Directory-distributioner med flera platser. Konfigurationen innebär att du slipper Azure Stack diagramtjänsten matcha frågor med hjälp av en Global katalogserver från en fjärrplats.
+
+Lägg till Azure Stack [offentliga VIP-nätverk](azure-stack-network.md#public-vip-network) undernätet till Azure AD plats närmast Azure Stack. Till exempel om din Active Directory har två platser Seattle och Redmond med Azure Stack som distribueras på Seattle-plats, och Lägg till Azure Stack offentliga VIP-nätverksundernätet Azure AD-plats för Seattle.
+
+Mer information om Active Directory-platser finns i [designa platstopologin](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/designing-the-site-topology).
+
+> [!Note]  
+> Om din Active Directory består av en enda plats kan du hoppa över det här steget. Om du har en allomfattande undernät som konfigurerats att verifiera att Azure Stack offentliga VIP-nätverksundernätet inte är en del av den.
 
 ### <a name="create-user-account-in-the-existing-active-directory-optional"></a>Skapa användarkontot i befintliga Active Directory (valfritt)
 

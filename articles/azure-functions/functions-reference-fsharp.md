@@ -1,6 +1,6 @@
 ---
 title: 'Azure Functions F #-utvecklarreferens | Microsoft Docs'
-description: 'Förstå hur du utvecklar Azure Functions med F #.'
+description: 'Förstå hur du utvecklar Azure Functions med F #-skript.'
 services: functions
 documentationcenter: fsharp
 author: sylvanc
@@ -10,18 +10,21 @@ ms.assetid: e60226e5-2630-41d7-9e5b-9f9e5acc8e50
 ms.service: azure-functions
 ms.devlang: fsharp
 ms.topic: reference
-ms.date: 09/09/2016
+ms.date: 10/09/2018
 ms.author: syclebsc
-ms.openlocfilehash: 5593f76511f43106d6743a158b051e118ef2a4a6
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: 772b2dae016e093f2c3833374378c0e884dbe835
+ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46125263"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49456957"
 ---
 # <a name="azure-functions-f-developer-reference"></a>Azure Functions F #-Utvecklarreferens
 
-F # för Azure Functions är en lösning för att enkelt köra små delar av kod eller ”funktioner”, i molnet. Data flödar till din F #-funktion via funktionsargument. Argumentnamn anges i `function.json`, och det finns fördefinierade namnen för att komma åt saker som funktionen loggare och uppsägning token.
+F # för Azure Functions är en lösning för att enkelt köra små delar av kod eller ”funktioner”, i molnet. Data flödar till din F #-funktion via funktionsargument. Argumentnamn anges i `function.json`, och det finns fördefinierade namnen för att komma åt saker som funktionen loggare och uppsägning token. 
+
+>[!IMPORTANT]
+>F #-skript (.fsx) stöds endast av [version 1.x](functions-versions.md#creating-1x-apps) av Azure Functions-körningen. Om du vill använda F # med version 2.x-körningen, måste du använda en förkompilerade F # klassbiblioteksprojektet (.fs). Skapa, hantera och publicera en F # klassbiblioteksprojektet med Visual Studio precis som en [C#-klassbiblioteksprojektet](functions-dotnet-class-library.md). Läs mer om funktioner versioner [översikten över Azure Functions runtime versioner](functions-versions.md).
 
 Den här artikeln förutsätter att du redan har läst den [Azure Functions för utvecklare](functions-reference.md).
 

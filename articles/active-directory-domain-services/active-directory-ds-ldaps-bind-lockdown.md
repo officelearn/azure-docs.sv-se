@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/01/2018
 ms.author: maheshu
-ms.openlocfilehash: 9728d42710ce44226363ea4954d83fcc3efbfb75
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.openlocfilehash: d3fbefd002f0b2774578d24cf2e3145a21a5e1f3
+ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39502960"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49456413"
 ---
 # <a name="bind-to-an-azure-ad-domain-services-managed-domain-using-secure-ldap-ldaps"></a>Binda till en Azure AD Domain Services-hanterad domän med hjälp av säker LDAP (LDAPS)
 
@@ -38,8 +38,8 @@ Nu ska binda till den hanterade domänen. Klicka på **anslutning** och klicka p
 Välj **visa**, och välj sedan **trädet** på menyn. Lämna fältet Bas-DN tom och klicka på OK. Navigera till den behållare som du vill söka efter och högerklicka på behållaren väljer.
 
 > [!TIP]
-> - Användare och grupper som synkroniserats från Azure AD lagras i den **AADDC-användare** behållare. Sökvägen för den här behållaren som ser ut som ```CN=AADDC\ Users,DC=CONTOSO100,DC=COM```.
-> - Datorkontona för datorer som är anslutna till den hanterade domänen lagras i den **AADDC-datorer** behållare. Sökvägen för den här behållaren som ser ut som ```CN=AADDC\ Computers,DC=CONTOSO100,DC=COM```.
+> - Användare och grupper som synkroniserats från Azure AD lagras i den **AADDC-användare** organisationsenhet. Sökvägen för den här organisationsenheten ut ```OU=AADDC Users,DC=CONTOSO100,DC=COM```.
+> - Datorkontona för datorer som är anslutna till den hanterade domänen lagras i den **AADDC-datorer** organisationsenhet. Sökvägen för den här organisationsenheten ut ```OU=AADDC Computers,DC=CONTOSO100,DC=COM```.
 >
 >
 

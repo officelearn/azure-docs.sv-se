@@ -1,24 +1,25 @@
 ---
-title: Om Cognitive Services tal SDK
-description: 'En översikt över SDK: er tillgängliga för Speech-tjänsten.'
+title: Om Taltjänst-SDK
 titleSuffix: Azure Cognitive Services
+description: 'En översikt över SDK: er tillgängliga för Speech-tjänsten.'
 services: cognitive-services
 author: erhopf
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: speech-service
-ms.topic: article
+ms.topic: conceptual
 ms.date: 10/16/2018
 ms.author: wolfma
-ms.openlocfilehash: 4be6b1e8373b6e7a7db8d97f2c99137cb6aca9bf
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
+ms.openlocfilehash: f071c15ea586f7b146b82a6201adf16dadc65add
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49364650"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49464819"
 ---
-# <a name="about-the-cognitive-services-speech-sdk"></a>Om Cognitive Services tal SDK
+# <a name="about-the-speech-service-sdk"></a>Om Taltjänst-SDK
 
-Den Cognitive Services tal Software Development Kit (SDK) får dina program inbyggda funktioner i tjänsten tal, vilket gör det enklare att utveckla programvara. För närvarande SDK ger åtkomst till **tal till Text**, **Talöversättning**, och **avsikt erkännande**.
+Tal tjänsten Software Development Kit (SDK) får dina program inbyggda funktioner i tjänsten tal, vilket gör det enklare att utveckla programvara. För närvarande SDK ger åtkomst till **tal till Text**, **Talöversättning**, och **avsikt erkännande**.
 
 [!INCLUDE [Speech SDK Platforms](../../../includes/cognitive-services-speech-service-speech-sdk-platforms.md)]
 

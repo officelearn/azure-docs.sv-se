@@ -7,34 +7,33 @@ manager: kamalb
 ms.service: event-hubs
 ms.workload: core
 ms.topic: article
-ms.date: 07/23/2018
+ms.date: 10/18/2018
 ms.author: shvija
-ms.openlocfilehash: 40b3aa82c3e9e8ab9a30362c0a41998877655725
-ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
+ms.openlocfilehash: f5e30a103b09613caee8e9912a89a5bc2d390f65
+ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "40005605"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49458096"
 ---
 # <a name="send-events-to-event-hubs-using-go"></a>Skicka händelser till Event Hubs med hjälp av Go
 
-Azure Event Hubs är en mycket skalbar Händelsehanteringssystem som kan hantera flera miljoner händelser per sekund programmen kan bearbeta och analysera stora datamängder som produceras av anslutna enheter och andra system. När samlats in i en händelsehubb, du kan ta emot och hantera händelser med hjälp av pågående hanterare eller vidarebefordran till andra system för analys av.
+Azure Event Hubs är en strömningstjänst för stordata och händelseinmatningstjänst som kan ta emot och bearbeta flera miljoner händelser per sekund. Azure Event Hubs kan bearbeta och lagra händelser, data eller telemetri som produceras av distribuerade program och enheter. Data som skickas till en händelsehubb kan omvandlas och lagras med valfri provider för realtidsanalys eller batchbearbetnings-/lagringsadaptrar. Detaljerad översikt över Event Hubs finns i [översikt av Händelsehubbar](event-hubs-about.md) och [Event Hubs-funktioner](event-hubs-features.md).
 
-Mer information om Händelsehubbar finns i [översikt av Händelsehubbar][Event Hubs overview].
+Den här självstudien beskrivs hur du skickar händelser till en händelsehubb från ett program som skrivits i Go. 
 
-Den här självstudien beskrivs hur du skickar händelser till en händelsehubb från ett program som skrivits i Go. Om du vill ta emot händelser, använda den **gå eph** (Event Processor Host)-paketet enligt beskrivningen i [motsvarande Receive-artikel](event-hubs-go-get-started-receive-eph.md).
-
-Koden i den här självstudiekursen kommer från [dessa GitHub-exempel](https://github.com/Azure-Samples/azure-sdk-for-go-samples/tree/master/eventhubs), som du kan kontrollera för att se fullständiga fungerande program, inklusive importuttryck och variabeldeklarationer.
-
-Andra exempel är tillgängliga [i Hubs paketera lagringsplatsen](https://github.com/Azure/azure-event-hubs-go/tree/master/_examples).
+> [!NOTE]
+> Du kan hämta den här snabbstarten som ett exempel från den [GitHub](https://github.com/Azure-Samples/azure-sdk-for-go-samples/tree/master/eventhubs), Ersätt `EventHubConnectionString` och `EventHubName` strängarna med värdena för din händelsehubb, och kör den. Du kan också följa stegen i den här kursen och skapa dina egna.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
 För att slutföra den här självstudien, finns följande förhandskrav:
 
 * Gå installerad lokalt. Följ [instruktionerna](https://golang.org/doc/install) om det behövs.
-* Ett aktivt Azure-konto. Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto][] innan du börjar.
 * En befintlig Event Hubs-namnområde och event hub. Du kan skapa dessa enheter genom att följa instruktionerna i [i den här artikeln](event-hubs-create.md).
+
+## <a name="create-an-event-hubs-namespace-and-an-event-hub"></a>Skapa ett namnområde för Event Hubs och en händelsehubb
+Det första steget är att använda [Azure Portal](https://portal.azure.com) till att skapa ett namnområde av typen Event Hubs och hämta de autentiseringsuppgifter för hantering som programmet behöver för att kommunicera med händelsehubben. Om du vill skapa ett namnområde och en händelsehubb följer du anvisningarna i [i den här artikeln](event-hubs-create.md), fortsätter sedan enligt följande steg i den här självstudien.
 
 ## <a name="install-go-package"></a>Installera Go-paketet
 
@@ -125,15 +124,13 @@ if err != nil {
 log.Printf("got partition IDs: %s\n, info.PartitionIDs)
 ```
 
+Kör programmet för att skicka händelser till event hub. 
+
+Grattis! Du har nu skickat meddelanden till en händelsehubb.
+
 ## <a name="next-steps"></a>Nästa steg
-
-Finns på följande sidor om du vill veta mer om Event Hubs:
-
-* [Ta emot händelser med hjälp av EventProcessorHost](event-hubs-go-get-started-receive-eph.md)
-* [Översikt av händelsehubbar][Event Hubs overview]
-* [Skapa en Event Hub](event-hubs-create.md)
-* [Vanliga frågor och svar om Event Hubs](event-hubs-faq.md)
+I den här snabbstarten har du skickat meddelanden till en händelsehubb med hjälp av Go. Läs hur du tar emot händelser från en händelsehubb med hjälp av Go i [ta emot händelser från event hub - Go](event-hubs-go-get-started-receive-eph.md).
 
 <!-- Links -->
 [Event Hubs overview]: event-hubs-about.md
-[kostnadsfritt konto]: https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio
+[free account]: https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio

@@ -8,13 +8,13 @@ author: divyaswarnkar
 ms.author: divswa
 ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
-ms.date: 06/19/2018
-ms.openlocfilehash: 9fbb2c8d8563e88f6241b6b7ab6b3ddf08111914
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.date: 10/11/2018
+ms.openlocfilehash: 177c361734a88acab5fc10d6b460645be82bf437
+ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49409058"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49457150"
 ---
 # <a name="monitor-and-get-insights-about-logic-app-runs-with-log-analytics"></a>Övervaka och få insikter om logikapp-körningar med Log Analytics
 
@@ -31,71 +31,82 @@ Innan du börjar måste du har en Log Analytics-arbetsyta. Lär dig [hur du skap
 
 ## <a name="turn-on-diagnostics-logging-when-creating-logic-apps"></a>Aktivera diagnostikloggning när du skapar logikappar
 
-1. I [Azure-portalen](https://portal.azure.com), skapa en logikapp. Välj **skapa en resurs** > **Företagsintegrering** > **Logikapp**.
+1. I [Azure-portalen](https://portal.azure.com), skapa en logikapp. Välj **skapa en resurs** > **integrering** > **Logikapp**.
 
    ![Skapa en logikapp](media/logic-apps-monitor-your-logic-apps-oms/find-logic-apps-azure.png)
 
-2. I den **skapa en logikapp** utför dessa uppgifter som visas:
+1. Under **skapa en logikapp**, utföra åtgärderna som visas:
 
    1. Ange ett namn för din logikapp och välj din Azure-prenumeration. 
-   2. Skapa eller välj en Azure-resursgrupp.
-   3. Ange **Log Analytics** till **på**. 
-   Välj Log Analytics-arbetsyta där du vill skicka data för din logikapp körs. 
-   4. När du är klar kan du välja **fäst på instrumentpanelen** > **skapa**.
+
+   1. Skapa eller välj en Azure-resursgrupp.
+
+   1. Ange **Log Analytics** till **på**. 
+
+   1. Markera arbetsytan där du vill skicka data för din logikapp körs från listan lista Log Analytics-arbetsyta. 
 
       ![Skapa en logikapp](./media/logic-apps-monitor-your-logic-apps-oms/create-logic-app.png)
 
       När du har slutfört det här steget skapar Azure logikappen, som nu är kopplad till Log Analytics-arbetsytan. 
       Det här steget installerar också automatiskt Logic Apps-hantering-lösningen i din arbetsyta.
 
-3. Visa din logikapp körs [fortsätter du med dessa steg](#view-logic-app-runs-oms).
+   1. När du är klar väljer du **Skapa**.
+
+1. Visa din logikapp körs [fortsätter du med dessa steg](#view-logic-app-runs-oms).
 
 ## <a name="install-the-logic-apps-management-solution"></a>Installera lösningen för Logic Apps-hantering
 
 Om du redan aktiverat Log Analytics när du skapade din logikapp kan du hoppa över det här steget. Du har redan en lösning för Logic Apps-hantering installerad.
 
-1. I den [Azure-portalen](https://portal.azure.com), Välj **fler tjänster**. Sök efter ”log analytics” som filter och välj **Log Analytics** enligt:
+1. I [Azure-portalen](https://portal.azure.com), väljer du **Alla tjänster**. I sökrutan anger du ”log analytics” som filter och välj **Log Analytics**.
 
-   ![Välj ”Log Analytics”](media/logic-apps-monitor-your-logic-apps-oms/find-log-analytics.png)
+   ![Välj ”Log Analytics”](./media/logic-apps-monitor-your-logic-apps-oms/find-log-analytics.png)
 
-2. Under **Log Analytics**, hitta och välj din Log Analytics-arbetsyta. 
+1. Under **Log Analytics**, hitta och välj din Log Analytics-arbetsyta. 
 
-   ![Välj Log Analytics-arbetsytan](media/logic-apps-monitor-your-logic-apps-oms/select-logic-app.png)
+   ![Välj Log Analytics-arbetsytan](./media/logic-apps-monitor-your-logic-apps-oms/select-log-analytics-workspace.png)
 
-3. Under **Management**, Välj **arbetsytan Sammanfattning**.
+1. Under **konfigurera övervakningslösningar**, Välj **visa lösningar**.
 
-   ![Välj ”översikt”](media/logic-apps-monitor-your-logic-apps-oms/ibiza-portal-page.png)
+   ![Välj ”Visa lösningar”](media/logic-apps-monitor-your-logic-apps-oms/log-analytics-workspace.png)
 
-4. På sidan Översikt väljer **Lägg till** att öppna panelen hanteringslösningar. 
+1. På sidan Översikt väljer **Lägg till**, vilket öppnar den **hanteringslösningar** lista. Välj den listan **Logic Apps-hantering**. 
 
-   ![Välj ”Logic Apps-hantering”](media/logic-apps-monitor-your-logic-apps-oms/add-logic-apps-management-solution.png)
+   ![Välj ”Logic Apps-hantering”](./media/logic-apps-monitor-your-logic-apps-oms/add-logic-apps-management-solution.png)
 
-5. Bläddra igenom listan över **hanteringslösningar**, Välj **Logic Apps-hantering** lösning, och välj **skapa** att installera den på sidan Översikt.
+   Om du inte hittar lösningen längst ned i listan, Välj **Läs in fler** tills lösningen visas.
 
-   ![Välj ”Lägg till” för ”Logic Apps-hantering”](media/logic-apps-monitor-your-logic-apps-oms/create-logic-apps-management-solution.png)
+1. Välj **skapa**, som installerar lösningen.
+
+   ![Välj ”Lägg till” för ”Logic Apps-hantering”](./media/logic-apps-monitor-your-logic-apps-oms/create-logic-apps-management-solution.png)
 
 <a name="view-logic-app-runs-oms"></a>
 
-## <a name="view-your-logic-app-runs-in-your-log-analytics-workspace"></a>Visa dina logikappskörningar i Log Analytics-arbetsytan
+## <a name="view-logic-app-runs-in-log-analytics-workspace"></a>Visa logic app körs i Log Analytics-arbetsyta
 
-1. Om du vill visa antalet och status för din logikapp-körningar, går du till översiktssidan för Log Analytics-arbetsytan. Granska informationen på den **Logic Apps-hantering** panelen.
+1. För att visa antalet och status för din logikapp-körningar, gå till Log Analytics-arbetsytan och öppna sidan Översikt. 
+
+   Information om dina logikappskörningar visas på den **Logic Apps-hantering** panelen. Om du vill visa en sammanfattning med mer information om dina logikappskörningar, Välj den **Logic Apps-hantering** panelen. 
 
    ![Översikt över panelen som visar logic app kör antal och status](media/logic-apps-monitor-your-logic-apps-oms/overview.png)
 
-2. Om du vill visa en sammanfattning med mer information om dina logikappskörningar, Välj den **Logic Apps-hantering** panelen.
-
-   Här kan är din logikapp-körningar grupperade efter namn eller efter Körningsstatus. Du kan också se information om fel i åtgärder eller utlösare för de logikapp-körningarna.
+   Här kan är din logikapp-körningar grupperade efter namn eller efter Körningsstatus. 
+   Information om fel visas i åtgärder eller utlösare för de logikapp-körningarna också i den här sidan.
 
    ![Översikt över statusen för din logikapp körs](media/logic-apps-monitor-your-logic-apps-oms/logic-apps-runs-summary.png)
    
-3. Välj raden för en logikapp eller ett status om du vill visa alla körningar för en specifik logikapp eller status.
+1. Välj raden för en logikapp eller ett status om du vill visa alla körningar för en specifik logikapp eller status.
 
    Här är ett exempel som visar alla körningar för en specifik logikapp:
 
    ![Visa körs i en logikapp eller ett status](media/logic-apps-monitor-your-logic-apps-oms/logic-app-run-details.png)
 
-   Det finns två avancerade alternativ på sidan:
-   * **Spårade egenskaper:** denna kolumn visar spårade egenskaper, som är grupperade efter åtgärder för logikappen. Välj för att visa de spårade egenskaperna **visa**. Du kan söka de spårade egenskaperna med hjälp av kolumnfilter.
+   Den här sidan har dessa avancerade alternativ:
+
+   * **Spårade egenskaper:**
+
+     Denna kolumn visar spårade egenskaper, som är grupperade efter åtgärder för logikappen. Välj för att visa de spårade egenskaperna **visa**. 
+     Om du vill söka i de spårade egenskaperna, använder du filtret för kolumnen.
    
      ![Visa spårade egenskaperna för en logikapp](media/logic-apps-monitor-your-logic-apps-oms/logic-app-tracked-properties.png)
 
@@ -105,41 +116,39 @@ Om du redan aktiverat Log Analytics när du skapade din logikapp kan du hoppa ö
 
      ![Skicka logikapp-körningar](media/logic-apps-monitor-your-logic-apps-oms/logic-app-resubmit.png)
 
-4. Du kan utföra både på klientsidan och serversidan filtrering för att filtrera resultaten.
+1. Du kan utföra både på klientsidan och serversidan filtrering för att filtrera resultaten.
 
-   * Filter för klientsidan: för varje kolumn väljer du de filter som du vill. 
-   Här följer några exempel:
+   * **Klientsidan filter**: för varje kolumn väljer du de filter som du vill, till exempel:
 
      ![Exempel kolumnfiltren](media/logic-apps-monitor-your-logic-apps-oms/filters.png)
 
-   * Serversidan filter: att välja ett specifikt tidsfönster eller begränsa antalet körningar som visas måste du använda scope-kontroll högst upp på sidan. 
-   Som standard visas endast 1 000 poster i taget. 
+   * **Serversidan filter**: att välja ett specifikt tidsfönster eller begränsa antalet körningar som visas måste du använda scope-kontroll högst upp på sidan. Som standard visas endast 1 000 poster i taget.
    
      ![Ändra tidsfönstret](media/logic-apps-monitor-your-logic-apps-oms/change-interval.png)
  
-5. Om du vill visa alla åtgärder och deras information för en specifik körning, markerar du en rad för en logikappskörning.
+1. Om du vill visa alla åtgärder och deras information för en specifik körning, markerar du en rad för en logikappskörning.
 
    Här är ett exempel som visar alla åtgärder för en specifik logikapp-körningen:
 
    ![Visa åtgärder för en logikappskörning](media/logic-apps-monitor-your-logic-apps-oms/logic-app-action-details.png)
    
-6. På sidan alla resultat kan du se frågan bakom resultaten eller för att se alla resultat väljer **finns i alla**, vilket öppnar du loggsökningssidan.
+1. På sidan alla resultat kan du se frågan bakom resultaten eller för att se alla resultat väljer **finns i alla**, vilket öppnar du loggsökningssidan.
    
    ![Se alla på resultatsidor](media/logic-apps-monitor-your-logic-apps-oms/logic-app-seeall.png)
    
    På sidan Log Search
+
    * Om du vill visa resultatet av frågan i en tabell, Välj **tabell**.
+
    * Om du vill ändra frågan kan du redigera frågesträngen i sökfältet. 
    För en bättre användarupplevelse och välja **Advanced Analytics**.
 
      ![Visa åtgärder och information för en logikappskörning](media/logic-apps-monitor-your-logic-apps-oms/log-search-page.png)
      
-     På sidan Azure Log Analytics kan du här uppdatera frågor och visa resultat från tabellen. 
-     Den här frågan använder [Kusto-frågespråket](https://aka.ms/LogAnalyticsLanguageReference), som du kan redigera om du vill visa olika resultat. 
+     På sidan Azure Log Analytics kan du uppdatera frågor och visa resultat från tabellen. Den här frågan använder [Kusto-frågespråket](https://aka.ms/LogAnalyticsLanguageReference), som du kan redigera om du vill visa olika resultat. 
 
      ![Azure Log Analytics - frågevyn](media/logic-apps-monitor-your-logic-apps-oms/query.png)
 
 ## <a name="next-steps"></a>Nästa steg
 
 * [Övervaka B2B-meddelanden](../logic-apps/logic-apps-monitor-b2b-message.md)
-

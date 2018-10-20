@@ -1,5 +1,3 @@
-<!-- Linguist question: Please confirm that the following are API names and should be left as is: "Person Management, LargePersonGroup/PersonGroup Management, LargeFaceList/FaceList Management, and Face Algorithms" -->
----
 Rubrik: API-referens - Ansikts-API titleSuffix: Azure Cognitive Services-beskrivning: API-referensen innehåller information om Person Management, LargePersonGroup/PersonGroup Management, LargeFaceList/FaceList Management och API: er för Ansikts-algoritmer.
 tjänster: cognitive services författare: SteveMSFT manager: cgronlun
 
@@ -18,3 +16,5 @@ Ansikts-API: er omfattar följande kategorier:
 - [API: er för LargeFaceList Management](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/5a157b68d2de3616c086f2cc): används för att hantera en LargeFaceList för [Sök liknande](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395237).
 - [PersonGroup Person Management API: er](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523c): används för att hantera PersonGroup Personansikten för [identifiering](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239).
 - [API: er för PersonGroup Management](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395244): används för att hantera en PersonGroup datauppsättning för [identifiering](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239).
+
+<!-- Linguist question: Please confirm that the following are API names and should be left as is: "Person Management, LargePersonGroup/PersonGroup Management, LargeFaceList/FaceList Management, and Face Algorithms" -->

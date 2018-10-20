@@ -12,18 +12,18 @@ ms.author: v-daljep
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 10/15/2018
-ms.openlocfilehash: 1177703dc67e81e537d7682dcf9bbeb475748315
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: eaeb0d7f77b6d8ab6a3e12febba33c995a10ec3f
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49353942"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49466567"
 ---
 # <a name="email-notifications-for-automatic-tuning"></a>E-postmeddelanden för automatisk justering
 
 SQL Database justeringsrekommendationer genereras av Azure SQL Database [automatisk justering](sql-database-automatic-tuning.md). Den här lösningen övervakar kontinuerligt och analyserar arbetsbelastningar i SQL-databaser att tillhandahålla anpassade justeringsrekommendationer för varje enskild databas som rör skapande av index, borttagning av index och optimering av frågeplaner för körning.
 
-SQL Database automatiska justeringsrekommendationer kan visas i den [Azure-portalen](sql-database-advisor-portal.md), hämtades med [REST API](https://docs.microsoft.com/rest/api/sql/databaserecommendedactions/databaserecommendedactions_listbydatabaseadvisor) anropar eller genom att använda [T-SQL](https://azure.microsoft.com/blog/automatic-tuning-introduces-automatic-plan-correction-and-t-sql-management/) och [ PowerShell](https://docs.microsoft.com/powershell/module/azurerm.sql/get-azurermsqldatabaserecommendedaction) kommandon. Den här artikeln baseras på att använda ett PowerShell-skript för att hämta automatiska justeringsrekommendationer för.
+SQL Database automatiska justeringsrekommendationer kan visas i den [Azure-portalen](sql-database-advisor-portal.md), hämtades med [REST API](https://docs.microsoft.com/rest/api/sql/databaserecommendedactions/listbydatabaseadvisor) anropar eller genom att använda [T-SQL](https://azure.microsoft.com/blog/automatic-tuning-introduces-automatic-plan-correction-and-t-sql-management/) och [ PowerShell](https://docs.microsoft.com/powershell/module/azurerm.sql/get-azurermsqldatabaserecommendedaction) kommandon. Den här artikeln baseras på att använda ett PowerShell-skript för att hämta automatiska justeringsrekommendationer för.
 
 ## <a name="automate-email-notifications-for-automatic-tuning-recommendations"></a>Automatisera e-postmeddelanden för automatiska justeringsrekommendationer för
 

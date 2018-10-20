@@ -11,13 +11,13 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 10/17/2018
-ms.openlocfilehash: 3b2359564020eeeb209a7eb78d81782a675f125d
-ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
+ms.date: 10/19/2018
+ms.openlocfilehash: 9dc993b6ba9b90dfa61660df004ef7dae8b93fa7
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49379295"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49470969"
 ---
 # <a name="azure-sql-database-purchasing-models"></a>Azure SQL Database köpa modeller
 
@@ -33,21 +33,21 @@ Följande tabell och diagrammet Jämför och kontrastera dessa två inköpschef 
 
 |**Inköpsmodell**|**Beskrivning**|**Bäst för**|
 |---|---|---|
-|DTU-baserad modell|Den här modellen är baserad på ett paketerat mått av beräkning, lagring och IO-resurser. Compute-storlekar uttrycks i Databastransaktionsenheter (dtu: er) för enskilda databaser och elastiska Databastransaktionsenheter (edtu: er) för elastiska pooler. Mer information om dtu: er och edtu: er finns i [vad är dtu: er och edtu: er](sql-database-service-tiers.md#dtu-based-purchasing-model)?|Bäst för kunder som vill ha enkel, förkonfigurerade alternativ.| 
+|DTU-baserad modell|Den här modellen är baserad på ett paketerat mått av beräkning, lagring och IO-resurser. Compute-storlekar uttrycks i Databastransaktionsenheter (dtu: er) för enskilda databaser och elastiska Databastransaktionsenheter (edtu: er) för elastiska pooler. Mer information om dtu: er och edtu: er finns i [vad är dtu: er och edtu: er](sql-database-service-tiers.md#dtu-based-purchasing-model)?|Bäst för kunder som vill ha enkel, förkonfigurerade alternativ.|
 |vCore-baserad modell|Den här modellen kan du välja oberoende beräknings- och lagringsresurser. Du kan också använda Azure Hybrid-förmånen för SQL Server för att få kostnadsbesparingar.|Bäst för kunder som värde flexibilitet, kontroll och transparens.|
 ||||  
 
 ![Prismodell](./media/sql-database-service-tiers/pricing-model.png)
 
-## <a name="vcore-based-purchasing-model"></a>Virtuell kärna-baserad inköpsmodell 
+## <a name="vcore-based-purchasing-model"></a>Virtuell kärna-baserad inköpsmodell
 
 En virtuell kärna representerar en logisk CPU med möjligheten att välja mellan av maskinvara och fysiska egenskaper av maskinvara (till exempel antal kärnor, minne, lagringsstorlek). Den vCore-baserade inköpsmodellen ger den flexibilitet, kontroll, transparens av enskild resursförbrukning och ett enkelt sätt att överföra lokala arbetsbelastningskrav till molnet. Den här modellen kan du välja beräkning, minne och lagring utifrån deras arbetsbelastningsbehov. I den vCore-baserade inköpsmodellen, kan du välja mellan [generella](sql-database-high-availability.md#basic-standard-and-general-purpose-service-tier-availability) och [affärskritisk](sql-database-high-availability.md#premium-and-business-critical-service-tier-availability) tjänstnivåer för både [enkla databaser](sql-database-single-database-scale.md), [ hanterade instanser](sql-database-managed-instance.md), och [elastiska pooler](sql-database-elastic-pool.md). För enskilda databaser du kan också välja den [hyperskala (förhandsversion)](sql-database-service-tier-hyperscale.md) tjänstnivå.
 
 Den vCore-baserade inköpsmodellen kan du välja beräknings- och lagringsresurser, matcha lokala prestanda och optimera priset oberoende av varandra. I den vCore-baserade inköpsmodellen, kunder som betalar för:
 
 - Compute (tjänstnivå + antalet virtuella kärnor och mängden minne + maskinvarusystem)
-- Typ och mängden lagringsutrymme för data och loggfiler 
-- Backup storage (RA-GRS) 
+- Typ och mängden lagringsutrymme för data och loggfiler
+- Backup storage (RA-GRS)
 
 > [!IMPORTANT]
 > Beräknings-, IOs, data och logglagring debiteras per databas eller elastisk pool. Lagring för säkerhetskopior debiteras per varje databas. Information av avgifter för hanterad instans i [Azure SQL Database Managed Instance](sql-database-managed-instance.md).
@@ -75,9 +75,7 @@ Om du vill få bättre insikt i resursförbrukning (DTU) för din arbetsbelastni
 
 ### <a name="elastic-database-transaction-units-edtus"></a>Elastiska Databastransaktionsenheter (edtu: er)
 
-Snarare än ger en dedikerad uppsättning resurser (dtu: er) som inte behövs kanske alltid för en SQL-databas som alltid är tillgänglig, kan du placera databaser i en [elastisk pool](sql-database-elastic-pool.md) på en SQL Database-server som delar en pool av resurser mellan dessa databaser. De delade resurserna i en elastisk pool mäts som elastiska Databastransaktionsenheter eller edtu: er. Elastiska pooler erbjuder en enkel kostnadseffektiv lösning för att hantera prestandamål för flera databaser med mycket varierande och oförutsägbara användningsmönster. En elastisk pool garanterar resurser inte kan användas av en databas i poolen, även att se till att varje databas i poolen alltid har en minimal mängd nödvändiga resurser som är tillgängliga. 
-
-![Introduktion till SQL Database: eDTU:er efter nivå](./media/sql-database-what-is-a-dtu/sqldb_elastic_pools.png)
+Snarare än ger en dedikerad uppsättning resurser (dtu: er) som inte behövs kanske alltid för en SQL-databas som alltid är tillgänglig, kan du placera databaser i en [elastisk pool](sql-database-elastic-pool.md) på en SQL Database-server som delar en pool av resurser mellan dessa databaser. De delade resurserna i en elastisk pool mäts som elastiska Databastransaktionsenheter eller edtu: er. Elastiska pooler erbjuder en enkel kostnadseffektiv lösning för att hantera prestandamål för flera databaser med mycket varierande och oförutsägbara användningsmönster. En elastisk pool garanterar resurser inte kan användas av en databas i poolen, även att se till att varje databas i poolen alltid har en minimal mängd nödvändiga resurser som är tillgängliga.
 
 En pool tilldelas ett bestämt antal edtu: er till ett fast pris. Inom den elastiska poolen har de enskilda databaserna flexibiliteten att skalas automatiskt inom konfigurerade parametrar. En databas under tyngre belastning förbrukar fler edtu: er för att möta efterfrågan. Databaser under ljusare laster förbrukar färre edtu: er. Databaser med utan belastning förbrukar inga edtu: er. Genom att etablera resurser för hela poolen, snarare än per databas, blir hanteringsuppgifter förenklade, vilket ger en förutsägbar budget för poolen.
 

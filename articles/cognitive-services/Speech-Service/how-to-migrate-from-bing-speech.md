@@ -4,17 +4,18 @@ titleSuffix: Azure Cognitive Services
 description: Läs om skillnaderna mellan Bing-taligenkänning och Speech-tjänsten baserat på en utvecklare av och migrera ditt program att använda Speech-tjänsten.
 services: cognitive-services
 author: wsturman
+manager: cgronlun
 ms.service: cognitive-services
-ms.component: Speech
-ms.topic: article
+ms.component: speech-service
+ms.topic: conceptual
 ms.date: 10/01/2018
 ms.author: gracez
-ms.openlocfilehash: e72cf547ac911b22a03cae6032351c8c0f22de8e
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: baf9b9cd9b3f57c1d708dd404d59c036df6c169f
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48884857"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49466655"
 ---
 # <a name="migrate-from-bing-speech-to-the-speech-service"></a>Migrera från Bing-tal till Taltjänst
 
@@ -22,12 +23,12 @@ Använd den här artikeln för att migrera dina program från Bing-Taligenkänni
 
 Den här artikeln beskrivs skillnaderna mellan tal-API: er för Bing och Speech-tjänsten och föreslår strategier för att migrera dina program. Din prenumerationsnyckel för taligenkänning för Bing kommer inte godkännas av tal-tjänst. Du behöver en ny Speech Service-prenumeration.
 
-En enda Speech Service prenumerationsnyckel ger åtkomst till följande funktioner. Var och en mäts separat, så du debiteras bara för de funktioner du använder.
+En prenumerationsnyckel för taltjänsten ger åtkomst till följande funktioner. Varje funktion mäts separat, så att du bara debiteras för de funktioner du använder.
 
 * [Tal till text](speech-to-text.md)
-* [Anpassad tal till text](https://cris.ai)
+* [Anpassat tal till text](https://cris.ai)
 * [Text till tal](text-to-speech.md)
-* [Få en anpassad text till tal](how-to-customize-voice-font.md)
+* [Anpassad text till talade röster](how-to-customize-voice-font.md)
 * [Talöversättning](speech-translation.md) (omfattar inte [textöversättning](../translator/translator-info-overview.md))
 
 Den [tal SDK](speech-sdk.md) är en funktionell ersättning för klientbibliotek för Bing-taligenkänning, men använder ett annat API.
@@ -56,7 +57,7 @@ WebSockets protokoll | : heavy_check_mark: | : heavy_check_mark: | API för tali
 Tjänst-till-tjänst-API-anrop | : heavy_check_mark: | : heavy_minus_sign: | Tillhandahålla i Bing-taligenkänning via C#-Tjänstbibliotek. 
 SDK med öppen källkod | : heavy_check_mark: | : heavy_minus_sign: |
 
-Tal-tjänsten använder en prismodell som baseras på tidpunkt (i stället för en transaktion som bygger modell). Se [Speech Service priser](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/) mer information.
+Tal-tjänsten använder en prismodell som baseras på tidpunkt (i stället för en transaktion som bygger modell). Mer information finns i [prissättning för taltjänsten](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/).
 
 ## <a name="migration-strategies"></a>Migreringsstrategier
 

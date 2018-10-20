@@ -1,6 +1,6 @@
 ---
-title: Cortana Intelligence tävlingar vanliga frågor och svar | Microsoft Docs
-description: Vanliga frågor om Microsoft Cortana Intelligence tävlingar.
+title: Cortana Intelligence-, tävlingar, vanliga frågor och svar | Microsoft Docs
+description: Vanliga frågor om Microsoft Cortana Intelligence, tävlingar.
 services: machine-learning
 documentationcenter: ''
 author: hning86
@@ -15,104 +15,104 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 12/18/2017
-ms.openlocfilehash: 1db1b8ee7ba3611f8d1d69f711f1ec72308c7d06
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 15d46f16c78b8fa757d7810542b3d6bfa9a95f3c
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34833336"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49465635"
 ---
 # <a name="microsoft-cortana-intelligence-competitions-faq"></a>Microsoft Cortana Intelligence, tävlingar, vanliga frågor och svar
-**Vad är Cortana Intelligence tävlingar?**
+**Vad är Cortana Intelligence, tävlingar?**
 
-Microsoft Cortana Intelligence tävlingar unites en global grupp data entusiaster av gemensamt lösa några av världens mest komplexa datavetenskap problem. Cortana Intelligence tävlingar kan data entusiaster från över hela världen till konkurrera och skapa hög korrekt och intelligent vetenskap datamodeller. Dessa värdbaserade tävlingar baserat på unika datamängder som har gjorts tillgängliga offentligt för första gången. Deltagare kan win utdelningen eller hämta recognition via de översta 10 offentliga resultattavlan. Du kan komma åt webbplatsen tävlingar på [aka.ms/CIComp](http://aka.ms/CIComp).
+Microsoft Cortana Intelligence, tävlingar, unites en global community med dataentusiaster genom att lösa några av världens mest komplexa data science problem tillsammans. Cortana Intelligence, tävlingar, Tillåt dataentusiaster från över hela världen att konkurrera och skapa modeller för mycket exakta och intelligenta data science. De här värdbaserade tävlingar baseras på unika datauppsättningar som har gjorts tillgängliga offentligt för första gången. Deltagare kan vinna belöningar eller få erkännande via de översta 10 offentliga rankningslista. Du kan komma åt webbplatsen tävlingar på [aka.ms/CIComp](http://aka.ms/CIComp).
 
-**Hur ofta Microsoft släpper nya tävlingar?**
+**Hur ofta kommer Microsoft att släppa nya tävlingar?**
 
-Vi kommer att startas part 1, Microsoft ägda tävlingar regelbundet, ungefär var 8-12 veckor. 
+Vi kommer att startas part 1: a, ägs av Microsoft tävlingar med jämna mellanrum, ungefär var 8-12 veckor. 
 
-**Där kan be allmänna frågor om datavetenskap?**
+**Var kan jag ställa allmänna frågor om datavetenskap?**
 
-Du kan använda för allmänna frågor i [forum för Microsoft Azure Machine Learning](https://social.msdn.microsoft.com/forums/azure/home?forum=MachineLearning).
+För allmänna frågor kan du använda den [Microsoft Azure Machine Learning-forumet](https://social.msdn.microsoft.com/forums/azure/home?forum=MachineLearning).
 
-**Hur anger en konkurrensen?**
+**Hur anger jag en tävling**
 
-Åtkomst till den [tävlingar](https://gallery.cortanaintelligence.com/competitions) startsidan i den [Azure AI-galleriet](https://gallery.cortanaintelligence.com/), eller gå till [ http://aka.ms/CIComp ](http://aka.ms/CIComp). Sidan visas alla tävlingar som körs för närvarande. Varje konkurrens har detaljerade instruktioner och deltagande priser och varaktighet för dess registreringssidan.
+Åtkomst till den [tävlingar](https://gallery.cortanaintelligence.com/competitions) startsida i den [Azure AI-galleriet](https://gallery.cortanaintelligence.com/), eller gå till [ http://aka.ms/CIComp ](http://aka.ms/CIComp). På sidan listar alla tävlingar som körs för närvarande. Varje tävling har detaljerade anvisningar och deltagande regler, priser och varaktighet för dess registreringssidan.
 
-1. Hitta konkurrens som du vill delta i, läsa alla instruktioner och titta på videon självstudiekursen. Klicka på den **ange konkurrensen** knappen och kopiera Starter experimentet till din befintliga Azure Machine Learning-arbetsytan. Om du inte redan har åtkomst till en arbetsyta, måste du skapa ett i förväg. Kör experimentet Starter, se prestanda måttet och sedan använda din kreativitet för att förbättra prestanda i modellen. Troligen tillbringar du merparten av din tid i det här steget.   
+1. Hitta den tävling som du vill delta i, läsa alla instruktioner och se självstudievideo. Klicka sedan på den **ange tävling** knappen och kopiera Starter experimentet till din befintliga Azure Machine Learning-arbetsyta. Om du inte redan har åtkomst till en arbetsyta, måste du skapa en i förväg. Kör experimentet Starter, se prestandamått och sedan använda din kreativitet för att förbättra prestandan för modellen. Du kommer troligen att tillbringa merparten av din tid i det här steget.   
 
-2. Skapa en Prediktivt Experiment med den tränade modellen utanför experimentet Starter. Sedan noggrant justera indata och utdata schemat för webbtjänsten för att se till att de uppfyller de krav som anges i dokumentationen för konkurrens. Självstudiekurs dokumentet har vanligtvis detaljerade instruktioner för detta. Du kan också titta på videon självstudiekurs om de är tillgängliga.   
+2. Skapa ett förutsägbart Experiment med den tränade modellen av experimentet Starter. Sedan noggrant justera indata och utdata schemat för webbtjänsten för att se till att de uppfyller de krav som anges i dokumentationen för tävlingen. Självstudiekursen dokumentet har vanligtvis detaljerade instruktioner för detta. Du kan också se självstudievideo, om det är tillgängligt.   
 
-3. Distribuera en webbtjänst utanför din Prediktivt Experiment. Testa din web service med hjälp av den **Test** knapp eller Excel-mallen som skapas automatiskt för dig att kontrollera att den fungerar korrekt.   
+3. Distribuera en webbtjänst utanför din förutsägbart Experiment. Testa din web service med hjälp av den **Test** knapp eller Excel-mallen som skapas automatiskt för dig att kontrollera att den fungerar korrekt.   
 
-4. Skicka webbtjänsten som posten konkurrens och se offentliga poängen på sidan Azure AI-galleriet konkurrens. Och fira om du gör den till resultattavlan!  
+4. Skicka in din webbtjänst som posten konkurrens och se dina offentliga poäng på sidan Azure AI-galleriet tävling. Och fira om du gör det till ledande!  
 
-När du har skickat en post kan du gå tillbaka till experimentet kopierade Starter. Sedan iterera och uppdatera din Prediktivt Experiment, uppdatera webbtjänsten och skicka en ny post.   
+När du har skickat en post, kan du gå tillbaka till experimentet kopierade Starter. Sedan iterera och uppdatera din Förutsägelseexperiment, uppdatera webbtjänsten och skicka en ny post.   
 
-**Kan jag använda verktyg med öppen källkod för deltagande i dessa tävlingar?**
+**Kan jag använda open source-verktyg för att du deltar i dessa tävlingar?**
 
-Konkurrensen deltagarna använder Azure Machine Learning Studio, en molnbaserad tjänst i Cortana Intelligence Suite för utveckling av vetenskap datamodeller och för att skapa konkurrensen poster för överföring. Machine Learning Studio ger inte bara ett GUI-gränssnitt för att konstruera maskininlärningsexperiment, det ger dig möjlighet att göra egna R eller Python-skript för intern körning. R och Python körningar i Studio har ett stort utbud av öppen källkod R/Python-paket. Du kan importera egna paket som en del av experimentet samt. Studio har också en inbyggd tjänst Jupyter-anteckningsboken att kostnadsfri style datagranskning. Du kan självklart alltid hämta datauppsättningar som används i konkurrensen och utforska i din favorit verktyget utanför Machine Learning Studio. 
+Tävlingen deltagarna använder Azure Machine Learning Studio, en molnbaserad tjänst i Cortana Intelligence Suite för utveckling av data science-modeller och skapa tävling poster för bidrag. Machine Learning Studio erbjuder inte bara ett GUI-gränssnitt för att konstruera machine learning-experiment, det också möjligt att ta med din egen R och/eller Python-skript för körning av interna. R och Python-körningar i Studio levereras med en omfattande uppsättning R/Python-paket med öppen källkod. Du kan importera egna paket som en del av experimentet samt. Studio har även en inbyggd Jupyter Notebook-tjänst som du kan kostnadsfria style datautforskning. Du kan naturligtvis kan alltid hämta datauppsättningar som används i tävlingen och utforska i din favorit verktyget utanför Machine Learning Studio. 
 
-**Måste jag vara en data-forskare att ange?**
+**Måste jag vara någon dataexpert för att ange?**
 
-Nej. I själva verket gärna data entusiaster någon nyfiken datavetenskap och andra blivande datavetare och ange vår tävling. Vi har gjort stöddokument för Tillåt alla att konkurrera. Målgruppen är:
+Nej. I själva verket gärna dataentusiaster, vem som helst nyfiken på datavetenskap och andra blivande dataexperter vår tävlingen. Vi har utformat stöddokument för Tillåt alla att delta. Målgruppen är:
 
-* **Data utvecklare**, **Datavetare**, **BI** och **Analytics proffs**: personer som ansvarar för att framställa data och analyser innehåll för andra ska kunna använda
-* **Data förvaltare**: de som har kunskapen om data vad det innebär och hur den har avsedd att användas och i vilket syfte
-* **Studenter** & **forskare:** personer inlärning och få data som är relaterade kunskaper via academic program på universitet eller deltagare i massiv öppna onlinekurser (MOOCs)
+* **Data utvecklare**, **Dataexperter**, **BI** och **Analytics proffs**: de som ansvarar för att producera och analys innehåll för andra kan använda
+* **Data förvaltare**: de som har kunskapen om data, vad det innebär och hur den har avsedd att användas och vilka ändamål
+* **Studenter** och **forskare:** de som utbildning och få användbara data som är relaterade kunskaper via akademiska programmen på universitet eller deltagare i stora öppna onlinekurser (Mooc)
 
-**Kan jag in med min kollegor som ett team?**
+**Kan jag ange med min kollegor som ett team?**
 
-Plattformen konkurrens stöder för närvarande inte team deltagande. Varje post i konkurrensen är kopplad till en enda användaridentitet. 
+Tävlingen plattformen stöder för närvarande inte team deltagande. Varje post i tävlingen är kopplad till en enda användaridentitet. 
 
 **Behöver jag betala för att delta i en tävling?**
 
-Tävlingar kan delta i. Men behöver åtkomst till en Azure Machine Learning-arbetsytan delta. Du kan skapa en kostnadsfri arbetsyta utan kreditkort genom att logga in med ett giltigt microsoftkonto eller ett Office 365-konto. Om du redan är en kund med Azure eller Cortana Intelligence Suite kan du skapa och använda en Standard arbetsyta under samma Azure-prenumerationen. Om du vill köpa en Azure-prenumeration går du till den [priser för Azure](https://azure.microsoft.com/pricing) sidan. Observera att standardpriser gäller när du använder en Standard arbetsyta för att konstruera experiment. Mer information finns i [Azure Machine Learning prisinformation](https://azure.microsoft.com/pricing/details/machine-learning/). 
+Tävlingarna är kostnadsfria att delta i. Du, men behöver åtkomst till en Azure Machine Learning-arbetsyta för att delta. Du kan skapa en kostnadsfri arbetsyta utan kreditkort genom att logga in med ett giltigt microsoftkonto eller ett Office 365-konto. Om du redan är kund med Azure eller Cortana Intelligence Suite kan du skapa och använda standardarbetsytan under samma Azure-prenumeration. Om du vill köpa en Azure-prenumeration går du till den [prissättning för Azure](https://azure.microsoft.com/pricing) sidan. Observera att standardpriser gäller när du använder en standardarbetsytan för att konstruera experiment. Mer information finns i [information om priser för Azure Machine Learning](https://azure.microsoft.com/pricing/details/machine-learning/). 
 
 [!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
 
 **Vad är offentliga och privata poäng?**
 
-I de flesta tävlingar märke till att du får en offentlig poäng för varje överföring som du gör vanligen inom 10 20 minuter. Men efter konkurrensen ut, får du en privat poäng som används för slutlig rangordning. 
+I de flesta tävlingar ser du att du får en offentlig poäng för alla bidrag du gör, vanligtvis inom 10-20 minuter. Men efter konkurrenterna ut, får du en privat poäng som används för slutlig rangordning. 
 
 Här är vad som händer:
 
-* Hela datamängden som används i konkurrensen delas slumpmässigt med stratifiering i träning och testning (återstående) data. Slumpmässiga delningen stratified för att säkerställa att distributioner av etiketterna i både träning och testning data är konsekventa.
-* Utbildning data överförs och fått som en del av experimentet Starter i modulkonfigurationen importera Data.
-* Tester data delas upp ytterligare i offentliga och privata testnings data med samma stratifieringen.
-* Offentliga tester data används för inledande runda av bedömningen. Resultatet kallas den offentliga poängen. Det är vad som visas i historiken skickas när du skickar din inmatning. Det här resultatet beräknas för varje post som du skickar. Den här offentliga poäng används för att du är på den offentliga resultattavlan.
-* Privata testnings data används för den slutliga hundratal bedömningen när konkurrensen upphör. Detta kallas för privata poäng. 
-* För varje deltagare markeras automatiskt ett fast antal poster med högsta offentliga resultat att ange den privata bedömningsprofil round (det här antalet kan variera beroende på konkurrensen). Posten med den högsta privata poängen väljs sedan att ange den slutliga rangordning som slutligen avgör vinnarna pris.  
+* Hela datamängden som används i tävlingen delas slumpmässigt med stratifiering till utbildning och testning (de återstående) data. Slumpmässig delningen stratified för att säkerställa att distributioner för etiketter i både för träning och testning av data är konsekventa.
+* Träningsdata överförs och fått som en del av Starter Experiment i modulkonfigurationen importera Data.
+* Testdata ytterligare delas upp i offentliga och privata testdata, med hjälp av samma stratifieringen.
+* Offentliga testdata används för den första runda av bedömning. Resultatet kallas för den offentliga poängen. Det är det som visas i historiken skickas när du skickar in ditt bidrag. Det här resultatet beräknas för varje post som du skickar. Den här offentliga poäng används för att du är på den offentliga rankningslista.
+* Privata testdata används för den slutliga runda av bedömning när tävlingen har upphört. Detta kallas för privata poäng. 
+* För varje deltagare väljs ett fast antal poster med högsta offentliga poängen automatiskt för att ange den privata bedömnings runda (det här antalet kan variera beroende på tävlingen). Posten med den högsta privata poängen väljs då att ange sista rangordning som slutligen avgör priset vinnarna.  
 
-**Kunder kan vara värd en konkurrensen på vår plattform?**
+**Kunder kan ha en tävling på vår plattform?**
 
-Vi välkomnar 3 parts organisationer för att samarbeta med oss och vara värd för både offentliga och privata tävlingar på vår plattform. Vi har en konkurrens onboarding-teamet som glada över att diskutera onboarding-processen för sådana tävlingar.  Ta dig kontaktar du oss på [ compsupport@microsoft.com ](mailto:compsupport@microsoft.com) för mer information. 
+Vi välkomnar 3 part organisationer för att samarbeta med oss och vara värd för både offentliga och privata tävlingar på vår plattform. Vi har en tävling onboarding-teamet som glada över att diskutera registreringsprocessen för sådana tävlingar.  Skaffa kontakten med oss på [ compsupport@microsoft.com ](mailto:compsupport@microsoft.com) för mer information. 
 
-**Vad är begränsningarna för bidrag?**
+**Vilka är begränsningarna för bidrag?**
 
-En typisk konkurrensen kan välja att begränsa antalet poster som du kan skicka i ett 24-timmars intervall (UTC-tid 00:00:00 till 23:59:59) och det totala antalet poster som du kan skicka under loppet av konkurrens. Du får felmeddelanden när en begränsning har överskridits. 
+En typisk tävling kan välja att begränsa antalet poster som du kan skicka i ett 24-timmars intervall (UTC-tid 00:00:00 till 23:59:59) och det totala antalet poster som du kan skicka under loppet av tävlingen. Du får felmeddelanden när en begränsning har överskridits. 
 
-**Vad händer om jag Vinn en konkurrensen?**
+**Vad händer om jag vinna en tävling?**
 
-Microsoft verifierar resultaten av privata resultattavlan och sedan vi ska kontakta dig. Kontrollera att din e-postadress i användarprofilen är uppdaterad.
+Microsoft verifierar resultaten av den privata rankningslista och sedan vi kontaktar dig. Kontrollera att din e-postadress i användarprofilen är uppdaterad.
 
-**Hur kommer jag pris pengar om jag Vinn en konkurrensen?**
+**Hur får jag pris pengar om jag vinna en tävling?**
 
-Om du är en konkurrensen vinnaren behöver du registrera en deklaration av behörighet, licenser och versionen från. Det här formuläret reiterates konkurrensregler. Vinnarna måste du fylla i ett formulär för oss skatt W-9 eller formuläret W-8BEN om de inte USA skattebetalarna. Vi kommer att kontakta alla vinnarna som en del av utdelningen utbetalningar processen genom att använda sin e-post för registrering. Se vår [villkor](http://aka.ms/comptermsandconditions) för ytterligare information.
+Om du är en vinnare av tävling, behöver du logga en deklaration av behörighet och licens versionen från. Det här formuläret reiterates regler för Innovationstävling. Vinnare måste du fylla i ett formulär för oss skatt W-9 eller ett formulär W-8BEN om de inte är USA skattebetalare. Vi kommer att kontakta alla vinnare som en del av fördelarna utbetalning processen genom att använda sin e-post för registrering. Se våra [villkor](http://aka.ms/comptermsandconditions) för ytterligare information.
 
 **Vad händer om mer än en post får samma poäng?**
 
-Skicka-tid är prioritet. Transaktionen har skickats tidigare outranks posten senare.
+Skicka-tid är prioritet. Den post som har skickats tidigare outranks posten senare.
 
-**Kan jag delta med gäst arbetsytan?**
+**Kan jag delta med hjälp av gäst-arbetsytan?**
 
-Nej. Du måste använda en gratis eller en Standard arbetsyta delta. Du kan öppna konkurrensen starter experiment i ett gäst-arbetsyta, men du kommer inte att kunna skapa ett giltigt värde för överföring från arbetsytan. 
+Nej. Du måste använda en kostnadsfri eller en standardarbetsytan för att delta. Du kan öppna tävling starter experiment i en gäst-arbetsyta, men du kommer inte att kunna skapa en giltig post för bidrag från arbetsytan. 
 
-**Kan jag delta med en arbetsyta i Azure-region?**
+**Kan jag delta med en arbetsyta i alla Azure-regioner?**
 
-Stöder för närvarande, plattformen konkurrensen bara poster som skickats från en arbetsyta i den **södra centrala USA** Azure-region. Alla kostnadsfria arbetsytor finns i södra centrala USA, så kan du skicka en post från en fri arbetsyta. Om du väljer att använda en Standard arbetsyta, kontrollerar du att den finns i södra centrala oss Azure-region, annars din ansökan inte lyckas. 
+Stöder för närvarande plattformen konkurrensen bara poster som har skickats från en arbetsyta i den **södra centrala USA** Azure-region. Alla kostnadsfria arbetsytor finns i södra centrala USA, så kan du skicka en post från en kostnadsfri arbetsyta. Om du väljer att använda en standardarbetsytan, kontrollerar du att den finns i regionen södra centrala USA Azure, annars ditt bidrag inte lyckas. 
 
-**Håller vi användarnas tävlingar lösningar och poster?**
+**Håller vi användarnas tävlingar lösningar och -poster?**
 
-Användarposter bevaras enbart i utvärderingssyfte att identifiera de prisbelönta lösningarna. Se vår [villkor](http://aka.ms/comptermsandconditions) för specifik information.
+Användarposter behålls endast att identifiera de vinnande lösningarna i utvärderingssyfte. Se våra [villkor](http://aka.ms/comptermsandconditions) ge specifik information.
 

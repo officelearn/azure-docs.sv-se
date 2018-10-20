@@ -3,7 +3,7 @@ title: Skapa en Azure-skalningsuppsättning som använder Tillgänglighetszoner 
 description: Lär dig hur du skapar Azure VM-skalningsuppsättningar som använder Tillgänglighetszoner för ökad redundans mot avbrott
 services: virtual-machine-scale-sets
 documentationcenter: ''
-author: cynthn
+author: zr-msft
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: vm
 ms.devlang: na
 ms.topic: article
 ms.date: 08/08/2018
-ms.author: cynthn
-ms.openlocfilehash: 18d9a2dade271e61fa3db423da610a7f982aa47b
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.author: zarhoads
+ms.openlocfilehash: 062725ab5e486ff795ffa0f4a72dd3fdb0e6b948
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46949680"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49468882"
 ---
 # <a name="create-a-virtual-machine-scale-set-that-uses-availability-zones"></a>Skapa en skalningsuppsättning för virtuella datorer som använder Tillgänglighetszoner
 

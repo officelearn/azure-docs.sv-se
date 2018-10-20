@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: timlt
-ms.openlocfilehash: 89cb44366d4752052d990a1506482c9108cde103
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: f2c9194b07774443a70eef8e879d895efeb338e9
+ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47161717"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49458199"
 ---
 # <a name="how-to-use-custom-allocation-policies"></a>Hur du använder anpassade allokeringsprinciper
 
@@ -345,15 +345,15 @@ De simulerade enheterna använda härledda enhetsnycklar med varje registrerings
 
 
 
-## <a name="prepare-an-azure-iot-c-sdk-development-environment"></a>Förbered en utvecklingsmiljö för Azure IoT C SDK
+## <a name="prepare-an-azure-iot-c-sdk-development-environment"></a>Förbereda en utvecklingsmiljö för Azure IoT C SDK
 
-I det här avsnittet, förbereder du en utvecklingsmiljö som används för att skapa den [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c). SDK innehåller exempelkod för den simulerade enheten. Denna simulerade enhet kommer att försöka etablera under startsekvens för enheten.
+I det här avsnittet förbereder du en utvecklingsmiljö som används för att skapa [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c). SDK innehåller exempelkod för den simulerade enheten. Den här simulerade enheten försöker etablera under enhetens startsekvens.
 
 Det här avsnittet är riktade mot en Windows-arbetsstation. En Linux-exempel finns i konfigurationsprocessen för de virtuella datorerna i [hur man etablerar för flera innehavare](how-to-provision-multitenant.md).
 
 
 
-1. Ladda ned den 3.11.4 den [CMake-buildsystemet](https://cmake.org/download/). Kontrollera den hämta binära filen med hjälp av det motsvarande kryptografiska hashvärdet. I följande exempel används Windows PowerShell för att verifiera den kryptografisk hashen för version 3.11.4 av x64 MSI-distributionen:
+1. Ladda ned version 3.11.4 av [CMake-buildsystemet](https://cmake.org/download/). Kontrollera den hämta binära filen med hjälp av det motsvarande kryptografiska hashvärdet. I följande exempel används Windows PowerShell för att verifiera den kryptografisk hashen för version 3.11.4 av x64 MSI-distributionen:
 
     ```PowerShell
     PS C:\Downloads> $hash = get-filehash .\cmake-3.11.4-win64-x64.msi
@@ -361,7 +361,7 @@ Det här avsnittet är riktade mot en Windows-arbetsstation. En Linux-exempel fi
     True
     ```
     
-    Följande hash-värden för version 3.11.4 har visas på webbplatsen CMake när detta skrivs:
+    Följande hash-värden för version 3.11.4 visades på CMake-webbplatsen när detta skrevs:
 
     ```
     6dab016a6b82082b8bcd0f4d1e53418d6372015dd983d29367b9153f1a376435  cmake-3.11.4-Linux-x86_64.tar.gz
@@ -371,7 +371,7 @@ Det här avsnittet är riktade mot en Windows-arbetsstation. En Linux-exempel fi
 
     Det är viktigt att förutsättningarna för Visual Studio (Visual Studio och arbetsbelastningen ”Desktop development with C++” (Skrivbordsutveckling med C++)) är installerade på datorn **innan** installationen av `CMake` påbörjas. När förutsättningarna är uppfyllda och nedladdningen har verifierats installerar du CMake-byggesystemet.
 
-2. Öppna en kommandotolk eller Git Bash-gränssnittet. Kör följande kommando för att klona databasen för Azure IoT C SDK på GitHub:
+2. Öppna en kommandotolk eller Git Bash-gränssnittet. Kör följande kommando för att klona Azure IoT C SDK GitHub-lagringsplatsen:
     
     ```cmd/sh
     git clone https://github.com/Azure/azure-iot-sdk-c.git --recursive
@@ -387,10 +387,10 @@ Det här avsnittet är riktade mot en Windows-arbetsstation. En Linux-exempel fi
     cd cmake
     ```
 
-4. Kör följande kommando, vilket skapar en version av SDK som är specifika för din utvecklingsplattform för klienten. En Visual Studio-lösning för den simulerade enheten genereras i `cmake`-katalogen. 
+4. Kör följande kommando som skapar en version av SDK:t som är specifik för plattformen i din utvecklingsklient. En Visual Studio-lösning för den simulerade enheten genereras i `cmake`-katalogen. 
 
     ```cmd
-    cmake -Duse_prov_client:BOOL=ON ..
+    cmake -Dhsm_type_symm_key:BOOL=ON ..
     ```
     
     Om `cmake` inte hittar din C++-kompilerare kan du få kompileringsfel när du kör kommandot ovan. Om det händer ska du försöka köra det här kommandot i [kommandotolken i Visual Studio](https://docs.microsoft.com/dotnet/framework/tools/developer-command-prompt-for-vs). 
@@ -398,7 +398,7 @@ Det här avsnittet är riktade mot en Windows-arbetsstation. En Linux-exempel fi
     När bygget är klart ser de sista utdataraderna ut ungefär som följande utdata:
 
     ```cmd/sh
-    $ cmake -Duse_prov_client:BOOL=ON ..
+    $ cmake -Dhsm_type_symm_key:BOOL=ON ..
     -- Building for: Visual Studio 15 2017
     -- Selecting Windows SDK version 10.0.16299.0 to target Windows 10.0.17134.
     -- The C compiler identification is MSVC 19.12.25835.0
@@ -438,7 +438,7 @@ Den här exempelkoden simulerar en startsekvens för enheten som skickar en beg�
     static const char* id_scope = "0ne00002193";
     ```
 
-5. Hitta definitionen för funktionen `main()` i samma fil. Kontrollera att den `hsm_type` variabeln anges till `SECURE_DEVICE_TYPE_SYMMETRIC_KEY` enligt nedan:
+5. Hitta definitionen för funktionen `main()` i samma fil. Kontrollera att variabeln `hsm_type` är inställd på `SECURE_DEVICE_TYPE_SYMMETRIC_KEY` enligt nedan:
 
     ```c
     SECURE_DEVICE_TYPE hsm_type;
@@ -451,9 +451,9 @@ Den här exempelkoden simulerar en startsekvens för enheten som skickar en beg�
 
 #### <a name="simulate-the-contoso-toaster-device"></a>Simulera Contoso toaster-enhet
 
-1. I Visual Studio *Solution Explorer* och navigera till den **hsm\_security\_klienten** projekt och expandera den. Expandera **källfiler**, och öppna **hsm\_klienten\_key.c**. 
+1. I fönstret *Solution Explorer* i Visual Studio går du till projektet **hsm\_security\_client** och expanderar det. Expandera **Källfiler** och öppna **hsm\_client\_key.c**. 
 
-    Hitta deklaration av den `REGISTRATION_NAME` och `SYMMETRIC_KEY_VALUE` konstanter. Gör följande ändringar i filen och spara filen.
+    Hitta deklarationen för konstanterna `REGISTRATION_NAME` och `SYMMETRIC_KEY_VALUE`. Gör följande ändringar i filen och spara filen.
 
     Uppdatera värdet för den `REGISTRATION_NAME` konstant med registrerings-ID för enheten toaster **breakroom499-contoso-tstrsd-007**.
     
@@ -485,9 +485,9 @@ Den här exempelkoden simulerar en startsekvens för enheten som skickar en beg�
 
 #### <a name="simulate-the-contoso-heat-pump-device"></a>Simulera Contoso termisk pump enhet
 
-1. Tillbaka i Visual Studio *Solution Explorer* fönster, navigera till den **hsm\_security\_klienten** projekt och expandera den. Expandera **källfiler**, och öppna **hsm\_klienten\_key.c**. 
+1. Tillbaka i Visual Studio *Solution Explorer* fönster, navigera till den **hsm\_security\_klienten** projekt och expandera den. Expandera **Källfiler** och öppna **hsm\_client\_key.c**. 
 
-    Hitta deklaration av den `REGISTRATION_NAME` och `SYMMETRIC_KEY_VALUE` konstanter. Gör följande ändringar i filen och spara filen.
+    Hitta deklarationen för konstanterna `REGISTRATION_NAME` och `SYMMETRIC_KEY_VALUE`. Gör följande ändringar i filen och spara filen.
 
     Uppdatera värdet för den `REGISTRATION_NAME` konstant med registrerings-ID för den termiska pump enheten **mainbuilding167-contoso-hpsd-088**.
     

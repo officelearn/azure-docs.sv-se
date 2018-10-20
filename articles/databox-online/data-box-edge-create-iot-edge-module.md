@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: article
 ms.date: 10/16/2018
 ms.author: alkohli
-ms.openlocfilehash: caef76059219826da94d4cdafc98f1887ea5a185
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: 8d4a99ab9d8107f1b3fbe70f59299f427bc88bd5
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/19/2018
-ms.locfileid: "49431634"
+ms.locfileid: "49465907"
 ---
 # <a name="develop-a-c-iot-edge-module-to-move-files-on-data-box-edge-preview"></a>Utveckla en C# IoT Edge-modul för att flytta filer på Data Box Edge (förhandsversion)
 
@@ -144,6 +144,9 @@ Skapa en C#-lösningsmall som du kan anpassa med din egen kod.
             private const string InputFolderPath = "/home/LocalShare";
             private const string OutputFolderPath = "/home/CloudShare";
     ````
+
+    > [!IMPORTANT]
+    > Anteckna den `InputFolderPath` och `OutputFolderPath`. Du måste ange dessa sökvägar när du distribuerar den här modulen.
 
 4. Lägg till den **MessageBody** klass i programklassen. Dessa klasser definierar det förväntade schemat för brödtexten i inkommande meddelanden.
 

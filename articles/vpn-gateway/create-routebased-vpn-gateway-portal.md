@@ -1,26 +1,18 @@
 ---
 title: 'Skapa en ruttbaserad VPN-gateway: Azure-portalen | Microsoft Docs'
-description: Skapa snabbt en ruttbaserad VPN-Gateway med Azure portal
+description: Skapa en ruttbaserad VPN-Gateway med Azure portal
 services: vpn-gateway
-documentationcenter: na
 author: cherylmc
-manager: jeconnoc
-editor: ''
-tags: azure-resource-manager
-ms.assetid: ''
 ms.service: vpn-gateway
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 04/04/2018
+ms.date: 10/18/2018
 ms.author: cherylmc
-ms.openlocfilehash: fe05ab36f971105cf72342b8df5e2a82de7fc2b8
-ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
+ms.openlocfilehash: 7139b2de79b4e092ca761a4e51061c233e6031b5
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44391801"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49470310"
 ---
 # <a name="create-a-route-based-vpn-gateway-using-the-azure-portal"></a>Skapa en ruttbaserad VPN-gateway med Azure portal
 
@@ -74,33 +66,19 @@ Gateway-undernätet innehåller reserverade IP-adresser som gatewaytjänsterna f
   - **SKU**: VpnGw1
   - **Plats**: USA, östra
   - **Virtuellt nätverk**: Klicka på **virtuella nätverk/Välj ett virtuellt nätverk** att öppna den **Välj ett virtuellt nätverk** sidan. Välj **VNet1**.
+  - **Offentlig IP-adress**: Den här inställningen anger det offentliga IP-adressobjektet som kopplas till VPN-gatewayen. Den offentliga IP-adressen tilldelas dynamiskt till detta objekt när en VPN-gateway skapas. VPN Gateway stöder för närvarande endast *dynamisk* offentlig IP-adressallokering. Det innebär emellertid inte att IP-adressen ändras när den har tilldelats din VPN-gateway. Den enda gången den offentliga IP-adressen ändras är när gatewayen tas bort och återskapas. Den ändras inte vid storleksändring, återställning eller annat internt underhåll/uppgraderingar av din VPN-gateway.
 
-  ![Konfigurera inställningar för gateway](./media/create-routebased-vpn-gateway-portal/configure-gateway.png "konfigurera gateway-inställningar")
+    - Lämna alternativet **Skapa nytt** markerat.
+    - I textrutan anger du sedan ett **namn** för den offentliga IP-adressen. I den här övningen använder **VNet1GWIP**.<br>
 
-## <a name="pip"></a>Skapa en offentlig IP-adress
-
-En VPN-gateway måste ha en dynamiskt tilldelad offentlig IP-adress. När du skapar en anslutning till en VPN-gateway, är detta IP-adressen som den lokala enheten ansluts till.
-
-1. Välj **första IP-konfiguration skapa IP-gatewaykonfiguration** att begära en offentlig IP-adress.
-
-  ![Första IP-konfiguration](./media/create-routebased-vpn-gateway-portal/add-public-ip-address.png "första IP-konfiguration")
-2. På den **Välj offentlig IP-sidan**, klickar du på **+ Skapa nytt** att öppna den **skapa offentlig IP-adress** sidan.
-3. Konfigurera inställningar med följande värden:
-
-  - **Namnet**: **VNet1GWIP**
-  - **SKU**: **grundläggande**
-
-  ![Skapa offentlig IP](./media/create-routebased-vpn-gateway-portal/public-ip-address-name.png "Skapa offentlig IP")
-4. Klicka på **OK** längst ned på sidan för att spara dina ändringar.
+    ![Konfigurera inställningar för gateway](./media/create-routebased-vpn-gateway-portal/gw.png "konfigurera gateway-inställningar")
 
 ## <a name="creategw"></a>Skapa VPN-gateway
 
 1. Granska inställningarna på den **Skapa virtuell nätverksgateway** sidan. Justera värden om det behövs.
-
-  ![Skapa VPN-gateway](./media/create-routebased-vpn-gateway-portal/create-vpn-gateway.png "skapa VPN-gateway")
 2. Klicka på **skapa** längst ned på sidan.
 
-När du klickar på **skapa**, inställningarna verifieras och **distribuera virtuell nätverksgateway** ikon på instrumentpanelen. En VPN-gateway kan ta upp till 45 minuter. Det är möjligt att du behöver uppdatera din portalsida för att se statusen som slutförd.
+  När du klickar på **skapa**, inställningarna verifieras och **distribuera virtuell nätverksgateway** ikon på instrumentpanelen. En VPN-gateway kan ta upp till 45 minuter. Det är möjligt att du behöver uppdatera din portalsida för att se statusen som slutförd.
 
 ## <a name="viewgw"></a>Visa VPN-gateway
 

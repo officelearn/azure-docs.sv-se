@@ -5,15 +5,15 @@ services: firewall
 author: vhorne
 ms.service: ''
 ms.topic: include
-ms.date: 10/15/2018
+ms.date: 10/20/2018
 ms.author: victorh
 ms.custom: include file
-ms.openlocfilehash: 1d52c9b3b9b91873bd6f34443f162c74d724a65c
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: e4d698b8b9c3f9e304780ee49bd4243a76e69138
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49367115"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49471538"
 ---
 ### <a name="what-is-azure-firewall"></a>Vad är Azure Firewall?
 
@@ -30,13 +30,6 @@ Azure Firewall är en hanterad, molnbaserad tjänst för nätverkssäkerhet som 
 * Stöd för inkommande DNAT
 * Skapa, tillämpa och logga principer för program och nätverk-anslutning via Azure-prenumerationer och virtuella nätverk centralt
 * Fullständig integrering med Azure Monitor för loggning och analys
-
-### <a name="what-is-the-pricing-for-azure-firewall"></a>Vad är priset för Azure-brandvägg?
-
-Azure-brandväggen har en fast kostnad + rörlig kostnad:
-
-* Fast avgift: $1.25/firewall/hour
-* Varierande avgift: $0.03/ GB som behandlas av brandväggen (inkommande eller utgående)
 
 ### <a name="what-is-the-typical-deployment-model-for-azure-firewall"></a>Vad är den typiska distributionsmodellen för Azure-brandvägg?
 
@@ -78,6 +71,17 @@ Azure brandväggstjänsten kompletterar network security group funktioner. Tills
 ### <a name="how-do-i-set-up-azure-firewall-with-my-service-endpoints"></a>Hur ställer jag in Azure-brandvägg med min tjänstslutpunkter?
 
 Vi rekommenderar tjänstslutpunkter för säker åtkomst till PaaS-tjänster. Du kan välja att aktivera Tjänsteslutpunkter i Azure-brandvägg undernät och inaktivera dem på anslutna virtuella ekernätverk. Det här sättet du dra nytta av funktioner – tjänsten endpoint säkerhets- och centrala loggning för all trafik.
+
+### <a name="what-is-the-pricing-for-azure-firewall"></a>Vad är priset för Azure-brandvägg?
+
+Azure-brandväggen har en fast kostnad + rörlig kostnad:
+
+* Fast avgift: $1.25/firewall/hour
+* Varierande avgift: $0.03/ GB som behandlas av brandväggen (inkommande eller utgående)
+
+Det finns inga kostnader för en frigjord brandvägg.
+
+Mer information finns i [priser för Azure-brandväggen](https://azure.microsoft.com/pricing/details/azure-firewall/).
 
 ### <a name="how-can-i-stop-and-start-azure-firewall"></a>Hur kan jag för att stoppa och starta Azure brandvägg?
 

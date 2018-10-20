@@ -3,7 +3,7 @@ title: Hantera VM-Skalningsuppsättningar med Azure PowerShell | Microsoft Docs
 description: Vanliga Azure PowerShell-cmdletar för att hantera Virtual Machine Scale Sets, till exempel att starta och stoppa en instans eller ändra skala Ange kapacitet.
 services: virtual-machine-scale-sets
 documentationcenter: ''
-author: cynthn
+author: zr-msft
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/29/2018
-ms.author: cynthn
-ms.openlocfilehash: a300e2f2febab8436f8d52b71955b3614bd10605
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.author: zarhoads
+ms.openlocfilehash: 0aec3b2d70336e273772f8487b586d2ff23b0604
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38707450"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49466316"
 ---
 # <a name="manage-a-virtual-machine-scale-set-with-azure-powershell"></a>Hantera en VM-skalningsuppsättning med Azure PowerShell
 Under livscykeln för en VM-skalningsuppsättning kan du behöva köra en eller flera hanteringsuppgifter. Dessutom kanske du vill skapa skript som automatiserar olika livscykeluppgifter. Den här artikeln beskriver några vanliga Azure PowerShell-cmdlets som låter dig utföra dessa uppgifter.

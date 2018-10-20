@@ -1,20 +1,21 @@
 ---
 title: Skapa ett anpassat wake ord
-description: Lär dig hur du skapar en anpassad aktivering word för tal enheter SDK.
 titleSuffix: Azure Cognitive Services
+description: Lär dig hur du skapar en anpassad aktivering word för tal enheter SDK.
 services: cognitive-services
 author: erhopf
+manager: cgronlun
 ms.service: cognitive-services
-ms.component: speech
-ms.topic: article
+ms.component: speech-service
+ms.topic: conceptual
 ms.date: 04/28/2018
 ms.author: erhopf
-ms.openlocfilehash: 93fbf33ee35c49e7afc36bf5afbae1da0fe1c56f
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: 5f138aee9dfa91e285591e5d50c14465ad32b77d
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/19/2018
-ms.locfileid: "49430212"
+ms.locfileid: "49469086"
 ---
 # <a name="create-a-custom-wake-word-by-using-the-speech-service"></a>Skapa ett anpassat wake ord med Speech-tjänsten
 

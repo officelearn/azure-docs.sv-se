@@ -9,13 +9,13 @@ ms.reviewer: douglasl
 ms.service: database-migration
 ms.workload: data-services
 ms.topic: article
-ms.date: 10/09/2018
-ms.openlocfilehash: 064d7ca2f544dbf1c968310842e322d8c0db2ca1
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.date: 10/19/2018
+ms.openlocfilehash: 71d79ac34c4797cceb8374d65afb6fd7662f1c21
+ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48884450"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49456200"
 ---
 # <a name="what-is-the-azure-database-migration-service"></a>Vad är Azure Database Migration Service?
 Azure Database Migration Service är en helt hanterad tjänst som utformats för att aktivera sömlös migrering från flera databaskällor till Azure-Dataplattformar med minimal avbrottstid (online migreringar).
@@ -29,7 +29,7 @@ Azure Database Migration Service integrerar några av funktionerna i vår befint
 ## <a name="regional-availability"></a>Regional tillgänglighet
 Azure Database Migration Service är nu tillgänglig i följande regioner:
 
-![Azure Database Migration Service regional tillgänglighet](media\overview\dms-regional-availability.png)
+![Azure Database Migration Service regional tillgänglighet](media\overview\dms-regional-availability1.png)
 
 Den senaste informationen om regional tillgänglighet för Azure Database Migration Service, på global infrastruktur med Azure-webbplats, se [produkttillgänglighet per region](https://azure.microsoft.com/global-infrastructure/services/).
 

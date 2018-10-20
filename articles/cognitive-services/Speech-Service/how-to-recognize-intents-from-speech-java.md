@@ -1,21 +1,21 @@
 ---
 title: Identifiera avsikter från tal med hjälp av tal-SDK för Java
-titleSuffix: Microsoft Cognitive Services
-description: >
-  Lär dig hur du identifierar intentioner från tal från en fil eller en mikrofon med hjälp av tal-SDK för Java.
+titleSuffix: Azure Cognitive Services
+description: Lär dig hur du identifierar intentioner från tal från en fil eller en mikrofon med hjälp av tal-SDK för Java.
 services: cognitive-services
 author: wolfma61
+manager: cgronlun
 ms.service: cognitive-services
-ms.technology: Speech
-ms.topic: article
+ms.component: speech-service
+ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: wolfma
-ms.openlocfilehash: cc83c05f4e4183fd7c945cec831d905781b92e6f
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: cb7e7095278eed51c7616dc1c19dcf5c9d84b856
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46991835"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49469902"
 ---
 # <a name="recognize-intents-from-speech-by-using-the-speech-sdk-for-java"></a>Identifiera avsikter från tal med hjälp av tal-SDK för Java
 
@@ -44,5 +44,5 @@ Leta efter den kod som används i den här artikeln i mappen samples/java/jre/ko
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Hur du känna igen tal](how-to-recognize-speech-java.md)
+- [Så identifierar du tal](how-to-recognize-speech-java.md)
 - [Så här att översätta tal](how-to-translate-speech-java.md)

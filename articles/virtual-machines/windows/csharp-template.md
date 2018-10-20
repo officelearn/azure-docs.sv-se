@@ -1,9 +1,9 @@
 ---
-title: Distribuera en virtuell dator med hjälp av C# och Resource Manager-mall | Microsoft Docs
-description: Lär dig hur du använder C# och en Resource Manager-mall för att distribuera en Azure VM.
+title: Distribuera en virtuell dator med C# och Resource Manager-mall | Microsoft Docs
+description: Lär dig hur du använder C# och Resource Manager-mall för att distribuera en Azure-dator.
 services: virtual-machines-windows
 documentationcenter: ''
-author: cynthn
+author: zr-msft
 manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
@@ -14,34 +14,34 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 ms.date: 07/14/2017
-ms.author: cynthn
-ms.openlocfilehash: e57505b4bd89a79af076dc4cf132c844ae0abd1d
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.author: zarhoads
+ms.openlocfilehash: a91d8452d7b85d3e7ff21dc523429be42d34336b
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2018
-ms.locfileid: "31527832"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49468899"
 ---
-# <a name="deploy-an-azure-virtual-machine-using-c-and-a-resource-manager-template"></a>Distribuera en Azure-dator med hjälp av C# och Resource Manager-mall
-Den här artikeln visar hur du distribuerar en Azure Resource Manager-mallen med C#. Den mall som du skapar distribuerar en enskild virtuell dator som kör Windows Server i ett nytt virtuellt nätverk med ett enda undernät.
+# <a name="deploy-an-azure-virtual-machine-using-c-and-a-resource-manager-template"></a>Distribuera en Azure-dator med C# och Resource Manager-mall
+Den här artikeln visar hur du distribuerar en Azure Resource Manager-mall med C#. Mallen som du skapar distribuerar en virtuell dator som kör Windows Server i ett nytt virtuellt nätverk med ett enda undernät.
 
-En detaljerad beskrivning av den virtuella datorresursen finns [virtuella datorer i en Azure Resource Manager-mall](template-description.md). Mer information om alla resurser i en mall finns [genomgång av Azure Resource Manager-mall](../../azure-resource-manager/resource-manager-template-walkthrough.md).
+En detaljerad beskrivning av resursen för virtuella datorer finns i [virtuella datorer i en Azure Resource Manager-mall](template-description.md). Mer information om alla resurser i en mall finns i [genomgång av Azure Resource Manager-mall](../../azure-resource-manager/resource-manager-template-walkthrough.md).
 
 Det tar cirka 10 minuter för att utföra de här stegen.
 
 ## <a name="create-a-visual-studio-project"></a>Skapa ett Visual Studio-projekt
 
-I det här steget ska kontrollera du att Visual Studio är installerat och du skapar ett konsolprogram som används för att distribuera mallen.
+I det här steget ska se du till att Visual Studio är installerat och du skapar ett konsolprogram som används för att distribuera mallen.
 
-1. Om du inte redan gjort installera [Visual Studio](https://docs.microsoft.com/visualstudio/install/install-visual-studio). Välj **.NET skrivbord development** på arbetsbelastningar sidan och klicka sedan på **installera**. Sammanfattningsvis, kan du se att **utvecklingsverktyg för .NET Framework 4 4.6** väljs automatiskt för dig. Om du redan har installerat Visual Studio kan du lägga till .NET arbetsbelastningen i Visual Studio-starta.
-2. I Visual Studio klickar du på **filen** > **ny** > **projekt**.
-3. I **mallar** > **Visual C#** väljer **Konsolapp (.NET Framework)**, ange *myDotnetProject* för namnet på projektet, välj platsen för projektet och klicka sedan på **OK**.
+1. Om du inte redan gjort installera [Visual Studio](https://docs.microsoft.com/visualstudio/install/install-visual-studio). Välj **.NET-skrivbordsutveckling** på arbetsbelastningar sidan och klicka sedan på **installera**. Sammanfattningsvis ska du se att **utvecklingsverktyg för .NET Framework 4 4.6** väljs automatiskt åt dig. Om du redan har installerat Visual Studio kan du lägga till .NET-arbetsbelastningen i Visual Studio-starta.
+2. I Visual Studio klickar du på **Arkiv** > **Nytt** > **Projekt**.
+3. I **mallar** > **Visual C#** väljer **Konsolapp (.NET Framework)**, ange *myDotnetProject* för namnet på den projektet, välj platsen för projektet och klicka sedan på **OK**.
 
 ## <a name="install-the-packages"></a>Installera paket
 
-NuGet-paket är det enklaste sättet att installera de bibliotek som du behöver för att slutföra de här stegen. För att få de bibliotek som du behöver i Visual Studio kan du utföra de här stegen:
+NuGet-paket är det enklaste sättet att installera de bibliotek som du måste slutföra de här stegen. För att få de bibliotek som du behöver i Visual Studio, gör du följande:
 
-1. Klicka på **verktyg** > **Nuget Package Manager**, och klicka sedan på **Pakethanterarkonsolen**.
+1. Klicka på **verktyg** > **Nuget-Pakethanteraren**, och klicka sedan på **Pakethanterarkonsolen**.
 2. Ange följande kommandon i konsolen:
 
     ```
@@ -51,12 +51,12 @@ NuGet-paket är det enklaste sättet att installera de bibliotek som du behöver
 
 ## <a name="create-the-files"></a>Skapa filer
 
-I det här steget skapar du en mallfil som distribuerar resurser och en fil med parametrar som tillhandahåller parametervärden för mallen. Du kan också skapa en auktoriseringsfil som används för att utföra åtgärder på Azure Resource Manager.
+I det här steget skapar du en mallfil som distribuerar resurserna och en fil med parametrar som tillhandahåller parametervärden för mallen. Du kan också skapa en auktorisering-fil som används för att utföra åtgärder för Azure Resource Manager.
 
-### <a name="create-the-template-file"></a>Skapa mall
+### <a name="create-the-template-file"></a>Skapa mallfilen
 
-1. I Solution Explorer högerklickar du på *myDotnetProject* > **Lägg till** > **nytt objekt**, och välj sedan **textfil** i *Visual C# objekt*. Namn på filen *CreateVMTemplate.json*, och klicka sedan på **Lägg till**.
-2. Lägg till den här JSON-kod i filen som du skapade:
+1. I Solution Explorer högerklickar du på *myDotnetProject* > **Lägg till** > **nytt objekt**, och välj sedan **textfil** i *Visual C#-objekt*. Ge filen namnet *CreateVMTemplate.json*, och klicka sedan på **Lägg till**.
+2. Lägg till den här JSON-koden i filen som du skapade:
 
     ```json
     {
@@ -165,10 +165,10 @@ I det här steget skapar du en mallfil som distribuerar resurser och en fil med 
 
 ### <a name="create-the-parameters-file"></a>Skapa parameterfilen
 
-Om du vill ange värden för parametrarna resurs som definieras i mallen kan du skapa en fil med parametrar som innehåller värdena.
+Om du vill ange värden för parametrarna resurs som har definierats i mallen kan du skapa en parameterfil som innehåller värdena.
 
-1. I Solution Explorer högerklickar du på *myDotnetProject* > **Lägg till** > **nytt objekt**, och välj sedan **textfil** i *Visual C# objekt*. Namn på filen *Parameters.json*, och klicka sedan på **Lägg till**.
-2. Lägg till den här JSON-kod i filen som du skapade:
+1. I Solution Explorer högerklickar du på *myDotnetProject* > **Lägg till** > **nytt objekt**, och välj sedan **textfil** i *Visual C#-objekt*. Ge filen namnet *Parameters.json*, och klicka sedan på **Lägg till**.
+2. Lägg till den här JSON-koden i filen som du skapade:
 
     ```json
     {
@@ -181,14 +181,14 @@ Om du vill ange värden för parametrarna resurs som definieras i mallen kan du 
     }
     ```
 
-4. Spara filen parameters.JSON.
+4. Spara filen Parameters.json.
 
 ### <a name="create-the-authorization-file"></a>Skapa auktoriseringsfilen
 
-Innan du kan distribuera en mall, se till att du har åtkomst till en [Active Directory-tjänstens huvudnamn](../../resource-group-authenticate-service-principal.md). Från huvudnamn för tjänsten kan du skaffa en token för att autentisera förfrågningar till Azure Resource Manager. Du bör också registrera program-ID, autentiseringsnyckeln och klient-ID som du behöver i auktoriseringsfilen.
+Innan du kan distribuera en mall, se till att du har åtkomst till en [Active Directory-tjänstobjekt](../../resource-group-authenticate-service-principal.md). Från tjänstens huvudnamn hämta en token för autentisering av förfrågningar till Azure Resource Manager. Du bör också anteckna program-ID och autentiseringsnyckel klient-ID som du behöver i auktoriseringsfilen.
 
-1. I Solution Explorer högerklickar du på *myDotnetProject* > **Lägg till** > **nytt objekt**, och välj sedan **textfil** i *Visual C# objekt*. Namn på filen *azureauth.properties*, och klicka sedan på **Lägg till**.
-2. Lägg till dessa auktorisering egenskaper:
+1. I Solution Explorer högerklickar du på *myDotnetProject* > **Lägg till** > **nytt objekt**, och välj sedan **textfil** i *Visual C#-objekt*. Ge filen namnet *azureauth.properties*, och klicka sedan på **Lägg till**.
+2. Lägg till de här egenskaperna för auktorisering:
 
     ```
     subscription=<subscription-id>
@@ -201,10 +201,10 @@ Innan du kan distribuera en mall, se till att du har åtkomst till en [Active Di
     graphURL=https://graph.windows.net/
     ```
 
-    Ersätt **&lt;prenumerations-id&gt;** med prenumerations-ID **&lt;program-id&gt;** med programidentifierare Active Directory **&lt;autentiseringsnyckel&gt;** med nyckeln för programmet och **&lt;klient-id&gt;** med klient-ID.
+    Ersätt **&lt;prenumerations-id&gt;** med ditt prenumerations-ID **&lt;program-id&gt;** med Active Directory-program identifierare **&lt;autentiseringsnyckeln&gt;** med programnyckel och **&lt;klient-id&gt;** med klient-ID.
 
 3. Spara filen azureauth.properties.
-4. Ange en miljövariabel i Windows som heter AZURE_AUTH_LOCATION med den fullständiga sökvägen till auktoriseringsfilen som du skapade, till exempel följande PowerShell-kommandot kan användas:
+4. Ange en miljövariabel i Windows med namnet AZURE_AUTH_LOCATION med den fullständiga sökvägen till auktoriseringsfilen som du skapade, till exempel följande PowerShell-kommando kan användas:
 
     ```
     [Environment]::SetEnvironmentVariable("AZURE_AUTH_LOCATION", "C:\Visual Studio 2017\Projects\myDotnetProject\myDotnetProject\azureauth.properties", "User")
@@ -212,7 +212,7 @@ Innan du kan distribuera en mall, se till att du har åtkomst till en [Active Di
     
 ## <a name="create-the-management-client"></a>Skapa management-klienten
 
-1. Öppna filen Program.cs för projektet som du skapade och Lägg sedan till följande using-instruktioner till befintliga instruktioner överst i filen:
+1. Öppna filen Program.cs för projektet som du skapade och sedan lägga till dessa using-satser till de befintliga-instruktionerna överst i filen:
 
     ```
     using Microsoft.Azure.Management.Compute.Fluent;
@@ -224,7 +224,7 @@ Innan du kan distribuera en mall, se till att du har åtkomst till en [Active Di
     using Microsoft.WindowsAzure.Storage.Blob;
     ```
 
-2. Lägg till den här koden Main-metoden för att skapa management-klienten:
+2. Lägg till den här kod till Main-metoden för att skapa management-klienten:
 
     ```
     var credentials = SdkContext.AzureCredentialsFactory
@@ -239,7 +239,7 @@ Innan du kan distribuera en mall, se till att du har åtkomst till en [Active Di
 
 ## <a name="create-a-resource-group"></a>Skapa en resursgrupp
 
-Lägg till kod Main-metoden för att ange värden för programmet:
+Lägg till kod till Main-metoden för att ange värden för programmet:
 
 ```
 var groupName = "myResourceGroup";
@@ -252,9 +252,9 @@ var resourceGroup = azure.ResourceGroups.Define(groupName)
 
 ## <a name="create-a-storage-account"></a>skapar ett lagringskonto
 
-Mallen och parametrar distribueras från ett lagringskonto i Azure. I det här steget skapar kontot och överför filer. 
+Mall och parametrar distribueras från ett lagringskonto i Azure. I det här steget ska du skapa kontot och överför filerna. 
 
-Lägg till den här koden Main-metoden för att skapa kontot:
+Lägg till den här koden i Main-metoden för att skapa kontot:
 
 ```
 string storageAccountName = SdkContext.RandomResourceName("st", 10);
@@ -292,9 +292,9 @@ paramblob.UploadFromFileAsync("..\\..\\Parameters.json").Result();
 
 ## <a name="deploy-the-template"></a>Distribuera mallen
 
-Distribuera mallen och parametrar från lagringskontot som skapades. 
+Distribuera mall och parametrar från storage-kontot som har skapats. 
 
-Lägg till den här koden Main-metoden för att distribuera mallen:
+Om du vill distribuera mallen genom att lägga till den här koden till Main-metoden:
 
 ```
 var templatePath = "https://" + storageAccountName + ".blob.core.windows.net/templates/CreateVMTemplate.json";
@@ -309,11 +309,11 @@ Console.WriteLine("Press enter to delete the resource group...");
 Console.ReadLine();
 ```
 
-## <a name="delete-the-resources"></a>Ta bort resurserna
+## <a name="delete-the-resources"></a>Ta bort resurser
 
-Eftersom du debiteras för de resurser som används i Azure, men det är alltid bra att ta bort resurser som inte längre behövs. Du behöver inte ta bort varje resurs separat från en resursgrupp. Ta bort resursgruppen och alla dess resurser tas bort automatiskt. 
+Eftersom du debiteras för resurser som används i Azure, men det är alltid bra att ta bort resurser som inte längre behövs. Du behöver inte ta bort varje resurs separat från en resursgrupp. Ta bort resursgruppen och alla dess resurser tas bort automatiskt. 
 
-Lägg till den här koden Main-metoden för att ta bort resursgruppen:
+Ta bort resursgruppen genom att lägga till den här koden till Main-metoden:
 
 ```
 azure.ResourceGroups.DeleteByName(groupName);
@@ -321,12 +321,12 @@ azure.ResourceGroups.DeleteByName(groupName);
 
 ## <a name="run-the-application"></a>Köra programmet
 
-Det bör ta ungefär fem minuter för den här konsolen programmet helt från början till slut. 
+Det bör ta ungefär fem minuter för den här konsolprogram för att köra helt från början till slut. 
 
-1. Klicka på att köra konsolprogrammet **starta**.
+1. För att köra konsolprogrammet, klickar du på **starta**.
 
-2. Innan du trycker på **ange** om du vill börja ta bort resurser, du kan ta några minuter för att verifiera att skapa resurser i Azure-portalen. Klicka på Distributionsstatus för att visa information om hur du distribuerar.
+2. Innan du trycker på **RETUR** om du vill börja ta bort resurser, du kan ta några minuter för att verifiera att skapa resurser i Azure-portalen. Klicka på distributionsstatusen för att visa information om hur du distribuerar.
 
 ## <a name="next-steps"></a>Nästa steg
-* Om det fanns problem med distributionen, är nästa steg att titta på [felsöka vanliga Azure-distribution med Azure Resource Manager](../../resource-manager-common-deployment-errors.md).
-* Lär dig hur du distribuerar en virtuell dator och dess stödfiler resurser genom att granska [distribuera ett Azure virtuella datorer med hjälp av C#](csharp.md).
+* Om det finns problem med distributionen, är nästa steg att titta på [felsöka vanliga Azure-distributionsfel med Azure Resource Manager](../../resource-manager-common-deployment-errors.md).
+* Lär dig hur du distribuerar en virtuell dator och dess resurser genom att granska [distribuera en Azure virtuell dator med hjälp av C#](csharp.md).

@@ -1,21 +1,22 @@
 ---
-title: 'Taltjänst REST API: er'
-description: 'Referens för REST API: er för tal-tjänst.'
+title: 'Speech Service REST API: er'
+description: 'Referens för REST API: er för Taltjänst.'
 services: cognitive-services
 author: erhopf
+manager: cgronlun
 ms.service: cognitive-services
-ms.component: speech
-ms.topic: article
+ms.component: speech-service
+ms.topic: conceptual
 ms.date: 05/09/2018
 ms.author: erhopf
-ms.openlocfilehash: f8b27277cbf3ea6d53a8f02e550beae67fc50741
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.openlocfilehash: 0cc278cdb59bfbb53578eae0f51c9b54204d7d12
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49167638"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49466281"
 ---
-# <a name="speech-service-rest-apis"></a>Taltjänst REST API: er
+# <a name="speech-service-rest-apis"></a>Speech Service REST API: er
 
 REST-API: er för tjänsten Azure Cognitive Services tal liknar API: er som tillhandahålls av den [taligenkänning för Bing](https://docs.microsoft.com/azure/cognitive-services/Speech). Slutpunkterna skiljer sig från de slutpunkter som används av tjänsten för Bing-tal. Regionala slutpunkter är tillgängliga och du måste använda en prenumerationsnyckel som motsvarar den slutpunkt som du använder.
 

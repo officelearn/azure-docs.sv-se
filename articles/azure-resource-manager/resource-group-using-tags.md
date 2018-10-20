@@ -12,14 +12,14 @@ ms.workload: multiple
 ms.tgt_pltfrm: AzurePortal
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/26/2018
+ms.date: 10/19/2018
 ms.author: tomfitz
-ms.openlocfilehash: 82a48c902b72b5aca546c45032a13e831533f9ee
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: b6386f4a23a0ca6d0134f8c4e298a3f7100cc1d6
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47393476"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49466961"
 ---
 # <a name="use-tags-to-organize-your-azure-resources"></a>Använd taggar för att organisera Azure-resurser
 
@@ -264,13 +264,11 @@ Azure-portalen och PowerShell som båda använder den [Resource Manager REST API
 
 ## <a name="tags-and-billing"></a>Taggar och fakturering
 
-Du kan använda taggar för att gruppera faktureringsinformation. Till exempel om du kör flera virtuella datorer i olika organisationer kan använda taggar arbetsgrupper per kostnadsställe. Du kan också använda taggar för att kategorisera kostnader genom att runtime-miljö, till exempel den fakturering användningen av virtuella datorer som körs i produktionsmiljön.
+Du kan använda taggar för att gruppera faktureringsinformation. Till exempel om du använder flera virtuella datorer i olika organisationer kan använda taggar arbetsgrupper per kostnadsställe. Du kan också använda taggar för att kategorisera kostnader genom att runtime-miljö, till exempel den fakturering användningen av virtuella datorer som körs i produktionsmiljön.
 
-Du kan hämta information om taggar via den [Azure användning och RateCard APIs](../billing/billing-usage-rate-card-overview.md) eller användningsfil för fil med kommaavgränsade värden (CSV). Du ladda ned användningsfilen från den [Azure-kontoportalen](https://account.windowsazure.com/) eller [EA-portalen](https://ea.azure.com). Läs mer om programmatisk åtkomst till faktureringsinformation [insyn i din Microsoft Azure-resursförbrukning](../billing/billing-usage-rate-card-overview.md). REST API-åtgärder, se [Azure Billing REST API-referens](https://msdn.microsoft.com/library/azure/1ea5b323-54bb-423d-916f-190de96c6a3c).
+Du kan hämta information om taggar via den [Azure användning och RateCard APIs](../billing/billing-usage-rate-card-overview.md) eller användningsfil för fil med kommaavgränsade värden (CSV). Du ladda ned användningsfilen från den [Azure Kontocenter](https://account.azure.com/Subscriptions) eller Azure-portalen. Mer information finns i [ladda ned eller visa din Azure-fakturering och daglig användningsdata](../billing/billing-download-azure-invoice-daily-usage-date.md). När du laddar ned användningsfilen från Azure Kontocenter, Välj **Version 2**. För tjänster som stöder taggar med fakturering, taggarna som visas i den **taggar** kolumn.
 
-När du har hämtat användning CSV för tjänster som stöder taggar med fakturering, taggar visas i den **taggar** kolumn. Mer information finns i [förstå fakturan för Microsoft Azure](../billing/billing-understand-your-bill.md).
-
-![Visa taggarna i fakturering](./media/resource-group-using-tags/billing_csv.png)
+REST API-åtgärder, se [Azure Billing REST API-referens](/rest/api/billing/).
 
 ## <a name="next-steps"></a>Nästa steg
 

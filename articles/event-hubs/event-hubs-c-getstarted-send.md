@@ -12,31 +12,29 @@ ms.workload: na
 ms.tgt_pltfrm: c
 ms.devlang: csharp
 ms.topic: article
-ms.date: 08/16/2018
+ms.date: 10/16/2018
 ms.author: shvija
-ms.openlocfilehash: 262f274541f486f5457ef8eae6fd4f60fb34824e
-ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
+ms.openlocfilehash: 32345b0f064aa78dbf1cbb84cb2309138e7bf4f7
+ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "42055216"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49455393"
 ---
 # <a name="send-events-to-azure-event-hubs-using-c"></a>Skicka händelser till Azure Event Hubs med hjälp av C
 
 ## <a name="introduction"></a>Introduktion
-Händelsehubbar är en mycket skalbar inmatning system som kan mata in miljontals händelser per sekund, aktivera ett program för att bearbeta och analysera de enorma mängder data som produceras av dina anslutna enheter och program. När samlats in i en händelsehubb, kan du omvandla och lagra dem med valfri leverantör av realtidsanalys eller lagringskluster.
+Azure Event Hubs är en strömningstjänst för stordata och händelseinmatningstjänst som kan ta emot och bearbeta flera miljoner händelser per sekund. Azure Event Hubs kan bearbeta och lagra händelser, data eller telemetri som produceras av distribuerade program och enheter. Data som skickas till en händelsehubb kan omvandlas och lagras med valfri provider för realtidsanalys eller batchbearbetnings-/lagringsadaptrar. Detaljerad översikt över Event Hubs finns i [översikt av Händelsehubbar](event-hubs-about.md) och [Event Hubs-funktioner](event-hubs-features.md).
 
-Mer information finns i den [översikt av Händelsehubbar](https://docs.microsoft.com/azure/event-hubs/event-hubs-overview).
+Den här självstudien beskrivs hur du skickar händelser till en händelsehubb med ett konsolprogram i C. 
 
-Den här självstudien beskrivs hur du skickar händelser till en händelsehubb med ett konsolprogram i C. Mer information om att ta emot händelser, klickar du på ditt mottagarspråk i den vänstra innehållsförteckningen.
-
+## <a name="prerequisites"></a>Förutsättningar
 För att kunna genomföra den här kursen behöver du följande:
 
 * En C-utvecklingsmiljö. Den här självstudiekursen förutsätter gcc-stacken på en virtuell Linux-dator med Ubuntu 14.04.
 * [Microsoft Visual Studio](https://www.visualstudio.com/).
-* Ett aktivt Azure-konto. Om du inte har något konto kan skapa du ett kostnadsfritt utvärderingskonto på bara några minuter. Mer information om den [kostnadsfria utvärderingsversionen av Azure](https://azure.microsoft.com/pricing/free-trial/).
 
-## <a name="send-messages-to-event-hubs"></a>Skicka meddelanden till Event Hubs
+## <a name="write-code-to-send-messages-to-event-hubs"></a>Skriva kod för att skicka meddelanden till Event Hubs
 I det här avsnittet visar hur du skriver en app för C för att skicka händelser till din event hub. Koden använder Proton AMQP-biblioteket från den [Apache Qpid projekt](http://qpid.apache.org/). Detta motsvarar att använda Service Bus-köer och ämnen med AMQP från C enligt [i det här exemplet](https://code.msdn.microsoft.com/Using-Apache-Qpid-Proton-C-afd76504). Mer information finns i den [Qpid Proton dokumentation](http://qpid.apache.org/proton/index.html).
 
 1. Från den [Qpid AMQP Messenger sidan](https://qpid.apache.org/proton/messenger.html), följ instruktionerna för att installera Qpid Proton, beroende på din miljö.
@@ -150,12 +148,13 @@ I det här avsnittet visar hur du skriver en app för C för att skicka händels
     > [!NOTE]
     > Den här koden använder ett fönster med en utgående 1 för att tvinga meddelanden ut så snart som möjligt. Du rekommenderas att ditt program försöker att batch-meddelanden för att öka dataflödet. Se den [Qpid AMQP Messenger sidan](https://qpid.apache.org/proton/messenger.html) information om hur du använder Qpid Proton biblioteket på det här och andra miljöer och plattformar som bindningar tillhandahålls (för närvarande Perl, PHP, Python och Ruby).
 
+Kör programmet för att skicka meddelanden till event hub. 
+
+Grattis! Du har nu skickat meddelanden till en händelsehubb.
 
 ## <a name="next-steps"></a>Nästa steg
-Du kan lära dig mer om Event Hubs genom att gå till följande länkar:
+Mer information om att ta emot händelser från event hub, klickar du på ditt mottagarspråk under **ta emot händelser från en event hub** nod i innehållsförteckningen.
 
-* [Event Hubs-översikt](event-hubs-what-is-event-hubs.md)
-* [Vanliga frågor och svar om Event Hubs](event-hubs-faq.md)
 
 <!-- Images. -->
 [21]: ./media/event-hubs-c-ephcs-getstarted/run-csharp-ephcs1.png

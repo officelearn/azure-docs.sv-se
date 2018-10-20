@@ -1,16 +1,16 @@
-I den [Azure-portalen](https://portal.azure.com), klickar du på **resursgrupper** > **moln-shell-lagring –\<your_region >**  >   **\<storage_account_name >**.
+I den [Azure-portalen](https://portal.azure.com), klickar du på **resursgrupper** > **cloud-shell-storage -\<your_region >**  >   **\<storage_account_name >**.
 
-![Hitta molnet Shell storage-konto](../articles/app-service/media/app-service-deploy-zip/upload-choose-storage-account.png)
+![Hitta Cloud Shell-storage-konto](../articles/app-service/media/app-service-deploy-zip/upload-choose-storage-account.png)
 
-I den **översikt** sidan på lagringskontot, Välj **filer**.
+I den **översikt** sidan i lagringskontot, Välj **filer**.
 
-Välj automatiskt genererade filresursen och **överför**. Filresursen är monterat i molnet Shell som `clouddrive`.
+Välj den automatiskt genererade filresursen och välj **överför**. Den här filresursen monteras i Cloud Shell som `clouddrive`.
 
-![Hitta knappen Skicka](../articles/app-service/media/app-service-deploy-zip/upload-select-button.png)
+![Hitta överför-knappen](../articles/app-service/media/app-service-deploy-zip/upload-select-button.png)
 
-Klickar du på filen Väljaren och välj ZIP-filen och klicka på **överför**. 
+Klickar du på väljaren för filen och välj din ZIP-fil och sedan på **överför**. 
 
-I molnet-gränssnittet använder `ls` att verifiera att du kan se den överförda ZIP-filen i standard `clouddrive` delar.
+I Cloud Shell använder `ls` att verifiera att du kan se den uppladdade ZIP-filen i standard `clouddrive` dela.
 
 ```azurecli-interactive
 ls clouddrive

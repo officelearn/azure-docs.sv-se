@@ -12,12 +12,12 @@ ms.author: aliceku
 ms.reviewer: vanto, carlrab, ronitr
 manager: craigg
 ms.date: 10/11/2018
-ms.openlocfilehash: b8bb9cbf53b297d8dca1ac67bae8765edcc2c9f4
-ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
+ms.openlocfilehash: 7cabf1f0020e2f72dae138c7b7b79e69ce2fc677
+ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2018
-ms.locfileid: "49311211"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49456991"
 ---
 # <a name="an-overview-of-azure-sql-database-security-capabilities"></a>En översikt över säkerhetsfunktionerna i Azure SQL Database
 
@@ -32,7 +32,11 @@ En fullständig översikt över tillgängliga säkerhetsfunktioner på alla stil
 SQL Database skyddar dina data genom att tillhandahålla kryptering för data i rörelse med [Transport Layer Security](https://support.microsoft.com/kb/3135244), för vilande data med [Transparent Data Encryption](/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql) och för data under användning med [Always Encrypted](https://msdn.microsoft.com/library/mt163865.aspx).
 
 > [!IMPORTANT]
-> Alla anslutningar till Azure SQL Database kräver filkryptering (SSL/TLS) hela tiden medan data är "under överföringen" till och från databasen. I anslutningssträngen för ditt program, måste du ange parametrar för att kryptera anslutningen och *inte* att lita på servercertifikatet (detta görs för dig om du kopierar anslutningssträngen utanför Azure-portalen), annars den anslutningen verifiera inte identiteten för servern och är sårbar för ”man-in-the-middle”-attacker. För t.ex. ADO.NET-drivrutinen är dessa parametrar för anslutningssträngen **Encrypt=True** och **TrustServerCertificate=False**. Information om TLS och anslutning finns i [TLS-överväganden](sql-database-connect-query.md#tls-considerations-for-sql-database-connectivity)
+> Azure SQL Database tillämpar kryptering (SSL/TLS) på hela tiden för alla anslutningar, vilket säkerställer att alla data krypteras ”under överföringen” mellan databasen och klienten. Detta inträffar oavsett inställningen för **Encrypt** eller **TrustServerCertificate** i anslutningssträngen.
+>
+> Om du gör i anslutningssträngen för ditt programs **inte** anger en krypterad anslutning och *inte* lita på servercertifikatet (för ADO.NET-drivrutinen vilket **Encrypt = True**och **TrustServerCertificate = False**), ditt program kan vara sårbara till en man i mitten-attack på grund av programmet inte verifierar servern eller tillämpa kryptering. Om du hämtar anslutningssträngen från Azure-portalen får de korrekta inställningarna
+>
+> Information om TLS och anslutning finns i [TLS-överväganden](sql-database-connect-query.md#tls-considerations-for-sql-database-connectivity)
 
 För andra sätt att kryptera dina data, kan du överväga:
 

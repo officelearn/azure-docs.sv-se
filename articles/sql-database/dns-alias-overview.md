@@ -7,17 +7,17 @@ ms.subservice: operations
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
-author: DhruvMsft
-ms.author: dmalik
+author: oslake
+ms.author: moslake
 ms.reviewer: genemi,ayolubek
 manager: craigg
 ms.date: 02/05/2018
-ms.openlocfilehash: 6c174871ff7bc61d11804e32aeac738bf6159c10
-ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
+ms.openlocfilehash: 290414ca07014d5f3bfbe160b0f571397fb13948
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47054123"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49467145"
 ---
 # <a name="dns-alias-for-azure-sql-database"></a>DNS-alias för Azure SQL Database
 
@@ -31,7 +31,7 @@ Vanliga användningsområden för en DNS-alias är följande fall:
 - Under inledande utvecklingsarbete kan ditt alias referera till ett test SQL Database-server. När programmet lanseras, kan du ändra alias att referera till produktionsservern. Övergången från test till produktion kräver inte någon ändring av konfigurationer flera klienter som ansluter till databasservern.
 - Anta att databasen i ditt program har flyttats till en annan SQL Database-server. Här kan du ändra alias utan att behöva ändra konfigurationerna för flera klienter.
 
-#### <a name="domain-name-system-dns-of-the-internet"></a>Domain Name System (DNS) över Internet
+## <a name="domain-name-system-dns-of-the-internet"></a>Domain Name System (DNS) över Internet
 
 Internet är beroende av DNS. DNS omvandlar dina egna namn till namnet på din Azure SQL Database-server.
 
@@ -41,42 +41,32 @@ Anta att du behöver växla systemet till en ny Azure SQL Database-server. Tidig
 
 DNS-alias-funktionen i Azure SQL Database hjälper i följande scenarier:
 
-#### <a name="test-to-production"></a>Testa i produktion
+### <a name="test-to-production"></a>Testa i produktion
 
 När du börja utveckla program för klienter, har du dem använda en DNS-alias i sina anslutningssträngar. Du gör egenskaperna punktens alias i en testversion av Azure SQL Database-servern.
 
 Senare när det nya systemet slutar live i produktionen kan du uppdatera egenskaperna för ett alias så att den pekar till produktion SQL Database-server. Ingen förändring av klientprogrammen är nödvändigt.
 
-#### <a name="cross-region-support"></a>Stöd för över flera regioner
+### <a name="cross-region-support"></a>Stöd för över flera regioner
 
 En katastrofåterställning kan flytta din SQL Database-server till en annan geografisk region. För ett system med hjälp av ett DNS-alias kan behovet av att hitta och uppdatera alla anslutningssträngarna för alla klienter undvikas. I stället kan du uppdatera ett alias för att referera till den nya SQL Database-server som nu är värd för databasen.
-
-
-
 
 ## <a name="properties-of-a-dns-alias"></a>Egenskaperna för en DNS-alias
 
 Följande egenskaper gäller för varje DNS-alias för din SQL Database-server:
 
 - *Unikt namn:* varje aliasnamn som du skapar är unikt i alla Azure SQL Database-servrar, precis som servern är.
-
 - *Krävs:* A DNS alias kan inte skapas om den refererar till exakt en server och servern måste redan finnas. Uppdaterade alias måste alltid referera till exakt en befintlig server.
-    - När du släpper en SQL-databasserver, utelämnar Azure systemet även alla DNS-alias som refererar till servern.
-
+  - När du släpper en SQL-databasserver, utelämnar Azure systemet även alla DNS-alias som refererar till servern.
 - *Inte har bundits till alla regioner:* DNS-alias är inte bunden till en region. Andra DNS-alias kan uppdateras för att referera till en Azure SQL Database-server som finns i alla geografiska regioner.
-    - Men när du uppdaterar ett alias för att referera till en annan server måste båda servrarna måste finnas i samma Azure *prenumeration*.
-
+  - Men när du uppdaterar ett alias för att referera till en annan server måste båda servrarna måste finnas i samma Azure *prenumeration*.
 - *Behörigheter:* för att hantera ett DNS-alias, måste användaren ha *Server-deltagare* behörigheter, eller högre. Mer information finns i [Kom igång med rollbaserad åtkomstkontroll i Azure-portalen](../role-based-access-control/overview.md).
-
-
-
-
 
 ## <a name="manage-your-dns-aliases"></a>Hantera dina DNS-alias
 
 Både REST API: er och PowerShell-cmdlets är tillgängliga för att programmässigt hantera dina DNS-alias.
 
-#### <a name="rest-apis-for-managing-your-dns-aliases"></a>REST API: er för att hantera dina DNS-alias
+### <a name="rest-apis-for-managing-your-dns-aliases"></a>REST API: er för att hantera dina DNS-alias
 
 <!-- TODO
 ??2 "soon" in the following live sentence, is not the best situation.
@@ -86,9 +76,11 @@ Comment as of:  2018-01-26
 -->
 
 Dokumentation för REST-API: er finns nära följande webbplats:
+
 - [Azure SQL Database REST API](https://docs.microsoft.com/rest/api/sql/)
 
 REST-API: er kan också ses i GitHub vid:
+
 - [Azure SQL Database-server, DNS-alias REST API: er](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/sql/resource-manager/Microsoft.Sql/preview/2017-03-01-preview/serverDnsAliases.json)
 
 <a name="anchor-powershell-code-62x"/>
@@ -98,44 +90,33 @@ REST-API: er kan också ses i GitHub vid:
 PowerShell-cmdlets är tillgängliga som anropar REST-API: er.
 
 Ett exempel på PowerShell-cmdletar som används för att hantera DNS-alias är dokumenterade på:
+
 - [PowerShell för DNS-Alias till Azure SQL Database](dns-alias-powershell.md)
 
-
 De cmdletar som används i kodexempel är följande:
+
 - [Ny-AzureRMSqlServerDNSAlias](https://docs.microsoft.com/powershell/module/AzureRM.Sql/New-AzureRmSqlServerDnsAlias?view=azurermps-5.1.1): skapar en ny DNS-alias i systemet för Azure SQL Database-tjänsten. Aliaset som refererar till Azure SQL Database-server 1.
 - [Get-AzureRMSqlServerDNSAlias](https://docs.microsoft.com/powershell/module/AzureRM.Sql/Get-AzureRmSqlServerDnsAlias?view=azurermps-5.1.1): hämta och visa alla DNS-alias som är kopplade till SQL DB server 1.
 - [Set-AzureRMSqlServerDNSAlias](https://docs.microsoft.com/powershell/module/AzureRM.Sql/Set-AzureRmSqlServerDnsAlias?view=azurermps-5.1.1): ändrar servernamnet som alias har konfigurerats för att referera till, från 1 till SQL DB server 2-servern.
 - [Remove-AzureRMSqlServerDNSAlias](https://docs.microsoft.com/powershell/module/AzureRM.Sql/Remove-AzureRmSqlServerDnsAlias?view=azurermps-5.1.1): ta bort DNS-alias från SQL DB server 2, med hjälp av namnet på aliaset.
 
-
 Tidigare cmdletar har lagts till i den **i AzureRM.Sql** modul från och med Modulversion 5.1.1.
-
-
-
 
 ## <a name="limitations-during-preview"></a>Begränsningar i förhandsversionen
 
 För närvarande kan har en DNS alias följande begränsningar:
 
 - *Fördröjning på upp till 2 minuter:* tar det upp till 2 minuter för en DNS-alias uppdateras eller tas bort.
-    - Oavsett eventuell fördröjning av kort stoppar aliaset omedelbart refererar klientanslutningar till den gamla servern.
-
+  - Oavsett eventuell fördröjning av kort stoppar aliaset omedelbart refererar klientanslutningar till den gamla servern.
 - *DNS-sökning:* för tillfället endast auktoritativa sätt att kontrollera vilken server som en viss DNS alias refererar till är genom att utföra en [DNS-sökning](https://docs.microsoft.com/windows-server/administration/windows-commands/nslookup).
-
 - *[Tabellgranskning stöds inte](sql-database-auditing-and-dynamic-data-masking-downlevel-clients.md):* du kan inte använda en DNS-alias på en Azure SQL Database-server som har *tabellgranskning* aktiverats för en databas.
-    - Tabellgranskning är inaktuell.
-    - Vi rekommenderar att du flyttar till [Blobbgranskning](sql-database-auditing.md).
-
-
-
+  - Tabellgranskning är inaktuell.
+  - Vi rekommenderar att du flyttar till [Blobbgranskning](sql-database-auditing.md).
 
 ## <a name="related-resources"></a>Relaterade resurser
 
 - [Översikt över affärskontinuitet med Azure SQL Database](sql-database-business-continuity.md), inklusive haveriberedskap.
 
-
-
 ## <a name="next-steps"></a>Nästa steg
 
 - [PowerShell för DNS-Alias till Azure SQL Database](dns-alias-powershell.md)
-

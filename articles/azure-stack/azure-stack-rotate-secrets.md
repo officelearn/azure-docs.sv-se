@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 09/06/2018
 ms.author: mabrigg
 ms.reviewer: ppacent
-ms.openlocfilehash: cc7b1b9e96e32b090c0ec9ec9ab029588e5ec4ce
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.openlocfilehash: 418b23f0783341ff7e5aaf7e2bbb2e869eb7dc45
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49166975"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49466162"
 ---
 # <a name="rotate-secrets-in-azure-stack"></a>Rotera hemligheter i Azure Stack
 
@@ -81,15 +81,18 @@ Kör hemliga rotation med hjälp av anvisningarna nedan kommer att åtgärda des
 
    > [!IMPORTANT]  
    > Se till att hemliga rotation har inte körts på din miljö. Om hemlig rotation har redan gjorts kan du uppdatera Azure Stack till version 1807 eller senare innan du kan köra hemliga rotation. 
+
 1.  Operatörer kan få aviseringar öppnar och stänger automatiskt under rotation av Azure Stack-hemligheter.  Det här beteendet är förväntat och aviseringar kan ignoreras.  Operatörer kan kontrollera giltigheten för de här aviseringarna genom att köra testet AzureStack.  Operatörer med SCOM för att övervaka Azure Stack-system, placera ett system i underhållsläge hindrar dessa aviseringar från att nå sina ITSM-system, men fortsätter att varna om Azure Stack-system blir oåtkomlig. 
 2. Meddela användarna om eventuella underhållsåtgärder. Schemalägga normala underhållsfönster, så mycket som möjligt, under tider utanför kontorstid. Underhåll kan påverka både användaren arbetsbelastningar och åtgärder.
     > [!note]  
     > Nästa steg gäller endast när du roterar externa hemligheter i Azure Stack.
-3. Förbered en ny uppsättning ersättning externa certifikat. Den nya uppsättningen matchar certifikat-specifikationer som beskrivs i den [Azure Stack PKI-certifikatkrav](https://docs.microsoft.com/azure/azure-stack/azure-stack-pki-certs).
-4.  Store en tillbaka upp till de certifikat som används för rotation på ett säkert ställe. Om din rotation körs och misslyckas, ersätter du certifikat i filresursen med säkerhetskopiorna innan du kör rotationen. Observera, göra säkerhetskopior i säker säkerhetskopieringsplatsen.
-5.  Skapa en filresurs som du kan komma åt från de ERCS virtuella datorerna. Filresursen måste vara Läs- och skrivbara för den **CloudAdmin** identitet.
-6.  Öppna ett PowerShell ISE-konsolen från en dator där du har åtkomst till filresursen. Gå till din filresurs. 
-7.  Kör **[CertDirectoryMaker.ps1](http://www.aka.ms/azssecretrotationhelper)** att skapa de nödvändiga katalogerna för ditt externa certifikat.
+
+3. Kör **[Test-AzureStack](https://docs.microsoft.com/azure/azure-stack/azure-stack-diagnostic-test)** och bekräfta att alla test utdata är felfria före rotera hemligheter.
+4. Förbered en ny uppsättning ersättning externa certifikat. Den nya uppsättningen matchar certifikat-specifikationer som beskrivs i den [Azure Stack PKI-certifikatkrav](https://docs.microsoft.com/azure/azure-stack/azure-stack-pki-certs).
+5.  Store en tillbaka upp till de certifikat som används för rotation på ett säkert ställe. Om din rotation körs och misslyckas, ersätter du certifikat i filresursen med säkerhetskopiorna innan du kör rotationen. Observera, göra säkerhetskopior i säker säkerhetskopieringsplatsen.
+6.  Skapa en filresurs som du kan komma åt från de ERCS virtuella datorerna. Filresursen måste vara Läs- och skrivbara för den **CloudAdmin** identitet.
+7.  Öppna ett PowerShell ISE-konsolen från en dator där du har åtkomst till filresursen. Gå till din filresurs. 
+8.  Kör **[CertDirectoryMaker.ps1](http://www.aka.ms/azssecretrotationhelper)** att skapa de nödvändiga katalogerna för ditt externa certifikat.
 
 ## <a name="rotating-external-and-internal-secrets"></a>Rotera externa och interna hemligheter
 

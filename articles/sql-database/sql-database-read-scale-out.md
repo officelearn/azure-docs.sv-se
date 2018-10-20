@@ -11,13 +11,13 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 10/15/2018
-ms.openlocfilehash: 169ebe45287721305800e511174784417569d7b4
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.date: 10/19/2018
+ms.openlocfilehash: deadbc8186d80b050fdb40879ecf29fd229c8709
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49352718"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49465468"
 ---
 # <a name="use-read-only-replicas-to-load-balance-read-only-query-workloads-preview"></a>Använd skrivskyddade repliker för att läsa in balansera skrivskyddad frågearbetsbelastningar (förhandsversion)
 
@@ -31,7 +31,7 @@ Varje databas i Premium-nivån ([DTU-baserade inköpsmodellen](sql-database-serv
 
 De här replikeringarna etableras med samma beräkningsstorleken som används av de vanliga databasanslutningarna skrivskyddade replik. Den **Lässkalning** funktionen kan du belastningsutjämna SQL Database skrivskyddade arbetsbelastningar med hjälp av kapaciteten för en av de skrivskyddade replikerna istället för att dela Läs-och repliken. Det här sättet skrivskyddad arbetsbelastning isoleras från den huvudsakliga skrivskyddad arbetsbelastningen och påverkar inte dess prestanda. Funktionen är avsedd för de program som är logiskt avgränsade skrivskyddade arbetsbelastningar, till exempel analyser, och därför kan få prestandafördelarna med hjälp av den här ytterligare kapacitet utan extra kostnad.
 
-Om du vill använda funktionen Lässkalning med en viss databas, måste du uttryckligen aktivera det när du skapar databasen eller efteråt genom att ändra konfigurationen med hjälp av PowerShell genom att aktivera den [Set-AzureRmSqlDatabase](/powershell/module/azurerm.sql/set-azurermsqldatabase) eller [ Ny-AzureRmSqlDatabase](/powershell/module/azurerm.sql/new-azurermsqldatabase) cmdletar eller Azure Resource Manager REST API med hjälp av den [databaser – skapa eller uppdatera](https://docs.microsoft.com/rest/api/sql/databases/databases_createorupdate) metod.
+Om du vill använda funktionen Lässkalning med en viss databas, måste du uttryckligen aktivera det när du skapar databasen eller efteråt genom att ändra konfigurationen med hjälp av PowerShell genom att aktivera den [Set-AzureRmSqlDatabase](/powershell/module/azurerm.sql/set-azurermsqldatabase) eller [ Ny-AzureRmSqlDatabase](/powershell/module/azurerm.sql/new-azurermsqldatabase) cmdletar eller Azure Resource Manager REST API med hjälp av den [databaser – skapa eller uppdatera](https://docs.microsoft.com/rest/api/sql/databases/createorupdate) metod.
 
 När Lässkalning är aktiverade för en databas, program som ansluter till den här databasen kommer att dirigeras till Läs-och-repliken eller till en skrivskyddad replik av databasen enligt den `ApplicationIntent` egenskapen som konfigurerats i programmets anslutningssträng. Information om den `ApplicationIntent` egenskap, finns i [att ange Programavsikt](https://docs.microsoft.com/sql/relational-databases/native-client/features/sql-server-native-client-support-for-high-availability-disaster-recovery#specifying-application-intent).
 
@@ -118,7 +118,7 @@ Body:
 }
 ```
 
-Mer information finns i [databaser – skapa eller uppdatera](https://docs.microsoft.com/rest/api/sql/databases/databases_createorupdate).
+Mer information finns i [databaser – skapa eller uppdatera](https://docs.microsoft.com/rest/api/sql/databases/createorupdate).
 
 ## <a name="using-read-scale-out-with-geo-replicated-databases"></a>Med geo-replikerade databaser Lässkalning
 
@@ -130,4 +130,4 @@ Om du använder lässkalbarhet att läsa in saldo skrivskyddade arbetsbelastning
 ## <a name="next-steps"></a>Nästa steg
 
 - Information om hur du använder PowerShell för att ställa in Läs skalbar finns i den [Set-AzureRmSqlDatabase](/powershell/module/azurerm.sql/set-azurermsqldatabase) eller [New-AzureRmSqlDatabase](/powershell/module/azurerm.sql/new-azurermsqldatabase) cmdletar.
-- Information om hur du använder REST API för att ställa in Läs skalbar finns i [databaser – skapa eller uppdatera](https://docs.microsoft.com/rest/api/sql/databases/databases_createorupdate).
+- Information om hur du använder REST API för att ställa in Läs skalbar finns i [databaser – skapa eller uppdatera](https://docs.microsoft.com/rest/api/sql/databases/createorupdate).

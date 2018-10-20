@@ -3,7 +3,7 @@ title: Exempel-guide för Azure-infrastrukturen | Microsoft Docs
 description: Läs mer om viktiga riktlinjer för utformning och implementering för distribution av en exempel-infrastruktur i Azure.
 documentationcenter: ''
 services: virtual-machines-linux
-author: cynthn
+author: zr-msft
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2017
-ms.author: cynthn
+ms.author: zarhoads
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d4b8cd07e50697139f68084f47c847ef8728c429
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.openlocfilehash: 794182e3988a353b1e305a36da0475bacdea69b8
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37932155"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49469858"
 ---
 # <a name="example-azure-infrastructure-walkthrough-for-linux-vms"></a>Exempel-guide för virtuella Linux-datorer på Azure-infrastrukturen
 Den här artikeln beskriver att bygga ut en exempel-infrastruktur för programmet. Vi förklarar vi utformar en infrastruktur för en enkel onlinebutik som sammanför alla riktlinjer och beslut om namngivningskonventioner, tillgänglighetsuppsättningar, virtuella nätverk och belastningsutjämnare och faktiskt distribuerar dina virtuella datorer (VM).

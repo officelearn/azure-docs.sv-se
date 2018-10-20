@@ -12,14 +12,14 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 04/25/2018
+ms.date: 10/18/2018
 ms.author: srrengar
-ms.openlocfilehash: a607f560b5e74071f5ee15d03e615138f25a3aef
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 5fc2674a145be99fb8867c5cf1b1f65ba860db80
+ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49406814"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49457841"
 ---
 # <a name="monitoring-and-diagnostics-for-azure-service-fabric"></a>Övervakning och diagnostik för Azure Service Fabric
 
@@ -71,7 +71,7 @@ Förutom att se senaste hälsorapporter i SFX finns också varje rapport som en 
 
 ## <a name="other-logging-solutions"></a>Andra lösningar för loggning
 
-Även om de två lösningarna rekommenderar vi, [Azure Log Analytics](service-fabric-diagnostics-event-analysis-oms.md) och [Application Insights](service-fabric-diagnostics-event-analysis-appinsights.md) har inbyggd integrering med Service Fabric många händelser skrivs via etw-leverantörer och börjar utökningsbar med andra lösningar för loggning. Du bör också titta på den [Elastic Stack](https://www.elastic.co/products) (särskilt om du funderar kör ett kluster i en miljö som är offline), [Splunk](https://www.splunk.com/), [Dynatrace](https://www.dynatrace.com/), eller någon annan plattform för dina inställningar. 
+Även om de två lösningarna rekommenderar vi, [Azure Log Analytics](service-fabric-diagnostics-event-analysis-oms.md) och [Application Insights](service-fabric-diagnostics-event-analysis-appinsights.md) har inbyggd integrering med Service Fabric många händelser skrivs via ETW-leverantörer och börjar utökningsbar med andra lösningar för loggning. Du ska också titta på den [Elastic Stack](https://www.elastic.co/products) (särskilt om du funderar kör ett kluster i en miljö som är offline), [Dynatrace](https://www.dynatrace.com/), eller andra plattformar upp till dig. Vi har en lista med integrerade partnerleverantörer tillgängliga [här](service-fabric-diagnostics-partners.md).
 
 De viktigaste syftena för vilken plattform du väljer bör inkludera hur nöjd du är med användargränssnittet och frågekörning alternativ, möjlighet att visualisera data och skapa enkelt kan läsas instrumentpaneler och ytterligare verktyg som de tillhandahåller för att förbättra din övervakning till exempel automatiserade aviseringar.
 
@@ -80,5 +80,7 @@ De viktigaste syftena för vilken plattform du väljer bör inkludera hur nöjd 
 * Komma igång med instrumentering av dina program, finns i [genereringen av program på händelse- och log](service-fabric-diagnostics-event-generation-app.md).
 * Läs mer om hur du övervakar plattformen och de händelser som Service Fabric tillhandahåller för [genereringen av plattform på händelse- och log](service-fabric-diagnostics-event-generation-infra.md).
 * Gå igenom stegen för att konfigurera AI för ditt program med [övervaka och diagnostisera ett ASP.NET Core-program i Service Fabric](service-fabric-tutorial-monitoring-aspnet.md).
-* Lär dig hur du ställer in Azure Log Analytics för övervakning av behållare – [övervakning och diagnostik för Windows-behållare i Azure Service Fabric](service-fabric-tutorial-monitoring-wincontainers.md).
+* Lär dig hur du ställer in OMS Log Analytics för övervakning av behållare – [övervakning och diagnostik för Windows-behållare i Azure Service Fabric](service-fabric-tutorial-monitoring-wincontainers.md).
+* Se exempel diagnostik problem och lösningar med Service Fabric i [diagnostisera vanliga scenarier](service-fabric-diagnostics-common-scenarios.md)
+* Kolla in andra diagnostik-produkter som integreras med Service Fabric i [diagnostiska Service Fabric-partner](service-fabric-diagnostics-partners.md)
 * Lär dig mer om allmänna övervakning rekommendationer för Azure-resurser – [metodtips – övervakning och diagnostik](https://docs.microsoft.com/azure/architecture/best-practices/monitoring). 

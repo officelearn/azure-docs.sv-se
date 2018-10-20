@@ -11,13 +11,13 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 10/15/2018
-ms.openlocfilehash: 83db2bcfe21edc9f8f2649ef8c2b3a23e412e39d
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.date: 10/19/2018
+ms.openlocfilehash: 6432c6b2c1c224f44b962df63e1502729f69e57f
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49353993"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49470667"
 ---
 # <a name="azure-sql-database-logical-servers-and-their-management"></a>Azure SQL Database logiska servrar och deras hantering
 
@@ -170,22 +170,22 @@ Om du vill skapa och hantera Azure SQL server, databaser och brandväggar, kan d
 
 | Kommando | Beskrivning |
 | --- | --- |
-|[Servrar – skapa eller uppdatera](https://docs.microsoft.com/rest/api/sql/servers/servers_createorupdate/rest/api)|Skapar eller uppdaterar en ny server.|
-|[Servrar – ta bort](https://docs.microsoft.com/rest/api/sql/servers/servers_delete)|Tar bort en SQLServer.|
-|[Servrar – Get](https://docs.microsoft.com/rest/api/sql/servers/servers_get)|Hämtar en server.|
-|[Servrar – lista](https://docs.microsoft.com/rest/api/sql/servers/servers_list)|Returnerar en lista över servrar.|
-|[Servrar – listan efter resursgrupp](https://docs.microsoft.com/rest/api/sql/servers/servers_listbyresourcegroup)|Returnerar en lista över servrar i en resursgrupp.|
-|[Servrar - uppdatering](https://docs.microsoft.com/rest/api/sql/servers/servers_update)|Uppdaterar en befintlig server.|
-|[Databaser – skapa eller uppdatera](https://docs.microsoft.com/rest/api/sql/databases/databases_createorupdate)|Skapar en ny databas eller uppdaterar en befintlig databas.|
-|[Databaser – ta bort](https://docs.microsoft.com/rest/api/sql/databases/databases_delete)|Tar bort en databas.|
-|[Databaser – Get](https://docs.microsoft.com/rest/api/sql/databases/databases_get)|Hämtar en databas.|
-|[Databaser – lista med elastisk Pool](https://docs.microsoft.com/rest/api/sql/databases/databases_listbyelasticpool)|Returnerar en lista över databaser i en elastisk pool.|
-|[Databaser – listan efter Server](https://docs.microsoft.com/rest/api/sql/databases/databases_listbyserver)|Returnerar en lista över databaser i en server.|
-|[Databaser – uppdatering](https://docs.microsoft.com/rest/api/sql/databases/databases_update)|Uppdaterar en befintlig databas.|
-|[Brandväggsregler – skapa eller uppdatera](https://docs.microsoft.com/rest/api/sql/firewallrules/firewallrules_createorupdate)|Skapar eller uppdaterar en brandväggsregel.|
-|[Brandväggsregler – ta bort](https://docs.microsoft.com/rest/api/sql/firewallrules/firewallrules_delete)|Tar bort en brandväggsregel.|
-|[Brandväggsregler - Get](https://docs.microsoft.com/rest/api/sql/firewallrules/firewallrules_get)|Hämtar en brandväggsregel.|
-|[Brandväggsregler - listan efter Server](https://docs.microsoft.com/rest/api/sql/firewallrules/firewallrules_listbyserver)|Returnerar en lista med brandväggsregler.|
+|[Servrar – skapa eller uppdatera](https://docs.microsoft.com/rest/api/sql/servers/createorupdate)|Skapar eller uppdaterar en ny server.|
+|[Servrar – ta bort](https://docs.microsoft.com/rest/api/sql/servers/delete)|Tar bort en SQLServer.|
+|[Servrar – Get](https://docs.microsoft.com/rest/api/sql/servers/get)|Hämtar en server.|
+|[Servrar – lista](https://docs.microsoft.com/rest/api/sql/servers/list)|Returnerar en lista över servrar.|
+|[Servrar – listan efter resursgrupp](https://docs.microsoft.com/rest/api/sql/servers/listbyresourcegroup)|Returnerar en lista över servrar i en resursgrupp.|
+|[Servrar - uppdatering](https://docs.microsoft.com/rest/api/sql/servers/update)|Uppdaterar en befintlig server.|
+|[Databaser – skapa eller uppdatera](https://docs.microsoft.com/rest/api/sql/databases/createorupdate)|Skapar en ny databas eller uppdaterar en befintlig databas.|
+|[Databaser – ta bort](https://docs.microsoft.com/rest/api/sql/databases/delete)|Tar bort en databas.|
+|[Databaser – Get](https://docs.microsoft.com/rest/api/sql/databases/get)|Hämtar en databas.|
+|[Databaser – lista med elastisk Pool](https://docs.microsoft.com/rest/api/sql/databases/listbyelasticpool)|Returnerar en lista över databaser i en elastisk pool.|
+|[Databaser – listan efter Server](https://docs.microsoft.com/rest/api/sql/databases/listbyserver)|Returnerar en lista över databaser i en server.|
+|[Databaser – uppdatering](https://docs.microsoft.com/rest/api/sql/databases/update)|Uppdaterar en befintlig databas.|
+|[Brandväggsregler – skapa eller uppdatera](https://docs.microsoft.com/rest/api/sql/firewallrules/createorupdate)|Skapar eller uppdaterar en brandväggsregel.|
+|[Brandväggsregler – ta bort](https://docs.microsoft.com/rest/api/sql/firewallrules/delete)|Tar bort en brandväggsregel.|
+|[Brandväggsregler - Get](https://docs.microsoft.com/rest/api/sql/firewallrules/get)|Hämtar en brandväggsregel.|
+|[Brandväggsregler - listan efter Server](https://docs.microsoft.com/rest/api/sql/firewallrules/listbyserver)|Returnerar en lista med brandväggsregler.|
 
 ## <a name="next-steps"></a>Nästa steg
 

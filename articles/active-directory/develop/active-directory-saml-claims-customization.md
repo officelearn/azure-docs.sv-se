@@ -13,16 +13,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/11/2018
+ms.date: 10/20/2018
 ms.author: celested
-ms.reviewer: jeedes
+ms.reviewer: luleon, jeedes
 ms.custom: aaddev
-ms.openlocfilehash: 5633dfbf59396e79226b196c2b699981409092ab
-ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
+ms.openlocfilehash: 4e80f5cb85a53281da9ec50a02d089f46e97dfde
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48902033"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49466724"
 ---
 # <a name="how-to-customize-claims-issued-in-the-saml-token-for-enterprise-applications"></a>Så här: anpassa anspråk som utfärdats i SAML-token för företagsprogram
 
@@ -49,21 +49,38 @@ Du kan också ta bort anspråk (andra än NameIdentifier) med hjälp av snabbmen
 ![Redigera användarattribut][3]
 
 ## <a name="editing-the-nameidentifier-claim"></a>Redigera NameIdentifier-anspråket
-Att lösa problem där programmet har distribuerats med hjälp av ett annat användarnamn, klicka på den **användaridentifierare** nedrullningsbar listruta den **användarattribut** avsnittet. Den här åtgärden visar en dialogruta med flera olika alternativ:
+
+Att lösa problem där programmet har distribuerats med hjälp av ett annat användarnamn, väljer du på den **användaridentifierare** nedrullningsbar listruta den **användarattribut** avsnittet. Den här åtgärden visar en dialogruta med flera olika alternativ:
 
 ![Redigera användarattribut][4]
 
-I listrutan, väljer **user.mail** att ställa in NameIdentifier-anspråket är användarens e-postadress i katalogen. Eller välj **user.onpremisessamaccountname** s SAM-kontonamn som har synkroniserats från den lokala Azure AD ska anges till användaren.
+### <a name="attributes"></a>Attribut
 
-Du kan också använda särskilda **ExtractMailPrefix()** att ta bort domänsuffix från e-postadressen, SAM-kontonamn eller användarens huvudnamn. Då extraheras bara den första delen av användarnamnet som skickas via (till exempel ”joe_smith” i stället för joe_smith@contoso.com).
+Välj önskad källa för den `NameIdentifier` (eller NameID) anspråk. Du kan välja bland följande alternativ.
 
-![Redigera användarattribut][5]
+| Namn | Beskrivning |
+|------|-------------|
+| E-post | E-postadressen för användaren |
+| userprincipalName | Användarens huvudnamn (UPN) för användaren |
+| onpremisessamaccount | SAM-kontonamn som har synkroniserats från den lokala Azure AD |
+| Objekt-ID | Objekt-ID för användaren i Azure AD |
+| EmployeeID | EmployeeID för användaren |
+| Katalogtillägg | Katalogtillägg [synkroniseras från den lokala Active Directory med Azure AD Connect Sync](../hybrid/how-to-connect-sync-feature-directory-extensions.md) |
+| Tilläggsattribut 1 – 15 | Lokala tilläggsattribut som används för att utöka Azure AD-schema |
 
-Vi har nu även lagt till den **join()** funktionen för att ansluta till den verifierade domänen med användar-ID-värde. När du väljer funktionen join() i den **användaridentifierare** först välja användar-ID som t.ex. e-postadress eller användarnamn huvudnamn och välj sedan din verifierade domän i andra listrutan. Om du markerar den e-postadressen med en verifierad domän och Azure AD extraherar användarnamnet från det första värdet joe_smith från joe_smith@contoso.com och lägger till dem med contoso.onmicrosoft.com. Se följande exempel:
+### <a name="transformations"></a>Transformationer
 
-![Redigera användarattribut][6]
+Du kan också använda funktionerna särskilda anspråk transformationer.
+
+| Funktion | Beskrivning |
+|----------|-------------|
+| **ExtractMailPrefix()** | Tar bort domänsuffix från e-postadressen, SAM-kontonamn eller användarens huvudnamn. Då extraheras bara den första delen av användarnamnet som skickas via (till exempel ”joe_smith” i stället för joe_smith@contoso.com). |
+| **JOIN()** | Ansluter till ett attribut med en verifierad domän. Om det valda användaren ID-värdet har en domän, extraherar användarnamnet om du vill lägga till valda verifierade domän. Exempel: Om du väljer e-postmeddelandet (joe_smith@contoso.com) som värde för användaridentifierare och väljer contoso.onmicrosoft.com som verifierad domän, detta resulterar i joe_smith@contoso.onmicrosoft.com. |
+| **ToLower()** | Konverterar tecknen i det valda attributet till gemener. |
+| **ToUpper()** | Konverterar tecknen i det valda attributet till versaler. |
 
 ## <a name="adding-claims"></a>Att lägga till anspråk
+
 När du lägger till ett anspråk, kan du ange attributets namn (som strikt inte behöver följer ett mönster för URI enligt SAML-specifikationen). Ange värdet till valfria användarattribut som lagras i katalogen.
 
 ![Lägg till användarattribut][7]
@@ -132,7 +149,7 @@ Det finns vissa begränsade anspråk i SAML. Om du lägger till dessa anspråk s
 ## <a name="next-steps"></a>Nästa steg
 
 * [Programhantering i Azure AD](../manage-apps/what-is-application-management.md)
-* [Konfigurera enkel inloggning till program som inte ingår i Azure AD-programgalleriet](../manage-apps/configure-federated-single-sign-on-non-gallery-applications.md)
+* [Konfigurera enkel inloggning på program som inte ingår i Azure AD-programgalleriet](../manage-apps/configure-federated-single-sign-on-non-gallery-applications.md)
 * [Felsöka SAML-baserad enkel inloggning](howto-v1-debug-saml-sso-issues.md)
 
 <!--Image references-->

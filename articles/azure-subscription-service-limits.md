@@ -8,14 +8,14 @@ tags: billing
 ms.assetid: 60d848f9-ff26-496e-a5ec-ccf92ad7d125
 ms.service: billing
 ms.topic: article
-ms.date: 09/11/2018
+ms.date: 10/19/2018
 ms.author: byvinyal
-ms.openlocfilehash: 0b78c7c94f5dc6d7c427188ac4ffd807a06a867e
-ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
+ms.openlocfilehash: c22f3dbc06dd43a31bf43634437c7f377dac8813
+ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/01/2018
-ms.locfileid: "47585500"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49457314"
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Azure-prenumeration och tjänstbegränsningar, kvoter och krav
 Det här dokumentet innehåller några av de vanligaste Microsoft Azure-gränserna, som kallas ibland också kvoter. Det här dokumentet täcker inte för närvarande alla Azure-tjänster. Med tiden, kommer listan utökats och uppdaterats så att den täcker flera av plattformen.
@@ -108,7 +108,7 @@ En ny tabell har lagts till återspeglar eventuella skillnader i begränsningar 
 #### <a name="subscription-limits---azure-resource-manager"></a>Prenumerationsbegränsningar – Azure Resource Manager
 Följande begränsningar gäller när du använder Azure Resource Manager och Azure-resursgrupper. Gränser som inte har ändrats med Azure Resource Manager visas inte nedan. Se tabellen ovan för de här gränserna.
 
-Information om hur du hanterar gränser för Resource Manager-förfrågningar finns i [begränsning resurshanteraren begär](resource-manager-request-limits.md).
+Information om Resource Manager API läsa och skriva begränsningar, finns i [begränsning resurshanteraren begär](resource-manager-request-limits.md).
 
 [!INCLUDE [azure-subscription-limits-azure-resource-manager](../includes/azure-subscription-limits-azure-resource-manager.md)]
 

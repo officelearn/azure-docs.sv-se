@@ -3,7 +3,7 @@ title: Distribuera ett program till en Azure VM-skalningsuppsättning | Microsof
 description: Lär dig hur du distribuerar program till Linux och Windows VM-instanser i en skalningsuppsättning
 services: virtual-machine-scale-sets
 documentationcenter: ''
-author: cynthn
+author: zr-msft
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/29/2018
-ms.author: cynthn
-ms.openlocfilehash: 86bb231a4eb9468ccc92c182b099714950b2a81c
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.author: zarhoads
+ms.openlocfilehash: 22e035be27f16e7b73e545d75eb9cd108a919114
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46979454"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49471211"
 ---
 # <a name="deploy-your-application-on-virtual-machine-scale-sets"></a>Distribuera ditt program i VM-skalningsuppsättningar
 Om du vill köra program på virtuella datorinstanser i en skalningsuppsättning, måste du först installera programkomponenter och nödvändiga filer. Den här artikeln beskrivs olika sätt att skapa en anpassad virtuell datoravbildning för instanser i en skalningsuppsättning eller automatiskt köra installationsskripten på befintliga VM-instanser. Du också lära dig hur du hanterar program eller uppdateringar av Operativsystemet i en skalningsuppsättning.

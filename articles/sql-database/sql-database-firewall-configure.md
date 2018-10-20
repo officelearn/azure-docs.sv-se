@@ -11,13 +11,13 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 10/15/2018
-ms.openlocfilehash: 4f6c98533a2ab1289ca5f1da25c44fe1a77a983c
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.date: 10/19/2018
+ms.openlocfilehash: 18cd0ea4b6804edc11fc4f57c4327ef9d9a6f51e
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49353673"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49466741"
 ---
 # <a name="azure-sql-database-and-sql-data-warehouse-firewall-rules"></a>Azure SQL Database och SQL Data Warehouse brandväggsregler
 
@@ -80,7 +80,7 @@ Om du vill tillåta att program från Azure ansluter till din Azure SQL-server m
 
 ## <a name="creating-and-managing-firewall-rules"></a>Skapa och hantera brandväggsregler
 
-Första brandväggsinställningen på servernivå kan skapas med den [Azure-portalen](https://portal.azure.com/) eller programmässigt med [Azure PowerShell](https://docs.microsoft.com/powershell/module/azurerm.sql), [Azure CLI](/cli/azure/sql/server/firewall-rule#az-sql-server-firewall-rule-create), eller [ REST-API](https://docs.microsoft.com/rest/api/sql/firewallrules/firewallrules_createorupdate). Efterföljande brandväggsregler på servernivå kan skapas och hanteras med hjälp av dessa metoder samt via Transact-SQL.
+Första brandväggsinställningen på servernivå kan skapas med den [Azure-portalen](https://portal.azure.com/) eller programmässigt med [Azure PowerShell](https://docs.microsoft.com/powershell/module/azurerm.sql), [Azure CLI](/cli/azure/sql/server/firewall-rule#az-sql-server-firewall-rule-create), eller [ REST-API](https://docs.microsoft.com/rest/api/sql/firewallrules/createorupdate). Efterföljande brandväggsregler på servernivå kan skapas och hanteras med hjälp av dessa metoder samt via Transact-SQL.
 
 > [!IMPORTANT]
 > Brandväggsregler på databasnivå kan bara skapas och hanteras med hjälp av Transact-SQL.
@@ -189,10 +189,10 @@ az sql server firewall-rule create --resource-group myResourceGroup --server $se
 
 | API | Nivå | Beskrivning |
 | --- | --- | --- |
-| [Visa en lista med brandväggsregler](https://docs.microsoft.com/rest/api/sql/firewallrules/firewallrules_listbyserver) |Server |Visar de aktuella brandväggsreglerna på servernivå |
-| [Skapa eller uppdatera en brandväggsregel](https://docs.microsoft.com/rest/api/sql/firewallrules/firewallrules_createorupdate) |Server |Skapar eller uppdaterar brandväggsregler på servernivå |
-| [Ta bort brandväggsregel](https://docs.microsoft.com/rest/api/sql/firewallrules/firewallrules_delete) |Server |Tar bort brandväggsregler på servernivå |
-| [Hämta brandväggsregler](https://docs.microsoft.com/rest/api/sql/firewallrules/firewallrules_get) | Server | Hämtar brandväggsregler på servernivå |
+| [Visa en lista med brandväggsregler](https://docs.microsoft.com/rest/api/sql/firewallrules/listbyserver) |Server |Visar de aktuella brandväggsreglerna på servernivå |
+| [Skapa eller uppdatera en brandväggsregel](https://docs.microsoft.com/rest/api/sql/firewallrules/createorupdate) |Server |Skapar eller uppdaterar brandväggsregler på servernivå |
+| [Ta bort brandväggsregel](https://docs.microsoft.com/rest/api/sql/firewallrules/delete) |Server |Tar bort brandväggsregler på servernivå |
+| [Hämta brandväggsregler](https://docs.microsoft.com/rest/api/sql/firewallrules/get) | Server | Hämtar brandväggsregler på servernivå |
 
 ## <a name="server-level-firewall-rule-versus-a-database-level-firewall-rule"></a>Brandväggsregel på servernivå jämfört med en brandväggsregel på databasnivå
 

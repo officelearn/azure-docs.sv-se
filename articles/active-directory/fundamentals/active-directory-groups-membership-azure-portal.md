@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.workload: identity
 ms.component: fundamentals
 ms.topic: conceptual
-ms.date: 08/28/2018
+ms.date: 10/19/2018
 ms.author: lizross
 ms.custom: it-pro
 ms.reviewer: krbain
-ms.openlocfilehash: c28fe5ef226fac993fde221b16bfa875ba4845ca
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: 09e023d1d562ea53d9927adf609335beac38a2d7
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45579776"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49468043"
 ---
 # <a name="how-to-add-or-remove-a-group-from-another-group-using-azure-active-directory"></a>Så här: lägga till eller ta bort en grupp från någon annan grupp med Azure Active Directory
 Den här artikeln hjälper dig att lägga till och ta bort en grupp från någon annan grupp med Azure Active Directory.
@@ -25,12 +25,15 @@ Den här artikeln hjälper dig att lägga till och ta bort en grupp från någon
 >[!Note]
 >Om du försöker ta bort den överordnade gruppen kan se [uppdatera eller ta bort en grupp och dess medlemmar](active-directory-groups-delete-group.md).
 
-## <a name="add-a-group-as-a-member-to-another-group"></a>Lägga till en grupp som en medlem till en annan grupp
-Du kan lägga till en befintlig grupp till en annan befintlig grupp, skapar en medlem i gruppen (Undergrupp) och en överordnad grupp. Medlem-grupp ärver de attribut och egenskaperna för den överordnade gruppen, sparar du konfigurationen.
+## <a name="add-a-group-to-another-group"></a>Lägga till en grupp till en annan grupp
+Du kan lägga till en befintlig säkerhetsgrupp till en annan befintlig säkerhetsgrupp (även kallat kapslade grupper), skapar en medlem i gruppen (Undergrupp) och en överordnad grupp. Medlem-grupp ärver de attribut och egenskaperna för den överordnade gruppen, sparar du konfigurationen.
 
-### <a name="to-add-a-group-as-a-member-to-another-group"></a>Lägg till en grupp som en medlem till en annan grupp
+>[!Important]
+>Vi stöder för närvarande inte:<ul><li>Att lägga till säkerhetsgrupper till Office 365-grupper</li><li>Lägga till Office 365-grupper till säkerhetsgrupper eller andra Office 365-grupper</li><li>Tilldelning av appar till kapslade grupper</li><li>Tillämpa licenser på kapslade grupper</li></ul>
 
-1. Logga in på den [Azure-portalen](https://portal.azure.com) med ett konto som Global administratör för katalogen.
+### <a name="to-add-a-group-as-a-member-of-another-group"></a>Lägg till en grupp som en medlem i en annan grupp
+
+1. Logga in på [Azure-portalen](https://portal.azure.com) med ett Globalt administratörskonto för katalogen.
 
 2. Välj **Azure Active Directory**, och välj sedan **grupper**.
 
@@ -55,8 +58,8 @@ Du kan lägga till en befintlig grupp till en annan befintlig grupp, skapar en m
 
     ![Sidan med medlemskap som visar både medlemmen och gruppinformation](media/active-directory-groups-membership-azure-portal/group-membership-review.png)
 
-## <a name="remove-a-member-group-from-another-group"></a>Ta bort en grupp från någon annan grupp
-Du kan ta bort en befintlig grupp från någon annan grupp. Men ta bort medlemskapet tar också bort alla ärvda attribut och egenskaper för dina användare.
+## <a name="remove-a-group-from-another-group"></a>Ta bort en grupp från någon annan grupp
+Du kan ta bort en befintlig säkerhetsgrupp från en annan säkerhetsgrupp. Men om du tar bort gruppen tar också bort alla ärvda attribut och egenskaper för dess medlemmar.
 
 ### <a name="to-remove-a-member-group-from-another-group"></a>Att ta bort en medlem från en annan grupp
 1. På den **grupper – alla grupper** , söka efter och välj den grupp som ska tas bort som medlem i någon annan grupp. I den här övningen använder vi igen den **MDM princip – västra** grupp.
@@ -79,6 +82,8 @@ Dessa artiklar innehåller ytterligare information om Azure Active Directory.
 
 - [Lägg till eller ta bort medlemmar från en grupp](active-directory-groups-members-azure-portal.md)
 
-- [Redigera din gruppinställningar](active-directory-groups-settings-azure-portal.md)
+- [Redigera dina gruppinställningar](active-directory-groups-settings-azure-portal.md)
 
-- [Tilldela licenser till användare gruppvis](../users-groups-roles/licensing-groups-assign.md)
+- [Använda en grupp för att hantera åtkomst till SaaS-program](../users-groups-roles/groups-saasapps.md)
+
+- [Scenarier, begränsningar och kända problem med hjälp av grupper för att hantera licensiering i Azure Active Directory](../users-groups-roles/licensing-group-advanced.md#limitations-and-known-issues)

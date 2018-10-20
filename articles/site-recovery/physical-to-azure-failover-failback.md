@@ -5,14 +5,14 @@ services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: article
-ms.date: 09/11/2018
+ms.date: 10/19/2018
 ms.author: raynew
-ms.openlocfilehash: 4036ab6e62f4738f4b2906eb7571dc5d0e972988
-ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
+ms.openlocfilehash: 1a818d37efd370ce0b3e27bff73a153544763ebb
+ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44391155"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49456634"
 ---
 # <a name="fail-over-and-fail-back-physical-servers-replicated-to-azure"></a>Redundans och växla tillbaka fysiska servrar som replikeras till Azure
 
@@ -44,7 +44,7 @@ Kontrollera egenskaperna för servern och se till att den överensstämmer med [
 
 1. I **Inställningar** > **Replikerade objekt** klickar du på datorn > **Redundans**.
 2. I **Redundans** väljer du en **återställningspunkt** att redundansväxla till. Du kan välja något av följande alternativ:
-   - **Senaste**: det här alternativet bearbetar först alla data som skickas till Site Recovery. De ger det lägsta målet för återställningspunkten eftersom Azure VM skapas efter att redundansen har fått alla data som replikerades till Site Recovery när redundansen utlöstes.
+   - **Senaste**: Det här alternativet bearbetar först alla data som skickas till Site Recovery. De ger det lägsta målet för återställningspunkten eftersom Azure VM skapas efter att redundansen har fått alla data som replikerades till Site Recovery när redundansen utlöstes.
    - **Senaste bearbetade**: det här alternativet redundansväxlar datorn till den senaste återställningspunkten som bearbetats av Site Recovery. Med det här alternativet läggs ingen tid på bearbetning av data, så den ger ett lågt mål för återställningstiden.
    - **Senaste appkonsekventa**: det här alternativet redundansväxlar datorn till den senaste appkonsekventa återställningspunkten som bearbetats av Site Recovery.
    - **Anpassad**: Ange en återställningspunkt.
@@ -59,9 +59,9 @@ Kontrollera egenskaperna för servern och se till att den överensstämmer med [
 
 ## <a name="prepare-to-connect-to-azure-vms-after-failover"></a>Förbereda för att ansluta till virtuella Azure-datorer efter en redundansväxling
 
-Om du vill ansluta till virtuella Azure-datorer med RDP/SSH efter en redundansväxling kan du följa kraven som sammanfattas i tabellen [här](site-recovery-test-failover-to-azure.md#prepare-to-connect-to-azure-vms-after-failover).
+Om du vill ansluta till virtuella Azure-datorer med RDP/SSH efter en redundansväxling följer du kraven som sammanfattas i tabellen [här](site-recovery-test-failover-to-azure.md#prepare-to-connect-to-azure-vms-after-failover).
 
-Följ stegen som beskrivs [här](site-recovery-failover-to-azure-troubleshoot.md) felsökning av någon anslutning efter problem med redundans.
+Följ stegen som beskrivs [här](site-recovery-failover-to-azure-troubleshoot.md) för att felsöka eventuella anslutningsproblem efter redundans.
 
 ## <a name="create-a-process-server-in-azure"></a>Skapa en processerver i Azure
 

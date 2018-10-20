@@ -12,12 +12,12 @@ ms.author: ronitr
 ms.reviewer: vanto
 manager: craigg
 ms.date: 10/15/2018
-ms.openlocfilehash: 36269392db785e7d2d203f032a84cccc8a6c62e0
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: 32b60a53581a0f372a7d994cfa260ebd7bcb27b2
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49352976"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49467049"
 ---
 # <a name="azure-sql-database-data-discovery-and-classification"></a>Azure SQL databasdata identifiering och klassificering
 
@@ -140,10 +140,10 @@ Du kan använda T-SQL för att lägga till/ta bort kolumnklassificeringar, samt 
 
 Du kan också använda REST API: er för att programmässigt hantera klassificeringar. Den publicerade REST-API: er har stöd för följande åtgärder:
 
-- [Skapa eller uppdatera](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/sensitivitylabels_createorupdate) – skapar eller uppdaterar känslighetsetikett för en viss kolumn
-- [Ta bort](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/sensitivitylabels_delete) – tar bort känslighetsetikett för en viss kolumn
-- [Hämta](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/sensitivitylabels_get) -hämtar känsliga etiketten för en viss kolumn
-- [Lista med databasen](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/sensitivitylabels_listbydatabase) -hämtar känslighet etiketterna för en viss databas
+- [Skapa eller uppdatera](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/createorupdate) – skapar eller uppdaterar känslighetsetikett för en viss kolumn
+- [Ta bort](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/delete) – tar bort känslighetsetikett för en viss kolumn
+- [Hämta](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/get) -hämtar känsliga etiketten för en viss kolumn
+- [Lista med databasen](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/listbydatabase) -hämtar känslighet etiketterna för en viss databas
 
 ## <a id="subheading-5"></a>Nästa steg
 

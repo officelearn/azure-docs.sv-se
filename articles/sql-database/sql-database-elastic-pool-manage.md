@@ -11,13 +11,13 @@ author: oslake
 ms.author: moslake
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 10/15/2018
-ms.openlocfilehash: 6c43e5bf311d94ff2e5b5c31217c5071ea26746c
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.date: 10/19/2018
+ms.openlocfilehash: 0c939956a8f3336b5071748a8c2bdf8840b749ad
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49351870"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49466077"
 ---
 # <a name="create-and-manage-elastic-pools-in-azure-sql-database"></a>Skapa och hantera elastiska pooler i Azure SQL Database
 
@@ -106,11 +106,11 @@ Använd dessa REST API-begäranden för att skapa och hantera SQL Database elast
 |[Elastiska pooler – uppdatera](https://docs.microsoft.com/rest/api/sql/elasticpools/elasticpools_listbyserver)|Uppdaterar en befintlig elastisk pool.|
 |[Elastisk pool aktiviteter](https://docs.microsoft.com/rest/api/sql/elasticpoolactivities)|Returnerar elastisk pool aktiviteter.|
 |[Elastisk pool databasaktiviteter](https://docs.microsoft.com/rest/api/sql/elasticpooldatabaseactivities)|Returnerar aktivitet på databaser i en elastisk pool.|
-|[Databaser – skapa eller uppdatera](https://docs.microsoft.com/rest/api/sql/databases/databases_createorupdate)|Skapar en ny databas eller uppdaterar en befintlig databas.|
-|[Databaser – Get](https://docs.microsoft.com/rest/api/sql/databases/databases_get)|Hämtar en databas.|
-|[Databaser – lista med elastisk Pool](https://docs.microsoft.com/rest/api/sql/databases/databases_listbyelasticpool)|Returnerar en lista över databaser i en elastisk pool.|
-|[Databaser – listan efter Server](https://docs.microsoft.com/rest/api/sql/databases/databases_listbyserver)|Returnerar en lista över databaser i en server.|
-|[Databaser – uppdatering](https://docs.microsoft.com/rest/api/sql/databases/databases_update)|Uppdaterar en befintlig databas.|
+|[Databaser – skapa eller uppdatera](https://docs.microsoft.com/rest/api/sql/databases/createorupdate)|Skapar en ny databas eller uppdaterar en befintlig databas.|
+|[Databaser – Get](https://docs.microsoft.com/rest/api/sql/databases/get)|Hämtar en databas.|
+|[Databaser – lista med elastisk Pool](https://docs.microsoft.com/rest/api/sql/databases/listbyelasticpool)|Returnerar en lista över databaser i en elastisk pool.|
+|[Databaser – listan efter Server](https://docs.microsoft.com/rest/api/sql/databases/listbyserver)|Returnerar en lista över databaser i en server.|
+|[Databaser – uppdatering](https://docs.microsoft.com/rest/api/sql/databases/update)|Uppdaterar en befintlig databas.|
 
 ## <a name="next-steps"></a>Nästa steg
 

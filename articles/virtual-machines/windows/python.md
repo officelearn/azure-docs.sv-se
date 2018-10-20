@@ -1,9 +1,9 @@
 ---
-title: Skapa och hantera en virtuell Windows-dator i Azure med Python | Microsoft Docs
-description: Lär dig använda Python att skapa och hantera en virtuell Windows-dator i Azure.
+title: Skapa och hantera en Windows-dator i Azure med hjälp av Python | Microsoft Docs
+description: Lär dig hur du använder Python för att skapa och hantera en Windows-dator i Azure.
 services: virtual-machines-windows
 documentationcenter: ''
-author: cynthn
+author: zr-msft
 manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
@@ -14,17 +14,17 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 ms.date: 06/22/2017
-ms.author: cynthn
-ms.openlocfilehash: dbe8f1603433f381c3c28cb47d2dbda543b462e0
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.author: zarhoads
+ms.openlocfilehash: c1fc12bfe57edf34701d8f1f93ca18298be29160
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2018
-ms.locfileid: "31528349"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49470276"
 ---
-# <a name="create-and-manage-windows-vms-in-azure-using-python"></a>Skapa och hantera virtuella Windows-datorer i Azure med Python
+# <a name="create-and-manage-windows-vms-in-azure-using-python"></a>Skapa och hantera Windows-datorer i Azure med hjälp av Python
 
-En [Azure virtuella](overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) (VM) måste flera stödjande Azure-resurser. Den här artikeln beskriver hur du skapar, hantera och ta bort VM-resurser med hjälp av Python. Lär dig att:
+En [Azure-dator](overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) (VM) måste flera stödjande Azure-resurser. Den här artikeln beskriver skapa, hantera och ta bort VM-resurser med hjälp av Python. Lär dig att:
 
 > [!div class="checklist"]
 > * Skapa ett Visual Studio-projekt
@@ -35,25 +35,25 @@ En [Azure virtuella](overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc
 > * Ta bort resurser
 > * Köra programmet
 
-Det tar ungefär 20 minuter för att utföra de här stegen.
+Det tar cirka 20 minuter för att utföra de här stegen.
 
 ## <a name="create-a-visual-studio-project"></a>Skapa ett Visual Studio-projekt
 
-1. Om du inte redan gjort installera [Visual Studio](https://docs.microsoft.com/visualstudio/install/install-visual-studio). Välj **utveckling av Python** på arbetsbelastningar sidan och klicka sedan på **installera**. Sammanfattningsvis, kan du se att **Python 3 64-bitars (3.6.0)** väljs automatiskt för dig. Om du redan har installerat Visual Studio kan du lägga till Python arbetsbelastningen i Visual Studio-starta.
-2. Efter installation och start av Visual Studio klickar du på **filen** > **ny** > **projekt**.
-3. Klicka på **mallar** > **Python** > **Python programmet**, ange *myPythonProject* för namnet på projektet, välj platsen för projektet och klicka sedan på **OK**.
+1. Om du inte redan gjort installera [Visual Studio](https://docs.microsoft.com/visualstudio/install/install-visual-studio). Välj **Python-utveckling** på arbetsbelastningar sidan och klicka sedan på **installera**. Sammanfattningsvis ska du se att **Python 3 64-bitars (3.6.0)** väljs automatiskt åt dig. Om du redan har installerat Visual Studio kan du lägga till Python-arbetsbelastningen i Visual Studio-starta.
+2. När du installerar och startar Visual Studio, klickar du på **filen** > **New** > **projekt**.
+3. Klicka på **mallar** > **Python** > **Python-program**, ange *myPythonProject* för namn projektet, välj platsen för projektet och klicka sedan på **OK**.
 
 ## <a name="install-packages"></a>Installera paket
 
 1. I Solution Explorer under *myPythonProject*, högerklicka på **Python-miljöer**, och välj sedan **Lägg till virtuell miljö**.
-2. Acceptera standardnamnet på skärmen Lägg till virtuell miljö *env*, se till att *Python 3,6 (64-bitars)* har valts för bastolk och klicka sedan på **skapa**.
-3. Högerklicka på den *env* miljö som du har skapat, klicka på **Install Python Package**, ange *azure* i sökrutan och tryck på RETUR.
+2. På skärmen Lägg till virtuell miljö Godkänn standardnamnet för *env*, se till att *Python 3.6 (64-bitars)* har valts för bastolk och klicka sedan på **skapa** .
+3. Högerklicka på den *env* miljö som du skapade, klicka på **installera Python Package**, ange *azure* i sökrutan och tryck på RETUR.
 
 Du bör se i utdata windows azure-paket har installerats. 
 
 ## <a name="create-credentials"></a>Skapa autentiseringsuppgifter
 
-Innan du startar det här steget, se till att du har en [Active Directory-tjänstens huvudnamn](../../azure-resource-manager/resource-group-create-service-principal-portal.md). Du bör anteckna det program-ID, autentiseringsnyckeln och klient-ID som du behöver i ett senare steg.
+Innan du startar det här steget, se till att du har en [Active Directory-tjänstobjekt](../../azure-resource-manager/resource-group-create-service-principal-portal.md). Du bör anteckna program-ID och autentiseringsnyckel klient-ID som du behöver i ett senare steg.
 
 1. Öppna *myPythonProject.py* -fil som har skapats och Lägg sedan till den här koden för att aktivera programmet att köras:
 
@@ -61,7 +61,7 @@ Innan du startar det här steget, se till att du har en [Active Directory-tjäns
     if __name__ == "__main__":
     ```
 
-2. Om du vill importera den kod som krävs, lägger du till dessa instruktioner överst i filen .py:
+2. Lägg till dessa instruktioner överst i .py-filen för att importera den kod som krävs:
 
     ```python
     from azure.common.credentials import ServicePrincipalCredentials
@@ -71,7 +71,7 @@ Innan du startar det här steget, se till att du har en [Active Directory-tjäns
     from azure.mgmt.compute.models import DiskCreateOption
     ```
 
-3. Nästa i .py-fil lägger du till variabler efter importsatser så att de vanliga värden som används i koden:
+3. Därefter i .py-fil lägger du till variabler efter importuttryck till vanliga värden som används i koden:
    
     ```
     SUBSCRIPTION_ID = 'subscription-id'
@@ -80,9 +80,9 @@ Innan du startar det här steget, se till att du har en [Active Directory-tjäns
     VM_NAME = 'myVM'
     ```
 
-    Ersätt **prenumerations-id** med prenumerations-ID.
+    Ersätt **prenumerations-id** med ditt prenumerations-ID.
 
-4. För att skapa Active Directory-autentiseringsuppgifter som du behöver göra begäranden, lägger du till den här funktionen efter variabler i .py-fil:
+4. Skapa Active Directory-autentiseringsuppgifter som du behöver göra begäranden genom att lägga till den här funktionen när variabler i filen .py:
 
     ```python
     def get_credentials():
@@ -95,9 +95,9 @@ Innan du startar det här steget, se till att du har en [Active Directory-tjäns
         return credentials
     ```
 
-    Ersätt **program-id**, **autentiseringsnyckel**, och **klient-id** med värden som du tidigare har samlat in när du skapade din Azure Active Directory-tjänstens huvudnamn.
+    Ersätt **program-id**, **autentiseringsnyckeln**, och **klient-id** med värden som du tidigare samlas in när du har skapat din Azure Active Directory-tjänst huvudnamn.
 
-5. För att anropa funktionen som du tidigare lagt till, lägger du till den här koden under den **om** uttrycket i slutet av filen .py:
+5. För att anropa funktionen som du tidigare lade till, lägger du till den här koden under den **om** instruktionen i slutet av .py-fil:
 
     ```python
     credentials = get_credentials()
@@ -105,9 +105,9 @@ Innan du startar det här steget, se till att du har en [Active Directory-tjäns
 
 ## <a name="create-resources"></a>Skapa resurser
  
-### <a name="initialize-management-clients"></a>Initiera av hanteringsklienter
+### <a name="initialize-management-clients"></a>Initiera hanteringsklienter
 
-Av hanteringsklienter behövs för att skapa och hantera resurser med hjälp av Python SDK i Azure. För att skapa av hanteringsklienter, Lägg till den här koden under den **om** instruktionen sedan slutet av filen .py:
+Hanteringsklienter behövs för att skapa och hantera resurser med hjälp av Python SDK i Azure. För att skapa av hanteringsklienter, lägger du till den här koden under den **om** instruktionen sedan slutet av .py-fil:
 
 ```python
 resource_group_client = ResourceManagementClient(
@@ -124,11 +124,11 @@ compute_client = ComputeManagementClient(
 )
 ```
 
-### <a name="create-the-vm-and-supporting-resources"></a>Skapa den virtuella datorn och stöd för resurser
+### <a name="create-the-vm-and-supporting-resources"></a>Skapa den virtuella datorn och stödresurser
 
-Alla resurser måste finnas i en [resursgruppen](../../azure-resource-manager/resource-group-overview.md).
+Alla resurser måste finnas i en [resursgrupp](../../azure-resource-manager/resource-group-overview.md).
 
-1. Om du vill skapa en resursgrupp, lägger du till den här funktionen efter variabler i .py-fil:
+1. Lägg till den här funktionen när variabler i .py-fil för att skapa en resursgrupp:
 
     ```python
     def create_resource_group(resource_group_client):
@@ -139,7 +139,7 @@ Alla resurser måste finnas i en [resursgruppen](../../azure-resource-manager/re
         )
     ```
 
-2. För att anropa funktionen som du tidigare lagt till, lägger du till den här koden under den **om** uttrycket i slutet av filen .py:
+2. För att anropa funktionen som du tidigare lade till, lägger du till den här koden under den **om** instruktionen i slutet av .py-fil:
 
     ```python
     create_resource_group(resource_group_client)
@@ -148,7 +148,7 @@ Alla resurser måste finnas i en [resursgruppen](../../azure-resource-manager/re
 
 [Tillgänglighetsuppsättningar](tutorial-availability-sets.md) gör det enklare att underhålla de virtuella datorerna som används av ditt program.
 
-1. Om du vill skapa en tillgänglighetsuppsättning, lägger du till den här funktionen efter variabler i .py-fil:
+1. Om du vill skapa en tillgänglighetsuppsättning, lägger du till den här funktionen när variabler i .py-fil:
    
     ```python
     def create_availability_set(compute_client):
@@ -164,7 +164,7 @@ Alla resurser måste finnas i en [resursgruppen](../../azure-resource-manager/re
         )
     ```
 
-2. För att anropa funktionen som du tidigare lagt till, lägger du till den här koden under den **om** uttrycket i slutet av filen .py:
+2. För att anropa funktionen som du tidigare lade till, lägger du till den här koden under den **om** instruktionen i slutet av .py-fil:
 
     ```python
     create_availability_set(compute_client)
@@ -172,9 +172,9 @@ Alla resurser måste finnas i en [resursgruppen](../../azure-resource-manager/re
     input('Availability set created. Press enter to continue...')
     ```
 
-En [offentliga IP-adressen](../../virtual-network/virtual-network-ip-addresses-overview-arm.md) behövs för att kommunicera med den virtuella datorn.
+En [offentliga IP-adressen](../../virtual-network/virtual-network-ip-addresses-overview-arm.md) krävs för att kommunicera med den virtuella datorn.
 
-1. Om du vill skapa en offentlig IP-adress för den virtuella datorn, lägger du till den här funktionen efter variabler i .py-fil:
+1. Lägg till den här funktionen när variabler i .py-fil för att skapa en offentlig IP-adress för den virtuella datorn:
 
     ```python
     def create_public_ip_address(network_client):
@@ -191,7 +191,7 @@ En [offentliga IP-adressen](../../virtual-network/virtual-network-ip-addresses-o
         return creation_result.result()
     ```
 
-2. För att anropa funktionen som du tidigare lagt till, lägger du till den här koden under den **om** uttrycket i slutet av filen .py:
+2. För att anropa funktionen som du tidigare lade till, lägger du till den här koden under den **om** instruktionen i slutet av .py-fil:
 
     ```python
     creation_result = create_public_ip_address(network_client)
@@ -200,9 +200,9 @@ En [offentliga IP-adressen](../../virtual-network/virtual-network-ip-addresses-o
     input('Press enter to continue...')
     ```
 
-En virtuell dator måste vara i ett undernät för en [för virtuella nätverk](../../virtual-network/virtual-networks-overview.md).
+En virtuell dator måste vara i ett undernät för ett [virtuellt nätverk](../../virtual-network/virtual-networks-overview.md).
 
-1. Om du vill skapa ett virtuellt nätverk, lägger du till den här funktionen efter variabler i .py-fil:
+1. Lägg till den här funktionen när variabler i .py-fil för att skapa ett virtuellt nätverk:
 
     ```python
     def create_vnet(network_client):
@@ -220,7 +220,7 @@ En virtuell dator måste vara i ett undernät för en [för virtuella nätverk](
         return creation_result.result()
     ```
 
-2. För att anropa funktionen som du tidigare lagt till, lägger du till den här koden under den **om** uttrycket i slutet av filen .py:
+2. För att anropa funktionen som du tidigare lade till, lägger du till den här koden under den **om** instruktionen i slutet av .py-fil:
    
     ```python
     creation_result = create_vnet(network_client)
@@ -229,7 +229,7 @@ En virtuell dator måste vara i ett undernät för en [för virtuella nätverk](
     input('Press enter to continue...')
     ```
 
-3. Om du vill lägga till ett undernät i det virtuella nätverket, lägger du till den här funktionen efter variabler i .py-fil:
+3. Lägg till den här funktionen när variabler i .py-fil för att lägga till ett undernät till det virtuella nätverket:
     
     ```python
     def create_subnet(network_client):
@@ -246,7 +246,7 @@ En virtuell dator måste vara i ett undernät för en [för virtuella nätverk](
         return creation_result.result()
     ```
         
-4. För att anropa funktionen som du tidigare lagt till, lägger du till den här koden under den **om** uttrycket i slutet av filen .py:
+4. För att anropa funktionen som du tidigare lade till, lägger du till den här koden under den **om** instruktionen i slutet av .py-fil:
    
     ```python
     creation_result = create_subnet(network_client)
@@ -255,9 +255,9 @@ En virtuell dator måste vara i ett undernät för en [för virtuella nätverk](
     input('Press enter to continue...')
     ```
 
-En virtuell dator måste ett nätverksgränssnitt för att kommunicera på det virtuella nätverket.
+En virtuell dator behöver ett nätverksgränssnitt ska kunna kommunicera på det virtuella nätverket.
 
-1. Om du vill skapa ett nätverksgränssnitt, lägger du till den här funktionen efter variabler i .py-fil:
+1. Om du vill skapa ett nätverksgränssnitt, lägger du till den här funktionen när variabler i .py-fil:
 
     ```python
     def create_nic(network_client):
@@ -289,7 +289,7 @@ En virtuell dator måste ett nätverksgränssnitt för att kommunicera på det v
         return creation_result.result()
     ```
 
-2. För att anropa funktionen som du tidigare lagt till, lägger du till den här koden under den **om** uttrycket i slutet av filen .py:
+2. För att anropa funktionen som du tidigare lade till, lägger du till den här koden under den **om** instruktionen i slutet av .py-fil:
 
     ```python
     creation_result = create_nic(network_client)
@@ -298,9 +298,9 @@ En virtuell dator måste ett nätverksgränssnitt för att kommunicera på det v
     input('Press enter to continue...')
     ```
 
-Nu när du har skapat alla stödresurser kan du skapa en virtuell dator.
+Nu när du har skapat alla stödresurser, kan du skapa en virtuell dator.
 
-1. Om du vill skapa den virtuella datorn, lägger du till den här funktionen efter variabler i .py-fil:
+1. Lägg till den här funktionen när variabler i .py-fil för att skapa den virtuella datorn:
    
     ```python
     def create_vm(network_client, compute_client):  
@@ -349,11 +349,11 @@ Nu när du har skapat alla stödresurser kan du skapa en virtuell dator.
     ```
 
     > [!NOTE]
-    > Den här guiden skapar en virtuell dator som kör en version av operativsystemet Windows Server. Läs mer om att välja andra bilder i [analysera och välja avbildningar för virtuell Azure-dator med Windows PowerShell och Azure CLI](../linux/cli-ps-findimage.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+    > Den här självstudiekursen skapar en virtuell dator som kör en version av operativsystemet Windows Server. Läs mer om att välja andra bilder i [analysera och välja avbildningar av virtuella datorer med Windows PowerShell och Azure CLI](../linux/cli-ps-findimage.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
     > 
     > 
 
-2. För att anropa funktionen som du tidigare lagt till, lägger du till den här koden under den **om** uttrycket i slutet av filen .py:
+2. För att anropa funktionen som du tidigare lade till, lägger du till den här koden under den **om** instruktionen i slutet av .py-fil:
 
     ```python
     creation_result = create_vm(network_client, compute_client)
@@ -364,11 +364,11 @@ Nu när du har skapat alla stödresurser kan du skapa en virtuell dator.
 
 ## <a name="perform-management-tasks"></a>Utföra administrativa uppgifter
 
-Under livscykeln för en virtuell dator kan du vilja köra administrativa uppgifter, genom att till exempel starta, stoppa eller ta bort en virtuell dator. Dessutom kanske du vill skapa kod för att automatisera repetitiva och komplicerade uppgifter.
+Under livscykeln för en virtuell dator kan du vilja köra administrativa uppgifter, genom att till exempel starta, stoppa eller ta bort en virtuell dator. Dessutom kan du skapa kod för att automatisera repetitiva eller komplicerade uppgifter.
 
-### <a name="get-information-about-the-vm"></a>Hämta information om den virtuella datorn
+### <a name="get-information-about-the-vm"></a>Få information om den virtuella datorn
 
-1. För att få information om den virtuella datorn, lägger du till den här funktionen efter variabler i .py-fil:
+1. Lägg till den här funktionen när variabler i .py-fil för att få information om den virtuella datorn:
 
     ```python
     def get_vm(compute_client):
@@ -421,7 +421,7 @@ Under livscykeln för en virtuell dator kan du vilja köra administrativa uppgif
             print("  code: ", stat.code)
             print("  displayStatus: ", stat.display_status)
     ```
-2. För att anropa funktionen som du tidigare lagt till, lägger du till den här koden under den **om** uttrycket i slutet av filen .py:
+2. För att anropa funktionen som du tidigare lade till, lägger du till den här koden under den **om** instruktionen i slutet av .py-fil:
 
     ```python
     get_vm(compute_client)
@@ -431,22 +431,22 @@ Under livscykeln för en virtuell dator kan du vilja köra administrativa uppgif
 
 ### <a name="stop-the-vm"></a>Stoppa den virtuella datorn
 
-Du kan stoppa en virtuell dator och behålla alla inställningar, men fortsätter att debiteras för den eller stoppa en virtuell dator och frigör den. När en virtuell dator har frigjorts alla resurser som är associerade med den är också frigjord och fakturering avslutas för den.
+Du kan stoppa en virtuell dator och behålla alla dess inställningar, men fortsätter att debiteras för den eller stoppa en virtuell dator och frigör den. När en virtuell dator har frigjorts är alla resurser som är associerade med den också frigörs och faktureringssupport upphör för den.
 
-1. Om du vill stoppa den virtuella datorn utan att det har frigjorts det lägger du till den här funktionen efter variabler i .py-fil:
+1. Stoppa den virtuella datorn utan att de frigörs den genom att lägga till den här funktionen efter variabler i .py-fil:
 
     ```python
     def stop_vm(compute_client):
         compute_client.virtual_machines.power_off(GROUP_NAME, VM_NAME)
     ```
 
-    Om du vill ta bort den virtuella datorn ändra power_off anrop till den här koden:
+    Om du vill frigöra den virtuella datorn, ändrar du power_off anropet till den här koden:
 
     ```python
     compute_client.virtual_machines.deallocate(GROUP_NAME, VM_NAME)
     ```
 
-2. För att anropa funktionen som du tidigare lagt till, lägger du till den här koden under den **om** uttrycket i slutet av filen .py:
+2. För att anropa funktionen som du tidigare lade till, lägger du till den här koden under den **om** instruktionen i slutet av .py-fil:
 
     ```python
     stop_vm(compute_client)
@@ -455,14 +455,14 @@ Du kan stoppa en virtuell dator och behålla alla inställningar, men fortsätte
 
 ### <a name="start-the-vm"></a>Starta den virtuella datorn
 
-1. Om du vill starta den virtuella datorn, lägger du till den här funktionen efter variabler i .py-fil:
+1. Lägg till den här funktionen när variabler i .py-fil för att starta den virtuella datorn:
 
     ```python
     def start_vm(compute_client):
         compute_client.virtual_machines.start(GROUP_NAME, VM_NAME)
     ```
 
-2. För att anropa funktionen som du tidigare lagt till, lägger du till den här koden under den **om** uttrycket i slutet av filen .py:
+2. För att anropa funktionen som du tidigare lade till, lägger du till den här koden under den **om** instruktionen i slutet av .py-fil:
 
     ```python
     start_vm(compute_client)
@@ -471,9 +471,9 @@ Du kan stoppa en virtuell dator och behålla alla inställningar, men fortsätte
 
 ### <a name="resize-the-vm"></a>Ändra storlek på den virtuella datorn
 
-Många aspekter av distributionen bör övervägas när du funderar över en storlek för den virtuella datorn. Mer information finns i [VM-storlekar](sizes.md).
+Många aspekter av distributionen bör övervägas när du bestämmer dig en storlek för den virtuella datorn. Mer information finns i [VM-storlekar](sizes.md).
 
-1. Om du vill ändra storleken på den virtuella datorn, lägger du till den här funktionen efter variabler i .py-fil:
+1. Lägg till den här funktionen när variabler i .py-fil om du vill ändra storleken på den virtuella datorn:
 
     ```python
     def update_vm(compute_client):
@@ -488,7 +488,7 @@ Många aspekter av distributionen bör övervägas när du funderar över en sto
     return update_result.result()
     ```
 
-2. För att anropa funktionen som du tidigare lagt till, lägger du till den här koden under den **om** uttrycket i slutet av filen .py:
+2. För att anropa funktionen som du tidigare lade till, lägger du till den här koden under den **om** instruktionen i slutet av .py-fil:
 
     ```python
     update_result = update_vm(compute_client)
@@ -497,11 +497,11 @@ Många aspekter av distributionen bör övervägas när du funderar över en sto
     input('Press enter to continue...')
     ```
 
-### <a name="add-a-data-disk-to-the-vm"></a>Lägg till en datadisk till den virtuella datorn
+### <a name="add-a-data-disk-to-the-vm"></a>Lägga till en datadisk till den virtuella datorn
 
 Virtuella datorer kan ha en eller flera [datadiskar](about-disks-and-vhds.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) som lagras som virtuella hårddiskar.
 
-1. Om du vill lägga till en datadisk till den virtuella datorn, lägger du till den här funktionen efter variabler i .py-fil: 
+1. Lägg till den här funktionen när variabler i .py-fil för att lägga till en datadisk till den virtuella datorn: 
 
     ```python
     def add_datadisk(compute_client):
@@ -534,7 +534,7 @@ Virtuella datorer kan ha en eller flera [datadiskar](about-disks-and-vhds.md?toc
         return add_result.result()
     ```
 
-2. För att anropa funktionen som du tidigare lagt till, lägger du till den här koden under den **om** uttrycket i slutet av filen .py:
+2. För att anropa funktionen som du tidigare lade till, lägger du till den här koden under den **om** instruktionen i slutet av .py-fil:
 
     ```python
     add_result = add_datadisk(compute_client)
@@ -545,16 +545,16 @@ Virtuella datorer kan ha en eller flera [datadiskar](about-disks-and-vhds.md?toc
 
 ## <a name="delete-resources"></a>Ta bort resurser
 
-Eftersom du debiteras för de resurser som används i Azure, men det är alltid en bra idé att ta bort resurser som inte längre behövs. Om du vill ta bort de virtuella datorerna och alla stödresurser är allt du behöver göra resursgruppen.
+Eftersom du debiteras för resurser som används i Azure är det alltid en bra idé att ta bort resurser som inte längre behövs. Om du vill ta bort de virtuella datorerna och alla stödresurser är allt du behöver göra ta bort resursgruppen.
 
-1. Om du vill ta bort resursgruppen och alla resurser, lägger du till den här funktionen efter variabler i .py-fil:
+1. Ta bort resursgruppen och alla resurser genom att lägga till den här funktionen när variabler i filen .py:
    
     ```python
     def delete_resources(resource_group_client):
         resource_group_client.resource_groups.delete(GROUP_NAME)
     ```
 
-2. För att anropa funktionen som du tidigare lagt till, lägger du till den här koden under den **om** uttrycket i slutet av filen .py:
+2. För att anropa funktionen som du tidigare lade till, lägger du till den här koden under den **om** instruktionen i slutet av .py-fil:
    
     ```python
     delete_resources(resource_group_client)
@@ -564,15 +564,15 @@ Eftersom du debiteras för de resurser som används i Azure, men det är alltid 
 
 ## <a name="run-the-application"></a>Köra programmet
 
-1. Klicka på att köra konsolprogrammet **starta** i Visual Studio.
+1. För att köra konsolprogrammet, klickar du på **starta** i Visual Studio.
 
-2. Tryck på **RETUR** när status för varje resurs som har returnerats. I statusinformation, bör du se en **lyckades** Etableringsstatus. När den virtuella datorn skapas, har du möjlighet att ta bort alla resurser som du skapar. Innan du trycker på **ange** om du vill börja ta bort resurser, du kan ta några minuter för att verifiera skapas i Azure-portalen. Du kan behöva uppdatera bladet om du vill se nya resurser i Azure-portalen öppnas.  
+2. Tryck på **RETUR** när status för varje resurs har returnerats. I informationen, bör du se en **lyckades** Etableringsstatus. När den virtuella datorn har skapats har du möjlighet att ta bort alla resurser som du skapar. Innan du trycker på **RETUR** om du vill börja ta bort resurser, du kan ta några minuter för att verifiera de har skapats i Azure-portalen. Du kan behöva uppdatera bladet om du vill se nya resurser i Azure-portalen öppnar.  
 
-    Det bör ta ungefär fem minuter för den här konsolen programmet helt från början till slut. Det kan ta flera minuter när programmet har slutförts innan alla resurser och resursgruppen tas bort.
+    Det bör ta ungefär fem minuter för den här konsolprogram för att köra helt från början till slut. Det kan ta flera minuter när programmet har slutförts innan du alla resurser och resursgruppen tas bort.
 
 
 ## <a name="next-steps"></a>Nästa steg
 
 - Om det var problem med distributionen, är nästa steg att titta på [Felsöka resursgruppdistribueringar med Azure-portalen](../../resource-manager-troubleshoot-deployments-portal.md)
-- Lär dig mer om den [Azure Python-bibliotek](https://docs.microsoft.com/python/api/overview/azure/?view=azure-python)
+- Läs mer om den [Azure Python-bibliotek](https://docs.microsoft.com/python/api/overview/azure/?view=azure-python)
 

@@ -1,22 +1,25 @@
 ---
-title: Vad är anpassade röst? – Azure Cognitive Services
-description: Den här artikeln är en översikt över Microsoft Text till tal röst anpassning, där du kan skapa en identifierbara, en av-unika varumärkesröst.
+title: Så här skapar du en anpassad rösttyp
+titlesuffix: Azure Cognitive Services
+description: Den här artikeln är en översikt över Text till tal röst anpassning, där du kan skapa en identifierbara, en av-unika varumärkesröst.
 services: cognitive-services
-author: noellelacharite
+author: PanosPeriorellis
+manager: cgronlun
 ms.service: cognitive-services
-ms.topic: article
+ms.component: speech-service
+ms.topic: conceptual
 ms.date: 05/07/2018
-ms.author: nolach
-ms.openlocfilehash: 21b37d2b61af81e6481de4c5e7537a3382d895b6
-ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
+ms.author: panosper
+ms.openlocfilehash: bf06042d3b820e61d1f5b316a8b7b26d1a366388
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49113928"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49467726"
 ---
 # <a name="creating-custom-voice-fonts"></a>Skapa anpassade rösttyper
 
-Microsoft tal-röst anpassning kan du skapa en identifierbara, en av en typ ton för ditt varumärke: en *rösttyp.* 
+Tal röst anpassning kan du skapa en identifierbara, en av en typ ton för ditt varumärke: en *rösttyp.* 
 
 För att skapa din rösttyp du gör en studio-registrering och ladda upp de associerade skript som träningsdata. Tjänsten skapar sedan en unik röst modell koll på inspelningen. Du kan använda den här rösttyp för att syntetisera tal. 
 

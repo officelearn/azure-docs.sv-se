@@ -1,22 +1,23 @@
 ---
-title: Använda Text till tal med Speech services
+title: Använda Text till tal i Speech-tjänsten
+titleSuffix: Azure Cognitive Services
 description: Lär dig hur du använder Text till tal i Speech-tjänsten.
-titleSuffix: Microsoft Cognitive Services
 services: cognitive-services
 author: erhopf
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: speech-service
-ms.topic: article
+ms.topic: conceptual
 ms.date: 09/08/2018
 ms.author: erhopf
-ms.openlocfilehash: 774425d19101e4d326f0d6435d56aff1b37a31f7
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.openlocfilehash: 162b690d4b371cfe76738cd83ce484a3062d139f
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49165053"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49469928"
 ---
-# <a name="use-text-to-speech-in-speech-service"></a>Använd ”Text till tal” i Speech service
+# <a name="use-text-to-speech-in-speech-service"></a>Använd ”Text till tal” i Speech Service
 
 Med taltjänsten innehåller Text till tal-funktioner via en enkel HTTP-begäran. Du `POST` text som ska talas till lämplig slutpunkt och tjänsten returnerar en ljudfil (`.wav`) som innehåller syntetiskt tal. Programmet kan sedan använda den här ljud som den gillar.
 
@@ -97,5 +98,5 @@ Mer information om Text till tal REST-API finns i [REST API: er](rest-apis.md#te
 
 - [Hämta en kostnadsfri utvärderingsprenumeration på Speech](https://azure.microsoft.com/try/cognitive-services/)
 - [Känna igen tal i C++](quickstart-cpp-windows.md)
-- [Känna igen tal i C#](quickstart-csharp-dotnet-windows.md)
+- [Identifiera tal i C#](quickstart-csharp-dotnet-windows.md)
 - [Känna igen tal i Java](quickstart-java-android.md)

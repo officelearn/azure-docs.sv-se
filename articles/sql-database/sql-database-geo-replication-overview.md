@@ -1,6 +1,6 @@
 ---
 title: Redundans grupper och aktiv geo-replikering – Azure SQL Database | Microsoft Docs
-description: Använda grupper för automatisk redundans med aktiv geo-replikering och aktivera autoomatic redundans vid ett eventuellt strömavbrott.
+description: Använda grupper för automatisk redundans med aktiv geo-replikering och aktivera automatisk redundans vid ett eventuellt strömavbrott.
 services: sql-database
 ms.service: sql-database
 ms.subservice: operations
@@ -11,13 +11,13 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 10/15/2018
-ms.openlocfilehash: 6e77d24c31401051d82501ca8064d02201bf218e
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.date: 10/19/2018
+ms.openlocfilehash: 9332bcb5849deacde13d67e4a18ea19af8af2977
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49354282"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49471483"
 ---
 # <a name="overview-active-geo-replication-and-auto-failover-groups"></a>Översikt: Active geo-replikering och automatisk redundans-grupper
 
@@ -279,8 +279,8 @@ Vilket beskrivs ovan, automatisk redundans grupper och aktiv kan geo-replikering
 
 | API | Beskrivning |
 | --- | --- |
-| [Skapa eller uppdatera databas (createMode = återställer)](https://docs.microsoft.com/rest/api/sql/databases/databases_createorupdate) |Skapar, uppdaterar eller återställer en primär eller sekundär databas. |
-| [Hämta skapa eller uppdatera Database-Status](https://docs.microsoft.com/rest/api/sql/databases/databases_createorupdate) |Returnerar status under en åtgärd för att skapa. |
+| [Skapa eller uppdatera databas (createMode = återställer)](https://docs.microsoft.com/rest/api/sql/databases/createorupdate) |Skapar, uppdaterar eller återställer en primär eller sekundär databas. |
+| [Hämta skapa eller uppdatera Database-Status](https://docs.microsoft.com/rest/api/sql/databases/createorupdate) |Returnerar status under en åtgärd för att skapa. |
 | [Ange Sekundär databas som primär (planerad redundans)](https://docs.microsoft.com/rest/api/sql/replicationlinks/replicationlinks_failover) |Anger vilka replikdatabasen är primär genom växling från den aktuella primära replik-databasen. |
 | [Ange Sekundär databas som primär (oplanerad redundans)](https://docs.microsoft.com/rest/api/sql/replicationlinks/replicationlinks_failoverallowdataloss) |Anger vilka replikdatabasen är primär genom växling från den aktuella primära replik-databasen. Den här åtgärden kan resultera i dataförlust. |
 | [Hämta replikeringslänk](https://docs.microsoft.com/rest/api/sql/replicationlinks/replicationlinks_get) |Hämtar en replikeringslänk är specifika för en viss SQL-databas i en koppling för geo-replikering. Den hämtar information visas i katalogvyn sys.geo_replication_links. |

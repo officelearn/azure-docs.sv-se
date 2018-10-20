@@ -1,20 +1,21 @@
 ---
 title: Vanliga frågor och svar om Text till tal-tjänst i Azure
-description: Få svar på de mest populära frågorna om Text till tal-tjänsten.
 titleSuffix: Azure Cognitive Services
+description: Få svar på de mest populära frågorna om Text till tal-tjänsten.
 services: cognitive-services
 author: PanosPeriorellis
+manager: cgronlun
 ms.service: cognitive-services
-ms.component: custom-speech
-ms.topic: article
+ms.component: speech-service
+ms.topic: conceptual
 ms.date: 06/11/2018
 ms.author: panosper
-ms.openlocfilehash: 2068bcb796b660847d0ea9b1126e64a9003ca871
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: f8d80ab189d8ed1f4b153e81963ef31cc5f685b8
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45576858"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49470055"
 ---
 # <a name="text-to-speech-frequently-asked-questions"></a>Vanliga och frågor svar om text till tal
 

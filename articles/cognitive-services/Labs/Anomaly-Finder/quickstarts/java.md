@@ -5,16 +5,16 @@ services: cognitive-services
 author: chliang
 manager: bix
 ms.service: cognitive-services
-ms.technology: anomaly-detection
+ms.component: anomaly-detection
 ms.topic: article
 ms.date: 05/01/2018
 ms.author: kefre
-ms.openlocfilehash: 84997b5d50f879fd4be286a3ca362e70f90c9202
-ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
+ms.openlocfilehash: ef876e19353e8765b679a9aae6282ce3ade600c2
+ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48249198"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49456549"
 ---
 # <a name="use-the-anomaly-finder-api-with-java"></a>Använda Avvikelsesökare API med Java
 
@@ -43,7 +43,7 @@ Om du vill köra exemplet utför du följande steg:
 2. Ersätt Main-klassen med följande kod (behåll alla `package`-uttryck).
 3. Ersätt värdet `[YOUR_SUBSCRIPTION_KEY]` med en giltig prenumerationsnyckel.
 4. Ersätt den `[REPLACE_WITH_THE_EXAMPLE_OR_YOUR_OWN_DATA_POINTS]` med exemplet eller dina egna datapunkter.
-5. Ladda ned dessa globala bibliotek från Maven-centrallagret till den `lib` katalogen i projektet:
+5. Ladda ner dessa globala bibliotek från Maven-lagringsplatsen till katalogen `lib` i projektet:
    * `org.apache.httpcomponents:httpclient:4.5.2`
 6. Kör "Main".
 

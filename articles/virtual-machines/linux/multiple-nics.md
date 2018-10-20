@@ -3,7 +3,7 @@ title: Skapa en Linux-VM i Azure med flera nätverkskort | Microsoft Docs
 description: Lär dig hur du skapar en Linux VM med flera nätverkskort som är kopplade till den med hjälp av Azure CLI eller Resource Manager-mallar.
 services: virtual-machines-linux
 documentationcenter: ''
-author: iainfoulds
+author: zr-msft
 manager: jeconnoc
 editor: ''
 ms.assetid: 5d2d04d0-fc62-45fa-88b1-61808a2bc691
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 06/07/2018
-ms.author: iainfou
-ms.openlocfilehash: 4982de352af2ce33f4dbf6dba00ff9296cc9b873
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.author: zarhoads
+ms.openlocfilehash: 5510c46a134ccec1fdc76a6bcea46de21750e969
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46999763"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49467199"
 ---
 # <a name="how-to-create-a-linux-virtual-machine-in-azure-with-multiple-network-interface-cards"></a>Så här skapar du en Linux-dator i Azure med flera nätverkskort
 

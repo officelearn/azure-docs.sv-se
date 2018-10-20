@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 10/05/2018
 ms.author: celested
-ms.reviewer: hirsin
+ms.reviewer: paulgarn, hirsin
 ms.custom: aaddev
-ms.openlocfilehash: c42e8978a94730669f3c3f879d1d26c4426bd9da
-ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
+ms.openlocfilehash: 784213531c061912dded8e7776e79bea5adb217b
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49079148"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49466060"
 ---
 # <a name="how-to-provide-optional-claims-to-your-azure-ad-app-public-preview"></a>Så här: Ange valfria anspråk till din Azure AD-app (förhandsversion)
 
@@ -215,7 +215,7 @@ Det finns flera alternativ för att uppdatera egenskaperna på ett programs iden
 
 1. Logga in på [Azure Portal](https://portal.azure.com).
 1. När du har autentiserats kan du välja Azure AD-klienten genom att välja den från det övre högra hörnet på sidan.
-1. Välj **Azure AD-tillägget** från det vänstra navigeringsfönstret och klicka på **Appregistreringar**.
+1. Välj **Appregistreringar** från vänster sida.
 1. Hitta det program du vill konfigurera valfria anspråk för i listan och klicka på den.
 1. Programsidan klickar du på **Manifest** att öppna redigeraren infogade manifest. 
 1. Du kan redigera manifestet med den här redigeraren direkt. Manifestet följer schemat för den [program entitet](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#application-entity), och automatisk-format manifestet sparas en gång. Nya element ska läggas till i `OptionalClaims` egenskapen.

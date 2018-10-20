@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: timlt
-ms.openlocfilehash: 54804867cfaf38965b3dbf5ceb51e08a731d4dd8
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 73ff58148ac68b7aeb782b77385f9f971e02edb5
+ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46966564"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49457399"
 ---
 # <a name="how-to-provision-for-multitenancy"></a>Hur du etablerar för flera innehavare 
 
@@ -220,7 +220,7 @@ I det här avsnittet ska du klona Azure IoT C SDK på varje virtuell dator. SDK 
 1. För båda virtuella datorerna, kör du följande kommando, vilket skapar en version av SDK som är specifika för din utvecklingsplattform för klienten. 
 
     ```bash
-    cmake -Duse_prov_client:BOOL=ON ..
+    cmake -Dhsm_type_symm_key:BOOL=ON ..
     ```
 
     När bygget är klart ser de sista utdataraderna ut ungefär som följande utdata:
@@ -334,7 +334,7 @@ Exempelkoden simulerar en startsekvens för enheten som skickar en begäran om e
      vi ~/azure-iot-sdk-c/provisioning_client/adapters/hsm_client_key.c
     ```
 
-1. Hitta deklaration av den `REGISTRATION_NAME` och `SYMMETRIC_KEY_VALUE` konstanter. Gör följande ändringar i filer på båda regionala virtuella datorer och spara filerna.
+1. Hitta deklarationen för konstanterna `REGISTRATION_NAME` och `SYMMETRIC_KEY_VALUE`. Gör följande ändringar i filer på båda regionala virtuella datorer och spara filerna.
 
     Uppdatera värdet för den `REGISTRATION_NAME` konstant med den **unika registrerings-ID för din enhet**.
     

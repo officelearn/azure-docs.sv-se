@@ -1,6 +1,6 @@
 ---
-title: Azure SKU inte tillgänglig fel | Microsoft Docs
-description: 'Beskriver hur du felsöker SKU: N inte tillgängliga fel under distributionen.'
+title: 'Azure SKU: N inte tillgänglig fel | Microsoft Docs'
+description: 'Beskriver hur du felsöker SKU: N inte tillgänglig fel under distributionen.'
 services: azure-resource-manager
 documentationcenter: ''
 author: tfitzmac
@@ -11,22 +11,23 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: troubleshooting
-ms.date: 03/09/2018
+ms.date: 10/19/2018
 ms.author: tomfitz
-ms.openlocfilehash: 490c912a6abd6570c9bc74de8b86a516a8e6f807
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: d1279b5319ddd52ff2f3f6b4e696b73e8fe67607
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34358769"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49468695"
 ---
-# <a name="resolve-errors-for-sku-not-available"></a>Åtgärda fel för SKU är inte tillgänglig
+# <a name="resolve-errors-for-sku-not-available"></a>Åtgärda fel för SKU: N inte tillgänglig
 
-Den här artikeln beskriver hur du löser den **SkuNotAvailable** fel.
+Den här artikeln beskriver hur du löser det **SkuNotAvailable** fel. Om det inte går att hitta en lämplig SKU i regionen eller en alternativ region som uppfyller din verksamhet behöver, skicka en [SKU begäran](https://aka.ms/skurestriction) till Azure-supporten.
+
 
 ## <a name="symptom"></a>Symtom
 
-När du distribuerar en resurs (vanligtvis en virtuell dator), visas följande felkod och felmeddelande:
+När du distribuerar en resurs (vanligtvis en virtuell dator) kan få du följande felkod och felmeddelande:
 
 ```
 Code: SkuNotAvailable
@@ -36,62 +37,63 @@ for subscription '<subscriptionID>'. Please try another tier or deploy to a diff
 
 ## <a name="cause"></a>Orsak
 
-Du får detta felmeddelande när resursen SKU som du har valt (till exempel VM-storlek) inte är tillgänglig för den plats som du har valt.
+Du får detta felmeddelande när resursen SKU som du har valt (till exempel VM-storlek) är inte tillgängligt för den plats som du har valt.
 
-## <a name="solution-1---powershell"></a>Lösning 1 - PowerShell
+## <a name="solution-1---powershell"></a>Lösning 1 – PowerShell
 
-Om du vill avgöra vilka SKU: er är tillgängliga i en region, Använd den [Get-AzureRmComputeResourceSku](/powershell/module/azurerm.compute/get-azurermcomputeresourcesku) kommando. Filtrera resultatet av platsen. Du måste ha den senaste versionen av PowerShell för det här kommandot.
+Om du vill ta reda på vilken SKU: er är tillgängliga i en region, Använd den [Get-AzureRmComputeResourceSku](/powershell/module/azurerm.compute/get-azurermcomputeresourcesku) kommando. Filtrera resultatet efter plats. Du måste ha den senaste versionen av PowerShell för det här kommandot.
+
+```azurepowershell-interactive
+Get-AzureRmComputeResourceSku | where {$_.Locations -icontains "centralus"}
+```
+
+Resultatet innehåller en lista över SKU: er för platsen och eventuella begränsningar för SKU: N. Observera att en SKU kan stå som `NotAvailableForSubscription`.
 
 ```powershell
-Get-AzureRmComputeResourceSku | where {$_.Locations -icontains "southcentralus"}
+ResourceType          Name        Locations   Restriction                      Capability           Value
+------------          ----        ---------   -----------                      ----------           -----
+virtualMachines       Standard_A0 centralus   NotAvailableForSubscription      MaxResourceVolumeMB   20480
+virtualMachines       Standard_A1 centralus   NotAvailableForSubscription      MaxResourceVolumeMB   71680
+virtualMachines       Standard_A2 centralus   NotAvailableForSubscription      MaxResourceVolumeMB  138240
 ```
 
-Resultatet innehåller en lista över SKU: er för platsen och eventuella begränsningar för den SKU.
+## <a name="solution-2---azure-cli"></a>Lösning 2 – Azure CLI
 
-```powershell
-ResourceType                Name      Locations Restriction                      Capability Value
-------------                ----      --------- -----------                      ---------- -----
-availabilitySets         Classic southcentralus             MaximumPlatformFaultDomainCount     3
-availabilitySets         Aligned southcentralus             MaximumPlatformFaultDomainCount     3
-virtualMachines      Standard_A0 southcentralus
-virtualMachines      Standard_A1 southcentralus
-virtualMachines      Standard_A2 southcentralus
+Om du vill ta reda på vilken SKU: er är tillgängliga i en region, Använd den `az vm list-skus` kommando. Använd den `--location` parameter för att filtrera utdata till plats som du använder. Använd den `--size` parametern för att söka efter en partiell storleksnamn.
+
+```azurecli-interactive
+az vm list-skus --location southcentralus --size Standard_F --output table
 ```
 
-## <a name="solution-2---azure-cli"></a>Lösning 2 - Azure CLI
+Kommandot returnerar resultat:
 
-Använd för att fastställa vilka SKU: er är tillgängliga i en region på `az vm list-skus` kommando. Du kan sedan använda `grep` eller ett liknande verktyg för att filtrera utdata.
-
-```bash
-$ az vm list-skus --output table
-ResourceType      Locations           Name                    Capabilities                       Tier      Size           Restrictions
-----------------  ------------------  ----------------------  ---------------------------------  --------  -------------  ---------------------------
-availabilitySets  eastus              Classic                 MaximumPlatformFaultDomainCount=3
-avilabilitySets   eastus              Aligned                 MaximumPlatformFaultDomainCount=3
-availabilitySets  eastus2             Classic                 MaximumPlatformFaultDomainCount=3
-availabilitySets  eastus2             Aligned                 MaximumPlatformFaultDomainCount=3
-availabilitySets  westus              Classic                 MaximumPlatformFaultDomainCount=3
-availabilitySets  westus              Aligned                 MaximumPlatformFaultDomainCount=3
-availabilitySets  centralus           Classic                 MaximumPlatformFaultDomainCount=3
-availabilitySets  centralus           Aligned                 MaximumPlatformFaultDomainCount=3
+```azurecli
+ResourceType     Locations       Name              Zones    Capabilities    Restrictions
+---------------  --------------  ----------------  -------  --------------  --------------
+virtualMachines  southcentralus  Standard_F1                ...             None
+virtualMachines  southcentralus  Standard_F2                ...             None
+virtualMachines  southcentralus  Standard_F4                ...             None
+...
 ```
 
-## <a name="solution-3---azure-portal"></a>Lösning 3 - Azure-portalen
 
-Om du vill avgöra vilka SKU: er är tillgängliga i en region, Använd den [portal](https://portal.azure.com). Logga in på portalen och lägga till en resurs via gränssnittet. När du anger värden kan du se tillgängliga SKU: er för den här resursen. Du behöver inte distribueras.
+## <a name="solution-3---azure-portal"></a>Lösning 3 – Azure-portalen
 
-![tillgängliga SKU: er](./media/resource-manager-sku-not-available-errors/view-sku.png)
+Om du vill ta reda på vilken SKU: er är tillgängliga i en region, Använd den [portal](https://portal.azure.com). Logga in på portalen och lägga till en resurs via gränssnittet. När du har angett värden visas tillgängliga SKU: er för den resursen. Du behöver inte slutföra distributionen.
 
-## <a name="solution-4---rest"></a>Lösning 4 - REST
+Till exempel starta processen med att skapa en virtuell dator. Om du vill se andra tillgängliga storleken **ändra storleken på**.
 
-Använda REST API för virtuella datorer för att avgöra vilka SKU: er är tillgängliga i en region. Skicka följande begäran:
+![Skapa en virtuell dator](./media/resource-manager-sku-not-available-errors/create-vm.png)
 
-```HTTP 
-GET
-https://management.azure.com/subscriptions/{subscription-id}/providers/Microsoft.Compute/skus?api-version=2016-03-30
-```
+Du kan filtrera och bläddra igenom tillgängliga storlekar.
 
-Tillgängliga SKU: er och regioner returneras i följande format:
+![Tillgängliga SKU: er](./media/resource-manager-sku-not-available-errors/available-sizes.png)
+
+## <a name="solution-4---rest"></a>Lösningen 4 – REST
+
+Om du vill ta reda på vilken SKU: er är tillgängliga i en region, Använd den [SKU: er – lista](/rest/api/compute/resourceskus/list) igen.
+
+Den returnerar tillgängliga SKU: er och regioner i följande format:
 
 ```json
 {
@@ -121,4 +123,3 @@ Tillgängliga SKU: er och regioner returneras i följande format:
 }
 ```
 
-Om det inte går att hitta en lämplig SKU i den regionen eller en annan region som uppfyller företagets behov, skicka ett [SKU begäran](https://aka.ms/skurestriction) till Azure-supporten.

@@ -8,12 +8,12 @@ ms.topic: troubleshooting
 ms.date: 06/15/2018
 ms.author: delhan
 ms.component: common
-ms.openlocfilehash: eb72d92496addacd82e4d30df625b4f9c0c823e5
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: ffb355b4471bd8455f67e657d9557c3f372c3f4e
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39521038"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49470328"
 ---
 # <a name="azure-storage-explorer-troubleshooting-guide"></a>Felsökningsguide för Azure Storage Explorer
 
@@ -74,7 +74,7 @@ MacOS nyckelring kan ibland hamna i ett tillstånd som orsakar problem med Stora
 7. Försök att logga in.
 
 ### <a name="general-sign-in-troubleshooting-steps"></a>Allmän inloggning felsökningssteg
-* Om du är på macOS och fönstret för inloggning visas aldrig över dialogrutan ”väntar på verifiering...”, försök [de här stegen](#Mac-Keychain-Errors)
+* Om du är på macOS och fönstret för inloggning visas aldrig över dialogrutan ”väntar på verifiering...”, försök [de här stegen](#mac-keychain-errors)
 * Starta om Lagringsutforskaren
 * Om fönstret autentisering är tom, vänta minst en minut innan du stänger dialogrutan för autentisering.
 * Se till att proxy- och certifikat som är rätt konfigurerade, inställningar för både din dator och Storage Explorer.

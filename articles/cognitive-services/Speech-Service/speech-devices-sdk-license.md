@@ -1,20 +1,21 @@
 ---
 title: Licensavtal för tal Devices SDK
+titleSuffix: Azure Cognitive Services
 description: Licensavtal för tal Devices SDK.
-titleSuffix: Microsoft Cognitive Services
 services: cognitive-services
 author: erhopf
+manager: cgronlun
 ms.service: cognitive-services
-ms.component: speech
-ms.topic: article
+ms.component: speech-service
+ms.topic: conceptual
 ms.date: 04/28/2018
 ms.author: erhopf
-ms.openlocfilehash: 013a56f603fd6c9540962f9f2b06a614ebe90b70
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.openlocfilehash: dea27d7363210580d5f040de7ea1db770701d9c9
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49166244"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49466128"
 ---
 # <a name="speech-devices-sdk-license-agreement"></a>Licensavtal för tal Devices SDK
 

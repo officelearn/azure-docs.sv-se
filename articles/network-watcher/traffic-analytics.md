@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/15/2018
 ms.author: yagup;jdial
-ms.openlocfilehash: 83f90de11077731ac6532733fb30e610b40e4b2e
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 2b057a94022077aa210b1e4ebb6122eaf350a40b
+ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49409704"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49457416"
 ---
 # <a name="traffic-analytics"></a>Trafikanalys
 
@@ -53,7 +53,9 @@ Trafikanalys undersöker raw NSG-flödesloggar och samlar in minskade loggarna g
 
 ## <a name="supported-regions"></a>Regioner som stöds
 
-Du kan använda trafikanalys för NSG: er i någon av följande regioner: västra centrala USA, östra USA, östra USA 2, norra centrala USA, södra centrala USA, centrala USA, västra USA, västra USA 2, västra Europa, Norra Europa, västra Storbritannien, södra Storbritannien, Östra Australien, sydöstra och Sydostasien. Log analytics-arbetsytan måste finnas i det västra centrala USA, östra USA, Västeuropa, södra Storbritannien, Australien, sydöstra Australien eller regionen Sydostasien.
+Du kan använda trafikanalys för NSG: er i någon av följande regioner: västra centrala USA, östra USA, östra USA 2, norra centrala USA, södra centrala USA, centrala USA, västra USA, västra USA 2, centrala, Västeuropa, Nordeuropa, Storbritannien, västra, Storbritannien, södra, östra Japan, centrala Indien , Östra Australien, sydöstra Australien och Sydostasien. 
+
+Log analytics-arbetsytan måste finnas i det västra centrala USA, östra USA, Västeuropa, södra Storbritannien, centrala Kanada, östra Japan, Indien, centrala Australien, sydöstra Australien eller regionen Sydostasien.
 
 ## <a name="prerequisites"></a>Förutsättningar
 

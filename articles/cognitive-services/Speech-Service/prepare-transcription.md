@@ -1,20 +1,21 @@
 ---
 title: Transkription riktlinjer för Speech Service-utbildning
+titleSuffix: Azure Cognitive Services
 description: Lär dig hur du förbereder text anpassa- och språkdata och språkmodeller rösttyper för Speech-tjänsten.
-titleSuffix: Microsoft Cognitive Services
 services: cognitive-services
 author: PanosPeriorellis
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: speech-service
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/01/2018
 ms.author: panosper
-ms.openlocfilehash: f9cb205b5111e981ee70adca715139402c9e31a4
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 07b90942c8d231418888491fd47a9be3caff77ea
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44721831"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49467743"
 ---
 # <a name="transcription-guidelines-for-using-the-speech-service"></a>Transkription riktlinjer för att använda Speech-tjänsten
 
@@ -169,5 +170,5 @@ Här följer några exempel:
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Få en kostnadsfri prenumeration Speech Service](https://azure.microsoft.com/try/cognitive-services/)
-- [Känna igen tal i C#](quickstart-csharp-dotnet-windows.md)
+- [Hämta en kostnadsfri utvärderingsprenumeration på Speech-tjänsten](https://azure.microsoft.com/try/cognitive-services/)
+- [Identifiera tal i C#](quickstart-csharp-dotnet-windows.md)

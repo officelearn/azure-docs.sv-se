@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 09/22/2018
 ms.author: glenga
-ms.openlocfilehash: ec309bc5484c0ac96d1323c56670c147737e7c64
-ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
+ms.openlocfilehash: 2eb736891b12c07441bc8828ca07dd0b9fa13d98
+ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49377871"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49458130"
 ---
 # <a name="app-settings-reference-for-azure-functions"></a>Referens för appinställningar för Azure Functions
 
@@ -82,11 +82,11 @@ Sökvägen till rotkatalogen där det *host.json* fil- och funktionen mappar fin
 
 ## <a name="azurewebjobssecretstoragetype"></a>AzureWebJobsSecretStorageType
 
-Anger lagringsplatsen eller provider som ska användas för lagring av nycklar. Lagringsplatserna som stöds för närvarande blob (”Blob”) och filsystem (”inaktiverad”). Standardvärdet är filsystem (”inaktiverad”).
+Anger lagringsplatsen eller provider som ska användas för lagring av nycklar. För närvarande stöds databaser är blob-lagring (”Blob”) och det lokala filsystemet (”filer”). Standardvärdet är blob i version 1 och filsystemet i version 2. Observera att i version 1 filsystemet fungerar endast för funktioner som körs i en app service-plan.
 
 |Nyckel|Exempelvärde|
 |---|------------|
-|AzureWebJobsSecretStorageType|inaktiverad|
+|AzureWebJobsSecretStorageType|Filer|
 
 ## <a name="azurewebjobsstorage"></a>AzureWebJobsStorage
 

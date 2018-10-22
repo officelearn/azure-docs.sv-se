@@ -1,21 +1,23 @@
 ---
 title: Tal-regionerna
+titlesuffix: Azure Cognitive Services
 description: Referens för regioner Speech-tjänsten.
 services: cognitive-services
 author: mahilleb-msft
+manager: cgronlun
 ms.service: cognitive-services
-ms.component: speech
-ms.topic: article
+ms.component: speech-service
+ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: mahilleb
-ms.openlocfilehash: 01c76d80d6b2fd64165b126df01c391d7e18292f
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: a5fce6f9547a96da3ce482ce388e5ba2093f2af4
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48887555"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49468134"
 ---
-# <a name="regions-of-the-speech-service"></a>Med taltjänsten-regioner
+# <a name="regions-of-the-speech-service"></a>Med Taltjänsten-regioner
 
 Speech-tjänsten finns i olika regioner.
 När du skapar en prenumeration väljer du en tillgänglig region utifrån dina behov.
@@ -29,7 +31,7 @@ Se [REST API: er](rest-apis.md) mer information.
 
 ## <a name="speech-sdk"></a>Speech SDK
 
-I den [tal SDK](speech-sdk.md), regioner har angetts som en sträng (till exempel som en parameter till `SpeechConfig.FromSubscription` i tal SDK för C#).
+I den [tal-tjänst-SDK](speech-sdk.md), regioner har angetts som en sträng (till exempel som en parameter till `SpeechConfig.FromSubscription` i tal SDK för C#).
 
 ### <a name="regions-for-speech-recognition-and-translation"></a>Regioner för taligenkänning och översättning
 

@@ -402,7 +402,7 @@ Följande monteringspunkter är förkonfigurerade:
 
 ## <a name="7-host-auto-failover-11"></a>7. Värden automatisk redundans (1 + 1)
  
-Den här topologin stöder två noder i en redundanskonfiguration för värden automatiskt. Det finns en nod med master-/ arbetarroll och andra som en vänteläge. **SAP i det här scenariot har endast stöd för s/4 HANA.** Se OSS Obs ”![2408419 - SAP S/4HANA - stöd för flera noder](https://launchpad.support.sap.com/#/notes/2408419)” för mer information.
+Den här topologin stöder två noder i en redundanskonfiguration för värden automatiskt. Det finns en nod med master-/ arbetarroll och andra som en vänteläge. **SAP i det här scenariot har endast stöd för s/4 HANA.** Se OSS Obs ”[2408419 - SAP S/4HANA - stöd för flera noder](https://launchpad.support.sap.com/#/notes/2408419)” för mer information.
 
 
 

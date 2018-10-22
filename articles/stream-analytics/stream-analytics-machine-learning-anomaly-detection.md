@@ -31,7 +31,7 @@ Operatorn AnomalyDetection identifierar tre typer av avvikelser:
 
 * **Långsam försämringen**: en långsam minskning i trend över tid.  
 
-När du använder operatorn AnomalyDetection, måste du ange den **Limit Duration** satsen. Den här satsen Anger tidsintervall (hur långt tillbaka i historiken från den aktuella händelsen) bör övervägas när du söker efter avvikelser. Den här operatorn kan du kan också begränsas till endast de händelser som matchar en viss egenskap eller ett villkor med hjälp av den **när** satsen. Den här operatorn kan också välja att bearbeta grupper av händelser som separat baserat på nyckeln som anges i den **partitionera av** satsen. Utbildning och förutsägelse sker separat för varje partition. 
+När du använder operatorn AnomalyDetection, måste du ange den **Limit Duration** satsen. Den här satsen Anger tidsintervall (hur långt tillbaka i historiken från den aktuella händelsen) bör övervägas när du söker efter avvikelser. Den här operatorn kan du kan också begränsas till endast de händelser som matchar en viss egenskap eller ett villkor med hjälp av den  **när**  satsen. Den här operatorn kan också välja att bearbeta grupper av händelser som separat baserat på nyckeln som anges i den **partitionera av** satsen. Utbildning och förutsägelse sker separat för varje partition. 
 
 ## <a name="syntax-for-anomalydetection-operator"></a>Syntax för operatorn AnomalyDetection
 

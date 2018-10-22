@@ -1,23 +1,23 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 77707525533079630807f472e2106dc3fbadbc75
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: dd8976bc9c78045830ab499f48775bcb051f6c71
+ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49386492"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49455750"
 documentType: LandingData
 title: Dokumentation om Azure HDInsight
 metadata:
   title: Dokumentation om Azure HDInsight – Självstudier, API-referens | Microsoft Docs
-  description: Lär dig om Hadoop på HDInsight. Dokumentation som visar dig hur du kan använda Hadoop, Spark, Kafka, HBase med flera för att bearbeta, analysera och få insikter från stordata.
+  description: Lär dig om Apache Hadoop på HDInsight. Dokumentation som visar dig hur du kan använda Apache Hadoop, Apache Spark, Apache Kafka, Apache HBase med mera för att bearbeta, analysera och få insikter från stordata.
   services: hdinsight
-  author: jasonwhowell
-  ms.author: jasonh
+  author: hrasheed-msft
+  ms.author: hrasheed
   ms.service: hdinsight
   ms.topic: landing-page
-  ms.date: 05/07/2018
+  ms.date: 10/18/2018
 abstract:
-  description: Lär dig hur du använder Azure HDInsight för att analysera strömmande eller historiska data. Självstudier och annan dokumentation visar hur du skapar kluster, bearbetar och analyserar stordata och utvecklar lösningar med de populäraste ramverken med öppen källkod, t.ex. Hadoop, Spark, Hive, LLAP, Kafka, Storm, och Microsoft Machine Learning Server.<p>Azure HDInsight är en fullständigt hanterad analystjänst med fullständigt spektrum med öppen källkod för företag. HDInsight är en molnbaserad tjänst som gör det enkelt, snabbt och kostnadseffektivt att bearbeta stora mängder data. HDInsight stöder också en mängd olika scenarier, t.ex. extrahering, transformering och inläsning (ETL); informationslager; maskininlärning; och IoT.</p>
+  description: Lär dig hur du använder Azure HDInsight för att analysera strömmande eller historiska data. Självstudier och annan dokumentation visar hur du skapar kluster, bearbetar och analyserar stordata och utvecklar lösningar med de populäraste ramverken med öppen källkod, t.ex. Apache Hadoop, Apache Spark, Apache Hive, Apache LLAP, Apache Kafka, Apache Storm och Microsoft Machine Learning Server.<p>Azure HDInsight är en fullständigt hanterad analystjänst med fullständigt spektrum med öppen källkod för företag. HDInsight är en molnbaserad tjänst som gör det enkelt, snabbt och kostnadseffektivt att bearbeta stora mängder data. HDInsight stöder också en mängd olika scenarier, t.ex. extrahering, transformering och inläsning (ETL); informationslager; maskininlärning; och IoT.</p>
   aside:
     image:
       alt: 
@@ -37,19 +37,19 @@ sections:
     items:
     - image:
         src: media/index/hadoop_r.svg
-      text: Hadoop
+      text: Apache Hadoop
       href: /azure/hdinsight/hadoop/apache-hadoop-linux-create-cluster-get-started-portal
     - image:
         src: media/index/spark_r.svg
-      text: Spark
+      text: Apache Spark
       href: /azure/hdinsight/spark/apache-spark-jupyter-spark-sql-use-portal
     - image:
         src: media/index/kafka_r.svg
-      text: Kafka
+      text: Apache Kafka
       href: /azure/hdinsight/kafka/apache-kafka-get-started
     - image:
         src: media/index/hbase_r.svg
-      text: HBase
+      text: Apache HBase
       href: /azure/hdinsight/hbase/apache-hbase-tutorial-get-started-linux
     - image:
         src: media/index/hive_r.svg
@@ -57,7 +57,7 @@ sections:
       href: /azure/hdinsight/interactive-query/apache-interactive-query-get-started
     - image:
         src: media/index/storm_r.svg
-      text: Storm
+      text: Apache Storm
       href: /azure/hdinsight/storm/apache-storm-tutorial-get-started-linux
     - image:
         src: media/index/ml-server_r.svg

@@ -1,6 +1,6 @@
 ---
-title: Övervaka ett test med Azure Stack-verifiering som en tjänst | Microsoft Docs
-description: Övervaka ett test med Azure Stack-verifiering som en tjänst.
+title: Övervaka och hantera tester i Azure Stack VaaS-portalen | Microsoft Docs
+description: Övervaka och hantera tester i Azure Stack VaaS-portalen.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -10,124 +10,140 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 07/24/2018
+ms.date: 10/19/2018
 ms.author: mabrigg
 ms.reviewer: johnhas
-ms.openlocfilehash: 2dc4d3f2855864ff80648b5b9635ff28c0dacbb7
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: b9500176cd3779c46886e6ed8bc8c989bea20a8c
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44163337"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49647519"
 ---
-# <a name="monitor-a-test-with-azure-stack-validation-as-a-service"></a>Övervaka ett test med Azure Stack-verifiering som en tjänst
+# <a name="monitor-and-manage-tests-in-the-vaas-portal"></a>Övervaka och hantera tester i VaaS-portalen
 
 [!INCLUDE [Azure_Stack_Partner](./includes/azure-stack-partner-appliesto.md)]
 
-Körningen av ett test kan övervakas genom att visa den **Operations** för testserier som pågår eller har slutförts. Den här sidan information om statusen för testet och dess drift.
+Schemalägga testerna mot din Azure Stack-lösning, verifiering som en tjänst (VaaS) börjar efter rapporterar status för körning av test. Den här informationen är tillgänglig i portalen VaaS tillsammans med åtgärder som att ändra på tidsplanering och avbryter tester.
 
-## <a name="monitor-a-test"></a>Övervaka ett test
+## <a name="navigate-to-the-workflow-tests-summary-page"></a>Gå till sidan arbetsflöde tester sammanfattning
 
-1. Välj en lösning.
+1. Välj en befintlig lösning som har minst ett arbetsflöde på instrumentpanelen för lösningar.
 
-2. Välj **hantera** på valfri panel för arbetsflödet.
+    ![Arbetsflöde för paneler](media/tile_all-workflows.png)
 
-3. Klicka på ett arbetsflöde för att öppna dess test sammanfattningssidan.
+1. Välj **hantera** på panelen arbetsflöde. Nästa sida visar en lista över de arbetsflöden som skapats för den valda lösningen.
 
-4. Expandera snabbmenyn **[...]**  för någon testinstans suite.
+1. Välj Arbetsflödesnamnet att öppna dess sammanfattning test.
 
-5. Välj **Visa åtgärder**
+## <a name="change-workflow-parameters"></a>Ändra parametrarna för arbetsflödet
 
-![Alternativ text](media\image4.png)
+Varje arbetsflödestyp av kan du redigera den [parametrarna för Webbtestet](azure-stack-vaas-parameters.md#test-parameters) anges under arbetsflödet skapats.
 
-För tester som har körts, loggar kan laddas ned från sammanfattningssidan test genom att klicka på **Hämtningsloggar** i ett test snabbmeny **[...]** . Azure Stack-partner kan använda de här loggarna för att felsöka problem med misslyckade tester.
+1. På sammanfattningssidan tester, Välj den **redigera** knappen.
 
-## <a name="open-the-test-pass-summary"></a>Öppna pass testsammanfattning
+1. Ange nya värden enligt [arbetsflödets gemensamma parametrar för Azure Stack-verifiering som en tjänst](azure-stack-vaas-parameters.md).
 
-1. Öppna portalen. 
-2. Välj namnet på en befintlig lösning som innehåller tidigare kör eller schemalagda test.
+1. Välj **skicka** att spara värdena.
 
-    ![Hantera tester](media/managetestpasses.png)
+> [!NOTE]
+> I den **testet** arbetsflöde, behöver du slutför test-markering och gå till granskningssidan innan du kan spara de nya parametervärdena.
 
-3. Välj **hantera** i den **tester** panelen.
-4. Välj testet för att öppna pass testsammanfattning. Du kan granska testnamn, skapad, köra, hur lång tid tog testet och resultatet (lyckade eller misslyckade).
-5. Välj [ **...  .** ].
+### <a name="add-tests-test-pass-only"></a>Lägg till tester (endast testet)
 
-### <a name="test-pass-summary"></a>Pass testsammanfattning
+I **testet** arbetsflöden, både den **lägga till tester** och **redigera** knappar kan du schemalägga nya test i arbetsflödet.
+
+> [!TIP]
+> Välj **lägga till tester** om du bara vill schemalägga nya test och behöver inte redigera parametrar för en **testet** arbetsflöde.
+
+## <a name="managing-test-instances"></a>Hantering av test-instanser
+
+För inofficiella körningar (d.v.s. den **testet** arbetsflöde), sammanfattningssidan testerna innehåller testerna schemalagda mot Azure Stack-lösning.
+
+För officiella körningar (d.v.s. den **verifiering** arbetsflöden), sammanfattningssidan testerna innehåller testerna som krävs för att slutföra verifieringen av Azure Stack-lösning. Verifieringstester schemaläggs från den här sidan.
+
+Varje schemalagd test-instans visas följande information:
 
 | Kolumn | Beskrivning |
 | --- | --- |
-| Testnamn | Namnet på testet. Refererar till tal för verifiering. |
-| Skapad | Tid i testet har skapats. |
-| Startade | Tidpunkt senaste testet kördes. |
-| Varaktighet | Hur länge den tid det tog att testet ska köras. |
-| Status | Resultatet (lyckades eller misslyckades) för rest-pass. |
-| Agentnamn | Det fullständigt kvalificerade domännamnet av agenten. |
-| Totala åtgärder | Det totala antalet åtgärder i test-pass. |
-| Överförda åtgärder | Antal åtgärder som skickades i test-pass. |
-|  Misslyckade åtgärder | Antal åtgärder som misslyckats. |
+| Testnamn | Namnet och versionen av testet. |
+| Kategori | Syftet med testet. |
+| Skapad | Den tid då testet har schemalagts. |
+| Startade | Den tid då testet startade körningen. |
+| Varaktighet | Hur lång tid som testet kördes. |
+| Status | Tillstånd eller resultatet av testet. Pre-Execution eller pågående statusen är: `Pending`, `Running`. Terminal statusen är: `Cancelled`, `Failed`, `Aborted`, `Succeeded`. |
+| Agentnamn | Namnet på den agent som körde testet. |
+| Totala åtgärder | Det totala antalet åtgärder försökte under testet. |
+| Överförda åtgärder | Antal åtgärder som har skapats under testet. |
+|  Misslyckade åtgärder | Antal åtgärder som misslyckades under testet. |
 
-### <a name="group-columns-in-the-test-pass-summary"></a>Grupp-kolumner i testet skicka sammanfattning
+### <a name="actions"></a>Åtgärder
 
-Du kan markera och dra en kolumn i huvudet för att skapa en grupp på värdet i kolumnen.
+Varje test-instans Listar tillgängliga åtgärder som du kan vidta när du klickar på dess snabbmenyn **[...]**  i tabellen test-instanser.
 
-## <a name="reschedule-a-test"></a>Schemalägga om ett test
+#### <a name="view-information-about-the-test-definition"></a>Visa information om test-definition
 
-1. [Öppna pass testsammanfattning](#open-the-test-pass-summary).
-2. Välj **omboka** vill schemalägga i testet.
-3. Ange administratörslösenordet som molnet för din Azure Stack-instans.
-4. Ange diagnostik Storage anslutningssträngen du definierade när du konfigurerar ditt konto.
-5. Schemalägga om testet.
+Välj **visa information om** från snabbmenyn för att visa allmän information om test-definition. Detta är gemensam för varje test-instans med samma namn och version.
 
-## <a name="cancel-a-test"></a>Avbryt ett test
-
-1. [Öppna pass testsammanfattning](#open-the-test-pass-summary).
-2. Välj **Avbryt**.
-
-## <a name="get-test-information"></a>Hämta testinformation om
-
-1. [Öppna pass testsammanfattning](#open-the-test-pass-summary).
-2. Välj **visa information** vill schemalägga i testet.
-
-**Testinformation**
-
-| Namn | Beskrivning |
+| Testa egenskapen | Beskrivning |
 | -- | -- |
-| Testnamn | Namnet på test, till exempel OEM-uppdatering på Azure Stack 1806 RC-verifiering. |
-| Testversion | Versionen för testet, till exempel 5.1.4.0. |
-| Utgivare | Testa utgivare, till exempel Microsoft. |
-| Kategori | Kategorin för testning, till exempel **funktionell** eller **tillförlitlighet**. |
-| Mål-tjänster | De tjänster som testas, till exempel virtuella datorer |
+| Testnamn | Namnet på testet. |
+| Testversion | Versionen av testet. |
+| Utgivare | Utgivare av testet. |
+| Kategori |  Syftet med testet. |
+| Mål-tjänster | Azure Stack-tjänster som har testats. |
 | Beskrivning | Beskrivning av testet. |
-| Uppskattad varaktighet (minuter) | Hur lång tid i minuter det tog för att köra testet. |
-| Länkar | En länk till GitHub Felspårningsfunktionen. |
+| Uppskattad varaktighet (minuter) | Förväntad körning av testet. |
+| Länkar | Relevant information om test- eller kontaktpunkter. |
 
-## <a name="get-test-parameters"></a>Hämta parametrar
+#### <a name="view-test-instance-parameters"></a>Visa parametrar för instans
 
-1. [Öppna pass testsammanfattning](#open-the-test-pass-summary).
-2. Välj **Visa parametrar** vill schemalägga i testet.
+Välj **Visa parametrar** från snabbmenyn för att visa de parametrar som angetts för test-instans på Schemalägg tid. Känsliga strängar som lösenord visas inte. Den här åtgärden är endast tillgänglig för tester som har schemalagts.
 
-**Parametrar**
+Det här fönstret innehåller följande metadata för alla test-instanser:
 
-| Namn | Beskrivning |
+| Testa instansegenskap | Beskrivning |
 | -- | -- |
-| Testnamn | Namnet på test, till exempel oemupdate1806test. |
-| Testversion | Versionen av rest, till exempel 5.1.4.0. |
-| Testa instans-ID | GUID som identifierar den specifika instansen av test, till exempel 20b20645-b400-4f0d-bf6f-1264d866ada9. |
-| cloudAdminUser | Namnet på det konto som används som molnadministratören, till exempel **cloudadmin**. |
-| DiagnosticsContainerName | ID för diagnostisk behållaren, till exempel 04dd3815-5f35-4158-92ea-698027693080. |
+| Testnamn | Namnet på testet. |
+| Testversion | Versionen av testet. |
+| Testa instans-ID | GUID som identifierar den specifika instansen av testet. |
 
-## <a name="get-test-operations"></a>Hämta åtgärder för testning
+#### <a name="view-test-instance-operations"></a>Visa test instans åtgärder
 
-1. [Öppna pass testsammanfattning](#open-the-test-pass-summary).
-2. Välj **Visa åtgärder** vill schemalägga i testet. Fönstret som sammanfattning öppnas.
+Välj **Visa åtgärder** från kontexten menyn för att visa detaljerad statusinformation för åtgärder som utförs under testet. Den här åtgärden är endast tillgänglig för tester som har schemalagts.
 
-## <a name="get-test-logs"></a>Hämta loggar testet
+![Visa åtgärder](media/manage-test_context-menu-operations.png)
 
-1. [Öppna pass testsammanfattning](#open-the-test-pass-summary).
-2. Välj **Hämtningsloggar** vill schemalägga i testet.  
-    En zip-fil med namnet ReleaseYYYY-MM-DD.zip som innehåller loggarna nedladdningar.
+#### <a name="download-logs-for-a-completed-test-instance"></a>Hämta loggar för en slutförd test-instans
+
+Välj **Hämtningsloggar** från snabbmenyn för att ladda ned en `.zip` fil på loggar utdata vid testkörning. Den här åtgärden är endast tillgänglig för tester som har slutfört, t.ex, ett test med statusen `Cancelled`, `Failed`, `Aborted`, eller `Succeeded`.
+
+#### <a name="reschedule-a-test-instance-or-schedule-a-test"></a>Omboka en test-instans eller schemalägga ett test
+
+Schemalägga testerna från sidan för hantering av beror på vilken typ av arbetsflödet testet körs under.
+
+##### <a name="test-pass-workflow"></a>Testet arbetsflöde
+
+I arbetsflödet testet **ändra på tidsplanering** en test-instans återanvänder samma uppsättning parametrar som den ursprungliga test-instansen och *ersätter* ursprungliga resultatet, inklusive dess loggar. Du måste ange känsliga strängar som lösenord när du schemalägger om.
+
+1. Välj **omboka** från snabbmenyn för att öppna en kommandotolk för att ändra på tidsplanering för test-instans.
+
+1. Ange eventuella tillämpliga parametrar.
+
+1. Välj **skicka** omboka test-instans och ersätta den befintliga instansen.
+
+##### <a name="validation-workflows"></a>Verifiering arbetsflöden
+
+[!INCLUDE [azure-stack-vaas-workflow-validation-section_schedule](includes/azure-stack-vaas-workflow-validation-section_schedule.md)]
+
+#### <a name="cancel-a-test-instance"></a>Avbryt en test-instans
+
+En schemalagd test avbrytas om statusen är `Pending` eller `Running`.  
+
+1. Välj **Avbryt** från snabbmenyn för att öppna en kommandotolk för att avbryta test-instans.
+
+1. Välj **skicka** annullera test-instans.
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Mer information om [Azure Stack-verifiering som en tjänst](https://docs.microsoft.com/azure/azure-stack/partner).
+- [Felsöka verifiering som en tjänst](azure-stack-vaas-troubleshoot.md)

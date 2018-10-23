@@ -7,16 +7,16 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 10/16/2018
 ms.author: iainfou
-ms.openlocfilehash: e42601646474ba986e75632af41d500e18b64021
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
+ms.openlocfilehash: fb428e63be54688744bcdb022ba276a957f8aee1
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49393906"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49648782"
 ---
 # <a name="kubernetes-core-concepts-for-azure-kubernetes-service-aks"></a>Kubernetes grundläggande begrepp för Azure Kubernetes Service (AKS)
 
-Eftersom programutveckling har flyttats till en metod som innehöll bygger viktigare behovet av att dirigera och hantera resurserna som är sammankopplade. Kubernetes är den ledande plattformen som ger dig möjlighet att tillhandahålla tillförlitlig schemaläggning av arbetsbelastningar feltoleranta program. Azure Kubernetes Service (AKS) är en hanterad Kubernetes erbjudande som ytterligare förenklar behållarbaserade programdistribution och hantering.
+Eftersom programutveckling har flyttats till en behållarbaserad metod, blir behovet av att dirigera och hantera de sammankopplade resurserna viktigt. Kubernetes är den ledande plattformen som ger dig möjlighet att tillhandahålla tillförlitlig schemaläggning av arbetsbelastningar feltoleranta program. Azure Kubernetes Service (AKS) är en hanterad Kubernetes erbjudande som ytterligare förenklar behållarbaserade programdistribution och hantering.
 
 Den här artikeln introducerar kärnkomponenter för Kubernetes-infrastrukturen som den *kluster master*, *noder*, och *nodpooler*. Arbetsbelastningen resurser, som *poddar*, *distributioner*, och *anger* också introduceras, tillsammans med hur du gruppera resurser i *namnområden*.
 

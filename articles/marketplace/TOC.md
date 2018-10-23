@@ -35,28 +35,26 @@
 
 # [Partnerportalen i molnet](./cloud-partner-portal-orig/cloud-partner-portal-getting-started-with-the-cloud-partner-portal.md) 
 
-<!-- remove comment markers after toc gets published with iot edge section  -->
-<!-- 
-## [Virtual machine offer](./cloud-partner-portal/virtual-machine/cpp-virtual-machine-offer.md)
-### [Prerequisites](./cloud-partner-portal/virtual-machine/cpp-prerequisites.md)
-### [Create VM offer](./cloud-partner-portal/virtual-machine/cpp-create-offer.md)
-#### [Offer Settings tab](./cloud-partner-portal/virtual-machine/cpp-offer-settings-tab.md)
-#### [SKUs tab](./cloud-partner-portal/virtual-machine/cpp-skus-tab.md)
-#### [Test Drive tab](./cloud-partner-portal/virtual-machine/cpp-test-drive-tab.md)
-#### [Marketplace tab](./cloud-partner-portal/virtual-machine/cpp-marketplace-tab.md)
-#### [Support tab](./cloud-partner-portal/virtual-machine/cpp-support-tab.md)
-### [Create VM technical assets](./cloud-partner-portal/virtual-machine/cpp-create-technical-assets.md)
-#### [Create VHD](./cloud-partner-portal/virtual-machine/cpp-create-vhd.md)
-#### [Common VHD creation issues](./cloud-partner-portal/virtual-machine/cpp-common-vhd-creation-issues.md)
-#### [Connect to VM](./cloud-partner-portal/virtual-machine/cpp-connect-vm.md)
-#### [Configure VM](./cloud-partner-portal/virtual-machine/cpp-configure-vm.md)
-#### [Deploy VM from VHDs](./cloud-partner-portal/virtual-machine/cpp-deploy-vm-vhd.md)
-##### [VHD Deployment Template (JSON)](./cpp-deploy-json-template.md)
-#### [Certify VM image](./cloud-partner-portal/virtual-machine/cpp-certify-vm.md)
-#### [Get SAS URI](./cloud-partner-portal/virtual-machine/cpp-get-sas-uri.md)
-#### [Common SAS URL issues](./cloud-partner-portal/virtual-machine/cpp-common-sas-url-issues.md)
-### [Publish VM offer](./cloud-partner-portal/virtual-machine/cpp-publish-offer.md)
-### [Update existing offer](./cloud-partner-portal/virtual-machine/cpp-update-existing-offer.md) -->
+## [Erbjudande på virtuella datorer](./cloud-partner-portal/virtual-machine/cpp-virtual-machine-offer.md)
+### [Förutsättningar](./cloud-partner-portal/virtual-machine/cpp-prerequisites.md)
+### [Skapa erbjudande på virtuella datorer](./cloud-partner-portal/virtual-machine/cpp-create-offer.md)
+#### [fliken Erbjudandeinställningar](./cloud-partner-portal/virtual-machine/cpp-offer-settings-tab.md)
+#### [fliken SKU:er](./cloud-partner-portal/virtual-machine/cpp-skus-tab.md)
+#### [fliken Test Drive](./cloud-partner-portal/virtual-machine/cpp-test-drive-tab.md)
+#### [fliken Marketplace](./cloud-partner-portal/virtual-machine/cpp-marketplace-tab.md)
+#### [fliken Stöd](./cloud-partner-portal/virtual-machine/cpp-support-tab.md)
+### [Skapa tekniska tillgångar för virtuella datorer](./cloud-partner-portal/virtual-machine/cpp-create-technical-assets.md)
+#### [Skapa virtuell hårddisk](./cloud-partner-portal/virtual-machine/cpp-create-vhd.md)
+#### [Vanliga problem när virtuella hårddiskar skapas](./cloud-partner-portal/virtual-machine/cpp-common-vhd-creation-issues.md)
+#### [Ansluta till virtuella datorer](./cloud-partner-portal/virtual-machine/cpp-connect-vm.md)
+#### [Konfigurera virtuella datorer](./cloud-partner-portal/virtual-machine/cpp-configure-vm.md)
+#### [Distribuera virtuella datorer från virtuella hårddiskar](./cloud-partner-portal/virtual-machine/cpp-deploy-vm-vhd.md)
+##### [Distributionsmall för virtuell hårddisk (JSON)](./cloud-partner-portal/virtual-machine/cpp-deploy-json-template.md)
+#### [Certifiera avbildning av virtuell dator](./cloud-partner-portal/virtual-machine/cpp-certify-vm.md)
+#### [Hämta SAS-URI](./cloud-partner-portal/virtual-machine/cpp-get-sas-uri.md)
+#### [Vanliga problem med SAS-URL](./cloud-partner-portal/virtual-machine/cpp-common-sas-url-issues.md)
+### [Publicera erbjudande för VM](./cloud-partner-portal/virtual-machine/cpp-publish-offer.md)
+### [Uppdatera befintligt erbjudande](./cloud-partner-portal/virtual-machine/cpp-update-existing-offer.md)
 
 <!-- Following legacy VM section was replaced.  -->
 <!-- 

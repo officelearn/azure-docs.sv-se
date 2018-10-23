@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/18/2018
 ms.author: kumud
-ms.openlocfilehash: 8c3d632063c8ed9347aa870d0971cc09dc1a658e
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: 07efbf132eec5c6769395f58e8120c77dcd14aef
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46129547"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49649889"
 ---
 # <a name="traffic-manager-frequently-asked-questions-faq"></a>Vanliga frågor (och svar FAQ) om Traffic Manager
 
@@ -32,7 +32,7 @@ Enligt beskrivningen i [hur Traffic Manager fungerar](../traffic-manager/traffic
 Traffic Manager tillhandahåller därför inte en slutpunkt eller en IP-adress för klienter att ansluta till. Om du vill statisk IP-adress för din tjänst, som måste konfigureras på tjänsten, inte i Traffic-Manager.
 
 ### <a name="what-types-of-traffic-can-be-routed-using-traffic-manager"></a>Vilka typer av trafik kan vara dirigeras med Traffic Manager?
-Enligt beskrivningen i [hur Traffic Manager fungerar](../traffic-manager/traffic-manager-how-it-works.md), en Traffic Manager-slutpunkt kan vara valfri tjänst som finns i och utanför Azure som riktas mot internet. Därför kan Traffic Manager dirigera trafik från det offentliga internet till en uppsättning slutpunkter som är också internetuppkopplade. Om du har slutpunkter som är i ett privat nätverk (till exempel en intern version av [Azure Load Balancer](../load-balancer/load-balancer-overview.md#internalloadbalancer)) eller har användare som önskade DNS-förfrågningar från sådana interna nätverk Traffic Manager inte kan användas för dessa trafik.
+Enligt beskrivningen i [hur Traffic Manager fungerar](../traffic-manager/traffic-manager-how-it-works.md), en Traffic Manager-slutpunkt kan vara valfri tjänst som finns i och utanför Azure som riktas mot internet. Därför kan Traffic Manager dirigera trafik från det offentliga internet till en uppsättning slutpunkter som är också internetuppkopplade. Om du har slutpunkter som är i ett privat nätverk (till exempel en intern version av [Azure Load Balancer](../load-balancer/load-balancer-overview.md#internalloadbalancer)) eller har användare som DNS-förfrågningar från sådana interna nätverk, kan du inte använda Traffic Manager för att dirigera trafiken.
 
 
 ### <a name="does-traffic-manager-support-sticky-sessions"></a>Stöder ' fästsessioner ”i Traffic Manager?
@@ -87,7 +87,7 @@ När en DNS-fråga hamnar i Traffic Manager, anger ett värde i svaret kallas ti
 Du kan ange vid en per-profilnivå TTL för DNS vara så lågt som 0 sekunder och så mycket som 2 147 483 647 sekunder (maximalt intervall som är kompatibla med [RFC 1035](https://www.ietf.org/rfc/rfc1035.txt )). TTL-värdet 0 innebär att den underordnade DNS-matchare cachelagrar inte svar på frågor och alla frågor som förväntas att nå Traffic Manager DNS-servrar för matchning.
 
 ### <a name="how-can-i-understand-the-volume-of-queries-coming-to-my-profile"></a>Hur kan jag är införstådd med mängden frågor kommer till min profil? 
-En av mått som tillhandahålls av Traffic Manager är antalet frågor som svarade med en profil. Du kan hämta den här informationen en profil på aggregering eller du kan dela upp den ytterligare till Se mängden frågor där slutpunkter som returnerades. Du kan dessutom konfigurera varningar som meddelar dig om svarsvolym frågan överskrider villkor som du har angett. Mer information [Traffic Manager-mått och aviseringar](traffic-manager-metrics-alerts.md).
+En av mått som tillhandahålls av Traffic Manager är antalet frågor som svarade med en profil. Du kan hämta den här informationen en profil på aggregering eller du kan dela upp den ytterligare till Se mängden frågor där slutpunkter som returnerades. Du kan också ställa in aviseringar för att meddela dig om svarsvolym frågan överskrider de villkor som du har angett. Mer information [Traffic Manager-mått och aviseringar](traffic-manager-metrics-alerts.md).
 
 ## <a name="traffic-manager-geographic-traffic-routing-method"></a>Metod för Traffic Manager geografisk trafikroutning
 
@@ -128,7 +128,7 @@ Alla slutpunkter i en profil med geografisk routning måste ha minst en region s
 
 ###  <a name="why-is-it-strongly-recommended-that-customers-create-nested-profiles-instead-of-endpoints-under-a-profile-with-geographic-routing-enabled"></a>Varför det rekommenderas starkt att kunder skapar kapslade profiler i stället för slutpunkter i en profil med geografisk routning aktiverad? 
 
-En region kan tilldelas till endast en slutpunkt i en profil om dess med geografiska routningstyp. Om slutpunkten inte är en kapslad typ med en underordnad-profil som är kopplat till den, om att slutpunkten kommer skadade, Traffic Manager fortsätter att skicka trafik till den sedan med alternativet att inte skicka all trafik som inte är alla bättre. Traffic Manager tillåter inte att redundansväxla till en annan slutpunkt, även om den region som tilldelats är ”överordnad” regionen tilldelade till den slutpunkt som gått feltillstånd (till exempel om en slutpunkt som har region Spanien går skadade, vi gör inte att redundansväxla till en annan slutpunkt som har den regionen Europa tilldelade). Detta görs för att säkerställa att Traffic Manager respekterar geografiska gränser att en kund har konfigurerat i sina profiler. För att få fördelen med växling till en annan slutpunkt när en slutpunkt blir ohälsosamt kan rekommenderas det att geografiska regioner tilldelas till kapslade profiler med flera slutpunkter i den i stället för enskilda slutpunkter. På så vis kan trafik redundansväxling till en annan slutpunkt i samma profil i kapslade underordnade om en slutpunkt i profilen för kapslade underordnade misslyckas.
+En region kan tilldelas till endast en slutpunkt i en profil om det använder geografisk routningsmetod. Om slutpunkten inte är en kapslad typ med en underordnad-profil som är kopplat till den, om att slutpunkten kommer skadade, Traffic Manager fortsätter att skicka trafik till den sedan med alternativet att inte skicka all trafik som inte är alla bättre. Traffic Manager tillåter inte att redundansväxla till en annan slutpunkt, även om den region som tilldelats är ”överordnad” regionen tilldelade till den slutpunkt som gått feltillstånd (till exempel om en slutpunkt som har region Spanien går skadade, vi gör inte att redundansväxla till en annan slutpunkt som har den regionen Europa tilldelade). Detta görs för att säkerställa att Traffic Manager respekterar geografiska gränser att en kund har konfigurerat i sina profiler. För att få fördelen med växling till en annan slutpunkt när en slutpunkt blir ohälsosamt kan rekommenderas det att geografiska regioner tilldelas till kapslade profiler med flera slutpunkter i den i stället för enskilda slutpunkter. På så vis kan trafik redundansväxling till en annan slutpunkt i samma profil i kapslade underordnade om en slutpunkt i profilen för kapslade underordnade misslyckas.
 
 ### <a name="are-there-any-restrictions-on-the-api-version-that-supports-this-routing-type"></a>Finns det några restriktioner för API-version som stöder den här routningstyp?
 
@@ -144,16 +144,16 @@ Ett annat skäl att använda undernät routningsmetod anges tillsammans med andr
 Slutanvändarenheter använder vanligtvis en DNS-matchare för att göra DNS-sökning för deras räkning. Utgående IP-Adressen för sådana matchare är Traffic Manager ser som käll-IP. Dessutom verkar undernät routningsmetod även om du vill se om det finns information som EDNS0 utökade klienten undernät (ECS) som skickades med begäran. Om ECS finns språkinformation, är den adress som används för att bestämma routningen. Käll-IP för frågan används inte av ECS information är för routningen.
 
 ### <a name="how-can-i-specify-ip-addresses-when-using-subnet-routing"></a>Hur kan jag ange IP-adresser när du använder undernätet Routning?
-IP-adresser ska associeras med en slutpunkt kan anges på två sätt. Du kan först använda fyra punktavgränsad decimalform oktett-notation med en start- och slut-adresser för att ange ett intervall (t.ex. 1.2.3.4-5.6.7.8 eller 3.4.5.6-3.4.5.6). Du kan dessutom använda CIDR-notation för att ange ett intervall (t.ex. 1.2.3.0/24). Du kan ange flera intervall och kan använda båda typerna av notering i en rad. Några begränsningar gäller.
+IP-adresser ska associeras med en slutpunkt kan anges på två sätt. Du kan först använda fyra punktavgränsad decimalform oktett-notation med en start- och slut-adresser för att ange intervallet (till exempel 1.2.3.4-5.6.7.8 eller 3.4.5.6-3.4.5.6). Dessutom kan du använda CIDR-notation ange intervallet (till exempel 1.2.3.0/24). Du kan ange flera intervall och kan använda båda typerna av notering i en rad. Några begränsningar gäller.
 -   Du kan inte ha överlappande adressintervall eftersom varje IP måste mappas till endast en enda slutpunkt
 -   Startadressen får inte innehålla fler än slutadressen
--   När det gäller CIDR-notering, IP-adressen innan den '/' ska vara startadressen av det intervallet (t.ex. 1.2.3.0/24 är giltig men 1.2.3.4.4/24 är inte giltig)
+-   När det gäller CIDR-notering, IP-adressen innan den '/' ska vara startadressen av det intervallet (till exempel 1.2.3.0/24 är giltig men 1.2.3.4.4/24 är inte giltig)
 
 ### <a name="how-can-i-specify-a-fallback-endpoint-when-using-subnet-routing"></a>Hur kan jag ange en återställningsplats slutpunkt när du använder undernätet Routning?
 I en profil med undernätet routning, om du har en slutpunkt med inga undernät som mappats till, dirigeras varje begäran som inte överensstämmer med andra slutpunkter till här. Vi rekommenderar starkt att du har en återställningsplats slutpunkt i din profil eftersom Traffic Manager returnerar ett NXDOMAIN svar om en begäran kommer in och det inte är kopplat till alla slutpunkter eller om det är kopplat till en slutpunkt utan att slutpunkten är skadad.
 
 ### <a name="what-happens-if-an-endpoint-is-disabled-in-a-subnet-routing-type-profile"></a>Vad händer om en slutpunkt har inaktiverats i ett undernät routning typ profil?
-I en profil med undernätet routning, om du har en slutpunkt med som är inaktiverad, Traffic Manager fungerar som om slutpunkten och undernät-mappningar har inte finns. Om en fråga som skulle har matchade med dess IP-adressmappningen tas emot och slutpunkten är inaktiverad, Traffic Manager kommer att returnera en återställningsplats slutpunkt (en med ingen mappning) eller om en sådan slutpunkt inte finns, returneras ett NXDOMAIN svar
+I en profil med undernätet routning, om du har en slutpunkt med som är inaktiverad, Traffic Manager fungerar som om slutpunkten och undernät-mappningar har inte finns. Om en fråga som skulle har matchade med dess IP-adressmappningen tas emot och slutpunkten är inaktiverad, Traffic Manager kommer att returnera en återställningsplats slutpunkt (en med ingen mappning) eller om en sådan slutpunkt inte finns, returneras ett NXDOMAIN svar.
 
 ## <a name="traffic-manager-multivalue-traffic-routing-method"></a>Traffic Manager Flervärden är trafikroutningsmetod
 
@@ -162,7 +162,7 @@ Flera värden routning returnerar flera felfria slutpunkter i en enda frågesvar
 Ett annat användningsområde för flera värden routningsmetod är om en slutpunkt är ”dual-homed” till både IPv4 och IPv6-adresser och du vill ge anroparen båda alternativ att välja mellan när den upprättar en anslutning till slutpunkten.
 
 ### <a name="how-many-endpoints-are-returned-when-multivalue-routing-is-used"></a>Hur många slutpunkter som returneras när flera värden routing används?
-Du kan ange det maximala antalet endopints som ska returneras och Flervärden är returnerar inga fler än så många felfria slutpunkter när en fråga tas emot. Största möjliga värde för den här konfigurationen är 10.
+Du kan ange det maximala antalet slutpunkter som ska returneras och Flervärden är returnerar inga fler än så många felfria slutpunkter när en fråga tas emot. Största möjliga värde för den här konfigurationen är 10.
 
 ### <a name="will-i-get-the-same-set-of-endpoints-when-multivalue-routing-is-used"></a>Jag får samma uppsättning slutpunkter när flera värden routing används?
 Vi kan inte garantera att samma uppsättning slutpunkter kommer att returneras i varje fråga. Detta påverkas även av det faktum att några av slutpunkterna försätts feltillstånd då inte kommer de inkluderas i svaret
@@ -170,13 +170,13 @@ Vi kan inte garantera att samma uppsättning slutpunkter kommer att returneras i
 ## <a name="real-user-measurements"></a>Faktisk slutanvändarmätning
 
 ### <a name="what-are-the-benefits-of-using-real-user-measurements"></a>Vilka är fördelarna med att använda Real User Measurements?
-När du använder routningsmetod för prestanda, Traffic Manager hämtar den bästa Azure-regionen för användaren att ansluta till genom att kontrollera käll-IP och EDNS klienten undernät (om det har skickats in) och kontrollera den mot nätverket svarstid intelligence tjänsten underhåller. Real User Measurements förbättrar detta för din slutpunkt användarbas genom att låta deras upplevelse som bidrar till den här tabellen utöver att kontrollera hälsotillståndet svarstid som den här tabellen omfattar rätt slutanvändare-nätverk från där användarna ansluta till Azure. Detta leder till en större noggrannhet i Routning av dina slutanvändare.
+När du använder routningsmetod för prestanda, Traffic Manager hämtar den bästa Azure-regionen för användaren att ansluta till genom att kontrollera käll-IP och EDNS klienten undernät (om det har skickats in) och kontrollera den mot nätverket svarstid intelligence tjänsten underhåller. Real User Measurements förbättrar detta för din slutpunkt användarbas genom att låta deras upplevelse som bidrar till den här tabellen utöver att kontrollera hälsotillståndet svarstid som den här tabellen omfattar rätt slutanvändare-nätverk från där användarna ansluta till Azure. Detta leder till en större noggrannhet i Routning av användaren.
 
 ### <a name="can-i-use-real-user-measurements-with-non-azure-regions"></a>Kan jag använda Real User Measurements med icke-Azure-regioner?
 Real User Measurements mäter och rapporterar bara svarstiderna att nå Azure-regioner. Om du använder prestandabaserad routning med slutpunkter som finns i Azure-regioner kan dra du fortfarande nytta av den här funktionen genom att ha ökad latensinformation om representativa Azure-region du har valt som ska associeras med den här slutpunkten.
 
 ### <a name="which-routing-method-benefits-from-real-user-measurements"></a>Vilken routningsmetod dra nytta av Real User Measurements?
-Ytterligare information från Real User Measurements gäller endast för profiler som använder routningsmetod för prestanda. Observera att länken Real User Measurements är tillgänglig från alla profiler när du visar den via Azure portal.
+Ytterligare information från Real User Measurements gäller endast för profiler som använder routningsmetod för prestanda. Länken Real User Measurements är tillgänglig från alla profiler när du visar den via Azure portal.
 
 ### <a name="do-i-need-to-enable-real-user-measurements-each-profile-separately"></a>Måste jag aktivera Real User Measurements varje profil separat?
 Nej, du behöver bara aktivera en gång per prenumeration och informationen för svarstid mäts och rapporterade är tillgängliga för alla profiler.
@@ -190,12 +190,12 @@ Du kan också stänga av Real User Measurements genom att ta bort din nyckel. N�
 Ja, Real User Measurements har utformats att mata in data som samlas in via en annan typ av slutanvändaren klienter. Den här vanliga frågor och svar kommer att uppdateras när nya typer av klientprogram hämta stöds.
 
 ### <a name="how-many-measurements-are-made-each-time-my-real-user-measurements-enabled-web-page-is-rendered"></a>Hur många mätningarna görs varje gång som min Real User Measurements aktiverat webbsida återges?
-När Real User Measurements används tillsammans med mätning JavaScript tillhandahålls, resulterar varje sidrendering i sex mätningarna. Dessa rapporteras sedan tillbaka till Traffic Manager-tjänsten. Observera att du debiteras för den här funktionen baserat på antalet mått som rapporterats till Traffic Manager-tjänsten. Till exempel om användaren navigerar bort från din webbsida när mätningarna utförs men innan det rapporterades, beaktas dessa mätningar inte för fakturering.
+När Real User Measurements används tillsammans med mätning JavaScript tillhandahålls, resulterar varje sidrendering i sex mätningarna. Dessa rapporteras sedan tillbaka till Traffic Manager-tjänsten. Du debiteras för den här funktionen baserat på antalet mått som rapporterats till Traffic Manager-tjänsten. Till exempel om användaren navigerar bort från din webbsida när mätningarna utförs men innan det rapporterades, beaktas dessa mätningar inte för fakturering.
 
 ### <a name="is-there-a-delay-before-real-user-measurements-script-runs-in-my-webpage"></a>Finns det en fördröjning innan Real User Measurements skriptet körs i min webbsida?
 Nej, det finns ingen programmerade fördröjning innan anropas skriptet.
 
-### <a name="can-i-use-configure-real-user-measurements-with-only-the-azure-regions-i-want-to-measure"></a>Kan jag använda Konfigurera Real User Measurements med endast Azure-regionerna jag vill mäta?
+### <a name="can-i-use-real-user-measurements-with-only-the-azure-regions-i-want-to-measure"></a>Kan jag använda Real User Measurements med endast Azure-regionerna jag vill mäta?
 Nej, varje gång den anropas mäter skriptet Real User Measurements en uppsättning med sex Azure-regioner som definieras av tjänsten. Det här värdet ändringar mellan olika anrop när ett stort antal sådana anrop uppstår mätning täckning som sträcker sig över olika Azure-regioner.
 
 ### <a name="can-i-limit-the-number-of-measurements-made-to-a-specific-number"></a>Kan jag begränsa antalet mätningarna för att ett visst antal?
@@ -211,7 +211,7 @@ När du arbetar med kontroll över vad som är inbäddad på din webbsida avråd
 När du bäddar in mätning skriptet till en webbsida ska det vara möjligt att andra kan se skriptet och din nyckel för Real User Measurements (ROM). Men det är viktigt att veta att den här nyckeln skiljer sig från ditt prenumerations-id och genereras av Traffic Manager som ska användas enbart för detta ändamål. Vetskapen om att köra nyckeln äventyrar inte säkerheten för dina Azure-konto.
 
 ### <a name="can-others-abuse-my-rum-key"></a>Kan andra missbruka min köra nyckel?
-Även om det är möjligt att andra kan använda din nyckel för att skicka information om fel till Azure Observera att några fel mätning av faktisk användning inte ändrar routningen eftersom det beaktas tillsammans med alla andra mått vi får. Om du vill ändra dina nycklar återskapa du nyckeln för den gamla nyckeln blir då tas bort.
+Det är möjligt att andra kan använda din nyckel för att skicka information om fel till Azure, ändras inte några fel mätningar routningen eftersom det beaktas tillsammans med alla andra mått vi får. Om du vill ändra dina nycklar återskapa du nyckeln för den gamla nyckeln blir då tas bort.
 
 ###  <a name="do-i-need-to-put-the-measurement-javascript-in-all-my-web-pages"></a>Behöver jag placera mätningen JavaScript i alla webbplatser?
 Real User Measurements ger mer värde som antalet mätningar ökning. Ändå är det komma fram till om du ska placera den i dina webbsidor eller en väljer några. Vår rekommendation är att starta genom att placera den i din mest besökta sida där en användare förväntas att stanna kvar på den sidan fem sekunder eller mer.
@@ -223,10 +223,10 @@ När den angivna mätningen JavaScript används har Traffic Manager insyn i klie
 Nej, det behöver inte använda Traffic Manager. Routning sida av Traffic Manager fungerar separat från den verkliga användare mätning-delen och även om det är en bra idé att ha dem båda på samma webb-egenskap, de behöver du inte.
 
 ### <a name="do-i-need-to-host-any-service-on-azure-regions-to-use-with-real-user-measurements"></a>Måste jag vara värd för alla tjänster på Azure-regioner ska användas med Real User Measurements?
-Nej, du behöver inte vara värd för alla server-sida-komponent på Azure för Real User Measurements ska fungera. Bildpunkt avbildningen hämtas genom mätning JavaScript och tjänsten körs i olika Azure-regioner som är hyst och hanterad av Azure. 
+Nej, du behöver inte vara värd för någon server-sida-komponent på Azure för Real User Measurements ska fungera. Bildpunkt avbildningen hämtas genom mätning JavaScript och tjänsten körs i olika Azure-regioner som är hyst och hanterad av Azure. 
 
 ### <a name="will-my-azure-bandwidth-usage-increase-when-i-use-real-user-measurements"></a>Kommer min Azure bandbreddsanvändning ökar när jag använder Real User Measurements?
-Som vi nämnde i föregående svar, serversidan komponenterna i Real User Measurements ägs och hanteras av Azure. Det innebär att din Azure bandbreddsanvändning inte ökar vanligtvis eftersom du använder Real User Measurements. Observera att detta inte inkluderar alla bandbreddsanvändning utanför vilka Azure-avgifter. Vi kan minimera den bandbredd som används genom att hämta bara en enda pixel-avbildning till mått svarstiden för en Azure-region. 
+Som vi nämnde i föregående svar, serversidan komponenterna i Real User Measurements ägs och hanteras av Azure. Det innebär att din Azure bandbreddsanvändning inte ökar vanligtvis eftersom du använder Real User Measurements. Detta inkluderar inte eventuella bandbreddsanvändning utanför vilka Azure-avgifter. Vi kan minimera den bandbredd som används genom att hämta bara en enda pixel-avbildning till mått svarstiden för en Azure-region. 
 
 ## <a name="traffic-view"></a>Trafikvy
 
@@ -290,7 +290,7 @@ Ja. Molntjänst ”mellanlagring” platser kan konfigureras i Traffic Manager s
 
 Traffic Manager tillhandahåller inte IPv6-addressible namnservrar för närvarande. Traffic Manager kan dock fortfarande användas av IPv6-klienter som ansluter till IPv6-slutpunkter. En klient gör inte DNS-begäranden direkt till Traffic-Manager. I stället använder klienten en rekursiv DNS-tjänst. En endast-IPv6-klient skickar begäranden till den rekursiva DNS-tjänsten via IPv6. Sedan bör tjänsten rekursiv kunna kontakta Traffic Managers namnservrar som använder IPv4.
 
-Traffic Manager svarar med DNS-namn eller IP-adressen för slutpunkten. Det finns två alternativ för att stödja en IPv6-slutpunkt. Du kan lägga till slutpunkten som ett DNA-namn som har en associerad AAAA-post och Traffic Manager kommer hälsokontrollen som slutpunkten och gå sedan tillbaka den som en CNAME-post anger i frågesvaret. Du kan också lägga till slutpunkten direkt med IPv6-adress och Traffic Manager returnerar en typ AAAA-post i frågesvaret. 
+Traffic Manager svarar med DNS-namn eller IP-adressen för slutpunkten. Det finns två alternativ för att stödja en IPv6-slutpunkt. Du kan lägga till slutpunkten som ett DNS-namn som har en associerad AAAA-post och Traffic Manager kommer hälsokontrollen som slutpunkten och gå sedan tillbaka den som en CNAME-post anger i frågesvaret. Du kan också lägga till slutpunkten direkt med IPv6-adress och Traffic Manager returnerar en typ AAAA-post i frågesvaret. 
 
 ### <a name="can-i-use-traffic-manager-with-more-than-one-web-app-in-the-same-region"></a>Kan jag använda Traffic Manager med mer än en Webbapp i samma region?
 
@@ -334,7 +334,7 @@ Traffic manager kan inte ange någon certifikatsverifiering inklusive:
 * Klientcertifikat stöds inte
 
 ### <a name="do-i-use-an-ip-address-or-a-dns-name-when-adding-an-endpoint"></a>Kan jag använda en IP-adress eller ett DNS-namn när du lägger till en slutpunkt?
-Traffic Manager har stöd för att lägga till slutpunkter med hjälp av tre sätt att hänvisa dem – som en DNS-namn, som en IPv4-adress och en IPv6-adress. Om slutpunkten läggs till som en IPv4- eller IPv6-adress blir frågesvaret posttyp A eller AAAA. Om slutpunkten har lagts till som ett DNS-namn, blir svaret på frågan för CNAME-posttyp. . Observera att lägga till slutpunkter som IPv4 eller IPv6-adress tillåts endast slutpunkten är av typen ”extern”.
+Traffic Manager har stöd för att lägga till slutpunkter med hjälp av tre sätt att hänvisa dem – som en DNS-namn, som en IPv4-adress och en IPv6-adress. Om slutpunkten läggs till som en IPv4- eller IPv6-adress blir frågesvaret posttyp A eller AAAA. Om slutpunkten har lagts till som ett DNS-namn, blir svaret på frågan för CNAME-posttyp. Lägga till slutpunkter som IPv4 eller IPv6-adress tillåts endast om slutpunkten är av typen **externa**.
 Alla routningsmetoder och övervakar inställningar stöds av tre slutpunktstyper för adressering.
 
 ### <a name="what-types-of-ip-addresses-can-i-use-when-adding-an-endpoint"></a>Vilka typer av IP-adresser kan jag använda när du lägger till en slutpunkt?

@@ -29,7 +29,7 @@ items:
       href: sql-database-import.md
     - name: Återställa en databassäkerhetskopia till en hanterad instans
       href: sql-database-managed-instance-get-started-restore.md
-  - name: Fråga
+  - name: Söka i data
     href: sql-database-connect-query.md
     items:
     - name: SSMS
@@ -323,8 +323,10 @@ items:
         href: sql-database-elastic-scale-use-entity-framework-applications-visual-studio.md
   - name: Jämförelse av SQL-funktioner
     href: sql-database-features.md
-  - name: Prestanda och övervakning
+  - name: Övervakning och prestandajustering
     items:
+    - name: Översikt över övervakning och justering
+      href: sql-database-monitor-tune-overview.md
     - name: Intelligent prestanda
       items:
       - name: Fråga
@@ -335,8 +337,6 @@ items:
           href: https://docs.microsoft.com/sql/relational-databases/performance/adaptive-query-processing?toc=/azure/sql-database/toc.json
       - name: Övervakning och justering
         items:
-        - name: Översikt över övervakning och justering
-          href: sql-database-monitor-tune-overview.md
         - name: Prestandarekommendationer för Database Advisor
           href: sql-database-advisor.md
         - name: Justeringsåtgärder och rekommendationer
@@ -351,11 +351,11 @@ items:
           href: sql-database-metrics-diag-logging.md
         - name: Använda diagnostikloggen
           href: sql-database-intelligent-insights-use-diagnostics-log.md
+        - name: Query Performance Insight
+          href: sql-database-query-performance.md
         - name: Prestandafelsökning
           href: sql-database-intelligent-insights-troubleshoot-performance.md
-      - name: Query Performance Insight
-        href: sql-database-query-performance.md
-      - name: Automatisk prestandajustering
+      - name: Automatisk inställning
         items:
         - name: Översikt över automatisk justering
           href: sql-database-automatic-tuning.md
@@ -634,9 +634,9 @@ items:
     href: /azure/architecture/
   - name: Kundberättelser
     href: http://customers.microsoft.com/en-us/search?sq=%22Azure%20SQL%20Database%22&ff=&p=0&so=story_publish_date%20desc
-ms.openlocfilehash: 38a8ec13b8a5e50d60ed46d1bd4d71af933d61f0
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: 416f74c395f331de6af749f3de1d3a3e966b8b35
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49470379"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49650068"

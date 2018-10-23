@@ -4,6 +4,7 @@ items:
 - name: Översikt
   items:
   - name: Vad är tjänsten Azure Machine Learning?
+    displayName: AML, services
     href: overview-what-is-azure-ml.md
   - name: Vad händer med Workbench?
     href: overview-what-happened-to-workbench.md
@@ -25,10 +26,12 @@ items:
 - name: Exempel
   items:
   - name: Jupyter Notebooks (GitHub)
+    displayName: example, examples
     href: http://aka.ms/aml-notebooks
 - name: Begrepp
   items:
   - name: Så här fungerar tjänsten
+    displayName: architecture
     href: concept-azure-machine-learning-architecture.md
   - name: Modellhantering
     href: concept-model-management-and-deployment.md
@@ -43,6 +46,7 @@ items:
   - name: 'Konfigurera utvecklingsmiljön '
     items:
     - name: Välj en miljö
+      displayName: local, remote
       href: how-to-choose-a-dev-environment.md
     - name: Konfigurera en miljövariabel
       href: how-to-configure-environment.md
@@ -53,6 +57,7 @@ items:
       - name: Träna och distribuera
         href: how-to-vscode-train-deploy.md
   - name: Förbereda data
+    displayName: data prep, etl, elt
     href: how-to-data-prep.md
     items:
     - name: Läsa in data
@@ -142,6 +147,7 @@ items:
   - name: Inaktuella dokument
     items:
     - name: Så här migrerar du
+      displayName: Workbench, upgrade, update, transfer
       href: how-to-migrate.md
     - name: Exportera eller ta bort kontodata (inaktuellt)
       href: ../desktop-workbench/export-delete-experimentation-model-management-data-dsr.md
@@ -238,7 +244,7 @@ items:
         href: ../desktop-workbench/how-to-use-model-data-collection.md
       - name: Distribuera felsökningsguide
         href: ../desktop-workbench/how-to-deploy-troubleshooting-guide.md
-    - name: Exempel från verkligheten
+    - name: Äldre exempel
       items:
       - name: Analys av dokumentsamling
         href: ../desktop-workbench/scenario-document-collection-analysis.md
@@ -266,7 +272,7 @@ items:
         href: ../desktop-workbench/scenario-image-classification-using-cntk.md
       - name: Djupinlärning för förutsägande underhåll
         href: ../desktop-workbench/scenario-deep-learning-for-predictive-maintenance.md
-    - name: Referens
+    - name: Äldre referens
       items:
       - name: Python-tillägg för förberedelse av data
         href: ../desktop-workbench/data-prep-python-extensibility-overview.md
@@ -304,7 +310,7 @@ items:
         href: ../desktop-workbench/model-management-cli-reference.md
       - name: API för datainsamling
         href: ../desktop-workbench/model-data-collection-api-reference.md
-    - name: Viktiga begrepp
+    - name: Äldre koncept
       href: ../desktop-workbench/overview-general-concepts.md
     - name: Domänpaket
       href: ../desktop-workbench/reference-python-package-overview.md
@@ -341,9 +347,9 @@ items:
       href: ../desktop-workbench/frequently-asked-questions.md
     - name: Äldre problem
       href: ../desktop-workbench/known-issues-and-troubleshooting-guide.md
-ms.openlocfilehash: 2e5e1d3c925a6b946e340820fc7d259251c0e9b7
-ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
+ms.openlocfilehash: 56a72b437397c65777c5fd0955c5257d60f3a6a4
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49457088"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49649252"

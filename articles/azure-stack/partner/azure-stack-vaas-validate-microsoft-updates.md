@@ -10,15 +10,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 07/24/2018
+ms.date: 10/19/2018
 ms.author: mabrigg
 ms.reviewer: johnhas
-ms.openlocfilehash: 6ef8c0486a694ac44c53375b24893812b10343e4
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: 7fcc7d5a1d87fe93d32772dbbb84f1d3c91d5631
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44158491"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49648793"
 ---
 # <a name="validate-software-updates-from-microsoft"></a>Verifiera programuppdateringar från Microsoft
 
@@ -26,38 +26,22 @@ ms.locfileid: "44158491"
 
 Microsoft släpper regelbundet uppdateringar av Azure Stack-programvaran. De här uppdateringarna tillhandahålls till Azure Stack delad engineering partners förväg som görs tillgänglig så att de kan verifiera uppdateringarna mot sina lösningar och lämna feedback till Microsoft.
 
-## <a name="test-an-existing-solution"></a>Testa en befintlig lösning
+[!INCLUDE [azure-stack-vaas-workflow-validation-completion](includes/azure-stack-vaas-workflow-validation-completion.md)]
 
-1. Logga in på den [verifiering portal](https://azurestackvalidation.com).
+## <a name="apply-monthly-update"></a>Tillämpa månatliga uppdatering
 
-2. Välj en befintlig lösning där den uppdaterade från Microsoft har distribuerats och välj **starta** på den **Paketvalideringen** panelen.
+[!INCLUDE [azure-stack-vaas-workflow-section_update-azs](includes/azure-stack-vaas-workflow-section_update-azs.md)]
 
-    ![Verifiera paketet](media/image3.png)
+## <a name="create-a-workflow"></a>Skapa ett arbetsflöde
 
-3. Ange namn för verifiering.
+Uppdatera verifieringar använder samma arbetsflöde som **Paketvalideringen**. Följ anvisningarna på [skapar ett arbetsflöde för Paketvalideringen](azure-stack-vaas-validate-oem-package.md#create-a-package-validation-workflow).
 
-4. Ange Webbadressen till den OEM-paket som har installerats på lösningen vid tidpunkten för distribution. Använd URL: en för det paket som lagras på Azure blob-tjänsten. Mer information finns i [skapa ett Azure storage-blob för att lagra loggar](azure-stack-vaas-set-up-account.md#create-an-azure-storage-blob-to-store-logs).
+## <a name="run-tests"></a>Kör tester
 
-5. Välj **överför** att lägga till din distributionskonfigurationsfilen. Referera till den [validerar en ny lösning för Azure Stack](azure-stack-vaas-validate-solution-new.md) information om hur du laddar upp din konfigurationsfil för distribution.
+Uppdatera verifieringar använder samma arbetsflöde som **Paketvalideringen**. Följ anvisningarna på [köra Paketvalideringen testar](azure-stack-vaas-validate-oem-package.md#run-package-validation-tests).
 
-6. Distributionskonfigurationsfilen måste sedan vara anpassad med rätt miljö parameterfilen, se [miljö parametrar](azure-stack-vaas-parameters.md#environment-parameters) för ytterligare information.
-
-    > [!Note]   
-    > Distributionskonfigurationsfilen kan anpassas ytterligare genom att lägga till vanliga parametrar. Mer information finns i [arbetsflödets gemensamma parametrar för Azure Stack-verifiering som en tjänst](azure-stack-vaas-parameters.md)
-
-7. Användarnamn och lösenord för klientanvändare, tjänstadministratör och cloud-administratören måste anges manuellt.
-
-8. Ange URL: en till Azure Storage-blob för att lagra diagnostikloggarna. Mer information finns i [skapa ett Azure storage-blob för att lagra loggar](azure-stack-vaas-set-up-account.md#create-an-azure-storage-blob-to-store-logs).
-
-    > [!Note]  
-    > Beskrivande taggar kan anges för att märka arbetsflödet.
-
-10. Välj **skicka** spara arbetsflödet.
-
-Lösningen arbetsflödet körs i ungefär 24 timmar. Lägg till en länk till eller en instruktion om schemaläggning av testerna. Radera i verktyget.
-
-Hitta mer information om hur du övervakar förloppet för en verifiering kör, se [övervaka ett test ](azure-stack-vaas-monitor-test.md).
+Du behöver inte begära paketet registrerar för uppdatering verifieringar.
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Mer information om [Azure Stack-verifiering som en tjänst](https://docs.microsoft.com/azure/azure-stack/partner).
+- [Övervaka och hantera tester i VaaS-portalen](azure-stack-vaas-monitor-test.md)

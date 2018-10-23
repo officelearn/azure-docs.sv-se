@@ -244,7 +244,6 @@
 
 #### Villkorlig åtkomst
 ##### [Kunden uppfyllde inte förhandskraven för enhetsregistrering](active-directory-conditional-access.md)
-##### [Klienten blockeras på grund av felaktiga inställningar av principer för villkorlig åtkomst](active-directory-conditional-access-device-remediation.md)
 ##### [Hur och när träder regler utanför företagsnätverk i kraft?](https://aka.ms/calocation)
 ##### [Hur ökar jag antalet enheter som användaren har tillåtelse att registrera i Azure AD?](active-directory-azureadjoin-setup.md)
 ##### [Hur konfigurerar jag villkorlig åtkomst för Exchange Online?](https://aka.ms/csforexchange)

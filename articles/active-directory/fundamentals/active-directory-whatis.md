@@ -12,12 +12,12 @@ ms.workload: identity
 ms.topic: overview
 ms.date: 09/13/2018
 ms.custom: it-pro
-ms.openlocfilehash: 755c301651e7c49faa8b05b2b443c5cce1a03c90
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.openlocfilehash: 08d32a99e2f1a77bcc7a5900b47e6771c33ec356
+ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46364082"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49393329"
 ---
 # <a name="what-is-azure-active-directory"></a>Vad är Azure Active Directory?
 Azure Active Directory (Azure AD) är Microsofts molnbaserade katalog- och identitetshanteringstjänst för flera klientorganisationer. Azure AD kombinerar viktiga katalogtjänster, åtkomsthantering för program och identitetsskydd i en enda lösning vilket utgör en standardbaserad plattform som hjälper utvecklare som ger åtkomstkontroll till deras appar, baserat på centraliserad policy och regler.
@@ -56,7 +56,7 @@ Mer information om serviceavtal finns i [Serviceavtal](https://azure.microsoft.c
 ## <a name="choose-an-edition"></a>Välj en utgåva
 Alla Microsoft Online-företagstjänster förlitar sig på Azure AD (Azure AD) för inloggning och andra identitetsbehov. Om du prenumererar på någon av Microsoft Online-företagstjänsterna (till exempel Office 365 eller Microsoft Azure) får du automatiskt Azure AD med åtkomst till alla de kostnadsfria funktionerna. Med Azure Active Directory Free-versionen kan du hantera användare och grupper, synkronisera med lokala kataloger och få enkel inloggning i Azure, Office 365 och tusentals populära SaaS-program, t.ex. Salesforce, Workday, Concur, DocuSign, Google Apps, Box, ServiceNow, Dropbox och många fler. 
 
-För att förbättra ditt Azure AD-implementering kan du lägga till betalfunktioner med hjälp av Azure Active Directory Basic-, Premium P1- och Premium P2-versionerna. Azure AD-betalversioner byggs ovanpå din befintliga kostnadsfria katalog och ger funktioner i företagsklass såsom självbetjäning, förbättrad övervakning, säkerhetsrapportering, multifaktorautentisering (MFA) och säker åtkomst för din mobil personal.
+För att förbättra din Azure AD-implementering kan du lägga till betalfunktioner genom att uppgradera till Azure Active Directory Basic-, Premium P1- eller Premium P2-versionerna. Azure AD-betalversioner byggs ovanpå din befintliga kostnadsfria katalog och ger funktioner i företagsklass såsom självbetjäning, förbättrad övervakning, säkerhetsrapportering, multifaktorautentisering (MFA) och säker åtkomst för din mobil personal.
 
 > [!NOTE]
 > Prisalternativ för de här versionerna finns i [prisinformation för Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/). Azure Active Directory Premium P1, Premium P2 och Azure Active Directory Basic stöds för närvarande inte i Kina. Om du vill ha mer information om priser för Azure AD kan du kontakta Azure Active Directory-forumet.

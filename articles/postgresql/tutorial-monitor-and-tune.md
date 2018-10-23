@@ -7,12 +7,12 @@ ms.author: raagyema
 ms.service: postgresql
 ms.topic: tutorial
 ms.date: 09/24/2018
-ms.openlocfilehash: 2e4d625cd123583baa30fde8e9826f5b57da49fe
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: ef8809afa2da36f44384d784e32532b7b121e3a9
+ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47393596"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49379152"
 ---
 # <a name="tutorial-monitor-and-tune-azure-database-for-postgresql"></a>Självstudie: Övervakning och justering i Azure Database for PostgreSQL
 
@@ -28,7 +28,7 @@ Azure Database for PostgreSQL har funktioner som hjälper dig att förstå och f
 Du behöver en Azure Database for PostgreSQL-server med PostgreSQL version 9.6 eller 10. Du kan följa stegen i [självstudien för att skapa en server](tutorial-design-database-using-azure-portal.md) för att skapa en server.
 
 > [!IMPORTANT]
-> **Query Store**, **Query Performance Insight** och **prestandarekommendation** finns i en allmänt tillgänglig förhandsversion i ett begränsat antal regioner.
+> **Query Store**, **Query Performance Insight** och **prestandarekommendation** finns i en allmänt tillgänglig förhandsversion.
 
 ## <a name="enabling-data-collection"></a>Aktivera datainsamling
 I [Query Store](concepts-query-store.md) finns en historik över fråge- och väntestatistik på din server och den lagras i databasen **azure_sys** på servern. Det är en valbar funktion. För att aktivera den:

@@ -2,24 +2,18 @@
 title: Konfigurera Azure Data Box| Microsoft Docs
 description: Lär dig hur du kabelansluter och ansluter till Azure Data Box
 services: databox
-documentationcenter: NA
 author: alkohli
-manager: twooley
-editor: ''
-ms.assetid: ''
 ms.service: databox
-ms.devlang: NA
+ms.subservice: pod
 ms.topic: tutorial
-ms.tgt_pltfrm: NA
-ms.workload: NA
-ms.date: 10/03/2018
+ms.date: 10/17/2018
 ms.author: alkohli
-ms.openlocfilehash: f9671e3acdb71affe2187258582254561785780e
-ms.sourcegitcommit: 4edf9354a00bb63082c3b844b979165b64f46286
+ms.openlocfilehash: c3766713c87dd721f7e4c9a90624192cdb402be9
+ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48785645"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49393838"
 ---
 # <a name="tutorial-cable-and-connect-to-your-azure-data-box"></a>Självstudie: Kabelansluta och ansluta till Azure Data Box
 
@@ -91,6 +85,8 @@ Konfigurera din enhet med hjälp av följande steg via det lokala webbgränssnit
     - Om DHCP inte har aktiverats går du till **Ställ in nätverksgränssnitt** och tilldelar statiska IP-adresser, om det behövs.
 
     ![Instrumentpanel för enhet](media/data-box-deploy-set-up/data-box-dashboard-1.png)
+
+När datanätverksgränssnitten har konfigurerats kan du även använda IP-adressen för något av DATA 1–DATA 3-gränssnitten för att komma åt det lokala webbgränssnittet på `https://<IP address of a data network interface>`. 
 
 När enhetskonfigurationen är klar kan du ansluta till enhetsresurserna och kopiera data från datorn till enheten. 
 

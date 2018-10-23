@@ -11,12 +11,12 @@ ms.topic: overview
 ms.date: 09/22/2018
 ms.custom: mvc
 ms.author: spelluru
-ms.openlocfilehash: 08295ceeb2ebe94a96eaade0a6443f0f59212d60
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: 870cfcf8712cc5bee2674b82d5292e4241433386
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47394037"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49342215"
 ---
 # <a name="what-is-azure-service-bus"></a>Vad är Azure Service Bus?
 
@@ -95,9 +95,9 @@ Med [automatisk borttagning vid inaktivitet](/dotnet/api/microsoft.servicebus.me
 
 Om ett fel som leder till att klienten är osäker på resultatet av en sändningsåtgärd kan [dubblettidentifiering](duplicate-detection.md) eliminera osäkerheten genom att låta avsändaren skicka om samma meddelande. Kön eller ämnet tar bort eventuella dubletter.
 
-### <a name="sas-rbac-and-msi"></a>SAS, RBAC och MSI
+### <a name="sas-rbac-and-managed-identities-for-azure-resources"></a>SAS, RBAC och hanterade identiteter för Azure-resurser
 
-Service Bus stöder säkerhetsprotokoll som [signaturer för delad åtkomst](service-bus-sas.md) (SAS), [rollbaserad åtkomstkontroll](service-bus-role-based-access-control.md) (RBAC) och [hanterade tjänstidentiteter](service-bus-managed-service-identity.md) (MSI).
+Service Bus stöder säkerhetsprotokoll som [signaturer för delad åtkomst](service-bus-sas.md) (SAS), [rollbaserad åtkomstkontroll](service-bus-role-based-access-control.md) (RBAC) och [hanterade identiteter för Azure-resurser](service-bus-managed-service-identity.md).
 
 ### <a name="geo-disaster-recovery"></a>Geohaveriberedskap
 

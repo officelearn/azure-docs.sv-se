@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 08/25/2018
 ms.author: markvi
 ms.reviewer: sandeo
-ms.openlocfilehash: 4155ea7c24746f9d3381f2d1e4a1e08a7a56206a
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 4e3b7aff97cbcebe34e6af4755900e8888c5e57d
+ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43049945"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49352811"
 ---
 # <a name="tutorial-configure-hybrid-azure-active-directory-joined-devices-manually"></a>Självstudie: Konfigurera anslutna Azure Active Directory-hybridenheter manuellt 
 
@@ -52,7 +52,7 @@ Om du har en lokal Active Directory-miljö och du vill ansluta dina domänanslut
 
 I den här självstudien förutsätts att du känner till:
     
--  [Introduktion till hantering av enheter i Azure Active Directory](../device-management-introduction.md)
+-  [Introduktion till enhetshantering i Azure Active Directory](../device-management-introduction.md)
     
 -  [Så här planerar du Azure Active Directory Join-hybridimplementeringen](hybrid-azuread-join-plan.md)
 
@@ -92,6 +92,8 @@ Om din organisation planerar att använda sömlös SSO måste följande webbadre
 Om din organisation använder hanterad (icke-federerad) konfiguration med lokal AD och inte använder ADFS för att federera med Azure AD förlitar sig Hybrid Azure AD Join på att Windows 10 på datorobjekten i AD är synkroniserat till Azure AD. Kontrollera att organisationsenheterna (OU) som innehåller datorobjekten som måste vara Hybrid Azure AD-anslutna är aktiverade för synkronisering i Azure AD Connect-synkroniseringskonfigurationen.
 
 För Windows 10-enheter med version 1703 eller tidigare måste du implementera Web Proxy Auto-Discovery (WPAD) för att göra det möjligt för Windows 10-datorer att registreras för Azure AD om din organisation kräver åtkomst till Internet via en utgående proxy. 
+
+Från och med Windows 10-1803, även om hybrid Azure AD Join-försök av en enhet i en federerad domän med hjälp av AD FS misslyckas, och om Azure AD Connect är konfigurerat för att synka dator-/enhetsobjekt till Azure AD försöker sedan enheten att slutföra Hybrid Azure AD-anslutningen med hjälp av den synkroniserade datorn/enheten.
 
 ## <a name="configuration-steps"></a>Konfigurationssteg
 
@@ -508,7 +510,7 @@ Om du vill registrera äldre Windows-enheter måste du se till att inställninga
 
 `Azure Active Directory > Users and groups > Device settings`
     
-Följande princip måste vara inställd på **All** (Alla): **Användare kan registrera sina enheter med Azure AD**
+Följande princip måste vara inställd på **Alla**: **Användare kan registrera sina enheter med Azure AD**
 
 ![Registrera enheter](./media/hybrid-azuread-join-manual-steps/23.png)
 
@@ -561,14 +563,14 @@ Cmdletens utdata visar enheter som är registrerade och anslutna till Azure AD. 
 
 ## <a name="troubleshoot-your-implementation"></a>Felsöka din implementering
 
-Om du har problem med att slutföra Hybrid Azure AD-anslutning för domänanslutna Windows-enheter kan du läsa:
+Om du har problem med att slutföra Hybrid Azure AD-anslutningen för domänanslutna Windows-enheter kan du läsa:
 
 - [Felsöka Hybrid Azure AD-anslutningen för aktuella Windows-enheter](troubleshoot-hybrid-join-windows-current.md)
 - [Felsöka Hybrid Azure AD-anslutningen för äldre Windows-enheter](troubleshoot-hybrid-join-windows-legacy.md)
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Introduktion till hantering av enheter i Azure Active Directory](overview.md)
+* [Introduktion till enhetshantering i Azure Active Directory](overview.md)
 
 
 

@@ -3,7 +3,7 @@ title: Azure Virtual Network-tjänstslutpunkter | Microsoft Docs
 description: Lär dig hur du aktiverar direktåtkomst till Azure-resurser från ett virtuellt nätverk med tjänstslutpunkter.
 services: virtual-network
 documentationcenter: na
-author: anithaa
+author: sumeetmittal
 manager: narayan
 editor: ''
 ms.assetid: ''
@@ -13,14 +13,14 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/15/2018
-ms.author: anithaa
+ms.author: sumeet.mittal
 ms.custom: ''
-ms.openlocfilehash: 3bae20a7d6eea298dd09d24c0c5b53365784b3d0
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.openlocfilehash: 77fad7b0035a9ba21d71e6c493a4f1a5bd9a2111
+ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48239191"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49395215"
 ---
 # <a name="virtual-network-service-endpoints"></a>Slutpunkter för virtuellt nätverk
 
@@ -42,6 +42,7 @@ Den här funktionen är tillgänglig för följande Azure-tjänster och regioner
 - **[Azure SQL Data Warehouse](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)**: Tillgänglig som förhandsversion i alla offentliga Azure-molnregioner.
 - **[Azure Service Bus](../service-bus-messaging/service-bus-service-endpoints.md?toc=%2fazure%2fvirtual-network%2ftoc.json)**: Tillgänglig i förhandsversion.
 - **[Azure Event Hubs](../event-hubs/event-hubs-service-endpoints.md?toc=%2fazure%2fvirtual-network%2ftoc.json)**: Tillgängligt i förhandsversion.
+- **[Azure Data Lake Store Generation 1](../data-lake-store/data-lake-store-network-security.md?toc=%2fazure%2fvirtual-network%2ftoc.json)**: Tillgänglig i förhandsversion.
 
 De mest uppdaterade meddelandena finns på sidan för [Azure Virtual Network-uppdateringar](https://azure.microsoft.com/updates/?product=virtual-network).
 
@@ -65,6 +66,10 @@ Tjänstslutpunkter har följande fördelar:
 
 - En tjänstslutpunkt i ett virtuellt nätverk anger det virtuella nätverkets identitet för Azure-tjänsten. När tjänstslutpunkter är aktiverade i ditt virtuella nätverk kan du skydda Azure-tjänstresurserna i nätverket genom att lägga till en virtuell nätverksregel för resurserna.
 - Idag används offentliga IP-adresser som IP-källadresser för Azure-tjänsttrafiken från ett virtuellt nätverk. Med tjänstslutpunkter använder tjänsttrafiken istället privata adresser i det virtuella nätverket som IP-källadresser vid åtkomst till Azure-tjänsten från det virtuella nätverket. Med det här bytet kan du komma åt tjänsterna utan att behöva reserverade, offentliga IP-adresser som används i brandväggar.
+
+>[!NOTE]
+> Med tjänstslutpunkter växlar källans IP-adresser för virtuella datorer i undernätet för tjänsttrafik från att använda offentliga IPv4-adresser till att istället använda privata. Befintliga brandväggsregler för Azure-tjänsten med hjälp av offentliga IP-adresser i Azure slutar att fungera via den här ändringen. Kontrollera att brandväggsreglerna för Azure-tjänsten tillåter den här växeln innan du konfigurerar tjänstslutpunkter. Det kan också uppstå tillfälligt avbrott för tjänsttrafik från det här undernätet när du konfigurerar tjänstslutpunkter. 
+ 
 - __Skydda Azure-tjänståtkomst från lokalt nätverk__:
 
   Som standard kan Azure-tjänstresurser som skyddas på virtuella nätverk inte nås från lokala nätverk. Om du vill tillåta trafik från lokala nätverk måste du även tillåta offentliga IP-adresser (normalt NAT) från dina lokala kretsar eller ExpressRoute. Dessa IP-adresser kan läggas till via IP-brandväggskonfiguration för Azure-tjänstresurser.
@@ -87,6 +92,7 @@ Tjänstslutpunkter har följande fördelar:
 
   IP-adressbytet påverkar bara tjänsttrafiken från ditt virtuella nätverk. Det påverkar inte hur någon annan trafik till eller från de offentliga IPv4-adresser som är tilldelade till dina virtuella datorer. För Azure-tjänster gäller att befintliga brandväggsregler där offentliga Azure-IP-adresser används slutar att fungera vid bytet till privata adresser i det virtuella nätverket.
 - Med tjänstslutpunkter förblir DNS-posterna för Azure-tjänster som de är idag, och de fortsätter att matcha mot offentliga IP-adresser tilldelade till Azure-tjänsten.
+
 - Nätverkssäkerhetsgrupper (NSG) med tjänstslutpunkter:
   - Som standard tillåter NSG:er utgående internettrafik och därmed även trafik från ditt VNet till Azure-tjänster. Detta fortsätter att fungera på samma sätt, med tjänstslutpunkter. 
   - Om du vill neka all utgående internettrafik och endast tillåta trafik till specifika Azure-tjänster kan du använda [tjänsttaggar](security-overview.md#service-tags) i dina NSG:er. Du kan ange Azure-tjänster som stöds som mål i NSG-reglerna och underhållet av underliggande IP-adresser för varje tagg anges av Azure. Mer information finns i [Azure-tjänsttaggar för NSG:er](security-overview.md#service-tags). 

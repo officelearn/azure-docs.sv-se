@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.service: cost-management
 ms.custom: ''
 manager: dougeby
-ms.openlocfilehash: 587459be69fe250b3e73fb9eb9d5cd08cf2e7a42
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: e1954ae9fcbb010c66e8a812e3e34477ac2bfc29
+ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46953692"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49395232"
 ---
 # <a name="tutorial-forecast-future-spending"></a>Självstudie: Skapa prognoser för framtida utgifter
 
@@ -35,7 +35,7 @@ Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto]
 
 Cloudyn innehåller rapporter för kostnadsprognoser som hjälper dig att göra prognoser för utgifter baserat på din förbrukning över tid. Det primära syftet är att du ska kunna se till att kostnadstrenderna inte överstiger förväntningarna inom organisationen. De rapporter du använder är Current Month Projected Cost (Beräknad kostnad aktuell månad) och Annual Projected Cost (Beräknad årlig kostnad). Både visar den beräknade framtida kostnaden om användningen förblir relativt lik användningen de senaste 30 dagarna.
 
-I rapporten Current Month Projected Cost visas kostnaderna för dina tjänster. Kostnaderna från början av månaden samt föregående månad används till att visa den beräknade kostnaden. Gå till rapportmenyn överst i portalen och klicka på **Cost** (Kostnad)  >  **Projection and Budget** (Planering och budget)  >  **Current Month Projected Cost**. I följande bild visas ett exempel.
+I rapporten Current Month Projected Cost visas kostnaderna för dina tjänster. Kostnaderna från början av månaden samt föregående månad används till att visa den beräknade kostnaden. Gå till rapportmenyn överst i portalen och klicka på **Costs (Kostnader)** > **Projection and Budget (Planering och budget)** > **Current Month Projected Cost** (Planerad kostnad för aktuell månad). I följande bild visas ett exempel.
 
 ![Beräknad kostnad aktuell månad](./media/tutorial-forecast-spending/project-month01.png)
 
@@ -47,7 +47,7 @@ Följ samma grundprincip när du vill titta på månatliga beräknade kostnader 
 
 I rapporten Annual Projected Cost visas extrapolerade kostnader för dina tjänster kommande 12 månader.
 
-Gå till rapportmenyn överst i portalen och klicka på **Cost** (Kostnad)  >  **Projection and Budget** (Planering och budget)  >  **Annual Projected Cost**. I följande bild visas ett exempel.
+Gå till rapportmenyn överst i portalen och klicka på **Costs (Kostnader)** > **Projection and Budget (Planering och budget)** > **Annual Projected Cost** (Planerad årlig kostnad). I följande bild visas ett exempel.
 
 ![Rapporten årlig beräknad kostnad](./media/tutorial-forecast-spending/project-annual01.png)
 

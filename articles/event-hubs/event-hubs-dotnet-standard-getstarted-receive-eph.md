@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/16/2018
 ms.author: shvija
-ms.openlocfilehash: 03acd63ff00f0a3017297d1998289c8e68f0f290
-ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
+ms.openlocfilehash: 5abb2447fa90ea5900afb86746cc17eff62c2d2e
+ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "41920803"
+ms.lasthandoff: 10/12/2018
+ms.locfileid: "49166295"
 ---
 # <a name="get-started-receiving-messages-with-the-event-processor-host-in-net-standard"></a>Börja ta emot meddelanden med EventProcessorHost i .NET Standard
 
@@ -42,14 +42,19 @@ Det första steget är att använda [Azure Portal](https://portal.azure.com) til
 
 ## <a name="create-an-azure-storage-account"></a>Skapa ett Azure Storage-konto  
 
-1. Logga in på [Azure Portal](https://portal.azure.com).  
-2. I det vänstra navigationsfältet i portalen klickar du på **Skapa en resurs**, på **Storage** och sedan på **Lagringskonto**.  
-3. Fyll i fälten i lagringskontofönstret och klicka på **Skapa**.
+1. Logga in på [Azure-portalen](https://portal.azure.com).  
+2. I det vänstra navigeringsfönstret i portalen väljer du **Skapa en resurs**, sedan **Lagring** bland kategorierna och sedan **Lagringskonto – blob, fil, tabell, kö**.  
+3. Fyll i fälten i fönstret **Skapa lagringskonto** och klicka på **Granska + skapa**. 
 
     ![Skapa lagringskonto][1]
 
-4. När du ser meddelandet **Distributionen är klar** klickar du på det nya lagringskontots namn. I fönstret **Essentials** klickar du på **Blobbar**. När dialogrutan **Blob service** öppnas klickar du på **Container** högst upp. Ge containern ett namn och stäng **Blob service**.  
-5. Klicka på **Åtkomstnycklar** i fönstret till vänster och kopiera lagringscontainerns namn, lagringskontot och värdet för **key1**. Spara det här värdet i Anteckningar eller på någon annan tillfällig plats.  
+4. På sidan **Granska + skapa** väljer du **Skapa** när du har granskat fältens värden. 
+5. När du ser meddelandet **Distributionen är klar** väljer du det nya lagringskontots namn. 
+6. I fönstret **Essentials** väljer du **Blobar**. 
+7. Välj **+ Container** högst upp. Ge containern ett namn.  
+8. Välj **Åtkomstnycklar** i fönstret till vänster och kopiera lagringscontainerns namn, lagringskontot och värdet för **key1**. 
+
+    Spara det här värdet i Anteckningar eller på någon annan tillfällig plats.
 
 ## <a name="create-a-console-application"></a>Skapa ett konsolprogram
 

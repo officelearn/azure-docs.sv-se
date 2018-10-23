@@ -9,28 +9,16 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: peterpr
-ms.openlocfilehash: af06766d89804b2f3d0aaf061494fb836f6ec262
-ms.sourcegitcommit: 06724c499837ba342c81f4d349ec0ce4f2dfd6d6
+ms.openlocfilehash: 0199efbc1456206c67efb846b4381cae333e3749
+ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46465613"
+ms.lasthandoff: 10/13/2018
+ms.locfileid: "49309050"
 ---
 # <a name="create-an-azure-iot-central-application"></a>Skapa ett Azure IoT Central-program
 
-Som _byggare_ använder du Azure IoT Central-användargränssnittet till att definiera ditt Microsoft Azure IoT Central-program. I den här snabbstarten får du veta hur du:
-
-- Skapa ett Azure IoT Central-program som innehåller ett exempel på en _enhetsmall_ och simulerade _enheter_.
-- Visa funktionerna i enhetsmallen **Kylande varuautomat** i ditt program.
-- Visa telemetri och analys från dina simulerade **kylskåp**.
-
-I den här snabbstarten ser du ett simulerat **kylskåp** från en enhetsmall. Den simulerade enheten:
-
-* Skickar telemetri, till exempel temperatur och tryck, till ditt program.
-* Rapporterar enhetens egenskapsvärden, till exempel en rörelseavisering, till ditt program.
-* Innehåller enhetsinställningar, till exempel fläkthastighet, som du kan ställa in i programmet.
-
-När du skapar en simulerad enhet från en enhetsmall i Azure IoT Central-programmet, kan du med den simulerade enheten testa programmet innan du ansluter en riktig enhet.
+Som _byggare_ använder du Azure IoT Central-användargränssnittet till att definiera ditt Microsoft Azure IoT Central-program. Den här snabbstarten visar hur du skapar ett Azure IoT Central-program som innehåller ett exempel på en _enhetsmall_ och simulerade _enheter_.
 
 ## <a name="create-the-application"></a>Skapa programmet
 

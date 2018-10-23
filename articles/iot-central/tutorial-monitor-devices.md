@@ -9,18 +9,18 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: peterpr
-ms.openlocfilehash: 9a3b7383651d679b079818fb32bd8f98160d0a4c
-ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
+ms.openlocfilehash: 91a4fceaf5a3e573964919d365a67519b26278ca
+ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35235489"
+ms.lasthandoff: 10/13/2018
+ms.locfileid: "49310632"
 ---
 # <a name="tutorial-use-azure-iot-central-to-monitor-your-devices"></a>Självstudie: Använda Azure IoT Central för att övervaka dina enheter
 
 I den här självstudien lär du dig att som operatör använda Microsoft Azure IoT Central-programmet för att övervaka enheter och ändra inställningar.
 
-I den här guiden får du lära dig hur man:
+I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
 > * Få ett meddelande
@@ -61,7 +61,7 @@ Diagrammet på instrumentpanelen visar en kurva över enhetens temperatur. Du ka
 
 För att ändra enhetens måltemperatur använder du sidan **Inställningar**:
 
-1. Välj **Inställningar**. Ändra **Ange temperatur** till 100. Välj **Uppdatera** för att skicka den nya måltemperaturen till enheten. När enheten har bekräftat de ändrade inställningarna ändras status för inställningens värde till **synkroniserad**:
+1. Välj **Inställningar**. Ändra **Ange temperatur** till 75. Välj **Uppdatera** för att skicka den nya måltemperaturen till enheten. När enheten har bekräftat de ändrade inställningarna ändras status för inställningens värde till **synkroniserad**:
 
     ![Uppdatera inställningar](media/tutorial-monitor-devices/change_settings.png)
 

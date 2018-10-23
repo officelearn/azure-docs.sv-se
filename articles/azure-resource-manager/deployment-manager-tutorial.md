@@ -13,14 +13,14 @@ ms.devlang: na
 ms.date: 10/04/2018
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: ae0d37dd8df9b076e72959e9036ba35d322e4e63
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: 5d18a1f86e1d870db64199c575450dd475590b55
+ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48803723"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49394490"
 ---
-# <a name="tutorial-use-azure-deployment-manager-with-resource-manager-templates-public-preview"></a>Självstudier: Använda Azure Deployment Manager med Resource Manager-mallar (offentlig förhandsversion)
+# <a name="tutorial-use-azure-deployment-manager-with-resource-manager-templates-private-preview"></a>Självstudie: Använda Azure Deployment Manager med Resource Manager-mallar (privat förhandsgranskning)
 
 Lär dig hur du använder [Azure Deployment Manager](./deployment-manager-overview.md) för att distribuera dina program i flera regioner. För att använda Deployment Manager måste du skapa två mallar:
 
@@ -48,7 +48,7 @@ Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](ht
 För att kunna följa stegen i den här artikeln behöver du:
 
 * Viss erfarenhet av att utveckla [Azure Resource Manager-mallar](./resource-group-overview.md).
-* Distributionshanteraren i Azure finns i en offentlig förhandsversion. Om du vill registrera dig med Azure Deployment Manager fyller du i [registreringsbladet](https://aka.ms/admsignup). 
+* Distributionshanteraren i Azure finns i en privat förhandsgranskning. Om du vill registrera dig med Azure Deployment Manager fyller du i [registreringsbladet](https://aka.ms/admsignup). 
 * Azure PowerShell. Mer information finns i [Kom igång med Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps).
 * Deployment Manager-cmdlets. För att installera dessa cmdlets i förhandsversionen behöver du den senaste versionen av PowerShellGet. Information om hur du skaffar den senaste versionen finns i [Installera PowerShellGet](/powershell/gallery/installing-psget). Stäng PowerShell-fönstret när du har installerat PowerShellGet. Öppna ett nytt PowerShell-fönster och använd följande kommando:
 

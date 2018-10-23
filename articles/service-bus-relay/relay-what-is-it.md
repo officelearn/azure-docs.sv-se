@@ -13,12 +13,12 @@ ms.devlang: multiple
 ms.topic: get-started-article
 ms.date: 10/08/2018
 ms.author: spelluru
-ms.openlocfilehash: 46a9045cdf422ed4f14e5588b3342e8bfde2e4c8
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: 3cc87c0acbed317cccaccec687f27c23a1d32cf0
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48888156"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49319344"
 ---
 # <a name="what-is-azure-relay"></a>Vad är Azure Relay?
 Med Azure Relay-tjänsten kan du på ett säkert sätt visa tjänster som körs i företagets nätverk för det offentliga molnet. Du kan göra det utan att behöva öppna en brandväggsanslutning eller göra störande ändringar i företagets nätverksinfrastruktur. 
@@ -81,10 +81,9 @@ Följande diagram visar hur inkommande reläbegäranden hanteras av Azure Relay-
 4. Den gateway som tar emot begäran söker efter reläet i gatewayarkivet. 
 5. Gatewayen vidarebefordrar anslutningsbegäran till rätt gateway som nämns i gatewayarkivet. 
 6. Gatewayen skickar en begäran till den lyssnande klienten om att skapa en tillfällig kanal till den gatewaynod som är närmast den skickande klienten. 
-7. Nu skapar den lyssnande klienten en tillfällig kanal och skickar ett svarsmeddelande till den gateway som är närmast den skickande klienten.
-8. Gatewayen vidarebefordrar svarsmeddelandet till den skickande klienten. 
-
-Klienterna kan utbyta meddelanden via gateway-noden som används för rendezvous när anslutningen med vidarebefordran har upprättats.
+7. Den lyssnande klienten skapar en tillfällig kanal till den gateway som är närmast den skickande klienten. Nu när anslutningen har upprättats mellan klienter via en gateway kan klienterna utbyta meddelanden med varandra. 
+8. Gatewayen vidarebefordrar alla meddelanden från den lyssnande klienten till den skickande klienten. 
+9. Gatewayen vidarebefordrar alla meddelanden från den skickande klienten till den lyssnande klienten.  
 
 ## <a name="next-steps"></a>Nästa steg
 * [Komma igång med .NET Websockets](relay-hybrid-connections-dotnet-get-started.md)

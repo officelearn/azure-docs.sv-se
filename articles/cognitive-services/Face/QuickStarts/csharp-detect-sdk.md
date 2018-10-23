@@ -3,25 +3,23 @@ title: 'Snabbstart: Identifiera ansikten i en bild med SDK, C#'
 titleSuffix: Azure Cognitive Services
 description: I den här snabbstarten identifierar du ansikten med Windows ansiktsigenkänning med C#-klientbibliotek i Cognitive Services.
 services: cognitive-services
-author: noellelacharite
+author: PatrickFarley
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: face-api
 ms.topic: quickstart
 ms.date: 09/14/2018
-ms.author: nolachar
-ms.openlocfilehash: a9a7efd89f8e7462812064615d07acf12acbc3a3
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.author: pafarley
+ms.openlocfilehash: b5fd10aaab28303079d3eef9c4c5c25207bb672e
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46364132"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49344990"
 ---
 # <a name="quickstart-detect-faces-in-an-image-using-c35---face"></a>Snabbstart: Identifiera ansikten i en bild med C&#35; – Ansiktsigenkänning
 
 I den här snabbstarten identifierar du människoansikten i en bild med klientbiblioteket för Windows-ansiktsigenkänning.
-
-Källkoden till det här exemplet finns på [GitHub](https://github.com/Azure-Samples/cognitive-services-vision-csharp-sdk-quickstarts/tree/master/Face).
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
@@ -30,6 +28,9 @@ Källkoden till det här exemplet finns på [GitHub](https://github.com/Azure-Sa
 * NuGet-paketet för klientbiblioteket [Microsoft.Azure.CognitiveServices.Vision.Face 2.2.0-preview](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.Face/2.2.0-preview). Du behöver inte ladda ned paketet. Installationsinstruktioner finns nedan.
 
 ## <a name="detectwithurlasync-method"></a>Metoden DetectWithUrlAsync
+
+> [!TIP]
+> Hämta den senaste koden som en Visual Studio-lösning från [GitHub](https://github.com/Azure-Samples/cognitive-services-vision-csharp-sdk-quickstarts/tree/master/Face).
 
 Metoderna `DetectWithUrlAsync` och `DetectWithStreamAsync` omsluter [API:et för ansiktsigenkänning](https://westcentralus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) för fjärrbilder respektive lokala bilder. Använd dessa metoder för att identifiera ansikten i en bild och returnera ansiktsattribut som:
 

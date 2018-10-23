@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.date: 09/05/2018
 ms.author: barclayn
 ms.custom: mvc
-ms.openlocfilehash: d1776fc2347eb1a1f03a834b6a5f847ef5c551e4
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 521b6423550bf3e2d0bc90212b7e3fe0cbeddfc4
+ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46948891"
+ms.lasthandoff: 10/12/2018
+ms.locfileid: "49167081"
 ---
 # <a name="tutorial-configure-an-azure-web-application-to-read-a-secret-from-key-vault"></a>Självstudier: Konfigurera ett Azure-webbprogram att läsa en hemlighet från Key Vault
 
@@ -126,10 +126,11 @@ Du måste installera två NuGet-paket för webbprogrammet. Installera dem genom 
 1. Högerklicka på ditt webbplatsnamn i Solution Explorer.
 2. Välj **Hantera NuGet-paket för lösning...**
 3. Markera kryssrutan bredvid sökrutan. **Ta med förhandsversion**
-4. Sök efter de två NuGet-paketen som anges nedan och godkänn att de läggs till i din lösning:
+4. Sök efter de tre NuGet-paket som anges nedan och godkänn att de läggs till i din lösning:
 
     * [Microsoft.Azure.Services.AppAuthentication](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication) – gör det enkelt att hämta åtkomsttoken för autentiseringsscenarier av typen ”tjänst till Azure-tjänst”. 
     * [Microsoft.Azure.KeyVault](https://www.nuget.org/packages/Microsoft.Azure.KeyVault) innehåller metoder för interaktion med Key Vault.
+    * [Microsoft.Extensions.Configuration.AzureKeyVault](https://www.nuget.org/packages/Microsoft.Extensions.Configuration.AzureKeyVault/) – innehåller `IConfiguration`-tillägg för Azure Key Vault
 
 5. Öppna `Program.cs` i Solution Explorer och ersätt innehållet i filen Program.cs med följande kod. Ersätt ```<YourKeyVaultName>``` med namnet på ditt nyckelvalv:
 
@@ -218,7 +219,7 @@ Du måste installera två NuGet-paket för webbprogrammet. Installera dem genom 
 >[!IMPORTANT]
 > Ett webbläsarfönster öppnas och ett meddelande av typen 502.5 – Processfel visas. Detta är normalt. Du måste bevilja programidentiteten behörighet att läsa hemligheter från Key Vault.
 
-## <a name="enable-a-managed-identity-for-the-web-app"></a>Aktivera en hanterad identitet för webbprogrammet
+## <a name="enable-a-managed-identity-for-the-web-app"></a>Aktivera en hanterad identitet för webbappen
 
 Azure Key Vault är ett sätt att lagra autentiseringsuppgifter samt andra nycklar och hemligheter på ett säkert sätt, men din kod måste autentiseras till Key Vault för att kunna hämta dem. [Hanterade identiteter för Azure-resurser (översikt)](../active-directory/managed-identities-azure-resources/overview.md) löser detta problem på ett enklare sätt genom att ge Azure-tjänsterna en automatiskt hanterad identitet i Azure Active Directory (Azure AD). Du kan använda den här identiteten för att autentisera till alla tjänster som stöder Azure AD-autentisering, inklusive Key Vault, utan att behöva ha några autentiseringsuppgifter i koden.
 

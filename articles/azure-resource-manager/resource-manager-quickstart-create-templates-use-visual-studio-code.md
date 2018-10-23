@@ -10,19 +10,19 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 09/07/2018
+ms.date: 10/17/2018
 ms.topic: quickstart
 ms.author: jgao
-ms.openlocfilehash: a2b4c4824960c21011876a7c0adf029fc56d93d2
-ms.sourcegitcommit: 3150596c9d4a53d3650cc9254c107871ae0aab88
+ms.openlocfilehash: 69a24dba752e4aa374e03e57ce197ae882647373
+ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47419125"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49378699"
 ---
 # <a name="quickstart-create-azure-resource-manager-templates-by-using-visual-studio-code"></a>Snabbstart: Skapa Azure Resource Manager-mallar genom att använda Visual Studio Code
 
-Lär dig hur du skapar Azure Resource Manager-mallar med hjälp av Visual Studio Code och Azure Resource Manager Tools-tillägget. Du kan skapa Resource Manager-mallar i Visual Studio Code utan tillägget. Tillägget innehåller dock alternativ för automatisk komplettering som gör det enklare att skapa mallar. En beskrivning av de begrepp som används i samband med distribution och hantering av Azure-lösningar finns i [Översikt över Azure Resource Manager](resource-group-overview.md).
+Lär dig hur du använder Visual Studio Code och Azure Resource Manager Tools-tillägget för att skapa och redigera Azure Resource Manager-mallar. Du kan skapa Resource Manager-mallar i Visual Studio Code utan tillägget. Tillägget innehåller dock alternativ för automatisk komplettering som gör det enklare att skapa mallar. En beskrivning av de begrepp som används i samband med distribution och hantering av Azure-lösningar finns i [Översikt över Azure Resource Manager](resource-group-overview.md).
 
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
@@ -55,9 +55,14 @@ Den mall som används i den här snabbstarten kallas [Create a standard storage 
 
 ## <a name="edit-the-template"></a>Redigera mallen
 
-Om du vill veta hur du redigerar en mall med Visual Studio Code lägger du till ett ytterligare element i utdataavsnittet.
+Om du vill veta hur du redigerar en mall med Visual Studio Code lägger du till ytterligare ett element i avsnittet `outputs`.
 
-1. Från Visual Studio Code lägger du till ytterligare utdata i den exporterade mallen:
+1. Från Visual Studio Code kontrollerar du värdet för **kind**. Om värdet är **Storage** uppdaterar du värdet till **StorageV2**.
+
+    ```json
+    "kind": "StorageV2",
+    ```
+2. Lägg till ytterligare utdata i den exporterade mallen:
 
     ```json
     "storageUri": {
@@ -85,25 +90,17 @@ Om du vill veta hur du redigerar en mall med Visual Studio Code lägger du till 
 
     ![Resource Manager template visual studio code intellisense](./media/resource-manager-quickstart-create-templates-use-visual-studio-code/resource-manager-templates-visual-studio-code-intellisense.png)
 
-2. Välj **Arkiv** >**Spara** för att spara filen.
+3. Välj **Arkiv** >**Spara** för att spara filen.
 
 ## <a name="deploy-the-template"></a>Distribuera mallen
 
-Det finns många metoder för att distribuera mallar.  I den här snabbstarten använder du Azure Cloud Shell från Azure-portalen. Cloud Shell kan användas med både Azure CLI och Azure PowerShell. 
+Det finns många metoder för att distribuera mallar.  I den här snabbstarten använder du Azure Cloud Shell. Cloud Shell kan användas med både Azure CLI och Azure PowerShell. 
 
-1. Logga in på [Azure-portalen](https://portal.azure.com)
-2. Välj **Cloud Shell** från det övre högra hörnet enligt följande bild:
-
-    ![Azure portal Cloud shell](./media/resource-manager-quickstart-create-templates-use-visual-studio-code/azure-portal-cloud-shell.png)
-
-    Cloud Shell öppnas längst ned i fönstret.
-
-3. I övre vänstra hörnet i Cloud Shell visas antingen **PowerShell** eller **Bash**. Om du vill använda CLI måste du öppna en Bash-session. Om du vill köra PowerShell måste du öppna en PowerShell-session. Välj nedpilen för att växla mellan Bash och PowerShell. Följande bild visar byte från PowerShell till Bash.
+1. Logga in på [Azure Cloud Shell](https://shell.azure.com).
 
     ![Azure portal Cloud shell CLI](./media/resource-manager-quickstart-create-templates-use-visual-studio-code/azure-portal-cloud-shell-choose-cli.png)
-
-    Du måste starta om gränssnittet när du byter.
-4. Välj **Ladda upp/ned filer** och välj sedan **Ladda upp**.
+2. I övre vänstra hörnet i Cloud Shell visas antingen **PowerShell** eller **Bash**. Om du vill använda CLI måste du öppna en Bash-session. Om du vill köra PowerShell måste du öppna en PowerShell-session. Välj nedpilen för att växla mellan Bash och PowerShell. Se föregående skärmbild. Du måste starta om gränssnittet när du byter.
+3. Välj **Ladda upp/ned filer** och välj sedan **Ladda upp**.
 
     # <a name="clitabcli"></a>[CLI](#tab/CLI)
 
@@ -116,7 +113,7 @@ Det finns många metoder för att distribuera mallar.  I den här snabbstarten a
     ---
 
     Du måste ladda upp mallfilen innan du kan distribuera den från gränssnittet.
-5. Välj den fil som du sparade tidigare i snabbstarten. Standardnamnet är **azuredeploy.json**.
+5. Välj den fil som du sparade i föregående avsnitt. Standardnamnet är **azuredeploy.json**.
 6. Från Cloud Shell kör du kommandot **ls** för att kontrollera att filen har laddats upp. Du kan även använda kommandot **cat** för att verifiera mallinnehållet. Följande bild visar kommandot som körs från Bash.  Du använder samma kommandon från en PowerShell-session.
 
     # <a name="clitabcli"></a>[CLI](#tab/CLI)
@@ -132,20 +129,30 @@ Det finns många metoder för att distribuera mallar.  I den här snabbstarten a
 
     # <a name="clitabcli"></a>[CLI](#tab/CLI)
     ```cli
-    az group create --name <ResourceGroupName> --location <AzureLocation>
-
-    az group deployment create --name <DeploymentName> --resource-group <ResourceGroupName> --template-file <TemplateFileName>
+    echo "Enter the Resource Group name:" &&
+    read resourceGroupName &&
+    echo "Enter the name for this deployment:" &&
+    read deploymentName &&
+    echo "Enter the location (i.e. centralus):" &&
+    read location &&
+    az group create --name $resourceGroupName --location $location &&
+    az group deployment create --name $deploymentName --resource-group $resourceGroupName --template-file "azuredeploy.json"
     ```
    
     # <a name="powershelltabpowershell"></a>[PowerShell](#tab/PowerShell)
     
     ```powershell
-    New-AzureRmResourceGroup -Name <ResourceGroupName> -Location <AzureLocation>
-
-    New-AzureRmResourceGroupDeployment -ResourceGroupName <ResourceGroupName> -TemplateFile <TemplateFileName>
+    $resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
+    $deploymentName = Read-Host -Prompt "Enter the name for this deployment"
+    $location = Read-Host -Prompt "Enter the location (i.e. centralus)"
+    
+    New-AzureRmResourceGroup -Name $resourceGroupName -Location $location
+    New-AzureRmResourceGroupDeployment -Name $deploymentName -ResourceGroupName $resourceGroupName -TemplateFile "azuredeploy.json"
     ```
     
     ---
+
+    Uppdatera mallfilnamnet om du sparar filen som ett annat namn än **azuredeploy.json**.
 
     Följande skärmbild visar ett distributionsexempel:
 
@@ -159,26 +166,25 @@ Det finns många metoder för att distribuera mallar.  I den här snabbstarten a
     
     ---
 
-    På skärmbilden används de här värdena:
-
-    - **&lt;ResourceGroupName>**: myresourcegroup0709. Det finns två förekomster av parametern.  Se till att använda samma värde.
-    - **&lt;AzureLocation>**: eastus2
-    - **&lt;DeployName>**: mydeployment0709
-    - **&lt;TemplateFile>**: azuredeploy.json
-
-    Från skärmbildsutdata är lagringskontonamnet *3tqebj3slyfyestandardsa*. 
+    Lagringskontonamnet och lagrings-URL:en i utdataavsnittet är markerade på skärmbilden. Du behöver lagringskontonamnet i nästa steg.
 
 7. Kör följande CLI- eller PowerShell-kommando för att visa det nyligen skapade lagringskontot:
 
     # <a name="clitabcli"></a>[CLI](#tab/CLI)
     ```cli
-    az storage account show --resource-group <ResourceGroupName> --name <StorageAccountName>
+    echo "Enter the Resource Group name:" &&
+    read resourceGroupName &&
+    echo "Enter the Storage Account name:" &&
+    read storageAccountName &&
+    az storage account show --resource-group $resourceGroupName --name $storageAccountName
     ```
    
     # <a name="powershelltabpowershell"></a>[PowerShell](#tab/PowerShell)
     
     ```powershell
-    Get-AzureRmStorageAccount -ResourceGroupName <ResourceGroupName> -Name <StorageAccountName>
+    $resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
+    $storageAccountName = Read-Host -Prompt "Enter the Storage Account name"
+    Get-AzureRmStorageAccount -ResourceGroupName $resourceGroupName -Name $storageAccountName
     ```
     
     ---

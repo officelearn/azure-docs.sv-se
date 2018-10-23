@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 09/18/2018
 ms.author: zachal
 ms.custom: mvc
-ms.openlocfilehash: 4d504e0488d35c5c606468faa35bece1318503b4
-ms.sourcegitcommit: 8b694bf803806b2f237494cd3b69f13751de9926
+ms.openlocfilehash: bc1b52b97897cb1c635fb16e6ef9692de1ca8a44
+ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/20/2018
-ms.locfileid: "46498529"
+ms.lasthandoff: 10/12/2018
+ms.locfileid: "49167264"
 ---
 # <a name="manage-windows-updates-by-using-azure-automation"></a>Hantera Windows-uppdateringar med hjälp av Azure Automation
 
@@ -116,7 +116,8 @@ Under **Aviseringslogik**, för **Tröskelvärde**, ange **1**. När du är klar
 
 #### <a name="runbook-alert"></a>Runbook-avisering
 
-För misslyckade distributioner måste du avisera om felet i huvudkörningen. I Azure-portalen öppnar du **Monitor** och väljer **Skapa avisering**.
+För misslyckade distributioner måste du avisera om felet i din master-runbook.
+I Azure Portal går du till **Övervaka**, och väljer sedan **Skapa avisering**.
 
 Under **1. Definiera aviseringstillstånd** , klicka på **Välj mål**. Under **Filtrera efter resurstyp** väljer du **Automation-konton**. Välj ditt Automation-konto och välj **Klar**.
 

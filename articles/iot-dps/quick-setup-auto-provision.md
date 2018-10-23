@@ -9,12 +9,12 @@ ms.service: iot-dps
 services: iot-dps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: ce1586e472e1d1ea5ddd9ca5a426b1bea2b5b931
-ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
+ms.openlocfilehash: 5533dacc4a782cbdb6026c4a4d5c5bed9e39147a
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "42022438"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49320160"
 ---
 # <a name="set-up-the-iot-hub-device-provisioning-service-with-the-azure-portal"></a>Konfigurera tjänsten IoT Hub Device Provisioning på Azure Portal
 
@@ -40,12 +40,12 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
     * **Prenumeration**: Välj den prenumeration som du vill använda för att skapa instansen av enhetsetableringstjänsten.
     * **Resursgrupp:** I det här fältet kan du skapa en ny resursgrupp eller välja en befintlig som ska innehålla den nya instansen. Välj resursgruppen som innehåller den IoT-hubb du skapade, till exempel **TestResources**. Genom att lägga till alla relaterade resurser i en grupp kan du hantera dem tillsammans. Till exempel tas alla resurser som ingår i gruppen bort om resursgruppen tas bort. Mer information finns i [Använda resursgrupper för att hantera Azure-resurser](../azure-resource-manager/resource-group-portal.md).
     * **Plats**: Välj den plats som är närmast enheten.
-    * **Fäst på instrumentpanelen:** Med det här alternativet fäster du instansen på instrumentpanelen. Det gör den enklare att hitta.
 
     ![Ange grundläggande information om instansen av enhetsetableringstjänsten på bladet på portalen](./media/quick-setup-auto-provision/create-iot-dps-portal.png)  
 
-4. När tjänsten har distribuerats öppnas sammanfattningsbladet för tjänsten automatiskt.
+4. Klicka på meddelandet för att övervaka skapandet av resursinstansen. När tjänsten har distribuerats klickar du på **Fäst vid instrumentpanelen** och sedan **Gå till resurs**.
 
+    ![Övervaka distributionsmeddelandet](./media/quick-setup-auto-provision/pin-to-dashboard.png)
 
 ## <a name="link-the-iot-hub-and-your-device-provisioning-service"></a>Länka IoT-hubben och Device Provisioning-tjänstinstansen
 

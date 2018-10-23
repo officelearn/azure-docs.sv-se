@@ -10,18 +10,16 @@ ms.component: translator-text
 ms.topic: quickstart
 ms.date: 06/15/2018
 ms.author: nolachar
-ms.openlocfilehash: 328f5996a9b830ea6c2ff4b4a535d5311f39e08e
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.openlocfilehash: 35903b0da707e5167781c3a7595c3be938a4fc07
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46365264"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49321361"
 ---
 # <a name="quickstart-find-alternate-translations-and-usage-with-c35"></a>Snabbstart: Hitta alternativa översättningar och alternativ användning med C&#35;
 
 I den här snabbstarten hittar du information om möjliga alternativa översättningar för en term, och även användningsexempel för de alternativa översättningarna, med hjälp av Translator Text-API:et.
-
-Källkoden till det här exemplet finns på [GitHub](https://github.com/MicrosoftTranslator/Text-Translation-API-V3-C-Sharp).
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
@@ -30,6 +28,9 @@ Du behöver [Visual Studio 2017](https://www.visualstudio.com/downloads/) för a
 För att använda Translator Text-API:et behöver du även en prenumerationsnyckel. Mer information finns i [How to sign up for the Translator Text API](translator-text-how-to-signup.md) (Så här registrerar du dig för Translator Text-API:et).
 
 ## <a name="dictionary-lookup-request"></a>Begäran om att slå upp i ordlista
+
+> [!TIP]
+> Hämta den senaste koden från [GitHub](https://github.com/MicrosoftTranslator/Text-Translation-API-V3-C-Sharp).
 
 Följande hämtar alternativa översättningar för ett or med hjälp av metoden [Dictionary Lookup](./reference/v3-0-dictionary-lookup.md) (Slå upp i ordlista).
 

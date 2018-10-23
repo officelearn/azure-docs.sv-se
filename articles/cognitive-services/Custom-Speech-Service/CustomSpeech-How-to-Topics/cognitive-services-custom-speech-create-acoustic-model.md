@@ -1,24 +1,24 @@
 ---
-title: 'Självstudie: Skapa en akustisk modell – Custom Speech Service'
-titlesuffix: Azure Cognitive Services
-description: I den här självstudiekursen lär du dig hur du skapar en akustisk modell med Custom Speech Service.
+title: Självstudie om att skapa en akustisk modell med Custom Speech Service – Microsoft Cognitive Services | Microsoft Docs
+description: I den här självstudien lär du dig att skapa en akustisk modell med Custom Speech Service i Microsoft Cognitive Services.
 services: cognitive-services
 author: PanosPeriorellis
-manager: cgronlun
+manager: onano
 ms.service: cognitive-services
 ms.component: custom-speech
 ms.topic: tutorial
 ms.date: 05/03/2017
 ms.author: panosper
-ROBOTS: NOINDEX
-ms.openlocfilehash: 72c5a0dfb8f33f273ba850378c1fefeef82b4d7a
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 53e93a08782ba66e69b903c32c4c3c7417e5a801
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47220249"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49344582"
 ---
 # <a name="tutorial-create-a-custom-acoustic-model"></a>Självstudie: Skapa en anpassad akustisk modell
+
+[!INCLUDE [Deprecation note](../../../../includes/cognitive-services-custom-speech-deprecation-note.md)]
 
 I den här självstudien skapar du en anpassad akustisk modell för taldata som du förväntar dig att appen ska känna igen. Att skapa en anpassad akustisk modell är användbart om appen har utformats för att användas i en viss miljö, till exempel en bullrig fabrik eller av en viss typ av användare.
 
@@ -140,4 +140,4 @@ Då visas en ny post i tabellen för akustiska modeller som motsvarar den nya mo
 I den här självstudien har du utvecklat en anpassade akustisk modell för användning med ljudfiler och transkriptioner. Om du vill skapa en anpassad språkfil för användning med textfiler fortsätter du till självstudien om hur du skapar en anpassad språkmodell.
 
 > [!div class="nextstepaction"]
-> [Skapa en anpassad akustisk modell](cognitive-services-custom-speech-create-language-model.md)
+> [Skapa en anpassad språkmodell](cognitive-services-custom-speech-create-language-model.md)

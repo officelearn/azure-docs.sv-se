@@ -9,12 +9,12 @@ manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 08/31/2018
-ms.openlocfilehash: ad042525ead23959be57a5dd2d5735bcedfedb1b
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.openlocfilehash: be0140606302335884d62ba60c875a049949b495
+ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43668333"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49353058"
 ---
 # <a name="install-and-use-the-azure-terraform-visual-studio-code-extension"></a>Installera och använda tillägget Azure Terraform i Visual Studio Code
 
@@ -103,7 +103,9 @@ I den här övningen ska du skapa och köra en grundläggande Terraform-konfigur
 
 1. I Visual Studio Code väljer du **Fil > Ny fil** på menyraden.
 
-1. Navigera till [azurerm_resource_group](https://www.terraform.io/docs/providers/azurerm/r/resource_group.html#) och kopiera koden i kodblocket **Example Usage** (Exempelanvändning):
+1. Gå till [sidan Terraform azurerm_resource_group](https://www.terraform.io/docs/providers/azurerm/r/resource_group.html#) i webbläsaren och kopiera koden i kodblocket för **exempelanvändning**:
+
+    ![Exempelanvändning](media/terraform-vscode-extension/tf-azurerm-resource-group-example-usage.png)
 
 1. Klistra in den kopierade koden i den nya filen som du skapade i Visual Studio Code.
 

@@ -2,18 +2,18 @@
 title: 'Självstudie: Visualisera data från Azure Data Explorer i Power BI'
 description: I den här självstudien får du lära dig hur du ansluter till Azure Data Explorer med Power BI och visualiserar dina data.
 services: data-explorer
-author: mgblythe
-ms.author: mblythe
+author: orspod
+ms.author: v-orspod
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: tutorial
 ms.date: 09/24/2018
-ms.openlocfilehash: 938d8d6e291ca432ef3f642a0aaec74d5dcf5bf5
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: fc2d96c4dc8184ba26001fd77732ce7c45253d5a
+ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46977153"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49393720"
 ---
 # <a name="tutorial-visualize-data-from-azure-data-explorer-in-power-bi"></a>Självstudie: Visualisera data från Azure Data Explorer i Power BI
 
@@ -108,7 +108,7 @@ Nu när du har en anslutning till Azure Data Explorer kan du redigera data i Pow
 
     ![Filterkolumn](media/visualize-power-bi/filter-column.png)
 
-1. Välj pilen för **BeginLat**-kolumnen, rensa **null**-kryssrutan och välj sedan **OK**.
+1. Högerklicka på kolumnrubriken **StormSummary** och välj **Ta bort**.
 
     ![Ta bort kolumn](media/visualize-power-bi/remove-column.png)
 

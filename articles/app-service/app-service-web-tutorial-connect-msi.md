@@ -11,19 +11,23 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: tutorial
-ms.date: 04/17/2018
+ms.date: 10/24/2018
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: 3125db03dc13f70524fd094736f50b563ef712a4
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: 6a3bb5511828d9f8ea7168ffa4748b141484299f
+ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44379935"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49376438"
 ---
 # <a name="tutorial-secure-azure-sql-database-connection-from-app-service-using-a-managed-identity"></a>Självstudie: Säkra Azure SQL Database-anslutningar från App Service med en hanterad identitet
 
 Med [App Service ](app-service-web-overview.md) får du en automatiskt uppdaterad webbvärdtjänst i Azure med hög skalbarhet. Dessutom får du en [hanterad identitet](app-service-managed-service-identity.md) för din app. Det här är en användningsklar lösning som skyddar åtkomsten till [Azure SQL Database](/azure/sql-database/) och andra Azure-tjänster. Med hanterade identiteter i App Service blir dina appar säkrare eftersom du inte har några hemligheter i dina appar. Du har till exempel inga inloggningsuppgifter i anslutningssträngarna. I den här självstudien kommer du att lägga till en hanterad identitet i den ASP.NET-exempelapp du skapade i [Självstudie: Skapa en ASP.NET-app i Azure med SQL Database](app-service-web-tutorial-dotnet-sqldatabase.md). När du är färdig ansluter exempelappen säkert till SQL Database utan att du behöver använda användarnamn och lösenord.
+
+> [!NOTE]
+> Det här scenariot stöds för närvarande av .NET Framework 4.6 och senare men inte av [.NET Core 2.1](https://www.microsoft.com/net/learn/get-started/windows). [.NET Core 2.2](https://www.microsoft.com/net/download/dotnet-core/2.2) stöder det här scenariot men ingår ännu inte i standardavbildningarna i App Service. 
+>
 
 Du lär dig att:
 
@@ -95,6 +99,7 @@ az webapp config connection-string set --resource-group myResourceGroup --name <
 
 ```xml
 <package id="Microsoft.Azure.Services.AppAuthentication" version="1.1.0-preview" targetFramework="net461" />
+<package id="Microsoft.IdentityModel.Clients.ActiveDirectory" version="3.14.2" targetFramework="net461" />
 ```
 
 Öppna _Models\MyDatabaseContext.cs_ och lägg till följande `using`-instruktioner överst i filen:
@@ -122,7 +127,7 @@ public MyDatabaseContext(SqlConnection conn) : base(conn, true)
 Den här konstruktorn konfigurerar ett anpassat SqlConnection-objekt så att en åtkomsttoken för Azure SQL Database från App Service används. Med denna åtkomsttoken autentiseras App Service-appen hos Azure SQL Database med den hanterade identiteten. Mer information finns i [Hämta token för Azure-resurser](app-service-managed-service-identity.md#obtaining-tokens-for-azure-resources). Med instruktionen `if` kan du fortsätta att testa appen lokalt med LocalDB.
 
 > [!NOTE]
-> `SqlConnection.AccessToken` stöds för närvarande bara i .NET Framework 4.6 och senare, inte i [.NET Core](https://www.microsoft.com/net/learn/get-started/windows).
+> `SqlConnection.AccessToken` stöds för närvarande bara i .NET Framework 4.6 och senare samt [.NET Core 2.2](https://www.microsoft.com/net/download/dotnet-core/2.2), inte i [.NET Core 2.1](https://www.microsoft.com/net/learn/get-started/windows).
 >
 
 Om du vill använda den här nya konstruktorn öppnar du `Controllers\TodosController.cs` och letar rätt på raden `private MyDatabaseContext db = new MyDatabaseContext();`. I den befintliga koden används standardkontrollanten `MyDatabaseContext` till att skapa en databas med standardanslutningssträngen, där användarnamn och lösenord stod i klartext innan [du ändrade det](#modify-connection-string).
@@ -130,7 +135,7 @@ Om du vill använda den här nya konstruktorn öppnar du `Controllers\TodosContr
 Ersätt hela raden med följande kod:
 
 ```csharp
-private MyDatabaseContext db = new MyDatabaseContext(new SqlConnection());
+private MyDatabaseContext db = new MyDatabaseContext(new System.Data.SqlClient.SqlConnection());
 ```
 
 ### <a name="publish-your-changes"></a>Publicera dina ändringar
@@ -172,32 +177,23 @@ Tidigare tilldelade du den hanterade identiteten som Azure AD-administratör fö
 
 ### <a name="grant-permissions-to-azure-active-directory-group"></a>Ge behörigheter till Azure Active Directory-gruppen
 
-Öppna Cloud Shell och logga in på SQL Database med kommandot SQLCMD. Ersätt _\<servername>_ med SQL Database-servernamnet samt _\<AADusername>_ och _\<AADpassword>_ med Azure AD-användarens autentiseringsuppgifter.
-
-```azurecli-interactive
-sqlcmd -S <server_name>.database.windows.net -U <AADuser_name> -P "<AADpassword>" -G -l 30
-```
-
-Kör följande kommandon vid SQL-prompten. De lägger till Azure Active Directory-gruppen du skapade tidigare som en användare.
-
-```sql
-CREATE USER [myAzureSQLDBAccessGroup] FROM EXTERNAL PROVIDER;
-GO
-```
-
-Skriv `EXIT` för att återgå till Cloud Shell-prompten. Kör sedan SQLCMD igen, men ange namnet på databasen för _\<dbname>_.
+Öppna Cloud Shell och logga in på SQL Database med kommandot SQLCMD. Ersätt _\<server\_name>_ med ditt SQL Database-servernamn, _\<db\_name>_ med det databasnamn som din app använder och _\<AADuser\_name>_ och _\<AADpassword>_ med din Azure AD-användares autentiseringsuppgifter.
 
 ```azurecli-interactive
 sqlcmd -S <server_name>.database.windows.net -d <db_name> -U <AADuser_name> -P "<AADpassword>" -G -l 30
 ```
 
-Kör följande kommandon vid SQL-prompten för den aktuella databasen så att Azure Active Directory-gruppen får läs- och skrivbehörighet.
+I SQL-prompten för den databas du vill använda kör du följande kommandon för att lägga till den Azure Active Directory-grupp du skapade tidigare och bevilja de behörigheter din app behöver. Exempel: 
 
 ```sql
+CREATE USER [myAzureSQLDBAccessGroup] FROM EXTERNAL PROVIDER;
 ALTER ROLE db_datareader ADD MEMBER [myAzureSQLDBAccessGroup];
 ALTER ROLE db_datawriter ADD MEMBER [myAzureSQLDBAccessGroup];
+ALTER ROLE db_ddladmin ADD MEMBER [myAzureSQLDBAccessGroup];
 GO
 ```
+
+Skriv `EXIT` för att återgå till Cloud Shell-prompten. 
 
 ## <a name="next-steps"></a>Nästa steg
 

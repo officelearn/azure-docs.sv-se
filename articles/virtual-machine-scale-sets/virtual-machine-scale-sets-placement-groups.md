@@ -3,7 +3,7 @@ title: Arbeta med stora skalningsuppsättningar för virtuella Azure-datorer | M
 description: Vad du behöver veta för att använda stora skalningsuppsättningar för virtuella Azure-datorer
 services: virtual-machine-scale-sets
 documentationcenter: ''
-author: gatneil
+author: rajsqr
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 11/9/2017
-ms.author: negat
-ms.openlocfilehash: 17c8fdd0bc85b9d1a4e1b50cf422b28f32862a7e
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.author: rajraj
+ms.openlocfilehash: f45b78f1c30119f5e892287719c9c2edfae57ce6
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33941136"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49364223"
 ---
 # <a name="working-with-large-virtual-machine-scale-sets"></a>Arbeta med stora skalningsuppsättningar för virtuella datorer
 Du kan nu skapa [skalningsuppsättningar för virtuella Azure-datorer](/azure/virtual-machine-scale-sets/) med en kapacitet på upp till 1 000 virtuella datorer. I detta dokument definieras en _stor VM-skalningsuppsättning_ som en skalningsuppsättning som kan skalas för över 100 virtuella datorer. Den här funktionen ställs in med skalningsuppsättningsegenskapen (_singlePlacementGroup=False_). 
@@ -35,18 +35,18 @@ Vad som gör en _stor_ skalningsuppsättning speciell är inte antalet virtuella
 ## <a name="checklist-for-using-large-scale-sets"></a>Checklista för att använda stora skalningsuppsättningar
 Beakta följande krav för att lista ut om programmet effektivt kan använda stora skalningsuppsättningar:
 
+- Om du planerar att distribuera ett stort antal virtuella datorer kan du behöva öka din kvotgräns för Compute-vCPU:er. 
 - Stora skalningsuppsättningar kräver Azure Managed Disks. Skalningsuppsättningar som inte har skapats med Managed Disks kräver flera lagringskonton (ett konto kan användas för 20 virtuella dator). Stora skalningsuppsättningar är utformade för att endast fungera med Managed Disks för att minska dina omkostnader för lagringshantering och för att undvika risken att du får problem med prenumerationsbegränsningar för lagringskonton. Om du inte använder Managed Disks är din skalningsuppsättning begränsad till 100 virtuella datorer.
 - Skalningsuppsättningar som skapats från Azure Marketplace-avbildningar kan skalas upp till 1 000 virtuella datorer.
-- Skalningsuppsättningar som skapas från anpassade avbildningar (VM-avbildningar som du skapar och laddar upp själv) kan för närvarande skala upp till 300 virtuella datorer.
-- Layer-4-belastningsutjämning med skalningsuppsättningar som består av flera placeringsgrupper kräver [Azure Load Balancers standard-SKU](../load-balancer/load-balancer-standard-overview.md). Load Balancers standard-SKU ger ytterligare fördelar, till exempel möjligheten att utföra belastningsutjämningar mellan flera olika skalningsuppsättningar. En standard-SKU kräver också en skalningsuppsättning som har en nätverkssäkerhetsgrupp kopplad till den, annars fungerar inte NAT-poolerna som de ska. Kontrollera att skalningsuppsättningen är konfigurerad för att använda standardinställningen att bara använda en enda placeringsgrupp om du behöver använda Azure Load Balancers grundläggande SKU.
+- Skalningsuppsättningar som skapas från anpassade avbildningar (VM-avbildningar som du skapar och laddar upp själv) kan för närvarande skala upp till 600 virtuella datorer.
+- Layer-4-lastbalansering med skalningsuppsättningar som består av flera placeringsgrupper kräver [Azure Load Balancers standard-SKU](../load-balancer/load-balancer-standard-overview.md). Load Balancers standard-SKU ger ytterligare fördelar, till exempel möjligheten att utföra lastbalanseringar mellan flera olika skalningsuppsättningar. En standard-SKU kräver också en skalningsuppsättning som har en nätverkssäkerhetsgrupp kopplad till den, annars fungerar inte NAT-poolerna som de ska. Kontrollera att skalningsuppsättningen är konfigurerad för att använda standardinställningen att bara använda en enda placeringsgrupp om du behöver använda Azure Load Balancers grundläggande SKU.
 - Layer-7-belastningsutjämning med Azure Application Gateway stöds för alla skalningsuppsättningar.
 - En skalningsuppsättning definieras med ett enda undernät – kontrollera att ditt undernät har ett adressutrymme som är tillräckligt stort för alla de virtuella datorerna du behöver. Som standard överetablerar skalningsuppsättningar (skapar extra virtuella datorer vid tidpunkten för distribution eller vid utskalning, som du inte debiteras för) för att förbättra distributionstillförlitlighet och prestanda. Tillåt ett adressutrymme 20% större än antalet virtuella datorer som du planerar att skala till.
-- Om du planerar att distribuera flera virtuella datorer kan du behöva öka din kvotgräns för Compute-vCPU:er.
 - Feldomäner och uppgraderingsdomäner är endast konsekventa i en placeringsgrupp. Den här arkitekturen ändrar inte den övergripande tillgängligheten för en skalningsuppsättning eftersom virtuella datorer är jämnt distribuerade över distinkt fysisk maskinvara. Men det innebär att om du behöver garantera att två virtuella datorer finns på olika maskinvara så måste du se till att de finns i olika feldomäner i samma placeringsgrupp. Feldomän och placeringsgrupp-ID som visas i _instansvyn_ för en virtuell dator i en skalningsuppsättning. Du kan se instansvyn för en virtuell dator i en skalningsuppsättning i [Resursutforskaren i Azure](https://resources.azure.com/).
 
 
 ## <a name="creating-a-large-scale-set"></a>Skapa en stor skalningsuppsättning
-När du skapar en skalningsuppsättning som angetts i Azure Portal kan du tillåta att den skalas till flera placeringsgrupper genom att ange alternativet för att _begränsa till en enda placeringsgrupp_ till _Falskt_ i bladet _Grundläggande_. När det här alternativet har angetts som _Falskt_ kan du ange värdet för _antalet instanser_ till upp till 1 000.
+När du skapar en skalningsuppsättning i Azure-portalen anger du värde för *antalet instanser* till upp till 1 000. Om det är mer än 100 instanser anges *Enable scaling beyond 100 instances* (Aktivera skalning över 100 instanser) till *Ja* så att det kan skalas till flera placeringsgrupper. 
 
 ![](./media/virtual-machine-scale-sets-placement-groups/portal-large-scale.png)
 

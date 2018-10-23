@@ -13,18 +13,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/01/2018
 ms.author: bahariri
-ms.openlocfilehash: 2fbca7179d8bc64a92f79f6eaced8d4f1666c530
-ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
+ms.openlocfilehash: 4b78cef29c64c5c4c522ad5c751c10bbf6a7057c
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49069224"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49363426"
 ---
 # <a name="stream-into-event-hubs-for-the-apache-kafka"></a>Strömma till Event Hubs för Apache Kafka
 Den här snabbstarten visar hur du strömmar till Kafka-aktiverade Event Hubs utan att ändra protokoll-klienter eller köra dina egna kluster. Du lär dig att använda dina tillverkare och konsumenter för att kommunicera med Kafka-aktiverade Event Hubs med bara en konfigurationsändring i dina program. Azure Event Hubs stöder [Apache Kafka version 1.0.](https://kafka.apache.org/10/documentation.html)
 
 > [!NOTE]
-> Det här exemplet finns på [GitHub](https://github.com/Azure/azure-event-hubs)
+> Det här exemplet finns på [GitHub](https://github.com/Azure/azure-event-hubs-for-kafka/tree/master/quickstart/java)
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
@@ -63,9 +63,9 @@ Nu kan du strömma händelser från program som använder Kafka-protokollet till
 
 ## <a name="send-and-receive-messages-with-kafka-in-event-hubs"></a>Skicka och ta emot meddelanden med Kafka i Event Hubs
 
-1. Klona [Azure Event Hubs-databasen](https://github.com/Azure/azure-event-hubs).
+1. Klona [Azure Event Hubs för Kafka-lagringsplats](https://github.com/Azure/azure-event-hubs-for-kafka).
 
-2. Navigera till `azure-event-hubs/samples/kafka/quickstart/producer`.
+2. Navigera till `azure-event-hubs-for-kafka/quickstart/java/producer`.
 
 3. Uppdatera konfigurationsinformationen för tillverkare i `src/main/resources/producer.config` på följande sätt:
 
@@ -83,7 +83,7 @@ Nu kan du strömma händelser från program som använder Kafka-protokollet till
     mvn exec:java -Dexec.mainClass="TestProducer"                                    
     ```
     
-5. Navigera till `azure-event-hubs/samples/kafka/quickstart/consumer`.
+5. Navigera till `azure-event-hubs-for-kafka/quickstart/java/consumer`.
 
 6. Uppdatera konfigurationsinformationen för konsument i `src/main/resources/consumer.config` på följande sätt:
    
@@ -106,5 +106,8 @@ Om dina Kafka-kluster för Event Hubs har händelser börjar du nu att få dem f
 ## <a name="next-steps"></a>Nästa steg
 I den här artikeln har du lärt dig hur du strömmar till Kafka-aktiverade Event Hubs utan att ändra dina protokollklienter och utan att köra dina egna kluster. Fortsätt med följande självstudie om du vill veta mer:
 
-> [!div class="nextstepaction"]
-> [Använda Kafka MirrorMaker med Event Hubs](event-hubs-kafka-mirror-maker-tutorial.md)
+* [Läs om Event Hubs](event-hubs-what-is-event-hubs.md)
+* [Läs om Event Hubs för Kafka](event-hubs-for-kafka-ecosystem-overview.md)
+* [Utforska fler exempel på Event Hubs för Kafka GitHub](https://github.com/Azure/azure-event-hubs-for-kafka)
+* Använd [MirrorMaker](https://cwiki.apache.org/confluence/pages/viewpage.action?pageId=27846330) för att [strömma händelser från Kafka lokalt till Kafka-aktiverade Event Hubs i molnet.](event-hubs-kafka-mirror-maker-tutorial.md)
+* Lär dig att strömma till Kafka-aktiverade Event Hubs med hjälp av [Apache Flink](event-hubs-kafka-flink-tutorial.md) eller [Akka Streams](event-hubs-kafka-akka-streams-tutorial.md)

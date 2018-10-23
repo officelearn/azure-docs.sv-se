@@ -7,18 +7,20 @@ services: iot-fundamentals
 ms.topic: overview
 ms.date: 10/09/2018
 ms.author: robinsh
-ms.openlocfilehash: 6a44c36b5dd87c28db3de34a6858e29fb5730117
-ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
+ms.openlocfilehash: 6834ad6c6915ceb3306284ea738d76027e2c9479
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49067342"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49365364"
 ---
 # <a name="azure-iot-technologies-and-solutions-paas-and-saas"></a>Azure IoT-tekniker och befintliga lösningar: PaaS och SaaS
 
 Microsoft har skapat en portfölj som har stöd för alla kunder, vilket gör att alla kan komma åt fördelarna med digital transformering. Azure IoT-produktportfölj är en översikt över tillgängliga PaaS-/SaaS-tekniker och -lösningar. Den innehåller de två sökvägarna som är tillgängliga för att skapa din egen lösning:
 
-- Plattform som en tjänst (PaaS): Skapa ditt program med [Azure IoT-lösningsacceleratorer](https://www.azureiotsolutions.com/), en samling förkonfigurerade företagslösningar som gör det möjligt att påskynda utvecklingen av anpassade IoT-lösningar.
+- PaaS (Platform as a Service): skapa ett program med hjälp av någon av följande tjänster.
+    - [Acceleratorer för Azure IoT-lösning](https://www.azureiotsolutions.com/), som är en samling av förkonfigurerade lösningar i företagsklass som hjälper dig att påskynda utvecklingen av anpassade IoT-lösningar, eller 
+    - [Azure Digital Twins](https://azure.microsoft.com/services/digital-twins/)-tjänsten, som gör att du kan modellera den fysiska miljön för att skapa kontextmedvetna IoT-lösningar med hjälp av en graf för rumslig intelligens och domänspecifika objektmodeller.
 
 - Programvara som en tjänst (SaaS): Kom igång snabbt med [Azure IoT Central](https://azure.microsoft.com/services/iot-central/), den nya SaaS-lösningen för att utveckla IoT-program utan att utsättas för komplexiteten hos IoT-lösningen. Om din organisation saknar resurser för att skapa en egen IoT-lösning, är Azure IoT Central en kodlös IoT-lösning som kan skapa enhetsmodeller, instrumentpaneler och regler på några få minuter.
 
@@ -95,7 +97,10 @@ Anslut alla dina enheter till Azure IoT med [enhets-SDK](/azure/iot-hub/iot-hub-
 [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub/) är en helt hanterad tjänst som möjliggör tillförlitlig och säker dubbelriktad kommunikation mellan flera miljoner IoT-enheter och som tillhandahåller en serverdel för lösningar av den här typen. Azure IoT Hub Device Provisioning är en hjälptjänst för IoT Hub som möjliggör zero-touch och just-in-time-etablering till rätt IoT-hubb utan mänsklig interaktion, vilket gör att kunderna kan etablera miljontals enheter på ett säkert och skalbart sätt.
 
 ### <a name="edge"></a>Edge
-[Azure IoT Edge](https://azure.microsoft.com/services/iot-edge/) är en tjänst i Sakernas Internet (IoT). Den här tjänsten är avsedd för kunder som vill analysera data på enheter, dvs. ”vid gränsen”. Genom att flytta delar av din arbetsbelastning till gränsen, kommer du får minskad latens och ha alternativ för offline-scenarier.
+[Azure IoT Edge](https://azure.microsoft.com/services/iot-edge/) är en IoT-tjänst. Den här tjänsten är avsedd för kunder som vill analysera data på enheter, dvs. ”vid gränsen”. Genom att flytta delar av din arbetsbelastning till gränsen, kommer du får minskad latens och ha alternativ för offline-scenarier.
+
+### <a name="spatial-intelligence"></a>Rumslig intelligens
+[Azure Digital Twins](https://azure.microsoft.com/services/digital-twins/) är en IoT-tjänst som gör att du kan skapa en modell för en fysisk miljö. Det innehåller ett diagram för rumslig intelligens för att modellera relationerna mellan människor, områdena och enheterna. Du kan skapa sammanhangsmedvetna lösningar genom att korrelera data över hela världen, digitalt och fysiskt.  
 
 ### <a name="data-and-analytics"></a>Data och analys
 Dra nytta av en matris av Azure-data och -analyser med PaaS-erbjudanden i din IoT-lösning, från att ta molnintelligens till gränsen med Azure Machine Learning till att lagra IoT-enhetsdata på ett kostnadseffektivt sätt med Azure Data Lake för att visualisera stora mängder data från IoT-enheter med [Azure Time Series Insights](https://azure.microsoft.com/services/time-series-insights/).

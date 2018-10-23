@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: lizross
 ms.reviewer: dhanyahk
-ms.openlocfilehash: d39cfddc42ea0e03f6b0f6c8d1c0160839742518
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: 98edf224ebbd15f6acafdfeb28769eecb4edff40
+ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47393918"
+ms.lasthandoff: 10/22/2018
+ms.locfileid: "49638132"
 ---
 # <a name="whats-new-in-azure-active-directory"></a>Vad är nytt i Azure Active Directory?
 
@@ -131,7 +131,7 @@ Läs mer om hur du använder för anpassade tilläggsegenskaper för regler för
 **Tjänstekategori:** villkorlig åtkomst  
 **Produkt-funktionen:** identitetssäkerhet och skydd
 
-Följande appar är i listan över [godkända klientappar](https://docs.microsoft.com/azure/active-directory/conditional-access/technical-reference.md#approved-client-app-requirement):
+Följande appar är i listan över [godkända klientappar](https://docs.microsoft.com/azure/active-directory/conditional-access/technical-reference#approved-client-app-requirement):
 
 - Microsoft To-Do
 
@@ -351,7 +351,7 @@ Det här är en valbar offentlig förhandsversion. Läs mer om Google federation
 
 ## <a name="july-2018"></a>Juli 2018
 
-### <a name="improvements-to-azure-active-directory-email-notifications"></a>Förbättringar av e-postfunktionen i Azure Active Directory
+### <a name="improvements-to-azure-active-directory-email-notifications"></a>Förbättringar av Azure Active Directory e-postmeddelanden
 
 **Typ:** ändrade funktionen  
 **Tjänstekategori:** andra  
@@ -375,7 +375,7 @@ Ett exempel på några av de nya e-designerna och mer information finns i [e-pos
 
 ---
 
-### <a name="azure-ad-activity-logs-are-now-available-through-azure-monitor"></a>Azure AD-aktivitetsloggar är nu tillgängliga på Azure Monitor
+### <a name="azure-ad-activity-logs-are-now-available-through-azure-monitor"></a>Azure AD-aktivitetsloggar är nu tillgängliga via Azure Monitor
 
 **Typ:** ny funktion  
 **Tjänstekategori:** rapportering  
@@ -393,7 +393,7 @@ Mer information om de här nya funktionerna finns i vår blogg [Azure AD-aktivit
 
 ---
 
-### <a name="conditional-access-information-added-to-the-azure-ad-sign-ins-report"></a>Information för villkorlig åtkomst har lagts till iAzure AD-inloggningsrapporten
+### <a name="conditional-access-information-added-to-the-azure-ad-sign-ins-report"></a>Information om villkorlig åtkomst läggs till rapporten för Azure AD-inloggningar
 
 **Typ:** ny funktion  
 **Tjänstekategori:** rapportering  
@@ -427,7 +427,7 @@ Mer information om apparna som finns i [SaaS-programintegration med Azure Active
 
 ---
  
-### <a name="new-user-provisioning-saas-app-integrations---july-2018"></a>Ny användarförsörjning för SaaS-appintegreringar – juli 2018
+### <a name="new-user-provisioning-saas-app-integrations---july-2018"></a>Nya användaretablering för SaaS-app integreringar - juli 2018
 
 **Typ:** ny funktion  
 **Tjänstekategori:** Appetablering  
@@ -445,7 +445,7 @@ En lista över alla program som stöder etableringen av användare i Azure AD-ga
 
 ---
 
-### <a name="connect-health-for-sync---an-easier-way-to-fix-orphaned-and-duplicate-attribute-sync-errors"></a>Connect Health för synkronisering – ett enklare sätt att korrigera överblivna och dubblettattributsynkroniseringsfel på
+### <a name="connect-health-for-sync---an-easier-way-to-fix-orphaned-and-duplicate-attribute-sync-errors"></a>Connect Health för synkronisering – ett enklare sätt att åtgärda överblivna och duplicerade attributet synkroniseringsfel
 
 **Typ:** ny funktion  
 **Tjänstekategori:** AD Connect  
@@ -463,7 +463,7 @@ Mer information finns i [diagnostisera och åtgärda synkroniseringsfel Duplicer
 
 ---
 
-### <a name="visual-updates-to-the-azure-ad-and-msa-sign-in-experiences"></a>Visuella uppdateringar av Azure AD och MSA-inloggningsupplevelserna
+### <a name="visual-updates-to-the-azure-ad-and-msa-sign-in-experiences"></a>Visuella objekt uppdateras med Azure AD och MSA-inloggningen inträffar
 
 **Typ:** ändrade funktionen  
 **Tjänstekategori:** Azure AD  
@@ -473,7 +473,7 @@ Vi har uppdaterat i Användargränssnittet för Microsoft online services-inlogg
 
 ---
 
-### <a name="new-release-of-azure-ad-connect---july-2018"></a>En ny version av Azure AD Connect – juli 2018
+### <a name="new-release-of-azure-ad-connect---july-2018"></a>Ny version av Azure AD Connect – juli 2018
 
 **Typ:** ändrade funktionen  
 **Tjänstekategori:** Appetablering  
@@ -491,7 +491,7 @@ Mer information om den här uppdateringen finns i [Azure AD Connect: versionshis
 
 ---
 
-### <a name="updates-to-the-terms-of-use-tou-end-user-ui"></a>Uppdateringar av användningsvillkoren för slutanvändargränssnittet
+### <a name="updates-to-the-terms-of-use-tou-end-user-ui"></a>Uppdateringar i användargränssnittet för slutanvändare av användningsvillkor (ToU)
 
 **Typ:** ändrade funktionen  
 **Tjänstekategori:** användningsvillkor  
@@ -525,7 +525,7 @@ Direktautentisering nu stöder äldre protokoll och appar. Följande begränsnin
 
 ---
  
-### <a name="converged-security-info-management-for-self-service-password-reset-and-multi-factor-authentication"></a>Hantering av konvergerad säkerhetsinformation för återställning av lösenord genom självbetjäning och Multi-Factor Authentication
+### <a name="converged-security-info-management-for-self-service-password-reset-and-multi-factor-authentication"></a>Konvergerade info säkerhetshantering för lösenordsåterställning via självbetjäning och Multi-Factor Authentication
 
 **Typ:** ny funktion  
 **Tjänstekategori:** SSPR  
@@ -553,7 +553,7 @@ Mobilappavisering kan endast aktiveras som en del av en princip som kräver två
 
 ## <a name="june-2018"></a>Juni 2018
 
-### <a name="change-notice-security-fix-to-the-delegated-authorization-flow-for-apps-using-azure-ad-activity-logs-api"></a>Ändringsmeddelande: säkerhetskorrigering för det delegerade auktoriseringsflödet för appar som använder Azure AD-aktivitetsloggs-API:t
+### <a name="change-notice-security-fix-to-the-delegated-authorization-flow-for-apps-using-azure-ad-activity-logs-api"></a>Ändringsmeddelande: säkerhetskorrigering till delegerad auktorisering flödet för appar som använder Azure AD-aktivitet loggar API
 
 **Typ:** ändringsplan  
 **Tjänstekategori:** rapportering  
@@ -577,7 +577,7 @@ Mer information finns i den [bevilja](https://docs.microsoft.com/azure/active-di
 
 ---
 
-### <a name="configure-tls-settings-to-connect-to-azure-ad-services-for-pci-dss-compliance"></a>Konfigurera TLS-inställningar för att ansluta till Azure AD-tjänster för att följa PCI DSS-standard
+### <a name="configure-tls-settings-to-connect-to-azure-ad-services-for-pci-dss-compliance"></a>Konfigurera TLS för att ansluta till Azure AD-tjänster för PCI DSS-kompatibilitet
 
 **Typ:** ny funktion  
 **Tjänstekategori:** saknas  
@@ -617,7 +617,7 @@ Inaktuella webbläsare stöder inte nyare TLS-versioner, till exempel TLS 1.2. O
 
 ---
 
-### <a name="new-federated-apps-available-in-azure-ad-app-gallery---june-2018"></a>Nya federerade appar finns tillgängliga i Azure AD-appgalleriet – juni 2018
+### <a name="new-federated-apps-available-in-azure-ad-app-gallery---june-2018"></a>Nya federerade appar är tillgängliga i appgalleriet för Azure AD - juni 2018
 
 **Typ:** ny funktion  
 **Tjänstekategori:** Företagsappar  
@@ -631,7 +631,7 @@ Mer information om apparna som finns i [SaaS-programintegration med Azure Active
 
 ---
 
-### <a name="azure-ad-password-protection-is-available-in-public-preview"></a>Azure AD-lösenordsskydd finns tillgängligt i förhandsversion
+### <a name="azure-ad-password-protection-is-available-in-public-preview"></a>Azure AD-lösenordsskydd är allmänt tillgänglig förhandsversion
 
 **Typ:** ny funktion  
 **Tjänstekategori:** Identity Protection  
@@ -673,7 +673,7 @@ Mer information finns i [Azure Active Directory-villkoren i Använd funktion](ht
 
 ---
 
-### <a name="new-and-comprehensive-guidance-about-deploying-azure-multi-factor-authentication"></a>Ny och omfattande vägledning om distribution av Azure Multi-Factor Authentication
+### <a name="new-and-comprehensive-guidance-about-deploying-azure-multi-factor-authentication"></a>Nya och heltäckande vägledning om hur du distribuerar Azure Multi-Factor Authentication
 
 **Typ:** ny funktion  
 **Tjänstekategori:** andra  
@@ -685,7 +685,7 @@ Om du vill visa i distributionsguiden för MFA, går du till den [identitet dist
 
 ---
 
-### <a name="azure-ad-delegated-app-management-roles-are-in-public-preview"></a>Azure AD-delegerade apphanteringsroller finns i förhandsversion
+### <a name="azure-ad-delegated-app-management-roles-are-in-public-preview"></a>Azure AD delegerad apphantering roller finns i offentlig förhandsversion
 
 **Typ:** ny funktion  
 **Tjänstekategori:** Företagsappar  
@@ -713,7 +713,7 @@ Läs mer om offentlig förhandsversion, den [Azure AD delegerad programhantering
 
 ## <a name="may-2018"></a>Maj 2018
 
-### <a name="expressroute-support-changes"></a>Ändringar i ExpressRoute-stöd
+### <a name="expressroute-support-changes"></a>Ändringar av ExpressRoute-stöd
 
 **Typ:** ändringsplan  
 **Tjänstekategori:** autentiseringar (inloggningar)  
@@ -731,7 +731,7 @@ Om du måste fortsätta att använda dedikerade kretsar, du behöver prata med d
  
 ---
 
-### <a name="microsoft-graph-apis-for-administrative-scenarios-for-tou"></a>Microsoft Graph API:er för administrativa scenarier för användningsvillkor
+### <a name="microsoft-graph-apis-for-administrative-scenarios-for-tou"></a>Microsoft Graph API: er för administrativa scenarier för Användningsvillkoren
 
 **Typ:** ny funktion  
 **Tjänstekategori:** användningsvillkor  
@@ -741,7 +741,7 @@ Vi har lagt till Microsoft Graph API: er för drift för administration av Azure
 
 ---
 
-### <a name="add-azure-ad-multi-tenant-endpoint-as-an-identity-provider-in-azure-ad-b2c"></a>Lägg till Azure Active Directory-slutpunkt för flera klientorganisationer som en identitetsprovider i Azure Active Directory B2C
+### <a name="add-azure-ad-multi-tenant-endpoint-as-an-identity-provider-in-azure-ad-b2c"></a>Lägg till Azure Active Directory-slutpunkt för flera klientorganisationer som en identitetsprovider i Azure AD B2C
 
 **Typ:** ny funktion  
 **Tjänstekategori:** B2C – Konsumentidentitetshantering  
@@ -823,7 +823,7 @@ Azure AD aktivitetsloggar, vilket innefattar inloggningar och granskningsloggar,
 
 ---
 
-### <a name="new-federated-apps-available-in-azure-ad-app-gallery---may-2018"></a>Nya federerade appar finns tillgängliga i Azure AD-appgalleriet – maj 2018
+### <a name="new-federated-apps-available-in-azure-ad-app-gallery---may-2018"></a>Nya federerade appar är tillgängliga i appgalleriet för Azure AD - maj 2018
 
 **Typ:** ny funktion  
 **Tjänstekategori:** Företagsappar  
@@ -861,13 +861,13 @@ Svårt att hitta dina program / tjänsthuvudnamn? Vi har lagt till möjligheten 
 
 ---
  
-### <a name="the-may-release-of-aadconnect-contains-a-public-preview-of-the-integration-with-pingfederate-important-security-updates-many-bug-fixes-and-new-great-new-troubleshooting-tools"></a>Majutgåvan av AADConnect innehåller en allmänt tillgänglig förhandsversion av integrationen med PingFederate, viktiga säkerhetsuppdateringar, flera felkorrigeringar och nya fantastiska felsökningsverktyg. 
+### <a name="the-may-release-of-aadconnect-contains-a-public-preview-of-the-integration-with-pingfederate-important-security-updates-many-bug-fixes-and-new-great-new-troubleshooting-tools"></a>Maj versionen av AADConnect innehåller en offentlig förhandsversion av integrering med PingFederate, viktiga säkerhetsuppdateringar, många felkorrigeringar och nya bra nya verktyg för felsökning. 
 
 **Typ:** ändrade funktionen  
 **Tjänstekategori:** AD Connect  
 **Produkt-funktionen:** Identitetslivcykelhantering
  
-Majutgåvan av AADConnect innehåller en allmänt tillgänglig förhandsversion av integrationen med PingFederate, viktiga säkerhetsuppdateringar, flera felkorrigeringar och nya fantastiska felsökningsverktyg. Du hittar viktig [här](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-version-history#118190).
+Maj versionen av AADConnect innehåller en offentlig förhandsversion av integrering med PingFederate, viktiga säkerhetsuppdateringar, många felkorrigeringar och nya bra nya verktyg för felsökning. Du hittar viktig [här](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-version-history#118190).
 
 ---
 
@@ -1143,7 +1143,7 @@ Mer information finns i [hur logga in på en intern klient med sömlös SSO arbe
 **Tjänstekategori:** autentiseringar (inloggningar)  
 **Produkt-funktionen:** användarautentisering
  
-Användare får en tyst inloggningsupplevelse, med sömlös enkel om ett program (till exempel `https://contoso.sharepoint.com`) skickar inloggningsförfrågningar till slutpunkter för Azure AD-klient – det vill säga `https://login.microsoftonline.com/contoso.com/<..>` eller `https://login.microsoftonline.com/<tenant_ID>/<..>` – i stället för Azure AD: s vanliga slutpunkt (`https://login.microsoftonline.com/common/<...>`).
+Användare får en tyst inloggningsupplevelse, med sömlös enkel om ett program (till exempel `https://contoso.sharepoint.com`) skickar inloggningsförfrågningar till slutpunkter för Azure AD-klient – det vill säga `https://login.microsoftonline.com/contoso.com/<.>` eller `https://login.microsoftonline.com/<tenant_ID>/<.>` – i stället för Azure AD: s vanliga slutpunkt (`https://login.microsoftonline.com/common/<...>`).
 
 Mer information finns i [Azure Active Directory sömlös enkel inloggning](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-sso). 
 

@@ -1,6 +1,6 @@
 ---
-title: Använda en Azure Marketplace-avbildning till att skapa en virtuell Terraform Linux-dator med Hanterad tjänstidentitet
-description: Använd Marketplace-avbildning till att skapa virtuell Terraform Linux-dator med Hanterad tjänstidentitet och Remote State-hantering för att enkelt distribuera resurser till Azure.
+title: Använda en Azure Marketplace-avbildning till att skapa en virtuell Terraform Linux-dator med hanterad identitet
+description: Använd Marketplace-avbildning till att skapa virtuell Terraform Linux-dator med en hanterad identitet och Remote State-hantering för att enkelt distribuera resurser till Azure.
 services: terraform
 ms.service: terraform
 keywords: terraform, devops, MSI, virtual machine, remote state, azure
@@ -9,16 +9,16 @@ manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 3/12/2018
-ms.openlocfilehash: 0136966576e3fbb22855d74cc1866e48b4ac24c9
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.openlocfilehash: 1ec6228993c516ce2974c64bfa5b6dcdf63e7f91
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43669395"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49343834"
 ---
-# <a name="use-an-azure-marketplace-image-to-create-a-terraform-linux-virtual-machine-with-managed-service-identity"></a>Använda en Azure Marketplace-avbildning till att skapa en virtuell Terraform Linux-dator med Hanterad tjänstidentitet
+# <a name="use-an-azure-marketplace-image-to-create-a-terraform-linux-virtual-machine-with-managed-identities-for-azure-resources"></a>Använda en Azure Marketplace-avbildning till att skapa en virtuell Terraform Linux-dator med hanterade identiteter för Azure-resurser
 
-I den här artikeln visas hur du använder en [Terraform Marketplace-avbildning](https://azuremarketplace.microsoft.com/marketplace/apps/azure-oss.terraform?tab=Overview) till att skapa en virtuell Ubuntu Linux-dator (16.04 LTS) med den senaste [Terraform](https://www.terraform.io/intro/index.html)-versionen installerad och konfigurerad med [Hanterad tjänstidentitet (MSI)](https://docs.microsoft.com/azure/active-directory/managed-service-identity/overview). Den här avbildningen konfigurerar även en fjärrserverdel för att aktivera [Remote State](https://www.terraform.io/docs/state/remote.html)-hantering med Terraform. 
+I den här artikeln visas hur du använder en [Terraform Marketplace-avbildning](https://azuremarketplace.microsoft.com/marketplace/apps/azure-oss.terraform?tab=Overview) till att skapa en virtuell Ubuntu Linux-dator (16.04 LTS) med den senaste [Terraform](https://www.terraform.io/intro/index.html)-versionen installerad och konfigurerad med [hanterade identiteter för Azure-resurser](https://docs.microsoft.com/azure/active-directory/managed-service-identity/overview). Den här avbildningen konfigurerar även en fjärrserverdel för att aktivera [Remote State](https://www.terraform.io/docs/state/remote.html)-hantering med Terraform. 
 
 Terraform Marketplace-avbildningen gör det enkelt att komma igång med Terraform på Azure, utan att behöva installera och konfigurera Terraform-manuellt. 
 
@@ -79,13 +79,13 @@ Den virtuella Terraform-datorn utför följande:
 
 När du har skapat den virtuella datorn kan du logga in på den med SSH. Använd de autentiseringsuppgifter för kontot som du skapade i avsnittet Grundläggande inställningar i steg 3 för textgränssnittet. I Windows kan du ladda ned ett SSH-klientverktyg som [Putty](http://www.putty.org/).
 
-När du har använt SSH till att anslut till den virtuella datorn måste du ge deltagarbehörighet för hela prenumerationen till Hanterad tjänstidentitet på den virtuella datorn. 
+När du har använt SSH till att anslut till den virtuella datorn måste du ge deltagarbehörighet för hela prenumerationen till hanterade identiteter för Azure-resurser på den virtuella datorn. 
 
 Med deltagarbehörighet kan Hanterad tjänstidentitet på den virtuella datorn använda Terraform till att skapa resurser utanför VM-resursgruppen. Du kan enkelt uppnå den här åtgärden genom att köra skriptet en gång. Ange följande kommando:
 
 `. ~/tfEnv.sh`
 
-Det föregående skriptet använder mekanismen [interaktiv inloggning med AZ CLI v 2.0](https://docs.microsoft.com/cli/azure/authenticate-azure-cli?view=azure-cli-latest#interactive-log-in) för att autentisera med Azure och tilldela den virtuella datorn deltagarbehörighet för Hanterad tjänstidentitet för hela prenumerationen. 
+Det föregående skriptet använder mekanismen [interaktiv inloggning med AZ CLI v 2.0](https://docs.microsoft.com/cli/azure/authenticate-azure-cli?view=azure-cli-latest#interactive-log-in) för att autentisera med Azure och tilldela den virtuella datorn deltagarbehörighet för hanterad identitet för hela prenumerationen. 
 
  Den virtuella datorn ha en serverdel med Terraform Remote State. Om du vill aktivera den på Terraform-distributionen kopierar du filen remoteState.tf från katalogen tfTemplate till roten för Terraform-skripten.  
 

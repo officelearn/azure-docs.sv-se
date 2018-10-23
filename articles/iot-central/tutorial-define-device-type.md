@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: peterpr
-ms.openlocfilehash: 7121c83aea75f3b23820a7b0504fa704ec9f3016
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.openlocfilehash: 246d7f837fdf72ddb2d24139d2d3d83fcd43b640
+ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45984313"
+ms.lasthandoff: 10/13/2018
+ms.locfileid: "49310656"
 ---
 # <a name="tutorial-define-a-new-device-type-in-your-azure-iot-central-application"></a>Självstudie: Definiera en ny enhetstyp i Azure IoT Central-programmet
 
@@ -26,8 +26,8 @@ I den här självstudien skapar du enhetsmallen **Ansluten luftkonditioneringsen
 
 * Skickar telemetri såsom temperatur och luftfuktighet.
 * Rapporterar tillstånd, till exempel om den är på eller av.
-* Har egenskaper som exempelvis version av inbyggd programvara och serienummer.
-* Har inställningar som exempelvis måltemperatur och fläkthastighet.
+* Har enhetsegenskaper såsom version av inbyggd programvara och serienummer.
+* Har inställningar såsom måltemperatur.
 
 I den här guiden får du lära dig att:
 
@@ -39,9 +39,9 @@ I den här guiden får du lära dig att:
 > * Visa simulerade händelser
 > * Definiera tillståndsmätning
 > * Visa simulerat tillstånd
-> * Använda enhetsegenskaper
-> * Använda enhetsinställningar
+> * Använda inställningar och egenskaper
 > * Använda kommandon
+> * Visa din simulerade enhet på instrumentpanelen
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
@@ -57,25 +57,21 @@ Du behöver ett Azure IoT Central-program för att kunna genomföra den här sj�
 
     ![Sidan Application Manager (Programhanterare) i Azure IoT Central](./media/tutorial-define-device-type/iotcentralhome.png)
 
-4. Så här skapar du ett nytt Azure IoT Central-program:
-
-    * Välj ett eget programnamn som **Contoso luftkonditioneringsenheter**. Du får ett unikt URL-prefix från Azure IoT Central. Du kan ändra det här URL-prefixet till något som är enklare att komma ihåg.
+4. Skapa ett nytt Azure IoT Central-program:
     
-    * Välj en Azure Active Directory och en Azure-prenumeration som ska användas. Mer information om kataloger och prenumerationer finns på sidan om [hur du skapar ett Azure IoT Central-program](howto-create-application.md).
+    * Välj **Kostnadsfri**. Det finns inget prenumerationskrav för den kostnadsfria utvärderingsversionen på 7 dagar.
     
-    * Du kan antingen använda en befintlig resursgrupp eller skapa en ny resursgrupp med ett valfritt namn. Exempel: **contoso-rg**.
+       Mer information om kataloger och prenumerationer finns på sidan om [hur du skapar Azure IoT Central-programmet](howto-create-application.md).
     
-    * Välj den geografiska region som är närmast dig.
+    * Välj **Anpassat program**.
     
-    * Välj programmallen **Custom Application** (Anpassat program).
-    
-    * Välj betalningsplanen **Free 30 Day Trial Application** (Kostnadsfritt 30-dagars utvärderingsprogram).
+    * Om du vill kan du välja ett eget programnamn, till exempel **Contoso Air Conditioners**. Du får ett unikt URL-prefix från Azure IoT Central. Du kan ändra URL-prefixet till något som är enklare att komma ihåg.
     
     * Välj **Skapa**.
 
-    ![Sidan Skapa program i Azure IoT Central](./media/tutorial-define-device-type/iotcentralcreate.png)
+    ![Sidan Skapa program i Azure IoT Central](./media/tutorial-define-device-type/iotcentralcreatenew.png)
 
-Mer information finns på sidan för att [skapa ett Azure IoT Central-program](howto-create-application.md).
+    Mer information finns på sidan om att [skapa Azure IoT Central-programmet](howto-create-application.md).
 
 ## <a name="create-a-new-custom-device-template"></a>Skapa en ny anpassad enhetsmall
 
@@ -107,11 +103,15 @@ Följande steg visar hur du skapar en ny enhetsmall kallad **Ansluten luftkondit
     
     * Definiera de inställningar som används för att styra enheten.
     
-    * Definiera de egenskaper som används för att registrera information om enheten.
+    * Definiera de egenskaper som är enhetsmetadata.
+
+    * Definiera kommandon som ska köras direkt på enheten.
     
     * Definiera de regler som är kopplade till enheten.
     
     * Anpassa enhetens instrumentpanelen enheten för dina operatörer.
+
+    När du definierar enhetsmallen väljer du först **Redigera mall** för att redigera mallen. När du är klar väljer du **Klar**. 
 
     ![Luftkonditioneringsmått](./media/tutorial-define-device-type/airconmeasurements.png)
 
@@ -226,19 +226,23 @@ Du kan använda Tillstånd för att definiera och visualisera tillståndet för 
 
     ![Visa tillståndssimulering](./media/tutorial-define-device-type/stateview.png)
 
-4. Om det finns för många datapunkter som skickas av enheten på kort tid visas tillståndsmåttet med ett annat utseende enligt exemplet nedan. Om du klickar på diagrammet visas alla datapunkter inom den tidsperioden i kronologisk ordning. Du kan även begränsa tidsintervallet för att se måttkurvan i diagrammet.
+4. Om det finns för många datapunkter som skickas av enheten på kort tid visas tillståndsmåttet med ett annat utseende enligt exemplet nedan. Om du klickar på diagrammet visas alla datapunkter inom den tidsperioden i kronologisk ordning. Du kan även begränsa tidsintervallet för att se måtten i detalj.
 
     ![Visa tillståndsinformation](./media/tutorial-define-device-type/stateviewdetail.png)
 
 ## <a name="settings-properties-and-commands"></a>Inställningar, egenskaper och kommandon
 
-Inställningar, egenskaper, enhetsegenskaper och kommandon är olika värden som definieras i en enhetsmall och som associeras med varje enskild enhet:
+Inställningar, egenskaper och kommandon är olika värden som definieras i en enhetsmall och som associeras med varje enskild enhet:
 
 * Du använder _inställningar_ för att skicka konfigurationsdata till en enhet från programmet. Till exempel kan en operatör använda en inställning för att ändra enhetens telemetriintervall från två sekunder till fem sekunder. När en operatör ändrar en inställning markeras inställningen som väntande i användargränssnittet tills enheten bekräftar att den har genomfört inställningsändringen.
 
-* Du använder _egenskaper_ för att registrera information om enheten i programmet. Till exempel kan du använda egenskaper för att registrera en enhets serienummer eller enhetstillverkarens telefonnummer. Egenskaper lagras i programmet och synkroniseras inte med enheten. En operatör kan tilldela egenskaper värden.
+* Du använder _egenskaper_ för att definiera metadata som associeras med enheten. Det finns två kategorier med egenskaper:
+    
+    * Du använder _programegenskaper_ för att registrera information om enheten i programmet. Du kan till exempel använda programegenskaper för att registrera en enhets plats och dess senaste servicedatum. Dessa egenskaper lagras i programmet och synkroniseras inte med enheten. En operatör kan tilldela egenskaper värden.
 
-* Du använder _enhetsegenskaper_ för göra så att en enhet kan skicka egenskapsvärden till programmet. De här egenskaperna kan bara ändras av enheten. För operatörer är enhetsegenskaper skrivskyddade.
+    * Du använder _enhetsegenskaper_ för göra så att en enhet kan skicka egenskapsvärden till programmet. De här egenskaperna kan bara ändras av enheten. För operatörer är enhetsegenskaper skrivskyddade. I det här scenariot med en ansluten luftkonditioneringsenhet är versionen av inbyggd programvara och enhetens serienummer enhetsegenskaper som rapporteras av enheten. 
+    
+    Mer information finns i [Egenskaper][lnk-define-template] i instruktionerna om hur du konfigurerar en enhetsmall.
 
 * Du använder _kommandon_ för att fjärrhantera din enhet från ditt program. Du kan köra kommandon direkt på enheten från molnet för att styra enheterna. En operatör kan exempelvis köra kommandon, t.ex. omstart, för att omedelbart starta om enheten.
 
@@ -260,9 +264,9 @@ Du använder *inställningar* för att göra så att en operatör kan skicka kon
     | -------------------- | -----------     |
     | Visningsnamn         | Ange temperatur |
     | Fältnamn           | angeTemperatur  |
-    | Måttenhet  | F               |
+    | Måttenhet      | F               |
     | Antal decimaler       | 1               |
-    | Minvärde        | 20              |
+    | Minimivärde        | 20              |
     | Maxvärde        | 200             |
     | Initialt värde        | 80              |
     | Beskrivning          | Ange måltemperaturen för luftkonditioneringsenheten |
@@ -278,9 +282,9 @@ Du använder *inställningar* för att göra så att en operatör kan skicka kon
 
     ![Anpassa layout för inställningar](./media/tutorial-define-device-type/settingslayout.png)
 
-## <a name="use-properties--device-properties"></a>Använda egenskaper och enhetsegenskaper
+## <a name="use-properties"></a>Använda egenskaper 
 
-Du använder *egenskaper* för att lagra information om enheten i programmet. I det här avsnittet ska du lägga till molnegenskaper i enhetsmallen **Ansluten luftkonditioneringsenhet** för att lagra enhetens plats och senaste servicedatum. Observera att båda dessa är redigerbara egenskaper för enheten. Det finns även skrivskyddade egenskaper som rapporteras av enheten som inte kan ändras, till exempel enhetens serienummer och version av inbyggd programvara.
+Du använder *programegenskaper* för att lagra information om enheten i programmet. I det här avsnittet lägger du till programegenskaper i enhetsmallen **Ansluten luftkonditioneringsenhet** för att lagra enhetens plats och senaste servicedatum. Observera att båda dessa är redigerbara egenskaper för enheten. Det finns även skrivskyddade enhetsegenskaper som rapporteras av enheten och som inte kan ändras, till exempel enhetens serienummer och version av inbyggd programvara.
  
 1. Gå till sidan **Egenskaper** för enhetsmallen **Ansluten luftkonditioneringsenhet**:
 
@@ -288,7 +292,7 @@ Du använder *egenskaper* för att lagra information om enheten i programmet. I 
 
     Du kan skapa olika typer av enhetsegenskaper, till exempel nummer eller text. Om du vill lägga till en platsegenskap i enhetsmallen väljer du **Location**.
 
-2. För att konfigurera platsegenskapen använder du informationen i följande tabell:
+1. För att konfigurera platsegenskapen använder du informationen i följande tabell:
 
     | Fält                | Värde                |
     | -------------------- | -------------------- |
@@ -303,9 +307,9 @@ Du använder *egenskaper* för att lagra information om enheten i programmet. I 
 
     Välj **Spara**.
 
-3. Om du vill lägga till en egenskap för senaste servicedatum i enhetsmallen väljer du **Datum**.
+1. Om du vill lägga till en egenskap för senaste servicedatum i enhetsmallen väljer du **Datum**.
 
-4. För att konfigurera egenskapen för senaste servicedatum använder du informationen i följande tabell:
+1. För att konfigurera egenskapen för senaste servicedatum använder du informationen i följande tabell:
 
     | Fält                | Värde                   |
     | -------------------- | ----------------------- |
@@ -322,18 +326,48 @@ Du använder *egenskaper* för att lagra information om enheten i programmet. I 
 
     ![Anpassa layout för egenskaper](./media/tutorial-define-device-type/propertieslayout.png)
 
+1. Om du vill lägga till en enhetsegenskap såsom version av inbyggd programvara i enhetsmallen väljer du **Enhetsegenskap**.
+
+1.  För att konfigurera version av inbyggd programvara använder du informationen i följande tabell:
+
+    | Fält                | Värde                   |
+    | -------------------- | ----------------------- |
+    | Visningsnamn         | Version av inbyggd programvara        |
+    | Fältnamn           | versionInbyggdProgramvara         |
+    | Datatyp            | text                    |
+    | Beskrivning          | Luftkonditioneringsenhetens version av inbyggd programvara |
+
+    ![Konfigurera version av inbyggd programvara](./media/tutorial-define-device-type/configureproperties3.png)
+    
+    Välj **Spara**.
+
+1. Om du vill lägga till en enhetsegenskap såsom ett serienummer i enhetsmallen väljer du **Enhetsegenskap**.
+
+1. För att konfigurera serienumret använder du informationen i följande tabell:
+
+    | Fält                | Värde                   |
+    | -------------------- | ----------------------- |
+    | Visningsnamn         | Serienummer           |
+    | Fältnamn           | serieNummer            |
+    | Datatyp            | text                    |
+    | Beskrivning          | Serienumret för luftkonditioneringsenheten  |
+
+    ![Konfigurera serienummer](./media/tutorial-define-device-type/configureproperties4.png)
+    
+    Välj **Spara**.
+    
+    > [!NOTE]
+    > Enhetsegenskap skickas från enheten till programmet. Värdena för version av inbyggd programvara och serienummer uppdateras när den riktiga enheten ansluts till IoT Central.
 
 ## <a name="use-commands"></a>Använda kommandon
 
-Du använder _kommandon_ så att en operatör kan köra kommandon direkt på enheten. I det här avsnittet ska du lägga till ett kommando i enhetsmallen **Ansluten luftkonditioneringsenhet** som gör att en operatör kan skicka ett eko av ett visst meddelande på displayen på den anslutna luftkonditioneringsenheten (detta fungerar med MxChip-exempelkoden).
+Du använder _kommandon_ så att en operatör kan köra kommandon direkt på enheten. I det här avsnittet lägger du till ett kommando i enhetsmallen **Ansluten luftkonditioneringsenhet** som gör att en operatör kan echo-skicka ett visst meddelande på displayen på den anslutna luftkonditioneringsenheten.
 
-1. Gå till sidan **Kommandon** för enhetsmallen **Ansluten luftkonditioneringsenhet**:
+1. Gå till sidan **Kommandon** för enhetsmallen **Ansluten luftkonditioneringsenhet** och redigera mallen. 
 
-    ![Förbereda för att lägga till en inställning](media/tutorial-define-device-type/commandsecho.png)
+1. Klicka på **Nytt kommando** för att lägga till ett kommando till enheten och börja konfigurera det nya kommandot.
 
-    Du kan skapa olika typer av kommandon beroende på dina krav. 
-
-1. Klicka på **Nytt kommando** för att lägga till ett kommando till enheten.
+   Du kan skapa olika typer av kommandon beroende på dina krav. 
 
 1. Använd informationen i följande tabell för att konfigurera det nya kommandot:
 
@@ -345,13 +379,15 @@ Du använder _kommandon_ så att en operatör kan köra kommandon direkt på enh
     | Visningstyp         | text            |
     | Beskrivning          | Enhetskommando  |  
 
-Du kan lägga till ytterligare indata till kommandot genom att klicka på **+** för indata.
+    Du kan lägga till ytterligare indata till kommandot genom att klicka på **+** för **Indatafält**.
 
-2. Välj **Spara**.
+    ![Förbereda för att lägga till en inställning](media/tutorial-define-device-type/commandsecho1.png)
 
-3. Du kan anpassa layouten för sidan **Kommandon** genom att flytta och ändra storlek på kommandopanelerna:
+     Välj **Spara**.
 
-    ![Anpassa layout för inställningar](media/tutorial-define-device-type/commandstileresize.png)
+1. Du kan anpassa layouten för sidan **Kommandon** genom att flytta och ändra storlek på kommandopanelerna:
+
+    ![Anpassa layout för inställningar](media/tutorial-define-device-type/commandstileresize1.png)
 
 ## <a name="view-your-simulated-device"></a>Visa din simulerade enhet
 
@@ -361,35 +397,35 @@ Nu när du har definierat enhetsmallen **Ansluten luftkonditioneringsenhet** kan
 
     ![Instrumentpaneler för Ansluten luftkonditioneringsenhet](./media/tutorial-define-device-type/aircondashboards.png)
 
-2. Välj **Linjediagram** för att lägga till komponenten på **Instrumentpanelen**:
+1. Välj **Linjediagram** för att lägga till komponenten på **Instrumentpanelen**:
 
     ![Instrumentpanelskomponenter](./media/tutorial-define-device-type/dashboardcomponents1.png)
 
-3. Konfigurera komponenten **Linjediagram** med hjälp av informationen i följande tabell:
+1. Konfigurera komponenten **Linjediagram** med hjälp av informationen i följande tabell:
 
     | Inställning      | Värde       |
     | ------------ | ----------- |
     | Rubrik        | Temperatur |
     | Tidsintervall   | Senaste 30 minuterna |
-    | Mått | temperatur (välj **Synlighet** bredvid **temperatur**) |
+    | Mått     | temperatur (välj **Synlighet** bredvid **temperatur**) |
 
     ![Inställningar för linjediagram](./media/tutorial-define-device-type/linechartsettings.png)
 
     Välja sedan **Spara**.
 
-4. Konfigurera komponenten **Händelsediagram** med hjälp av informationen i följande tabell:
+1. Konfigurera komponenten **Händelsehistorik** med hjälp av informationen i följande tabell:
 
     | Inställning      | Värde       |
     | ------------ | ----------- |
     | Rubrik        | Händelser |
     | Tidsintervall   | Senaste 30 minuterna |
-    | Mått | Fel på fläktmotor (välj **Synlighet** bredvid **Fel på fläktmotor**) |
+    | Mått     | Fel på fläktmotor (välj **Synlighet** bredvid **Fel på fläktmotor**) |
 
     ![Inställningar för linjediagram](./media/tutorial-define-device-type/dashboardeventchartsetting.png)
 
     Välja sedan **Spara**.
 
-5. Konfigurera komponenten **Tillståndsdiagram** med hjälp av informationen i följande tabell:
+1. Konfigurera komponenten **Tillståndshistorik** med hjälp av informationen i följande tabell:
 
     | Inställning      | Värde       |
     | ------------ | ----------- |
@@ -401,52 +437,54 @@ Nu när du har definierat enhetsmallen **Ansluten luftkonditioneringsenhet** kan
 
     Välja sedan **Spara**.
 
-6. För att lägga till temperaturinställningen på instrumentpanelen väljer du **Inställningar och egenskaper**:
+1. För att lägga till temperaturinställningen på instrumentpanelen väljer du **Inställningar och egenskaper**. Klicka på **Lägg till/ta bort** för att lägga till de inställningar eller egenskaper som du vill ha på instrumentpanelen. 
 
     ![Instrumentpanelskomponenter](./media/tutorial-define-device-type/dashboardcomponents4.png)
 
-7. Konfigurera komponenten **Inställningar och egenskaper** med hjälp av informationen i följande tabell:
+1. Konfigurera komponenten **Inställningar och egenskaper** med hjälp av informationen i följande tabell:
 
     | Inställning                 | Värde         |
     | ----------------------- | ------------- |
     | Rubrik                   | Ange måltemperatur |
     | Inställningar och egenskaper | Ange temperatur |
 
-    ![Egenskapsinställningar för serienummer](./media/tutorial-define-device-type/propertysettings3.png)
+    Inställningar och egenskaper som du tidigare har definierat på sidorna Inställningar och Egenskaper visas i tillgängliga kolumner. 
 
-    Välja sedan **Spara**.
+    ![Ange inställningar för temperaturegenskap](./media/tutorial-define-device-type/propertysettings4.png)
 
-8. För att lägga till enhetens serienummer på instrumentpanelen väljer du **Inställningar och egenskaper**:
+    Välj sedan **OK**.
+
+1. För att lägga till enhetens serienummer på instrumentpanelen väljer du **Inställningar och egenskaper**:
 
     ![Instrumentpanelskomponenter](./media/tutorial-define-device-type/dashboardcomponents3.png)
 
-9. Konfigurera komponenten **Inställningar och egenskaper** med hjälp av informationen i följande tabell:
+1. Konfigurera komponenten **Inställningar och egenskaper** med hjälp av informationen i följande tabell:
 
     | Inställning                 | Värde         |
     | ----------------------- | ------------- |
     | Rubrik                   | Serienummer |
     | Inställningar och egenskaper | Serienummer |
 
-    ![Egenskapsinställningar för serienummer](./media/tutorial-define-device-type/propertysettings3.png)
+    ![Egenskapsinställningar för serienummer](./media/tutorial-define-device-type/propertysettings5.png)
 
-    Välja sedan **Spara**.
+    Välj sedan **OK**.
 
-10. För att lägga till enhetens version av inbyggd programvara på instrumentpanelen väljer du **Inställningar och egenskaper**:
+1. För att lägga till enhetens version av inbyggd programvara på instrumentpanelen väljer du **Inställningar och egenskaper**:
 
     ![Instrumentpanelskomponenter](./media/tutorial-define-device-type/dashboardcomponents4.png)
 
-11. Konfigurera komponenten **Inställningar och egenskaper** med hjälp av informationen i följande tabell:
+1. Konfigurera komponenten **Inställningar och egenskaper** med hjälp av informationen i följande tabell:
 
     | Inställning                 | Värde            |
     | ----------------------- | ---------------- |
     | Rubrik                   | Version av inbyggd programvara |
     | Inställningar och egenskaper | Version av inbyggd programvara |
 
-    ![Egenskapsinställningar för serienummer](./media/tutorial-define-device-type/propertysettings3.png)
+    ![Egenskapsinställningar för serienummer](./media/tutorial-define-device-type/propertysettings6.png)
 
-    Välja sedan **Spara**.
+    Välj sedan **OK**.
 
-12. Om du vill visa instrumentpanelen som operatör inaktiverar du **Designläge** längst upp till höger på sidan.
+1. Om du vill visa instrumentpanelen som operatör inaktiverar du **Redigera mall** längst upp till höger på sidan.
 
 ## <a name="next-steps"></a>Nästa steg
 
@@ -461,10 +499,13 @@ I den här självstudiekursen lärde du dig att:
 > * Visa simulerade händelser
 > * Definiera ditt tillstånd
 > * Visa simulerat tillstånd
-> * Använda enhetsegenskaper
-> * Använda enhetsinställningar
+> * Använda inställningar och egenskaper
+> * Använda kommandon
+> * Visa din simulerade enhet på instrumentpanelen
 
 Nu när du har definierat en enhetsmall i Azure IoT Central-programmet föreslår vi följande steg:
 
 * [Konfigurera regler och åtgärder för din enhet](tutorial-configure-rules.md)
 * [Anpassa operatörsvyer](tutorial-customize-operator.md)
+
+[lnk-define-template]: /azure/iot-central/howto-set-up-template#properties

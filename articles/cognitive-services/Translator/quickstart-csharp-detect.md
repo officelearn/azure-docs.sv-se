@@ -10,18 +10,16 @@ ms.component: translator-text
 ms.topic: quickstart
 ms.date: 06/15/2018
 ms.author: nolachar
-ms.openlocfilehash: b10072e01391da3845567c16fa7cc312ed23ceb2
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.openlocfilehash: b9a5dbdc1e7950400597c76359b8eee4268af6d0
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46368060"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49320381"
 ---
 # <a name="quickstart-identify-language-from-text-with-c35"></a>Snabbstart: Identifiera språk i text med C&#35;
 
 I den här snabbstarten ska du identifiera språket i källtexten med hjälp av Translator Text-API:et.
-
-Källkoden till det här exemplet finns på [GitHub](https://github.com/MicrosoftTranslator/Text-Translation-API-V3-C-Sharp).
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
@@ -30,6 +28,9 @@ Du behöver [Visual Studio 2017](https://www.visualstudio.com/downloads/) för a
 För att använda Translator Text-API:et behöver du även en prenumerationsnyckel. Mer information finns i [How to sign up for the Translator Text API](translator-text-how-to-signup.md) (Så här registrerar du dig för Translator Text-API:et).
 
 ## <a name="detect-request"></a>Identifieringsbegäran
+
+> [!TIP]
+> Hämta den senaste koden från [GitHub](https://github.com/MicrosoftTranslator/Text-Translation-API-V3-C-Sharp).
 
 Följande kod identifierar språket i källtexten med hjälp av metoden [Detect](./reference/v3-0-detect.md) (Identifiera).
 

@@ -9,16 +9,16 @@ ms.custom: hdinsightactive,mvc
 ms.topic: overview
 ms.date: 05/07/2018
 ms.author: jasonh
-ms.openlocfilehash: 9e4cb497a2dc81b9503b03fd2db27ff2538d424a
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 7bc7c95c0d15e0c33f7f9a705fb47d27f9daacec
+ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43039690"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49378728"
 ---
 # <a name="what-is-apache-spark-in-azure-hdinsight"></a>Vad är Apache Spark i Azure HDInsight
 
-*Apache Spark*: Parallellbearbetning som stöder intern bearbetning för att höja prestandan hos program för stordataanalys. Apache Spark i Azure HDInsight är Microsofts implementering av Apache Hadoop i molnet. HDInsight gör det enklare att skapa och konfigurera ett Spark-kluster i Azure. Spark-kluster i HDInsight är kompatibla med Azure Storage och Azure Data Lake Store. Så du kan använda HDInsight Spark-kluster för att bearbeta dina data som lagras i Azure. Information om komponenter och versioner finns i [Hadoop-komponenter och versionshantering i HDInsight](../hdinsight-component-versioning.md).
+*Apache Spark*: Parallellbearbetning som stöder intern bearbetning för att höja prestandan hos program för stordataanalys. Apache Spark i Azure HDInsight är Microsofts implementering av Apache Spark i molnet. HDInsight gör det enklare att skapa och konfigurera ett Spark-kluster i Azure. Spark-kluster i HDInsight är kompatibla med Azure Storage och Azure Data Lake Store. Så du kan använda HDInsight Spark-kluster för att bearbeta dina data som lagras i Azure. Information om komponenter och versioner finns i [Hadoop-komponenter och versionshantering i HDInsight](../hdinsight-component-versioning.md).
 
 ![Spark: ett enhetligt ramverk](./media/apache-spark-overview/hdinsight-spark-overview.png)
 

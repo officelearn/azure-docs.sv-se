@@ -1,5 +1,5 @@
 ---
-title: 'Exempel: Ladda upp och indexera videor med Video Indexer'
+title: Ladda upp och indexera videor med Video Indexer
 titlesuffix: Azure Cognitive Services
 description: Det här avsnittet visar hur du använder API:er för att ladda upp och indexera videor med Video Indexer.
 services: cognitive services
@@ -10,14 +10,14 @@ ms.component: video-indexer
 ms.topic: sample
 ms.date: 09/15/2018
 ms.author: juliako
-ms.openlocfilehash: f3889d1cddce92cbdd3049d4421bfdffc69da41e
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: 53dc65c3d2c56308dd298f33bb78047904810ae5
+ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48884313"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49377837"
 ---
-# <a name="example-upload-and-index-your-videos"></a>Exempel: Ladda upp och indexera dina videor  
+# <a name="upload-and-index-your-videos"></a>Ladda upp och indexera dina videor  
 
 Den här artikeln visar hur du laddar upp en video med Azure Video Indexer. Video Indexer-API:t innehåller två alternativ för uppladdning: 
 

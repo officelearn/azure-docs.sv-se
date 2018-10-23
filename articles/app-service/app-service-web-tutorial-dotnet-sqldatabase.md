@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 06/25/2018
 ms.author: cephalin
 ms.custom: mvc, devcenter, vs-azure
-ms.openlocfilehash: b438ac221483fec7ea90847ec27a105a3f21ab78
-ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
+ms.openlocfilehash: 783bf93c8507e76717a4293b2b29a9c11e9a1eed
+ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42117371"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49353824"
 ---
 # <a name="tutorial-build-an-aspnet-app-in-azure-with-sql-database"></a>Självstudie: Skapa en ASP.NET-app i Azure med SQL Database
 
@@ -423,4 +423,4 @@ I den här självstudiekursen lärde du dig att:
 Gå vidare till nästa självstudie där du får lära dig hur du enkelt kan förbättra säkerheten för din Azure SQL Database-anslutning.
 
 > [!div class="nextstepaction"]
-> [Säker åtkomst till SQL-databaser med hanterade tjänstidentiteter](app-service-web-tutorial-connect-msi.md)
+> [Säker åtkomst till SQL-databaser med hanterade identiteter för Azure-resurser](app-service-web-tutorial-connect-msi.md)

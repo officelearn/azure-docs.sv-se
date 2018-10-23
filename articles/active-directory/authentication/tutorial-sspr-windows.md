@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: f2f2208f325728275706eeed9ff16e8afc3b11cf
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: fc4b2f153c89d4253bc3fdd9c5a49973baa38752
+ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47166885"
+ms.lasthandoff: 10/13/2018
+ms.locfileid: "49310223"
 ---
 # <a name="tutorial-azure-ad-password-reset-from-the-login-screen"></a>Självstudie: Azure AD-lösenordsåterställning från inloggningsskärmen
 
@@ -112,6 +112,8 @@ När du testar funktionen med Fjärrskrivbord visas inte länken ”Återställ 
 * Återställning av lösenord stöds inte från ett Fjärrskrivbord.
 
 Om Windows-låsskärmen har inaktiverats med hjälp av en registernyckel eller grupprincip är **Återställ lösenord** inte tillgänglig.
+
+Om Ctrl+Alt+Del krävs av principen eller meddelanden för låsskärmen är avstängda fungerar inte **Återställ lösenord**. Windows 10 19H1 löser det här kravet.
 
 Azure AD-granskningsloggen innehåller information om IP-adressen och klienttypen där lösenordsåterställningen har gjorts.
 

@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: e68050e4902183b899bf3fee31bef088b1a0faf2
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: 4db494de87993a6434eaf5dbf441094578d72ea4
+ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45576076"
+ms.lasthandoff: 10/12/2018
+ms.locfileid: "49165972"
 ---
 # <a name="what-is-azure-maps"></a>Vad är Azure Maps?
 
@@ -23,6 +23,14 @@ Azure Maps är en samling geospatiala tjänster som backas upp av nya mappningsd
 I följande video beskriver vi Azure Maps mer ingående:
 
 <iframe src="https://channel9.msdn.com/Shows/Azure-Friday/Azure-Location-Based-Services/player" width="960" height="540" allowFullScreen frameBorder="0"></iframe>
+
+## <a name="map-controls"></a>Kartkontroller
+
+### <a name="web-control"></a>Webbkontroll
+
+Med webbkontrollen för Azure Maps kan du anpassa interaktiva kartor med eget innehåll och bilder för visning i dina webb- och mobilprogram. Den här kontrollen använder WebGL, så att du kan rendera stora datauppsättningar med höga prestanda. Utveckla med kontrollen med JavaScript eller TypeScript.
+
+![Webbkontroll för Azure Maps](media/about-azure-maps/Introduction_WebMapControl.png)
 
 ## <a name="services-in-azure-maps"></a>Tjänster i Azure Maps
 

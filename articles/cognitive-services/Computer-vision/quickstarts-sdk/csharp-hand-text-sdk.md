@@ -3,25 +3,23 @@ title: 'Snabbstart: Extrahera text – SDK, C# – Visuellt innehåll'
 titleSuffix: Azure Cognitive Services
 description: I den här snabbstarten extraherar du text från en bild med hjälp av Windows C#-klientbiblioteket för Visuellt innehåll.
 services: cognitive-services
-author: noellelacharite
+author: PatrickFarley
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: computer-vision
 ms.topic: quickstart
 ms.date: 09/27/2018
-ms.author: nolachar
-ms.openlocfilehash: 86808756721b2dc983df6eaf8a9e643a12d73969
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.author: pafarley
+ms.openlocfilehash: d819aee7c42759e2427e27e0f640d79536069ccb
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47409028"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49343613"
 ---
 # <a name="quickstart-extract-text-using-the-computer-vision-sdk-and-c"></a>Snabbstart: Extrahera text med hjälp av API för visuellt innehåll och C#
 
 I den här snabbstarten extraherar du handskriven eller tryckt text från en bild med hjälp av Windows-klientbiblioteket för Visuellt innehåll.
-
-Källkoden för det här exemplet finns på [GitHub](https://github.com/Azure-Samples/cognitive-services-vision-csharp-sdk-quickstarts/tree/master/ComputerVision).
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
@@ -30,6 +28,9 @@ Källkoden för det här exemplet finns på [GitHub](https://github.com/Azure-Sa
 * NuGET-paketet för [Microsoft.Azure.CognitiveServices.Vision.ComputerVision](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.ComputerVision)-klientbiblioteket. Du behöver inte ladda ned paketet. Installationsinstruktioner finns nedan.
 
 ## <a name="recognizetextasync-method"></a>Metoden RecognizeTextAsync
+
+> [!TIP]
+> Hämta den senaste koden som en Visual Studio-lösning från [GitHub](https://github.com/Azure-Samples/cognitive-services-vision-csharp-sdk-quickstarts/tree/master/ComputerVision).
 
 Metoderna `RecognizeTextAsync` och `RecognizeTextInStreamAsync` omsluter [API:et för Recognize Text](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/587f2c6a154055056008f200) för fjärrbilder respektive lokala bilder. Metoden `GetTextOperationResultAsync` omsluter [API:et för att hämta resultat för Identifiera text-åtgärder](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/587f2cf1154055056008f201).  Du kan använda dessa metoder för att identifiera text i en bild och extrahera de tecken som identifieras i en teckenström som kan användas på en dator.
 
@@ -42,7 +43,7 @@ För att köra exemplet följer du dessa steg:
     1. Välj **Microsoft.Azure.CognitiveServices.Vision.ComputerVision** när det visas. Klicka på kryssrutan bredvid namnet på ditt projekt och sedan på **Installera**.
 1. Ersätt `Program.cs` med följande kod.
 1. Ersätt `<Subscription Key>` med en giltig prenumerationsnyckel.
-1. Ändra `computerVision.Endpoint` till den Azure-region som är associerad med dina prenumerationsnycklar om det behövs.
+1. Om det behövs ändrar du `computerVision.Endpoint` till den Azure-region som är associerad med dina prenumerationsnycklar.
 1. Om du vill kan du ange `textRecognitionMode` till `TextRecognitionMode.Printed`.
 1. Ersätt `<LocalImage>` med sökvägen och filnamnet för en lokal bild.
 1. Du kan också ange `remoteImageUrl` till en annan bild om du vill.

@@ -3,25 +3,23 @@ title: 'Snabbstart: Analysera en bild – SDK, C# – Visuellt innehåll'
 titleSuffix: Azure Cognitive Services
 description: I den här snabbstarten ska du analysera en bild med hjälp av Windows C#-klientbiblioteket för visuellt innehåll.
 services: cognitive-services
-author: noellelacharite
+author: PatrickFarley
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: computer-vision
 ms.topic: quickstart
 ms.date: 09/14/2018
-ms.author: nolachar
-ms.openlocfilehash: 0315b1c90eeae27d30a237aea76e66465818fba4
-ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
+ms.author: pafarley
+ms.openlocfilehash: 81a7b32ef2970efc7f53ec8d25350efb217d7b36
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47056095"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49343661"
 ---
 # <a name="quickstart-analyze-an-image-using-the-computer-vision-sdk-and-c"></a>Snabbstart: Analysera en bild med Computer Vision SDK och C#
 
 I den här snabbstarten ska du analysera både en lokal bild och en fjärrbild för att extrahera visuella funktioner med hjälp av Windows-klientbiblioteket för Visuellt innehåll.
-
-Källkoden till det här exemplet finns på [GitHub](https://github.com/Azure-Samples/cognitive-services-vision-csharp-sdk-quickstarts/tree/master/ComputerVision).
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
@@ -30,6 +28,9 @@ Källkoden till det här exemplet finns på [GitHub](https://github.com/Azure-Sa
 * NuGET-paketet för [Microsoft.Azure.CognitiveServices.Vision.ComputerVision](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.ComputerVision)-klientbiblioteket. Du behöver inte ladda ned paketet. Installationsinstruktioner finns nedan.
 
 ## <a name="analyzeimageasync-method"></a>Metoden AnalyzeImageAsync
+
+> [!TIP]
+> Hämta den senaste koden som en Visual Studio-lösning från [GitHub](https://github.com/Azure-Samples/cognitive-services-vision-csharp-sdk-quickstarts/tree/master/ComputerVision).
 
 Metoderna `AnalyzeImageAsync` och `AnalyzeImageInStreamAsync` omsluter [API:et för bildanalys](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) för fjärrbilder respektive lokala bilder. Du kan använda dessa metoder för att extrahera visuella funktioner baserat på bildinnehållet och välja vilka funktioner som ska returneras, inklusive:
 

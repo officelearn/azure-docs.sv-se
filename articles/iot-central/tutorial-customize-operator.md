@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
-ms.openlocfilehash: d99b76faf618439e51735d5f1096fd4f1cfd2364
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 9b8293196114f55f633e67cf19cd0c9e60f6398e
+ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47038297"
+ms.lasthandoff: 10/13/2018
+ms.locfileid: "49309468"
 ---
 # <a name="tutorial-customize-the-azure-iot-central-operators-view"></a>Självstudie: Anpassa operatörsvyn i Azure IoT Central
 
@@ -56,7 +56,7 @@ Som byggare kan du definiera vilken information som ska visas på en enhetsinst
 
     ![Sidan Instrumentpanel för enhetsmall](media/tutorial-customize-operator/dashboard.png)
 
-4. Om du vill lägga till en KPI-panel på instrumentpanelen väljer du **KPI**:
+4. Om du vill lägga till en KPI-panel (Key Performance Indicator) på instrumentpanelen väljer du **KPI**:
 
     ![Lägga till KPI](media/tutorial-customize-operator/addkpi.png)
 
@@ -81,7 +81,7 @@ Som byggare kan du definiera vilken information som ska visas på en enhetsinst
 
 ## <a name="configure-your-settings-layout"></a>Konfigurera layouten för dina inställningar
 
-Som byggare kan du också konfigurera operatörsvyn för enhetsinställningarna. En operatör använder enhetsinställningssidan till att konfigurera en enhet. Till exempel använder operatören inställningssidan till att ange måltemperaturen för kylskåpet.
+Som byggare kan du också konfigurera operatörsvyn för enhetsinställningarna. En operatör använder enhetsinställningssidan till att konfigurera en enhet. En operatör använder till exempel inställningssidan för att ange måltemperaturen för den anslutna luftkonditioneringsenheten.
 
 1. Om du vill redigera inställningslayouten för din anslutna luftkonditionering väljer du **Inställningar** och välj **Redigera mall**:
 
@@ -117,7 +117,7 @@ Du kan också konfigurera operatörsvyn för enhetsegenskaperna, förutom instru
 
 I läget **Redigera mall** kan du anpassa instrumentpanel, inställningar och egenskaper för en operatör. Om du inte är i läget **Redigera mall**, kan du visa programmet som en operatör.
 
-1. Om du vill se den anslutna luftkonditioneringsenheten som operatör måste du klicka på **Klar** för att sluta redigera mallen. Detta återför dig till en operatörsvy av enheten.
+1. Om du vill se den anslutna luftkonditioneringsenheten som operatör klickar du på **Klar** för att sluta redigera mallen och återgå till operatörens enhetsvy.
 
 2. Om du vill uppdatera platsen för enheten, redigerar du värdet i platspanelen och väljer **Spara**:
 

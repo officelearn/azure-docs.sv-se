@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 03/30/2018
 ms.author: fryu
 ms.component: common
-ms.openlocfilehash: fc11e29b03df617c4b5bb6f4fbb43cd478001d42
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 3f2ebb82f5affa3c41f237edcc039eb6214c7a4c
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39521429"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49649303"
 ---
 # <a name="azure-storage-metrics-migration"></a>Migrering av Azure Storage-mått
 
@@ -25,7 +25,7 @@ Den här artikeln visar hur du migrerar från den gamla måtten till den nya må
 
 Azure Storage samlar in gamla måttvärden och aggregerar och lagrar dem i $Metric tabeller inom samma lagringskonto. Du kan använda Azure-portalen för att ställa in en Övervakningsdiagrammet. Du kan också använda Azure Storage SDK: er för att läsa data från $Metric tabeller som baseras på schemat. Mer information finns i [Lagringsanalys](./storage-analytics.md).
 
-Gamla mätvärden är kapacitetsmått som påverkar endast på Azure Blob storage. Gamla mätvärden är transaktionsmått på Blob storage, Table storage, Azure Files och Queue storage. 
+Gamla mätvärden är kapacitetsmått som påverkar endast på Azure Blob storage. Gamla mätvärden är transaktionsmått på Blob storage, Table storage, Azure Files och Queue storage.
 
 Gamla mått är utformade i ett fast schema. Designen leder noll måttvärde när du inte har trafikmönster utlösa måttet. Till exempel den **ServerTimeoutError** värdet anges till 0 i $Metric tabeller, även om du inte får någon server timeout-fel från live-trafik till ett lagringskonto.
 
@@ -65,14 +65,14 @@ Följande mått är nya erbjudanden som inte har stöd för de gamla mått:
 
 | Gamla mått | Nya mått |
 | ------------------- | ----------------- |
-| **AnonymousAuthorizationError** | Transaktioner med dimensionen **ResponseType** lika **AuthorizationError** |
-| **AnonymousClientOtherError** | Transaktioner med dimensionen **ResponseType** lika **ClientOtherError** |
-| **AnonymousClientTimeoutError** | Transaktioner med dimensionen **ResponseType** lika **ClientTimeoutError** |
-| **AnonymousNetworkError** | Transaktioner med dimensionen **ResponseType** lika **NetworkError** |
-| **AnonymousServerOtherError** | Transaktioner med dimensionen **ResponseType** lika **ServerOtherError** |
-| **AnonymousServerTimeoutError** | Transaktioner med dimensionen **ResponseType** lika **ServerTimeoutError** |
-| **AnonymousSuccess** | Transaktioner med dimensionen **ResponseType** lika **lyckades** |
-| **AnonymousThrottlingError** | Transaktioner med dimensionen **ResponseType** lika **ClientThrottlingError** eller **ServerBusyError** |
+| **AnonymousAuthorizationError** | Transaktioner med dimensionen **ResponseType** lika **AuthorizationError** - och dimensionstabeller **autentisering** lika **anonym** |
+| **AnonymousClientOtherError** | Transaktioner med dimensionen **ResponseType** lika **ClientOtherError** - och dimensionstabeller **autentisering** lika **anonym** |
+| **AnonymousClientTimeoutError** | Transaktioner med dimensionen **ResponseType** lika **ClientTimeoutError** - och dimensionstabeller **autentisering** lika **anonym** |
+| **AnonymousNetworkError** | Transaktioner med dimensionen **ResponseType** lika **NetworkError** - och dimensionstabeller **autentisering** lika **anonym** |
+| **AnonymousServerOtherError** | Transaktioner med dimensionen **ResponseType** lika **ServerOtherError** - och dimensionstabeller **autentisering** lika **anonym** |
+| **AnonymousServerTimeoutError** | Transaktioner med dimensionen **ResponseType** lika **ServerTimeoutError** - och dimensionstabeller **autentisering** lika **anonym** |
+| **AnonymousSuccess** | Transaktioner med dimensionen **ResponseType** lika **lyckades** - och dimensionstabeller **autentisering** lika **anonym** |
+| **AnonymousThrottlingError** | Transaktioner med dimensionen **ResponseType** lika **ClientThrottlingError** eller **ServerBusyError** - och dimensionstabeller **autentisering** lika **anonym** |
 | **AuthorizationError** | Transaktioner med dimensionen **ResponseType** lika **AuthorizationError** |
 | **Tillgänglighet** | **Tillgänglighet** |
 | **AverageE2ELatency** | **SuccessE2ELatency** |
@@ -87,14 +87,14 @@ Följande mått är nya erbjudanden som inte har stöd för de gamla mått:
 | **PercentSuccess** | Transaktioner med dimensionen **ResponseType** lika **lyckades** |
 | **PercentThrottlingError** | Transaktioner med dimensionen **ResponseType** lika **ClientThrottlingError** eller **ServerBusyError** |
 | **PercentTimeoutError** | Transaktioner med dimensionen **ResponseType** lika **ServerTimeoutError** eller **ResponseType** lika **ClientTimeoutError** |
-| **SASAuthorizationError** | Transaktioner med dimensionen **ResponseType** lika **AuthorizationError** |
-| **SASClientOtherError** | Transaktioner med dimensionen **ResponseType** lika **ClientOtherError** |
-| **SASClientTimeoutError** | Transaktioner med dimensionen **ResponseType** lika **ClientTimeoutError** |
-| **SASNetworkError** | Transaktioner med dimensionen **ResponseType** lika **NetworkError** |
-| **SASServerOtherError** | Transaktioner med dimensionen **ResponseType** lika **ServerOtherError** |
-| **SASServerTimeoutError** | Transaktioner med dimensionen **ResponseType** lika **ServerTimeoutError** |
-| **SASSuccess** | Transaktioner med dimensionen **ResponseType** lika **lyckades** |
-| **SASThrottlingError** | Transaktioner med dimensionen **ResponseType** lika **ClientThrottlingError** eller **ServerBusyError** |
+| **SASAuthorizationError** | Transaktioner med dimensionen **ResponseType** lika **AuthorizationError** - och dimensionstabeller **autentisering** lika **SAS** |
+| **SASClientOtherError** | Transaktioner med dimensionen **ResponseType** lika **ClientOtherError** - och dimensionstabeller **autentisering** lika **SAS** |
+| **SASClientTimeoutError** | Transaktioner med dimensionen **ResponseType** lika **ClientTimeoutError** - och dimensionstabeller **autentisering** lika **SAS** |
+| **SASNetworkError** | Transaktioner med dimensionen **ResponseType** lika **NetworkError** - och dimensionstabeller **autentisering** lika **SAS** |
+| **SASServerOtherError** | Transaktioner med dimensionen **ResponseType** lika **ServerOtherError** - och dimensionstabeller **autentisering** lika **SAS** |
+| **SASServerTimeoutError** | Transaktioner med dimensionen **ResponseType** lika **ServerTimeoutError** - och dimensionstabeller **autentisering** lika **SAS** |
+| **SASSuccess** | Transaktioner med dimensionen **ResponseType** lika **lyckades** - och dimensionstabeller **autentisering** lika **SAS** |
+| **SASThrottlingError** | Transaktioner med dimensionen **ResponseType** lika **ClientThrottlingError** eller **ServerBusyError** - och dimensionstabeller **autentisering** lika **SAS** |
 | **ServerOtherError** | Transaktioner med dimensionen **ResponseType** lika **ServerOtherError** |
 | **ServerTimeoutError** | Transaktioner med dimensionen **ResponseType** lika **ServerTimeoutError** |
 | **Lyckades** | Transaktioner med dimensionen **ResponseType** lika **lyckades** |

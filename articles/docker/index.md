@@ -11,18 +11,18 @@ ms.devlang: devops
 ms.topic: landing-page
 ms.date: 06/19/2017
 ms.author: carolz
-ms.openlocfilehash: c1dab114ddd010daa88222f380ad7a47f1dd1767
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: fa2cce2314b3df0d9d32d9d8d6ede5a70520a7d4
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49090713"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49647260"
 ---
 <div class="content">
    <h1>Docker på Azure</h1>   
     <div class="introHolder" style="justify-content: space-between;">
     <div class="intro" style="min-width: 200px">
-     <img src="media/Docker.png" align="right" alt="Docker Logo">
+     <img src="media/docker.png" align="right" alt="Docker Logo">
 Docker är en populär containerhanterings- och avbildningsplattform som gör att du snabbt kan arbeta med containrar på Linux och Windows.  Lär dig hur du använder Docker på Azure med våra snabbstarter och självstudier.
     </div>
     </div>

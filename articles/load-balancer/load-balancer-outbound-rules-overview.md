@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/8/2018
+ms.date: 10/19/2018
 ms.author: kumud
-ms.openlocfilehash: 15783822631a5372b181f2d65746664d90b389da
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: 0ba7ed902c6ecb7a328aa6db3d3855b88bed2813
+ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48883966"
+ms.lasthandoff: 10/22/2018
+ms.locfileid: "49637570"
 ---
 # <a name="load-balancer-outbound-rules"></a>Utgående regler för belastningsutjämnare
 
@@ -84,7 +84,7 @@ Du kan använda följande parameter för att allokera 10 000 SNAT portar per vir
 
           "allocatedOutboundPorts": 10000
 
-Varje offentlig IP-adress från alla klienter för en utgående regel bidrar upp till 64 000 tillfälliga portar för oss som SNAT portar.  Belastningsutjämnaren tilldelas SNAT portar i multipler av 8. Om du anger ett värde som inte är delbara med 8 avvisade konfigurationen igen.  Om du försöker att allokera mer SNAT portar än vad som är tillgängliga beror på hur många offentliga IP-adresser, avvisade konfigurationen igen.  Till exempel om du allokerar 10 000 portar per virtuell dator och 7 virtuella datorer i en serverdel skulle pool delar en enda offentlig IP-adress, konfigurationen är nekade (7 x 10,0000 SNAT portar > 64,000 SNAT portar).  Du kan lägga till fler offentliga IP-adresser för klientdelen av utgående regeln för att aktivera scenariot.
+Varje offentlig IP-adress från alla klienter för en utgående regel bidrar upp till 64 000 tillfälliga portar för användning som SNAT portar.  Belastningsutjämnaren tilldelas SNAT portar i multipler av 8. Om du anger ett värde som inte är delbara med 8 avvisade konfigurationen igen.  Om du försöker att allokera mer SNAT portar än vad som är tillgängliga beror på hur många offentliga IP-adresser, avvisade konfigurationen igen.  Till exempel om du allokerar 10 000 portar per virtuell dator och 7 virtuella datorer i en serverdel skulle pool delar en enda offentlig IP-adress, konfigurationen är nekade (7 x 10,0000 SNAT portar > 64,000 SNAT portar).  Du kan lägga till fler offentliga IP-adresser för klientdelen av utgående regeln för att aktivera scenariot.
 
 Du kan återgå till [automatisk SNAT-porttilldelning baserat på backend-poolstorlek](load-balancer-outbound-connections.md#preallocatedports) genom att ange 0 för antalet portar.
 

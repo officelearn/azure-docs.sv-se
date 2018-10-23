@@ -2,25 +2,17 @@
 title: VPN gateway-inställningar för Azure-anslutningar på olika platser | Microsoft Docs
 description: Läs mer om VPN Gateway-inställningar för Azures virtuella nätverksgatewayar.
 services: vpn-gateway
-documentationcenter: na
 author: cherylmc
-manager: jpconnock
-editor: ''
-tags: azure-resource-manager,azure-service-management
-ms.assetid: ae665bc5-0089-45d0-a0d5-bc0ab4e79899
 ms.service: vpn-gateway
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 03/20/2018
+ms.topic: conceptual
+ms.date: 10/22/2018
 ms.author: cherylmc
-ms.openlocfilehash: 60cdc7bbe08df7816560e9720f96edc51769c342
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 30edc7308ad2d01d5245f8cd1073a7def674b74d
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38618229"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49649847"
 ---
 # <a name="about-vpn-gateway-configuration-settings"></a>Om konfigurationsinställningar för VPN-Gateway
 
@@ -29,10 +21,11 @@ En VPN-gateway är en typ av virtuell nätverksgateway som skickar krypterad tra
 En anslutning för VPN-gateway är beroende av konfigurationen av flera resurser som innehåller konfigurerbara inställningar. Avsnitt i den här artikeln beskrivs de resurser och inställningar som är relaterade till en VPN-gateway för ett virtuellt nätverk som skapats i Resource Manager-distributionsmodellen. Du hittar beskrivningar och Topologidiagram för varje anslutning lösning i den [om VPN Gateway](vpn-gateway-about-vpngateways.md) artikeln.
 
 >[!NOTE]
-> Värdena i den här artikeln gäller för virtuella nätverksgatewayer som använder - GatewayType ”Vpn”. Det är därför kallas dessa specifika virtuella nätverksgatewayer för VPN-gatewayer. Värdena för ExpressRoute-gatewayer är inte samma värden som du använder för VPN-gatewayer.
+> Värdena i den här artikeln gäller VPN-gatewayer (vnet-gateways som använder - GatewayType Vpn). Den här artikeln beskriver inte alla gateway-typer eller zonredundant gatewayer.
 >
->Värden som gäller för - GatewayType ”ExpressRoute”, se [virtuella Nätverksgatewayer för ExpressRoute](../expressroute/expressroute-about-virtual-network-gateways.md).
->
+>* Värden som gäller för - GatewayType ”ExpressRoute”, se [virtuella Nätverksgatewayer för ExpressRoute](../expressroute/expressroute-about-virtual-network-gateways.md).
+>* Zonredundant gateways, se [om zonredundant gatewayer](about-zone-redundant-vnet-gateways.md).
+>* Virtuellt WAN-nätverk, finns i [om virtuellt WAN](../virtual-wan/virtual-wan-about.md). 
 >
 
 ## <a name="gwtype"></a>Gateway-typer
@@ -175,7 +168,7 @@ Ytterligare tekniska resurser och specifik syntax krav när du använder REST AP
 | **Klassisk** | **Resource Manager** |
 | --- | --- |
 | [PowerShell](/powershell/module/azure#networking) |[PowerShell](/powershell/module/azurerm.network#vpn) |
-| [REST API](https://msdn.microsoft.com/library/jj154113) |[REST API](/rest/api/network/virtualnetworkgateways) |
+| [REST-API](https://msdn.microsoft.com/library/jj154113) |[REST-API](/rest/api/network/virtualnetworkgateways) |
 | Stöds inte | [Azure CLI](/cli/azure/network/vnet-gateway)|
 
 ## <a name="next-steps"></a>Nästa steg

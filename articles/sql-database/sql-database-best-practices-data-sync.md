@@ -11,13 +11,13 @@ author: allenwux
 ms.author: xiwu
 ms.reviewer: ''
 manager: craigg
-ms.date: 08/20/2018
-ms.openlocfilehash: 1d292007b06e12b6be28e053bc6def3b12c7befe
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.date: 10/22/2018
+ms.openlocfilehash: 4bc655f1e9da00a42c60e1ab763c5503b393d4a1
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47063666"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49646318"
 ---
 # <a name="best-practices-for-sql-data-sync"></a>Regelverk för SQL Data Sync 
 
@@ -70,6 +70,10 @@ Du behöver att inkludera alla tabeller som finns i en databas i en synkroniseri
 Varje tabell i en synkroniseringsgrupp måste ha en primärnyckel. SQL Data Sync-tjänsten kan inte synkronisera en tabell som inte har en primärnyckel.
 
 Innan du använder SQL Data Sync i produktion, prestandatestning inledande och pågående synkronisering.
+
+#### <a name="empty-tables-provide-the-best-performance"></a>Tomma tabeller tillhandahålla bästa prestanda
+
+Tomma tabeller ger bästa möjliga prestanda vid initiering. Om måltabellen är tom använder datasynkronisering massinfogning för att läsa in data. I annat fall har datasynkronisering en rad för rad jämförelse och infogas för konflikter. Om prestanda inte är något problem, men kan du ställa in synkronisering mellan tabeller som redan innehåller data.
 
 ### <a name="provisioning-destination-databases"></a> Etablering av mål-databaser
 

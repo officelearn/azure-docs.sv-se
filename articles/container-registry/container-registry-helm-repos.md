@@ -7,12 +7,12 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 09/24/2018
 ms.author: iainfou
-ms.openlocfilehash: f04b4015e201d272fa624b1de265792564ac14cd
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 140d663524696f19844fea8906b181f468b7d157
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47048146"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49647022"
 ---
 # <a name="use-azure-container-registry-as-a-helm-repository-for-your-application-charts"></a>Använda Azure Container Registry som ett Helm-lagringsplatsen för dina program-diagram
 
@@ -30,7 +30,7 @@ Den här artikeln visar hur du använder en lagringsplats för Helm-diagrammet s
 Följande krav måste uppfyllas för att slutföra stegen i den här artikeln:
 
 - **Azure Container Registry** -skapa ett behållarregister i Azure-prenumerationen. Till exempel använda den [Azure-portalen](container-registry-get-started-portal.md) eller [Azure CLI](container-registry-get-started-azure-cli.md).
-- **Helm klienten** att söka efter och installera diagram. Du måste också ett Helm-server (Tiller) som initieras i ett Kubernetes-kluster. Om det behövs kan du [skapa ett Azure Kubernetes Service-kluster][aks-quickstart]. Läs mer om hur du installerar och använder Helm [installera Helm][helm-install].
+- **Helm-klientversionen 2.11.0 (inte en RC-versionen) eller senare** – kör `helm version` att hitta din nuvarande version. Du måste också ett Helm-server (Tiller) som initieras i ett Kubernetes-kluster. Om det behövs kan du [skapa ett Azure Kubernetes Service-kluster][aks-quickstart]. Läs mer om hur du installera och uppgradera Helm [installera Helm][helm-install].
 - **Azure CLI version 2.0.46 eller senare** – kör `az --version` att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI][azure-cli-install].
 
 ## <a name="add-a-repository-to-helm-client"></a>Lägga till en lagringsplats i Helm-klienten

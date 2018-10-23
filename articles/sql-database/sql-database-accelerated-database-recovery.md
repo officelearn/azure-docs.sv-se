@@ -11,12 +11,12 @@ ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
 ms.date: 10/11/2018
-ms.openlocfilehash: ad9ef7aa56cde9dd2ae644b97570b3bcfb727516
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: 49ef31996cb9c55ed244202a85e123faf52fbd2a
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49355559"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49649796"
 ---
 # <a name="accelerated-database-recovery-preview"></a>Snabbare återställning av databas (förhandsversion)
 
@@ -108,7 +108,7 @@ Det finns fyra viktiga komponenter i ADR:
   sLog är en sekundär InMemory-loggström att butiker logga poster för inte är versionshanterat åtgärder (till exempel metadata cache ogiltigförklarade, lås anskaffning och så vidare). SLog är:
 
   - Låg volym och i minnet
-  - Sparas på disken som har serialiseras under kontrollpunktsprocessen
+  - Sparas på disken genom att serialisera under kontrollpunktsprocessen
   - Med jämna mellanrum trunkeras som transaktioner incheckning
   - Går det snabbare att göra om och ångra genom att bearbeta endast åtgärderna som inte är versionshanterat  
   - Aktiverar aggressiva transaktion trunkering av loggen genom att bevara de nödvändiga loggposter
@@ -127,4 +127,4 @@ Följande typer av kunder bör överväga att aktivera automatisk Distributionsr
 
 ## <a name="to-enable-adr-during-this-preview-period"></a>Aktivera ADR under denna förhandsgranskningsperiod
 
-Under utvärderingsperioden för den här funktionen, skicka ett e- [ mailto:adr@microsoft.com ](mailto:adr@microsoft.com) vill veta mer och försök ut Accelerated Database Recovery (ADR). I e-post, inkluderar du namnet på den logiska servern (för enkla databaser, elastiska pooler och Azure Data Warehouse). Eftersom detta är en förhandsgranskningsfunktion måste testservern vara en icke-produktion-server.
+Under utvärderingsperioden för den här funktionen, skicka ett e- [ adr@microsoft.com ](mailto:adr@microsoft.com) vill veta mer och försök ut Accelerated Database Recovery (ADR). I e-post, inkluderar du namnet på den logiska servern (för enkla databaser, elastiska pooler och Azure Data Warehouse). Eftersom detta är en förhandsgranskningsfunktion måste testservern vara en icke-produktion-server.

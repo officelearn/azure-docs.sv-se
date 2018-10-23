@@ -8,12 +8,12 @@ services: digital-twins
 ms.topic: conceptual
 ms.date: 10/02/2018
 ms.author: lyrana
-ms.openlocfilehash: ef7838c41bb479da273123c2eb3def8e12802390
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: dc5570b188bfdc0e1be78aa2bd5c5d92e884f377
+ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49351310"
+ms.lasthandoff: 10/22/2018
+ms.locfileid: "49638026"
 ---
 # <a name="connect-and-authenticate-to-apis"></a>Ansluta och autentisera till API: er
 
@@ -46,6 +46,7 @@ Du kan använda en klient, till exempel Postman som en API-miljö för att komma
 1. Gå till https://www.getpostman.com/ hämta appen
 1. Följ stegen [här](https://docs.microsoft.com/azure/active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad) att skapa ett Azure Active Directory-program (eller du kan välja att återanvända en befintlig registrering). 
 1. Lägg till ”Azure Digital Twins” under behörigheter som krävs och välj delegerade behörigheter. Glöm inte att klicka på bevilja behörigheter för att slutföra.
+1. Öppna applikationsmanifestet och ange oauth2AllowImplicitFlow till true
 1. Konfigurera en svars-url till [ https://www.getpostman.com/oauth2/callback ](https://www.getpostman.com/oauth2/callback).
 1. Välj den **auktorisering fliken**, klicka på **OAuth 2.0**, och välj **hämta ny åtkomsttoken**.
 

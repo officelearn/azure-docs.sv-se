@@ -1,23 +1,23 @@
 ---
-title: 'Snabbstart: Node.js för QnA Maker API (V4)'
+title: REST-API (V4) – Node.js – QnA Maker
 titleSuffix: Azure Cognitive Services
-description: Hämta information och kodexempel som hjälper dig att snabbt komma igång med Microsoft Translator Text API i Microsoft Cognitive Services i Azure.
+description: Hämta information om REST-baserad och kodexempel som hjälper dig att snabbt komma igång med Microsoft Translator Text API i Microsoft Cognitive Services på Azure.
 services: cognitive-services
 author: diberry
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: qna-maker
-ms.topic: quickstart
-ms.date: 09/12/2018
+ms.topic: article
+ms.date: 10/19/2018
 ms.author: diberry
-ms.openlocfilehash: bbcd031f80010f10ab36440b703ac6dd55a8ced2
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
-ms.translationtype: HT
+ms.openlocfilehash: 68ec8fe90c19106c989f072dc041ee81af536389
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49387420"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49647926"
 ---
-# <a name="quickstart-for-microsoft-qna-maker-api-with-nodejs"></a>Snabbstart för Microsoft QnA Maker API med Node.js 
+# <a name="qna-maker-rest-api-with-nodejs"></a>QnA Maker REST-API med Node.js 
 <a name="HOLTop"></a>
 
 Den här artikeln visar hur du använder [API:et för Microsoft QnA Maker](../Overview/overview.md) med Node.js för att göra följande.
@@ -39,7 +39,7 @@ Den här artikeln visar hur du använder [API:et för Microsoft QnA Maker](../Ov
 
 [!INCLUDE [Code is available in Azure-Samples Github repo](../../../../includes/cognitive-services-qnamaker-nodejs-repo-note.md)]
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 Du behöver [Node.js 6](https://nodejs.org/en/download/) för att köra den här koden.
 
@@ -1765,6 +1765,6 @@ Ett svar som anger att åtgärden lyckades returneras i JSON, som du ser i följ
 > [!div class="nextstepaction"]
 > [Referens för QnA Maker (V4) REST API](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75ff)
 
-## <a name="see-also"></a>Se även 
+## <a name="see-also"></a>Se också 
 
 [Översikt över QnA Maker](../Overview/overview.md)

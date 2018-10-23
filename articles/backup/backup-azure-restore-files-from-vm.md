@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 8/22/2018
 ms.author: pullabhk
-ms.openlocfilehash: 1f3b81c31dc566e5e3011167eee00145f6791cb1
-ms.sourcegitcommit: a62cbb539c056fe9fcd5108d0b63487bd149d5c3
+ms.openlocfilehash: d38da87bae07dadb10894593dd41ded22f5f162d
+ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42616917"
+ms.lasthandoff: 10/22/2018
+ms.locfileid: "49638315"
 ---
 # <a name="recover-files-from-azure-virtual-machine-backup"></a>Återställa filer från säkerhetskopiering av Azure virtuella datorer
 
@@ -45,7 +45,7 @@ Om du vill återställa filer och mappar från återställningspunkten, gå till
 
 4. Från den **Välj återställningspunkt** nedrullningsbara menyn, Välj den återställningspunkt som innehåller de filer som du vill. Den senaste återställningspunkten har redan valts som standard.
 
-5. Om du vill hämta programvaran som används för att kopiera filer från återställningspunkten klickar du på **ladda ned körbar fil** (för Windows Azure-VM) eller **ladda ned skriptet** (för Linux Azure VM).
+5. Om du vill hämta programvaran som används för att kopiera filer från återställningspunkten klickar du på **ladda ned körbar fil** (för Windows Azure-VM) eller **ladda ned skriptet** (för Linux Azure-dator, en python-skriptet genereras).
 
     ![Genererat lösenord](./media/backup-azure-restore-files-from-vm/download-executable.png)
 

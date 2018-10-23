@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 09/05/2017
 ms.author: fryu
 ms.component: common
-ms.openlocfilehash: fea6ece6e40d869aea7e52718fbf07bede34e1a5
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: b9b6c67930e251302f397e199c65f949997a25cf
+ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49406712"
+ms.lasthandoff: 10/22/2018
+ms.locfileid: "49637991"
 ---
 # <a name="azure-storage-metrics-in-azure-monitor"></a>Azure Storage-mått i Azure Monitor
 
@@ -29,7 +29,7 @@ Mått är aktiverade som standard och du kan komma åt de senaste 93 dagarna dat
 
 ### <a name="access-metrics-in-the-azure-portal"></a>Åtkomst-mått i Azure portal
 
-Du kan övervaka mått med tiden i Azure-portalen. I följande exempel visas hur du visar **UsedCapacity** på kontonivå.
+Du kan övervaka mått med tiden i Azure-portalen. I följande exempel visas hur du visar **transaktioner** på kontonivå.
 
 ![Skärmbild för att komma åt mått i Azure portal](./media/storage-metrics-in-azure-monitor/access-metrics-in-portal.png)
 

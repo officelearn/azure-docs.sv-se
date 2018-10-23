@@ -7,15 +7,15 @@ author: diberry
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
-ms.topic: article
-ms.date: 09/10/2018
+ms.topic: conceptual
+ms.date: 10/19/2018
 ms.author: diberry
-ms.openlocfilehash: e6bb0735de94d0baaac3a8504ec1811cfbfff27f
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: 92b4864f8991380740e6edb498328ce2eea98250
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49353925"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49650119"
 ---
 # <a name="entities-in-luis"></a>Entiteter i LUIS
 
@@ -60,6 +60,10 @@ I uttryck ”boka mig en biljett till Paris”, ”Paris” är en entitet av ty
 
 ## <a name="assign-entities-in-none-intent"></a>Tilldela enheter inget avsikt
 Alla avsikter, inklusive den **ingen** avsikt, bör ha entiteter med etiketten. På så sätt kan LUIS mer information om var entiteterna finns i talade och ord är runt entiteterna. 
+
+## <a name="entity-status-for-predictions"></a>Status för enheter för förutsägelser
+
+Se [Status för enheter förutsägelser](luis-how-to-add-example-utterances.md#entity-status-predictions) för mer information. 
 
 ## <a name="types-of-entities"></a>Typer av enheter
 LUIS erbjuder många typer av enheter. färdiga entiteter, anpassad dator lärt dig entiteter och listan över entiteter.

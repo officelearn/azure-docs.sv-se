@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: 4b13d2d277721d37a6b96f6640377c875f0b5c0f
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: b22d18408d040d564d6220e74e8b8a893fe41ae9
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44161589"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49646253"
 ---
 # <a name="disaster-recovery-in-azure-service-fabric"></a>Haveriberedskap i Azure Service Fabric
 En viktig del av att leverera hög tillgänglighet är att säkerställa att tjänster kan överleva alla olika typer av fel. Detta är särskilt viktigt för fel som är oplanerade och utanför din kontroll. Den här artikeln beskriver några vanliga feltillstånd som kan vara katastrofer om inte modelleras och hanteras korrekt. Här beskrivs även åtgärder och åtgärder som ska vidtas om en katastrof har inträffat ändå. Målet är att begränsa eller eliminera risken för avbrott eller dataförluster när de uppstår fel, planerat eller i annat fall sker.
@@ -133,7 +133,7 @@ Det finns två olika strategier för kvarvarande permanent eller fasta programm�
 ### <a name="random-failures-leading-to-cluster-failures"></a>Slumpmässiga fel som leder till klusterfel
 Service Fabric har begreppet Startvärdesnoder. Det här är noder som underhåller tillgängligheten för underliggande klustret. Dessa noder hjälpa dig att se till att klustret förblir upp genom att upprätta lån med andra noder och fungerar som tiebreakers under vissa typer av nätverksfel. Om slumpmässiga fel ta bort en majoritet av seed-noder i klustret och de återförs inte stängs klustret automatiskt. I Azure, hanteras automatiskt Startvärdesnoder: de har distribuerats över tillgängliga feldomäner och uppgraderingsdomäner, och om en enda seed-nod har tagits bort från klustret ett annat kommer att skapas i dess ställe. 
 
-I både fristående Service Fabric-kluster och Azure är ”primära nodtypen” det som körs på frö. När du definierar en primära nodtypen Service Fabric automatiskt att dra nytta av antalet noder som tillhandahålls genom att skapa upp till 9 startvärdesnoder och 9 repliker av var och en av systemtjänster. Om en uppsättning slumpmässiga fel tar ut en majoritet av dessa system service repliker samtidigt kan ange systemtjänster förlorar kvorum, som vi som beskrivs ovan. Om en majoritet av startvärdesnoder går förlorade kan stänger klustret strax efter.
+I både fristående Service Fabric-kluster och Azure är ”primära nodtypen” det som körs på frö. När du definierar en primära nodtypen Service Fabric automatiskt att dra nytta av antalet noder som tillhandahålls genom att skapa upp till 9 startvärdesnoder och 7 repliker av var och en av systemtjänster. Om en uppsättning slumpmässiga fel tar ut en majoritet av dessa system service repliker samtidigt kan ange systemtjänster förlorar kvorum, som vi som beskrivs ovan. Om en majoritet av startvärdesnoder går förlorade kan stänger klustret strax efter.
 
 ## <a name="next-steps"></a>Nästa steg
 - Lär dig hur du simulera olika fel med den [testmöjlighet framework](service-fabric-testability-overview.md)

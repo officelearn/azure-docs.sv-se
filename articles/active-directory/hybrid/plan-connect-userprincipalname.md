@@ -9,12 +9,12 @@ ms.topic: article
 ms.workload: identity
 ms.service: active-Directory
 manager: mtillman
-ms.openlocfilehash: 4ce7b3a6b455384180184aa3b9be34fb88da266b
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 35f1ed2fbeeea7ff3beffeae91f775c829deedec
+ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46314043"
+ms.lasthandoff: 10/22/2018
+ms.locfileid: "49637722"
 ---
 # <a name="azure-ad-userprincipalname-population"></a>Azure AD UserPrincipalName population
 
@@ -112,14 +112,14 @@ Lokala användarobjektet:
 - mailNickName: us4
 - proxyAddresses: {SMTP:us1@contoso.com}
 - e-post: us2@contoso.com
-- userPrincipalName: us3@contoso.com
+- UserPrincipalName: us3@contoso.com
 
 Synkronisera uppdateringen på den lokala mailNickName-attributet till Azure AD-klient
 - Uppdatera Azure AD MailNickName-attributet med lokala mailNickName-attributet.
 - Eftersom det finns ingen uppdatering till lokalt userPrincipalName-attribut, finns det ingen förändring av Azure AD UserPrincipalName-attribut.
 
 Användarobjektet med Azure AD-klient:
-- MailNickName: us4
+- mailNickName: us4
 - UserPrincipalName: us1@contoso.onmicrosoft.com
 
 ### <a name="scenario-3-non-verified-upn-suffix--update-on-premises-userprincipalname-attribute"></a>Scenario 3: Icke-kontrollerad UPN-suffixet – uppdatera lokala userPrincipalName-attribut
@@ -130,7 +130,7 @@ Lokala användarobjektet:
 - mailNickName: us4
 - proxyAddresses: {SMTP:us1@contoso.com}
 - e-post: us2@contoso.com
-- userPrincipalName: us5@contoso.com
+- UserPrincipalName: us5@contoso.com
 
 Synkronisera uppdateringen på lokalt userPrincipalName-attribut till Azure AD-klient
 - Uppdatering av lokalt userPrincipalName-attribut utlöser omberäkning av MOERA och Azure AD UserPrincipalName-attribut.
@@ -138,7 +138,7 @@ Synkronisera uppdateringen på lokalt userPrincipalName-attribut till Azure AD-k
 - Ange Azure AD UserPrincipalName-attribut till MOERA.
 
 Användarobjektet med Azure AD-klient:
-- MailNickName: us4
+- mailNickName: us4
 - UserPrincipalName: us4@contoso.onmicrosoft.com
 
 ### <a name="scenario-4-non-verified-upn-suffix--update-primary-smtp-address-and-on-premises-mail-attribute"></a>Scenario 4: Icke-kontrollerad UPN-suffixet – uppdatering primär SMTP-adress och en lokal e-attribut
@@ -149,13 +149,13 @@ Lokala användarobjektet:
 - mailNickName: us4
 - proxyAddresses: {SMTP:us6@contoso.com}
 - e-post: us7@contoso.com
-- userPrincipalName: us5@contoso.com
+- UserPrincipalName: us5@contoso.com
 
 Synkronisera uppdateringen på en lokal e-postattribut och primär SMTP-adress till Azure AD-klient
 - När den första synkroniseringen för användarobjektet, uppdaterar till lokalt e-attributet och den primära SMTP-adressen påverkar inte Azure AD-MailNickName eller UserPrincipalName-attribut.
 
 Användarobjektet med Azure AD-klient:
-- MailNickName: us4
+- mailNickName: us4
 - UserPrincipalName: us4@contoso.onmicrosoft.com
 
 ### <a name="scenario-5-verified-upn-suffix--update-on-premises-userprincipalname-attribute-suffix"></a>Scenario 5: Verifierade UPN-suffixet – uppdatera lokala suffix för userPrincipalName-attribut
@@ -166,14 +166,14 @@ Lokala användarobjektet:
 - mailNickName: us4
 - proxyAddresses: {SMTP:us6@contoso.com}
 - e-post: us7@contoso.com
-- serPrincipalName: us5@verified.contoso.com
+- UserPrincipalName: us5@verified.contoso.com
 
 Synkronisera uppdateringen på lokalt userPrincipalName-attribut till Azure AD-klient
 - Uppdatera på lokalt userPrincipalName-attribut utlösare omberäkning av Azure AD UserPrincipalName-attribut.
 - Ange Azure AD UserPrincipalName-attribut till lokalt userPrincipalName-attribut som UPN-suffixet har verifierats med Azure AD-klient.
 
 Användarobjektet med Azure AD-klient:
-- MailNickName: us4     
+- mailNickName: us4     
 - UserPrincipalName: us5@verified.contoso.com
 
 ## <a name="next-steps"></a>Nästa steg

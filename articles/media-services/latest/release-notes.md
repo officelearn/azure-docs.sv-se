@@ -9,14 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 10/16/2018
+ms.date: 10/22/2018
 ms.author: juliako
-ms.openlocfilehash: 4001d0e21e7a0c8977d785463fb54aa4de45786c
-ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
+ms.openlocfilehash: 10bd2101839e1b6d1dbdc1e53c31693ab0be98fd
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49378745"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49647773"
 ---
 # <a name="azure-media-services-v3-release-notes"></a>Azure Media Services v3 viktig information 
 
@@ -38,7 +38,7 @@ Den [REST v3 GA-version](https://github.com/Azure/azure-rest-api-specs/tree/mast
 
 #### <a name="azure-cli-20"></a>Azure CLI 2.0
  
-Azure CLI 2.0-modul för alla funktioner, inklusive Live, Innehållsprinciper nyckel, konto/tillgången filter, Streaming principer.
+Azure CLI 2.0-modulen omfattar för närvarande åtgärder för Live, nyckel Innehållsprinciper, Streaming principer. Mer information finns i [planer för ändringar](#plans-for-changes).
 
 #### <a name="azure-resource-management"></a>Azure Resource Management 
 
@@ -95,7 +95,7 @@ Video Indexer GA-versionen har vi tillkännagav i augusti. Ny information om fun
 
 ### <a name="plans-for-changes"></a>Planer för ändringar
 
-Azure CLI-versionen kommer på 10/23/2018.
+Azure CLI-versionen kommer 11/06/2018.
 
 ### <a name="known-issues"></a>Kända problem
 
@@ -118,7 +118,7 @@ Följande funktioner finns i .net SDK:
 
 ### <a name="known-issues"></a>Kända problem
 
-* När du skickar ett jobb kan du ange för att mata in källvideon med hjälp av HTTPS-adresser, SAS URL: er eller sökvägar till filer i Azure Blob storage. AMS v3 stöder för närvarande inte Chunked-kodning över HTTPS-adresser.
+* När du skickar ett jobb kan du ange för att mata in källvideon med hjälp av HTTPS-adresser, SAS URL: er eller sökvägar till filer i Azure Blob storage. AMS v3 stöder för närvarande inte segmentvis överföringskodning över HTTPS-URL:er.
 
 ## <a name="next-steps"></a>Nästa steg
 

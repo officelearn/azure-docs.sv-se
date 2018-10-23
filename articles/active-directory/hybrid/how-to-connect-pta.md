@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/19/2018
+ms.date: 10/21/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 4ae84ff481b25f1e91a29c067dea74ba25f924aa
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: 899aeeb994ca5c9bf30dfca876dff61c1ccf3ea7
+ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49320330"
+ms.lasthandoff: 10/22/2018
+ms.locfileid: "49637587"
 ---
 # <a name="user-sign-in-with-azure-active-directory-pass-through-authentication"></a>Användaren logga in med Azure Active Directory-direktautentisering
 
@@ -48,8 +48,9 @@ Du kan kombinera direktautentisering med den [sömlös enkel inloggning](how-to-
   - Inga hanteringskostnader för. Agenten får automatiskt förbättringar och felkorrigeringar.
 - *Skydda*
   - Lokala lösenord lagras aldrig i molnet i någon form.
-  - Agenten gör bara utgående anslutningar från ditt nätverk. Det finns därför inga krav på att installera agenten i ett perimeternätverk, även kallat DMZ.
   - Skyddar dina användarkonton genom att arbeta smidigt med [principer för Azure AD villkorlig åtkomst](../active-directory-conditional-access-azure-portal.md), inklusive Multi-Factor Authentication (MFA), [blockera äldre](../conditional-access/conditions.md) och av [ Filtrera bort råstyrkeattacker för lösenord](../authentication/howto-password-smart-lockout.md).
+  - Agenten gör bara utgående anslutningar från ditt nätverk. Det finns därför inga krav på att installera agenten i ett perimeternätverk, även kallat DMZ.
+  - Kommunikationen mellan en agent och Azure AD skyddas med certifikatbaserad autentisering. Dessa certifikat förnyas varje månaderna av Azure AD.
 - *Med hög tillgänglighet*
   - Ytterligare agenter kan installeras på flera lokala servrar för att ge hög tillgänglighet för inloggningsförfrågningar.
 

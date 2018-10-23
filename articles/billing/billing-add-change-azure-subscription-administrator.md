@@ -13,14 +13,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/14/2018
+ms.date: 10/19/2018
 ms.author: cwatson
-ms.openlocfilehash: 821d263856f21897915ba7954487b4d029cc4ed0
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: d6e99c2d57baa5fc62f3894abc9d04635f81f5aa
+ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47395253"
+ms.lasthandoff: 10/22/2018
+ms.locfileid: "49638060"
 ---
 # <a name="add-or-change-azure-subscription-administrators"></a>Lägga till eller ändra Azure-prenumerationsadministratörer
 
@@ -41,9 +41,9 @@ Om du vill lägga till någon som administratör för en Azure-prenumeration til
 
 1. Besök [ **prenumerationer** i Azure-portalen](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade).
 2. Välj den prenumeration som du vill ge åtkomst till.
-3. Välj **Lägg till**.
+3. Välj **Åtkomstkontroll (IAM)** i listan.
+4. Välj **Lägg till**.
    (Om knappen Lägg till saknas har du inte behörighet att lägga till behörigheter.)
-4. Välj **Åtkomstkontroll (IAM)** i listan.
 5. I rutan **Roll** väljer du **Ägare**. 
 6. I rutan **Bevilja åtkomst till** väljer du **Azure AD-användare, -grupp eller -program**. 
 7. I rutan **Välj** anger du e-postadressen till användaren du vill lägga till som ägare. Välj användaren och sedan **Spara**.
@@ -67,6 +67,19 @@ Endast [ägare](../role-based-access-control/built-in-roles.md#owner) kan lägga
     Ta bort behörigheten medadministratör **högerklickar du på** medadministratör användar- och välj sedan **ta bort medadministratör**.
 
     ![Skärmbild som tar bort medadministratör](./media/billing-add-change-azure-subscription-administrator/remove-coadmin.png)
+
+### <a name="adding-a-guest-user-as-a-co-administrator"></a>Att lägga till en gästanvändare som en medadministratör
+
+Gästanvändare som har tilldelats rollen delad administratör kan se några skillnader jämfört med användare med rollen delad administratör. Föreställ dig följande:
+
+- Användare A med ett Azure AD arbets- eller skolkonto är tjänstadministratör för en Azure-prenumeration.
+- Användare B har ett Microsoft-konto.
+- Användare A tilldelar rollen som medadministratör till användaren B.
+- Användare B kan göra nästan allt, men inte kan registrera program eller leta upp användare i Azure AD-katalog.
+
+Du kan förvänta dig som användare B kan hantera allt. Orsaken till den här skillnaden är att Microsoft-kontot har lagts till prenumerationen som gästanvändare i stället för en medlemsanvändare. Gästanvändare har olika standardbehörigheter i Azure AD jämfört med användare. Till exempel användare kan läsa andra användare i Azure AD och det går inte att gästanvändare. Användare kan registrera nya tjänstens huvudnamn i Azure AD och det går inte att gästanvändare. Om en gästanvändare behöver för att kunna utföra dessa uppgifter, en möjlig lösning är att tilldela specifikt Azure AD-administratörsroller gästanvändaren behöver. Till exempel i scenariot ovan tilldelar du den [Katalogläsare](../active-directory/users-groups-roles/directory-assign-admin-roles.md#directory-readers) roll att läsa andra användare och tilldela den [programutvecklare](../active-directory/users-groups-roles/directory-assign-admin-roles.md#application-developer) roll för att kunna skapa tjänstens huvudnamn. Läs mer om medlemmar och gästanvändare och deras behörigheter, [vad är standardbehörigheterna för användare i Azure Active Directory?](../active-directory/fundamentals/users-default-permissions.md).
+
+Observera att den [inbyggda roller för Azure-resurser](../role-based-access-control/built-in-roles.md) skiljer sig från den [Azure AD-administratörsroller](../active-directory/users-groups-roles/directory-assign-admin-roles.md). De inbyggda rollerna bevilja inte åtkomst till Azure AD. Mer information finns i [förstå de olika rollerna](../role-based-access-control/rbac-and-directory-admin-roles.md).
 
 <a name="change-service-administrator-for-a-subscription"></a>
 

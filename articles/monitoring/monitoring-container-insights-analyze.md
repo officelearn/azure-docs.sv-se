@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/14/2018
+ms.date: 10/19/2018
 ms.author: magoedte
-ms.openlocfilehash: 6df7d42bc291713a815cac9f719f53136ed35b19
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 430145119721ac947162d3b661377290a0ae2c11
+ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46956690"
+ms.lasthandoff: 10/22/2018
+ms.locfileid: "49638009"
 ---
-## <a name="understand-aks-cluster-performance-with-azure-monitor-for-containers"></a>Förstå prestanda för AKS-kluster med Azure Monitor för behållare
+# <a name="understand-aks-cluster-performance-with-azure-monitor-for-containers"></a>Förstå prestanda för AKS-kluster med Azure Monitor för behållare
 Visa prestanda för dina Azure Kubernetes Service (AKS) kluster kan observeras ur två perspektiv med Azure Monitor för behållare direkt från ett AKS-kluster eller visa alla AKS-kluster i en prenumeration från Azure Monitor. 
 
 Den här artikeln hjälper dig att förstå upplevelse mellan två perspektiv och hur du snabbt utvärdera, undersöka och lösa problem som identifieras.
@@ -109,6 +109,10 @@ Växla till den **noder** fliken och raden hierarkin följer objektmodellen Kube
 
 ![Exempel Kubernetes Node-hierarkin i prestandavyn](./media/monitoring-container-insights-analyze/containers-nodes-view.png)
 
+Från en utökad nod och du kan gå nedåt från pod eller behållare som körs på noden till den kontrollenheten för att visa prestandadata som visar den styrenheten. Klicka på värde under den **Controller** kolumnen för den specifika noden.   
+
+![Exemplet nedåt från nod till controller i prestandavyn](./media/monitoring-container-insights-analyze/drill-down-node-controller.png)
+
 Du kan välja domänkontrollanter eller behållare överst på sidan och granska status och Resursanvändning för dessa objekt.  Om istället du vill granska minnesanvändningen, i den **mått** listrutan, väljer **minne RSS** eller **arbetsminne**. **Minne RSS** stöds endast för Kubernetes version 1.8 och senare. Annars kan du visa värden för **Min&nbsp; %**  som *NaN&nbsp;%*, vilket är ett värde av numeriska data som representerar en odefinierad eller inte går att representera värde. 
 
 ![Behållaren noder prestandavy](./media/monitoring-container-insights-analyze/containers-node-metric-dropdown.png)
@@ -144,7 +148,9 @@ Här kan du visa hälsotillståndet för prestanda för dina domänkontrollanter
 
 ![< namn > domänkontrollanter prestandavy](./media/monitoring-container-insights-analyze/containers-controllers-view.png)
 
-Rad-hierarki börjar med en domänkontrollant och utökas kontrollanten. Du kan visa en eller flera behållare. Expandera en pod och den sista raden visar behållaren grupperade poden.  
+Hierarki för raden som börjar med en domänkontrollant och när du har expanderat en domänkontrollant kan du visa en eller flera poddar.  Expandera pod och den sista raden visar behållaren grupperade poden. Från en utökad styrenhet, du kan gå nedåt till nod den körs på att visa prestandadata som filtreras för noden. Klicka på värde under den **noden** kolumnen för den specifika styrenheten.   
+
+![Exemplet nedåt från nod till controller i prestandavyn](./media/monitoring-container-insights-analyze/drill-down-controller-node.png)
 
 Informationen som visas när du visar domänkontrollanter beskrivs i följande tabell:
 
@@ -178,6 +184,10 @@ Välj i Väljaren, **behållare**.
 Här kan du visa hälsotillståndet för prestanda för dina Azure Kubernetes-behållare.  
 
 ![< namn > domänkontrollanter prestandavy](./media/monitoring-container-insights-analyze/containers-containers-view.png)
+
+Från en behållare, du kan gå nedåt till en pod eller noden för att visa prestandadata som filtreras för objektet. Klicka på värde under den **Pod** eller **noden** kolumnen för den specifika behållaren.   
+
+![Exemplet nedåt från nod till controller i prestandavyn](./media/monitoring-container-insights-analyze/drill-down-controller-node.png)
 
 I följande tabell beskrivs den information som visas när du visar behållare:
 
@@ -238,7 +248,7 @@ Utdata för container-loggar som vidarebefordras till logganalys är STDOUT och 
 ### <a name="example-log-search-queries"></a>Exempel loggsökningsfrågor
 Det är ofta bra att skapa frågor som börjar med ett exempel eller två och ändra dem efter dina behov. För att skapa mer avancerade frågor kan experimentera du med följande exempelfrågor:
 
-| Fråga | Beskrivning | 
+| Söka i data | Beskrivning | 
 |-------|-------------|
 | ContainerInventory<br> &#124;projektet dator, namn, bild, ImageTag, ContainerState, CreatedTime, StartedTime, FinishedTime<br> &#124;Rendera tabell | Visa en lista över information om en behållarens livslängd| 
 | KubeEvents_CL<br> &#124;där not(isempty(Namespace_s))<br> &#124;Sortera efter TimeGenerated fall<br> &#124;Rendera tabell | Kubernetes-händelser|

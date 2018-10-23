@@ -8,12 +8,12 @@ manager: jeconnoc
 ms.author: tarcher
 ms.date: 09/22/2018
 ms.topic: article
-ms.openlocfilehash: f574203f31a21f945115296693f04cff649614c6
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: a71f28413028efe3547df7c464ec852fe2161f63
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47165644"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49649949"
 ---
 # <a name="ansible-module-and-version-matrix"></a>Ansible-modulen och version matris
 
@@ -128,7 +128,7 @@ Den här artikeln innehåller Ansible-moduler för Azure som kan utnyttja Azure-
 | azure_rm_autoscale_facts            | -            | -                         | -          | Ja          | Ja                                 | 
 
 ## <a name="introduction-to-playbook-role-for-azure"></a>Introduktion till spelbok rollen för Azure
-Den [azure_preview_module spelbok rollen](https://galaxy.ansible.com/Azure/azure_preview_modules/) är den mest omfattande rollen och innehåller alla de senaste Azure-modulerna. Uppdateringar och korrigeringar av fel är klar i mer tid än den officiella Ansible-versionen. Om du använder Ansible för Azure-resurs etablering syften, är du rekommenderas att installera rollen azure_preview_module.
+Den [azure_preview_module spelbok rollen](https://galaxy.ansible.com/Azure/azure_preview_modules/) är den mest omfattande rollen och innehåller alla de senaste Azure-modulerna. Uppdateringar och korrigeringar av fel är klar i mer tid än den officiella Ansible-versionen. Om du använder Ansible för Azure-resurs etablering syften är du rekommenderas att installera rollen azure_preview_module spelbok.
 
 Rollen azure_preview_module spelbok släpps var tredje vecka.
 

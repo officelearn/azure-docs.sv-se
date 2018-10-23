@@ -11,83 +11,33 @@ author: danimir
 ms.author: v-daljep
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 10/16/2018
-ms.openlocfilehash: dc83dbcd9e4338476277f94fa6c84cad6b7e5066
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.date: 10/22/2018
+ms.openlocfilehash: 60f60b9ef055ea38a2036c4f9c5b6aa2c1f6526d
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49405063"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49648062"
 ---
 # <a name="monitoring-and-performance-tuning"></a>Övervakning och prestandajustering
 
 Azure SQL Database hanteras automatiskt och flexibla datatjänst där du kan enkelt övervaka användning, lägga till eller ta bort resurser (processor, minne och I/O), hitta rekommendationer som kan förbättra databasens prestanda eller låt databasen som anpassas efter din arbetsbelastning och automatiskt optimera prestanda.
 
-## <a name="the-state-of-an-active-query"></a>Status för aktiva frågor
+## <a name="monitoring-database-performance"></a>Övervaka databasprestanda
 
-För att förbättra prestandan för Azure SQL Database, förstår du att varje aktiva frågebegäran från ditt program är antingen i en löpande eller väntande läge. När du felsöker problem med prestandan i Azure SQL Database, Tänk på följande diagram:
+Prestandaövervakning för en SQL-databas i Azure startar med att övervaka resursutnyttjandet i förhållande till nivån på databasprestanda som du valt. Azure SQL Database hjälper dig att identifiera möjligheter att förbättra och optimera frågeprestanda utan att ändra resurser genom att granska [rekommendationer för prestandajustering](sql-database-advisor.md). Index som saknas och dåligt optimerade frågor är vanliga orsaker till dåliga databasprestanda. Du kan använda de här justeringsrekommendationerna att förbättra prestanda för din arbetsbelastning. Du kan också låta Azure SQL database till [automatiskt optimera prestandan för dina frågor](sql-database-automatic-tuning.md) genom att tillämpa alla identifierade rekommendationer och verifiera att de förbättras databasens prestanda.
 
-![Tillstånd för arbetsbelastning](./media/sql-database-monitor-tune-overview/workload-states.png)
-
-För en arbetsbelastning med prestandaproblem prestandaproblemet kan bero på CPU-konkurrens (en **körs-relaterade** villkor) eller enskilda frågor väntar på något (en **väntar-relaterade** villkor ).
-
-- **Hög CPU-användning i Azure SQL database**:
-
-  Du kan se överdriven CPU användning orsakar prestandaproblem på följande villkor:
-
-  - För många frågor som körs
-  - För många kompilerar frågor
-  - En eller flera av de frågor som körs använder en icke-optimala frågeplan
-
-  Om så är fallet för din arbetsbelastning är målet att identifiera och finjustera frågorna eller uppgradera beräkningsstorleken eller tjänstenivån för att öka kapaciteten för din Azure SQL-databas att absorbera CPU-kraven. Läs mer i skala resurser för enskilda databaser [skala resurser för enkel databas i Azure SQL Database](sql-database-single-database-scale.md) och skala resurser för elastiska pooler finns i [skala resurser för elastisk pool i Azure SQL Databasen](sql-database-elastic-pool-scale.md).
-
-- **En enskild fråga väntar på något**
-
-  Enskilda frågor kan ha prestandaproblem på grund av frågan väntar på att något. Målet är att ta bort eller minska väntetiden i det här scenariot.
-
-### <a name="determine-if-you-have-a-running-related-performance-issue"></a>Avgör om du har ett körs minnesrelaterade prestandaproblem
-
-Du kan identifiera körs minnesrelaterade prestandaproblem på flera olika sätt. De vanligaste metoderna är:
-
-- Använd den [Azure-portalen](#monitor-databases-using-the-azure-portal) övervakar processoranvändning i procent.
-- Använd följande [dynamiska hanteringsvyer](sql-database-monitoring-with-dmvs.md):
-
-  - [sys.dm_db_resource_stats](sql-database-monitoring-with-dmvs.md#monitor-resource-use) returnerar CPU, I/O och minne i samband med en Azure SQL Database-databas. Det finns en rad för var 15: e sekund, även om det finns ingen aktivitet i databasen. Historiska data bevaras under en timme.
-  - [sys.resource_stats](sql-database-monitoring-with-dmvs.md#monitor-resource-use) returnerar CPU-användning och lagring data för en Azure SQL Database. Data som samlas in och sammanställs inom fem minuter långa intervall.
-
-> [!TIP]
-> Som en generell riktlinje CPU-användning är konsekvent vid eller över 80%, måste köras minnesrelaterade prestandaproblem.
-
-### <a name="determine-if-you-have-a-waiting-related-performance-issue"></a>Avgör om du har en väntande minnesrelaterade prestandaproblem
-
-Först måste vara säker på att detta inte är en hög CPU, körs minnesrelaterade prestandaproblem. Om den inte är nästa steg att identifiera övre väntar som är associerade med din arbetsbelastning.  Vanliga metoder för att visa upp vänta kategorier av typen:
-
-- Den [Query Store](https://docs.microsoft.com/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store) innehåller vänta statistik per fråga över tid. I Query Store kombineras vänta typer i vänta kategorier. Mappningen av vänta kategorier för att vänta typer finns i [sys.query_store_wait_stats](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-query-store-wait-stats-transact-sql?view=sql-server-2017#wait-categories-mapping-table).
-- [sys.dm_db_wait_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-wait-stats-azure-sql-database) returnerar information om den väntar påträffades av trådar som körs under åtgärden. Du kan använda den här aggregerade vyn för att diagnostisera prestandaproblem med Azure SQL Database och med specifika frågor och -batchar.
-- [sys.dm_os_waiting_tasks](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-os-waiting-tasks-transact-sql) returnerar information om kön vänta på uppgifter som väntar på några resurser.
-
-I det föregående diagrammet visas är den vanligaste väntar:
-
-- Lås (blockera)
-- I/O
-- TempDB-relaterade konkurrens
-- Minne bevilja väntar
-
-Beroende på vad som visas har varje wait-kategori en annan sökväg för felsökning.
-
-## <a name="overview-of-monitoring-database-performance-in-azure-sql-database"></a>Översikt över övervaka databasprestanda i Azure SQL Database
-
-Prestandaövervakning för en SQL-databas i Azure startar med att övervaka resursutnyttjandet i förhållande till nivån på databasprestanda som du valt. Övervakning hjälper dig att avgöra om din databas har överflödig kapacitet eller har problem med eftersom resurserna är överutnyttjade ut och sedan bestämmer om det är dags att justera beräkningsstorleken och tjänstnivåer för din databas i den [DTU-baserade köpa modellen](sql-database-service-tiers-dtu.md) eller [vCore-baserade inköpsmodellen](sql-database-service-tiers-vcore.md). Du kan övervaka din databas i den [Azure-portalen](https://portal.azure.com) med hjälp av följande grafiska verktyg eller med hjälp av SQL [dynamiska hanteringsvyer (DMV)](sql-database-monitoring-with-dmvs.md).
-
-Azure SQL Database hjälper dig att identifiera möjligheter att förbättra och optimera frågeprestanda utan att ändra resurser genom att granska [rekommendationer för prestandajustering](sql-database-advisor.md). Index som saknas och dåligt optimerade frågor är vanliga orsaker till dåliga databasprestanda. Du kan använda de här justeringsrekommendationerna att förbättra prestanda för din arbetsbelastning.
-Du kan också låta Azure SQL database till [automatiskt optimera prestandan för dina frågor](sql-database-automatic-tuning.md) genom att tillämpa alla identifierade rekommendationer och verifiera att de förbättras databasens prestanda. Du har följande alternativ för övervakning och felsökning databasprestanda:
+Du har följande alternativ för övervakning och felsökning databasprestanda:
 
 - I den [Azure-portalen](https://portal.azure.com), klickar du på **SQL-databaser**, väljer du databasen och sedan använda övervakning diagrammet för att söka efter resurser som närmar sig sin maximala. DTU-användning visas som standard. Klicka på **redigera** att ändra tidsintervall och värden som visas.
 - Använd [Query Performance Insight](sql-database-query-performance.md) att identifiera de frågor som lägger ut det mesta av resurser.
 - Använd [SQL Database Advisor](sql-database-advisor-portal.md) att visa rekommendationer för att skapa och släppa index, Parameterisera frågorna och åtgärda problem med databasscheman.
 - Använd [smarta insikter för Azure SQL](sql-database-intelligent-insights.md) för automatisk övervakning av databasens prestanda. När ett prestandaproblem har identifierats genereras en diagnostiklogg med information om och rot orsak Analysis (RCA) av problemet. Rekommendation för förbättring av prestanda tillhandahålls när det är möjligt.
 - [Aktivera automatisk justering](sql-database-automatic-tuning-enable.md) och låta Azure SQL-databasen automatiskt korrigering identifieras prestandaproblem.
-- Du kan också använda [dynamiska hanteringsvyer (DMV)](sql-database-monitoring-with-dmvs.md), [utökade händelser (`XEvents`) (sql-database/sql-database-xevent-db-diff-from-svr.md), och [Query Store](https://docs.microsoft.com/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store) för prestandaövervakning parametrar i realtid. Se [prestandavägledning](sql-database-performance-guidance.md) att hitta tekniker som du kan använda för att förbättra prestanda i Azure SQL Database om du har identifierat några problem med hjälp av dessa rapporter eller vyer.
+- Använd [dynamiska hanteringsvyer (DMV)](sql-database-monitoring-with-dmvs.md), [utökade händelser](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-xevent-db-diff-from-svr), och [Query Store](https://docs.microsoft.com/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store) mer detaljerad felsökning av problem med prestanda.
+
+> [!TIP]
+> Se [prestandavägledning](sql-database-performance-guidance.md) att hitta tekniker som du kan använda för att förbättra prestanda i Azure SQL Database när du har identifierat prestandaproblemet med hjälp av en eller flera av metoderna ovan.
 
 ## <a name="monitor-databases-using-the-azure-portal"></a>Övervaka databaser med Azure-portalen
 
@@ -107,6 +57,57 @@ Du kan också konfigurera aviseringar på prestandamåtten. Klicka på knappen *
 Om du exempelvis förväntar dig att arbetsbelastningen på din databas kommer att öka, kan du välja att konfigurera en e-postavisering när din databas kommer upp i 80 % för något av prestandamåtten. Du kan använda detta som en tidig varning att veta när du kanske att växla till nästa högsta beräkningsstorleken.
 
 Prestandamåtten kan också hjälpa dig att avgöra om du kan Nedgradera till en lägre beräkningsstorleken. Anta att du använder en Standard S2-databas och alla prestandamått visar att databasen i snitt inte använder mer än 10 % vid något tillfälle. Det är då troligt att databasen skulle fungera bra i Standard S1. Dock vara medveten om arbetsbelastningar som varierar kraftigt innan du beslutar att flytta till en lägre beräkningsstorleken.
+
+## <a name="troubleshoot-performance-issues"></a>Felsöka prestandaproblem
+
+Börja med att förstå statusen för varje aktiv fråga och de villkor som kan orsakar prestandaproblem som är relevanta för varje arbetsbelastning tillstånd för att diagnostisera och lösa prestandaproblem. För att förbättra prestandan för Azure SQL Database, förstår du att varje aktiva frågebegäran från ditt program är antingen i en löpande eller väntande läge. När du felsöker problem med prestandan i Azure SQL Database, Tänk på följande diagram som du läser igenom den här artikeln att diagnostisera och lösa prestandaproblem.
+
+![Tillstånd för arbetsbelastning](./media/sql-database-monitor-tune-overview/workload-states.png)
+
+För en arbetsbelastning med prestandaproblem prestandaproblemet kan bero på CPU-konkurrens (en **körs-relaterade** villkor) eller enskilda frågor väntar på något (en **väntar-relaterade** villkor ).
+
+## <a name="running-related-performance-issues"></a>Körs minnesrelaterade prestandaproblem
+
+Som en generell riktlinje CPU-användning är konsekvent vid eller över 80%, måste köras minnesrelaterade prestandaproblem. Om du har en körs problem det kan bero på otillräckliga processorresurser eller kan vara relaterade till något av följande villkor:
+
+- För många frågor som körs
+- För många kompilerar frågor
+- En eller flera av de frågor som körs använder en icke-optimala frågeplan
+
+Om du har fastställt att du har ett körs minnesrelaterade prestandaproblem, är målet att identifiera exakta problemet med hjälp av en eller flera metoder. De vanligaste metoderna för att identifiera körs-relaterade problem är:
+
+- Använd den [Azure-portalen](#monitor-databases-using-the-azure-portal) övervakar processoranvändning i procent.
+- Använd följande [dynamiska hanteringsvyer](sql-database-monitoring-with-dmvs.md):
+
+  - [sys.dm_db_resource_stats](sql-database-monitoring-with-dmvs.md#monitor-resource-use) returnerar CPU, I/O och minne i samband med en Azure SQL Database-databas. Det finns en rad för var 15: e sekund, även om det finns ingen aktivitet i databasen. Historiska data bevaras under en timme.
+  - [sys.resource_stats](sql-database-monitoring-with-dmvs.md#monitor-resource-use) returnerar CPU-användning och lagring data för en Azure SQL Database. Data som samlas in och sammanställs inom fem minuter långa intervall.
+
+> [!IMPORTANT]
+> En uppsättning en T-SQL-frågor med dessa DMV: er för att felsöka problem med CPU, finns i [identifiera CPU prestandaproblem](sql-database-monitoring-with-dmvs.md#identify-cpu-performance-issues).
+
+När du har identifierat problemet kan du justera problemet frågor eller uppgradera beräkningsstorleken eller tjänstnivån ökar du kapaciteten för din Azure SQL database att absorbera CPU-kraven. Information om att skala resurser för enskilda databaser finns i [skala resurser för enkel databas i Azure SQL Database](sql-database-single-database-scale.md) och skala resurser för elastiska pooler finns i [skala resurser för elastisk pool i Azure SQL Databasen](sql-database-elastic-pool-scale.md). Information om att skala en hanterad instans finns i [på instansnivå resursbegränsningar](sql-database-managed-instance-resource-limits.md#instance-level-resource-limits).
+
+## <a name="waiting-related-performance-issues"></a>Väntetiden minnesrelaterade prestandaproblem
+
+När du är säker på att du inte får en hög CPU, körs minnesrelaterade prestandaproblem, får du vänta minnesrelaterade prestandaproblem. Nämligen som CPU-resurser inte används effektivt eftersom Processorn väntar på några andra resurser. I det här fallet är nästa steg att identifiera vad din processorresurser väntar på. De vanligaste metoderna för att visa upp vänta kategorier av typen:
+
+- Den [Query Store](https://docs.microsoft.com/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store) innehåller vänta statistik per fråga över tid. I Query Store kombineras vänta typer i vänta kategorier. Mappningen av vänta kategorier för att vänta typer finns i [sys.query_store_wait_stats](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-query-store-wait-stats-transact-sql?view=sql-server-2017#wait-categories-mapping-table).
+- [sys.dm_db_wait_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-wait-stats-azure-sql-database) returnerar information om den väntar påträffades av trådar som körs under åtgärden. Du kan använda den här aggregerade vyn för att diagnostisera prestandaproblem med Azure SQL Database och med specifika frågor och -batchar.
+- [sys.dm_os_waiting_tasks](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-os-waiting-tasks-transact-sql) returnerar information om kön vänta på uppgifter som väntar på några resurser.
+
+I det föregående diagrammet visas är den vanligaste väntar:
+
+- Lås (blockera)
+- I/O
+- `tempdb`-relaterade konkurrens
+- Minne bevilja väntar
+
+> [!IMPORTANT]
+> En uppsättning finns en T-SQL-frågor med dessa DMV: er för att felsöka problemen väntar-relaterade:
+>
+> - [Identifiera prestandaproblem för i/o](sql-database-monitoring-with-dmvs.md#identify-io-performance-issues)
+> - [Identifiera `tempdb` prestandaproblem](sql-database-monitoring-with-dmvs.md#identify-io-performance-issues)
+> - [Identifiera minne bevilja väntar](sql-database-monitoring-with-dmvs.md#identify-memory-grant-wait-performance-issues)
 
 ## <a name="improving-database-performance-with-more-resources"></a>Förbättra databasens prestanda med fler resurser
 

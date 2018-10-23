@@ -9,15 +9,15 @@ ms.devlang: ''
 ms.topic: conceptual
 author: aliceku
 ms.author: aliceku
-ms.reviewer: vanto, carlrab, ronitr
+ms.reviewer: vanto, carlrab, emlisa
 manager: craigg
-ms.date: 10/11/2018
-ms.openlocfilehash: 7cabf1f0020e2f72dae138c7b7b79e69ce2fc677
-ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
+ms.date: 10/22/2018
+ms.openlocfilehash: 9978497f8bd3ebb11247f3bffe319866128e9f1d
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49456991"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49646515"
 ---
 # <a name="an-overview-of-azure-sql-database-security-capabilities"></a>En översikt över säkerhetsfunktionerna i Azure SQL Database
 
@@ -34,7 +34,7 @@ SQL Database skyddar dina data genom att tillhandahålla kryptering för data i 
 > [!IMPORTANT]
 > Azure SQL Database tillämpar kryptering (SSL/TLS) på hela tiden för alla anslutningar, vilket säkerställer att alla data krypteras ”under överföringen” mellan databasen och klienten. Detta inträffar oavsett inställningen för **Encrypt** eller **TrustServerCertificate** i anslutningssträngen.
 >
-> Om du gör i anslutningssträngen för ditt programs **inte** anger en krypterad anslutning och *inte* lita på servercertifikatet (för ADO.NET-drivrutinen vilket **Encrypt = True**och **TrustServerCertificate = False**), ditt program kan vara sårbara till en man i mitten-attack på grund av programmet inte verifierar servern eller tillämpa kryptering. Om du hämtar anslutningssträngen från Azure-portalen får de korrekta inställningarna
+> I anslutningssträngen för ditt program, kontrollera att du anger en krypterad anslutning och *inte* att lita på servercertifikatet (detta är för ADO.NET-drivrutinen **Encrypt = True** och  **TrustServerCertificate = False**). Det innebär att ditt program från en mannen i mitten-attack, genom att kräva programmet för att kontrollera server och framtvinga kryptering. Om du har fått anslutningssträngen från Azure portal, har de korrekta inställningarna.
 >
 > Information om TLS och anslutning finns i [TLS-överväganden](sql-database-connect-query.md#tls-considerations-for-sql-database-connectivity)
 
@@ -48,7 +48,7 @@ För andra sätt att kryptera dina data, kan du överväga:
 Dataidentifiering och klassificering (för närvarande i förhandsversion) ger avancerade funktioner i Azure SQL Database för identifiering, klassificering, märkning och skydda känsliga data i dina databaser. Identifiera och klassificera största känsliga data (business/ekonomi, hälsovård, personligt identifierbar information, etc.) kan spela upp en central roll i din organisations Information protection datasekretesstandarder. Det kan fungera som en infrastruktur för:
 
 - Olika säkerhetsscenarier, till exempel övervakning (granskning) och Varna vid avvikande åtkomsten till känsliga data.
-- Kontrollera åtkomst till och Härdning av säkerheten i,-databaser som innehåller mycket känslig data.
+- Kontrollera åtkomst till och Härdning av säkerheten i,-databaser som innehåller mycket känsliga data.
 - Hjälper uppfylla data sekretesstandarder och efterlevnadskrav.
 
 Mer information finns i [Kom igång med SQL DB-Dataidentifiering och klassificering](sql-database-data-discovery-and-classification.md).
@@ -82,7 +82,7 @@ Auktorisering hänvisar till vad en användare kan göra inom en Azure SQL-datab
 
 ### <a name="row-level-security"></a>Säkerhet på radnivå
 
-Säkerhet på radnivå ger kunder möjlighet att styra åtkomsten till rader i en databastabell baserat på egenskaperna för användaren som kör en fråga (t.ex. grupmedlemskap eller körningskontext). Mer information finns i [Säkerhet på radnivå](https://docs.microsoft.com/sql/relational-databases/security/row-level-security).
+Säkerhet på radnivå ger kunder möjlighet att styra åtkomsten till rader i en databastabell baserat på egenskaperna för användaren som kör en fråga (till exempel gruppen grupmedlemskap eller körningskontext kontext). Mer information finns i [Säkerhet på radnivå](https://docs.microsoft.com/sql/relational-databases/security/row-level-security).
 
 ### <a name="dynamic-data-masking"></a>Dynamisk datamaskning
 
@@ -94,11 +94,11 @@ SQL Database skyddar dina data genom att tillhandahålla funktioner för granskn
 
 ### <a name="auditing"></a>Granskning
 
-SQL Database-granskning spårar databasaktiviteter och hjälper dig att upprätthålla regelefterlevnad, genom att registrera databashändelser till en granskningslogg på ditt Azure Storage-konto. Granskning låter dig förstå pågående databasaktiviteter, samt analysera och undersöka historiska aktiviteter för att identifiera potentiella hot eller misstänkt missbruk och säkerhetsöverträdelser. Ytterligare information finns i [Kom igång med SQL Database-granskning](sql-database-auditing.md).  
+SQL Database-granskning spårar databasaktiviteter och hjälper dig att upprätthålla regelefterlevnad, genom att registrera databashändelser till en granskningslogg på ditt Azure Storage-konto. Granskning låter dig förstå pågående databasaktiviteter, samt analysera och undersöka historiska aktiviteter för att identifiera potentiella hot eller misstänkt missbruk och säkerhetsöverträdelser. Mer information finns i [Kom igång med SQL Database Auditing](sql-database-auditing.md).  
 
 ### <a name="threat-detection"></a>Hotidentifiering
 
-Hotidentifiering komplimenterar granskning genom att tillhandahålla ett extra lager säkerhetsintelligens som är inbyggd i tjänsten Azure SQL Database som identifierar onormala och potentiellt skadliga försök att komma åt eller utnyttja databaser. Du aviseras om misstänkta aktiviteter, potentiella svagheter SQL-filinmatningsattacker och avvikande mönster i databasåtkomst. Hotidentifieringsaviseringar kan visas från [Azure Security Center](https://azure.microsoft.com/services/security-center/) och ger information om misstänkt aktivitet och rekommenderar åtgärder att undersöka och åtgärda hot. Hotidentifiering kostar $15/server/månad. Det är kostnadsfritt de första 60 dagarna. Mer information finns i [Kom igång med SQL Database Threat Detection](sql-database-threat-detection.md).
+Hotidentifiering komplimenterar granskning genom att tillhandahålla ett extra lager säkerhetsintelligens som är inbyggd i tjänsten Azure SQL Database som identifierar onormala och potentiellt skadliga försök att komma åt eller utnyttja databaser. Du aviseras om misstänkta aktiviteter, potentiella svagheter, och SQL-inmatning attacker och avvikande mönster i databasåtkomst. Hotidentifieringsaviseringar kan visas från [Azure Security Center](https://azure.microsoft.com/services/security-center/) och ger information om misstänkt aktivitet och rekommenderar åtgärder att undersöka och åtgärda hot. Hotidentifiering kostar $15/server/månad. Det är kostnadsfritt de första 60 dagarna. Mer information finns i [Kom igång med SQL Database Threat Detection](sql-database-threat-detection.md).
 
 ## <a name="compliance"></a>Efterlevnad
 
@@ -108,7 +108,7 @@ Förutom ovanstående egenskaper och funktioner som kan hjälpa programmet att u
 
 SQL Database hjälper dig att hantera din datasäkerhet genom att tillhandahålla databasen genomsökningar och en centraliserad säkerhet instrumentpanel med hjälp av [Sårbarhetsbedömning för SQL](sql-vulnerability-assessment.md).
 
-**Sårbarhetsbedömning**: [Sårbarhetsbedömning för SQL](sql-vulnerability-assessment.md) (för närvarande i förhandsversion) är ett enkelt sätt att konfigurera verktyg i Azure SQL Database som hjälper dig identifiera, spåra och åtgärda eventuella databas sårbarheter. Utvärderingen körs en genomsökning för sårbarhetsbedömning på din databas och genererar en rapport som ger dig insyn i ditt säkerhetsläge exempel användbara för att lösa säkerhetsproblem och förbättra säkerheten för din databas. Utvärderingsrapporten kan anpassas för din miljö genom att ange en godkända baslinje för konfigurationer som behörighet, funktionen konfigurationer och inställningar för databasen. Detta kan hjälpa dig att:
+**[Sårbarhetsbedömning för SQL](sql-vulnerability-assessment.md)**  är ett enkelt sätt att konfigurera verktyg i Azure SQL Database som hjälper dig identifiera, spåra och åtgärda säkerhetsrisker i databasen. Utvärderingen körs en genomsökning för sårbarhetsbedömning på din databas och genererar en rapport som ger dig insyn i ditt säkerhetsläge exempel användbara för att lösa säkerhetsproblem och förbättra säkerheten för din databas. Utvärderingsrapporten kan anpassas för din miljö genom att ange en godkända baslinje för konfigurationer som behörighet, funktionen konfigurationer och inställningar för databasen. Detta kan hjälpa dig att:
 
 - Uppfyll efterlevnadskrav som kräver genomsökningsrapporter för databasen.
 - Uppfyll data sekretesstandarder.

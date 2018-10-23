@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 02/20/2018
 ms.author: abshamsft
 ms.component: ''
-ms.openlocfilehash: bf10226b1d3b2153e0e17d4126c35402d096a857
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: fc5ab802b39597d72f01f756c9bdb16597862e3c
+ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49409245"
+ms.lasthandoff: 10/22/2018
+ms.locfileid: "49638227"
 ---
 # <a name="network-performance-monitor-solution-in-azure"></a>Network Performance Monitor-lösning i Azure
 
@@ -144,7 +144,7 @@ Alla undernät med minst en installerad agent visas på den **undernätverk**�
 
 Aktivera eller inaktivera övervakning av specifika undernätverk:
 
-1. Markera eller avmarkera kryssrutan bredvid den **undernätverks-ID**. Kontrollera att **för övervakning** är markerad eller avmarkerad, efter behov. Du kan markera eller avmarkera flera undernät. När inaktiverad, undernätverk övervakas inte och agenterna har uppdaterats för att stoppa pinga andra agenter. 
+1. Markera eller avmarkera kryssrutan bredvid den **undernätverks-ID**. Kontrollera att **för övervakning** är markerad eller avmarkerad, efter behov. Du kan markera eller avmarkera flera undernät. När inaktiverad, undernätverk övervakas inte och agenterna har uppdaterats för att stoppa pinga andra agenter. 
 2. Välj de noder som du vill övervaka i en viss undernätverket. Välj undernätverket i listan och flytta noderna som krävs mellan de listor som innehåller oövervakade och övervakade noder. Du kan lägga till en beskrivning av anpassad undernätverket.
 3. Välj **spara** att spara konfigurationen. 
 

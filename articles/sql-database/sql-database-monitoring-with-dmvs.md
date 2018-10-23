@@ -11,37 +11,454 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 08/08/2018
-ms.openlocfilehash: 97907eee9982fdf6a804bc13edbf8c14efa4ce42
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.date: 10/22/2018
+ms.openlocfilehash: 1b96cb0531778b03ddf6adf15988755359e19562
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47161394"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49649793"
 ---
 # <a name="monitoring-azure-sql-database-using-dynamic-management-views"></a>Övervaka Azure SQL Database med dynamiska hanteringsvyer
+
 Microsoft Azure SQL Database gör det möjligt för en delmängd av dynamiska hanteringsvyer att diagnostisera problem med prestanda, vilket kan orsakas av blockerade eller långvariga frågor, flaskhalsar för resurser, dålig frågeplaner och så vidare. Det här avsnittet innehåller information om hur du identifierar vanliga prestandaproblem med dynamiska hanteringsvyer.
 
 SQL Database stöder delvis tre kategorier av dynamiska hanteringsvyer:
 
-* Databasrelaterade dynamiska hanteringsvyer.
-* Körning-relaterade dynamiska hanteringsvyer.
-* Transaktionen att göra dynamiska hanteringsvyer.
+- Databasrelaterade dynamiska hanteringsvyer.
+- Körning-relaterade dynamiska hanteringsvyer.
+- Transaktionen att göra dynamiska hanteringsvyer.
 
 Detaljerad information om dynamiska hanteringsvyer finns [Dynamic Management Views och Functions (Transact-SQL)](https://msdn.microsoft.com/library/ms188754.aspx) i SQL Server Books Online.
 
 ## <a name="permissions"></a>Behörigheter
+
 I SQL-databas, frågar en dynamisk hanteringsvy kräver **visa DATABASTILLSTÅND** behörigheter. Den **visa DATABASTILLSTÅND** behörighet returnerar information om alla objekt i den aktuella databasen.
 Att bevilja de **visa DATABASTILLSTÅND** behörighet till en viss databasanvändare, kör följande fråga:
 
-```GRANT VIEW DATABASE STATE TO database_user; ```
+```sql
+GRANT VIEW DATABASE STATE TO database_user;
+```
 
 I en instans av en lokal SQL Server returnera dynamiska hanteringsvyer server statusinformation. Returnerar information om din aktuella logiska databasen endast i SQL-databas.
 
+## <a name="identify-cpu-performance-issues"></a>Identifiera problem med CPU-prestanda
+
+Om processoranvändningen är över 80 procent under längre tidsperioder, bör följande felsökningssteg:
+
+### <a name="the-cpu-issue-is-occurring-now"></a>CPU-problemet inträffar nu
+
+Om problemet inträffar just nu, finns det två möjliga scenarier:
+
+#### <a name="there-are-many-queries-that-individually-run-quickly-but-cumulatively-consume-high-cpu"></a>Det finns många frågor som individuellt körs snabbt men kumulativt förbrukar hög CPU
+
+Använd följande fråga för att identifiera övre fråga hashvärden:
+
+```sql
+PRINT '-- top 10 Active CPU Consuming Queries (aggregated)--';
+SELECT TOP 10 GETDATE() runtime, *
+FROM(SELECT query_stats.query_hash, SUM(query_stats.cpu_time) 'Total_Request_Cpu_Time_Ms', SUM(logical_reads) 'Total_Request_Logical_Reads', MIN(start_time) 'Earliest_Request_start_Time', COUNT(*) 'Number_Of_Requests', SUBSTRING(REPLACE(REPLACE(MIN(query_stats.statement_text), CHAR(10), ' '), CHAR(13), ' '), 1, 256) AS "Statement_Text"
+     FROM(SELECT req.*, SUBSTRING(ST.text, (req.statement_start_offset / 2)+1, ((CASE statement_end_offset WHEN -1 THEN DATALENGTH(ST.text)ELSE req.statement_end_offset END-req.statement_start_offset)/ 2)+1) AS statement_text
+          FROM sys.dm_exec_requests AS req
+               CROSS APPLY sys.dm_exec_sql_text(req.sql_handle) AS ST ) AS query_stats
+     GROUP BY query_hash) AS t
+ORDER BY Total_Request_Cpu_Time_Ms DESC;
+```
+
+#### <a name="some-long-running-queries-that-consume-cpu-are-still-running"></a>Vissa långvariga frågor som förbrukar CPU körs fortfarande
+
+Använd följande fråga för att identifiera dessa frågor:
+
+```sql
+PRINT '--top 10 Active CPU Consuming Queries by sessions--';
+SELECT TOP 10 req.session_id, req.start_time, cpu_time 'cpu_time_ms', OBJECT_NAME(ST.objectid, ST.dbid) 'ObjectName', SUBSTRING(REPLACE(REPLACE(SUBSTRING(ST.text, (req.statement_start_offset / 2)+1, ((CASE statement_end_offset WHEN -1 THEN DATALENGTH(ST.text)ELSE req.statement_end_offset END-req.statement_start_offset)/ 2)+1), CHAR(10), ' '), CHAR(13), ' '), 1, 512) AS statement_text
+FROM sys.dm_exec_requests AS req
+     CROSS APPLY sys.dm_exec_sql_text(req.sql_handle) AS ST
+ORDER BY cpu_time DESC;
+GO
+```
+
+### <a name="the-cpu-issue-occurred-in-the-past"></a>CPU-problemet uppstod i förflutna
+
+Om problemet uppstod tidigare och du vill rot analys av grundorsaken, använda [Query Store](https://docs.microsoft.com/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store). Användare med åtkomst till databasen kan använda T-SQL för att köra frågor mot Query Store-data.  Query Store standardkonfigurationer använder en Granulariteten för 1 timme.  Använd följande fråga för att kontrollera aktiviteter för hög processor frågor som förbrukar. Den här frågan returnerar de översta 15 CPU konsumerande frågorna.  Kom ihåg att ändra `rsi.start_time >= DATEADD(hour, -2, GETUTCDATE()`:
+
+```sql
+-- Top 15 CPU consuming queries by query hash
+-- note that a query  hash can have many query id if not parameterized or not parameterized properly
+-- it grabs a sample query text by min
+WITH AggregatedCPU AS (SELECT q.query_hash, SUM(count_executions * avg_cpu_time / 1000.0) AS total_cpu_millisec, SUM(count_executions * avg_cpu_time / 1000.0)/ SUM(count_executions) AS avg_cpu_millisec, MAX(rs.max_cpu_time / 1000.00) AS max_cpu_millisec, MAX(max_logical_io_reads) max_logical_reads, COUNT(DISTINCT p.plan_id) AS number_of_distinct_plans, COUNT(DISTINCT p.query_id) AS number_of_distinct_query_ids, SUM(CASE WHEN rs.execution_type_desc='Aborted' THEN count_executions ELSE 0 END) AS Aborted_Execution_Count, SUM(CASE WHEN rs.execution_type_desc='Regular' THEN count_executions ELSE 0 END) AS Regular_Execution_Count, SUM(CASE WHEN rs.execution_type_desc='Exception' THEN count_executions ELSE 0 END) AS Exception_Execution_Count, SUM(count_executions) AS total_executions, MIN(qt.query_sql_text) AS sampled_query_text
+                       FROM sys.query_store_query_text AS qt
+                            JOIN sys.query_store_query AS q ON qt.query_text_id=q.query_text_id
+                            JOIN sys.query_store_plan AS p ON q.query_id=p.query_id
+                            JOIN sys.query_store_runtime_stats AS rs ON rs.plan_id=p.plan_id
+                            JOIN sys.query_store_runtime_stats_interval AS rsi ON rsi.runtime_stats_interval_id=rs.runtime_stats_interval_id
+                       WHERE rs.execution_type_desc IN ('Regular', 'Aborted', 'Exception')AND rsi.start_time>=DATEADD(HOUR, -2, GETUTCDATE())
+                       GROUP BY q.query_hash), OrderedCPU AS (SELECT query_hash, total_cpu_millisec, avg_cpu_millisec, max_cpu_millisec, max_logical_reads, number_of_distinct_plans, number_of_distinct_query_ids, total_executions, Aborted_Execution_Count, Regular_Execution_Count, Exception_Execution_Count, sampled_query_text, ROW_NUMBER() OVER (ORDER BY total_cpu_millisec DESC, query_hash ASC) AS RN
+                                                              FROM AggregatedCPU)
+SELECT OD.query_hash, OD.total_cpu_millisec, OD.avg_cpu_millisec, OD.max_cpu_millisec, OD.max_logical_reads, OD.number_of_distinct_plans, OD.number_of_distinct_query_ids, OD.total_executions, OD.Aborted_Execution_Count, OD.Regular_Execution_Count, OD.Exception_Execution_Count, OD.sampled_query_text, OD.RN
+FROM OrderedCPU AS OD
+WHERE OD.RN<=15
+ORDER BY total_cpu_millisec DESC;
+```
+
+När du har identifierat problematiska frågor är det dags att justera dessa frågor för att minska CPU-användning.  Om du inte har tid att justera frågorna, kan du också välja att uppgradera på SLO av databasen för att undvika problemet.
+
+## <a name="identify-io-performance-issues"></a>Identifiera prestandaproblem för i/o
+
+När du identifierar problem med i/o-prestanda, är de främsta vänta typer som är associerad med i/o-problem:
+
+- `PAGEIOLATCH_*`
+
+  För problem med i/o-fil (inklusive `PAGEIOLATCH_SH`, `PAGEIOLATCH_EX`, `PAGEIOLATCH_UP`).  Om namnet på vänta har **i/o** , den pekar på ett i/o-problem. Om det finns inga **i/o** i sidans spärr vänta namn som den pekar på en annan typ av problem (till exempel tempdb konkurrens).
+
+- `WRITE_LOG`
+
+  För transaktionen logg-i/o-problem.
+
+### <a name="if-the-io-issue-is-occurring-right-now"></a>Om i/o-problemet inträffar just nu
+
+Använd den [sys.dm_exec_requests](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql) eller [sys.dm_os_waiting_tasks](https://docs.microsoft.com/en-us/sql/relational-databases/system-dynamic-management-views/sys-dm-os-waiting-tasks-transact-sql) att se den `wait_type` och `wait_time`.
+
+Använd följande fråga för att identifiera data och logga i/o-användning. Om de data eller logg-i/o är högre än 80%, innebär det att användare har använt den tillgängliga i/o för tjänstnivån SQL DB.
+
+```sql
+SELECT end_time, avg_data_io_percent, avg_log_write_percent
+FROM sys.dm_db_resource_stats
+ORDER BY end_time DESC;
+```
+
+Om i/o-gränsen har uppnåtts, har du två alternativ:
+
+- Alternativ 1: Uppgradera beräkningsstorleken eller tjänstenivån
+- Alternativ 2: Identifiera och justera frågor som förbrukar de flesta I/O.
+
+För alternativ 2, kan du använda följande fråga mot Query Store för buffert-relaterade IO (visar de senaste två timmarna av spårade aktivitet):
+
+```SQL
+-- top queries that waited on buffer
+-- note these are finished queries
+WITH Aggregated AS (SELECT q.query_hash, SUM(total_query_wait_time_ms) total_wait_time_ms, SUM(total_query_wait_time_ms / avg_query_wait_time_ms) AS total_executions, MIN(qt.query_sql_text) AS sampled_query_text, MIN(wait_category_desc) AS wait_category_desc
+                    FROM sys.query_store_query_text AS qt
+                         JOIN sys.query_store_query AS q ON qt.query_text_id=q.query_text_id
+                         JOIN sys.query_store_plan AS p ON q.query_id=p.query_id
+                         JOIN sys.query_store_wait_stats AS waits ON waits.plan_id=p.plan_id
+                         JOIN sys.query_store_runtime_stats_interval AS rsi ON rsi.runtime_stats_interval_id=waits.runtime_stats_interval_id
+                    WHERE wait_category_desc='Buffer IO' AND rsi.start_time>=DATEADD(HOUR, -2, GETUTCDATE())
+                    GROUP BY q.query_hash), Ordered AS (SELECT query_hash, total_executions, total_wait_time_ms, sampled_query_text, wait_category_desc, ROW_NUMBER() OVER (ORDER BY total_wait_time_ms DESC, query_hash ASC) AS RN
+                                                        FROM Aggregated)
+SELECT OD.query_hash, OD.total_executions, OD.total_wait_time_ms, OD.sampled_query_text, OD.wait_category_desc, OD.RN
+FROM Ordered AS OD
+WHERE OD.RN<=15
+ORDER BY total_wait_time_ms DESC;
+GO
+```
+
+## <a name="identify-tempdb-performance-issues"></a>Identifiera `tempdb` prestandaproblem
+
+När du identifierar problem med i/o-prestanda upp vänta som är associerade med `tempdb` problem är `PAGELATCH_*` (inte `PAGEIOLATCH_*`). Dock `PAGELATCH_*` väntar inte alltid betyder du har `tempdb` konkurrens.  Den här vänta kan också innebär att du måste användarobjekt sidan för datakonkurrens på grund av samtidiga begäranden som riktar in sig på sidan för samma data. Ytterligare Bekräfta `tempdb` konkurrens, Använd [sys.dm_exec_requests](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql) att bekräfta att wait_resource värdet börjar med `2:x:y` där 2 är `tempdb` är databas-id `x` är fil-id och `y` är sid-id.  
+
+För tempdb konkurrens, en vanlig metod är att minska eller skriva programkod som förlitar sig på `tempdb`.  Vanliga `tempdb` användningsområdena omfattar:
+
+- Temporära tabeller
+- tabellvariabler
+- Tabellvärderade parametrar
+- Version store användning (särskilt kopplade tidskrävande transaktioner)
+- Frågor som har frågeplaner som använder typer, hash-kopplingar och spolar
+
+Använd följande fråga för att identifiera de viktigaste frågorna som använder tabellvariabler och temporära tabeller:
+
+```sql
+SELECT plan_handle, execution_count, query_plan
+INTO #tmpPlan
+FROM sys.dm_exec_query_stats
+     CROSS APPLY sys.dm_exec_query_plan(plan_handle);
+GO
+
+WITH XMLNAMESPACES('http://schemas.microsoft.com/sqlserver/2004/07/showplan' AS sp)
+SELECT plan_handle, stmt.stmt_details.value('@Database', 'varchar(max)') 'Database', stmt.stmt_details.value('@Schema', 'varchar(max)') 'Schema', stmt.stmt_details.value('@Table', 'varchar(max)') 'table'
+INTO #tmp2
+FROM(SELECT CAST(query_plan AS XML) sqlplan, plan_handle FROM #tmpPlan) AS p
+    CROSS APPLY sqlplan.nodes('//sp:Object') AS stmt(stmt_details);
+GO
+
+SELECT t.plan_handle, [Database], [Schema], [table], execution_count
+FROM(SELECT DISTINCT plan_handle, [Database], [Schema], [table]
+     FROM #tmp2
+     WHERE [table] LIKE '%@%' OR [table] LIKE '%#%') AS t
+    JOIN #tmpPlan AS t2 ON t.plan_handle=t2.plan_handle;
+```
+
+Använd följande fråga för att identifiera lång köra transaktioner. Långvariga transaktioner förhindra version store rensning.
+
+```sql
+SELECT DB.database_id,
+    SessionTrans.session_id AS SPID,
+    enlist_count AS [Active Requests],
+    ActiveTrans.transaction_id AS ID,
+    ActiveTrans.name AS Name,
+    ActiveTrans.transaction_begin_time AS [Start Time],
+    CASE transaction_type
+        WHEN 1 THEN
+            'Read/Write'
+        WHEN 2 THEN
+            'Read-Only'
+        WHEN 3 THEN
+            'System'
+        WHEN 4 THEN
+            'Distributed'
+        ELSE
+            'Unknown - ' + CONVERT(VARCHAR(20), transaction_type)
+       END AS [Transaction Type],
+    CASE transaction_state
+        WHEN 0 THEN
+            'Uninitialized'
+        WHEN 1 THEN
+            'Not Yet Started'
+        WHEN 2 THEN
+            'Active'
+        WHEN 3 THEN
+            'Ended (Read-Only)'
+        WHEN 4 THEN
+            'Committing'
+        WHEN 5 THEN
+            'Prepared'
+        WHEN 6 THEN
+            'Committed'
+        WHEN 7 THEN
+            'Rolling Back'
+        WHEN 8 THEN
+            'Rolled Back'
+        ELSE
+            'Unknown - ' + CONVERT(VARCHAR(20), transaction_state)
+    END AS 'State',
+    CASE dtc_state
+        WHEN 0 THEN
+            NULL
+        WHEN 1 THEN
+            'Active'
+        WHEN 2 THEN
+            'Prepared'
+        WHEN 3 THEN
+            'Committed'
+        WHEN 4 THEN
+            'Aborted'
+        WHEN 5 THEN
+            'Recovered'
+        ELSE
+            'Unknown - ' + CONVERT(VARCHAR(20), dtc_state)
+    END AS 'Distributed State',
+       DB.name AS 'Database',
+       database_transaction_begin_time AS [DB Begin Time],
+    CASE database_transaction_type
+        WHEN 1 THEN
+            'Read/Write'
+        WHEN 2 THEN
+            'Read-Only'
+        WHEN 3 THEN
+            'System'
+        ELSE
+            'Unknown - ' + CONVERT(VARCHAR(20), database_transaction_type)
+    END AS 'DB Type',
+    CASE database_transaction_state
+        WHEN 1 THEN
+            'Uninitialized'
+        WHEN 3 THEN
+            'No Log Records'
+        WHEN 4 THEN
+            'Log Records'
+        WHEN 5 THEN
+            'Prepared'
+        WHEN 10 THEN
+            'Committed'
+        WHEN 11 THEN
+            'Rolled Back'
+        WHEN 12 THEN
+            'Committing'
+        ELSE
+            'Unknown - ' + CONVERT(VARCHAR(20), database_transaction_state)
+    END AS 'DB State',
+       database_transaction_log_record_count AS [Log Records],
+       database_transaction_log_bytes_used / 1024 AS [Log KB Used],
+       database_transaction_log_bytes_reserved / 1024 AS [Log KB Reserved],
+       database_transaction_log_bytes_used_system / 1024 AS [Log KB Used (System)],
+       database_transaction_log_bytes_reserved_system / 1024 AS [Log KB Reserved (System)],
+       database_transaction_replicate_record_count AS [Replication Records],
+       command AS [Command Type],
+       total_elapsed_time AS [Elapsed Time],
+       cpu_time AS [CPU Time],
+       wait_type AS [Wait Type],
+       wait_time AS [Wait Time],
+       wait_resource AS [Wait Resource],
+       reads AS Reads,
+       logical_reads AS [Logical Reads],
+       writes AS Writes,
+       SessionTrans.open_transaction_count AS [Open Transactions],
+       open_resultset_count AS [Open Result Sets],
+       row_count AS [Rows Returned],
+       nest_level AS [Nest Level],
+       granted_query_memory AS [Query Memory],
+       SUBSTRING(
+            SQLText.text,
+            ExecReqs.statement_start_offset / 2,
+            (CASE
+                WHEN ExecReqs.statement_end_offset = -1 THEN
+                    LEN(CONVERT(NVARCHAR(MAX), SQLText.text)) * 2
+                ELSE
+                    ExecReqs.statement_end_offset
+                END - ExecReqs.statement_start_offset
+                ) / 2
+                ) AS query_text
+FROM sys.dm_tran_active_transactions AS ActiveTrans (NOLOCK)
+    INNER JOIN sys.dm_tran_database_transactions AS DBTrans (NOLOCK)
+        ON DBTrans.transaction_id = ActiveTrans.transaction_id
+    INNER JOIN sys.databases AS DB (NOLOCK)
+        ON DB.database_id = DBTrans.database_id
+    LEFT JOIN sys.dm_tran_session_transactions AS SessionTrans (NOLOCK)
+        ON SessionTrans.transaction_id = ActiveTrans.transaction_id
+    LEFT JOIN sys.dm_exec_requests AS ExecReqs (NOLOCK)
+        ON ExecReqs.session_id = SessionTrans.session_id
+           AND ExecReqs.transaction_id = SessionTrans.transaction_id
+    OUTER APPLY sys.dm_exec_sql_text(ExecReqs.sql_handle) AS SQLText
+WHERE ActiveTrans.transaction_type <> 2 --ignore read only transactions
+    AND SessionTrans.session_id IS NOT NULL
+ORDER BY database_id ASC,
+    start_time ASC;
+```
+
+## <a name="identify-memory-grant-wait-performance-issues"></a>Identifiera minne bevilja vänta prestandaproblem
+
+Om högsta vänta typ är `RESOURCE_SEMAHPORE` och du inte har hög ett CPU-problem, du kan ha en minne bevilja att vänta på problemet.
+
+### <a name="determine-if-a-resourcesemahpore-wait-is-a-top-wait"></a>Ta reda på om en `RESOURCE_SEMAHPORE` Vänteperioden är översta väntan
+
+Använd följande fråga för att avgöra om en `RESOURCE_SEMAHPORE` Vänteperioden är översta väntan
+
+```sql
+SELECT wait_type,
+       SUM(wait_time) AS total_wait_time_ms
+FROM sys.dm_exec_requests AS req
+    JOIN sys.dm_exec_sessions AS sess
+        ON req.session_id = sess.session_id
+WHERE is_user_process = 1
+GROUP BY wait_type
+ORDER BY SUM(wait_time) DESC;
+```
+
+### <a name="identity-high-memory-consuming-statements"></a>Identitet hög minne förbrukar instruktioner
+
+Använd följande fråga för att identifiera hög minne förbrukar instruktioner:
+
+```sql
+SELECT IDENTITY(INT, 1, 1) rowId,
+    CAST(query_plan AS XML) query_plan,
+    p.query_id
+INTO #tmp
+FROM sys.query_store_plan AS p
+    JOIN sys.query_store_runtime_stats AS r
+        ON p.plan_id = r.plan_id
+    JOIN sys.query_store_runtime_stats_interval AS i
+        ON r.runtime_stats_interval_id = i.runtime_stats_interval_id
+WHERE start_time > '2018-10-11 14:00:00.0000000'
+      AND end_time < '2018-10-17 20:00:00.0000000';
+GO
+;WITH cte
+AS (SELECT query_id,
+        query_plan,
+        m.c.value('@SerialDesiredMemory', 'INT') AS SerialDesiredMemory
+    FROM #tmp AS t
+        CROSS APPLY t.query_plan.nodes('//*:MemoryGrantInfo[@SerialDesiredMemory[. > 0]]') AS m(c) )
+SELECT TOP 50
+    cte.query_id,
+    t.query_sql_text,
+    cte.query_plan,
+    CAST(SerialDesiredMemory / 1024. AS DECIMAL(10, 2)) SerialDesiredMemory_MB
+FROM cte
+    JOIN sys.query_store_query AS q
+        ON cte.query_id = q.query_id
+    JOIN sys.query_store_query_text AS t
+        ON q.query_text_id = t.query_text_id
+ORDER BY SerialDesiredMemory DESC;
+```
+
+### <a name="identify-the-top-10-active-memory-grants"></a>Identifiera de översta 10 active minne ger
+
+Använd följande fråga för att identifiera de översta 10 active minne ger:
+
+```sql
+SELECT TOP 10
+    CONVERT(VARCHAR(30), GETDATE(), 121) AS runtime,
+       r.session_id,
+       r.blocking_session_id,
+       r.cpu_time,
+       r.total_elapsed_time,
+       r.reads,
+       r.writes,
+       r.logical_reads,
+       r.row_count,
+       wait_time,
+       wait_type,
+       r.command,
+       OBJECT_NAME(txt.objectid, txt.dbid) 'Object_Name',
+       LTRIM(RTRIM(REPLACE(
+                              REPLACE(
+                                         SUBSTRING(
+                                                      SUBSTRING(
+                                                                   text,
+                                                                   (r.statement_start_offset / 2) + 1,
+                                                                   ((CASE r.statement_end_offset
+                                                                         WHEN -1 THEN
+                                                                             DATALENGTH(text)
+                                                                         ELSE
+                                                                             r.statement_end_offset
+                                                                     END - r.statement_start_offset
+                                                                    ) / 2
+                                                                   ) + 1
+                                                               ),
+                                                      1,
+                                                      1000
+                                                  ),
+                                         CHAR(10),
+                                         ' '
+                                     ),
+                              CHAR(13),
+                              ' '
+                          )
+                  )
+            ) stmt_text,
+       mg.dop,                                               --Degree of parallelism
+       mg.request_time,                                      --Date and time when this query requested the memory grant.
+       mg.grant_time,                                        --NULL means memory has not been granted
+       mg.requested_memory_kb / 1024.0 requested_memory_mb,  --Total requested amount of memory in megabytes
+       mg.granted_memory_kb / 1024.0 AS granted_memory_mb,   --Total amount of memory actually granted in megabytes. NULL if not granted
+       mg.required_memory_kb / 1024.0 AS required_memory_mb, --Minimum memory required to run this query in megabytes.
+       max_used_memory_kb / 1024.0 AS max_used_memory_mb,
+       mg.query_cost,                                        --Estimated query cost.
+       mg.timeout_sec,                                       --Time-out in seconds before this query gives up the memory grant request.
+       mg.resource_semaphore_id,                             --Non-unique ID of the resource semaphore on which this query is waiting.
+       mg.wait_time_ms,                                      --Wait time in milliseconds. NULL if the memory is already granted.
+       CASE mg.is_next_candidate --Is this process the next candidate for a memory grant
+           WHEN 1 THEN
+               'Yes'
+           WHEN 0 THEN
+               'No'
+           ELSE
+               'Memory has been granted'
+       END AS 'Next Candidate for Memory Grant',
+       qp.query_plan
+FROM sys.dm_exec_requests AS r
+    JOIN sys.dm_exec_query_memory_grants AS mg
+        ON r.session_id = mg.session_id
+           AND r.request_id = mg.request_id
+    CROSS APPLY sys.dm_exec_sql_text(mg.sql_handle) AS txt
+    CROSS APPLY sys.dm_exec_query_plan(r.plan_handle) AS qp
+ORDER BY mg.granted_memory_kb DESC;
+```
+
 ## <a name="calculating-database-size"></a>Beräkning av databasens storlek
+
 Följande fråga returnerar storleken på din databas (i megabyte):
 
-```
+```sql
 -- Calculates the size of the database.
 SELECT SUM(CAST(FILEPROPERTY(name, 'SpaceUsed') AS bigint) * 8192.) / 1024 / 1024 AS DatabaseSizeInMB
 FROM sys.database_files
@@ -51,7 +468,7 @@ GO
 
 Följande fråga returnerar storleken på enskilda objekt (i megabyte) i databasen:
 
-```
+```sql
 -- Calculates the size of individual database objects.
 SELECT sys.objects.name, SUM(reserved_page_count) * 8.0 / 1024
 FROM sys.dm_db_partition_stats, sys.objects
@@ -61,10 +478,11 @@ GO
 ```
 
 ## <a name="monitoring-connections"></a>Övervakar anslutningar
+
 Du kan använda den [sys.dm_exec_connections](https://msdn.microsoft.com/library/ms181509.aspx) vy för att hämta information om anslutningar till en specifik Azure SQL Database-server och information om varje anslutning. Dessutom kan den [sys.dm_exec_sessions](https://msdn.microsoft.com/library/ms176013.aspx) vyn är användbar vid hämtning av information om alla aktiva användaranslutningar och interna aktiviteter.
 Följande fråga hämtar information om den aktuella anslutningen:
 
-```
+```sql
 SELECT
     c.session_id, c.net_transport, c.encrypt_option,
     c.auth_scheme, s.host_name, s.program_name,
@@ -79,8 +497,6 @@ WHERE c.session_id = @@SPID;
 
 > [!NOTE]
 > När du kör den **sys.dm_exec_requests** och **sys.dm_exec_sessions vyer**, om du har **visa DATABASTILLSTÅND** behörighet på databasen, visas alla körning sessioner på databasen. Annars ser du bara den aktuella sessionen.
-> 
-> 
 
 ## <a name="monitor-resource-use"></a>Övervaka Resursanvändning
 
@@ -88,28 +504,32 @@ Du kan övervaka resource användning med [SQL Database Query Performance Insigh
 
 Du kan också övervaka användning med hjälp av dessa två vyer:
 
-* [sys.dm_db_resource_stats](https://msdn.microsoft.com/library/dn800981.aspx)
-* [sys.resource_stats](https://msdn.microsoft.com/library/dn269979.aspx)
+- [sys.dm_db_resource_stats](https://msdn.microsoft.com/library/dn800981.aspx)
+- [sys.resource_stats](https://msdn.microsoft.com/library/dn269979.aspx)
 
 ### <a name="sysdmdbresourcestats"></a>sys.dm_db_resource_stats
+
 Du kan använda den [sys.dm_db_resource_stats](https://msdn.microsoft.com/library/dn800981.aspx) vyn i varje SQL-databas. Den **sys.dm_db_resource_stats** vyn visar de senaste användning resursdata i förhållande till tjänstnivån. Genomsnittlig procent för processor, data-i/o, skrivs loggen och minne registreras var 15: e sekund och bevaras i timmen.
 
 Eftersom den här vyn ger en mer detaljerad titt på Resursanvändning, använda **sys.dm_db_resource_stats** första för alla aktuella tillstånd analys eller felsökning. Den här frågan visar till exempel den genomsnittliga och högsta resursanvändningen för den aktuella databasen under den senaste timman:
 
-    SELECT  
-        AVG(avg_cpu_percent) AS 'Average CPU use in percent',
-        MAX(avg_cpu_percent) AS 'Maximum CPU use in percent',
-        AVG(avg_data_io_percent) AS 'Average data IO in percent',
-        MAX(avg_data_io_percent) AS 'Maximum data IO in percent',
-        AVG(avg_log_write_percent) AS 'Average log write use in percent',
-        MAX(avg_log_write_percent) AS 'Maximum log write use in percent',
-        AVG(avg_memory_usage_percent) AS 'Average memory use in percent',
-        MAX(avg_memory_usage_percent) AS 'Maximum memory use in percent'
-    FROM sys.dm_db_resource_stats;  
+```sql
+SELECT  
+    AVG(avg_cpu_percent) AS 'Average CPU use in percent',
+    MAX(avg_cpu_percent) AS 'Maximum CPU use in percent',
+    AVG(avg_data_io_percent) AS 'Average data IO in percent',
+    MAX(avg_data_io_percent) AS 'Maximum data IO in percent',
+    AVG(avg_log_write_percent) AS 'Average log write use in percent',
+    MAX(avg_log_write_percent) AS 'Maximum log write use in percent',
+    AVG(avg_memory_usage_percent) AS 'Average memory use in percent',
+    MAX(avg_memory_usage_percent) AS 'Maximum memory use in percent'
+FROM sys.dm_db_resource_stats;  
+```
 
 Andra frågor finns i exemplen i [sys.dm_db_resource_stats](https://msdn.microsoft.com/library/dn800981.aspx).
 
 ### <a name="sysresourcestats"></a>sys.resource_stats
+
 Den [sys.resource_stats](https://msdn.microsoft.com/library/dn269979.aspx) visa i den **master** databasen finns ytterligare information som hjälper dig att övervaka prestanda för din SQL-databas på dess specifika tjänstnivå och beräkna storleken. Data samlas in var femte minut och bibehålls för ungefär 14 dagar. Den här vyn är användbar för en mer långsiktiga historisk analys av hur din SQL-databas använder resurser.
 
 I följande diagram visar CPU Resursanvändning för en Premium-databas med P2 beräkningsstorleken för varje timme i en vecka. Det här diagrammet startas på en måndag visar 5 arbetsdagar och sedan visas en helg när mycket mindre sker på programmet.
@@ -124,104 +544,119 @@ Azure SQL Database visar förbrukas resursinformation för varje aktiv databas i
 
 > [!NOTE]
 > Du måste vara ansluten till den **master** databasen för din logiska SQL database-server till frågan **sys.resource_stats** i följande exempel.
-> 
-> 
 
 Det här exemplet visar hur data i den här vyn visas:
 
-    SELECT TOP 10 *
-    FROM sys.resource_stats
-    WHERE database_name = 'resource1'
-    ORDER BY start_time DESC
+```sql
+SELECT TOP 10 *
+FROM sys.resource_stats
+WHERE database_name = 'resource1'
+ORDER BY start_time DESC
+```
 
 ![Katalogvy sys.resource_stats](./media/sql-database-performance-guidance/sys_resource_stats.png)
 
 I nästa exempel visar olika sätt som du kan använda den **sys.resource_stats** katalogvy att hämta information om hur SQL-databasen använder resurser:
 
 1. Att titta på den senaste veckan resource använder för databas-userdb1 kan du köra den här frågan:
-   
-        SELECT *
-        FROM sys.resource_stats
-        WHERE database_name = 'userdb1' AND
-              start_time > DATEADD(day, -7, GETDATE())
-        ORDER BY start_time DESC;
+
+    ```sql
+    SELECT *
+    FROM sys.resource_stats
+    WHERE database_name = 'userdb1' AND
+        start_time > DATEADD(day, -7, GETDATE())
+    ORDER BY start_time DESC;
+    ```
+
 2. För att utvärdera hur väl beräkningsstorleken som passar din arbetsbelastning kan du behöva granska nedåt i varje aspekt av mätvärden för resurs: CPU, läsningar, skrivningar, antal arbetare och antalet sessioner. Här är en reviderad ställa frågor med **sys.resource_stats** att rapportera genomsnittliga och högsta värden för de här måtten för resursen:
-   
-        SELECT
-            avg(avg_cpu_percent) AS 'Average CPU use in percent',
-            max(avg_cpu_percent) AS 'Maximum CPU use in percent',
-            avg(avg_data_io_percent) AS 'Average physical data IO use in percent',
-            max(avg_data_io_percent) AS 'Maximum physical data IO use in percent',
-            avg(avg_log_write_percent) AS 'Average log write use in percent',
-            max(avg_log_write_percent) AS 'Maximum log write use in percent',
-            avg(max_session_percent) AS 'Average % of sessions',
-            max(max_session_percent) AS 'Maximum % of sessions',
-            avg(max_worker_percent) AS 'Average % of workers',
-            max(max_worker_percent) AS 'Maximum % of workers'
-        FROM sys.resource_stats
-        WHERE database_name = 'userdb1' AND start_time > DATEADD(day, -7, GETDATE());
+
+    ```sql
+    SELECT
+        avg(avg_cpu_percent) AS 'Average CPU use in percent',
+        max(avg_cpu_percent) AS 'Maximum CPU use in percent',
+        avg(avg_data_io_percent) AS 'Average physical data IO use in percent',
+        max(avg_data_io_percent) AS 'Maximum physical data IO use in percent',
+        avg(avg_log_write_percent) AS 'Average log write use in percent',
+        max(avg_log_write_percent) AS 'Maximum log write use in percent',
+        avg(max_session_percent) AS 'Average % of sessions',
+        max(max_session_percent) AS 'Maximum % of sessions',
+        avg(max_worker_percent) AS 'Average % of workers',
+        max(max_worker_percent) AS 'Maximum % of workers'
+    FROM sys.resource_stats
+    WHERE database_name = 'userdb1' AND start_time > DATEADD(day, -7, GETDATE());
+    ```
+
 3. Med den här informationen om de genomsnittliga och högsta värdena för varje Resursmått, kan du utvärdera hur väl din arbetsbelastning passar in i beräkningsstorleken som du har valt. Vanligtvis medelvärden från **sys.resource_stats** ger dig en god baslinje att använda mot målstorleken. Det bör vara primära mätning-minne. Du kanske använder Standard-tjänstnivå med S2 beräkningsstorleken för ett exempel. Medelvärdet använda procentandelar för processor- och i/o-läsningar och skrivningar är lägre än 40 procent, det genomsnittliga antalet arbetare är under 50 och det genomsnittliga antalet sessioner är under 200. Din arbetsbelastning kan passar beräkningsstorleken S1. Det är enkelt att se om din databas passar in i worker och sessionen gränserna. För att se om en databas passar in i en lägre beräkningsstorleken för CPU, läsningar och skrivningar division DTU-numret på nedre compute storlek efter DTU antalet beräkningsstorleken på din aktuella och sedan multiplicera resultatet med 100:
-   
-    **S1 DTU / S2 DTU * 100 = 20 / 50 * 100 = 40**
-   
+
+    ```S1 DTU / S2 DTU * 100 = 20 / 50 * 100 = 40```
+
     Resultatet är den relativa prestandaskillnaden mellan två compute storlekar i procent. Om din Resursanvändning inte överstiger den mängden, kan arbetsbelastningen passar i lägre beräkningsstorleken. Men behöver du titta på alla intervall för resursen Använd värden och procent avgör hur ofta din databas-arbetsbelastning skulle passa lägre beräkningsstorleken. Följande fråga visar anpassa procentandelen per resursdimension, baserat på tröskelvärdet på 40 procent som vi har beräknats i det här exemplet:
-   
-        SELECT
-            (COUNT(database_name) - SUM(CASE WHEN avg_cpu_percent >= 40 THEN 1 ELSE 0 END) * 1.0) / COUNT(database_name) AS 'CPU Fit Percent'
-            ,(COUNT(database_name) - SUM(CASE WHEN avg_log_write_percent >= 40 THEN 1 ELSE 0 END) * 1.0) / COUNT(database_name) AS 'Log Write Fit Percent'
-            ,(COUNT(database_name) - SUM(CASE WHEN avg_data_io_percent >= 40 THEN 1 ELSE 0 END) * 1.0) / COUNT(database_name) AS 'Physical Data IO Fit Percent'
-        FROM sys.resource_stats
-        WHERE database_name = 'userdb1' AND start_time > DATEADD(day, -7, GETDATE());
-   
+
+   ```sql
+    SELECT
+        (COUNT(database_name) - SUM(CASE WHEN avg_cpu_percent >= 40 THEN 1 ELSE 0 END) * 1.0) / COUNT(database_name) AS 'CPU Fit Percent',
+        (COUNT(database_name) - SUM(CASE WHEN avg_log_write_percent >= 40 THEN 1 ELSE 0 END) * 1.0) / COUNT(database_name) AS 'Log Write Fit Percent',
+        (COUNT(database_name) - SUM(CASE WHEN avg_data_io_percent >= 40 THEN 1 ELSE 0 END) * 1.0) / COUNT(database_name) AS 'Physical Data IO Fit Percent'
+    FROM sys.resource_stats
+    WHERE database_name = 'userdb1' AND start_time > DATEADD(day, -7, GETDATE());
+    ```
+
     Baserat på din tjänstenivå för databasen kan avgöra du om din arbetsbelastning passar in i lägre beräkningsstorleken. Om ditt mål för databas-arbetsbelastning är 99,9 procent av föregående fråga returnerar värden som är större än 99,9 procent för alla tre resource dimensioner, passar din arbetsbelastning som sannolikt in lägre beräkningsstorleken.
-   
+
     Titta på Anpassa procentandelen får också inblick i om du ska flytta till nästa högre beräkningsstorleken att uppfylla dina mål. Userdb1 visar till exempel följande CPU-användning för den senaste veckan:
-   
+
    | Genomsnittlig CPU-procent | Högsta CPU-procent |
    | --- | --- |
    | 24.5 |100.00 |
-   
+
     Den genomsnittliga CPU handlar om en fjärdedel av gränsen på beräkningsstorleken, vilket skulle passar in i beräkningsstorleken för databasen. Men det högsta värdet visar att databasen når gränsen på beräkningsstorleken. Behöver du flytta till nästa högre beräkningsstorleken? Titta på hur många gånger din arbetsbelastning når 100 procent och jämför den med ditt mål för databas-arbetsbelastning.
-   
-        SELECT
+
+    ```sql
+    SELECT
         (COUNT(database_name) - SUM(CASE WHEN avg_cpu_percent >= 100 THEN 1 ELSE 0 END) * 1.0) / COUNT(database_name) AS 'CPU fit percent'
         ,(COUNT(database_name) - SUM(CASE WHEN avg_log_write_percent >= 100 THEN 1 ELSE 0 END) * 1.0) / COUNT(database_name) AS 'Log write fit percent'
         ,(COUNT(database_name) - SUM(CASE WHEN avg_data_io_percent >= 100 THEN 1 ELSE 0 END) * 1.0) / COUNT(database_name) AS 'Physical data IO fit percent'
         FROM sys.resource_stats
         WHERE database_name = 'userdb1' AND start_time > DATEADD(day, -7, GETDATE());
-   
+    ```
+
     Om den här frågan returnerar ett värde mindre än 99,9 procent av något av tre resursdimensioner bör du antingen flytta till nästa högre beräkningsstorleken eller använda programmet justering teknik för att minska belastningen på SQL-databasen.
+
 4. Den här övningen tar också hänsyn planerade arbetsbelastning-ökning i framtiden.
 
 För elastiska pooler kan du övervaka individuella databaser i poolen med de tekniker som beskrivs i det här avsnittet. Men du kan också övervaka poolen som helhet. Mer information finns i [Övervaka och hantera en elastisk pool](sql-database-elastic-pool-manage-portal.md).
 
-
 ### <a name="maximum-concurrent-requests"></a>Högsta antal samtidiga begäranden
+
 Om du vill se hur många samtidiga begäranden, kör du den här Transact-SQL-frågan på din SQL-databas:
 
+    ```sql
     SELECT COUNT(*) AS [Concurrent_Requests]
-    FROM sys.dm_exec_requests R
+    FROM sys.dm_exec_requests R;
+    ```
 
 Ändra den här frågan att filtrera på en viss databas som du vill analysera för att analysera arbetsbelastningen på en lokal SQL Server-databas. Till exempel om du har en lokal databas med namnet MyDatabase kan returnerar den här Transact-SQL-frågan antalet samtidiga begäranden i databasen:
 
+    ```sql
     SELECT COUNT(*) AS [Concurrent_Requests]
     FROM sys.dm_exec_requests R
     INNER JOIN sys.databases D ON D.database_id = R.database_id
-    AND D.name = 'MyDatabase'
+    AND D.name = 'MyDatabase';
+    ```
 
 Detta är bara en ögonblicksbild på ett ställe i tid. För att få en bättre förståelse för din arbetsbelastning och samtidig begäran krav, måste du samla in många exempel över tid.
 
 ### <a name="maximum-concurrent-logins"></a>Maximal samtidiga inloggningar
+
 Du kan analysera dina användar- och mönster för att få en uppfattning om frekvensen för inloggningar. Du kan också köra verkliga belastningar i en testmiljö för att se till att du inte får det här eller andra begränsningar som beskrivs i den här artikeln. Det finns inte en enskild fråga eller dynamisk hanteringsvy (DMV) som kan visa samtidiga inloggningen räknar eller historik.
 
 Om flera klienter använder samma anslutningssträng, autentiserar tjänsten varje inloggning. Om 10 användare samtidigt ansluta till en databas med samma användarnamn och lösenord, skulle det vara 10 samtidiga inloggningar. Den här gränsen gäller enbart för varaktigheten för inloggning och autentisering. Om samma 10 användare ansluta till databasen sekventiellt, blir antalet samtidiga inloggningar aldrig större än 1.
 
 > [!NOTE]
 > Den här begränsningen gäller för närvarande inte för databaser i elastiska pooler.
-> 
-> 
 
 ### <a name="maximum-sessions"></a>Maximalt antal sessioner
+
 Om du vill se antalet aktuella aktiva sessioner, kör du den här Transact-SQL-frågan på din SQL-databas:
 
     SELECT COUNT(*) AS [Sessions]
@@ -237,57 +672,61 @@ Om du analyserar en lokal SQL Server-arbetsbelastning kan du ändra frågan för
 
 De här frågorna returnerar igen, point-in-time-värdet. Om du samlar in flera insamlingar över tid, får du bäst förståelse för din session använder.
 
-För SQL Database-analys, kan du få historiska statistik på sessioner genom att fråga den [sys.resource_stats](https://msdn.microsoft.com/library/dn269979.aspx) vy och granska de **active_session_count** kolumn. 
+För SQL Database-analys, kan du få historiska statistik på sessioner genom att fråga den [sys.resource_stats](https://msdn.microsoft.com/library/dn269979.aspx) vy och granska de **active_session_count** kolumn.
 
 ## <a name="monitoring-query-performance"></a>Övervaka prestanda för frågor
+
 Långsamt eller länge körning av frågor kan du använda betydande systemresurser. Det här avsnittet visar hur du använder dynamiska hanteringsvyer för att identifiera några prestandaproblem för vanliga frågor. En äldre, men fortfarande användbart referens för felsökning, är den [Felsöka prestandaproblem i SQL Server 2008](http://download.microsoft.com/download/D/B/D/DBDE7972-1EB9-470A-BA18-58849DB3EB3B/TShootPerfProbs2008.docx) artikel på Microsoft TechNet.
 
 ### <a name="finding-top-n-queries"></a>Hitta främsta frågor
+
 I följande exempel returnerar information om de översta fem frågorna rangordnade med Genomsnittlig CPU-tid. Det här exemplet aggregerar frågor enligt deras fråge-hash, så att logiskt motsvarande frågor grupperas efter deras kumulativa resursförbrukningen.
 
-```
-SELECT TOP 5 query_stats.query_hash AS "Query Hash",
-    SUM(query_stats.total_worker_time) / SUM(query_stats.execution_count) AS "Avg CPU Time",
-    MIN(query_stats.statement_text) AS "Statement Text"
-FROM
-    (SELECT QS.*,
-    SUBSTRING(ST.text, (QS.statement_start_offset/2) + 1,
-    ((CASE statement_end_offset
-        WHEN -1 THEN DATALENGTH(ST.text)
-        ELSE QS.statement_end_offset END
-            - QS.statement_start_offset)/2) + 1) AS statement_text
-     FROM sys.dm_exec_query_stats AS QS
-     CROSS APPLY sys.dm_exec_sql_text(QS.sql_handle) as ST) as query_stats
-GROUP BY query_stats.query_hash
-ORDER BY 2 DESC;
-```
+    ```sql
+    SELECT TOP 5 query_stats.query_hash AS "Query Hash",
+       SUM(query_stats.total_worker_time) / SUM(query_stats.execution_count) AS "Avg CPU Time",
+       MIN(query_stats.statement_text) AS "Statement Text"
+    FROM
+       (SELECT QS.*,
+        SUBSTRING(ST.text, (QS.statement_start_offset/2) + 1,
+        ((CASE statement_end_offset
+           WHEN -1 THEN DATALENGTH(ST.text)
+           ELSE QS.statement_end_offset END
+           - QS.statement_start_offset)/2) + 1) AS statement_text
+    FROM sys.dm_exec_query_stats AS QS
+    CROSS APPLY sys.dm_exec_sql_text(QS.sql_handle) as ST) as query_stats
+    GROUP BY query_stats.query_hash
+    ORDER BY 2 DESC;
+    ```
 
 ### <a name="monitoring-blocked-queries"></a>Övervaka blockerade frågor
+
 Långsam eller långvariga frågor kan bidra till abnorm resursförbrukning och var en följd av blockerade frågor. Orsaken till att den blockerar kan vara dålig programdesign, felaktig frågeplaner, bristen på användbara index och så vidare. Du kan använda sys.dm_tran_locks vyn för att hämta information om den aktuella låsning aktiviteten i din Azure SQL Database. Exempelkod, se [sys.dm_tran_locks (Transact-SQL)](https://msdn.microsoft.com/library/ms190345.aspx) i SQL Server Books Online.
 
 ### <a name="monitoring-query-plans"></a>Övervakningsprogram för fråga
+
 En ineffektiv frågeplanen kan också minska CPU-förbrukning. I följande exempel används den [sys.dm_exec_query_stats](https://msdn.microsoft.com/library/ms189741.aspx) vyn för att avgöra vilken fråga använder mest kumulativa Processorn.
 
-```
-SELECT
-    highest_cpu_queries.plan_handle,
-    highest_cpu_queries.total_worker_time,
-    q.dbid,
-    q.objectid,
-    q.number,
-    q.encrypted,
-    q.[text]
-FROM
-    (SELECT TOP 50
+    ```sql
+    SELECT
+       highest_cpu_queries.plan_handle,
+       highest_cpu_queries.total_worker_time,
+       q.dbid,
+       q.objectid,
+       q.number,
+       q.encrypted,
+       q.[text]
+    FROM
+       (SELECT TOP 50
         qs.plan_handle,
         qs.total_worker_time
     FROM
         sys.dm_exec_query_stats qs
     ORDER BY qs.total_worker_time desc) AS highest_cpu_queries
     CROSS APPLY sys.dm_exec_sql_text(plan_handle) AS q
-ORDER BY highest_cpu_queries.total_worker_time DESC;
-```
+    ORDER BY highest_cpu_queries.total_worker_time DESC;
+    ```
 
 ## <a name="see-also"></a>Se också
-[Introduktion till SQL Database](sql-database-technical-overview.md)
 
+[Introduktion till SQL Database](sql-database-technical-overview.md)

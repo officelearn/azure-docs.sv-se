@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/03/2018
 ms.author: damaerte
-ms.openlocfilehash: aad474195060c01a3f9d85e6f9037b568b0c16ad
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: 4fc4f6523eb19294cabdf6b5b910dd346a877502
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39630394"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49645082"
 ---
 # <a name="powershell-in-azure-cloud-shell-for-windows-users"></a>PowerShell i Azure Cloud Shell för Windows-användare
 
@@ -54,7 +54,7 @@ Nedan visas vanliga alias som har tagits bort, samt deras motsvarande kommandon:
 ## <a name="persisting-home"></a>Bevara $HOME
 
 Tidigare användare kan bara spara skript och andra filer i sin enhet i molnet.
-Nu kan beständiga $HOME användarkatalog nu även mellan sessioner.
+Användarens $HOME katalog är nu också beständiga mellan sessioner.
 
 ## <a name="powershell-profile"></a>PowerShell-profil
 

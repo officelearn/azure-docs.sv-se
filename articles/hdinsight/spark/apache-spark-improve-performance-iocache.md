@@ -7,16 +7,16 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.topic: conceptual
 ms.date: 10/15/2018
-ms.openlocfilehash: cbb19ab831e242a48532bedef37157455c9fb583
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: 8cfa6493a565a8ed3b059e1da752da5115d0731d
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49431315"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49649864"
 ---
 # <a name="improve-performance-of-apache-spark-workloads-using-azure-hdinsight-io-cache-preview"></a>Förbättra prestanda för Apache Spark-arbetsbelastningar med Azure HDInsight-i/o-Cache (förhandsversion)
 
-I/o-Cache är en cachelagring tjänst för Azure HDInsight som förbättrar prestandan för Apache Spark-jobb. I/o-Cache används en öppen källkod och cachelagring komponent som kallas RubiX. RubiX är en lokal diskcache för användning med big data analytics motorer som kommer åt data från molnlagringssystem. RubiX är unika bland cachelagring system, eftersom den använder Solid-State-hårddiskar (SSD) i stället för att reservera operativ minne för cachelagring. I/o-Cache-tjänsten startar och hanterar RubiX Metadata servrar på varje worker-nod i klustret. Den konfigurerar också alla tjänster i klustret för transparent användning av RubiX cache.
+I/o-Cache är en cachelagring tjänst för Azure HDInsight som förbättrar prestandan för Apache Spark-jobb. I/o-Cache fungerar även med Tez och Hive-arbetsbelastningar, som kan köras på Spark-kluster. I/o-Cache används en öppen källkod och cachelagring komponent som kallas RubiX. RubiX är en lokal diskcache för användning med big data analytics motorer som kommer åt data från molnlagringssystem. RubiX är unika bland cachelagring system, eftersom den använder Solid-State-hårddiskar (SSD) i stället för att reservera operativ minne för cachelagring. I/o-Cache-tjänsten startar och hanterar RubiX Metadata servrar på varje worker-nod i klustret. Den konfigurerar också alla tjänster i klustret för transparent användning av RubiX cache.
 
 De flesta SSD ger mer än 1 GByte per sekund av bandbredd. Den här bandbredd, kompletterat med operativsystemet InMemory-fil-cache, ger tillräckligt med bandbredd för att läsa in stordata bearbetningsmotorer beräkning, till exempel Apache Spark. Operativ minne lämnas tillgänglig för Apache Spark kan bearbeta mycket minne-beroende aktiviteter, till exempel shuffles. Om du har exklusiv användning av operativsystem minne kan Apache Spark att uppnå optimal Resursanvändning.  
 
@@ -25,7 +25,7 @@ De flesta SSD ger mer än 1 GByte per sekund av bandbredd. Den här bandbredd, k
 
 ## <a name="benefits-of-azure-hdinsight-io-cache"></a>Fördelarna med Azure HDInsight-i/o-Cache
 
-Cachelagring ger högre prestanda för jobb som läser data från lagring i molnet.
+Med hjälp av i/o-Cache ger högre prestanda för jobb som läser data från Azure Blob Storage.
 
 Du behöver göra ändringar i Spark-jobb för att se prestanda ökar när du använder i/o-Cache. När-i/o-Cache är inaktiverat den här Spark-koden skulle läsa data via en fjärranslutning från Azure Blob Storage: `spark.read.load('wasbs:///myfolder/data.parquet').count()`. När-i/o-Cache har aktiverats kan orsakar samma kodrad en cachelagrad läsning via i/o-Cache. På följande läsningar läses data lokalt från SSD. Arbetarnoder i HDInsight-kluster är utrustade med lokalt anslutna, dedikerad SSD-enheterna. HDInsight-i/o-Cache använder dessa lokala SSD-enheterna för cachelagring, vilket ger lägsta svarstid och maximerar bandbredd.
 
@@ -46,7 +46,7 @@ Azure HDInsight-i/o-Cache är inaktiverat som standard i en förhandsversion. I/
 1. Bekräfta omstart av alla påverkade tjänster i klustret.
 
 >[!NOTE] 
-> Även om förloppsindikatorn visar aktiverad, aktiverad inte faktiskt i/o-cachen, förrän du startar om tjänsten.
+> Även om förloppsindikatorn visar aktiverad, aktiverad inte faktiskt i/o-cachen, förrän du startar om tjänster påverkas.
 
 ## <a name="troubleshooting"></a>Felsökning
   
@@ -75,3 +75,7 @@ Du kan få utrymme diskfel kör Spark-jobb när du har aktiverat i/o-Cache. Dess
 1. Välj **bekräfta omstart alla**.
 
 Om det inte fungerar kan du inaktivera-i/o-Cache.
+
+## <a name="next-steps"></a>Nästa steg
+
+- Läs mer om i/o-Cache, inklusive prestandamått i det här blogginlägget: [Apache Spark-jobb få upp till 9 x snabbare med HDInsight-i/o-Cache](https://azure.microsoft.com/en-us/blog/apache-spark-speedup-with-hdinsight-io-cache/)

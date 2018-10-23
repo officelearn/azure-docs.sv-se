@@ -8,14 +8,14 @@ services: cognitive-services
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 10/10/2018
+ms.date: 10/19/2018
 ms.author: diberry
-ms.openlocfilehash: b5433ea0a92635b5bf9c2a4887451f1e64ec62e6
-ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
+ms.openlocfilehash: db8fc0b6926930521f11285dc56c886c10c42fc2
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49067779"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49649320"
 ---
 # <a name="language-understanding-faq"></a>Language Understanding vanliga frågor och svar
 
@@ -157,11 +157,9 @@ Om du använder din logg för förutsägande analys kan du inte skapa test yttra
 * Du kan ta bort yttranden från listan över användare yttranden som LUIS föreslår i den **granska endpoint yttranden** sidan. Tar bort yttranden i den här listan förhindrar du att de ska visas som förslag, men ta bort inte dem från loggar.
 * Om du tar bort ett konto raderas alla appar, och deras exempel yttranden och loggar. Dessa data är kvar på servrarna i 60 dagar innan de tas bort permanent.
 
-### <a name="does-microsoft-access-my-luis-app-data-for-its-own-purposes-for-example-to-enhance-luis-or-microsoft-in-general"></a>Har Microsoft tillgång till min LUIS AppData för sina egna ändamål, till exempel för att förbättra LUIS eller Microsoft i allmänhet?
+### <a name="how-does-microsoft-manage-data-i-send-to-luis"></a>Hur hanterar Microsoft data som jag skickar till LUIS?
 
-Nej. LUIS-app-datamodellen är inte används av LUIS för att förbättra LUIS som en plattform eller används av Microsoft på något sätt. Varje AppData är separat och ägs endast av användar- och medarbetare.
-
-Läs mer om [Användarsekretess](luis-user-privacy.md), [ytterligare säkerhet följs](luis-concept-security.md#security-compliance), och [datalagring](luis-concept-data-storage.md).
+Den [Säkerhetscenter](https://www.microsoft.com/trustcenter) beskrivs våra åtaganden och dina alternativ för hantering av och åtkomst i Azure-tjänster.
 
 ## <a name="language-and-translation-support"></a>Stöd för språk och översättning
 

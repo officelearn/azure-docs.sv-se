@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/05/2018
+ms.date: 10/21/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: d7906323da8e9ee1571efe908084ae1433884e61
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: 8cfe8c309c11eb24bc6e7af9fc3ba3eef0422c35
+ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47405996"
+ms.lasthandoff: 10/22/2018
+ms.locfileid: "49638231"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-quick-start"></a>Azure Active Directory sömlös enkel inloggning: Snabbstart
 
@@ -57,6 +57,9 @@ Se till att följande krav är uppfyllda:
 ## <a name="step-2-enable-the-feature"></a>Steg 2: Aktivera funktionen
 
 Aktivera sömlös SSO via [Azure AD Connect](whatis-hybrid-identity.md).
+
+>[!NOTE]
+> Du kan också [Aktivera sömlös SSO med hjälp av PowerShell](tshoot-connect-sso.md#manual-reset-of-the-feature) om Azure AD Connect inte uppfyller dina krav. Använd det här alternativet om du har mer än en domän per Active Directory-skog och du vill vara mer mål om du vill aktivera sömlös SSO för domänen.
 
 Om du gör en ny installation av Azure AD Connect, väljer du den [anpassade installationssökväg](how-to-connect-install-custom.md). På den **användarinloggning** väljer den **aktivera enkel inloggning** alternativet.
 

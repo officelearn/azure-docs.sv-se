@@ -12,12 +12,12 @@ ms.author: moslake
 ms.reviewer: vanto, genemi
 manager: craigg
 ms.date: 09/18/2018
-ms.openlocfilehash: 2500d0c67eda5bb91eed8214c161fcce29907abb
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: 0fc5ca73dec79942e05c7dfd410bc0a13e5ffb44
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49466247"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49648725"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-azure-sql-database-and-sql-data-warehouse"></a>Använda tjänstslutpunkter i virtuella nätverk och regler för Azure SQL Database och SQL Data Warehouse
 
@@ -105,6 +105,7 @@ Har du möjlighet att använda [rollbaserad åtkomstkontroll (RBAC)] [ rbac-what
 > I vissa fall Azure SQL Database och VNet-undernät som finns i olika prenumerationer. I dessa fall måste du kontrollera att följande konfigurationer:
 > - Båda prenumerationerna måste finnas i samma Azure Active Directory-klient.
 > - Användaren har behörigheterna som krävs för att initiera åtgärder, till exempel aktiverar Tjänsteslutpunkter och lägga till ett VNet-undernät i den angivna servern.
+> - Båda prenumerationerna måste ha Microsoft.Sql-providern som har registrerats.
 
 ## <a name="limitations"></a>Begränsningar
 

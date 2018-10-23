@@ -7,15 +7,15 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 10/04/2018
+ms.date: 10/22/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 8e06cf1a443d4fd158e29ef4b53206a83800dfe9
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: 36025bf8460d690aab3b3617ad3341dfe7005e9e
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48803060"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49649286"
 ---
 # <a name="set-redirect-urls-to-b2clogincom-for-azure-active-directory-b2c"></a>Ange omdirigera URL: er till b2clogin.com för Azure Active Directory B2C
 
@@ -26,7 +26,12 @@ Med hjälp av b2clogin.com ger dig ytterligare fördelar, till exempel:
 - Cookies som inte längre delas med andra Microsoft-tjänster.
 - Din URL: er inkluderar inte längre en referens till Microsoft. Till exempel `https://your-tenant-name.b2clogin.com/tfp/your-tenant-ID/policyname/v2.0/.well-known/openid-configuration`.
 
-Ange om du vill använda b2clogin.com omdirigeringen URL: er i din identitet provider-programmen kan använda b2clogin.com. Du kan också ange att Azure AD B2C-programmet ska använda b2clogin.com för princip-referenser och token-slutpunkter. Om du använder MSAL, måste du ange den **ValidateAuthority** egenskap `false`.
+Överväg att dessa inställningar som kan behöva ändra när med hjälp av b2clogin.com:
+
+- Ange omdirigerings URL: er i din identitet provider-programmen kan använda b2clogin.com. 
+- Ange din Azure AD B2C-program att använda b2clogin.com för princip-referenser och token-slutpunkter. 
+- Om du använder MSAL, måste du ange den **ValidateAuthority** egenskap `false`.
+- Se till att du ändrar någon **tillåtna ursprung** som du har definierat i CORS-inställningarna för [anpassning av användargränssnittet](active-directory-b2c-ui-customization-custom-dynamic.md).  
 
 ## <a name="change-redirect-urls"></a>Ändra omdirigera URL: er
 

@@ -10,53 +10,82 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/24/2018
+ms.date: 10/19/2018
 ms.author: mabrigg
 ms.reviewer: johnhas
-ms.openlocfilehash: c50e4b5c9eb81c9386e2cb0db96a88de70dcb9e9
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: 25c93560b24b2915ef9a9077b5bca0d15286b0e3
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44157811"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49646787"
 ---
 # <a name="workflow-common-parameters-for-azure-stack-validation-as-a-service"></a>Arbetsflödets gemensamma parametrar för Azure Stack-verifiering som en tjänst
 
 [!INCLUDE [Azure_Stack_Partner](./includes/azure-stack-partner-appliesto.md)]
 
-Parametrarna är värden som miljövariabler och användaren autentiseringsuppgifter som krävs av alla tester i verifiering som en tjänst (VaaS). Du definierar dessa värden på arbetsflödesnivå. Du kan spara värdena när du skapar eller ändrar ett arbetsflöde. Schema för när arbetsflödet läser du in värdena för testet. 
+Parametrarna är värden som miljövariabler och användarens autentiseringsuppgifter som krävs av alla tester i verifiering som en tjänst (VaaS). Dessa värden definieras på arbetsflödesnivå när du skapar eller ändrar ett arbetsflöde. När du schemalägger testerna skickas dessa värden som parametrar för varje test under arbetsflödet.
+
+> [!NOTE]
+> Varje test definierar en egen uppsättning parametrar. Ett test på Schemalägg tid, kan kräva att du anger ett värde oberoende av de gemensamma parametrarna eller kan du åsidosätta vanliga parametervärdet.
 
 ## <a name="environment-parameters"></a>Miljö-parametrar
 
-Miljö parametrar beskrivs Azure Stack-miljön under testet. Dessa värden måste anges genom att generera och överför konfigurationsfilen stämpel `&lt;link&gt;. [How to get the stamp info link].`
+Miljö parametrar beskrivs Azure Stack-miljön under testet. Dessa värden måste anges genom att generera och överföra en fil Azure Stack stämpel information för den specifika instans som du vill testa.
 
-| Parameternamn | Krävs | Typ | Beskrivning |
-|----------------------------------|----------|------|---------------------------------------------------------------------------------------------------------------------------------|
-| Azure Stack-version | Krävs |  | Build-nummer för Azure Stack-distribution (till exempel 1.0.170330.9) |
-| OEM-version | Ja |  | Versionsnummer för OEM-paketet som används under distributionen av Azure Stack. |
-| OEM-signatur | Ja |  | Signaturen för OEM-paketet som används under distributionen av Azure Stack. |
-| Klient-ID för AAD | Krävs |  | Azure Active Directory-klient GUID anges under distributionen av Azure Stack.|
-| Region | Krävs |  | Azure Stack-distributionsregionen. |
-| Klient Resource Manager-slutpunkten | Krävs |  | Slutpunkten för klient med Azure Resource Manager-åtgärder (till exempel https://management.<ExternalFqdn>) |
-| Administratören Resource Manager-slutpunkten | Ja |  | Slutpunkt för klient Azure Resource Manager-åtgärder (till exempel https://adminmanagement.<ExternalFqdn>) |
-| Externa FQDN | Ja |  | Externa kvalificerade fullständigt domännamn som används som suffix för slutpunkter. (till exempel local.azurestack.external eller redmond.contoso.com). |
-| Antal noder | Ja |  | Antalet noder för distributionen. |
+> [!NOTE]
+> Miljö-parametrar kan inte ändras när arbetsflödet har skapats i officiella verifiering arbetsflöden.
+
+### <a name="generate-the-stamp-information-file"></a>Generera filen för stämpel-information
+
+1. Logga in på DVM eller datorer som har åtkomst till Azure Stack-miljön.
+2. Kör följande kommandon i en upphöjd PowerShell-kommandotolk:
+    ```PowerShell
+    $CloudAdminUser = "<cloud admin username>"
+    $stampInfoPass = ConvertTo-SecureString "<cloud admin password>" -AsPlainText -Force
+    $stampInfoCreds = New-Object System.Management.Automation.PSCredential($CloudAdminUser, $stampInfoPass)
+    $params = Invoke-RestMethod -Method Get -Uri 'https://ASAppGateway:4443/ServiceTypeId/4dde37cc-6ee0-4d75-9444-7061e156507f/CloudDefinition/GetStampInformation'
+    ConvertTo-Json $params > stampinfoproperties.json
+    ```
+
+### <a name="locate-values-in-the-ece-configuration-file"></a>Leta upp värdena i konfigurationsfilen FN
+
+Parametervärden för miljön kan också finnas manuellt i den **FN konfigurationsfilen** på `C:\EceStore\403314e1-d945-9558-fad2-42ba21985248\80e0921f-56b5-17d3-29f5-cd41bf862787` på DVM.
 
 ## <a name="test-parameters"></a>Parametrarna för webbtestet
 
-Vanliga testparametrar innehåller känslig information som kan lagras i konfigurationsfiler och måste anges manuellt.
+Vanliga testparametrar innehåller känslig information som inte kan lagras i konfigurationsfiler. Dessa måste anges manuellt.
 
-| Parameternamn | Krävs | Typ | Beskrivning |
-|--------------------------------|------------------------------------------------------------------------------|------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Klient-användarnamn | Krävs |  | Azure Active Directory-Klientadministratör som antingen har redan etablerats eller affärsbehov som ska etableras med tjänstadministratören i AAD-katalogen. Mer information om etablering klientkonto finns [Kom igång med Azure AD](https://docs.microsoft.com/azure/active-directory/get-started-azure-ad). Det här värdet används av testet för klient på åtgärder som till exempel distribuera mallar för att etablera resurser (virtuella datorer, lagringskonton osv) och köra arbetsbelastningar. Det här värdet används av testet för klient på åtgärder som till exempel distribuera mallar för att etablera resurser (virtuella datorer, lagringskonton osv) och köra arbetsbelastningar. |
-| Klient-lösenord | Krävs |  | Lösenordet för klientorganisationsanvändaren. |
-| Tjänstadministratör användarnamn | Krävs: Lösning verifiering verifiera paketet<br>Krävs inte: testet |  | Azure Active Directory-administratör för AAD-Directory-klient som anges under distributionen av Azure Stack. |
-| Administratörslösenord för tjänsten | Krävs: Lösning verifiering verifiera paketet<br>Krävs inte: testet |  | Lösenordet för användaren tjänstadministratör. |
-| Molnadministratören användarnamn | Krävs |  | Azure Stack domänadministratörskonto (till exempel contoso\cloudadmin). Sök efter användarroll = ”CloudAdmin” i konfigurationsfilen och Välj värdet i UserName-taggen i konfigurationsfilen. |
-| Administratörslösenord för molnet | Krävs |  | Lösenordet för användaren Molnadministratören. |
-| Anslutningssträngen för diagnostik | Krävs |  | En SAS-URI för Azure Storage-kontot på vilka felsökning kopieras loggfilerna vid testkörning. Anvisningar för att generera SAS-URI är placerade [ställa in ett blob storage-konto](azure-stack-vaas-set-up-account.md). |
+Parameter    | Beskrivning
+-------------|-----------------
+Klient-administratör                            | Azure Active Directory Innehavaradministratör som etablerades tjänstadministratören i AAD-katalogen. Den här användaren utför på klientnivå åtgärder som att distribuera mallar att ställa in resurser (virtuella datorer, lagringskonton osv) och köra arbetsbelastningar. Mer information om etablering klientkonto finns [lägga till en ny Azure Stack-klient](https://docs.microsoft.com/azure/azure-stack/azure-stack-add-new-user-aad).
+Service-administratör             | Azure Active Directory-administratören för AAD-Directory-klient som anges under distributionen av Azure Stack Sök efter `AADTenant` i FN konfigurationen och väljer värdet i den `UniqueName` element.
+Molnadministratören användare               | Azure Stack-domänadministratörskonto (t.ex. `contoso\cloudadmin`). Sök efter `User Role="CloudAdmin"` i FN konfigurationen och väljer värdet i den `UserName` element.
+Anslutningssträngen för diagnostik          | En SAS-URL till ett Azure Storage-konto på vilka felsökning loggfilerna kopieras under testkörning av. Anvisningar om att generera SAS-Webbadressen finns i [generera anslutningssträngen diagnostik](#generate-the-diagnostics-connection-string). |
 
+> [!IMPORTANT]
+> Den **diagnostik anslutningssträngen** måste vara giltig innan du fortsätter.
+
+### <a name="generate-the-diagnostics-connection-string"></a>Generera anslutningssträngen diagnostik
+
+Anslutningssträngen diagnostik krävs för att lagra diagnostikloggar under testkörning av. Använda Azure Storage-konto som skapades under installationen (finns i [ställa in din validering som en tjänstresurser](azure-stack-vaas-set-up-resources.md)) att skapa en signatur-URL för delad åtkomst för att ge VaaS åtkomst till att ladda upp loggar till ditt lagringskonto.
+
+1. [!INCLUDE [azure-stack-vaas-sas-step_navigate](includes/azure-stack-vaas-sas-step_navigate.md)]
+
+1. Välj **Blob** från **tillåtna tjänster alternativ**. Avmarkera eventuella återstående alternativen.
+
+1. Välj **Service**, **behållare**, och **objekt** från **tillåtna resurstyper**.
+
+1. Välj **Läs**, **skriva**, **lista**, **lägga till**, **skapa** från **tillåts behörigheter**. Avmarkera eventuella återstående alternativen.
+
+1. Ange **starttid** till aktuell tid och **sluttid** till tre månader från den aktuella tiden.
+
+1. [!INCLUDE [azure-stack-vaas-sas-step_generate](includes/azure-stack-vaas-sas-step_generate.md)]
+
+> [!NOTE]  
+> SAS-Webbadressen upphör att gälla vid sluttid anges när URL: en har genererats.  
+När du schemalägger tester, kontrollera att URL: en är giltig i minst 30 dagar, plus tid som krävs för testkörning av (tre månader föreslås).
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Mer information om [Azure Stack-verifiering som en tjänst](https://docs.microsoft.com/azure/azure-stack/partner).
+- Lär dig mer om [verifiering som en tjänst viktiga begrepp](azure-stack-vaas-key-concepts.md)

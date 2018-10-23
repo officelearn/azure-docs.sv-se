@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 09/06/2018
 ms.author: diberry
-ms.openlocfilehash: b936b42671c15a77a901f321ed3c51f1ba3639cd
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 57742d72c8be0dcd999bc8b73f6d598263429c12
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47036600"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49646583"
 ---
 # <a name="api-v2-migration-guide"></a>Migreringsguide för API v2
 Version 1 [endpoint](https://aka.ms/v1-endpoint-api-docs) och [redigering](https://aka.ms/v1-authoring-api-docs) API: er upphör att gälla. Använd den här guiden för att förstå hur du migrerar till version 2 [endpoint](https://aka.ms/luis-endpoint-apis) och [redigering](https://aka.ms/luis-authoring-apis) API: er. 
@@ -155,7 +155,7 @@ LUIS föreslår yttranden från befintliga [endpoint yttranden](luis-how-to-revi
 Exporterade 1.x appens JSON har vissa områden som du behöver ändra innan du importerar till [LUIS] [ LUIS] 2.0. 
 
 ### <a name="prebuilt-entities"></a>Fördefinierade entiteter 
-Den [förskapade entiteter](luis-prebuilt-entities.md) har ändrats. Kontrollera att du använder V2 förskapade entiteter. Detta inkluderar med [datetimeV2](luis-prebuilt-entities.md#use-a-prebuilt-datetimev2-entity), i stället för datum/tid. 
+Den [förskapade entiteter](luis-prebuilt-entities.md) har ändrats. Kontrollera att du använder V2 förskapade entiteter. Detta inkluderar med [datetimeV2](luis-reference-prebuilt-datetimev2.md), i stället för datum/tid. 
 
 ### <a name="actions"></a>Åtgärder
 Egenskapen åtgärder är inte längre giltig. Det bör vara en tom 

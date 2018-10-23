@@ -1,6 +1,6 @@
 ---
 title: Azure SQL Database prestandajusteringsvägledning | Microsoft Docs
-description: Lär dig mer om hur du använder rekommendationer för att förbättra frågeprestanda för Azure SQL Database.
+description: Lär dig mer om hur du manuellt justera prestanda för din Azure SQL Database-frågor med rekommendationer.
 services: sql-database
 ms.service: sql-database
 ms.subservice: performance
@@ -11,46 +11,26 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 10/05/2018
-ms.openlocfilehash: 9af699dca5aab26f0bf24b4609bef14558236523
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.date: 10/22/2018
+ms.openlocfilehash: 95e09532616b4aff05dad7440dcda6872fd27484
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48854821"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49645532"
 ---
-# <a name="tuning-performance-in-azure-sql-database"></a>Justera prestanda i Azure SQL Database
+# <a name="manual-tune-query-performance-in-azure-sql-database"></a>Manuell justering av frågeprestanda i Azure SQL Database
 
-Azure SQL Database innehåller [rekommendationer](sql-database-advisor.md) att du kan använda för att förbättra databasens prestanda eller låta Azure SQL Database [automatiskt anpassas efter programmets](sql-database-automatic-tuning.md) och tillämpa ändringarna som förbättrar prestandan för din arbetsbelastning.
+När du har identifierat prestandaproblem som du får med SQL-databas som den här artikeln hjälper dig att:
 
-Du har inte några tillämpliga rekommendationer och du fortfarande har problem med prestanda, du kan använda följande metoder för att förbättra prestanda:
-
-- Öka tjänstnivåerna i dina [DTU-baserade inköpsmodellen](sql-database-service-tiers-dtu.md) eller din [vCore-baserade inköpsmodellen](sql-database-service-tiers-vcore.md) att tillhandahålla mer resurser till din databas.
 - Finjustera dina program och tillämpa några metodtips som kan förbättra prestanda.
 - Justera databasen genom att ändra index och frågor för att arbeta mer effektivt med data.
 
-Det här är manuella metoder eftersom du måste bestämma mängden resurser som uppfyller dina behov. I annat fall skulle du behöva skriva om programmet eller databaskod och distribuera ändringarna.
-
-## <a name="increasing-service-tier-of-your-database"></a>Öka tjänstenivå för databasen
-
-Azure SQL Database erbjuder [två inköpschef modeller](sql-database-service-tiers.md), ett [DTU-baserade inköpsmodellen](sql-database-service-tiers-dtu.md) och en [vCore-baserade inköpsmodellen](sql-database-service-tiers-vcore.md) som du kan välja bland. Varje tjänstnivå isolerar enbart de resurser som din SQL-databas kan använda och garanterar förutsägbara prestanda för den tjänstnivån. Vi erbjuder vägledning som hjälper dig att välja tjänstnivå för ditt program i den här artikeln. Vi diskuterar också olika sätt att du kan finjustera dina program att få ut mest från Azure SQL Database. Varje tjänstenivå har en egen [resursgränser](sql-database-resource-limits.md). Mer information finns i [vCore-baserade resursbegränsningar](sql-database-vcore-resource-limits-single-databases.md) och [DTU-baserade resursbegränsningar](sql-database-dtu-resource-limits-single-databases.md).
-
-> [!NOTE]
-> Den här artikeln fokuserar på prestanda hos enskilda databaser i Azure SQL Database. Prestandavägledning som rör elastiska pooler finns i [pris- och prestandaöverväganden för elastiska pooler](sql-database-elastic-pool-guidance.md). Observera dock att du kan använda flera av justeringsrekommendationer i den här artikeln för databaser i en elastisk pool och få liknande prestandafördelarna.
-
-Tjänstenivå som du behöver för din SQL-databas är beroende av högsta belastning krav för varje resursdimension. Vissa program använder en trivial del av en enskild resurs, men har betydande krav för andra resurser.
-
-### <a name="service-tier-capabilities-and-limits"></a>Tjänstfunktioner och begränsningar
-
-På varje tjänstnivå och ange beräkningsstorleken, så att du har flexibiliteten att betala bara för den kapacitet du behöver. Du kan [justera kapacitet](sql-database-single-database-scale.md), upp eller ned, när arbetsbelastningen ändras. Om din databas-arbetsbelastning är hög under perioder som jul den tillbaka till skolan, kan du till exempel öka beräkningsstorleken för databasen för en viss tid, juli via September. Du kan minska det när din högsta säsongen avslutas. Du kan minimera det du betalar för genom att optimera din molnmiljö till säsongsvärdet för din verksamhet. Den här modellen fungerar bra för programvara utgivningscykler för produkten. Ett test-team kan allokera kapacitet medan den gör testa körningar och släpp den kapaciteten när de är klara testning. I ett prispaket av begäran betalar du för kapacitet du behöver det och undvika utgifterna på dedikerade resurser som du kan använda för sällan.
-
-### <a name="the-purpose-of-service-tiers"></a>Syftet med tjänstnivåer
-
-Varje databas-arbetsbelastning kan variera, är syftet med tjänstnivåer att tillhandahålla förutsägbara prestanda i olika storlekar. Kunder med storskaliga databasen resurskrav kan arbeta i en mer dedikerade datormiljö.
+Den här artikeln förutsätter att du redan har arbetat med Azure SQL Database [databasen advisor-rekommendationer](sql-database-advisor.md) och Azure SQL Database [automatisk justering rekommendationer](sql-database-automatic-tuning.md). Det förutsätts även att du har granskat [en översikt över övervakning och justering](sql-database-monitor-tune-overview.md) och dess relaterade artiklar som rör Felsöka prestandaproblem. Dessutom kan förutsätter den här artikeln att du inte har en CPU-resurser, köra minnesrelaterade prestandaproblem som kan lösas genom att öka beräkningsstorleken eller tjänstnivån att tillhandahålla mer resurser till din databas.
 
 ## <a name="tune-your-application"></a>Finjustera dina program
 
-I traditionella lokala SQL Server, är processen inledande kapacitetsplanering ofta avgränsade från processen att köra ett program i produktion. Maskin- och licenser som köps först och prestandajustering görs efteråt. När du använder Azure SQL Database är en bra idé att interweave processen med att köra en App och anpassar den. Med modellen för att betala för kapacitet vid behov kan finjustera du programmet så att de lägsta resurser som krävs nu, i stället för överetablering på maskinvara, utifrån gissningar för framtida tillväxt planer för ett program, vilket ofta är felaktiga. Vissa kunder kan välja att inte Finjustera ett program och i stället välja att därför överetablerar maskinvaruresurser. Den här metoden kan vara bra om du inte vill ändra ett viktiga program under en upptagen period. Men justering ett program kan minimera resurskraven och lägre månatliga fakturor när du använder tjänstnivåerna i Azure SQL Database.
+I traditionella lokala SQL Server, är processen inledande kapacitetsplanering ofta avgränsade från processen att köra ett program i produktion. Maskin- och licenser som köps först och prestandajustering görs efteråt. När du använder Azure SQL Database är en bra idé att interweave processen med att köra en App och anpassar den. Med modellen för att betala för kapacitet vid behov kan finjustera du programmet så att de lägsta resurser som krävs nu, i stället för överetablering på maskinvara, utifrån gissningar för framtida tillväxt planer för ett program, vilket ofta är felaktiga. Vissa kunder kan välja att inte Finjustera ett program och i stället välja att etablera maskinvaruresurser. Den här metoden kan vara bra om du inte vill ändra ett viktiga program under en upptagen period. Men justering ett program kan minimera resurskraven och lägre månatliga fakturor när du använder tjänstnivåerna i Azure SQL Database.
 
 ### <a name="application-characteristics"></a>Programegenskaper
 
@@ -75,17 +55,6 @@ I traditionella lokala SQL Server, är processen inledande kapacitetsplanering o
 ## <a name="tune-your-database"></a>Finjustera din databas
 
 I det här avsnittet ska titta vi på vissa tekniker som du kan använda för att finjustera Azure SQL Database för att få bästa möjliga prestanda för ditt program och köra den på den lägsta möjliga beräkningsstorleken. Vissa av dessa metoder matchar den traditionella SQL Server justering metodtips, men andra är specifika för Azure SQL Database. I vissa fall kan undersöka du förbrukade resurser för en databas att hitta områden för att ytterligare finjustera och utöka traditionella tekniker för SQL Server att fungera i Azure SQL Database.
-
-### <a name="identify-performance-issues-using-azure-portal"></a>Identifiera prestandaproblem med hjälp av Azure portal
-
-Följande verktyg i Azure-portalen kan hjälpa dig att analysera och korrigera prestandaproblem med SQL-databasen:
-
-- [Query Performance Insight](sql-database-query-performance.md)
-- [SQL Database Advisor](sql-database-advisor.md)
-
-Azure portal finns mer information om båda dessa verktyg och hur de används. För att effektivt diagnostisera och åtgärda problem, rekommenderar vi att du försöker först använda verktygen i Azure-portalen. Vi rekommenderar att du använder den manuella justering metoder som vi går igenom sedan efter saknade index och frågejusteringar i specialfall.
-
-Mer information om hur du identifierar problem i Azure SQL Database på [prestandaövervakning i Azure-portalen](sql-database-monitor-tune-overview.md) och [övervaka databaser med DMV: er](sql-database-monitoring-with-dmvs.md) artiklar.
 
 ### <a name="identifying-and-adding-missing-indexes"></a>Identifiera och lägga till index som saknas
 

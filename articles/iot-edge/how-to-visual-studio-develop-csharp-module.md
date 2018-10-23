@@ -9,12 +9,12 @@ ms.author: xshi
 ms.date: 09/24/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 768ff899ca2c71cb32fe29bdd5d58654d8f7d431
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
+ms.openlocfilehash: ab4dd1186715fde51fbf188ace902c8092d192d0
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49394756"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49647195"
 ---
 # <a name="use-visual-studio-2017-to-develop-and-debug-c-modules-for-azure-iot-edge-preview"></a>Använd Visual Studio 2017 för att utveckla och felsöka C#-moduler för Azure IoT Edge (förhandsversion)
 
@@ -36,7 +36,7 @@ Eftersom den här artikeln används Visual Studio 2017 som det huvudsakliga utve
 
 När din Visual Studio 2017 är klar kan behöver du också:
 
-- Ladda ned och installera [Azure IoT Edge-tillägget](https://marketplace.visualstudio.com/items?itemName=vsc-iot.azureiotedgetools) från Visual Studio marketplace och skapa IoT Edge-projekt i Visual Studio 2017.
+- Ladda ned och installera [Azure IoT Edge-tillägget](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vsiotedgetools) från Visual Studio marketplace och skapa IoT Edge-projekt i Visual Studio 2017.
 - [Docker Community Edition](https://docs.docker.com/install/) på utvecklingsdatorn för att skapa och köra dina avbildningar för modulen. Du måste ange korrekt Docker CE som körs i Linux-behållare eller Windows-behållare läge.
 - Om du vill konfigurera lokal utvecklingsmiljö för att felsöka, köra och testa din IoT Edge-lösning du behöver [utvecklingsverktyg för Azure IoT EdgeHub](https://pypi.org/project/iotedgehubdev/). Installera [Python (2.7/3.6) och Pip](https://www.python.org/). Installera sedan **iotedgehubdev** genom att köra nedanstående kommando i terminalen. Kontrollera att din Azure IoT EdgeHub utvecklingsverktyg version är större än 0.3.0-betaversionen.
 

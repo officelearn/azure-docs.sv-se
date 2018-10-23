@@ -10,12 +10,12 @@ ms.component: translator-text
 ms.topic: conceptual
 ms.date: 03/27/2018
 ms.author: v-jansko
-ms.openlocfilehash: 74fcfa0e1474d7d2a25d0bf9d0476fb1bb870334
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: e0654d6a4696e6f02939cad51a715412fdcfb61a
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49429515"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49645242"
 ---
 # <a name="translator-text-api-v2-to-v3-migration"></a>Translator Text API V2 till V3-migrering
 
@@ -54,7 +54,7 @@ Följande lista över V2 och V3 metoder identifierar V3-metoder och API: er som 
 
 ## <a name="move-to-json-format"></a>Flytta till JSON-format
 
-Microsoft Translator Text Translation V2 accepterat och returnerade data i XML-format. I V3 är alla data som skickas och tas emot med hjälp av API: et i JSON-format. XML-kommer inte längre godkända eller returneras i V3. 
+Microsoft Translator Text Translation V2 accepterat och returnerade data i XML-format. I V3 är alla data som skickas och tas emot med hjälp av API: et i JSON-format. XML-kommer inte längre godkända eller returneras i V3.
 
 Den här ändringen påverkar flera aspekter av ett program som skrivits för V2 Text Translation-API. Som exempel: språk API returnerar språkinformation om för textöversättning, transkriberingsspråk och två ordlista-metoder. Du kan begära språkinformation för alla för alla metoder i ett anrop eller begär dem individuellt.
 

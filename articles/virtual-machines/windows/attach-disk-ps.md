@@ -1,6 +1,6 @@
 ---
-title: Anslut en datadisk till en virtuell Windows-dator i Azure med PowerShell | Microsoft Docs
-description: Så här ansluter du ny eller befintlig datadisk till en Windows virtuell dator med hjälp av PowerShell med Resource Manager-distributionsmodellen.
+title: Anslut en datadisk till en Windows-dator i Azure med hjälp av PowerShell | Microsoft Docs
+description: Så här kopplar du en ny eller befintlig datadisk till en Windows virtuell dator med hjälp av PowerShell med Resource Manager-distributionsmodellen.
 services: virtual-machines-windows
 documentationcenter: ''
 author: cynthn
@@ -13,26 +13,26 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 10/11/2017
+ms.date: 10/16/2018
 ms.author: cynthn
-ms.openlocfilehash: 384203134d1588053f91b66d32e9b0bf1ec69306
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: cd11bb8ae8f22705feb7eebeafde385fcf11fdcd
+ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38680923"
+ms.lasthandoff: 10/22/2018
+ms.locfileid: "49637093"
 ---
-# <a name="attach-a-data-disk-to-a-windows-vm-using-powershell"></a>Anslut en datadisk till en Windows virtuell dator med hjälp av PowerShell
+# <a name="attach-a-data-disk-to-a-windows-vm-with-powershell"></a>Anslut en datadisk till en virtuell Windows-dator med PowerShell
 
-Den här artikeln visar hur du kopplar både nya och befintliga diskar till en Windows-dator med PowerShell. 
+Den här artikeln visar hur du kopplar både nya och befintliga diskar till en Windows-dator med hjälp av PowerShell. 
 
-Läs igenom de här tipsen innan du gör detta:
+Granska först de här tipsen:
 * Storleken på den virtuella datorn styr hur många datadiskar som du kan koppla. Mer information finns i [storlekar för virtuella datorer](sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
-* Om du vill använda Premium storage behöver du ett Premium Storage aktiverat VM-storlek som virtuella DS-serien eller GS-serien. Mer information finns i [Premium Storage: lagring med höga prestanda för Azure-Datorbelastningar](premium-storage.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+* Om du vill använda Premium storage behöver en Premium Storage-aktiverad virtuell dator-typ som den DS-serien eller GS-serien virtuella datorn. Mer information finns i [Premium Storage: lagring med höga prestanda för Azure-Datorbelastningar](premium-storage.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 [!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]
 
-Om du väljer att installera och använda PowerShell lokalt krävs version 6.0.0 eller senare av Azure PowerShell-modulen i den här självstudiekursen. Kör ` Get-Module -ListAvailable AzureRM` för att hitta versionen. Om du behöver uppgradera kan du läsa [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps) (Installera Azure PowerShell-modul). Om du kör PowerShell lokalt måste du också köra `Connect-AzureRmAccount` för att skapa en anslutning till Azure.
+För att installera och använda PowerShell lokalt kräver den här självstudien Azure PowerShell-Modulversion 6.0.0 eller senare. Kör ` Get-Module -ListAvailable AzureRM` för att hitta versionen. Om du behöver uppgradera kan du läsa [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps) (Installera Azure PowerShell-modul). Om du kör PowerShell lokalt måste du även behöver köra `Connect-AzureRmAccount` att skapa en anslutning till Azure.
 
 
 ## <a name="add-an-empty-data-disk-to-a-virtual-machine"></a>Lägg till en tom datadisk till en virtuell dator
@@ -80,7 +80,7 @@ Update-AzureRmVM -VM $vm -ResourceGroupName $rgName
 
 ### <a name="initialize-the-disk"></a>Initiera disken
 
-När du lägger till en tom disk, måste du initiera den. Du kan logga in på en virtuell dator och använda Diskhantering för att initiera disken. Om du har aktiverat WinRM och ett certifikat på den virtuella datorn när du skapade den, kan du kan använda fjärr-PowerShell för att initiera disken. Du kan också använda ett anpassat skripttillägg: 
+När du lägger till en tom disk måste du initiera den. Du kan logga in på en virtuell dator och använda Diskhantering för att initiera disken. Om du har aktiverat [WinRM](https://docs.microsoft.com/windows/desktop/WinRM/portal) och ett certifikat på den virtuella datorn när du skapade det. Du kan använda fjärr-PowerShell för att initiera disken. Du kan också använda ett anpassat skripttillägg: 
 
 ```azurepowershell-interactive
     $location = "location-name"
@@ -89,7 +89,7 @@ När du lägger till en tom disk, måste du initiera den. Du kan logga in på en
     Set-AzureRmVMCustomScriptExtension -ResourceGroupName $rgName -Location $locName -VMName $vmName -Name $scriptName -TypeHandlerVersion "1.4" -StorageAccountName "mystore1" -StorageAccountKey "primary-key" -FileName $fileName -ContainerName "scripts"
 ```
         
-Skriptfilen kan innehålla något som liknar den här koden för att initiera diskar:
+Skriptfilen kan innehålla kod för att initiera diskar, till exempel:
 
 ```azurepowershell-interactive
     $disks = Get-Disk | Where partitionstyle -eq 'raw' | sort number

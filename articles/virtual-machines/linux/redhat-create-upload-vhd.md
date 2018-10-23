@@ -13,14 +13,14 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 08/07/2018
+ms.date: 09/27/2018
 ms.author: szark
-ms.openlocfilehash: f5bce08bfc61d5b9b17e9500c002c3b870384c7b
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: 43253423e3a27a61000c3f93868dd8b42809b7ae
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39618666"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49650170"
 ---
 # <a name="prepare-a-red-hat-based-virtual-machine-for-azure"></a>Förbered en Red Hat-baserad virtuell dator för Azure
 I den här artikeln får lära du dig att förbereda en virtuell dator för Red Hat Enterprise Linux (RHEL) för användning i Azure. RHEL-versioner som beskrivs i den här artikeln är 6.7 + och 7.1 +. Hypervisorer för förberedelse av som beskrivs i den här artikeln är Hyper-V, kernel-baserad virtuell dator (KVM) och VMware. Läs mer om krav för berättigande för att du deltar i programmet för Red Hat Cloud Access [Red Hat Cloud Access webbplats](http://www.redhat.com/en/technologies/cloud-computing/cloud-access) och [kör RHEL på Azure](https://access.redhat.com/ecosystem/ccsp/microsoft-azure).
@@ -35,7 +35,7 @@ Det här avsnittet förutsätter att du redan har fått en ISO-fil från Red Hat
 * Azure har inte stöd för VHDX-formatet. Azure stöder endast fast virtuell Hårddisk. Du kan använda Hyper-V Manager för att konvertera disken till VHD-format eller du kan använda cmdleten convert-vhd. Om du använder VirtualBox välja **fast storlek** istället för standard dynamiskt allokerad alternativet när du skapar disken.
 * Azure stöder endast generering 1 virtuell datorer. Du kan konvertera en virtuell dator i generation 1 från VHDX till VHD-format och dynamiskt expanderande till en disk med fast storlek. Du kan inte ändra generering av en virtuell dator. Mer information finns i [bör jag skapa en virtuell dator i generation 1 eller 2 i Hyper-V?](https://technet.microsoft.com/windows-server-docs/compute/hyper-v/plan/should-i-create-a-generation-1-or-2-virtual-machine-in-hyper-v).
 * Den maximala storleken som tillåts för den virtuella Hårddisken är 1,023 GB.
-* När du installerar Linux-operativsystem rekommenderar vi att du använder standard partitioner i stället för logiska Volume Manager (LVM), vilket ofta är standard för många installationer. Denna praxis undviker LVM namnet står i konflikt med den klonade virtuella datorer, särskilt om du behöver att koppla en operativsystemdisk till en annan identisk virtuell dator för felsökning. [LVM](configure-lvm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) eller [RAID](configure-raid.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) kan användas för datadiskar.
+* Logiska Volume Manager (LVM) som stöds och kan användas för OS-disk eller datadiskar i Azure virtual machines. Men rekommenderas i allmänhet att använda standard partitioner på operativsystemdisken i stället för LVM. Denna praxis undviker LVM namnet står i konflikt med den klonade virtuella datorer, särskilt om du behöver att koppla en operativsystemdisk till en annan identisk virtuell dator för felsökning. Se även [LVM](configure-lvm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) och [RAID](configure-raid.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) dokumentation.
 * Kernel-stöd för att montera filsystem för Universal Disk (UDF) krävs. Vid första start på Azure skickar UDF-formaterad mediet som är kopplad till gästen etablering konfigurationen till Linux-datorn. Azure Linux Agent måste kunna montera UDF-filsystemet för att läsa konfigurationen och etablera den virtuella datorn.
 * Konfigurera inte swap-partition på operativsystemdisken. Linux-agenten kan konfigureras för att skapa en växlingsfil på temporär disk.  Mer information om detta finns i följande steg.
 * Alla virtuella hårddiskar på Azure måste ha en virtuell storlek justeras till 1MB. Vid konvertering från en rå disk till virtuell Hårddisk måste du kontrollera att rådata diskens storlek är en multipel av 1MB före omvandlingen. Mer information finns i stegen nedan. Se även [Linux installationsinformation](create-upload-generic.md#general-linux-installation-notes) för mer information.

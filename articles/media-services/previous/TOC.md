@@ -9,12 +9,12 @@
 ## [Konfigurera din utvecklingsmiljö](media-services-set-up-computer.md)
 ### [NET](media-services-dotnet-how-to-use.md)
 ### [REST](media-services-rest-how-to-use.md)  
-## [Använda AAD-autentisering för att komma åt API](media-services-use-aad-auth-to-access-ams-api.md)
-### [Hantera AAD-autentisering med hjälp av portalen](media-services-portal-get-started-with-aad.md)
+## [Komma åt API:er med hjälp av Azure AD-autentisering](media-services-use-aad-auth-to-access-ams-api.md)
+### [Hantera Azure AD-autentisering med hjälp av portalen](media-services-portal-get-started-with-aad.md)
 ### [Komma åt API med .NET](media-services-dotnet-get-started-with-aad.md)
 ### [Komma åt API med REST](media-services-rest-connect-with-aad.md)
-### [Skapa och konfigurera AAD-appar med hjälp av Azure CLI](media-services-cli-create-and-configure-aad-app.md)
-### [Skapa och konfigurera AAD-appar med hjälp av Azure PowerShell](media-services-powershell-create-and-configure-aad-app.md)
+### [Skapa och konfigurera Azure AD-appar med hjälp av Azure CLI](media-services-cli-create-and-configure-aad-app.md)
+### [Skapa och konfigurera Azure AD-appar med hjälp av Azure PowerShell](media-services-powershell-create-and-configure-aad-app.md)
 
 ## Leverera video på begäran
 ### [Azure Portal](media-services-portal-vod-get-started.md)

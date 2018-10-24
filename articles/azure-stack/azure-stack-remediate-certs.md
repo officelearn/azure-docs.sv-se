@@ -15,12 +15,12 @@ ms.topic: get-started-article
 ms.date: 05/08/2018
 ms.author: sethm
 ms.reviewer: ''
-ms.openlocfilehash: 5e96c731496d79ca081091e2059a35545f963bd6
-ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
+ms.openlocfilehash: 0ebf69dd3436a6b1010d4184b2063317d14547dd
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49078650"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49957641"
 ---
 # <a name="remediate-common-issues-for-azure-stack-pki-certificates"></a>Åtgärda vanliga problem med Azure Stack PKI-certifikat
 Informationen i den här artikeln kan hjälpa dig att förstå och lösa vanliga problem med Azure Stack PKI-certifikat. Du kan identifiera problem när du använder Azure Stack-beredskap för installation för att [Validera Azure Stack PKI-certifikat](azure-stack-validate-pki-certs.md). Verktyget kontrollerar för att säkerställa att certifikat uppfyller kraven för PKI för ett Azure Stack-distributioner och Azure Stack hemlighet Rotation och loggas resultaten i en [report.json filen](azure-stack-validation-report.md).  
@@ -69,12 +69,13 @@ Informationen i den här artikeln kan hjälpa dig att förstå och lösa vanliga
 **Reparation** – exportera certifikatet med hjälp av stegen i [förbereda Azure Stack-PKI-certifikat för distribution av](azure-stack-prepare-pki-certs.md), och väljer alternativet **inkludera om möjligt alla certifikat i certifieringssökvägen.** Se till att endast lövcertifikatet har valts för export.
 
 ## <a name="fix-common-packaging-issues"></a>Åtgärda vanliga problem med paketering
-AzsReadinessChecker kan importera och exportera en PFX-fil för att åtgärda vanliga problem i paketering, inklusive: 
+AzsReadinessChecker innehåller helper-cmdlet Repair-AzsPfxCertificate som kan importera och exportera en PFX-fil för att åtgärda vanliga problem i paketering, inklusive: 
  - *PFX-kryptering* är inte TripleDES-SHA1
  - *Privat nyckel* saknar lokal dator-attribut.
  - *Certifikatkedjan* är ofullständig eller fel. (Den lokala datorn måste innehålla certifikatkedjan om PFX-paketet inte.) 
  - *Andra certifikat*.
-Men AzsReadinessChecker inte hjälpa dig att om du vill skapa en ny begäran om Certifikatsignering och ange ett certifikat. 
+ 
+Reparera AzsPfxCertificate inte få hjälp om du vill skapa en ny begäran om Certifikatsignering och ange ett certifikat. 
 
 ### <a name="prerequisites"></a>Förutsättningar
 Följande krav måste vara uppfyllda på datorn där verktyget körs: 
@@ -96,9 +97,20 @@ Följande krav måste vara uppfyllda på datorn där verktyget körs:
    - För *- PfxPath*, ange sökvägen till PFX-filen som du arbetar med.  I följande exempel är sökvägen *.\certificates\ssl.pfx*.
    - För *- ExportPFXPath*, ange platsen och namnet på PFX-filen för export.  I följande exempel är sökvägen *.\certificates\ssl_new.pfx*
 
-   > `Start-AzsReadinessChecker -PfxPassword $password -PfxPath .\certificates\ssl.pfx -ExportPFXPath .\certificates\ssl_new.pfx`  
+   > `Repair-AzsPfxCertificate -PfxPassword $password -PfxPath .\certificates\ssl.pfx -ExportPFXPath .\certificates\ssl_new.pfx`  
 
-4. När verktyget har slutförts kan du granska utdata för en lyckad: ![resultat](./media/azure-stack-remediate-certs/remediate-results.png)
+4. Granska utdata för en lyckad när verktyget har slutförts: 
+````PowerShell
+Repair-AzsPfxCertificate v1.1809.1005.1 started.
+Starting Azure Stack Certificate Import/Export
+Importing PFX .\certificates\ssl.pfx into Local Machine Store
+Exporting certificate to .\certificates\ssl_new.pfx
+Export complete. Removing certificate from the local machine store.
+Removal complete.
+
+Log location (contains PII): C:\Users\username\AppData\Local\Temp\AzsReadinessChecker\AzsReadinessChecker.log
+Repair-AzsPfxCertificate Completed
+````
 
 ## <a name="next-steps"></a>Nästa steg
 [Läs mer om Azure Stack-säkerhet](azure-stack-rotate-secrets.md)

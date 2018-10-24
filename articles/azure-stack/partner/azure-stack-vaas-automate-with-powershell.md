@@ -13,12 +13,12 @@ ms.topic: tutorial
 ms.date: 10/19/2018
 ms.author: mabrigg
 ms.reviewer: johnhas
-ms.openlocfilehash: 82a1d86f31bfb49ff97ec9928dd7ee946144a359
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: aa33db56910871891003866ef62431cfd7095d2a
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49650051"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49954134"
 ---
 # <a name="automate-azure-stack-validation-with-powershell"></a>Automatisera Azure Stack-verifiering med PowerShell
 
@@ -29,8 +29,6 @@ Du kan använda PowerShell för följande arbetsflöde:
 - Testet
 
 I den här självstudien får du lära dig hur du skapar ett skript som:
-
-Det här skriptet utför följande åtgärder:
 
 > [!div class="checklist"]
 > * Installerar nödvändiga komponenter

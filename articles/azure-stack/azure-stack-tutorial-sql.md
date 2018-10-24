@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 10/16/2018
+ms.date: 10/23/2018
 ms.author: jeffgilb
 ms.reviewer: quying
-ms.openlocfilehash: 17f06a08388720c4483ef1c187edf20ec8359121
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: 50f5662fa574b512ab607e17dbdfcf1861e2f5c6
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49386391"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49954920"
 ---
 # <a name="tutorial-offer-highly-available-sql-databases"></a>Självstudie: Erbjuder högtillgänglig SQL-databaser
 
@@ -63,30 +63,28 @@ Använd steg i det här avsnittet för att distribuera SQL Server AlwaysOn-tillg
 - En virtuell dator (Windows Server 2016) konfigurerats som filresursvittne för klustret
 - En tillgänglighetsuppsättning som innehåller SQL- och dela vittne virtuella datorer  
 
-1. Logga in på administrationsportalen:
-    - Ett integrerat system-distribution varierar Portaladress beroende på region och externa domännamn för din lösning. Det ska vara i formatet https://adminportal.&lt; *region*&gt;.&lt; *FQDN*&gt;.
-    - Om du använder Azure Stack Development Kit (ASDK) användaren Portaladress är [ https://adminportal.local.azurestack.external ](https://portal.local.azurestack.external).
+1. 
+[!INCLUDE [azs-admin-portal](../../includes/azs-admin-portal.md)]
 
 2. Välj **\+** **skapa en resurs** > **anpassade**, och sedan **malldistributionen**.
 
-   ![Anpassad malldistribution](media/azure-stack-tutorial-sqlrp/custom-deployment.png)
+   ![Anpassad malldistribution](media/azure-stack-tutorial-sqlrp/1.png)
 
 
 3. På den **anpassad distribution** bladet väljer **redigera mallen** > **snabbstartsmall** och sedan använda listan över tillgängliga anpassade mallar till Välj den **sql 2016 alwayson** mall, klickar du på **OK**, och sedan **spara**.
 
-   ![Välj snabbstartsmall](./media/azure-stack-tutorial-sqlrp/quickstart-template.png)
-
+   [![](media/azure-stack-tutorial-sqlrp/2-sm.PNG "Välj snabbstartsmall")](media/azure-stack-tutorial-sqlrp/2-lg.PNG#lightbox)
 
 4. På den **anpassad distribution** bladet väljer **redigera parametrar** och granska standardinställningarna. Ändra värden som behövs för att ange alla nödvändiga parameterinformation och klicka sedan på **OK**.<br><br> Minst:
 
     - Ange komplexa lösenord för parametrarna ADMINPASSWORD och SQLSERVERSERVICEACCOUNTPASSWORD SQLAUTHPASSWORD.
     - Ange DNS-Suffix för omvänd sökning med små bokstäver för parametern DNSSUFFIX (**azurestack.external** för ASDK installationer).
     
-    ![Distribution av anpassade parametrar](./media/azure-stack-tutorial-sqlrp/edit-parameters.png)
+   [![](media/azure-stack-tutorial-sqlrp/3-sm.PNG "Redigera anpassad distribution parametrar")](media/azure-stack-tutorial-sqlrp/3-lg.PNG#lightbox)
 
 5. På den **anpassad distribution** bladet välj prenumerationen som ska använda och skapa en ny resursgrupp eller välj en befintlig resursgrupp för anpassad distribution.<br><br> Välj plats för resursgruppen (**lokala** för ASDK installationer) och klicka sedan på **skapa**. De anpassade distributionsinställningarna kommer att valideras och sedan distributionen startar.
 
-    ![Distribution av anpassade parametrar](./media/azure-stack-tutorial-sqlrp/create-deployment.png)
+    [![](media/azure-stack-tutorial-sqlrp/4-sm.PNG "Skapa anpassad distribution")](media/azure-stack-tutorial-sqlrp/4-lg.PNG#lightbox)
 
 
 6. Välj i administrationsportalen, **resursgrupper** och sedan namnet på resursgruppen du skapade för anpassad distribution (**resursgrupp** i det här exemplet). Visa statusen för distributionen för att se till att alla distributioner har slutförts.<br><br>Granska resursobjekt för gruppen och välj sedan den **SQLPIPsql\<Resursgruppsnamn\>**  offentliga IP-adress-objekt. Anteckna den offentliga IP-adress och fullständig FQDN för den offentliga IP-load balancer. Du måste ge det till en Azure Stack-operatör så att de kan skapa en SQL-värdserver som att använda den här SQL AlwaysOn-tillgänglighetsgruppen.
@@ -94,16 +92,16 @@ Använd steg i det här avsnittet för att distribuera SQL Server AlwaysOn-tillg
    > [!NOTE]
    > Malldistributionen tar flera timmar att slutföra.
 
-   ![Distribution av anpassade parametrar](./media/azure-stack-tutorial-sqlrp/deployment-complete.png)
+   ![Anpassade distributionen har slutförts](./media/azure-stack-tutorial-sqlrp/5.png)
 
 ### <a name="enable-automatic-seeding"></a>Aktivera automatisk seeding
 När mallen har distribuerats och konfigurerats SQL AlwaysON-tillgänglighetsgruppen, måste du aktivera [automatisk seeding](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/automatically-initialize-always-on-availability-group) i varje instans av SQL Server i tillgänglighetsgruppen. 
 
 När du skapar en tillgänglighetsgrupp med automatisk seeding skapar SQL Server automatiskt de sekundära replikerna för varje databas i gruppen utan manuella åtgärder krävs för att garantera hög tillgänglighet för AlwaysOn-databaser.
 
-Använd följande SQL-kommandon för att konfigurera automatisk seeding för AlwaysOn-tillgänglighetsgruppen.
+Använd följande SQL-kommandon för att konfigurera automatisk seeding för AlwaysOn-tillgänglighetsgruppen. Ersätt \<InstanceName\> med primärt instansen av SQL Server-namn och < availability_group_name > med AlwaysOn tillgänglighetsgruppens namn efter behov. 
 
-På den primära SQL-instansen (Ersätt <InstanceName> med det primära SQL Server-instansnamnet):
+På den primära SQL-instansen:
 
   ```sql
   ALTER AVAILABILITY GROUP [<availability_group_name>]
@@ -114,7 +112,7 @@ På den primära SQL-instansen (Ersätt <InstanceName> med det primära SQL Serv
 
 >  ![Primära SQL-instans-skript](./media/azure-stack-tutorial-sqlrp/sql1.png)
 
-På sekundära SQL-instanser (Ersätt < availability_group_name > med AlwaysOn tillgänglighetsgruppens namn):
+På sekundära SQL-instanser:
 
   ```sql
   ALTER AVAILABILITY GROUP [<availability_group_name>] GRANT CREATE ANY DATABASE
@@ -156,9 +154,8 @@ När SQL AlwaysOn-tillgänglighetsgrupp som har skapats, konfigurerats och lägg
 > [!NOTE]
 > Kör de här stegen från användarportalen för Azure Stack som en klientanvändare med en prenumeration som ger SQL Server-funktioner (Microsoft.SQLAdapter service).
 
-1. Logga in på användarportalen:
-    - Ett integrerat system-distribution varierar Portaladress beroende på region och externa domännamn för din lösning. Det ska vara i formatet https://portal.&lt; *region*&gt;.&lt; *FQDN*&gt;.
-    - Om du använder Azure Stack Development Kit (ASDK) användaren Portaladress är [ https://portal.local.azurestack.external ](https://portal.local.azurestack.external).
+1. 
+[!INCLUDE [azs-user-portal](../../includes/azs-user-portal.md)]
 
 2. Välj **\+** **skapa en resurs** > **Data \+ Storage**, och sedan **SQL Database**.<br><br>Ange den egenskapen databasinformation som krävs, inklusive namn, sortering, maximal storlek och prenumeration, resursgrupp och plats för distributionen. 
 

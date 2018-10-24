@@ -16,12 +16,6 @@ items:
       href: text-moderation-quickstart-dotnet.md
     - name: Kontrollera videoinnehåll
       href: video-moderation-api.md
-- name: Exempel
-  items:
-  - name: .NET SDK-exempel
-    href: samples-dotnet.md
-  - name: REST API-exempel i C#
-    href: samples-rest.md
 - name: Begrepp
   items:
   - name: Bildmoderering
@@ -36,48 +30,48 @@ items:
     href: workflow-api.md
 - name: Instruktionsguider
   items:
-  - name: Prova Content Moderator
+  - name: Använda modereringstjänsterna
     items:
     - name: API:er för moderering
       items:
-      - name: Avbildningar – API-konsol
-        href: try-image-api.md
-      - name: Kontrollera avbildningar mot anpassade listor
-        href: image-lists-quickstart-dotnet.md
-      - name: Anpassade avbildningar – API-konsol
-        href: try-image-list-api.md
-      - name: Text – API-konsol
-        href: try-text-api.md
-      - name: Kontrollera text mot anpassade termer
-        href: term-lists-quickstart-dotnet.md
-      - name: Anpassade villkor – API-konsol
-        href: try-terms-list-api.md
+      - name: Använda .NET SDK
+        items:
+        - name: Kontrollera avbildningar mot anpassade listor
+          href: image-lists-quickstart-dotnet.md
+        - name: Kontrollera text mot anpassade termer
+          href: term-lists-quickstart-dotnet.md
+      - name: Använda REST API:er
+        items:
+        - name: Avbildningar – API-konsol
+          href: try-image-api.md
+        - name: Anpassade avbildningar – API-konsol
+          href: try-image-list-api.md
+        - name: Text – API-konsol
+          href: try-text-api.md
+        - name: Anpassade villkor – API-konsol
+          href: try-terms-list-api.md
+  - name: Använda granskningsverktyget
+    items:
     - name: Omdömes-API:er
       items:
-      - name: Jobb – API-konsol
-        href: try-review-api-job.md
-      - name: Jobb – .NET
-        href: moderation-jobs-quickstart-dotnet.md
-      - name: Omdömen – API-konsol
-        href: try-review-api-review.md
-      - name: Omdömen – .NET
-        href: moderation-reviews-quickstart-dotnet.md
-      - name: Videoomdömen – .NET
-        href: video-reviews-quickstart-dotnet.md
-      - name: Avskriftsomdömen för videor – .NET
-        href: video-transcript-reviews-quickstart-dotnet.md
-      - name: Arbetsflöden – API-konsol
-        href: try-review-api-workflow.md
-  - name: Första Content Moderator-appar
-    items:
-    - name: Innehållsmoderering på Facebook
-      href: facebook-post-moderation.md
-    - name: Bildmoderering för e-handel
-      href: ecommerce-retail-catalog-moderation.md
-    - name: Video- och avskriftsmoderering
-      href: video-transcript-moderation-review-tutorial-dotnet.md
-  - name: Granskningsverktyg
-    items:
+      - name: Använda .NET SDK
+        items:
+        - name: Jobb – .NET
+          href: moderation-jobs-quickstart-dotnet.md
+        - name: Omdömen – .NET
+          href: moderation-reviews-quickstart-dotnet.md
+        - name: Videoomdömen – .NET
+          href: video-reviews-quickstart-dotnet.md
+        - name: Avskriftsomdömen för videor – .NET
+          href: video-transcript-reviews-quickstart-dotnet.md
+      - name: Använda REST API:er
+        items:
+        - name: Jobb – API-konsol
+          href: try-review-api-job.md
+        - name: Omdömen – API-konsol
+          href: try-review-api-review.md
+        - name: Arbetsflöden – API-konsol
+          href: try-review-api-workflow.md
     - name: Human in the loop
       href: Review-Tool-User-Guide/human-in-the-loop.md
     - name: Använd inställningar
@@ -98,6 +92,20 @@ items:
       href: Review-Tool-User-Guide/Workflows.md
     - name: Visa instrumentpanel
       href: Review-Tool-User-Guide/View-Dashboard.md
+  - name: Första Content Moderator-appar
+    items:
+    - name: Innehållsmoderering på Facebook
+      href: facebook-post-moderation.md
+    - name: Bildmoderering för e-handel
+      href: ecommerce-retail-catalog-moderation.md
+    - name: Video- och avskriftsmoderering
+      href: video-transcript-moderation-review-tutorial-dotnet.md
+- name: Exempel
+  items:
+  - name: .NET SDK-exempel
+    href: samples-dotnet.md
+  - name: REST API-exempel i C#
+    href: samples-rest.md
 - name: Referens
   items:
   - name: API för Content Moderator
@@ -134,9 +142,9 @@ items:
     href: https://azure.microsoft.com/roadmap/?category=ai-machine-learning
   - name: Webbseminarium på begäran
     href: https://info.microsoft.com/cognitive-services-content-moderator-ondemand.html
-ms.openlocfilehash: a6e9e2908a6365c1749e8a5d061779ebc37764e0
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: d162bcaefdde1aceb171d2ad83b5386e54cea890
+ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49428971"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49944166"

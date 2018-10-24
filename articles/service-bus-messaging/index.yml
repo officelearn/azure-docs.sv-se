@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: e0b533272baadb329989b18bcc8179c77c2cafaf
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: f5392e27a68b5a5bebe855cbc559c7653f6ad9be
+ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49390167"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49944272"
 documentType: LandingData
 title: Dokumentation om Azure Service Bus-meddelanden
 metadata:
@@ -21,7 +21,7 @@ metadata:
   ms.date: 05/16/2018
   ms.author: spelluru
 abstract:
-  description: Azure Service Bus är en meddelandetjänst i molnet för flera klienter som skickar information mellan program och tjänster. Asynkrona åtgärder ger dig en flexibel, asynkron meddelandetjänst med funktioner för strukturerade meddelanden enligt FIFO-metoden (först-in-först-ut) och funktioner för publicering/prenumeration.<p>Lär dig hur du använder Azure Service Bus-meddelandetjänster för att skicka och ta emot meddelanden till och från köer samt publicera och prenumerera på meddelanden med ämnen och prenumerationer.</p>
+  description: Azure Service Bus är en meddelandetjänst i molnet för flera klienter som du kan använda för att skicka information mellan program och tjänster. Asynkrona åtgärder ger dig en flexibel, asynkron meddelandetjänst med funktioner för strukturerade meddelanden enligt FIFO-metoden (först-in-först-ut) och funktioner för publicering/prenumeration.<p>Lär dig hur du använder Azure Service Bus-meddelandetjänster för att skicka och ta emot meddelanden till och från köer samt publicera och prenumerera på meddelanden med ämnen och prenumerationer.</p>
   aside:
     image:
       alt: 

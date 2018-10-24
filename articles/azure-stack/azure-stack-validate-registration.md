@@ -15,12 +15,12 @@ ms.topic: get-started-article
 ms.date: 06/08/2018
 ms.author: sethm
 ms.reviewer: ''
-ms.openlocfilehash: d6835f05666d66cc4f6aa937c4b85047ce3c2e93
-ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
+ms.openlocfilehash: 51753a5324bbbcbf4e951628a42dd3bf425354af
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49077077"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49957590"
 ---
 # <a name="validate-azure-registration"></a>Verifiera Azure-registrering 
 Använd verktyget Azure Stack-beredskap för installation (AzsReadinessChecker) för att verifiera att din Azure-prenumeration är redo att använda med Azure Stack. Verifiera registrering innan du påbörjar en Azure Stack-distributionen. Validerar beredskap för installation:
@@ -62,10 +62,17 @@ Följande krav måste vara på plats.
    - Ange värdet för AzureEnvironment som *AzureCloud*, *AzureGermanCloud*, eller *AzureChinaCloud*.  
    - Ange din Azure Active Directory-administratör och namnet på din Azure Active Directory-klient. 
 
-   > `Start-AzsReadinessChecker -RegistrationAccount $registrationCredential -AzureEnvironment AzureCloud -RegistrationSubscriptionID $subscriptionID`
+   > `Invoke-AzsRegistrationValidation -RegistrationAccount $registrationCredential -AzureEnvironment AzureCloud -RegistrationSubscriptionID $subscriptionID`
 
-5. Granska utdata när verktyget körs. Bekräfta att statusen är OK för både inloggning och kraven för enhetsregistrering. En lyckad validering visas som på följande bild:  
-![Kör-verifiering](./media/azure-stack-validate-registration/registration-validation.png)
+5. Granska utdata när verktyget körs. Bekräfta att statusen är OK för både inloggning och kraven för enhetsregistrering. En lyckad validering visas som liknar följande:  
+````PowerShell
+Invoke-AzsRegistrationValidation v1.1809.1005.1 started.
+Checking Registration Requirements: OK
+
+Log location (contains PII): C:\Users\username\AppData\Local\Temp\AzsReadinessChecker\AzsReadinessChecker.log
+Report location (contains PII): C:\Users\username\AppData\Local\Temp\AzsReadinessChecker\AzsReadinessCheckerReport.json
+Invoke-AzsRegistrationValidation Completed
+````
 
 
 ## <a name="report-and-log-file"></a>Rapporten och loggfilen
@@ -83,15 +90,38 @@ Om en verifieringskontroll misslyckas, visas information om felet i PowerShell-f
 I följande exempel ger vägledning om vanliga verifieringsfel.
 
 ### <a name="user-must-be-an-owner-of-the-subscription"></a>Användaren måste vara ägare till prenumerationen   
-![Prenumerationens ägare](./media/azure-stack-validate-registration/subscription-owner.png)
-**orsak** -kontot inte är administratör för Azure-prenumerationen.   
+````PowerShell
+Invoke-AzsRegistrationValidation v1.1809.1005.1 started.
+Checking Registration Requirements: Fail 
+Error Details for registration account admin@contoso.onmicrosoft.com:
+The user admin@contoso.onmicrosoft.com is role(s) Reader for subscription 3f961d1c-d1fb-40c3-99ba-44524b56df2d. User must be an owner of the subscription to be used for registration.
+Additional help URL https://aka.ms/AzsRemediateRegistration
+
+Log location (contains PII): C:\Users\username\AppData\Local\Temp\AzsReadinessChecker\AzsReadinessChecker.log
+Report location (contains PII): C:\Users\username\AppData\Local\Temp\AzsReadinessChecker\AzsReadinessCheckerReport.json
+Invoke-AzsRegistrationValidation Completed
+````
+**Orsak** -kontot inte är administratör för Azure-prenumerationen.   
 
 **Lösning** – Använd ett konto som är administratör för den prenumeration som kommer att debiteras för användning från Azure Stack-distributioner.
 
 
 ### <a name="expired-or-temporary-password"></a>Har upphört att gälla eller tillfälliga lösenord 
-![lösenordet har upphört att gälla](./media/azure-stack-validate-registration/expired-password.png)
-**orsak** -kontot kan inte logga in eftersom lösenordet har upphört att gälla eller är tillfälligt.     
+````PowerShell
+Invoke-AzsRegistrationValidation v1.1809.1005.1 started.
+Checking Registration Requirements: Fail 
+Error Details for registration account admin@contoso.onmicrosoft.com:
+Checking Registration failed with: Retrieving TenantId for subscription 3f961d1c-d1fb-40c3-99ba-44524b56df2d using account admin@contoso.onmicrosoft.com failed with AADSTS50055: Force Change P
+assword.
+Trace ID: 48fe06f5-a5b4-4961-ad45-a86964689900
+Correlation ID: 3dd1c9b2-72fb-46a0-819d-058f7562cb1f
+Timestamp: 2018-10-22 11:16:56Z: The remote server returned an error: (401) Unauthorized.
+
+Log location (contains PII): C:\Users\username\AppData\Local\Temp\AzsReadinessChecker\AzsReadinessChecker.log
+Report location (contains PII): C:\Users\username\AppData\Local\Temp\AzsReadinessChecker\AzsReadinessCheckerReport.json
+Invoke-AzsRegistrationValidation Completed
+````
+**Orsak** -kontot kan inte logga in eftersom lösenordet har upphört att gälla eller är tillfälligt.     
 
 **Lösning** – i PowerShell kör och följ anvisningarna för att återställa lösenordet. 
   > `Login-AzureRMAccount` 
@@ -99,16 +129,19 @@ I följande exempel ger vägledning om vanliga verifieringsfel.
 Du kan också logga in på https://portal.azure.com som kontot och användaren tvingas att ändra lösenordet.
 
 
-### <a name="microsoft-accounts-are-not-supported-for-registration"></a>Microsoft-konton stöds inte för registrering  
-![stöds inte kontot](./media/azure-stack-validate-registration/unsupported-account.png)
-**orsak** – en Microsoft-konto (till exempel Outlook.com eller Hotmail.com) har angetts.  Dessa konton stöds inte.
-
-**Lösning** – Använd ett konto och prenumeration från en Cloud Service Provider (CSP) eller Enterprise Agreement (EA). 
-
-
 ### <a name="unknown-user-type"></a>Okänd användartyp  
-![Okänd användare](./media/azure-stack-validate-registration/unknown-user.png)
-**orsak** -kontot kan inte logga in på den angivna Azure Active Directory-miljön. I det här exemplet *AzureChinaCloud* har angetts som den *AzureEnvironment*.  
+````PowerShell
+Invoke-AzsRegistrationValidation v1.1809.1005.1 started.
+Checking Registration Requirements: Fail 
+Error Details for registration account admin@contoso.onmicrosoft.com:
+Checking Registration failed with: Retrieving TenantId for subscription 3f961d1c-d1fb-40c3-99ba-44524b56df2d using account admin@contoso.onmicrosoft.com failed with unknown_user_type: Unknown Us
+er Type
+
+Log location (contains PII): C:\Users\username\AppData\Local\Temp\AzsReadinessChecker\AzsReadinessChecker.log
+Report location (contains PII): C:\Users\username\AppData\Local\Temp\AzsReadinessChecker\AzsReadinessCheckerReport.json
+Invoke-AzsRegistrationValidation Completed
+````
+**Orsak** -kontot kan inte logga in på den angivna Azure Active Directory-miljön. I det här exemplet *AzureChinaCloud* har angetts som den *AzureEnvironment*.  
 
 **Lösning** – Kontrollera att kontot är giltigt för den angivna Azure-miljön. I PowerShell kör du följande för att verifiera kontot är giltigt för en viss miljö.     
   > `Login-AzureRmAccount -EnvironmentName AzureChinaCloud`

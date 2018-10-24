@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 09/12/2018
-ms.author: mattbriggs
+ms.date: 10/22/2018
+ms.author: mabrigg
 ms.reviewer: shnatara
-ms.openlocfilehash: d402b2bcd5187cbb6ece78d7e981068c279c1f75
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: 0b5f7442604dd31f730b0105d19231407e2b6f1a
+ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48804437"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49946121"
 ---
 # <a name="deploy-a-service-fabric-cluster-in-azure-stack"></a>Distribuera ett Service Fabric-kluster i Azure Stack
 
@@ -48,7 +48,7 @@ Följande krävs för att distribuera Service Fabric-klustret:
 
 
 ## <a name="add-a-secret-to-key-vault"></a>Lägga till en hemlighet i Key Vault
-Om du vill distribuera ett Service Fabric-kluster, måste du ange rätt KeyVault *hemlig identifierare* eller URL: en för Service Fabric-klustret. Azure Resource Manager-mallen tar en KeyVault som indata och hämtar sedan klustercertifikatet under installationen av Service Fabric-klustret. 
+Om du vill distribuera ett Service Fabric-kluster, måste du ange rätt KeyVault *hemlig identifierare* eller URL: en för Service Fabric-klustret. Azure Resource Manager-mallen använder en KeyVault som indata. Sedan hämtar klustercertifikatet i mallen när du installerar Service Fabric-klustret.
 
 > [!IMPORTANT]  
 > Du måste använda PowerShell för att lägga till en hemlighet i KeyVault för användning med Service Fabric. Använd inte på portalen.  
@@ -139,7 +139,7 @@ Mer information finns i [hantera KeyVault på Azure Stack med PowerShell](https:
    - Key Vault källa: Ange hela *keyVault-id* sträng från Skriptresultat. 
    - Kluster-URL för certifikat: Ange hela URL: en från den *hemlighet Id* från skript-resultaten. 
    - Kluster-tumavtryck för certifikat: Ange den *kluster certifikatets tumavtryck* från skript-resultaten.
-   - Administratörsklient Certifikattumavtryck: Ange den *Admin Klientcertifikatets tumavtryck* du har skapat i förutsättningarna. 
+   - Administratörsklient Certifikattumavtryck: Ange den *Admin Klientcertifikatets tumavtryck* skapas i förutsättningarna. 
 
    ![Skriptutdata](media/azure-stack-solution-template-service-fabric-cluster/image5.png)
 

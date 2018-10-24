@@ -8,12 +8,12 @@ ms.topic: howto
 ms.date: 09/24/2018
 ms.author: ancav
 ms.component: metrics
-ms.openlocfilehash: c01440437eae3cb076627ab9f2221e33b833f472
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: d36697e6b5765ecf35ed9b3add45cff6c33823a5
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46977252"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49958233"
 ---
 # <a name="send-custom-metrics-for-an-azure-resource-to-the-azure-monitor-metric-store-using-a-rest-api"></a>Skicka anpassade mått för en Azure-resurs av Azure Monitor-måtten lagra med en REST-API
 
@@ -25,7 +25,7 @@ Den här artikeln visar hur du skickar anpassade mått för Azure-resurser till 
 
 ## <a name="create-and-authorize-a-service-principal-to-emit-metrics"></a>Skapa och auktorisera ett huvudnamn för tjänsten att skapa mått 
 
-Skapa tjänstens huvudnamn i Azure Active Directory-klienten med hjälp av instruktionerna i [skapa ett huvudnamn för tjänsten](../azure-resource-manager/resource-group-create-service-principal-portal.md). 
+Skapa tjänstens huvudnamn i Azure Active Directory-klienten med hjälp av instruktionerna i [skapa ett huvudnamn för tjänsten](../active-directory/develop/howto-create-service-principal-portal.md). 
 
 Observera följande när du går igenom den här processen: 
 

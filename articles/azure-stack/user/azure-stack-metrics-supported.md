@@ -13,18 +13,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/05/2018
 ms.author: mabrigg
-ms.openlocfilehash: 0cd8d309cfbf72a05c83c2a536d754e9cbc6e008
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: a9849b5c96b38fbfe6fa8ef4a69a1a2d4d6e6f2f
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44022667"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49958082"
 ---
 # <a name="supported-metrics-with-azure-monitor-on-azure-stack"></a>Mått som stöds med Azure Monitor på Azure Stack
 
 *Gäller för: integrerade Azure Stack-system och Azure Stack Development Kit*
 
-Du kan hämta dina mått från Azure monitor på Azure Stack i samma som global Azure. Du kan dina mått i portalen, kommer från REST API eller skicka frågor mot dem med PowerShell eller CLI.
+Du kan hämta dina mått från Azure monitor på Azure Stack i samma som global Azure. Du kan skapa dina mått i portalen, kommer från REST API eller skicka frågor mot dem med PowerShell eller CLI.
 
 I tabellerna nedan listas mått som är tillgängliga med Azure Monitor mått pipeline på Azure Stack. Om du vill fråga efter och komma åt de här måtten, behöver du den **2018-01-01** api-versionen version av API-profilen. Mer information om API-profiler och Azure Stack finns i [hantera API-versionsprofiler i Azure Stack](azure-stack-version-profiles.md).
 
@@ -40,7 +40,7 @@ I tabellerna nedan listas mått som är tillgängliga med Azure Monitor mått pi
 |----------------------|------------------------|--------------|------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------|
 | UsedCapacity | Använd kapacitet | Byte | Medel | Kapacitet som används av konto | Inga dimensioner |
 | Transaktioner | Transaktioner | Antal | Totalt | Antalet begäranden som görs till en lagringstjänst eller för den angivna API-åtgärden. Det här värdet innefattar lyckade och misslyckade begäranden samt begäranden som genererat fel. Använd måttet responsetype för antalet annan typ av svar. | ResponseType, GeoType, ApiName |
-| Ingångshändelser | Ingångshändelser | Byte | Totalt | Mängden ingående data i byte. Det här värdet innefattar inkommande data från en extern klient till Azure Storage samt inkommande data inom Azure. | GeoType ApiName |
+| Ingress | Ingress | Byte | Totalt | Mängden ingående data i byte. Det här värdet innefattar inkommande data från en extern klient till Azure Storage samt inkommande data inom Azure. | GeoType ApiName |
 | Egress | Egress | Byte | Totalt | Mängden utgående data i byte. Det här värdet innefattar utgående data från en extern klient till Azure Storage samt utgående data inom Azure. Därför motsvarar inte det här värdet fakturerbara utgående data. | GeoType ApiName |
 | SuccessServerLatency | Lyckad serversvarstid | Millisekunder | Medel | Genomsnittlig svarstid för Azure Storage för att bearbeta en lyckad förfrågan, i millisekunder. Det här värdet omfattar inte Nätverksfördröjningen som anges i AverageE2ELatency. | GeoType ApiName |
 | SuccessE2ELatency | Lyckad E2E-svarstid | Millisekunder | Medel | Den genomsnittliga svarstiden slutpunkt till slutpunkt för lyckade förfrågningar som gjorts till en lagringstjänst eller den angivna API-åtgärden, i millisekunder. Värdet innefattar bearbetningstiden som krävs i Azure Storage för att läsa begäran, skicka svaret och ta emot en bekräftelse av svaret. | GeoType ApiName |
@@ -54,7 +54,7 @@ I tabellerna nedan listas mått som är tillgängliga med Azure Monitor mått pi
 | BlobCount | Antalet blobar | Antal | Totalt | Antalet blobar i lagringskontots Blob Service. | BlobType |
 | ContainerCount | Antal blobcontainrar | Antal | Medel | Antalet containrar i lagringskontots Blob Service. | Inga dimensioner |
 | Transaktioner | Transaktioner | Antal | Totalt | Antalet begäranden som görs till en lagringstjänst eller för den angivna API-åtgärden. Det här värdet innefattar lyckade och misslyckade begäranden samt begäranden som genererat fel. Använd måttet responsetype för antalet annan typ av svar. | ResponseType, GeoType, ApiName |
-| Ingångshändelser | Ingångshändelser | Byte | Totalt | Mängden ingående data i byte. Det här värdet innefattar inkommande data från en extern klient till Azure Storage samt inkommande data inom Azure. | GeoType ApiName |
+| Ingress | Ingress | Byte | Totalt | Mängden ingående data i byte. Det här värdet innefattar inkommande data från en extern klient till Azure Storage samt inkommande data inom Azure. | GeoType ApiName |
 | Egress | Egress | Byte | Totalt | Mängden utgående data i byte. Det här värdet innefattar utgående data från en extern klient till Azure Storage samt utgående data inom Azure. Därför motsvarar inte det här värdet fakturerbara utgående data. | GeoType ApiName |
 | SuccessServerLatency | Lyckad serversvarstid | Millisekunder | Medel | Genomsnittlig svarstid för Azure Storage för att bearbeta en lyckad förfrågan, i millisekunder. Det här värdet omfattar inte Nätverksfördröjningen som anges i AverageE2ELatency. | GeoType ApiName |
 | SuccessE2ELatency | Lyckad E2E-svarstid | Millisekunder | Medel | Den genomsnittliga svarstiden slutpunkt till slutpunkt för lyckade förfrågningar som gjorts till en lagringstjänst eller den angivna API-åtgärden, i millisekunder. Värdet innefattar bearbetningstiden som krävs i Azure Storage för att läsa begäran, skicka svaret och ta emot en bekräftelse av svaret. | GeoType ApiName |
@@ -68,7 +68,7 @@ I tabellerna nedan listas mått som är tillgängliga med Azure Monitor mått pi
 | TableCount | Antal tabeller | Antal | Medel | Antalet tabeller i lagringskontots tabelltjänst. | Inga dimensioner |
 | TableEntityCount | Antal tabellentiteter | Antal | Medel | Antalet tabellentiteter i lagringskontots tabelltjänst. | Inga dimensioner |
 | Transaktioner | Transaktioner | Antal | Totalt | Antalet begäranden som görs till en lagringstjänst eller för den angivna API-åtgärden. Det här värdet innefattar lyckade och misslyckade begäranden samt begäranden som genererat fel. Använd måttet responsetype för antalet annan typ av svar. | ResponseType, GeoType, ApiName |
-| Ingångshändelser | Ingångshändelser | Byte | Totalt | Mängden ingående data i byte. Det här värdet innefattar inkommande data från en extern klient till Azure Storage samt inkommande data inom Azure. | GeoType ApiName |
+| Ingress | Ingress | Byte | Totalt | Mängden ingående data i byte. Det här värdet innefattar inkommande data från en extern klient till Azure Storage samt inkommande data inom Azure. | GeoType ApiName |
 | Egress | Egress | Byte | Totalt | Mängden utgående data i byte. Det här värdet innefattar utgående data från en extern klient till Azure Storage samt utgående data inom Azure. Därför motsvarar inte det här värdet fakturerbara utgående data. | GeoType ApiName |
 | SuccessServerLatency | Lyckad serversvarstid | Millisekunder | Medel | Genomsnittlig svarstid för Azure Storage för att bearbeta en lyckad förfrågan, i millisekunder. Det här värdet omfattar inte Nätverksfördröjningen som anges i AverageE2ELatency. | GeoType ApiName |
 | SuccessE2ELatency | Lyckad E2E-svarstid | Millisekunder | Medel | Den genomsnittliga svarstiden slutpunkt till slutpunkt för lyckade förfrågningar som gjorts till en lagringstjänst eller den angivna API-åtgärden, i millisekunder. Värdet innefattar bearbetningstiden som krävs i Azure Storage för att läsa begäran, skicka svaret och ta emot en bekräftelse av svaret. | GeoType ApiName |
@@ -82,7 +82,7 @@ I tabellerna nedan listas mått som är tillgängliga med Azure Monitor mått pi
 | QueueCount | Antal köer | Antal | Medel | Antalet köer i lagringskontots kötjänst. | Inga dimensioner |
 | QueueMessageCount | Antal kömeddelanden | Antal | Medel | Ungefärligt antal kömeddelanden i lagringskontots kötjänst. | Inga dimensioner |
 | Transaktioner | Transaktioner | Antal | Totalt | Antalet begäranden som görs till en lagringstjänst eller för den angivna API-åtgärden. Det här värdet innefattar lyckade och misslyckade begäranden samt begäranden som genererat fel. Använd måttet responsetype för antalet annan typ av svar. | ResponseType, GeoType, ApiName |
-| Ingångshändelser | Ingångshändelser | Byte | Totalt | Mängden ingående data i byte. Det här värdet innefattar inkommande data från en extern klient till Azure Storage samt inkommande data inom Azure. | GeoType ApiName |
+| Ingress | Ingress | Byte | Totalt | Mängden ingående data i byte. Det här värdet innefattar inkommande data från en extern klient till Azure Storage samt inkommande data inom Azure. | GeoType ApiName |
 | Egress | Egress | Byte | Totalt | Mängden utgående data i byte. Det här värdet innefattar utgående data från en extern klient till Azure Storage samt utgående data inom Azure. Därför motsvarar inte det här värdet fakturerbara utgående data. | GeoType ApiName |
 | SuccessServerLatency | Lyckad serversvarstid | Millisekunder | Medel | Genomsnittlig svarstid för Azure Storage för att bearbeta en lyckad förfrågan, i millisekunder. Det här värdet omfattar inte Nätverksfördröjningen som anges i AverageE2ELatency. | GeoType ApiName |
 | SuccessE2ELatency | Lyckad E2E-svarstid | Millisekunder | Medel | Den genomsnittliga svarstiden slutpunkt till slutpunkt för lyckade förfrågningar som gjorts till en lagringstjänst eller den angivna API-åtgärden, i millisekunder. Värdet innefattar bearbetningstiden som krävs i Azure Storage för att läsa begäran, skicka svaret och ta emot en bekräftelse av svaret. | GeoType ApiName |

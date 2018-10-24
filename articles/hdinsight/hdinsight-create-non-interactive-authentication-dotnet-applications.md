@@ -9,21 +9,21 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/14/2018
 ms.author: jasonh
-ms.openlocfilehash: 4537c0308ee587d921dc795054966f6a3dbb69c4
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: 01ff5faa130bf1d6d5b89ac42d5664b13306c203
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43093228"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49956161"
 ---
 # <a name="create-a-non-interactive-authentication-net-hdinsight-application"></a>Skapa en icke-interaktiv autentisering .NET HDInsight-program
 Du kan köra ditt Microsoft .NET Azure HDInsight-program under programmets egen identitet (icke-interaktivt) eller under identiteten för den inloggade användaren av programmet (interaktivt). Den här artikeln visar hur du skapar en icke-interaktiv autentisering .NET-program för att ansluta till Azure och hantera HDInsight. Ett exempel på ett interaktivt program, se [Anslut till Azure HDInsight](hdinsight-administer-use-dotnet-sdk.md#connect-to-azure-hdinsight). 
 
 Från ditt icke-interaktiv .NET-program behöver du:
 
-* Ditt Azure-prenumeration klient-ID (även kallat en *katalog-ID*). Se [hämta klient-ID](../azure-resource-manager/resource-group-create-service-principal-portal.md#get-tenant-id).
-* Azure Active Directory (Azure AD)-programmets klients-ID. Se [skapar ett Azure Active Directory-program](../azure-resource-manager/resource-group-create-service-principal-portal.md#create-an-azure-active-directory-application) och [hämta ett program-ID](../azure-resource-manager/resource-group-create-service-principal-portal.md#get-application-id-and-authentication-key).
-* Den Azure AD hemlig nyckeln för program. Se [autentiseringsnyckeln för Get-programmet](../azure-resource-manager/resource-group-create-service-principal-portal.md#get-application-id-and-authentication-key).
+* Ditt Azure-prenumeration klient-ID (även kallat en *katalog-ID*). Se [hämta klient-ID](../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-id).
+* Azure Active Directory (Azure AD)-programmets klients-ID. Se [skapar ett Azure Active Directory-program](../active-directory/develop/howto-create-service-principal-portal.md#create-an-azure-active-directory-application) och [hämta ett program-ID](../active-directory/develop/howto-create-service-principal-portal.md#get-application-id-and-authentication-key).
+* Den Azure AD hemlig nyckeln för program. Se [autentiseringsnyckeln för Get-programmet](../active-directory/develop/howto-create-service-principal-portal.md#get-application-id-and-authentication-key).
 
 ## <a name="prerequisites"></a>Förutsättningar
 * Ett HDInsight-kluster. Se den [komma igång-självstudiekurs](hadoop/apache-hadoop-linux-tutorial-get-started.md#create-cluster).
@@ -119,6 +119,6 @@ Tilldela din Azure AD-program en [rollen](../role-based-access-control/built-in-
 
 
 ## <a name="next-steps"></a>Nästa steg
-* [Skapa en Azure Active Directory program och tjänstens huvudnamn i Azure-portalen](../azure-resource-manager/resource-group-create-service-principal-portal.md).
-* Lär dig hur du [autentisera tjänstens huvudnamn med Azure Resource Manager](../azure-resource-manager/resource-group-authenticate-service-principal.md).
+* [Skapa en Azure Active Directory program och tjänstens huvudnamn i Azure-portalen](../active-directory/develop/howto-create-service-principal-portal.md).
+* Lär dig hur du [autentisera tjänstens huvudnamn med Azure Resource Manager](../active-directory/develop/howto-authenticate-service-principal-powershell.md).
 * Lär dig mer om [Azure rollbaserad åtkomstkontroll (RBAC)](../role-based-access-control/role-assignments-portal.md).

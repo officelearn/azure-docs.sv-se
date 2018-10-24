@@ -10,12 +10,12 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 10/18/2018
 ms.author: dox
-ms.openlocfilehash: 7e0456d50f3a9e73946306ea50be80498ee08e9f
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: 689a18ff690273229254a0d7e75187a26f1383de
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49471856"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49957326"
 ---
 # <a name="azure-cosmos-db-table-net-standard-api-download-and-release-notes"></a>Azure Cosmos DB tabell .NET Standard-API: Ladda ned och viktig information
 > [!div class="op_single_selector"]
@@ -41,7 +41,9 @@ Azure lagringstabell slutpunkter stöds inte ännu i 0.9.1-preview-versionen.
 ## <a name="release-and-retirement-dates"></a>Versionen och dras tillbaka datum
 Microsoft meddelar minst **12 månader** förväg dra tillbaka en SDK för att utjämna övergången till en nyare/stöds version.
 
-| Version | Utgivningsdatum | Datumet för tillbakadragandet || [0.9.1-preview](#0.9.1-preview) | Den 18 oktober 2018 |---|
+| Version | Utgivningsdatum | Slutdatum |
+| --- | --- | --- |
+| [0.9.1-Preview](#0.9.1-preview) |Den 18 oktober 2018 |--- |
 
 
 ## <a name="faq"></a>VANLIGA FRÅGOR OCH SVAR

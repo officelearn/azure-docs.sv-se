@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/12/2018
 ms.author: jingwang
-ms.openlocfilehash: e50d1696fdc22916f5ac4699bd17ddc21a82a148
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.openlocfilehash: a4de054926339985b77f110bd00f77c5c8f7d705
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48815876"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49957997"
 ---
 # <a name="copy-data-to-or-from-azure-sql-database-by-using-azure-data-factory"></a>Kopiera data till och från Azure SQL Database med hjälp av Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you use:"]
@@ -96,7 +96,7 @@ För olika typer av autentisering, se följande avsnitt om krav och JSON-exempel
 
 Följ dessa steg om du vill använda autentisering med enhetstoken en service principal-baserade Azure AD-program:
 
-1. **[Skapa ett Azure Active Directory-program](../azure-resource-manager/resource-group-create-service-principal-portal.md#create-an-azure-active-directory-application)**  från Azure-portalen. Anteckna namnet på programmet och följande värden som definierar den länkade tjänsten:
+1. **[Skapa ett Azure Active Directory-program](../active-directory/develop/howto-create-service-principal-portal.md#create-an-azure-active-directory-application)**  från Azure-portalen. Anteckna namnet på programmet och följande värden som definierar den länkade tjänsten:
 
     - Program-ID:t
     - Programnyckel
@@ -588,7 +588,7 @@ När du kopierar data från eller till Azure SQL Database, används följande ma
 | DateTimeOffset |DateTimeOffset |
 | decimaltal |decimaltal |
 | FILESTREAM-attributet (varbinary(max)) |Byte] |
-| Flyttal |Double-värde |
+| flyttal |Double-värde |
 | image |Byte] |
 | int |Int32 |
 | pengar |decimaltal |

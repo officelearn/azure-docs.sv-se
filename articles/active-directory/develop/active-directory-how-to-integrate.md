@@ -17,12 +17,12 @@ ms.date: 04/27/2017
 ms.author: celested
 ms.reviewer: bryanla
 ms.custom: aaddev
-ms.openlocfilehash: cde2706db255746293ddc29c6d5bdd31d970e535
-ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
+ms.openlocfilehash: fcc0badc17675c1c8923c744afd3fa46e98fef32
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48901557"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49954716"
 ---
 # <a name="integrating-with-azure-active-directory"></a>Integrera med Azure Active Directory
 
@@ -82,7 +82,7 @@ Integrering med Azure AD levereras med fördelar som inte behöver du skriva ytt
 **Azure AD har distribuerats i datacenter runtom i världen och hanteras och övervakas dygnet runt.**  Azure AD är identitetshanteringssystem för Microsoft Azure och Office 365 och distribueras i 28 Datacenter runtom i världen. Katalogdata är säkert att replikeras till minst tre datacenter. Global belastningsutjämnare och kontrollera användare åtkomst den närmaste kopian av Azure AD som innehåller sina data och omdirigera automatiskt begäranden till andra Datacenter om ett problem har identifierats.
 
 ## <a name="next-steps"></a>Nästa steg
-[Börja skriva kod](azure-ad-developers-guide.md#get-started).
+[Börja skriva kod](v1-overview.md#get-started).
 
 [Logga In med hjälp av Azure AD användare](authentication-scenarios.md)
 

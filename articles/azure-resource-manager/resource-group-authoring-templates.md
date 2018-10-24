@@ -12,21 +12,21 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/30/2018
+ms.date: 10/22/2018
 ms.author: tomfitz
-ms.openlocfilehash: 1b982bddc951e710ba3bfa5fe8621d6595b95a52
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 28ef94113c76cd70e12a9682e1c523afc3f0a233
+ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49405352"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49945883"
 ---
 # <a name="understand-the-structure-and-syntax-of-azure-resource-manager-templates"></a>Förstå strukturen och syntaxen för Azure Resource Manager-mallar
 Den här artikeln beskriver strukturen för en Azure Resource Manager-mall. Den anger de olika avsnitten i en mall och egenskaperna som är tillgängliga i dessa avsnitt. Mallen består av JSON och uttryck som du kan använda för att skapa värden för din distribution. En stegvis självstudiekurs om hur du skapar en mall finns i [skapa din första Azure Resource Manager-mall](resource-manager-create-first-template.md).
 
 ## <a name="quickstarts-and-tutorials"></a>Snabbstarter och självstudier
 
-Använd följande snabbstarter och självstudier för att lära dig hur du utvecklar resource manager-mallar:
+Använd följande snabbstarter och självstudier för att lära dig hur du utvecklar Resource Manager-mallar:
 
 - Snabbstarter
 
@@ -304,7 +304,7 @@ I resursavsnittet kan du definiera de resurser som är distribuerade eller uppda
 ],
 ```
 
-Mer information finns i [resursavsnittet i Azure Resource Manager-mallar](resource-manager-templates-resources.md).
+Villkorligt inkludera eller exkludera en resurs under distributionen, använda den [elementet](resource-manager-templates-resources.md#condition). Mer information om resurser finns i [resursavsnittet i Azure Resource Manager-mallar](resource-manager-templates-resources.md).
 
 ## <a name="outputs"></a>Utdata
 I Outputs-avsnittet anger du värden som returneras från distributionen. Du kan till exempel returnera URI: N för att komma åt en distribuerad resurs.

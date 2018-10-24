@@ -10,16 +10,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/03/2018
 ms.author: sngun
-ms.openlocfilehash: dfd66c1ac2e627b72d24a520fc37c6ebfb361556
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.openlocfilehash: 90f5caa13bf95fb5298a06bda5a03e9bc17bcb1a
+ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48870015"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49945186"
 ---
 # <a name="visualize-azure-cosmos-db-data-by-using-the-power-bi-connector"></a>Visualisera data med Azure Cosmos DB med hjälp av anslutningsprogrammet för Power BI
 
-[PowerBI](https://powerbi.microsoft.com/) är en onlinetjänst där du kan skapa och dela instrumentpaneler och rapporter. Power BI Desktop är ett verktyg som gör att du kan hämta data från olika datakällor för Rapportredigering. Azure Cosmos DB är en av den datakälla som du kan använda med Power BI Desktop. Du kan ansluta Power BI Desktop till Azure Cosmos DB-konto med Azure Cosmos DB-anslutningsprogrammet för Power BI.  När du har importerat Azure Cosmos DB-data till Power BI kan du omvandla dem, skapa rapporter och publicera rapporterna till Power BI.   
+[Power BI](https://powerbi.microsoft.com/) är en onlinetjänst där du kan skapa och dela instrumentpaneler och rapporter. Power BI Desktop är ett verktyg som gör att du kan hämta data från olika datakällor för Rapportredigering. Azure Cosmos DB är en av den datakälla som du kan använda med Power BI Desktop. Du kan ansluta Power BI Desktop till Azure Cosmos DB-konto med Azure Cosmos DB-anslutningsprogrammet för Power BI.  När du har importerat Azure Cosmos DB-data till Power BI kan du omvandla dem, skapa rapporter och publicera rapporterna till Power BI.   
 
 Den här artikeln beskriver de steg som krävs för att ansluta Azure Cosmos DB-konto till Power BI Desktop. När du anslutit du navigera till en samling, extrahera data, transformera JSON-data i tabellformat och publicera en rapport till Power BI.
 

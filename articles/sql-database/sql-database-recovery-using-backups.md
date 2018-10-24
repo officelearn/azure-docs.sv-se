@@ -11,13 +11,13 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 10/08/2018
-ms.openlocfilehash: ad82ae6158bbf343dd84be125a8839e992ad3634
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.date: 10/22/2018
+ms.openlocfilehash: 6a75bc2c6e4a624f3b5ee5fc546c9bd4346b4730
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48868164"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49958592"
 ---
 # <a name="recover-an-azure-sql-database-using-automated-database-backups"></a>Återställa en Azure SQL database med hjälp av automatiska databassäkerhetskopieringar
 
@@ -70,12 +70,7 @@ Det finns inga inbyggda funktioner för att bulk återställning. Den [Azure SQL
 
 ## <a name="point-in-time-restore"></a>Återställning från tidpunkt
 
-Du kan återställa en befintlig databas till en tidigare tidpunkt som en ny databas på samma logiska server med hjälp av Azure-portalen [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.sql/restore-azurermsqldatabase), eller [REST API](https://msdn.microsoft.com/library/azure/mt163685.aspx).
-
-> [!TIP]
-> En PowerShell-exempelskript som visar hur du utför en point-in-time-återställning av en databas, se [återställa en SQL-databas med hjälp av PowerShell](scripts/sql-database-restore-database-powershell.md).
-
-Databasen kan återställas till valfri tjänstnivå eller beräkningsstorleken, och som en enkel databas eller till en elastisk pool. Se till att du har tillräckligt med resurser på den logiska servern eller i den elastiska poolen som du återställer databasen. När du är klar är den återställda databasen en normal, fullt åtkomlig, online-databas. Den återställda databasen debiteras enligt normal taxa baserat på dess tjänstnivå och beräkningsstorleken. Du inte betalar avgifter förrän återställa databasen är klar.
+Du kan återställa en enskild, delade eller hanterad instans-databas till en tidigare tidpunkt som en ny databas på samma server med hjälp av Azure-portalen [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.sql/restore-azurermsqldatabase), eller [REST API](https://docs.microsoft.com/rest/api/sql/databases). En databas kan återställas till valfri tjänstnivå eller compute storlek. Se till att du har tillräckligt med resurser på den server som du återställer databasen. När du är klar är den återställda databasen en normal, fullt åtkomlig, online-databas. Den återställda databasen debiteras enligt normal taxa baserat på dess tjänstnivå och beräkningsstorleken. Du inte betalar avgifter förrän återställa databasen är klar.
 
 Du kan vanligtvis återställer en databas till en tidigare tidpunkt för återställning. När du gör detta kan du behandla den återställda databasen som en ersättning för den ursprungliga databasen eller använda den för att hämta data från och uppdatera sedan den ursprungliga databasen.
 
@@ -87,15 +82,16 @@ Du kan vanligtvis återställer en databas till en tidigare tidpunkt för åters
 
    Om du planerar att hämta data från den återställda databasen att återställa efter ett fel för användaren eller programmet, måste du skriva och köra de nödvändiga data recovery skript för att extrahera data från den återställda databasen till den ursprungliga databasen. Även om återställningen kan ta lång tid att slutföra, visas databasen som ska återställas i databaslistan under återställningsprocessen. Om du tar bort databasen under återställningen återställningen avbryts och du debiteras inte för den databas som inte gick att slutföra återställningen.
 
-### <a name="recover-to-a-point-in-time-using-azure-portal"></a>Återställa till en tidpunkt med hjälp av Azure-portalen
-
-Öppna sidan för din databas om du vill återställa till en tidpunkt med hjälp av Azure-portalen och klicka på **återställa** i verktygsfältet.
+Öppna sidan för din databas om du vill återställa en enskild, delade eller hanterad instans-databas till en tidpunkt med hjälp av Azure-portalen och klicka på **återställa** i verktygsfältet.
 
 ![punkt i tiden återställning](./media/sql-database-recovery-using-backups/point-in-time-recovery.png)
 
+> [!IMPORTANT]
+> Om du vill återställa en databas från en säkerhetskopia programmässigt Se [programmässigt utföra återställning med hjälp av automatisk säkerhetskopiering](sql-database-recovery-using-backups.md#programmatically-performing-recovery-using-automated-backups)
+
 ## <a name="deleted-database-restore"></a>Återställning av databasen som har tagits bort
 
-Du kan återställa en borttagen databas till borttagningstid för en borttagen databas på samma logiska server med hjälp av Azure-portalen [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.sql/restore-azurermsqldatabase), eller [REST (createMode = återställer)](https://msdn.microsoft.com/library/azure/mt163685.aspx). Du kan återställa en borttagen databas till en tidigare tidpunkt under kvarhållning av säkerhetskopior med hjälp av [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.sql/restore-azurermsqldatabase).
+Du kan återställa en borttagen databas till borttagningstid för en borttagen databas på samma logiska server med hjälp av Azure-portalen [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.sql/restore-azurermsqldatabase), eller [REST (createMode = återställer)](https://docs.microsoft.com/rest/api/sql/databases/createorupdate). Du kan återställa en borttagen databas till en tidigare tidpunkt under kvarhållning av säkerhetskopior med hjälp av [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.sql/restore-azurermsqldatabase).
 
 > [!Note]
 > Återställa borttagen databas finns inte i hanterade instanser.
@@ -104,13 +100,14 @@ Du kan återställa en borttagen databas till borttagningstid för en borttagen 
 > [!IMPORTANT]
 > Om du tar bort en Azure SQL Database-server-instans, raderas också alla databaser och kan inte återställas. Det finns för närvarande inget stöd för att återställa en borttagen server.
 
-### <a name="recover-a-deleted-database-using-the-azure-portal"></a>Återställa en borttagen databas via Azure portal
-
-Återställa en borttagen databas under dess [DTU-baserade modellen kvarhållningsperiod](sql-database-service-tiers-dtu.md) eller [vCore-baserade modellen kvarhållningsperiod](sql-database-service-tiers-vcore.md) med Azure portal, öppnar sidan för din server och i området för åtgärder, klickar på **Borttagna databaser**.
+Återställa en borttagen databas via Azure-portalen under dess [DTU-baserade modellen kvarhållningsperiod](sql-database-service-tiers-dtu.md) eller [vCore-baserade modellen kvarhållningsperiod](sql-database-service-tiers-vcore.md) med Azure portal, öppna sidan för din server och i den Operations-området klickar du på **borttagna databaser**.
 
 ![ta bort-database-restore-1](./media/sql-database-recovery-using-backups/deleted-database-restore-1.png)
 
 ![ta bort-database-restore-2](./media/sql-database-recovery-using-backups/deleted-database-restore-2.png)
+
+> [!IMPORTANT]
+> Om du vill återställa en borttagen databas via programmering, se [programmässigt utföra återställning med hjälp av automatisk säkerhetskopiering](sql-database-recovery-using-backups.md#programmatically-performing-recovery-using-automated-backups)
 
 ## <a name="geo-restore"></a>Geo-återställning
 
@@ -141,21 +138,34 @@ Som tidigare beskrivs, utöver Azure portal, kan databasåterställning utföras
 
 ### <a name="powershell"></a>PowerShell
 
-| Cmdlet | Beskrivning |
-| --- | --- |
-| [Get-AzureRmSqlDatabase](/powershell/module/azurerm.sql/get-azurermsqldatabase) |Hämtar en eller flera databaser. |
-| [Get-AzureRMSqlDeletedDatabaseBackup](/powershell/module/azurerm.sql/get-azurermsqldeleteddatabasebackup) | Hämtar en borttagen databas som du kan återställa. |
-| [Get-AzureRmSqlDatabaseGeoBackup](/powershell/module/azurerm.sql/get-azurermsqldatabasegeobackup) |Hämtar en geo-redundant säkerhetskopia av en databas. |
-| [Restore-AzureRmSqlDatabase](/powershell/module/azurerm.sql/restore-azurermsqldatabase) |Återställer en SQL-databas. |
-|  | |
+- Om du vill återställa en enskild eller grupperade database, se [Restore-AzureRmSqlDatabase](https://docs.microsoft.com/powershell/module/azurerm.sql/restore-azurermsqldatabase)
+
+   | Cmdlet | Beskrivning |
+   | --- | --- |
+   | [Get-AzureRmSqlDatabase](/powershell/module/azurerm.sql/get-azurermsqldatabase) |Hämtar en eller flera databaser. |
+   | [Get-AzureRMSqlDeletedDatabaseBackup](/powershell/module/azurerm.sql/get-azurermsqldeleteddatabasebackup) | Hämtar en borttagen databas som du kan återställa. |
+   | [Get-AzureRmSqlDatabaseGeoBackup](/powershell/module/azurerm.sql/get-azurermsqldatabasegeobackup) |Hämtar en geo-redundant säkerhetskopia av en databas. |
+   | [Restore-AzureRmSqlDatabase](/powershell/module/azurerm.sql/restore-azurermsqldatabase) |Återställer en SQL-databas. |
+   |  | |
+
+   > [!TIP]
+   > En PowerShell-exempelskript som visar hur du utför en point-in-time-återställning av en databas, se [återställa en SQL-databas med hjälp av PowerShell](scripts/sql-database-restore-database-powershell.md).
+
+- Om du vill återställa en databas för hanterad instans, se [Point-in-time-återställning av en databas på Azure SQL Managed Instance med hjälp av PowerShell i AzureRm.Sql bibliotek](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/06/28/point-in-time-restore-of-a-database-on-azure-sql-managed-instance-using-azurerm-sql-powershell-library/)
 
 ### <a name="rest-api"></a>REST-API
 
+Du återställer en enda eller grupperade databas med hjälp av REST-API:
+
 | API | Beskrivning |
 | --- | --- |
-| [REST (createMode = Recovery)](https://msdn.microsoft.com/library/azure/mt163685.aspx) |Återställer en databas |
-| [Hämta skapa eller uppdatera Database-Status](https://msdn.microsoft.com/library/azure/mt643934.aspx) |Returnerar status under en återställning |
+| [REST (createMode = Recovery)](https://docs.microsoft.com/rest/api/sql/databases) |Återställer en databas |
+| [Hämta skapa eller uppdatera Database-Status](https://docs.microsoft.com/rest/api/sql/operations) |Returnerar status under en återställning |
 |  | |
+
+### <a name="azure-cli"></a>Azure CLI
+
+Om du vill återställa en enskild eller grupperade databas med Azure CLI, se [az sql db restore](https://docs.microsoft.com/cli/azure/sql/db#az-sql-db-restore).
 
 ## <a name="summary"></a>Sammanfattning
 

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/02/2018
 ms.author: apimpm
-ms.openlocfilehash: ce4ff33a8af9cf864ad4902599a0ab18b2b27182
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: d359ad0e619e4d7784d763e70599ce784aa852cd
+ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49387233"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49945829"
 ---
 # <a name="how-to-save-and-configure-your-api-management-service-configuration-using-git"></a>Spara och konfigurera din API Management-tjänstkonfigurationen med Git
 
@@ -84,7 +84,7 @@ I följande exempel används Git Bash-verktyget från [Git för Windows](http://
 Öppna Git-verktyget i mappen önskad och kör följande kommando för att klona git-lagringsplatsen till den lokala datorn med hjälp av kommandot som tillhandahålls av Azure-portalen.
 
 ```
-git clone https://bugbashdev4.scm.azure-api.net/
+git clone https://{name}.scm.azure-api.net/
 ```
 
 Ange användarnamn och lösenord när du uppmanas till detta.
@@ -92,7 +92,7 @@ Ange användarnamn och lösenord när du uppmanas till detta.
 Om du får några fel, försök att ändra din `git clone` kommando för att inkludera användarnamn och lösenord, som visas i följande exempel.
 
 ```
-git clone https://username:password@bugbashdev4.scm.azure-api.net/
+git clone https://username:password@{name}.scm.azure-api.net/
 ```
 
 Om detta ger ett fel, försök URL-kodning delar av lösenord för kommandot. Ett snabbt sätt att göra detta är att öppna Visual Studio och kör du följande kommando i den **kommandofönstret**. Öppna den **kommandofönstret**, öppna någon lösning eller projekt i Visual Studio (eller skapa ett nytt tomt konsolprogram), och välj **Windows**, **Immediate** från den **Felsöka** menyn.
@@ -104,7 +104,7 @@ Om detta ger ett fel, försök URL-kodning delar av lösenord för kommandot. Et
 Använda det kodade lösenordet tillsammans med din Användarplats för namn och databasen för att konstruera git-kommando.
 
 ```
-git clone https://username:url encoded password@bugbashdev4.scm.azure-api.net/
+git clone https://username:url encoded password@{name}.scm.azure-api.net/
 ```
 
 När databasen är klonad, kan du visa och arbeta med dem i ditt lokala filsystem. Mer information finns i [fil- och strukturera referens för lokal Git-lagringsplats](#file-and-folder-structure-reference-of-local-git-repository).
@@ -120,7 +120,7 @@ git pull
 Innan du kör `git pull` se till att du är i mappen för din lokala lagringsplats. Om du är klar med den `git clone` kommandot, och sedan måste du ändra katalogen till din lagringsplats genom att köra ett kommando som liknar följande.
 
 ```
-cd bugbashdev4.scm.azure-api.net/
+cd {name}.scm.azure-api.net/
 ```
 
 ## <a name="to-push-changes-from-your-local-repo-to-the-server-repo"></a>Att skicka ändringar från ditt lokala lager till lagringsplatsen för server

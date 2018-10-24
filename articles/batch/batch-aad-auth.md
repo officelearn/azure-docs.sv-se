@@ -15,12 +15,12 @@ ms.tgt_pltfrm: ''
 ms.workload: big-compute
 ms.date: 04/18/2018
 ms.author: danlep
-ms.openlocfilehash: 1347d3aac01c62040c164eee22c7a905b07e8236
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.openlocfilehash: 67f8b49cd2205403dec8843beebb92c9f41f6e37
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48816979"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49955804"
 ---
 # <a name="authenticate-batch-service-solutions-with-active-directory"></a>Autentisera lösningar för Batch-tjänsten med Active Directory
 
@@ -374,7 +374,7 @@ Använd autentiseringsuppgifter för tjänstens huvudnamn för att öppna en **B
 
 * Läs mer om Azure AD i den [Azure Active Directory-dokumentationen](https://docs.microsoft.com/azure/active-directory/). Djupgående exempel som visar hur du använder ADAL finns i den [kodexempel för Azure](https://azure.microsoft.com/resources/samples/?service=active-directory) biblioteket.
 
-* Läs mer om tjänstens huvudnamn i [program och tjänstobjekt i Azure Active Directory](../active-directory/develop/app-objects-and-service-principals.md). Om du vill skapa ett huvudnamn för tjänsten med Azure portal, [Använd portalen för att skapa Active Directory-program och tjänstens huvudnamn som kan komma åt resurser](../resource-group-create-service-principal-portal.md). Du kan också skapa ett huvudnamn för tjänsten med PowerShell eller Azure CLI.
+* Läs mer om tjänstens huvudnamn i [program och tjänstobjekt i Azure Active Directory](../active-directory/develop/app-objects-and-service-principals.md). Om du vill skapa ett huvudnamn för tjänsten med Azure portal, [Använd portalen för att skapa Active Directory-program och tjänstens huvudnamn som kan komma åt resurser](../active-directory/develop/howto-create-service-principal-portal.md). Du kan också skapa ett huvudnamn för tjänsten med PowerShell eller Azure CLI.
 
 * För att autentisera Batch Management-program med hjälp av Azure AD, se [autentisera med Batch Management-lösningar med Active Directory](batch-aad-auth-management.md).
 

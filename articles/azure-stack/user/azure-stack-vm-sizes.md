@@ -5,21 +5,20 @@ services: azure-stack
 documentationcenter: ''
 author: mattbriggs
 manager: femila
-editor: ''
-ms.assetid: ''
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/15/2018
+ms.date: 10/22/2018
 ms.author: mabrigg
-ms.openlocfilehash: 74d521f1890f8ff6567802c1a16f4169dbf4a53f
-ms.sourcegitcommit: d2f2356d8fe7845860b6cf6b6545f2a5036a3dd6
+ms.reviewer: kivenkat
+ms.openlocfilehash: dc9e1b3fb59aca8fba0c84fbfa674931c24c12c9
+ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42056760"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49945900"
 ---
 # <a name="virtual-machine-sizes-supported-in-azure-stack"></a>Storlekar för virtuella datorer stöds i Azure Stack
 
@@ -29,7 +28,7 @@ Den här artikeln innehåller de storlekar för virtuella datorer (VM) som är t
 
 ## <a name="general-purpose"></a>Generellt syfte
 
-VM-storlekar för generell användning ger ett balanserat förhållande för CPU och minne. De används för testning och utveckling, små till mellanstora databaser och låg till medelhög trafik webbservrar.
+Allmänna storlekar för Virtuella datorer ger ett balanserat förhållande för CPU och minne. De används för testning och utveckling, små till mellanstora databaser och låg till medelhög trafik webbservrar.
 
 ### <a name="basic-a"></a>Basic A
 |Storlek – storlek\namn |Virtuell processor     |Minne | Högsta temporär diskstorlek | Max OS diskdataflöde: (IOPS) | Maximalt genomflöde för temporär lagring (IOPS) | Maximalt diskgenomflöde (IOPS) | Maximalt antal nätverkskort |    

@@ -8,15 +8,15 @@ ms.topic: article
 ms.date: 10/19/18
 ms.author: tamram
 ms.component: blobs
-ms.openlocfilehash: 7dff6f7438c3bb9fc09803bbaa58895f89f88d71
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: ddc85cb7c9bd4488295b22e687d199a73d23922c
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49649830"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49955634"
 ---
 # <a name="static-website-hosting-in-azure-storage"></a>Värd för statisk webbplats i Azure Storage
-Azure Storage-konton kan du hantera statiskt innehåll (HTML, CSS, JavaScript och bildfiler) direkt från en storage-behållare med namnet *$web*. Dra nytta av värd i Azure Storage kan du använda arkitekturer utan server, inklusive [Azure Functions](/azure/azure-functions/functions-overview) och andra PaaS-tjänster.
+Azure Storage GPv2-konton kan du hantera statiskt innehåll (HTML, CSS, JavaScript och bildfiler) direkt från en storage-behållare med namnet *$web*. Dra nytta av värd i Azure Storage kan du använda arkitekturer utan server, inklusive [Azure Functions](/azure/azure-functions/functions-overview) och andra PaaS-tjänster.
 
 Till skillnad från som är värd för statisk webbplats, dynamiska webbplatser som är beroende av serverkod är bäst hanteras med hjälp av [Azure Web Apps](/azure/app-service/app-service-web-overview).
 
@@ -62,7 +62,7 @@ Som är värd för statisk webbplats tillhandahålls utan extra kostnad. Mer inf
 ## <a name="quickstart"></a>Snabbstart
 
 ### <a name="azure-portal"></a>Azure Portal
-Börja genom att öppna Azure-portalen på https://portal.azure.com och gå igenom följande steg:
+Börja genom att öppna Azure-portalen på https://portal.azure.com och gå igenom följande steg på din GPv2-konto:
 
 1. Klicka på **inställningar**
 2. Klicka på **statisk webbplats**
@@ -71,7 +71,7 @@ Börja genom att öppna Azure-portalen på https://portal.azure.com och gå igen
 
 ![](media/storage-blob-static-website/storage-blob-static-website-portal-config.PNG)
 
-Därefter ladda upp dina tillgångar till den *$web* behållare via Azure-portalen eller med den [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) att ladda upp hela kataloger. Se till att inkludera en fil som matchar den *indexdokumentnamn* du valde när du aktiverar funktionen.
+Därefter ladda upp dina tillgångar till den *$web* behållare via Azure portal eller med den [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) att ladda upp hela kataloger. Se till att inkludera en fil som matchar den *indexdokumentnamn* du valde när du aktiverar funktionen.
 
 Slutligen navigera till din webbslutpunkt för att testa din webbplats.
 
@@ -80,6 +80,11 @@ Installera tillägget storage förhandsversion:
 
 ```azurecli-interactive
 az extension add --name storage-preview
+```
+När det gäller flera prenumerationer, ange din CLI till prenumerationen för GPv2-lagringskonto som du vill aktivera:
+
+```azurecli-interactive
+az account set --subscription <SUBSCRIPTION_ID>
 ```
 Aktivera funktionen. Se till att ersätta alla platshållarvärdena, inklusive parenteser med dina egna värden:
 
@@ -92,10 +97,10 @@ Fråga för web slutpunkts-URL:
 az storage account show -n <ACCOUNT_NAME> -g <RESOURCE_GROUP> --query "primaryEndpoints.web" --output tsv
 ```
 
-Överföra objekt till den *$web* behållare:
+Överföra objekt till den *$web* behållare från en källkatalog:
 
 ```azurecli-interactive
-az storage blob upload-batch -s <SOURCE> -d $web --account-name <ACCOUNT_NAME>
+az storage blob upload-batch -s <SOURCE_PATH> -d $web --account-name <ACCOUNT_NAME>
 ```
 
 ## <a name="deployment"></a>Distribution
@@ -115,7 +120,7 @@ Om du vill aktivera mått på sidorna statisk webbplats klickar du på **instäl
 
 Måttdata genereras av anslutning till olika mått API: er. Portalen visar endast API-medlemmar som används inom en angiven tidsperiod för att endast fokusera på medlemmar som returnerar data. För att kontrollera att du kan välja den nödvändiga API-medlemmen, är det första steget att expandera tidsperioden.
 
-Klicka på knappen tidsram och välj **senaste 24 timmarna** och klicka sedan på **tillämpa** för att säkerställa att Användargränssnittet ger dig tillgång till önskade API: et.
+Klicka på knappen tidsram och välj **senaste 24 timmarna** och klicka sedan på **tillämpa** 
 
 ![Azure Storage-mått serverstatiska webbplatser tidsintervall](./media/storage-blob-static-website/storage-blob-static-website-metrics-time-range.png)
 

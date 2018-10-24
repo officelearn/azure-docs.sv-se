@@ -7,12 +7,12 @@ ms.service: storage
 ms.topic: article
 ms.date: 10/11/2018
 ms.author: seguler
-ms.openlocfilehash: 4f29933fbd4b9ea5c9868e307a6affa7e2273e3d
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.openlocfilehash: 50378fd7739567b0cc56066168ddd33c3ea14141
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49165189"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49957062"
 ---
 # <a name="how-to-mount-blob-storage-as-a-file-system-with-blobfuse"></a>Hur du montera Blob storage som ett filsystem med blobfuse
 
@@ -89,7 +89,7 @@ Blobfuse kräver dina autentiseringsuppgifter som ska lagras i en textfil i föl
 
 ```
 accountName myaccount
-accountKey 9fD-/KjshdfLDERmcIjabcdefhAUSIHD/asdhfoiasiaAISOIabcdef/askdfewiAASJDNFL+askdlfj==
+accountKey storageaccesskey
 containerName mycontainer
 ```
 

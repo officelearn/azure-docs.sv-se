@@ -9,12 +9,12 @@ ms.author: jmartens
 author: j-martens
 ms.reviewer: jmartens
 ms.date: 10/1/2018
-ms.openlocfilehash: 3a5ee8795dabcbf9e35e16a8ba0f9c0eb5490ead
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.openlocfilehash: 6372aada8c3d380f8d3cefb0479e45bbd7c63898
+ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48243383"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49945254"
 ---
 # <a name="vs-code-tools-for-ai-train-and-deploy-ml-models-from-vs-code"></a>VS Code Tools för AI: träna och distribuera maskininlärningsmodeller från VS Code
 I den här artikeln får du lära dig hur du använder den **VS Code Tools för AI** träna och distribuera machine learning och deep learning-modeller med Azure Machine Learning-tjänsten i VS Code-tillägget.
@@ -196,4 +196,4 @@ Här är ett exempel för Azure Container Instance: [ ![Azure Container Instance
 
 En genomgång av utbildning med Machine Learning utanför VS Code läser [självstudie: skapa modeller med Azure Machine Learning](tutorial-train-models-with-aml.md).
 
-En genomgång av redigering, köra och felsöka kod lokalt, finns i den [Python Hello World-självstudier](https://code.visualstudio.com/docs/languages/python/docs/python/python-tutorial)
+En genomgång av redigering, köra och felsöka kod lokalt, finns i den [Python Hello World-självstudier](https://code.visualstudio.com/docs/python/python-tutorial)

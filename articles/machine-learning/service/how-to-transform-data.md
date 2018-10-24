@@ -10,24 +10,25 @@ author: cforbe
 manager: cgronlun
 ms.reviewer: jmartens
 ms.date: 09/24/2018
-ms.openlocfilehash: 388957fc5dac5cdab5bee34a4431eaa524e76a48
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 06e7d227511a9b651a905df3172f59a191acce01
+ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46999910"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49945679"
 ---
 # <a name="transform-data-with-the-azure-machine-learning-data-prep-sdk"></a>Transformera data med Azure Machine Learning Data Prep SDK
 
 Den [Azure Machine Learning Data Prep SDK](https://docs.microsoft.com/python/api/overview/azure/dataprep?view=azure-dataprep-py) erbjuder annan transformering metoder för att rensa dina data. De här metoderna gör det enkelt att lägga till kolumner, filtrera bort oönskade rader eller kolumner och sedan imputera värden som saknas.
 
 Det finns för närvarande metoder för följande uppgifter:
-- [Lägg till kolumnen med ett uttryck](#add-column-using-expression)
+- [Lägg till kolumnen med ett uttryck](#column)
 - [Sedan imputera värden som saknas](#impute-missing-values)
 - [Härled kolumner med exempel](#derive-column-by-example)
 - [Filtrering](#filtering)
 - [Anpassad Python-transformeringar](#custom-python-transforms)
 
+<a name=column>
 ## <a name="add-column-using-an-expression"></a>Lägg till kolumnen med ett uttryck
 
 Azure Machine Learning Data Prep SDK innehåller `substring` uttryck som du kan använda för att beräkna ett värde från befintliga kolumner och anger att värdet i en ny kolumn. I det här exemplet vi läsa in data och försök att lägga till kolumner som indata.

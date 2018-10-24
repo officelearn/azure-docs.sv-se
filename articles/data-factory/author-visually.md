@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/22/2018
+ms.date: 10/23/2018
 ms.author: shlo
-ms.openlocfilehash: 71ed5988b4a529d38a47f6cf04afcaa937121135
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: 3db32dfe2d7b65535f7d30f76241b33ecca96c15
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49645998"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49957963"
 ---
 # <a name="visual-authoring-in-azure-data-factory"></a>Visuell redigering i Azure Data Factory
 Azure Data Factory användargränssnittet användarupplevelsen (UX) kan du visuellt skapa och distribuera resurser för din datafabrik utan att behöva skriva någon kod. Du kan dra aktiviteter till en rityta för pipelinen, utför testkörningar, felsöker stegvis och distribuerar och övervakar dina pipelinekörningar. Det finns två metoder för att utföra visuell redigering med UX-Gränssnittet:
@@ -85,17 +85,15 @@ Du kan skapa en Azure-lagringsplatser Git-lagringsplats i en annan Azure Active 
 
 Om du vill använda ett personligt microsoftkonto för Git-integrering kan du länka din personliga Azure-lagringsplats till din organisations Active Directory.
 
-1. Lägg till ditt personliga Microsoft-konto till din organisations Active Directory som gäst. Mer information finns i följande artiklar:
-
-    - [Ansluta din Azure DevOps-organisation till Azure Active Directory](/azure/devops/organizations/accounts/connect-organization-to-azure-ad)
-
-    - [Lägg till användare i Azure Active Directory B2B-samarbetet i Azure portal](../active-directory/b2b/add-users-administrator.md)
+1. Lägg till ditt personliga Microsoft-konto till din organisations Active Directory som gäst. Mer information finns i [användare i Lägg till Azure Active Directory B2B-samarbetet i Azure-portalen](../active-directory/b2b/add-users-administrator.md).
 
 2. Logga in på Azure Portal med ditt personliga Microsoft-konto. Växla sedan till din organisations Active Directory.
 
 3. Gå till avsnittet Azure DevOps, där du nu se ditt personliga lager. Välj lagringsplatsen och Anslut med Active Directory.
 
 Efter de här konfigurationsstegen ditt personliga lager är tillgänglig när du ställer in Git-integrering i Användargränssnittet för Data Factory.
+
+Mer information om att ansluta Azure-databaser till din organisations Active Directory finns i [ansluta din Azure DevOps-organisation till Azure Active Directory](/azure/devops/organizations/accounts/connect-organization-to-azure-ad).
 
 ## <a name="switch-to-a-different-git-repo"></a>Växla till en annan Git-lagringsplats
 

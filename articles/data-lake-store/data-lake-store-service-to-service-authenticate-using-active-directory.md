@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: nitinme
-ms.openlocfilehash: ae1fdb6239b7d04dc366d023a26d1307cbae68f3
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: 2ec5d469ba0708288881be3d905b492aa8aa4da6
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46123733"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49956630"
 ---
 # <a name="service-to-service-authentication-with-azure-data-lake-storage-gen1-using-azure-active-directory"></a>Tjänst-till-tjänst-autentisering med Azure Data Lake Storage Gen1 med Azure Active Directory
 > [!div class="op_single_selector"]
@@ -39,7 +39,7 @@ Den här artikeln berättar om hur du skapar en **Azure AD-webbappen för tjäns
 
 ## <a name="step-1-create-an-active-directory-web-application"></a>Steg 1: Skapa ett Active Directory-webbprogram
 
-Skapa och konfigurera ett Azure AD-webbprogram för tjänst-till-tjänst-autentisering med Azure Data Lake Storage Gen1 med Azure Active Directory. Anvisningar finns i [skapa ett Azure AD-program](../azure-resource-manager/resource-group-create-service-principal-portal.md).
+Skapa och konfigurera ett Azure AD-webbprogram för tjänst-till-tjänst-autentisering med Azure Data Lake Storage Gen1 med Azure Active Directory. Anvisningar finns i [skapa ett Azure AD-program](../active-directory/develop/howto-create-service-principal-portal.md).
 
 När du följa anvisningarna i länken ovan, se till att välja **Webbapp / API** för programtyp, enligt följande skärmbild:
 
@@ -48,9 +48,9 @@ När du följa anvisningarna i länken ovan, se till att välja **Webbapp / API*
 ## <a name="step-2-get-application-id-authentication-key-and-tenant-id"></a>Steg 2: Hämta program-ID och autentiseringsnyckel klient-ID
 När du loggar in, behöver du ID: T för ditt program. Om programmet körs under sina egna autentiseringsuppgifter, måste du också en autentiseringsnyckel.
 
-* Anvisningar om hur du hämtar den program-ID och autentiseringsnyckel-nyckeln (kallas även för klienthemligheten) för ditt program finns i [Get ID och autentiseringsnyckel programnyckel](../azure-resource-manager/resource-group-create-service-principal-portal.md#get-application-id-and-authentication-key).
+* Anvisningar om hur du hämtar den program-ID och autentiseringsnyckel-nyckeln (kallas även för klienthemligheten) för ditt program finns i [Get ID och autentiseringsnyckel programnyckel](../active-directory/develop/howto-create-service-principal-portal.md#get-application-id-and-authentication-key).
 
-* Anvisningar om hur du hämtar klient-ID finns i [hämta klient-ID](../azure-resource-manager/resource-group-create-service-principal-portal.md#get-tenant-id).
+* Anvisningar om hur du hämtar klient-ID finns i [hämta klient-ID](../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-id).
 
 ## <a name="step-3-assign-the-azure-ad-application-to-the-azure-data-lake-storage-gen1-account-file-or-folder"></a>Steg 3: Tilldela Azure AD-program till Azure Data Lake Storage Gen1 kontofil eller mapp
 

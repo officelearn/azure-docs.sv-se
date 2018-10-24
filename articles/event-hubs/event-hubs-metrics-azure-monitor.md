@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/16/2018
 ms.author: shvija
-ms.openlocfilehash: a2b6fbae4a7b49c5596d5f2a6f9305181a0717d3
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 02336d9f4d041d4c8d5ba973cf8802692ddad914
+ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46979972"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49946019"
 ---
 # <a name="azure-event-hubs-metrics-in-azure-monitor-preview"></a>Azure Event Hubs-mått i Azure Monitor (förhandsversion)
 
@@ -66,7 +66,6 @@ Räknar antalet förfrågningar om data och hantering av åtgärder.
 | Lyckade begäranden (förhandsversion)   | Antal lyckade begäranden som görs till Azure Event Hubs-tjänsten under en angiven period. <br/><br/> Enhet: antal <br/> Sammansättningstyp: Totalt antal <br/> Dimensionen: EntityName |
 | Fel (förhandsversion) | Antal begäranden som inte bearbetas på grund av ett fel i tjänsten Azure Event Hubs under en angiven period. <br/><br/>Enhet: antal <br/> Sammansättningstyp: Totalt antal <br/> Dimensionen: EntityName |
 |Användarfel (förhandsversion)|Antal begäranden som inte bearbetas på grund av användarfel under en angiven period.<br/><br/> Enhet: antal <br/> Sammansättningstyp: Totalt antal <br/> Dimensionen: EntityName|
-|Begränsade begäranden (förhandsversion)|Antal begäranden som har begränsats eftersom enhet datadataflödesanvändning överskreds.<br/><br/> Enhet: antal <br/> Sammansättningstyp: Totalt antal <br/> Dimensionen: EntityName|
 |Kvoten har överskridits-fel (förhandsversion)|Antalet begäranden överskred tillgänglig kvot. Se [i den här artikeln](event-hubs-quotas.md) för mer information om Event Hubs-kvoter.<br/><br/> Enhet: antal <br/> Sammansättningstyp: Totalt antal <br/> Dimensionen: EntityName|
 
 ## <a name="throughput-metrics"></a>Mått för dataflöde

@@ -1269,7 +1269,7 @@ Lägga till en avsökningsport:
   }
   ```
 
-  När du tar den **SAP <*SID* >**  rollen online-kluster, kontrollerar du att **ProbePort** är inställt på det nya värdet.
+  När du tar den **SAP <*SID*>** rollen online-kluster, kontrollerar du att **ProbePort** är inställt på det nya värdet.
 
   ```PowerShell
   $SAPSID = "PR1"     # SAP <SID>

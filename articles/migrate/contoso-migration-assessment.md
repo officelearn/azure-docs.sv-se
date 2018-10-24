@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 10/11/2018
+ms.date: 10/23/2018
 ms.author: raynew
-ms.openlocfilehash: b9ef650b772a160f7ddf8932f646f8081cb9e551
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: a0aa63291a7fb3f069663d40687f81c3a3265712
+ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49407137"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49945951"
 ---
 # <a name="contoso-migration-assess-on-premises-workloads-for-migration-to-azure"></a>Contoso-migrering: utvärdera lokala arbetsbelastningar för migrering till Azure
 
@@ -232,7 +232,7 @@ Contoso-utvärderingen använder beroendemappning. Beroendemappning kräver en a
 
 ### <a name="set-statistics-settings"></a>Ange inställningar för statistik
 
-Innan Contoso börjar distributionen, måste den inställd på nivå 3 statistikinställningarna för vCenter-servern. 
+Innan Contoso börjar distributionen, måste den inställd på nivå 3 statistikinställningarna för vCenter-servern.
 
 > [!NOTE]
 > - När du har angett nivån måste Contoso vänta i minst en dag innan den körs utvärderingen. I annat fall kanske utvärderingen inte fungerar som förväntat.
@@ -258,7 +258,7 @@ För att identifiera virtuella datorer, skapar ett Azure Migrate-projekt i Conto
 ### <a name="create-a-project"></a>Skapa ett projekt
 
 1. I den [Azure-portalen](https://portal.azure.com), Contoso söker efter **Azure Migrate**. Contoso skapar sedan ett projekt.
-2. Anger ett namn för Contoso (**ContosoMigration**) och Azure-prenumerationen. Den skapar en ny Azure resursgrupp (**ContosoFailoverRG**). 
+2. Anger ett namn för Contoso (**ContosoMigration**) och Azure-prenumerationen. Den skapar en ny Azure resursgrupp (**ContosoFailoverRG**).
     > [!NOTE]
     > - Du kan skapa ett Azure Migrate-projekt i regionen USA, västra eller USA, östra.
     > - Du kan planera en migrering för valfri målplats.
@@ -283,17 +283,25 @@ Innan du distribuerar den virtuella datorn, kontrollerar Contoso att OVA-filen �
 2. Contoso kör följande kommando för att generera en hash för OVA-filen:
 
     ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
-    
-    **Exempel** 
-    
-    ```C:\>CertUtil -HashFile C:\AzureMigrate\AzureMigrate.ova SHA256```
-3. Den genererade hashen måste matcha nedanstående inställningar (version 1.0.9.14):
 
+    **Exempel**
+
+    ```C:\>CertUtil -HashFile C:\AzureMigrate\AzureMigrate.ova SHA256```
+3. Den genererade hashen måste matcha nedanstående inställningar (version 1.0.9.15):
+
+<<<<<<< HEAD
     **Algoritm** | **Hash-värde**
     --- | ---
-    MD5 | 6d8446c0eeba3de3ecc9bc3713f9c8bd
-    SHA1 | e9f5bdfdd1a746c11910ed917511b5d91b9f939f
-    SHA256 | 7f7636d0959379502dfbda19b8e3f47f3a4744ee9453fc9ce548e6682a66f13c
+    MD5 | e9ef16b0c837638c506b5fc0ef75ebfa
+    SHA1 | 37b4b1e92b3c6ac2782ff5258450df6686c89864
+    SHA256 | 8a86fc17f69b69968eb20a5c4c288c194cdcffb4ee6568d85ae5ba96835559ba
+=======
+**Algoritm** | **Hash-värde**
+--- | ---
+MD5 | e9ef16b0c837638c506b5fc0ef75ebfa
+SHA1 | 37b4b1e92b3c6ac2782ff5258450df6686c89864
+SHA256 | 8a86fc17f69b69968eb20a5c4c288c194cdcffb4ee6568d85ae5ba96835559ba
+>>>>>>> 20dc93529e7c0a4d17f2f4524752b5e2bead4e37
 
 ### <a name="create-the-collector-appliance"></a>Skapa insamlingsprogrammet
 

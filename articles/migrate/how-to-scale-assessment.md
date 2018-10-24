@@ -4,14 +4,14 @@ description: Beskriver hur du avgör stort antal lokala datorer med hjälp av Az
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 09/10/2018
+ms.date: 10/23/2018
 ms.author: raynew
-ms.openlocfilehash: 5f02393e6c8d5e094443e418b3fe7439d73ff837
-ms.sourcegitcommit: 465ae78cc22eeafb5dfafe4da4b8b2138daf5082
+ms.openlocfilehash: 6809c0e56fe55c7962ae273db0b5ac4335089df1
+ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44325030"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49945866"
 ---
 # <a name="discover-and-assess-a-large-vmware-environment"></a>Upptäck och utvärdera en stor VMware-miljö
 
@@ -31,7 +31,7 @@ Azure Migrate måste ha åtkomst till VMware-servrar för att automatiskt kunna 
 - Användartyp: Minst en skrivskyddad användare
 - Behörigheter: Datacenter-objekt –> Sprid till underordnat objekt, roll = skrivskyddad
 - Information: Användaren tilldelas på datacenternivå och har åtkomst till alla objekt i datacentret.
-- För att begränsa åtkomsten tilldelar du rollen ingen åtkomst med Sprid till underordnat objekt till underordnade objekt (vSphere-värdar, datalager, virtuella datorer och nätverk).
+- Om du vill begränsa åtkomsten tilldelar du rollen Ingen åtkomst med Sprid till underordnat objekt till underordnade objekt (vSphere-värdar, datalager, virtuella datorer och nätverk).
 
 Om du distribuerar i en miljö organisationer, är här ett sätt att konfigurera detta:
 
@@ -120,14 +120,14 @@ Azure Migrate skapar en lokal virtuell dator som kallas för insamlarprogram. De
 Om du har flera projekt kan behöva du hämta insamlingsprogrammet bara en gång till vCenter Server. När du laddar ned och konfigurera installationen kan du köra den för varje projekt och anger du unika projekt-ID och nyckel.
 
 1. I Azure Migrate-projektet klickar du på **Komma igång** > **Identifiera och utvärdera** > **Identifiera datorer**.
-2. I **identifiera datorer**, det finns två alternativ för installationen, klicka på **hämta** att ladda ned rätt program som baseras på dina inställningar.
+2. I **identifiera datorer**, finns det två alternativ för installationen, klicka på **hämta** för att ladda ned rätt program baserat på dina inställningar.
 
-    a. **Enstaka identifiering:** installation för den här modellen kommunicerar med vCenter Server för att samla in metadata om de virtuella datorerna. För insamling av prestandadata för de virtuella datorerna, förlitar sig på historiska prestandadata som lagras i vCenter Server och samlar in prestandahistoriken för den senaste månaden. I den här modellen Azure Migrate samlar in genomsnittlig räknare (jämfört med högsta counter) för varje mått, [Läs mer] (https://docs.microsoft.com/azure/migrate/concepts-collector#what-data-is-collected). Eftersom det är en enstaka identifiering återspeglas inte ändringar i den lokala miljön när identifieringen är klar. Om du vill att ändras för att återspegla som du behöver göra en ny identifiering av samma miljö att samma projekt.
+    a. **Engångsidentifiering:** Tillämpningen för den här modellen kommunicerar med vCenter Server för att samla in metadata om de virtuella datorerna. För insamling av prestandadata för de virtuella datorerna, förlitar den sig på historiska prestandadata som lagras i vCenter Server och samlar in prestandahistoriken för den senaste månaden. I den här modellen samlar Azure Migrate in genomsnittlig beräkning (jämfört med högsta beräkning) för varje mått, [Läs mer] (https://docs.microsoft.com/azure/migrate/concepts-collector#what-data-is-collected). Eftersom det är en enstaka identifiering återspeglas inte ändringar i den lokala miljön när identifieringen är klar. Om du vill att ändringarna ska återspeglas behöver göra en ny identifiering av samma miljö för samma projekt.
 
-    b. **Kontinuerlig identifiering:** installation för den här modellen profiler kontinuerligt den lokala miljön att samla in användningsdata i realtid för varje virtuell dator. I den här modellen samlas högsta räknare in för varje mått (processoranvändning, minnesanvändning osv.). Den här modellen är inte beroende av statistikinställningarna för vCenter Server för insamling av prestandadata. Du kan stoppa kontinuerlig Profileringen när som helst av programmet.
+    b. **Kontinuerlig identifiering:** Installation för den här modellen profilerar kontinuerligt den lokala miljön för att samla in användningsdata i realtid för varje virtuell dator. I den här modellen samlas högsta beräkningar in för varje mått (processoranvändning, minnesanvändning osv.). Den här modellen är inte beroende av statistikinställningarna för vCenter Server för insamling av prestandadata. Du kan stoppa kontinuerlig profileringen när som helst från programmet.
 
     > [!NOTE]
-    > Funktionen för identifiering av kontinuerlig genomgår förhandsgranskning.
+    > Funktionen kontinuerlig identifiering är i förhandsversion.
 
 3. I **kopiera projektautentiseringsuppgifterna**, kopiera-ID och nyckel för projektet. Du behöver dem när du konfigurerar insamlaren.
 
@@ -146,9 +146,19 @@ Kontrollera att OVA-filen är säker innan du distribuerar den:
 
 3. Se till att den genererade hashen matchar följande inställningar.
 
-#### <a name="one-time-discovery"></a>Enstaka identifiering
+#### <a name="one-time-discovery"></a>Engångsidentifiering
 
-För OVA-version 1.0.9.14
+<<<<<<< HEAD för OVA version 1.0.9.15 (släppt på 10/23/2018)
+
+ <a name="algorithm--hash-value"></a>**Algoritmen** | **Hash-värde**
+=======
+För OVA-version 1.0.9.15
+
+**Algoritmen** | **Hash-värde**
+>>>>>>> 20dc93529e7c0a4d17f2f4524752b5e2bead4e37---| ---MD5 | e9ef16b0c837638c506b5fc0ef75ebfa SHA1 | 37b4b1e92b3c6ac2782ff5258450df6686c89864 SHA256 | 8a86fc17f69b69968eb20a5c4c288c194cdcffb4ee6568d85ae5ba96835559ba
+
+<<<<<<< HEAD för OVA version 1.0.9.14 (släppt på 8/24/2018) === för OVA version 1.0.9.14
+>>>>>>> 20dc93529e7c0a4d17f2f4524752b5e2bead4e37
 
 **Algoritm** | **Hash-värde**
 --- | ---
@@ -275,11 +285,11 @@ För varje typ av upptäckt du behöver utföra, kör insamlaren för att identi
 
 #### <a name="verify-vms-in-the-portal"></a>Verifiera virtuella datorer i portalen
 
-För enstaka identifiering identifiering tiden beror på hur många virtuella datorer du identifierar. Normalt tar 100 virtuella datorer när insamlaren är klar att köra det cirka en timme och datainsamling att slutföra. Du kan skapa utvärderingar (både prestanda- och som lokala utvärderingar) direkt när identifieringen är klar.
+För engångsidentifiering beror identifieringstiden på hur många virtuella datorer du identifierar. Normalt tar 100 virtuella datorer när insamlaren är klar att köra det cirka en timme och datainsamling att slutföra. Du kan skapa utvärderingar (både prestandabaserade och som lokala utvärderingar) direkt när identifieringen är klar.
 
-För kontinuerlig identifiering (i förhandsversion) insamlaren kommer kontinuerligt profilera den lokala miljön och kommer fortsätta skicka prestandadata vid ett timmesintervall som. Du kan granska datorer i portalen efter en timme efter identifieringen drog. Vi rekommenderar starkt att vänta minst en dag innan du skapar några prestandabaserad utvärderingar för de virtuella datorerna.
+För kontinuerlig identifiering (i förhandsversion) kommer insamlaren kontinuerligt profilera den lokala miljön och fortsätta skicka prestandadata med ett intervall på en timma. Du kan granska datorer i portalen en timme efter att identifieringen startades. Vi rekommenderar starkt att vänta minst en dag innan du skapar några prestandabaserade utvärderingar för de virtuella datorerna.
 
-1. I migration-projekt klickar du på **hantera** > **datorer**.
+1. I migrationsprojektet klickar du på **Hantera** > **Datorer**.
 2. Kontrollera att de virtuella datorer som du vill identifiera visas i portalen.
 
 

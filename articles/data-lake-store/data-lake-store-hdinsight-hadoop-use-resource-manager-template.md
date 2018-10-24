@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: nitinme
-ms.openlocfilehash: 65b02ddc8fbd27d5081400032222a904b27e1a25
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: 0f6f485bb251bfae942c258b9be879c0aff5f5b9
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46126147"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49955700"
 ---
 # <a name="create-an-hdinsight-cluster-with-azure-data-lake-storage-gen1-using-azure-resource-manager-template"></a>Skapa ett HDInsight-kluster med Azure Data Lake Storage Gen1 med hjälp av Azure Resource Manager-mall
 > [!div class="op_single_selector"]
@@ -49,7 +49,7 @@ Innan du påbörjar de här självstudierna måste du ha:
 * **Installera Azure PowerShell 1.0 eller senare**. Se [Så här installerar och konfigurerar du Azure PowerShell](/powershell/azure/overview).
 * **Azure Active Directory-tjänstobjekt**. I den här självstudiekursen innehåller instruktioner om hur du skapar ett huvudnamn för tjänsten i Azure AD. Du måste vara en Azure AD-administratör för att kunna skapa ett huvudnamn för tjänsten. Om du är en Azure AD-administratör kan du hoppa över det här kravet och fortsätter med självstudien.
 
-    **Om du inte är en Azure AD-administratör**, du kommer inte att kunna utföra stegen som krävs för att skapa ett huvudnamn för tjänsten. I detta fall är skapa Azure AD-administratören först ett huvudnamn för tjänsten innan du kan skapa ett HDInsight-kluster med Data Lake Storage Gen1. Dessutom tjänstens huvudnamn måste skapas med hjälp av ett certifikat, enligt beskrivningen i [skapa tjänstens huvudnamn med certifikat](../azure-resource-manager/resource-group-authenticate-service-principal.md#create-service-principal-with-certificate-from-certificate-authority).
+    **Om du inte är en Azure AD-administratör**, du kommer inte att kunna utföra stegen som krävs för att skapa ett huvudnamn för tjänsten. I detta fall är skapa Azure AD-administratören först ett huvudnamn för tjänsten innan du kan skapa ett HDInsight-kluster med Data Lake Storage Gen1. Dessutom tjänstens huvudnamn måste skapas med hjälp av ett certifikat, enligt beskrivningen i [skapa tjänstens huvudnamn med certifikat](../active-directory/develop/howto-authenticate-service-principal-powershell.md#create-service-principal-with-certificate-from-certificate-authority).
 
 ## <a name="create-an-hdinsight-cluster-with-data-lake-storage-gen1"></a>Skapa ett HDInsight-kluster med Data Lake Storage Gen1
 Resource Manager-mallen och krav för att använda mallen, är tillgängliga på GitHub på [distribuera ett HDInsight Linux-kluster med nya Data Lake Storage Gen1](https://github.com/Azure/azure-quickstart-templates/tree/master/201-hdinsight-datalake-store-azure-storage). Följ anvisningarna i den här länken för att skapa ett HDInsight-kluster med Data Lake Storage Gen1 som ytterligare lagringsutrymme.

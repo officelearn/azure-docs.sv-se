@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/01/2016
 ms.author: mlearned
-ms.openlocfilehash: f44bb7bd95ef405c65bb259a6d104475c2e283bd
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: a3dfca48b52af39e7a536b3012a3f4cdac4e9a94
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44297850"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49955175"
 ---
 # <a name="continuous-integration-in-azure-devops-services-using-azure-resource-group-deployment-projects"></a>Kontinuerlig integrering i Azure DevOps-tjänster med projekt för distribution av Azure-resursgrupp
 För att distribuera en Azure-mall kan du utföra uppgifter i olika faser: Build-, Test, kopiera till Azure (kallas även ”mellanlagring”) och distribuera mallen. Det finns två olika sätt att distribuera mallar till Azure DevOps-tjänsterna. Båda metoderna ger samma resultat, så du väljer det alternativ som bäst passar ditt arbetsflöde.
@@ -92,7 +92,7 @@ Följande procedurer för att gå igenom stegen för att konfigurera kontinuerli
       Om du använder Azure CLI använder du:
       
       `azure account show`
-   8. Att hämta ett ID för tjänstens huvudnamn, tjänstens huvudnamn nyckel och klient-ID, Följ proceduren i [Skapa Active Directory-program och tjänstobjekt med portalen](resource-group-create-service-principal-portal.md) eller [autentisera ett huvudnamn för tjänsten med Azure Resource Manager](resource-group-authenticate-service-principal.md).
+   8. Att hämta ett ID för tjänstens huvudnamn, tjänstens huvudnamn nyckel och klient-ID, Följ proceduren i [Skapa Active Directory-program och tjänstobjekt med portalen](active-directory/develop/howto-create-service-principal-portal.md) eller [autentisera ett huvudnamn för tjänsten med Azure Resource Manager](active-directory/develop/howto-authenticate-service-principal-powershell.md).
    9. Lägg till värden för ID för tjänstens huvudnamn, tjänstens huvudnamn nyckel och klient-ID i den **Lägg till Azure-prenumeration** dialogrutan rutan och välj sedan den **OK** knappen.
       
       Nu har du ett giltigt huvudnamn för tjänsten för att köra Azure PowerShell-skript med.

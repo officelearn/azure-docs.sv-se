@@ -13,18 +13,18 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/08/2018
 ms.author: barbkess
-ms.openlocfilehash: f24be44b00f9c4e789e8d4797f6a0516dcfe940f
-ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
+ms.openlocfilehash: f9cd761080bc5098d0500841e7327ac8ce9f9a2d
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39494065"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49957946"
 ---
 # <a name="configure-azure-active-directory-sign-in-behavior-for-an-application-by-using-a-home-realm-discovery-policy"></a>Konfigurera Azure Active Directory-inloggning i beteendet för ett program med hjälp av en princip för identifiering av startsfär
 
 Följande dokument innehåller en introduktion till att konfigurera beteendet för Azure Active Directory-autentisering för federerade användare.   Den omfattar konfiguration av automatisk acceleration och autentisering begränsningar för användare på federerade domäner.
 
-## <a name="home-realm-discovery"></a>Identifiering av startsfär
+## <a name="home-realm-discovery"></a>Upptäckt av hemsfär
 Identifiering av Home startsfär (HRD) är den process som gör att Azure Active Directory (Azure AD) för att avgöra om en användare behöver autentisera på inloggningstid.  När en användare loggar in till en Azure AD-klient till en resurs eller till Azure AD vanliga-inloggningssidan ange de ett användarnamn (UPN). Azure AD använder som för att upptäcka där användarna måste logga in. 
 
 Användaren kan behöva åtgärdas till någon av följande platser för att autentiseras:
@@ -263,4 +263,4 @@ Get-AzureADPolicyAppliedObject -ObjectId <ObjectId of the Policy>
 ## <a name="next-steps"></a>Nästa steg
 - Mer information om hur autentisering fungerar i Azure AD finns i [autentiseringsscenarier för Azure AD](../develop/authentication-scenarios.md).
 - Mer information om användare enkel inloggning finns i [programåtkomst och enkel inloggning med Azure Active Directory](configure-single-sign-on-portal.md).
-- Gå till den [utvecklarguide för Active Directory](../develop/azure-ad-developers-guide.md) en översikt över alla developer-relaterat innehåll.
+- Gå till den [utvecklarguide för Active Directory](../develop/v1-overview.md) en översikt över alla developer-relaterat innehåll.

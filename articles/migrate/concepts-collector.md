@@ -4,15 +4,15 @@ description: Innehåller information om insamlingsprogrammet i Azure Migrate.
 author: snehaamicrosoft
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 09/28/2018
+ms.date: 10/23/2018
 ms.author: snehaa
 services: azure-migrate
-ms.openlocfilehash: b79045e54b9c2ee4846f2216704a419e0ff85501
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: 3c40fd97540d8529c95c7d18d2c3155dd37717e9
+ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47434440"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49945424"
 ---
 # <a name="about-the-collector-appliance"></a>Om insamlingsprogrammet
 
@@ -170,7 +170,7 @@ Du kan uppgradera insamlaren till den senaste versionen utan att hämta ova-file
 Det finns två metoder som insamlingsprogrammet kan använda för identifiering, identifiering av enstaka eller kontinuerlig identifiering.
 
 
-### <a name="one-time-discovery"></a>Enstaka identifiering
+### <a name="one-time-discovery"></a>Engångsidentifiering
 
 Insamlaren kommunicerar vid ett enstaka tillfälle med vCenter Server för att samla in metadata om de virtuella datorerna. Med den här metoden:
 
@@ -179,17 +179,23 @@ Insamlaren kommunicerar vid ett enstaka tillfälle med vCenter Server för att s
 - Du måste ange inställningar för statistik i vCenter Server till nivå tre för den här identifieringsmetoden.
 - När nivån för tre kan tar det till en dag att generera prestandaräknare. Vi rekommenderar därför att du kör identifieringen efter en dag.
 - Vid insamling av prestandadata för en virtuell dator, installationen förlitar sig på historiska prestandadata som lagras i vCenter Server. Den samlar in prestandahistorik för den senaste månaden.
-- Azure Migrate samlar in en genomsnittlig räknare (i stället för en högsta räknare) för varje mått.
+- Azure Migrate samlar in genomsnittlig räknare (i stället för högsta räknare) för varje mått vilket kan resultera i under storlek.
 
 ### <a name="continuous-discovery"></a>Kontinuerlig identifiering
 
-Insamlingsprogrammet är kontinuerligt anslutna till Azure Migrate-projektet.
+Insamlingsprogrammet anslutna kontinuerligt till Azure Migrate-projektet och kontinuerligt samlar in prestandadata för virtuella datorer.
 
 - Insamlaren profiler kontinuerligt den lokala miljön för att samla in användningsdata i realtid var 20: e sekund.
 - Den här modellen inte är beroende statistikinställningarna för vCenter-servern att samla in prestandadata.
 - Installationen samlar in 20 sekunder exemplen och skapar en enskild datapunkt var 15: e minut.
 - För att skapa datan punkt installationen väljer det högsta värdet 20 sekunder exemplen och skickar det till Azure.
 - Du kan stoppa kontinuerlig profilering vid när som helst från insamlaren.
+
+Observera att installationen endast samlar in prestandadata kontinuerligt, inte upptäcks varje konfigurationsändring i den lokala miljön (dvs. VM-tillägg, borttagning, disk tillägg osv.). Om det finns en konfigurationsändring i den lokala miljön, kan du göra följande för att återspegla ändringar i portalen:
+
+1. Tillägg av objekt (virtuella datorer, diskar, kärnor osv): för att återspegla dessa ändringar i Azure-portalen, du kan stoppa identifieringen av programmet och sedan starta det igen. Det säkerställer att uppdateras i Azure Migrate-projektet.
+
+2. Borttagning av virtuella datorer: beroende på det sätt som är utformad för installationen, borttagning av virtuella datorer inte visas även om du stoppar och startar identifieringen. Detta är eftersom data från följande identifieringar läggas till äldre identifieringar och inte åsidosätts. I det här fallet kan du helt enkelt ignorerar den virtuella datorn i portalen genom att ta bort den från din grupp och beräkna utvärderingen.
 
 > [!NOTE]
 > Identifiering av kontinuerlig funktioner finns i förhandsversion. Om statistikinställningarna för vCenter-servern inte är inställd på nivå 3, rekommenderar vi att du använder den här metoden.
@@ -241,8 +247,8 @@ virtualDisk.read.average | 2 | 2 | Beräknar diskens storlek, kostnaden för lag
 virtualDisk.write.average | 2 | 2  | Beräknar diskens storlek, kostnaden för lagring, VM-storlek
 virtualDisk.numberReadAveraged.average | 1 | 3 |  Beräknar diskens storlek, kostnaden för lagring, VM-storlek
 virtualDisk.numberWriteAveraged.average | 1 | 3 |   Beräknar diskens storlek, kostnaden för lagring, VM-storlek
-NET.Received.Average | 2 | 3 |  Beräknas kostnaden för VM-storlek och nätverk                        |
-NET.Transmitted.Average | 2 | 3 | Beräknas kostnaden för VM-storlek och nätverk    
+NET.Received.Average | 2 | 3 |  Beräknar storlek på virtuell dator                          |
+NET.Transmitted.Average | 2 | 3 | Beräknar storlek på virtuell dator     
 
 ## <a name="next-steps"></a>Nästa steg
 

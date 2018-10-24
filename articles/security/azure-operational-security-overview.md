@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: tomsh
-ms.openlocfilehash: 724603fdb80e6fce7d5b8756655d23a6c32d5558
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 4305afff1e35e9e05f1b2314f8fb9d5a96383e9f
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49405471"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49955651"
 ---
 # <a name="azure-operational-security-overview"></a>Översikt över Azure driftsäkerhet
 [Azure driftsäkerhet](https://docs.microsoft.com/azure/security/azure-operational-security) refererar till de tjänster, kontroller och funktioner som är tillgängliga för användare för att skydda sina data, program och andra resurser i Microsoft Azure. Det är ett ramverk som innehåller den kunskap som en mängd funktioner som är unika för Microsoft. Funktionerna omfattar Microsoft Security Development Lifecycle (SDL), Microsoft Security Response Center-program och djup medvetenhet om hotlandskapet.
@@ -30,7 +30,7 @@ En IT-driftsteamet ansvarar för att hantera infrastruktur med datacenter, progr
 [Microsoft Log Analytics](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-overview) är en molnbaserad IT-hanteringslösning som hjälper dig att hantera och skydda dina lokala och molnbaserade infrastruktur. Dess huvudfunktioner tillhandahåller följande tjänster som körs i Azure. Azure innehåller flera tjänster som hjälper dig att hantera och skydda dina lokala och molnbaserade infrastruktur. Varje tjänst tillhandahåller en specifik hanteringsfunktion. Du kan kombinera tjänster för olika hanteringsscenarier. 
 
 ### <a name="azure-monitor"></a>Azure Monitor
-[Azure Monitor](https://docs.microsoft.com/en-us/azure/azure-monitor/overview) samlar in data från hanterade sourcesa i central datalager. Dessa data kan omfatta händelser, prestandadata eller anpassade data via API: et. När data har samlats in, är den tillgänglig för avisering, analys och export. 
+[Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/overview) samlar in data från hanterade sourcesa i central datalager. Dessa data kan omfatta händelser, prestandadata eller anpassade data via API: et. När data har samlats in, är den tillgänglig för avisering, analys och export. 
 
 Du kan konsolidera data från olika källor och kombinera data från dina Azure-tjänster med din befintliga lokala miljö. Log Analytics skiljer också en tydlig insamling av data från de åtgärder som vidtagits på dessa data så att alla åtgärder är tillgängliga för alla typer av data.
 
@@ -158,5 +158,5 @@ Mogen DevOps läkare anta flera av följande metoder. Dessa metoder [omfattar pe
 Läs om lösningen för säkerhet och granskning i följande artiklar:
 
 - [Säkerhet och efterlevnad](https://www.microsoft.com/cloud-platform/security-and-compliance)
-- [Azure Security Center](https://docs.microsoft.com/en-us/azure/security-center/security-center-intro)
-- [Azure Monitor](https://docs.microsoft.com/en-us/azure/azure-monitor/overview)
+- [Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-intro)
+- [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/overview)

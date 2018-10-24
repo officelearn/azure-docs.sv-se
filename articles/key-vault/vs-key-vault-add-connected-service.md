@@ -11,12 +11,12 @@ ms.workload: azure-vs
 ms.topic: conceptual
 ms.date: 04/15/2018
 ms.author: ghogen
-ms.openlocfilehash: 9cf49ae97da3bf67300bdc222c86bb712aeaed37
-ms.sourcegitcommit: 06724c499837ba342c81f4d349ec0ce4f2dfd6d6
+ms.openlocfilehash: c90ef26c0170db67b1d422701b6969ca3f9c9e38
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46465800"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49958524"
 ---
 # <a name="add-key-vault-to-your-web-application-by-using-visual-studio-connected-services"></a>Lägg till Key Vault i ditt webbprogram med hjälp av Visual Studio Connected Services
 
@@ -27,19 +27,19 @@ Mer information om ändringarna att Connected Services gör i ditt projekt för 
 ## <a name="prerequisites"></a>Förutsättningar
 
 - **En Azure-prenumeration**. Om du inte har en prenumeration kan du registrera dig för ett [kostnadsfritt konto](https://azure.microsoft.com/pricing/free-trial/).
-- **Visual Studio 2017 version 15.7** med den **webbutveckling** arbetsbelastning som är installerad. [Hämta nu](https://aka.ms/vsdownload?utm_source=mscom&utm_campaign=msdocs).
+- **Visual Studio 2017 version 15.7** med arbetsbelastningen **Webbutveckling** installerad. [Ladda ned det nu](https://aka.ms/vsdownload?utm_source=mscom&utm_campaign=msdocs).
 - För ASP.NET (inte Core) behöver du utvecklingsverktygen .NET Framework 4.7.1 som inte installeras som standard. Starta installationsprogrammet för Visual Studio för att installera dem, Välj **ändra**, och välj sedan **enskilda komponenter**, sedan till höger, expandera **ASP.NET och webbutveckling**, och välj **utvecklingsverktyg för .NET Framework 4.7.1**.
 - En ASP.NET 4.7.1 eller ASP.NET Core 2.0 webbprojekt som är öppna.
 
 ## <a name="add-key-vault-support-to-your-project"></a>Lägg till stöd för Key Vault i projektet
 
-1. I **Solution Explorer**, Välj **Lägg till** > **Connected Service**.
-   Connected Service-sidan visas med tjänster som du kan lägga till i projektet.
+1. I **Solution Explorer** väljer du **Lägg till** > **Ansluten tjänst**.
+   Sidan Ansluten tjänst visas med tjänster som du kan lägga till i projektet.
 1. Meny med olika tjänster, Välj **skydda hemligheter med Azure Key Vault**.
 
    ![Välj ”säker hemligheter med Azure Key Vault”](media/vs-key-vault-add-connected-service/KeyVaultConnectedService1.PNG)
 
-   Om du har loggat in Visual Studio och Azure-prenumeration som är associerade med ditt konto, visas en sida med en listruta med dina prenumerationer. Kontrollera att du har loggat in Visual Studio och att konton som du har loggat in med samma konto som du använder för din Azure-prenumeration.
+   Om du har loggat in till Visual Studio och har en Azure-prenumeration som är associerad med ditt konto, visas en sida med en listruta med dina prenumerationer. Kontrollera att du har loggat in Visual Studio och att konton som du har loggat in med samma konto som du använder för din Azure-prenumeration.
 
 1. Välj den prenumeration som du vill använda och välj sedan en ny eller befintlig Key Vault eller Välj länken Redigera för att ändra det automatiskt genererade namnet.
 
@@ -138,11 +138,33 @@ Anslutningen till ditt Nyckelvalv har ställts in av klassen ConfigurationBuilde
       <h3>@ViewBag.Secret2</h3>
    ```
 
-Grattis, du nu har bekräftat att webbappen kan använda Key Vault för att komma åt säkert lagrade hemligheter.
+1. Kör appen lokalt för att kontrollera att du kan läsa hemligt värde du angav i Azure-portalen, inte dummy värdet från konfigurationsfilen.
+
+Därefter publicera din app till Azure.
+
+## <a name="publish-to-azure-app-service"></a>Publicera till Azure App Service
+
+1. Högerklicka på projektnoden och välj **publicera**. En skärm visas där det står **Välj ett mål för publicera**. Till vänster, Välj **Apptjänst**, och sedan **Skapa ny**.
+
+   ![Publicera i App Service](media/vs-key-vault-add-connected-service/AppServicePublish1.PNG)
+
+1. På den **skapa App Service** skärmbild och se till att prenumerationen och resursgruppen är samma som du skapade i Key Vault och väljer **skapa**.
+
+   ![Skapa App Service](media/vs-key-vault-add-connected-service/AppServicePublish2.PNG)
+
+1. När webbappen har skapats kan den **publicera** skärmen visas. Observera URL-Adressen för din publicerade webbprogram som finns i Azure. Om du ser **ingen** bredvid **Key Vault**, du måste fortfarande ange vilka Key Vault för att ansluta till att App Service. Välj den **lägga till Key Vault** koppla och välj det Nyckelvalv som du skapade.
+
+   ![Lägg till Key Vault](media/vs-key-vault-add-connected-service/AppServicePublish3.PNG)
+
+   Om du ser **hantera Nyckelvalv**, du kan klicka på som om du vill visa de aktuella inställningarna behörighet att redigera, eller gör ändringar i dina hemligheter i Azure Portal.
+
+1. Nu kan välja länken webbplats-URL att gå till ditt webbprogram i webbläsaren. Kontrollera att du ser det korrekta värdet från Key Vault.
+
+Grattis, du har bekräftat att webbappen kan använda Key Vault för att komma åt säkert lagrade hemligheter när du kör i Azure.
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-När den inte längre behövs kan du ta bort resursgruppen. Detta tar bort Nyckelvalvet och relaterade resurser. Så här tar du bort resursgruppen via portalen:
+När den inte längre behövs tar du bort resursgruppen. Detta tar bort Nyckelvalvet och relaterade resurser. Så här tar du bort resursgruppen via portalen:
 
 1. Skriv namnet på resursgruppen i rutan Sök längst upp i portalen. När du ser resursgruppen du använde i den här snabbstarten bland sökresultaten väljer du den.
 2. Välj **Ta bort resursgrupp**.

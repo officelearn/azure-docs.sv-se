@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/18/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: e30f02fb7f250b32cb3c7bb5205f58ca658a8f2a
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: e797f1faf249a1ad1eebbd46984829de5f087936
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49426761"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49958677"
 ---
 # <a name="asynchronous-refresh-with-the-rest-api"></a>Asynkron uppdatering med REST API
 Genom att använda valfritt programmeringsspråk som har stöd för REST-anrop kan utföra du asynkrona datauppdateringsåtgärder på din Azure Analysis Services-tabellmodeller. Detta inkluderar synkronisering av skrivskyddade repliker för frågeutskalning. 
@@ -236,7 +236,7 @@ Den här typen av autentisering kräver ett Azure-program skapas med nödvändig
 
 #### <a name="service-principal"></a>Tjänstens huvudnamn
 
-Se [skapa tjänstens huvudnamn – Azure-portalen](../azure-resource-manager/resource-group-create-service-principal-portal.md) och [lägga till tjänstens huvudnamn till administratörsrollen för servern](analysis-services-addservprinc-admins.md) för mer information om hur du konfigurerar ett tjänstobjekt och tilldela nödvändiga behörigheter i Azure som . När du har slutfört stegen, utför följande åtgärder:
+Se [skapa tjänstens huvudnamn – Azure-portalen](../active-directory/develop/howto-create-service-principal-portal.md) och [lägga till tjänstens huvudnamn till administratörsrollen för servern](analysis-services-addservprinc-admins.md) för mer information om hur du konfigurerar ett tjänstobjekt och tilldela nödvändiga behörigheter i Azure som . När du har slutfört stegen, utför följande åtgärder:
 
 1.  I kodexemplet, hitta **sträng authority =...** , Ersätt **vanliga** med organisationens klient-ID.
 2.  Kommenterar/avkommenterar så att klassen ClientCredential används för att skapa en instans av objektet Använ. Se till att den \<App-ID > och \<Appnyckeln > värden används på ett säkert sätt eller använda certifikatbaserad autentisering för tjänstens huvudnamn.

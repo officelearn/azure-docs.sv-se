@@ -9,16 +9,16 @@ ms.author: gwallace
 ms.date: 09/18/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 1c5bcca2571ffee9e1c20f0b7d2608b62c962177
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.openlocfilehash: 245cbd86ae43560e4e41f4b97350f9a5857e1b25
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48815349"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49956633"
 ---
 # <a name="manage-pre-and-post-scripts-preview"></a>Hantera skript före och efter (förhandsversion)
 
-Skript före och efter att du kör PowerShell-runbooks i ditt Automation-konto innan (före uppgift) och efter distributionen för en uppdatering (efter uppgift). Skript före och efter körs i Azure-kontext och inte lokalt. Pre skript körs vid beginnin av uppdateringsdistributionen. Skicka skript som körs i slutet av distributionen och efter eventuella omstarter som har konfigurerats.
+Skript före och efter att du kör PowerShell-runbooks i ditt Automation-konto innan (före uppgift) och efter distributionen för en uppdatering (efter uppgift). Skript före och efter körs i Azure-kontext och inte lokalt. Pre-skript köras i början av uppdateringsdistributionen. Skicka skript som körs i slutet av distributionen och efter eventuella omstarter som har konfigurerats.
 
 ## <a name="runbook-requirements"></a>Krav för Runbook
 

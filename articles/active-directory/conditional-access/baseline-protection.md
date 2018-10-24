@@ -17,12 +17,12 @@ ms.workload: identity
 ms.date: 08/08/2018
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: 6ee89aa901c9553d22470a0481909e9cd62d60cf
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: e7e92c2f3564591133816baaaf758d72b083330b
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49345138"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49958558"
 ---
 # <a name="what-is-baseline-protection-preview"></a>Vad är skydd vid baslinjen (förhandsversion)?  
 
@@ -86,7 +86,7 @@ Medan hantera principer för villkorlig åtkomst kräver en Azure AD Premium-lic
 
 Katalogroller som ingår i baslinjeprincip är de mest Privilegierade rollerna för Azure AD. 
 
-Om du har Privilegierade konton som används i dina skript, bör du ersätta dem med [hanterade identiteter för Azure-resurser](../managed-identities-azure-resources/overview.md) eller [tjänsthuvudnamn med certifikat](../../azure-resource-manager/resource-group-authenticate-service-principal.md). Du kan utesluta specifika användarkonton från baslinje-principen som en tillfällig lösning. 
+Om du har Privilegierade konton som används i dina skript, bör du ersätta dem med [hanterade identiteter för Azure-resurser](../managed-identities-azure-resources/overview.md) eller [tjänsthuvudnamn med certifikat](../develop/howto-authenticate-service-principal-powershell.md). Du kan utesluta specifika användarkonton från baslinje-principen som en tillfällig lösning. 
 
 Grundläggande principer gäller för äldre autentiseringsflöden som POP, IMAP, äldre Office-klientversionen. 
 

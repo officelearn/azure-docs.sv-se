@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/12/2018
 ms.author: bryanla
-ms.openlocfilehash: 1d6f84612dd2bac34c238ad7eaf323dc7fa00ba3
-ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
+ms.openlocfilehash: d93ad4185be3d4875c5747fd10359baab69af95d
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2018
-ms.locfileid: "49311362"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49958662"
 ---
 # <a name="about-keys-secrets-and-certificates"></a>Om nycklar, hemligheter och certifikat
 
@@ -101,7 +101,7 @@ Key Vault har stöd för RSA och Elliptic Curve nycklar.
 -   **RSA**: ”Soft” RSA-nyckel.
 -   **RSA-HSM**: ”hård” RSA-nyckel.
 
-Key Vault har stöd för RSA-nycklar med storlekar 2048, 3072 och 4096. Key Vault stöder Elliptic Curve nyckel skriver P-256, p-384, p 521 och P - 256 kB.
+Key Vault har stöd för RSA-nycklar med storlekar 2048, 3072 och 4096. Key Vault stöder Elliptic Curve nyckel skriver P-256, p-384, p 521 och P-256_K (SECP256K1).
 
 ### <a name="cryptographic-protection"></a>Kryptering
 
@@ -110,12 +110,19 @@ De kryptografiska moduler som använder Key Vault, om HSM eller programvara är 
 ###  <a name="ec-algorithms"></a>EG algoritmer
  Följande algoritm identifierare stöds med EG och EG HSM-nycklar i Key Vault. 
 
+#### <a name="curve-types"></a>Kurvan typer
+
+-   **P-256** – The NIST kurvan p-256, har definierats på [DSS FIPS PUB 186 4](https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.186-4.pdf).
+-   **P-256_K** – The sek kurvan SECP256K1 som definierats på [sek 2: rekommenderas Elliptic Curve domänparametrar](http://www.secg.org/sec2-v2.pdf).
+-   **P-384** – The NIST kurvan p-384, har definierats på [DSS FIPS PUB 186 4](https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.186-4.pdf).
+-   **P-521** – The NIST kurvan p 521, som definierats på [DSS FIPS PUB 186 4](https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.186-4.pdf).
+
 #### <a name="signverify"></a>INLOGGNING/KONTROLLERA
 
--   **ES256** – ECDSA för SHA-256 Överför sammanfattningar och nycklar som skapats med kurvan p-256. Den här algoritmen beskrivs på [RFC7518].
+-   **ES256** – ECDSA för SHA-256 Överför sammanfattningar och nycklar som skapats med kurvan p-256. Den här algoritmen beskrivs på [RFC7518](https://tools.ietf.org/html/rfc7518).
 -   **ES256K** – ECDSA för SHA-256 Överför sammanfattningar och nycklar som skapats med kurvan P-256_K. Den här algoritmen väntar på standardisering.
--   **ES384** – ECDSA för SHA-384 Överför sammanfattningar och nycklar som skapats med kurvan p-384. Den här algoritmen beskrivs på [RFC7518].
--   **ES512** – ECDSA för SHA-512 Överför sammanfattningar och nycklar som skapats med kurvan p 521. Den här algoritmen beskrivs på [RFC7518].
+-   **ES384** – ECDSA för SHA-384 Överför sammanfattningar och nycklar som skapats med kurvan p-384. Den här algoritmen beskrivs på [RFC7518](https://tools.ietf.org/html/rfc7518).
+-   **ES512** – ECDSA för SHA-512 Överför sammanfattningar och nycklar som skapats med kurvan p 521. Den här algoritmen beskrivs på [RFC7518](https://tools.ietf.org/html/rfc7518).
 
 ###  <a name="rsa-algorithms"></a>RSA-algoritmer  
  Följande algoritm identifierare stöds med RSA- och RSA-HSM-nycklar i Key Vault.  

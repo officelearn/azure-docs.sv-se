@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/04/2018
 ms.author: cherylmc
 Customer intent: As a Virtual WAN software-defined connectivity provider, I want to set up a provisioning environment.
-ms.openlocfilehash: 0ea1b69b788255b1d8d24e17fcc1409d35a4fd36
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.openlocfilehash: a4664e628af5824b7b197cbdb5c5af602a3a4476
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48814329"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49958694"
 ---
 # <a name="virtual-wan-partners"></a>Virtuella WAN-partner
 
@@ -46,7 +46,7 @@ En gren-enhet (kund lokala VPN-enhet eller SDWAN CPE) använder vanligtvis en st
 
 ###  <a name="access"></a>Åtkomstkontroll
 
-Kunder måste kunna ställa in lämplig åtkomstkontroll för virtuellt WAN-nätverk i enhetens användargränssnitt. Detta rekommenderas använder ett huvudnamn för Azure-tjänsten. Tjänstens huvudnamn-baserad åtkomst ger enheten controller lämplig autentisering för att ladda upp informationen om grenen. Mer information finns i [skapa tjänstens huvudnamn](../azure-resource-manager/resource-group-create-service-principal-portal.md#create-an-azure-active-directory-application). Den här funktionen är utanför Azure virtuellt WAN erbjudandet, listan vi nedan de vanliga åtgärder för att konfigurera åtkomst i Azure efter vilken form av relevant information är inputted i instrumentpanelen för hantering av enheten
+Kunder måste kunna ställa in lämplig åtkomstkontroll för virtuellt WAN-nätverk i enhetens användargränssnitt. Detta rekommenderas använder ett huvudnamn för Azure-tjänsten. Tjänstens huvudnamn-baserad åtkomst ger enheten controller lämplig autentisering för att ladda upp informationen om grenen. Mer information finns i [skapa tjänstens huvudnamn](../active-directory/develop/howto-create-service-principal-portal.md#create-an-azure-active-directory-application). Den här funktionen är utanför Azure virtuellt WAN erbjudandet, listan vi nedan de vanliga åtgärder för att konfigurera åtkomst i Azure efter vilken form av relevant information är inputted i instrumentpanelen för hantering av enheten
 
 * Skapa ett Azure Active Directory-program för din lokala enhetens styrenhet.
 * Hämta nyckel för program-ID och autentiseringsnyckel

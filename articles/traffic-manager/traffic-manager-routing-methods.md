@@ -4,7 +4,6 @@ description: Det här artiklarna hjälper dig att förstå de olika routningsmet
 services: traffic-manager
 documentationcenter: ''
 author: KumudD
-manager: jpconnock
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: article
@@ -12,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/17/2018
 ms.author: kumud
-ms.openlocfilehash: be429e7d3ae847eec6dc4fd5ad6b9c3e5d76d5b5
-ms.sourcegitcommit: 4edf9354a00bb63082c3b844b979165b64f46286
+ms.openlocfilehash: eb43b59a26bc9c1b514921a7b6dfa4b920a8fe5f
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48785417"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49955226"
 ---
 # <a name="traffic-manager-routing-methods"></a>Traffic Manager-dirigeringsmetoder
 
@@ -129,8 +128,11 @@ Enligt beskrivningen i [hur Traffic Manager fungerar](traffic-manager-how-it-wor
 Den **Flervärden är** trafikdirigeringsmetoden kan du få flera felfria slutpunkter i en enda DNS-svar för frågan. Detta gör att anroparen göra klientsidan återförsök med andra slutpunkter i händelse av en returnerade slutpunkt som svarar inte. Det här mönstret kan öka tillgängligheten för en tjänst och minska svarstiden som är associerade med en ny DNS-fråga för att hämta en felfri slutpunkt. Flera värden routningsmetod fungerar bara om alla slutpunkter av typen ”extern” och är som angetts som IPv4- eller IPv6-adresser. När en fråga tas emot för den här profilen, returneras alla felfria slutpunkter och omfattas av en konfigurerbar maximalt returnerade antal.
 
 ## <a name = "subnet"></a>Trafikdirigeringsmetoden för undernät
-Den **undernät** trafikdirigeringsmetoden kan du mappa en uppsättning slutanvändaren IP-adressintervall till specifika slutpunkter i en profil. Efter det om Traffic Manager tar emot en DNS-fråga för profilen, den inspektera källan IP-adressen för begäran (i de flesta fall kommer detta att utgående IP-adressen för DNS-matchare som används av anroparen) avgöra vilken slutpunkt den mappas till och returnerar t Hat slutpunkt i frågesvaret. IP-adress som ska mappas till en slutpunkt kan anges som CIDR-intervall (t.ex. 1.2.3.0/24) eller som ett adressintervall (t.ex. 1.2.3.4-5.6.7.8). IP-adressintervall som är associerade med en slutpunkt måste vara unikt inom den profilen och kan inte ha ett överlapp med IP-adressen för en annan slutpunkt i samma profil.
-Om det finns inga slutpunkter som IP-adress kan mappas, skickar Traffic Manager svaret inga data. Därför rekommenderas att du ser till alla möjliga IP-intervall som anges i dina slutpunkter.
+Den **undernät** trafikdirigeringsmetoden kan du mappa en uppsättning slutanvändaren IP-adressintervall till specifika slutpunkter i en profil. Efter det om Traffic Manager tar emot en DNS-fråga för profilen, den inspektera källan IP-adressen för begäran (i de flesta fall kommer detta att utgående IP-adressen för DNS-matchare som används av anroparen) avgöra vilken slutpunkt den mappas till och returnerar t Hat slutpunkt i frågesvaret. 
+
+IP-adress som ska mappas till en slutpunkt kan anges som CIDR-intervall (t.ex. 1.2.3.0/24) eller som ett adressintervall (t.ex. 1.2.3.4-5.6.7.8). IP-adressintervall som är associerade med en slutpunkt måste vara unikt inom den profilen och kan inte ha ett överlapp med IP-adressen för en annan slutpunkt i samma profil.
+Om du definierar en slutpunkt med inga adressintervall, som fungerar som en reserv och vidta trafik från alla återstående undernät. Om det finns ingen återställningsplats slutpunkt skickar Traffic Manager svar inga data för eventuella odefinierat intervall. Därför rekommenderas att du antingen definiera en återställningsplats slutpunkt, eller så se till att alla möjliga IP-adressintervall har angetts i dina slutpunkter.
+
 Undernät routning kan användas för att leverera en annan upplevelse för användare som ansluter från en specifik IP-adressutrymmet. Till exempel kan med undernätet routning kan en kund göra alla förfrågningar från sina huvudkontoret dirigeras till en annan slutpunkt där de kan testa en intern endast version av appen. Ett annat scenario är om du vill ange en annan miljö för användare som ansluter från en specifik Internet-leverantör (till exempel blockera användare från en viss Internet-leverantör).
 
 ## <a name="next-steps"></a>Nästa steg

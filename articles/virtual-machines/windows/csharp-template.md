@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/14/2017
 ms.author: zarhoads
-ms.openlocfilehash: a91d8452d7b85d3e7ff21dc523429be42d34336b
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: f3d83fa8ba5a78c7aacc7014e9ec50fb447bb1c6
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49468899"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49953696"
 ---
 # <a name="deploy-an-azure-virtual-machine-using-c-and-a-resource-manager-template"></a>Distribuera en Azure-dator med C# och Resource Manager-mall
 Den här artikeln visar hur du distribuerar en Azure Resource Manager-mall med C#. Mallen som du skapar distribuerar en virtuell dator som kör Windows Server i ett nytt virtuellt nätverk med ett enda undernät.
@@ -185,7 +185,7 @@ Om du vill ange värden för parametrarna resurs som har definierats i mallen ka
 
 ### <a name="create-the-authorization-file"></a>Skapa auktoriseringsfilen
 
-Innan du kan distribuera en mall, se till att du har åtkomst till en [Active Directory-tjänstobjekt](../../resource-group-authenticate-service-principal.md). Från tjänstens huvudnamn hämta en token för autentisering av förfrågningar till Azure Resource Manager. Du bör också anteckna program-ID och autentiseringsnyckel klient-ID som du behöver i auktoriseringsfilen.
+Innan du kan distribuera en mall, se till att du har åtkomst till en [Active Directory-tjänstobjekt](../../active-directory/develop/howto-authenticate-service-principal-powershell.md). Från tjänstens huvudnamn hämta en token för autentisering av förfrågningar till Azure Resource Manager. Du bör också anteckna program-ID och autentiseringsnyckel klient-ID som du behöver i auktoriseringsfilen.
 
 1. I Solution Explorer högerklickar du på *myDotnetProject* > **Lägg till** > **nytt objekt**, och välj sedan **textfil** i *Visual C#-objekt*. Ge filen namnet *azureauth.properties*, och klicka sedan på **Lägg till**.
 2. Lägg till de här egenskaperna för auktorisering:

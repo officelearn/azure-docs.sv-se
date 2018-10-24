@@ -1,6 +1,6 @@
 ---
-title: Hantering av .NET SDK för Azure Stream Analytics
-description: Kom igång med Stream Analytics Management .NET SDK. Lär dig hur du ställer in och kör analytics-jobb. Skapa ett projekt, indata, utdata och transformationer.
+title: Management .NET SDK för Azure Stream Analytics
+description: Kom igång med Stream Analytics Management .NET SDK. Lär dig hur du konfigurerar och kör analytics-jobb. Skapa ett projekt, indata, utdata och transformationer.
 services: stream-analytics
 author: jseb225
 ms.author: jeanb
@@ -9,29 +9,29 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/06/2017
-ms.openlocfilehash: b57e22b979d0e47d294a89d41a945a665beacdc0
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 796da53718a56fa9d5788a0f4319dfe4e7e6b19d
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2018
-ms.locfileid: "31525309"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49955668"
 ---
-# <a name="management-net-sdk-set-up-and-run-analytics-jobs-using-the-azure-stream-analytics-api-for-net"></a>Hantering av .NET SDK: Konfigurera och köra analytics-jobb med hjälp av Azure Stream Analytics-API: et för .NET
-Lär dig hur du ställer in och kör analytics-jobb med hjälp av Stream Analytics-API för .NET med hantering av .NET SDK. Ställ in ett projekt, skapa inkommande och utgående källor, omvandlingar och starta och stoppa jobb. För analytics-jobb kan du strömma data från Blob-lagring eller från en händelsehubb.
+# <a name="management-net-sdk-set-up-and-run-analytics-jobs-using-the-azure-stream-analytics-api-for-net"></a>Hantering av .NET SDK: Konfigurera och köra analysjobb med hjälp av Azure Stream Analytics-API för .NET
+Lär dig hur du konfigurerar och kör analytics-jobb med hjälp av Stream Analytics-API för .NET med hjälp av .NET SDK. Ställ in ett projekt, skapa inkommande och utgående källor, transformeringar och starta och stoppa jobb. Du kan strömma data från Blob storage eller från en händelsehubb för analytics-jobb.
 
-Finns det [management referensdokumentationen för Stream Analytics-API för .NET](https://msdn.microsoft.com/library/azure/dn889315.aspx).
+Se den [management referensdokumentation för Stream Analytics-API för .NET](https://msdn.microsoft.com/library/azure/dn889315.aspx).
 
-Azure Stream Analytics är en helt hanterad tjänst som tillhandahåller låg latens, hög tillgänglighet, skalbarhet, komplexa händelsebearbetning över strömmande data i molnet. Stream Analytics ger kunder möjlighet att konfigurera direktuppspelningsjobb för att analysera dataströmmar, vilket gör att enheten nära analys i realtid.  
+Azure Stream Analytics är en helt hanterad tjänst som ger låg latens, hög tillgänglighet, skalbar, komplex händelsebearbetning över strömmande data i molnet. Stream Analytics ger kunder möjlighet att ställa in direktuppspelningsjobb för att analysera dataströmmar och låter dem att driva analys i nära realtid.  
 
 > [!NOTE]
-> Vi har uppdaterat exempelkoden i den här artikeln med Azure Stream Analytics Management .NET SDK v2.x version. Exempelkod med SDK-version använder lagecy (1.x), se [använder Management .NET SDK-v1.x för Stream Analytics](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-dotnet-management-sdk-v1).
+> Vi har uppdaterat exempelkoden i den här artikeln med Azure Stream Analytics Management .NET SDK v2.x version. Exempelkod med hjälp av SDK-version använder lagecy (1.x), finns i [Använd Management .NET SDK-v1.x för Stream Analytics](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-dotnet-management-sdk-v1).
 
 ## <a name="prerequisites"></a>Förutsättningar
 Innan du påbörjar den här artikeln måste du ha:
 
 * Installera Visual Studio 2017 eller 2015.
-* Hämta och installera [Azure .NET SDK](https://azure.microsoft.com/downloads/).
-* Skapa en Azure-resursgrupp i din prenumeration. Följande är ett exempel Azure PowerShell-skript. Azure PowerShell information finns i [installera och konfigurera Azure PowerShell](/powershell/azure/overview);  
+* Ladda ned och installera [Azure .NET SDK](https://azure.microsoft.com/downloads/).
+* Skapa en Azure-resursgrupp i din prenumeration. Följande är ett exempelskript för Azure PowerShell. Azure PowerShell information finns i [installera och konfigurera Azure PowerShell](/powershell/azure/overview);  
 
         # Log in to your Azure account
         Add-AzureAccount
@@ -49,10 +49,10 @@ Innan du påbörjar den här artikeln måste du ha:
 * Konfigurera ett inkommande käll- och utdata för jobbet att ansluta till.
 
 ## <a name="set-up-a-project"></a>Ställ in ett projekt
-Använd Stream Analytics-API för .NET, först konfigurera ditt projekt för att skapa analytics-jobbet.
+Om du vill skapa en analytics-jobbet använda Stream Analytics-API för .NET, först konfigurera ditt projekt.
 
-1. Skapa ett konsolprogram i Visual Studio C# .NET.
-2. Kör följande kommandon för att installera NuGet-paket i Package Manager-konsolen. Den första är Azure Stream Analytics Management .NET SDK. Den andra är för Azure klientautentisering.
+1. Skapa ett Visual Studio C# .NET-konsolprogram.
+2. Kör följande kommandon för att installera NuGet-paket i Package Manager-konsolen. Den första är Azure Stream Analytics Management .NET SDK. Den andra är för Azure-klientautentisering.
    
         Install-Package Microsoft.Azure.Management.StreamAnalytics -Version 2.0.0
         Install-Package Microsoft.Rest.ClientRuntime.Azure.Authentication -Version 2.3.1
@@ -98,7 +98,7 @@ Använd Stream Analytics-API för .NET, först konfigurera ditt projekt för att
    ```
 
 ## <a name="create-a-stream-analytics-management-client"></a>Skapa ett Stream Analytics management-klienten
-En **StreamAnalyticsManagementClient** objektet kan du hantera jobbet och jobbet-komponenter, till exempel indata, utdata och omvandling.
+En **StreamAnalyticsManagementClient** objekt kan du hantera jobbet och jobbet-komponenter, till exempel indata, utdata och omvandling.
 
 Lägg till följande kod i början av den **Main** metoden:
 
@@ -121,14 +121,14 @@ Lägg till följande kod i början av den **Main** metoden:
     };
    ```
 
-Den **resourceGroupName** variabelns värde ska vara samma som namnet på resursgruppen som du har skapat eller plockats i förkraven.
+Den **resourceGroupName** variabelns värde bör vara samma som namnet på resursgruppen som du har skapat eller valt i nödvändiga steg.
 
-Om du vill automatisera autentiseringsuppgifter presentation aspekt av skapa jobb, referera till [autentiserar ett huvudnamn för tjänsten med Azure Resource Manager](../azure-resource-manager/resource-group-authenticate-service-principal.md).
+Om du vill automatisera credential presentation aspekt av skapande av jobb, som avser [autentisera tjänstens huvudnamn med Azure Resource Manager](../active-directory/develop/howto-authenticate-service-principal-powershell.md).
 
-De återstående avsnitten i den här artikeln förutsätter att den här koden är i början av den **Main** metod.
+De återstående avsnitten i den här artikeln förutsätter att den här koden finns i början av den **Main** metod.
 
 ## <a name="create-a-stream-analytics-job"></a>Skapa ett Stream Analytics-jobb
-Följande kod skapar en Stream Analytics-jobbet under den resursgrupp som du har definierat. Du lägger till indata, utdata och omvandling i jobbet senare.
+Följande kod skapar ett Stream Analytics-jobb under den resursgrupp som du har definierat. Du lägger till ett indata, utdata och omvandling till jobbet senare.
 
    ```
    // Create a streaming job
@@ -154,8 +154,8 @@ Följande kod skapar en Stream Analytics-jobbet under den resursgrupp som du har
    StreamingJob createStreamingJobResult = streamAnalyticsManagementClient.StreamingJobs.CreateOrReplace(streamingJob, resourceGroupName, streamingJobName);
    ```
 
-## <a name="create-a-stream-analytics-input-source"></a>Skapa en inkommande Stream Analytics-källa
-Följande kod skapar en Stream Analytics-Indatakällan med Indatakällan blobbtypen och CSV-serialisering. Så här skapar du en hub inkommande händelsekälla **EventHubStreamInputDataSource** i stället för **BlobStreamInputDataSource**. På liknande sätt kan du anpassa serialisering typ av Indatakällan.
+## <a name="create-a-stream-analytics-input-source"></a>Skapa ett Stream Analytics-indatakälla
+Följande kod skapar ett Stream Analytics-Indatakällan med blob-Indatakällan typ och CSV-serialisering. Använd för att skapa en event hub indatakälla **EventHubStreamInputDataSource** i stället för **BlobStreamInputDataSource**. På samma sätt kan du anpassa serialisering typ av Indatakällan.
 
    ```
    // Create an input
@@ -187,10 +187,10 @@ Följande kod skapar en Stream Analytics-Indatakällan med Indatakällan blobbty
    Input createInputResult = streamAnalyticsManagementClient.Inputs.CreateOrReplace(input, resourceGroupName, streamingJobName, inputName);
    ```
 
-Indatakällor, som från Blob-lagring eller en händelsehubb är knutna till ett visst jobb. Om du vill använda samma Indatakällan för olika jobb, måste du anropa metoden igen och ange ett annat jobbnamn.
+Indatakällor, som från Blob storage- eller en händelsehubb är knutna till ett specifikt jobb. Om du vill använda samma Indatakällan för olika jobb, måste du anropa metoden igen och ange ett annat jobbnamn.
 
-## <a name="test-a-stream-analytics-input-source"></a>Testa en Stream Analytics indatakälla
-Den **TestConnection** metoden testar om Stream Analytics-jobbet är ansluta till Indatakällan samt andra aspekter som är specifika för inkommande källtypen. Till exempel i blob Indatakällan du skapade tidigare, kontrollerar metoden att lagringskontonamn och nyckel kan användas för att ansluta till lagringskontot samt kontrollera att den angivna behållaren finns.
+## <a name="test-a-stream-analytics-input-source"></a>Testa en indatakälla för Stream Analytics
+Den **TestConnection** metoden testar om Stream Analytics-jobb är ansluta till Indatakällan samt andra aspekter som är specifik för typ av indatakälla. Till exempel i blob Indatakällan du skapade i ett tidigare steg, kontrollerar metoden att det lagringskontonamn och nyckel kan användas till att ansluta till lagringskontot och kontrollera att den angivna behållaren finns.
 
    ```
    // Test the connection to the input
@@ -198,9 +198,9 @@ Den **TestConnection** metoden testar om Stream Analytics-jobbet är ansluta til
    ```
 
 ## <a name="create-a-stream-analytics-output-target"></a>Skapa ett mål för Stream Analytics-utdata
-Skapa ett mål för utdata liknar att skapa ett Stream Analytics-Indatakällan. Som indatakällor, är utdata mål knutna till ett visst jobb. Om du vill använda samma utdata mål för olika jobb, måste du anropa metoden igen och ange ett annat jobbnamn.
+Skapar en utdatamål påminner mycket om att skapa ett Stream Analytics-Indatakällan. Som indatakällor, är utdata mål knutna till ett specifikt jobb. Om du vill använda samma utdatamål för olika jobb, måste du anropa metoden igen och ange ett annat jobbnamn.
 
-Följande kod skapar ett utgående mål (Azure SQL database). Du kan anpassa utdata målets datatyp och/eller serialiseringstyp.
+Följande kod skapar ett utdatamål (Azure SQL-databas). Du kan anpassa utdata målets datatyp och/eller serialiseringstyp.
 
    ```
    // Create an output
@@ -218,16 +218,16 @@ Följande kod skapar ett utgående mål (Azure SQL database). Du kan anpassa utd
    Output createOutputResult = streamAnalyticsManagementClient.Outputs.CreateOrReplace(output, resourceGroupName, streamingJobName, outputName);
    ```
 
-## <a name="test-a-stream-analytics-output-target"></a>Testa ett mål för Stream Analytics-utdata
-Ett Stream Analytics utdata mål har även den **TestConnection** metod för att testa anslutningar.
+## <a name="test-a-stream-analytics-output-target"></a>Testa en utdatamål för Stream Analytics
+En utdatamål för Stream Analytics har även den **TestConnection** metod för att testa anslutningar.
 
    ```
    // Test the connection to the output
    ResourceTestStatus testOutputResult = streamAnalyticsManagementClient.Outputs.Test(resourceGroupName, streamingJobName, outputName);
    ```
 
-## <a name="create-a-stream-analytics-transformation"></a>Skapa Stream Analytics
-Följande kod skapar en Stream Analytics-omvandling med frågan ”Välj * från indata” och anger om du vill allokera en strömmande enhet för Stream Analytics-jobbet. Läs mer om hur du justerar strömningsenheter [skala Azure Stream Analytics-jobb](stream-analytics-scale-jobs.md).
+## <a name="create-a-stream-analytics-transformation"></a>Skapa ett Stream Analytics-transformering
+Följande kod skapar en Stream Analytics-omvandling med frågan ”Välj * från indata” och anger om du vill allokera en strömmande enhet för Stream Analytics-jobbet. Mer information om hur du justerar strömningsenheter finns i [skala Azure Stream Analytics-jobb](stream-analytics-scale-jobs.md).
 
    ```
    // Create a transformation
@@ -239,12 +239,12 @@ Följande kod skapar en Stream Analytics-omvandling med frågan ”Välj * från
    Transformation createTransformationResult = streamAnalyticsManagementClient.Transformations.CreateOrReplace(transformation, resourceGroupName, streamingJobName, transformationName);
    ```
 
-En omvandling är även kopplad till specifika Stream Analytics-jobbet den skapades under som indata och utdata.
+En omvandling är också kopplad till den specifika Stream Analytics-jobb som den skapades under som indata och utdata.
 
 ## <a name="start-a-stream-analytics-job"></a>Starta ett Stream Analytics-jobb
-När du har skapat ett Stream Analytics-jobb och dess input(s), utdata och omvandling av du startar jobbet genom att anropa den **starta** metod.
+När du har skapat ett Stream Analytics-jobb och dess indata, utdata och omvandling, kan du starta jobbet genom att anropa den **starta** metod.
 
-Följande exempel kod startar ett Stream Analytics-jobb med anpassade utdata starttid inställd på 12 December 2012 12:12:12 UTC:
+Följande exempel på kod startar ett Stream Analytics-jobb med en anpassad utdata starttid som har angetts till 12 December 2012 12:12:12 UTC:
 
    ```
    // Start a streaming job
@@ -265,7 +265,7 @@ Du kan stoppa ett Stream Analytics-jobb som körs genom att anropa den **stoppa*
    ```
 
 ## <a name="delete-a-stream-analytics-job"></a>Ta bort ett Stream Analytics-jobb
-Den **ta bort** metoden tar bort jobbet samt de underliggande underordnade resurser, inklusive input(s), utdata och omvandling av jobbet.
+Den **ta bort** metoden tar bort jobbet samt de underliggande underordnade resurser, inklusive indata, utdata och transformering av jobbet.
 
    ```
    // Delete a streaming job
@@ -273,10 +273,10 @@ Den **ta bort** metoden tar bort jobbet samt de underliggande underordnade resur
    ```
 
 ## <a name="get-support"></a>Få support
-För ytterligare hjälp försök vår [Azure Stream Analytics-forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics).
+För mer hjälp kan du prova vår [Azure Stream Analytics-forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics).
 
 ## <a name="next-steps"></a>Nästa steg
-Du har lärt dig grunderna i att använda en .NET SDK för att skapa och köra analytics-jobb. Läs mer i:
+Du har lärt dig grunderna i att använda en .NET SDK för att skapa och köra analysjobb. Läs mer i:
 
 * [Introduktion till Azure Stream Analytics](stream-analytics-introduction.md)
 * [Komma igång med Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md)

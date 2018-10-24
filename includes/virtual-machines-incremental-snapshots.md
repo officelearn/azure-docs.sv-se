@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/15/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 88a9348ea7d6282b7410d5a323fd482dc82416c6
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: 06e6e491fa1e9a047527efb78149855b125771ef
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45979209"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49960224"
 ---
 # <a name="back-up-azure-unmanaged-vm-disks-with-incremental-snapshots"></a>Säkerhetskopiera Azure ohanterade Virtuella datordiskar med inkrementella ögonblicksbilder
 ## <a name="overview"></a>Översikt
@@ -66,7 +66,7 @@ När du har en anpassad strategi för säkerhetskopiering med ögonblicksbilder,
 Du kan implementera inkrementell ögonblicksbild kopiera genom att göra följande
 
 * Ta en ögonblicksbild av grundläggande bloben med [ta ögonblicksbild av Blob](https://docs.microsoft.com/rest/api/storageservices/Snapshot-Blob).
-* Kopiera ögonblicksbilden till målet säkerhetskopieringslagring kontot med [kopiering av Blob](https://docs.microsoft.com/rest/api/storageservices/Copy-Blob). Det här är den säkerhetskopierade sidblob. Ta en ögonblicksbild av säkerhetskopiering sidans blob och lagra den i backup-kontot.
+* Kopiera ögonblicksbilden till målkontot för lagring av säkerhetskopior i samma eller alla andra Azure-region med [kopiering av Blob](https://docs.microsoft.com/rest/api/storageservices/Copy-Blob). Det här är den säkerhetskopierade sidblob. Ta en ögonblicksbild av säkerhetskopiering sidans blob och lagra den i backup-kontot.
 * Ta en annan ögonblicksbild av den grundläggande blob med ta ögonblicksbild av Blob.
 * Hämta skillnaden mellan de första och andra ögonblicksbilderna av grundläggande bloben med [GetPageRanges](https://docs.microsoft.com/rest/api/storageservices/Get-Page-Ranges). Använd den nya parametern **prevsnapshot**, för att ange den ögonblicksbild som du vill hämta skillnaden jämfört med DateTime-värdet. Om den här parametern finns innehåller REST-svaret endast de sidor som har ändrats mellan mål ögonblicksbild och tidigare ögonblicksbild, inklusive Rensa sidor.
 * Använd [PutPage](https://docs.microsoft.com/rest/api/storageservices/Put-Page) att tillämpa ändringarna på säkerhetskopiering sidans blob.

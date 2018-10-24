@@ -11,15 +11,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/14/2018
+ms.date: 10/22/2018
 ms.author: mabrigg
 ms.reviewer: ppacent
-ms.openlocfilehash: 1f59f2ce6e3bf8d34ce225aa93da76ad523775e0
-ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
+ms.openlocfilehash: f299cca57e3eaddd2a9d4868f3bae822392e45a0
+ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/15/2018
-ms.locfileid: "42061507"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49944944"
 ---
 # <a name="scale-unit-node-actions-in-azure-stack"></a>Skalningsåtgärder enhet noden i Azure Stack
 
@@ -31,7 +31,7 @@ Den här artikeln beskrivs hur du visar status för en skalningsenhet och dess a
 > Alla nod-åtgärder som beskrivs i den här artikeln bör endast mål en nod i taget.
 
 
-## <a name="view-the-status-of-a-scale-unit-and-its-nodes"></a>Visa status för en skalningsenhet och dess noder
+## <a name="view-the-node-status"></a>Visa status för noden
 
 I administratörsportalen kan visa du enkelt status för en skalningsenhet och dess associerade noder.
 
@@ -47,15 +47,15 @@ Här, kan du visa följande information:
 - typ av systemet
 - Totalt antal logiska kärnor
 - totalt minne
-- lista över enskilda noder och deras status. antingen **kör** eller **stoppats**.
+- Lista över enskilda noder och deras status. antingen **kör** eller **stoppas**
 
 ![Skala körs panelen som visar statusen för varje nod](media/azure-stack-node-actions/ScaleUnitStatus.PNG)
 
-## <a name="view-information-about-a-scale-unit-node"></a>Visa information om en enhet skala-nod
+## <a name="view-node-information"></a>Visa information om noden
 
 Om du väljer en enskild nod kan du visa följande information:
 
-- Regionsnamn
+- Regionnamn
 - Server-modell
 - IP-adressen för huvudkortshantering (BMC)
 - Användningsstatus

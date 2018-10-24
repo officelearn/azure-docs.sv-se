@@ -6,14 +6,14 @@ manager: alinast
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 10/18/2018
+ms.date: 10/22/2018
 ms.author: adgera
-ms.openlocfilehash: 8efb3dc1d312f42e990d4f7a2410ba8f684375c1
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: 1c8f1931a29ae9769f7d8ad57a184e3240105a1a
+ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/23/2018
-ms.locfileid: "49651555"
+ms.locfileid: "49945832"
 ---
 # <a name="how-to-configure-monitoring-in-azure-digital-twins"></a>Så här konfigurerar du övervakning i Azure Digital Twins
 
@@ -107,6 +107,9 @@ När din **Log Analytics** instansen finns, men du kan använda kraftfulla fråg
    ![Logghantering][8]
 
 Läs mer om kraftfulla frågeåtgärder [komma igång med frågor](https://docs.microsoft.com/azure/log-analytics/query-language/get-started-queries).
+
+> [!NOTE]
+> Det uppstår en fördröjning i 5 minuter när du skickar händelser till **Log Analytics** för första gången.
 
 Azure Log Analytics erbjuder även kraftfulla fel och avisering om tjänster, som kan visas genom att klicka på **diagnostisera och lösa problem**:
 

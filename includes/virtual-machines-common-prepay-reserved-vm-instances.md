@@ -4,12 +4,12 @@ ms.author: yashar
 ms.service: virtual-machines-windows
 ms.topic: include
 ms.date: 09-05-2018
-ms.openlocfilehash: 065ac0855fc47b23b434287f9f4406bd641f01ae
-ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
+ms.openlocfilehash: 4b51631e8b7d3f53edd1afdba76de3031b112254
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47454584"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49805066"
 ---
 # <a name="prepay-for-virtual-machines-with-azure-reserved-vm-instances"></a>Förskottsbetala för virtuella datorer med Azure reserverade VM-instanser
 
@@ -35,7 +35,7 @@ Reserverade VM-instanser är tillgängliga för de flesta storlekar för Virtuel
   - Begränsade vCPU-storlekar
   - VM-serie: A-serien, Av2-serien och G-serien
   - Virtuella datorer i en förhandsversion: alla VM-serien och storlekar som är i förhandsversion
-- Moln: Reservationer är inte tillgängligt att köpa i regionerna som Azure US Government, Tyskland eller Kina.
+- Moln: Reservationer är inte tillgängligt att köpa i Tyskland eller Kina regioner.
 - Otillräcklig kvot: en reservation som är begränsad till en enda prenumeration måste ha vCPU-kvoten som är tillgängliga i prenumerationen för den nya RI. Till exempel om målprenumerationen har en kvot högst 10 virtuella processorer för D-serien, köpa sedan du inte en reservation för den 11 Standard_D1 instanser. Kvoten ingår för reservationer de virtuella datorerna som redan har distribuerats i prenumerationen. Till exempel om prenumerationen har en kvot på 10 virtuella processorer för D-serien och har två standard_D1 instanser som distribuerats kan köpa du en reservation för den 10 standard_D1 instanser i den här prenumerationen. 
 - Begränsningar för kapacitet: I sällsynta fall kan Azure-begränsningar inköp av ny reservationer för delmängd av VM-storlekar, på grund av låg kapacitet i en region.
 
@@ -67,9 +67,9 @@ Reserverade VM-instanser är tillgängliga för de flesta storlekar för Virtuel
 
 ## <a name="cancellations-and-exchanges"></a>Avbokningar och utbyten
 
-Om du vill avbryta din reservation kan finnas det 12% uppsägningsavgift. Återbetalningar baseras på lägsta priset för din inköpspriset eller aktuella priset för reservationen. Återbetalningar är begränsade till 50 000 per år. Återbetalning felmeddelandet är det återstående proportionella saldot minus 12% uppsägningsavgift. Om du vill begära ett avbrott, går du till reservationen i Azure-portalen och välj **återbetala** att skapa en supportbegäran.
+Om du vill avbryta din reservation kan det medföra en avgift på 12 % för uppsägning i förtid. Återbetalningar baseras på det lägsta priset – antingen ditt inköpspris eller det aktuella priset för reservationen. Återbetalningar begränsas till 50 000 USD per år. Din återbetalning består av det återstående proportionellt beräknade saldot minus uppsägningsavgiften på 12 %. Om du vill begära ett avbrott, går du till reservationen i Azure-portalen och välj **återbetala** att skapa en supportbegäran.
 
-Om du vill ändra din reservation för reserverade VM-instanser till en annan region, VM-storleksgruppen eller termen kan byta du den för en annan reservation som är av samma eller högre värde. Termen startdatumet för den nya reservationen sprids inte från sker ett certifikatutbyte reservationen. 1 eller 3 år termen startar från när du skapar den nya reservationen. Om du vill begära en exchange, gå till reservationen i Azure-portalen och välj **Exchange** att skapa en supportbegäran.
+Om du behöver ändra din Reserved VM Instances-reservation till en annan region, storleksgrupp eller period kan du byta till en annan reservation med samma eller högre värde. Startdatumet för den nya reservationens överförs inte från den utbytte reservationen. Perioden på 1 eller 3 år startar när du skapar den nya reservationen. Om du vill begära en exchange, gå till reservationen i Azure-portalen och välj **Exchange** att skapa en supportbegäran.
 
 ## <a name="next-steps"></a>Nästa steg
 

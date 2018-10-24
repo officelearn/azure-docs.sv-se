@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 09/18/2018
 ms.author: twhitney
 ms.custom: mvc, devcenter
-ms.openlocfilehash: c23646bca6109d27e57b2f928363e65c83c634eb
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 7985c8e9e26126040d842ded998a953281daa2ae
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47031160"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49953560"
 ---
 # <a name="tutorial-learn-how-to-upgrade-a-service-fabric-application-using-visual-studio"></a>Självstudie: Lär dig hur du uppgraderar ett Service Fabric-program med Visual Studio
 
@@ -32,11 +32,11 @@ I den här självstudiekursen får du lära du dig att:
 
 I den här självstudieserien får du lära du dig att:
 > [!div class="checklist"]
-> * [Skapa ett Service Fabric-nät app i Visual Studio](service-fabric-mesh-tutorial-create-dotnetcore.md)
-> * [Felsöka ett Service Fabric-nät app som körs i det lokala utvecklingsklustret](service-fabric-mesh-tutorial-debug-service-fabric-mesh-app.md)
-> * [Distribuera ett Service Fabric-nät app](service-fabric-mesh-tutorial-deploy-service-fabric-mesh-app.md)
+> * [Skapa en Service Fabric Mesh-app i Visual Studio](service-fabric-mesh-tutorial-create-dotnetcore.md)
+> * [Felsöka en Service Fabric Mesh-app som körs i ditt lokala utvecklingskluster](service-fabric-mesh-tutorial-debug-service-fabric-mesh-app.md)
+> * [Distribuera en Service Fabric Mesh-app](service-fabric-mesh-tutorial-deploy-service-fabric-mesh-app.md)
 > * Uppgradera ett Service Fabric-nät app
-> * [Rensa Service Fabric blandar resurser](service-fabric-mesh-tutorial-cleanup-resources.md)
+> * [Rensa Service Fabric Mesh-resurser](service-fabric-mesh-tutorial-cleanup-resources.md)
 
 [!INCLUDE [preview note](./includes/include-preview-note.md)]
 
@@ -44,7 +44,7 @@ I den här självstudieserien får du lära du dig att:
 
 Innan du börjar den här självstudien:
 
-* Om du inte har distribuerat att göra-app, följer du anvisningarna i [publicera ett Service Fabric-nät webbprogram](service-fabric-mesh-tutorial-deploy-service-fabric-mesh-app.md).
+* Om du inte har distribuerat att göra-appen följer du anvisningarna i [Publicera ett Service Fabric Mesh-webbprogram](service-fabric-mesh-tutorial-deploy-service-fabric-mesh-app.md).
 
 ## <a name="upgrade-a-service-fabric-mesh-service-by-using-visual-studio"></a>Uppgradera en Service Fabric-nät tjänst med hjälp av Visual Studio
 
@@ -156,8 +156,8 @@ The application was deployed successfully and it can be accessed at http://10.00
 
 I den här självstudiedelen lärde du dig:
 > [!div class="checklist"]
-> * Så här uppgraderar du en röra för Service Fabric-app med hjälp av Visual Studio
+> * Så här uppgraderar du en app med Service Fabric-nät med hjälp av Visual Studio
 
 Gå vidare till nästa kurs:
 > [!div class="nextstepaction"]
-> [Rensa Service Fabric blandar resurser](service-fabric-mesh-tutorial-cleanup-resources.md)
+> [Rensa Service Fabric Mesh-resurser](service-fabric-mesh-tutorial-cleanup-resources.md)

@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 09/12/2018
 ms.topic: conceptual
-ms.openlocfilehash: 56f233afed8c403d19c9b668e98ecfec45470b64
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: ddb0b5b1a0847200caa7d8d04ecdc9dab4c41d14
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44721627"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49956705"
 ---
 # <a name="deploy-the-remote-monitoring-solution-accelerator-using-the-cli"></a>Distribuera den lösningsacceleratorn för fjärrövervakning med hjälp av CLI
 
@@ -81,14 +81,14 @@ Skapa en grundläggande lösning resulterar i följande Azure-tjänster som etab
 
 
 ### <a name="standard"></a>Standard
-Standarddistributionen är en produktionsklar distribution utvecklare kan anpassa och utöka för att uppfylla deras behov. För tillförlitlighet och skala program mikrotjänster skapas med Docker-behållare och distribueras via en initierare ([Kubernetes](https://kubernetes.io/) som standard). Orchestrator är ansvarig för distribution, skalning och hantering av programmet.
+Standarddistributionen är en produktionsklar distribution utvecklare kan anpassa och utöka för att uppfylla deras behov. Distributionsalternativet standard ska användas när du är redo att anpassa en arkitektur med produktionsklara, byggd för skalning och utökningsbarhet. Mikrotjänster för program skapas med Docker-behållare och distribueras via Azure Kubernetes Service (AKS). Orchestrator är ansvarig för distribution, skalning och hantering av programmet.
+
 
 Skapa en lösning som Standard leder följande Azure-tjänster som etableras i din Azure-prenumeration till en kostnad:
 
 | Antal | Resurs                                     | SKU / storlek      | Används för |
 |-------|----------------------------------------------|-----------------|----------|
-| 4     | [Virtuella Linux-datorer](https://azure.microsoft.com/services/virtual-machines/)   | Standard D2 V2  | 1 huvudserver och 3 agenter som värd för mikrotjänster med redundans |
-| 1     | [Azure Container Service](https://azure.microsoft.com/services/container-service/) |                 | [Kubernetes](https://kubernetes.io) orchestrator |
+| 1     | [Azure Kubernetes Service](https://azure.microsoft.com/services/kubernetes-service)| Använd en fullständigt hanterad Kubernetes-behållare orchestration-tjänst, standardvärdet är 3 agenter|
 | 1     | [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub/)                     | S2 – Standard-nivån | Enhetshantering, kommando och kontroll |
 | 1     | [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/)                 | Standard        | Lagra konfigurationsdata och enhetstelemetri som regler och larm meddelanden |
 | 5     | [Azure Storage-konton](https://docs.microsoft.com/azure/storage/common/storage-introduction#types-of-storage-accounts)    | Standard        | 4 för VM-lagring och 1 för strömmande kontrollpunkter |

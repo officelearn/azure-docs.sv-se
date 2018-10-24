@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/18/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 4e27c21b3b8d84b658b4cad10e05f8fa0b057268
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: b9a91b478ea9012a1d041fc102765890954c2fbb
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49427327"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49956195"
 ---
 # <a name="automation-with-service-principals"></a>Automatisering med tjänstens huvudnamn
 
@@ -24,8 +24,8 @@ I Analysis Services används tjänstens huvudnamn med Azure Automation, PowerShe
  
 Tjänstens huvudnamn kan skapas i Azure portal eller med hjälp av PowerShell. Du kan läsa mer här:
 
-[Skapa tjänstens huvudnamn – Azure-portalen](../azure-resource-manager/resource-group-create-service-principal-portal.md)   
-[Skapa tjänstens huvudnamn – PowerShell](../azure-resource-manager/resource-group-authenticate-service-principal.md)
+[Skapa tjänstens huvudnamn – Azure-portalen](../active-directory/develop/howto-create-service-principal-portal.md)   
+[Skapa tjänstens huvudnamn – PowerShell](../active-directory/develop/howto-authenticate-service-principal-powershell.md)
 
 ## <a name="store-credential-and-certificate-assets-in-azure-automation"></a>Store autentiseringsuppgifter och certifikat tillgångar i Azure Automation
 

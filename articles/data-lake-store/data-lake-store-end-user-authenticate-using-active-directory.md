@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: nitinme
-ms.openlocfilehash: 2f0638b2449bfd582cb68e26d2043b7bc85342b6
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: 6f7b812f32eda0c671b1ad1101b13a1290df0482
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46125960"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49954798"
 ---
 # <a name="end-user-authentication-with-azure-data-lake-storage-gen1-using-azure-active-directory"></a>Slutanvändarautentisering med Azure Data Lake Storage Gen1 med Azure Active Directory
 > [!div class="op_single_selector"]
@@ -45,7 +45,7 @@ Den här artikeln berättar om hur du skapar en **Azure AD-program för slutanv�
   
     ![Hämta AAD-domän](./media/data-lake-store-end-user-authenticate-using-active-directory/get-aad-domain.png)
 
-* Ditt Azure-klient-ID. Anvisningar om hur du hämtar klient-ID finns i [hämta klient-ID](../azure-resource-manager/resource-group-create-service-principal-portal.md#get-tenant-id).
+* Ditt Azure-klient-ID. Anvisningar om hur du hämtar klient-ID finns i [hämta klient-ID](../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-id).
 
 ## <a name="end-user-authentication"></a>Slutanvändarautentisering
 Den här autentiseringsmekanismen är den rekommenderade metoden om du vill att en användare att logga in på ditt program via Azure AD. Programmet kan sedan komma åt Azure-resurser med samma nivå på dataåtkomst som användaren som har loggat in. Användaren måste ange sina autentiseringsuppgifter med jämna mellanrum i ordning för ditt program att upprätthålla åtkomsten.
@@ -74,7 +74,7 @@ Ditt program kan direkt att ange autentiseringsuppgifter för användare till Az
 
 ## <a name="step-1-create-an-active-directory-native-application"></a>Steg 1: Skapa ett internt Active Directory-program
 
-Skapa och konfigurera en Azure AD-program för slutanvändarautentisering med Data Lake Storage Gen1 med Azure Active Directory. Anvisningar finns i [skapa ett Azure AD-program](../azure-resource-manager/resource-group-create-service-principal-portal.md).
+Skapa och konfigurera en Azure AD-program för slutanvändarautentisering med Data Lake Storage Gen1 med Azure Active Directory. Anvisningar finns i [skapa ett Azure AD-program](../active-directory/develop/howto-create-service-principal-portal.md).
 
 Kontrollera att du väljer när du följer anvisningarna i länken **interna** för programtyp, enligt följande skärmbild:
 
@@ -82,7 +82,7 @@ Kontrollera att du väljer när du följer anvisningarna i länken **interna** f
 
 ## <a name="step-2-get-application-id-and-redirect-uri"></a>Steg 2: Hämta program-ID och omdirigerings-URI
 
-Se [hämta program-ID](../azure-resource-manager/resource-group-create-service-principal-portal.md#get-application-id-and-authentication-key) att hämta program-ID.
+Se [hämta program-ID](../active-directory/develop/howto-create-service-principal-portal.md#get-application-id-and-authentication-key) att hämta program-ID.
 
 Utför följande steg för att hämta omdirigeringen-URI.
 

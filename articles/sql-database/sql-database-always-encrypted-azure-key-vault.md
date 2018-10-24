@@ -13,12 +13,12 @@ ms.author: vanto
 ms.reviewer: ''
 manager: craigg
 ms.date: 10/05/2018
-ms.openlocfilehash: 44fc04d4788c4381a4922f1335c393e03045900e
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: e0971b6b9b8460447d383d238843d4bdddc912f7
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49352402"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49958989"
 ---
 # <a name="always-encrypted-protect-sensitive-data-and-store-encryption-keys-in-azure-key-vault"></a>Alltid krypterad: Skydda känsliga data och lagra krypteringsnycklar i Azure Key Vault
 
@@ -48,7 +48,7 @@ Den här självstudien behöver du:
 ## <a name="enable-your-client-application-to-access-the-sql-database-service"></a>Aktivera ditt klientprogram att komma åt tjänsten SQL Database
 Du måste aktivera ditt klientprogram att komma åt SQL Database-tjänsten genom att skapa ett Azure Active Directory (AAD)-program och kopiera den *program-ID* och *nyckel* som du behöver autentisera ditt program.
 
-Att hämta den *program-ID* och *nyckel*, följer du stegen i [och skapa en Azure Active Directory program och tjänstens huvudnamn som kan komma åt resurser](../azure-resource-manager/resource-group-create-service-principal-portal.md).
+Att hämta den *program-ID* och *nyckel*, följer du stegen i [och skapa en Azure Active Directory program och tjänstens huvudnamn som kan komma åt resurser](../active-directory/develop/howto-create-service-principal-portal.md).
 
 ## <a name="create-a-key-vault-to-store-your-keys"></a>Skapa ett nyckelvalv för att lagra dina nycklar
 Nu när du har program-ID och din klientapp har konfigurerats är det dags att skapa ett nyckelvalv och konfigurera dess åtkomstprincip så att du och ditt program kan komma åt på valvet hemligheter (Always Encrypted nycklarna). Den *skapa*, *hämta*, *lista*, *logga*, *Kontrollera*, *wrapKey*, och *unwrapKey* behörigheter som krävs för att skapa en ny kolumn huvudnyckel och för att konfigurera kryptering med SQL Server Management Studio.

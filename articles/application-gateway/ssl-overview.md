@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 10/23/2018
 ms.author: amsriva
-ms.openlocfilehash: 626db07a81c6482a689329b8cddc9f40b464bb7e
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: e7020ef5c1f7411c7226e7a2db489112ee6bf0a4
+ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/23/2018
-ms.locfileid: "49649082"
+ms.locfileid: "49945509"
 ---
 # <a name="overview-of-end-to-end-ssl-with-application-gateway"></a>Översikt över slutpunkt-till-slutpunkt-SSL på Application Gateway
 
@@ -47,7 +47,7 @@ Autentiseringscertifikat har inaktuell och ersatts med betrodda rotcertifikat i 
 
 ## <a name="next-steps"></a>Nästa steg
 
-När du läst om slutpunkt-till-slutpunkts-SSL kan du gå till [Konfigurera en programgateway med SSL-avslutning med hjälp av Azure-portalen](create-ssl-portal.md) om du vill skapa en programgateway med hjälp av slutpunkt-till-slutpunkts-SSL.
+När du läst om slutpunkt till slutpunkt SSL, gå till [konfigurera slutpunkt till slutpunkt SSL med Programgateway med PowerShell](application-gateway-end-to-end-ssl-powershell.md) att skapa en Programgateway med hjälp av SSL för slutpunkt till slutpunkt.
 
 <!--Image references-->
 

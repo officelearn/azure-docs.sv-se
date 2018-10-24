@@ -9,12 +9,12 @@ ms.author: jmartens
 author: j-martens
 ms.reviewer: jmartens
 ms.date: 10/1/2018
-ms.openlocfilehash: f573dba2e7580d58c295d204fc75e2403c0d033c
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.openlocfilehash: a2f37cffb37ce7008c3e372763784240e0d4250b
+ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48243395"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49945560"
 ---
 # <a name="vs-code-tools-for-ai-get-started-with-azure-machine-learning-from-visual-studio-code"></a>VS Code Tools för AI: Kom igång med Azure Machine Learning från Visual Studio Code
 
@@ -34,7 +34,7 @@ Använd verktyg för AI-tillägg i Visual Studio code för att använda Azure Ma
 
 När du installerar den **Tools för AI** tillägg, två fler tillägg installeras automatiskt (om du har tillgång till internet). De är den [Azure-konto](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-account) tillägg och [Microsoft Python](https://marketplace.visualstudio.com/items?itemName=ms-python.python) tillägg
 
-Vi måste omvandla VS Code till en Python IDE för att fungera med Azure Machine Learning. Arbeta med [Python i Visual Studio Code](https://code.visualstudio.com/docs/languages/python), kräver Microsoft Python-tillägget som installeras med verktyg för AI automatiskt. Tillägget gör VS Code en utmärkt IDE och fungerar på alla operativsystem med en mängd olika Python tolkar. Den använder alla VS Code förmåga att tillhandahålla automatisk komplettering och IntelliSense, ifyllningar, felsökning och Enhetstestning, samt möjlighet att enkelt växla mellan conda-miljöer och Python-miljöer, inklusive virtuella. Kolla in den här genomgången redigerar, körs, och felsökning Python-kod kan se den [Python Hello World-självstudier](https://code.visualstudio.com/docs/languages/python/docs/python/python-tutorial)
+Vi måste omvandla VS Code till en Python IDE för att fungera med Azure Machine Learning. Arbeta med [Python i Visual Studio Code](https://code.visualstudio.com/docs/languages/python), kräver Microsoft Python-tillägget som installeras med verktyg för AI automatiskt. Tillägget gör VS Code en utmärkt IDE och fungerar på alla operativsystem med en mängd olika Python tolkar. Den använder alla VS Code förmåga att tillhandahålla automatisk komplettering och IntelliSense, ifyllningar, felsökning och Enhetstestning, samt möjlighet att enkelt växla mellan conda-miljöer och Python-miljöer, inklusive virtuella. Kolla in den här genomgången redigerar, körs, och felsökning Python-kod kan se den [Python Hello World-självstudier](https://code.visualstudio.com/docs/python/python-tutorial)
 
 **Du installerar verktygen för AI-tillägg:**
 

@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/02/2018
+ms.date: 10/23/2018
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: f184c18e97144f7efb30d61ebd024344510f3f5c
-ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
+ms.openlocfilehash: 3a3768e796284895b25eb62d00a58b20ca811540
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49078774"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49958949"
 ---
 # <a name="azure-active-directory-access-tokens"></a>Azure Active Directory-åtkomsttoken
 
@@ -136,7 +136,7 @@ Microsoft identiteter kan autentiseras i en mängd olika sätt, vilket kan vara 
 | Värde | Beskrivning |
 |-----|-------------|
 | `pwd` | Lösenordsautentisering Microsoft ett lösenord eller en app klienthemlighet. |
-| `rsa` | Autentisering baserades på bevis på en RSA-nyckel, till exempel med den [Microsoft Authenticator pp](https://aka.ms/AA2kvvu). Detta inkluderar om autentisering har utförts av en självsignerat JWT med en tjänst som ägs X509 certifikat. |
+| `rsa` | Autentisering baserades på bevis på en RSA-nyckel, till exempel med den [Microsoft Authenticator-appen](https://aka.ms/AA2kvvu). Detta inkluderar om autentisering har utförts av en självsignerat JWT med en tjänst som ägs X509 certifikat. |
 | `otp` | Engångskod med hjälp av ett e-postmeddelande eller ett SMS. |
 | `fed` | En federerad autentisering försäkran (till exempel JWT eller SAML) har använts. |
 | `wia` | Windows-integrerad autentisering |
@@ -179,7 +179,7 @@ https://login.microsoftonline.com/common/.well-known/openid-configuration
 ```
 
 > [!TIP]
-> Prova den här URL: en i en webbläsare!
+> Prova följande [URL](https://login.microsoftonline.com/common/.well-known/openid-configuration) i en webbläsare!
 
 Det här Metadatadokumentet:
 
@@ -187,7 +187,7 @@ Det här Metadatadokumentet:
 * Innehåller en `jwks_uri`, vilket ger platsen för en uppsättning offentliga nycklar som används för att signera token. JSON-dokumentet finns på den `jwks_uri` innehåller alla informationen om offentliga nyckeln används av den viss tidpunkten. Din app kan använda den `kid` anspråk i JWT-huvudet för att välja vilka offentliga nyckeln i det här dokumentet har använts för att logga en viss token. Den kan sedan utföra signaturverifiering med rätt offentlig nyckel och den angivna algoritmen.
 
 > [!NOTE]
-> V1.0 slutpunkten returnerar både den `x5t` och `kid` anspråk. Den `x5t` -anspråk saknas från v2.0-token. V2.0-slutpunkten svarar med den `kid` anspråk. Framöver kommer vi rekommenderar att du använder den `kid` anspråk som ska verifiera din token.
+> V1.0 slutpunkten returnerar både den `x5t` och `kid` anspråk, medan v2.0-slutpunkten svarar med endast de `kid` anspråk. Framöver kommer vi rekommenderar att du använder den `kid` anspråk som ska verifiera din token.
 
 Utför signaturverifiering ligger utanför omfånget för det här dokumentet – det finns många bibliotek med öppen källkod för att hjälpa dig göra det om det behövs.
 
@@ -202,7 +202,7 @@ Ditt programs affärslogik bestämmer det här steget, vissa vanliga auktoriseri
 * Kontrollera att den `tid` matchar en klient som kan anropa ditt API.
 * Använd den `acr` anspråk som ska verifiera användaren har utfört MFA. Observera att detta ska tillämpas med hjälp av [villkorlig åtkomst](https://docs.microsoft.com/azure/active-directory/conditional-access/overview).
 * Om du har begärt den `roles` eller `groups` anspråk i åtkomsttoken, kontrollera att användaren är i gruppen får utföra den här åtgärden.
-  * För token hämtas med hjälp av det implicita flödet, behöver du troligen fråga den [Graph](https://developer.microsoft.com/graph/) för dessa data som det är ofta ryms inte i token. 
+  * För token hämtas med hjälp av det implicita flödet, behöver du troligen fråga den [Microsoft Graph](https://developer.microsoft.com/graph/) för dessa data som det är ofta ryms inte i token. 
 
 ## <a name="user-and-application-tokens"></a>Användar- och token
 

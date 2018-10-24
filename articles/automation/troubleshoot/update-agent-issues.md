@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: automation
 ms.component: update-management
 manager: carmonm
-ms.openlocfilehash: 2a70893c3e879b2cecb4d39d538b0df44b1ced15
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: 1b258d115e7d9962ecab4b93dbcd98d13f5977c7
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49651573"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49956688"
 ---
 # <a name="understand-the-agent-check-results-in-update-management"></a>Förstå agenten kontrollera resultaten i hantering av uppdateringar
 
@@ -70,7 +70,7 @@ Den här kontrollen avgör om du använder TLS 1.2 för att kryptera kommunikati
 
 Den här kontrollen avgör om agenten kan kommunicera med agenttjänsten korrekt.
 
-Proxy och brandvägg konfigurationer måste tillåta Hybrid Runbook Worker-agenten kan kommunicera med den registreringsslutpunkt. En lista över adresser och portar som ska öppnas finns [Network planera för Hybrid Worker-arbeten](../automation-hybrid-runbook-worker.md#network-planning)
+Proxy och brandvägg konfigurationer måste tillåta Hybrid Runbook Worker-agenten kan kommunicera med slutpunkten för registrering. En lista över adresser och portar som ska öppnas finns [Network planera för Hybrid Worker-arbeten](../automation-hybrid-runbook-worker.md#network-planning)
 
 ### <a name="operations-endpoint"></a>Operations-slutpunkt
 

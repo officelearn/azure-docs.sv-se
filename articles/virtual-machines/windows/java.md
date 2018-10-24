@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/17/2017
 ms.author: zarhoads
-ms.openlocfilehash: 4495b6813a3936967ceb81beb216850538b04af5
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: 00c242ae75e8a581e2b403bac8e75f6b0bb421ad
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49465601"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49955526"
 ---
 # <a name="create-and-manage-windows-vms-in-azure-using-java"></a>Skapa och hantera Windows-datorer i Azure med Java
 
@@ -117,7 +117,7 @@ Det tar cirka 20 minuter för att utföra de här stegen.
 
 ## <a name="create-credentials"></a>Skapa autentiseringsuppgifter
 
-Innan du startar det här steget, se till att du har åtkomst till en [Active Directory-tjänstobjekt](../../azure-resource-manager/resource-group-create-service-principal-portal.md). Du bör anteckna program-ID och autentiseringsnyckel klient-ID som du behöver i ett senare steg.
+Innan du startar det här steget, se till att du har åtkomst till en [Active Directory-tjänstobjekt](../../active-directory/develop/howto-create-service-principal-portal.md). Du bör anteckna program-ID och autentiseringsnyckel klient-ID som du behöver i ett senare steg.
 
 ### <a name="create-the-authorization-file"></a>Skapa auktoriseringsfilen
 

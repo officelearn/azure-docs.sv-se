@@ -11,13 +11,13 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 10/17/2018
-ms.openlocfilehash: 61950a1afda1fefdfab95f6d63420387dc2e2ac7
-ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
+ms.date: 10/22/2018
+ms.openlocfilehash: 88bea87c752563e1c19332121eb568b0bd329d03
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49378643"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49954151"
 ---
 # <a name="sql-database-frequently-asked-questions-faq"></a>Vanliga frågor (och svar FAQ) om SQL-databas
 
@@ -35,7 +35,7 @@ Nej. Effekten av korrigeringar är vanligtvis inte noticable om du [använder lo
 
 ## <a name="what-is-the-new-vcore-based-purchasing-model-for-azure-sql-database"></a>Vad är den nya vCore-baserade inköpsmodellen för Azure SQL Database
 
-Den nya inköpsmodellen är ett tillägg till den befintliga DTU-baserade modellen. Den vCore-baserade modellen är utformad för att ge kunder flexibilitet, kontroll, transparens och ett enkelt sätt att överföra lokala arbetsbelastningskrav till molnet. Det gör också kunderna möjlighet att skala sina resurser för beräkning och lagring utifrån deras arbetsbelastningsbehov. Enkel databas och elastisk pool alternativ med vCore-modellen är också berättigade till upp till 30 procent med den [Azure Hybrid-förmånen för SQL Server](../virtual-machines/windows/hybrid-use-benefit-licensing.md). Se [DTU-baserade inköpsmodellen](sql-database-service-tiers-dtu.md) och [vCore-baserade inköpsmodellen](sql-database-service-tiers-vcore.md) för mer information.
+Den nya inköpsmodellen är ett tillägg till den befintliga DTU-baserade modellen. Den vCore-baserade modellen är utformad för att ge kunder flexibilitet, kontroll, transparens och ett enkelt sätt att överföra lokala arbetsbelastningskrav till molnet. Det gör också kunderna möjlighet att skala sina resurser för beräkning och lagring utifrån deras arbetsbelastningsbehov. Enkel databas och elastisk pool alternativ med vCore-modellen är också berättigade till upp till 30 procent med den [Azure Hybrid-förmånen för SQL Server](https://azure.microsoft.com/pricing/hybrid-benefit/#services). Se [DTU-baserade inköpsmodellen](sql-database-service-tiers-dtu.md) och [vCore-baserade inköpsmodellen](sql-database-service-tiers-vcore.md) för mer information.
 
 ## <a name="what-is-a-vcore"></a>Vad är en virtuell kärna
 

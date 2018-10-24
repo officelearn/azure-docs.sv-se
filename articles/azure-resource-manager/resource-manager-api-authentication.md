@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/12/2018
 ms.author: dugill
-ms.openlocfilehash: b841a1104a0cc1e74d9ab1f16ef39d3892ba7d55
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 69127702a7d8e7027e78a8e04a4e8e1bc3e36b65
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46996697"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49956348"
 ---
 # <a name="use-resource-manager-authentication-api-to-access-subscriptions"></a>Använda Resource Manager-autentisering-API för att få åtkomst till prenumerationer
 ## <a name="introduction"></a>Introduktion
@@ -94,7 +94,7 @@ Det inkluderar AppId som du behöver vid autentisering som programmet i resultat
 ### <a name="optional-configuration---certificate-credential"></a>Valfri konfiguration - autentiseringsuppgifter för certifikat
 Azure AD stöder också autentiseringsuppgifter för certifikat för program: du skapar ett självsignerat certifikat, hålla den privata nyckeln och Lägg till den offentliga nyckeln i din registrering för Azure AD-program. Programmet skickar en liten nyttolast till Azure AD som signerats med din privata nyckel för autentisering och Azure AD verifierar signaturen med hjälp av den offentliga nyckeln som du registrerat.
 
-Information om hur du skapar en AD-app med ett certifikat finns i [med Azure PowerShell för att skapa ett huvudnamn för tjänsten för resursåtkomst](resource-group-authenticate-service-principal.md#create-service-principal-with-certificate-from-certificate-authority) eller [används Azure CLI för att skapa ett huvudnamn för tjänsten för resursåtkomst](resource-group-authenticate-service-principal-cli.md) .
+Information om hur du skapar en AD-app med ett certifikat finns i [med Azure PowerShell för att skapa ett huvudnamn för tjänsten för resursåtkomst](../active-directory/develop/howto-authenticate-service-principal-powershell.md#create-service-principal-with-certificate-from-certificate-authority) eller [används Azure CLI för att skapa ett huvudnamn för tjänsten för resursåtkomst](resource-group-authenticate-service-principal-cli.md) .
 
 ## <a name="get-tenant-id-from-subscription-id"></a>Hämta klient-ID från prenumerations-ID
 Programmet måste veta klient-ID för Azure AD-klient som är värd för den Azure-prenumerationen om du vill begära en token som kan användas för att anropa Resource Manager. Mest sannolikt vet användarna sina prenumerations-ID, men de kan inte vet ID: N för klientorganisationen för Azure Active Directory. För att hämta användarens klient-ID, be användaren ange prenumerations-ID. Ange den prenumerationen när du skickar en begäran om prenumerationen med ID:
@@ -106,7 +106,7 @@ Begäran misslyckas eftersom användaren inte har loggat in ännu, men du kan h�
 ## <a name="get-user--app-access-token"></a>Hämta användare + app åtkomst-token
 Programmet omdirigeras användaren till Azure AD med en OAuth 2.0 godkänna begäran – autentisera användarens autentiseringsuppgifter och få tillbaka en auktoriseringskod. Programmet använder Auktoriseringskoden för att hämta en åtkomsttoken för Resource Manager. Den [ConnectSubscription](https://github.com/dushyantgill/VipSwapper/blob/master/CloudSense/CloudSense/Controllers/HomeController.cs#L42) metoden skapar begäran om godkännande.
 
-Den här artikeln visar REST API-begäranden för att autentisera användaren. Du kan också använda helper-bibliotek för att utföra autentisering i din kod. Läs mer om dessa bibliotek [Azure Active Directory Authentication Libraries](../active-directory/active-directory-authentication-libraries.md). Anvisningar för att integrera Identitetshantering i ett program finns i [Utvecklarhandbok för Azure Active Directory](../active-directory/develop/azure-ad-developers-guide.md).
+Den här artikeln visar REST API-begäranden för att autentisera användaren. Du kan också använda helper-bibliotek för att utföra autentisering i din kod. Läs mer om dessa bibliotek [Azure Active Directory Authentication Libraries](../active-directory/active-directory-authentication-libraries.md). Anvisningar för att integrera Identitetshantering i ett program finns i [Utvecklarhandbok för Azure Active Directory](../active-directory/develop/v1-overview.md).
 
 ### <a name="auth-request-oauth-20"></a>Auth-begäranden (OAuth 2.0)
 Göra en öppna ID Connect/OAuth2.0 auktorisera begäran till slutpunkten för auktorisering av Azure AD:

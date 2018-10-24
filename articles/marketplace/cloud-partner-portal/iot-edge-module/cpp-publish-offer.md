@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 10/18/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 670a2ce205ba5e64418eccc41add36cbecc28212
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: dfa512a26334567301812ecefd8c5673b0ea4094
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49431298"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49955912"
 ---
 # <a name="publish-iot-edge-module-offer"></a>Publicera erbjudande för IoT Edge-modul
 
@@ -38,7 +38,7 @@ I följande tabell beskrivs varje publishing steg, med en Uppskattad tidsåtgån
 |  **Publiceringen**           | **tid**    | **Beskrivning**                                                            |
 |  -------------------           | --------    | ---------------                                                            |
 | Verifiera förutsättningar         | 15 min   | Ger information och erbjuder inställningarna verifieras.                        |
-| Certifiering                  | 1 vecka | Erbjudandet analyseras av Azure-certifiering-teamet. Det här steget utför genomsökningar efter virus, skadlig kod, säkerhet och säkerhetsproblem. Den kontrollerar också att erbjudandet IoT Edge-modulen uppfyller alla urvalskriterier (se [krav](./cpp-prerequisites.md) och [förbereda dina tekniska resurser](./cpp-create-technical-assets.md)). Feedback tillhandahålls om ett problem hittas. |
+| Certifiering                  | 2 veckor | Erbjudandet analyseras av Azure-certifiering-teamet. Det här steget utför genomsökningar efter virus, skadlig kod, säkerhet och säkerhetsproblem. Den kontrollerar också att erbjudandet IoT Edge-modulen uppfyller alla urvalskriterier (se [krav](./cpp-prerequisites.md) och [förbereda dina tekniska resurser](./cpp-create-technical-assets.md)). Feedback tillhandahålls om ett problem hittas. |
 | Packas | 1 timme  | Erbjudandets tekniska resurser som är packade för kundens användning och lead-system har konfigurerats och konfigurera. |
 |  Utgivaren signering             |  -        | Sista publisher granska och bekräfta innan erbjudandet lanseras. Du kan distribuera ditt erbjudande i de valda prenumerationerna (i erbjudandet information steg) för att kontrollera att den uppfyller dina krav.  Välj **Go Live** så att ditt erbjudande kan flytta till nästa steg. |
 | Packas                 | 1 timme | Slutförda erbjudandet replikeras i regionerna och marketplace produktionssystem. | 

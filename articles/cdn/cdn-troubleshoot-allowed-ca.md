@@ -12,15 +12,15 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/17/2018
+ms.date: 10/18/2018
 ms.author: magattus
 ms.custom: mvc
-ms.openlocfilehash: e9d9f5b053537b3d6881763bcb39d7894ba78869
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 79b8cfa061bafb43cbcf2ec8a43638fd14c2fcd0
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46969521"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49954052"
 ---
 # <a name="allowed-certificate-authorities-for-enabling-custom-https-on-azure-cdn"></a>Tillåtna certifikatutfärdare för att aktivera anpassad HTTPS på Azure CDN
 
@@ -70,27 +70,6 @@ Följande CA: er tillåts när du skapar dina egna certifikat:
 - GlobalSign rot-CA
 - Go Daddy rotcertifikatutfärdare - G2
 - Go Daddy säker certifikatutfärdare - G2
-- Microsoft Authenticode rotcertifikatutfärdare
-- Microsoft Exchange-tjänster CA 2015
-- Microsoft internt företagets rotcertifikatutfärdare
-- Microsoft IT ITO SSL CA 1
-- Microsoft IT SSL SHA1
-- Microsoft IT SSL SHA2
-- Microsoft IT TLS CA 1
-- Microsoft IT TLS CA 2
-- Microsoft IT TLS CA 4
-- Microsoft IT TLS CA 5
-- Microsoft rotcertifikatutfärdare
-- Microsoft rotcertifikatutfärdare
-- Microsoft rotcertifikatutfärdare 2010
-- Microsoft rotcertifikatutfärdare 2011
-- Microsoft säker Server CA 2011
-- Microsoft Services Partner rot
-- Microsoft tid stämpling Service rot
-- Microsoft Windows maskinvarukompatibilitet
-- MSIT CA Z2
-- MSIT Enterprise CA 1
-- MSIT Företagscertifikatutfärdare 3
 - RapidSSL RSA CA 2018
 - Rot myndighet
 - Symantec-klass 3 EV SSL CA - G3
@@ -102,12 +81,11 @@ Följande CA: er tillåts när du skapar dina egna certifikat:
 - Thawte RSA CA 2018
 - Thawte tidsstämplar CA
 - TrustAsia TLS RSA CA
-- UTN-USERFirst-Object
 - VeriSign Class 3 utökad validering SSL CA
 - VeriSign Class 3 utökad validering SSL SGC CA
 - VeriSign klass 3 primära certifikatutfärdare - G5
 - VeriSign International Server CA - klass 3
 - VeriSign tid stämpling Service rot
 - VeriSign Universal rotcertifikatutfärdare
-- WMSvc-SHA2-DALEDGE1008
+
 

@@ -11,24 +11,20 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/15/2018
+ms.date: 10/22/2018
 ms.author: jingwang
-ms.openlocfilehash: c9252380581e77049e9464316ca77cc135f784b6
-ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
+ms.openlocfilehash: 82fb2241b5988bae9587807c03e7bec50e7c1677
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49377609"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49955395"
 ---
 # <a name="copy-data-from-office-365-into-azure-using-azure-data-factory-preview"></a>Kopiera data från Office 365 till Azure med hjälp av Azure Data Factory (förhandsversion) 
 
 Azure Data Factory kan du hämta den omfattande organisationens data i din Office 365-klient till Azure på ett skalbart sätt och skapa analysprogram och extrahera insikter utifrån dessa viktiga datatillgångar. Integrering med Privileged Access Management ger säker åtkomstkontroll för värdefulla utvalda data i Office 365.  Mer information om Microsoft Graph-data ansluta, referera till [den här länken](https://github.com/OfficeDev/ManagedAccessMSGraph/wiki).
 
 Den här artikeln beskrivs hur du använder Kopieringsaktivitet i Azure Data Factory för att kopiera data från Office 365. Den bygger på den [översikt över Kopieringsaktivitet](copy-activity-overview.md) artikel som ger en allmän översikt över Kopieringsaktivitet.
-
-Titta på följande videoklipp för en nio minuters introduktion och demonstration om hur du ansluter Data Factory till Office 365-data:
-
-> [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Get-cloud-scale-analytics-of-Office-365-data-with-Azure-Data-Factory/player]
 
 ## <a name="supported-capabilities"></a>Funktioner som stöds
 
@@ -45,10 +41,10 @@ För närvarande i en enda Kopieringsaktivitet du kan bara **kopiera data från 
 Om du vill kopiera data från Office 365 till Azure, måste du utföra följande nödvändiga steg:
 
 - Din Office 365-klientadministratör slutföra registreringen av åtgärder enligt [här](https://github.com/OfficeDev/ManagedAccessMSGraph/wiki/On-boarding).
-- Skapa och konfigurera ett Azure AD-webbprogram i Azure Active Directory.  Anvisningar finns i [skapa ett Azure AD-program](../azure-resource-manager/resource-group-create-service-principal-portal.md#create-an-azure-active-directory-application).
+- Skapa och konfigurera ett Azure AD-webbprogram i Azure Active Directory.  Anvisningar finns i [skapa ett Azure AD-program](../active-directory/develop/howto-create-service-principal-portal.md#create-an-azure-active-directory-application).
 - Anteckna följande värden som du använder för att definiera den länkade tjänsten för Office 365:
-    - Klient-ID.  Anvisningar finns i [hämta klient-ID](../azure-resource-manager/resource-group-create-service-principal-portal.md#get-tenant-id).
-    - Nyckel för program-ID och program.  Anvisningar finns i [Get ID och autentiseringsnyckel programnyckel](../azure-resource-manager/resource-group-create-service-principal-portal.md#get-application-id-and-authentication-key).
+    - Klient-ID.  Anvisningar finns i [hämta klient-ID](../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-id).
+    - Nyckel för program-ID och program.  Anvisningar finns i [Get ID och autentiseringsnyckel programnyckel](../active-directory/develop/howto-create-service-principal-portal.md#get-application-id-and-authentication-key).
 - Lägg till användar-ID som ska upprätta data förfrågan som ägare till Azure AD-webbappen (från Azure AD-webbprogram > Inställningar > ägare > Lägg till ägare).
 
 ## <a name="approving-new-data-access-requests"></a>Godkänna åtkomstbegäranden för nya data

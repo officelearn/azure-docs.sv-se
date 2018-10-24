@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/04/2017
+ms.date: 10/23/2018
 ms.author: dstefan
-ms.openlocfilehash: c8517114f51b5aed8f8e31a19b672721b109775e
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: db6778bdea2e3e133535bf28b3c2297cdb65599d
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46298310"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49958915"
 ---
 # <a name="azure-active-directory-proof-of-concept-playbook-building-blocks"></a>Azure Active Directory som bevis på koncept strategibok: komponenter
 
@@ -150,7 +150,7 @@ Ungefärlig tid att Slutför: 60 minuter
 | Dela självstudiekursen och alla aktörer från Microsoft-Documentation  | [Självstudier: Azure Active Directory-integration med ServiceNow](saas-apps/servicenow-tutorial.md) |
 | Ange ett fungerande möte och följ självstudier steg med varje skådespelare. | [Självstudier: Azure Active Directory-integration med ServiceNow](saas-apps/servicenow-tutorial.md) |
 | Tilldela appen till den grupp som definieras i förutsättningarna. Om POC har villkorlig åtkomst i omfattningen, kan du gå tillbaka som senare och lägga till MFA, och liknande. <br/>Observera att detta startar i etableringsprocessen (om konfigurerad) |  [Tilldela en användare eller grupp till en enterprise-app i Azure Active Directory](manage-apps/assign-user-or-group-access-portal.md) <br/>[Skapa en grupp och Lägg till medlemmar i Azure Active Directory](fundamentals/active-directory-groups-create-azure-portal.md) |
-| Använda Azure AD Portal för att lägga till ServiceNow program från galleriet| [Hantering av Azure AD Portal: företagsprogram](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/Overview) <br/>[Vad är nytt i Enterprise-programhantering i Azure Active Directory](active-directory-enterprise-apps-whats-new-azure-portal.md) |
+| Använda Azure AD Portal för att lägga till ServiceNow program från galleriet| [Hantering av Azure AD Portal: företagsprogram](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/Overview) <br/>[Självstudier: Azure Active Directory-integration med ServiceNow](saas-apps/servicenow-tutorial.md) |
 | Aktivera ”SAML-baserad inloggning” i ”enkel inloggning”-bladet på ServiceNow-App |  |
 | Fyll i fälten ”inloggning på URL” och ”identifierare” med din ServiceNow-URL<br/>Markera kryssrutan för att ”gör nytt certifikat aktivt”<br/>och spara inställningarna |  |
 | Öppna bladet ”konfigurera ServiceNow” längst ned på panelen för att visa anpassade anvisningar för hur du konfigurerar ServiceNow |  |
@@ -163,8 +163,7 @@ Ungefärlig tid att Slutför: 60 minuter
 
 ### <a name="considerations"></a>Överväganden
 
-1. Ovan [självstudien](saas-apps/servicenow-tutorial.md) refererar till gamla Azure AD-hanteringsmiljö. Men PoC baseras på [snabbstarten](active-directory-enterprise-apps-whats-new-azure-portal.md#quickstart-get-going-with-your-new-application-right-away) upplevelse.
-2. Om målprogrammet inte finns i galleriet, kan du använda ”ta med din egen app”. Läs mer: [vad är nytt i Enterprise-programhantering i Azure Active Directory: lägga till anpassade program från ett och samma ställe](active-directory-enterprise-apps-whats-new-azure-portal.md#add-custom-applications-from-one-place)
+1. Om målprogrammet inte finns i galleriet, kan du använda ”ta med din egen app”. Läs mer: [konfigurera program som inte ingår i Azure AD-programgalleriet](manage-apps/configure-single-sign-on-non-gallery-applications.md).
 
 ## <a name="saas-password-sso-configuration"></a>SaaS-lösenord SSO-konfiguration
 
@@ -184,7 +183,7 @@ Ungefärlig tid att Slutför: 15 minuter
 | Steg | Resurser |
 | --- | --- |
 | Installera webbläsartillägget för | [Access Panel-tillägg för Internet Explorer](https://account.activedirectory.windowsazure.com/Applications/Installers/x64/Access%20Panel%20Extension.msi)<br/>[Access Panel-tillägg för Chrome](https://go.microsoft.com/fwLink/?LinkID=311859&clcid=0x409)<br/>[Access Panel-tillägg för Firefox](https://go.microsoft.com/fwLink/?LinkID=626998&clcid=0x409) |
-| Konfigurera program från galleriet | [Vad är nytt i Enterprise-programhantering i Azure Active Directory: nya och förbättrade programgalleriet](active-directory-enterprise-apps-whats-new-azure-portal.md#improvements-to-the-azure-active-directory-application-gallery) |
+| Konfigurera program från galleriet | [Självstudie: Konfigurera SAML-baserad enkel inloggning](manage-apps/configure-single-sign-on-portal.md) |
 | Konfigurera enkel inloggning med lösenord | [Hantera enkel inloggning för företagsappar i nya Azure portal: lösenordsbaserad inloggning](manage-apps/what-is-single-sign-on.md#how-does-single-sign-on-with-azure-active-directory-work).|
 | Tilldela appen till den grupp som definieras i förutsättningarna | [Tilldela en användare eller grupp till en enterprise-app i Azure Active Directory](manage-apps/assign-user-or-group-access-portal.md) |
 | Logga in på https://myapps.microsoft.com/ som en användare som har åtkomst |  |
@@ -195,10 +194,10 @@ Ungefärlig tid att Slutför: 15 minuter
 
 ### <a name="considerations"></a>Överväganden
 
-Om målprogrammet inte finns i galleriet, kan du använda ”ta med din egen app”. Läs mer: [vad är nytt i Enterprise-programhantering i Azure Active Directory: lägga till anpassade program från ett och samma ställe](active-directory-enterprise-apps-whats-new-azure-portal.md#add-custom-applications-from-one-place)
+Om målprogrammet inte finns i galleriet, kan du använda ”ta med din egen app”. Läs mer: [konfigurera program som inte ingår i Azure AD-programgalleriet](manage-apps/configure-single-sign-on-non-gallery-applications.md)
 
  Tänk på följande krav:
-   * Programmet ska ha en känd inloggnings-URL
+   * Programmet bör ha en känd inloggnings-URL.
    * På inloggningssidan ska innehålla ett HTML-formulär med en mer textfält som webbläsartillägg kan automatisk ifyllning. Den bör åtminstone innehålla användarnamn och lösenord.
 
 ## <a name="saas-shared-accounts-configuration"></a>SaaS delad konfiguration för konton
@@ -219,7 +218,7 @@ Ungefärlig tid att Slutför: 30 minuter
 | Steg | Resurser |
 | --- | --- |
 | Installera webbläsartillägget för | [Access Panel-tillägg för Internet Explorer](https://account.activedirectory.windowsazure.com/Applications/Installers/x64/Access%20Panel%20Extension.msi)<br/>[Access Panel-tillägg för Chrome](https://go.microsoft.com/fwLink/?LinkID=311859&clcid=0x409)<br/>[Access Panel-tillägg för Firefox](https://go.microsoft.com/fwLink/?LinkID=626998&clcid=0x409) |
-| Konfigurera program från galleriet | [Vad är nytt i Enterprise-programhantering i Azure Active Directory: nya och förbättrade programgalleriet](active-directory-enterprise-apps-whats-new-azure-portal.md#improvements-to-the-azure-active-directory-application-gallery) |
+| Konfigurera program från galleriet | [Självstudie: Konfigurera SAML-baserad enkel inloggning för ett program](manage-apps/configure-single-sign-on-portal.md) |
 | Konfigurera enkel inloggning med lösenord | [Hantera enkel inloggning för företagsappar i nya Azure portal: lösenordsbaserad inloggning](manage-apps/what-is-single-sign-on.md#how-does-single-sign-on-with-azure-active-directory-work).|
 | Tilldela appen till den grupp som definieras i förutsättningarna vid tilldelning av autentiseringsuppgifter | [Tilldela en användare eller grupp till en enterprise-app i Azure Active Directory](manage-apps/assign-user-or-group-access-portal.md) |
 | Logga in som olika användare åtkomst till appen som den **samma delade konto.**  |  |
@@ -228,7 +227,7 @@ Ungefärlig tid att Slutför: 30 minuter
 
 ### <a name="considerations"></a>Överväganden
 
-Om målprogrammet inte finns i galleriet, kan du använda ”ta med din egen app”. Läs mer: [vad är nytt i Enterprise-programhantering i Azure Active Directory: lägga till anpassade program från ett och samma ställe](active-directory-enterprise-apps-whats-new-azure-portal.md#add-custom-applications-from-one-place)
+Om målprogrammet inte finns i galleriet, kan du använda ”ta med din egen app”. Läs mer: [Konfigurera enkel inloggning till program som inte ingår i Azure AD-programgalleriet](manage-apps/configure-single-sign-on-non-gallery-applications.md)
 
  Tänk på följande krav:
    * Programmet ska ha en känd inloggnings-URL
@@ -364,7 +363,7 @@ Ungefärlig tid att Slutför: 10 minuter
 | Steg | Resurser |
 | --- | --- |
 | Gå till bladet för företagsprogram i Azure AD-hanteringsportalen | [Azure AD-hanteringsportalen: Företagsprogram](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/AllApps/menuId/) |
-| Konfigurera program från krav med självbetjäning | [Vad är nytt i Enterprise-programhantering i Azure Active Directory: Konfigurera självbetjäningsåtkomsten](active-directory-enterprise-apps-whats-new-azure-portal.md#configure-self-service-application-access) |
+| Konfigurera program från krav med självbetjäning | [Konfigurera självbetjäningsåtkomsten](manage-apps/manage-self-service-access.md) |
 | Logga in som informationsarbetare till Mina appar-portalen | http://myapps.microsoft.com |
 | Lägg märke till ”+ Lägg till app” knappen op på sidan. Använda den för att få åtkomst till appen |  |
 

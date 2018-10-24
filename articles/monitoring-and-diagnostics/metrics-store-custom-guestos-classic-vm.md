@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: ancav
 ms.component: ''
-ms.openlocfilehash: cb803450f7765ae62292ff3afb7f32209b437f78
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 235eda231dfb0f936bf55c7c8d93a8f709fdf9bc
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46978938"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49954868"
 ---
 # <a name="send-guest-os-metrics-to-the-azure-monitor-data-store-for-a-windows-virtual-machine-classic"></a>Skicka guest OS mått till Azure Monitor-datalager för en Windows-datorn (klassisk)
 
@@ -41,7 +41,7 @@ Den process som beskrivs i den här artikeln fungerar bara klassiska virtuella d
 
 ## <a name="create-a-service-principal"></a>Skapa ett huvudnamn för tjänsten
 
-Skapa tjänstens huvudnamn i Azure Active Directory-klienten med hjälp av instruktionerna i [skapa ett huvudnamn för tjänsten](../azure-resource-manager/resource-group-create-service-principal-portal.md). Observera följande när du går igenom den här processen: 
+Skapa tjänstens huvudnamn i Azure Active Directory-klienten med hjälp av instruktionerna i [skapa ett huvudnamn för tjänsten](../active-directory/develop/howto-create-service-principal-portal.md). Observera följande när du går igenom den här processen: 
 - Skapa nya klienthemligheten för den här appen  
 - Spara den och klient-id för användning i senare steg.
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/21/2018
 ms.author: magattus
-ms.openlocfilehash: 7180e51a6ac1392e4a3f072097b1aeef3648c605
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: 57891bcce289c30d7dce1cd00c301064aa9b97cc
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49093297"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49955244"
 ---
 # <a name="using-azure-cdn-with-sas"></a>Använda Azure CDN med SAS
 
@@ -71,28 +71,28 @@ Det här alternativet är den enklaste och använder en enda SAS-token som skick
  
 Det här alternativet är endast tillgänglig för **Azure CDN Premium från Verizon** profiler. Med det här alternativet kan du skydda bloblagringen vid den ursprungliga servern. Du kanske vill använda det här alternativet om du inte behöver specifika åtkomstbegränsningar för filen, men vill hindra användare från att komma åt storage ursprunget direkt för att förbättra Azure CDN-avlastning gånger. SAS-token som är okända för användaren, krävs för vem som helst komma åt filer i den angivna behållaren för den ursprungliga servern. Men på grund av URL-Omskrivningsregler-regeln krävs SAS-token inte för CDN-slutpunkt.
  
-1. Använd den [regelmotor](cdn-rules-engine.md) att skapa en regel för URL-Omskrivningsregler. Nya regler tar cirka 10 minuter för att sprida.
+1. Använd den [regelmotor](cdn-rules-engine.md) att skapa en regel för URL-Omskrivningsregler. Nya regler ta upp till fyra timmar att sprida.
 
    ![CDN hantera knappen](./media/cdn-sas-storage-support/cdn-manage-btn.png)
 
    ![CDN regelmotor – knappen](./media/cdn-sas-storage-support/cdn-rules-engine-btn.png)
 
-   Följande exempel URL-Omskrivningsregler regel använder ett mönster för reguljärt uttryck med en hämtad grupp och en slutpunkt med namnet *storagedemo*:
+   Följande exempel URL-Omskrivningsregler regel använder ett mönster för reguljärt uttryck med en hämtad grupp och en slutpunkt med namnet *sasstoragedemo*:
    
    Källa:   
-   `(\/container1\/.*)`
+   `(container1\/.*)`
    
    Mål:   
    ```
    $1?sv=2017-07-29&ss=b&srt=c&sp=r&se=2027-12-19T17:35:58Z&st=2017-12-19T09:35:58Z&spr=https&sig=kquaXsAuCLXomN7R00b8CYM13UpDbAHcsRfGOW3Du1M%3D
    ```
    ![CDN URL-Omskrivningsregler regel - vänster](./media/cdn-sas-storage-support/cdn-url-rewrite-rule.png)
-   ![CDN URL-Omskrivningsregler regel - höger](./media/cdn-sas-storage-support/cdn-url-rewrite-rule-option-2.png)
+   ![CDN URL-Omskrivningsregler regel - höger](./media/cdn-sas-storage-support/cdn-url-rewrite-rule-option-4.png)
 
 2. När den nya regeln aktiveras, alla kan komma åt filer i den angivna behållaren för CDN-slutpunkt, oavsett om de använder en SAS-token i Webbadressen. Här är formatet: `https://<endpoint hostname>.azureedge.net/<container>/<file>`
  
    Exempel:   
-   `https://demoendpoint.azureedge.net/container1/demo.jpg`
+   `https://sasstoragedemo.azureedge.net/container1/demo.jpg`
        
 
 3. Finjustera cachelagringens varaktighet med hjälp av cachelagringsregler eller genom att lägga till `Cache-Control` rubriker på den ursprungliga servern. Eftersom Azure CDN behandlar SAS-token som en vanlig frågesträng, som bästa praxis bör du ställa in en lagringstiden som upphör att gälla från och med den SAS upphör att gälla. I annat fall om en fil cachelagras under en längre tid än SAS är aktiv och kanske filen är tillgängligt från Azure CDN ursprungsservern förfallotiden för SAS har förflutit. Om den här situationen uppstår och du vill isolera cachelagrade filen, måste du utföra en rensning-åtgärden på filen för att radera den från cachen. Information om hur du anger cachelagringens varaktighet på Azure CDN finns i [Kontrollera Cachelagringsbeteendet med cachelagringsregler](cdn-caching-rules.md).
@@ -108,24 +108,24 @@ Om du vill använda Azure CDN token autentisering, måste du ha en **Azure CDN P
  
    Exempel:   
    ```
-   https://demoendpoint.azureedge.net/container1/demo.jpg?a4fbc3710fd3449a7c99986bkquaXsAuCLXomN7R00b8CYM13UpDbAHcsRfGOW3Du1M%3D
+   https://sasstoragedemo.azureedge.net/container1/demo.jpg?a4fbc3710fd3449a7c99986bkquaXsAuCLXomN7R00b8CYM13UpDbAHcsRfGOW3Du1M%3D
    ```
        
    Parameteralternativ för en token säkerhetsautentisering skiljer sig från parameteralternativ för en SAS-token. Om du väljer att använda en förfallotid när du skapar en säkerhetstoken, bör du ange den till samma värde som förfallotiden för SAS-token. På så sätt att förfallotiden är förutsägbara. 
  
-2. Använd den [regelmotor](cdn-rules-engine.md) att skapa en URL-Omskrivningsregler regel om du vill aktivera SAS-token åtkomst till alla blobar i behållaren. Nya regler tar cirka 10 minuter för att sprida.
+2. Använd den [regelmotor](cdn-rules-engine.md) att skapa en URL-Omskrivningsregler regel om du vill aktivera SAS-token åtkomst till alla blobar i behållaren. Nya regler ta upp till fyra timmar att sprida.
 
-   Följande exempel URL-Omskrivningsregler regel använder ett mönster för reguljärt uttryck med en hämtad grupp och en slutpunkt med namnet *storagedemo*:
+   Följande exempel URL-Omskrivningsregler regel använder ett mönster för reguljärt uttryck med en hämtad grupp och en slutpunkt med namnet *sasstoragedemo*:
    
    Källa:   
-   `(\/container1\/.*)`
+   `(container1\/.*)`
    
    Mål:   
    ```
    $1&sv=2017-07-29&ss=b&srt=c&sp=r&se=2027-12-19T17:35:58Z&st=2017-12-19T09:35:58Z&spr=https&sig=kquaXsAuCLXomN7R00b8CYM13UpDbAHcsRfGOW3Du1M%3D
    ```
    ![CDN URL-Omskrivningsregler regel - vänster](./media/cdn-sas-storage-support/cdn-url-rewrite-rule.png)
-   ![CDN URL-Omskrivningsregler regel - höger](./media/cdn-sas-storage-support/cdn-url-rewrite-rule-option-3.png)
+   ![CDN URL-Omskrivningsregler regel - höger](./media/cdn-sas-storage-support/cdn-url-rewrite-rule-option-4.png)
 
 3. Om du förnyar SAS, se till att du uppdatera Webbadressomskrivning regeln med den nya SAS-token. 
 

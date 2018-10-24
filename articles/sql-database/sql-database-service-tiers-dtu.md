@@ -11,13 +11,13 @@ author: sachinpMSFT
 ms.author: sachinp
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 10/04/2018
-ms.openlocfilehash: a9e274cea7543fc3361b1f2d0a60fc18176b6248
-ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
+ms.date: 10/22/2018
+ms.openlocfilehash: 00e5a77bdf8554d473194b2e84947d7adb10df90
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/06/2018
-ms.locfileid: "48831321"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49955271"
 ---
 # <a name="dtu-based-service-tiers"></a>DTU-baserade tjänstnivåer
 
@@ -25,7 +25,6 @@ DTU-baserade tjänstnivåer särskiljs med hjälp av olika storlekar med en fast
 
 > [!IMPORTANT]
 > SQL Database Managed Instance är stöder för närvarande i förhandsversionen inte en DTU-baserade inköpsmodellen. Mer information finns i [Azure SQL Database Managed Instance](sql-database-managed-instance.md).
-
 > [!NOTE]
 > Läs om hur vCore-baserade tjänstnivåer [vCore-baserade tjänstnivåer](sql-database-service-tiers-vcore.md). Information om hur man skiljer DTU-baserade tjänstnivåer och vCore-baserade tjänstnivåer finns i [Azure SQL Database köpa modeller](sql-database-service-tiers.md).
 
@@ -33,7 +32,7 @@ DTU-baserade tjänstnivåer särskiljs med hjälp av olika storlekar med en fast
 
 Välja tjänstnivå beror huvudsakligen på kontinuitet för företag-, lagrings- och prestandakrav.
 ||Basic|Standard|Premium|
-| :-- | --: |--:| --:| --:| 
+| :-- | --: |--:| --:| --:|
 |Målarbetsbelastning|Utveckling och produktion|Utveckling och produktion|Utveckling och produktion||
 |SLA för drifttid|99,99 %|99,99 %|99,99 %|Ej tillämpligt i förhandsversionen|
 |Kvarhållning av säkerhetskopior|7 dagar|35 dagar|35 dagar|
@@ -44,13 +43,16 @@ Välja tjänstnivå beror huvudsakligen på kontinuitet för företag-, lagrings
 |Minnesintern OLTP|Gäller inte|Gäller inte|Stöds|
 |||||
 
+> [!NOTE]
+> Du kan få en kostnadsfri Azure SQL-databas på Basic-tjänstnivå tillsammans med ett kostnadsfritt Azure-konto att utforska Azure. Mer information finns i [skapa en hanterad molndatabas med ditt kostnadsfria Azure-konto](https://azure.microsoft.com/free/services/sql-database/).
+
 ## <a name="single-database-dtu-and-storage-limits"></a>Enkel databas DTU och Lagringsgränser
 
 Compute-storlekar uttrycks i Databastransaktionsenheter (dtu: er) för enskilda databaser och elastiska Databastransaktionsenheter (edtu: er) för elastiska pooler. Mer information om dtu: er och edtu: er finns i [DTU-baserade inköpsmodellen](sql-database-service-tiers.md#dtu-based-purchasing-model)?
 
 ||Basic|Standard|Premium|
 | :-- | --: | --: | --: | --: |
-| Lagringsstorlek | 2 GB | 1 TB | 4 TB  | 
+| Lagringsstorlek | 2 GB | 1 TB | 4 TB  |
 | Maximala dtu: er | 5 | 3000 | 4000 | |
 ||||||
 
@@ -59,18 +61,17 @@ Compute-storlekar uttrycks i Databastransaktionsenheter (dtu: er) för enskilda 
 
 ## <a name="elastic-pool-edtu-storage-and-pooled-database-limits"></a>Elastisk pool-eDTU-, lagrings- och databas i pool gränser
 
-| | **Basic** | **Standard** | **Premium** | 
+| | **Basic** | **Standard** | **Premium** |
 | :-- | --: | --: | --: | --: |
-| Maximala lagringsstorleken per databas  | 2 GB | 1 TB | 1 TB | 
-| Maximala lagringsstorleken per pool | 156 GB | 4 TB | 4 TB | 
-| Högsta edtu: er per databas | 5 | 3000 | 4000 | 
-| Högsta edtu: er per pool | 1600 | 3000 | 4000 | 
-| Högsta antal databaser per pool | 500  | 500 | 100 | 
+| Maximala lagringsstorleken per databas  | 2 GB | 1 TB | 1 TB |
+| Maximala lagringsstorleken per pool | 156 GB | 4 TB | 4 TB |
+| Högsta edtu: er per databas | 5 | 3000 | 4000 |
+| Högsta edtu: er per pool | 1600 | 3000 | 4000 |
+| Högsta antal databaser per pool | 500  | 500 | 100 |
 ||||||
 
 > [!IMPORTANT]
 > Mer än 1 TB av lagringsutrymmet på Premium-nivån är för närvarande tillgängligt i alla regioner förutom följande: västra centrala USA, Kina, östra, centrala USDoDCentral, Tyskland, USDoDEast USA-förvaltad region sydväst, USGov-Iowa, Tyskland, nordöstra, Kina, norra. Det maximala lagringsutrymmet på Premium-nivån i andra regioner är begränsat till 1 TB. Se [sidan 11-15 i Aktuella begränsningar](sql-database-dtu-resource-limits-single-databases.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
-
 > [!IMPORTANT]
 > Under vissa omständigheter kan du behöva minska en databas för att frigöra oanvänt utrymme. Mer information finns i [hantera utrymmet i Azure SQL Database](sql-database-file-space-management.md).
 

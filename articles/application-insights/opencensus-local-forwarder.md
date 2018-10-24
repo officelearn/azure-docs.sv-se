@@ -35,7 +35,7 @@ Lokala vidarebefordraren är en [projekt med öppen källkod på GitHub](https:/
 Det enklaste sättet för att köra lokala vidarebefordrare under Windows är genom att installera den som en Windows-tjänst. Versionen levereras med en körbar fil för Windows (*WindowsServiceHost/Microsoft.LocalForwarder.WindowsServiceHost.exe*) som enkelt kan registreras med operativsystemet.
 
 > [!NOTE]
-> Den lokala vidarebefordrartjänsten kräver minst .NET Framework 4.7. Om du inte har .NET Framework 4.7 tjänsten startar installation, men inte. Åtkomst till den senaste versionen av .NET Framework ** [gå till hämtningssidan för .NET Framework](
+> Den lokala vidarebefordrartjänsten kräver minst .NET Framework 4.7. Om du inte har .NET Framework 4.7 tjänsten startar installation, men inte. Åtkomst till den senaste versionen av .NET Framework **[gå till hämtningssidan för .NET Framework](
 https://www.microsoft.com/net/download/dotnet-framework-runtime/net472?utm_source=getdotnet&utm_medium=referral)**.
 
 1. Ladda ned LF. WindowsServiceHost.zip filen från den [lokala vidarebefordrare versionen sidan](https://github.com/Microsoft/ApplicationInsights-LocalForwarder/releases) på GitHub.

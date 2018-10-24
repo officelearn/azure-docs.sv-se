@@ -9,12 +9,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/09/2018
 ms.author: sujayt
-ms.openlocfilehash: 86d6c77dab817cf755c34bdd699ee1158e852f37
-ms.sourcegitcommit: 1af4bceb45a0b4edcdb1079fc279f9f2f448140b
+ms.openlocfilehash: 040ace1eab4062c011ed82a59e7f5bfb789c256b
+ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "42057293"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49945747"
 ---
 # <a name="troubleshoot-azure-to-azure-vm-replication-issues"></a>Felsöka problem med Azure till Azure VM-replikering
 
@@ -158,8 +158,8 @@ För Site Recovery-replikering till arbete, utgående anslutning till specifika 
 
 - **Lösning**
    - Om du använder brandväggsproxy för att styra utgående nätverksanslutning på den virtuella datorn, kan du kontrollera att nödvändiga webbadresser eller datacentrets IP-intervall är godkänd. Mer information finns i [proxy vägledning i brandväggen](https://aka.ms/a2a-firewall-proxy-guidance).
-   - Om du använder NSG-regler för att styra utgående nätverksanslutning på den virtuella datorn, se till att datacentrets IP-intervall är godkänd. Mer information finns i [network grupp säkerhetsvägledning](https://aka.ms/a2a-nsg-guidance).
-   - Godkänna [de URL: erna](azure-to-azure-about-networking.md#outbound-connectivity-for-urls) eller [krävs för IP-intervall](azure-to-azure-about-networking.md#outbound-connectivity-for-ip-address-ranges), följer du stegen i den [vägledningsdokumentet nätverk om](site-recovery-azure-to-azure-networking-guidance.md).
+   - Om du använder NSG-regler för att styra utgående nätverksanslutning på den virtuella datorn, se till att datacentrets IP-intervall är godkänd. Mer information finns i [network grupp säkerhetsvägledning](azure-to-azure-about-networking.md).
+   - Godkänna [de URL: erna](azure-to-azure-about-networking.md#outbound-connectivity-for-urls) eller [krävs för IP-intervall](azure-to-azure-about-networking.md#outbound-connectivity-for-ip-address-ranges), följer du stegen i den [vägledningsdokumentet nätverk om](azure-to-azure-about-networking.md).
 
 ### <a name="issue-2-site-recovery-configuration-failed-151072"></a>Problem 2: Site Recovery-konfigurationen misslyckades (151072)
 - **Möjlig orsak** </br>

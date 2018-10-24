@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/05/2017
 ms.author: apimpm
-ms.openlocfilehash: c94d4d4beea22e68a581cd208a25f915e4217614
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.openlocfilehash: 843b03ce33d1897e2e985ac832f883e1fae12960
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48870884"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49959051"
 ---
 # <a name="how-to-use-azure-api-management-with-virtual-networks"></a>Hur du använder Azure API Management med virtuella nätverk
 Azure-nätverk (Vnet) kan du placera någon av dina Azure-resurser i ett icke-internet-dirigerbara nätverk som du styr åtkomst till. Dessa nätverk kan sedan anslutas till ditt lokala nätverk med olika VPN-teknologier. Läs mer om Azure Virtual Networks börjar med den här informationen: [Azure översikt över Virtual Network](../virtual-network/virtual-networks-overview.md).
@@ -106,16 +106,17 @@ Följande är en lista över vanliga felkonfigurationsproblem som kan uppstå n�
 
 När en instans för API Management finns i ett virtuellt nätverk, används portarna i följande tabell.
 
-| Källa / målportar | Riktning          | Transport-protokoll | Källa / mål                  | Syfte (*)                                                 | Typ av virtuellt nätverk |
+| Källa / målportar | Riktning          | Transport-protokoll |   [Tjänsttaggar](../virtual-network/security-overview.md#service-tags) <br> Källa / mål   | Syfte (*)                                                 | Typ av virtuellt nätverk |
 |------------------------------|--------------------|--------------------|---------------------------------------|-------------------------------------------------------------|----------------------|
 | * / 80, 443                  | Inkommande            | TCP                | INTERNET / VIRTUAL_NETWORK            | Klientkommunikation till API Management                      | Extern             |
-| * / 3443                     | Inkommande            | TCP                | APIMANAGEMENT / VIRTUAL_NETWORK       | Hanteringsslutpunkten för Azure-portalen och Powershell         | Externa och interna  |
+| * / 3443                     | Inkommande            | TCP                | ApiManagement / VIRTUAL_NETWORK       | Hanteringsslutpunkten för Azure-portalen och Powershell         | Externa och interna  |
 | * / 80, 443                  | Utgående           | TCP                | VIRTUAL_NETWORK / Storage             | **Beroende på Azure Storage**                             | Externa och interna  |
-| * / 80, 443                  | Utgående           | TCP                | VIRTUAL_NETWORK / INTERNET            | Azure Active Directory (om tillämpligt)                   | Externa och interna  |
+| * / 80, 443                  | Utgående           | TCP                | VIRTUAL_NETWORK / AzureActiveDirectory | Azure Active Directory (om tillämpligt)                   | Externa och interna  |
 | * / 1433                     | Utgående           | TCP                | VIRTUAL_NETWORK / SQL                 | **Åtkomst till Azure SQL-slutpunkter**                           | Externa och interna  |
 | * / 5672                     | Utgående           | TCP                | VIRTUAL_NETWORK / EventHub            | Beroende för logg till Event Hub-principen och övervakningsagent | Externa och interna  |
 | * / 445                      | Utgående           | TCP                | VIRTUAL_NETWORK / Storage             | Beroende på Azure-filresurs för GIT                      | Externa och interna  |
 | * / 1886                     | Utgående           | TCP                | VIRTUAL_NETWORK / INTERNET            | Krävs för att publicera hälsostatus till Resource Health          | Externa och interna  |
+| * / 443                     | Utgående           | TCP                | VIRTUAL_NETWORK / AzureMonitor         | Publicera diagnostik loggar och mått                        | Externa och interna  |
 | * / 25                       | Utgående           | TCP                | VIRTUAL_NETWORK / INTERNET            | Ansluta till SMTP-relä för att skicka e-post                    | Externa och interna  |
 | * / 587                      | Utgående           | TCP                | VIRTUAL_NETWORK / INTERNET            | Ansluta till SMTP-relä för att skicka e-post                    | Externa och interna  |
 | * / 25028                    | Utgående           | TCP                | VIRTUAL_NETWORK / INTERNET            | Ansluta till SMTP-relä för att skicka e-post                    | Externa och interna  |

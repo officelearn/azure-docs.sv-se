@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 10/17/2018
 ms.author: cherylmc
-ms.openlocfilehash: 588692ad4c7c95a06d33b67b76bb8feff6b4ed53
-ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
+ms.openlocfilehash: 5f133af5ec077821607bf3e942c8a931808d34fc
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49457178"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49953595"
 ---
 # <a name="connect-virtual-networks-from-different-deployment-models-using-powershell"></a>Anslut virtuella nätverk från olika distributionsmodeller med hjälp av PowerShell
 
@@ -34,7 +34,7 @@ Följande steg vägleder dig genom inställningarna som behövs för att konfigu
 
 ### <a name="pre"></a>Förhandskrav
 
-* Båda de virtuella nätverken har redan skapats. Om du vill skapa en resource manager virtuellt nätverk finns i [skapa ett virtuellt nätverk](../virtual-network/quick-create-powershell.md#create-a-virtual-network). För att skapa ett klassiskt virtuellt nätverk, se [skapa ett klassiskt virtuellt nätverk](https://docs.microsoft.com/en-us/azure/virtual-network/create-virtual-network-classic).
+* Båda de virtuella nätverken har redan skapats. Om du vill skapa en resource manager virtuellt nätverk finns i [skapa ett virtuellt nätverk](../virtual-network/quick-create-powershell.md#create-a-virtual-network). För att skapa ett klassiskt virtuellt nätverk, se [skapa ett klassiskt virtuellt nätverk](https://docs.microsoft.com/azure/virtual-network/create-virtual-network-classic).
 * Adressintervall för de virtuella nätverken inte överlappar varandra eller överlappar med något av intervallen för andra anslutningar som gatewayer kan anslutas till.
 * Du har installerat det senaste PowerShell-cmdlet. Se [hur du installerar och konfigurerar du Azure PowerShell](/powershell/azure/overview) för mer information. Kontrollera att du installerar både Service Management (SM) och cmdletar för Resource Manager (RM). 
 

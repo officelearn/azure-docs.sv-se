@@ -6,14 +6,14 @@ author: adigan
 manager: Nkolli1
 ms.service: backup
 ms.topic: conceptual
-ms.date: 09/29/2016
+ms.date: 10/18/2018
 ms.author: adigan
-ms.openlocfilehash: 7331b1c99425500b58d186cedab1e83dd20e3684
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: b3b4d42d9a48d02639019f815cbf4fca15060771
+ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49389827"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49946053"
 ---
 # <a name="back-up-a-sharepoint-farm-to-azure"></a>Säkerhetskopiera en SharePoint-servergrupp till Azure
 Du säkerhetskopiera en SharePoint-servergrupp till Microsoft Azure med hjälp av System Center Data Protection Manager (DPM) på samma sätt som du säkerhetskopiera andra datakällor. Azure Backup erbjuder flexibilitet i schemat för säkerhetskopiering så att dagligen, varje vecka, månad eller årlig säkerhetskopiering pekar och ger dig alternativ för kvarhållning för olika säkerhetskopieringspunkter. DPM ger möjlighet att lagra kopior av lokal disk för snabb återställning-återställningstiden (RTO) och för att lagra kopior till Azure för mer ekonomiskt, långsiktig kvarhållning.
@@ -29,7 +29,7 @@ Azure Backup för DPM har stöd för följande scenarier:
 Det finns några saker du behöver för att bekräfta innan du säkerhetskopierar en SharePoint-servergrupp till Azure.
 
 ### <a name="prerequisites"></a>Förutsättningar
-Innan du fortsätter, kontrollera att du uppfyller alla de [krav för att använda Microsoft Azure Backup](backup-azure-dpm-introduction.md#prerequisites) att skydda arbetsbelastningar. Vissa krav kan till exempel: skapa ett säkerhetskopieringsvalv, ladda ned valvautentiseringsuppgifter, installera Azure Backup-agenten och registrera DPM-/ Azure Backup Server med valvet.
+Innan du fortsätter, kontrollera att du uppfyller alla de [krav för att använda Microsoft Azure Backup](backup-azure-dpm-introduction.md#prerequisites-and-limitations) att skydda arbetsbelastningar. Vissa krav kan till exempel: skapa ett säkerhetskopieringsvalv, ladda ned valvautentiseringsuppgifter, installera Azure Backup-agenten och registrera DPM-/ Azure Backup Server med valvet.
 
 ### <a name="dpm-agent"></a>DPM-agenten
 DPM-agenten måste installeras på den server som kör SharePoint, de servrar som kör SQL Server och alla andra servrar som ingår i SharePoint-servergruppen. Läs mer om hur du ställer in skyddsagenten [installationsprogrammet Skyddsagenten](https://technet.microsoft.com/library/hh758034\(v=sc.12\).aspx).  Det enda undantaget är att du installerar agenten endast på en enda webbserver för klientdel (WFE). DPM måste agenten på WFE-servrar endast som fungerar som ingångspunkt för skydd.

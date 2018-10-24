@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 03/19/2018
 ms.author: mcollier
 ms.component: ''
-ms.openlocfilehash: 9524d471388e69166191b6197fb295532b068092
-ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
+ms.openlocfilehash: 59e7ac5e2da733724c047f6842561ce87fb495bb
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39390562"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49955313"
 ---
 # <a name="azure-monitoring-rest-api-walkthrough"></a>Azure Monitoring REST API-genomgång
 Den här artikeln visar hur du utför autentisering så att din kod kan använda den [Microsoft Azure Monitor REST API-referens](https://msdn.microsoft.com/library/azure/dn931943.aspx).         
@@ -25,7 +25,7 @@ Förutom att arbeta med olika mått datapunkter, gör övervaka API: et det ocks
 ## <a name="authenticating-azure-monitor-requests"></a>Den autentiserande Azure Monitor-begäranden
 Det första steget är att autentisera begäran.
 
-Alla aktiviteter som körs mot Azure Monitor-API använder Azure Resource Manager-autentiseringsmodellen. Därför måste alla begäranden autentiseras med Azure Active Directory (AD Azure). En metod för att autentisera klientprogrammet är att skapa en Azure AD-tjänstens huvudnamn och hämta token för autentisering (JWT). Följande exempelskript visar skapar en Azure AD-tjänsten huvudnamn via PowerShell. En mer detaljerad genomgång finns i dokumentationen på [använder Azure PowerShell för att skapa ett huvudnamn för tjänsten för resursåtkomst](https://docs.microsoft.com/powershell/azure/create-azure-service-principal-azureps). Det går också att [skapa ett huvudnamn för tjänsten via Azure portal](../azure-resource-manager/resource-group-create-service-principal-portal.md).
+Alla aktiviteter som körs mot Azure Monitor-API använder Azure Resource Manager-autentiseringsmodellen. Därför måste alla begäranden autentiseras med Azure Active Directory (AD Azure). En metod för att autentisera klientprogrammet är att skapa en Azure AD-tjänstens huvudnamn och hämta token för autentisering (JWT). Följande exempelskript visar skapar en Azure AD-tjänsten huvudnamn via PowerShell. En mer detaljerad genomgång finns i dokumentationen på [använder Azure PowerShell för att skapa ett huvudnamn för tjänsten för resursåtkomst](https://docs.microsoft.com/powershell/azure/create-azure-service-principal-azureps). Det går också att [skapa ett huvudnamn för tjänsten via Azure portal](../active-directory/develop/howto-create-service-principal-portal.md).
 
 ```PowerShell
 $subscriptionId = "{azure-subscription-id}"

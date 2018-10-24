@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/15/2018
+ms.date: 10/23/2018
 ms.author: jeffgilb
 ms.reviewer: ''
-ms.openlocfilehash: 16c908dabd313cd9d64ce5be9b7d0299423a7675
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: 38120b2be2ab7789946a4ad2fe688954e6212189
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49344693"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49959034"
 ---
 # <a name="key-features-and-concepts-in-azure-stack"></a>Huvudfunktioner och koncept i Azure Stack
 Om du inte har använt Microsoft Azure Stack kan dessa villkor och funktionsbeskrivning vara användbart.
@@ -154,14 +154,6 @@ RBAC i Azure har tre grundläggande roller som gäller för alla typer av resurs
 
 ## <a name="usage-data"></a>Användningsdata
 Microsoft Azure Stack samlar in och sammanställer användningsdata över alla resursproviders och skickar den till Azure för bearbetning av Azure commerce. Användningsdata som samlas in på Azure Stack kan ses via ett REST-API. Det finns en Azure-konsekventa klient-API som Provider och delegerad Provider API: er att hämta användningsdata för alla klient-prenumerationer. Dessa data kan användas för att integrera med ett externt verktyg eller en tjänst för fakturerings- eller återbetalning. När användning har behandlats av Azure commerce, kan det visas i på Azures faktureringsportal.
-
-## <a name="in-development-build-of-azure-stack-development-kit"></a>I utveckling version av Azure Stack Development Kit
-I utveckling versioner kan tidiga brukare utvärdera den senaste versionen av Azure Stack Development Kit. De är inkrementella versioner baserat på senaste huvudversion. Medan huvudversioner fortsätter frigörs några månaders mellanrum, i utveckling versioner kommer att släppa periodvis mellan större versioner.
-
-I utveckling versioner ger följande fördelar:
-- Felkorrigeringar
-- Nya funktioner
-- Andra förbättringar
 
 ## <a name="next-steps"></a>Nästa steg
 [Grundläggande om administration](azure-stack-manage-basics.md)

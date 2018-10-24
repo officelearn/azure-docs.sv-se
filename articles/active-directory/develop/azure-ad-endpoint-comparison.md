@@ -17,12 +17,12 @@ ms.date: 09/27/2018
 ms.author: andret
 ms.reviewer: hirsin, andret
 ms.custom: aaddev
-ms.openlocfilehash: b75b31ddfc77be5ed651e7b8484e41a4ae73d8d8
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: e393851535c36eb604d57cc4d7c7561a3ebb201b
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47406540"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49955463"
 ---
 # <a name="comparing-the-azure-ad-v20-endpoint-with-the-v10-endpoint"></a>Jämföra Azure AD v2.0-slutpunkten med v1.0-slutpunkt
 
@@ -133,7 +133,7 @@ Här är en förenklad rekommendation för utvecklare som vid denna tidpunkt:
 
 * Om du måste ha stöd för personliga Microsoft-konton i ditt program, använder du v2.0. Men innan du gör det, måste du kontrollera att du förstår de begränsningar som beskrivs i den här artikeln.
 
-* Om ditt program behöver bara stöder Microsoft arbets- och skolkonton, Använd inte version 2.0. I stället referera till den [v1.0 guiden](azure-ad-developers-guide.md).
+* Om ditt program behöver bara stöder Microsoft arbets- och skolkonton, Använd inte version 2.0. I stället referera till den [v1.0 guiden](v1-overview.md).
 
 V2.0-slutpunkten kommer att utvecklas för att ta bort de begränsningar som anges här, så att du behöver bara använda v2.0-slutpunkten. Under tiden kan använda den här artikeln för att avgöra om v2.0-slutpunkten är rätt för dig. Vi fortsätter att uppdatera den här artikeln för att återspegla det aktuella tillståndet för v2.0-slutpunkten. Kontrollera att gå tillbaka till dina krav mot v2.0 funktioner för att omvärdera.
 

@@ -5,15 +5,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: include
-ms.date: 10/04/2018
+ms.date: 10/22/2018
 ms.author: tamram
 ms.custom: include file
-ms.openlocfilehash: ec687580eb86db9df77a657dedc4feec1dbb2b2f
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: b7682b83ca415ebff2be1c9dbb5581e8da1bb7fb
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49430400"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49805056"
 ---
 [Azure Files](../articles/storage/files/storage-files-introduction.md) stöder identity-baserad autentisering via SMB (Server Message Block) (förhandsversion) via [domäntjänster för Azure Active Directory (Azure AD)](../articles/active-directory-domain-services/active-directory-ds-overview.md). Dina domänanslutna Windows-datorer (VM) kan komma åt Azure-filresurser med [Azure AD](../articles/active-directory/fundamentals/active-directory-whatis.md) autentiseringsuppgifter. 
 
@@ -23,5 +23,5 @@ Som en del av förhandsversionen, även Azure Files stöder bevarar, ärver och 
 
 > [!NOTE]
 > - Azure AD-autentisering över SMB stöds inte för virtuella Linux-datorer i förhandsversionen. Endast Windows Server-datorer stöds.
-> - Azure AD-autentisering över SMB stöds inte för lokala datorer som kommer åt Azure Files med hjälp av antingen AD eller AAD-autentiseringsuppgifterna.
+> - Azure AD-autentisering över SMB stöds inte för lokala datorer som har åtkomst till Azure Files.
 > - Azure AD-autentisering är endast tillgänglig för lagringskonton som skapats efter den 24 September 2018.

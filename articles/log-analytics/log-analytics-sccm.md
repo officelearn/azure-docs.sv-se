@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 03/22/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 9a2193d78d564ad4a8c175a5116fa7dc9ebda256
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 28ddfea0f4127f402b82388a10ee150b30a65736
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49408752"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49954240"
 ---
 # <a name="connect-configuration-manager-to-log-analytics"></a>Anslut Konfigurationshanteraren till Log Analytics
 Du kan ansluta din miljö för System Center Configuration Manager till Azure Log Analytics att synkronisera enheten samlingsdata och referera till dessa samlingar i Log Analytics och Azure Automation.  
@@ -32,7 +32,7 @@ Log Analytics har stöd för System Center Configuration Manager current branch 
 ## <a name="configuration-overview"></a>Konfigurationsöversikt
 Följande steg sammanfattar hur du konfigurerar Configuration Manager-integrering med Log Analytics.  
 
-1. Registrera Configuration Manager som en Webbapp och/eller webb-API-app i Azure-portalen och kontrollera att du har klient-ID och klientens hemliga nyckel från registrering från Azure Active Directory. Se [Använd portalen för att skapa Active Directory-program och tjänstens huvudnamn som kan komma åt resurser](../azure-resource-manager/resource-group-create-service-principal-portal.md) detaljerad information om hur du utför det här steget.
+1. Registrera Configuration Manager som en Webbapp och/eller webb-API-app i Azure-portalen och kontrollera att du har klient-ID och klientens hemliga nyckel från registrering från Azure Active Directory. Se [Använd portalen för att skapa Active Directory-program och tjänstens huvudnamn som kan komma åt resurser](../active-directory/develop/howto-create-service-principal-portal.md) detaljerad information om hur du utför det här steget.
 2. I Azure-portalen [ge Configuration Manager (den registrerade webbappen) med behörighet att komma åt Log Analytics](#grant-configuration-manager-with-permissions-to-log-analytics).
 3. I Configuration Manager [lägga till en anslutning med hjälp av guiden Lägg till OMS-anslutning](#add-an-oms-connection-to-configuration-manager).
 4. I Configuration Manager [uppdatera anslutningsegenskaperna](#update-oms-connection-properties) om den hemliga nyckeln som lösenord eller klienten någonsin upphör att gälla eller går förlorad.

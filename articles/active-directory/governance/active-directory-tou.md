@@ -12,19 +12,29 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.component: compliance
-ms.date: 09/04/2018
+ms.date: 10/19/2018
 ms.author: rolyon
-ms.openlocfilehash: b6cc81a49875739a61aa397a65eb70c6b4f082ef
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
+ms.openlocfilehash: be00f6fb41572c0a9599f7005f2cdd1d6587f15a
+ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49393991"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49944155"
 ---
 # <a name="azure-active-directory-terms-of-use-feature"></a>Användningsvillkorsfunktion för Azure Active Directory
-Användningsvillkoren för Azure AD tillhandahåller en enkel metod som organisationer kan använda för att presentera information för slutanvändare. Den här presentationen gör att användare kan se relevanta ansvarsfriskrivningar för juridiska krav eller efterlevnadskrav. Den här artikeln beskriver hur du kommer igång med användningsvillkor för Azure AD.
+Användningsvillkoren för Azure AD tillhandahåller en enkel metod som organisationer kan använda för att presentera information för slutanvändare. Den här presentationen gör att användare kan se relevanta ansvarsfriskrivningar för juridiska krav eller efterlevnadskrav. Den här artikeln beskriver hur du kommer igång med användningsvillkoren.
 
 [!INCLUDE [GDPR-related guidance](../../../includes/gdpr-intro-sentence.md)]
+
+## <a name="overview-videos"></a>Översikt över videor
+
+Följande videoklipp ger en snabb översikt över användningsvillkoren.
+
+>[!VIDEO https://www.youtube.com/embed/tj-LK0abNao]
+
+Fler videor finns här:
+- [Så här distribuerar du användningsvillkoren i Azure Active Directory](https://www.youtube.com/embed/N4vgqHO2tgY)
+- [Hur du ska distribuera villkor för användning i Azure Active Directory](https://www.youtube.com/embed/t_hA4y9luCY)
 
 ## <a name="what-can-i-do-with-terms-of-use"></a>Vad kan jag göra med användningsvillkoren?
 Användningsvillkor för Azure AD gör att du kan göra följande:
@@ -33,8 +43,9 @@ Användningsvillkor för Azure AD gör att du kan göra följande:
 - Specifika användningsvillkor baserat på användarattribut (t.ex. läkare jämfört med sjuksköterskor eller inhemska jämfört med internationella medarbetare, via [dynamiska grupper](../users-groups-roles/groups-dynamic-membership.md)).
 - Presentera specifika användningsvillkor vid åtkomst till affärskritiska program, t.ex. Salesforce.
 - Presentera användningsvillkor på olika språk.
+- Hjälpa uppfyller sekretessbestämmelser.
 - Visa vem som har eller inte har godkänt dina användningsvillkor.
-- Visa en granskningslogg av aktivitet för användningsvillkor.
+- Visa en logg över villkoren för användning aktivitet för efterlevnad och granskning.
 
 ## <a name="prerequisites"></a>Förutsättningar
 Om du vill använda och konfigurera Azure AD-villkor för användning, måste du ha:

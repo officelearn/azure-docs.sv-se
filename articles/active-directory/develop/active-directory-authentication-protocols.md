@@ -17,12 +17,12 @@ ms.date: 04/27/2017
 ms.author: celested
 ms.custom: aaddev
 ms.reviewer: hirsin
-ms.openlocfilehash: 04cdba261d67e20762fd4bb4835568f763124fef
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: 312b1f7accee47c07c5fb0507061253fda5044f6
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39578481"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49958048"
 ---
 # <a name="azure-active-directory-authentication-protocols"></a>Azure Active Directory-autentiseringsprotokoll
 Azure Active Directory (Azure AD) stöder flera av de mest använda protokoll för autentisering och auktorisering. I det här avsnittet beskrivs protokoll som stöds och deras implementering i Azure AD. Ämnena ingår en granskning av anspråkstyper med stöd, en introduktion till användningen av federationsmetadata, detaljerad OAuth 2.0. och referensdokumentation för SAML 2.0-protokollet och instruktioner för felsökning.
@@ -38,6 +38,6 @@ Azure Active Directory (Azure AD) stöder flera av de mest använda protokoll f�
 * [Referens för SAML-protokollet](active-directory-saml-protocol-reference.md) – Lär dig mer om Azure AD enkel inloggning och enkel utloggning SAML-profiler.
 
 ## <a name="see-also"></a>Se även
-[Utvecklarhandbok för Azure Active Directory](azure-ad-developers-guide.md)
+[Utvecklarhandbok för Azure Active Directory](v1-overview.md)
 
 [Active Directory-kodexempel](sample-v1-code.md)

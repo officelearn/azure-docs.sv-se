@@ -3,22 +3,22 @@ title: Använd Azure AD-autentisering för att få åtkomst till Azure Media Ser
 description: Lär dig hur du kommer åt Azure Media Services-API med Azure Active Directory-autentisering med hjälp av REST.
 services: media-services
 documentationcenter: ''
-author: willzhan
-manager: cfowler
+author: juliako
+manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/26/2017
+ms.date: 10/22/2018
 ms.author: willzhan;juliako;johndeu
-ms.openlocfilehash: b44c5b29f41f08ac5c1d5e6aa3c37f8c15ae7c54
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.openlocfilehash: d9d1fa7d8cf25057339e560c371deb939997b578
+ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45984665"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49945085"
 ---
 # <a name="use-azure-ad-authentication-to-access-the-azure-media-services-api-with-rest"></a>Använda Azure AD-autentisering för att få åtkomst till Azure Media Services-API med REST
 
@@ -47,7 +47,7 @@ I den här guiden får du lära dig att:
 
 - Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) innan du börjar.
 - [Skapa ett Azure Media Services-konto med Azure portal](media-services-portal-create-account.md).
-- Granska den [åtkomst till Azure Media Services-API med AAD-autentisering översikt](media-services-use-aad-auth-to-access-ams-api.md) artikeln.
+- Granska den [åtkomst till Azure Media Services-API med översikt över Azure AD-autentisering](media-services-use-aad-auth-to-access-ams-api.md) artikeln.
 - Installera den [Postman](https://www.getpostman.com/) REST-klient för att köra REST API: er i den här artikeln. 
 
     I den här självstudien är vi er **Postman** men alla REST-verktyget skulle vara lämplig. Andra alternativ är: **Visual Studio Code** med plugin-programmet för REST eller **Telerik Fiddler**. 
@@ -60,7 +60,7 @@ Du behöver samla in följande datapunkter för att komma åt Media Services-API
 
 |Inställning|Exempel|Beskrivning|
 |---|-------|-----|
-|Azure Active Directory-klientorganisationsdomän|Microsoft.onmicrosoft.com|Azure AD som en säker säkerhetstokentjänst (STS)-slutpunkt skapas med hjälp av följande format: https://login.microsoftonline.com/{your-aad-tenant-name.onmicrosoft.com}/oauth2/token. Azure AD utfärdar en JWT för att komma åt resurser (en åtkomsttoken).|
+|Azure Active Directory-klientorganisationsdomän|Microsoft.onmicrosoft.com|Azure AD som en säker säkerhetstokentjänst (STS)-slutpunkt skapas med hjälp av följande format: https://login.microsoftonline.com/{your-ad-tenant-name.onmicrosoft.com}/oauth2/token. Azure AD utfärdar en JWT för att komma åt resurser (en åtkomsttoken).|
 |REST API-slutpunkt|https://amshelloworld.restv2.westus.media.azure.net/api/|Detta är den slutpunkt mot vilken alla Media Services REST API-anrop i ditt program har utförts.|
 |Klient-ID (program-ID)|f7fbbb29-a02d-4d91-bbc6-59a2579259d2|Azure AD-program (klient)-ID. Klient-ID krävs för att hämta åtkomsttoken. |
 |Klienthemlighet|+mUERiNzVMoJGggD6aV1etzFGa1n6KeSlLjIq+Dbim0=|Azure AD programnycklar (klienthemlighet). Klienthemlighet krävs för att hämta åtkomsttoken.|
@@ -144,8 +144,8 @@ Det här avsnittet visar hur du använder **Postman** att köra ett REST-API som
     Alternativt klickar du på **Massredigera** till höger i fönstret Postman och klistra in följande brödtext (Ersätt klient-ID och hemliga värden):
 
         grant_type:client_credentials
-        client_id:{Your Client ID that you got from your AAD Application}
-        client_secret:{Your client secret that you got from your AAD Application's Keys}
+        client_id:{Your Client ID that you got from your Azure AD Application}
+        client_secret:{Your client secret that you got from your Azure AD Application's Keys}
         resource:https://rest.media.azure.net
 
 8. Tryck på **Skicka**.

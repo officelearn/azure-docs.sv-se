@@ -5,14 +5,14 @@ services: expressroute
 author: cherylmc
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 08/29/2018
+ms.date: 10/23/2018
 ms.author: cherylmc
-ms.openlocfilehash: 101dec93713983e5f2082a59103288fcda346740
-ms.sourcegitcommit: 3150596c9d4a53d3650cc9254c107871ae0aab88
+ms.openlocfilehash: 6b4cce641556a290111db530c0089e4da0a351c8
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47419312"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49958439"
 ---
 # <a name="expressroute-faq"></a>Vanliga frågor och svar för ExpressRoute
 
@@ -246,7 +246,7 @@ Du kan uppdatera bandbredden för ExpressRoute-krets med hjälp av REST API elle
 ExpressRoute premium är en samling med följande funktioner:
 
 * Ökad routning tabell gräns från 4000 vägar till 10 000 vägar för privat peering.
-* Ökar antalet virtuella nätverk som kan anslutas till ExpressRoute-krets (standardvärdet är 10). Mer information finns i den [ExpressRoute gränser](#limits) tabell.
+* Ökat antal virtuella nätverk och Global räckvidd i ExpressRoute-anslutningar som kan aktiveras för en ExpressRoute-krets (standardvärdet är 10). Mer information finns i den [ExpressRoute gränser](#limits) tabell.
 * Anslutning till Office 365 och Dynamics 365.
 * Global anslutbarhet via Microsoft core nätverket. Du kan nu länka ett virtuellt nätverk i en geopolitisk region med en ExpressRoute-krets i en annan region.<br>
     **Exempel:**
@@ -255,9 +255,9 @@ ExpressRoute premium är en samling med följande funktioner:
     *  På Microsoft-peering, annonseras prefix från andra geopolitiska regioner, så att du kan ansluta till, till exempel SQL Azure i västra Europa från en krets i Silicon Valley.
 
 
-### <a name="limits"></a>Hur många virtuella nätverk kan jag länka till en ExpressRoute-krets om jag har aktiverat ExpressRoute premium?
+### <a name="limits"></a>Hur många virtuella nätverk och Global räckvidd i ExpressRoute-anslutningar kan jag aktivera på en ExpressRoute-krets om jag har aktiverat ExpressRoute premium?
 
-Följande tabeller visar ExpressRoute-gränser och antalet virtuella nätverk per ExpressRoute-krets:
+Följande tabeller visar ExpressRoute-gränser och antalet virtuella nätverk och Global räckvidd i ExpressRoute-anslutningar per ExpressRoute-krets:
 
 [!INCLUDE [ExpressRoute limits](../../includes/expressroute-limits.md)]
 

@@ -5,27 +5,26 @@ services: azure-stack
 documentationcenter: ''
 author: mattbriggs
 manager: femila
-editor: ''
-ms.assetid: 449ae53e-b951-401a-b2c9-17fee2f491f1
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/17/2018
+ms.date: 10/22/2019
 ms.author: mabrigg
-ms.openlocfilehash: 8f384a79811c9a9b104acb98c8f6b6e162946ab8
-ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
+ms.reviewer: fiseraci
+ms.openlocfilehash: 76f3db3631e1d66413bdce8d3f2379c2735a2eaf
+ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42059710"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49945611"
 ---
 # <a name="monitor-updates-in-azure-stack-using-the-privileged-endpoint"></a>Övervaka uppdateringar i Azure Stack med hjälp av privilegierad slutpunkt
 
 *Gäller för: integrerade Azure Stack-system*
 
-Du kan använda den privilegierade slutpunkten för att övervaka förloppet för en körning för uppdatering av Azure Stack och återuppta en misslyckad uppdatering köras från det senaste lyckade steget ska du Azure Stack portal blir otillgänglig.  Med hjälp av Azure Stack-portalen är den rekommenderade metoden för att hantera uppdateringar i Azure Stack.
+Du kan använda den [privilegierad slutpunkt](azure-stack-privileged-endpoint.md) för att övervaka förloppet för ett Azure Stack uppdateringskörningen och återuppta en misslyckad uppdatering köras från det senaste lyckade steget Azure Stack-portalen blir otillgänglig.  Med hjälp av Azure Stack-portalen är den rekommenderade metoden för att hantera uppdateringar i Azure Stack.
 
 Följande nya PowerShell-cmdletar för hantering av uppdateringar som ingår i uppdateringen 1710 för integrerade Azure Stack-system.
 

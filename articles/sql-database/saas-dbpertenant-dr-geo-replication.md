@@ -92,8 +92,8 @@ Senare, i ett separat hemtransport steg växlar över katalog- och klienttrafik 
 Granska det normala felfritt tillståndet innan du startar återställningsprocessen.
 1. Öppna i webbläsaren, Evenemangshubben Wingtip biljetter (http://events.wingtip-dpt.&lt; användare&gt;. trafficmanager.net - Ersätt &lt;användaren&gt; med värdet för användarnamn för din distribution).
     * Bläddra längst ned på sidan och Lägg märke till katalogen servernamnet och en plats i sidfoten. Platsen är den region där du har distribuerat appen.
-    *Tips: Pekar på platsen för att visa. * 
-     ![Händelser hub felfritt tillstånd i ursprungliga region](media/saas-dbpertenant-dr-geo-replication/events-hub-original-region.png)
+    *Tips: Pekar på platsen för att visa.*
+    ![Händelser hub felfritt tillstånd i ursprungliga region](media/saas-dbpertenant-dr-geo-replication/events-hub-original-region.png)
 
 2. Klicka på Contosos Konserthall-klient och öppna appens sida för händelsen.
     * Observera klient servernamnet i sidfoten. Platsen ska vara samma som den katalogservern plats.

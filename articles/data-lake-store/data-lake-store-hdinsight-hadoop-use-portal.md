@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: nitinme
-ms.openlocfilehash: 28bed3578c653c8081868b3d950ab6332879784a
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: b81916de0940aa56eda97df94527fa6adc208285
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46124336"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49955838"
 ---
 # <a name="create-hdinsight-clusters-with-azure-data-lake-storage-gen1-by-using-the-azure-portal"></a>Skapa HDInsight-kluster med Azure Data Lake Storage Gen1 med hjälp av Azure portal
 > [!div class="op_single_selector"]
@@ -38,7 +38,7 @@ Innan du börjar den här självstudien måste du se till att du har uppfyllt f�
 * **Ett Azure Active Directory-tjänstobjekt**. Den här självstudien innehåller instruktioner om hur du kan skapa ett tjänstobjekt i Azure Active Directory (AD Azure). Om du vill skapa ett huvudnamn för tjänsten, måste du vara en Azure AD-administratör. Om du är administratör kan du hoppa över den nödvändiga komponenten och fortsätter med självstudien.
 
     >[!NOTE]
-    >Du kan skapa en tjänst huvudnamn endast om du är en Azure AD-administratör. Azure AD-administratören måste skapa ett tjänstens huvudnamn av innan du kan skapa ett HDInsight-kluster med Data Lake Storage Gen1. Dessutom tjänstens huvudnamn måste skapas med ett certifikat, enligt beskrivningen i [skapa tjänstens huvudnamn med certifikat](../azure-resource-manager/resource-group-authenticate-service-principal.md#create-service-principal-with-self-signed-certificate).
+    >Du kan skapa en tjänst huvudnamn endast om du är en Azure AD-administratör. Azure AD-administratören måste skapa ett tjänstens huvudnamn av innan du kan skapa ett HDInsight-kluster med Data Lake Storage Gen1. Dessutom tjänstens huvudnamn måste skapas med ett certifikat, enligt beskrivningen i [skapa tjänstens huvudnamn med certifikat](../active-directory/develop/howto-authenticate-service-principal-powershell.md#create-service-principal-with-self-signed-certificate).
     >
 
 ## <a name="create-an-hdinsight-cluster"></a>Skapa ett HDInsight-kluster
@@ -55,7 +55,7 @@ I det här avsnittet skapar du ett HDInsight-kluster med Data Lake Storage Gen1 
 
     ![Lägg till tjänstens huvudnamn till HDInsight-kluster](./media/data-lake-store-hdinsight-hadoop-use-portal/hdi.adl.1.adls.storage.png "Lägg till tjänstens huvudnamn till HDInsight-kluster")
 
-    - **Välj Data Lake Store-konto**: Välj ett befintligt Data Lake Storage Gen1-konto. Ett befintligt Data Lake Storage Gen1-konto krävs.  Se [krav](#prerequisites).
+    - **Välj Data Lake Store-konto**: Välj ett befintligt Data Lake Storage Gen1-konto. Ett befintligt Data Lake Storage Gen1-konto krävs.  Se [Förutsättningar](#prerequisites).
     - **Rotsökvägen**: Ange en sökväg där klusterspecifika filer ska lagras. På skärmbilden är den är __/kluster/myhdiadlcluster/__, där den __/kluster__ mappen måste finnas och portalen skapar *myhdicluster* mapp.  Den *myhdicluster* är klustrets namn.
     - **Data Lake Store-åtkomst**: Konfigurera åtkomst mellan Data Lake Storage Gen1-kontot och HDInsight-kluster. Anvisningar finns i [konfigurerar Data Lake Storage Gen1 åtkomst](#configure-data-lake-store-access).
     - **Ytterligare lagringskonton**: Lägg till Azure storage-konton som ytterligare lagringskonton för klustret. Om du vill lägga till ytterligare Data Lake Storage Gen1 konton görs genom att ge behörigheterna som klustret på data i flera Data Lake Storage Gen1 konton när du konfigurerar ett Data Lake Storage Gen1-konto som primär lagring. Se [konfigurerar Data Lake Storage Gen1 åtkomst](#configure-data-lake-store-access).

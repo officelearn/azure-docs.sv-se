@@ -17,12 +17,12 @@ ms.date: 08/21/2018
 ms.author: celested
 ms.reviewer: andret
 ms.custom: aaddev
-ms.openlocfilehash: a2876ccdfe073a3c642304a1381faf77ae4a7d90
-ms.sourcegitcommit: 76797c962fa04d8af9a7b9153eaa042cf74b2699
+ms.openlocfilehash: 603da0add9efba4e68088bf0eb6ab919ec9988e2
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "42060356"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49955502"
 ---
 # <a name="how-to-get-appsource-certified-for-azure-active-directory"></a>Så här hämtar du AppSource-certifierat för Azure Active Directory
 
@@ -32,7 +32,7 @@ Om du vill visa en fristående SaaS-program på AppSource, måste programmet god
 
 ## <a name="guides-and-code-samples"></a>Guider och kodexempel
 
-Om du vill lära dig om hur du integrerar ditt program med Azure AD med öppna ID connect, följa våra guider och kodexempel i den [Utvecklarhandbok för Azure Active Directory](azure-ad-developers-guide.md#get-started "Kom igång med Azure AD för utvecklare").
+Om du vill lära dig om hur du integrerar ditt program med Azure AD med öppna ID connect, följa våra guider och kodexempel i den [Utvecklarhandbok för Azure Active Directory](v1-overview.md#get-started "Kom igång med Azure AD för utvecklare").
 
 ## <a name="multi-tenant-applications"></a>Program för flera innehavare
 
@@ -127,9 +127,9 @@ Använd följande avsnitt för kommentarer för att ge feedback och hjälp oss a
 <!--Reference style links -->
 [AAD-Auth-Scenarios]:authentication-scenarios.md
 [AAD-Auth-Scenarios-Browser-To-WebApp]:authentication-scenarios.md#web-browser-to-web-application
-[AAD-Dev-Guide]: azure-ad-developers-guide.md
+[AAD-Dev-Guide]: v1-overview.md
 [AAD-Howto-Multitenant-Overview]: howto-convert-app-to-be-multi-tenant.md
-[AAD-QuickStart-Web-Apps]: azure-ad-developers-guide.md#get-started
+[AAD-QuickStart-Web-Apps]: v1-overview.md#get-started
 
 
 <!--Image references-->

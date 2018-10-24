@@ -7,12 +7,12 @@ ms.subservice: Azure Disk Encryption
 ms.topic: article
 ms.author: mstewart
 ms.date: 10/12/2018
-ms.openlocfilehash: 8b0f682e481ef73019d3371af2b84f6270e021ee
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: 54aef992e95454387ee2fda1d1b34d6dcae3e21e
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49341896"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49959119"
 ---
 # <a name="azure-disk-encryption-prerequisites-previous-release"></a>Krav för Azure Disk Encryption (tidigare version)
 
@@ -242,12 +242,12 @@ Du kan hantera din tjänstens huvudnamn med Azure CLI med hjälp av den [az ad s
 3.  AppId returnerade är Azure AD-ClientID som används i andra kommandon. Det är också det SPN som du ska använda för az keyvault set-policy. Lösenordet är den klienthemlighet som du ska använda senare för att aktivera Azure Disk Encryption. Skydda Azure AD-klienthemlighet på rätt sätt.
  
 ### <a name="bkmk_ADappRM"></a> Konfigurera en Azure AD-app och tjänsten huvudnamn genom Azure-portalen
-Använd stegen från den [Använd portalen för att skapa en Azure Active Directory-program och tjänstens huvudnamn som kan komma åt resurser](../azure-resource-manager/resource-group-create-service-principal-portal.md) artikeln för att skapa ett Azure AD-program. Varje steg nedan leder dig direkt till artikelavsnittet för att slutföra. 
+Använd stegen från den [Använd portalen för att skapa en Azure Active Directory-program och tjänstens huvudnamn som kan komma åt resurser](../active-directory/develop/howto-create-service-principal-portal.md) artikeln för att skapa ett Azure AD-program. Varje steg nedan leder dig direkt till artikelavsnittet för att slutföra. 
 
-1. [Kontrollera behörigheter som krävs](../azure-resource-manager/resource-group-create-service-principal-portal.md#required-permissions)
-2. [Skapa ett Azure Active Directory-program](../azure-resource-manager/resource-group-create-service-principal-portal.md#create-an-azure-active-directory-application) 
+1. [Kontrollera behörigheter som krävs](../active-directory/develop/howto-create-service-principal-portal.md#required-permissions)
+2. [Skapa ett Azure Active Directory-program](../active-directory/develop/howto-create-service-principal-portal.md#create-an-azure-active-directory-application) 
      - Du kan använda ett namn och inloggnings-URL som du vill ha när du skapar programmet.
-3. [Hämta program-ID och autentiseringsnyckel](../azure-resource-manager/resource-group-create-service-principal-portal.md#get-application-id-and-authentication-key). 
+3. [Hämta program-ID och autentiseringsnyckel](../active-directory/develop/howto-create-service-principal-portal.md#get-application-id-and-authentication-key). 
      - Autentiseringsnyckeln är klienthemligheten och används som AadClientSecret för Set-AzureRmVMDiskEncryptionExtension. 
         - Nyckeln används av programmet som en autentiseringsuppgift för att logga in på Azure AD. Den här hemligheten kallas nycklar i Azure-portalen, men har ingen relation till nyckelvalv. Skydda den här hemligheten på rätt sätt. 
      - Program-ID används senare som AadClientId för Set-AzureRmVMDiskEncryptionExtension och som ServicePrincipalName för Set-AzureRmKeyVaultAccessPolicy. 

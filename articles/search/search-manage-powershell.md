@@ -10,12 +10,12 @@ ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 08/15/2016
 ms.author: heidist
-ms.openlocfilehash: 1d0024af3bbf9edfe8c43032878a8b61e35cea9c
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: bae9e2dcb4320c1da4f1d8e3c6ad50ce90195544
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39000998"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49958575"
 ---
 # <a name="manage-your-azure-search-service-with-powershell"></a>Hantera Azure Search-tjänsten med PowerShell
 > [!div class="op_single_selector"]
@@ -37,7 +37,7 @@ Först måste du logga in på Azure med det här kommandot:
 
 Ange e-postadressen till ditt Azure-konto och lösenordet i dialogrutan för Microsoft Azure-inloggning.
 
-Du kan också [logga in interaktivt med ett huvudnamn för tjänsten](../azure-resource-manager/resource-group-authenticate-service-principal.md).
+Du kan också [logga in interaktivt med ett huvudnamn för tjänsten](../active-directory/develop/howto-authenticate-service-principal-powershell.md).
 
 Om du har flera Azure-prenumerationer kan behöva du ange dina Azure-prenumeration. Kör det här kommandot om du vill se en lista över dina aktuella prenumerationer.
 

@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 10/08/2018
 ms.author: tamram
 ms.component: common
-ms.openlocfilehash: c5cbeed7f689a7ae159d753963c35281b051f632
-ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
+ms.openlocfilehash: 618e1f5249f2e05c26e91231b4283d82546a880b
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49114200"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49954495"
 ---
 # <a name="azure-storage-replication"></a>Azure Storage-replikering
 
@@ -38,7 +38,7 @@ I följande tabell ger en snabb överblick över omfånget för hållbarhet och 
 | Ett helt datacenter (zonindelad eller icke-zonindelad) blir otillgänglig                                           | Nej                              | Ja                              | Ja                                  | Ja                                  |
 | Ett avbrott på regionomfattande                                                                                     | Nej                              | Nej                               | Ja                                  | Ja                                  |
 | Läsåtkomst till dina data (på en fjärransluten, geo-replikerad region) i händelse av hela otillgänglighet | Nej                              | Nej                               | Nej                                   | Ja                                  |
-| Utformad för att ge ___ objektshållbarhet under ett givet år                                          | minst 99,999999999% (11 9) | minst 99,9999999999% (12 9) | minst 99,99999999999999% (16 9) | minst 99,99999999999999% (16 9) |
+| Utformad för att ge \_ \_ objektshållbarhet under ett givet år                                          | minst 99,999999999% (11 9) | minst 99,9999999999% (12 9) | minst 99,99999999999999% (16 9) | minst 99,99999999999999% (16 9) |
 | Stöds storage-kontotyper                                                                   | GPv1, GPv2-Blob                | GPv2 GPv1 (via PowerShell, Azure CLI eller resource provider API)                             | GPv1, GPv2-Blob                     | GPv1, GPv2-Blob                     |
 | Tillgänglighet för läsbegäranden | Minst 99,9% (99% för lågfrekvent åtkomstnivå) | Minst 99,9% (99% för lågfrekvent åtkomstnivå) | Minst 99,9% (99% för lågfrekvent åtkomstnivå) | Minst 99,99% (99,9% för kalla åtkomstnivåer) |
 | Tillgänglighet för skrivbegäranden | Minst 99,9% (99% för lågfrekvent åtkomstnivå) | Minst 99,9% (99% för lågfrekvent åtkomstnivå) | Minst 99,9% (99% för lågfrekvent åtkomstnivå) | Minst 99,9% (99% för lågfrekvent åtkomstnivå) |

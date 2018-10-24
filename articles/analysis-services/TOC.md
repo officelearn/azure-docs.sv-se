@@ -38,8 +38,8 @@
 ### [Hantera en server](analysis-services-manage.md)
 ### [Övervaka servermått](analysis-services-monitor.md)
 ### [Konfigurera diagnostisk loggning](analysis-services-logging.md)
-### [Skapa tjänstens huvudnamn – Azure Portal](../azure-resource-manager/resource-group-create-service-principal-portal.md)
-### [Skapa tjänstens huvudnamn – PowerShell](../azure-resource-manager/resource-group-authenticate-service-principal.md)
+### [Skapa tjänstens huvudnamn – Azure Portal](../active-directory/develop/howto-create-service-principal-portal.md)
+### [Skapa tjänstens huvudnamn – PowerShell](../active-directory/develop/howto-authenticate-service-principal-powershell.md)
 ### [Lägga till tjänstens huvudnamn till administratörsrollen för servern](analysis-services-addservprinc-admins.md)
 
 ## Modell

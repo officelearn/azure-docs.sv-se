@@ -16,12 +16,12 @@ ms.workload: Identity
 ms.date: 08/10/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: f85726f7058c783b6e369126532e40ceecc3c846
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: bf5384333504df023e98650934c77192f23f9f71
+ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46313560"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49946002"
 ---
 # <a name="azure-ad-connect-design-concepts"></a>Azure AD Connect: Designbegrepp för
 Syftet med det här dokumentet är att beskriva områden som måste betraktas under genomförandet utformningen av Azure AD Connect. Det här dokumentet är en djupdykning i vissa områden och dessa koncept beskrivs kortfattat i andra dokument.
@@ -91,7 +91,7 @@ AD DS-kontot som används för att synkronisera med lokala Active Directory mås
 Du kan aktivera användningen av ConsistencyGuid som sourceAnchor under installationen av nya. Det här avsnittet beskriver både Express och anpassad installation i information.
 
   >[!NOTE]
-  > Endast nyare versioner av Azure AD Connect (1.1.524.0 och efter) stöder användning av ConsistencyGuid som sourceAnchor under installationen av nya.
+  > Endast nyare versioner av Azure AD Connect (1.1.524.0 och efter) stöder användningen av ConsistencyGuid som sourceAnchor under installationen av nya.
 
 ### <a name="how-to-enable-the-consistencyguid-feature"></a>Så här aktiverar du funktionen ConsistencyGuid
 Funktionen kan för närvarande kan bara aktiveras under endast nya Azure AD Connect-installationen.
@@ -102,7 +102,7 @@ När du installerar Azure AD Connect med Express-läge, avgör Azure AD Connect-
 * Azure AD Connect-guiden frågar först din Azure AD-klient för att hämta det AD-attribut som används som sourceAnchor-attribut i den tidigare Azure AD Connect-installationen (om sådan finns). Om den här informationen är tillgänglig använder samma AD-attribut i Azure AD Connect.
 
   >[!NOTE]
-  > Endast nyare versioner av Azure AD Connect (1.1.524.0 och efter) lagras information i Azure AD-klienten om sourceAnchor-attribut som används under installationen. Äldre versioner av Azure AD Connect inte.
+  > Endast nyare versioner av Azure AD Connect (1.1.524.0 och efter) spara information i Azure AD-klienten om sourceAnchor-attribut som används under installationen. Äldre versioner av Azure AD Connect inte.
 
 * Om information om sourceAnchor-attribut används inte är tillgänglig kontrollerar i guiden status för attributet ms-DS-ConsistencyGuid i din lokala Active Directory. Om attributet inte är konfigurerat på valfritt objekt i katalogen, används ms-DS-ConsistencyGuid som sourceAnchor-attribut. Om attributet har konfigurerats på ett eller flera objekt i katalogen, avslutar guiden attributet som används av andra applikationer och är inte lämplig som sourceAnchor-attribut...
 
@@ -128,7 +128,7 @@ När du installerar Azure AD Connect med anpassade läge, tillhandahåller Azure
 Om du har en befintlig Azure AD Connect-distribution som använder objectGUID som källfästpunktsattribut kan växla du den till ConsistencyGuid i stället.
 
 >[!NOTE]
-> Endast nyare versioner av Azure AD Connect (1.1.552.0 och efter) har stöd för växlar från ObjectGuid till ConsistencyGuid som källfästpunktsattribut.
+> Endast nyare versioner av Azure AD Connect (1.1.552.0 och efter) stöder byter från ObjectGuid till ConsistencyGuid som källfästpunktsattribut.
 
 Växla från objectGUID till ConsistencyGuid som källfästpunktsattribut:
 

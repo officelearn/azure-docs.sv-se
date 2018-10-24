@@ -58,7 +58,7 @@ Följande krav måste uppfyllas för att kunna köra den här självstudiekursen
 ### <a name="plan-the-names"></a>Planera namnen
 
 I stegen i det här avsnittet anger du en *användaren* värde som används för att säkerställa att resursnamn är globalt unikt och ett namn för den *resursgrupp* som innehåller alla resurser som skapades i en distribution appens. För en person med namnet *Ann Finley*, föreslår vi att:
-- *Användare:* **af1***(hennes initialer plus en siffra. Använd ett annat värde (t.ex. af2) om du distribuerar appen en gång.)*
+- *Användare:* **af1**  *(hennes initialer plus en siffra. Använd ett annat värde (t.ex. af2) om du distribuerar appen en gång.)*
 - *Resursgrupp:* **wingtip-mt-af1** *(wingtip-mt innebär att det är shardad app för flera klienter. Lägga till användaren namnet af1 korrelerar resursgruppens namn med namnen på de resurser som den innehåller.)*
 
 Välj ditt namn nu och Skriv ned dem. 

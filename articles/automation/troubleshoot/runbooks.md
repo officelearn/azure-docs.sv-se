@@ -8,12 +8,12 @@ ms.date: 10/17/2018
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: b8c6b82af1a71f5e2df7dd555c7ceb91b8ccd292
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
+ms.openlocfilehash: 33c2bd48084c3d0e73fe2f4a1ce922e7a66b944f
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49394558"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49955458"
 ---
 # <a name="troubleshoot-errors-with-runbooks"></a>Felsöka fel med runbooks
 
@@ -122,7 +122,7 @@ Om du har multifaktorautentisering på din Azure-konto kan använda du inte en A
 
 #### <a name="resolution"></a>Lösning
 
-Om du vill använda ett certifikat med cmdlet: ar för klassiska Azure-modellen måste referera till [skapa och lägga till ett certifikat för att hantera Azure-tjänster.](http://blogs.technet.com/b/orchestrator/archive/2014/04/11/managing-azure-services-with-the-microsoft-azure-automation-preview-service.aspx) Om du vill använda ett huvudnamn för tjänsten med Azure Resource Manager-cmdletar, som avser [skapar tjänstens huvudnamn med hjälp av Azure portal](../../azure-resource-manager/resource-group-create-service-principal-portal.md) och [autentisera tjänstens huvudnamn med Azure Resource Manager.](../../azure-resource-manager/resource-group-authenticate-service-principal.md)
+Om du vill använda ett certifikat med cmdlet: ar för klassiska Azure-modellen måste referera till [skapa och lägga till ett certifikat för att hantera Azure-tjänster.](http://blogs.technet.com/b/orchestrator/archive/2014/04/11/managing-azure-services-with-the-microsoft-azure-automation-preview-service.aspx) Om du vill använda ett huvudnamn för tjänsten med Azure Resource Manager-cmdletar, som avser [skapar tjänstens huvudnamn med hjälp av Azure portal](../../active-directory/develop/howto-create-service-principal-portal.md) och [autentisera tjänstens huvudnamn med Azure Resource Manager.](../../active-directory/develop/howto-authenticate-service-principal-powershell.md)
 
 ## <a name="common-errors-when-working-with-runbooks"></a>Vanliga fel när du arbetar med runbooks
 

@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/11/2017
+ms.date: 10/23/2018
 ms.author: cherylmc
-ms.openlocfilehash: cd7a6c43cb791ed607a763f10e781794ef513500
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 7ffe51077c7152c52b9becd2318fa33eea055c20
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46950411"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49956876"
 ---
 # <a name="create-and-modify-routing-for-an-expressroute-circuit-using-cli"></a>Skapa och ändra routning för en ExpressRoute-krets med hjälp av CLI
 
@@ -38,7 +38,7 @@ Den här artikeln hjälper dig att skapa och hantera routningskonfiguration för
 
 ## <a name="configuration-prerequisites"></a>Förutsättningar för konfiguration
 
-* Innan du börjar ska du installera den senaste versionen av CLI-kommandona (2.0 eller senare). Information om hur du installerar CLI-kommandon finns i [installera Azure CLI](/cli/azure/install-azure-cli).
+* Innan du börjar ska du installera den senaste versionen av CLI-kommandona (2.0 eller senare). Information om att installera CLI-kommandona finns i [Installera Azure CLI](/cli/azure/install-azure-cli).
 * Se till att du har granskat den [krav](expressroute-prerequisites.md), [routningskrav](expressroute-routing.md), och [arbetsflöde](expressroute-workflows.md) sidor innan du påbörjar konfigurationen.
 * Du måste ha en aktiv ExpressRoute-krets. Följ anvisningarna för att [Skapa en ExpressRoute-krets](howto-circuit-cli.md) och aktivera kretsen av anslutningsprovidern innan du fortsätter. ExpressRoute-kretsen måste vara i ett etablerat och aktiverat tillstånd att kunna köra kommandon i den här artikeln.
 
@@ -318,7 +318,7 @@ az network express-route peering update --vlan-id 500 -g ExpressRouteResourceGro
 Du kan ta bort peering-konfigurationen genom att köra följande exempel:
 
 > [!WARNING]
-> Du måste se till att alla virtuella nätverk är avlänkade från ExpressRoute-kretsen innan du kör det här exemplet. 
+> Du måste se till att alla virtuella nätverk och ExpressRoute Global räckvidd anslutningar tas bort innan du kör det här exemplet. 
 > 
 > 
 

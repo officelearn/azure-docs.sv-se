@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/18/2017
 ms.author: glenga
-ms.openlocfilehash: d298cfe22328db68cfbb6b4c7fc82b2de0c186b1
-ms.sourcegitcommit: 42405ab963df3101ee2a9b26e54240ffa689f140
+ms.openlocfilehash: 4c56a1164a589af5d325d1378f331a7d0ee138b7
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47423603"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49956450"
 ---
 # <a name="get-started-guide-for-azure-developers"></a>Introduktionsguide för Azure-utvecklare
 
@@ -162,7 +162,7 @@ Det är viktigt att inte bara veta vem som använder dina program utan också f�
 
     >**När du ska använda**: Om du vill att tillhandahålla enkel inloggning kan arbeta med graf-baserade data eller autentisera domänbaserade användare.
 
-    >**Kom igång**: Mer information finns i den [Utvecklarhandbok för Azure Active Directory](../../active-directory/develop/azure-ad-developers-guide.md).
+    >**Kom igång**: Mer information finns i den [Utvecklarhandbok för Azure Active Directory](../../active-directory/develop/v1-overview.md).
 
 -   **App Service-autentisering**: när du väljer App Service som värd för din app kan du också hämta inbyggda autentiseringsstöd för Azure AD, tillsammans med sociala identitetsleverantörer, inklusive Facebook, Google, Microsoft och Twitter.
 
@@ -233,7 +233,7 @@ Azure bygger på en uppsättning REST API: er som har stöd för Azure-portalens
 
 Förutom REST API: er kan många Azure-tjänster du även programmässigt hantera resurser från dina program med hjälp av plattformsspecifika Azure SDK: er, inklusive SDK: er för följande plattformar för utveckling:
 
--   [.NET](https://go.microsoft.com/fwlink/?linkid=834925)
+-   [NET](https://go.microsoft.com/fwlink/?linkid=834925)
 -   [Node.js](https://docs.microsoft.com/javascript/azure)
 -   [Java](https://docs.microsoft.com/java/azure)
 -   [PHP](https://github.com/Azure/azure-sdk-for-php/blob/master/README.md)
@@ -289,7 +289,7 @@ När du tillåter åtkomst till Azure-resurser, men det är alltid en bra idé a
 
 -   **Tjänsten huvudnamn objekt**: förutom att ge åtkomst till användares huvudnamn och grupper kan du ge samma åtkomst till ett huvudnamn för tjänsten.
 
-    > **När du ska använda**: när du programmässigt hantera Azure-resurser eller beviljar åtkomst för program. Mer information finns i [Skapa Active Directory-program och tjänstens huvudnamn](../../resource-group-create-service-principal-portal.md).
+    > **När du ska använda**: när du programmässigt hantera Azure-resurser eller beviljar åtkomst för program. Mer information finns i [Skapa Active Directory-program och tjänstens huvudnamn](../../active-directory/develop/howto-create-service-principal-portal.md).
 
 #### <a name="tags"></a>Taggar
 

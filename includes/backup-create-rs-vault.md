@@ -2,18 +2,19 @@
 title: ta med fil
 description: ta med fil
 services: backup
-author: markgalioto
+author: rayne-wiselman
+manager: carmonm
 ms.service: backup
 ms.topic: include
-ms.date: 5/14/2018
-ms.author: markgal
+ms.date: 10/18/2018
+ms.author: raynew
 ms.custom: include file
-ms.openlocfilehash: 0ff9bf829e2dbe1bca078360ccded94bad63d9a6
-ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
+ms.openlocfilehash: 74fe531c07aa871b06b5d0773f7e8fb0ade80be4
+ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39249469"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49946223"
 ---
 ## <a name="create-a-recovery-services-vault"></a>skapar ett Recovery Services-valv
 Ett Recovery Services-valv är en entitet som lagrar säkerhetskopior och återställningspunkter som skapats med tiden. Recovery Services-valvet innehåller även säkerhetskopieringspolicyerna som är kopplade till de skyddade virtuella datorerna.

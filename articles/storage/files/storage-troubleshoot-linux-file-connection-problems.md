@@ -6,19 +6,19 @@ author: jeffpatt24
 tags: storage
 ms.service: storage
 ms.topic: article
-ms.date: 05/11/2018
+ms.date: 10/16/2018
 ms.author: jeffpatt
 ms.component: files
-ms.openlocfilehash: 31a0ffc2937f6d93a630bf6ce474d7dcf20c923f
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
-ms.translationtype: HT
+ms.openlocfilehash: 2ae116649de02c5602aa50d706f6a88ac5872960
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49364395"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50025862"
 ---
 # <a name="troubleshoot-azure-files-problems-in-linux"></a>Felsöka problem i Azure Files i Linux
 
-Den här artikeln innehåller vanliga problem som är relaterade till Microsoft Azure-filer när du ansluter från Linux-klienter. Det ger också möjliga orsaker och lösningar för dessa problem.
+Den här artikeln innehåller vanliga problem som är relaterade till Microsoft Azure-filer när du ansluter från Linux-klienter. Det ger också möjliga orsaker och lösningar för dessa problem. Förutom felsökningsstegen i den här artikeln, du kan också använda [AzFileDiagnostics](https://gallery.technet.microsoft.com/Troubleshooting-tool-for-02184089) så Linux klienten har rätt krav. AzFileDiagnostics automatiserar identifiering för de flesta av de problem som nämns i den här artikeln och hjälper dig att konfigurera din miljö för att få bästa möjliga prestanda. Du kan också hitta den här informationen i den [Azure Files delar felsökare](https://support.microsoft.com/help/4022301/troubleshooter-for-azure-files-shares) som innehåller stegen för att hjälpa dig med problem som ansluter/mappning/montera Azure Files delar.
 
 <a id="permissiondenied"></a>
 ## <a name="permission-denied-disk-quota-exceeded-when-you-try-to-open-a-file"></a>”[behörighet nekas] diskkvoten har överskridits” när du försöker öppna en fil
@@ -82,7 +82,7 @@ Vissa Linux-distributioner stöder ännu inte krypteringsfunktionerna i SMB 3.0 
 
 ### <a name="solution"></a>Lösning
 
-Krypteringsfunktionen för SMB 3.0 för Linux introducerades i 4.11 kernel. Den här funktionen gör det möjligt för montering av Azure-filresursen från lokala eller en annan Azure-region. Vid tidpunkten för publiceringen har den här funktionen anpassats till nr 17.04 från Ubuntu och Ubuntu 16,10. Om din Linux SMB-klienten inte har stöd för kryptering, montera Azure filer med hjälp av SMB 2.1 från en virtuell Linux-dator som är i samma datacenter som filen och kontrollera den [säker överföring krävs]( https://docs.microsoft.com/en-us/azure/storage/common/storage-require-secure-transfer) inställningen är inaktiverad på lagring konto. 
+Krypteringsfunktionen för SMB 3.0 för Linux introducerades i 4.11 kernel. Den här funktionen gör det möjligt för montering av Azure-filresursen från lokala eller en annan Azure-region. Vid tidpunkten för publiceringen har den här funktionen anpassats till nr 17.04 från Ubuntu och Ubuntu 16,10. Om din Linux SMB-klienten inte har stöd för kryptering, montera Azure filer med hjälp av SMB 2.1 från en virtuell Linux-dator som är i samma datacenter som filen och kontrollera den [säker överföring krävs]( https://docs.microsoft.com/azure/storage/common/storage-require-secure-transfer) inställningen är inaktiverad på lagring konto. 
 
 <a id="slowperformance"></a>
 ## <a name="slow-performance-on-an-azure-file-share-mounted-on-a-linux-vm"></a>Långsam prestanda på en Azure-filresursen monteras på en Linux VM
@@ -150,7 +150,7 @@ Vanliga orsaker till det här problemet är:
 - SMB 3.0-kryptering stöds inte på klienten. SMB 3.0-kryptering är tillgängligt i Ubuntu 16,4 tum och senare, SUSE 12,3 och senare. Andra distributioner kräver kernel 4.11 och senare.
 - Du försöker ansluta till ett lagringskonto via TCP-port 445 som inte stöds.
 - Du försöker ansluta till Azure-filresurs från en Azure-dator och den virtuella datorn finns inte i samma region som lagringskontot.
-- Om [säker överföring krävs]( https://docs.microsoft.com/en-us/azure/storage/common/storage-require-secure-transfer) är aktiverad på lagringskontot, Azure Files kan anslutningar som använder SMB 3.0 med kryptering.
+- Om [säker överföring krävs]( https://docs.microsoft.com/azure/storage/common/storage-require-secure-transfer) är aktiverad på lagringskontot, Azure Files kan anslutningar som använder SMB 3.0 med kryptering.
 
 ### <a name="solution"></a>Lösning
 
@@ -180,7 +180,7 @@ ln -s linked -n t
 ln: failed to create symbolic link 't': Operation not supported
 ```
 ### <a name="solution"></a>Lösning
-Linux CIFS-klienten stöder inte skapandet av Windows style symboliska länkar över SMB2/3-protokollet. För närvarande Linux-klient har en annan typ av symboliska länkar som kallas [Mishall + franska symlinks] (https://wiki.samba.org/index.php/UNIX_Extensions#Minshall.2BFrench_symlinks) för både skapa och följ åtgärder. Kunder som behöver symboliska länkar kan använda ”mfsymlinks” mount-alternativet. ”mfsymlinks” rekommenderas vanligtvis eftersom det är också det format som används av Mac-datorer.
+Linux CIFS-klienten stöder inte skapandet av Windows style symboliska länkar över SMB2/3-protokollet. För närvarande Linux-klient har en annan typ av symboliska länkar som kallas [Mishall + franska symlinks](https://wiki.samba.org/index.php/UNIX_Extensions#Minshall.2BFrench_symlinks) för både skapa och följ åtgärder. Kunder som behöver symboliska länkar kan använda ”mfsymlinks” mount-alternativet. ”mfsymlinks” rekommenderas vanligtvis eftersom det är också det format som används av Mac-datorer.
 
 Om du vill kunna använda symlinks lägger du till följande i slutet av din CIFS mount-kommando:
 
@@ -191,7 +191,7 @@ Om du vill kunna använda symlinks lägger du till följande i slutet av din CIF
 Så att kommandot ska se ut ungefär som:
 
 ```
-sudo mount -t cifs //<storage-account-name>.file.core.windows.net/<share-name> <mount-point> -o vers=<smb-version>,username=<storage-account-name>,password=<storage-account-key>,dir_mode=0777,file_mode=0777,serverino,mfsynlinks
+sudo mount -t cifs //<storage-account-name>.file.core.windows.net/<share-name> <mount-point> -o vers=<smb-version>,username=<storage-account-name>,password=<storage-account-key>,dir_mode=0777,file_mode=0777,serverino,mfsymlinks
 ```
 
 När du har lagt till, kommer du att kunna skapa symlinks föreslås vanliga ord på den [Wiki](https://wiki.samba.org/index.php/UNIX_Extensions#Storing_symlinks_on_Windows_servers).

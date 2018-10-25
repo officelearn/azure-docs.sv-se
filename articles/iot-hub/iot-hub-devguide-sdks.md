@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 09/14/2018
 ms.author: dobett
-ms.openlocfilehash: 1eeb0afdd5ffcbe00357914d6a98c8d0b3d452ec
-ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
+ms.openlocfilehash: d58c86c17cdab360f37a09b28bdf705cb781a620
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48017967"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50023842"
 ---
 # <a name="understand-and-use-azure-iot-hub-sdks"></a>Förstå och använda Azure IoT Hub SDK: er
 
@@ -44,7 +44,7 @@ Azure IoT Hub device SDK för C, skriven i ANSI C (C99) för portabilitet och br
 
 * Installera från [apt-get, MBED, Arduino IDE eller Nuget](https://github.com/Azure/azure-iot-sdk-c/blob/master/readme.md)
 * [Källkod](https://github.com/Azure/azure-iot-sdk-c)
-* [API-referens](https://azure.github.io/azure-iot-sdk-c/index.html)
+* [API-referens](https://docs.microsoft.com/azure/iot-hub/iot-c-sdk-ref/)
 * [Modulreferens](https://github.com/Azure/azure-iot-sdk-c/blob/master/iothub_client/inc/iothub_module_client.h)
 
 Azure IoT Hub device SDK för Java: 
@@ -65,13 +65,13 @@ Azure IoT Hub device SDK för Python:
 
 * Installera från [pip](https://pypi.python.org/pypi/azure-iothub-device-client/)
 * [Källkod](https://github.com/Azure/azure-iot-sdk-python)
-* API-referens: se [C API-referens](https://azure.github.io/azure-iot-sdk-c/index.html)
+* API-referens: se [C API-referens](https://docs.microsoft.com/azure/iot-hub/iot-c-sdk-ref/)
 
 Azure IoT Hub device SDK för iOS: 
 
 * Installera från [CocoaPod](https://cocoapods.org/pods/AzureIoTHubClient)
 * [Exempel](https://github.com/Azure-Samples/azure-iot-samples-ios)
-* API-referens: se [C API-referens](https://azure.github.io/azure-iot-sdk-c/index.html)
+* API-referens: se [C API-referens](https://docs.microsoft.com/azure/iot-hub/iot-c-sdk-ref/)
 
 > [!NOTE]
 > Finns i readme-filerna i GitHub-lagringsplatser för information om att använda språk och plattformsspecifika pakethanterare för att installera binärfilerna och beroenden på utvecklingsdatorn.

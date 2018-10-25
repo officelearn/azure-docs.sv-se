@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 10/12/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 03f096bf160c44f7a35f54a73cff6ea701b87d22
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: 66585c495dfb46e51120ae3eef2685d634fd9606
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49352931"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50024978"
 ---
 # <a name="azure-ad-connect-accounts-and-permissions"></a>Azure AD Connect: Konton och behörigheter
 
@@ -82,11 +82,11 @@ Den [AD DS-anslutningskontot](#active-directory-account) för läsning och skriv
 
 ![Snabbinstallation](./media/reference-connect-accounts-permissions/express.png)
 
-Följande är en sammanfattning av uttryckliga installlation sidorna i guiden, de autentiseringsuppgifter som samlats in och hur de används.
+Följande är en sammanfattning av expressinstallationsfiler sidorna i guiden, de autentiseringsuppgifter som samlats in och hur de används.
 
 | Guidesidan | Autentiseringsuppgifter samlas in | Behörigheter som krävs | Används för |
 | --- | --- | --- | --- |
-| Gäller inte |Användaren som kör installationsguiden |Administratör för den lokala servern |<li>Skapar den [ADSync Molntjänsten konto](#azure-ad-connect-sync-service-account) konto som används för att köra synkroniseringstjänsten. |
+| Gäller inte |Användaren som kör installationsguiden |Administratör för den lokala servern |<li>Skapar den [ADSync tjänstkonto](#azure-ad-connect-sync-service-account) konto som används för att köra synkroniseringstjänsten. |
 | Anslut till Azure AD |Autentiseringsuppgifter för Azure AD-katalog |Rollen som global administratör i Azure AD |<li>Aktiverar synkronisering i Azure AD-katalog.</li>  <li>Skapandet av den [Azure AD-anslutningskontot](#azure-ad-service-account) som används för pågående synkroniseringsåtgärder i Azure AD.</li> |
 | Anslut till AD DS |Den lokala Active Directory-autentiseringsuppgifter |Medlem i gruppen Enterprise administratörer (EA) i Active Directory |<li>Skapar den [AD DS-anslutningskontot](#active-directory-account) i Active Directory och ger behörighet till den. Om du skapade kontot används för att läsa och skriva kataloginformation under synkroniseringen.</li> |
 
@@ -97,7 +97,7 @@ Med anpassade inställningar-installationen erbjuder guiden fler alternativ och 
 
 ### <a name="custom-installation-wizard-summary"></a>Anpassad installation sammanfattning
 
-Följande är en sammanfattning av de anpassa installlation sidorna i guiden autentiseringsuppgifterna som samlas in, och hur de används.
+Följande är en sammanfattning av anpassad installation sidorna i guiden, de autentiseringsuppgifter som samlats in och hur de används.
 
 ![Snabbinstallation](./media/reference-connect-accounts-permissions/customize.png)
 

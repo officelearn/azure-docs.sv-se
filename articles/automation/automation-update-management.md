@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 10/11/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 2bd1d52db88ca280b811898c173f66b2deee1649
-ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
+ms.openlocfilehash: 6d2076a91bc7e7c0e2ca9d2fe6899cddec2f8d0b
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2018
-ms.locfileid: "49638164"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50024502"
 ---
 # <a name="update-management-solution-in-azure"></a>Lösningen för uppdateringshantering i Azure
 
@@ -39,7 +39,7 @@ Hantering av uppdateringar kan användas för att internt registrera datorer i f
 
 När en CVE är viktig, tar 2 – 3 timmar innan uppdateringen att visas för Linux-datorer för utvärdering.  För Windows-datorer tar den 12 – 15 timmar för uppdatering ska visas för utvärderingen efter att det har släppts.
 
-När en dator är klar en sökning efter uppdateringskompatibilitet vidarebefordrar agenten informationen gruppvis till Azure Log Analytics. På en Windows-dator kördes kompatibilitetsgenomsökningen var 12: e timme som standard.
+När en dator är klar en sökning efter uppdateringskompatibilitet vidarebefordrar agenten informationen gruppvis till Azure Log Analytics. På en Windows-dator körs kompatibilitetsgenomsökningen var 12: e timme som standard.
 
 Förutom genomsökningsschemat initieras sökningen för uppdateringskompatibilitet inom 15 minuter om du MMA startas innan installationen av uppdateringen och efter installationen av uppdateringen.
 
@@ -56,7 +56,7 @@ En schemalagd distribution definierar vilka måldatorer som får tillämpliga up
 
 Uppdateringar installeras av runbooks i Azure Automation. Du kan inte visa dessa runbooks och runbooks kräver inte någon konfigurering. När en uppdateringsdistribution skapas, skapar ett schema som startar en masteruppdaterings-runbook vid den angivna tidpunkten för datorerna som ingår i uppdateringsdistributionen. Master-runbook startar en underordnad runbook på varje agent så att installera nödvändiga uppdateringar.
 
-Vid det datum och tid som anges i uppdateringsdistributionen kör måldatorerna distributionen parallellt. Före installationen kört en genomsökning för att verifiera att uppdateringarna fortfarande är nödvändiga. Om uppdateringarna som inte godkänts i WSUS, för WSUS-klientdatorer misslyckas distributionen av uppdateringen.
+Vid det datum och tid som anges i uppdateringsdistributionen kör måldatorerna distributionen parallellt. Innan du installerar görs en sökning för att verifiera att uppdateringarna fortfarande är nödvändiga. Om uppdateringarna som inte godkänts i WSUS, för WSUS-klientdatorer misslyckas distributionen av uppdateringen.
 
 Med en dator som har registrerats för uppdateringshantering i mer än en Log Analytics-arbetsytor (flera värdar) stöds inte.
 
@@ -264,7 +264,34 @@ sudo yum -q --security check-update
 
 Det finns för närvarande inga metoden stöds-metoden för att aktivera interna klassificering-data tillgängliga på CentOS. För närvarande tillhandahålls endast mån support till kunder som kanske har aktiverat det på egen hand.
 
-##<a name="ports"></a>Planera för nätverk
+## <a name="firstparty-predownload"></a>Första parts korrigeringar och förhandsnedladda
+
+Hantering av uppdateringar är beroende av Windows Update för att hämta och installera Windows-uppdateringar. Därför kan respekterar vi många av inställningarna som används av Windows Update. Om du använder inställningar för att aktivera icke-Windows-uppdateringar, hanterar uppdateringshantering även dessa uppdateringar. Om du vill aktivera hämtar uppdateringar innan en uppdateringsdistribution sker distributioner gå snabbare och är mindre troligt att överskrida underhållsfönstret.
+
+### <a name="pre-download-updates"></a>Pre hämta uppdateringar
+
+Om du vill konfigurera automatiskt hämtar uppdateringar i en Grupprincip, kan du ange den [inställningen Konfigurera automatiska uppdateringar](/windows-server/administration/windows-server-update-services/deploy/4-configure-group-policy-settings-for-automatic-updates#BKMK_comp5) till **3**. Detta hämtar uppdateringar som behövs i bakgrunden, men installeras inte. Detta håller uppdateringshantering kontroll över scheman, men kan uppdateringar som hämtas utanför underhållsperioden uppdateringshantering. Det här kan hindra **underhållsperioden har överskridits** fel i hantering av uppdateringar.
+
+Du kan också ange detta med PowerShell, kör följande PowerShell på ett system som du vill hämta uppdateringar automatiskt.
+
+```powershell
+$WUSettings = (New-Object -com "Microsoft.Update.AutoUpdate").Settings
+$WUSettings.NotificationLevel = 3
+$WUSettings.Save()
+```
+
+### <a name="enable-updates-for-other-microsoft-products"></a>Aktivera uppdateringar för andra Microsoft-produkter
+
+Som standard innehåller Windows Update endast uppdateringar för Windows. Om du aktiverar **hämta uppdateringar för andra Microsoft-produkter när jag uppdaterar Windows**, det finns uppdateringar för andra produkter, inklusive sådana saker säkerhetsuppdateringar för SQL Server eller andra första tillverkare. Det här alternativet kan inte konfigureras av en Grupprincip. Kör följande PowerShell på de system som du vill aktivera andra första part korrigeringsfiler på och uppdateringshantering följer den här inställningen.
+
+```powershell
+$ServiceManager = (New-Object -com "Microsoft.Update.ServiceManager")
+$ServiceManager.Services
+$ServiceID = "7971f918-a847-4430-9279-4a52d1efe18d"
+$ServiceManager.AddService2($ServiceId,7,"")
+```
+
+## <a name="ports"></a>Planera för nätverk
 
 Följande adresser krävs för hantering av uppdateringar. Kommunikation till dessa adresser sker via port 443.
 

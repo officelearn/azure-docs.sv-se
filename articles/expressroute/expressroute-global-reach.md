@@ -6,14 +6,14 @@ services: expressroute
 author: cherylmc
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 10/09/2018
+ms.date: 10/24/2018
 ms.author: cherylmc
-ms.openlocfilehash: c96841274f73be766b0157f036746599cc836dd3
-ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
+ms.openlocfilehash: 324225600ed52c523228f54c540c810a15ffd5d7
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49068051"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50023244"
 ---
 # <a name="expressroute-global-reach-preview"></a>ExpressRoute (förhandsversion) med Global räckvidd
 ExpressRoute är en privat och flexibel sätt att ansluta ditt lokala nätverk till Microsoft Cloud. Du kan komma åt många Microsoft-molntjänster som Azure, Office 365 och Dynamics 365 från ditt privata Datacenter eller företagets nätverk. Du kan till exempel ha ett avdelningskontor i San Francisco med en ExpressRoute-krets i Silicon Valley och ett annat filialkontor i London med en ExpressRoute-krets i samma stad. Båda avdelningskontor kan ha höghastighetsanslutning till Azure-resurser i västra USA och Storbritannien, södra. Men det går inte att filialkontor utbyta data direkt med varandra. Med andra ord skicka 10.0.1.0/24 data till 10.0.3.0/24 och 10.0.4.0/24 men inte till 10.0.2.0/24.
@@ -32,13 +32,14 @@ ExpressRoute Global räckvidd är avsedd att komplettera din tjänstleverantör 
 ## <a name="availability"></a>Tillgänglighet 
 ExpressRoute Global räckvidd stöds för närvarande på följande platser.
 
-* USA
-* Storbritannien 
-* Irland
-* Nederländerna
 * Australien
-* Hongkong SAR 
+* Frankrike
+* Hongkong SAR
+* Irland
 * Japan
+* Nederländerna
+* Förenade Kindom
+* USA
 
 ExpressRoute-kretsarna måste skapas på den [ExpressRoute-peeringplatser](expressroute-locations.md) i ovanstående land eller region. Så här aktiverar du ExpressRoute Global räckvidd mellan [olika geopolitiska regioner](expressroute-locations.md), din kretsar måste vara Premium-SKU.
 

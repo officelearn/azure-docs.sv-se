@@ -12,12 +12,12 @@ ms.topic: reference
 ms.date: 11/20/2017
 ms.author: sngun
 ms.custom: ''
-ms.openlocfilehash: 9d11e40ab21f1bb7fe15cb1e00ef12dfc47edec7
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: d079b30657d3e8f770ea8ed6a7c419e7619ce99c
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49464071"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50024145"
 ---
 # <a name="azure-cosmos-db-table-api-sdk-for-python-release-notes-and-resources"></a>Azure Cosmos DB Table API SDK för Python: viktig information och resurser
 > [!div class="op_single_selector"]
@@ -34,7 +34,7 @@ ms.locfileid: "49464071"
 |**API-dokumentation**|[Python API-referensdokumentation](https://docs.microsoft.com/python/api/overview/azure/cosmosdb?view=azure-python)|
 |**Installationsinstruktioner för SDK**|[Instruktioner för installation av Python SDK](https://github.com/Azure/azure-cosmosdb-python/tree/master/azure-cosmosdb-table)|
 |**Bidra till SDK**|[GitHub](https://github.com/Azure/azure-cosmosdb-python/tree/master/azure-cosmosdb-table)|
-|**Aktuella plattformar som stöds**|[Python 2.7](https://www.python.org/downloads/) eller () [Python 3.3, 3.4, 3.5 och 3.6]https://www.python.org/downloads/)|
+|**Aktuella plattformar som stöds**|[Python 2.7](https://www.python.org/downloads/) eller [Python 3.3, 3.4, 3.5 och 3.6](https://www.python.org/downloads/)|
 
 > [!IMPORTANT]
 > Om du skapade ett tabell-API-konto under förhandsversionen ska du skapa ett [nytt tabell-API-konto](create-table-dotnet.md#create-a-database-account) som fungerar med de allmänt tillgängliga SDK:erna för API-tabellen.

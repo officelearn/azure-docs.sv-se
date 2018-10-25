@@ -11,12 +11,12 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 12/12/2017
 ms.author: glenga
-ms.openlocfilehash: 9a75e7ed8ce25384d39afb22ef50b5453ef543ba
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: d8f27063b68ed58b9ac34219d806c1cf8165ea8c
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46129683"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50026032"
 ---
 # <a name="azure-functions-c-script-csx-developer-reference"></a>Azure Functions C#-skript (.csx) för utvecklare
 
@@ -55,7 +55,7 @@ FunctionsProject
  | - bin
 ```
 
-Det finns en delad [host.json] (functions-värd-json.md)-fil som kan användas för att konfigurera funktionsappen. Varje funktion har sina egna kodfilen (.csx) och bindningen konfigurationsfil (function.json).
+Det finns en delad [host.json](functions-host-json.md) -fil som kan användas för att konfigurera funktionsappen. Varje funktion har sina egna kodfilen (.csx) och bindningen konfigurationsfil (function.json).
 
 Bindningen-tillägg som krävs i [version 2.x](functions-versions.md) funktioner runtime definieras i den `extensions.csproj` -fil med faktiska library-filer i den `bin` mapp. När du utvecklar lokalt, måste du [registrera tillägg av bindning](functions-triggers-bindings.md#local-development-azure-functions-core-tools). När du utvecklar funktioner i Azure-portalen görs denna registrering för dig.
 

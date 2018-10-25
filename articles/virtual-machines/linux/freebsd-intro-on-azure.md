@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 09/13/2017
 ms.author: huishao
-ms.openlocfilehash: 0eab96d85aa9cc8bea8d30c5a36c8489b8ea652e
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 9c3815f0083d049d9b4baed8e360f5927fcd3d69
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46974178"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50025692"
 ---
 # <a name="introduction-to-freebsd-on-azure"></a>Introduktion till FreeBSD på Azure
 Den här artikeln innehåller en översikt över kör en FreeBSD-dator i Azure.
@@ -48,22 +48,22 @@ Distribuera en FreeBSD virtuell dator är enkelt att använda en avbildning frå
 ### <a name="create-a-freebsd-vm-through-azure-cli-on-freebsd"></a>Skapa en FreeBSD virtuell dator via Azure CLI på FreeBSD
 Du måste först installera [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) trots att följande kommando på en FreeBSD-dator.
 
-```bash 
+```bash 
 curl -L https://aka.ms/InstallAzureCli | bash
 ```
 
-Om bash inte är installerat på datorn FreeBSD, kör du följande kommando före installationen. 
+Om bash inte är installerat på datorn FreeBSD, kör du följande kommando före installationen. 
 
 ```bash
 sudo pkg install bash
 ```
 
-Om python inte är installerat på datorn FreeBSD, kör du följande kommandon innan installationen. 
+Om python inte är installerat på datorn FreeBSD, kör du följande kommandon innan installationen. 
 
 ```bash
 sudo pkg install python35
-cd /usr/local/bin 
-sudo rm /usr/local/bin/python 
+cd /usr/local/bin 
+sudo rm /usr/local/bin/python 
 sudo ln -s /usr/local/bin/python3.5 /usr/local/bin/python
 ```
 
@@ -72,7 +72,7 @@ Under installationen uppmanas du `Modify profile to update your $PATH and enable
 Du kan nu logga in på Azure och skapa FreeBSD-VM. Nedan visas ett exempel för att skapa en virtuell dator 11.0 FreeBSD. Du kan också lägga till parametern `--public-ip-address-dns-name` med ett globalt unikt DNS-namn för en nyligen skapade offentliga IP-adress. 
 
 ```azurecli
-az login 
+az login 
 az group create --name myResourceGroup --location eastus
 az vm create --name myFreeBSD11 \
     --resource-group myResourceGroup \
@@ -131,7 +131,7 @@ $ sudo <COMMAND>
 Du kan också hämta ett rot-gränssnitt med hjälp av `sudo -s`.
 
 ## <a name="known-issues"></a>Kända problem
-Den [Azure VM-Gästagent](https://github.com/Azure/WALinuxAgent/) version 2.2.2 handlar om ett [problem] (https://github.com/Azure/WALinuxAgent/pull/517) som orsakar felet etablera för FreeBSD VM på Azure. Korrigeringen samlades in av [Azure VM-Gästagent](https://github.com/Azure/WALinuxAgent/) version 2.2.3 och senare versioner. 
+Den [Azure VM-Gästagent](https://github.com/Azure/WALinuxAgent/) versionen 2.2.2 har en [känt problem](https://github.com/Azure/WALinuxAgent/pull/517) som orsakar felet etablera för FreeBSD VM på Azure. Korrigeringen samlades in av [Azure VM-Gästagent](https://github.com/Azure/WALinuxAgent/) version 2.2.3 och senare versioner. 
 
 ## <a name="next-steps"></a>Nästa steg
 * Gå till [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.FreeBSD111) att skapa en FreeBSD-VM.

@@ -6,16 +6,16 @@ author: jeffgilb
 manager: femila
 ms.service: azure-stack
 ms.topic: article
-ms.date: 10/19/2018
+ms.date: 10/22/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
 keywords: ''
-ms.openlocfilehash: 6548693b91283665704be8fc83a483a9d20dc41b
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: 8a33d4edb4107b936c36a744bb082c02b7830868
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49470554"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50024451"
 ---
 # <a name="azure-stack-datacenter-integration---identity"></a>Integrering med Azure Stack datacenter - identitet
 Du kan distribuera Azure Stack med Azure Active Directory (AD Azure) eller Active Directory Federation Services (AD FS) som identitetsleverantör man. Du måste göra valet innan du distribuerar Azure Stack. Distributionen med hjälp av AD FS är kallas även distribuera Azure Stack i frånkopplat läge.
@@ -53,7 +53,6 @@ En ny ägare har konfigurerats för providern Standardprenumeration för det sis
 
 Krav:
 
-
 |Komponent|Krav|
 |---------|---------|
 |Graph|Microsoft Active Directory-2012/2012 R2/2016|
@@ -64,7 +63,6 @@ Krav:
 Diagrammet har endast stöd för integrering med en enda Active Directory-skog. Om flera skogar finns används i skogen som angetts i konfigurationen för att hämta användare och grupper.
 
 Följande information krävs som indata för automation-parametrar:
-
 
 |Parameter|Beskrivning|Exempel|
 |---------|---------|---------|
@@ -96,14 +94,14 @@ Du kan också skapa ett konto för Graph-tjänsten i befintliga Active Directory
 
 För den här proceduren ska du använda en dator i datacenternätverket som kan kommunicera med den privilegierade slutpunkten i Azure Stack.
 
-2. Öppna en upphöjd Windows PowerShell-session (Kör som administratör) och ansluta till IP-adressen för privilegierade slutpunkten. Använd autentiseringsuppgifter för **CloudAdmin** att autentisera.
+1. Öppna en upphöjd Windows PowerShell-session (Kör som administratör) och ansluta till IP-adressen för privilegierade slutpunkten. Använd autentiseringsuppgifter för **CloudAdmin** att autentisera.
 
    ```PowerShell  
    $creds = Get-Credential
    Enter-PSSession -ComputerName <IP Address of ERCS> -ConfigurationName PrivilegedEndpoint -Credential $creds
    ```
 
-3. Nu när du är ansluten till privilegierad slutpunkt, kör du följande kommando: 
+2. Nu när du är ansluten till privilegierad slutpunkt, kör du följande kommando: 
 
    ```PowerShell  
    Register-DirectoryService -CustomADGlobalCatalog contoso.com
@@ -210,6 +208,9 @@ Använda en dator som kan kommunicera med privilegierad slutpunkt i Azure Stack 
    Set-ServiceAdminOwner -ServiceAdminOwnerUpn "administrator@contoso.com"
    ```
 
+   > [!Note]  
+   > När du roterar certifikat på den befintliga AD FS (STS-konto) måste du konfigurera AD FS-integrationen igen. Du måste konfigurera integrationen även om metadataslutpunkten kan nås eller konfigurerades genom att tillhandahålla metadatafilen.
+
 ## <a name="configure-relying-party-on-existing-ad-fs-deployment-account-sts"></a>Konfigurera förlitande part på befintliga AD FS-distribution (STS-konto)
 
 Microsoft tillhandahåller ett skript som konfigurerar den förlitande parten, inklusive omvandling anspråksregler. Med hjälp av skript är valfritt eftersom du kan köra kommandona manuellt.
@@ -274,7 +275,7 @@ Följ dessa steg om du vill köra kommandon manuellt:
    Add-ADFSRelyingPartyTrust -Name AzureStack -MetadataUrl "https://YourAzureStackADFSEndpoint/FederationMetadata/2007-06/FederationMetadata.xml" -IssuanceTransformRulesFile "C:\ClaimIssuanceRules.txt" -AutoUpdateEnabled:$true -MonitoringEnabled:$true -enabled:$true -TokenLifeTime 1440
    ```
 
-   > [!IMPORTANT]
+   > [!IMPORTANT]  
    > Du måste använda AD FS MMC-snapin-modulen för att konfigurera auktoriseringsregler för utfärdande när du använder Windows Server 2012 eller 2012 R2 AD FS.
 
 4. När du använder Internet Explorer eller Edge-webbläsaren för att komma åt Azure Stack, måste du ignorera token-bindningar. Annars misslyckas försök logga in. Kör följande kommando på din AD FS-instans eller en medlem i gruppen:

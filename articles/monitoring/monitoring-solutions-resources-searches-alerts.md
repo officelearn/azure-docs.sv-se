@@ -14,12 +14,12 @@ ms.workload: infrastructure-services
 ms.date: 06/18/2018
 ms.author: bwren, vinagara
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 06c01a7c87c43931a27c03b2014995be6c2678eb
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 8ec5f1cef3f9ca82953093d2086b615087db1a7f
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49409075"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50024791"
 ---
 # <a name="adding-log-analytics-saved-searches-and-alerts-to-management-solution-preview"></a>Lägga till Log Analytics sparade sökningar och aviseringar till lösning för hantering (förhandsversion)
 
@@ -48,7 +48,7 @@ Alla Log Analytics-resurser som definierats i en Resource Manager-mallen har en 
 
 I följande tabell visas den API-versionen för resursen i det här exemplet.
 
-| Resurstyp | API-version | Fråga |
+| Resurstyp | API-version | Söka i data |
 |:---|:---|:---|
 | savedSearches | 2017-03-15-preview | Händelsen &#124; där EventLevelName == ”Error”  |
 
@@ -297,7 +297,7 @@ Egenskaper för Webhook-åtgärd resurser beskrivs i följande tabeller.
 
 ## <a name="sample"></a>Exempel
 
-Nedan följer ett exempel på en lösning som omfattar som innehåller följande resurser:
+Nedan följer ett exempel på en lösning som innehåller följande resurser:
 
 - Sparad sökning
 - Schema

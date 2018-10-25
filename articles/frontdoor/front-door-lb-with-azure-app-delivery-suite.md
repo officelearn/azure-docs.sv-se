@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: sharadag
-ms.openlocfilehash: 05f77665352ee306f5684d5c7a09b27d4fe17650
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: 4c9f92481af1e69a111869cb6fc1305923bb0484
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49426826"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50026015"
 ---
 # <a name="load-balancing-with-azures-application-delivery-suite"></a>Belastningsutjämning med Azures paket för programleverans
 
@@ -60,7 +60,7 @@ När du väljer en global belastningsutjämnare mellan Traffic Manager och Azure
 | --------------- | ------------------------ |
 |**Alla protokoll:** eftersom Traffic Manager fungerar på DNS-nivå, du kan dirigera alla typer av nätverkstrafik; HTTP, TCP, UDP, osv. | **HTTP-acceleration:** med ytterdörren trafik är via proxy på den Edge av Microsofts nätverk.  Därför se begäranden för HTTP (S) svarstid och dataflöde förbättringar svarstiden för SSL-förhandling och använder frekvent anslutningar från AFD till ditt program.|
 |**En lokal routning:** med routning på en DNS-nivå, trafik alltid går från punkt till punkt.  Routning från filialen till ditt lokala datacenter kan ta en direkt sökväg. med Traffic Manager även på ditt eget nätverk. | **Oberoende skalbarhet:** eftersom ytterdörren fungerar med HTTP-begäran, begäranden till olika URL-sökvägar kan dirigeras till olika serverdels / regional tjänst-pooler (mikrotjänster) baserat på regler och hälsotillståndet för varje mikrotjänst för programmet.|
-|**Fakturering format:** DNS-baserade fakturering kan skalas upp med dina användare och tjänster med fler användare, högplaåter för att minska kostnaden en högre användning. |**Infogad säkerhet:** ytterdörren aktiverar regler som hastighetsbegränsning och IP-åtkomstkontrollposter så att du kan skydda serverdelen innan trafiken når ditt program. 
+|**Fakturering format:** DNS-baserade fakturering kan skalas upp med dina användare och tjänster med fler användare, högplaåter för att minska kostnaden vid högre användning. |**Infogad säkerhet:** ytterdörren aktiverar regler som hastighetsbegränsning och IP-åtkomstkontrollposter så att du kan skydda serverdelen innan trafiken når ditt program. 
 
 </br>På grund av prestanda, funktionalitet och säkerhetsfördelarna till HTTP-arbetsbelastningar med ytterdörren rekommenderar vi att kunder använder åtkomsten för sina HTTP-arbetsbelastningar.    Traffic Manager och ytterdörren kan användas parallellt för att hantera all trafik för ditt program. 
 

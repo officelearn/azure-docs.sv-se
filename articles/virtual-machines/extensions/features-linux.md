@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 03/30/2018
 ms.author: roiyz
-ms.openlocfilehash: b4e2971b5bb4ed5add2e68c1aabbc82443a61160
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
-ms.translationtype: HT
+ms.openlocfilehash: 720b8584c201826e55099ad31667478b6aa57b27
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49363393"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50024531"
 ---
 # <a name="virtual-machine-extensions-and-features-for-linux"></a>Virtuella datorer, tillägg och funktioner i Linux
 
@@ -54,7 +54,8 @@ Det finns minimiversioner av agenten för att tillhandahålla den bästa möjlig
 
 #### <a name="supported-oses"></a>Stödda OS
 
-Linux-agenten körs på flera operativsystem, men ramen tillägg har en gräns för operativsystem som tillägg. Mer information finns i [article] (https://support.microsoft.com/en-us/help/4078134/azure-extension-supported-operating-systems ).
+Linux-agenten körs på flera operativsystem, men ramen tillägg har en gräns för operativsystem som tillägg. Mer information finns i [den här artikeln](https://support.microsoft.com/en-us/help/4078134/azure-extension-supported-operating-systems
+).
 
 Vissa tillägg stöds inte i alla operativsystem och kan skapa *felkod 51, 'Operativsystmet'*. Dokumentationen enskilda tillägg för support.
 
@@ -65,7 +66,7 @@ Tilläggspaket laddas ned från Azure Storage-tilläggscentrallagret och tilläg
 > [!IMPORTANT]
 > Om du har blockerat åtkomsten till *168.63.129.1* med gästdatorns brandvägg, sedan tillägg misslyckas oavsett ovan.
 
-Agenter kan bara användas för att ladda ned tilläggspaket och Rapporteringsstatus. Till exempel om en installation av tillägget måste hämta ett skript från GitHub (anpassade skript) eller behöver åtkomst till Azure Storage (Azure Backup), sedan ytterligare brandvägg/Network Security Group portar måste du öppna. Olika tillägg har olika krav, eftersom de är program självständigt. För tillägg som kräver åtkomst till Azure Storage, kan du tillåta åtkomst med hjälp av Azure NSG-Tjänsttaggar för [Storage](https://docs.microsoft.com/en-us/azure/virtual-network/security-overview#service-tags).
+Agenter kan bara användas för att ladda ned tilläggspaket och Rapporteringsstatus. Till exempel om en installation av tillägget måste hämta ett skript från GitHub (anpassade skript) eller behöver åtkomst till Azure Storage (Azure Backup), sedan ytterligare brandvägg/Network Security Group portar måste du öppna. Olika tillägg har olika krav, eftersom de är program självständigt. För tillägg som kräver åtkomst till Azure Storage, kan du tillåta åtkomst med hjälp av Azure NSG-Tjänsttaggar för [Storage](https://docs.microsoft.com/azure/virtual-network/security-overview#service-tags).
 
 För att omdirigera trafik agentbegäranden har Linux-agenten stöd för proxyserver. Dock gäller inte den här stöd för proxyserver tillägg. Du måste konfigurera varje enskilda tillägg ska fungera med en proxy.
 
@@ -259,7 +260,7 @@ I föregående Exempelutdata överordnade eller 'paketet distribueras versionen 
 
 'Målet tillstånd agent' är den uppdaterade versionen som automatiskt.
 
-Vi rekommenderar starkt att du alltid har automatisk uppdatering av agenten [AutoUpdate.Enabled=y](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/update-agent). Inte med det aktivera innebär att du behöver uppdatera agenten manuellt och att hämta inte korrigeringar av fel och säkerhet.
+Vi rekommenderar starkt att du alltid har automatisk uppdatering av agenten [AutoUpdate.Enabled=y](https://docs.microsoft.com/azure/virtual-machines/linux/update-agent). Inte med det aktivera innebär att du behöver uppdatera agenten manuellt och att hämta inte korrigeringar av fel och säkerhet.
 
 #### <a name="extension-updates"></a>Uppdateringar för tillägget
 

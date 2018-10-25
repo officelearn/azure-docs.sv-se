@@ -2,26 +2,25 @@
 title: 'Azure Backup: Förbereda säkerhetskopiering av virtuella datorer'
 description: Kontrollera att din miljö är förberedd för att säkerhetskopiera virtuella datorer i Azure.
 services: backup
-author: markgalioto
+author: rayne-wiselman
 manager: carmonm
 keywords: säkerhetskopior. Säkerhetskopiera;
 ms.service: backup
 ms.topic: conceptual
-ms.date: 9/10/2018
-ms.author: markgal
-ms.openlocfilehash: 7ab88ce3565ccf79f20847a3a5e744c495d5fcb1
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.date: 10/23/2018
+ms.author: raynew
+ms.openlocfilehash: 30b35d38c30d3ee9410a85824c53001ca95cf30b
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48884941"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50025947"
 ---
-# <a name="prepare-your-environment-to-back-up-resource-manager-deployed-virtual-machines"></a>Förbereda din miljö för att säkerhetskopiera Resource Manager-distribuerade virtuella datorer
+# <a name="prepare-to-back-up-azure-vms"></a>Förbereda säkerhetskopiering av virtuella Azure-datorer
 
-Den här artikeln innehåller steg för att förbereda din miljö för att säkerhetskopiera en Azure Resource Manager-distribuerade virtuella datorn (VM). Stegen som visas i följande använder Azure-portalen. När du säkerhetskopierar en virtuell dator lagras säkerhetskopierade data eller återställningspunkter, i ett Recovery Services-valv. Recovery Services-valv lagra säkerhetskopierade data för klassiska och Resource Manager-distribuerade virtuella datorer.
+Den här artikeln innehåller steg för att förbereda din miljö för att säkerhetskopiera en Azure Resource Manager-distribuerade virtuella datorn (VM). Stegen som visas i följande använder Azure-portalen. När du säkerhetskopierar en virtuell dator lagras säkerhetskopierade data eller återställningspunkter, i ett Recovery Services säkerhetskopieringsvalv. 
 
-> [!NOTE]
-> Azure har två distributionsmodeller för att skapa och arbeta med resurser: [Resource Manager och klassisk](../azure-resource-manager/resource-manager-deployment-model.md).
+
 
 Innan du skyddar (eller säkerhetskopiera) en Resource Manager-distribuerade virtuella datorn, se till att följande krav vara uppfyllda:
 
@@ -47,7 +46,6 @@ Om dessa villkor finns redan i din miljö, fortsätter du till den [säkerhetsko
 Innan du förbereder din miljö måste du förstå följande begränsningar:
 
 * Säkerhetskopiering av virtuella datorer med mer än 32 datadiskar stöds inte.
-* Säkerhetskopiering av virtuella datorer med en reserverad IP-adress och ingen definierad slutpunkt stöds inte.
 * Säkerhetskopiera virtuella Linux-datorer krypteras med kryptering för Linux Unified nyckel installationsprogrammet (LUKS) stöds inte.
 * Vi rekommenderar inte att du säkerhetskopierar virtuella datorer som innehåller klusterdelade volymer (CSV) eller skalbar filserver. Om gjort, förväntas fel i CSV-skrivare. De kräver som omfattar alla virtuella datorer som ingår i klusterkonfigurationen under en ögonblicksbild-aktivitet. Azure Backup stöder inte konsekvens.
 * Säkerhetskopierade data omfattar inte monterade nätverksenheter som är kopplade till en virtuell dator.

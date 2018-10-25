@@ -1,6 +1,6 @@
 ---
-title: Optimera genomflödet för VM-nätverket | Microsoft Docs
-description: Lär dig att optimera virtuella Azure-datorn dataflödet i nätverket.
+title: Optimera nätverkets dataflöde VM | Microsoft Docs
+description: Lär dig mer om att optimera nätverkets dataflöde för Azure-dator.
 services: virtual-network
 documentationcenter: na
 author: steveesp
@@ -14,35 +14,35 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/15/2017
 ms.author: steveesp
-ms.openlocfilehash: b604782f917584d1ecec432c20de75f427176ed1
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 50d7ca73e5e18f88f5d789e12fc7f26908e8b8f0
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/09/2018
-ms.locfileid: "29132899"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50025556"
 ---
-# <a name="optimize-network-throughput-for-azure-virtual-machines"></a>Optimera dataflödet i nätverket för virtuella Azure-datorer
+# <a name="optimize-network-throughput-for-azure-virtual-machines"></a>Optimera nätverkets dataflöde för Azure-datorer
 
-Virtuella Azure-datorer (VM) har standardinställningar för nätverket som kan optimeras ytterligare för dataflödet i nätverket. Den här artikeln beskriver hur du optimerar dataflödet i nätverket för Microsoft Azure Windows och Linux virtuella datorer, inklusive större distributioner, till exempel Ubuntu och CentOS Red Hat.
+Azure virtuella datorer (VM) har standardinställningarna för nätverk som kan optimeras ytterligare för dataflöde i nätverket. Den här artikeln beskriver hur du optimera nätverkets dataflöde för Microsoft Azure Windows och Linux virtuella datorer, inklusive större distributioner som Red Hat, Ubuntu och CentOS.
 
-## <a name="windows-vm"></a>Windows VM
+## <a name="windows-vm"></a>Virtuell Windows-dator
 
-Om din Windows-VM stöder [snabbare nätverk](create-vm-accelerated-networking-powershell.md), aktivera funktionen är den bästa konfigurationen för genomströmning. För alla andra virtuella Windows-datorer, skalning på mottagarsidan (RSS) kan du nå ut högre maximal genomströmning än en virtuell dator utan RSS. RSS kan inaktiveras som standard i en virtuell Windows-dator. För att fastställa om RSS är aktiverat och aktivera det om det är inaktiverat, gör du följande:
+Om din virtuella Windows-dator stöder [Accelerated Networking](create-vm-accelerated-networking-powershell.md), aktivering av funktionen skulle vara den bästa konfigurationen för dataflöde. För alla Windows-datorer nå med hjälp av skalning på mottagarsidan (RSS) högre maximal genomströmning än en virtuell dator utan RSS. RSS inaktiveras som standard i en virtuell Windows-dator. För att avgöra om skalning på Mottagarsidan är aktiverat och aktiverar det om det är inaktiverat, gör du följande:
 
-1. Om RSS är aktiverat för ett nätverkskort med den `Get-NetAdapterRss` PowerShell-kommando. I följande exempel utdata returneras från den `Get-NetAdapterRss`, RSS har inte aktiverats.
+1. Om RSS är aktiverat för ett nätverkskort med den `Get-NetAdapterRss` PowerShell-kommando. I följande Exempelutdata returneras från den `Get-NetAdapterRss`, RSS är inte aktiverad.
 
     ```powershell
     Name                    : Ethernet
     InterfaceDescription    : Microsoft Hyper-V Network Adapter
     Enabled                 : False
     ```
-2. Ange följande kommando för att aktivera RSS:
+2. Om du vill aktivera RSS, anger du följande kommando:
 
     ```powershell
     Get-NetAdapter | % {Enable-NetAdapterRss -Name $_.Name}
     ```
-    Föregående kommando saknar utdata. Kommandot Ändra inställningarna för nätverkskortet, orsaka förlust av tillfälliga anslutning för ungefär en minut. En Reconnecting dialogruta visas under den anslutningen inte bryts. Anslutningen återställs vanligtvis efter det tredje försöket.
-3. Bekräfta att RSS är aktiverat på den virtuella datorn genom att ange den `Get-NetAdapterRss` kommandot igen. Om det lyckas, returneras i följande exempel på utdata:
+    Föregående kommando har inte utdata. Kommandot Ändra inställningarna för nätverkskortet, orsakar tillfälliga anslutningsförlust för ungefär en minut. En dialogruta för Reconnecting visas under till anslutningsproblemet. Anslutningen återställs vanligtvis efter tredje försöket.
+3. Bekräfta att RSS är aktiverat på den virtuella datorn genom att ange den `Get-NetAdapterRss` -kommandot på nytt. Om detta lyckas, returneras följande Exempelutdata:
 
     ```powershell
     Name                    : Ethernet
@@ -50,13 +50,13 @@ Om din Windows-VM stöder [snabbare nätverk](create-vm-accelerated-networking-p
     Enabled                  : True
     ```
 
-## <a name="linux-vm"></a>Linux VM
+## <a name="linux-vm"></a>Virtuell Linux-dator
 
-RSS är alltid aktiverat som standard i en Azure Linux-dator. Linux-kernel som getts ut sedan oktober 2017 inkluderar nya optimeringar Nätverksalternativ som möjliggör en Linux VM att uppnå högre dataflödet i nätverket.
+RSS är alltid aktiverat som standard i en virtuell Linux-dator. Linux-kernel som getts ut sedan oktober 2017 innehåller nya optimeringar Nätverksalternativ som gör att en Linux VM att uppnå högre dataflöde i nätverket.
 
 ### <a name="ubuntu-for-new-deployments"></a>Ubuntu för nya distributioner
 
-Kernel Ubuntu Azure ger bästa nätverksprestanda på Azure och är standardkernel sedan 21 September 2017. För att få den här kernel måste först installera den senaste versionen av 16.04 LTS, enligt följande:
+Ubuntu Azure-kerneln innehåller bästa nätverksprestanda i Azure och är standardkernel sedan 21 September 2017. För att få den här kernel måste först installera den senaste versionen av 16.04 LTS, enligt följande:
 
 ```json
 "Publisher": "Canonical",
@@ -65,7 +65,7 @@ Kernel Ubuntu Azure ger bästa nätverksprestanda på Azure och är standardkern
 "Version": "latest"
 ```
 
-Ange följande kommandon för att hämta de senaste uppdateringarna när de har skapats. De här stegen fungerar även för virtuella datorer körs Ubuntu Azure-kernel.
+När datafabriken har skapats, anger du följande kommandon för att få de senaste uppdateringarna. De här stegen fungerar även för virtuella datorer som körs på Ubuntu Azure-kernel.
 
 ```bash
 #run as root or preface with sudo
@@ -74,7 +74,7 @@ apt-get -y upgrade
 apt-get -y dist-upgrade
 ```
 
-Följande valfria kommandouppsättning kan vara användbar för befintliga Ubuntu-distributioner som redan har Azure kerneln, men som inte har ytterligare uppdateringar med fel.
+Följande valfria kommandouppsättning kan vara till hjälp för befintliga Ubuntu-distributioner som redan har Azure kernel men som inte har ytterligare uppdateringar med fel.
 
 ```bash
 #optional steps may be helpful in existing deployments with the Azure kernel
@@ -87,9 +87,9 @@ apt-get -y upgrade
 apt-get -y dist-upgrade
 ```
 
-#### <a name="ubuntu-azure-kernel-upgrade-for-existing-vms"></a>Ubuntu Azure kernel uppgradering för befintliga virtuella datorer
+#### <a name="ubuntu-azure-kernel-upgrade-for-existing-vms"></a>Ubuntu Azure kernel uppgraderingen för befintliga virtuella datorer
 
-Betydande kapaciteten kan uppnås genom att uppgradera till Azure Linux-kärnan. Kontrollera om du har den här kernel, kontrollera kernel-version.
+Betydande dataflödesprestanda kan uppnås genom att uppgradera till Azure Linux-kernel. Kontrollera vilken kernel-version för att kontrollera om du har den här kernel.
 
 ```bash
 #Azure kernel name ends with "-azure"
@@ -121,7 +121,7 @@ För att få de senaste Optimeringarna, är det bäst att skapa en virtuell dato
 "Version": "latest"
 ```
 
-Nya och befintliga virtuella datorer kan utnyttja installera senaste Linux Integration Services (LIS). Genomströmning optimering har LIS, från 4.2.2-2, även om senare versioner innehåller ytterligare förbättringar. Ange följande kommandon för att installera den senaste LIS:
+Nya och befintliga virtuella datorer kan dra nytta av installera senaste Linux Integration Services (LIS). Genomflödesoptimeringsjobb genomgår LIS, med början från 4.2.2-2, även om senare versioner innehåller ytterligare förbättringar. Ange följande kommandon för att installera den senaste LIS:
 
 ```bash
 sudo yum update
@@ -140,7 +140,7 @@ För att få Optimeringarna, är det bäst att skapa en virtuell dator med den s
 "Version": "latest"
 ```
 
-Nya och befintliga virtuella datorer kan utnyttja installera senaste Linux Integration Services (LIS). Genomströmning optimering har LIS, från 4.2. Ange följande kommandon för att hämta och installera LIS:
+Nya och befintliga virtuella datorer kan dra nytta av installera senaste Linux Integration Services (LIS). Genomflödesoptimeringsjobb genomgår LIS, med början från 4.2. Ange följande kommandon för att ladda ned och installera LIS:
 
 ```bash
 mkdir lis4.2.3-5
@@ -151,9 +151,9 @@ cd LISISO
 install.sh #or upgrade.sh if prior LIS was previously installed
 ```
 
-Mer information om Linux Integration Services Version 4.2 för Hyper-V genom att visa den [hämtningssidan](https://www.microsoft.com/download/details.aspx?id=55106).
+Läs mer om Linux Integration Services Version 4.2 för Hyper-V genom att visa den [hämtningssidan](https://www.microsoft.com/download/details.aspx?id=55106).
 
 ## <a name="next-steps"></a>Nästa steg
-* Optimerad resultatet med [bandbredd/dataflöde testa Azure VM](virtual-network-bandwidth-testing.md) för ditt scenario.
-* Läs om hur [bandbredd allokeras till virtuella datorer] (virtuell-dator-nätverk – throughput.md)
-* Lär dig mer i [Azure Virtual Network vanliga frågor (FAQ)](virtual-networks-faq.md)
+* Visa optimerade resultatet med [bandbredd/dataflöde testa Azure VM](virtual-network-bandwidth-testing.md) för ditt scenario.
+* Läs om hur [bandbredden som allokeras till virtuella datorer](virtual-machine-network-throughput.md)
+* Lär dig mer med [Azure Virtual Network, vanliga frågor (och svar FAQ)](virtual-networks-faq.md)

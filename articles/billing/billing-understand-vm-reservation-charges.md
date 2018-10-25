@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/08/2018
 ms.author: cwatson
-ms.openlocfilehash: 460cd3a5b05680563661e2f6519eaa3506eee03b
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: e43188459bf495748a054b0f24936c9141bd218c
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47392096"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50025730"
 ---
 # <a name="understand-how-the-azure-reservation-discount-is-applied-to-virtual-machines"></a>Förstå hur Azure reservationsrabatten tillämpas på virtuella datorer
 
@@ -51,15 +51,15 @@ För att förstå och visa tillämpningen av dina Azure-reservationer i fakturer
 
 ## <a name="application-of-reservation-discount-to-windows-vms"></a>Tillämpning av reservationsrabatten på Windows virtuella datorer
 
-När du kör Windows VM-instanser, ska reservationen gälla för att täcka infrastrukturkostnaderna. Tillämpning av VM-infrastrukturkostnader reservationen för virtuella Windows-datorer är samma som för icke - Windows-datorer. Du debiteras separat för Windows-programvara på basis av per vCPU. Se [Windows kostnader för programvara med reservationer](https://go.microsoft.com/fwlink/?linkid=862756). Du kan omfatta din Windows licenskostnaden med [Azure Hybrid-förmånen för Windows Server] (https://docs.microsoft.com/azure/virtual-machines/windows/hybrid-use-benefit-licensing).
+När du kör Windows VM-instanser, ska reservationen gälla för att täcka infrastrukturkostnaderna. Tillämpning av VM-infrastrukturkostnader reservationen för virtuella Windows-datorer är samma som för icke - Windows-datorer. Du debiteras separat för Windows-programvara på basis av per vCPU. Se [Windows kostnader för programvara med reservationer](https://go.microsoft.com/fwlink/?linkid=862756). Du kan omfatta din Windows licenskostnaden med [Azure Hybrid-förmånen för Windows Server](https://docs.microsoft.com/azure/virtual-machines/windows/hybrid-use-benefit-licensing).
 
 ## <a name="next-steps"></a>Nästa steg
 
 Om du vill veta mer om Azure reservationer, finns i följande artiklar:
 
 - [Vad är Azure reservationer?](billing-save-compute-costs-reservations.md)
-- [Förskottsbetala för virtuella datorer med Azure reserverade VM-instanser](../virtual-machines/windows/prepay-reserved-vm-instances.md)
-- [Betala i förskott för beräkningsresurser för SQL-databas med Azure SQL Database reserverad kapacitet](../sql-database/sql-database-reserved-capacity.md)
+- [Förskottsbetala för Virtual Machines med Azure Reserved VM Instances](../virtual-machines/windows/prepay-reserved-vm-instances.md)
+- [Förskottsbetala för SQL Database-beräkningsresurser med reserverad kapacitet för Azure SQL Database](../sql-database/sql-database-reserved-capacity.md)
 - [Hantera Azure Reservations](billing-manage-reserved-vm-instance.md)
 - [Förstå användningen av reservation för prenumerationen med användningsbaserad betalning](billing-understand-reserved-instance-usage.md)
 - [Förstå användningen av reserverade för din Enterprise-registrering](billing-understand-reserved-instance-usage-ea.md)

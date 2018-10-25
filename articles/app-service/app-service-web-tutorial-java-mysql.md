@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 05/22/2017
 ms.author: bbenz
 ms.custom: mvc
-ms.openlocfilehash: 0baab86c0cb76bfeecb30cdb62c968a476e402b9
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: db1005bbce25b0fa3fec76e6f9428a4cdd6fa4aa
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44296779"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50024383"
 ---
 # <a name="tutorial-build-a-java-and-mysql-web-app-in-azure"></a>Självstudie: Skapa en Java- och MySQL-webbapp i Azure
 
@@ -28,7 +28,7 @@ ms.locfileid: "44296779"
 > I den här artikeln distribueras en app till App Service i Windows. Om du vill distribuera till App Service på _Linux_, se artikeln om att [distribuera en Spring Boot-app i containrar till Azure](/java/azure/spring-framework/deploy-containerized-spring-boot-java-app-with-maven-plugin).
 >
 
-I den här självstudien visas hur du skapar en Java-webbapp i Azure och ansluter den till en MySQL-databas. När du är klar har du en [Spring Boot](https://projects.spring.io/spring-boot/)-app som lagrar data i [Azure Database for MySQL](https://docs.microsoft.com/azure/mysql/overview) och körs på [Azure App Service Web Apps](app-service-web-overview.md).
+I den här självstudien visas hur du skapar en Java-webbapp i Azure och ansluter den till en MySQL-databas. När du är klar har du en [Spring Boot](https://projects.spring.io/spring-boot/)-app som lagrar data i [Azure Database for MySQL](../mysql/overview.md) och körs på [Azure App Service Web Apps](app-service-web-overview.md).
 
 ![Java-app som körs i Azure App Service](./media/app-service-web-tutorial-java-mysql/appservice-web-app.png)
 
@@ -122,7 +122,7 @@ Avsluta programmet genom att trycka på `Ctrl`+`C` i terminalfönstret.
 
 ## <a name="create-an-azure-mysql-database"></a>Skapa en Azure MySQL-databas
 
-I det här steget skapar du en instans av [Azure Database for MySQL](../mysql/quickstart-create-mysql-server-database-using-azure-cli.md) med hjälp av [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli). Senare under kursen konfigurerar exempelappen att använda den här databasen.
+I det här steget skapar du en instans av [Azure Database for MySQL](../mysql/quickstart-create-mysql-server-database-using-azure-cli.md) med hjälp av [Azure CLI](/cli/azure/install-azure-cli). Senare under kursen konfigurerar exempelappen att använda den här databasen.
 
 ### <a name="create-a-resource-group"></a>Skapa en resursgrupp
 
@@ -282,7 +282,7 @@ az webapp config set --name <app_name> --resource-group myResourceGroup --java-v
 
 Ange programinställningar i webbappen om att använda den Azure MySQL-databas du skapade i Azure innan du kör exempelappen. Dessa egenskaper exponeras för webbappen som miljövariabler och åsidosätter de värden som anges i application.properties inuti den paketerade webbappen. 
 
-Ange programinställningar i Cloud Shell med hjälp av [`az webapp config appsettings`](https://docs.microsoft.com/cli/azure/webapp/config/appsettings) i CLI:
+Ange programinställningar i Cloud Shell med hjälp av [`az webapp config appsettings`](/cli/azure/webapp/config/appsettings) i CLI:
 
 ```azurecli-interactive
 az webapp config appsettings set --settings SPRING_DATASOURCE_URL="jdbc:mysql://<mysql_server_name>.mysql.database.azure.com:3306/tododb?verifyServerCertificate=true&useSSL=true&requireSSL=false" --resource-group myResourceGroup --name <app_name>
@@ -299,7 +299,7 @@ az webapp config appsettings set --settings SPRING_DATASOURCE_PASSWORD=Javaapp_p
 ### <a name="get-ftp-deployment-credentials"></a>Hämta FTP-autentiseringsuppgifter för distribution 
 Du kan distribuera webbappen till Azure App Service på flera olika sätt, till exempel med FTP, lokal Git, GitHub, Azure DevOps och Bitbucket. I det här exemplet används FTP för att distribuera WAR-filen som skapats tidigare på din lokala dator till Azure App Service.
 
-Fastställ vilka autentiseringsuppgifter som ska skickas i ett ftp-kommando till webbappen med hjälp av [`az appservice web deployment list-publishing-profiles`](https://docs.microsoft.com/cli/azure/webapp/deployment#az-appservice-web-deployment-list-publishing-profiles)-kommandot i Cloud Shell: 
+Fastställ vilka autentiseringsuppgifter som ska skickas i ett ftp-kommando till webbappen med hjälp av [`az webapp deployment list-publishing-profiles`](/cli/azure/webapp/deployment#az-webapp-deployment-list-publishing-profiles)-kommandot i Cloud Shell: 
 
 ```azurecli-interactive
 az webapp deployment list-publishing-profiles --name <app_name> --resource-group myResourceGroup --query "[?publishMethod=='FTP'].{URL:publishUrl, Username:userName,Password:userPWD}" --output json
@@ -440,25 +440,25 @@ Flikarna på sidan innehåller många bra funktioner som du kan lägga till i we
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-Om du inte behöver de här resurserna för en annan självstudie (se [Nästa steg](#next)) kan du ta bort dem genom att köra följande kommando i Cloud Shell: 
-  
+Om du inte behöver de här resurserna för en annan självstudie (se [Nästa steg](#next)) kan du ta bort dem genom att köra följande kommando i Cloud Shell: 
+  
 ```azurecli-interactive
-az group delete --name myResourceGroup 
-``` 
+az group delete --name myResourceGroup 
+``` 
 
 <a name="next"></a>
 
-## <a name="next-steps"></a>Nästa steg
+## Next steps
 
 > [!div class="checklist"]
-> * skapa en MySQL-databas i Azure
-> * Ansluta en Java-exempelapp till MySQL
-> * distribuera appen till Azure
-> * Uppdatera och distribuera om appen
-> * strömma diagnostikloggar från Azure
-> * hantera appen i Azure-portalen.
+> * Create a MySQL database in Azure
+> * Connect a sample Java app to the MySQL
+> * Deploy the app to Azure
+> * Update and redeploy the app
+> * Stream diagnostic logs from Azure
+> * Manage the app in the Azure portal
 
-Gå vidare till nästa självstudie där du får lära dig att mappa ett anpassat DNS-namn till appen.
+Advance to the next tutorial to learn how to map a custom DNS name to the app.
 
 > [!div class="nextstepaction"] 
-> [Mappa ett befintligt anpassat DNS-namn till Azure Web Apps](app-service-web-tutorial-custom-domain.md)
+> [Map an existing custom DNS name to Azure Web Apps](app-service-web-tutorial-custom-domain.md)

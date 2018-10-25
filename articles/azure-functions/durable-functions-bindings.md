@@ -2,20 +2,20 @@
 title: Bindningar för varaktiga funktioner – Azure
 description: Hur du använder utlösare och bindningar för tillägget varaktiga Functons för Azure Functions.
 services: functions
-author: cgillum
+author: kashimiz
 manager: jeconnoc
 keywords: ''
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
-ms.date: 09/29/2017
+ms.date: 10/23/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 29cc7982dbe9991e6b0e3363cd636ac88881fc7b
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.openlocfilehash: f9bf42e5e20a7d9e861d0c3354040e981bf3ef21
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48237289"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49987757"
 ---
 # <a name="bindings-for-durable-functions-azure-functions"></a>Bindningar för varaktiga funktioner (Azure Functions)
 
@@ -112,7 +112,7 @@ const df = require("durable-functions");
 
 module.exports = df.orchestrator(function*(context) {
     const name = context.df.getInput();
-    const result = yield context.df.callActivityAsync("SayHello", name);
+    const result = yield context.df.callActivity("SayHello", name);
     return result;
 });
 ```
@@ -123,7 +123,7 @@ Utlösaren aktivitet kan du redigera funktioner som anropas av orchestrator-funk
 
 Om du använder Visual Studio aktivitet utlösaren konfigureras med hjälp av den [ActivityTriggerAttribute](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.ActivityTriggerAttribute.html) .NET-attributet. 
 
-Om du använder Azure-portalen för utveckling, aktivitet utlösaren definieras av följande JSON-objekt i den `bindings` matris med *function.json*:
+Om du använder VS Code eller Azure-portalen för utveckling, aktivitet utlösaren definieras av följande JSON-objekt i den `bindings` matris med *function.json*:
 
 ```json
 {
@@ -249,7 +249,7 @@ Orkestreringsklient bindning kan du skriva funktioner som interagerar med orches
 
 Om du använder Visual Studio kan du binda till orchestration-klienten med hjälp av den [OrchestrationClientAttribute](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.OrchestrationClientAttribute.html) .NET-attributet.
 
-Om du använder skriptspråk (t.ex. *.csx* filer) för utveckling, orkestrering utlösaren definieras av följande JSON-objekt i den `bindings` matris med *function.json*:
+Om du använder skriptspråk (t.ex. *.csx* eller *.js* filer) för utveckling, orkestrering utlösaren definieras av följande JSON-objekt i den `bindings` matris med  *Function.JSON*:
 
 ```json
 {

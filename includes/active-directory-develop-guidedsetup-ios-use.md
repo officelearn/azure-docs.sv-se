@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 09/19/2018
 ms.author: andret
 ms.custom: include file
-ms.openlocfilehash: 248f2575e284ae456578b071013e1a5501329116
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.openlocfilehash: 06da33b91ef9846204b33ba2cb3dea40c75d425d
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48842939"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49988300"
 ---
 ## <a name="use-the-microsoft-authentication-library-msal-to-get-a-token-for-the-microsoft-graph-api"></a>Använd Microsoft Authentication Library (MSAL) för att hämta en token för Microsoft Graph API
 
@@ -29,17 +29,17 @@ ms.locfileid: "48842939"
 import UIKit
 import MSAL
 
-/// 😃 A View Controller that will respond to the events of the Storyboard.
+// A View Controller that will respond to the events of the Storyboard.
 class ViewController: UIViewController, UITextFieldDelegate, URLSessionDelegate {
-    
-    // Update the below to your client ID you received in the portal. The below is for running the demo only
+
+    // Replace Your_Application_Id_Here with the client ID you received in the portal. The below is for running the demo only.
     let kClientID = "Your_Application_Id_Here"
-    
+
     // These settings you don't need to edit unless you wish to attempt deeper scenarios with the app.
     let kGraphURI = "https://graph.microsoft.com/v1.0/me/"
     let kScopes: [String] = ["https://graph.microsoft.com/user.read"]
     let kAuthority = "https://login.microsoftonline.com/common"
-    
+
     var accessToken = String()
     var applicationContext : MSALPublicClientApplication?
 
@@ -87,7 +87,7 @@ class ViewController: UIViewController, UITextFieldDelegate, URLSessionDelegate 
         super.viewWillAppear(animated)
         signoutButton.isEnabled = !self.accessToken.isEmpty
     }
-    
+
     /**
      This button will invoke the authorization flow.
     */
@@ -204,17 +204,20 @@ class ViewController: UIViewController, UITextFieldDelegate, URLSessionDelegate 
 
 <!--start-collapse-->
 ### <a name="more-information"></a>Mer information
+
 #### <a name="getting-a-user-token-interactively"></a>Hämta en användartoken interaktivt
+
 Anropa den `acquireToken` metoden resulterar i ett webbläsarfönster som uppmanar användaren att logga in. Program kräver vanligtvis en användare att logga in interaktivt första gången som de behöver för att få åtkomst till en skyddad resurs, eller när en tyst åtgärd för att hämta en token misslyckas (t.ex. användarens lösenord har upphört att gälla).
 
 #### <a name="getting-a-user-token-silently"></a>Hämta en token obevakat
+
 Den `acquireTokenSilent` metoden hanterar token anskaffning och förnyelse utan någon användarinteraktion. Efter `acquireToken` körs för första gången `acquireTokenSilent` är den metod som ofta används för att hämta token som används för att komma åt skyddade resurser för efterföljande anrop - eftersom anrop till begära eller förnya token görs tyst.
 
 Så småningom `acquireTokenSilent` misslyckas – t.ex. användaren har loggat ut eller har ändrat sitt lösenord på en annan enhet. När MSAL upptäcker att problemet kan lösas genom att kräva en interaktiv åtgärd, det utlöses en `MSALErrorCode.interactionRequired` undantag. Programmet kan hantera det här undantaget på två sätt:
 
-1.  Anropa mot `acquireToken` direkt, vilket innebär att uppmanar användaren att logga in. Det här mönstret används vanligtvis i online-program där det finns inget offline innehåll i programmet tillgängligt för användaren. Exempelprogrammet som genererats av den här guidade konfigurationen använder det här mönstret: du ser i åtgärden först gången du kör programmet. Eftersom ingen användare har någonsin använt programmet, `applicationContext.allAccounts().first` innehåller ett null-värde och ett ` MSALErrorCode.interactionRequired ` undantagsfel. Koden i exemplet hanterar undantaget genom att anropa `acquireToken` vilket resulterar i uppmanar användaren att logga in.
+1. Anropa mot `acquireToken` direkt, vilket innebär att uppmanar användaren att logga in. Det här mönstret används vanligtvis i online-program där det finns inget offline innehåll i programmet tillgängligt för användaren. Exempelprogrammet som genererats av den här guidade konfigurationen använder det här mönstret: du ser i åtgärden först gången du kör programmet. Eftersom ingen användare har någonsin använt programmet, `applicationContext.allAccounts().first` innehåller ett null-värde och ett ` MSALErrorCode.interactionRequired ` undantagsfel. Koden i exemplet hanterar undantaget genom att anropa `acquireToken` vilket resulterar i uppmanar användaren att logga in.
 
-2.  Program kan också göra en visuell indikering för användaren som en interaktiv inloggning krävs, så att användaren kan välja rätt tid att logga in eller programmet kan försöka `acquireTokenSilent` vid ett senare tillfälle. Detta används vanligtvis när användaren kan använda andra funktioner i programmet utan störs – till exempel finns offline innehåll i programmet. I det här fallet kan användaren avgöra när de vill logga in till den skyddade resursen eller uppdatera gammal information eller ditt program kan bestämma att försöka igen `acquireTokenSilent` när nätverket har återställts efter att ha tillfälligt otillgänglig.
+2. Program kan också göra en visuell indikering för användaren som en interaktiv inloggning krävs, så att användaren kan välja rätt tid att logga in eller programmet kan försöka `acquireTokenSilent` vid ett senare tillfälle. Detta används vanligtvis när användaren kan använda andra funktioner i programmet utan störs – till exempel finns offline innehåll i programmet. I det här fallet kan användaren avgöra när de vill logga in till den skyddade resursen eller uppdatera gammal information eller ditt program kan bestämma att försöka igen `acquireTokenSilent` när nätverket har återställts efter att ha tillfälligt otillgänglig.
 
 <!--end-collapse-->
 
@@ -287,6 +290,7 @@ Lägg till följande metod i `ViewController.swift` logga ut användaren:
 
 }
 ```
+
 <!--start-collapse-->
 ### <a name="more-info-on-sign-out"></a>Mer information om utloggning
 
@@ -299,11 +303,12 @@ Den `signoutButton` metoden tar bort användaren från användarcachen MSAL – 
 
 När användaren autentiseras omdirigeras användaren till programmet i webbläsaren. Följ stegen nedan för att registrera den här motringning:
 
-1.  Öppna `AppDelegate.swift` och importera MSAL:
+1. Öppna `AppDelegate.swift` och importera MSAL:
 
 ```swift
 import MSAL
 ```
+
 <!-- Workaround for Docs conversion bug -->
 <ol start="2">
 <li>

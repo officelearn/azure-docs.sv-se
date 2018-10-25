@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/31/2017
 ms.author: mikeray
-ms.openlocfilehash: 58ec400faee04f8624822bbcb5325fca7006c578
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 10b4fec92752e44048454e8b63e90fd9b7fecba0
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38698642"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50023193"
 ---
 # <a name="configure-an-external-listener-for-always-on-availability-groups-in-azure"></a>Konfigurera en extern lyssnare för Always On-Tillgänglighetsgrupper i Azure
 > [!div class="op_single_selector"]
@@ -37,7 +37,7 @@ Det här avsnittet visar hur du konfigurerar en lyssnare för en ständigt aktiv
 Tillgänglighetsgruppen kan innehålla repliker som finns lokalt, Azure, eller omfattar både lokala och Azure för hybridkonfigurationer. Azure repliker kan finnas i samma region eller mellan flera regioner med flera virtuella nätverk (Vnet). Stegen nedan förutsätter att du redan har [konfigurerat en tillgänglighetsgrupp](../classic/portal-sql-alwayson-availability-groups.md) men inte har konfigurerat en lyssnare.
 
 ## <a name="guidelines-and-limitations-for-external-listeners"></a>Riktlinjer och begränsningar för externa lyssnare
-Observera följande riktlinjer för tillgänglighetsgruppens lyssnare i Azure när du distribuerar med cloud service blygdbenets VIP-adress:
+Observera följande riktlinjer för tillgänglighetsgruppens lyssnare i Azure när du distribuerar med cloud service offentlig VIP-adress:
 
 * Tillgänglighetsgruppslyssnaren stöds på Windows Server 2008 R2, Windows Server 2012 och Windows Server 2012 R2.
 * Klientprogrammet måste finnas på en annan molntjänst än den som innehåller din tillgänglighetsgruppen virtuella datorer. Azure stöder inte direkt serverretur med klient och server i samma molntjänst.

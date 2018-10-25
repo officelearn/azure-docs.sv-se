@@ -9,12 +9,12 @@ ms.component: speech-service
 ms.topic: conceptual
 ms.date: 05/09/2018
 ms.author: erhopf
-ms.openlocfilehash: 0cc278cdb59bfbb53578eae0f51c9b54204d7d12
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: 7f3daf71f4d94371af5f7d98c4e03761d7217a2a
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49466281"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50025845"
 ---
 # <a name="speech-service-rest-apis"></a>Speech Service REST API: er
 
@@ -22,7 +22,7 @@ REST-API: er för tjänsten Azure Cognitive Services tal liknar API: er som till
 
 ## <a name="speech-to-text"></a>Tal till text
 
-Slutpunkter för tal till Text REST API visas i följande tabell. Använd det som matchar din region för prenumerationen. 
+Slutpunkter för tal till Text REST API visas i följande tabell. Använd det som matchar din region för prenumerationen.
 
 [!INCLUDE [](../../../includes/cognitive-services-speech-service-endpoints-speech-to-text.md)]
 
@@ -57,13 +57,13 @@ Följande fält skickas i HTTP-frågehuvudet.
 
 ### <a name="audio-format"></a>Ljudformatet
 
-Ljudet skickas i brödtexten i HTTP `PUT` begäran. Det bör vara 16-bitars WAV format med PCM en kanal (mono) på 16 KHz av följande format/kodningen.
+Ljudet skickas i brödtexten i HTTP `POST` begäran. Det bör vara 16-bitars WAV format med PCM en kanal (mono) på 16 KHz av följande format/kodningen.
 
 * WAV format med PCM-codec
 * OGG format med OPUS codec
 
 >[!NOTE]
->Formaten ovan stöds via REST-API och WebSocket i Speech-tjänsten. Den [tal SDK](/index.yml) för närvarande endast stöd för WAV formatera med PCM-codec. 
+>Formaten ovan stöds via REST-API och WebSocket i Speech-tjänsten. Den [tal SDK](/index.yml) för närvarande endast stöd för WAV formatera med PCM-codec.
 
 ### <a name="chunked-transfer"></a>Segmentvis överföring
 
@@ -145,7 +145,7 @@ Den `RecognitionStatus` fältet kan innehålla följande värden.
 | `Error` | Igenkänning av tjänsten påträffade ett internt fel och kunde inte fortsätta. Försök igen om det är möjligt. |
 
 > [!NOTE]
-> Om ljudet består endast av svordomar, och `profanity` Frågeparametern anges till `remove`, tjänsten inte returnerar ett tal resultat. 
+> Om ljudet består endast av svordomar, och `profanity` Frågeparametern anges till `remove`, tjänsten inte returnerar ett tal resultat.
 
 
 Den `detailed` format innehåller samma fält som den `simple` format tillsammans med en `NBest` fält. Den `NBest` fält är en lista över alternativ tolkningar av samma tal, rangordnas från mest sannolikt minst sannolikt. Den första posten är samma som den huvudsakliga igenkänningsresultatet. Varje post innehåller följande fält:
@@ -207,7 +207,7 @@ Speech-tjänsten stöder 24-KHz ljuduppspelning förutom 16 Khz utdata som stöd
 
 Nationell inställning | Språk   | Kön | Tjänsten Namnmappningen
 -------|------------|--------|------------
-sv-SE  | Svenska | Kvinna | ”Microsoft Server tal Text till tal-röst (en-US, Jessa24kRUS)” 
+sv-SE  | Svenska | Kvinna | ”Microsoft Server tal Text till tal-röst (en-US, Jessa24kRUS)”
 sv-SE  | Svenska | Man   | ”Microsoft Server tal Text till tal-röst (en-US, Guy24kRUS)”
 
 En fullständig lista över tillgängliga röster är tillgängliga i [språk som stöds](language-support.md#text-to-speech).
@@ -235,7 +235,7 @@ Tillgängliga ljudet utdataformat (`X-Microsoft-OutputFormat`) en bithastighet o
 `audio-24khz-96kbitrate-mono-mp3`  | `audio-24khz-48kbitrate-mono-mp3`
 
 > [!NOTE]
-> Om din valda röst- och utdataformat har olika bithastigheter, samplas ljudet efter behov. Dock stöder inte 24khz röster `audio-16khz-16kbps-mono-siren` och `riff-16khz-16kbps-mono-siren` utdataformat. 
+> Om din valda röst- och utdataformat har olika bithastigheter, samplas ljudet efter behov. Dock stöder inte 24khz röster `audio-16khz-16kbps-mono-siren` och `riff-16khz-16kbps-mono-siren` utdataformat.
 
 ### <a name="request-body"></a>Begärandetext
 
@@ -254,7 +254,7 @@ Host: westus.tts.speech.microsoft.com
 Content-Length: 225
 Authorization: Bearer [Base64 access_token]
 
-<speak version='1.0' xml:lang='en-US'><voice xml:lang='en-US' xml:gender='Female' 
+<speak version='1.0' xml:lang='en-US'><voice xml:lang='en-US' xml:gender='Female'
     name='Microsoft Server Speech Text to Speech Voice (en-US, ZiraRUS)'>
         Microsoft Speech Service Text-to-Speech API
 </voice></speak>
@@ -328,10 +328,10 @@ cURL är ett kommandoradsverktyg som är tillgängliga i Linux (och i Windows-un
 > Kommandot visas på flera rader för läsbarhet, men ange den på en enda rad i en shell-prompten.
 
 ```
-curl -v -X POST 
- "https://westus.api.cognitive.microsoft.com/sts/v1.0/issueToken" 
- -H "Content-type: application/x-www-form-urlencoded" 
- -H "Content-Length: 0" 
+curl -v -X POST
+ "https://westus.api.cognitive.microsoft.com/sts/v1.0/issueToken"
+ -H "Content-type: application/x-www-form-urlencoded"
+ -H "Content-Length: 0"
  -H "Ocp-Apim-Subscription-Key: YOUR_SUBSCRIPTION_KEY"
 ```
 
@@ -411,7 +411,7 @@ Som tidigare se till att den `FetchTokenUri` värdet matchar din region för pre
     */
 public class Authentication
 {
-    public static readonly string FetchTokenUri = 
+    public static readonly string FetchTokenUri =
         "https://westus.api.cognitive.microsoft.com/sts/v1.0/issueToken";
     private string subscriptionKey;
     private string token;
@@ -486,4 +486,3 @@ public class Authentication
 - [Hämta en kostnadsfri utvärderingsprenumeration på Speech](https://azure.microsoft.com/try/cognitive-services/)
 - [Anpassa akustiska modeller](how-to-customize-acoustic-models.md)
 - [Anpassa språkmodeller](how-to-customize-language-model.md)
-

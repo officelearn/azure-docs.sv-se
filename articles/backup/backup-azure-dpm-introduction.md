@@ -1,5 +1,5 @@
 ---
-title: Prepeare DPM-servern att säkerhetskopiera arbetsbelastningar till Azure
+title: Förbereda DPM-servern att säkerhetskopiera arbetsbelastningar till Azure
 description: En introduktion till säkerhetskopiering av DPM-data till ett Azure Recovery Services-valv.
 services: backup
 author: adigan
@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 10/18/2018
 ms.author: adigan
-ms.openlocfilehash: 3efe2f02666c69ff648eaab39fbc1dfe9dc5e3e7
-ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
+ms.openlocfilehash: ac89f0f2e2f86fa34fc754ee23e9b67329560fa4
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49945441"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50024485"
 ---
 # <a name="prepare-to-back-up-workloads-to-azure-with-system-center-dpm"></a>Förbereda säkerhetskopiering av arbetsbelastningar till Azure med System Center DPM
 
@@ -39,7 +39,7 @@ Artikeln innehåller:
 Företagets fördelar med att säkerhetskopiera DPM-servrar till Azure är:
 
 * Azure Backup är ett alternativ till långsiktig distribution till band för den lokala DPM.
-* För DPM som körs på en virtuell Azure-dator, kan Azure Backup du omfördela lagring från Azure-disken. Lagra äldre data i ett säkerhetskopieringsvalv i valvet kan du skala upp din verksamhet genom att lagra nya data till disk.
+* För DPM som körs på en virtuell Azure-dator, kan Azure Backup du omfördela lagring från Azure-disken. Lagra äldre data i ett Backup-valv kan du skala upp din verksamhet genom att lagra nya data till disk.
 
 ## <a name="prerequisites-and-limitations"></a>Krav och begränsningar
 
@@ -54,7 +54,7 @@ Appar som stöds | [Lär dig](https://docs.microsoft.com/system-center/dpm/dpm-p
 Filtyper som stöds | Dessa filtyper kan säkerhetskopieras med Azure Backup: krypterade (endast fullständiga säkerhetskopior); Komprimerade (inkrementella säkerhetskopior stöds). Sparse-filer (inkrementella säkerhetskopior stöds); Komprimerade och sparse-filer (hanteras som sparse).
 Filtyper som inte stöds | Servrar i skiftlägeskänsliga filsystem; hårda länkar (ignoreras); referenspunkt (ignoreras); krypterade och komprimerade (ignoreras); krypterade och utspridda (ignoreras); Komprimerad dataström; parsa dataströmmen.
 Lokal lagring | Varje dator som du vill säkerhetskopiera måste ha lokala ledigt lagringsutrymme som är minst 5% av storleken på de data som säkerhetskopieras.  Till exempel kräver säkerhetskopiera 100 GB data minst 5 GB ledigt utrymme i den tillfälliga platsen.
-Valvet lagring | Det finns ingen gräns för mängden data som du kan säkerhetskopiera till ett Azure Backup-valv men storleken på en datakälla (till exempel en virtuell dator eller en databas) får inte överskrida 54400 GB.
+Valvet lagring | Det finns ingen gräns för mängden data som du kan säkerhetskopiera till ett Azure Backup-valv, men storleken på en datakälla (till exempel en virtuell dator eller en databas) får inte överskrida 54400 GB.
 Azure Backup-agent | Om DPM körs på System Center 2012 SP1 kan du installera Samlad 2 eller senare för DPM SP1. Detta krävs för installation av agent.<br/><br/> Den här artikeln beskriver hur du distribuerar den senaste versionen av Azure Backup-agenten, även känt som Microsoft Azure Recovery Service MARS-agenten. Om du har en tidigare version som har distribuerats kan du uppdatera till den senaste versionen för att säkerställa att säkerhetskopieringen fungerar som förväntat. 
 
 
@@ -160,7 +160,7 @@ Alla datorer som backas upp av Azure Backup måste ha Backup-agenten (kallas äv
 
     - Azure Backup använder den här platsen som en tillfällig hållplatsområde för återställda data.
     - Azure Backup kommer att rensa upp data i det här området efter slutförs dataåterställning.
-    - Platsen måste ha tillräckligt mycket utrymme för objekt som du vill återställa i paralle.
+    - Platsen måste ha tillräckligt mycket utrymme för objekt som du vill återställa parallellt.
 
     ![Inställningen för återställning](../../includes/media/backup-install-agent/DPM_SetupOnlineBackup_RecoveryFolder.png)
 

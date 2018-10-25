@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 10/22/2018
-ms.openlocfilehash: 9ea4028a49211e52ab9ba305df86b88e1437bdfc
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: 92fcf1138a5a7d364c884128d3fc82559ffb15aa
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49648130"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49987893"
 ---
 # <a name="understand-outputs-from-azure-stream-analytics"></a>Förstå utdata från Azure Stream Analytics
 Den här artikeln beskrivs de olika typerna av utdata som är tillgängliga för Azure Stream Analytics-jobb. Utdata kan du lagra och spara resultatet av Stream Analytics-jobb. Med utdata kan du göra ytterligare affärsanalys och datalager för dina data. 
@@ -334,5 +334,5 @@ I följande tabell beskrivs några av överväganden för att mata ut batchbearb
 [stream.analytics.scale.jobs]: stream-analytics-scale-jobs.md
 [stream.analytics.introduction]: stream-analytics-introduction.md
 [stream.analytics.get.started]: stream-analytics-real-time-fraud-detection.md
-[stream.analytics.query.language.reference]: http://go.microsoft.com/fwlink/?LinkID=513299
-[stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
+[stream.analytics.query.language.reference]: https://go.microsoft.com/fwlink/?LinkID=513299
+[stream.analytics.rest.api.reference]: https://go.microsoft.com/fwlink/?LinkId=517301

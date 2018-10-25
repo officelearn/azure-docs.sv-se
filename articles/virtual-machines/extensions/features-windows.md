@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 03/30/2018
 ms.author: roiyz
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d7b183a5b87d5777609deac02e4424d9451e9643
-ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
+ms.openlocfilehash: e3b9de282b95b27a04ac6d182b1045e18e65c5f6
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47452504"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50025913"
 ---
 # <a name="virtual-machine-extensions-and-features-for-windows"></a>Virtuella datorer, tillägg och funktioner för Windows
 
@@ -57,7 +57,8 @@ Det finns minimiversioner av agenten för att tillhandahålla den bästa möjlig
 
 #### <a name="supported-oses"></a>Stödda OS
 
-Windows-gästagenten körs på flera operativsystem, men ramen tillägg har en gräns för operativsystem som tillägg. Mer information finns i [article] (https://support.microsoft.com/en-us/help/4078134/azure-extension-supported-operating-systems ).
+Windows-gästagenten körs på flera operativsystem, men ramen tillägg har en gräns för operativsystem som tillägg. Mer information finns i [den här artikeln](https://support.microsoft.com/en-us/help/4078134/azure-extension-supported-operating-systems
+).
 
 Vissa tillägg stöds inte i alla operativsystem och kan skapa *felkod 51, 'Operativsystmet'*. Dokumentationen enskilda tillägg för support.
 

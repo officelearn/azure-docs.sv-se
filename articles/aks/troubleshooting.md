@@ -7,19 +7,19 @@ ms.service: container-service
 ms.topic: troubleshooting
 ms.date: 08/13/2018
 ms.author: saudas
-ms.openlocfilehash: 9f082c5f198ebd7123058bd250d3fef55494d553
-ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
+ms.openlocfilehash: 1fd8f7c8499b7f9223939b8d426f274e79fd190e
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43287547"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50025358"
 ---
 # <a name="aks-troubleshooting"></a>AKS felsökning
 När du skapar eller manager AKS-kluster, kan ibland uppstå problem. Den här artikeln beskriver några vanliga problem och felsökning.
 
 ### <a name="in-general-where-do-i-find-information-about-debugging-kubernetes-issues"></a>I allmänhet var hittar jag information om hur du felsöker problem med Kubernetes?
 
-[Här] (https://kubernetes.io/docs/tasks/debug-application-cluster/troubleshooting/) är ett officiellt länk till felsökning kubernetes-kluster.
+[Här](https://kubernetes.io/docs/tasks/debug-application-cluster/troubleshooting/) är ett officiellt länk till felsökning kubernetes-kluster.
 [Här](https://github.com/feiskyer/kubernetes-handbook/blob/master/en/troubleshooting/index.md) är en länk till en felsökningsguide som publicerats av en Microsoft-tekniker kring felsökning poddar, noder, kluster, osv.
 
 ### <a name="i-am-getting-a-quota-exceeded-error-during-create-or-upgrade-what-should-i-do"></a>Jag får ett kvoten har överskridits-fel under Skapa eller uppgradering. Vad ska jag göra? 

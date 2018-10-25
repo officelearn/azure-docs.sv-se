@@ -9,12 +9,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/07/2018
 ms.author: govindk
-ms.openlocfilehash: cc64bc1af6eee505ccf3d38e214c49ffb7e3304c
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 6d9d05a56376c07013fdea1c94b0a3262d2397c2
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49404468"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50026304"
 ---
 # <a name="secure-access-to-an-azure-cosmos-db-account-by-using-azure-virtual-network-service-endpoint"></a>Skydda åtkomst till ett Azure Cosmos DB-konto med hjälp av Azure Virtual Network-tjänstslutpunkt
 
@@ -131,7 +131,7 @@ Använd följande steg för att konfigurera tjänstslutpunkt till ett Azure Cosm
    $apiVersion = "2015-04-08"
    $acctName = "<Azure Cosmos DB account name>"
 
-   $cosmosDBConfiguration = Get-AzureRmResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" `
+   $cosmosDBConfiguration = Get-AzureRmResource -ResourceType "Microsoft.DocumentDB/databaseAccounts" `
      -ApiVersion $apiVersion `
      -ResourceGroupName $rgName `
      -Name $acctName
@@ -173,7 +173,7 @@ Använd följande steg för att konfigurera tjänstslutpunkt till ett Azure Cosm
    $cosmosDBProperties['isVirtualNetworkFilterEnabled'] = $accountVNETFilterEnabled
 
    Set-AzureRmResource `
-     -ResourceType "Microsoft.DocumentDb/databaseAccounts" `
+     -ResourceType "Microsoft.DocumentDB/databaseAccounts" `
      -ApiVersion $apiVersion `
      -ResourceGroupName $rgName `
      -Name $acctName -Properties $CosmosDBProperties
@@ -183,7 +183,7 @@ Använd följande steg för att konfigurera tjänstslutpunkt till ett Azure Cosm
 
    ```powershell
    $UpdatedcosmosDBConfiguration = Get-AzureRmResource `
-     -ResourceType "Microsoft.DocumentDb/databaseAccounts" `
+     -ResourceType "Microsoft.DocumentDB/databaseAccounts" `
      -ApiVersion $apiVersion `
      -ResourceGroupName $rgName `
      -Name $acctName

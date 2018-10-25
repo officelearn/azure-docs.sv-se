@@ -12,12 +12,12 @@ ms.devlang: fsharp
 ms.topic: reference
 ms.date: 10/09/2018
 ms.author: syclebsc
-ms.openlocfilehash: 772b2dae016e093f2c3833374378c0e884dbe835
-ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
+ms.openlocfilehash: b7cb3a7094ef2c11df63c9e5595355d4076e2ccd
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49456957"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50025437"
 ---
 # <a name="azure-functions-f-developer-reference"></a>Azure Functions F #-Utvecklarreferens
 
@@ -52,7 +52,7 @@ FunctionsProject
  | - bin
 ```
 
-Det finns en delad [host.json] (functions-värd-json.md)-fil som kan användas för att konfigurera funktionsappen. Varje funktion har sina egna kodfilen (.fsx) och bindningen konfigurationsfil (function.json).
+Det finns en delad [host.json](functions-host-json.md) -fil som kan användas för att konfigurera funktionsappen. Varje funktion har sina egna kodfilen (.fsx) och bindningen konfigurationsfil (function.json).
 
 Bindningen-tillägg som krävs i [version 2.x](functions-versions.md) funktioner runtime definieras i den `extensions.csproj` -fil med faktiska library-filer i den `bin` mapp. När du utvecklar lokalt, måste du [registrera tillägg av bindning](functions-triggers-bindings.md#local-development-azure-functions-core-tools). När du utvecklar funktioner i Azure-portalen görs denna registrering för dig.
 

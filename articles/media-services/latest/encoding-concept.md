@@ -11,12 +11,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 10/15/2018
 ms.author: juliako
-ms.openlocfilehash: 452502d5d6a0a35f642de7e14b2a7ee7fc573bfa
-ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
+ms.openlocfilehash: bee74f0399def142915aa26d15ecfa671925f405
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49378677"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50025590"
 ---
 # <a name="encoding-with-azure-media-services"></a>Kodning med Azure Media Services
 
@@ -26,7 +26,7 @@ Om du vill koda med Media Services v3, måste du skapa en transformering och ett
 
 När kodning med Azure Media Services, använder du förinställningar som talar om kodaren hur inkommande mediefiler ska bearbetas. Du kan till exempel ange video upplösning och/eller antalet ljud kanaler som du vill i det kodade innehållet. 
 
-Du kan komma igång snabbt med en av de rekommenderade inbyggda förinställningar baserat på branschens bästa praxis eller du kan välja att skapa en anpassad förinställning om du vill rikta in dina specifika krav för scenario eller enhet. Mer information finns i [Encoding med Azure Media Services](encoding-concept.md). 
+Du kan komma igång snabbt med en av de rekommenderade inbyggda förinställningar baserat på branschens bästa praxis eller du kan välja att skapa en anpassad förinställning om du vill rikta in dina specifika krav för scenario eller enhet. Mer information finns i [koda med en anpassad transformering](customize-encoder-presets-how-to.md). 
 
 ## <a name="built-in-presets"></a>Inbyggda förinställningar
 

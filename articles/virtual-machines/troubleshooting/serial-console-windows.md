@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 08/07/2018
+ms.date: 10/22/2018
 ms.author: harijay
-ms.openlocfilehash: 29b045266836ace35aab12c51746b7e339cbb88f
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: facd9be037894932e516e8294e36b6b0e55374c8
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49354350"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50024436"
 ---
 # <a name="virtual-machine-serial-console"></a>Virtual Machine Serial Console
 
@@ -41,7 +41,7 @@ Seriell konsol dokumentation för virtuella Linux-datorer [Klicka här](serial-c
     ![](../media/virtual-machines-serial-console/virtual-machine-serial-console-diagnostics-settings.png)
 
 * Det konto som använder seriekonsolen måste ha [deltagarrollen](../../role-based-access-control/built-in-roles.md) för den virtuella datorn och [startdiagnostik](boot-diagnostics.md) storage-konto. 
-* Den virtuella datorn som du är acessing Seriell konsol måste också ha ett konto för lösenordsbaserad. Du kan skapa en med den [Återställ lösenord](https://docs.microsoft.com/azure/virtual-machines/extensions/vmaccess#reset-password) funktionerna i VM access-tillägg - se skärmbilden nedan.
+* Den virtuella datorn som du ansluter till seriell konsol måste också ha ett konto för lösenordsbaserad. Du kan skapa en med den [Återställ lösenord](https://docs.microsoft.com/azure/virtual-machines/extensions/vmaccess#reset-password) funktionerna i VM access-tillägg - se skärmbilden nedan.
 
     ![](../media/virtual-machines-serial-console/virtual-machine-serial-console-reset-password.png)
 
@@ -52,7 +52,6 @@ Seriekonsol för virtuella datorer bara kan nås via [Azure-portalen](https://po
   2. Välj virtuella datorer i den vänstra menyn.
   3. Klicka på den virtuella datorn i listan. Översiktssidan för den virtuella datorn öppnas.
   4. Rulla ned till avsnittet om Support och felsökning och klicka på alternativet ”seriekonsolen”. Ett nytt fönster med seriell konsol öppnas och starta anslutningen.
-
 
 ## <a name="enable-serial-console-in-custom-or-older-images"></a>Aktivera Seriekonsolen i anpassade eller äldre bilder
 Nyare Windows Server-avbildningar på Azure har [särskilda administrationskonsolen](https://technet.microsoft.com/library/cc787940(v=ws.10).aspx) (SAC) aktiverad som standard. SAC stöds på server-versioner av Windows men är inte tillgänglig på klientversioner (till exempel Windows 10, Windows 8 eller Windows 7). Om du vill aktivera seriekonsol för Windows-datorer som skapats före februari 2018, använder du följande steg: 
@@ -74,7 +73,7 @@ Om det behövs kan SAC aktiveras offline samt:
 
 ### <a name="how-do-i-know-if-sac-is-enabled"></a>Hur vet jag om SAC är aktiverad?
 
-Om [SAC] (https://technet.microsoft.com/library/cc787940(v=ws.10).aspx) aktiveras inte seriekonsolen visas inte SAC-prompten. Hälsoinformation för virtuell dator visas i vissa fall och i andra fall är det tomt. Om du använder en Windows Server-avbildning som skapats före februari 2018 kommer SAC troligen inte att aktivera.
+Om [SAC](https://technet.microsoft.com/library/cc787940(v=ws.10).aspx) aktiveras inte seriekonsolen visas inte SAC-prompten. Hälsoinformation för virtuell dator visas i vissa fall och i andra fall är det tomt. Om du använder en Windows Server-avbildning som skapats före februari 2018 kommer SAC troligen inte att aktivera.
 
 ## <a name="enable-the-windows-boot-menu-in-serial-console"></a>Aktivera Windows-startmenyn i Seriekonsol 
 
@@ -99,6 +98,21 @@ Seriekonsol kan användas för att skicka en NMI till en Azure virtuell dator me
 
 Information om hur du konfigurerar Windows för att skapa en kraschdumpfil när den får en NMI finns: [hur du skapar en fullständig kraschdumpfil eller en kernel-kraschdumpfil genom att använda en NMI på en Windows-dator](https://support.microsoft.com/en-us/help/927069/how-to-generate-a-complete-crash-dump-file-or-a-kernel-crash-dump-file)
 
+## <a name="open-cmd-or-powershell-in-serial-console"></a>Öppna CMD eller Powershell i Seriekonsol
+
+1. Anslut till seriell konsol. Om du har anslutit till Seriekonsol, visas **SAC >** som följande skärmbild visar:
+
+    ![Ansluta till SAC](./media/virtual-machines-serial-console/virtual-machine-windows-serial-console-connect-sac.png)
+
+3.  Typ `cmd` att skapa en kanal som har en CMD-instans. 
+4.  Typ `ch -si 1` att växla till den kanal som CMD-instansen körs. 
+5.  Tryck på RETUR och sedan ange dina inloggningsuppgifter som har administratörsbehörighet.
+6.  När du har angett giltiga autentiseringsuppgifter öppnas CMD-instans.
+7.  Om du vill starta en PowerShell-instans, skriver `PowerShell` i CMD instans och tryck sedan på RETUR. 
+
+    ![Öppna PowerShell-instans](./media/virtual-machines-serial-console/virtual-machine-windows-serial-console-powershell.png)
+
+
 ## <a name="disable-serial-console"></a>Inaktivera Seriekonsol
 Som standard har alla prenumerationer seriell konsolåtkomst är aktiverad för alla virtuella datorer. Du kan inaktivera seriekonsolen på prenumerationsnivån eller VM-nivå.
 
@@ -110,7 +124,7 @@ Seriell konsol kan inaktiveras för en hel prenumeration genom att via den [inak
 
 ![](../media/virtual-machines-serial-console/virtual-machine-serial-console-rest-api-try-it.png)
 
-Du kan också använda uppsättningen kommandon nedan i Cloud Shell (bash-kommandon visas) för att inaktivera, aktivera och visa inaktiverat status för seriell konsol för en prenumeration. 
+Du kan också använda uppsättningen kommandon nedan i Cloud Shell (bash-kommandon visas) för att inaktivera, aktivera och visa inaktiverad status för seriell konsol för en prenumeration. 
 
 * Hämta inaktiverad status för seriell konsol för en prenumeration:
     ```azurecli-interactive
@@ -196,7 +210,7 @@ Vi är medvetna om några problem med seriell konsol. Här är en lista över de
 
 Problem                             |   Åtgärd 
 :---------------------------------|:--------------------------------------------|
-Träffa ange när anslutningen popup-meddelandet inte visas en logg i Kommandotolken | Finns på följande sida: [Hitting ange ingenting](https://github.com/Microsoft/azserialconsole/blob/master/Known_Issues/Hitting_enter_does_nothing.md). Detta kan inträffa om du kör en anpassad virtuell dator, förstärkt installation eller en start-konfiguration som causers Windows för att kunna ansluta ordentligt till den seriella porten. Detta sker även om du kör Windows 10-klient virtuell dator, som endast Windows Server-datorer är konfigurerade för EMS aktiverat.
+Träffa ange när anslutningen popup-meddelandet inte visas en logg i Kommandotolken | se den här sidan: [Hitting ange ingenting](https://github.com/Microsoft/azserialconsole/blob/master/Known_Issues/Hitting_enter_does_nothing.md). Detta kan inträffa om du kör en anpassad virtuell dator, förstärkt installation eller en start-konfiguration som causers Windows för att kunna ansluta ordentligt till den seriella porten. Detta sker även om du kör Windows 10-klient virtuell dator, som endast Windows Server-datorer är konfigurerade för EMS aktiverat.
 Det går inte att skriva vid SAC fråga om kernel-felsökning är aktiverad | RDP till den virtuella datorn och köra `bcdedit /debug {current} off` från en upphöjd kommandotolk. Om du kan inte använda RDP du i stället kan koppla OS-disken till en annan virtuell Azure-dator och ändra den när ansluten som en disk med `bcdedit /store <drive letter of data disk>:\boot\bcd /debug <identifier> off`, sedan växla tillbaka disken.
 Klistra in i PowerShell i SAC resulterar i ett tredje tecken om ursprungliga innehållet hade ett upprepade tecken | En lösning är att de senaste PSReadLine-modul från den aktuella sessionen. Kör `Remove-Module PSReadLine` att ta bort modulen PSReadLine från den aktuella sessionen – det här inte ta bort eller avinstallera modulen.
 Vissa tangentbord indata producerar utdata som onormalt SAC (t.ex. `[A`, `[3~`) | [VT100](https://aka.ms/vtsequences) escape-sekvenser stöds inte av SAC-prompten.

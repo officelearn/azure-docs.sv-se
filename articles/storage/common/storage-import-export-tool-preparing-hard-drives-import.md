@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 06/29/2017
 ms.author: muralikk
 ms.component: common
-ms.openlocfilehash: 7fc3e68e9d714ca95a28a28b470b1e1fdbff2c47
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.openlocfilehash: 0be0d6c9613b4160a6c4c5cc3b63336fcf67d5c2
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48870901"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50025641"
 ---
 # <a name="preparing-hard-drives-for-an-import-job"></a>Förbereda hårddiskar för ett importjobb
 
@@ -309,7 +309,7 @@ Om data är större än den, distribuera verktyget WAImportExport data på diska
 
 #### <a name="where-can-i-find-previous-version-of-waimportexport-tool"></a>Var hittar jag tidigare version av WAImportExport tool?
 
-WAImportExport verktyget har alla funktioner som hade WAImportExport V1-verktyget. WAImportExport verktyget kan du ange flera källor och skriva till flera enheter. Dessutom kan ett enkelt hantera flera källplatser där data ska kopieras i en enda CSV-fil. Men om du behöver support för SAS- eller vill du kopiera en enda källa till enskild disk, men du kan [hämta WAImportExport V1 verktyget] (http://go.microsoft.com/fwlink/?LinkID=301900&amp; clcid = 0x409) och referera till [WAImportExport V1 referens](storage-import-export-tool-how-to-v1.md) hjälp med WAImportExport V1 användning.
+WAImportExport verktyget har alla funktioner som hade WAImportExport V1-verktyget. WAImportExport verktyget kan du ange flera källor och skriva till flera enheter. Dessutom kan ett enkelt hantera flera källplatser där data ska kopieras i en enda CSV-fil. Om du behöver support för SAS- eller vill du kopiera en enda källa till enskild disk, du kan dock [hämta WAImportExport V1 verktyget](http://go.microsoft.com/fwlink/?LinkID=301900&amp;clcid=0x409) och referera till [WAImportExport V1 referens](storage-import-export-tool-how-to-v1.md) hjälp med WAImportExport V1-användning .
 
 #### <a name="what-is-a-session-id"></a>Vad är ett sessions-ID?
 
@@ -407,7 +407,7 @@ WAImportExport verktyget läser och skriver filer parti, en batch innehåller ma
 * [Konfigurera Azure Import/Export-verktyget](storage-import-export-tool-setup.md)
 * [Konfigurera egenskaper och metadata under importeringsprocessen](storage-import-export-tool-setting-properties-metadata-import.md)
 * [Exempelarbetsflöde för att förbereda hårddiskar för ett importjobb](storage-import-export-tool-sample-preparing-hard-drives-import-job-workflow.md)
-* [Snabbreferens för ofta använda kommandon](storage-import-export-tool-quick-reference.md) 
+* [Snabbreferens för ofta använda kommandon](storage-import-export-tool-quick-reference.md) 
 * [Granska jobbstatus med kopiera loggfiler](storage-import-export-tool-reviewing-job-status-v1.md)
 * [Reparera ett importjobb](storage-import-export-tool-repairing-an-import-job-v1.md)
 * [Reparera ett exportjobb](storage-import-export-tool-repairing-an-export-job-v1.md)

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/27/2017
 ms.author: wesmc
-ms.openlocfilehash: c0d88f0eaacaadbb508519f2e6804b9b311408c2
-ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
+ms.openlocfilehash: c5a18a2e8d58553e49797da418f76fc3f251e003
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39259338"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50026049"
 ---
 # <a name="azure-redis-cache-faq"></a>Vanliga frågor och svar för Azure Redis Cache
 Lär dig svar på vanliga frågor, mönster och metodtips för Azure Redis Cache.
@@ -136,10 +136,10 @@ Vi kan rita följande slutsatser från den här tabellen:
 | Prisnivå | Storlek | Processorkärnor | Tillgänglig bandbredd | 1 KB storlek | 1 KB storlek |
 | --- | --- | --- | --- | --- | --- |
 | **Storlekar för standardcache** | | |**Megabit per sekund (Mbit/s) / megabyte per sekund (MBIT/s)** |**Begäranden per sekund (RPS) icke-SSL** |**Begäranden per sekund (RPS) SSL** |
-| C0 |250 MB |Delad |100 / 12.5 |15,000 |7 500 |
+| C0 |250 MB |Delad |100 / 12.5 |15 000 |7 500 |
 | C1 |1 GB |1 |500 / 62.5 |38,000 |20,720 |
 | C2 |2,5 GB |2 |500 / 62.5 |41,000 |37,000 |
-| C3 |6 GB |4 |1000 / 125 |100 000 |90,000 |
+| C3 |6 GB |4 |1000 / 125 |100 000 |90,000 |
 | C4 |13 GB |2 |500 / 62.5 |60,000 |55,000 |
 | C5 |26 GB |4 |1,000 / 125 |102 000 kr |93,000 |
 | C6 |53 GB |8 |2,000 / 250 |126,000 |120,000 |
@@ -392,7 +392,7 @@ Hur du konfigurerar den här inställningen:
   > Värdet som anges i den här konfigurationselement är en *per kärna* inställningen. Till exempel om du har en dator med 4 kärnor och vill att din minIOThreads inställningen ska vara 200 vid körning, använder du `<processModel minIoThreads="50"/>`.
   >
 
-* Utanför ASP.NET, och Azure WebSites global.asax, Använd [ThreadPool.SetMinThreads (...)] (https://msdn.microsoft.com/library/system.threading.threadpool.setminthreads.aspx) API.
+* Utanför ASP.NET, och Azure WebSites global.asax, använda den [ThreadPool.SetMinThreads (...)](https://msdn.microsoft.com/library/system.threading.threadpool.setminthreads.aspx) API: ET.
 
   > [!NOTE]
   > Värdet som angetts för detta API är en global inställning som påverkar hela AppDomain. Om du har en dator med 4 kärnor och ställa in minWorkerThreads och minIOThreads på 50 per CPU under körning, använder du ThreadPool.SetMinThreads (200, 200).

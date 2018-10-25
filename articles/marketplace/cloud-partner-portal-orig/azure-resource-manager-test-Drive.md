@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 19e3141bf7d28c7f781be21aedf14222e35bfd6c
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: 90c434a37d3209e0c11a04425c337ec6930cfd00
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48811621"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50025267"
 ---
 <a name="azure-resource-manager-test-drive"></a>Azure Resource Manager-provkörning
 =================================
@@ -190,7 +190,7 @@ Kontrollera att du sammanfoga parametern/variabeln-strängar (\'contosovm\') med
 
 Till exempel de flesta resursnamn får inte börja med en siffra, men unik Strängfunktion kan returnera en sträng som börjar med en siffra. Så om du använder unika rådatasträng utdata, misslyckas distributionen. 
 
-Du hittar mer information om resursen namngivningsregler och begränsningar i [den här artikeln] (https://docs.microsoft.com/azure/guidance/guidance-naming-conventions).
+Du hittar mer information om resursen namngivningsregler och begränsningar i [i den här artikeln](https://docs.microsoft.com/azure/guidance/guidance-naming-conventions).
 
 ### <a name="deployment-location"></a>Distributionsplats
 
@@ -306,7 +306,7 @@ Nästa avsnitt för att fylla i är information om din provkörning erbjuder.
 
 ![Test Drive detaljerad information](./media/azure-resource-manager-test-drive/howtopub2.png)
 
-**Beskrivning –** *krävs* det här är där du skriver den huvudsakliga beskrivningen om vad som är på din provkörning. Kunden kommer här för att läsa vilka scenarier som kommer som täcker din provkörning om produkten. 
+**Beskrivning –** *krävs* det här är där du skriver den huvudsakliga beskrivningen om vad som är på din provkörning. Kunden kommer här för att läsa vilka scenarier som kommer som täcker din provkörning om produkten. 
 
 **Användaren manuellt –** *krävs* det här är detaljerad genomgång av din Test Drive-upplevelse. Kunden öppnas det och kan gå igenom exakt vad du vill ha dem att göra i hela deras Test Drive. Det är viktigt att det här innehållet är lätt att förstå och följ! (Måste vara en PDF-fil)
 

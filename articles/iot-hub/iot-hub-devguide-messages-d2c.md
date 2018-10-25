@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 08/13/2018
 ms.author: asrastog
-ms.openlocfilehash: abc32b726eea55f08a052f29a12f1eb237d4f5d6
-ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
+ms.openlocfilehash: 8424fa721d87467de70b4365578d196b3145b4b0
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2018
-ms.locfileid: "49311328"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50024281"
 ---
 # <a name="use-message-routing-to-send-device-to-cloud-messages-to-different-endpoints"></a>Använd meddelanderoutning för att skicka meddelanden från enheten till molnet till olika slutpunkter
 
@@ -27,7 +27,7 @@ Meddelanderoutning kan du skicka meddelanden från dina enheter till molntjänst
 
 IoT Hub måste ha skrivbehörighet för dessa tjänstslutpunkter för meddelanderoutning för att fungera. Om du konfigurerar dina slutpunkter via Azure portal, läggs behörigheterna som krävs för dig. Kontrollera att du konfigurerar dina tjänster för att stödja det förväntade dataflödet. När du först konfigurera din IoT-lösning kan du behöva övervaka din ytterligare slutpunkter och gör eventuella ändringar för den faktiska belastningen.
 
-IoT-hubben som definierar en [vanligt format](iot-hub-devguide-messages-construct.md) för alla enhet till moln-meddelanden för interoperatbility oavsett protokoll. Om ett meddelande matchar flera routningstabeller som pekar på samma slutpunkt, IoT-hubb levererar meddelanden till denna slutpunkt bara en gång. Därför behöver du inte konfigurera deduplicering på din Service Bus-kö eller ämne. I partitionerade köer garanterar partition tillhörighet ordningsföljd för meddelanden. Använd den här självstudien Lär dig hur du [konfigurera meddelanderoutning] (självstudien routing.md).
+IoT-hubben som definierar en [vanligt format](iot-hub-devguide-messages-construct.md) för alla enhet till moln-meddelanden för interoperatbility oavsett protokoll. Om ett meddelande matchar flera routningstabeller som pekar på samma slutpunkt, IoT-hubb levererar meddelanden till denna slutpunkt bara en gång. Därför behöver du inte konfigurera deduplicering på din Service Bus-kö eller ämne. I partitionerade köer garanterar partition tillhörighet ordningsföljd för meddelanden. Använd den här självstudiekursen för att lära dig hur du [konfigurera meddelanderoutning](tutorial-routing.md).
 
 ## <a name="routing-endpoints"></a>Routning slutpunkter
 

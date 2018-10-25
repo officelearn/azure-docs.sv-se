@@ -1,6 +1,6 @@
 ---
-title: Testa Azure VM dataflödet i nätverket | Microsoft Docs
-description: Lär dig mer om att testa virtuell dator i Azure dataflödet i nätverket.
+title: Testa Azure Virtuella nätverkets dataflöde | Microsoft Docs
+description: Lär dig hur du testar nätverksdataflöde för virtuella Azure-datorn.
 services: virtual-network
 documentationcenter: na
 author: steveesp
@@ -14,41 +14,40 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/21/2017
 ms.author: steveesp
-ms.openlocfilehash: d65b86cc63a4fd39824a6421afd5ce9abb7fd270
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 45efaebb9539c4c0e2542966df6ab890b64d12ee
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2018
-ms.locfileid: "28200987"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50023838"
 ---
 # <a name="bandwidththroughput-testing-ntttcp"></a>Bandbredd/dataflöde testning (NTTTCP)
 
-När du testar nätverksprestanda genomflöde i Azure, är det bäst att använda ett verktyg som riktar sig till nätverket för testning och minimerar användningen av andra resurser som kan påverka prestanda. NTTTCP rekommenderas.
+När du testar nätverkets dataflödesprestanda i Azure, är det bäst att använda ett verktyg som riktar sig mot nätverket för testning och minimerar användningen av andra resurser som kan påverka prestanda. NTTTCP rekommenderas.
 
-Kopiera verktyget till två virtuella Azure-datorer med samma storlek. En virtuell dator fungerar som avsändare och andra som mottagare.
+Kopiera verktyget till två virtuella Azure-datorer av samma storlek. En virtuell dator fungerar som avsändare och andra som mottagare.
 
 #### <a name="deploying-vms-for-testing"></a>Distribuera virtuella datorer för testning
-Enligt det här testet ska två virtuella datorer i samma molntjänst eller i samma Tillgänglighetsuppsättning, så att vi kan använda sina interna IP-adresser och undanta belastningsutjämnare från testet. Det är möjligt att testa med VIP-Adressen men den här typen av testning ligger utanför omfånget för det här dokumentet.
- 
-Anteckna MOTTAGARENS IP-adress. Vi ringer som IP ”a.b.c.r”
+För det här testet, ska de två virtuella datorerna vara i samma molntjänst eller i samma Tillgänglighetsuppsättning så att vi kan använda sina interna IP-adresser och undanta Belastningsutjämnarna från testet. Det är möjligt att testa med VIP-Adressen men den här typen av testning ligger utanför omfånget för det här dokumentet.
+ 
+Anteckna MOTTAGARENS IP-adress. Vi kan kalla den IP ”a.b.c.r”
 
-Notera antal kärnor på den virtuella datorn. Vi ska anropa detta ”\#num\_kärnor”
- 
-Kör testet NTTTCP för 300 sekunder (eller 5 minuter) på VM-avsändare och mottagare VM.
+Anteckna antalet kärnor på den virtuella datorn. Vi kallar detta ”\#num\_kärnor”  
+Kör testet NTTTCP för 300 sekunder (eller 5 minuter) på VM-avsändaren och mottagaren VM.
 
-Tips: När du ställer in det här testet för första gången du försöka med en kortare period test om du vill ha feedback snabbare. När verktyget fungerar som förväntat, utöka testperioden med 300 sekunder för de mest korrekta resultat.
+Tips: När du konfigurerar det här testet för första gången du kan prova en kortare period test för att få feedback tidigare. När verktyget fungerar som förväntat, kan du utöka testperioden på 300 sekunder för bästa resultat.
 
 > [!NOTE]
 > Avsändaren **och** mottagare måste ange **samma** testa varaktighet parameter (-t).
 
 Så här testar du en enda TCP-ström för 10 sekunder:
 
-Mottagaren parametrar: ntttcp - r -t 10 - P 1
+Mottagare parametrar: ntttcp - r -t 10 - P-1
 
-Avsändaren parametrar: ntttcp-s10.27.33.7 -t 10 - n 1 P - 1
+Avsändaren parametrar: ntttcp-s10.27.33.7 -t 10 - n 1 -P 1
 
 > [!NOTE]
-> Föregående exempel ska bara användas för att bekräfta din konfiguration. Giltiga exempel tester beskrivs senare i det här dokumentet.
+> I föregående exempel bör endast användas för att bekräfta din konfiguration. Giltiga exempel på testning beskrivs senare i det här dokumentet.
 
 ## <a name="testing-vms-running-windows"></a>Testa virtuella datorer som kör WINDOWS:
 
@@ -56,65 +55,65 @@ Avsändaren parametrar: ntttcp-s10.27.33.7 -t 10 - n 1 P - 1
 
 Hämta den senaste versionen: <https://gallery.technet.microsoft.com/NTttcp-Version-528-Now-f8b12769>
 
-Eller söka efter den om flyttas: <https://www.bing.com/search?q=ntttcp+download> \< --bör först träffar
+Eller Sök efter det om flyttas: <https://www.bing.com/search?q=ntttcp+download> \< --bör först träffar
 
-Du kan lägga NTTTCP i separat mapp som c:\\verktyg
+Överväg att placera NTTTCP i en separat mapp, t.ex. c:\\verktyg
 
 #### <a name="allow-ntttcp-through-the-windows-firewall"></a>Tillåt NTTTCP via Windows-brandväggen
-Skapa en Tillåt-regel i Windows-brandväggen så att den NTTTCP trafiken som tas emot på mottagaren. Det enklast att hela NTTTCP programmet efter namn snarare än för att tillåta inkommande specifika TCP-portar.
+Skapa en Tillåt-regel i Windows-brandväggen så att den NTTTCP trafiken som tas emot på mottagaren. Det är enklast att se till att hela NTTTCP programmet efter namn i stället för att för att tillåta inkommande specifika TCP-portar.
 
 Tillåt ntttcp via Windows-brandväggen så här:
 
-netsh advfirewall firewall Lägg till regel för programmet =\<sökväg\>\\ntttcp.exe namn = ”ntttcp”-protokollet = alla dir = i praktiken = Tillåt aktivera = yes profil = alla
+netsh advfirewall firewall Lägg till regel för programmet =\<sökväg\>\\ntttcp.exe namn = ”ntttcp”-protokollet = alla dir = in action = Tillåt aktivera = yes profile = ANY
 
-Om du kopierade ntttcp.exe till exempelvis den ”c:\\verktyg” mapp, skulle detta kommandot: 
+Exempel: Om du kopierade ntttcp.exe till den ”c:\\verktyg” mappen detta skulle vara kommandot: 
 
-netsh advfirewall firewall Lägg till regel för programmet = c:\\verktyg\\ntttcp.exe namn = ”ntttcp”-protokollet = alla dir = i praktiken = Tillåt aktivera = yes profil = alla
+netsh advfirewall firewall lägger du till programmet för regel = c:\\verktyg\\ntttcp.exe namn = ”ntttcp”-protokollet = alla dir = in action = Tillåt enable = yes profile = ANY
 
-#### <a name="running-ntttcp-tests"></a>Kör NTTTCP
+#### <a name="running-ntttcp-tests"></a>Aktiva NTTTCP test
 
 Starta NTTTCP på mottagaren (**kör från CMD**, inte från PowerShell):
 
-ntttcp - r-m [2\*\#num\_kärnor],\*, a.b.c.r -t 300
+ntttcp - r – m [2\*\#num\_kärnor],\*, a.b.c.r -t 300
 
 Om den virtuella datorn har fyra kärnor och IP-adressen 10.0.0.4, skulle det se ut så här:
 
-ntttcp - r-m 8,\*, 10.0.0.4 -t 300
+ntttcp - r – m 8,\*, 10.0.0.4 -t 300
 
 
 Starta NTTTCP på AVSÄNDAREN (**kör från CMD**, inte från PowerShell):
 
-ntttcp -s-m 8,\*, 10.0.0.4 -t 300 
+ntttcp -s – m 8,\*, 10.0.0.4 -t 300 
 
-Vänta tills resultaten.
+Vänta tills resultatet.
 
 
 ## <a name="testing-vms-running-linux"></a>Testa virtuella datorer som kör LINUX:
 
-Använd nttcp för linux. Den är tillgänglig från <https://github.com/Microsoft/ntttcp-for-linux>
+Använda nttcp för linux. Den är tillgänglig från <https://github.com/Microsoft/ntttcp-for-linux>
 
-Kör följande kommandon för att förbereda ntttcp för linux på dina virtuella datorer på Linux virtuella datorer (både AVSÄNDAREN och mottagaren):
+Kör dessa kommandon för att förbereda ntttcp för linux på dina virtuella datorer på Linux-datorer (både AVSÄNDAREN och mottagaren):
 
-CentOS - Install Git:
+CentOS - installera Git:
 ``` bash
-  yum install gcc -y  
-  yum install git -y
+  yum install gcc -y  
+  yum install git -y
 ```
-Ubuntu - Install Git:
+Ubuntu - installera Git:
 ``` bash
- apt-get -y install build-essential  
- apt-get -y install git
+ apt-get -y install build-essential  
+ apt-get -y install git
 ```
-Kontrollera och installera både:
+Kontrollera och installera på både:
 ``` bash
- git clone https://github.com/Microsoft/ntttcp-for-linux
- cd ntttcp-for-linux/src
- make && make install
+ git clone https://github.com/Microsoft/ntttcp-for-linux
+ cd ntttcp-for-linux/src
+ make && make install
 ```
 
-Som i Windows-exemplet förutsätter vi att mottagaren Linux IP är 10.0.0.4
+Vi antar Linux MOTTAGARENS IP-Adressen är 10.0.0.4 som Windows-exempel
 
-Starta NTTTCP för Linux mottagaren:
+Starta NTTTCP för Linux på mottagaren:
 
 ``` bash
 ntttcp -r -t 300
@@ -125,14 +124,14 @@ Och på AVSÄNDAREN, kör:
 ``` bash
 ntttcp -s10.0.0.4 -t 300
 ```
- 
-Test längd standardvärdet är 60 sekunder om ingen tid parameter anges
+ 
+Testa längd standardvärdet är 60 sekunder om ingen tid-parameter anges
 
 ## <a name="testing-between-vms-running-windows-and-linux"></a>Testa mellan virtuella datorer som kör Windows och LINUX:
 
-På den här scenarier bör vi aktivera läget no sync testet kan köras. Detta görs med hjälp av den **-N flaggan** för Linux och **-ns flaggan** för Windows.
+På den här scenarier bör vi aktivera no sync-läge så att testet kan köras. Detta görs med hjälp av den **-N flaggan** för Linux och **-ns flaggan** för Windows.
 
-#### <a name="from-linux-to-windows"></a>Från Linux i Windows:
+#### <a name="from-linux-to-windows"></a>Från Linux och Windows:
 
 Mottagaren <Windows>:
 
@@ -159,7 +158,7 @@ Avsändaren <Windows>:
 ``` bash
 ntttcp -s -m <2 x nr cores>,*,<Linux  server IP> -ns -t 300
 ```
-## <a name="testing-cloud-service-instances"></a>Testa tjänstinstanser i molnet:
+## <a name="testing-cloud-service-instances"></a>Testa Cloud Service-instanser:
 Du måste lägga till följande avsnitt i din ServiceDefinition.csdef
 ```xml
 <Endpoints>
@@ -168,6 +167,6 @@ Du måste lägga till följande avsnitt i din ServiceDefinition.csdef
 ```
 
 ## <a name="next-steps"></a>Nästa steg
-* Beroende på resultatet, det kan finnas utrymme att [optimera genomflödet datorer](virtual-network-optimize-network-bandwidth.md) för ditt scenario.
-* Läs om hur [bandbredd allokeras till virtuella datorer] (virtuell-dator-nätverk – throughput.md)
-* Lär dig mer i [Azure Virtual Network vanliga frågor (FAQ)](virtual-networks-faq.md)
+* Beroende på resultatet, det kan finnas utrymme att [optimera dataflödet nätverksdatorer](virtual-network-optimize-network-bandwidth.md) för ditt scenario.
+* Läs om hur [bandbredden som allokeras till virtuella datorer](virtual-machine-network-throughput.md)
+* Lär dig mer med [Azure Virtual Network, vanliga frågor (och svar FAQ)](virtual-networks-faq.md)

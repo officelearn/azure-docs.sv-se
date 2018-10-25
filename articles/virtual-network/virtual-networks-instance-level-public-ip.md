@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/03/2018
 ms.author: genli
-ms.openlocfilehash: 7d8325ce04a9fa7853fb622062022a6938375f96
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: 2f6db23e02c836dea6d640757d12275b654ad468
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47430989"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50024638"
 ---
 # <a name="instance-level-public-ip-classic-overview"></a>Instans offentliga IP (klassisk) översikt
 En instans på offentliga IP (ILPIP) är en offentlig IP-adress som du kan tilldela direkt till en virtuell dator eller Cloud Services-rollinstans i stället för till Molntjänsten som din instans av virtuell dator eller rollen finns i. En ILPIP äga inte rum för den virtuella IP (VIP) som är tilldelad till din molntjänst. Det är snarare ytterligare IP-adress som du kan använda för att ansluta direkt till din instans av virtuell dator eller roll.
@@ -47,7 +47,7 @@ När du skapar en molnbaserad tjänst i Azure, skapas motsvarande DNS A-poster a
 ## <a name="why-would-i-request-an-ilpip"></a>Varför skulle jag för att begära en ILPIP?
 Om du vill kunna ansluta till din virtuella datorn eller rollinstansen instans av en IP-adress som tilldelats till den direkt i stället för molnet tjänsten VIP:&lt;portnummer&gt;, begär en ILPIP för den virtuella datorn eller rollinstansen.
 
-* **Aktiva FTP** -genom att tilldela en ILPIP till en virtuell dator kan den ta emot trafik på alla portar. Slutpunkter krävs inte för den virtuella datorn ska ta emot trafik.  Se [FTP-Protokollöversikt] (https://en.wikipedia.org/wiki/File_Transfer_Protocol#Protocol_overview) mer information om FTP-protokollet.
+* **Aktiva FTP** -genom att tilldela en ILPIP till en virtuell dator kan den ta emot trafik på alla portar. Slutpunkter krävs inte för den virtuella datorn ska ta emot trafik.  Se [FTP-Protokollöversikt](https://en.wikipedia.org/wiki/File_Transfer_Protocol#Protocol_overview) mer information om FTP-protokollet.
 * **Utgående IP** – utgående trafik från den virtuella datorn har mappats till ILPIP som källa och ILPIP unikt identifierar den virtuella datorn till externa enheter.
 
 > [!NOTE]

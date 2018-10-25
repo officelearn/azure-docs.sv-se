@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 10/16/2018
 ms.author: mbullwin
-ms.openlocfilehash: 96c9628807d2aae257e27432ea8d27a7d9325de0
-ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
+ms.openlocfilehash: b6188bbf89d9aee842d7f8e232a820b59c4d9e31
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49381208"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50023261"
 ---
 # <a name="application-insights-nuget-packages"></a>Application Insights-NuGet-paket
 
@@ -30,7 +30,7 @@ Nedan visas den aktuella listan över stabila versionen NuGet-paket för Applica
 |Microsoft.ApplicationInsights.Agent.Intercept | 2.4.0 | Gör det möjligt för avlyssning av metodanrop | [Ladda ned paketet](https://www.nuget.org/packages/Microsoft.ApplicationInsights.Agent.Intercept/) |
 | Microsoft.ApplicationInsights.DependencyCollector | 2.8.0 | Application Insights beroende insamlaren för .NET-program. Detta är ett beroende paket för Application Insights plattformsspecifika paket och tillhandahåller automatisk insamling av telemetri om beroenden. | [Ladda ned paketet](https://www.nuget.org/packages/Microsoft.ApplicationInsights.DependencyCollector/) |
 | Microsoft.ApplicationInsights.PerfCounterCollector | 2.8.0 | Application Insights prestandaräknare insamlaren kan du skicka data som samlas in av prestandaräknare till Application Insights. | [Ladda ned paketet](https://www.nuget.org/packages/Microsoft.ApplicationInsights.PerfCounterCollector/) |
-| Microsoft.ApplicationInsights.Web | 2.8.0 | Application Insights för .NET-webbprogram | [Hämtningspaketet] (https://www.nuget.org/packages/Microsoft.ApplicationInsights.Web/) |
+| Microsoft.ApplicationInsights.Web | 2.8.0 | Application Insights för .NET-webbprogram | [Ladda ned paketet](https://www.nuget.org/packages/Microsoft.ApplicationInsights.Web/) |
 | Microsoft.ApplicationInsights.WindowsServer | 2.8.0 | Application Insights Windows Server NuGet-paketet tillhandahåller automatisk insamling av telemetri för application insights för .NET-program. Det här paketet kan användas som ett beroende paket för Application Insights plattformsspecifika paket eller som ett fristående paket för .NET-program som inte omfattas av plattformsspecifika paket (som för .NET worker-roller). | [Ladda ned paketet](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WindowsServer/)  
 | Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel | 2.8.0 | Tillhandahåller en kanal som telemetri till Application Insights Windows Server SDK som bevarar telemetri i offline-scenarier. | [Ladda ned paketet](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel/) |
 

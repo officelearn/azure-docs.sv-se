@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 05/03/2018
 ms.author: v-daljep
 ms.component: ''
-ms.openlocfilehash: ea289abff7a40b0528f4cb88402594879ba6c437
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: 3c80007a8188fb239a13aaa0ccc9ef2237a2d8d1
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49649662"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50025679"
 ---
 # <a name="monitor-azure-sql-database-using-azure-sql-analytics-preview"></a>Övervaka Azure SQL Database med Azure SQL Analytics (förhandsversion)
 
@@ -121,8 +121,8 @@ Den nedan tabellen beskriver perspektiv som stöds för två versioner av instru
 | Resursen efter typ | Perspektiv som räknar alla resurser som övervakas. | Ja | Ja | 
 | Insikter | Tillhandahåller hierarkisk nedåt till smarta insikter i prestanda. | Ja | Ja |
 | Fel | Tillhandahåller hierarkisk nedåt till SQL-fel som inträffat på databaserna. | Ja | Ja |
-| Timeouter | Tillhandahåller hierarkisk nedåt till SQL-timeouter som inträffat på databaserna. | Ja | Nej |
-| Blockeringar | Tillhandahåller hierarkisk nedåt till SQL-blockings som inträffat på databaserna. | Ja | Nej |
+| Tidsgränser | Tillhandahåller hierarkisk nedåt till SQL-timeouter som inträffat på databaserna. | Ja | Nej |
+| Blockings | Tillhandahåller hierarkisk nedåt till SQL-blockings som inträffat på databaserna. | Ja | Nej |
 | Databasen väntar | Tillhandahåller hierarkisk nedåt till SQL vänta statistik på databasnivå. Omfattar sammanfattningar av total Väntetid och väntetiden per typ av vänta. |Ja | Ja |
 | Frågevaraktighet | Tillhandahåller hierarkisk detaljnivå om frågestatistik för körning som frågevaraktigheten, CPU-användning, Data-i/o-användning, logg-i/o-användning. | Ja | Ja |
 | Frågan väntar | Tillhandahåller hierarkisk detaljnivå om vänta frågestatistik efter vänta kategori. | Ja | Ja |
@@ -147,11 +147,48 @@ Du kan jämföra prestanda för alla frågor via fråga rapporten via frågevara
 
 ![Azure SQL Analytics-frågor](./media/log-analytics-azure-sql/azure-sql-sol-queries.png)
 
-### <a name="pricing"></a>Prissättning
+## <a name="permissions"></a>Behörigheter
 
-Medan lösningen kostar ingenting att använda gäller förbrukning av diagnostiktelemetri ovan de kostnadsfria enheterna för datainmatning allokerade varje månad, se [priserna för Log Analytics](https://azure.microsoft.com/en-us/pricing/details/monitor). De kostnadsfria enheterna för datainmatning tillhandahålls aktivera kostnadsfri övervakning av flera databaser varje månad. Observera att mer aktiva databaser med större arbetsbelastningar kommer mata in mer data jämfört med inaktiva databaser. Du kan enkelt övervaka din förbrukning för inmatning av data i lösningen genom att välja OMS-arbetsyta på navigeringsmenyn i Azure SQL Analytics och sedan välja användning och uppskattade kostnader.
+Om du vill använda Azure SQL Analytics kommer användare på minsta behöver tilldelas rollen läsare i Azure. Den här rollen kommer dock inte tillåta användare att se frågetexten eller utföra någon automatisk justering åtgärder. Fler fria roller i Azure som gör det möjligt med hjälp av lösningen i utsträckning är ägare, deltagare, SQL DB-deltagare eller SQL Server-deltagare. Du kanske också vill du skapa en anpassad roll i portalen med specifika behörigheter som krävs endast för att använda Azure SQL Analytics och ingen åtkomst till hantering av andra resurser.
 
-### <a name="analyze-data-and-create-alerts"></a>Analysera data och skapa aviseringar
+### <a name="creating-a-custom-role-in-portal"></a>Skapa en anpassad roll i portalen
+
+Upptäcker att vissa organisationer framtvinga strikt behörighetskontroller i Azure, hittar du följande PowerShell-skript som aktiverar skapandet av en anpassad roll ”SQL Analytics övervakning-operatör” i Azure portal med minst Läs- och skrivbehörighet krävs för att använda Azure SQL Analytics så stort som möjligt.
+
+Ersätt ”{SubscriptionId}” i den med ditt Azure-prenumerations-ID-skriptet nedan och kör skriptet med inloggad som en ägare eller deltagare roll i Azure.
+
+   ```powershell
+    Connect-AzureRmAccount
+    Select-AzureRmSubscription {SubscriptionId}
+    $role = Get-AzureRmRoleDefinition -Name Reader
+    $role.Name = "SQL Analytics Monitoring Operator"
+    $role.Description = "Lets you monitor database performance with Azure SQL Analytics as a reader. Does not allow change of resources."
+    $role.IsCustom = $true
+    $role.Actions.Add("Microsoft.SQL/servers/databases/read");
+    $role.Actions.Add("Microsoft.SQL/servers/databases/topQueries/queryText/*");
+    $role.Actions.Add("Microsoft.Sql/servers/databases/advisors/read");
+    $role.Actions.Add("Microsoft.Sql/servers/databases/advisors/write");
+    $role.Actions.Add("Microsoft.Sql/servers/databases/advisors/recommendedActions/read");
+    $role.Actions.Add("Microsoft.Sql/servers/databases/advisors/recommendedActions/write");
+    $role.Actions.Add("Microsoft.Sql/servers/databases/automaticTuning/read");
+    $role.Actions.Add("Microsoft.Sql/servers/databases/automaticTuning/write");
+    $role.Actions.Add("Microsoft.Sql/servers/databases/*");
+    $role.Actions.Add("Microsoft.Sql/servers/advisors/read");
+    $role.Actions.Add("Microsoft.Sql/servers/advisors/write");
+    $role.Actions.Add("Microsoft.Sql/servers/advisors/recommendedActions/read");
+    $role.Actions.Add("Microsoft.Sql/servers/advisors/recommendedActions/write");
+    $role.Actions.Add("Microsoft.Resources/deployments/write");
+    $role.AssignableScopes = "/subscriptions/{SubscriptionId}"
+    New-AzureRmRoleDefinition $role
+   ```
+
+När den nya rollen har skapats kan du tilldela den här rollen till varje användare som du måste tilldela anpassade behörigheter för att använda Azure SQL Analytics.
+
+## <a name="analyze-data-and-create-alerts"></a>Analysera data och skapa aviseringar
+
+Analysera data i Azure SQL Analytics är baserad på [Log Analytics-språket](./query-language/get-started-queries.md) för din anpassade frågor och rapporter. Hittar du beskrivningen av de tillgängliga data som samlas in från databasen resource för anpassade frågor i [mått och loggar tillgängliga](../sql-database/sql-database-metrics-diag-logging.md#metrics-and-logs-available).
+
+Automatiserade aviseringar i lösningen baseras på skriva en Log Analytics-fråga som utlöser en avisering när ett villkor uppfylls. Du hitta nedan flera exempel på Log Analytics-frågor på vilka aviseringar kan konfigureras i lösningen.
 
 ### <a name="creating-alerts-for-azure-sql-database"></a>Skapa aviseringar för Azure SQL Database
 
@@ -245,6 +282,10 @@ AzureDiagnostics
 > [!NOTE]
 > - Före krav för att ställa in den här aviseringen är att övervakade hanterad instans har strömning av ResourceUsageStats log aktiverat i lösningen.
 > - Den här frågan kräver en aviseringsregel som ställas in för att utlösa en avisering när det finns resultat (> 0 resultat) från frågan anger att villkoret finns på den hanterade instansen. Utdata är procent lagringsanvändning på den hanterade instansen.
+
+### <a name="pricing"></a>Prissättning
+
+Medan lösningen kostar ingenting att använda gäller förbrukning av diagnostiktelemetri ovan de kostnadsfria enheterna för datainmatning allokerade varje månad, se [priserna för Log Analytics](https://azure.microsoft.com/en-us/pricing/details/monitor). De kostnadsfria enheterna för datainmatning tillhandahålls aktivera kostnadsfri övervakning av flera databaser varje månad. Observera att mer aktiva databaser med större arbetsbelastningar kommer mata in mer data jämfört med inaktiva databaser. Du kan enkelt övervaka din förbrukning för inmatning av data i lösningen genom att välja OMS-arbetsyta på navigeringsmenyn i Azure SQL Analytics och sedan välja användning och uppskattade kostnader.
 
 ## <a name="next-steps"></a>Nästa steg
 

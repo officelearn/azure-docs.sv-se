@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: 5931958d17ea119e58c066a78a44169be2b9f451
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: 7d7de02c96b9a17144b446b9ed86ebcbacd51162
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39627533"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50025013"
 ---
 # <a name="reporting-options-for-azure-ad-password-management"></a>Alternativ för Azure AD-lösenordshantering
 
@@ -23,7 +23,7 @@ Efter distributionen kan många organisationer vill veta hur eller om lösenords
 
 ![Rapportering][Reporting]
 
-Följande frågor besvaras av rapporterna som finns i [Azure portal] (https://portal.azure.com/):
+Följande frågor besvaras av rapporterna som finns i den [Azure-portalen](https://portal.azure.com/):
 
 > [!NOTE]
 > Du måste vara [en global administratör](../users-groups-roles/directory-assign-admin-roles.md), och du måste delta i för dessa data samlas in för din organisations räkning. Om du vill välja i, måste du gå till den **rapportering** fliken eller granskningen loggar minst en gång. Fram till dess data inte samlas in för din organisation.
@@ -46,7 +46,7 @@ Om du är en Power BI-användare finns ett innehållspaket för Azure AD som inn
 
 Vi har förbättrat sättet du kan visa återställning av lösenord och lösenordsåterställningsaktivitet för registrering i Azure portal tidigare. Använd följande steg för att hitta lösenordet återställa och registreringshändelser för lösenordsåterställning:
 
-1. Bläddra till den [Azure-portalen](https://portal.azure.com).
+1. Bläddra till [Azure-portalen](https://portal.azure.com).
 2. Välj **alla tjänster** i den vänstra rutan.
 3. Sök efter **Azure Active Directory** i listan över tjänster och markera den.
 4. Välj **Användare och grupper**.

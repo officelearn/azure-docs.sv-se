@@ -8,14 +8,14 @@ ms.service: cosmos-db
 ms.component: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: reference
-ms.date: 05/21/2018
+ms.date: 10/24/2018
 ms.author: maquaran
-ms.openlocfilehash: 553917a29b3564fff71d6ab994ec199891cbaae7
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: f09430aeb38e6762729167494a23096c7bc5ca85
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49409109"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50023959"
 ---
 # <a name="net-change-feed-processor-sdk-download-and-release-notes"></a>.NET change Feed Processor SDK: Ladda ned och viktig information
 > [!div class="op_single_selector"]
@@ -43,11 +43,13 @@ ms.locfileid: "49409109"
 
 ### <a name="v2-builds"></a>v2-versioner
 
+### <a name="a-name221221"></a><a name="2.2.1"/>2.2.1
+* Beräkning av fast kostnadsuppskattning för flera Master-konton och ny Session tokenformat.
+
 ### <a name="a-name220220"></a><a name="2.2.0"/>2.2.0
 * Tillagt stöd för partitionerade lånet samlingar. Partitionsnyckeln måste definieras som /id.
 * Mindre icke-bakåtkompatibel ändring:-metoderna i gränssnittet IChangeFeedDocumentClient och klassen ChangeFeedDocumentClient har ändrats för att inkludera RequestOptions och CancellationToken parametrar. IChangeFeedDocumentClient är en avancerad utökningsbarhet som gör det möjligt att tillhandahålla anpassad implementering av Dokumentklienten att använda med Change Feed Processor, t.ex. skapa snygga DocumentClient och komma åt alla anrop till det att göra extra spårning felhantering , osv. Med den här uppdateringen måste den kod som implementerar IChangeFeedDocumentClient ändras för att inkludera nya parametrar i implementeringen.
 * Mindre diagnostikförbättringar.
-
 
 ### <a name="a-name210210"></a><a name="2.1.0"/>2.1.0
 * Lagt till nya API: et, uppgift&lt;IReadOnlyList&lt;RemainingPartitionWork&gt; &gt; IRemainingWorkEstimator.GetEstimatedRemainingWorkPerPartitionAsync(). Detta kan användas för att få uppskattade arbetet för varje partition.
@@ -140,6 +142,7 @@ Varje begäran till Cosmos DB med hjälp av en pensionerad SDK avvisas av tjäns
 
 | Version | Utgivningsdatum | Slutdatum |
 | --- | --- | --- |
+| [2.2.1](#2.2.1) |24 oktober 2018 |--- |
 | [1.3.3](#1.3.3) |08 maj 2018 |--- |
 | [1.3.2](#1.3.2) |18 april 2018 |--- |
 | [1.3.1](#1.3.1) |13 mars 2018 |--- |

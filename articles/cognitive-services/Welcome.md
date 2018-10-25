@@ -9,12 +9,12 @@ ms.component: ''
 ms.topic: article
 ms.date: 09/12/2018
 ms.author: nitinme
-ms.openlocfilehash: 5fcd625edf913e6629bfedb7ce7a6b5fe204af28
-ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
+ms.openlocfilehash: f7a68aab4959c3793c7688504d73d2b539a26f83
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48901439"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50025403"
 ---
 # <a name="what-are-azure-cognitive-services"></a>Vad är Azure Cognitive Services?
 
@@ -74,11 +74,11 @@ Azure Cognitive Services är API: er, SDK: er och tjänster som är tillgänglig
 
 ## <a name="use-free-trials"></a>Använd kostnadsfria utvärderingsversioner
 
-[Registrera dig kostnadsfritt utvärderingsversioner] (https://azure.microsoft.com/try/cognitive-services/ ”Anmälan hjälp”) tar bara ett e-postmeddelande och några få enkla steg. Du behöver ett Account om du inte redan har ett. Du får ett unikt par nycklar för varje API som begärdes. Den andra är bara en extra. Dela inte de hemliga nycklarna med vem som helst. Utvärderingsversioner har både ett pris begränsa transaktioner per sekund eller minut och en månatlig användningstak. En transaktion är helt enkelt ett API-anrop. Du kan uppgradera till betalda nivåer att låsa upp begränsningarna.
+[Registrera dig kostnadsfritt utvärderingsversioner](https://azure.microsoft.com/try/cognitive-services/ "anmälan hjälpa") tar bara ett e-postmeddelande och några få enkla steg. Du behöver ett Account om du inte redan har ett. Du får ett unikt par nycklar för varje API som begärdes. Den andra är bara en extra. Dela inte de hemliga nycklarna med vem som helst. Utvärderingsversioner har både ett pris begränsa transaktioner per sekund eller minut och en månatlig användningstak. En transaktion är helt enkelt ett API-anrop. Du kan uppgradera till betalda nivåer att låsa upp begränsningarna.
 
 ## <a name="subscription-management"></a>Prenumerationshantering
 
-När du har loggat in med ditt Microsoft-Account, du kan komma åt [Mina prenumerationer] (https://www.microsoft.com/cognitive-services/en-us/subscriptions ”Mina prenumerationer”) att visa de produkter som du använder de återstående kvot och möjligheten att lägga till ytterligare produkter i prenumerationen.
+När du har loggat in med ditt Microsoft-Account, du kan komma åt [Mina prenumerationer](https://www.microsoft.com/cognitive-services/en-us/subscriptions "Mina prenumerationer") att visa de produkter som du använder de återstående kvot och möjligheten att lägga till ytterligare produkter din prenumeration.
 
 ## <a name="upgrade-to-unlock-limits"></a>Uppgraderingen för att låsa upp gränser
 

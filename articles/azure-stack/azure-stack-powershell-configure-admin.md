@@ -11,15 +11,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: article
-ms.date: 09/17/2018
+ms.date: 10/24/2018
 ms.author: mabrigg
 ms.reviewer: thoroet
-ms.openlocfilehash: aa86b44364ee84a9640fe0b39b6279982f5594ad
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.openlocfilehash: 63fd864ebda1cb766792b99a2725fb069d5b5f2a
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45982533"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50024077"
 ---
 # <a name="connect-to-azure-stack-with-powershell-as-an-operator"></a>Ansluta till Azure Stack med PowerShell som operatör
 
@@ -29,7 +29,7 @@ Du kan konfigurera Azure Stack för att använda PowerShell för att hantera res
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-Kör följande från den [Utvecklingskit](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-remote-desktop), eller från en Windows-baserad externa klient om du är [är anslutna via VPN](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-vpn). 
+Kör följande från den [Utvecklingskit](.\asdk\asdk-connect.md#connect-to-azure-stack-with-remote-desktop) eller från en Windows-baserad externa klient om du är [är anslutna till ASDK via VPN](.\asdk\asdk-connect.md#connect-to-azure-stack-with-vpn). 
 
  - Installera [Azure Stack-kompatibla Azure PowerShell-moduler](azure-stack-powershell-install.md).  
  - Ladda ned den [verktyg som krävs för att arbeta med Azure Stack](azure-stack-powershell-download.md).  

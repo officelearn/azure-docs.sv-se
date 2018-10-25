@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 04/17/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: d3fb6557571042be7db1380010738bacd72e50f5
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.openlocfilehash: cc7bcefe43eed524f50fcad09d7fb31a80d22b83
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48869508"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50025811"
 ---
 # <a name="perform-cross-resource-log-searches-in-log-analytics"></a>Utföra mellan resurser loggsökningar i Log Analytics  
 
@@ -29,7 +29,7 @@ Tidigare med Azure Log Analytics kunde du endast analysera data inifrån den akt
 Nu kan du fråga inte bara över flera Log Analytics-arbetsytor, utan också data från en viss Application Insights-app i samma resursgrupp, en annan resursgrupp eller en annan prenumeration. Det ger en systemomfattande överblick över dina data.  Du kan bara utföra dessa typer av frågor i [Log Analytics](log-analytics-log-search-portals.md#log-analytics-page). Antalet resurser (Log Analytics-arbetsytor och Application Insights-app) som ska inkluderas i en enskild fråga är begränsad till 100. 
 
 ## <a name="querying-across-log-analytics-workspaces-and-from-application-insights"></a>Fråga över Log Analytics-arbetsytor och från Application Insights
-Om du vill referera till en annan arbetsyta i frågan, använda den [ *arbetsytan* ](https://docs.loganalytics.io/docs/Language-Reference/Scope-functions/workspace()) identifierare, och för en app från Application Insights, använder du den [ *app* ](https://docs.loganalytics.io/docs/Language-Reference/Scope-functions/app())identifierare.  
+Om du vill referera till en annan arbetsyta i frågan, använda den [ *arbetsytan* ](https://docs.microsoft.com/azure/log-analytics/query-language/workspace-expression) identifierare, och för en app från Application Insights, använder du den [ *app* ](https://docs.microsoft.com/azure/log-analytics/query-language/app-expression)identifierare.  
 
 ### <a name="identifying-workspace-resources"></a>Identifiera resurser för arbetsyta
 Följande exempel visar frågor i Log Analytics-arbetsytor att returnera sammanfattande antal loggar från tabellen uppdatering på en arbetsyta med namnet *contosoretail it*. 
@@ -104,4 +104,4 @@ union Update, workspace("contosoretail-it").Update, workspace("b459b4u5-912x-46d
 
 ## <a name="next-steps"></a>Nästa steg
 
-Granska den [Log Analytics logga sökreferens](https://docs.loganalytics.io/docs/Language-Reference) att visa alla fråga Syntaxalternativ som är tillgängliga i Log Analytics.    
+Granska den [Log Analytics logga sökreferens](https://docs.microsoft.com/azure/log-analytics/query-language/kusto) att visa alla fråga Syntaxalternativ som är tillgängliga i Log Analytics.    

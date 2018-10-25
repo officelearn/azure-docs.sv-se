@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 10/11/2018
 ms.author: iainfou
-ms.openlocfilehash: 87c3ab9624116e9c1c61041531fdf5d3b26117e1
-ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
+ms.openlocfilehash: 4c60474c07a3853e409436359713578178b639fb
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49381227"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50024874"
 ---
 # <a name="configure-advanced-networking-in-azure-kubernetes-service-aks"></a>Konfigurera avancerade nätverk i Azure Kubernetes Service (AKS)
 
@@ -31,25 +31,25 @@ Den här artikeln visar hur du använder avancerade nätverk för att skapa och 
 
 ## <a name="plan-ip-addressing-for-your-cluster"></a>Planera IP-adresser för ditt kluster
 
-Kluster som har konfigurerats med avancerade nätverk kräver ytterligare planering. Storleken på det virtuella nätverket och dess undernät måste hantera såväl antalet poddar som du planerar att köra som antalet noder för klustret.
+Kluster som har konfigurerats med avancerade nätverk kräver ytterligare planering. Storleken på det virtuella nätverket och dess undernät måste tillgodose antalet poddar som du planerar att köra och antalet noder för klustret.
 
-IP-adresser för poddarna och klustrets noder tilldelas från det angivna undernätet i det virtuella nätverket. Varje nod har konfigurerats med en primär IP-adress, vilket är den IP-Adressen på noden och 30 ytterligare IP-adresser redan har konfigurerats av Azure CNI som har tilldelats poddar som schemalagts att noden. När du skalar ut ditt kluster konfigureras varje nod på samma sätt med IP-adresser från undernätet.
+IP-adresser för poddarna och klustrets noder tilldelas från det angivna undernätet i det virtuella nätverket. Varje nod har konfigurerats med en primär IP-adress. Som standard konfigureras före 30 ytterligare IP-adresser genom Azure CNI som har tilldelats poddar som schemalagts på noden. När du skalar ut ditt kluster konfigureras varje nod på samma sätt med IP-adresser från undernätet. Du kan också visa den [maximala poddar per nod](#maximum-pods-per-node).
 
 Plan för IP-adress för ett AKS-kluster består av en virtuell nätverks-, minst ett undernät för noder och poddar och Kubernetes service-adressintervall.
 
 | Adressintervall / Azure resurs | Gränser och storlek |
 | --------- | ------------- |
 | Virtuellt nätverk | Azure-nätverket kan vara så stora/8 som, men är begränsad till 65 536 konfigurerade IP-adresser. |
-| Undernät | Måste vara tillräckligt stor för att hantera noder, poddar och alla Kubernetes och Azure-resurser som kan etableras i klustret. Om du distribuerar en intern Azure Load Balancer, exempelvis dess frontend IP-adresser tilldelas från klustret undernätet inte offentliga IP-adresser. <p/>Att beräkna *minsta* undernätets storlek: `(number of nodes) + (number of nodes * pods per node)` <p/>Exempel för ett kluster med 50 noder: `(50) + (50 * 30) = 1,550` (/ 21 eller större) |
+| Undernät | Måste vara tillräckligt stor för att hantera noder, poddar och alla Kubernetes och Azure-resurser som kan etableras i klustret. Om du distribuerar en intern Azure Load Balancer, exempelvis dess frontend IP-adresser tilldelas från klustret undernätet inte offentliga IP-adresser. <p/>Att beräkna *minsta* undernätets storlek: `(number of nodes) + (number of nodes * maximum pods per node that you configure)` <p/>Exempel för ett kluster med 50 noder: `(50) + (50 * 30 (default)) = 1,550` (/ 21 eller större)<p>Om du inte anger ett maximalt antal poddar per nod när du skapar klustret, det maximala antalet poddar per nod är inställd på *30*. Det minsta antalet IP-adresser som krävs baserat på det värdet. Om du beräkna din IP-adress minimikraven på ett annat värde för maximal [så här konfigurerar du det maximala antalet poddar per nod](#configure-maximum---new-clusters) för att ange värdet när du distribuerar ditt kluster. |
 | Kubernetes service-adressintervall | Det här intervallet bör inte används av alla nätverkselement på eller ansluten till det här virtuella nätverket. CIDR-tjänstadress måste vara mindre än /12. |
 | IP-adress för Kubernetes DNS-tjänsten | IP-adress inom Kubernetes service-adressintervall som ska användas av klustertjänstidentifiering (kube-dns). |
 | Docker bridge-adress | IP-adress (i CIDR-notation) som används som Docker-brygga IP-adress på noder. Standardvärdet 172.17.0.1/16. |
 
 ## <a name="maximum-pods-per-node"></a>Maximal poddar per nod
 
-Standard maximala antalet poddar per nod i ett AKS-kluster varierar mellan grundläggande och avancerade nätverks- och metoden för klusterdistribution.
+Det maximala antalet poddar per nod i ett AKS-kluster är 110. Den *standard* maximala antalet poddar per nod varierar mellan grundläggande och avancerade nätverks- och metoden för klusterdistribution.
 
-| Distributionsmetod | Basic | Advanced | Kan konfigureras vid distribution |
+| Distributionsmetod | Grundläggande standard | Avancerade standard | Kan konfigureras vid distribution |
 | -- | :--: | :--: | -- |
 | Azure CLI | 110 | 30 | Ja (upp till 110) |
 | Resource Manager-mall | 110 | 30 | Ja (upp till 110) |

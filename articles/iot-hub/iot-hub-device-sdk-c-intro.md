@@ -8,12 +8,12 @@ ms.devlang: c
 ms.topic: conceptual
 ms.date: 08/25/2017
 ms.author: yizhon
-ms.openlocfilehash: 5e29dcde80da75fa70fe6dcbf35d7f319a5ca3cb
-ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
+ms.openlocfilehash: 97f1c9e16ae6be9e6bece69d0923f6290a8cd072
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2018
-ms.locfileid: "49311159"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50024723"
 ---
 # <a name="azure-iot-device-sdk-for-c"></a>Azure IoT-enhetens SDK för C
 
@@ -33,7 +33,7 @@ Den här artikeln ger en introduktion till arkitekturen i Azure IoT-enhetens SDK
 
 ## <a name="sdk-architecture"></a>SDK-arkitektur
 
-Du hittar den [ **Azure IoT-enhetens SDK för C** ](https://github.com/Azure/azure-iot-sdk-c) GitHub-lagringsplats och visa information om API: et i den [C API-referens](https://azure.github.io/azure-iot-sdk-c/index.html).
+Du hittar den [ **Azure IoT-enhetens SDK för C** ](https://github.com/Azure/azure-iot-sdk-c) GitHub-lagringsplats och visa information om API: et i den [C API-referens](https://docs.microsoft.com/azure/iot-hub/iot-c-sdk-ref/).
 
 Den senaste versionen av biblioteken kan hittas i den **master** gren av databasen:
 

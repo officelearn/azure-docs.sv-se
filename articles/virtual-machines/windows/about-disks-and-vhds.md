@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 11/15/2017
 ms.author: rogarana
 ms.component: disks
-ms.openlocfilehash: 8f5c33a63fd932bedd7f1de3d3ae47306b3ea3e4
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: de5322709b5d7f7bcfe6c512bab94b025d9a56a7
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46954491"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50023568"
 ---
 # <a name="about-disks-storage-for-azure-windows-vms"></a>Om disklagring för virtuella Azure Windows-datorer
 
@@ -34,7 +34,7 @@ Varje virtuell dator har en ansluten operativsystemdisk. Den har registrerats so
 
 ### <a name="temporary-disk"></a>Temporär disk
 
-Varje virtuell dator innehåller en tillfällig disk. Den temporära disken tillhandahåller kortsiktig lagring för program och processer och är avsedd att endast lagra data, till exempel växlingsfiler. Data på den temporära disken kan gå förlorade under en [underhållshändelse](manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json#understand-vm-reboots---maintenance-vs-downtime) eller när du [distribuera om en virtuell dator](redeploy-to-new-node.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Data på den temporära enheten behålls under en lyckad standard omstart av den virtuella datorn. 
+Varje virtuell dator innehåller en tillfällig disk. Den temporära disken tillhandahåller kortsiktig lagring för program och processer och är avsedd att endast lagra data, till exempel växlingsfiler. Data på den temporära disken kan gå förlorade under en [underhållshändelse](manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json#understand-vm-reboots---maintenance-vs-downtime) eller när du [distribuera om en virtuell dator](redeploy-to-new-node.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Data på den temporära enheten vid en lyckad standard omstart av den virtuella datorn ska sparas. Men finns det fall där data inte kanske finns kvar, till exempel flyttar till en ny värd. Därför får alla data på den temporära enheten inte vara data som är nödvändiga i systemet.
 
 Den temporära disken är märkta som enheten D: som standard och det används för att lagra pagefile.sys. Om du vill mappa om den här disken till en annan enhetsbeteckning, se [ändra enhetsbeteckningen för den temporära disken Windows](change-drive-letter.md). Storleken på den temporära disken varierar baserat på storleken på den virtuella datorn. Mer information finns i [storlekar för Windows-datorer](sizes.md).
 

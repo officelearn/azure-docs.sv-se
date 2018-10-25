@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 12f7e466bdfd6d9b6cf1c36df4daf1e76cc417f2
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: 88285ea658b194daf69b12116649e2389374c349
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45729832"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50025539"
 ---
 # <a name="connect-a-windows-iot-core-device-to-your-azure-iot-central-application"></a>Anslut en Windows IoT Core-enhet till din Azure IoT Central program
 
@@ -44,7 +44,7 @@ I Azure IoT Central programmet, lägger du till en riktig enhet från den **Wind
 
 ### <a name="prepare-the-windows-iot-core-device"></a>Förbereda Windows IoT Core-enhet
 
-Konfigurera en Windows IoT Core-enhet genom att följa steg-för-steg-instruktioner på [konfigurera en Windows IoT Core-enhet] (https://github.com/Azure/iot-central-firmware/tree/master/WindowsIoT#setup-a-physical-device).
+Konfigurera en Windows IoT Core-enhet genom att följa steg-för-steg-instruktioner i [ställer in en enhet med Windows IoT Core](https://github.com/Azure/iot-central-firmware/tree/master/WindowsIoT#setup-a-physical-device).
 
 ### <a name="add-a-real-device"></a>Lägga till en riktig enhet
 

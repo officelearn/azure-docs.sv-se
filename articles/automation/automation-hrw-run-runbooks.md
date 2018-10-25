@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 07/17/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: a0b5188605874a04f0341cde1a68487c8a50df84
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: 48dcc558d4855874df02ad5c631211f16fd8c29e
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47431822"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50024995"
 ---
 # <a name="running-runbooks-on-a-hybrid-runbook-worker"></a>Runbooks som körs på en Hybrid Runbook Worker
 
@@ -89,7 +89,7 @@ Om du vill använda en hanterad identitet för Azure-resurser på en Hybrid Runb
 1. Skapa en Azure virtuell dator
 2. [Konfigurera hanterade identiteter för Azure-resurser på den virtuella datorn](../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md#enable-system-assigned-managed-identity-on-an-existing-vm)
 3. [Bevilja åtkomst till dina virtuella datorer till en resursgrupp i Resource Manager](../active-directory/managed-identities-azure-resources/tutorial-windows-vm-access-arm.md#grant-your-vm-access-to-a-resource-group-in-resource-manager)
-4. [Hämta en åtkomsttoken med hjälp av den Virtuella datorns systemtilldelade hanterad identitet] (.. / active-directory/managed-identities-azure-resources/tutorial-windows-vm-access-arm.md#get-an-access-token-using-the-vms-system-assigned-managed-identity-and-use-it-to-call-azure-resource-manager)
+4. [Få ett åtkomsttoken med hjälp av den Virtuella datorns systemtilldelade hanterad identitet](../active-directory/managed-identities-azure-resources/tutorial-windows-vm-access-arm.md#get-an-access-token-using-the-vms-system-assigned-managed-identity-and-use-it-to-call-azure-resource-manager)
 5. [Installera Windows Hybrid Runbook Worker](automation-windows-hrw-install.md#installing-the-windows-hybrid-runbook-worker) på den virtuella datorn.
 
 När de föregående stegen har slutförts kan du använda `Connect-AzureRmAccount -Identity` i runbook för att autentisera till Azure-resurser. Detta minskar behovet av att använda ett kör som-konto och hantera certifikat för Kör som-kontot.

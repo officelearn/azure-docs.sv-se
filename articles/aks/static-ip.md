@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 09/26/2018
 ms.author: iainfou
-ms.openlocfilehash: 8aab091ed992a946cd78ecf4f0c8fdfff4185a08
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: b51da8c5e5e113cdb7e449206f7137386b278be4
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47407560"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50025930"
 ---
 # <a name="use-a-static-public-ip-address-with-the-azure-kubernetes-service-aks-load-balancer"></a>Använda en statisk offentlig IP-adress med belastningsutjämnare för Azure Kubernetes Service (AKS)
 
@@ -24,7 +24,7 @@ Den här artikeln visar hur du skapar en statisk offentlig IP-adress och tilldel
 
 Den här artikeln förutsätter att du har ett befintligt AKS-kluster. Om du behöver ett AKS-kluster finns i snabbstarten om AKS [med Azure CLI] [ aks-quickstart-cli] eller [med Azure portal][aks-quickstart-portal].
 
-Du också ha Azure CLI version 2.0.46 eller senare installerat och konfigurerat. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI][install-azure-cli].
+Du måste också ha installerat och konfigurerat Azure CLI version 2.0.46 eller senare. Kör `az --version` att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [installera Azure CLI][install-azure-cli].
 
 ## <a name="create-a-static-ip-address"></a>Skapa en statisk IP-adress
 
@@ -59,10 +59,10 @@ IP-adressen visas enligt följande komprimerade exempel på utdata:
   }
 ````
 
-Du kan senare får den offentliga IP-adress med hjälp av den [az network public-ip-listan] [ az-network-public-ip-list] kommando. Ange namnet på resursgruppen noden och sedan fråga efter den *ipAddress* som visas i följande exempel:
+Du kan senare får den offentliga IP-adress med hjälp av den [az network public-ip-listan] [ az-network-public-ip-list] kommando. Ange namnet på resursgruppen för noden och offentlig IP-adress som du skapade och fråga efter den *ipAddress* som visas i följande exempel:
 
 ```azurecli
-$ az network public-ip list --resource-group MC_myResourceGroup_myAKSCluster_eastus --query [0].ipAddress --output tsv
+$ az network public-ip show --resource-group MC_myResourceGroup_myAKSCluster_eastus --name myAKSPublicIP --query ipAddress --output tsv
 
 40.121.183.52
 ```

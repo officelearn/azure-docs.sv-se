@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 10/10/2017
 ms.author: harijayms
-ms.openlocfilehash: 9cd388bf231bce547f4d9aca474e93bf6753d134
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: 77b19b708b32003edc4555745a233a01d6f60b71
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49386713"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50026287"
 ---
 # <a name="azure-instance-metadata-service"></a>Azure Instance Metadata service
 
@@ -299,9 +299,9 @@ subscriptionId | Azure-prenumeration för den virtuella datorn | 2017-08-01
 tags | [Taggar](../../azure-resource-manager/resource-group-using-tags.md) för den virtuella datorn  | 2017-08-01
 resourceGroupName | [Resursgrupp](../../azure-resource-manager/resource-group-overview.md) för den virtuella datorn | 2017-08-01
 placementGroupId | [Placeringsgrupp](../../virtual-machine-scale-sets/virtual-machine-scale-sets-placement-groups.md) för VM-skalningsuppsättning | 2017-08-01
-plan | [Planera] (https://docs.microsoft.com/rest/api/compute/virtualmachines/createorupdate#plan) för en virtuell dator i den är en Azure Marketplace-avbildning, som innehåller namn, produkt och utgivare | 2017-04-02
+plan | [Planera](https://docs.microsoft.com/rest/api/compute/virtualmachines/createorupdate#plan) för en virtuell dator i den är en Azure Marketplace-avbildning, som innehåller namn, produkt och utgivare | 2017-04-02
 publicKeys | Samling med offentliga nycklar [https://docs.microsoft.com/rest/api/compute/virtualmachines/createorupdate#sshpublickey] tilldelats den virtuella datorn och sökvägar | 2017-04-02
-vmScaleSetName | [VM ScaleSet Name] (.. /.. / virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) för VM-skalningsuppsättning | 2017-12-01
+vmScaleSetName | [Namn på virtuell dator ScaleSet](../../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) för VM-skalningsuppsättning | 2017-12-01
 zon | [Tillgänglighetszon](../../availability-zones/az-overview.md) för den virtuella datorn | 2017-12-01 
 ipv4/privateIpAddress | Lokala IPv4-adressen för den virtuella datorn | 2017-04-02
 IPv4/publicIpAddress | Offentliga IPv4-adressen för den virtuella datorn | 2017-04-02

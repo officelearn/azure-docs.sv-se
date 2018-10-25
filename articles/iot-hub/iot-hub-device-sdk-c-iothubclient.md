@@ -8,12 +8,12 @@ ms.devlang: c
 ms.topic: conceptual
 ms.date: 08/29/2017
 ms.author: yizhon
-ms.openlocfilehash: 4c4ff981560fc4025c6bf782df71e648a1356c3f
-ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
+ms.openlocfilehash: dd3b693271326c85688a275a65b67ad6257220e3
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48248150"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50024787"
 ---
 # <a name="azure-iot-device-sdk-for-c--more-about-iothubclient"></a>Azure IoT-enhetens SDK för C – mer om IoTHubClient
 
@@ -27,7 +27,7 @@ Artikeln avslutas genom som omfattar ett antal olika ämnen, t.ex. mer om enhete
 
 Vi använder den **IoTHubClient** SDK-exempel som förklarar dessa avsnitt. Om du vill följa med kan se den **iothub\_klienten\_exempel\_http** och **iothub\_klienten\_exempel\_amqp**program som ingår i Azure IoT-enhetens SDK för C. allt som beskrivs i följande avsnitt visas i dessa exempel.
 
-Du hittar den [ **Azure IoT-enhetens SDK för C** ](https://github.com/Azure/azure-iot-sdk-c) GitHub-lagringsplats och visa information om API: et i den [C API-referens](https://azure.github.io/azure-iot-sdk-c/index.html).
+Du hittar den [ **Azure IoT-enhetens SDK för C** ](https://github.com/Azure/azure-iot-sdk-c) GitHub-lagringsplats och visa information om API: et i den [C API-referens](https://docs.microsoft.com/azure/iot-hub/iot-c-sdk-ref/).
 
 ## <a name="the-lower-level-apis"></a>På lägre nivå-API: er
 

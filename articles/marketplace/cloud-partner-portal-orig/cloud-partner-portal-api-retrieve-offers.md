@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: reference
 ms.date: 09/13/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 3429917fcee520ae932253f1fdfead4ffb6535e6
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: cf6e2fa296d3d9f152edf22685b930586b4de524
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48811262"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50024825"
 ---
 <a name="retrieve-offers"></a>Hämta erbjuder
 ===============
@@ -39,7 +39,7 @@ Hämtar en sammanfattad lista över erbjudanden i ett namnområde för utgivare.
 |  |  |
 
 
-<a name="header"></a>Sidhuvud
+<a name="header"></a>Huvud
 ------
 
 |  **Namn**        |         **Värde**       |
@@ -80,7 +80,7 @@ Hämtar en sammanfattad lista över erbjudanden i ett namnområde för utgivare.
 |  status         | Status för erbjudandet. Listan över möjliga värden, se [erbjuder status](#offer-status) nedan.                         |
 |  id             | GUID som unikt identifierar erbjudandet i publisher-namnområdet.                                                    |
 |  version        | Aktuell version av erbjudandet. Att går inte ändra versionsegenskapen av klienten. Det ökar stegvis när varje publicering. |
-|  definition     | Innehåller en sammanfattande vy över den faktiska definitionen av arbetsbelastningen. För att få en detaljerad definition kan du använda [hämta specifika erbjudandet] (. / cloud-partner-portal-api-retrieve-specific-offer.md) API. |
+|  definition     | Innehåller en sammanfattande vy över den faktiska definitionen av arbetsbelastningen. För att få en detaljerad definition kan använda den [hämta specifikt erbjudande](./cloud-partner-portal-api-retrieve-specific-offer.md) API. |
 |  changedTime    | UTC-tid då erbjudandet senast ändrades                                                                              |
 |  |  |
 

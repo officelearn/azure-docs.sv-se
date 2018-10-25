@@ -9,26 +9,26 @@ ms.author: gwallace
 ms.date: 09/26/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 9bbf3582da2664b6e6429677d47aad4d69a7c1bb
-ms.sourcegitcommit: 4edf9354a00bb63082c3b844b979165b64f46286
+ms.openlocfilehash: 5778c38d5a0c44e42b83fd139078be1f0bb45f7f
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48785332"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50023755"
 ---
 # <a name="source-control-integration-in-azure-automation"></a>Källkontrollintegrering i Azure Automation
 
-Källkontroll kan du behålla dina runbooks i ditt Automation-konto är uppdaterade med skripten i centrallagret för källkontroll GitHub eller Azure Dev Ops. Källkontroll kan du enkelt kan samarbeta med ditt team, spåra ändringar och återställa tidigare versioner av dina runbooks. Till exempel kan källkontroll du synkronisera olika grenar i källkontrollen till ditt Automation-konton som utveckling, testning eller produktion. Detta gör det enkelt att flytta upp kod som har testats i din utvecklingsmiljö till din Automation-konto i produktionsmiljön.
+Källkontroll kan du behålla dina runbooks i ditt Automation-konto är uppdaterade med skripten i centrallagret för källkontroll GitHub eller Azure DevOps. Källkontroll kan du enkelt kan samarbeta med ditt team, spåra ändringar och återställa tidigare versioner av dina runbooks. Till exempel kan källkontroll du synkronisera olika grenar i källkontrollen till ditt Automation-konton som utveckling, testning eller produktion. Detta gör det enkelt att flytta upp kod som har testats i din utvecklingsmiljö till din Automation-konto i produktionsmiljön.
 
 Azure Automation har stöd för 3 typer av källkontroll:
 
 * GitHub
-* Visual Studio Team Services (Git)
-* Visual Studio Team Services (TFVC)
+* Azure DevOps (Git)
+* Azure DevOps (TFVC)
 
 ## <a name="pre-requisites"></a>Förutsättningar
 
-* Ett källkontrollscentrallager (GitHub eller Visual Studio Team Services)
+* Ett källkontrollscentrallager (GitHub eller Azure DevOps)
 * Rätt [behörigheter](#personal-access-token-permissions) till källkontroll
 * En [Run-As konto och anslutning](manage-runas-account.md)
 
@@ -50,7 +50,7 @@ På den **källa kontroll sammanfattning** sidan, Fyll i informationen och klick
 |Egenskap   |Beskrivning  |
 |---------|---------|
 |Namn på datakälla kontroll     | Ett eget namn för källkontrollen        |
-|Källkontrolltyp     | Typ av kontroll av källa. De tillgängliga alternativen är:</br> GitHub</br>Visual Studio Team Services (Git)</br> Visual Studio Team Services (TFVC)        |
+|Källkontrolltyp     | Typ av kontroll av källa. De tillgängliga alternativen är:</br> GitHub</br>Azure DevOps (Git)</br> Azure DevOps (TFVC)        |
 |Lagringsplats     | Namnet på databasen eller projekt. Det här värdet hämtas från källkontroll. Exempel: $/ ContosoFinanceTFVCExample         |
 |Gren     | Den gren som ska hämta källfiler från. Gren mål är inte tillgänglig för TFVC-källkontrollstypen.          |
 |Mappsökväg     | Den mapp som innehåller runbooks för att synkronisera. Exempel: /Runbooks         |

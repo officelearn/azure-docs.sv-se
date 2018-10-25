@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 10/16/2018
+ms.date: 10/23/2018
 ms.author: jeffgilb
 ms.reviewer: quying
-ms.openlocfilehash: ea3e6c2e616f2618200c1e3904786abd72bbd75d
-ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
+ms.openlocfilehash: 84aaa5534c629554074544b4bb56ae8da8825397
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49376813"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49986466"
 ---
 # <a name="tutorial-offer-highly-available-mysql-databases"></a>Självstudie: Erbjud högtillgängliga MySQL-databaser
 
@@ -65,16 +65,15 @@ Använd stegen i det här avsnittet för att distribuera MySQL-Server-kluster me
 - En offentlig IP-adress (för det primära MySQL klustret virtuell dator)
 - Tre virtuella Linux-datorer som värd för MySQL-kluster
 
-1. Logga in på administrationsportalen:
-    - Ett integrerat system-distribution varierar Portaladress beroende på region och externa domännamn för din lösning. Det ska vara i formatet https://adminportal.&lt; *region*&gt;.&lt; *FQDN*&gt;.
-    - Om du använder Azure Stack Development Kit (ASDK) är Portaladress [ https://adminportal.local.azurestack.external ](https://adminportal.local.azurestack.external).
+1. 
+[!INCLUDE [azs-admin-portal](../../includes/azs-admin-portal.md)]
 
 2. Välj **\+** **skapa en resurs** > **Compute**, och sedan **MySQL med replikering**.
 
-   ![Anpassad malldistribution](media/azure-stack-tutorial-mysqlrp/createcluster1.png)
+   ![Anpassad malldistribution](media/azure-stack-tutorial-mysqlrp/1.png)
 
 3. Innehåller grundläggande distribution av information om den **grunderna** sidan. Granska standardinställningarna och ändra efter behov och klicka på **OK**.<br><br>Som ett minimum innehåller följande:
-   - Distributionsnamn (standard är mysql)
+   - Distributionsnamn (standard är mymysql)
    - Rotlösenord för programmet. Ange ett alfanumeriskt lösenord 12 tecken med **några specialtecken**
    - Programdatabas (standard är bitnami)
    - Antal MySQL databasrepliken virtuella datorer för att skapa (standardvärdet är 2)
@@ -82,22 +81,22 @@ Använd stegen i det här avsnittet för att distribuera MySQL-Server-kluster me
    - Välj resursgruppen som ska användas eller skapa ett nytt lösenord
    - Välj platsen (standard är lokala för ASDK)
 
-   ![Grunderna för distribution](media/azure-stack-tutorial-mysqlrp/createcluster2.png)
+   [![](media/azure-stack-tutorial-mysqlrp/2-sm.PNG "Grunderna för distribution")](media/azure-stack-tutorial-mysqlrp/2-lg.PNG#lightbox)
 
 4. På den **Miljökonfiguration** anger följande information och klicka sedan på **OK**: 
    - Lösenordet eller SSH offentlig nyckel för secure shell (SSH)-autentisering. Om du använder ett lösenord, måste den innehålla bokstäver, siffror och **kan** innehåller specialtecken
    - VM-storlek (standard är Standard D1 v2-datorer)
    - Data diskstorlek i GB Klicka **OK**
 
-   ![Miljökonfiguration](media/azure-stack-tutorial-mysqlrp/createcluster3.png)
+   [![](media/azure-stack-tutorial-mysqlrp/3-sm.PNG "Miljökonfiguration")](media/azure-stack-tutorial-mysqlrp/3-lg.PNG#lightbox)
 
 5. Granska distributionen **sammanfattning**. Du kan ladda ned anpassad mall och parametrar, och klicka sedan på **OK**.
 
-   ![Sammanfattning](media/azure-stack-tutorial-mysqlrp/createcluster4.png)
+   [![](media/azure-stack-tutorial-mysqlrp/4-sm.PNG "Sammanfattning")](media/azure-stack-tutorial-mysqlrp/4-lg.PNG#lightbox)
 
 6. Klicka på **skapa** på den **köpa** att starta distributionen.
 
-   ![Köp](media/azure-stack-tutorial-mysqlrp/createcluster4.png)
+   ![Köp](media/azure-stack-tutorial-mysqlrp/5.png)
 
     > [!NOTE]
     > Distributionen tar ungefär en timme. Kontrollera att distributionen är klar och MySQL-kluster har konfigurerats klart innan du fortsätter. 
@@ -110,11 +109,11 @@ Som standard konfigureras ingen offentlig åtkomst för MySQL i den Virtuella v�
 
 1. I administratörsportalen kan navigera till resursgruppen som skapades när du distribuerar MySQL-kluster och välj den nya nätverkssäkerhetsgruppen (**standard-undernät-sg**):
 
-   ![open (öppen)](media/azure-stack-tutorial-mysqlrp/nsg1.png)
+   ![open (öppen)](media/azure-stack-tutorial-mysqlrp/6.png)
 
 2. Välj **ingående säkerhetsregler** och klicka sedan på **Lägg till**.<br><br>Ange **3306** i den **Målportintervall** och du kan också ange en beskrivning i den **namn** och **beskrivning** fält. Klicka på Lägg till om du vill stänga dialogrutan inkommande regel.
 
-   ![open (öppen)](media/azure-stack-tutorial-mysqlrp/nsg2.png)
+   ![open (öppen)](media/azure-stack-tutorial-mysqlrp/7.png)
 
 ### <a name="configure-external-access-to-the-mysql-cluster"></a>Konfigurera extern åtkomst till MySQL-kluster
 Innan MySQL-kluster kan läggas till som en Azure Stack MySQL Server-värd, måste vara aktiverat extern åtkomst.
@@ -167,9 +166,8 @@ När MySQL-klustret har skapats, konfigurerats och läggas till som en Azure Sta
 > [!NOTE]
 > Kör de här stegen från användarportalen för Azure Stack som en klientanvändare med en prenumeration att tillhandahålla funktioner för MySQL-Server (Microsoft.MySQLAdapter service).
 
-1. Logga in på användarportalen:
-    - Ett integrerat system-distribution varierar Portaladress beroende på region och externa domännamn för din lösning. Det ska vara i formatet https://portal.&lt; *region*&gt;.&lt; *FQDN*&gt;.
-    - Om du använder Azure Stack Development Kit (ASDK) användaren Portaladress är [ https://portal.local.azurestack.external ](https://portal.local.azurestack.external).
+1. 
+[!INCLUDE [azs-user-portal](../../includes/azs-user-portal.md)]
 
 2. Välj **\+** **skapa en resurs** > **Data \+ Storage**, och sedan **MySQL-databas** .<br><br>Ange den egenskapen databasinformation som krävs, inklusive namn, sortering, prenumeration för att använda och plats som ska användas för distributionen. 
 

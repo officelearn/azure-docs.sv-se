@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 05/08/2018
+ms.date: 10/23/2018
 ms.author: sethm
 ms.reviewer: ''
-ms.openlocfilehash: a9600d37f76ff56cff26ec7b740a6970e44e7018
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: 0a46344893c8ad62bd85f9abb84d434c0331d507
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/24/2018
-ms.locfileid: "49954563"
+ms.locfileid: "49984204"
 ---
 # <a name="validate-azure-identity"></a>Verifiera Azure identity 
 Använd verktyget Azure Stack-beredskap för installation (AzsReadinessChecker) för att verifiera att din Azure Active Directory (Azure AD) är klart att användas med Azure Stack. Verifiera din för Azure-identitetslösning innan du påbörjar en Azure Stack-distributionen.  

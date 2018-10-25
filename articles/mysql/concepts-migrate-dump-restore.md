@@ -1,6 +1,6 @@
 ---
-title: Migrera din MySQL-databas med hjälp av dump och återställa i Azure-databas för MySQL
-description: Den här artikeln beskrivs två vanliga sätt att säkerhetskopiera och återställa databaser i din Azure-databas för MySQL, med hjälp av verktyg som mysqldump, MySQL arbetsstationen och PHPMyAdmin.
+title: Migrera MySQL-databasen med hjälp av dump och Återställ i Azure Database för MySQL
+description: Den här artikeln beskrivs två vanliga sätt att säkerhetskopiera och återställa databaser i din Azure Database för MySQL med hjälp av verktyg som mysqldump, MySQL Workbench och PHPMyAdmin.
 services: mysql
 author: ajlam
 ms.author: andrela
@@ -9,122 +9,122 @@ editor: jasonwhowell
 ms.service: mysql
 ms.topic: article
 ms.date: 06/02/2018
-ms.openlocfilehash: c801426ad354a165ac749333ddd4671c13536edb
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: f3e38bb3e7e4f2c58f1ae955878747ebc7d386f1
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35265851"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49984494"
 ---
-# <a name="migrate-your-mysql-database-to-azure-database-for-mysql-using-dump-and-restore"></a>Migrera MySQL-databas till Azure-databas för MySQL med dump och återställning
-Den här artikeln förklarar två vanliga sätt att säkerhetskopiera och återställa databaser i din Azure-databas för MySQL
-- Dump och återställning från kommandoraden (med mysqldump) 
-- Dump och Återställ med hjälp av PHPMyAdmin 
+# <a name="migrate-your-mysql-database-to-azure-database-for-mysql-using-dump-and-restore"></a>Migrera din MySQL-databas till Azure Database för MySQL med säkerhetskopiering och återställning
+Den här artikeln beskrivs två vanliga sätt att säkerhetskopiera och återställa databaser i din Azure Database for MySQL
+- Säkerhetskopiering och återställning från kommandoraden (Använd mysqldump) 
+- Dumpa och återställa med hjälp av PHPMyAdmin 
 
 ## <a name="before-you-begin"></a>Innan du börjar
-Du måste ha för att gå igenom den här instruktioner:
-- [Skapa Azure-databas för MySQL - server i Azure-portalen](quickstart-create-mysql-server-database-using-azure-portal.md)
+För att gå igenom den här guiden, måste du ha:
+- [Skapa Azure Database for MySQL-server – Azure-portalen](quickstart-create-mysql-server-database-using-azure-portal.md)
 - [mysqldump](https://dev.mysql.com/doc/refman/5.7/en/mysqldump.html) kommandoradsverktyg som installeras på en dator.
-- MySQL-arbetsstationen [MySQL arbetsstationen hämta](https://dev.mysql.com/downloads/workbench/), Toad, Navicat eller andra verktyg för tredje parts MySQL dump och återställa kommandon.
+- MySQL Workbench [MySQL Workbench hämta](https://dev.mysql.com/downloads/workbench/), Toad, Navicat eller andra tredjeparts-MySQL-verktyget för att dumpa och återställa kommandon.
 
 ## <a name="use-common-tools"></a>Använd gemensamma verktyg
-Använd gemensamma verktyg och verktyg som MySQL arbetsstationen, mysqldump, Toad eller Navicat att fjärransluta och återställa data till Azure-databasen för MySQL. Använd dessa verktyg på klientdatorn med en Internetanslutning för att ansluta till Azure-databasen för MySQL. Använd en SSL-krypterad anslutning Metodtips för säkerhet, se även [Konfigurera SSL-anslutning i Azure-databas för MySQL](concepts-ssl-connection-security.md). Du behöver inte flytta dumpfiler vart särskilda moln när du migrerar till Azure-databas för MySQL. 
+Använda vanliga funktioner och verktyg, till exempel MySQL Workbench, mysqldump, Toad eller Navicat för att fjärransluta och återställer data till Azure Database för MySQL. Använd dessa verktyg på din klientdator med en Internetanslutning för att ansluta till Azure Database för MySQL. Använda en SSL-krypterad anslutning för bästa säkerhetspraxis, se även [Konfigurera SSL-anslutning i Azure Database för MySQL](concepts-ssl-connection-security.md). Du behöver inte flytta filer med felsökningsdumpar vart särskilda molnet när du migrerar till Azure Database för MySQL. 
 
-## <a name="common-uses-for-dump-and-restore"></a>Vanliga användningsområden för dump och återställning
-Du kan använda MySQL verktyg, till exempel mysqldump och mysqlpump till dump och Läs in databaser i en MySQL-databas på Azure i flera vanliga scenarier. I annat fall kan du använda den [importera och exportera](concepts-migrate-import-export.md) närmar sig i stället.
+## <a name="common-uses-for-dump-and-restore"></a>Vanliga användningsområden för säkerhetskopiering och återställning
+Du kan använda MySQL-verktyg, till exempel mysqldump och mysqlpump till dump och load-databaser till en Azure MySQL-databas i flera vanliga scenarier. I annat fall kan du använda den [importera och exportera](concepts-migrate-import-export.md) metod, i stället.
 
-- Använd database Dumpar när du migrerar hela databasen. Denna rekommendation innehåller när du flyttar en stor mängd MySQL data eller när du vill minimera driftstopp för live-webbplatser eller program. 
--  Kontrollera att alla tabeller i databasen använder lagringsmotorn InnoDB vid inläsning av data till Azure-databas för MySQL. Azure-databas för MySQL stöder endast InnoDB lagringsmotorn och därför stöd inte för alternativa lagring motorer. Om dina tabeller har konfigurerats med andra lagring motorer, kan du konvertera dem till formatet InnoDB motorn innan migreringen till Azure-databas för MySQL.
-   Till exempel om du har en WordPress eller Webbappen med hjälp av MyISAM-tabeller, först konvertera dessa tabeller genom att migrera till InnoDB format innan du återställer till Azure-databas för MySQL. Använd satsen `ENGINE=InnoDB` för att ange den motor som används när du skapar en ny tabell, sedan överföra data till tabellen kompatibel innan återställningen. 
+- Använd database minnesdumpar när du migrerar hela databasen. Den här rekommendationen innehåller när du flyttar en stor del av MySQL-data, eller när du vill minimera avbrott i tjänsten för live-webbplatser eller program. 
+-  Kontrollera att alla tabeller i databasen använder InnoDB-lagringsmotorn vid inläsning av data till Azure Database för MySQL. Azure Database för MySQL stöder bara InnoDB lagringsmotorn och stöder därför inte alternativt lagringskonto motorer. Om dina tabeller har konfigurerats med andra storage-motorer, kan du konvertera dem till InnoDB engine-format innan du migrerar till Azure Database för MySQL.
+   Till exempel om du har en WordPress- eller WebApp med MyISAM tabeller, först konvertera dessa tabeller genom att migrera till InnoDB format innan du återställer till Azure Database för MySQL. Använd satsen `ENGINE=InnoDB` för att ange den motor som används när du skapar en ny tabell, sedan överföra data till tabellen kompatibel efter återställningen. 
 
    ```sql
    INSERT INTO innodb_table SELECT * FROM myisam_table ORDER BY primary_key_columns
    ```
-- Se till att samma version av MySQL används på käll- och system när dumpning databaser för att undvika eventuella problem med programkompatibilitet. Till exempel om den befintliga MySQL-servern är version 5.7 bör sedan du migrera till Azure-databas för MySQL som konfigurerats för att köra version 5.7. Den `mysql_upgrade` kommandot fungerar inte i en Azure-databas för MySQL-server och stöds inte. Om du behöver uppgradera mellan olika versioner av MySQL först dump eller exportera lägre version databasen till en senare version av MySQL i din egen miljö. Kör sedan `mysql_upgrade`, innan du försöker migrera till en Azure-databas för MySQL.
+- Kontrollera att samma version av MySQL används på käll-och mål när dumpning databaser för att undvika eventuella kompatibilitetsproblem. Exempel: om din befintliga MySQL-server är version 5.7, sedan du bör migrera till Azure Database för MySQL som konfigurerats för att köra version 5.7. Den `mysql_upgrade` kommandot fungerar inte i en Azure Database for MySQL-server och stöds inte. Om du behöver uppgraderar från en MySQL-version först dump eller exportera lägre version databasen till en senare version av MySQL i din egen miljö. Kör sedan `mysql_upgrade`, innan du försöker migrera till en Azure Database för MySQL.
 
 ## <a name="performance-considerations"></a>Saker att tänka på gällande prestanda
-För att optimera prestanda uppmärksamma dessa överväganden när dumpning stora databaser:
--   Använd den `exclude-triggers` alternativet i mysqldump när dumpning databaser. Exkludera utlösare från dumpfiler att undvika kommandona utlösare startar under återställning av data. 
--   Använd den `single-transaction` alternativet för att ange transaktionen isoleringsläge REPETERBARA läsa och skickar en starta TRANSAKTION SQL-instruktion till servern innan dumpning data. Dumpning många tabeller i en enda transaktion gör vissa extra lagring som ska förbrukas under återställning. Den `single-transaction` alternativet och `lock-tables` alternativet är ömsesidigt uteslutande eftersom Lås tabeller leder till att alla väntande transaktioner ska genomföras implicit. Om du vill dump stora tabeller, kombinera den `single-transaction` alternativet med den `quick` alternativet. 
--   Använd den `extended-insert` syntax för flera rader som innehåller flera värdelistor. Detta resulterar i en mindre dumpfil och snabbare infogningar när filen läses.
--  Använd den `order-by-primary` alternativet i mysqldump när dumpning databaser, så att data är skripta i primär nyckel ordning.
--   Använd den `disable-keys` alternativ i mysqldump när dumpning data, för att inaktivera sekundärnyckelbegränsningar innan belastningen. Inaktivera främmande nycklar kontroller ger prestandavinster. Aktivera begränsningar och verifiera data efter belastningen så referensintegritet.
+För att optimera prestanda, märke till dessa överväganden när dumpning stora databaser:
+-   Använd den `exclude-triggers` alternativ i mysqldump när dumpning databaser. Undanta utlösare från filer med felsökningsdumpar att undvika kommandona utlösaren aktiveringen under återställningen data. 
+-   Använd den `single-transaction` alternativ för att ange isoleringsläget transaktion till REPEATABLE READ och skickar ett starta TRANSAKTION SQL-uttryck till servern innan dumpning data. Dumpning många tabeller i en enda transaktion gör vissa extra lagringsutrymme som ska förbrukas under återställning. Den `single-transaction` alternativet och `lock-tables` alternativet är ömsesidigt uteslutande eftersom Lås tabeller leder till att alla pågående transaktioner som anslås implicit. Om du vill dump stora tabeller, kombinera den `single-transaction` alternativet med den `quick` alternativet. 
+-   Använd den `extended-insert` syntax i flera rader som innehåller flera värdelistor. Detta resulterar i en mindre dumpfil och snabbar upp infogningar när filen laddas.
+-  Använd den `order-by-primary` alternativ i mysqldump när dumpning databaser, så att data är skriptade i primära nyckelordning.
+-   Använd den `disable-keys` alternativet i mysqldump när dumpning data, om du vill inaktivera sekundärnyckelbegränsningar innan belastningen. Inaktivera främmande nycklar kontroller ger prestandavinster. Aktivera begränsningarna och verifiera data efter inläsningen så referensintegritet.
 -   Använd partitionerade tabeller när det är lämpligt.
--   Läsa in data parallellt. Undvik att för mycket parallellitet som skulle innebära att du har nått gränsen för en resurs och övervaka resurser med hjälp av mätvärden som är tillgängliga i Azure-portalen. 
--   Använd den `defer-table-indexes` alternativet i mysqlpump när dumpning databaser, så att skapandet av index uppstår efter tabeller data har lästs in.
--   Kopiera de säkerhetskopiera filerna till en Azure blobstore och utföra återställningen därifrån som ska vara mycket snabbare än att utföra återställningen via Internet.
+-   Läsa in data parallellt. Undvik att för mycket parallellitet som skulle du skriva en resursgräns, och övervaka resurser med hjälp av mått som är tillgängliga i Azure-portalen. 
+-   Använd den `defer-table-indexes` alternativ i mysqlpump när dumpning databaser, så att skapa index händer efter tabeller data har lästs in.
+-   Kopiera de säkerhetskopiera filerna till en Azure blobblagring och utföra återställningen därifrån, vilket borde vara mycket snabbare än att utföra återställningen via Internet.
 
 ## <a name="create-a-backup-file-from-the-command-line-using-mysqldump"></a>Skapa en säkerhetskopia från kommandoraden med hjälp av mysqldump
-Om du vill säkerhetskopiera en befintlig MySQL-databas på den lokala lokal servern eller i en virtuell dator, kör du följande kommando: 
+Om du vill säkerhetskopiera en befintlig MySQL-databas på den lokala servern eller på en virtuell dator, kör du följande kommando: 
 ```bash
 $ mysqldump --opt -u [uname] -p[pass] [dbname] > [backupfile.sql]
 ```
 
-Parametrarna för att ange är:
-- [uname] Användarnamn för databasen 
-- [pass] Lösenordet för databasen (Observera att det finns inget utrymme mellan -p och -lösenordet) 
+Parametrarna för att tillhandahålla är:
+- [uname] Din databasanvändarnamn 
+- [pass] Lösenordet för din databas (Observera att det finns inget utrymme mellan -p och lösenordet) 
 - [dbname] Namnet på din databas 
-- [backupfile.sql] filnamn för säkerhetskopiering av databas 
-- [--välja] Alternativet mysqldump 
+- [backupfile.sql] filnamnet för säkerhetskopian databas 
+- [--opt] Alternativet mysqldump 
 
-Till exempel om du vill säkerhetskopiera en databas med namnet 'testdb' på MySQL-servern med användarnamnet ”testuser' och utan lösenord till en fil testdb_backup.sql, använder du följande kommando. Kommandot säkerhetskopierar den `testdb` databas till en fil med namnet `testdb_backup.sql`, som innehåller alla SQL-instruktioner som krävs för att skapa databasen igen. 
+Till exempel om du vill säkerhetskopiera en databas med namnet ”testdb” på MySQL-servern med användarnamnet ”testuser” och inget lösenord till en fil testdb_backup.sql, använder du följande kommando. Kommandot som säkerhetskopierar de `testdb` databas till en fil med namnet `testdb_backup.sql`, som innehåller alla SQL-instruktioner som krävs för att skapa databasen på nytt. 
 
 ```bash
 $ mysqldump -u root -p testdb > testdb_backup.sql
 ```
-Att markera specifika tabeller i databasen för att säkerhetskopiera, lista tabellnamn avgränsade med blanksteg. Till exempel om du vill säkerhetskopiera endast tabell1 och tabell2 tabeller från testdb följa det här exemplet: 
+Att välja specifika tabeller i databasen för att säkerhetskopiera, lista tabellnamn avgränsade med blanksteg. Om du vill säkerhetskopiera endast tabell1 och tabell2 tabeller från testdb följer du till exempel det här exemplet: 
 ```bash
 $ mysqldump -u root -p testdb table1 table2 > testdb_tables_backup.sql
 ```
-Om du vill säkerhetskopiera mer än en databas samtidigt använda--databasen växla och visa en lista över databasnamn avgränsade med blanksteg. 
+Om du vill säkerhetskopiera flera databaser på samma gång, Använd--databasen växla och lista databasnamn avgränsade med blanksteg. 
 ```bash
 $ mysqldump -u root -p --databases testdb1 testdb3 testdb5 > testdb135_backup.sql 
 ```
-Om du vill säkerhetskopiera alla databaser på servern på samma gång, bör du använda alternativet--alla databaser.
+Om du vill säkerhetskopiera alla databaser på servern i taget, bör du använda alternativet--alla databaser.
 ```bash
 $ mysqldump -u root -p --all-databases > alldb_backup.sql 
 ```
 
-## <a name="create-a-database-on-the-target-azure-database-for-mysql-server"></a>Skapa en databas på mål Azure-databas för MySQL-server
-Skapa en tom databas på Azure-databas för målet för MySQL-server där du vill migrera data. Använda ett verktyg som MySQL arbetsstationen, Toad eller Navicat för att skapa databasen. Databasen kan ha samma namn som den databas som innehåller dumpade data eller du kan skapa en databas med ett annat namn.
+## <a name="create-a-database-on-the-target-azure-database-for-mysql-server"></a>Skapa en databas på Azure-måldatabas för MySQL-server
+Skapa en tom databas på Azure-måldatabas för MySQL-server där du vill migrera data. Använd ett verktyg som MySQL Workbench, Toad eller Navicat för att skapa databasen. Databasen kan ha samma namn som den databas som är innehöll dumpade data eller du kan skapa en databas med ett annat namn.
 
-Om du vill hämta ansluten, hitta anslutningsinformationen i den **översikt** för din Azure-databas för MySQL.
+Om du vill ansluta, letar du upp informationen i den **översikt** för din Azure Database for MySQL.
 
-![Hitta anslutningsinformationen i Azure-portalen](./media/concepts-migrate-dump-restore/1_server-overview-name-login.png)
+![Hitta anslutningsinformationen i Azure portal](./media/concepts-migrate-dump-restore/1_server-overview-name-login.png)
 
-Lägg till informationen i MySQL-arbetsstationen.
+Lägg till anslutningsinformation till MySQL Workbench.
 
-![MySQL-arbetsstationen anslutningssträngen](./media/concepts-migrate-dump-restore/2_setup-new-connection.png)
+![Anslutningssträngen för MySQL Workbench](./media/concepts-migrate-dump-restore/2_setup-new-connection.png)
 
 
-## <a name="restore-your-mysql-database-using-command-line-or-mysql-workbench"></a>Återställ MySQL-databas med hjälp av kommandoradsverktyget eller MySQL arbetsstationen
-När du har skapat måldatabasen, kan du använda mysql-kommandot eller MySQL-arbetsstationen för att återställa data till den specifika nyligen skapade databasen från dumpfilen.
+## <a name="restore-your-mysql-database-using-command-line-or-mysql-workbench"></a>Återställ med hjälp av kommandoradsverktyget MySQL-databas eller MySQL Workbench
+När du har skapat måldatabasen, kan du använda mysql-kommandot eller MySQL Workbench för att återställa data till den specifika databasen du skapade nyss från dumpfilen.
 ```bash
 mysql -h [hostname] -u [uname] -p[pass] [db_to_restore] < [backupfile.sql]
 ```
-Återställa data i databasen som har skapats på aktiva Azure-databas för MySQL-servern i det här exemplet.
+I det här exemplet, återställer du data till den nyligen skapade databasen på Azure-måldatabas för MySQL-server.
 ```bash
 $ mysql -h mydemoserver.mysql.database.azure.com -u myadmin@mydemoserver -p testdb < testdb_backup.sql
 ```
 
-## <a name="export-using-phpmyadmin"></a>Exportera med PHPMyAdmin
-Om du vill exportera, kan du använda den vanliga verktyget phpMyAdmin som du redan har installerat lokalt i din miljö. Så här exporterar MySQL-databasen med hjälp av PHPMyAdmin:
+## <a name="export-using-phpmyadmin"></a>Exportera med hjälp av PHPMyAdmin
+Om du vill exportera, kan du använda den vanliga verktyg phpMyAdmin som du kanske redan har installerat lokalt i din miljö. Så här exporterar du din MySQL-databas med hjälp av PHPMyAdmin:
 1. Öppna phpMyAdmin.
 2. Välj din databas. Klicka på namnet på databasen i listan till vänster. 
 3. Klicka på den **exportera** länk. En ny sida visas att visa dumpning av databasen.
-4. Exportera, klicka på den **Markera alla** länk till Välj tabellerna i databasen. 
-5. Klicka på alternativ i området för SQL-alternativ. 
-6. Klicka på den **Spara som filen** alternativet och motsvarande komprimering och klickar sedan på den **Gå** knappen. En dialogruta visas där du uppmanas att spara filen lokalt.
+4. I området för Export klickar du på den **Markera alla** länk för att välja tabellerna i databasen. 
+5. Klicka på lämplig alternativen i området för SQL-alternativ. 
+6. Klicka på den **Spara som fil** alternativet och motsvarande komprimering och klickar sedan på den **Gå** knappen. En dialogruta visas där du uppmanas att spara filen lokalt.
 
 ## <a name="import-using-phpmyadmin"></a>Importera med hjälp av PHPMyAdmin
-Importera databasen liknar export. Gör följande:
+Importera din databas liknar export. Gör följande:
 1. Öppna phpMyAdmin. 
-2. Klicka på installationssidan phpMyAdmin **Lägg till** att lägga till din Azure-databas för MySQL-servern. Ange anslutningsinformationen och inloggningsinformation.
-3. Skapa en korrekt namngiven databas och markera den till vänster på skärmen. Om du vill skriva om den befintliga databasen, klickar du på namnet på databasen, markerar du kryssrutorna bredvid tabellnamnen och väljer **släppa** att ta bort de befintliga tabellerna. 
-4. Klicka på den **SQL** länken för att visa sidan där du kan skriva i SQL-kommandon eller ladda upp din SQL-fil. 
-5. Använd den **Bläddra** för att hitta databasfilen. 
-6. Klicka på den **Gå** för att exportera säkerhetskopieringen, köra SQL-kommandon och återskapa din databas.
+2. På sidan phpMyAdmin installationen klickar du på **Lägg till** att lägga till din Azure Database for MySQL-server. Ange anslutningsinformationen och inloggningsinformation.
+3. Skapa en korrekt namngivna databas och välj den till vänster på skärmen. Om du vill skriva om den befintliga databasen, klickar du på namnet på databasen, markerar du kryssrutorna bredvid tabellnamn och välj **släppa** att ta bort de befintliga tabellerna. 
+4. Klicka på den **SQL** länk för att visa sidan där du kan skriva in SQL-kommandon eller ladda upp din SQL-fil. 
+5. Använd den **Bläddra** knappen för att hitta databasfilen. 
+6. Klicka på den **Gå** knappen för att exportera säkerhetskopieringen, köra SQL-kommandon och återskapa din databas.
 
 ## <a name="next-steps"></a>Nästa steg
-- [Ansluta program till Azure-databas för MySQL](./howto-connection-string.md).
-- Mer information om hur du migrerar databaser till Azure-databas för MySQL, finns det [databasen Migreringsguide](http://aka.ms/datamigration).
+- [Anslut program till Azure Database för MySQL](./howto-connection-string.md).
+- Mer information om hur du migrerar databaser till Azure Database för MySQL, finns i den [Guide för Databasmigrering](https://aka.ms/datamigration).

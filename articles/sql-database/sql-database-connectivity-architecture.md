@@ -12,12 +12,12 @@ ms.author: moslake
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 01/24/2018
-ms.openlocfilehash: 82bc76b47f8073e07163e7f827b900a59cf3ad7f
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: ca1ef9c402b370a8d1228e13d7fe3e13fd225f79
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49470583"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49986329"
 ---
 # <a name="azure-sql-database-connectivity-architecture"></a>Azure SQL Database Connectivity-arkitektur
 
@@ -73,9 +73,16 @@ I följande tabell visas de primära och sekundära IP-adresserna för Azure SQL
 | Centrala Kanada | 40.85.224.249 | |
 | Östra Kanada | 40.86.226.166 | |
 | Centrala USA | 23.99.160.139 | 13.67.215.62 |
+| Östra Kina 1 | 139.219.130.35 | |
+| Kina, östra 2 | 40.73.82.1 | |
+| Norra Kina 1 | 139.219.15.17 | |
+| Kina, norra 2 | 40.73.50.0 | |
 | Östasien | 191.234.2.139 | 52.175.33.150 |
 | Östra USA 1 | 191.238.6.43 | 40.121.158.30 |
 | USA, östra 2 | 191.239.224.107 | 40.79.84.180 * |
+| Frankrike, centrala | 40.79.137.0 | 40.79.129.1 |
+| Centrala Tyskland | 51.4.144.100 | |
+| Nordöstra Tyskland | 51.5.144.179 | |
 | Centrala Indien | 104.211.96.159 | |
 | Södra Indien | 104.211.224.146 | |
 | Västra Indien | 104.211.160.80 | |

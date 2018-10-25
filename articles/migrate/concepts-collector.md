@@ -4,15 +4,15 @@ description: Innehåller information om insamlingsprogrammet i Azure Migrate.
 author: snehaamicrosoft
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 10/23/2018
+ms.date: 10/24/2018
 ms.author: snehaa
 services: azure-migrate
-ms.openlocfilehash: 3c40fd97540d8529c95c7d18d2c3155dd37717e9
-ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
+ms.openlocfilehash: 006a246323e9f82ea9c9a6a2940ed624d7e44e13
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49945424"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49986788"
 ---
 # <a name="about-the-collector-appliance"></a>Om insamlingsprogrammet
 
@@ -198,7 +198,7 @@ Observera att installationen endast samlar in prestandadata kontinuerligt, inte 
 2. Borttagning av virtuella datorer: beroende på det sätt som är utformad för installationen, borttagning av virtuella datorer inte visas även om du stoppar och startar identifieringen. Detta är eftersom data från följande identifieringar läggas till äldre identifieringar och inte åsidosätts. I det här fallet kan du helt enkelt ignorerar den virtuella datorn i portalen genom att ta bort den från din grupp och beräkna utvärderingen.
 
 > [!NOTE]
-> Identifiering av kontinuerlig funktioner finns i förhandsversion. Om statistikinställningarna för vCenter-servern inte är inställd på nivå 3, rekommenderar vi att du använder den här metoden.
+> Identifiering av kontinuerlig funktioner finns i förhandsversion. Vi rekommenderar att du kan använda den här metoden när den här metoden samlar in detaljerad prestandadata och leder till korrekt rätt storlek.
 
 
 ## <a name="discovery-process"></a>Processen för identifiering

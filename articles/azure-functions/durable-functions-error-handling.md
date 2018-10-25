@@ -2,20 +2,20 @@
 title: Hantera fel i varaktiga funktioner – Azure
 description: Lär dig mer om att hantera fel i tillägget varaktiga funktioner för Azure Functions.
 services: functions
-author: cgillum
+author: kashimiz
 manager: jeconnoc
 keywords: ''
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
-ms.date: 09/05/2018
+ms.date: 10/23/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 6bf9eb2cd2ebdf5f6d53e00923146bab49a142bf
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: 61496d91c9ec2cd1dcf498df04d2dab6629e009c
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44377913"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49984136"
 ---
 # <a name="handling-errors-in-durable-functions-azure-functions"></a>Hantera fel i varaktiga funktioner (Azure Functions)
 
@@ -26,6 +26,8 @@ Hållbar funktionen orkestreringar implementeras i kod och kan använda funktion
 Alla undantag som genereras i en aktivitet funktionen ordnas tillbaka till orchestrator-funktion och genereras som en `FunctionFailedException`. Du kan skriva felhantering och kompensation felkoden som passar dina behov i orchestrator-funktion.
 
 Anta exempelvis att följande orchestrator-funktion som överför pengar från ett konto till en annan:
+
+#### <a name="c"></a>C#
 
 ```csharp
 #r "Microsoft.Azure.WebJobs.Extensions.DurableTask"
@@ -64,11 +66,49 @@ public static async Task Run(DurableOrchestrationContext context)
 }
 ```
 
+#### <a name="javascript-functions-v2-only"></a>JavaScript (endast funktioner v2)
+
+```javascript
+const df = require("durable-functions");
+
+module.exports = df.orchestrator(function*(context) {
+    const transferDetails = context.df.getInput();
+
+    yield context.df.callActivity("DebitAccount",
+        {
+            account = transferDetails.sourceAccount,
+            amount = transferDetails.amount,
+        }
+    );
+
+    try {
+        yield context.df.callActivity("CreditAccount",
+            {
+                account = transferDetails.destinationAccount,
+                amount = transferDetails.amount,
+            }
+        );
+    }
+    catch (error) {
+        // Refund the source account.
+        // Another try/catch could be used here based on the needs of the application.
+        yield context.df.callActivity("CreditAccount",
+            {
+                account = transferDetails.sourceAccount,
+                amount = transferDetails.amount,
+            }
+        );
+    }
+});
+```
+
 Om anropet till den **CreditAccount** misslyckas åtgärden för mål-konto, orchestrator-funktion kompenserar för det här genom kreditering pengar tillbaka till källkontot.
 
 ## <a name="automatic-retry-on-failure"></a>Automatiska återförsök vid fel
 
 När du anropar Aktivitetsfunktioner eller underordnade orchestration-funktioner, kan du ange en automatisk återförsöksprincip. I följande exempel försöker anropa en funktion upp till tre gånger och väntar 5 sekunder mellan varje nytt försök:
+
+#### <a name="c"></a>C#
 
 ```csharp
 public static async Task Run(DurableOrchestrationContext context)
@@ -83,7 +123,21 @@ public static async Task Run(DurableOrchestrationContext context)
 }
 ```
 
-Den `CallActivityWithRetryAsync` API tar en `RetryOptions` parametern. Suborchestration anrop med hjälp av den `CallSubOrchestratorWithRetryAsync` API kan använda dessa samma principer för återförsök.
+#### <a name="javascript-functions-v2-only"></a>JavaScript (endast funktioner v2)
+
+```javascript
+const df = require("durable-functions");
+
+module.exports = df.orchestrator(function*(context) {
+    const retryOptions = new df.RetryOptions(5000, 3);
+    
+    yield context.df.callActivityWithRetry("FlakyFunction", retryOptions);
+
+    // ...
+});
+```
+
+Den `CallActivityWithRetryAsync` (C#) eller `callActivityWithRetry` (JS) API tar en `RetryOptions` parametern. Suborchestration anrop med hjälp av den `CallSubOrchestratorWithRetryAsync` (C#) eller `callSubOrchestratorWithRetry` (JS) API kan använda dessa samma principer för återförsök.
 
 Det finns flera alternativ för att anpassa automatisk återförsöksprincipen. Dessa inkluderar:
 
@@ -97,6 +151,8 @@ Det finns flera alternativ för att anpassa automatisk återförsöksprincipen. 
 ## <a name="function-timeouts"></a>Funktionen tidsgränser
 
 Du kanske vill lämna ett funktionsanrop inom en orchestrator-funktion om det tar för lång tid att slutföra. Det korrekta sättet att göra detta idag är genom att skapa en [varaktiga timer](durable-functions-timers.md) med `context.CreateTimer` tillsammans med `Task.WhenAny`, som i följande exempel:
+
+#### <a name="c"></a>C#
 
 ```csharp
 public static async Task<bool> Run(DurableOrchestrationContext context)
@@ -125,10 +181,34 @@ public static async Task<bool> Run(DurableOrchestrationContext context)
 }
 ```
 
+#### <a name="javascript-functions-v2-only"></a>JavaScript (endast funktioner v2)
+
+```javascript
+const df = require("durable-functions");
+const moment = require("moment");
+
+module.exports = df.orchestrator(function*(context) {
+    const deadline = moment.utc(context.df.currentUtcDateTime).add(30, "s");
+
+    const activityTask = context.df.callActivity("FlakyFunction");
+    const timeoutTask = context.df.createTimer(deadline.toDate());
+
+    const winner = yield context.df.Task.any([activityTask, timeoutTask]);
+    if (winner === activityTask) {
+        // success case
+        timeoutTask.cancel();
+        return true;
+    } else {
+        // timeout case
+        return false;
+    }
+});
+```
+
 > [!NOTE]
 > Den här mekanismen avslutar inte faktiskt pågående aktivitetskörning av funktion. Det helt enkelt står orchestrator-funktion att ignorera resultatet och gå vidare. Mer information finns i den [Timers](durable-functions-timers.md#usage-for-timeout) dokumentation.
 
-## <a name="unhandled-exceptions"></a>Ett ohanterat undantag
+## <a name="unhandled-exceptions"></a>Ohanterade undantag
 
 Om en orchestrator-funktion misslyckas med ett ohanterat undantag, loggas information om undantaget och instansen är klar med en `Failed` status.
 

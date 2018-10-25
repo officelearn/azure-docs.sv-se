@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/23/2018
 ms.author: sharadag
-ms.openlocfilehash: de709133099674a0aa0386113b6459f8bc05e378
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 5cf94079dcd68887d9725ffbe9124f9b6c897dd0
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47047869"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49984774"
 ---
 # <a name="allowed-certificate-authorities-for-enabling-custom-https-on-azure-front-door-service"></a>Tillåtna certifikatutfärdare för att aktivera anpassad HTTPS på Azure ytterdörren Service
 
@@ -26,6 +26,10 @@ För en anpassad Azure ytterdörren Service-domän när du [aktivera HTTPS-funkt
 Följande CA: er tillåts när du skapar dina egna certifikat:
 
 - AddTrust externa Certifikatutfärdare rot
+- AlphaSSL rot-CA
+- AMN Infra CA 01
+- AMN Infra CA 02
+- Ameroot
 - Asien och Stillahavsområdet rot-CA
 - Asien och Stillahavsområdet rotcertifikatutfärdare 2013
 - Asien och Stillahavsområdet rotcertifikatutfärdare 2014
@@ -40,37 +44,26 @@ Följande CA: er tillåts när du skapar dina egna certifikat:
 - DigiCert globala Rotcertifikatutfärdare
 - DigiCert hög Assurance CA-3
 - DigiCert hög Assurance EV rot-CA
+- DigiCert SHA2 utökad validering Server CA
 - DigiCert SHA2 höga säkerhet Server CA
 - DigiCert SHA2 säker CA-Server
+- DST rotcertifikatutfärdaren X3
+- D-trust klass 3 Rotcertifikatutfärdare 2 2009
+- Kryptering överallt DV TLS CA
+- Entrust-certifikat från rotcertifikatutfärdare
+- Entrust rotcertifikatutfärdare - G2
+- Entrust.NET certifikatutfärdare (2048)
 - GeoTrust globala CA
 - GeoTrust primära certifikatutfärdare
 - GeoTrust primära certifikatutfärdaren - G2
+- Geotrust RSA CA 2018
 - GlobalSign
 - Utökad validering CA - SHA256 - G2 GlobalSign
 - GlobalSign organisation verifiering CA - G2
 - GlobalSign rot-CA
 - Go Daddy rotcertifikatutfärdare - G2
-- Microsoft Authenticode rotcertifikatutfärdare
-- Microsoft Exchange-tjänster CA 2015
-- Microsoft internt företagets rotcertifikatutfärdare
-- Microsoft IT ITO SSL CA 1
-- Microsoft IT SSL SHA1
-- Microsoft IT SSL SHA2
-- Microsoft IT TLS CA 1
-- Microsoft IT TLS CA 2
-- Microsoft IT TLS CA 4
-- Microsoft IT TLS CA 5
-- Microsoft rotcertifikatutfärdare
-- Microsoft rotcertifikatutfärdare
-- Microsoft rotcertifikatutfärdare 2010
-- Microsoft rotcertifikatutfärdare 2011
-- Microsoft säker Server CA 2011
-- Microsoft Services Partner rot
-- Microsoft tid stämpling Service rot
-- Microsoft Windows maskinvarukompatibilitet
-- MSIT CA Z2
-- MSIT Enterprise CA 1
-- MSIT Företagscertifikatutfärdare 3
+- Go Daddy säker certifikatutfärdare - G2
+- RapidSSL RSA CA 2018
 - Rot myndighet
 - Symantec-klass 3 EV SSL CA - G3
 - Symantec klass 3 säker Server CA - G4
@@ -78,12 +71,12 @@ Följande CA: er tillåts när du skapar dina egna certifikat:
 - Thawte primära rot-CA
 - Thawte primära rot-CA - G2
 - Thawte primära rot-CA - G3
+- Thawte RSA CA 2018
 - Thawte tidsstämplar CA
-- UTN-USERFirst-Object
+- TrustAsia TLS RSA CA
 - VeriSign Class 3 utökad validering SSL CA
 - VeriSign Class 3 utökad validering SSL SGC CA
 - VeriSign klass 3 primära certifikatutfärdare - G5
 - VeriSign International Server CA - klass 3
 - VeriSign tid stämpling Service rot
 - VeriSign Universal rotcertifikatutfärdare
-- WMSvc-SHA2-DALEDGE1008

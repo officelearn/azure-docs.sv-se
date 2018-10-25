@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/27/2018
-ms.openlocfilehash: ca596b2d33a6248dac94ddd7eef9a9c44daac3c8
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: af7a0d01fcf9df42da79a6529c8d4b0e31d73aa1
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49343749"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49985496"
 ---
 # <a name="introduction-to-ml-services-and-open-source-r-capabilities-on-hdinsight"></a>Introduktion till ML-tjänster och funktioner för öppen källkod-R på HDInsight
 
@@ -102,7 +102,7 @@ Om du väljer det här alternativet måste du omvandla valfri ScaleR modellobjek
 
 ### <a name="score-on-premises"></a>Poäng på plats
 
-För att bedöma lokala när du har skapat din modell du serialisera modellen i R, ladda ned det, deserialisera det och sedan använda den för bedömning av nya data. Du kan samla in nya data genom att använda den metod som beskrivs tidigare i [bedömning i HDInsight](#scoring-in-hdinsight) eller genom att använda [webbtjänster](https://docs.microsoft.com/machine-learning-server/operationalize/concept-what-are-web-services).
+För att bedöma lokala när du har skapat din modell du serialisera modellen i R, ladda ned det, deserialisera det och sedan använda den för bedömning av nya data. Du kan samla in nya data genom att använda den metod som beskrivs tidigare i [poängen på HDInsight](#score-in-hdinsight) eller genom att använda [webbtjänster](https://docs.microsoft.com/machine-learning-server/operationalize/concept-what-are-web-services).
 
 ## <a name="maintain-the-cluster"></a>Underhålla klustret
 

@@ -2,20 +2,20 @@
 title: Installera tillägget varaktiga funktioner och -exempel – Azure
 description: Lär dig hur du installerar tillägget varaktiga funktioner för Azure Functions för portalen utvecklings- eller Visual Studio-utveckling.
 services: functions
-author: cgillum
+author: kashimiz
 manager: jeconnoc
 keywords: ''
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
-ms.date: 08/31/2018
+ms.date: 10/23/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 2eb838bcb9d3f64d0bbf4657c516adb50d103223
-ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
+ms.openlocfilehash: 6bbf232fc17b9acfd4e8cd84a0cb1346ab8ea9b5
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/01/2018
-ms.locfileid: "47585313"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49986829"
 ---
 # <a name="install-the-durable-functions-extension-and-samples-azure-functions"></a>Installera tillägget varaktiga funktioner och exempel (Azure Functions)
 
@@ -45,7 +45,7 @@ Visual Studio har för närvarande den bästa upplevelsen för att utveckla appa
 Följ samma anvisningar som börjar med exemplet, men utför följande steg istället för att hämta den *.zip* fil:
 
 1. Skapa ett projekt för Funktionsappen.
-2. Sök efter den följande NuGet referens med *hantera NuGet-paket* och lägga till den i projektet: Microsoft.Azure.WebJobs.Extensions.DurableTask v1.6.0
+2. Sök efter den följande NuGet referens med *hantera NuGet-paket* och lägga till den i projektet: Microsoft.Azure.WebJobs.Extensions.DurableTask v1.6.2
    
 ## <a name="visual-studio-code"></a>Visual Studio-koden
 
@@ -75,12 +75,12 @@ Visual Studio Code är en lokal utveckling som täcker alla större plattformar 
 3. Installera Azure Functions varaktiga Extension genom att köra följande i ett kommando fråga / terminal-fönstret:
 
     ```bash
-    func extensions install -p Microsoft.Azure.WebJobs.Extensions.DurableTask -v 1.6.0
+    func extensions install -p Microsoft.Azure.WebJobs.Extensions.DurableTask -v 1.6.2
     ```
 4. Installera Azure Functions Twilio-tillägget genom att köra följande i ett kommando fråga / terminal-fönstret:
 
     ```bash
-    func extensions install -p Microsoft.Azure.WebJobs.Extensions.Twilio -v 3.0.0-beta8
+    func extensions install -p Microsoft.Azure.WebJobs.Extensions.Twilio -v 3.0.0
     ```
 5. Kör Azure Storage-emulatorn eller uppdatera den *local.settings.json* fil med verkliga Azure Storage-anslutningssträng.
 6. Öppna projektet i Visual Studio Code. 
@@ -96,14 +96,14 @@ Visual Studio Code är en lokal utveckling som täcker alla större plattformar 
 2. Navigera på din dator till den [JavaScript exempelmapp](https://github.com/Azure/azure-functions-durable-extension/tree/master/samples/javascript). 
 3. Installera Azure Functions varaktiga Extension genom att köra följande i ett kommando fråga / terminal fönster
 
-    ```
+    ```bash
     func extensions install
     ```
     > [!NOTE] 
     > Detta kräver den [.NET Core SDK](https://www.microsoft.com/net/download) installeras på datorn
 4. Återställ npm-paket genom att köra följande i ett kommando fråga / terminal-fönstret:
     
-    ```
+    ```bash
     npm install
     ``` 
 5. Uppdatera den *local.settings.json* fil med en anslutningssträng från ett Azure storage-konto för `AzureWebJobsStorage`.  Det här lagringskontot används för varaktiga funktionstillstånd.
@@ -119,13 +119,13 @@ Visual Studio Code är en lokal utveckling som täcker alla större plattformar 
 1. Navigera till den mapp som ska vara värd för din funktionsapp i kommandot fråga / terminal.
 3. Skapa en Funktionsapp-projekt genom att köra följande kommando:
 
-    ```
+    ```bash
     func init
     ``` 
 4. Kör Azure Storage-emulatorn (endast Windows) eller uppdatera den *local.settings.json* filen med verkliga Azure Storage-anslutningssträngen för `AzureWebJobsStorage`.
 5. Sedan skapar en ny funktion genom att köra följande kommando och följ stegen i guiden:
 
-    ```
+    ```bash
     func new
     ```
     >[!IMPORTANT]

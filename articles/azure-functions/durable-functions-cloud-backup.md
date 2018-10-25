@@ -2,20 +2,20 @@
 title: FAN-in/fan-i scenarier i varaktiga funktioner – Azure
 description: Lär dig hur du implementerar ett fan-in-fläkt-in-scenario i tillägget varaktiga funktioner för Azure Functions.
 services: functions
-author: cgillum
+author: kashimiz
 manager: jeconnoc
 keywords: ''
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
-ms.date: 03/19/2018
+ms.date: 10/23/2018
 ms.author: azfuncdf
-ms.openlocfilehash: eec75ad9cf0f568e674b2a4f12d962982f84294f
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: 44e71c8e9256bdfd3a55cdd21a6658bccfd5daad
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44092673"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49987553"
 ---
 # <a name="fan-outfan-in-scenario-in-durable-functions---cloud-backup-example"></a>FAN-in/fan-i scenariot i varaktiga funktioner – Cloud backup-exempel
 
@@ -109,7 +109,7 @@ C#-implementeringen är också enkelt. Det händer använder några avancerade f
 
 ### <a name="javascript-functions-v2-only"></a>JavaScript (endast funktioner v2)
 
-JavaScript-implementeringen har inte åtkomst till den `Binder` funktion i Azure Functions, så den [Azure Storage SDK för Node](https://github.com/Azure/azure-storage-node) dess sker. Observera att SDK: N kräver en `AZURE_STORAGE_CONNECTION_STRING` appinställningen.
+JavaScript-implementeringen har inte åtkomst till den `Binder` funktion i Azure Functions, så den [Azure Storage SDK för Node](https://github.com/Azure/azure-storage-node) dess sker.
 
 [!code-javascript[Main](~/samples-durable-functions/samples/javascript/E2_CopyFileToBlob/index.js)]
 

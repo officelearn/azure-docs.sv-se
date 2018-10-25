@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/28/2017
-ms.openlocfilehash: e0d430ced1dbddbfca79806591c83c33e732eefd
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: 43202e88482933aed7952f6cc97dcaf1e0dcb5e7
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37901722"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49986040"
 ---
 # <a name="get-started-using-azure-stream-analytics-real-time-fraud-detection"></a>Komma igång med Azure Stream Analytics: bedrägerier i realtid
 
@@ -39,7 +39,7 @@ I de här självstudierna kommer du simulera telefonsamtal data med hjälp av en
 Se till att du har följande innan du börjar:
 
 * Ett Azure-konto.
-* Anropet-händelsegeneratorappen, [TelcoGenerator.zip](http://download.microsoft.com/download/8/B/D/8BD50991-8D54-4F59-AB83-3354B69C8A7E/TelcoGenerator.zip), som kan laddas ned från Microsoft Download Center. Packa upp det här paketet till en mapp på datorn. Om du vill se source code och kör appen i en felsökare kan du hämta app-källkoden från [GitHub](https://aka.ms/azure-stream-analytics-telcogenerator). 
+* Anropet-händelsegeneratorappen, [TelcoGenerator.zip](https://download.microsoft.com/download/8/B/D/8BD50991-8D54-4F59-AB83-3354B69C8A7E/TelcoGenerator.zip), som kan laddas ned från Microsoft Download Center. Packa upp det här paketet till en mapp på datorn. Om du vill se source code och kör appen i en felsökare kan du hämta app-källkoden från [GitHub](https://aka.ms/azure-stream-analytics-telcogenerator). 
 
     >[!NOTE]
     >Windows kan blockera hämtade ZIP-filen. Om du det går inte att packa upp den, högerklicka på filen och välj **egenskaper**. Om du ser meddelandet ”den här filen kommer från en annan dator och blockeras för att skydda den här datorn” väljer du den **avblockera** alternativ och klickar sedan på **tillämpa**.
@@ -138,7 +138,7 @@ Innan du startar appen TelcoGenerator måste du konfigurera den så att anropet 
     Parametrarna är: 
 
     * Antal skivor per timme. 
-    * Sannolikhet för bedrägeri av SIM-kort: Hur ofta som en procentandel av alla anrop, att appen ska simulera ett bedrägligt samtal. Värdet 0,2 innebär som cirka 20% av anropsposterna ser bedrägliga ut.
+    * Sannolikhet för bedrägeri av SIM-kort: Hur ofta som en procentandel av alla anrop, att appen ska simulera ett bedrägligt samtal. Värdet 0.2 betyder att cirka 20 % av anropsposterna ser bedrägliga ut.
     * Varaktighet i timmar. Antal timmar som appen ska köras. Du kan också stoppa appen när som helst genom att trycka på Ctrl + C på kommandoraden.
 
     Efter några sekunder börjar appen visa telefonsamtalsposter på skärmen och skickar dem till en händelsehubb.
@@ -348,7 +348,7 @@ Om du har ett befintligt blob storage-konto kan använda du som. För den här s
    |Utdataalias  |  CallStream-FraudulentCalls   |  Ange ett namn som identifierar jobbets utdata.   |
    |Prenumeration   |  \<Din prenumeration\> |  Välj den Azure-prenumeration där det lagringskonto som du skapade finns. Lagringskontot kan vara i samma eller en annan prenumeration. I det här exemplet förutsätts att du har skapat lagringskontot i samma prenumeration. |
    |Lagringskonto  |  asaehstorage |  Ange namnet på det lagringskonto du skapade. |
-   |Behållare  | asa-fraudulentcalls-demo | Välj Skapa nytt och ange ett behållarnamn. |
+   |Container  | asa-fraudulentcalls-demo | Välj Skapa nytt och ange ett behållarnamn. |
     <br/>
     <img src="./media/stream-analytics-real-time-fraud-detection/stream-analytics-create-output-blob-storage-new-console.png" alt="drawing" width="300px"/>
     

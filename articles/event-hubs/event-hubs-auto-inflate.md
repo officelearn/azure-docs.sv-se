@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/18/2018
 ms.author: shvija
-ms.openlocfilehash: bc4116bdb251ef6f3228b7394e5c8e0cdff67447
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: 19525086b1bd41afcc730fb3860d7a01875e4832
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49470174"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49987009"
 ---
 # <a name="automatically-scale-up-azure-event-hubs-throughput-units"></a>Skala automatiskt upp Azure Event Hubs-dataflödesenheter
 
@@ -59,7 +59,7 @@ Du kan också aktivera automatisk ökning med hjälp av den **skala** alternativ
 
 
 > [!NOTE]
-> När du tillämpar den automatisk ökning av konfigurationen för att öka antalet throughput units, Event Hubs-tjänsten genererar diagnostikloggar som tillhandahåller information om när och varför det ökade dataflödet. Aktivera Diagnostisk loggning för en händelsehubb **diagnostikinställningar** på menyn till vänster på sidan Händelsehubb i Azure-portalen. 
+> När du tillämpar den automatisk ökning av konfigurationen för att öka antalet throughput units, Event Hubs-tjänsten genererar diagnostikloggar som tillhandahåller information om när och varför det ökade dataflödet. Aktivera Diagnostisk loggning för en händelsehubb **diagnostikinställningar** på menyn till vänster på sidan Händelsehubb i Azure-portalen. Mer information finns i [registrerat diagnostikloggar för en Azure-händelsehubb](event-hubs-diagnostic-logs.md). 
 
 ### <a name="enable-auto-inflate-using-an-azure-resource-manager-template"></a>Aktivera automatisk ökning med en Azure Resource Manager-mall
 

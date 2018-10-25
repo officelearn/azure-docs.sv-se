@@ -12,23 +12,23 @@ ms.author: genemi
 ms.reviewer: carlrab
 manager: craigg-msft
 ms.date: 06/07/2018
-ms.openlocfilehash: 65a9bde6fa086dc56809df9619ceee1c5b417e31
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: 504fae03e06632f5960bfe0761cc0167b9e1d3fb
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47063309"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49465228"
 ---
 # <a name="design-an-azure-sql-database-and-connect-with-cx23-and-adonet"></a>Utforma en Azure SQL databas och anslut med C&#x23; och ADO.NET
 
-Azure SQL Database är en relationsdatabas-som-tjänst (DBaaS) som bygger på Microsoft Cloud (Azure). I de här självstudierna får du lära dig att använda Azure-portalen och ADO.NET med Visual Studio för att: 
+Azure SQL Database är en relationsdatabas-som-tjänst (DBaaS) som bygger på Microsoft Cloud (Azure). I de här självstudierna får du lära dig att använda Azure-portalen och ADO.NET med Visual Studio för att:
 
 > [!div class="checklist"]
 > * Skapa en databas på Azure-portalen
 > * Skapade en brandväggsregel på servernivå på Azure-portalen
 > * Ansluta till databasen med ADO.NET och Visual Studio
 > * Skapa tabeller med ADO.NET
-> * Infoga, uppdatera och ta bort data med ADO.NET 
+> * Infoga, uppdatera och ta bort data med ADO.NET
 > * Fråga efter data med ADO.NET
 
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
@@ -43,13 +43,11 @@ And it starts with a ## H2.
 
 [!INCLUDE [sql-database-tutorial-portal-create-firewall-connection-1](../../includes/sql-database-tutorial-portal-create-firewall-connection-1.md)]
 
-
 <!-- The following included .md, sql-database-csharp-adonet-create-query-2.md, is long.
 And it starts with a ## H2.
 -->
 
 [!INCLUDE [sql-database-csharp-adonet-create-query-2](../../includes/sql-database-csharp-adonet-create-query-2.md)]
-
 
 ## <a name="next-steps"></a>Nästa steg
 
@@ -60,10 +58,9 @@ I de här självstudierna har du lärt dig grundläggande databasuppgifter, till
 > * Ansluta till databasen med [Visual Studio och C#](sql-database-connect-query-dotnet-visual-studio.md)
 > * Skapa tabeller
 > * Infoga, uppdatera och ta bort data
-> * Frågedata
+> * Söka i data
 
 Gå vidare till nästa självstudie om du vill lära dig mer om hur du migrerar dina data.
 
 > [!div class="nextstepaction"]
 > [Migrera din SQL Server-databas till Azure SQL Database](sql-database-migrate-your-sql-server-database.md)
-

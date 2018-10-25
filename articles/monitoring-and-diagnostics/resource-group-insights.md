@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 09/19/2018
 ms.reviewer: mbullwin
 ms.author: daviste
-ms.openlocfilehash: 7e0a68efc93d0f907edfb38dbc548ac95a35b3e1
-ms.sourcegitcommit: 06724c499837ba342c81f4d349ec0ce4f2dfd6d6
+ms.openlocfilehash: 4b24ab406cc9cdbc3ce03ee203ec034843d5630a
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46465817"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49986431"
 ---
 # <a name="monitor-resource-groups-with-azure-monitor-preview"></a>Övervaka resursgrupper med Azure Monitor (förhandsversion)
 
@@ -113,7 +113,12 @@ I det här fallet om du väljer Redigera visas att den här uppsättningen visue
 ## <a name="troubleshooting"></a>Felsökning
 
 ### <a name="enabling-access-to-alerts"></a>Aktivera åtkomst till aviseringar
-Azure Monitor för resursgrupper måste vissa behörigheter att komma åt aviseringsstatus resurser i resursgruppen. Om du ser ett felmeddelande när du läser in aviseringar, har du inte tillräcklig behörighet. Be administratören att ge dig den **ägare** eller **deltagare** för prenumerationen som innehåller resursgruppen.
+
+Om du vill visa aviseringar i Azure Monitor för resursgrupper, måste någon med en ägare eller deltagare roll för den här prenumerationen öppna Azure Monitor för resursgrupper för alla resursgrupper i prenumerationen. Detta aktiverar alla med läsbehörighet Visa aviseringar i Azure Monitor för resursgrupper för alla resursgrupper i prenumerationen. Om du har en rollen som Prenumerationsägare eller deltagare kan du uppdatera den här sidan om några minuter.
+
+Azure Monitor för resursgrupper förlitar sig på Azure-hanteringssystemet övervakaren aviseringar för att hämta status för aviseringar. Hantera aviseringar för är inte konfigurerat för varje resursgrupp och prenumeration som standard och kan bara aktiveras av någon med en rollen som Prenumerationsägare eller deltagare. Det kan vara aktiverad antingen genom att:
+* Öppna Azure Monitor för resursgrupper för alla resursgrupper i prenumerationen.
+* Eller genom att gå till prenumerationen, klicka på **Resursprovidrar**, klicka på **registrera dig för Alerts.Management**.
 
 ## <a name="next-steps"></a>Nästa steg
 

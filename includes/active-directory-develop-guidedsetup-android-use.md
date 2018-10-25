@@ -14,17 +14,17 @@ ms.workload: identity
 ms.date: 09/13/2018
 ms.author: andret
 ms.custom: include file
-ms.openlocfilehash: 9d512af7fdd68ec3356b427429144ec9195fd95b
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.openlocfilehash: cf536879393622744da0a6dd5b4e38c8c52de39b
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48843241"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49988380"
 ---
-## <a name="use-msal-to-get-a-token"></a>Om du Använd MSAL för att hämta en token 
+## <a name="use-msal-to-get-a-token"></a>Om du Använd MSAL för att hämta en token
 
-1.  Under **app** > **java** > **{domain}. { AppName}** öppnar `MainActivity`. 
-2.  Lägg till följande importer:
+1. Under **app** > **java** > **{domain}. { AppName}** öppnar `MainActivity`. 
+2. Lägg till följande importer:
 
     ```java
     import android.app.Activity;
@@ -241,10 +241,13 @@ ms.locfileid: "48843241"
 
 <!--start-collapse-->
 ### <a name="more-information"></a>Mer information
+
 #### <a name="get-a-user-token-interactively"></a>Hämta en användartoken interaktivt
+
 Anropa den `AcquireTokenAsync` metoden öppnas ett fönster som uppmanar användaren att logga in eller välja sitt konto. Program måste vanligtvis fråga användaren efter en inledande interaktion, men kan användas utan meddelanden från den tidpunkten i. 
 
 #### <a name="get-a-user-token-silently"></a>Hämta en token obevakat
+
 Den `AcquireTokenSilentAsync` metoden hämtar en token utan någon användarinteraktion.  `AcquireTokenSilentAsync` kan hanteras som en mån-begäran med reserv för `AcquireTokenAsync` när användaren måste logga in igen eller göra vissa extra auktorisering, t.ex. Multi-Factor-autentisering. 
 
 När `AcquireTokenSilentAsync` misslyckas, den genererar en `MsalUiRequiredException`. Programmet kan hantera det här undantaget på två sätt:
@@ -254,7 +257,8 @@ När `AcquireTokenSilentAsync` misslyckas, den genererar en `MsalUiRequiredExcep
 * Försök `AcquireTokenSilentAsync` senare. Det här mönstret används ofta när användare kan använda andra programfunktionen utan avbrott, till exempel när offline innehållet är tillgängligt i programmet. Programmet kan bestämma att försöka igen `AcquireTokenSilentAsync` när nätverket har återställts efter att ha varit otillgänglig. 
 <!--end-collapse-->
 
-## <a name="call-the-microsoft-graph-api"></a>Anropa Microsoft Graph API 
+## <a name="call-the-microsoft-graph-api"></a>Anropa Microsoft Graph API
+
 Lägg till följande metoder i den `MainActivity` klass:
 
 ```java
@@ -311,6 +315,7 @@ private void updateGraphUI(JSONObject graphResponse) {
     graphText.setText(graphResponse.toString());
 }
 ```
+
 <!--start-collapse-->
 ### <a name="more-information-about-making-a-rest-call-against-a-protected-api"></a>Mer information om hur du gör ett REST-anrop mot ett skyddade API
 
@@ -376,5 +381,6 @@ private void updateSignedOutUI() {
 Den `onSignOutClicked()` metoden tar bort användare från MSAL-cachen. MSAL har inte längre några tillstånd för den inloggade användaren och de kommer att loggas ut från programmet. 
 
 ### <a name="more-information-on-multi-account-scenarios"></a>Mer information om flera konto scenarier
+
 MSAL har också stöd för scenarier när flera konton har loggat in på samma gång. Många e-postappar att till exempel flera konton som kan vara inloggad på samma gång. 
 <!--end-collapse-->

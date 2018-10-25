@@ -14,17 +14,19 @@ ms.workload: identity
 ms.date: 09/17/2018
 ms.author: nacanuma
 ms.custom: include file
-ms.openlocfilehash: 3cbcae9c02abaf11ded31304f97abdd74f905c6e
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.openlocfilehash: 0c4908315bd7c0e4d83c7aba735cc4d102216a28
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48842891"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49988453"
 ---
 ## <a name="test-your-code"></a>Testa din kod
 
 ### <a name="test-with-node"></a>Testa med Node
+
 Om du inte använder Visual Studio, kontrollera att servern har startats.
+
 1. Konfigurera servern att lyssna på en TCP-port som baseras på platsen för din **index.html** fil. Starta webbservern för att lyssna på porten genom att köra följande kommandon i Kommandotolken från programmappen för noden:
 
     ```bash
@@ -36,15 +38,14 @@ Om du inte använder Visual Studio, kontrollera att servern har startats.
 <p/><!-- -->
 
 ### <a name="test-with-visual-studio"></a>Testa med Visual Studio
-Om du använder Visual Studio, se till att välja den projektlösning och tryck på **F5** köra projektet. I webbläsaren öppnas http://<span></span>localhost: {portplatsen} och du ser den **logga In** knappen.
 
+Om du använder Visual Studio, se till att välja den projektlösning och tryck på **F5** köra projektet. I webbläsaren öppnas http://<span></span>localhost: {portplatsen} och du ser den **logga In** knappen.
 
 ## <a name="test-your-application"></a>Testa ditt program
 
 När webbläsaren har lästs in index.html-fil klickar du på **logga In**. Du uppmanas att logga in med Microsoft Azure Active Directory (Azure AD) v2.0-slutpunkten:
 
 ![Logga in på ditt konto för JavaScript SPA](media/active-directory-develop-guidedsetup-javascriptspa-test/javascriptspascreenshot1.png)
-
 
 ### <a name="provide-consent-for-application-access"></a>Ge medgivande för programåtkomst
 
@@ -53,6 +54,7 @@ Första gången du loggar in på ditt program, uppmanas du att ge ditt medgivand
 ![Ge ditt medgivande för programåtkomst](media/active-directory-develop-guidedsetup-javascriptspa-test/javascriptspaconsent.png)
 
 ### <a name="view-application-results"></a>Visa program resultat
+
 När du loggar in, du bör se din användarprofilsinformation som returneras i Microsoft Graph API-svar som visas på sidan.
 
 ![Förväntat resultat från Microsoft Graph API-anrop](media/active-directory-develop-guidedsetup-javascriptspa-test/javascriptsparesults.png)

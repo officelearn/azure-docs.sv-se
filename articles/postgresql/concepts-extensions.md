@@ -9,18 +9,18 @@ editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
 ms.date: 05/30/2018
-ms.openlocfilehash: f9216800f0e91d71f1da3f2bac16ecfcbf8b4850
-ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
+ms.openlocfilehash: 67f5e6d4674f876b2cfd4d879ab40c5a5b12c0cc
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49376558"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49985056"
 ---
 # <a name="postgresql-extensions-in-azure-database-for-postgresql"></a>PostgreSQL-tillägg i Azure Database för PostgreSQL
-PostgreSQL ger möjlighet att utöka funktionerna i din databas med tillägg. Tillägg kan paketera flera relaterade SQL-objekt tillsammans i ett enda paket som kan läsas in eller tas bort från databasen med ett enda kommando. Tillägg kan fungera som gör de inbyggda funktionerna för efter att läsas in i databasen. Läs mer på PostgreSQL-tillägg, [paketering relaterade objekt i ett tillägg](https://www.postgresql.org/docs/9.6/static/extend-extensions.html).
+PostgreSQL ger möjlighet att utöka funktionerna i din databas med tillägg. Tillägg kan paketera flera relaterade SQL-objekt tillsammans i ett enda paket som kan läsas in eller tas bort från databasen med ett enda kommando. Tillägg kan fungera som gör de inbyggda funktionerna för efter att läsas in i databasen. Läs mer på PostgreSQL-tillägg, [paketering relaterade objekt i ett tillägg](https://www.postgresql.org/docs/9.6/static/extend-extensions.html).
 
 ## <a name="how-to-use-postgresql-extensions"></a>Hur du använder PostgreSQL-tillägg
-PostgreSQL-tillägg måste installeras i databasen innan du kan använda dem. Installera ett visst tillägg genom att köra den [skapa tillägg](https://www.postgresql.org/docs/9.6/static/sql-createextension.html) från psql-verktyget för att läsa in paketerade objekten i databasen.
+PostgreSQL-tillägg måste installeras i databasen innan du kan använda dem. Installera ett visst tillägg genom att köra den [skapa tillägg](https://www.postgresql.org/docs/9.6/static/sql-createextension.html) från psql-verktyget för att läsa in paketerade objekten i databasen.
 
 Azure Database för PostgreSQL stöder för närvarande en delmängd av viktiga tillägg som anges ovan. Tillägg utöver de som visas stöds inte. Du kan inte skapa dina egna tillägg med Azure Database för PostgreSQL-tjänsten.
 
@@ -97,7 +97,7 @@ I tabellerna nedan listas de standard PostgreSQL-tillägg som för närvarande s
 |---|---|
 | [PostGIS](http://www.postgis.net/), postgis\_topologi, postgis\_tiger\_geocoder, postgis\_sfcgal | Spatial- och geografiska objekt för PostgreSQL. |
 | adress\_standardizer, adress\_standardizer\_data\_oss | Används för att parsa en adress till innehåll. Används för att stödja geokodning adress normalisering steg. |
-| [pgrouting](http://pgrouting.org/) | Utökar PostGIS / PostgreSQL geospatiala databasen att tillhandahålla geospatiala routning funktioner. |
+| [pgrouting](https://pgrouting.org/) | Utökar PostGIS / PostgreSQL geospatiala databasen att tillhandahålla geospatiala routning funktioner. |
 
 
 ### <a name="using-pgstatstatements"></a>Med hjälp av pg_stat_statements

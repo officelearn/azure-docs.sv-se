@@ -9,12 +9,12 @@ ms.reviewer: jasonh, sngun
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/21/2018
-ms.openlocfilehash: 1610e8173d90be3c0b50f05e64d0e84e1c21ad0e
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: 88c58175f4886d4796ed4e32b41d030c9ee441fc
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43698051"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49986903"
 ---
 # <a name="build-an-iot-solution-by-using-stream-analytics"></a>Skapa en IoT-lösning med Stream Analytics
 
@@ -109,7 +109,7 @@ Här är en kort beskrivning av kolumnerna:
 | Har upphört |Registreringsstatus fordonets: 0 om vehicle registreringen är aktiv, 1 om registreringen har upphört att gälla |
 
 ## <a name="set-up-the-environment-for-azure-stream-analytics"></a>Konfigurera miljön för Azure Stream Analytics
-För att slutföra den här lösningen, behöver du ett Microsoft Azure-prenumeration. Om du inte har ett Azure-konto, kan du [begär en kostnadsfri utvärderingsversion](http://azure.microsoft.com/pricing/free-trial/).
+För att slutföra den här lösningen, behöver du ett Microsoft Azure-prenumeration. Om du inte har ett Azure-konto, kan du [begär en kostnadsfri utvärderingsversion](https://azure.microsoft.com/pricing/free-trial/).
 
 Var noga med att följa stegen i avsnittet ”Rensa upp din Azure-konto” i slutet av den här artikeln så att du använder din Azure-kredit på bästa sätt.
 

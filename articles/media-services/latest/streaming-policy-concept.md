@@ -9,14 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 10/16/2018
+ms.date: 10/22/2018
 ms.author: juliako
-ms.openlocfilehash: 4d02ddf50660cd700b2f1c5999ceadfb472b6906
-ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
+ms.openlocfilehash: 118660e8947663328554ac0116b5519267197336
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49381224"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49984306"
 ---
 # <a name="streaming-policies"></a>Principer för direktuppspelning
 
@@ -100,7 +100,7 @@ while (currentPage.NextPageLink != null)
 }
 ```
 
-REST-exempel finns i [Streaming principer - lista](https://docs.microsoft.com/rest/api/media/streamingpolicies/streamingpolicies_list)
+REST-exempel finns i [Streaming principer - lista](https://docs.microsoft.com/rest/api/media/streamingpolicies/list)
 
 ## <a name="next-steps"></a>Nästa steg
 

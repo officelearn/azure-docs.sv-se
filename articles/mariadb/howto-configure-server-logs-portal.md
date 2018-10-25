@@ -8,12 +8,12 @@ services: mariadb
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 0784dffc48aeddc854aa540cba24f1834cd41827
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 566d5b047078b6e65b0c320027cc8c63c81a282b
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46952842"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49986607"
 ---
 # <a name="configure-and-access-server-logs-in-the-azure-portal"></a>Konfigurera och öppna serverloggar i Azure portal
 
@@ -26,7 +26,7 @@ För att gå igenom den här guiden, måste du:
 ## <a name="configure-logging"></a>Konfigurera loggning
 Konfigurera åtkomst till långsam frågelogg. 
 
-1. Logga in på [Azure Portal](http://portal.azure.com/).
+1. Logga in på [Azure Portal](https://portal.azure.com/).
 
 2. Välj din Azure Database for MariaDB-server.
 

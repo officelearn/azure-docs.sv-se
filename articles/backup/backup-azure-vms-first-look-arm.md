@@ -11,12 +11,12 @@ ms.date: 08/01/2018
 ms.author: markgal
 ms.custom: H1Hack27Feb2017
 keywords: säkerhetskopior. säkerhetskopiering av virtuella datorer
-ms.openlocfilehash: fee0e20e232621764ba10d714b7ddfe9c759dafc
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: a30b4081bf01a76c6d89e7557fbb1b40baa86fbc
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44717921"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49985903"
 ---
 # <a name="back-up-azure-virtual-machines-to-recovery-services-vault"></a>Säkerhetskopiera virtuella Azure-datorer till Recovery Services-valv
 
@@ -47,7 +47,7 @@ Beroende på hur många virtuella datorer du vill skydda kan du börja från oli
 
 Använd följande steg för att konfigurera säkerhetskopieringsjobbet från den virtuella dator Åtgärder-menyn. Stegen gäller endast för virtuella datorer i Azure-portalen.
 
-1. Logga in på [Azure-portalen](https://portal.azure.com/).
+1. Logga in på [Azure Portal](https://portal.azure.com/).
 2. Klicka på **Alla tjänster** på navmenyn och skriv **Virtuella datorer** i dialogrutan Filter. När du skriver filtreras listan med resurser. När du ser Virtuella datorer väljer du det alternativet.
 
   ![Skärmbild som visar hur du navigerar till virtuella datorer från Alla tjänster](./media/backup-azure-vms-first-look-arm/open-vm-from-hub.png)
@@ -96,11 +96,11 @@ Använd följande steg för att konfigurera säkerhetskopieringsjobbet från den
 
   Innan den första säkerhetskopieringen har slutförts visas **Status för senaste säkerhetskopiering** som **Varning (första säkerhetskopiering väntar)**. Se när nästa schemalagda säkerhetskopieringsjobb körs under **sammanfattning** klickar du på namnet på principen. Menyn säkerhetskopieringspolicy öppnas och visar tidpunkten för den schemalagda säkerhetskopieringen.
 
-10. Om du vill skydda den virtuella datorn klickar du på **Säkerhetskopiera nu**. 
+10. Om du vill skydda den virtuella datorn klickar du på **Säkerhetskopiera nu**.
 
   ![Klicka på Säkerhetskopiera nu om du vill köra den första säkerhetskopieringen](./media/backup-azure-vms-first-look-arm/backup-now-update.png)
 
-  Menyn Säkerhetskopiera nu öppnas. 
+  Menyn Säkerhetskopiera nu öppnas.
 
   ![Visar bladet Säkerhetskopiera nu](./media/backup-azure-vms-first-look-arm/backup-now-blade-short.png)
 
@@ -185,7 +185,7 @@ Så här redigerar du inställningen för lagringsreplikering:
   ![Visa lagringskonfigurationen för det nya valvet](./media/backup-try-azure-backup-in-10-mins/set-storage-configuration-update.png)
 
 2. I det nya valvet menyn, använder du det lodräta reglaget att rulla ned till avsnittet Hantera och klicka på **infrastruktur för säkerhetskopiering** att öppna menyn infrastruktur för säkerhetskopiering.
- 
+
    ![Ange lagringskonfigurationen för det nya valvet](./media/backup-try-azure-backup-in-10-mins/set-storage-config-bkup-infra.png)
 
 3. I menyn infrastruktur för säkerhetskopiering klickar du på **Säkerhetskopieringskonfigurationen** att öppna den **Säkerhetskopieringskonfigurationen** menyn.
@@ -291,6 +291,11 @@ Så här kör du det första säkerhetskopieringsjobbet:
   ![Ange den sista dagen som återställningspunkten som skapas med Säkerhetskopiera nu ska behållas](./media/backup-azure-vms-first-look-arm/backup-now-blade-calendar.png)
 
   Distributionsmeddelanden visas som anger att säkerhetskopieringsjobbet har initierats, och du kan övervaka förloppet för jobbet på sidan Säkerhetskopieringsjobb. Beroende på den virtuella datorns storlek kan det ta en stund att skapa den första säkerhetskopian.
+
+  > [!NOTE]
+  > Alla data som säkerhetskopieras av Azure Backup är krypterat i vila med [Storage Service Encryption (SSE)](../storage/common/storage-service-encryption.md).
+  >
+  >
 
 6. Du kan visa eller spåra statusen för den första säkerhetskopieringen genom att klicka på **Pågår** på panelen **Säkerhetskopieringsjobb** på instrumentpanelen för valvet.
 

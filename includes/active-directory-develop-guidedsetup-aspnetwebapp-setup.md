@@ -14,16 +14,16 @@ ms.workload: identity
 ms.date: 09/17/2018
 ms.author: andret
 ms.custom: include file
-ms.openlocfilehash: 99eabd8f9c9b3ab86c348350e8924cea0eb668ba
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.openlocfilehash: ac8e678d8ca006fc5b0ab52f007590ac4e334bf7
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48843561"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49988555"
 ---
 ## <a name="set-up-your-project"></a>Konfigurera ditt projekt
 
-Det här avsnittet visar hur du installerar och konfigurerar autentiseringspipelinen via OWIN-mellanprogrammet på en ASP.NET-projekt med hjälp av OpenID Connect. 
+Det här avsnittet visar hur du installerar och konfigurerar autentiseringspipelinen via OWIN-mellanprogrammet på en ASP.NET-projekt med hjälp av OpenID Connect.
 
 > Om du vill ladda ned det här exemplet Visual Studio-projekt i stället? [Ladda ned ett projekt](https://github.com/AzureADQuickStarts/AppModelv2-WebApp-OpenIDConnect-DotNet/archive/master.zip) och gå vidare till den [konfigurationssteget](#register-your-application) konfigurera kodexemplet innan du kör.
 
@@ -47,7 +47,7 @@ Det här avsnittet visar hur du installerar och konfigurerar autentiseringspipel
 
 <!--start-collapse-->
 > ### <a name="about-these-libraries"></a>Om dessa bibliotek
->Biblioteken ovan möjliggör enkel inloggning (SSO) med hjälp av OpenID Connect via cookie-baserad autentisering. När autentiseringen har slutförts och den token som representerar användaren skickas till ditt program, skapar OWIN-mellanprogrammet en sessions-cookie. Webbläsaren använder sedan den här cookien för efterföljande förfrågningar så att användaren behöver inte ange lösenordet på nytt och ingen ytterligare verifiering krävs.
+> Biblioteken ovan möjliggör enkel inloggning (SSO) med hjälp av OpenID Connect via cookie-baserad autentisering. När autentiseringen har slutförts och den token som representerar användaren skickas till ditt program, skapar OWIN-mellanprogrammet en sessions-cookie. Webbläsaren använder sedan den här cookien för efterföljande förfrågningar så att användaren behöver inte ange lösenordet på nytt och ingen ytterligare verifiering krävs.
 <!--end-collapse-->
 
 ## <a name="configure-the-authentication-pipeline"></a>Konfigurera autentiseringspipelinen
@@ -87,7 +87,7 @@ Stegen nedan används för att skapa en OWIN-mellanprogrammet startklass konfigu
         // Tenant is the tenant ID (e.g. contoso.onmicrosoft.com, or 'common' for multi-tenant)
         static string tenant = System.Configuration.ConfigurationManager.AppSettings["Tenant"];
 
-        // Authority is the URL for authority, composed by Azure Active Directory v2 endpoint and the tenant name (e.g. https://login.microsoftonline.com/contoso.onmicrosoft.com/v2.0)
+        // Authority is the URL for authority, composed by Azure Active Directory v2.0 endpoint and the tenant name (e.g. https://login.microsoftonline.com/contoso.onmicrosoft.com/v2.0)
         string authority = String.Format(System.Globalization.CultureInfo.InvariantCulture, System.Configuration.ConfigurationManager.AppSettings["Authority"], tenant);
 
         /// <summary>
@@ -145,4 +145,3 @@ Stegen nedan används för att skapa en OWIN-mellanprogrammet startklass konfigu
 > ### <a name="more-information"></a>Mer information
 > De parametrar som du anger i *OpenIDConnectAuthenticationOptions* fungerar som koordinater som programmet använder för att kommunicera med Azure AD. Eftersom OpenID Connect-mellanprogram använder cookies i bakgrunden kan behöva du också konfigurera cookie-autentisering som koden ovan visar. Värdet *ValidateIssuer* instruerar OpenIdConnect att inte begränsa åtkomsten till en specifik organisation.
 <!--end-collapse-->
-

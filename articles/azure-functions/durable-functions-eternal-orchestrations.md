@@ -2,20 +2,20 @@
 title: Eternal-orkestreringar i varaktiga funktioner – Azure
 description: Lär dig hur du implementerar eternal-orkestreringar med hjälp av tillägget varaktiga funktioner för Azure Functions.
 services: functions
-author: cgillum
+author: kashimiz
 manager: jeconnoc
 keywords: ''
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
-ms.date: 09/29/2017
+ms.date: 10/23/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 98504534332b6faa7a7019aea9ab7b534d4c3faa
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: 0e3a3476c3fca6329634c87f933f895ec582f364
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44094458"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49987548"
 ---
 # <a name="eternal-orchestrations-in-durable-functions-azure-functions"></a>Eternal-orkestreringar i varaktiga funktioner (Azure Functions)
 
@@ -34,12 +34,11 @@ När `ContinueAsNew` anropas, instans placerar det i kö ett meddelande till sig
 > [!NOTE]
 > Hållbar uppgift ramverket har samma instans-ID men internt skapar en ny *körnings-ID* för orchestrator-funktion som hämtar återställa genom `ContinueAsNew`. Den här körnings-ID Allmänt exponeras inte externt, men det kan vara praktiskt att känna till när felsökning orchestration-körning.
 
-> [!NOTE]
-> Den `ContinueAsNew` metoden är ännu inte tillgänglig i JavaScript.
-
 ## <a name="periodic-work-example"></a>Periodiska arbete-exempel
 
 Användningsfall för eternal-orkestreringar är kod som behöver utföra periodiska arbete på obestämd tid.
+
+#### <a name="c"></a>C#
 
 ```csharp
 [FunctionName("Periodic_Cleanup_Loop")]
@@ -54,6 +53,23 @@ public static async Task Run(
 
     context.ContinueAsNew(null);
 }
+```
+
+#### <a name="javascript-functions-v2-only"></a>JavaScript (endast funktioner v2)
+
+```javascript
+const df = require("durable-functions");
+const moment = require("moment");
+
+module.exports = df.orchestrator(function*(context) {
+    yield context.df.callActivity("DoCleanup");
+
+    // sleep for one hour between cleanups
+    const nextCleanup = moment.utc(context.df.currentUtcDateTime).add(1, "h");
+    yield context.df.createTimer(nextCleanup);
+
+    context.df.continueAsNew(undefined);
+});
 ```
 
 Skillnaden mellan det här exemplet och en timerutlöst funktion är att rensa utlösaren här gånger inte enligt ett schema. Till exempel ett CRON-schema som körs varje timme för en funktion ska köra den 1:00, 2:00, 3:00 osv och köra överlappning problem. I det här exemplet, men om rensningen tar 30 minuter sedan den schemaläggs vid 1:00, 2:30, 4:00 osv och det finns ingen risk för överlappar varandra.

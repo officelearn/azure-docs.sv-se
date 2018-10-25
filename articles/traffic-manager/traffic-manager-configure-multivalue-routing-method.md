@@ -3,8 +3,7 @@ title: Konfigurera flera värden trafikroutningsmetod i Azure Traffic Manager | 
 description: Den här artikeln förklarar hur du konfigurerar Traffic Manager kan dirigera trafik till A/AAAA-slutpunkter.
 services: traffic-manager
 documentationcenter: ''
-author: kumudd
-manager: jeconnoc
+author: KumudD
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: article
@@ -12,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: kumud
-ms.openlocfilehash: 1fae1147c941ed28d23a478a0e809b2dffba7a35
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: d9a0342332c2483b859e916b50fd05c9cb1e3395
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46131366"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49986775"
 ---
 # <a name="configure-multivalue-routing-method-in-traffic-manager"></a>Konfigurera routningsmetoden för flera värden i Traffic Manager
 
@@ -42,7 +41,7 @@ Skapa en Traffic Manager-profil som dirigerar användartrafik som genom att skic
 2. I **skapa Traffic Manager-profil**, ange eller Välj följande information, acceptera standardinställningarna för återstående inställningar och välj sedan **skapa**:
     | Inställning                 | Värde                                              |
     | ---                     | ---                                                |
-    | Namn                   | Det här namnet måste vara unikt inom trafficmanager.net-zonen och resultat i DNS-namn, trafficmanager.net som används för att få åtkomst till Traffic Manager-profilen.                                   |
+    | Namn                   | Namnet måste var unikt inom trafficmanager.net-zonen och generera DNS-namnet, trafficmanager.net, som används för att öppna din Traffic Manager-profil.                                   |
     | Routningsmetod          | Välj den **Flervärden är** routningsmetod.                                       |
     | Prenumeration            | Välj din prenumeration.                          |
     | Resursgrupp          | Välj *myResourceGroupTM1*. |
@@ -73,9 +72,9 @@ Lägg till två IP-adresser som externa slutpunkter till Flervärden är Traffic
  
 ## <a name="next-steps"></a>Nästa steg
 
-- Lär dig mer om [viktad trafikroutningsmetod](traffic-manager-configure-weighted-routing-method.md).
-- Lär dig mer om [prioriterad routningsmetod](traffic-manager-configure-priority-routing-method.md).
+- Lär dig mer om [routningsmetoden för viktad trafik](traffic-manager-configure-weighted-routing-method.md).
+- Lär dig mer om [prioritetsroutningsmetoden](traffic-manager-configure-priority-routing-method.md).
 - Läs mer om [routningsmetod för prestanda](traffic-manager-configure-performance-routing-method.md)
-- Lär dig mer om [geografisk routningsmetod](traffic-manager-configure-geographic-routing-method.md).
+- Lär dig mer om den [geografiska routningsmetoden](traffic-manager-configure-geographic-routing-method.md).
 
 

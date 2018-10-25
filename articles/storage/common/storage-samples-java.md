@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 01/12/2017
 ms.author: seguler
 ms.component: common
-ms.openlocfilehash: bdc25a7aeff88d058eaf3fddf6cec023edff3b9e
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 83080d1e73ddb06de9b454f106517ef230c4b25a
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39531797"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49984272"
 ---
 # <a name="azure-storage-samples-using-java"></a>Azure Storage-exempel med hjälp av Java
 
@@ -161,31 +161,31 @@ Följande tabell innehåller en översikt över vår lagringsplats med exempel o
 <tr> 
 <td rowspan="7"><b>Tabell</b></td>
 <td>Skapa tabell</td> 
-<td><a href="https://github.com/Azure-Samples/storage-table-java-getting-started/blob/master/src/TableBasics.java">Komma igång med Azure Table Service i Java</a></td> 
+<td><a href="https://github.com/Azure-Samples/storage-table-java-getting-started/blob/master/src/main/java/com/microsoft/azure/cosmosdb/tablesample/TableBasics.java">Komma igång med Azure Table Service i Java</a></td> 
 </tr> 
 <tr> 
 <td>Ta bort entitet eller-tabell</td> 
-<td><a href="https://github.com/Azure-Samples/storage-table-java-getting-started/blob/master/src/TableBasics.java">Komma igång med Azure Table Service i Java</a></td> 
+<td><a href="https://github.com/Azure-Samples/storage-table-java-getting-started/blob/master/src/main/java/com/microsoft/azure/cosmosdb/tablesample/TableBasics.java">Komma igång med Azure Table Service i Java</a></td> 
 </tr> 
 <tr> 
 <td>Infoga/Merge/Ersätt entitet</td> 
-<td><a href="https://github.com/Azure/azure-storage-java/blob/master/microsoft-azure-storage-samples/src/com/microsoft/azure/storage/table/gettingtstarted/TableBasics.java">Biblioteket Lagringsexempel Java-klienten</a></td> 
+<td><a href="https://github.com/Azure-Samples/storage-table-java-getting-started/blob/master/src/main/java/com/microsoft/azure/cosmosdb/tablesample/TableBasics.java">Komma igång med Azure Table Service i Java</a></td> 
 </tr> 
 <tr> 
 <td>Kör frågor mot entiteter</td> 
-<td><a href="https://github.com/Azure-Samples/storage-table-java-getting-started/blob/master/src/TableBasics.java">Komma igång med Azure Table Service i Java</a></td> 
+<td><a href="https://github.com/Azure-Samples/storage-table-java-getting-started/blob/master/src/main/java/com/microsoft/azure/cosmosdb/tablesample/TableBasics.java">Komma igång med Azure Table Service i Java</a></td> 
 </tr> 
 <tr> 
 <td>Frågetabeller</td> 
-<td><a href="https://github.com/Azure-Samples/storage-table-java-getting-started/blob/master/src/TableBasics.java">Komma igång med Azure Table Service i Java</a></td> 
+<td><a href="https://github.com/Azure-Samples/storage-table-java-getting-started/blob/master/src/main/java/com/microsoft/azure/cosmosdb/tablesample/TableBasics.java">Komma igång med Azure Table Service i Java</a></td> 
 </tr> 
 <tr> 
 <td>ACL/Tabellegenskaper</td> 
-<td><a href="https://github.com/Azure-Samples/storage-table-java-getting-started/blob/master/src/TableAdvanced.java">Komma igång med Azure Table Service i Java</a></td> 
+<td><a href="https://github.com/Azure-Samples/storage-table-java-getting-started/blob/master/src/main/java/com/microsoft/azure/cosmosdb/tablesample/TableAdvanced.java">Komma igång med Azure Table Service i Java</a></td> 
 </tr> 
 <tr> 
 <td>Uppdatera entitet</td> 
-<td><a href="https://github.com/Azure/azure-storage-java/blob/master/microsoft-azure-storage-samples/src/com/microsoft/azure/storage/table/gettingtstarted/TableBasics.java">Biblioteket Lagringsexempel Java-klienten</a></td> 
+<td><a href="https://github.com/Azure-Samples/storage-table-java-getting-started/blob/master/src/main/java/com/microsoft/azure/cosmosdb/tablesample/TableBasics.java">Komma igång med Azure Table Service i Java</a></td> 
 </tr> 
 </tbody> 
 </table>

@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 09/18/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 23f86581b5ecc5257ccb246c7199eef4246efb08
-ms.sourcegitcommit: 8b694bf803806b2f237494cd3b69f13751de9926
+ms.openlocfilehash: e51c0178691279d803e9a1afcd4147f1d6ed767e
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/20/2018
-ms.locfileid: "46498240"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49985258"
 ---
 # <a name="manage-updates-for-multiple-machines"></a>Hantera uppdateringar av flera datorer
 
@@ -127,7 +127,7 @@ I den **ny uppdateringsdistribution** fönstret anger du följande information:
 
 - **Namn på**: Ange ett unikt namn som identifierar uppdateringsdistributionen.
 - **Operativsystemet**: Välj **Windows** eller **Linux**.
-- **Grupper för att uppdatera (förhandsversion)**: definiera en fråga som baseras på en kombination av prenumeration, resursgrupper, platser och taggar för att skapa en dynamisk grupp med virtuella Azure-datorer ska ingå i din distribution. Läs mer i [dynamiska grupper](automation-update-management.md#using-dynamic-groups)
+- **Grupper att uppdatera (förhandsversion)**: definiera en fråga som baseras på en kombination av prenumeration, resursgrupper, platser och taggar för att skapa en dynamisk grupp med virtuella Azure-datorer som ska ingå i din distribution. Mer information finns i [Dynamiska grupper](automation-update-management.md#using-dynamic-groups)
 - **Datorer som ska uppdateras**: Välj en sparad sökning importerat gruppen, eller välj datorer att välja de datorer som du vill uppdatera. Om du väljer **Datorer** visas beredskapen för datorn i kolumnen **Uppdatera agentberedskap**. Du kan se hälsotillståndet för datorn innan du schemalägga distributionen av uppdateringen. Mer om de olika metoderna för att skapa datorgrupper i Log Analytics finns i dokumentationen om [datorgrupper i Log Analytics](../log-analytics/log-analytics-computer-groups.md)
 
   ![Nya rutan för distribution av uppdatering](./media/manage-update-multi/update-select-computers.png)
@@ -142,7 +142,7 @@ I den **ny uppdateringsdistribution** fönstret anger du följande information:
   - Verktyg
   - Uppdateringar
 
-- **Uppdateringar för inkludera/exkludera** -öppnas den **ta med eller undanta** sidan. Uppdateringar för inkluderas eller uteslutas är på en separat flik. Mer information om hur inkludering hanteras och se [inkludering beteende](automation-update-management.md#inclusion-behavior)
+- **Uppdateringar att inkludera/exkludera** – detta öppnar sidan **Inkludera/exkludera**. Uppdateringar som ska inkluderas eller exkluderas visas på en separat flik. Mer information om hur inkludering hanteras och finns i [inkluderingsbeteende](automation-update-management.md#inclusion-behavior)
 
 - **Schemainställningar**: Du kan godkänna standarddatumet och -tiden, d.v.s. 30 minuter efter aktuell tid. Du kan också ange en annan tid.
 
@@ -150,7 +150,7 @@ I den **ny uppdateringsdistribution** fönstret anger du följande information:
 
    ![Dialogrutan Schemainställningar](./media/manage-update-multi/update-set-schedule.png)
 
-- **Skript före och efter skript**: Välj skripten ska köras före och efter distributionen. Mer information finns i [skript hantera före och efter](pre-post-scripts.md).
+- **Skript före och efter**: Välj skript som ska köras före och efter distributionen. Mer information finns i [Hantera skript före och efter](pre-post-scripts.md).
 - **Underhållsperiod (minuter)**: Ange tidsperioden som uppdateringsdistributionen ska utföras. Den här inställningen hjälper till att säkerställa att ändringarna utförs inom ditt definierade servicefönster.
 
 - **Starta om kontrollen** – den här inställningen avgör hur omstarter hanteras för distributionen.
@@ -163,6 +163,9 @@ I den **ny uppdateringsdistribution** fönstret anger du följande information:
    |Endast omstart – uppdateringar installeras inte|Det här alternativet ignorerar installerar uppdateringar och endast initierar en omstart.|
 
 När du är klar med att konfigurera schemat, väljer den **skapa** vill gå tillbaka till statusinstrumentpanelen. Den **schemalagd** tabellen visar distributionsschemat som du skapade.
+
+> [!NOTE]
+> Hantering av uppdateringar har stöd för distribution av uppdateringar för första part och före hämtning av korrigeringar. Detta kräver ändringar på de system som korrigeras, se [första part och pre hämta support](automation-update-management.md#firstparty-predownload) att lära dig hur du konfigurerar de här inställningarna på dina system.
 
 ## <a name="view-results-of-an-update-deployment"></a>Visa resultat för en uppdateringsdistribution
 

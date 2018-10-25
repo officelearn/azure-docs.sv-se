@@ -14,18 +14,18 @@ ms.workload: identity
 ms.date: 09/17/2018
 ms.author: jmprieur
 ms.custom: include file
-ms.openlocfilehash: 538b0c969d8c039079c09232e06f55e24aabf393
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.openlocfilehash: 87ac7364a2c409af410fcb5cd09aed4377b28d8e
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48843393"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49988202"
 ---
 ## <a name="use-msal-to-get-a-token-for-the-microsoft-graph-api"></a>Om du Använd MSAL för att hämta en token för Microsoft Graph API
 
 I det här avsnittet använder MSAL för att hämta en token för Microsoft Graph API.
 
-1.  I den *MainWindow.xaml.cs* filen, lägga till referensen för MSAL i klassen:
+1. I den *MainWindow.xaml.cs* filen, lägga till referensen för MSAL i klassen:
 
     ```csharp
     using Microsoft.Identity.Client;
@@ -215,4 +215,3 @@ private void DisplayBasicTokenInfo(AuthenticationResult authResult)
 
 Förutom den åtkomst-token som används för att anropa Microsoft Graph API, när användaren loggar in, hämtar MSAL också en ID-token. Den här variabeln innehålla en liten del av information som är relevanta för användare. Den `DisplayBasicTokenInfo` metoden visar grundläggande information som finns i token. Exempelvis visas användarens namn och ID, samt den token upphör att gälla och den sträng som representerar den åtkomst-token. Du kan välja den *anropa Microsoft Graph API* knappen flera gånger och se att samma token återanvänts för efterföljande förfrågningar. Du kan också se förfallodatum förlängs när MSAL beslutar att det är dags att förnya token.
 <!--end-collapse-->
-

@@ -336,7 +336,7 @@ Du behöver följande information för att skydda en identifierad virtuell dator
 
 * Skyddsobjekt replikeras.
 * Lagringskontot för att replikera den virtuella datorn. Dessutom kan behövs en logglagring för att skydda virtuella datorer till ett premium storage-konto.
-* Processervern som ska användas för replikering. I listan över tillgängliga servrar har hämtats och sparats i den ***$ProcessServers [0]****(ScaleOut-process)* och ***$ProcessServers [1]*** *(ConfigurationServer)* variabler.  
+* Processervern som ska användas för replikering. I listan över tillgängliga servrar har hämtats och sparats i den ***$ProcessServers [0]***  *(ScaleOut-process)* och ***$ProcessServers [1]*** *(ConfigurationServer)* variabler.
 * Vilket konto du använder för att push-installera mobilitetstjänsten på datorerna. Listan över tillgängliga konton har hämtats och lagras i den ***$AccountHandles*** variabeln.
 * Skyddsbehållarmappning för replikeringsprincipen som ska användas för replikering.
 * Den resursgrupp där virtuella datorer måste skapas vid redundansväxling.

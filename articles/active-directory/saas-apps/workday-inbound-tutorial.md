@@ -364,7 +364,7 @@ I det här avsnittet konfigurerar du hur informationen flödar från Workday til
 | **WorkerID**  |  EmployeeID | **Ja** | Skrivna på enbart skapa |
 | **Användar-ID**    |  CN    |   |   Skrivna på enbart skapa |
 | **Ansluta till (”@”, [användar-ID], ”contoso.com”)**   | userPrincipalName     |     | Skrivna på enbart skapa 
-| **Ersätt (Mid (Ersätt (\[UserID\]”, (\[ \\ \\ / \\ \\ \\ \\ \\ \\ \[ \\\\\]\\\\:\\\\;\\ \\|\\\\=\\\\,\\\\+\\\\\*\\ \\? \\ \\ &lt; \\ \\ &gt; \]) ””, ”,), 1, 20)”, ([\\\\.) \* \$] (file:///\\.) *$)", , "", , )**      |    SAMAccountName            |     |         Skrivna på enbart skapa |
+| **Ersätt(Mid(Ersätt(\[UserID\], , "(\[\\\\/\\\\\\\\\\\\\[\\\\\]\\\\:\\\\;\\ \\|\\\\=\\\\,\\\\+\\\\\*\\\\?\\\\&lt;\\\\&gt;\])", , "", , ), 1, 20), , "([\\\\.)\*\$](file:///\\.)*$)", , "", , )**      |    SAMAccountName            |     |         Skrivna på enbart skapa |
 | **Växel (\[Active\],, ”0”, ”True”, ”1”,)** |  accountDisabled      |     | Skapa och uppdatera |
 | **Förnamn**   | givenName       |     |    Skapa och uppdatera |
 | **Efternamn**   |   SN   |     |  Skapa och uppdatera |

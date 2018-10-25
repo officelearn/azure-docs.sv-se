@@ -1,9 +1,9 @@
 ---
 title: Självstudier – Belastningsutjämna virtuella Windows-datorer i Azure | Microsoft Docs
-description: I den här självstudiekursen lär du dig hur du använder Azure PowerShell för att skapa en belastningsutjämnare för ett säkert program med hög tillgänglighet på tre virtuella Windows-datorer
+description: I den här självstudiekursen lär du dig hur du använder Azure PowerShell för att skapa en lastbalanserare för ett säkert program med hög tillgänglighet på tre virtuella Windows-datorer
 services: virtual-machines-windows
 documentationcenter: virtual-machines
-author: cynthn
+author: zr-msft
 manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
@@ -14,26 +14,26 @@ ms.topic: tutorial
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 02/09/2018
-ms.author: cynthn
+ms.author: zarhoads
 ms.custom: mvc
-ms.openlocfilehash: 6d4dd900888e229c86685549c84b724044249429
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.openlocfilehash: b8e71a8874ae3ccee74723b8670d177d31f96d25
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37932576"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49470837"
 ---
 # <a name="tutorial-load-balance-windows-virtual-machines-in-azure-to-create-a-highly-available-application-with-azure-powershell"></a>Självstudier: Belastningsutjämna virtuella Windows-datorer i Azure för att skapa ett program med hög tillgänglighet med Azure PowerShell
 Med belastningsutjämning får du högre tillgänglighet genom att inkommande begäranden sprids över flera virtuella datorer. I den här kursen får du lära dig mer om de olika komponenterna i Azure Load Balancer som distribuerar trafik och ger hög tillgänglighet. Lär dig att:
 
 > [!div class="checklist"]
 > * skapa en Azure Load Balancer
-> * skapa en hälsoavsökning för belastningsutjämnaren
-> * skapa trafikregler för belastningsutjämnaren
+> * skapa en hälsoavsökning för lastbalanseraren
+> * skapa trafikregler för lastbalanseraren
 > * skapa en grundläggande IIS-webbplats med tillägget för anpassat skript
-> * skapa virtuella datorer och anslut dem till en belastningsutjämnare
-> * visa en belastningsutjämnare i praktiken
-> * lägga till och ta bort virtuella datorer från en belastningsutjämnare.
+> * skapa virtuella datorer och anslut dem till en lastbalanserare
+> * visa en lastbalanserare i praktiken
+> * lägga till och ta bort virtuella datorer från en lastbalanserare.
 
 [!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]
 
@@ -41,17 +41,17 @@ Om du väljer att installera och använda PowerShell lokalt krävs Azure PowerSh
 
 
 ## <a name="azure-load-balancer-overview"></a>Översikt över Azure Load Balancer
-En Azure-belastningsutjämnare är en Layer-4-belastningsutjämnare (TCP, UDP) som ger hög tillgänglighet genom att distribuera inkommande trafik till felfria virtuella datorer. Belastningsutjämnaren har en hälsoavsökningsfunktion som övervakar en given port på varje virtuell dator och ser till att trafik endast distribueras till virtuella datorer som fungerar.
+En Azure-lastbalanserare är en Layer-4-lastbalanserare (TCP, UDP) som ger hög tillgänglighet genom att distribuera inkommande trafik till felfria virtuella datorer. Lastbalanseraren har en hälsoavsökningsfunktion som övervakar en given port på varje virtuell dator och ser till att trafik endast distribueras till virtuella datorer som fungerar.
 
-Du definierar en IP-konfiguration på klientdelen som innehåller en eller flera offentliga IP-adresser. IP-konfigurationen på klientdelen gör att det går att komma åt belastningsutjämnaren och program via Internet. 
+Du definierar en IP-konfiguration på klientdelen som innehåller en eller flera offentliga IP-adresser. IP-konfigurationen på klientdelen gör att det går att komma åt lastbalanseraren och program via Internet. 
 
-Virtuella datorer ansluter till en belastningsutjämnare med ett virtuellt nätverkskort. För att distribuera trafik till de virtuella datorerna finns en adresspool på serverdelen som innehåller IP-adresserna för de virtuella nätverkskort som är anslutna till belastningsutjämnaren.
+Virtuella datorer ansluter till en lastbalanserare med ett virtuellt nätverkskort. För att distribuera trafik till de virtuella datorerna finns en adresspool på serverdelen som innehåller IP-adresserna för de virtuella nätverkskort som är anslutna till lastbalanseraren.
 
-För att styra trafikflödet definierar du regler för belastningsutjämnaren för specifika portar och protokoll som mappar till dina virtuella datorer.
+För att styra trafikflödet definierar du regler för lastbalanseraren för specifika portar och protokoll som mappar till dina virtuella datorer.
 
 
 ## <a name="create-azure-load-balancer"></a>Skapa en Azure Load Balancer
-I det här avsnittet beskrivs hur du skapar och konfigurerar varje komponent i belastningsutjämnaren. Innan du kan skapa belastningsutjämnaren måste du skapa en resursgrupp med [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup). I följande exempel skapas en resursgrupp med namnet *myResourceGroupLoadBalancer* på platsen *EastUS* (Östra USA):
+I det här avsnittet beskrivs hur du skapar och konfigurerar varje komponent i lastbalanseraren. Innan du kan skapa lastbalanseraren måste du skapa en resursgrupp med [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup). I följande exempel skapas en resursgrupp med namnet *myResourceGroupLoadBalancer* på platsen *EastUS* (Östra USA):
 
 ```azurepowershell-interactive
 New-AzureRmResourceGroup `
@@ -60,7 +60,7 @@ New-AzureRmResourceGroup `
 ```
 
 ### <a name="create-a-public-ip-address"></a>Skapa en offentlig IP-adress
-För att kunna komma åt din app på Internet behöver du en offentlig IP-adress för belastningsutjämnaren. Skapa en offentlig IP-adress med [New-AzureRmPublicIpAddress](/powershell/module/azurerm.network/new-azurermpublicipaddress). I följande exempel skapas en offentlig IP-adress med namnet *myPublicIP* i resursgruppen *myResourceGroupLoadBalancer*:
+För att kunna komma åt din app på Internet behöver du en offentlig IP-adress för lastbalanseraren. Skapa en offentlig IP-adress med [New-AzureRmPublicIpAddress](/powershell/module/azurerm.network/new-azurermpublicipaddress). I följande exempel skapas en offentlig IP-adress med namnet *myPublicIP* i resursgruppen *myResourceGroupLoadBalancer*:
 
 ```azurepowershell-interactive
 $publicIP = New-AzureRmPublicIpAddress `
@@ -70,7 +70,7 @@ $publicIP = New-AzureRmPublicIpAddress `
   -Name "myPublicIP"
 ```
 
-### <a name="create-a-load-balancer"></a>Skapa en belastningsutjämnare
+### <a name="create-a-load-balancer"></a>Skapa en lastbalanserare
 Skapa en IP-adresspool på klientdelen med [New-AzureRmLoadBalancerFrontendIpConfig](/powershell/module/azurerm.network/new-azurermloadbalancerfrontendipconfig). I följande exempel skapas en IP-adresspool på klientdelen med namnet *myFrontEndPool* och adressen *myPublicIP* kopplas: 
 
 ```azurepowershell-interactive
@@ -85,7 +85,7 @@ Skapa en adresspool på serverdelen med [New-AzureRmLoadBalancerBackendAddressPo
 $backendPool = New-AzureRmLoadBalancerBackendAddressPoolConfig -Name "myBackEndPool"
 ```
 
-Skapa belastningsutjämnaren med [New-AzureRmLoadBalancer](/powershell/module/azurerm.network/new-azurermloadbalancer). I följande exempel skapas en belastningsutjämnare med namnet *myLoadBalancer* med de IP-pooler för klient- och serverdelen som skapades i föregående steg:
+Skapa lastbalanseraren med [New-AzureRmLoadBalancer](/powershell/module/azurerm.network/new-azurermloadbalancer). I följande exempel skapas en lastbalanserare med namnet *myLoadBalancer* med de IP-pooler för klient- och serverdelen som skapades i föregående steg:
 
 ```azurepowershell-interactive
 $lb = New-AzureRmLoadBalancer `
@@ -97,9 +97,9 @@ $lb = New-AzureRmLoadBalancer `
 ```
 
 ### <a name="create-a-health-probe"></a>Skapa en hälsoavsökning
-Om du vill att belastningsutjämnaren ska övervaka status för din app kan du använda en hälsoavsökning. Hälsoavsökningen lägger till eller tar bort virtuella datorer dynamiskt från belastningsutjämnarens rotation baserat på deras svar på hälsokontroller. Som standard tas en virtuell dator bort från belastningsutjämnarens distribution efter två fel i följd inom ett intervall på 15 sekunder. Du skapar en hälsoavsökning baserat på ett protokoll eller en specifik hälsokontrollsida för din app. 
+Om du vill att lastbalanseraren ska övervaka status för din app kan du använda en hälsoavsökning. Hälsoavsökningen lägger till eller tar bort virtuella datorer dynamiskt från lastbalanserarens rotation baserat på deras svar på hälsokontroller. Som standard tas en virtuell dator bort från lastbalanserarens distribution efter två fel i följd inom ett intervall på 15 sekunder. Du skapar en hälsoavsökning baserat på ett protokoll eller en specifik hälsokontrollsida för din app. 
 
-I följande exempel skapas en TCP-avsökning. Du kan också skapa anpassade HTTP-avsökningar om du vill ha mer detaljerade hälsokontroller. När du använder en anpassad HTTP-avsökning måste du skapa en hälsokontrollsida, till exempel *healthcheck.aspx*. Avsökningen måste returnera svaret **HTTP 200 OK** för att belastningsutjämnaren ska behålla värden i rotation.
+I följande exempel skapas en TCP-avsökning. Du kan också skapa anpassade HTTP-avsökningar om du vill ha mer detaljerade hälsokontroller. När du använder en anpassad HTTP-avsökning måste du skapa en hälsokontrollsida, till exempel *healthcheck.aspx*. Avsökningen måste returnera svaret **HTTP 200 OK** för att lastbalanseraren ska behålla värden i rotation.
 
 Du skapar en TCP-hälsoavsökning med [Add-AzureRmLoadBalancerProbeConfig](/powershell/module/azurerm.network/add-azurermloadbalancerprobeconfig). I följande exempel skapas en hälsoavsökning med namnet *myHealthProbe* som övervakar alla virtuella datorer på *TCP*-port *80*:
 
@@ -113,16 +113,16 @@ Add-AzureRmLoadBalancerProbeConfig `
   -ProbeCount 2
 ```
 
-Om du vill använda hälsoavsökningen uppdaterar du belastningsutjämnaren med [Set-AzureRmLoadBalancer](/powershell/module/azurerm.network/set-azurermloadbalancer):
+Om du vill använda hälsoavsökningen uppdaterar du lastbalanseraren med [Set-AzureRmLoadBalancer](/powershell/module/azurerm.network/set-azurermloadbalancer):
 
 ```azurepowershell-interactive
 Set-AzureRmLoadBalancer -LoadBalancer $lb
 ```
 
-### <a name="create-a-load-balancer-rule"></a>Skapa en belastningsutjämningsregel
-En belastningsutjämningsregel används för att definiera hur trafiken ska distribueras till de virtuella datorerna. Du definierar IP-konfigurationen på klientdelen för inkommande trafik och IP-poolen på serverdelen för att ta emot trafik samt nödvändig käll- och målport. För att säkerställa att de virtuella datorerna endast tar emot felfri trafik definierar du också vilken hälsoavsökning som ska användas.
+### <a name="create-a-load-balancer-rule"></a>Skapa en lastbalanseringsregel
+En lastbalanseringsregel används för att definiera hur trafiken ska distribueras till de virtuella datorerna. Du definierar IP-konfigurationen på klientdelen för inkommande trafik och IP-poolen på serverdelen för att ta emot trafik samt nödvändig käll- och målport. För att säkerställa att de virtuella datorerna endast tar emot felfri trafik definierar du också vilken hälsoavsökning som ska användas.
 
-Skapa en belastningsutjämningsregel med [Add-AzureRmLoadBalancerRuleConfig](/powershell/module/azurerm.network/add-azurermloadbalancerruleconfig). I följande exempel skapas en belastningsutjämningsregel med namnet *myLoadBalancerRule* och trafiken utjämnas på *TCP*-port *80*:
+Skapa en lastbalanseringsregel med [Add-AzureRmLoadBalancerRuleConfig](/powershell/module/azurerm.network/add-azurermloadbalancerruleconfig). I följande exempel skapas en lastbalanseringsregel med namnet *myLoadBalancerRule* och trafiken utjämnas på *TCP*-port *80*:
 
 ```azurepowershell-interactive
 $probe = Get-AzureRmLoadBalancerProbeConfig -LoadBalancer $lb -Name "myHealthProbe"
@@ -138,7 +138,7 @@ Add-AzureRmLoadBalancerRuleConfig `
   -Probe $probe
 ```
 
-Uppdatera belastningsutjämnaren med [Set-AzureRmLoadBalancer](/powershell/module/azurerm.network/set-azurermloadbalancer):
+Uppdatera lastbalanseraren med [Set-AzureRmLoadBalancer](/powershell/module/azurerm.network/set-azurermloadbalancer):
 
 ```azurepowershell-interactive
 Set-AzureRmLoadBalancer -LoadBalancer $lb
@@ -165,7 +165,7 @@ $vnet = New-AzureRmVirtualNetwork `
   -Subnet $subnetConfig
 ```
 
-Virtuella nätverkskort skapas med [New-AzureRmNetworkInterface](/powershell/module/azurerm.network/new-azurermnetworkinterface). I följande exempel skapas tre virtuella nätverkskort. (Det vill säga ett virtuellt nätverkskort för varje virtuell dator som du skapar för din app i följande steg.) Du kan skapa ytterligare virtuella nätverkskort och virtuella datorer när du vill och lägga till dem i belastningsutjämnaren:
+Virtuella nätverkskort skapas med [New-AzureRmNetworkInterface](/powershell/module/azurerm.network/new-azurermnetworkinterface). I följande exempel skapas tre virtuella nätverkskort. (Det vill säga ett virtuellt nätverkskort för varje virtuell dator som du skapar för din app i följande steg.) Du kan skapa ytterligare virtuella nätverkskort och virtuella datorer när du vill och lägga till dem i lastbalanseraren:
 
 ```azurepowershell-interactive
 for ($i=1; $i -le 3; $i++)
@@ -243,8 +243,8 @@ for ($i=1; $i -le 3; $i++)
 }
 ```
 
-## <a name="test-load-balancer"></a>Testa belastningsutjämnaren
-Hämta den offentliga IP-adressen för belastningsutjämnaren med [Get-AzureRmPublicIPAddress](/powershell/module/azurerm.network/get-azurermpublicipaddress). I följande exempel hämtas IP-adressen för *myPublicIP* som skapades tidigare:
+## <a name="test-load-balancer"></a>Testa lastbalanseraren
+Hämta den offentliga IP-adressen för lastbalanseraren med [Get-AzureRmPublicIPAddress](/powershell/module/azurerm.network/get-azurermpublicipaddress). I följande exempel hämtas IP-adressen för *myPublicIP* som skapades tidigare:
 
 ```azurepowershell-interactive
 Get-AzureRmPublicIPAddress `
@@ -252,17 +252,17 @@ Get-AzureRmPublicIPAddress `
   -Name "myPublicIP" | select IpAddress
 ```
 
-Du kan sedan ange den offentliga IP-adressen i en webbläsare. Webbplatsen visas, inklusive värddatornamnet för den virtuella dator som belastningsutjämnaren distribuerade trafik till, som i följande exempel:
+Du kan sedan ange den offentliga IP-adressen i en webbläsare. Webbplatsen visas, inklusive värddatornamnet för den virtuella dator som lastbalanseraren distribuerade trafik till, som i följande exempel:
 
 ![Köra IIS-webbplatsen](./media/tutorial-load-balancer/running-iis-website.png)
 
-Om du vill se hur belastningsutjämnaren distribuerar trafik över alla tre virtuella datorer som kör din app, kan du framtvinga uppdatering av webbläsaren.
+Om du vill se hur lastbalanseraren distribuerar trafik över alla tre virtuella datorer som kör din app, kan du framtvinga uppdatering av webbläsaren.
 
 
 ## <a name="add-and-remove-vms"></a>Lägga till och ta bort virtuella datorer
-Du kan behöva utföra underhåll på de virtuella datorerna som kör appen, till exempel installera uppdateringar av operativsystemet. För att klara ökad trafik till din app kan du behöva lägga till fler virtuella datorer. I det här avsnittet visas hur du tar bort eller lägger till en virtuell dator från belastningsutjämnaren.
+Du kan behöva utföra underhåll på de virtuella datorerna som kör appen, till exempel installera uppdateringar av operativsystemet. För att klara ökad trafik till din app kan du behöva lägga till fler virtuella datorer. I det här avsnittet visas hur du tar bort eller lägger till en virtuell dator från lastbalanseraren.
 
-### <a name="remove-a-vm-from-the-load-balancer"></a>Ta bort en virtuell dator från belastningsutjämnaren
+### <a name="remove-a-vm-from-the-load-balancer"></a>Ta bort en virtuell dator från lastbalanseraren
 Hämta nätverkskortet med [Get-AzureRmNetworkInterface](/powershell/module/azurerm.network/get-azurermnetworkinterface) och ange sedan värdet *$null* för egenskapen *LoadBalancerBackendAddressPools* för det virtuella nätverkskortet. Uppdatera slutligen det virtuella nätverkskortet:
 
 ```azurepowershell-interactive
@@ -273,12 +273,12 @@ $nic.Ipconfigurations[0].LoadBalancerBackendAddressPools=$null
 Set-AzureRmNetworkInterface -NetworkInterface $nic
 ```
 
-Om du vill se hur belastningsutjämnaren distribuerar trafik över de två återstående virtuella datorerna som kör din app, kan du framtvinga uppdatering av webbläsaren. Nu kan du utföra underhåll på den virtuella datorn, till exempel installera uppdateringar av operativsystemet eller göra en omstart av den virtuella datorn.
+Om du vill se hur lastbalanseraren distribuerar trafik över de två återstående virtuella datorerna som kör din app, kan du framtvinga uppdatering av webbläsaren. Nu kan du utföra underhåll på den virtuella datorn, till exempel installera uppdateringar av operativsystemet eller göra en omstart av den virtuella datorn.
 
-### <a name="add-a-vm-to-the-load-balancer"></a>Lägga till en virtuell dator i belastningsutjämnaren
+### <a name="add-a-vm-to-the-load-balancer"></a>Lägga till en virtuell dator i lastbalanseraren
 Om du behöver utöka kapaciteten efter underhåll av den virtuella datorn kan du ange egenskapen *LoadBalancerBackendAddressPools* för det virtuella nätverket till *BackendAddressPool* från [Get-AzureRMLoadBalancer](/powershell/module/azurerm.network/get-azurermloadbalancer):
 
-Hämta belastningsutjämnaren:
+Hämta lastbalanseraren:
 
 ```azurepowershell-interactive
 $lb = Get-AzureRMLoadBalancer `
@@ -290,16 +290,16 @@ Set-AzureRmNetworkInterface -NetworkInterface $nic
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här kursen har du skapat en belastningsutjämnare och kopplat virtuella datorer till den. Du har lärt dig att:
+I den här kursen har du skapat en lastbalanserare och kopplat virtuella datorer till den. Du har lärt dig att:
 
 > [!div class="checklist"]
 > * skapa en Azure Load Balancer
-> * skapa en hälsoavsökning för belastningsutjämnaren
-> * skapa trafikregler för belastningsutjämnaren
+> * skapa en hälsoavsökning för lastbalanseraren
+> * skapa trafikregler för lastbalanseraren
 > * skapa en grundläggande IIS-webbplats med tillägget för anpassat skript
-> * skapa virtuella datorer och anslut dem till en belastningsutjämnare
-> * visa en belastningsutjämnare i praktiken
-> * lägga till och ta bort virtuella datorer från en belastningsutjämnare.
+> * skapa virtuella datorer och anslut dem till en lastbalanserare
+> * visa en lastbalanserare i praktiken
+> * lägga till och ta bort virtuella datorer från en lastbalanserare.
 
 Gå vidare till nästa självstudie där du får lära dig hur du hanterar VM-nätverk.
 

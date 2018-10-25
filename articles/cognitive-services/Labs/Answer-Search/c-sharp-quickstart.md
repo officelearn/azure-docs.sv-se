@@ -6,16 +6,16 @@ services: cognitive-services
 author: mikedodaro
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: project-answer-search
+ms.component: answer-search
 ms.topic: quickstart
 ms.date: 04/13/2018
 ms.author: rosh
-ms.openlocfilehash: bea98ac4c4f7da42d0b41a279508253b987ad9a6
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.openlocfilehash: 6d00c420ba84ea78235e138977cc4b5fde4fae64
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48867229"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49464853"
 ---
 # <a name="quickstart-project-answer-search-query-in-c"></a>Snabbstart: Project Answer Search-fråga i C#
 
@@ -32,12 +32,12 @@ Få en åtkomstnyckel för den kostnadsfria utvärderingsversionen av [Cognitive
 Följande C#-kod skapar och skickar frågan. 
 
 Den implementeras i följande steg:
-1. Deklarera variabler för att specificera slutpunkten och en fråge-URL för att förhandsgranska.  
+1. Deklarera variabler för att ange slutpunkten och en fråge-URL att förhandsgranska.  
 2. Skapa begäran.
-3. Ange rubriken *Ocp-Apim-Subscription-Key*. 
+3. Lägg till sidhuvudet *Ocp-Apim-Subscription-Key*. 
 4. Kör webbegäran asynkront. 
 5. Läs svaret.
-6. Skriv ut sidhuvuden och JSON-resultat till konsolen.
+6. Skriv ut sidhuvuden och JSON-resultaten till konsolen.
 
 **Källkod**
 

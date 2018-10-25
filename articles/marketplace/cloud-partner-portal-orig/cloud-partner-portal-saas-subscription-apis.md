@@ -89,7 +89,7 @@ HTTP-metod
 
 *Request URL*
 
-**https://login.microsoftonline.com/*{tenantId}*  /oauth2/token**
+**https://login.microsoftonline.com/*{tenantId}*/oauth2/token**
 
 *URI-parameter*
 
@@ -225,7 +225,7 @@ Prenumerera-slutpunkten tillåter användare att starta en prenumeration på en 
 
 **PUT**
 
-**https://marketplaceapi.microsoft.com/api/saas/subscriptions/*{subscriptionId}* ? api-version = 2017-04-15**
+**https://marketplaceapi.microsoft.com/api/saas/subscriptions/*{subscriptionId}*?api-version=2017-04-15**
 
 | **Parameternamn**  | **Beskrivning**                                       |
 |---------------------|-------------------------------------------------------|
@@ -290,7 +290,7 @@ Följ upp på begäran-åtgärdens status på åtgärd-location-rubriken för en
 
 **PATCH**
 
-**https://marketplaceapi.microsoft.com/api/saas/subscriptions/*{subscriptionId}* ? api-version = 2017-04-15**
+**https://marketplaceapi.microsoft.com/api/saas/subscriptions/*{subscriptionId}*?api-version=2017-04-15**
 
 | **Parameternamn**  | **Beskrivning**                                       |
 |---------------------|-------------------------------------------------------|
@@ -356,7 +356,7 @@ Borttagningsåtgärden på slutpunkten för prenumerera låter en användare tar
 
 **DELETE**
 
-**https://marketplaceapi.microsoft.com/api/saas/subscriptions/*{subscriptionId}* ? api-version = 2017-04-15**
+**https://marketplaceapi.microsoft.com/api/saas/subscriptions/*{subscriptionId}*?api-version=2017-04-15**
 
 | **Parameternamn**  | **Beskrivning**                                       |
 |---------------------|-------------------------------------------------------|
@@ -407,7 +407,7 @@ Den här slutpunkten tillåter användare att spåra status för utlösta async-
 
 **GET**
 
-**https://marketplaceapi.microsoft.com/api/saas/operations/*{Åtgärds-ID}* ? api-version = 2017-04-15**
+**https://marketplaceapi.microsoft.com/api/saas/operations/*{Åtgärds-ID}*?api-version=2017-04-15**
 
 | **Parameternamn**  | **Beskrivning**                                       |
 |---------------------|-------------------------------------------------------|
@@ -477,7 +477,7 @@ Get-åtgärd på prenumerera på slutpunkten låter en användare att hämta en 
 
 **GET**
 
-**https://marketplaceapi.microsoft.com/api/saas/subscriptions/*{subscriptionId}* ? api-version = 2017-04-15**
+**https://marketplaceapi.microsoft.com/api/saas/subscriptions/*{subscriptionId}*?api-version=2017-04-15**
 
 | **Parameternamn**  | **Beskrivning**                                       |
 |---------------------|-------------------------------------------------------|

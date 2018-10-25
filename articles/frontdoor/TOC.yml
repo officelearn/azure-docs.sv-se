@@ -15,36 +15,40 @@ items:
     href: front-door-custom-domain.md
   - name: Aktivera HTTPS för en anpassad domän
     href: front-door-custom-domain-https.md
+  - name: Konfigurera en princip för geo-filtrering för Front Door
+    href: front-door-tutorial-geo-filtering.md
 - name: Exempel
   items:
   - name: Resource Manager-mallar
     href: front-door-quickstart-template-samples.md
 - name: Begrepp
   items:
-  - name: Serverdelar och serverdelspooler
-    href: front-door-backend-pool.md
   - name: Säkerhet för programskikt
     href: front-door-application-security.md
-  - name: Belastningsutjämning med Azures paket för programleverans
-    href: front-door-lb-with-azure-app-delivery-suite.md
-  - name: Routningsarkitektur
-    href: front-door-routing-architecture.md
-  - name: Metoder för trafikroutning
-    href: front-door-routing-methods.md
-  - name: Hur Front Door matchar routning för en begäran
-    href: front-door-route-matching.md
-  - name: Hälsotillståndsavsökningar
-    href: front-door-health-probes.md
-  - name: URL-omskrivning
-    href: front-door-url-rewrite.md
+  - name: Serverdelar och serverdelspooler
+    href: front-door-backend-pool.md
   - name: Cachelagring med Front Door
     href: front-door-caching.md
+  - name: Geo-filtrering
+    href: front-door-geo-filtering.md
+  - name: Hälsotillståndsavsökningar
+    href: front-door-health-probes.md
+  - name: Hur Front Door matchar routning för en begäran
+    href: front-door-route-matching.md
   - name: Stöd för HTTP/2
     href: front-door-http2.md
   - name: Protokollstöd för HTTP-huvuden
     href: front-door-http-headers-protocol.md
+  - name: Belastningsutjämning med Azures paket för programleverans
+    href: front-door-lb-with-azure-app-delivery-suite.md
   - name: Övervakning
     href: front-door-diagnostics.md
+  - name: Routningsarkitektur
+    href: front-door-routing-architecture.md
+  - name: Metoder för trafikroutning
+    href: front-door-routing-methods.md
+  - name: URL-omskrivning
+    href: front-door-url-rewrite.md
 - name: Instruktionsguider
   items:
   - name: Felsöka
@@ -71,9 +75,9 @@ items:
     href: https://azure.microsoft.com/pricing/calculator/
   - name: Tjänstuppdateringar
     href: https://azure.microsoft.com/updates/?product=frontdoor
-ms.openlocfilehash: 31944414b1bdcdb98d166463d54e21ecab6924e9
-ms.sourcegitcommit: 3150596c9d4a53d3650cc9254c107871ae0aab88
+ms.openlocfilehash: 504ae8bbd1c28b1deba5b1a9fdd387a46a84859e
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47419359"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49986380"

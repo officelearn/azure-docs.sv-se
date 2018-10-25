@@ -11,13 +11,13 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: carlrab, bonova
 manager: craigg
-ms.date: 08/13/2018
-ms.openlocfilehash: 2f512c666555ca8bee58305b76573459f6e631e2
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.date: 10/24/2018
+ms.openlocfilehash: fd63d0ce9ef335efdebf9759d52cf93312986d16
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47166511"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50025386"
 ---
 # <a name="azure-sql-database-managed-instance-t-sql-differences-from-sql-server"></a>Azure SQL Database Managed Instance T-SQL skillnader från SQL Server 
 
@@ -103,7 +103,7 @@ Se [skapa certifikat](https://docs.microsoft.com/sql/t-sql/statements/create-cer
 > ``` 
 CREATE CERTIFICATE  
  FROM BINARY = asn_encoded_certificate    
-WITH PRIVATE KEY ( <private_key_options> ) 
+WITH PRIVATE KEY (<private_key_options>) 
 >```   
  
 ### <a name="clr"></a>CLR 
@@ -333,21 +333,22 @@ Information om återställning instruktioner finns i [ÅTERSTÄLLA instruktioner
  - `remote proc trans` 
 - `sp_execute_external_scripts` stöds inte. Se [sp_execute_external_scripts](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-execute-external-script-transact-sql#examples).
 - `xp_cmdshell` stöds inte. Se [xp_cmdshell](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/xp-cmdshell-transact-sql).
-- `Extended stored procedures` stöds inte, inklusive `sp_addextendedproc` och `sp_dropextendedproc`. Se [utökade lagrade procedurer](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/general-extended-stored-procedures-transact-sql)
+- `Extended stored procedures` stöds inte, inklusive `sp_addextendedproc`  och `sp_dropextendedproc`. Se [utökade lagrade procedurer](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/general-extended-stored-procedures-transact-sql)
 - `sp_attach_db`, `sp_attach_single_file_db`, och `sp_detach_db` stöds inte. Se [sp_attach_db](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-attach-db-transact-sql), [sp_attach_single_file_db](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-attach-single-file-db-transact-sql), och [sp_detach_db](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-detach-db-transact-sql).
 - `sp_renamedb` stöds inte. Se [sp_renamedb](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-renamedb-transact-sql).
 
 ### <a name="sql-server-agent"></a>SQL Server Agent
 
 - Inställningar för SQL Agent är skrivskyddade. Proceduren `sp_set_agent_properties` stöds inte i hanterade instanser.  
-- Jobb – T-SQL-jobb steg stöds för närvarande
-- Andra typer av jobb som steg för inte närvarande stöds (flera steg typer kommer att läggas till under den offentliga förhandsversionen).
-  - Replikeringsjobb stöds inte, inklusive:
+- Jobb
+ - Steg för T-SQL-jobb stöds.
+ - Följande replikeringsjobb stöds:
     - Transaktionsloggen läsare.  
     - Ögonblicksbild.
-    - Distributören.  
-    - Slå ihop.  
-  - SSIS stöds inte ännu. 
+    - Distributören.
+ - SSIS stöds. 
+- Andra typer av jobb steg stöds för närvarande inte, inklusive:
+  - Jobbsteg för sammanslagen replikering stöds inte.  
   - Kön läsare stöds inte.  
   - Kommandogränssnitt (shell) stöds inte ännu. 
   - Hanterad instans kan inte komma åt externa resurser (till exempel nätverksresurser via robocopy).  
@@ -411,7 +412,7 @@ I det här exemplet befintliga databaser fortsätter att fungera och kan växa u
 ### <a name="incorrect-configuration-of-sas-key-during-database-restore"></a>Felaktig konfiguration av SAS-nyckel under databasen återställa
 
 `RESTORE DATABASE` som läser bak-filen kan ständigt nya försök för att läsa bak-filen och returnerar fel efter lång tidsperiod om signatur för delad åtkomst i `CREDENTIAL` är felaktig. Köra RESTORE HEADERONLY innan du återställer en databas för att se till att SAS-nyckel är korrekt.
-Kontrollera att du tar bort ledande `?` från SAS-nyckeln som genererades med hjälp av Azure portal.
+Kontrollera att du tar bort ledande `?` från SAS-nyckeln som genereras med hjälp av Azure portal.
 
 ### <a name="tooling"></a>Verktyg
 

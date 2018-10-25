@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/18/2018
 ms.author: tamram
 ms.custom: include file
-ms.openlocfilehash: d59cb64e1499f703bf6913ab422d0f979caca324
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: f21710354572c9b54dbf0e08d02809bb68a8e120
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47008748"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49805042"
 ---
 Följ de här stegen för att skapa ett GPv2-konto för generell användning i Azure-portalen:
 
@@ -33,5 +33,6 @@ Följ de här stegen för att skapa ett GPv2-konto för generell användning i A
     - **Åtkomstnivå** är inställt på **Frekvent** som standard.
 
 1. Klicka på **Granska + skapa** för att granska inställningarna för ditt lagringskonto och skapa kontot.
+1. Klicka på **Skapa**.
 
 Mer information om typer av lagringskonton och andra inställningar för lagringskonto finns i [översikten över Azure-lagringskonton](https://docs.microsoft.com/azure/storage/common/storage-account-overview). Mer information om resursgrupper finns i [Översikt över Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview). 

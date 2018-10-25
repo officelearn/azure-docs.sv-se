@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.service: cost-management
 manager: dougeby
 ms.custom: ''
-ms.openlocfilehash: 304a52f5571790ea49587a5aeda433f003f0e0bd
-ms.sourcegitcommit: 42405ab963df3101ee2a9b26e54240ffa689f140
+ms.openlocfilehash: a53ff5fdb256a46f42e7461bb46b6847d17ed230
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47423076"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49958755"
 ---
 # <a name="activate-azure-subscriptions-and-accounts-with-cloudyn"></a>Aktivera Azure-prenumerationer och konton med Cloudyn
 
@@ -60,11 +60,11 @@ När du lägger till en prenumeration till en kontouppdatering beviljar du åtko
 1. Om du vill uppdatera en _inaktiverad_ prenumeration som redan finns i Cloudyn går du till Kontohantering och klickar på pennsymbolen för redigering till höger om överordnad _klientorganisations-GUID_. Prenumerationerna är grupperade under en överordnad klientorganisation, så undvik att aktivera prenumerationer individuellt.
     ![Identifiera prenumerationer igen](./media/activate-subs-accounts/existing-sub.png)
 2. Ange klient-ID om det behövs. Om du inte vet klient-ID kan du söka efter det genom att göra följande:
-    1. Logga in på [Azure Portal](https://portal.azure.com).
+    1. Logga in på [Azure-portalen](https://portal.azure.com).
     2. Välj **Azure Active Directory** i Azure Portal.
     3. Om du vill hämta klientorganisations-ID:t väljer du **Egenskaper** för din Microsoft Azure Active Directory-klientorganisation.
     4. Kopiera katalog-ID GUID. Det här värdet är ditt klientorganisations-ID.
-    Mer information finns i [Hämta klient-ID](../azure-resource-manager/resource-group-create-service-principal-portal.md#get-tenant-id).
+    Mer information finns i [Hämta klient-ID](../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-id).
 3. Välj pris-ID om det behövs. Om du inte vet pris-ID kan du söka efter det genom att göra följande.
     1. Uppe till höger i Azure Portal klickar du på din användarinformation och klickar sedan på **Visa min faktura**.
     2. Under **Faktureringskonto** klickar du på **Prenumerationer**.

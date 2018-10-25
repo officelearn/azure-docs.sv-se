@@ -3,7 +3,7 @@ title: Självstudie – Skala en skalningsuppsättning automatiskt med Azure Pow
 description: Läs hur du automatiskt skalar en VM-skalningsuppsättning med Azure PowerShell allteftersom CPU-kraven varierar
 services: virtual-machine-scale-sets
 documentationcenter: ''
-author: cynthn
+author: zr-msft
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/27/2018
-ms.author: cynthn
+ms.author: zarhoads
 ms.custom: mvc
-ms.openlocfilehash: 910faad143313ef68ed7ffbc08b8745c73340f23
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: d7b064ebc23f32f91fb9756e4566d33c85437b60
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38630327"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49466604"
 ---
 # <a name="tutorial-automatically-scale-a-virtual-machine-scale-set-with-azure-powershell"></a>Självstudie: Skala en VM-skalningsuppsättning automatiskt med Azure PowerShell
 När du skapar en skalningsuppsättning, definierar du antalet virtuella datorinstanser som du vill köra. När ditt program behöver ändras, kan du automatiskt öka eller minska antalet virtuella datorinstanser. Möjligheten att skala automatiskt låter dig hålla dig uppdaterad med kundernas behov eller svara på ändringar i programprestandan under hela livscykeln för din app. I den här självstudiekursen får du lära du dig att:
@@ -49,7 +49,7 @@ $myScaleSet = "myScaleSet"
 $myLocation = "East US"
 ```
 
-Skapa nu en skalningsuppsättning för en virtuell dator med [New-AzureRmVmss](/powershell/module/azurerm.compute/new-azurermvmss). För att distribuera trafik till flera virtuella datorinstanser så skapas även en belastningsutjämnare. Belastningsutjämnaren innehåller regler för att distribuera trafik på TCP-port 80 och för att tillåta trafik för fjärrskrivbordet på TCP-port 3389 och PowerShell-fjärrkommunikation på TCP-port 5985. När du uppmanas, anger du dina egna önskade administrativa autentiseringsuppgifter för de virtuella datorinstanserna i skalningsuppsättning:
+Skapa nu en skalningsuppsättning för en virtuell dator med [New-AzureRmVmss](/powershell/module/azurerm.compute/new-azurermvmss). För att distribuera trafik till flera virtuella datorinstanser så skapas även en lastbalanserare. Lastbalanseraren innehåller regler för att distribuera trafik på TCP-port 80 och för att tillåta trafik för fjärrskrivbordet på TCP-port 3389 och PowerShell-fjärrkommunikation på TCP-port 5985. När du uppmanas, anger du dina egna önskade administrativa autentiseringsuppgifter för de virtuella datorinstanserna i skalningsuppsättning:
 
 ```azurepowershell-interactive
 New-AzureRmVmss `
@@ -65,7 +65,7 @@ New-AzureRmVmss `
 Det tar några minuter att skapa och konfigurera alla skalningsuppsättningsresurser och virtuella datorer.
 
 ## <a name="create-a-rule-to-autoscale-out"></a>Skapa en regel för att automatiskt skala ut
-Om dina programkrav ökar, ökar även belastningen på de virtuella datorinstanserna i din skalningsuppsättning. Om den här ökade belastningen är konsekvent istället för bara en kortsiktig efterfrågan, kan du konfigurera regler för automatisk skalning för att öka antalet virtuella datorinstanser i skalningsuppsättningen. När dessa virtuella datorinstanser skapas och dina program distribueras, börjar skalningsuppsättningen att distribuera trafik till dem via belastningsutjämnaren. Du kan styra vilka mått som ska övervakas, som CPU eller disk, hur länge programbelastningen måste uppfylla ett visst tröskelvärde och hur många virtuella datorinstanser som ska läggas till skalningsuppsättningen.
+Om dina programkrav ökar, ökar även belastningen på de virtuella datorinstanserna i din skalningsuppsättning. Om den här ökade belastningen är konsekvent istället för bara en kortsiktig efterfrågan, kan du konfigurera regler för automatisk skalning för att öka antalet virtuella datorinstanser i skalningsuppsättningen. När dessa virtuella datorinstanser skapas och dina program distribueras, börjar skalningsuppsättningen att distribuera trafik till dem via lastbalanseraren. Du kan styra vilka mått som ska övervakas, som CPU eller disk, hur länge programbelastningen måste uppfylla ett visst tröskelvärde och hur många virtuella datorinstanser som ska läggas till skalningsuppsättningen.
 
 Nu ska vi skapa en regel med [New-AzureRmAutoscaleRule](/powershell/module/AzureRM.Insights/New-AzureRmAutoscaleRule) som ökar antalet virtuella datorinstanser i en skalningsuppsättning när den genomsnittliga CPU-belastningen är större än 70 % över en 5 minutersperiod. När regeln utlöses, ökar antalet virtuella datorinstanser med tre.
 
@@ -152,7 +152,7 @@ Add-AzureRmAutoscaleSetting `
 ## <a name="generate-cpu-load-on-scale-set"></a>Generera CPU-belastning på skalningsuppsättningen
 Om du vill testa reglerna för automatisk skalning kan du generera lite CPU-belastning på de virtuella datorinstanserna i skalningsuppsättningen. Den här simulerade CPU-belastningen gör att reglerna för automatisk skalning skalar ut och ökar antalet virtuella datorinstanser. När den simulerade CPU-belastningen sedan minskar så skalar reglerna för automatisk skalning in och minskar antalet virtuella datorinstanser.
 
-Om du vill visa en lista med NAT-portar för anslutning till VM-instanser i en skalningsuppsättning, hämta först belastningsutjämningsobjektet med [Get-AzureRmLoadBalancer](/powershell/module/AzureRM.Network/Get-AzureRmLoadBalancer). Visa sedan de ingående NAT-reglerna med [Get-AzureRmLoadBalancerInboundNatRuleConfig](/powershell/module/AzureRM.Network/Get-AzureRmLoadBalancerInboundNatRuleConfig):
+Om du vill visa en lista med NAT-portar för anslutning till VM-instanser i en skalningsuppsättning, hämta först lastbalanseringsobjektet med [Get-AzureRmLoadBalancer](/powershell/module/AzureRM.Network/Get-AzureRmLoadBalancer). Visa sedan de ingående NAT-reglerna med [Get-AzureRmLoadBalancerInboundNatRuleConfig](/powershell/module/AzureRM.Network/Get-AzureRmLoadBalancerInboundNatRuleConfig):
 
 ```azurepowershell-interactive
 # Get the load balancer object
@@ -162,7 +162,7 @@ $lb = Get-AzureRmLoadBalancer -ResourceGroupName "myResourceGroup" -Name "myLoad
 Get-AzureRmLoadBalancerInboundNatRuleConfig -LoadBalancer $lb | Select-Object Name,Protocol,FrontEndPort,BackEndPort
 ```
 
-Följande exempelutdata visar instansnamnet, den offentliga IP-adressen för belastningsutjämnaren och portnummer som NAT-regler vidarebefordrar trafik till:
+Följande exempelutdata visar instansnamnet, den offentliga IP-adressen för lastbalanseraren och portnummer som NAT-regler vidarebefordrar trafik till:
 
 ```powershell
 Name        Protocol FrontendPort BackendPort
@@ -173,7 +173,7 @@ myRDPRule.1 Tcp             50002        3389
 
 *Namnet* på regeln överensstämmer med namnet på VM-instansen såsom visas i ett tidigare [Get-AzureRmVmssVM](/powershell/module/azurerm.compute/get-azurermvmssvm)-kommando. Till exempel för att ansluta till VM-instans *0*, använder du *myRDPRule.0* och ansluter till porten *50001*. För att ansluta till VM-instans *1*, använder du värdet från *myRDPRule.1* och ansluter till porten *50002*.
 
-Visa den offentliga IP-adressen för belastningsutjämnaren med [Get-AzureRmPublicIpAddress](/powershell/module/AzureRM.Network/Get-AzureRmPublicIpAddress):
+Visa den offentliga IP-adressen för lastbalanseraren med [Get-AzureRmPublicIpAddress](/powershell/module/AzureRM.Network/Get-AzureRmPublicIpAddress):
 
 ```azurepowershell-interactive
 Get-AzureRmPublicIpAddress -ResourceGroupName "myResourceGroup" -Name myPublicIP | Select IpAddress

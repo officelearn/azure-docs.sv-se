@@ -9,12 +9,12 @@ author: nacharya1
 ms.author: nilesha
 ms.reviewer: sgilley
 ms.date: 09/24/2018
-ms.openlocfilehash: df1c19c0e16b9862b09dcc652ef2831e0c5bf3a5
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: 29d673f48671ec917e45b7ff76feeebf0b868c4b
+ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48802363"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49426897"
 ---
 # <a name="tutorial-train-a-classification-model-with-automated-machine-learning-in-azure-machine-learning-service"></a>Självstudie: Träna en klassificeringsmodell med automatiserad maskininlärning i Azure Machine Learning-tjänsten
 
@@ -38,7 +38,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 
 ## <a name="get-the-notebook"></a>Hämta anteckningsboken
 
-Självstudien finns tillgänglig som en [Jupyter Notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/tutorials/03.auto-train-models.ipynb). Kör `03.auto-train-models.ipynb`-anteckningsboken antingen i Azure Notebooks eller i din egen Jupyter-anteckningsboksserver.
+Denna självstudie finns tillgänglig som en [Jupyter Notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/tutorials/03.auto-train-models.ipynb). Kör anteckningsboken `03.auto-train-models.ipynb` antingen i Azure Notebooks eller i din egen Jupyter Notebook-server.
 
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-in-azure-notebook.md)]
@@ -543,5 +543,5 @@ I den här självstudien för Azure Machine Learning-tjänsten har du använt Py
 > * Granska träningsresultatet
 > * Registrera den bästa modellen
 
-Läs mer om [hur du konfigurerar inställningar för automatisk träning]() eller [hur du använder automatisk träning på en fjärresurs](how-to-auto-train-remote.md).  
+Läs mer om [hur du konfigurerar inställningar för automatisk träning](how-to-configure-auto-train.md) eller [hur du använder automatisk träning på en fjärresurs](how-to-auto-train-remote.md).  
 

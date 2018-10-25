@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 3bff6f00c67a2fa523113171855dce4e7b807f0b
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: 4ce344292577dd286abcd7fbf9e067800da0e0b3
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45734462"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49959000"
 ---
 # <a name="tutorial-use-rest-api-to-create-an-azure-data-factory-pipeline-to-copy-data"></a>Självstudier: Använd REST API för att skapa ett Azure Data Factory-pipeline för att kopiera data 
 > [!div class="op_single_selector"]
@@ -52,7 +52,7 @@ En pipeline kan ha fler än en aktivitet. Du kan länka två aktiviteter (köra 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 * Gå igenom [Självstudier – översikt](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) och slutför de **nödvändiga** stegen.
 * Installera [Curl](https://curl.haxx.se/dlwiz/) på din dator. Du kan använda verktyget Curl med REST-kommandon för att skapa en datafabrik. 
-* Gör följande genom att följa anvisningarna i [den här artikeln](../../azure-resource-manager/resource-group-create-service-principal-portal.md): 
+* Gör följande genom att följa anvisningarna i [den här artikeln](../../active-directory/develop/howto-create-service-principal-portal.md): 
   1. Skapa en webbapp med namnet **ADFCopyTutorialApp** i Azure Active Directory.
   2. Hämta ett **klient-ID** och en **hemlig nyckel**. 
   3. Hämta ett **klientorganisations-ID**. 

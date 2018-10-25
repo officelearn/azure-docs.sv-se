@@ -6,16 +6,16 @@ services: cognitive-services
 author: mikedodaro
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: project-url-preview
+ms.component: url-preview
 ms.topic: quickstart
 ms.date: 03/16/2018
 ms.author: rosh
-ms.openlocfilehash: b8410127ed9a0444ab400eb3242868a85bd5b2c9
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: 3367b39333c9d7334bc56b3acdf00453cc9705c0
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48883575"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49465057"
 ---
 # <a name="quickstart-url-preview-with-nodejs"></a>Snabbstart: URL-förhandsgranskning med Node.js 
 
@@ -23,7 +23,7 @@ Node-exemplet nedan skapar en URL-förhandsgranskning för webbplatsen SwiftKey:
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
-Hämta en åtkomstnyckel för den kostnadsfria utvärderingsversionen av [Cognitive Services Labs](https://aka.ms/answersearchsubscription)
+Få en åtkomstnyckel för den kostnadsfria utvärderingsversionen av [Cognitive Services Labs](https://aka.ms/answersearchsubscription)
 
 ## <a name="code-scenario"></a>Kodscenario 
 

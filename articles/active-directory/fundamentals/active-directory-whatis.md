@@ -12,12 +12,12 @@ ms.workload: identity
 ms.topic: overview
 ms.date: 09/13/2018
 ms.custom: it-pro
-ms.openlocfilehash: 08d32a99e2f1a77bcc7a5900b47e6771c33ec356
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
+ms.openlocfilehash: 406baeac60c7c0cdf5f74876e5fc29ea23d3d6f6
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49393329"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49957555"
 ---
 # <a name="what-is-azure-active-directory"></a>Vad är Azure Active Directory?
 Azure Active Directory (Azure AD) är Microsofts molnbaserade katalog- och identitetshanteringstjänst för flera klientorganisationer. Azure AD kombinerar viktiga katalogtjänster, åtkomsthantering för program och identitetsskydd i en enda lösning vilket utgör en standardbaserad plattform som hjälper utvecklare som ger åtkomstkontroll till deras appar, baserat på centraliserad policy och regler.
@@ -74,7 +74,7 @@ För att förbättra din Azure AD-implementering kan du lägga till betalfunktio
 Registrera dig för en kostnadsfri 30-dagars utvärderingsversion och distribuera din första molnlösning, se [utvärderingsversion av Azure Active Directory Premium](https://azure.microsoft.com/trial/get-started-active-directory/).
 
 ## <a name="as-a-developer-how-do-i-get-started"></a>Som utvecklare, hur kommer jag igång?
-Registrera dig för en kostnadsfri 30-dagars utvärderingsversion och börjar integrera dina appar med Azure AD, se [utvärderingsversion av Azure Active Directory Premium](https://azure.microsoft.com/trial/get-started-active-directory/). Du hittar mer information i [Utvecklarguiden](../develop/azure-ad-developers-guide.md) för Azure Active Directory.
+Registrera dig för en kostnadsfri 30-dagars utvärderingsversion och börjar integrera dina appar med Azure AD, se [utvärderingsversion av Azure Active Directory Premium](https://azure.microsoft.com/trial/get-started-active-directory/). Du hittar mer information i [Utvecklarguiden](../develop/v1-overview.md) för Azure Active Directory.
 
 ## <a name="next-steps"></a>Nästa steg
 - [Läs mer om grunderna för identitets- och åtkomsthantering med Azure](identity-fundamentals.md).

@@ -3,7 +3,7 @@ title: Självstudie – Skapa och hantera en VM-skalningsuppsättning i Azure | 
 description: Läs hur du använder Azure PowerShell för att skapa en VM-skalningsuppsättning, tillsammans med vissa vanliga hanteringsuppgifter, till exempel att starta och stoppa en instans, eller ändra kapaciteten för en skalningsuppsättning.
 services: virtual-machine-scale-sets
 documentationcenter: ''
-author: cynthn
+author: zr-msft
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 05/18/2018
-ms.author: cynthn
+ms.author: zarhoads
 ms.custom: mvc
-ms.openlocfilehash: 6e3262ffbf31c18611a82c8293c63e13e572e30c
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: f525603419149c42a4f979b11547222ad00fc74c
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38531570"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49465992"
 ---
 # <a name="tutorial-create-and-manage-a-virtual-machine-scale-set-with-azure-powershell"></a>Självstudie: Skapa och hantera en VM-skalningsuppsättning med Azure PowerShell
 Med en VM-skalningsuppsättning kan du distribuera och hantera en uppsättning identiska, virtuella datorer med automatisk skalning. Under livscykeln för en VM-skalningsuppsättning kan du behöva köra en eller flera hanteringsuppgifter. I den här självstudiekursen får du lära du dig att:
@@ -41,7 +41,7 @@ Om du väljer att installera och använda PowerShell lokalt krävs version 6.0.0
 
 
 ## <a name="create-a-resource-group"></a>Skapa en resursgrupp
-En Azure-resursgrupp är en logisk behållare där Azure-resurser distribueras och hanteras. En resursgrupp måste skapas före en VM-skalningsuppsättning. Skapa en resursgrupp med kommandot [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup). I det här exemplet skapas en resursgrupp med namnet *myResourceGroup* i regionen *EastUS*. 
+En Azure-resursgrupp är en logisk container där Azure-resurser distribueras och hanteras. En resursgrupp måste skapas före en VM-skalningsuppsättning. Skapa en resursgrupp med kommandot [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup). I det här exemplet skapas en resursgrupp med namnet *myResourceGroup* i regionen *EastUS*. 
 
 ```azurepowershell-interactive
 New-AzureRmResourceGroup -ResourceGroupName "myResourceGroup" -Location "EastUS"
@@ -56,7 +56,7 @@ Först anger du ett administratörsanvändarnamn och lösenord för virtuella da
 $cred = Get-Credential
 ```
 
-Skapa nu en skalningsuppsättning för en virtuell dator med [New-AzureRmVmss](/powershell/module/azurerm.compute/new-azurermvmss). För att distribuera trafik till flera virtuella datorinstanser så skapas även en belastningsutjämnare. Belastningsutjämnaren innehåller regler för att distribuera trafik på TCP-port 80 och för att tillåta trafik för fjärrskrivbordet på TCP-port 3389 och PowerShell-fjärrkommunikation på TCP-port 5985:
+Skapa nu en skalningsuppsättning för en virtuell dator med [New-AzureRmVmss](/powershell/module/azurerm.compute/new-azurermvmss). För att distribuera trafik till flera virtuella datorinstanser så skapas även en lastbalanserare. Lastbalanseraren innehåller regler för att distribuera trafik på TCP-port 80 och för att tillåta trafik för fjärrskrivbordet på TCP-port 3389 och PowerShell-fjärrkommunikation på TCP-port 5985:
 
 ```azurepowershell-interactive
 New-AzureRmVmss `
@@ -97,9 +97,9 @@ Get-AzureRmVmssVM -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleS
 
 
 ## <a name="list-connection-information"></a>Lista anslutningsinformation
-En offentlig IP-adress är tilldelad till belastningsutjämnaren som dirigerar trafik till de enskilda virtuella datorinstanserna. Som standard läggs NAT (Network Address Translation)-regler till Azure-belastningsutjämnaren som vidarebefordrar fjärranslutningstrafik till varje virtuell dator på en viss port. Om du vill ansluta till de virtuella datorinstanserna i en skalningsuppsättning, kan du skapa en fjärranslutning till en tilldelad offentlig IP-adress och portnummer.
+En offentlig IP-adress är tilldelad till lastbalanseraren som dirigerar trafik till de enskilda virtuella datorinstanserna. Som standard läggs NAT (Network Address Translation)-regler till Azure-lastbalanseraren som vidarebefordrar fjärranslutningstrafik till varje virtuell dator på en viss port. Om du vill ansluta till de virtuella datorinstanserna i en skalningsuppsättning, kan du skapa en fjärranslutning till en tilldelad offentlig IP-adress och portnummer.
 
-Om du vill visa en lista med NAT-portar för anslutning till virtuella datorinstanser i en skalningsuppsättning, hämtar du först belastningsutjämnarobjektet med [Get-AzureRmLoadBalancer](/powershell/module/AzureRM.Network/Get-AzureRmLoadBalancer). Visa sedan de ingående NAT-reglerna med [Get-AzureRmLoadBalancerInboundNatRuleConfig](/powershell/module/AzureRM.Network/Get-AzureRmLoadBalancerInboundNatRuleConfig):
+Om du vill visa en lista med NAT-portar för anslutning till VM-instanser i en skalningsuppsättning, hämta först lastbalanseringsobjektet med [Get-AzureRmLoadBalancer](/powershell/module/AzureRM.Network/Get-AzureRmLoadBalancer). Visa sedan de ingående NAT-reglerna med [Get-AzureRmLoadBalancerInboundNatRuleConfig](/powershell/module/AzureRM.Network/Get-AzureRmLoadBalancerInboundNatRuleConfig):
 
 ```azurepowershell-interactive
 # Get the load balancer object
@@ -109,7 +109,7 @@ $lb = Get-AzureRmLoadBalancer -ResourceGroupName "myResourceGroup" -Name "myLoad
 Get-AzureRmLoadBalancerInboundNatRuleConfig -LoadBalancer $lb | Select-Object Name,Protocol,FrontEndPort,BackEndPort
 ```
 
-Följande exempelutdata visar instansnamnet, den offentliga IP-adressen för belastningsutjämnaren och portnummer som NAT-regler vidarebefordrar trafik till:
+Följande exempelutdata visar instansnamnet, den offentliga IP-adressen för lastbalanseraren och portnummer som NAT-regler vidarebefordrar trafik till:
 
 ```powershell
 Name             Protocol FrontendPort BackendPort
@@ -122,7 +122,7 @@ myScaleSet5985.1 Tcp             51002        5985
 
 *Namnet* på regeln överensstämmer med namnet på den virtuella datorinstansen som det visas i ett tidigare [Get-AzureRmVmssVM](/powershell/module/azurerm.compute/get-azurermvmssvm)-kommando. Till exempel för att ansluta till den virtuella datorinstansen *0*, använder du *myScaleSet3389.0* och ansluter till porten *50001*. För att ansluta till den virtuella datorinstansen *1*, använder du värdet från *myScaleSet3389.1* och ansluter till porten *50002*. Om du vill använda PowerShell-fjärrkommunikation, ansluter du till lämplig virtuell datorinstansregel för *TCP* port *5985*.
 
-Visa den offentliga IP-adressen för belastningsutjämnaren med [Get-AzureRmPublicIpAddress](/powershell/module/AzureRM.Network/Get-AzureRmPublicIpAddress):
+Visa den offentliga IP-adressen för lastbalanseraren med [Get-AzureRmPublicIpAddress](/powershell/module/AzureRM.Network/Get-AzureRmPublicIpAddress):
 
 ```azurepowershell-interactive
 Get-AzureRmPublicIpAddress -ResourceGroupName "myResourceGroup" -Name "myPublicIPAddress" | Select IpAddress
@@ -253,7 +253,7 @@ New-AzureRmVmss `
 
 
 ## <a name="change-the-capacity-of-a-scale-set"></a>Ändra kapaciteten för en skalningsuppsättning
-När du har skapat en skalningsuppsättning, begärde du två virtuella datorinstanser. Om du vill öka eller minska antalet virtuella datorinstanser i din befintliga skalningsuppsättning, kan du manuellt ändra kapaciteten. Skalningsuppsättningen skapar eller tar bort antalet virtuella datorinstanser som krävs och konfigurerar sedan belastningsutjämnaren att distribuera trafiken.
+När du har skapat en skalningsuppsättning, begärde du två virtuella datorinstanser. Om du vill öka eller minska antalet virtuella datorinstanser i din befintliga skalningsuppsättning, kan du manuellt ändra kapaciteten. Skalningsuppsättningen skapar eller tar bort antalet virtuella datorinstanser som krävs och konfigurerar sedan lastbalanseraren att distribuera trafiken.
 
 Skapa först ett skalningsuppsättningsobjekt med [Get-AzureRmVmss](/powershell/module/azurerm.compute/get-azurermvmss) och ange sedan ett nytt värde för `sku.capacity`. Om du vill tillämpa kapacitetsändringen, använder du [Update-AzureRmVmss](/powershell/module/azurerm.compute/update-azurermvmss). Följande exempel anger antalet virtuella datorinstanser i din skalningsuppsättning till *3*:
 

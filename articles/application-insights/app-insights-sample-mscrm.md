@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 03/16/2018
 ms.reviewer: mazhar
 ms.author: mbullwin
-ms.openlocfilehash: c9629611544efe248b1b343ac1ba26740b9ce7e0
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: 2fa4242de6a953e82e3f81831c491125e9a7c3f3
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47091697"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50026236"
 ---
 # <a name="walkthrough-enabling-telemetry-for-microsoft-dynamics-crm-online-using-application-insights"></a>Genomgång: Aktivera telemetri för Microsoft Dynamics CRM Online med hjälp av Application Insights
 Den här artikeln visar hur du hämtar telemetridata från [Microsoft Dynamics CRM Online](https://www.dynamics.com/) med [Azure Application Insights](https://azure.microsoft.com/services/application-insights/). Vi går genom processen att lägga till Application Insights-skriptet till ditt program, samla in data och datavisualisering.
@@ -39,11 +39,7 @@ Om du vill övervaka programmet du lägga till en Application Insights SDK till 
     ![Klicka på +, Utvecklartjänster, Application Insights.](./media/app-insights-sample-mscrm/01.png)
 
     Välj ASP.NET som programtypen.
-3. Öppna sidan komma igång och öppna ”övervaka och diagnostisera klientsidan”.
-
-    ![Kodfragmentet för infogning i din webbsida](./media/app-insights-sample-mscrm/03.png)
-
-**Håll teckentabellen öppen** medan du utför nästa steg i ett annat webbläsarfönster. Du måste koden snart. 
+3. Följ anvisningarna för att [hämta JavaScript SDK-skriptet för din app](app-insights-javascript.md#set-up-application-insights-for-your-web-page), kopiera JavaScript-kodavsnitt och Ersätt Instrumenteringsnyckeln med rätt värde för Application Insights-resursen.
 
 ### <a name="create-a-javascript-web-resource-in-microsoft-dynamics-crm"></a>Skapa en webbresurs i JavaScript i Microsoft Dynamics CRM
 1. Öppna din CRM Online-instans och logga in med administratörsbehörighet.
@@ -60,7 +56,7 @@ Om du vill övervaka programmet du lägga till en Application Insights SDK till 
     Ge den ett namn, Välj **skript (JScript)** och öppna textredigeraren.
 
     ![Öppna textredigeraren](./media/app-insights-sample-mscrm/00004.png)
-2. Kopiera koden från Application Insights. När du kopierar, se till att ignorera skript-taggar. Se skärmbilden nedan:
+2. Kopiera koden från Application Insights JavaScript SDK som du har konfigurerat din Instrumentationsnyckel innan. När du kopierar, se till att ignorera skript-taggar. Se skärmbilden nedan:
 
     ![Ange instrumenteringsnyckeln](./media/app-insights-sample-mscrm/000005.png)
 

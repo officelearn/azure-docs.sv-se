@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/10/2018
 ms.author: douglasl
-ms.openlocfilehash: f1cc1b728a91c22f9b4b2062ed5c423314e561c8
-ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
+ms.openlocfilehash: 64dacb33a8cd235e155a640d57d868f384f93d76
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48017592"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49959017"
 ---
 # <a name="transform-data-in-the-cloud-by-using-a-spark-activity-in-azure-data-factory"></a>Transformera data i molnet genom att använda Spark-aktivitet i Azure Data Factory
 I den här självstudien använder du Azure-portalen till att skapa Azure Data Factory-pipeline. Pipelinen transformerar data med en Spark-aktivitet och en länkad Azure HDInsight-tjänst på begäran. 
@@ -151,7 +151,7 @@ Du skapar två länkade tjänster i det här avsnittet:
    
    e. För **ID för tjänstens huvudnamn** anger du det ID för tjänsten huvudman som har behörighet att skapa ett HDInsight-kluster. 
    
-      Tjänstens huvudnamn måste vara medlem i rollen Deltagare för prenumerationen eller resursgruppen som klustret har skapats i. Mer information finns i [Create an Azure Active Directory application and service principal](../azure-resource-manager/resource-group-create-service-principal-portal.md) (Skapa ett Azure Active Directory-program och ett huvudnamn för tjänsten).
+      Tjänstens huvudnamn måste vara medlem i rollen Deltagare för prenumerationen eller resursgruppen som klustret har skapats i. Mer information finns i [Create an Azure Active Directory application and service principal](../active-directory/develop/howto-create-service-principal-portal.md) (Skapa ett Azure Active Directory-program och ett huvudnamn för tjänsten).
    
    f. Ange nyckeln i **Nyckel för tjänstens huvudnamn**. 
    

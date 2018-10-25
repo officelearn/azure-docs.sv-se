@@ -9,12 +9,12 @@ ms.topic: get-started-article
 ms.date: 02/26/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: e3e3a981daf1273b8b2387cb1c665317f860b1d2
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: c370d25ed5d70887c8beecae8fea3528a259a0ea
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46974875"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49954580"
 ---
 # <a name="set-up-an-azure-ad-service-principal-for-a-kubernetes-cluster-in-container-service"></a>Konfigurera ett Azure AD-tjänstobjekt för ett Kubernetes-kluster i Container Service
 
@@ -37,14 +37,14 @@ Du kan använda ett befintligt Azure AD-tjänstobjekt som uppfyller kraven nedan
 * **Klienthemlighet**: Måste vara ett lösenord. För närvarande kan du inte använda ett huvudnamn för tjänsten som konfigurerats för certifikatautentisering.
 
 > [!IMPORTANT]
-> För att skapa ett tjänstobjekt måste du ha behörighet att registrera ett program med din Azure AD-klientorganisation, samt behörighet att tilldela programmet till en roll i din prenumeration. Du kan kontrollera om du har nödvändig behörighet [på portalen](../../azure-resource-manager/resource-group-create-service-principal-portal.md#required-permissions).
+> För att skapa ett tjänstobjekt måste du ha behörighet att registrera ett program med din Azure AD-klientorganisation, samt behörighet att tilldela programmet till en roll i din prenumeration. Du kan kontrollera om du har nödvändig behörighet [på portalen](../../active-directory/develop/howto-create-service-principal-portal.md#required-permissions).
 >
 
 ## <a name="option-1-create-a-service-principal-in-azure-ad"></a>Alternativ 1: Skapa ett tjänstobjekt i Azure AD
 
 Om du vill skapa ett Azure AD-tjänstobjekt innan du distribuerar Kubernetes-klustret kan du välja mellan flera metoder i Azure.
 
-Följande exempelkommandon visar hur du gör detta med [Azure CLI](../../azure-resource-manager/resource-group-authenticate-service-principal-cli.md). Du kan också skapa ett tjänstobjekt med [Azure PowerShell](../../azure-resource-manager/resource-group-authenticate-service-principal.md), [portalen](../../azure-resource-manager/resource-group-create-service-principal-portal.md) eller andra metoder.
+Följande exempelkommandon visar hur du gör detta med [Azure CLI](../../azure-resource-manager/resource-group-authenticate-service-principal-cli.md). Du kan också skapa ett tjänstobjekt med [Azure PowerShell](../../active-directory/develop/howto-authenticate-service-principal-powershell.md), [portalen](../../active-directory/develop/howto-create-service-principal-portal.md) eller andra metoder.
 
 ```azurecli
 az login

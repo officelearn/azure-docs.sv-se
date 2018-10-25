@@ -10,12 +10,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory
 ms.component: B2C
-ms.openlocfilehash: 47589b8cb8aa6e8d1cacaa028948242431f02c44
-ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
+ms.openlocfilehash: 0f2fa2bb8e20ce4cc187fe6f061d2d8c251c4673
+ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45604798"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49945220"
 ---
 # <a name="tutorial-enable-single-page-app-authentication-with-accounts-using-azure-active-directory-b2c"></a>Självstudiekurs: Aktivera autentisering av app med en enda sida med konton med hjälp av Azure Active Directory B2C
 
@@ -201,4 +201,4 @@ Du kan använda Azure AD B2C-katalogen om du vill prova andra självstudier för
 I den här självstudien lärde du dig att skapa en Azure AD B2C-katalog, att skapa principer och uppdatera exempelensidesappen så den använder din Azure AD B2C-katalogen. Fortsätt till nästa självstudie och lär dig registrera, konfigurera och anropa ett skyddat webb-API från en skrivbordsapp.
 
 > [!div class="nextstepaction"]
-> 
+> [Kodexempel för Azure AD B2C](https://azure.microsoft.com/resources/samples/?service=active-directory-b2c&sort=0)

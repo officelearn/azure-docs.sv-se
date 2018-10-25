@@ -8,18 +8,18 @@ ms.topic: include
 ms.date: 08/26/2018
 ms.author: glenga
 ms.custom: include file
-ms.openlocfilehash: f0bcb2e7f99689d31be610f1523d2c57e332deb7
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: f3fa6c75fdaf30d13231bc3072bd671614c9a668
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43049733"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49650756"
 ---
 1. I **Solution Explorer** högerklickar du på projektet och väljer **Publicera**.
 
 2. Välj **Azure-funktionsapp**, välj **Skapa ny** och välj sedan **Publicera**.
 
-    ![Välj ett publiceringsmål](./media/functions-vstools-publish/functions-vstools-create-new-function-app.png)
+    ![Välj ett publiceringsmål](./media/functions-vstools-publish/functions-visual-studio-publish-profile.png)
 
     När du aktiverar **Kör från ZIP** körs funktionsappen i Azure direkt från distributionspaketet. Mer information finns i [Kör dina Azure-funktioner från en paketfil](../articles/azure-functions/run-functions-from-deployment-package.md).
 
@@ -27,7 +27,7 @@ ms.locfileid: "43049733"
 
 4. I dialogrutan **Skapa App Service** använder du **värdinställningarna** som anges i tabellen under bilden:
 
-    ![Dialogrutan Skapa App Service](./media/functions-vstools-publish/functions-vstools-publish.png)
+    ![Dialogrutan Skapa App Service](./media/functions-vstools-publish/functions-visual-studio-publish.png)
 
     | Inställning      | Föreslaget värde  | Beskrivning                                |
     | ------------ |  ------- | -------------------------------------------------- |
@@ -41,4 +41,4 @@ ms.locfileid: "43049733"
 
 6. När distributionen är klar skriver du ned värdet för **Plats-URL**. Det här är funktionsappens adress i Azure.
 
-    ![Meddelande som anger att publiceringen lyckades](./media/functions-vstools-publish/functions-vstools-publish-profile.png)
+    ![Meddelande som anger att publiceringen lyckades](./media/functions-vstools-publish/functions-visual-studio-publish-complete.png)

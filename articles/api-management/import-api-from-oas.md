@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 11/22/2017
 ms.author: apimpm
-ms.openlocfilehash: f5132215b1fda93c62c1fbea46c3266fcc44ec46
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: edef88694cc335a63ce279e96a204ed4b8fe7376
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38307287"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49469511"
 ---
 # <a name="import-an-openapi-specification"></a>Importera en OpenAPI-specifikation
 
@@ -65,11 +65,11 @@ Slutför följande snabbstart: [Skapa en Azure API Management-instans](get-start
 
 Du kan anropa åtgärder direkt från Azure Portal, vilket är ett enkelt sätt att visa och testa åtgärderna i ett API.
 
+![Test-API](./media/api-management-get-started/01-import-first-api-01.png)
+
 1. Välj det API som du skapade i föregående steg.
 2. Tryck på fliken **Test**.
-
-    ![Test-API](./media/api-management-get-started/test-api.png)
-1. Klicka på **GetSpeakers**.
+3. Klicka på **GetSpeakers**.
 
     Sidan visar fälten för frågeparametrar, men i det här fallet har vi inte några. Sidan visar även fält för sidhuvudena. Ett av huvudena är Ocp-Apim-prenumeration-Key, för prenumerationsnyckeln till den produkt som är associerad med det här API:et. Om du skapade APIM-instansen är du redan administratör, vilket innebär att nyckeln fylls i automatiskt.
 4. Tryck på **Skicka**.

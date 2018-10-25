@@ -1,23 +1,23 @@
 ---
-title: Vad är förhandsgranskning av projekt-URL?
+title: Vad är förhandsversion av projekt-URL?
 titlesuffix: Azure Cognitive Services
 description: Introduktion till förhandsgranskning av projekt-URL.
 services: cognitive-services
 author: mikedodaro
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: project-url-preview
+ms.component: url-preview
 ms.topic: overview
 ms.date: 03/16/2018
 ms.author: rosh
-ms.openlocfilehash: 5d0b8260bf1c58af915c1be18c32cec678f4f09c
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.openlocfilehash: e3791c897722c9bbf50f58c126d7e4e573b2096f
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48869445"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49465822"
 ---
-# <a name="what-is-project-url-preview"></a>Vad är förhandsgranskning av projekt-URL?
+# <a name="what-is-project-url-preview"></a>Vad är förhandsversion av projekt-URL?
 Slutpunkten för URL-förhandsgranskningen tar en URL-frågeparameter och returnerar ett JSON-svar med namnet på målresursen, en kort beskrivning och en länk till en bild som ska visas i en förhandsgranskning. Svaret innehåller även flaggan [isFamilyFriendly](url-preview-reference.md#query-parameters), som anger huruvida URL:en innehåller innehåll för vuxna eller piratkopierat eller annat olagligt innehåll. 
 
 För att få resultat för URL-förhandsgranskning skickar du en GET-begäran och inkluderar huvudet *Ocp-Apim-Subscription-Key* med en giltig token:  

@@ -4,7 +4,7 @@ description: Lär dig hur du snabbt skapar en VM-skalningsuppsättning i Azure P
 keywords: VM-skalningsuppsättningar
 services: virtual-machine-scale-sets
 documentationcenter: ''
-author: cynthn
+author: zr-msft
 manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
@@ -16,16 +16,16 @@ ms.devlang: na
 ms.topic: quickstart
 ms.custom: H1Hack27Feb2017
 ms.date: 03/27/18
-ms.author: cynthn
-ms.openlocfilehash: fb3a3e1cec0d6ec15495e677e7bead1c02445803
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.author: zarhoads
+ms.openlocfilehash: 723f1d36f22e11aff3af195e4c8adf7a3f8722ab
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38680966"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49464808"
 ---
 # <a name="quickstart-create-a-virtual-machine-scale-set-in-the-azure-portal"></a>Snabbstart: Skapa en VM-skalningsuppsättning med Azure Portal
-Med en VM-skalningsuppsättning kan du distribuera och hantera en uppsättning identiska, virtuella datorer med automatisk skalning. Du kan skala antalet virtuella datorer i skalningsuppsättningen manuellt eller definiera regler för automatisk skalning baserat på resursanvändning som CPU, minnesefterfrågan eller nätverkstrafik. En Azure-belastningsutjämnare distribuerar sedan trafiken till de virtuella datorinstanserna i skalningsuppsättningen. I den här snabbstarten skapar du en VM-skalningsuppsättning i Azure Portal.
+Med en VM-skalningsuppsättning kan du distribuera och hantera en uppsättning identiska, virtuella datorer med automatisk skalning. Du kan skala antalet virtuella datorer i skalningsuppsättningen manuellt eller definiera regler för automatisk skalning baserat på resursanvändning som CPU, minnesefterfrågan eller nätverkstrafik. En Azure-lastbalanserare distribuerar sedan trafiken till de virtuella datorinstanserna i skalningsuppsättningen. I den här snabbstarten skapar du en VM-skalningsuppsättning i Azure Portal.
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
@@ -47,19 +47,19 @@ Du kan distribuera en skalningsuppsättning som anges med en Windows Server-avbi
     - Om du väljer en Linux OS-diskavbildning kan du istället välja **offentlig SSH-nyckel**. Du behöver bara ange din offentliga nyckel, t.ex. *~/.ssh/id_rsa.pub*. Du kan använda Azure Cloud Shell från portalen för att [skapa och använda SSH-nycklar](../virtual-machines/linux/mac-create-ssh-keys.md).
 
 7. Ange ett **offentligt IP-adressnamn**, t.ex. *myPublicIP*.
-8. Ange en unik **domännamnsetikett**, t.ex. *myuniquedns*. Det här DNS-etikettformuläret utgör grunden för belastningsutjämnarens FQDN framför skalningsuppsättningen.
+8. Ange en unik **domännamnsetikett**, t.ex. *myuniquedns*. Det här DNS-etikettformuläret utgör grunden för lastbalanserarens FQDN framför skalningsuppsättningen.
 9. Bekräfta skalningsuppsättningsalternativen genom att välja **Skapa**.
 
     ![Skapa en VM-skalningsuppsättning i Azure Portal](./media/virtual-machine-scale-sets-create-portal/create-scale-set.png)
 
 
 ## <a name="connect-to-a-vm-in-the-scale-set"></a>Anslut till en virtuell dator i skalningsuppsättningen
-När du skapar en skalningsuppsättning i portalen skapas en belastningsutjämnare. Regler för Network Address Translation (NAT) används för att distribuera trafiken till skalningsuppsättningsinstanserna för fjärranslutningar, t.ex. RDP och SSH.
+När du skapar en skalningsuppsättning i portalen skapas en lastbalanserare. Regler för Network Address Translation (NAT) används för att distribuera trafiken till skalningsuppsättningsinstanserna för fjärranslutningar, t.ex. RDP och SSH.
 
 Om du vill visa dessa NAT-regler och anslutningsinformationen för dina skalningsuppsättningsinstanser gör du så här:
 
 1. Välj den resursgrupp som du skapade i föregående steg, t.ex. *myResourceGroup*.
-2. Välj **belastningsutjämnare** i listan över resurser, t.ex. *myScaleSetLab*.
+2. Välj **lastbalanserare** i listan över resurser, t.ex. *myScaleSetLab*.
 3. Välj **Inkommande NAT-regler** på menyn till vänster i fönstret.
 
     ![Med inkommande NAT-regler kan du ansluta till instanser av VM-skalningsuppsättningar](./media/virtual-machine-scale-sets-create-portal/inbound-nat-rules.png)

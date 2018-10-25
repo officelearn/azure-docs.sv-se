@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: tutorial
 ms.date: 11/30/2017
-ms.openlocfilehash: 29b28b0d81314d062c1b334092979cc9bccbeb31
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: a6adf97a11821ff58c01d2450f06d07e7327fdfb
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43127667"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49957936"
 ---
 # <a name="monitor-virtual-machine-changes-with-azure-event-grid-and-logic-apps"></a>Övervaka ändringar på virtuella maskiner med Azure Event Grid och Logic Apps
 
@@ -48,7 +48,7 @@ I den här guiden får du lära dig att:
 
 Börja med att skapa en logikapp och lägg till en utlösare för händelserutnät som övervakar resursgruppen för den virtuella datorn. 
 
-1. Logga in på [Azure Portal](https://portal.azure.com). 
+1. Logga in på [Azure-portalen](https://portal.azure.com). 
 
 2. Längst upp till vänster på huvudmenyn i Azure väljer du **Skapa en resurs** > **Enterprise-integration** > **Logikapp**.
 
@@ -90,7 +90,7 @@ Börja med att skapa en logikapp och lägg till en utlösare för händelserutn�
    ![Logga in med dina autentiseringsuppgifter för Azure](./media/monitor-virtual-machine-changes-event-grid-logic-app/sign-in-event-grid.png)
 
    > [!NOTE]
-   > Om du är inloggad med ett personligt Microsoft-konto som @outlook.com eller @hotmail.com kanske Event Grid-utlösaren inte visas korrekt. Du kan komma runt det här problemet genom att välja [Anslut med tjänstens huvudnamn](../azure-resource-manager/resource-group-create-service-principal-portal.md) eller genom att autentisera som en Azure Active Directory-medlem som är associerad med din Azure-prenumeration, t.ex. *user-name*@emailoutlook.onmicrosoft.com.
+   > Om du är inloggad med ett personligt Microsoft-konto som @outlook.com eller @hotmail.com kanske Event Grid-utlösaren inte visas korrekt. Du kan komma runt det här problemet genom att välja [Anslut med tjänstens huvudnamn](../active-directory/develop/howto-create-service-principal-portal.md) eller genom att autentisera som en Azure Active Directory-medlem som är associerad med din Azure-prenumeration, t.ex. *user-name*@emailoutlook.onmicrosoft.com.
 
 8. Registrera logikappen för händelser från utgivaren. Ange information om händelseprenumerationen enligt följande tabell:
 

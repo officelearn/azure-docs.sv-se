@@ -11,12 +11,12 @@ ms.custom: mvc
 ms.devlang: ruby
 ms.topic: quickstart
 ms.date: 02/28/2018
-ms.openlocfilehash: cbd60be37dc7021ecbb961027dca40d048ed84cb
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: cfaf6cc5b93ee80017a8fe5634c7afa7b9ce0ccf
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35265086"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49986811"
 ---
 # <a name="azure-database-for-mysql-use-ruby-to-connect-and-query-data"></a>Azure Database för MySQL: Använda Ruby för att ansluta och fråga efter data
 Den här snabbstarten visar hur du ansluter till en Azure Database för MySQL med hjälp av ett [Ruby](https://www.ruby-lang.org)-program och en [mysql2](https://rubygems.org/gems/mysql2)-gem från plattformar med Windows, Ubuntu Linux och Mac. Den visar hur du använder SQL-instruktioner för att fråga, infoga, uppdatera och ta bort data i databasen. Det här avsnittet förutsätter att du är van att utveckla i Ruby och att du saknar erfarenhet av Azure Database for MySQL.
@@ -30,7 +30,7 @@ I den här snabbstarten används de resurser som skapades i någon av följande 
 Installera Ruby, Gem och MySQL2-biblioteket på din egen dator. 
 
 ### <a name="windows"></a>Windows
-1. Hämta och installera den version 2.3 av [Ruby](http://rubyinstaller.org/downloads/).
+1. Hämta och installera den version 2.3 av [Ruby](https://rubyinstaller.org/downloads/).
 2. Starta en ny kommandotolk (cmd) från Start-menyn.
 3. Ändra katalog till katalogen Ruby för version 2.3. `cd c:\Ruby23-x64\bin`
 4. Kontrollera Ruby-installationen genom att köra kommandot `ruby -v` och se den installerade versionen.
@@ -70,7 +70,7 @@ Skaffa den information som du behöver för att ansluta till Azure Database för
 ## <a name="connect-and-create-a-table"></a>Ansluta och skapa en tabell
 Använd följande kod för att ansluta och skapa en tabell med hjälp av **CREATE TABLE**-SQL-instruktionen följt av **INSERT INTO**-SQL-instruktioner för att lägga till rader i tabellen.
 
-Koden använder en [mysql2::client](http://www.rubydoc.info/gems/mysql2/0.4.8)-klass .new() metod för att ansluta till Azure-databas för MySQL. Sedan anropas metoden [query()](http://www.rubydoc.info/gems/mysql2/0.4.8#Usage) flera gånger för att köra kommandona DROP, CREATE TABLE och INSERT INTO. Sedan anropas metoden [close()](http://www.rubydoc.info/gems/mysql2/0.4.8/Mysql2/Client#close-instance_method) för att stänga anslutningen.
+Koden använder en [mysql2::client](https://www.rubydoc.info/gems/mysql2/0.4.8)-klass .new() metod för att ansluta till Azure-databas för MySQL. Sedan anropas metoden [query()](https://www.rubydoc.info/gems/mysql2/0.4.8#Usage) flera gånger för att köra kommandona DROP, CREATE TABLE och INSERT INTO. Sedan anropas metoden [close()](https://www.rubydoc.info/gems/mysql2/0.4.8/Mysql2/Client#close-instance_method) för att stänga anslutningen.
 
 Ersätt strängarna `host`, `database`, `username` och `password` med egna värden. 
 ```ruby
@@ -115,7 +115,7 @@ end
 ## <a name="read-data"></a>Läsa data
 Använd följande kod för att ansluta och läsa data med SQL-instruktionen **SELECT**. 
 
-Koden använder en [mysql2::client](http://www.rubydoc.info/gems/mysql2/0.4.8) class.new()-metod för att ansluta till Azure Database for MySQL. Sedan anropas metoden [query()](http://www.rubydoc.info/gems/mysql2/0.4.8#Usage) för att köra kommandot SELECT. Sedan anropas metoden [close()](http://www.rubydoc.info/gems/mysql2/0.4.8/Mysql2/Client#close-instance_method) för att stänga anslutningen.
+Koden använder en [mysql2::client](https://www.rubydoc.info/gems/mysql2/0.4.8) class.new()-metod för att ansluta till Azure Database for MySQL. Sedan anropas metoden [query()](https://www.rubydoc.info/gems/mysql2/0.4.8#Usage) för att köra kommandot SELECT. Sedan anropas metoden [close()](https://www.rubydoc.info/gems/mysql2/0.4.8/Mysql2/Client#close-instance_method) för att stänga anslutningen.
 
 Ersätt strängarna `host`, `database`, `username` och `password` med egna värden. 
 
@@ -154,7 +154,7 @@ end
 ## <a name="update-data"></a>Uppdatera data
 Använd följande kod för att ansluta och uppdatera data med en **UPDATE**-SQL-instruktion.
 
-Koden använder en [mysql2::client](http://www.rubydoc.info/gems/mysql2/0.4.8)-klass .new() metod för att ansluta till Azure-databas för MySQL. Sedan anropas metoden [query()](http://www.rubydoc.info/gems/mysql2/0.4.8#Usage) för att köra kommandot UPDATE. Sedan anropas metoden [close()](http://www.rubydoc.info/gems/mysql2/0.4.8/Mysql2/Client#close-instance_method) för att stänga anslutningen.
+Koden använder en [mysql2::client](https://www.rubydoc.info/gems/mysql2/0.4.8)-klass .new() metod för att ansluta till Azure-databas för MySQL. Sedan anropas metoden [query()](https://www.rubydoc.info/gems/mysql2/0.4.8#Usage) för att köra kommandot UPDATE. Sedan anropas metoden [close()](https://www.rubydoc.info/gems/mysql2/0.4.8/Mysql2/Client#close-instance_method) för att stänga anslutningen.
 
 Ersätt strängarna `host`, `database`, `username` och `password` med egna värden. 
 
@@ -191,7 +191,7 @@ end
 ## <a name="delete-data"></a>Ta bort data
 Använd följande kod för att ansluta och läsa data med SQL-instruktionen **DELETE**. 
 
-Koden använder en [mysql2::client](http://www.rubydoc.info/gems/mysql2/0.4.8)-klass .new() metod för att ansluta till Azure-databas för MySQL. Sedan anropas metoden [query()](http://www.rubydoc.info/gems/mysql2/0.4.8#Usage) för att köra kommandot DELETE. Sedan anropas metoden [close()](http://www.rubydoc.info/gems/mysql2/0.4.8/Mysql2/Client#close-instance_method) för att stänga anslutningen.
+Koden använder en [mysql2::client](https://www.rubydoc.info/gems/mysql2/0.4.8)-klass .new() metod för att ansluta till Azure-databas för MySQL. Sedan anropas metoden [query()](https://www.rubydoc.info/gems/mysql2/0.4.8#Usage) för att köra kommandot DELETE. Sedan anropas metoden [close()](https://www.rubydoc.info/gems/mysql2/0.4.8/Mysql2/Client#close-instance_method) för att stänga anslutningen.
 
 Ersätt strängarna `host`, `database`, `username` och `password` med egna värden. 
 

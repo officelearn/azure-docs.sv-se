@@ -10,12 +10,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 04/04/2018
-ms.openlocfilehash: 1955fc033e0351be9da89bbee11dc41d6281a63a
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: c29131720de8d6016d134fe7c0118fc3db9e22be
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47433998"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49985649"
 ---
 # <a name="create-a-stream-analytics-job-to-analyze-phone-call-data-and-visualize-results-in-a-power-bi-dashboard"></a>Skapa ett Stream Analytics-jobb för att analysera telefonsamtalsdata och visualisera resultat i en Power BI-instrumentpanel
  
@@ -37,7 +37,7 @@ Se till att du har följande innan du börjar:
 
 * Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/).  
 * Logga in på [Azure-portalen](https://portal.azure.com/).  
-* Ladda ned telefonsamtalets händelsegeneratorapp [TelcoGenerator.zip](http://download.microsoft.com/download/8/B/D/8BD50991-8D54-4F59-AB83-3354B69C8A7E/TelcoGenerator.zip) från Microsoft Download Center eller hämta källkoden från [GitHub](https://aka.ms/azure-stream-analytics-telcogenerator).  
+* Ladda ned telefonsamtalets händelsegeneratorapp [TelcoGenerator.zip](https://download.microsoft.com/download/8/B/D/8BD50991-8D54-4F59-AB83-3354B69C8A7E/TelcoGenerator.zip) från Microsoft Download Center eller hämta källkoden från [GitHub](https://aka.ms/azure-stream-analytics-telcogenerator).  
 
 ## <a name="create-an-azure-event-hub"></a>Skapa en Azure-händelsehubb 
 
@@ -89,7 +89,7 @@ Innan ett program kan skicka data till Azure Event Hubs måste händelsen ha en 
 
 Innan du startar appen TelcoGenerator ska du konfigurera den så att den skickar data till de Azure Event Hubs du skapade tidigare.
 
-1. Extrahera innehållet i filen [TelcoGenerator.zip](http://download.microsoft.com/download/8/B/D/8BD50991-8D54-4F59-AB83-3354B69C8A7E/TelcoGenerator.zip).  
+1. Extrahera innehållet i filen [TelcoGenerator.zip](https://download.microsoft.com/download/8/B/D/8BD50991-8D54-4F59-AB83-3354B69C8A7E/TelcoGenerator.zip).  
 2. Öppna filen `TelcoGenerator\TelcoGenerator\telcodatagen.exe.config` i en valfri textredigerare (Det finns mer än en .config-fil, så se till att öppna rätt fil.)  
 
 3. Uppdatera elementet <appSettings> i config-filen med följande information:
@@ -260,7 +260,7 @@ Du kan testa en fråga från frågeredigeraren, och du behöver exempeldata för
 
 ## <a name="embedding-your-powerbi-dashboard-in-a-web-application"></a>Bädda in din PowerBI-instrumentpanel i ett webbprogram
 
-För den här delen av självstudien använder du ett [ASP.NET](http://asp.net/)-exempelwebbprogram som skapats av PowerBI-teamet för att bädda in instrumentpanelen. Mer information om att bädda in instrumentpaneler finns i artikeln [inbäddning med Power BI](https://docs.microsoft.com/power-bi/developer/embedding).
+För den här delen av självstudien använder du ett [ASP.NET](https://asp.net/)-exempelwebbprogram som skapats av PowerBI-teamet för att bädda in instrumentpanelen. Mer information om att bädda in instrumentpaneler finns i artikeln [inbäddning med Power BI](https://docs.microsoft.com/power-bi/developer/embedding).
 
 I den här självstudiekursen kommer vi följa instruktionerna för användaren som äger dataprogrammet. För att konfigurera programmet går du till Github-lagringsplatsen [PowerBI-Developer-Samples](https://github.com/Microsoft/PowerBI-Developer-Samples) och följer instruktionerna under avsnittet om **användarägda data** (använd URL:erna för omdirigering och startsida i underavsnittet **integrate-dashboard-web-app**). Eftersom vi använder exemplet med instrumentpanelen ska du använda exempelkoden integrate-dashboard-web-app som finns på [GitHub-lagringsplatsen](https://github.com/Microsoft/PowerBI-Developer-Samples/tree/master/User%20Owns%20Data/integrate-dashboard-web-app).
 När du har fått igång programmet i webbläsaren följer du anvisningarna för att bädda in instrumentpanelen du skapade tidigare på webbsidan:

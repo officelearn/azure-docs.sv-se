@@ -11,12 +11,12 @@ ms.custom: mvc
 ms.devlang: C++
 ms.topic: quickstart
 ms.date: 04/12/2018
-ms.openlocfilehash: 0c017907378376c01e4a4a98190f73a9452b9a3d
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: 6d9deba8c7e6317ab349f86d5a1730f05288ea35
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35264960"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49987672"
 ---
 # <a name="azure-database-for-mysql-use-connectorc-to-connect-and-query-data"></a>Azure Database för MySQL: Använda Connector/C++ för att ansluta och fråga efter data
 Den här snabbstarten visar hur du ansluter till en Azure Database for MySQL med hjälp av ett C++-program. Den visar hur du använder SQL-instruktioner för att fråga, infoga, uppdatera och ta bort data i databasen. Det här avsnittet förutsätter att du är van att utveckla i C++ och att du saknar erfarenhet av Azure Database for MySQL.
@@ -30,7 +30,7 @@ Du måste också:
 - Installera [.NET Framework](https://www.microsoft.com/net/download)
 - Installera [Visual Studio](https://www.visualstudio.com/downloads/)
 - Installera [MySQL Connector/C++](https://dev.mysql.com/downloads/connector/cpp/) 
-- Installera [Boost](http://www.boost.org/)
+- Installera [Boost](https://www.boost.org/)
 
 ## <a name="install-visual-studio-and-net"></a>Installera Visual Studio och .NET
 I stegen i det här avsnittet förutsätter vi att du har erfarenhet av att utveckla med .NET.

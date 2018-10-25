@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.date: 04/09/2018
 ms.author: jasonh
 ms.reviewer: jasonh
-ms.openlocfilehash: 0408ea6ead1ddf482ce0a07c21859af80ab6ca43
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: 50ea4dafe7edfdeb851ad6d9cc42a7bca262e970
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43697823"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49985819"
 ---
 # <a name="run-azure-functions-from-azure-stream-analytics-jobs"></a>Köra Azure Functions från Azure Stream Analytics-jobb 
 
@@ -40,11 +40,11 @@ Det här avsnittet visar hur du konfigurerar ett Stream Analytics-jobb att köra
 ![Diagram som visar relationer mellan Azure-tjänster](./media/stream-analytics-with-azure-functions/image1.png)
 
 Följande steg krävs för detta:
-* [Skapa ett Stream Analytics-jobb med Event Hubs som indata](#create-stream-analytics-job-with-event-hub-as-input)  
-* [Skapa en Azure Redis Cache-instans](#create-an-azure-redis-cache)  
-* [Skapa en funktion i Azure Functions som kan skriva data till Azure Redis Cache](#create-an-azure-function-that-can-write-data-to-the-redis-cache)    
-* [Uppdatera Stream Analytics-jobbet med funktionen som utdata](#update-the-stream-analytic-job-with-azure-function-as-output)  
-* [Kontrollera resultatet i Azure Redis Cache](#check-redis-cache-for-results)  
+* [Skapa ett Stream Analytics-jobb med Event Hubs som indata](#create-a-stream-analytics-job-with-event-hubs-as-input)  
+* [Skapa en Azure Redis Cache-instans](#create-an-azure-redis-cache-instance)  
+* [Skapa en funktion i Azure Functions som kan skriva data till Azure Redis Cache](#create-a-function-in-azure-functions-that-can-write-data-to-azure-redis-cache)    
+* [Uppdatera Stream Analytics-jobbet med funktionen som utdata](#update-the-stream-analytics-job-with-the-function-as-output)  
+* [Kontrollera resultatet i Azure Redis Cache](#check-azure-redis-cache-for-results)  
 
 ## <a name="create-a-stream-analytics-job-with-event-hubs-as-input"></a>Skapa ett Stream Analytics-jobb med Event Hubs som indata
 

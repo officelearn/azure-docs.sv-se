@@ -3,19 +3,19 @@ title: Vad är Translator Text API?
 titlesuffix: Azure Cognitive Services
 description: Integrera Translator Text API i program, på webbplatser och i verktyg och andra lösningar för att tillhandahålla användarupplevelser för flera språk.
 services: cognitive-services
-author: noellelacharite
+author: erhopf
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-text
 ms.topic: overview
 ms.date: 05/10/2018
-ms.author: nolachar
-ms.openlocfilehash: c0004960b7a234d374ec0ae1bdc2f6576b197705
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.author: erhopf
+ms.openlocfilehash: 6c89ff41531b130843eb288b98ffe7def1d8915e
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49385034"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49645084"
 ---
 # <a name="what-is-translator-text-api"></a>Vad är Translator Text API?
 
@@ -35,7 +35,7 @@ Läs mer om [Microsoft Translator-tjänsten](https://www.microsoft.com/en-us/tra
 
 Den anpassade översättningstjänsten är ett tillägg till Microsofts grundläggande översättningstjänst. Den kan användas tillsammans med Translator Text API för att anpassa det neutrala översättningssystemet, så att specifik terminologi och stil översätts bättre.
 
-Med den anpassade översättningstjänsten kan du skapa översättningssystem som hanterar den terminologi som används inom företaget eller branschen. Det anpassade översättningssystemet är enkelt att integrera i befintliga program, arbetsflöden och webbplatser och på olika typer av enheter, via vanliga Microsoft Translator Text API, med hjälp av kategoriparametern. 
+Med den anpassade översättningstjänsten kan du skapa översättningssystem som hanterar den terminologi som används inom företaget eller branschen. Det anpassade översättningssystemet är enkelt att integrera i befintliga program, arbetsflöden och webbplatser och på olika typer av enheter, via vanliga Microsoft Translator Text API, med hjälp av kategoriparametern.
 
 Läs mer om [språkanpassning](customization.md)
 
@@ -45,7 +45,7 @@ Neural maskinöversättning är den nya standarden för högkvalitativ AI-driven
 
 Neural maskinöversättning ger bättre översättningar än den statistiska varianten. Den ger bättre överensstämmelse betydelsemässigt och låter dessutom mer mänsklig. Den viktigaste orsaken till det är att hela meningskontexten används när ord översätts. I den statistiska översättningen användes bara direkta samband med några få ord före och efter varje ord.
 
-Neurala modeller är kärnan i API:et och visas inte för slutanvändaren. Den enda märkbara skillnaden är förbättrad översättning, och särskilt för språk som arabiska, kinesiska och japanska. 
+Neurala modeller är kärnan i API:et och visas inte för slutanvändaren. Den enda märkbara skillnaden är förbättrad översättning, och särskilt för språk som arabiska, kinesiska och japanska.
 
 Läs mer om [hur neural maskinöversättning fungerar](https://www.microsoft.com/en-us/translator/mt.aspx#nnt)
 

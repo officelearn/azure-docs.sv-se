@@ -14,18 +14,20 @@ ms.topic: tutorial
 ms.date: 10/22/2018
 ms.author: mabrigg
 ms.reviewer: shnatara
-ms.openlocfilehash: 0b5f7442604dd31f730b0105d19231407e2b6f1a
-ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
+ms.openlocfilehash: abb77f59e49a98c1195dcd2e7b622b2b8e3fd7b8
+ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49946121"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50087295"
 ---
 # <a name="deploy-a-service-fabric-cluster-in-azure-stack"></a>Distribuera ett Service Fabric-kluster i Azure Stack
 
 Använd den **Service Fabric-kluster** objekt från Azure Marketplace för att distribuera säkra Service Fabric-kluster i Azure Stack. 
 
 Mer information om hur du arbetar med Service Fabric finns i [översikt av Azure Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-overview) och [säkerhetsscenarier för Service Fabric-kluster](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-security), i Azure-dokumentationen.
+
+Service Fabric-kluster i Azure Stack använder inte resursprovidern Microsoft.ServiceFabric. I Azure Stack som, är Service Fabric-klustret i stället en VM-skalningsuppsättning med i förväg installerad programvara som anges med Desired State Configuration (DSC).
 
 ## <a name="prerequisites"></a>Förutsättningar
 

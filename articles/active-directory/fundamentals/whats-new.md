@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: lizross
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 98edf224ebbd15f6acafdfeb28769eecb4edff40
-ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
+ms.openlocfilehash: 0a840ed4e931034d89c1104ee76bfd7b248f341b
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2018
-ms.locfileid: "49638132"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50095611"
 ---
 # <a name="whats-new-in-azure-active-directory"></a>Vad är nytt i Azure Active Directory?
 
@@ -36,6 +36,60 @@ Azure AD får förbättringar med jämna mellanrum. Om du vill hålla dig uppdat
 Den här sidan uppdateras varje månad, så gå tillbaka till den regelbundet.
 
 ---
+## <a name="october-2018"></a>Oktober 2018
+
+### <a name="azure-ad-logs-now-work-with-azure-log-analytics-public-preview"></a>Azure AD-loggar nu arbeta med Azure Log Analytics (förhandsversion)
+
+**Typ:** ny funktion  
+**Tjänstekategori:** rapportering  
+**Produkt-funktionen:** övervakning och rapportering
+
+Vi är glada att kunna meddela att du nu kan vidarebefordra dina loggar med Azure AD till Azure Log Analytics! Den här funktionen för de mest efterfrågade hjälper ger dig ännu bättre åtkomst till analytics för ditt företag, åtgärder, och säkerhet samt ett sätt att övervaka din infrastruktur. Mer information finns i den [Azure Active Directory-aktivitetsloggar i Azure Log Analytics finns nu](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-Identity/Azure-Active-Directory-Activity-logs-in-Azure-Log-Analytics-now/ba-p/274843) blogg.
+
+---
+
+### <a name="new-federated-apps-available-in-azure-ad-app-gallery---october-2018"></a>Nya federerade appar är tillgängliga i appgalleriet för Azure AD - oktober 2018
+
+**Typ:** ny funktion  
+**Tjänstekategori:** Företagsappar  
+**Produkt-funktionen:** 3 part-integrering
+ 
+I oktober 2018, har vi lagt till dessa 14 nya appar med stöd för app-galleriet:
+
+[Mina Award Points](https://docs.microsoft.com/azure/active-directory/saas-apps/myawardpoints-tutorial), [Vibe HCM](https://docs.microsoft.com/azure/active-directory/saas-apps/vibehcm-tutorial), ambyint, [MyWorkDrive](https://docs.microsoft.com/azure/active-directory/saas-apps/myworkdrive-tutorial), [BorrowBox](https://docs.microsoft.com/azure/active-directory/saas-apps/borrowbox-tutorial), Dialpad, [ON24 virtuell miljö](https://docs.microsoft.com/azure/active-directory/saas-apps/on24-tutorial), [RingCentral](https://docs.microsoft.com/azure/active-directory/saas-apps/ringcentral-tutorial), [Zscaler tre](https://docs.microsoft.com/azure/active-directory/saas-apps/zscaler-three-tutorial), [Phraseanet](https://docs.microsoft.com/azure/active-directory/saas-apps/phraseanet-tutorial), [Appraisd](https://docs.microsoft.com/azure/active-directory/saas-apps/appraisd-tutorial), [Workspot kontroll](https://docs.microsoft.com/azure/active-directory/saas-apps/workspotcontrol-tutorial), [Shuccho Navi](https://docs.microsoft.com/azure/active-directory/saas-apps/shucchonavi-tutorial), [Glassfrog](https://docs.microsoft.com/azure/active-directory/saas-apps/glassfrog-tutorial)
+
+Mer information om apparna som finns i [SaaS-programintegration med Azure Active Directory](https://aka.ms/appstutorial). Läs mer om att lista ditt program i Azure AD-appgalleri [lista ditt program i Azure Active Directory-programgalleriet](https://aka.ms/azureadapprequest).
+
+---
+
+### <a name="azure-ad-domain-services-email-notifications"></a>Azure AD Domain Services e-postaviseringar
+
+**Typ:** ny funktion  
+**Tjänstekategori:** Azure AD Domain Services  
+**Produkt-funktionen:** Azure AD Domain Services
+
+Azure AD Domain Services ger aviseringar på Azure portal om felkonfigurationer eller problem med din hanterade domän. Dessa aviseringar innehåller stegvisa guider så att du kan försöka att åtgärda problem utan att behöva kontakta supporten.
+
+Från och med oktober, du kommer att kunna anpassa inställningar för meddelanden för din hanterade domän så att när nya aviseringar sker, skickas ett e-postmeddelande till en utvald grupp personer, vilket eliminerar behovet av att kontinuerligt Kontrollera portal efter uppdateringar.
+
+Mer information finns i [meddelandeinställningar i Azure AD Domain Services](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-notifications).
+
+---
+
+### <a name="azure-ad-portal-supports-using-the-forcedelete-domain-api-to-delete-custom-domains"></a>Azure AD-portalen stöder användning av ForceDelete domänen API att ta bort anpassade domäner 
+
+**Typ:** ändrade funktionen  
+**Tjänstekategori:** kataloghantering  
+**Produkt-funktionen:** Directory
+
+Vi har glädjen att meddela att du kan nu använda ForceDelete domänen API att ta bort dina egna domännamn namnändringarna asynkront referenser, som användare, grupper och appar från ditt eget domännamn (contoso.com) tillbaka till den initiala domänen namn ( Contoso.onmicrosoft.com).
+
+Den här ändringen hjälper dig att ta bort dina egna domännamn snabbare om din organisation inte längre använder namnet, eller om du vill använda domännamnet med en annan Azure AD.
+
+Mer information finns i [ta bort ett anpassat domännamn](https://docs.microsoft.com/azure/active-directory/users-groups-roles/domains-manage#delete-a-custom-domain-name).
+
+---
+
 ## <a name="september-2018"></a>September 2018
  
 ### <a name="updated-administrator-role-permissions-for-dynamic-groups"></a>Behörigheter för administratör för uppdaterade för dynamiska grupper
@@ -1143,7 +1197,7 @@ Mer information finns i [hur logga in på en intern klient med sömlös SSO arbe
 **Tjänstekategori:** autentiseringar (inloggningar)  
 **Produkt-funktionen:** användarautentisering
  
-Användare får en tyst inloggningsupplevelse, med sömlös enkel om ett program (till exempel `https://contoso.sharepoint.com`) skickar inloggningsförfrågningar till slutpunkter för Azure AD-klient – det vill säga `https://login.microsoftonline.com/contoso.com/<.>` eller `https://login.microsoftonline.com/<tenant_ID>/<.>` – i stället för Azure AD: s vanliga slutpunkt (`https://login.microsoftonline.com/common/<...>`).
+Användare får en tyst inloggningsupplevelse, med sömlös enkel om ett program (till exempel `https://contoso.sharepoint.com`) skickar inloggningsförfrågningar till slutpunkter för Azure AD-klient – det vill säga `https://login.microsoftonline.com/contoso.com/<..>` eller `https://login.microsoftonline.com/<tenant_ID>/<..>` – i stället för Azure AD: s vanliga slutpunkt (`https://login.microsoftonline.com/common/<...>`).
 
 Mer information finns i [Azure Active Directory sömlös enkel inloggning](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-sso). 
 

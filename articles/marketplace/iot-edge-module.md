@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 09/22/2018
 ms.author: qianw211
-ms.openlocfilehash: 46740e925a5d4e94c314105aba4920caf01532e7
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: 0468c41f0813277b6ba6d3be8ad89c3178dd1420
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49985616"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50094685"
 ---
 # <a name="iot-edge-modules"></a>IoT Edge-moduler
 
@@ -78,15 +78,11 @@ Om du vill publicera en IoT Edge-modul i Azure Marketplace, måste du uppfylla f
 
 **Tekniska krav**
 
-De primära tekniska kraven för en IoT Edge-modul, att hämta certifierade och publicerats i Azure Marketplace, beskrivs i den [certifieringsprocessen för IoT Edge-modulen](https://cloudpartner.azure.com/#documentation/iot-edge-module-certification-process) på den [publicering till molnet Portalen](https://cloudpartner.azure.com/).  
+De primära tekniska kraven för en IoT Edge-modul, att hämta certifierade och publicerats i Azure Marketplace, beskrivs i den [och Förbered din IoT Edge-modul tekniska resurser](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/iot-edge-module/cpp-create-technical-assets).  
 
 ## <a name="documentation-and-resources"></a>Dokumentation och resurser
 
-I följande artiklar som är tillgängliga när du är inloggad på den [molnet Publiceringsportalen](https://cloudpartner.azure.com/):
-
-- [Skapa ett erbjudande för IoT Edge-modulen](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/iot-edge-module/cpp-create-offer) -– steg för att publicera en ny IoT Edge-modul erbjuder med molnet Publiceringsportalen.
-- [IoT Edge-modulen certifieringsprocessen](https://cloudpartner.azure.com/#documentation/iot-edge-module-certification-process) – en sammanfattning av stegen och kraven för att certifiera en IoT Edge-modul.
-- [IoT Edge-modul vanliga frågor och svar](https://cloudpartner.azure.com/#documentation/iot-edge-module-faq) – – en lista över vanliga frågor och svar som är relaterade till IoT Edge-moduler.
+[Skapa ett erbjudande för IoT Edge-modulen](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/iot-edge-module/cpp-create-offer) -– steg för att publicera en ny IoT Edge-modul erbjuder med molnet Publiceringsportalen.
 
 ## <a name="next-steps"></a>Nästa steg
 

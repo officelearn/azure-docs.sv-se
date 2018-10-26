@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 09/24/2018
 ms.author: mabrigg
 ms.reviewer: Anjay.Ajodha
-ms.openlocfilehash: 1f3dcc7da3e91d3805cae805422778978d0187c5
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 68021d25e3deab1c6551d29b0febd9f07e144b57
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46971339"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50095346"
 ---
 # <a name="tutorial-create-cross-cloud-scaling-solutions-with-azure"></a>Självstudie: Skapa molnöverskridande skalning lösningar med Azure
 
@@ -101,7 +101,7 @@ Konfigurera hybrid kontinuerlig integrering och kontinuerlig distribution (CI/CD
 
 ### <a name="add-code-to-visual-studio-team-services-project"></a>Lägg till kod i Visual Studio Team Services-projekt
 
-1. Logga in till Visual Studio Team Services (VSTS) med ett konto som har behörighet för skapande av projekt på VSTS~~.~~
+1. Logga in till Visual Studio Team Services (VSTS) med ett konto som har behörighet för skapande av projekt på VSTS.
 
     Hybrid CI/CD kan använda för både programkoden och infrastrukturkod. Använd [Azure Resource Manager-mallar](https://azure.microsoft.com/resources/templates/) för både privata och värdbaserade molnutveckling.
 

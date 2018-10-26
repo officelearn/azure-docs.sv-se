@@ -62,6 +62,16 @@ items:
     href: public-ip-address-prefix.md
   - name: DDoS-skydd
     href: ddos-protection-overview.md
+  - name: Interoperabilitet för serverdelsanslutning
+    items:
+    - name: Prefix och testinstallation
+      href: ../networking/connectivty-interoperability-preface.md?toc=%2fazure%2fvirtual-network%2ftoc.json
+    - name: Konfiguration av testinstallation
+      href: ../networking/connectivty-interoperability-configuration.md?toc=%2fazure%2fvirtual-network%2ftoc.json
+    - name: Kontrollplananalys
+      href: ../networking/connectivty-interoperability-control-plane.md?toc=%2fazure%2fvirtual-network%2ftoc.json
+    - name: Dataplananalys
+      href: ../networking/connectivty-interoperability-data-plane.md?toc=%2fazure%2fvirtual-network%2ftoc.json
   - name: Klassisk
     items:
     - name: IP-adress
@@ -329,7 +339,7 @@ items:
     href: https://azure.microsoft.com/resources/samples/?service=virtual-network
 - name: Resurser
   items:
-  - name: Utveckla din kompetens med Microsoft Learn
+  - name: Utveckla dina färdigheter med Microsoft Learn
     href: /learn/browse/
   - name: Azure-översikt
     href: https://azure.microsoft.com/roadmap/?category=networking
@@ -345,9 +355,9 @@ items:
     href: http://stackoverflow.com/questions/tagged/azure-virtual-network
   - name: VANLIGA FRÅGOR OCH SVAR
     href: virtual-networks-faq.md
-ms.openlocfilehash: a34b2a6356421c6c04f01eb1d316790281e239aa
-ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
+ms.openlocfilehash: 693cc8789703a0b224625fe70f501dfc442a6bc6
+ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47181914"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50086887"

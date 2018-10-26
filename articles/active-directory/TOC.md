@@ -266,7 +266,6 @@
 
 #### Behörigheter
 ##### [Välja behörigheter för ett API](develop/perms-for-given-api.md)
-##### [Bevilja behörigheter till min app](develop/registration-config-grant-permissions-how-to.md)
 ##### [Delegerat/programbehörigheter](develop/delegated-and-app-perms.md)
 ##### [Programmedgivande](develop/consent-framework.md)
 
@@ -313,14 +312,6 @@
 ### Egna domännamn
 #### [Snabbstart](fundamentals/add-custom-domain.md)
 ### [Administrera din katalog](fundamentals/active-directory-administer.md)
-### [Företagsroaming](active-directory-windows-enterprise-state-roaming-overview.md)
-#### [Aktivera](active-directory-windows-enterprise-state-roaming-enable.md)
-#### [Grupprincipinställningar](active-directory-windows-enterprise-state-roaming-group-policy-settings.md)
-#### [Windows 10-inställningar](active-directory-windows-enterprise-state-roaming-windows-settings-reference.md)
-#### [Vanliga frågor och svar](active-directory-windows-enterprise-state-roaming-faqs.md)
-#### [Felsöka](active-directory-windows-enterprise-state-roaming-troubleshooting.md)
-
-
 ### [Integrera lokala identiteter med Azure AD Connect](hybrid/whatis-hybrid-identity.md)
 
 ### [Konfigurera livslängd för token](develop/active-directory-configurable-token-lifetimes.md)

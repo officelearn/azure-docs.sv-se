@@ -9,12 +9,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 12/20/2017
 ms.author: mahender
-ms.openlocfilehash: 3d6d4f2e3d89e1d8abf647b21e35fcdfec020b1d
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 04786ce69b880abcd5508b9653d9ff30efcc187c
+ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44722273"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50087227"
 ---
 # <a name="microsoft-graph-bindings-for-azure-functions"></a>Microsoft Graph-bindningar för Azure Functions
 
@@ -127,9 +127,10 @@ C#-skriptkoden använder token för att göra ett HTTP-anrop till Microsoft Grap
 ```csharp
 using System.Net; 
 using System.Net.Http; 
-using System.Net.Http.Headers; 
+using System.Net.Http.Headers;
+using Microsoft.Extensions.Logging; 
 
-public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, string graphToken, TraceWriter log)
+public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, string graphToken, ILogger log)
 {
     HttpClient client = new HttpClient();
     client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", graphToken);
@@ -171,7 +172,7 @@ Den *function.json* fil definierar en HTTP-utlösare med en token indatabindning
 JavaScript-koden använder token för att göra ett HTTP-anrop till Microsoft Graph och returnerar resultatet.
 
 ```js
-const rp = require('request-promise');
+const rp = require('request-promise');
 
 module.exports = function (context, req) {
     let token = "Bearer " + context.bindings.graphToken;
@@ -283,9 +284,10 @@ I följande C#-skriptkoden läser innehåll från den angivna tabellen och retur
 ```csharp
 using System.Net;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Primitives; 
+using Microsoft.Extensions.Primitives;
+using Microsoft.Extensions.Logging;
 
-public static IActionResult Run(HttpRequest req, string[][] excelTableData, TraceWriter log)
+public static IActionResult Run(HttpRequest req, string[][] excelTableData, ILogger log)
 {
     return new OkObjectResult(excelTableData);
 }
@@ -433,8 +435,9 @@ C#-skriptkoden lägger till en ny rad i tabellen (antas vara kolumn) baserat på
 ```csharp
 using System.Net;
 using System.Text;
+using Microsoft.Extensions.Logging;
 
-public static async Task Run(HttpRequest req, IAsyncCollector<object> newExcelRow, TraceWriter log)
+public static async Task Run(HttpRequest req, IAsyncCollector<object> newExcelRow, ILogger log)
 {
     string input = req.Query
         .FirstOrDefault(q => string.Compare(q.Key, "text", true) == 0)
@@ -587,10 +590,11 @@ C#-skriptkoden läser filen som anges i frågesträngen och loggar dess längd:
 
 ```csharp
 using System.Net;
+using Microsoft.Extensions.Logging;
 
-public static void Run(HttpRequestMessage req, Stream myOneDriveFile, TraceWriter log)
+public static void Run(HttpRequestMessage req, Stream myOneDriveFile, ILogger log)
 {
-    log.Info(myOneDriveFile.Length.ToString());
+    log.LogInformation(myOneDriveFile.Length.ToString());
 }
 ```
 
@@ -730,8 +734,9 @@ C#-skriptkoden hämtar text från frågesträngen och skriver den till en textfi
 ```csharp
 using System.Net;
 using System.Text;
+using Microsoft.Extensions.Logging;
 
-public static async Task Run(HttpRequest req, TraceWriter log, Stream myOneDriveFile)
+public static async Task Run(HttpRequest req, ILogger log, Stream myOneDriveFile)
 {
     string data = req.Query
         .FirstOrDefault(q => string.Compare(q.Key, "text", true) == 0)
@@ -867,8 +872,9 @@ C#-skriptkoden skickar ett e-postmeddelande från anroparen till en mottagare so
 
 ```csharp
 using System.Net;
+using Microsoft.Extensions.Logging;
 
-public static void Run(HttpRequest req, out Message message, TraceWriter log)
+public static void Run(HttpRequest req, out Message message, ILogger log)
 { 
     string emailAddress = req.Query["to"];
     message = new Message(){
@@ -1027,14 +1033,15 @@ C#-skriptkoden reagerar på inkommande e-postmeddelanden och loggar innehållet 
 #r "Microsoft.Graph"
 using Microsoft.Graph;
 using System.Net;
+using Microsoft.Extensions.Logging;
 
-public static async Task Run(Message msg, TraceWriter log)  
+public static async Task Run(Message msg, ILogger log)  
 {
-    log.Info("Microsoft Graph webhook trigger function processed a request.");
+    log.LogInformation("Microsoft Graph webhook trigger function processed a request.");
 
     // Testable by sending oneself an email with the subject "Azure Functions" and some text body
     if (msg.Subject.Contains("Azure Functions") && msg.From.Equals(msg.Sender)) {
-        log.Info($"Processed email: {msg.BodyPreview}");
+        log.LogInformation($"Processed email: {msg.BodyPreview}");
     }
 }
 ```
@@ -1160,13 +1167,14 @@ C#-skriptkoden hämtar prenumerationerna och tar bort dem:
 
 ```csharp
 using System.Net;
+using Microsoft.Extensions.Logging;
 
-public static async Task Run(HttpRequest req, string[] existingSubscriptions, IAsyncCollector<string> subscriptionsToDelete, TraceWriter log)
+public static async Task Run(HttpRequest req, string[] existingSubscriptions, IAsyncCollector<string> subscriptionsToDelete, ILogger log)
 {
-    log.Info("C# HTTP trigger function processed a request.");
+    log.LogInformation("C# HTTP trigger function processed a request.");
     foreach (var subscription in existingSubscriptions)
     {
-        log.Info($"Deleting subscription {subscription}");
+        log.LogInformation($"Deleting subscription {subscription}");
         await subscriptionsToDelete.AddAsync(subscription);
     }
 }
@@ -1309,10 +1317,11 @@ C#-skriptkoden registrerar en webhook som meddelar funktionsappen när den anrop
 ```csharp
 using System;
 using System.Net;
+using Microsoft.Extensions.Logging;
 
-public static HttpResponseMessage run(HttpRequestMessage req, out string clientState, TraceWriter log)
+public static HttpResponseMessage run(HttpRequestMessage req, out string clientState, ILogger log)
 {
-  log.Info("C# HTTP trigger function processed a request.");
+  log.LogInformation("C# HTTP trigger function processed a request.");
     clientState = Guid.NewGuid().ToString();
     return new HttpResponseMessage(HttpStatusCode.OK);
 }
@@ -1356,7 +1365,7 @@ Den *function.json* fil definierar en HTTP-utlösare med en prenumeration utdata
 JavaScript-koden registrerar en webhook som meddelar funktionsappen när den anropande användaren får ett Outlook-meddelande:
 
 ```js
-const uuidv4 = require('uuid/v4');
+const uuidv4 = require('uuid/v4');
 
 module.exports = function (context, req) {
     context.bindings.clientState = uuidv4();
@@ -1449,15 +1458,16 @@ C#-skriptkoden uppdaterar prenumerationerna:
 
 ```csharp
 using System;
+using Microsoft.Extensions.Logging;
 
-public static void Run(TimerInfo myTimer, string[] existingSubscriptions, ICollector<string> subscriptionsToRefresh, TraceWriter log)
+public static void Run(TimerInfo myTimer, string[] existingSubscriptions, ICollector<string> subscriptionsToRefresh, ILogger log)
 {
     // This template uses application permissions and requires consent from an Azure Active Directory admin.
     // See https://go.microsoft.com/fwlink/?linkid=858780
-    log.Info($"C# Timer trigger function executed at: {DateTime.Now}");
+    log.LogInformation($"C# Timer trigger function executed at: {DateTime.Now}");
     foreach (var subscription in existingSubscriptions)
     {
-      log.Info($"Refreshing subscription {subscription}");
+      log.LogInformation($"Refreshing subscription {subscription}");
       subscriptionsToRefresh.Add(subscription);
     }
 }
@@ -1542,10 +1552,11 @@ C#-skriptkoden uppdaterar prenumerationerna och skapar utdata-bindning i kod, me
 
 ```csharp
 using System;
+using Microsoft.Extensions.Logging;
 
-public static async Task Run(TimerInfo myTimer, UserSubscription[] existingSubscriptions, IBinder binder, TraceWriter log)
+public static async Task Run(TimerInfo myTimer, UserSubscription[] existingSubscriptions, IBinder binder, ILogger log)
 {
-  log.Info($"C# Timer trigger function executed at: {DateTime.Now}");
+  log.LogInformation($"C# Timer trigger function executed at: {DateTime.Now}");
     foreach (var subscription in existingSubscriptions)
     {
         // binding in code to allow dynamic identity
@@ -1557,7 +1568,7 @@ public static async Task Run(TimerInfo myTimer, UserSubscription[] existingSubsc
             }
         ))
         {
-            log.Info($"Refreshing subscription {subscription}");
+            log.LogInformation($"Refreshing subscription {subscription}");
             await subscriptionsToRefresh.AddAsync(subscription);
         }
 

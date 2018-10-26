@@ -10,14 +10,14 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/17/2018
+ms.date: 10/25/2018
 ms.author: tomfitz
-ms.openlocfilehash: c32c4f97a963485e87e36afc44e9cea2ebcebd90
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
+ms.openlocfilehash: e99d5d36fa46e9972e706d580e4dfb1d5f9e8bbc
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49394422"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50093841"
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>Flytta resurser till ny resursgrupp eller prenumeration
 
@@ -28,8 +28,10 @@ När du flyttar resurser, är både källgruppen och målgruppen låsta under å
 Du kan inte ändra platsen för resursen. En resurs flyttas bara flyttar det till en ny resursgrupp. Den nya resursgruppen kan ha en annan plats, men som ändra inte platsen för resursen.
 
 > [!NOTE]
-> Den här artikeln beskrivs hur du flyttar resurser i ett befintligt Azure-konto erbjudande. Om du vill ändra ditt Azure-konto erbjudande (t.ex uppgraderar från betala per användning för att betala i förskott) medan du arbetar med dina befintliga resurser, se [växla din Azure-prenumeration till ett annat erbjudande](../billing/billing-how-to-switch-azure-offer.md).
->
+> Den här artikeln beskrivs hur du flyttar resurser i ett befintligt Azure-konto erbjudande. Om du vill ändra ditt Azure-konto erbjudande (t.ex uppgraderar från kostnadsfritt till betala per användning) måste konvertera din prenumeration. 
+> * Om du vill uppgradera en kostnadsfri utvärderingsversion, [uppgradera din kostnadsfria utvärderingsversion eller en Microsoft Imagine Azure-prenumeration till betala per användning](..//billing/billing-upgrade-azure-subscription.md).
+> * Om du vill ändra en betala per användning-konto, se [ändra din betala per användning för Azure-prenumeration till ett annat erbjudande](../billing/billing-how-to-switch-azure-offer.md).
+> * Om du inte kan konvertera prenumerationen, [skapa en Azure-supportbegäran](../azure-supportability/how-to-create-azure-support-request.md). Välj **prenumerationshantering** för typ av ärende.
 >
 
 ## <a name="checklist-before-moving-resources"></a>Checklistan innan du flyttar resurser
@@ -269,7 +271,7 @@ Följande lista innehåller en allmän översikt över Azure-tjänster som inte 
 
 Hanterade diskar stöds för flytt från och med den 24 September 2018. 
 
-1. Du måste registrera dig för att aktivera den här funktionen.
+1. Registrera den här funktionen i käll-prenumeration.
 
   ```azurepowershell-interactive
   Register-AzureRmProviderFeature -FeatureName ManagedResourcesMove -ProviderNamespace Microsoft.Compute

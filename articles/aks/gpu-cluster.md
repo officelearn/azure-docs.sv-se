@@ -1,144 +1,128 @@
 ---
-title: 'GPU: er på Azure Kubernetes Service (AKS)'
-description: Använda grafikprocessorer på Azure Kubernetes Service (AKS)
+title: Använda grafikprocessorer på Azure Kubernetes Service (AKS)
+description: 'Lär dig hur du använder GPU: er för databehandling med höga prestanda eller grafikintensiva arbetsbelastningar på Azure Kubernetes Service (AKS)'
 services: container-service
 author: lachie83
 manager: jeconnoc
 ms.service: container-service
 ms.topic: article
-ms.date: 04/05/2018
+ms.date: 10/25/2018
 ms.author: laevenso
-ms.custom: mvc
-ms.openlocfilehash: 231d7b875a7163aaa532be4a6477ca4e2eb67286
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: 69c682fc51f826a7e7ffd0eb8bcb1a7921aa9d13
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48043669"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50095396"
 ---
-# <a name="using-gpus-on-aks"></a>Använda grafikprocessorer på AKS
+# <a name="use-gpus-for-compute-intensive-workloads-on-azure-kubernetes-service-aks"></a>Använd GPU: er för beräkningsintensiva arbetsbelastningar på Azure Kubernetes Service (AKS)
 
-AKS stöder skapandet av GPU-aktiverade nodpooler. Azure tillhandahåller för närvarande enskilda eller flera GPU-aktiverade virtuella datorer. GPU-aktiverade virtuella datorer är utformade för beräkningsintensiva, grafikintensiva och visualiseringar av arbetsbelastningar. En lista med GPU-aktiverade virtuella datorer finns [här](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-gpu).
+Grafisk bearbetningsenheter (GPU) används ofta för beräkningsintensiva arbetsbelastningar som grafik och visualisering arbetsbelastningar. AKS stöder skapandet av GPU-aktiverade nodpooler att köra dessa beräkningsintensiva arbetsbelastningar i Kubernetes. Mer information om tillgängliga GPU-aktiverade virtuella datorer finns i [GPU-optimerad VM-storlekar i Azure][gpu-skus]. För AKS-noder, rekommenderar vi en minsta storlek på *Standard_NC6*.
+
+> [!NOTE]
+> GPU-aktiverade virtuella datorer innehåller specialiserad maskinvara som omfattas av högre priser och regional tillgänglighet. Mer information finns i den [priser] [ azure-pricing] verktyget och [regiontillgänglighet][azure-availability].
+
+## <a name="before-you-begin"></a>Innan du börjar
+
+Den här artikeln förutsätter att du har ett befintligt AKS-kluster med noder som har stöd för GPU: er. AKS-klustret måste köra Kubernetes 1.10 eller senare. Om du behöver ett AKS-kluster som uppfyller dessa krav finns i den första delen av den här artikeln att [skapa ett AKS-kluster](#create-an-aks-cluster).
+
+Du också ha Azure CLI version 2.0.49 eller senare installerat och konfigurerat. Kör `az --version` att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [installera Azure CLI][install-azure-cli].
 
 ## <a name="create-an-aks-cluster"></a>Skapa ett AKS-kluster
 
-GPU: er krävs vanligtvis för beräkningsintensiva arbetsbelastningar som till exempel grafikintensiva och visualisering arbetsbelastningar. Referera till följande [dokumentet](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-gpu) att fastställa rätt VM-storlek för din arbetsbelastning.
-Vi rekommenderar en minsta storlek på `Standard_NC6` för Azure Kubernetes Service (AKS)-noder.
+Om du behöver ett AKS-kluster som uppfyller minimikraven (GPU-aktiverade noden och Kubernetes version 1.10 eller senare), utför följande steg. Om du redan har ett AKS-kluster som uppfyller dessa krav kan du gå vidare till nästa avsnitt.
 
-> [!NOTE]
-> Grafikprocessoraktiverade virtuella datorer innehåller specialiserad maskinvara som omfattas av högre priser och regional tillgänglighet. Mer information finns i den [priser](https://azure.microsoft.com/pricing/) verktyget och [regiontillgänglighet](https://azure.microsoft.com/global-infrastructure/services/) plats för mer information.
-
-
-Om du behöver ett AKS-kluster som uppfyller den här minsta rekommendationen, kör du följande kommandon.
-
-Skapa en resursgrupp för klustret.
+Skapa först en resursgrupp för klustret med den [az gruppen skapa] [ az-group-create] kommando. I följande exempel skapas ett Resursgruppsnamn *myResourceGroup* i den *eastus* region:
 
 ```azurecli
-az group create --name myGPUCluster --location eastus
+az group create --name myResourceGroup --location eastus
 ```
 
-Skapa AKS-kluster med noder som är av storleken `Standard_NC6`.
+Nu skapa ett AKS-kluster med den [az aks skapa] [ az-aks-create] kommando. I följande exempel skapas ett kluster med en enda nod med storleken `Standard_NC6`, och kör Kubernetes version 1.10.8:
 
 ```azurecli
-az aks create --resource-group myGPUCluster --name myGPUCluster --node-vm-size Standard_NC6
+az aks create \
+    --resource-group myResourceGroup \
+    --name myAKSCluster \
+    --node-vm-size Standard_NC6 \
+    --node-count 1 \
+    --kubernetes-version 1.10.8
 ```
 
-Ansluta till AKS-klustret.
+Hämta autentiseringsuppgifterna för AKS-kluster med den [aaz aks get-credentials] [ az-aks-get-credentials] kommando:
 
 ```azurecli
-az aks get-credentials --resource-group myGPUCluster --name myGPUCluster
+az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
 ```
 
-## <a name="confirm-gpus-are-schedulable"></a>Bekräfta GPU: er är avtalad
+## <a name="confirm-that-gpus-are-schedulable"></a>Bekräfta att GPU: er är avtalad
 
-Kör följande kommandon för att bekräfta de GPU: er är avtalad via Kubernetes.
-
-Hämta den aktuella listan över noder.
+Med AKS-klustret skapas, bekräfta att GPU: er är avtalad i Kubernetes. Först en lista över noderna i klustret med hjälp av kommandot [kubectl get noder] [kubectl get]:
 
 ```
 $ kubectl get nodes
-NAME                       STATUS    ROLES     AGE       VERSION
-aks-nodepool1-22139053-0   Ready     agent     10h       v1.9.6
-aks-nodepool1-22139053-1   Ready     agent     10h       v1.9.6
-aks-nodepool1-22139053-2   Ready     agent     10h       v1.9.6
+
+NAME                       STATUS   ROLES   AGE   VERSION
+aks-nodepool1-18821093-0   Ready    agent   6m    v1.10.8
 ```
 
-Beskriv en av noderna att bekräfta de GPU: er är avtalad. Det finns under den `Capacity` avsnittet. Till exempel `nvidia.com/gpu:  1`. Om du inte ser de GPU: er, läser du den **Felsök** nedan.
+Nu använda den [kubectl beskriver noden] [ kubectl-describe] kommando för att bekräfta att de GPU: er är avtalad. Under den *kapacitet* avsnittet GPU bör lista som `nvidia.com/gpu:  1`. Om du inte ser de GPU: er finns i den [felsöka GPU tillgänglighet](#troubleshoot-gpu-availability) avsnittet.
+
+Följande komprimerade exempel som visar att en GPU är tillgängliga i noden med namnet *aks-nodepool1-18821093-0*:
 
 ```
-$ kubectl describe node aks-nodepool1-22139053-0
-Name:               aks-nodepool1-22139053-0
+$ kubectl describe node aks-nodepool1-18821093-0
+
+Name:               aks-nodepool1-18821093-0
 Roles:              agent
-Labels:             agentpool=nodepool1
-                    beta.kubernetes.io/arch=amd64
-                    beta.kubernetes.io/instance-type=Standard_NC6
-                    beta.kubernetes.io/os=linux
-                    failure-domain.beta.kubernetes.io/region=eastus
-                    failure-domain.beta.kubernetes.io/zone=1
-                    kubernetes.azure.com/cluster=MC_myGPUCluster_myGPUCluster
-                    kubernetes.io/hostname=aks-nodepool1-22139053-0
-                    kubernetes.io/role=agent
-                    storageprofile=managed
-                    storagetier=Standard_LRS
-Annotations:        node.alpha.kubernetes.io/ttl=0
-                    volumes.kubernetes.io/controller-managed-attach-detach=true
-Taints:             <none>
-CreationTimestamp:  Thu, 05 Apr 2018 12:13:20 -0700
-Conditions:
-  Type                 Status  LastHeartbeatTime                 LastTransitionTime                Reason                       Message
-  ----                 ------  -----------------                 ------------------                ------                       -------
-  NetworkUnavailable   False   Thu, 05 Apr 2018 12:15:07 -0700   Thu, 05 Apr 2018 12:15:07 -0700   RouteCreated                 RouteController created a route
-  OutOfDisk            False   Thu, 05 Apr 2018 22:14:33 -0700   Thu, 05 Apr 2018 12:13:20 -0700   KubeletHasSufficientDisk     kubelet has sufficient disk space available
-  MemoryPressure       False   Thu, 05 Apr 2018 22:14:33 -0700   Thu, 05 Apr 2018 12:13:20 -0700   KubeletHasSufficientMemory   kubelet has sufficient memory available
-  DiskPressure         False   Thu, 05 Apr 2018 22:14:33 -0700   Thu, 05 Apr 2018 12:13:20 -0700   KubeletHasNoDiskPressure     kubelet has no disk pressure
-  Ready                True    Thu, 05 Apr 2018 22:14:33 -0700   Thu, 05 Apr 2018 12:15:10 -0700   KubeletReady                 kubelet is posting ready status. AppArmor enabled
-Addresses:
-  InternalIP:  10.240.0.4
-  Hostname:    aks-nodepool1-22139053-0
+Labels:             accelerator=nvidia
+
+[...]
+
 Capacity:
- nvidia.com/gpu:                  1
- cpu:                             6
- memory:                          57691688Ki
- pods:                            110
+ cpu:                6
+ ephemeral-storage:  30428648Ki
+ hugepages-1Gi:      0
+ hugepages-2Mi:      0
+ memory:             57713824Ki
+ nvidia.com/gpu:     1
+ pods:               110
 Allocatable:
- nvidia.com/gpu:                  1
- cpu:                             6
- memory:                          57589288Ki
- pods:                            110
+ cpu:                5940m
+ ephemeral-storage:  28043041951
+ hugepages-1Gi:      0
+ hugepages-2Mi:      0
+ memory:             53417120Ki
+ nvidia.com/gpu:     1
+ pods:               110
 System Info:
- Machine ID:                 2eb0e90bd1fe450ba3cf83479443a511
- System UUID:                CFB485B6-CB49-A545-A2C9-8E4C592C3273
- Boot ID:                    fea24544-596d-4246-b8c3-610fc7ac7280
- Kernel Version:             4.13.0-1011-azure
- OS Image:                   Debian GNU/Linux 9 (stretch)
+ Machine ID:                 688e083d19554d4a9563bd138f4ca98b
+ System UUID:                08162568-B987-A84D-8865-98D6EFC64B32
+ Boot ID:                    7b440249-8a96-42eb-950f-08c9a3c530b7
+ Kernel Version:             4.15.0-1023-azure
+ OS Image:                   Ubuntu 16.04.5 LTS
  Operating System:           linux
  Architecture:               amd64
  Container Runtime Version:  docker://1.13.1
- Kubelet Version:            v1.9.6
- Kube-Proxy Version:         v1.9.6
-PodCIDR:                     10.244.1.0/24
-ExternalID:                  /subscriptions/8ecadfc9-d1a3-4ea4-b844-0d9f87e4d7c8/resourceGroups/MC_myGPUCluster_myGPUCluster/providers/Microsoft.Compute/virtualMachines/aks-nodepool1-22139053-0
-Non-terminated Pods:         (2 in total)
-  Namespace                  Name                       CPU Requests  CPU Limits  Memory Requests  Memory Limits
-  ---------                  ----                       ------------  ----------  ---------------  -------------
-  kube-system                kube-proxy-pwffr           100m (1%)     0 (0%)      0 (0%)           0 (0%)
-  kube-system                kube-svc-redirect-mkpf4    0 (0%)        0 (0%)      0 (0%)           0 (0%)
-Allocated resources:
-  (Total limits may be over 100 percent, i.e., overcommitted.)
-  CPU Requests  CPU Limits  Memory Requests  Memory Limits
-  ------------  ----------  ---------------  -------------
-  100m (1%)     0 (0%)      0 (0%)           0 (0%)
-Events:         <none>
+ Kubelet Version:            v1.10.8
+ Kube-Proxy Version:         v1.10.8
+PodCIDR:                     10.244.0.0/24
+ProviderID:                  azure:///subscriptions/19da35d3-9a1a-4f3b-9b9c-3c56ef409565/resourceGroups/MC_myGPUCluster_myGPUCluster_eastus/providers/Microsoft.Compute/virtualMachines/aks-nodepool1-18821093-0
+Non-terminated Pods:         (9 in total)
+  Namespace                  Name                                    CPU Requests  CPU Limits  Memory Requests  Memory Limits
+  ---------                  ----                                    ------------  ----------  ---------------  -------------
+  gpu-resources              nvidia-device-plugin-9cfcf              0 (0%)        0 (0%)      0 (0%)           0 (0%)
+
+[...]
 ```
 
-## <a name="run-a-gpu-enabled-workload"></a>Köra en arbetsbelastning för Grafikprocessoraktiverad
+## <a name="run-a-gpu-enabled-workload"></a>Köra en GPU-aktiverade arbetsbelastning
 
-För att kunna visa de GPU: er verkligen fungerar, aktivera schema en GPU arbetsbelastning med rätt resurs-begäran. Det här exemplet körs en [Tensorflow](https://www.tensorflow.org/versions/r1.1/get_started/mnist/beginners) jobb mot den [MNIST datauppsättning](http://yann.lecun.com/exdb/mnist/).
+Schemalägga en GPU-aktiverade arbetsbelastning med lämpliga resursbegäran om du vill se GPU fungerar i praktiken. I det här exemplet ska vi köra en [Tensorflow](https://www.tensorflow.org/versions/r1.1/get_started/mnist/beginners) jobb mot den [MNIST datauppsättning](http://yann.lecun.com/exdb/mnist/).
 
-Följande jobbet Manifestet innehåller en resursgräns av `nvidia.com/gpu: 1`. 
+Skapa en fil med namnet *exempel-tf-mnist-demo.yaml* och klistra in följande YAML-manifestet. Följande jobbet Manifestet innehåller en resursgräns av `nvidia.com/gpu: 1`:
 
-Kopiera manifestet och spara som **exempel-tf-mnist-demo.yaml**.
-```
+```yaml
 apiVersion: batch/v1
 kind: Job
 metadata:
@@ -162,37 +146,46 @@ spec:
       restartPolicy: OnFailure
 ```
 
-Använd den [kubectl gäller] [ kubectl-apply] kommando för att köra jobbet. Det här kommandot parsar manifestfilen och skapar de definierade Kubernetes-objekten.
-```
-$ kubectl apply -f samples-tf-mnist-demo.yaml
-job "samples-tf-mnist-demo" created
+Använd den [kubectl gäller] [ kubectl-apply] kommando för att köra jobbet. Det här kommandot Parsar manifestfilen och skapar de definierade Kubernetes-objekten:
+
+```console
+kubectl apply -f samples-tf-mnist-demo.yaml
 ```
 
-Övervaka förloppet för jobbet tills slutförs med hjälp av den [kubectl hämta jobb] [ kubectl-get] med den `--watch` argumentet.
+## <a name="view-the-status-and-output-of-the-gpu-enabled-workload"></a>Visa status och utdata av arbetsbelastningen i GPU-aktiverade
+
+Övervaka förloppet för jobbet med hjälp av den [kubectl hämta jobb] [ kubectl-get] med den `--watch` argumentet. Det kan ta några minuter att första pull avbildningen och bearbeta datauppsättningen. När den *SLUTFÖRANDEN* kolumnen visar *1/1*, jobbet har slutförts:
+
 ```
 $ kubectl get jobs samples-tf-mnist-demo --watch
-NAME                    DESIRED   SUCCESSFUL   AGE
-samples-tf-mnist-demo   1         0            8s
-samples-tf-mnist-demo   1         1            35s
+
+NAME                    COMPLETIONS   DURATION   AGE
+
+samples-tf-mnist-demo   0/1           3m29s      3m29s
+samples-tf-mnist-demo   1/1   3m10s   3m36s
 ```
 
-Fastställa pod-namnet för att visa loggar av poddar som visar har slutförts.
+Om du vill titta på resultatet av arbetsbelastningen i GPU-aktiverade, först hämta namnet på poddarna med den [kubectl hämta poddar] [ kubectl-get] kommando:
+
 ```
-$ kubectl get pods --selector app=samples-tf-mnist-demo --show-all
-NAME                          READY     STATUS      RESTARTS   AGE
-samples-tf-mnist-demo-smnr6   0/1       Completed   0          4m
+$ kubectl get pods --selector app=samples-tf-mnist-demo
+
+NAME                          READY   STATUS      RESTARTS   AGE
+samples-tf-mnist-demo-smnr6   0/1     Completed   0          3m
 ```
 
-Med hjälp av pod-namnet från utdata från kommandot ovan, referera till pod-loggarna för att bekräfta att lämpliga GPU-enheten har identifierats i det här fallet `Tesla K80`.
+Nu använda den [kubectl loggar] [ kubectl-logs] kommando för att visa pod-loggar. Följande exempel pod loggar bekräfta att lämpliga GPU-enheten har hittats `Tesla K80`. Ange din egen pod-namn:
+
 ```
 $ kubectl logs samples-tf-mnist-demo-smnr6
-2018-04-13 04:11:08.710863: I tensorflow/core/platform/cpu_feature_guard.cc:137] Your CPU supports instructions that this TensorFlow binary was not compiled to use: SSE4.1 SSE4.2 AVX AVX2 FMA
-2018-04-13 04:11:15.824349: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1030] Found device 0 with properties:
+
+2018-10-25 18:31:10.155010: I tensorflow/core/platform/cpu_feature_guard.cc:137] Your CPU supports instructions that this TensorFlow binary was not compiled to use: SSE4.1 SSE4.2 AVX AVX2 FMA
+2018-10-25 18:31:10.305937: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1030] Found device 0 with properties:
 name: Tesla K80 major: 3 minor: 7 memoryClockRate(GHz): 0.8235
-pciBusID: 04e1:00:00.0
-totalMemory: 11.17GiB freeMemory: 11.10GiB
-2018-04-13 04:11:15.824394: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1120] Creating TensorFlow device (/device:GPU:0) -> (device: 0, name: Tesla K80, pci bus id: 04e1:00:00.0, compute capability: 3.7)
-2018-04-13 04:11:20.891910: I tensorflow/stream_executor/dso_loader.cc:139] successfully opened CUDA library libcupti.so.8.0 locally
+pciBusID: ccb6:00:00.0
+totalMemory: 11.92GiB freeMemory: 11.85GiB
+2018-10-25 18:31:10.305981: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1120] Creating TensorFlow device (/device:GPU:0) -> (device: 0, name: Tesla K80, pci bus id: ccb6:00:00.0, compute capability: 3.7)
+2018-10-25 18:31:14.941723: I tensorflow/stream_executor/dso_loader.cc:139] successfully opened CUDA library libcupti.so.8.0 locally
 Successfully downloaded train-images-idx3-ubyte.gz 9912422 bytes.
 Extracting /tmp/tensorflow/input_data/train-images-idx3-ubyte.gz
 Successfully downloaded train-labels-idx1-ubyte.gz 28881 bytes.
@@ -201,77 +194,82 @@ Successfully downloaded t10k-images-idx3-ubyte.gz 1648877 bytes.
 Extracting /tmp/tensorflow/input_data/t10k-images-idx3-ubyte.gz
 Successfully downloaded t10k-labels-idx1-ubyte.gz 4542 bytes.
 Extracting /tmp/tensorflow/input_data/t10k-labels-idx1-ubyte.gz
-Accuracy at step 0: 0.0487
-Accuracy at step 10: 0.6571
-Accuracy at step 20: 0.8111
-Accuracy at step 30: 0.8562
-Accuracy at step 40: 0.8786
-Accuracy at step 50: 0.8911
-Accuracy at step 60: 0.8986
-Accuracy at step 70: 0.9017
-Accuracy at step 80: 0.9049
-Accuracy at step 90: 0.9114
+Accuracy at step 0: 0.097
+Accuracy at step 10: 0.6993
+Accuracy at step 20: 0.8208
+Accuracy at step 30: 0.8594
+Accuracy at step 40: 0.8685
+Accuracy at step 50: 0.8864
+Accuracy at step 60: 0.901
+Accuracy at step 70: 0.905
+Accuracy at step 80: 0.9103
+Accuracy at step 90: 0.9126
 Adding run metadata for 99
-Accuracy at step 100: 0.9109
-Accuracy at step 110: 0.9143
-Accuracy at step 120: 0.9188
-Accuracy at step 130: 0.9194
-Accuracy at step 140: 0.9237
-Accuracy at step 150: 0.9231
-Accuracy at step 160: 0.9158
-Accuracy at step 170: 0.9259
-Accuracy at step 180: 0.9303
-Accuracy at step 190: 0.9315
+Accuracy at step 100: 0.9176
+Accuracy at step 110: 0.9149
+Accuracy at step 120: 0.9187
+Accuracy at step 130: 0.9253
+Accuracy at step 140: 0.9252
+Accuracy at step 150: 0.9266
+Accuracy at step 160: 0.9255
+Accuracy at step 170: 0.9267
+Accuracy at step 180: 0.9257
+Accuracy at step 190: 0.9309
 Adding run metadata for 199
-Accuracy at step 200: 0.9334
-Accuracy at step 210: 0.9342
-Accuracy at step 220: 0.9359
-Accuracy at step 230: 0.9353
-Accuracy at step 240: 0.933
-Accuracy at step 250: 0.9353
-Accuracy at step 260: 0.9408
-Accuracy at step 270: 0.9396
-Accuracy at step 280: 0.9406
-Accuracy at step 290: 0.9444
+Accuracy at step 200: 0.9272
+Accuracy at step 210: 0.9321
+Accuracy at step 220: 0.9343
+Accuracy at step 230: 0.9388
+Accuracy at step 240: 0.9408
+Accuracy at step 250: 0.9394
+Accuracy at step 260: 0.9412
+Accuracy at step 270: 0.9422
+Accuracy at step 280: 0.9436
+Accuracy at step 290: 0.9411
 Adding run metadata for 299
-Accuracy at step 300: 0.9453
-Accuracy at step 310: 0.946
-Accuracy at step 320: 0.9464
-Accuracy at step 330: 0.9472
-Accuracy at step 340: 0.9516
-Accuracy at step 350: 0.9473
-Accuracy at step 360: 0.9502
-Accuracy at step 370: 0.9483
-Accuracy at step 380: 0.9481
-Accuracy at step 390: 0.9467
+Accuracy at step 300: 0.9426
+Accuracy at step 310: 0.9466
+Accuracy at step 320: 0.9458
+Accuracy at step 330: 0.9407
+Accuracy at step 340: 0.9445
+Accuracy at step 350: 0.9486
+Accuracy at step 360: 0.9475
+Accuracy at step 370: 0.948
+Accuracy at step 380: 0.9516
+Accuracy at step 390: 0.9534
 Adding run metadata for 399
-Accuracy at step 400: 0.9477
-Accuracy at step 410: 0.948
-Accuracy at step 420: 0.9496
-Accuracy at step 430: 0.9501
-Accuracy at step 440: 0.9534
-Accuracy at step 450: 0.9551
-Accuracy at step 460: 0.9518
-Accuracy at step 470: 0.9562
-Accuracy at step 480: 0.9583
-Accuracy at step 490: 0.9575
+Accuracy at step 400: 0.9501
+Accuracy at step 410: 0.9552
+Accuracy at step 420: 0.9535
+Accuracy at step 430: 0.9545
+Accuracy at step 440: 0.9533
+Accuracy at step 450: 0.9526
+Accuracy at step 460: 0.9566
+Accuracy at step 470: 0.9547
+Accuracy at step 480: 0.9548
+Accuracy at step 490: 0.9545
 Adding run metadata for 499
 ```
 
-## <a name="cleanup"></a>Rensa
-Ta bort de associerade Kubernetes-objekten som skapats i det här steget.
+## <a name="clean-up-resources"></a>Rensa resurser
+
+Ta bort de associerade Kubernetes-objekten som skapats i den här artikeln med den [kubectl ta bort jobbet] [ kubectl delete] -kommandot enligt följande:
+
+```console
+kubectl delete jobs samples-tf-mnist-demo
 ```
-$ kubectl delete jobs samples-tf-mnist-demo
-job "samples-tf-mnist-demo" deleted
+
+## <a name="troubleshoot-gpu-availability"></a>Felsöka GPU-tillgänglighet
+
+Om du inte ser GPU: er som kan finnas på noderna, kan du behöva distribuera en DaemonSet för plugin-programmet för nVidia-enhet. Den här DaemonSet körs en pod på varje nod för att tillhandahålla nödvändiga drivrutiner för de GPU: er.
+
+Börja med att skapa ett namnområde med hjälp av den [kubectl skapa namnområde] [ kubectl-create] kommandot, till exempel *gpu-resurser*:
+
+```console
+kubectl create namespace gpu-resources
 ```
 
-## <a name="troubleshoot"></a>Felsöka
-
-I vissa situationer kan du inte ser GPU resurser under kapacitet. Till exempel: efter uppgradering av ett kluster till Kubernetes version 1.10 eller skapa ett nytt Kubernetes version 1.10 kluster, den förväntade `nvidia.com/gpu` resursen saknas `Capacity` när du kör `kubectl describe node <node-name>`. 
-
-Om du vill lösa det här gäller följande daemonset post etablera eller uppgradering, kan du se `nvidia.com/gpu` som en avtalad resurs. 
-
-Kopiera manifestet och spara som **nvidia-enhet-plugin-programmet-ds.yaml**. För bildtagg av `image: nvidia/k8s-device-plugin:1.10` nedan, uppdatera taggen så att den matchar ditt Kubernetes-version. Till exempel använda taggen `1.11` för Kubernetes version 1.11.
+Skapa en fil med namnet *nvidia-enhet-plugin-programmet-ds.yaml* och klistra in följande YAML-manifestet. Uppdatera den `image: nvidia/k8s-device-plugin:1.10` halvvägs ner manifestet så att den matchar ditt Kubernetes-version. Till exempel om AKS-klustret kör Kubernetes version 1.11, uppdatera taggen att `image: nvidia/k8s-device-plugin:1.11`.
 
 ```yaml
 apiVersion: extensions/v1beta1
@@ -280,7 +278,7 @@ metadata:
   labels:
     kubernetes.io/cluster-service: "true"
   name: nvidia-device-plugin
-  namespace: kube-system
+  namespace: gpu-resources
 spec:
   template:
     metadata:
@@ -316,21 +314,37 @@ spec:
         accelerator: nvidia
 ```
 
-Använd den [kubectl gäller] [ kubectl-apply] kommando för att skapa ett daemonset.
+Nu använda den [kubectl gäller] [ kubectl-apply] kommando för att skapa ett DaemonSet:
 
 ```
 $ kubectl apply -f nvidia-device-plugin-ds.yaml
+
 daemonset "nvidia-device-plugin" created
 ```
 
+Kör den [kubectl beskriver noden] [ kubectl-describe] kommando igen för att kontrollera att GPU nu är tillgängliga på noden.
+
 ## <a name="next-steps"></a>Nästa steg
 
-Är du intresserad av att Machine Learning-arbetsbelastningar på Kubernetes? Avse Kubeflow labs för mer information.
+Om du vill köra Apache Spark-jobb, se [kör Apache Spark-jobb på AKS][aks-spark].
 
-> [!div class="nextstepaction"]
-> [Kubeflow Labs][kubeflow-labs]
+Läs mer om att köra machine learning (ML) arbetsbelastningar på Kubernetes [Kubeflow Labs][kubeflow-labs].
 
 <!-- LINKS - external -->
 [kubectl-apply]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply
 [kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
 [kubeflow-labs]: https://github.com/Azure/kubeflow-labs
+[kubectl-describe]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#describe
+[kubectl-logs]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#logs
+[kubectl delete]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#delete
+[kubectl-create]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#create
+[azure-pricing]: https://azure.microsoft.com/pricing/
+[azure-availability]: https://azure.microsoft.com/global-infrastructure/services/
+
+<!-- LINKS - internal -->
+[az-group-create]: /cli/azure/group#az-group-create
+[az-aks-create]: /cli/azure/aks#az-aks-create
+[az-aks-get-credentials]: /cli/azure/aks#az-aks-get-credentials
+[aks-spark]: spark-job.md
+[gpu-skus]: ../virtual-machines/linux/sizes-gpu.md
+[install-azure-cli]: /cli/azure/install-azure-cli

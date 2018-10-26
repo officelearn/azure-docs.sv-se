@@ -1,10 +1,10 @@
 ---
-title: Felsöka OpenShift distribution i Azure | Microsoft Docs
-description: Felsöka OpenShift distribution i Azure.
+title: Felsöka OpenShift-distribution i Azure | Microsoft Docs
+description: Felsöka OpenShift-distribution i Azure.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
-author: haroldw
-manager: najoshi
+author: haroldwongms
+manager: joraio
 editor: ''
 tags: azure-resource-manager
 ms.assetid: ''
@@ -15,34 +15,109 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: ''
 ms.author: haroldw
-ms.openlocfilehash: 35e554d3a9c7e7d56546ae9723c33eb59e906472
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
+ms.openlocfilehash: 6a4af0efb14d8ad45add906262ffd2121e8b78d0
+ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/11/2017
-ms.locfileid: "24139458"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50085853"
 ---
-# <a name="troubleshoot-openshift-deployment-in-azure"></a>Felsöka OpenShift distribution i Azure
+# <a name="troubleshoot-openshift-deployment-in-azure"></a>Felsöka OpenShift-distribution i Azure
 
-Om klustret OpenShift inte distribuerar har försök med dessa felsöka aktiviteter för att begränsa problemet. Visa distributionens status och jämföra med följande lista över koder:
+Om OpenShift klustret inte har distribuerat, ger Azure-portalen utdata om felet. Utdata kan vara svårt att läsa vilket gör det svårt att identifiera problemet. Skanna snabbt dessa utdata för slutkoden 3, 4 eller 5. Följande innehåller information om de här tre slutkoder för aktiviteter:
 
-- Slutkod 3: din Red Hat prenumeration användarnamn / lösenord eller organisations-ID aktiveringsnyckeln är felaktig
-- Slutkod 4: din Red Hat programpoolens ID är felaktigt eller det finns inga rättigheter
-- Slutkod 5: Det gick inte att etablera Docker tunn poolen volym
-- Slutkod 6: OpenShift kluster-installationen misslyckades
-- Slutkod 7: OpenShift klustret installationen lyckades men Azure Cloud Solution Provider konfigurationen misslyckades - master config på huvudnod problemet
-- Slutkod 8: OpenShift klustret installationen lyckades men Azure Cloud Solution Provider konfigurationen misslyckades - nod config på huvudnod problemet
-- Slutkod 9: OpenShift klustret installationen lyckades men Azure Cloud Solution Provider konfigurationen misslyckades - nod config på Infra eller Appnod problemet
-- Slutkod 10: OpenShift klustret installationen har slutförts men konfiguration för Azure Cloud Solution Provider misslyckades - korrigera Master noder eller går inte att ange Master som unschedulable
-- Slutkod 11: Det gick inte att distribuera mått
-- Slutkod 12: Det gick inte att distribuera loggning
+- Slutkod 3: din Red Hat-prenumeration användarnamn / lösenord eller organisations-ID / Sidladdning är felaktig
+- Slutkod 4: Your Red Hat Pool-ID är felaktigt eller det finns inga rättigheter
+- Slutkod 5: Det gick inte att etablera Docker tunn Pool-volym
 
-OpenShift klustret har installerats för slutkoder 7 – 10, men konfigurationen av Azure Cloud Solution Provider misslyckades. Du kan SSH till huvudnoden (OpenShift ursprung) eller skyddsmiljö-noden (OpenShift behållare plattform) och från SSH till varje nod i klustret att åtgärda problemen.
+För alla andra slutkoder för aktiviteter, ansluta till värdarna via ssh för att visa loggfilerna.
 
-En vanlig orsak till fel med slutkoder 7-9 är att tjänstens huvudnamn inte har rätt behörighet för att prenumerationen eller resursgruppen. Om det är problemet tilldela rätt behörighet och manuellt köra skriptet som misslyckats och alla efterföljande skript.
+**OpenShift Container Platform**
 
-Se till att starta om tjänsten misslyckades (till exempel systemctl omstart atomic-openshift-node.service) innan du kör skripten igen.
+SSH till värden för ansible-spelbok. Använd skyddsmiljö-värd för mallen eller Marketplace-erbjudande. Från skyddsmiljö kan du SSH till alla andra noder i klustret (master, infrastruktur, CN, beräkning). Du måste vara root att visa loggfilerna. Rot är inaktiverad för SSH-åtkomst som standard så att inte använda roten SSH till andra noder.
 
-För ytterligare felsökning, SSH till din master noden på port 2200 (ursprungliga) eller skyddsmiljö på port 22 (behållaren Platform). Du måste finnas i roten (sudo su-) och bläddra sedan till följande katalog: /var/lib/waagent/custom-script/download.
+**OKD**
 
-Här ser du mappar med namnet ”0” och ”1”. Var och en av mapparna visas i två filer, ”stderr” och ”stdout”. Titta igenom filerna för att fastställa där felet inträffade.
+SSH till värden för ansible-spelbok. Använd master-0-värden för mallen OKD (version 3,9 och tidigare). Använd skyddsmiljö-värd för mallen OKD (version 3.10 och senare). Från ansible-spelbok värd kan du SSH till alla andra noder i klustret (master, infrastruktur, CN, beräkning). Du måste vara root (sudo su-) att visa loggfilerna. Rot är inaktiverad för SSH-åtkomst som standard så att inte använda roten SSH till andra noder.
+
+## <a name="log-files"></a>Loggfiler
+
+Loggfiler (stderr och stdout) för värd förberedelse skript finns i /var/lib/waagent/custom-script/download/0 på alla värdar. Om ett fel uppstod vid förberedelsen av värden, visa loggfilerna för att fastställa felet.
+
+Om förberedelse av skripten har körts, behöver loggfiler i katalogen /var/lib/waagent/custom-script/download/1 på värden för ansible-spelbok undersökas. Om felet uppstod under verklig installation av OpenShift, visas felet i filen stdout. Använd den här informationen för att kontakta Support för ytterligare hjälp.
+
+Exempel på utdata
+
+```json
+TASK [openshift_storage_glusterfs : Load heketi topology] **********************
+fatal: [mycluster-master-0]: FAILED! => {"changed": true, "cmd": ["oc", "--config=/tmp/openshift-glusterfs-ansible-IbhnUM/admin.kubeconfig", "rsh", "--namespace=glusterfs", "deploy-heketi-storage-1-d9xl5", "heketi-cli", "-s", "http://localhost:8080", "--user", "admin", "--secret", "VuoJURT0/96E42Vv8+XHfsFpSS8R20rH1OiMs3OqARQ=", "topology", "load", "--json=/tmp/openshift-glusterfs-ansible-IbhnUM/topology.json", "2>&1"], "delta": "0:00:21.477831", "end": "2018-05-20 02:49:11.912899", "failed": true, "failed_when_result": true, "rc": 0, "start": "2018-05-20 02:48:50.435068", "stderr": "", "stderr_lines": [], "stdout": "Creating cluster ... ID: 794b285745b1c5d7089e1c5729ec7cd2\n\tAllowing file volumes on cluster.\n\tAllowing block volumes on cluster.\n\tCreating node mycluster-cns-0 ... ID: 45f1a3bfc20a4196e59ebb567e0e02b4\n\t\tAdding device /dev/sdd ... OK\n\t\tAdding device /dev/sde ... OK\n\t\tAdding device /dev/sdf ... OK\n\tCreating node mycluster-cns-1 ... ID: 596f80d7bbd78a1ea548930f23135131\n\t\tAdding device /dev/sdc ... Unable to add device: Unable to execute command on glusterfs-storage-4zc42:   Device /dev/sdc excluded by a filter.\n\t\tAdding device /dev/sde ... OK\n\t\tAdding device /dev/sdd ... OK\n\tCreating node mycluster-cns-2 ... ID: 42c0170aa2799559747622acceba2e3f\n\t\tAdding device /dev/sde ... OK\n\t\tAdding device /dev/sdf ... OK\n\t\tAdding device /dev/sdd ... OK", "stdout_lines": ["Creating cluster ... ID: 794b285745b1c5d7089e1c5729ec7cd2", "\tAllowing file volumes on cluster.", "\tAllowing block volumes on cluster.", "\tCreating node mycluster-cns-0 ... ID: 45f1a3bfc20a4196e59ebb567e0e02b4", "\t\tAdding device /dev/sdd ... OK", "\t\tAdding device /dev/sde ... OK", "\t\tAdding device /dev/sdf ... OK", "\tCreating node mycluster-cns-1 ... ID: 596f80d7bbd78a1ea548930f23135131", "\t\tAdding device /dev/sdc ... Unable to add device: Unable to execute command on glusterfs-storage-4zc42:   Device /dev/sdc excluded by a filter.", "\t\tAdding device /dev/sde ... OK", "\t\tAdding device /dev/sdd ... OK", "\tCreating node mycluster-cns-2 ... ID: 42c0170aa2799559747622acceba2e3f", "\t\tAdding device /dev/sde ... OK", "\t\tAdding device /dev/sdf ... OK", "\t\tAdding device /dev/sdd ... OK"]}
+
+PLAY RECAP *********************************************************************
+mycluster-cns-0       : ok=146  changed=57   unreachable=0    failed=0   
+mycluster-cns-1       : ok=146  changed=57   unreachable=0    failed=0   
+mycluster-cns-2       : ok=146  changed=57   unreachable=0    failed=0   
+mycluster-infra-0     : ok=143  changed=55   unreachable=0    failed=0   
+mycluster-infra-1     : ok=143  changed=55   unreachable=0    failed=0   
+mycluster-infra-2     : ok=143  changed=55   unreachable=0    failed=0   
+mycluster-master-0    : ok=502  changed=198  unreachable=0    failed=1   
+mycluster-master-1    : ok=348  changed=140  unreachable=0    failed=0   
+mycluster-master-2    : ok=348  changed=140  unreachable=0    failed=0   
+mycluster-node-0      : ok=143  changed=55   unreachable=0    failed=0   
+mycluster-node-1      : ok=143  changed=55   unreachable=0    failed=0   
+localhost                  : ok=13   changed=0    unreachable=0    failed=0   
+
+INSTALLER STATUS ***************************************************************
+Initialization             : Complete (0:00:39)
+Health Check               : Complete (0:00:24)
+etcd Install               : Complete (0:01:24)
+Master Install             : Complete (0:14:59)
+Master Additional Install  : Complete (0:01:10)
+Node Install               : Complete (0:10:58)
+GlusterFS Install          : In Progress (0:03:33)
+    This phase can be restarted by running: playbooks/openshift-glusterfs/config.yml
+
+Failure summary:
+
+  1. Hosts:    mycluster-master-0
+     Play:     Configure GlusterFS
+     Task:     Load heketi topology
+     Message:  Failed without returning a message.
+```
+
+De vanligaste felen under installationen är:
+
+1. Privata nyckel har lösenfras
+2. Key vault-hemlighet med privat nyckel som inte har skapats korrekt
+3. Autentiseringsuppgifter för tjänstens huvudnamn har angetts felaktigt
+4. Tjänstens huvudnamn har inte deltagaråtkomst till resursgruppen.
+
+### <a name="private-key-has-a-passphrase"></a>Privat nyckel har en lösenfras
+
+Du ser ett fel som behörighet nekas för SSH. SSH till ansible-spelbok värden att söka efter en lösenfras för den privata nyckeln.
+
+### <a name="key-vault-secret-with-private-key-wasnt-created-correctly"></a>Key vault-hemlighet med privat nyckel som inte har skapats korrekt
+
+Den privata nyckeln är införs i ansible spelbok host - ~/.ssh/id_rsa. Kontrollera den här filen är korrekt. Testa genom att öppna en SSH-session till en av noderna i klustret från värden för ansible-spelbok.
+
+### <a name="service-principal-credentials-were-entered-incorrectly"></a>Autentiseringsuppgifter för tjänstens huvudnamn har angetts felaktigt
+
+När du anger indata till mallen eller Marketplace-erbjudande, har felaktig information angetts. Kontrollera att du använder rätt appId (clientId) och lösenord (clientSecret) för tjänstens huvudnamn. Kontrollera genom att följande azure cli-kommando.
+
+```bash
+az login --service-principal -u <client id> -p <client secret> -t <tenant id>
+```
+
+### <a name="service-principal-doesnt-have-contributor-access-to-the-resource-group"></a>Tjänstens huvudnamn har inte deltagaråtkomst till resursgruppen.
+
+Om Azure-molnet-providern är aktiverad, måste tjänstens huvudnamn som används ha deltagaråtkomst till resursgruppen. Kontrollera genom att följande azure cli-kommando.
+
+```bash
+az group update -g <openshift resource group> --set tags.sptest=test
+```
+
+## <a name="additional-tools"></a>Ytterligare verktyg
+
+Du kan också använda följande kommandon för att få mer information för vissa fel:
+
+1. systemctl status <service>
+2. journalctl -xe

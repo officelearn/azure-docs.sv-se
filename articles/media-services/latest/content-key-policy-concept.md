@@ -11,12 +11,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 10/22/2018
 ms.author: juliako
-ms.openlocfilehash: 9a5ef8df9b1ca87430fb5e8d1da94f1899c4a856
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: 24597c36ab6569abb53c7be331631556e2abfe66
+ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49985870"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50085970"
 ---
 # <a name="content-key-policies"></a>Viktiga innehållsprinciper
 
@@ -28,16 +28,16 @@ I Azure Media Services v3 kan principer för innehåll-nycklar du ange hur inneh
 
 I följande tabell visar de ContentKeyPolicy egenskaper och ger definitionerna.
 
-|Namn|Typ|Beskrivning|
-|---|---|---|
-|id|sträng|Fullständigt kvalificerade resurs-ID för resursen.|
-|namn|sträng|Namnet på resursen.|
-|Properties.Created |sträng|Skapandedatum för principen|
-|properties.description |sträng|En beskrivning för principen.|
-|properties.lastModified    |sträng|Senaste ändringsdatum för principen|
-|Properties.Options |ContentKeyPolicyOption]|Nyckeln principalternativen.|
-|properties.policyId    |sträng|Äldre princip-ID.|
-|typ   |sträng|Typ av resursen.|
+|Namn|Beskrivning|
+|---|---|
+|id|Fullständigt kvalificerade resurs-ID för resursen.|
+|namn|Namnet på resursen.|
+|Properties.Created |Skapandedatum för principen|
+|properties.description |En beskrivning för principen.|
+|properties.lastModified|Senaste ändringsdatum för principen|
+|Properties.Options |Nyckeln principalternativen.|
+|properties.policyId    |Äldre princip-ID.|
+|typ   |Typ av resursen.|
 
 Läs den fullständiga definitionen [Innehållsprinciper nyckeln](https://docs.microsoft.com/rest/api/media/contentkeypolicies).
 

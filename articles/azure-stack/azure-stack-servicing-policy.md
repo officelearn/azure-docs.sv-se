@@ -12,15 +12,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/05/2018
+ms.date: 10/23/2018
 ms.author: sethm
 ms.reviewer: harik
-ms.openlocfilehash: 523be365e8b66c157546470a70ddec73d3e1e5d1
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.openlocfilehash: f00b175fed36fbe2b28f1d11843bb17c54ac3873
+ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45630689"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50086972"
 ---
 # <a name="azure-stack-servicing-policy"></a>Azure Stack som hanteringsprincip
 Den här artikeln beskriver Underhåll principen för integrerade Azure Stack-system och vad du måste göra för att behålla ditt system i ett läge som stöds. 
@@ -37,11 +37,12 @@ Det finns två typer av uppdateringspaket för integrerade system:
 ## <a name="update-package-release-cadence"></a>Uppdatera paketets versionstakt
 Microsoft förväntar sig att frigöra programuppdateringspaket på en månatlig takt. Det är dock möjligt att ha flera och update-versioner under en månad. OEM-maskinvaruleverantörer publicera sina uppdateringar som det behövs. 
 
-Hitta dokumentation om hur du planerar för och hantera uppdateringar och hur du fastställer din nuvarande version i [hantera uppdaterar översikt](azure-stack-updates.md). Information om uppdateringen inklusive hur du hämtar det, finns i viktig information för att uppdatera: 
+Hitta dokumentation om hur du planerar för och hantera uppdateringar och hur du fastställer din nuvarande version i [hantera uppdaterar översikt](azure-stack-updates.md). 
+
+Information om uppdateringen inklusive hur du hämtar det, finns i viktig information för att uppdatera: 
+- [Uppdatering av Azure Stack 1809](azure-stack-update-1809.md)
 - [Uppdatering av Azure Stack 1808](azure-stack-update-1808.md)
 - [Uppdatering av Azure Stack 1807](azure-stack-update-1807.md)
-- [Uppdatering av Azure Stack 1805](azure-stack-update-1805.md)
-
 
 ## <a name="hotfixes"></a>Snabbkorrigeringar
 Ibland kan tillhandahåller Microsoft snabbkorrigeringar för Azure Stack adressen ett specifikt problem som ofta är förebyggande eller tid.  Varje snabbkorrigeringar släpps med en Microsoft Knowledge Base-artikel som beskriver problemet, orsak och lösning. 

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 08/09/2018
 ms.author: vashan, cynthn, rajsqr
 ms.custom: include file
-ms.openlocfilehash: 603e7c3a0c30eb42cb75d6a6ff87a96d847b7c9f
-ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
+ms.openlocfilehash: e1dc637d2f629b5002c2e8796fbd29a95478c392
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/13/2018
-ms.locfileid: "40100068"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50035366"
 ---
 Azure-datorer (VM) som går igenom olika tillstånd kan grupperas i *etablering* och *power* tillstånd. Syftet med den här artikeln är att beskriva tillståndet och markera specifikt när kunder faktureras till exempel användning. 
 
@@ -175,7 +175,7 @@ Här är övergående åtgärden tillstånd när plattformen har godkänt en åt
 <tbody>
 <tr>
 <td width="162">
-<p><b>tillstånd</b></p>
+<p><b>Tillstånd</b></p>
 </td>
 <td width="366">
 <p>Beskrivning</p>
@@ -287,7 +287,7 @@ När åtgärden har slutförts, övergår den virtuella datorn i något av följ
 
 Instansvy API innehåller VM-Körstatus information. Mer information finns i den [VM - instansvyn](https://docs.microsoft.com/rest/api/compute/virtualmachines/instanceview) API-dokumentationen.
 
-Azure resurser explorer ger ett enkelt gränssnitt för att visa den virtuella datorn körs för närvarande: [Resursläsaren] (https://resources.azure.com/).
+Azure resurser explorer ger ett enkelt gränssnitt för att visa den virtuella datorn körs för närvarande: [Resursläsaren](https://resources.azure.com/).
 
 Etablering tillstånd är synliga på VM-egenskaperna och instansvyn. Energinivåer är tillgängliga i instansvyn för VM. 
 

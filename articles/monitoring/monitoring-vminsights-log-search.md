@@ -1,5 +1,5 @@
 ---
-title: Hur du frågar loggar från Azure Monitor för virtuella datorer | Microsoft Docs
+title: Hur du frågar loggar från Azure Monitor för virtuella datorer (förhandsversion) | Microsoft Docs
 description: Azure Monitor för virtuella datorer lösningen vidarebefordrar mätvärden och loggdata till Log Analytics och den här artikeln beskriver posterna och innehåller exempelfrågor.
 services: azure-monitor
 documentationcenter: ''
@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/20/2018
+ms.date: 10/25/2018
 ms.author: magoedte
-ms.openlocfilehash: 4a5f3178ad4d4152bb29e6c313b3fd332124c154
-ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
+ms.openlocfilehash: 90816061766a423f7dbc7d277433a95c5bcf6115
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48269402"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50095430"
 ---
-# <a name="how-to-query-logs-from-azure-monitor-for-vms"></a>Hur du frågar loggar från Azure Monitor för virtuella datorer
+# <a name="how-to-query-logs-from-azure-monitor-for-vms-preview"></a>Hur du frågar loggar från Azure Monitor för virtuella datorer (förhandsversion)
 Azure Monitor för virtuella datorer samlar in prestanda- och anslutningshanteringstjänsten mått, datorn och processen inventeringsdata och hälsotillståndsinformation och vidarebefordrar det till Log Analytics-datalager i Azure Monitor.  Informationen är tillgänglig för [search](../log-analytics/log-analytics-log-searches.md) i Log Analytics. Du kan använda dessa data för scenarier som omfattar planering av migreringsaktiviteter, kapacitetsanalys, identifiering och prestandafelsökning för på begäran.
 
 ## <a name="map-records"></a>Mappa poster

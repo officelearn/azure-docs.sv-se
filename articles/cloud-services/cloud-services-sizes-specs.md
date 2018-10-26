@@ -4,7 +4,7 @@ description: 'Visar en lista över olika virtuella datorstorlekar (och ID: N) f�
 services: cloud-services
 documentationcenter: ''
 author: jpconnock
-manager: timlt
+manager: jpconnock
 editor: ''
 ms.assetid: 1127c23e-106a-47c1-a2e9-40e6dda640f6
 ms.service: cloud-services
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 07/18/2017
 ms.author: jeconnoc
-ms.openlocfilehash: 60ee7c2be29791db91db78472cc002e15390d36b
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 78a073ec7ee8432ba7804daef150afcbbca23ef6
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39004796"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50095577"
 ---
 # <a name="sizes-for-cloud-services"></a>Storlekar för Cloud Services
 Det här avsnittet beskrivs tillgängliga storlekar och alternativ för molntjänstrollinstanser (webb- och arbetsroller). Det ger också distributionsöverväganden ska tänka på när du planerar att använda de här resurserna. Varje storlek har ett ID som du lägger till i din [tjänstdefinitionsfilen](cloud-services-model-and-package.md#csdef). Priserna för varje storlek är tillgänglig på den [priser för Cloud Services](https://azure.microsoft.com/pricing/details/cloud-services/) sidan.
@@ -213,7 +213,7 @@ Som typen av arbetsbelastning ändringar eller nya VM-storlekar blir tillgängli
 >
 
 ## <a name="get-a-list-of-sizes"></a>Hämta en lista med storlekar
-Du kan använda PowerShell eller REST API för att hämta en lista med storlekar. REST API dokumenteras [här](https://msdn.microsoft.com/library/azure/dn469422.aspx). Följande kod är ett PowerShell-kommando som visar en lista över alla tillgängliga för storlekar för molntjänster. 
+Du kan använda PowerShell eller REST API för att hämta en lista med storlekar. REST API dokumenteras [här](https://msdn.microsoft.com/library/azure/dn469422.aspx). Följande kod är ett PowerShell-kommando som visar en lista över alla tillgängliga storlekar för molntjänster. 
 
 ```powershell
 Get-AzureRoleSize | where SupportedByWebWorkerRoles -eq $true | select InstanceSize, RoleSizeLabel

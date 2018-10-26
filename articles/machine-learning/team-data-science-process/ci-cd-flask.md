@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/22/2018
 ms.author: jainr
-ms.openlocfilehash: b0368e742c990feed626a1c4982bfedc35785b49
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: fb162c45b8bd53fd4d994e0eb83a38438873d627
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44304296"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50094405"
 ---
 # <a name="devops-for-artificial-intelligence-ai-applications-creating-continuous-integration-pipeline-on-azure-using-docker-and-kubernetes"></a>DevOps för artificiell intelligens (AI)-program: skapa pipeline för kontinuerlig integrering på Azure med Docker och Kubernetes
 Det finns ofta två strömmar av arbete, Dataexperter att skapa machine learning-modeller och App-utvecklare att bygga programmet och göra den tillgänglig att slutanvändare kan använda för ett AI-program. I den här artikeln visar vi hur du implementerar en kontinuerlig integrering (CI) / kontinuerlig leverans (CD) pipeline för ett AI-program. AI-program är en kombination av programkoden inbäddad med en tränats machine learning (ML)-modell. Vi hämtar en pretrained modell från en privat Azure blob storage-konto, det kan vara ett AWS S3-konto i den här artikeln. Vi använder en enkel python flask-webbapp för artikeln.
@@ -38,12 +38,12 @@ Följande är förutsättningar för att kunna följa CI/CD-pipeline som beskriv
 * [Azure DevOps-organisation](https://docs.microsoft.com/azure/devops/organizations/accounts/create-organization-msa-or-work-student)
 * [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
 * [Azure Container Service (AKS)-kluster som kör Kubernetes](https://docs.microsoft.com/azure/container-service/kubernetes/container-service-tutorial-kubernetes-deploy-cluster)
-* [Azure Container-registret (ACR)-konto](https://docs.microsoft.com/azure/container-registry/container-registry-get-started-portal)
+* [Azure Container Registry (ACR)-konto](https://docs.microsoft.com/azure/container-registry/container-registry-get-started-portal)
 * [Installera Kubectl för att köra kommandon mot Kubernetes-kluster.](https://kubernetes.io/docs/tasks/tools/install-kubectl/) Vi behöver detta för att hämta konfigurationen från ACS-kluster. 
 * Förgrena lagringsplatsen till ditt GitHub-konto.
 
 ## <a name="description-of-the-cicd-pipeline"></a>Beskrivning av CI/CD-pipeline
-Pipeline-sparkar ut för varje ny incheckning, kör test-sviten om test-pass tar den senaste versionen, paketerar den i en Docker-behållare. Behållaren distribueras sedan använda Azure container service (ACS) och avbildningar lagras säkert i Azure container registry (ACR). ACS med Kubernetes för att hantera behållarkluster men du kan välja Docker Swarm eller Mesos.
+Pipeline-sparkar ut för varje ny incheckning, kör test-sviten om test-pass tar den senaste versionen, paketerar den i en Docker-behållare. Behållaren distribueras sedan med hjälp av Azure Container Service (ACS) och avbildningar lagras säkert i Azure Container Registry (ACR). ACS med Kubernetes för att hantera behållarkluster men du kan välja Docker Swarm eller Mesos.
 
 Programmet hämtar på ett säkert sätt den senaste modellen från ett Azure Storage-konto och paket som som en del av programmet. Det distribuerade programmet har kod och ML-modell paketerad som enskild behållare. Detta frikopplas de appen utvecklare och dataexperter, att se till att deras produktionsapp alltid körs den senaste koden med senaste ML-modell.
 
@@ -70,5 +70,5 @@ Pipeline-arkitekturen anges nedan.
 ## <a name="references"></a>Referenser
 * [Team Data Science Process (TDSP)](https://aka.ms/tdsp)
 * [Azure Machine Learning (AML)](https://docs.microsoft.com/azure/machine-learning/service/)
-* [Visual Studio Team Services (VSTS)](https://www.visualstudio.com/vso/)
+* [Azure DevOps](https://www.visualstudio.com/vso/)
 * [Azure Kubernetes-tjänster (AKS)](https://docs.microsoft.com/azure/aks/intro-kubernetes)

@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 09/17/2018
 ms.author: jmprieur
 ms.custom: include file
-ms.openlocfilehash: d333f8ecd7e1044575f570d893227f9dcb394974
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.openlocfilehash: ac4f826ed1d27ee39d8e35605a3baa7f94b33e64
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48843624"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "50035247"
 ---
 ## <a name="test-your-code"></a>Testa din kod
 
@@ -29,14 +29,16 @@ Om du vill köra ditt projekt i Visual Studio, Välj **F5**. Programmets **MainW
 
 Första gången du kör programmet och välj den **anropa Microsoft Graph API** knappen, uppmanas du för att logga in. Använda en Azure Active Directory-konto (arbets- eller skolkonto konto) eller ett Microsoft-konto (live.com, outlook.com) för att testa den.
 
-![Logga in till programmet](./media/active-directory-develop-guidedsetup-windesktop-test/signinscreenshot.png)
+![Logga in på programmet](./media/active-directory-develop-guidedsetup-windesktop-test/signinscreenshot.png)
 
 ### <a name="provide-consent-for-application-access"></a>Ge medgivande för programåtkomst
-Första gången du loggar in på ditt program också uppmanas du att ange samtycka till att program kan komma åt din profil och logga in dig i som visas här: 
+
+Första gången du loggar in på ditt program också uppmanas du att ange samtycka till att program kan komma åt din profil och logga in dig i som visas här:
 
 ![Ge ditt medgivande för programåtkomst](./media/active-directory-develop-guidedsetup-windesktop-test/consentscreen.png)
 
 ### <a name="view-application-results"></a>Visa program resultat
+
 När du har loggat in visas den information om användarprofiler som returneras av anropet till Microsoft Graph API. Resultaten visas i den **API samtalsresultat** box. Grundläggande information om den token som köptes via anropet till `AcquireTokenAsync` eller `AcquireTokenSilentAsync` ska synas i den **tokeninformation** box. Resultaten innehåller följande egenskaper:
 
 |Egenskap   |Format  |Beskrivning |
@@ -51,7 +53,7 @@ När du har loggat in visas den information om användarprofiler som returneras 
 
 Microsoft Graph API kräver den *user.read* omfattning att läsa en användares profil. Det här omfånget läggs automatiskt som standard i alla program som har registrerats i portalen för registrering av programmet. Andra API: er för Microsoft Graph, samt anpassade API: er för backend-servern, kan kräva ytterligare scope. Microsoft Graph API kräver den *Calendars.Read* omfattning att lista användarens kalendrar.
 
-Om du vill få åtkomst till användarkalendrar i kontexten för ett program måste du lägga till den *Calendars.Read* delegerad behörighet att registreringsinformation för programmet. Lägg sedan till den *Calendars.Read* begränsa omfånget till den `acquireTokenSilent` anropa. 
+Om du vill få åtkomst till användarkalendrar i kontexten för ett program måste du lägga till den *Calendars.Read* delegerad behörighet att registreringsinformation för programmet. Lägg sedan till den *Calendars.Read* begränsa omfånget till den `acquireTokenSilent` anropa.
 
 >[!NOTE]
 >Användaren uppmanas för ytterligare medgivanden när du ökar antalet omfång.

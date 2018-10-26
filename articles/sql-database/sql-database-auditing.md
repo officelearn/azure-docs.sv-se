@@ -11,21 +11,26 @@ author: ronitr
 ms.author: ronitr
 ms.reviewer: vanto
 manager: craigg
-ms.date: 10/15/2018
-ms.openlocfilehash: 2a0bacaf0405a5223afedcd3897e2a1514f7128b
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.date: 10/25/2018
+ms.openlocfilehash: fc82fa592a513d735d4adc602bedaf8e492af13b
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49466689"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50092959"
 ---
 # <a name="get-started-with-sql-database-auditing"></a>Kom igång med SQL-databasgranskning
 
-Azure SQL-databasgranskning spårar databashändelser och skriver dem till en granskningslogg i ditt Azure storage-konto. Granskning också:
+Granskning för Azure [SQL Database](sql-database-technical-overview.md) och [SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) spårar databasen händelser och skriver dem till en granskningslogg i ditt Azure storage-konto, OMS-arbetsyta eller Event Hubs. Granskning också:
 
 - Hjälper dig att upprätthålla regelefterlevnad, Förstå Databasaktivitet och få insyn i avvikelser och fel som kan tyda på affärsproblem eller potentiella säkerhetsöverträdelser.
 
 - Aktiverar och underlättar infört efterlevnadsstandarder, även om det inte garanterar efterlevnad. Mer information om Azure program som stöd för överensstämmelse med standarder, finns i den [Azure Trust Center](https://azure.microsoft.com/support/trust-center/compliance/).
+
+
+> [!NOTE] 
+> Det här avsnittet gäller för Azure SQL-servern, och för både SQL Database- och SQL Data Warehouse-databaser som skapas på Azure SQL-servern. För enkelhetens skull används SQL Database när det gäller både SQL Database och SQL Data Warehouse.
+
 
 ## <a id="subheading-1"></a>Azure SQL database auditing översikt
 
@@ -51,7 +56,7 @@ En granskningsprincip kan definieras för en specifik databas eller som en stand
 
 - Om *blobgranskning är aktiverat*, den *alltid gäller för databasen*. Databasen granskas oavsett databasen granskningsinställningar.
 
-- Att aktivera blobbgranskning på databasen, samt för att aktivera den på servern har *inte* åsidosätta eller ändra några av inställningarna för den blobgranskning. Båda granskningar kommer att finnas sida vid sida. Med andra ord granskas databasen två gånger i parallella; en gång av princip för server och en gång av princip för databasen.
+- Att aktivera blobbgranskning på databasen eller datalagret, samt för att aktivera den på servern har *inte* åsidosätta eller ändra några av inställningarna för den blobgranskning. Båda granskningar kommer att finnas sida vid sida. Med andra ord granskas databasen två gånger i parallella; en gång av princip för server och en gång av princip för databasen.
 
    > [!NOTE]
    > Du bör undvika att aktivera både blobgranskning och databasen blobbgranskning tillsammans, såvida inte:
@@ -87,7 +92,7 @@ I följande avsnitt beskrivs konfigurationen av granskning med Azure portal.
 
     ![storage account](./media/sql-database-auditing-get-started/auditing_select_storage.png)
 
-7. Konfigurera granskning för skrivning loggar till en Log Analytics-arbetsyta, väljer **Log Analytics (förhandsversion)** och öppna **Log Analytics information**. Välj eller skapa Log Analytics-arbetsyta där loggarna sparas, och klicka sedan på **OK**.
+7. Konfigurera granskning för skrivning loggar på en Log Analytics-arbetsyta väljer **Log Analytics (förhandsversion)** och öppna **Log Analytics information**. Välj eller skapa Log Analytics-arbetsyta där loggarna sparas, och klicka sedan på **OK**.
 
     ![Log Analytics](./media/sql-database-auditing-get-started/auditing_select_oms.png)
 
@@ -98,6 +103,11 @@ I följande avsnitt beskrivs konfigurationen av granskning med Azure portal.
 9. Klicka på **Spara**.
 10. Om du vill anpassa de granskade händelserna, kan du göra detta via [PowerShell-cmdletar](#subheading-7) eller [REST API](#subheading-9).
 11. När du har konfigurerat inställningarna för granskning kan du aktivera funktionen för identifiering av nya hot och konfigurera e-postmeddelanden om du vill få säkerhetsaviseringar. När du använder hotidentifiering kan få du proaktiva varningar på avvikande databasaktiviteter som kan innebära potentiella säkerhetshot. Mer information finns i [komma igång med hotidentifiering](sql-database-threat-detection-get-started.md).
+
+
+> [!IMPORTANT]
+>Aktivera granskning på en Azure SQL Data Warehouse eller på en server som har en Azure SQL Data Warehouse, **leder till datalagret återtas**, även i de fall där det tidigare pausades. **Glöm inte att pausa informationslagret igen när du har aktiverat granskning**”.
+
 
 ## <a id="subheading-3"></a>Analysera granskningsloggar och rapporter
 
@@ -206,6 +216,9 @@ I produktion förmodligen du uppdatera dina storage-nycklar med jämna mellanrum
     FAILED_DATABASE_AUTHENTICATION_GROUP
 
     Du kan konfigurera granskning för olika typer av åtgärder och åtgärdsgrupper med hjälp av PowerShell, enligt beskrivningen i den [hantera SQL database-granskning med Azure PowerShell](#subheading-7) avsnittet.
+
+- När du använder AAD-autentisering misslyckades inloggningar poster kommer *inte* visas i SQL-granskningsloggen. Om du vill visa granskningsposter för Misslyckad inloggning, måste du gå till den [Azure Active Directory-portalen]( ../active-directory/reports-monitoring/reference-sign-ins-error-codes.md), som loggar information om dessa händelser.
+
 
 ## <a id="subheading-7"></a>Hantera SQL database-granskning med Azure PowerShell
 

@@ -10,12 +10,12 @@ ms.devlang: spark-scala
 ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: ankhanol
-ms.openlocfilehash: 38a972d39b845dca39bcc4dcf921c603301af582
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.openlocfilehash: 165919fa3d456786e926f754dba378be38c12588
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48869660"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50094252"
 ---
 # <a name="connect-to-azure-cosmos-db-cassandra-api-from-spark"></a>Ansluta till Azure Cosmos DB Cassandra-API från Spark
 
@@ -29,7 +29,7 @@ Den här artikeln är en mellan en serie artiklar om Azure Cosmos DB Cassandra A
 ## <a name="dependencies-for-connectivity"></a>Beroenden för anslutning
 * **Spark-anslutningappen för Cassandra:** Spark-anslutningsappen som används för att ansluta till Azure Cosmos DB Cassandra-API.  Identifiera och använda versionen av anslutningsappen finns i [Maven central]( https://mvnrepository.com/artifact/com.datastax.spark/spark-cassandra-connector) som är kompatibel med Spark och Scala-versioner av Spark-miljö.
 
-* **Azure Cosmos DB-hjälpbibliotek för Cassandra-API:** förutom Spark-anslutningsappen måste en annan library, även kallat [azure-cosmos-cassandra-spark-helper]( https://search.maven.org/artifact/com.microsoft.azure.cosmosdb/azure-cosmos-cassandra-spark-helper/1.0.0/jar) från Azure Cosmos DB. Det här biblioteket innehåller en anslutningsfabrik och en princip för anpassad återförsöksklasser.
+* **Azure Cosmos DB-hjälpbibliotek för Cassandra-API:** förutom Spark-anslutningsappen måste en annan library, även kallat [azure-cosmos-cassandra-spark-helper]( https://search.maven.org/artifact/com.microsoft.azure.cosmosdb/azure-cosmos-cassandra-spark-helper/1.0.0/jar) från Azure Cosmos DB. Det här biblioteket innehåller klasser för anpassad anslutning factory och försök igen principen.
 
   Återförsöksprincip i Azure Cosmos DB har konfigurerats för att hantera HTTP-status kod 429 (”begär Rate stor”) undantag. Azure Cosmos DB Cassandra API översätter sådana undantag till överbelastade fel på protokollet i Cassandra och du kan göra med tillbaka på de. Eftersom Azure Cosmos DB använder etablerat dataflöde modellen kan inträffa begäran rate begränsande undantag när ingång/utgång bedömer ökning. Återförsöksprincipen som skyddar ditt spark-jobb mot data toppar som tillfälligt överskrider det dataflöde som allokerats för din samling.
 

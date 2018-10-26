@@ -13,12 +13,12 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
-ms.openlocfilehash: 633717a9f5f74648f7418970dd8047079efe18b9
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: 38839379f584b40cdbefad3e4cbb3bc47881c9a7
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49649099"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50094603"
 ---
 # <a name="join-an-azure-ssis-integration-runtime-to-a-virtual-network"></a>Ansluta en Azure-SSIS integration runtime till ett virtuellt nätverk
 Anslut till din Azure-SSIS integration runtime (IR) till en Azure-nätverk i följande scenarier: 
@@ -28,6 +28,9 @@ Anslut till din Azure-SSIS integration runtime (IR) till en Azure-nätverk i fö
 - Du är värd för katalogdatabasen SQL Server Integration Services (SSIS) i Azure SQL Database med virtuellt nätverk tjänstens slutpunkter/hanterad instans. 
 
  Azure Data Factory kan du ansluta Azure-SSIS integration runtime till ett virtuellt nätverk som skapats via den klassiska distributionsmodellen eller Azure Resource Manager-distributionsmodellen. 
+
+> [!IMPORTANT]
+> Det klassiska virtuella nätverket används för närvarande längre, så Använd Azure Resource Manager-nätverk i stället.  Växla för att använda Azure Resource Manager-nätverk så snart som möjligt om du redan använder det klassiska virtuella nätverket.
 
 ## <a name="access-to-on-premises-data-stores"></a>Åtkomst till lokala databaser
 Om SSIS-paket åtkomst till datalager som enda offentliga molnet, behöver du inte ansluta till Azure-SSIS IR till ett virtuellt nätverk. Om SSIS-paket åtkomst till lokala datalager, måste du ansluta Azure-SSIS IR till ett virtuellt nätverk som är anslutet till det lokala nätverket. 
@@ -46,11 +49,13 @@ Här följer några viktiga saker att Observera:
 Om SSIS-katalogen finns i Azure SQL Database med virtuella nätverksslutpunkter eller hanterad instans, kan du ansluta till din Azure-SSIS IR till: 
 
 - Samma virtuella nätverk 
-- Ett annat virtuellt nätverk som har en nätverk-till-network-anslutning med det som används för Azure SQL Database med virtuellt nätverk tjänstens slutpunkter/hanterad instans 
+- Ett annat virtuellt nätverk som har en nätverk-till-network-anslutning med det som används för den hanterade instansen 
 
-Om du sammanfogar din Azure-SSIS IR till samma virtuella nätverk som den hanterade instansen ska du kontrollera att Azure-SSIS IR är i ett annat undernät än den hanterade instansen. Om du ansluta Azure-SSIS IR till ett annat virtuellt nätverk än den hanterade instansen rekommenderar vi virtuell nätverkspeering (som är begränsad till samma region) eller ett virtuellt nätverk för virtuell nätverksanslutning. Se [Anslut ditt program till Azure SQL Database Managed Instance](../sql-database/sql-database-managed-instance-connect-app.md).
+Om du vara värd för SSIS-katalog i Azure SQL Database med tjänstslutpunkter i virtuella nätverk, se till att du ansluter din Azure-SSIS IR till samma virtuella nätverk och undernät.
 
-Det virtuella nätverket kan distribueras via den klassiska distributionsmodellen eller Azure Resource Manager-distributionsmodellen.
+Om du sammanfogar din Azure-SSIS IR till samma virtuella nätverk som den hanterade instansen ska du kontrollera att Azure-SSIS IR är i ett annat undernät än den hanterade instansen. Om du ansluter din Azure-SSIS IR till ett annat virtuellt nätverk än den hanterade instansen rekommenderar vi virtuell nätverkspeering (som är begränsad till samma region) eller ett virtuellt nätverk för virtuell nätverksanslutning. Se [Anslut ditt program till Azure SQL Database Managed Instance](../sql-database/sql-database-managed-instance-connect-app.md).
+
+I samtliga fall kan du bara distribuera det virtuella nätverket via Azure Resource Manager-distributionsmodellen.
 
 I följande avsnitt innehåller mer information. 
 
@@ -73,13 +78,13 @@ I följande avsnitt innehåller mer information.
 
 Den användare som skapar Azure-SSIS Integration Runtime måste ha följande behörigheter:
 
-- Om du kopplar SSIS IR till ett Azure-nätverk av den aktuella versionen, har du två alternativ:
+- Om du kopplar din SSIS IR till ett Azure Resource Manager-nätverk, har du två alternativ:
 
-  - Använd den inbyggda rollen *Nätverksdeltagare*. Den här rollen ingår den *Microsoft.Network/\**  behörigheter, men som har ett mycket större område.
+  - Använda inbyggda *Nätverksdeltagare* roll. Den här rollen som medföljer den *Microsoft.Network/\**  behörigheter, som har ett mycket större omfång än nödvändigt.
 
-  - Skapa en anpassad roll som inkluderar behörigheten *Microsoft.Network/virtualNetworks/\*/join/åtgärd*. 
+  - Skapa en anpassad roll som innehåller endast nödvändiga *Microsoft.Network/virtualNetworks/\*/join/åtgärd* behörighet. 
 
-- Om du kopplar SSIS IR till ett klassiskt Azure virtuellt nätverk, rekommenderar vi att du använder den inbyggda rollen *klassisk virtuell Datordeltagare*. Annars måste du definiera en anpassad roll med behörighet att ansluta det virtuella nätverket.
+- Om du kopplar din SSIS IR till ett klassiskt virtuellt nätverk, rekommenderar vi att du använder inbyggt *klassisk virtuell Datordeltagare* roll. Annars måste du definiera en anpassad roll med behörighet att ansluta det virtuella nätverket.
 
 ### <a name="subnet"></a> Välj undernätet
 -   Markera inte GatewaySubnet för att distribuera en Azure-SSIS Integration Runtime, eftersom den är avsedda för virtuella nätverksgatewayer. 

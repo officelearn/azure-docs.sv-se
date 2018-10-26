@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 10/08/2018
 ms.author: iainfou
-ms.openlocfilehash: 9d953cdb82412c07fe0ed4bef75dece4a929cad9
-ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
+ms.openlocfilehash: eb5d1ee88fc95f7d02842ea089f65c6d17a6d69d
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49067598"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50091749"
 ---
 # <a name="access-the-kubernetes-web-dashboard-in-azure-kubernetes-service-aks"></a>Komma åt Kubernetes web-instrumentpanelen i Azure Kubernetes Service (AKS)
 
@@ -24,7 +24,7 @@ Mer information om Kubernetes-instrumentpanelen finns i [Kubernetes-instrumentpa
 
 Stegen som beskrivs i det här dokumentet förutsätter att du har skapat ett AKS-kluster och har upprättat en `kubectl` anslutning med klustret. Om du vill skapa ett AKS-kluster finns i den [AKS-Snabbstart][aks-quickstart].
 
-Du också ha Azure CLI version 2.0.46 eller senare installerat och konfigurerat. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI][install-azure-cli].
+Du måste också ha installerat och konfigurerat Azure CLI version 2.0.46 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [installera Azure CLI][install-azure-cli].
 
 ## <a name="start-the-kubernetes-dashboard"></a>Starta Kubernetes-instrumentpanelen
 
@@ -33,6 +33,9 @@ Starta Kubernetes-instrumentpanelen med den [az aks Bläddra] [ az-aks-browse] k
 ```azurecli
 az aks browse --resource-group myResourceGroup --name myAKSCluster
 ```
+
+> [!NOTE]
+> Om du kör det här kommandot från Azure Cloud Shell, du måste lägga till den `--enable-cloud-console-aks-browse` parametern för att kunna öppna instrumentpanelen.
 
 Det här kommandot skapar en proxy mellan utvecklingssystemet och Kubernetes-API och öppnar en webbläsare till Kubernetes-instrumentpanelen. Om en webbläsare inte öppnas Kubernetes-instrumentpanelen, kopiera och klistra in URL-adressen som anges i Azure CLI, vanligtvis *http://127.0.0.1:8001*.
 

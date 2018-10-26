@@ -9,20 +9,20 @@ ms.date: 10/16/2018
 ms.topic: conceptual
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: 1ed76b0505747831363ea829f1cb91b3e056282a
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: d031965a812cd218fbb4e78dfbf90ee01c26f5bb
+ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49352454"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50085987"
 ---
 # <a name="onboard-update-management-change-tracking-and-inventory-solutions"></a>Publicera lösningar för uppdateringshantering, ändringsspårning och inventering
 
-Azure Automation tillhandahåller lösningar för att hantera säkerhet för operativsystemuppdateringar, spåra ändringar och inventering vad som är installerat på datorerna. Det finns flera sätt att registrera datorer, du kan registrera lösningen [från en virtuell dator](automation-onboard-solutions-from-vm.md), [från flera datorer-surfning](automation-onboard-solutions-from-browse.md), från ditt Automation-konto eller av [runbook](automation-onboard-solutions.md). Den här artikeln beskrivs registrering dessa lösningar från ditt Automation-konto.
+Azure Automation tillhandahåller lösningar för att hantera säkerhet för operativsystemuppdateringar, spåra ändringar och inventering vad som är installerat på datorerna. Det finns många sätt att registrera datorer, du kan registrera lösningen [från en virtuell dator](automation-onboard-solutions-from-vm.md), [från flera datorer-surfning](automation-onboard-solutions-from-browse.md), från ditt Automation-konto eller av [runbook](automation-onboard-solutions.md). Den här artikeln beskrivs registrering dessa lösningar från ditt Automation-konto.
 
-## <a name="log-in-to-azure"></a>Logga in på Azure
+## <a name="sign-in-to-azure"></a>Logga in på Azure
 
-Logga in till Azure på https://portal.azure.com
+Logga in i Azure på https://portal.azure.com
 
 ## <a name="enable-solutions"></a>Aktivera lösningar
 
@@ -46,13 +46,13 @@ Välj **uppdateringshantering** under **UPPDATERINGSHANTERING**. Log Analytics-a
 
 Varje lösning använder en Omfattningskonfigurationen i arbetsytan för att fokusera på de datorer som får lösningen. Konfigurationen är en grupp med en eller flera sparade sökningar som används för att begränsa omfattningen av lösningen till specifika datorer. Åtkomst till Omfattningskonfigurationer i ditt Automation-konto under **relaterade resurser**väljer **arbetsytan**. I arbetsytan under **DATAKÄLLOR för ARBETSYTA**väljer **Omfattningskonfigurationer**.
 
-Om den valda arbetsytan har inte lösningarna för uppdateringshantering eller ändringsspårning än följande omfattningskonfigurationer skapas:
+Om den valda arbetsytan inte ännu har lösningarna för uppdateringshantering eller ändringsspårning, skapas följande omfång konfigurationer:
 
 * **MicrosoftDefaultScopeConfig ChangeTracking**
 
 * **MicrosoftDefaultScopeConfig-uppdateringar**
 
-Om det finns redan i lösningen för den valda arbetsytan. Lösningen har inte distribuerats igen och omfattningskonfigurationen läggs inte till den.
+Om den valda arbetsytan har redan lösningen kan lösningen inte igen distribuerade och konfigurationen har lagts till inte i den.
 
 ## <a name="saved-searches"></a>Sparade sökningar
 
@@ -73,7 +73,7 @@ Välj antingen sparad sökning kan du se frågan som används för att fylla i g
 
 Från ditt Automation-kontot väljer **inventering** eller **ändringsspårning** under **KONFIGURATIONSHANTERING**, eller **uppdateringshantering** under **UPPDATERINGSHANTERING**.
 
-Klicka på **+ Lägg till virtuella Azure-datorer**, Välj en eller flera virtuella datorer i listan. Virtuella datorer som inte kan aktiveras är gråmarkerat och kan inte väljas. På den **Aktivera hantering av uppdateringar** klickar du på **aktivera**. Detta lägger till de valda virtuella datorerna till i datorgruppen sparad sökning för lösningen.
+Klicka på **+ Lägg till virtuella Azure-datorer**, Välj en eller flera virtuella datorer i listan. Virtuella datorer som inte kan aktiveras är gråmarkerat och kan inte väljas. På den **Aktivera hantering av uppdateringar** klickar du på **aktivera**. Den här åtgärden lägger till de valda virtuella datorerna till i datorgruppen sparad sökning för lösningen.
 
 ![Aktivera virtuella Azure-datorer](media/automation-onboard-solutions-from-automation-account/enable-azure-vms.png)
 
@@ -81,23 +81,23 @@ Klicka på **+ Lägg till virtuella Azure-datorer**, Välj en eller flera virtue
 
 Datorer inte i Azure måste läggas till manuellt. Från ditt Automation-kontot väljer **inventering** eller **ändringsspårning** under **KONFIGURATIONSHANTERING**, eller **uppdateringshantering** under **UPPDATERINGSHANTERING**.
 
-Klicka på **Lägg till icke-Azure-datorn**. Gör det öppnas ett nytt webbläsarfönster med den [anvisningar om hur du installerar och konfigurerar Microsoft Monitoring Agent på datorn](../log-analytics/log-analytics-concept-hybrid.md) så att datorn kan börja rapporterar till lösningen. Om du är en dator som för närvarande hanteras av System Center Operations Manager, en ny agent är inte obligatoriskt, information om arbetsytan har angetts i den befintliga agenten.
+Klicka på **Lägg till icke-Azure-datorn**. Den här åtgärden öppnar ett nytt webbläsarfönster med den [anvisningar om hur du installerar och konfigurerar Microsoft Monitoring Agent på datorn](../log-analytics/log-analytics-concept-hybrid.md) så att datorn kan börja rapporterar till lösningen. Om du är onboarding en dator som för närvarande hanteras av System Center Operations Manager, en ny agent krävs inte, information om arbetsytan har angetts i den befintliga agenten.
 
 ## <a name="onboard-machines-in-the-workspace"></a>Publicera datorer i arbetsytan
 
-Manuellt installerade datorer eller datorer som redan rapporterar till arbetsytan behöver läggas till i Azure Automation för lösningen aktiveras. Från ditt Automation-kontot väljer **inventering** eller **ändringsspårning** under **KONFIGURATIONSHANTERING**, eller **uppdateringshantering** under **UPPDATERINGSHANTERING**.
+Manuellt installerade datorer eller datorer som redan rapporterar till arbetsytan måste läggas till Azure Automation för lösningen aktiveras. Från ditt Automation-kontot väljer **inventering** eller **ändringsspårning** under **KONFIGURATIONSHANTERING**, eller **uppdateringshantering** under **UPPDATERINGSHANTERING**.
 
-Välj **hantera datorer**. Gör det öppnas den **hantera datorer** sidan. Den här sidan kan du aktivera lösningen på en uppsättning datorer, alla tillgängliga datorer, eller aktivera lösningen för alla aktuella datorer och aktivera det på alla framtida datorer.
+Välj **hantera datorer**. Den här åtgärden öppnar den **hantera datorer** sidan. Den här sidan kan du aktivera lösningen på en uppsättning datorer, alla tillgängliga datorer, eller aktivera lösningen för alla aktuella datorer och aktivera det på alla framtida datorer. Den **hantera datorer** knappen kan nedtonade om du tidigare har valt alternativet **aktivera på alla tillgängliga och framtida datorer**.
 
 ![Sparade sökningar](media/automation-onboard-solutions-from-automation-account/managemachines.png)
 
 ### <a name="all-available-machines"></a>Alla tillgängliga datorer
 
-Välj för att aktivera lösningen för alla tillgängliga datorer **aktivera på alla tillgängliga datorer**. Detta inaktiverar kontrollen för att lägga till datorer individuellt. Detta lägger till alla namnen på datorer som rapporterar till arbetsytan för att den datorgrupp som sparats sökfråga. När du väljer detta inaktiverar de **hantera datorer** knappen.
+Välj för att aktivera lösningen för alla tillgängliga datorer **aktivera på alla tillgängliga datorer**. Den här åtgärden inaktiverar kontrollen för att lägga till datorer individuellt. Detta lägger till alla namnen på datorer som rapporterar till arbetsytan för att den datorgrupp som sparats sökfråga. När du väljer den här åtgärden inaktiverar den **hantera datorer** knappen.
 
 ### <a name="all-available-and-future-machines"></a>Alla tillgängliga och framtida datorer
 
-Välj för att aktivera lösningen för alla tillgängliga och alla framtida datorer **aktivera på alla tillgängliga och framtida datorer**. Det här alternativet tar bort sparade sökningar och Omfattningskonfigurationer från arbetsytan. Då öppnas lösningen till alla Azure- och icke-Azure-datorer som rapporterar till arbetsytan. När du väljer detta inaktiverar de **hantera datorer** knappen.
+Välj för att aktivera lösningen för alla tillgängliga och framtida datorer **aktivera på alla tillgängliga och framtida datorer**. Det här alternativet tar bort sparade sökningar och Omfattningskonfigurationer från arbetsytan. Den här åtgärden öppnar lösningen till alla Azure- och icke-Azure-datorer som rapporterar till arbetsytan. När du väljer den här åtgärden inaktiverar den **hantera datorer** knappen permanent eftersom det finns ingen Omfattningskonfiguration till vänster.
 
 ### <a name="selected-machines"></a>Valda datorer
 
@@ -113,18 +113,18 @@ Följande lösningar är beroende av en Log Analytics-arbetsyta:
 
 Om du inte längre vill integrera ditt Automation-konto med Log Analytics kan du kan ta bort länken till ditt konto direkt från Azure-portalen.  Innan du fortsätter måste du först ta bort lösningar som tidigare nämnts, annars den här processen kommer inte att kunna fortsätta. Läsa artikeln för den lösning du har importerat för att förstå de steg som krävs för att ta bort den.
 
-När du tar bort dessa lösningar kan utföra du följande steg om du vill ta bort länken till ditt Automation-konto.
+När du tar bort dessa lösningar kan slutföra du följande steg om du vill ta bort länken till ditt Automation-konto.
 
 > [!NOTE]
 > Vissa lösningar, inklusive tidigare versioner av Azure SQL-övervakningslösning kan ha skapat automation-tillgångar och kan också behöva tas bort innan du arbetsytans länk.
 
-1. Öppna ditt Automation-konto från Azure-portalen och på Automation-konto väljer du sidan **länkade arbetsytan** under avsnittet **relaterade resurser** till vänster.
+1. Öppna ditt Automation-konto från Azure-portalen och på Automation-konto väljer du sidan **länkade arbetsytan** under avsnittet märkta **relaterade resurser** till vänster.
 
 2. På sidan Avlänka från arbetsytan **ta bort arbetsytans länk**.
 
    ![Avlänka arbetsytssidan](media/automation-onboard-solutions-from-automation-account/automation-unlink-workspace-blade.png).
 
-   Ett meddelande visas där du bekräftar att du vill fortsätta.
+   Du får ett meddelande som bekräftar att du vill fortsätta.
 
 3. Medan Azure Automation försöker ta bort länken till konton som Log Analytics-arbetsytan, kan du följa förloppet under **meddelanden** på menyn.
 
@@ -134,7 +134,7 @@ Om du använder lösningen för uppdateringshantering, kan om du vill du ta bort
 
 * Hybrid worker-grupper som skapats för lösningen – var och en namnges på samma sätt till av typen machine1.contoso.com_9ceb8108 - 26 c 9-4051-b6b3-227600d715c8).
 
-Om du har använt Starta/stoppa virtuella datorer vid låg belastning på nätverket lösning kan om du vill du ta bort följande objekt som inte längre behövs när du har tagit bort lösningen.
+Om du har använt Start- och stoppa virtuella datorer vid låg belastning på nätverket lösning kan om du vill du ta bort följande objekt som inte längre behövs när du har tagit bort lösningen.
 
 * Starta och stoppa scheman för VM-runbook
 * Starta och stoppa Virtuella runbooks

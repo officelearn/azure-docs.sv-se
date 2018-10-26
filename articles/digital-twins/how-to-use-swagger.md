@@ -6,14 +6,14 @@ manager: alinast
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 10/08/2018
+ms.date: 10/25/2018
 ms.author: adgera
-ms.openlocfilehash: dbadc90a206937d4c9f1d7b75a872d93b1a8a587
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: 3bc365c204ab75a2f136c3e26c4b598b25f66114
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49324352"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50093497"
 ---
 # <a name="how-to-use-azure-digital-twins-swagger"></a>Hur du använder Azure Digital Twins Swagger
 
@@ -45,8 +45,8 @@ https://yourInstanceName.yourLocation.azuresmartspaces.net/management/swagger
 
 | Anpassade attributets namn | Ersätt med |
 | --- | --- |
-| `yourInstanceName` | Namnet på din digitala Twins för Azure-instans |
-| `yourLocation` | Vilken server-region som din instans är värd för |
+| *dittinstansnamn* | Namnet på din digitala Twins för Azure-instans |
+| *yourLocation* | Vilken server-region som din instans är värd för |
 
 ## <a name="reference-material"></a>Referensmaterial
 
@@ -113,10 +113,10 @@ Läsa mer om Azure Digital Twins objektmodeller och rumsliga intelligence graph 
 Läs hur du autentiserar med ditt API Management, [autentisering med API: er](./security-authenticating-apis.md).
 
 <!-- Images -->
-[1]: media/how-to-use-swagger/swagger_management_top.png
-[2]: media/how-to-use-swagger/swagger_management_models.png
-[3]: media/how-to-use-swagger/swagger_management_model.png
-[4]: media/how-to-use-swagger/swagger_management_endpoints.png
-[5]: media/how-to-use-swagger/swagger_management_try.png
-[6]: media/how-to-use-swagger/swagger_management_tried.png
-[7]: media/how-to-use-swagger/swagger_management_response.png
+[1]: media/how-to-use-swagger/swagger_management_top.PNG
+[2]: media/how-to-use-swagger/swagger_management_models.PNG
+[3]: media/how-to-use-swagger/swagger_management_model.PNG
+[4]: media/how-to-use-swagger/swagger_management_endpoints.PNG
+[5]: media/how-to-use-swagger/swagger_management_try.PNG
+[6]: media/how-to-use-swagger/swagger_management_tried.PNG
+[7]: media/how-to-use-swagger/swagger_management_response.PNG

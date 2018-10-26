@@ -8,15 +8,15 @@ ms.topic: conceptual
 ms.author: haining
 author: hning86
 ms.reviewer: larryfr
-ms.date: 09/24/2018
-ms.openlocfilehash: 64104fc70c7be1589c9332905f243a2e1e692eee
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.date: 10/24/2018
+ms.openlocfilehash: b00f72c987b6ce8c44796bd036af670ec39fa7a6
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48237984"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50093640"
 ---
-# <a name="architecture-and-concepts-how-does-azure-machine-learning-service-work"></a>Arkitektur och begrepp: hur fungerar Azure Machine Learning-tjänsten? 
+# <a name="how-the-azure-machine-learning-service-works-architecture-and-concepts"></a>Hur fungerar Azure Machine Learning-tjänsten: arkitektur och begrepp
 
 Det här dokumentet beskriver arkitekturen och begrepp för Azure Machine Learning-tjänsten. Följande diagram visas de viktigaste komponenterna i tjänsten och visar det allmänna arbetsflödet när du använder tjänsten: 
 
@@ -156,6 +156,13 @@ Ett experiment är en gruppering av många körs från ett givet skript. Det är
 
 Ett exempel på hur du använder ett experiment finns i den [Snabbstart: Kom igång med Azure Machine Learning-tjänsten](quickstart-get-started.md) dokumentet.
 
+
+## <a name="pipelines"></a>Pipelines
+
+Pipelines används för att skapa och hantera arbetsflöden som sadelhäftning tillsammans maskininlärning (ML) faser, till exempel dataförberedelser, modellinlärning, distribution av modeller och inferensjobb. Varje fas kan omfatta flera steg, som kan köras obevakat i olika beräkningsmål.
+
+Mer information om machine learning pipelines med den här tjänsten finns i artikeln [Pipelines och Azure Machine Learning](concept-ml-pipelines.md).
+
 ## <a name="compute-target"></a>Beräkningsmål
 
 Beräkningsmål är beräkningsresursen som används för att köra skriptet utbildning eller vara värd för din distribution av webbtjänster. Beräkningsmål som stöds är: 
@@ -210,6 +217,6 @@ Aktiviteter kan ge meddelanden från SDK eller Webbgränssnittet så att du enke
 
 Använd följande länkar för att komma igång med Azure Machine Learning:
 
-* [Vad är Azure Machine Learning-tjänsten](overview-what-is-azure-ml.md)
+* [Vad är Azure Machine Learning-tjänsten?](overview-what-is-azure-ml.md)
 * [Snabbstart: Skapa en arbetsyta med Python](quickstart-get-started.md)
 * [Självstudie: Träna en modell](tutorial-train-models-with-aml.md)

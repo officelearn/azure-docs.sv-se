@@ -9,12 +9,12 @@ ms.author: mattfarm
 ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
 ms.date: 06/15/2018
-ms.openlocfilehash: 8fbc84b4016659b6d0d6ce9ec47c05a0b241c3d9
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: 5b58f4b71d8d9f3ca91d8cefc6215073fd836765
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48855382"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50093674"
 ---
 # <a name="enterprise-integration-architecture-with-queues-and-events"></a>Företagsarkitektur för integrering med köer och händelser
 
@@ -26,7 +26,7 @@ Den här serien beskriver återanvändbara komponenter som kan användas för at
 
 ## <a name="architecture-components"></a>Arkitektur för komponenter
 
-Den här arkitekturen bygger på den arkitektur som beskrivs i artikeln [arkitektur referens: enkel enterprise-integration](../logic-apps/logic-apps-architectures-simple-enterprise-integration.md). Den arkitekturen [rekommendationer](../logic-apps/logic-apps-architectures-simple-enterprise-integration.md#recommendations) gäller även här, men kortfattat, utelämnar den här artikeln rekommendationerna från den [rekommendationer](#recommendations) avsnittet. Den här arkitekturen för enterprise-integration innehåller följande komponenter:
+Den här arkitekturen bygger på den arkitektur som beskrivs i artikeln [arkitektur referens: enkel enterprise-integration](/azure/architecture/reference-architectures/enterprise-integration/simple-enterprise-integration). Den arkitekturen [rekommendationer](/azure/architecture/reference-architectures/enterprise-integration/simple-enterprise-integration#recommendations) gäller även här, men kortfattat, utelämnar den här artikeln rekommendationerna från den [rekommendationer](#recommendations) avsnittet. Den här arkitekturen för enterprise-integration innehåller följande komponenter:
 
 - **Resursgrupp**: A [resursgrupp](../azure-resource-manager/resource-group-overview.md) är en logisk behållare för Azure-resurser.
 
@@ -143,4 +143,4 @@ Event Grid-tjänsten skyddar händelseleverans via en kod för verifiering. Veri
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Lär dig mer om [enkel enterprise-integration](logic-apps-architectures-simple-enterprise-integration.md)
+* Lär dig mer om [enkel enterprise-integration](/azure/architecture/reference-architectures/enterprise-integration/simple-enterprise-integration)

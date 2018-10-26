@@ -9,16 +9,16 @@ ms.author: gwallace
 ms.date: 10/17/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 2b1a6e2921fdaf9ede1184cfc02c3f61f63c60ac
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
+ms.openlocfilehash: 85ff0013b469c006d1922c3994ec58a0595d1dd2
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49393772"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50091993"
 ---
 # <a name="runbook-execution-in-azure-automation"></a>Runbook-körning i Azure Automation
 
-När du startar en runbook i Azure Automation skapas ett jobb. Ett jobb är en enskild körningsinstans av en runbook. En Azure Automation arbetare är tilldelad att köra varje jobb. Medan arbetare som delas av många Azure-konton, är jobb från olika Automation-konton isolerade från varandra. Du har inte styra vilken Worker behandlar begäran för jobbet. En enda runbook kan ha många jobb som körs på en gång. Körningsmiljö för jobb från samma Automation-konto får återanvändas. När du visar en lista med runbooks i Azure-portalen visar status för alla jobb som har startats för varje runbook. Du kan visa listan över jobb för varje runbook du spårar statusen för var och en. En beskrivning av olika jobbstatusar [Jobbstatusar](#job-statuses).
+När du startar en runbook i Azure Automation skapas ett jobb. Ett jobb är en enskild körningsinstans av en runbook. En Azure Automation arbetare är tilldelad att köra varje jobb. Medan arbetare som delas av många Azure-konton, är jobb från olika Automation-konton isolerade från varandra. Du har inte styra vilken Worker behandlar begäran för jobbet. En enda runbook kan ha många jobb som körs på en gång. Körningsmiljö för jobb från samma Automation-konto får återanvändas. När du visar en lista med runbooks i Azure-portalen visar status för alla jobb som har startats för varje runbook. Du kan visa listan över jobb för varje runbook du spårar statusen för var och en. Jobbloggar lagras i högst 30 dagar. En beskrivning av olika jobbstatusar [Jobbstatusar](#job-statuses).
 
 [!INCLUDE [GDPR-related guidance](../../includes/gdpr-dsr-and-stp-note.md)]
 

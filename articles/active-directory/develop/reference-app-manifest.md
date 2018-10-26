@@ -13,20 +13,34 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/24/2018
+ms.date: 10/24/2018
 ms.author: celested
 ms.custom: aaddev
 ms.reviewer: sureshja
-ms.openlocfilehash: bc7999d56da8398b4f54b0144a595ee7c2e2ea35
-ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
+ms.openlocfilehash: 372bff911c0925e05297872da66279e727149010
+ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49115118"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50086785"
 ---
 # <a name="azure-active-directory-app-manifest"></a>Azure Active Directory-appmanifestet
 
-Appar som integreras med Azure Active Directory (AD Azure) måste registreras med en Azure AD-klient. Du kan konfigurera appen i den [Azure-portalen](https://portal.azure.com) genom att välja **appregistreringar** under **Azure Active Directory**, välja den app du vill konfigurera, och sedan att välja **Manifest**.
+Application manifest innehåller en definition av alla attribut för ett programobjekt i Microsoft identity-plattformen. Det fungerar också som en mekanism för att uppdatera programobjektet. Mer information om programentiteten och dess schema finns i [dokumentationen om Graph API-programentiteten](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#application-entity).
+
+Du kan konfigurera attribut för en app via Azure portal eller via programmering med hjälp av Microsoft Graph. Det finns dock vissa scenarier där du behöver redigera appmanifestet om du vill konfigurera en app-attributet. Några vanliga scenarier:
+
+* Om du har registrerat appen som Azure AD flera innehavare och personliga Microsoft-konton kan du inte ändra stöds Microsoft-konton i Användargränssnittet. Du måste i stället använda redigeringsprogrammet för applikationsmanifestet för att ändra kontotyp som stöds.
+* Om du behöver definiera behörigheter och roller som har stöd för din app måste du ändra programmanifestet.
+
+## <a name="configure-the-app-manifest"></a>Konfigurera appmanifestet
+
+Konfigurera applikationsmanifestet:
+
+1. Logga in på [Azure-portalen](https://portal.azure.com).
+1. Välj den **Azure Active Directory** tjänsten och välj sedan **appregistreringar** eller **appregistreringar (förhandsversion)**.
+1. Välj den app som du vill konfigurera.
+1. Från appens **översikt** väljer den **Manifest** avsnittet. En webbaserad redigeringsprogrammet för applikationsmanifestet öppnas så att du kan redigera manifestet i portalen. Du kan också markera **hämta** att redigera manifestet lokalt och sedan använda **överför** för att återställa den till ditt program.
 
 ## <a name="manifest-reference"></a>Manifest-referens
 
@@ -63,7 +77,7 @@ Appar som integreras med Azure Active Directory (AD Azure) måste registreras me
 | `requiredResourceAccess` | Typ av matris | Med dynamisk medgivande `requiredResourceAccess` Driver administratörsupplevelsen medgivande och godkännande användarupplevelsen för användare som använder statiska medgivande. Detta dock inte driva medgivande användarupplevelsen för vanliga fall.<br>`resourceAppId` är den unika identifieraren för den resurs som appen kräver åtkomst till. Det här värdet ska vara lika med appId deklarerats i målappen för resursen.<br>`resourceAccess` är en matris som innehåller behörighetsomfattningar för OAuth2.0 och roller som appen kräver för den angivna resursen. Innehåller den `id` och `type` värdena för de angivna resurserna. | <code>[<br>&nbsp;&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;"resourceAppId":"00000002-0000-0000-c000-000000000000",<br>&nbsp;&nbsp;&nbsp;&nbsp;"resourceAccess":[<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"id":"311a71cc-e848-46a1-bdf8-97ff7156d8e6",<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"type":"Scope"<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>&nbsp;&nbsp;&nbsp;&nbsp;]<br>&nbsp;&nbsp;}<br>] </code> |
 | `samlMetadataUrl` | sträng | URL till SAML-metadata för appen. | `https://MyRegisteredAppSAMLMetadata` |
 | `signInUrl` | sträng | Anger Webbadressen till appens startsida. | `https://MyRegisteredApp` |
-| `signInAudience` | sträng | Anger vilka microsoft-konton stöds för det aktuella programmet. Värden som stöds är:<ul><li>**AzureADMyOrg** -användare med ett Microsoft arbets- eller skolkonto i min organisation är Azure AD-klient (d.v.s. enskild klient)</li><li>**AzureADMultipleOrgs** -användare med ett Microsoft arbets- eller skolkonto i alla organisationer Azure AD-klient (t.ex. flera innehavare)</li> <li>**AzureADandPersonalMicrosoftAccount** -användare med ett personligt microsoftkonto eller ett arbets- eller skolkonto konto i alla organisationer Azure AD-klient</li></ul> | `AzureADandPersonalMicrosoftAccount` |
+| `signInAudience` | sträng | Anger vilka Microsoft-konton stöds för det aktuella programmet. Värden som stöds är:<ul><li>**AzureADMyOrg** -användare med ett Microsoft arbets- eller skolkonto i min organisation är Azure AD-klient (d.v.s. enskild klient)</li><li>**AzureADMultipleOrgs** -användare med ett Microsoft arbets- eller skolkonto i alla organisationer Azure AD-klient (t.ex. flera innehavare)</li> <li>**AzureADandPersonalMicrosoftAccount** -användare med ett personligt microsoftkonto eller ett arbets- eller skolkonto konto i alla organisationer Azure AD-klient</li></ul> | `AzureADandPersonalMicrosoftAccount` |
 | `tags` | Strängmatris | Anpassade strängar som kan användas för att kategorisera och identifiera programmet. | <code>[<br>&nbsp;&nbsp;"ProductionApp"<br>]</code> |
 
 ## <a name="next-steps"></a>Nästa steg

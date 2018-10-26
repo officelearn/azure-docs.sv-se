@@ -8,34 +8,34 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 10/6/2018
 ms.author: victorh
-ms.openlocfilehash: 7b2a550c902e85caf02f05fcbbe5dd7b02acd0cc
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.openlocfilehash: 8c2856f41b4623519c7bcdd97b5018129f1f23cf
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48868861"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50092601"
 ---
 # <a name="frequently-asked-questions-for-application-gateway"></a>Vanliga frågor om Application Gateway
 
 ## <a name="general"></a>Allmänt
 
-**FRÅGOR OCH. Vad är Application Gateway?**
+### <a name="what-is-application-gateway"></a>Vad är Application Gateway?
 
 Azure Application Gateway är en Application Delivery Controller (ADC) som en tjänst erbjuder olika layer 7-belastningsutjämning funktioner för dina program. Den erbjuder hög tillgänglighet och skalbar-tjänsten, som är fullständigt hanterad av Azure.
 
-**FRÅGOR OCH. Vilka funktioner stöder Application Gateway?**
+### <a name="what-features-does-application-gateway-support"></a>Vilka funktioner stöder Application Gateway?
 
 Application Gateway stöder automatisk skalning, SSL-avlastning och slutpunkt till slutpunkt SSL, Brandvägg för webbaserade program, cookie-baserad sessionstillhörighet, url-sökvägsbaserad routning, flera webbplatser och andra. En fullständig lista över funktioner som stöds finns i [introduktion till Application Gateway](application-gateway-introduction.md).
 
-**FRÅGOR OCH. Vad är skillnaden mellan Application Gateway och Azure Load Balancer?**
+### <a name="what-is-the-difference-between-application-gateway-and-azure-load-balancer"></a>Vad är skillnaden mellan Application Gateway och Azure Load Balancer?
 
 Application Gateway är en layer 7 belastningsutjämnare, vilket innebär att den fungerar med Internet-trafik endast (WebSocket-HTTP/HTTPS). Det stöder funktioner som SSL-avslutning, cookie-baserad sessionstillhörighet och resursallokering för belastningsutjämning trafik. Läsa in belastningsutjämnare belastningen utjämnar trafiken på nivå 4 (TCP/UDP).
 
-**FRÅGOR OCH. Vilka protokoll stöder Application Gateway?**
+### <a name="what-protocols-does-application-gateway-support"></a>Vilka protokoll stöder Application Gateway?
 
 Application Gateway stöder HTTP, HTTPS, HTTP/2 och WebSocket.
 
-**FRÅGOR OCH. Hur stöder HTTP/2 i Application Gateway?**
+### <a name="how-does-application-gateway-support-http2"></a>Hur stöder HTTP/2 i Application Gateway?
 
 Stöd för HTTP/2-protokollet är tillgängligt för klienter som ansluter till application gateway lyssnare. Kommunikation till serverdels-serverpooler är över HTTP/1.1. 
 
@@ -47,122 +47,126 @@ $gw.EnableHttp2 = $true
 Set-AzureRmApplicationGateway -ApplicationGateway $gw
 ```
 
-**FRÅGOR OCH. Vilka resurser som stöds i dag som en del av backend-pool?**
+### <a name="what-resources-are-supported-today-as-part-of-backend-pool"></a>Vilka resurser som stöds i dag som en del av backend-pool?
 
 Serverdelspooler kan bestå av nätverkskort, VM-skalningsuppsättningar, offentliga IP-adresser, interna IP-adresser, fullständigt kvalificerade namn (FQDN) och flera innehavare serverprogram som Azure Web Apps. Medlemmar i Application Gateway serverdelspoolen är inte kopplade till en tillgänglighetsuppsättning. Medlemmar i serverdelspooler kan vara över kluster, Datacenter, eller utanför Azure så länge som de har IP-anslutning.
 
-**FRÅGOR OCH. Vilka regioner är tillgängliga i tjänsten?**
+### <a name="what-regions-is-the-service-available-in"></a>Vilka regioner är tillgängliga i tjänsten?
 
 Application Gateway är tillgängliga i alla globala Azure-regioner. Det är också tillgängliga i [Azure Kina](https://www.azure.cn/) och [Azure Government](https://azure.microsoft.com/overview/clouds/government/)
 
-**FRÅGOR OCH. Är detta en dedikerad distribution för min prenumeration eller delas mellan kunder?**
+### <a name="is-this-a-dedicated-deployment-for-my-subscription-or-is-it-shared-across-customers"></a>Är detta en dedikerad distribution för min prenumeration eller delas mellan kunder?
 
 Application Gateway är en särskild distribution i det virtuella nätverket.
 
-**FRÅGOR OCH. Är HTTP -> HTTPS-omdirigering stöds?**
+### <a name="is-http-https-redirection-supported"></a>Är HTTP -> HTTPS-omdirigering stöds?
 
 Omdirigering av stöds. Se [översikt för omdirigering i Application Gateway](application-gateway-redirect-overview.md) vill veta mer.
 
-**FRÅGOR OCH. I vilken ordning bearbetas lyssnare?**
+### <a name="in-what-order-are-listeners-processed"></a>I vilken ordning bearbetas lyssnare?
 
 Lyssnare bearbetas i den ordning som de visas. Därför om en grundläggande lyssnare matchar en inkommande begäran bearbetas först.  Lyssnare för flera platser bör konfigureras innan en grundläggande lyssnare så att trafik dirigeras till rätt serverdel.
 
-**FRÅGOR OCH. Var hittar jag Application Gateway IP och DNS?**
+### <a name="where-do-i-find-application-gateways-ip-and-dns"></a>Var hittar jag Application Gateway IP och DNS?
 
 När du använder en offentlig IP-adress som en slutpunkt kan kan den här informationen hittas på den offentliga IP-adressresursen eller på översiktssidan för application gateway i portalen. För interna IP-adresser finns det på sidan Översikt.
 
-**FRÅGOR OCH. Ändras IP-Adressen eller DNS-namnet över livslängden för Application Gateway?**
+### <a name="does-the-ip-or-dns-name-change-over-the-lifetime-of-the-application-gateway"></a>Ändras IP-Adressen eller DNS-namnet över livslängden för Application Gateway?
 
 VIP-Adressen kan ändras om application gateway stoppas och startas. DNS-namnet som associeras med application gateway ändras inte under hela livscykeln för gatewayen. Därför rekommenderar vi att du använder en CNAME-alias och gå till DNS-adressen för application gateway.
 
-**FRÅGOR OCH. Application Gateway har stöd för statisk IP-adress?**
+### <a name="does-application-gateway-support-static-ip"></a>Application Gateway har stöd för statisk IP-adress?
 
-Ja, stöder Application Gateway V2-SKU statiska offentliga IP-adresser. V1-SKU: N stöder statiska interna IP-adresser.
+Ja, v2-SKU: N för Application Gateway stöder statiska offentliga IP-adresser. V1-SKU: N stöder statiska interna IP-adresser.
 
-**FRÅGOR OCH. Stöder Application Gateway flera offentliga IP-adresser på gatewayen?**
+### <a name="does-application-gateway-support-multiple-public-ips-on-the-gateway"></a>Stöder Application Gateway flera offentliga IP-adresser på gatewayen?
 
 Endast en offentlig IP-adress har stöd för en Programgateway.
 
-**FRÅGOR OCH. Hur stor ska jag göra mitt undernät för Application Gateway?**
+### <a name="how-large-should-i-make-my-subnet-for-application-gateway"></a>Hur stor ska jag göra mitt undernät för Application Gateway?
 
 Application Gateway förbrukar en privat IP-adress per instans, plus en annan privat IP-adress om en privat klientdels-IP-konfiguration har konfigurerats. Dessutom Azure reserverar fyra första och sista IP-adress i varje undernät för intern användning.
 Exempel: om en application gateway är inställd på tre instanser och ingen privat klientdels-IP, sedan ett/29 undernät storlek eller högre krävs. I det här fallet använder application gateway tre IP-adresser. Om du har tre instanser och en IP-adress för privata klientdelens IP-konfiguration, sedan en/28 undernät storlek eller högre krävs eftersom det krävs fyra IP-adresser.
 
-**FRÅGOR OCH. Application Gateway har stöd för x-vidarebefordrade-för-huvuden?**
+### <a name="q-can-i-deploy-more-than-one-application-gateway-resource-to-a-single-subnet"></a>F. Kan jag distribuera fler än en Application Gateway-resurs till ett enda undernät? **
+
+Ja, förutom att ha flera instanser av en viss Application Gateway-distribution, kan du etablera en annan unik Application Gateway-resurs i ett befintligt undernät som innehåller en annan resurs i Application Gateway.
+
+### <a name="does-application-gateway-support-x-forwarded-for-headers"></a>Application Gateway har stöd för x-vidarebefordrade-för-huvuden?
 
 Ja, infogar Application Gateway x vidarebefordras för x-vidarebefordrade-protokoll och x-vidarebefordrade-port rubriker i begäran vidarebefordras till serverdelen. Formatet för x-vidarebefordrade-för-huvudet är en kommaavgränsad lista över IP:Port. Giltiga värden för x-vidarebefordrade-protokoll är http eller https. X-vidarebefordrade-port Anger den port som nått begäran vid application gateway.
 
 Application Gateway infogar också X-Original-värd-huvud som innehåller den ursprungliga värdhuvud som begäran kom. Den här rubriken är användbart i scenarier som Azure-webbplats integration, där inkommande värdhuvudet ändras innan trafiken dirigeras till serverdelen.
 
-**FRÅGOR OCH. Hur lång tid tar det för att distribuera en Programgateway? Min Application-Gateway fortfarande fungerar när uppdateras?**
+### <a name="how-long-does-it-take-to-deploy-an-application-gateway-does-my-application-gateway-still-work-when-being-updated"></a>Hur lång tid tar det för att distribuera en Programgateway? Min Application-Gateway fortfarande fungerar när uppdateras?
 
-Nya SKU: N för Application Gateway-V1-distributioner kan ta upp till 20 minuter att etablera. Ändringar i storlek/instansantal är inte störande och gatewayen förblir aktiv under den här tiden.
+Ny Programgateway v1 SKU-distributioner kan ta upp till 20 minuter att etablera. Ändringar i storlek/instansantal är inte störande och gatewayen förblir aktiv under den här tiden.
 
 V2-SKU-distributioner kan ta ungefär fem till sex minuter att etablera.
 
 ## <a name="configuration"></a>Konfiguration
 
-**FRÅGOR OCH. Application Gateway alltid distribueras i ett virtuellt nätverk?**
+### <a name="is-application-gateway-always-deployed-in-a-virtual-network"></a>Application Gateway alltid distribueras i ett virtuellt nätverk?
 
 Ja, distribueras alltid Application Gateway i ett virtuellt nätverksundernät. Det här undernätet får bara innehålla Application Gateways.
 
-**FRÅGOR OCH. Application Gateway kan kommunicera med instanser utanför dess virtuella nätverk?**
+### <a name="can-application-gateway-communicate-with-instances-outside-its-virtual-network"></a>Application Gateway kan kommunicera med instanser utanför dess virtuella nätverk?
 
 Application Gateway kan kommunicera med instanser utanför det virtuella nätverket som den tillhör, så länge det finns en IP-anslutning. Om du planerar att använda interna IP-adresser som medlemmar i serverdelspool så det krävs [VNET-Peering](../virtual-network/virtual-network-peering-overview.md) eller [VPN-Gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md).
 
-**FRÅGOR OCH. Kan jag distribuera allt annat i application gateway-undernätet?**
+### <a name="can-i-deploy-anything-else-in-the-application-gateway-subnet"></a>Kan jag distribuera allt annat i application gateway-undernätet?
 
 Nej, men du kan distribuera andra application gatewayer i undernätet.
 
-**FRÅGOR OCH. Stöds Nätverkssäkerhetsgrupper på application gateway-undernät?**
+### <a name="are-network-security-groups-supported-on-the-application-gateway-subnet"></a>Stöds Nätverkssäkerhetsgrupper på application gateway-undernät?
 
-Nätverkssäkerhetsgrupper kan användas i application gateway-undernätet med följande begränsningar:
+Nätverkssäkerhetsgrupper (NSG) stöds i application gateway-undernätet med följande begränsningar:
 
-* Undantag måste placeras i inkommande trafik på portar 65503 65534 för 65200 – 65535 Application Gateway V1-SKU och portar för V2-SKU. Den här portintervall krävs för Azures infrastrukturkommunikation. De är skyddade (låsta) med Azure-certifikat. Utan rätt certifikat kommer externa entiteter, inklusive kunderna till dessa gateways, inte initiera alla ändringar på dessa slutpunkter.
+* Undantag måste placeras i inkommande trafik på portarna 65503 65534 för Application Gateway v1-SKU och portar 65200 – 65535 för v2-SKU. Den här portintervall krävs för Azures infrastrukturkommunikation. De är skyddade (låsta) med Azure-certifikat. Utan rätt certifikat kommer externa entiteter, inklusive kunderna till dessa gateways, inte initiera alla ändringar på dessa slutpunkter.
 
 * Det går inte att blockera utgående internet-anslutning.
 
 * Trafik från taggen AzureLoadBalancer måste tillåtas.
 
-**FRÅGOR OCH. Användardefinierade vägar stöds på application gateway-undernät?**
+### <a name="are-user-defined-routes-supported-on-the-application-gateway-subnet"></a>Användardefinierade vägar stöds på application gateway-undernät?
 
 Användardefinierade vägar (Udr) stöds i application gateway-undernätet, så länge de inte ändrar slutpunkt till slutpunkt begäran/svar-kommunikation.
 
 Exempel: du kan ställa in en UDR i application gateway-undernätet så att den pekar till en brandväggsinstallation för paketinspektion, men måste du kontrollera att paketet kan nå den avsedda mål post granskar. I annat fall kan leda till felaktig hälsotillstånd avsökning eller SNMP-trafiken routning beteende. Detta inkluderar inlärda eller 0.0.0.0/0 standardvägar sprids av ExpressRoute eller VPN-gatewayer i det virtuella nätverket.
 
-**FRÅGOR OCH. Vilka är gränserna på Application Gateway? Kan jag öka gränserna?**
+### <a name="what-are-the-limits-on-application-gateway-can-i-increase-these-limits"></a>Vilka är gränserna på Application Gateway? Kan jag öka gränserna?
 
 Se [gränserna för Programgateways](../azure-subscription-service-limits.md#application-gateway-limits) att visa gränserna.
 
-**FRÅGOR OCH. Kan jag använda Application Gateway för både externa och interna trafik samtidigt?**
+### <a name="can-i-use-application-gateway-for-both-external-and-internal-traffic-simultaneously"></a>Kan jag använda Application Gateway för både externa och interna trafik samtidigt?
 
 Ja, stöder Application Gateway har en intern IP-adress och en extern IP-adress per Programgateway.
 
-**FRÅGOR OCH. VNet-peering stöds?**
+### <a name="is-vnet-peering-supported"></a>VNet-peering stöds?
 
 Ja, VNet-peering stöds och är bra för belastningsutjämning trafik i andra virtuella nätverk.
 
-**FRÅGOR OCH. Kan jag kontakta lokala servrar när de är anslutna via ExpressRoute eller VPN-tunnlar?**
+### <a name="can-i-talk-to-on-premises-servers-when-they-are-connected-by-expressroute-or-vpn-tunnels"></a>Kan jag kontakta lokala servrar när de är anslutna via ExpressRoute eller VPN-tunnlar?
 
 Ja, förutsatt att trafik tillåts.
 
-**FRÅGOR OCH. Kan jag ha en serverdelspool som betjänar många program på olika portar?**
+### <a name="can-i-have-one-backend-pool-serving-many-applications-on-different-ports"></a>Kan jag ha en serverdelspool som betjänar många program på olika portar?
 
 Micro tjänstarkitektur stöds. Du behöver flera http-inställningar som konfigurerats för att avsöka på olika portar.
 
-**FRÅGOR OCH. Stöder anpassade avsökningar jokertecken/regex på svarsdata?**
+### <a name="do-custom-probes-support-wildcardsregex-on-response-data"></a>Stöder anpassade avsökningar jokertecken/regex på svarsdata?
 
-Anpassade avsökningar stöder inte jokertecken eller regex på svarsdata. 
+Anpassade avsökningar stöder inte jokertecken eller regex på svarsdata.
 
-**FRÅGOR OCH. Hur bearbetas regler?**
+### <a name="how-are-rules-processed"></a>Hur bearbetas regler?
 
 Regler bearbetas i den ordning som de är konfigurerade. Du rekommenderas att multisite regler konfigureras innan grundläggande regler för att minska risken att trafik dirigeras till olämplig serverdelen som grundläggande regel matchar trafik baserat på port innan multisite-regeln som utvärderas.
 
-**FRÅGOR OCH. Vad fältet värden för anpassade avsökningar en obestämd?**
+### <a name="what-does-the-host-field-for-custom-probes-signify"></a>Vad fältet värden för anpassade avsökningar en obestämd?
 
 Värdfältet namnet att skicka om avsökningen för att. Gäller endast när flera platser har konfigurerats på Application Gateway, annars använda ”127.0.0.1”. Det här värdet skiljer sig från den virtuella datorns värdnamn och är i formatet \<protokollet\>://\<värden\>:\<port\>\<sökvägen\>.
 
-**FRÅGOR OCH. Kan jag listan över godkända Application Gateway-åtkomst till några käll-IP-adresser?**
+### <a name="can-i-whitelist-application-gateway-access-to-a-few-source-ips"></a>Kan jag listan över godkända Application Gateway-åtkomst till några käll-IP-adresser?
 
 Det här scenariot kan göras med NSG: er på application gateway-undernätet. Följande begränsningar försätts i undernät i listan prioritetsordning:
 
@@ -176,35 +180,35 @@ Det här scenariot kan göras med NSG: er på application gateway-undernätet. F
 
 * Tillåt utgående trafik till internet för alla mål.
 
-**FRÅGOR OCH. Kan användas på samma port för både offentliga och privata riktade lyssnare?**
+### <a name="can-the-same-port-be-used-for-both-public-and-private-facing-listeners"></a>Kan användas på samma port för både offentliga och privata riktade lyssnare?
 
 Nej, det stöds inte.
 
 ## <a name="performance"></a>Prestanda
 
-**FRÅGOR OCH. Hur stöder hög tillgänglighet och skalbarhet av Application Gateway?**
+### <a name="how-does-application-gateway-support-high-availability-and-scalability"></a>Hur stöder hög tillgänglighet och skalbarhet av Application Gateway?
 
-Application Gateway V1-SKU har stöd för scenarier med hög tillgänglighet när du har två eller fler distribuerade instanser. Azure distribuerar dessa instanser mellan uppdaterings- och feldomäner domäner så att alla instanser inte misslyckas på samma gång. V1-SKU: N stöder skalbarhet genom att lägga till flera instanser av samma gateway att dela belastningen.
+V1-SKU: N för Application Gateway har stöd för scenarier med hög tillgänglighet när du har två eller fler distribuerade instanser. Azure distribuerar dessa instanser mellan uppdaterings- och feldomäner domäner så att alla instanser inte misslyckas på samma gång. V1-SKU: N stöder skalbarhet genom att lägga till flera instanser av samma gateway att dela belastningen.
 
 V2-SKU säkerställer automatiskt att nya instanser är fördelade över feldomäner och uppdateringsdomäner. Om du väljer zonredundans sprids också senaste instanser i olika tillgänglighetszoner och erbjuder zonindelad fel återhämtning.
 
-**FRÅGOR OCH. Hur jag för att uppnå katastrofåterställning i datacenter med Application Gateway?**
+### <a name="how-do-i-achieve-dr-scenario-across-data-centers-with-application-gateway"></a>Hur jag för att uppnå katastrofåterställning i datacenter med Application Gateway?
 
 Kunder kan använda Traffic Manager för att distribuera trafik över flera Programgatewayer i olika datacenter.
 
-**FRÅGOR OCH. Det finns stöd för automatisk skalning**
+### <a name="is-autoscaling-supported"></a>Det finns stöd för automatisk skalning
 
-Ja, stöder Application Gateway V2-SKU automatisk skalning. Mer information finns i [automatisk skalning och zonredundant Application Gateway (offentlig förhandsversion)](application-gateway-autoscaling-zone-redundant.md).
+Ja, v2-SKU: N för Application Gateway stöder automatisk skalning. Mer information finns i [automatisk skalning och zonredundant Application Gateway (offentlig förhandsversion)](application-gateway-autoscaling-zone-redundant.md).
 
-**FRÅGOR OCH. Stöder manuell skala upp/ned orsak driftavbrott?**
+### <a name="does-manual-scale-updown-cause-downtime"></a>Stöder manuell skala upp/ned orsak driftavbrott?
 
 Stilleståndstid ingen, instanser är fördelade på uppgraderingsdomäner och feldomäner.
 
-**FRÅGOR OCH. Stöder Application Gateway Anslutningstömning?**
+### <a name="does-application-gateway-support-connection-draining"></a>Stöder Application Gateway Anslutningstömning?
 
 Ja. Du kan konfigurera Anslutningstömning om du vill ändra medlemmar i en backend-pool utan avbrott. Detta gör att befintliga anslutningar fortsätter som ska skickas till sina tidigare målvolymen tills anslutningen är stängd eller en konfigurerbar tidsgränsen har nåtts. Anslutningstömning endast väntar aktuella pågående anslutningar att slutföra. Application Gateway är inte medveten om sessionstillstånd för programmet.
 
-**FRÅGOR OCH. Vad är application gateway-storlekar?**
+### <a name="what-are-application-gateway-sizes"></a>Vad är application gateway-storlekar?
 
 Application Gateway finns för närvarande i tre storlekar: **liten**, **medel** och **stor**. Smål instansstorlekar är avsedda för utvecklings- och testningsscenarier.
 
@@ -220,17 +224,17 @@ Följande tabell visar ett genomsnittligt prestanda-dataflöde för varje Applic
 > [!NOTE]
 > De här värdena är genomsnittliga värden för ett Application Gateway-dataflöde. Det faktiska dataflödet beror på olika miljöfaktorer som genomsnittlig sidstorlek, plats för serverdelsinstanserna och bearbetningstid för att serva en sida. Du bör köra egna test för exakta prestandavärden. Dessa värden är bara för vägledning vid kapacitetsplanering.
 
-**FRÅGOR OCH. Kan jag ändra instansstorleken från medel till stora utan avbrott?**
+### <a name="can-i-change-instance-size-from-medium-to-large-without-disruption"></a>Kan jag ändra instansstorleken från medel till stora utan avbrott?
 
 Ja, distribuerar Azure instanser över uppdaterings- och feldomäner domäner så att alla instanser inte misslyckas på samma gång. Application Gateway stöder skalning genom att lägga till flera instanser av samma gateway att dela belastningen.
 
 ## <a name="ssl-configuration"></a>SSL-konfiguration
 
-**FRÅGOR OCH. Vilka certifikat stöds på Application Gateway?**
+### <a name="what-certificates-are-supported-on-application-gateway"></a>Vilka certifikat stöds på Application Gateway?
 
 Självsignerade certifikat, CA-certifikat och jokertecken certifikat stöds. EV certifikat stöds inte.
 
-**FRÅGOR OCH. Vilka är de aktuella krypteringssviter som stöds av Application Gateway?**
+### <a name="what-are-the-current-cipher-suites-supported-by-application-gateway"></a>Vilka är de aktuella krypteringssviter som stöds av Application Gateway?
 
 Följande är de aktuella krypteringssviter som stöds av Application Gateway. Se [Konfigurera SSL-princip versioner och krypteringssviter på Application Gateway](application-gateway-configure-ssl-policy-powershell.md) att lära dig hur du anpassar SSL-alternativ.
 
@@ -263,15 +267,15 @@ Följande är de aktuella krypteringssviter som stöds av Application Gateway. S
 - TLS_RSA_WITH_3DES_EDE_CBC_SHA
 - TLS_DHE_DSS_WITH_3DES_EDE_CBC_SHA
 
-**FRÅGOR OCH. Stöder Application Gateway också omkryptering av trafik till serverdelen?**
+### <a name="does-application-gateway-also-support-re-encryption-of-traffic-to-the-backend"></a>Stöder Application Gateway också omkryptering av trafik till serverdelen?
 
 Ja, Application Gateway stöder SSL-avlastning och slutpunkt till slutpunkt SSL, som krypterar trafiken till serverdelen.
 
-**FRÅGOR OCH. Kan jag konfigurera SSL-princip för att styra SSL-protokoll version?**
+### <a name="can-i-configure-ssl-policy-to-control-ssl-protocol-versions"></a>Kan jag konfigurera SSL-princip för att styra SSL-protokoll version?
 
 Ja, du kan konfigurera Programgatewayen för att neka TLS 1.0 och TLS1.1 TLS1.2. SSL 2.0 och 3.0 är redan inaktiverad som standard och kan inte konfigureras.
 
-**FRÅGOR OCH. Kan jag konfigurera chiffersviter och principordning?**
+### <a name="can-i-configure-cipher-suites-and-policy-order"></a>Kan jag konfigurera chiffersviter och principordning?
 
 Ja, [konfigurationen av krypteringssviter](application-gateway-ssl-policy-overview.md) stöds. När du definierar en anpassad princip måste måste minst en av de följande krypteringssviter som aktiveras. Application gateway använder SHA256 till för hantering av serverdelen.
 
@@ -282,41 +286,41 @@ Ja, [konfigurationen av krypteringssviter](application-gateway-ssl-policy-overvi
 * TLS_RSA_WITH_AES_256_CBC_SHA256
 * TLS_RSA_WITH_AES_128_CBC_SHA256
 
-**FRÅGOR OCH. Hur många SSL-certifikat stöds?**
+### <a name="how-many-ssl-certificates-are-supported"></a>Hur många SSL-certifikat stöds?
 
 Upp till 20 SSL stöds-certifikat.
 
-**FRÅGOR OCH. Hur många autentiseringscertifikat för serverdelen omkryptering stöds?**
+### <a name="how-many-authentication-certificates-for-backend-re-encryption-are-supported"></a>Hur många autentiseringscertifikat för serverdelen omkryptering stöds?
 
 Upp till 10 autentisering stöds certifikat med standardvärdet 5.
 
-**FRÅGOR OCH. Application Gateway integrera med Azure Key Vault internt?**
+### <a name="does-application-gateway-integrate-with-azure-key-vault-natively"></a>Application Gateway integrera med Azure Key Vault internt?
 
 Nej, det inte är integrerat med Azure Key Vault.
 
 ## <a name="web-application-firewall-waf-configuration"></a>Konfiguration av webbprogram Firewall (WAF)
 
-**FRÅGOR OCH. Erbjuder WAF SKU alla funktioner som är tillgängliga med Standard-SKU?**
+### <a name="does-the-waf-sku-offer-all-the-features-available-with-the-standard-sku"></a>Erbjuder WAF SKU alla funktioner som är tillgängliga med Standard-SKU?
 
 Ja, WAF stöder alla funktioner i Standard-SKU.
 
-**FRÅGOR OCH. Vad är versionen som CRS Application Gateway stöder?**
+### <a name="what-is-the-crs-version-application-gateway-supports"></a>Vad är versionen som CRS Application Gateway stöder?
 
 Application Gateway stöder CRS [2.2.9](application-gateway-crs-rulegroups-rules.md#owasp229) och CRS [3.0](application-gateway-crs-rulegroups-rules.md#owasp30).
 
-**FRÅGOR OCH. Hur övervakar jag WAF?**
+### <a name="how-do-i-monitor-waf"></a>Hur övervakar jag WAF?
 
 WAF övervakas via Diagnostisk loggning, mer information om Diagnostisk loggning kan hittas på [diagnostik loggning och mått för Application Gateway](application-gateway-diagnostics.md)
 
-**FRÅGOR OCH. Blockerar trafik i identifieringsläge?**
+### <a name="does-detection-mode-block-traffic"></a>Blockerar trafik i identifieringsläge?
 
 Identifieringsläge loggar Nej, endast trafik, vilket utlöste en WAF-regel.
 
-**FRÅGOR OCH. Hur jag för att anpassa WAF-regler?**
+### <a name="how-do-i-customize-waf-rules"></a>Hur jag för att anpassa WAF-regler?
 
 Ja, WAF-regler är anpassningsbara för mer information om hur du anpassar den se [anpassa WAF-regelgrupper och -regler](application-gateway-customize-waf-rules-portal.md)
 
-**FRÅGOR OCH. Vilka regler är för närvarande tillgängliga?**
+### <a name="what-rules-are-currently-available"></a>Vilka regler som är tillgängliga
 
 WAF stöder för närvarande CRS [2.2.9](application-gateway-crs-rulegroups-rules.md#owasp229) och [3.0](application-gateway-crs-rulegroups-rules.md#owasp30), som ger grundläggande säkerhet mot de flesta av de översta 10 sårbarheter som identifieras av OWASP Open Web Application Security Project () finns här [ OWASP topp 10 sårbarheter](https://www.owasp.org/index.php/Top10#OWASP_Top_10_for_2013)
 
@@ -332,45 +336,45 @@ WAF stöder för närvarande CRS [2.2.9](application-gateway-crs-rulegroups-rule
 
 * Skydd mot robotar, crawlers och skannrar
 
- * Identifiering av vanliga felkonfigureringar för programmet (det vill säga Apache, IIS osv.)
+* Identifiering av vanliga felkonfigureringar för programmet (det vill säga Apache, IIS osv.)
 
-**FRÅGOR OCH. Stöder WAF också DDoS-skydd?**
+### <a name="does-waf-also-support-ddos-prevention"></a>Stöder WAF också DDoS-skydd?
 
 Ja. Du kan aktivera DDos-skydd på det virtuella nätverket där application gateway distribueras. Detta säkerställer att application gateway VIP också skyddas med hjälp av Azure DDos Protection-tjänsten.
 
 ## <a name="diagnostics-and-logging"></a>Diagnostik- och loggning
 
-**FRÅGOR OCH. Vilka typer av loggar är tillgängliga med Application Gateway?**
+### <a name="what-types-of-logs-are-available-with-application-gateway"></a>Vilka typer av loggar är tillgängliga med Application Gateway?
 
 Det finns tre loggar som är tillgängliga för Application Gateway. Mer information om dessa loggar och andra diagnostiska funktioner finns i [serverdelens hälsotillstånd, diagnostikloggar och mått för Application Gateway](application-gateway-diagnostics.md).
 
-- **ApplicationGatewayAccessLog** -åtkomst-loggen innehåller varje begäran som skickas till application gateway-klientdel. Innehåller information som anroparens IP-adress, Webbadress som efterfrågas, svarsfördröjning, returkod, byte in och ut. Åtkomstlogg samlas in var 300 sekund. Den här loggfilen innehåller en post per instans av en Programgateway.
-- **ApplicationGatewayPerformanceLog** -prestandaloggen samlar in prestandainformation regelbundet per instans inklusive totala antalet begäranden som hanteras, genomflöde i byte, totalt antal begäranden hanteras, antalet misslyckade förfrågningar, felfria och defekta backend-server instansantal.
-- **ApplicationGatewayFirewallLog** -brandväggsloggen innehåller begäranden som loggas via identifiering eller förhindra läget för en Programgateway med brandväggen för webbaserade program.
+* **ApplicationGatewayAccessLog** -åtkomst-loggen innehåller varje begäran som skickas till application gateway-klientdel. Innehåller information som anroparens IP-adress, Webbadress som efterfrågas, svarsfördröjning, returkod, byte in och ut. Åtkomstlogg samlas in var 300 sekund. Den här loggfilen innehåller en post per instans av en Programgateway.
+* **ApplicationGatewayPerformanceLog** -prestandaloggen samlar in prestandainformation regelbundet per instans inklusive totala antalet begäranden som hanteras, genomflöde i byte, totalt antal begäranden hanteras, antalet misslyckade förfrågningar, felfria och defekta backend-server instansantal.
+* **ApplicationGatewayFirewallLog** -brandväggsloggen innehåller begäranden som loggas via identifiering eller förhindra läget för en Programgateway med brandväggen för webbaserade program.
 
-**FRÅGOR OCH. Hur vet jag om min medlemmar i serverdelspoolen är felfria?**
+### <a name="how-do-i-know-if-my-backend-pool-members-are-healthy"></a>Hur vet jag om min medlemmar i serverdelspoolen är felfria?
 
 Du kan använda PowerShell-cmdleten `Get-AzureRmApplicationGatewayBackendHealth` eller kontrollera hälsa via portalen genom att besöka [Application Gateway-diagnostik](application-gateway-diagnostics.md)
 
-**FRÅGOR OCH. Vad är bevarandeprincipen på diagnostikloggar?**
+### <a name="what-is-the-retention-policy-on-the-diagnostics-logs"></a>Vad är bevarandeprincipen på diagnostikloggar?
 
 Flöde för diagnostikloggar till kunder storage-konto och kunder kan definiera bevarandeprincipen baserat på deras prioritet. Diagnostikloggar kan också skickas till en Event Hub eller Log Analytics. Se [Application Gateway Diagnostics](application-gateway-diagnostics.md) för mer information.
 
-**FRÅGOR OCH. Hur får jag granskningsloggar för Application Gateway?**
+### <a name="how-do-i-get-audit-logs-for-application-gateway"></a>Hur får jag granskningsloggar för Application Gateway?
 
 Granskningsloggarna är tillgängliga för Application Gateway. I portalen klickar du på **aktivitetsloggen** på bladet menyn i en Programgateway för att få åtkomst till granskningsloggen. 
 
-**FRÅGOR OCH. Kan jag ställa in aviseringar med Application Gateway?**
+### <a name="can-i-set-alerts-with-application-gateway"></a>Kan jag ställa in aviseringar med Application Gateway?
 
 Ja, stöder Application Gateway aviseringar. Aviseringar kan konfigureras på mått. Se [mätvärden för Application Gateway](https://docs.microsoft.com/azure/application-gateway/application-gateway-diagnostics#metrics) vill veta mer om Application Gateway-mått. Läs mer om aviseringar i [Varningsaviseringar](../monitoring-and-diagnostics/insights-receive-alert-notifications.md).
 
-**FRÅGOR OCH. Hur jag för att analysera trafik statistik för Application Gateway?**
+### <a name="how-do-i-analyze-traffic-statistics-for-application-gateway"></a>Hur jag för att analysera trafik statistik för Application Gateway?
 
 Du kan visa och analysera loggar för åtkomst via ett antal metoder, till exempel Azure Log Analytics, Excel, Power BI osv.
 
 Vi har också publicerat en Resource Manager-mall som installerar och kör populära [GoAccess](https://goaccess.io/) logga analyzer för Åtkomstloggar för Application Gateway. GoAccess ger värdefull HTTP-trafik statistik, till exempel unika besökare, begärt filer, värdar, operativsystem, webbläsare, HTTP-statuskoder och mycket mer. Mer information finns i den [Readme-filen i mallmappen för Resource Manager-i GitHub](https://aka.ms/appgwgoaccessreadme).
 
-**FRÅGOR OCH. Serverdelens hälsotillstånd returnerar okänd status, vad som kan vara orsaken denna status?**
+### <a name="backend-health-returns-unknown-status-what-could-be-causing-this-status"></a>Serverdelens hälsotillstånd returnerar okänd status, vad som kan vara orsaken denna status?
 
 Den vanligaste orsaken är åtkomst till serverdelen blockeras av en NSG eller anpassad DNS. Se [serverdelens hälsotillstånd, diagnostikloggning och mått för Application Gateway](application-gateway-diagnostics.md) vill veta mer.
 

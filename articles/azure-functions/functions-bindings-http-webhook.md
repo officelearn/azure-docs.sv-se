@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 11/21/2017
 ms.author: glenga
-ms.openlocfilehash: e989152ece19168138597a96d1246ec64498ce69
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 7fa9d097a8f000c886425d53ee000c6013f3bbb0
+ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47227562"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50086734"
 ---
 # <a name="azure-functions-http-triggers-and-bindings"></a>Azure Functions HTTP-utlösare och bindningar
 
@@ -64,9 +64,9 @@ I följande exempel visas en [C#-funktion](functions-dotnet-class-library.md) so
 [FunctionName("HttpTriggerCSharp")]
 public static async Task<HttpResponseMessage> Run(
     [HttpTrigger(AuthorizationLevel.Function, "get", "post", Route = null)]HttpRequestMessage req, 
-    TraceWriter log)
+    ILogger log)
 {
-    log.Info("C# HTTP trigger function processed a request.");
+    log.LogInformation("C# HTTP trigger function processed a request.");
 
     // parse query parameter
     string name = req.GetQueryNameValuePairs()
@@ -121,10 +121,11 @@ Här är C#-skriptkoden som binder till `HttpRequestMessage`:
 ```csharp
 using System.Net;
 using System.Threading.Tasks;
+using Microsoft.Extensions.Logging;
 
-public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, TraceWriter log)
+public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, ILogger log)
 {
-    log.Info($"C# HTTP trigger function processed a request. RequestUri={req.RequestUri}");
+    log.LogInformation($"C# HTTP trigger function processed a request. RequestUri={req.RequestUri}");
 
     // parse query parameter
     string name = req.GetQueryNameValuePairs()
@@ -148,8 +149,9 @@ Du kan bindas till ett anpassat objekt i stället för `HttpRequestMessage`. Det
 ```csharp
 using System.Net;
 using System.Threading.Tasks;
+using Microsoft.Extensions.Logging;
 
-public static string Run(CustomObject req, TraceWriter log)
+public static string Run(CustomObject req, ILogger log)
 {
     return "Hello " + req?.name;
 }
@@ -388,7 +390,7 @@ På så sätt kan function-koden att stödja två parametrar i adressen _kategor
 
 ```csharp
 public static Task<HttpResponseMessage> Run(HttpRequestMessage req, string category, int? id, 
-                                                TraceWriter log)
+                                                ILogger log)
 {
     if (id == null)
         return  req.CreateResponse(HttpStatusCode.OK, $"All {category} items were requested.");

@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 08/30/2018
 ms.author: iainfou
-ms.openlocfilehash: 0ffa1541439890a0591b52c1fdbc717c7d5aa5ff
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
+ms.openlocfilehash: e528f06ffc6b7ef00800605f5f9022fe164821b4
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49362574"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50091907"
 ---
 # <a name="create-an-ingress-controller-with-a-static-public-ip-address-in-azure-kubernetes-service-aks"></a>Skapa en ingress-kontrollant med en statisk offentlig IP-adress i Azure Kubernetes Service (AKS)
 
@@ -24,8 +24,8 @@ Du kan också:
 
 - [Skapa en grundläggande ingress-kontrollant med extern nätverksanslutning][aks-ingress-basic]
 - [Aktivera HTTP-programmet routning tillägg][aks-http-app-routing]
-- [Skapa en ingress-kontrollant som använder ett privat internt nätverk och IP-adress][aks-ingress-internal]
-- [Skapa en ingress-kontrollant med en dynamisk offentlig IP-adress och konfigurera kryptera vi för att automatiskt generera TLS-certifikat][aks-ingress-tls]
+- [Skapa en ingress-kontrollant som använder en egen TLS-certifikat][aks-ingress-own-tls]
+- [Skapa en ingress-kontrollant som använder vi kryptera för att automatiskt generera TLS-certifikat med en dynamisk offentlig IP-adress][aks-ingress-tls]
 
 ## <a name="before-you-begin"></a>Innan du börjar
 
@@ -335,6 +335,7 @@ Du kan också:
 - [Skapa en grundläggande ingress-kontrollant med extern nätverksanslutning][aks-ingress-basic]
 - [Aktivera HTTP-programmet routning tillägg][aks-http-app-routing]
 - [Skapa en ingress-kontrollant som använder ett privat internt nätverk och IP-adress][aks-ingress-internal]
+- [Skapa en ingress-kontrollant som använder en egen TLS-certifikat][aks-ingress-own-tls]
 - [Skapa en ingress-kontrollant med en dynamisk offentlig IP-adress och konfigurera kryptera vi för att automatiskt generera TLS-certifikat][aks-ingress-tls]
 
 <!-- LINKS - external -->
@@ -356,3 +357,4 @@ Du kan också:
 [aks-ingress-basic]: ingress-basic.md
 [aks-ingress-tls]: ingress-tls.md
 [aks-http-app-routing]: http-application-routing.md
+[aks-ingress-own-tls]: ingress-own-tls.md

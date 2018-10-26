@@ -1,4 +1,17 @@
-1. Logga in på den [Azure Portal].
+---
+author: conceptdev
+ms.service: app-service-mobile
+ms.topic: include
+ms.date: 08/23/2018
+ms.author: crdun
+ms.openlocfilehash: 30b5ae499d29b8b78b5852074362841ac1ceb49f
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.translationtype: MT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50132890"
+---
+1. Logga in på [Azure Portal].
 2. Välj **+ ny** > **webb + mobilt** > **Mobilapp**, och sedan ange ett namn för Mobile Apps-serverdel.
 3. För **resursgrupp**, Välj en befintlig resursgrupp eller skapa en ny (med samma namn som din app). 
 4. För **apptjänstplan**, standardplanen (i den [standardnivån](https://azure.microsoft.com/pricing/details/app-service/)) är markerad. Du kan också välja en annan plan eller [skapa en ny](../articles/app-service/app-service-plan-manage.md#create-an-app-service-plan). 

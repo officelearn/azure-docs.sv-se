@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/18/2018
+ms.date: 10/25/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: 065eee57b78ea10d5e8079de3a938dc00dd60ee2
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: a40774faadc4393a1ebbb6e26673ba7dff22560c
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49406780"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50092312"
 ---
 # <a name="what-are-access-controls-in-azure-active-directory-conditional-access"></a>Vad är åtkomstkontroller i Azure Active Directory villkorlig åtkomst? 
 
@@ -166,8 +166,14 @@ Sessionskontroller aktiverar en begränsad upplevelse inom en molnapp. Sessionsk
 
 ### <a name="use-app-enforced-restrictions"></a>Använd app-framtvingade begränsningar
 
-Du kan använda den här kontrollen för att kräva Azure AD för att skicka enhetsinformationen till molnappen. Detta hjälper molnappen vet om användaren kommer från en kompatibel enhet eller en domänansluten enhet. Den här kontrollen är för närvarande stöds endast med SharePoint som molnappen. SharePoint använder informationen i för att ge användarna en begränsad eller fullständig upplevelse beroende på enhetens tillstånd.
-Mer information om hur du kräver begränsad åtkomst med SharePoint finns [styra åtkomst från ohanterade enheter](https://aka.ms/spolimitedaccessdocs).
+Du kan använda den här kontrollen för att kräva Azure AD för att skicka enhetsinformation till de valda molnapparna. Informationen i gör det möjligt för moln-appar du behöver veta om en anslutning initieras från en kompatibel eller domänansluten enhet. Den här kontrollen stöder endast SharePoint Online och Exchange Online som valda molnappar. När du väljer använder molnappen enhetsinformationen för att ge användare, beroende på enhetens tillstånd, med en begränsad eller fullständig upplevelse.
+
+Du kan läsa mer här:
+
+- [Att aktivera begränsad åtkomst med SharePoint Online](https://aka.ms/spolimitedaccessdocs) 
+
+- [Att aktivera begränsad åtkomst med Exchange Online](https://aka.ms/owalimitedaccess)
+
 
 
 

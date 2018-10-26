@@ -6,14 +6,14 @@ manager: alinast
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 10/10/2018
+ms.date: 10/25/2018
 ms.author: adgera
-ms.openlocfilehash: 28eb8b5dc0f75b5e031070803d35c8a1ceb1f000
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
+ms.openlocfilehash: a17fe8ed47384ed248b339643be11269b8b9cdc0
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49364353"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50092193"
 ---
 # <a name="security-best-practices"></a>Rekommenderade säkerhetsmetoder
 
@@ -33,8 +33,9 @@ Vissa viktiga metoder för att på ett säkert sätt skydda dina IoT-enheter är
 > [!div class="checklist"]
 > * Skydda varje enhet som är ansluten till din IoT-sida på ett manipuleringssäker sätt.
 > * Begränsa rollen för varje enhet, sensor och person i din IoT-sida. Om de komprometteras, minimeras effekten.
-> * Möjliga användning av IP-adressfiltrering.
+> * Möjliga användning av enhetens IP-adress filtrering och porten begränsning.
 > * Begränsa bandbredden för i/o och enheten att förbättra prestanda. Hastighetsbegränsande kan öka säkerheten genom att förhindra denial of service-attacker.
+> * Håll enhetens inbyggda programvara uppdaterad.
 
 Vissa viktiga metoder för att på ett säkert sätt skydda en IoT-utrymme är:
 

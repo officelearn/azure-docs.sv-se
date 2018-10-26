@@ -5,15 +5,15 @@ services: expressroute
 author: cherylmc
 ms.service: expressroute
 ms.topic: include
-ms.date: 09/24/2018
+ms.date: 10/23/2018
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: b9c4cf6c90ef5507b318b4f13afb982aab151c79
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: 4a3581b3d61c5ad17352c2865fc059704c1eece1
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48874082"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "50035187"
 ---
 ### <a name="what-is-expressroute-global-reach"></a>Vad är ExpressRoute Global räckvidd?
 
@@ -21,7 +21,7 @@ Global räckvidd i ExpressRoute är en Azure-tjänst som ansluter dina lokala n�
 
 ### <a name="how-do-i-enable-or-disable-expressroute-global-reach"></a>Hur jag för att aktivera eller inaktivera ExpressRoute Global räckvidd?
 
-Du aktiverar ExpressRoute Global räckvidd genom att ansluta din ExpressRoute-kretsar tillsammans. Du kan inaktivera funktionen genom att koppla ifrån kretsarna. Se konfigurationen.
+Du aktiverar ExpressRoute Global räckvidd genom att ansluta din ExpressRoute-kretsar tillsammans. Du kan inaktivera funktionen genom att koppla ifrån kretsarna. Se den [configuration](../articles/expressroute/expressroute-howto-set-global-reach.md).
 
 ### <a name="do-i-need-expressroute-premium-for-expressroute-global-reach"></a>Behöver jag ExpressRoute Premium för Global räckvidd för ExpressRoute?
 
@@ -36,6 +36,7 @@ Med ExpressRoute kan anslutningar från ditt lokala nätverk till Microsofts mol
 ExpressRoute Global räckvidd stöds i följande länder. ExpressRoute-kretsar måste skapas på peering-platser i dessa länder.
 
 * Australien
+* Frankrike
 * Hongkong SAR
 * Irland
 * Japan
@@ -58,3 +59,11 @@ Nej. Om du vill aktivera anslutningen mellan två av dina lokala nätverk, måst
 ### <a name="what-is-the-network-throughput-i-can-expect-between-my-on-premises-networks-after-i-enable-expressroute-global-reach"></a>Vad är nätverkets genomflöde jag kan förvänta sig mellan min lokala nätverk när jag har aktiverat ExpressRoute Global räckvidd?
 
 Nätverkets genomflöde mellan ditt lokala nätverk, aktiveras med ExpressRoute Global räckvidd, är begränsat av det mindre av de två ExpressRoute-kretsarna.
+
+### <a name="with-expressroute-global-reach-what-are-the-limits-on-the-number-of-routes-i-can-advertise-and-the-number-of-routes-i-will-receive"></a>Med ExpressRoute Global räckvidd, vilka är begränsningar i hur många vägar som jag kan annonsera och hur många vägar som jag får?
+
+Hur många vägar du kan annonsera till Microsoft på Azures privata peering förblir 4000 på en standardkrets eller 10000 på en Premium-krets. Hur många vägar du får från Microsoft på Azures privata peering kommer att summan av vägar för din Azure-nätverk och vägarna från ditt lokala nätverk som är anslutna via ExpressRoute Global räckvidd. Kontrollera att du kan ange en lämplig maximal prefix-gräns på den lokala routern. 
+
+### <a name="what-is-the-sla-for-expressroute-global-reach"></a>Vad är serviceavtalet för Global räckvidd för ExpressRoute?
+
+ExpressRoute Global räckvidd ger samma [tillgänglighets-SLA](https://azure.microsoft.com/support/legal/sla/expressroute/v1_3/) som vanlig ExpressRoute-tjänsten.

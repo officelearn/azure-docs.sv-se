@@ -13,12 +13,12 @@ ms.topic: reference
 ms.date: 09/08/2018
 ms.author: glenga
 ms.custom: ''
-ms.openlocfilehash: d1e73af69d3220c0719bd05e3f160e20f8c02858
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: d81794f3fe91d1c0e922b1c0e930e308ee566a44
+ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44715609"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50087465"
 ---
 # <a name="timer-trigger-for-azure-functions"></a>Timerutlösare för Azure Functions 
 
@@ -54,13 +54,13 @@ I följande exempel visas en [C#-funktion](functions-dotnet-class-library.md) so
 
 ```cs
 [FunctionName("TimerTriggerCSharp")]
-public static void Run([TimerTrigger("0 */5 * * * *")]TimerInfo myTimer, TraceWriter log)
+public static void Run([TimerTrigger("0 */5 * * * *")]TimerInfo myTimer, ILogger log)
 {
     if(myTimer.IsPastDue)
     {
-        log.Info("Timer is running late!");
+        log.LogInformation("Timer is running late!");
     }
-    log.Info($"C# Timer trigger function executed at: {DateTime.Now}");
+    log.LogInformation($"C# Timer trigger function executed at: {DateTime.Now}");
 }
 ```
 
@@ -82,13 +82,13 @@ Här är bindningsdata i den *function.json* fil:
 Här är C#-skriptkoden:
 
 ```csharp
-public static void Run(TimerInfo myTimer, TraceWriter log)
+public static void Run(TimerInfo myTimer, ILogger log)
 {
     if(myTimer.IsPastDue)
     {
-        log.Info("Timer is running late!");
+        log.LogInformation("Timer is running late!");
     }
-    log.Info($"C# Timer trigger function executed at: {DateTime.Now}" );  
+    log.LogInformation($"C# Timer trigger function executed at: {DateTime.Now}" );  
 }
 ```
 
@@ -110,11 +110,11 @@ Här är bindningsdata i den *function.json* fil:
 Här är F #-skriptkoden:
 
 ```fsharp
-let Run(myTimer: TimerInfo, log: TraceWriter ) =
+let Run(myTimer: TimerInfo, log: ILogger ) =
     if (myTimer.IsPastDue) then
-        log.Info("F# function is running late.")
+        log.LogInformation("F# function is running late.")
     let now = DateTime.Now.ToLongTimeString()
-    log.Info(sprintf "F# function executed at %s!" now)
+    log.LogInformation(sprintf "F# function executed at %s!" now)
 ```
 
 ### <a name="javascript-example"></a>JavaScript-exempel
@@ -171,13 +171,13 @@ Attributets konstruktorn tar ett CRON-uttryck eller en `TimeSpan`. Du kan använ
 
 ```csharp
 [FunctionName("TimerTriggerCSharp")]
-public static void Run([TimerTrigger("0 */5 * * * *")]TimerInfo myTimer, TraceWriter log)
+public static void Run([TimerTrigger("0 */5 * * * *")]TimerInfo myTimer, ILogger log)
 {
     if (myTimer.IsPastDue)
     {
-        log.Info("Timer is running late!");
+        log.LogInformation("Timer is running late!");
     }
-    log.Info($"C# Timer trigger function executed at: {DateTime.Now}");
+    log.LogInformation($"C# Timer trigger function executed at: {DateTime.Now}");
 }
  ```
 
@@ -192,7 +192,7 @@ I följande tabell förklaras konfigurationsegenskaper för bindning som du ange
 |**Namn** | Saknas | Namnet på variabeln som representerar timer-objekt i funktionskoden. | 
 |**schedule**|**ScheduleExpression**|En [CRON-uttryck](#cron-expressions) eller en [TimeSpan](#timespan) värde. En `TimeSpan` kan bara användas för en funktionsapp som körs på en App Service Plan. Du kan placera schema-uttrycket i en appinställning och ange egenskapen till appinställningen namn och är inneslutna i **%** tecken, som i följande exempel: ”% ScheduleAppSetting %”. |
 |**runOnStartup**|**runOnStartup**|Om `true`, funktionen anropas när körningen startar. Till exempel startar körningen när funktionsappen aktiveras efter inaktivitet på grund av inaktivitet. När appen startas om på grund av funktionen ändringar, och när appen skalas ut. Så **runOnStartup** sällan om någonsin sättas till `true`, särskilt i produktion. |
-|**UseMonitor**|**useMonitor**|Ange `true` eller `false` att indikera om schemat ska övervakas. Övervakning av schema kvarstår schema förekomster som hjälper till att upprätthålla schemat underhålls korrekt även om funktionen app-instanserna startas om. Om inte har angetts uttryckligen är standardvärdet `true` för scheman som har ett intervall som är större än 1 minut. För scheman som utlöser mer än en gång per minut som standard används `false`.
+|**useMonitor**|**useMonitor**|Ange `true` eller `false` att indikera om schemat ska övervakas. Övervakning av schema kvarstår schema förekomster som hjälper till att upprätthålla schemat underhålls korrekt även om funktionen app-instanserna startas om. Om inte har angetts uttryckligen är standardvärdet `true` för scheman som har ett intervall som är större än 1 minut. För scheman som utlöser mer än en gång per minut som standard används `false`.
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 

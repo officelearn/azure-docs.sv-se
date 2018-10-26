@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/02/2018
 ms.author: shants
 ms.custom: include file
-ms.openlocfilehash: efedb2f48748264fb936fe82a1dbb3cf4403cc5e
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.openlocfilehash: b3f71c4710bd9711a3209dd55f8e680f63627c1b
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "40166955"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50035387"
 ---
 ## <a name="view-vms-scheduled-for-maintenance-in-the-portal"></a>Visa virtuella datorer som har schemalagts för underhåll i portalen
 
@@ -49,7 +49,7 @@ Du kan använda Azure portal och leta efter virtuella datorer som är schemalagd
 
 ## <a name="notification-and-alerts-in-the-portal"></a>Meddelanden och aviseringar i portalen
 
-Azure kommunicerar ett schema för planerat underhåll genom att skicka ett e-postmeddelande till gruppen prenumeration ägare och Medägare. Du kan lägga till ytterligare mottagare och kanaler denna kommunikation genom att skapa aviseringar för Azure-aktivitet. Mer information finns i [övervaka prenumerationsaktivitet med Azure-aktivitetsloggen] (.. / articles/monitoring-and-diagnostics/monitoring-overview-activity-logs.md).
+Azure kommunicerar ett schema för planerat underhåll genom att skicka ett e-postmeddelande till gruppen prenumeration ägare och Medägare. Du kan lägga till ytterligare mottagare och kanaler denna kommunikation genom att skapa aviseringar för Azure-aktivitet. Mer information finns i [övervaka prenumeration med Azure-aktivitetsloggen](../articles/monitoring-and-diagnostics/monitoring-overview-activity-logs.md).
 
 1. Logga in på [Azure Portal](https://portal.azure.com).
 2. I menyn till vänster väljer **övervakaren**. 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/18/2018
 ms.author: shvija
-ms.openlocfilehash: ae5d89aab4ce1bd599ed9a50dc46336f8a96a2f5
-ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
+ms.openlocfilehash: 9d7792c8eb33e6ceca5ba794f56c5a4c99d59554
+ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49456240"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50084415"
 ---
 # <a name="send-events-to-azure-event-hubs-using-the-net-framework"></a>Skicka händelser till Azure Event Hubs med .NET Framework
 Azure Event Hubs är en strömningstjänst för stordata och händelseinmatningstjänst som kan ta emot och bearbeta flera miljoner händelser per sekund. Azure Event Hubs kan bearbeta och lagra händelser, data eller telemetri som produceras av distribuerade program och enheter. Data som skickas till en händelsehubb kan omvandlas och lagras med valfri provider för realtidsanalys eller batchbearbetnings-/lagringsadaptrar. Detaljerad översikt över Event Hubs finns i [översikt av Händelsehubbar](event-hubs-about.md) och [Event Hubs-funktioner](event-hubs-features.md).
@@ -53,16 +53,16 @@ I Visual Studio skapar du ett nytt Visual C#-skrivbordsapprojekt med hjälp av p
 
 1. Lägg till följande `using`-uttryck överst i **Program.cs**-filen:
    
-      ```csharp
-      using System.Threading;
-      using Microsoft.ServiceBus.Messaging;
-      ```
+    ```csharp
+    using System.Threading;
+    using Microsoft.ServiceBus.Messaging;
+    ```
 2. Lägg till följande fält i klassen **Program**, och ersätt platshållarvärdena med namnet på den händelsehubb du skapade i föregående avsnitt samt anslutningssträngen på namnområdesnivå som du sparat tidigare.
    
-        ```csharp
-        static string eventHubName = "Your Event Hub name";
-        static string connectionString = "namespace connection string";
-        ```
+    ```csharp
+    static string eventHubName = "Your Event Hub name";
+    static string connectionString = "namespace connection string";
+    ```
 3. Lägg till följande metod i klassen **Program**:
    
       ```csharp

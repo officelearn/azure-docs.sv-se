@@ -4,14 +4,14 @@ description: Innehåller en översikt över kända problem i Azure Migrate-tjän
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 10/23/2018
+ms.date: 10/24/2018
 ms.author: raynew
-ms.openlocfilehash: a41a27f2a87a67ea51bcbe110ac77f7908c44e7a
-ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
+ms.openlocfilehash: a32b1b73a12242a6c6b1c29fbf116aff73515b46
+ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49945526"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50086751"
 ---
 # <a name="troubleshoot-azure-migrate"></a>Felsöka Azure Migrate
 
@@ -51,9 +51,16 @@ Installationen för identifiering av kontinuerlig installation endast samlar in 
 
 ## <a name="collector-errors"></a>Fel för logginsamlare
 
-### <a name="deployment-of-collector-ova-failed"></a>Distribution av insamlaren OVA misslyckades
+### <a name="deployment-of-azure-migrate-collector-failed-with-the-error-the-provided-manifest-file-is-invalid-invalid-ovf-manifest-entry"></a>Distribution av Azure Migrate Collector misslyckades med fel: den angivna manifestfilen är ogiltig: Ogiltigt OVF manifest posten.
 
-Detta kan inträffa om ova-filen hämtas delvis eller på grund av webbläsaren om du använder vSphere-webbklienten för att distribuera ova-filen. Se till att hämtningen är slutförd och försök att distribuera ova-filen med en annan webbläsare.
+1. Kontrollera om Azure Migrate Collector OVA-filen laddas ned korrekt genom att kontrollera hash-värdet. Referera till den [artikeln](https://docs.microsoft.com/azure/migrate/tutorial-assessment-vmware#verify-the-collector-appliance) Kontrollera hash-värde. Om hash-värdet inte matchar, hämta OVA-filen igen och försöker distribuera igen.
+2. Om det inte fungerar och om du använder VMware vSphere-klienten för att distribuera OVF, försök att distribuera det via vSphere-webbklienten. Om det fortfarande inte, försök att använda olika webbläsare.
+3. Om du använder vSphere-webbklienten och försök att distribuera den på vCenter Server 6.5, försöker distribuera ova-filen direkt på ESXi-värden genom att följa de stegen nedan:
+  - Ansluta till ESXi-värden direkt (i stället för vCenter-Server) med hjälp av webbklienten (https:// <*vara värd för IP-adress*> /ui)
+  - Gå till startsidan > inventering
+  - Klicka på fil > Distribuera OVF-mall > Gå till ova-filen och slutföra distributionen
+4. Om distributionen fortfarande misslyckas, kontakta supporten för Azure Migrate.
+
 
 ### <a name="collector-is-not-able-to-connect-to-the-internet"></a>Insamlaren kan inte ansluta till internet
 

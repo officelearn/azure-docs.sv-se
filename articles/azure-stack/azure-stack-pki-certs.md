@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 10/16/2018
 ms.author: mabrigg
 ms.reviewer: ppacent
-ms.openlocfilehash: 112940dbacf0bfdaff735eb0abd79e177cf5c9c5
-ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
+ms.openlocfilehash: d181835c6baf5a2a40bca04feaa4c115178ba086
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49457044"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50093980"
 ---
 # <a name="azure-stack-public-key-infrastructure-certificate-requirements"></a>Certifikatkrav för Azure Stack-infrastruktur för offentliga nycklar
 
@@ -40,7 +40,8 @@ I följande lista beskrivs kraven på certifikaten som behövs för att distribu
 - När du roterar certifikat, måste certifikaten ha antingen utfärdas från samma interna certifikatutfärdare används för att signera certifikat som angavs vid distribution eller en offentlig certifikatutfärdare ovan
 - Användning av självsignerade certifikat stöds inte
 - För distribution och rotation som du kan antingen använda ett enstaka certifikat som täcker alla namnutrymmen i certifikatets ämnesnamn och alternativt namn på CERTIFIKATMOTTAGARE eller du kan använda person-certifikat för varje namnrum nedan som Azure Stack tjänster som du planerar att använda kräver. Båda metoderna kräver med jokertecken för slutpunkter där de är obligatoriska, till exempel **KeyVault** och **KeyVaultInternal**. 
-- Signaturalgoritmen får inte vara SHA1, eftersom det måste vara starkare. 
+- Certifikatets PFX-kryptering ska vara 3DES. 
+- Signaturalgoritm certifikatet får inte vara SHA1. 
 - Certifikatformatet måste vara PFX, som både offentliga och privata nycklar som krävs för installation av Azure Stack. 
 - PFX-kryptering måste vara 3DES (detta är standard när du exporterar från en Windows 10-klient eller certifikatarkivet för Windows Server 2016).
 - Pfx-filer för certifikatet måste ha ett värde ”Digital signatur” och ”KeyEncipherment” i dess ”nyckelanvändning”.

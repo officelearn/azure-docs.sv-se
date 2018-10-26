@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/30/2018
+ms.date: 10/22/2018
 ms.author: jeedes
-ms.openlocfilehash: 4094de1a1c17e844d96ac789bb4bc1655fdc1546
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.openlocfilehash: b57fdb3f039a9395133854f8b4d4f2095e3a4f9b
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43669251"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50095253"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-figma"></a>Självstudier: Azure Active Directory-integration med Figma
 
@@ -61,19 +61,19 @@ För att konfigurera integrering av Figma i Azure AD, som du behöver lägga til
 
 **Utför följande steg för att lägga till Figma från galleriet:**
 
-1. I den **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon. 
+1. I den **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon.
 
-    ![Azure Active Directory-knappen][1]
+    ![Active Directory][1]
 
 2. Gå till **företagsprogram**. Gå till **alla program**.
 
-    ![Bladet för Enterprise-program][2]
+    ![Program][2]
 
 3. Lägg till nytt program, klicka på **nytt program** knappen överst i dialogrutan.
 
-    ![Knappen Nytt program][3]
+    ![Program][3]
 
-4. I sökrutan skriver **Figma**väljer **Figma** resultatet panelen klickar **Lägg till** för att lägga till programmet.
+4. I sökrutan skriver **Figma**. Välj **Figma** i resultatrutan och klicka sedan på den **Lägg till** för att lägga till programmet.
 
     ![Figma i resultatlistan](./media/figma-tutorial/tutorial_figma_addfromgallery.png)
 
@@ -84,13 +84,13 @@ I det här avsnittet ska du konfigurera och testa Azure AD enkel inloggning med 
 För enkel inloggning att fungera, behöver Azure AD länkas till Figma.  Om du vill konfigurera och testa Azure AD enkel inloggning med Figma, gör du följande:
 
 1. [**Kontakta supportteamet för Figma** ](mailto:support@figma.com?subject=SAML+Config) att initiera en SAML-konfiguration för din organisation och få en ORG_SAML_CONFIG_ID.
-2. **[Konfigurera Azure AD enkel inloggning](#configure-azure-ad-single-sign-on)**  – om du vill ge användarna använda den här funktionen.
-3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)**  – om du vill testa Azure AD enkel inloggning med Britta Simon.
-4. **[Skapa en testanvändare Figma](#create-a-figma-test-user)**  – du har en motsvarighet för Britta Simon i Figma som är länkad till en Azure AD-representation av användaren.
-5. **[Tilldela Azure AD-testanvändare](#assign-the-azure-ad-test-user)**  – om du vill aktivera Britta Simon att använda Azure AD enkel inloggning.
-6. **[Testa enkel inloggning](#test-single-sign-on)**  – om du vill kontrollera om konfigurationen fungerar.
+2. **[Konfigurera Azure AD enkel inloggning](#configuring-azure-ad-single-sign-on)**  – om du vill ge användarna använda den här funktionen.
+3. **[Skapa en Azure AD-testanvändare](#creating-an-azure-ad-test-user)**  – om du vill testa Azure AD enkel inloggning med Britta Simon.
+4. **[Skapa en testanvändare Figma](#creating-a-figma-test-user)**  – du har en motsvarighet för Britta Simon i Figma som är länkad till en Azure AD-representation av användaren.
+5. **[Tilldela Azure AD-testanvändare](#assigning-the-azure-ad-test-user)**  – om du vill aktivera Britta Simon att använda Azure AD enkel inloggning.
+6. **[Testa enkel inloggning](#testing-single-sign-on)**  – om du vill kontrollera om konfigurationen fungerar.
 
-### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera Azure AD enkel inloggning
+### <a name="configuring-azure-ad-single-sign-on"></a>Konfigurera Azure AD enkel inloggning
 
 I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och konfigurera enkel inloggning i ditt Figma program.
 
@@ -98,13 +98,21 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
 1. I Azure-portalen på den **Figma** program integration-sidan klickar du på **enkel inloggning**.
 
-    ![Konfigurera enkel inloggning för länken][4]
+    ![Konfigurera enkel inloggning][4]
 
-2. På den **enkel inloggning** dialogrutan **läge** som **SAML-baserad inloggning** att aktivera enkel inloggning.
+2. På den **väljer du en metod för enkel inloggning** dialogrutan klickar du på **Välj** för **SAML** läge för att aktivera enkel inloggning.
 
-    ![Enkel inloggning för dialogrutan](./media/figma-tutorial/tutorial_figma_samlbase.png)
+    ![Konfigurera enkel inloggning](./media/figma-tutorial/tutorial_general_301.png)
 
-3. På den **Figma domän och URL: er** avsnittet, utför följande steg om du vill konfigurera programmet i **IDP** initierade läge:
+3. Om du vill ändra till **SAML** -läge från ett annat ett annat läge, klickar du på **ändra enkel inloggning läge** på skärmen.
+
+    ![Konfigurera enkel inloggning](./media/figma-tutorial/tutorial_general_300.png)
+
+4. På den **ange in enkel inloggning med SAML** klickar du på **redigera** ikonen för att öppna **SAML grundkonfiguration** dialogrutan.
+
+    ![Konfigurera enkel inloggning](./media/figma-tutorial/tutorial_general_302.png)
+
+5. På den **SAML grundkonfiguration** avsnittet, utför följande steg om du vill konfigurera programmet i **IDP** initierade läge:
 
     ![Figma domän och URL: er med enkel inloggning för information](./media/figma-tutorial/tutorial_figma_url1.png)
 
@@ -112,7 +120,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     b. I den **svars-URL** textrutan anger du ett URL med hjälp av följande mönster: `https://www.figma.com/saml/<ORG_SAML_CONFIG_ID>/consume`
 
-4. Kontrollera **visa avancerade URL-inställningar** och utföra följande steg om du vill konfigurera programmet i **SP** initierade läge:
+6. Klicka på **ange ytterligare webbadresser** och utföra följande steg om du vill konfigurera programmet i **SP** initierade läge:
 
     ![Figma domän och URL: er med enkel inloggning för information](./media/figma-tutorial/tutorial_figma_url2.png)
 
@@ -121,88 +129,105 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
     > [!NOTE]
     > Dessa värden är inte verkliga. Uppdatera dessa värden med de faktiska identifierare, svars-URL och inloggnings-URL. Kontakta [Figma supportteamet](mailto:support@figma.com?subject=SAML+Config) att hämta dessa värden.
 
-5. På den **SAML-signeringscertifikat** klickar du på kopieringsknappen för att kopiera **Appfederationsmetadata** och klistra in den i anteckningar.
+7. Figma program som förväntar SAML-intyg i ett visst format. Konfigurera följande anspråk för det här programmet. Du kan hantera värdena för dessa attribut från den **användarattribut** avsnitt på sidan för integrering av programmet. På den **ange in enkel inloggning med SAML** klickar du på **redigera** knappen för att öppna **användarattribut** dialogrutan.
+
+    ![Attributet avsnittet](./media/figma-tutorial/edit_attribute.png)
+
+8. I den **användaranspråk** avsnittet på den **användarattribut** dialogrutan Konfigurera SAML-token attributet som visas i bilden ovan och utför följande steg:
+
+    | Namn | Attribut för datakälla|
+    | ---------------| --------- |
+    | `externalId` | `user.mailnickname` |
+    | `displayName` | `user.displayname` |
+    | `title` | `user.jobtitle` |
+    | `emailaddress` | `user.mail` |
+    | `familyName` | `user.surname` |
+    | `givenName` | `givenName` |
+    | `userName` | `user.userprincipalname` |
+
+    a. Klicka på **Lägg till nytt anspråk** att öppna den **hantera användaranspråk** dialogrutan.
+
+    ![Nytt attribut](./media/figma-tutorial/new_save_attribute.png)
+
+    ![Lägg till attribut](./media/figma-tutorial/new_attribute_details.png)
+
+    b. I den **namn** textrutan skriver du attributnamnet som visas för den raden.
+
+    c. Lämna den **Namespace** tom.
+
+    d. Välj källa som **attributet**.
+
+    e. Från den **källattribut** anger attributvärdet som visas för den raden.
+
+    f. Klicka på **Ok**
+
+    g. Klicka på **Spara**.
+
+9. På den **ange in enkel inloggning med SAML** sidan den **SAML-signeringscertifikat** klickar du på kopieringsknappen för att kopiera **Appfederationsmetadata** och spara den på din dator.
 
     ![Länk för hämtning av certifikat](./media/figma-tutorial/tutorial_figma_certificate.png)
 
-6. Klicka på **spara** knappen.
+10. Om du vill konfigurera enkel inloggning på Figma sida, fyller du i det här formuläret: [ https://goo.gl/forms/XkRB1z5ed4eVUzXn2 ](https://goo.gl/forms/XkRB1z5ed4eVUzXn2). Det ska ta emot din **Appfederationsmetadata** från steg 9.
 
-    ![Konfigurera enkel inloggning spara-knapp](./media/figma-tutorial/tutorial_general_400.png)
-
-7. Om du vill konfigurera enkel inloggning på Figma sida, fyller du i det här formuläret: [ https://goo.gl/forms/XkRB1z5ed4eVUzXn2 ](https://goo.gl/forms/XkRB1z5ed4eVUzXn2). Det ska ta emot din **Appfederationsmetadata** från steg 5.
-
-### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare
+### <a name="creating-an-azure-ad-test-user"></a>Skapa en Azure AD-användare för testning
 
 Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen kallas Britta Simon.
 
-   ![Skapa en Azure AD-testanvändare][100]
+1. I Azure-portalen, i den vänstra rutan väljer **Azure Active Directory**väljer **användare**, och välj sedan **alla användare**.
 
-**Utför följande steg för att skapa en testanvändare i Azure AD:**
+    ![Skapa en Azure AD-användare][100]
 
-1. I Azure-portalen, i den vänstra rutan klickar du på den **Azure Active Directory** knappen.
+2. Välj **ny användare** överst på skärmen.
 
-    ![Azure Active Directory-knappen](./media/figma-tutorial/create_aaduser_01.png)
+    ![Skapa en Azure AD-användare för testning](./media/figma-tutorial/create_aaduser_01.png) 
 
-2. Om du vill visa en lista över användare, gå till **användare och grupper**, och klicka sedan på **alla användare**.
+3. Utför följande steg i egenskaperna för användaren.
 
-    ![”Användare och grupper” och ”alla användare”-länkar](./media/figma-tutorial/create_aaduser_02.png)
+    ![Skapa en Azure AD-användare för testning](./media/figma-tutorial/create_aaduser_02.png)
 
-3. Öppna den **användaren** dialogrutan klickar du på **Lägg till** överst i den **alla användare** dialogrutan.
+    a. I den **namn** anger **BrittaSimon**.
+  
+    b. I den **användarnamn** skriver **brittasimon@yourcompanydomain.extension**  
+    Till exempel, BrittaSimon@contoso.com
 
-    ![Knappen Lägg till](./media/figma-tutorial/create_aaduser_03.png)
+    c. Välj **egenskaper**väljer den **Show lösenord** kryssrutan och sedan skriva ned det värde som visas i rutan lösenord.
 
-4. I den **användaren** dialogrutan utför följande steg:
+    d. Välj **Skapa**.
 
-    ![Dialogrutan användare](./media/figma-tutorial/create_aaduser_04.png)
-
-    a. I den **namn** skriver **BrittaSimon**.
-
-    b. I den **användarnamn** skriver användarens Britta Simon e-postadress.
-
-    c. Välj den **visa lösenord** kryssrutan och sedan skriva ned det värde som visas i den **lösenord** box.
-
-    d. Klicka på **Skapa**.
-
-### <a name="create-a-figma-test-user"></a>Skapa en Figma testanvändare
+### <a name="creating-a-figma-test-user"></a>Skapa en Figma testanvändare
 
 Målet med det här avsnittet är att skapa en användare som kallas Britta Simon i Figma. Figma stöder just-in-time-etablering, vilket är som standard aktiverat. Det finns inga uppgift åt dig i det här avsnittet. En ny användare har skapats under ett försök att komma åt Figma om det inte finns ännu.
 
-### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
+### <a name="assigning-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
 
-I det här avsnittet ska aktivera du Britta Simon att använda Azure enkel inloggning genom att bevilja åtkomst till Figma.
+I det här avsnittet ska aktivera du Britta Simon att använda Azure enkel inloggning genom att bevilja åtkomst till HubSpot SAML.
 
-![Tilldela rollen][200]
+1. I Azure-portalen väljer du **företagsprogram**väljer **alla program**.
 
-**Om du vill tilldela Britta Simon Figma, utför du följande steg:**
+    ![Tilldela användare][201]
 
-1. Öppna vyn program i Azure-portalen och gå till vyn directory och gå till **företagsprogram** klickar **alla program**.
+2. I listan med program väljer **HubSpot SAML**.
 
-    ![Tilldela användare][201] 
-
-2. I listan med program väljer **Figma**.
-
-    ![Länken Figma i listan med program](./media/figma-tutorial/tutorial_figma_app.png)  
+    ![Konfigurera enkel inloggning](./media/figma-tutorial/tutorial_figma_app.png) 
 
 3. I menyn till vänster, klickar du på **användare och grupper**.
 
-    ![Länken ”användare och grupper”][202]
+    ![Tilldela användare][202]
 
 4. Klicka på **Lägg till** knappen. Välj sedan **användare och grupper** på **Lägg till tilldelning** dialogrutan.
 
-    ![Fönstret Lägg till tilldelning][203]
+    ![Tilldela användare][203]
 
-5. På **användare och grupper** dialogrutan **Britta Simon** på listan användare.
+5. I den **användare och grupper** dialogrutan Välj **Britta Simon** i listan över användare och klicka på den **Välj** längst ned på skärmen.
 
-6. Klicka på **Välj** knappen **användare och grupper** dialogrutan.
+6. I den **Lägg till tilldelning** dialogrutan Välj den **tilldela** knappen.
 
-7. Klicka på **tilldela** knappen **Lägg till tilldelning** dialogrutan.
-
-### <a name="test-single-sign-on"></a>Testa enkel inloggning
+### <a name="testing-single-sign-on"></a>Testa enkel inloggning
 
 I det här avsnittet ska testa du Azure AD enkel inloggning för konfigurationen med hjälp av åtkomstpanelen.
 
 När du klickar på panelen Figma i åtkomstpanelen du bör få automatiskt loggat in på ditt Figma program.
-Läs mer om åtkomstpanelen [introduktion till åtkomstpanelen](../user-help/active-directory-saas-access-panel-introduction.md). 
+Läs mer om åtkomstpanelen [introduktion till åtkomstpanelen](../user-help/active-directory-saas-access-panel-introduction.md).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 

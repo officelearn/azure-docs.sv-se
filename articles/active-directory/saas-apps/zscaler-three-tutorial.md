@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/12/2018
+ms.date: 10/25/2018
 ms.author: jeedes
-ms.openlocfilehash: 0ef8fc2ea8b006d49dd54d638183a58bf78a5797
-ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
+ms.openlocfilehash: b148967af0882993d8ab113bdf0fd3ad3835296f
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2018
-ms.locfileid: "49312996"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50092618"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zscaler-three"></a>Självstudier: Azure Active Directory-integration med tre Zscaler
 
@@ -119,10 +119,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     ![Konfigurera enkel inloggning](./media/zscaler-three-tutorial/tutorial_zscalerthree_url.png)
 
-    Ange URL: en i textrutan svars-URL: `https://login.zscalerthree.net/sfc_sso`
-
-    > [!NOTE]
-    > Du måste uppdatera det här värdet med faktiska inloggnings-URL: en. Kontakta [Zscaler tre klienten supportteamet](https://www.zscaler.com/company/contact) att hämta dessa värden.
+    Ange URL: en i URL-textrutan inloggning: `https://login.zscalerthree.net/sfc_sso`
 
 6. På den **SAML-signeringscertifikat** avsnittet, klicka på **hämta** att ladda ned **Certificate(Base64)** och spara certifikatfilen på datorn.
 

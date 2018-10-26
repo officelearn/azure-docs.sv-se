@@ -1,6 +1,6 @@
 ---
-title: Använda MySQL-databaser som PaaS på Azure-stacken | Microsoft Docs
-description: Lär dig hur du kan distribuera MySQL Resource Provider och ange MySQL-databaser som en tjänst på Azure-stacken.
+title: Använda MySQL-databaser som PaaS på Azure Stack | Microsoft Docs
+description: Lär dig hur du kan distribuera MySQL-Resursprovidern och ange MySQL-databaser som en tjänst på Azure Stack.
 services: azure-stack
 documentationCenter: ''
 author: jeffgilb
@@ -11,48 +11,46 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/21/2018
+ms.date: 10/25/2018
 ms.author: jeffgilb
-ms.reviewer: jeffgo
-ms.openlocfilehash: 24ba595413cde07c420a94de234d7926e0eb0e7f
-ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
+ms.reviewer: quying
+ms.openlocfilehash: 635948c28ffe5d5eaece372976e58d26e17214e3
+ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36309843"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50084238"
 ---
-# <a name="use-mysql-databases-on-microsoft-azure-stack"></a>Använda MySQL-databaser på Microsoft Azure-stacken
+# <a name="use-mysql-databases-on-microsoft-azure-stack"></a>Använda MySQL-databaser på Microsoft Azure Stack
 
-Du kan distribuera MySQL-resursprovidern API för att använda MySQL-databaser som distribuerats i Azure-stacken. Mer information om resursprovidern API finns [Windows Azure Pack MySQL Resource Provider REST API-referens](https://msdn.microsoft.com/library/dn528442.aspx).
+MySQL-databaser är vanliga på webbplatser och stöd för flera plattformar. Du kan till exempel skapa WordPress-webbplats med hjälp av Web Apps-plattformen som en tjänst (PaaS)-tillägg.
 
-MySQL-databaser är vanliga på webbplatser och stöd för flera olika plattformar webbplats. Du kan till exempel skapa WordPress-webbplatser med hjälp av Web Apps-plattform som en tjänst (PaaS)-tillägg.
+När du distribuerar resursprovidern, kan du:
 
-När du har distribuerat resursprovidern kan du:
-
-* Skapa MySQL-servrar och databaser med hjälp av mallar för Azure Resource Manager distribution.
+* Skapa MySQL-servrar och databaser med hjälp av mallar för Azure Resource Manager-distribution.
 * Ange MySQL-databaser som en tjänst.  
 
 ## <a name="mysql-resource-provider-adapter-architecture"></a>Adapter-arkitektur för MySQL-provider
 
-Resursprovidern innehåller följande komponenter:
+Resursprovidern har följande komponenter:
 
-* **MySQL resource provider kortet virtuell dator (VM)**, vilket är en Windows virtuell dator som kör provider-tjänster.
-* **Resursprovidern**, som bearbetar begäranden och ansluter till databasen resurser.
-* **Servrar som är värd för MySQL servern**, som ger kapacitet för databaser som kallas värd för servrar. Du kan skapa MySQL instanser manuellt eller ge åtkomst till externa MySQL-instanser. Den [Azure Stack Snabbstartsgalleriet](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/mysql-standalone-server-windows) har en exempelmall som du kan använda för att:
+* **MySQL resource provider nätverkskort virtuell dator (VM)**, vilket är en Windows Server VM som körs i tjänsterna.
+* **Resursprovidern**, som bearbetar begäranden och kommer åt databasresurser.
+* **Servrar som är värdar för MySQL-Server**, vilket ger kapacitet för databaser som kallas som är värd för servrar. Du kan skapa MySQL-instanser själv eller ge åtkomst till externa MySQL-instanser. Den [Azure Stack-Snabbstartsgalleriet](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/mysql-standalone-server-windows) har en exempelmall som du kan använda för att:
 
-  * Skapa en MySQL-server.
+  * Skapa en MySQL-server åt dig.
   * Hämta och distribuera en MySQL-Server från Azure Marketplace.
 
 > [!NOTE]
-> Värd för servrar som är installerade på Azure-stacken måste integrerade system skapas från en klientprenumeration. De kan inte skapas från standard providern prenumerationen. De måste skapas från klientportalen eller från en PowerShell-session med en lämplig inloggning. Alla värdservrar fakturerbar virtuella datorer och måste ha licenser. Tjänstadministratören kan vara klient Prenumerationens ägare.
+> Som är värd för servrar som är installerade på Azure Stack måste integrerade system skapas från en klientprenumeration. De kan inte skapas från providern Standardprenumeration. De måste skapas från klientportalen eller från en PowerShell-session med en lämplig inloggning. Alla värdservrar är fakturerbara virtuella datorer och måste ha licenser. Tjänstadministratören kan vara ägare till den klient-prenumerationen.
 
 ### <a name="required-privileges"></a>Behörigheter som krävs
 
 System-kontot måste ha följande behörigheter:
 
 * **Databas:** skapa, ta bort
-* **Inloggning:** skapa, ställa in, drop, bevilja, återkalla  
+* **Inloggning:** skapa, ange, släppa, bevilja, återkalla  
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Distribuera MySQL-resursprovidern](azure-stack-mysql-resource-provider-deploy.md)
+[Distribuera MySQL-resursprovider](azure-stack-mysql-resource-provider-deploy.md)

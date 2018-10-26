@@ -4,17 +4,17 @@ description: Lär dig hur du felsöker problem med hantering av agenten.
 services: automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 10/10/2018
+ms.date: 10/25/2018
 ms.topic: conceptual
 ms.service: automation
 ms.component: update-management
 manager: carmonm
-ms.openlocfilehash: 1b258d115e7d9962ecab4b93dbcd98d13f5977c7
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: 20323afe79ad3de1e3dfccd4752c4f7e28d22266
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49956688"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50095379"
 ---
 # <a name="understand-the-agent-check-results-in-update-management"></a>Förstå agenten kontrollera resultaten i hantering av uppdateringar
 
@@ -46,15 +46,15 @@ OS-kontroll verifierar om Hybrid Runbook Worker kör något av följande operati
 |Operativsystem  |Anteckningar  |
 |---------|---------|
 |Windows Server 2008, Windows Server 2008 R2 RTM    | Stöder bara uppdatera utvärderingar.         |
-|Windows Server 2008 R2 SP1 och senare     |.NET framework 4.5 eller senare krävs. ([Hämta .NET Framework](/dotnet/framework/install/guide-for-developers))<br/> Windows PowerShell 4.0 eller senare krävs. ([Hämta WMF 4.0](https://www.microsoft.com/download/details.aspx?id=40855))<br/> Windows PowerShell 5.1 rekommenderas för ökad tillförlitlighet.  ([Hämta WMF 5.1](https://www.microsoft.com/download/details.aspx?id=54616))        |
+|Windows Server 2008 R2 SP1 och senare     |.NET framework 4.5.1 eller senare krävs. ([Hämta .NET Framework](/dotnet/framework/install/guide-for-developers))<br/> Windows PowerShell 4.0 eller senare krävs. ([Hämta WMF 4.0](https://www.microsoft.com/download/details.aspx?id=40855))<br/> Windows PowerShell 5.1 rekommenderas för ökad tillförlitlighet.  ([Hämta WMF 5.1](https://www.microsoft.com/download/details.aspx?id=54616))        |
 |CentOS 6 (x86/x64) och 7 (x64)      | Linux-agenter måste ha åtkomst till en uppdateringslagringsplats. 'Yum' kräver klassificeringsbaserad uppdatering för att returnera säkerhetsdata som CentOS inte har direkt.         |
 |Red Hat Enterprise 6 (x86/x64) och 7 (x64)     | Linux-agenter måste ha åtkomst till en uppdateringslagringsplats.        |
 |SUSE Linux Enterprise Server 11 (x86/x64) och 12 (x64)     | Linux-agenter måste ha åtkomst till en uppdateringslagringsplats.        |
-|Ubuntu 14.04 LTS och 16.04 LTS (x86/x64)      |Linux-agenter måste ha åtkomst till en uppdateringslagringsplats.         |
+|Ubuntu 14.04 LTS, 16.04 LTS och 18.04 LTS (x86/x64)      |Linux-agenter måste ha åtkomst till en uppdateringslagringsplats.         |
 
-### <a name="net-45"></a>.NET 4.5
+### <a name="net-451"></a>.NET 4.5.1
 
-.NET framework-kontroll verifierar om systemet har minst [.NET Framework 4.5](https://www.microsoft.com/download/details.aspx?id=30653) finns.
+.NET framework-kontroll verifierar om systemet har minst [.NET Framework 4.5.1](https://www.microsoft.com/download/details.aspx?id=30653) finns.
 
 ### <a name="wmf-51"></a>WMF 5.1
 

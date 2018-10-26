@@ -10,15 +10,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/12/2018
+ms.date: 10/23/2018
 ms.author: mabrigg
 ms.reviewer: efemmano
-ms.openlocfilehash: 7ccf746cfd9645b63c2810bff83cfb0c4fa55d65
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 4ec9affa78d1f244208a24bcf8a6603e867d4c08
+ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44713755"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50086513"
 ---
 # <a name="use-the-azure-stack-portal"></a>Använd Azure Stack-portalen
 
@@ -32,12 +32,13 @@ Azure Stack-operatör (en tjänstleverantör eller en administratör i din organ
 
 - För ett integrerat system URL: en varierar beroende på region och externa domännamn för din operatör och ska vara i formatet https://portal.&lt; *region*&gt;.&lt; *FQDN*&gt;.
 - Om du använder Azure Stack Development Kit är Portaladress https://portal.local.azurestack.external.
-
-![Skärmdump av användarportalen för Azure Stack](media/azure-stack-use-portal/UserPortal.png)
+- Standardtidszon för alla Azure Stack-distributioner har angetts till Coordinated Universal Time (UTC). Du kan välja en tidszon när du installerar Azure Stack, men det automatiskt med UTC som standard under installationen.
 
 ## <a name="customize-the-dashboard"></a>Anpassa instrumentpanelen
 
 Instrumentpanelen innehåller en standarduppsättning med paneler. Du kan välja **redigera instrumentpanel** att ändra standardinstrumentpanelen eller välj **ny instrumentpanel** att skapa en anpassad instrumentpanel. Du kan enkelt anpassa en instrumentpanel genom att lägga till eller ta bort paneler. Om du vill lägga till en panel för beräkning, väljer du exempelvis **+ skapa en resurs**. Högerklicka på **Compute**, och välj sedan **fäst på instrumentpanelen**.
+
+![Skärmdump av användarportalen för Azure Stack](media/azure-stack-use-portal/userportal.png)
 
 ## <a name="create-subscription-and-browse-available-resources"></a>Skapa prenumeration och bläddra bland tillgängliga resurser
 

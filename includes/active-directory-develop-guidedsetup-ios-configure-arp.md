@@ -14,21 +14,23 @@ ms.workload: identity
 ms.date: 09/19/2018
 ms.author: andret
 ms.custom: include file
-ms.openlocfilehash: af59795309dc347bd5fe1263f7546d4aebdd16d1
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.openlocfilehash: b3ced6bbd69b38e187b3ed4fa1f2b22e5dd05ce4
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48842909"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50098066"
 ---
 ## <a name="add-the-applications-registration-information-to-your-app"></a>Lägg till programmets registreringsinformation i din app
 
 I det här steget måste du lägga till program-ID i projektet:
 
-1.  I `ViewController.swift`, ersätter du raden som börjar med ”`let kClientID`' med:
+1. I `ViewController.swift`, ersätter du raden som börjar med ”`let kClientID`' med:
+
 ```swift
 let kClientID = "[Enter the application Id here]"
 ```
+
 <!-- Workaround for Docs conversion bug -->
 <ol start="2">
 <li>

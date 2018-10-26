@@ -12,12 +12,12 @@ ms.devlang: fsharp
 ms.topic: reference
 ms.date: 10/09/2018
 ms.author: syclebsc
-ms.openlocfilehash: b7cb3a7094ef2c11df63c9e5595355d4076e2ccd
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.openlocfilehash: bd971b84b907d3fda1bea9922b2fd1881eb369e9
+ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/25/2018
-ms.locfileid: "50025437"
+ms.locfileid: "50087244"
 ---
 # <a name="azure-functions-f-developer-reference"></a>Azure Functions F #-Utvecklarreferens
 
@@ -79,7 +79,7 @@ type TestObject =
     { SenderName : string
       Greeting : string }
 
-let Run(req: TestObject, log: TraceWriter) =
+let Run(req: TestObject, log: ILogger) =
     { req with Greeting = sprintf "Hello, %s" req.SenderName }
 ```
 
@@ -96,11 +96,11 @@ let Run(input: string, item: byref<Item>) =
 ```
 
 ## <a name="logging"></a>Loggning
-Logga utdata till din [direktuppspelningsloggar](../app-service/web-sites-enable-diagnostic-log.md) i F #, funktionen tar ett argument av typen `TraceWriter`. För konsekvens, rekommenderar vi det här argumentet heter `log`. Exempel:
+Logga utdata till din [direktuppspelningsloggar](../app-service/web-sites-enable-diagnostic-log.md) i F#, funktionen tar ett argument av typen [ILogger](https://docs.microsoft.com/dotnet/api/microsoft.extensions.logging.ilogger). För konsekvens, rekommenderar vi det här argumentet heter `log`. Exempel:
 
 ```fsharp
-let Run(blob: string, output: byref<string>, log: TraceWriter) =
-    log.Verbose(sprintf "F# Azure Function processed a blob: %s" blob)
+let Run(blob: string, output: byref<string>, log: ILogger) =
+    log.LogInformation(sprintf "F# Azure Function processed a blob: %s" blob)
     output <- input
 ```
 
@@ -132,8 +132,9 @@ Namnområden kan öppnas som vanligt:
 ```fsharp
 open System.Net
 open System.Threading.Tasks
+open Microsoft.Extensions.Logging
 
-let Run(req: HttpRequestMessage, log: TraceWriter) =
+let Run(req: HttpRequestMessage, log: ILogger) =
     ...
 ```
 
@@ -157,8 +158,9 @@ På samma sätt framework sammansättningsreferenser kan läggas till med den `#
 open System.Net
 open System.Net.Http
 open System.Threading.Tasks
+open Microsoft.Extensions.Logging
 
-let Run(req: HttpRequestMessage, log: TraceWriter) =
+let Run(req: HttpRequestMessage, log: ILogger) =
     ...
 ```
 
@@ -196,8 +198,9 @@ En redigerare som har stöd för F #-kompilatorn Services kommer inte att märka
 
 open System
 open Microsoft.Azure.WebJobs.Host
+open Microsoft.Extensions.Logging
 
-let Run(blob: string, output: byref<string>, log: TraceWriter) =
+let Run(blob: string, output: byref<string>, log: ILogger) =
     ...
 ```
 
@@ -253,10 +256,11 @@ Hämta en miljövariabel eller en app som inställningsvärde `System.Environmen
 
 ```fsharp
 open System.Environment
+open Microsoft.Extensions.Logging
 
-let Run(timer: TimerInfo, log: TraceWriter) =
-    log.Info("Storage = " + GetEnvironmentVariable("AzureWebJobsStorage"))
-    log.Info("Site = " + GetEnvironmentVariable("WEBSITE_SITE_NAME"))
+let Run(timer: TimerInfo, log: ILogger) =
+    log.LogInformation("Storage = " + GetEnvironmentVariable("AzureWebJobsStorage"))
+    log.LogInformation("Site = " + GetEnvironmentVariable("WEBSITE_SITE_NAME"))
 ```
 
 ## <a name="reusing-fsx-code"></a>Återanvända .fsx kod
@@ -267,15 +271,15 @@ Du kan använda kod från andra `.fsx` filer med hjälp av en `#load` direktiv. 
 ```fsharp
 #load "logger.fsx"
 
-let Run(timer: TimerInfo, log: TraceWriter) =
+let Run(timer: TimerInfo, log: ILogger) =
     mylog log (sprintf "Timer: %s" DateTime.Now.ToString())
 ```
 
 `logger.fsx`
 
 ```fsharp
-let mylog(log: TraceWriter, text: string) =
-    log.Verbose(text);
+let mylog(log: ILogger, text: string) =
+    log.LogInformation(text);
 ```
 
 Sökvägar som förser den `#load` direktivet är i förhållande till platsen för din `.fsx` fil.

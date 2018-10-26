@@ -3,8 +3,8 @@ title: OpenShift i förutsättningar för Azure | Microsoft Docs
 description: Förutsättningar för att distribuera OpenShift i Azure.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
-author: haroldw
-manager: najoshi
+author: haroldwongms
+manager: joraio
 editor: ''
 tags: azure-resource-manager
 ms.assetid: ''
@@ -15,32 +15,32 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: ''
 ms.author: haroldw
-ms.openlocfilehash: 36271116d697e5ee6c6ed08d5fdc6063a511e820
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: fd20fe880ae77992e5eadb5f2b581d3f5b53f86e
+ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46984352"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50085883"
 ---
 # <a name="common-prerequisites-for-deploying-openshift-in-azure"></a>Vanliga krav för distribution av OpenShift i Azure
 
-Den här artikeln beskriver vanliga krav för distribution av OpenShift Origin eller OpenShift Container Platform i Azure.
+Den här artikeln beskriver vanliga krav för distribution av OpenShift Container Platform eller OKD i Azure.
 
 Installationen av OpenShift använder Ansible-spelböcker. Ansible använder Secure Shell (SSH) för att ansluta till alla klustervärdar Slutför installationsstegen.
 
-När du har initierat SSH-anslutningen till de fjärranslutna värdarna kan ange du inte ett lösenord. Den privata nyckeln kan inte ha ett lösenord som är associerade med det därför eller distributionen misslyckas.
+När ansible initierar SSH-anslutningen till de fjärranslutna värddatorerna, kan inte den ange ett lösenord. Därför den privata nyckeln kan inte ha ett lösenord (lösenfras) som är kopplade till den eller distributionen misslyckas.
 
 Eftersom de virtuella datorerna (VM) distribuera via Azure Resource Manager-mallar, används samma offentliga nyckel för åtkomst till alla virtuella datorer. Du måste mata in motsvarande privata nyckel i den virtuella datorn som kör alla spelböcker samt. Om du vill göra detta på ett säkert sätt använder du ett Azure key vault för att skicka den privata nyckeln till den virtuella datorn.
 
-Om det finns ett behov av lagringsutrymme för behållare, krävs beständiga volymer. OpenShift stöder Azure virtuella hårddiskar (VHD) för den här funktionen, men Azure måste först konfigureras som molnleverantör. 
+Om det finns ett behov av lagringsutrymme för behållare, krävs beständiga volymer. OpenShift stöder Azure virtuella hårddiskar (VHD) för den här funktionen, men Azure måste först konfigureras som molnleverantör.
 
 I den här modellen OpenShift:
 
-- Skapar en VHD-objekt i ett Azure Storage-konto.
-- Monterar den virtuella Hårddisken till en virtuell dator och formatera volymen.
+- Skapar en VHD-objekt i ett Azure Storage-konto eller en hanterad disk.
+- Monterar den virtuella Hårddisken till en virtuell dator och formateras volymen.
 - Monterar volymen till en pod.
 
-Den här konfigurationen ska fungera OpenShift måste du ha behörighet att utföra de föregående aktiviteterna i Azure. Du kan åstadkomma detta med ett huvudnamn för tjänsten. Tjänstens huvudnamn är en security-konto i Azure Active Directory som har beviljats behörighet till resurser.
+Den här konfigurationen ska fungera måste OpenShift behörighet att utföra dessa uppgifter i Azure. Du kan åstadkomma detta med ett huvudnamn för tjänsten. Tjänstens huvudnamn är en security-konto i Azure Active Directory som har beviljats behörighet till resurser.
 
 Tjänstens huvudnamn måste ha åtkomst till lagringskonton och virtuella datorer som ingår i klustret. Om alla OpenShift-klusterresurser distribuerar till en enskild resursgrupp, kan tjänstens huvudnamn beviljas behörigheter till resursgruppen.
 
@@ -48,7 +48,7 @@ Den här guiden beskriver hur du skapar de artefakter som associeras med kraven.
 
 > [!div class="checklist"]
 > * Skapa ett nyckelvalv för att hantera SSH-nycklar för OpenShift-klustret.
-> * Skapa ett huvudnamn för tjänsten för användning av Azure Cloud Solution Provider.
+> * Skapa ett huvudnamn för tjänsten för användning av Azure Cloud-providern.
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
@@ -60,7 +60,7 @@ az login
 ```
 ## <a name="create-a-resource-group"></a>Skapa en resursgrupp
 
-Skapa en resursgrupp med kommandot [az group create](/cli/azure/group#az_group_create). En Azure-resursgrupp är en logisk container där Azure-resurser distribueras och hanteras. Du kan använda en dedikerad resursgrupp för att vara värd för nyckelvalvet. Den här gruppen är separat från resursgruppen dit distribuera OpenShift klusterresurserna. 
+Skapa en resursgrupp med kommandot [az group create](/cli/azure/group#az_group_create). En Azure-resursgrupp är en logisk container där Azure-resurser distribueras och hanteras. Det rekommenderas att använda en dedikerad resursgrupp som värd för nyckelvalvet. Den här gruppen är separat från resursgruppen dit distribuera OpenShift klusterresurserna.
 
 I följande exempel skapas en resursgrupp med namnet *keyvaultrg* i den *eastus* plats:
 
@@ -80,16 +80,16 @@ az keyvault create --resource-group keyvaultrg --name keyvault \
 ```
 
 ## <a name="create-an-ssh-key"></a>Skapa en SSH-nyckel 
-En SSH-nyckel krävs för att skydda åtkomsten till OpenShift Origin-klustret. Skapa en SSH-nyckelpar med hjälp av den `ssh-keygen` (på Linux eller macOS):
+En SSH-nyckel krävs för att skydda åtkomsten till OpenShift-klustret. Skapa en SSH-nyckelpar med hjälp av den `ssh-keygen` (på Linux eller macOS):
  
  ```bash
 ssh-keygen -f ~/.ssh/openshift_rsa -t rsa -N ''
 ```
 
 > [!NOTE]
-> SSH-nyckelpar kan inte ha ett lösenord.
+> SSH-nyckelpar kan inte ha ett lösenord / lösenfras.
 
-Läs mer på SSH-nycklar på Windows, [hur du skapar SSH-nycklar på Windows](/azure/virtual-machines/linux/ssh-from-windows).
+Läs mer på SSH-nycklar på Windows, [hur du skapar SSH-nycklar på Windows](/azure/virtual-machines/linux/ssh-from-windows). Glöm inte att exportera den privata nyckeln i OpenSSH-format.
 
 ## <a name="store-the-ssh-private-key-in-azure-key-vault"></a>Store privat SSH-nyckeln i Azure Key Vault
 OpenShift-distributionen använder SSH-nyckeln som du skapade för att skydda åtkomsten till OpenShift master. Om du vill aktivera distributionen att på ett säkert sätt hämta SSH-nyckeln, lagra nyckeln i Key Vault med hjälp av följande kommando:
@@ -103,18 +103,29 @@ OpenShift kommunicerar med Azure genom att använda ett användarnamn och lösen
 
 Skapa ett tjänstobjekt med [az ad sp create-for-rbac](/cli/azure/ad/sp#az_ad_sp_create_for_rbac) och matar ut de autentiseringsuppgifter som OpenShift behöver.
 
-I följande exempel skapar en tjänst huvudnamn och tilldelar den deltagarbehörighet till en resursgrupp med namnet myResourceGroup. Om du använder Windows kör ```az group show --name myResourceGroup --query id``` separat och använda utdata för att mata in alternativet--omfång.
+I följande exempel skapar en tjänst huvudnamn och tilldelar den deltagarbehörighet till en resursgrupp med namnet openshiftrg.
+separat och använda utdata för att mata in alternativet--omfång.
+
+Först skapa resursgruppen med namnet openshiftrg:
 
 ```azurecli
-az ad sp create-for-rbac --name openshiftsp \
-          --role Contributor --password {Strong Password} \
-          --scopes $(az group show --name myResourceGroup --query id)
+az group create -l eastus -n openshiftrg
 ```
+
+Skapa tjänstens huvudnamn:
+
+```azurecli
+scope=`az group show --name openshiftrg --query id`
+az ad sp create-for-rbac --name openshiftsp \
+      --role Contributor --password {Strong Password} \
+      --scopes $scope
+```
+Om du använder Windows kör ```az group show --name openshiftrg --query id``` och använda utdata i stället för $scope.
 
 Anteckna appId-egenskapen som returneras från kommandot:
 ```json
 {
-  "appId": "11111111-abcd-1234-efgh-111111111111",            
+  "appId": "11111111-abcd-1234-efgh-111111111111",
   "displayName": "openshiftsp",
   "name": "http://openshiftsp",
   "password": {Strong Password},
@@ -135,6 +146,5 @@ Den här artikeln beskrivs i följande avsnitt:
 
 Distribuera ett OpenShift-kluster:
 
-- [Distribuera OpenShift Origin](./openshift-origin.md)
 - [Distribuera OpenShift Container Platform](./openshift-container-platform.md)
-
+- [Distribuera OKD](./openshift-okd.md)

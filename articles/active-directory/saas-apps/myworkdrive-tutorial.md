@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/19/2018
+ms.date: 10/25/2018
 ms.author: jeedes
-ms.openlocfilehash: 2103c5c8c08a6aebfc1168c8fbdb4181dbe3a997
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 7310d300c68399c31d9580f070602aa3adbc75e3
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47047839"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50094064"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-myworkdrive"></a>Självstudier: Azure Active Directory-integration med MyWorkDrive
 
@@ -61,19 +61,19 @@ För att konfigurera integrering av MyWorkDrive i Azure AD, som du behöver läg
 
 1. I den **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon. 
 
-    ![Azure Active Directory-knappen][1]
+    ![image](./media/myworkdrive-tutorial/selectazuread.png)
 
 2. Gå till **företagsprogram**. Gå till **alla program**.
 
-    ![Bladet för Enterprise-program][2]
+    ![image](./media/myworkdrive-tutorial/a_select_app.png)
     
 3. Lägg till nytt program, klicka på **nytt program** knappen överst i dialogrutan.
 
-    ![Knappen Nytt program][3]
+    ![image](./media/myworkdrive-tutorial/a_new_app.png)
 
 4. I sökrutan skriver **MyWorkDrive**väljer **MyWorkDrive** resultatet panelen klickar **Lägg till** för att lägga till programmet.
 
-    ![MyWorkDrive i resultatlistan](./media/myworkdrive-tutorial/tutorial_myworkdrive_addfromgallery.png)
+     ![image](./media/myworkdrive-tutorial/tutorial_myworkdrive_addfromgallery.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa Azure AD enkel inloggning
 
@@ -95,108 +95,110 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
 **Utför följande steg för att konfigurera Azure AD enkel inloggning med MyWorkDrive:**
 
-1. I Azure-portalen på den **MyWorkDrive** program integration-sidan klickar du på **enkel inloggning**.
+1. I den [Azure-portalen](https://portal.azure.com/)på den **MyWorkDrive** application integration markerar **enkel inloggning**.
 
-    ![Konfigurera enkel inloggning för länken][4]
+    ![image](./media/myworkdrive-tutorial/B1_B2_Select_SSO.png)
 
-2. På den **enkel inloggning** dialogrutan **läge** som **SAML-baserad inloggning** att aktivera enkel inloggning.
- 
-    ![Enkel inloggning för dialogrutan](./media/myworkdrive-tutorial/tutorial_myworkdrive_samlbase.png)
+2. På den **väljer du en metod för enkel inloggning** dialogrutan Välj **SAML** läge för att aktivera enkel inloggning.
 
-3. På den **MyWorkDrive domän och URL: er** avsnittet, utför följande steg om du vill konfigurera programmet i **IDP** initierade läge:
+    ![image](./media/myworkdrive-tutorial/b1_b2_saml_sso.png)
 
-    ![MyWorkDrive domän och URL: er med enkel inloggning för information](./media/myworkdrive-tutorial/tutorial_myworkdrive_url.png)
+3. På den **ange in enkel inloggning med SAML** klickar du på **redigera** knappen för att öppna **SAML grundkonfiguration** dialogrutan.
+
+    ![image](./media/myworkdrive-tutorial/b1-domains_and_urlsedit.png)
+
+4. På den **SAML grundkonfiguration** avsnittet, utför följande steg om du vill konfigurera programmet i **IDP** initierade läge:
+
+    ![image](./media/myworkdrive-tutorial/tutorial_myworkdrive_url.png)
 
     I den **svars-URL** textrutan anger du ett URL med hjälp av följande mönster: `https://<SERVER.DOMAIN.COM>/SAML/AssertionConsumerService.aspx`
 
-4. Kontrollera **visa avancerade URL-inställningar** och utföra följande steg om du vill konfigurera programmet i **SP** initierade läge:
+5. Klicka på **ange ytterligare webbadresser** och utföra följande steg om du vill konfigurera programmet i **SP** initierade läge:
 
-    ![MyWorkDrive domän och URL: er med enkel inloggning för information](./media/myworkdrive-tutorial/tutorial_myworkdrive_url1.png)
+    ![image](./media/myworkdrive-tutorial/tutorial_myworkdrive_url1.png)
 
-    I den **inloggnings-URL** textrutan anger du ett URL med hjälp av följande mönster: `https://<SERVER.DOMAIN.COM>/Account/Login-saml`
-     
-    > [!NOTE] 
-    > Dessa värden är inte verkliga. Uppdatera dessa värden med de faktiska svars-URL och inloggnings-URL. Kontakta [MyWorkDrive klienten supportteamet](mailto:support@myworkdrive.com) att hämta dessa värden. 
+    I den **inloggnings-URL** textrutan anger du ett URL med hjälp av följande mönster: `https://<SERVER.DOMAIN.COM>/Account/Login-saml` 
 
-5. På den **SAML-signeringscertifikat** klickar du på **certifikat (Base64)** och spara certifikatfilen på datorn.
+    > [!NOTE]
+    > Dessa värden är inte verkliga. Uppdatera dessa värden med de faktiska svars-URL och inloggnings-URL.  Ange ditt företag MyWorkDrive Server värd name:e.g.
+    > 
+    > Svars-URL: `https://yourserver.yourdomain.com/SAML/AssertionConsumerService.aspx`
+    > 
+    > Inloggnings-URL:`https://yourserver.yourdomain.com/Account/Login-saml`
+    > 
+    > Kontakta supportteamet för MyWorkDrive klienten om du är osäker på hur du ställer in dina egna värdnamn och SSL-certifikat för dessa värden.
 
-    ![Länk för hämtning av certifikat](./media/myworkdrive-tutorial/tutorial_myworkdrive_certificate.png) 
+6. På den **ange in enkel inloggning med SAML** sidan den **SAML-signeringscertifikat** klickar du på Kopiera **ikonen** att kopiera **Appfederationsmetadata** och klicka på **hämta** att ladda ned den **certifikat (Base64)** spara den på din dator.
 
-6. Klicka på **spara** knappen.
+    ![image](./media/myworkdrive-tutorial/tutorial_myworkdrive_certficate.png) 
 
-    ![Konfigurera enkel inloggning spara-knapp](./media/myworkdrive-tutorial/tutorial_general_400.png)
+7. På den **konfigurera MyWorkDrive** avsnittet, kopiera den lämpliga URL enligt dina behov.
+
+    Observera att URL: en kan stå följande:
+
+    a. Inloggningswebbadress
+
+    b. Azure Ad-ID
+
+    c. Utloggnings-URL
+
+    ![image](./media/myworkdrive-tutorial/d1_samlsonfigure.png) 
+
+8. Om du vill konfigurera enkel inloggning på MyWorkDrive sida, ladda ned den **certifikat (Base64), URL: en för utloggning, SAML entitets-ID och SAML inloggnings-tjänst-URL för enkel** och konfigurera dem manuellt på MyWorkDrive server eller kopiera och klistra in Azure  **Appfederationsmetadata** till din MyWorkDrive Server Admin panelen SAML Azure AD-konfigurationsskärmen. För ytterligare information Kontakta [MyWorkDrive supportteamet](mailto:support@myworkdrive.com).
+
     
-7. På den **MyWorkDrive Configuration** klickar du på **konfigurera MyWorkDrive** att öppna **konfigurera inloggning** fönster. Kopiera den **URL för utloggning, SAML entitets-ID och SAML enkel inloggning för tjänst-URL** från den **Snabbreferens avsnittet.**
-
-    ![MyWorkDrive konfiguration](./media/myworkdrive-tutorial/tutorial_myworkdrive_configure.png) 
-
-8. Att konfigurera enkel inloggning på **MyWorkDrive** sida, som du behöver skicka de hämtade **certifikat (Base64)**, **URL för utloggning, SAML entitets-ID och SAML enkel inloggning för tjänst-URL**till [MyWorkDrive supportteamet](mailto:support@myworkdrive.com). De ställer du in SAML SSO ansluta till korrekt inställda på båda sidorna.
-
 ### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare
 
 Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen kallas Britta Simon.
 
-   ![Skapa en Azure AD-testanvändare][100]
+1. I Azure-portalen, i den vänstra rutan väljer **Azure Active Directory**väljer **användare**, och välj sedan **alla användare**.
 
-**Utför följande steg för att skapa en testanvändare i Azure AD:**
+    ![image](./media/myworkdrive-tutorial/d_users_and_groups.png)
 
-1. I Azure-portalen, i den vänstra rutan klickar du på den **Azure Active Directory** knappen.
+2. Välj **ny användare** överst på skärmen.
 
-    ![Azure Active Directory-knappen](./media/myworkdrive-tutorial/create_aaduser_01.png)
+    ![image](./media/myworkdrive-tutorial/d_adduser.png)
 
-2. Om du vill visa en lista över användare, gå till **användare och grupper**, och klicka sedan på **alla användare**.
+3. Utför följande steg i egenskaperna för användaren.
 
-    ![”Användare och grupper” och ”alla användare”-länkar](./media/myworkdrive-tutorial/create_aaduser_02.png)
+    ![image](./media/myworkdrive-tutorial/d_userproperties.png)
 
-3. Öppna den **användaren** dialogrutan klickar du på **Lägg till** överst i den **alla användare** dialogrutan.
+    a. I den **namn** ange **BrittaSimon**.
+  
+    b. I den **användarnamn** fälttyp **brittasimon@yourcompanydomain.extension**  
+    Till exempel, BrittaSimon@contoso.com
 
-    ![Knappen Lägg till](./media/myworkdrive-tutorial/create_aaduser_03.png)
+    c. Välj **egenskaper**väljer den **Show lösenord** kryssrutan och sedan skriva ned det värde som visas i rutan lösenord.
 
-4. I den **användaren** dialogrutan utför följande steg:
-
-    ![Dialogrutan användare](./media/myworkdrive-tutorial/create_aaduser_04.png)
-
-    a. I den **namn** skriver **BrittaSimon**.
-
-    b. I den **användarnamn** skriver användarens Britta Simon e-postadress.
-
-    c. Välj den **visa lösenord** kryssrutan och sedan skriva ned det värde som visas i den **lösenord** box.
-
-    d. Klicka på **Skapa**.
+    d. Välj **Skapa**.
  
 ### <a name="create-a-myworkdrive-test-user"></a>Skapa en testanvändare MyWorkDrive
 
-I det här avsnittet skapar du en användare som kallas Britta Simon i MyWorkDrive. Arbeta med [MyWorkDrive supportteamet](mailto:support@myworkdrive.com) att lägga till användare i MyWorkDrive-plattformen. Användare måste skapas och aktiveras innan du använder enkel inloggning.
+I det här avsnittet skapar du en användare som kallas Britta Simon i MyWorkDrive. Arbeta med [MyWorkDrive supportteamet](mailto:support@myworkdrive.com) att lägga till användare i MyWorkDrive-plattformen. Användare måste skapas och aktiveras innan du använder enkel inloggning.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
 
 I det här avsnittet ska aktivera du Britta Simon att använda Azure enkel inloggning genom att bevilja åtkomst till MyWorkDrive.
 
-![Tilldela rollen][200] 
+1. I Azure-portalen väljer du **företagsprogram**väljer **alla program**.
 
-**Om du vill tilldela Britta Simon MyWorkDrive, utför du följande steg:**
-
-1. Öppna vyn program i Azure-portalen och gå till vyn directory och gå till **företagsprogram** klickar **alla program**.
-
-    ![Tilldela användare][201] 
+    ![image](./media/myworkdrive-tutorial/d_all_applications.png)
 
 2. I listan med program väljer **MyWorkDrive**.
 
-    ![Länken MyWorkDrive i listan med program](./media/myworkdrive-tutorial/tutorial_myworkdrive_app.png)  
+    ![image](./media/myworkdrive-tutorial/tutorial_myworkdrive_app.png)
 
-3. I menyn till vänster, klickar du på **användare och grupper**.
+3. I menyn till vänster väljer **användare och grupper**.
 
-    ![Länken ”användare och grupper”][202]
+    ![image](./media/myworkdrive-tutorial/d_leftpaneusers.png)
 
-4. Klicka på **Lägg till** knappen. Välj sedan **användare och grupper** på **Lägg till tilldelning** dialogrutan.
+4. Välj den **Lägg till** knappen och välj **användare och grupper** i den **Lägg till tilldelning** dialogrutan.
 
-    ![Fönstret Lägg till tilldelning][203]
+    ![image](./media/myworkdrive-tutorial/d_assign_user.png)
 
-5. På **användare och grupper** dialogrutan **Britta Simon** på listan användare.
+4. I den **användare och grupper** dialogrutan Välj **Britta Simon** i listan över användare och klicka på den **Välj** längst ned på skärmen.
 
-6. Klicka på **Välj** knappen **användare och grupper** dialogrutan.
-
-7. Klicka på **tilldela** knappen **Lägg till tilldelning** dialogrutan.
+5. I den **Lägg till tilldelning** dialogrutan Välj den **tilldela** knappen.
     
 ### <a name="test-single-sign-on"></a>Testa enkel inloggning
 
@@ -209,20 +211,3 @@ Läs mer om åtkomstpanelen [introduktion till åtkomstpanelen](../active-direct
 
 * [Lista över guider om hur du integrerar SaaS-appar med Azure Active Directory](tutorial-list.md)
 * [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
-
-
-
-<!--Image references-->
-
-[1]: ./media/myworkdrive-tutorial/tutorial_general_01.png
-[2]: ./media/myworkdrive-tutorial/tutorial_general_02.png
-[3]: ./media/myworkdrive-tutorial/tutorial_general_03.png
-[4]: ./media/myworkdrive-tutorial/tutorial_general_04.png
-
-[100]: ./media/myworkdrive-tutorial/tutorial_general_100.png
-
-[200]: ./media/myworkdrive-tutorial/tutorial_general_200.png
-[201]: ./media/myworkdrive-tutorial/tutorial_general_201.png
-[202]: ./media/myworkdrive-tutorial/tutorial_general_202.png
-[203]: ./media/myworkdrive-tutorial/tutorial_general_203.png
-

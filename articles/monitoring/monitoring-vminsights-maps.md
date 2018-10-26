@@ -1,5 +1,5 @@
 ---
-title: Visa beroenden för appen med Azure Monitor för virtuella datorer | Microsoft Docs
+title: Visa beroenden för appen med Azure Monitor för virtuella datorer (förhandsversion) | Microsoft Docs
 description: Kartan är en funktion i Azure Monitor för virtuella datorer som automatiskt identifierar programkomponenter i Windows och Linux-system och mappar kommunikationen mellan olika tjänster. Den här artikeln innehåller information om hur du använder det på en mängd olika scenarier.
 services: azure-monitor
 documentationcenter: ''
@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/17/2018
+ms.date: 10/25/2018
 ms.author: magoedte
-ms.openlocfilehash: 8641b6cfb14bceb248cc587095a9d3469ce2c9e0
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: af3d2b997a4d58f2d32705c55151c4cf13bdcc7c
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49402157"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50095486"
 ---
-# <a name="using-azure-monitor-for-vms-map-to-understand-application-components"></a>Med Azure Monitor för virtuella datorer kartan och förstå programkomponenter
+# <a name="using-azure-monitor-for-vms-preview-map-to-understand-application-components"></a>Med Azure Monitor för virtuella datorer (förhandsversion) mappas och förstå programkomponenter
 Visa de identifierade programkomponenterna i Windows och Linux-datorer som körs i Azure som din miljö kan observeras på två sätt med Azure Monitor för virtuella datorer från en virtuell dator direkt eller i grupper med virtuella datorer från Azure Monitor. 
 
 Den här artikeln hjälper dig att förstå upplevelse mellan två perspektiv och hur du använder funktionen kartan. Information om hur du konfigurerar Azure Monitor för virtuella datorer finns i [aktivera Azure Monitor för virtuella datorer](monitoring-vminsights-onboard.md).

@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 08/30/2018
 ms.author: iainfou
-ms.openlocfilehash: ffa6aa3b9e65577761343e2e09a44ce16a05631f
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
+ms.openlocfilehash: bd3009a5abf6bd34be0e5dd45abfac628ae8a4c8
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49365602"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50093589"
 ---
 # <a name="create-an-ingress-controller-to-an-internal-virtual-network-in-azure-kubernetes-service-aks"></a>Skapa en ingress-kontrollanten för att ett internt virtuellt nätverk i Azure Kubernetes Service (AKS)
 
@@ -24,8 +24,8 @@ Du kan också:
 
 - [Skapa en grundläggande ingress-kontrollant med extern nätverksanslutning][aks-ingress-basic]
 - [Aktivera HTTP-programmet routning tillägg][aks-http-app-routing]
-- [Skapa en ingress-kontrollant med en dynamisk offentlig IP-adress och konfigurera kryptera vi för att automatiskt generera TLS-certifikat][aks-ingress-tls]
-- [Skapa en ingress-kontrollant med en statisk offentlig IP-adress och konfigurera kryptera vi för att automatiskt generera TLS-certifikat][aks-ingress-static-tls]
+- [Skapa en ingress-kontrollant som använder en egen TLS-certifikat][aks-ingress-own-tls]
+- Skapa en ingress-kontrollant som använder vi kryptera för att automatiskt generera TLS-certifikat [med en dynamisk offentlig IP-adress] [ aks-ingress-tls] eller [med en statisk offentlig IP-adress][aks-ingress-static-tls]
 
 ## <a name="before-you-begin"></a>Innan du börjar
 
@@ -238,3 +238,4 @@ Du kan också:
 [aks-ingress-tls]: ingress-tls.md
 [aks-ingress-static-tls]: ingress-static-ip.md
 [aks-http-app-routing]: http-application-routing.md
+[aks-ingress-own-tls]: ingress-own-tls.md

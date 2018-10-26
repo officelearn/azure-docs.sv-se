@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 09/27/2018
 ms.author: iainfou
-ms.openlocfilehash: cdf8c64f20e15074a1f055d2ab7abf4304d62505
-ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
+ms.openlocfilehash: 5417e59f15ffcf48cc2af27044355d2bb5c9edaf
+ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48017915"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50087703"
 ---
 # <a name="create-a-continuous-deployment-pipeline-with-jenkins-and-azure-kubernetes-service-aks"></a>Skapa en pipeline för kontinuerlig distribution med Jenkins och Azure Kubernetes Service (AKS)
 
@@ -34,9 +34,11 @@ Du behöver följande för att kunna slutföra stegen i den här artikeln.
 - En [AKS-kluster] [ aks-quickstart] och `kubectl` konfigurerats med den [AKS kluster autentiseringsuppgifter][aks-credentials].
 - En [Azure Container Registry (ACR) registret][acr-quickstart], namnet på ACR-inloggningsservern och AKS-kluster som har konfigurerats att [autentisera med ACR-registret] [ acr-authentication].
 
-- Azure CLI version 2.0.46 eller senare installerat och konfigurerat. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI][install-azure-cli].
+- Azure CLI version 2.0.46 eller senare installerat och konfigurerat. Kör `az --version` att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [installera Azure CLI][install-azure-cli].
 - [Docker installerat] [ docker-install] i utvecklingssystemet.
 - En GitHub-konto, [personlig åtkomsttoken för GitHub][git-access-token], och Git-klient installerad i utvecklingssystemet.
+
+- Om du anger din egen Jenkins-instans i stället för att det här exemplet skriptade sätt att distribuera Jenkins kan Jenkins-instans behov [Docker installerat och konfigurerat] [ docker-install] och [kubectl][kubectl-install].
 
 ## <a name="prepare-the-application"></a>Förbereda programmet
 
@@ -317,6 +319,7 @@ I den här artikeln lärde du dig att använda Jenkins som en del av en CI/CD-l�
 [kubectl-apply]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply
 [kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
 [docker-install]: https://docs.docker.com/install/
+[kubectl-install]: https://kubernetes.io/docs/tasks/tools/install-kubectl/
 
 <!-- LINKS - internal -->
 [az-acr-list]: /cli/azure/acr#az-acr-list

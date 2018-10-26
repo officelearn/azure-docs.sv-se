@@ -11,12 +11,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 10/22/2018
 ms.author: juliako
-ms.openlocfilehash: 56e9a0b4eec347d2367c38ab00c6c9d9dca60752
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: cb34855fc9451679c885eebb0ef5a2fab0be8c57
+ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49986907"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50086853"
 ---
 # <a name="streaming-locators"></a>Positionerare för direktuppspelning
 
@@ -26,20 +26,20 @@ Om du vill ge klienterna en URL som de kan använda för att spela upp kodade vi
 
 I följande tabell visar de StreamingLocator egenskaper och ger definitionerna.
 
-|Namn|Typ|Beskrivning|
-|---|---|---|
-|id |sträng|Fullständigt kvalificerade resurs-ID för resursen.|
-|namn   |sträng|Namnet på resursen.|
-|properties.alternativeMediaId  |sträng|Alternativa Media-ID för den här positionerare för direktuppspelning.|
-|properties.assetName   |sträng|Tillgångsnamn|
-|properties.contentKeys |StreamingLocatorContentKey]|ContentKeys som används av den här Strömningspositionerare.|
-|Properties.Created |sträng|Tiden för skapandet av den Strömningspositionerare.|
-|properties.defaultContentKeyPolicyName |sträng|Namnet på ContentKeyPolicy som används av den här Strömningspositionerare.|
-|properties.endTime |sträng|Sluttid för den Strömningspositionerare.|
-|properties.startTime   |sträng|Starttiden för den Strömningspositionerare.|
-|properties.streamingLocatorId  |sträng|StreamingLocatorId av positionerare för direktuppspelning.|
-|properties.streamingPolicyName |sträng|Namnet på principen för direktuppspelning används av den här Strömningspositionerare. Ange namnet på Streaming principen som du skapade eller Använd någon av de fördefinierade principer för direktuppspelning. Den fördefinierade Streaming principer som är tillgängliga är: 'Predefined_DownloadOnly', 'Predefined_ClearStreamingOnly', 'Predefined_DownloadAndClearStreaming', 'Predefined_ClearKey', 'Predefined_MultiDrmCencStreaming' och ' Predefined_ MultiDrmStreaming'|
-|typ   |sträng|Typ av resursen.|
+|Namn|Beskrivning|
+|---|---|
+|id |Fullständigt kvalificerade resurs-ID för resursen.|
+|namn   |Namnet på resursen.|
+|properties.alternativeMediaId|Alternativa Media-ID för den här positionerare för direktuppspelning.|
+|properties.assetName   |Tillgångsnamn|
+|properties.contentKeys |ContentKeys som används av den här Strömningspositionerare.|
+|Properties.Created |Tiden för skapandet av den Strömningspositionerare.|
+|properties.defaultContentKeyPolicyName|Namnet på ContentKeyPolicy som används av den här Strömningspositionerare.|
+|properties.endTime |Sluttid för den Strömningspositionerare.|
+|properties.startTime|Starttiden för den Strömningspositionerare.|
+|properties.streamingLocatorId|StreamingLocatorId av positionerare för direktuppspelning.|
+|properties.streamingPolicyName |Namnet på principen för direktuppspelning används av den här Strömningspositionerare. Ange namnet på Streaming principen som du skapade eller Använd någon av de fördefinierade principer för direktuppspelning. Den fördefinierade Streaming principer som är tillgängliga är: 'Predefined_DownloadOnly', 'Predefined_ClearStreamingOnly', 'Predefined_DownloadAndClearStreaming', 'Predefined_ClearKey', 'Predefined_MultiDrmCencStreaming' och ' Predefined_ MultiDrmStreaming'|
+|typ|Typ av resursen.|
 
 Läs den fullständiga definitionen [positionerare för direktuppspelning](https://docs.microsoft.com/rest/api/media/streaminglocators).
 

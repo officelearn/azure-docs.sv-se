@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 9/25/2018
 ms.author: victorh
-ms.openlocfilehash: 66e04e7f0b272f19788e79805ef06d11e2eda572
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: daf65b00ffa753568ab99e64365cc0625792f593
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46948034"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50092686"
 ---
 # <a name="azure-dns-faq"></a>Vanliga frågor och svar med Azure DNS
 
@@ -26,130 +26,135 @@ ms.locfileid: "46948034"
 
 ### <a name="what-is-azure-dns"></a>Vad är Azure DNS?
 
-Domain Name System- eller DNS, ansvarar för att översätta (eller lösa) namnet på en webbplats eller tjänst till dess IP-adress. Azure DNS är en värdtjänst för DNS-domäner som ger namnmatchning med hjälp av Microsoft Azure-infrastrukturen. Genom att använda Azure som värd för dina domäner kan du hantera dina DNS-poster med samma autentiseringsuppgifter, API:er, verktyg och fakturering som för dina andra Azure-tjänster.
+Domain Name System (DNS) översätter eller matchar namnet på en webbplats eller tjänst till dess IP-adress. Azure DNS är en värdtjänst för DNS-domäner. Det ger namnmatchning med hjälp av Microsoft Azure-infrastrukturen. Du kan hantera dina DNS-poster genom att använda samma autentiseringsuppgifter, API: er, verktyg och fakturering som för dina andra Azure-tjänster genom som värd för domäner i Azure.
 
-DNS-domäner i Azure DNS finns på Azures globala nätverk med DNS-namnservrar. Detta använder Anycast-nätverk så att varje DNS-frågan besvaras av den närmast tillgängliga DNS-servern. Azure DNS innehåller både snabb prestanda och hög tillgänglighet för din domän.
+DNS-domäner i Azure DNS finns på Azure globala nätverk av DNS-namnservrarna. Det här systemet använder Anycast-nätverk så att varje DNS-frågan besvaras av den närmast tillgängliga DNS-servern. Azure DNS ger snabb prestanda och hög tillgänglighet för din domän.
 
-Azure DNS-tjänsten bygger på Azure Resource Manager. Därmed kan dra nytta av Resource Manager-funktioner som rollbaserad åtkomstkontroll, granskningsloggar och resurslåsning. Dina domäner och poster kan hanteras via Azure portal, Azure PowerShell-cmdlets och plattformsoberoende Azure CLI. Program som kräver automatisk DNS-hantering kan integreras med tjänsten via REST API och SDK: er.
+Azure DNS baseras på Azure Resource Manager. Fördelarna med Azure DNS från Resource Manager-funktioner som rollbaserad åtkomstkontroll, granskningsloggar och resurslåsning. Du kan hantera domäner och poster via Azure portal, Azure PowerShell-cmdlets och plattformsoberoende Azure CLI. Program som kräver automatisk DNS-hantering kan integreras med tjänsten via REST API och SDK: er.
 
 ### <a name="how-much-does-azure-dns-cost"></a>Hur mycket kostar Azure DNS?
 
-Faktureringsmodellen för Azure DNS baseras på antalet DNS-zoner som finns i Azure DNS och antalet DNS-frågor som de får. Rabatter lämnas baserat på användning.
+Faktureringsmodellen för Azure DNS baseras på antalet DNS-zoner som finns i Azure DNS. Det är också baserat på antalet DNS-frågor som de får. Rabatter lämnas baserat på användning.
 
 Mer information finns i den [Azure DNS-sidan med priser](https://azure.microsoft.com/pricing/details/dns/).
 
 ### <a name="what-is-the-sla-for-azure-dns"></a>Vad finns det för serviceavtal för Azure DNS?
 
-Azure garanterar att giltiga DNS-begäranden får svar från minst en server i Azure DNS-namnet på minst 99,99% av tiden.
+Azure garanterar att giltiga DNS-begäranden får ett svar från minst en Azure DNS-namnserver åtminstone 99,99% av tiden.
 
 Mer information finns i den [Azure DNS-SLA-sida](https://azure.microsoft.com/support/legal/sla/dns).
 
 ### <a name="what-is-a-dns-zone-is-it-the-same-as-a-dns-domain"></a>Vad är en DNS-zon? Är det detsamma som en DNS-domän? 
 
-En domän är ett unikt namn i domännamnssystemet, till exempel ”contoso.com”.
+En domän är ett unikt namn i domain name system. Ett exempel är contoso.com.
 
+En DNS-zon används som värd åt DNS-posterna för en viss domän. Domänen contoso.com kan till exempel innehålla flera DNS-poster. Poster kan innehålla mail.contoso.com för en e-postserver och www.contoso.com för en webbplats. Dessa poster finns i DNS-zonen contoso.com.
 
-En DNS-zon används som värd åt DNS-posterna för en viss domän. Domänen ”contoso.com” kan till exempel innehålla flera DNS-poster, till exempel ”mail.contoso.com” (för en e-postserver) och ”www.contoso.com” (för en webbplats). Dessa poster finns i DNS-zonen ”contoso.com”.
+Ett domännamn är *bara ett namn*. En DNS-zon är en Dataresurs som innehåller DNS-poster för ett domännamn. Med Azure DNS kan du vara värd för en DNS-zon och hantera DNS-posterna för en domän i Azure. Det ger också DNS-namnservrar för att besvara DNS-frågor från Internet.
 
-Ett domännamn är *bara ett namn*, medan en DNS-zon är en Dataresurs som innehåller DNS-poster för ett domännamn. Med Azure DNS kan du vara värd för en DNS-zon och hantera DNS-posterna för en domän i Azure. Det ger också DNS-namnservrar för att besvara DNS-frågor från Internet.
-
-### <a name="do-i-need-to-purchase-a-dns-domain-name-to-use-azure-dns"></a>Måste jag köpa ett DNS-domännamn för att använda Azure DNS? 
+### <a name="do-i-need-to-buy-a-dns-domain-name-to-use-azure-dns"></a>Måste jag köpa ett DNS-domännamn för att använda Azure DNS? 
 
 Inte nödvändigtvis.
 
-Du behöver inte köpa en domän för att tillhandahålla en DNS-zon i Azure DNS. Du kan skapa en DNS-zon när som helst utan att äga domännamnet. DNS-frågor för den här zonen löser endast om de dirigeras till Azure DNS-namnservrarna som tilldelats i zonen.
+Du behöver inte köpa en domän som värd för en DNS-zon i Azure DNS. Du kan skapa en DNS-zon när som helst utan att äga domännamnet. DNS-frågor för den här zonen lösa endast om de är riktade till Azure DNS-namnservrarna som tilldelats i zonen.
 
-Du måste köpa domännamnet om du vill länka DNS-zonen till den globala DNS-hierarkin, den här länkar kan DNS-frågor från var som helst i världen kan hitta din DNS-zon och besvaras med dina DNS-poster.
+Om du vill länka DNS-zonen till den globala DNS-hierarkin, måste du köpa domännamnet. Sedan, DNS-frågor från var som helst i världen att hitta din DNS-zon och svar med dina DNS-poster.
 
-## <a name="azure-dns-features"></a>Azure DNS-funktioner
+## <a name="azure-dns-features"></a>Funktioner i Azure DNS
 
 ### <a name="are-there-any-restrictions-when-using-alias-records-for-a-domain-name-apex-with-traffic-manager"></a>Finns det några begränsningar när du använder alias poster för en domän namn apex med Traffic Manager?
 
-Ja. Du måste använda statiska offentliga IP-adresser med Traffic Manager. Konfigurera den **extern slutpunkt** mål med hjälp av en statisk IP-adress. 
+Ja. Du måste använda statiska offentliga IP-adresser med Azure Traffic Manager. Konfigurera den **extern slutpunkt** mål med hjälp av en statisk IP-adress. 
 
 ### <a name="does-azure-dns-support-dns-based-traffic-routing-or-endpoint-failover"></a>Azure DNS som har stöd för DNS-baserad routning eller slutpunkt trafikredundans?
 
-DNS-baserad Routning och slutpunkten trafikredundans tillhandahålls av Azure Traffic Manager. Azure Traffic Manager är en separat Azure-tjänst som kan användas tillsammans med Azure DNS. Mer information finns i den [översikt över Traffic Manager](../traffic-manager/traffic-manager-overview.md).
+DNS-baserad Routning och slutpunkten trafikredundans tillhandahålls av Traffic Manager. Traffic Manager är en separat Azure-tjänst som kan användas med Azure DNS. Mer information finns i den [översikt över Traffic Manager](../traffic-manager/traffic-manager-overview.md).
 
-Azure DNS stöder endast som är värd för ”statiska” DNS-domäner, där varje DNS-fråga för att DNS-posten alltid får samma DNS-svaret.
+Azure DNS stöder endast som är värd för statisk DNS-domäner, där varje DNS-fråga för att DNS-posten alltid får samma DNS-svaret.
 
 ### <a name="does-azure-dns-support-domain-name-registration"></a>Stöder domännamnsregistrering i Azure DNS?
 
-Nej. Azure DNS stöder för närvarande inte köpa domännamn. Om du vill köpa domäner kan behöva du använda en tredjeparts-domännamnsregistrator. Registratorn oftast debiterar en liten årsavgift. Domänerna som kan finnas i Azure DNS för hantering av DNS-poster. Mer information finns i [Delegera en domän till Azure DNS](dns-domain-delegation.md).
+Nej. Azure DNS stöder inte för närvarande kan köpa domännamn. Om du vill köpa domäner, måste du använda en tredjeparts-domännamnsregistrator. Registratorn oftast debiterar en liten årsavgift. Domänerna som kan sedan finnas i Azure DNS för hantering av DNS-poster. Mer information finns i [Delegera en domän till Azure DNS](dns-domain-delegation.md).
 
-Köp domän är en funktion som spåras i Azure kvarvarande uppgifter. Du kan använda feedback-plats till [registrera ditt stöd för den här funktionen](https://feedback.azure.com/forums/217313-networking/suggestions/4996615-azure-should-be-its-own-domain-registrar).
+Funktionen för att köpa domännamn spåras i Azure eftersläpningen. Använda webbplatsen feedback till [registrera ditt stöd för den här funktionen](https://feedback.azure.com/forums/217313-networking/suggestions/4996615-azure-should-be-its-own-domain-registrar).
 
 ### <a name="does-azure-dns-support-dnssec"></a>Stöder DNSSEC i Azure DNS?
 
-Nej. Azure DNS stöder för närvarande inte DNSSEC.
+Nej. Azure DNS stöder inte för närvarande Domain Name System Security Extensions (DNSSEC).
 
-DNSSEC är en funktion som spåras i Azure DNS eftersläpning. Du kan använda feedback-plats till [registrera ditt stöd för den här funktionen](https://feedback.azure.com/forums/217313-networking/suggestions/13284393-azure-dns-needs-dnssec-support).
+Funktionen DNSSEC spåras i Azure DNS-eftersläpning. Använda webbplatsen feedback till [registrera ditt stöd för den här funktionen](https://feedback.azure.com/forums/217313-networking/suggestions/13284393-azure-dns-needs-dnssec-support).
 
 ### <a name="does-azure-dns-support-zone-transfers-axfrixfr"></a>Stöder zonöverföringar (AXFR/IXFR) i Azure DNS?
 
-Nej. Azure DNS stöder för närvarande inte zonöverföringar. DNS-zoner kan vara [importeras till Azure DNS med Azure CLI](dns-import-export.md). DNS-poster kan sedan hanteras den [hanteringsportalen för Azure DNS](dns-operations-recordsets-portal.md), våra [REST API](https://docs.microsoft.com/powershell/module/azurerm.dns), [SDK](dns-sdk.md), [PowerShell-cmdletar](dns-operations-recordsets.md), eller [CLI-verktyget](dns-operations-recordsets-cli.md).
+Nej. Azure DNS stöder inte för närvarande zonöverföringar. DNS-zoner kan vara [importeras till Azure DNS med hjälp av Azure CLI](dns-import-export.md). DNS-poster som hanteras den [hanteringsportalen för Azure DNS](dns-operations-recordsets-portal.md), [REST API](https://docs.microsoft.com/powershell/module/azurerm.dns), [SDK](dns-sdk.md), [PowerShell-cmdletar](dns-operations-recordsets.md), eller [ CLI-verktyget](dns-operations-recordsets-cli.md).
 
-Överföring av zoner är en funktion som spåras i Azure DNS eftersläpning. Du kan använda feedback-plats till [registrera ditt stöd för den här funktionen](https://feedback.azure.com/forums/217313-networking/suggestions/12925503-extend-azure-dns-to-support-zone-transfers-so-it-c).
+Funktionen zon överföring spåras i Azure DNS-eftersläpning. Använda webbplatsen feedback till [registrera ditt stöd för den här funktionen](https://feedback.azure.com/forums/217313-networking/suggestions/12925503-extend-azure-dns-to-support-zone-transfers-so-it-c).
 
 ### <a name="does-azure-dns-support-url-redirects"></a>Stöder omdirigeringar URL: en i Azure DNS?
 
-Nej. URL: en omdirigerings-tjänster är inte faktiskt en DNS-tjänst – de fungerar med HTTP-nivå i stället för DNS-nivå. Vissa DNS-providrar för att sammanställa en URL omdirigera service som en del av sitt övergripande erbjudande. Detta stöds inte för närvarande av Azure DNS.
+Nej. URL: en omdirigerings-tjänster är inte en DNS-tjänst. De fungerar med HTTP-nivå i stället för DNS-nivå. Vissa DNS-providrar Paketera en URL: en omdirigerings-tjänst som en del av sitt övergripande erbjudande. Den här tjänsten stöds inte för närvarande av Azure DNS.
 
-URL-omdirigering funktionen spåras i Azure DNS eftersläpning. Du kan använda feedback-plats till [registrera ditt stöd för den här funktionen](https://feedback.azure.com/forums/217313-networking/suggestions/10109736-provide-a-301-permanent-redirect-service-for-ape).
+Funktionen omdirigerings-URL spåras i Azure DNS-eftersläpning. Använda webbplatsen feedback till [registrera ditt stöd för den här funktionen](https://feedback.azure.com/forums/217313-networking/suggestions/10109736-provide-a-301-permanent-redirect-service-for-ape).
 
-### <a name="does-azure-dns-support-extended-ascii-encoding-8-bit-set-for-txt-recordset"></a>Stöder utökad ASCII kodning (8-bitars) set för TXT-postuppsättning i Azure DNS?
+### <a name="does-azure-dns-support-the-extended-ascii-encoding-8-bit-set-for-txt-record-sets"></a>Stöder utökad ASCII kodning (8-bitars)-set TXT postuppsättningar i Azure DNS?
 
-Ja. Azure DNS stöder utökade ASCII-kodning uppsättningen för TXT-postuppsättningar, om du använder den senaste versionen av Azure REST API: er, SDK: er, PowerShell och CLI (versioner som är äldre än 2017-10-01 eller SDK 2.1 gör inte hantera utökade ASCII). Till exempel om användaren anger en sträng som värde för en TXT-post som har utökade ASCII-tecken \128 (till exempel: ”abcd\128efgh”), Azure DNS använder byte-värde för det här tecknet (vilket är 128) i intern representation. Vid tidpunkten för DNS-matchningen returneras samt byte-värde i svaret. Observera också att ”abc” och ”\097\098\099” är utbytbara upplösning fråga. 
+Ja. Azure DNS stöder utökad ASCII kodning set TXT postuppsättningar. Men du måste använda den senaste versionen av Azure REST API: er, SDK: er, PowerShell och CLI. Versioner som är äldre än den 1 oktober 2017 eller SDK 2.1 stöder inte utökade ASCII-uppsättningen. 
 
-Vi följer [RFC 1035](https://www.ietf.org/rfc/rfc1035.txt) zon filen master format escape-regler för TXT-poster. Exempel ”: \” nu faktiskt Undertrycker allt per RFC. Om du anger ”A\B” som värde för TXT-post, representeras och Lös som bara ”AB”. Om du verkligen TXT-posten att ha ”A\B” på lösning måste du escape-de ”\" igen, dvs Ange som ”A\\B”. 
+En användare kan till exempel ange en sträng som värde för en TXT-post som har utökade ASCII-tecken \128. Ett exempel är ”abcd\128efgh”. Azure DNS använder byte-värde för det här tecknet som är 128, i intern representation. Vid tidpunkten för DNS-matchning returneras bytevärdet i svaret. Observera också att ”abc” och ”\097\098\099” är utbytbara upplösning fråga. 
 
-Det här stödet är för närvarande inte tillgänglig för TXT-poster som skapats från Azure-portalen. 
+Vi följer [RFC 1035](https://www.ietf.org/rfc/rfc1035.txt) zon filen master format escape-regler för TXT-poster. Till exempel ”\" nu faktiskt Undertrycker allt per RFC. Om du anger ”A\B” som värde för TXT-poster, har den representeras och löst som bara ”AB.” Om du verkligen TXT-posten att ha ”A\B” på lösning måste du escape-de ”\" igen. Till exempel ange ”A\\B”. 
 
-## <a name="alias-records"></a>Alias-poster
+Det här stödet är för närvarande inte tillgängligt för TXT-poster som skapats från Azure-portalen. 
+
+## <a name="alias-records"></a>Aliasposter
 
 ### <a name="what-are-some-scenarios-where-alias-records-are-useful"></a>Vilka är några scenarier där alias poster är användbar?
-Se scenarier i avsnittet [Azure DNS alias poster översikt](dns-alias.md).
+Se scenarier i avsnittet den [Azure DNS alias poster översikt](dns-alias.md).
 
 ### <a name="what-record-types-are-supported-for-alias-record-sets"></a>Vilka typer av poster stöds alias postuppsättningar?
-Alias postuppsättningar stöds för följande typer av poster i en Azure DNS-zon: A, AAAA och CNAME-post. 
+Alias postuppsättningar har stöd för följande typer av poster i en Azure DNS-zon:
+ 
+- A 
+- AAAA
+- CNAME 
 
 ### <a name="what-resources-are-supported-as-targets-for-alias-record-sets"></a>Vilka resurser som stöds som mål för alias postuppsättningar?
-- **Peka på en offentlig IP-resurs från en DNS A/AAAA-postuppsättning**. Du kan skapa en A/AAAA-postuppsättning och göra det en alias-postuppsättningen så att den pekar till en offentlig IP-resurs.
-- **Peka på en Traffic Manager-profil från en CNAME-DNS A/AAAA-postuppsättning**. Utöver möjligheten att peka på CNAME för en Traffic Manager-profil (till exempel: contoso.trafficmanager.net) från en DNS CNAME-postuppsättning du kan nu också peka på en Traffic Manager-profil som har externa slutpunkter, från en A eller AAAA-postuppsättning i ditt DNS zon.
-- **Peka på en annan DNS-postuppsättning i samma zon**. Alias poster kan referera till andra postuppsättningar av samma typ. Du kan till exempel ha en DNS CNAME-postuppsättning vara ett alias till en annan CNAME-postuppsättning av samma typ. Detta är användbart om du vill ha vissa postuppsättningar vad beteendet vara alias och andra som icke-alias.
+- **Peka på en offentlig IP-adressresurs från DNS A/AAAA-postuppsättning.** Du kan skapa en A/AAAA-postuppsättning och gör det till ett alias postuppsättningen så att den pekar till en offentlig IP-resurs.
+- **Peka på en Traffic Manager-profil från en CNAME-DNS A/AAAA-postuppsättning.** Du kan peka till CNAME för en Traffic Manager-profil från en DNS CNAME-postuppsättning. Ett exempel är contoso.trafficmanager.net. Nu kan kan du också peka på en Traffic Manager-profil som har externa slutpunkter från ett A eller AAAA-postuppsättning i din DNS-zon.
+- **Peka på en annan DNS-postuppsättning i samma zon.** Alias poster kan referera till andra postuppsättningar av samma typ. Du kan till exempel låta en DNS CNAME-postuppsättning vara ett alias för en annan CNAME-postuppsättning av samma typ. Det här är användbart om du vill att vissa postuppsättningar vara alias och vissa alias.
 
 ### <a name="can-i-create-and-update-alias-records-from-the-azure-portal"></a>Kan jag skapa och uppdatera alias poster från Azure-portalen?
-Ja. Alias poster kan skapas eller hanteras i Azure-portalen förutom Azure REST API: er, Azure PowerShell, CLI och SDK: er.
+Ja. Du kan skapa eller hantera alias-poster i Azure-portalen tillsammans med Azure REST API: er, PowerShell, CLI och SDK: er.
 
-### <a name="will-alias-records-help-ensure-my-dns-record-set-is-deleted-when-the-underlying-public-ip-is-deleted"></a>Alias poster säkerställer min DNS-postuppsättning tas bort när den underliggande offentliga IP-Adressen har tagits bort?
-Ja. Faktum är är det här en av de viktigaste funktionerna i alias poster. De hjälper dig att undvika eventuella avbrott för slutanvändare av ditt program.
+### <a name="will-alias-records-help-to-make-sure-my-dns-record-set-is-deleted-when-the-underlying-public-ip-is-deleted"></a>Alias poster hjälper till att kontrollera att min DNS-postuppsättning tas bort när den underliggande offentliga IP-Adressen har tagits bort?
+Ja. Den här funktionen är en av de viktigaste funktionerna i alias poster. Det hjälper dig att undvika eventuella avbrott för användare av ditt program.
 
-### <a name="will-alias-records-help-ensure-my-dns-record-set-is-updated-to-the-correct-ip-address-when-the-underlying-public-ip-address-changes"></a>Alias poster bidrar till min DNS-postuppsättning uppdateras till rätt IP-adress när den underliggande offentliga IP-adressen ändras?
-Ja. Detta är en av de viktigaste funktionerna i alias poster som i föregående fråga och hjälper dig att undvika eventuella avbrott eller säkerhetsrisker för ditt program.
+### <a name="will-alias-records-help-to-make-sure-my-dns-record-set-is-updated-to-the-correct-ip-address-when-the-underlying-public-ip-address-changes"></a>Alias kommer innehåller hjälp om du vill kontrollera min DNS-postuppsättning uppdateras till rätt IP-adress när den underliggande offentliga IP-adressen ändras?
+Ja. Den här funktionen är en av de viktigaste funktionerna i alias poster. Det hjälper dig att undvika eventuella avbrott eller säkerhetsrisker för ditt program.
 
-### <a name="are-there-any-restrictions-when-using-alias-record-sets-for-an-a-or-aaaa-records-to-point-to-traffic-manager"></a>Finns det några begränsningar när du använder aliaspost skalningsuppsättningar för ett A eller aaa-poster så att den pekar till Traffic Manager?
-Ja. Om du vill att den pekar på en Traffic Manager-profil som ett alias från ett A eller AAAA-postuppsättning måste du kontrollera Traffic Manager-profilen används bara externa slutpunkter. När du skapar de externa slutpunkterna i Traffic Manager kan du kontrollera att du anger de faktiska IP-adresserna för slutpunkterna.
+### <a name="are-there-any-restrictions-when-using-alias-record-sets-for-a-or-aaaa-records-to-point-to-traffic-manager"></a>Finns det några begränsningar när du använder aliaspost anger för A eller aaa-poster för att peka till Traffic Manager?
+Ja. För att peka mot en Traffic Manager-profil som ett alias från ett A eller AAAA-postuppsättning måste Traffic Manager-måste profil använda endast externa slutpunkter. När du skapar de externa slutpunkterna i Traffic Manager kan du ange faktiska IP-adresserna för slutpunkterna.
 
-### <a name="is-there-an-additional-charge-for-using-alias-records"></a>Finns det en extra avgift för att använda alias poster?
-Alias poster är en kvalifikation giltiga DNS-postuppsättningar och det finns inga ytterligare faktureringen för alias poster.
+### <a name="is-there-an-additional-charge-to-use-alias-records"></a>Finns det en extra avgift för att använda alias poster?
+Alias poster är en kvalifikation på en giltig DNS-postuppsättning. Det finns inga ytterligare faktureringen för alias poster.
 
-## <a name="using-azure-dns"></a>Med Azure DNS
+## <a name="use-azure-dns"></a>Använda Azure DNS
 
-### <a name="can-i-co-host-a-domain-using-azure-dns-and-another-dns-provider"></a>Kan jag Samkör en domän med hjälp av Azure DNS och en annan DNS-provider?
+### <a name="can-i-cohost-a-domain-by-using-azure-dns-and-another-dns-provider"></a>Kan jag cohost en domän med hjälp av Azure DNS och en annan DNS-provider?
 
-Ja. Azure DNS stöder delad hosting domäner med andra DNS-tjänster.
+Ja. Azure DNS stöder cohosting domäner med andra DNS-tjänster.
 
-Om du vill göra det måste du ändra NS-poster för domänen (som styr vilka leverantörer får DNS-frågor för domänen) så att den pekar till namnservrarna för båda providers. Du kan ändra dessa NS-poster på tre platser: i Azure DNS, i en annan provider och i den överordnade zonen (vanligtvis konfigureras via domännamnsregistratorn). Mer information om DNS-delegering finns i [DNS domändelegering](dns-domain-delegation.md).
+Om du vill konfigurera cohosting ändra NS-poster för domänen så att den pekar till namnservrarna för båda providers. Namnserver (NS) registrerar kontroll vilka leverantörer får DNS-frågor för domänen. Du kan ändra dessa NS-poster i Azure DNS, i en annan provider och i den överordnade zonen. Den överordnade zonen konfigureras vanligtvis via domännamnsregistratorn. Mer information om DNS-delegering finns i [DNS domändelegering](dns-domain-delegation.md).
 
-Dessutom måste du se till att DNS-poster för domänen är synkroniserade mellan båda DNS-providers. Azure DNS stöder för närvarande inte DNS-zonöverföring. DNS-poster måste synkroniseras med antingen den [hanteringsportalen för Azure DNS](dns-operations-recordsets-portal.md), [REST API](https://docs.microsoft.com/powershell/module/azurerm.dns), [SDK](dns-sdk.md), [PowerShell-cmdletar](dns-operations-recordsets.md), eller [CLI-verktyget](dns-operations-recordsets-cli.md).
+Kontrollera också att DNS-poster för domänen är synkroniserade mellan båda DNS-providers. Azure DNS stöder inte för närvarande DNS-zonöverföring. DNS-poster måste synkroniseras genom att använda antingen den [hanteringsportalen för Azure DNS](dns-operations-recordsets-portal.md), [REST API](https://docs.microsoft.com/powershell/module/azurerm.dns), [SDK](dns-sdk.md), [PowerShell-cmdletar](dns-operations-recordsets.md), eller [CLI-verktyget](dns-operations-recordsets-cli.md).
 
 ### <a name="do-i-have-to-delegate-my-domain-to-all-four-azure-dns-name-servers"></a>Måste jag delegera min domän till alla fyra Azure DNS-namnservrarna?
 
-Ja. Azure DNS tilldelar varje DNS-zon för felisolering och ökad återhämtning fyra namnservrarna. För att kvalificera dig för serviceavtalet för Azure DNS, måste du delegera din domän till alla fyra namnservrarna.
+Ja. Fyra namnservrarna tilldelar varje DNS-zon i Azure DNS. Den här ordningen är för felisolering och ökad flexibilitet. Delegera din domän till alla fyra namnservrarna för att kvalificera dig för serviceavtalet för Azure DNS.
 
 ### <a name="what-are-the-usage-limits-for-azure-dns"></a>Vilka är gränserna för användning för Azure DNS?
 
-Följande standard begränsningar gäller när du använder Azure DNS:
+Följande standard begränsningar gäller när du använder Azure DNS.
 
 [!INCLUDE [dns-limits](../../includes/dns-limits.md)]
 
@@ -157,108 +162,108 @@ Följande standard begränsningar gäller när du använder Azure DNS:
 
 Ja. DNS-zoner kan flyttas mellan resursgrupper eller prenumerationer.
 
-Det finns ingen inverkan på DNS-frågor när du flyttar en DNS-zon. Namnservrarna som tilldelats i zonen oförändrade och DNS-frågorna bearbetas som vanligt i hela.
+Det finns ingen effekt på DNS-frågor när du flyttar en DNS-zon. Namnservrarna som tilldelats i zonen förblir densamma. DNS-frågorna bearbetas som vanligt i hela.
 
 Mer information och anvisningar om hur du flyttar DNS-zoner finns i [flytta resurser till en ny resursgrupp eller prenumeration](../azure-resource-manager/resource-group-move-resources.md).
 
 ### <a name="how-long-does-it-take-for-dns-changes-to-take-effect"></a>Hur lång tid tar det för DNS-ändringarna ska börja gälla?
 
-Ny DNS-zoner och DNS-poster vanligtvis återspeglas på Azure DNS-namnservrarna snabbt, inom några sekunder.
+Ny DNS-zoner och DNS-poster vanligtvis visas i Azure DNS-namnservrarna snabbt. Tiden är några sekunder.
 
-Ändringar av befintliga DNS-poster kan det ta lite längre, men bör fortfarande återspeglas på Azure DNS-namnservrarna inom 60 sekunder. I det här fallet DNS-cachelagring utanför Azure DNS (av DNS-klienter och DNS-rekursiva matchare) kan även att påverka den tid det tar innan en DNS-ändringen börjar gälla. Den här cachevaraktighet kan kontrolleras med hjälp av egenskapen Time To Live (TTL) för varje uppsättning av poster.
+Ändringar av befintliga DNS-poster kan ta lite längre tid. Vanligtvis visas de i Azure DNS-namnservrarna inom 60 sekunder. DNS-cachen genom att DNS-klienter och rekursiv DNS-matchare utanför Azure DNS också kan påverka tidsinställning. Använd egenskapen Time To Live (TTL) för varje uppsättning av poster för att styra den här cachelagringens varaktighet.
 
 ### <a name="how-can-i-protect-my-dns-zones-against-accidental-deletion"></a>Hur kan jag skydda DNS-zoner mot oavsiktlig borttagning?
 
-Azure DNS hanteras med Azure Resource Manager och fördelar med åtkomstkontrollen funktioner som Azure Resource Manager tillhandahåller. Rollbaserad åtkomstkontroll kan användas för att styra vilka användare har läs- eller skrivbehörighet för DNS-zoner och uppsättningar av poster. Resurslås kan användas för att förhindra oavsiktlig ändring eller borttagning av DNS-zoner och uppsättningar av poster.
+Azure DNS hanteras med hjälp av Azure Resource Manager. Azure DNS dra nytta av åtkomstkontrollfunktionerna som Azure Resource Manager tillhandahåller. Rollbaserad åtkomstkontroll styr vilka användare har läs- eller skrivbehörighet för DNS-zoner och uppsättningar av poster. Resurslås förhindra oavsiktlig ändring eller borttagning av DNS-zoner och uppsättningar av poster.
 
-Mer information finns i [Protecting DNS-zoner och poster](dns-protect-zones-recordsets.md).
+Mer information finns i [Skydda DNS-zoner och poster](dns-protect-zones-recordsets.md).
 
 ### <a name="how-do-i-set-up-spf-records-in-azure-dns"></a>Hur ställer jag in SPF-poster i Azure DNS?
 
 [!INCLUDE [dns-spf-include](../../includes/dns-spf-include.md)]
 
-### <a name="do-azure-dns-nameservers-resolve-over-ipv6"></a>Löser Azure DNS-namnservrar över IPv6? 
+### <a name="do-azure-dns-name-servers-resolve-over-ipv6"></a>Löser Azure DNS-namnservrarna via IPv6? 
 
-Ja. Azure DNS-namnservrar är dual-stack (har både IPv4 och IPv6-adresser). För att hitta IPv6-adress för Azure DNS-namnservrar som tilldelats DNS-zonen, kan du använda ett verktyg som nslookup (till exempel `nslookup -q=aaaa <Azure DNS Nameserver>`).
+Ja. Azure DNS-namnservrarna är dual stack. Dual stack innebär att de har IPv4 och IPv6-adresser. Använd ett verktyg som nslookup för att hitta IPv6-adress för Azure DNS-namnservrarna som tilldelats till din DNS-zon. Ett exempel är `nslookup -q=aaaa <Azure DNS Nameserver>`.
 
-### <a name="how-do-i-set-up-an-international-domain-name-idn-in-azure-dns"></a>Hur ställer jag in ett internationellt domännamn (IDN) i Azure DNS?
+### <a name="how-do-i-set-up-an-idn-in-azure-dns"></a>Hur ställer jag in ett IDN i Azure DNS?
 
-Internationella domännamn (IDN) fungerar genom att koda varje DNS-namn med ”[punycode](https://en.wikipedia.org/wiki/Punycode)”. DNS-frågor görs med hjälp av dessa punycode-kodat namn.
+Internationaliserade domännamn (IDN) koda varje DNS-namn med hjälp av [punycode](https://en.wikipedia.org/wiki/Punycode). DNS-frågor görs med hjälp av dessa punycode-kodat namn.
 
-Du kan konfigurera internationella domännamn (IDN) i Azure DNS genom att först konverterar zonnamnet eller postuppsättningen till punycode. Azure DNS stöder för närvarande inte inbyggda konvertering till och från punycode.
+Konvertera zonnamn eller postuppsättningsnamnet till punycode om du vill konfigurera IDN: er i Azure DNS. Azure DNS stöder inte för närvarande inbyggda konvertering till eller från punycode.
 
 ## <a name="private-dns"></a>Privata DNS
 
 [!INCLUDE [private-dns-public-preview-notice](../../includes/private-dns-public-preview-notice.md)]
 
-### <a name="does-azure-dns-support-private-domains"></a>Stöder ”privat” domäner i Azure DNS?
-Stöd för ”privat” domäner implementeras med hjälp av funktionen för privata zoner.  Den här funktionen är för närvarande tillgängligt som offentlig förhandsversion.  Privata zoner som hanteras med samma verktyg som internet-ansluten Azure DNS-zoner, men de är bara matchas från i de angivna virtuella nätverken.  Se den [översikt](private-dns-overview.md) mer information.
+### <a name="does-azure-dns-support-private-domains"></a>Stöder privata domäner i Azure DNS?
+Stöd för privata domäner implementeras med hjälp av funktionen privata zoner. Den här funktionen är för närvarande tillgängligt som offentlig förhandsversion. Privata zoner hanteras genom att använda samma verktyg som internet-ansluten Azure DNS-zoner. De är matchas från i de angivna virtuella nätverken. Mer information finns i den [översikt](private-dns-overview.md).
 
-Privata zoner stöds inte på Azure portal just nu. 
+För närvarande stöds inte privata zoner på Azure portal. 
 
-Information om andra interna DNS-alternativ i Azure finns i [namnmatchning för virtuella datorer och Rollinstanser](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md).
+Information om andra interna DNS-alternativ i Azure finns i [namnmatchning för virtuella datorer och rollinstanser](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md).
 
-### <a name="what-is-the-difference-between-registration-virtual-network-and-resolution-virtual-network-in-the-context-of-private-zones"></a>Vad är skillnaden mellan virtuella nätverk för registrering och virtuella matchningsnätverk i samband med privata zoner? 
-Du kan länka virtuella nätverk till en privat DNS-zon på två sätt – som ett virtuellt nätverk för registrering eller som ett virtuellt nätverk för matchning. Virtuella datorer i det virtuella nätverket kommer att kunna matcha mot poster i den privata zonen i båda fallen. Men om du anger ett virtuellt nätverk som virtuellt registreringsnätverk Azure kommer automatiskt att registreras (dynamisk registrering) DNS-poster i zonen för de virtuella datorerna i det virtuella nätverket. Dessutom när en virtuell dator i en registrering av virtuellt nätverk tas bort, tar Azure automatiskt bort motsvarande DNS-posten från länkade privat zon. 
+### <a name="whats-the-difference-between-registration-virtual-network-and-resolution-virtual-network-in-the-context-of-private-zones"></a>Vad är skillnaden mellan virtuella nätverk för registrering och virtuella matchningsnätverk i samband med privata zoner? 
+Du kan länka virtuella nätverk till en privat DNS-zon som ett virtuellt nätverk för registrering eller som ett virtuellt nätverk för matchning. I båda fallen matcha virtuella datorer i det virtuella nätverket har mot poster i den privata zonen. Med ett virtuellt nätverk för registrering registreras DNS-poster automatiskt i zonen för de virtuella datorerna i det virtuella nätverket. När en virtuell dator i en registrering av virtuellt nätverk har tagits bort, tas motsvarande DNS-posten från den länkade privata zonen bort automatiskt. 
 
 ### <a name="will-azure-dns-private-zones-work-across-azure-regions"></a>Azure DNS Private Zones fungerar i Azure-regioner?
-Ja. Privata zoner har stöd för DNS-matchning mellan virtuella nätverk i Azure-regioner, även om du inte uttryckligen peering i virtuella nätverk, så länge som de virtuella nätverken har angetts som virtuella matchningsnätverk för privat zon. Kunder kan måste de virtuella nätverken är peer-kopplad för TCP/HTTP-trafik kan flöda från en region till en annan. 
+Ja. Privata zoner har stöd för DNS-matchning mellan virtuella nätverk i Azure-regioner. Privata zoner fungerar även om du inte uttryckligen peerkoppla virtuella nätverk. De virtuella nätverken måste anges som virtuella matchningsnätverk för privat zon. Kunder kan måste de virtuella nätverken är peer-kopplad för TCP/HTTP-trafik kan flöda från en region till en annan.
 
 ### <a name="is-connectivity-to-the-internet-from-virtual-networks-required-for-private-zones"></a>Är anslutningen till Internet från virtuella nätverk som krävs för privata zoner?
-Nej. Privata zoner fungerar tillsammans med virtuella nätverk och låt kunderna hantera domäner för virtuella datorer eller andra resurser inom och mellan virtuella nätverk. Ingen Internetanslutning krävs för namnmatchning. 
+Nej. Privata zoner fungerar tillsammans med virtuella nätverk. Kunder använda dem för att hantera domäner för virtuella datorer eller andra resurser inom och mellan virtuella nätverk. Internetanslutning krävs inte för namnmatchning. 
 
-### <a name="can-the-same-private-zone-be-used-for-multiple-virtual-networks-for-resolution"></a>Samma privat zon användas för flera virtuella nätverk för matchning av? 
+### <a name="can-the-same-private-zone-be-used-for-several-virtual-networks-for-resolution"></a>Kan samma privat zon användas för flera virtuella nätverk för matchning av? 
 Ja. Kunder kan associera upp till 10 virtuella matchningsnätverk med en privat zon.
 
 ### <a name="can-a-virtual-network-that-belongs-to-a-different-subscription-be-added-as-a-resolution-virtual-network-to-a-private-zone"></a>Kan ett virtuellt nätverk som hör till en annan prenumeration läggas till som ett virtuellt nätverk för lösning till en privat zon? 
-Ja, så länge användaren har behörighet att skriva åtgärden på såväl de virtuella nätverk som den privata DNS-zonen. Skrivbehörighet kan allokeras till flera RBAC-roller. Till exempel har klassiska nätverk deltagare RBAC-roller skrivbehörighet till virtuella nätverk. Mer information om RBAC-roller finns i [rollbaserad åtkomstkontroll](../role-based-access-control/overview.md)
+Ja. Användaren måste ha skrivbehörighet för åtgärden på de virtuella nätverken och privata DNS-zonen. Skrivbehörighet kan beviljas till flera RBAC-roller. Till exempel har klassiska nätverk deltagare RBAC-roller skrivbehörighet till virtuella nätverk. Mer information om RBAC-roller finns i [rollbaserad åtkomstkontroll](../role-based-access-control/overview.md).
 
 ### <a name="will-the-automatically-registered-virtual-machine-dns-records-in-a-private-zone-be-automatically-deleted-when-the-virtual-machines-are-deleted-by-the-customer"></a>Automatiskt registrerade VM DNS-poster i en privat zon raderas automatiskt när de virtuella datorerna har tagits bort av kunden?
-Ja. Om du tar bort en virtuell dator inom ett virtuellt nätverk för registrering, kommer vi automatiskt ta bort DNS-poster som registrerades i zonen på grund av att ett virtuellt nätverk för registrering. 
+Ja. Om du tar bort en virtuell dator inom ett virtuellt nätverk för registrering av tas DNS-posterna som registrerades i zonen bort automatiskt. 
 
-### <a name="can-an-automatically-registered-virtual-machine-record-in-a-private-zone-from-a-registration-virtual-network-be-deleted-manually"></a>Kan en automatiskt registrerade VM-post i en privat zon (från ett virtuellt nätverk för registrering) tas bort manuellt? 
-Nej. Just nu, virtuell dator DNS-posterna som registreras automatiskt i en privat zon från ett virtuellt nätverk för registrering är inte synlig eller redigerbar av kunder. Men du kan ersätta (Skriv över) sådana automatiskt registrerade DNS-poster med en manuellt skapad DNS-post i zonen. Se följande frågor och svar som åtgärdar detta.
+### <a name="can-an-automatically-registered-virtual-machine-record-in-a-private-zone-from-a-registration-virtual-network-be-deleted-manually"></a>Kan en automatiskt registrerade VM-post i en privat zon från en virtuellt registreringsnätverk tas bort manuellt? 
+Nej. De virtuella datorn DNS-poster som registreras automatiskt i en privat zon från ett virtuellt nätverk för registrering är inte synlig eller redigerbar av kunder. Du kan skriva över de automatiskt registrerad DNS-posterna med en manuellt skapad DNS-post i zonen. Följande frågor och svar kan du lösa det här avsnittet.
 
-### <a name="what-happens-when-we-attempt-to-manually-create-a-new-dns-record-into-a-private-zone-that-has-the-same-hostname-as-an-automatically-registered-existing-virtual-machine-in-a-registration-virtual-network"></a>Vad händer om vi försöker manuellt skapa en ny DNS-post till en privat zon som har samma värdnamn som en (automatiskt registrerade) befintlig virtuell dator i ett virtuellt nätverk för registrering? 
-Om du försöker skapa en ny DNS-post manuellt i en privat zon som har samma värdnamn som en befintlig virtuell dator (automatiskt registrerade) i ett virtuellt registreringsnätverk tillåter vi den nya DNS-posten att skriva över det automatiskt registrerade VM-post. Dessutom om du därefter försöker ta bort den här manuellt skapade DNS-post från zonen det kommer att radera och automatisk registrering kommer att hända igen (DNS-posten kommer att återskapas automatiskt i zonen) så länge som den virtuella datorn fortfarande finns och har en privat IP kopplade till den. 
+### <a name="what-happens-when-we-try-to-manually-create-a-new-dns-record-into-a-private-zone-that-has-the-same-hostname-as-an-automatically-registered-existing-virtual-machine-in-a-registration-virtual-network"></a>Vad händer när vi försöker att manuellt skapa en ny DNS-post till en privat zon som har samma värdnamn som en befintlig virtuell dator som ska registreras automatiskt i ett virtuellt nätverk för registrering? 
+Försök att manuellt skapa en ny DNS-post till en privat zon som har samma värdnamn som en befintlig, automatiskt registrerad-dator i ett virtuellt nätverk för registrering. När du gör det, skriver den nya DNS-posten över automatiskt registrerade VM-post. Om du försöker ta bort den här manuellt skapade DNS-posten från zonen igen, lyckas ta bort. Automatisk registrering sker igen så länge som den virtuella datorn fortfarande finns och har en privat IP-adress som är kopplade till den. DNS-posten skapas automatiskt i zonen.
 
-### <a name="what-happens-when-we-unlink-a-registration-virtual-network-from-a-private-zone-would-the-automatically-registered-virtual-machine-records-from-the-virtual-network-be-removed-from-the-zone-as-well"></a>Vad händer när vi ta bort länken till ett virtuellt registreringsnätverk från en privat zon? Automatiskt registrerade VM-poster från det virtuella nätverket tas bort från zonen samt?
-Ja. Om du ta bort länken till ett virtuellt nätverk för registrering (uppdatera DNS-zonen för att ta bort det associerade virtuella nätverket för registrering) från en privat zon, tas eventuella poster som ska registreras automatiskt virtuella datorer från zonen i Azure. 
+### <a name="what-happens-when-we-unlink-a-registration-virtual-network-from-a-private-zone-will-the-automatically-registered-virtual-machine-records-from-the-virtual-network-be-removed-from-the-zone-too"></a>Vad händer när vi ta bort länken till ett virtuellt registreringsnätverk från en privat zon? Automatiskt registrerade VM-poster från det virtuella nätverket tas bort från zonen för?
+Ja. Om du vill ta bort länken till ett virtuellt registreringsnätverk från en privat zon, kan du uppdatera DNS-zonen för att ta bort det associerade virtuella nätverket för registrering. I den här processen tas VM-poster som har registreras automatiskt bort från zonen. 
 
-### <a name="what-happens-when-we-delete-a-registration-or-resolution-virtual-network-that-is-linked-to-a-private-zone-do-we-have-to-manually-update-the-private-zone-to-unlink-the-virtual-network-as-a-registration-or-resolution--virtual-network-from-the-zone"></a>Vad händer om vi tar bort ett registrering (eller lösning) virtuellt nätverk som är länkad till en privat zon? Har vi uppdatera den privata zonen för att ta bort länken till det virtuella nätverket för virtuella nätverk som en registrering (eller lösning) från zonen manuellt?
-Ja. När du tar bort ett virtuellt nätverk för registrering (eller lösning) utan att bryta länken till den från en privat zon först, Azure gör att din borttagning åtgärden ska lyckas, men det virtuella nätverket är inte automatiskt avlänkas från din privata zonen eventuellt. Du måste manuellt ta bort länken till det virtuella nätverket från den privata zonen. Därför är det bäst att först ta bort länken till ditt virtuella nätverk från din privata zonen innan den tas bort.
+### <a name="what-happens-when-we-delete-a-registration-or-resolution-virtual-network-thats-linked-to-a-private-zone-do-we-have-to-manually-update-the-private-zone-to-unlink-the-virtual-network-as-a-registration-or-resolution--virtual-network-from-the-zone"></a>Vad händer om vi tar bort ett registrering eller matchning virtuellt nätverk som är länkad till en privat zon? Har vi uppdatera den privata zonen för att ta bort länken till det virtuella nätverket som ett registrerings- eller virtuella matchningsnätverk från zonen manuellt?
+Ja. När du tar bort ett virtuellt nätverk för registrering eller matchning utan att bryta dess länk från en privat zon först lyckas din borttagningen. Men det virtuella nätverket är inte automatiskt avlänkas från din privata zon, om sådana. Du måste manuellt ta bort länken till det virtuella nätverket från den privata zonen. Därför ta bort länken till ditt virtuella nätverk från din privata zonen innan du tar bort den.
 
-### <a name="would-dns-resolution-using-the-default-fqdn-internalcloudappnet-still-work-even-when-a-private-zone-for-example-contosolocal-is-linked-to-a-virtual-network"></a>Skulle DNS-matchningen med FQDN (internal.cloudapp.net) att fungera även om en privat zon (till exempel: contoso.local) är länkad till ett virtuellt nätverk? 
-Ja. Privata zoner funktionen ersätter inte standard DNS-lösningar med hjälp av Azure-tillhandahållen internal.cloudapp.net zonen och erbjuds som en ytterligare funktion eller förbättring. För både fall (om förlita dig på Azure-tillhandahållen internal.cloudapp.net eller på din egen privat zon), är det bäst att använda det fullständiga Domännamnet för zonen som du vill matcha mot. 
+### <a name="will-dns-resolution-by-using-the-default-fqdn-internalcloudappnet-still-work-even-when-a-private-zone-for-example-contosolocal-is-linked-to-a-virtual-network"></a>DNS-matchningen med hjälp av standard FQDN (internal.cloudapp.net) fungerar fortfarande även när en privat zon (till exempel contoso.local) är länkad till ett virtuellt nätverk? 
+Ja. Privata zoner ersätter inte DNS-upplösning som standard med hjälp av Azure-tillhandahållen internal.cloudapp.net zonen. Den erbjuds som en ytterligare funktion eller förbättring. Om du förlitar dig på Azure-tillhandahållen internal.cloudapp.net eller på din egen privat zon använder du det fullständiga Domännamnet för zonen som du vill matcha mot. 
 
-### <a name="would-the-dns-suffix-on-virtual-machines-within-a-linked-virtual-network-be-changed-to-that-of-the-private-zone"></a>DNS-suffix på virtuella datorer inom ett virtuellt nätverk som är länkade ändras med privat zon? 
-Nej. Just nu, förblir DNS-suffix på de virtuella datorerna i ditt länkade virtuella nätverk som standard medföljer Azure suffix (”*. internal.cloudapp.net”). Du kan dock manuellt ändra den här DNS-suffix på dina virtuella datorer med den privata zonen. 
+### <a name="will-the-dns-suffix-on-virtual-machines-within-a-linked-virtual-network-be-changed-to-that-of-the-private-zone"></a>DNS-suffix på virtuella datorer inom ett virtuellt nätverk som är länkade ändras med den privata zonen? 
+Nej. DNS-suffix på de virtuella datorerna i ditt länkade virtuella nätverk är som standard medföljer Azure suffix (”*. internal.cloudapp.net”). Du kan manuellt ändra den här DNS-suffix på dina virtuella datorer med den privata zonen. 
 
 ### <a name="are-there-any-limitations-for-private-zones-during-this-preview"></a>Finns det några begränsningar för privata zoner för den här förhandsversionen?
-Ja. Allmänt tillgängliga förhandsversionen finns följande begränsningar:
-* En virtuella registreringsnätverk per privat zon
-* Upp till 10 virtuella matchningsnätverk per privat zon
-* Ett givet virtuellt nätverk kan endast kopplas till en privat zon som ett virtuellt nätverk för registrering
-* Ett givet virtuellt nätverk kan bara kopplas till upp till 10 privata zoner som ett virtuellt nätverk för lösning
-* Om ett virtuellt nätverk för registrering har angetts, DNS-posterna för de virtuella datorerna från det virtuella nätverket som är registrerade i privata zonen kommer inte att visas eller hämtas från Powershell/CLI/API: erna, men VM-poster verkligen har registrerats och löser har
-* Omvänd DNS fungerar endast för privata IP-adressutrymme i det virtuella nätverket för registrering
-* Omvänd DNS för en privat IP som inte är registrerat i den privata zonen (till exempel: privat IP för en virtuell dator i ett virtuellt nätverk som länkas som ett virtuellt nätverk lösning till en privat zon) returnerar ”internal.cloudapp.net” som DNS-suffix men Detta suffix kan inte matchas.   
-* Virtuellt nätverk måste vara tomt (dvs.) Inga virtuella datorer med ett nätverkskort som är ansluten) om från början (dvs.) för första gången) länkar till en privat zon som registrering eller matchning virtuella nätverket. Det virtuella nätverket kan dock sedan vara tomma för att framtida länka som en registrering eller matchning virtuellt nätverk till andra privata zoner. 
-* För tillfället stöds villkorlig vidarebefordran inte, till exempel för att aktivera matchning mellan Azure och OnPrem-nätverk. Dokumentation om hur kunderna kan få det här scenariot via andra metoder finns [namnmatchning för virtuella datorer och Rollinstanser](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md)
+Ja. Den offentliga förhandsversionen finns följande begränsningar.
+* Ett virtuellt registreringsnätverk per privat zon.
+* Upp till 10 virtuella matchningsnätverk per privat zon.
+* En beroende virtuella nätverkslänkar till endast en privat zon som ett virtuellt nätverk för registrering.
+* En given virtuella nätverkslänkar till upp till 10 privata zoner som ett virtuellt nätverk för matchning.
+* Om ett virtuellt nätverk för registrering har angetts, kan DNS-posterna för de virtuella datorer från det virtuella nätverket som är registrerade på den privata zonen inte visas eller hämtas från PowerShell, CLI eller API: er. VM-poster har registrerats och lösa har.
+* Omvänd DNS fungerar endast för privat IP-adressutrymme i det virtuella nätverket för registrering.
+* Omvänd DNS för en privat IP-adress som inte är registrerat i den privata zonen returnerar ”internal.cloudapp.net” som DNS-suffix. Detta suffix får inte vara löst. Ett exempel är en privat IP-adress för en virtuell dator i ett virtuellt nätverk som länkas som ett virtuellt nätverk lösning till en privat zon.
+* Ett virtuellt nätverk kan inte ha några virtuella datorer med ett nätverkskort anslutna när den länkar för första gången för att en privat zon som ett virtuellt nätverk för registrering eller matchning. Det virtuella nätverket måste alltså vara tom. Det virtuella nätverket sedan kan inte vara tom för att framtida länka som ett registrering eller matchning virtuellt nätverk till andra privata zoner. 
+* Villkorlig vidarebefordran stöds inte, till exempel om du vill aktivera matchning mellan Azure och lokala nätverk. Lär dig hur kunderna kan få det här scenariot via andra mekanismer. Se [namnmatchning för virtuella datorer och rollinstanser](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md)
 
 ### <a name="are-there-any-quotas-or-limits-on-zones-or-records-for-private-zones"></a>Finns det någon kvoter eller gränser för zoner eller poster för privata zoner?
-Det finns ingen separat gränser för antalet zoner som tillåts per prenumeration eller antalet postuppsättningar per zon för privata zoner. Både offentliga och privata zoner räknas mot de övergripande DNS-gränserna som beskrevs [här](../azure-subscription-service-limits.md#dns-limits)
+Det finns ingen gräns för antalet zoner som tillåts per prenumeration för privata zoner. Det finns ingen gräns för antalet postuppsättningar per zon för privata zoner. Både offentliga och privata zoner tillgodoräknas övergripande DNS-gränser. Mer information finns i den [Azure-prenumeration och tjänstbegränsningar](../azure-subscription-service-limits.md#dns-limits)
 
-### <a name="is-there-portal-support-for-private-zones"></a>Finns det Portal stöd för privata zoner?
-Privata zoner som redan har skapats via mekanismer för icke-Portal (API/PowerShell/CLI/SDK: er) som ska visas på Azure portal, men kunder kommer inte att skapa nya privata zoner eller hantera associationer med virtuella nätverk. Dessutom för virtuella nätverk som är associerade som virtuellt registreringsnätverk syns automatiskt registrerade VM-poster inte från portalen. 
+### <a name="is-there-portal-support-for-private-zones"></a>Finns det portal-stöd för privata zoner?
+Privata zoner som redan har skapats via API: er, PowerShell, CLI och SDK: er är synliga på Azure portal. Men kunder kan inte skapa nya privata zoner eller hantera associationer med virtuella nätverk. För virtuella nätverk som är associerade som virtuellt registreringsnätverk kan visas från portalen inte automatiskt registrerade VM-poster. 
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Läs mer om Azure DNS](dns-overview.md)
+- [Läs mer om Azure DNS](dns-overview.md).
 <br>
-[Läs mer om hur du använder Azure DNS för privata domäner](private-dns-overview.md)
+- [Mer information om hur du använder Azure DNS för privata domäner](private-dns-overview.md).
 <br>
-[Mer information om DNS-zoner och poster](dns-zones-records.md)
+- [Mer information om DNS-zoner och poster](dns-zones-records.md).
 <br>
-[Kom igång med Azure DNS](dns-getstarted-portal.md)
+- [Kom igång med Azure DNS](dns-getstarted-portal.md).
 

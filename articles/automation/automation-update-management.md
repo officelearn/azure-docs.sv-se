@@ -6,15 +6,15 @@ ms.service: automation
 ms.component: update-management
 author: georgewallace
 ms.author: gwallace
-ms.date: 10/11/2018
+ms.date: 10/25/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 6d2076a91bc7e7c0e2ca9d2fe6899cddec2f8d0b
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.openlocfilehash: 90a5be07b6939df1850bb1574c71254bb896f004
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/25/2018
-ms.locfileid: "50024502"
+ms.locfileid: "50093844"
 ---
 # <a name="update-management-solution-in-azure"></a>Lösningen för uppdateringshantering i Azure
 
@@ -73,7 +73,7 @@ I följande tabell visas en lista över operativsystem som stöds:
 |CentOS 6 (x86/x64) och 7 (x64)      | Linux-agenter måste ha åtkomst till en uppdateringslagringsplats. 'Yum' kräver klassificeringsbaserad uppdatering för att returnera säkerhetsdata som CentOS inte har direkt.         |
 |Red Hat Enterprise 6 (x86/x64) och 7 (x64)     | Linux-agenter måste ha åtkomst till en uppdateringslagringsplats.        |
 |SUSE Linux Enterprise Server 11 (x86/x64) och 12 (x64)     | Linux-agenter måste ha åtkomst till en uppdateringslagringsplats.        |
-|Ubuntu 14.04 LTS och 16.04 LTS (x86/x64)      |Linux-agenter måste ha åtkomst till en uppdateringslagringsplats.         |
+|Ubuntu 14.04 LTS, 16.04 LTS och 18.04 (x86/x64)      |Linux-agenter måste ha åtkomst till en uppdateringslagringsplats.         |
 
 ### <a name="unsupported-client-types"></a>Klientappar typer
 
@@ -174,7 +174,7 @@ I följande tabell beskrivs de anslutna källor som stöds av den här lösninge
 
 ### <a name="collection-frequency"></a>Insamlingsfrekvens
 
-Två gånger per dag för varje hanterad Windows-dator utförs en sökning. Var femtonde minut anropas Windows API att fråga efter den senaste uppdateringstiden att fastställa om statusen har ändrats. Om statusen har ändrats, har en fullständig genomsökning initierats. 
+Två gånger per dag för varje hanterad Windows-dator utförs en sökning. Var femtonde minut anropas Windows API att fråga efter den senaste uppdateringstiden att fastställa om statusen har ändrats. Om statusen har ändrats, har en fullständig genomsökning initierats.
 
 Utförs en sökning var tredje timme för varje hanterad Linux-dator.
 

@@ -1,5 +1,5 @@
 ---
-title: Övervaka hälsa för virtuell dator med Azure Monitor för virtuella datorer | Microsoft Docs
+title: Övervaka hälsa för virtuell dator med Azure Monitor för virtuella datorer (förhandsversion) | Microsoft Docs
 description: Den här artikeln beskrivs hur du förstå hälsotillståndet för den virtuella datorn och det underliggande operativsystemet med Azure Monitor för virtuella datorer.
 services: azure-monitor
 documentationcenter: ''
@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/15/2018
+ms.date: 10/25/2018
 ms.author: magoedte
-ms.openlocfilehash: 84314f64d8a96e65f63cb5c6051f7f5e902cd682
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: 059667787c905f47f6629afdb249a2273ceed585
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49387829"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50094235"
 ---
-# <a name="understand-the-health-of-your-azure-virtual-machines-with-azure-monitor-for-vms"></a>Förstå hälsotillståndet för virtuella datorer i Azure med Azure Monitor för virtuella datorer
+# <a name="understand-the-health-of-your-azure-virtual-machines-with-azure-monitor-for-vms-preview"></a>Förstå hälsotillståndet för virtuella datorer i Azure med Azure Monitor för virtuella datorer (förhandsversion)
 Azure innehåller flera tjänster som individuellt utför en viss roll eller en uppgift i övervakningsutrymmet, men ger en djupgående hälsotillstånd perspektiv av operativsystemet som körs på virtuella Azure-datorer inte var tillgänglig.  Medan du kan övervaka för olika villkor med hjälp av Log Analytics och Azure Monitor, har de inte utvecklats modellera och representerar hälsan för kärnkomponenter eller övergripande hälsa för den virtuella datorn.  Med Azure Monitor för virtuella datorer hälsotillstånd funktion kan övervakar det proaktivt tillgänglighet och prestanda för Windows eller Linux gästoperativsystemet med en modell som representerar viktiga komponenter och deras relationer villkor som anger hur hälsotillståndet för de komponenter, och varnar dig när ett feltillstånd har identifierats.  
 
 Visa det övergripande hälsotillståndet för Azure VM och underliggande operativsystemet kan observeras ur två perspektiv med Azure Monitor för virtuella datorer hälsotillstånd, direkt från den virtuella datorn eller i alla virtuella datorer i en resursgrupp från Azure Monitor.
@@ -35,7 +35,7 @@ Det här avsnittet beskrivs standardkriteriet för hälsotillstånd som definier
 
 ### <a name="windows-vms"></a>Virtuella Windows-datorer
 
-- Ledigt minne i MB 
+- Ledigt minne i MB 
 - Genomsnittlig sekunder Per skrivning (logisk Disk)
 - Genomsnittlig sekunder Per skrivning (Disk)
 - Genomsnittlig logisk Disk sekunder Per läsning

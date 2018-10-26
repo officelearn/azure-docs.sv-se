@@ -1,5 +1,5 @@
 ---
-title: Så här diagrammets prestanda med Azure Monitor för virtuella datorer | Microsoft Docs
+title: Så här diagrammets prestanda med Azure Monitor för virtuella datorer (förhandsversion) | Microsoft Docs
 description: Prestanda är en funktion i Azure Monitor för virtuella datorer som automatiskt identifierar programkomponenter i Windows och Linux-system och mappar kommunikationen mellan olika tjänster. Den här artikeln innehåller information om hur du använder det på en mängd olika scenarier.
 services: azure-monitor
 documentationcenter: ''
@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/18/2018
+ms.date: 10/25/2018
 ms.author: magoedte
-ms.openlocfilehash: a63a9d22638231aa076cc4ced9030a378d0c36e4
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: 776a8901696bd69eeee6fd4b3622c8992bfc25a3
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49429498"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50094320"
 ---
-# <a name="how-to-chart-performance-with-azure-monitor-for-vms"></a>Hur du diagrammet prestanda med Azure Monitor för virtuella datorer
+# <a name="how-to-chart-performance-with-azure-monitor-for-vms-preview"></a>Hur du diagrammet prestanda med Azure Monitor för virtuella datorer (förhandsversion)
 Azure Monitor för virtuella datorer innehåller en uppsättning prestandadiagram som är inriktade på flera nyckeltal (KPI: er) för att bestämma hur bra en virtuell dator fungerar. Diagrammen visar Resursanvändning under en viss tid så att du kan identifiera flaskhalsar, avvikelser, eller växla till ett perspektiv som lista varje dator om du vill visa resursanvändningen baserat på mått som har valts. Det finns ett stort antal element att överväga när du hanterar prestanda, fokuserar Azure Monitor för virtuella datorer på operativsystemet så som detta visas via processor, minne, nätverkskort och diskar. Prestanda kompletterar hälsotillstånd övervakningsfunktionen och hjälper till att exponera problem som indikerar ett möjligt system komponentfel, support justering och optimering för att uppnå effektivitet eller stöd för kapacitetsplanering.  
 
 ## <a name="multi-vm-perspective-from-azure-monitor"></a>Multi-VM perspektiv från Azure Monitor

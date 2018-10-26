@@ -1,5 +1,5 @@
 ---
-title: Azure Monitor för kända problem för virtuella datorer | Microsoft Docs
+title: Azure Monitor för virtuella datorer (förhandsversion) kända problem med | Microsoft Docs
 description: Azure Monitor för virtuella datorer är en lösning i Azure som kombinerar hälsotillstånd och prestanda för övervakning av Azure VM-operativsystem, samt automatiskt identifierar programkomponenter och beroenden till andra resurser och mappar kommunikationen mellan dem. Den här artikeln beskriver kända problem.
 services: azure-monitor
 documentationcenter: ''
@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/15/2018
+ms.date: 10/25/2018
 ms.author: magoedte
-ms.openlocfilehash: 6d1f1d1ae07ec32262f655fd6ed7205a70e252f4
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: eba9e26f12fd9e1862727adec4f8c8f594e8f659
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49385099"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50091682"
 ---
-# <a name="known-issues-with-azure-monitor-for-vms"></a>Kända problem med Azure Monitor för virtuella datorer
+# <a name="known-issues-with-azure-monitor-for-vms-preview"></a>Kända problem med Azure Monitor för virtuella datorer (förhandsversion)
 
 Följande är kända problem med hälsotillstånd-funktionen i Azure Monitor för virtuella datorer:
 

@@ -11,12 +11,12 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 12/12/2017
 ms.author: glenga
-ms.openlocfilehash: d8f27063b68ed58b9ac34219d806c1cf8165ea8c
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.openlocfilehash: 2d68a1728e964395fbf0f9f7433e2c04b4f94f6b
+ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/25/2018
-ms.locfileid: "50026032"
+ms.locfileid: "50087601"
 ---
 # <a name="azure-functions-c-script-csx-developer-reference"></a>Azure Functions C#-skript (.csx) för utvecklare
 
@@ -81,12 +81,13 @@ Inkommande eller utgående data är bunden till en C#-skript funktionsparameter 
 ```csharp
 #r "Microsoft.WindowsAzure.Storage"
 
+using Microsoft.Extensions.Logging;
 using Microsoft.WindowsAzure.Storage.Queue;
 using System;
 
-public static void Run(CloudQueueMessage myQueueItem, TraceWriter log)
+public static void Run(CloudQueueMessage myQueueItem, ILogger log)
 {
-    log.Info($"C# Queue trigger function processed: {myQueueItem.AsString}");
+    log.LogInformation($"C# Queue trigger function processed: {myQueueItem.AsString}");
 }
 ```
 
@@ -128,9 +129,11 @@ Exempel *run.csx*:
 ```csharp
 #load "mylogger.csx"
 
-public static void Run(TimerInfo myTimer, TraceWriter log)
+using Microsoft.Extensions.Logging;
+
+public static void Run(TimerInfo myTimer, ILogger log)
 {
-    log.Verbose($"Log by run.csx: {DateTime.Now}");
+    log.LogInformation($"Log by run.csx: {DateTime.Now}");
     MyLogger(log, $"Log by MyLogger: {DateTime.Now}");
 }
 ```
@@ -138,9 +141,9 @@ public static void Run(TimerInfo myTimer, TraceWriter log)
 Exempel *mylogger.csx*:
 
 ```csharp
-public static void MyLogger(TraceWriter log, string logtext)
+public static void MyLogger(ILogger log, string logtext)
 {
-    log.Verbose(logtext);
+    log.LogInformation(logtext);
 }
 ```
 
@@ -152,12 +155,13 @@ Exempel *run.csx* för HTTP-utlösare:
 #load "..\shared\order.csx"
 
 using System.Net;
+using Microsoft.Extensions.Logging;
 
-public static async Task<HttpResponseMessage> Run(Order req, IAsyncCollector<Order> outputQueueItem, TraceWriter log)
+public static async Task<HttpResponseMessage> Run(Order req, IAsyncCollector<Order> outputQueueItem, ILogger log)
 {
-    log.Info("C# HTTP trigger function received an order.");
-    log.Info(req.ToString());
-    log.Info("Submitting to processing queue.");
+    log.LogInformation("C# HTTP trigger function received an order.");
+    log.LogInformation(req.ToString());
+    log.LogInformation("Submitting to processing queue.");
 
     if (req.orderId == null)
     {
@@ -177,11 +181,12 @@ Exempel *run.csx* för kö-utlösare:
 #load "..\shared\order.csx"
 
 using System;
+using Microsoft.Extensions.Logging;
 
-public static void Run(Order myQueueItem, out Order outputQueueItem,TraceWriter log)
+public static void Run(Order myQueueItem, out Order outputQueueItem, ILogger log)
 {
-    log.Info($"C# Queue trigger function processed order...");
-    log.Info(myQueueItem.ToString());
+    log.LogInformation($"C# Queue trigger function processed order...");
+    log.LogInformation(myQueueItem.ToString());
 
     outputQueueItem = myQueueItem;
 }
@@ -230,7 +235,7 @@ Skriva flera värden till en utdatabindning eller om en lyckad funktionsanrop in
 Det här exemplet skriver flera Kömeddelanden i samma kö med `ICollector`:
 
 ```csharp
-public static void Run(ICollector<string> myQueue, TraceWriter log)
+public static void Run(ICollector<string> myQueue, ILogger log)
 {
     myQueue.Add("Hello");
     myQueue.Add("World!");
@@ -239,14 +244,12 @@ public static void Run(ICollector<string> myQueue, TraceWriter log)
 
 ## <a name="logging"></a>Loggning
 
-Om du vill logga utdata till din direktuppspelningsloggarna i C#, innehålla ett argument av typen `TraceWriter`. Vi rekommenderar att du namnger den `log`. Undvik att använda `Console.Write` i Azure Functions. 
-
-`TraceWriter` har definierats i den [Azure WebJobs SDK](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.Host/TraceWriter.cs). Loggningsnivå för `TraceWriter` kan konfigureras i [host.json](functions-host-json.md).
+Logga utdata på din direktuppspelningsloggarna i C#, innehålla ett argument av typen [ILogger](https://docs.microsoft.com/dotnet/api/microsoft.extensions.logging.ilogger). Vi rekommenderar att du namnger den `log`. Undvik att använda `Console.Write` i Azure Functions.
 
 ```csharp
-public static void Run(string myBlob, TraceWriter log)
+public static void Run(string myBlob, ILogger log)
 {
-    log.Info($"C# Blob trigger function processed: {myBlob}");
+    log.LogInformation($"C# Blob trigger function processed: {myBlob}");
 }
 ```
 
@@ -305,8 +308,9 @@ Om du vill importera namnområden kan du göra så som vanligt, med den `using` 
 ```csharp
 using System.Net;
 using System.Threading.Tasks;
+using Microsoft.Extensions.Logging;
 
-public static Task<HttpResponseMessage> Run(HttpRequestMessage req, TraceWriter log)
+public static Task<HttpResponseMessage> Run(HttpRequestMessage req, ILogger log)
 ```
 
 Följande namnrymder importeras automatiskt och därför är valfria:
@@ -330,8 +334,9 @@ Lägg till referenser för framework-sammansättningar, med hjälp av den `#r "A
 using System.Net;
 using System.Net.Http;
 using System.Threading.Tasks;
+using Microsoft.Extensions.Logging;
 
-public static Task<HttpResponseMessage> Run(HttpRequestMessage req, TraceWriter log)
+public static Task<HttpResponseMessage> Run(HttpRequestMessage req, ILogger log)
 ```
 
 Följande sammansättningar läggs automatiskt till i Azure-funktioner som är värd för miljön:
@@ -422,11 +427,11 @@ Ange om du vill använda en anpassad NuGet feed på flödet på en *Nuget.Config
 Hämta en miljövariabel eller en app som inställningsvärde `System.Environment.GetEnvironmentVariable`, vilket visas i följande kodexempel:
 
 ```csharp
-public static void Run(TimerInfo myTimer, TraceWriter log)
+public static void Run(TimerInfo myTimer, ILogger log)
 {
-    log.Info($"C# Timer trigger function executed at: {DateTime.Now}");
-    log.Info(GetEnvironmentVariable("AzureWebJobsStorage"));
-    log.Info(GetEnvironmentVariable("WEBSITE_SITE_NAME"));
+    log.LogInformation($"C# Timer trigger function executed at: {DateTime.Now}");
+    log.LogInformation(GetEnvironmentVariable("AzureWebJobsStorage"));
+    log.LogInformation(GetEnvironmentVariable("WEBSITE_SITE_NAME"));
 }
 
 public static string GetEnvironmentVariable(string name)

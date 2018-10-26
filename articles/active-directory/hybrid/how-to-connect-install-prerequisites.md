@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 09/28/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: f0791173450d5db3b33762ec9d5ed5c1adf96788
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: 4dd3253b1d7ee159914f2d1fd6a8644bbc69c1f0
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49321639"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50092799"
 ---
 # <a name="prerequisites-for-azure-ad-connect"></a>Förhandskrav för Azure AD Connect
 Det här avsnittet beskriver kraven och maskinvarukrav för Azure AD Connect.
@@ -63,7 +63,7 @@ Innan du installerar Azure AD Connect, finns det några saker som du behöver.
 ### <a name="sql-server-used-by-azure-ad-connect"></a>SQL Server som används av Azure AD Connect
 * Azure AD Connect kräver en SQL Server-databas för att lagra identitetsdata. En SQL Server 2012 Express LocalDB (ett ljust version av SQL Server Express) installeras som standard. SQL Server Express har en gräns på 10GB storlek som hjälper dig att hantera cirka 100 000 objekt. Om du behöver hantera ett ökat antal katalogobjekt, måste du peka guiden Installera på en annan installation av SQL Server.
 * Om du använder en separat SQL Server gäller dessa krav:
-  * Azure AD Connect stöder alla versioner av Microsoft SQL Server från SQL Server 2008 (med senaste Service Pack) till SQL Server 2016 SP1. Microsoft Azure SQL Database är **stöds inte** som en databas.
+  * Azure AD Connect stöder alla versioner av Microsoft SQL Server från SQL Server 2008 (med senaste Service Pack) till SQL Server 2017. Microsoft Azure SQL Database är **stöds inte** som en databas.
   * Du måste använda en icke skiftlägeskänslig sortering i SQL. Dessa sorteringar identifieras med en \_CI_ i sina namn. Det är **stöds inte** att använda en skiftlägeskänslig sortering, identifieras av \_CS_ i sina namn.
   * Du kan bara ha en Synkroniseringsmotorn per SQL-instans. Det är **stöds inte** att dela en SQL-instans med FIM/MIM-synkronisering, DirSync eller Azure AD Sync.
 

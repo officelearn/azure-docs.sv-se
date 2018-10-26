@@ -4,20 +4,22 @@ description: Lär dig att felsöka problem med hantering av uppdateringar
 services: automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 10/17/2018
+ms.date: 10/25/2018
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: 41883fd677d276f8f26721fdccc3ded020c3278b
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: f52767058ef69d29465f1274109b6d3ffe58296c
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49405238"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50092635"
 ---
 # <a name="troubleshooting-issues-with-update-management"></a>Felsökning av problem med hantering av uppdateringar
 
 Den här artikeln beskriver lösningar för att lösa problem som du kan köra över när du använder hantering av uppdateringar.
+
+Det finns en agent-felsökare för Hybrid Worker-agenten att fastställa det underliggande problemet. Läs mer om felsökaren i [Felsök agenten uppdateringsproblem](update-agent-issues.md). Andra problem finns i den detaljerade informationen nedan om eventuella problem.
 
 ## <a name="general"></a>Allmänt
 
@@ -110,6 +112,20 @@ Hybrid Runbook Worker gick inte att generera ett självsignerat certifikat
 #### <a name="resolution"></a>Lösning
 
 Kontrollera system-kontot har läsbehörighet till mappen **C:\ProgramData\Microsoft\Crypto\RSA** och försök igen.
+
+### <a name="nologs"></a>Scenario: Uppdateringshantering data visas inte i Log Analytics för en dator
+
+#### <a name="issue"></a>Problem
+
+Du har datorer som visas som **ej utvärderat** under **efterlevnad**, men du kan se pulsslag data i Log Analytics för Hybrid Runbook Worker men inte hantering av uppdateringar.
+
+#### <a name="cause"></a>Orsak
+
+Hybrid Runbook Worker kan behöva registreras igen och ominstalleras.
+
+#### <a name="resolution"></a>Lösning
+
+Följ stegen i [distribuera en Windows Hybrid Runbook Worker](../automation-windows-hrw-install.md) att installera om Hybrid Worker.
 
 ### <a name="hresult"></a>Scenario: Datorn visas som ej utvärderat och visar ett HResult-undantag
 

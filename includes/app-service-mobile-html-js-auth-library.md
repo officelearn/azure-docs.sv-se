@@ -1,3 +1,16 @@
+---
+author: conceptdev
+ms.service: app-service-mobile
+ms.topic: include
+ms.date: 08/23/2018
+ms.author: crdun
+ms.openlocfilehash: 5f7cbdd98d25855e9b8bb102413bd71148193318
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.translationtype: MT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50133962"
+---
 ### <a name="server-auth"></a>Gör så här för att: autentisera med en provider (Server Flow)
 För att använda Mobile Apps för att hantera autentiseringsprocessen i din app måste du registrera din app med din identitetsprovider. Sedan måste du konfigurera program-ID och -hemligheten som du fått av din provider i Azure App Service.
 Mer information finns i självstudierna [Lägg till autentisering till din app](../articles/app-service-mobile/app-service-mobile-cordova-get-started-users.md).

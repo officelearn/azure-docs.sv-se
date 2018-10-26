@@ -10,20 +10,20 @@ ms.devlang: azurecli
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/06/2018
+ms.date: 10/24/2018
 ms.author: tomfitz
-ms.openlocfilehash: 8c3d208b12166a590c68753fb4f58c9bb6e55610
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 80246114ac839efa0025dfbc29b9bdbbe2b740be
+ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47225539"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50084813"
 ---
 # <a name="deploy-resources-with-resource-manager-templates-and-azure-cli"></a>Distribuera resurser med Resource Manager-mallar och Azure CLI
 
 Den här artikeln förklarar hur du använder Azure CLI med Resource Manager-mallar för att distribuera dina resurser till Azure. Om du inte är bekant med principerna för att distribuera och hantera dina Azure-lösningar finns i [översikt över Azure Resource Manager](resource-group-overview.md).  
 
-Resource Manager-mallen som du distribuerar kan antingen vara en lokal fil på din dator eller en extern fil som finns i en databas som GitHub. Mallen som du distribuerar i den här artikeln är tillgänglig i den [exempelmallen](#sample-template) avsnittet eller som en [storage-konto mallen i GitHub](https://github.com/Azure/azure-quickstart-templates/blob/master/101-storage-account-create/azuredeploy.json).
+Resource Manager-mallen som du distribuerar kan antingen vara en lokal fil på din dator eller en extern fil som finns i en databas som GitHub. Mallen som du distribuerar i den här artikeln är tillgänglig som en [storage-konto mallen i GitHub](https://github.com/Azure/azure-quickstart-templates/blob/master/101-storage-account-create/azuredeploy.json).
 
 [!INCLUDE [sample-cli-install](../../includes/sample-cli-install.md)]
 
@@ -116,9 +116,46 @@ az group deployment create \
 
 Den angivna distributionen måste ha lyckats.
 
-## <a name="parameter-files"></a>Parameterfiler
+## <a name="parameters"></a>Parametrar
 
-I stället för att skicka parametrar som infogade värden i skriptet, kan det vara enklare att använda en JSON-fil som innehåller parametervärdena. Parameterfilen måste vara i följande format:
+Du kan använda infogade parametrar eller en parameterfil för att ange parametervärden. I föregående exempel i den här artikeln visas infogade parametrar.
+
+### <a name="inline-parameters"></a>Infogad parametrar
+
+Om du vill skicka infogade parametrar, anger du värden i `parameters`. Till exempel är ett Bash-gränssnitt för att skicka en sträng och en matris till en mall, använda:
+
+```azurecli
+az group deployment create \
+  --resource-group testgroup \
+  --template-file demotemplate.json \
+  --parameters exampleString='inline string' exampleArray='("value1", "value2")'
+```
+
+Du kan också hämta innehållet i filen och ge innehållet som en infogad-parameter.
+
+```azurecli
+az group deployment create \
+  --resource-group testgroup \
+  --template-file demotemplate.json \
+  --parameters exampleString=@stringContent.txt exampleArray=@arrayContent.json
+```
+
+Hämta ett parametervärde från en fil är användbart när du behöver ange konfigurationsvärden. Du kan till exempel ange [cloud-init värden för en Linux-dator](../virtual-machines/linux/using-cloud-init.md).
+
+ArrayContent.json formatet är:
+
+```json
+[
+    "value1",
+    "value2"
+]
+```
+
+### <a name="parameter-files"></a>Parameterfiler
+
+I stället för att skicka parametrar som infogade värden i skriptet, kan det vara enklare att använda en JSON-fil som innehåller parametervärdena. Parameterfilen kan vara en lokal fil eller en extern fil med en tillgänglig URI.
+
+Parameterfilen måste vara i följande format:
 
 ```json
 {
@@ -132,7 +169,7 @@ I stället för att skicka parametrar som infogade värden i skriptet, kan det v
 }
 ```
 
-Observera att parameters-avsnittet innehåller ett parameternamn som matchar den parameter som definierats i mallen (storageAccountType). Parameterfilen innehåller ett värde för parametern. Det här värdet skickas automatiskt till mallen under distributionen. Du kan skapa flera parameterfiler för olika distributionsscenarier och sedan skicka in lämpliga parameterfilen. 
+Observera att parameters-avsnittet innehåller ett parameternamn som matchar den parameter som definierats i mallen (storageAccountType). Parameterfilen innehåller ett värde för parametern. Det här värdet skickas automatiskt till mallen under distributionen. Du kan skapa fler än en parameterfil och sedan skicka in lämpliga parameterfilen för scenariot. 
 
 Kopiera i föregående exempel och spara det som en fil med namnet `storage.parameters.json`.
 
@@ -145,6 +182,19 @@ az group deployment create \
   --template-file storage.json \
   --parameters @storage.parameters.json
 ```
+
+### <a name="parameter-precedence"></a>Parametern prioritet
+
+Du kan använda infogade parametrar och en lokal parameterfil på samma gång för distribution. Du kan till exempel ange vissa värden i den lokala parameterfilen och lägga till andra värden infogad under distributionen. Om du anger värden för en parameter i både lokala parameterfilen och infogade måste företräde det infogade värdet.
+
+```azurecli
+az group deployment create \
+  --resource-group testgroup \
+  --template-file demotemplate.json \
+  --parameters @demotemplate.parameters.json \
+  --parameters exampleArray=@arrtest.json
+```
+
 
 ## <a name="test-a-template-deployment"></a>Testa en för malldistribution
 
@@ -166,7 +216,7 @@ Om inga fel identifieras måste returnerar kommandot information om test-distrib
       ...
 ```
 
-Om ett fel upptäcks kan returnerar kommandot ett felmeddelande. Exempel: försöker skicka ett felaktigt värde för lagringskontots SKU, får du följande felmeddelande:
+Om ett fel upptäcks kan returnerar kommandot ett felmeddelande. Skicka ett felaktigt värde för lagringskontots SKU, returnerar exempelvis följande fel:
 
 ```azurecli
 {
@@ -197,59 +247,10 @@ Om mallen innehåller ett syntaxfel, returnerar kommandot ett felmeddelande om a
 }
 ```
 
-## <a name="sample-template"></a>Exempelmall
-
-Följande mall används i exemplen i den här artikeln. Kopiera och spara den som en fil med namnet storage.json. Information om hur du skapar den här mallen finns i [skapa din första Azure Resource Manager-mall](resource-manager-create-first-template.md).  
-
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "storageAccountType": {
-      "type": "string",
-      "defaultValue": "Standard_LRS",
-      "allowedValues": [
-        "Standard_LRS",
-        "Standard_GRS",
-        "Standard_ZRS",
-        "Premium_LRS"
-      ],
-      "metadata": {
-        "description": "Storage Account type"
-      }
-    }
-  },
-  "variables": {
-    "storageAccountName": "[concat(uniquestring(resourceGroup().id), 'standardsa')]"
-  },
-  "resources": [
-    {
-      "type": "Microsoft.Storage/storageAccounts",
-      "name": "[variables('storageAccountName')]",
-      "apiVersion": "2016-01-01",
-      "location": "[resourceGroup().location]",
-      "sku": {
-          "name": "[parameters('storageAccountType')]"
-      },
-      "kind": "Storage", 
-      "properties": {
-      }
-    }
-  ],
-  "outputs": {
-      "storageAccountName": {
-          "type": "string",
-          "value": "[variables('storageAccountName')]"
-      }
-  }
-}
-```
-
 ## <a name="next-steps"></a>Nästa steg
 * Exemplen i den här artikeln distribuera resurser till en resursgrupp i din Standardprenumeration. Om du vill använda en annan prenumeration, se [hantera flera Azure-prenumerationer](/cli/azure/manage-azure-subscriptions-azure-cli).
-* Om du vill ange hur du hanterar resurs som finns i resursgruppen men inte har definierats i mallen, se [distributionslägen i Azure Resource Manager](deployment-modes.md).
+* Om du vill ange hur du hanterar resurser som finns i resursgruppen men inte har definierats i mallen, se [distributionslägen i Azure Resource Manager](deployment-modes.md).
 * Information om hur du definierar parametrar i mallen finns i [förstå strukturen och syntaxen för Azure Resource Manager-mallar](resource-group-authoring-templates.md).
 * Tips om hur du löser vanliga distributionsfel finns [felsöka vanliga Azure-distributionsfel med Azure Resource Manager](resource-manager-common-deployment-errors.md).
 * Information om hur du distribuerar en mall som kräver en SAS-token finns i [distribuera privat mall med SAS-token](resource-manager-cli-sas-token.md).
-* I distributionen på ett säkert sätt din tjänst i flera regioner, se [Azure Deployment Manager](deployment-manager-overview.md).
+* Om du vill distribuera på ett säkert sätt din tjänst till flera regioner, se [Azure Deployment Manager](deployment-manager-overview.md).

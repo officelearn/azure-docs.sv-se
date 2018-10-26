@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 05/22/2017
 ms.author: glenga
-ms.openlocfilehash: 024958d8a548313b53fc24ade5805de036a89afb
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: adeabacfd468a7a5967ff05f527849e31cbeead8
+ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49351923"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50084466"
 ---
 # <a name="use-azure-functions-to-connect-to-an-azure-sql-database"></a>Använd Azure Functions för att ansluta till en Azure SQL Database
 Det här avsnittet visar hur du använder Azure Functions för att skapa ett schemalagt jobb som rensar upp rader i en tabell i en Azure SQL Database. Den nya C#-skriptfunktion skapas baserat på en fördefinierad timer utlösarmallen i Azure-portalen. För det här scenariot måste ange du också en anslutningssträng för databasen som en appinställning i funktionsappen. Det här scenariot använder en bulkåtgärd mot databasen. 
@@ -86,11 +86,12 @@ Nu kan du lägga till C#-Funktionskoden som ansluter till din SQL-databas.
     using System.Configuration;
     using System.Data.SqlClient;
     using System.Threading.Tasks;
+    using Microsoft.Extensions.Logging;
     ```
 
 4. Ersätt de befintliga `Run` funktionen med följande kod:
     ```cs
-    public static async Task Run(TimerInfo myTimer, TraceWriter log)
+    public static async Task Run(TimerInfo myTimer, ILogger log)
     {
         var str = ConfigurationManager.ConnectionStrings["sqldb_connection"].ConnectionString;
         using (SqlConnection conn = new SqlConnection(str))
@@ -103,7 +104,7 @@ Nu kan du lägga till C#-Funktionskoden som ansluter till din SQL-databas.
             {
                 // Execute the command and log the # rows affected.
                 var rows = await cmd.ExecuteNonQueryAsync();
-                log.Info($"{rows} rows were updated");
+                log.LogInformation($"{rows} rows were updated");
             }
         }
     }

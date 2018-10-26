@@ -10,12 +10,12 @@ ms.author: netahw
 author: nhaiby
 ms.date: 05/20/2018
 ROBOTS: NOINDEX
-ms.openlocfilehash: 371903e1ee080d2b98fd46ac4d6d9838416e1335
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: b1b4e3e19adb38a69e16aaa98300972df3bb71a8
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46973430"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50093657"
 ---
 # <a name="build-and-deploy-image-similarity-models-with-azure-machine-learning"></a>Skapa och distribuera avbildningen likheter modeller med Azure Machine Learning
 
@@ -38,7 +38,7 @@ När du skapar och distribuerar den här modellen med AMLPCV, gå igenom följan
 7. Distribution av webbtjänster
 8. Belastningstest för tjänsten
 
-[CNTK](https://www.microsoft.com/cognitive-toolkit/) används som deep learning-ramverk utbildning utförs lokalt på en GPU-baserade dator som den ([Deep learning virtuell dator för datavetenskap](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-ads.dsvm-deep-learning?tab=Overview)), och distributionen använder Azure ML driftsättning CLI.
+[CNTK](https://www.microsoft.com/en-us/cognitive-toolkit/) används som deep learning-ramverk utbildning utförs lokalt på en GPU-baserade dator som den ([Deep learning virtuell dator för datavetenskap](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-ads.dsvm-deep-learning?tab=Overview)), och distributionen använder Azure ML driftsättning CLI.
 
 ## <a name="prerequisites"></a>Förutsättningar
 

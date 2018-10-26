@@ -1,4 +1,16 @@
-
+---
+author: conceptdev
+ms.service: app-service-mobile
+ms.topic: include
+ms.date: 08/23/2018
+ms.author: crdun
+ms.openlocfilehash: 75bcb9d27ee6f66a1d9c15093d9f933a3ad25881
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.translationtype: MT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50133183"
+---
 1. I Visual Studio Solution Explorer högerklickar du på approjektet Windows Store. Välj sedan **Store** > **associera App med Store**.
 
     ![Associera app med Windows Store](./media/app-service-mobile-register-wns/notification-hub-associate-win8-app.png)

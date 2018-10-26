@@ -14,18 +14,18 @@ ms.tgt_pltfrm: ''
 ms.topic: article
 ms.date: 4/27/2018
 ms.author: shhurst
-ms.openlocfilehash: e6ac6a4aa46feb768df437ff9d5969b2b41092c3
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: 5aa5ea2a39a0fb9f969e965fed14063522197cda
+ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48041653"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50085841"
 ---
 # <a name="handle-large-messages-with-chunking-in-azure-logic-apps"></a>Hantera stora meddelanden med storlekar i Azure Logic Apps
 
 Vid hantering av meddelanden, begränsar Logic Apps meddelandeinnehåll till en maximal storlek. Den här gränsen som hjälper dig att minska effekterna som skapats av lagring och bearbetning av stora meddelanden. Om du vill hantera meddelanden som är större än den här gränsen, Logic Apps kan *segment* ett stort meddelande i mindre meddelanden. På så sätt kan du fortfarande överföra stora filer med hjälp av Logic Apps vissa villkor. Vid kommunikation med andra tjänster via anslutningar eller HTTP, Logic Apps kan förbruka stora meddelanden men *endast* i segment. Det här tillståndet innebär kopplingar måste också ha stöd för storlekar eller underliggande HTTP-meddelandeutbyte mellan Logikappar och dessa tjänster måste använda storlekar.
 
-Den här artikeln visar hur du ställer in storlekar stöd för meddelanden som är större än gränsen.
+Den här artikeln visar hur du ställer in storlekar för åtgärder som hantering av meddelanden som är större än gränsen. Utlösare för logikappar inte har stöd för storlekar på grund av den ökade bekymra dig om att byta ut flera meddelanden. 
 
 ## <a name="what-makes-messages-large"></a>Vad gör meddelanden ”stora”?
 

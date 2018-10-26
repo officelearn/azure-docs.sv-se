@@ -15,14 +15,14 @@ ms.tgt_pltfrm: na
 ms.workload: billing
 ms.date: 7/25/2018
 ms.author: erikre
-ms.openlocfilehash: 19d8fbf82410136fd6a50a2088dd9b774dd6cb27
-ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
+ms.openlocfilehash: 08cdce23fe298bdac932d1ca8abb8166f4d7bbbd
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39259219"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50094821"
 ---
-# <a name="manage-costs-with-azure-budgets"></a>Hantera kostnader med Azure budgetar
+# <a name="manage-costs-with-azure-budgets"></a>Hantera kostnader med Azure Budgets
 
 Kostnadskontroll är en kritisk komponent för att maximera värdet av din investering i molnet. Det finns flera scenarier där kostnaden synlighet, rapportering och kostnadsbaserad orchestration är viktiga för driften av fortsatt verksamhet. [Azure Cost Management API: er](https://docs.microsoft.com/rest/api/consumption/) tillhandahåller en uppsättning API: er stöder var och en av dessa scenarier. API: er ger information om användning, så att du kan visa detaljerad nivå instanskostnader.
 
@@ -139,7 +139,7 @@ Varje logikapp måste börja med en utlösare som utlöses när en specifik hän
 4.  Sök efter ”parsa JSON” i den **Logic Apps Designer** sökrutan för att söka efter och välja den **dataåtgärder – parsa JSON** [åtgärd](https://docs.microsoft.com/azure/logic-apps/logic-apps-overview#logic-app-concepts). 
     
     ![Lägg till Azure - logikapp – parsa JSON-åtgärd](./media/billing-cost-management-budget-scenario/billing-cost-management-budget-scenario-06.png) 
-5.  Ange ”nyttolast” som den **innehåll** för parsa JSON-nyttolast.
+5.  Ange ”nyttolast” som den **innehåll** namn för parsa JSON-nyttolasten eller Använd taggen ”Body” från dynamiskt innehåll.
 6.  Välj den **Använd exempel för att generera schemat** alternativet i den **parsa JSON** box.
     
     ![Azure - logikapp – Använd JSON-exempeldata generera schemat genom att](./media/billing-cost-management-budget-scenario/billing-cost-management-budget-scenario-07.png) 

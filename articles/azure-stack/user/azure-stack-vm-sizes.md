@@ -10,15 +10,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/22/2018
+ms.date: 10/23/2018
 ms.author: mabrigg
 ms.reviewer: kivenkat
-ms.openlocfilehash: dc9e1b3fb59aca8fba0c84fbfa674931c24c12c9
-ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
+ms.openlocfilehash: 1af7a1d595b39878f3ed30591e8ad78e767e8cf7
+ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49945900"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50087499"
 ---
 # <a name="virtual-machine-sizes-supported-in-azure-stack"></a>Storlekar för virtuella datorer stöds i Azure Stack
 
@@ -31,6 +31,10 @@ Den här artikeln innehåller de storlekar för virtuella datorer (VM) som är t
 Allmänna storlekar för Virtuella datorer ger ett balanserat förhållande för CPU och minne. De används för testning och utveckling, små till mellanstora databaser och låg till medelhög trafik webbservrar.
 
 ### <a name="basic-a"></a>Basic A
+
+> [!NOTE]
+> *Basic A* storlekar för virtuella datorer är inte längre tillgängligt för [skapar VM-skalningsuppsättningar](../azure-stack-compute-add-scalesets.md) (VMSS) via portalen. Använd PowerShell eller en mall för att skapa en VMSS med den här storleken.
+
 |Storlek – storlek\namn |Virtuell processor     |Minne | Högsta temporär diskstorlek | Max OS diskdataflöde: (IOPS) | Maximalt genomflöde för temporär lagring (IOPS) | Maximalt diskgenomflöde (IOPS) | Maximalt antal nätverkskort |    
 |-----------------|-----|---------|---------|-----|------|-----------|----|
 |**A0\Basic_A0**  |1    |768 MB   | 20 GB   |300  | 300  |1 / 1 x 300  |1   |

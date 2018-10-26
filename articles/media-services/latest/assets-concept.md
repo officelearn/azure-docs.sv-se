@@ -9,14 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 10/15/2018
+ms.date: 10/24/2018
 ms.author: juliako
-ms.openlocfilehash: 62cc4634a0f76b0562d5b3c1355a7442fc5cf989
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: e7abdb568b11870fb467ee6d3759881ca337d3cc
+ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49985241"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50085847"
 ---
 # <a name="assets"></a>Tillgångar
 
@@ -34,19 +34,19 @@ Läs även om [storage-konton i Media Services](storage-account-concept.md) och 
 
 I följande tabell visar tillgångens egenskaper och ger definitionerna.
 
-|Namn|Typ|Beskrivning|
-|---|---|---|
-|id|sträng|Fullständigt kvalificerade resurs-ID för resursen.|
-|namn|sträng|Namnet på resursen.|
-|properties.alternateId |sträng|Alternativa ID för tillgången.|
-|properties.assetId |sträng|Plats-ID.|
-|Properties.container |sträng|Namnet på blob-behållare för tillgången.|
-|Properties.Created |sträng|Skapandedatum för tillgången.|
-|properties.description |sträng|Beskrivning för tillgången.|
-|properties.lastModified |sträng|Senaste ändringsdatum för tillgången.|
-|properties.storageAccountName |sträng|Namnet på lagringskontot.|
-|properties.storageEncryptionFormat |AssetStorageEncryptionFormat |Krypteringsformat tillgången. En NONE eller MediaStorageEncryption.|
-|typ|sträng|Typ av resursen.|
+|Namn|Beskrivning|
+|---|---|
+|id|Fullständigt kvalificerade resurs-ID för resursen.|
+|namn|Namnet på resursen.|
+|properties.alternateId |Alternativa ID för tillgången.|
+|properties.assetId |Plats-ID.|
+|Properties.container |Namnet på blob-behållare för tillgången.|
+|Properties.Created |Skapandedatum för tillgången.|
+|properties.description|Beskrivning för tillgången.|
+|properties.lastModified |Senaste ändringsdatum för tillgången.|
+|properties.storageAccountName |Namnet på lagringskontot.|
+|properties.storageEncryptionFormat |Krypteringsformat tillgången. En NONE eller MediaStorageEncryption.|
+|typ|Typ av resursen.|
 
 Läs den fullständiga definitionen [tillgångar](https://docs.microsoft.com/rest/api/media/assets).
 

@@ -13,12 +13,12 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
-ms.openlocfilehash: b2e0b65f210774f760ce2d0898c601115ab3a94d
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: cda439973c584a57cadc30de7fb931732682de00
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46960166"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50092465"
 ---
 # <a name="run-an-ssis-package-with-the-execute-ssis-package-activity-in-azure-data-factory"></a>Kör ett SSIS-paket med aktiviteten kör SSIS-paket i Azure Data Factory
 Den här artikeln beskriver hur du kör ett SSIS-paket i en Azure Data Factory-pipeline med hjälp av en aktivitet kör SSIS-paket. 
@@ -91,9 +91,11 @@ I det här steget använder du Användargränssnittet för Data Factory för att
 
 ### <a name="optionally-parameterize-the-activity"></a>Du kan också Parameterisera aktiviteten
 
-Du kan också tilldela värden, uttryck eller funktioner som kan hänvisa till Data Factory systemvariabler, dina projekt eller paketets parametrar i JSON-format med hjälp av den **visa källkoden** knappen längst ned på den köra SSIS Paketet aktivitet rutan eller **kod** knappen i det övre högra hörnet av pipeline-området. Du kan till exempel tilldela Data Factory pipeline-parametrar i projektet SSIS eller paketparametrar som visas i följande skärmbilder:
+Du kan också tilldela värden, uttryck eller funktioner som kan hänvisa till Data Factory systemvariabler, dina projekt eller paketets parametrar i JSON-format med hjälp av knappen ”Visa källkoden” längst ned på din aktivitet box-enhet för köra SSIS-paket eller ”Code” knappen i det övre högra hörnet av din pipeline-området. Du kan till exempel tilldela Data Factory pipeline-parametrar i projektet SSIS eller paketparametrar som visas i följande skärmbilder:
 
 ![Redigera JSON-skript för att köra SSIS-paket-aktivitet](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-parameters.png)
+
+![Lägga till parametrar till aktiviteten kör SSIS-paket](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-parameters2.png)
 
 ![Lägga till parametrar till aktiviteten kör SSIS-paket](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-parameters2.png)
 
@@ -204,9 +206,9 @@ I det här steget skapar du en pipeline med en aktivitet kör SSIS-paket. Aktivi
                     "runtime": "x64",
                     "loggingLevel": "Basic",
                     "packageLocation": {
-                        "packagePath": "FolderName/ProjectName/PackageName.dtsx"            
+                        "packagePath": "FolderName/ProjectName/PackageName.dtsx"            
                     },
-                    "environmentPath":   "FolderName/EnvironmentName",
+                    "environmentPath":   "FolderName/EnvironmentName",
                     "projectParameters": {
                         "project_param_1": {
                             "value": "123"
@@ -244,7 +246,7 @@ I det här steget skapar du en pipeline med en aktivitet kör SSIS-paket. Aktivi
                         }
                     },
                     "propertyOverrides": {
-                        "\\PackageName.dtsx\\MaxConcurrentExecutables ": {
+                        "\\PackageName.dtsx\\MaxConcurrentExecutables ": {
                             "value": 8,
                             "isSensitive": false
                         }

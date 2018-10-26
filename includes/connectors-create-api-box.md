@@ -1,18 +1,31 @@
-### <a name="prerequisites"></a>Krav
-* En [rutan](http://box.com) konto  
+---
+author: ecfan
+ms.service: logic-apps
+ms.topic: include
+ms.date: 11/03/2016
+ms.author: estfan
+ms.openlocfilehash: d1db175ecc2cf61de0debc15d198d6367aae8bdd
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.translationtype: MT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50093007"
+---
+### <a name="prerequisites"></a>Förutsättningar
+* En [box](http://box.com) konto  
 
-Innan du kan använda ditt konto i rutan i en logikapp, måste du godkänna logik för att ansluta till ditt konto i rutan. Lyckligtvis kan du göra detta direkt i din logikapp på Azure Portal.  
+Innan du kan använda ditt box-konto i en logikapp, måste du godkänna logikappen som ska ansluta till ditt box-konto. Som tur är kan göra du det enkelt från i logikappen på Azure Portal.  
 
-Här följer stegen för att verifiera din logikapp för att ansluta till ditt konto i rutan:  
+Här följer stegen för att auktorisera din logikapp för att ansluta till ditt box-konto:  
 
-1. Om du vill skapa en anslutning till rutan i logik app designer **visa Microsoft hanterade API: er** i nedrullningsbara listan anger *rutan* i sökrutan. Välj utlösaren eller åtgärd du vill använda:  
-   ![rutan steg i att skapa anslutningen](./media/connectors-create-api-box/box-1.png)  
-2. Om du inte har skapat alla anslutningar till rutan innan du kan hämta uppmanas du att ange autentiseringsuppgifter för rutan. Dessa autentiseringsuppgifter används för att auktorisera din logikapp för att ansluta till och komma åt ditt konto rutan data:  
-   ![rutan steg i att skapa anslutningen](./media/connectors-create-api-box/box-2.png)  
-3. Ange ditt kryssrutan användarnamn och lösenord för att auktorisera logikappen:  
-   ![rutan steg i att skapa anslutningen](./media/connectors-create-api-box/box-3.png)  
-4. Ger oss möjlighet att ansluta till rutan:  
-   ![rutan steg i att skapa anslutningen](./media/connectors-create-api-box/box-4.png)  
-5. Observera att anslutningen har skapats och du kan nu välja att fortsätta med andra steg i din logikapp:  
-   ![rutan steg i att skapa anslutningen](./media/connectors-create-api-box/box-5.png)  
+1. Om du vill skapa en anslutning till rutan i Logic appdesigner väljer **visa Microsoft hanterade API: er** i nedrullningsbara listan anger *box* i sökrutan. Välj utlösaren eller åtgärden som du kommer att tycka att använda:  
+   ![Box steg i att skapa anslutningen](./media/connectors-create-api-box/box-1.png)  
+2. Om du inte skapat några anslutningar till rutan innan du kan hämta uppmanas du att ange dina autentiseringsuppgifter för box. Dessa autentiseringsuppgifter används för att auktorisera din logikapp för att ansluta till och komma åt data i ditt box-konto:  
+   ![Box steg i att skapa anslutningen](./media/connectors-create-api-box/box-2.png)  
+3. Ange ditt box-användarnamn och lösenord för att auktorisera din logikapp:  
+   ![Box steg i att skapa anslutningen](./media/connectors-create-api-box/box-3.png)  
+4. Gör att vi kan ansluta till box:  
+   ![Box steg i att skapa anslutningen](./media/connectors-create-api-box/box-4.png)  
+5. Lägg märke till anslutningen har skapats och du kan nu fortsätta med andra steg i logikappen:  
+   ![Box steg i att skapa anslutningen](./media/connectors-create-api-box/box-5.png)  
 

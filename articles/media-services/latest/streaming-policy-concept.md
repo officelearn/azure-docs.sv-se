@@ -11,12 +11,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 10/22/2018
 ms.author: juliako
-ms.openlocfilehash: 118660e8947663328554ac0116b5519267197336
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: c5f441fef95989e5c82586d96fc6c10e00a9627c
+ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49984306"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50085503"
 ---
 # <a name="streaming-policies"></a>Principer för direktuppspelning
 
@@ -29,17 +29,17 @@ I Azure Media Services v3 kan Streaming principer du definiera strömningsprotok
 
 I följande tabell visar de StreamingPolicy egenskaper och ger definitionerna.
 
-|Namn|Typ|Beskrivning|
-|---|---|---|
-|id|sträng|Fullständigt kvalificerade resurs-ID för resursen.|
-|namn|sträng|Namnet på resursen.|
-|properties.commonEncryptionCbcs|CommonEncryptionCbcs|Konfiguration av CommonEncryptionCbcs|
-|properties.commonEncryptionCenc|CommonEncryptionCenc|Konfiguration av CommonEncryptionCenc|
-|Properties.Created |sträng|Skapandetid för direktuppspelning princip|
-|properties.defaultContentKeyPolicyName |sträng|Standard-ContentKey som används av den aktuella principen för direktuppspelning|
-|properties.envelopeEncryption  |EnvelopeEncryption|Konfiguration av EnvelopeEncryption|
-|properties.noEncryption|NoEncryption|Konfigurationer av NoEncryption|
-|typ|sträng|Typ av resursen.|
+|Namn|Beskrivning|
+|---|---|
+|id|Fullständigt kvalificerade resurs-ID för resursen.|
+|namn|Namnet på resursen.|
+|properties.commonEncryptionCbcs|Konfiguration av CommonEncryptionCbcs|
+|properties.commonEncryptionCenc|Konfiguration av CommonEncryptionCenc|
+|Properties.Created |Skapandetid för direktuppspelning princip|
+|properties.defaultContentKeyPolicyName |Standard-ContentKey som används av den aktuella principen för direktuppspelning|
+|properties.envelopeEncryption  |Konfiguration av EnvelopeEncryption|
+|properties.noEncryption|Konfigurationer av NoEncryption|
+|typ|Typ av resursen.|
 
 Läs den fullständiga definitionen [Streaming principer](https://docs.microsoft.com/rest/api/media/streamingpolicies).
 

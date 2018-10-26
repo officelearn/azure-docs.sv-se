@@ -11,19 +11,24 @@ author: rmatchoro
 ms.author: ronmat
 ms.reviewer: vanto, carlrab
 manager: craigg
-ms.date: 09/19/2018
-ms.openlocfilehash: ed7a117d4422b3b3feddd7d2fafa5eabea43f9e5
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.date: 10/25/2018
+ms.openlocfilehash: 2882bd782359697cf714214e68166c9f997f52e4
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47164945"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50093555"
 ---
 # <a name="azure-sql-database-threat-detection"></a>Hotidentifiering för Azure SQL Database
 
-Azure SQL Database Threat Detection identifierar avvikande aktiviteter som visar onormala och potentiellt skadliga försök att komma åt eller utnyttja databaser.
+Azure SQL-Hotidentifiering för [SQL Database](sql-database-technical-overview.md) och [SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) identifierar avvikande aktiviteter som visar onormala och potentiellt skadliga försök att komma åt eller utnyttja databaser.
 
 Hotidentifiering är en del av den [SQL Avancerat skydd](sql-advanced-threat-protection.md) (ATP) erbjudande som en enhetlig paket för avancerade funktioner för SQL-säkerhet. Hotidentifiering kan nås och hanteras via den centrala SQL ATP-portalen.
+
+
+> [!NOTE] 
+> Det här avsnittet gäller för Azure SQL-servern, och för både SQL Database- och SQL Data Warehouse-databaser som skapas på Azure SQL-servern. För enkelhetens skull används SQL Database när det gäller både SQL Database och SQL Data Warehouse.
+
 
 ## <a name="what-is-threat-detection"></a>Vad är identifiering av hot?
 
@@ -65,7 +70,7 @@ Du får ett e-postavisering när avvikande databasaktiviteter. E-postmeddelandet
 
 Hotidentifieringen i SQL Database integrerar dess aviseringar med [Azure Security Center](https://azure.microsoft.com/services/security-center/). En SQL threat identifiering realtidspaneler i databasen och SQL ATP-blad i Azure-portalen spårar status för aktiva hot.
 
-Klicka på **Threat varning** för att starta Azure Security Center-aviseringar sidan och få en översikt över aktiva SQL-hot som upptäckts på databasen.
+Klicka på **Threat varning** för att starta Azure Security Center-aviseringar sidan och få en översikt över aktiva SQL hot som upptäckts på databasen eller datalagret.
 
    ![Varning för hot](./media/sql-database-threat-detection/threat_detection_alert.png)
    

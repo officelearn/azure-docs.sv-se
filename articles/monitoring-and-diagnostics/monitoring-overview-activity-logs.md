@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 05/30/2018
 ms.author: johnkem
 ms.component: activitylog
-ms.openlocfilehash: 5288dc508c35c72f3c1996ce665ccf83a84a4ea3
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 7538951b1ac8290b574180779b83c6b8e79fcf1f
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46948976"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50094371"
 ---
 # <a name="monitor-subscription-activity-with-the-azure-activity-log"></a>Övervaka aktivitet om prenumeration med Azure-aktivitetsloggen
 
@@ -104,7 +104,7 @@ En **Loggprofil** styr hur din aktivitetslogg exporteras. Med en logg-profil kan
 Du kan använda ett lagring eller event hub-namnområde som inte är i samma prenumeration som det genererar loggar. Den användare som konfigurerar inställningen måste ha lämplig RBAC-åtkomst till båda prenumerationerna.
 
 > [!NOTE]
->  Du kan inte arkivera data till en storage-konto som bakom ett skyddat virtuellt nätverk.
+>  Du kan för närvarande inte arkivera data till ett lagringskonto som ligger bakom ett skyddat virtuellt nätverk.
 
 > [!WARNING]
 > Formatet för loggdata i lagringskontot ändras till JSON Lines den 1 november 2018. [Den här artikeln beskriver effekten av den här ändringen samt hur du uppdaterar dina verktyg för att hantera det nya formatet.](./monitor-diagnostic-logs-append-blobs.md) 

@@ -1,5 +1,5 @@
 ---
-title: Vad är Azure Monitor för virtuella datorer? | Microsoft Docs
+title: Vad är Azure Monitor för virtuella datorer (förhandsversion)? | Microsoft Docs
 description: Azure Monitor för virtuella datorer är en funktion i Azure Monitor som kombinerar hälsotillstånd och prestanda för övervakning av Azure VM-operativsystem, samt automatiskt identifierar programkomponenter och beroenden till andra resurser och mappar kommunikationen varandra. Den här artikeln innehåller en översikt.
 services: azure-monitor
 documentationcenter: ''
@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/24/2018
+ms.date: 10/25/2018
 ms.author: magoedte
-ms.openlocfilehash: 26fcc3eb78af53360cca57382b4c06b017f36c0e
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: e39954f9155419e0dea019203efa22ba0d654f92
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47063276"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50093691"
 ---
-# <a name="what-is-azure-monitor-for-vms"></a>Vad är Azure Monitor för virtuella datorer?
+# <a name="what-is-azure-monitor-for-vms-preview"></a>Vad är Azure Monitor för virtuella datorer (förhandsversion)?
 
 Azure Monitor för virtuella datorer övervakar dina Azure-datorer (VM) i stor skala genom att analysera prestanda och hälsa för Windows och Linux-datorer, inklusive olika processer och sammankopplade beroenden på andra resurser och externa processer. Lösningen har stöd för övervakning av prestanda och programberoenden för virtuella datorer finns på plats eller en annan molnleverantör.  Det innehåller tre viktiga funktioner för att leverera den här ingående information:
 

@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 11/21/2017
 ms.author: glenga
-ms.openlocfilehash: 62d675e4b91e3e22cf01e09d1a1a021f225310a9
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: 5487ff0b74176493f7e1ef621d1427dbc18f8a2e
+ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49321894"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50087559"
 ---
 # <a name="azure-cosmos-db-bindings-for-azure-functions-1x"></a>Azure Cosmos DB-bindningar för Azure Functions 1.x
 
@@ -123,8 +123,8 @@ Här är C#-skriptkoden:
 
     public static void Run(IReadOnlyList<Document> documents, TraceWriter log)
     {
-      log.Verbose("Documents modified " + documents.Count);
-      log.Verbose("First document Id " + documents[0].Id);
+      log.Info("Documents modified " + documents.Count);
+      log.Info("First document Id " + documents[0].Id);
     }
 ```
 
@@ -187,7 +187,7 @@ I följande tabell förklaras konfigurationsegenskaper för bindning som du ange
 |**typ** || Måste anges till `cosmosDBTrigger`. |
 |**riktning** || Måste anges till `in`. Den här parametern anges automatiskt när du skapar utlösaren i Azure-portalen. |
 |**Namn** || Variabelnamnet som används i Funktionskoden som representerar en lista över dokument med ändringar. | 
-|**ConnectionStringSetting**|**connectionStringSetting** | Namnet på en appinställning som innehåller anslutningssträngen som används för att ansluta till Azure Cosmos DB-kontot som övervakas. |
+|**connectionStringSetting**|**connectionStringSetting** | Namnet på en appinställning som innehåller anslutningssträngen som används för att ansluta till Azure Cosmos DB-kontot som övervakas. |
 |**databaseName**|**databaseName**  | Namnet på Azure Cosmos DB-databasen med den samling som övervakas. |
 |**Samlingsnamn** |**Samlingsnamn** | Namnet på samlingen som övervakas. |
 |**leaseConnectionStringSetting** | **leaseConnectionStringSetting** | (Valfritt) Namnet på en appinställning som innehåller anslutningssträngen till den tjänst som innehar lånet samlingen. När inte har angetts i `connectionStringSetting` värde som ska användas. Den här parametern anges automatiskt när bindningen skapas i portalen. Anslutningssträngen för lånsamlingen måste ha skrivbehörighet.|

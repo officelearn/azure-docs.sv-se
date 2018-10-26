@@ -8,12 +8,12 @@ ms.date: 10/17/2018
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: 33c2bd48084c3d0e73fe2f4a1ce922e7a66b944f
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: 532d3d73c939a44678091734f2bbff22267ab6b7
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49955458"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50094872"
 ---
 # <a name="troubleshoot-errors-with-runbooks"></a>Felsöka fel med runbooks
 
@@ -93,8 +93,9 @@ Det här felet uppstår om prenumerationens namn är inte giltigt eller om den A
 
 För att avgöra om du har korrekt autentiserad till Azure och har åtkomst till den prenumeration som du försöker att välja, gör du följande:  
 
-1. Se till att du kör den **Add-AzureAccount** cmdlet innan du kör den **Select-AzureSubscription** cmdlet.  
-2. Om du fortfarande ser det här felmeddelandet, ändra din kod genom att lägga till den **- AzureRmContext** parameter som följer efter den **Add-AzureAccount** cmdlet och sedan köra koden.
+1. Testa skriptet utanför Azure Automation för att kontrollera att det fungerar fristående.
+2. Se till att du kör den **Add-AzureAccount** cmdlet innan du kör den **Select-AzureSubscription** cmdlet.  
+3. Om du fortfarande ser det här felmeddelandet, ändra din kod genom att lägga till den **- AzureRmContext** parameter som följer efter den **Add-AzureAccount** cmdlet och sedan köra koden.
 
    ```powershell
    $Conn = Get-AutomationConnection -Name AzureRunAsConnection
@@ -104,7 +105,7 @@ För att avgöra om du har korrekt autentiserad till Azure och har åtkomst till
    $context = Get-AzureRmContext
 
    Get-AzureRmVM -ResourceGroupName myResourceGroup -AzureRmContext $context
-   ```
+    ```
 
 ### <a name="auth-failed-mfa"></a>Scenario: Till Azure-autentiseringen misslyckades eftersom multifaktorautentisering har aktiverats
 
@@ -305,7 +306,7 @@ Någon av följande lösningar problemet på:
 * Kontrollera att du har angett korrekt cmdlet-namn.  
 * Kontrollera att cmdleten finns i ditt Automation-konto och att det inte finns några konflikter. Om du vill kontrollera om cmdlet: en är tillgänglig, öppnar du en runbook i redigeringsläge och Sök efter den cmdlet som du vill söka efter i biblioteket eller kör `Get-Command <CommandName>`. När du har verifierat som cmdlet: en är tillgänglig för kontot och det finns inga namnet står i konflikt med andra cmdletar eller runbooks kan lägga till den på arbetsytan och se till att du använder en giltig parameter som angetts i din runbook.  
 * Om du har en namnkonflikt och cmdlet: en är tillgänglig i två olika moduler, kan du lösa detta genom att använda det fullständigt kvalificerade namnet för cmdleten. Du kan till exempel använda **ModuleName\CmdletName**.  
-* Om du körs runbook lokala platser i en hybrid worker-grupp och sedan kontrollera att är modulen/cmdleten installerad på den dator som är värd för hybrid worker.
+* Om du körs runbook lokala platser i en hybrid worker-grupp och sedan kontrollera att är modulen och cmdlet: en installerad på den dator som är värd för hybrid worker.
 
 ### <a name="long-running-runbook"></a>Scenario: En tidskrävande runbook kan inte slutföras
 

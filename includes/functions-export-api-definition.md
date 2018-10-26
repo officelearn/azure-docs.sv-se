@@ -1,14 +1,27 @@
+---
+author: ggailey777
+ms.service: azure-functions
+ms.topic: include
+ms.date: 09/04/2018
+ms.author: glenga
+ms.openlocfilehash: 49ac1a7585ddf2a6500c7e9382880109c3f7f431
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.translationtype: MT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50134336"
+---
 ## <a name="export-an-api-definition"></a>Exportera en API-definition
-Du har en OpenAPI definition för din funktion från [en OpenAPI definition för en funktion för att skapa](../articles/azure-functions/functions-openapi-definition.md). Nästa steg i den här processen är att exportera API-definitionen så att PowerApps och Microsoft Flow kan användas i en anpassad API.
+Du har en OpenAPI-definition för din funktion från [skapa en OpenAPI-definition för en funktion](../articles/azure-functions/functions-openapi-definition.md). Nästa steg i den här processen är att exportera API-definition så att PowerApps och Microsoft Flow kan använda ett anpassat API.
 
 > [!IMPORTANT]
-> Kom ihåg att du måste vara inloggad på Azure med samma autentiseringsuppgifter som du använder för din PowerApps och Microsoft Flow innehavare. Detta gör att Azure för att skapa anpassade API: et och göra den tillgänglig för både PowerApps och Microsoft Flow.
+> Kom ihåg att du måste vara inloggad på Azure med samma autentiseringsuppgifter som du använder för dina PowerApps och Microsoft Flow-innehavare. Detta gör att Azure för att skapa anpassade API och göra den tillgänglig för både PowerApps och Microsoft Flow.
 
-1. I den [Azure-portalen](https://portal.azure.com), klickar du på din app funktionsnamn (t.ex. **funktionen demo energi**) > **funktioner** > **API-definition** .
+1. I den [Azure-portalen](https://portal.azure.com), klickar du på din funktionsappens namn (t.ex. **function-demo-energy**) > **plattformsfunktioner** > **API-definition** .
 
     ![API-definition](media/functions-export-api-definition/api-definition.png)
 
-1. Klicka på **exportera till PowerApps + flödet**.
+1. Klicka på **exportera till PowerApps + Flow**.
 
     ![API-definitionskälla](media/functions-export-api-definition/export-api-1.png)
 
@@ -16,11 +29,11 @@ Du har en OpenAPI definition för din funktion från [en OpenAPI definition för
 
     |Inställning|Beskrivning|
     |--------|------------|
-    |**Exportera läge**|Välj **Express** att automatiskt generera anpassade API: et. Att välja **manuell** export API-definition, men du måste importera den till PowerApps och Microsoft Flow manuellt. Mer information finns i [exportera till PowerApps och Microsoft Flow](../articles/azure-functions/app-service-export-api-to-powerapps-and-flow.md).|
-    |**Miljö**|Välj den miljö som anpassade API: N ska sparas. Mer information finns i [miljöer översikt (PowerApps)](https://powerapps.microsoft.com/tutorials/environments-overview/) eller [miljöer översikt (Microsoft Flow)](https://us.flow.microsoft.com/documentation/environments-overview-admin/).|
-    |**Namn på anpassade API**|Ange ett namn som `Turbine Repair`.|
-    |**API-nyckelnamn**|Ange det namn som appen och flödet bör finns i anpassat API-gränssnitt. Observera att exemplet innehåller användbar information.|
+    |**Exportläge**|Välj **Express** att automatiskt generera din anpassade API. Att välja **manuell** export av API-definition, men du måste importera den till PowerApps och Microsoft Flow manuellt. Mer information finns i [exportera till PowerApps och Microsoft Flow](../articles/azure-functions/app-service-export-api-to-powerapps-and-flow.md).|
+    |**Miljö**|Välj den miljö som anpassade API ska sparas. Mer information finns i [översikt över miljöer (PowerApps)](https://powerapps.microsoft.com/tutorials/environments-overview/) eller [översikt över miljöer (Microsoft Flow)](https://us.flow.microsoft.com/documentation/environments-overview-admin/).|
+    |**Namn på anpassat API**|Ange ett namn som `Turbine Repair`.|
+    |**API-nyckelnamn**|Ange det namn som appar och flöden bör finns i anpassat API-gränssnitt. Observera att exemplet innehåller användbar information.|
  
     ![Exportera till PowerApps och Microsoft Flow](media/functions-export-api-definition/export-api-2.png)
 
-1. Klicka på **OK**. Anpassade API: et har nu skapats och lagts till i miljön som du angav.
+1. Klicka på **OK**. Anpassade API är nu skapats och läggs till i den miljö som du har angett.

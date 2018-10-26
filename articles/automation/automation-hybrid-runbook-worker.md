@@ -6,15 +6,15 @@ ms.service: automation
 ms.component: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 10/11/2018
+ms.date: 10/25/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 95c49ccc11a12c2e9174ba2d186a302f500e8bf2
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: bb7e422e0eb4a71e0f88a911083f8f5d6fb0ef2f
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49650153"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50092176"
 ---
 # <a name="automate-resources-in-your-datacenter-or-cloud-by-using-hybrid-runbook-worker"></a>Automatisera resurser i ditt datacenter eller i molnet med hjälp av Hybrid Runbook Worker
 
@@ -26,7 +26,7 @@ Följande bild illustrerar den här funktionen:
 
 Varje Hybrid Runbook Worker är medlem i en Hybrid Runbook Worker-grupp som du anger när du installerar agenten. En grupp kan innehålla en enda agent, men du kan installera flera agenter i en grupp för hög tillgänglighet.
 
-När du startar en runbook på en Hybrid Runbook Worker, anger du den grupp som den körs på. Varje arbetsroll i gruppen avsöker Azure Automation för att se om det finns några jobb. Om det finns ett jobb tar den första worker som klarar av den. Du kan inte ange en viss worker. Hybrid Runbook Worker delar inte många av de gränser som har Azure sandbox-miljöer. De har inte samma begränsningar på diskutrymme, minne eller nätverket sockets. Hybrid Runbook Worker begränsas bara av resurser på den Hybrid Runbook Worker själva. Dessutom Hybrid Runbook Worker delar inte 180 minut [rättmätiga del](automation-runbook-execution.md#fair-share) tidsgränsen som gör Azure sandbox-miljöer. Läs mer om tjänstbegränsningar för Azure sandbox-miljöer och Hybrid Runbook Worker i jobbet [gränser](../azure-subscription-service-limits.md#automation-limits) sidan.
+När du startar en runbook på en Hybrid Runbook Worker, anger du den grupp som den körs på. Varje arbetsroll i gruppen avsöker Azure Automation för att se om det finns några jobb. Om det finns ett jobb tar den första worker som klarar av den. Bearbetningstid köns jobb beror på Hybrid worker-maskinvaruprofilen och belastning. Du kan inte ange en viss worker. Hybrid Runbook Worker delar inte många av de gränser som har Azure sandbox-miljöer. De har inte samma begränsningar på diskutrymme, minne eller nätverket sockets. Hybrid Runbook Worker begränsas bara av resurser på den Hybrid Runbook Worker själva. Dessutom Hybrid Runbook Worker delar inte 180 minut [rättmätiga del](automation-runbook-execution.md#fair-share) tidsgränsen som gör Azure sandbox-miljöer. Läs mer om tjänstbegränsningar för Azure sandbox-miljöer och Hybrid Runbook Worker i jobbet [gränser](../azure-subscription-service-limits.md#automation-limits) sidan.
 
 ## <a name="install-a-hybrid-runbook-worker"></a>Installera en Hybrid Runbook Worker
 

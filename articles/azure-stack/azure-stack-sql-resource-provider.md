@@ -1,6 +1,6 @@
 ---
-title: Med hjälp av SQL-databaser på Azure-stacken | Microsoft Docs
-description: Lär dig hur du kan distribuera SQL-databaser som en tjänst på Azure-stacken och snabba steg för att distribuera SQL Server resource provider nätverkskort.
+title: Med hjälp av SQL-databaser på Azure Stack | Microsoft Docs
+description: Lär dig hur du kan distribuera SQL-databaser som en tjänst på Azure Stack och snabba steg för att distribuera SQL Server-resursprovideradaptern.
 services: azure-stack
 documentationCenter: ''
 author: jeffgilb
@@ -11,42 +11,39 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/21/2018
+ms.date: 10/25/2018
 ms.author: jeffgilb
-ms.reviewer: jeffgo
-ms.openlocfilehash: 55d0e51606e8768a01c0b5a7766dbafe24d97a0d
-ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
+ms.reviewer: quying
+ms.openlocfilehash: 3d608843ef31a1ed665fcb1fd90b822f34f77fdd
+ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36307833"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50086360"
 ---
-# <a name="use-sql-databases-on-microsoft-azure-stack"></a>Använda SQL-databaser på Microsoft Azure-stacken
+# <a name="use-sql-databases-on-microsoft-azure-stack"></a>Använda SQL-databaser på Microsoft Azure Stack
 
-Använda SQL Server resource provider kort API för att exponera SQL-databaser som en tjänst av [Azure Stack](azure-stack-poc.md). När du installerar resursprovidern och ansluta till en eller flera instanser av SQL Server kan du och användarna skapa:
+Använda SQL Server-resursprovideradaptern för att erbjuda SQL-databaser som en tjänst av [Azure Stack](azure-stack-poc.md). När du har installerat resursprovidern och ansluter den till en eller flera instanser av SQL Server kan du och dina användare skapa:
 
-- Databaser för moln-ursprungliga appar.
+- Databaser för molnbaserade appar.
 - Webbplatser som använder SQL.
 - Arbetsbelastningar som använder SQL.
 
-Resursprovidern ger inte de funktioner för hantering av [Azure SQL Database](https://azure.microsoft.com/services/sql-database/). Till exempel stöds elastiska pooler som automatiskt allokerar resurser inte. Dock resource provider stöder liknande skapa, läsa, uppdatera och ta bort CRUD-åtgärder på en SQL Server-databas. Mer information om resursprovidern API finns [Windows Azure Pack SQL Server Resource Provider REST API-referens](https://msdn.microsoft.com/library/dn528529.aspx).
-
->[!NOTE]
-SQL Server-resursprovidern API är inte kompatibelt med Azure SQL Database.
+Resursprovidern inte tillhandahåller de funktioner för hantering av [Azure SQL Database](https://azure.microsoft.com/services/sql-database/). Till exempel stöds elastiska pooler som automatiskt tilldelar resurser inte. Dock resurs providern stöder liknande skapa, läsa, uppdatera och ta bort (CRUD)-åtgärder på en SQL Server-databas. 
 
 ## <a name="sql-resource-provider-adapter-architecture"></a>Adapter-arkitektur för SQL-provider
 
 Resursprovidern består av följande komponenter:
 
-- **SQL resource provider kortet virtuell dator (VM)**, vilket är en Windows virtuell dator som kör provider-tjänster.
-- **Resursprovidern**, som bearbetar begäranden och ansluter till databasen resurser.
-- **Servrar som värdar för SQL Server**, som ger kapacitet för databaser kallas värdservrar.
+- **SQL resource provider nätverkskort virtuell dator (VM)**, vilket är en Windows Server VM som körs i tjänsterna.
+- **Resursprovidern**, som bearbetar begäranden och kommer åt databasresurser.
+- **Servrar som är värdar för SQL Server**, vilket ger kapacitet för databaser kallas värdservrar.
 
 Du måste skapa minst en instans av SQL Server eller ge åtkomst till externa SQL Server-instanser.
 
 > [!NOTE]
-> Värd för servrar som är installerade på Azure-stacken måste integrerade system skapas från en klientprenumeration. De kan inte skapas från standard providern prenumerationen. De måste skapas från klientportalen eller med hjälp av PowerShell med lämpliga logga in. Alla värdservrar är fakturerbar virtuella datorer och måste ha licenser. Tjänstadministratören kan vara klient Prenumerationens ägare.
+> Som är värd för servrar som är installerade på Azure Stack måste integrerade system skapas från en klientprenumeration. De kan inte skapas från providern Standardprenumeration. De måste skapas från klientportalen eller med hjälp av PowerShell med lämpliga inloggningen. Alla värdservrar är fakturerbara virtuella datorer och måste ha licenser. Tjänstadministratören kan vara ägare till den klient-prenumerationen.
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Distribuera SQL Server-resursprovidern](azure-stack-sql-resource-provider-deploy.md)
+[Distribuera SQL Server-resursprovider](azure-stack-sql-resource-provider-deploy.md)

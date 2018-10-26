@@ -4,16 +4,16 @@ description: Lär dig att använda Resource Graph-frågespråk för att utforska
 services: resource-graph
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 09/18/2018
+ms.date: 10/22/2018
 ms.topic: conceptual
 ms.service: resource-graph
 manager: carmonm
-ms.openlocfilehash: f488dfad8a38bbfab3b5b74e5b504463af09c089
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: bcd25b95d1369ef98662384945123126ebbbd70f
+ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49645940"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50086904"
 ---
 # <a name="explore-your-azure-resources-with-resource-graph"></a>Utforska dina Azure-resurser med resursgrafer
 
@@ -21,7 +21,7 @@ Azure Resource Graph ger möjlighet att utforska och identifiera dina Azure-resu
 
 ## <a name="explore-virtual-machines"></a>Utforska virtuella datorer
 
-En gemensam resurs i Azure är en virtuell dator. Virtuella datorer har ett stort antal egenskaper som kan efterfrågas som en resurstyp. Varje egenskap innehåller ett alternativ för filtrering eller hitta exakt den resurs som du letar efter.
+En gemensam resurs i Azure är en virtuell dator. Virtuella datorer har ett antal egenskaper som kan efterfrågas som en resurstyp. Varje egenskap innehåller ett alternativ för filtrering eller hitta exakt den resurs som du letar efter.
 
 ### <a name="virtual-machine-discovery"></a>Identifiering av virtuell dator
 
@@ -214,9 +214,9 @@ az graph query -q "where type =~ 'Microsoft.Compute/virtualMachines' and propert
 Search-AzureRmGraph -Query "where type =~ 'Microsoft.Compute/virtualMachines' and properties.hardwareProfile.vmSize == 'Standard_B2s' | project name, resourceGroup"
 ```
 
-### <a name="virtual-machines-connected-to-premium-managed-disks"></a>Virtuella datorer är anslutna till premium-hanterade diskar
+### <a name="virtual-machines-connected-to-premium-managed-disks"></a>Virtuella datorer är anslutna till premium managed disks
 
-Om vi vill hämta information om premium-hanterade diskar som är kopplade till dessa **Standard_B2s** virtuella datorer, kan vi Expandera fråga för att ge oss resurs-id för dessa hanterade diskar.
+Om vi vill hämta information om premium-hanterade diskar som är kopplade till dessa **Standard_B2s** virtuella datorer, kan vi Expandera fråga för att ge oss resurs-ID för dessa hanterade diskar.
 
 ```Query
 where type =~ 'Microsoft.Compute/virtualmachines' and properties.hardwareProfile.vmSize == 'Standard_B2s'
@@ -236,11 +236,11 @@ az graph query -q "where type =~ 'Microsoft.Compute/virtualmachines' and propert
 Search-AzureRmGraph -Query "where type =~ 'Microsoft.Compute/virtualmachines' and properties.hardwareProfile.vmSize == 'Standard_B2s' | extend disk = properties.storageProfile.osDisk.managedDisk | where disk.storageAccountType == 'Premium_LRS' | project disk.id"
 ```
 
-Resultatet är en lista över disk-ID: n
+Resultatet är en lista över disk-ID: N.
 
 ### <a name="managed-disk-discovery"></a>Identifiering av hanterad disk
 
-Vi tar den första posten från den föregående frågan kommer att utforska de egenskaper som finns på den hantera disken som har kopplats till den första virtuella datorn. Uppdaterade frågan använder disk-id och ändra typen.
+Vi kommer den första posten från den föregående frågan för att utforska de egenskaper som finns på den hantera disken som har kopplats till den första virtuella datorn. Den uppdaterade frågan använder disk-ID och ändrar typen.
 
 Exempel utdata från den föregående frågan till exempel:
 
@@ -314,7 +314,7 @@ JSON-resultaten är strukturerade liknar följande exempel:
 
 ## <a name="explore-virtual-machines-to-find-public-ip-addresses"></a>Utforska virtuella datorer för att hitta offentliga IP-adresser
 
-Den här Azure CLI flerstegstest uppsättning frågor först söker efter och lagrar alla nätverket nätverksgränssnitt (NIC)-resurser som är anslutna till virtuella datorer, använder listan över nätverkskort att hitta varje IP-adressresurs som är en offentlig IP-adress och lagra dessa värden och slutligen en lista över faktiska offentliga IP-adresser.
+Den här Azure CLI uppsättning frågor först söker efter och lagrar alla nätverksgränssnitt (NIC)-resurser som är anslutna till virtuella datorer. Sedan använder listan över nätverkskort för att hitta varje IP-adressresurs som är en offentlig IP-adress och lagra dessa värden. Slutligen innehåller den en lista över offentliga IP-adresser.
 
 ```azurecli-interactive
 # Use Resource Graph to get all NICs and store in the 'nic' variable
@@ -324,7 +324,7 @@ az graph query -q "where type =~ 'Microsoft.Compute/virtualMachines' | project n
 cat nics.txt
 ```
 
-När vi har den `nics.txt` fil, använder vi den i nästa fråga och få nätverket gränssnittet resurser information där det finns en offentlig IP-adress som är kopplade till nätverkskortet.
+Använd den `nics.txt` filen i nästa fråga att hämta relaterade nätverksgränssnittet resurser information där det finns en offentlig IP-adress som är kopplade till nätverkskortet.
 
 ```azurecli-interactive
 # Use Resource Graph with the 'nics.txt' file to get all related public IP addresses and store in 'publicIp.txt' file

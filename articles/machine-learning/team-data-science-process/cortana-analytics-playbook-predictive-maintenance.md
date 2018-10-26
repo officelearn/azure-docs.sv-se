@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/11/2018
 ms.author: fboylu
-ms.openlocfilehash: 2a5d8540dba491dec8b2da227b0e84c10ff09c77
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
+ms.openlocfilehash: 8f42ee996dae476de3744239d4cc5f053722d52b
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49395017"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50093219"
 ---
 # <a name="azure-ai-guide-for-predictive-maintenance-solutions"></a>Azure AI-guide för lösningar för förebyggande underhåll
 
@@ -414,7 +414,6 @@ Den sista delen av den här guiden innehåller en lista över kontaktar lösning
 
 | # | Titel | Beskrivning |
 |--:|:------|-------------|
-| 1 | [Azures förutsägande Underhåll Machine Learning-exempel](https://github.com/Azure/MachineLearningSamples-PredictiveMaintenance) |Kontaktar exempel att förutsäga fel under nästa N enheterna. Det här exemplet skrivs som ett projekt med Azure ML Workbench och är perfekt för nybörjare till kontaktar. [Ytterligare dokumentation](https://docs.microsoft.com/azure/machine-learning/desktop-workbench/scenario-predictive-maintenance) relaterade till det här exemplet.|
 | 2 | [Lösningsmallen för azures förutsägande Underhåll](https://github.com/Azure/AI-PredictiveMaintenance) | En mall med öppen källkod som visar ML-modeller och en fullständig Azure-infrastrukturen kan stödja scenarier för förebyggande underhåll i samband med IoT fjärrövervakning. |
 | 3 | [Djupinlärning för förutsägande Underhåll](https://github.com/Azure/MachineLearningSamples-DeepLearningforPredictiveMaintenance) | Azure-anteckningsbok med en demo-lösning för att använda LSTM (lång kortvariga minne) nätverk (en klass på återkommande Neurala nätverk) för förutsägande underhåll, med en [blogginlägget på det här exemplet](https://azure.microsoft.com/blog/deep-learning-for-predictive-maintenance).|
 | 4 | [Guide för Hotmodellering i förebyggande underhåll i R](https://gallery.azure.ai/Notebook/Predictive-Maintenance-Modelling-Guide-R-Notebook-1) | Guide för hotmodellering i PdM med skript i R.|

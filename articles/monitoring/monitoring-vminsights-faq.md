@@ -1,6 +1,6 @@
 ---
-title: Vanliga frågor och svar om Azure Monitor för virtuella datorer | Microsoft Docs
-description: Azure Monitor för virtuella datorer är en lösning i Azure som kombinerar hälsotillstånd och prestanda för övervakning av Azure VM-operativsystem, samt automatiskt identifierar programkomponenter och beroenden till andra resurser och mappar kommunikationen mellan dem. Den här artikeln innehåller vanliga frågor och svar.
+title: Vanliga frågor och svar om Azure Monitor för virtuella datorer (förhandsversion) | Microsoft Docs
+description: Azure Monitor för virtuella datorer (förhandsversion) är en lösning i Azure som kombinerar hälsotillstånd och prestanda för övervakning av Azure VM-operativsystem, samt automatiskt identifierar programkomponenter och beroenden till andra resurser och mappar kommunikationen varandra. Den här artikeln innehåller vanliga frågor och svar.
 services: azure-monitor
 documentationcenter: ''
 author: mgoedtel
@@ -12,17 +12,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/19/2018
+ms.date: 10/25/2018
 ms.author: magoedte
-ms.openlocfilehash: 282620342d2348868ceab5257de7415a9cb2147c
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: ff870f948acaae14ba772e14d48b27683f0bf07e
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49388371"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50091699"
 ---
-# <a name="azure-monitor-for-vms-frequently-asked-questions"></a>Vanliga och frågor svar om Azure Monitor för virtuella datorer
-Den här Microsoft-FAQ är en lista över vanliga frågor om Azure Monitor för virtuella datorer i Microsoft Azure. Om du har ytterligare frågor om lösningen går du till den [diskussionsforum](https://feedback.azure.com/forums/34192--general-feedback) och ställa frågor. När en fråga är vanliga vi lägga till det i den här artikeln så att den finns snabbt och enkelt.
+# <a name="azure-monitor-for-vms-preview-frequently-asked-questions"></a>Vanliga och frågor svar om Azure Monitor för virtuella datorer (förhandsversion)
+Den här Microsoft-FAQ är en lista över vanliga frågor om Azure Monitor för virtuella datorer. Om du har ytterligare frågor om lösningen går du till den [diskussionsforum](https://feedback.azure.com/forums/34192--general-feedback) och ställa frågor. När en fråga är vanliga vi lägga till det i den här artikeln så att den finns snabbt och enkelt.
 
 ## <a name="can-i-onboard-to-an-existing-workspace"></a>Kan jag lägga till en befintlig arbetsyta?
 Om dina virtuella datorer är redan ansluten till en Log Analytics-arbetsyta, du kan fortsätta att använda arbetsytan när Kom igång med Azure Monitor för virtuella datorer, under förutsättning att den är i något av de regioner som stöds visas [här](monitoring-vminsights-onboard.md#prerequisites).

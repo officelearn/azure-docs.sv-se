@@ -4,28 +4,28 @@ description: Beskriver hur frågespråk för Azure Resource Graph fungerar.
 services: resource-graph
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 09/18/2018
+ms.date: 10/22/2018
 ms.topic: conceptual
 ms.service: resource-graph
 manager: carmonm
-ms.openlocfilehash: 6fcf3087feb7f208ea46d0e08824e965160a61d4
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.openlocfilehash: 09bcedc5250755f06ba23b84a0ae90b4d43a23db
+ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48236458"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50086173"
 ---
 # <a name="understanding-the-azure-resource-graph-query-language"></a>Förstå Azure Resource Graph-frågespråk
 
 Frågespråket i Azure Resource Graph stöder ett antal operatorer och funktioner. Varje fungerar och driva utifrån [Azure Data Explorer](../../../data-explorer/data-explorer-overview.md).
 
-Det bästa sättet att lära dig frågespråket som används av resursen Graph är att börja med dokumentation för Azure Data Explorer [frågespråk](/azure/kusto/query/index). Detta ger en förståelse om hur språket är strukturerad och hur de olika stöds operatorer och funktioner fungerar tillsammans.
+Det bästa sättet att lära dig frågespråket som används av resursen Graph är att börja med dokumentation för Azure Data Explorer [frågespråk](/azure/kusto/query/index). Det ger en förståelse om hur språket är strukturerad och hur de olika stöds operatorer och funktioner fungerar tillsammans.
 
 ## <a name="supported-tabular-operators"></a>Tabular operatorer som stöds
 
 Här är listan över tabular operatorer som stöds i resursen Graph:
 
-- [Antal](/azure/kusto/query/countoperator)
+- [antal](/azure/kusto/query/countoperator)
 - [Distinkta](/azure/kusto/query/distinctoperator)
 - [Utöka](/azure/kusto/query/extendoperator)
 - [Gränsen](/azure/kusto/query/limitoperator)
@@ -56,4 +56,4 @@ Här är listan över funktioner som stöds i resursen Graph:
 
 - Se språket som användes i [Starter frågor](../samples/starter.md)
 - Se avancerade använder i [avancerade frågor](../samples/advanced.md)
-- Lär dig hur du [Utforska resurser](explore-resources.md)
+- Lär dig att [utforska resurser](explore-resources.md)

@@ -10,12 +10,12 @@ ms.topic: article
 ms.date: 10/12/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: a14462ec5311a9b82293ba7f6e9ae76dc1972b36
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
-ms.translationtype: HT
+ms.openlocfilehash: b6fef23b3624703305a13b205b588c83dd135764
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49355558"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50094746"
 ---
 # <a name="azure-ad-connectconfigure-ad-ds-connector-account-permissions"></a>Azure AD Connect: Konfigurera behörigheterna för AD DS-koppling 
 
@@ -42,7 +42,7 @@ Följande tabell innehåller en sammanfattning av de behörigheter som krävs f�
 | Tillbakaskrivning av grupp |Läsa, skapa, uppdatera och ta bort grupp objekt för synkroniserade **Office 365-grupper**.  Mer information finns i [tillbakaskrivning av grupp](how-to-connect-preview.md#group-writeback).|
 
 ## <a name="using-the-adsyncconfig-powershell-module"></a>Med ADSyncConfig PowerShell-modulen 
-Modulen ADSyncConfig kräver den [Remote verktyg för fjärrserveradministration (RSAT) för AD DS](https://docs.microsoft.com/en-us/windows-server/remote/remote-server-administration-tools) eftersom den är beroende av AD DS PowerShell-modulen och verktyg. Om du vill installera RSAT för AD DS, öppna en Windows PowerShell-fönster med ”Kör som administratör” och kör: 
+Modulen ADSyncConfig kräver den [Remote verktyg för fjärrserveradministration (RSAT) för AD DS](https://docs.microsoft.com/windows-server/remote/remote-server-administration-tools) eftersom den är beroende av AD DS PowerShell-modulen och verktyg. Om du vill installera RSAT för AD DS, öppna en Windows PowerShell-fönster med ”Kör som administratör” och kör: 
 
 ``` powershell
 Install-WindowsFeature RSAT-AD-Tools 
@@ -269,10 +269,10 @@ Det här PowerShell-skriptet kommer öka behörigheterna för kontot AD-koppling
 - Inaktivera arv på det angivna-objektet 
 - Ta bort alla åtkomstkontrollposter på specifika objekt, utom åtkomstkontrollposter som är specifika för SELF eftersom vi vill hålla standardbehörigheterna intakt när det gäller att själv. 
  
- Parametern - objektets unika namn är den AD-konto vars behörigheter måste höjas. Detta är vanligtvis MSOL_nnnnnnnnnnnn domänkontot som har konfigurerats i AD DS-anslutning (Se ta reda på dina AD DS-Anslutningskontot). -Credential parametern är nödvändigt att ange det administratörskonto som har de behörigheter som krävs för att begränsa Active Directory-behörigheter i målobjektet AD. Detta är vanligtvis Enterprise eller domänadministratör.  
+ Parametern - ADConnectorAccountDN är det AD-konto vars behörigheter behöver höjas. Detta är vanligtvis MSOL_nnnnnnnnnnnn domänkontot som har konfigurerats i AD DS-anslutning (Se ta reda på dina AD DS-Anslutningskontot). -Credential parametern är nödvändigt att ange det administratörskonto som har de behörigheter som krävs för att begränsa Active Directory-behörigheter i målobjektet AD. Detta är vanligtvis Enterprise eller domänadministratör.  
 
 ``` powershell
-Set-ADSyncRestrictedPermissions [-ObjectDN] <String> [-Credential] <PSCredential> [-DisableCredentialValidation] [-WhatIf] [-Confirm] [<CommonParameters>] 
+Set-ADSyncRestrictedPermissions [-ADConnectorAccountDN] <String> [-Credential] <PSCredential> [-DisableCredentialValidation] [-WhatIf] [-Confirm] [<CommonParameters>] 
 ```
  
 Till exempel: 

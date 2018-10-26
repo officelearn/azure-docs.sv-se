@@ -12,12 +12,12 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 04/01/2017
 ms.author: glenga
-ms.openlocfilehash: 8728533171ec8c8754aabf1a3e32c5ab7630db77
-ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
+ms.openlocfilehash: 38e3d7f7e05bb48ecc70ff5bbaec4a4e0725b949
+ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2018
-ms.locfileid: "49638005"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50087261"
 ---
 # <a name="azure-service-bus-bindings-for-azure-functions"></a>Azure Service Bus-bindningar för Azure Functions
 
@@ -63,16 +63,20 @@ public static void Run(
     Int32 deliveryCount,
     DateTime enqueuedTimeUtc,
     string messageId,
-    TraceWriter log)
+    ILogger log)
 {
-    log.Info($"C# ServiceBus queue trigger function processed message: {myQueueItem}");
-    log.Info($"EnqueuedTimeUtc={enqueuedTimeUtc}");
-    log.Info($"DeliveryCount={deliveryCount}");
-    log.Info($"MessageId={messageId}");
+    log.LogInformation($"C# ServiceBus queue trigger function processed message: {myQueueItem}");
+    log.LogInformation($"EnqueuedTimeUtc={enqueuedTimeUtc}");
+    log.LogInformation($"DeliveryCount={deliveryCount}");
+    log.LogInformation($"MessageId={messageId}");
 }
 ```
 
-Det här exemplet är för Azure Functions-version 1.x; för 2.x, [utelämna parametern åtkomst rights](#trigger---configuration).
+Det här exemplet är för Azure Functions-version 1.x. Så här gör den här koden fungerar för 2.x:
+
+- [utelämna parametern åtkomst rättigheter](#trigger---configuration)
+- ändra typen av log-parametern från `TraceWriter` till `ILogger`
+- Ändra `log.Info` till `log.LogInformation`
  
 ### <a name="trigger---c-script-example"></a>Utlösare – exempel på C#-skript
 
@@ -138,8 +142,8 @@ Här är bindningsdata i den *function.json* fil:
 Här är F #-skriptkoden:
 
 ```fsharp
-let Run(myQueueItem: string, log: TraceWriter) =
-    log.Info(sprintf "F# ServiceBus queue trigger function processed message: %s" myQueueItem)
+let Run(myQueueItem: string, log: ILogger) =
+    log.LogInformation(sprintf "F# ServiceBus queue trigger function processed message: %s" myQueueItem)
 ```
 
 ### <a name="trigger---javascript-example"></a>Utlösare – JavaScript-exempel
@@ -223,7 +227,7 @@ I [C#-klassbibliotek](functions-dotnet-class-library.md), Använd följande attr
   ```csharp
   [FunctionName("ServiceBusQueueTriggerCSharp")]                    
   public static void Run(
-      [ServiceBusTrigger("myqueue")] string myQueueItem, TraceWriter log)
+      [ServiceBusTrigger("myqueue")] string myQueueItem, ILogger log)
   {
       ...
   }
@@ -235,7 +239,7 @@ I [C#-klassbibliotek](functions-dotnet-class-library.md), Använd följande attr
   [FunctionName("ServiceBusQueueTriggerCSharp")]                    
   public static void Run(
       [ServiceBusTrigger("myqueue", Connection = "ServiceBusConnection")] 
-      string myQueueItem, TraceWriter log)
+      string myQueueItem, ILogger log)
   {
       ...
   }
@@ -255,7 +259,7 @@ I [C#-klassbibliotek](functions-dotnet-class-library.md), Använd följande attr
       [FunctionName("ServiceBusQueueTriggerCSharp")]
       public static void Run(
           [ServiceBusTrigger("myqueue", AccessRights.Manage)] 
-          string myQueueItem, TraceWriter log)
+          string myQueueItem, ILogger log)
   {
       ...
   }
@@ -357,9 +361,9 @@ I följande exempel visas en [C#-funktion](functions-dotnet-class-library.md) so
 ```cs
 [FunctionName("ServiceBusOutput")]
 [return: ServiceBus("myqueue", Connection = "ServiceBusConnection")]
-public static string ServiceBusOutput([HttpTrigger] dynamic input, TraceWriter log)
+public static string ServiceBusOutput([HttpTrigger] dynamic input, ILogger log)
 {
-    log.Info($"C# function processed: {input.Text}");
+    log.LogInformation($"C# function processed: {input.Text}");
     return input.Text;
 }
 ```
@@ -395,10 +399,10 @@ Här är bindningsdata i den *function.json* fil:
 Här är C#-skriptkoden som skapar ett enda meddelande:
 
 ```cs
-public static void Run(TimerInfo myTimer, TraceWriter log, out string outputSbQueue)
+public static void Run(TimerInfo myTimer, ILogger log, out string outputSbQueue)
 {
     string message = $"Service Bus queue message created at: {DateTime.Now}";
-    log.Info(message); 
+    log.LogInformation(message); 
     outputSbQueue = message;
 }
 ```
@@ -406,10 +410,10 @@ public static void Run(TimerInfo myTimer, TraceWriter log, out string outputSbQu
 Här är C#-skriptkoden som skapar flera meddelanden:
 
 ```cs
-public static void Run(TimerInfo myTimer, TraceWriter log, ICollector<string> outputSbQueue)
+public static void Run(TimerInfo myTimer, ILogger log, ICollector<string> outputSbQueue)
 {
     string message = $"Service Bus queue messages created at: {DateTime.Now}";
-    log.Info(message); 
+    log.LogInformation(message); 
     outputSbQueue.Add("1 " + message);
     outputSbQueue.Add("2 " + message);
 }
@@ -446,9 +450,9 @@ Här är bindningsdata i den *function.json* fil:
 Här är F #-skriptkoden som skapar ett enda meddelande:
 
 ```fsharp
-let Run(myTimer: TimerInfo, log: TraceWriter, outputSbQueue: byref<string>) =
+let Run(myTimer: TimerInfo, log: ILogger, outputSbQueue: byref<string>) =
     let message = sprintf "Service Bus queue message created at: %s" (DateTime.Now.ToString())
-    log.Info(message)
+    log.LogInformation(message)
     outputSbQueue = message
 ```
 
@@ -532,7 +536,7 @@ Attributets konstruktorn tar namnet på kön eller ämnet och prenumerationen. D
 ```csharp
 [FunctionName("ServiceBusOutput")]
 [return: ServiceBus("myqueue")]
-public static string Run([HttpTrigger] dynamic input, TraceWriter log)
+public static string Run([HttpTrigger] dynamic input, ILogger log)
 {
     ...
 }
@@ -543,7 +547,7 @@ Du kan ange den `Connection` egenskapen att ange det Service Bus-kontot som ska 
 ```csharp
 [FunctionName("ServiceBusOutput")]
 [return: ServiceBus("myqueue", Connection = "ServiceBusConnection")]
-public static string Run([HttpTrigger] dynamic input, TraceWriter log)
+public static string Run([HttpTrigger] dynamic input, ILogger log)
 {
     ...
 }

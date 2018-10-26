@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: 57446f068945d74351a77f21e16874d9e24ddcab
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: e8a09a9fc87bff692b5d5b4c54f87839f2591b63
+ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48801938"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50086955"
 ---
 # <a name="how-to-configure-password-writeback"></a>Anvisningar: Konfigurera tillbakaskrivning av lösenord
 
@@ -72,13 +72,14 @@ Om du vill konfigurera lämpliga behörigheter för tillbakaskrivning av löseno
 3. I den vänstra rutan högerklickar du på det objekt som representerar roten för domänen och välj **egenskaper** > **Security** > **Avancerat**.
 4. Från den **behörigheter** fliken **Lägg till**.
 5. Välj det konto som behörigheter som används för (från Azure AD Connect-konfiguration).
-6. I den **gäller** listrutan, väljer **underordnade** objekt.
+6. I den **gäller** listrutan, väljer **underordnad användarobjekt**.
 7. Under **behörigheter**, markerar kryssrutorna för följande alternativ:
-    * **Återställ lösenord**
     * **Ändra lösenord**
+    * **Återställ lösenord**
+8. Under **egenskaper**, markerar kryssrutorna för följande alternativ:
     * **Skriva lockoutTime**
     * **Skriva pwdLastSet**
-8. Välj **Använd/OK** att tillämpa ändringarna och stänga alla öppna dialogrutor.
+9. Välj **Använd/OK** att tillämpa ändringarna och stänga alla öppna dialogrutor.
 
 ## <a name="next-steps"></a>Nästa steg
 

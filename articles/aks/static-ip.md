@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 09/26/2018
 ms.author: iainfou
-ms.openlocfilehash: b51da8c5e5e113cdb7e449206f7137386b278be4
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.openlocfilehash: b64727f6a77bb1151a4f9016b6179a7ee22e3a5c
+ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/25/2018
-ms.locfileid: "50025930"
+ms.locfileid: "50085486"
 ---
 # <a name="use-a-static-public-ip-address-with-the-azure-kubernetes-service-aks-load-balancer"></a>Använda en statisk offentlig IP-adress med belastningsutjämnare för Azure Kubernetes Service (AKS)
 
@@ -55,9 +55,9 @@ IP-adressen visas enligt följande komprimerade exempel på utdata:
     "id": "/subscriptions/<SubscriptionID>/resourceGroups/MC_myResourceGroup_myAKSCluster_eastus/providers/Microsoft.Network/publicIPAddresses/myAKSPublicIP",
     "idleTimeoutInMinutes": 4,
     "ipAddress": "40.121.183.52",
-    [..]
+    [...]
   }
-````
+```
 
 Du kan senare får den offentliga IP-adress med hjälp av den [az network public-ip-listan] [ az-network-public-ip-list] kommando. Ange namnet på resursgruppen för noden och offentlig IP-adress som du skapade och fråga efter den *ipAddress* som visas i följande exempel:
 
@@ -89,6 +89,28 @@ Skapa tjänsten och distribution med den `kubectl apply` kommando.
 
 ```console
 kubectl apply -f load-balancer-service.yaml
+```
+
+## <a name="use-a-static-ip-address-outside-of-the-node-resource-group"></a>Använda en statisk IP-adress utanför resursgruppen nod
+
+Med Kubernetes 1.10 eller senare, kan du om du vill använda en statisk IP-adress som skapas utanför resursgruppen noden. Tjänstens huvudnamn som används av AKS-klustret måste ha delegerats behörighet till resursgruppen igen.
+
+Om du vill använda en IP-adress utanför resursgruppen noden, att lägga till en anteckning till tjänstdefinitionen. I följande exempel anger anteckningen till resursgruppen med namnet *myResourceGroup*. Ange din egen resursgruppens namn:
+
+```yaml
+apiVersion: v1
+kind: Service
+metadata:
+  annotations:
+    service.beta.kubernetes.io/azure-load-balancer-resource-group: myResourceGroup
+  name: azure-load-balancer
+spec:
+  loadBalancerIP: 40.121.183.52
+  type: LoadBalancer
+  ports:
+  - port: 80
+  selector:
+    app: azure-load-balancer
 ```
 
 ## <a name="troubleshoot"></a>Felsöka

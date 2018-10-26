@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/24/2018
 ms.author: anavin
-ms.openlocfilehash: 71dee9f36a3e8e11cc23f966c9157f6409a3b5e0
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: 32ad02583f84a84c494dc8300834cd9ff2f0d771
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47405741"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50094981"
 ---
 # <a name="create-change-or-delete-a-public-ip-address-prefix"></a>Skapa, ändra eller ta bort en offentlig IP-adressprefix
 
@@ -62,8 +62,8 @@ Offentliga IP-adressprefix har en avgift. Mer information finns i [priser](https
 
 |Verktyg|Kommando|
 |---|---|
-|CLI|[Skapa AZ nätverket offentliga ip-prefix](/cli/azure/network/public-ip/prefix/az-network-public-ip-prefix-create)|
-|PowerShell|[Ny AzureRmPublicIpAddressPrefix](/powershell/module/azurerm.network/new-azurermpublicipaddressprefix)|
+|CLI|[Skapa AZ nätverket offentliga ip-prefix](/cli/azure/network/public-ip/prefix#az-network-public-ip-prefix-create)|
+|PowerShell|[Ny AzureRmPublicIpPrefix](/powershell/module/azurerm.network/new-azurermpublicipprefix)|
 
 ## <a name="create-a-static-public-ip-address-from-a-prefix"></a>Skapa en statisk offentlig IP-adress från ett prefix
 När du skapar ett prefix, måste du skapa statiska IP-adresser från prefixet. Följ stegen nedan för att göra detta.
@@ -71,7 +71,7 @@ När du skapar ett prefix, måste du skapa statiska IP-adresser från prefixet. 
 1. I rutan som innehåller texten *Sök efter resurser* högst upp på Azure-portalen, Skriv *offentliga ip-adressprefix*. När **offentliga IP-adressprefixen** visas i sökresultaten, markerar du den.
 2. Välj prefx som du vill skapa offentliga IP-adresser från.
 3. När den visas i sökresultatet väljer du det och klickar på **+ Lägg till IP-adress** i översiktsavsnittet. Om du inte ser det här kan du kontrollera att du använder rätt länken för förhandsversion: https://aka.ms/publicipprefixportal
-4. Ange eller Välj värden för följande inställningar under **skapa offentlig IP-adress**. Eftersom det är ett prefix för Standard-SKU, IPv4 och statiska, behöver du bara ange följande informtion:
+4. Ange eller Välj värden för följande inställningar under **skapa offentlig IP-adress**. Eftersom det är ett prefix för Standard-SKU, IPv4 och statiska, behöver du bara ange följande information:
 
    |Inställning|Krävs?|Information|
     |---|---|---|
@@ -91,8 +91,8 @@ När du skapar ett prefix, måste du skapa statiska IP-adresser från prefixet. 
 
 |Verktyg|Kommando|
 |---|---|
-|CLI|[AZ nätverket offentliga ip-Prefixlistan](/cli/azure/network/public-ip/prefix/az-network-public-ip-prefix-list) till listan över offentliga IP-adresser, [az nätverket offentliga ip-prefix show](/cli/azure/network/public-ip/prefix/az-network-public-ip-prefix-show) att visa inställningar. [az nätverket offentliga ip-prefix update](/cli/azure/network/public-ip-prefix#az-network-public-ip-prefix-update) att uppdatera; [az nätverket offentliga ip-prefix delete](/cli/azure/network/public-ip/prefix/az-network-public-ip-prefix-delete) att ta bort|
-|PowerShell|[Get-AzureRmPublicIpAddressPrefix](/powershell/module/azurerm.network/get-azurermpublicipaddressprefix) att hämta objekt för en offentlig IP-adress och visa dess inställningar [Set-AzureRmPublicIpAddressPrefix](/powershell/module/azurerm.network/set-azurermpublicipaddressprefix) att uppdatera inställningar. [Remove-AzureRmPublicIpAddressPrefix](/powershell/module/azurerm.network/remove-azurermpublicipaddressprefix) att ta bort|
+|CLI|[AZ nätverket offentliga ip-Prefixlistan](/cli/azure/network/public-ip/prefix#az-network-public-ip-prefix-list) till listan över offentliga IP-adresser, [az nätverket offentliga ip-prefix show](/cli/azure/network/public-ip/prefix#az-network-public-ip-prefix-show) att visa inställningar. [az nätverket offentliga ip-prefix update](/cli/azure/network/public-ip-prefix#az-network-public-ip-prefix-update) att uppdatera; [az nätverket offentliga ip-prefix delete](/cli/azure/network/public-ip/prefix#az-network-public-ip-prefix-delete) att ta bort|
+|PowerShell|[Get-AzureRmPublicIpPrefix](/powershell/module/azurerm.network/get-azurermpublicipprefix) att hämta objekt för en offentlig IP-adress och visa dess inställningar [Set-AzureRmPublicIpPrefix](/powershell/module/azurerm.network/set-azurermpublicipprefix) att uppdatera inställningar. [Remove-AzureRmPublicIpPrefix](/powershell/module/azurerm.network/remove-azurermpublicipprefix) att ta bort|
 
 ## <a name="permissions"></a>Behörigheter
 

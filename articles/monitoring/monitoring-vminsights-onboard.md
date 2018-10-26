@@ -1,5 +1,5 @@
 ---
-title: Publicera Azure Monitor för virtuella datorer | Microsoft Docs
+title: Publicera Azure Monitor för virtuella datorer (förhandsversion) | Microsoft Docs
 description: Den här artikeln beskrivs hur du publicerar och konfigurera Azure Monitor för virtuella datorer så att du kan börja med att förstå hur det distribuerade programmet fungerar och vilka hälsoproblem har identifierats.
 services: azure-monitor
 documentationcenter: ''
@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/16/2018
+ms.date: 10/25/2018
 ms.author: magoedte
-ms.openlocfilehash: 33d16e211667edc6c082ab8c101e69ee5875efb8
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: f55f81d1e28a7626dfe00f6bea349bf74e3a1d24
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49390252"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50092782"
 ---
-# <a name="how-to-onboard-the-azure-monitor-for-vms"></a>Hur att publicera Azure övervakar för virtuella datorer 
+# <a name="how-to-onboard-the-azure-monitor-for-vms-preview"></a>Hur att publicera Azure övervakar för virtuella datorer (förhandsversion)
 Den här artikeln beskriver hur du ställer in Azure Monitor för virtuella datorer för att övervaka hälsotillståndet för operativsystemet för virtuella datorer i Azure och identifiera och mappa programberoenden som kan vara baserad på dem.  
 
 Aktivera Azure Monitor för virtuella datorer görs på något av följande metoder och information om hur du använder varje metod finns senare i artikeln.  
@@ -31,7 +31,7 @@ Aktivera Azure Monitor för virtuella datorer görs på något av följande meto
 * Flera virtuella Azure-datorer eller VM scale sets för över en viss prenumeration eller resursgrupp med hjälp av PowerShell.
 
 ## <a name="prerequisites"></a>Förutsättningar
-Innan du börjar bör du kontrollera att du har följande enligt beskrivningen i underavsnitt nedan.
+Innan du börjar bör du kontrollera att du förstår följande enligt beskrivningen i underavsnitt nedan.
 
 ### <a name="log-analytics"></a>Log Analytics 
 

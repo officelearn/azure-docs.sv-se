@@ -11,17 +11,59 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 10/16/2018
+ms.date: 10/24/2018
 ms.author: raiye
-ms.openlocfilehash: 7540f12f888108ed7091cece575b6d25131ef47b
-ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
+ms.openlocfilehash: 989627388e9ad1c99daa31bd9c8af884ab16b421
+ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49377522"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50087788"
 ---
 # <a name="azure-guest-os"></a>Azure gäst-OS
 Följande tabeller visar Microsoft Security Response Center (MSRC) uppdateringarna tillämpas på Gästoperativsystemet i Azure. Sök i den här artikeln för att avgöra om en viss uppdatering gäller för Gästoperativsystem som du använder. Uppdateringar alltid överför för speciellt [familj] [ family-explain] de introducerades i.
+
+## <a name="october-2018-guest-os"></a>Oktober 2018 gäst-OS
+>[!NOTE]
+>Oktober gäst-OS är för närvarande att distribueras till molnet virtuella datorer som är konfigurerade för automatiska uppdateringar. När distributionen är klar kan kommer den här versionen att göras tillgängligt för manuella uppdateringar via Azure portal och -konfigurationsfiler. Följande korrigeringar som ingår i Gästoperativsystemet i oktober. Den här listan kan ändras.
+
+| Produktkategori | Överordnad KB-artikel | Beskrivning av säkerhetsrisk | Gäst-OS | Datum som introducerades |
+| --- | --- | --- | --- | --- |
+| Rel 18-10 | [4462917] | Windows 10-säkerhet | 5,24 | 9 oktober 2018 |
+| Rel 18-10 | [4464330] | Windows 10-säkerhet | 6.01 | 9 oktober 2018 |
+| Rel 18-10 | [4462915] | Windows-säkerhet | 2.79 | 9 oktober 2018 |
+| Rel 18-10 | [4462931] | Windows-säkerhet | 3.66 | 9 oktober 2018 |
+| Rel 18-10 | [4462941] | Windows-säkerhet | 4.59 | 9 oktober 2018 |
+| Rel 18-10 | [4462930] | Flash | 3.66, 4.59, 5,24, 6.01 | 9 oktober 2018 |
+| Rel 18-10 | [4462949] | Internet Explorer | 2.79, 3.66, 4.59 | 9 oktober 2018 |
+| Gäller inte | [4339284] | Time zone update | 2.79, 3.66, 4.59 | 24 juli 2018 |
+| Gäller inte | [4457144] | Insamling av september icke-säkerhet | 2.79 | Den 11 september 2018 |
+| Gäller inte | [4457044] | Insamling av september ej säkerhet .NET 3.5 | 2.79 | Den 11 september 2018 |
+| Gäller inte | [4457038] | Insamling av september ej säkerhet .NET 4.5.2 | 2.79 | Den 11 september 2018 |
+| Gäller inte | [4457135] | Insamling av september icke-säkerhet | 3.66 | Den 11 september 2018 |
+| Gäller inte | [4457042] | Insamling av september ej säkerhet .NET 3.5 | 3.66 | Den 11 september 2018 |
+| Gäller inte | [4457037] | Insamling av september ej säkerhet .NET 4.5.2 | 3.66 | Den 11 september 2018 |
+| Gäller inte | [4457129] | Insamling av september icke-säkerhet | 4.59 | Den 11 september 2018 |
+| Gäller inte | [4457045] | Insamling av september ej säkerhet .NET 3.5 | 4.59 | Den 11 september 2018 |
+| Gäller inte | [4457036] | Insamling av september ej säkerhet .NET 4.5.2 | 4.59 | Den 11 september 2018 |
+
+[4462917]: http://support.microsoft.com/kb/4462917
+[4464330]: http://support.microsoft.com/kb/4464330
+[4462915]: http://support.microsoft.com/kb/4462915
+[4462931]: http://support.microsoft.com/kb/4462931
+[4462941]: http://support.microsoft.com/kb/4462941
+[4462930]: http://support.microsoft.com/kb/4462930
+[4462949]: http://support.microsoft.com/kb/4462949
+[4339284]: http://support.microsoft.com/kb/4339284
+[4457144]: http://support.microsoft.com/kb/4457144
+[4457044]: http://support.microsoft.com/kb/4457044
+[4457038]: http://support.microsoft.com/kb/4457038
+[4457135]: http://support.microsoft.com/kb/4457135
+[4457042]: http://support.microsoft.com/kb/4457042
+[4457037]: http://support.microsoft.com/kb/4457037
+[4457129]: http://support.microsoft.com/kb/4457129
+[4457045]: http://support.microsoft.com/kb/4457045
+[4457036]: http://support.microsoft.com/kb/4457036
 
 ## <a name="september-2018-guest-os"></a>September 2018 gäst-OS
 | Produktkategori | Överordnad KB-artikel | Beskrivning av säkerhetsrisk | Gäst-OS | Datum som introducerades |

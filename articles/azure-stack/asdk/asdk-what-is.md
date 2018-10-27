@@ -13,18 +13,18 @@ pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
 ms.custom: mvc
-ms.date: 10/15/2018
+ms.date: 10/25/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.openlocfilehash: fa20f746e55f784e02244355c96ac273b9906acc
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: 62eccba1b876ca8272dacbbd97a1d28c8b796081
+ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49339550"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50138318"
 ---
 # <a name="what-is-the-azure-stack-development-kit"></a>Vad är Azure Stack Development Kit?
-[Integrerade Microsoft Azure Stack-system](.\.\azure-stack-poc.md) i intervallet från 4-12-noder och gemensamt stöds av en partner för maskinvara och Microsoft. Du kan använda integrerade Azure Stack-systemen för att aktivera nya scenarier för produktionsarbetsbelastningar. Om du är en Azure Stack-operatör som hanterar den integrerade system-infrastrukturen och erbjuder tjänster, se vår [operatorn dokumentation](https://docs.microsoft.com/azure/azure-stack).
+[Integrerade Microsoft Azure Stack-system](.\.\azure-stack-poc.md) i intervallet från 4 – 16 noder och gemensamt stöds av en partner för maskinvara och Microsoft. Du kan använda integrerade Azure Stack-systemen för att aktivera nya scenarier för produktionsarbetsbelastningar. Om du är en Azure Stack-operatör som hanterar den integrerade system-infrastrukturen och erbjuder tjänster, se vår [operatorn dokumentation](https://docs.microsoft.com/azure/azure-stack).
 
 Azure Stack Development Kit (ASDK) är en nod-distribution av Azure Stack som du kan hämta och använda **kostnadsfritt**. Alla ASDK komponenter är installerade på virtuella datorer som körs på en enda värddator för server och som måste uppfylla eller överträffa de [maskinvarukraven](asdk-deploy-considerations.md#hardware). ASDK är avsedd att tillhandahålla en miljö där du kan utvärdera Azure Stack och utveckla moderna program med API: er och verktyg konsekvent med Azure i en *icke-produktion* miljö. 
 
@@ -47,7 +47,7 @@ Nod ASDK distributioner skiljer sig från flera noder Azure Stack-distributioner
 
 |Beskrivning|ASDK|Flera noder Azure Stack|
 |-----|-----|-----|
-|**Skalning**|Alla komponenter är installerade på en nod serverdator.|Kan variera i storlek från 4-12-noder.|
+|**Skalning**|Alla komponenter är installerade på en nod serverdator.|Kan variera i storlek från 4 – 16 noder.|
 |**Återhämtning**|Konfiguration av en nod ge inte hög tillgänglighet|[Hög tillgänglighet](.\.\azure-stack-key-features.md#high-availability-for-azure-stack) funktioner som stöds.|
 |**Nätverk**|ASDK använder en virtuell dator med namnet AzS-BGPNAT01 för att dirigera all ASDK nätverkstrafik. Det finns inga krav på ytterligare växel.|AzS-BGPNAT01 VM finns inte i flernodiga distributioner. Mer komplexa [network routningsinfrastruktur](.\.\azure-stack-network.md#network-infrastructure) krävs inklusive Top-Of-Rack (TOR), Hanteringsstyrenheten för baskort (BMC) och kantlinje (datacenternätverk) växlar.|
 |**Patch- och uppdateringsprocessen**|Om du vill flytta till en ny version av ASDK, måste du distribuera om ASDK på värddatorn för development kit.|[Korrigera och uppdatera](.\.\azure-stack-updates.md) process som används för att uppdatera den installerade versionen av Azure Stack.|

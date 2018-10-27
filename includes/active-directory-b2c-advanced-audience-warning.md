@@ -14,5 +14,5 @@ ms.locfileid: "50133743"
 > [!NOTE]
 > **Anpassade principer finns i offentlig förhandsversion.**
 
-> [Anpassade principer](..\articles\active-directory-b2c\active-directory-b2c-get-started-custom.md) avsett främst för att hantera komplexa scenarier. För de flesta fall rekommenderar vi att du använder Azure Active Directory B2C [inbyggda principer](..\articles\active-directory-b2c\active-directory-b2c-reference-policies.md). Inbyggda principer är lättare att ställa in för din konfiguration.
+> [Anpassade principer](..\articles\active-directory-b2c\active-directory-b2c-get-started-custom.md) är avsett främst för att hantera komplexa scenarier. I de flesta fall rekommenderar vi att du använder Azure Active Directory B2C [inbyggda principer](..\articles\active-directory-b2c\active-directory-b2c-reference-policies.md). Inbyggda principer är lättare att ställa in för din konfiguration.
 

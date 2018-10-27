@@ -12,19 +12,24 @@ items:
   - name: Skapa en runbook
     href: automation-quickstart-create-runbook.md
   - name: Skapa en DSC-konfiguration
+    displayName: DSC, state configuration, config, node configuration, node
     href: automation-quickstart-dsc-configuration.md
   expanded: true
 - name: Självstudier
   items:
   - name: Spåra uppdaterade filer med bevakaruppgifter
+    displayName: hybrid runbook worker, hybrid worker, trigger
     href: automation-watchers-tutorial.md
   - name: Hantera uppdateringar för din virtuella dator
+    displayName: alert, patch
     href: automation-tutorial-update-management.md
   - name: Publicera uppdateringar och spårning av ändringar av runbook
     href: automation-onboard-solutions.md
   - name: Identifiera programvara i din miljö
+    displayName: inventory
     href: automation-tutorial-installed-software.md
   - name: Felsök ändringar på en virtuell dator
+    displayName: inventory
     href: automation-tutorial-troubleshoot-changes.md
 - name: Instruktionsguider
   items:
@@ -39,6 +44,7 @@ items:
   - name: Uppdateringshantering
     items:
     - name: Översikt över Uppdateringshantering
+      displayName: dynamic groups, pre scripts, post scripts, reboot control, first party, pre download, inclusion
       href: automation-update-management.md
     - name: Hantera uppdateringar för flera virtuella datorer
       href: manage-update-multi.md
@@ -47,12 +53,15 @@ items:
     - name: Migrera OMS-uppdateringsdistributioner till Azure
       href: migrate-oms-update-deployments.md
     - name: Integrera SCCM med Uppdateringshantering
+      displayName: Configuration Manager
       href: oms-solution-updatemgmt-sccmintegration.md
   - name: Spårning av ändringar
     items:
     - name: Översikt över Ändringsspårning
+      displayName: wildcard, recursion, environment variables, registry
       href: automation-change-tracking.md
     - name: Visa filinnehållet i spårade filer
+      displayName: change tracking, hash
       href: change-tracking-file-contents.md
   - name: Inventering
     items:
@@ -63,14 +72,17 @@ items:
     - name: Skapa fristående Automation-konto
       href: automation-create-standalone-account.md
     - name: Hantera Kör som-konto för Automation
+      displayName: certificate renewal
       href: manage-runas-account.md
     - name: Konfigurera autentisering med AWS
       href: automation-config-aws-account.md
     - name: Hantera rollbaserad åtkomstkontroll
+      displayName: RBAC
       href: automation-role-based-access-control.md
   - name: Skapa runbooks
     items:
     - name: Runbook-typer
+      displayName: graphical, python, powershell, powershell workflow
       href: automation-runbook-types.md
     - name: Skapa och importera Runbooks
       href: automation-creating-importing-runbook.md
@@ -83,6 +95,7 @@ items:
     - name: Skapa en Python-runbook
       href: automation-first-runbook-textual-python2.md
     - name: Redigera Runbooks med text
+      displayName: powershell
       href: automation-edit-textual-runbook.md
     - name: Redigera grafiska Runbooks
       href: automation-graphical-authoring-intro.md
@@ -93,11 +106,14 @@ items:
     - name: Underordnade Runbooks
       href: automation-child-runbooks.md
     - name: Utdata från Runbooks
+      displayName: message streams, progress records, preference
       href: automation-runbook-output-and-messages.md
     - name: Källkontrollsintegrering
+      displayName: github, vsts, azure devops, personal access token
       href: source-control-integration.md
     - name: Källkontrollsintegrering – föråldrad
       href: automation-source-control-integration-legacy.md
+      displayname: github
     - name: Skapa runbook-flöden med grafisk runbook-SDK
       href: graphical-runbook-sdk.md
   - name: Automatisera
@@ -111,8 +127,10 @@ items:
     - name: Felhantering i grafiska Runbook-flöden
       href: automation-runbook-graphical-error-handling.md
     - name: Spåra ett Runbook-jobb
+      displayName: fair share, activity log
       href: automation-runbook-execution.md
     - name: Hantera Azure Automation-data
+      displayName: backup
       href: automation-managing-data.md
     - name: Skicka ett JSON-objekt till en Azure Automation-runbook
       href: automation-pass-json-string.md
@@ -127,26 +145,36 @@ items:
     - name: Distribuera Windows Hybrid Runbook Worker
       href: automation-windows-hrw-install.md
     - name: Distribuera Linux Hybrid Runbook Worker
+      displayName: signature validation
       href: automation-linux-hrw-install.md
     - name: Köra runbook-flöden på Hybrid Runbook Worker
+      displayName: signed runbooks
       href: automation-hrw-run-runbooks.md
   - name: Statuskonfiguration
+    displayName: DSC
     items:
     - name: Översikt över statuskonfiguration
+      displayName: DSC
       href: automation-dsc-overview.md
     - name: Komma igång
+      displayName: DSC
       href: automation-dsc-getting-started.md
     - name: Konfigurera servrar till önskad status och hantera drift med Statuskonfiguration
+      displayName: DSC, compliance
       href: tutorial-configure-servers-desired-state.md
     - name: Konfigurera datorer för hantering
+      displayName: DSC, state configuration
       href: automation-dsc-onboarding.md
     - name: Kompilera DSC-konfigurationer
+      displayName: state configuration, composite resources, configurationData
       href: automation-dsc-compile.md
     - name: Skapa DSC-konfigurationer med sammansatta resurser
       href: compose-configurationwithcompositeresources.md
     - name: Kontinuerlig distribution med Chocolatey
+      displayName: dsc, state configuration
       href: automation-dsc-cd-chocolatey.md
     - name: Vidarebefordra rapportdata från Statuskonfiguration till Log Analytics
+      displayName: DSC
       href: automation-dsc-diagnostics.md
   - name: Hantera delade resurser
     items:
@@ -171,12 +199,15 @@ items:
     - name: Övervaka runbook-flöden med måttaviseringar
       href: automation-alert-metric.md
     - name: Starta ett runbook-flöde med Azure-aviseringar
+      displayName: Monitor, Azure Monitor
       href: automation-create-alert-triggered-runbook.md
     - name: Skapa virtuella Amazon Web Service-datorer
       href: automation-scenario-aws-deployment.md
     - name: Källkontrollsintegrering med GitHub Enterprise
+      displayName: CI, runbooks
       href: automation-scenario-source-control-integration-with-github-ent.md
     - name: Källkontrollsintegrering med Azure DevOps
+      displayName: VSTS, CI, runbooks
       href: automation-scenario-source-control-integration-with-VSTS.md
     - name: Distribuera en Azure Resource Manager-mall i en Azure Automation PowerShell- runbook
       href: automation-deploy-template-runbook.md
@@ -189,22 +220,30 @@ items:
   - name: Migrera
     items:
     - name: Migrera från Orchestrator
+      displayName: SCORCH, runbooks
       href: automation-orchestrator-migration.md
 - name: Felsöka
   items:
   - name: Publicering
+    displayName: troubleshoot
     href: troubleshoot/onboarding.md
   - name: Runbooks
+    displayName: troubleshoot
     href: troubleshoot/runbooks.md
   - name: Tillståndskonfiguration (DSC)
+    displayName: Desired State Configuration, troubleshoot
     href: troubleshoot/desired-state-configuration.md
   - name: Hybrid Runbook Worker
+    displayName: troubleshoot, HRW, hybrid worker
     href: troubleshoot/hybrid-runbook-worker.md
   - name: Ändringsspårning och inventering
+    displayName: troubleshoot
     href: troubleshoot/change-tracking.md
   - name: Uppdateringshantering
+    displayName: troubleshoot
     href: troubleshoot/update-management.md
   - name: Felsökning av problem med uppdateringsagenten
+    displayName: hybrid runbook worker, hybrid worker, troubleshoot
     href: troubleshoot/update-agent-issues.md
 - name: Referens
   items:
@@ -238,9 +277,9 @@ items:
     href: http://stackoverflow.com/questions/tagged/azure-automation
   - name: Videoklipp
     href: https://azure.microsoft.com/documentation/videos/index/?services=automation
-ms.openlocfilehash: c0dd1231814d41761c35831b6bfabae1c5480c5c
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.openlocfilehash: 9ecdfd37ac2de97342447d25c4e09c53730651bf
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50095294"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50155630"

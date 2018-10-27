@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: e901ba81b92a5d7a7454fbfaca96902e1e8008a8
-ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
+ms.openlocfilehash: c45b86913f8c76b80da921e2813d405b61d08041
+ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/14/2018
-ms.locfileid: "41929065"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50139199"
 documentType: LandingData
 title: Dokumentation för IoT-lösningsacceleratorer
 metadata:
@@ -17,7 +17,7 @@ metadata:
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
-  ms.date: 07/24/2018
+  ms.date: 10/26/2018
   ms.author: dobett
 abstract:
   description: Lär dig hur du använder IoT-lösningsacceleratorer. De här artiklarna beskriver hur du använder lösningsacceleratorer för att snabbt komma igång med din implementering av vanliga IoT-scenarier, till exempel fjärrövervakning, industri-IoT, förutsägande underhåll och enhetssimulering.
@@ -43,4 +43,5 @@ sections:
     - html: <a href="/azure/iot-accelerators/iot-accelerators-remote-monitoring-monitor">Övervaka dina IoT-enheter</a>
     - html: <a href="/azure/iot-accelerators/iot-accelerators-remote-monitoring-automate">Identifiera problem med enheter som är anslutna till din övervakningslösning</a>
     - html: <a href="/azure/iot-accelerators/iot-accelerators-remote-monitoring-manage">Konfigurera och hantera enheter som är anslutna till din övervakningslösning</a>
+    - html: <a href="/azure/iot-accelerators/iot-accelerators-remote-monitoring-root-cause-analysis">Utföra en rotorsaksanalys för en avisering</a>
     - html: <a href="/azure/iot-accelerators/iot-accelerators-remote-monitoring-maintain">Använda aviseringar och åtgärda enhetsproblem</a>

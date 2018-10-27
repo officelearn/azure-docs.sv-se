@@ -326,12 +326,6 @@
 
 ## [Felsöka](fundamentals/active-directory-troubleshooting-support-howto.md)
 
-## Distribuera Azure AD PoC (Proof of Concept)
-### [PoC-strategibok: Introduktion](active-directory-playbook-intro.md)
-### [PoC-strategibok: Ingredienser](active-directory-playbook-ingredients.md)
-### [PoC-strategibok: Implementering](active-directory-playbook-implementation.md)
-### [PoC-strategibok: Komponenter](active-directory-playbook-building-blocks.md)
-
 # Referens
 ## [Kodexempel](https://azure.microsoft.com/resources/samples/?service=active-directory)
 ## [Azure PowerShell-cmdletar](/powershell/azure/overview)

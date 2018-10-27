@@ -5,14 +5,14 @@ services: container-service
 author: iainfoulds
 ms.service: container-service
 ms.topic: article
-ms.date: 07/26/2018
+ms.date: 10/25/2018
 ms.author: iainfou
-ms.openlocfilehash: 7caa98b65b35d1eb1a000f1e9099fbf8eb3f8861
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: c3256b2b1e8be0e883d0f7b47e66ab1fee95b042
+ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49406049"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50138185"
 ---
 # <a name="enable-and-review-kubernetes-master-node-logs-in-azure-kubernetes-service-aks"></a>Aktivera och granska Kubernetes huvudnoden loggar i Azure Kubernetes Service (AKS)
 
@@ -42,7 +42,7 @@ I följande exempel portal skärmbild visas den *diagnostikinställningar* föns
 ![Aktivera Log Analytics-arbetsyta för Log Analytics för AKS-kluster](media/view-master-logs/enable-oms-log-analytics.png)
 
 >[!NOTE]
->OMS-arbetsytor kallas nu för Log Analytics-arbetsytor. 
+>OMS-arbetsytor kallas nu för Log Analytics-arbetsytor.
 
 ## <a name="schedule-a-test-pod-on-the-aks-cluster"></a>Schemalägga en test-pod på AKS-kluster
 
@@ -82,7 +82,7 @@ Det kan ta några minuter för diagnostikloggar till aktiveras och visas i Log A
 
 ![Välj Log Analytics-arbetsytan för AKS-kluster](media/view-master-logs/select-log-analytics-workspace.png)
 
-Till vänster, Välj **Loggsökning**. Visa den *kube-apiserver*, anger du följande fråga i textrutan:
+Till vänster, Välj **loggar**. Visa den *kube-apiserver*, anger du följande fråga i textrutan:
 
 ```
 AzureDiagnostics

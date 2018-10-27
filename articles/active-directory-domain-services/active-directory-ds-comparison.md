@@ -3,7 +3,7 @@ title: 'Azure AD Domain Services: Jämföra Azure AD Domain Services gör det sj
 description: Jämföra Azure Active Directory Domain Services för gör det själv-domänkontrollanter
 services: active-directory-ds
 documentationcenter: ''
-author: mahesh-unnikrishnan
+author: eringreenlee
 manager: mtillman
 editor: curtand
 ms.assetid: 165249d5-e0e7-4ed1-aa26-91a05a87bdc9
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/07/2017
-ms.author: maheshu
-ms.openlocfilehash: acb125ef807193e79e45bca7e217efe3ffb31698
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.author: ergreenl
+ms.openlocfilehash: f7455076d59e447ade9c15203593d260cf676894
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39505958"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50155805"
 ---
 # <a name="how-to-decide-if-azure-ad-domain-services-is-right-for-your-use-case"></a>Hur du avgör om Azure AD Domain Services som passar ditt användningsområde
 Du kan distribuera dina arbetsbelastningar i Azure Infrastructure Services, utan att behöva bekymra dig om hur du underhåller infrastruktur för Identitetshantering i Azure med Azure AD Domain Services. Den här hanterade tjänsten skiljer sig från en typisk distribution för Windows Server Active Directory som du distribuerar och administrera på egen hand. Tjänsten är enkla att distribuera och ger automatiserade hälsoövervakning och reparation. Vi utvecklas ständigt tjänsten för att lägga till stöd för vanliga scenarier för distribution.

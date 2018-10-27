@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 09/03/2018
 ms.author: glenga
-ms.openlocfilehash: 0a6939ae32945c4efc22cbcaece402180a183c10
-ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
+ms.openlocfilehash: a16b71bf6c3f40d0595e1db136dd5631b029ed48
+ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50087329"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50139182"
 ---
 # <a name="azure-table-storage-bindings-for-azure-functions"></a>Azure Table storage-bindningar för Azure Functions
 
@@ -437,7 +437,7 @@ public int run(
  
 I [C#-klassbibliotek](functions-dotnet-class-library.md), Använd följande attribut för att konfigurera en indatabindning för tabellen:
 
-* [TableAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/TableAttribute.cs)
+* [TableAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.Extensions.Storage/Tables/TableAttribute.cs)
 
   Attributets konstruktorn tar det tabellnamn, partitionsnyckel och radnyckel. Den kan användas på en out-parameter eller på det returnera värdet till funktionen, som visas i följande exempel:
 
@@ -723,7 +723,7 @@ module.exports = function (context) {
 
 ## <a name="output---attributes"></a>Utdata - attribut
 
-I [C#-klassbibliotek](functions-dotnet-class-library.md), använda den [TableAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/TableAttribute.cs).
+I [C#-klassbibliotek](functions-dotnet-class-library.md), använda den [TableAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.Extensions.Storage/Tables/TableAttribute.cs).
 
 Attributets konstruktorn tar tabellnamnet. Den kan användas på en `out` parametern eller returvärdet för funktionen som du ser i följande exempel:
 

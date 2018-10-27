@@ -4,22 +4,20 @@ description: Använda Azure Resource Manager och Resource Manager REST API för 
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
-manager: timlt
-editor: tysonn
 ms.assetid: 1d8fbd4c-78b0-425b-ba76-f2b7fd260b45
 ms.service: azure-resource-manager
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/01/2018
+ms.date: 10/26/2018
 ms.author: tomfitz
-ms.openlocfilehash: ae2393d16d2c9c1000b00f5514e63c988303a83c
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: 058d6d398f6bb54e8569e727f118a325c338049d
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39628519"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50154750"
 ---
 # <a name="deploy-resources-with-resource-manager-templates-and-resource-manager-rest-api"></a>Distribuera resurser med Resource Manager-mallar och Resource Manager REST API
 
@@ -33,15 +31,19 @@ Den här artikeln förklarar hur du använder Resource Manager REST API med Reso
 > 
 > 
 
-Mallen kan vara en lokal fil eller en extern fil som är tillgänglig via en URI. När mallen finns i ett lagringskonto, kan du begränsa åtkomsten till mallen och ange en token för delad åtkomst (signatur) under distributionen.
+Du kan antingen inkludera mallen i förfrågans text eller länk till en fil. När du använder en fil, kan det vara en lokal fil eller en extern fil som är tillgänglig via en URI. När mallen är i ett lagringskonto kan du begränsa åtkomsten till mallen och ange en token för delad åtkomst (signatur) under distributionen.
 
 ## <a name="deploy-with-the-rest-api"></a>Distribuera med REST API
 1. Ange [gemensamma parametrar och rubriker](/rest/api/azure/), inklusive autentiseringstoken.
 
-2. Om du inte har en befintlig resursgrupp, skapa en resursgrupp. Ange ditt prenumerations-ID, namnet på den nya resursgruppen och platsen som du behöver för din lösning. Mer information finns i [skapa en resursgrupp](/rest/api/resources/resourcegroups/createorupdate).
+1. Om du inte har en befintlig resursgrupp, skapa en resursgrupp. Ange ditt prenumerations-ID, namnet på den nya resursgruppen och platsen som du behöver för din lösning. Mer information finns i [skapa en resursgrupp](/rest/api/resources/resourcegroups/createorupdate).
 
   ```HTTP
-  PUT https://management.azure.com/subscriptions/<YourSubscriptionId>/resourcegroups/<YourResourceGroupName>?api-version=2015-01-01
+  PUT https://management.azure.com/subscriptions/<YourSubscriptionId>/resourcegroups/<YourResourceGroupName>?api-version=2018-05-01
+  ```
+
+  Med en begärandetext som:
+  ```json
   {
     "location": "West US",
     "tags": {
@@ -50,12 +52,17 @@ Mallen kan vara en lokal fil eller en extern fil som är tillgänglig via en URI
   }
   ```
 
-3. Verifiera distributionen innan du kör genom att köra den [Validera malldistributionen av en](/rest/api/resources/deployments/validate) igen. När du testar distributionen kan du ange parametrar, precis som när du genomför distributionen (visas i nästa steg).
+1. Verifiera distributionen innan du kör genom att köra den [Validera malldistributionen av en](/rest/api/resources/deployments/validate) igen. När du testar distributionen kan du ange parametrar, precis som när du genomför distributionen (visas i nästa steg).
 
-4. Skapa en distribution. Ange ditt prenumerations-ID, namnet på resursgruppen, namnet på distributionen och en länk till mallen. Läs om hur mallfilen [parameterfilen](#parameter-file). Läs mer om REST-API för att skapa en resursgrupp, [skapar en för malldistribution](https://docs.microsoft.com/rest/api/resources/deployments#Deployments_CreateOrUpdate). Observera den **läge** är inställd på **stegvis**. Om du vill köra en fullständig distribution **läge** till **Slutför**. Var försiktig när du använder det fullständiga läget som du kan oavsiktligt ta bort resurser som inte ingår i din mall.
+1. Skapa en distribution. Ange ditt prenumerations-ID, namnet på resursgruppen, namnet på distributionen och en länk till mallen. Läs om hur mallfilen [parameterfilen](#parameter-file). Läs mer om REST-API för att skapa en resursgrupp, [skapar en för malldistribution](/rest/api/resources/deployments/createorupdate). Observera den **läge** är inställd på **stegvis**. Om du vill köra en fullständig distribution **läge** till **Slutför**. Var försiktig när du använder det fullständiga läget som du kan oavsiktligt ta bort resurser som inte är i mallen.
 
   ```HTTP
-  PUT https://management.azure.com/subscriptions/<YourSubscriptionId>/resourcegroups/<YourResourceGroupName>/providers/Microsoft.Resources/deployments/<YourDeploymentName>?api-version=2015-01-01
+  PUT https://management.azure.com/subscriptions/<YourSubscriptionId>/resourcegroups/<YourResourceGroupName>/providers/Microsoft.Resources/deployments/<YourDeploymentName>?api-version=2018-05-01
+  ```
+
+  Med en begärandetext som:
+
+   ```json
   {
     "properties": {
       "templateLink": {
@@ -73,7 +80,7 @@ Mallen kan vara en lokal fil eller en extern fil som är tillgänglig via en URI
 
     Om du vill logga svarsinnehåll, begär innehåll eller både inkludera **debugSetting** i begäran.
 
-  ```HTTP
+  ```json
   "debugSetting": {
     "detailLevel": "requestContent, responseContent"
   }
@@ -81,10 +88,73 @@ Mallen kan vara en lokal fil eller en extern fil som är tillgänglig via en URI
 
     Du kan ställa in ditt storage-konto du använder en token för delad åtkomst (signatur). Mer information finns i [delegera åtkomst med en signatur för delad åtkomst](https://docs.microsoft.com/rest/api/storageservices/delegating-access-with-a-shared-access-signature).
 
+1. I stället för att länka till filer för mallen och parametrarna kan inkludera du dem i begärandetexten.
+
+  ```json
+  {
+      "properties": {
+      "mode": "Incremental",
+      "template": {
+        "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+        "contentVersion": "1.0.0.0",
+        "parameters": {
+          "storageAccountType": {
+            "type": "string",
+            "defaultValue": "Standard_LRS",
+            "allowedValues": [
+              "Standard_LRS",
+              "Standard_GRS",
+              "Standard_ZRS",
+              "Premium_LRS"
+            ],
+            "metadata": {
+              "description": "Storage Account type"
+            }
+          },
+          "location": {
+            "type": "string",
+            "defaultValue": "[resourceGroup().location]",
+            "metadata": {
+              "description": "Location for all resources."
+            }
+          }
+        },
+        "variables": {
+          "storageAccountName": "[concat(uniquestring(resourceGroup().id), 'standardsa')]"
+        },
+        "resources": [
+          {
+            "type": "Microsoft.Storage/storageAccounts",
+            "name": "[variables('storageAccountName')]",
+            "apiVersion": "2018-02-01",
+            "location": "[parameters('location')]",
+            "sku": {
+              "name": "[parameters('storageAccountType')]"
+            },
+            "kind": "StorageV2",
+            "properties": {}
+          }
+        ],
+        "outputs": {
+          "storageAccountName": {
+            "type": "string",
+            "value": "[variables('storageAccountName')]"
+          }
+        }
+      },
+      "parameters": {
+        "location": {
+          "value": "eastus2"
+        }
+      }
+    }
+  }
+  ```
+
 5. Hämta status för malldistributionen. Mer information finns i [få information om en malldistributionen](/rest/api/resources/deployments/get).
 
   ```HTTP
-  GET https://management.azure.com/subscriptions/<YourSubscriptionId>/resourcegroups/<YourResourceGroupName>/providers/Microsoft.Resources/deployments/<YourDeploymentName>?api-version=2015-01-01
+  GET https://management.azure.com/subscriptions/<YourSubscriptionId>/resourcegroups/<YourResourceGroupName>/providers/Microsoft.Resources/deployments/<YourDeploymentName>?api-version=2018-05-01
   ```
 
 ## <a name="redeploy-when-deployment-fails"></a>Distribuera om när distributionen misslyckas
@@ -93,7 +163,7 @@ För distributioner som inte kan du ange att en tidigare distribution från dist
 
 Om du vill distribuera om den senaste distributionen om den aktuella distributionen misslyckas, använder du:
 
-```HTTP
+```json
 "onErrorDeployment": {
   "type": "LastSuccessful",
 },
@@ -101,7 +171,7 @@ Om du vill distribuera om den senaste distributionen om den aktuella distributio
 
 Om du vill distribuera om en specifik distribution om den aktuella distributionen misslyckas, använder du:
 
-```HTTP
+```json
 "onErrorDeployment": {
   "type": "SpecificDeployment",
   "deploymentName": "<deploymentname>"
@@ -145,7 +215,7 @@ Storleken på parameterfilen får inte vara mer än 64 KB.
 Om du behöver ange något känsligt värde för en parameter (till exempel ett lösenord), lägger du till detta värde till ett nyckelvalv. Hämta nyckelvalvet under distributionen som du ser i exemplet ovan. Mer information finns i [skicka säkra värden under distributionen](resource-manager-keyvault-parameter.md). 
 
 ## <a name="next-steps"></a>Nästa steg
-* Om du vill ange hur du hanterar resurs som finns i resursgruppen men inte har definierats i mallen, se [distributionslägen i Azure Resource Manager](deployment-modes.md).
+* Om du vill ange hur du hanterar resurser som finns i resursgruppen men inte har definierats i mallen, se [distributionslägen i Azure Resource Manager](deployment-modes.md).
 * Läs om hur du hanterar asynkrona REST-åtgärder i [spåra asynkrona åtgärder i Azure](resource-manager-async-operations.md).
 * Ett exempel för att distribuera resurser via .NET-klientbiblioteket finns i [distribuera resurser med hjälp av .NET-bibliotek och en mall](../virtual-machines/windows/csharp-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 * För att definiera parametrar i mallen, se [Webbsidemallar](resource-group-authoring-templates.md#parameters).

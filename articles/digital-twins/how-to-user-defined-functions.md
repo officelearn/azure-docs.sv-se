@@ -6,14 +6,14 @@ manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 10/08/2018
+ms.date: 10/25/2018
 ms.author: alinast
-ms.openlocfilehash: 7fbaff5ed1b60a4434ba2eb0c78c6aa1f3fd6645
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: 49566d21fa6897f5c1371bbea2bb602a393de66d
+ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49324341"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50140797"
 ---
 # <a name="how-to-use-user-defined-functions-in-azure-digital-twins"></a>Hur du använder användardefinierade funktioner i Azure Digital Twins
 
@@ -27,8 +27,8 @@ https://yourInstanceName.yourLocation.azuresmartspaces.net/management
 
 | Anpassade attributets namn | Ersätt med |
 | --- | --- |
-| `yourInstanceName` | Namnet på din digitala Twins för Azure-instans |
-| `yourLocation` | Vilken server-region som din instans är värd för |
+| *dittinstansnamn* | Namnet på din digitala Twins för Azure-instans |
+| *yourLocation* | Vilken server-region som din instans är värd för |
 
 ## <a name="client-library-reference"></a>-Klientbiblioteksreferens
 
@@ -70,8 +70,8 @@ POST https://yourManagementApiUrl/api/v1.0/matchers
 
 | Anpassade attributets namn | Ersätt med |
 | --- | --- |
-| `yourManagementApiUrl` | Den fullständiga URL-sökvägen för API Management  |
-| `yourSpaceIdentifier` | Vilken server-region som din instans är värd för |
+| *yourManagementApiUrl* | Den fullständiga URL-sökvägen för API Management  |
+| *yourSpaceIdentifier* | Vilken server-region som din instans är värd för |
 
 ## <a name="create-a-user-defined-function-udf"></a>Skapa en användardefinierad funktion (UDF)
 
@@ -90,7 +90,7 @@ POST https://yourManagementApiUrl/api/v1.0/userdefinedfunctions with Content-Typ
 
 | Anpassade attributets namn | Ersätt med |
 | --- | --- |
-| `yourManagementApiUrl` | Den fullständiga URL-sökvägen för API Management  |
+| *yourManagementApiUrl* | Den fullständiga URL-sökvägen för API Management  |
 
 Brödtext:
 
@@ -118,12 +118,12 @@ function process(telemetry, executionContext) {
 
 | Anpassade attributets namn | Ersätt med |
 | --- | --- |
-| `yourSpaceIdentifier` | Identifieraren utrymme  |
-| `yourMatcherIdentifier` | Id för matcher som du vill använda |
+| *yourSpaceIdentifier* | Identifieraren utrymme  |
+| *yourMatcherIdentifier* | ID för matcher som du vill använda |
 
 ### <a name="example-functions"></a>Exempel-funktioner
 
-Ange sensor telemetri läser direkt för sensorn med datatypen `Temperature`, vilket är sensorn. Datatyp:
+Ange sensor telemetri läser direkt för sensorn med datatypen `Temperature`, vilket är `sensor.DataType`:
 
 ```javascript
 function process(telemetry, executionContext) {
@@ -139,7 +139,19 @@ function process(telemetry, executionContext) {
 }
 ```
 
-Logga ett meddelande om sensor telemetri läsning överskrider ett fördefinierat tröskelvärde. Om din diagnostikinställningar har aktiverats på den digitala Twins-instansen, vidarebefordras loggar från användardefinierade funktioner:
+Den `telemetry` parametern Exponerar en `SensorId` och `Message`. Den `executionContext` parametern exponerar följande attribut:
+
+```csharp
+var executionContext = new UdfExecutionContext
+{
+    EnqueuedTime = request.HubEnqueuedTime,
+    ProcessorReceivedTime = request.ProcessorReceivedTime,
+    UserDefinedFunctionId = request.UserDefinedFunctionId,
+    CorrelationId = correlationId.ToString(),
+};
+```
+
+I nästa exempel kommer loggar vi ett meddelande om sensor telemetri läsning överskrider ett fördefinierat tröskelvärde. Om din diagnostikinställningar har aktiverats på den digitala Twins-instansen, vidarebefordras också loggar från användardefinierade funktioner:
 
 ```javascript
 function process(telemetry, executionContext) {
@@ -192,7 +204,7 @@ GET https://yourManagementApiUrl/api/v1.0/system/roles
 
 | Anpassade attributets namn | Ersätt med |
 | --- | --- |
-| `yourManagementApiUrl` | Den fullständiga URL-sökvägen för API Management  |
+| *yourManagementApiUrl* | Den fullständiga URL-sökvägen för API Management  |
 
 - ObjectId kommer att UDF-ID som du skapade tidigare
 - Hitta `Path` genom att fråga blankstegen med sina fullständiga sökvägen till och kopiera den `spacePaths` värde. Klistra in det i sökvägen nedan när du skapar UDF-rolltilldelning
@@ -203,8 +215,8 @@ GET https://yourManagementApiUrl/api/v1.0/spaces?name=yourSpaceName&includes=ful
 
 | Anpassade attributets namn | Ersätt med |
 | --- | --- |
-| `yourManagementApiUrl` | Den fullständiga URL-sökvägen för API Management  |
-| `yourSpaceName` | Namnet på det utrymme som du vill använda |
+| *yourManagementApiUrl* | Den fullständiga URL-sökvägen för API Management  |
+| *yourSpaceName* | Namnet på det utrymme som du vill använda |
 
 ```plaintext
 POST https://yourManagementApiUrl/api/v1.0/roleassignments
@@ -218,10 +230,10 @@ POST https://yourManagementApiUrl/api/v1.0/roleassignments
 
 | Anpassade attributets namn | Ersätt med |
 | --- | --- |
-| `yourManagementApiUrl` | Den fullständiga URL-sökvägen för API Management  |
-| `yourDesiredRoleIdentifier` | Identifierare för rollen |
-| `yourUserDefinedFunctionId` | Id för en användardefinierad funktion som du vill använda |
-| `yourAccessControlPath` | Åtkomstväg för kontroll |
+| *yourManagementApiUrl* | Den fullständiga URL-sökvägen för API Management  |
+| *yourDesiredRoleIdentifier* | Identifierare för rollen |
+| *yourUserDefinedFunctionId* | ID för en användardefinierad funktion som du vill använda |
+| *yourAccessControlPath* | Åtkomstväg för kontroll |
 
 ## <a name="send-telemetry-to-be-processed"></a>Skicka telemetri som ska bearbetas
 
@@ -241,7 +253,7 @@ Beroende på ett utrymme-ID, hämtar du området från diagrammet.
 
 | Param  | Typ                | Beskrivning  |
 | ------ | ------------------- | ------------ |
-| id  | `guid` | utrymmesidentifierare |
+| `id`  | `guid` | utrymmesidentifierare |
 
 ### <a name="getsensormetadataid--sensor"></a>getSensorMetadata(id) ⇒ `sensor`
 
@@ -251,7 +263,7 @@ Beroende på en sensor-ID, hämtar du sensorn från diagrammet.
 
 | Param  | Typ                | Beskrivning  |
 | ------ | ------------------- | ------------ |
-| id  | `guid` | sensorn identifierare |
+| `id`  | `guid` | sensorn identifierare |
 
 ### <a name="getdevicemetadataid--device"></a>getDeviceMetadata(id) ⇒ `device`
 
@@ -261,7 +273,7 @@ Beroende på en enhets-ID, hämtar du enheten från diagrammet.
 
 | Param  | Typ                | Beskrivning  |
 | ------ | ------------------- | ------------ |
-| id  | `guid` | Enhets-ID |
+| `id`  | `guid` | Enhets-ID |
 
 ### <a name="getsensorvaluesensorid-datatype--value"></a>getSensorValue (sensorId, dataType) ⇒ `value`
 
@@ -271,8 +283,8 @@ Baserat på en sensor-identifierare och dess datatyp, för att hämta det aktuel
 
 | Param  | Typ                | Beskrivning  |
 | ------ | ------------------- | ------------ |
-| sensorId  | `guid` | sensorn identifierare |
-| Datatyp  | `string` | sensorn datatyp |
+| `sensorId`  | `guid` | sensorn identifierare |
+| `dataType`  | `string` | sensorn datatyp |
 
 ### <a name="getspacevaluespaceid-valuename--value"></a>getSpaceValue (spaceId, värdenamn) ⇒ `value`
 
@@ -282,8 +294,8 @@ Baserat på en utrymmesidentifierare och värdenamn, för att hämta det aktuell
 
 | Param  | Typ                | Beskrivning  |
 | ------ | ------------------- | ------------ |
-| spaceId  | `guid` | utrymmesidentifierare |
-| Värdenamn  | `string` | egenskapsnamn med blanksteg |
+| `spaceId`  | `guid` | utrymmesidentifierare |
+| `valueName` | `string` | egenskapsnamn med blanksteg |
 
 ### <a name="getsensorhistoryvaluessensorid-datatype--value"></a>getSensorHistoryValues (sensorId, dataType) ⇒ `value[]`
 
@@ -293,8 +305,8 @@ Baserat på en sensor-identifierare och dess datatyp, hämta historiska värden 
 
 | Param  | Typ                | Beskrivning  |
 | ------ | ------------------- | ------------ |
-| sensorId  | `guid` | sensorn identifierare |
-| Datatyp  | `string` | sensorn datatyp |
+| `sensorId` | `guid` | sensorn identifierare |
+| `dataType` | `string` | sensorn datatyp |
 
 ### <a name="getspacehistoryvaluesspaceid-datatype--value"></a>getSpaceHistoryValues (spaceId, dataType) ⇒ `value[]`
 
@@ -304,8 +316,8 @@ Baserat på en utrymmesidentifierare och värdenamn, hämta historiska värden f
 
 | Param  | Typ                | Beskrivning  |
 | ------ | ------------------- | ------------ |
-| spaceId  | `guid` | utrymmesidentifierare |
-| Värdenamn  | `string` | egenskapsnamn med blanksteg |
+| `spaceId` | `guid` | utrymmesidentifierare |
+| `valueName` | `string` | egenskapsnamn med blanksteg |
 
 ### <a name="getspacechildspacesspaceid--space"></a>getSpaceChildSpaces(spaceId) ⇒ `space[]`
 
@@ -315,7 +327,7 @@ Med en utrymmesidentifierare kan hämta de underordnade adressutrymmena för det
 
 | Param  | Typ                | Beskrivning  |
 | ------ | ------------------- | ------------ |
-| spaceId  | `guid` | utrymmesidentifierare |
+| `spaceId` | `guid` | utrymmesidentifierare |
 
 ### <a name="getspacechildsensorsspaceid--sensor"></a>getSpaceChildSensors(spaceId) ⇒ `sensor[]`
 
@@ -325,7 +337,7 @@ Med en utrymmesidentifierare kan hämta underordnade sensorer för det överordn
 
 | Param  | Typ                | Beskrivning  |
 | ------ | ------------------- | ------------ |
-| spaceId  | `guid` | utrymmesidentifierare |
+| `spaceId` | `guid` | utrymmesidentifierare |
 
 ### <a name="getspacechilddevicesspaceid--device"></a>getSpaceChildDevices(spaceId) ⇒ `device[]`
 
@@ -335,7 +347,7 @@ Med en utrymmesidentifierare kan hämta de underordnade enheterna för det över
 
 | Param  | Typ                | Beskrivning  |
 | ------ | ------------------- | ------------ |
-| spaceId  | `guid` | utrymmesidentifierare |
+| `spaceId` | `guid` | utrymmesidentifierare |
 
 ### <a name="getdevicechildsensorsdeviceid--sensor"></a>getDeviceChildSensors(deviceId) ⇒ `sensor[]`
 
@@ -345,7 +357,7 @@ Med en enhets-ID kan hämta de underordnade sensorerna för den överordnade enh
 
 | Param  | Typ                | Beskrivning  |
 | ------ | ------------------- | ------------ |
-| deviceId  | `guid` | Enhets-ID |
+| `deviceId` | `guid` | Enhets-ID |
 
 ### <a name="getspaceparentspacechildspaceid--space"></a>getSpaceParentSpace(childSpaceId) ⇒ `space`
 
@@ -355,7 +367,7 @@ Med en utrymmesidentifierare kan hämta dess överordnade utrymme.
 
 | Param  | Typ                | Beskrivning  |
 | ------ | ------------------- | ------------ |
-| childSpaceId  | `guid` | utrymmesidentifierare |
+| `childSpaceId` | `guid` | utrymmesidentifierare |
 
 ### <a name="getsensorparentspacechildsensorid--space"></a>getSensorParentSpace(childSensorId) ⇒ `space`
 
@@ -365,7 +377,7 @@ Med en sensor identifierare kan hämta dess överordnade utrymme.
 
 | Param  | Typ                | Beskrivning  |
 | ------ | ------------------- | ------------ |
-| childSensorId  | `guid` | sensorn identifierare |
+| `childSensorId` | `guid` | sensorn identifierare |
 
 ### <a name="getdeviceparentspacechilddeviceid--space"></a>getDeviceParentSpace(childDeviceId) ⇒ `space`
 
@@ -375,7 +387,7 @@ Med en enhets-ID kan hämta dess överordnade utrymme.
 
 | Param  | Typ                | Beskrivning  |
 | ------ | ------------------- | ------------ |
-| childDeviceId  | `guid` | Enhets-ID |
+| `childDeviceId` | `guid` | Enhets-ID |
 
 ### <a name="getsensorparentdevicechildsensorid--space"></a>getSensorParentDevice(childSensorId) ⇒ `space`
 
@@ -385,7 +397,7 @@ Med en sensor identifierare kan hämta den överordnade enheten.
 
 | Param  | Typ                | Beskrivning  |
 | ------ | ------------------- | ------------ |
-| childSensorId  | `guid` | sensorn identifierare |
+| `childSensorId` | `guid` | sensorn identifierare |
 
 ### <a name="getspaceextendedpropertyspaceid-propertyname--extendedproperty"></a>getSpaceExtendedProperty (spaceId, propertyName) ⇒ `extendedProperty`
 
@@ -395,8 +407,8 @@ Med en utrymmesidentifierare kan hämta egenskapen och dess värde från område
 
 | Param  | Typ                | Beskrivning  |
 | ------ | ------------------- | ------------ |
-| spaceId  | `guid` | utrymmesidentifierare |
-| propertyName  | `string` | egenskapsnamn med blanksteg |
+| `spaceId` | `guid` | utrymmesidentifierare |
+| `propertyName` | `string` | egenskapsnamn med blanksteg |
 
 ### <a name="getsensorextendedpropertysensorid-propertyname--extendedproperty"></a>getSensorExtendedProperty (sensorId, propertyName) ⇒ `extendedProperty`
 
@@ -406,8 +418,8 @@ Med en sensor identifierare kan hämta egenskapen och dess värde från sensorn.
 
 | Param  | Typ                | Beskrivning  |
 | ------ | ------------------- | ------------ |
-| sensorId  | `guid` | sensorn identifierare |
-| propertyName  | `string` | Egenskapen sensornamnet |
+| `sensorId` | `guid` | sensorn identifierare |
+| `propertyName` | `string` | Egenskapen sensornamnet |
 
 ### <a name="getdeviceextendedpropertydeviceid-propertyname--extendedproperty"></a>getDeviceExtendedProperty (deviceId, propertyName) ⇒ `extendedProperty`
 
@@ -417,8 +429,8 @@ Med en enhets-ID kan hämta egenskapen och dess värde från enheten.
 
 | Param  | Typ                | Beskrivning  |
 | ------ | ------------------- | ------------ |
-| deviceId  | `guid` | Enhets-ID |
-| propertyName  | `string` | Egenskapen enhetsnamn |
+| `deviceId` | `guid` | Enhets-ID |
+| `propertyName` | `string` | Egenskapen enhetsnamn |
 
 ### <a name="setsensorvaluesensorid-datatype-value"></a>setSensorValue (sensorId, datatyp, värde)
 
@@ -428,9 +440,9 @@ Anger ett värde på sensor-objektet med den angivna datatypen.
 
 | Param  | Typ                | Beskrivning  |
 | ------ | ------------------- | ------------ |
-| sensorId  | `guid` | sensorn identifierare |
-| Datatyp  | `string` | sensorn datatyp |
-| värde  | `string` | värde |
+| `sensorId` | `guid` | sensorn identifierare |
+| `dataType`  | `string` | sensorn datatyp |
+| `value`  | `string` | värde |
 
 ### <a name="setspacevaluespaceid-datatype-value"></a>setSpaceValue (spaceId, datatyp, värde)
 
@@ -440,9 +452,9 @@ Anger ett värde på utrymme-objektet med den angivna datatypen.
 
 | Param  | Typ                | Beskrivning  |
 | ------ | ------------------- | ------------ |
-| spaceId  | `guid` | utrymmesidentifierare |
-| Datatyp  | `string` | datatyp |
-| värde  | `string` | värde |
+| `spaceId` | `guid` | utrymmesidentifierare |
+| `dataType` | `string` | datatyp |
+| `value` | `string` | värde |
 
 ### <a name="logmessage"></a>log(Message)
 
@@ -452,7 +464,7 @@ Loggar följande meddelande i den användardefinierade funktionen.
 
 | Param  | Typ                | Beskrivning  |
 | ------ | ------------------- | ------------ |
-| meddelande  | `string` | meddelandet som ska loggas |
+| `message` | `string` | meddelandet som ska loggas |
 
 ### <a name="sendnotificationtopologyobjectid-topologyobjecttype-payload"></a>sendNotification (topologyObjectId, topologyObjectType, nyttolast)
 
@@ -462,9 +474,9 @@ Skickas ett anpassat meddelande skickas.
 
 | Param  | Typ                | Beskrivning  |
 | ------ | ------------------- | ------------ |
-| topologyObjectId  | `Guid` | Graph objektidentifierare (ex.) utrymme / sensor /device id)|
-| topologyObjectType  | `string` | (ex.) utrymme / sensor / enhet)|
-| nyttolast  | `string` | json-nyttolasten skickas med meddelandet |
+| `topologyObjectId`  | `guid` | Graph objektidentifierare (ex.) utrymme / sensor /device ID)|
+| `topologyObjectType`  | `string` | (ex.) utrymme / sensor / enhet)|
+| `payload`  | `string` | JSON-nyttolasten skickas med meddelandet |
 
 ## <a name="return-types"></a>Returnera typer
 
@@ -503,7 +515,7 @@ Returnerar den utökade egenskapen och dess värde för det aktuella utrymmet.
 
 | Param  | Typ                | Beskrivning  |
 | ------ | ------------------- | ------------ |
-| propertyName | `string` | namnet på den utökade egenskapen |
+| `propertyName` | `string` | namnet på den utökade egenskapen |
 
 #### <a name="valuevaluename--value"></a>Value(ValueName) ⇒ `value`
 
@@ -511,7 +523,7 @@ Returnerar värdet för det aktuella utrymmet.
 
 | Param  | Typ                | Beskrivning  |
 | ------ | ------------------- | ------------ |
-| Värdenamn | `string` | namnet på värdet |
+| `valueName` | `string` | namnet på värdet |
 
 #### <a name="historyvaluename--value"></a>History(ValueName) ⇒ `value[]`
 
@@ -519,7 +531,7 @@ Returnerar de historiska värdena för det aktuella utrymmet.
 
 | Param  | Typ                | Beskrivning  |
 | ------ | ------------------- | ------------ |
-| Värdenamn | `string` | namnet på värdet |
+| `valueName` | `string` | namnet på värdet |
 
 #### <a name="notifypayload"></a>Notify(Payload)
 
@@ -527,7 +539,7 @@ Skickar ett meddelande med den angivna nyttolasten.
 
 | Param  | Typ                | Beskrivning  |
 | ------ | ------------------- | ------------ |
-| nyttolast | `string` | JSON-nyttolast ska inkluderas i meddelandet |
+| `payload` | `string` | JSON-nyttolast ska inkluderas i meddelandet |
 
 ### <a name="device"></a>Enhet
 
@@ -563,7 +575,7 @@ Returnerar den utökade egenskapen och dess värde för den aktuella enheten.
 
 | Param  | Typ                | Beskrivning  |
 | ------ | ------------------- | ------------ |
-| propertyName | `string` | namnet på den utökade egenskapen |
+| `propertyName` | `string` | namnet på den utökade egenskapen |
 
 #### <a name="notifypayload"></a>Notify(Payload)
 
@@ -571,7 +583,7 @@ Skickar ett meddelande med den angivna nyttolasten.
 
 | Param  | Typ                | Beskrivning  |
 | ------ | ------------------- | ------------ |
-| nyttolast | `string` | JSON-nyttolast ska inkluderas i meddelandet |
+| `payload` | `string` | JSON-nyttolast ska inkluderas i meddelandet |
 
 ### <a name="sensor"></a>Sensor
 
@@ -611,7 +623,7 @@ Returnerar den utökade egenskapen och dess värde för den aktuella sensorn.
 
 | Param  | Typ                | Beskrivning  |
 | ------ | ------------------- | ------------ |
-| propertyName | `string` | namnet på den utökade egenskapen |
+| `propertyName` | `string` | namnet på den utökade egenskapen |
 
 #### <a name="value--value"></a>Value() ⇒ `value`
 
@@ -627,7 +639,7 @@ Skickar ett meddelande med den angivna nyttolasten.
 
 | Param  | Typ                | Beskrivning  |
 | ------ | ------------------- | ------------ |
-| nyttolast | `string` | JSON-nyttolast ska inkluderas i meddelandet |
+| `payload` | `string` | JSON-nyttolast ska inkluderas i meddelandet |
 
 ### <a name="value"></a>Värde
 

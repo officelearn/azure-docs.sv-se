@@ -2,18 +2,18 @@
 title: Använda signaturer för delad åtkomst (SAS) i Azure Storage | Microsoft Docs
 description: Lär dig att använda signaturer för delad åtkomst (SAS) för att delegera åtkomst till Azure Storage-resurser, inklusive blobbar, köer, tabeller och filer.
 services: storage
-author: craigshoemaker
+author: tamram
 ms.service: storage
 ms.topic: article
 ms.date: 04/18/2017
-ms.author: cshoe
+ms.author: tamram
 ms.component: common
-ms.openlocfilehash: 315c5a88d16206414b6b81a83963cbb1f8b4424a
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 94783e6c6ee662c77d6bf60e96bbe7d171cefeef
+ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39524762"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50140442"
 ---
 # <a name="using-shared-access-signatures-sas"></a>Använda signaturer för delad åtkomst (SAS)
 

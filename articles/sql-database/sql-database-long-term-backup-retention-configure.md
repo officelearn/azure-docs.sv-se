@@ -11,13 +11,13 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 10/04/2018
-ms.openlocfilehash: 1775e1810a164bfbdd1cddea9360674592cf446c
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.date: 10/24/2018
+ms.openlocfilehash: b4736f47d066d1e2b8e5c7115cb14abeb1cc566a
+ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48857541"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50137233"
 ---
 # <a name="manage-azure-sql-database-long-term-backup-retention"></a>Hantera Azure SQL Database långsiktig kvarhållning av säkerhetskopior
 
@@ -172,6 +172,9 @@ Det här exemplet visar hur du tar bort en LTR backup från listan över säkerh
 $ltrBackup = $ltrBackups[0]
 Remove-AzureRmSqlDatabaseLongTermRetentionBackup -ResourceId $ltrBackup.ResourceId
 ```
+> [!IMPORTANT]
+> Tar bort LTR är backup icke-reversibelt. Du kan ställa in meddelanden varje tas bort i Azure Monitor genom att filtrera för åtgärden 'Tar bort en långsiktig kvarhållning av säkerhetskopia'. Aktivitetsloggen innehåller information om vem och när gjorde begäran. Se [skapa aviseringar för aktivitetsloggen](../monitoring-and-diagnostics/monitoring-create-activity-log-alerts-with-resource-manager-template.md) detaljerade anvisningar.
+>
 
 ### <a name="restore-from-ltr-backups"></a>Återställa från säkerhetskopior för LTR
 Det här exemplet visar hur du återställer från en LTR-säkerhetskopia. Observera att det här gränssnittet inte har ändrats men resource ID-parametern kräver nu LTR backup-resurs-ID: t. 

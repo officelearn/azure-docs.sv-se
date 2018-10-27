@@ -3,7 +3,7 @@ title: 'Azure Active Directory Domain Services: Administrera en hanterad domän 
 description: Administrera Azure Active Directory Domain Services hanterade domäner
 services: active-directory-ds
 documentationcenter: ''
-author: mahesh-unnikrishnan
+author: eringreenlee
 manager: mtillman
 editor: curtand
 ms.assetid: d4fdbc75-3e6b-4e20-8494-5dcc3bf2220a
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/22/2018
-ms.author: maheshu
-ms.openlocfilehash: c2258b9d26a62fd7c8e50c1ed7b3583c06e1c353
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.author: ergreenl
+ms.openlocfilehash: 031c609ee5dcd04fc461af74b7f49973fbd290c3
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39503442"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50157627"
 ---
 # <a name="administer-an-azure-active-directory-domain-services-managed-domain"></a>Administrera en Azure Active Directory Domain Services-hanterad domän
 Den här artikeln visar hur du administrerar en Azure Active Directory (AD) Domain Services-hanterad domän.

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 07/05/2016
 ms.author: memccror
-ms.openlocfilehash: 6c461fe06e1a869d0495551ab014452c03dc60b2
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: 75a6466578808cb5c0dd8d2e32d9445a6e5a5bf8
+ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "42059536"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50140544"
 ---
 # <a name="how-to-tag-a-windows-virtual-machine-in-azure"></a>Tagga en virtuell Windows-dator i Azure
 Den här artikeln beskrivs olika sätt att tagga en virtuell Windows-dator i Azure via Resource Manager-distributionsmodellen. Taggar är en användardefinierad nyckel/värde-par som kan placeras direkt på en resurs eller resursgrupp. Azure stöder för närvarande upp till 15 taggar per resurs och resursgruppen. Taggar kan placeras på en resurs när den skapas eller lagts till i en befintlig resurs. Observera att taggar stöds för resurser som har skapats via Resource Manager-distributionsmodellen endast. Om du vill tagga en virtuell Linux-dator, se [tagga en virtuell Linux-dator i Azure](../linux/tag.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
@@ -51,22 +51,20 @@ Den här första cmdlet: en anger alla taggar som placeras på *MyTestVM* till d
 
 Det andra kommandot visar taggar för den angivna variabeln.
 
-        PS C:\> $tags
-
-        Name        Value
-        ----                           -----
-        Value        MyDepartment
-        Name        Department
-        Value        MyApp1
-        Name        Application
-        Value        MyName
-        Name        Created By
-        Value        Production
-        Name        Environment
+```
+    PS C:\> $tags
+    
+    Key           Value
+    ----          -----
+    Department    MyDepartment
+    Application   MyApp1
+    Created By    MyName
+    Environment   Production
+```
 
 Tredje kommandot lägger till en ytterligare tagg till den *$tags* variabeln. Observera användningen av den **+=** att lägga till nytt nyckel/värde-par till den *$tags* lista.
 
-        PS C:\> $tags += @{Name="Location";Value="MyLocation"}
+        PS C:\> $tags += @{Location="MyLocation"}
 
 Det fjärde kommandot anger alla taggar som definierats i den *$tags* variabeln till den angivna resursen. I det här fallet är det MyTestVM.
 
@@ -74,20 +72,17 @@ Det fjärde kommandot anger alla taggar som definierats i den *$tags* variabeln 
 
 Det femte kommandot visar alla taggar för resursen. Som du kan se *plats* nu har definierats som en tagg med *MyLocation* som värde.
 
-        PS C:\> (Get-AzureRmResource -ResourceGroupName MyResourceGroup -Name MyTestVM).Tags
+```
+    PS C:\> (Get-AzureRmResource -ResourceGroupName MyResourceGroup -Name MyTestVM).Tags
 
-        Name        Value
-        ----                           -----
-        Value        MyDepartment
-        Name        Department
-        Value        MyApp1
-        Name        Application
-        Value        MyName
-        Name        Created By
-        Value        Production
-        Name        Environment
-        Value        MyLocation
-        Name        Location
+    Key           Value
+    ----          -----
+    Department    MyDepartment
+    Application   MyApp1
+    Created By    MyName
+    Environment   Production
+    Location      MyLocation
+```
 
 Om du vill veta mer om taggning via PowerShell kan ta en titt på [Cmdlets för Azure Resource][Azure Resource Cmdlets].
 

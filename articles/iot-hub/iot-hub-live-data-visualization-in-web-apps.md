@@ -2,24 +2,22 @@
 title: Data i realtid visualisering av sensordata från Azure IoT hub – Web Apps | Microsoft Docs
 description: Använda funktionen Web Apps i Microsoft Azure App Service för att visualisera data för temperaturen och fuktigheten som samlats in från sensorn och skickas till din Iot hub.
 author: rangv
-manager: ''
-keywords: realtid datavisualisering, live datavisualisering sensor datavisualisering
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 04/11/2018
 ms.author: rangv
-ms.openlocfilehash: d40bcc8e6fd47a00618b98972f92c1e6fa019612
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: c43431cd6ddbbbf8f6cb709b8c1783179d6cf760
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49318528"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50158728"
 ---
 # <a name="visualize-real-time-sensor-data-from-your-azure-iot-hub-by-using-the-web-apps-feature-of-azure-app-service"></a>Visualisera sensordata i realtid från Azure IoT-hubben med hjälp av funktionen Web Apps i Azure App Service
 
-![Slutpunkt till slutpunkt-diagram](media/iot-hub-get-started-e2e-diagram/5.png)
+![Slutpunkt till slutpunkt-diagram](./media/iot-hub-live-data-visualization-in-web-apps/1_iot-hub-end-to-end-diagram.png)
 
 [!INCLUDE [iot-hub-get-started-note](../../includes/iot-hub-get-started-note.md)]
 
@@ -29,34 +27,38 @@ I den här självstudien får lära du att visualisera sensordata i realtid som 
 
 ## <a name="what-you-do"></a>Vad du gör
 
-- Skapa en webbapp i Azure-portalen.
-- Förbereda din IoT-hubb för åtkomst till data genom att lägga till en konsumentgrupp.
-- Konfigurera webbappen för att läsa sensordata från IoT hub.
-- Ladda upp ett webbprogram som ska köras av webbappen.
-- Öppna appen om du vill se temperatur och fuktighet realtidsdata från IoT hub.
+* Skapa en webbapp i Azure-portalen.
+* Förbereda din IoT-hubb för åtkomst till data genom att lägga till en konsumentgrupp.
+* Konfigurera webbappen för att läsa sensordata från IoT hub.
+* Ladda upp ett webbprogram som ska köras av webbappen.
+* Öppna appen om du vill se temperatur och fuktighet realtidsdata från IoT hub.
 
 ## <a name="what-you-need"></a>Vad du behöver
 
-- [Konfigurera din enhet](iot-hub-raspberry-pi-kit-node-get-started.md), som omfattar följande krav:
-  - En aktiv Azure-prenumeration
-  - En Iot-hubb i din prenumeration
-  - Ett klientprogram som skickar meddelanden till din Iot-hubb
-- [Hämta Git](https://www.git-scm.com/downloads)
+* [Konfigurera din enhet](iot-hub-raspberry-pi-kit-node-get-started.md), som omfattar följande krav:
+
+  * En aktiv Azure-prenumeration
+  * En Iot-hubb i din prenumeration
+  * Ett klientprogram som skickar meddelanden till din Iot-hubb
+
+* [Hämta Git](https://www.git-scm.com/downloads)
 
 ## <a name="create-a-web-app"></a>Skapa en webbapp
 
 1. I den [Azure-portalen](https://portal.azure.com/), klickar du på **skapa en resurs** > **webb + mobilt** > **Webbapp**.
+
 2. Ange ett unikt jobbnamn, kontrollera prenumerationen, ange en resursgrupp och en plats, väljer **fäst på instrumentpanelen**, och klicka sedan på **skapa**.
 
-   Vi rekommenderar att du väljer på samma plats som resursgruppen. Detta hjälper till med bearbetningshastigheten och minskar kostnaden för dataöverföring.
-
-   ![Skapa en webbapp](media/iot-hub-live-data-visualization-in-web-apps/2_create-web-app-azure.png)
+   Vi rekommenderar att du väljer på samma plats som resursgruppen. 
+   
+   ![Skapa en webbapp](./media/iot-hub-live-data-visualization-in-web-apps/2_create-web-app-azure.png)
 
 [!INCLUDE [iot-hub-get-started-create-consumer-group](../../includes/iot-hub-get-started-create-consumer-group.md)]
 
 ## <a name="configure-the-web-app-to-read-data-from-your-iot-hub"></a>Konfigurera webbappen för att läsa data från IoT hub
 
 1. Öppna webbappen du precis har etablerat.
+
 2. Klicka på **programinställningar**, och under **appinställningar**, Lägg till följande nyckel/värde-par:
 
    | Nyckel                                   | Värde                                                        |
@@ -65,11 +67,11 @@ I den här självstudien får lära du att visualisera sensordata i realtid som 
    | Azure.IoT.IoTHub.ConsumerGroup        | Namnet på konsumentgrupp som du lägger till din IoT-hubb  |
    | WEBSITE_NODE_DEFAULT_VERSION          | 8.9.4                                                        |
 
-   ![Lägga till inställningar till webbappen med nyckel/värde-par](media/iot-hub-live-data-visualization-in-web-apps/4_web-app-settings-key-value-azure.png)
+   ![Lägga till inställningar till webbappen med nyckel/värde-par](./media/iot-hub-live-data-visualization-in-web-apps/3_web-app-settings-key-value-azure.png)
 
 3. Klicka på **programinställningar**under **allmänna inställningar**, växla den **Web sockets** alternativ och klickar sedan på **spara**.
 
-   ![Ändra alternativet för Web sockets](media/iot-hub-live-data-visualization-in-web-apps/10_toggle_web_sockets.png)
+   ![Ändra alternativet för Web sockets](./media/iot-hub-live-data-visualization-in-web-apps/4_toggle_web_sockets.png)
 
 ## <a name="upload-a-web-application-to-be-hosted-by-the-web-app"></a>Ladda upp ett webbprogram kan vara värd för webbappen
 
@@ -77,13 +79,13 @@ På GitHub, har vi gjort tillgängliga ett webbprogram som visar sensordata i re
 
 1. I webbappen, klickar du på **distributionsalternativ** > **Välj källa** > **lokal Git-lagringsplats**, och klicka sedan på **OK**.
 
-   ![Konfigurera din distribution av webbappar om du vill använda den lokala Git-lagringsplatsen](media/iot-hub-live-data-visualization-in-web-apps/5_configure-web-app-deployment-local-git-repository-azure.png)
+   ![Konfigurera din distribution av webbappar om du vill använda den lokala Git-lagringsplatsen](./media/iot-hub-live-data-visualization-in-web-apps/5_configure-web-app-deployment-local-git-repository-azure.png)
 
 2. Klicka på **Distributionsbehörigheterna**, skapa ett användarnamn och lösenord för att ansluta till Git-lagringsplats i Azure och klicka sedan på **spara**.
 
 3. Klicka på **översikt**, och anteckna värdet för **url för Git-klon**.
 
-   ![Hämta URL: en för Git-klon på din webbapp](media/iot-hub-live-data-visualization-in-web-apps/7_web-app-git-clone-url-azure.png)
+   ![Hämta URL: en för Git-klon på din webbapp](./media/iot-hub-live-data-visualization-in-web-apps/6_web-app-git-clone-url-azure.png)
 
 4. Öppna ett kommando eller ett terminalfönster på din lokala dator.
 
@@ -103,16 +105,17 @@ På GitHub, har vi gjort tillgängliga ett webbprogram som visar sensordata i re
 
 På den **översikt** sidan i webbappen, klickar du på URL: en för att öppna webbappen.
 
-![Hämta URL för din webbapp](media/iot-hub-live-data-visualization-in-web-apps/8_web-app-url-azure.png)
+![Hämta URL för din webbapp](./media/iot-hub-live-data-visualization-in-web-apps/7_web-app-url-azure.png)
 
 Du bör se temperatur och fuktighet realtidsdata från IoT hub.
 
-![Web app-sidan som visar i realtid temperatur och fuktighet](media/iot-hub-live-data-visualization-in-web-apps/9_web-app-page-show-real-time-temperature-humidity-azure.png)
+![Web app-sidan som visar i realtid temperatur och fuktighet](./media/iot-hub-live-data-visualization-in-web-apps/8_web-app-page-show-real-time-temperature-humidity-azure.png)
 
 > [!NOTE]
 > Kontrollera exempelprogrammet som körs på din enhet. Om inte, du får ett tomt diagram, kan du referera till självstudier under [konfigurera enheten](iot-hub-raspberry-pi-kit-node-get-started.md).
 
 ## <a name="next-steps"></a>Nästa steg
+
 Du har använt din webbapp för att visualisera sensordata i realtid från IoT hub.
 
 Ett annat sätt att visualisera data från Azure IoT Hub, se [Använd Power BI för att visualisera sensordata i realtid från IoT hub](iot-hub-live-data-visualization-in-power-bi.md).

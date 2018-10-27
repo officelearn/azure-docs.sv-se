@@ -5,41 +5,41 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 09/18/2018
+ms.date: 10/26/2018
 ms.topic: troubleshooting
 ms.service: cost-management
 manager: dougeby
 ms.custom: ''
-ms.openlocfilehash: 4984332e1a149ae838bc76a24abec90364f5699e
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: ba6d8250d70320b33822d73c9213e9005128633f
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47221986"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50157215"
 ---
 # <a name="frequently-asked-questions-for-cloudyn"></a>Vanliga frågor om Cloudyn
 
-Den här artikeln tar upp några vanliga frågor om Cloudyn. Om du har frågor om Cloudyn kan du be dem på [vanliga frågor och svar för Cloudyn](https://social.msdn.microsoft.com/Forums/231bf072-2c71-4121-8339-ac9d868137b9/faqs-for-azure-cost-management-by-cloudyn?forum=Cloudyn).
+Den här artikeln tar upp några vanliga frågor om Cloudyn. Om du har frågor om Cloudyn kan du be dem på [vanliga frågor och svar för Cloudyn](https://social.msdn.microsoft.com/Forums/home?forum=faqs-for-azure-cost-management-by-cloudyn).
 
 ## <a name="how-can-i-resolve-common-indirect-enterprise-setup-problems"></a>Hur kan jag för att lösa vanliga problem med klientinstallationen indirekt enterprise?
 
-När du börjar använda Cloudyn-portalen kan du se följande meddelanden om du använder en Enterprise-avtal eller Cloud Solution Provider (CSP):
+När du använder Cloudyn-portalen första gången kan du se följande meddelanden, om du har ett Enterprise-avtal eller är en molnlösningsleverantör:
 
 - ”Den angivna API-nyckeln inte är en nyckel för övre nivå registrering” visas i den **upp Cloudyn** guiden.
 - ”Direktregistrering – inte” visas i portalen för Enterprise-avtal.
 - ”Inga användningsdata hittades för de senaste 30 dagarna. Kontakta din återförsäljare för att försäkra markup har aktiverats för ditt Azure-konto ”visas i Cloudyn-portalen.
 
-Föregående meddelanden indikerar att du har köpt ett Azure Enterprise-avtal genom en återförsäljare eller molntjänstleverantör. Återförsäljaren eller CSP måste aktivera _markup_ för din Azure-konto så att du kan visa dina data i Cloudyn.
+Föregående meddelanden indikerar att du har köpt ett Azure Enterprise-avtal genom en återförsäljare eller molntjänstleverantör. Återförsäljaren eller molntjänstleverantören måste aktivera _pålägg_ för ditt Azure-konto för att du ska kunna se dina data i Cloudyn.
 
 Så här löser du problemen:
 
 1. Återförsäljaren måste aktivera _pålägg_ för ditt konto. Mer information finns i [guiden för indirekt kundregistrering](https://ea.azure.com/api/v3Help/v2IndirectCustomerOnboardingGuide).
 
-2. Du skapar Azure Enterprise Agreement-nyckel för användning med Cloudyn. Anvisningar finns i [att lägga till din Azure EA](https://support.cloudyn.com/hc/articles/210429585-Adding-Your-AZURE-EA) eller [hitta Your EA Enrollment ID och API-nyckel](https://youtu.be/u_phLs_udig).
+2. Du genererar Azure-nyckeln för Enterprise-avtal för användning med Cloudyn. Anvisningar finns i [att lägga till din Azure EA](quick-register-ea.md#register-with-cloudyn) eller [hitta Your EA Enrollment ID och API-nyckel](https://youtu.be/u_phLs_udig).
 
-Endast en Azure service-administratör kan aktivera Cloudyn. Det räcker inte att vara medadministratör.
+Det är bara Azure-tjänstadministratörer som kan aktivera Cloudyn. Det räcker inte att vara medadministratör.
 
-Innan du kan generera Azure Enterprise-avtal API-nyckeln att ställa in Cloudyn, måste du aktivera Azure Billing-API genom att följa anvisningarna på:
+Innan du kan generera API-nyckeln för Azures Enterprise-avtal för att konfigurera Cloudyn, måste du aktivera fakturerings-API:n för Azure genom att följa anvisningarna i:
 
 - [Overview of Reporting APIs for Enterprise customers](../billing/billing-enterprise-api.md) (Översikt över rapporterings-API:er för Enterprise-kunder)
 - [Microsoft Azure enterprise portal Reporting API](https://ea.azure.com/helpdocs/reportingAPI) (Rapporterings-API för Microsoft Azure Enterprise Portal) under **Enabling data access to the API** (Aktivera dataåtkomst till API:et)
@@ -100,7 +100,7 @@ Undvik att använda Cloudyn direkt URL: en https://app.cloudyn.com.
 
 ## <a name="how-do-i-activate-unactivated-accounts-with-azure-credentials"></a>Hur aktiverar jag inaktiverade konton med autentiseringsuppgifter för Azure?
 
-När dina Azure-konton har identifierats av Cloudyn, tillhandahålla kostnadsdata direkt i rapporter baserade på kostnaden. Men för Cloudyn att tillhandahålla data för användning och prestanda behöver du registrera dina Azure-autentiseringsuppgifter för konton. Anvisningar finns i [lägga till Azure Resource Manager](https://support.cloudyn.com/hc/articles/212784085-Adding-Azure-Resource-Manager).
+När dina Azure-konton har identifierats av Cloudyn, tillhandahålla kostnadsdata direkt i rapporter baserade på kostnaden. Men för Cloudyn att tillhandahålla data för användning och prestanda behöver du registrera dina Azure-autentiseringsuppgifter för konton. Anvisningar finns i [Lägg till ett konto eller uppdatera en prenumeration](activate-subs-accounts.md#add-an-account-or-update-a-subscription).
 
 Välj Redigera symbolen till höger om namnet på kontot, inte prenumerationen för att lägga till Azure-autentiseringsuppgifter för ett konto i Cloudyn-portalen.
 
@@ -108,10 +108,7 @@ Tills du dina autentiseringsuppgifter för Azure har lagts till Cloudyn kan kont
 
 ## <a name="how-do-i-add-multiple-accounts-and-entities-to-an-existing-subscription"></a>Hur lägger jag till flera konton och entiteter i en befintlig prenumeration?
 
-Ytterligare enheter används för att lägga till ytterligare Enterprise-avtal i en Cloudyn-prenumeration. Följande länkar beskriver hur du lägger till ytterligare enheter:
-
-- [Lägga till en entitet](https://support.cloudyn.com/hc/articles/212016145-Adding-an-Entity) artikel
-- [Definiera din hierarki med kostnadsenheter](https://support.cloudyn.com/hc/articles/115005142529-Video-Defining-your-hierarchy-with-Cost-Entities) video
+Ytterligare enheter används för att lägga till ytterligare Enterprise-avtal i en Cloudyn-prenumeration. Mer information finns i [skapa och hantera entiteter](tutorial-user-access.md#create-and-manage-entities).
 
 För CSP: er:
 

@@ -1,6 +1,6 @@
 ---
-title: Flera inkommande filer och egenskaperna för komponenten med Premium-kodare - Azure | Microsoft Docs
-description: Det här avsnittet beskriver hur du använder setRuntimeProperties att använda flera inkommande filer och skickar egna data till medieprocessor Media Encoder Premium arbetsflöde.
+title: Flera indatafiler och egenskaperna för komponenten med Premium-kodare – Azure | Microsoft Docs
+description: Det här avsnittet beskriver hur du använder setRuntimeProperties att använda flera inmatningsfiler och skicka anpassade data till mediebearbetare Media Encoder Premium Workflow.
 services: media-services
 documentationcenter: ''
 author: xpouyat
@@ -14,25 +14,25 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/20/2017
 ms.author: xpouyat;anilmur;juliako
-ms.openlocfilehash: 66aec76e5af399e1909446b8ddf7a79aa1384d52
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 62892b8a82b05872edfb539092eebac5b4bcc05b
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33788902"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50157691"
 ---
-# <a name="using-multiple-input-files-and-component-properties-with-premium-encoder"></a>Använda flera indatafiler och egenskaperna för komponenten med Premium-kodare
+# <a name="using-multiple-input-files-and-component-properties-with-premium-encoder"></a>Med flera indatafiler och egenskaperna för komponenten med Premium-kodare
 ## <a name="overview"></a>Översikt
-Det finns scenarier där du kan behöva anpassa egenskaperna för komponenten anger Clip listan XML-innehåll eller skicka flera indatafiler när du skickar en uppgift med den **Media Encoder Premium arbetsflöde** medieprocessor. Några exempel är:
+Det finns scenarier där du kan behöva anpassa komponentegenskaperna för anger Clip lista XML-innehåll, eller skicka flera indatafiler när du skickar in en aktivitet med den **Media Encoder Premium Workflow** medieprocessor. Några exempel är:
 
-* Ovanpå text på video och ange textvärde (till exempel det aktuella datumet) vid körning för varje inkommande video.
-* Anpassa Clip listan XML-filen (om du vill ange en eller flera källfiler, med eller utan trimning osv.).
-* Ovanpå en logotyp på indata video medan kodas video.
-* Flera språk för ljud-kodning.
+* Överlägga text på video och ställer in textvärdet (till exempel det aktuella datumet) vid körning för varje indatavideon.
+* Anpassa Clip lista XML (om du vill ange en eller flera källfiler, med eller utan att ta bort osv.).
+* Överlägga en logotyp på indatavideo även om videon kodas.
+* Flera språk-kodning.
 
-Så att den **Media Encoder Premium arbetsflöde** vet att du ändrar vissa egenskaper i arbetsflödet när du skapar uppgiften eller skicka flera indatafiler måste du använda en configuration-sträng som innehåller **setRuntimeProperties** och/eller **transcodeSource**. Det här avsnittet beskriver hur de används.
+Så att den **Media Encoder Premium Workflow** vet att du ändrar vissa egenskaper i arbetsflödet när du skapar uppgiften eller skicka flera indatafiler, du måste använda en configuration-sträng som innehåller  **setRuntimeProperties** och/eller **transcodeSource**. Det här avsnittet förklarar hur de används.
 
-## <a name="configuration-string-syntax"></a>Strängsyntaxen konfiguration
+## <a name="configuration-string-syntax"></a>Strängsyntaxen för konfiguration
 Av konfigurationssträngen som ska anges i aktiviteten kodning använder ett XML-dokument som ser ut så här:
 
 ```xml
@@ -46,7 +46,7 @@ Av konfigurationssträngen som ska anges i aktiviteten kodning använder ett XML
 </transcodeRequest>
 ```
 
-Följande är C#-kod som läser XML-konfigurationen från en fil, uppdatera det med rätt video filnamnet och skickar den till aktivitet i ett jobb:
+Följande är de C# kod som läser XML-konfigurationen från en fil, uppdatera det med filnamnet direkt video och skickar det till aktivitet i ett jobb:
 
 ```csharp
 string premiumConfiguration = ReadAllText(@"D:\home\site\wwwroot\Presets\SetRuntime.xml").Replace("VideoFileName", myVideoFileName);
@@ -75,10 +75,10 @@ task.OutputAssets.AddNew("Output asset", AssetCreationOptions.None);
 ```
 
 ## <a name="customizing-component-properties"></a>Anpassa egenskaperna för komponenten
-### <a name="property-with-a-simple-value"></a>Egenskapen med ett enkelt värde
-I vissa fall är det bra att anpassa en komponent egenskap tillsammans med arbetsflödesfilen som ska utföras av Media Encoder Premium arbetsflöde.
+### <a name="property-with-a-simple-value"></a>Egenskap med ett enkelt värde
+I vissa fall är det användbart att anpassa en komponent egenskap tillsammans med arbetsflödesfilen som ska utföras av Media Encoder Premium Workflow.
 
-Anta att du skapat ett arbetsflöde överlägg texten på videor och text (till exempel det aktuella datumet) måste anges vid körning. Du kan göra detta genom att skicka texten som ska anges som det nya värdet för egenskapen text för komponenten överlägget från aktiviteten kodning. Du kan använda den här mekanismen för att ändra andra egenskaper för en komponent i arbetsflödet (till exempel positionen eller färgen på överlägget, bithastighet AVC-kodaren osv.).
+Anta att du skapat ett arbetsflöde överlägg texten på dina videor och texten (till exempel det aktuella datumet) ska anges vid körning. Du kan göra detta genom att skicka texten som ska ställas in som det nya värdet för egenskapen text för komponenten överlägget från aktiviteten kodning. Du kan använda den här mekanismen för att ändra andra egenskaper för en komponent i arbetsflödet (till exempel positionen eller färgen på överlägget, bithastigheten encoder AVC osv.).
 
 **setRuntimeProperties** används för att åsidosätta en egenskap i komponenter i arbetsflödet.
 
@@ -95,8 +95,8 @@ Exempel:
 </transcodeRequest>
 ```
 
-### <a name="property-with-an-xml-value"></a>Egenskapen med ett XML-värde
-Om du vill ange en egenskap som förväntar sig ett XML-värde som kapslar in med hjälp av `<![CDATA[ and ]]>`.
+### <a name="property-with-an-xml-value"></a>Egenskap med ett XML-värde
+Om du vill ange en egenskap som förväntar sig en XML-värdet som kapslar in med hjälp av `<![CDATA[ and ]]>`.
 
 Exempel:
 
@@ -130,47 +130,47 @@ Exempel:
 ```
 
 > [!NOTE]
-> Kontrollera att inte att placera en transport returnerade precis efter `<![CDATA[`.
+> Se till att du inte placera en vagnretur returnerade precis efter `<![CDATA[`.
 
 ### <a name="propertypath-value"></a>propertyPath-värde
-I föregående exempel kan propertyPath var ”/ mediafilen indata/filename” eller ”/ inactiveTimeout” eller ”clipListXml”.
-Detta är generellt sett är namnet på komponenten och sedan namnet på egenskapen. Sökvägen kan innehålla fler eller färre nivåer, som ”/ primarySourceFile” (eftersom egenskapen är roten i arbetsflödet) eller ”/ Video bearbetning/bild överlägget/opacitet” (eftersom överlägget är i en grupp).    
+I föregående exempel kan propertyPath var ”/ mediefil indata/filename” eller ”/ inactiveTimeout” eller ”clipListXml”.
+Det här är i allmänhet är namnet på komponenten och sedan egenskapens namn. Sökvägen kan ha fler eller färre nivåer, som ”/ primarySourceFile” (eftersom egenskapen är i roten för arbetsflödet) eller ”/ Video bearbetning/bild överlägget/opacitet” (eftersom överlägget är i en grupp).    
 
-Använd åtgärdsknappen som är direkt bredvid varje egenskap för att kontrollera sökvägen och egenskapen. Du kan klicka på åtgärdsknappen och välja **redigera**. Det här visas det faktiska namnet på egenskapen, och omedelbart ovanför det namnområdet.
+Använd knappen åtgärd som är direkt bredvid varje egenskap för att kontrollera sökvägen och egenskapen. Du kan klicka på den här åtgärden och välja **redigera**. Detta visar namnet på egenskapen och direkt ovanför det namnområdet.
 
-![Åtgärden och redigera](./media/media-services-media-encoder-premium-workflow-multiplefilesinput/capture6_actionedit.png)
+![Åtgärd/redigera](./media/media-services-media-encoder-premium-workflow-multiplefilesinput/capture6_actionedit.png)
 
-![Egenskap](./media/media-services-media-encoder-premium-workflow-multiplefilesinput/capture7_viewproperty.png)
+![Egenskap ](./media/media-services-media-encoder-premium-workflow-multiplefilesinput/capture7_viewproperty.png)
 
-## <a name="multiple-input-files"></a>Flera inkommande filer
-Varje aktivitet som du skickar till den **Media Encoder Premium arbetsflöde** kräver två tillgångar:
+## <a name="multiple-input-files"></a>Flera indatafiler
+Varje aktivitet som du skickar in till den **Media Encoder Premium Workflow** kräver två tillgångar:
 
-* Den första är en *arbetsflöde tillgången* som innehåller ett arbetsflödesfil. Du kan utforma Arbetsflödesfiler med hjälp av den [Arbetsflödesdesignern](media-services-workflow-designer.md).
-* Den andra är en *Media tillgången* som innehåller filen media som du vill koda.
+* Den första är en *arbetsflöde tillgången* som innehåller en arbetsflödesfil. Du kan utforma Arbetsflödesfiler med hjälp av den [Arbetsflödesdesigner](media-services-workflow-designer.md).
+* Den andra är en *Medietillgången* som innehåller filen media som du vill koda.
 
-När du skickar flera mediefiler till den **Media Encoder Premium arbetsflöde** kodare, följande villkor gäller:
+När du skickar flera mediefiler i den **Media Encoder Premium Workflow** encoder, följande begränsningar gäller:
 
-* Alla mediefiler måste vara i samma *Media tillgången*. Flera mediaresurser stöds inte.
-* Du måste ange den primära filen i tillgången Media (Vi rekommenderar detta är den huvudsakliga videofil som kodaren blir ombedd att bearbeta).
+* Alla mediefiler måste vara i samma *Medietillgången*. Användning av flera Medietillgångar stöds inte.
+* Du måste ange den primära filen i den här Medietillgången (Vi rekommenderar det här är huvudsakliga videofilen som kodaren uppmanas sedan att bearbeta).
 * Det är nödvändigt att skicka konfigurationsdata som innehåller den **setRuntimeProperties** och/eller **transcodeSource** element till processorn.
   * **setRuntimeProperties** används för att åsidosätta Filnamnsegenskapen eller en annan egenskap i komponenter i arbetsflödet.
-  * **transcodeSource** används för att ange Clip listan XML-innehåll.
+  * **transcodeSource** används för att ange Clip lista XML-innehåll.
 
 Anslutningar i arbetsflödet:
 
-* Om du använder en eller flera Media filen indata komponenter och planerar att använda **setRuntimeProperties** om du vill ange filnamnet sedan Anslut inte primärfilen komponenten PIN-koden till dem. Kontrollera att det finns ingen anslutning mellan primärfilen objektet och Media filen Input(s).
-* Om du föredrar att använda Clip listan XML och en mediekälla komponent kan sedan du ansluta båda tillsammans.
+* Om du använder en eller flera komponenter i Media-fil som indata och planerar att använda **setRuntimeProperties** för att ange namnet på filen, sedan Anslut inte primärfilen komponenten PIN-koden till dem. Se till att det finns ingen koppling mellan det primära filen-objektet och Media filen indata.
+* Om du föredrar att använda Clip lista XML och en mediekälla komponent, kan så du ansluta båda tillsammans.
 
-![Ingen anslutning från primära källfil till Media filen indata](./media/media-services-media-encoder-premium-workflow-multiplefilesinput/capture0_nopin.png)
+![Ingen anslutning från primära källfilen till Media-fil som indata](./media/media-services-media-encoder-premium-workflow-multiplefilesinput/capture0_nopin.png)
 
-*Det finns ingen anslutning från den primära filen till Media filen indata komponenterna om du använder setRuntimeProperties filename-egenskapen.*
+*Det finns ingen anslutning från den primära filen till Media-fil som indata komponenterna om du använder setRuntimeProperties för att ange Filnamnsegenskapen.*
 
-![Anslutningen från Clip listan XML för att klippa datakälla](./media/media-services-media-encoder-premium-workflow-multiplefilesinput/capture1_pincliplist.png)
+![Anslutningen från Clip lista XML till Clip Listkälla](./media/media-services-media-encoder-premium-workflow-multiplefilesinput/capture1_pincliplist.png)
 
-*Du kan ansluta Clip listan XML till mediekälla och använda transcodeSource.*
+*Du kan ansluta Clip lista XML till mediekälla och använder transcodeSource.*
 
-### <a name="clip-list-xml-customization"></a>Beskär listan XML-anpassning
-Du kan ange Clip listan XML i arbetsflödet vid körning med hjälp av **transcodeSource** string XML i konfigurationen. Detta kräver Clip listan XML PIN-koden måste vara ansluten till komponenten mediekälla i arbetsflödet.
+### <a name="clip-list-xml-customization"></a>Clip lista XML-anpassning
+Du kan ange Clip lista XML i arbetsflödet vid körning med hjälp av **transcodeSource** sträng XML i konfigurationen. Detta kräver att PIN-koden för Clip lista XML som ska anslutas till komponenten mediekälla i arbetsflödet.
 
 ```xml
 <?xml version="1.0" encoding="utf-16"?>
@@ -198,7 +198,7 @@ Du kan ange Clip listan XML i arbetsflödet vid körning med hjälp av **transco
   </transcodeRequest>
 ```
 
-Om du vill ange /primarySourceFile om du vill använda den här egenskapen för att namnge utdatafilerna med hjälp av 'Uttryck', så vi rekommenderar att du skickar Clip listan XML-filen som en egenskap *när* egenskapen /primarySourceFile för att undvika att listan Clip åsidosättas av inställningen /primarySourceFile.
+Om du vill ange /primarySourceFile om du vill använda den här egenskapen för att namnge utdatafilerna med hjälp av ”uttryck, så vi rekommenderar att skicka Clip lista XML-filen som en egenskap *när* egenskapen /primarySourceFile slipper klippet Lista åsidosättas av inställningen /primarySourceFile.
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -229,7 +229,7 @@ Om du vill ange /primarySourceFile om du vill använda den här egenskapen för 
   </transcodeRequest>
 ```
 
-Med ytterligare ram exakt hur:
+Med ytterligare RAM exakta optimering:
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -268,14 +268,14 @@ Med ytterligare ram exakt hur:
   </transcodeRequest>
 ```
 
-## <a name="example-1--overlay-an-image-on-top-of-the-video"></a>Exempel 1: Överlagra en bild på videon
+## <a name="example-1--overlay-an-image-on-top-of-the-video"></a>Exempel 1: Överlappar en bild på videon
 
 ### <a name="presentation"></a>Presentation
-Överväg ett exempel där du vill överlagra en logotyp på indata video medan kodas video. I det här exemplet inkommande videon heter ”Microsoft_HoloLens_Possibilities_816p24.mp4” och logotypen heter ”logo.png”. Du bör utföra följande steg:
+Tar ett exempel där du vill täcka över en logotyp på indatavideo även om videon kodas. I det här exemplet indatavideon har namnet ”Microsoft_HoloLens_Possibilities_816p24.mp4” och logotypen som heter ”logo.png”. Du bör utföra följande steg:
 
-* Skapa ett arbetsflöde tillgång med arbetsflödesfilen (se följande exempel).
-* Skapa en tillgång med Media, som innehåller två filer: MyInputVideo.mp4 som den primära filen och MyLogo.png.
-* Skicka en aktivitet till Media Encoder Premium arbetsflödet media-processor med ovan inkommande tillgångar och ange följande konfigurationssträng.
+* Skapa en tillgång i arbetsflödet med arbetsflödesfilen (se exemplet nedan).
+* Skapa en tillgång för Media som innehåller två filer: MyInputVideo.mp4 som den primära filen och MyLogo.png.
+* Skicka en uppgift till mediebearbetare Media Encoder Premium Workflow med ovanstående inkommande tillgångar och ange följande konfigurationssträngen.
 
 Konfiguration:
 
@@ -290,114 +290,114 @@ Konfiguration:
   </transcodeRequest>
 ```
 
-I exemplet ovan skickas namnet på filen video till komponenten Media filen indata och egenskapen primarySourceFile. Namnet på logotypfilen skickas till en annan filindata för Media som är ansluten till komponenten grafiska överlägget.
+I exemplet ovan är skickas namnet på videofilen till komponenten Media-fil som indata och egenskapen primarySourceFile. Namnet på logotypfilen skickas till en annan Media-fil som indata som är ansluten till komponenten grafisk överlägg.
 
 > [!NOTE]
-> Video filnamnet skickas till egenskapen primarySourceFile. Anledningen är att använda den här egenskapen i arbetsflödet för att skapa rätt utdata filnamnet med uttryck, till exempel.
+> Namnet på video skickas till egenskapen primarySourceFile. Anledningen är att använda den här egenskapen i arbetsflödet för att skapa rätt utdatafilnamnet med uttryck, till exempel.
 
-### <a name="step-by-step-workflow-creation"></a>Steg för steg-arbetsflödet skapats
-Här följer stegen för att skapa ett arbetsflöde som använder två filer som indata: en video och en bild. Det kommer täcker bilden ovanpå videon.
+### <a name="step-by-step-workflow-creation"></a>Stegvisa arbetsflödet skapats
+Här följer stegen för att skapa ett arbetsflöde som använder två filer som indata: en video och en bild. Det kommer överlappar bilden på videon.
 
-Öppna **Arbetsflödesdesignern** och välj **filen** > **ny arbetsyta** > **Omkoda modell**.
+Öppna **Arbetsflödesdesigner** och välj **filen** > **ny arbetsyta** > **Omkoda skissen**.
 
 Det nya arbetsflödet visar tre element:
 
 * Primär källfilen
-* Beskär List-XML
+* Clip List-XML
 * Filen/Utdatatillgången  
 
-![Arbetsflöde för ny kodning](./media/media-services-media-encoder-premium-workflow-multiplefilesinput/capture9_empty.png)
+![Ny Kodningsarbetsflöden](./media/media-services-media-encoder-premium-workflow-multiplefilesinput/capture9_empty.png)
 
-*Arbetsflöde för ny kodning*
+*Ny Kodningsarbetsflöden*
 
-Börja med att lägga till en Media filen inkommande komponent för att acceptera inkommande mediefilen. Om du vill lägga till en komponent i arbetsflödet, leta efter den i sökrutan databasen och dra den aktuella posten till fönstret designer.
+Börja med att lägga till en Media filen inkommande komponent för att kunna acceptera inkommande mediefilen. Om du vill lägga till en komponent i arbetsflödet, söker efter den i sökrutan lagringsplats och dra den önskade posten till fönstret designer.
 
-Lägg sedan till videofil som ska användas för att utforma ditt arbetsflöde. Klicka på fönstret bakgrunden i Arbetsflödesdesignern och leta efter egenskapen primära källfilen i rutan högra egenskapen gör du genom. Klicka på mappikonen och välj lämplig videofil.
+Lägg sedan till videofilen som ska användas för att utforma ditt arbetsflöde. Om du vill göra det klickar du på fönstret bakgrund i Arbetsflödesdesignern och leta efter egenskapen primära källfilen i fönstret till höger egenskapen. Klicka på mappikonen och välj lämplig videofilen.
 
-![Primär källa](./media/media-services-media-encoder-premium-workflow-multiplefilesinput/capture10_primaryfile.png)
+![Primär filkälla](./media/media-services-media-encoder-premium-workflow-multiplefilesinput/capture10_primaryfile.png)
 
-*Primär källa*
+*Primär filkälla*
 
-Ange därefter video-filen i komponenten Media filen indata.   
+Ange därefter videofilen i komponenten Media-fil som indata.   
 
-![Indatakällan för mediefiler](./media/media-services-media-encoder-premium-workflow-multiplefilesinput/capture11_mediafileinput.png)
+![Mediefil indatakälla](./media/media-services-media-encoder-premium-workflow-multiplefilesinput/capture11_mediafileinput.png)
 
-*Indatakällan för mediefiler*
+*Mediefil indatakälla*
 
-När det är klart komponenten Media filen indata granska filen och fylla i dess utdata PIN-koder för att återspegla den fil som den kontrolleras.
+När det är klart, granska filen komponenten Media-fil som indata och fylla i dess utdata PIN-koder för att återspegla den fil som det kontrolleras.
 
-Nästa steg är att lägga till en ”Video Data typen Updater” om du vill ange färg utrymmet ska Rec.709. Lägg till en ”Video konverteraren” som har angetts för Layout/layouten typ = konfigurerbara Planar. Video-ström konverteras till ett format som kan räknas som en källa för komponenten överlägget.
+Nästa steg är att lägga till en ”Video Data typ Updater” om du vill ange färg utrymme till Rec.709. Lägg till en ”Video Format konverterare” som har angetts till Layout/datalayouten typ = konfigurerbara plan. Videoströmmen konverteras till ett format som kan vidtas som en källa för komponenten överlägg.
 
-![video Data typen Updater och konverteraren](./media/media-services-media-encoder-premium-workflow-multiplefilesinput/capture12_formatconverter.png)
+![video Data typ Updater- och Format konverterare](./media/media-services-media-encoder-premium-workflow-multiplefilesinput/capture12_formatconverter.png)
 
-*video Data typen Updater och konverteraren*
+*Videodata typ Updater och Format konverterare*
 
-![Typ av layout = konfigurerbara Planar](./media/media-services-media-encoder-premium-workflow-multiplefilesinput/capture12_formatconverter2.png)
+![Layouttyp = konfigurerbara plan](./media/media-services-media-encoder-premium-workflow-multiplefilesinput/capture12_formatconverter2.png)
 
-*Typ av layout är konfigurerbar Planar*
+*Layouten är konfigurerbara plan*
 
-Sedan lägger till en Video överlägg komponent och ansluta (okomprimerad) video PIN-koden till (okomprimerad) video PIN-kod media filen indata.
+Sedan lägger till en Video Företagsdataskydd komponent och ansluta (okomprimerad) video PIN-koden till (okomprimerad) video PIN-koden för den media-fil som indata.
 
-Lägga till en annan indata på grund av Media-fil (för att läsa in logotypfilen), klicka på den här komponenten och byta namn på den till ”Media filen indata logotypen” och markera en bild (en PNG-fil till exempel) i egenskapen. Ansluta okomprimerade bilden PIN-koden till överlägget okomprimerade image-PIN-kod.
+Lägg till en annan Media-fil som indata (för att läsa in logotypfilen), klickar du på den här komponenten och Byt namn på den till ”Media filen indata logotyp” och välj en avbildning (en .png-fil till exempel) i filegenskapen. Anslut okomprimerade bild PIN-koden till överlägget okomprimerade bild-PIN-kod.
 
-![Källa för överlägget komponenten och avbildning](./media/media-services-media-encoder-premium-workflow-multiplefilesinput/capture13_overlay.png)
+![Överlägget komponent- och bildfiler filkälla](./media/media-services-media-encoder-premium-workflow-multiplefilesinput/capture13_overlay.png)
 
-*Källa för överlägget komponenten och avbildning*
+*Överlägget komponent- och bildfiler filkälla*
 
-Om du vill ändra logotypen på videon position (till exempel du kanske vill placera 10 procent från det övre vänstra hörnet i videon), avmarkera kryssrutan ”manuell inmatning”. Du kan göra detta eftersom du använder en inmatning för Media-filen för att tillhandahålla logotypfilen till överlägget komponenten.
+Om du vill ändra positionen för logotyp på videon (till exempel du kanske vill placera den på 10 procent rabatt på det övre vänstra hörnet av videon), avmarkera kryssrutan ”manuell indata”. Du kan göra detta eftersom du använder en Media fil som indata för att tillhandahålla Logotypfil till överlägget komponenten.
 
 ![Överlägget position](./media/media-services-media-encoder-premium-workflow-multiplefilesinput/capture14_overlay_position.png)
 
 *Överlägget position*
 
-Om du vill koda video-ström till H.264 att lägga till komponenter för AVC-videokodare och AAC kodare till designytan. Ansluta de PIN-koderna.
-Ställ in AAC kodaren och välj ljud Format konvertering/förinställda: 2.0 (L, R).
+Om du vill koda videoströmmen till H.264, lägger du till AVC videokodare och AAC-kodare komponenterna till designytan. Anslut de PIN-koderna.
+Konfigurera AAC-kodare och välja ljud Format konvertering/förinställning: 2.0 (L, R).
 
-![Ljud och Video kodare](./media/media-services-media-encoder-premium-workflow-multiplefilesinput/capture15_encoders.png)
+![Ljud- och kodare](./media/media-services-media-encoder-premium-workflow-multiplefilesinput/capture15_encoders.png)
 
-*Ljud och Video kodare*
+*Ljud- och kodare*
 
-Lägg nu till den **ISO Mpeg-4 multiplexor** och **utdata** komponenter och ansluta de PIN-koderna som visas.
+Lägg nu till den **ISO Mpeg-4 multiplexor** och **filen utdata** komponenter och ansluta de PIN-koderna som visas.
 
-![MP4 multiplexor och utdata](./media/media-services-media-encoder-premium-workflow-multiplefilesinput/capture16_mp4output.png)
+![MP4 multiplexor och filen utdata](./media/media-services-media-encoder-premium-workflow-multiplefilesinput/capture16_mp4output.png)
 
-*MP4 multiplexor och utdata*
+*MP4 multiplexor och filen utdata*
 
-Du måste ange namnet på utdatafilen. Klicka på den **utdata** komponent och redigera uttrycket för filen:
+Du måste ange namnet på utdatafilen. Klicka på den **filen utdata** komponent och redigera uttryck för filen:
 
     ${ROOT_outputWriteDirectory}\${ROOT_sourceFileBaseName}_withoverlay.mp4
 
-![Filnamnet för utdata](./media/media-services-media-encoder-premium-workflow-multiplefilesinput/capture17_filenameoutput.png)
+![Filnamn för utdata](./media/media-services-media-encoder-premium-workflow-multiplefilesinput/capture17_filenameoutput.png)
 
-*Filnamnet för utdata*
+*Filnamn för utdata*
 
 Du kan köra arbetsflödet lokalt för att kontrollera att den fungerar korrekt.
 
-När den är klar kan du köra det i Azure Media Services.
+När den är klar kan du köra den i Azure Media Services.
 
-Förbereda en tillgång i Azure Media Services med två filer: filen video och logotypen. Du kan göra detta med hjälp av .NET eller REST API. Du kan också göra detta med hjälp av Azure portal eller [Azure Media Services Explorer](https://github.com/Azure/Azure-Media-Services-Explorer) (AMSE).
+Börja med att förbereda en tillgång i Azure Media Services med två filer i den: videofilen och -logotypen. Du kan göra detta med hjälp av .NET eller REST API. Du kan också göra detta med hjälp av Azure portal eller [Azure Media Services Explorer](https://github.com/Azure/Azure-Media-Services-Explorer) (AMSE).
 
-Den här kursen visar hur du hanterar tillgångar med AMSE. Det finns två sätt att lägga till filer till en tillgång:
+Den här självstudien visar hur du hanterar tillgångar med AMSE. Det finns två sätt att lägga till filer till en tillgång:
 
 * Skapa en lokal mapp, kopiera två filer, och dra och släppa mappen till den **tillgången** fliken.
-* Överför en videofil som en tillgång, visa tillgångsinformationen, gå till fliken filer och ladda upp en fil (logotypen).
+* Ladda upp videofilen som en tillgång, visa tillgångsinformationen, gå till fliken filer och ladda upp en fil (logotypen).
 
 > [!NOTE]
-> Se till att ange en primär fil i tillgången (video huvudfil).
+> Se till att ange en primär fil i tillgången (video huvudfilen).
 
 ![Tillgångsfiler i AMSE](./media/media-services-media-encoder-premium-workflow-multiplefilesinput/capture18_assetinamse.png)
 
 *Tillgångsfiler i AMSE*
 
-Välj tillgången och välj att koda med Premium-kodare. Överför arbetsflödet och markera den.
+Välj tillgången och välja att koda med Premium-kodare. Ladda upp arbetsflödet och markera den.
 
-Klicka på knappen för att skicka data till processorn och Lägg till följande XML-filen för att ange egenskaper för körning:
+Klicka på knappen för att överföra data till processorn och Lägg till följande XML-filen för att ställa in egenskaperna runtime:
 
 ![Premium-kodare i AMSE](./media/media-services-media-encoder-premium-workflow-multiplefilesinput/capture19_amsepremium.png)
 
 *Premium-kodare i AMSE*
 
-Klistra sedan in följande XML-data. Du måste ange namnet på filen video för både Media filen indata och primarySourceFile. Ange namnet på filnamnet för logotypen för.
+Klistra sedan in följande XML-data. Du måste ange namnet på videofilen för både Media-fil som indata och primarySourceFile. Ange namnet på filnamnet för logotypen för.
 
 ```xml
 <?xml version="1.0" encoding="utf-16"?>
@@ -414,37 +414,37 @@ Klistra sedan in följande XML-data. Du måste ange namnet på filen video för 
 
 *setRuntimeProperties*
 
-Om du använder .NET SDK för att skapa och köra uppgiften, måste den här XML-data skickas som konfigurationssträngen.
+Om du använder .NET SDK för att skapa och köra aktiviteten, har den här XML-data som ska skickas som konfigurationssträngen.
 
 ```csharp
 public ITask AddNew(string taskName, IMediaProcessor mediaProcessor, string configuration, TaskOptions options);
 ```
 
-När jobbet har slutförts visas MP4-fil i utdatatillgången överlägget!
+När jobbet har slutförts, visar MP4-fil i utdatatillgången överlägget!
 
-![Överlägg på videon](./media/media-services-media-encoder-premium-workflow-multiplefilesinput/capture21_resultoverlay.png)
+![Företagsdataskydd för videon](./media/media-services-media-encoder-premium-workflow-multiplefilesinput/capture21_resultoverlay.png)
 
-*Överlägg på videon*
+*Företagsdataskydd för videon*
 
 Du kan hämta Exempelarbetsflöde från [GitHub](https://github.com/Azure/azure-media-services-samples/tree/master/Encoding%20Presets/VoD/MediaEncoderPremiumWorkfows/).
 
-## <a name="example-2--multiple-audio-language-encoding"></a>Exempel 2: Flera ljud språkkod
+## <a name="example-2--multiple-audio-language-encoding"></a>Exempel 2: Flera språk-kodning
 
-Ett exempel på flera språk för ljud kodning workfkow finns i [GitHub](https://github.com/Azure/azure-media-services-samples/tree/master/Encoding%20Presets/VoD/MediaEncoderPremiumWorkfows/MultilanguageAudioEncoding).
+Ett exempel på flera språk kodning workfkow är tillgänglig i [GitHub](https://github.com/Azure/azure-media-services-samples/tree/master/Encoding%20Presets/VoD/MediaEncoderPremiumWorkfows/MultilanguageAudioEncoding).
 
-Den här mappen innehåller ett Exempelarbetsflöde som kan användas för att koda en MXF-fil till en tillgång multi MP4-filer med flera ljud spår.
+Den här mappen innehåller ett Exempelarbetsflöde som kan användas för att koda en MXF-fil till en tillgång med flera MP4-filer med flera ljudspår.
 
-Det här arbetsflödet förutsätter att MXF-filen innehåller ett ljud spår; ytterligare ljud spårar ska skickas som separata ljudfiler (WAV eller MP4...).
+Det här arbetsflödet förutsätter att MXF-filen innehåller ett ljudspår; ytterligare ljudspår ska skickas som separata ljudfiler (WAV eller MP4...).
 
 Om du vill koda, följer du dessa steg:
 
-* Skapa en tillgång med Media Services med filen MXF och ljudfiler (0-18 ljudfiler).
+* Skapa en tillgång med Media Services med MXF-fil- och ljudfiler (0-18 ljudfiler).
 * Kontrollera att filen MXF har angetts som en primär fil.
-* Skapa ett jobb och en aktivitet med Premium-kodare arbetsflödet processor. Använda arbetsflödet som anges (MultiMP4-1080p-19audio-v1.workflow).
-* Skickar setruntime.xml data till aktiviteten (om du använder Azure Media Services Explorer använda knappen ”Skicka XML-data i arbetsflödet”).
-  * Uppdatera XML-data för att specificera taggar för rätt fil namn och språk.
-  * Arbetsflödet har ljud komponenter med namnet ljud 1-18 ljud.
-  * RFC5646 stöds för taggen språk.
+* Skapa ett jobb och en uppgift med processorer i Premium-kodare för arbetsflödet. Använda arbetsflödet för tillhandahålls (MultiMP4-1080p-19audio-v1.workflow).
+* Skickar data setruntime.xml till aktiviteten (om du använder Azure Media Services Explorer kan använda knappen ”Skicka xml-data i arbetsflödet”).
+  * Uppdatera XML-data för att specificera taggar för rätt fil namnen och språk.
+  * Arbetsflödet har ljud komponenter med namnet ljud 1 till ljud 18.
+  * RFC5646 stöds för språktaggen.
 
 ```xml
 <?xml version="1.0" encoding="utf-16"?>
@@ -463,14 +463,14 @@ Om du vill koda, följer du dessa steg:
 </transcodeRequest>
 ```
 
-* Den kodade tillgången innehåller flera språk ljud spårar och spåren ska väljas i Azure Media Player.
+* Den kodade tillgången innehåller ljudspår för flera språk och dessa spårar bör väljas i Azure Media Player.
 
 ## <a name="see-also"></a>Se också
-* [Introduktion till Premium-kodning i Azure Media Services](http://azure.microsoft.com/blog/2015/03/05/introducing-premium-encoding-in-azure-media-services)
-* [Hur du använder Premium kodning i Azure Media Services](http://azure.microsoft.com/blog/2015/03/06/how-to-use-premium-encoding-in-azure-media-services)
+* [Vi presenterar Premium Encoding i Azure Media Services](http://azure.microsoft.com/blog/2015/03/05/introducing-premium-encoding-in-azure-media-services)
+* [Hur du använder Premium Encoding i Azure Media Services](http://azure.microsoft.com/blog/2015/03/06/how-to-use-premium-encoding-in-azure-media-services)
 * [Koda innehåll på begäran med Azure Media Services](media-services-encode-asset.md#media-encoder-premium-workflow)
-* [Arbetsflöde för Media Encoder Premium format och codec](media-services-premium-workflow-encoder-formats.md)
-* [Exempelfiler för arbetsflöde](https://github.com/Azure/azure-media-services-samples)
+* [Media Encoder Premium Workflow format och -codec](media-services-premium-workflow-encoder-formats.md)
+* [Exempelfilerna för arbetsflöde](https://github.com/Azure/azure-media-services-samples)
 * [Azure Media Services Explorer-verktyget](http://aka.ms/amse)
 
 ## <a name="media-services-learning-paths"></a>Sökvägar för Media Services-utbildning

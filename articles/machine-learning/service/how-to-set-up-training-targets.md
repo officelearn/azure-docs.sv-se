@@ -10,12 +10,12 @@ ms.service: machine-learning
 ms.component: core
 ms.topic: article
 ms.date: 09/24/2018
-ms.openlocfilehash: 30a1f2be1917ba6ea404a2862daaf5f51f35ac3f
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
+ms.openlocfilehash: 7754e93035a5f76d31f6a4202c757c909706a52a
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49394892"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50156943"
 ---
 # <a name="select-and-use-a-compute-target-to-train-your-model"></a>Använd ett beräkningsmål träna din modell
 
@@ -178,6 +178,7 @@ Följande steg använder SDK för att konfigurera en virtuell dator på datavete
     run_config.environment.docker.enabled = True
 
     # Use CPU base image
+    # If you want to use GPU in DSVM, you must also use GPU base Docker image azureml.core.runconfig.DEFAULT_GPU_IMAGE
     run_config.environment.docker.base_image = azureml.core.runconfig.DEFAULT_CPU_IMAGE
     print('Base Docker image is:', run_config.environment.docker.base_image)
 
@@ -295,7 +296,6 @@ run_config.environment.docker.enabled = True
 
 # set Docker base image to the default CPU-based image
 run_config.environment.docker.base_image = azureml.core.runconfig.DEFAULT_CPU_IMAGE
-#run_config.environment.docker.base_image = 'microsoft/mmlspark:plus-0.9.9'
 
 # use conda_dependencies.yml to create a conda environment in the Docker image
 run_config.environment.python.user_managed_dependencies = False
@@ -383,7 +383,7 @@ Följ stegen för att visa en lista över beräkningsmål och Använd sedan föl
 
 1. Klicka på den __+__ logga att lägga till ett beräkningsmål.
 
-    ![Lägg till compute ](./media/how-to-set-up-training-targets/add-compute-target.png)
+    ![Lägg till beräkning ](./media/how-to-set-up-training-targets/add-compute-target.png)
 
 1. Ange ett namn för beräkningsmål.
 1. Välj den typ av beräkningsresurser kan bifoga för __utbildning__. 

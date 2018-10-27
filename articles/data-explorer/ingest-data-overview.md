@@ -8,12 +8,12 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 94f96d949f2a05f71e9565fdcbc7b48ed2c2a5c5
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: f1df22c505bffdfaf60bf9c6eec3ad4e698fff02
+ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46972668"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50139534"
 ---
 # <a name="azure-data-explorer-data-ingestion"></a>Azure Data Explorer-datainmatning
 
@@ -60,9 +60,15 @@ Kusto erbjuder klient-SDK som kan användas för att mata in och fråga efter da
 
 * [Java SDK](https://docs.microsoft.com/azure/kusto/api/java/kusto-java-client-library)
 
-* [REST API](https://docs.microsoft.com/azure/kusto/api/netfx/kusto-ingest-client-rest)
+* [Node SDK]
+
+* [REST-API](https://docs.microsoft.com/azure/kusto/api/netfx/kusto-ingest-client-rest)
 
 **Programmässig inmatning tekniker**:
+
+* Mata in data med hjälp av Azure Data Explorer data management-tjänsten (snabb och tillförlitlig inhämtning)
+
+  * [**Batch-inmatning** ](https://docs.microsoft.com/azure/kusto/api/netfx/kusto-ingest-queued-ingest-sample) (som tillhandahålls av SDK): klienten överför data till Azure Blob storage (bestäms av tjänsten Azure Data Explorer data management) och publicerar ett meddelande till en Azure-kö. Det här är den rekommenderade tekniken för stora volymer, tillförlitliga och billiga datainmatning.
 
 * Mata in data direkt i Azure Data Explorer-motor (passar bäst för utforskning och prototyper):
 
@@ -71,10 +77,6 @@ Kusto erbjuder klient-SDK som kan användas för att mata in och fråga efter da
   * **Mata in från fråga**: Trafikstyrning (.set .set-eller-tillägg kan .set eller ersätta) som pekar på frågeresultaten används för att skapa rapporter eller små temporära tabeller.
 
   * **Mata in från storage**: kontroll kommandot (.ingest till) med data som lagras externt (t.ex. Azure Blob Storage) kan effektivt bulk inmatning av data.
-
-* Mata in data med hjälp av Azure Data Explorer data management-tjänsten (snabb och tillförlitlig inhämtning)
-
-  * [**Batch-inmatning** ](https://docs.microsoft.com/azure/kusto/api/netfx/kusto-ingest-queued-ingest-sample) (som tillhandahålls av SDK): klienten överför data till Azure Blob storage (bestäms av tjänsten Azure Data Explorer data management) och publicerar ett meddelande till en Azure-kö. Det här är den rekommenderade metod för stora volymer, pålitlig och billiga datainmatning.
 
 **Svarstiden för olika metoder**:
 
@@ -127,5 +129,5 @@ Schemamappning hjälper deterministiskt binda datafält som källa till mål tab
 
 [Snabbstart: Mata in data från Event Hub i Azure Data Explorer](ingest-data-event-hub.md)
 
-[Snabbstart: Mata in data med hjälp av Azure Data Explorer Python-bibliotek](python-ingest-data.md)
+[Snabbstart: Mata in data med hjälp av Python-biblioteket i Azure Data Explorer](python-ingest-data.md)
 

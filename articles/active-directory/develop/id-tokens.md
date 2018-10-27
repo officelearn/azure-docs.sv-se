@@ -16,12 +16,12 @@ ms.date: 10/05/2018
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: e74d2cbada1d433bdaf4ebc905e88d66444b2e2f
-ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
+ms.openlocfilehash: 35e6cd988a0532221d88b22cdd51fc29d7f17ba9
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49078213"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50158762"
 ---
 # <a name="id-tokens"></a>ID-tokens
 
@@ -74,6 +74,7 @@ Visa den här v2.0 exempel token i [jwt.ms](https://jwt.ms/#id_token=eyJ0eXAiOiJ
 |`at_hash`| Sträng |Åtkomst-token-hash som ingår i ID token endast när den ID-token som utfärdas med en OAuth 2.0-åtkomsttoken. Det kan användas för att bekräfta en åtkomst-token är äkta. Mer information om hur du utför den här verifieringen, finns i den [OpenID Connect-specifikationen](http://openid.net/specs/openid-connect-core-1_0.html). |
 |`aio` | Täckande sträng | Ett internt anspråk som används av Azure AD för att registrera data för token återanvändning. Ska ignoreras.|
 |`preferred_username` | Sträng | Primära användarnamnet som representerar användaren. Det kan vara en e-postadress, telefonnummer eller ett allmänt användarnamn utan angivet format. Värdet är föränderliga och kan ändras över tid. Eftersom det är föränderliga, måste det här värdet inte användas vid auktoriseringsbeslut. Den `profile` omfattning krävs för att ta emot det här anspråket.|
+|`email` | Sträng | Den `email` finns finns som standard gästkonton som har en e-postadress.  Din app kan begära e-anspråk för hanterade användare (de från samma klient som resursen) med hjälp av den `email` [valfria anspråk](active-directory-optional-claims.md).  På v2.0-slutpunkten din app kan också begära den `email` OpenID Connect scope - du behöver inte begära både valfria anspråk och omfånget för att få anspråket.  E-anspråket har endast stöd för adresserbara e-post från användarens profilinformation. |
 |`name` | Sträng | Den `name` anspråk innehåller ett läsbart värde som identifierar föremål för token. Värdet är inte säkert att vara unikt, det är föränderliga och den har utformats för att användas endast för visning. Den `profile` omfattning krävs för att ta emot det här anspråket. |
 |`nonce`| Sträng | Temporärt ID matchar den parameter som ingår i ursprungligt / godkänna begäran om att IDP: N. Om det inte matchar bör ditt program avvisa token. |
 |`oid` | Sträng, ett GUID | Oföränderligt ID för ett objekt i Microsoft identitetssystem, i det här fallet ett användarkonto. Detta ID identifierar användaren för program – två olika program som loggar in samma användare får samma värde i den `oid` anspråk. Microsoft Graph returnerar detta ID som den `id` -egenskapen för ett givet användarkonto. Eftersom den `oid` tillåter flera appar att korrelera användare, den `profile` omfattning krävs för att ta emot det här anspråket. Observera att om en enskild användare finns i flera klienter, användaren innehåller ett annat objekt-ID i varje klient – de anses vara olika konton, även om användaren loggar in på varje konto med samma autentiseringsuppgifter. |

@@ -13,12 +13,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 04/27/2018
 ms.author: glenga
-ms.openlocfilehash: e2f9bee2adcebfd47ca088a1bbe76b870e285044
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: b0f4ef5079ac689827cb49884fa1c6a51529ea83
+ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45580451"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50140357"
 ---
 # <a name="get-started-with-the-azure-webjobs-sdk-for-event-driven-background-processing"></a>Kom igång med Azure WebJobs-SDK för händelsedrivna Bakgrundsbearbetning
 
@@ -182,7 +182,7 @@ I det här avsnittet ska ställa du in loggning i konsolen som använder det nya
 
 Azure Storage-emulatorn som körs lokalt har inte alla funktioner som krävs för WebJobs SDK. Så i det här avsnittet du skapar ett lagringskonto i Azure och konfigurera projektet för att använda den.
 
-1. Öppna **Server Explorer** och logga in på Azure. Högerklicka på den **Azure** noden och välj sedan **Anslut till Microsoft Azure-prenumeration**.
+1. Öppna **Server Explorer** i Visual studio och logga in på Azure. Högerklicka på den **Azure** noden och välj sedan **Anslut till Microsoft Azure-prenumeration**.
 
    ![Logga in på Azure](./media/webjobs-sdk-get-started/sign-in.png)
 
@@ -245,7 +245,7 @@ I det här avsnittet skapar du och köra projektet lokalt och Utlös funktionen 
 
 1. Stäng konsolfönstret.
 
-1. I **Server Explorer**, expanderar du noden för det nya kontot och högerklicka på **köer**. 
+1. I **Server Explorer** expanderar du noden för det nya kontot i Visual Studio och högerklicka på **köer**. 
 
 1. Välj **Skapa kö**. 
 
@@ -310,7 +310,7 @@ I det här avsnittet ska göra du följande uppgifter för att konfigurera Appli
 
 ### <a name="configure-app-settings"></a>Konfigurera appinställningar 
 
-1. I **Server Explorer**, expandera den **Apptjänst** nod under **Azure**.
+1. I **Server Explorer** i Visual Studio, expanderar den **Apptjänst** nod under **Azure**.
 
 1. Expandera resursgruppen som din App Service-app och högerklicka på App Service-appen.
 
@@ -396,7 +396,7 @@ I det här avsnittet ska göra du följande uppgifter för att konfigurera Appli
 
 I det här avsnittet kör du lokalt igen för att verifiera att loggningsdata nu kommer att Application Insights även om konsolen.
 
-1. Använd **Server Explorer** för att skapa ett kömeddelande, på samma sätt som du gjorde [tidigare](#trigger-the-function), förutom att ange *Hello App Insights!* som meddelandetext.
+1. Använd **Server Explorer** i Visual Studio för att skapa ett kömeddelande, på samma sätt som du gjorde [tidigare](#trigger-the-function), förutom att ange *Hello App Insights!* som meddelandetext.
 
 1. Kör projektet.
 
@@ -442,7 +442,6 @@ I det här avsnittet distribuerar du projektet som ett WebJob. Du distribuerar d
 
 1. Kontrollera att du inte kör lokalt (Stäng konsolfönstret om det fortfarande är öppen). Annars kan den lokala instansen var först med att bearbeta alla kömeddelanden som du skapar.
 
-1. Använd **Server Explorer** för att skapa ett kömeddelande, på samma sätt som du gjorde [tidigare](#trigger-the-function), förutom att ange *Hello Azure!*.
 
 1. Uppdatera den **kö** sida i Visual Studio och det nya meddelandet har tagits bort eftersom den funktion som körs i Azure App Service bearbetas den.
 
@@ -485,7 +484,7 @@ Indatabindningar förenkla kod som läser data. I det här exemplet kömeddeland
 
 1. Skapa en blobbehållare i ditt storage-konto.
 
-   a. I **Server Explorer**och expanderar du noden för ditt lagringskonto, högerklickar på **Blobar**, och välj sedan **skapa Blobbehållare**.
+   a. I **Server Explorer** expanderar du noden för ditt lagringskonto i Visual Studio, högerklicka på **Blobar**, och välj sedan **skapa Blobbehållare**.
 
    b. I den **skapa Blobbehållare** dialogrutan Ange *behållare* som behållarens namn och klicka sedan på **OK**.
 

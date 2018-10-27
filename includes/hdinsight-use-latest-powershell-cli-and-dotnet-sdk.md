@@ -1,3 +1,16 @@
+---
+author: jasonwhowell
+ms.service: hdinsight
+ms.topic: include
+ms.date: 10/25/2018
+ms.author: jasonh
+ms.openlocfilehash: 4b4b1f3a52dcbaa01f9fac73bce09a75495408df
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.translationtype: MT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50166166"
+---
 > [!IMPORTANT]
 > Stöd för hantering av HDInsight-resurser med hjälp av Azure Service Manager (ASM) via Azure PowerShell, Azure CLI och HDInsight .NET SDK **inaktuell**, och togs bort den 1 januari 2017. Stegen i det här dokumentet använder de nya Azure PowerShell-cmdletar, Azure CLI-kommandon och .NET-SDK som fungerar med Azure Resource Manager.
 > 

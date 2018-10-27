@@ -13,16 +13,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/08/2017
+ms.date: 10/26/2018
 ms.author: markvi
 ms.reviewer: nigu
 ms.custom: seohack1
-ms.openlocfilehash: 3bdf44e0a1cf0ccda6d015fa3683964f3530d4af
-ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
+ms.openlocfilehash: eefbfcf741db3d0949910bc5da8494e087c39ec7
+ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "40003491"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50139164"
 ---
 # <a name="get-started-with-azure-active-directory-identity-protection-and-microsoft-graph"></a>Kom igång med Azure Active Directory Identity Protection och Microsoft Graph
 Microsoft Graph är Microsofts enhetlig API-slutpunkt och hem för [Azure Active Directory Identity Protection](../active-directory-identityprotection.md) API: er. Den första API **identityRiskEvents**, kan du fråga Microsoft Graph för en lista över [riskhändelser](../reports-monitoring/concept-risk-events.md) och tillhörande information. Den här artikeln kommer du igång fråga detta API. En djupgående introduktion, fullständig dokumentation och åtkomst till Graph-testaren finns i den [Microsoft Graph plats](https://graph.microsoft.io/).
@@ -37,8 +37,11 @@ Det finns fyra steg för att komma åt Identity Protection data via Microsoft Gr
 
 Innan du börjar behöver du:
 
-* Administratörsbehörighet för att skapa programmet i Azure AD
-* Namnet på din klient-domänen (exempel: contoso.onmicrosoft.com)
+- En Azure AD P2-klient
+
+- Administratörsbehörighet för att skapa programmet i Azure AD
+
+- Namnet på din klient-domänen (exempel: contoso.onmicrosoft.com)
 
 
 ## <a name="retrieve-your-domain-name"></a>Hämta ditt domännamn 
@@ -49,12 +52,14 @@ Innan du börjar behöver du:
    
     ![Skapa ett program](./media/graph-get-started/41.png)
 
+3. Klicka på **anpassade domännamn**.
 
-3. I den **hantera** klickar du på **egenskaper**.
+    ![Egna domännamn](./media/graph-get-started/71.png)
 
-    ![Skapa ett program](./media/graph-get-started/42.png)
+4. Kopiera det domännamn som flaggas som primär i listan över domännamn.
 
-4. Kopiera ditt domännamn.
+    ![Egna domännamn](./media/graph-get-started/72.png)
+
 
 
 ## <a name="create-a-new-app-registration"></a>Skapa en ny appregistrering
@@ -74,7 +79,7 @@ Innan du börjar behöver du:
 
     a. I den **namn** textrutan anger du ett namn för ditt program (t.ex.: AADIP Risk händelse-API-program).
    
-    b. Som **typ**väljer **webbprogram och / eller webb-API**.
+    b. Som **programtyp**väljer **webbprogram och / eller webb-API**.
    
     c. I den **inloggnings-URL** textrutan typ `http://localhost`.
 

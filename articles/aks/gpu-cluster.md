@@ -8,12 +8,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 10/25/2018
 ms.author: laevenso
-ms.openlocfilehash: 69c682fc51f826a7e7ffd0eb8bcb1a7921aa9d13
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.openlocfilehash: db9d42cca4bc327d216229f45f5fa1742f70fb9a
+ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50095396"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50138817"
 ---
 # <a name="use-gpus-for-compute-intensive-workloads-on-azure-kubernetes-service-aks"></a>Använd GPU: er för beräkningsintensiva arbetsbelastningar på Azure Kubernetes Service (AKS)
 
@@ -57,7 +57,7 @@ az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
 
 ## <a name="confirm-that-gpus-are-schedulable"></a>Bekräfta att GPU: er är avtalad
 
-Med AKS-klustret skapas, bekräfta att GPU: er är avtalad i Kubernetes. Först en lista över noderna i klustret med hjälp av kommandot [kubectl get noder] [kubectl get]:
+Med AKS-klustret skapas, bekräfta att GPU: er är avtalad i Kubernetes. Först, listar noderna i ditt kluster med hjälp av den [kubectl få noder] [ kubectl-get] kommando:
 
 ```
 $ kubectl get nodes

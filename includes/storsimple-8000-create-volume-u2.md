@@ -1,3 +1,16 @@
+---
+author: alkohli
+ms.service: storsimple
+ms.topic: include
+ms.date: 10/26/2018
+ms.author: alkohli
+ms.openlocfilehash: cce78fb6a5472a625e973bb8ca4afdfd6290a26c
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.translationtype: MT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50165319"
+---
 <!--author=alkohli last changed: 07/19/2017-->
 
 #### <a name="to-create-a-volume"></a>Skapa en volym
@@ -9,7 +22,7 @@
    
    1. Fältet **Välj enhet** fylls i automatiskt med din aktuella enhet.
 
-   2. I listrutan väljer du den volymbehållare som du vill lägga till en volym i. 
+   2. I listrutan väljer du den volymcontainer som du vill lägga till en volym i. 
 
    3.  Anger du ett **namn** för volymen. Du kan byta namn på en volym när den har skapats.
 

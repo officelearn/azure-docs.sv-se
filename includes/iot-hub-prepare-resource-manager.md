@@ -1,9 +1,22 @@
-## <a name="prepare-to-authenticate-azure-resource-manager-requests"></a>Förbereda för att autentisera Azure Resource Manager-begäranden
-Du måste autentisera alla åtgärder som du utför på resurser med hjälp av den [Azure Resource Manager] [ lnk-authenticate-arm] med Azure Active Directory (AD). Det enklaste sättet att konfigurera det här är att använda PowerShell eller Azure CLI.
+---
+author: dominicbetts
+ms.service: iot-hub
+ms.topic: include
+ms.date: 10/26/2018
+ms.author: dobett
+ms.openlocfilehash: 2eacb55eaf355a4eef17b9e16075d8d12167266d
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.translationtype: MT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50165012"
+---
+## <a name="prepare-to-authenticate-azure-resource-manager-requests"></a>Förbereda för att autentisera begäranden till Azure Resource Manager
+Du måste autentisera alla åtgärder som du kan utföra på resurser med hjälp av den [Azure Resource Manager] [ lnk-authenticate-arm] med Azure Active Directory (AD). Det enklaste sättet att konfigurera detta är att använda PowerShell eller Azure CLI.
 
 Installera den [Azure PowerShell-cmdlets] [ lnk-powershell-install] innan du fortsätter.
 
-Följande steg visar hur du ställer in en lösenordsautentisering för ett AD-program med hjälp av PowerShell. Du kan köra dessa kommandon i en standard PowerShell-session.
+Följande steg visar hur du ställer in lösenordsautentisering för ett AD-program med hjälp av PowerShell. Du kan köra dessa kommandon i en PowerShell-session som standard.
 
 1. Logga in på Azure-prenumerationen med följande kommando:
 
@@ -11,7 +24,7 @@ Följande steg visar hur du ställer in en lösenordsautentisering för ett AD-p
     Connect-AzureRmAccount
     ```
 
-1. Om du har flera Azure-prenumerationer, ger logga in på Azure åtkomst till alla de Azure-prenumerationer som är kopplade till dina autentiseringsuppgifter. Använd följande kommando för att lista de Azure-prenumerationerna som du kan använda:
+1. Om du har flera Azure-prenumerationer kan får logga in på Azure du åtkomst till alla Azure-prenumerationer som är associerade med dina autentiseringsuppgifter. Använd följande kommando för att lista de Azure-prenumerationerna som du kan använda:
 
     ```powershell
     Get-AzureRMSubscription
@@ -25,32 +38,32 @@ Följande steg visar hur du ställer in en lösenordsautentisering för ett AD-p
     ```
 
 2. Anteckna din **TenantId** och **SubscriptionId**. Du behöver dem senare.
-3. Skapa ett nytt Azure Active Directory-program som använder du följande kommando och ersätter innehavare plats:
+3. Skapa ett nytt Azure Active Directory-program som använder du följande kommando och ersätter platshållare:
    
-   * **{Visningsnamn}:** ett visningsnamn för tillämpningsprogrammet som **MySampleApp**
-   * **{URL-Adressen}:** URL-Adressen till startsidan för din app som **http://mysampleapp/home**. Denna URL behöver inte peka på ett riktigt program.
-   * **{Programidentifierare}:** en unik identifierare som **http://mysampleapp**. Denna URL behöver inte peka på ett riktigt program.
-   * **{Lösenord}:** ett lösenord som används för att autentisera med din app.
+   * **{Visningsnamn}:** ett visningsnamn för programmet som **MySampleApp**
+   * **{URL-Adressen}:** URL: en för din app som startsida **http://mysampleapp/home**. Denna URL behöver inte pekar på ett riktigt program.
+   * **{Program-ID}:** en unik identifierare som **http://mysampleapp**. Denna URL behöver inte pekar på ett riktigt program.
+   * **{Password}:** ett lösenord som du använder för att autentisera med din app.
      
      ```powershell
      $SecurePassword=ConvertTo-SecureString {password} –asplaintext –force
      New-AzureRmADApplication -DisplayName {Display name} -HomePage {Home page URL} -IdentifierUris {Application identifier} -Password $SecurePassword
      ```
-4. Anteckna den **ApplicationId** för det program som du skapade. Du behöver detta senare.
-5. Skapa ett nytt huvudnamn för tjänsten med följande kommando, där du ersätter **{MyApplicationId}** med den **ApplicationId** från föregående steg:
+4. Anteckna den **ApplicationId** för det program du skapade. Du behöver den senare.
+5. Skapa ett nytt huvudnamn för tjänsten med följande kommando, ersätta **{MyApplicationId}** med den **ApplicationId** från föregående steg:
    
     ```powershell
     New-AzureRmADServicePrincipal -ApplicationId {MyApplicationId}
     ```
-6. Konfigurera en rolltilldelning med följande kommando, där du ersätter **{MyApplicationId}** med din **ApplicationId**.
+6. Konfigurera en rolltilldelning med följande kommando, ersätta **{MyApplicationId}** med din **ApplicationId**.
    
     ```powershell
     New-AzureRmRoleAssignment -RoleDefinitionName Owner -ServicePrincipalName {MyApplicationId}
     ```
 
-Du är nu klar att skapa Azure AD-program som gör det möjligt att autentisera från din anpassade C#-program. Senare i den här kursen behöver du följande värden:
+Du har nu skapat de Azure AD-program som gör det möjligt att autentisera från dina anpassade C# program. Senare i den här självstudien behöver du följande värden:
 
-* Klient-ID
+* TenantId
 * SubscriptionId
 * ApplicationId
 * Lösenord

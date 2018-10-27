@@ -1,3 +1,16 @@
+---
+author: tamram
+ms.service: storage
+ms.topic: include
+ms.date: 10/26/2018
+ms.author: tamram
+ms.openlocfilehash: 2f27c50b1d016265c20102521a137bcbb0646115
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.translationtype: MT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50165005"
+---
 Om du har en URL för delad åtkomst (signatur) som ger åtkomst till resurser i ett lagringskonto kan du använda signaturen för delad åtkomst i en anslutningssträng. Eftersom Signaturen innehåller information som krävs för att autentisera begäran, innehåller en anslutningssträng med en SAS protokollet, tjänstslutpunkten och autentiseringsuppgifterna som krävs för att få åtkomst till resursen.
 
 Om du vill skapa en anslutningssträng som innehåller en signatur för delad åtkomst, anger du strängen i följande format:

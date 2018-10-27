@@ -3,7 +3,7 @@ title: Jämför Azure AD-anslutning och Azure Active Directory Domain Services |
 description: Välja mellan Azure AD-anslutning och Azure AD Domain Services
 services: active-directory-ds
 documentationcenter: ''
-author: mahesh-unnikrishnan
+author: eringreenlee
 manager: mtillman
 editor: curtand
 ms.assetid: 31a71d36-58c1-4839-b958-80da0c6a77eb
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/26/2017
-ms.author: maheshu
-ms.openlocfilehash: e4357738417a202d5dd5a97907b5240cf855f395
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.author: ergreenl
+ms.openlocfilehash: 275f537511f721ea3f01c22a962462bab458129c
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39504122"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50156587"
 ---
 # <a name="choose-between-azure-active-directory-join-and-azure-active-directory-domain-services"></a>Välj mellan Azure Active Directory-koppling och Azure Active Directory Domain Services
 Den här artikeln beskrivs skillnaderna mellan Azure Active Directory (AD)-anslutning och Azure AD Domain Services och hjälper till att du väljer, baserat på användningsfall.
@@ -73,7 +73,7 @@ På en domänansluten dator sker autentisering av användare med hjälp av NTLM 
 * [Förstå hur Azure AD Domain Services synkroniseras med din Azure AD-katalog](active-directory-ds-synchronization.md)
 
 ### <a name="learn-more-about-azure-ad-join"></a>Läs mer om Azure AD Join
-* [Introduktion till hantering av enheter i Azure Active Directory](../active-directory/device-management-introduction.md)
+* [Introduktion till enhetshantering i Azure Active Directory](../active-directory/device-management-introduction.md)
 
 ### <a name="get-started-with-azure-ad-domain-services"></a>Kom igång med Azure AD Domain Services
 * [Aktivera Azure AD Domain Services med Azure portal](active-directory-ds-getting-started.md)

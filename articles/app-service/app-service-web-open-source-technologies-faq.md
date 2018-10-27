@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/11/2018
 ms.author: genli
-ms.openlocfilehash: d65a33dc13d0b91a9ace04dab0be6c37bcd2188f
-ms.sourcegitcommit: a62cbb539c056fe9fcd5108d0b63487bd149d5c3
+ms.openlocfilehash: 4185cbad6358f6b2e48513c0d79c0a357eb6235a
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42623320"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50156484"
 ---
 # <a name="open-source-technologies-faqs-for-web-apps-in-azure"></a>Tekniker med öppen källkod frågor och svar om Web Apps i Azure
 
@@ -43,9 +43,9 @@ Aktivera loggning för PHP:
 9. Välj **Spara**.
 10. Välj pennikonen bredvid **wp-config.php**.
 11. Ändra texten till följande kod:
-   ```
+   ```php
    //Enable WP_DEBUG modedefine('WP_DEBUG', true);//Enable debug logging to /wp-content/debug.logdefine('WP_DEBUG_LOG', true);
-   //Supress errors and warnings to screendefine('WP_DEBUG_DISPLAY', false);//Supress PHP errors to screenini_set('display_errors', 0);
+   //Suppress errors and warnings to screendefine('WP_DEBUG_DISPLAY', false);//Supress PHP errors to screenini_set('display_errors', 0);
    ```
 12. Starta om din webbapp i Azure-portalen via menyn web app.
 
@@ -70,7 +70,7 @@ Om du vill ändra versionen av Node.js-program, kan du använda något av följa
 *   Ändra iisnode.yml-filen. Ändra Node.js-version i filen iisnode.yml endast anger runtime-miljö där iisnode använder. Kudu-cmd och andra fortfarande använda Node.js-version som anges i **appinställningar** i Azure-portalen.
 
     Ange iisnode.yml manuellt genom att skapa en iisnode.yml-fil i rotmappen för din app. Skriver du följande i filen:
-   ```
+   ```yml
    nodeProcessCommandLine: "D:\Program Files (x86)\nodejs\5.9.1\node.exe"
    ```
    
@@ -80,7 +80,7 @@ Om du vill ändra versionen av Node.js-program, kan du använda något av följa
     2. Skapar en standard-distributionsskriptet, om det inte finns något (deploy.cmd, .deployment filer) i rotmappen för web app.
     3. Kör ett distributionsskript där den skapar en iisnode.yml-fil om du nämner Node.js-version i package.json-fil > motor `"engines": {"node": "5.9.1","npm": "3.7.3"}`
     4. Iisnode.yml-filen har följande rad med kod:
-        ```
+        ```yml
         nodeProcessCommandLine: "D:\Program Files (x86)\nodejs\5.9.1\node.exe"
         ```
 
@@ -146,7 +146,7 @@ Att lösa problemet:
 2. Om du använder anpassade Tomcat eller Azure Marketplace Tomcat webbservern kan du kopiera .jar-filen till Tomcat lib-mappen.
 3. Om du aktiverar Java i Azure Portal (Välj **Java 1.8** > **Tomcat-servern**), kopiera sqljdbc.* jar-filen i mappen som är parallella till din app. Lägg sedan till följande classpath-inställningen i filen web.config:
 
-    ```
+    ```xml
     <httpPlatform>
     <environmentVariables>
     <environmentVariablename ="JAVA_OPTS" value=" -Djava.net.preferIPv4Stack=true

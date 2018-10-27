@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 09/04/2017
 ms.author: geg
-ms.openlocfilehash: 450314dddd49825bae689701b694f9a26758835e
-ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
+ms.openlocfilehash: 5812bafbcfa104150325dcdde374f88200b071c0
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49377647"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50155209"
 ---
 # <a name="use-the-azure-portal-to-restore-virtual-machines"></a>Använd Azure portal för att återställa virtuella datorer
 Skydda dina data genom att ta ögonblicksbilder av dina data med definierade intervall. De här ögonblicksbilderna kallas återställningspunkter och de lagras i Recovery Services-valv. Om det är nödvändigt att reparera eller återskapa en virtuell dator (VM), kan du återställa den virtuella datorn från någon av de sparade återställningspunkterna. När du återställer en återställningspunkt kan du:
@@ -151,7 +151,7 @@ På den **återställningskonfiguration** bladet väljer **OK** att slutföra ko
 I **plats Återställ** görs via fliken **ersätter befintliga**.
 
 ## <a name="replace-existing-disks-from-a-restore-point"></a>Byta ut befintliga diskar från en återställningspunkt
-**Ersätt befintliga** alternativet hjälper dig att byta ut befintliga diskar i den aktuella virtuella datorn med den valda återställningspunkten. Den här åtgärden kan utföras endast om aktuella virtuella datorn finns. Den här åtgärden kan inte utföras om det togs bort på grund av eventuella orsaker; Du kan också rekommenderar vi att du gör **Skapa nytt** VM eller diskar för att fortsätta med återställningsåtgärder. Under ersätta den befintliga diskar åtgärder, som en försiktighetsåtgärd säkerhetskopiera vi data innan du påbörjar Ersätt diskar operations. Om återställningspunkten har diskar som är mer/mindre än den aktuella virtuella datorn och sedan antalet diskar i återställningspunkten kommer endast att användas i den virtuella datorn. Ersätt befintliga alternativet är för närvarande stöd för Managed Disks och okrypterade virtuella datorer.  
+**Ersätt befintliga** alternativet hjälper dig att byta ut befintliga diskar i den aktuella virtuella datorn med den valda återställningspunkten. Den här åtgärden kan utföras endast om aktuella virtuella datorn finns. Den här åtgärden kan inte utföras om det togs bort på grund av eventuella orsaker; Du kan också rekommenderar vi att du gör **Skapa nytt** VM eller diskar för att fortsätta med återställningsåtgärder. Under ersätta den befintliga diskar åtgärder, som en försiktighetsåtgärd säkerhetskopiera vi data innan du påbörjar Ersätt diskar operations. Om återställningspunkten har diskar som är mer/mindre än den aktuella virtuella datorn och sedan antalet diskar i återställningspunkten kommer endast att användas i den virtuella datorn. **Ersätt befintliga** alternativet är för närvarande inte stöd för ohanterade diskar och krypterade virtuella datorer. Det är också stöds inte för [generaliserad virtuella datorer](https://docs.microsoft.com/azure/virtual-machines/windows/capture-image-resource) och för virtuella datorer som skapas med hjälp av [anpassade avbildningar](https://azure.microsoft.com/resources/videos/create-a-custom-virtual-machine-image-in-azure-resource-manager-with-powershell/).  
 
  På den **återställa konfigurationen** bladet endast indata som måste väljas är **mellanlagringsplatsen**.
 

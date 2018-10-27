@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 09/11/2018
 ms.author: lizross
 ms.custom: it-pro
-ms.openlocfilehash: f546ea5b5f9288849334d27cd1721f0c22fb8806
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: fae68bccbeaa54ca1bab9d77510fe6baecd11fcc
+ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46297783"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50139728"
 ---
 # <a name="how-to-add-or-remove-group-owners-in-azure-active-directory"></a>Så här: lägga till eller ta bort gruppägare i Azure Active Directory
 Azure Active Directory (Azure AD)-grupper ägs och hanteras av gruppägare. Gruppägare har tilldelats till hantera en grupp och dess medlemmar av en resursägare (administratör). Gruppägare behöver inte vara medlemmar i gruppen. När en gruppägare har tilldelats kan en resursägare lägga till eller ta bort ägare.
@@ -27,9 +27,9 @@ I vissa fall kan du som administratör kan besluta att inte tilldela en gruppäg
 Lägga till ytterligare gruppägare i en grupp med hjälp av Azure AD.
 
 ### <a name="to-add-a-group-owner"></a>Att lägga till gruppägare
-1. Logga in på den [Azure-portalen](https://portal.azure.com) med ett konto som Global administratör för katalogen.
+1. Logga in på [Azure-portalen](https://portal.azure.com) med ett Globalt administratörskonto för katalogen.
 
-2. Välj **Azure Active Directory**väljer **grupper**, och väljer sedan den grupp som du vill lägga till en ägare (i det här exemplet _MDM princip – västra_).
+2. Välj **Azure Active Directory**väljer **grupper**, och väljer sedan den grupp som du vill lägga till en ägare (i det här exemplet *MDM princip – västra*).
 
 3. På den **MDM princip – västra översikt** väljer **ägare**.
 
@@ -45,9 +45,9 @@ Lägga till ytterligare gruppägare i en grupp med hjälp av Azure AD.
 Ta bort ägare från en grupp med hjälp av Azure AD.
 
 ### <a name="to-remove-an-owner"></a>Ta bort en ägare
-1. Logga in på den [Azure-portalen](https://portal.azure.com) med ett konto som Global administratör för katalogen.
+1. Logga in på [Azure-portalen](https://portal.azure.com) med ett Globalt administratörskonto för katalogen.
 
-2. Välj **Azure Active Directory**väljer **grupper**, och väljer sedan den grupp som du vill lägga till en ägare (i det här exemplet _MDM princip – västra_).
+2. Välj **Azure Active Directory**väljer **grupper**, och väljer sedan den grupp som du vill ta bort en ägare (i det här exemplet *MDM princip – västra*).
 
 3. På den **MDM princip – västra översikt** väljer **ägare**.
 

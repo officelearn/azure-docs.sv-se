@@ -1,41 +1,54 @@
-### <a name="install-maintenance-mode-updates-via-windows-powershell-for-storsimple"></a>Installera Underhåll läge uppdateringar via Windows PowerShell för StorSimple
+---
+author: alkohli
+ms.service: storsimple
+ms.topic: include
+ms.date: 10/26/2018
+ms.author: alkohli
+ms.openlocfilehash: 560c9c177bfa693580979101e5b9343fcff7fe40
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.translationtype: MT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50166424"
+---
+### <a name="install-maintenance-mode-updates-via-windows-powershell-for-storsimple"></a>Installera uppdateringar av underhållsläge via Windows PowerShell för StorSimple
 
-När du använder Underhåll läge uppdateringar på StorSimple-enhet har pausats alla i/o-begäranden. Tjänster, till exempel beständiga RAM-minne (NVRAM) eller klustertjänsten stoppas. Både domänkontrollanter startas om när du anger eller avsluta det här läget. När du lämnar det här läget återuppta alla tjänster och är felfria. (Detta kan ta några minuter.)
+När du använder uppdateringar av Underhållsläge för StorSimple-enhet, har alla i/o-förfrågningar pausats. Tjänster, till exempel beständigt minne (NVRAM) eller klustertjänsten stoppas. Båda styrenheterna startas om när du anger eller avsluta det här läget. När du avslutar det här läget återuppta alla tjänster och är felfria. (Detta kan ta några minuter.)
 
 > [!IMPORTANT]
-> * Kontrollera att båda styrenheter är felfri på Azure-portalen innan du anger underhållsläge. Om domänkontrollanten inte är felfri, [kontakta Microsoft Support](../articles/storsimple/storsimple-8000-contact-microsoft-support.md) i nästa steg.
-> * Du måste först uppdatera en domänkontrollant och den andra styrenheten när du är i underhållsläge.
+> * Kontrollera att båda styrenheterna är felfria i Azure-portalen innan du anger underhållsläge. Om kontrollanten inte är felfri, [kontakta Microsoft Support](../articles/storsimple/storsimple-8000-contact-microsoft-support.md) i nästa steg.
+> * När du är i underhållsläge, måste du först uppdatera en domänkontrollant och sedan den andra styrenheten.
 
 1. Använd PuTTY för att ansluta till seriekonsol. Följ de detaljerade instruktionerna i [Använd PuTTY för att ansluta till enhetens seriekonsol](../articles/storsimple/storsimple-8000-deployment-walkthrough-u2.md#use-putty-to-connect-to-the-device-serial-console). Tryck på **Retur** i kommandotolken. Välj alternativ 1 **logga in med fullständig åtkomst**.
 
-2. Om du vill placera styrenheten i underhållsläge, skriver du:
+2. Om du vill placera kontrollanten i underhållsläge, skriver du:
     
     `Enter-HcsMaintenanceMode`
 
-    Båda domänkontrollanterna starta om i underhållsläge.
+    Båda styrenheterna startas om i underhållsläge.
 
-3. Installera uppdateringar Underhåll läge. Ange:
+3. Installera uppdateringar av din underhållsläge. Ange:
 
     `Start-HcsUpdate`
 
-    Du uppmanas att bekräfta. När du har bekräftat uppdateringarna är installerade på den domänkontrollant som du använder. När uppdateringarna har installerats på domänkontrollanten startar om.
+    Du uppmanas att bekräfta. När du har bekräftat uppdateringarna är installerade på den styrenhet som du använder för närvarande. När uppdateringarna har installerats startar om kontrollanten.
 
-4. Övervaka statusen för uppdateringar. Logga in till peer-styrenheten som den aktuella styrenheten uppdateras och det går inte att bearbeta andra kommandon. Ange:
+4. Övervaka statusen för uppdateringar. Logga in till peer-styrenhet eftersom den aktuella kontrollanten uppdaterar och går inte att bearbeta andra kommandon. Ange:
 
     `Get-HcsUpdateStatus`
 
-    Om den `RunInProgress` är `True`, uppdateringen pågår fortfarande. Om `RunInProgress` är `False`, indikerar det att uppdateringen har slutförts.
+    Om den `RunInProgress` är `True`, uppdateringen pågår fortfarande. Om `RunInProgress` är `False`, betyder det att uppdateringen har slutförts.
 
-5. När disken firmware-uppdateringar har tillämpats och uppdaterade domänkontrollanten har startats om, kontrollerar du versionen av inbyggd programvara disk. På den uppdaterade styrenheten, skriver du:
+5. När disk-uppdateringar av inbyggd programvara har tillämpats och den uppdaterade styrenheten har startats om, kontrollerar du versionen för inbyggd programvara för disk. Skriv på kontrollanten uppdaterats:
 
     `Get-HcsFirmwareVersion`
    
-    Förväntade disk firmware versioner är:  `XMGJ, XGEG, KZ50, F6C2, VR08, N003, 0107`
+    Förväntade disk-versioner av inbyggd programvara är:  `XMGJ, XGEG, KZ50, F6C2, VR08, N003, 0107`
 
-6. Avsluta underhållsläget. Skriv följande kommando för varje enhet domänkontrollant:
+6. Avsluta underhållsläget. Skriv följande kommando för varje enhetsstyrenhet:
 
     `Exit-HcsMaintenanceMode`
 
     Styrenheterna startas om när du avslutar underhållsläget.
 
-7. Gå tillbaka till Azure-portalen. Portalen kan inte visa att du installerat Underhåll läge uppdateringarna i 24 timmar.
+7. Gå tillbaka till Azure-portalen. Portalen kanske inte visar att du har installerat uppdateringarna i underhållsläge i 24 timmar.

@@ -1,3 +1,16 @@
+---
+author: alkohli
+ms.service: storsimple
+ms.topic: include
+ms.date: 10/26/2018
+ms.author: alkohli
+ms.openlocfilehash: 71715640ecaac3f180d6c2fe9f3935ec8944ee5a
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.translationtype: MT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50164229"
+---
 <!--author=alkohli last changed: 07/07/17-->
 
 #### <a name="to-install-an-update-from-the-azure-portal"></a>Installera en uppdatering från Azure Portal
@@ -8,15 +21,15 @@
 
 2. Gå till **Enhetsinställningar** > **enhetsuppdateringar**.
 
-    ![Klicka på uppdatering av enheter](./media/storsimple-8000-install-update4-via-portal/update2.png)
+    ![Klicka på enhetsuppdateringar](./media/storsimple-8000-install-update4-via-portal/update2.png)
 
-2. Ett meddelande visas om det finns nya uppdateringar. Du kan också i den **enhetsuppdateringar** bladet klickar du på **Sök efter uppdateringar**. Det skapas ett jobb för att söka efter tillgängliga uppdateringar. Du meddelas när jobbet har slutförts.
+2. Ett meddelande visas om det finns nya uppdateringar. Du kan också den **enhetsuppdateringar** bladet klickar du på **Sök efter uppdateringar**. Det skapas ett jobb för att söka efter tillgängliga uppdateringar. Du meddelas när jobbet har slutförts.
 
-    ![Klicka på uppdatering av enheter](./media/storsimple-8000-install-update4-via-portal/update3.png)
+    ![Klicka på enhetsuppdateringar](./media/storsimple-8000-install-update4-via-portal/update3.png)
 
-3. Vi rekommenderar att du läser den viktiga informationen innan du installerar en uppdatering på enheten. Om du vill tillämpa uppdateringar, klickar du på **installera uppdateringar**. I den **bekräfta regelbundna uppdateringar** bladet granska förutsättningar för att kunna slutföra innan du installerar uppdateringar. Markera kryssrutan för att visa att du är redo att uppdatera enheten och klicka sedan på **installera**.
+3. Vi rekommenderar att du läser den viktiga informationen innan du installerar en uppdatering på enheten. För att tillämpa uppdateringar, klickar du på **installera uppdateringar**. I den **bekräfta vanliga uppdateringar** bladet granska kraven för att slutföra innan du installerar uppdateringar. Markera kryssrutan för att indikera att du är redo att uppdatera enheten och klicka sedan på **installera**.
 
-    ![Klicka på uppdatering av enheter](./media/storsimple-8000-install-update4-via-portal/update4.png)
+    ![Klicka på enhetsuppdateringar](./media/storsimple-8000-install-update4-via-portal/update4.png)
 
 6. En uppsättning nödvändiga kontrollerar startar. Dessa kontroller omfattar följande:
    
@@ -24,9 +37,9 @@
    * **Hälsokontroller för maskinvarukomponenter** för att verifiera att alla maskinvarukomponenter på StorSimple-enheten är felfria.
    * **DATA 0-kontroller** för att verifiera att DATA 0 är aktiverat på enheten. Om inte det här gränssnittet är aktiverat måste du aktivera det och sedan försöka igen.
 
-    Uppdateringen hämtas och installeras bara om alla kontroller har slutförts. Du får ett meddelande när kontrollerna pågår. Om prechecks misslyckas sedan anges du med orsakerna till felet. Lösa dessa problem och försök sedan igen. Du kan behöva kontakta Microsofts support om du inte kan lösa dessa problem själv.
+    Uppdateringen hämtas och installeras bara om alla kontroller har slutförts. Du får ett meddelande när kontrollerna pågår. Om föruppdateringskontrollen misslyckas, sedan visas med orsakerna till felet. Åtgärda problemen och försök sedan igen. Du kan behöva kontakta Microsofts support om du inte kan lösa dessa problem själv.
 
-7. När prechecks har slutförts, skapas ett uppdateringsjobb. Du får ett meddelande när uppdateringsjobbet har skapats.
+7. När föruppdateringskontrollen har slutförts, skapas ett uppdateringsjobb. Du får ett meddelande när uppdateringsjobbet har skapats.
    
     ![Uppdatera skapande av jobb](./media/storsimple-8000-install-update4-via-portal/update6.png)
    
@@ -36,7 +49,7 @@
 
     ![Uppdatera skapande av jobb](./media/storsimple-8000-install-update4-via-portal/update8.png)
 
-     Du kan också övervaka förloppet för Uppdateringsjobbet från **Enhetsinställningar > jobb**. På den **jobb** bladet du kan se förloppet för uppdatering.
+     Du kan också övervaka förloppet för Uppdateringsjobbet från **Enhetsinställningar > jobb**. På den **jobb** bladet kan du följa uppdateringsförloppet.
 
      ![Uppdatera skapande av jobb](./media/storsimple-8000-install-update4-via-portal/update7.png)
 

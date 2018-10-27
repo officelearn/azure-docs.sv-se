@@ -11,13 +11,13 @@ author: bonova
 ms.author: bonova
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 10/15/2018
-ms.openlocfilehash: aaffdb2f0d21dbb7a5baf029a90e452658c5bd31
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
-ms.translationtype: HT
+ms.date: 10/17/2018
+ms.openlocfilehash: 716277e7ef4fa239c82562176c75bb20568a12af
+ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49353644"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50140933"
 ---
 # <a name="use-sql-database-managed-instance-with-virtual-networks-and-near-100-compatibility"></a>Använda SQL Database Managed Instance med virtuella nätverk och nästan 100% kompatibilitet
 
@@ -218,7 +218,7 @@ Hanterad instans fördelar från att alltid upp-hittills i molnet, vilket inneb�
 
 ### <a name="managed-instance-administration-features"></a>Hanterad instans-funktioner för administration
 
-Hanterade instans aktivera systemadministratören att fokusera på vad som är viktigast för företag. Många system administratör/DBA aktiviteter krävs inte eller är enkel. Till exempel OS / RDBMS installation och korrigeringar, dynamisk instans vid storleksändring och konfiguration, säkerhetskopiering, [databasreplikering](replication-with-sql-database-managed-instance.md) (inklusive systemdatabaser), konfiguration för hög tillgänglighet och konfiguration av hälsotillstånd och prestandaövervakning av dataströmmar.
+Hanterade instans aktivera systemadministratören att fokusera på vad som är viktigast för företag. Många system administratör/DBA aktiviteter krävs inte eller är enkel. Till exempel OS / RDBMS installation och korrigeringar, dynamisk instans vid storleksändring och konfiguration, säkerhetskopiering, [databasreplikering](replication-with-sql-database-managed-instance.md) (inklusive systemdatabaser), konfiguration för hög tillgänglighet och konfiguration av hälsotillstånd och [prestandaövervakning](../log-analytics/log-analytics-azure-sql.md) dataströmmar.
 
 > [!IMPORTANT]
 > En lista över funktioner stöds, delvis stöds och som inte stöds finns i [SQL Database-funktioner](sql-database-features.md). En lista över T-SQL skillnader i hanterade instanser jämfört med SQL Server finns i [hanterad instans T-SQL-skillnader från SQL Server](sql-database-managed-instance-transact-sql-information.md)
@@ -241,4 +241,5 @@ I följande tabell visar flera egenskaper som är tillgängliga via Transact-SQL
 - Mer information om konfiguration av virtuella nätverk finns i avsnittet om [konfiguration av virtuella nätverk för hanterade instanser](sql-database-managed-instance-vnet-configuration.md).
 - En Snabbstart som skapar en hanterad instans och återställer en databas från en säkerhetskopia, se [skapar en hanterad instans](sql-database-managed-instance-get-started.md).
 - En självstudie om hur du använder Azure Database Migration Service (DMS) för migrering finns i avsnittet om [migrering av hanterade instanser med DMS](../dms/tutorial-sql-server-to-managed-instance.md).
+- Avancerade övervakning av databasprestanda för hanterad instans med inbyggd intelligens som felsökning finns i [övervaka Azure SQL Database med Azure SQL Analytics ](../log-analytics/log-analytics-azure-sql.md) 
 - Information om priser finns i [priser för SQL Database Managed Instance](https://azure.microsoft.com/pricing/details/sql-database/managed/).

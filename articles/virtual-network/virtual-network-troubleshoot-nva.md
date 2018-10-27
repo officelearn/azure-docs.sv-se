@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/02/2018
+ms.date: 10/26/2018
 ms.author: genli
-ms.openlocfilehash: d16f106fa1776b0d11a97f71ffe16cf89fb9584a
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.openlocfilehash: 2a0f6b75c540f319848805e8a9bda7b166d5d709
+ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42057696"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50138667"
 ---
 #  <a name="network-virtual-appliance-issues-in-azure"></a>Virtuell installation nätverksproblem i Azure
 
@@ -77,14 +77,14 @@ Använd PowerShell
 **Kontrollera om trafiken kan dirigeras till en NVA**
 
 1. På [Azure-portalen](https://portal.azure.com)öppnar **Network Watcher**väljer **nästa hopp**.
-2. Ange en virtuell dator som du vill ska vara NVA nästa hopp och målets IP-adress som du vill visa nästa hopp. 
+2. Ange en virtuell dator som är konfigurerad för att dirigera trafiken till NVA och målets IP-adress som du vill visa nästa hopp. 
 3. Om en NVA inte visas som den **nästa hopp**, kontrollera och uppdatera Azure-routningstabeller.
 
 **Kontrollera om trafik kan nå en NVA**
 
 1.  I [Azure-portalen](https://portal.azure.com)öppnar **Network Watcher**, och välj sedan **IP-Flow verifiera**. 
-2.  Ange en virtuell dator och IP-adressen för NVA och kontrollera om trafik blockeras av eventuella nätverkssäkerhetsgrupper (NSG).
-3.  Om det finns en NSG-regel som blockerar trafiken, hitta Nätverkssäkerhetsgruppen i **effektiva** regler och sedan uppdatera den för att tillåta trafik passerar. Kör sedan **IP-Flow verifiera** igen och Använd **anslutningskontroll** att testa TCP-kommunikation från VM till din interna eller externa IP-adress.
+2.  Ange den virtuella datorn och IP-adressen för NVA och kontrollera om trafik blockeras av eventuella nätverkssäkerhetsgrupper (NSG).
+3.  Om det finns en NSG-regel som blockerar trafiken, hitta Nätverkssäkerhetsgruppen i **effektiva** regler och sedan uppdatera den för att tillåta trafik passerar. Kör sedan **IP-Flow verifiera** igen och Använd **anslutningsfelsökning** att testa TCP-kommunikation från VM till din interna eller externa IP-adress.
 
 **Kontrollera om virtuella datorer och NVA lyssnar på förväntade trafik**
 

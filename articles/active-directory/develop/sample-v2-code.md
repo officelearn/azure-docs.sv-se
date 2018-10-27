@@ -13,30 +13,30 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/17/2018
+ms.date: 10/26/2018
 ms.author: celested
 ms.reviewer: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 7323f532787fa767d875e13262cce9f1ceaa79d8
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: ef4bffe3aca05afbdf579b34ddb85c58095b3f3b
+ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49955532"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50138216"
 ---
-# <a name="azure-active-directory-code-samples-v2-endpoint"></a>Kodexempel för Azure Active Directory (V2-slutpunkt)
+# <a name="azure-active-directory-code-samples-v20-endpoint"></a>Kodexempel för Azure Active Directory (v2.0-slutpunkt)
 
 [!INCLUDE [active-directory-develop-applies-v2-msal](../../../includes/active-directory-develop-applies-v2-msal.md)]
 
-Du kan använda Microsoft Azure Active Directory (Azure AD) för att:
+Du kan använda Microsoft identity-plattformen att:
 
 - Lägg till autentisering och auktorisering till dina webbprogram och webb-API: er.
 - Kräv en åtkomsttoken för att få åtkomst till ett skyddat webb-API.
 
-Den här artikeln beskriver kortfattat och tillhandahåller länkar till exempel för Azure AD V2-slutpunkten. De här exemplen visar hur man gör, tillsammans med kodfragment som du kan använda i dina program. På sidan kod exemplet hittar du detaljerade viktigt avsnitt som hjälp med krav, installation, och Ställ in. Kommentarer i koden finns det för att förstå viktiga avsnitt.
+Den här artikeln beskriver kortfattat och tillhandahåller länkar till exempel för Azure AD v2.0-slutpunkten. De här exemplen visar hur man gör, tillsammans med kodfragment som du kan använda i dina program. På sidan kod exemplet hittar du detaljerade viktigt avsnitt som hjälp med krav, installation, och Ställ in. Kommentarer i koden finns det för att förstå viktiga avsnitt.
 
 > [!NOTE]
-> Om du är intresserad av V1-exempel finns i [kodexempel för Azure AD (V1-slutpunkt)](sample-v1-code.md).
+> Om du är intresserad av v1.0 exempel, se [kodexempel för Azure AD (v1.0 slutpunkt)](sample-v1-code.md).
 
 Information om grundläggande scenario för varje typ av exemplet finns i [apptyperna för Azure Active Directory v2.0-slutpunkten](v2-app-types.md).
 
@@ -44,7 +44,11 @@ Du kan också bidra till exemplen på GitHub. Läs hur genom att läsa [Microsof
 
 ## <a name="single-page-applications-spa"></a>Enkelsidigt program (SPA)
 
-Detta exempel visar hur du skriver ett enkelsidigt program som skyddas med Azure AD. De här exemplen använder en av varianter av MSAL.js: [Microsoft Authentication Library för JavaScript](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-core), [Microsoft Authentication Library för Angular](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-angular), [Microsoft Authentication Library för AngularJS](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-angularjs)
+De här exemplen visar hur du skriver ett enkelsidigt program som skyddas med Azure AD. De här exemplen Använd någon av varianter av MSAL.js:
+
+* [Microsoft Authentication Library för JavaScript](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-core)
+* [Microsoft Authentication Library för Angular](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-angular)
+* [Microsoft Authentication Library för AngularJS](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-angularjs)
 
  Plattform |  Anropar Microsoft Graph
  -------- |  ---------------------
@@ -58,20 +62,20 @@ Följande exempel illustrerar webbprogram som loggar in användare. Några exemp
 
  Plattform | Endast loggar in användare | Loggar in användare och anropar Microsoft Graph
  -------- | ------------------- | ---------------------------------
-![ASP.NET](media/sample-v2-code/logo_NETframework.png)<p/> ASP.NET | [appmodelv2-webapp-openIDConnect-dotNet](https://GitHub.com/AzureAdQuickstarts/AppModelv2-WebApp-OpenIDConnect-DotNet) <p/> [DotNet-webapp-openidconnect-v2](https://GitHub.com/azure-samples/active-directory-dotnet-webapp-openidconnect-v2)  |              [ASPNET-connect-rest-sample](https://github.com/microsoftgraph/aspnet-connect-rest-sample)
-![ASP.NET](media/sample-v2-code/logo_NETcore.png)<p/>ASP.NET Core 2.0 | [aspnetcore-webapp-openidconnect-v2](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2) |              [aspnetcore-connect-sample](https://github.com/microsoftgraph/aspnetcore-connect-sample)
-![Node.js](media/sample-v2-code/logo_nodejs.png)  |                   | [AppModelv2-WebApp-OpenIDConnect-nodejs](https://github.com/azureadquickstarts/appmodelv2-webapp-openidconnect-nodejs)
-![Ruby](media/sample-v2-code/logo_ruby.png) |                   | [Ruby-connect-rest-sample](https://github.com/microsoftgraph/ruby-connect-rest-sample)
+![ASP.NET Core](media/sample-v2-code/logo_NETcore.png)<p/>ASP.NET Core 2.0 | [aspnetcore-webapp-openidconnect-v2](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2) | Samma prov i den [signInAndCallMsGraph](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/signInAndCallMsGraph) gren
+![ASP.NET](media/sample-v2-code/logo_NETframework.png)<p/> ASP.NET | [Snabbstart för ASP.NET](https://GitHub.com/AzureAdQuickstarts/AppModelv2-WebApp-OpenIDConnect-DotNet) <p/> [DotNet-webapp-openidconnect-v2](https://GitHub.com/azure-samples/active-directory-dotnet-webapp-openidconnect-v2)  |  [DotNet-admin-begränsade-scope-v2](https://github.com/azure-samples/active-directory-dotnet-admin-restricted-scopes-v2) <p/>[msgraph-utbildning-aspnetmvcapp](https://github.com/microsoftgraph/msgraph-training-aspnetmvcapp)
+![Node.js](media/sample-v2-code/logo_nodejs.png)  |                   | [Snabbstart för node.js](https://github.com/azureadquickstarts/appmodelv2-webapp-openidconnect-nodejs)
+![Ruby](media/sample-v2-code/logo_ruby.png) |                   | [msgraph-utbildning-rubyrailsapp](https://github.com/microsoftgraph/msgraph-training-rubyrailsapp)
 
 ## <a name="desktop-and-mobile-public-client-apps"></a>Stationära och mobila offentliga klientappar
 
-Följande exempel visar offentlig klient program (desktop/mobila program) som har åtkomst till Microsoft Graph eller dina egna webb-API för namnet på en användare. Alla dessa klientprogram använder MicroSoft Authentication Libraries (MSAL)
+Följande exempel visar offentlig klient program (desktop/mobila program) som har åtkomst till Microsoft Graph API eller dina egna webb-API för namnet på en användare. Alla dessa klientprogram använder Microsoft Authentication Libraries (MSAL).
 
 Klientprogram | Plattform | Flow/bevilja | Anropar Microsoft Graph | En ASP.NET Core 2.0 webb-API-anrop
 ------------------ | -------- |  ----------| ---------- | -------------------------
-Desktop (WPF)      | ![.NET / C#](media/sample-v2-code/logo_NET.png) | Interaktiv | [DotNet-desktop-msgraph-v2](http://github.com/azure-samples/active-directory-dotnet-desktop-msgraph-v2) <p/> [DotNet-admin-begränsade-scope-v2](https://github.com/azure-samples/active-directory-dotnet-admin-restricted-scopes-v2) | [DotNet-intern-aspnetcore-v2](https://GitHub.com/azure-samples/active-directory-dotnet-native-aspnetcore-v2)
+Desktop (WPF)      | ![.NET / C#](media/sample-v2-code/logo_NET.png) | Interaktiv | [DotNet-desktop-msgraph-v2](http://github.com/azure-samples/active-directory-dotnet-desktop-msgraph-v2) | [DotNet-intern-aspnetcore-v2](https://GitHub.com/azure-samples/active-directory-dotnet-native-aspnetcore-v2)
 Fjärrskrivbord (konsol)   | ![.NET / C# (skrivbord)](media/sample-v2-code/logo_NET.png) | Integrerad Windows-autentisering |[DotNet-iwa-v2](https://github.com/azure-samples/active-directory-dotnet-iwa-v2)
-Fjärrskrivbord (konsol)   | ![.NET / C# (skrivbord)](media/sample-v2-code/logo_NETcore.png) | Användarnamn/lösenord |[dotnetcore-upp-v2](https://github.com/azure-samples/active-directory-dotnetcore-up-v2)
+Fjärrskrivbord (konsol)   | ![.NET / C# (skrivbord)](media/sample-v2-code/logo_NETcore.png) | Användarnamn/lösenord |[dotnetcore-upp-v2](https://github.com/azure-samples/active-directory-dotnetcore-console-up-v2)
 Mobile (UWP)   | ![.NET / C# (UWP)](media/sample-v2-code/logo_windows.png) | Interaktiv |[DotNet-intern-uwp-v2](https://github.com/azure-samples/active-directory-dotnet-native-uwp-v2) |
 Mobil (Android, iOS, UWP)   | ![.NET / C# (Xamarin)](media/sample-v2-code/logo_xamarin.png) | Interaktiv |[xamarin-intern-v2](https://Github.com/azure-samples/active-directory-xamarin-native-v2) |
 Mobile (iOS)       | ![iOS / Objective C eller swift](media/sample-v2-code/logo_iOS.png) | Interaktiv |[IOS-swift-intern-v2](https://github.com/azure-samples/active-directory-ios-swift-native-v2) <p/> [IOS-intern-nxoauth2-v2](https://github.com/azure-samples/active-directory-ios-native-nxoauth2-v2) |
@@ -79,7 +83,7 @@ Mobil (Android)   | ![Android / Java](media/sample-v2-code/logo_Android.png) | I
 
 ## <a name="daemon-applications"></a>Daemon för program
 
-Följande exempel på ett program som ansluter till Microsoft Graph med identiteten (med inga användare).
+Följande exempel visar ett program som ansluter till Microsoft Graph API med identiteten (med inga användare).
 
 Klientprogram | Plattform | Flow/bevilja | Anropar Microsoft Graph
 ------------------ | -------- | ---------- | --------------------
@@ -88,7 +92,7 @@ Webbapp | ![ASP.NET](media/sample-v2-code/logo_NETframework.png)<p/> ASP.NET  | 
 
 ## <a name="headless-applications"></a>Fjärradministrerad program
 
-Följande exempel visar offentlig klient program som körs på en enhet utan att en webbläsare. De här apparna kan vara kommandoradsverktyg eller appar som körs på Linux/Mac eller iOT-program. Exemplen funktionen appar får åtkomst till Microsoft Graph namnet på en användare som loggar in interaktivt på en annan enhet (till exempel en mobiltelefon). Alla dessa klientprogram använder MicroSoft Authentication Libraries (MSAL)
+I följande exempel visas ett offentliga klientprogram som körs på en enhet utan att en webbläsare. Appen kan vara ett kommandoradsverktyg, eller köras på Linux/Mac eller ett IoT-program. Exemplet har en app som har åtkomst till Microsoft Graph API namnet på en användare som loggar in interaktivt på en annan enhet (till exempel en mobiltelefon). Det här klientprogrammet använder MicroSoft Authentication Libraries (MSAL).
 
 Klientprogram | Plattform | Flow/bevilja | Anropar Microsoft Graph
 ------------------ | -------- |  ----------| ----------
@@ -96,11 +100,11 @@ Fjärrskrivbord (konsol)   | ![.NET / C# (skrivbord)](media/sample-v2-code/logo_
 
 ## <a name="web-apis"></a>Webb-API:er
 
-I följande exempel visas hur du skyddar ett webb-API med Azure AD V2-slutpunkten. Detta API utnyttjas av en WPF-program (men verkligen att anropas av alla program)
+I följande exempel visas hur du skyddar ett webb-API med Azure AD v2.0-slutpunkten. Detta API utnyttjas av en WPF-program, men den kan anropas av alla program.
 
 Plattform | Exempel
  -------- | -------------------
-![.NET / C#](media/sample-v2-code/logo_NET.png) | [DotNet-intern-aspnetcore-v2](https://GitHub.com/azure-samples/active-directory-dotnet-native-aspnetcore-v2)
+![.NET / C#](media/sample-v2-code/logo_NET.png) | WebAPI (tjänst) för [dotnet-intern-aspnetcore-v2](https://GitHub.com/azure-samples/active-directory-dotnet-native-aspnetcore-v2)
 
 ## <a name="other-microsoft-graph-samples"></a>Andra Microsoft Graph-exempel
 

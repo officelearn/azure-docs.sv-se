@@ -3,7 +3,7 @@ title: Användaren och session händelse analyser i Azure Application Insights |
 description: Demografiska analys av användare på din webbapp.
 services: application-insights
 documentationcenter: ''
-author: mrbullwinkle
+author: NumberByColors
 manager: carmonm
 ms.service: application-insights
 ms.workload: tbd
@@ -11,14 +11,15 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 01/24/2018
-ms.reviewer: daviste
-ms.author: mbullwin
-ms.openlocfilehash: 2bc10a292855832b7ddb9b8e3a59fbe0f17d8dc6
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.reviewer: mbullwin
+ms.pm_owner: daviste;NumberByColors
+ms.author: daviste
+ms.openlocfilehash: 6fd8adab93f5741afe6d3eab0c50ca50a327fbff
+ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47093816"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50140340"
 ---
 # <a name="users-sessions-and-events-analysis-in-application-insights"></a>Användare, sessioner och händelser analys i Application Insights
 
@@ -48,10 +49,10 @@ Utforska olika grupper av användare genom att justera frågealternativ överst 
 * Som används: Välj anpassade händelser och sidvisningar.
 * Under: Välj ett tidsintervall.
 * Genom: Välj hur du bucket data, antingen av en viss tid eller efter en annan egenskap, till exempel webbläsare eller ort.
-* Dela efter: Välj en egenskap som att dela eller segment data. 
-* Lägg till filter: Begränsa frågan till vissa användare, sessioner eller händelser utifrån deras egenskaper, till exempel webbläsare eller ort. 
- 
-## <a name="saving-and-sharing-reports"></a>Spara och dela rapporter 
+* Dela efter: Välj en egenskap som att dela eller segment data. 
+* Lägg till filter: Begränsa frågan till vissa användare, sessioner eller händelser utifrån deras egenskaper, till exempel webbläsare eller ort. 
+ 
+## <a name="saving-and-sharing-reports"></a>Spara och dela rapporter 
 Du kan spara användare rapporter, antingen privat bara för att du i avsnittet Mina rapporter eller delad med alla andra med åtkomst till den här Application Insights-resursen i avsnittet delade rapporter.
 
 Dela en länk till en användare, sessioner eller händelser-rapporterna. Klicka på **resursen** i verktygsfältet och sedan kopiera länken.

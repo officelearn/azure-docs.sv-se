@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 10/18/2018
 ms.author: diberry
-ms.openlocfilehash: 2f7c724b14efd569a5993f9a9319c9004874bc43
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: 0fe9dbed302fd2d61305167a3bda25b1b403b761
+ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49647603"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50139982"
 ---
 # <a name="prebuilt-entities-to-recognize-common-data-types"></a>Färdiga entiteter för att identifiera vanliga datatyper
 
@@ -25,7 +25,7 @@ LUIS innehåller en uppsättning fördefinierade entiteter för att identifiera 
 
 1. Öppna din app genom att klicka på namnet på **Mina appar** , och klicka sedan på **entiteter** till vänster. 
 
-1. På den **entiteter** klickar du på **hantera förskapade entiteter**.
+1. På den **entiteter** klickar du på **Lägg till fördefinierade entitet**.
 
 1. I **Lägg till fördefinierade entiteter** dialogrutan väljer du datetimeV2 fördefinierade entitet. 
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/12/2018
 ms.author: bryanla
-ms.openlocfilehash: d93ad4185be3d4875c5747fd10359baab69af95d
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: 00a2c0d50a2476995dfb0d16d0cdbc5bd0ec313b
+ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49958662"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50139014"
 ---
 # <a name="about-keys-secrets-and-certificates"></a>Om nycklar, hemligheter och certifikat
 
@@ -245,7 +245,7 @@ Följande attribut kan anges förutom de hemliga data:
 
 - *EXP*: IntDate, valfritt, som standard är **alltid**. Den *exp* (upphör att gälla) attributet anger förfallotid eller senare som den hemliga bör inte att hämta data, utom i [viss situationer](#date-time-controlled-operations). Det här fältet är för **endast i informationssyfte** syfte endast som informerar användare av key vault-tjänsten en särskild hemlighet inte får användas. Värdet måste vara ett tal som innehåller ett IntDate-värde.   
 - *NBF*: IntDate, valfritt, som standard är **nu**. Den *nbf* (inte före) attributet anger den tid som hemliga data inte hämtas, utom i [viss situationer](#date-time-controlled-operations). Det här fältet är för **endast i informationssyfte** i utvärderingssyfte. Värdet måste vara ett tal som innehåller ett IntDate-värde. 
-- *aktiverad*: boolesk, valfritt, standardvärdet är **SANT**. Det här attributet anger om hemliga data kan hämtas. Aktiverade attributet används tillsammans med och *exp* när en åtgärd som sker mellan och exp, det ska endast beviljas om aktiverat är inställt på **SANT**. Åtgärder utanför den *nbf* och *exp* fönstret är automatiskt otillåtna, utom i [viss situationer](#date-time-controlled-operations).  
+- *aktiverad*: boolesk, valfritt, standardvärdet är **SANT**. Det här attributet anger om hemliga data kan hämtas. Aktiverade attributet används tillsammans med *nbf* och *exp* när en åtgärd som sker mellan *nbf* och *exp*, kommer bara att tillåtna om aktiverat är inställt på **SANT**. Åtgärder utanför den *nbf* och *exp* fönstret är automatiskt otillåtna, utom i [viss situationer](#date-time-controlled-operations).  
 
 Det finns ytterligare skrivskyddade attribut som ingår i alla svar som innehåller hemliga attribut:  
 

@@ -9,12 +9,12 @@ ms.service: machine-learning
 ms.component: core
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 13820dd511d31217b79385e893edbb55a3a57693
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: e66dcac1d83c71174ad5d7c3fdcd2310143f8e01
+ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49430031"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50140814"
 ---
 # <a name="tune-hyperparameters-for-your-model"></a>Justera hyperparametrar för din modell
 
@@ -238,16 +238,18 @@ I det här exemplet tillämpas tidig uppsägning principen vid varje intervall m
 
 ### <a name="no-termination-policy"></a>Ingen princip för uppsägning
 
-Om du vill att alla träningskörningar Använd NoTerminationPolicy om du vill att slutföras. Detta har effekten av att tidig uppsägning principer tillämpas inte.
+Om du vill att alla träningskörningar till att slutföras, ställa in principen till ingen. Detta har effekten av att tidig uppsägning principer tillämpas inte.
 
 ```Python
-from azureml.train.hyperdrive import NoTerminationPolicy
-early_termination_policy = NoTerminationPolicy()
+policy=None
 ```
 
 ### <a name="default-policy"></a>Standardprincipen
 
-Om ingen princip har angetts finjustering justering tjänsten ska använda en Median stoppar princip med `evaluation_interval` 1 och `delay_evaluation` 5 som standard. Det här är konservativ inställningar som kan ge cirka 25% – 35% billigare utan att förlora på primära mått (baserat på vår utvärdering av data).
+Om ingen princip har angetts kan finjustering justering tjänsten alla träningskörningar att slutföras.
+
+>[!NOTE] 
+>Om du letar efter en konservativ princip som ger besparingar utan avslutande lovande jobb kan du använda en Median stoppar princip med `evaluation_interval` 1 och `delay_evaluation` 5. Det här är konservativ inställningar som kan ge cirka 25% – 35% billigare utan att förlora på primära mått (baserat på vår utvärdering av data).
 
 ## <a name="allocate-resources"></a>Tilldela resurser
 

@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 11/21/2017
 ms.author: glenga
-ms.openlocfilehash: 5487ff0b74176493f7e1ef621d1427dbc18f8a2e
-ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
+ms.openlocfilehash: 155e3f5184c19267ea64f3457bf12666479d1602
+ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50087559"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50139111"
 ---
 # <a name="azure-cosmos-db-bindings-for-azure-functions-1x"></a>Azure Cosmos DB-bindningar för Azure Functions 1.x
 
@@ -33,9 +33,8 @@ Den här artikeln förklarar hur du arbetar med [Azure Cosmos DB](..\cosmos-db\s
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
-## <a name="supported-apis"></a>API: er som stöds
-
-[!INCLUDE [SQL API support only](../../includes/functions-cosmosdb-sqlapi-note.md)]
+> [!NOTE]
+> Azure Cosmos DB-bindningar stöds endast för användning med SQL-API:n. För alla andra Azure Cosmos DB API: er, du ska få åtkomst till databasen från din funktion med hjälp av statiska klienten för ditt API, inklusive [MongoDB API](../cosmos-db/mongodb-introduction.md)] (.. /cosmos-DB/mongodb-Introduction.MD) [API för Cassandra](../cosmos-db/cassandra-introduction.md), [Gremlin-API](../cosmos-db/graph-introduction.md), och [tabell-API](../cosmos-db/table-introduction.md).
 
 ## <a name="packages---functions-1x"></a>Paket - instruktion i 1.x-funktioner
 

@@ -8,13 +8,13 @@ ms.topic: reference
 author: hning86
 ms.author: haining
 ms.reviewer: j-martens
-ms.date: 03/28/2018
-ms.openlocfilehash: 58d0d028c920faa7e86884c85f8fb677ce67c390
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.date: 10/24/2018
+ms.openlocfilehash: 0927ae14d232ec2ce3a46bb66ed535deabbe0138
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49389929"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50158694"
 ---
 # <a name="azure-machine-learning-service-release-notes"></a>Viktig information för Azure Machine Learning-tjänsten
 
@@ -24,19 +24,19 @@ I den här artikeln lär du dig om Azure Machine Learning-tjänstversioner.
 
 ### <a name="azure-machine-learning-sdk-for-python-v0168"></a>Azure Machine Learning-SDK för Python v0.1.68
 
-#### <a name="new-features"></a>Nya funktioner
- * Flera stöd för klienter när du skapar en ny arbetsyta.
++ **Nya funktioner**
+  * Flera stöd för klienter när du skapar en ny arbetsyta.
 
-#### <a name="breaking-changes"></a>Icke-bakåtkompatibla ändringar
- * **Kommande i nästa version** *Workspace.compute_targets, datalager, experiment, bilder, modeller* och *webservices* blir egenskaper i stället för metoder. Ersätt till exempel *Workspace.compute_targets()* med *Workspace.compute_targets*.
++ **Större ändringar**
+  * **Kommande i nästa version** *Workspace.compute_targets, datalager, experiment, bilder, modeller* och *webservices* blir egenskaper i stället för metoder. Ersätt till exempel *Workspace.compute_targets()* med *Workspace.compute_targets*.
 
-#### <a name="bugs-fixed"></a>Korrigerade buggar
- * Version för pynacl library behöver inte längre fästas när du distribuerar web-Molntjänsten.
++ **Korrigerade buggar**
+  * Version för pynacl library behöver inte längre fästas när du distribuerar web-Molntjänsten.
 
 ### <a name="azure-machine-learning-data-prep-sdk-v030"></a>Azure Machine Learning Data Förbered SDK v0.3.0
 
-#### <a name="new-features"></a>Nya funktioner:
-* Lagt till metoden transform_partition_with_file(script_path), vilket gör att användare att skicka in sökvägen till en Python-fil för att köra
++ **Nya funktioner**
+  * Lagt till metoden transform_partition_with_file(script_path), vilket gör att användare att skicka in sökvägen till en Python-fil för att köra
 
 ## <a name="2018-10-01"></a>2018-10-01
 
@@ -45,56 +45,55 @@ I den här artikeln lär du dig om Azure Machine Learning-tjänstversioner.
 
 Se [lista över kända problem](resource-known-issues.md) att lära dig om kända fel och lösningar.
 
-#### <a name="breaking-changes"></a>Icke-bakåtkompatibla ändringar
- * Workspace.experiments, Workspace.models, Workspace.compute_targets, Workspace.images Workspace.web_services returnerade ordlista, som tidigare returnerats lista. Se [azureml.core.Workspace](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace(class)?view=azure-ml-py) API-dokumentationen.
++ **Större ändringar**
+  * Workspace.experiments, Workspace.models, Workspace.compute_targets, Workspace.images Workspace.web_services returnerade ordlista, som tidigare returnerats lista. Se [azureml.core.Workspace](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace(class)?view=azure-ml-py) API-dokumentationen.
 
- * Automatiserade Machine Learning bort normaliserade medelvärdet kvadrat fel från den primära måtten.
+  * Automatiserade Machine Learning bort normaliserade medelvärdet kvadrat fel från den primära måtten.
 
++ **HyperDrive**
+  * Olika HyperDrive felkorrigeringar för Bayesian, prestandaförbättringar för hämta mått-anrop. 
+  * Tensorflow 1.10 uppgradering från 1.9 
+  * Docker-avbildning optimering för kallstart. 
+  * Jobbet är nu korrekt Rapportstatus även om de avslutas med fel code än 0. 
+  * RunConfig attributet validering i SDK. 
+  * HyperDrive kör objektet stöder Avbryt liknar en vanlig körning: du behöver inte vidarebefordra alla parametrar. 
+  * Widget förbättringar för att underhålla tillståndet för listrutan värden för distribuerade körningar och HyperDrive körs. 
+  * TensorBoard och andra loggar som stöd för filer som fasta för parametern-server. 
+  * Intel(R) MPI stöd på serversidan. 
+  * Bugfix till parametern justering för distribuerade kör korrigering vid verifiering av i BatchAI. 
+  * Kontext Manager identifierar nu den primära instansen. 
 
-#### <a name="hyperdrive"></a>HyperDrive
- * Olika HyperDrive felkorrigeringar för Bayesian, prestandaförbättringar för hämta mått-anrop. 
- * Tensorflow 1.10 uppgradering från 1.9 
- * Docker-avbildning optimering för kallstart. 
- * Jobbet är nu korrekt Rapportstatus även om de avslutas med fel code än 0. 
- * RunConfig attributet validering i SDK. 
- * HyperDrive kör objektet stöder Avbryt liknar en vanlig körning: du behöver inte vidarebefordra alla parametrar. 
- * Widget förbättringar för att underhålla tillståndet för listrutan värden för distribuerade körningar och HyperDrive körs. 
- * TensorBoard och andra loggar som stöd för filer som fasta för parametern-server. 
- * Intel(R) MPI stöd på serversidan. 
- * Bugfix till parametern justering för distribuerade kör korrigering vid verifiering av i BatchAI. 
- * Kontext Manager identifierar nu den primära instansen. 
++ **Azure-portalen**
+  * log_table() och log_row() stöds i informationen om körningen. 
+  * Automatiskt skapa diagram för tabeller och rader med 1,2 eller 3 numeriska kolumner och en valfri kategoriska kolumn.
 
-#### <a name="azure-portal-experience"></a>Azure-portalen
- * log_table() och log_row() stöds i informationen om körningen. 
- * Automatiskt skapa diagram för tabeller och rader med 1,2 eller 3 numeriska kolumner och en valfri kategoriska kolumn.
++ **Automatiserad Machine Learning**
+  * Förbättrad felhantering och dokumentation 
+  * Fasta kör egenskapshämtning prestandaproblem. 
+  * Fast fortsätta köra problemet. 
+  * Ensembling iteration ett problem har åtgärdats.
+  * Fast utbildning hängande bugg i MAC OS.
+  * Nedsampling makrot genomsnittlig pull-begäran/ROC-kurvan i scenario med anpassad validering.
+  * Ta bort extra index logik.
+  * Ta bort filter från get_output API.
 
-#### <a name="automated-machine-learning"></a>Automatiserad Machine Learning
- * Förbättrad felhantering och dokumentation 
- * Fasta kör egenskapshämtning prestandaproblem. 
- * Fast fortsätta köra problemet. 
- * Ensembling iteration ett problem har åtgärdats.
- * Fast utbildning hängande bugg i MAC OS.
- * Nedsampling makrot genomsnittlig pull-begäran/ROC-kurvan i scenario med anpassad validering.
- * Ta bort extra index logik.
- * Ta bort filter från get_output API.
++ **Pipelines**
+  * Lägga till en metod Pipeline.publish() att publicera en pipeline direkt, utan att kräva en körning köras först.   
+  * Lägga till en metod PipelineRun.get_pipeline_runs() att hämta pipelinen körs som har genererats från en publicerade pipeline.
 
-#### <a name="pipelines"></a>Pipelines
- * Lägga till en metod Pipeline.publish() att publicera en pipeline direkt, utan att kräva en körning köras först.   
- * Lägga till en metod PipelineRun.get_pipeline_runs() att hämta pipelinen körs som har genererats från en publicerade pipeline.
-
-#### <a name="project-brainwave"></a>Project Brainwave
- * Uppdaterade stöd för nya AI-modeller som finns på FPGA.
++ **Project Brainwave**
+  * Uppdaterade stöd för nya AI-modeller som finns på FPGA.
 
 ### <a name="azure-machine-learning-data-prep-sdk-v020"></a>Azure Machine Learning Data Förbered SDK v0.2.0
 [Version 0.2.0](https://pypi.org/project/azureml-dataprep/0.2.0/) innehåller följande funktioner och bugfixes:
 
-**Nya funktioner:** 
- * Stöd för en frekvent kodning
- * Stöd för quantile transformering
++ **Nya funktioner**
+  * Stöd för en frekvent kodning
+  * Stöd för quantile transformering
    
-**Bugg har åtgärdats:**
- * Fungerar med en storm-version du behöver inte nedgradera din storm-version
- * Antal värden för alla värden, inte bara de tre överst
++ **Bugg har åtgärdats:**
+  * Fungerar med en storm-version du behöver inte nedgradera din storm-version
+  * Antal värden för alla värden, inte bara de tre överst
 
 ## <a name="2018-09-public-preview-refresh"></a>2018-09 (offentlig förhandsversion uppdatera)
 

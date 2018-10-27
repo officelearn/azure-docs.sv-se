@@ -3,7 +3,7 @@ title: 'Azure Active Directory Domain Services: Ansluta till en CoreOS Linux vir
 description: Ansluta en CoreOS Linux-dator till Azure AD Domain Services
 services: active-directory-ds
 documentationcenter: ''
-author: mahesh-unnikrishnan
+author: eringreenlee
 manager: mtillman
 editor: curtand
 ms.assetid: 5db65f30-bf69-4ea3-9ea5-add1db83fdb8
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/22/2018
-ms.author: maheshu
-ms.openlocfilehash: 1574a6a4cf727198b17f5c62488d12be12d928f4
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.author: ergreenl
+ms.openlocfilehash: 0552085eb5ee5e5b3d1379482e9463a7ae802388
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39502040"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50158456"
 ---
 # <a name="join-a-coreos-linux-virtual-machine-to-a-managed-domain"></a>Ansluta en CoreOS Linux-dator till en hanterad domän
 Den här artikeln visar hur du kopplar en CoreOS Linux-dator i Azure till en Azure AD Domain Services-hanterad domän.
@@ -38,7 +38,7 @@ Om du vill utföra åtgärderna i den här artikeln behöver du:
 
 ## <a name="provision-a-coreos-linux-virtual-machine"></a>Etablera en virtuell CoreOS Linux-dator
 Etablera en CoreOS-dator i Azure, med hjälp av någon av följande metoder:
-* [Azure-portalen](../virtual-machines/linux/quick-create-portal.md)
+* [Azure Portal](../virtual-machines/linux/quick-create-portal.md)
 * [Azure CLI](../virtual-machines/linux/quick-create-cli.md)
 * [Azure PowerShell](../virtual-machines/linux/quick-create-powershell.md)
 

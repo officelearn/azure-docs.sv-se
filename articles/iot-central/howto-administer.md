@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 1bb0bc0aa7ad6bbbad502832ba8e0a96f36de428
-ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
+ms.openlocfilehash: 25b4777be4257933b84d58d0f10cf12571de9590
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48268318"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50155328"
 ---
 # <a name="administer-your-iot-central-application"></a>Administrera programmets IOT Central
 
@@ -33,7 +33,7 @@ Den **Administration** avsnittet kan du:
 
 I den **Administration** avsnittet, en sekundär navigeringsmenyn innehåller länkar till olika administrationsuppgifter.
 
-Du använder den **Administration** avsnittet, måste du vara i den **administratör** för ett program med Azure IoT Central. Om du skapar ett Azure IoT Central program tilldelas du automatiskt till den **administratör** rollen för programmet. Den *hantera användare* i den här artikeln innehåller mer information om hur du tilldelar den **administratör** rollen till andra användare.
+Du använder den **Administration** avsnittet, måste du vara i den **administratör** för ett program med Azure IoT Central. Om du skapar ett Azure IoT Central program tilldelas du automatiskt till den **administratör** rollen för programmet. Den [hantera användare](#manage-users) i den här artikeln innehåller mer information om hur du tilldelar den **administratör** rollen till andra användare.
 
 ## <a name="change-application-name"></a>Ändra programnamn
 

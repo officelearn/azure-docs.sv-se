@@ -11,12 +11,12 @@ ms.topic: article
 ms.workload: na
 ms.date: 04/05/2018
 ms.author: danlep
-ms.openlocfilehash: 5e0358ebf525c39c09df4268971fa71c02457821
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: fb0760f24b8f384818db8154ffe871d7fd4ce429
+ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47094201"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50138352"
 ---
 # <a name="monitor-and-debug-an-azure-batch-net-application-with-application-insights"></a>Övervaka och felsöka ett Azure Batch .NET-program med Application Insights
 
@@ -25,6 +25,10 @@ ms.locfileid: "47094201"
 Den här artikeln visar hur du lägger till och konfigurera Application Insights-biblioteket i din Azure Batch .NET-lösning och instrumentera din programkod. Den visar även sätt att övervaka program via Azure-portalen och skapa anpassade instrumentpaneler. För Application Insights på andra språk, titta på den [språk, plattformar och integreringar dokumentation](../application-insights/app-insights-platforms.md).
 
 Ett exempel C#-lösning med kod som medföljer den här artikeln är tillgänglig på [GitHub](https://github.com/Azure/azure-batch-samples/tree/master/CSharp/ArticleProjects/ApplicationInsights). Det här exemplet lägger till Application Insights instrumentation kod till den [TopNWords](https://github.com/Azure/azure-batch-samples/tree/master/CSharp/TopNWords) exempel. Om du inte är bekant med det här exemplet försök att skapa och köra TopNWords först. Detta hjälper dig att förstå en grundläggande Batch-arbetsflöde för bearbetning av en uppsättning indatablobbar parallellt på flera beräkningsnoder. 
+
+> [!TIP]
+> Alternativt kan du konfigurera Batch-lösningen för att visa Application Insights-data, till exempel prestandaräknare för virtuella datorer i Batch Explorer. [Batch Explorer](https://github.com/Azure/BatchExplorer) är ett kostnadsfritt, omfattande funktioner, fristående klientverktyg för att skapa, felsöka och övervaka Azure Batch-program. Hämta ett [installationspaketet](https://azure.github.io/BatchExplorer/) för Mac, Linux eller Windows. Se den [lagringsplats för batch-insights](https://github.com/Azure/batch-insights) för snabbsteg för att aktivera Application Insights-data i Batch Explorer. 
+>
 
 ## <a name="prerequisites"></a>Förutsättningar
 * [Visual Studio 2017](https://www.visualstudio.com/vs)

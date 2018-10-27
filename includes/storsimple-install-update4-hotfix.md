@@ -1,3 +1,16 @@
+---
+author: alkohli
+ms.service: storsimple
+ms.topic: include
+ms.date: 10/26/2018
+ms.author: alkohli
+ms.openlocfilehash: 6b37f4bac4bfcc6001171ed27899b71cdac7a312
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.translationtype: MT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50164564"
+---
 <!--author=alkohli last changed: 01/23/18-->
 
 #### <a name="to-download-hotfixes"></a>Ladda ned snabbkorrigerar
@@ -15,13 +28,13 @@ Utför följande steg för att hämta programuppdateringen från Microsoft Updat
    
     ![Sökkatalog](./media/storsimple-install-update2-hotfix/HCS_SearchCatalog1-include.png)
 
-4. Klicka på **Hämta**. Ange eller **Bläddra** till en lokal plats där du vill att nedladdningarna ska läggas. Klicka på filer som hämtas till den angivna platsen och mapp. Mappen kan också kopieras till en nätverksresurs som kan nås från enheten.
-5. Sök efter eventuella ytterligare snabbkorrigeringar som anges i tabellen ovan (**4011841**), och hämta motsvarande filer till specifika mappar som anges i tabellen ovan.
+4. Klicka på **Hämta**. Ange eller **Bläddra** till en lokal plats där du vill att nedladdningarna ska läggas. Klicka på filerna som hämtas till den angivna platsen och mappen. Mappen kan också kopieras till en nätverksresurs som kan nås från enheten.
+5. Sök efter ytterligare snabbkorrigeringar som anges i tabellen ovan (**4011841**), och ladda ned motsvarande filer till specifika mappar som anges i tabellen ovan.
 
 > [!NOTE]
-> Snabbkorrigeringarna måste vara tillgänglig från båda domänkontrollanter för att identifiera eventuella felmeddelanden från peer-domänkontrollant.
+> Snabbkorrigeringarna måste kunna nås från båda styrenheterna för att identifiera möjliga felmeddelanden från peer-domänkontrollant.
 >
-> Snabbkorrigeringarna måste kopieras till tre separata mappar. Exempelvis kan enheten MDS-program/TIS agentuppdatering kopieras i _FirstOrderUpdate_ mapp, alla andra utan avbrott uppdateringar kan kopieras i den _SecondOrderUpdate_ mapp, och Underhåll läge uppdateringar kopierade i _ThirdOrderUpdate_ mapp.
+> Snabbkorrigeringarna måste kopieras till tre separata mappar. Till exempel programvara/Cis/MDS-agentuppdatering enhet kan kopieras i _FirstOrderUpdate_ mappen alla andra avbrottsfria uppdateringar kunde kopieras i den _SecondOrderUpdate_ mappen och uppdateringar av underhållsläge kopierade i _ThirdOrderUpdate_ mapp.
 
 #### <a name="to-install-and-verify-regular-mode-hotfixes"></a>Installera och verifiera snabbkorrigeringar i normalläge
 
@@ -39,7 +52,7 @@ Utför följande steg för att installera och verifiera snabbkorrigeringar i nor
    
     Ange lösenordet när du uppmanas att göra så.
    
-    Ett exempel på utdata för att installera första orderns uppdateringar visas nedan. Du måste peka på filen för den första uppdateringen i ordning.
+    Ett exempel på utdata för att installera första orderns uppdateringar visas nedan. Du måste peka på den specifika filen för den första uppdateringen i ordning.
    
         ````
         Controller0>Start-HcsHotfix -Path \\10.100.100.100\share
@@ -93,10 +106,10 @@ Utför följande steg för att installera och verifiera snabbkorrigeringar i nor
     Om versionsnumret inte ändras efter att uppdateringen har tillämpats indikerar det att snabbkorrigeringen har misslyckats. Kontakta [Microsoft Support](../articles/storsimple/storsimple-contact-microsoft-support.md) för ytterligare hjälp om du ser det här.
      
     > [!IMPORTANT]
-    > Du måste starta om den aktiva styrenheten via den `Restart-HcsController` cmdlet innan du tillämpar nästa uppdatering.
+    > Du måste starta om den aktiva kontrollenheten via den `Restart-HcsController` cmdlet innan du tillämpar nästa uppdatering.
      
-7. Upprepa steg 3-5 om du vill installera agenten TIS/MDS hämtas till din _FirstOrderUpdate_ mapp. 
-8. Upprepa steg 3-5 för att installera andra orderns uppdateringar. **För andra uppdateringar, flera uppdateringar installeras genom att bara köra den `Start-HcsHotfix cmdlet` och peka på den mapp där det finns andra uppdateringar. Cmdleten körs alla uppdateringar som är tillgängliga i mappen.** Om en uppdatering redan är installerad identifierar uppdateringslogiken det och tillämpar inte uppdateringen. 
+7. Upprepa steg 3 – 5 för att installera Cis/MDS-agenten som hämtas till din _FirstOrderUpdate_ mapp. 
+8. Upprepa steg 3-5 för att installera andra orderns uppdateringar. **För andra orderuppdateringar flera uppdateringar installeras genom att köra den `Start-HcsHotfix cmdlet` och peka på den mapp där andra orderuppdateringar finns. Cmdleten kör alla tillgängliga uppdateringar i mappen.** Om en uppdatering redan är installerad identifierar uppdateringslogiken det och tillämpar inte uppdateringen. 
 
 När alla snabbkorrigeringar har installerats använder du `Get-HcsSystem`-cmdleten. Versionerna bör vara:
 
@@ -153,7 +166,7 @@ Följ anvisningarna nedan om du vill installera uppdateringarna för den inbyggd
         [Y] Yes [N] No (Default is "Y"): Y
         WARNING: Installation is currently in progress. This operation can take several minutes to complete.
 3. Övervaka installationsförloppet med `Get-HcsUpdateStatus`-kommandot. Uppdateringen är slutförd när `RunInProgress` ändras till `False`.
-4. När installationen är färdig startas styrenheten som snabbkorrigeringen i underhållsläge installerades på om. Logga in om det alternativ 1, **logga in med fullständig åtkomst**, och verifiera versionen av inbyggd programvara disk. Ange:
+4. När installationen är färdig startas styrenheten som snabbkorrigeringen i underhållsläge installerades på om. Logga i alternativ 1, **logga in med fullständig åtkomst**, och kontrollera versionen för inbyggd programvara för disk. Ange:
    
    `Get-HcsFirmwareVersion`
    

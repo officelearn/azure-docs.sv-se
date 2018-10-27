@@ -1,9 +1,22 @@
+---
+author: alkohli
+ms.service: storsimple
+ms.topic: include
+ms.date: 10/26/2018
+ms.author: alkohli
+ms.openlocfilehash: a2ef939b621b02a49c29a37bc12b335db7ba60b9
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.translationtype: MT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50164215"
+---
 <!--author=alkohli last changed: 08/29/17-->
 
 ## <a name="troubleshooting-update-failures"></a>Felsökning av misslyckade uppdateringar
 **Vad händer om du ser en avisering om att kontrollerna före uppgradering har misslyckats?**
 
-Om en förkontroll misslyckas kontrollerar du att du har tittat i det detaljerade meddelandefältet längst ned på sidan. Detta ger vägledning om vilken förkontroll som misslyckades. Exempelvis kan du få ett meddelande som domänkontrollant hälsokontrollen och maskinvara komponenten hälsokontroll har misslyckats. Gå till **övervakaren > maskinvara hälsa**. Du måste se till att både domänkontrollanter är felfri och online. Du måste också se till att alla maskinvarukomponenter i StorSimple-enhet visas vara felfria i det här bladet. Du kan sedan försöka installera uppdateringarna. Om du inte kan åtgärda problemen med maskinvarukomponenterna måste du kontakta Microsoft Support angående nästa steg.
+Om en förkontroll misslyckas kontrollerar du att du har tittat i det detaljerade meddelandefältet längst ned på sidan. Detta ger vägledning om vilken förkontroll som misslyckades. Exempelvis kan få du ett meddelande som den hälsokontrollen och kontrollen av maskinvarukomponenternas hälsa har misslyckats. Gå till **övervakaren > hälsotillstånd för maskinvara**. Du måste se till att båda styrenheterna är felfria och online. Du måste också se till att alla maskinvarukomponenter i StorSimple-enheten visas felfria i det här bladet. Du kan sedan försöka installera uppdateringarna. Om du inte kan åtgärda problemen med maskinvarukomponenterna måste du kontakta Microsoft Support angående nästa steg.
 
 **Vad händer om du ser felmeddelandet "Could not install updates" (Det gick inte att installera uppdateringarna), och rekommendationen är att läsa felsökningsguiden för uppdateringen för att fastställa orsaken till felet?**
 

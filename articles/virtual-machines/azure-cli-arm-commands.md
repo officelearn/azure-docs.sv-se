@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/18/2017
 ms.author: danlep
-ms.openlocfilehash: 5aecb218b66c06c87446e35e5c7c9ca8108b956c
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 8b76e1a168d39d2f39098754f43bae73c21c2049
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46995558"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50155822"
 ---
 # <a name="azure-cli-commands-in-resource-manager-mode"></a>Azure CLI-kommandon i Resource Manager-läge
 Den här artikeln innehåller syntax och alternativ för Azure-kommandoradsgränssnittet (CLI)-kommandon som du ofta använder för att skapa och hantera Azure-resurser i Azure Resource Manager-distributionsmodellen. Du har åtkomst till dessa kommandon genom att köra CLI i Resource Manager (arm)-läge. Detta är inte en fullständig referens och din CLI-version kan indikera att något annorlunda kommandon eller parametrar. En allmän översikt över Azure-resurser och resursgrupper finns [översikt över Azure Resource Manager](../azure-resource-manager/resource-group-overview.md).  
@@ -1453,7 +1453,7 @@ Parameteralternativ för:
     e.g. /subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.Network/virtualNetworks/<vnet-name>/subnets/<subnet-name>
     --subnet-name <subnet-name>                                  the subnet name
     -m, --subnet-vnet-name <subnet-vnet-name>                        the vnet name under which subnet-name exists
-    -t, --tags <tags>                                                the comma seperated list of tags.
+    -t, --tags <tags>                                                the comma separated list of tags.
     Can be multiple. In the format of "name=value".
     Name is required and value is optional.
     For example, -t tag1=value1;tag2

@@ -6,14 +6,14 @@ manager: timlt
 ms.service: iot-accelerators
 services: iot-accelerators
 ms.topic: conceptual
-ms.date: 12/12/2017
+ms.date: 10/26/2018
 ms.author: dobett
-ms.openlocfilehash: ae5218bae12b9489d67b0264f0e5fdb6d833cb9e
-ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
+ms.openlocfilehash: 23b36fb647c2949dca1c5efe7f8194ec5a397965
+ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39187775"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50140408"
 ---
 # <a name="connected-factory-solution-accelerator-walkthrough"></a>Genomgång av lösningsacceleratorn Ansluten fabrik
 
@@ -53,7 +53,7 @@ Lösningen har också en OPC UA-klient som är integrerad i ett webbprogram som 
 
 De simulerade stationerna och de simulerade tillverkningsverkställningssystemen (MES) bildar en fabriksproduktionsrad. De simulerade enheterna och OPC Publisher-modulen baseras på [OPC UA .NET-standarden][lnk-OPC-UA-NET-Standard] som ges ut av OPC Foundation.
 
-OPC Proxy och OPC Publisher implementeras som moduler baserat på [Azure IoT Edge][lnk-Azure-IoT-Gateway]. Varje simulerad produktionsrad har en särskild gateway ansluten.
+OPC Proxy och OPC Publisher implementeras som moduler baserat på [Azure IoT Edge][lnk-Azure-IoT-Gateway]. Varje simulerad produktionsrad har en gateway ansluten.
 
 Alla simuleringskomponenter körs i Docker-containrar som finns i en virtuell Azure Linux-dator. Simuleringen konfigureras för att köra åtta simulerade produktionsrader som standard.
 
@@ -61,15 +61,19 @@ Alla simuleringskomponenter körs i Docker-containrar som finns i en virtuell Az
 
 En produktionsrad tillverkar delar. Den består av olika stationer: en sammansättningsstation, en teststation och en förpackningsstation.
 
-Simuleringen körs och uppdaterar data som exponeras via OPC UA-noderna. Alla simulerade produktionsradstationer samordnas av MES via OPC UA.
+Simuleringen körs och uppdaterar de data som är tillgängliga via OPC UA-noder. Alla simulerade produktionsradstationer samordnas av MES via OPC UA.
 
 ## <a name="simulated-manufacturing-execution-system"></a>Simulerat körningssystem för tillverkning
 
-MES övervakar varje station i produktionsraden via OPC UA för att identifiera ändringar i stationens status. Den anropar OPC UA-metoder för att kontrollera stationerna och överför en produkt från en station till en annan tills det är klart.
+MES övervakar varje station i produktionsraden via OPC UA för att identifiera ändringar i stationens status. Den anropar OPC UA-metoder för att kontrollera stationerna och överför en produkt från en station till nästa tills den är klar.
 
 ## <a name="gateway-opc-publisher-module"></a>Gateway OPC Publisher-modul
 
-OPC Publisher-modulen ansluter till stationens OPC UA-servrar och prenumererar på OPC-noder som ska publiceras. Modulen omvandlar noddata till JSON-format, krypterar dem och skickar dem till IoT Hub som OPC UA pub-/sub-meddelanden.
+OPC Publisher-modulen ansluter till stationens OPC UA-servrar och prenumererar på OPC-noder som ska publiceras. Modulen:
+
+1. Omvandlar noddata till JSON-format.
+1. Krypterar JSON.
+1. Skickar JSON till IoT Hub som OPC UA Pub/Sub-meddelanden.
 
 OPC Publisher-modulen kräver endast en utgående https-port (443) och kan arbeta med företagets befintliga infrastruktur.
 
@@ -77,7 +81,7 @@ OPC Publisher-modulen kräver endast en utgående https-port (443) och kan arbet
 
 Gateway OPC UA Proxy-modulen fungerar som en tunnel för binära OPC UA-kommandon och kontrollerar meddelanden och kräver endast en utgående https-port (443). Den kan fungera med befintlig företagsinfrastruktur, inklusive webbproxyservrar.
 
-Den använder IoT Hub-enhetsmetoder för att överföra paketerade TCP/IP-data på programnivån och garanterar på så sätt slutpunktsförtroende, datakryptering och integritet med SSL/TLS.
+IoT Hub-enhetsmetoder används för att överföra paketerade TCP/IP-data på programnivån så slutpunktsförtroende, datakryptering och integritet med SSL/TLS.
 
 Det binära OPC UA-protokollet som är vidarebefordrande via själva proxyservern använder UA-autentisering och -kryptering.
 
@@ -93,13 +97,13 @@ IoT Hub tillhandahåller en händelsekälla till Azure TSI. TSI lagrar data i 30
 * Tidsstämpel för källa
 * OPC UA DisplayName
 
-För närvarande tillåter inte TSI att kunder anpassar hur länge de vill behålla data.
+För närvarande att inte TSI kunder anpassar hur länge de vill behålla data för.
 
-TSI-frågor mot noddata med ett **SearchSpan** (**Time.From**, **Time.To**) och aggregeras av **OPC UA ApplicationUri** eller **OPC UA NodeId** eller **OPC UA DisplayName**.
+TSI-frågor mot noddata med ett tidsbaserade **SearchSpan** och aggregeras av **OPC UA ApplicationUri** eller **OPC UA NodeId** eller **OPC UA DisplayName**.
 
-Om du vill hämta data för OEE- och KPI-mätare och tidsseriediagram aggregeras data via antal händelser, Summa, Medel, Min och Max.
+Om du vill hämta data för OEE och KPI-mätare och tidsseriediagrammen lösningen sammanställer data per antal händelser, **summan**, **genomsnittlig**, **Min**, och  **Max**.
 
-Tidsserier skapas med en annan process. OEE och KPI:er beräknas från stationsgrunddata och används för topologin (produktionsrader, fabriker, företag) i programmet.
+Tidsserier skapas med en annan process. Lösningen beräknas OEE och KPI-värden från station grunddata och bubblar värdena för de produktionsrader, fabriker och enterprise.
 
 Dessutom beräknas tidsserier för OEE- och KPI-topologi i appen när en visad tidsangivelse är klar. Dagsvyn uppdateras exempelvis varje hel timme.
 
@@ -116,7 +120,7 @@ IoT Hub ansvarar även för följande uppgifter i lösningen:
 Lösningen använder Azure Blob Storage som disklagring för den virtuella datorn och för att lagra distribueringsdata.
 
 ## <a name="web-app"></a>Webbapp
-Webbappen distribueras som en del av lösningsacceleratorn och består av en integrerad OPC UA-klient, aviseringsbehandling och telemetrivisualisering.
+Webbappen distribueras som en del av solution accelerator innehåller en integrerad OPC UA-klient, aviseringsbehandling och telemetrivisualisering.
 
 ## <a name="telemetry-data-flow"></a>Telemetridataflöde
 
@@ -161,7 +165,7 @@ Webbappen distribueras som en del av lösningsacceleratorn och består av en int
     - Det här steget utförs internt i datacentret.
 
 11. Webbläsaren ansluter till den anslutna WebApp-fabriken.
-    - En instrumentpanel renderas för Ansluten fabrik.
+    - Visar instrumentpanelen för ansluten fabrik.
     - Ansluter via HTTPS.
     - Åtkomst till appen Ansluten fabrik kräver användarautentisering via Azure Active Directory.
     - Alla WebApi-anrop till appen Ansluten fabrik skyddas av antiförfalskningstokens.
@@ -182,9 +186,9 @@ Webbappen distribueras som en del av lösningsacceleratorn och består av en int
 
 2. OPC Proxy (serverkomponenten) registreras automatiskt i IoT Hub.
     - Läser in alla kända enheter från IoT Hub.
-    - Använder MQTT via TLS-socketanslutning eller säker Websocket-anslutning.
+    - Använder MQTT via TLS socketanslutning eller säker websocket-anslutning.
 
-3. Webbläsaren ansluter till den anslutna WebApp-fabriken. En instrumentpanel renderas för Ansluten fabrik.
+3. Webbläsaren ansluter till den anslutna fabriken WebApp-ansluten fabrik instrumentpanelen visas.
     - Använder HTTPS.
     - Användaren väljer en OPC UA-server att ansluta till.
 
@@ -212,7 +216,7 @@ Webbappen distribueras som en del av lösningsacceleratorn och består av en int
     - Dessa data levereras till OPC UA-stacken i appen Ansluten fabrik.
 
 11. Den anslutna WebApp-fabriken returnerar OPC Browser UX med OPC UA-specifik information som togs emot från OPC UA-servern och som renderas i webbläsaren.
-    - När du söker igenom OPC-adressutrymmet och tillämpar funktioner på noderna i OPC-adressutrymmet, kommer OPC Browser UX-klienten att använda AJAX-anrop via HTTPS som skyddas av antiförfalskningstokens för att hämta data från den anslutna WebApp-fabriken.
+    - Även om en användare bläddrar igenom OPC-adressutrymmet och tillämpar funktioner för noder i OPC-adressutrymmet, använder klienten OPC Browser UX AJAX-anrop via HTTPS som skyddas av Antiförfalskningstoken för att hämta data från den anslutna fabriken WebApp.
     - Vid behov använder klienten det kommunikationssätt som beskrivs i steg 4 till 10 för att få till ett informationsutbyte med OPC UA-servern.
 
 > [!NOTE]

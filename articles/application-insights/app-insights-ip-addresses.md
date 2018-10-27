@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/23/2018
 ms.author: mbullwin
-ms.openlocfilehash: dd03aceae2111ce64244b9b449aa0e4be7c53aed
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: 76037419730aac57e880b71f5b885e657533553d
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49428240"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50157453"
 ---
 # <a name="ip-addresses-used-by-application-insights-and-log-analytics"></a>IP-adresser som används av Application Insights och Log Analytics
 Den [Azure Application Insights](app-insights-overview.md) tjänsten använder ett antal IP-adresser. Du kan behöva veta dessa adresser om den app som du övervakar finns bakom en brandvägg.
@@ -38,7 +38,7 @@ Du måste öppna vissa utgående portar i serverns Brandvägg för att Applicati
 
 | Syfte | URL | IP-adress | Portar |
 | --- | --- | --- | --- |
-| Telemetri |dc.services.visualstudio.com<br/>dc.applicationinsights.microsoft.com |40.114.241.141<br/>104.45.136.42<br/>40.84.189.107<br/>168.63.242.221<br/>52.167.221.184<br/>52.169.64.244<br/>40.85.218.175<br/>104.211.92.54<br/>52.175.198.74 | 443 |
+| Telemetri |dc.services.visualstudio.com<br/>dc.applicationinsights.microsoft.com |40.114.241.141<br/>104.45.136.42<br/>40.84.189.107<br/>168.63.242.221<br/>52.167.221.184<br/>52.169.64.244<br/>40.85.218.175<br/>104.211.92.54<br/>52.175.198.74<br/>51.140.6.23 | 443 |
 | Live Metrics Stream |rt.services.visualstudio.com<br/>rt.applicationinsights.microsoft.com |23.96.28.38<br/>13.92.40.198 |443 |
 
 ## <a name="status-monitor"></a>Statusövervakare
@@ -317,6 +317,7 @@ East US
 | Interna API |aigs.aisvc.visualstudio.com<br/>aigs1.aisvc.visualstudio.com<br/>aigs2.aisvc.visualstudio.com<br/>aigs3.aisvc.visualstudio.com<br/>aigs4.aisvc.visualstudio.com<br/>aigs5.aisvc.visualstudio.com<br/>aigs6.aisvc.visualstudio.com |Dynamisk|443 |
 
 ## <a name="log-analytics-api"></a>Log Analytics-API
+
 | Syfte | URI | IP-adress | Portar |
 | --- | --- | --- | --- |
 | API |api.loganalytics.io<br/>*.api.loganalytics.io |Dynamisk |80,443 |
@@ -358,7 +359,7 @@ Obs: *. loganalytics.io domänen ägs av Log Analytics-teamet.
 ## <a name="alert-webhooks"></a>Webhooks för aviseringar
 
 | Syfte | IP-adress | Portar
-| --- | --- | --- | --- |
+| --- | --- | --- |
 | Aviseringar | 23.96.11.4 | 443 |
 
 ## <a name="profiler"></a>Profilerare

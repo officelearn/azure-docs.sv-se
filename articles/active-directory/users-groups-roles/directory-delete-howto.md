@@ -13,12 +13,12 @@ ms.date: 06/13/2018
 ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: it-pro
-ms.openlocfilehash: b1d3439412e324c71687c43aa9e47c520cb72262
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: ab752799c9e64e47abe0200a26215f9e01c489f6
+ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "42057379"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50139694"
 ---
 # <a name="delete-an-azure-active-directory-tenant"></a>Ta bort en Azure Active Directory-klient
 När en klient tas bort så raderas även alla resurser som finns i klienten. Du måste förbereda klienten genom att minimera dess kopplade resurser innan du tar bort. Endast en global administratör för Azure Active Directory (Azure AD) kan ta bort en Azure AD-klient från portalen.
@@ -73,7 +73,7 @@ Du kan placera en prenumeration till en **Deprovisoned** tillstånd och kan inte
   
   ![allmänna villkor](./media/directory-delete-howto/delete-terms.png)
 
-4. Nu prenumerationens status har ändrats, har prenumerationen markerats för borttagning. Prenumeration eneters den **avetablerad** tillstånd 72 timmar senare.
+4. Nu prenumerationens status har ändrats, har prenumerationen markerats för borttagning. Prenumerationen försätts den **avetablerad** tillstånd 72 timmar senare.
 
 5. När du har tagit bort en prenumeration på din klient och 72 timmar har gått ut kan du registrera ska tillbaka till Azure AD administratörscenter igen och det vara något krävs och inga prenumerationer som blockerar borttagningen din klient. Du bör kunna togs bort Azure AD-klienten.
   

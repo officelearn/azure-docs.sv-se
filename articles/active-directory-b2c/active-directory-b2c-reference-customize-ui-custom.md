@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 04/25/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: c6882dd56ee96e1fcab5926b77f11ce928bf950b
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: c363056fc013cc8b8fd67fb9d656d3550d3bf5a2
+ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37442363"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50139517"
 ---
 # <a name="customize-the-ui-of-a-user-journey-with-custom-policies"></a>Anpassa Användargränssnittet för en användarresa med anpassade principer
 
@@ -41,7 +41,7 @@ Jämfört med den gamla traditionell, där mallen sidor ägs av den information 
 Du kan ange så många innehållssidor som du vill genom att utforma HTML5/CSS-filer vid behov.
 
 > [!NOTE]
-> Användning av JavaScript är för närvarande blockerad för anpassning av säkerhetsskäl. Om du vill avblockera JavaScript krävs användning av ett anpassat domännamn för din Azure AD B2C-klient.
+> Användning av JavaScript är för närvarande blockerad för anpassning av säkerhetsskäl. 
 
 I var och en av dina HTML5/CSS-mallar, anger du ett *förtroendeankare* element som motsvarar de nödvändiga `<div id=”api”>` element i HTML eller sidan innehåll som illustrerar nedan. Azure AD B2C kräver att alla innehållssidor har den här specifika div.
 

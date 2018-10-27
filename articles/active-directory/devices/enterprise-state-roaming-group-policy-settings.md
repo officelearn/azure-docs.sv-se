@@ -16,12 +16,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/25/2018
 ms.author: markvi
-ms.openlocfilehash: a08fbb90d1148396dbcf3960536568d61e5f04b0
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.openlocfilehash: b5f5fa74dca664d31c19055fadd9b66f84627b67
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50098185"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50157113"
 ---
 # <a name="group-policy-and-mdm-settings"></a>Inställningar för grupprinciper och MDM
 Använd dessa Grupprincip och hanteringsinställningar för mobila enheter (MDM) endast på företagsägda enheter eftersom dessa principer tillämpas på användarens hela enheten. Tillämpa en MDM-principen för att inaktivera synkronisering av inställningar för en personlig påverkar användarägda enheter negativt användningen av enheten. Dessutom kommer andra användarkonton på enheten också att påverkas av principen.
@@ -38,7 +38,9 @@ Inställningarna för MDM-principen gäller för både Windows 10 och Windows 10
 | Tillåt synkronisering av Mina inställningar |Tillåter användare att flytta Windows-inställningar och AppData; Inaktiverar den här principen kommer att inaktivera synkronisering samt säkerhetskopior på mobila enheter |
 
 ## <a name="group-policy-settings"></a>Grupprincipinställningar
-Inställningarna för grupprinciper gäller för Windows 10-enheter som är anslutna till en Active Directory-domän. Tabellen innehåller också äldre inställningar som skulle visas för att hantera synkroniseringsinställningar, men som inte arbetar för företaget tillstånd Roaming för Windows 10, som är märkta med ”Använd inte” i beskrivningen.
+Grupprincipinställningar som gäller för Windows 10-enheter som är anslutna till en Active Directory-domän. Tabellen innehåller också äldre inställningar som skulle visas för att hantera synkroniseringsinställningar, men som inte arbetar för företaget tillstånd Roaming för Windows 10, som är märkta med ”Använd inte” i beskrivningen.
+
+De här inställningarna finns på: `Computer Configuration > Administrative Templates > Windows Components > Sync your settings` 
 
 | Namn | Beskrivning |
 | --- | --- |

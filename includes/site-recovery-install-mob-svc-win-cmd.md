@@ -1,3 +1,16 @@
+---
+author: rayne-wiselman
+ms.service: site-recovery
+ms.topic: include
+ms.date: 10/26/2018
+ms.author: raynew
+ms.openlocfilehash: 65477f62af80511a73307204c2a6f4b5e0f409d6
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.translationtype: MT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50164473"
+---
 1. Kopiera installationsprogrammet till en lokal mapp (exempelvis C:\Temp) på den server som du vill skydda. Kör följande kommandon som en administratör i en kommandotolk:
 
   ```

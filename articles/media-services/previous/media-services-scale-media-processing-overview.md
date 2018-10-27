@@ -4,22 +4,21 @@ description: Det här avsnittet är en översikt över skalning bearbetning av M
 services: media-services
 documentationcenter: ''
 author: juliako
-manager: cfowler
+manager: femila
 editor: ''
-ms.assetid: 780ef5c2-3bd6-4261-8540-6dee77041387
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/30/2018
+ms.date: 10/25/2018
 ms.author: juliako
-ms.openlocfilehash: 698a85244d5341224dd9f513c5617b9086e36844
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 1d626a22802a1de19bcc5647179d76d44e826cfd
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47033081"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50159051"
 ---
 # <a name="scaling-media-processing-overview"></a>Bearbetning av Media översikt över skalning
 Den här sidan ger en översikt över hur och varför att skala mediebearbetning. 
@@ -32,11 +31,11 @@ Förutom att ange typ av reserverad enhet kan ange du att etablera ditt konto me
 ## <a name="choosing-between-different-reserved-unit-types"></a>Välja mellan olika reserverade enhetstyper
 Tabellen nedan hjälper dig att fatta ett beslut när du väljer mellan olika kodning hastigheter. Det ger också några benchmark-fall på [en video som du kan hämta](https://nimbuspmteam.blob.core.windows.net/asset-46f1f723-5d76-477e-a153-3fd0f9f90f73/SeattlePikePlaceMarket_7min.ts?sv=2015-07-08&sr=c&si=013ab6a6-5ebf-431e-8243-9983a6b5b01c&sig=YCgEB8DxYKK%2B8W9LnBykzm1ZRUTwQAAH9QFUGw%2BIWuc%3D&se=2118-09-21T19%3A28%3A57Z) att utföra egna test:
 
-| Scenarier | **S1** | **S2** | **S3** |
-| --- | --- | --- | --- |
-| Avsedda användning |Enkel bithastighet kodning. <br/>Filer på SD eller under lösningar, tid inte känsliga, låg kostnad. |Enkel bithastighet och flera bithastigheter kodning.<br/>Normal användning för både SD och HD encoding. |Enkel bithastighet och flera bithastigheter kodning.<br/>Fullständig HD och 4K högupplöst video. Tid känsliga och snabbare arbetet kodning. |
-| Prestandamått för 7 minuter långa videon |Koda till en enda bithastighet MP4-fil med samma upplösning tar cirka 5 minuter. |Kodning med ”H264, enkel bithastighet, 720p” förinställda tar cirka åtta minuter.<br/><br/>Kodning med ”H264, flera bithastigheter, 720p” förinställning tar cirka 16,8 minuter. |Kodning med ”H264, enkel bithastighet, 1080p” förinställda tar cirka 4 minuter.<br/><br/>Kodning med ”H264 Multibithastighet 1080p” förinställning tar cirka 8 minuter. |
-
+|RU-typ|Scenario|Exempel resulterar för den [7 min 1080 p video](https://nimbuspmteam.blob.core.windows.net/asset-46f1f723-5d76-477e-a153-3fd0f9f90f73/SeattlePikePlaceMarket_7min.ts?sv=2015-07-08&sr=c&si=013ab6a6-5ebf-431e-8243-9983a6b5b01c&sig=YCgEB8DxYKK%2B8W9LnBykzm1ZRUTwQAAH9QFUGw%2BIWuc%3D&se=2118-09-21T19%3A28%3A57Z)|
+|---|---|---|
+| **S1**|Enkel bithastighet kodning. <br/>Filer på SD eller under lösningar, tid inte känsliga, låg kostnad.|Koda till en enda bithastighet MP4-fil med samma upplösning tar cirka 5 minuter.|
+| **S2**|Enkel bithastighet och flera bithastigheter kodning.<br/>Normal användning för både SD och HD encoding.|Kodning med ”H264, enkel bithastighet, 720p” förinställda tar cirka åtta minuter.<br/><br/>Kodning med ”H264, flera bithastigheter, 720p” förinställning tar cirka 16,8 minuter.|
+| **S3**|Enkel bithastighet och flera bithastigheter kodning.<br/>Fullständig HD och 4K högupplöst video. Tid känsliga och snabbare arbetet kodning.|Kodning med ”H264, enkel bithastighet, 1080p” förinställda tar cirka 4 minuter.<br/><br/>Kodning med ”H264 Multibithastighet 1080p” förinställning tar cirka 8 minuter.|
 
 ## <a name="considerations"></a>Överväganden
 > [!IMPORTANT]
@@ -58,7 +57,7 @@ Läs om hur kvoter och begränsningar och hur du öppnar ett supportärende [kvo
 Få skalning media bearbetning uppgiften med någon av dessa tekniker: 
 
 > [!div class="op_single_selector"]
-> * [.NET](media-services-dotnet-encoding-units.md)
+> * [NET](media-services-dotnet-encoding-units.md)
 > * [Portal](media-services-portal-scale-media-processing.md)
 > * [REST](https://docs.microsoft.com/rest/api/media/operations/encodingreservedunittype)
 > * [Java](https://github.com/southworkscom/azure-sdk-for-media-services-java-samples)

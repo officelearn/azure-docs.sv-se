@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 10/15/2018
 ms.author: yijenj
-ms.openlocfilehash: a0b3c220a1cd857bc8bea0eb5ab41625845fcc5d
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
+ms.openlocfilehash: 604eb528ef33a95993aa5b6d3ff6eebb77936aa2
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49365636"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50157946"
 ---
 # <a name="azure-partner-customer-usage-attribution"></a>Azure-partner kundens användning attribution
 
@@ -44,7 +44,7 @@ Många partnerlösningar distribueras på en kunds prenumeration med hjälp av R
 
 Om du vill lägga till en globalt unik identifierare (GUID), kan du göra en enda ändring huvudsakliga mallfilen:
 
-1. [Skapa ett GUID](#create-guids) (t.ex. eb7927c8-dd66-43e1-b0cf-c346a422063) och [registrera GUID](#register-guids-and-offers).
+1. [Skapa ett GUID](#create-guids) med metoden föreslagna och [registrera GUID](#register-guids-and-offers).
 
 1. Öppna Resource Manager-mallen.
 
@@ -58,9 +58,26 @@ Om du vill lägga till en globalt unik identifierare (GUID), kan du göra en end
 
 1. [Kontrollera GUID i malldistributionen](#verify-the-guid-deployment).
 
-### <a name="sample-template-code"></a>Exempelkod för mallen
+### <a name="sample-resource-manager-template-code"></a>Exemplet Resource Manager-mallkod
+Glöm inte att ändra den nedan exempelkod med egna indata när du lägger till det huvudsakliga mallfilen.
+Resursen måste läggas till i den **mainTemplate.json** eller **azuredeploy.json** filen endast, och inte i någon kapslad eller länkad mallar.
+```
+// Make sure to modify this sample code with your own inputs where applicable
 
-![Exempelkod för mallen](media/marketplace-publishers-guide/tracking-sample-code-for-lu-1.PNG)
+{ // add this resource to the mainTemplate.json (do not add the entire file)
+    "apiVersion": "2018-02-01",
+    "name": "pid-XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX" // use your generated GUID here
+    "type": "Microsoft.Resources/deployments",
+    "properties": {
+        "mode": "Incremental",
+        "template": {
+            "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+            "contentVersion": "1.0.0.0",
+            "resources": []
+        }
+    }
+} // remove all comments from the file when complete
+```
 
 ## <a name="use-the-resource-manager-apis"></a>API: er i Resource Manager
 
@@ -77,7 +94,7 @@ Inkludera ett GUID i användaren agent huvudet i begäran för den här spårnin
 > [!Note]
 > Formatet för strängen är viktigt. Om den **pid -** prefix är inte inkluderade, det går inte att fråga efter data. Olika SDK: er spåra på olika sätt. Granska stöd och spåra metoden för din önskade Azure SDK för att implementera den här metoden. 
 
-### <a name="example-the-python-sdk"></a>Exempel: Python SDK
+#### <a name="example-the-python-sdk"></a>Exempel: Python SDK
 
 För Python och använder den **config** attribut. Du kan bara lägga till attributet till en UserAgent. Här är ett exempel:
 
@@ -104,7 +121,7 @@ export AZURE_HTTP_USER_AGENT='pid-eb7927c8-dd66-43e1-b0cf-c346a422063'
 
 ## <a name="create-guids"></a>Skapa GUID
 
-Ett GUID är ett unikt referensnummer med 32 hexadecimala siffror. För att skapa GUID för spårning, bör du använda en GUID-generator. Vi rekommenderar att du utnyttjar [Azure Storage GUID generator formuläret](https://aka.ms/StoragePartners). Men om du inte föredrar att använda Azure Storage GUID generator, det finns flera [online GUID generatorer](https://www.bing.com/search?q=guid%20generator) som du kan använda.
+Ett GUID är ett unikt referensnummer med 32 hexadecimala siffror. För att skapa GUID för spårning, bör du använda en GUID-generator. Azure Storage-teamet har skapat en [GUID generator formuläret](https://aka.ms/StoragePartners) att skicka en GUID för korrekt format och kan återanvändas i olika spårnings-system. 
 
 > [!Note]
 > Det är mycket rekommenderar att du använder [Azure Storage GUID generator formuläret](https://aka.ms/StoragePartners) att skapa din GUID. Mer information finns i vår [vanliga frågor och svar](#faq).

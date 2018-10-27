@@ -3,7 +3,7 @@ title: Skydda din hanterade domän i Azure Active Directory Domain Services | Mi
 description: Skydda din hanterade domän
 services: active-directory-ds
 documentationcenter: ''
-author: mahesh-unnikrishnan
+author: eringreenlee
 manager: mtillman
 editor: curtand
 ms.assetid: 6b4665b5-4324-42ab-82c5-d36c01192c2a
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2018
-ms.author: maheshu
-ms.openlocfilehash: 20579f7abd6cd815377c3e97d820a3e5490e0f95
-ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
+ms.author: ergreenl
+ms.openlocfilehash: 1dea3def00423ecf092562aa47c76258316194a9
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48902527"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50159068"
 ---
 # <a name="secure-your-azure-ad-domain-services-managed-domain"></a>Skydda din Azure AD Domain Services-hanterad domän
 Den här artikeln hjälper dig skydda din hanterade domän. Du kan inaktivera användningen av svaga krypteringssviter och inaktivera synkronisering av lösenordshash för NTLM autentiseringsuppgifter.
@@ -36,9 +36,9 @@ Följ instruktionerna i artikeln om du vill [installera Azure PowerShell-modulen
 
 ## <a name="disable-weak-cipher-suites-and-ntlm-credential-hash-synchronization"></a>Inaktivera svaga chiffersviter och synkronisering av lösenordshash för NTLM autentiseringsuppgifter
 Använd följande PowerShell-skript för att:
-1. Inaktivera NTLM v1-stöd i den hanterade domänen.
+1. Inaktivera NTLM v1-support på den hanterade domänen.
 2. Inaktiverar du synkroniseringen av NTLM-lösenordshashvärden från din lokala AD.
-3. Inaktivera TLS v1 i den hanterade domänen.
+3. Inaktivera TLS v1 på den hanterade domänen.
 
 ```powershell
 // Login to your Azure AD tenant

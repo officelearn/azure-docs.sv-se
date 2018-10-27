@@ -1,12 +1,9 @@
 ---
-title: Land/Region hierarki som används av Azure Traffic Manager geografiska Routning | Microsoft Docs
-description: Den här artikeln innehåller Land/Region hierarki som används av Azure Traffic Manager geografiska Routning
+title: Hierarki för land/Region som används av Azure Traffic Manager geografiska routningstyp | Microsoft Docs
+description: Den här artikeln innehåller hierarki för land/Region som används av Azure Traffic Manager geografiska routningstyp
 services: traffic-manager
 documentationcenter: ''
 author: kumudd
-manager: timlt
-editor: ''
-ms.assetid: ''
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: article
@@ -14,16 +11,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/22/2017
 ms.author: kumud
-ms.openlocfilehash: 45fa209b4417ce8b65d1fa4f2f59ff6c2d50f3a4
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 1609daa4edbc3db9384941d575c141faaa799fb6
+ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2018
-ms.locfileid: "28201504"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50138250"
 ---
-# <a name="countryregion-hierarchy-used-by-azure-traffic-manager-for-geographic-traffic-routing-method"></a>Land/Region hierarki som används av Azure Traffic Manager för geografisk trafikroutningsmetod
+# <a name="countryregion-hierarchy-used-by-azure-traffic-manager-for-geographic-traffic-routing-method"></a>Hierarki för land/Region som används av Azure Traffic Manager för geografisk routningsmetod
 
-Den här artikeln visar en lista över de länder och regioner som används av den **geografiska** trafikroutningsmetoden i Azure Traffic Manager. Du kan även hämta denna information via programmering genom att anropa den [Azure Traffic Manager REST API](https://docs.microsoft.com/rest/api/trafficmanager/). 
+Den här artikeln visar en lista över länder och regioner som används av den **geografisk** prestandatrafik i Azure Traffic Manager. Du kan också hämta den här informationen via programmering genom att anropa den [Azure Traffic Manager REST API](https://docs.microsoft.com/rest/api/trafficmanager/). 
 
 - WORLD(World)
 
@@ -35,7 +32,7 @@ Den här artikeln visar en lista över de länder och regioner som används av d
 
         - AT(Austria)
 
-        - AX (Åland i Oceanien och Västindien)
+        - AX (Åland Islands)
 
         - BA (Bosnien och Hercegovina)
 
@@ -61,7 +58,7 @@ Den här artikeln visar en lista över de länder och regioner som används av d
 
         - Fi(Finland)
 
-        - FÖR (Färöarna)
+        - FO (Färöarna)
 
         - FR(France)
 
@@ -79,7 +76,7 @@ Den här artikeln visar en lista över de länder och regioner som används av d
 
         - IE(Ireland)
 
-        - Snabbmeddelanden (Isle of Man)
+        - IM (Isle of Man)
 
         - IS(Iceland)
 
@@ -101,7 +98,7 @@ Den här artikeln visar en lista över de länder och regioner som används av d
 
         - ME(Montenegro)
 
-        - MK (Makedonien, FYROM)
+        - MK (Makedonien, FYRO)
 
         - MT(Malta)
 
@@ -125,13 +122,13 @@ Den här artikeln visar en lista över de länder och regioner som används av d
 
         - SJ(Svalbard)
 
-        - SK(Slovakia)
+        - Sk(Slovakia)
 
-        - SM(San Marino)
+        - SM (San Marino)
 
         - UA(Ukraine)
 
-        - VA(Vatican City)
+        - VA (Vatikanstaten)
 
         - XJ (Jan Mayen)
 
@@ -161,9 +158,9 @@ Den här artikeln visar en lista över de länder och regioner som används av d
 
         - QA(Qatar)
 
-        - SY(Syria)
+        - Sy(Syria)
 
-        - SA(Saudi Arabia)
+        - SA (Saudiarabien)
 
         - TR(Turkey)
 
@@ -179,7 +176,7 @@ Den här artikeln visar en lista över de länder och regioner som används av d
 
         - BB(Barbados)
 
-        - BL(Saint Barthélemy)
+        - BL (Saint-Barthélemy)
 
         - BM(Bermuda)
 
@@ -219,13 +216,13 @@ Den här artikeln visar en lista över de länder och regioner som används av d
 
         - CR (Costa Rica)
 
-        - CU(Cuba)
+        - Cu(Cuba)
 
-        - CW(CuraÃ§ao)
+        - Cw(CuraÃ§AO)
 
         - DM(Dominica)
 
-        - Gör (Dominikanska republiken)
+        - GÖRA (Dominikanska republiken)
 
         - GD(Grenada)
 
@@ -245,9 +242,9 @@ Den här artikeln visar en lista över de länder och regioner som används av d
 
         - KY (Caymanöarna)
 
-        - LC(Saint Lucia)
+        - LC (Saint Lucia)
 
-        - MF (Saint ek)
+        - MF (Saint Martin)
 
         - MQ(Martinique)
 
@@ -261,25 +258,25 @@ Den här artikeln visar en lista över de länder och regioner som används av d
 
         - PM (Saint Pierre och Miquelon)
 
-        - PR (registreringen)
+        - PR (Puerto Rico)
 
-        - SV(El Salvador)
+        - SA (El Salvador)
 
-        - SX(Sint Maarten)
+        - SX (Sint Maarten)
 
         - TC (Turks och Caicosöarna)
 
         - TT (Trinidad och Tobago)
 
-        - UM (USA Öar i Oceanien och Västindien)
+        - UM (US Öar)
 
         - US(United States)
 
-            - US-AK(Alaska)
+            - US-Ak(Alaska)
 
             - US-AL(Alabama)
 
-            - US-AR(Arkansas)
+            - US-ar(Arkansas)
 
             - US-AZ(Arizona)
 
@@ -289,9 +286,9 @@ Den här artikeln visar en lista över de länder och regioner som används av d
 
             - US-CT(Connecticut)
 
-            - US-DC(District of Columbia)
+            - USA-DC(District of Columbia)
 
-            - US-DE(Delaware)
+            - US-de(Delaware)
 
             - US-FL(Florida)
 
@@ -303,15 +300,15 @@ Den här artikeln visar en lista över de länder och regioner som används av d
 
             - US-ID(Idaho)
 
-            - US-IL(Illinois)
+            - US-il(Illinois)
 
             - US-in(Indiana)
 
             - US-KS(Kansas)
 
-            - US-KY(Kentucky)
+            - US-KY(kentucky)
 
-            - US-LA(Louisiana)
+            - US-la(Louisiana)
 
             - US-MA(Massachusetts)
 
@@ -323,27 +320,27 @@ Den här artikeln visar en lista över de länder och regioner som används av d
 
             - US-MN(Minnesota)
 
-            - US-MO(Missouri)
+            - US-mo(Missouri)
 
             - US-MS(Mississippi)
 
             - US-MT(Montana)
 
-            - USA NC(North Carolina)
+            - USA-NC(North Carolina)
 
-            - US-ND(North Dakota)
+            - USA-ND(North Dakota)
 
-            - US-NE(Nebraska)
+            - US-ne(Nebraska)
 
-            - USA NH(New Hampshire)
+            - USA-NH(New Hampshire)
 
-            - USA NJ(New Jersey)
+            - USA-NJ(New Jersey)
 
-            - USA NM(New Mexico)
+            - USA-NM(New Mexico)
 
             - US-NV(Nevada)
 
-            - US-NY(New York)
+            - USA-NY(New York)
 
             - US-OH(Ohio)
 
@@ -353,11 +350,11 @@ Den här artikeln visar en lista över de länder och regioner som används av d
 
             - US-PA(Pennsylvania)
 
-            - USA RI(Rhode Island)
+            - USA-RI(Rhode Island)
 
-            - US-SC(South Carolina)
+            - USA-SC(South Carolina)
 
-            - US-SD(South Dakota)
+            - USA-SD(South Dakota)
 
             - US-TN(Tennessee)
 
@@ -373,7 +370,7 @@ Den här artikeln visar en lista över de länder och regioner som används av d
 
             - US-Wi(Wisconsin)
 
-            - USA WV(West Virginia)
+            - USA-WV(West Virginia)
 
             - US-WY(Wyoming)
 
@@ -381,7 +378,7 @@ Den här artikeln visar en lista över de länder och regioner som används av d
 
         - VG (Brittiska Jungfruöarna)
 
-        - VI(U.S. Jungfruolja i Oceanien och Västindien)
+        - VI (US Jungfruolja Islands)
 
         - XE (Sint Eustatius)
 
@@ -401,11 +398,11 @@ Den här artikeln visar en lista över de länder och regioner som används av d
 
         - BT(Bhutan)
 
-        - Kopia (Cocos-Keelingöarna i Oceanien och Västindien)
+        - Kopia (Kokosöarna (Keeling) öarna)
 
         - CN(China)
 
-        - CX (jul dataö)
+        - CX (Julön)
 
         - GE(Georgia)
 
@@ -437,7 +434,7 @@ Den här artikeln visar en lista över de länder och regioner som används av d
 
         - MN(Mongolia)
 
-        - FL (Macao SAR)
+        - Månad (Macao SAR)
 
         - MV(Maldives)
 
@@ -469,7 +466,7 @@ Den här artikeln visar en lista över de länder och regioner som används av d
 
         - AO(Angola)
 
-        - BF(Burkina Faso)
+        - BF (Burkina Faso)
 
         - BI(Burundi)
 
@@ -479,7 +476,7 @@ Den här artikeln visar en lista över de länder och regioner som används av d
 
         - BW(Botswana)
 
-        - CD (Kongo)
+        - CD (Kongo (Dr))
 
         - CF (Centralafrikanska republiken)
 
@@ -489,7 +486,7 @@ Den här artikeln visar en lista över de länder och regioner som används av d
 
         - CM(Cameroon)
 
-        - CV(Cabo Verde)
+        - KA (Kap Verde)
 
         - DJ(Djibouti)
 
@@ -551,23 +548,23 @@ Den här artikeln visar en lista över de länder och regioner som används av d
 
         - SD(Sudan)
 
-        - SH(St Helena, Ascension, Tristan da Cunha)
+        - SH (Sankta Helena, Ascension, Tristan da Cunha)
 
-        - SL(Sierra Leone)
+        - SL (Sierra Leone)
 
         - SN(Senegal)
 
         - SO(Somalia)
 
-        - SS (Syd Sudan)
+        - SS (Sydsudan)
 
-        - ST(São Tomé and Príncipe)
+        - ST (São Tome och Príncipe)
 
         - SZ(Swaziland)
 
         - TD(Chad)
 
-        - TF (franska territorierna områdena)
+        - TF (franska Sydterritorierna)
 
         - TG(Togo)
 
@@ -579,13 +576,13 @@ Den här artikeln visar en lista över de länder och regioner som används av d
 
         - YT(Mayotte)
 
-        - A (Sydafrika)
+        - ZA (Sydafrika)
 
         - ZM(Zambia)
 
         - ZW(Zimbabwe)
 
-    - GEO-AN(Antarctica)
+    - GEO-an(Antarctica)
 
         - AQ(Antarctica)
 
@@ -607,7 +604,7 @@ Den här artikeln visar en lista över de länder och regioner som används av d
 
         - GF (Franska Guyana)
 
-        - GS(South Georgia and South Sandwich Islands)
+        - GS (Sydgeorgien och Sydsandwichöarna)
 
         - GY(Guyana)
 
@@ -627,25 +624,25 @@ Den här artikeln visar en lista över de länder och regioner som används av d
 
         - AU(Australia)
 
-            - Australien ACT(Australian Capital Territory)
+            - AU-ACT(Australian Capital Territory)
 
-            - Australien NSW(New South Wales)
+            - AU-NSW(New South Wales)
 
-            - Australien NT(Northern Territory)
+            - AU-NT(Northern Territory)
 
             - AU-QLD(Queensland)
 
-            - Australien SA(South Australia)
+            - AU-SA(South Australia)
 
             - AU-tas(Tasmania)
 
             - AU-VIC(Victoria)
 
-            - Australien WA(Western Australia)
+            - AU-WA(Western Australia)
 
         - CK (Cooköarna)
 
-        - FJ(Fiji)
+        - Fj(Fiji)
 
         - FM(Micronesia)
 
@@ -655,9 +652,9 @@ Den här artikeln visar en lista över de länder och regioner som används av d
 
         - KI(Kiribati)
 
-        - MH (ordna i Oceanien och Västindien)
+        - MH (Marshallöarna)
 
-        - MP (Nordmarianerna)
+        - Management Pack (Nordmarianerna)
 
         - NC (Nya Kaledonien)
 
@@ -671,9 +668,9 @@ Den här artikeln visar en lista över de länder och regioner som används av d
 
         - PF (Franska Polynesien)
 
-        - PG (Papua Nya Guineas)
+        - PG (Papua Nya Guinea)
 
-        - PN (Pitcairn i Oceanien och Västindien)
+        - PN (Pitcairnöarna)
 
         - PW(Palau)
 
@@ -687,10 +684,10 @@ Den här artikeln visar en lista över de länder och regioner som används av d
 
         - VU(Vanuatu)
 
-        - Windows-Brandväggen (Wallis och Futunaöarna)
+        - Windows-Brandväggen (Wallis och Futuna)
 
         - WS(Samoaöarna)
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Lär dig mer om [geografiska trafikroutningsmetoden i Azure Traffic Manager](traffic-manager-routing-methods.md#geographic).
+- Läs mer om [geografisk prestandatrafik i Azure Traffic Manager](traffic-manager-routing-methods.md#geographic).

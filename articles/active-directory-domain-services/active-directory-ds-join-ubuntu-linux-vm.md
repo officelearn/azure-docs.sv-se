@@ -3,7 +3,7 @@ title: 'Azure Active Directory Domain Services: Anslut en Ubuntu-VM till en hant
 description: Ansluta en Ubuntu Linux-dator till Azure AD Domain Services
 services: active-directory-ds
 documentationcenter: ''
-author: mahesh-unnikrishnan
+author: eringreenlee
 manager: mtillman
 editor: curtand
 ms.assetid: 804438c4-51a1-497d-8ccc-5be775980203
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/22/2018
-ms.author: maheshu
-ms.openlocfilehash: 645e1eaedf3832b384a174d9f9ede5ea835047cd
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.author: ergreenl
+ms.openlocfilehash: 709c227c955aba6b31ce415767470fa18ff3684f
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39502975"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50155277"
 ---
 # <a name="join-an-ubuntu-virtual-machine-in-azure-to-a-managed-domain"></a>Ansluta en virtuell Ubuntu-dator i Azure till en hanterad domän
 Den här artikeln visar hur du kopplar en Ubuntu Linux-dator till en Azure AD Domain Services-hanterad domän.
@@ -38,7 +38,7 @@ Om du vill utföra åtgärderna i den här artikeln behöver du:
 
 ## <a name="provision-an-ubuntu-linux-virtual-machine"></a>Etablera en virtuell dator med Ubuntu Linux
 Etablera en virtuell dator med Ubuntu Linux i Azure, med hjälp av någon av följande metoder:
-* [Azure-portalen](../virtual-machines/linux/quick-create-portal.md)
+* [Azure Portal](../virtual-machines/linux/quick-create-portal.md)
 * [Azure CLI](../virtual-machines/linux/quick-create-cli.md)
 * [Azure PowerShell](../virtual-machines/linux/quick-create-powershell.md)
 

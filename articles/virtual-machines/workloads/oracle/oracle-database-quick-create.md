@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 08/02/2018
 ms.author: rogirdh
-ms.openlocfilehash: 516552111cc21cacf87fd8179ef49b939e2820d9
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 9f6e5dab5059086efc1e00c78b85296ff2b7a48c
+ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46985086"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50139163"
 ---
 # <a name="create-an-oracle-database-in-an-azure-vm"></a>Skapa en Oracle-databas i en Azure virtuell dator
 
@@ -77,7 +77,7 @@ När du har skapat den virtuella datorn visar Azure CLI information som liknar f
 Använd följande kommando för att skapa en SSH-session med den virtuella datorn. Ersätt IP-adressen med den `publicIpAddress` värde för den virtuella datorn.
 
 ```bash 
-ssh <publicIpAddress>
+ssh azureuser@<publicIpAddress>
 ```
 
 ## <a name="create-the-database"></a>Skapa en databas

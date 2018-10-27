@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/03/2018
 ms.author: jeedes
-ms.openlocfilehash: c9134ceebca696ed2b3376a69e26c2ea06f4f0f6
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.openlocfilehash: c33edf13a8bcafd4a6c3d4885553fc856ec941d8
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39506208"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50158133"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-4me"></a>Självstudier: Azure Active Directory-integration med 4me
 
@@ -59,7 +59,7 @@ För att konfigurera integrering av 4me i Azure AD, som du behöver lägga till 
 
 **Utför följande steg för att lägga till 4me från galleriet:**
 
-1. I den  **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon. 
+1. I den **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon. 
 
     ![Azure Active Directory-knappen][1]
 
@@ -218,7 +218,7 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen k
 Målet med det här avsnittet är att skapa en användare som kallas Britta Simon i 4me. 4me stöder just-in-time-etablering, vilket är som standard aktiverat. Det finns inga uppgift åt dig i det här avsnittet. En ny användare har skapats under ett försök att komma åt 4me om det inte finns ännu.
 
 >[!Note]
->Om du vill skapa en användare manuellt kan du kontakta [4me supportteamet](mailto:support@4me.com).
+>Om du vill skapa en användare manuellt kan du kontakta [4me supportteamet](mailto:support@4me.com).
 
 ### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
 

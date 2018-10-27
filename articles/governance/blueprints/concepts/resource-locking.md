@@ -8,12 +8,12 @@ ms.date: 10/25/2018
 ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
-ms.openlocfilehash: c071c8f422e0cb3a4e0d5e528989dd2987a6796f
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.openlocfilehash: 4e71797837927fe5f5233bcf88d35fef98f504e9
+ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50094855"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50139450"
 ---
 # <a name="understand-resource-locking-in-azure-blueprints"></a>Förstå resource låsning i Azure skisser
 
@@ -42,7 +42,7 @@ Om det blir nödvändigt att ta bort resurser som skapas av en tilldelning är s
 RBAC-roll `denyAssignments` tillämpas på artefakt resurser under tilldelningen av en skiss om tilldelningen har valt den **Lås** alternativet. Rollen läggs till av hanterade identiteten för skisstilldelningen och kan bara tas bort från artefakt resurser av samma hanterad identitet. Den här säkerhetsåtgärd tillämpar mekanismen för låsning och förhindrar att ta bort skissen låset utanför skisser. Ta bort rollen och låset är endast möjligt genom att ta bort skisstilldelningen, vilket kan endast utföras av personer med rätt behörighet.
 
 > [!IMPORTANT]
-> Azure Active Directory cachelagrar rollen tilldelningsinformation för upp till 30 minuter. Därför `denyAssignments` på skiss resurser kanske inte omedelbart att i fulla effekten. Under denna tidsperiod kan det vara möjligt att ta bort en resurs som ska skyddas av skiss Lås.
+> Azure Resource Manager cachelagrar rollen tilldelningsinformation för upp till 30 minuter. Därför `denyAssignments` på skiss resurser kanske inte omedelbart att i fulla effekten. Under denna tidsperiod kan det vara möjligt att ta bort en resurs som ska skyddas av skiss Lås.
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -17,12 +17,12 @@ ms.date: 10/02/2018
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 83c1deb7c767c29046e6c1af4452270e90b391df
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: ceafee3ac3453590d1687f662c7f3c9a8d8b4e0c
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49987740"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50156637"
 ---
 # <a name="azure-active-directory-v20-and-the-oauth-20-device-code-flow"></a>Azure Active Directory v2.0- och kodflöde för OAuth 2.0-enhet
 
@@ -131,7 +131,7 @@ Ett lyckat svar för token kommer att se ut:
 | Parameter | Format | Beskrivning |
 | --------- | ------ | ----------- |
 |`token_type` | Sträng| Alltid ”Ägarautentisering. |
-|`scope` | Utrymme avgränsad strängar | Om en åtkomsttoken returnerades listas detta scope åtkomsttoken är giltig för. |
+|`scope` | Avgränsade med blanksteg strängar | Om en åtkomsttoken returnerades listas detta scope åtkomsttoken är giltig för. |
 |`expires_in`| int | Antalet sekunder innan den inkluderade åtkomst-token är giltig för. |
 |`access_token`| Täckande sträng | Utfärdats för den [scope](v2-permissions-and-consent.md) som begärdes.  |
 |`id_token`   | JWT | Utfärdade om ursprungligt `scope` parameter som ingår i `openid` omfång.  |

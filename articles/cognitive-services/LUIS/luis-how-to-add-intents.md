@@ -7,140 +7,113 @@ author: diberry
 manager: cgronlun
 ms.component: language-understanding
 ms.topic: article
-ms.date: 09/10/2018
+ms.date: 10/24/2018
 ms.author: diberry
 ms.service: cognitive-services
-ms.openlocfilehash: 9b7207a16a89e48ad64b2dbc48a5293d0cf8aa25
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 495b7e99319126b3ee9e655b2d9aa4af940e1d56
+ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47036090"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50139932"
 ---
-# <a name="manage-intents"></a>Hantera avsikter 
+# <a name="add-intents"></a>Lägg till avsikter 
+
 Lägg till [avsikter](luis-concept-intent.md) till din LUIS-app för att identifiera grupper av frågor eller kommandon som har samma avsikt. 
 
-Avsikter hanteras från den **skapa** avsnitt i det övre verktygsfältet. Du lägger till och hantera dina avsikter från den **avsikter** sidan är tillgänglig i den vänstra panelen. 
+Avsikter hanteras från övre navigeringsfältet i **skapa** avsnittet sedan från den vänstra panelen **avsikter**. 
 
-Följande procedur visar hur du lägger till ”Bookflight” avsikten i appen TravelAgent.
+## <a name="create-an-app"></a>Skapa en app
 
-## <a name="add-intent"></a>Lägg till avsikt
+1. Logga in på den [LUIS](https://www.luis.ai) portal.
 
-1. Öppna din app (till exempel TravelAgent) genom att klicka på namnet på **Mina appar** , och klicka sedan på **avsikter** på den vänstra panelen. 
-2. På den **avsikter** klickar du på **skapa nya avsikt**.
+1. Välj **Create new app** (Skapa ny app). 
 
-3. I den **skapa nya avsikt** skriver avsikten namn ”BookFlight” och klickar på **klar**.
+1. Namnge den nya appen `MyHumanResourcesApp`. Välj den **engelska** kultur. Beskrivningen är valfri. 
+
+1. Välj **Done** (Klar). 
+
+## <a name="add-intent"></a>Lägga till avsikt
+
+1. Appen öppnas på den **avsikter** lista.
+
+1. På sidan **Intents** (Avsikter) väljer du **Create new intent** (Skapa ny avsikt).
+
+1. I den **skapa nya avsikt** dialogrutan Ange avsikt namn `GetEmployeeInformation`, och klicka på **klar**.
 
     ![Lägg till avsikt](./media/luis-how-to-add-intents/Addintent-dialogbox.png)
 
-    På sidan avsikt information för den nyligen tillagda avsikten, [Lägg till yttranden](#add-an-utterance-on-intent-page).
+## <a name="add-an-example-utterance"></a>Lägg till en exempel-uttryck
 
-## <a name="rename-intent"></a>Byt namn på avsikten
+Exempel yttranden är text-exempel på användarnas frågor eller kommandon. Om du vill hålla Språkförståelse (LUIS), som du behöver lägga till exempel yttranden till en avsikt.
 
-1. På den **avsikt** klickar du på ikonen Byt namn på ![Byt namn på avsikten](./media/luis-how-to-add-intents/Rename-Intent-btn.png) bredvid namnet på avsikt. 
-
-2. På den **avsikt** kan namnet på aktuella avsikt visas i en dialogruta. Redigera avsikt namn och tryck på RETUR. Det nya namnet sparas och visas på sidan avsikt.
-
-    ![Redigera avsikt](./media/luis-how-to-add-intents/EditIntent-dialogbox.png)
-
-## <a name="delete-intent"></a>Ta bort avsikt
-När du tar bort ett intent än avsikt None, kan du lägga till alla talade avsikt NONE. Detta är användbart om du behöver flytta yttranden i stället för att tas bort.   
-
-1. På den **avsikt** klickar du på den **ta bort avsikt** knappen bredvid höger om avsiktlig namn. 
-
-    ![Ta bort avsikt knapp](./media/luis-how-to-add-intents/DeleteIntent.png)
-
-2. Klicka på ”Ok” på den bekräftande dialogrutan.
-
-<!--
-    TBD: waiting for confirmation about which delete dialog is going to be in //BUILD
-
-    ![Delete Intent Dialog](./media/luis-how-to-add-intents/DeleteIntent-Confirmation.png)
--->
-
-
-## <a name="add-an-utterance-on-intent-page"></a>Lägg till ett uttryck på avsikt sida
-
-På sidan avsikt, anger du en relevanta uttryck som du förväntar dig från dina användare, till exempel `book 2 adult business tickets to Paris tomorrow on Air France` i textrutan nedan avsikt namn och tryck på RETUR. 
+1. På den **GetEmployeeInformation** avsikt information anger en relevanta uttryck som du förväntar dig från dina användare, till exempel `Does John Smith work in Seattle?` i textrutan nedan avsikt namn och tryck på RETUR.
  
->[!NOTE]
->LUIS konverterar alla yttranden till gemener.
+    ![Skärmbild av avsikter detaljsidan med uttryck markerat](./media/luis-how-to-add-intents/add-new-utterance-to-intent.png) 
 
-![Skärmbild av avsikter detaljsidan med uttryck markerat](./media/luis-how-to-add-intents/add-new-utterance-to-intent.png) 
+    LUIS konverterar alla yttranden till gemener och lägger till blanksteg runt token, till exempel bindestreck.
 
-Yttranden läggs till i listan yttranden för den aktuella avsikten. När ett uttryck har lagts till, [märka alla entiteter](luis-how-to-add-example-utterances.md) inom talade och [träna](luis-how-to-train.md) din app. 
+## <a name="intent-prediction-discrepancy-errors"></a>Avsiktshantering förutsägelse avvikelse fel 
 
-## <a name="create-a-pattern-from-an-utterance"></a>Skapa ett mönster från ett uttryck
-Se [Lägg till mönster från befintliga uttryck på avsikten eller entitet](luis-how-to-model-intent-pattern.md#add-pattern-from-existing-utterance-on-intent-or-entity-page).
+Ett uttryck i ett intent som kan ha en avsiktlig förutsägelse avvikelse mellan den valda metoden och poäng för förutsägelse. LUIS anger skillnaden med en röd ram runt den **märkta avsikt** på raden i exempel-uttryck. 
 
-## <a name="edit-an-utterance-on-intent-page"></a>Redigera ett uttryck på avsikt sida
+![Skärmbild av avsikter detaljsidan med uttryck markerat](./media/luis-how-to-add-intents/prediction-discrepancy-intent.png) 
 
-Om du vill redigera ett uttryck, Välj ellipsen (***...*** ) längst till höger på raden för den uttryck och välj sedan **redigera**. Ändra texten och tryck på RETUR på tangentbordet.
+I det övre navigeringsfältet väljer **träna**. Avvikelse för förutsägelse är nu borta.
 
-![Skärmbild av avsikter detaljsidan med knappen med tre punkter markerat](./media/luis-how-to-add-intents/edit-utterance.png) 
+## <a name="add-a-custom-entity"></a>Lägg till en anpassad entitet
 
-## <a name="reassign-utterances-on-intent-page"></a>Omtilldela yttranden på avsikt sida
-Du kan ändra syftet med en eller flera yttranden genom att tilldela dem till en annan avsikt. 
+När ett uttryck har lagts till en avsikt, kan du välja text från uttryck att skapa en anpassad entitet. En anpassad entitet är ett sätt att tagga text för extrahering, tillsammans med rätt avsikten. 
 
-Om du vill tilldela om en enda uttryck till en annan typ av avsikt, längst till höger i uttryck raden att välja rätt avsikt namnet under den **märkta avsikt** kolumn. Uttryck tas bort från den aktuella avsikt uttryck lista. 
+1. Markera ord, `Seattle`, i uttryck. Hakparenteser ritas runt texten och en nedrullningsbar meny. 
 
-![Skärmbild av BookFlight avsikt sida med ett uttryck avsikt under etiketterade avsikt kolumn har markerats](./media/luis-how-to-add-intents/reassign-1-utterance.png)
+    ![Skärmbild av avsikter informationssidan anpassad entitet skapas](./media/luis-how-to-add-intents/create-custom-entity.png) 
 
-Om du vill ändra syftet med flera yttranden, markerar du kryssrutorna till vänster om talade och välj sedan **omtilldela avsikt**. Välj rätt avsikten i listan.
+    Det här exemplet väljer ett enstaka ord för att markera som en entitet. Du kan markera enstaka fungerar och fraser som entiteter.
 
-![Skärmbild av BookFlight avsikt sida med ett uttryck som kontrolleras och omtilldela avsikt knappen markerad](./media/luis-how-to-add-intents/delete-several-utterances.png) 
+1. Ange i översta textrutan-menyn, `Location`och välj sedan **Skapa ny entitet**. 
 
-## <a name="delete-utterances-on-intent-page"></a>Ta bort yttranden på avsikt sida
+    ![Skärmbild av avsikter informationssidan skapar anpassade entitetsnamn](./media/luis-how-to-add-intents/create-custom-entity-name.png) 
 
-Om du vill ta bort ett uttryck, Välj ellipsen (***...*** ) längst till höger på raden för den uttryck och välj sedan **ta bort**. Uttryck tas bort från listan och LUIS-app.
+1. I den **vilken typ av enhet vill du skapa?** popup-fönstret för att skapa en entitet, kontrollera att den **entitetsnamn** är _plats_, och **entitetstyp**  är _enkel_. Välj **Done** (Klar).
 
-![Skärmbild av avsikter sidan, med alternativet Ta bort markerade](./media/luis-how-to-add-intents/delete-utterance-ddl.png)
+## <a name="entity-prediction-discrepancy-errors"></a>Entiteten förutsägelse avvikelse fel 
 
-Ta bort flera uttryck:
+Entiteten är understruket i rött att indikera en [entitet förutsägelse avvikelse](luis-how-to-add-example-utterances.md#entity-status-predictions). Eftersom detta är den första förekomsten av en entitet kan det finns inte tillräckligt med exempel för LUIS för att ha en hög exakthet som den här texten är taggade med rätt entiteten. Den här skillnaden tas bort när appen har tränats. 
 
-1. Markera kryssrutorna till vänster om talade och välj sedan **ta bort yttranden (s)**. 
+![Skärmbild av avsikter informationssidan, anpassad entitetsnamn markeras i blått](./media/luis-how-to-add-intents/create-custom-entity-name-blue-highlight.png) 
 
-    ![Skärmbild av avsikter detaljsidan med yttranden kontrolleras och ta bort utterance(s) knappen markerad](./media/luis-how-to-add-intents/delete-several-utterances.png)
+Texten markeras i blått, som anger en entitet.  
 
-2. Välj **klar** i den **ta bort yttranden?** standardarbetsytan i dialogrutan.
+## <a name="add-a-prebuilt-entity"></a>Lägg till en fördefinierade entitet
 
-## <a name="search-in-utterances-on-intent-page"></a>Sök i yttranden på avsikt sida
-Du kan söka efter uttryck som innehåller text (ord eller fraser) i det syftet uttryck lista. Till exempel märker du ett fel som innebär att ett visst ord och du vill hitta alla exempel som innehåller viss ordet. 
+Mer information finns i [fördefinierade entitet](luis-how-to-add-entities.md#add-prebuilt-entity).
 
-1. Välj förstoringsglasikonen i verktygsfältet.
+## <a name="using-the-contextual-toolbar"></a>Med hjälp av sammanhangsbaserad verktygsfältet
 
-    ![Skärmbild av avsikter sida med sökikonen förstoringsglas markerat](./media/luis-how-to-add-intents/magnifying-glass.png)
+När en eller flera exempel yttranden väljs i listan genom att markera kryssrutan till vänster om ett uttryck kan i verktygsfältet ovanför listan uttryck du utföra följande åtgärder:
 
-2. En textruta för sökning visas. Ange ett ord eller en fras i sökrutan i det övre högra hörnet av listan över yttranden. Talade lista uppdateringar om du vill visa de uttryck som innehåller söktext. 
+* Omtilldela avsikt: flytta utterance(s) till olika avsikt
+* Ta bort utterance(s)
+* Entiteten filter: Visa endast yttranden som innehåller filtrerade entiteter
+* Visa alla / endast fel: Visa yttranden med förutsägelse fel eller visa alla yttranden
+* Visa entiteter/token: Visa rå text av uttryck eller visa entiteter med entitetsnamn
+* Förstoringsglas: Sök efter uttryck som innehåller viss text
 
-    ![Skärmbild av avsikter sida med söktextruta markerat](./media/luis-how-to-add-intents/search-textbox.png)
+## <a name="working-with-an-individual-utterance"></a>Arbeta med en enskilda uttryck
 
-    Om du vill avbryta sökningen och återställer din fullständig lista över yttranden, tar du bort den söktext som du har skrivit. Om du vill stänga sökrutan för bibliotekskontrollen, väljer du på förstoringsglaset i verktygsfältet igen.
+Följande åtgärder kan utföras på en enskild uttryck från ellips-menyn till höger om uttryck:
 
-## <a name="prediction-discrepancy-errors-on-intent-page"></a>Förutsägelse avvikelse fel på avsikt sida
-Ett uttryck i ett intent som kan ha en diskrepans mellan den valda metoden och poäng för förutsägelse. LUIS anger skillnaden med en röd ram runt poängen. 
+* Redigera: ändra texten i uttryck
+* Ta bort: ta bort uttryck från avsikten. Om du fortfarande vill uttryck, en bättre metod är att flytta den till den **ingen** avsikt. 
+* Lägga till ett mönster: ett mönster kan du ta en vanliga uttryck och markera replaceable ignorable text, vilket minskar behovet av flera uttryck i avsikten. 
 
-![Skärmbild av BookFlight avsikt sida med förutsägelse avvikelse poäng markerat](./media/luis-how-to-add-intents/score-discrepancy.png) 
-
-## <a name="filter-by-intent-prediction-discrepancy-errors-on-intent-page"></a>Filtrera efter avsikt förutsägelse avvikelse fel på avsikt sida
-Om du vill filtrera listan uttryck för att endast yttranden med en avsiktlig förutsägelse avvikelse, byta inställning från **visa alla** till **endast fel** i verktygsfältet. 
-
-## <a name="filter-by-entity-type-on-intent-page"></a>Filtrera efter entitetstypen på avsikt sida
-Använd den **entitet filter** listrutan i verktygsfältet för att filtrera talade av enheten. 
-
-![Skärmbild av avsikter sida med filter för entiteten markerat](./media/luis-how-to-add-intents/filter-by-entities.png) 
-
-Välj blå filterfältet med ordet eller frasen under verktygsfältet om du vill ta bort filtret.  
-<!-- TBD: waiting for ux fix - bug in ux of prebuit entity number -- when filtering by it, it doesn't show the list -->
-
-## <a name="switch-to-token-view-on-intent-page"></a>Växla till token vyn på avsikt sida
-Visa/dölj **token visa** visa token i stället för typen entitetsnamn. På tangentbordet kan du också använda **kontroll + E** att växla vyn. 
-
-![Skärmbild av BookFlight avsikten med Token vy markerat](./media/luis-how-to-add-intents/toggle-tokens-view.png)
+Den **märkta avsikt** kolumn kan du ändra syftet med uttryck.
 
 ## <a name="train-your-app-after-changing-model-with-intents"></a>Träna din app när du har ändrat modell med avsikter
-När du lägger till, redigera eller ta bort avsikter, [träna](luis-how-to-train.md) och [publicera](luis-how-to-publish-app.md) din app för ändringarna att påverka endpoint frågor. 
+
+När du lägger till, redigera eller ta bort avsikter, [träna](luis-how-to-train.md) och [publicera](luis-how-to-publish-app.md) din app så att ändringarna tillämpas på slutpunkten frågor. 
 
 ## <a name="next-steps"></a>Nästa steg
 
-När du lägger till avsikter till din app, nästa uppgift är att börja lägga till [exempel yttranden](luis-how-to-add-example-utterances.md) för avsikter som du har lagt till. 
+Läs mer om att lägga till [exempel yttranden](luis-how-to-add-example-utterances.md) med entiteter. 

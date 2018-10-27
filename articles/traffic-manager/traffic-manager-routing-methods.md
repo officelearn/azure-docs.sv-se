@@ -11,25 +11,25 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/17/2018
 ms.author: kumud
-ms.openlocfilehash: eb43b59a26bc9c1b514921a7b6dfa4b920a8fe5f
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: 57ae9f3a747ef3fde1a21de8a56ec4059becf392
+ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49955226"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50139353"
 ---
 # <a name="traffic-manager-routing-methods"></a>Traffic Manager-dirigeringsmetoder
 
 Azure Traffic Manager stöder sex trafikroutningsmetoder för att avgöra hur du dirigerar nätverkstrafik till olika Tjänsteslutpunkter. Traffic Manager gäller för alla profiler, metoden routning av nätverkstrafik som är kopplad till den till varje DNS-fråga som den tar emot. Metoden routning av nätverkstrafik anger vilken slutpunkt returneras i DNS-svaret.
 
-Det finns fyra metoder för trafikroutning som är tillgängliga i Traffic Manager:
+I följande metoder för trafikroutning är tillgängliga i Traffic Manager:
 
 * **[Prioritet](#priority):** Välj **prioritet** när du vill använda en primär slutpunkt för all trafik och ge säkerhetskopiering i fall primärt eller backup-slutpunkter är otillgängliga.
 * **[Viktat](#weighted):** Välj **viktat** när du vill distribuera trafik mellan en uppsättning slutpunkter, antingen jämnt eller enligt vikterna som du definierar.
 * **[Prestanda](#performance):** Välj **prestanda** när du har slutpunkter på olika geografiska platser och du vill att slutanvändarna ska använda ”närmaste” slutpunkten när det gäller den lägsta Nätverksfördröjningen.
 * **[Geografisk](#geographic):** Välj **geografiska** så att användare dirigeras till specifika slutpunkter (Azure, externa eller kapslade) baserat på vilka geografiska plats deras DNS-fråga som samlas in från. Detta gör det möjligt för Traffic Manager-kunder att aktivera scenarier där vetskapen om att en användares geografiska region och skicka dem baserat på detta är viktigt. Exempel: uppfyller data landsbaserad placering måste ett demonterat, lokalisering av innehåll och användardata upplevelse och mäta trafik från olika regioner.
 * **[Flervärden är](#multivalue):** Välj **Flervärden är** för Traffic Manager-profiler som kan enbart ha IPv4/IPv6-adresser som slutpunkter. När en fråga tas emot för den här profilen, returneras alla felfria slutpunkter.
-* **[Undernät](#subnet):** Välj **undernät** trafikdirigeringsmetoden att mappa uppsättningar av slutanvändaren IP-adressintervall till en viss slutpunkt inom en Traffic Manager-profil. När en begäran tas emot, returnerade slutpunkten den mappas för denna förfrågan källans IP-adress. 
+* **[Undernät](#subnet):** Välj **undernät** trafikdirigeringsmetoden att mappa uppsättningar av slutanvändaren IP-adressintervall till en viss slutpunkt inom en Traffic Manager-profil. När en begäran tas emot, returnerade slutpunkten den mappas för denna förfrågan källans IP-adress. 
 
 
 Alla Traffic Manager-profiler innehåller övervakning av slutpunktshälsa och automatisk endpoint redundans. Mer information finns i [Traffic Manager Endpoint Monitoring](traffic-manager-monitoring.md). En enda Traffic Manager-profil kan använda endast en trafikroutningsmetod. Du kan välja en annan metod för trafikroutning för din profil när som helst. Ändringarna tillämpas inom en minut och utan avbrott uppstår. Trafikroutningsmetoder kan kombineras med hjälp av kapslade Traffic Manager-profiler. Kapsling möjliggör avancerade och flexibel routning av nätverkstrafik konfigurationer som uppfyller behoven hos större, komplexa program. Mer information finns i [kapslade Traffic Manager-profiler](traffic-manager-nested-profiles.md).

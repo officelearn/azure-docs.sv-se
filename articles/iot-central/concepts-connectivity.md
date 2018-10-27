@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: timlt
-ms.openlocfilehash: d2ed07be829e48cc4fc0538c08fd498dea99e71e
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.openlocfilehash: ad77f1f0a99fbdb355163e1bc83461c8c4eb75fa
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45985183"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50157708"
 ---
 # <a name="device-connectivity-in-azure-iot-central"></a>Enhetsanslutning i Azure IoT Central
 
@@ -102,7 +102,7 @@ Massregistrera enheter för export från ditt program:
 1.  Markera de enheter som du vill exportera och klicka sedan på den **exportera** åtgärd.
 1.  När exporten är klar visas ett meddelande tillsammans med en länk till ladda ned den genererade filen.
 1.  Klicka på meddelande att ladda ned filen till en lokal mapp på disken.
-1.  Den exporterade CSV-filen innehåller följande kolumner: **enhets-Id, enhetsnamn, Priamary/Secondar enhetsnycklar och primära och sekundära certifikat thumbrpints**
+1.  Den exporterade CSV-filen innehåller följande kolumner: **enhets-Id, enhetsnamn, primär/sekundär enhetsnycklar och primär/sekundär certifikattumavtryck**
     *   IOTC_DEVICEID
     *   IOTC_DEVICENAME
     *   IOTC_SASKEY_PRIMARY

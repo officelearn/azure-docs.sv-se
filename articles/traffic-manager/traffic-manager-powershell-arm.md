@@ -4,8 +4,6 @@ description: Med hjälp av PowerShell för Traffic Manager med Azure Resource Ma
 services: traffic-manager
 documentationcenter: na
 author: kumudd
-manager: timlt
-ms.assetid: bc247448-1d2e-4104-ac03-42b59ebde065
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: article
@@ -13,41 +11,41 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/16/2017
 ms.author: kumud
-ms.openlocfilehash: 951e845e23a1ed0cbdc83fc24a97a545f00c52ad
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 8dcd89415bdd48b2d8d5c8e1e699159e9d1129e5
+ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2018
-ms.locfileid: "31526649"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50139483"
 ---
 # <a name="using-powershell-to-manage-traffic-manager"></a>Använda PowerShell för att hantera Traffic Manager
 
-Azure Resource Manager är det primära gränssnittet för tjänster i Azure. Azure Traffic Manager-profiler kan hanteras med Azure Resource Manager-baserade API: er och verktyg.
+Azure Resource Manager är det önskade hanteringsgränssnittet för tjänster i Azure. Azure Traffic Manager-profiler kan hanteras med hjälp av Azure Resource Manager-baserade API: er och verktyg.
 
 ## <a name="resource-model"></a>Resursmodell
 
-Azure Traffic Manager konfigureras med hjälp av en samling inställningar som kallas en Traffic Manager-profilen. Den här profilen innehåller DNS-inställningar, trafikdirigeringsinställningar, slutpunktsövervakningsinställningar och en lista över slutpunkter som trafik dirigeras.
+Med Azure Traffic Manager konfigureras med hjälp av en samling inställningar som kallas en Traffic Manager-profil. Den här profilen innehåller DNS-inställningar, inställningar för routning av trafik, inställningarna för övervakning av slutpunkt och en lista över slutpunkter som trafik dirigeras.
 
-Varje trafikhanterarprofil representeras av en resurs av typen 'TrafficManagerProfiles'. På REST API-nivå är URI: N för varje profil:
+Varje Traffic Manager-profil representeras av en resurs av typen 'TrafficManagerProfiles'. På REST API-nivå är URI: N för varje profil på följande sätt:
 
     https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Network/trafficManagerProfiles/{profile-name}?api-version={api-version}
 
 ## <a name="setting-up-azure-powershell"></a>Konfigurera Azure PowerShell
 
-Dessa anvisningar använder Microsoft Azure PowerShell. I följande artikel förklarar hur du installerar och konfigurerar du Azure PowerShell.
+Dessa anvisningar använder Microsoft Azure PowerShell. I följande artikel beskriver hur du installerar och konfigurerar Azure PowerShell.
 
 * [Installera och konfigurera Azure PowerShell](/powershell/azure/overview)
 
-Exemplen i den här artikeln förutsätter att du har en befintlig resursgrupp. Du kan skapa en resursgrupp med följande kommando:
+Exemplen i den här artikeln förutsätter att du har en befintlig resursgrupp. Du kan skapa en resursgrupp med hjälp av följande kommando:
 
 ```powershell
 New-AzureRmResourceGroup -Name MyRG -Location "West US"
 ```
 
 > [!NOTE]
-> Azure Resource Manager kräver att alla resursgrupper har en plats. Den här platsen används som standard för resurser som skapats i resursgruppen. Men eftersom resurser för Traffic Manager-profil är globala, inte regional är påverkar valet av resursgruppens plats inte på Azure Traffic Manager.
+> Azure Resource Manager kräver att alla resursgrupper har en plats. Den här platsen används som standard för resurser som skapades i resursgruppen. Men eftersom Traffic Manager profilresurser är globala, inte regionala är har valet av resursgruppens plats ingen inverkan på Azure Traffic Manager.
 
-## <a name="create-a-traffic-manager-profile"></a>Skapa en Trafikhanterarprofil
+## <a name="create-a-traffic-manager-profile"></a>Skapa en Traffic Manager-profil
 
 Du kan skapa en Traffic Manager-profil med den `New-AzureRmTrafficManagerProfile` cmdlet:
 
@@ -59,38 +57,38 @@ I följande tabell beskrivs parametrarna:
 
 | Parameter | Beskrivning |
 | --- | --- |
-| Namn |Resursnamnet för resursen Traffic Manager-profilen. Profiler i samma resursgrupp måste ha unika namn. Det här namnet skiljer sig från DNS-namn som används för DNS-frågor. |
-| resourceGroupName |Namnet på resursgruppen som innehåller profilen för resursen. |
-| TrafficRoutingMethod |Anger den metod för routning av nätverkstrafik som används för att avgöra vilken slutpunkt returneras svar en DNS-fråga. Möjliga värden är 'Prestanda', 'Viktat' eller 'Priority'. |
-| RelativeDnsName |Anger hostname-delen av DNS-namn som tillhandahålls av den här trafikhanterarprofilen. Det här värdet kombineras med DNS-domännamnet som används av Azure Traffic Manager för att bilda fullständigt kvalificerade domännamnet (FQDN) för profilen. Till exempel blir ange värdet för ”contoso” contoso.trafficmanager.net. |
-| TTL-VÄRDE |Anger DNS-Time-to-Live (TTL), i sekunder. Den här TTL informerar den lokala DNS-matchare och DNS-klienter, hur lång tid att cache DNS-svar för den här Traffic Manager-profilen. |
-| MonitorProtocol |Anger vilket protokoll som ska använda för att övervaka hälsotillståndet för slutpunkten. Möjliga värden är 'HTTP' och 'HTTPS'. |
-| MonitorPort |Anger den TCP-port som används för att övervaka hälsotillståndet för slutpunkten. |
-| MonitorPath |Anger sökväg i förhållande till slutpunkten domännamnet till avsökning för slutpunkten health. |
+| Namn |Resursnamnet för resursen för Traffic Manager-profil. Profiler i samma resursgrupp måste ha unika namn. Det här namnet skiljer sig från DNS-namn som används för DNS-frågor. |
+| ResourceGroupName |Namnet på resursgruppen som innehåller profilen resursen. |
+| TrafficRoutingMethod |Anger den metod för routning av nätverkstrafik som används för att avgöra vilken slutpunkt returneras svar en DNS-fråga. Möjliga värden är ”Performance”, ”viktat” eller ”prioritet”. |
+| RelativeDnsName |Anger värdnamnet delen av DNS-namn som tillhandahålls av den här Traffic Manager-profilen. Det här värdet kombineras med DNS-domännamnet som används av Azure Traffic Manager för att skapa det fullständigt kvalificerade domännamnet (FQDN) för profilen. Till exempel blir ställa in värdet för ”contoso” contoso.trafficmanager.net. |
+| TTL-VÄRDE |Anger DNS-Time-to-Live (TTL), i sekunder. Den här TTL informerar den lokala DNS-matchare och DNS-klienter som är hur lång tid att cache DNS-svar för den här Traffic Manager-profilen. |
+| MonitorProtocol |Anger vilket protokoll du använder för att övervaka hälsan för slutpunkten. Möjliga värden är ”HTTP” och ”HTTPS”. |
+| MonitorPort |Anger TCP-port som används för att övervaka hälsan för slutpunkten. |
+| MonitorPath |Anger sökväg i förhållande till domännamnet på slutpunkten används för att söka efter slutpunktshälsa. |
 
-Cmdleten skapar en Traffic Manager-profil i Azure och returnerar ett motsvarande profil-objekt till PowerShell. Profilen som innehåller nu inte några slutpunkter. Mer information om att lägga till slutpunkter i en Traffic Manager-profilen finns [att lägga till slutpunkter för Traffic Manager](#adding-traffic-manager-endpoints).
+Cmdleten skapar en Traffic Manager-profil i Azure och returnerar ett motsvarande objekt i profilen till PowerShell. Nu kan innehåller profilen inte några slutpunkter. Läs mer om att lägga till slutpunkter till en Traffic Manager-profil, [att lägga till Traffic Manager-slutpunkter](#adding-traffic-manager-endpoints).
 
-## <a name="get-a-traffic-manager-profile"></a>Hämta en Trafikhanterarprofil
+## <a name="get-a-traffic-manager-profile"></a>Hämta en Traffic Manager-profil
 
-Använd för att hämta ett befintligt objekt för Traffic Manager-profilen i `Get-AzureRmTrafficManagerProfle` cmdlet:
+Använd för att hämta ett befintligt objekt för Traffic Manager-profil i `Get-AzureRmTrafficManagerProfle` cmdlet:
 
 ```powershell
 $profile = Get-AzureRmTrafficManagerProfile -Name MyProfile -ResourceGroupName MyRG
 ```
 
-Denna cmdlet returnerar ett objekt för Traffic Manager-profilen.
+Denna cmdlet returnerar ett objekt för Traffic Manager-profil.
 
 ## <a name="update-a-traffic-manager-profile"></a>Uppdatera en Traffic Manager-profil
 
-Ändra Traffic Manager-profiler följer en process i steg 3:
+Ändra Traffic Manager-profiler följer en process i 3 steg:
 
 1. Hämta en profil med hjälp av `Get-AzureRmTrafficManagerProfile` eller använda den profil som returneras av `New-AzureRmTrafficManagerProfile`.
-2. Ändra profilen. Du kan lägga till och ta bort slutpunkter eller ändra slutpunkten eller profil parametrar. Dessa ändringar är offline åtgärder. Endast ändrar det lokala objektet i minnet som representerar profilen.
+2. Ändra profilen. Du kan lägga till och ta bort slutpunkter eller ändra slutpunkten eller profilen för parametrar. Dessa ändringar är offline åtgärder. Endast ändrar det lokala objektet i minnet som representerar profilen.
 3. Genomför ändringarna med hjälp av den `Set-AzureRmTrafficManagerProfile` cmdlet.
 
 Alla profilegenskaper kan ändras utom profilens RelativeDnsName. Om du vill ändra RelativeDnsName, måste du ta bort profil och en ny profil med ett nytt namn.
 
-Exemplet nedan visar hur du ändrar den profilen TTL-värde:
+I följande exempel visar hur du ändrar profilens TTL:
 
 ```powershell
 $profile = Get-AzureRmTrafficManagerProfile -Name MyProfile -ResourceGroupName MyRG
@@ -98,34 +96,34 @@ $profile.Ttl = 300
 Set-AzureRmTrafficManagerProfile -TrafficManagerProfile $profile
 ```
 
-Det finns tre typer av slutpunkter för Traffic Manager:
+Det finns tre typer av Traffic Manager-slutpunkter:
 
-1. **Azure-slutpunkter** är tjänster som finns på Azure
-2. **Externa slutpunkter** är tjänster som ligger utanför Azure
-3. **Kapslade slutpunkter** används för att skapa kapslade hierarkier av Traffic Manager-profiler. Kapslade slutpunkter aktivera avancerade routning av nätverkstrafik konfigurationer för komplexa program.
+1. **Azure-slutpunkter** är i Azure-tjänster
+2. **Externa slutpunkter** är utanför Azure-tjänster
+3. **Kapslade slutpunkter** används för att skapa kapslade hierarkier av Traffic Manager-profiler. Kapslade slutpunkter kan avancerade routning av nätverkstrafik konfigurationer för komplexa program.
 
 I samtliga tre fall kan du lägga till slutpunkter på två sätt:
 
-1. Med hjälp av en process för 3 steg som beskrivs ovan. Fördelen med den här metoden är att flera endpoint kan ändras i en enda uppdatering.
-2. Med hjälp av cmdlet New-AzureRmTrafficManagerEndpoint. Denna cmdlet lägger till en slutpunkt i en befintlig Traffic Manager-profil i en enda åtgärd.
+1. Med hjälp av en process i 3 steg som beskrivs ovan. Fördelen med den här metoden är att flera slutpunkt kan du göra ändringar i en enda uppdatering.
+2. Med hjälp av cmdleten New-AzureRmTrafficManagerEndpoint. Denna cmdlet lägger till en slutpunkt i en befintlig Traffic Manager-profil i en enda åtgärd.
 
-## <a name="adding-azure-endpoints"></a>Lägga till Azure-slutpunkter
+## <a name="adding-azure-endpoints"></a>Att lägga till Azure-slutpunkter
 
 Azure-slutpunkter referera till tjänster i Azure. Två typer av Azure-slutpunkter stöds:
 
 1. Azure Web Apps
 2. Azure PublicIpAddress-resurser (som kan kopplas till en belastningsutjämnare eller en virtuell dator NIC). PublicIpAddress måste ha ett DNS-namn som tilldelats som ska användas i Traffic Manager.
 
-I varje fall:
+I båda fallen:
 
-* Tjänsten har angetts med parametern 'targetResourceId' för `Add-AzureRmTrafficManagerEndpointConfig` eller `New-AzureRmTrafficManagerEndpoint`.
-* 'Target' och 'EndpointLocation' underförstås av TargetResourceId.
-* Ange 'vikten' är valfritt. Vikten används bara om profilen är konfigurerad för att använda metoden 'Viktat' routning av nätverkstrafik. I annat fall ignoreras de. Om anges måste värdet vara ett tal mellan 1 och 1000. Standardvärdet är '1'.
-* Ange den 'prioriteten' är valfritt. Prioriteringar används bara om profilen är konfigurerad för att använda metoden 'Priority' routning av nätverkstrafik. I annat fall ignoreras de. Giltiga värden är från 1 till 1000 med lägre värden som anger en högre prioritet. Om för en slutpunkt, måste de anges för alla slutpunkter. Om det utelämnas används standardvärden från '1' i ordningsföljden av slutpunkterna.
+* Tjänsten har angetts med parametern ”targetResourceId” av `Add-AzureRmTrafficManagerEndpointConfig` eller `New-AzureRmTrafficManagerEndpoint`.
+* ”Mål” och ”EndpointLocation” underförstådd av TargetResourceId.
+* Det är valfritt att ange den ”vikten”. Vikterna används bara om profilen är konfigurerad för att använda metoden 'Viktat' routning av nätverkstrafik. I annat fall ignoreras de. Om anges måste värdet vara ett tal mellan 1 och 1000. Standardvärdet är '1'.
+* Det är valfritt att ange den ”prioriteten”. Prioriteter används bara om profilen är konfigurerad för att använda metoden ”prioritet” routning av nätverkstrafik. I annat fall ignoreras de. Giltiga värden är mellan 1 och 1000 med lägre värden som anger en högre prioritet. Om anges för en slutpunkt måste de anges för alla slutpunkter. Om det utelämnas används tillämpas standardvärden som börjar med ”1” i angiven ordning av slutpunkterna.
 
-### <a name="example-1-adding-web-app-endpoints-using-add-azurermtrafficmanagerendpointconfig"></a>Exempel 1: Lägga till slutpunkter för webbprogram med hjälp av `Add-AzureRmTrafficManagerEndpointConfig`
+### <a name="example-1-adding-web-app-endpoints-using-add-azurermtrafficmanagerendpointconfig"></a>Exempel 1: Lägga till Web App-slutpunkter med hjälp av `Add-AzureRmTrafficManagerEndpointConfig`
 
-I det här exemplet vi skapa en Traffic Manager-profilen och lägga till två slutpunkter för webbprogram som använder den `Add-AzureRmTrafficManagerEndpointConfig` cmdlet.
+I det här exemplet skapar vi en Traffic Manager-profil och lägga till två Web App-slutpunkter med hjälp av den `Add-AzureRmTrafficManagerEndpointConfig` cmdlet.
 
 ```powershell
 $profile = New-AzureRmTrafficManagerProfile -Name myprofile -ResourceGroupName MyRG -TrafficRoutingMethod Performance -RelativeDnsName myapp -Ttl 30 -MonitorProtocol HTTP -MonitorPort 80 -MonitorPath "/"
@@ -137,7 +135,7 @@ Set-AzureRmTrafficManagerProfile -TrafficManagerProfile $profile
 ```
 ### <a name="example-2-adding-a-publicipaddress-endpoint-using-new-azurermtrafficmanagerendpoint"></a>Exempel 2: Lägga till en publicIpAddress-slutpunkten med `New-AzureRmTrafficManagerEndpoint`
 
-I det här exemplet läggs en offentlig IP-adressresurs till Traffic Manager-profilen. Den offentliga IP-adressen måste ha ett DNS-namn som har konfigurerats och kan bindas till nätverkskort på en virtuell dator eller till en belastningsutjämnare.
+I det här exemplet läggs en offentlig IP-adressresurs till Traffic Manager-profilen. Offentliga IP-adress måste ha ett DNS-namn som har konfigurerats och kan vara kopplat till nätverkskort för en virtuell dator eller till en belastningsutjämnare.
 
 ```powershell
 $ip = Get-AzureRmPublicIpAddress -Name MyPublicIP -ResourceGroupName MyRG
@@ -146,17 +144,17 @@ New-AzureRmTrafficManagerEndpoint -Name MyIpEndpoint -ProfileName MyProfile -Res
 
 ## <a name="adding-external-endpoints"></a>Lägga till externa slutpunkter
 
-Traffic Manager använder externa slutpunkter för att dirigera trafik till tjänster som ligger utanför Azure. Som med Azure-slutpunkter externa slutpunkter kan läggas till antingen med hjälp av `Add-AzureRmTrafficManagerEndpointConfig` följt av `Set-AzureRmTrafficManagerProfile`, eller `New-AzureRMTrafficManagerEndpoint`.
+Traffic Manager använder externa slutpunkter för att dirigera trafik till tjänster som ligger utanför Azure. Som med Azure-slutpunkter, externa slutpunkter kan läggas till antingen med hjälp av `Add-AzureRmTrafficManagerEndpointConfig` följt av `Set-AzureRmTrafficManagerProfile`, eller `New-AzureRMTrafficManagerEndpoint`.
 
 När du anger externa slutpunkter:
 
-* Slutpunkten domännamnet måste anges med parametern 'Target'
-* Om metoden routning av nätverkstrafik, prestanda, används krävs EndpointLocation. Annars är valfria. Värdet måste vara en [giltig Azure regionnamn](https://azure.microsoft.com/regions/).
-* 'Vikt' och 'Priority' är valfria.
+* Slutpunkt-domännamnet måste anges med parametern ”mål”
+* Om ”Performance” trafikdirigeringsmetoden används krävs EndpointLocation. Annars är valfritt. Värdet måste vara en [giltiga Azure-regionnamn](https://azure.microsoft.com/regions/).
+* ”Vikt” och ”prioritet” är valfria.
 
-### <a name="example-1-adding-external-endpoints-using-add-azurermtrafficmanagerendpointconfig-and-set-azurermtrafficmanagerprofile"></a>Exempel 1: Lägga till externa slutpunkter som använder `Add-AzureRmTrafficManagerEndpointConfig` och `Set-AzureRmTrafficManagerProfile`
+### <a name="example-1-adding-external-endpoints-using-add-azurermtrafficmanagerendpointconfig-and-set-azurermtrafficmanagerprofile"></a>Exempel 1: Lägga till externa slutpunkter med hjälp av `Add-AzureRmTrafficManagerEndpointConfig` och `Set-AzureRmTrafficManagerProfile`
 
-I det här exemplet vi skapa en Traffic Manager-profil, lägga till två externa slutpunkter och spara ändringarna.
+I det här exemplet vi skapa en Traffic Manager-profil, lägga till två externa slutpunkter och sedan spara ändringarna.
 
 ```powershell
 $profile = New-AzureRmTrafficManagerProfile -Name myprofile -ResourceGroupName MyRG -TrafficRoutingMethod Performance -RelativeDnsName myapp -Ttl 30 -MonitorProtocol HTTP -MonitorPort 80 -MonitorPath "/"
@@ -167,26 +165,26 @@ Set-AzureRmTrafficManagerProfile -TrafficManagerProfile $profile
 
 ### <a name="example-2-adding-external-endpoints-using-new-azurermtrafficmanagerendpoint"></a>Exempel 2: Lägga till externa slutpunkter med hjälp av `New-AzureRmTrafficManagerEndpoint`
 
-I det här exemplet vi lägga till en extern slutpunkt i en befintlig profil. Profilen har angetts med hjälp av gruppnamn profil och resurs.
+I det här exemplet lägger vi till en extern slutpunkt i en befintlig profil. Profilen har angetts med hjälp av namnen på profilen och resursen.
 
 ```powershell
 New-AzureRmTrafficManagerEndpoint -Name eu-endpoint -ProfileName MyProfile -ResourceGroupName MyRG -Type ExternalEndpoints -Target app-eu.contoso.com -EndpointStatus Enabled
 ```
 
-## <a name="adding-nested-endpoints"></a>Lägga till 'kapslade-slutpunkter
+## <a name="adding-nested-endpoints"></a>Lägga till ”kapslade' slutpunkter
 
-Varje Traffic Manager-profil anger en enda metod för routning av nätverkstrafik. Det finns emellertid scenarier som kräver mer avancerad routning av nätverkstrafik än routning tillhandahålls som en enskild Traffic Manager-profil. Du kan kapsla Traffic Manager-profiler för att kombinera fördelarna med fler än en metod för routning av nätverkstrafik. Kapslade profiler kan du åsidosätta standardbeteendet för Traffic Manager att stödja större och mer komplexa programdistributioner. Mer detaljerad exemplen finns [kapslade Traffic Manager-profiler](traffic-manager-nested-profiles.md).
+Varje Traffic Manager-profil anger en enda metod för routning av nätverkstrafik. Det finns dock scenarier som kräver mer sofistikerade routning av nätverkstrafik än routning tillhandahålls som en enda Traffic Manager-profil. Du kan kapsla Traffic Manager-profiler om du vill kombinera fördelarna med fler än en metod för routning av nätverkstrafik. Kapslade profiler kan du åsidosätta standardbeteendet för Traffic Manager stöd för större och mer komplexa distributioner av program. Mer detaljerade exempel finns i [kapslade Traffic Manager-profiler](traffic-manager-nested-profiles.md).
 
-Kapslade slutpunkter har konfigurerats på den överordnade-profil med hjälp av en viss slutpunkts-typ, 'NestedEndpoints'. När du anger kapslade slutpunkter:
+Kapslade slutpunkter har konfigurerats på den överordnade-profil som använder en viss slutpunkts-typ, 'NestedEndpoints'. När du anger kapslade slutpunkter:
 
-* Slutpunkten måste anges med parametern 'targetResourceId'
-* Om metoden routning av nätverkstrafik, prestanda, används krävs EndpointLocation. Annars är valfria. Värdet måste vara en [giltig Azure regionnamn](http://azure.microsoft.com/regions/).
-* 'Vikt' och 'Priority' är valfria, som Azure-slutpunkter.
-* 'MinChildEndpoints'-parametern är valfri. Standardvärdet är '1'. Om antalet tillgängliga slutpunkter understiger tröskelvärdet, anses överordnade profilen underordnade profilen 'försämrad' och diverts trafik till andra slutpunkter i profilen för överordnade.
+* Slutpunkten måste anges med parametern ”targetResourceId”
+* Om ”Performance” trafikdirigeringsmetoden används krävs EndpointLocation. Annars är valfritt. Värdet måste vara en [giltiga Azure-regionnamn](http://azure.microsoft.com/regions/).
+* ”Vikt” och ”prioritet” är valfria, som Azure-slutpunkter.
+* ”MinChildEndpoints”-parametern är valfri. Standardvärdet är '1'. Om antalet tillgängliga slutpunkter sjunker under det här tröskelvärdet, anses den överordnade profilen underordnade profilen 'degraderad' och diverts trafik till de andra slutpunkterna i den överordnade profilen.
 
-### <a name="example-1-adding-nested-endpoints-using-add-azurermtrafficmanagerendpointconfig-and-set-azurermtrafficmanagerprofile"></a>Exempel 1: Lägga till kapslade slutpunkter som använder `Add-AzureRmTrafficManagerEndpointConfig` och `Set-AzureRmTrafficManagerProfile`
+### <a name="example-1-adding-nested-endpoints-using-add-azurermtrafficmanagerendpointconfig-and-set-azurermtrafficmanagerprofile"></a>Exempel 1: Lägga till kapslade slutpunkter med hjälp av `Add-AzureRmTrafficManagerEndpointConfig` och `Set-AzureRmTrafficManagerProfile`
 
-I det här exemplet vi skapa ny Traffic Manager underordnade och överordnade profiler, lägga till underordnad som en kapslad slutpunkt till överordnat och spara ändringarna.
+I det här exemplet vi skapar nya Traffic Manager över- och underordnade profiler, Lägg till underordnad som en kapslad slutpunkt i överordnat och sedan spara ändringarna.
 
 ```powershell
 $child = New-AzureRmTrafficManagerProfile -Name child -ResourceGroupName MyRG -TrafficRoutingMethod Priority -RelativeDnsName child -Ttl 30 -MonitorProtocol HTTP -MonitorPort 80 -MonitorPath "/"
@@ -195,20 +193,20 @@ Add-AzureRmTrafficManagerEndpointConfig -EndpointName child-endpoint -TrafficMan
 Set-AzureRmTrafficManagerProfile -TrafficManagerProfile $profile
 ```
 
-Planeringsaspekter i det här exemplet vi inte till andra slutpunkter i över- eller underordnad-profiler.
+Kortfattat i det här exemplet vi inte lägga till andra slutpunkter till över- eller underordnad-profiler.
 
 ### <a name="example-2-adding-nested-endpoints-using-new-azurermtrafficmanagerendpoint"></a>Exempel 2: Lägga till kapslade slutpunkter med hjälp av `New-AzureRmTrafficManagerEndpoint`
 
-I det här exemplet vi lägga till en befintlig profil för underordnade som en kapslad slutpunkt i en befintlig överordnad profil. Profilen har angetts med hjälp av gruppnamn profil och resurs.
+I det här exemplet vi lägga till en befintlig profil för underordnade som en kapslad slutpunkt i en befintlig överordnad profil. Profilen har angetts med hjälp av namnen på profilen och resursen.
 
 ```powershell
 $child = Get-AzureRmTrafficManagerEndpoint -Name child -ResourceGroupName MyRG
 New-AzureRmTrafficManagerEndpoint -Name child-endpoint -ProfileName parent -ResourceGroupName MyRG -Type NestedEndpoints -TargetResourceId $child.Id -EndpointStatus Enabled -EndpointLocation "North Europe" -MinChildEndpoints 2
 ```
 
-## <a name="adding-endpoints-from-another-subscription"></a>Att lägga till slutpunkter från en annan prenumeration
+## <a name="adding-endpoints-from-another-subscription"></a>Lägga till slutpunkter från en annan prenumeration
 
-Traffic Manager fungerar med slutpunkter från olika prenumerationer. Du måste växla till prenumerationen med den slutpunkt som du vill lägga till för att hämta nödvändiga indata i Traffic Manager. Du måste växla till prenumerationer med Traffic Manager-profilen och lägga till encpoint. I exemplet nedan visar hur du gör detta med en offentlig IP-adress.
+Traffic Manager kan arbeta med slutpunkter från olika prenumerationer. Du måste växla till en prenumeration med den slutpunkt som du vill lägga till för att hämta nödvändiga indata till Traffic Manager. Sedan måste växla till prenumerationer med Traffic Manager-profilen och lägga till encpoint till den. I exemplet nedan visar hur du gör detta med en offentlig IP-adress.
 
 ```powershell
 Set-AzureRmContext -SubscriptionId $EndpointSubscription
@@ -222,12 +220,12 @@ New-AzureRmTrafficManagerEndpoint -Name $EndpointName -ProfileName $ProfileName 
 
 Det finns två sätt att uppdatera en befintlig Traffic Manager-slutpunkt:
 
-1. Hämta Traffic Manager-profil med `Get-AzureRmTrafficManagerProfile`, uppdatera egenskaperna för slutpunkten inom profilen och genomför ändringarna med `Set-AzureRmTrafficManagerProfile`. Den här metoden har fördelen att kunna uppdatera mer än en slutpunkt i en enda åtgärd.
-2. Hämta Traffic Manager-slutpunkten med `Get-AzureRmTrafficManagerEndpoint`, uppdaterar slutpunktsegenskaperna och genomför ändringarna med `Set-AzureRmTrafficManagerEndpoint`. Den här metoden är enklare, eftersom det inte kräver att indexera i matrisen slutpunkter i profilen.
+1. Hämta Traffic Manager-profil med `Get-AzureRmTrafficManagerProfile`, uppdatera Slutpunktsegenskaper i profilen och genomför ändringarna med `Set-AzureRmTrafficManagerProfile`. Den här metoden har fördelen att kunna uppdatera mer än en slutpunkt i en enda åtgärd.
+2. Hämta Traffic Manager-slutpunkten med `Get-AzureRmTrafficManagerEndpoint`, uppdatera Slutpunktsegenskaper för och genomför ändringarna med `Set-AzureRmTrafficManagerEndpoint`. Den här metoden är enklare, eftersom det inte kräver att indexera i matrisen slutpunkter i profilen.
 
-### <a name="example-1-updating-endpoints-using-get-azurermtrafficmanagerprofile-and-set-azurermtrafficmanagerprofile"></a>Exempel 1: Uppdatera slutpunkter med hjälp av `Get-AzureRmTrafficManagerProfile` och `Set-AzureRmTrafficManagerProfile`
+### <a name="example-1-updating-endpoints-using-get-azurermtrafficmanagerprofile-and-set-azurermtrafficmanagerprofile"></a>Exempel 1: Uppdatera slutpunkter med `Get-AzureRmTrafficManagerProfile` och `Set-AzureRmTrafficManagerProfile`
 
-I det här exemplet ändrar vi prioritet på två slutpunkter i en befintlig profil.
+I det här exemplet ändra vi prioritet på två slutpunkter i en befintlig profil.
 
 ```powershell
 $profile = Get-AzureRmTrafficManagerProfile -Name myprofile -ResourceGroupName MyRG
@@ -236,9 +234,9 @@ $profile.Endpoints[1].Priority = 1
 Set-AzureRmTrafficManagerProfile -TrafficManagerProfile $profile
 ```
 
-### <a name="example-2-updating-an-endpoint-using-get-azurermtrafficmanagerendpoint-and-set-azurermtrafficmanagerendpoint"></a>Exempel 2: Uppdatera slutpunkten med `Get-AzureRmTrafficManagerEndpoint` och `Set-AzureRmTrafficManagerEndpoint`
+### <a name="example-2-updating-an-endpoint-using-get-azurermtrafficmanagerendpoint-and-set-azurermtrafficmanagerendpoint"></a>Exempel 2: Uppdatera en slutpunkt med hjälp av `Get-AzureRmTrafficManagerEndpoint` och `Set-AzureRmTrafficManagerEndpoint`
 
-I det här exemplet ändrar vi vikten för en enda slutpunkt i en befintlig profil.
+I det här exemplet ändra vi vikten för en enda slutpunkt i en befintlig profil.
 
 ```powershell
 $endpoint = Get-AzureRmTrafficManagerEndpoint -Name myendpoint -ProfileName myprofile -ResourceGroupName MyRG -Type ExternalEndpoints
@@ -248,43 +246,43 @@ Set-AzureRmTrafficManagerEndpoint -TrafficManagerEndpoint $endpoint
 
 ## <a name="enabling-and-disabling-endpoints-and-profiles"></a>Aktiverar och inaktiverar slutpunkter och profiler
 
-Traffic Manager kan enskilda slutpunkter aktiverade och inaktiverade, samt att tillåta aktivering och inaktivering av hela profiler.
-Dessa ändringar kan göras genom att hämta/uppdatera/inställningen endpoint eller profil resurser. Om du vill förenkla dessa vanliga åtgärder stöds de också via dedikerade cmdlets.
+Traffic Manager kan enskilda slutpunkter som är aktiverade och inaktiverade, och låter aktivering och inaktivering av hela profiler.
+Dessa ändringar kan göras genom att hämta/uppdatera/inställningen slutpunkt eller profil-resurser. För att effektivt dessa vanliga åtgärder kan stöds de också via dedikerade cmdletar.
 
-### <a name="example-1-enabling-and-disabling-a-traffic-manager-profile"></a>Exempel 1: Aktivera och inaktivera Traffic Manager-profilen
+### <a name="example-1-enabling-and-disabling-a-traffic-manager-profile"></a>Exempel 1: Aktivera och inaktivera en Traffic Manager-profil
 
-Aktivera en Traffic Manager-profil med `Enable-AzureRmTrafficManagerProfile`. Profilen kan anges med en profilobjektet. Profil-objekt kan skickas via pipeline eller genom att använda den '-TrafficManagerProfile-parametern. I det här exemplet anger vi profil med namnet på profilen och resurs.
+Om du vill aktivera en Traffic Manager-profil, använda `Enable-AzureRmTrafficManagerProfile`. Profilen kan anges med en profilobjektet. Profilobjektet kan skickas via pipelinen eller genom att använda den '-TrafficManagerProfile-parametern. I det här exemplet anger vi profil med namnet på profilen och resursen.
 
 ```powershell
 Enable-AzureRmTrafficManagerProfile -Name MyProfile -ResourceGroupName MyResourceGroup
 ```
 
-Inaktivera Traffic Manager-profilen:
+Så här inaktiverar en Traffic Manager-profil:
 
 ```powershell
 Disable-AzureRmTrafficManagerProfile -Name MyProfile -ResourceGroupName MyResourceGroup
 ```
 
-Inaktivera AzureRmTrafficManagerProfile cmdlet uppmanas att bekräfta. Den här uppmaningen kan undertryckas med hjälp av den '-Force-parametern.
+Cmdleten Disable-AzureRmTrafficManagerProfile uppmanas att bekräfta. Varningen kan förhindras med hjälp av den ”-Force-parametern.
 
-### <a name="example-2-enabling-and-disabling-a-traffic-manager-endpoint"></a>Exempel 2: Aktivera och inaktivera Traffic Manager-slutpunkt
+### <a name="example-2-enabling-and-disabling-a-traffic-manager-endpoint"></a>Exempel 2: Aktivera och inaktivera en Traffic Manager-slutpunkt
 
-Aktivera en Traffic Manager-slutpunkt med `Enable-AzureRmTrafficManagerEndpoint`. Det finns två sätt att ange slutpunkten
+Om du vill aktivera en Traffic Manager-slutpunkt, använda `Enable-AzureRmTrafficManagerEndpoint`. Det finns två sätt att ange slutpunkten
 
-1. Med hjälp av en TrafficManagerEndpoint-objektet som överförs via pipeline eller den '-TrafficManagerEndpoint-parameter
-2. Med hjälp av namnet på slutpunkten, typen av slutpunkt, profilnamn och resursgruppens namn:
+1. Med hjälp av ett TrafficManagerEndpoint-objekt som skickas via pipelinen eller den ”-TrafficManagerEndpoint” parametern
+2. Med hjälp av namnet på slutpunkten, typ av slutpunkt, namn och resursgruppens namn:
 
 ```powershell
 Enable-AzureRmTrafficManagerEndpoint -Name MyEndpoint -Type AzureEndpoints -ProfileName MyProfile -ResourceGroupName MyRG
 ```
 
-På liknande sätt kan du inaktivera Traffic Manager-slutpunkten:
+På samma sätt kan du inaktivera Traffic Manager-slutpunkten:
 
 ```powershell
 Disable-AzureRmTrafficManagerEndpoint -Name MyEndpoint -Type AzureEndpoints -ProfileName MyProfile -ResourceGroupName MyRG -Force
 ```
 
-Precis som med `Disable-AzureRmTrafficManagerProfile`, `Disable-AzureRmTrafficManagerEndpoint` cmdlet uppmanas att bekräfta. Den här uppmaningen kan undertryckas med hjälp av den '-Force-parametern.
+Precis som med `Disable-AzureRmTrafficManagerProfile`, `Disable-AzureRmTrafficManagerEndpoint` cmdlet uppmanas att bekräfta. Varningen kan förhindras med hjälp av den ”-Force-parametern.
 
 ## <a name="delete-a-traffic-manager-endpoint"></a>Ta bort en Traffic Manager-slutpunkt
 
@@ -294,17 +292,17 @@ Ta bort enskilda slutpunkter med den `Remove-AzureRmTrafficManagerEndpoint` cmdl
 Remove-AzureRmTrafficManagerEndpoint -Name MyEndpoint -Type AzureEndpoints -ProfileName MyProfile -ResourceGroupName MyRG
 ```
 
-Denna cmdlet uppmanas att bekräfta. Den här uppmaningen kan undertryckas med hjälp av den '-Force-parametern.
+Denna cmdlet uppmanas att bekräfta. Varningen kan förhindras med hjälp av den ”-Force-parametern.
 
 ## <a name="delete-a-traffic-manager-profile"></a>Ta bort en Traffic Manager-profil
 
-Ta bort en Traffic Manager-profilen genom att använda den `Remove-AzureRmTrafficManagerProfile` cmdlet, anger gruppnamn profil och resursen:
+Ta bort en Traffic Manager-profil genom att använda den `Remove-AzureRmTrafficManagerProfile` cmdlet, ange namnen på profilen och resurs:
 
 ```powershell
 Remove-AzureRmTrafficManagerProfile -Name MyProfile -ResourceGroupName MyRG [-Force]
 ```
 
-Denna cmdlet uppmanas att bekräfta. Den här uppmaningen kan undertryckas med hjälp av den '-Force-parametern.
+Denna cmdlet uppmanas att bekräfta. Varningen kan förhindras med hjälp av den ”-Force-parametern.
 
 Också du kan ange profilen som ska tas bort med hjälp av en profil-objekt:
 
@@ -313,7 +311,7 @@ $profile = Get-AzureRmTrafficManagerProfile -Name MyProfile -ResourceGroupName M
 Remove-AzureRmTrafficManagerProfile -TrafficManagerProfile $profile [-Force]
 ```
 
-Den här sekvensen kan också skickas:
+Den här sekvensen kan även pipas:
 
 ```powershell
 Get-AzureRmTrafficManagerProfile -Name MyProfile -ResourceGroupName MyRG | Remove-AzureRmTrafficManagerProfile [-Force]

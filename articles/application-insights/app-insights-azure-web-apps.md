@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/05/2017
+ms.date: 10/25/2018
 ms.author: mbullwin
-ms.openlocfilehash: 5743408b000dd7497a10f27db2a4ea9d87082b8d
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: 91b050c4e1ca37c0af208d6df1ce4f8272235294
+ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47091803"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50139779"
 ---
 # <a name="monitor-azure-web-app-performance"></a>Övervaka prestanda för Azure-webbappar
 På [Azure Portal](https://portal.azure.com) kan du konfigurera övervakning av programprestanda för dina [Azure-webbappar](../app-service/app-service-web-overview.md). [Azure Application Insights](app-insights-overview.md) instrumenterar din app så att den skickar telemetri om sina aktiviteter till Application Insights-tjänsten, där informationen lagras och analyseras. Där kan du använda diagram med mätvärden och sökverktyg för att diagnostisera problem, förbättra prestanda och utvärdera användningen.
@@ -33,24 +33,32 @@ Du kan konfigurera övervakning genom att instrumentera appen på något av två
 Om du redan kör en webbapp i Azure har du redan tillgång till viss övervakning: begärande- och felfrekvens. Lägg till Application Insights om du vill få tillgång till mer, till exempel svarstider, övervakning av anrop till beroenden, smart identifiering och det kraftfulla Log Analytics-frågespråket. 
 
 1. **Välj Application Insights** på Azure-kontrollpanelen för din webbapp.
-   
-    ![Välj Application Insights under Övervakning](./media/app-insights-azure-web-apps/05-extend.png)
-   
-   * Välj att skapa en ny resurs, såvida du inte redan har angett en Application Insights-resurs för den här appen på ett annat sätt.
-2. **Instrumentera din webbapp** när Application Insights har installerats. 
-   
-    ![Instrumentera din webbapp](./media/app-insights-azure-web-apps/restart-web-app-for-insights.png)
+
+    ![Välj Application Insights under inställningar](./media/app-insights-azure-web-apps/settings-app-insights.png)
+
+   * Välja att skapa en ny resurs, såvida inte du redan har konfigurerat en Application Insights-resurs för det här programmet. 
+
+    > [!NOTE]
+    > När du klickar på **OK** att skapa den nya resursen som du kommer att uppmanas att **tillämpa övervakningsinställningar**. Att välja **Fortsätt** länkar nya Application Insights-resursen till din webbapp, gör du så kommer också **utlösa en omstart av webbappen**. 
+
+    ![Instrumentera din webbapp](./media/app-insights-azure-web-apps/create-resource.png)
+
+2. När din resurs har skapats väljer **kontrollera och uppdatera Application Insights-tillägget för webbappen** att kontrollera att tillägget är uppdaterad.
+
+     ![Kontrollera och uppdatera webbplatstillägg](./media/app-insights-azure-web-apps/check-and-update.png)
+
+3. **Instrumentera din webbapp** när Application Insights har installerats.
 
    **Aktivera övervakning på klientsidan** för sidvy och användartelemetri.
 
    * Välj Inställningar > Programinställningar
-   * Under Appinställningar lägger du till ett nytt nyckel/värde-par: 
-   
-    Nyckel: `APPINSIGHTS_JAVASCRIPT_ENABLED` 
-    
+   * Under Appinställningar lägger du till ett nytt nyckel/värde-par:
+
+    Nyckel: `APPINSIGHTS_JAVASCRIPT_ENABLED`
+
     Värde:`true`
    * **Spara** inställningarna och **starta om** din app.
-3. **Övervaka din app**.  [Utforska data](#explore-the-data).
+4. Utforska övervakningsdata för din app genom att välja **inställningar** > **Programinsikter** > **visa mer i Application Insights**.
 
 Senare kan du skapa appen med Application Insights om du vill.
 
@@ -63,14 +71,14 @@ Application Insights kan tillhandahålla mer detaljerad telemetri genom installa
 
 1. **I Visual Studio** (2013 uppdatering 2 eller senare) konfigurerar du Application Insights för ditt projekt.
 
-    Högerklicka på webbprojektet och välj **Lägg till > Application Insights** eller **Konfigurera Application Insights**.
-   
+    Högerklicka på webbprojektet och välj **Lägg till > Application Insights** eller **projekt** > **Programinsikter**  >  **Konfigurera Application Insights**.
+
     ![Högerklicka på webbprojektet och välj Lägg till Application Insights eller Konfigurera Application Insights](./media/app-insights-azure-web-apps/03-add.png)
-   
+
     Om du uppmanas att logga in använder du autentiseringsuppgifterna för ditt Azure-konto.
-   
+
     Åtgärden har två effekter:
-   
+
    1. Skapar en Application Insights-resurs i Azure, där telemetri lagras, analyseras och visas.
    2. Lägger till NuGet-paketet för Application Insights i din kod (om det inte redan finns där) och konfigurerar det att skicka telemetri till Azure-resursen.
 2. **Testa telemetrin** genom att köra appen på utvecklingsdatorn (F5).
@@ -79,29 +87,6 @@ Application Insights kan tillhandahålla mer detaljerad telemetri genom installa
 *Hur växlar jag till att skicka telemetri till en annan Application Insights-resurs?*
 
 * I Visual Studio högerklickar du på projektet, väljer **Konfigurera Application Insights** och väljer önskad resurs. Du får möjlighet att skapa en ny resurs. Återskapa och distribuera igen.
-
-## <a name="explore-the-data"></a>Utforska data
-1. På bladet Application Insights på kontrollpanelen för webbappen ser du Live Metrics, som visar begäranden och fel inom en sekund eller två efter att de inträffat. Detta är praktiskt när du publicera om din app, så att du genast ser eventuella problem.
-2. Klicka dig framåt till den fullständiga Application Insights-resursen.
-
-    ![Klicka dig framåt](./media/app-insights-azure-web-apps/view-in-application-insights.png)
-
-    Du kan också gå dit direkt från Azure-resursnavigeringen.
-
-1. Klicka dig igenom valfritt diagram om du vill visa mer information:
-   
-    ![Klicka på ett diagram på översiktsbladet för Application Insights](./media/app-insights-azure-web-apps/07-dependency.png)
-   
-    Du kan [anpassa bladen med mätvärden](app-insights-metrics-explorer.md).
-2. Klicka dig vidare om du vill visa enskilda händelser och deras egenskaper:
-   
-    ![Klicka på en händelsetyp för att öppna en sökning som filtrerats baserat på den typen](./media/app-insights-azure-web-apps/08-requests.png)
-   
-    Observera länken ”...” för att öppna alla egenskaper.
-   
-    Du kan [anpassa sökningar](app-insights-diagnostic-search.md).
-
-För mer kraftfulla sökningar över din telemetri kan du använda [Log Analytics-frågespråket](app-insights-analytics-tour.md).
 
 ## <a name="more-telemetry"></a>Mer telemetri
 

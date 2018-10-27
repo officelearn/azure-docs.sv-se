@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 08/09/2018
 ms.author: kgremban
-ms.openlocfilehash: d3c32c2258f7542a02549fbc531aa9e8293d0235
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: c400a084a78af6313e355d65bcbc07a520f55514
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46996306"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50156059"
 ---
 # <a name="monitor-the-health-of-azure-iot-hub-and-diagnose-problems-quickly"></a>Övervaka hälsotillståndet för Azure IoT Hub och diagnostisera problem snabbt
 
@@ -42,6 +42,8 @@ Mer information om specifika mått och händelser som Azure Monitor bevakar finn
 
 Azure Monitor övervakar olika åtgärder som inträffar i IoT Hub. Varje kategori har ett schema som definierar hur händelser i den kategorin rapporteras. 
 
+
+
 #### <a name="connections"></a>Anslutningar
 
 Anslutningar kategorin spårar enheten ansluta och koppla bort händelser från en IoT-hubb, samt fel. Det är användbart för att identifiera obehöriga anslutningsförsök och för att spåra när anslutningen kopplas från för enheter i områden med dålig anslutning att spåra den här kategorin.
@@ -56,7 +58,7 @@ Anslutningar kategorin spårar enheten ansluta och koppla bort händelser från 
     "operationName": "deviceConnect",
     "category": "Connections",
     "level": "Information",
-    "properties": "{\"deviceId\":\"<deviceId>\",\"protocol\":\"<protocol>\",\"authType\":\"{\\\"scope\\\":\\\"device\\\",\\\"type\\\":\\\"sas\\\",\\\"issuer\\\":\\\"iothub\\\",\\\"acceptingIpFilterRule\\\":null}\",\"maskedIpAddress\":\"<maskedIpAddress>\"}", 
+    "properties": "{\"deviceId\":\"<deviceId>\",\"protocol\":\"<protocol>\",\"authType\":\"{\\\"scope\\\":\\\"device\\\",\\\"type\\\":\\\"sas\\\",\\\"issuer\\\":\\\"iothub\\\",\\\"acceptingIpFilterRule\\\":null}\",\"maskedIpAddress\":\"<maskedIpAddress>\"}", 
     "location": "Resource location"
 }
 ```
@@ -67,15 +69,20 @@ Moln till enhet kommandon kategorin spårar fel som inträffar på IoT-hubben oc
 
 ```json
 {
-    "time": " UTC timestamp",
-    "resourceId": "Resource Id",
-    "operationName": "messageExpired",
-    "category": "C2DCommands",
-    "level": "Error",
-    "resultType": "Event status",
-    "resultDescription": "MessageDescription",
-    "properties": "{\"deviceId\":\"<deviceId>\",\"messageId\":\"<messageId>\",\"messageSizeInBytes\":\"<messageSize>\",\"protocol\":\"Amqp\",\"deliveryAcknowledgement\":\"<None, NegativeOnly, PositiveOnly, Full>\",\"deliveryCount\":\"0\",\"expiryTime\":\"<timestamp>\",\"timeInSystem\":\"<timeInSystem>\",\"ttl\":<ttl>, \"EventProcessedUtcTime\":\"<UTC timestamp>\",\"EventEnqueuedUtcTime\":\"<UTC timestamp>\", \"maskedIpAddresss\": \"<maskedIpAddress>\", \"statusCode\": \"4XX\"}",
-    "location": "Resource location"
+    "records": 
+    [
+        {
+            "time": " UTC timestamp",
+            "resourceId": "Resource Id",
+            "operationName": "messageExpired",
+            "category": "C2DCommands",
+            "level": "Error",
+            "resultType": "Event status",
+            "resultDescription": "MessageDescription",
+            "properties": "{\"deviceId\":\"<deviceId>\",\"messageId\":\"<messageId>\",\"messageSizeInBytes\":\"<messageSize>\",\"protocol\":\"Amqp\",\"deliveryAcknowledgement\":\"<None, NegativeOnly, PositiveOnly, Full>\",\"deliveryCount\":\"0\",\"expiryTime\":\"<timestamp>\",\"timeInSystem\":\"<timeInSystem>\",\"ttl\":<ttl>, \"EventProcessedUtcTime\":\"<UTC timestamp>\",\"EventEnqueuedUtcTime\":\"<UTC timestamp>\", \"maskedIpAddresss\": \"<maskedIpAddress>\", \"statusCode\": \"4XX\"}",
+            "location": "Resource location"
+        }
+    ]
 }
 ```
 
@@ -85,15 +92,20 @@ Enhetskategorin identitet operations spårar fel som uppstår vid försök att s
 
 ```json
 {
-    "time": "UTC timestamp",
-    "resourceId": "Resource Id",
-    "operationName": "get",
-    "category": "DeviceIdentityOperations",
-    "level": "Error",    
-    "resultType": "Event status",
-    "resultDescription": "MessageDescription",
-    "properties": "{\"maskedIpAddress\":\"<maskedIpAddress>\",\"deviceId\":\"<deviceId>\", \"statusCode\":\"4XX\"}",
-    "location": "Resource location"
+    "records": 
+    [
+        {
+            "time": "UTC timestamp",
+            "resourceId": "Resource Id",
+            "operationName": "get",
+            "category": "DeviceIdentityOperations",
+            "level": "Error",    
+            "resultType": "Event status",
+            "resultDescription": "MessageDescription",
+            "properties": "{\"maskedIpAddress\":\"<maskedIpAddress>\",\"deviceId\":\"<deviceId>\", \"statusCode\":\"4XX\"}",
+            "location": "Resource location"
+        }
+    ]
 }
 ```
 
@@ -103,13 +115,18 @@ Meddelandet routning kategorin spårar fel som inträffar när meddelandet väge
 
 ```json
 {
-    "time": "UTC timestamp",
-    "resourceId": "Resource Id",
-    "operationName": "endpointUnhealthy",
-    "category": "Routes",
-    "level": "Error",
-    "properties": "{\"deviceId\": \"<deviceId>\",\"endpointName\":\"<endpointName>\",\"messageId\":<messageId>,\"details\":\"<errorDetails>\",\"routeName\": \"<routeName>\"}",
-    "location": "Resource location"
+    "records": 
+    [
+        {
+            "time": "UTC timestamp",
+            "resourceId": "Resource Id",
+            "operationName": "endpointUnhealthy",
+            "category": "Routes",
+            "level": "Error",
+            "properties": "{\"deviceId\": \"<deviceId>\",\"endpointName\":\"<endpointName>\",\"messageId\":<messageId>,\"details\":\"<errorDetails>\",\"routeName\": \"<routeName>\"}",
+            "location": "Resource location"
+        }
+    ]
 }
 ```
 
@@ -119,15 +136,20 @@ Telemetri enhetskategorin spårar fel som inträffar på IoT-hubben och som är 
 
 ```json
 {
-    "time": "UTC timestamp",
-    "resourceId": "Resource Id",
-    "operationName": "ingress",
-    "category": "DeviceTelemetry",
-    "level": "Error",
-    "resultType": "Event status",
-    "resultDescription": "MessageDescription",
-    "properties": "{\"deviceId\":\"<deviceId>\",\"batching\":\"0\",\"messageSizeInBytes\":\"<messageSizeInBytes>\",\"EventProcessedUtcTime\":\"<UTC timestamp>\",\"EventEnqueuedUtcTime\":\"<UTC timestamp>\",\"partitionId\":\"1\"}", 
-    "location": "Resource location"
+    "records": 
+    [
+        {
+            "time": "UTC timestamp",
+            "resourceId": "Resource Id",
+            "operationName": "ingress",
+            "category": "DeviceTelemetry",
+            "level": "Error",
+            "resultType": "Event status",
+            "resultDescription": "MessageDescription",
+            "properties": "{\"deviceId\":\"<deviceId>\",\"batching\":\"0\",\"messageSizeInBytes\":\"<messageSizeInBytes>\",\"EventProcessedUtcTime\":\"<UTC timestamp>\",\"EventEnqueuedUtcTime\":\"<UTC timestamp>\",\"partitionId\":\"1\"}", 
+            "location": "Resource location"
+        }
+    ]
 }
 ```
 
@@ -143,16 +165,21 @@ Den här kategorin identifierar inte fel som sker under tiden enheten laddar upp
 
 ```json
 {
-    "time": "UTC timestamp",
-    "resourceId": "Resource Id",
-    "operationName": "ingress",
-    "category": "FileUploadOperations",
-    "level": "Error",
-    "resultType": "Event status",
-    "resultDescription": "MessageDescription",
-    "durationMs": "1",
-    "properties": "{\"deviceId\":\"<deviceId>\",\"protocol\":\"<protocol>\",\"authType\":\"{\\\"scope\\\":\\\"device\\\",\\\"type\\\":\\\"sas\\\",\\\"issuer\\\":\\\"iothub\\\",\\\"acceptingIpFilterRule\\\":null}\",\"blobUri\":\"http//bloburi.com\"}",
-    "location": "Resource location"
+    "records": 
+    [
+        {
+            "time": "UTC timestamp",
+            "resourceId": "Resource Id",
+            "operationName": "ingress",
+            "category": "FileUploadOperations",
+            "level": "Error",
+            "resultType": "Event status",
+            "resultDescription": "MessageDescription",
+            "durationMs": "1",
+            "properties": "{\"deviceId\":\"<deviceId>\",\"protocol\":\"<protocol>\",\"authType\":\"{\\\"scope\\\":\\\"device\\\",\\\"type\\\":\\\"sas\\\",\\\"issuer\\\":\\\"iothub\\\",\\\"acceptingIpFilterRule\\\":null}\",\"blobUri\":\"http//bloburi.com\"}",
+            "location": "Resource location"
+        }
+    ]
 }
 ```
 
@@ -162,14 +189,19 @@ Moln till enhet twin åtgärdskategori spårar tjänstinitierade händelser på 
 
 ```json
 {
-    "time": "UTC timestamp",
-    "resourceId": "Resource Id",
-    "operationName": "read",
-    "category": "C2DTwinOperations",
-    "level": "Information",
-    "durationMs": "1",
-    "properties": "{\"deviceId\":\"<deviceId>\",\"sdkVersion\":\"<sdkVersion>\",\"messageSize\":\"<messageSize>\"}", 
-    "location": "Resource location"
+    "records": 
+    [
+        {
+            "time": "UTC timestamp",
+            "resourceId": "Resource Id",
+            "operationName": "read",
+            "category": "C2DTwinOperations",
+            "level": "Information",
+            "durationMs": "1",
+            "properties": "{\"deviceId\":\"<deviceId>\",\"sdkVersion\":\"<sdkVersion>\",\"messageSize\":\"<messageSize>\"}", 
+            "location": "Resource location"
+        }
+    ]
 }
 ```
 
@@ -179,14 +211,19 @@ Enhet-till-moln twin åtgärdskategori spårar enhet-initierad händelser på en
 
 ```json
 {
-    "time": "UTC timestamp",
-    "resourceId": "Resource Id",
-    "operationName": "update",
-    "category": "D2CTwinOperations",
-    "level": "Information",
-    "durationMs": "1",
-    "properties": "{\"deviceId\":\"<deviceId>\",\"protocol\":\"<protocol>\",\"authenticationType\":\"{\\\"scope\\\":\\\"device\\\",\\\"type\\\":\\\"sas\\\",\\\"issuer\\\":\\\"iothub\\\",\\\"acceptingIpFilterRule\\\":null}\"}", 
-    "location": "Resource location"
+    "records": 
+    [
+        {
+            "time": "UTC timestamp",
+            "resourceId": "Resource Id",
+            "operationName": "update",
+            "category": "D2CTwinOperations",
+            "level": "Information",
+            "durationMs": "1",
+            "properties": "{\"deviceId\":\"<deviceId>\",\"protocol\":\"<protocol>\",\"authenticationType\":\"{\\\"scope\\\":\\\"device\\\",\\\"type\\\":\\\"sas\\\",\\\"issuer\\\":\\\"iothub\\\",\\\"acceptingIpFilterRule\\\":null}\"}", 
+            "location": "Resource location"
+        }
+    ]
 }
 ```
 
@@ -196,14 +233,19 @@ Kategorin twin frågor rapporterar om frågebegäranden efter enhetstvillingar s
 
 ```json
 {
-    "time": "UTC timestamp",
-    "resourceId": "Resource Id",
-    "operationName": "query",
-    "category": "TwinQueries",
-    "level": "Information",
-    "durationMs": "1",
-    "properties": "{\"query\":\"<twin query>\",\"sdkVersion\":\"<sdkVersion>\",\"messageSize\":\"<messageSize>\",\"pageSize\":\"<pageSize>\", \"continuation\":\"<true, false>\", \"resultSize\":\"<resultSize>\"}", 
-    "location": "Resource location"
+    "records": 
+    [
+        {
+            "time": "UTC timestamp",
+            "resourceId": "Resource Id",
+            "operationName": "query",
+            "category": "TwinQueries",
+            "level": "Information",
+            "durationMs": "1",
+            "properties": "{\"query\":\"<twin query>\",\"sdkVersion\":\"<sdkVersion>\",\"messageSize\":\"<messageSize>\",\"pageSize\":\"<pageSize>\", \"continuation\":\"<true, false>\", \"resultSize\":\"<resultSize>\"}", 
+            "location": "Resource location"
+        }
+    ]
 }
 ```
 
@@ -213,14 +255,19 @@ Jobb åtgärdskategori rapporterar om jobbförfrågningar uppdatera enhetstvilli
 
 ```json
 {
-    "time": "UTC timestamp",
-    "resourceId": "Resource Id",
-    "operationName": "jobCompleted",
-    "category": "JobsOperations",
-    "level": "Information",
-    "durationMs": "1",
-    "properties": "{\"jobId\":\"<jobId>\", \"sdkVersion\": \"<sdkVersion>\",\"messageSize\": <messageSize>,\"filter\":\"DeviceId IN ['1414ded9-b445-414d-89b9-e48e8c6285d5']\",\"startTimeUtc\":\"Wednesday, September 13, 2017\",\"duration\":\"0\"}", 
-    "location": "Resource location"
+    "records": 
+    [
+        {
+            "time": "UTC timestamp",
+            "resourceId": "Resource Id",
+            "operationName": "jobCompleted",
+            "category": "JobsOperations",
+            "level": "Information",
+            "durationMs": "1",
+            "properties": "{\"jobId\":\"<jobId>\", \"sdkVersion\": \"<sdkVersion>\",\"messageSize\": <messageSize>,\"filter\":\"DeviceId IN ['1414ded9-b445-414d-89b9-e48e8c6285d5']\",\"startTimeUtc\":\"Wednesday, September 13, 2017\",\"duration\":\"0\"}", 
+            "location": "Resource location"
+        }
+    ]
 }
 ```
 
@@ -230,14 +277,19 @@ Direkta metoder kategorin spårar begäranden och svar-interaktioner som skickas
 
 ```json
 {
-    "time": "UTC timestamp",
-    "resourceId": "Resource Id",
-    "operationName": "send",
-    "category": "DirectMethods",
-    "level": "Information",
-    "durationMs": "1",
-    "properties": "{\"deviceId\":\"<deviceId>\", \"RequestSize\": 1, \"ResponseSize\": 1, \"sdkVersion\": \"2017-07-11\"}", 
-    "location": "Resource location"
+    "records": 
+    [
+        {
+            "time": "UTC timestamp",
+            "resourceId": "Resource Id",
+            "operationName": "send",
+            "category": "DirectMethods",
+            "level": "Information",
+            "durationMs": "1",
+            "properties": "{\"deviceId\":\"<deviceId>\", \"RequestSize\": 1, \"ResponseSize\": 1, \"sdkVersion\": \"2017-07-11\"}", 
+            "location": "Resource location"
+        }
+    ]
 }
 ```
 
@@ -246,67 +298,67 @@ Direkta metoder kategorin spårar begäranden och svar-interaktioner som skickas
 Du kan skapa program som läser in loggarna så att du kan vidta åtgärder baserat på informationen i dem när du har konfigurerat händelseloggning via diagnostikinställningar. Den här exempelkoden hämtar loggar från en händelsehubb:
 
 ```csharp
-class Program 
-{ 
-    static string connectionString = "{your AMS eventhub endpoint connection string}"; 
-    static string monitoringEndpointName = "{your AMS event hub endpoint name}"; 
-    static EventHubClient eventHubClient; 
-//This is the Diagnostic Settings schema 
-    class AzureMonitorDiagnosticLog 
-    { 
-        string time { get; set; } 
-        string resourceId { get; set; } 
-        string operationName { get; set; } 
-        string category { get; set; } 
-        string level { get; set; } 
-        string resultType { get; set; } 
-        string resultDescription { get; set; } 
-        string durationMs { get; set; } 
-        string callerIpAddress { get; set; } 
-        string correlationId { get; set; } 
-        string identity { get; set; } 
-        string location { get; set; } 
-        Dictionary<string, string> properties { get; set; } 
-    }; 
-    static void Main(string[] args) 
-    { 
-        Console.WriteLine("Monitoring. Press Enter key to exit.\n"); 
-        eventHubClient = EventHubClient.CreateFromConnectionString(connectionString, monitoringEndpointName); 
-        var d2cPartitions = eventHubClient.GetRuntimeInformation().PartitionIds; 
-        CancellationTokenSource cts = new CancellationTokenSource(); 
-        var tasks = new List<Task>(); 
-        foreach (string partition in d2cPartitions) 
-        { 
-            tasks.Add(ReceiveMessagesFromDeviceAsync(partition, cts.Token)); 
-        } 
-        Console.ReadLine(); 
-        Console.WriteLine("Exiting..."); 
-        cts.Cancel(); 
-        Task.WaitAll(tasks.ToArray()); 
-    } 
-    private static async Task ReceiveMessagesFromDeviceAsync(string partition, CancellationToken ct) 
-    { 
-        var eventHubReceiver = eventHubClient.GetDefaultConsumerGroup().CreateReceiver(partition, DateTime.UtcNow); 
-        while (true) 
-        { 
-            if (ct.IsCancellationRequested) 
-            { 
-                await eventHubReceiver.CloseAsync(); 
-                break; 
-            } 
-            EventData eventData = await eventHubReceiver.ReceiveAsync(new TimeSpan(0,0,10)); 
-            if (eventData != null) 
-            { 
-                string data = Encoding.UTF8.GetString(eventData.GetBytes()); 
-                Console.WriteLine("Message received. Partition: {0} Data: '{1}'", partition, data); 
-                var deserializer = new JavaScriptSerializer(); 
-                //deserialize json data to azure monitor object 
-                AzureMonitorDiagnosticLog message = new JavaScriptSerializer().Deserialize<AzureMonitorDiagnosticLog>(result); 
- 
-            } 
-        } 
-    } 
-} 
+class Program 
+{ 
+    static string connectionString = "{your AMS eventhub endpoint connection string}"; 
+    static string monitoringEndpointName = "{your AMS event hub endpoint name}"; 
+    static EventHubClient eventHubClient; 
+//This is the Diagnostic Settings schema 
+    class AzureMonitorDiagnosticLog 
+    { 
+        string time { get; set; } 
+        string resourceId { get; set; } 
+        string operationName { get; set; } 
+        string category { get; set; } 
+        string level { get; set; } 
+        string resultType { get; set; } 
+        string resultDescription { get; set; } 
+        string durationMs { get; set; } 
+        string callerIpAddress { get; set; } 
+        string correlationId { get; set; } 
+        string identity { get; set; } 
+        string location { get; set; } 
+        Dictionary<string, string> properties { get; set; } 
+    }; 
+    static void Main(string[] args) 
+    { 
+        Console.WriteLine("Monitoring. Press Enter key to exit.\n"); 
+        eventHubClient = EventHubClient.CreateFromConnectionString(connectionString, monitoringEndpointName); 
+        var d2cPartitions = eventHubClient.GetRuntimeInformation().PartitionIds; 
+        CancellationTokenSource cts = new CancellationTokenSource(); 
+        var tasks = new List<Task>(); 
+        foreach (string partition in d2cPartitions) 
+        { 
+            tasks.Add(ReceiveMessagesFromDeviceAsync(partition, cts.Token)); 
+        } 
+        Console.ReadLine(); 
+        Console.WriteLine("Exiting..."); 
+        cts.Cancel(); 
+        Task.WaitAll(tasks.ToArray()); 
+    } 
+    private static async Task ReceiveMessagesFromDeviceAsync(string partition, CancellationToken ct) 
+    { 
+        var eventHubReceiver = eventHubClient.GetDefaultConsumerGroup().CreateReceiver(partition, DateTime.UtcNow); 
+        while (true) 
+        { 
+            if (ct.IsCancellationRequested) 
+            { 
+                await eventHubReceiver.CloseAsync(); 
+                break; 
+            } 
+            EventData eventData = await eventHubReceiver.ReceiveAsync(new TimeSpan(0,0,10)); 
+            if (eventData != null) 
+            { 
+                string data = Encoding.UTF8.GetString(eventData.GetBytes()); 
+                Console.WriteLine("Message received. Partition: {0} Data: '{1}'", partition, data); 
+                var deserializer = new JavaScriptSerializer(); 
+                //deserialize json data to azure monitor object 
+                AzureMonitorDiagnosticLog message = new JavaScriptSerializer().Deserialize<AzureMonitorDiagnosticLog>(result); 
+ 
+            } 
+        } 
+    } 
+} 
 ```
 
 ## <a name="use-azure-resource-health"></a>Använda Azure Resource Health

@@ -1,3 +1,16 @@
+---
+author: alkohli
+ms.service: storsimple
+ms.topic: include
+ms.date: 10/26/2018
+ms.author: alkohli
+ms.openlocfilehash: b9f5e5d0b774d3875999fa5337f41040c4217c8b
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.translationtype: MT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50164380"
+---
 <!--author=alkohli last changed: 11/07/16 -->
 
 #### <a name="to-install-updates-via-the-azure-portal"></a>Installera uppdateringar via Azure Portal
@@ -50,6 +63,6 @@
 
     ![uppdatera enhet](../includes/media/storsimple-virtual-array-install-update-via-portal/azupdate16m.png)
 
-9. När uppdateringarna har installerats, visas ett meddelande detta i bladet enheten uppdateringar. Programvaruversionen ändras till **10.0.10288.0**. 
+9. När uppdateringarna har installerats, visas ett meddelande som detta i bladet uppdateringar. Programvaruversionen ändras också till **10.0.10288.0**. 
 
     ![uppdatera enhet](../includes/media/storsimple-virtual-array-install-update-via-portal/azupdate17m.png)

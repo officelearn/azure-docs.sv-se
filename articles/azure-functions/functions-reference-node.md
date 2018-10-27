@@ -10,14 +10,14 @@ ms.assetid: 45dedd78-3ff9-411f-bb4b-16d29a11384c
 ms.service: azure-functions
 ms.devlang: nodejs
 ms.topic: reference
-ms.date: 03/04/2018
+ms.date: 10/26/2018
 ms.author: glenga
-ms.openlocfilehash: eb9387cec98621e27aff7dcb40b8897e326c6706
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: d61570cd5d56cda7737bdb2d1a8d681fc2364610
+ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49353500"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50139398"
 ---
 # <a name="azure-functions-javascript-developer-guide"></a>Utvecklarguide för Azure Functions JavaScript
 Den här guiden innehåller information om krångla skriva Azure Functions med JavaScript.
@@ -400,13 +400,14 @@ Det finns två sätt att installera paket på din Funktionsapp:
     Den här åtgärden hämtar de paket som anges i package.json-fil och startar om appen.
 
 ## <a name="environment-variables"></a>Miljövariabler
-Hämta en miljövariabel eller en app som inställningsvärde `process.env`, vilket visas här i den `GetEnvironmentVariable` funktionen:
+
+I funktioner, [appinställningar](functions-app-settings.md), till exempel tjänstanslutning strängar, visas som miljövariabler under körning. Du kan komma åt de här inställningarna med hjälp av `process.env`, vilket visas här i den `GetEnvironmentVariable` funktionen:
 
 ```javascript
 module.exports = function (context, myTimer) {
     var timeStamp = new Date().toISOString();
 
-    context.log('Node.js timer trigger function ran!', timeStamp);   
+    context.log('Node.js timer trigger function ran!', timeStamp);
     context.log(GetEnvironmentVariable("AzureWebJobsStorage"));
     context.log(GetEnvironmentVariable("WEBSITE_SITE_NAME"));
 
@@ -418,6 +419,10 @@ function GetEnvironmentVariable(name)
     return name + ": " + process.env[name];
 }
 ```
+
+[!INCLUDE [Function app settings](../../includes/functions-app-settings.md)]
+
+När du kör lokalt appinställningar läses från den [local.settings.json](functions-run-local.md#local-settings-file) projektfilen.
 
 ## <a name="configure-function-entry-point"></a>Konfigurera funktionens startadress
 

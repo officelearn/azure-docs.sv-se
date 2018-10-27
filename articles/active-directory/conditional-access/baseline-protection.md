@@ -17,12 +17,12 @@ ms.workload: identity
 ms.date: 08/08/2018
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: e7e92c2f3564591133816baaaf758d72b083330b
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: 585a4968672c8bcab0efb988d556e447983dfc5a
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49958558"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50158711"
 ---
 # <a name="what-is-baseline-protection-preview"></a>Vad är skydd vid baslinjen (förhandsversion)?  
 
@@ -51,7 +51,7 @@ Användare med åtkomst till behöriga konton har obegränsad åtkomst till din 
 
 ![Azure Active Directory](./media/baseline-protection/01.png)
 
-Den här baslinjeprincip ger dig möjlighet att exkludera användare och grupper. Du kanske vill utesluta ett *[nödfall åtkomst administratörskonto](../users-groups-roles/directory-emergency-access.md)* att se till att du inte har låsts ute från klienten.
+Den här baslinjeprincip ger dig möjlighet att exkludera användare. Du kanske vill utesluta ett *[nödfall åtkomst administratörskonto](../users-groups-roles/directory-emergency-access.md)* att se till att du inte har låsts ute från klienten.
 
 
 ## <a name="enable-a-baseline-policy"></a>Aktivera en baslinjeprincip 

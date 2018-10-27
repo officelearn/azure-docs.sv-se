@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/14/2018
 ms.author: negat
-ms.openlocfilehash: 49414b06010cf83c10bbc9519f2bced2126661a4
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: d065f9765ca279f14b9de45e2412b75c94ef3dd8
+ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49322081"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50139050"
 ---
 # <a name="modify-a-virtual-machine-scale-set"></a>Ändra en VM-skalningsuppsättning
 Du kan behöva ändra eller uppdatera din skalningsuppsättning för virtuella datorer under hela livscykeln för programmen. De här uppdateringarna kan omfatta uppdatera konfigurationen för skaluppsättningen eller ändra programkonfigurationen. Den här artikeln beskriver hur du ändrar en befintlig skalningsuppsättning med REST API: er, Azure PowerShell eller Azure CLI.
@@ -162,7 +162,7 @@ $ az vmss show --resource-group myResourceGroup --name myScaleSet
 }
 ```
 
-Dessa egenskaper beskriver konfigurationen av den Virtuella datorinstansen inte konfigurationen av skaluppsättningen som helhet. Skalningsuppsättningsmodell har exempelvis `overprovision` som en egenskap, men inte av modellen för en VM-instans i en skalningsuppsättning. Den här skillnaden beror på att skaffa stora resurser är en egenskap för skalningsuppsättningen som en hel, inte för enskilda VM-instanser i skalningsuppsättningen (Läs mer om överetablering [designöverväganden för skalningsuppsättningar](virtual-machine-scale-sets-design-overview.md#overprovisioning)).
+Dessa egenskaper beskriver konfigurationen av en VM-instans i en skalningsuppsättning, inte konfigurationen av skaluppsättningen som helhet. Skalningsuppsättningsmodell har exempelvis `overprovision` som en egenskap, men inte av modellen för en VM-instans i en skalningsuppsättning. Den här skillnaden beror på att skaffa stora resurser är en egenskap för skalningsuppsättningen som en hel, inte för enskilda VM-instanser i skalningsuppsättningen (Läs mer om överetablering [designöverväganden för skalningsuppsättningar](virtual-machine-scale-sets-design-overview.md#overprovisioning)).
 
 
 ### <a name="the-scale-set-vm-instance-view"></a>Den instansvyn för VM-skalningsuppsättning
@@ -239,7 +239,7 @@ $ az vmss get-instance-view --resource-group myResourceGroup --name myScaleSet -
 }
 ```
 
-Dessa egenskaper beskriver det aktuella runtime-tillståndet för VM-instans som innehåller några tillägg som tillämpas på skalningsuppsättningen.
+Dessa egenskaper beskriver det aktuella runtime-tillståndet för en VM-instans i en skalningsuppsättning som innehåller några tillägg som tillämpas på skalningsuppsättningen.
 
 
 ## <a name="how-to-update-global-scale-set-properties"></a>Så här uppdaterar du global skala ange egenskaper

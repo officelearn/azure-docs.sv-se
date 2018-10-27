@@ -5,15 +5,15 @@ services: automation
 ms.service: automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 10/02/2018
+ms.date: 10/25/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: 322b21ae2273b949e9a46e0c47a9f9e4d661603e
-ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
+ms.openlocfilehash: 3ba1f9afda1b4f7f227c996615cc17a8c604d5fb
+ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48267961"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50138233"
 ---
 # <a name="run-powershell-scripts-in-your-windows-vm-with-run-command"></a>Kör PowerShell-skript i din virtuella Windows-dator med kommandot Kör
 
@@ -37,6 +37,9 @@ Följande begränsningar gäller när du kör kommandot:
 * Du kan inte avbryta en som kör skript
 * Den längsta tid som ett skript kan köras är 90 minuter, når tidsgränsen efter som den
 * Utgående anslutning från den virtuella datorn krävs för att returnera resultatet av skriptet.
+
+> [!NOTE]
+> Ska fungera korrekt måste kräver köra kommandot anslutning (port 443) till Azure offentliga IP-adresser. Om tillägget inte har åtkomst till dessa slutpunkter, kan skripten köras men inte returnera resultat. Om du blockerar trafik på den virtuella datorn, kan du använda [tjänsttaggar](../../virtual-network/security-overview.md#service-tags) att tillåta trafik till Azure offentliga IP-adresser med hjälp av den `AzureCloud` tagg.
 
 ## <a name="run-a-command"></a>Köra ett kommando
 

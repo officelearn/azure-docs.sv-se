@@ -1,34 +1,31 @@
 ---
-title: 'Azure Databricks: Vanliga frågor och hjälp | Microsoft Docs'
+title: 'Azure Databricks: Vanliga frågor och hjälp'
 description: Få svar på vanliga frågor och felsökningsinformation om Azure Databricks.
 services: azure-databricks
-documentationcenter: ''
-author: nitinme
-manager: cgronlun
-editor: cgronlun
+author: mamccrea
+ms.author: mamccrea
+ms.reviewer: jasonh
 ms.service: azure-databricks
 ms.workload: big-data
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 05/29/2018
-ms.author: nitinme
-ms.openlocfilehash: c3ba235c60480c38a21ee3264c54b4a4dcdea340
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.topic: conceptual
+ms.date: 10/25/2018
+ms.openlocfilehash: 3bcc511ec6ad8a246c2b1b3a33eb59043a45830e
+ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39434609"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50138369"
 ---
 # <a name="frequently-asked-questions-about-azure-databricks"></a>Vanliga frågor och svar om Azure Databricks
 
-Den här artikeln visar de viktigaste frågorna som du kanske har relaterat till Azure Databricks. Här visas även några vanliga problem som du kan ha när du använder Databricks. Mer information finns i [vad är Azure Databricks](what-is-azure-databricks.md). 
+Den här artikeln innehåller på viktiga frågor som du kanske har relaterat till Azure Databricks. Här visas även några vanliga problem som du kan ha när du använder Databricks. Mer information finns i [vad är Azure Databricks](what-is-azure-databricks.md). 
 
-## <a name="can-i-use-my-own-keys-for-local-encryption"></a>Kan jag använda min egen nycklar för kryptering av lokala? 
-I den aktuella versionen stöds med hjälp av dina egna nycklar från Azure Key Vault inte. 
+## <a name="can-i-use-azure-key-vault-to-store-keyssecrets-to-be-used-in-azure-databricks"></a>Kan jag använda Azure Key Vault för att lagra nycklar/hemligheter som ska användas i Azure Databricks?
+Ja. Du kan använda Azure Key Vault för att lagra nycklar/hemligheter för användning med Azure Databricks. Mer information finns i [backas upp av Azure Key Vault scope](https://docs.azuredatabricks.net/user-guide/secrets/secret-scopes.html#akv-ss).
+
 
 ## <a name="can-i-use-azure-virtual-networks-with-databricks"></a>Kan jag använda Azure-nätverk med Databricks?
-Ett nytt virtuellt nätverk skapas som en del av Databricks etablering. Du kan inte använda din egen Azure-nätverk i den här versionen.
+Ja. Du kan använda en Azure Virtual Network (VNET) med Azure Databricks. Mer information finns i [distribution av Azure Databricks i Azure Virtual Network](https://docs.azuredatabricks.net/administration-guide/cloud-configurations/azure/vnet-inject.html).
 
 ## <a name="how-do-i-access-azure-data-lake-store-from-a-notebook"></a>Hur kommer jag åt Azure Data Lake Store från en bärbar dator? 
 
@@ -116,7 +113,7 @@ Mer detaljerade instruktioner finns i [resursproviders och resurstyper](../azure
 
 #### <a name="background"></a>Bakgrund
 
-Azure Databricks är integrerad med Azure AD. Detta kan du ange behörigheter i Azure Databricks (till exempel på bärbara datorer eller kluster) genom att ange användare från Azure AD. Det kräver läsbehörighet till den här informationen för Azure Databricks för att kunna visa namnen på användarna från din Azure AD. Detta kräver ett medgivande. Om medgivande inte redan är tillgänglig kan du se felet.
+Azure Databricks är integrerad med Azure Active Directory. Du kan ange behörigheter i Azure Databricks (till exempel på bärbara datorer eller kluster) genom att ange användare från Azure AD. För Azure Databricks för att kunna visa namnen på användarna från din Azure AD, den kräver läsbehörighet till den här informationen och samtycker till att få. Om medgivande inte redan är tillgänglig kan du se felet.
 
 #### <a name="solution"></a>Lösning
 

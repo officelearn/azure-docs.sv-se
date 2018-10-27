@@ -5,15 +5,15 @@ services: automation
 ms.service: automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 10/02/2018
+ms.date: 10/25/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: 9ba60f770c094f65ee5a4ed6dc21a5e07bac3d27
-ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
+ms.openlocfilehash: e865d4e9cbad2c2064d961bc6e407440ce8556fc
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48267757"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50158813"
 ---
 # <a name="run-shell-scripts-in-your-linux-vm-with-run-command"></a>Köra shell-skript i Linux-VM med Kör kommando
 
@@ -38,6 +38,9 @@ Här följer en lista över begränsningar som finns när du använder kör komm
 * Den längsta tid som ett skript kan köras är 90 minuter, når tidsgränsen efter som den
 * Utgående anslutning från den virtuella datorn krävs för att returnera resultatet av skriptet.
 
+> [!NOTE]
+> Ska fungera korrekt måste kräver köra kommandot anslutning (port 443) till Azure offentliga IP-adresser. Om tillägget inte har åtkomst till dessa slutpunkter, kan skripten köras men inte returnera resultat. Om du blockerar trafik på den virtuella datorn, kan du använda [tjänsttaggar](../../virtual-network/security-overview.md#service-tags) att tillåta trafik till Azure offentliga IP-adresser med hjälp av den `AzureCloud` tagg.
+
 ## <a name="azure-cli"></a>Azure CLI
 
 Följande är ett exempel med hjälp av den [kommandot med az vm kör](/cli/azure/vm/run-command?view=azure-cli-latest#az-vm-run-command-invoke) kommando för att köra ett kommandoskript som kör på en virtuell Linux-dator.
@@ -55,7 +58,7 @@ Navigera till en virtuell dator i [Azure](https://portal.azure.com) och välj **
 
 ![Kör kommandolista](./media/run-command/run-command-list.png)
 
-Välj ett kommando för att köra. Några av kommandona som kan ha valfritt eller obligatoriska indataparametrar. Parametrarna presenteras för de kommandona som textfält som du kan ange värdena som indata. För varje kommando som du kan visa det skript som körs genom att expandera **Visa skript**. **RunShellScript** skiljer sig från de andra kommandon som du kan ange ett eget skript. 
+Välj ett kommando för att köra. Några av kommandona som kan ha valfritt eller obligatoriska indataparametrar. Parametrarna presenteras för de kommandona som textfält som du kan ange värdena som indata. För varje kommando som du kan visa det skript som körs genom att expandera **Visa skript**. **RunShellScript** skiljer sig från de andra kommandon som du kan ange ett eget skript.
 
 > [!NOTE]
 > De inbyggda kommandona som kan inte redigeras.

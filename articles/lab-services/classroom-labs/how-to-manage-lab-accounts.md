@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/17/2018
 ms.author: spelluru
-ms.openlocfilehash: fd43c62f1a291a59d5d373437a49b263d6af4cb3
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.openlocfilehash: 6f9b85ec4821ff2454970136b3c8af2cb0f92154
+ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39345896"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50140831"
 ---
 # <a name="manage-lab-accounts-in-azure-lab-services"></a>Hantera labb konton i Azure Lab Services 
 I Azure Lab Services är ett labbkonto en behållare för hanterade labbar som klassrum labs. En administratör konfigurerar ett testlabb-konto med Azure Lab Services och ger åtkomst till labbägare som kan skapa labb i kontot. Den här artikeln beskriver hur du skapar ett labbkonto, visa alla lab-konton eller ta bort ett labbkonto.
@@ -55,17 +55,17 @@ Om du vill konfigurera ett klassrumslabb i ett labbkonto måste användaren vara
     ![Lägga till en användare i rollen Labbskapare](../media/tutorial-setup-lab-account/add-user-to-lab-creator-role.png)
 
 ## <a name="specify-marketplace-images-available-to-lab-owners"></a>Ange Marketplace-avbildningar som är tillgängliga för labbägare
-Som konto labbägare kan ange du Marketplace-avbildningar som lab skapare kan använda för att skapa labb i labbkonto. 
+Som labbkontoägare kan du ange Marketplace-avbildningar som labbskapare kan använda för att skapa labb i labbkontot. 
 
 1. Välj **Marketplace-avbildningar** på menyn till vänster. Som standard kan se du en fullständig lista över avbildningar (både aktiverade och inaktiverade). Du kan filtrera listan för att endast se aktiverade/inaktiverade avbildningar genom att välja alternativet **Endast aktiverade**/**Endast inaktiverade** från listrutan längst upp. 
     
     ![Sida för Marketplace-avbildningar](../media/tutorial-setup-lab-account/marketplace-images-page.png)
 
-    Marketplace-avbildningar som visas i listan är bara de filer som uppfyller följande villkor:
+    De Marketplace-avbildningar som visas i listan är bara de filer som uppfyller följande villkor:
         
     - Skapar en enskild virtuell dator.
     - Använder Azure Resource Manager för att etablera virtuella datorer
-    - Du behöver köpa ett extra licensieringsplan
+    - Kräver inte att du köper en extra licensieringsplan
 2. För att **inaktivera** en Marketplace-avbildning som har aktiverats genomför du någon av följande åtgärder: 
     1. Välj **... (ellips)** i den sista kolumnen och välj **Inaktivera avbildning**. 
 
@@ -90,6 +90,28 @@ Följ anvisningarna i föregående avsnitt som visar lab-konton i en lista. Anv�
 2. Välj **ta bort** från verktygsfältet. 
 3. Typ **Ja** bekräftelse.
 4. Välj **Ta bort**. 
+
+## <a name="view-and-manage-labs-in-the-lab-account"></a>Visa och hantera labb i labbkonto
+
+1. På den **Labbkonto** väljer **Labs** på den vänstra menyn.
+
+    ![Labs i kontot](../media/how-to-manage-lab-accounts/labs-in-account.png)
+1. Du ser en **listan över labbar** i kontot med följande information: 
+    1. Namnet på labbet.
+    2. Det datum då labbet skapades. 
+    3. E-postadressen för användaren som skapade labbet. 
+    4. Maximalt antal användare som har åtkomst till labbet. 
+    5. Status för labbet. 
+
+## <a name="delete-a-lab-in-the-lab-account"></a>Ta bort ett labb i labbkonto
+Följ anvisningarna i föregående avsnitt för att se en lista över labs i labbkonto.
+
+1. Välj **... (tre punkter)** , och välj **ta bort**. 
+
+    ![Ta bort ett labb - knappen](../media/how-to-manage-lab-accounts/delete-lab-button.png)
+2. Välj **Ja** i varningsmeddelandet. 
+
+
 
 ## <a name="next-steps"></a>Nästa steg
 Kom igång med att konfigurera ett testlabb med Azure Lab Services:

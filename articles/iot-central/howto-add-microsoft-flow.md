@@ -8,12 +8,12 @@ ms.date: 09/18/2018
 ms.topic: conceptual
 ms.service: iot-central
 manager: peterpr
-ms.openlocfilehash: 7a52ee11e52367755d2a241a0bea2cfc053cff3d
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: cc54a3a375fa2780e289a20b699df5d65aaf08cc
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47039946"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50155583"
 ---
 # <a name="build-workflows-with-the-iot-central-connector-in-microsoft-flow"></a>Skapa arbetsflöden med IoT Central-connector i Microsoft Flow
 
@@ -96,6 +96,8 @@ Det här avsnittet beskrivs hur du uppdaterar inställningar och egenskaper i Io
     ![IoT Central device explorer enhets-ID](./media/howto-add-microsoft-flow/iotcdeviceid.PNG)
 
 1. Du kan uppdatera namnet på enheten. Om du vill uppdatera någon av enhetens egenskaper och inställningar, måste du välja mallen enhet på den enhet som du vill uppdatera i den **enheten mallen** listrutan. Åtgärd-panelen expanderar för att visa alla egenskaper och inställningar som du kan uppdatera.
+
+    ![Flow arbetsflödet för enhet](./media/howto-add-microsoft-flow/flowupdatedevice.PNG)
 
 1. Välj var och en av de egenskaper och inställningar som du vill uppdatera. Rutan med dynamiskt innehåll, Välj den motsvarande indata från utlösaren. I det här exemplet sprids platsvärdet ned för att uppdatera enhetens Platsegenskapen.
 

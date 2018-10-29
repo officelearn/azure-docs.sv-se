@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 10/09/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: ef72829d507d6a471ec9a8972ead262da7f7b582
-ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
+ms.openlocfilehash: 4362a6b936c52319f6f6fc625370733f3c84e361
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49068712"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50158864"
 ---
 # <a name="topologies-for-azure-ad-connect"></a>Topologier för Azure AD Connect
 Den här artikeln beskrivs olika lokala och Azure Active Directory (Azure AD)-topologier som använder Azure AD Connect-synkronisering som viktiga integrationslösning. Den här artikeln innehåller konfigurationer för både stöds och som inte stöds.
@@ -87,7 +87,7 @@ Mer än ett Azure AD Connect-synkroniseringsservern är ansluten till en enda Az
 ### <a name="multiple-forests-separate-topologies"></a>Flera skogar, separat topologier
 ![Alternativet för att representera användare bara en gång i alla kataloger](./media/plan-connect-topologies/MultiForestUsersOnce.png)
 
-![Presentation av flera skogar och separata topologier](./media/plan-connect-topologies/MultiForestSeperateTopologies.png)
+![Presentation av flera skogar och separata topologier](./media/plan-connect-topologies/MultiForestSeparateTopologies.png)
 
 I den här miljön behandlas alla lokala skogar som separata entiteter. Ingen användare finns i en annan skog. Varje skog har en egen Exchange-organisation och det finns inga GALSync mellan skogar. Den här topologin kan vara situationen efter en sammanslagning/förvärvet eller i en organisation där varje affärsenhet fungerar oberoende av varandra. Dessa skogar finns i samma organisation i Azure AD och visas med en enhetlig GAL. I den föregående bilden visas en gång i metaversum varje objekt i varje skog och aggregeras i målets Azure AD-klient.
 

@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 10/16/2018
 ms.author: iainfou
-ms.openlocfilehash: fb428e63be54688744bcdb022ba276a957f8aee1
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: 1b0b3d0db2067a492905d8f828934f0b63fb8f54
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49648782"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50155991"
 ---
 # <a name="kubernetes-core-concepts-for-azure-kubernetes-service-aks"></a>Kubernetes grundläggande begrepp för Azure Kubernetes Service (AKS)
 
@@ -71,6 +71,27 @@ Azure VM-storlek för noderna definierar hur många processorer, hur mycket minn
 I AKS baserat VM-avbildning för noderna i klustret för närvarande på Ubuntu Linux. När du skapar ett AKS-kluster eller skala upp antalet noder, skapar det begärda antalet virtuella datorer i Azure-plattformen och konfigurerar dem. Det finns ingen manuell konfiguration som du kan utföra.
 
 Om du vill använda en annan värd OS, körning av behållare, eller anpassade paket kan du distribuera din egen Kubernetes-kluster med [acs-engine][acs-engine]. Den överordnade `acs-engine` släpper funktioner och ange konfigurationsalternativ innan de stöds officiellt i AKS-kluster. Till exempel om du vill använda Windows-behållare eller en behållare runtime än Docker, du kan använda `acs-engine` att konfigurera och distribuera ett Kubernetes-kluster som uppfyller dina befintliga behov.
+
+### <a name="resource-reservations"></a>Resurs-reservationer
+
+Du behöver inte hantera Kubernetes kärnkomponenter på varje nod som den *kubelet*, *kube-proxy*, och *kube-dns*, men de använder några av de tillgängliga beräkningsresurs. Om du vill behålla noden prestandan och funktionaliteten är följande beräkningsresurser reserveras på varje nod:
+
+- **CPU** – 60ms
+- **Minne** – 20% upp till 4 GiB
+
+Reservationerna innebär att mängden tillgängliga CPU och minne för dina program kan verka mindre än noden själva innehåller. Om det finns resursbegränsningar på grund av antalet program som körs, reservationerna Kontrollera CPU och minne är fortfarande tillgänglig för Kubernetes kärnkomponenter. Resurs-reservationer kan inte ändras.
+
+Exempel:
+
+- **Standard DS2 v2** nodstorlek innehåller 2 virtuella processorer och 7 GiB minne
+    - 20% av 7 GiB minne = 1,4 GiB
+    - Totalt *(7 1.4) = 5,6 GiB* minne är tillgänglig för noden
+    
+- **Standard E4s v3** nodstorlek innehåller 4 virtuella processorer och 32 GiB minne
+    - 20% av 32 GiB minne = 6.4 GiB, men AKS endast reserverar högst 4 GiB
+    - Totalt *(32-4) = 28 GiB* är tillgänglig för noden
+    
+Den underliggande noden OS kräver också vissa delar av processor och minne resurser för att slutföra sin egen kärnfunktioner.
 
 ### <a name="node-pools"></a>Nodpooler
 

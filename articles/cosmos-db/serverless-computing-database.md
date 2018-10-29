@@ -9,12 +9,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: sngun
-ms.openlocfilehash: c183bbe2c20bdc1772160cbbd8260dece0b6eb54
-ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
+ms.openlocfilehash: 7348f76ab0d5a1057e9fd929e8a55dd0a9e99eb6
+ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2018
-ms.locfileid: "49309509"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50140984"
 ---
 # <a name="serverless-database-computing-using-azure-cosmos-db-and-azure-functions"></a>Databas utan Server databehandling med Azure Cosmos DB och Azure Functions
 
@@ -31,7 +31,8 @@ Azure Cosmos DB och Azure Functions kan du integrera dina databaser och appar ut
 * Binda en funktion till ett Azure Cosmos DB behållaren med hjälp av en **utdatabindning**. Utdatabindningar skriva data till en behållare när en funktion är klar.
 
 > [!NOTE]
-> Just nu fungerar Azure Cosmos DB-utlösaren, indatabindningar och utdatabindningar med endast SQL-API och Gremlin-API-konton.
+> Azure Cosmos DB-utlösaren, indatabindningar och utdatabindningar stöds för närvarande för användning med SQL-API. För alla andra Azure Cosmos DB API: er, bör du komma åt databasen från din funktion med hjälp av statiska klienten för ditt API, inklusive MongoDB-API, Cassandra API, Gremlin-API och tabell-API.
+
 
 Följande diagram illustrerar var och en av dessa tre integreringar: 
 

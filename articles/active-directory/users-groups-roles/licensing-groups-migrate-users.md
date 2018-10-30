@@ -11,15 +11,15 @@ ms.service: active-directory
 ms.topic: article
 ms.workload: identity
 ms.component: users-groups-roles
-ms.date: 01/14/2018
+ms.date: 10/29/2018
 ms.author: curtand
 ms.custom: seohack1
-ms.openlocfilehash: 5beee2fae518fec23b65ff05a79281e0fc3f1417
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: 4272d16a2acba992f05bb0874a40affa7d30abb5
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48800748"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50213652"
 ---
 # <a name="how-to-add-licensed-users-to-a-group-for-licensing-in-azure-active-directory"></a>Hur du lägger till licensierade användare till en grupp för licensiering i Azure Active Directory
 
@@ -84,7 +84,9 @@ Här är hur migreringsprocessen kan se ut:
 
 Mer information om övriga scenarier för hantering av programvarulicenser via grupper
 
-* [Tilldela licenser till en grupp i Azure Active Directory](licensing-groups-assign.md)
 * [Vad är gruppbaserad licensiering i Azure Active Directory?](../fundamentals/active-directory-licensing-whatis-azure-portal.md)
+* [Tilldela licenser till en grupp i Azure Active Directory](licensing-groups-assign.md)
 * [Identifiera och lösa licensproblem för en grupp i Azure Active Directory](licensing-groups-resolve-problems.md)
+* [Så här migrerar du användare mellan produktlicenser med gruppbaserad licensiering i Azure Active Directory](licensing-groups-change-licenses.md)
 * [Fler scenarier med gruppbaserad licensiering i Azure Active Directory](licensing-group-advanced.md)
+* [PowerShell-exempel för gruppbaserad licensiering i Azure Active Directory](licensing-ps-examples.md)

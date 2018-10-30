@@ -10,12 +10,12 @@ ms.topic: article
 ms.date: 07/20/2018
 ms.reviewer: yshoukry, LADocs
 ms.suite: integration
-ms.openlocfilehash: 65c7e03b349314ad61fa5f1ea8322f4d1352b8e6
-ms.sourcegitcommit: 727a0d5b3301fe20f20b7de698e5225633191b06
+ms.openlocfilehash: 6b6006293d562dbc270dc77bc49da2027f171dd2
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39145697"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50233301"
 ---
 # <a name="connect-to-data-sources-on-premises-from-azure-logic-apps-with-on-premises-data-gateway"></a>Ansluta till datakällor lokalt från Azure Logic Apps med lokala datagateway
 
@@ -53,7 +53,7 @@ och om du inte redan gjort följer du stegen för att [ladda ned och installera 
 
 Du kan sedan skapa en Azure-resurs för din gateway när du har installerat gatewayen på en lokal dator. Det här steget associerar även din gateway-resurs med din Azure-prenumeration.
 
-1. Logga in på <a href="https://portal.azure.com" target="_blank">Azure-portalen</a>. Kontrollera att du använder samma Azure arbets- eller skolans e-postadress som används för att installera gatewayen.
+1. Logga in på <a href="https://portal.azure.com" target="_blank">Azure Portal</a>. Kontrollera att du använder samma Azure arbets- eller skolans e-postadress som används för att installera gatewayen.
 
 2. Välj på Azure-huvudmenyn **skapa en resurs** > 
 **integrering** > **lokal datagateway**.
@@ -155,7 +155,7 @@ Du kan ta bort gatewayresursen för att skapa en annan gateway-resurs, koppla di
 ## <a name="get-support"></a>Få support
 
 * Om du har frågor kan du besöka [forumet för Azure Logic Apps](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
-* Om du vill skicka in eller rösta på förslag på funktioner besöker du [webbplatsen för Logic Apps-användarfeedback](http://aka.ms/logicapps-wish).
+* Om du vill skicka in eller rösta på förslag på funktioner besöker du [webbplatsen för Logic Apps-användarfeedback](https://aka.ms/logicapps-wish).
 
 ## <a name="next-steps"></a>Nästa steg
 

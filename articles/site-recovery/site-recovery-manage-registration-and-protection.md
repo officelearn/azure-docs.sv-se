@@ -1,19 +1,18 @@
 ---
 title: Ta bort servrar och inaktivera skydd | Microsoft Docs
 description: Den här artikeln beskriver hur du avregistrerar servrar från Site Recovery-valvet och inaktivera skydd för virtuella datorer och fysiska servrar.
-services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 10/10/2018
+ms.date: 10/29/2018
 ms.author: raynew
-ms.openlocfilehash: 72b3bade83d1815c3902bd9159b5868dc7845cac
-ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
+ms.openlocfilehash: 06169ff8e084882eb9a2dbe71c89c3b2a40b384b
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49078589"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50214094"
 ---
 # <a name="remove-servers-and-disable-protection"></a>Ta bort servrar och inaktivera skydd
 

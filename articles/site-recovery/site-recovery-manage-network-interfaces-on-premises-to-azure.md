@@ -1,22 +1,20 @@
 ---
-title: Hantera nätverksgränssnitt i Azure Site Recovery för lokal till Azure replikering | Microsoft Docs
-description: Beskriver hur du hanterar nätverksgränssnitt för en lokal plats till Azure-replikering med Azure Site Recovery
-services: site-recovery
+title: Hantera nätverksgränssnitt i Azure Site Recovery för lokal haveriberedskap till Azure | Microsoft Docs
+description: Beskriver hur du hanterar nätverksgränssnitt för lokal haveriberedskap till Azure med Azure Site Recovery
 author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/16/2018
 ms.author: mayg
-ms.openlocfilehash: 0ca2d32910e57042d2cbc9d3b772d226d835b545
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: afa8dfc39177e3f15db0092691d910b6b2cd3764
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49352418"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50212462"
 ---
-# <a name="manage-virtual-machine-network-interfaces-for-on-premises-to-azure-replication"></a>Hantera virtuella datorers nätverksgränssnitt för en lokal plats till Azure replikering
-
+# <a name="manage-virtual-machine-network-interfaces-for-on-premises-disaster-recovery-to-azure"></a>Hantera virtuella datorers nätverksgränssnitt för lokal haveriberedskap till Azure
 En virtuell dator (VM) i Azure måste ha minst ett nätverksgränssnitt som är kopplat till den. Det kan ha många nätverksgränssnitt kopplade till den som stöd för VM-storlek.
 
 Som standard definieras det första nätverksgränssnittet som är kopplade till en Azure virtuell dator som det primära nätverksgränssnittet. Alla andra nätverksgränssnitt på den virtuella datorn är sekundära nätverksgränssnitt. Som standard skickas all utgående trafik från den virtuella datorn också ut IP-adressen som tilldelas till den primära IP-adresskonfigurationen för det primära nätverksgränssnittet.

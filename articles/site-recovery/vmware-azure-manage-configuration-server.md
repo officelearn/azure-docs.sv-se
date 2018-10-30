@@ -1,18 +1,18 @@
 ---
-title: Hantera konfigurationsservern för VMware-haveriberedskap med Azure Site Recovery | Microsoft Docs
-description: Den här artikeln beskriver hur du hanterar en befintlig konfigurationsservern för VMware-haveriberedskap till Azure med Azure Site RecoveryS.
+title: Hantera konfigurationsservern för VMware och fysiska servrar haveriberedskap med Azure Site Recovery | Microsoft Docs
+description: Den här artikeln beskriver hur du hanterar en befintlig konfigurationsservern för haveriberedskap för virtuella VMware-datorer och fysiska servrar till Azure med Azure Site RecoveryS.
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
-ms.topic: article
-ms.date: 10/15/2018
+ms.topic: conceptual
+ms.date: 10/29/2018
 ms.author: raynew
-ms.openlocfilehash: bb756a89babef96b16419104737e87405b3527ab
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 4ac3871893e7e8161dc087f285eb3d802cd4a355
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49407409"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50215148"
 ---
 # <a name="manage-the-configuration-server-for-vmware-vms"></a>Hantera konfigurationsservern för VMware-datorer
 

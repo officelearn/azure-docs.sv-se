@@ -1,22 +1,21 @@
 ---
 title: Vilka arbetsbelastningar kan jag skydda med Azure Site Recovery? | Microsoft Docs
 description: Beskriver de arbetsbelastningar som kan skyddas med haveriberedskap med Azure Site Recovery-tjänsten.
-services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 07/22/2018
+ms.date: 10/29/2018
 ms.author: raynew
-ms.openlocfilehash: 5295002e823dc864f0f0dcc67594f49b5431bce7
-ms.sourcegitcommit: 30221e77dd199ffe0f2e86f6e762df5a32cdbe5f
+ms.openlocfilehash: 70f19213da9c311e306e09890f54185f6d2834dc
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39205960"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50213250"
 ---
 # <a name="what-workloads-can-you-protect-with-azure-site-recovery"></a>Vilka arbetsbelastningar kan jag skydda med Azure Site Recovery?
 
-Den här artikeln beskriver arbetsbelastningar och program som kan replikeras med [Azure Site Recovery](site-recovery-overview.md)-tjänsten.
+Den här artikeln beskriver arbetsbelastningar och program som du kan skydda för haveriberedskap med det [Azure Site Recovery](site-recovery-overview.md) service.
 
 
 

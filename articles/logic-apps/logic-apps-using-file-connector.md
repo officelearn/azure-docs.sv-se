@@ -9,12 +9,12 @@ ms.author: deli
 ms.reviewer: klam, estfan, LADocs
 ms.topic: article
 ms.date: 08/25/2018
-ms.openlocfilehash: 41dd8ad721329c4c4d2761c9e4a37c640251dac3
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: 0c30ffec58b1542fa80cf0c9873a0e6df8641104
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43125286"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50232553"
 ---
 # <a name="connect-to-on-premises-file-systems-with-azure-logic-apps"></a>Ansluta till lokala filsystem med Azure Logic Apps
 
@@ -99,7 +99,7 @@ Teknisk information om utlösare, åtgärder och begränsningar som beskrivs av 
 
 * Om du har frågor kan du besöka [forumet för Azure Logic Apps](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
 
-* För att förbättra Azure Logic Apps och kopplingar, rösta på förslag eller komma med på den [Azure Logic Apps User Voice-webbplatsen](http://aka.ms/logicapps-wish).
+* För att förbättra Azure Logic Apps och kopplingar, rösta på förslag eller komma med på den [Azure Logic Apps User Voice-webbplatsen](https://aka.ms/logicapps-wish).
 
 ## <a name="next-steps"></a>Nästa steg
 

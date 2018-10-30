@@ -11,13 +11,13 @@ author: oslake
 ms.author: moslake
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 10/19/2018
-ms.openlocfilehash: 0c939956a8f3336b5071748a8c2bdf8840b749ad
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.date: 10/29/2018
+ms.openlocfilehash: fbe648ad1869753666babd9d573f086177fc8adf
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49466077"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50232691"
 ---
 # <a name="create-and-manage-elastic-pools-in-azure-sql-database"></a>Skapa och hantera elastiska pooler i Azure SQL Database
 
@@ -99,11 +99,11 @@ Använd dessa REST API-begäranden för att skapa och hantera SQL Database elast
 
 | Kommando | Beskrivning |
 | --- | --- |
-|[Elastiska pooler – skapa eller uppdatera](https://docs.microsoft.com/rest/api/sql/elasticpools/elasticpools_createorupdate)|Skapar en ny elastisk pool eller uppdaterar en befintlig elastisk pool.|
-|[Elastiska pooler – ta bort](https://docs.microsoft.com/rest/api/sql/elasticpools/elasticpools_delete)|Tar bort den elastiska poolen.|
-|[Elastiska pooler – Get](https://docs.microsoft.com/rest/api/sql/elasticpools/elasticpools_get)|Hämtar en elastisk pool.|
-|[Elastiska pooler – lista med Server](https://docs.microsoft.com/rest/api/sql/elasticpools/elasticpools_listbyserver)|Returnerar en lista med elastiska pooler på en server.|
-|[Elastiska pooler – uppdatera](https://docs.microsoft.com/rest/api/sql/elasticpools/elasticpools_listbyserver)|Uppdaterar en befintlig elastisk pool.|
+|[Elastiska pooler – skapa eller uppdatera](https://docs.microsoft.com/rest/api/sql/elasticpools/createorupdate)|Skapar en ny elastisk pool eller uppdaterar en befintlig elastisk pool.|
+|[Elastiska pooler – ta bort](https://docs.microsoft.com/rest/api/sql/elasticpools/delete)|Tar bort den elastiska poolen.|
+|[Elastiska pooler – Get](https://docs.microsoft.com/rest/api/sql/elasticpools/get)|Hämtar en elastisk pool.|
+|[Elastiska pooler – lista med Server](https://docs.microsoft.com/rest/api/sql/elasticpools/listbyserver)|Returnerar en lista med elastiska pooler på en server.|
+|[Elastiska pooler – uppdatera](https://docs.microsoft.com/rest/api/sql/elasticpools/listbyserver)|Uppdaterar en befintlig elastisk pool.|
 |[Elastisk pool aktiviteter](https://docs.microsoft.com/rest/api/sql/elasticpoolactivities)|Returnerar elastisk pool aktiviteter.|
 |[Elastisk pool databasaktiviteter](https://docs.microsoft.com/rest/api/sql/elasticpooldatabaseactivities)|Returnerar aktivitet på databaser i en elastisk pool.|
 |[Databaser – skapa eller uppdatera](https://docs.microsoft.com/rest/api/sql/databases/createorupdate)|Skapar en ny databas eller uppdaterar en befintlig databas.|

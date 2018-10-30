@@ -6,14 +6,14 @@ manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 10/08/2018
+ms.date: 10/26/2018
 ms.author: alinast
-ms.openlocfilehash: 1c2068af510cb3733ce99a6ae7b40487a8c1a015
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: c1d66e0b58567244f8c1406ee258c9311994ff20
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49324312"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50215114"
 ---
 # <a name="understanding-digital-twins-object-models-and-spatial-intelligence-graph"></a>Förstå Digital Twins objektmodeller och rumsliga intelligence graph
 
@@ -25,7 +25,7 @@ Med _digitala Twins objektmodeller_ och _Ontology_ på plats, kan en fylla i en 
 
 ![Digitala Twins Spatial Graph byggnad][1]
 
-<a id="model" />
+<a id="model"></a>
 
 Spatial diagrammet innehåller blanksteg, enheter, sensorer och användare. Var och en länkas samman på ett sätt som modeller verkligheten: jurisdiktionsort 43 har fyra golv, var och en med flera olika områden. Användarna är associerade med deras arbetsstationer och får åtkomst till delar av diagrammet.  Exempelvis kan behöver en administratör behörighet att göra ändringar i spatial diagrammet medan en besökare kan bara ha behörighet att visa vissa data för att skapa.
 
@@ -52,19 +52,19 @@ Andra typer av objekt är:
 - **Matchers** är objekt som bestämmer vilka UDF: er ska utföras för en viss telemetri-meddelande.
 - **Slutpunkter** är platser där telemetrimeddelanden och Digital Twins händelser kan vidarebefordras, till exempel `Event Hub`, `Service Bus`, `Event Grid`.
 
-<a id="graph" />
+<a id="graph"></a>
 
-## <a name="spatial-intelligence-graph"></a>Spatial intelligence graph
+## <a name="spatial-intelligence-graph"></a>Diagram för spatial intelligens
 
 **Spatial graph** är hierarkiska diagrammet av blanksteg, enheter, och personer som definieras i den **digitala Twins objektmodellen**. Har stöd för spatial diagrammet _arv_, _filtrering_, _passerar_, _skalbarhet_, och _utökningsbarhet_ . Användarna kan hantera och interagera med sina spatial diagram med en uppsättning REST API: er (se nedan).
 
-Den användare som distribuerar en Digital Twins-tjänst i sin prenumeration blir global administratör för rotnoden, automatiskt ge fullständig åtkomst till hela strukturen. Den här användaren kan sedan etablera blanksteg i en graf med hjälp av den `Space` API. Enheter kan etableras med hjälp av den `Device` API, sensorer kunde etableras med hjälp av `Sensor` API, osv. Vi erbjuder också [verktyg med öppen källkod](https://github.com/Azure-Samples/digital-twins-samples-csharp) att etablera graph gruppvis.
+Den användare som distribuerar en Digital Twins-tjänst i sin prenumeration blir global administratör för rotnoden, automatiskt ge fullständig åtkomst till hela strukturen. Den här användaren kan sedan etablera blanksteg i grafen med hjälp av utrymme-API. Enheter kan etableras med hjälp av enhets-API, sensorer kunde etableras med sensorn API etc. Vi erbjuder också [verktyg med öppen källkod](https://github.com/Azure-Samples/digital-twins-samples-csharp) att etablera graph gruppvis.
 
 Graph _arv_ gäller behörigheter och egenskaper som fallande från en överordnad nod till alla noder under den. När en roll tilldelas till en användare på en viss nod, kommer användaren ha behörighet för den rollen att noden och varje nod under den. Dessutom kan ärvs varje Egenskapsnyckeln och utökad typ som definierats för en viss nod av alla noder under noden.
 
-Graph _filtrering_ gör att användarna kan begränsa begäran resultaten efter ID: N, namn, typer, undertyper, överordnade utrymme, associerade blanksteg, sensor datatyper, egenskapen nycklar och värden, bläddra, minLevel, maxLevel och andra OData-filter parametrar.
+Graph _filtrering_ gör att användarna kan begränsa begäran resultaten efter ID: N, namn, typer, undertyper, överordnade utrymme, associerade blanksteg, sensor datatyper, egenskapen nycklar och värden, *passerar*,  *minLevel*, *maxLevel*, och andra parametrar för OData-filter.
 
-Graph _passerar_ kan användarna navigera spatial diagrammet via dess djupa och breda. För djup diagrammet kan vara slut uppifrån och ned eller nedifrån och upp med parametrar som navigering `traverse`, `minLevel`, `maxLevel`. Bredd, kan efter diagrammet för att få noder på samma nivå direkt anslutna till en överordnad utrymme eller någon av dess underordnade. När du hämtar ett objekt, du kan få alla relaterade objekt som har relationer till den objekt med hjälp av den `includes` parametern få API: er.
+Graph _passerar_ kan användarna navigera spatial diagrammet via dess djupa och breda. För djup diagrammet kan vara slut uppifrån och ned eller nedifrån och upp med parametrar som navigering *passerar*, *minLevel*, *maxLevel*. Bredd, kan efter diagrammet för att få noder på samma nivå direkt anslutna till en överordnad utrymme eller någon av dess underordnade. När du hämtar ett objekt, du kan få alla relaterade objekt som har relationer till den objekt med hjälp av den *innehåller* parametern få API: er.
 
 Azure Digital Twins garanterar graph _skalbarhet_, så att den kan hantera verkliga arbetsbelastningar. Digitala Twins kan användas för att representera stora portföljer fastigheter, infrastruktur, enheter, sensorer, telemetri och mer.
 
@@ -80,8 +80,8 @@ https://yourInstanceName.yourLocation.azuresmartspaces.net/management/swagger
 
 | Anpassade attributets namn | Ersätt med |
 | --- | --- |
-| `yourInstanceName` | Namnet på din digitala Twins för Azure-instans |
-| `yourLocation` | Vilken server-region som din instans är värd för |
+| *dittinstansnamn* | Namnet på din digitala Twins för Azure-instans |
+| *yourLocation* | Vilken server-region som din instans är värd för |
 
  Det fullständiga URL-formatet kan ses som används i bilden nedan:
 

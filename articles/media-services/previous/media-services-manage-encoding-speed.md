@@ -1,10 +1,10 @@
 ---
-title: Hantera hastighet och samtidighet på din encoding med Azure Media Services | Microsoft Docs
-description: Den här artikeln ger en kort översikt över hur du kan hantera hastighet och samtidighet kodning jobb/aktiviteter med Azure Media Services.
+title: Hantera hastighet och samtidighet för kodningen med Azure Media Services | Microsoft Docs
+description: Den här artikeln ger en kort översikt över hur du kan hantera hastighet och samtidighet för dina jobb/kodningsuppgifter med Azure Media Services.
 services: media-services
 documentationcenter: ''
 author: juliako
-manager: cfowler
+manager: femila
 editor: ''
 ms.assetid: 676313f8-a158-4e3a-a99b-2c29a341ecc9
 ms.service: media-services
@@ -12,30 +12,30 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/10/2017
+ms.date: 10/29/2018
 ms.author: juliako
-ms.openlocfilehash: d7e3d6d0c176d0a903c3027ab4feddb332557566
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 3f358be630d9a50d0f048d66c9f79e168c8adcdf
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33788279"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50230207"
 ---
-#  <a name="manage-speed-and-concurrency-of-your-encoding"></a>Hantera hastighet och samtidighet på din kodning
+#  <a name="manage-speed-and-concurrency-of-your-encoding"></a>Hantera hastighet och samtidighet för kodningen
 
-Den här artikeln ger en kort översikt över hur du kan hantera hastighet och samtidighet kodning jobb/aktiviteter.
+Den här artikeln ger en kort översikt över hur du kan hantera hastighet och samtidighet för dina jobb/kodningsuppgifter.
 
 ## <a name="overview"></a>Översikt
 
-I Media Services en **reserverade enhetstyp** bestämmer hastighet som media bearbeta uppgifter bearbetas. Du kan välja mellan följande typer av reserverade enheter: **S1**, **S2** och **S3**. Samma kodningsjobb körs till exempel snabbare om du använder typen **S2** än om du använder typen **S1**. Den [skalning kodning enheter](media-services-scale-media-processing-overview.md) avsnittet visas en tabell som hjälper dig att fatta beslut om att välja mellan olika kodning hastigheter.
+I Media Services, en **typ av reserverad enhet** bestämmer hur snabbt mediebearbetningsuppgifter som din mediebearbetning uppgifter ska bearbetas. Du kan välja mellan följande typer av reserverade enheter: **S1**, **S2** och **S3**. Samma kodningsjobb körs till exempel snabbare om du använder typen **S2** än om du använder typen **S1**. Den [skalning kodningsenheter](media-services-scale-media-processing-overview.md) avsnittet visas en tabell som hjälper dig att fatta beslut när du väljer mellan olika kodning hastigheter.
 
-Ange vilken enhet, kan du ange att tillhandahålla ditt konto med **reserverade enheter**. Antalet etablerade reserverade enheter anger antalet medieuppgifter som kan bearbetas samtidigt i en viss konto. Till exempel om ditt konto har fem reserverade enheter fem media aktiviteter körs samtidigt så länge som det finns aktiviteter som ska bearbetas. De återstående uppgifterna kommer att vänta i kön och ska hämta tas upp för bearbetning i tur och ordning när en aktivitet är klar. Om ett konto inte har några reserverade enheter som har etablerats sedan hanteras uppgifter sekventiellt. I det här fallet beror väntetiden mellan en aktivitet avslutas och nästa start på tillgängligheten för resurser i systemet.
+Förutom att ange typ av reserverad enhet kan du ange att etablera ditt konto med **reserverade enheter**. Antalet etablerade reserverade enheter anger antalet medieuppgifter som kan bearbetas samtidigt i en viss konto. Till exempel om ditt konto har fem reserverade enheter, och sedan fem medieuppgifter körs samtidigt så länge som det finns aktiviteter som ska bearbetas. De återstående aktiviteterna ska vänta i kön och ska få hämtas för bearbetning av sekventiellt när en aktivitet är klar. Om ett konto inte har några mediereserverade enheter etablerade sedan hämtas uppgifter sekventiellt. I det här fallet beror väntetiden mellan en uppgift slutförs och nästa start på tillgängligheten för resurser i systemet.
 
-Detaljerad information och exempel som visar hur du kodning skalningsenheter finns [detta](media-services-scale-media-processing-overview.md) avsnittet.
+Detaljerad information och exempel som visar hur du skalar kodningsenheter finns [detta](media-services-scale-media-processing-overview.md) avsnittet.
 
 ## <a name="next-step"></a>Nästa steg
 
-[Kodning skalningsenheter](media-services-scale-media-processing-overview.md)
+[Skala kodningsenheter](media-services-scale-media-processing-overview.md)
 
 ## <a name="media-services-learning-paths"></a>Sökvägar för Media Services-utbildning
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]

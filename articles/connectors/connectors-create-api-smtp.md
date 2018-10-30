@@ -11,12 +11,12 @@ ms.assetid: d4141c08-88d7-4e59-a757-c06d0dc74300
 ms.topic: article
 tags: connectors
 ms.date: 08/25/2018
-ms.openlocfilehash: 90af33574093cfbe529093c7091ee6988f043aa6
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 78b1eb6272fa97ef392e97723454d29cf56bb4bf
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43052030"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50230513"
 ---
 # <a name="send-email-from-your-smtp-account-with-azure-logic-apps"></a>Skicka e-postmeddelande från din SMTP-konto med Azure Logic Apps
 
@@ -74,7 +74,7 @@ Teknisk information om utlösare, åtgärder och begränsningar som beskrivs av 
 ## <a name="get-support"></a>Få support
 
 * Om du har frågor kan du besöka [forumet för Azure Logic Apps](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
-* Om du vill skicka in eller rösta på förslag på funktioner besöker du [webbplatsen för Logic Apps-användarfeedback](http://aka.ms/logicapps-wish).
+* Om du vill skicka in eller rösta på förslag på funktioner besöker du [webbplatsen för Logic Apps-användarfeedback](https://aka.ms/logicapps-wish).
 
 ## <a name="next-steps"></a>Nästa steg
 

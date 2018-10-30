@@ -1,21 +1,20 @@
 ---
-title: Planera kapacitet och skalning för VMware-replikering till Azure med Azure Site Recovery | Microsoft Docs
-description: Använd den här artikeln att planera kapacitet och skala vid replikering av virtuella VMware-datorer till Azure med Azure Site Recovery
-services: site-recovery
+title: Planera kapacitet och skalning för VMware-haveriberedskap till Azure med Azure Site Recovery | Microsoft Docs
+description: Använd den här artikeln att planera kapacitet och skala när du konfigurerar haveriberedskap för virtuella VMware-datorer till Azure med Azure Site Recovery
 author: nsoneji
 manager: garavd
 ms.service: site-recovery
-ms.date: 10/10/2018
+ms.date: 10/28/2018
 ms.topic: conceptual
 ms.author: rayne
-ms.openlocfilehash: 833000cb09d315a996ebc9e2d66210c805160f2a
-ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
+ms.openlocfilehash: 9bc0d5976cf01eb61c2a09a35ccd3a834313ca00
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49067562"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50210507"
 ---
-# <a name="plan-capacity-and-scaling-for-vmware-replication-with-azure-site-recovery"></a>Planera kapacitet och skalning för VMware-replikering med Azure Site Recovery
+# <a name="plan-capacity-and-scaling-for-vmware-disaster-recovery-to-auzre"></a>Planera kapacitet och skalning för haveriberedskap för VMware till Azure
 
 Använd den här artikeln för att räkna ut planera för kapacitet och skalning, när du replikerar lokala virtuella VMware-datorer och fysiska servrar till Azure med [Azure Site Recovery](site-recovery-overview.md).
 

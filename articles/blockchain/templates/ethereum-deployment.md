@@ -5,17 +5,17 @@ services: azure-blockchain
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 5/21/2018
+ms.date: 10/29/2018
 ms.topic: article
 ms.service: azure-blockchain
-ms.reviewer: zeyadr
+ms.reviewer: coborn
 manager: femila
-ms.openlocfilehash: 823bea9bac8ff270d5b5c02e3b76a2f7236c9c99
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.openlocfilehash: fa58ecf4607efc1d212e40b98d199756d4b987f8
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48243331"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50231805"
 ---
 # <a name="ethereum-proof-of-work-consortium-solution-template"></a>Ethereum proof of work consortium lösningsmallen
 
@@ -119,7 +119,7 @@ Femte region| Femte region för att distribuera konsortienätverk (visas bara om
 
 ### <a name="network-size-and-performance"></a>Nätverkets storlek och prestanda
 
-Sedan under **storlek och prestanda** ange indata för storleken på consortium-nätverket, till exempel antal och storlek för datautvinning noder och noder för transaktionen.
+Sedan under **storlek och prestanda** ange indata för storleken på konsortienätverk. Till exempel antal och storlek för datautvinning noder och noder för transaktionen.
 
 ![Nätverkets storlek och prestanda](./media/ethereum-deployment/network-size-performance.png)
 
@@ -261,10 +261,10 @@ Därefter importerar du modulen:
 
 Kör slutligen funktionen med lämpliga indata:
 
-- **MyGatewayResourceId** : resurssökväg på din Gateway. Det här är mallen distribution utdataparameter med namnet **CONSORTIUM_MEMBER_GATEWAY_ID**.
-- **OtherGatewayResourceId** : resursens sökväg för den anslutande medlemmen gateway. Detta tillhandahålls av sammanbinder medlemmen och utdataparameter för mall för distribution av också heter **CONSORTIUM_MEMBER_GATEWAY_ID**.
-- **ConnectionName** : ett namn för dig att identifiera den här Gateway-anslutning.
-- **Delad nyckel** : i förväg upprättade hemligheten mellan de två medlemmar i konsortienätverk som vill upprätta en anslutning.
+- **MyGatewayResourceId:** resurssökväg på din Gateway. Det här är mallen distribution utdataparameter med namnet **CONSORTIUM_MEMBER_GATEWAY_ID**.
+- **OtherGatewayResourceId:** resursens sökväg för den anslutande medlemmen gateway. Detta tillhandahålls av sammanbinder medlemmen och utdataparameter för mall för distribution av också heter **CONSORTIUM_MEMBER_GATEWAY_ID**.
+- **Anslutningsnamn:** ett namn för dig att identifiera den här Gateway-anslutning.
+- **Delad nyckel:** i förväg upprättade hemligheten mellan de två medlemmar i konsortienätverk som vill upprätta en anslutning.
 
 **CreateConnection** -MyGatewayResourceId <resource path of your Gateway> - OtherGatewayResourceId < resursens sökväg för den anslutande medlemmen gateway > - ConnectionName myConnection - SharedKey ”MySharedKeyAbc123”
 
@@ -274,11 +274,11 @@ Ladda ned Azure CLI-skript och spara den lokalt. Platsen för Azure CLI-skript h
 
 Kör skriptet med lämpliga indata:
 
-- **MyGatewayResourceId** : resurssökväg på din Gateway. Det här är mallen distribution utdataparameter med namnet **CONSORTIUM_MEMBER_GATEWAY_ID**.
-- **OtherGatewayResourceId** : resursens sökväg för den anslutande medlemmen gateway. Detta tillhandahålls av sammanbinder medlemmen och mallparameter för distribution av deras distribution som också kallas **CONSORTIUM_MEMBER_GATEWAY_ID**.
-- **ConnectionName** : ett namn för dig att identifiera den här Gateway-anslutning.
-- **Delad nyckel** : i förväg upprättade hemligheten mellan de två medlemmar i konsortienätverk som vill upprätta en anslutning.
-- **Plats** : Azure-regionen där din resurs för gatewayen distribueras.
+- **MyGatewayResourceId:** resurssökväg på din Gateway. Det här är mallen distribution utdataparameter med namnet **CONSORTIUM_MEMBER_GATEWAY_ID**.
+- **OtherGatewayResourceId:** resursens sökväg för den anslutande medlemmen gateway. Detta tillhandahålls av sammanbinder medlemmen och mallparameter för distribution av deras distribution som också kallas **CONSORTIUM_MEMBER_GATEWAY_ID**.
+- **Anslutningsnamn:** ett namn för dig att identifiera den här Gateway-anslutning.
+- **Delad nyckel:** i förväg upprättade hemligheten mellan de två medlemmar i konsortienätverk som vill upprätta en anslutning.
+- **Plats:** Azure-regionen där din resurs för gatewayen distribueras.
 
 ``` powershell
 az network vpn-connection create --name $ConnectionName --resource-group
@@ -316,7 +316,7 @@ Om du vill installera tillägget i Chrome, går du till anpassa och styra Google
 
 ![MetaMask tillägg](./media/ethereum-deployment/metamask-extension.png)
 
-När du har installerat öppna MetaMask och skapa ett nytt valv. Som standard ska valvet anslutas till Morden Testnätverket. Du behöver ändra det här alternativet för att ansluta till nätverkets distribuerade privata consortium specifikt för belastningsutjämnaren framför transaction-noder. Hämta den exponerade Ethereum RPC slutpunkten på port 8545, med samma namn som mallutdata `ETHEREUM-RPC-ENDPOINT`, och Skriv in den i anpassade RPC enligt nedan.
+När du har installerat öppna MetaMask och skapa ett nytt valv. Som standard ska valvet anslutas till Morden Testnätverket. Ändra det här alternativet för att ansluta till nätverkets distribuerade privata consortium specifikt för belastningsutjämnaren framför transaction-noder. Hämta den exponerade Ethereum RPC slutpunkten på port 8545, med samma namn som mallutdata `ETHEREUM-RPC-ENDPOINT`, och Skriv in den i anpassade RPC enligt nedan.
 
 ![MetaMask inställningar](./media/ethereum-deployment/metamask-settings.png)
 

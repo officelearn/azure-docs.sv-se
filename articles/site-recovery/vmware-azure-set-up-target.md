@@ -1,21 +1,21 @@
 ---
-title: Förbereda målmiljön (VMware/fysisk till Azure) | Microsoft Docs
-description: Den här artikeln beskriver hur du förbereder mål-Azure-miljön för VMware VM-replikering och replikering av fysiska servrar till Azure.
+title: Förbereda målmiljö för VMware-replikering till Azure | Microsoft Docs
+description: Den här artikeln beskriver hur du förbereder mål-Azure-miljön för VMware-VM-replikering till Azure.
 services: site-recovery
-author: bsiva
-manager: abhemraj
+author: Rajeswari-Mamilla
+manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 09/28/2018
-ms.author: bsiva
-ms.openlocfilehash: 948812f05697362978ad041566d22977efec92a1
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.date: 10/29/2018
+ms.author: ramamill
+ms.openlocfilehash: a6f983b08415659b9a989ebed824cddd210396e1
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47434644"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50233437"
 ---
-# <a name="prepare-the-target-environment-vmwarephysical-to-azure"></a>Förbereda målmiljön (VMware/fysisk till Azure)
+# <a name="prepare-the-target-environment-for-disaster-recovery-of-vmware-vms-or-physical-servers-to-azure"></a>Förbereda målmiljö för haveriberedskap för virtuella VMware-datorer eller fysiska servrar till Azure
 
 Den här artikeln beskriver hur du förbereder mål-Azure-miljön att börja replikera virtuella VMware-datorer eller fysiska servrar till Azure.
 

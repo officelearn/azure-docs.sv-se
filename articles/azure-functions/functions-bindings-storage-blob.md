@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 09/03/2018
 ms.author: glenga
-ms.openlocfilehash: 4b1210d02d763ac8ad2b5c651b01f9a3cdd8695f
-ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
+ms.openlocfilehash: 0c6f62b4390ba6084abce9b1354fbcf17a9d3b79
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50087312"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50232978"
 ---
 # <a name="azure-blob-storage-bindings-for-azure-functions"></a>Azure Blob storage-bindningar för Azure Functions
 
@@ -282,7 +282,7 @@ I följande tabell förklaras konfigurationsegenskaper för bindning som du ange
 |**typ** | Saknas | Måste anges till `blobTrigger`. Den här egenskapen anges automatiskt när du skapar utlösaren i Azure-portalen.|
 |**riktning** | Saknas | Måste anges till `in`. Den här egenskapen anges automatiskt när du skapar utlösaren i Azure-portalen. Undantag anges i den [användning](#trigger---usage) avsnittet. |
 |**Namn** | Saknas | Namnet på variabeln som representerar blob i funktionskoden. | 
-|**Sökväg** | **BlobPath** |Behållaren för att övervaka.  Kan vara en [blob namnmönstret](#trigger-blob-name-patterns). | 
+|**Sökväg** | **BlobPath** |Behållaren för att övervaka.  Kan vara en [blob namnmönstret](#trigger---blob-name-patterns). | 
 |**anslutning** | **anslutning** | Namnet på en appinställning som innehåller lagringsanslutningssträngen ska användas för den här bindningen. Om namnet på inställningen börjar med ”AzureWebJobs” kan ange du endast resten av det här namnet. Exempel: Om du ställer in `connection` till ”MyStorage” funktionskörningen söker efter en app som inställning som heter ”AzureWebJobsMyStorage”. Om du lämnar `connection` tom funktionskörningen använder standard Storage anslutningssträngen i appinställningen som heter `AzureWebJobsStorage`.<br><br>Anslutningssträngen får inte vara för ett allmänt lagringskonto, en [Blob storage-konto](../storage/common/storage-account-overview.md#types-of-storage-accounts).|
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]

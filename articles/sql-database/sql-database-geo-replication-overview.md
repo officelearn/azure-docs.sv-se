@@ -11,13 +11,13 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 10/19/2018
-ms.openlocfilehash: 9332bcb5849deacde13d67e4a18ea19af8af2977
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.date: 10/29/2018
+ms.openlocfilehash: 3495a923683d78446e61ff0545c7d86023c14bc0
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49471483"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50233862"
 ---
 # <a name="overview-active-geo-replication-and-auto-failover-groups"></a>Översikt: Active geo-replikering och automatisk redundans-grupper
 
@@ -281,18 +281,18 @@ Vilket beskrivs ovan, automatisk redundans grupper och aktiv kan geo-replikering
 | --- | --- |
 | [Skapa eller uppdatera databas (createMode = återställer)](https://docs.microsoft.com/rest/api/sql/databases/createorupdate) |Skapar, uppdaterar eller återställer en primär eller sekundär databas. |
 | [Hämta skapa eller uppdatera Database-Status](https://docs.microsoft.com/rest/api/sql/databases/createorupdate) |Returnerar status under en åtgärd för att skapa. |
-| [Ange Sekundär databas som primär (planerad redundans)](https://docs.microsoft.com/rest/api/sql/replicationlinks/replicationlinks_failover) |Anger vilka replikdatabasen är primär genom växling från den aktuella primära replik-databasen. |
-| [Ange Sekundär databas som primär (oplanerad redundans)](https://docs.microsoft.com/rest/api/sql/replicationlinks/replicationlinks_failoverallowdataloss) |Anger vilka replikdatabasen är primär genom växling från den aktuella primära replik-databasen. Den här åtgärden kan resultera i dataförlust. |
-| [Hämta replikeringslänk](https://docs.microsoft.com/rest/api/sql/replicationlinks/replicationlinks_get) |Hämtar en replikeringslänk är specifika för en viss SQL-databas i en koppling för geo-replikering. Den hämtar information visas i katalogvyn sys.geo_replication_links. |
-| [Replikeringslänkar - listan efter databas](https://docs.microsoft.com/rest/api/sql/replicationlinks/replicationlinks_listbydatabase) | Hämtar alla länkar för databasreplikering för en viss SQL-databas i en koppling för geo-replikering. Den hämtar information visas i katalogvyn sys.geo_replication_links. |
-| [Ta bort länk för Platsdatareplikering](https://docs.microsoft.com/rest/api/sql/replicationlinks/replicationlinks_delete) | Tar bort en databasreplikeringslänk. Kan inte utföras under redundansväxlingen. |
-| [Skapa eller uppdatera redundansgrupp](https://docs.microsoft.com/rest/api/sql/failovergroups/failovergroups_createorupdate) | Skapar eller uppdaterar en redundansgrupp |
-| [Ta bort redundansgrupp](https://docs.microsoft.com/rest/api/sql/failovergroups/failovergroups_delete) | Tar bort redundansgruppen från servern |
-| [Redundansväxling (planerad)](https://docs.microsoft.com/rest/api/sql/failovergroups/failovergroups_failover) | Flyttas över från den primära servern till den här servern. |
-| [Påtvingad redundans tillåta förlust av Data](https://docs.microsoft.com/rest/api/sql/failovergroups/failovergroups_forcefailoverallowdataloss) |ails över från den primära servern till den här servern. Den här åtgärden kan resultera i dataförlust. |
-| [Get-redundansgrupp](https://docs.microsoft.com/rest/api/sql/failovergroups/failovergroups_get) | Hämtar en redundansgrupp. |
-| [Lista Redundansgrupper av servern](https://docs.microsoft.com/rest/api/sql/failovergroups/failovergroups_listbyserver) | Listar redundansgrupperna på en server. |
-| [Uppdatera redundansgrupp](https://docs.microsoft.com/rest/api/sql/failovergroups/failovergroups_update) | Uppdaterar en redundansgrupp. |
+| [Ange Sekundär databas som primär (planerad redundans)](https://docs.microsoft.com/rest/api/sql/replicationlinks/failover) |Anger vilka replikdatabasen är primär genom växling från den aktuella primära replik-databasen. |
+| [Ange Sekundär databas som primär (oplanerad redundans)](https://docs.microsoft.com/rest/api/sql/replicationlinks/failoverallowdataloss) |Anger vilka replikdatabasen är primär genom växling från den aktuella primära replik-databasen. Den här åtgärden kan resultera i dataförlust. |
+| [Hämta replikeringslänk](https://docs.microsoft.com/rest/api/sql/replicationlinks/get) |Hämtar en replikeringslänk är specifika för en viss SQL-databas i en koppling för geo-replikering. Den hämtar information visas i katalogvyn sys.geo_replication_links. |
+| [Replikeringslänkar - listan efter databas](https://docs.microsoft.com/rest/api/sql/replicationlinks/listbydatabase) | Hämtar alla länkar för databasreplikering för en viss SQL-databas i en koppling för geo-replikering. Den hämtar information visas i katalogvyn sys.geo_replication_links. |
+| [Ta bort länk för Platsdatareplikering](https://docs.microsoft.com/rest/api/sql/replicationlinks/delete) | Tar bort en databasreplikeringslänk. Kan inte utföras under redundansväxlingen. |
+| [Skapa eller uppdatera redundansgrupp](https://docs.microsoft.com/rest/api/sql/failovergroups/createorupdate) | Skapar eller uppdaterar en redundansgrupp |
+| [Ta bort redundansgrupp](https://docs.microsoft.com/rest/api/sql/failovergroups/delete) | Tar bort redundansgruppen från servern |
+| [Redundansväxling (planerad)](https://docs.microsoft.com/rest/api/sql/failovergroups/failover) | Flyttas över från den primära servern till den här servern. |
+| [Påtvingad redundans tillåta förlust av Data](https://docs.microsoft.com/rest/api/sql/failovergroups/forcefailoverallowdataloss) |ails över från den primära servern till den här servern. Den här åtgärden kan resultera i dataförlust. |
+| [Get-redundansgrupp](https://docs.microsoft.com/rest/api/sql/failovergroups/get) | Hämtar en redundansgrupp. |
+| [Lista Redundansgrupper av servern](https://docs.microsoft.com/rest/api/sql/failovergroups/listbyserver) | Listar redundansgrupperna på en server. |
+| [Uppdatera redundansgrupp](https://docs.microsoft.com/rest/api/sql/failovergroups/update) | Uppdaterar en redundansgrupp. |
 |  | |
 
 ## <a name="next-steps"></a>Nästa steg

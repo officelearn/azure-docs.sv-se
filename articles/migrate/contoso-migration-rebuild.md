@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/11/2018
 ms.author: raynew
-ms.openlocfilehash: 6c68d90605590ed8a17296e83276c7ef5396d6a2
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: 48b4878eef7395b51d19c59443736bae5aeb7365
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49092991"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50233590"
 ---
 # <a name="contoso-migration-rebuild-an-on-premises-app-to-azure"></a>Contoso-migrering: återskapa en lokal app till Azure
 
@@ -139,7 +139,7 @@ Här är hur Contoso kommer att köras migreringen:
 > * **Steg 1: Etablera AKS och ACR**: Contoso etablerar hanterade AKS-kluster och Azure container registry med PowerShell
 > * **Steg 2: Skapa Docker-behållare**: de konfigurera CI för Docker-behållare med Azure DevOps och push-installera dem i ACR.
 > * **Steg 3: Distribuera backend-mikrotjänster**: de distribuerar resten av den infrastruktur som ska användas av backend-mikrotjänster.
-> * **Steg 4: Distribuera frontend infrastruktur**: de distribuera frontend-infrastruktur, inklusive blob-lagring för Husdjurets telefoner, Cosmos DB och API för visuellt innehåll.
+> * **Steg 4: Distribuera frontend infrastruktur**: de distribuerar den frontend-infrastruktur, inklusive blob-lagring för Husdjurets telefoner, Cosmos DB och API för visuellt innehåll.
 > * **Steg 5: Migrera serverdelen**: de distribuera mikrotjänster och köras på AKS att migrera backend-servern.
 > * **Steg 6: Publicera klientdelen**: de publicera SmartHotel360-appen i Azure App service och Funktionsappen som kommer att anropas av tjänsten Husdjurets.
 
@@ -545,7 +545,7 @@ Contoso-administratörer kan nu publicera webbplatsen.
 
     ![Ny miljö](./media/contoso-migration-rebuild/vsts-publishfront8.png)
 
-14. De väljer **Azure App Service-distributionen med platsen**, och namnge miljö **Prod**.
+14. De väljer **Azure App Service-distributionen med platsen**, och namnge miljön **Prod**.
 15. De klickar på **1 jobb, 2 aktiviteter**, och välj den prenumeration, app service-namn och **mellanlagring** fack.
 
     ![Miljönamn](./media/contoso-migration-rebuild/vsts-publishfront10.png)

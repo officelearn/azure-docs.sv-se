@@ -11,12 +11,12 @@ ms.assetid: e0ec3149-507a-409d-8e7b-d5fbded006ce
 ms.topic: article
 tags: connectors
 ms.date: 08/25/2018
-ms.openlocfilehash: 5a3968e1aec98092767712220d8aaf676aba89cd
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: f076b2e859d334b407fe5c93fcec1bb67cb75e48
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43053828"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50233267"
 ---
 # <a name="monitor-and-manage-sharepoint-resources-with-azure-logic-apps"></a>Övervaka och hantera SharePoint-resurser med Azure Logic Apps
 
@@ -83,7 +83,7 @@ Teknisk information om utlösare, åtgärder och begränsningar som beskrivs av 
 ## <a name="get-support"></a>Få support
 
 * Om du har frågor kan du besöka [forumet för Azure Logic Apps](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
-* Om du vill skicka in eller rösta på förslag på funktioner besöker du [webbplatsen för Logic Apps-användarfeedback](http://aka.ms/logicapps-wish).
+* Om du vill skicka in eller rösta på förslag på funktioner besöker du [webbplatsen för Logic Apps-användarfeedback](https://aka.ms/logicapps-wish).
 
 ## <a name="next-steps"></a>Nästa steg
 

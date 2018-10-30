@@ -11,12 +11,12 @@ ms.assetid: e4773ecf-3ad3-44b4-a1b5-ee5f58baeadd
 ms.topic: article
 tags: connectors
 ms.date: 08/25/2018
-ms.openlocfilehash: 7226b59504c7112c039061ab0c184fe14f6e59d0
-ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
+ms.openlocfilehash: e3570ab1227ca388ac62bffdc74bb68b1ddc41d1
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42918679"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50230177"
 ---
 # <a name="monitor-and-manage-wunderlist-by-using-azure-logic-apps"></a>Övervaka och hantera Wunderlist med hjälp av Azure Logic Apps
 
@@ -77,7 +77,7 @@ Teknisk information om utlösare, åtgärder och begränsningar som beskrivs av 
 ## <a name="get-support"></a>Få support
 
 * Om du har frågor kan du besöka [forumet för Azure Logic Apps](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
-* Om du vill skicka in eller rösta på förslag på funktioner besöker du [webbplatsen för Logic Apps-användarfeedback](http://aka.ms/logicapps-wish).
+* Om du vill skicka in eller rösta på förslag på funktioner besöker du [webbplatsen för Logic Apps-användarfeedback](https://aka.ms/logicapps-wish).
 
 ## <a name="next-steps"></a>Nästa steg
 

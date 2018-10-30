@@ -1,5 +1,5 @@
 ---
-title: Övervaka prestanda för AKS-kluster med Azure Monitor för behållare | Microsoft Docs
+title: Övervaka prestanda för AKS-kluster med Azure Monitor för behållare (förhandsversion) | Microsoft Docs
 description: Den här artikeln beskrivs hur du kan visa och analysera prestanda och loggar data med Azure Monitor för behållare.
 services: azure-monitor
 documentationcenter: ''
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/19/2018
 ms.author: magoedte
-ms.openlocfilehash: 430145119721ac947162d3b661377290a0ae2c11
-ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
+ms.openlocfilehash: daec3d6e6cd8e4df3fdfe45fbb8ee98966c8a38e
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2018
-ms.locfileid: "49638009"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50214162"
 ---
-# <a name="understand-aks-cluster-performance-with-azure-monitor-for-containers"></a>Förstå prestanda för AKS-kluster med Azure Monitor för behållare
+# <a name="understand-aks-cluster-performance-with-azure-monitor-for-containers-preview"></a>Förstå prestanda för AKS-kluster med Azure Monitor för behållare (förhandsgranskning)
 Visa prestanda för dina Azure Kubernetes Service (AKS) kluster kan observeras ur två perspektiv med Azure Monitor för behållare direkt från ett AKS-kluster eller visa alla AKS-kluster i en prenumeration från Azure Monitor. 
 
 Den här artikeln hjälper dig att förstå upplevelse mellan två perspektiv och hur du snabbt utvärdera, undersöka och lösa problem som identifieras.

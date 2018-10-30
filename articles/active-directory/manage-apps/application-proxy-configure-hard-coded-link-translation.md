@@ -15,12 +15,12 @@ ms.date: 05/04/2018
 ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: 0d139437a069406db2ae0f189480072f8063a327
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.openlocfilehash: 73854cba151dfbebe53862a39fbe980502192c2d
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45982280"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50230071"
 ---
 # <a name="redirect-hardcoded-links-for-apps-published-with-azure-ad-application-proxy"></a>Omdirigera hårdkodad länkar till appar som publiceras med Azure AD Application Proxy
 
@@ -97,6 +97,7 @@ För att förbättra prestanda och säkerhet, inte är länkar som översatt:
 
 - Länkar inte i kodtaggarna. 
 - Länkar inte i HTML- eller CSS. 
+- Länkar i URL-kodat format.
 - Interna länkar öppnas från andra program. Länkar skickas via e-post eller snabbmeddelande eller ingår i andra dokument kommer inte att översätta. Användarna behöver veta för att gå till den externa URL: en.
 
 Om du behöver stöd för ett av dessa två scenarier kan du använda samma interna och externa URL: er i stället länköversättning.  

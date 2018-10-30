@@ -1,21 +1,20 @@
 ---
-title: Konfigurera VMware-replikering till Azure i miljö för flera innehavare med hjälp av Site Recovery och programmet Cloud Solution Provider (CSP) | Microsoft Docs
-description: Beskriver hur du skapar och hanterar klient prenumerationer via sin Molnlösningsleverantör och distribuerar Azure Site Recovery i en inställning för flera innehavare
-services: site-recovery
+title: Konfigurera haveriberedskap för VMware till Azure i en miljö med flera innehavare med hjälp av Site Recovery och programmet Cloud Solution Provider (CSP) | Microsoft Docs
+description: Beskriver hur du ställer in VMware-haveriberedskap i en miljö med flera klientorganisationer med Azure Site Recovery.
 author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/16/2018
 ms.author: mayg
-ms.openlocfilehash: bd356a7e4285f8663b91da1f200cc2ae3c266bf3
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: c26421f848cf25e391589fa791f801e30fd14797
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49354129"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50208909"
 ---
-# <a name="set-up-vmware-replication-in-a-multi-tenancy-environment-with-the-cloud-solution-provider-csp-program"></a>Konfigurera VMware-replikering i en miljö med flera innehavare med programmet Cloud Solution Provider (CSP)
+# <a name="set-up-vmware-disaster-recovery-in-a-multi-tenancy-environment-with-the-cloud-solution-provider-csp-program"></a>Konfigurera VMware-haveriberedskap i en miljö med flera innehavare med programmet Cloud Solution Provider (CSP)
 
 Den [CSP-programmet](https://partner.microsoft.com/en-US/cloud-solution-provider) kan åstadkomma bättre tillsammans berättelser för Microsofts molntjänster, inklusive Office 365, Enterprise Mobility Suite och Microsoft Azure. Med CSP partner äger slutpunkt till slutpunkt-relation med kunder och bli den primära relation kontaktpunkten. Partners kan distribuera Azure-prenumerationer för kunder och kombinera prenumerationer med sina egna försäljning, anpassade erbjudanden.
 

@@ -12,12 +12,12 @@ ms.author: ronitr
 ms.reviewer: vanto
 manager: craigg
 ms.date: 10/15/2018
-ms.openlocfilehash: 32b60a53581a0f372a7d994cfa260ebd7bcb27b2
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: ffa1c45b2d9449310a2b0dcc66a513b4d8efbc5d
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49467049"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50232995"
 ---
 # <a name="azure-sql-database-data-discovery-and-classification"></a>Azure SQL databasdata identifiering och klassificering
 
@@ -132,7 +132,7 @@ En viktig aspekt av information protection-paradigm är möjligheten att överva
 Du kan använda T-SQL för att lägga till/ta bort kolumnklassificeringar, samt hämta alla klassificeringar för hela databasen.
 
 > [!NOTE]
-> När du använder T-SQL för att hantera etiketter, finns det ingen validering som etiketter som lagts till i en kolumn som finns i organisationens information protection-principen (uppsättning etiketter som visas i portalen rekommendationer). Det är detta du kan verifiera detta.
+> När du använder T-SQL för att hantera etiketter, finns det ingen validering som etiketter som lagts till i en kolumn som finns i organisationens information protection-principen (uppsättning etiketter som visas i portalen rekommendationer). Därför är det upp till dig att verifiera detta.
 
 - Lägg till/uppdatera klassificeringen av en eller flera kolumner: [lägga till KÄNSLIGHETSKLASSIFICERING](https://docs.microsoft.com/sql/t-sql/statements/add-sensitivity-classification-transact-sql)
 - Ta bort klassificeringen från en eller flera kolumner: [släppa KÄNSLIGHETSKLASSIFICERING](https://docs.microsoft.com/sql/t-sql/statements/drop-sensitivity-classification-transact-sql)

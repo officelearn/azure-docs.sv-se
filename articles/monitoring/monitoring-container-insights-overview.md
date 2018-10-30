@@ -1,5 +1,5 @@
 ---
-title: Översikt över Azure Monitor för behållare | Microsoft Docs
+title: Översikt över Azure Monitor för behållare (förhandsversion) | Microsoft Docs
 description: Den här artikeln beskrivs Azure Monitor för behållare som övervakar AKS-behållare för lösningen och det värde som du får genom att övervaka hälsotillståndet för dina AKS-kluster och Container Instances i Azure.
 services: azure-monitor
 documentationcenter: ''
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/14/2018
 ms.author: magoedte
-ms.openlocfilehash: 6819cf96eb968e8faad5441cf3f3dd672653f1cd
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 13fde8a4ec4ecf43b9997d5d4d181a232505626f
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46971441"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50213006"
 ---
-# <a name="azure-monitor-for-containers-overview"></a>Azure Monitor för översikt över behållare
+# <a name="azure-monitor-for-containers-preview-overview"></a>Azure Monitor för översikt över behållare (förhandsversion)
 
 Azure Monitor för behållare är en funktion som utformats för att övervaka prestanda för arbetsbelastningar distribueras till hanterade Kubernetes-kluster som finns på Azure Kubernetes Service (AKS). Övervaka dina behållare är viktigt, särskilt när du kör ett produktionskluster i skala med flera program.
 

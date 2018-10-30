@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 09/06/2018
 ms.author: jeffpatt
 ms.component: files
-ms.openlocfilehash: d240bafa543633999a74ef66efcfd7130a4a7b7a
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: 1a135b0e17889c544a99ad677e9fa42ad6de994c
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49389284"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50231890"
 ---
 # <a name="troubleshoot-azure-file-sync"></a>Felsök Azure File Sync
 Använd Azure File Sync för att centralisera din organisations filresurser i Azure Files, samtidigt som den flexibilitet, prestanda och kompatibilitet för en lokal filserver. Azure File Sync omvandlar Windows Server till ett snabbt cacheminne för din Azure-filresurs. Du kan använda alla protokoll som är tillgänglig på Windows Server för att komma åt dina data lokalt, inklusive SMB, NFS och FTPS. Du kan ha så många cacheminnen som du behöver över hela världen.
@@ -74,9 +74,9 @@ Det här problemet uppstår om Azure-filresursen används redan av en annan slut
 Om du ser det här meddelandet och Azure-filresursen är för närvarande inte används av en slutpunkt i molnet, gör du följande för att ta bort Azure File Sync-metadata i Azure-filresursen:
 
 > [!Warning]  
-> Tar bort metadata i en Azure-filresurs som för närvarande används av en slutpunkt i molnet gör Azure File Sync-åtgärder misslyckas. 
+> Tar bort metadata i en Azure-filresurs som för närvarande används av en slutpunkt i molnet gör Azure File Sync-åtgärder misslyckas. 
 
-1. Gå till din Azure-filresurs i Azure-portalen.  
+1. Gå till din Azure-filresurs i Azure-portalen.  
 2. Högerklicka på Azure-filresursen och välj sedan **redigera metadata**.
 3. Högerklicka på **SyncService**, och välj sedan **ta bort**.
 
@@ -519,7 +519,7 @@ Det här felet beror på att det finns ändringar på Azure-filresursen direkt o
 | | |
 | **HRESULT** | 0x80c8021c |
 | **HRESULT (decimal)** | -2134375908 |
-| **Felsträng** | ECS_E_SYNC_METADATA_KNOWLEGE_LIMIT_REACHED |
+| **Felsträng** | ECS_E_SYNC_METADATA_KNOWLEDGE_LIMIT_REACHED |
 | **Reparation krävs** | Ja |
 | | |
 | **HRESULT** | 0x80c80253 |

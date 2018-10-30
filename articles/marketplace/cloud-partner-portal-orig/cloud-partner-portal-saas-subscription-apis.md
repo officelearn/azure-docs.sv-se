@@ -14,17 +14,17 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/17/2018
 ms.author: pbutlerm
-ms.openlocfilehash: c9ed3f3511def085f5e0658bbcbd7978e3a7ce20
-ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
+ms.openlocfilehash: 9ffb67a2d3d07e75df29070ca198bac1661f95cc
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49079328"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50212972"
 ---
 <a name="saas-sell-through-azure---apis"></a>SaaS-sälj via Azure - API: er
 ==============================
 
-Den här artikeln förklarar hur du skapar ett SaaS-erbjudande med API: er. API: erna är nödvändiga för att tillåta prenumerationer till SaaS-erbjudande om du har sälj via Azure som valts. Om du vill skapa en vanlig SaaS-lista som inte har aktiverat handel, se [SaaS-program Technical publicera Guide]./cloud-partner-portal-saas-offers-tech-publishing-guide.md).
+Den här artikeln förklarar hur du skapar ett SaaS-erbjudande med API: er. API: erna är nödvändiga för att tillåta prenumerationer till SaaS-erbjudande om du har sälj via Azure som valts. Om du vill skapa en vanlig SaaS-lista som inte har aktiverat handel, se [SaaS teknisk publiceringsguide om programmet](./cloud-partner-portal-saas-offers-tech-publishing-guide.md).
 
 Den här artikeln är uppdelad i två delar:
 

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 08/07/2018
 ms.author: robinsh
 ms.custom: include file
-ms.openlocfilehash: 64c7525be9bd44b0d33fdcd8da717e9fe893e057
-ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
+ms.openlocfilehash: bbdff5a9aa74ab08dc99c41f8ab847f901e18256
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49070193"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50227177"
 ---
 # <a name="internet-of-things-security-architecture"></a>Internet of Things security-arkitektur
 
@@ -21,7 +21,7 @@ När du designar ett system, är det viktigt att förstå de potentiella hot på
 
 ## <a name="security-starts-with-a-threat-model"></a>Säkerhet som börjar med en hotmodell
 
-Microsoft har länge använt hotmodeller för sina produkter och gjort företagets threat modellering process som är tillgängligt för allmänheten. Företagets upplevelsen visar att modellering har oväntat fördelar utöver den omedelbara förståelsen för vad hoten som är mest om. Till exempel skapar det också en väg för en öppen diskussion med andra utanför Utvecklingsteamet, vilket kan leda till nya idéer och förbättringar i produkten.
+Microsoft har länge använt hotmodeller för sina produkter och gjort företagets threat modeling processen publicaly tillgängliga. Företagets upplevelsen visar att modellering har oväntat fördelar utöver den omedelbara förståelsen för vad hoten som är mest om. Till exempel skapar det också en väg för en öppen diskussion med andra utanför Utvecklingsteamet, vilket kan leda till nya idéer och förbättringar i produkten.
 
 Målet med hotmodellering är att förstå hur en angripare kan eventuellt att angripa en dator och sedan kontrollera att lämpliga åtgärder är på plats. Threat modellering framtvingar den grupp att tänka på åtgärder som systemet är utformat för i stället för när systemet har distribuerats. Detta är ytterst viktigt, eftersom det är omöjligt att onlineåterställningspunkter security försvar för en mängd olika enheter i fältet, felbenägna och lämnar kvar kunder på riskerar.
 

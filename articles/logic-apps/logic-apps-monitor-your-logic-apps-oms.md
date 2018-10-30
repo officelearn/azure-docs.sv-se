@@ -1,6 +1,6 @@
 ---
-title: Övervaka logic app körs med Log Analytics – Azure Logic Apps | Microsoft Docs
-description: Få insikter och data om dina logikappskörningar med Log Analytics-felsökning för felsökning och diagnostik
+title: Övervaka logikappar med Log Analytics – Azure Logic Apps | Microsoft Docs
+description: Få insikter och data för felsökning och diagnostisera dina logikappskörningar med Azure Log Analytics-felsökning
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
@@ -8,26 +8,26 @@ author: divyaswarnkar
 ms.author: divswa
 ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
-ms.date: 10/11/2018
-ms.openlocfilehash: 177c361734a88acab5fc10d6b460645be82bf437
-ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
+ms.date: 10/19/2018
+ms.openlocfilehash: c65cc24f9b0083e9c873465008490bf00ea83852
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49457150"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50232384"
 ---
-# <a name="monitor-and-get-insights-about-logic-app-runs-with-log-analytics"></a>Övervaka och få insikter om logikapp-körningar med Log Analytics
+# <a name="monitor-logic-apps-with-azure-log-analytics"></a>Övervaka logikappar med Azure Log Analytics
 
-Övervaknings- och mer omfattande felsökning information kan du aktivera Log Analytics på samma gång när du skapar en logikapp. Log Analytics tillhandahåller diagnostik loggning och övervakning för din logikapp körs via Azure portal. När du lägger till Logic Apps-hantering-lösningen kan du få aggregerad status för logikapp-körningar och specifik information som status, körningstid, omsändning status och Korrelations-ID: N.
+Om du vill övervaka och få bättre information om felsökning om logic apps, aktiverar [Azure Log Analytics](../log-analytics/log-analytics-overview.md) när du skapar din logikapp. Log Analytics tillhandahåller diagnostik loggning och övervakning för logic apps när du installerar lösningen Logic Apps-hantering i Azure-portalen. Den här lösningen ger också samlad information för din logikapp körs med specifik information som status, körningstid, omsändning status och Korrelations-ID: N. Den här artikeln visar hur du aktiverar Log Analytics så att du kan visa körningshändelser och data för din logikapp körs.
 
-Den här artikeln visar hur du aktiverar Log Analytics så att du kan visa körningshändelser och data för din logikapp körs.
+Följ dessa steg för att du aktiverar Azure Log Analytics för befintliga logikappar, [aktivera Diagnostisk loggning och skicka logic app runtime-data till Log Analytics](../logic-apps/logic-apps-monitor-your-logic-apps.md#azure-diagnostics).
 
- > [!TIP]
- > För att övervaka dina befintliga logikappar, följer du dessa steg för att [aktivera Diagnostisk loggning och skicka logic app runtime-data till Log Analytics](../logic-apps/logic-apps-monitor-your-logic-apps.md#azure-diagnostics).
+> [!NOTE]
+> Den här sidan som beskrevs tidigare anvisningar att utföra dessa uppgifter med den Microsoft Operations Management Suite (OMS), vilket är [tas ur bruk i januari 2019](../log-analytics/log-analytics-oms-portal-transition.md), ersätter de här stegen med Azure Log Analytics i stället. 
 
-## <a name="requirements"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
-Innan du börjar måste du har en Log Analytics-arbetsyta. Lär dig [hur du skapar en Log Analytics-arbetsyta](../log-analytics/log-analytics-quick-create-workspace.md). 
+Innan du börjar behöver du en Log Analytics-arbetsyta. Lär dig [hur du skapar en Log Analytics-arbetsyta](../log-analytics/log-analytics-quick-create-workspace.md). 
 
 ## <a name="turn-on-diagnostics-logging-when-creating-logic-apps"></a>Aktivera diagnostikloggning när du skapar logikappar
 
@@ -54,11 +54,11 @@ Innan du börjar måste du har en Log Analytics-arbetsyta. Lär dig [hur du skap
 
 1. Visa din logikapp körs [fortsätter du med dessa steg](#view-logic-app-runs-oms).
 
-## <a name="install-the-logic-apps-management-solution"></a>Installera lösningen för Logic Apps-hantering
+## <a name="install-logic-apps-management-solution"></a>Installera lösningen för Logic Apps-hantering
 
 Om du redan aktiverat Log Analytics när du skapade din logikapp kan du hoppa över det här steget. Du har redan en lösning för Logic Apps-hantering installerad.
 
-1. I [Azure-portalen](https://portal.azure.com), väljer du **Alla tjänster**. I sökrutan anger du ”log analytics” som filter och välj **Log Analytics**.
+1. I [Azure-portalen](https://portal.azure.com), väljer du **Alla tjänster**. Hitta ”log analytics” i sökrutan och välj **Log Analytics**.
 
    ![Välj ”Log Analytics”](./media/logic-apps-monitor-your-logic-apps-oms/find-log-analytics.png)
 
@@ -66,7 +66,7 @@ Om du redan aktiverat Log Analytics när du skapade din logikapp kan du hoppa ö
 
    ![Välj Log Analytics-arbetsytan](./media/logic-apps-monitor-your-logic-apps-oms/select-log-analytics-workspace.png)
 
-1. Under **konfigurera övervakningslösningar**, Välj **visa lösningar**.
+1. Under **Kom igång med Log Analytics** > **konfigurera övervakningslösningar**, Välj **visa lösningar**.
 
    ![Välj ”Visa lösningar”](media/logic-apps-monitor-your-logic-apps-oms/log-analytics-workspace.png)
 
@@ -76,19 +76,23 @@ Om du redan aktiverat Log Analytics när du skapade din logikapp kan du hoppa ö
 
    Om du inte hittar lösningen längst ned i listan, Välj **Läs in fler** tills lösningen visas.
 
-1. Välj **skapa**, som installerar lösningen.
+1. Välj **skapa**, bekräfta Log Analytics-arbetsyta där du vill installera lösningen och välj sedan **skapa** igen.   
 
-   ![Välj ”Lägg till” för ”Logic Apps-hantering”](./media/logic-apps-monitor-your-logic-apps-oms/create-logic-apps-management-solution.png)
+   ![Välj ”Skapa” för ”Logic Apps-hantering”](./media/logic-apps-monitor-your-logic-apps-oms/create-logic-apps-management-solution.png)
+
+   Om du inte vill använda en befintlig arbetsyta kan du också skapa en ny arbetsyta just nu.
+
+   När du är klar visas lösning för Logic Apps-hantering på översiktssidan. 
 
 <a name="view-logic-app-runs-oms"></a>
 
-## <a name="view-logic-app-runs-in-log-analytics-workspace"></a>Visa logic app körs i Log Analytics-arbetsyta
+## <a name="view-logic-app-run-information"></a>Visa logikappkörningen information
 
-1. För att visa antalet och status för din logikapp-körningar, gå till Log Analytics-arbetsytan och öppna sidan Översikt. 
+När logikappen körs kan du visa status och antal för de körs på den **Logic Apps-hantering** panelen. 
 
-   Information om dina logikappskörningar visas på den **Logic Apps-hantering** panelen. Om du vill visa en sammanfattning med mer information om dina logikappskörningar, Välj den **Logic Apps-hantering** panelen. 
+1. Gå till Log Analytics-arbetsytan och öppna sidan Översikt. Välj **Logic Apps-hantering**. 
 
-   ![Översikt över panelen som visar logic app kör antal och status](media/logic-apps-monitor-your-logic-apps-oms/overview.png)
+   ![Logikappskörningen status och antal](media/logic-apps-monitor-your-logic-apps-oms/overview.png)
 
    Här kan är din logikapp-körningar grupperade efter namn eller efter Körningsstatus. 
    Information om fel visas i åtgärder eller utlösare för de logikapp-körningarna också i den här sidan.

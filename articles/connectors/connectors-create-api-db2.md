@@ -10,12 +10,12 @@ ms.suite: integration
 ms.topic: article
 ms.date: 08/23/2018
 tags: connectors
-ms.openlocfilehash: 354e67183a36f511811d74a0685dea2e23d6c0e2
-ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
+ms.openlocfilehash: 9ba2476ccf2601f5d7d2c0e93c7661f740f32145
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42818883"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50231771"
 ---
 # <a name="manage-ibm-db2-resources-with-azure-logic-apps"></a>Hantera IBM DB2-resurser med Azure Logic Apps
 
@@ -83,7 +83,7 @@ I exemplen i den här artikeln i **upprepning** utlösaren.
 
 Om du vill konfigurera anslutningen, ange den här anslutningsinformationen när du uppmanas, Välj **skapa**, och sedan spara din logikapp:
 
-| Egenskap | Obligatoriskt | Beskrivning | 
+| Egenskap  | Krävs | Beskrivning | 
 |----------|----------|-------------| 
 | **Anslut via lokal gateway** | Nej | Gäller endast för lokala anslutningar. | 
 | **Anslutningsnamn** | Ja | Namn på anslutningen, till exempel ”MyLogicApp – DB2-anslutning” |
@@ -103,7 +103,7 @@ Exempel:
 
 Innan du skapar anslutningen måste har du redan din lokala datagateway installerad. Annars kan har du inte konfigurerat din anslutning. Om du har din gatewayinstallationen kan fortsätta att tillhandahålla här anslutningsinformationen och välj sedan **skapa**.
 
-| Egenskap | Obligatoriskt | Beskrivning | 
+| Egenskap  | Krävs | Beskrivning | 
 |----------|----------|-------------| 
 | **Anslut via lokal gateway** | Ja | Gäller när du vill att en lokal anslutning och visar lokalt anslutningsegenskaper. | 
 | **Anslutningsnamn** | Ja | Namn på anslutningen, till exempel ”MyLogicApp – DB2-anslutning” | 
@@ -153,7 +153,7 @@ Om du vill hämta en post i en DB2-tabell i databasen, använder den **hämta ra
 
 1. Ange värden för alla nödvändiga egenskaper (*). När du har valt en tabell visar åtgärden relevanta egenskaper som är specifika för poster i tabellen.
 
-   | Egenskap | Obligatoriskt | Beskrivning | 
+   | Egenskap  | Krävs | Beskrivning | 
    |----------|----------|-------------| 
    | **Tabellnamn** | Ja | Den tabell som innehåller posten du önskar, såsom ”området” i det här exemplet | 
    | **Områdes-ID** | Ja | ID för posten du önskar, såsom ”99999” i det här exemplet | 
@@ -231,7 +231,7 @@ Lägg till en enskild post i en DB2-tabell i databasen genom att använda den **
 
    Här följer egenskaperna för det här exemplet:
 
-   | Egenskap | Obligatoriskt | Beskrivning | 
+   | Egenskap  | Krävs | Beskrivning | 
    |----------|----------|-------------| 
    | **Tabellnamn** | Ja | Tabellen var du vill lägga till posten, till exempel ”-område | 
    | **Områdes-ID** | Ja | ID för området för att lägga till, till exempel ”99999” | 
@@ -277,7 +277,7 @@ Uppdatera en enskild post i en DB2-tabell i databasen med den **Uppdatera rad** 
 
    Här följer egenskaperna för det här exemplet:
 
-   | Egenskap | Obligatoriskt | Beskrivning | 
+   | Egenskap  | Krävs | Beskrivning | 
    |----------|----------|-------------| 
    | **Tabellnamn** | Ja | Tabellen var du vill uppdatera posten, till exempel ”-område | 
    | **Rad-ID** | Ja | ID för posten som ska uppdateras, till exempel ”99999” | 
@@ -324,7 +324,7 @@ Ta bort en post från en DB2-tabell i databasen genom att använda den **ta bort
 
    Här följer egenskaperna för det här exemplet:
 
-   | Egenskap | Obligatoriskt | Beskrivning | 
+   | Egenskap  | Krävs | Beskrivning | 
    |----------|----------|-------------| 
    | **Tabellnamn** | Ja | Tabellen var du vill ta bort posten, till exempel ”-område | 
    | **Rad-ID** | Ja | ID för posten som ska ta bort, till exempel ”99999” | 
@@ -361,7 +361,7 @@ Teknisk information, till exempel utlösare och åtgärder gränser, enligt besk
 ## <a name="get-support"></a>Få support
 
 * Om du har frågor kan du besöka [forumet för Azure Logic Apps](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
-* Om du vill skicka in eller rösta på förslag på funktioner besöker du [webbplatsen för Logic Apps-användarfeedback](http://aka.ms/logicapps-wish).
+* Om du vill skicka in eller rösta på förslag på funktioner besöker du [webbplatsen för Logic Apps-användarfeedback](https://aka.ms/logicapps-wish).
 
 ## <a name="next-steps"></a>Nästa steg
 

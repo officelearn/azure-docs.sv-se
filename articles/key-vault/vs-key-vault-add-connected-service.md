@@ -11,12 +11,12 @@ ms.workload: azure-vs
 ms.topic: conceptual
 ms.date: 04/15/2018
 ms.author: ghogen
-ms.openlocfilehash: c90ef26c0170db67b1d422701b6969ca3f9c9e38
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: 9f2adfcbf2d6ca5de79cc787029f5139138b0e52
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49958524"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50230445"
 ---
 # <a name="add-key-vault-to-your-web-application-by-using-visual-studio-connected-services"></a>Lägg till Key Vault i ditt webbprogram med hjälp av Visual Studio Connected Services
 
@@ -57,7 +57,7 @@ Mer information om ändringarna att Connected Services gör i ditt projekt för 
 
    ![Att lägga till ansluten tjänst i projektet](media/vs-key-vault-add-connected-service/KeyVaultConnectedService4.PNG)
 
-1. Lägg nu till en hemlighet i Key Vault i Azure. Gå till rätt plats i portalen genom att klicka på länken för hantera hemligheter som lagras i den här Key Vault. Om du har stängt sidan eller projektet du kan navigera till den i den [Azure-portalen](https://portal.azure.com) genom att välja **alla tjänster**under **Security**, Välj **Key Vault**, välj sedan det Nyckelvalv som du nyss skapade.
+1. Lägg nu till en hemlighet i Key Vault i Azure. Gå till rätt plats i portalen genom att klicka på länken för hantera hemligheter som lagras i den här Key Vault. Om du har stängt sidan eller projektet du kan navigera till den i den [Azure-portalen](https://portal.azure.com) genom att välja **alla tjänster**under **Security**, Välj **Key Vault**, välj sedan det Nyckelvalv som du skapade.
 
    ![Gå till portalen](media/vs-key-vault-add-connected-service/manage-secrets-link.jpg)
 
@@ -73,94 +73,62 @@ Mer information om ändringarna att Connected Services gör i ditt projekt för 
  
 Du kan nu komma åt dina hemligheter i kod. Nästa steg är olika beroende på om du använder ASP.NET 4.7.1 eller ASP.NET Core.
 
-## <a name="access-your-secrets-in-code-aspnet-core-projects"></a>Få åtkomst till dina hemligheter i kod (ASP.NET Core-projekt)
+## <a name="access-your-secrets-in-code"></a>Få åtkomst till dina hemligheter i kod
 
-Anslutningen till Key Vault har ställts in vid start av en klass som implementerar [Microsoft.AspNetCore.Hosting.IHostingStartup](/dotnet/api/microsoft.aspnetcore.hosting.ihostingstartup?view=aspnetcore-2.1) med hjälp av ett sätt att utöka appkonfigurering som beskrivs i [förbättra en app från en extern sammansättningen i ASP.NET Core med IHostingStartup](/aspnet/core/fundamentals/host/platform-specific-configuration). Start-klassen använder två miljövariabler som innehåller anslutningsinformationen för Key Vault: ASPNETCORE_HOSTINGSTARTUP__KEYVAULT__CONFIGURATIONENABLED, inställd på true och ASPNETCORE_HOSTINGSTARTUP__KEYVAULT__CONFIGURATIONVAULT, ange den nya nyckeln Vault-URL. Dessa läggs till i filen launchsettings.json när du kör den **Lägg till Connected Service** processen.
+1. Installera de här två nuget-paket [AppAuthentication](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication) och [KeyVault](https://www.nuget.org/packages/Microsoft.Azure.KeyVault) NuGet-bibliotek.
 
-Öppna dina hemligheter:
+2. Öppna filen Program.cs och uppdatera koden med följande kod: 
+```
+    public class Program
+    {
+        public static void Main(string[] args)
+        {
+            BuildWebHost(args).Run();
+        }
 
-1. I Visual Studio kan i ASP.NET Core-projektet du nu referera till dessa hemligheter med hjälp av följande uttryck i koden:
- 
-   ```csharp
-      config["MySecret"] // Access a secret without a section
-      config["Secrets:MySecret"] // Access a secret in a section
-      config.GetSection("Secrets")["MySecret"] // Get the configuration section and access a secret in it.
-   ```
+        public static IWebHost BuildWebHost(string[] args) =>
+           WebHost.CreateDefaultBuilder(args)
+               .ConfigureAppConfiguration((ctx, builder) =>
+               {
+                   var keyVaultEndpoint = GetKeyVaultEndpoint();
+                   if (!string.IsNullOrEmpty(keyVaultEndpoint))
+                   {
+                       var azureServiceTokenProvider = new AzureServiceTokenProvider();
+                       var keyVaultClient = new KeyVaultClient(
+                           new KeyVaultClient.AuthenticationCallback(
+                               azureServiceTokenProvider.KeyVaultTokenCallback));
+                       builder.AddAzureKeyVault(
+                           keyVaultEndpoint, keyVaultClient, new DefaultKeyVaultSecretManager());
+                   }
+               }
+            ).UseStartup<Startup>()
+             .Build();
 
-1. På sidan .cshtml, säger About.cshtml, lägga till den @inject direktiv längst upp i filen för att ställa in en variabel du kan använda för att få åtkomst till Key Vault-konfigurationen.
+        private static string GetKeyVaultEndpoint() => "https://<YourKeyVaultName>.vault.azure.net";
+    }
+```
+3. Nästa gång du öppnar About.cshtml.cs fil och skriva följande kod
+    1. Innehåller en referens till Microsoft.Extensions.Configuration av detta med hjälp av instruktionen    
+        ```
+        using Microsoft.Extensions.Configuration
+        ```
+    2. Lägg till den här konstruktorn
+        ```
+        public AboutModel(IConfiguration configuration)
+        {
+            _configuration = configuration;
+        }
+        ```
+    3. Uppdatera metoden OnGet. Uppdatera värdet för platshållaren som visas här med det hemliga namnet som du skapade i kommandona ovan
+        ```
+        public void OnGet()
+        {
+            //Message = "Your application description page.";
+            Message = "My key val = " + _configuration["<YourSecretNameThatWasCreatedAbove>"];
+        }
+        ```
 
-   ```cshtml
-      @inject Microsoft.Extensions.Configuration.IConfiguration config
-   ```
-
-1. Du kan bekräfta att värdet för hemligheten är tillgänglig genom att visa den på en av sidorna som ett test. Använd @config att referera till variabeln config.
- 
-   ```cshtml
-      <p> @config["MySecret"] </p>
-      <p> @config.GetSection("Secrets")["MySecret"] </p>
-      <p> @config["Secrets:MySecret"] </p>
-   ```
-
-1. Skapa och köra webbprogrammet, gå till sidan om och se ”hemlighet”-värde.
-
-## <a name="access-your-secrets-in-code-aspnet-471-projects"></a>Få åtkomst till dina hemligheter i kod (ASP.NET 4.7.1 projekt)
-
-Anslutningen till ditt Nyckelvalv har ställts in av klassen ConfigurationBuilder med hjälp av information som har lagts till i din web.config-fil när du kör den **Lägg till Connected Service** processen.
-
-Öppna dina hemligheter:
-
-1. Ändra web.config enligt följande. Nycklarna är platshållare som kommer att ersättas av AzureKeyVault ConfigurationBuilder med värdena för hemligheter i Key Vault.
-
-   ```xml
-     <appSettings configBuilders="AzureKeyVault">
-       <add key="webpages:Version" value="3.0.0.0" />
-       <add key="webpages:Enabled" value="false" />
-       <add key="ClientValidationEnabled" value="true" />
-       <add key="UnobtrusiveJavaScriptEnabled" value="true" />
-       <add key="MySecret" value="dummy1"/>
-       <add key="Secrets--MySecret" value="dummy2"/>
-     </appSettings>
-   ```
-
-1. Lägg till följande rader för att hämta hemligheten och lagra den i ViewBag i HomeController, i metoden om domänkontrollanten.
- 
-   ```csharp
-            var secret = ConfigurationManager.AppSettings["MySecret"];
-            var secret2 = ConfigurationManager.AppSettings["Secrets--MySecret"];
-            ViewBag.Secret = $"Secret: {secret}";
-            ViewBag.Secret2 = $"Secret2: {secret2}";
-   ```
-
-1. I vyn About.cshtml lägger du till följande om du vill visa värdet för hemligheten (endast för testning).
-
-   ```csharp
-      <h3>@ViewBag.Secret</h3>
-      <h3>@ViewBag.Secret2</h3>
-   ```
-
-1. Kör appen lokalt för att kontrollera att du kan läsa hemligt värde du angav i Azure-portalen, inte dummy värdet från konfigurationsfilen.
-
-Därefter publicera din app till Azure.
-
-## <a name="publish-to-azure-app-service"></a>Publicera till Azure App Service
-
-1. Högerklicka på projektnoden och välj **publicera**. En skärm visas där det står **Välj ett mål för publicera**. Till vänster, Välj **Apptjänst**, och sedan **Skapa ny**.
-
-   ![Publicera i App Service](media/vs-key-vault-add-connected-service/AppServicePublish1.PNG)
-
-1. På den **skapa App Service** skärmbild och se till att prenumerationen och resursgruppen är samma som du skapade i Key Vault och väljer **skapa**.
-
-   ![Skapa App Service](media/vs-key-vault-add-connected-service/AppServicePublish2.PNG)
-
-1. När webbappen har skapats kan den **publicera** skärmen visas. Observera URL-Adressen för din publicerade webbprogram som finns i Azure. Om du ser **ingen** bredvid **Key Vault**, du måste fortfarande ange vilka Key Vault för att ansluta till att App Service. Välj den **lägga till Key Vault** koppla och välj det Nyckelvalv som du skapade.
-
-   ![Lägg till Key Vault](media/vs-key-vault-add-connected-service/AppServicePublish3.PNG)
-
-   Om du ser **hantera Nyckelvalv**, du kan klicka på som om du vill visa de aktuella inställningarna behörighet att redigera, eller gör ändringar i dina hemligheter i Azure Portal.
-
-1. Nu kan välja länken webbplats-URL att gå till ditt webbprogram i webbläsaren. Kontrollera att du ser det korrekta värdet från Key Vault.
-
-Grattis, du har bekräftat att webbappen kan använda Key Vault för att komma åt säkert lagrade hemligheter när du kör i Azure.
+Kör appen lokalt genom att bläddra till om sida. Du bör din hemliga värdet som hämtas
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 

@@ -10,12 +10,12 @@ ms.reviewer: klam, jehollan, LADocs
 ms.topic: article
 ms.assetid: bd229179-7199-4aab-bae0-1baf072c7659
 ms.date: 05/26/2017
-ms.openlocfilehash: a761e384a356a0cbf5531eee7340ddbbd1526909
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: a3f837b41ba6ec7ecadb3e34917a8088e4d1e2d9
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43122254"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50233522"
 ---
 # <a name="create-custom-apis-you-can-call-from-azure-logic-apps"></a>Skapa anpassade API: er som du kan anropa från Azure Logic Apps
 
@@ -41,7 +41,7 @@ Du kan vara värd för dina API: er på [Azure App Service](../app-service/app-s
 > * [Python](../app-service/containers/quickstart-python.md)
 > * [Ruby](../app-service/containers/quickstart-ruby.md)
 >
-> API-App-exempel som skapats för logic apps, finns det [Azure Logic Apps GitHub-lagringsplatsen](http://github.com/logicappsio) eller [blogg](http://aka.ms/logicappsblog).
+> API-App-exempel som skapats för logic apps, finns det [Azure Logic Apps GitHub-lagringsplatsen](http://github.com/logicappsio) eller [blogg](https://aka.ms/logicappsblog).
 
 ## <a name="how-do-custom-apis-differ-from-custom-connectors"></a>Hur skiljer sig anpassade API: er från anpassade anslutningsappar?
 
@@ -167,7 +167,7 @@ Här följer specifika åtgärder för en avsökning utlösare, som beskrivs av 
 
 | Hitta nya data eller händelse?  | API-svar | 
 | ------------------------- | ------------ |
-| Hittad | Returnera ett HTTP `200 OK` status med svarsnyttolasten (indata för nästa steg). <br/>Det här svaret skapar en logikappinstans och startar arbetsflödet. | 
+| Hitta | Returnera ett HTTP `200 OK` status med svarsnyttolasten (indata för nästa steg). <br/>Det här svaret skapar en logikappinstans och startar arbetsflödet. | 
 | Kunde inte hittas | Returnera ett HTTP `202 ACCEPTED` status med en `location` rubrik och en `retry-after` rubrik. <br/>För utlösare, den `location` rubriken ska också innehålla en `triggerState` frågeparameter som vanligtvis är ”timestamp”. Ditt API kan använda den här identifieraren för att spåra den senaste gången som logikappen utlöstes. | 
 ||| 
 
@@ -230,7 +230,7 @@ Om du vill göra dina anpassade API: er tillgängliga för alla användare i Log
 
 * Om du har frågor kan du besöka [forumet för Azure Logic Apps](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
 
-* På [webbplatsen för Logic Apps-användarfeedback](http://aka.ms/logicapps-wish) kan du hjälpa till med att förbättra Logic Apps genom att rösta på förslag eller komma med egna förslag på förbättringar. 
+* På [webbplatsen för Logic Apps-användarfeedback](https://aka.ms/logicapps-wish) kan du hjälpa till med att förbättra Logic Apps genom att rösta på förslag eller komma med egna förslag på förbättringar. 
 
 ## <a name="next-steps"></a>Nästa steg
 

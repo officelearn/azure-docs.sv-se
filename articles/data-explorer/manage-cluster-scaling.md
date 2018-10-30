@@ -8,12 +8,12 @@ ms.service: data-explorer
 services: data-explorer
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 59a6a94e2906413423a4ae03a7c1c115b2ec0cc0
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: bd3be916587ab884ea5579234a6189af54b53797
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47047924"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50209215"
 ---
 # <a name="manage-cluster-scaling-to-accommodate-changing-demand"></a>Hantera skalning av klustret för att hantera ändrade behov
 
@@ -63,4 +63,4 @@ Följande bild visar flödet av de kommande stegen. Vi tillhandahåller mer info
 
 Du har nu konfigurerat utskalningen för ditt Azure Data Explorer-kluster. Lägg till en annan regel för att skala in. Detta gör att skala klustret dynamiskt baserat på mätvärden för Resursanvändning som du anger.
 
-Om du behöver hjälp med problem för klusterskalning öppnar du en supportförfrågan i den [Azure-portalen](https://portal.azure.com).
+Om du behöver hjälp med problem för klusterskalning öppnar du en supportförfrågan i den [Azure-portalen](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview).

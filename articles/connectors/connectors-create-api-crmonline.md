@@ -10,12 +10,12 @@ ms.suite: integration
 ms.topic: article
 ms.date: 08/18/2018
 tags: connectors
-ms.openlocfilehash: b1ff93f1e03e047ad5ac00259c1aa53afda0c76d
-ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
+ms.openlocfilehash: 1247f603b759364edcee2bff12f75bb0a217ecd6
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42818948"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50231262"
 ---
 # <a name="manage-dynamics-365-records-with-azure-logic-apps"></a>Hantera Dynamics 365-poster med Azure Logic Apps
 
@@ -50,7 +50,7 @@ Lägg först till en Dynamics 365-utlösare som utlöses när en ny lead-posten 
 
 1. Ange den här utlösarinformationen:
 
-   | Egenskap | Obligatoriskt | Beskrivning | 
+   | Egenskap  | Krävs | Beskrivning | 
    |----------|----------|-------------| 
    | **Organisationens namn** | Ja | Namn för din organisations Dynamics 365-instansen ska övervakas, till exempel ”Contoso” |
    | **Entitetsnamn** | Ja | Namnet för entitet som ska övervakas, till exempel Leads ”” | 
@@ -72,7 +72,7 @@ Lägg nu till Dynamics 365-åtgärd som skapar en uppgiftspost för den nya lead
 
 1. Ange den här informationen för åtgärden:
 
-   | Egenskap | Obligatoriskt | Beskrivning | 
+   | Egenskap  | Krävs | Beskrivning | 
    |----------|----------|-------------| 
    | **Organisationens namn** | Ja | Dynamics 365-instans där du vill skapa den post som inte behöver vara samma instans i utlösaren, är men ”Contoso” i det här exemplet |
    | **Entitetsnamn** | Ja | Entiteten där du vill skapa posten, till exempel ”aktiviteter” | 
@@ -94,7 +94,7 @@ Lägg nu till Dynamics 365-åtgärd som skapar en uppgiftspost för den nya lead
 
 1. För att manuellt starta logikappen, designerverktygsfältet, Välj **kör**.
 
-   ![Kör logikapp](./media/connectors-create-api-crmonline/designer-toolbar-run.png)
+   ![Kör logikappen](./media/connectors-create-api-crmonline/designer-toolbar-run.png)
 
 1. Skapa nu en lead-post i Dynamics 365 så att du kan utlösa logikappens arbetsflöde.
 
@@ -192,7 +192,7 @@ Teknisk information, till exempel utlösare och åtgärder gränser, enligt besk
 ## <a name="get-support"></a>Få support
 
 * Om du har frågor kan du besöka [forumet för Azure Logic Apps](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
-* Om du vill skicka in eller rösta på förslag på funktioner besöker du [webbplatsen för Logic Apps-användarfeedback](http://aka.ms/logicapps-wish).
+* Om du vill skicka in eller rösta på förslag på funktioner besöker du [webbplatsen för Logic Apps-användarfeedback](https://aka.ms/logicapps-wish).
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -10,12 +10,12 @@ ms.reviewer: estfan, LADocs
 ms.assetid: 9fab1050-cfbc-4a8b-b1b3-5531bee92856
 ms.topic: article
 ms.date: 11/22/2016
-ms.openlocfilehash: 1307b6df22c51af9710d44abb23178d65e3507aa
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: 0fe35b67a424caedcea2c71885d1757943ace9d1
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44377402"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50232604"
 ---
 # <a name="secure-access-in-azure-logic-apps"></a>Säker åtkomst i Azure Logic Apps
 
@@ -168,7 +168,7 @@ Du kanske vill Parameterisera vissa aspekter av en arbetsflödesdefinition för 
 
 ### <a name="using-parameters-and-secure-parameters"></a>Med hjälp av parametrarna och säker
 
-Åtkomst till värdet för en resursparametern vid körning, den [definitionsspråk för arbetsflödet](http://aka.ms/logicappsdocs) tillhandahåller en `@parameters()` igen. Du kan också [ange parametrar i mallen för distribution av resursen](../azure-resource-manager/resource-group-authoring-templates.md#parameters). Men om du anger parametertyp som `securestring`, parametern inte returneras med resten av resursdefinitionen och kan inte nås genom att visa resursen efter distributionen.
+Åtkomst till värdet för en resursparametern vid körning, den [definitionsspråk för arbetsflödet](https://aka.ms/logicappsdocs) tillhandahåller en `@parameters()` igen. Du kan också [ange parametrar i mallen för distribution av resursen](../azure-resource-manager/resource-group-authoring-templates.md#parameters). Men om du anger parametertyp som `securestring`, parametern inte returneras med resten av resursdefinitionen och kan inte nås genom att visa resursen efter distributionen.
 
 > [!NOTE]
 > Om din parameter används i sidhuvuden eller brödtexten i en begäran, vara parametern synliga genom att gå till körningshistorik och utgående HTTP-begäran. Se till att ange principer för åtkomst till innehåll i enlighet med detta.
@@ -255,7 +255,7 @@ Alla anrop från logikappar kommer från en specifik uppsättning IP-adresser pe
 
 Logic apps är integrering med flera tjänster att tillhandahålla säker och tillförlitlig lokala kommunikation.
 
-#### <a name="on-premises-data-gateway"></a>Lokal dataanslutningsgateway
+#### <a name="on-premises-data-gateway"></a>Lokal datagateway
 
 Många hanterade anslutningsappar för logic apps ger säkra anslutningar till lokala system, inklusive filsystem, SQL, SharePoint, DB2 och mycket mer. Gatewayen vidarebefordrar data från lokala källor på krypterade kanaler via Azure Service Bus. All trafik som samlas in som säker utgående trafik från gateway-agenten. Läs mer om [hur datagateway fungerar](logic-apps-gateway-install.md#gateway-cloud-service).
 

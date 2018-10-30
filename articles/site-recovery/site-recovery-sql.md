@@ -1,20 +1,21 @@
 ---
-title: Replikera program med SQL Server och Azure Site Recovery | Microsoft Docs
-description: Den här artikeln beskriver hur du replikera SQL Server med Azure Site Recovery för SQL Server-funktioner för haveriberedskap.
+title: Konfigurera haveriberedskap för SQL Server med SQL Server och Azure Site Recovery | Microsoft Docs
+description: Den här artikeln beskriver hur du konfigurerar haveriberedskap för SQL Server med hjälp av SQL Server och Azure Site Recovery.
 services: site-recovery
-author: rayne-wiselman
+author: sujayt
+manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 07/22/2018
-ms.author: raynew
-ms.openlocfilehash: a734999f0fa473b5f1ee8ed55c4b73950566490d
-ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
+ms.author: sutalasi
+ms.openlocfilehash: 46f5f73293875cd89036eb615e7bd81188bc4c67
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43188781"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50210269"
 ---
-# <a name="protect-sql-server-using-sql-server-disaster-recovery-and-azure-site-recovery"></a>Skydda SQL Server med hjälp av SQL Server-haveriberedskap och Azure Site Recovery
+# <a name="set-up-disaster-recovery-for-sql-server"></a>Konfigurera haveriberedskap för SQL Server 
 
 Den här artikeln beskriver hur du skyddar SQL Server-serverdelen för ett program med hjälp av en kombination av SQL Server-affärskontinuitet och disaster recovery (BCDR)-teknik och [Azure Site Recovery](site-recovery-overview.md).
 

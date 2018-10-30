@@ -10,12 +10,12 @@ ms.reviewer: klam, LADocs
 ms.topic: article
 ms.assetid: e06311bc-29eb-49df-9273-1f05bbb2395c
 ms.date: 01/31/18
-ms.openlocfilehash: 0d5a7cb97636b9ca3aabf6c4199ce9e41bc1665d
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: 6249c45a1cd3a8acbb9770fc39da881d8da9057f
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44304432"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50230157"
 ---
 # <a name="common-scenarios-examples-tutorials-and-walkthroughs-for-azure-logic-apps"></a>Vanliga scenarier, exempel, självstudier och genomgångar för Azure Logic Apps
 
@@ -59,7 +59,7 @@ Du kan också utöka logikappar för system och tjänster som inte kanske har pu
 * [Konfigurera långvariga åtgärder för arbetsflödeskörningar](../logic-apps/logic-apps-create-api-app.md)
 * [Svara på externa händelser och åtgärder med webhooks](../logic-apps/logic-apps-create-api-app.md)
 * [Anropa, utlösare, eller kapsla arbetsflöden med synkron svar på HTTP-begäranden](../logic-apps/logic-apps-http-endpoint.md)
-* [Självstudie: Skapa en social instrumentpanel med AI-driven på några minuter med Logic Apps och Power BI](http://aka.ms/logicappsdemo)
+* [Självstudie: Skapa en social instrumentpanel med AI-driven på några minuter med Logic Apps och Power BI](https://aka.ms/logicappsdemo)
 * [Video: Svara på Twilio-SMS webhooks och skicka ett textsvar](https://channel9.msdn.com/Blogs/Windows-Azure/Azure-Logic-Apps-Walkthrough-Webhook-Functions-and-an-SMS-Bot)
 
 ## <a name="control-flow-error-handling-and-logging-capabilities"></a>Kontrollflöde och felhantering loggningsfunktioner
@@ -84,11 +84,11 @@ Du kan helt utveckla och distribuera logic apps med Visual Studio, Azure DevOps,
 
 ## <a name="content-types-conversions-and-transformations-within-a-run"></a>Typer av innehåll, konverteringar och transformationer inom en körning
 
-Du kan komma åt, konvertera och transformera flera typer av innehåll med hjälp av de många funktionerna i Azure Logic Apps [definitionsspråk för arbetsflödet](http://aka.ms/logicappsdocs). Exempel: du kan konvertera mellan en sträng, JSON och XML med den `@json()` och `@xml()` arbetsflöde uttryck. Logic Apps-motorn bevarar innehållstyper för att stödja innehållet i en förlustfri sätt mellan tjänster.
+Du kan komma åt, konvertera och transformera flera typer av innehåll med hjälp av de många funktionerna i Azure Logic Apps [definitionsspråk för arbetsflödet](https://aka.ms/logicappsdocs). Exempel: du kan konvertera mellan en sträng, JSON och XML med den `@json()` och `@xml()` arbetsflöde uttryck. Logic Apps-motorn bevarar innehållstyper för att stödja innehållet i en förlustfri sätt mellan tjänster.
 
 * [Så här fungerar uttryck för arbetsflödet i logikappar](../logic-apps/logic-apps-author-definitions.md)
 * [Hantera innehållstyper för icke-JSON](../logic-apps/logic-apps-content-type.md), till exempel `application/xml`, `application/octet-stream`, och `multipart/formdata`
-* [Arbetsflöde för arbetsflödesschema för Azure Logic Apps](http://aka.ms/logicappsdocs)
+* [Arbetsflöde för arbetsflödesschema för Azure Logic Apps](https://aka.ms/logicappsdocs)
 
 ## <a name="other-integrations-and-capabilities"></a>Andra funktioner och integreringar
 

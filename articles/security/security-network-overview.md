@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/19/2018
+ms.date: 10/29/2018
 ms.author: terrylan
-ms.openlocfilehash: 309dddcea1022d9f14c1d4492f5564f2a4ad3b6f
-ms.sourcegitcommit: 8b694bf803806b2f237494cd3b69f13751de9926
+ms.openlocfilehash: 69818fdb8124b9afa176ccd4dfd74cf0f2f4b346
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/20/2018
-ms.locfileid: "46498512"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50233811"
 ---
 # <a name="azure-network-security-overview"></a>Översikt över Azure network security
 
@@ -29,12 +29,15 @@ Den här artikeln beskriver några av de alternativ som Azure erbjuder i område
 
 * Azure-nätverk
 * Åtkomstkontroll för nätverk
+* Azure Firewall
 * Skydda åtkomst och mellan lokala fjärranslutningar
 * Tillgänglighet
 * Namnmatchning
 * Nätverksarkitektur i perimeternätverk (DMZ)
-* Övervakning och hotidentifiering
 * Azure DDoS Protection
+* Azure ytterdörren
+* Traffic Manager
+* Övervakning och hotidentifiering
 
 ## <a name="azure-networking"></a>Azure-nätverk
 
@@ -126,6 +129,19 @@ Till exempel kan dina säkerhetskrav innehålla:
 
 Du kan komma åt de här förbättrade funktioner för nätverkssäkerhet med hjälp av en Azure-partner-lösning. Du hittar det senaste Azure-partner-nätverket säkerhetslösningar genom att besöka den [Azure Marketplace](https://azure.microsoft.com/marketplace/), och söka efter ”säkerhet” och ”nätverkssäkerhet”.
 
+## <a name="azure-firewall"></a>Azure Firewall
+
+Azure Firewall är en hanterad, molnbaserad tjänst för nätverkssäkerhet som skyddar dina Azure Virtual Network-resurser. Det är en helt tillståndskänslig brandvägg som en tjänst med inbyggd hög tillgänglighet och obegränsad molnskalbarhet. Vissa funktioner:
+
+* Hög tillgänglighet
+* Skalbarhet i molnet
+* Programmets FQDN-filtreringsregler
+* Regler för filtrering av nätverkstrafik
+
+Läs mer:
+
+* [Översikt över Azure brandvägg](../firewall/overview.md)
+
 ## <a name="secure-remote-access-and-cross-premises-connectivity"></a>Skydda åtkomst och mellan lokala fjärranslutningar
 
 Installation, konfiguration och hantering av Azure-resurser behöver göras via en fjärranslutning. Dessutom kanske du vill distribuera [hybrid-IT](http://social.technet.microsoft.com/wiki/contents/articles/18120.hybrid-cloud-infrastructure-design-considerations.aspx) lösningar som har komponenter lokalt och i det offentliga Azure-molnet. De här scenarierna kräver säker fjärråtkomst.
@@ -139,9 +155,15 @@ Azure-nätverk stöder de följande scenarierna för säker fjärråtkomst:
 
 ### <a name="connect-individual-workstations-to-a-virtual-network"></a>Ansluta enskilda arbetsstationer till ett virtuellt nätverk
 
-Du kanske vill aktivera enskilda utvecklare eller anställda att hantera virtuella datorer och tjänster i Azure. Anta exempelvis att du behöver åtkomst till en virtuell dator i ett virtuellt nätverk. Men säkerhetsprinciperna tillåter inte RDP eller SSH fjärråtkomst till enskilda virtuella datorer. I det här fallet kan du använda en punkt-till-plats VPN-anslutning.
+Du kanske vill aktivera enskilda utvecklare eller anställda att hantera virtuella datorer och tjänster i Azure. Anta exempelvis att du behöver åtkomst till en virtuell dator i ett virtuellt nätverk. Men säkerhetsprinciperna tillåter inte RDP eller SSH fjärråtkomst till enskilda virtuella datorer. I det här fallet kan du använda en [punkt-till-plats VPN](../vpn-gateway/point-to-site-about.md) anslutning.
 
-Punkt-till-plats VPN-anslutningen använder den [SSTP VPN](https://technet.microsoft.com/library/cc731352.aspx) protokollet så att du kan skapa en privat och säker anslutning mellan användaren och det virtuella nätverket. När VPN-anslutningen har upprättats kan användaren kan RDP eller SSH via VPN-anslutning till en virtuell dator på det virtuella nätverket. (Detta förutsätter att användaren kan autentiseras och auktoriseras.)
+Punkt-till-plats VPN-anslutningen kan du skapa en privat och säker anslutning mellan användaren och det virtuella nätverket. När VPN-anslutningen har upprättats kan användaren kan RDP eller SSH via VPN-anslutning till en virtuell dator på det virtuella nätverket. (Detta förutsätter att användaren kan autentiseras och auktoriseras.) Punkt-till-plats-VPN stöder:
+
+* Secure Socket Tunneling Protocol (SSTP), en SSL-baserad VPN-protokoll. En SSL VPN-lösning kan ta sig förbi brandväggar, eftersom de flesta brandväggar öppnar TCP-port 443, som använder SSL. SSTP stöds endast på Windows-enheter. Azure stöder alla versioner av Windows som har SSTP (Windows 7 och senare).
+
+* IKEv2 VPN, en standardbaserad IPsec VPN-lösning. IKEv2 VPN kan användas för att ansluta från Mac-enheter (OSX-versionerna 10.11 och senare).
+
+* [OpenVPN](https://azure.microsoft.com/updates/openvpn-support-for-azure-vpn-gateways/)
 
 Läs mer:
 
@@ -165,11 +187,13 @@ Punkt-till-plats och plats-till-plats VPN-anslutningar är effektiva för att ak
 * VPN-anslutningar kan du flytta data via internet. Detta visar dessa anslutningar till potentiella säkerhetsproblem med flytta data via ett offentligt nätverk. Dessutom kan tillförlitlighet och tillgänglighet för internet-anslutningar inte garanteras.
 * VPN-anslutningar till virtuella nätverk kanske inte har bandbredden för vissa program och betecknas som de maximala ut med cirka 200 Mbit/s.
 
-Organisationer som behöver den högsta möjliga säkerhet och tillgänglighet för sina anslutningar mellan lokala normalt använda dedicerade WAN-länkar för att ansluta till fjärranslutna platser. Azure ger dig möjlighet att använda en dedikerad WAN-länken som du kan använda för att ansluta ditt lokala nätverk till ett virtuellt nätverk. Azure ExpressRoute kan detta.
+Organisationer som behöver den högsta möjliga säkerhet och tillgänglighet för sina anslutningar mellan lokala normalt använda dedicerade WAN-länkar för att ansluta till fjärranslutna platser. Azure ger dig möjlighet att använda en dedikerad WAN-länken som du kan använda för att ansluta ditt lokala nätverk till ett virtuellt nätverk. Azure ExpressRoute, med hjälp av Express route direct och Express route global räckvidd aktivera det här alternativet.
 
 Läs mer:
 
 * [Teknisk översikt för ExpressRoute](../expressroute/expressroute-introduction.md)
+* [ExpressRoute direkt](../expressroute/expressroute-erdirect-about.md)
+* [Express route global räckvidd](..//expressroute/expressroute-global-reach.md)
 
 ### <a name="connect-virtual-networks-to-each-other"></a>Ansluta virtuella nätverk till varandra
 
@@ -287,6 +311,46 @@ Läs mer:
 
 * [Microsoft-molntjänster och nätverkssäkerhet](../best-practices-network-security.md)
 
+## <a name="azure-ddos-protection"></a>Azure DDoS Protection
+
+Distribuerade attacker denial of service (DDoS) är några av de största tillgänglighet och säkerhet frågor mot kunder som migrerar sina program till molnet. DDoS-attacker försöker att få slut på ett programs resurser, som gör programmet tillgängligt för behöriga användare. DDoS-attacker kan riktas till valfri slutpunkt som kan nås offentligt via internet.
+Microsoft tillhandahåller DDoS protection kallas **grundläggande** som en del av Azure-plattformen. Detta kommer utan kostnad och omfattar alltid på övervaknings- och i realtid minskning av vanliga på nätverksnivå. Förutom de skydd som ingår i DDoS protection **grundläggande** kan du aktivera den **Standard** alternativet. DDoS Protection standardfunktioner omfattar:
+
+* **Inbyggd plattformsintegrering:** internt integrerade i Azure. Innehåller konfiguration via Azure portal. DDoS Protection Standard förstår dina resurser och resurskonfigurationer.
+* **NYCKELFÄRDIGT skydd:** förenklad konfiguration skyddar direkt alla resurser i ett virtuellt nätverk när DDoS Protection Standard är aktiverat. Det krävs inga åtgärder eller användaren definition. DDoS Protection Standard attacken omedelbart och automatiskt, när den identifieras.
+* **Ständigt aktiverad övervakning:** din mönster i programtrafiken övervakas 24 timmar per dag, 7 dagar i veckan letar du efter indikatorer för DDoS-attacker. Minskning utförs när appskyddsprinciper överskrids.
+* **Angrepp minskning rapporter** Attack minskning rapporter använder aggregerade flow nätverksdata som ger detaljerad information om attacker som är riktad mot dina resurser.
+* **Angrepp minskning Flow loggar** Attack minskning Flow loggar kan du granska förlorad trafik vidarebefordras trafiken och andra attacker data i realtid under ett pågående DDoS-angrepp.
+* **Anpassningsbar justering:** Intelligent trafik profilering lär sig programmets trafik över tid, och väljer och uppdaterar den profil som är mest lämplig för din tjänst. Profilen justerar allt trafik ändras med tiden. Nivå 3 till nivå 7-skydd: ger fullständig stack DDoS-skydd, när det används med en brandvägg för webbaserade program.
+* **Omfattande minskning skala:** över 60 olika angreppstyper kan undvikas med globala kapacitet att skydda mot största kända DDoS-attacker.
+* **Angrepp mått:** Summarized mått från varje attack är tillgängliga via Azure Monitor.
+* **Attack avisering:** aviseringar kan konfigureras vid start och stopp av ett angrepp, och med hjälp av inbyggda attack mätvärden över den attack varaktighet. Aviseringar integrera i din operational programvara som Microsoft Azure Log Analytics, Splunk, Azure Storage, e-post och Azure-portalen.
+* **Kostnad garanti:** överföra Data och program skalbar tjänstkrediter för dokumenterad DDoS-attacker.
+* **DDoS snabba dynamiska** DDoS Protection Standard-kunder har nu tillgång till Rapid Response team under ett pågående angrepp. DRR kan hjälpa dig med attack undersökningar, anpassade åtgärder under en attack och efter attack analys.
+
+
+Läs mer:
+
+* [DDOS protection-översikt](../virtual-network/ddos-protection-overview.md)
+
+## <a name="azure-front-door"></a>Azure ytterdörren
+
+Azure ytterdörren-tjänsten kan du definiera, hantera och övervaka globala routning av Internet-trafik. Detta optimerar routning av din nätverkstrafik för bästa prestanda och hög tillgänglighet. Med Azure Front Door kan du skapa anpassade regler för brandväggen för webbaserade program (WAF) vid åtkomstkontroll, för att skydda din HTTP/HTTPS-arbetsbelastning från utnyttjande som baseras på klienternas IP-adresser, landskod och HTTP-parametrar. Dessutom ytterdörren också kan du skapa begränsar regler för att beprövad skadlig robottrafik frekvensbegränsningen, den innehåller SSL-avlastning och per-HTTP/HTTPS-begäran, programnivå-bearbetning.
+
+Själva ytterdörren plattformen skyddas av Azure DDoS Protection Basic. Om du behöver mer skydd kan Azure DDoS Protection Standard aktiveras på dina virtuella nätverk och skydda resurser från nätverkslagerattacker (TCP/UDP) med hjälp av automatiska justeringar och åtgärder. Är ytterdörren en omvänd proxy för layer 7, tillåter endast Internet-trafik passerar genom för att säkerhetskopiera sluta servrar och blockera andra typer av trafik som standard.
+
+Läs mer:
+
+* Mer information om hela uppsättningen med Azure främre luckan är funktioner som du kan granska den [ytterdörren för Azure-översikt](../frontdoor/front-door-overview.md)
+
+## <a name="azure-traffic-manager"></a>Med Azure Traffic manager
+
+Azure Traffic Manager är en belastningsutjämnare för DNS-baserad trafik som hjälper dig att distribuera trafiken optimalt till tjänster i globala Azure-regioner, med hög tillgänglighet och korta svarstider. Traffic Manager använder DNS för att dirigera klientbegäranden till den lämpligaste tjänstslutpunkten baserat på en trafikdirigeringsmetod och slutpunkternas hälsostatus. En slutpunkt är en Internetansluten tjänst i eller utanför Azure. Traffic manager övervakar slutpunkter och dirigera inte trafik till alla slutpunkter som inte är tillgängliga.
+
+Läs mer:
+
+* [Azure Traffic manager-översikt](../traffic-manager/traffic-manager-overview.md)
+
 ## <a name="monitoring-and-threat-detection"></a>Övervakning och hotidentifiering
 
 Azure tillhandahåller funktioner som hjälper dig i det här viktiga området med tidig upptäckt, övervakning, och samla in och granska nätverkstrafik.
@@ -318,6 +382,14 @@ Läs mer:
 
 * [Introduktion till Azure Security Center](../security-center/security-center-intro.md)
 
+### <a name="virtual-network-tap"></a>Virtual Network TAP
+
+Azure-nätverk TRYCK (Terminal åtkomstpunkt) kan du kontinuerligt stream dina VM-nätverkstrafik till en insamlare eller analytics verktyg för nätverkspaket. Insamlare eller analysverktyg tillhandahålls av en partner för virtuell installation av nätverket. Du kan använda samma virtuella nätverk trycker du på resursen att samla trafik från flera nätverksgränssnitt i samma eller olika prenumerationer.
+
+Läs mer:
+
+* [Virtuell nätverks-TAP](../virtual-network/virtual-network-tap-overview.md)
+
 ### <a name="logging"></a>Loggning
 
 Loggning på nätverksnivå är en viktig funktion för alla scenarier för nätverk säkerhet. I Azure, kan du logga information som erhålls för NSG: er att hämta nätverksnivån loggar information. Med NSG loggning får du information från:
@@ -330,21 +402,3 @@ Du kan också använda [Microsoft Power BI](https://powerbi.microsoft.com/what-i
 Läs mer:
 
 * [Log Analytics för Nätverkssäkerhetsgrupper (NSG)](../virtual-network/virtual-network-nsg-manage-log.md)
-
-## <a name="azure-ddos-protection"></a>Azure DDoS Protection
-
-Distribuerade attacker denial of service (DDoS) är några av de största tillgänglighet och säkerhet frågor mot kunder som migrerar sina program till molnet. DDoS-attacker försöker att få slut på ett programs resurser, som gör programmet tillgängligt för behöriga användare. DDoS-attacker kan riktas till valfri slutpunkt som kan nås offentligt via internet.
-Microsoft tillhandahåller DDoS protection kallas **grundläggande** som en del av Azure-plattformen. Detta kommer utan kostnad och omfattar alltid på övervaknings- och i realtid minskning av vanliga på nätverksnivå. Förutom de skydd som ingår i DDoS protection **grundläggande** kan du aktivera den **Standard** alternativet. DDoS Protection standardfunktioner omfattar:
-
-* **Inbyggd plattformsintegrering:** internt integrerade i Azure. Innehåller konfiguration via Azure portal. DDoS Protection Standard förstår dina resurser och resurskonfigurationer.
-* **NYCKELFÄRDIGT skydd:** förenklad konfiguration skyddar direkt alla resurser i ett virtuellt nätverk när DDoS Protection Standard är aktiverat. Det krävs inga åtgärder eller användaren definition. DDoS Protection Standard attacken omedelbart och automatiskt, när den identifieras.
-* **Ständigt aktiverad övervakning:** din mönster i programtrafiken övervakas 24 timmar per dag, 7 dagar i veckan letar du efter indikatorer för DDoS-attacker. Minskning utförs när appskyddsprinciper överskrids.
-* **Anpassningsbar justering:** Intelligent trafik profilering lär sig programmets trafik över tid, och väljer och uppdaterar den profil som är mest lämplig för din tjänst. Profilen justerar allt trafik ändras med tiden. Nivå 3 till nivå 7-skydd: ger fullständig stack DDoS-skydd, när det används med en brandvägg för webbaserade program.
-* **Omfattande minskning skala:** över 60 olika angreppstyper kan undvikas med globala kapacitet att skydda mot största kända DDoS-attacker.
-* **Angrepp mått:** Summarized mått från varje attack är tillgängliga via Azure Monitor.
-* **Attack avisering:** aviseringar kan konfigureras vid start och stopp av ett angrepp, och med hjälp av inbyggda attack mätvärden över den attack varaktighet. Aviseringar integrera i din operational programvara som Microsoft Azure Log Analytics, Splunk, Azure Storage, e-post och Azure-portalen.
-* **Kostnad garanti:** överföra Data och program skalbar tjänstkrediter för dokumenterad DDoS-attacker.
-
-Läs mer:
-
-* [DDOS protection-översikt](../virtual-network/ddos-protection-overview.md)

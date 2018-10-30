@@ -1,21 +1,22 @@
 ---
-title: Redundans i Site Recovery | Microsoft Docs
-description: Azure Site Recovery samordnar replikering, redundans och återställning av virtuella datorer och fysiska servrar. Läs mer om redundansväxling till Azure eller ett sekundärt datacenter.
+title: Redundans under haveriberedskap med Azure Site Recovery | Microsoft Docs
+description: Lär dig mer om hur du återställer över virtuella datorer och fysiska servrar under haveriberedskap med Azure Site Recovery-tjänsten.
 services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 09/11/2018
-ms.author: ponatara
-ms.openlocfilehash: c9a2f258ca952ca36000e1ca0630fbde31ba7ba0
-ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
+ms.date: 10/28/2018
+ms.author: raynew
+ms.openlocfilehash: 6e16529740377b9a082fda4f3e4409b57441715e
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44391325"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50215165"
 ---
-# <a name="failover-in-site-recovery"></a>Redundans i Site Recovery
+# <a name="fail-over-vms-and-physical-servers"></a>Växla över virtuella datorer och fysiska servrar 
+
 Den här artikeln beskrivs hur du redundansväxling för virtuella datorer och fysiska servrar som skyddas av Site Recovery.
 
 ## <a name="prerequisites"></a>Förutsättningar
@@ -114,9 +115,9 @@ Om du vill behålla enhetsbeteckning på virtuella datorer efter en redundansvä
 
 ## <a name="prepare-to-connect-to-azure-vms-after-failover"></a>Förbereda för att ansluta till virtuella Azure-datorer efter en redundansväxling
 
-Om du vill ansluta till virtuella Azure-datorer med RDP/SSH efter en redundansväxling kan du följa kraven som sammanfattas i tabellen [här](site-recovery-test-failover-to-azure.md#prepare-to-connect-to-azure-vms-after-failover).
+Om du vill ansluta till virtuella Azure-datorer med RDP/SSH efter en redundansväxling följer du kraven som sammanfattas i tabellen [här](site-recovery-test-failover-to-azure.md#prepare-to-connect-to-azure-vms-after-failover).
 
-Följ stegen som beskrivs [här](site-recovery-failover-to-azure-troubleshoot.md) felsökning av någon anslutning efter problem med redundans.
+Följ stegen som beskrivs [här](site-recovery-failover-to-azure-troubleshoot.md) för att felsöka eventuella anslutningsproblem efter redundans.
 
 
 ## <a name="next-steps"></a>Nästa steg

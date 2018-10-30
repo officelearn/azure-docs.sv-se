@@ -1,19 +1,19 @@
 ---
-title: Redundansväxla och återställa virtuella Hyper-V-datorer som replikeras till ett sekundärt datacenter med Site Recovery | Microsoft Docs
-description: Lär dig hur du växlar över Hyper-V-datorer till din sekundära lokala platsen och växla tillbaka till primär plats med Azure Site Recovery
+title: Redundansväxla och återställa virtuella Hyper-V-datorer som replikeras till ett sekundärt Datacenter för haveriberedskap med Azure Site Recovery | Microsoft Docs
+description: Lär dig hur du växlar över Hyper-V-datorer till din sekundära lokala platsen och växla tillbaka till primär plats under haveriberedskap med Azure Site Recovery.
 services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 10/10/2018
+ms.date: 10/28/2018
 ms.author: raynew
-ms.openlocfilehash: 782ddc3ebb7b3c533d0eb5c4b7735a13cbaf268c
-ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
+ms.openlocfilehash: 80a26f7f2c97fdbc5342d8845277facd79f22a62
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49077688"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50210014"
 ---
 # <a name="fail-over-and-fail-back-hyper-v-vms-replicated-to-your-secondary-on-premises-site"></a>Redundansväxla och återställa Hyper-V-datorer som replikeras till din sekundära lokala platsen
 
@@ -68,7 +68,7 @@ Börja replikera från den sekundära platsen till primärt och växla tillbaka 
  
 1. Klicka på den virtuella datorn > Klicka på **omvänd replikera**.
 2. När jobbet har slutförts, klickar du på den virtuella datorn > i **redundans**kontrollerar redundansriktning (från sekundär VMM-moln) och välj käll- och målplatserna. 
-4. Påbörja redundans. Du kan följa redundansförloppet på den **jobb** fliken.
+4. Starta redundansväxlingen. Du kan följa redundansförloppet på fliken **Jobb**.
 5. Kontrollera att den virtuella datorn är tillgänglig i det primära VMM-molnet.
 6. Om du vill börja replikera den primära virtuella datorn till den sekundära platsen igen, klickar du på **omvänd replikera**.
 

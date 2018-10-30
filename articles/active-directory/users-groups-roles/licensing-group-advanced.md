@@ -11,15 +11,15 @@ ms.service: active-directory
 ms.topic: article
 ms.workload: identity
 ms.component: users-groups-roles
-ms.date: 06/02/2017
+ms.date: 10/29/2018
 ms.author: curtand
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 15b52920774a878cd386ced5966d507768a8af70
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: 9b94bf4c499a5d6323e774df90304f0134bc5894
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39627397"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50215420"
 ---
 # <a name="scenarios-limitations-and-known-issues-using-groups-to-manage-licensing-in-azure-active-directory"></a>Scenarier, begränsningar och kända problem med hjälp av grupper för att hantera licensiering i Azure Active Directory
 
@@ -211,23 +211,21 @@ Du kan se liknande fel vid försök att ta bort gruppen från PowerShell eller G
 
 Om du använder gruppbaserad licensiering, är det en bra idé att bekanta dig med följande lista över begränsningar och kända problem.
 
-- Gruppbaserad licensiering för närvarande stöder inte grupper som innehåller andra grupper (kapslade grupper). Om du använder en licens för en kapslad grupp har licenser för tillämpas omedelbart första nivån användarmedlemmar i gruppen.
+- Gruppbaserad licensiering för närvarande stöder inte grupper som innehåller andra grupper (kapslade grupper). Om du använder en licens för en kapslad grupp är det bara den första nivån av användarmedlemmar i gruppen som har licenser.
 
-- Funktionen kan endast användas med säkerhetsgrupper. Office-grupper stöds inte för närvarande och du kommer inte att kunna använda dem i licensen för tilldelning.
+- Funktionen kan endast användas med säkerhetsgrupper och Office 365-grupper som har securityEnabled = TRUE.
 
 - Den [administrationsportalen för Office 365](https://portal.office.com ) stöder för närvarande inte gruppbaserad licensiering. Om en användare ärver en licens från en grupp, visas denna licens i administrationsportalen för Office som en vanlig användare-licens. Om du försöker ändra den licensen eller försök att ta bort licensen returnerar ett felmeddelande visas i portalen. Ärvda grupplicenserna kan inte ändras direkt på en användare.
 
-- När en användare tas bort från en grupp och förlorar licensen, service-planer från den licensen som (till exempel SharePoint Online) är inställda på att en **pausad** tillstånd. Service-planer är inställda på att ett sista, inaktiverat tillstånd. Den här försiktighetsåtgärden undvika oavsiktlig borttagning av användardata, om en administratör gör ett misstag i grupphantering för medlemskap.
-
 - När licenser tilldelas eller ändras för en stor grupp (till exempel 100 000 användare), kan det påverka prestanda. Mer specifikt mängden ändringar som genereras av Azure AD-automation kan ge försämrade prestanda för dina katalogsynkronisering mellan Azure AD och lokala system.
 
-- I vissa situationer med hög belastning, licens bearbetning kan fördröjas och ändras, till exempel att lägga till/ta bort ett grupphanterat licens eller att lägga till/ta bort användare från grupp, kan ta lång tid som ska bearbetas. Om du ser ändringarna ta mer än 24 timmar att bearbeta [öppna ett supportärende](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/supportRequest) för att vi ska undersöka. Vi kommer att förbättra prestandaegenskaperna för den här funktionen innan den når *allmänt tillgängliga*.
+- Om du använder dynamiska grupper för att hantera dina användares medlemskap kontrollerar du att användaren är medlem i gruppen, vilket är nödvändigt för licenstilldelning. Om inte [kontrollerar du bearbetningsstatusen för medlemskapsregeln](https://docs.microsoft.com/azure/active-directory/users-groups-roles/groups-create-rule#check-processing-status-for-a-membership-rule) för den dynamiska gruppen. 
+
+- I vissa situationer med hög belastning, kan det ta lång tid att bearbeta licensändringar för grupper eller Medlemskapsändringar i grupper med befintliga licenser. Om du ser ändringarna ta mer än 24 timmar att bearbeta grupp storleken på 60K användare eller mindre,. [öppna ett supportärende](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/supportRequest) för att vi ska undersöka. 
 
 - Licens management automation reagerar inte automatiskt på alla typer av ändringar i miljön. Exempel: du kan ha slut licenser, orsakar vissa användare ska vara i ett feltillstånd. Att frigöra antal tillgängliga platser du kan ta bort vissa direkt tilldelade licenser från andra användare. Systemet dock inte automatiskt reagera på den här ändringen och rätta till användare i det aktuella tillståndet för fel.
 
   Som en lösning på dessa typer av begränsningar, kan du gå till den **grupp** bladet i Azure AD, och klicka på **ombearbetning av**. Det här kommandot bearbetar alla användare i gruppen och löser feltillstånd, om möjligt.
-
-- Gruppbaserad licensiering konfigurationsinformation inte för fel när en licens inte kunde tilldelas till en användare på grund av en duplicerad proxyadresskonfiguration i Exchange Online; Dessa användare hoppas över vid licenstilldelningen. Mer information om hur du identifierar och löser problemet finns i [i det här avsnittet](licensing-groups-resolve-problems.md#license-assignment-fails-silently-for-a-user-due-to-duplicate-proxy-addresses-in-exchange-online).
 
 ## <a name="next-steps"></a>Nästa steg
 
@@ -237,3 +235,5 @@ Mer information om andra scenarier för licenshantering via gruppbaserad licensi
 * [Tilldela licenser till en grupp i Azure Active Directory](licensing-groups-assign.md)
 * [Identifiera och lösa licensproblem för en grupp i Azure Active Directory](licensing-groups-resolve-problems.md)
 * [Migrera enskilda licensierade användare till gruppbaserad licensiering i Azure Active Directory](licensing-groups-migrate-users.md)
+* [Så här migrerar du användare mellan produktlicenser med gruppbaserad licensiering i Azure Active Directory](../users-groups-roles/licensing-groups-change-licenses.md)
+* [PowerShell-exempel för gruppbaserad licensiering i Azure Active Directory](../users-groups-roles/licensing-ps-examples.md)

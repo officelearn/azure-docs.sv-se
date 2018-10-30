@@ -4,21 +4,21 @@ description: Läs mer om begrepp och hur du kan använda Azure Active Directory 
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/17/2017
+ms.date: 10/29/2018
 ms.author: juliako
-ms.openlocfilehash: d6fe69588c44e489f37ad0908df569c2b5a4b96c
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 320afdb1e4f71150680e9bed6a4c1c9955c99936
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46967820"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50230632"
 ---
 # <a name="access-the-azure-media-services-api-with-azure-ad-authentication"></a>Åtkomst till Azure Media Services-API med Azure AD-autentisering
  
@@ -106,7 +106,7 @@ Om du vill använda den här metoden, skapa en Azure AD-program och tjänstens h
 
 När du har skapat din Azure AD-program kan få du värden för följande inställningar. Du behöver dessa värden för autentisering:
 
-- Klient-ID 
+- Klientorganisations-ID 
 - Klienthemlighet 
 
 I bilden ovan representerar talen flödet av begäranden i kronologisk ordning:

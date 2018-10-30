@@ -6,27 +6,27 @@ manager: deshner
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 10/10/2018
+ms.date: 10/26/2018
 ms.author: dwalthermsft
-ms.openlocfilehash: aa5f6053bf1c98d2b84c02617da30f5d856ed3fc
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: f9a3d934de47630ac3fd2356001014d006c2a4eb
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49324185"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50212275"
 ---
-# <a name="public-preview-service-limits"></a>Tjänstbegränsningar i offentlig förhandsversion
+# <a name="public-preview-service-limits"></a>Tjänstbegränsningar för allmän förhandsversion
 
-Allmänt tillgängliga förhandsversionen har Azure Digital Twins tillfälliga prenumeration, instans och hastighetsbegränsningar som beskrivs nedan.
+Under **Public Preview**, Azure Digital Twins har tillfälliga prenumeration, instans och hastighetsbegränsningar som beskrivs nedan.
 
 Dessa begränsningar finns för att förenkla lära dig mer om den nya tjänsten och dess många funktioner.
 
 > [!NOTE]
-> Gränserna kommer att öka och/eller tas bort av allmän tillgänglighet (GA).
+> De här gränserna kommer att ökat och/eller tas bort av **allmänt tillgängliga** (**GA**).
 
 ## <a name="per-subscription-limits"></a>Gränserna per prenumeration
 
-Allmänt tillgängliga förhandsversionen kan varje Azure-prenumeration skapa eller körs exakt en Digital Twins för Azure-instans i taget.
+Under **Public Preview**, varje Azure-prenumeration kan skapa eller körs exakt en Digital Twins för Azure-instans i taget.
 
 > [!TIP]
 > Tar bort din instans kan du skapa en ny.
@@ -35,9 +35,9 @@ Allmänt tillgängliga förhandsversionen kan varje Azure-prenumeration skapa el
 
 I sin tur kan varje Azure Digital Twins-instans ha:
 
-- En `IoTHub` resurs
-- En `EventHub` slutpunkt för händelsetypen DeviceMessage
-- Upp till tre `EventHub`, `ServiceBus`, eller `EventGrid` slutpunkter typ av händelse `SensorChange`, `SpaceChange`, `TopologyOperation`, eller `UdfCustom`
+- En **IoTHub** resurs
+- En **EventHub** slutpunkt för händelsetypen **DeviceMessage**
+- Upp till tre **EventHub**, **ServiceBus**, eller **EventGrid** slutpunkter typ av händelse **SensorChange**, **SpaceChange** , **TopologyOperation**, eller **UdfCustom**
 
 ## <a name="management-api-limits"></a>Hanterings-API-gränser
 
@@ -54,7 +54,7 @@ Hastighetsbegränsningar för begäran för API Management är:
 Det totala antalet alla användardefinierad funktion-anrop som görs till din Azure Digital Twins-instans anger du följande begränsningar:
 
 - 400 biblioteket klientanrop per sekund
-- 100 SendNotification anrop per sekund
+- 100 **SendNotification** anrop per sekund
 
 > [!NOTE]
 > Följande åtgärder kan orsaka ytterligare hastighetsbegränsningar för att tillfälligt tillämpas:

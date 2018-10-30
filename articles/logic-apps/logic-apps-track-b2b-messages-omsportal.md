@@ -1,5 +1,5 @@
 ---
-title: Spåra B2B-meddelanden med Azure Log Analytics – Azure Logic Apps | Microsoft Docs
+title: Spåra B2B-meddelanden med Log Analytics – Azure Logic Apps | Microsoft Docs
 description: Spåra B2B-kommunikation för integrationskonton och Azure Logic Apps med Azure Log Analytics
 services: logic-apps
 ms.service: logic-apps
@@ -8,18 +8,17 @@ author: divyaswarnkar
 ms.author: divswa
 ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
-ms.assetid: bb7d9432-b697-44db-aa88-bd16ddfad23f
-ms.date: 06/19/2018
-ms.openlocfilehash: 666c998a781f13ea2a26ccfc0b94aeead0308f5b
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.date: 10/19/2018
+ms.openlocfilehash: 0bfb652d9e64b9dbf61ad4032f1449fd484cc80a
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49405692"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50233573"
 ---
-# <a name="track-b2b-communication-with-azure-log-analytics"></a>Spåra B2B-kommunikation med Azure Log Analytics
+# <a name="track-b2b-messages-with-azure-log-analytics"></a>Spåra B2B-meddelanden med Azure Log Analytics
 
-När du har konfigurerat B2B-kommunikation mellan två kör affärsprocesser eller program via ditt integrationskonto dessa entiteter kan utbyta meddelanden med varandra. Kontrollera om meddelandena bearbetas korrekt, kan du spåra AS2, X12, och EDIFACT-meddelanden med [Azure Log Analytics](../log-analytics/log-analytics-overview.md). Du kan till exempel använda dessa webbaserade spårningsfunktioner för spårning av meddelanden:
+När du har konfigurerat B2B-kommunikation mellan handelspartner i ditt integrationskonto kan partner utbyta meddelanden med protokoll, till exempel AS2-, X 12 och EDIFACT. Om du vill kontrollera att meddelandena behandlas korrekt, kan du spåra dessa meddelanden med [Azure Log Analytics](../log-analytics/log-analytics-overview.md). Du kan till exempel använda dessa webbaserade spårningsfunktioner för spårning av meddelanden:
 
 * Antal meddelanden och status
 * Bekräftelser status
@@ -27,7 +26,10 @@ När du har konfigurerat B2B-kommunikation mellan två kör affärsprocesser ell
 * Detaljerad felbeskrivningar för fel
 * Sökfunktioner
 
-## <a name="requirements"></a>Krav
+> [!NOTE]
+> Den här sidan som beskrevs tidigare anvisningar att utföra dessa uppgifter med den Microsoft Operations Management Suite (OMS), vilket är [tas ur bruk i januari 2019](../log-analytics/log-analytics-oms-portal-transition.md), ersätter de här stegen med Azure Log Analytics i stället. 
+
+## <a name="prerequisites"></a>Förutsättningar
 
 * En logikapp som har konfigurerats med diagnostikloggning. Lär dig [så här skapar du en logikapp](quickstart-create-first-logic-app-workflow.md) och [hur du ställer in loggning för den logikappen](../logic-apps/logic-apps-monitor-your-logic-apps.md#azure-diagnostics).
 
@@ -35,51 +37,57 @@ När du har konfigurerat B2B-kommunikation mellan två kör affärsprocesser ell
 
 * Om du inte redan gjort [publicera diagnostiska data till Log Analytics](../logic-apps/logic-apps-track-b2b-messages-omsportal.md).
 
-> [!NOTE]
-> När du har uppfyllt kraven tidigare, bör du ha en arbetsyta i Log Analytics. Du bör använda samma arbetsyta för att spåra dina B2B-kommunikation i Log Analytics. 
->  
-> Om du inte har en Log Analytics-arbetsyta kan du läsa [hur du skapar en Log Analytics-arbetsyta](../log-analytics/log-analytics-quick-create-workspace.md).
+* När du uppfyller föregående krav måste också en Log Analytics-arbetsyta som du använder för att spåra B2B-kommunikation via Log Analytics. Om du inte har en Log Analytics-arbetsyta kan du läsa [hur du skapar en Log Analytics-arbetsyta](../log-analytics/log-analytics-quick-create-workspace.md).
 
-## <a name="add-the-logic-apps-b2b-solution-to-azure"></a>Lägg till Logic Apps B2B-lösning till Azure
+## <a name="install-logic-apps-b2b-solution"></a>Installera Logic Apps B2B-lösning
 
-Om du vill att spåra B2B-meddelanden för din logikapp – logganalys, måste du lägga till den **Logic Apps B2B** lösning till Log Analytics. Läs mer om [lägga till lösningar i Log Analytics](../log-analytics/log-analytics-quick-create-workspace.md).
+Innan du kan ha Log Analytics spåra B2B-meddelanden för din logikapp, lägga till den **Logic Apps B2B** lösning till Log Analytics. Läs mer om [lägga till lösningar i Log Analytics](../log-analytics/log-analytics-quick-create-workspace.md).
 
-1. I den [Azure-portalen](https://portal.azure.com), Välj **alla tjänster**. Sök efter ”log analytics” och välj sedan **Log Analytics** som visas här:
+1. I [Azure-portalen](https://portal.azure.com), väljer du **Alla tjänster**. Hitta ”log analytics” i sökrutan och välj **Log Analytics**.
 
-   ![Hitta Log Analytics](media/logic-apps-track-b2b-messages-omsportal/browseloganalytics.png)
+   ![Välj Log Analytics](media/logic-apps-track-b2b-messages-omsportal/find-log-analytics.png)
 
-2. Under **Log Analytics**, hitta och välj din Log Analytics-arbetsyta. 
+1. Under **Log Analytics**, hitta och välj din Log Analytics-arbetsyta. 
 
-   ![Välj Log Analytics-arbetsytan](media/logic-apps-track-b2b-messages-omsportal/selectla.png)
+   ![Välj Log Analytics-arbetsyta](media/logic-apps-track-b2b-messages-omsportal/select-log-analytics-workspace.png)
 
-3. Under **Management**, Välj **arbetsytan Sammanfattning**.
+1. Under **Kom igång med Log Analytics** > **konfigurera övervakningslösningar**, Välj **visa lösningar**.
 
-   ![Välj Log Analytics-portalen](media/logic-apps-track-b2b-messages-omsportal/omsportalpage.png)
+   ![Välj ”Visa lösningar”](media/logic-apps-track-b2b-messages-omsportal/log-analytics-workspace.png)
 
-4. När sidan öppnas, Välj **Lägg till** installera Logic Apps B2B-lösning.    
-   ![Välj lösningsgalleriet](media/logic-apps-track-b2b-messages-omsportal/add-b2b-solution.png)
+1. På sidan Översikt väljer **Lägg till**, vilket öppnar den **hanteringslösningar** lista. Välj den listan **Logic Apps B2B**. 
 
-5. Under **hanteringslösningar**, hitta och skapa **Logic Apps B2B** lösning.     
-   ![Välj Logic Apps B2B](media/logic-apps-track-b2b-messages-omsportal/create-b2b-solution.png)
+   ![Välj Logic Apps B2B-lösning](media/logic-apps-track-b2b-messages-omsportal/add-b2b-solution.png)
 
-   På startsidan på panelen för **Logic Apps B2B-meddelanden** visas nu. 
-   Den här panelen uppdaterar meddelandeantalet när dina B2B-meddelanden bearbetas.
+   Om du inte hittar lösningen längst ned i listan, Välj **Läs in fler** tills lösningen visas.
+
+1. Välj **skapa**, bekräfta Log Analytics-arbetsyta där du vill installera lösningen och välj sedan **skapa** igen.   
+
+   ![Välj ”Skapa” för Logic Apps B2B](media/logic-apps-track-b2b-messages-omsportal/create-b2b-solution.png)
+
+   Om du inte vill använda en befintlig arbetsyta kan du också skapa en ny arbetsyta just nu.
+
+1. När du är klar går du tillbaka till din arbetsyta **översikt** sidan. 
+
+   Logic Apps B2B-lösning visas nu på sidan Översikt. 
+   Meddelandeantalet på den här sidan uppdateras när B2B-meddelanden bearbetas.
 
 <a name="message-status-details"></a>
 
-## <a name="track-message-status-and-details-in-log-analytics"></a>Spåra meddelandestatus och information i Log Analytics
+## <a name="view-b2b-message-information"></a>Visa B2B-meddelandeinformation
 
-1. När dina B2B-meddelanden bearbetas kan visa du status och information om dessa meddelanden. På sidan Översikt väljer du den **Logic Apps B2B-meddelanden** panelen.
+När B2B-meddelanden bearbetas kan du visa status och information om dessa meddelanden på den **Logic Apps B2B** panelen.
+
+1. Gå till logik Analytics-arbetsytan och öppna sidan Översikt. Välj **Logic Apps B2B**.
 
    ![Antal uppdaterade meddelanden](media/logic-apps-track-b2b-messages-omsportal/b2b-overview-tile.png)
 
    > [!NOTE]
-   > Som standard den **Logic Apps B2B-meddelanden** panel visar data baserat på en dag. Välj scope-kontroll högst upp på sidan om du vill ändra vilka data till ett annat intervall:
+   > Som standard den **Logic Apps B2B** panel visar data baserat på en dag. Välj scope-kontroll högst upp på sidan om du vill ändra vilka data till ett annat intervall:
    > 
-   > ![Ändra omfång för data](media/logic-apps-track-b2b-messages-omsportal/server-filter.png)
-   >
+   > ![Ändra intervall](media/logic-apps-track-b2b-messages-omsportal/change-interval.png)
 
-2. När meddelandet visas statusinstrumentpanelen kan du kan visa mer information om ett visst meddelande-typ, som visar data baserat på en dag. Välj panelen för **AS2**, **X12**, eller **EDIFACT**.
+1. När meddelandet visas statusinstrumentpanelen kan du kan visa mer information om ett visst meddelande-typ, som visar data baserat på en dag. Välj panelen för **AS2**, **X12**, eller **EDIFACT**.
 
    ![Visa status för meddelandet](media/logic-apps-track-b2b-messages-omsportal/omshomepage5.png)
 

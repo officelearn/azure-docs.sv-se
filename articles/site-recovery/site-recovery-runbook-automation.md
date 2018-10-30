@@ -1,25 +1,18 @@
 ---
-title: Lägg till Azure Automation-runbooks i återställningsplaner i Azure Site Recovery | Microsoft Docs
-description: Lär dig hur Azure Site Recovery kan hjälpa dig att utöka återställningsplaner med hjälp av Azure Automation. Lär dig hur du utför komplexa uppgifter under återställning till Azure.
-services: site-recovery
-documentationcenter: ''
+title: Lägg till Azure Automation-runbooks i återställningsplaner för Site Recovery | Microsoft Docs
+description: Lär dig mer om att utöka återställningsplaner med Azure Automation för haveriberedskap med Azure Site Recovery.
 author: ruturaj
 manager: gauravd
-editor: ''
-ms.assetid: ecece14d-5f92-4596-bbaf-5204addb95c2
 ms.service: site-recovery
-ms.devlang: powershell
-ms.tgt_pltfrm: na
-ms.topic: article
-ms.workload: storage-backup-recovery
+ms.topic: conceptual
 ms.date: 07/06/2018
 ms.author: ruturajd@microsoft.com
-ms.openlocfilehash: 55160f3c43d8cbfc5f8b3e6aaf26bcb911387c52
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: 5da623d07c34114d82c2b818a7c06420ffb9c886
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39578773"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50211119"
 ---
 # <a name="add-azure-automation-runbooks-to-recovery-plans"></a>Lägg till Azure Automation-runbooks i återställningsplaner
 I den här artikeln beskriver vi hur Azure Site Recovery kan integreras med Azure Automation kan du utöka dina återställningsplaner. Återställningsplaner kan dirigera återställning av virtuella datorer som skyddas med Site Recovery. Återställningsplaner fungerar både för replikering till en sekundär molnet och för replikering till Azure. Återställningsplaner även gör återställningen **konsekvent korrekt**, **upprepningsbara**, och **automatiserade**. Om du växlar över dina virtuella datorer till Azure utökar-integrering med Azure Automation dina återställningsplaner. Du kan använda den för att köra runbooks, som erbjuder kraftfulla automatiserade uppgifter.

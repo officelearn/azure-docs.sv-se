@@ -11,15 +11,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/08/2018
+ms.date: 10/29/2018
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.openlocfilehash: 9250e38eadb9d9b1e8bf0c09fa1a9a165e5e69f1
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: 5a3d63637d7b680a012057b92546ccde87ac73de
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48886270"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50233369"
 ---
 # <a name="add-kubernetes-to-the-azure-stack-marketplace"></a>Lägg till Kubernetes i Azure Stack Marketplace
 
@@ -72,9 +72,10 @@ Lägg till följande Ubuntu Server bild Marketplace:
 
 1. Ange `UbuntuServer`.
 
-1. Välj den senaste versionen av servern med följande profil:
+1. Välj den senaste versionen av servern. Kontrollera den fullständiga versionen och se till att du har den senaste versionen:
     - **Publisher**: Canonical
     - **Erbjuder**: UbuntuServer
+    - **Version**: 16.04.201806120
     - **SKU**: 16.04 LTS
 
 1. Välj **ladda ned.**

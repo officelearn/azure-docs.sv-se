@@ -1,21 +1,20 @@
 ---
-title: Testa redundans till Azure i Azure Site Recovery | Microsoft Docs
-description: Lär dig mer om hur du kör ett redundanstest från en lokal plats till Azure med Azure Site Recovery-tjänsten.
-services: site-recovery
+title: Kör ett programåterställningstest till Azure med Azure Site Recovery | Microsoft Docs
+description: Lär dig mer om hur du kör ett programåterställningstest från lokala till Azure med Azure Site Recovery-tjänsten.
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
-ms.topic: article
-ms.date: 09/11/2018
+ms.topic: conceptual
+ms.date: 10/28/2018
 ms.author: raynew
-ms.openlocfilehash: 4c72a58cdc6082a40fe80b7a3cf8cf964199371e
-ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
+ms.openlocfilehash: 6eb1ee90b22b9e37dcae900cd80f80cb549090e9
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44391784"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50213958"
 ---
-# <a name="test-failover-to-azure-in-site-recovery"></a>Testa redundans till Azure i Site Recovery
+# <a name="run-a-disaster-recovery-drill-to-azure"></a>Köra ett programåterställningstest till Azure 
 
 
 Den här artikeln beskriver hur du kör ett programåterställningstest till Azure med ett redundanstest för Site Recovery.  
@@ -77,13 +76,13 @@ I följande scenarier kräver ett extra steg som vanligtvis tar cirka 8 till 10 
 Inga mellanliggande steg krävs inte i alla andra fall, och redundans tar avsevärt kortare tid.
 
 
-## <a name="create-a-network-for-test-failover"></a>Skapa ett nätverk för att testa redundans
+## <a name="create-a-network-for-test-failover"></a>Skapa ett nätverk för redundanstest
 
-Vi rekommenderar att för att testa redundans du väljer ett nätverk som är isolerat från recovery plats produktionsnätverket specifika i den **beräkning och nätverk** inställningar för varje virtuell dator. Som standard när du skapar ett Azure-nätverk är det isolerade från andra nätverk. Testnätverket ska efterlikna produktionsnätverket:
+Vi rekommenderar att du för redundanstest väljer ett nätverk som är isolerat från produktionsnätverkets återställningsplats specifik i inställningarna för **Beräkning och nätverk** för varje virtuella dator. Som standard, när du skapar ett virtuellt Azure-nätverk är det isolerat från andra nätverk. Testnätverket ska efterlikna produktionsnätverket:
 
-- Testnätverket bör ha samma antal undernät som produktionsnätverket. Undernät ska ha samma namn.
-- Testnätverket bör använda samma IP-adressintervall.
-- Uppdatera DNS i testnätverket med IP-adress som angetts för DNS VM i **beräkning och nätverk** inställningar. Läs [testa tänka på vid för Active Directory](site-recovery-active-directory.md#test-failover-considerations) för mer information.
+- Testnätverket ska ha samma antal undernät som produktionsnätverket. Undernäten ska ha samma namn.
+- Textnätverket ska använda samma IP-adressintervall.
+- Uppdatera DNS för testnätverket med IP-adressen som anges för DNS-VM i inställningarna i **Beräkning och nätverk**. Mer information finns i [Saker att tänka på vid redundanstestning för Active Directory](site-recovery-active-directory.md#test-failover-considerations).
 
 
 ## <a name="test-failover-to-a-production-network-in-the-recovery-site"></a>Testa redundans till ett produktionsnätverk i återställningsplatsen
@@ -111,7 +110,7 @@ Om du vill ansluta till virtuella Azure-datorer med RDP/SSH efter en redundansv�
 **Azure virtuell dator som kör Linux** | Den lokala datorn före redundans | Kontrollera att Secure Shell-tjänsten på den virtuella datorn är inställd att starta automatiskt vid systemstart.<br/><br/> Kontrollera att brandväggsreglerna tillåter en SSH-anslutning till tjänsten.
 **Azure virtuell dator som kör Linux** | Azure virtuell dator efter redundans | Reglerna för nätverkssäkerhetsgrupper på den redundansväxlade virtuella datorn (och Azure-undernätet som den är ansluten) måste tillåta inkommande anslutningar till SSH-porten.<br/><br/> [Lägg till en offentlig IP-adress](https://aka.ms/addpublicip) för den virtuella datorn.<br/><br/> Kontrollera **Startdiagnostik** för en skärmbild av den virtuella datorn.<br/><br/>
 
-Följ stegen som beskrivs [här](site-recovery-failover-to-azure-troubleshoot.md) felsökning av någon anslutning efter problem med redundans.
+Följ stegen som beskrivs [här](site-recovery-failover-to-azure-troubleshoot.md) för att felsöka eventuella anslutningsproblem efter redundans.
 
 ## <a name="next-steps"></a>Nästa steg
 När du har slutfört ett programåterställningstest, Läs mer om andra typer av [redundans](site-recovery-failover.md).

@@ -11,12 +11,12 @@ ms.assetid: d6d14f5f-2126-4e33-808e-41de08e6721f
 ms.topic: article
 tags: connectors
 ms.date: 08/25/2018
-ms.openlocfilehash: 813df5b4ef37ad1264df48863aa8f0ed5a4d4789
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 68378c87e18df874059579445352b8fd1b2b6c13
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43048782"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50232723"
 ---
 # <a name="exchange-messages-in-the-cloud-with-azure-service-bus-and-azure-logic-apps"></a>Exchange-meddelanden i molnet med Azure Service Bus och Azure Logic Apps
 
@@ -64,7 +64,7 @@ Bekräfta att logikappen har behörighet för att komma åt Service Bus-namnomr�
       ![Kopiera anslutningssträng för Service Bus-namnområde](./media/connectors-create-api-azure-service-bus/find-service-bus-connection-string.png)
 
    > [!TIP]
-   > För att bekräfta om din anslutningssträng är kopplad till ditt Service Bus-namnområde eller en meddelandeentitet, till exempel en kö, söka i anslutningssträngen för den `EntityPath` parametern. Om du hittar den här parametern anslutningssträngen är för en specifik enhet och är inte rätt strängen som ska användas med din logikapp.
+   > För att bekräfta om din anslutningssträng är kopplad till ditt Service Bus-namnområde eller en meddelandeentitet, till exempel en kö, söka i anslutningssträngen för den `EntityPath`  parametern. Om du hittar den här parametern anslutningssträngen är för en specifik enhet och är inte rätt strängen som ska användas med din logikapp.
 
 ## <a name="add-trigger-or-action"></a>Lägg till utlösare eller åtgärd
 
@@ -140,7 +140,7 @@ Teknisk information om utlösare, åtgärder och begränsningar som beskrivs av 
 ## <a name="get-support"></a>Få support
 
 * Om du har frågor kan du besöka [forumet för Azure Logic Apps](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
-* Om du vill skicka in eller rösta på förslag på funktioner besöker du [webbplatsen för Logic Apps-användarfeedback](http://aka.ms/logicapps-wish).
+* Om du vill skicka in eller rösta på förslag på funktioner besöker du [webbplatsen för Logic Apps-användarfeedback](https://aka.ms/logicapps-wish).
 
 ## <a name="next-steps"></a>Nästa steg
 

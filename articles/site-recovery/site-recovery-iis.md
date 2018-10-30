@@ -1,21 +1,20 @@
 ---
-title: Replikera ett flerskiktat IIS-baserade webbprogram med Azure Site Recovery | Microsoft Docs
+title: Konfigurera haveriberedskap för en flerskiktade IIS-baserade webbprogram med Azure Site Recovery | Microsoft Docs
 description: Lär dig hur du replikerar IIS web grupp virtuella datorer med Azure Site Recovery.
-services: site-recovery
 author: nsoneji
 manager: gauravd
 ms.service: site-recovery
 ms.topic: article
 ms.date: 07/06/2018
 ms.author: nisoneji
-ms.openlocfilehash: 830ced767a34302a635b9e685a2aee60c95fc81f
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: bac995829e90fea35eebf5e5e57a0ffb85bbba0c
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37920856"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50211833"
 ---
-# <a name="replicate-a-multi-tier-iis-based-web-application"></a>Replikera ett flerskiktat IIS-baserade webbprogram
+# <a name="set-up-disaster-recovery-for-a-multi-tier-iis-based-web-application"></a>Konfigurera haveriberedskap för en flerskiktade IIS-baserade webbprogram
 
 Programvara är motorn för verksamhetsproduktiviteten i en organisation. Olika webbprogram kan ha olika syften i en organisation. Vissa program, t.ex. program som används för löneuppgifter bearbetning, affärsprogram och kundinriktade webbplatser, kan vara viktiga för en organisation. Det är viktigt för organisationen ha dessa program kontinuerligt och drift för att förhindra förlust av produktivitet. Ännu viktigare är kan att ha dessa program som är konsekvent tillgängliga förhindra skada varumärke eller bild av organisationen.
 

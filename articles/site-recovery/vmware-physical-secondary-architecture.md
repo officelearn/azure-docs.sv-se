@@ -1,21 +1,22 @@
 ---
-title: Arkitektur för VMware/fysisk server-replikering i Azure Site Recovery | Microsoft Docs
-description: Den här artikeln innehåller en översikt över komponenter och arkitektur som används för att replikera lokala virtuella VMware-datorer eller fysiska Windows/Linux-servrar till en sekundär VMware-plats med Azure Site Recovery
+title: VMware/fysiska servern disaster recovery-arkitekturen i Azure Site Recovery | Microsoft Docs
+description: Den här artikeln innehåller en översikt över komponenter och arkitektur som används under haveriberedskap för lokala virtuella VMware-datorer eller fysiska Windows/Linux-servrar till en sekundär VMware-plats med Azure Site Recovery
 author: rayne-wiselman
+manager: carmonm
 ms.service: site-recovery
-ms.topic: article
-ms.date: 07/06/2018
+ms.topic: conceptual
+ms.date: 10/29/2018
 ms.author: raynew
-ms.openlocfilehash: 04591c57f90e3c540963d77c2213498bf0ad2577
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 16e8a9719280b55e86d1d4622a32470b37287dd4
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37921404"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50215131"
 ---
-# <a name="vmware-vmphysical-server-to-vmware-replication-architecture"></a>VMware VM/fysiska servern till arkitektur för VMware-replikering
+# <a name="vmware-vmphysical-server-to-vmware-disaster-recovery-architecture"></a>VMware VM/fysiska servern till VMware disaster recovery-arkitekturen
 
-Den här artikeln beskrivs arkitekturen och processer som används när du replikera, redundansväxla och återställa den lokala virtuella VMware-datorer (VM) eller fysiska Windows/Linux-servrar till en sekundär VMware plats med hjälp av [Azure Site Recovery](site-recovery-overview.md).
+Den här artikeln beskrivs arkitekturen och processer som används när ställer in disaster recovery-replikering, redundans och återställning av lokala virtuella VMware-datorer (VM) eller fysiska Windows/Linux-servrar till en sekundär VMware plats med hjälp av [Azure Site Recovery](site-recovery-overview.md).
 
 
 ## <a name="architectural-components"></a>Arkitekturkomponenter

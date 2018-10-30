@@ -1,20 +1,20 @@
 ---
-title: Konfigurera källmiljön (fysiska servrar till Azure) | Microsoft Docs
-description: Den här artikeln beskriver hur du ställer in din lokala miljö att börja replikera fysiska servrar som kör Windows eller Linux till Azure.
+title: Ställ in konfigurationsservern för haveriberedskap för fysiska servrar till Azure med hjälp av Azure Site Recovery | Microsoft Docs
+description: Den här artikeln beskriver hur du konfigurerar den lokala konfigurationsservern för haveriberedskap för lokala fysiska servrar till Azure.
 services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
-ms.topic: article
-ms.date: 07/21/2018
+ms.topic: conceptual
+ms.date: 10/28/2018
 ms.author: raynew
-ms.openlocfilehash: 0cbba45ce49667293d8f16bf370424acd70ff78b
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.openlocfilehash: 739129045fab72a9b535be25b853c902c7dbd251
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39213494"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50209555"
 ---
-# <a name="set-up-the-source-environment-physical-server-to-azure"></a>Konfigurera källmiljön (fysisk till Azure)
+# <a name="set-up-the-configuration-server-for-disaster-recovery-of-physical-servers-to-azure"></a>Ställ in konfigurationsservern för haveriberedskap för fysiska servrar till Azure
 
 Den här artikeln beskriver hur du ställer in din lokala miljö att börja replikera fysiska servrar som kör Windows eller Linux till Azure.
 

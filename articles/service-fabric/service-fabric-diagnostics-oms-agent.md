@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/16/2018
 ms.author: srrengar
-ms.openlocfilehash: cc051e1ba0bbea68bb1e888168883351bf4f730f
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: e440cca59bde1c845bc99ef137c18242e888ee06
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49406219"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50230105"
 ---
 # <a name="performance-monitoring-with-log-analytics"></a>Prestandaövervakning med Log Analytics
 
@@ -100,4 +100,4 @@ Nu när du har lagt till Log Analytics-agenten, head vill till Log Analytics-por
 
 * Samla in relevanta [prestandaräknare](service-fabric-diagnostics-event-generation-perf.md). Om du vill konfigurera Log Analytics-agenten för att samla in specifika prestandaräknare, granska [konfigurera datakällor](../log-analytics/log-analytics-data-sources.md#configuring-data-sources).
 * Konfigurera Log Analytics för att ställa in [automatiserade aviseringar](../log-analytics/log-analytics-alerts.md) att underlätta identifiering och diagnostik
-* Alternativt kan du samla in prestandaräknare via [Azure Diagnostics-tillägg och skicka dem till Application Insights](service-fabric-diagnostics-event-analysis-appinsights.md#add-the-ai-sink-to-the-resource-manager-template)
+* Alternativt kan du samla in prestandaräknare via [Azure Diagnostics-tillägg och skicka dem till Application Insights](service-fabric-diagnostics-event-analysis-appinsights.md#add-the-application-insights-sink-to-the-resource-manager-template)

@@ -1,21 +1,20 @@
 ---
 title: Distribuera konfigurationsservern för VMware-haveriberedskap med Azure Site Recovery | Microsoft Docs
-description: Den här artikeln beskriver hur du distribuerar en konfigurationsserver för VMware-haveriberedskap med Azure Site Recovery
-services: site-recovery
+description: Den här artikeln beskriver hur du distribuerar en konfigurationsserver för VMware-haveriberedskap till Azure med Azure Site Recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 07/06/2018
+ms.date: 10/29/2018
 ms.author: raynew
-ms.openlocfilehash: 4222214705c42fe09d90d77faa7be63cc2a13206
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: 516edd922d6ead9a71f81c3b9b777b15f1fb28ae
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44025284"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50233165"
 ---
-# <a name="deploy-a-configuration-server"></a>Distribuera en konfigurationsserver
+# <a name="deploy-a-configuration-server-for-vmware-disaster-recovery-to-azure"></a>Distribuera en konfigurationsserver för VMware-haveriberedskap till Azure
 
 Du distribuerar en lokal konfigurationsserver när du använder [Azure Site Recovery](site-recovery-overview.md) för haveriberedskap för virtuella VMware-datorer och fysiska servrar till Azure. Den configuration server koordinater kommunikationen mellan lokala VMware- och Azure. Den hanterar också replikering av data. Den här artikeln vägleder dig igenom de steg som krävs för att distribuera configuration server när du replikerar virtuella VMware-datorer till Azure. [Följ den här artikeln](physical-azure-set-up-source.md) om du vill ställa in en konfigurationsserver för fysisk serverreplikering.
 
@@ -117,6 +116,14 @@ Om du vill lägga till ett extra nätverkskort i konfigurationsservern, lägger 
 8. Välj **Slutför konfigurationen** för att slutföra registreringen.
 9. När registreringen är klar öppnar du Azure-portalen, kontrollerar du att konfigurationsservern och VMware-servern visas på **Recovery Services-valv** > **hantera**  >  **Site Recovery-infrastruktur** > **Konfigurationsservrar**.
 
+## <a name="upgrade-the-configuration-server"></a>Uppgradera konfigurationsservern
+
+Om du vill uppgradera konfigurationsservern till den senaste versionen, följer du dessa [steg](vmware-azure-manage-configuration-server.md#upgrade-the-configuration-server).
+
+## <a name="manage-the-configuration-server"></a>Hantera konfigurationsservern
+
+Se till att IP-adressen för konfigurationsservern inte ändras när konfigurationsservern har registrerats till ett valv för att undvika avbrott i pågående replikering. Du kan lära dig mer om vanliga hanteringsaktiviteter för configuration server [här](vmware-azure-manage-configuration-server.md).
+
 ## <a name="faq"></a>VANLIGA FRÅGOR OCH SVAR
 
 1. Kan jag använda den virtuella datorn, där konfigurationsservern installeras för olika syften?
@@ -140,14 +147,6 @@ Om du vill lägga till ett extra nätverkskort i konfigurationsservern, lägger 
 7. Var kan jag hämta valv registreringsnycklar?
 
     I den **Recovery Services-valv**, **hantera** > **Site Recovery-infrastruktur** > **Konfigurationsservrar**. Välj i servrar, **ladda ned Registreringsnyckeln** att hämta valvautentiseringsfilen.
-
-## <a name="upgrade-the-configuration-server"></a>Uppgradera konfigurationsservern
-
-Om du vill uppgradera konfigurationsservern till den senaste versionen, följer du dessa [steg](vmware-azure-manage-configuration-server.md#upgrade-the-configuration-server).
-
-## <a name="manage-the-configuration-server"></a>Hantera konfigurationsservern
-
-Se till att IP-adressen för konfigurationsservern inte ändras när konfigurationsservern har registrerats till ett valv för att undvika avbrott i pågående replikering. Du kan lära dig mer om vanliga hanteringsaktiviteter för configuration server [här](vmware-azure-manage-configuration-server.md).
 
 ## <a name="troubleshoot-deployment-issues"></a>Felsöka distributionsproblem
 

@@ -1,6 +1,6 @@
 ---
-title: Skydda Active Directory och DNS med Azure Site Recovery | Microsoft Docs
-description: Den här artikeln beskriver hur du implementerar en lösning för haveriberedskap för Active Directory med hjälp av Azure Site Recovery.
+title: Konfigurera haveriberedskap för Active Directory och DNS med Azure Site Recovery | Microsoft Docs
+description: Den här artikeln beskriver hur du implementerar en lösning för haveriberedskap för Active Directory och DNS med Azure Site Recovery.
 services: site-recovery
 documentationcenter: ''
 author: mayurigupta13
@@ -9,14 +9,14 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/16/2018
 ms.author: mayg
-ms.openlocfilehash: 1072c903e9bd9ccb3d63cae426283a677d10077e
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: 51d435d9edea5e341127cac89bc96a71c7bc8bb4
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49354299"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50211901"
 ---
-# <a name="use-azure-site-recovery-to-protect-active-directory-and-dns"></a>Använda Azure Site Recovery för att skydda Active Directory och DNS
+# <a name="set-up-disaster-recovery-for-active-directory-and-dns"></a>Konfigurera haveriberedskap för Active Directory och DNS
 
 Företagsprogram som SharePoint, Dynamics AX och SAP beror på Active Directory och DNS-infrastrukturen ska fungera korrekt. När du konfigurerar haveriberedskap för program, behöver du ofta att återställa Active Directory och DNS innan du återställer andra programkomponenter, för att säkerställa att rätt programfunktionen.
 

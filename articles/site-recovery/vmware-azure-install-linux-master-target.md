@@ -1,19 +1,19 @@
 ---
-title: Installera en Linux-huvudmålserver för redundans från Azure till lokala | Microsoft Docs
-description: Innan du skydda en Linux-dator, måste en Linux-huvudmålserver. Lär dig mer om att installera en.
+title: Installera en Linux-huvudmålserver för återställning efter fel på en lokal plats | Microsoft Docs
+description: Lär dig hur du konfigurerar en Linux-huvudmålserver för återställning efter fel på en lokal plats under haveriberedskap för virtuella VMware-datorer till Azure med hjälp av Azure Site Recovery.
 author: nsoneji
 ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/11/2018
 ms.author: nisoneji
-ms.openlocfilehash: 470d4547a63105e319f072461a4d8f24ebe3dbe8
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: 415b50b94052e7d428ddfa55d5288c8954a3ff1a
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49094130"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50212377"
 ---
-# <a name="install-a-linux-master-target-server"></a>Installera en Linux-huvudmålserver
+# <a name="install-a-linux-master-target-server-for-failback"></a>Installera en Linux-huvudmålserver för återställning efter fel
 När du växlar över dina virtuella datorer till Azure kan du återställa dit de virtuella datorerna till den lokala platsen. För att återställa, måste du återaktivera skyddet för den virtuella datorn från Azure till den lokala platsen. För den här processen behöver du ett lokala huvudmålservern tar emot trafiken. 
 
 Om den skyddade virtuella datorn är en Windows-dator, måste ett huvudmål för Windows. För en Linux-dator behöver du ett Linux-huvudmål. Läs följande om du vill veta hur du skapar och installerar ett Linux-huvudmål.

@@ -10,12 +10,12 @@ ms.reviewer: estfan, LADocs
 ms.assetid: d565873c-6b1b-4057-9250-cf81a96180ae
 ms.topic: article
 ms.date: 03/15/2018
-ms.openlocfilehash: 6ba274bb3ff3679b4a44950db168215c54f3ade6
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: 1c8abc153084f0c6491cab3677b93f8c450ad908
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44299754"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50229425"
 ---
 # <a name="create-streaming-customer-insights-dashboard-with-azure-logic-apps-and-azure-functions"></a>Skapa strömmande customer insights instrumentpanel med Azure Logic Apps och Azure Functions
 
@@ -26,7 +26,7 @@ Azure Logic Apps ger en serverlös motor i molnet så att du kan skapa orkestrer
 
 I det här scenariot skapar du en logikapp som utlöser på att söka efter feedback från kunder. Vissa anslutningar att hjälp du svara på feedback från kunder inkluderar Outlook.com, Office 365, undersökningen apa, Twitter, och en [HTTP-begäran från ett webbformulär](https://blogs.msdn.microsoft.com/logicapps/2017/01/30/calling-a-logic-app-from-an-html-form/). Arbetsflödet som du skapar övervakar en hashtag på Twitter.
 
-Du kan [skapa hela lösningen i Visual Studio](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md) och [distribuera lösningen med Azure Resource Manager-mall](../logic-apps/logic-apps-create-deploy-template.md). En video genomgång som visar hur du skapar den här lösningen [se den här videon på Channel 9](http://aka.ms/logicappsdemo). 
+Du kan [skapa hela lösningen i Visual Studio](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md) och [distribuera lösningen med Azure Resource Manager-mall](../logic-apps/logic-apps-create-deploy-template.md). En video genomgång som visar hur du skapar den här lösningen [se den här videon på Channel 9](https://aka.ms/logicappsdemo). 
 
 ## <a name="trigger-on-customer-data"></a>Utlös för kunddata
 

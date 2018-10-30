@@ -1,19 +1,19 @@
 ---
-title: Installation av Mobilitetstjänsten (VMware eller fysisk till Azure) | Microsoft Docs
-description: Lär dig hur du installerar mobilitetstjänstagenten för att skydda dina lokala virtuella VMware-datorer och fysiska servrar med Azure Site Recovery.
+title: Installera Mobilitetstjänsten för haveriberedskap för virtuella VMware-datorer och fysiska servrar till Azure | Microsoft Docs
+description: Lär dig hur du installerar mobilitetstjänstagenten för haveriberedskap för virtuella VMware-datorer och fysiska servrar till Azure med Azure Site Recovery-tjänsten.
 author: Rajeswari-Mamilla
 ms.service: site-recovery
 ms.topic: article
-ms.date: 07/06/2018
+ms.date: 10/29/2018
 ms.author: ramamill
-ms.openlocfilehash: 094c1776c0760c04d85aff6ad3d812a2ad7afa56
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 145affbcff128e0ec599ad1f97c79260b0dcae5a
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39527005"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50212700"
 ---
-# <a name="install-the-mobility-service"></a>Installera mobilitetstjänsten 
+# <a name="install-the-mobility-service-for-disaster-recovery-of-vmware-vms-and-physical-servers"></a>Installera mobilitetstjänsten för haveriberedskap för virtuella VMware-datorer och fysiska servrar
 
 Azure Site Recovery-Mobilitetstjänsten installeras på virtuella VMware-datorer och fysiska servrar som du vill replikera till Azure. Tjänsten samlar in skrivna data på en dator och vidarebefordrar dem till processervern. Distribuera Mobilitetstjänsten till varje dator (VMware VM eller fysisk) som du vill replikera till Azure. Du kan distribuera Mobilitetstjänsten på servrarna och virtuella VMware-datorer du vill skydda med hjälp av följande metoder:
 

@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 10/16/2018
 ms.author: jeffgilb
 ms.reviewer: quying
-ms.openlocfilehash: 1c5a2e4102b251490bf3a1fa9b82e9dbce075242
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
+ms.openlocfilehash: dce9d4d5d1f2e3e50cabb86ee0d8d14b2fce2923
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49364429"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50230037"
 ---
 # <a name="deploy-the-mysql-resource-provider-on-azure-stack"></a>Distribuera MySQL-resursprovider i Azure Stack
 
@@ -90,7 +90,7 @@ Du kan ange dessa parametrar från kommandoraden. Om du inte, eller om någon pa
 | **VMLocalCredential** | Autentiseringsuppgifterna för det lokala administratörskontot för MySQL-resursprovider VM. | _Krävs_ |
 | **PrivilegedEndpoint** | IP-adressen eller DNS-namnet på den privilegierade slutpunkten. |  _Krävs_ |
 | **AzureEnvironment** | Azure-miljön för admin kontot som du använde för att distribuera Azure Stack. Krävs endast för Azure AD-distributioner. Miljö som stöds är **AzureCloud**, **azureusgovernment eller**, eller om du använder en Kina Azure AD, **AzureChinaCloud**. | AzureCloud |
-| **DependencyFilesLocalPath** | För integrerade system, måste din .pfx-certifikatfil placeras i den här katalogen. Frånkopplade enviroments hämta [mysql-connector-net-6.10.5.msi](https://dev.mysql.com/get/Downloads/Connector-Net/mysql-connector-net-6.10.5.msi) till den här katalogen. Du kan också kopiera här ett Windows Update MSU-paket. | _Valfritt_ (_obligatoriska_ för integrerade system eller frånkopplade miljöer) |
+| **DependencyFilesLocalPath** | För integrerade system, måste din .pfx-certifikatfil placeras i den här katalogen. Frånkopplade miljöer hämta [mysql-connector-net-6.10.5.msi](https://dev.mysql.com/get/Downloads/Connector-Net/mysql-connector-net-6.10.5.msi) till den här katalogen. Du kan också kopiera här ett Windows Update MSU-paket. | _Valfritt_ (_obligatoriska_ för integrerade system eller frånkopplade miljöer) |
 | **DefaultSSLCertificatePassword** | Lösenordet för PFX-certifikat. | _Krävs_ |
 | **MaxRetryCount** | Antal gånger som du vill försöka utföra varje åtgärd om det uppstår ett fel.| 2 |
 | **RetryDuration** | Timeout-intervall mellan försök i sekunder. | 120 |

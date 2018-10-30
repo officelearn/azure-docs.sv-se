@@ -1,21 +1,20 @@
 ---
-title: Återaktivera skyddet av virtuella datorer från Azure till en lokal plats | Microsoft Docs
-description: Du kan starta en återställning efter fel för att lägga till virtuella datorer till en lokal efter redundans för virtuella datorer till Azure. Lär dig att skydda igen innan en återställning efter fel.
-services: site-recovery
+title: Återaktivera skyddet av virtuella datorer från Azure till en lokal plats under haveriberedskap för virtuella VMware-datorer och fysiska servrar | Microsoft Docs
+description: Lär dig hur du växlar tillbaka från Azure till den lokala platsen efter redundansväxlingen till Azure under haveriberedskap för virtuella VMware-datorer och fysiska servrar.
 author: rajani-janaki-ram
 manager: gauravd
 ms.service: site-recovery
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/06/2018
 ms.author: rajanaki
-ms.openlocfilehash: 1b410b2832d856f80d640aab2096fef270156c81
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.openlocfilehash: 3f661ab5ff2a127ba7507a64bb4520cbad740473
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39346687"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50213295"
 ---
-# <a name="reprotect-machines-from-azure-to-an-on-premises-site"></a>Återaktivera skyddet för datorerna från Azure till en lokal plats
+# <a name="reprotect-and-fail-back-machines-to-an-on-premises-site-after-failover-to-azure"></a>Skydda igen och misslyckas tillbaka datorer till en lokal plats efter redundansväxlingen till Azure
 
 Efter [redundans](site-recovery-failover.md) av lokala virtuella VMware-datorer eller fysiska servrar till Azure, är det första steget i misslyckas till den lokala webbplatsen att återaktivera skyddet av virtuella Azure-datorer som har skapats under redundansväxlingen. Den här artikeln beskriver hur du gör detta. 
 

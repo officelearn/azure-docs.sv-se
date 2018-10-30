@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/26/2018
 ms.author: srrengar
-ms.openlocfilehash: 68e0192756db539767dd808d0f0d408e77c2ae1b
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: bc86ef5a32e08bc00b5a2fa53dccb8d6313f167b
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49405658"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50230993"
 ---
 # <a name="performance-monitoring-with-the-windows-azure-diagnostics-extension"></a>Övervakning av programprestanda med Windows Azure Diagnostics-tillägget
 
@@ -115,7 +115,7 @@ Här är ett exempel på en konfiguration med räknaren för de *Total processor
     New-AzureRmResourceGroupDeployment -ResourceGroupName <ResourceGroup> -TemplateFile <PathToTemplateFile> -TemplateParameterFile <PathToParametersFile> -Verbose
     ```
 
-5. När uppgraderingen har slutförts lansera (tar mellan 15-45 minuter), WAD bör vara insamling av prestandaräknare och skicka dem till tabellen med namnet WADPerformanceCountersTable i lagringskontot som är associerade med klustret. Se dina prestandaräknare i Application Insights genom [lägger till AI-mottagare i Resource Manager-mall](service-fabric-diagnostics-event-analysis-appinsights.md#add-the-ai-sink-to-the-resource-manager-template).
+5. När uppgraderingen har slutförts lansera (tar mellan 15-45 minuter), WAD bör vara insamling av prestandaräknare och skicka dem till tabellen med namnet WADPerformanceCountersTable i lagringskontot som är associerade med klustret. Se dina prestandaräknare i Application Insights genom [lägger till AI-mottagare i Resource Manager-mall](service-fabric-diagnostics-event-analysis-appinsights.md#add-the-application-insights-sink-to-the-resource-manager-template).
 
 ## <a name="next-steps"></a>Nästa steg
 * Samla in mer prestandaräknare för klustret. Se [prestandamått](service-fabric-diagnostics-event-generation-perf.md) för en lista över räknare som du bör samla in.

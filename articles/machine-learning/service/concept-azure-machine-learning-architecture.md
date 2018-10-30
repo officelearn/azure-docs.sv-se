@@ -9,12 +9,12 @@ ms.author: haining
 author: hning86
 ms.reviewer: larryfr
 ms.date: 10/24/2018
-ms.openlocfilehash: b00f72c987b6ce8c44796bd036af670ec39fa7a6
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.openlocfilehash: 95f74b23b9d0c89966347f066041b23f64f3b82c
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50093640"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50210694"
 ---
 # <a name="how-the-azure-machine-learning-service-works-architecture-and-concepts"></a>Hur fungerar Azure Machine Learning-tjänsten: arkitektur och begrepp
 
@@ -143,7 +143,7 @@ En körning är en post som innehåller följande information:
 
 * Metadata om körningen (tidsstämpel, varaktighet osv.)
 * Mått som loggats av skriptet
-* Skapa filer som samlas in automatiskt av experimentet eller uttryckligen överförda av dig.
+* Utdata filer autocollected av experimentet eller överförs uttryckligen av dig.
 * En ögonblicksbild av den katalog som innehåller dina skript innan körningen
 
 En körning skapas när du skickar in ett skript för att träna en modell. En körning kan ha noll eller flera underordnade körs. Så det översta kör kan ha två underordnade körningar, som kan ha körs sina egna underordnade.
@@ -156,23 +156,28 @@ Ett experiment är en gruppering av många körs från ett givet skript. Det är
 
 Ett exempel på hur du använder ett experiment finns i den [Snabbstart: Kom igång med Azure Machine Learning-tjänsten](quickstart-get-started.md) dokumentet.
 
-
 ## <a name="pipelines"></a>Pipelines
 
-Pipelines används för att skapa och hantera arbetsflöden som sadelhäftning tillsammans maskininlärning (ML) faser, till exempel dataförberedelser, modellinlärning, distribution av modeller och inferensjobb. Varje fas kan omfatta flera steg, som kan köras obevakat i olika beräkningsmål.
+Pipelines som används för att skapa och hantera arbetsflöden som sätta ihop machine learning-faser. En pipeline kan till exempel innehålla förberedelse av data, modellträning, distribution av modeller och inferensjobb faser. Varje fas kan omfatta flera steg, som kan köras obevakat i olika beräkningsmål.
 
 Mer information om machine learning pipelines med den här tjänsten finns i artikeln [Pipelines och Azure Machine Learning](concept-ml-pipelines.md).
 
 ## <a name="compute-target"></a>Beräkningsmål
 
-Beräkningsmål är beräkningsresursen som används för att köra skriptet utbildning eller vara värd för din distribution av webbtjänster. Beräkningsmål som stöds är: 
+Beräkningsmål är beräkningsresursen som används för att köra skriptet utbildning eller vara värd för tjänstdistributionen av. Beräkningsmål som stöds är: 
 
-* Den lokala datorn
-* En virtuell Linux-dator i Azure (till exempel Data Science Virtual Machine)
-* Azure Batch AI-kluster
-* Apache Spark för HDInsight
-* Azure Container-instans
-* Azure Kubernetes Service
+| Beräkningsmål | Utbildning | Distribution |
+| ---- |:----:|:----:|
+| Den lokala datorn | ✓ | &nbsp; |
+| En virtuell Linux-dator i Azure</br>(till exempel Data Science Virtual Machine) | ✓ | &nbsp; |
+| Azure Batch AI-kluster | ✓ | &nbsp; |
+| Azure Databricks | ✓ | &nbsp; | &nbsp; |
+| Azure Data Lake Analytics | ✓ | &nbsp; |
+| Apache Spark för HDInsight | ✓ | &nbsp; |
+| Azure Container-instans | ✓ | ✓ |
+| Azure Kubernetes Service | &nbsp; | ✓ |
+| Azure IoT Edge | &nbsp; | ✓ |
+| Project Brainwave</br>(Field-programmable gate array) | &nbsp; | ✓ |
 
 Beräkningsmål är kopplade till en arbetsyta. Compute mål än den lokala datorn som delas av användare i arbetsytan.
 
@@ -194,7 +199,7 @@ Till exempel kör konfigurationer, finns i den [Använd beräkningsmål träna d
 
 För att träna en modell kan du ange den katalog som innehåller inlärningsskript och tillhörande filer. Du kan även ange ett namn på experiment, som används för att lagra information som samlas in under utbildningen. Hela katalogen kopieras till miljön (beräkningsmål) vid träning, och skriptet som anges av körningskonfigurationen har startats. En ögonblicksbild av katalogen lagras också under experiment på arbetsytan.
 
-Ett exempel på hur du använder skript för att träna en modell finns i [skapa en arbetsyta med Python](quickstart-get-started.md)
+Ett exempel finns i [skapa en arbetsyta med Python](quickstart-get-started.md)
 
 ## <a name="logging"></a>Loggning
 

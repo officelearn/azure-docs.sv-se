@@ -1,6 +1,6 @@
 ---
-title: Distributionshanteraren för Azure Site Recovery för Hyper-V till Azure| Microsoft Docs
-description: I den här artikeln beskrivs analyser av genererade rapporter från distributionshanteraren för Azure Site Recovery för scenariot Hyper-V till Azure.
+title: Analysera rapporten för Distributionshanteraren för Azure Site Recovery för haveriberedskap för Hyper-V-datorer till Azure | Microsoft Docs
+description: Den här artikeln beskriver hur du analyserar en rapport som genereras av Distributionshanteraren för Azure Site Recovery för haveriberedskap för Hyper-V-datorer till Azure.
 services: site-recovery
 author: nsoneji
 manager: garavd
@@ -8,14 +8,14 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/11/2018
 ms.author: nisoneji
-ms.openlocfilehash: d5e8038aea547977ed11d0bd5d2675322921d8ef
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: ad53b32b9809e8cce459d8317a916a9ddab0e336
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49092923"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50210943"
 ---
-# <a name="analyze-the-azure-site-recovery-deployment-planner-report"></a>Analysera rapporten för distributionshanteraren för Azure Site Recovery
+# <a name="analyze-the-azure-site-recovery-deployment-planner-report"></a>Analysera rapporten för Distributionshanteraren för Azure Site Recovery
 I den här artikeln diskuteras bladen i Excel-rapporterna som genereras av distributionshanteraren för Azure Site Recovery för scenariot Hyper-V till Azure.
 
 ## <a name="on-premises-summary"></a>Lokal sammanfattning

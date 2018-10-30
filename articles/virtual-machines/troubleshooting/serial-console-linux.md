@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 09/11/2018
 ms.author: harijay
-ms.openlocfilehash: bccf53ed5554579f4ff0a864c38562b7b7f0d3ca
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: 57abb01d70929144a8457a04ebc0caf9aecaa61c
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48885297"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50212411"
 ---
 # <a name="virtual-machine-serial-console"></a>Virtual Machine Serial Console
 
@@ -217,5 +217,6 @@ A. Åtkomst till seriekonsol för VM-skalningsuppsättningsinstanser stöds inte
 ## <a name="next-steps"></a>Nästa steg
 * Använd Seriekonsol för att [starta i GRUB och ange enanvändarläge](serial-console-grub-single-user-mode.md)
 * Använd Seriekonsol för [NMI och SysRq anrop](serial-console-nmi-sysrq.md)
+* Lär dig hur du använder Seriekonsol för att [aktivera GRUB i olika distributioner](https://blogs.msdn.microsoft.com/linuxonazure/2018/10/23/why-proactively-ensuring-you-have-access-to-grub-and-sysrq-in-your-linux-vm-could-save-you-lots-of-down-time/)
 * Seriekonsolen är också tillgängligt för [Windows](../windows/serial-console.md) virtuella datorer
 * Läs mer om [startdiagnostik](boot-diagnostics.md)

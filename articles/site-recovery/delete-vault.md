@@ -1,6 +1,6 @@
 ---
-title: Ta bort ett Site Recovery-valv
-description: Lär dig hur du tar bort ett Azure Site Recovery-valv, baserat på scenariot Site Recovery.
+title: Ta bort ett Recovery Services-valv som har konfigurerats för Azure Site Recovery-tjänsten
+description: Lär dig hur du tar bort ett Recovery Services-valv som konfigurerats för Azure Site Recovery
 author: rajani-janaki-ram
 manager: rochakm
 ms.service: site-recovery
@@ -8,14 +8,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/06/2018
 ms.author: rajani-janaki-ram
-ms.openlocfilehash: 9c4a88d8a3d63555a57bd5553b721cfbcd77df2c
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: f351bd715baf86407c249e13aa02cf3c37e374c4
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38971196"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50212428"
 ---
-# <a name="delete-a-site-recovery-vault"></a>Ta bort ett Site Recovery-valv
+# <a name="delete-a-site-recovery-recovery-services-vault"></a>Ta bort ett Site Recovery Recovery Services-valv
 
 Beroenden kan hindra dig från att ta bort en Azure Site Recovery-valv. De åtgärder som du behöver ta varierar beroende på Site Recovery-scenario. Om du vill ta bort ett valv som används i Azure Backup, se [Radera ett Backup-valv i Azure](../backup/backup-azure-delete-vault.md).
 

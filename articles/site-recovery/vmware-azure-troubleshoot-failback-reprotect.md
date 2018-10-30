@@ -1,22 +1,20 @@
 ---
-title: Felsöka fel under återställning efter fel för virtuella datorer i Azure till lokalt VMware med Azure Site Recovery | Microsoft Docs
-description: Den här artikeln beskrivs olika sätt att felsöka vanliga fel för återställning efter fel och återaktiveringen av skyddet under återställning efter fel till VMware från Azure med hjälp av Azure Site Recovery.
-services: site-recovery
-documentationcenter: ''
+title: Felsöka växla tillbaka till den lokala under VMware VM-katastrofåterställning till Azure med Azure Site Recovery | Microsoft Docs
+description: Den här artikeln beskrivs olika sätt att felsöka problem med återställning efter fel och återaktiveringen av skyddet under VMware VM-katastrofåterställning till Azure med Azure Site Recovery.
 author: rajani-janaki-ram
 manager: gauravd
 ms.service: site-recovery
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/06/2018
 ms.author: rajanaki
-ms.openlocfilehash: c5ba0f1d98f3e4023e767bf3eea7a0b497d47686
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 89484e14d69493c74ed1ff983cf88ec146e0313d
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37920982"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50210371"
 ---
-# <a name="troubleshoot-failback-from-azure-to-vmware"></a>Felsöka återställning efter fel från Azure till VMware
+# <a name="troubleshoot-failback-to-on-premises-from-azure"></a>Felsöka återställning efter fel till den lokala från Azure
 
 Den här artikeln beskriver hur du felsöker problem som kan uppstå när du växlar tillbaka Azure virtuella datorer till din lokala VMware-infrastruktur, efter redundansväxlingen till Azure med hjälp av [Azure Site Recovery](site-recovery-overview.md).
 

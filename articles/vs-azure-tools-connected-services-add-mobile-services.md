@@ -15,12 +15,12 @@ ms.workload: mobile
 ms.custom: vs-azure
 ms.date: 12/16/2015
 ms.author: mlearned
-ms.openlocfilehash: 6cceb760ab62ea4f7225c9cc0cee7a6baf8ed8be
-ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
+ms.openlocfilehash: a1b2524b059601e1f6f999af7a9d9e063f7c0420
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42442219"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50233454"
 ---
 # <a name="adding-mobile-services-by-using-visual-studio-connected-services"></a>Att lägga till Mobile Services med hjälp av Visual Studio Connected Services
 Med Visual Studio 2015 kan du ansluta till Azure Mobile Services med den **Lägg till Connected Service** dialogrutan. Du kan ansluta från alla klientappar för C#, JavaScript-app eller plattformsoberoende Cordova-app. När du ansluter kan du skapa och komma åt data, skapa anpassade API: er och schemalagda jobb eller lägga till stöd för push-meddelanden.  Anslutna tjänster åtgärden lägger till alla lämpliga referenser och anslutningen kod. Du kan också dra nytta av inbyggt stöd för autentisering med en mängd olika populära identitet system, t.ex Azure AD, Facebook, Twitter och Microsoft-Accounts.
@@ -68,7 +68,7 @@ Du kan använda dialogrutan Connected Services för att ansluta till Azure Mobil
 6. Med kodexempel som vägledning, börja skriva kod för att få åtkomst till din Mobiltjänst!
 
 ## <a name="how-your-project-is-modified"></a>Hur ditt projekt ändras
-Hur Visual Studio ändrar projektet beror på vilken projekt. C#-klientprogram, se [vad hände – C#-projekt](http://go.microsoft.com/fwlink/p/?LinkId=513119). JavaScript-klientprogram, se [vad hände – JavaScript-projekt](http://go.microsoft.com/fwlink/p/?LinkId=513120). Cordova-appar Se [vad hände – Cordova-projekt](http://go.microsoft.com/fwlink/p/?LinkId=513116).
+Hur Visual Studio ändrar projektet beror på vilken projekt. För C# klient apps finns i [vad har hänt – C# projekt](http://go.microsoft.com/fwlink/p/?LinkId=513119). JavaScript-klientprogram, se [vad hände – JavaScript-projekt](http://go.microsoft.com/fwlink/p/?LinkId=513120). Cordova-appar Se [vad hände – Cordova-projekt](http://go.microsoft.com/fwlink/p/?LinkId=513116).
 
 ## <a name="next-steps"></a>Nästa steg
 Ställ frågor och få hjälp: 

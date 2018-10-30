@@ -4,19 +4,19 @@ description: Azure Policy-utvärderingar och effekterna avgör efterlevnad. Lär
 services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 09/18/2018
+ms.date: 10/29/2018
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: 3fa185e741f1b14bf3f2e7413945b70b1ea1baaa
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: f88e68150aa2708557775df2719409228166520b
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46970863"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50233420"
 ---
-# <a name="getting-compliance-data"></a>Hämta data för kompatibilitetsinställningar
+# <a name="getting-compliance-data"></a>Hämta data för efterlevnad
 
 En av de största fördelarna med Azure Policy är insikter och kontroller över resurser i en prenumeration eller [hanteringsgruppen](../../management-groups/overview.md) av prenumerationer. Den här kontrollen kan utföras på många olika sätt, till exempel förhindrar resurser som skapas på fel plats, tillämpa gemensam och enhetlig taggen användning, eller granskning befintliga resurser för lämpliga konfigurationer och inställningar. I samtliga fall genereras data av en princip så att du kan förstå kompatibilitetsstatusen för din miljö.
 
@@ -40,6 +40,44 @@ Utvärderingar av tilldelade principer och initiativ inträffa till följd av ol
 - En princip eller ett initiativ som redan har tilldelats till ett scope har uppdaterats. Utvärderingscykel för datorprincip och val av tidpunkt för det här scenariot är desamma som för en ny tilldelning till ett omfång.
 - En resurs har distribuerats till ett omfång med en tilldelning via Resource Manager, REST, Azure CLI eller Azure PowerShell. I det här scenariot händelsen effekt (lägga till, granska, neka, distribuera) och kompatibel statusinformation för enskilda resursen blir tillgänglig i portalen och SDK: er ungefär 15 minuter senare. Den här händelsen orsakar inte en utvärdering av andra resurser.
 - Utvärderingscykel för standard efterlevnad. En gång per dygn är tilldelningar automatiskt ny utvärdering. En stor princip eller ett initiativ utvärderas mot en stor omfattning av resurser kan ta tid, så det är fördefinierade förväntar när utvärderingen migreringscykel slutförs. När testet är klart är uppdaterade kompatibilitetsresultat tillgängliga i portalen och SDK: er.
+- På begäran-genomsökning
+
+### <a name="on-demand-evaluation-scan"></a>På begäran utvärderingssökning
+
+En utvärderingssökning för en prenumeration eller resursgrupp kan startas med ett anrop till REST API. Det här är en asynkron åtgärd. Därför behöver inte REST-slutpunkt för att starta genomsökningen vänta tills genomsökningen är klar att svara. Det ger i stället en URI för att fråga efter statusen för den begärda utvärderingen.
+
+I varje REST API-URI finns det variabler som används och som du måste ersätta med egna värden:
+
+- `{YourRG}` – Ersätt med namnet på din resursgrupp
+- `{subscriptionId}` – Ersätt med ditt prenumerations-ID
+
+Genomsökningen har stöd för utvärdering av resurser i en prenumeration eller i en resursgrupp. Starta en sökning efter det önskade omfånget med en REST-API **POST** kommando med hjälp av följande URI-konstruktioner:
+
+- Prenumeration
+
+  ```http
+  POST https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.PolicyInsights/policyStates/latest/triggerEvaluation?api-version=2018-07-01-preview
+  ```
+
+- Resursgrupp
+
+  ```http
+  POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{YourRG}/providers/Microsoft.PolicyInsights/policyStates/latest/triggerEvaluation?api-version=2018-07-01-preview
+  ```
+
+Anropet returnerar en **202 accepterade** status. Ingår i svaret är ett **plats** egenskapen med följande format:
+
+```http
+https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.PolicyInsights/asyncOperationResults/{ResourceContainerGUID}?api-version=2018-07-01-preview
+```
+
+`{ResourceContainerGUID}` genereras statiskt för begärda omfång. Om ett scope redan utför en på begäran-sökning, har en ny genomsökning inte startats. I stället den nya förfrågan har angetts samma `{ResourceContainerGUID}` **plats** URI för status. Ett REST-API **hämta** för att den **plats** URI: N returnerar en **202 accepterade** medan utvärderingen pågår. När genomsökningen utvärderingen har slutförts returneras en **200 OK** status. Brödtexten i en slutförd genomsökning är ett JSON-svar med statusen:
+
+```json
+{
+    "status": "Succeeded"
+}
+```
 
 ## <a name="how-compliance-works"></a>Så här fungerar efterlevnad
 

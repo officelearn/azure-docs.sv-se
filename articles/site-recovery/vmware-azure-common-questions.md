@@ -1,23 +1,22 @@
 ---
-title: Vanliga frågor – VMware till Azure-replikering med Azure Site Recovery | Microsoft Docs
-description: Den här artikeln sammanfattas vanliga frågor när du replikerar lokala virtuella VMware-datorer till Azure med hjälp av Azure Site Recovery
-services: site-recovery
+title: Vanliga frågor – VMware till Azure-haveriberedskap med Azure Site Recovery | Microsoft Docs
+description: Den här artikeln sammanfattas vanliga frågor när du konfigurerar haveriberedskap för lokala virtuella VMware-datorer till Azure med Azure Site Recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
-ms.date: 07/19/2018
+ms.date: 10/29/2018
 ms.topic: conceptual
 ms.author: raynew
-ms.openlocfilehash: 487e0c763ca4b247f1818b2beaf3282734fc4e27
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: 086acdd74932836627c600b5545bc4353052ad6f
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49388450"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50215454"
 ---
 # <a name="common-questions---vmware-to-azure-replication"></a>Vanliga frågor – VMware till Azure replikering
 
-Den här artikeln innehåller svar på vanliga frågor som visas när du replikerar lokala virtuella VMware-datorer till Azure. Om du har frågor när du har läst den här artikeln kan publicera dem på den [Azure Recovery Services-forumet](https://social.msdn.microsoft.com/Forums/azure/home?forum=hypervrecovmgr).
+Den här artikeln innehåller svar på vanliga frågor som vi kan se när du distribuerar haveriberedskap för lokala virtuella VMware-datorer till Azure. Om du har frågor när du har läst den här artikeln kan publicera dem på den [Azure Recovery Services-forumet](https://social.msdn.microsoft.com/Forums/azure/home?forum=hypervrecovmgr).
 
 
 ## <a name="general"></a>Allmänt

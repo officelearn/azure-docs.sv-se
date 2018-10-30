@@ -1,21 +1,21 @@
 ---
-title: Azure Site Recovery-kapacitetsplaneraren för VMware till Azure| Microsoft Docs
-description: I den här artikeln beskrivs analysen av genererade rapporter för Azure Site Recovery-kapacitetsplaneraren för VMware till Azure-scenariot.
-services: site-recovery
+title: Analysera rapporten för Distributionshanteraren för Azure Site Recovery för haveriberedskap för VMware till Azure | Microsoft Docs
+description: Den här artikeln beskriver hur du analyserar rapporten som genereras av Distributionshanteraren för Azure Site Recovery för VMware-haveriberedskap till Azure.
 author: nsoneji
 manager: garavd
 ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/11/2018
 ms.author: nisoneji
-ms.openlocfilehash: e6aa3a8c788fe06a528a9c363a28faffa0a9ca88
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: d709b13aaf6b6ee9a913484ed503da1e76982d17
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49094096"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50213924"
 ---
-# <a name="azure-site-recovery-deployment-planner-report"></a>Rapport för kapacitetsplaneraren i Azure Site Recovery
+# <a name="analyze-the-azure-site-recovery-deployment-planner-report-for-vmware-disaster-recovery-to-azure"></a>Analysera rapporten för Distributionshanteraren för Azure Site Recovery för VMware-haveriberedskap till Azure
+
 Den genererade rapporten i Microsoft Excel innehåller följande ark:
 ## <a name="on-premises-summary"></a>Lokal sammanfattning
 På sidan Lokal sammanfattning visas en översikt över den profilerade VMware-miljön.

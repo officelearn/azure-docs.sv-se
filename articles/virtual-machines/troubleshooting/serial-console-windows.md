@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 10/22/2018
 ms.author: harijay
-ms.openlocfilehash: facd9be037894932e516e8294e36b6b0e55374c8
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.openlocfilehash: 2cde7d2af4dee9e2bd241f0856b8f2d29ccad6ad
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50024436"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50210745"
 ---
 # <a name="virtual-machine-serial-console"></a>Virtual Machine Serial Console
 
@@ -54,20 +54,26 @@ Seriekonsol för virtuella datorer bara kan nås via [Azure-portalen](https://po
   4. Rulla ned till avsnittet om Support och felsökning och klicka på alternativet ”seriekonsolen”. Ett nytt fönster med seriell konsol öppnas och starta anslutningen.
 
 ## <a name="enable-serial-console-in-custom-or-older-images"></a>Aktivera Seriekonsolen i anpassade eller äldre bilder
-Nyare Windows Server-avbildningar på Azure har [särskilda administrationskonsolen](https://technet.microsoft.com/library/cc787940(v=ws.10).aspx) (SAC) aktiverad som standard. SAC stöds på server-versioner av Windows men är inte tillgänglig på klientversioner (till exempel Windows 10, Windows 8 eller Windows 7). Om du vill aktivera seriekonsol för Windows-datorer som skapats före februari 2018, använder du följande steg: 
+Nyare Windows Server-avbildningar på Azure har [särskilda administrationskonsolen](https://technet.microsoft.com/library/cc787940(v=ws.10).aspx) (SAC) aktiverad som standard. SAC stöds på server-versioner av Windows men är inte tillgänglig på klientversioner (till exempel Windows 10, Windows 8 eller Windows 7). 
+
+För äldre Windows Server-avbildningar (som skapats före februari 2018), kan du automatiskt seriekonsolen via Azure portal kommandot Kör funktionen. Leta efter kommandot Kör med namnet ”EnableEMS” i Azure-portalen.
+
+![](./media/virtual-machines-serial-console/virtual-machine-windows-serial-console-runcommand.png)
+
+Du kan också för att manuellt Aktivera seriekonsol för Windows-datorer som skapats före februari 2018, Använd följande steg: 
 
 1. Ansluta till din Windows-dator via fjärrskrivbord
-2. Kör följande kommandon från en administrativ kommandotolk 
-* `bcdedit /ems {current} on`
-* `bcdedit /emssettings EMSPORT:1 EMSBAUDRATE:115200`
-3. Starta om systemet för SAC-konsolen ska vara aktiverat
+1. Kör följande kommandon från en administrativ kommandotolk 
+    * `bcdedit /ems {current} on`
+    * `bcdedit /emssettings EMSPORT:1 EMSBAUDRATE:115200`
+1. Starta om systemet för SAC-konsolen ska vara aktiverat
 
-![](/media/virtual-machines-serial-console/virtual-machine-windows-serial-console-connect.gif)
+![](./media/virtual-machines-serial-console/virtual-machine-windows-serial-console-connect.gif)
 
 Om det behövs kan SAC aktiveras offline samt:
 
 1. Ansluta windows-disken som du vill att SAC som konfigurerats för som en datadisk till en befintlig virtuell dator. 
-2. Kör följande kommandon från en administrativ kommandotolk 
+1. Kör följande kommandon från en administrativ kommandotolk 
 * `bcdedit /store <mountedvolume>\boot\bcd /ems {default} on`
 * `bcdedit /store <mountedvolume>\boot\bcd /emssettings EMSPORT:1 EMSBAUDRATE:115200`
 

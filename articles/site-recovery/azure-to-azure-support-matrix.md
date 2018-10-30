@@ -1,26 +1,23 @@
 ---
-title: Azure Site Recovery-stödmatris för replikering från Azure till Azure | Microsoft Docs
+title: Azure Site Recovery-supportmatrisen för haveriberedskap för virtuella Azure IaaS-datorer mellan Azure-regioner med Azure Site Recovery | Microsoft Docs
 description: Sammanfattning av de operativsystem som stöds och konfigurationer för Azure Site Recovery-replikering av virtuella Azure-datorer (VM) från en region till en annan för disaster recovery (DR) behov.
 services: site-recovery
-author: sujayt
-manager: rochakm
+author: rayne-wiselman
+manager: carmonm
 ms.service: site-recovery
-ms.devlang: na
-ms.topic: article
-ms.date: 09/10/2018
-ms.author: sujayt
-ms.openlocfilehash: 49773e076ed8bb06ff76f9f654b914a709051fb5
-ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
+ms.topic: conceptual
+ms.date: 10/28/2018
+ms.author: raynew
+ms.openlocfilehash: a2668ab99ef110c89ddd69cd5e8df858552d27af
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49378626"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50215063"
 ---
-# <a name="support-matrix-for-replicating-from-one-azure-region-to-another"></a>Stöd matrix för replikering från en Azure-region till en annan
+# <a name="support-matrix-for-disaster-recovery-of-azure-vms-between-azure-regions"></a>Stöd matrix för haveriberedskap för virtuella Azure-datorer mellan Azure-regioner
 
-
-
-Den här artikeln sammanfattar konfigurationer som stöds och komponenter när du replikerar och återställa virtuella Azure-datorer från en region till en annan region med hjälp av den [Azure Site Recovery](site-recovery-overview.md) service.
+Den här artikeln sammanfattas konfigurationer som stöds och komponenter när du distribuerar haveriberedskap med replikering, redundans och återställning av virtuella Azure-datorer från en Azure-region till en annan, med hjälp av den [Azure Site Recovery](site-recovery-overview.md) tjänsten.
 
 ## <a name="user-interface-options"></a>Alternativ för användargränssnitt
 

@@ -10,12 +10,12 @@ manager: jeconnoc
 ms.reviewer: klam, LADocs
 ms.date: 10/03/2018
 ms.topic: article
-ms.openlocfilehash: ac184ce790a0700fcacc63f70c2bb321142d7224
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: aac59e087ba106bc20d94fea85cb8a3cd9273482
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49320551"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50233080"
 ---
 # <a name="run-actions-based-on-group-status-with-scopes-in-azure-logic-apps"></a>Kör åtgärder baserat på status för distributionsgrupp med omfång i Azure Logic Apps
 
@@ -213,7 +213,7 @@ Lägg sedan till ett omfång så att du kan gruppera specifika åtgärder och ut
 
       ![Välj omfattning statusar](./media/logic-apps-control-flow-run-steps-group-scopes/select-run-after-statuses.png)
 
-   1. När du är klar väljer **klar**. 
+   1. När du är klar väljer du **Klar**. 
    Villkoret visar nu en ”information”-ikon.
 
 1. I den **om värdet är true** och **om falskt** grenar, lägga till de åtgärder som du vill utföra baserat på varje omfång status, till exempel skicka ett e-post eller ett meddelande.
@@ -389,7 +389,7 @@ Om du arbetar i kodvy, kan du definiera en scope-struktur i JSON-definition för
 ## <a name="get-support"></a>Få support
 
 * Om du har frågor kan du besöka [forumet för Azure Logic Apps](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
-* Om du vill skicka in eller rösta på funktioner och förslag, Besök den [webbplatsen för Azure Logic Apps-Användarfeedback](http://aka.ms/logicapps-wish).
+* Om du vill skicka in eller rösta på funktioner och förslag, Besök den [webbplatsen för Azure Logic Apps-Användarfeedback](https://aka.ms/logicapps-wish).
 
 ## <a name="next-steps"></a>Nästa steg
 

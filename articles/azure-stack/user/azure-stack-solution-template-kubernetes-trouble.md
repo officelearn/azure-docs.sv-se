@@ -11,15 +11,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/11/2018
+ms.date: 10/29/2018
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.openlocfilehash: fbb51d8dc3b1ea4c6b34120e8fe35474ae949cf2
-ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
+ms.openlocfilehash: 7071e22d703ab7ec3a51eff02d1694fc04cb3417
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49116920"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50231244"
 ---
 # <a name="troubleshoot-your-deployment-to-kubernetes-to-azure-stack"></a>Felsöka din distribution till Kubernetes i Azure Stack
 
@@ -28,7 +28,7 @@ ms.locfileid: "49116920"
 > [!Note]  
 > Kubernetes på Azure Stack är en förhandsversion.
 
-I följande artikel tittar på felsökning av ditt Kubernetes-kluster. Du kan granska aviseringen för distribution och granska statusen för distributionen av element som krävs för distributionen. Du kan behöva samlar in distributionsloggarna från Azure Stack- eller Linux-datorer som är värdar för Kubernetes. Du kan dessutom behöva arbeta med Azure Stack-administratören om du vill hämta loggar från en administrativ slutpunkt.
+I följande artikel tittar på felsökning av ditt Kubernetes-kluster. Du kan granska aviseringen för distribution och granska statusen för distributionen genom att titta på de element som krävs för distributionen. Du kan behöva samlar in distributionsloggarna från Azure Stack- eller Linux-datorer som är värdar för Kubernetes. Du kan dessutom behöva arbeta med Azure Stack-administratören om du vill hämta loggar från en administrativ slutpunkt.
 
 ## <a name="overview-of-deployment"></a>Översikt över distribution
 
@@ -47,7 +47,7 @@ Följande diagram visar den allmänna processen för att distribuera klustret.
     Ange de värden som du behöver du ställer in Kubernetes-kluster för inklusive:
     -  **Användarnamn** användarnamn för Linux-datorer som ingår i Kubernetes-klustret och DVM.
     -  **Offentlig SSH-nyckel** den nyckel som används för alla Linux-datorer som skapats som en del av Kubernetes-kluster och DVM godkännande
-    -  **Tjänsten princip** ID. används av providern för Kubernetes Azure-molnet. Klient-ID som identifieras som program-ID när du skapade tjänstens huvudnamn. 
+    -  **Tjänsten princip** ID. används av providern för Kubernetes Azure-molnet. Klient-ID har identifierats som program-ID när du har skapat tjänsten huvudnamn. 
     -  **Klienthemlighet** de nycklar som du skapade när du skapar tjänstens huvudnamn.
 
 2. Skapar distribution VM och tillägget för anpassat skript.

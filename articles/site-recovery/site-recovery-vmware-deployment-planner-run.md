@@ -1,21 +1,20 @@
 ---
-title: Azure Site Recovery-kapacitetsplaneraren för VMware till Azure| Microsoft Docs
-description: I den här artikeln beskrivs hur du kör Distributionshanteraren för Azure Site Recovery för scenariot VMware till Azure.
-services: site-recovery
+title: Kör Distributionshanteraren för Azure Site Recovery för VMware-haveriberedskap till Azure | Microsoft Docs
+description: Den här artikeln beskriver hur du kör Distributionshanteraren för Azure Site Recovery för VMware-haveriberedskap till Azure.
 author: nsoneji
 manager: garavd
 ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/11/2018
 ms.author: nisoneji
-ms.openlocfilehash: f83ab78cae17859dc28349cf7c435d7101c5fa3b
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: b890dce5d94c2177c8fc8cdb5477b92df15c8095
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49093171"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50211034"
 ---
-# <a name="run-azure-site-recovery-deployment-planner-for-vmware-to-azure"></a>Köra Distributionshanteraren för Azure Site Recovery för VMware till Azure
+# <a name="run-the-azure-site-recovery-deployment-planner-for-vmware-disaster-recovery-to-azure"></a>Kör Distributionshanteraren för Azure Site Recovery för VMware-haveriberedskap till Azure
 Den här artikeln utgör användarhandboken för Azure Site Recovery Deployment Planner för produktionsdistribution av VMware till Azure.
 
 

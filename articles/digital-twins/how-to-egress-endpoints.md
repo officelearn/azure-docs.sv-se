@@ -6,20 +6,20 @@ manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 10/08/2018
+ms.date: 10/26/2018
 ms.author: alinast
-ms.openlocfilehash: c917fab84448684cf29af162ec0781d764605f71
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: c09ee84cda5f0a9747d3ee1f8f1b37d1323f2cc2
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49324337"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50212258"
 ---
 # <a name="egress-and-endpoints"></a>Utgående och slutpunkter
 
 Azure Digital Twins stöder begreppet _slutpunkter_ där varje slutpunkt representerar en meddelande/händelsekoordinator i användarens Azure-prenumeration. Händelser och meddelanden kan skickas till **Händelsehubb**, **Event Grid**, och **Service Bus-ämnen**.
 
-Händelser skickas till slutpunkter i enlighet med fördefinierade inställningar för routning: användaren kan ange vilken slutpunkt som ska ta emot någon av följande händelser:`TopologyOperation`, `UdfCustom`, `SensorChange`, `SpaceChange`, eller `DeviceMessage`.
+Händelser skickas till slutpunkter i enlighet med fördefinierade inställningar för routning: användaren kan ange vilken slutpunkt som ska ta emot någon av följande händelser: **TopologyOperation**, **UdfCustom**, **SensorChange**, **SpaceChange**, eller **DeviceMessage**.
 
 En grundläggande förståelse för händelser som Routning och händelsetyper finns [routning händelser och meddelanden](concepts-events-routing.md).
 
@@ -27,9 +27,9 @@ En grundläggande förståelse för händelser som Routning och händelsetyper f
 
 Här följer händelseformatet för varje händelse:
 
-- `TopologyOperation`
+- **TopologyOperation**
 
-  Gäller för ändringar i metadatadiagram. Den `subject` egenskapen anger vilken typ av objekt som påverkas. Typer av objekt som kan utlösa den här händelsen är: `Device, DeviceBlobMetadata`, `DeviceExtendedProperty`, `ExtendedPropertyKey`, `ExtendedType`, `KeyStore`, `Report`, `RoleDefinition`, `Sensor`, `SensorBlobMetadata`, `SensorExtendedProperty`, `Space` ,  `SpaceBlobMetadata`, `SpaceExtendedProperty`, `SpaceResource`, `SpaceRoleAssignment`, `System`, `User`, `UserBlobMetadata`, `UserExtendedProperty`.
+  Gäller för ändringar i metadatadiagram. Den *ämne* egenskap anger typ av objekt som påverkas. Typer av objekt som kan utlösa den här händelsen är: **enhet**, **DeviceBlobMetadata**, **DeviceExtendedProperty**, **ExtendedPropertyKey**, **ExtendedType**, **KeyStore**, **rapporten**, **RoleDefinition**, **Sensor**, **SensorBlobMetadata**, **SensorExtendedProperty**, **utrymme**, **SpaceBlobMetadata**,  **SpaceExtendedProperty**, **SpaceResource**, **SpaceRoleAssignment**, **System**, **användaren**, **UserBlobMetadata**, **UserExtendedProperty**.
 
   Exempel:
 
@@ -55,11 +55,14 @@ Här följer händelseformatet för varje händelse:
 
     | Anpassade attributets namn | Ersätt med |
     | --- | --- |
-    | `yourTopicName` | Namnet på ditt anpassade ämne |
+    | *yourTopicName* | Namnet på ditt anpassade ämne |
 
-- `UdfCustom`
+- **UdfCustom**
 
-  En händelse som skickas av en användardefinierad funktion (UDF). Observera att den här händelsen har uttryckligen skickas från UDF själva.
+  En händelse som skickas av en användardefinierad funktion (UDF). 
+  
+  > [!IMPORTANT]
+  > Den här händelsen har uttryckligen skickas från UDF själva.
 
   Exempel:
 
@@ -83,9 +86,9 @@ Här följer händelseformatet för varje händelse:
 
     | Anpassade attributets namn | Ersätt med |
     | --- | --- |
-    | `yourTopicName` | Namnet på ditt anpassade ämne |
+    | *yourTopicName* | Namnet på ditt anpassade ämne |
 
-- `SensorChange`
+- **SensorChange**
 
   En uppdatering av en sensor tillstånd baserat på ändringar av telemetri.
 
@@ -118,9 +121,9 @@ Här följer händelseformatet för varje händelse:
 
     | Anpassade attributets namn | Ersätt med |
     | --- | --- |
-    | `yourTopicName` | Namnet på ditt anpassade ämne |
+    | *yourTopicName* | Namnet på ditt anpassade ämne |
 
-- `SpaceChange`
+- **SpaceChange**
 
   En uppdatering av ett blanksteg tillstånd baserat på ändringar av telemetri.
 
@@ -153,15 +156,15 @@ Här följer händelseformatet för varje händelse:
 
     | Anpassade attributets namn | Ersätt med |
     | --- | --- |
-    | `yourTopicName` | Namnet på ditt anpassade ämne |
+    | *yourTopicName* | Namnet på ditt anpassade ämne |
 
-- `DeviceMessage`
+- **DeviceMessage**
 
-  Låter dig ange en `EventHub` anslutning som råtelemetridata händelser kan vidarebefordras samt från Azure Digital Twins.
+  Låter dig ange en **EventHub** anslutning som råtelemetridata händelser kan vidarebefordras samt från Azure Digital Twins.
 
 > [!NOTE]
-> - `DeviceMessage` är Kombinerbara endast med `EventHub`; du kan inte kombinera `DeviceMessage` med andra typer av händelse.
-> - Du kommer att kunna ange endast en slutpunkt av kombinationen av typ `EventHub` / `DeviceMessage`.
+> - **DeviceMessage** är Kombinerbara endast med **EventHub**; du kan inte kombinera **DeviceMessage** med andra typer av händelse.
+> - Du kommer att kunna ange endast en slutpunkt av kombinationen av typ **EventHub** eller **DeviceMessage**.
 
 ## <a name="configuring-endpoints"></a>Konfigurera slutpunkter
 
@@ -171,7 +174,7 @@ Hantering av slutpunkten utnyttjas via API-slutpunkter. Här följer några exem
 POST https://endpoints-demo.azuresmartspaces.net/management/api/v1.0/endpoints
 ```
 
-- Dirigera till **Service Bus** händelsetyper: `SensorChange`, `SpaceChange`, `TopologyOperation`
+- Dirigera till **Service Bus** händelsetyper: **SensorChange**, **SpaceChange**, **TopologyOperation**
 
   ```JSON
   {
@@ -189,12 +192,12 @@ POST https://endpoints-demo.azuresmartspaces.net/management/api/v1.0/endpoints
 
     | Anpassade attributets namn | Ersätt med |
     | --- | --- |
-    | `yourNamespace` | Namnområdet för din slutpunkt |
-    | `yourPrimaryKey` | Primär anslutningssträng som används för att autentisera |
-    | `yourSecondaryKey` | Sekundär anslutningssträng som används för att autentisera |
-    | `yourTopicName` | Namnet på ditt anpassade ämne |
+    | *yourNamespace* | Namnområdet för din slutpunkt |
+    | *yourPrimaryKey* | Primär anslutningssträng som används för att autentisera |
+    | *yourSecondaryKey* | Sekundär anslutningssträng som används för att autentisera |
+    | *yourTopicName* | Namnet på ditt anpassade ämne |
 
-- Dirigera till **Event Grid** händelsetyper: `SensorChange`, `SpaceChange`, `TopologyOperation`
+- Dirigera till **Event Grid** händelsetyper: **SensorChange**, **SpaceChange**, **TopologyOperation**
 
   ```JSON
   {
@@ -212,11 +215,11 @@ POST https://endpoints-demo.azuresmartspaces.net/management/api/v1.0/endpoints
 
     | Anpassade attributets namn | Ersätt med |
     | --- | --- |
-    | `yourPrimaryKey` | Primär anslutningssträng som används för att autentisera|
-    | `yourSecondaryKey` | Sekundär anslutningssträng som används för att autentisera |
-    | `yourTopicName` | Namnet på ditt anpassade ämne |
+    | *yourPrimaryKey* | Primär anslutningssträng som används för att autentisera|
+    | *yourSecondaryKey* | Sekundär anslutningssträng som används för att autentisera |
+    | *yourTopicName* | Namnet på ditt anpassade ämne |
 
-- Dirigera till **Händelsehubb** händelsetyper: `SensorChange`, `SpaceChange`, `TopologyOperation`
+- Dirigera till **Händelsehubb** händelsetyper: **SensorChange**, **SpaceChange**, **TopologyOperation**
 
   ```JSON
   {
@@ -234,12 +237,12 @@ POST https://endpoints-demo.azuresmartspaces.net/management/api/v1.0/endpoints
 
     | Anpassade attributets namn | Ersätt med |
     | --- | --- |
-    | `yourNamespace` | Namnområdet för din slutpunkt |
-    | `yourPrimaryKey` | Primär anslutningssträng som används för att autentisera |
-    | `yourSecondaryKey` | Sekundär anslutningssträng som används för att autentisera |
-    | `yourEventHubName` | Namnet på din Event Hub |
+    | *yourNamespace* | Namnområdet för din slutpunkt |
+    | *yourPrimaryKey* | Primär anslutningssträng som används för att autentisera |
+    | *yourSecondaryKey* | Sekundär anslutningssträng som används för att autentisera |
+    | *yourEventHubName* | Namnet på din **Event Hub** |
 
-- Dirigera till **Händelsehubb** händelsetyper `DeviceMessage`. Observera inkludering av _EntityPath_ i den `connectionString`, vilket är obligatorisk.
+- Dirigera till **Händelsehubb** Händelsetyp: **DeviceMessage**. Inkludering av `EntityPath` i den **connectionString** är obligatoriskt.
 
   ```JSON
   {
@@ -255,10 +258,10 @@ POST https://endpoints-demo.azuresmartspaces.net/management/api/v1.0/endpoints
 
     | Anpassade attributets namn | Ersätt med |
     | --- | --- |
-    | `yourNamespace` | Namnområdet för din slutpunkt |
-    | `yourPrimaryKey` | Primär anslutningssträng som används för att autentisera |
-    | `yourSecondaryKey` | Sekundär anslutningssträng som används för att autentisera |
-    | `yourEventHubName` | Namnet på din Event Hub |
+    | *yourNamespace* | Namnområdet för din slutpunkt |
+    | *yourPrimaryKey* | Primär anslutningssträng som används för att autentisera |
+    | *yourSecondaryKey* | Sekundär anslutningssträng som används för att autentisera |
+    | *yourEventHubName* | Namnet på din **Event Hub** |
 
 > [!NOTE]
 > Det kan ta upp till 5 till 10 minuter för att börja ta emot händelser vid slutpunkten vid skapandet av en ny slutpunkt.

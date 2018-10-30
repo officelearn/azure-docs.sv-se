@@ -1,21 +1,21 @@
 ---
-title: Vanliga frågor – Hyper-V till Azure-replikering med Azure Site Recovery | Microsoft Docs
-description: Den här artikeln sammanfattas vanliga frågor om att replikera lokala virtuella Hyper-V-datorer till Azure med hjälp av Azure Site Recovery.
+title: Vanliga frågor – Hyper-V till Azure-haveriberedskap med Azure Site Recovery | Microsoft Docs
+description: Den här artikeln sammanfattas vanliga frågor om hur du konfigurerar haveriberedskap för lokala Hyper-V-datorer till Azure med hjälp av Azure Site Recovery-plats.
 services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
-ms.date: 10/10/2018
+ms.date: 10/28/2018
 ms.topic: conceptual
 ms.author: raynew
-ms.openlocfilehash: 7c5316aea2bfdb9a96b9aeb2dd5387b2643a92b2
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: 6345cf47d19f7990e776e0fe4ec2bafd005c9cf2
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49319735"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50212496"
 ---
-# <a name="common-questions---hyper-v-to-azure-replication"></a>Vanliga frågor – Hyper-V till Azure replikering
+# <a name="common-questions---hyper-v-to-azure-disaster-recovery"></a>Vanliga frågor – Hyper-V till Azure-haveriberedskap
 
 Den här artikeln innehåller svar på vanliga frågor som visas när du replikerar lokala virtuella Hyper-V-datorer till Azure. 
 

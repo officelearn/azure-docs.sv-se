@@ -1,19 +1,8 @@
 ---
-title: Aktivera VMware VM-replikering till Azure med Azure Site Recovery | Microsoft Docs
-description: Den här artikeln beskriver hur du konfigurerar replikering av virtuella VMware-datorer till Azure med Azure Site Recovery.
-services: site-recovery
-author: asgang
-ms.service: site-recovery
-ms.date: 07/06/2018
-ms.topic: conceptual
-ms.author: asgang
-ms.openlocfilehash: 9a868b196a287b7a5121803136d3c0119f64d9fe
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
-ms.translationtype: MT
-ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37917031"
----
+Rubrik: Aktivera replikering av virtuella VMware-datorer för VMware-haveriberedskap till Azure med Azure Site Recovery | Microsoft Docs beskrivning: den här artikeln beskriver hur du aktiverar replikering av virtuella VMware-datorer för haveriberedskap till Azure med Azure Site Recovery.
+Författare: asgang ms.service: site recovery ms.date: 07/06/2018 ms.topic: Konceptuell ms.author: asgang
+
+
 # <a name="enable-replication-to-azure-for-vmware-vms"></a>Aktivera replikering till Azure för virtuella VMware-datorer
 
 

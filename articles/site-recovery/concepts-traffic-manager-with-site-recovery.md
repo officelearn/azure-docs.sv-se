@@ -2,19 +2,18 @@
 title: Azure Traffic Manager med Azure Site Recovery | Microsoft Docs
 description: Beskriver hur du använder Azure Traffic Manager med Azure Site Recovery för katastrofåterställning och migrering
 services: site-recovery
-documentationcenter: ''
 author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/16/2018
 ms.author: mayg
-ms.openlocfilehash: 8f303ec3349b0003ef764e437c6f06cf498dcc57
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: 42422bf94b4bb401850b6b6b21b089c4ab261d75
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49353262"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50212808"
 ---
 # <a name="azure-traffic-manager-with-azure-site-recovery"></a>Azure Traffic Manager med Azure Site Recovery
 

@@ -1,22 +1,19 @@
 ---
-title: Använda rollbaserad åtkomstkontroll för att hantera Azure Site Recovery | Microsoft Docs
-description: Den här artikeln beskriver hur du tillämpa och använda rollbaserad åtkomstkontroll (RBAC) för att hantera dina Azure Site Recovery-distributioner
+title: Hantera Azure Site Recovery-åtkomst med rollbaserad åtkomstkontroll (RBAC) | Microsoft Docs
+description: Den här artikeln beskriver hur du använder rollbaserad åtkomst bontrol (RBAC) för att hantera åtkomst för Azure Site Recovery.
 ms.service: site-recovery
-ms.workload: backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.date: 10/16/2018
 author: mayurigupta13
 ms.topic: conceptual
 ms.author: mayg
-ms.openlocfilehash: 9ec9acab4ad83af22504058c21b102df94b8692d
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: 19d41d8c9b1a54cefc09190531b064d640048385
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49353245"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50212054"
 ---
-# <a name="use-role-based-access-control-to-manage-site-recovery-access"></a>Använda rollbaserad åtkomstkontroll för att hantera Site Recovery-åtkomst
+# <a name="manage-site-recovery-access-with-role-based-access-control-rbac"></a>Hantera Site Recovery-åtkomst med rollbaserad åtkomstkontroll (RBAC)
 
 Rollbaserad åtkomstkontroll (RBAC) i Azure ger tillgång till ingående åtkomsthantering för Azure. Med RBAC kan du särskilja ansvarsområden i ditt team och bevilja endast specifika åtkomstbehörigheter till användare som behövs för att utföra specifika arbetsuppgifter.
 

@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/26/2018
+ms.date: 10/27/2018
 ms.author: sethm
 ms.reviewer: justini
-ms.openlocfilehash: 161b54620bd8a3c9994228a30bd7495717064168
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: d80e7bc1d391d9b5bfd718ca2dc0e9dc7ecb2268
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50158474"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50210881"
 ---
 # <a name="azure-stack-1809-update"></a>Uppdatering av Azure Stack 1809
 
@@ -38,6 +38,8 @@ Azure Stack 1809 update build-nummer är **1.1809.0.90**.
 ### <a name="new-features"></a>Nya funktioner
 
 Den här uppdateringen innehåller följande förbättringar för Azure Stack:
+
+- Den här versionen har integrerade Azure Stack-system har stöd för konfigurationer av 4 – 16 noder.
 
 - <!--  2712869   | IS  ASDK -->  **Azure Stack syslog-klienten (allmän tillgänglighet)** den här klienten gör att vidarebefordra granskningar, aviseringar och säkerhetsloggar som rör Azure Stack-infrastruktur till en syslog-server eller säkerhet och händelsehantering (SIEM) hanteringsprogramvara extern till Azure Stack. Syslog-klienten har nu stöd för att ange den port som syslog-servern lyssnar.
 
@@ -147,6 +149,8 @@ Klicka på föregående länkarna för mer information om dessa säkerhetsrisker
 - <!-- 2468613 - IS --> Under installationen av den här uppdateringen kan du se aviseringar med rubriken *fel – mall för FaultType UserAccounts.New saknas.*  Du kan ignorera dessa aviseringar. De här aviseringarna stängs automatiskt när installationen av uppdateringen har slutförts.
 
 - <!-- 2489559 - IS --> Försök inte att skapa virtuella datorer under installationen av uppdateringen. Mer information om hur du hanterar uppdateringar finns i [hantera uppdateringar i Azure Stack – översikt](azure-stack-updates.md#plan-for-updates).
+
+- <!-- 3139614 | IS --> Om du har använt en uppdatering till Azure Stack från din OEM, den **uppdatering** meddelande visas inte i Azure Stack-administratörsportalen. Om du vill installera Microsoft update, hämta och importera den manuellt med hjälp av anvisningarna här [tillämpa uppdateringar i Azure Stack](azure-stack-apply-updates.md).
 
 ### <a name="post-update-steps"></a>Steg efter uppdateringen
 

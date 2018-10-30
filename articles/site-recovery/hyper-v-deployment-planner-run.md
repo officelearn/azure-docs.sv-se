@@ -1,20 +1,20 @@
 ---
-title: Distributionshanteraren för Azure Site Recovery för Hyper-V till Azure| Microsoft Docs
-description: Den här artikeln lär du dig hur du kör Site Recovery deployment planner foro Hyper-V till Azure-replikering.
+title: Kör Azure Site Recovery Deployment Planner för Hyper-V haveriberedskap till Azure | Microsoft Docs
+description: Den här artikeln beskriver hur du kör Azure Site Recovery Deployment Planner för Hyper-V haveriberedskap till Azure.
 author: nsoneji
 manager: garavd
 ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/11/2018
 ms.author: nisoneji
-ms.openlocfilehash: 9da79884973c620bbf8b6a191f3dd6db5bd19064
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: 1df8f7025787eb864b7e9ad6f41105df8fb2cc8a
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49094198"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50213346"
 ---
-# <a name="run-azure-site-recovery-deployment-planner-for-hyper-v-to-azure"></a>Kör Azure Site Recovery-kapacitetsplaneraren för Hyper-V till Azure
+# <a name="run-the-azure-site-recovery-deployment-planner-for-hyper-v-disaster-recovery-to-azure"></a>Kör Azure Site Recovery deployment planner för Hyper-V haveriberedskap till Azure
 
 Du kan köra Site Recovery deployment planner kommandoradsverktyget (ASRDeploymentPlanner.exe) i någon av dessa tre lägen: 
 -   [Hämta listan med virtuella datorer (VM)](#get-vm-list-for-profiling-hyper-v-vms)

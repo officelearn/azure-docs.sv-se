@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/06/2018
+ms.date: 10/26/2018
 ms.author: sethm
-ms.openlocfilehash: 96137b95f46f24bca6a4ee6a39d93a490a03c431
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: a6d8ef698c005429c1184b5565b1a9387d05e062
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49958456"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50230122"
 ---
 # <a name="provide-applications-access-to-azure-stack"></a>Ge programåtkomst till Azure Stack
 
@@ -77,6 +77,13 @@ Skriptet körs från den privilegierade slutpunkten på en ERCS-dator.
 Krav:
 - Det krävs ett certifikat.
 
+Krav på certifikat:
+ - Den kryptografiprovider (CSP) måste vara äldre nyckelleverantören.
+ - Certifikatformatet måste vara i PFX-fil som krävs för både offentliga och privata nycklar. Windows-servrar använda PFX-filer som innehåller den offentliga nyckelfilen (SSL-certifikatfil) och den associera privata nyckelfilen.
+ - För produktion, måste certifikatet utfärdas från en intern certifikatutfärdare eller en offentlig certifikatutfärdare. Om du använder en offentlig certifikatutfärdare, måste du med behörighet i grundläggande systemavbildningen som en del av Microsoft Trusted Root utfärdare Program. Du hittar en fullständig lista på [Microsoft Trusted Root Certificate Program: deltagare](https://gallery.technet.microsoft.com/Trusted-Root-Certificate-123665ca).
+ - Azure Stack-infrastruktur måste ha nätverksåtkomst till certifikatutfärdarens certifikat listan över Återkallade plats publiceras i certifikatet. Den här listan över återkallade certifikat måste vara en HTTP-slutpunkt.
+
+
 #### <a name="parameters"></a>Parametrar
 
 Följande information måste anges som indata för automation-parametrar:
@@ -93,7 +100,7 @@ Följande information måste anges som indata för automation-parametrar:
 1. Öppna en upphöjd Windows PowerShell-session och kör följande kommandon:
 
    > [!NOTE]
-   > Det här exemplet skapar ett självsignerat certifikat. Använd när du kör dessa kommandon i en Produktionsdistribution [Get-Certificate](/powershell/module/pkiclient/get-certificate) att hämta certifikatobjekt för det certifikatet som du vill använda.
+   > Det här exemplet skapar ett självsignerat certifikat. Använd när du kör dessa kommandon i en Produktionsdistribution [Get-Item](/powershell/module/Microsoft.PowerShell.Management/Get-Item) att hämta certifikatobjekt för det certifikatet som du vill använda.
 
    ```PowerShell  
     # Credential for accessing the ERCS PrivilegedEndpoint, typically domain\cloudadmin
@@ -102,7 +109,7 @@ Följande information måste anges som indata för automation-parametrar:
     # Creating a PSSession to the ERCS PrivilegedEndpoint
     $session = New-PSSession -ComputerName <ERCS IP> -ConfigurationName PrivilegedEndpoint -Credential $creds
 
-    # This produces a self signed cert for testing purposes. It is prefered to use a managed certificate for this.
+    # This produces a self signed cert for testing purposes. It is preferred to use a managed certificate for this.
     $cert = New-SelfSignedCertificate -CertStoreLocation "cert:\CurrentUser\My" -Subject "CN=<yourappname>" -KeySpec KeyExchange
 
     $ServicePrincipal = Invoke-Command -Session $session -ScriptBlock { New-GraphApplication -Name '<yourappname>' -ClientCertificates $using:cert}

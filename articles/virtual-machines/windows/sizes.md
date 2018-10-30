@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 10/01/2018
 ms.author: jonbeck
-ms.openlocfilehash: cefcad9c427770c083e6451c088ce5cfc10a68f2
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
+ms.openlocfilehash: 7a1e38ddc150dadb9d4f088eed92564c40d9078b
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49394487"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50230479"
 ---
 # <a name="sizes-for-windows-virtual-machines-in-azure"></a>Storlekar för Windows-datorer i Azure
 
@@ -49,9 +49,9 @@ Den här artikeln beskrivs tillgängliga storlekar och alternativ för Azure-dat
 
 Information om hur du använder REST-API för att fråga för VM-storlekar finns i följande:
 
-- [Lista över tillgängliga VM-storlekar för storleksändring](https://docs.microsoft.com/rest/api/compute/virtualmachines/virtualmachines_listavailablesizes)
-- [Lista över tillgängliga VM-storlekar för en prenumeration](https://docs.microsoft.com/rest/api/compute/virtualmachines/virtualmachines_listall)
-- [Lista över tillgängliga VM-storlekar i en tillgänglighetsuppsättning](https://docs.microsoft.com/rest/api/compute/availabilitysets/availabilitysets_listavailablesizes)
+- [Lista över tillgängliga VM-storlekar för storleksändring](https://docs.microsoft.com/rest/api/compute/virtualmachines/listavailablesizes)
+- [Lista över tillgängliga VM-storlekar för en prenumeration](https://docs.microsoft.com/rest/api/compute/virtualmachines/listall)
+- [Lista över tillgängliga VM-storlekar i en tillgänglighetsuppsättning](https://docs.microsoft.com/rest/api/compute/availabilitysets/listavailablesizes)
 
 ## <a name="acu"></a>ACU
 

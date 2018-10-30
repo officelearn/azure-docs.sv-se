@@ -1,6 +1,6 @@
 ---
-title: Vad är nytt i Azure Machine Learning | Microsoft Docs
-description: Nya funktioner som är tillgängliga i Azure Machine Learning.
+title: Vad är nytt i Azure Machine Learning Studio | Microsoft Docs
+description: Nya funktioner som är tillgängliga i Azure Machine Learning Studio.
 services: machine-learning
 documentationcenter: ''
 author: YasinMSFT
@@ -14,44 +14,49 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/28/2017
-ms.openlocfilehash: 61bea7fde96b239a50ec25a702a73ecfb62ce717
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.date: 10/28/2018
+ms.openlocfilehash: 2f990ce30b66392e8a649e4e88b21457d9fe223b
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34836080"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50212666"
 ---
-# <a name="whats-new-in-azure-machine-learning"></a>Vad är nytt i Azure Machine Learning?
+# <a name="whats-new-in-azure-machine-learning-studio"></a>Vad är nytt i Azure Machine Learning Studio
 
-### <a name="the-march-2017-release-of-microsoft-azure-machine-learning-updates-provides-the-following-feature"></a>Mars 2017-versionen av Microsoft Azure Machine Learning uppdateringar innehåller följande funktioner:
+## <a name="october-2018"></a>Oktober 2018
+
+Motor för R-språket i den [kör R-skript](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/execute-r-script) modulen har lagt till en ny version av R runtime version--Microsoft R Open (MRO) 3.4.4. MRO 3.4.4 bygger på öppen källkod R CRAN 3.4.4 och därför är kompatibel med paket som fungerar med den versionen av R.  Mer information om de R-paket som stöds i artikeln ”[R-paket som stöds av Azure Machine Learning Studio](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/r-packages-supported-by-azure-machine-learning#bkmk_List)”.
+
+## <a name="march-2017"></a>Mars 2017 
+Den här versionen av Microsoft Azure Machine Learning uppdateringar innehåller följande funktioner:
+
+* Dedikerad kapacitet för Azure Machine Learning BES-jobb
+
+    Machine Learning Batch-Pool bearbetning använder den [Azure Batch](../../batch/batch-technical-overview.md) tjänster för att ge kundhanterad scale för Azure Machine Learning Batch Execution Service. Batchbearbetning för IP-Pool kan du skapa Azure Batch-pooler som du kan skicka batchjobb och få dem att köra i ett förutsägbart sätt.
+
+    Mer information finns i [Azure Batch-tjänsten för Machine Learning-jobb](dedicated-capacity-for-bes-jobs.md).
 
 
-
-* Dedikerade kapacitet för Azure Machine Learning BES-jobb
-
-    Datorn Learning Batch-Pool bearbetning använder den [Azure Batch](../../batch/batch-technical-overview.md) ska hanteras av kunden skalan för Azure Machine Learning Batch Execution Service. Poolen batchbearbetning kan du skapa Azure Batch-pooler som du kan skicka batchjobb och ha dem köra förutsägbart.
-
-    Mer information finns i [Azure Batch-tjänsten för Machine Learning jobb](dedicated-capacity-for-bes-jobs.md).
-
-
-### <a name="the-august-2016-release-of-microsoft-azure-machine-learning-updates-provide-the-following-features"></a>Augusti 2016-versionen av Microsoft Azure Machine Learning uppdateringar innehåller följande funktioner:
-* Klassiska webbtjänster kan hanteras i den nya [Microsoft Azure Machine Learning-webbtjänster](https://services.azureml.net/) portal som ger dig en plats för att hantera alla aspekter av webbtjänsten.    
+## <a name="august-2016"></a>Augusti 2016 
+Den här versionen av Microsoft Azure Machine Learning uppdateringar innehåller följande funktioner:
+* Klassiska webbtjänster kan nu hanteras i den nya [Microsoft Azure Machine Learning Web Services](https://services.azureml.net/) portal som tillhandahåller ett och samma ställe för att hantera alla aspekter av din webbtjänst.    
   * Som innehåller webbtjänsten [användningsstatistik](manage-new-webservice.md).
   * Förenklar testning av Azure Machine Learning fjärr-begäran-anrop med exempeldata.
-  * Ger en ny Batch Execution Service testsida exempel data och jobbet skicka historik.
+  * Ger en ny Batch Execution Service testsida sample data och jobbet skickas historik.
   * Tillhandahåller enklare hantering av slutpunkten.
 
-### <a name="the-july-2016-release-of-microsoft-azure-machine-learning-updates-provide-the-following-features"></a>Juli 2016-versionen av Microsoft Azure Machine Learning uppdateringar innehåller följande funktioner:
-* Webbtjänster som nu hanteras som Azure-resurser som hanteras via [Azure Resource Manager](../../azure-resource-manager/resource-group-overview.md) gränssnitt, vilket ger följande förbättringar:
-  * Det finns nya [REST API: er](https://msdn.microsoft.com/library/azure/Dn950030.aspx) att distribuera och hantera Resource Manager baserat webbtjänsterna.
-  * Det finns en ny [Microsoft Azure Machine Learning-webbtjänster](https://services.azureml.net/) portal som ger dig en plats för att hantera alla aspekter av webbtjänsten.
-* Innehåller en ny prenumeration-baserade, flera regioner web service distributionsmodell med Resource Manager baserade API: er som utnyttjar Resource Manager Resource Provider för webbtjänster.
-* Inför nya [prissättningar](https://azure.microsoft.com/pricing/details/machine-learning/) och planera hanteringsmöjligheter med nya Resource Manager RP för fakturering.
+## <a name="july-2016"></a>Juli 2016 
+Den här versionen av Microsoft Azure Machine Learning uppdateringar innehåller följande funktioner:
+* Webbtjänster hanteras nu som hanteras via Azure-resurser [Azure Resource Manager](../../azure-resource-manager/resource-group-overview.md) gränssnitt, vilket ger följande förbättringar:
+  * Det finns nya [REST API: er](https://msdn.microsoft.com/library/azure/Dn950030.aspx) baserat att distribuera och hantera Resource Manager-webbtjänster.
+  * Det finns en ny [Microsoft Azure Machine Learning Web Services](https://services.azureml.net/) portal som tillhandahåller ett och samma ställe för att hantera alla aspekter av din webbtjänst.
+* Innehåller en ny prenumerationsbaserade, flera regioner web service-distributionsmodellen med Resource Manager-baserade API: er som utnyttjar Resource Manager Resource Provider för Web Services.
+* Inför nya [prissättningsplaner](https://azure.microsoft.com/pricing/details/machine-learning/) och planera hanteringsfunktioner med hjälp av de nya Resource Manager-RP för fakturering.
   * Du kan nu [distribuera webbtjänsten till flera regioner](how-to-deploy-to-multiple-regions.md) utan att behöva skapa en prenumeration i varje region.
 * Innehåller webbtjänsten [användningsstatistik](manage-new-webservice.md).
 * Förenklar testning av Azure Machine Learning fjärr-begäran-anrop med exempeldata.
-* Ger en ny Batch Execution Service testsida exempel data och jobbet skicka historik.
+* Ger en ny Batch Execution Service testsida sample data och jobbet skickas historik.
 
-Dessutom har uppdaterats så att du kan distribuera till den nya Web service modellen Machine Learning Studio eller fortsätta att distribuera till den klassiska modellen för Web service. 
+Dessutom Machine Learning Studio har uppdaterats så att du kan distribuera till den nya Web service modellen eller fortsätta att distribuera till den klassiska modellen för Web service. 
 

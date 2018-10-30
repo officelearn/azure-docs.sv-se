@@ -1,19 +1,19 @@
 ---
-title: Redundansväxla från Azure till VMware med Azure Site Recovery | Microsoft Docs
-description: Du kan starta en återställning efter fel för att lägga till virtuella datorer till en lokal efter en redundansväxling av virtuella datorer till Azure. Läs om stegen för hur du växlar tillbaka.
+title: Redundansväxla från Azure under haveriberedskap för virtuella VMware-datorer till Azure med Azure Site Recovery | Microsoft Docs
+description: Lär dig hur du växlar tillbaka till den lokala platsen efter redundans till Azure, under haveriberedskap för virtuella VMware-datorer och fysiska servrar till Azure.
 author: nsoneji
 ms.service: site-recovery
 ms.date: 10/11/2018
 ms.topic: conceptual
 ms.author: nisoneji
-ms.openlocfilehash: 841e036555723051dfeaf946f31eaf9eedaee798
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: becf0b8c9f14d81b0a25fb1727b69452c3ff690c
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49093518"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50215182"
 ---
-# <a name="fail-back-from-azure-to-an-on-premises-site"></a>Redundansväxla från Azure till en lokal plats
+# <a name="fail-back-vmware-vms-and-physical-servers-from-azure-to-an-on-premises-site"></a>Återställ virtuella VMware-datorer och fysiska servrar från Azure till en lokal plats
 
 Den här artikeln beskriver hur du växlar tillbaka virtuella datorer från Azure-datorer till en lokal VMware-miljö. Följ anvisningarna i den här artikeln för att växla tillbaka din VMware-datorer eller Windows-/ Linux fysiska servrar när de har redundansväxlat från lokalerna platsen till Azure med hjälp av den [redundans i Azure Site Recovery](site-recovery-failover.md) självstudien.
 

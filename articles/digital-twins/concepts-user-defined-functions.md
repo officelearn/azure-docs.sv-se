@@ -6,14 +6,14 @@ manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 10/08/2018
+ms.date: 10/26/2018
 ms.author: alinast
-ms.openlocfilehash: b7561848ffd0158e22e97530774112dcee2a9864
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: a45f82b142ee4f4c9c88ea755607b88323feaae5
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49324184"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50210133"
 ---
 # <a name="data-processing-and-user-defined-functions"></a>Databearbetning och användardefinierade funktioner
 
@@ -25,7 +25,7 @@ När enheterna skickar telemetridata till Digital Twins, utvecklare kan bearbeta
 
 ![Digitala Twins bearbetning av flöde][1]
 
-1. Den _Validera_ fas omvandlar inkommande telemetri-meddelande till en lätt igenkännliga [ `data transfer object` ](https://en.wikipedia.org/wiki/Data_transfer_object) format. Det här steget körs också verifiering av enheten och sensorn.
+1. Den _Validera_ fas omvandlar inkommande telemetri-meddelande till en lätt igenkännliga [ **dataöverföringsobjekt** ](https://en.wikipedia.org/wiki/Data_transfer_object) format. Det här steget körs också verifiering av enheten och sensorn.
 1. Den _matchar_ fas söker efter den lämpliga användardefinierade funktioner ska köras. Fördefinierade matchers hittar användardefinierade funktioner baserat på enheten, sensor och information om diskutrymme från det inkommande meddelandet telemetri.
 1. Den _compute_ fas körs den användardefinierade funktioner som matchas i det föregående steget. Dessa funktioner kan läsa och uppdatera beräknade värden på spatial diagramnoder och kan skapa anpassade meddelanden.
 1. Den _dispatch_ fas dirigerar alla anpassade meddelanden från fasen beräkning till slutpunkter som definierats i diagrammet.
@@ -40,11 +40,11 @@ Databearbetning i Azure Digital Twins genom att definiera tre objekt: _matchers_
 
 _Matchers_ definierar en uppsättning villkor som utvärdera vilka åtgärder ska äga rum baserat på inkommande sensor telemetri. Dessa villkor för att bestämma matchningen kan omfatta egenskaper från sensorn, den sensorn överordnade enheter och den sensorn överordnade utrymme. Villkor som är uttryckt i jämförelser mot en [JSON-sökvägen](http://jsonpath.com/) som beskrivs i exemplet nedan:
 
-- Alla sensorer på datatype `Temperature`.
+- Alla sensorer på datatype **temperatur**.
 - Med `01` i sina port.
-- Som hör till enheter med den utökade Egenskapsnyckeln `Manufacturer` inställd på värdet `GoodCorp`.
-- Som tillhör blanksteg av typen `Venue`.
-- Som är underordnade överordnade `SpaceId` `DE8F06CA-1138-4AD7-89F4-F782CC6F69FD`.
+- Som hör till enheter med den utökade Egenskapsnyckeln **tillverkare** inställd på värdet `"GoodCorp"`.
+- Som tillhör blanksteg av typen `"Venue"`.
+- Som är underordnade överordnade **SpaceId** `DE8F06CA-1138-4AD7-89F4-F782CC6F69FD`.
 
 ```JSON
 {

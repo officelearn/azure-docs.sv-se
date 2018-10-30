@@ -1,3 +1,16 @@
+---
+author: cynthn
+ms.service: virtual-machines
+ms.topic: include
+ms.date: 10/26/2018
+ms.author: cynthn
+ms.openlocfilehash: 0e46caf855bca184ff8a714d2c93d573b910fea8
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.translationtype: MT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50227277"
+---
 Du kan enkelt [skala automatiskt](../articles/monitoring-and-diagnostics/insights-autoscale-best-practices.md) din [virtuella datorer (VM)](../articles/virtual-machines/windows/overview.md) när du använder [VM-skalningsuppsättningar](../articles/virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) och [funktionen för automatisk skalning i Azure Övervaka](../articles/monitoring-and-diagnostics/monitoring-overview-autoscale.md). Dina virtuella datorer måste vara medlemmar i en skalningsuppsättning kan skalas automatiskt. Den här artikeln innehåller information som hjälper dig att bättre förstå hur du skalar dina virtuella datorer både lodrätt och vågrätt med hjälp av automatisk och manuell metoder.
 
 ## <a name="horizontal-or-vertical-scaling"></a>Vågrät eller lodrät skalning

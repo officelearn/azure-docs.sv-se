@@ -10,12 +10,12 @@ ms.component: QnAMaker
 ms.topic: article
 ms.date: 09/27/2018
 ms.author: tulasim
-ms.openlocfilehash: 9bcd2ccfc5fb8ddc71d2df178dd214be2a67160d
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: 46b6b789b2bab7e647e10a61939bd16b5ea8726d
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48856861"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50209718"
 ---
 # <a name="confidence-score"></a>Förtroendepoäng
 När en användarfråga matchas mot en kunskapsbas, returnerar QnA Maker relevanta svar, tillsammans med ett förtroenderesultat. Det här resultatet indikerar var säker på att svaret är rätt matchning för den angivna användarfrågan. 
@@ -69,6 +69,8 @@ Se här hur [publicera](../How-To/publish-knowledge-base.md) åtgärden fungerar
 
 ## <a name="no-match-found"></a>Ingen matchning hittades
 När ingen bra matchning hittas av rankningen, förtroendepoäng 0,0 eller ”None” returneras och Standardsvaret är ”bra att hitta någon matchning i KB”. Du kan åsidosätta den här Standardsvar i koden bot eller program som anropar slutpunkten. Alternativt kan du kan också ange åsidosättning svaret i Azure och detta ändrar standardvärdet för alla kunskapsbaser som distribueras i en viss QnA Maker-tjänsten.
+
+### <a name="change-default-answer"></a>Ändra Standardsvar
 
 1. Gå till den [Azure-portalen](https://portal.azure.com) och navigera till den resursgrupp som representerar QnA Maker-tjänsten som du skapade.
 

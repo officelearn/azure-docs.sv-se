@@ -1,5 +1,16 @@
-
-
+---
+author: cynthn
+ms.service: virtual-machines
+ms.topic: include
+ms.date: 10/26/2018
+ms.author: cynthn
+ms.openlocfilehash: b83e1ef752fede446b41153e3d486a872c2707f3
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.translationtype: MT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50227236"
+---
 Med hjälp av VM-tillägg kan du göra följande:
 
 * Ändra säkerhets- och identitetsfunktioner, till exempel återställa kontovärden och använda program mot skadlig kod
@@ -31,7 +42,7 @@ Den virtuella datoragenten aktiveras i följande situationer:
       $vm.VM.ProvisionGuestAgent = $TRUE
       Update-AzureVM –Name $name –VM $vm.VM –ServiceName $svc
 
-* När du skapar en VM-avbildning som innehåller en installerad VM-agent. När avbildningen med VM-agenten finns kan du ladda upp avbildningen till Azure. För en virtuell dator i Windows, hämtar du [MSI-filen till den virtuella Windows-datoragenten](http://go.microsoft.com/fwlink/?LinkID=394789) och installerar VM-agenten. Installera den Virtuella Datoragenten för en Linux-VM från GitHub-lagringsplatsen finns på <https://github.com/Azure/WALinuxAgent>. Mer information om hur du installerar den virtuella datoragenten i Linux finns i [användarhandboken för Azure Linux VM-agent](../articles/virtual-machines/extensions/agent-linux.md).
+* När du skapar en VM-avbildning som innehåller en installerad VM-agent. När avbildningen med VM-agenten finns kan du ladda upp avbildningen till Azure. För en virtuell dator i Windows, hämtar du [MSI-filen till den virtuella Windows-datoragenten](http://go.microsoft.com/fwlink/?LinkID=394789) och installerar VM-agenten. Installera VM-agenten för en Linux VM från GitHub-lagringsplats som finns på <https://github.com/Azure/WALinuxAgent>. Mer information om hur du installerar den virtuella datoragenten i Linux finns i [användarhandboken för Azure Linux VM-agent](../articles/virtual-machines/extensions/agent-linux.md).
 
 > [!NOTE]
 > I PaaS kallas den virtuella datoragenten för **WindowsAzureGuestAgent** och alltid är tillgänglig på virtuella datorer med webb- och arbetsroll. (Mer information finns i [Azure-rollarkitektur](http://blogs.msdn.com/b/kwill/archive/2011/05/05/windows-azure-role-architecture.aspx).) VM-agenten för roll-VM kan nu lägga till tillägg i molntjänst-VM på samma sätt som den gör för permanenta virtuella datorer. Den största skillnaden mellan VM-tillägg för roll-VM och permanenta virtuella datorer är processen för att lägga till VM-tillägg. Med roll-VM läggs tillägg först till i molntjänsten och sedan i distributionerna inom den molntjänsten.

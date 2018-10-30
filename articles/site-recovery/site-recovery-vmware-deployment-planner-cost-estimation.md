@@ -1,21 +1,20 @@
 ---
-title: Azure Site Recovery-kapacitetsplaneraren för VMware till Azure| Microsoft Docs
-description: Det här är användarhandboken för Azure Site Recovery-kapacitetsplaneraren.
-services: site-recovery
+title: Granska kostnadsuppskattningsrapporten i Distributionshanteraren för Azure Site Recovery | Microsoft Docs
+description: I den här artikeln beskriver hur du granskar kostnadsuppskattningsrapporten i Distributionshanteraren för Azure Site Recovery för VMware till Azure-haveriberedskap.
 author: nsoneji
 manager: garavd
 ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/11/2018
 ms.author: nisoneji
-ms.openlocfilehash: 7470dab537a8ab248228b9c445e1124e7ec9c444
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: 7244aa2c0b665b47d597662b98ec291d6bfeeddd
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49387811"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50215029"
 ---
-# <a name="cost-estimation-report-of-azure-site-recovery-deployment-planner"></a>Rapporten Kostnadsuppskattning i Distributionshanteraren för Azure Site Recovery  
+# <a name="review-the-cost-estimation-report-in-the-site-recovery-deployment-planner-for-vmware-disaster-recovery-to-azure"></a>Granska kostnadsuppskattningsrapporten i Distributionshanteraren för Site Recovery för VMware-haveriberedskap till Azure
 
 Rapporten i distributionshanteraren ger en översikt över kostnadsuppskattningen på bladet [Rekommendationer](site-recovery-vmware-deployment-planner-analyze-report.md#recommendations) och en detaljerad kostnadsanalys på bladet Kostnadsuppskattning. Där ges en detaljerad kostnadsanalys per virtuell dator. 
 

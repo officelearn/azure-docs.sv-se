@@ -14,30 +14,33 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/05/2018
 ms.author: barclayn
-ms.openlocfilehash: 56a1ebcfbb6dda9bc96aa241bd2b8d753022181a
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: d1a6da5d599296a11678ee58cadc42d61296e8e7
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49385873"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50230309"
 ---
 # <a name="what-is-azure-key-vault"></a>Vad är Azure Key Vault?
 
-Azure Key Vault kan hjälpa dig att lösa följande problem
-- **Hantering av hemligheter** – Azure Key Vault kan användas för säker lagring av och kontrollerad åtkomst till token, lösenord, certifikat, API-nycklar och andra hemligheter
+Azure Key Vault hjälper dig att lösa följande problem:
+- **Hantering av hemligheter** – Azure Key Vault kan användas för att lagra säkert och väl styr åtkomsten till token, lösenord, certifikat, API-nycklar och andra hemligheter.
 - **Nyckelhantering** – Azure Key Vault kan även användas som nyckelhanteringslösning. Med Azure Key Vault är det enkelt att skapa och kontrollera de krypteringsnycklar som används för att kryptera dina data. 
 - **Hantering av certifikat** – Azure Key Vault är också en tjänst där du enkelt kan etablera, hantera och distribuera offentliga och privata SSL/TLS-certifikat (Secure Sockets Layer/Transport Layer Security) för användning med Azure och dina interna anslutna resurser. 
-- **Lagra hemligheter som backas upp av Hardware Security-moduler** – Hemligheterna och nycklarna kan skyddas av programvara eller FIPS 140-2 nivå 2-validerade HS-moduler
+- **Store hemligheter som backas upp av Hardware Security Modules** -hemligheter och nycklar kan skyddas genom programvara eller FIPS 140-2 Level 2 verifierar HSM: er.
 
 ## <a name="basic-concepts"></a>Grundläggande begrepp
 
 Azure Key Vault är ett verktyg för att lagra och komma åt hemligheter på ett säkert sätt. En hemlighet är något som du vill begränsa åtkomst till, till exempel API-nycklar, lösenord eller certifikat. En **Vault** är logisk grupp av hemligheter. Nu för att göra någon åtgärd med Key Vault måste du först autentisera till den. 
 
-Grunden finns 3 sätt att autentisera till Key Vault
+Grunden finns 3 sätt att autentisera till Key Vault:
 
 1. **Med hjälp av [hanterade identiteter för Azure-resurser](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview)**  (**rekommenderas och bästa praxis**): när du distribuerar en App på en virtuell dator i Azure kan du tilldela en identitet till den virtuella datorn som har åtkomst till Key Vault. Du kan också tilldela identiteter till andra azure-resurser som listas [här](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview). Fördelen med den här metoden är appen / tjänsten hanterar inte rotation för den första hemligheten. Azure roterar automatiskt identiteten. 
-2. **Med hjälp av tjänstens huvudnamn och certifikat:** 2 alternativ är att använda ett huvudnamn för tjänsten och en tillhörande certifikat som har åtkomst till Key Vault. Ansvaret för att rotera certifikatet är på programmets ägare eller utvecklare och därför rekommenderas detta inte
-3. **Med hjälp av tjänstens huvudnamn och hemlighet:** det 3 alternativet (rekommenderas inte) är att använda ett huvudnamn för tjänsten och en hemlighet för att autentisera till Key Vault
+2. **Med hjälp av tjänstens huvudnamn och certifikat:** 2 alternativ är att använda ett huvudnamn för tjänsten och en tillhörande certifikat som har åtkomst till Key Vault. Ansvaret för att rotera certifikatet är på programmets ägare eller utvecklare och kan därför detta rekommenderas inte.
+3. **Med hjälp av tjänstens huvudnamn och hemlighet:** det 3 alternativet (rekommenderas inte) är att använda ett huvudnamn för tjänsten och en hemlighet för att autentisera till Key Vault.
+
+> [!NOTE]
+> Alternativet 3 ovan bör inte användas eftersom det är svårt att rotera automatiskt, bootstrap hemligheten som används för att autentisera till Key Vault.
 
 Här följer några viktiga begrepp:
 - **Klientorganisation**: en klientorganisation är den organisation som äger och hanterar en specifik instans av Microsoft-molntjänster. Den används oftast på ett exakt sätt för att referera till uppsättningen med Azure- och Office 365-tjänster för en organisation.
@@ -45,7 +48,7 @@ Här följer några viktiga begrepp:
 - **Valvkonsument**: valvkonsumenten kan utföra åtgärder på tillgångarna i nyckelvalvet när valvägaren ger konsumenten åtkomst. Vilka åtgärder som är tillgängliga beror på vilka behörigheter som beviljats.
 - **Resurs**: en resurs är ett hanterbart objekt som är tillgängligt via Azure. Exempel på vanliga resurser är virtuella datorer, lagringskonton, webbappar, databaser och virtuella nätverk, men det finns många fler.
 - **Resursgrupp**: resursgruppen är en container som innehåller relaterade resurser för en Azure-lösning. Resursgruppen kan innehålla alla resurser för lösningen, eller endast de resurser som du vill hantera som en grupp. Du bestämmer hur du vill allokera resurser till resursgrupper baserat på vad som passar din organisation bäst.
-- **Tjänstens huvudnamn** – för att komma åt resurser som skyddas av en Azure AD-klient, den entitet som kräver åtkomst representeras av ett säkerhetsobjekt. Det här gäller för både användare (användarens huvudnamn) och program (tjänstens huvudnamn). Säkerhetsobjektet definierar åtkomstprincip och behörigheter för användare/program i den klienten. På så sätt kan kärnfunktioner som autentisering av användare/programmet under inloggning och auktorisering vid åtkomst till resurser.
+- **Tjänstens huvudnamn** – en Azure-tjänstens huvudnamn är en säkerhetsidentitet som används av appar som skapats av användare, tjänster och automatiseringsverktyg för att få åtkomst till specifika Azure-resurser. Se det som en användaridentitet (användarnamn och lösenord eller certifikat) med en specifik roll och väl kontrollerade behörigheter. Ett huvudnamn för tjänsten bör bara behöva utföra vissa åtgärder, till skillnad från en allmän användaridentitet. Det ger bättre säkerhet om du bara ger den lägsta behörighetsnivån som krävs för att den ska kunna utföra sina administrativa uppgifter.
 - **[Azure Active Directory (Azure AD)](../active-directory/active-directory-whatis.md)**: Azure AD är Active Directory-tjänsten för en klientorganisation. Varje katalog har en eller flera domäner. En katalog kan ha många prenumerationer som är associerade med den, men endast en klientorganisation. 
 - **ID för Azure-klientorganisation**: detta är ett unikt sätt att identifiera en Azure Active Directory-instans inom en Azure-prenumeration.
 - **Hanterade identiteter för Azure-resurser**: Azure Key Vault gör det möjligt att på ett säkert sätt lagra autentiseringsuppgifter och andra nycklar och hemligheter, men din kod måste autentisera till Key Vault för att hämta dem. Om du använder en hanterad identitet blir lösa problemet enklare genom att ge Azure-tjänster en automatiskt hanterad identitet i Azure AD. Du kan använda den här identiteten för att autentisera till Key Vault eller alla tjänster som stöder Azure AD-autentisering utan att behöva ha några autentiseringsuppgifter i koden. Mer information finns i bilden nedan och [hanterade identiteter för Azure-resurser översikt](../active-directory/managed-identities-azure-resources/overview.md).

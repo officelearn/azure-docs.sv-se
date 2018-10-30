@@ -1,22 +1,19 @@
 ---
-title: Behålla IP-adresser när redundansväxla virtuella Azure-datorer till en annan Azure-region | Microsoft Docs
-description: Beskriver hur du behålla IP-adresser för redundansscenarier från Azure till Azure med Azure Site Recovery
+title: Behålla IP-adresser för Azure VM-redundans | Microsoft Docs
+description: Beskriver hur du behålla IP-adresser när redundansväxla virtuella datorer i Azure för haveriberedskap till en sekundär region med Azure Site Recovery
 ms.service: site-recovery
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.date: 10/16/2018
 author: mayurigupta13
 ms.topic: conceptual
 ms.author: mayg
-ms.openlocfilehash: 4260a4487480c42b518374965d8deda1e7803e62
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: 86adaa21a069c168b512231ba231940bfa2ef9e8
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49353330"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50213040"
 ---
-# <a name="ip-address-retention-for-azure-virtual-machine-failover"></a>Kvarhållning av IP-adress för Azure VM-redundans
+# <a name="ip-address-retention-for-azure-vm-failover"></a>Kvarhållning av IP-adress för Azure VM-redundans
 
 Azure Site Recovery kan haveriberedskap för virtuella Azure-datorer. När redundansväxlingen från en Azure-region till en annan, kräver kunder ofta kvarhållning av deras IP-konfigurationer. Site Recovery kan imiterar som standard virtuellt Källnätverk och undernätets struktur när du skapar dessa resurser i målregionen. Site Recovery gör även bästa förmåga att försöka att etablera den samma privata IP-Adressen på den Virtuella, måldatorn om den IP inte redan har blockerats av en Azure-resurs eller en replikerad virtuell dator för Azure-datorer som har konfigurerats med statiska privata IP-adresser.
 

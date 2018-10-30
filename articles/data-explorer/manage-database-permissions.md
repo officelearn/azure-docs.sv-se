@@ -8,18 +8,18 @@ ms.service: data-explorer
 services: data-explorer
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: b0fb2cd79c0ee685ad2000c5444a84d53e462f24
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.openlocfilehash: 287b95b59b0ec2b308d3e455c4f6ffce4baf4ff7
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48868283"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50212887"
 ---
 # <a name="manage-azure-data-explorer-database-permissions"></a>Hantera databasbehörigheter för Azure Data Explorer
 
 Azure Data Explorer kan du styra åtkomsten till databaser och tabeller, med hjälp av en *rollbaserad åtkomstkontroll* modellen. Med den här modellen *huvudkonton* (användare, grupper och appar) mappas till *roller*. Huvudnamn komma åt resurser enligt de roller som de tilldelats.
 
-Den här artikeln beskriver de tillgängliga rollerna och tilldela huvudnamn till dessa roller.
+Den här artikeln beskriver de tillgängliga rollerna och tilldela huvudnamn till dessa roller med hjälp av Azure-portalen och kommandon för hantering av Azure Data Explorer.
 
 ## <a name="roles-and-permissions"></a>Roller och behörigheter
 
@@ -37,7 +37,7 @@ Azure Data Explorer har följande roller:
 
 ## <a name="manage-permissions-in-the-azure-portal"></a>Hantera behörigheter i Azure portal
 
-1. Logga in på [Azure-portalen](https://portal.azure.com/).
+1. Logga in på [Azure Portal](https://portal.azure.com/).
 
 1. Gå till Datautforskaren i Azure-kluster.
 
@@ -77,4 +77,4 @@ Azure Data Explorer har följande roller:
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Skriva frågor](write-queries.md)
+[Skriv frågor](write-queries.md)

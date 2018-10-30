@@ -1,3 +1,16 @@
+---
+author: cynthn
+ms.service: virtual-machines-linux
+ms.topic: include
+ms.date: 10/26/2018
+ms.author: cynthn
+ms.openlocfilehash: 46fd31b54b7692700cce0bebe484c4f5de591942
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.translationtype: MT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50227270"
+---
 När du lägger till datadiskar till en Linux-VM, kan det uppstå fel om en disk inte finns på LUN 0. Om du lägger till en disk manuellt med hjälp av den `azure vm disk attach-new` kommandot och du anger en LUN (`--lun`) i stället för att tillåta Azure-plattformen för att avgöra lämpliga LUN noga med att en disk redan finns / kommer att finnas på LUN 0. 
 
 Överväg följande exempel visar ett kodfragment på utdata från `lsscsi`:

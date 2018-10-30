@@ -1,21 +1,20 @@
 ---
-title: Replikera och redundansväxla virtuella VMware-datorer till Azure med PowerShell i Azure Site Recovery | Microsoft Docs
-description: Lär dig hur du konfigurerar replikering och redundans till Azure för virtuella VMware-datorer med hjälp av PowerShell i Azure Site Recovery.
-services: site-recovery
+title: Konfigurera haveriberedskap för virtuella VMware-datorer till Azure med PowerShell i Azure Site Recovery | Microsoft Docs
+description: Lär dig hur du konfigurerar replikering och redundans till Azure för haveriberedskap för virtuella VMware-datorer med hjälp av PowerShell i Azure Site Recovery.
 author: sujayt
 manager: rochakm
 ms.service: site-recovery
 ms.date: 07/06/2018
 ms.topic: conceptual
 ms.author: sutalasi
-ms.openlocfilehash: 070e51b132828e4fdf597d28fc2ad602adf76692
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: 631225e6e0a7bb3bc42741e2761e3746c001c217
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48042810"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50211646"
 ---
-# <a name="replicate-and-fail-over-vmware-vms-to-azure-with-powershell"></a>Replikera och redundansväxla virtuella VMware-datorer till Azure med PowerShell
+# <a name="set-up-disaster-recovery-of-vmware-vms-to-azure-with-powershell"></a>Konfigurera haveriberedskap för virtuella VMware-datorer till Azure med PowerShell
 
 I den här artikeln visas hur du replikerar och redundans VMware-datorer till Azure med hjälp av Azure PowerShell. 
 

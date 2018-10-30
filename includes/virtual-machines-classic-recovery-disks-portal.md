@@ -1,3 +1,16 @@
+---
+author: cynthn
+ms.service: virtual-machines
+ms.topic: include
+ms.date: 10/26/2018
+ms.author: cynthn
+ms.openlocfilehash: 5490bdd3934b438a683ce4271fbec20b3d13735d
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.translationtype: MT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50226984"
+---
 Om din virtuella Azure-dator (VM) får start- eller diskproblem kan du behöva utföra felsökningssteg direkt på den virtuella hårddisken. Ett vanligt exempel är en misslyckad programuppdatering som förhindrar att den virtuella datorn startar korrekt. Den här artikeln beskriver hur du använder Azure Portal för att ansluta den virtuella hårddisken till en annan virtuell dator för att åtgärda eventuella fel och sedan återskapa den ursprungliga virtuella datorn.
 
 
@@ -33,7 +46,7 @@ Det första steget när du återställer en virtuell dator är att ta bort den v
 
     ![Bläddra till den befintliga virtuella hårddisken](./media/virtual-machines-classic-recovery-disks-portal/select-vhd-location.png)
 
-9. Välj lagringskontot > VHD-behållaren > den virtuella hårddisken och bekräfta valet genom att klicka på **Välj**.
+9. Välj lagringskontot &gt; VHD-containern &gt; den virtuella hårddisken och bekräfta valet genom att klicka på **Välj**.
 
     ![Välj din befintliga virtuella hårddisk](./media/virtual-machines-classic-recovery-disks-portal/select-vhd.png)
 
@@ -54,9 +67,9 @@ När eventuella fel har åtgärdats demonterar du och kopplar från den befintli
 
 ## <a name="create-a-vm-from-the-original-hard-disk"></a>Skapa en virtuell dator från den ursprungliga hårddisken
 
-Så här skapar du en virtuell dator från den ursprungliga virtuella hårddisken [Azure-portalen](https://portal.azure.com).
+Du kan skapa en virtuell dator från den ursprungliga virtuella hårddisken med [Azure-portalen](https://portal.azure.com).
 
 1. Logga in på [Azure-portalen](https://portal.azure.com).
-2. Längst upp till vänster i portalen, Välj **skapar du en resurs** > **Compute** > **virtuella** > **från Galleriet**.
+2. Längst upp till vänster i portalen, väljer **skapa en resurs** > **Compute** > **VM** > **från Galleriet**.
 3. Välj **My disks** (Mina diskar) i avsnittet **Choose an Image** (Välj en avbildning) och välj sedan den ursprungliga virtuella hårddisken. Kontrollera platsinformationen. Det här är den region där den virtuella datorn måste distribueras. Klicka på Nästa.
 4. I avsnittet **Konfiguration av virtuell dator** skriver du namnet på den virtuella datorn och väljer en storlek för den virtuella datorn.

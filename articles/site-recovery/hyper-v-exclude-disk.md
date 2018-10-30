@@ -1,17 +1,17 @@
 ---
-title: Utesluta en disk från skydd med Azure Site Recovery | Microsoft Docs
-description: Beskriver varför och hur du undantar VM-diskar från replikering för Hyper-V till Azure.
+title: Undanta diskar från replikering när du konfigurerar haveriberedskap med Azure Site Recovery-tjänsten | Microsoft Docs
+description: Beskriver hur du undantar VM-diskar från replikering under haveriberedskap till Azure.
 author: nsoneji
 ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/11/2018
 ms.author: nisoneji
-ms.openlocfilehash: 38b7e965a85bf7014167f9a5c3fd66202c02e0fa
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: 851da02ebd7486c0e96451a14086eb95d81968b4
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49091920"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50213210"
 ---
 # <a name="exclude-disks-from-replication"></a>Undanta diskar från replikering
 Den här artikeln beskriver hur du undantar diskar från replikering. Det här undantaget kan optimera replikeringsbandbredden som används eller optimera resurser som används av dessa diskar på målsidan.

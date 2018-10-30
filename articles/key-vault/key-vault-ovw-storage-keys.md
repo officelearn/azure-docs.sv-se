@@ -9,12 +9,12 @@ author: bryanla
 ms.author: bryanla
 manager: mbaldwin
 ms.date: 10/03/2018
-ms.openlocfilehash: adc8b84f0f22e85de88c4bd80c10a2a35d7b490a
-ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
+ms.openlocfilehash: 02fffe7c4a3acff6ce6d68046eee4286003b1766
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49114608"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50232230"
 ---
 # <a name="azure-key-vault-storage-account-keys"></a>Azure Key Vault-Lagringskontonycklar
 
@@ -36,33 +36,40 @@ ms.locfileid: "49114608"
       
 <a name="step-by-step-instructions"></a>Steg för steg-instruktioner
 -------------------------
+I den nedan information vi tilldela Key Vault som en tjänst har operatorn behörigheter för ditt storage-konto
 
-1. Hämta resurs-ID för Azure Storage-konto som du vill hantera.
-    a. Kör följande kommando för att hämta resurs-ID för lagringskontot som du vill hantera när du har skapat ett lagringskonto
+1. När du har skapat ett lagringskonto som kör följande kommando för att hämta resurs-ID för lagringskontot som vill du hantera
+
     ```
     az storage account show -n storageaccountname (Copy ID out of the result of this command)
     ```
+    
 2. Hämta program-ID för Azure Key Vault-tjänstens huvudnamn 
+
     ```
     az ad sp show --id cfa8b339-82a2-471a-a3c9-0fc0be7a4093
     ```
+    
 3. Tilldela lagring nyckeln operatörsrollen till Azure Key Vault Identity
+
     ```
     az role assignment create --role "Storage Account Key Operator Service Role"  --assignee-object-id hhjkh --scope idofthestorageaccount
     ```
+    
 4. Skapa Key Vault hanteras Storage-konto.     <br /><br />
-   Nedanstående kommando som frågar Key Vault för att återskapa åtkomstnycklarna för ditt lagringsutrymme med jämna mellanrum, med en återskapandeperiod. Nedan har anger vi en återskapandeperiod 90 dagar. Efter 90 dagar, Key Vault återskapa ”key1” och växla den aktiva nyckeln från ”key2” till ”key1”.
-   ### <a name="key-regeneration"></a>Åtkomstnyckeln återskapades
+   Nedan har anger vi en återskapandeperiod 90 dagar. Efter 90 dagar, Key Vault återskapa ”key1” och växla den aktiva nyckeln från ”key2” till ”key1”.
+   
     ```
-    az keyvault storage add --vault-name <YourVaultName> -n <StorageAccountName> --active-key-name key2 --auto-generate-key --regeneration-period P90D --resource-id <Resource-id-of-storage-account>
+    az keyvault storage add --vault-name <YourVaultName> -n <StorageAccountName> --active-key-name key2 --auto-regenerate-key --regeneration-period P90D --resource-id <Resource-id-of-storage-account>
     ```
     Om användaren inte har skapat lagringskontot och inte har behörighet att storage-konto, ange behörigheter för ditt konto så att du kan hantera alla behörigheter som lagring i Key Vault i stegen nedan.
-    [!NOTE] I de fall som användaren har inte behörighet att storage-konto som vi först hämta objekt-id för användaren
+ > [!NOTE] 
+    I det fallet att användaren inte har behörighet att storage-konto kan hämta vi först objekt-Id för användaren
 
     ```
     az ad user show --upn-or-object-id "developer@contoso.com"
 
-    az keyvault set-policy --name <YourVaultName> --object-id <ObjectId> --storage-permissions backup delete list regeneratekey recover purge restore set setsas update
+    az keyvault set-policy --name <YourVaultName> --object-id <ObjectId> --storage-permissions backup delete list regeneratekey recover     purge restore set setsas update
     ```
 
 ### <a name="relevant-powershell-cmdlets"></a>Relevanta Powershell-cmdletar

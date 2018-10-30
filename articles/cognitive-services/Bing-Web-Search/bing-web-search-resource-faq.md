@@ -10,12 +10,12 @@ ms.component: bing-web-search
 ms.topic: troubleshooting
 ms.date: 10/06/2017
 ms.author: v-jerkin
-ms.openlocfilehash: b0b8fd3eb80d7418546788565402042de20ab3e7
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: 2d43a73d93b24599b28af849ee9d1532441ef6bc
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46129326"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50233570"
 ---
 # <a name="frequently-asked-questions-faq"></a>Vanliga frågor och svar (FAQ)
 
@@ -35,9 +35,9 @@ Det är särskilt viktigt att bevara klient-ID och lämna tillbaka med efterföl
 
 Men när du anropar API för webbsökning i Bing från JavaScript kanske i webbläsaren inbyggda säkerhetsfunktioner (CORS) hindrar dig från att komma åt värdena för dessa rubriker.
 
-För att få åtkomst till rubrikerna du Bing Web Search API-begäran via en CORS-proxy. Svaret från sådan proxy har en `Access-Control-Expose-Headers` rubrik som vitlistor svarshuvuden och gör dem tillgängliga för JavaScript.
+För att få åtkomst till rubrikerna du Bing Web Search API-begäran via en CORS-proxy. Svaret från en sådan proxy har ett `Access-Control-Expose-Headers`-huvud som vitlistar svarshuvuden och gör dem tillgängliga för JavaScript.
 
-Det är enkelt att installera en proxy för CORS så att våra [självstudieappen](tutorial-bing-web-search-single-page-app.md) att komma åt valfria klientcertifikat-huvuden. Första, om du inte redan har det, [installera Node.js](https://nodejs.org/en/download/). Ange sedan följande kommando i Kommandotolken.
+Det är enkelt att installera en proxy för CORS så att våra [självstudieappen](tutorial-bing-web-search-single-page-app.md) att komma åt valfria klientcertifikat-huvuden. [Installera Node.js](https://nodejs.org/en/download/) om du inte redan har det. Ange sedan följande kommando i Kommandotolken.
 
     npm install -g cors-proxy-server
 
@@ -45,17 +45,17 @@ Sedan ändra Bing Web Search API-slutpunkten i HTML-filen:
 
     http://localhost:9090/https://api.cognitive.microsoft.com/bing/v7.0/search
 
-Slutligen börja CORS-proxyn med följande kommando:
+Slutligen startar du CORS-proxyn med följande kommando:
 
     cors-proxy-server
 
-Lämna Kommandotolken öppen medan du använder självstudieappen; stänga fönstret stoppar proxyn. I avsnittet nedan sökresultaten utbyggbara HTTP-huvuden, kan du nu se den `X-MSEdge-ClientID` rubrik (bland annat) och kontrollera att det är samma för varje begäran.
+Lämna kommandofönstret öppet medan du använder självstudieappen. Om du stänger fönstret stoppas proxyn. I det expanderbara avsnittet om HTTP-huvuden nedan kan du nu se `X-MSEdge-ClientID`-huvudet (bland annat) under sökresultatet och du kan kontrollera att det är samma för varje begäran.
 
 ## <a name="response-headers-in-production"></a>Svarshuvuden i produktion
 
 CORS-proxy-metoden som beskrivs i föregående svar är lämplig för utveckling, testning och utbildning.
 
-I en produktionsmiljö bör du ha ett skript på servern på samma domän som den webbsida som använder Bing Web Search API. Det här skriptet ska faktiskt göra API-anrop på begäran från JavaScript-webbsida och skicka alla resultat, inklusive rubriker, tillbaka till klienten. Eftersom de två resurserna (sidan eller skript) dela ett ursprung, CORS kommer inte betydelse och särskilda sidhuvuden får bestå av acessible till JavaScript på webbsidan.
+I en produktionsmiljö bör du ha ett skript på servern på samma domän som den webbsida som använder Bing Web Search API. Det här skriptet ska faktiskt göra API-anrop på begäran från JavaScript-webbsida och skicka alla resultat, inklusive rubriker, tillbaka till klienten. Eftersom de två resurserna (sidan eller skript) dela ett ursprung, CORS kommer inte betydelse och de särskilda rubrikerna är tillgängliga för JavaScript på webbsidan.
 
 Den här metoden skyddar även din API-nyckel från exponeringen för allmänheten, eftersom endast serverskriptet måste den. Skriptet kan använda en annan metod för att se till att begäran har behörighet.
 

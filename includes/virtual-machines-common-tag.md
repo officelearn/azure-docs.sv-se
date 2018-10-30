@@ -1,6 +1,16 @@
-
-
-
+---
+author: cynthn
+ms.service: virtual-machines
+ms.topic: include
+ms.date: 10/26/2018
+ms.author: cynthn
+ms.openlocfilehash: ccc2b574ea054a1b0ecf32a1e59691050fb66fcf
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.translationtype: MT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50226401"
+---
 ## <a name="tagging-a-virtual-machine-through-templates"></a>Tagga en virtuell dator via mallar
 Först ska vi titta på Taggning via mallar. [Den här mallen](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-tags) placerar taggar på följande resurser: beräkning (virtuell dator), lagring (Storage-konto) och nätverk (offentlig IP-adress, virtuellt nätverk och gränssnitt). Den här mallen är för en virtuell Windows-dator, men kan anpassas för virtuella Linux-datorer.
 

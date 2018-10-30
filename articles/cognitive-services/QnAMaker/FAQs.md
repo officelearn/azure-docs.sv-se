@@ -8,37 +8,45 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: qna-maker
 ms.topic: article
-ms.date: 09/12/2018
+ms.date: 10/25/2018
 ms.author: tulasim
-ms.openlocfilehash: efefd595c43d7f46ff1ead91577d070cf8fb90e4
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: 9597b878eb3d92727b352ba42a9e5557bb1cc799
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47164624"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50211442"
 ---
 # <a name="frequently-asked-questions"></a>Vanliga frågor och svar
 
 ## <a name="why-is-my-urlsfiles-is-not-extracting-question-answer-pairs"></a>Varför är min URL: er / filerna inte extrahera frågor svar par?
 
-Det är möjligt att QnA Maker inte kan automatiskt extrahera frågor och svar (frågor och svar) innehåll från giltiga URL: er med vanliga frågor och svar. I sådana fall kan du klistra in frågor och svar om innehållet i en txt-fil och se om verktyget kan mata in den. Alternativt kan du redigeringsmässigt lägga till innehåll kunskapsbasen.
+Det är möjligt att QnA Maker inte kan automatiskt extrahera frågor och svar (frågor och svar) innehåll från giltiga URL: er med vanliga frågor och svar. I sådana fall kan du klistra in frågor och svar om innehållet i en txt-fil och se om verktyget kan mata in den. Alternativt kan du redigeringsmässigt lägga till innehåll kunskapsbasen via den [QnA Maker portal](https://qnamaker.ai).
 
 ## <a name="how-large-a-knowledge-base-can-i-create"></a>Hur stor kunskapsbas kan jag skapa?
 
 Storleken på kunskapsbasen beror på den SKU för Azure search som du väljer när du skapar QnA Maker-tjänsten. Läs [här](./Tutorials/choosing-capacity-qnamaker-deployment.md) för mer information.
 
-## <a name="why-do-i-not-see-anything-in-the-drop-down-for-when-i-try-to-create-a-new-knowledge-base"></a>Varför visas inte något i listrutan för när jag försöker skapa en ny kunskapsbas?
+## <a name="why-cant-i-see-anything-in-the-drop-down-when-i-try-to-create-a-new-knowledge-base"></a>Varför kan jag inte se vad som helst i listrutan när jag försöker skapa en ny kunskapsbas?
 
-Du har inte skapat några QnA Maker-tjänster i Azure ännu. Läs [här](./How-To/set-up-qnamaker-service-azure.md) hur du gör.
+Du har inte skapat några QnA Maker-tjänster i Azure ännu. Läs [här](./How-To/set-up-qnamaker-service-azure.md) att lära dig hur du gör.
 
-## <a name="how-do-i-share-a-knowledge-base-with-other"></a>Hur gör jag för att dela en kunskapsbas med andra?
+## <a name="how-do-i-share-a-knowledge-base-with-others"></a>Hur gör jag för att dela en kunskapsbas med andra?
 
-Delning fungerar på nivån för QnA Maker-tjänsten, kommer d.v.s. alla kunskapsbaser i tjänsterna att delas. Läs [här](./How-To/collaborate-knowledge-base.md) så samarbeta med en kunskapsbas.
+Delning fungerar på nivån för QnA Maker-tjänsten, det vill säga kommer alla kunskapsbaser i tjänsten att delas. Läs [här](./How-To/collaborate-knowledge-base.md) så samarbeta med en kunskapsbas.
+
+## <a name="can-you-share-a-kb-with-a-contributor-that-is-not-in-the-same-aad-tenant-to-modify-a-kb"></a>Kan du dela en KB med deltagare som inte är i samma AAD-klientorganisation, att ändra ett KB? 
+
+Dela baseras på Azure rollbaserad åtkomstkontroll (RBAC). Om du kan dela _alla_ resurs i Azure med en annan användare, kan du också dela QnA Maker.
+
+## <a name="if-you-have-an-app-service-plan-with-5-qnamaker-kbs-can-you-assign-readwrite-rights-to-5-different-users-so-each-of-them-can-access-only-1-qnamaker-kb"></a>Om du har en App Service-Plan med 5 QnAMaker KB-artiklar. Kan du tilldela Läs/Skriv-behörighet till 5 olika användare så att var och en av dem kan komma åt endast 1 QnAMaker KB?
+
+Du kan dela hela QnAMaker tjänsten, inte för enskilda KB-artiklar.
 
 ## <a name="how-can-i-change-the-default-message-when-no-good-match-is-found"></a>Hur kan jag ändra standardmeddelandet när ingen bra matchning hittas?
 
 Standardmeddelandet är en del av inställningarna i din App service.
-- Gå till i din App service-resurs i Azure portal
+- Gå till din App service-resurs i Azure portal
 
 ![appservice qnamaker](./media/qnamaker-faq/qnamaker-resource-list-appservice.png)
 - Klicka på den **inställningar** alternativet
@@ -56,11 +64,11 @@ Verktyget Parsar endast offentliga URL: er och har inte stöd för autentiserad 
 
 ## <a name="the-updates-that-i-made-to-my-knowledge-base-are-not-reflected-on-publish-why-not"></a>Uppdateringar som jag gjorde på min kunskapsbas inte visas publicera. Varför inte?
 
-Varje redigeringsåtgärden måste i en uppdatering av tabell-, test- eller inställningar, sparas innan de kan publiceras. Glöm inte att klicka på Spara och träna knappen efter varje.
+Varje redigeringsåtgärden måste i uppdatera tabell-, test- eller inställningen, sparas innan de kan publiceras. Se till att klicka på den **spara och träna** knappen efter varje.
 
 ## <a name="when-should-i-refresh-my-endpoint-keys"></a>När bör jag uppdatera Mina endpoint-nycklar?
 
-Om du misstänker att de har komprometterats bör du uppdatera dina endpoint-nycklar.
+Uppdatera dina endpoint-nycklar om du misstänker att de har komprometterats.
 
 ## <a name="does-the-knowledge-base-support-rich-data-or-multimedia"></a>Har kunskapsbasen stöd för formaterade data eller multimedia?
 
@@ -74,13 +82,17 @@ Läs mer om [språk som stöds](./Overview/languages-supported.md).
 
 Om du har innehåll från flera språk, måste du skapa en separat tjänst för varje språk.
 
+## <a name="can-i-use-the-same-azure-search-resource-for-kbs-using-multiple-languages"></a>Kan jag använda samma Azure Search-resurs för KB-artiklar med flera språk?
+
+Om du vill använda flera språk och flera KB-artiklar, måste användaren skapa en QnA Maker-resurs för varje språk. Detta skapar en separat Azure search-tjänster per språk. Blanda olika språk KB-artiklar i en enda Azure search-tjänsten resulterar i degraderat relevans med resultat.
+
 ## <a name="do-i-need-to-use-bot-framework-in-order-to-use-qna-maker"></a>Måste jag använda Bot Framework för att kunna använda QnA Maker?
 
-Nej, behöver du inte använda Bot Framework med QnA Maker. Men erbjuds QnA Maker som en av flera olika mallar i Azure Bot Service. Bot Service erbjuder snabb, intelligent bot-utveckling via Microsoft Bot Framework och körs på en server mindre miljö.
+Nej, behöver du inte använda Bot Framework med QnA Maker. Men erbjuds QnA Maker som en av flera olika mallar i Azure Bot Service. Bot Service erbjuder snabb, intelligent bot-utveckling via Microsoft Bot Framework och det körs i en miljö utan server.
 
 ## <a name="how-can-i-create-a-bot-with-qna-maker"></a>Hur kan jag skapa en robot med QnA Maker?
 
-Följ instruktionerna i [detta](./Tutorials/create-qna-bot.md) dokumentationen för att skapa din robot med Azure Bot.
+Följ instruktionerna i [detta](./Tutorials/create-qna-bot.md) dokumentationen för att skapa din robot med Azure Bot Service.
 
 ## <a name="how-do-i-embed-the-qna-maker-service-in-my-website"></a>Hur bäddar jag in QnA Maker-tjänsten på min webbplats?
 

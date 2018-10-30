@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 06/04/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: d70eecb6a5d6bafbfa6507dbe8b1bcb1cad67191
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: cbe6ddc2c4680028d5a4a0491756c7a7b9897c69
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46990254"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50233250"
 ---
 # <a name="extend-alerts-from-log-analytics-into-azure-alerts"></a>Utöka aviseringar från Log Analytics till Azure-aviseringar
 Funktionen för säkerhetsvarningar i Azure Log Analytics ersätts av Azure-aviseringar. Som en del av denna övergång utökas aviseringar som du ursprungligen konfigurerades i Log Analytics till Azure. Om du inte vill vänta tills de flyttas automatiskt till Azure, kan du starta processen:
@@ -22,7 +22,7 @@ Funktionen för säkerhetsvarningar i Azure Log Analytics ersätts av Azure-avis
 - Via programmering med hjälp av AlertsVersion-API.  
 
 > [!NOTE]
-> Microsoft aviseringar automatiskt skapade i offentligt moln instanser av Log Analytics till Azure-aviseringar startar för den 14 maj 2018 i en serie med återkommande tills slutförts. Om du har några problem med att skapa [åtgärdsgrupper](monitoring-action-groups.md), använda [dessa åtgärdssteg](monitoring-alerts-extend-tool.md#troubleshooting) att hämta åtgärdsgrupper som skapas automatiskt. Du kan använda de här stegen till 5 juli 2018. *Inte tillämpligt för Azure Government och Soveriegn molnanvändare av Log Analytics*. 
+> Microsoft aviseringar automatiskt skapade i offentligt moln instanser av Log Analytics till Azure-aviseringar startar för den 14 maj 2018 i en serie med återkommande tills slutförts. Om du har några problem med att skapa [åtgärdsgrupper](monitoring-action-groups.md), använda [dessa åtgärdssteg](monitoring-alerts-extend-tool.md#troubleshooting) att hämta åtgärdsgrupper som skapas automatiskt. Du kan använda de här stegen till 5 juli 2018. *Inte tillämpligt för Azure Government och nationellt molnanvändare av Log Analytics*. 
 
 ## <a name="option-1-initiate-from-the-operations-management-suite-portal"></a>Alternativ 1: Initiera från Operations Management Suite-portalen
 Följande steg beskriver hur du utökar aviseringar för arbetsytan från Operations Management Suite-portalen.  

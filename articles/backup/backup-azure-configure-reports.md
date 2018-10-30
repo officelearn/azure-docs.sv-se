@@ -6,22 +6,29 @@ author: adiganmsft
 manager: shivamg
 ms.service: backup
 ms.topic: conceptual
-ms.date: 07/26/2018
+ms.date: 10/29/2018
 ms.author: adigan
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 0c1d7a404ffd9b4da4868f56a5e17300495b57db
-ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
+ms.openlocfilehash: 945a91b9021ed5ff02e8c1ef7baf85e2098202ca
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48269368"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50214672"
 ---
 # <a name="configure-azure-backup-reports"></a>Konfigurera Azure Backup-rapporter
 Den här artikeln visar stegen för att följa för att konfigurera rapporter för Azure Backup med Recovery Services-valvet. Den visar också hur du kommer åt rapporter med hjälp av Power BI. När du har slutfört de här stegen kan du gå direkt till Power BI för att visa, anpassa och skapa rapporter.
 
+> [!IMPORTANT]
+> Från den 1 November 2018, kan vissa kunder problem uppstå vid inläsning av data i Azure Backup-App i Power BI, säger ”extra tecken påträffades i slutet av JSON-indata. Undantaget orsakades av gränssnittet IDataReader ”.
+Detta är p.g.a. en ändring i formatet där data läses in i lagringskontot.
+Uppgradera appen till den senaste versionen för att undvika det här problemet.
+>
+>
+
 ## <a name="supported-scenarios"></a>Scenarier som stöds
 - Azure Backup-rapporter har stöd för säkerhetskopiering av Azure virtuella datorer eller fil- och säkerhetskopiering till molnet med hjälp av Azure Recovery Services-agenten.
-- Rapporter för Azure SQL Database, Data Protection Manager och Azure Backup server stöds inte just nu.
+- Rapporter för Azure SQL Database, Azure-filresurser, Data Protection Manager och Azure Backup server stöds inte just nu.
 - Du kan visa rapporter över valv och prenumerationer, om samma lagringskonto har konfigurerats för varje valv. Det valda lagringskontot måste vara i samma region som Recovery Services-valvet.
 - Frekvensen för schemalagd uppdatering för rapporterna är 24 timmar i Power BI. Du kan också utföra en ad hoc-uppdatering av rapporter i Power BI. I det här fallet används den senaste informationen i kundens lagringskonto för att återge rapporter.
 

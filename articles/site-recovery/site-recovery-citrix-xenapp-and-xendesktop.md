@@ -1,36 +1,29 @@
 ---
-title: Replikera en flerskiktade-Citrix XenDesktop och XenApp-distribution med Azure Site Recovery | Microsoft Docs
-description: Den här artikeln beskriver hur du skyddar och återställer Citrix XenDesktop och XenApp-distributioner med Azure Site Recovery.
-services: site-recovery
-documentationcenter: ''
+title: Konfigurera haveriberedskap för en flerskiktade-Citrix XenDesktop och XenApp-distribution med Azure Site Recovery | Microsoft Docs
+description: Den här artikeln beskrivs hur du konfigurerar haveriberedskap för Citrix XenDesktop och XenApp-distributioner med Azure Site Recovery.
 author: ponatara
 manager: abhemraj
-editor: ''
-ms.assetid: 9126f5e8-e9ed-4c31-b6b4-bf969c12c184
 ms.service: site-recovery
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/06/2018
 ms.author: ponatara
-ms.openlocfilehash: 45d366842416ddfa7b0153a1d075ee6de58e45a1
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.openlocfilehash: 0b8d9765766191533745da4c653f1a91ce635c24
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39213641"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50210320"
 ---
-# <a name="replicate-a-multi-tier-citrix-xenapp-and-xendesktop-deployment-using-azure-site-recovery"></a>Replikera ett flerskiktat-Citrix XenApp och XenDesktop-distributionen med hjälp av Azure Site Recovery
+# <a name="set-up-disaster-recovery-for-a-multi-tier-citrix-xenapp-and-xendesktop-deployment"></a>Konfigurera haveriberedskap för en distribution av flera nivåer Citrix XenApp och XenDesktop
 
-## <a name="overview"></a>Översikt
+
 
 Citrix XenDesktop är en lösning för fjärrskrivbord som levererar skrivbord och program som en ondemand-tjänst till alla användare, var som helst. Med teknik för leverans av FlexCast kan XenDesktop snabbt och säkert leverera program och skrivbord till användare.
 Idag, ger Citrix XenApp inte eventuella katastrofer återställningsfunktioner.
 
 En bra katastrofåterställningslösning ska tillåta modellering av återställningsplaner runt ovanstående komplexa arkitekturer och har också möjlighet att lägga till anpassade steg för att hantera mappning mellan olika nivåer därför att tillhandahålla en enkel klickning Kontrollera som lösning i händelse av en katastrof som leder till en lägre RTO.
 
-Det här dokumentet innehåller en stegvis vägledning för att skapa en lösning för haveriberedskap för din lokala Citrix XenApp-distributioner på Hyper-V och VMware vSphere-plattformar. Det här dokumentet beskriver också hur du utför ett redundanstest (programåterställningstest) och en oplanerad redundansväxling till Azure med hjälp av återställningsplaner, konfigurationer som stöds och nödvändiga komponenter.
+Det här dokumentet innehåller stegvisa anvisningar för att skapa en lösning för haveriberedskap för din lokala Citrix XenApp-distributioner på Hyper-V och VMware vSphere-plattformar. Det här dokumentet beskriver också hur du utför ett redundanstest (programåterställningstest) och en oplanerad redundansväxling till Azure med hjälp av återställningsplaner, konfigurationer som stöds och nödvändiga komponenter.
 
 
 ## <a name="prerequisites"></a>Förutsättningar
@@ -75,7 +68,7 @@ Eftersom XenApp 7,7 eller senare stöds i Azure, kan endast distributioner med d
 
 1. Skydd och återställning av lokala distributioner som använder Server OS datorer för att leverera XenApp appar som har publicerats och XenApp publiceras stationära datorer stöds.
 
-2. Skydd och återställning av lokala distributioner med hjälp av fjärrskrivbord OS-datorer för att leverera Desktop VDI för klientens virtuella skrivbord, inklusive Windows 10, stöds inte. Det beror på att ASR inte har stöd för återställning av datorer med desktop OS'es.  Dessutom vissa virtuella skrivbord klientoperativsystem (t.ex.) Windows 7) stöds inte ännu för licensiering i Azure. [Lär dig mer](https://azure.microsoft.com/pricing/licensing-faq/) om licensiering för klient/server-datorer i Azure.
+2. Skydd och återställning av lokala distributioner med hjälp av fjärrskrivbord OS-datorer för att leverera Desktop VDI för klientens virtuella skrivbord, inklusive Windows 10, stöds inte. Det beror på att Site Recovery inte stöder återställning av datorer med desktop OS'es.  Dessutom vissa virtuella skrivbord klientoperativsystem (t.ex.) Windows 7) stöds inte ännu för licensiering i Azure. [Lär dig mer](https://azure.microsoft.com/pricing/licensing-faq/) om licensiering för klient/server-datorer i Azure.
 
 3.  Azure Site Recovery kan inte replikera och skydda befintliga lokala MCS eller PVS kloner.
 Du måste återskapa dessa kloner med hjälp av Azure RM etablering från domänkontrollant.
@@ -152,7 +145,7 @@ En återställning planera grupper tillsammans virtuella datorer med liknande kr
 
 ### <a name="adding-scripts-to-the-recovery-plan"></a>Lägga till skript i en återställningsplan
 
-Skript kan köras före eller efter en viss grupp i en återställningsplan. Manuella åtgärder kan vara också ingå och utförs under redundans.
+Skript kan köras före eller efter en viss grupp i en återställningsplan. Manuella åtgärder kan också ingå och utförs under redundans.
 
 Anpassade återställningsplanen ser ut som den nedan:
 
@@ -163,20 +156,20 @@ Anpassade återställningsplanen ser ut som den nedan:
    >[!NOTE]     
    >Steg 4, 6 och 7 som innehåller instruktioner för manuell eller skript som kan användas för endast en lokal XenApp > miljö med MCS/PVS kataloger.
 
-4. Grupp 3 manuell eller skript åtgärd: avstängning VDA VM The Master VDA Virtuella huvuddatorn vid redundansväxling till Azure kommer att finnas i ett fungerande tillstånd. Om du vill skapa den nya MCS kataloger med hjälp av Azure ARM-värd, master VDA VM måste vara stoppad (de allokerade) tillstånd. Stäng av den virtuella datorn från Azure-portalen.
+4. Grupp 3 manuell eller skript åtgärd: Stäng VDA VM The Master VDA Virtuella huvuddatorn vid redundansväxling till Azure kommer att finnas i ett fungerande tillstånd. Om du vill skapa den nya MCS kataloger med Azure som är värd för master VDA VM måste vara stoppad (de allokerade) tillstånd. Stäng av den virtuella datorn från Azure-portalen.
 
 5. Failover Group4: Delivery Controller och StoreFront server-datorer
 6. Group3 manuell eller skript åtgärd 1:
 
     ***Lägg till Azure RM-värd-anslutning***
 
-    Skapa Azure ARM-värdanslutning i Delivery Controller-datorn för att etablera nya MCS-kataloger i Azure. Följ stegen som beskrivs i det här [artikeln](https://www.citrix.com/blogs/2016/07/21/connecting-to-azure-resource-manager-in-xenapp-xendesktop/).
+    Skapa Azure-värd-anslutning i Delivery Controller-datorn för att etablera nya MCS-kataloger i Azure. Följ stegen som beskrivs i det här [artikeln](https://www.citrix.com/blogs/2016/07/21/connecting-to-azure-resource-manager-in-xenapp-xendesktop/).
 
 7. Group3 manuell eller skript åtgärd 2:
 
     ***Återskapa MCS kataloger i Azure***
 
-    Befintliga MCS eller PVS kloner på den primära platsen replikeras inte till Azure. Du måste återskapa dessa kloner med hjälp av replikerade master VDA och Azure ARM etablering från domänkontrollant. Följ stegen som beskrivs i det här [artikeln](https://www.citrix.com/blogs/2016/09/12/using-xenapp-xendesktop-in-azure-resource-manager/) att skapa MCS kataloger i Azure.
+    Befintliga MCS eller PVS kloner på den primära platsen replikeras inte till Azure. Du måste återskapa dessa kloner med hjälp av replikerade master VDA och Azure etablering från domänkontrollant. Följ stegen som beskrivs i det här [artikeln](https://www.citrix.com/blogs/2016/09/12/using-xenapp-xendesktop-in-azure-resource-manager/) att skapa MCS kataloger i Azure.
 
 ![Återställningsplan för XenApp-komponenter](./media/site-recovery-citrix-xenapp-and-xendesktop/citrix-recoveryplan.png)
 

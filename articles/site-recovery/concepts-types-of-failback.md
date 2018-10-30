@@ -1,6 +1,6 @@
 ---
-title: Återställning efter fel i Azure Site Recovery | Microsoft Docs
-description: Den här artikeln innehåller en översikt över olika typer av återställning efter fel och varningar för att anses vara vid misslyckas tillbaka till lokalt med Azure Site Recovery-tjänsten.
+title: Återställning efter fel under haveriberedskap med Azure Site Recovery | Microsoft Docs
+description: Den här artikeln innehåller en översikt över olika typer av återställning efter fel och varningar för att anses vara vid misslyckas tillbaka till den lokala under haveriberedskap med Azure Site Recovery-tjänsten.
 services: site-recovery
 author: rajani-janaki-ram
 manager: guaravd
@@ -8,16 +8,16 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 07/06/2018
 ms.author: rajanki
-ms.openlocfilehash: 2a9ee380fc16c4088d98875dd465509c4023d037
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: e97d736e7e117e0ccce6dc021a9de2ea15ac5484
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37920397"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50210150"
 ---
 # <a name="overview-of-failback"></a>Översikt över återställning efter fel
 
-När du har redundansväxlat till Azure kan växla du tillbaka till din lokala plats. Det finns två olika typer av återställning efter fel som är möjligt med Azure Site Recovery: 
+När du har redundansväxlat till Azure som en del av dina återställningsprocesser kan växla du tillbaka till din lokala plats. Det finns två olika typer av återställning efter fel som är möjligt med Azure Site Recovery: 
 
 - Växla tillbaka till den ursprungliga platsen 
 - Växla tillbaka till en alternativ plats

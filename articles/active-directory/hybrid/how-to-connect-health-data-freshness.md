@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/26/2018
 ms.author: zhiweiw
-ms.openlocfilehash: e470a44732b881311eacecfdf2bd2211598d880a
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: ca9f23703315424fcf08350ae3111a20dd94c160
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49984868"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50233233"
 ---
 # <a name="health-service-data-is-not-up-to-date-alert"></a>Hälsotjänstinformationen är inte uppdaterad avisering
 
@@ -35,19 +35,27 @@ ms.locfileid: "49984868"
 * Använd [test anslutningsverktyget](how-to-connect-health-agent-install.md#test-connectivity-to-azure-ad-connect-health-service) att identifiera problem med nätverksanslutningen.
 * Om du har HTTP-Proxy [konfigurationssteg här](how-to-connect-health-agent-install.md#configure-azure-ad-connect-health-agents-to-use-http-proxy). 
 
+### <a name="connect-health-for-sync"></a>Connect Health för synkronisering
+
+| Dataelement | Felsökningsanvisningar |
+| --- | --- | 
+| PerfCounter | - [Utgående anslutning till Azure-tjänsteslutpunkt](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections) <br />- [SSL-kontroll för utgående trafik filtreras eller inaktiveras](https://technet.microsoft.com/library/ee796230.aspx) <br /> - [Brandväggsportar på servern som kör agenten](https://technet.microsoft.com/library/ms345310(v=sql.100).aspx) <br /> - [Tillåt avsedda webbplatser om Förbättrad säkerhetskonfiguration är aktiverad](https://technet.microsoft.com/en-us/windows/ms537180(v=vs.60)) |
+| AadSyncService SynchronizationRules <br /> AadSyncService-kopplingar <br /> AadSyncService GlobalConfigurations <br /> AadSyncService RunProfileResults <br /> AadSyncService ServiceConfigurations <br /> AadSyncService ServiceStatus | – Utgående anslutningar baserat på IP-adresser, referera till [Azure IP-intervall](https://www.microsoft.com/download/details.aspx?id=41653) <br /> - [Utgående anslutning till Azure-tjänsteslutpunkt](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections) <br /> -  [Brandväggsportar på servern som kör agenten](https://technet.microsoft.com/library/ms345310(v=sql.100).aspx) | 
+
 ### <a name="connect-health-for-adfs"></a>Connect Health för AD FS
+
 Ytterligare åtgärder för att validera för AD FS och följ arbetsflödet i [hjälp om AD FS](https://adfshelp.microsoft.com/TroubleshootingGuides/Workflow/3ef51c1f-499e-4e07-b3c4-60271640e282).
 
-### <a name="data-collection-map-required-steps"></a>Datainsamling mappa steg som krävs
-| Tjänstnamn | Dataelement | Felsökningsanvisningar |
-| --- | --- | --- | 
-| Connect Health för AD FS | PerfCounter TestResult | - [Utgående anslutning till Azure-tjänsteslutpunkt](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections) <br />- [SSL-kontroll för utgående trafik filtreras eller inaktiveras](https://technet.microsoft.com/library/ee796230.aspx) <br />-  [Brandväggsportar på servern som kör agenten](https://technet.microsoft.com/library/ms345310(v=sql.100).aspx) <br /> - [Tillåt avsedda webbplatser om Förbättrad säkerhetskonfiguration är aktiverad](https://support.microsoft.com/help/815141/internet-explorer-enhanced-security-configuration-changes-the-browsing) |
-|  | AD FS-UsageMetrics | Utgående anslutningar baserat på IP-adresser, referera till [Azure IP-intervall](https://www.microsoft.com/download/details.aspx?id=41653) | 
-| Connect Health för synkronisering | PerfCounter | - [Utgående anslutning till Azure-tjänsteslutpunkt](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections) <br />- [SSL-kontroll för utgående trafik filtreras eller inaktiveras](https://technet.microsoft.com/library/ee796230.aspx) <br /> - [Brandväggsportar på servern som kör agenten](https://technet.microsoft.com/library/ms345310(v=sql.100).aspx) <br /> - [Tillåt avsedda webbplatser om Förbättrad säkerhetskonfiguration är aktiverad](https://support.microsoft.com/help/815141/internet-explorer-enhanced-security-configuration-changes-the-browsing) |
-|  | AadSyncService SynchronizationRules <br /> AadSyncService-kopplingar <br /> AadSyncService GlobalConfigurations <br /> AadSyncService RunProfileResults <br /> AadSyncService ServiceConfigurations <br /> AadSyncService ServiceStatus | – Utgående anslutningar baserat på IP-adresser, referera till [Azure IP-intervall](https://www.microsoft.com/download/details.aspx?id=41653) <br /> - [Utgående anslutning till Azure-tjänsteslutpunkt](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections) <br /> -  [Brandväggsportar på servern som kör agenten](https://technet.microsoft.com/library/ms345310(v=sql.100).aspx) | 
-| Connect Health för ADDS  | PerfCounter, lägger till-TopologyInfo-Json, vanliga-TestData-Json | - [Utgående anslutning till Azure-tjänsteslutpunkt](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections) <br /> - [SSL-kontroll för utgående trafik filtreras eller inaktiveras](https://technet.microsoft.com/library/ee796230.aspx) <br />-  [Brandväggsportar på servern som kör agenten](https://technet.microsoft.com/library/ms345310(v=sql.100).aspx) <br /> - [Tillåt avsedda webbplatser om Förbättrad säkerhetskonfiguration är aktiverad](https://support.microsoft.com/help/815141/internet-explorer-enhanced-security-configuration-changes-the-browsing) <br />  – Utgående anslutningar baserat på IP-adresser, referera till [Azure IP-intervall](https://www.microsoft.com/download/details.aspx?id=41653)  |
+| Dataelement | Felsökningsanvisningar |
+| --- | --- | 
+| PerfCounter TestResult | - [Utgående anslutning till Azure-tjänsteslutpunkt](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections) <br />- [SSL-kontroll för utgående trafik filtreras eller inaktiveras](https://technet.microsoft.com/library/ee796230.aspx) <br />-  [Brandväggsportar på servern som kör agenten](https://technet.microsoft.com/library/ms345310(v=sql.100).aspx) <br /> - [Tillåt avsedda webbplatser om Förbättrad säkerhetskonfiguration är aktiverad](https://technet.microsoft.com/en-us/windows/ms537180(v=vs.60)) |
+|  AD FS-UsageMetrics | Utgående anslutningar baserat på IP-adresser, referera till [Azure IP-intervall](https://www.microsoft.com/download/details.aspx?id=41653) | 
 
+### <a name="connect-health-for-adds"></a>Connect Health för ADDS
 
+| Dataelement | Felsökningsanvisningar |
+| --- | --- | 
+| PerfCounter, lägger till-TopologyInfo-Json, vanliga-TestData-Json | - [Utgående anslutning till Azure-tjänsteslutpunkt](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections) <br /> - [SSL-kontroll för utgående trafik filtreras eller inaktiveras](https://technet.microsoft.com/library/ee796230.aspx) <br />-  [Brandväggsportar på servern som kör agenten](https://technet.microsoft.com/library/ms345310(v=sql.100).aspx) <br /> - [Tillåt avsedda webbplatser om Förbättrad säkerhetskonfiguration är aktiverad](https://technet.microsoft.com/en-us/windows/ms537180(v=vs.60)) <br />  – Utgående anslutningar baserat på IP-adresser, referera till [Azure IP-intervall](https://www.microsoft.com/download/details.aspx?id=41653)  |
 
 
 ## <a name="next-steps"></a>Nästa steg

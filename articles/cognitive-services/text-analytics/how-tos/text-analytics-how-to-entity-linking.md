@@ -10,12 +10,12 @@ ms.component: text-analytics
 ms.topic: article
 ms.date: 10/01/2018
 ms.author: ashmaka
-ms.openlocfilehash: 42e1704df315c754b2b506a0470d128b7666c280
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: e81428d5bdffb65b5e61a7aba7496da275f249a5
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49645805"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50230564"
 ---
 # <a name="how-to-use-named-entity-recognition-in-text-analytics-preview"></a>Hur du använder med namnet Entitetsidentifiering i Text Analytics (förhandsversion)
 
@@ -56,7 +56,7 @@ Med hjälp av entitetslänkning på olika språk kräver en motsvarande kunskaps
 | Antal      | Temperatur   | ”32 grader”    |
 | DateTime      | EJ TILLÄMPLIGT\*         | ”18:30:00 den 4 februari 2012”      | 
 | DateTime      | Date          | ”Den 2 maj 2017”, ”2017-05-02”   | 
-| Datum och tid     | Tid          | ”8 am”, ”8:00”  | 
+| Tidpunkt     | Tid          | ”8 am”, ”8:00”  | 
 | DateTime      | DateRange     | ”2 maj till 5 maj”    | 
 | DateTime      | timeRange     | ”18: 00 till 19: 00”     | 
 | DateTime      | Varaktighet      | ”1 minut och 45 sekunder”   | 
@@ -95,7 +95,7 @@ Information om begäransdefinitionen finns i [Hur anropar man textanalys API:et]
 
 + Skicka en **POST**-begäran. Läs API-dokumentationen för denna begäran: [API för Entity Linking](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/5ac4251d5b4ccd1554da7634)
 
-+ Ange en HTTP-slutpunkt för extrahering av nyckelfraser. Den måste innehålla `/entities`-resursen: `https://westus.api.cognitive.microsoft.com/text/analytics/v2.1-preview/entities`
++ Ange HTTP-slutpunkt för entitetextrahering. Den måste innehålla `/entities`-resursen: `https://[your-region].api.cognitive.microsoft.com/text/analytics/v2.1-preview/entities`
 
 + Ange en begäransrubrik som inkluderar åtkomstnyckeln för textanalysåtgärder. Mer information finns i [Hitta slutpunkter och åtkomstnycklar](text-analytics-how-to-access-key.md).
 

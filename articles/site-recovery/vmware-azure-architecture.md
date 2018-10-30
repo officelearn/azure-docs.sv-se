@@ -1,25 +1,26 @@
 ---
-title: VMware till Azure-replikeringsarkitektur i Azure Site Recovery | Microsoft Docs
-description: Den här artikeln innehåller en översikt över komponenter och arkitektur som används för att replikera lokala virtuella VMware-datorer till Azure med Azure Site Recovery
+title: VMware till Azure disaster recovery-arkitekturen i Azure Site Recovery | Microsoft Docs
+description: Den här artikeln innehåller en översikt över komponenter och arkitektur som används när du konfigurerar haveriberedskap för lokala virtuella VMware-datorer till Azure med Azure Site Recovery
 author: rayne-wiselman
 ms.service: site-recovery
+ms.topic: conceptual
 ms.date: 09/12/2018
 ms.author: raynew
-ms.openlocfilehash: 498c41324bfc85f6f91acc8000df4c34856cf428
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 58129ece0fb1b7f446e5f8d738b5d1135aa0256e
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44715762"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50212394"
 ---
-# <a name="vmware-to-azure-replication-architecture"></a>VMware till Azure-replikering-arkitektur
+# <a name="vmware-to-azure-disaster-recovery-architecture"></a>VMware till Azure disaster recovery-arkitekturen
 
-Den här artikeln beskrivs arkitekturen och processer som används när du replikera, redundansväxla och återställa virtuella VMware-datorer (VM) mellan en lokal VMware-platsen och Azure med hjälp av [Azure Site Recovery](site-recovery-overview.md).
+Den här artikeln beskrivs arkitekturen och processer som används när du distribuerar disaster recovery-replikering, redundans och återställning av virtuella VMware-datorer (VM) mellan en lokal VMware-platsen och Azure med hjälp av den [Azure Site Recovery](site-recovery-overview.md) servuce.
 
 
 ## <a name="architectural-components"></a>Arkitekturkomponenter
 
-Följande tabell och bild ger en översikt över de komponenter som används för VMware-replikering till Azure.
+Följande tabell och bild ger en översikt över de komponenter som används för haveriberedskap för VMware till Azure.
 
 **Komponent** | **Krav** | **Detaljer**
 --- | --- | ---

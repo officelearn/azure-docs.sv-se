@@ -10,12 +10,12 @@ ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 05/21/2018
 tags: connectors
-ms.openlocfilehash: d8658740772ed4a11fdfd70a0c925ac1b597dd69
-ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
+ms.openlocfilehash: 7d6845624c838ac0cf49e5963cae1ca0ea15ec15
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47452028"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50230615"
 ---
 # <a name="create-and-manage-blobs-in-azure-blob-storage-with-azure-logic-apps"></a>Skapa och hantera blobbar i Azure blob storage med Azure Logic Apps
 
@@ -28,7 +28,7 @@ Anta att du har ett verktyg som uppdateras på en Azure-webbplats. den fungerar 
 >
 > * Skapa en [integreringstjänstmiljön](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), som kan ansluta till resurser i Azure-nätverk. 
 > 
-> * Om du redan använder API Management kan du använda den här tjänsten för det här scenariot. Mer information finns i [enkel integrering företagsarkitektur](http://aka.ms/aisarch).
+> * Om du redan använder API Management kan du använda den här tjänsten för det här scenariot. Mer information finns i [enkel integrering företagsarkitektur](https://aka.ms/aisarch).
 
 Om du är nybörjare till logic apps, granska [vad är Azure Logic Apps](../logic-apps/logic-apps-overview.md) och [Snabbstart: skapa din första logikapp](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 Specifika teknisk information finns i den <a href="https://docs.microsoft.com/connectors/azureblobconnector/" target="blank">Azure Blob Storage-anslutning för referens</a>.
@@ -124,7 +124,7 @@ Teknisk information, till exempel utlösare och åtgärder gränser, enligt besk
 ## <a name="get-support"></a>Få support
 
 * Om du har frågor kan du besöka [forumet för Azure Logic Apps](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
-* Om du vill skicka in eller rösta på förslag på funktioner besöker du [webbplatsen för Logic Apps-användarfeedback](http://aka.ms/logicapps-wish).
+* Om du vill skicka in eller rösta på förslag på funktioner besöker du [webbplatsen för Logic Apps-användarfeedback](https://aka.ms/logicapps-wish).
 
 ## <a name="next-steps"></a>Nästa steg
 

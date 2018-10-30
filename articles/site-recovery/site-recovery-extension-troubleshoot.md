@@ -1,22 +1,20 @@
 ---
-title: 'Felsöka Azure Site Recovery Agent-fel: Gäst agenten Status otillgänglig | Microsoft Docs'
-description: Symptom, orsaker och lösningar för Azure Site Recovery-fel som rör agenten och tillägg
-services: site-recovery
+title: Felsöka problem med Azure Site Recovery-agenter | Microsoft Docs
+description: Innehåller information om problem, orsaker och lösningar för Azure Site Recovery-agentfel.
 author: asgang
 manager: rochakm
 ms.service: site-recovery
-ms.devlang: na
-ms.topic: article
-ms.date: 07/06/2018
+ms.topic: troubleshooting
+ms.date: 10/29/2018
 ms.author: asgang
-ms.openlocfilehash: c0429e87f6c58ef2b9c7a268bee596d769e95910
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 3090dd9e0d9681dbf77f052e9d324f2add0a1910
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37919812"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50215046"
 ---
-# <a name="troubleshoot-azure-site-recovery-extension-failures-issues-with-the-agent-or-extension"></a>Felsök Azure Site Recovery-tillägget: problem med agenten eller -tillägget
+# <a name="troubleshoot-issues-with-the-azure-site-recovery-agent"></a>Felsöka problem med Azure Site Recovery-agenten
 
 Den här artikeln innehåller åtgärder för felsökning som kan hjälpa dig att lösa Azure Site Recovery-fel som rör VM-agenten och tillägg.
 
@@ -105,7 +103,7 @@ Avinstallera tillägget:
 
 1. I den [Azure-portalen](https://portal.azure.com/)går du till den virtuella datorn som har drabbats av säkerhetskopieringen har misslyckats.
 2. Välj **inställningar**.
-3. Välj **tillägg**.
+3. Välj **Tillägg**.
 4. Välj **Site Recovery-tillägget**.
 5. Välj **avinstallera**.
 

@@ -4,16 +4,16 @@ description: Den här artikeln beskriver hur du programmässigt kan skapa och ha
 services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 09/18/2018
+ms.date: 10/29/2018
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: dd7ec4f1d0c018a3c7eed19bea523f7c09bfea3e
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 4a68b60df76dcc554158d6c8db4d0dfe8dd32be7
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46985324"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50209232"
 ---
 # <a name="programmatically-create-policies-and-view-compliance-data"></a>Programmässigt skapa principer och visa data för kompatibilitetsinställningar
 
@@ -85,6 +85,12 @@ Det första steget mot bättre överblick över dina resurser är att skapa och 
    ```
 
    Ersätt _ContosoRG_ med namnet på din avsedda resursgrupp.
+
+   Den **omfång** parametern på `New-AzureRmPolicyAssignment` fungerar även med prenumerationer och hanteringsgrupper. Parametern använder en fullständig resurssökväg som den **ResourceId** egenskapen `Get-AzureRmResourceGroup` returnerar. Mönster för **omfång** för varje behållare är på följande sätt.  Ersätt `{rgName}`, `{subId}`, och `{mgName}` med din resurs gruppera namn, prenumerations-ID och namn på hanteringsgrupp, respektive.
+
+   - Resursgrupp – `/subscriptions/{subId}/resourceGroups/{rgName}`
+   - Prenumeration – `/subscriptions/{subId}/`
+   - Hanteringsgrupp- `/providers/Microsoft.Management/managementGroups/{mgName}`
 
 Mer information om hur du hanterar resursprinciper med Azure Resource Managers PowerShell-modulen finns i [AzureRM.Resources](/powershell/module/azurerm.resources/#policies).
 

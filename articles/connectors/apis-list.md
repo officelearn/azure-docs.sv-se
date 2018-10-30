@@ -9,12 +9,12 @@ ms.reviewer: klam, LADocs
 ms.suite: integration
 ms.topic: article
 ms.date: 08/23/2018
-ms.openlocfilehash: 6b31882ec3916e60ac7dc7b8117328176abef1b4
-ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
+ms.openlocfilehash: 3230692208d27ebac073e257266c885b5e03095c
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42818542"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50233641"
 ---
 # <a name="connectors-for-azure-logic-apps"></a>Anslutningsappar för Azure Logic Apps
 
@@ -158,7 +158,7 @@ Om du vill göra anpassade API Apps eller kopplingar offentliga för allmän anv
 
 * Om du har frågor kan du besöka [forumet för Azure Logic Apps](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
 
-* Du kan skicka eller rösta på idéer för Azure Logic Apps och anslutningsapparna genom att gå till den [webbplatsen för Logic Apps-Användarfeedback](http://aka.ms/logicapps-wish).
+* Du kan skicka eller rösta på idéer för Azure Logic Apps och anslutningsapparna genom att gå till den [webbplatsen för Logic Apps-Användarfeedback](https://aka.ms/logicapps-wish).
 
 * Är dokumentationen saknas artiklar eller information som du tycker är viktigt? Om Ja, kan du hjälpa genom att lägga till i befintliga artiklar eller genom att skriva en egen. Dokumentationen är öppen källkod och finns på GitHub. Kom igång på i Azure-dokumentationen [GitHub-lagringsplatsen](https://github.com/Microsoft/azure-docs). 
 
@@ -196,10 +196,7 @@ Om du vill göra anpassade API Apps eller kopplingar offentliga för allmän anv
 [variables-doc]: ../logic-apps/logic-apps-create-variables-store-values.md "Utför åtgärder med variabler, till exempel starta, set, öka, minska, och lägga till i variabeln sträng eller matris"
 
 <!--Managed API doc links-->
-
-  [
-  azure-blob-storage-doc]: ./connectors-create-api-azureblobstorage.md
-   "Hantera filer i blobcontainern med Azure Blob Storage Connector"
+[azure-blob-storage-doc]: ./connectors-create-api-azureblobstorage.md "Hantera filer i blobcontainern med Azure Blob Storage Connector"
 [azure-event-grid-doc]: ../event-grid/monitor-virtual-machine-changes-event-grid-logic-app.md " Övervaka händelser som publicerats av en Event Grid, till exempel när ändrar Azure-resurser eller resurser från tredje part"
 [azure-event-hubs-doc]: ./connectors-create-api-azure-event-hubs.md "Anslut till Azure Event Hubs. Ta emot och skicka händelser mellan logikappar och händelsehubbar"
 [box-doc]: ./connectors-create-api-box.md "Anslut till Box. Överföra, hämta, ta bort, visa filer och mycket mer "

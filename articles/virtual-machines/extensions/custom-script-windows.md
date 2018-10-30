@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 04/24/2018
 ms.author: roiyz
-ms.openlocfilehash: 1201e7ec232a5bd45351072949dc0b9c19af434f
-ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
+ms.openlocfilehash: 7396277c58b079dc2f0c68b7832a6f2ca57ee287
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47452181"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50212309"
 ---
 # <a name="custom-script-extension-for-windows"></a>Tillägget för anpassat skript för Windows
 
@@ -73,7 +73,7 @@ De här objekten ska behandlas som känsliga data och anges i den skyddade Konfi
 
 ```json
 {
-    "apiVersion": "2015-06-15",
+    "apiVersion": "2018-06-01",
     "type": "Microsoft.Compute/virtualMachines/extensions",
     "name": "config-app",
     "location": "[resourceGroup().location]",
@@ -135,7 +135,10 @@ Inställningar för offentliga skickas i klartext till den virtuella datorn där
 
 ## <a name="template-deployment"></a>Malldistribution
 
-Azure VM-tillägg kan distribueras med Azure Resource Manager-mallar. JSON-schemat som beskrivs i föregående avsnitt kan användas i en Azure Resource Manager-mall för att köra tillägget för anpassat skript under en malldistribution för Azure Resource Manager. En exempelmall som innehåller det anpassade Skripttillägget finns här, [GitHub](https://github.com/Microsoft/dotnet-core-sample-templates/tree/master/dotnet-core-music-windows).
+Azure VM-tillägg kan distribueras med Azure Resource Manager-mallar. JSON-schemat som beskrivs i föregående avsnitt kan användas i en Azure Resource Manager-mall för att köra tillägget för anpassat skript under en malldistribution för Azure Resource Manager. Följande exempel visar hur du använder tillägget för anpassat skript:
+
+* [Självstudie: Distribuera tillägg för virtuell dator med Azure Resource Manager-mallar](../../azure-resource-manager/resource-manager-tutorial-deploy-vm-extensions.md)
+* [Distribuera två Nivåprogram på Windows och Azure SQL DB](https://github.com/Microsoft/dotnet-core-sample-templates/tree/master/dotnet-core-music-windows)
 
 ## <a name="powershell-deployment"></a>PowerShell-distribution
 

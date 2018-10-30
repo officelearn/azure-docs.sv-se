@@ -1,6 +1,6 @@
 ---
-title: Distributionshanteraren för Azure Site Recovery och kostnadsuppskattningar för Hyper-V till Azure| Microsoft Docs
-description: I den här artikeln beskrivs den detaljerade kostnadsuppskattningen i en rapport som genereras med Distributionshanteraren för Azure Site Recovery för scenariot Hyper-V till Azure.
+title: Granska Azure Site Recovery Deployment Planner kostnad rapporten kostnadsuppskattning för haveriberedskap för Hyper-V-datorer till Azure | Microsoft Docs
+description: Den här artikeln beskriver hur du granskar kostnaden uppskattning som rapporten genererats Azure Site Recovery Deployment Planner för Hyper-V haveriberedskap till Azure.
 services: site-recovery
 author: nsoneji
 manager: garavd
@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/11/2018
 ms.author: nisoneji
-ms.openlocfilehash: 40a8e2e6d994608d4aa26f6d9b3723c0ee27d3db
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: 0233446f817436632efc4110872e84b6b3105453
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49387250"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50213193"
 ---
 # <a name="cost-estimation-report-by-azure-site-recovery-deployment-planner"></a>Rapporten Kostnadsuppskattning från Distributionshanteraren för Azure Site Recovery 
 

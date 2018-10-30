@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 08/14/2018
 ms.author: alsin
-ms.openlocfilehash: 411c743421af79ea066df3a5fc07f71b8b6cb993
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: 43f9d7d39cfcdd7b670aca6184533def0b6966f5
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48855875"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50211391"
 ---
 # <a name="use-serial-console-to-access-grub-and-single-user-mode"></a>Använd Seriekonsol för att komma åt GRUB och enanvändarläge
 GRUB är GRand Unified startprogrammet. Från GRUB kan du ändra din startkonfiguration starta i enanvändarläge, bland annat.
@@ -33,7 +33,7 @@ Om du vill ange enanvändarläge, behöver du ange GRUB när den virtuella dator
 ## <a name="general-grub-access"></a>Allmän GRUB-åtkomst
 För att komma åt GRUB, behöver du starta om den virtuella datorn samtidigt som det öppna bladet Seriell konsol. Vissa distributioner kräver tangentbordsinmatning att visa GRUB, medan andra automatiskt visa GRUB under några sekunder och tillåter indata från användaren tangentbord annullera timeout-värdet. 
 
-Du vill kontrollera att GRUB är aktiverat på den virtuella datorn för att få åtkomst till enanvändarläge. Beroende på din distribution, kan det finnas vissa installationen fungerar för att kontrollera att GRUB är aktiverat. Distribution-specifik information finns nedan.
+Du vill kontrollera att GRUB är aktiverat på den virtuella datorn för att få åtkomst till enanvändarläge. Beroende på din distribution, kan det finnas vissa installationen fungerar för att kontrollera att GRUB är aktiverat. Distribution-specifik information finns nedan och i [den här länken](https://blogs.msdn.microsoft.com/linuxonazure/2018/10/23/why-proactively-ensuring-you-have-access-to-grub-and-sysrq-in-your-linux-vm-could-save-you-lots-of-down-time/).
 
 ### <a name="reboot-your-vm-to-access-grub-in-serial-console"></a>Starta om den virtuella datorn för att komma åt GRUB i Seriekonsol
 Starta om den virtuella datorn med bladet Seriell konsol är öppen kan göras med en SysRq `'b'` kommandot om [SysRq](./serial-console-nmi-sysrq.md) är aktiverad, eller genom att klicka på omstarten knappen i bladet översikt (öppna den virtuella datorn i en ny webbläsarflik ska startas om utan att stänga bladet Seriell konsol). Följ distribution-specifika anvisningarna nedan för att lära dig vad som händer GRUB när du startar om.
@@ -186,6 +186,7 @@ Följ instruktionerna för RHEL ovan för att aktivera enanvändarläge i Oracle
 
 ## <a name="next-steps"></a>Nästa steg
 * Sidan huvudkonsolen seriell Linux-dokumentation finns [här](serial-console-linux.md).
+* Lär dig hur du använder Seriekonsol för att [aktivera GRUB i olika distributioner](https://blogs.msdn.microsoft.com/linuxonazure/2018/10/23/why-proactively-ensuring-you-have-access-to-grub-and-sysrq-in-your-linux-vm-could-save-you-lots-of-down-time/)
 * Använd Seriekonsol för [NMI och SysRq anrop](serial-console-nmi-sysrq.md)
 * Seriekonsolen är också tillgängligt för [Windows](serial-console-windows.md) virtuella datorer
 * Läs mer om [startdiagnostik](boot-diagnostics.md)

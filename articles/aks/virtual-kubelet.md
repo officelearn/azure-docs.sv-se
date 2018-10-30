@@ -8,12 +8,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 08/14/2018
 ms.author: iainfou
-ms.openlocfilehash: e24c12dd5891b0ee58263a1e0a4e3af1ebffe711
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
-ms.translationtype: HT
+ms.openlocfilehash: cd41fba675a0814e6f2a1b17576add7811a803eb
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49365015"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50233488"
 ---
 # <a name="use-virtual-kubelet-with-azure-kubernetes-service-aks"></a>Använda Virtual Kubelet med Azure Kubernetes Service (AKS)
 
@@ -115,7 +115,7 @@ virtual-kubelet-virtual-kubelet-win     Ready     agent     4m        v1.8.3
 
 ## <a name="run-linux-container"></a>Kör Linux-behållare
 
-Skapa en fil med namnet `virtual-kubelet-linux.yaml` och kopiera följande YAML. Ersätt den `kubernetes.io/hostname` värdet med namnet på noden Linux Virtual Kubelet. Anteckna som en [nodeSelector] [ node-selector] och [toleration] [ toleration] som används för att schemalägga behållaren på noden.
+Skapa en fil med namnet `virtual-kubelet-linux.yaml` och kopiera följande YAML. Anteckna som en [nodeSelector] [ node-selector] och [toleration] [ toleration] som används för att schemalägga behållaren på noden.
 
 ```yaml
 apiVersion: apps/v1
@@ -124,6 +124,9 @@ metadata:
   name: aci-helloworld
 spec:
   replicas: 1
+  selector:
+    matchLabels:
+      app: aci-helloworld
   template:
     metadata:
       labels:
@@ -135,7 +138,9 @@ spec:
         ports:
         - containerPort: 80
       nodeSelector:
-        kubernetes.io/hostname: virtual-kubelet-virtual-kubelet-linux
+        beta.kubernetes.io/os: linux
+        kubernetes.io/role: agent
+        type: virtual-kubelet
       tolerations:
       - key: virtual-kubelet.io/provider
         operator: Equal
@@ -160,7 +165,7 @@ aci-helloworld-2559879000-8vmjw     1/1       Running   0          39s       52.
 
 ## <a name="run-windows-container"></a>Kör Windows-behållare
 
-Skapa en fil med namnet `virtual-kubelet-windows.yaml` och kopiera följande YAML. Ersätt den `kubernetes.io/hostname` värdet med namnet på noden Windows Virtual Kubelet. Anteckna som en [nodeSelector] [ node-selector] och [toleration] [ toleration] som används för att schemalägga behållaren på noden.
+Skapa en fil med namnet `virtual-kubelet-windows.yaml` och kopiera följande YAML. Anteckna som en [nodeSelector] [ node-selector] och [toleration] [ toleration] som används för att schemalägga behållaren på noden.
 
 ```yaml
 apiVersion: apps/v1
@@ -169,6 +174,9 @@ metadata:
   name: nanoserver-iis
 spec:
   replicas: 1
+  selector:
+    matchLabels:
+      app: nanoserver-iis
   template:
     metadata:
       labels:
@@ -180,7 +188,9 @@ spec:
         ports:
         - containerPort: 80
       nodeSelector:
-        kubernetes.io/hostname: virtual-kubelet-virtual-kubelet-win
+        beta.kubernetes.io/os: windows
+        kubernetes.io/role: agent
+        type: virtual-kubelet
       tolerations:
       - key: virtual-kubelet.io/provider
         operator: Equal

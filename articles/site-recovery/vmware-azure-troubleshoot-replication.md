@@ -1,19 +1,18 @@
 ---
-title: Felsöka problem med replikering för VMware VM och fysisk serverreplikering till Azure med Azure Site Recovery | Microsoft Docs
-description: Den här artikeln innehåller felsökning av vanliga replikeringsproblem när du replikerar virtuella VMware-datorer och fysiska servrar till Azure med Azure Site Recovery.
-services: site-recovery
+title: Felsöka problem med replikering för akutåterställning av virtuella VMware-datorer och fysiska servrar till Azure med Azure Site Recovery | Microsoft Docs
+description: Den här artikeln innehåller information om att felsöka vanliga replikeringsproblem under haveriberedskap för virtuella VMware-datorer och fysiska servrar till Azure med Azure Site Recovery.
 author: Rajeswari-Mamilla
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 07/06/2018
+ms.date: 10/29/2018
 ms.author: ramamill
-ms.openlocfilehash: c2100ee2388ae09bd309167b1be77f7bdbe32f69
-ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
+ms.openlocfilehash: 915f7d7d2d6be02dfef0cd6bb9a2fa156ed565bc
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39126025"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50214740"
 ---
 # <a name="troubleshoot-replication-issues-for-vmware-vms-and-physical-servers"></a>Felsöka problem med replikering för virtuella VMware-datorer och fysiska servrar
 

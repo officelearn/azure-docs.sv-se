@@ -1,6 +1,6 @@
 ---
-title: Replikera Hyper-V-datorer i Virtual Machine Manager-moln till en sekundär plats med PowerShell (Azure Resource Manager) | Microsoft Docs
-description: Beskriver hur du replikerar virtuella Hyper-V-datorer i Virtual Machine Manager-moln till en sekundär plats för Virtual Machine Manager med hjälp av PowerShell (Resource Manager)
+title: Konfigurera haveriberedskap för Hyper-V-datorer i VMM-moln till en sekundär plats med Azure Site Recovery och PowerShell | Microsoft Docs
+description: Beskriver hur du konfigurerar haveriberedskap för Hyper-V-datorer i VMM-moln till en sekundär VMM-plats med Azure Site Recovery och PowerShell.
 services: site-recovery
 author: sujayt
 manager: rochakm
@@ -8,14 +8,14 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 07/06/2018
 ms.author: sutalasi
-ms.openlocfilehash: 896b3cb3c40673dfbc7269cab1d37790f78912b0
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: 6ade1d584fad05e33a72a0ff5099378a9cf7f29f
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48041364"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50214587"
 ---
-# <a name="replicate-hyper-v-vms-to-a-secondary-site-by-using-powershell-resource-manager"></a>Replikera Hyper-V-datorer till en sekundär plats med hjälp av PowerShell (Resource Manager)
+# <a name="set-up-disaster-recovery-of-hyper-v-vms-to-a-secondary-site-by-using-powershell-resource-manager"></a>Konfigurera haveriberedskap för Hyper-V-datorer till en sekundär plats med hjälp av PowerShell (Resource Manager)
 
 Den här artikeln visar hur du automatiserar stegen för replikering av Hyper-V-datorer i System Center Virtual Machine Manager-moln till ett moln för Virtual Machine Manager i en sekundär lokal plats med hjälp av [Azure Site Recovery](site-recovery-overview.md).
 

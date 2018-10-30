@@ -10,16 +10,16 @@ ms.service: active-directory
 ms.workload: identity
 ms.component: users-groups-roles
 ms.topic: article
-ms.date: 09/20/2018
+ms.date: 10/26/2018
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
-ms.openlocfilehash: e418316a74ccf27ec730261957a8b6c64de5d063
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: d521406e37920dcd76c0078d2fdf54c16b7a0461
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47040609"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50209997"
 ---
 # <a name="create-a-dynamic-group-and-check-status"></a>Skapa en dynamisk grupp och kontrollera status
 
@@ -39,8 +39,9 @@ Den här artikeln beskriver hur du konfigurerar en regel i Azure-portalen för d
 
    ![Lägg till dynamisk medlemsregel](./media/groups-create-rule/add-dynamic-group-rule.png)
 
-5. När du har skapat regeln, Välj **Lägg till fråga** längst ned på bladet.
-6. Välj **skapa** på den **grupp** bladet för att skapa gruppen.
+5. Om du vill se en fullständig lista över kund tilläggsegenskaper som du kan lägga till din medlemskapsfråga **Get kunden tilläggsegenskaper**, ange ett unikt ID och välj sedan **uppdatera egenskaper för**. Fullständig ist egenskaper kommer nu att kan väljas.
+6. När du har skapat regeln, Välj **Lägg till fråga** längst ned på bladet.
+7. Välj **skapa** på den **grupp** bladet för att skapa gruppen.
 
 > [!TIP]
 > Det går inte att skapa en grupp om regeln som du angav har felaktigt format eller är inte giltig. Ett meddelande visas i det övre högra hörnet i portalen, som innehåller en förklaring av varför regeln inte kunde bearbetas. Läs den noggrant för att förstå hur du behöva justera regeln så att den blir giltigt.

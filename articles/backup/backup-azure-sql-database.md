@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 08/02/2018
 ms.author: markgal;anuragm
 ms.custom: ''
-ms.openlocfilehash: aab0ac2dfba47741eaf5a75ef46d9ca5f8873d50
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: 72d48bd1716e1b62ae92f8317f3f9611ac463453
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47434253"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50211510"
 ---
 # <a name="back-up-sql-server-databases-to-azure"></a>Säkerhetskopiera SQL Server-databaser till Azure
 
@@ -658,23 +658,23 @@ Azure Backup använder SQL interna API: er för alla säkerhetskopieringsåtgär
 I följande exempel är en fråga som hämtar alla säkerhetskopieringsjobb för en databas med namnet **DB1**. Anpassa frågan för avancerad övervakning.
 
 ```
-select CAST (
+select CAST (
 Case type
-                when 'D' 
-                                 then 'Full'
-                when  'I'
-                               then 'Differential' 
-                ELSE 'Log'
-                END         
-                AS varchar ) AS 'BackupType',
-database_name, 
+                when 'D' 
+                                 then 'Full'
+                when  'I'
+                               then 'Differential' 
+                ELSE 'Log'
+                END         
+                AS varchar ) AS 'BackupType',
+database_name, 
 server_name,
 machine_name,
 backup_start_date,
 backup_finish_date,
-DATEDIFF(SECOND, backup_start_date, backup_finish_date) AS TimeTakenByBackupInSeconds,
-backup_size AS BackupSizeInBytes
-  from msdb.dbo.backupset where user_name = 'NT SERVICE\AzureWLBackupPluginSvc' AND database_name =  <DB1>  
+DATEDIFF(SECOND, backup_start_date, backup_finish_date) AS TimeTakenByBackupInSeconds,
+backup_size AS BackupSizeInBytes
+  from msdb.dbo.backupset where user_name = 'NT SERVICE\AzureWLBackupPluginSvc' AND database_name =  <DB1>  
  
 ```
 
@@ -703,7 +703,7 @@ När du slutar skydda en SQL Server-databas, Azure Backup-begäranden om du vill
 * Stoppa alla framtida säkerhetskopieringsjobb och ta bort alla återställningspunkter.
 * Stoppa alla framtida säkerhetskopieringsjobb, men lämna kvar återställningspunkterna.
 
-Det finns en kostnad för att lämna kvar återställningspunkterna. Återställningspunkter för SQL debiteras för den skyddade SQL-instansen priser kostnad, plus förbrukad lagring. Läs mer om Azure Backup priser för SQL, den [sidan med prissättning för Azure Backup](https://azure.microsoft.com/pricing/details/backup/). 
+Om du väljer Avbryt säkerhetskopiering och behålla data, återställningspunkter tas bort enligt principen för säkerhetskopiering. Den skyddade SQL-instansen priser kostnad, plus förbrukad tills alla återställningspunkter rensas lagring tillkommer. Läs mer om Azure Backup priser för SQL, den [sidan med prissättning för Azure Backup](https://azure.microsoft.com/pricing/details/backup/). 
 
 Sluta skydda en databas:
 

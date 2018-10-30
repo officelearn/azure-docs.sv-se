@@ -6,18 +6,18 @@ author: rayne-wiselman
 manager: carmonm
 ms.topic: conceptual
 ms.service: site-recovery
-ms.date: 10/09/2018
+ms.date: 10/28/2018
 ms.author: raynew
-ms.openlocfilehash: 802c2223a72a89dbe2a97404aab4b0fc85c391ed
-ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
+ms.openlocfilehash: 9da64ebe675f9d481c7474a81fec294d50e49ce7
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48902832"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50215216"
 ---
 # <a name="replicate-azure-stack-vms-to-azure"></a>Replikera Azure Stack-datorer till Azure
 
-Den här artikeln visar hur du konfigurerar haveriberedskap till Azure för virtuella Azure Stack-datorer med hjälp av den [Azure Site Recovery-tjänsten](https://docs.microsoft.com/azure/site-recovery/site-recovery-overview).
+Den här artikeln visar hur du konfigurerar haveriberedskap Azure Stack-datorer till Azure, med hjälp av den [Azure Site Recovery-tjänsten](https://docs.microsoft.com/azure/site-recovery/site-recovery-overview).
 
 Site Recovery bidrar till din affärskontinuitet och haveriberedskap (BCDR) strategi. Tjänsten säkerställer att dina VM-arbetsbelastningar är tillgängliga när förväntade och oväntade avbrott inträffar.
 
@@ -189,7 +189,7 @@ Nu installera konfigurationsservern:
 [!INCLUDE [site-recovery-add-configuration-server](../../includes/site-recovery-add-configuration-server.md)]
 
 > [!NOTE]
-> Konfigurationsservern kan även installeras från kommandoraden. [Läs mer](http://aka.ms/installconfigsrv).
+> Konfigurationsservern kan även installeras från kommandoraden. [Läs mer](physical-manage-configuration-server.md#install-from-the-command-line).
 
 > Det kan ta 15 minuter eller mer innan kontonamnet visas i portalen. Om du vill uppdatera omedelbart väljer du **Konfigurationsservrar** > ***servernamn*** > **Uppdatera server**.
 

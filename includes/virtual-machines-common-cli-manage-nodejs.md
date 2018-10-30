@@ -1,3 +1,16 @@
+---
+author: cynthn
+ms.service: virtual-machines
+ms.topic: include
+ms.date: 10/26/2018
+ms.author: cynthn
+ms.openlocfilehash: 682288338d66f1006e9f1d7f3d6d30f822626425
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.translationtype: MT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50227421"
+---
 Innan du kan använda Azure CLI med Resource Manager-kommandon och mallar för att distribuera Azure-resurser och arbetsbelastningar med resursgrupper, måste du ha ett konto hos Azure. Om du inte har något konto kan du skaffa ett [kostnadsfritt Azure-utvärderingskonto här](https://azure.microsoft.com/pricing/free-trial/).
 
 Om du inte redan har installerat Azure CLI och anslutit till din prenumeration kan du läsa [Installera Azure CLI](../articles/cli-install-nodejs.md), ange läget till `arm` med `azure config mode arm` och anslut till Azure med kommandot `azure login`.

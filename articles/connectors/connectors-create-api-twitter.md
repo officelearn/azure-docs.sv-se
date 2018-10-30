@@ -11,12 +11,12 @@ ms.assetid: 8bce2183-544d-4668-a2dc-9a62c152d9fa
 ms.topic: article
 tags: connectors
 ms.date: 08/25/2018
-ms.openlocfilehash: eea70d979a69a4855b6eeb892d1705ecadaa8434
-ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
+ms.openlocfilehash: 0fbd89202796cb4543dbecbeee605c9b87cc9d05
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42918653"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50230667"
 ---
 # <a name="monitor-and-manage-twitter-by-using-azure-logic-apps"></a>Övervaka och hantera Twitter med hjälp av Azure Logic Apps
 
@@ -89,7 +89,7 @@ Teknisk information om utlösare, åtgärder och begränsningar som beskrivs av 
 ## <a name="get-support"></a>Få support
 
 * Om du har frågor kan du besöka [forumet för Azure Logic Apps](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
-* Om du vill skicka in eller rösta på förslag på funktioner besöker du [webbplatsen för Logic Apps-användarfeedback](http://aka.ms/logicapps-wish).
+* Om du vill skicka in eller rösta på förslag på funktioner besöker du [webbplatsen för Logic Apps-användarfeedback](https://aka.ms/logicapps-wish).
 
 ## <a name="next-steps"></a>Nästa steg
 

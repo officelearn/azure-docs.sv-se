@@ -10,12 +10,12 @@ ms.topic: article
 ms.date: 08/20/2018
 ms.reviewer: klam, LADocs
 ms.suite: integration
-ms.openlocfilehash: a63bd8e3b071ed996db8ad5aeaeb5e451b4d92e9
-ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
+ms.openlocfilehash: bb00ef0f76b71d0a4748a319c9f2a5d64dffa251
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42055851"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50233318"
 ---
 # <a name="add-and-run-custom-code-snippets-in-azure-logic-apps-with-azure-functions"></a>Lägga till och köra egna i Azure Logic Apps med Azure Functions
 
@@ -214,7 +214,7 @@ När du vill utlösa en logikapp från inuti en Azure-funktion måste i logikapp
 ## <a name="get-support"></a>Få support
 
 * Om du har frågor kan du besöka [forumet för Azure Logic Apps](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
-* Om du vill skicka in eller rösta på förslag på funktioner besöker du [webbplatsen för Logic Apps-användarfeedback](http://aka.ms/logicapps-wish).
+* Om du vill skicka in eller rösta på förslag på funktioner besöker du [webbplatsen för Logic Apps-användarfeedback](https://aka.ms/logicapps-wish).
 
 ## <a name="next-steps"></a>Nästa steg
 

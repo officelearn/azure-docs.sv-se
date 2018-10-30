@@ -1,27 +1,20 @@
 ---
-title: Beräkna kapacitet för replikering i Azure | Microsoft Docs
-description: Använd den här artikeln för att beräkna kapacitet när du replikerar med hjälp av Azure Site Recovery
-services: site-recovery
-documentationcenter: ''
+title: Planera kapacitet för Hyper-V-haveriberedskap med Azure Site Recovery | Microsoft Docs
+description: Använd den här artikeln för att beräkna kapacitet när du konfigurerar haveriberedskap med Azure Site Recovery-tjänsten.
 author: rayne-wiselman
-manager: jwhit
-editor: ''
-ms.assetid: 0a1cd8eb-a8f7-4228-ab84-9449e0b2887b
+manager: carmonm
 ms.service: site-recovery
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: storage-backup-recovery
-ms.date: 10/11/2018
-ms.author: nisoneji
-ms.openlocfilehash: 3df7bd5ed44bdf514d48e451468329bd11fdf596
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.date: 10/28/2018
+ms.author: raynew
+ms.openlocfilehash: f600471e8a3602628a5040051f382e6e020f29d5
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49094045"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50211425"
 ---
-# <a name="plan-capacity-for-protecting-hyper-v-vms-with-site-recovery"></a>Planera kapacitet för att skydda Hyper-V-datorer med Site Recovery
+# <a name="plan-capacity-for-hyper-v-vm-disaster-recovery"></a>Planera kapacitet för Hyper-V VM-katastrofåterställning 
 
 En ny och förbättrad version av [Azure Site Recovery Deployment Planner för Hyper-V till Azure-distribution](site-recovery-hyper-v-deployment-planner.md) är nu tillgänglig. Det ersätter verktyget gamla. Använd det nya verktyget för att planera din distribution.
 Verktyget tillhandahåller följande riktlinjer:

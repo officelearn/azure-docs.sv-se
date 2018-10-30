@@ -10,18 +10,18 @@ ms.service: machine-learning
 ms.component: core
 ms.topic: article
 ms.date: 09/24/2018
-ms.openlocfilehash: 7754e93035a5f76d31f6a4202c757c909706a52a
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: 2c4255b70ae9eb3b31b6fdfce33853f0d517aa1f
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50156943"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50215488"
 ---
 # <a name="select-and-use-a-compute-target-to-train-your-model"></a>Använd ett beräkningsmål träna din modell
 
-Med Azure Machine Learning-tjänsten kan du träna din modell i flera olika miljöer. Dessa miljöer, kallas __beräkningsmål__, kan vara lokala eller i molnet. I det här dokumentet lär du dig att stöds beräkningsmål och hur de används.
+Med Azure Machine Learning-tjänsten kan du träna din modell i olika miljöer. Dessa miljöer, kallas __beräkningsmål__, kan vara lokala eller i molnet. I det här dokumentet lär du stöds beräkningsmål och hur de används.
 
-Beräkningsmål är den resurs som kör dina utbildningsskript eller värdar modellen när den distribueras som en webbtjänst. De kan skapas och hanteras med hjälp av Azure Machine Learning SDK eller CLI. Om du har beräkningsmål som har skapats av en annan process (till exempel Azure portal eller Azure CLI) kan använda du dem genom att koppla dem till din arbetsyta för Azure Machine Learning-tjänsten.
+Beräkningsmål är den resurs som körs dina utbildningsskript, eller som är värd för din modell när det distribueras som en webbtjänst. De kan skapas och hanteras med hjälp av Azure Machine Learning SDK eller CLI. Om du har beräkningsmål som har skapats av en annan process (till exempel Azure portal eller Azure CLI) kan använda du dem genom att koppla dem till din arbetsyta för Azure Machine Learning-tjänsten.
 
 Du kan börja med lokala körs på din dator och sedan skala uppåt och utåt till andra miljöer, till exempel remote Data Science virtuella datorer med GPU- eller Azure Batch AI. 
 
@@ -36,8 +36,13 @@ Azure Machine Learning-tjänsten stöder följande beräkningsmål:
 |----|:----:|:----:|:----:|:----:|
 |[Lokal dator](#local)| Kanske | &nbsp; | ✓ | &nbsp; |
 |[Virtuell dator för datavetenskap (DSVM)](#dsvm) | ✓ | ✓ | ✓ | ✓ |
-|[Azure Batch AI](#batch)| ✓ | ✓ | ✓ | ✓ | ✓ |
+|[Azure Batch AI](#batch)| ✓ | ✓ | ✓ | ✓ |
+|[Azure Databricks](#databricks)| &nbsp; | &nbsp; | &nbsp; | ✓[*](#pipeline-only) |
+|[Azure Data Lake Analytics](#adla)| &nbsp; | &nbsp; | &nbsp; | ✓[*](#pipeline-only) |
 |[Azure HDInsight](#hdinsight)| &nbsp; | &nbsp; | &nbsp; | ✓ |
+
+> [!IMPORTANT]
+> <a id="pipeline-only"></a>* Azure Databricks och Azure Data Lake Analytics kan __endast__ användas i en pipeline. Mer information om pipelines finns i den [Pipelines i Azure Machine Learning](concept-ml-pipelines.md) dokumentet.
 
 __[Azure Container Instances (ACI)](#aci)__  kan också användas för att träna modeller. Det är en serverlös molntjänst som är kostnadseffektiv och enkel att skapa och arbeta med. ACI har inte stöd för GPU-acceleration, automatiserade hyper parametern inställning, eller automatiserade vald modell. Det kan dessutom inte användas i en pipeline.
 
@@ -52,7 +57,7 @@ Du kan använda SDK för Azure Machine Learning, Azure CLI eller Azure-portalen 
 > [!IMPORTANT]
 > Du kan inte koppla en befintlig instans av Azure-behållare till din arbetsyta. I stället måste du skapa en ny instans.
 >
-> Du kan inte skapa ett Azure HDInsight-kluster i en arbetsyta. I stället måste du koppla ett befintligt kluster.
+> Du kan inte skapa Azure HDInsight, Azure Databricks och Azure Data Lake Store inom en arbetsyta. I stället måste du skapa resursen och sedan ansluta den till din arbetsyta.
 
 ## <a name="workflow"></a>Arbetsflöde
 
@@ -311,6 +316,106 @@ Det kan ta från några sekunder till några minuter att skapa ett beräkningsm�
 
 En Jupyter-anteckningsbok som visar utbildning om Azure Container Instance, se [ https://github.com/Azure/MachineLearningNotebooks/blob/master/01.getting-started/03.train-on-aci/03.train-on-aci.ipynb ](https://github.com/Azure/MachineLearningNotebooks/blob/master/01.getting-started/03.train-on-aci/03.train-on-aci.ipynb).
 
+## <a id="databricks"></a>Azure Databricks
+
+Azure Databricks är en Apache Spark-baserad miljö i Azure-molnet. Det kan användas som ett beräkningsmål vid utbildning av modeller med en Azure Machine Learning-pipeline.
+
+> [!IMPORTANT]
+> En Azure Databricks beräkningsmål kan bara användas i en Machine Learning-pipeline.
+>
+> Du måste skapa en Azure Databricks-arbetsyta innan du använder den för att träna din modell. Om du vill skapa dessa resurs den [kör ett Spark-jobb på Azure Databricks](https://docs.microsoft.com/azure/azure-databricks/quickstart-create-databricks-workspace-portal) dokumentet.
+
+Om du vill koppla Azure Databricks som beräkningsmål, måste du använder Azure Machine Learning SDK och ange följande information:
+
+* __Beräkningsnamn__: namnet som du vill tilldela till den här beräkningsresursen.
+* __Resurs-ID__: resurs-ID för Azure Databricks-arbetsytan. Följande text är ett exempel på formatet för det här värdet:
+
+    ```text
+    /subscriptions/<your_subscription>/resourceGroups/<resource-group-name>/providers/Microsoft.Databricks/workspaces/<databricks-workspace-name>
+    ```
+
+    > [!TIP]
+    > Använd följande Azure CLI-kommando för att hämta resurs-ID. Ersätt `<databricks-ws>` med namnet på din Databricks-arbetsyta:
+    > ```azurecli-interactive
+    > az resource list --name <databricks-ws> --query [].id
+    > ```
+
+* __Åtkomsttoken__: den åtkomst-token som används för att autentisera till Azure Databricks. Generera en åtkomsttoken genom att se den [autentisering](https://docs.azuredatabricks.net/api/latest/authentication.html) dokumentet.
+
+Följande kod visar hur du ansluter Azure Databricks som beräkningsmål:
+
+```python
+databricks_compute_name = os.environ.get("AML_DATABRICKS_COMPUTE_NAME", "<databricks_compute_name>")
+databricks_resource_id = os.environ.get("AML_DATABRICKS_RESOURCE_ID", "<databricks_resource_id>")
+databricks_access_token = os.environ.get("AML_DATABRICKS_ACCESS_TOKEN", "<databricks_access_token>")
+
+try:
+    databricks_compute = ComputeTarget(workspace=ws, name=databricks_compute_name)
+    print('Compute target already exists')
+except ComputeTargetException:
+    print('compute not found')
+    print('databricks_compute_name {}'.format(databricks_compute_name))
+    print('databricks_resource_id {}'.format(databricks_resource_id))
+    print('databricks_access_token {}'.format(databricks_access_token))
+    databricks_compute = DatabricksCompute.attach(
+             workspace=ws,
+             name=databricks_compute_name,
+             resource_id=databricks_resource_id,
+             access_token=databricks_access_token
+         )
+    
+    databricks_compute.wait_for_completion(True)
+```
+
+## <a id="adla"></a>Azure Data Lake Analytics
+
+Azure Data Lake Analytics är en analysplattform med stordata i Azure-molnet. Det kan användas som ett beräkningsmål vid utbildning av modeller med en Azure Machine Learning-pipeline.
+
+> [!IMPORTANT]
+> En Azure Data Lake Analytics beräkningsmål kan bara användas i en Machine Learning-pipeline.
+>
+> Du måste skapa ett Azure Data Lake Analytics-konto innan du använder den för att träna din modell. Om du vill skapa den här resursen, den [Kom igång med Azure Data Lake Analytics](https://docs.microsoft.com/azure/data-lake-analytics/data-lake-analytics-get-started-portal) dokumentet.
+
+Om du vill koppla Data Lake Analytics som beräkningsmål du använder Azure Machine Learning SDK och ange följande information:
+
+* __Beräkningsnamn__: namnet som du vill tilldela till den här beräkningsresursen.
+* __Resurs-ID__: resurs-ID för Data Lake Analytics-kontot. Följande text är ett exempel på formatet för det här värdet:
+
+    ```text
+    /subscriptions/<your_subscription>/resourceGroups/<resource-group-name>/providers/Microsoft.DataLakeAnalytics/accounts/<datalakeanalytics-name>
+    ```
+
+    > [!TIP]
+    > Använd följande Azure CLI-kommando för att hämta resurs-ID. Ersätt `<datalakeanalytics>` med namnet på ditt Data Lake Analytics-kontonamn:
+    > ```azurecli-interactive
+    > az resource list --name <datalakeanalytics> --query [].id
+    > ```
+
+Följande kod visar hur du kopplar Data Lake Analytics som beräkningsmål:
+
+```python
+adla_compute_name = os.environ.get("AML_ADLA_COMPUTE_NAME", "<adla_compute_name>")
+adla_resource_id = os.environ.get("AML_ADLA_RESOURCE_ID", "<adla_resource_id>")
+
+try:
+    adla_compute = ComputeTarget(workspace=ws, name=adla_compute_name)
+    print('Compute target already exists')
+except ComputeTargetException:
+    print('compute not found')
+    print('adla_compute_name {}'.format(adla_compute_name))
+    print('adla_resource_id {}'.format(adla_resource_id))
+    adla_compute = AdlaCompute.attach(
+             workspace=ws,
+             name=adla_compute_name,
+             resource_id=adla_resource_id
+         )
+    
+    adla_compute.wait_for_completion(True)
+```
+
+> [!TIP]
+> Azure Machine Learning pipelines fungerar bara med data som lagras i datalagret standard för Data Lake Analytics-kontot. Om data som du vill arbeta med är i en icke-standard-store kan du använda en [ `DataTransferStep` ](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.data_transfer_step.datatransferstep?view=azure-ml-py) att kopiera data innan utbildning.
+
 ## <a id="hdinsight"></a>Koppla ett HDInsight-kluster 
 
 HDInsight är en populär plattform för stordataanalys. Den innehåller Apache Spark, som kan användas för att träna din modell.
@@ -351,8 +456,19 @@ run_config.auto_prepare_environment = True
 ```
 
 ## <a name="submit-training-run"></a>Skicka utbildning som kör
-    
-Koden för att skicka en utbildning körning är detsamma oavsett beräkningsmål:
+
+Det finns två sätt att skicka en utbildning körning:
+
+* Skicka en `ScriptRunConfig` objekt.
+* Skicka en `Pipeline` objekt.
+
+> [!IMPORTANT]
+> Compute-mål kan bara användas i en pipeline i Azure Databricks, Azure-Datalake-Analytics och Azure HDInsight.
+> Den lokala beräkningsmål kan inte användas i en Pipeline.
+
+### <a name="submit-using-scriptrunconfig"></a>Skicka in via `ScriptRunConfig`
+
+Mönstret kod för att skicka ett utbildnings körs med hjälp av `ScriptRunConfig` är detsamma oavsett beräkningsmål:
 
 * Skapa en `ScriptRunConfig` objekt med hjälp av körningskonfigurationen för beräkningsmål.
 * Skicka in körningen.
@@ -360,13 +476,46 @@ Koden för att skicka en utbildning körning är detsamma oavsett beräkningsmå
 
 I följande exempel används konfigurationen för hanteras av datorn lokala beräkningsmål skapade tidigare i det här dokumentet:
 
-```pyghon
+```python
 src = ScriptRunConfig(source_directory = script_folder, script = 'train.py', run_config = run_config_system_managed)
 run = exp.submit(src)
 run.wait_for_completion(show_output = True)
 ```
 
 En Jupyter-anteckningsbok som visar utbildning med Spark på HDInsight, se [ https://github.com/Azure/MachineLearningNotebooks/blob/master/01.getting-started/05.train-in-spark/05.train-in-spark.ipynb ](https://github.com/Azure/MachineLearningNotebooks/blob/master/01.getting-started/05.train-in-spark/05.train-in-spark.ipynb).
+
+### <a name="submit-using-a-pipeline"></a>Skicka in via en pipeline
+
+Koden mönstret för att skicka ett utbildnings körs med hjälp av en pipeline är detsamma oavsett beräkningsmål:
+
+* Lägga till ett steg i pipeline för beräkningsresursen.
+* Skicka en körning med hjälp av pipelinen.
+* Vänta tills den kör för att slutföra.
+
+I följande exempel används Azure Databricks-beräkningsmål som skapats tidigare i det här dokumentet:
+
+```python
+dbStep = DatabricksStep(
+    name="databricksmodule",
+    inputs=[step_1_input],
+    outputs=[step_1_output],
+    num_workers=1,
+    notebook_path=notebook_path,
+    notebook_params={'myparam': 'testparam'},
+    run_name='demo run name',
+    databricks_compute=databricks_compute,
+    allow_reuse=False
+)
+# list of steps to run
+steps = [dbStep]
+pipeline = Pipeline(workspace=ws, steps=steps)
+pipeline_run = Experiment(ws, 'Demo_experiment').submit(pipeline)
+pipeline_run.wait_for_completion()
+```
+
+Mer information om machine learning pipelines finns i den [Pipelines och Azure Machine Learning](concept-ml-pipelines.md) dokumentet.
+
+Till exempel Jupyter-anteckningsböcker som visar utbildning med en pipeline finns i [ https://github.com/Azure/MachineLearningNotebooks/tree/master/pipeline ](https://github.com/Azure/MachineLearningNotebooks/tree/master/pipeline).
 
 ## <a name="view-and-set-up-compute-using-the-azure-portal"></a>Visa och Ställ in beräkning med Azure portal
 
@@ -387,11 +536,18 @@ Följ stegen för att visa en lista över beräkningsmål och Använd sedan föl
 
 1. Ange ett namn för beräkningsmål.
 1. Välj den typ av beräkningsresurser kan bifoga för __utbildning__. 
+
+    > [!IMPORTANT]
+    > Inte alla beräkningsresurser typer kan skapas med hjälp av Azure portal. De typer som kan skapas för träning finns för närvarande:
+    > 
+    > * Virtuell dator
+    > * Batch AI
+
 1. Välj __Skapa ny__ och fylla i nödvändig information. 
 1. Välj __Skapa__
 1. Du kan visa statusen för att skapa genom att välja beräkningsmål i listan.
 
-    ![Visa beräkning lista](./media/how-to-set-up-training-targets/View_list.png) därefter visas information för den beräkningen.
+    ![Visa beräkning lista](./media/how-to-set-up-training-targets/View_list.png) därefter visas information om beräkningsmål.
     ![Visa information](./media/how-to-set-up-training-targets/vm_view.PNG)
 1. Du kan nu skicka en körning mot dessa mål som beskrivs ovan.
 
@@ -401,8 +557,16 @@ Följ stegen för att visa en lista över beräkningsmål och klicka sedan åter
 
 1. Klicka på den **+** logga att lägga till ett beräkningsmål.
 2. Ange ett namn för beräkningsmål.
-3. Välj typ av beräkningsresurser kan bifoga för utbildning. Batch AI och virtuella datorer stöds för närvarande i portalen för utbildning.
-4. Välj Använd befintlig.
+3. Välj typ av beräkningsresurser kan bifoga för utbildning.
+
+    > [!IMPORTANT]
+    > Inte alla beräkningsresurser typer kan kopplas med hjälp av portalen.
+    > De typer som kan kopplas till utbildning finns för närvarande:
+    > 
+    > * Virtuell dator
+    > * Batch AI
+
+1. Välj Använd befintlig.
     - När du ansluter Batch AI-kluster, Välj beräkningsmål i listrutan, väljer arbetsytan Batch AI och Batch AI-kluster och klickar **skapa**.
     - När du ansluter en virtuell dator, ange IP-adressen, användarnamnet och lösenordet, privata/offentliga nycklar och porten och klicka på Skapa.
 
@@ -412,7 +576,7 @@ Följ stegen för att visa en lista över beräkningsmål och klicka sedan åter
     > * [Skapa och använda SSH-nycklar på Linux eller macOS]( https://docs.microsoft.com/azure/virtual-machines/linux/mac-create-ssh-keys)
     > * [Skapa och använda SSH-nycklar i Windows]( https://docs.microsoft.com/azure/virtual-machines/linux/ssh-from-windows)
 
-5. Du kan visa statusen för Etableringsstatus genom att välja beräkningsmål i listan med beräkningar.
+5. Du kan visa statusen för Etableringsstatus genom att välja beräkningsmål i listan.
 6. Du kan nu skicka en körning mot dessa mål.
 
 ## <a name="examples"></a>Exempel

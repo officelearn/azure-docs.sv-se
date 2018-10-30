@@ -1,20 +1,20 @@
 ---
-title: Hyper-V till Azure-replikeringsarkitektur i Azure Site Recovery | Microsoft Docs
-description: Den här artikeln innehåller en översikt över komponenter och arkitektur som används för att replikera lokala virtuella datorer med Hyper-V (utan VMM) till Azure med tjänsten Azure Site Recovery.
+title: Hyper-V till Azure disaster recovery-arkitekturen i Azure Site Recovery | Microsoft Docs
+description: Den här artikeln innehåller en översikt över komponenter och arkitektur som används när du distribuerar haveriberedskap för lokala Hyper-V-datorer (utan VMM) till Azure med Azure Site Recovery-tjänsten.
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 10/10/2018
+ms.date: 10/28/2018
 ms.author: raynew
-ms.openlocfilehash: 49059415c5f96eeb4dd871e7d2c8ae4ab9b2c12e
-ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
+ms.openlocfilehash: 23b12f5b0423f717e96ec1f59480f0175648c75f
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49078366"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50210660"
 ---
-# <a name="hyper-v-to-azure-replication-architecture"></a>Hyper-V till Azure-replikering-arkitektur
+# <a name="hyper-v-to-azure-disaster-recovery-architecture"></a>Hyper-V till Azure disaster recovery-arkitekturen
 
 
 Den här artikeln beskrivs arkitekturen och processer som används när du replikera, redundansväxla och återställa Hyper-V-datorer (VM) mellan lokala Hyper-V-värdar och Azure, med hjälp av den [Azure Site Recovery](site-recovery-overview.md) service.

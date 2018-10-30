@@ -1,27 +1,23 @@
 ---
-title: Skydda en flerskiktade SAP NetWeaver-programdistribution med Azure Site Recovery | Microsoft Docs
-description: Den här artikeln beskriver hur du skyddar SAP NetWeaver programdistributioner med hjälp av Azure Site Recovery.
-services: site-recovery
-documentationcenter: ''
+title: Konfigurera haveriberedskap för distribution av flera nivåer SAP NetWeaver med Azure Site Recovery | Microsoft Docs
+description: Den här artikeln beskriver hur du konfigurerar haveriberedskap för distribution av SAP NetWeaver-program med Azure Site Recovery.
 author: asgang
 manager: rochakm
-editor: ''
-ms.assetid: ''
 ms.service: site-recovery
 ms.workload: backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 07/06/2018
+ms.topic: conceptual
+ms.date: 10/29/2018
 ms.author: asgang
-ms.openlocfilehash: a498ac9f973bbcf87bec104f18b542cc7e8b5800
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: c83cf9fb319c21881f0db8bd94dc9a94a3b811bc
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49318698"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50211731"
 ---
-# <a name="protect-a-multi-tier-sap-netweaver-application-deployment-by-using-site-recovery"></a>Skydda en programdistribution för flera nivåer SAP NetWeaver med hjälp av Site Recovery
+# <a name="set-up-disaster-recovery-for-a-multi-tier-sap-netweaver-app-deployment"></a>Konfigurera haveriberedskap för en app-distribution för flera nivåer av SAP NetWeaver
 
 De flesta stora och medelstora SAP-distributioner använder någon form av lösning för haveriberedskap. Vikten av stabila och kan testas haveriberedskapslösningar har ökat när mer kärnprocesser flyttas till program som SAP. Azure Site Recovery har testats och integrerats med SAP-program. Site Recovery överskrider kapaciteterna för de flesta lokala lösningar för haveriberedskap, och på en lägre total ägandekostnad (TCO) än konkurrerande lösningar.
 
@@ -62,7 +58,7 @@ Vi rekommenderar att du etablerar den här infrastrukturen innan du distribuerar
 
 Den här referensarkitekturen visar information om hur du kör SAP NetWeaver i en Windows-miljö på Azure med hög tillgänglighet.  Den här arkitekturen distribueras med storlekar för specifika virtuella datorer (VM) som kan ändras för att tillgodose organisationens behov.
 
-![Diagram över ett typiskt mönster för SAP-distribution](./media/site-recovery-sap/reference_sap.png)
+![Diagram över ett typiskt mönster för SAP-distribution](./media/site-recovery-sap/sap-netweaver_latest.png)
 
 ## <a name="disaster-recovery-considerations"></a>Överväganden kring haveriberedskap
 

@@ -8,12 +8,12 @@ ms.date: 06/27/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 9609aab6c70bc0c2755de142023bd26e7417987a
-ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
+ms.openlocfilehash: 2416d70e3c9d0f66ff755d8049e78e0275c89258
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37347080"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50232077"
 ---
 # <a name="create-and-provision-an-edge-device-with-a-virtual-tpm-on-a-linux-virtual-machine"></a>Skapa och etablera en Edge-enhet med en virtuell TPM på en Linux-dator
 
@@ -125,7 +125,7 @@ När du skapar en registrering i DPS har möjlighet att deklarera en **starttill
 
 ## <a name="install-the-iot-edge-runtime"></a>Installera IoT Edge-körningen
 
-IoT Edge-körningen distribueras på alla IoT Edge-enheter. Dess komponenter körs i behållare och gör att du kan distribuera ytterligare behållare till enheten så att du kan köra kod på gränsen. Installera IoT Edge-körningen på din virtuella m achine. 
+IoT Edge-körningen distribueras på alla IoT Edge-enheter. Dess komponenter körs i behållare och gör att du kan distribuera ytterligare behållare till enheten så att du kan köra kod på gränsen. Installera IoT Edge-körningen på den virtuella datorn. 
 
 Vet DPS **ID-omfång** och **registrerings-ID** innan du påbörjar den artikel som matchar din enhetstyp. Om du har installerat exempel Ubuntu server, använder den **x64** instruktioner. Se till att konfigurera IoT Edge-körningen för automatisk och manuell och etablering. 
 

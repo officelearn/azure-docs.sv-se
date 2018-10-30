@@ -17,12 +17,12 @@ ms.date: 10/02/2018
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: ceafee3ac3453590d1687f662c7f3c9a8d8b4e0c
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: 29cbb96cc6dec4bac601e8795599f77c955c418a
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50156637"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50230837"
 ---
 # <a name="azure-active-directory-v20-and-the-oauth-20-device-code-flow"></a>Azure Active Directory v2.0- och kodflöde för OAuth 2.0-enhet
 
@@ -68,7 +68,7 @@ scope=user.read%20openid%20profile
 
 ### <a name="device-authorization-response"></a>Svaret för auktorisering av enheten
 
-En lyckade svar är ett JSON-objekt som innehåller informationen som krävs för att tillåta användare att logga in.  
+Ett lyckat svar är ett JSON-objekt som innehåller informationen som krävs för att tillåta användare att logga in.  
 
 | Parameter | Format | Beskrivning |
 | ---              | --- | --- |
@@ -113,7 +113,7 @@ Eftersom kodflöde för enheten är ett protokoll för avsökning, måste klient
 | `expired_token`|  Minst `expires_in` sekunder har genomgått och autentisering kan inte längre med den här `device_code`. | Stoppa avsökning och återgå till ett icke-autentiserade tillstånd. |
 
 
-### <a name="succesful-authentication-response"></a>Lyckade svar
+### <a name="successful-authentication-response"></a>Lyckad autentiseringssvar
 
 Ett lyckat svar för token kommer att se ut:
 

@@ -1,23 +1,22 @@
 ---
-title: Stöd matrix för replikering av virtuella VMware-datorer eller fysiska servrar till en sekundär VMware-plats med Azure Site Recovery | Microsoft Docs
-description: Sammanfattar stödet för VMware/fysisk serverreplikering till en sekundär plats med Azure Site Recovery
-services: site-recovery
+title: Stöd matrix för haveriberedskap för virtuella VMware-datorer eller fysiska servrar till en sekundär VMware-plats med Azure Site Recovery | Microsoft Docs
+description: Sammanfattar stödet för haveriberedskap för virtuella VMware-datorer och fysiska servrar till en sekundär plats med Azure Site Recovery.
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 07/06/2018
+ms.date: 10/29/2018
 ms.author: raynew
-ms.openlocfilehash: 4df929e8a185a04aef5cb13f30c19b0db707e765
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: 8406cf2b31b87cdb4f6c9b6ba3d06559cf1d4d41
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44022001"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50209810"
 ---
-# <a name="support-matrix-for-replication-of-vmware-vms-and-physical-servers-to-a-secondary-site"></a>Stödmatris för replikering av virtuella VMware-datorer och fysiska servrar till en sekundär plats
+# <a name="support-matrix-for-disaster-recovery-of-vmware-vms-and-physical-servers-to-a-secondary-site"></a>Stöd matrix för haveriberedskap för virtuella VMware-datorer och fysiska servrar till en sekundär plats
 
-Den här artikeln sammanfattar vad som stöds när du använder den [Azure Site Recovery](site-recovery-overview.md) -tjänsten för att replikera virtuella VMware-datorer eller Windows-/ Linux fysiska servrar till en sekundär VMware-plats.
+Den här artikeln sammanfattar vad som stöds när du använder den [Azure Site Recovery](site-recovery-overview.md) -tjänsten för haveriberedskap för virtuella VMware-datorer eller Windows-/ Linux fysiska servrar till en sekundär VMware-plats.
 
 - Om du vill replikera virtuella VMware-datorer eller fysiska servrar till Azure kan du läsa [supportmatris för den här](vmware-physical-azure-support-matrix.md).
 - Om du vill replikera Hyper-V-datorer till en sekundär plats kan du läsa [supportmatris för den här](hyper-v-azure-support-matrix.md).

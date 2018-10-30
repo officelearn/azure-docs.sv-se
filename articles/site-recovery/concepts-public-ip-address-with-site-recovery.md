@@ -1,22 +1,21 @@
 ---
-title: Offentlig IP-adress med Site Recovery | Microsoft Docs
-description: Beskriver hur du ställer in offentliga IP-adresser med hjälp av Azure Site Recovery och Azure Traffic Manager för katastrofåterställning och migrering
+title: Använda offentliga IP-adresser efter redundansväxling med Azure Site Recovery | Microsoft Docs
+description: Beskriver hur du ställer in den offentliga IP-adresser med Azure Site Recovery och Azure Traffic Manager för katastrofåterställning och migrering
 services: site-recovery
-documentationcenter: ''
 author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
 ms.date: 09/28/2018
 ms.author: mayg
-ms.openlocfilehash: fd17c786515a6db1f8aa5c1aff7c0dcd42ed7dc6
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: 80c38ecc766d60fba578e877998aeb216ea66012
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47435222"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50215284"
 ---
-# <a name="public-ip-address-with-site-recovery"></a>Offentlig IP-adress med Site Recovery
+# <a name="set-up-public-ip-addresses-after-failover"></a>Konfigurera offentliga IP-adresser efter redundansväxling
 
 Offentliga IP-adresser tillåter att Internet-resurser kommunicerar inkommande till Azure-resurser. Offentliga IP-adresser gör det också möjligt för Azure-resurser att kommunicera utgående till Internet och offentliga Azure-tjänster med en IP-adress som tilldelats resursen.
 - Inkommande kommunikation från Internet till resurs, till exempel Azure-datorer (VM), Azure Application Gateway, belastningsutjämnare för Azure, Azure VPN gateway och andra. Du kan fortfarande kommunicera med vissa resurser, till exempel virtuella datorer från Internet, om en virtuell dator inte har en offentlig IP-adress som tilldelats, så länge som den virtuella datorn är en del av en load balancer backend-poolen och belastningsutjämnaren har tilldelats en offentlig IP-adress.

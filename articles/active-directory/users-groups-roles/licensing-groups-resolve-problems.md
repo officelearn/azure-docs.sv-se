@@ -11,15 +11,15 @@ ms.service: active-directory
 ms.component: users-groups-roles
 ms.topic: article
 ms.workload: identity
-ms.date: 06/05/2017
+ms.date: 10/29/2018
 ms.author: curtand
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5d64cf71ea3a44b7539835e3616150218e8b3635
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: ee441a8c9a0d8a70a2797f090a143189cdb6872a
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37861905"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50211544"
 ---
 # <a name="identify-and-resolve-license-assignment-problems-for-a-group-in-azure-active-directory"></a>Identifiera och lösa licensproblem för tilldelning för en grupp i Azure Active Directory
 
@@ -65,7 +65,7 @@ Välj en produkt om du vill se vilka användare och grupper förbrukar licenser.
 
 **Problem:** en av de produkter som anges i gruppen som innehåller en serviceplan som är i konflikt med en annan service-plan som redan har tilldelats till användaren via en annan produkt. Vissa service-planer är konfigurerade på ett sätt att de inte kan tilldelas samma användare som en annan, relaterade service-plan.
 
-Fundera på följande exempel. En användare har en licens för Office 365 Enterprise *E1* tilldelas direkt, med alla prenumerationer som är aktiverad. Användaren har lagts till en grupp som har Office 365 Enterprise *E3* produkten som är tilldelade till den. E3-produkt innehåller service-planer som inte överlappar med planer som ingår i E1, så licenstilldelning gruppen misslyckas med felmeddelandet ”pågår service-planer”. I det här exemplet är i konflikt service-planer
+Se följande exempel. En användare har en licens för Office 365 Enterprise *E1* tilldelas direkt, med alla prenumerationer som är aktiverad. Användaren har lagts till en grupp som har Office 365 Enterprise *E3* produkten som är tilldelade till den. E3-produkt innehåller service-planer som inte överlappar med planer som ingår i E1, så licenstilldelning gruppen misslyckas med felmeddelandet ”pågår service-planer”. I det här exemplet är i konflikt service-planer
 
 -   SharePoint Online (Plan 2) är i konflikt med SharePoint Online (Plan 1).
 -   Exchange Online (Plan 2) är i konflikt med Exchange Online (Plan 1).
@@ -96,6 +96,19 @@ Lös problemet genom att ta bort användare från platser som inte stöds från 
 
 > [!NOTE]
 > När Azure AD tilldelar grupplicenserna, ärver alla användare utan att användningsplats angivna platsen för katalogen. Vi rekommenderar att administratörer anger rätt användningen plats värden på användare innan du använder gruppbaserad licensiering för att uppfylla lokala lagar och föreskrifter.
+
+## <a name="duplicate-proxy-addresses"></a>Duplicera proxyadresser
+
+Om du använder Exchange Online kanske vissa användare i din klient konfigureras felaktigt med det samma värdet för proxyadress. När gruppbaserad licensiering försöker tilldela en licens till användaren, misslyckas och visar ”Proxyadressen används redan”.
+
+> [!TIP]
+> Om du vill se om det finns en dubblett proxyadress kör du följande PowerShell-cmdlet mot Exchange Online:
+```
+Run Get-Recipient | where {$_.EmailAddresses -match "user@contoso.onmicrosoft.com"} | fL Name, RecipientType,emailaddresses
+```
+> Mer information om det här problemet finns i [”Proxyadressen används redan” visas i Exchange Online](https://support.microsoft.com/help/3042584/-proxy-address-address-is-already-being-used-error-message-in-exchange-online). Artikeln innehåller även information på [hur du ansluter till Exchange Online med fjärr-PowerShell](https://technet.microsoft.com/library/jj984289.aspx). Se den här artikeln för mer information [på så här fylls attributet proxyAddresses i Azure AD](https://support.microsoft.com/help/3190357/how-the-proxyaddresses-attribute-is-populated-in-azure-ad).
+
+När du har löst problemen proxy-adress för de berörda användarna se till att tvinga licens bearbetning på gruppen för att se till att licenser nu kan användas.
 
 ## <a name="what-happens-when-theres-more-than-one-product-license-on-a-group"></a>Vad händer om det finns fler än en produktlicens i en grupp?
 
@@ -134,19 +147,7 @@ Hädanefter kan använder alla användare som läggs till i den här gruppen en 
 > [!TIP]
 > Du kan skapa flera grupper för varje nödvändig service-plan. Om du använder både Office 365 Enterprise E1 och Office 365 Enterprise E3 för dina användare kan du till exempel skapa två grupper till licens Microsoft Workplace Analytics: en som använder E1 som ett krav och andra som använder E3. På så sätt kan du distribuera tillägg till E1 och E3-användare utan att förbruka ytterligare licenser.
 
-## <a name="license-assignment-fails-silently-for-a-user-due-to-duplicate-proxy-addresses-in-exchange-online"></a>Licenstilldelningen misslyckas utan meddelanden för en användare på grund av duplicerade proxyadresser i Exchange Online
 
-Om du använder Exchange Online kanske vissa användare i din klient konfigureras felaktigt med det samma värdet för proxyadress. När gruppbaserad licensiering försöker tilldela en licens till användaren, misslyckas och konfigurationsinformation inte för ett fel. Det gick inte att registrera felet i den här instansen är en begränsning i förhandsversionen av den här funktionen och vi ska åtgärda detta innan *allmänt tillgängliga*.
-
-> [!TIP]
-> Om du märker att vissa användare fick inte en licens och det finns inget fel registreras för dessa användare kan du först kontrollera om de har en duplicerad proxyadress.
-> Om du vill se om det finns en dubblett proxyadress kör du följande PowerShell-cmdlet mot Exchange Online:
-```
-Run Get-Recipient | where {$_.EmailAddresses -match "user@contoso.onmicrosoft.com"} | fL Name, RecipientType,emailaddresses
-```
-> Mer information om det här problemet finns i [”Proxyadressen används redan” visas i Exchange Online](https://support.microsoft.com/help/3042584/-proxy-address-address-is-already-being-used-error-message-in-exchange-online). Artikeln innehåller även information på [hur du ansluter till Exchange Online med fjärr-PowerShell](https://technet.microsoft.com/library/jj984289.aspx).
-
-När du har löst problemen proxy-adress för de berörda användarna se till att tvinga licens bearbetning på gruppen för att se till att licenser nu kan användas.
 
 ## <a name="how-do-you-force-license-processing-in-a-group-to-resolve-errors"></a>Hur gör du för att tvinga licens bearbetning i en grupp för att åtgärda fel?
 
@@ -154,11 +155,19 @@ Beroende på vilka steg som du har tagit för att åtgärda felen, kan det vara 
 
 Om du frigör vissa licenser genom att ta bort direkta licenstilldelningar från användare, måste du utlösa bearbetningen av grupper som tidigare inte har fullständigt licensiera alla användarmedlemmar. För att Ombearbeta en grupp, gå till fönstret grupp öppna **licenser**, och välj sedan den **Ombearbeta** i verktygsfältet.
 
+## <a name="how-do-you-force-license-processing-on-a-user-to-resolve-errors"></a>Hur gör du för att tvinga licens belastning på en användare att åtgärda fel?
+
+Beroende på vilka steg som du har tagit för att åtgärda felen, kan det vara nödvändigt för att utlösa bearbetningen av en användare att uppdatera tillståndet användare manuellt.
+
+När du problemet duplicerade proxy-adress för en användare som påverkas, måste du aktivera bearbetning av användaren. För att Ombearbeta en användare, gå till fönstret användare öppna **licenser**, och välj sedan den **Ombearbeta** i verktygsfältet.
+
 ## <a name="next-steps"></a>Nästa steg
 
 Mer information om övriga scenarier för hantering av programvarulicenser via grupper finns i:
 
-* [Tilldela licenser till en grupp i Azure Active Directory](licensing-groups-assign.md)
 * [Vad är gruppbaserad licensiering i Azure Active Directory?](../fundamentals/active-directory-licensing-whatis-azure-portal.md)
+* [Tilldela licenser till en grupp i Azure Active Directory](licensing-groups-assign.md)
 * [Migrera enskilda licensierade användare till gruppbaserad licensiering i Azure Active Directory](licensing-groups-migrate-users.md)
-* [Azure Active Directory gruppbaserad licensiering ytterligare scenarier](licensing-group-advanced.md)
+* [Så här migrerar du användare mellan produktlicenser med gruppbaserad licensiering i Azure Active Directory](licensing-groups-change-licenses.md)
+* [Fler scenarier med gruppbaserad licensiering i Azure Active Directory](licensing-group-advanced.md)
+* [PowerShell-exempel för gruppbaserad licensiering i Azure Active Directory](licensing-ps-examples.md)

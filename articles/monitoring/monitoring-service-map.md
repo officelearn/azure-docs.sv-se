@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/03/2018
+ms.date: 10/28/2018
 ms.author: magoedte
-ms.openlocfilehash: 49688b958d904450c50944725b18e0d518e27146
-ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
+ms.openlocfilehash: 32cd373499a1ac6dd8cc02e666b0f6ff70688157
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48269266"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50215267"
 ---
 # <a name="using-service-map-solution-in-azure"></a>Med lösningen Tjänstkarta i Azure
 Tjänstkarta identifierar automatiskt programkomponenter i Windows- och Linux-system och mappar kommunikationen mellan olika tjänster. Med Service Map, du kan visa dina servrar på det sätt som du tänker på dem: sammankopplat system som levererar viktiga tjänster. Service Map ser du anslutningarna mellan servrar, processer, svarstid för inkommande och utgående anslutningar, och portar i alla TCP-anslutna arkitekturer utan konfiguration måste installera en agent.
@@ -72,11 +72,6 @@ Datorer kan expanderas i kartan för att visa löpande bearbeta grupper och proc
 
 Som standard visar Service Map maps de senaste 30 minuterna av beroendeinformation. Du kan fråga maps för historiska tidsintervall på upp till en timme att visa hur beroenden tittat tidigare (exempelvis under en incident eller innan en ändring inträffat) med kontroller i det övre vänstra hörnet. Tjänstkarta data lagras i 30 dagar i betalda arbetsytor och i 7 dagar i kostnadsfria arbetsytor.
 
-
-
-
-
-
 ## <a name="status-badges-and-border-coloring"></a>Status för märken och kantlinje färgsättning
 Längst ned på varje server i kartan kan vara en lista över status Aktivitetsikoner förmedla statusinformation om servern. Aktivitetsikonerna betyda att det finns vissa relevant information för servern från en av lösningen integreringar. Klicka på en symbol kommer du direkt till information om statusen i den högra rutan. För närvarande tillgänglig status aktivitetsikonerna omfattar aviseringar, Service Desk, ändringar, säkerhet och uppdateringar.
 
@@ -104,7 +99,7 @@ Där kan du välja **Skapa nytt** och ge gruppen ett namn.
 ![Namn på grupp](media/monitoring-service-map/machine-groups-name.png)
 
 >[!NOTE]
->Datorgrupper är för närvarande begränsade till 10 servrar, men vi planerar fler IP-adresser snart.
+>Datorgrupper är begränsade till 10 servrar.
 
 ### <a name="viewing-a-group"></a>Visa en grupp
 När du har skapat vissa grupper, kan du visa dem genom att välja fliken grupper.
@@ -382,7 +377,7 @@ Poster med en typ av *ServiceMapComputer_CL* har inventeringsdata för servrar m
 |:--|:--|
 | Typ | *ServiceMapComputer_CL* |
 | SourceSystem | *OpsManager* |
-| ResourceId | Den unika identifieraren för en dator i arbetsytan |
+| Resurs-ID | Den unika identifieraren för en dator i arbetsytan |
 | ResourceName_s | Den unika identifieraren för en dator i arbetsytan |
 | ComputerName_s | Datorn FQDN |
 | Ipv4Addresses_s | En lista över serverns IPv4-adresser |
@@ -407,7 +402,7 @@ Poster med en typ av *ServiceMapProcess_CL* ha inventeringsdata för TCP-anslutn
 |:--|:--|
 | Typ | *ServiceMapProcess_CL* |
 | SourceSystem | *OpsManager* |
-| ResourceId | Den unika identifieraren för en process i arbetsytan |
+| Resurs-ID | Den unika identifieraren för en process i arbetsytan |
 | ResourceName_s | Den unika identifieraren för en process på datorn där den körs|
 | MachineResourceName_s | Resursnamnet för datorn |
 | ExecutableName_s | Namnet på processprogramfil |

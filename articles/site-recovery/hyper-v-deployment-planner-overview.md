@@ -1,22 +1,20 @@
 ---
-title: Distributionshanteraren för Azure Site Recovery för Hyper-V till Azure| Microsoft Docs
-description: Det här är användarhandboken för Distributionshanteraren för Azure Site Recovery för scenariot Hyper-V till Azure.
-services: site-recovery
+title: Om Azure Site Recovery Deployment Planner för haveriberedskap för Hyper-V-datorer till Azure | Microsoft Docs
+description: Läs mer om Azure Site Recovery Deployment Planner Hyper-V-katastrofåterställning till Azure.
 author: nsoneji
 manager: garavd
 ms.service: site-recovery
-ms.workload: storage-backup-recovery
 ms.topic: conceptual
 ms.date: 10/11/2018
 ms.author: nisoneji
-ms.openlocfilehash: 7a91217e35ae7a32714478171dcebc002e384fcb
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: ae93611bfe5dd11bea8bc0327868c2865b36b713
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49093603"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50210677"
 ---
-# <a name="site-recovery-deployment-planner-for-hyper-v-to-azure"></a>Distributionshanteraren för site Recovery för Hyper-V till Azure
+# <a name="about-the-azure-site-recovery-deployment-planner-for-hyper-v-disaster-recovery-to-azure"></a>Om Azure Site Recovery Deployment Planner för Hyper-V haveriberedskap till Azure
 
 Den här artikeln är användarhandboken för Distributionshanteraren för Azure Site Recovery för produktionsdistribution av Hyper-V till Azure.
 

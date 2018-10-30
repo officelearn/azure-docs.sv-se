@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 11/21/2017
 ms.author: glenga
-ms.openlocfilehash: 7fa9d097a8f000c886425d53ee000c6013f3bbb0
-ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
+ms.openlocfilehash: 8b245b51eb349e8c8aaa61d30ec3daec427ea2fd
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50086734"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50212173"
 ---
 # <a name="azure-functions-http-triggers-and-bindings"></a>Azure Functions HTTP-utlösare och bindningar
 
@@ -44,7 +44,7 @@ HTTP-bindningar finns i den [Microsoft.Azure.WebJobs.Extensions.Http](http://www
 
 HTTP-utlösare kan du anropa en funktion med en HTTP-begäran. Du kan använda en HTTP-utlösare för att skapa serverfria API: er och svara på webhookar. 
 
-Som standard returnerar en HTTP-utlösare HTTP 200 OK utan en brödtext i Functions 1.x eller HTTP 204 inget innehåll utan en brödtext i Functions 2.x. Om du vill ändra svarstypen, konfigurera en [HTTP-utdatabindning](#http-output-binding).
+Som standard returnerar en HTTP-utlösare HTTP 200 OK utan en brödtext i Functions 1.x eller HTTP 204 inget innehåll utan en brödtext i Functions 2.x. Om du vill ändra svarstypen, konfigurera en [HTTP-utdatabindning](#output).
 
 ## <a name="trigger---example"></a>Utlösare - exempel
 

@@ -1,22 +1,21 @@
 ---
-title: Konfigurera IP-adresser för att ansluta till efter redundansväxlingen till Azure med Azure Site Recovery | Microsoft Docs
-description: Beskriver hur du ställer in IP-adresser för att ansluta till virtuella Azure-datorer efter redundans från lokalt med Azure Site Recovery
+title: Konfigurera IP-adresser för att ansluta till efter haveriberedskap och redundans till Azure med Azure Site Recovery | Microsoft Docs
+description: Beskriver hur du ställer in IP-adresser för att ansluta till virtuella Azure-datorer efter haveriberedskap och redundans från lokalt med Azure Site Recovery
 services: site-recovery
-documentationcenter: ''
 author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/16/2018
 ms.author: mayg
-ms.openlocfilehash: 9b7797ba58a44e64460f4dbc58d562b4c470c043
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: ce7e5fde60503a969b88892be890173861fb15be
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49353095"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50215233"
 ---
-# <a name="set-up-ip-addressing-to-connect-after-failover-to-azure"></a>Konfigurera IP-adresser för att ansluta till efter redundansväxlingen till Azure
+# <a name="set-up-ip-addressing-to-connect-to-azure-vms-after-failover"></a>Konfigurera IP-adresser för att ansluta till virtuella Azure-datorer efter redundans
 
 Den här artikeln förklarar nätverkskraven för att ansluta till virtuella Azure-datorer när du har använt den [Azure Site Recovery](site-recovery-overview.md) för replikering och redundans till Azure.
 

@@ -1,20 +1,20 @@
 ---
-title: Hyper-V-replikering till sekundär plats arkitektur i Azure Site Recovery | Microsoft Docs
-description: Den här artikeln innehåller en översikt över arkitekturen för replikering av lokala virtuella Hyper-V-datorer till en sekundär System Center VMM-plats med Azure Site Recovery.
+title: Arkitektur för Hyper-V-haveriberedskap till en sekundär lokal plats med Azure Site Recovery | Microsoft Docs
+description: Den här artikeln innehåller en översikt över arkitekturen för haveriberedskap för lokala Hyper-V-datorer till en sekundär System Center VMM-plats med Azure Site Recovery.
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 10/10/2018
+ms.date: 10/28/2018
 ms.author: raynew
-ms.openlocfilehash: 8f8b498164cc4a77cace470f7483aa572fefbaed
-ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
+ms.openlocfilehash: 98eb654468eb27b8100a0cc9b73994e5a7add167
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49078927"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50214604"
 ---
-# <a name="hyper-v-replication-to-a-secondary-site"></a>Hyper-V-replikering till en sekundär plats
+# <a name="architecture---hyper-v-replication-to-a-secondary-site"></a>Arkitektur - Hyper-V-replikering till en sekundär plats
 
 Den här artikeln beskriver de komponenter och processer som ingår i replikeringen av lokala virtuella Hyper-V-datorer i System Center Virtual Machine Manager-moln (VMM) till en sekundär VMM-plats med tjänsten [Azure Site Recovery](site-recovery-overview.md) på Azure-portalen.
 

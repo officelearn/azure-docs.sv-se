@@ -5,17 +5,17 @@ services: azure-blockchain
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 5/21/2018
+ms.date: 10/29/2018
 ms.topic: article
 ms.service: azure-blockchain
-ms.reviewer: zeyadr
+ms.reviewer: coborn
 manager: femila
-ms.openlocfilehash: ee8057be98d18db5963a3e5f1ba1f8bd8d76fe05
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.openlocfilehash: c08557156848d4e7fcf0b1adbe6c8faa4ee00c82
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48243292"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50231380"
 ---
 # <a name="hyperledger-fabric-single-member-network"></a>Hyperledger Fabric medlem nätverk
 
@@ -28,7 +28,7 @@ När du har läst den här artikeln, kommer du att:
 
 ## <a name="about-blockchain"></a>Om blockchain
 
-Om du är nybörjare på blockchain-communityn är en fantastisk möjlighet att lära dig om tekniken på ett enkelt och konfigurerbara sätt på Azure. Blockchain är den underliggande tekniken bakom Bitcoin; Det är dock mycket mer än bara ett verktyg för en virtuell valuta. Det är en kombination av befintlig databas, distribuerade system och kryptografiska tekniker som möjliggör säker flerparti beräkning med garantier kring oföränderlighetsprincip, verifiability, revision och återhämtning för angrepp. Olika protokoll använder olika sätt att tillhandahålla dessa attribut. [Hyperledger Fabric](https://github.com/hyperledger/fabric) är ett protokoll.
+Om du är nybörjare på blockchain-communityn är i den här lösningsmallen en fantastisk möjlighet att lära dig om tekniken på ett enkelt och konfigurerbara sätt på Azure. Blockchain är den underliggande tekniken bakom Bitcoin; Det är dock mycket mer än bara ett verktyg för en virtuell valuta. Det är en kombination av befintlig databas, distribuerade system och kryptografiska tekniker som möjliggör säker flerparti beräkning med garantier kring oföränderlighetsprincip, verifiability, revision och återhämtning för angrepp. Olika protokoll använder olika sätt att tillhandahålla dessa attribut. [Hyperledger Fabric](https://github.com/hyperledger/fabric) är ett protokoll.
 
 ## <a name="consortium-architecture-on-azure"></a>Consortium arkitektur på Azure
 
@@ -36,7 +36,7 @@ Den här mallen distribuerar en topologi för att testa och simulera produktion 
 
 Nätverket består av tre typer av noder:
 
-1. **Medlem noden**: en nod som kör tjänsten Fabric medlemskap som registrerar och hanterar medlemmar i nätverket. Den här noden klustras så småningom för skalbarhet och hög tillgänglighet, men i den här övningen används en enda medlem-nod.
+1. **Medlem noden**: en nod som kör tjänsten Fabric medlemskap som registrerar och hanterar medlemmar i nätverket. Den här noden kan grupperas för skalbarhet och hög tillgänglighet. Men i den här övningen, en enda medlem nod används.
 2. **Orderer noder**: en nod som kör kommunikationstjänsten implementera garanterad leverans som totalt order broadcast eller atomiska transaktioner.
 3. **Peer-noder**: en nod som genomför transaktioner och underhåller tillståndet och en kopia av det distribuerade transaktionsregister.
 
@@ -57,13 +57,13 @@ När du har en prenumeration går du till den [Azure-portalen](https://portal.az
 
 ## <a name="deployment"></a>Distribution
 
-För att starta, markerar den **Hyperledger Fabric enskild medlem Blockchain** och klicka på **skapa**. Då öppnas det **grunderna** bladet i guiden.
+För att starta, markerar den **Hyperledger Fabric enskild medlem Blockchain** och klicka på **skapa** att öppna den **grunderna** bladet i guiden.
 
 Malldistributionen vägleder dig genom att konfigurera nätverk på flera noder. Distributionsflödet är uppdelad i tre steg: grundläggande konfiguration och infrastrukturresurskonfigurationen.
 
 ### <a name="basics"></a>Grundläggande inställningar
 
-Under den **grunderna** bladet ange värden för standard parametrar för alla distributioner, till exempel prenumeration, resursgrupp och grundläggande VM-egenskaper.
+I den **grunderna** bladet ange värden för standard parametrar för alla distributioner. Prenumeration, resursgrupp och grundläggande virtuell dator som till exempel, egenskaper.
 
 ![Grundläggande inställningar](./media/hyperledger-fabric-single-member-blockchain/basics.png)
 
@@ -72,7 +72,7 @@ Parameternamn| Beskrivning| Tillåtna värden|Standardvärde
 **Resurs-prefix**| En sträng som används som bas för namngivning av distribuerade resurser.|6 tecken eller mindre|Ej tillämpligt
 **VM-användarnamn**| Användarnamn för administratören för var och en av de virtuella datorerna som distribueras för den här medlemmen.|1 – 64 tecken|azureuser
 **Autentiseringstyp**| Metoden för att autentisera till den virtuella datorn.|Lösenordet eller SSH offentlig nyckel|Lösenord
-**Lösenord (autentiseringstyp = lösenord)**|Lösenordet för administratörskontot för var och en av de virtuella datorerna som distribueras. Lösenordet måste innehålla 3 av följande: 1 versal bokstav, 1 gemen bokstav, 1 siffra och 1 specialtecken.<br /><br />Även om alla virtuella datorer har ursprungligen samma lösenord, kan du ändra lösenordet när du har etablerat.|12 – 72 tecken|Ej tillämpligt
+**Lösenord (autentiseringstyp = lösenord)**|Lösenordet för administratörskontot för var och en av de virtuella datorerna som distribueras. Lösenordet måste innehålla tre av följande tecken: 1 versal bokstav, 1 gemen bokstav, 1 siffra och 1 specialtecken.<br /><br />Även om alla virtuella datorer har ursprungligen samma lösenord, kan du ändra lösenordet när du har etablerat.|12 – 72 tecken|Ej tillämpligt
 **SSH-nyckel (autentiseringstyp = offentlig nyckel)**|SSH-nyckel som används för fjärrinloggning.||Ej tillämpligt
 **Begränsa åtkomst efter IP-adress**|Inställningen för att fastställa typ om slutpunkten för klientåtkomst är begränsad eller inte.|Ja/nej| Nej
 **Tillåtna IP-adress eller undernät (begränsa åtkomst efter IP-adress = Yes)**|IP-adress eller en uppsättning IP-adresser som har åtkomstbehörighet till klient-slutpunkt när åtkomstkontroll är aktiverat.||Ej tillämpligt
@@ -82,7 +82,7 @@ Parameternamn| Beskrivning| Tillåtna värden|Standardvärde
 
 ### <a name="network-size-and-performance"></a>Nätverkets storlek och prestanda
 
-Sedan under **storlek och prestanda,** ange indata för storleken på konsortienätverk, till exempel hur många medlemskap, orderer och peer-noder. Välj infrastrukturalternativ för och storlek på virtuell dator.
+I **storlek och prestanda,** ange indata för storleken på konsortienätverk. Till exempel hur många medlemskap, orderer och peer-noder. Välj infrastrukturalternativ för och storlek på virtuell dator.
 
 ![Nätverkets storlek och prestanda](./media/hyperledger-fabric-single-member-blockchain/network-size-performance.png)
 
@@ -135,7 +135,7 @@ Informationsskärmen visar en sammanfattning av distributionen, följt av tre an
 
 - Den _API-SLUTPUNKT_ kan användas när du distribuerar ett program i nätverket.
 - Den _PREFIX_ , kallas även _distribution prefix_ , unikt identifierar dina resurser och din distribution. Den används när du använder de kommandoradsbaserade verktyg.
-- Den _SSH till första VM_ ger dig förväg monterade ssh-kommando med rätt parametrar som krävs för att ansluta till den första virtuella datorn i nätverket, när det gäller Hyperledger Fabric blir den noden Fabric-CA.
+- Den _SSH till första VM_ ger dig förväg monterade ssh-kommando med alla rätt parametrar som krävs för att ansluta till den första virtuella datorn i nätverket. För Hyperledger Fabric blir det Fabric-CA-nod.
 
 Du kan fjärransluta till de virtuella datorerna för varje nod via SSH med ditt angivna admin användarnamn och lösenord/SSH-nyckel. Eftersom noden virtuella datorer inte har sina egna offentliga IP-adresser, behöver du gå igenom belastningsutjämnaren och ange portnumret. SSH-kommando för att få åtkomst till den första noden i transaktionen är den tredje mallutdata ** SSH till första VM (för exempeldistribution: `sh -p 3000 azureuser@hlf2racpt.northeurope.cloudapp.azure.com`). Gå till ytterligare transaktionsloggar noder genom att öka portnumret med ett (till exempel den första noden i transaktionen är på port 3000, andra på 3001 är tredje på 3002, osv.).
 

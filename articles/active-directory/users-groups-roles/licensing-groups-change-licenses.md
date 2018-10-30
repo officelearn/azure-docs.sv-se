@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/07/2018
+ms.date: 10/29/2018
 ms.author: piotrci
-ms.openlocfilehash: bed720cf47355887f3bf981f281d82738039270f
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.openlocfilehash: 643339545dac6ec35ab44f2a05fbe417dea2bb71
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37866584"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50211799"
 ---
 # <a name="how-to-safely-migrate-users-between-product-licenses-by-using-group-based-licensing"></a>På ett säkert sätt Migrera användare mellan produktlicenser med gruppbaserad licensiering
 
@@ -822,6 +822,8 @@ ExecuteVerificationLoop ${function:VerifySourceLicenseRemovedAndTargetLicenseAss
 
 Läs mer om andra scenarier för hantering av programvarulicenser via grupper i följande artiklar:
 
-* [Identifiera och lösa licensproblem för en grupp i Azure Active Directory](licensing-groups-resolve-problems.md)
-* [PowerShell-exempel för gruppbaserad licensiering i Azure Active Directory](licensing-ps-examples.md)
-* [Azure Active Directory gruppbaserad licensiering ytterligare scenarier](licensing-group-advanced.md)
+* [Tilldela licenser till en grupp i Azure Active Directory](../users-groups-roles/licensing-groups-assign.md)
+* [Identifiera och lösa licensproblem för en grupp i Azure Active Directory](../users-groups-roles/licensing-groups-resolve-problems.md)
+* [Migrera enskilda licensierade användare till gruppbaserad licensiering i Azure Active Directory](../users-groups-roles/licensing-groups-migrate-users.md)
+* [Fler scenarier med gruppbaserad licensiering i Azure Active Directory](../users-groups-roles/licensing-group-advanced.md)
+* [PowerShell-exempel för gruppbaserad licensiering i Azure Active Directory](../users-groups-roles/licensing-ps-examples.md)

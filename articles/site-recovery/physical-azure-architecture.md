@@ -1,20 +1,20 @@
 ---
-title: Fysisk server till Azure-replikeringsarkitektur i Azure Site Recovery | Microsoft Docs
-description: Den här artikeln innehåller en översikt över komponenter och arkitektur som används för att replikera lokala fysiska servrar till Azure med Azure Site Recovery-tjänsten
+title: Arkitekturen för haveriberedskap för fysiska servrar till Azure med hjälp av Azure Site Recovery | Microsoft Docs
+description: Den här artikeln innehåller en översikt över komponenter och arkitektur som används under haveriberedskap för lokala fysiska servrar till Azure med Azure Site Recovery-tjänsten.
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 10/10/2018
+ms.date: 10/28/2018
 ms.author: raynew
-ms.openlocfilehash: 15e8e9ce7b12585f7ea89a0440fdb93cfb171feb
-ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
+ms.openlocfilehash: 9dd60e31867e874ba59a6e2084714a22b661afdd
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49077047"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50213057"
 ---
-# <a name="physical-server-to-azure-replication-architecture"></a>Fysisk server till Azure-replikering-arkitektur
+# <a name="physical-server-to-azure-disaster-recovery-architecture"></a>Fysisk server till Azure disaster recovery-arkitekturen
 
 Den här artikeln beskrivs arkitekturen och processer som används när du replikera, redundansväxla och återställa fysiska Windows och Linux-servrar mellan en lokal plats och Azure, med hjälp av den [Azure Site Recovery](site-recovery-overview.md) service.
 

@@ -1,21 +1,18 @@
 ---
 title: Konfigurera haveriberedskap för virtuella VMware-datorer eller fysiska servrar till en sekundär plats med Azure Site Recovery | Microsoft Docs
 description: Lär dig hur du konfigurerar haveriberedskap för VMware-datorer eller Windows och Linux fysiska servrar till en sekundär plats med Azure Site Recovery.
-services: site-recovery
-author: nsoneji
-manager: gauarvd
+author: rayne-wiselman
+manager: carmonm
 ms.service: site-recovery
-ms.workload: backup-recovery
-ms.tgt_pltfrm: na
-ms.topic: article
-ms.date: 08/01/2018
+ms.topic: conceptual
+ms.date: 10/29/2018
 ms.author: raynew
-ms.openlocfilehash: 94abdd30dc9cd279ab791541250787a111f80d30
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: fe6199aea91bbb7518ccdbfe640848a59edcee49
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39618996"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50215471"
 ---
 # <a name="set-up-disaster-recovery-of-on-premises-vmware-virtual-machines-or-physical-servers-to-a-secondary-site"></a>Konfigurera haveriberedskap för lokala virtuella VMware-datorer eller fysiska servrar till en sekundär plats
 
@@ -176,7 +173,7 @@ Scout uppdatering 5 är en ackumulerad uppdatering. Den innehåller alla korrige
 > [!NOTE]
 > * Korrigeringar för P2V-kluster gäller endast fysiska MSCS-kluster som nyligen skyddats med Site Recovery Scout uppdatering 5. Installera kluster-korrigeringar på skyddade P2V MSCS-kluster med äldre uppdateringar enligt uppgradera stegen som beskrivs i avsnittet 12 i den [viktig för Site Recovery Scout](https://aka.ms/asr-scout-release-notes).
 > * Om samma uppsättning diskar är aktiva på alla noder i klustret vid tidpunkten för nytt skydd som de visades när skyddade från början, återanvänder befintliga måldiskarna endast i nytt skydd för fysiska MSCS-kluster. Om inte, använder du de manuella stegen i avsnittet 12 i [viktig för Site Recovery Scout](https://aka.ms/asr-scout-release-notes), för att flytta sida måldiskarna till rätt datastore-sökväg till återanvändning vid nytt skydd. Om du skyddar MSCS-kluster i P2V läge utan att följa Uppgraderingsstegen skapas en ny disk på ESXi-målservern. Du måste ta bort de gamla diskarna manuellt från databasen.
-> * När en SLES11 eller SLES11 (med alla servicepack) källserver startas utan problem, sedan manuellt vill markera det **rot** disk replikering par för omsynkronisering. Det finns inget meddelande i CX-gränssnittet. Om du inte markerar disken rot för omsynkronisering, märker du problem med dataintegriteten.
+> * När en SLES11 eller SLES11 (med alla servicepack) källserver startas utan problem, sedan manuellt vill markera det **rot** disk replikering par för omsynkronisering. Det finns inget meddelande i CX-gränssnittet. Om du inte markerar disken rot för omsynkronisering, märker du problem med dataintegriteten.
 
 
 ### <a name="azure-site-recovery-scout-801-update-4"></a>Azure Site Recovery Scout 8.0.1 uppdatering 4

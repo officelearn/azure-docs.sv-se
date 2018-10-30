@@ -1,3 +1,16 @@
+---
+author: cynthn
+ms.service: virtual-machines
+ms.topic: include
+ms.date: 10/26/2018
+ms.author: cynthn
+ms.openlocfilehash: 9f5d5abc2a5e7291e8b699f151bd84b10b7eb4ad
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.translationtype: MT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50226872"
+---
 # <a name="common-errors-during-classic-to-azure-resource-manager-migration"></a>Vanliga fel vid migrering från klassiskt läge till Azure Resource Manager-läge
 I den här artikeln visas vanliga fel och åtgärder under migrering av IaaS-resurser från Azures klassiska distributionsmodell till Azure Resource Manager-stacken.
 
@@ -18,7 +31,7 @@ I den här artikeln visas vanliga fel och åtgärder under migrering av IaaS-res
 | Distributionen {deployment-name} i HostedService {hosted-service-name} innehåller en virtuell dator {vm-name} med datadisken {data-disk-name} vars fysiska blobstorlek på {size-of-the-vhd-blob-backing-the-data-disk} byte inte stämmer med den logiska storleken på den virtuella datorns datadisk på {size-of-the-data-disk-specified-in-the-vm-api} byte. Migreringen fortsätter utan att du anger en storlek för datadisken för den virtuella Azure Resource Manager-datorn. | Felet kan inträffa om du har ändrat storlek på den virtuella hårddisk-blobben utan att uppdatera storleken på den virtuella dator API-modellen. Utförliga anvisningar för migrering hittar du [nedan](#vm-with-data-disk-whose-physical-blob-size-bytes-does-not-match-the-vm-data-disk-logical-size-bytes).|
 | Ett Storage-undantag uppstod under verifiering av datadisken {data disk name} med medielänken {data disk Uri} för den virtuella datorn {VM name} i molntjänsten {Cloud Service name}. Kontrollera att den virtuella hårddiskens medielänk kan nås av den virtuella datorn | Det här kan inträffa om den virtuella datorns diskar har tagits bort eller inte kan nås längre. Kontrollera att den virtuella datorns diskar finns.|
 | Den virtuella datorn {vm-name} i HostedService {cloud-service-name} innehåller en disk med MediaLink {vhd-uri} med blobbnamnet {vhd-blob-name} som inte stöds i Azure Resource Manager. | Felet uppstår när blobbnamnet innehåller ett snedstreck: /, vilket för närvarande inte stöds i Compute-resursprovidern. |
-| Migrering tillåts inte för distributionen {deployment-name} i HostedService {cloud-service-name} eftersom den inte ingår i det regionala omfånget. Se http://aka.ms/regionalscope för att flytta den här distributionen till ett regionalt omfång. | Azure meddelade 2014 att nätverksresurser skulle flyttas från klusternivå till regionalnivå. Se http://aka.ms/regionalscope för mer information. Felet kan uppstå när den distribution som migreras inte har uppdaterats så att den automatiskt flyttas till ett regionalt omfång. Den bästa lösningen är att antingen lägga till en slutpunkt eller en datadisk i en virtuell dator och sedan försöka migrera igen. <br> Mer information finns i [How to set up endpoints on a classic Windows virtual machine in Azure](../articles/virtual-machines/windows/classic/setup-endpoints.md#create-an-endpoint) (Så här ställer du in slutpunkter på en klassisk virtuell Windows-dator) eller [ Attach a data disk to a Windows virtual machine created with the classic deployment model](../articles/virtual-machines/windows/classic/attach-disk.md) (Anslut en datadisk till en virtuell Windows-dator som skapats med den klassiska distributionsmodellen)|
+| Migrering tillåts inte för distributionen {deployment-name} i HostedService {cloud-service-name} eftersom den inte ingår i det regionala omfånget. Se http://aka.ms/regionalscope för att flytta den här distributionen till ett regionalt omfång. | Azure meddelade 2014 att nätverksresurser skulle flyttas från klusternivå till regionalnivå. Se [http://aka.ms/regionalscope] för mer information (http://aka.ms/regionalscope). Felet kan uppstå när den distribution som migreras inte har uppdaterats så att den automatiskt flyttas till ett regionalt omfång. Den bästa lösningen är att antingen lägga till en slutpunkt eller en datadisk i en virtuell dator och sedan försöka migrera igen. <br> Mer information finns i [How to set up endpoints on a classic Windows virtual machine in Azure](../articles/virtual-machines/windows/classic/setup-endpoints.md#create-an-endpoint) (Så här ställer du in slutpunkter på en klassisk virtuell Windows-dator) eller [ Attach a data disk to a Windows virtual machine created with the classic deployment model](../articles/virtual-machines/windows/classic/attach-disk.md) (Anslut en datadisk till en virtuell Windows-dator som skapats med den klassiska distributionsmodellen)|
 | Migrering stöds inte för det virtuella nätverket {vnet-name} eftersom den har icke-gateway PaaS-distributioner. | Det här felet uppstår när du har icke-gateway PaaS-distributioner, till exempel Application Gateway- eller API Management-tjänster som är anslutna till det virtuella nätverket.|
 
 

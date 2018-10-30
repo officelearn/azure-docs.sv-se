@@ -1,3 +1,16 @@
+---
+author: cynthn
+ms.service: virtual-machines
+ms.topic: include
+ms.date: 10/26/2018
+ms.author: cynthn
+ms.openlocfilehash: 4887dbcc89180c54b8e991e6fa152463476c5ce9
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.translationtype: MT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50226697"
+---
 Det är viktigt för att skydda din virtuella dator (VM) för de program som du kör. Skydda dina virtuella datorer kan innehålla en eller flera Azure-tjänster och funktioner som täcker säker åtkomst till dina virtuella datorer och säker lagring av dina data. Den här artikeln innehåller information som hjälper dig att skydda dina virtuella datorer och program.
 
 ## <a name="antimalware"></a>Programvara mot skadlig kod
@@ -26,7 +39,7 @@ Du bör använda kryptografi med offentliga nycklar för att tillhandahålla ett
 
 En vanlig utmaning vid utvecklingen av molnprogram är hur man ska hantera autentiseringsuppgifterna i koden som krävs för autentisering mot molntjänsterna. Det är viktigt att dessa autentiseringsuppgifter skyddas. Helst bör autentiseringsuppgifterna aldrig visas på utvecklarnas arbetsstationer eller checkas in i källkontrollen. Azure Key Vault är ett sätt att lagra autentiseringsuppgifter, hemligheter och andra nycklar på ett säkert sätt, men din kod måste autentisera mot Key Vault för att kunna hämta dem. 
 
-Hanterade identiteter för Azure-resurser funktion i Azure Active Directory (Azure AD) löser detta problem. Funktionen förser Azure-tjänster med en automatiskt hanterad identitet i Azure AD. Du kan använda identiteten för att autentisera mot alla tjänster som stöder Azure AD-autentisering, inklusive Key Vault, utan att du behöver lägga in några autentiseringsuppgifter i din kod.  Din kod som körs på en virtuell dator kan begära en token från två slutpunkter som är enbart tillgänglig från den virtuella datorn. Mer detaljerad information om den här tjänsten kan du granska den [hanterade identiteter för Azure-resurser](../articles/active-directory/managed-identities-azure-resources/overview.md) översiktssidan.   
+Funktionen Hanterade identiteter för Azure-resurser i Azure Active Directory (Azure AD) löser det här problemet. Funktionen förser Azure-tjänster med en automatiskt hanterad identitet i Azure AD. Du kan använda identiteten för att autentisera mot alla tjänster som stöder Azure AD-autentisering, inklusive Key Vault, utan att du behöver lägga in några autentiseringsuppgifter i din kod.  Din kod som körs på en virtuell dator kan begära en token från två slutpunkter som är enbart tillgänglig från den virtuella datorn. Mer detaljerad information om den här tjänsten kan du granska den [hanterade identiteter för Azure-resurser](../articles/active-directory/managed-identities-azure-resources/overview.md) översiktssidan.   
 
 ## <a name="policies"></a>Principer
 

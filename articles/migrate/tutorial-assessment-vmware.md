@@ -4,15 +4,15 @@ description: Beskriver hur du identifierar och utvärderar lokala virtuella VMwa
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: tutorial
-ms.date: 09/21/2018
+ms.date: 10/24/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: b2bb6636aef9e26a81988d344f04f23c23ea1622
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: f468bac6f4d8c209fae51f0b84980dc8c611a29b
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47161887"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50025896"
 ---
 # <a name="discover-and-assess-on-premises-vmware-vms-for-migration-to-azure"></a>Utforska och utvärdera lokala virtuella VMware-datorer för migrering till Azure
 
@@ -49,7 +49,7 @@ Azure Migrate måste ha åtkomst till VMware-servrar för att automatiskt kunna 
 
 ## <a name="sign-in-to-the-azure-portal"></a>Logga in på Azure Portal
 
-Logga in på [Azure Portal](https://portal.azure.com).
+Logga in på [Azure-portalen](https://portal.azure.com).
 
 ## <a name="create-a-project"></a>Skapa ett projekt
 
@@ -69,12 +69,18 @@ Azure Migrate skapar en lokal virtuell dator som kallas för insamlarprogram. De
 1. I Azure Migrate-projektet klickar du på **Komma igång** > **Identifiera och utvärdera** > **Identifiera datorer**.
 2. I **identifiera datorer**, finns det två alternativ för installationen, klicka på **hämta** för att ladda ned rätt program baserat på dina inställningar.
 
-    a. **Engångsidentifiering:** Tillämpningen för den här modellen kommunicerar med vCenter Server för att samla in metadata om de virtuella datorerna. För insamling av prestandadata för de virtuella datorerna, förlitar den sig på historiska prestandadata som lagras i vCenter Server och samlar in prestandahistoriken för den senaste månaden. I den här modellen samlar Azure Migrate in genomsnittlig beräkning (jämfört med högsta beräkning) för varje mått, [Läs mer] (https://docs.microsoft.com/azure/migrate/concepts-collector#what-data-is-collected). Eftersom detta är en engångsidentifiering återspeglas inte ändringar i den lokala miljön när identifieringen är klar. Om du vill att ändringarna ska återspeglas behöver göra en ny identifiering av samma miljö för samma projekt.
+    a. **Engångsidentifiering:** Tillämpningen för den här modellen kommunicerar med vCenter Server för att samla in metadata om de virtuella datorerna. För insamling av prestandadata för de virtuella datorerna, förlitar den sig på historiska prestandadata som lagras i vCenter Server och samlar in prestandahistoriken för den senaste månaden. I den här modellen samlar Azure Migrate in genomsnittlig beräkning (jämfört med högsta beräkning) för varje mått, [läs mer](https://docs.microsoft.com/azure/migrate/concepts-collector#what-data-is-collected). Eftersom detta är en engångsidentifiering återspeglas inte ändringar i den lokala miljön när identifieringen är klar. Om du vill att ändringarna ska återspeglas behöver göra en ny identifiering av samma miljö för samma projekt.
 
     b. **Kontinuerlig identifiering:** Installation för den här modellen profilerar kontinuerligt den lokala miljön för att samla in användningsdata i realtid för varje virtuell dator. I den här modellen samlas högsta beräkningar in för varje mått (processoranvändning, minnesanvändning osv.). Den här modellen är inte beroende av statistikinställningarna för vCenter Server för insamling av prestandadata. Du kan stoppa kontinuerlig profileringen när som helst från programmet.
 
+    Observera att installationen bara samlar in prestandadata kontinuerligt, den identifierar inte någon konfigurationsändring i den lokala miljön (dvs. tillägg av virtuell dator, borttagning, disktillägg osv.). Om det finns en konfigurationsändring i den lokala miljön kan du göra följande för att återspegla ändringarna i portalen:
+
+    1. Tillägg av objekt (virtuella datorer, kärnor osv.): Om du vill återspegla dessa ändringar i Azure-portalen kan du stoppa identifieringen från installationen och sedan börja om igen. Då uppdateras ändringarna i Azure Migrate-projektet.
+
+    2. Borttagning av virtuella datorer: På grund av hur installationen är utformad återspeglas inte borttagning av virtuella datorer även om du stoppar och startar identifieringen. Det beror på att data från efterföljande identifieringar läggs till äldre identifieringar och inte åsidosätts. I det här fallet kan du helt enkelt ignorera den virtuella datorn genom att ta bort den från gruppen och beräkna utvärderingen.
+
     > [!NOTE]
-    > Funktionen kontinuerlig identifiering är i förhandsversion.
+    > Funktionen kontinuerlig identifiering är i förhandsversion. Vi rekommenderar att du använder den här metoden eftersom den samlar in detaljerade prestandadata och resultat i korrekt storlek.
 
 3. I **Kopiera projektautentiseringsuppgifterna** kopierar du projekt-ID och nyckel. Du behöver dem när du konfigurerar insamlaren.
 
@@ -91,6 +97,14 @@ Kontrollera att .OVA-filen är säker innan du distribuerar den.
 3. Den genererade hashen måste matcha nedanstående inställningar.
 
 #### <a name="one-time-discovery"></a>Engångsidentifiering
+
+  För OVA-version 1.0.9.15
+
+  **Algoritm** | **Hash-värde**
+  --- | ---
+  MD5 | e9ef16b0c837638c506b5fc0ef75ebfa
+  SHA1 | 37b4b1e92b3c6ac2782ff5258450df6686c89864
+  SHA256 | 8a86fc17f69b69968eb20a5c4c288c194cdcffb4ee6568d85ae5ba96835559ba
 
   För OVA-version 1.0.9.14
 
@@ -174,7 +188,7 @@ Importera den nedladdade filen till vCenter Server.
     - I **Samlingens omfattning** väljer du en omfattning för identifieringen av virtuella datorer. Insamlaren kan bara identifiera virtuella datorer i angivet omfång. Omfånget kan anges till en viss mapp, ett datacenter eller ett kluster. Det får inte innehålla fler än 1 500 virtuella datorer. [Lär dig mer](how-to-scale-assessment.md) om hur du kan identifiera en större miljö.
 
 7. I **Specify migration project** (Ange migreringsprojekt) anger du det projekt-ID och den nyckel för Azure Migrate som du kopierade från portalen. Om du inte kopierade dem öppnar du Azure Portal från den virtuella insamlardatorn. På projektsidan **Översikt** klickar du på **Identifiera datorer** och kopierar värdena.  
-8. Övervaka identifieringsstatus i **visa insamlingsförloppet**. Lär dig mer])https://docs.microsoft.com/azure/migrate/concepts-collector#what-data-is-collected) om vilka data som samlas in av Azure Migrate-insamlaren.
+8. Övervaka identifieringsstatus i **visa insamlingsförloppet**. [Lär dig mer](https://docs.microsoft.com/azure/migrate/concepts-collector#what-data-is-collected) om vilka data som samlas in av Azure Migrate-insamlaren.
 
 > [!NOTE]
 > Insamlaren har endast stöd för ”Engelska (USA)” som operativsystemspråk och gränssnittsspråk i insamlaren.

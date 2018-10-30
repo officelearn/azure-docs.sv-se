@@ -5,15 +5,15 @@ services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 10/10/2018
+ms.date: 10/19/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 4a92bfc9d682346c874ce91fc9835558402bae84
-ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
+ms.openlocfilehash: 1d9f84a176d4c2483c83e8961bf426e70933aaa2
+ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49078995"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49457161"
 ---
 # <a name="prepare-azure-resources-for-replication-of-on-premises-machines"></a>Förbereda Azure-resurser för replikering av lokala datorer
 
@@ -21,7 +21,8 @@ ms.locfileid: "49078995"
 
 Den här artikeln är den första kursen i en serie som illustrerar hur du ställer in haveriberedskap för lokala virtuella datorer. Det är relevant oavsett om du skyddar lokala virtuella VMware-datorer, virtuella Hyper-V-datorer eller fysiska servrar.
 
-Självstudiekurser är utformade för att visa den enklaste distributionsvägen för ett scenario. De använder standardalternativ där det är möjligt och visar inte alla möjliga inställningar och sökvägar. 
+> [!NOTE]
+> Självstudiekurser är utformade för att visa den enklaste distributionsvägen för ett scenario. De använder standardalternativ där så är möjligt och visar inte alla möjliga inställningar och sökvägar. Detaljerade instruktioner finns i **instruktionsavsnittet** för motsvarande scenario.
 
 Den här artikeln visar hur du förbereder Azure-komponenter när du vill replikera lokala virtuella datorer (Hyper-V eller VMware) eller fysiska Windows-/Linux-servrar till Azure. I den här guiden får du lära dig att:
 

@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 10/10/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 1c9af5c94aa05f60220080b779921a2c79c322f3
-ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
+ms.openlocfilehash: f7d6594910f3c703c2381515c3b93eb56ff4f675
+ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49067439"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49456515"
 ---
 # <a name="fail-over-and-fail-back-azure-vms-between-azure-regions"></a>Redundansväxling och felåterställning av virtuella Azure-datorer mellan Azure-regioner
 
@@ -28,7 +28,8 @@ Den här självstudien beskriver hur en virtuell Azure-dator redundansväxlas ti
 > * Återställa den sekundära virtuella datorn
 > * Återaktivera skyddet för den primära virtuella datorn så den replikeras till den sekundära regionen
 
-
+> [!NOTE]
+> Den här självstudiekursen är avsedd att guida användaren genom stegen att växla över till en målregion med minsta möjliga anpassning. Mer information om de olika aspekterna som förknippas med redundans, till exempel nätverksöverväganden eller felsökning, finns i dokumenten under instruktionerna för virtuella Azure-datorer.
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 

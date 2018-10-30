@@ -6,15 +6,15 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: quickstart
-ms.date: 10/10/2018
+ms.date: 10/19/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: e10b5271caef5530c94cca73b3e2e1d435080676
-ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
+ms.openlocfilehash: 623c45cbc82139090d893b8501c7d363c4443d67
+ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49066929"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49456204"
 ---
 # <a name="replicate-an-azure-vm-to-another-azure-region"></a>Replikera en virtuell Azure-dator till en annan Azure-region
 
@@ -24,7 +24,8 @@ I denna snabbstart beskrivs hur du replikerar en virtuell Azure-dator till en an
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-
+> [!NOTE]
+> Den här artikeln är avsedd att guida en ny användare genom Azure Site Recovery-gränssnittet med standardalternativen och minsta anpassning. Om du vill ha mer information om de olika inställningarna som kan anpassas går du till [självstudiekursen för aktivering av replikering för virtuella Azure-datorer](azure-to-azure-tutorial-enable-replication.md)
 
 ## <a name="log-in-to-azure"></a>Logga in på Azure
 
@@ -33,15 +34,12 @@ Logga in på Azure Portal på http://portal.azure.com.
 ## <a name="enable-replication-for-the-azure-vm"></a>Aktivera replikering för virtuella Azure-datorer
 
 1. I Azure-portalen klickar du på **Virtuella datorer** och väljer den virtuella dator som du vill replikera.
-
 2. I **Åtgärder** klickar du på **Haveriberedskap**.
 3. I **Konfigurera haveriberedskap** > **Målregion** väljer du den målregion som du ska replikera till.
 4. Acceptera de andra standardinställningarna för denna Snabbstart.
 5. Klicka på **Aktivera replikering**. Ett jobb startas som aktiverar replikering för den virtuella datorn.
 
     ![aktivera replikering](media/azure-to-azure-quickstart/enable-replication1.png)
-
-
 
 ## <a name="verify-settings"></a>Kontrollera inställningarna
 
@@ -68,7 +66,7 @@ Stoppa replikering på följande sätt:
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här snabbstarten replikerar du en enda virtuell dator till en sekundär region.
+I den här snabbstarten replikerar du en enda virtuell dator till en sekundär region. Nu kan du utforska fler alternativ och testa att replikera en uppsättning virtuella Azure-datorer med hjälp av en återställningsplan.
 
 > [!div class="nextstepaction"]
 > [Konfigurera haveriberedskap för virtuella Azure-datorer](azure-to-azure-tutorial-enable-replication.md)

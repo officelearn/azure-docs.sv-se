@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 11/9/2017
 ms.author: rajraj
-ms.openlocfilehash: f45b78f1c30119f5e892287719c9c2edfae57ce6
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
+ms.openlocfilehash: 5280936cdec25f7b5fc4b77c989b31c7a01f7bd6
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49364223"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49958643"
 ---
 # <a name="working-with-large-virtual-machine-scale-sets"></a>Arbeta med stora skalningsuppsättningar för virtuella datorer
 Du kan nu skapa [skalningsuppsättningar för virtuella Azure-datorer](/azure/virtual-machine-scale-sets/) med en kapacitet på upp till 1 000 virtuella datorer. I detta dokument definieras en _stor VM-skalningsuppsättning_ som en skalningsuppsättning som kan skalas för över 100 virtuella datorer. Den här funktionen ställs in med skalningsuppsättningsegenskapen (_singlePlacementGroup=False_). 
@@ -36,14 +36,14 @@ Vad som gör en _stor_ skalningsuppsättning speciell är inte antalet virtuella
 Beakta följande krav för att lista ut om programmet effektivt kan använda stora skalningsuppsättningar:
 
 - Om du planerar att distribuera ett stort antal virtuella datorer kan du behöva öka din kvotgräns för Compute-vCPU:er. 
-- Stora skalningsuppsättningar kräver Azure Managed Disks. Skalningsuppsättningar som inte har skapats med Managed Disks kräver flera lagringskonton (ett konto kan användas för 20 virtuella dator). Stora skalningsuppsättningar är utformade för att endast fungera med Managed Disks för att minska dina omkostnader för lagringshantering och för att undvika risken att du får problem med prenumerationsbegränsningar för lagringskonton. Om du inte använder Managed Disks är din skalningsuppsättning begränsad till 100 virtuella datorer.
 - Skalningsuppsättningar som skapats från Azure Marketplace-avbildningar kan skalas upp till 1 000 virtuella datorer.
 - Skalningsuppsättningar som skapas från anpassade avbildningar (VM-avbildningar som du skapar och laddar upp själv) kan för närvarande skala upp till 600 virtuella datorer.
+- Stora skalningsuppsättningar kräver Azure Managed Disks. Skalningsuppsättningar som inte har skapats med Managed Disks kräver flera lagringskonton (ett konto kan användas för 20 virtuella dator). Stora skalningsuppsättningar är utformade för att endast fungera med Managed Disks för att minska dina omkostnader för lagringshantering och för att undvika risken att du får problem med prenumerationsbegränsningar för lagringskonton. 
 - Layer-4-lastbalansering med skalningsuppsättningar som består av flera placeringsgrupper kräver [Azure Load Balancers standard-SKU](../load-balancer/load-balancer-standard-overview.md). Load Balancers standard-SKU ger ytterligare fördelar, till exempel möjligheten att utföra lastbalanseringar mellan flera olika skalningsuppsättningar. En standard-SKU kräver också en skalningsuppsättning som har en nätverkssäkerhetsgrupp kopplad till den, annars fungerar inte NAT-poolerna som de ska. Kontrollera att skalningsuppsättningen är konfigurerad för att använda standardinställningen att bara använda en enda placeringsgrupp om du behöver använda Azure Load Balancers grundläggande SKU.
 - Layer-7-belastningsutjämning med Azure Application Gateway stöds för alla skalningsuppsättningar.
 - En skalningsuppsättning definieras med ett enda undernät – kontrollera att ditt undernät har ett adressutrymme som är tillräckligt stort för alla de virtuella datorerna du behöver. Som standard överetablerar skalningsuppsättningar (skapar extra virtuella datorer vid tidpunkten för distribution eller vid utskalning, som du inte debiteras för) för att förbättra distributionstillförlitlighet och prestanda. Tillåt ett adressutrymme 20% större än antalet virtuella datorer som du planerar att skala till.
-- Feldomäner och uppgraderingsdomäner är endast konsekventa i en placeringsgrupp. Den här arkitekturen ändrar inte den övergripande tillgängligheten för en skalningsuppsättning eftersom virtuella datorer är jämnt distribuerade över distinkt fysisk maskinvara. Men det innebär att om du behöver garantera att två virtuella datorer finns på olika maskinvara så måste du se till att de finns i olika feldomäner i samma placeringsgrupp. Feldomän och placeringsgrupp-ID som visas i _instansvyn_ för en virtuell dator i en skalningsuppsättning. Du kan se instansvyn för en virtuell dator i en skalningsuppsättning i [Resursutforskaren i Azure](https://resources.azure.com/).
-
+- Feldomäner och uppgraderingsdomäner är endast konsekventa i en placeringsgrupp. Den här arkitekturen ändrar inte den övergripande tillgängligheten för en skalningsuppsättning eftersom virtuella datorer är jämnt distribuerade över distinkt fysisk maskinvara. Men det innebär att om du behöver garantera att två virtuella datorer finns på olika maskinvara så måste du se till att de finns i olika feldomäner i samma placeringsgrupp. Se länken [Azure-regioner och tillgänglighet](https://docs.microsoft.com/azure/virtual-machines/windows/regions-and-availability/). 
+- Feldomän och placeringsgrupp-ID som visas i _instansvyn_ för en virtuell dator i en skalningsuppsättning. Du kan se instansvyn för en virtuell dator i en skalningsuppsättning i [Resursutforskaren i Azure](https://resources.azure.com/).
 
 ## <a name="creating-a-large-scale-set"></a>Skapa en stor skalningsuppsättning
 När du skapar en skalningsuppsättning i Azure-portalen anger du värde för *antalet instanser* till upp till 1 000. Om det är mer än 100 instanser anges *Enable scaling beyond 100 instances* (Aktivera skalning över 100 instanser) till *Ja* så att det kan skalas till flera placeringsgrupper. 

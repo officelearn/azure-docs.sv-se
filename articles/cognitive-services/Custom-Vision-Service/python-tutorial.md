@@ -1,5 +1,5 @@
 ---
-title: 'Självstudie: Skapa ett projekt för bildklassificering – Custom Vision Service, Python'
+title: 'Självstudie: Skapa ett bildklassificeringsprojekt med Custom Vision-SDK för Python'
 titlesuffix: Azure Cognitive Services
 description: Skapa ett projekt, lägg till taggar, ladda upp bilder, träna ditt projekt och gör en förutsägelse med hjälp av standardslutpunkten.
 services: cognitive-services
@@ -10,16 +10,16 @@ ms.component: custom-vision
 ms.topic: tutorial
 ms.date: 08/28/2018
 ms.author: areddish
-ms.openlocfilehash: 14b805a60637a889698132e169d5a41670a8bce0
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.openlocfilehash: 96125ba1c54f742bb9ddf32a1588173217be0766
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46363385"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49953120"
 ---
-# <a name="tutorial-create-an-image-classification-project-using-the-custom-vision-service-with-python"></a>Självstudie: Skapa ett projekt för bildklassificering med hjälp av Custom Vision Service med Python
+# <a name="tutorial-create-an-image-classification-project-with-the-custom-vision-sdk-for-python"></a>Självstudie: Skapa ett bildklassificeringsprojekt med Custom Vision-SDK för Python
 
-Lär dig hur du skapar ett projekt för bildklassificering med hjälp av Custom Vision Service och ett grundläggande Python-skript. När projektet har skapats kan du lägga till taggar, ladda upp bilder, träna projektet, hämta slutpunkts-URL:en för projektets standardförutsägelse och använda projektet för att testa en bild programmatiskt. Använd det här exemplet med öppen källkod som mall för att skapa en egen app med hjälp av API för Custom Vision.
+Lär dig hur du skapar ett projekt för bildklassificering med hjälp av Custom Vision Service och ett grundläggande Python-skript. När projektet har skapats kan du lägga till taggar, ladda upp bilder, träna projektet, hämta slutpunkts-URL:en för projektets standardförutsägelse och använda projektet för att testa en bild programmatiskt. Använd det här exemplet med öppen källkod som en mall för att skapa din egen app med hjälp av API för Custom Vision.
 
 
 
@@ -32,7 +32,7 @@ Lär dig hur du skapar ett projekt för bildklassificering med hjälp av Custom 
 
 För att hämta nycklarna som används i det här exemplet går du till [Custom Vision-webbsidan](https://customvision.ai) och väljer __kugghjulsikonen__ i det övre högra hörnet. Kopiera värdena från fälten __Utbildningsnyckel__ och __Förutsägelsenyckel__ i avsnittet __Konton__.
 
-![Bild av nyckelanvändargränssnittet](./media/python-tutorial/training-prediction-keys.png)
+![Bild på gränssnittet för nycklarna](./media/python-tutorial/training-prediction-keys.png)
 
 ## <a name="install-the-custom-vision-service-sdk"></a>Installera Custom Vision Service SDK
 
@@ -162,7 +162,7 @@ for prediction in results.predictions:
     print ("\t" + prediction.tag_name + ": {0:.2f}%".format(prediction.probability * 100))
 ```
 
-## <a name="run-the-example"></a>Köra exemplet
+## <a name="run-the-example"></a>Kör exemplet
 
 Kör lösningen. Förutsägelseresultatet visas i konsolen.
 

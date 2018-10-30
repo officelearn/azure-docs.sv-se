@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
 ms.date: 10/10/2018
-ms.openlocfilehash: cbc30d1a70d7a333f56df6f0a796d3a8e6532fe8
-ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
+ms.openlocfilehash: adf9f40e351ca642ca3e8eabe1e5eb7850f1f00d
+ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49068737"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49945543"
 ---
 # <a name="migrate-sql-server-to-azure-sql-database-online-using-dms"></a>Migrera SQL Server till Azure SQL Database online med DMS
 Du kan använda Azure Database Migration Service till att migrera databaserna från en lokal SQL Server-instans till [Azure SQL Database](https://docs.microsoft.com/azure/sql-database/) med minimal avbrottstid. I den här självstudiekursen migrerar du databasen **Adventureworks2012** återställt till en lokal instans av SQL Server 2016 (eller senare) till Azure SQL Database genom att använda Azure Database Migration Service.
@@ -33,6 +33,10 @@ I den här guiden får du lära dig att:
 
 > [!IMPORTANT]
 > För optimala migreringsfunktioner rekommenderar Microsoft att skapa en instans av Azure Database Migration Service i samma Azure-region som måldatabasen. Att flytta data mellan regioner eller geografiska områden kan göra migreringsprocessen långsammare och leda till fel.
+
+[!INCLUDE [online-offline](../../includes/database-migration-service-offline-online.md)]
+
+I den artikeln beskrivs en onlinemigrering från SQL Server till Azure SQL Database. En offlinemigrering beskrivs i [Migrera SQL Server till Azure SQL Database offline med DMS](tutorial-sql-server-to-azure-sql.md).
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 För att slutföra den här kursen behöver du:

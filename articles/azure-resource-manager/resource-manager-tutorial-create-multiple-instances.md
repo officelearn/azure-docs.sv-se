@@ -10,15 +10,15 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 09/10/2018
+ms.date: 10/18/2018
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 63a18a6ae0ee4c6e0a01bd7ac4a26a4fb89746c2
-ms.sourcegitcommit: 3150596c9d4a53d3650cc9254c107871ae0aab88
+ms.openlocfilehash: 1cfccdf644b1748a96f7638e574c66eace8d113a
+ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47419499"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49456668"
 ---
 # <a name="tutorial-create-multiple-resource-instances-using-resource-manager-templates"></a>Självstudie: Skapa flera resursinstanser med hjälp av Resource Manager-mallar
 
@@ -35,8 +35,7 @@ Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](ht
 
 För att kunna följa stegen i den här artikeln behöver du:
 
-* [Visual Studio Code](https://code.visualstudio.com/).
-* Resource Manager Tools-tillägget. Information om att installera finns på sidan om att [installera tillägget för Resource Manager Tools](./resource-manager-quickstart-create-templates-use-visual-studio-code.md#prerequisites).
+* [Visual Studio Code](https://code.visualstudio.com/) med [verktygstillägget för Resource Manager](./resource-manager-quickstart-create-templates-use-visual-studio-code.md#prerequisites).
 
 ## <a name="open-a-quickstart-template"></a>Öppna en snabbstartsmall
 
@@ -121,14 +120,17 @@ Mer information finns i avsnittet [Distribuera mallen](./resource-manager-quicks
 Om du vill visa alla tre lagringskonton utelämnar du parametern --name:
 
 # <a name="clitabcli"></a>[CLI](#tab/CLI)
-```cli
-az storage account list --resource-group <ResourceGroupName>
+```azurecli
+echo "Enter the Resource Group name:" &&
+read resourceGroupName &&
+az storage account list --resource-group $resourceGroupName
 ```
 
 # <a name="powershelltabpowershell"></a>[PowerShell](#tab/PowerShell)
 
-```powershell
-Get-AzureRmStorageAccount -ResourceGroupName <ResourceGroupName>
+```azurepowershell
+$resourceGroupName = Read-Host -Prompt "Enter the resource group name"
+Get-AzureRmStorageAccount -ResourceGroupName $resourceGroupName
 ```
 
 ---

@@ -12,12 +12,12 @@ ms.custom: mvc
 ms.reviewer: klam, LADocs
 ms.suite: integration
 ms.date: 07/31/2018
-ms.openlocfilehash: b8961edebd80d5f36d844734e3c93a4bd3b1f0cf
-ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
+ms.openlocfilehash: 6783c59b354e0eebc7fa6d8f67985b8d7b72c22a
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42162141"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49645839"
 ---
 # <a name="quickstart-create-and-automate-tasks-processes-and-workflows-with-azure-logic-apps---visual-studio"></a>Snabbstart: Skapa och automatisera uppgifter, processer och arbetsflöden med Azure Logic Apps – Visual Studio
 
@@ -148,6 +148,10 @@ Innan du kan köra din logikapp måste du distribuera appen från Visual Studio 
 
    ![Status för distribution](./media/quickstart-create-logic-apps-with-visual-studio/logic-app-output-window.png)
 
+   Om de anslutningsappar du väljer behöver någon åtgärd av dig kan det hända att ett PowerShell-fönster öppnas i bakgrunden och fråga efter nödvändiga lösenord eller hemliga nycklar. När du har angett den här informationen fortsätter distributionen.
+   
+   ![Distribution powershell-fönster](./media/quickstart-create-logic-apps-with-visual-studio/logic-apps-powershell-window.png)
+   
    När distributionen är klar aktiveras logikappen i Azure-portalen och kontrollerar RSS-flödet efter ett angivet schema (varje minut). 
    Om RSS-flödet innehåller nya objekt skickar din logikapp ett e-postmeddelande för varje nytt objekt. 
    Annars väntar logikappen tills nästa intervall innan kontrollen utförs på nytt. 

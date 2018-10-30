@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.service: stream-analytics
 ms.custom: mvc
 manager: kfile
-ms.openlocfilehash: 18903dfbe187de73a6edb14196fa29e02d35dbca
-ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
+ms.openlocfilehash: 126677df01ad34d488863dd83e2f8c9a2d947824
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39185388"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49958898"
 ---
 # <a name="quickstart-create-a-stream-analytics-job-by-using-azure-powershell"></a>Snabbstart: Skapa ett Stream Analytics-jobb med hjälp av Azure PowerShell
 
@@ -285,7 +285,9 @@ Remove-AzureRmResourceGroup `
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här snabbstarten har du distribuerat ett enkelt Stream Analytics-jobb. Om du vill se hur du konfigurerar andra indatakällor och utför realtidsidentifiering fortsätter du till följande artikel:
+I den här snabbstarten har du distribuerat ett enkelt Stream Analytics-jobb med PowerShell. Du kan även distribuera Stream Analytics-jobb med [Azure-portalen](stream-analytics-quick-create-portal.md) och [Visual Studio](stream-analytics-quick-create-vs.md).
+
+Om du vill se hur du konfigurerar andra indatakällor och utför realtidsidentifiering fortsätter du till följande artikel:
 
 > [!div class="nextstepaction"]
 > [Identifiering av bedrägerier i realtid med hjälp av Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md)

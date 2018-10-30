@@ -11,12 +11,12 @@ ms.workload: big-data
 ms.topic: quickstart
 ms.date: 07/23/2018
 ms.custom: mvc
-ms.openlocfilehash: becf592d07f650c00263e26ccff2ad8525310dac
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
+ms.openlocfilehash: 38e254c3ddc976a0ffebaa8c6fe1c60fd3b7c840
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49363491"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50025573"
 ---
 # <a name="quickstart-run-a-spark-job-on-azure-databricks-using-the-azure-portal"></a>Snabbstart: Köra ett Spark-jobb på Azure Databricks med Azure Portal
 
@@ -77,7 +77,7 @@ I det här avsnittet skapar du en Azure Databricks-arbetsyta med Azure-portalen.
 
     * Ange ett namn för klustret.
     * För den här artikeln skapar du ett kluster med körningen **4.0**. 
-    * Se till att markera kryssrutan **Avsluta efter ___ minuters inaktivitet**. Ange en varaktighet (i minuter) för att avsluta klustret om klustret inte används.
+    * Se till att markera kryssrutan **Avsluta efter \_\_ minuters inaktivitet**. Ange en varaktighet (i minuter) för att avsluta klustret om klustret inte används.
     
     Välj **Skapa kluster**. När klustret körs kan du ansluta anteckningsböcker till klustret och köra Spark-jobb. 
 

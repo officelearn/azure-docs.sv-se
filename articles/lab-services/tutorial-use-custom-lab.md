@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 05/17/2018
 ms.author: spelluru
-ms.openlocfilehash: cd623767c9627810afb64ca9185c991c5c9f3858
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: ab52206230c4dfe2d92c97f1e291ee00a086c570
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34638032"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49470871"
 ---
 # <a name="tutorial-access-a-lab-in-azure-devtest-labs"></a>Självstudie: Få åtkomst till ett labb i Azure DevTest Labs
 I den här självstudien använder du det labbet som skapades i [Självstudie: Skapa ett labb i Azure DevTests Labs](tutorial-create-custom-lab.md) .
@@ -35,7 +35,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 
 ## <a name="access-the-lab"></a>Åtkomst till labbet
 
-1. Logga in på [Azure Portal](https://portal.azure.com).
+1. Logga in på [Azure-portalen](https://portal.azure.com).
 2. Välj **Alla resurser** på menyn till vänster. 
 3. Välj **DevTest Labs** som resurstyp. 
 4. Välj labbet. 
@@ -57,6 +57,10 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 
     ![Ansluta till den virtuella datorn](./media/tutorial-use-custom-lab/connect-button.png)
 2. Spara den nedladdade **RDP**-filen på hårddisken och använd den för att ansluta till den virtuella datorn. Ange användarnamnet och lösenordet du angav när den virtuella datorn skapades i föregående avsnitt. 
+
+    > [!NOTE] 
+    > Om du vill ansluta till en virtuell Linux-dator måste SSH- och/eller RDP-åtkomst aktiveras för den virtuella datorn. Anvisningar för hur du ansluter till en virtuell Linux-dator via RDP finns i [Installera och konfigurera Fjärrskrivbord för att ansluta till en virtuell Linux-dator i Azure](../virtual-machines/linux/use-remote-desktop.md). 
+
 
 ## <a name="unclaim-the-vm"></a>Släppa anspråk på en virtuell dator
 När du är klar med den virtuella datorn släpper du anspråket på den virtuella datorn genom att följa dessa steg: 

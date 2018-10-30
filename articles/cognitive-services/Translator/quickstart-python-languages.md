@@ -1,23 +1,23 @@
 ---
-title: 'Snabbstart: Hämta språk som stöds – Translator Text, Python'
+title: 'Snabbstart: Hämta språk som stöds- Python – Translator Text-API'
 titleSuffix: Azure Cognitive Services
 description: I den här snabbstarten hämtar du en lista över språk som stöds för översättning, transkribering och ordlistesökningar med hjälp av Translator Text-API:et med Java.
 services: cognitive-services
-author: noellelacharite
+author: erhopf
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-text
 ms.topic: quickstart
 ms.date: 06/21/2018
-ms.author: nolachar
-ms.openlocfilehash: a68a1b31cb844a4873bf34c6a292beeb2a4b61c0
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.author: erhopf
+ms.openlocfilehash: b920b08d3bc5d4e340aa8ade6b26e5fe61208098
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46121744"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49644733"
 ---
-# <a name="quickstart-get-supported-languages-with-python"></a>Snabbstart: Hämta språk som stöds med Python
+# <a name="quickstart-get-supported-languages-with-the-translator-text-rest-api-python"></a>Snabbstart: Hämta språk som stöds med Translator Text REST API (Python)
 
 I den här snabbstarten hämtar du en lista över språk som stöds för översättning, transkribering och ordlistesökningar med hjälp av Translator Text-API:t.
 

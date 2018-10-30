@@ -1,23 +1,23 @@
 ---
-title: 'Snabbstart: Konvertera textskript – Translator Text, C#'
+title: 'Snabbstart: Konvertera textskript, C# – Translator Text'
 titleSuffix: Azure Cognitive Services
 description: I den här snabbstarten ska du få konvertera text i ett språk från ett skript till ett annat med hjälp av Translator Text-API:et med C#.
 services: cognitive-services
-author: noellelacharite
+author: erhopf
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-text
 ms.topic: quickstart
 ms.date: 06/15/2018
-ms.author: nolachar
-ms.openlocfilehash: 7fa8c5dc76e59ec236d6b9662bd2ba41db0add0f
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.author: erhopf
+ms.openlocfilehash: d0dd7ef04f6feb04df4fafc5b750f291d05f2862
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49320415"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49646219"
 ---
-# <a name="quickstart-transliterate-text-with-c35"></a>Snabbstart: Transkribera text med C&#35;
+# <a name="quickstart-transliterate-text-with-the-translator-text-rest-api-c"></a>Snabbstart: Transkribera text med Translator Text REST API (C#)
 
 I den här snabbstarten ska du konvertera text i ett språk från ett skript till ett annat med hjälp av Translator Text-API:et.
 

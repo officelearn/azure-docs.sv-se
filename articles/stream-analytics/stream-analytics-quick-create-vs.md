@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.service: stream-analytics
 ms.custom: mvc
 manager: kfile
-ms.openlocfilehash: a69bfbe4c062012e82ca49233226eb1fcb8eb75e
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.openlocfilehash: be4c906535981c6b05c1a72aa23e4e1f78f57edf
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39113548"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49954774"
 ---
 # <a name="quickstart-create-a-stream-analytics-job-by-using-the-azure-stream-analytics-tools-for-visual-studio"></a>Snabbstart: Skapa ett Stream Analytics-jobb med hjälp av Azure Stream Analytics-verktygen för Visual Studio
 
@@ -178,7 +178,9 @@ Ta bort resursgruppen, strömningsjobbet och alla relaterade resurser när de in
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här snabbstarten har du distribuerat ett enkelt Stream Analytics-jobb. Om du vill se hur du konfigurerar andra indatakällor och utför realtidsidentifiering fortsätter du till följande artikel:
+I den här snabbstarten har du distribuerat ett enkelt Stream Analytics-jobb med Visual Studio. Du kan även distribuera Stream Analytics-jobb med [Azure-portalen](stream-analytics-quick-create-portal.md) och [PowerShell](stream-analytics-quick-create-powershell.md). 
+
+Om du vill se hur du konfigurerar andra indatakällor och utför realtidsidentifiering fortsätter du till följande artikel:
 
 > [!div class="nextstepaction"]
 > [Identifiering av bedrägerier i realtid med hjälp av Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md)

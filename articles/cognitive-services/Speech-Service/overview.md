@@ -1,20 +1,21 @@
 ---
 title: Vad är Speech Service?
-description: 'Taltjänsten, som är en del av Microsoft Cognitive Services, förenar flera Azure-taltjänster som tidigare var tillgängliga separat: Taligenkänning i Bing (som består av taligenkänning och text till tal), Custom Speech och talöversättning.'
 titleSuffix: Azure Cognitive Services
+description: 'Speech Service, som är en del av Azure Cognitive Services, förenar flera taltjänster som tidigare var tillgängliga separat: Taligenkänning i Bing (som består av taligenkänning och text till tal), Custom Speech och talöversättning.'
 services: cognitive-services
 author: erhopf
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: overview
 ms.date: 09/24/2018
 ms.author: erhopf
-ms.openlocfilehash: 7a61d85d96b993d49a536c38c2907a3d6ef55e65
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
+ms.openlocfilehash: ba4204c23f3467ff07940fd6a72464e67604dde1
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49365466"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49470454"
 ---
 # <a name="what-is-the-speech-service"></a>Vad är Speech Service?
 

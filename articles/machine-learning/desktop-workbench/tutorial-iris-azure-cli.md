@@ -11,12 +11,12 @@ ms.custom: mvc, tutorial
 ms.topic: tutorial
 ms.date: 10/15/2017
 ROBOTS: NOINDEX
-ms.openlocfilehash: b9b515a2ccaedc40fc531d6a1cc58cbe98212b4a
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: c5f7b8b98f97e020b4f6fb4b125d444df87f8d5a
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46967905"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50025760"
 ---
 # <a name="tutorial-classifying-iris-using-the-command-line-interface"></a>Självstudie: Klassificera Iris med hjälp av kommandoradsgränssnittet
 
@@ -143,13 +143,13 @@ $ az ml project create --name <project name> --workspace <workspace name> --acco
 ```
 
 ### <a name="create-a-new-project-associated-with-a-cloud-git-repository"></a>Skapa ett nytt projekt som är associerat med en Git-lagringsplats i molnet
-Du kan skapa ett nytt projekt som är associerat med en Azure DevOps Git-lagringsplats. Varje gång ett experiment skickas, allokeras en ögonblicksbild av hela projektmappen till den fjärranslutna Git-lagringsplatsen. Se [Använda en Git-lagringsplats med ett Azure Machine Learning Workbench-projekt](using-git-ml-project.md) för mer information.
+Du kan skapa ett nytt projekt som är associerat med en Git-lagringsplats i Azure Repos. Varje gång ett experiment skickas, allokeras en ögonblicksbild av hela projektmappen till den fjärranslutna Git-lagringsplatsen. Se [Använda en Git-lagringsplats med ett Azure Machine Learning Workbench-projekt](using-git-ml-project.md) för mer information.
 
 > [!NOTE]
-> Azure Machine Learning stöder endast tomma Git-lagringsplatser som skapas i Azure DevOps.
+> Azure Machine Learning stöder endast tomma Git-lagringsplatser som skapas i Azure Repos.
 
 ```azure-cli
-$ az ml project create --name <project name> --workspace <workspace name> --account <experimentation account name> --resource-group <resource group name> --path <local folder path> --repo <VSTS repo URL>
+$ az ml project create --name <project name> --workspace <workspace name> --account <experimentation account name> --resource-group <resource group name> --path <local folder path> --repo <repo URL>
 ```
 > [!TIP]
 > Om du får felet ”Lagringsplatsens URL kan vara ogiltig eller användaren kanske inte har åtkomst”, kan du skapa en säkerhetstoken i Azure DevOps (under _Säkerhet_, _Lägg till personliga åtkomsttokens_) och använda `--vststoken`-argumentet när du skapar ditt projekt. 

@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 09/10/2018
 ms.author: lizross
 custom: it-pro
-ms.openlocfilehash: 8ef68c8afcf61a1a11c341a679443071aece9812
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.openlocfilehash: eacb2e7c52adae9de0b74c3dade59446cc8459ed
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46363012"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50023565"
 ---
 # <a name="quickstart-access-azure-active-directory-to-create-a-new-tenant"></a>Snabbstart: Komma åt Azure Active Directory för att skapa en ny klientorganisation
 Du kan utföra alla administrativa aktiviteter med hjälp av Azure Active Directory (Azure AD)-portalen, inklusive att skapa en ny klient för din organisation. 
@@ -24,13 +24,6 @@ Du kan utföra alla administrativa aktiviteter med hjälp av Azure Active Direct
 I den här snabbstarten får du lära dig hur du kommer till Azure-portalen och Azure Active Directory och du får lära dig hur du skapar en grundläggande klient för din organisation.
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
-
-## <a name="prerequisites"></a>Nödvändiga komponenter
-Innan du börjar måste du:
-
-- Kontrollera att din organisation har en giltig Azure AD-licens.
-
-- Kontrollera att du är en global administratör.
 
 ## <a name="sign-in-to-the-azure-portal"></a>Logga in på Azure Portal
 Logga in på din organisations [Azure-portal](https://portal.azure.com/) med ett konto som global administratör.
@@ -76,3 +69,5 @@ Om du inte planerar att fortsätta använda det här programmet kan du ta bort k
 - Se [Skapa en basgrupp och lägga till medlemmar](active-directory-groups-create-azure-portal.md) för att lägga till grupper och medlemmar
 
 - Lär dig mer om [rollbaserad åtkomst med hjälp av privilegierad identitetshantering](../../role-based-access-control/pim-azure-resource.md) och [Villkorlig åtkomst](../../role-based-access-control/conditional-access-azure-management.md) för att hantera din organisations program och åtkomst.
+
+- Lär dig mer om Azure AD, bland annat [grundläggande licensinformation, terminologi och associerade funktioner](active-directory-whatis.md).

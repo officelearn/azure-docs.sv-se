@@ -16,12 +16,12 @@ ms.date: 08/02/2018
 ms.author: magoedte
 ms.custom: mvc
 ms.component: ''
-ms.openlocfilehash: 901765174c2e68a00624c48c7ea85e060265ca5e
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: 84bf6bb3ed4d639851b110c6db7b8b5dc8c3f87f
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48042194"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49404261"
 ---
 # <a name="configure-log-analytics-agent-for-linux-computers-in-a-hybrid-environment"></a>Konfigurera Log Analytics-agenten för Linux-datorer i en hybridmiljö
 [Azure Log Analytics](log-analytics-overview.md) kan samla in data direkt från fysiska eller virtuella Linux-datorer i ditt datacenter eller en annan molnmiljö till en enda lagringsplats för detaljerad analys och korrelation.  Den här snabbstarten visar hur du konfigurerar och samlar in data från Linux-datorer med några enkla steg.  För virtuella Linux-datorer, se avsnittet [Samla in data om virtuella datorer i Azure](log-analytics-quick-collect-azurevm.md).  
@@ -37,7 +37,7 @@ Logga in på Azure Portal på [https://portal.azure.com](https://portal.azure.co
 1. Klicka på **Alla tjänster** på Azure Portal. I listan över resurser skriver du **Log Analytics**. När du börjar skriva filtreras listan baserat på det du skriver. Välj **Log Analytics**.<br><br> ![Azure Portal](media/log-analytics-quick-collect-azurevm/azure-portal-01.png)<br><br>  
 2. Klicka på **Skapa** och välj sedan alternativ för följande objekt:
 
-  * Ange ett namn för den nya **OMS-arbetsytan**, som *DefaultLAWorkspace*. 
+  * Ange ett namn för den nya **Log Analytics-arbetsytan**, som *DefaultLAWorkspace*. OMS-arbetsytor kallas nu för Log Analytics-arbetsytor.   
   * Välj en **prenumeration** att länka till genom att välja från den listrutan om standardvalet inte är lämpligt.
   * För **Resursgrupp** väljer du en befintlig resursgrupp som innehåller en eller flera virtuella datorer i Azure.  
   * Välj den **plats** där dina virtuella datorer distribueras.  Mer information finns i avsnittet om [tillgängliga regioner för Log Analytics](https://azure.microsoft.com/regions/services/).  
@@ -45,12 +45,14 @@ Logga in på Azure Portal på [https://portal.azure.com](https://portal.azure.co
 
         ![Create Log Analytics resource blade](./media/log-analytics-quick-collect-azurevm/create-loganalytics-workspace-02.png)<br>  
 
-3. När du har angett den nödvändiga informationen i fönsterrutan **OMS-arbetsyta** klickar du på **OK**.  
+3. När du har angett den nödvändiga informationen i fönsterrutan **Log Analytics-arbetsyta** klickar du på **OK**.  
 
 När informationen har verifierats och arbetsytan skapas, kan du spåra förloppet under **Meddelanden** på menyn. 
 
 ## <a name="obtain-workspace-id-and-key"></a>Hämta arbetsytans ID och nyckel
-Innan du installerar OMS-agenten för Linux behöver du arbetsytans id och nyckel för Log Analytics-arbetsytan.  Den här informationen krävs av agentens adapterskript för att agenten ska konfigureras ordentligt och kunna kommunicera med Log Analytics.  
+Innan du installerar Log Analytics-agenten för Linux behöver du arbetsytans id och nyckel för Log Analytics-arbetsytan.  Den här informationen krävs av agentens adapterskript för att agenten ska konfigureras ordentligt och kunna kommunicera med Log Analytics.
+
+[!INCLUDE [log-analytics-agent-note](../../includes/log-analytics-agent-note.md)]  
 
 1. I Azure Portal klickar du på **Alla tjänster** längst upp till vänster. I listan över resurser skriver du **Log Analytics**. När du börjar skriva filtreras listan baserat på det du skriver. Välj **Log Analytics**.
 2. Välj *DefaultLAWorkspace* som du skapade tidigare i listan med Log Analytics-arbetsytor.
@@ -62,7 +64,7 @@ Innan du installerar OMS-agenten för Linux behöver du arbetsytans id och nycke
 Med följande steg konfigurerar du installationen av agenten för Log Analytics i Azure- och Azure Government-molnet.  
 
 >[!NOTE]
->OMS-agenten för Linux kan inte konfigureras att rapportera till fler än en Log Analytics--arbetsyta.  
+>Log Analytics-agenten för Linux kan inte konfigureras att rapportera till fler än en Log Analytics--arbetsyta.  
 
 Om Linux-datorn behöver kommunicera via en proxyserver till Log Analytics kan du ange proxykonfigurationen på kommandoraden genom att inkludera `-p [protocol://][user:password@]proxyhost[:port]`.  Egenskapen *proxyhost* accepterar ett fullständigt domännamn eller en fullständig IP-adress för proxyservern. 
 

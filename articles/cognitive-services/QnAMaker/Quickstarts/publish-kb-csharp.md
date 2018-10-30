@@ -1,23 +1,23 @@
 ---
 title: 'Snabbstart: Publicera kunskapsbas – REST, C# – QnA Maker'
 titleSuffix: Azure Cognitive Services
-description: Den här snabbstarten vägleder dig genom publiceringen av din kunskapsbas som överför den senaste versionen av den testade kunskapsbasen till ett dedikerat Azure Search-index som representerar den publicerade kunskapsbasen. Den skapar även en slutpunkt som kan anropas i ditt program eller en chattrobot.
+description: Den här REST-baserade snabbstarten vägleder dig genom publiceringen av din kunskapsbas som överför den senaste versionen av den testade kunskapsbasen till ett dedikerat Azure Search-index som representerar den publicerade kunskapsbasen. Den skapar även en slutpunkt som kan anropas i ditt program eller en chattrobot.
 services: cognitive-services
 author: diberry
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: qna-maker
 ms.topic: quickstart
-ms.date: 10/01/2018
+ms.date: 10/19/2018
 ms.author: diberry
-ms.openlocfilehash: f2aa73dacdffaebcddbf91b2f5c7c3db4a331431
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: ce027abb75423d0174a7175c3bbafe5c0fb3e157
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48883592"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49646270"
 ---
-# <a name="quickstart-publish-a-qna-maker-knowledge-base-in-c"></a>Snabbstart: Publicera en QnA Maker-kunskapsbas i C#
+# <a name="quickstart-publish-a-knowledge-base-in-qna-maker-using-c"></a>Snabbstart: Publicera en kunskapsbas i QnA Maker med C#
 
 Den här snabbstarten går igenom hur du programmatiskt publicerar din kunskapsbas (KB). Publicering skickar den senaste versionen av kunskapsbasen till ett dedikerat Azure Search-index och skapar en slutpunkt som kan anropas i ditt program eller en chattrobot.
 

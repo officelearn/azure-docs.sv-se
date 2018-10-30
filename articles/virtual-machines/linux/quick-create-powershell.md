@@ -13,27 +13,43 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 04/24/2018
+ms.date: 10/17/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 45b1597d3b61a9386fc015b5a7272d948fa5772b
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
+ms.openlocfilehash: df6f99bfe9f1ae7b79f0f382fdee4fe4f1578bad
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49394790"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49407545"
 ---
 # <a name="quickstart-create-a-linux-virtual-machine-in-azure-with-powershell"></a>Snabbstart: Skapa en virtuell Linux-dator i Azure med PowerShell
 
-Azure PowerShell-modulen används för att skapa och hantera Azure-resurser från PowerShell-kommandoraden eller i skript. Den här snabbstarten beskriver hur du använder Azure PowerShell-modulen för att distribuera en virtuell Linux-dator (VM) i Azure som kör Ubuntu. För att se hur den virtuella datorn fungerar i praktiken använder du sedan SSH för att ansluta till den virtuella datorn och installerar NGINX-webbservern.
+Azure PowerShell-modulen används för att skapa och hantera Azure-resurser från PowerShell-kommandoraden eller i skript. Den här snabbstarten beskriver hur du använder Azure PowerShell-modulen för att distribuera en virtuell Linux-dator (VM) i Azure. Den här snabbstarten använder Ubuntu 16.04 LTS Marketplace-avbildningen från Canonical. För att se hur den virtuella datorn fungerar i praktiken använder du sedan SSH för att ansluta till den virtuella datorn och installerar NGINX-webbservern.
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-[!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]
+## <a name="launch-azure-cloud-shell"></a>Starta Azure Cloud Shell
 
-Om du väljer att installera och använda PowerShell lokalt krävs Azure PowerShell-modulen version 5.7.0 eller senare för att du ska kunna genomföra den här självstudiekursen. Kör `Get-Module -ListAvailable AzureRM` för att hitta versionen. Om du behöver uppgradera kan du läsa [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps) (Installera Azure PowerShell-modul). Om du kör PowerShell lokalt måste du också köra `Connect-AzureRmAccount` för att skapa en anslutning till Azure.
+Azure Cloud Shell är ett interaktivt gränssnitt som du kan använda för att utföra stegen i den här artikeln. Den har vanliga Azure-verktyg förinstallerat och har konfigurerats för användning med ditt konto. 
 
-Slutligen måste du ha en offentlig SSH-nyckel med namnet *id_rsa.pub* i katalogen *.ssh* i din Windows-användarprofil. Mer detaljerad information om hur du skapar och använder SSH-nycklar finns i [Create SSH keys for Azure](ssh-from-windows.md) (Skapa SSH-nycklar för Azure).
+Om du vill öppna Cloud Shell väljer du bara **Prova** från det övre högra hörnet i ett kodblock. Kopiera kodblocket genom att välja **Kopiera**, klistra in det i Cloud Shell och kör det genom att trycka på RETUR.
+
+Om du vill installera och använda PowerShell lokalt kräver den här snabbstarten version 5.7.0 eller senare av Azure PowerShell-modulen. Kör `Get-Module -ListAvailable AzureRM` för att hitta versionen. Om du kör PowerShell lokalt måste du också köra `Connect-AzureRmAccount` för att skapa en anslutning till Azure.
+
+## <a name="create-ssh-key-pair"></a>Skapa SSH-nyckelpar
+
+Du behöver ett SSH-nyckelpar för att slutföra den här snabbstarten. Om du redan har ett SSH-nyckelpar kan du hoppa över det här steget.
+
+Öppna bash-gränssnittet och använd [ssh-keygen](https://www.ssh.com/ssh/keygen/) för att skapa ett SSH-nyckelpar. Om du inte har något bash-gränssnitt på den lokala datorn kan du använda [Azure Cloud Shell](https://shell.azure.com/bash).  
+
+```azurepowershell-interactive
+ssh-keygen -t rsa -b 2048
+```
+
+Mer detaljerad information om hur du skapar SSH-nyckelpar, inklusive användning av PuTTy, finns i [Använd SSH-nycklar med Windows](ssh-from-windows.md).
+
+Om du skapar ditt SSH-nyckelpar med hjälp av Cloud Shell lagras det i en containeravbildning på ett [lagringskonto som skapas automatiskt av Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/persisting-shell-storage). Ta inte bort lagringskontot, eller filerna på det, innan du har hämtat dina nycklar. Annars förlorar du åtkomsten till den virtuella datorn. 
 
 ## <a name="create-a-resource-group"></a>Skapa en resursgrupp
 
@@ -49,46 +65,80 @@ Skapa ett virtuellt nätverk, undernät och offentlig IP-adress. Dessa resurser 
 
 ```azurepowershell-interactive
 # Create a subnet configuration
-$subnetConfig = New-AzureRmVirtualNetworkSubnetConfig -Name "mySubnet" -AddressPrefix 192.168.1.0/24
+$subnetConfig = New-AzureRmVirtualNetworkSubnetConfig `
+  -Name "mySubnet" `
+  -AddressPrefix 192.168.1.0/24
 
 # Create a virtual network
-$vnet = New-AzureRmVirtualNetwork -ResourceGroupName "myResourceGroup" -Location "EastUS" `
--Name "myVNET" -AddressPrefix 192.168.0.0/16 -Subnet $subnetConfig
+$vnet = New-AzureRmVirtualNetwork `
+  -ResourceGroupName "myResourceGroup" `
+  -Location "EastUS" `
+  -Name "myVNET" `
+  -AddressPrefix 192.168.0.0/16 `
+  -Subnet $subnetConfig
 
 # Create a public IP address and specify a DNS name
-$pip = New-AzureRmPublicIpAddress -ResourceGroupName "myResourceGroup" -Location "EastUS" `
--AllocationMethod Static -IdleTimeoutInMinutes 4 -Name "mypublicdns$(Get-Random)"
+$pip = New-AzureRmPublicIpAddress `
+  -ResourceGroupName "myResourceGroup" `
+  -Location "EastUS" `
+  -AllocationMethod Static `
+  -IdleTimeoutInMinutes 4 `
+  -Name "mypublicdns$(Get-Random)"
 ```
 
 Skapa en Azure-nätverkssäkerhetsgrupp och trafikregel. Nätverkssäkerhetsgruppen skyddar den virtuella datorn med regler för inkommande och utgående trafik. I följande exempel skapas en regel för inkommande trafik för TCP-port 22 som tillåter SSH-anslutningar. För att tillåta inkommande webbtrafik skapas också en regel för inkommande trafik för TCP-port 80.
 
 ```azurepowershell-interactive
 # Create an inbound network security group rule for port 22
-$nsgRuleSSH = New-AzureRmNetworkSecurityRuleConfig -Name "myNetworkSecurityGroupRuleSSH"  -Protocol "Tcp" `
--Direction "Inbound" -Priority 1000 -SourceAddressPrefix * -SourcePortRange * -DestinationAddressPrefix * `
--DestinationPortRange 22 -Access "Allow"
+$nsgRuleSSH = New-AzureRmNetworkSecurityRuleConfig `
+  -Name "myNetworkSecurityGroupRuleSSH"  `
+  -Protocol "Tcp" `
+  -Direction "Inbound" `
+  -Priority 1000 `
+  -SourceAddressPrefix * `
+  -SourcePortRange * `
+  -DestinationAddressPrefix * `
+  -DestinationPortRange 22 `
+  -Access "Allow"
 
 # Create an inbound network security group rule for port 80
-$nsgRuleWeb = New-AzureRmNetworkSecurityRuleConfig -Name "myNetworkSecurityGroupRuleWWW"  -Protocol "Tcp" `
--Direction "Inbound" -Priority 1001 -SourceAddressPrefix * -SourcePortRange * -DestinationAddressPrefix * `
--DestinationPortRange 80 -Access "Allow"
+$nsgRuleWeb = New-AzureRmNetworkSecurityRuleConfig `
+  -Name "myNetworkSecurityGroupRuleWWW"  `
+  -Protocol "Tcp" `
+  -Direction "Inbound" `
+  -Priority 1001 `
+  -SourceAddressPrefix * `
+  -SourcePortRange * `
+  -DestinationAddressPrefix * `
+  -DestinationPortRange 80 `
+  -Access "Allow"
 
 # Create a network security group
-$nsg = New-AzureRmNetworkSecurityGroup -ResourceGroupName "myResourceGroup" -Location "EastUS" `
--Name "myNetworkSecurityGroup" -SecurityRules $nsgRuleSSH,$nsgRuleWeb
+$nsg = New-AzureRmNetworkSecurityGroup `
+  -ResourceGroupName "myResourceGroup" `
+  -Location "EastUS" `
+  -Name "myNetworkSecurityGroup" `
+  -SecurityRules $nsgRuleSSH,$nsgRuleWeb
 ```
 
 Skapa ett virtuellt nätverkskort (NIC) med [New-AzureRmNetworkInterface](/powershell/module/azurerm.network/new-azurermnetworkinterface). Det virtuella nätverkskortet ansluter den virtuella datorn till ett undernät, en nätverkssäkerhetsgrupp och en offentlig IP-adress.
 
 ```azurepowershell-interactive
 # Create a virtual network card and associate with public IP address and NSG
-$nic = New-AzureRmNetworkInterface -Name "myNic" -ResourceGroupName "myResourceGroup" -Location "EastUS" `
--SubnetId $vnet.Subnets[0].Id -PublicIpAddressId $pip.Id -NetworkSecurityGroupId $nsg.Id
+$nic = New-AzureRmNetworkInterface `
+  -Name "myNic" `
+  -ResourceGroupName "myResourceGroup" `
+  -Location "EastUS" `
+  -SubnetId $vnet.Subnets[0].Id `
+  -PublicIpAddressId $pip.Id `
+  -NetworkSecurityGroupId $nsg.Id
 ```
 
 ## <a name="create-a-virtual-machine"></a>Skapa en virtuell dator
 
-Konfigurationen av en virtuell dator innehåller inställningarna som används när en virtuell dator distribueras, t.ex. alternativ för VM-avbildning, storlek och autentisering. Definiera SSH-autentiseringsuppgifterna, informationen om operativsystemet och VM-storleken på följande sätt:
+Om du vill skapa en virtuell dator i PowerShell skapar du en konfiguration som har inställningar som avbildningen för alternativ för användning, storlek och autentisering. Konfigurationen används sedan till att skapa den virtuella datorn.
+
+Definiera SSH-autentiseringsuppgifterna, informationen om operativsystemet och VM-storleken. I det här exemplet lagras SSH-nyckeln i `~/.ssh/id_rsa.pub`. 
 
 ```azurepowershell-interactive
 # Define a credential object
@@ -96,57 +146,72 @@ $securePassword = ConvertTo-SecureString ' ' -AsPlainText -Force
 $cred = New-Object System.Management.Automation.PSCredential ("azureuser", $securePassword)
 
 # Create a virtual machine configuration
-$vmConfig = New-AzureRmVMConfig -VMName "myVM" -VMSize "Standard_D1" | `
-Set-AzureRmVMOperatingSystem -Linux -ComputerName "myVM" -Credential $cred -DisablePasswordAuthentication | `
-Set-AzureRmVMSourceImage -PublisherName "Canonical" -Offer "UbuntuServer" -Skus "16.04-LTS" -Version "latest" | `
-Add-AzureRmVMNetworkInterface -Id $nic.Id
+$vmConfig = New-AzureRmVMConfig `
+  -VMName "myVM" `
+  -VMSize "Standard_D1" | `
+Set-AzureRmVMOperatingSystem `
+  -Linux `
+  -ComputerName "myVM" `
+  -Credential $cred `
+  -DisablePasswordAuthentication | `
+Set-AzureRmVMSourceImage `
+  -PublisherName "Canonical" `
+  -Offer "UbuntuServer" `
+  -Skus "16.04-LTS" `
+  -Version "latest" | `
+Add-AzureRmVMNetworkInterface `
+  -Id $nic.Id
 
-# Configure SSH Keys
-$sshPublicKey = Get-Content "$env:USERPROFILE\.ssh\id_rsa.pub"
-Add-AzureRmVMSshPublicKey -VM $vmconfig -KeyData $sshPublicKey -Path "/home/azureuser/.ssh/authorized_keys"
+# Configure the SSH key
+$sshPublicKey = cat ~/.ssh/id_rsa.pub
+Add-AzureRmVMSshPublicKey `
+  -VM $vmconfig `
+  -KeyData $sshPublicKey `
+  -Path "/home/azureuser/.ssh/authorized_keys"
 ```
 
 Kombinera de tidigare konfigurationsdefinitionerna för att skapa den virtuella datorn med [New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm):
 
 ```azurepowershell-interactive
-New-AzureRmVM -ResourceGroupName "myResourceGroup" -Location eastus -VM $vmConfig
+New-AzureRmVM `
+  -ResourceGroupName "myResourceGroup" `
+  -Location eastus -VM $vmConfig
 ```
 
-## <a name="connect-to-virtual-machine"></a>Ansluta till den virtuella datorn
+Det tar några minuter för den virtuella datorn att distribueras. När distributionen är klar kan du gå vidare till nästa avsnitt.
 
-När distributionen har slutförts ansluter du till den virtuella datorn med SSH. För att sedan se hur den virtuella datorn fungerar i praktiken installerar du NGINX-webbservern.
+## <a name="connect-to-the-vm"></a>Anslut till VM:en
 
-Du hämtar den virtuella datorns offentliga IP-adress genom att köra cmdleten [Get-AzureRmPublicIpAddress](/powershell/module/azurerm.network/get-azurermpublicipaddress):
+Skapa en SSH-anslutning med den virtuella datorn med hjälp av en offentlig IP-adress. Du hämtar den virtuella datorns offentliga IP-adress genom att köra cmdleten [Get-AzureRmPublicIpAddress](/powershell/module/azurerm.network/get-azurermpublicipaddress):
 
 ```azurepowershell-interactive
 Get-AzureRmPublicIpAddress -ResourceGroupName "myResourceGroup" | Select "IpAddress"
 ```
 
-Använd en SSH-klient för att ansluta till den virtuella datorn. Du kan använda Azure Cloud Shell-gränssnittet från en webbläsare. Om du använder Windows kan du använda [Putty](ssh-from-windows.md) eller [Windows-undersystemet för Linux](/windows/wsl/install-win10). Ange den virtuella datorns offentliga IP-adress:
+Med hjälp av samma bash-gränssnitt som du använde för att skapa ditt SSH-nyckelpar (som [Azure Cloud Shell](https://shell.azure.com/bash) eller ditt lokala bash-gränssnitt) klistrar du in kommandot för SSH-anslutning i gränssnittet för att skapa en SSH-session.
 
 ```bash
-ssh azureuser@IpAddress
+ssh azureuser@10.111.12.123
 ```
 
 När du får en uppmaning är *azureuser* användarnamnet för inloggningen. Om du använder en lösenfras med dina SSH-nycklar måste du ange den när du uppmanas att göra det.
 
-## <a name="install-web-server"></a>Installera webbservern
 
-Om du vill se hur den virtuella datorn fungerar i praktiken installerar du NGINX-webbservern. Om du vill uppdatera paketkällorna och installera det senaste NGINX-paketet kör du följande kommandon från SSH-sessionen:
+## <a name="install-nginx"></a>Installera NGINX
+
+Om du vill se hur den virtuella datorn fungerar i praktiken installerar du NGINX-webbservern. Från din SSH-session uppdaterar du dina paketkällor och installera det senaste NGINX-paketet.
 
 ```bash
-# update packages
 sudo apt-get -y update
-
-# install NGINX
 sudo apt-get -y install nginx
 ```
 
-När du är klar avslutar du SSH-sessionen med `exit`
+När du är klar avslutar du SSH-sessionen genom att skriva `exit`.
+
 
 ## <a name="view-the-web-server-in-action"></a>Se hur webbservern fungerar i praktiken
 
-När NGINX har installerats och port 80 är öppen på den virtuella datorn från Internet använder du valfri webbläsare för att visa standardvälkomstsidan för NGINX. Använd den virtuella datorns offentliga IP-adress, som du hämtade i ett tidigare steg. Följande exempel visar NGINX-standardwebbplatsen:
+Använd valfri webbläsare för att visa välkomstsidan för NGINX. Ange den virtuella datorns offentliga IP-adress som webbadress. Den offentliga IP-adressen kan hittas på översiktssidan för den virtuella datorn eller som en del av SSH-anslutningssträngen du använde tidigare.
 
 ![NGINX-standardwebbplats](./media/quick-create-cli/nginx.png)
 

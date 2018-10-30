@@ -5,14 +5,14 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: tutorial
-ms.date: 9/24/2018
+ms.date: 10/24/2018
 ms.author: victorh
-ms.openlocfilehash: 1940fb210481dc75fe48d110776185e90cb3e42f
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 875efddfff9b50ab05665cb8c158467dc46c8d0d
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46991053"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49987447"
 ---
 # <a name="tutorial-monitor-azure-firewall-logs-and-metrics"></a>Självstudie: Övervaka Azure Firewall-loggar och mått
 
@@ -51,11 +51,11 @@ Det kan ta några minuter innan data visas i loggarna när du har aktiverat diag
 5. I det här exemplet lagras loggarna i Log Analytics, så använd **Firewall log analytics** som namn.
 6. Klicka på **Skicka till Log Analytics** för att konfigurera din arbetsyta. Du kan också använda händelsehubbar och ett lagringskonto till att spara dina diagnostiska loggar.
 7. Under **Log Analytics** klickar du på **Konfigurera**.
-8. På sidan OMS-arbetsytor klickar du på **Skapa ny arbetsyta**.
-9. På sidan **Log Analytics-arbetsyta** anger du **firewall-oms** som namn för den nya **OMS-arbetsytan**.
+8. På Log Analytics-sidan med arbetsytor klickar du på **Skapa ny arbetsyta**.
+9. På sidan **Log Analytics-arbetsyta** anger du **firewall-oms** som namn för den nya **Log Analytics-arbetsytan**.
 10. Välj din prenumeration, använd den befintliga resursgruppen för brandväggen (**Test-FW-RG**), välj **USA, östra** som plats och välj prisnivån **Kostnadsfri**.
 11. Klicka på **OK**.
-   ![Starta konfigurationsprocessen][1]
+   ![Starta konfigurationsprocessen][1] OMS-arbetsytor kallas nu för Log Analytics-arbetsytor.  
 12. Under **Logg** klickar du på **AzureFirewallApplicationRule** och **AzureFirewallNetworkRule** så att du samlar in loggar för både program- och nätverksregler.
    ![Spara diagnostikinställningar][2]
 13. Klicka på **Spara**.
@@ -95,6 +95,8 @@ Du kan visa och analysera aktivitetsloggdata med någon av följande metoder:
 ## <a name="view-and-analyze-the-network-and-application-rule-logs"></a>Visa och analysera loggar för nätverk och programregler
 
 Azure [Log Analytics](../log-analytics/log-analytics-azure-networking-analytics.md) samlar in data från räknaren och händelseloggfilerna. Där finns visualiseringar och kraftfulla sökfunktioner när du ska analysera dina loggar.
+
+Log Analytics-exempelfrågor för Azure Firewall finns i [Log Analytics-exempel för Azure Firewall](log-analytics-samples.md).
 
 Du kan också ansluta till ditt lagringskonto och hämta JSON-loggposter för åtkomst- och prestandaloggar. När du har laddat ned JSON-filerna kan du konvertera dem till CSV-format och visa dem i Excel, Power BI eller något annat verktyg för visualisering av data.
 

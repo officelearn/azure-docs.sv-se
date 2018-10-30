@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/17/2017
 ms.author: negat
-ms.openlocfilehash: 43aa74e7250f4825702e249032db1566346ab558
-ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
+ms.openlocfilehash: 6ed3488218a5b813478fa18f7bb05dcfb07a319c
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/06/2018
-ms.locfileid: "48831219"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49955160"
 ---
 # <a name="networking-for-azure-virtual-machine-scale-sets"></a>Nätverk för skalningsuppsättningar för virtuella Azure-datorer
 
@@ -50,10 +50,26 @@ Azure accelererat nätverk förbättrar nätverkets prestanda genom att aktivera
 ## <a name="create-a-scale-set-that-references-an-existing-azure-load-balancer"></a>Skapa en skalningsuppsättning som refererar till en befintlig Azure Load Balancer
 När en skalningsuppsättning skapas med hjälp av Azure Portal skapas en ny lastbalanserare för de flesta konfigurationsalternativen. Om du skapar en skalningsuppsättning som måste referera till en befintlig lastbalanserare kan du göra detta med hjälp av CLI. Följande exempelskript skapar en lastbalanserare och sedan en skalningsuppsättning som refererar till den:
 ```bash
-az network lb create -g lbtest -n mylb --vnet-name myvnet --subnet mysubnet --public-ip-address-allocation Static --backend-pool-name mybackendpool
+az network lb create \
+    -g lbtest \
+    -n mylb \
+    --vnet-name myvnet \
+    --subnet mysubnet \
+    --public-ip-address-allocation Static \
+    --backend-pool-name mybackendpool
 
-az vmss create -g lbtest -n myvmss --image Canonical:UbuntuServer:16.04-LTS:latest --admin-username negat --ssh-key-value /home/myuser/.ssh/id_rsa.pub --upgrade-policy-mode Automatic --instance-count 3 --vnet-name myvnet --subnet mysubnet --lb mylb --backend-pool-name mybackendpool
-
+az vmss create \
+    -g lbtest \
+    -n myvmss \
+    --image Canonical:UbuntuServer:16.04-LTS:latest \
+    --admin-username negat \
+    --ssh-key-value /home/myuser/.ssh/id_rsa.pub \
+    --upgrade-policy-mode Automatic \
+    --instance-count 3 \
+    --vnet-name myvnet \
+    --subnet mysubnet \
+    --lb mylb \
+    --backend-pool-name mybackendpool
 ```
 
 ## <a name="create-a-scale-set-that-references-an-application-gateway"></a>Skapa en skalningsuppsättning som refererar till en programgateway
@@ -91,7 +107,7 @@ Om du vill konfigurera anpassade DNS-servrar i en Azure-mall lägger du till en 
 ```
 
 ### <a name="creating-a-scale-set-with-configurable-virtual-machine-domain-names"></a>Skapa en skalningsuppsättning med konfigurerbara domännamn för virtuella datorer
-För att skapa en skalningsuppsättning med ett anpassat DNS-namn för virtuella datorer med CLI lägger du till argumentet **--vm-domain-name** till kommandot **vmss create** följt av en sträng som representerar domännamnet.
+För att skapa en skalningsuppsättning med ett anpassat DNS-namn för virtuella datorer med CLI lägger du till argumentet **--vm-domain-name** till kommandot **virtual machine scale set create** följt av en sträng som representerar domännamnet.
 
 Om du vill konfigurera domännamnet i en Azure-mall lägger du till en **dnsSettings**-egenskap till skalningsuppsättningens **networkInterfaceConfigurations**-avsnitt. Exempel:
 
@@ -155,23 +171,35 @@ Om du vill se en lista över de offentliga IP-adresserna som tilldelats till ska
 
 För visa skaluppsättningens offentliga IP-adresser med hjälp av PowerShell ska du använda kommandot _Get-AzureRmPublicIpAddress_. Exempel:
 ```PowerShell
-PS C:\> Get-AzureRmPublicIpAddress -ResourceGroupName myrg -VirtualMachineScaleSetName myvmss
+Get-AzureRmPublicIpAddress -ResourceGroupName myrg -VirtualMachineScaleSetName myvmss
 ```
 
 Du kan också fråga offentliga IP-adresser genom att referera till resurs-ID för den offentliga IP-adresskonfigurationen direkt. Exempel:
 ```PowerShell
-PS C:\> Get-AzureRmPublicIpAddress -ResourceGroupName myrg -Name myvmsspip
+Get-AzureRmPublicIpAddress -ResourceGroupName myrg -Name myvmsspip
 ```
 
-Fråga de offentliga IP-adresserna som tilldelats till skalningsuppsättningar för virtuella datorer med hjälp av [Azure Resource Explorer](https://resources.azure.com) eller Azure REST-API version **2017-03-30** eller högre.
+Du kan även visa de offentliga IP-adresserna som tilldelats till skalningsuppsättningar för virtuella datorer genom att fråga [Azure Resource Explorer](https://resources.azure.com) eller Azure REST-API version **2017-03-30** eller högre.
 
-Om du vill se de offentliga IP-adresserna för en skalningsuppsättning med Resource Explorer tittar du på avsnittet **publicipaddresses** under din skalningsuppsättning. Till exempel: https://resources.azure.com/subscriptions/_ditt_undernäts-ID_/resourceGroups/_din_rg_/providers/Microsoft.Compute/virtualMachineScaleSets/_din_vmss_/publicipaddresses
+Fråga [Azure Resource Explorer](https://resources.azure.com):
 
-```
+1. Öppna [Azure Resource Explorer](https://resources.azure.com) i en webbläsare.
+1. Expandera *prenumerationer* till vänster genom att klicka på *+* bredvid. Om du bara har ett objekt under *prenumerationer* kan den redan ha expanderats.
+1. Expandera din prenumeration.
+1. Expandera din resursgrupp.
+1. Expandera *providers*.
+1. Expandera *Microsoft.Compute*.
+1. Expandera *virtualMachineScaleSets*.
+1. Expandera din skalningsuppsättning.
+1. Klicka på *publicipaddresses*.
+
+Fråga Azure REST API:
+
+```bash
 GET https://management.azure.com/subscriptions/{your sub ID}/resourceGroups/{RG name}/providers/Microsoft.Compute/virtualMachineScaleSets/{scale set name}/publicipaddresses?api-version=2017-03-30
 ```
 
-Exempel på utdata:
+Exempel utdata från den [Azure Resource Explorer](https://resources.azure.com) och Azure REST API:
 ```json
 {
   "value": [
@@ -289,12 +317,14 @@ Följande exempel är en nätverksprofil för skalningsuppsättningar som visar 
 ```
 
 ## <a name="nsg--asgs-per-scale-set"></a>NSG och ASG:er per skalningsuppsättning
+Med [nätverkssäkerhetsgrupper](../virtual-network/security-overview.md) kan du filtrera trafik till och från Azure-resurser i en virtuellt Azure-nätverk med hjälp av säkerhetsregler. Med [programsäkerhetsgrupper](../virtual-network/security-overview.md#application-security-groups) kan du hantera nätverkssäkerhet för Azure-resurser och gruppera dem som ett tillägg i programmets struktur.
+
 Nätverkssäkerhetsgrupper kan tillämpas direkt på en skalningsuppsättning genom att lägga till en referens till konfigurationsavsnittet för nätverksgränssnittet i egenskaperna för skalningsuppsättningen för virtuella datorer.
 
 Programsäkerhetsgrupper kan även anges direkt för en skalningsuppsättning. Lägg till en referens till nätverksgränssnittets IP-konfigurationsavsnitt i egenskaperna för skalningsuppsättningen för den virtuella datorn.
 
 Exempel: 
-```
+```json
 "networkProfile": {
     "networkInterfaceConfigurations": [
         {
@@ -334,6 +364,42 @@ Exempel:
     ]
 }
 ```
+
+Verifiera att nätverkssäkerhetsgruppen är associerad med din skalningsuppsättning genom att använda kommandot `az vmss show`. I exemplet nedan används `--query` för att filtrera resultaten och visar endast relevanta avsnitt i utdata.
+
+```bash
+az vmss show \
+    -g myResourceGroup \
+    -n myScaleSet \
+    --query virtualMachineProfile.networkProfile.networkInterfaceConfigurations[].networkSecurityGroup
+
+[
+  {
+    "id": "/subscriptions/.../resourceGroups/myResourceGroup/providers/Microsoft.Network/networkSecurityGroups/nsgName",
+    "resourceGroup": "myResourceGroup"
+  }
+]
+```
+
+Verifiera att programsäkerhetsgruppen är associerad med din skalningsuppsättning genom att använda kommandot `az vmss show`. I exemplet nedan används `--query` för att filtrera resultaten och visar endast relevanta avsnitt i utdata.
+
+```bash
+az vmss show \
+    -g myResourceGroup \
+    -n myScaleSet \
+    --query virtualMachineProfile.networkProfile.networkInterfaceConfigurations[].ipConfigurations[].applicationSecurityGroups
+
+[
+  [
+    {
+      "id": "/subscriptions/.../resourceGroups/myResourceGroup/providers/Microsoft.Network/applicationSecurityGroups/asgName",
+      "resourceGroup": "myResourceGroup"
+    }
+  ]
+]
+```
+
+
 
 ## <a name="next-steps"></a>Nästa steg
 Mer information om virtuella Azure-nätverk finns i [Översikt över virtuella Azure-nätverk](../virtual-network/virtual-networks-overview.md).

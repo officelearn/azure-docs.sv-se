@@ -1,5 +1,5 @@
 ---
-title: 'Snabbstart: Identifiera ansikten i en bild med SDK, C#'
+title: 'Snabbstart: Identifiera ansikten i en bild med hjälp av .NET SDK med C#'
 titleSuffix: Azure Cognitive Services
 description: I den här snabbstarten identifierar du ansikten med Windows ansiktsigenkänning med C#-klientbibliotek i Cognitive Services.
 services: cognitive-services
@@ -10,14 +10,14 @@ ms.component: face-api
 ms.topic: quickstart
 ms.date: 09/14/2018
 ms.author: pafarley
-ms.openlocfilehash: b5fd10aaab28303079d3eef9c4c5c25207bb672e
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: a4b0b8b277ed6bc6e2bc3c7549d1e67d5f18c615
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49344990"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49954971"
 ---
-# <a name="quickstart-detect-faces-in-an-image-using-c35---face"></a>Snabbstart: Identifiera ansikten i en bild med C&#35; – Ansiktsigenkänning
+# <a name="quickstart-detect-faces-in-an-image-using-the-net-sdk-with-c"></a>Snabbstart: Identifiera ansikten i en bild med hjälp av .NET SDK med C#
 
 I den här snabbstarten identifierar du människoansikten i en bild med klientbiblioteket för Windows-ansiktsigenkänning.
 

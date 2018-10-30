@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: overview
-ms.date: 09/24/2018
+ms.date: 10/19/2018
 ms.author: alkohli
-ms.openlocfilehash: 49c2258100e99742bcb2e22fbce7f05b69c70ef6
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: 1b228a66f2d59b3ff252df266783f7bd5d27139e
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49090730"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49645447"
 ---
 # <a name="use-the-azure-portal-to-administer-your-data-box"></a>Använda Azure-portalen för att administrera din Data Box
 
@@ -48,7 +48,7 @@ Följ stegen nedan om du vill klona en order.
 
     ![Klona order 1](media/data-box-portal-admin/clone-order1.png)
 
-2.  All information för ordern förblir densamma. Namnet på beställningen är det ursprungliga ordernamnet, med tillägget *-Klon*. Markera kryssrutan för att bekräfta att du har läst sekretessinformationen. Klicka på **Skapa**.    
+2.  All information för ordern förblir densamma. Namnet på beställningen är det ursprungliga ordernamnet, med tillägget *-Klon*. Markera kryssrutan för att bekräfta att du har läst sekretessinformationen. Klicka på **Skapa**.
 
 Klonen skapas på några minuter och portalen uppdateras och visar den nya ordern.
 
@@ -72,6 +72,7 @@ Du kan bara ta bort order som har slutförts eller avbrutits. Följ steg nedan o
 Du kan behöva ladda ned adressetiketten om E-ink-skärmen på din Data Box inte fungerar och inte visar returfraktsedeln. 
 
 Följ stegen nedan om du behöver ladda ned en fraktsedel.
+
 1.  Öppna **Översikt > Ladda ned adressetikett**. Det här alternativet är endast tillgängligt när enheten har skickats. 
 
     ![Ladda ned adressetikett](media/data-box-portal-admin/download-shipping-label.png)
@@ -109,6 +110,77 @@ Följ stegen nedan om du vill redigera meddelandeinformationen.
     ![Redigera meddelandeinformation 2](media/data-box-portal-admin/edit-notification-details2.png)
 
 
+## <a name="download-order-history"></a>Ladda ned beställningshistorik
+
+När Data Box-beställningen är klar raderas data på enheten. När enhetsrensningen är klar kan du ladda ned beställningshistoriken i Azure-portalen.
+
+Ladda ned beställningshistoriken med hjälp av följande steg.
+
+1. I Data Box-beställningen går du till **Översikt**. Kontrollera att beställningen är komplett. Om beställningen är komplett enhetsrensningen har slutförts går du till **Beställningsinformation**. Alternativet **Ladda ned beställningshistorik** är tillgängligt.
+
+    ![Ladda ned beställningshistorik](media/data-box-portal-admin/download-order-history-1.png)
+
+2. Klicka på **Ladda ned beställningshistorik**. I den nedladdade historiken visas en post för transportspårningsloggar. Om du rullar ned till slutet av loggen visas följande länkar:
+    
+    - **Kopieringsloggar** – innehåller listan över filer med fel vid datakopieringen från Data Box till ditt Azure-lagringskonto.
+    - **Granskningsloggar** – innehåller information att slå på och dela åtkomst på Data Box när den finns utanför Azure-datacentret.
+    - **BOM-filer** – innehåller listan över filer (även kallat filmanifest) som du kan ladda ned under **Förbered för att skicka** och innehåller namn, storlekar och kontrollsummor för filer.
+
+        ```
+        -------------------------------
+        Microsoft Data Box Order Report
+        -------------------------------
+        
+        Name                                               : eastusdryrun                                      
+        StartTime(UTC)                                     : 9/6/2018 12:54:47 PM +00:00                       
+        DeviceType                                         : ImolaPod                                          
+        
+        -------------------
+        Data Box Activities
+        -------------------
+        
+        Time(UTC)             | Activity                       | Status          | Description                                                                                                                                           
+        
+        9/6/2018 12:54:51 PM  | OrderCreated         | Completed  |                                                                                                                              
+        9/11/2018 8:57:38 PM  | DevicePrepared       | Completed  |                                                                                                                                                       
+        9/12/2018 7:28:15 PM  | ShippingToCustomer   | InProgress | Pickup Scan. Local Time : 9/12/2018 2:52:31 PM at Chantilly                                                                                           
+        9/13/2018 2:33:04 AM  | ShippingToCustomer   | InProgress | Departure Scan. Local Time : 9/12/2018 9:00:00 PM at Chantilly                                                                                                                                                                                                                                                              
+        9/13/2018 12:40:31 PM | ShippingToCustomer   | InProgress | Arrival Scan. Local Time : 9/13/2018 5:00:00 AM at Oakland                                                                                            
+        9/13/2018 2:42:10 PM  | ShippingToCustomer   | InProgress | Departure Scan. Local Time : 9/13/2018 6:08:00 AM at Oakland                                                                                          
+        9/13/2018 3:42:12 PM  | ShippingToCustomer   | InProgress | Destination Scan. Local Time : 9/13/2018 8:14:08 AM at Sunnyvale                                                                                      
+        9/13/2018 4:43:05 PM  | ShippingToCustomer   | InProgress | Destination Scan. Local Time : 9/13/2018 8:56:54 AM at Sunnyvale                                                                                      
+        9/13/2018 4:43:05 PM  | ShippingToCustomer   | InProgress | Out For Delivery Today. Local Time : 9/13/2018 9:11:21 AM at Sunnyvale                                                                                
+        9/13/2018 5:43:07 PM  | ShippingToCustomer   | Completed  | Delivered. Local Time : 9/13/2018 9:44:17 AM at SUNNYVALE                                                                                             
+        9/14/2018 11:48:35 PM | ShippingToDataCenter | InProgress | Pickup Scan. Local Time : 9/14/2018 3:55:37 PM at Sunnyvale                                                                                                                                                                                 
+        9/15/2018 1:52:35 AM  | ShippingToDataCenter | InProgress | Arrival Scan. Local Time : 9/14/2018 6:31:00 PM at San Jose                                                                                           
+        9/15/2018 2:52:39 AM  | ShippingToDataCenter | InProgress | Departure Scan. Local Time : 9/14/2018 7:17:00 PM at San Jose                                                                                                                                                                             
+        9/17/2018 8:23:31 AM  | ShippingToDataCenter | InProgress | Destination Scan. Local Time : 9/17/2018 4:14:37 AM at Chantilly                                                                                      
+        9/17/2018 12:24:42 PM | ShippingToDataCenter | InProgress | Loaded on Delivery Vehicle. Local Time : 9/17/2018 7:45:36 AM at Chantilly                                                                            
+        9/17/2018 1:25:11 PM  | ShippingToDataCenter | InProgress | Out For Delivery Today. Local Time : 9/17/2018 8:27:11 AM at Chantilly                                                                                
+        9/17/2018 2:25:51 PM  | ShippingToDataCenter | Completed | Delivered. Local Time : 9/17/2018 9:56:32 AM at STERLING                                                                                              
+        9/18/2018 9:55:41 PM  | DeviceBoot           | Completed | Appliance booted up successfully                                                                                                                      
+        9/18/2018 11:00:25 PM | DataCopy             | Started   |                                                                                                                                                       
+        9/18/2018 11:01:33 PM | DataCopy             | Completed | Copy Completed.                                                                                                                                       
+        9/18/2018 11:20:58 PM | SecureErase          | Started   |                                                                                                                                                       
+        9/18/2018 11:28:46 PM | SecureErase          | Completed | Azure Data Box:BY506B4B616700 has been sanitized according to NIST 800 -88 Rev 1.                                                                     
+        
+        ----------------------
+        Data Box Job Log Links
+        ----------------------
+        
+        Account Name         : eastusdryrun                                         
+        Copy Logs Path       : copylog/copylogd695869a2a294396b7b903296c208388.xml                                                                                                                                                     
+        Audit Logs Path      : azuredatabox-chainofcustodylogs\3b4cf163-f1af-475c-a391-f8afea3fa327\by506b4b616700                                                                                                                     
+        BOM Files Path       : azuredatabox-chainofcustodylogs\3b4cf163-f1af-475c-a391-f8afea3fa327\by506b4b616700
+        ```
+Du kan sedan gå till lagringskontot och visa kopieringsloggarna.
+
+![Loggar i lagringskonton](media/data-box-portal-admin/logs-in-storage-acct-2.png)
+
+Du kan även visa loggar för försörjningskedjan som innehåller granskningsloggar och BOM-filer.
+
+![Loggar i lagringskonton](media/data-box-portal-admin/logs-in-storage-acct-1.png)
+
 ## <a name="view-order-status"></a>Visa orderstatus
 
 När enhetens status ändras i portalen meddelas du via e-post.
@@ -125,7 +197,7 @@ När enhetens status ändras i portalen meddelas du via e-post.
 |Slutfört       |Ordern har slutförts.<br> Kontrollera att dina data finns i Azure innan du tar bort lokala data från servrarna.         |
 |Slutfört med fel| Datakopieringen slutfördes men fel inträffade under kopieringen. <br> Granska kopieringsloggarna med hjälp av sökvägen som anges i Azure-portalen.   |
 |Avbrutna            |Ordern har avbrutits. <br> Antingen annullerade du beställningen eller så påträffades ett fel som gjorde att tjänsten avbröt ordern. Om ordern inte kan uppfyllas inom 90 dagar annulleras den också och du får ett meddelande.     |
-|Rensa | Data på enhetsdiskarna raderas. Enhetsrensningen anses slutförd när orderloggrapporten är tillgänglig i Azure-portalen.|
+|Rensa | Data på enhetsdiskarna raderas. Enhetsrensningen anses slutförd när beställningshistoriken är tillgänglig för nedladdning i Azure-portalen.|
 
 
 

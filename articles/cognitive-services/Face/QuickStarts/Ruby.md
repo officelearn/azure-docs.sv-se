@@ -1,5 +1,5 @@
 ---
-title: 'Snabbstart: Identifiera ansikten i en bild – Ansikts-API, Ruby'
+title: 'Snabbstart: Identifiera ansikten i en bild med REST API och Ruby'
 titleSuffix: Azure Cognitive Services
 description: I den här snabbstarten identifierar du ansikten med Ansikts-API:et med Ruby.
 services: cognitive-services
@@ -10,14 +10,14 @@ ms.component: face-api
 ms.topic: quickstart
 ms.date: 05/30/2018
 ms.author: pafarley
-ms.openlocfilehash: a49fca60cae5cd753126f8e4566b00a1e4115d39
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: 8b47c845e8523e1c35dee8a5732cb15fed09e030
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49342627"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49955462"
 ---
-# <a name="quickstart-detect-faces-in-an-image-using-ruby"></a>Snabbstart: Identifiera ansikten i en bild med Ruby
+# <a name="quickstart-detect-faces-in-an-image-using-the-rest-api-and-ruby"></a>Snabbstart: Identifiera ansikten i en bild med REST API och Ruby
 
 I den här snabbstarten identifierar du människoansikten i en bild med Ansikts-API.
 

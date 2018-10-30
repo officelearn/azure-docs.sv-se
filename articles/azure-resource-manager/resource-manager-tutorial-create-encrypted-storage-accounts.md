@@ -10,15 +10,15 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 09/07/2018
+ms.date: 10/18/2018
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: d48374d7919be3d141ea199e8238a220dbfe0332
-ms.sourcegitcommit: 3150596c9d4a53d3650cc9254c107871ae0aab88
+ms.openlocfilehash: a3fc3e0cc30b379c84ac0ba12f733d2db4e41587
+ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47419533"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49945798"
 ---
 # <a name="tutorial-create-an-azure-resource-manager-template-for-deploying-an-encrypted-storage-account"></a>Självstudie: Skapa en Azure Resource Manager-mall för att distribuera ett krypterat lagringskonto
 
@@ -40,8 +40,7 @@ Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](ht
 
 För att kunna följa stegen i den här artikeln behöver du:
 
-* [Visual Studio Code](https://code.visualstudio.com/).
-* Resource Manager Tools-tillägget. Information om att installera finns på sidan om att [installera tillägget för Resource Manager Tools](./resource-manager-quickstart-create-templates-use-visual-studio-code.md#prerequisites).
+* [Visual Studio Code](https://code.visualstudio.com/) med [verktygstillägget för Resource Manager](./resource-manager-quickstart-create-templates-use-visual-studio-code.md#prerequisites).
 
 ## <a name="open-a-quickstart-template"></a>Öppna en snabbstartsmall
 
@@ -56,7 +55,7 @@ Den mall som används i den här snabbstarten kallas [Create a standard storage 
 3. Välj **Öppna** för att öppna filen.
 4. Välj **Arkiv**>**Spara som** för att spara filen som **azuredeploy.json** till den lokala datorn.
 
-## <a name="understand-the-format"></a>Förstå formatet
+## <a name="understand-the-schema"></a>Förstå schemat
 
 Från VS Code döljer du mallen till rotnivån. Du får den enklaste strukturen med följande element:
 
@@ -69,7 +68,7 @@ Från VS Code döljer du mallen till rotnivån. Du får den enklaste strukturen 
 * **resources** (resurser): ange de resurstyper som distribueras eller uppdateras i en resursgrupp.
 * **outputs** (utdata): ange de värden som returneras efter distributionen.
 
-## <a name="use-parameters-in-template"></a>Använda parametrar i mallen
+## <a name="use-parameters"></a>Använda parametrar
 
 Med parametrar kan du anpassa distributionen genom att tillhandahålla värden som är skräddarsydda för en viss miljö. Du kan använda de parametrar som definieras i mallen när du anger värden för lagringskontot.
 
@@ -90,7 +89,7 @@ Så använder du de parametrar som definieras i mallen:
 "name": "[parameters('storageAccountType')]"
 ```
 
-## <a name="use-variables-in-template"></a>Använda variabler i mallen
+## <a name="use-variables"></a>Använda variabler
 
 Med variabler kan du skapa värden som kan användas i hela mallen. Variabler hjälper till att minska komplexiteten i mallarna.
 
@@ -117,9 +116,7 @@ Målet med den här självstudien är att definiera en mall för att skapa ett k
 
     ![Resource Manager, mallreferens, lagringskonto](./media/resource-manager-tutorial-create-encrypted-storage-accounts/resource-manager-template-resources-reference-storage-accounts.png)
 
-    resource-manager-mall-resurser-referens-lagring-konton
-1. Utforska den krypteringsrelaterade informationen.  
-1. I egenskapselementet (properties) i resursdefinitionen för lagringskontot lägger du till följande json:
+4. Hitta den krypteringsrelaterade definitionsinformationen.  
 
     ```json
     "encryption": {
@@ -131,11 +128,9 @@ Målet med den här självstudien är att definiera en mall för att skapa ett k
         }
     }
     ```
-    Den här delen aktiverar krypteringsfunktionen i blob-lagringstjänsten.
-
-Ändra mallen från Visual Studio Code, så att det slutliga resurselementet som ser ut som följer:
-
-![Krypterade lagringskontoresurser för Resource Manager-mall](./media/resource-manager-tutorial-create-encrypted-storage-accounts/resource-manager-template-encrypted-storage-resources.png)
+5. Ändra mallen från Visual Studio Code, så att det slutliga resurselementet som ser ut som följer:
+    
+    ![Krypterade lagringskontoresurser för Resource Manager-mall](./media/resource-manager-tutorial-create-encrypted-storage-accounts/resource-manager-template-encrypted-storage-resources.png)
 
 ## <a name="deploy-the-template"></a>Distribuera mallen
 

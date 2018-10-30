@@ -10,16 +10,16 @@ ms.component: bing-spell-check
 ms.topic: quickstart
 ms.date: 09/14/2017
 ms.author: v-jaswel
-ms.openlocfilehash: 3fe8729a9e2524cc2ccda168a857d58664a98b10
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: e75b8e8b23bbb8e49cb8d8ec55e42f6ffb204197
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48801088"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50023513"
 ---
 # <a name="quickstart-for-bing-spell-check-api-with-ruby"></a>Snabbstart för API:et för stavningskontroll i Bing med Ruby 
 
-Den här artikeln visar hur du använder [API:et för stavningskontroll i Bing](https://azure.microsoft.com/services/cognitive-services/spell-check/) med Ruby. API:et för stavningskontroll returnerar en lista med ord som det inte kan identifiera tillsammans med föreslagna ersättningar. Vanligtvis skickar du text till det här API:et och sedan gör du antingen föreslagna ersättningar i texten eller visar dem för användaren av programmet så att de kan avgöra om de vill göra ersättningarna. Den här artikeln visar hur du skickar en begäran som innehåller texten ”Hollo, wrld!” Föreslagna ersättningar är ”Hello” och ”world”.
+Den här artikeln visar hur du använder [API:et för stavningskontroll i Bing](https://azure.microsoft.com/services/cognitive-services/spell-check/)  med Ruby. API:et för stavningskontroll returnerar en lista med ord som det inte kan identifiera tillsammans med föreslagna ersättningar. Vanligtvis skickar du text till det här API:et och sedan gör du antingen föreslagna ersättningar i texten eller visar dem för användaren av programmet så att de kan avgöra om de vill göra ersättningarna. Den här artikeln visar hur du skickar en begäran som innehåller texten ”ylld wrld”! Föreslagna ersättningar är ”Hello” och ”world”.
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
@@ -31,7 +31,7 @@ Du måste ha ett [API-konto för Cognitive Services](https://docs.microsoft.com/
 
 1. Skapa ett nytt Ruby-projekt i din favorit-IDE.
 2. Lägg till koden nedan.
-3. Ersätt värdet `subscriptionKey` med en giltig åtkomstnyckel för din prenumeration.
+3. Ersätt värdet `key` med en giltig åtkomstnyckel för din prenumeration.
 4. Kör programmet.
 
 ```ruby

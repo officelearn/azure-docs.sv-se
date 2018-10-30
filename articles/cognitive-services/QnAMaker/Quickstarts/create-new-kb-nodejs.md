@@ -1,28 +1,28 @@
 ---
 title: 'Snabbstart: Skapa kunskapsbas – REST, Node.js – QnA Maker'
-description: Den här snabbstarten går igenom skapandet av ett exempel på QnA Maker-kunskapsbas, programmässigt, som visas i Azure-instrumentpanelen för ditt Cognitive Services-API-konto.
+description: I den här REST-baserade snabbstarten går vi igenom hur du skapar ett exempel på QnA Maker-kunskapsbas, programmässigt, som visas i Azure-instrumentpanelen för ditt Cognitive Services-API-konto.
 services: cognitive-services
 author: diberry
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: qna-maker
 ms.topic: quickstart
-ms.date: 10/02/2018
+ms.date: 10/19/2018
 ms.author: diberry
-ms.openlocfilehash: f0375affa547f657ae36de71901298047359cae2
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: fdba785e33c16c397e2ffaeb4462ea2066a99126
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48884924"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49647552"
 ---
-# <a name="quickstart-create-a-qna-maker-knowledge-base-in-nodejs"></a>Snabbstart: Skapa en QnA Maker-kunskapsbas i Node.js
+# <a name="quickstart-create-a-knowledge-base-in-qna-maker-using-nodejs"></a>Snabbstart: Skapa en kunskapsbas i QnA Maker med hjälp av Node.js
 
 Den här snabbstarten går igenom hur du programmatiskt skapar ett exempel på QnA Maker-kunskapsbas. QnA Maker extraherar automatiskt frågor och svar för delvis strukturerat innehåll, som vanliga frågor från [datakällor](../Concepts/data-sources-supported.md). Modellen för kunskapsbasen har definierats i JSON som skickas i brödtexten i API-begäran. 
 
-Den har snabbstarten anropar API:er för QnA Maker:
-* [Skapa KB](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75ff)
-* [Få åtgärdsinformation](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/operations_getoperationdetails)
+Den här snabbstarten anropar API:er för QnA Maker:
+* [Skapa kunskapsbas](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75ff)
+* [Hämta åtgärdsinformation](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/operations_getoperationdetails)
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 

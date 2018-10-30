@@ -8,12 +8,12 @@ ms.component: data-lake-storage-gen2
 ms.service: storage
 ms.topic: quickstart
 ms.date: 06/27/2018
-ms.openlocfilehash: b0db5e79ac3f52bfcd9c7791a843265a421ef1bf
-ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
+ms.openlocfilehash: 5ffbc52bf8a4b8dab298b3ed4895596480fbdccc
+ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48903019"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49426727"
 ---
 # <a name="quickstart-run-a-spark-job-on-azure-databricks-using-the-azure-portal"></a>Snabbstart: Köra ett Spark-jobb på Azure Databricks med Azure Portal
 
@@ -53,7 +53,7 @@ I det här avsnittet skapar du en Azure Databricks-arbetsyta med Azure-portalen.
     |**Namn på arbetsyta**     | Ange ett namn för Databricks-arbetsytan        |
     |**Prenumeration**     | I listrutan väljer du din Azure-prenumeration.        |
     |**Resursgrupp**     | Ange om du vill skapa en ny resursgrupp eller använda en befintlig. En resursgrupp är en container som innehåller relaterade resurser för en Azure-lösning. Mer information finns i [översikten över Azure-resursgrupper](../../azure-resource-manager/resource-group-overview.md). |
-    |**Plats**     | Välj **USA, västra 2**. För andra tillgängliga regioner läser du informationen om [Azure-tjänsttillgänglighet per region](https://azure.microsoft.com/regions/services/).        |
+    |**Plats**     | Välj **USA, västra 2**. Du kan välja en annan offentlig region om du vill.        |
     |**Prisnivå**     |  Välj mellan **Standard** och **Premium**. Mer information om de här nivåerna finns på [prissättningssidan för Databricks](https://azure.microsoft.com/pricing/details/databricks/).       |
 
     Markera **Fäst på instrumentpanelen** och klicka sedan på **Skapa**.

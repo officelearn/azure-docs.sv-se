@@ -6,15 +6,15 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 10/10/2018
+ms.date: 10/19/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 90d82abb6570028308b8d516a868fa981c75eb94
-ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
+ms.openlocfilehash: b1893d9713f70ee7553392a320fec52fe5c88f3c
+ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49066997"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49458062"
 ---
 # <a name="run-a-disaster-recovery-drill-for-azure-vms-to-a-secondary-azure-region"></a>Kör ett programåterställningstest för virtuella Azure-datorer till en sekundär Azure-region
 
@@ -26,12 +26,13 @@ I den här självstudien visar vi hur du kör ett programåterställningstest f�
 > * Kontrollera förutsättningarna
 > * Köra ett redundanstest för en enstaka virtuell dator
 
-
+> [!NOTE]
+> Den här självstudiekursen är avsedd att guida användaren genom stegen att utföra ett programåterställningstest med minimalt antal steg. Mer information om de olika aspekterna som förknippas med att utföra ett programåterställningstest, till exempel nätverksöverväganden, automatisering eller felsökning, finns i dokumenten under instruktionerna för virtuella Azure-datorer.
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
 - Innan du kör ett redundanstest rekommenderar vi att du kontrollerar VM-egenskaperna så att allt är som förväntat.  VM-egenskaper finns i **Replikerade objekt**. På bladet **Information** finns information om datorinställningar och status.
-- Vi rekommenderar att du använder ett separat nätverk för virtuella Azure-datorer när du testar redundans, i stället för det standardnätverk som skapades när du aktiverade replikeringen.
+- **Vi rekommenderar att du använder ett separat nätverk för virtuella Azure-datorer när du testar redundans**, i stället för det standardnätverk som skapades när du aktiverade replikeringen.
 
 
 ## <a name="run-a-test-failover"></a>Köra ett redundanstest

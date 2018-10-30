@@ -16,18 +16,18 @@ ms.workload: infrastructure
 ms.date: 05/04/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 0f2388747d60f1911994431d8edbd57e32d5c35a
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.openlocfilehash: ce90ea447f7dcf4df1451294acf9f7fd093ad6ee
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37932661"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49408650"
 ---
 # <a name="tutorial-monitor-and-update-a-windows-virtual-machine-in-azure"></a>Självstudier: Övervaka och uppdatera en virtuell Windows-dator i Azure
 
 Övervakningsfunktionerna i Azure använder agenter för att samla in start- och prestandadata från virtuella Azure-datorer. Dessa data lagras sedan i Azure Storage och görs tillgängliga via portalen, Azure PowerShell-modulen och Azure CLI. Med uppdateringshantering kan du hantera uppdateringar och korrigeringar för dina virtuella Azure Windows-datorer.
 
-I den här guiden får du lära dig hur man:
+I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
 > * Aktivera startdiagnostik på en virtuell dator
@@ -278,7 +278,7 @@ Set-AzureRmVMExtension -ResourceGroupName "myResourceGroupMonitor" `
 
 Du bör se den nya virtuella datorn på Log Analytics-arbetsytan efter några minuter.
 
-![OMS-bladet](./media/tutorial-monitoring/tutorial-monitor-oms.png)
+![Log Analytics-bladet](./media/tutorial-monitoring/tutorial-monitor-oms.png)
 
 ## <a name="next-steps"></a>Nästa steg
 

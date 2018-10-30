@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 10/10/2018
+ms.date: 10/19/2018
 ms.topic: quickstart
 ms.service: cost-management
 manager: dougeby
 ms.custom: ''
-ms.openlocfilehash: 12b7a605350b07565660e9e4d1334b286aa5ac00
-ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
+ms.openlocfilehash: 6b935322c9d892793f3695e0922d15f5886c7e25
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49079114"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49471296"
 ---
 # <a name="quickstart-explore-and-analyze-costs-with-cost-analysis"></a>Snabbstart: Utforska och analysera kostnader med kostnadsanalys
 
@@ -34,21 +34,25 @@ I den här snabbstarten lär du dig att:
 
 Kostnadsanalys är tillgängligt för alla [Enterprise-avtalskunder (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/). Du måste minst ha skrivskyddad åtkomst till ett eller flera av följande omfång för att visa kostnadsdata.
 
-- *Faktureringskontots* omfattning definieras vid https://ea.azure.com, och företagsadministratörsbehörighet krävs. Ingen EA-förinställning krävs. Faktureringsinformation i kostnadsanalys sammanställs för alla prenumerationer i Enterprise-avtalet. Faktureringskontot kallas ofta *Företagsavtal* eller *Registrering*.
 
-- Omfånget *avdelning* definieras vid https://ea.azure.com och kräver avdelningsadministratörsbehörighet. Inställningen för **DA-visningsdebitering** i EA-portalen måste aktiveras. Faktureringsinformation i kostnadsanalys sammanställs för alla prenumerationer som hör till det registreringskonto som är kopplat till avdelningen.
+|**Omfång**|**Definieras på**|**Åtkomst som krävs för analys av kostnader för omfånget**|**Nödvändig EA-inställning**|**Konsoliderar faktureringsinformation till**|
+|---                |---                  |---                   |---            |---           |
+|Faktureringskonto<sup>1</sup>|[https://ea.azure.com ](https://ea.azure.com )|Företagsadministratör|Ingen|Alla prenumerationer från Enterprise-avtalet|
+|Avdelning|[https://ea.azure.com ](https://ea.azure.com )|Avdelningsadministratör|DA-visningsdebitering aktiverad|Alla prenumerationer som tillhör ett registreringskonto som är länkade till avdelningen|
+|Registreringskonto<sup>2</sup2>|[https://ea.azure.com ](https://ea.azure.com )|Kontoägare|AO-visningsdebitering aktiverad|Alla prenumerationer från registreringskontot|
+|Hanteringsgrupp|[https://portal.azure.com ](https://portal.azure.com )|Cost Management-läsare (eller Läsare)|AO-visningsdebitering aktiverad|Alla prenumerationer under hanteringsgruppen|
+|Prenumeration|[https://portal.azure.com ](https://portal.azure.com )|Cost Management-läsare (eller Läsare)|AO-visningsdebitering aktiverad|Alla resurser/resursgrupper i prenumerationen|
+|Resursgrupp|[https://portal.azure.com ](https://portal.azure.com )|Cost Management-läsare (eller Läsare)|AO-visningsdebitering aktiverad|Alla resurser i resursgruppen|
 
-- Omfånget för *registreringskontot* definieras vid https://ea.azure.com och kontoinnehavarbehörighet krävs. Inställningen **AO-visningsdebitering** i EA-portalen måste aktiveras. Faktureringsinformation i kostnadsanalys sammanställs för alla prenumerationer som hör till registreringskontot. Registreringskontot kallas ofta *kontoägare*.
+<sup>1</sup>Faktureringskontot kallas ofta Enterprise-avtal eller Registrering.
 
-- Omfånget *hanteringsgrupp* definieras vid https://portal.azure.com, och behörighetsnivån för Cost Management Reader (eller Reader) krävs. Inställningen **AO-visningsdebitering** i EA-portalen måste aktiveras. Faktureringsinformation i kostnadsanalys sammanställs för alla prenumerationer under hanteringsgruppen.
-
-- Omfånget för *prenumeration* definieras vid https://portal.azure.com, och behörighetsnivån för Cost Management Reader (eller Reader) krävs. Inställningen **AO-visningsdebitering** i EA-portalen måste aktiveras. Faktureringsinformation i kostnadsanalys sammanställs för alla resurser och resursgrupper i prenumerationen.
-
-- Omfånget *resursgrupp* definieras vid https://portal.azure.com, och behörighetsnivån Cost Management Reader (eller Reader) krävs. Inställningen **AO-visningsdebitering** i EA-portalen måste aktiveras. Faktureringsinformation i kostnadsanalys sammanställs för alla resurser och i resursgruppen.
-
-
+<sup>2</sup>Registreringskontot kallas ofta kontoägare.
 
 Mer information om hur du konfigurerar inställningar för **DA-visningsdebitering** och **AO-visningsdebitering** finns i [Aktivera åtkomst till kostnader](../billing/billing-enterprise-mgmt-grp-troubleshoot-cost-view.md#enabling-access-to-costs).
+
+
+
+
 
 ## <a name="sign-in-to-azure"></a>Logga in på Azure
 

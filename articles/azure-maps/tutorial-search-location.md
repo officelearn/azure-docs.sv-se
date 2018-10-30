@@ -1,20 +1,20 @@
 ---
 title: Söka med Azure Maps | Microsoft Docs
 description: Söka efter orienteringspunkter i närheten med hjälp av Azure Maps
-author: dsk-2015
-ms.author: dkshir
-ms.date: 10/02/2018
+author: walsehgal
+ms.author: v-musehg
+ms.date: 10/22/2018
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 761674c5839f0513532355116db07604f9e9d9dc
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.openlocfilehash: 10fb30b77cc3cd18cbb6b3def9682349474fba71
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48816828"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49645823"
 ---
 # <a name="search-nearby-points-of-interest-using-azure-maps"></a>Söka efter orienteringspunkter i närheten med hjälp av Azure Maps
 
@@ -116,11 +116,10 @@ API:et Kartkontroll är ett praktiskt klientbiblioteket som hjälper dig att enk
 
     ```JavaScript
     // Instantiate map to the div with id "map"
-    var MapsAccountKey = "<your account key>";
-    var map = new atlas.Map("map", {
-        "subscription-key": MapsAccountKey
-    });
+    atlas.setSubscriptionKey("<your account key>");
+    var map = new atlas.Map("map");
     ```
+
     Det här segmentet initierar API:et Kartkontroll för din Azure Maps-kontonyckel. **Atlas** är det namnområde som innehåller API:et och relaterade visuella komponenter. **Atlas.Map** ger kontroll över en visuell och interaktiv webbkarta.
 
 4. Spara dina ändringar i filen och öppna HTML-sidan i en webbläsare. Det här är den mest grundläggande mappningen du kan göra genom att anropa **atlas.map** med hjälp av din kontonyckel.
@@ -148,14 +147,14 @@ Det här avsnittet visar hur du API:et Maps Search för att hitta en orientering
     var client = new atlas.service.Client(MapsAccountKey);
     ```
 
-3. Alla funktioner på kartan ska läsas in efter att kartan har lästs in. Du kan se till att det sker genom att lägga till alla kartfunktioner i kartans eventListener-block. Lägg till följande kodrader för att lägga till en [eventListener](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#addeventlistener) på kartan för att säkerställa att kartan läses in helt innan du lägger till funktioner.
+3. Alla funktioner på kartan ska läsas in efter att kartan har lästs in. Du kan se till att det sker genom att lägga till alla kartfunktioner i kartans eventListener-block. Lägg till följande kodrader för att lägga till en [eventListener](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events) på kartan för att säkerställa att kartan läses in helt innan du lägger till funktioner.
     
     ```JavaScript
-         map.addEventListener("load", function() {
+         map.events.add("load", function() {
          });
     ```
 
-4. Lägg till följande skriptblock **i kartinläsningsfunktionen eventListener** för att skapa frågan. Den använder det enkla söknings-API:et i Search Service, som kallas Fuzzy Search. Fuzzy Search-tjänsten hanterar de flesta diffusa indata, exempelvis olika kombinationer av adress och orienteringspunkt. Du söker efter närliggande bensinstationer inom angiven radie. Svaret tolkas sedan till GeoJSON-format och konverteras till punktfunktioner. De läggs till på kartan som knappnålar. Den sista delen av skriptet lägger till kameragränser för kartan med hjälp av kartans [setCameraBounds](https://docs.microsoft.com/javascript/api/azure-maps-control/models.cameraboundsoptions?view=azure-iot-typescript-latest)-egenskap.
+4. Lägg till följande skriptblock **i kartinläsningshändelserna** för att skapa frågan. Den använder det enkla söknings-API:et i Search Service, som kallas Fuzzy Search. Fuzzy Search-tjänsten hanterar de flesta diffusa indata, exempelvis olika kombinationer av adress och orienteringspunkt. Du söker efter närliggande bensinstationer inom angiven radie. Svaret tolkas sedan till GeoJSON-format och konverteras till punktfunktioner. De läggs till på kartan som knappnålar. Den sista delen av skriptet lägger till kameragränser för kartan med hjälp av kartans [setCameraBounds](https://docs.microsoft.com/javascript/api/azure-maps-control/models.cameraboundsoptions?view=azure-iot-typescript-latest)-egenskap.
 
     ```JavaScript
 
@@ -190,8 +189,8 @@ Det här avsnittet visar hur du API:et Maps Search för att hitta en orientering
             map.setCameraBounds({
                bounds: geojsonResponse.getGeoJsonResults().bbox,
                padding: 50
-            );
-        });
+            });
+    });
     ```
 5. Spara filen **MapSearch.html** och uppdatera webbläsaren. Du bör nu se att kartan är centrerad i Seattle med blå kartnålar som markerar platserna för områdets bensinstationer.
 

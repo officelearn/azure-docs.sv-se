@@ -1,6 +1,6 @@
 ---
 title: Samla in data om virtuella datorer i Azure | Microsoft Docs
-description: Lär dig hur du aktiverar OMS-agentens tillägg för virtuella datorer och hur du aktiverar insamling av data från virtuella datorer i Azure med Log Analytics.
+description: Lär dig hur du aktiverar Log Analytics-agentens tillägg för virtuella datorer och hur du aktiverar insamling av data från virtuella datorer i Azure med Log Analytics.
 services: log-analytics
 documentationcenter: log-analytics
 author: mgoedtel
@@ -16,12 +16,12 @@ ms.date: 06/26/2018
 ms.author: magoedte
 ms.custom: mvc
 ms.component: ''
-ms.openlocfilehash: c7015eb346136130b9ffd3c23460cb8b9609dc9b
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: 141df44f62ddb4a62f6f5f6a8b67107aa2c58a29
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48041014"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49404502"
 ---
 # <a name="collect-data-about-azure-virtual-machines"></a>Samla in data om virtuella datorer i Azure
 Med [Azure Log Analytics](log-analytics-overview.md) kan du samla in data direkt från virtuella datorer i Azure och från andra resurser i din miljö till en enda lagringsplats för detaljerad analys och korrelation.  Den här snabbstarten visar hur du konfigurerar och samlar in data från virtuella Linux- eller Windows-datorer i Azure med några enkla steg.  
@@ -38,7 +38,7 @@ Logga in på Azure Portal på [https://portal.azure.com](https://portal.azure.co
 
 2. Klicka på **Skapa** och välj sedan alternativ för följande objekt:
 
-  * Ange ett namn för den nya **OMS-arbetsytan**, som *DefaultLAWorkspace*. 
+  * Ange ett namn för den nya **Log Analytics-arbetsytan**, som *DefaultLAWorkspace*. OMS-arbetsytor kallas nu för Log Analytics-arbetsytor.  
   * Välj en **prenumeration** att länka till genom att välja från den listrutan om standardvalet inte är lämpligt.
   * För **Resursgrupp** väljer du en befintlig resursgrupp som innehåller en eller flera virtuella datorer i Azure.  
   * Välj den **plats** där dina virtuella datorer distribueras.  Mer information finns i avsnittet om [tillgängliga regioner för Log Analytics](https://azure.microsoft.com/regions/services/).
@@ -46,22 +46,25 @@ Logga in på Azure Portal på [https://portal.azure.com](https://portal.azure.co
   
         ![Create Log Analytics resource blade](media/log-analytics-quick-collect-azurevm/create-loganalytics-workspace-02.png) 
 
-3. När du har angett den nödvändiga informationen i fönsterrutan **OMS-arbetsyta** klickar du på **OK**.  
+3. När du har angett den nödvändiga informationen i fönsterrutan **Log Analytics-arbetsyta** klickar du på **OK**.  
 
 När informationen har verifierats och arbetsytan skapas, kan du spåra förloppet under **Meddelanden** på menyn. 
 
 ## <a name="enable-the-log-analytics-vm-extension"></a>Aktivera Log Analytics-tillägget för virtuella datorer
+
+[!INCLUDE [log-analytics-agent-note](../../includes/log-analytics-agent-note.md)] 
+
 För virtuella Windows- och Linux-datorer som redan har distribuerats i Azure installerar du Log Analytics-agenten med Log Analytics-tillägget för virtuella datorer.  Med hjälp av tillägget förenklas installationen och agenten konfigureras automatiskt att skicka data till den Log Analytics-arbetsyta som du anger. Agenten uppgraderas också automatiskt så att du alltid har de senaste funktionerna och korrigeringarna.
 
 >[!NOTE]
->OMS-agenten för Linux kan inte konfigureras att rapportera till fler än en Log Analytics--arbetsyta. 
+>Log Analytics-agenten för Linux kan inte konfigureras att rapportera till fler än en Log Analytics--arbetsyta. 
 
 1. I Azure Portal klickar du på **Alla tjänster** längst upp till vänster. I listan över resurser skriver du **Log Analytics**. När du börjar skriva filtreras listan baserat på det du skriver. Välj **Log Analytics**.
 2. Välj *DefaultLAWorkspace* som du skapade tidigare i listan med Log Analytics-arbetsytor.
 3. Gå till menyn till vänster och klicka under Datakällor för arbetsyta på **Virtuella datorer**.  
-4. Från listan med **virtuella datorer** väljer du en virtuell dator där du vill installera agenten. Observera att **OMS-anslutningsstatus** för den virtuella datorn anger att den är **Inte ansluten**.
+4. Från listan med **virtuella datorer** väljer du en virtuell dator där du vill installera agenten. Observera att **Log Analytics-anslutningsstatus** för den virtuella datorn anger att den är **Inte ansluten**.
 5. Gå till informationen om den virtuella datorn och välj **Anslut**. Agenten installeras och konfigureras för Log Analytics-arbetsytan automatiskt. Den här processen tar några minuter och under tiden står **Status** som **Ansluter**.
-6. När du har installerat och anslutit agenten ska **OMS-anslutningsstatus** uppdateras till **Den här arbetsytan**.
+6. När du har installerat och anslutit agenten ska **Log Analytics-anslutningsstatus** uppdateras till **Den här arbetsytan**.
 
 ## <a name="collect-event-and-performance-data"></a>Samla in data om händelser och prestanda
 Log Analytics kan samla in händelser från Windows-händelseloggar eller Linux Syslog och prestandaräknare som du anger för analys och rapportering på längre sikt samt vidta åtgärder när ett visst villkor har identifierats.  Följ dessa steg om du vill konfigurera insamling av händelser från Windows systemlogg och Linux Syslog och flera vanliga prestandaräknare till att börja med.  

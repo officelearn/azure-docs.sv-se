@@ -124,13 +124,13 @@ C#-program som förlitar sig på namnområdet **Microsoft.IdentityModel.Clients.
 
 En namnområden som C#-exempel som förlitar sig på är **System.Data.SqlClient**. Är särskilt intressanta i uppräkningen **SqlAuthenticationMethod**. Den här uppräkningen har följande värden:
 
-- **SqlAuthenticationMethod.ActiveDirectory * interaktiv ***:&nbsp; Använd det här med ett användarnamn för Azure AD för att uppnå multifaktorautentisering MFA.
+- **SqlAuthenticationMethod.ActiveDirectory \*interaktiv**\*:&nbsp; Använd det här med ett användarnamn för Azure AD för att uppnå multifaktorautentisering MFA.
     - Det här värdet är fokus i den här artikeln. Den genererar en interaktiv upplevelse genom att visa dialogrutor för användarens lösenord och sedan för MFA-verifieringen om MFA har införts på den här användaren.
     - Det här värdet är tillgängliga från och med .NET Framework version 4.7.2.
 
-- **SqlAuthenticationMethod.ActiveDirectory * integrerad ***:&nbsp; Använd detta för en *federerad* konto. Användarnamnet är ett federerat konto kända till Windows-domän. Den här metoden har inte stöd för MFA.
+- **SqlAuthenticationMethod.ActiveDirectory \*integrerad**\*:&nbsp; Använd detta för en *federerad* konto. Användarnamnet är ett federerat konto kända till Windows-domän. Den här metoden har inte stöd för MFA.
 
-- **SqlAuthenticationMethod.ActiveDirectory * lösenord ***:&nbsp; använder detta för autentisering som kräver en Azure AD-användare och användarens lösenord. Azure SQL Database utför autentiseringen. Den här metoden har inte stöd för MFA.
+- **SqlAuthenticationMethod.ActiveDirectory \*lösenord**\*:&nbsp; använder detta för autentisering som kräver en Azure AD-användare och användarens lösenord. Azure SQL Database utför autentiseringen. Den här metoden har inte stöd för MFA.
 
 
 

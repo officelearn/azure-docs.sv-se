@@ -233,7 +233,7 @@
 ## [Azure PowerShell (Resource Manager)](/powershell/module/azurerm.media)
 ## [Azure PowerShell (Service Management)](/powershell/module/servicemanagement/azure/?view=azuresmps-3.7.0)
 ## [NET](/dotnet/api/microsoft.windowsazure.mediaservices.client)
-## [REST](/rest/api/media/mediaservice)
+## [REST](https://docs.microsoft.com/rest/api/media/operations/azure-media-services-rest-api-reference)
 ## Specifikationer
 ### [Live-inmatning – specifikation för live-inmatning av fragmenterad MP4](media-services-fmp4-live-ingest-overview.md)
 ### [Liveinmatning – signalering av metadata med tidsgräns i liveuppspelning](media-services-specifications-live-timed-metadata.md)

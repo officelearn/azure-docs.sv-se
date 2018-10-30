@@ -43,7 +43,7 @@ Du får:
 
 Alternativ där du kan fortfarande använda Express:
 
-- Om du inte vill synkronisera alla organisationsenheter du kan fortfarande använda Express och på den sista sidan avmarkera ** starta synkroniseringsprocessen... ***. Kör installationsguiden igen och ändra organisationsenheter i [konfigurationsalternativ](how-to-connect-installation-wizard.md#customize-synchronization-options) och aktivera schemalagd synkronisering.
+- Om du inte vill synkronisera alla organisationsenheter du kan fortfarande använda Express och på den sista sidan avmarkera **starta synkroniseringsprocessen...**\*. Kör installationsguiden igen och ändra organisationsenheter i [konfigurationsalternativ](how-to-connect-installation-wizard.md#customize-synchronization-options) och aktivera schemalagd synkronisering.
 - Du vill aktivera en av funktionerna i Azure AD Premium, till exempel tillbakaskrivning av lösenord. Först gå igenom express för att hämta den inledande installationen har slutförts. Kör installationsguiden igen och ändra den [konfigurationsalternativ](how-to-connect-installation-wizard.md#customize-synchronization-options).
 
 ## <a name="custom"></a>Anpassat

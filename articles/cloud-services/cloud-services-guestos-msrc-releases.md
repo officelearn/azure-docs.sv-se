@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 10/24/2018
+ms.date: 10/28/2018
 ms.author: raiye
-ms.openlocfilehash: 989627388e9ad1c99daa31bd9c8af884ab16b421
-ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
+ms.openlocfilehash: 0430eefb55893420cf7ea603998f14465fb2cc60
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50087788"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50215522"
 ---
 # <a name="azure-guest-os"></a>Azure gäst-OS
 Följande tabeller visar Microsoft Security Response Center (MSRC) uppdateringarna tillämpas på Gästoperativsystemet i Azure. Sök i den här artikeln för att avgöra om en viss uppdatering gäller för Gästoperativsystem som du använder. Uppdateringar alltid överför för speciellt [familj] [ family-explain] de introducerades i.
@@ -30,11 +30,11 @@ Följande tabeller visar Microsoft Security Response Center (MSRC) uppdateringar
 | Produktkategori | Överordnad KB-artikel | Beskrivning av säkerhetsrisk | Gäst-OS | Datum som introducerades |
 | --- | --- | --- | --- | --- |
 | Rel 18-10 | [4462917] | Windows 10-säkerhet | 5,24 | 9 oktober 2018 |
-| Rel 18-10 | [4464330] | Windows 10-säkerhet | 6.01 | 9 oktober 2018 |
+| Rel 18-10 | [4464330] | Windows 10-säkerhet | 6.0 | 9 oktober 2018 |
 | Rel 18-10 | [4462915] | Windows-säkerhet | 2.79 | 9 oktober 2018 |
 | Rel 18-10 | [4462931] | Windows-säkerhet | 3.66 | 9 oktober 2018 |
 | Rel 18-10 | [4462941] | Windows-säkerhet | 4.59 | 9 oktober 2018 |
-| Rel 18-10 | [4462930] | Flash | 3.66, 4.59, 5,24, 6.01 | 9 oktober 2018 |
+| Rel 18-10 | [4462930] | Flash | 3.66, 4.59, 5,24, 6.0 | 9 oktober 2018 |
 | Rel 18-10 | [4462949] | Internet Explorer | 2.79, 3.66, 4.59 | 9 oktober 2018 |
 | Gäller inte | [4339284] | Time zone update | 2.79, 3.66, 4.59 | 24 juli 2018 |
 | Gäller inte | [4457144] | Insamling av september icke-säkerhet | 2.79 | Den 11 september 2018 |

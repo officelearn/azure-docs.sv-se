@@ -1,5 +1,5 @@
 ---
-title: 'Självstudie: Använda Video Indexer-API:t'
+title: Använda Video Indexer-API:et
 titlesuffix: Azure Cognitive Services
 description: Den här artikeln visar hur du kommer igång med att använda Video Indexer-API:t.
 services: cognitive services
@@ -8,16 +8,16 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: video-indexer
 ms.topic: tutorial
-ms.date: 09/09/2018
+ms.date: 10/20/2018
 ms.author: juliako
-ms.openlocfilehash: 7bd7ed1b2d2f437ef57598c42ca12ce8bfb174a1
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.openlocfilehash: 401811ec8803f3ede5a829dc96edc1e7f15e5ee0
+ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45985572"
+ms.lasthandoff: 10/22/2018
+ms.locfileid: "49637755"
 ---
-# <a name="tutorial-use-the-video-indexer-api"></a>Självstudie: Använda Video Indexer-API:t
+# <a name="use-the-video-indexer-api"></a>Använda Video Indexer-API:et
 
 > [!Note]
 > Video Indexer-API:t v1 blev inaktuellt den 1 augusti 2018. Nu bör du använda Video Indexer-API:t v2. <br/>Om du vill utveckla med Video Indexer-API:er v2 läser du instruktionerna [här](https://api-portal.videoindexer.ai/). 
@@ -51,6 +51,9 @@ Den här artikeln visar hur utvecklarna kan dra nytta av [Video Indexer-API:t](h
     När du prenumererar kan du se din prenumeration och dina primära och sekundära nycklar. Nycklarna ska vara skyddade. Nycklarna ska bara användas av din serverkod. De ska inte vara tillgängliga på klientsidan (.js, .html osv.).
 
     ![Registrera dig](./media/video-indexer-use-apis/video-indexer-api03.png)
+
+> [!TIP]
+> Video Indexer-användare kan använda en enstaka prenumerationsnyckel för att ansluta till flera Video Indexer-konton. Sedan kan du länka dessa Video Indexer-konton till olika Media Services-konton.
 
 ## <a name="obtain-access-token-using-the-authorization-api"></a>Hämta åtkomsttoken med hjälp av auktoriserings-API:t
 

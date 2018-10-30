@@ -7,14 +7,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: overview
-ms.date: 09/24/2018
+ms.date: 10/23/2018
 ms.author: alkohli
-ms.openlocfilehash: 1beecd4c37ef333464e96b93294c25d182ffdf91
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: 731730aae59fa654394bf01a139af0088c207774
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49090814"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49955345"
 ---
 # <a name="what-is-azure-data-box"></a>Vad är Azure Data Box?
 
@@ -62,7 +62,7 @@ Den Data Box-enheten har följande funktioner i den här versionen.
 | Dimensioner                                              | Enhet – bredd: 309,0 mm, höjd: 430,4 mm, djup: 502,0 mm |            
 | Rackutrymme                                              | 7 U när den placeras i rack på sidan (kan inte rackmonteras)|
 | Kablar som krävs                                         | 1 x strömkabel (ingår) <br> 2 RJ45-kablar <br> 2 x SFP + Twinax-kopparkablar|
-| Lagringskapacitet                                        | 100 TB <br> 80 TB användbar kapacitet efter RAID 5-skydd|
+| Lagringskapacitet                                        | 100 TB-enheten har 80 TB användbar kapacitet efter RAID 5-skydd|
 | Nätverksgränssnitt                                      | 2 x 1 GbE-gränssnitt – MGMT, DATA 3. <br> MGMT – för hantering som inte kan konfigureras av användaren används för installationen <br> DATA3 – för data som konfigureras av användaren och är dynamiskt som standard <br> MGMT och DATA 3 kan även fungera som 10 GbE <br> 2 x 10 GbE-gränssnitt – DATA 1, DATA 2 <br> Båda är för data och kan konfigureras som dynamiska (standard) eller statiska |
 | Media för dataöverföring                                     | RJ45, SFP+-koppar för 10 GbE-Ethernet  |
 | Säkerhet                                                | Robust enhetshölje med manipuleringssäkra anpassade skruvar <br> Säkerhetsförslutna klistermärken placerade längst ned på enheten|

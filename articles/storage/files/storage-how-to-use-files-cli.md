@@ -1,38 +1,37 @@
 ---
-title: Hantera Azure-filresurser med Azure CLI
-description: Lär dig hur du använder Azure CLI för att hantera Azure Files.
+title: Snabbstart för hantering av Azure-filresurser med hjälp av Azure CLI
+description: I den här snabbstarten lär du dig hur du använder Azure CLI till att hantera Azure Files.
 services: storage
 author: wmgries
 ms.service: storage
-ms.topic: get-started-article
-ms.date: 03/26/2018
+ms.topic: quickstart
+ms.date: 10/18/2018
 ms.author: wgries
 ms.component: files
-ms.openlocfilehash: de48789c42ccd2d7e090af6f430f323b16416e9c
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: aab248ac7c9adf7d996406ec35e0317594ce0b68
+ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49389793"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49945026"
 ---
-# <a name="manage-azure-file-shares-using-azure-cli"></a>Hantera Azure-filresurser med Azure CLI
-[Azure Files](storage-files-introduction.md) är Microsofts lättanvända filsystem i molnet. Azure-filresurser kan monteras i Windows, Linux och macOS. Den här artikeln vägleder dig igenom grunderna i att arbeta med Azure-filresurser med Azure CLI. Lär dig att: 
-
-> [!div class="checklist"]
-> * Skapa en resursgrupp och ett lagringskonto
-> * Skapa en Azure-filresurs 
-> * Skapa en katalog
-> * Överför en fil 
-> * Hämta en fil
-> * Skapa och använda en ögonblicksbild av en resurs
+# <a name="quickstart-create-and-manage-azure-file-shares-using-azure-cli"></a>Snabbstart: Skapa och hantera Azure-filresurser med hjälp av Azure CLI
+Den här guiden vägleder dig igenom grunderna i att arbeta med [Azure-filresurser](storage-files-introduction.md) med hjälp av Azure CLI. Azure-filresurser är precis som andra filresurser men lagras i molnet och backas av Azure-plattformen. Azure-filresurser stöder SMB-protokollet, som är branschstandard och möjliggör fildelning på olika datorer, program och instanser. 
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Om du beslutar dig för att installera och använda Azure CLI lokalt måste du köra Azure CLI version 2.0.4 eller senare för att kunna utföra stegen i den här artikeln. Kör **az --version** för att hitta din Azure CLI-version. Om du behöver installera eller uppgradera kan du läsa informationen i [Installera Azure CLI](/cli/azure/install-azure-cli). 
+Om du beslutar dig för att installera och använda Azure CLI lokalt måste du köra Azure CLI version 2.0.4 eller senare för att kunna utföra stegen i den här artikeln. Kör **az --version** för att hitta din Azure CLI-version. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI 2.0](/cli/azure/install-azure-cli). 
 
 Som standard returnerar Azure CLI-kommandon JavaScript Object Notation (JSON). JSON är standardmetoden för att skicka och ta emot meddelanden från REST API:er. För att underlätta arbetet med JSON-svaren, så använder vissa av exemplen i den här artikeln *frågeparametern* för Azure CLI-kommandona. Den här parametern använder [JMESPath-frågespråket](http://jmespath.org/) för JSON-parsning. Om du vill lära dig mer om hur man hanterar Azure CLI-kommandonas resultat genom att följa JMESPath-frågespråket kan du ta en titt på [JMESPath-självstudiekursen](http://jmespath.org/tutorial.html).
+
+## <a name="sign-in-to-azure"></a>Logga in på Azure
+Om du använder Azure CLI lokalt öppnar du en kommandotolk och loggar in på Azure om du inte redan har gjort det.
+
+```bash 
+az login
+```
 
 ## <a name="create-a-resource-group"></a>Skapa en resursgrupp
 En resursgrupp är en logisk container där Azure-resurser distribueras och hanteras. Om du inte redan har en Azure-resursgrupp kan du skapa en ny med kommandot [az group create](/cli/azure/group#create). 
@@ -77,15 +76,26 @@ az storage share create \
     --name "myshare" 
 ```
 
-> [!IMPORTANT]  
-> Resursnamn får bara innehålla gemener, siffror och enskilda bindestreck (men får inte inledas med bindestreck). Mer information om hur du namnger filresurser och filer finns i [Namnge och referera till resurser, kataloger, filer och metadata](https://docs.microsoft.com/rest/api/storageservices/Naming-and-Referencing-Shares--Directories--Files--and-Metadata).
+Resursnamn får bara innehålla gemener, siffror och enskilda bindestreck (men får inte inledas med bindestreck). Mer information om hur du namnger filresurser och filer finns i [Namnge och referera till resurser, kataloger, filer och metadata](https://docs.microsoft.com/rest/api/storageservices/Naming-and-Referencing-Shares--Directories--Files--and-Metadata).
 
-## <a name="work-with-the-contents-of-an-azure-file-share"></a>Arbeta med innehållet i Azure-filresursen
-Nu när du har skapat en Azure-filresurs kan du montera filresursen med SMB på [Windows](storage-how-to-use-files-windows.md), [Linux](storage-how-to-use-files-linux.md) eller [macOS](storage-how-to-use-files-mac.md). Du kan också arbeta med din Azure-filresurs med Azure CLI. Fördelen med att använda Azure CLI istället för att montera filresursen med SMB är att alla förfrågningar som görs med Azure CLI görs med fil-REST-API:n. Du kan använda fil-REST-API:n för att skapa, ändra och ta bort filer och kataloger i din filresurs från följande platser:
+## <a name="use-your-azure-file-share"></a>Använda Azure-filresursen
+Azure Files har två metoder för att arbeta med filer och mappar i din Azure-filresurs: branschstandardprotokollen [SMB (Server Message Block)](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx) och [fil-REST](https://docs.microsoft.com/rest/api/storageservices/file-service-rest-api). 
 
-- Bash Azure Cloud Shell (som inte kan montera filresurser över SMB)
-- Klienter som inte kan montera SMB-resurser, t.ex. lokala klienter som inte har port 445 avblockerad
-- Serverlösa scenarier, t.ex [Azure Functions](../../azure-functions/functions-overview.md)
+Om du vill montera en filresurs med SMB läser du följande dokument baserat på ditt operativsystem:
+- [Linux](storage-how-to-use-files-linux.md)
+- [macOS](storage-how-to-use-files-mac.md)
+- [Windows](storage-how-to-use-files-windows.md)
+
+### <a name="using-an-azure-file-share-with-the-file-rest-protocol"></a>Använda en Azure-filresurs med fil-REST-protokollet 
+Det är möjligt att arbeta direkt med fil-REST-protokollet (dvs. att själv skapa REST HTTP-anrop manuellt) men det vanligaste sättet att använda fil-REST-protokollet är att använda Azure CLI, [AzureRM PowerShell-modulen](storage-how-to-use-files-powershell.md) eller ett Azure Storage-SDK. Alla ger en bra omslutning runt fil-REST-protokollet i valfritt skript-/programmeringsspråk.  
+
+Vi förväntar att de flesta som använder Azure Files vill arbeta med sin Azure-filresurs via SMB-protokollet, eftersom det gör att de kan använda de befintliga programmen och verktygen som de förväntar sig att kunna använda. Men det finns flera anledningar till varför det är fördelaktigt att använda fil-REST-API:et istället för SMB, till exempel:
+
+- Du bläddrar efter filresursen från Azure Bash Cloud Shell (som inte kan montera filresurser via SMB).
+- Du måste köra ett skript eller program från en klient som inte kan montera en SMB-resurs, till exempel lokala klienter, som inte har port 445 avblockerad.
+- Du utnyttjar serverlösa resurser såsom [Azure Functions](../../azure-functions/functions-overview.md). 
+
+I följande exempel visas hur du använder AzureRM PowerShell-modulen till att ändra din Azure-filresurs med fil-REST-protokollet. 
 
 ### <a name="create-a-directory"></a>Skapa en katalog
 Använd kommandot [`az storage directory create`](/cli/azure/storage/directory#az_storage_directory_create) när du vill skapa en ny katalog med namnet *myDirectory* i vid Azure-filresursens rot:
@@ -176,84 +186,6 @@ az storage file list \
 
 Även om kommandot `az storage file copy start` är praktiskt för filförflyttningar mellan Azure-filresurser och Azure Blob Storage-containrar, så rekommenderar vi att du använder AzCopy för större flyttar. (Större när det gäller antal eller storleken på filerna som ska flyttas.) Lär dig mer om [AzCopy för Linux](../common/storage-use-azcopy-linux.md) och [AzCopy för Windows](../common/storage-use-azcopy.md). AzCopy måste installeras lokalt. AzCopy är inte tillgängligt i Cloud Shell. 
 
-## <a name="create-and-modify-share-snapshots"></a>Skapa och ändra resursögonblicksbilder
-Ytterligare en användbar uppgift som du kan göra med en Azure-filresurs är att skapa resursögonblicksbilder. En ögonblicksbild bevarar en kopia vid en viss tidpunkt av en Azure-filresurs. Ögonblicksbilder av resurser liknar vissa av de operativsystemtekniker som du kanske redan är bekant med:
-- [Logical Volume Manager (LVM)](https://en.wikipedia.org/wiki/Logical_Volume_Manager_(Linux)#Basic_functionality) ögonblicksbilder för Linux-system
-- [Apple File System (APFS)](https://developer.apple.com/library/content/documentation/FileManagement/Conceptual/APFS_Guide/Features/Features.html) ögonblicksbilder för macOS
-- [Tjänsten Volume Shadow Copy(VSS)](https://docs.microsoft.com/windows/desktop/VSS/volume-shadow-copy-service-portal) för Windows-filsystem, till exempel NTFS och ReFS
-
-Du kan skapa en ögonblicksbild av en resurs med hjälp av kommandot [`az storage share snapshot`](/cli/azure/storage/share#az_storage_share_snapshot):
-
-```azurecli-interactive
-SNAPSHOT=$(az storage share snapshot \
-    --account-name $STORAGEACCT \
-    --account-key $STORAGEKEY \
-    --name "myshare" \
-    --query "snapshot" | tr -d '"')
-```
-
-### <a name="browse-share-snapshot-contents"></a>Söka i resursögonblicksbilders innehåll
-Du kan söka i en resursögonblicksbilds innehåll genom att skicka resursögonblicksbildens tidsstämpel som vi tog i variabeln `$SNAPSHOT` till kommandot `az storage file list`:
-
-```azurecli-interactive
-az storage file list \
-    --account-name $STORAGEACCT \
-    --account-key $STORAGEKEY \
-    --share-name "myshare" \
-    --snapshot $SNAPSHOT \
-    --output table
-```
-
-### <a name="list-share-snapshots"></a>Lista resursögonblicksbilder
-Du kan se listan över ögonblicksbilder som du har tagit för din resurs med följande kommando:
-
-```azurecli-interactive
-az storage share list \
-    --account-name $STORAGEACCT \
-    --account-key $STORAGEKEY \
-    --include-snapshot \
-    --query "[? name=='myshare' && snapshot!=null]" | tr -d '"'
-```
-
-### <a name="restore-from-a-share-snapshot"></a>Återställ från en resursögonblicksbild
-Du kan återställa en fil med hjälp av kommandot `az storage file copy start` som du använde tidigare. Först tar du bort filen SampleUpload.txt som du laddade upp, så att du kan återställa den från ögonblicksbilden:
-
-```azurecli-interactive
-# Delete SampleUpload.txt
-az storage file delete \
-    --account-name $STORAGEACCT \
-    --account-key $STORAGEKEY \
-    --share-name "myshare" \
-    --path "myDirectory/SampleUpload.txt"
-
-# Build the source URI for a snapshot restore
-URI=$(az storage account show \
-    --resource-group "myResourceGroup" \
-    --name $STORAGEACCT \
-    --query "primaryEndpoints.file" | tr -d '"')
-
-URI=$URI"myshare/myDirectory/SampleUpload.txt?sharesnapshot="$SNAPSHOT
-
-# Restore SampleUpload.txt from the share snapshot
-az storage file copy start \
-    --account-name $STORAGEACCT \
-    --account-key $STORAGEKEY \
-    --source-uri $URI \
-    --destination-share "myshare" \
-    --destination-path "myDirectory/SampleUpload.txt"
-```
-
-### <a name="delete-a-share-snapshot"></a>Ta bort en resursögonblicksbild
-Du kan ta bort en ögonblicksbild av en resurs med hjälp av kommandot [`az storage share delete`](/cli/azure/storage/share#az_storage_share_delete). Använd variabeln som innehåller referensen `$SNAPSHOT` till parametern `--snapshot`:
-
-```azurecli-interactive
-az storage share delete \
-    --account-name $STORAGEACCT \
-    --account-key $STORAGEKEY \
-    --name "myshare" \
-    --snapshot $SNAPSHOT
-```
-
 ## <a name="clean-up-resources"></a>Rensa resurser
 När du är klar kan du använda kommandot [`az group delete`](/cli/azure/group#delete) för att ta bort resursgruppen och alla relaterade resurser: 
 
@@ -288,7 +220,6 @@ Du kan även ta bort resurser individuellt.
     ```
 
 ## <a name="next-steps"></a>Nästa steg
-- [Hantera filresurser med Azure Portal](storage-how-to-use-files-portal.md)
-- [Hantera filresurser med Azure PowerShell](storage-how-to-use-files-powershell.md)
-- [Hantera filresurser med Storage Explorer](storage-how-to-use-files-storage-explorer.md)
-- [Planera för en Azure Files-distribution](storage-files-planning.md)
+
+> [!div class="nextstepaction"]
+> [Vad är Azure Files?](storage-files-introduction.md)

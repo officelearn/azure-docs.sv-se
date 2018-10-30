@@ -1,5 +1,5 @@
 ---
-title: 'Självstudier: Skapa en Windows-app för Custom Vision Service med C#'
+title: 'Självstudie: Skapa ett bildklassificeringsprojekt med Custom Vision-SDK för C#'
 titlesuffix: Azure Cognitive Services
 description: Skapa ett projekt, lägg till taggar, ladda upp bilder, träna ditt projekt och gör en förutsägelse genom att använda standardslutpunkten.
 services: cognitive-services
@@ -10,23 +10,23 @@ ms.component: custom-vision
 ms.topic: tutorial
 ms.date: 05/03/2018
 ms.author: anroth
-ms.openlocfilehash: 9e5ed71d4620f7ffeac8acb15f90d67964a86870
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.openlocfilehash: e046fe452a13384ae7929be805c6252d6ad2fbf9
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46366649"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49953051"
 ---
-# <a name="tutorial-use-the-custom-vision-service-from-a-c-application"></a>Självstudier: Använd Custom Vision Service från ett C#-program
+# <a name="tutorial-create-an-image-classification-project-with-the-custom-vision-sdk-for-c"></a>Självstudie: Skapa ett bildklassificeringsprojekt med Custom Vision-SDK för C#
 
-Lär dig att använda Custom Vision Service från ett C#-program. När den har skapats kan du lägga till taggar, ladda upp bilder, träna projektet, hämta slutpunkts-URL:en för projektets standardförutsägelse och använda slutpunkten för att testa en avbildning programmatiskt. Använd det här exemplet med öppen källkod som en mall för att skapa din egen app för Windows med hjälp av Custom Vision Service-API:et.
+Lär dig att använda Custom Vision Service SDK i ett C#-program. När den har skapats kan du lägga till taggar, ladda upp bilder, träna projektet, hämta slutpunkts-URL:en för projektets standardförutsägelse och använda slutpunkten för att testa en avbildning programmatiskt. Använd det här exemplet med öppen källkod som en mall för att skapa din egen app för Windows med hjälp av Custom Vision Service-API:et.
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
 * Valfri version av Visual Studio 2017 för Windows.
 
 ## <a name="get-the-custom-vision-sdk-and-samples"></a>Hämta Custom Vision-SDK:n och exempel
-Om du vill skapa det här exemplet behöver du Custom Vision SDK NuGet-paketet:
+Om du vill skapa det här exemplet behöver du Custom Vision SDK NuGet-paketen:
 
 * [Microsoft.Azure.CognitiveServices.Vision.CustomVision.Training](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.CustomVision.Training/)
 * [Microsoft.Azure.CognitiveServices.Vision.CustomVision.Prediction](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.CustomVision.Prediction/)
@@ -35,9 +35,9 @@ Du kan ladda ned bilder tillsammans med [C#-exemplet](https://github.com/Azure-S
 
 ## <a name="get-the-training-and-prediction-keys"></a>Hämta utbildningen och förutsägelsenycklarna
 
-Om du vill ha nycklarna som används i det här exemplet kan du gå till [Custom Vision-webbsidan](https://customvision.ai) och välja __kugghjulsikonen__ i det övre högra hörnet. Kopiera värdena från fälten __Utbildningsnyckel__ och __Förutsägelsenyckel__ i avsnittet __Konton__.
+För att hämta nycklarna som används i det här exemplet går du till [Custom Vision-webbsidan](https://customvision.ai) och väljer __kugghjulsikonen__ i det övre högra hörnet. Kopiera värdena från fälten __Utbildningsnyckel__ och __Förutsägelsenyckel__ i avsnittet __Konton__.
 
-![Bild av nyckel-UI:et](./media/csharp-tutorial/training-prediction-keys.png)
+![Bild på gränssnittet för nycklarna](./media/csharp-tutorial/training-prediction-keys.png)
 
 ## <a name="understand-the-code"></a>Förstå koden
 

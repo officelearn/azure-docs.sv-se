@@ -8,24 +8,24 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: qna-maker
 ms.topic: quickstart
-ms.date: 10/02/2018
+ms.date: 10/19/2018
 ms.author: diberry
-ms.openlocfilehash: 3bbc55b3bb064b2cf4b140a395e99209b71a5ce1
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.openlocfilehash: 1b92589fe01f171b732c04057dc290f0f32cb31a
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48816247"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49647824"
 ---
-# <a name="quickstart-update-a-qna-maker-knowledge-base-in-nodejs"></a>Snabbstart: Uppdatera en QnA Maker-kunskapsbas i Node.js
+# <a name="quickstart-update-a-knowledge-base-in-qna-maker-using-nodejs"></a>Snabbstart: Uppdatera en kunskapsbas i QnA Maker med hjälp av Node.js
 
 Den här snabbstarten går igenom programmatisk uppdatering av en befintlig QnA Maker-kunskapsbas (KB).  Med denna JSON kan du uppdatera en KB genom att lägga till nya datakällor, ändra datakällor eller ta bort datakällor.
 
-Det här API:et motsvarar redigering, och använd sedan knappen **Save and train** (Spara och öva) i QnA Maker-portalen.
+Det här API:et motsvarar redigering, och använd sedan knappen för att **spara och öva** i QnA Maker-portalen.
 
 Den här snabbstarten anropar API:er för QnA Maker:
 * [Uppdatera](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da7600) – Modellen för kunskapsbasen har definierats i JSON som skickas i brödtexten i API-begäran. 
-* [Få åtgärdsinformation](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/operations_getoperationdetails)
+* [Hämta åtgärdsinformation](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/operations_getoperationdetails)
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
@@ -49,8 +49,8 @@ Högst upp i `update-knowledge-base.js` lägger du till följande rader för att
 
 [!code-nodejs[Add the dependencies](~/samples-qnamaker-nodejs/documentation-samples/quickstarts/update-knowledge-base/update-knowledge-base.js?range=1-4 "Add the dependencies")]
 
-## <a name="add-required-constants"></a>Lägga till nödvändiga konstanter
-När du har lagt till nödvändiga beroenden lägger du till de konstanter som krävs för åtkomst till QnA Maker. Ersätt värdet av variabeln `subscriptionKey` med din egen QnA Maker-nyckel. 
+## <a name="add-required-constants"></a>Lägg till nödvändiga konstanter
+När du har lagt till nödvändiga beroenden lägger du till de konstanter som krävs för åtkomst till QnA Maker. Ersätt värdet för variabeln `subscriptionKey` med din egen QnA Maker-nyckel. 
 
 [!code-nodejs[Add required constants](~/samples-qnamaker-nodejs/documentation-samples/quickstarts/update-knowledge-base/update-knowledge-base.js?range=10-17 "Add required constants")]
 
@@ -75,7 +75,7 @@ Varje avsnitt kan användas i samma enskilda begäran till API:et.
 
 ## <a name="add-supporting-functions"></a>Lägga till stödfunktioner
 
-Lägg sedan till följande stödfunktioner.
+Sedan lägger du till följande stödfunktioner.
 
 1. Lägg till följande funktioner för att skriva ut JSON i ett lättläst format:
 
@@ -136,7 +136,7 @@ Upprepa anropet tills det lyckas eller misslyckas:
 
 ## <a name="add-updatekb-method"></a>Lägga till metoden update_kb
 
-Följande metod uppdaterar KB och upprepar kontroller av statusen. Eftersom KB-skapandet kan ta lite tid måste du upprepa anropen för att kontrollera statusen tills statusen lyckas eller misslyckas.
+Följande metod uppdaterar KB och upprepar kontroller av statusen. Eftersom det kan ta lite tid att skapa KB måste du upprepa anrop för att kontrollera status tills statusen antingen lyckas eller misslyckas.
 
 [!code-nodejs[Add update_kb method](~/samples-qnamaker-nodejs/documentation-samples/quickstarts/update-knowledge-base/update-knowledge-base.js?range=139-169 "Add update_kb method")]
 

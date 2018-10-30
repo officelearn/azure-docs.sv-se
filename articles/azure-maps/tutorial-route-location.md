@@ -1,20 +1,20 @@
 ---
 title: Hitta vägen med Azure Maps | Microsoft Docs
 description: Rutt till en orienteringspunkt med hjälp av Azure Maps
-author: dsk-2015
-ms.author: dkshir
-ms.date: 10/02/2018
+author: walsehgal
+ms.author: v-musehg
+ms.date: 10/22/2018
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 3bf1aa6d1b9bd65c28ef99ddbac71fb75daf99e7
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.openlocfilehash: fda234b882cbf4a155881895bbf8401fe3ff3aca
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48816726"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49645099"
 ---
 # <a name="route-to-a-point-of-interest-using-azure-maps"></a>Rutt till en orienteringspunkt med hjälp av Azure Maps
 
@@ -80,11 +80,10 @@ Följande steg visar hur du skapar en statisk HTML-sida inbäddad med API:et Kar
 
     ```JavaScript
     // Instantiate map to the div with id "map"
-    var MapsAccountKey = "<your account key>";
-    var map = new atlas.Map("map", {
-        "subscription-key": MapsAccountKey
-    });
+    atlas.setSubscriptionKey("<your account key>");
+    var map = new atlas.Map("map");
     ```
+
     **atlas.Map** ger kontroll över en visuell och interaktiv webbkarta och är en komponent i API:et Azure Kartkontroll.
 
 4. Spara filen och öppna den i webbläsaren. Du har nu en grundläggande karta som du kan utveckla mer.
@@ -126,7 +125,7 @@ För den här självstudien anger du startpunkt som Microsoft, och målpunkt som
         padding: 50
     });
 
-    map.addEventListener("load", function () { 
+    map.events.add("load", function () { 
         // Add pins to the map for the start and end point of the route
         map.addPins([startPin, destinationPin], {
             name: "route-pins",
@@ -135,7 +134,7 @@ För den här självstudien anger du startpunkt som Microsoft, och målpunkt som
         });
     });
     ```
-    **map.setCameraBounds** justerar kartfönstret enligt koordinaterna för start- och slutpunkterna. **map.addEventListener** ser till att alla mappfunktioner som lagts till på kartan läses in först när kartan har lästs in helt. API:et **map.addPins** i händelselyssnaren lägger till punkterna i Kartkontroll som visuella komponenter.
+    **map.setCameraBounds** justerar kartfönstret enligt koordinaterna för start- och slutpunkterna. **map.events.add** ser till att alla kartfunktioner som lagts till på kartan läses in först när kartan har lästs in helt. API:et **map.addPins** i händelselyssnaren lägger till punkterna i Kartkontroll som visuella komponenter.
 
 3. Spara filen **MapRoute.html** och uppdatera webbläsaren. Nu är kartan centrerad över Seattle, och du kan se de runda blå kartnålarna som markerar startpunkten, och den blå kartnålen som markerar slutpunkten.
 

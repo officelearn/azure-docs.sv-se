@@ -1,6 +1,6 @@
 ---
-title: Skriptexempel för Azure CLI – Skapa en virtuell Linux-dator med OMS-övervakning | Microsoft Docs
-description: Skriptexempel för Azure CLI – Skapa en virtuell Linux-dator med OMS-övervakning
+title: Skriptexempel för Azure CLI – Skapa en virtuell Linux-dator med Azure-övervakning | Microsoft Docs
+description: Skriptexempel för Azure CLI – Skapa en virtuell Linux-dator med Azure-övervakning
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: cynthn
@@ -16,16 +16,16 @@ ms.workload: infrastructure
 ms.date: 02/27/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 92bc86a1db4aca563a089e20c3e19557517f2d9b
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.openlocfilehash: cedb8d9c2ef4acd9d7a896153bce6be790ed83a3
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37932627"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49407976"
 ---
-# <a name="monitor-a-vm-with-operations-management-suite"></a>Övervaka en virtuell dator med Operations Management Suite
+# <a name="monitor-a-vm-with-azure-monitoring"></a>Övervaka en virtuell dator med Azure Monitoring
 
-Det här skriptet skapar en virtuell dator i Azure, installerar agenten Operations Management Suite (OMS) och registrerar systemet med en OMS-arbetsyta. När skriptet har körts visas den virtuella datorn i OMS-konsolen.
+Det här skriptet skapar en virtuell Azure-dator, installerar Log Analytics-agenten och registrerar systemet på en Log Analytics-arbetsyta. När skriptet har körts visas den virtuella datorn i konsolen.
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
 
@@ -51,7 +51,7 @@ I det här skriptet används följande kommandon för att skapa en resursgrupp, 
 |---|---|
 | [az group create](https://docs.microsoft.com/cli/azure/group#az_group_create) | Skapar en resursgrupp där alla resurser lagras. |
 | [az vm create](https://docs.microsoft.com/cli/azure/vm#az_vm_create) | Skapar den virtuella datorn och ansluter den till nätverkskortet, ett virtuellt nätverk, ett undernät och en NSG. Det här kommandot anger även den virtuella datoravbildning som ska användas samt administrativa autentiseringsuppgifter.  |
-| [azure vm extension set](https://docs.microsoft.com/cli/azure/vm/extension#az_vm_extension_set) | Kör ett VM-tillägg mot en virtuell dator. I det här fallet används agenttillägget Operations Management Suite för att installera OMS-agenten och registrera den virtuella datorn i en OMS-arbetsyta. |
+| [azure vm extension set](https://docs.microsoft.com/cli/azure/vm/extension#az_vm_extension_set) | Kör ett VM-tillägg mot en virtuell dator. I det här fallet används Log Analytics-agenttillägget för att installera Log Analytics-agenten och registrera den virtuella datorn på en Log Analytics-arbetsyta. |
 | [az group delete](https://docs.microsoft.com/cli/azure/vm/extension#az_vm_extension_set) | Tar bort en resursgrupp, inklusive alla kapslade resurser. |
 
 ## <a name="next-steps"></a>Nästa steg

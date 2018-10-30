@@ -1,5 +1,5 @@
 ---
-title: 'Självstudie: Skapa ett projekt för bildklassificering – Custom Vision Service, Java'
+title: 'Självstudie: Skapa ett bildklassificeringsprojekt med Custom Vision-SDK för Java'
 titlesuffix: Azure Cognitive Services
 description: Skapa ett projekt, lägg till taggar, ladda upp bilder, träna ditt projekt och gör en förutsägelse med hjälp av standardslutpunkten.
 services: cognitive-services
@@ -10,14 +10,14 @@ ms.component: custom-vision
 ms.topic: tutorial
 ms.date: 08/28/2018
 ms.author: areddish
-ms.openlocfilehash: 9a7f50e0eb33016d6a2d8f28be047b327135c51f
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.openlocfilehash: e302fc580d9c83d269f0deedd051a3ea23bd274e
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46367363"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49957229"
 ---
-# <a name="tutorial-build-an-image-classification-project-with-java"></a>Självstudie: Skapa ett projekt för bildklassificering med Java
+# <a name="tutorial-create-an-image-classification-project-with-the-custom-vision-sdk-for-java"></a>Självstudie: Skapa ett bildklassificeringsprojekt med Custom Vision-SDK för Java
 
 Lär dig hur du skapar ett projekt för bildklassificering med hjälp av Custom Vision Service och Java. När projektet har skapats kan du lägga till taggar, ladda upp bilder, träna projektet, hämta slutpunkts-URL:en för projektets standardförutsägelse och använda projektet för att testa en bild programmatiskt. Använd det här exemplet med öppen källkod som en mall för att skapa din egen app med hjälp av API för Custom Vision.
 

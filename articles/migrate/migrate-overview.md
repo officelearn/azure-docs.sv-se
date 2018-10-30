@@ -4,15 +4,15 @@ description: Ger en översikt över tjänsten Azure Migrate.
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: overview
-ms.date: 09/25/2018
+ms.date: 10/23/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: d2a8885ffb9148d408eff0e8a7d2ef09121e5359
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: 30cca10a83be09b8c9736df546958c3a1fe66f37
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47162054"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50025650"
 ---
 # <a name="about-azure-migrate"></a>Om Azure Migrate
 
@@ -29,16 +29,16 @@ Med Azure Migrate får du hjälp med att:
 
 ## <a name="current-limitations"></a>Aktuella begränsningar
 
-- För närvarande kan du endast utvärdera lokala virtuella VMware-datorer (VM) för migrering till virtuella Azure-datorer. De virtuella VMware-datorerna måste hanteras av en vCenter Server (version 5.5, 6.0 eller 6.5).
+- Du kan endast utvärdera lokala virtuella VMware-datorer (VM) för migrering till virtuella Azure-datorer. De virtuella VMware-datorerna måste hanteras av en vCenter Server (version 5.5, 6.0 eller 6.5).
 - Om du vill utvärdera virtuella Hyper-datorer och fysiska servrar kan du använda [Distributionshanteraren för Azure Site Recovery](http://aka.ms/asr-dp-hyperv-doc) för Hyper-V och våra [partnerverktyg](https://azure.microsoft.com/migration/partners/) för fysiska datorer.
 - Du kan identifiera upp till 1 500 virtuella datorer i en enda identifiering och upp till 1 500 virtuella datorer i ett enda projekt. Dessutom kan du utvärdera upp till 1 500 virtuella datorer i en enda utvärdering.
 - Om du vill identifiera en större miljö kan du dela identifieringen och skapa flera projekt. [Läs mer](how-to-scale-assessment.md). Azure Migrate stöder upp till 20 projekt per prenumeration.
 - Azure Migrate stöder endast hanterade diskar för migreringsutvärdering.
-- Du kan endast skapa ett Azure Migrate-projekt i regionen västra centrala USA. Detta påverkar inte din möjlighet att planera migrering till valfri Azure-målplats. Platsen för ett migreringsprojekt används endast för att lagra metadata som identifieras från den lokala miljön. [Läs mer](https://docs.microsoft.com/azure/migrate/resources-faq#discovery-and-assessment) om metadata som samlas in av Azure Migrate. Insamlade metadata lagras i en av regionerna i den valda [Azure-geografin](https://azure.microsoft.com/global-infrastructure/geographies/):
+-  Du kan endast skapa ett Azure Migrate-projekt i regionen västra centrala USA. Du kan dock fortfarande planera en migrering till valfri Azure-plats.
+    - Endast metadata som identifieras från den lokala miljön lagras i migreringsprojektregionen.
+    - Metadata lagras i en av regionerna i geografin: USA, västra centrala/USA, östra.
+    - Om du använder beroendevisualisering med en Log Analytics-arbetsyta skapas den i samma region som projektet. 
 
-**Geografi** | **Regioner**
---- | ---
-USA | USA, västra centrala, USA, östra
 
 ## <a name="what-do-i-need-to-pay-for"></a>Vad måste jag betala för?
 

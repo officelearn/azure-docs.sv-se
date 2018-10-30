@@ -15,12 +15,12 @@ ms.topic: quickstart
 ms.date: 10/09/2018
 ms.author: astay;cephalin;kraigb
 ms.custom: mvc
-ms.openlocfilehash: 71cbf0bb31a72e3b257f25c159d9d9eea31dbfbb
-ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
+ms.openlocfilehash: a29f0f4be6286f8acf367a3ea0b4b0e6b31e7d98
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48901626"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49406474"
 ---
 # <a name="configure-your-python-app-for-the-azure-app-service-on-linux"></a>Konfigurera din Python-app för Azure App Service i Linux
 
@@ -74,10 +74,16 @@ Om din huvudappmodul finns i en annan fil använder du ett annat namn för appob
 
 ### <a name="custom-startup-command"></a>Anpassat startkommando
 
-Du kan styra containerns startbeteende genom att ange ett anpassat Gunicorn-startkommando. Om du till exempel har en Flask-app vars huvudmodul är *hello.py* och Flask-appobjektet heter `myapp` blir kommandot följande:
+Du kan styra containerns startbeteende genom att ange ett anpassat Gunicorn-startkommando. Om du till exempel har en Flask-app vars huvudmodul är *hello.py* och Flask-appobjektet i den filen heter `myapp` blir kommandot följande:
 
 ```bash
 gunicorn --bind=0.0.0.0 --timeout 600 hello:myapp
+```
+
+Om din huvudmodul är i en undermapp, till exempel `website`, anger du den mappen med argumentet `--chdir`:
+
+```bash
+gunicorn --bind=0.0.0.0 --timeout 600 --chdir website hello:myapp
 ```
 
 Du kan även lägga till ytterligare argument för Gunicorn till kommandot, till exempel `--workers=4`. Mer information finns i [Köra Gunicorn](http://docs.gunicorn.org/en/stable/run.html) (docs.gunicorn.org).
@@ -105,9 +111,10 @@ Om App Service inte hittar något anpassat kommando, någon Django-app eller nå
 
 - **Du ser standardappen när du har distribuerat din egen appkod.**  Standardappen visas eftersom du antingen inte faktiskt har distribuerat din kod till App Service eller för att App Service inte kunde hitta din appkod och körde standardappen i stället.
   - Starta om App Service, vänta 15–20 sekunder och kontrollera appen igen.
-  - Använd SSH- eller Kudu-konsolen för att ansluta direkt till App Service och kontrollera att dina filer finns under *site/wwwroot*. Om filerna inte finns granskar du din distributionsprocess och distribuerar appen på nytt.
+  - Se till att du använder App Service för Linux i stället för en Windows-baserad instans. Från Azure-CLI kör du kommandot `az webapp show --resource-group <resource_group_name> --name <app_service_name> --query kind`. Byt ut `<resource_group_name>` och `<app_service_name>` därefter. Du bör se `app,linux` som utdata; annars återskapar du App Service och väljer Linux.
+    - Använd SSH- eller Kudu-konsolen för att ansluta direkt till App Service och kontrollera att dina filer finns under *site/wwwroot*. Om filerna inte finns granskar du din distributionsprocess och distribuerar appen på nytt.
   - Om filerna finns kunde App Service inte identifiera din specifika startfil. Kontrollera att din app är strukturerad på det sätt som App Service förväntar sig för [Django](#django-app) eller [Flask](#flask-app), eller använd ett [anpassat startkommando](#custom-startup-command).
-
+  
 - **Du ser meddelandet ”Service Unavailable” (Tjänsten är ej tillgänglig) i webbläsaren.** Webbläsaren nådde tidsgränsen i väntan på svar från App Service, vilket indikerar att App Service startade Gunicorn-servern, men de argument som specificerar appkoden är felaktiga.
   - Uppdatera webbläsaren, särskilt om du använder de lägsta prisnivåerna i din App Service-plan. Till exempel kan appen ta längre tid att starta om du använder de kostnadsfria nivåerna och blir tillgänglig när du uppdaterar webbläsaren.
   - Kontrollera att din app är strukturerad på det sätt som App Service förväntar sig för [Django](#django-app) eller [Flask](#flask-app), eller använd ett [anpassat startkommando](#custom-startup-command).

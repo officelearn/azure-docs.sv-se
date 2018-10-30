@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 09/18/2018
 ms.author: zachal
 ms.custom: mvc
-ms.openlocfilehash: bc1b52b97897cb1c635fb16e6ef9692de1ca8a44
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.openlocfilehash: 6046781f59b64dcec4769686a2acd710c7b68965
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49167264"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49987315"
 ---
 # <a name="manage-windows-updates-by-using-azure-automation"></a>Hantera Windows-uppdateringar med hjälp av Azure Automation
 
@@ -90,7 +90,7 @@ Det finns olika aviseringsvillkor som måste definieras för varje typ av aviser
 
 #### <a name="log-analytics-query-alert"></a>Log Analytics-frågeavisering
 
-Du kan skapa en avisering baserad på en Log Analytics-fråga för lyckade distributioner. För misslyckade distributioner kan du använda stegen i [Runbook-aviseringen](#runbook-alert) och få aviseringar när något går fel med den huvud-runbook som initierar distributionen av uppdateringar. Du kan skriva en anpassad fråga för ytterligare aviseringar och omfattar många olika scenarier.
+Du kan skapa en avisering baserad på en Log Analytics-fråga för lyckade distributioner. För misslyckade distributioner kan du använda stegen för [Runbook-aviseringen](#runbook-alert) och få aviseringar när något går fel med den huvud-runbook som orkestrerar distributionen av uppdateringar. Du kan skriva en anpassad fråga för ytterligare aviseringar och omfattar många olika scenarier.
 
 I Azure Portal går du till **Övervaka**, och väljer sedan **Skapa avisering**.
 
@@ -194,6 +194,9 @@ När du är klar med att konfigurera schemat väljer du **Skapa**.
 ![Inställningsfönster för uppdateringsschema](./media/automation-tutorial-update-management/manageupdates-schedule-win.png)
 
 Du kommer tillbaka till statusinstrumentpanelen. Välj **Schemalagda uppdateringsdistributioner** om du vill visa distributionsschemat du har skapat.
+
+> [!NOTE]
+> Uppdateringshantering har stöd för distribution av förstapartsuppdateringar och förnedladdning av korrigeringar. Detta kräver ändringar på de system som korrigeras. Information om hur du konfigurerar dessa inställningar på systemet finns i avsnittet om [support för förstapart och förnedladdning](automation-update-management.md#firstparty-predownload).
 
 ## <a name="view-results-of-an-update-deployment"></a>Visa resultat för en uppdateringsdistribution
 

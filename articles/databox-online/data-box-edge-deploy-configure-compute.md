@@ -6,21 +6,21 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 10/08/2018
+ms.date: 10/19/2018
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to configure compute on Data Box Edge so I can use it to transform the data before sending it to Azure.
-ms.openlocfilehash: 4729e08399132243543c6f4e1cadd537d185e9e3
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.openlocfilehash: ba77fc4596d9bb245b3cea2538804b1816e9ad14
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49166261"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49466980"
 ---
 # <a name="tutorial-transform-data-with-azure-data-box-edge-preview"></a>Självstudie: Transformera data med Azure Data Box Edge (förhandsversion)
 
 I den här kursen beskrivs hur du konfigurerar en beräkningsroll på Data Box Edge. När beräkningsrollen har konfigurerats kan Data Box Edge transformera data innan de skickas till Azure.
 
-Den här proceduren kan ta upp till 30-45 minuter att slutföra. 
+Den här proceduren kan ta upp till 30-45 minuter att slutföra.
 
 I den här guiden får du lära dig att:
 
@@ -31,7 +31,7 @@ I den här guiden får du lära dig att:
 > * Verifiera datatransformering och överföring
 
 > [!IMPORTANT]
-> Data Box Edge är i förhandsversion. Granska [Azures användningsvillkor för förhandsversionen](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) innan du beställer och distribuerar den här lösningen. 
+> Data Box Edge är i förhandsversion. Granska [Azures användningsvillkor för förhandsversionen](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) innan du beställer och distribuerar den här lösningen.
  
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
@@ -48,7 +48,8 @@ Detaljerade instruktioner finns i [Skapa en IoT Hub](https://docs.microsoft.com/
 
 ![Skapa IoT Hub-resurs](./media/data-box-edge-deploy-configure-compute/create-iothub-resource-1.png)
 
-När Edge-beräkningsrollen inte har konfigurerats gäller följande: 
+När Edge-beräkningsrollen inte har konfigurerats gäller följande:
+
 - IoT Hub-resursen har inga IoT-enheter eller IoT Edge-enheter.
 - Du kan inte skapa lokala Edge-resurser. När du lägger till en resurs är alternativet att skapa en lokal resurs för Edge-beräkning inte aktiverat.
 
@@ -91,12 +92,12 @@ Konfigurerar beräkningsrollen på enheten genom att göra följande.
 
     ![Konfigurera beräkningsroll](./media/data-box-edge-deploy-configure-compute/setup-compute-8.png) 
 
-Men det finns inga anpassade moduler på den här Edge-enheten. Nu kan du lägga till en anpassad modul på den här enheten.
+Men det finns inga anpassade moduler på den här Edge-enheten. Nu kan du lägga till en anpassad modul på den här enheten. Om du vill veta hur du skapar en anpassad modul går du till [Utveckla en C#-modul för Data Box Edge](data-box-edge-create-iot-edge-module.md).
 
 
 ## <a name="add-a-custom-module"></a>Lägga till en anpassad modul
 
-I det här avsnittet lägger du till en anpassad modul på IoT Edge-enheten. 
+I det här avsnittet lägger du till en anpassad modul till den IoT Edge-enhet som du skapade i [Utveckla en C#-modul för Data Box Edge](data-box-edge-create-iot-edge-module.md). 
 
 I den här proceduren används ett exempel där den anpassade modulen som används tar filer från en lokal resurs på Edge-enheten och flyttar dem till en molnresurs på enheten. Molnresursen flyttar sedan filerna till Azure-lagringskontot som associeras med molnresursen. 
 
@@ -133,11 +134,26 @@ I den här proceduren används ett exempel där den anpassade modulen som använ
 
         ![Lägga till anpassad modul](./media/data-box-edge-deploy-configure-compute/add-a-custom-module-6.png) 
  
-    2. Ange inställningarna för den anpassade IoT Edge-modulen. Ange **namnet** på din modul och **URI för avbildning**. 
+    2. Ange inställningarna för den anpassade IoT Edge-modulen. Ange modulens **Namn** och **bild-URI** för motsvarande containeravbildning. 
     
         ![Lägga till anpassad modul](./media/data-box-edge-deploy-configure-compute/add-a-custom-module-7.png) 
 
-    3. I **Alternativ för att skapa container** anger du de lokala monteringspunkter för de Edge-moduler som kopierades i de föregående stegen för molnresursen och den lokala resursen (viktig att använda dessa vägar i stället för att skapa nya). Dessa resurser mappas till motsvarande containermonteringspunkter. Ange också miljövariabler här för din modul.
+    3. I **Alternativ för att skapa container** anger du de lokala monteringspunkter för de Edge-moduler som kopierades i de föregående stegen för molnresursen och den lokala resursen (viktig att använda dessa vägar i stället för att skapa nya). De lokala monteringspunkterna mappas till motsvarande **InputFolderPath** och **OutputFolderPath** som du angav i modulen när du [uppdaterade modulen med anpassad kod](data-box-edge-create-iot-edge-module.md#update-the-module-with-custom-code). 
+    
+        Du kan kopiera och klistra in det exempel som visas nedan i dina **alternativ för att skapa container**: 
+        
+        ```
+        {
+         "HostConfig": {
+          "Binds": [
+           "/home/hcsshares/mysmblocalshare:/home/LocalShare",
+           "/home/hcsshares/mysmbshare1:/home/CloudShare"
+           ]
+         }
+        }
+        ```
+
+        Ange också miljövariabler här för din modul.
 
         ![Lägga till anpassad modul](./media/data-box-edge-deploy-configure-compute/add-a-custom-module-8.png) 
  
@@ -146,6 +162,8 @@ I den här proceduren används ett exempel där den anpassade modulen som använ
         ![Lägga till anpassad modul](./media/data-box-edge-deploy-configure-compute/add-a-custom-module-9.png) 
  
 6.  Under **Ange rutter** anger du rutter mellan moduler. I det här fallet anger du namnet på den lokala resurs som skickar data till molnresursen. Klicka på **Nästa**.
+
+    Du kan ersätta vägen med följande vägsträng:       "route": "FROM /* WHERE topic = 'mysmblocalshare' INTO BrokeredEndpoint(\"/modules/filemovemodule/inputs/input1\")"
 
     ![Lägga till anpassad modul](./media/data-box-edge-deploy-configure-compute/add-a-custom-module-10.png) 
  

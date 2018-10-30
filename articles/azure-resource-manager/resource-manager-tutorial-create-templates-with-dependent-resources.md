@@ -10,15 +10,15 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 10/09/2018
+ms.date: 10/19/2018
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 50f1c81f08787181de2fe3a9f6fb97a96a2bd882
-ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
+ms.openlocfilehash: 5e198310dd18cc8574b5510b9318ff4badaffca3
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49114320"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49646321"
 ---
 # <a name="tutorial-create-azure-resource-manager-templates-with-dependent-resources"></a>Självstudie: Skapa Azure Resource Manager-mallar med beroende resurser
 
@@ -29,7 +29,7 @@ I den här självstudien skapar du ett lagringskonto, en virtuell dator, ett vir
 Den här självstudien omfattar följande uppgifter:
 
 > [!div class="checklist"]
-> * Förbered nyckelvalvet
+> * Konfigurera en säker miljö
 > * Öppna en snabbstartsmall
 > * Utforska mallen
 > * Redigera parameterfilen
@@ -42,77 +42,12 @@ Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](ht
 För att kunna följa stegen i den här artikeln behöver du:
 
 * [Visual Studio Code](https://code.visualstudio.com/) med verktygstillägget för Resource Manager.  Se [Installera tillägget](./resource-manager-quickstart-create-templates-use-visual-studio-code.md#prerequisites)
-
-## <a name="prepare-key-vault"></a>Förbereda nyckelvalv
-
-För att förhindra spray-attacker med lösenord rekommenderar vi att använda ett automatiskt genererat lösenord för administratörskontot för den virtuella datorn och använda nyckelvalv för att lagra lösenordet. Följande procedur skapar ett nyckelvalv och en hemlighet för att lagra lösenordet. Även de behörigheter som behövs för malldistribution konfigureras för åtkomst till hemligheten som lagras i nyckelvalvet. Ytterligare åtkomstprinciper behövs om nyckelvalvet finns under en annan Azure-prenumeration. Mer information finns i [Använd Azure Key Vault för att skicka säkra parametervärden under distributionen](./resource-manager-keyvault-parameter.md).
-
-1. Logga in på [Azure Cloud Shell](https://shell.azure.com).
-2. Byt till den miljö du föredrar, antingen **PowerShell** eller **Bash** högst upp till vänster.
-3. Kör följande kommando för Azure PowerShell eller Azure CLI.  
+* För att förhindra spray-attacker med lösenord genererar du ett lösenord för den virtuella datorns administratörskonto. Här är ett exempel:
 
     ```azurecli-interactive
-    keyVaultName='<your-unique-vault-name>'
-    resourceGroupName='<your-resource-group-name>'
-    location='Central US'
-    userPrincipalName='<your-email-address-associated-with-your-subscription>'
-    
-    # Create a resource group
-    az group create --name $resourceGroupName --location $location
-    
-    # Create a Key Vault
-    keyVault=$(az keyvault create \
-      --name $keyVaultName \
-      --resource-group $resourceGroupName \
-      --location $location \
-      --enabled-for-template-deployment true)
-    keyVaultId=$(echo $keyVault | jq -r '.id')
-    az keyvault set-policy --upn $userPrincipalName --name $keyVaultName --secret-permissions set delete get list
-
-    # Create a secret
-    password=$(openssl rand -base64 32)
-    az keyvault secret set --vault-name $keyVaultName --name 'vmAdminPassword' --value $password
-    
-    # Print the useful property values
-    echo "You need the following values for the virtual machine deployment:"
-    echo "Resource group name is: $resourceGroupName."
-    echo "The admin password is: $password."
-    echo "The Key Vault resource ID is: $keyVaultId."
+    openssl rand -base64 32
     ```
-
-    ```azurepowershell-interactive
-    $keyVaultName = "<your-unique-vault-name>"
-    $resourceGroupName="<your-resource-group-name>"
-    $location='Central US'
-    $userPrincipalName="<your-email-address-associated-with-your-subscription>"
-    
-    # Create a resource group
-    New-AzureRmResourceGroup -Name $resourceGroupName -Location $location
-        
-    # Create a Key Vault
-    $keyVault = New-AzureRmKeyVault `
-      -VaultName $keyVaultName `
-      -resourceGroupName $resourceGroupName `
-      -Location $location `
-      -EnabledForTemplateDeployment
-    Set-AzureRmKeyVaultAccessPolicy -VaultName $keyVaultName -UserPrincipalName $userPrincipalName -PermissionsToSecrets set,delete,get,list
-      
-    # Create a secret
-    $password = openssl rand -base64 32
-    
-    $secretValue = ConvertTo-SecureString $password -AsPlainText -Force
-    Set-AzureKeyVaultSecret -VaultName $keyVaultName -Name "vmAdminPassword" -SecretValue $secretValue
-    
-    # Print the useful property values
-    echo "You need the following values for the virtual machine deployment:"
-    echo "Resource group name is: $resourceGroupName."
-    echo "The admin password is: $password."
-    echo "The Key Vault resource ID is: " $keyVault.ResourceID
-    ```
-4. Anteckna utdatavärdena. Du behöver dem senare under kursen
-
-> [!NOTE]
-> Varje Azure-tjänst har specifika lösenordskrav. Du kan till exempel hitta kraven för den virtuella Azure-datorn i Vad är lösenordskraven när du skapar en virtuell dator?
+    Azure Key Vault är utformat för att skydda kryptografiska nycklar och andra hemligheter. Mer information finns i [Självstudie: Integrera Azure Key Vault vid distribution av Resource Manager-mall](./resource-manager-tutorial-use-key-vault.md). Vi rekommenderar även att du uppdaterar ditt lösenord var tredje månad.
 
 ## <a name="open-a-quickstart-template"></a>Öppna en snabbstartsmall
 
@@ -126,7 +61,6 @@ Azure-snabbstartsmallar är en lagringsplats för Resource Manager-mallar. I st�
     ```
 3. Välj **Öppna** för att öppna filen.
 4. Välj **Arkiv**>**Spara som** för att spara en kopia av filen till den lokala datorn med namnet **azuredeploy.json**.
-5. Upprepa steg 1–4 för att öppna **https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-simple-windows/azuredeploy.parameters.json** följande URL och spara sedan filen som **azuredeploy.parameters.json**.
 
 ## <a name="explore-the-template"></a>Utforska mallen
 
@@ -170,44 +104,16 @@ Följande diagram illustrerar resurserna och beroendeinformation för den här m
 
 Genom att ange beroendena distribuerar Resource Manager effektivt lösningen. Den distribuerar lagringskontot, en offentlig IP-adress och ett virtuellt nätverk parallellt eftersom de inte har några beroenden. När den offentliga IP-adressen och det virtuella nätverket har distribuerats skapas ett nätverksgränssnitt. När alla andra resurser har distribuerats så distribuerar Resource Manager den virtuella datorn.
 
-## <a name="edit-the-parameters-file"></a>Redigera parameterfilen
-
-Du behöver inte göra några ändringar i mallfilen. Men du måste ändra parameterfilen för att hämta administratörslösenordet från nyckelvalvet.
-
-1. Öppna **azuredeploy.parameters.json** i Visual Studio Code om den inte är öppen.
-2. Uppdatera parametern **adminPassword** till:
-
-    ```json
-    "adminPassword": {
-        "reference": {
-            "keyVault": {
-            "id": "/subscriptions/<SubscriptionID>/resourceGroups/mykeyvaultdeploymentrg/providers/Microsoft.KeyVault/vaults/<KeyVaultName>"
-            },
-            "secretName": "vmAdminPassword"
-        }
-    },
-    ```
-    Ersätt **ID:t** med resurs-ID:t för nyckelvalvet du skapade i föregående procedur. Det är en av utdata. 
-
-    ![integrera key vault och parameterfilen för Resource Manager-malldistribution av virtuell dator](./media/resource-manager-tutorial-use-key-vault/resource-manager-tutorial-create-vm-parameters-file.png)
-3. Ge värden till:
-
-    - **adminUsername**: namnge administratörskontot för den virtuella datorn.
-    - **dnsLabelPrefix**: namnge prefixet dnsLablePrefix.
-4. Spara ändringarna.
-
 ## <a name="deploy-the-template"></a>Distribuera mallen
 
 Det finns många metoder för att distribuera mallar.  I den här självstudien använder du Cloud Shell från Azure-portalen.
 
-1. Logga in på [Cloud Shell](https://shell.azure.com). Du kan även logga in på [Azure-portalen](https://portal.azure.com) och välja **Cloud Shell** högst upp till höger enligt följande bild:
-
-    ![Azure portal Cloud shell](./media/resource-manager-tutorial-create-templates-with-dependent-resources/azure-portal-cloud-shell.png)
+1. Logga in på [Cloud Shell](https://shell.azure.com). 
 2. Välj **PowerShell** högst upp till vänster i Cloud Shell och välj sedan **Bekräfta**.  Du använder PowerShell i den här självstudien.
 3. Välj **Ladda upp fil** från Cloud Shell:
 
     ![Azure portal Cloud shell upload file](./media/resource-manager-tutorial-create-templates-with-dependent-resources/azure-portal-cloud-shell-upload-file.png)
-4. Välj de filer som du sparade tidigare i självstudien. Standardnamnet är **azuredeploy.json** och **azuredeploy.paraemters.json**.  Om du har filer med samma namn kommer de gamla filerna att skrivas över utan något meddelande.
+4. Välj den mall som du sparade tidigare i självstudien. Standardnamnet är **azuredeploy.json**.  Om du har en fil med samma namn skrivs den gamla filen över utan något meddelande.
 5. Från Cloud Shell kör du följande kommando för att kontrollera att filen har laddats upp. 
 
     ```bash
@@ -222,22 +128,28 @@ Det finns många metoder för att distribuera mallar.  I den här självstudien 
 
     ```bash
     cat azuredeploy.json
-    cat azuredeploy.parameters.json
     ```
-7. Från Cloud Shell kör du följande PowerShell-kommandon. Exempelskriptet använder samma resursgrupp som skapats för nyckelvalvet. Om du använder samma resursgrupp blir det enklare att rensa resurserna.
+7. Från Cloud Shell kör du följande PowerShell-kommandon. För att förbättra säkerheten bör du använda ett genererat lösenord för den virtuella datorns administratörskonto. Se [Förutsättningar](#prerequisites).
 
-    ```powershell
-    $resourceGroupName = "<Enter the resource group name>"
-    $deploymentName = "<Enter a deployment name>"
+    ```azurepowershell
+    $deploymentName = Read-Host -Prompt "Enter the name for this deployment"
+    $resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
+    $adminUsername = Read-Host -Prompt "Enter the virtual machine admin username"
+    $adminPassword = Read-Host -Prompt "Enter the admin password"
+    $dnsLablePrefix = Read-Host -Prompt "Enter the DNS label prefix"
 
+    New-AzureRmResourceGroup -Name $resourceGroupName -Location $location
     New-AzureRmResourceGroupDeployment -Name $deploymentName `
         -ResourceGroupName $resourceGroupName `
-        -TemplateFile azuredeploy.json `
-        -TemplateparameterFile azuredeploy.parameters.json
+        -adminUsername = $adminUsername `
+        -adminPassword = $adminPassword `
+        -dnsLabelPrefix = $dnsLabelPrefix `
+        -TemplateFile azuredeploy.json 
     ```
 8. Kör följande PowerShell-kommando för att visa den nyligen skapade virtuella datorn:
 
-    ```powershell
+    ```azurepowershell
+    $resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
     Get-AzureRmVM -Name SimpleWinVM -ResourceGroupName $resourceGroupName
     ```
 

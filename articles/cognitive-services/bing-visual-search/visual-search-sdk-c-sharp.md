@@ -10,12 +10,12 @@ ms.component: bing-web-search
 ms.topic: quickstart
 ms.date: 05/16/2018
 ms.author: v-gedod
-ms.openlocfilehash: 938768ad366611b8651adc3d554c44c16a3830ef
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 4cb6e79b563ac0172f93b3a721b79c230a96a1d5
+ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47224536"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49457994"
 ---
 # <a name="quickstart-bing-visual-search-sdk-c"></a>Snabbstart: SDK för Visuell sökning i Bing, C#
 
@@ -25,7 +25,7 @@ SDK:n för Visuell sökning i Bing använder funktionen i REST API:n för webbeg
 Kodscenarier dokumenteras under följande rubriker:
 * [Klient för Visuell sökning](#client)
 * [Slutfört konsolprogram](#complete)
-* [Bild av binär post med cropArea](#binary-crop)
+* [Avbildning av binärt inlägg med cropArea](#binary-crop)
 * [KnowledgeRequest-parameter](#knowledge-req)
 * [Taggar, åtgärder och actionType](#tags-actions)
 * [Antal taggar, antal åtgärder och första actionType](#num-tags-actions)
@@ -204,9 +204,9 @@ Bing-sökexemplen visar olika funktioner i SDK:n.  Lägg till följande funktion
 
 <a name="binary-crop"></a>
 
-## <a name="image-binary-post-with-croparea"></a>Bild av binär post med cropArea
+## <a name="image-binary-post-with-croparea"></a>Avbildning av binärt inlägg med cropArea
 
-Följande kod skickar en binär bild i brödtexten i POST-begärandet, tillsammans med ett cropArea-objekt.  Därefter skrivs imageInsightsToken, antalet taggar, antalet åtgärder och den första actionType ut.
+Följande kod skickar en binäravbildning i brödtexten i post-begäran, tillsammans med ett cropArea-objekt.  Därefter skrivs imageInsightsToken, antalet taggar, antalet åtgärder och den första actionType ut.
 
 ```csharp
 public static void VisualSearchImageBinaryWithCropArea(string subscriptionKey)
@@ -280,7 +280,7 @@ public static void VisualSearchImageBinaryWithCropArea(string subscriptionKey)
 
 ## <a name="knowledgerequest-parameter"></a>KnowledgeRequest-parameter
 
-Följande kod skickar en bild-URL i parametern `knowledgeRequest`, tillsammans med ett \"site:www.bing.com\"-filter.  Därefter skrivs `imageInsightsToken`, antalet taggar, antalet åtgärder och den första actionType ut.
+Följande kod skickar en avbildnings-URL i parametern `knowledgeRequest` tillsammans med ett \"site:pinterest.com\"-filter.  Därefter skrivs `imageInsightsToken`, antalet taggar, antalet åtgärder och den första actionType ut.
 
 ```csharp
 public static void VisualSearchUrlWithFilters(string subscriptionKey)
@@ -294,7 +294,7 @@ public static void VisualSearchUrlWithFilters(string subscriptionKey)
         ImageInfo ImageInfo = new ImageInfo(url: ImageUrl);
 
         // Optional filters inside the knowledgeRequest will restrict similar products and images to certain domains
-        Filters Filters = new Filters(site: "www.bing.com");
+        Filters Filters = new Filters(site: "pinterest.com");
         KnowledgeRequest KnowledgeRequest = new KnowledgeRequest(filters: Filters);
 
         // An image binary is not necessary here, as the image is specified via URL
@@ -355,7 +355,7 @@ public static void VisualSearchUrlWithFilters(string subscriptionKey)
 
 ## <a name="tags-actions-and-actiontype"></a>Taggar, åtgärder och actionType
 
-Följande kod skickar en bildinsiktstoken i parametern knowledgeRequest tillsammans med ett cropArea-objekt.  Därefter skrivs imageInsightsToken, antalet taggar, antalet åtgärder och den första actionType ut.
+Följande kod skickar en avbildningsinsiktstoken i parametern knowledgeRequest tillsammans med ett cropArea-objekt.  Därefter skrivs imageInsightsToken, antalet taggar, antalet åtgärder och den första actionType ut.
 
 ```csharp
 public static void VisualSearchInsightsTokenWithCropArea(string subscriptionKey)
@@ -365,7 +365,7 @@ public static void VisualSearchInsightsTokenWithCropArea(string subscriptionKey)
     try
     {
         // The image can be specified via an insights token, in the ImageInfo object
-        var ImageInsightsToken = "bcid_113F29C079F18F385732D8046EC80145*ccid_oV/QcH95*mid_687689FAFA449B35BC11A1AE6CEAB6F9A9B53708*thid_R.113F29C079F18F385732D8046EC80145";
+        var ImageInsightsToken = "bcid_CA6BDBEA28D57D52E0B9D4B254F1DF0D*ccid_6J+8V1zi*thid_R.CA6BDBEA28D57D52E0B9D4B254F1DF0D";
 
         // An optional crop area can be passed in to define a region of interest in the image
         CropArea CropArea = new CropArea(top: (float)0.1, bottom: (float)0.5, left: (float)0.1, right: (float)0.9);
@@ -453,11 +453,11 @@ public static void VisualSearchUrlWithJson(string subscriptionKey)
         //     },
         //     "knowledgeRequest": {
         //        "filters": {
-        //            "site": "www.bing.com"
+        //            "site": "pinterest.com"
         //        }              
         //     }
 
-        var VisualSearchRequestJSON = "{\"imageInfo\":{\"url\":\"https://images.unsplash.com/photo-1512546148165-e50d714a565a?w=600&q=80\",\"cropArea\":{\"top\":0.1,\"bottom\":0.5,\"left\":0.1,\"right\":0.9}},\"knowledgeRequest\":{\"filters\":{\"site\":\"www.bing.com\"}}}";
+        var VisualSearchRequestJSON = "{\"imageInfo\":{\"url\":\"https://images.unsplash.com/photo-1512546148165-e50d714a565a?w=600&q=80\",\"cropArea\":{\"top\":0.1,\"bottom\":0.5,\"left\":0.1,\"right\":0.9}},\"knowledgeRequest\":{\"filters\":{\"site\":\"pinterest.com\"}}}";
 
         // An image binary is not necessary here, as the image is specified by URL in JSON text
         var visualSearchResults = client.Images.VisualSearchMethodAsync(knowledgeRequest: VisualSearchRequestJSON).Result;

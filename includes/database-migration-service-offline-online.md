@@ -1,0 +1,2 @@
+> [!TIP]
+> När du migrerar databaser till Azure med hjälp av Azure Database Migration Service kan du göra en *offline*- eller en *online*migrering. Med en offlinemigrering startar programmets frånkopplade tillstånd när migreringen startar. Med onlinemigrering begränsas det frånkopplade tillståndet till tiden för att genomföra snabb migrering vid slutet av migreringen. Vi rekommenderar att du testar en offlinemigrering för att avgöra om det frånkopplade tillståndet är godtagbart. Om det inte är det kan du utföra en onlinemigrering.

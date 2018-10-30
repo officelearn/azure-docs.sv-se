@@ -1,25 +1,31 @@
 ---
-title: 'Snabbstart: Go – Uppdatera kunskapsbas – QnA Maker'
+title: 'Snabbstart: Uppdatera kunskapsbas – REST, Go – QnA Maker'
 titleSuffix: Azure Cognitive Services
-description: Uppdatera en kunskapsbas i Go för QnA Maker.
+description: Den här REST-baserade snabbstarten visar hur du uppdaterar ditt exempel på en QnA Maker-kunskapsbas (KB) programmatiskt. Via JSON-definitionen som du använder för att uppdatera en KB kan du lägga till, ändra eller ta bort frågor och svar-par.
 services: cognitive-services
 author: diberry
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: qna-maker
 ms.topic: quickstart
-ms.date: 09/12/2018
+ms.date: 10/19/2018
 ms.author: diberry
-ms.openlocfilehash: b447b77eb1fdd9135f7d15a791414d166194b2dd
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: 5275184994dce446a7ca572a049f3860c4782139
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49389317"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49646889"
 ---
-# <a name="update-a-knowledge-base"></a>Uppdatera en kunskapsbas
+# <a name="quickstart-update-a-knowledge-base-in-qna-maker-using-go"></a>Snabbstart: Uppdatera en kunskapsbas i QnA Maker med hjälp av Go
 
-Följande kod uppdaterar en befintlig kunskapsbas med hjälp av metoden [Update](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da7600) (Uppdatera).
+Den här snabbstarten går igenom programmatisk uppdatering av en befintlig QnA Maker-kunskapsbas (KB).  Med denna JSON kan du uppdatera en KB genom att lägga till nya datakällor, ändra datakällor eller ta bort datakällor.
+
+Det här API:et motsvarar redigering, och använd sedan knappen för att **spara och öva** i QnA Maker-portalen.
+
+Den här snabbstarten anropar API:er för QnA Maker:
+* [Uppdatera](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da7600) – Modellen för kunskapsbasen har definierats i JSON som skickas i brödtexten i API-begäran. 
+* [Hämta åtgärdsinformation](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/operations_getoperationdetails)
 
 1. Skapa ett nytt Go-projekt i din favoritutvecklingsmiljö.
 2. Lägg till koden nedan.
@@ -191,7 +197,7 @@ Press any key to continue.
 
 ## <a name="get-request-status"></a>Hämta status för begäran
 
-Du kan anropa den metoden [Operation](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/operations_getoperationdetails) (Åtgärd) för att kontrollera status för en begäran om att skapa eller uppdatera en kunskapsbas. Om du vill se hur den här metoden används kan du titta på exempelkoden för metoden [Create](#Create) (Skapa) eller [Update](#Update) (Uppdatera).
+Du kan anropa den metoden [Operation](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/operations_getoperationdetails) (Åtgärd) för att kontrollera status för en begäran om att skapa eller uppdatera en kunskapsbas. Om du vill se hur den här metoden används kan du titta på exempelkoden för snabbstarten [Create](create-new-kb-go.md) (Skapa).
 
 ## <a name="next-steps"></a>Nästa steg
 

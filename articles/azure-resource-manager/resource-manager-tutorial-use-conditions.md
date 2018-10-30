@@ -10,21 +10,21 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 10/02/2018
+ms.date: 10/18/2018
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 216e474f519e57352b017dc3e6bcdd74d48b03de
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.openlocfilehash: 552b39c520396942fa81f963c0cfa1c8c7b47db4
+ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48238654"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49456974"
 ---
 # <a name="tutorial-use-condition-in-azure-resource-manager-templates"></a>Självstudie: Använda villkor i Azure Resource Manager-mallar
 
 Lär dig hur du distribuerar Azure-resurser baserat på villkor. 
 
-Scenariot som används i den här kursen likar den som används i [Självstudie: Skapa Azure Resource Manager-mallar med beroende resurser](./resource-manager-tutorial-create-templates-with-dependent-resources.md). I den självstudien skapar du ett lagringskonto, en virtuell dator, ett virtuellt nätverk och några andra beroende resurser. I stället för att skapa ett nytt lagringskonto låter du användarna välja mellan att skapa ett nytt lagringskonto och använda ett använda ett befintligt. För att uppnå det här målet definierar du en extra parameter. Om värdet för parametern är ”new” (nytt) skapas ett nytt lagringskonto.
+Scenariot som används i den här kursen likar den som används i [Självstudie: Skapa Azure Resource Manager-mallar med beroende resurser](./resource-manager-tutorial-create-templates-with-dependent-resources.md). I den självstudien skapar du en virtuell dator, ett virtuellt nätverk och några andra beroende resurser, inklusive ett lagringskonto. I stället för att skapa ett nytt lagringskonto varje gång låter du användarna välja mellan att skapa ett nytt lagringskonto eller att använda ett befintligt. För att uppnå det här målet definierar du en extra parameter. Om värdet för parametern är ”new” (nytt) skapas ett nytt lagringskonto.
 
 Den här självstudien omfattar följande uppgifter:
 
@@ -59,7 +59,7 @@ Azure-snabbstartsmallar är en lagringsplats för Resource Manager-mallar. I st�
 
 Gör två ändringar av den befintliga mallen:
 
-* Lägg till en parameter som används till att ange ett namn på lagringskontot. Den här parametern ger användaren alternativet att ange namnet på ett befintligt lagringskonto. Den kan också användas som namn på det nya lagringskontot.
+* Lägg till namnparameter för lagringskonto. Användare kan ange antingen ett nytt lagringskontonamn eller ett befintligt lagringskontonamn.
 * Lägg till en ny parameter med namnet **newOrExisting**. Distributionen använder den här parametern för att avgöra var ett nytt lagringskonto ska skapas eller om ett befintligt lagringskonto ska användas.
 
 1. Öppna **azuredeploy.json** i Visual Studio Code.
@@ -72,11 +72,15 @@ Gör två ändringar av den befintliga mallen:
 4. Lägg till följande två parametrar i mallen:
 
     ```json
-    "newOrExisting": {
-      "type": "string"
-    },
     "storageAccountName": {
       "type": "string"
+    },    
+    "newOrExisting": {
+      "type": "string", 
+      "allowedValues": [
+        "new", 
+        "existing"
+      ]
     },
     ```
     Den uppdaterade parameterdefinitionen ser ut så här:
@@ -86,7 +90,7 @@ Gör två ändringar av den befintliga mallen:
 5. Lägg till följande rad i början av lagringskontots definition.
 
     ```json
-    "condition": "[equals(parameters('newOrExisting'),'yes')]",
+    "condition": "[equals(parameters('newOrExisting'),'new')]",
     ```
 
     Villkoret kontrollerar värdet för parametern med namnet **newOrExisting**. Om parametervärdet är **new** (nytt) skapar distributionen lagringskontot.
@@ -94,8 +98,15 @@ Gör två ändringar av den befintliga mallen:
     Den uppdaterade lagringskontodefinitionen ser ut så här:
 
     ![Resource Manager-användningsvillkor](./media/resource-manager-tutorial-use-conditions/resource-manager-tutorial-use-condition-template.png)
+6. Uppdatera **storageUri** med följande värde:
 
-6. Spara ändringarna.
+    ```json
+    "storageUri": "[concat('https://', parameters('storageAccountName'), '.blob.core.windows.net')]"
+    ```
+
+    Den här ändringen är nödvändig när du använder ett befintligt lagringskonto under en annan resursgrupp.
+
+7. Spara ändringarna.
 
 ## <a name="deploy-the-template"></a>Distribuera mallen
 
@@ -103,19 +114,21 @@ Följ instruktionerna i [Distribuera mallen](./resource-manager-tutorial-create-
 
 När du distribuerar mallen med Azure PowerShell måste du ange en extra parameter:
 
-```powershell
-$resourceGroupName = "<Enter the resource group name>"
-$storageAccountName = "Enter the storage account name>"
-$location = "<Enter the Azure location>"
-$vmAdmin = "<Enter the admin username>"
-$vmPassword = "<Enter the password>"
-$dnsLabelPrefix = "<Enter the prefix>"
+```azurepowershell
+$resourceGroupName = Read-Host -Prompt "Enter the resource group name"
+$storageAccountName = Read-Host -Prompt "Enter the storage account name"
+$newOrExisting = Read-Host -Prompt "Create new or use existing (Enter new or existing)"
+$location = Read-Host -Prompt "Enter the Azure location (i.e. centralus)"
+$vmAdmin = Read-Host -Prompt "Enter the admin username"
+$vmPassword = Read-Host -Prompt "Enter the admin password"
+$dnsLabelPrefix = Read-Host -Prompt "Enter the DNS Label prefix"
 
 New-AzureRmResourceGroup -Name $resourceGroupName -Location $location
 $vmPW = ConvertTo-SecureString -String $vmPassword -AsPlainText -Force
-New-AzureRmResourceGroupDeployment -Name mydeployment0710 -ResourceGroupName $resourceGroupName `
-    -TemplateFile azuredeploy.json -adminUsername $vmAdmin -adminPassword $vmPW `
-    -dnsLabelPrefix $dnsLabelPrefix -storageAccountName $storageAccountName -newOrExisting "new"
+New-AzureRmResourceGroupDeployment -Name mydeployment1018 -ResourceGroupName $resourceGroupName `
+    -adminUsername $vmAdmin -adminPassword $vmPW `
+    -dnsLabelPrefix $dnsLabelPrefix -storageAccountName $storageAccountName -newOrExisting $newOrExisting `
+    -TemplateFile azuredeploy.json
 ```
 
 > [!NOTE]

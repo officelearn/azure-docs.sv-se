@@ -1,27 +1,27 @@
 ---
 title: Vad är Azure Active Directory B2C? | Microsoft Docs
-description: Läs mer om hur du kan skapa och hantera programmets inloggningsfunktion med hjälp av Azure Active Directory B2C.
+description: Läs mer om hur du skapar och hanterar programmets inloggningsfunktion med hjälp av Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
 manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: overview
-ms.date: 04/05/2018
+ms.date: 10/23/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 6949ab89cf806818783c86199e6df334e263b046
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: fdb856f92bf790df0065cfc74ce5896f1d10c47b
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37440889"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49954117"
 ---
 # <a name="what-is-azure-active-directory-b2c"></a>Vad är Azure Active Directory B2C?
 
-Azure Active Directory (Azure AD) B2C är en identitetshanteringstjänst som hjälper dig att anpassa och styra hur kunderna registrerar sig, loggar in och hanterar sina profiler när de använder dina program. Detta omfattar program som har utvecklas för bland annat iOS, Android och .NET. Azure AD B2C möjliggör dessa åtgärder samtidigt som kundernas identiteter skyddas.
+Azure Active Directory (Azure AD) B2C är en identitetshanteringstjänst som hjälper dig att anpassa och styra hur kunderna registrerar interagerar med ditt program. Den här interaktionen omfattar registrering, inloggning och hantering av deras profiler när kunder använder dina program. Du har valet med program för iOS, Android och .NET med flera. Azure AD B2C möjliggör dessa åtgärder samtidigt som kundernas identiteter skyddas.
 
-Du kan konfigurera ett program som registrerats med Azure AD B2C att utföra olika åtgärder för identitetshantering. Några exempel är:
+Du konfigurerar ett program som registrerats med Azure AD B2C att utföra många åtgärder för identitetshantering. Några exempel är:
 
 - Göra så att en kund kan registrera sig för att använda ditt registrerade program
 - Göra så att en registrerad kund kan logga in och börja använda programmet
@@ -41,9 +41,9 @@ Du kan konfigurera ett program som registrerats med Azure AD B2C att utföra oli
 
 ### <a name="customer-interaction"></a>Kundinteraktion
 
-Azure AD-B2C stöder [OpenID Connect](https://openid.net/connect/) för alla kundupplevelser. I Azure AD B2C-implementeringen av OpenID Connect initierar ditt program denna användarresa genom att utfärda autentiseringsförfrågningar till Azure AD B2C. Resultatet av begäran är en `id_token`. Den här säkerhetstoken representerar kundens identitet.
+Azure AD-B2C stöder [OpenID Connect](https://openid.net/connect/) för alla kundupplevelser. I Azure AD B2C-implementeringen av OpenID Connect startar ditt program användarresan genom att utfärda autentiseringsbegäranden till Azure AD B2C. Resultatet av begäran är en `id_token`. Den här säkerhetstoken definierar kundens identitet.
 
-Alla program som använder Azure AD B2C måste registreras i en Azure AD B2C-klientorganisation med hjälp av Azure-portalen. Registreringsprocessen samlar in och tilldelar värden till ditt program. Dessa värden inkluderar ett program-ID som unikt identifierar programmet och en omdirigerings-URI som kan användas för att dirigera svar tillbaka till den.
+Alla program som använder Azure AD B2C måste registreras i en Azure AD B2C-klientorganisation med hjälp av Azure-portalen. Registreringsprocessen samlar in och tilldelar värden till ditt program. Dessa värden innefattar ett program-ID som unikt identifierar programmet. Ett omdirigerings-URI definieras som används för att dirigera svar tillbaka till programmet.
 
 Interaktionen för alla program följer ett liknande övergripande mönster:
 
@@ -54,17 +54,17 @@ Interaktionen för alla program följer ett liknande övergripande mönster:
 5. Resursservern verifierar säkerhetstoken för att kontrollera att åtkomst kan beviljas.
 6. Programmet uppdaterar säkerhetstoken med jämna mellanrum.
 
-Anvisningarna kan skilja sig något beroende på vilken typ av program som du utvecklar.
+Dessa steg skiljer sig något beroende på vilken typ av program som du utvecklar.
 
 Azure AD B2C interagerar med identitetsprovidrar, kunder, andra system och den lokala katalogen i sekvens för att slutföra en identitetsuppgift. Exempel: logga in en kund, registrera en ny kund eller återställa ett lösenord. Den underliggande plattformen som upprättar flerpartsförtroende och slutför de här stegen kallas för Identity Experience Framework (Ramverk för identitetsupplevelse). Det här ramverket och en princip (kallas även en användarresa eller en princip för betrott ramverk) definierar explicit aktörerna, åtgärderna, protokollen och sekvensen med de steg som ska slutföras.
 
-Azure AD B2C skyddar mot överbelastningsattacker (DoS) och lösenordsattacker mot dina program på flera olika sätt. Azure AD B2C använder identifierings- och skyddstekniker som SYN-cookies och begränsningar för hastighet och anslutning för att skydda resurser mot DoS-attacker. Skydd ingår också för råstyrkebaserade lösenordsattacker och ordlisteattacker för lösenord.
+Azure AD B2C skyddar mot överbelastningsattacker (DoS) och lösenordsattacker mot dina program. Azure AD B2C använder identifierings- och skyddstekniker som SYN-cookies och begränsningar för hastighet och anslutning för att skydda resurser mot DoS-attacker. Skydd ingår också för råstyrkebaserade lösenordsattacker och ordlisteattacker för lösenord.
 
 #### <a name="built-in-policies"></a>Inbyggda principer
 
 Varje begäran som skickas till Azure AD B2C anger en princip. En princip styr beteendet för hur programmet interagerar med Azure AD B2C. Inbyggda principer är fördefinierade för de vanligaste identitetsuppgifterna, till exempel registrering, inloggning och profilredigering.  Till exempel kan du med en registreringsprincip styra beteenden genom att konfigurera följande inställningar:
 
-- Konton i sociala medier som kunden kan använda för att registrera sig för programmet
+- Konton i sociala medier som kunden använder för att registrera sig för programmet
 - Data som samlas in från kunden, till exempel förnamn eller postnummer
 - Multi-Factor Authentication
 - Utseendet och designen på alla registreringssidor
@@ -72,11 +72,11 @@ Varje begäran som skickas till Azure AD B2C anger en princip. En princip styr b
 
 #### <a name="custom-policies"></a>Anpassade principer 
 
-[Anpassade principer](active-directory-b2c-overview-custom.md) är konfigurationsfiler som definierar beteendet för Identity Experience Framework (Ramverk för identitetsupplevelse) i din Azure AD B2C-klientorganisation. Anpassade principer kan redigeras fritt för att slutföra många uppgifter. En anpassad princip representeras som en eller flera XML-formaterade filer som refererar till varandra i en hierarkisk kedja. 
+[Anpassade principer](active-directory-b2c-overview-custom.md) är konfigurationsfiler som definierar beteendet för [Identity Experience Framework](trustframeworkpolicy.md) (Ramverk för identitetsupplevelse) i din Azure AD B2C-klientorganisation. Anpassade principer kan ändras för att slutföra många uppgifter. En anpassad princip är en eller flera XML-formaterade filer som refererar till varandra i en hierarkisk kedja. 
 
-Flera anpassade principer av olika typer kan användas i Azure AD B2C-klientorganisationen efter behov och kan återanvändas i olika program. Den här flexibiliteten gör att du kan definiera och ändra kundidentitetsupplevelsen med minimala eller inga ändringar i koden. Principer kan användas genom att lägga till en särskild frågeparameter till HTTP-autentiseringsbegäranden.
+Anpassade principer av olika typer används i din Azure AD B2C-klientorganisation efter behov och kan återanvändas i olika program. Den här flexibiliteten gör att du kan definiera och ändra kundidentitetsupplevelsen med minimala eller inga ändringar i koden. Principer används genom att en särskild frågeparameter läggs till i HTTP-autentiseringsbegäranden.
 
-Anpassade principer kan användas till att styra användarresor på följande sätt:
+Anpassade principer används till att styra användarresor på följande sätt:
 
 - Definiera interaktion med API:er för att samla in ytterligare information, verifiera anspråk som skickas in av kunden eller utlösa externa processer.
 - Ändra beteende baserat på anspråk från API:er eller från anspråk i katalogen såsom *migrationStatus*.
@@ -84,23 +84,23 @@ Anpassade principer kan användas till att styra användarresor på följande s�
 
 ### <a name="identity-providers"></a>Identitetsprovidrar
 
-En identitetsprovider är en tjänst som autentiserar kundidentiteter och utfärdar säkerhetstoken. I Azure AD B2C kan du konfigurera ett antal identitetsprovidrar i din klientorganisation, till exempel ett Microsoft-konto, Facebook eller Amazon med flera. 
+En identitetsprovider är en tjänst som autentiserar kundidentiteter och utfärdar säkerhetstoken. I Azure AD B2C konfigurerar du ett antal identitetsprovidrar i din klientorganisation, till exempel ett [Microsoft-konto](active-directory-b2c-setup-msa-app.md), [Facebook](active-directory-b2c-setup-fb-app.md) eller [Amazon](active-directory-b2c-setup-amzn-app.md) med flera. 
 
 Om du vill konfigurera en identitetsprovider i din Azure AD B2C-klientorganisation måste du registrera programidentifieraren eller klientidentifieraren samt lösenordet eller klienthemligheten från det identitetsproviderprogram som du skapar. Den här identifieraren och lösenordet används sedan för att konfigurera ditt program.
 
 ### <a name="user-interface-experience"></a>Upplevelse för användargränssnittet
 
-Merparten av det HTML- och CSS-innehåll som presenteras för kunder kan kontrolleras. Genom att använda funktionen för anpassning av sid-UI kan du anpassa utseendet och känslan för vilken princip som helst. Du kan även hålla varumärke och grafik konsekventa mellan programmet och Azure AD B2C.
+Merparten av det HTML- och CSS-innehåll som presenteras för kunder är kontrollerbart. Genom att använda funktionen för anpassning av sid-UI kan du anpassa utseendet och känslan för vilken princip som helst. Du håller varumärke och grafik konsekventa mellan programmet och Azure AD B2C genom att använda den här anpassningsfunktionen.
 
 Azure AD B2C kör koden i kundens webbläsare och använder en modern metod som kallas Cross-Origin Resource Sharing (CORS, Resursdelning mellan ursprung). Först anger du en URL i en princip med anpassat HTML-innehåll. Azure AD B2C sammanfogar UI-element med HTML-innehåll som läses in från din URL och visar sedan sidan för kunden.
 
-Du kan skicka parametrar till Azure AD B2C i en frågesträng. Genom att skicka parametern till HTML-slutpunkten kan du dynamiskt ändra sidinnehållet. Du kan till exempel ändra bakgrundsbilden på registrerings- eller inloggningssidan för Azure AD B2C baserat på en parameter som du skickar från ditt webb- eller mobilprogram.
+Du skickar parametrar till Azure AD B2C i en frågesträng. Genom att skicka parametern till HTML-slutpunkten ändras sidinnehållet dynamiskt. Till exempel ändrar du bakgrundsbilden på registrerings- eller inloggningssidan för Azure AD B2C baserat på en parameter som du skickar från ditt webb- eller mobilprogram.
 
 ## <a name="how-do-i-get-started-with-azure-ad-b2c"></a>Hur kommer jag igång med Azure AD B2C?
 
 I Azure AD B2C representerar en klientorganisation din organisation och är en katalog med användare. Varje Azure AD B2C-klientorganisation är separat och åtskild från andra Azure AD B2C-klientorganisationer. En klientorganisation innehåller information om de kunder som har registrerat sig för att använda programmet. Exempel: lösenord, profildata och behörigheter.
 
-Du måste länka din Azure AD B2C-klientorganisation till din Azure-prenumeration för att aktivera alla funktioner och betala för användningsavgifter. Om du vill tillåta att Azure AD B2C-kunder loggar in till ditt program måste du registrera programmet i Azure AD B2C-klientorganisation.
+Länka din Azure AD B2C-klientorganisation till din Azure-prenumeration för att aktivera alla funktioner och betala för användningsavgifter. För att tillåta dina kunder att logga in på ditt program registrerar du det i en Azure AD B2C-klientorganisation.
 
 Innan du konfigurerar programmet att använda Azure AD B2C måste du först skapa en Azure AD B2C-klientorganisation och registrera ditt program. För att registrera ditt program slutför du stegen i [Självstudie: Registrera ett program för att aktivera registrering och inloggning med Azure AD B2C](tutorial-register-applications.md).
   
@@ -115,4 +115,4 @@ Om du är utvecklare av ensidesprogram som använder Node.js konfigurerar du pro
 Börja konfigurera ditt program för registrerings- och inloggningsupplevelsen genom att fortsätta till självstudien.
 
 > [!div class="nextstepaction"]
-> [Självstudie: Registrera ett program för att aktivera registrering och inloggning med Azure AD B2C](tutorial-register-applications.md)
+> [Självstudie: Skapar en Azure Active Directory B2C-klientorganisation](tutorial-create-tenant.md)

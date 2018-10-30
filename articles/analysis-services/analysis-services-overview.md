@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: overview
-ms.date: 10/03/2018
+ms.date: 10/18/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: d09fcde90cf182bc8197c579718ecef7c5ce1eed
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
+ms.openlocfilehash: 3cdc4a8a670b5af43e72b38d7a3b6d9aafdac348
+ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49394535"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49429447"
 ---
 # <a name="what-is-azure-analysis-services"></a>Vad är Azure Analysis Services?
 
@@ -81,29 +81,34 @@ Azure Analysis Services stöds i regioner över hela världen. Planer som stöds
 |Södra Brasilien     |    B1, B2, S0, S1, S2, S4, D1     |     1    |
 |Centrala Kanada    |     B1, B2, S0, S1, S2, S4, D1    |     1    |
 |Östra USA     |     B1, B2, S0, S1, S2, S4, D1    |    1     |
-|USA, östra 2     |     B1, B2, S0, S1, S2, S4, D1  <br>S8, S9   |    7<br>1    |
+|USA, östra 2     |     B1, B2, S0, S1, S2, S4, D1   |    7    |
+|USA, östra 2     |     S8, S9   |    1    |
 |Norra centrala USA     |     B1, B2, S0, S1, S2, S4, D1     |    1     |
 |Centrala USA     |    B1, B2, S0, S1, S2, S4, D1     |    1     |
 |Södra centrala USA     |    B1, B2, S0, S1, S2, S4, D1     |    1     |
 |Västra centrala USA   |     B1, B2, S0, S1, S2, S4, D1    |    3     |
-|Västra USA     |    B1, B2, S0, S1, S2, S4, D1  <br>S8, S9   |    7<br>2  |
-|USA, västra 2    |    B1, B2, S0, S1, S2, S4, D1   <br>S8, S9  |    3<br>1     |
+|Västra USA     |    B1, B2, S0, S1, S2, S4, D1    |    7   |
+|Västra USA     |    S8, S9   |    2  |
+|USA, västra 2    |    B1, B2, S0, S1, S2, S4, D1    |    3   |
+|USA, västra 2    |    S8, S9  |    1     |
 
 ### <a name="europe"></a>Europa
 
 |Region  | Planer som stöds | Frågerepliker (endast standardplaner) |
 |---------|---------|:---------:|
 |Norra Europa     |    B1, B2, S0, S1, S2, S4, D1      |    7     |
-|Storbritannien, södra   |    B1, B2, S0, S1, S2, S4, D1      |     1    |
-|Västra Europa     |    B1, B2, S0, S1, S2, S4, D1   <br>S8, S9    |    7<br>1     |
+|Storbritannien, södra     |    B1, B2, S0, S1, S2, S4, D1      |     1    |
+|Västra Europa     |    B1, B2, S0, S1, S2, S4, D1   |    7    |
+|Västra Europa    |   S8, S9  |  1  |
 
 ### <a name="asia-pacific"></a>Asien och stillahavsområdet 
 
 |Region  | Planer som stöds | Frågerepliker (endast standardplaner) |
 |---------|---------|:---------:|
+|Östra Australien     |    B1, B2, S0, S1, S2, S4, D1     |    3     |
+|Östra Australien     |    S8, S9    |    1     |
 |Sydöstra Australien     | B1, B2, S0, S1, S2, S4, D1       |    1     |
-|Östra Australien     |    B1, B2, S0, S1, S2, S4, D1    <br>S8, S9    |    3<br>1     |
-|Östra Japan  |   B1, B2, S0, S1, S2, S4, D1       |    1     |
+|Östra Japan     |   B1, B2, S0, S1, S2, S4, D1       |    1     |
 |Sydostasien     |     B1, B2, S0, S1, S2, S4, S8, S9, D1     |   1      |
 |Indien, västra     |    B1, B2, S0, S1, S2, S4, D1     |    1     |
 
@@ -184,9 +189,11 @@ Mer information om säkerhet i Azure finns på [Microsoft Trust Center](https://
 
 ![BI-utvecklarverktyg](./media/analysis-services-overview/aas-overview-dev-tools.png)
 
-### <a name="sql-server-data-tools-ssdt-for-visual-studio"></a>SQL Server Data Tools (SSDT) för Visual Studio
+### <a name="visual-studio"></a>Visual Studio
 
-Utveckla och distribuera modeller med kostnadsfria [SQL Server Data Tools (SSDT) för Visual Studio](https://msdn.microsoft.com/library/mt204009.aspx). SSDT innehåller Analysis Services-projektmallar som du kommer igång med snabbare. SSDT innehåller nu den moderna Get Data-datakällfrågan och kombinationsfunktioner för 1400-tabellmodeller. Om du är bekant med Hämta data i Power BI Desktop och Excel 2016 vet du redan hur lätt det är att skapa välanpassade datakällfrågor. Microsoft Analysis Services-projekt är också tillgängliga för Visual Studio som en installeringsbar paket-VSIX. [Ladda ned från Marketplace](https://marketplace.visualstudio.com/items?itemName=ProBITools.MicrosoftAnalysisServicesModelingProjects).
+Utveckla och distribuera modeller med kostnadsfria [SQL Server Data Tools (SSDT) för Visual Studio](https://msdn.microsoft.com/library/mt204009.aspx). SSDT innehåller Analysis Services-projektmallar som du kommer igång med snabbare. SSDT innehåller nu den moderna Get Data-datakällfrågan och kombinationsfunktioner för 1400-tabellmodeller. Om du är bekant med Hämta data i Power BI Desktop och Excel 2016 vet du redan hur lätt det är att skapa välanpassade datakällfrågor. 
+
+Om du använder Visual Studio 2017 är Microsoft Analysis Services-projekt tillgängliga som ett kostnadsfritt installerbart VSIX-paket. [Ladda ned från Marketplace](https://marketplace.visualstudio.com/items?itemName=ProBITools.MicrosoftAnalysisServicesModelingProjects).
 
 ### <a name="sql-server-management-studio"></a>SQL Server Management Studio
 

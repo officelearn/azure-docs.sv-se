@@ -1,5 +1,5 @@
 ---
-title: 'Självstudie: Skapa ett projekt för objektidentifiering – API för Custom Vision, Java'
+title: 'Självstudie: Skapa ett objektidentifieringsprojekt med Custom Vision SDK för Java – Custom Vision Service'
 titlesuffix: Azure Cognitive Services
 description: Skapa ett projekt, lägg till taggar, ladda upp bilder, träna ditt projekt och gör en förutsägelse med hjälp av standardslutpunkten.
 services: cognitive-services
@@ -10,20 +10,20 @@ ms.component: custom-vision
 ms.topic: tutorial
 ms.date: 08/28/2018
 ms.author: areddish
-ms.openlocfilehash: 661242e4962a8218c48d7ea66d8a6f728b5154c8
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.openlocfilehash: d4af3315cfca18da594730cc402236684f81bfc8
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46365040"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49957343"
 ---
-# <a name="tutorial-build-an-object-detection-project-with-java"></a>Självstudie: Skapa ett projekt för objektidentifiering med Java
+# <a name="tutorial-create-an-object-detection-project-with-the-custom-vision-sdk-for-java"></a>Självstudie: Skapa ett objektidentifieringsprojekt med Custom Vision SDK för Java
 
 Utforska ett grundläggande Java-program som använder API för visuellt innehåll för att skapa ett projekt för objektidentifiering. När den har skapats kan du lägga till taggade regioner, ladda upp bilder, träna projektet, hämta slutpunkts-URL:en för projektets standardförutsägelse och använda slutpunkten för att testa en bild programmatiskt. Använd det här exemplet med öppen källkod som en mall för att skapa din egen app med hjälp av API för Custom Vision.
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
-I självstudiekursen måste du göra följande:
+För att kunna använda självstudiekursen behöver du göra följande:
 
 - Installera JDK 7 eller 8.
 - Installera Maven.

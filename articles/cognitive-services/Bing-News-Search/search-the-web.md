@@ -10,12 +10,12 @@ ms.component: bing-news-search
 ms.topic: overview
 ms.date: 06/21/2016
 ms.author: scottwhi
-ms.openlocfilehash: 787fdea047f9e7d77ca0a156f1c41fa50fd2fa48
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: 4ed816b117d11dd38e6a8ea5191171b812db0f1c
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48801479"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50023210"
 ---
 # <a name="what-is-bing-news-search"></a>Vad är nyhetssökning i Bing?
 
@@ -265,7 +265,7 @@ Om det finns andra artiklar som är relaterade till en nyhetsartikel så kan nyh
 
 Kom igång snabbt med din första begäran genom att läsa [Göra din första begäran](./quickstart.md).
 
-Bekanta dig med referensen för [API för bildsökning i Bing v7] (https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference)). Referensen innehåller listan över slutpunkter, rubriker och frågeparametrar som du använder för att begära sökresultat. Den omfattar även definitioner av svarsobjekten.
+Bekanta dig med referensen för [API för nyhetssökning i Bing v7](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference). Referensen innehåller listan över slutpunkter, rubriker och frågeparametrar som du använder för att begära sökresultat. Den omfattar även definitioner av svarsobjekten.
 
 För att förbättra användarfunktionen för sökrutan läser du [API för automatiska förslag i Bing](../bing-autosuggest/get-suggested-search-terms.md). När användaren anger sina frågetermer kan du anropa det här API:t för att få relevanta frågetermer som har använts av andra användare.
 

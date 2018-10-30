@@ -1,23 +1,23 @@
 ---
-title: 'Snabbstart: Hitta alternativa översättningar – Translator Text, Go'
+title: 'Snabbstart: Hitta alternativa översättningar, Go – Translator Text-API'
 titleSuffix: Azure Cognitive Services
 description: I den här snabbstarten hittar du alternativa översättningar och exempel på termer i ett sammanhang med Translator Text-API:et med Go.
 services: cognitive-services
-author: noellelacharite
+author: erhopf
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-text
 ms.topic: quickstart
 ms.date: 06/29/2018
-ms.author: nolachar
-ms.openlocfilehash: 4ea21673c993c6dd9478f42bfee790b62317946f
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.author: erhopf
+ms.openlocfilehash: 0c4872aaf222110a0044095040db08d0180e37c4
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46128884"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49649643"
 ---
-# <a name="quickstart-find-alternate-translations-and-usage-with-go"></a>Snabbstart: Hitta alternativa översättningar och alternativ användning med Go
+# <a name="quickstart-find-alternate-translations-with-the-translator-text-rest-api-go"></a>Snabbstart: Hitta alternativa översättningar med Translator Text REST API (Go)
 
 I den här snabbstarten hittar du information om möjliga alternativa översättningar för en term, och även användningsexempel för de alternativa översättningarna, med hjälp av Translator Text-API:et.
 

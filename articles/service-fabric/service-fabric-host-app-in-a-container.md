@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 05/18/2018
 ms.author: ryanwi
-ms.openlocfilehash: 7573746b91f057d83a299d54801785118cc1c878
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: 36b9a2e710a2a7f34ee9374e89f3fb19cc591ac3
+ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44380139"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49429600"
 ---
 # <a name="tutorial-deploy-a-net-application-in-a-windows-container-to-azure-service-fabric"></a>Självstudiekurs: Distribuera ett .NET-program i en Windows-container till Azure Service Fabric
 
@@ -61,7 +61,9 @@ Containern är nu redo att byggas och paketeras i ett Service Fabric-program. N�
 ## <a name="create-an-azure-sql-db"></a>Skapa en Azure SQL DB-databas
 När du kör Fabrikam Fiber CallCenter-programmet i produktion måste data sparas i en databas. Det finns för närvarande inget sätt att garantera beständiga data i en container. Därför kan du inte lagra produktionsdata i SQL Server i en container.
 
-Vi rekommenderar [Azure SQL Database](/azure/sql-database/sql-database-get-started-powershell). Konfigurera och kör en hanterad SQL Server-databas i Azure genom att köra följande skript.  Ändra skriptvariablerna efter behov. *clientIP* är utvecklingsdatorns IP-adress.  Om datorn finns bakom en företagsbrandvägg kanske utvecklingsdatorns IP-adress inte exponeras mot Internet.  Du kan också ange serverns brandväggsregel för SQL-databasen på [Azure Portal](https://portal.azure.com), som visar IP-adressen för din dator.
+Vi rekommenderar [Azure SQL Database](/azure/sql-database/sql-database-get-started-powershell). Konfigurera och kör en hanterad SQL Server-databas i Azure genom att köra följande skript.  Ändra skriptvariablerna efter behov. *clientIP* är utvecklingsdatorns IP-adress.
+
+Om datorn finns bakom en företagsbrandvägg kanske utvecklingsdatorns IP-adress inte exponeras mot Internet. Kontrollera att databasen har rätt IP-adress för brandväggsregeln genom att gå till [Azure-portalen](https://portal.azure.com) och leta upp din databas i avsnittet för SQL-databaser. Klicka på dess namn. I avsnittet Översikt klickar du sedan på ”Konfigurera serverns brandvägg”. ”Klient-IP-adress” är utvecklingsdatorns IP-adress. Se till att den matchar IP-adressen i regeln ”AllowClient” (tillåt klient).
 
 ```powershell
 $subscriptionID="<subscription ID>"

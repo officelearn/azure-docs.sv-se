@@ -1,20 +1,21 @@
 ---
-title: 'Snabbstart: Identifiera tal i C++ på Windows med hjälp av tal-API för Cognitive Services'
-titleSuffix: Microsoft Cognitive Services
-description: Lär dig hur du känner igen tal i C++ på Windows Desktop med hjälp av tal-API för Cognitive Services
+title: 'Snabbstart: Identifiera tal i C++ på Windows med hjälp av Speech Service SDK'
+titleSuffix: Azure Cognitive Services
+description: Lär dig hur du identifierar tal i C++ på Windows Desktop med hjälp av Speech Service SDK
 services: cognitive-services
 author: wolfma61
+manager: cgronlun
 ms.service: cognitive-services
-ms.component: Speech
+ms.component: speech-service
 ms.topic: quickstart
 ms.date: 10/12/2018
 ms.author: wolfma
-ms.openlocfilehash: 2adad78760c1d12da688106c45e86c91a8b13f91
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: ddac12c6414365f8d20c42d324695be9855774dc
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49339363"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49469875"
 ---
 # <a name="quickstart-recognize-speech-in-c-on-windows-by-using-the-speech-sdk"></a>Snabbstart: Identifiera tal i C++ på Windows med hjälp av tal-API
 

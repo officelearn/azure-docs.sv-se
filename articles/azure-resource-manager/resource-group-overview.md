@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/26/2018
 ms.author: tomfitz
-ms.openlocfilehash: 841f82595257c97c15398347a3e1605219d1a534
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
+ms.openlocfilehash: 2c5d0dc322a4a56f0de9bd3c1af7efc158131a89
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49394433"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49954223"
 ---
 # <a name="azure-resource-manager-overview"></a>Översikt över Azure Resource Manager
 Infrastrukturen för ditt program består normalt av många komponenter – kanske en virtuell dator, ett lagringskonto och ett virtuellt nätverk eller en webbapp, en databas, en databasserver och tjänster från tredje part. Du ser inte de här komponenterna som separata entiteter, utan som relaterade delar av samma enhet som är beroende av varandra. Du vill distribuera, hantera och övervaka dem som en grupp. Med Azure Resource Manager kan du arbeta med resurserna i en lösning som en grupp. Du kan distribuera, uppdatera eller ta bort alla resurser i lösningen i en enda, samordnad åtgärd. Du använder en mall för distributionen. Mallen kan användas i olika miljöer, till exempel för testning, mellanlagring och produktion. Resource Manager tillhandahåller säkerhets-, gransknings- och taggningsfunktioner som hjälper dig att hantera dina resurser efter distributionen. 
@@ -64,6 +64,30 @@ Följande rekommendationer hjälper dig att dra full nytta av Resource Manager n
 Vägledning för hur företag kan använda resurshanteraren för att effektivt hantera prenumerationer finns i [Azure enterprise scaffold - förebyggande prenumerationsåtgärder](/azure/architecture/cloud-adoption-guide/subscription-governance?toc=%2fazure%2fazure-resource-manager%2ftoc.json).
 
 Rekommendationer om hur du skapar Resource Manager-mallar som du kan använda i globala Azure, nationella Azure-moln och Azure Stack finns på sidan om att [utveckla Azure Resource Manager-mallar för molnkonsekvens](templates-cloud-consistency.md).
+
+## <a name="quickstarts-and-tutorials"></a>Snabbstarter och självstudier
+
+Använd följande snabbstarter och självstudier för att lära dig hur du utvecklar resurshanterarmallar:
+
+- Snabbstarter
+
+    |Rubrik|Beskrivning|
+    |------|-----|
+    |[Använda Azure Portal](./resource-manager-quickstart-create-templates-use-the-portal.md)|Generera en mall med hjälp av portalen och processen med att redigera och distribuera mallen.|
+    |[Använda Visual Studio Code](./resource-manager-quickstart-create-templates-use-visual-studio-code.md)|Använd Visual Studio Code för att skapa och redigera mallar och hur du använder Azure Cloud Shell för att distribuera mallar.|
+    |[Använda Visual Studio](./vs-azure-tools-resource-groups-deployment-projects-create-deploy.md)|Använd Visual Studio för att skapa, redigera och distribuera mallar.|
+
+- Självstudier
+
+    |Rubrik|Beskrivning|
+    |------|-----|
+    |[Använda mallreferens](./resource-manager-tutorial-create-encrypted-storage-accounts.md)|Använd referensdokumentationen till mallar för att utveckla mallar. I självstudien hittar du schemat för lagringskonto och använder informationen för att skapa ett krypterat lagringskonto.|
+    |[Skapa flera instanser](./resource-manager-tutorial-create-multiple-instances.md)|Skapa flera instanser av Azure-resurser. I självstudiekursen skapar du flera instanser av lagringskonto.|
+    |[Ange resursdistributionsordning](./resource-manager-tutorial-create-templates-with-dependent-resources.md)|Definiera resursberoenden. I självstudien skapar du ett virtuellt nätverk, en virtuell dator och de beroende Azure-resurserna. Du lär dig hur beroenden definieras.|
+    |[Använda villkor](./resource-manager-tutorial-use-conditions.md)|Distribuera resurser baserat på vissa parametervärden. I självstudien definierar du en mall för att skapa ett nytt lagringskonto eller använda ett befintligt lagringskonto baserat på värdet för en parameter.|
+    |[Integrera nyckelvalv](./resource-manager-tutorial-use-key-vault.md)|Hämta hemligheter/lösenord från Azure Key Vault. I självstudien skapar du en virtuell dator.  Administratörslösenordet för den virtuella datorn hämtas från ett nyckelvalv.|
+    |[Skapa länkade mallar](./resource-manager-tutorial-create-linked-templates.md)|Modularisera mallar och anropa andra mallar från en mall. I självstudien skapar du ett virtuellt nätverk, en virtuell dator och de beroende resurserna.  Det beroende lagringskontot definieras i en länkad mall. |
+    |[Använda säkra distributionsmetoder](./deployment-manager-tutorial.md)|Använd Distributionshanteraren i Azure. |
 
 ## <a name="resource-groups"></a>Resursgrupper
 Det finns några viktiga faktorer att tänka på när du definierar en resursgrupp:
@@ -214,9 +238,9 @@ En fullständig lista över roller och tillåtna åtgärder finns i [RBAC: inbyg
 
 I vissa fall kanske du vill köra kod eller skript som använder resurser, men inte genom en användares autentiseringsuppgifter. I stället skapar du en identitet som kallas för ”tjänstens huvudnamn” för programmet och tilldelar tjänstens huvudnamn lämplig roll. Med Resource Manager kan du skapa autentiseringsuppgifter för programmet och programmässigt autentisera programmet. Du kan läsa mer om hur du skapar ett huvudnamn för tjänsten i följande avsnitt:
 
-* [Använd Azure PowerShell för att skapa ett huvudnamn för tjänsten för resursåtkomst](resource-group-authenticate-service-principal.md)
+* [Använd Azure PowerShell för att skapa ett huvudnamn för tjänsten för resursåtkomst](../active-directory/develop/howto-authenticate-service-principal-powershell.md)
 * [Använd Azure CLI för att skapa ett huvudnamn för tjänsten för resursåtkomst](resource-group-authenticate-service-principal-cli.md)
-* [Använd portalen för att skapa Azure Active Directory-program och ett huvudnamn för tjänsten som får åtkomst till resurser](resource-group-create-service-principal-portal.md)
+* [Använd portalen för att skapa Azure Active Directory-program och ett huvudnamn för tjänsten som får åtkomst till resurser](../active-directory/develop/howto-create-service-principal-portal.md)
 
 Du kan också låsa viktiga resurser explicit för att förhindra att användare tar bort eller ändrar dem. Mer information finns i [Låsa resurser med Azure Resource Manager](resource-group-lock-resources.md).
 

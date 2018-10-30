@@ -1,5 +1,5 @@
 ---
-title: 'Snabbstart: Identifiera ansikten i en bild – Ansikts-API cURL'
+title: 'Snabbstart: Identifiera ansikten i en bild med hjälp av REST API och cURL'
 titleSuffix: Azure Cognitive Services
 description: I den här snabbstarten identifierar du ansikten med hjälp av Ansikts-API:et med cURL.
 services: cognitive-services
@@ -10,14 +10,14 @@ ms.component: face-api
 ms.topic: quickstart
 ms.date: 05/10/2018
 ms.author: pafarley
-ms.openlocfilehash: da18b7b3666863742f987b2ee0da297c0838d266
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: ab403ec6a9db4d1a0dc03074044eeb424e4ba875
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49343069"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49953356"
 ---
-# <a name="quickstart-detect-faces-in-an-image-using-curl"></a>Snabbstart: Identifiera ansikten i en bild med cURL
+# <a name="quickstart-detect-faces-in-an-image-using-the-rest-api-and-curl"></a>Snabbstart: Identifiera ansikten i en bild med hjälp av REST API och cURL
 
 I den här snabbstarten identifierar du ansikten i en bild med hjälp av Ansikts-API.
 

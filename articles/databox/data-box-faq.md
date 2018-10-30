@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: overview
 ms.date: 09/27/2018
 ms.author: alkohli
-ms.openlocfilehash: 5a95675d5e37adec5fb1f1542daad329484a2a4c
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: 1d38b563e2a272acdbaa4ea0c2a169a04e798d12
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49092618"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49649405"
 ---
 # <a name="azure-data-box-frequently-asked-questions"></a>Azure Data Box: Vanliga frågor och svar
 
@@ -217,7 +217,7 @@ A.  När datakopieringen till Azure är klar raderas alla data på Data Box på 
 ## <a name="audit-report"></a>Granskningsrapport
 
 ### <a name="how-does-azure-data-box-service-help-support-customers-chain-of-custody-procedure"></a>Hur hjälper Azure Data Box-tjänsten kunder att spåra och övervaka processen?
-A.  Azure Data Box-tjänsten tillhandahåller rapporter som du kan använda för att spåra och dokumentera processen. Gransknings- och kopieringsloggarna är tillgängliga i ditt lagringskonto i Azure och orderhistoriken kan laddas ned i din beställning på Azure-portalen när ordern har slutförts.
+A.  Azure Data Box-tjänsten tillhandahåller rapporter som du kan använda för att spåra och dokumentera processen. Gransknings- och kopieringsloggarna är tillgängliga i ditt lagringskonto i Azure, och [du kan ladda ned orderhistoriken](data-box-portal-admin.md#download-order-history) på Azure-portalen när ordern har slutförts.
 
 
 ### <a name="what-type-of-reporting-is-available-to-support-chain-of-custody"></a>Vilken typ av rapportering är tillgänglig för spårbarhet och övervakning?
@@ -230,7 +230,7 @@ A.  Följande rapportering är tillgänglig för spårbarhet och övervakning:
 - Sanering av Data Box-enheten (enligt NIST 800 88R1-standarder) efter att alla data har kopierats till ditt Azure Storage-konto.
 
 ### <a name="are-the-carrier-tracking-logs--from-upsdhl-available"></a>Är transportföretagets spårningsloggar (från UPS/DHL) tillgängliga? 
-A.  Transportföretagets spårningsloggar samlas in i rapporten över Data Box-granskningsloggarna. Den här rapporten är tillgänglig när enheten har returnerats till Azure-datacentret och data på enhetsdiskarna har rensats. Du kan också gå direkt till transportföretagets webbplats och ange spårningsnumret för ordern för att visa spårningsinformationen.
+A.  Transportföretagets spårningsloggar samlas in Data Box-orderhistoriken. Den här rapporten är tillgänglig när enheten har returnerats till Azure-datacentret och data på enhetsdiskarna har rensats. Du kan också gå direkt till transportföretagets webbplats och ange spårningsnumret för ordern för att visa spårningsinformationen.
 
 ### <a name="can-i-transport-the-data-box-to-azure-datacenter"></a>Kan jag själv transportera Data Box till Azures datacenter? 
 A.  Nej. Azures datacenter accepterar för närvarande inte leverans av Data Box från kunder eller andra transportföretag än UPS/DHL.

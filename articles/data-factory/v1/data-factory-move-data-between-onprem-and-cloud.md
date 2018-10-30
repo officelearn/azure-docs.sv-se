@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: d695627efddc0ca02c3d9299f4b8a13bdc85e8fb
-ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ms.openlocfilehash: 3094075607f096200ce1fb7ad499776bdcd3e093
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "42061141"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50233607"
 ---
 # <a name="move-data-between-on-premises-sources-and-the-cloud-with-data-management-gateway"></a>Flytta data mellan lokala källor och molnet med Data Management Gateway
 > [!NOTE]
@@ -65,7 +65,7 @@ I det här steget använder du Azure-portalen för att skapa en Azure Data Facto
    > [!IMPORTANT]
    > Namnet på Azure Data Factory måste vara globalt unikt. Om du får felet: **datafabriksnamnet ”ADFTutorialOnPremDF” är inte tillgänglig**, ändra namnet på datafabriken (till exempel yournameADFTutorialOnPremDF) och försöker skapa igen. Använd det här namnet i stället för ADFTutorialOnPremDF när du utför stegen i den här självstudien.
    >
-   > Namnet på datafabriken kan komma att registreras som ett **DNS**-namn i framtiden och blir då synligt offentligt.
+   > Namnet på datafabriken kan registreras som en **DNS** namn i framtiden och blir publicaly visas.
    >
    >
 4. Välj den **Azure-prenumeration** där du vill att datafabriken ska skapas.
@@ -304,7 +304,7 @@ I det här steget kan du skapa indata och utdata datauppsättningar som represen
 ## <a name="create-pipeline"></a>Skapa pipeline
 I det här steget skapar du en **pipeline** med en **Kopieringsaktiviteten** som använder **EmpOnPremSQLTable** som indata och **OutputBlobTable** som utdata.
 
-1. I Data Factory-redigeraren, klicka på **... More (Mer)** och sedan på **Ny pipeline**.
+1. I Data Factory-redigeraren, klicka på **... More (Mer)** och sedan på **Ny pipeline.
 2. Ersätt JSON i den högra rutan med följande text:    
 
     ```JSON   

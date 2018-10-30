@@ -6,16 +6,16 @@ author: roygara
 ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
-ms.date: 07/02/2018
+ms.date: 10/19/2018
 ms.author: rogarana
-ms.openlocfilehash: dfd04aa0c8f314327afaefa67f1c63b1ff605e9b
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: c675dd17994abaaf6d0eed1934bec8f2220e7435
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49387216"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49955716"
 ---
-# <a name="quickstart-upload-download-and-list-blobs-by-using-the-java-storage-sdk-v10-preview"></a>Snabbstart: Ladda upp, ladda ned och visa blobar med Java Storage SDK V10 (förhandsversion)
+# <a name="quickstart-upload-download-and-list-blobs-by-using-the-java-storage-sdk-v10"></a>Snabbstart: Ladda upp, ladda ned och visa blobar med Java Storage SDK V10
 
 I den här snabbstarten får du lära dig hur du använder nya Java Storage SDK för att ladda upp, ladda ned och visa blockblobar i en container i Azure Blob Storage. Detta nya Java-SDK använder den reaktiva programmeringsmodellen med RxJava som gör att du kan använda asynkrona åtgärder. Mer information om RxJava: [reaktiva tillägg för Java VM](https://github.com/ReactiveX/RxJava). 
 
@@ -116,16 +116,16 @@ Först skapar du referenser till objekten som används för att komma åt och ha
 
 1. Skapa en instans av objektet **StorageURL** som pekar på lagringskontot.
 
-    * Objektet [StorageURL](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.blob._storage_u_r_l?view=azure-java-preview) är en representation av ditt lagringskonto. Du kan använda det för att generera en ny pipeline. 
+    * Objektet [StorageURL](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.blob._storage_u_r_l?view=azure-java-stable) är en representation av ditt lagringskonto. Du kan använda det för att generera en ny pipeline. 
     * En pipeline är en uppsättning principer som används för att manipulera begäranden och svar med metoder för autentisering, inloggning och återförsök. Mer information finns i [HTTP-pipeline](https://github.com/Azure/azure-storage-java/wiki/Azure-Storage-Java-V10-Overview#url-types--http-pipeline).  
-    * Med hjälp av pipelinen skapar du en instans av objektet [ServiceURL](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.blob._service_u_r_l?view=azure-java-preview).
-    * Med hjälp av objektet **ServiceURL** skapar du en instans av [ContainerURL](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.blob._container_u_r_l?view=azure-java-preview).
+    * Med hjälp av pipelinen skapar du en instans av objektet [ServiceURL](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.blob._service_u_r_l?view=azure-java-stable).
+    * Med hjälp av objektet **ServiceURL** skapar du en instans av [ContainerURL](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.blob._container_u_r_l?view=azure-java-stable).
     * **ContainerURL** krävs för att köra åtgärder på blob-behållare.
 
 2. Skapa en instans av objektet **ContainerURL** som representerar den container du får åtkomst till. Containrar organiserar dina blobar på samma sätt som mappar organiserar filer på datorn.
 
     * **ContainerURL** ger en åtkomstpunkt till containertjänsten. 
-    * Du kan skapa en instans av objektet [BlobURL](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.blob._blob_u_r_l?view=azure-java-preview) genom att använda [ContainerURL](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.blob._container_u_r_l?view=azure-java-preview).
+    * Du kan skapa en instans av objektet [BlobURL](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.blob._blob_u_r_l?view=azure-java-stable) genom att använda [ContainerURL](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.blob._container_u_r_l?view=azure-java-stable).
     * **BlobURL** krävs för att skapa blobar.
 
 3. Skapa en instans av objektet **BlobURL** som pekar på den specifika blob som du är intresserad av. 
@@ -137,7 +137,7 @@ Först skapar du referenser till objekten som används för att komma åt och ha
 
 I det här avsnittet skapar du en instans av **ContainerURL**. Du skapar även en ny container. Containern i exemplet heter **quickstart**. 
 
-Det här exemplet använder [ContainerURL.create](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.blob._container_u_r_l.create?view=azure-java-preview) så att du kan skapa en ny container varje gång exemplet körs. Du kan även skapa containern i förväg så att du inte behöver skapa den i koden.
+Det här exemplet använder [ContainerURL.create](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.blob._container_u_r_l.create?view=azure-java-stable#com_microsoft_azure_storage_blob__container_u_r_l_create_Metadata_PublicAccessType_Context_) så att du kan skapa en ny container varje gång exemplet körs. Du kan även skapa containern i förväg så att du inte behöver skapa den i koden.
 
 ```java
 // Create a ServiceURL to call the Blob service. We will also use this to construct the ContainerURL
@@ -168,9 +168,9 @@ Blob Storage stöder blockblobar, tilläggsblobar och sidblobar. Blockblobar är
 1. Hämta en referens till bloben i målcontainern om du vill överföra en fil till en blob. 
 2. När du får blobreferensen kan du ladda upp en fil till den med någon av följande API:er:
 
-    * Lågnivå-API:er. Exempel är [BlockBlobURL.upload](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.blob._block_blob_u_r_l.upload?view=azure-java-preview), som även kallas PutBlob, och [BlockBlobURL.stageBlock](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.blob._block_blob_u_r_l.stageblock?view=azure-java-preview#com_microsoft_azure_storage_blob__block_blob_u_r_l_stageBlock_String_Flowable_ByteBuffer__long_LeaseAccessConditions_), som även kallas PutBLock, i instansen för **BlockBlobURL**. 
+    * Lågnivå-API:er. Exempel är [BlockBlobURL.upload](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.blob._block_blob_u_r_l.upload?view=azure-java-stable#com_microsoft_azure_storage_blob__block_blob_u_r_l_upload_Flowable_ByteBuffer__long_BlobHTTPHeaders_Metadata_BlobAccessConditions_Context_), som även kallas PutBlob, och [BlockBlobURL.stageBlock](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.blob._block_blob_u_r_l.stageblock?view=azure-java-stable), som även kallas PutBLock, i instansen för **BlockBlobURL**. 
 
-    * Högnivå-API:er finns i [TransferManager-klassen](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.blob._transfer_manager?view=azure-java-preview). Ett exempel är metoden [TransferManager.uploadFileToBlockBlob](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.blob._transfer_manager.uploadfiletoblockblob?view=azure-java-preview). 
+    * Högnivå-API:er finns i [TransferManager-klassen](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.blob._transfer_manager?view=azure-java-stable). Ett exempel är metoden [TransferManager.uploadFileToBlockBlob](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.blob._transfer_manager.uploadfiletoblockblob?view=azure-java-stable). 
 
     Den här åtgärden skapar bloben om den inte redan finns. Den skriver över bloben om den redan finns.
 
@@ -195,7 +195,7 @@ Blockblobar kan vara valfri texttyp eller binär fil. Sidblobar används främst
 
 ### <a name="list-the-blobs-in-a-container"></a>Visa en lista över blobarna i en container
 
-Du kan hämta en lista med objekt i en container med hjälp av [ContainerURL.listBlobsFlatSegment](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.blob._container_u_r_l.listblobsflatsegment?view=azure-java-preview). Den här metoden returnerar upp till 5 000 objekt på samma gång tillsammans med en fortsättningsmarkör, eller nästa-markör, om det finns fler att lista i containern. Skapa en hjälpfunktion som anropar sig själv upprepade gånger när det finns en nästa-markör i föregående **listBlobsFlatSegment**-svar.
+Du kan hämta en lista med objekt i en container med hjälp av [ContainerURL.listBlobsFlatSegment](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.blob._container_u_r_l.listblobsflatsegment?view=azure-java-stable). Den här metoden returnerar upp till 5 000 objekt på samma gång tillsammans med en fortsättningsmarkör, eller nästa-markör, om det finns fler att lista i containern. Skapa en hjälpfunktion som anropar sig själv upprepade gånger när det finns en nästa-markör i föregående **listBlobsFlatSegment**-svar.
 
 ```java
 static void listBlobs(ContainerURL containerURL) {
@@ -253,7 +253,7 @@ private static Single <ContainersListBlobFlatSegmentResponse> listAllBlobs(Conta
 
 ### <a name="download-blobs"></a>Ladda ned blobbar
 
-Ladda ned blobar till din lokala disk med hjälp av [BlobURL.download](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.blob._blob_u_r_l.download?view=azure-java-preview).
+Ladda ned blobar till din lokala disk med hjälp av [BlobURL.download](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.blob._blob_u_r_l.download?view=azure-java-stable).
 
 Följande kod laddar ned bloben som överfördes i föregående avsnitt. Den lägger till suffixet **_DOWNLOADED** till blobnamnet så att du kan se båda filerna på den lokala disken. 
 
@@ -278,7 +278,7 @@ static void getBlob(BlockBlobURL blobURL, File sourceFile) {
 
 ### <a name="clean-up-resources"></a>Rensa resurser
 
-Om du inte behöver de blobar som laddades upp i den här snabbstarten kan du ta bort hela containern med hjälp av [ContainerURL.delete](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.blob._container_u_r_l.delete?view=azure-java-preview). Denna metod tar även bort filerna i containern.
+Om du inte behöver de blobar som laddades upp i den här snabbstarten kan du ta bort hela containern med hjälp av [ContainerURL.delete](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.blob._container_u_r_l.delete?view=azure-java-stable). Denna metod tar även bort filerna i containern.
 
 ```java
 containerURL.delete(null).blockingGet();
@@ -289,6 +289,6 @@ containerURL.delete(null).blockingGet();
 I den här snabbstarten har du lärt dig hur du överför filer mellan en lokal disk och Azure Blob Storage med hjälp av Java. 
 
 > [!div class="nextstepaction"]
-> [Storage SDK V10 för Java-källkod](https://github.com/Azure/azure-storage-java/tree/New-Storage-SDK-V10-Preview)
-> [API-referens](https://docs.microsoft.com/java/api/overview/azure/storage/client?view=azure-java-preview)
+> [Storage SDK V10 för Java-källkod](https://github.com/Azure/azure-storage-java/)
+> [API-referens](https://docs.microsoft.com/java/api/overview/azure/storage/client?view=azure-java-stable)
 > [Läs mer om RxJava](https://github.com/ReactiveX/RxJava)

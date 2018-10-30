@@ -3,7 +3,7 @@ title: Importera och publicera ditt första API i Azure API Management | Microso
 description: Lär dig hur du importerar och publicerar ditt första API med API Management.
 services: api-management
 documentationcenter: ''
-author: vladvino
+author: mikebudzynski
 manager: cfowler
 editor: ''
 ms.service: api-management
@@ -14,12 +14,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 06/15/2018
 ms.author: apimpm
-ms.openlocfilehash: 538977b9057a5699d61d6c2cc44209367e3550e2
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: cf913c0aaf7dd9957f21452caf8e43a9e3c8b2db
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47093410"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49467403"
 ---
 # <a name="import-and-publish-your-first-api"></a>Importera och publicera ditt första API 
 
@@ -73,9 +73,11 @@ I det här avsnittet visas hur du importerar och publicerar en OpenAPI-specifika
 
 ## <a name="test-the-new-apim-api-in-the-azure-portal"></a>Testa det nya APIM API:et i Azure Portal
 
+![Testa API-karta](./media/api-management-get-started/01-import-first-api-01.png)
+
 Du kan anropa åtgärder direkt från Azure Portal, vilket är ett enkelt sätt att visa och testa åtgärderna i ett API.  
 1. Välj det API som du skapade i föregående steg (från fliken **API:er**).
-2. Tryck på fliken **Test**.  ![Test-API](./media/api-management-get-started/test-api.png)
+2. Tryck på fliken **Test**.
 3. Klicka på **GetSpeakers**.
     På sidan visas fälten för frågeparametrar (inga i det här fallet) och huvuden. Ett av huvudena är Ocp-Apim-prenumeration-Key, för prenumerationsnyckeln till den produkt som är associerad med det här API:et. Nyckeln fylls i automatiskt.
 4. Tryck på **Skicka**.
@@ -87,7 +89,8 @@ Du kan anropa åtgärder direkt från Azure Portal, vilket är ett enkelt sätt 
 Åtgärder kan också anropas från **utvecklarportalen** för att testa API:er.
 
 1. Gå till **utvecklarportalen**.
-![utvecklarportalen](./media/api-management-get-started/developer-portal.png)
+
+ ![Utvecklarportalen](./media/api-management-get-started/developer-portal.png)
 
 2. Välj **APIS** (API:er), klicka på **Demo Conference API** (Demokonferens-API) och sedan på **GetSpeakers**.
     

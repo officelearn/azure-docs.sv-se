@@ -7,12 +7,12 @@ ms.service: container-instances
 ms.topic: overview
 ms.date: 07/17/2018
 ms.author: danlep
-ms.openlocfilehash: 62457fe5b0336cb6ae6ac4fc63f4884ed14cf9d3
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: dc6aab03ec3e0ec47026c7d435ea538612c7bffb
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48856045"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49405607"
 ---
 # <a name="container-instance-logging-with-azure-log-analytics"></a>Containerinstansloggning med Azure Log Analytics
 
@@ -100,7 +100,7 @@ Du bör få ett svar från Azure som innehåller distributionsinformation strax 
 
 När du har distribuerat containergruppen, kan det ta flera minuter (upp till 10) för de första loggposterna att visas i Azure-portalen. Om du vill visa containergruppens loggar, öppnar du din Log Analytics-arbetsyta och:
 
-1. I översikten för **OMS-arbetsytan** , väljer du **Loggsökning**
+1. I översikten för **OMS-arbetsytan** väljer du **Loggsökning**. OMS-arbetsytor kallas nu för Log Analytics-arbetsytor.  
 1. Under **några fler frågor att testa**, väljer du länken **Alla insamlade data**
 
 Du bör se flera resultat som visas av `search *`-frågan. Om du först inte ser något resultat, vänta några minuter och välj sedan knappen **Kör** för att köra frågan igen. Som standard visas loggposter i List-vyn. Välj **Tabell** för att se loggposter i ett mer komprimerat format. Du kan därefter expandera en rad för att visa innehållet i en enskild loggpost.

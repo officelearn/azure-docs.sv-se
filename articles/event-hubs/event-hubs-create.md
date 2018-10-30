@@ -1,70 +1,105 @@
 ---
-title: Skapa en Azure-händelsehubb | Microsoft Docs
-description: Skapa ett Azure Event Hubs-namnområde och en event hub med Azure-portalen
+title: Snabbstart om Azure – Skapa en händelsehubb med hjälp av Azure Portal | Microsoft Docs
+description: I den här snabbstarten lär du dig hur du skapar en Azure-händelsehubb med hjälp av Azure Portal och hur du sedan skickar och tar emot händelser med hjälp av .NET Standard SDK.
 services: event-hubs
+documentationcenter: ''
 author: ShubhaVijayasarathy
 manager: timlt
 ms.service: event-hubs
-ms.devlang: na
-ms.topic: article
+ms.topic: quickstart
+ms.custom: mvc
 ms.date: 08/16/2018
 ms.author: shvija
-ms.openlocfilehash: 5b468e1758d752cd3001c85b328d064369429499
-ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
-ms.translationtype: MT
+ms.openlocfilehash: d053edaa187a3e0626f5ea0864d778f44f394bd7
+ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "42054607"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49455784"
 ---
-# <a name="create-an-event-hubs-namespace-and-an-event-hub-using-the-azure-portal"></a>Skapa ett Event Hubs-namnområde och en event hub med Azure-portalen
+# <a name="quickstart-create-an-event-hub-using-azure-portal"></a>Snabbstart: Skapa en händelsehubb med hjälp av Azure Portal
+Azure Event Hubs är en strömningstjänst för stordata och händelseinmatningstjänst som kan ta emot och bearbeta flera miljoner händelser per sekund. Azure Event Hubs kan bearbeta och lagra händelser, data eller telemetri som produceras av distribuerade program och enheter. Data som skickas till en händelsehubb kan omvandlas och lagras med valfri provider för realtidsanalys eller batchbearbetnings-/lagringsadaptrar. En detaljerad översikt över Event Hubs finns i [Översikt över Event Hubs](event-hubs-about.md) och [Event Hubs-funktioner](event-hubs-features.md).
+
+I den här snabbstarten skapar du en händelsehubb med hjälp av [Azure-portalen](https://portal.azure.com).
+
+## <a name="prerequisites"></a>Nödvändiga komponenter
+
+För att slutföra den här snabbstarten behöver du följande:
+
+- En Azure-prenumeration. Om du inte har ett konto kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
+- [Visual Studio 2017 Update 3 (version 15.3, 26730.01)](http://www.visualstudio.com/vs) eller senare.
+- [SDK för .NET Standard](https://www.microsoft.com/net/download/windows) version 2.0 eller senare.
+
+## <a name="create-a-resource-group"></a>Skapa en resursgrupp
+
+En resursgrupp är en logisk samling Azure-resurser. Alla resurser distribueras och hanteras i en resursgrupp. Skapa en resursgrupp på följande sätt:
+
+1. Logga in på [Azure-portalen](https://portal.azure.com).
+2. Klicka på **Resursgrupper** i det vänstra navigeringsfönstret. Klicka sedan på **Lägg till**.
+
+   ![Resursgrupper – Lägg till, knapp](./media/event-hubs-quickstart-portal/resource-groups1.png)
+
+2. Ange ett unikt namn för resursgruppen. Systemet kontrollerar direkt om namnet är tillgängligt i den valda Azure-prenumerationen.
+
+3. I **Prenumeration** klickar du på namnet på den Azure-prenumeration som du vill skapa resursgruppen i.
+
+4. Välj en geografisk plats för resursgruppen.
+
+5. Klicka på **Skapa**.
+
+   ![Resursgrupp – skapa](./media/event-hubs-quickstart-portal/resource-groups2.png)
 
 ## <a name="create-an-event-hubs-namespace"></a>Skapa ett Event Hubs-namnområde
 
-1. Logga in på den [Azure-portalen][Azure portal], och klicka på **skapa en resurs** på upp till vänster på skärmen.
-2. Klicka på **Sakernas Internet** och sedan på **Event Hubs**.
-   
-    ![](./media/event-hubs-create/create-event-hub9.png)
+Ett Event Hubs-namnområde innehåller en unik omfattningscontainer som refereras till av dess fullständigt kvalificerade domännamn, där du skapar en eller flera händelsehubbar. Gör följande om du vill skapa ett namnområde i din resursgrupp med Portal:
 
-3. Under **Skapa namnområde** anger du ett namn för namnområdet. Systemet kontrollerar omedelbart om namnet är tillgängligt.  
+1. I Azure-portalen klickar du på **Skapa en resurs** högst upp till vänster på skärmen.
+
+2. Klicka på **Sakernas Internet** och sedan på **Event Hubs**.
+
+3. Under **Skapa namnområde** anger du ett namn för namnområdet. Systemet kontrollerar omedelbart om namnet är tillgängligt.
+
+   ![Skapa ett namnområde för en händelsehubb](./media/event-hubs-create/create-event-hub1.png)
 
 4. När du har kontrollerat att namnområdet är tillgängligt väljer du prisnivå (Basic eller Standard). Välj även en Azure-prenumeration, resursgrupp och plats där du vill skapa resursen.
  
 5. Klicka på **Skapa** för att skapa namnområdet. Du kan behöva vänta några minuter på att systemet ska bli klart med att etablera resurserna.
+6. Välj **Aviseringar** och välj sedan **distributionen** med samma namn som namnet på händelsehubbens namnområde. 
 
-    ![](./media/event-hubs-create/create-event-hub1.png)
+   ![Resursgrupp – avisera från skapande](./media/event-hubs-quickstart-portal/create-alert.png)
+6. Välj händelsehubbens namnområde i listan över resurser som skapats i distributionen. 
 
-6. Klicka på det nyligen skapade namnområdet i listan med namnområden i Portal.
-
-7. Klicka på **Principer för delad åtkomst** och sedan på **RootManageSharedAccessKey**.
+   ![Välja namnområde från distributionen](./media/event-hubs-quickstart-portal/deployment-namespace.png)
+7. På sidan **Event Hubs-namnområde** väljer du **Policyer för delad åtkomst** och klickar sedan på **RootManageSharedAccessKey**.
     
-    ![](./media/event-hubs-create/create-event-hub7.png)
-
 8. Klicka på kopieringsknappen för att kopiera anslutningssträngen **RootManageSharedAccessKey** till Urklipp. Spara den här anslutningssträngen på en tillfällig plats, till exempel i Anteckningar, för senare användning.
     
-    ![](./media/event-hubs-create/create-event-hub8.png)
-
 ## <a name="create-an-event-hub"></a>Skapa en händelsehubb
 
-1. I listan över händelsehubbarnas namnområden klickar du på det nyligen skapade namnområdet.      
-   
-    ![](./media/event-hubs-create/create-event-hub2.png) 
+Gör följande om du vill skapa en händelsehubb i namnområdet:
 
-2. Klicka på namnområdesbladet och på **Händelsehubbar**.
+1. På sidan Event Hubs-namnområde väljer du **Event Hubs**.
    
-    ![](./media/event-hubs-create/create-event-hub3.png)
+    ![Välj Event Hubs på menyn till vänster](./media/event-hubs-quickstart-portal/create-event-hub3.png)
 
-3. Överst på bladet klickar du på **+ Event Hub**.
+1. Klicka på **+ Event Hub** längst upp i fönstret.
    
-    ![](./media/event-hubs-create/create-event-hub4.png)
-4. Skriv ett namn för din händelsehubb och klicka sedan på **Skapa**. 
+    ![Lägg till Event Hub – knapp](./media/event-hubs-quickstart-portal/create-event-hub4.png)
+1. Skriv ett namn för din händelsehubb och klicka sedan på **Skapa**.
+   
+    ![Skapa händelsehubb](./media/event-hubs-quickstart-portal/create-event-hub5.png)
 
-Din händelsehubb har nu skapats och du har anslutningssträngar för måste du skicka och ta emot händelser.
+
+Grattis! Du har skapat ett Event Hubs-namnområde och en händelsehubb i namnområdet med Portal. 
 
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information om Händelsehubbar finns i följande länkar:
+I den här artikeln har du skapat en resursgrupp, en Event Hubs-namnrymd och en händelsehubb. Stegvisa instruktioner för att skicka händelser till eller ta emot händelser från en händelsehubb finns i följande självstudier:  
 
-* [Event Hubs-översikt](event-hubs-what-is-event-hubs.md)
-* [Event Hubs API-översikt](event-hubs-api-overview.md)
+- **Skicka händelser till en händelsehubb**: [.NET Standard](event-hubs-dotnet-standard-getstarted-send.md), [.NET Framework](event-hubs-dotnet-framework-getstarted-send.md), [Java](event-hubs-java-get-started-send.md), [Python](event-hubs-python-get-started-send.md), [Node.js](event-hubs-node-get-started-send.md), [Go](event-hubs-go-get-started-send.md), [C](event-hubs-c-getstarted-send.md)
+- **Ta emot händelser från en händelsehubb**: [.NET Standard](event-hubs-dotnet-standard-getstarted-receive-eph.md), [.NET Framework](event-hubs-dotnet-framework-getstarted-receive-eph.md), [Java](event-hubs-java-get-started-receive-eph.md), [Python](event-hubs-python-get-started-receive.md), [Node.js](event-hubs-node-get-started-receive.md), [Go](event-hubs-go-get-started-receive-eph.md), [Apache Storm](event-hubs-storm-getstarted-receive.md)
+
 
 [Azure portal]: https://portal.azure.com/
+[3]: ./media/event-hubs-quickstart-portal/sender1.png
+[4]: ./media/event-hubs-quickstart-portal/receiver1.png

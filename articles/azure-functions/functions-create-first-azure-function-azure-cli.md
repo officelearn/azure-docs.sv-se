@@ -12,12 +12,12 @@ ms.service: azure-functions
 ms.custom: mvc
 ms.devlang: azure-cli
 manager: jeconnoc
-ms.openlocfilehash: ef5459b2b31b67afe187612ffc1ab079a5045a8c
-ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
+ms.openlocfilehash: 07a079e00963f1f5aff96369649e2e4fb248aae0
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49114918"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49986006"
 ---
 # <a name="create-your-first-function-from-the-command-line"></a>Skapa din första funktion från kommandoraden
 
@@ -45,7 +45,7 @@ Kör följande kommando från kommandoraden för att skapa ett funktionsapprojek
 func init MyFunctionProj
 ```
 
-Använd piltangenterna för att välja en Worker-körtid från följande språkval:
+När du uppmanas väljer du en worker-körtid från följande språkval:
 
 + `dotnet`: skapar ett .NET-klassbiblioteksprojekt (.csproj).
 + `node`: skapar ett JavaScript-projekt.
@@ -59,110 +59,17 @@ Writing local.settings.json
 Initialized empty Git repository in C:/functions/MyFunctionProj/.git/
 ```
 
-## <a name="create-a-function"></a>Skapa en funktion
-
-Följande kommando navigerar till det nya projektet och skapar en HTTP-utlöst funktion med namnet `MyHtpTrigger`.
+Använd följande kommando för att navigera till den nya `MyFunctionProj`-projektmappen.
 
 ```bash
 cd MyFunctionProj
-func new --name MyHttpTrigger --template "HttpTrigger"
 ```
 
-När kommandot körs visas något i stil med följande utdata, som är en JavaScript-funktion:
+[!INCLUDE [functions-create-function-core-tools](../../includes/functions-create-function-core-tools.md)]
 
-```output
-Writing C:\functions\MyFunctionProj\MyHttpTrigger\index.js
-Writing C:\functions\MyFunctionProj\MyHttpTrigger\sample.dat
-Writing C:\functions\MyFunctionProj\MyHttpTrigger\function.json
-```
+[!INCLUDE [functions-update-function-code](../../includes/functions-update-function-code.md)]
 
-## <a name="edit-the-function"></a>Redigera funktionen
-
-Mallen skapar som standard en funktion som kräver en funktionsnyckel då begäranden görs. Om du vill göra det lättare att testa funktionen i Azure, behöver du uppdatera funktionen för att tillåta anonym åtkomst. Hur du gör den här ändringen beror på funktionsprojektspråket.
-
-### <a name="c"></a>C\#
-
-Öppna MyHttpTrigger.cs-kodfilen som är din nya funktion och uppdatera attributet **AuthorizationLevel** i funktionsdefinitionen till värdet `anonymous` och spara dina ändringar.
-
-```csharp
-[FunctionName("MyHttpTrigger")]
-        public static IActionResult Run([HttpTrigger(AuthorizationLevel.Anonymous, 
-            "get", "post", Route = null)]HttpRequest req, ILogger log)
-```
-
-### <a name="javascript"></a>JavaScript
-
-Öppna .json-funktionsfilen för den nya funktionen i en textredigerare och uppdatera egenskapen **authLevel** i **bindings.httpTrigger** till `anonymous` och spara dina ändringar.
-
-```json
-  "bindings": [
-    {
-      "authLevel": "anonymous",
-      "type": "httpTrigger",
-      "direction": "in",
-      "name": "req",
-      "methods": [
-        "get",
-        "post"
-      ]
-    },
-    {
-      "type": "http",
-      "direction": "out",
-      "name": "$return"
-    }
-  ]
-```
-
-Nu kan du anropa funktionen i Azure utan att behöva ange funktionsnyckeln. Funktionsnyckeln krävs aldrig vid lokal körning.
-
-## <a name="run-the-function-locally"></a>Kör funktionen lokalt
-
-Nedanstående kommando startar funktionsappen. Appen körs med samma Azure Functions-körtid som finns i Azure.
-
-```bash
-func host start --build
-```
-
-Alternativet `--build` krävs för att kompilera C#-projekt. Du behöver inte det här alternativet för ett JavaScript-projekt.
-
-När funktionsvärden startar skriver den något i stil med följande utdata, som har trunkerats för läsbarhetens skull:
-
-```output
-
-                  %%%%%%
-                 %%%%%%
-            @   %%%%%%    @
-          @@   %%%%%%      @@
-       @@@    %%%%%%%%%%%    @@@
-     @@      %%%%%%%%%%        @@
-       @@         %%%%       @@
-         @@      %%%       @@
-           @@    %%      @@
-                %%
-                %
-
-...
-
-Content root path: C:\functions\MyFunctionProj
-Now listening on: http://0.0.0.0:7071
-Application started. Press Ctrl+C to shut down.
-
-...
-
-Http Functions:
-
-        HttpTrigger: http://localhost:7071/api/HttpTrigger
-
-[8/27/2018 10:38:27 PM] Host started (29486ms)
-[8/27/2018 10:38:27 PM] Job host started
-```
-
-Kopiera URL:en till din funktion `HTTPTrigger` från körtidutdatan och klistra in den i webbläsarens adressfält. Lägg till frågesträngen `?name=<yourname>` i webbadressen och kör din begäran. Nedan visas svaret på GET-begäran som returnerades av den lokala funktionen i webbläsaren:
-
-![Testa lokalt i webbläsaren](./media/functions-create-first-azure-function-azure-cli/functions-test-local-browser.png)
-
-Nu när du har kört funktionen lokalt kan du skapa funktionsappen och andra nödvändiga resurser i Azure.
+[!INCLUDE [functions-run-function-test-local](../../includes/functions-run-function-test-local.md)]
 
 [!INCLUDE [functions-create-resource-group](../../includes/functions-create-resource-group.md)]
 

@@ -1,23 +1,23 @@
 ---
-title: 'Snabbstart: Hämta språk som stöds – Translator Text, Node.js'
+title: 'Snabbstart: Hämta språk som stöds, Node.js – Translator Text'
 titleSuffix: Azure Cognitive Services
 description: I den här snabbstarten hämtar du en lista över språk som stöds för översättning, transkribering och ordlistesökningar med hjälp av Translator Text-API:t med Node.js.
 services: cognitive-services
-author: noellelacharite
+author: erhopf
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-text
 ms.topic: quickstart
 ms.date: 06/21/2018
-ms.author: nolachar
-ms.openlocfilehash: a3b9dde8983b87a63858b3eb1381f7c74545cb1a
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.author: erhopf
+ms.openlocfilehash: ff921243df078010bdc825d28b55d07333016774
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46122866"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49646429"
 ---
-# <a name="quickstart-get-supported-languages-with-nodejs"></a>Snabbstart: Hämta språk som stöds med Node.js
+# <a name="quickstart-get-supported-languages-with-the-translator-text-rest-api-nodejs"></a>Snabbstart: Hämta språk som stöds med Translator Text REST API (Node.js)
 
 I den här snabbstarten hämtar du en lista över språk som stöds för översättning, transkribering och ordlistesökningar med hjälp av Translator Text-API:t.
 

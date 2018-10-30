@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 09/11/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: e9ed0ba8d24f30f67dbb315848dc4c260cae4f50
-ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
+ms.openlocfilehash: 7e586e7e3ec8c16dcd215dbc11251d1b9fe928e1
+ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44391376"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49457101"
 ---
 # <a name="fail-over-and-fail-back-vmware-vms-and-physical-servers-replicated-to-azure"></a>Redundansväxla och återställa virtuella VMware-datorer och fysiska servrar som replikeras till Azure
 
@@ -93,13 +93,12 @@ Följ stegen som beskrivs [här](site-recovery-failover-to-azure-troubleshoot.md
 
 ## <a name="preparing-for-reprotection-of-azure-vm"></a>Förbereda för återaktivering av den virtuella Azure-datorn
 
-### <a name="create-a-process-server-in-azure"></a>Skapa en processerver i Azure
+- Du kan använda den lokala processervern (den inbyggda processervern) som installerades automatiskt på konfigurationsservern som en del av konfigurationen **om du har en Azure ExpressRoute-anslutning**.
 
-Processervern tar emot data från den virtuella Azure-datorn och skickar den till den lokala platsen. Ett nätverk med kort svarstid krävs mellan processervern och den skyddade virtuella datorn.
+> [!IMPORTANT]
+> Om du har en VPN-anslutning mellan din lokala miljö och Azure måste du konfigurera en virtuell Azure-dator som en processerver för återaktivering av skydd och återställning efter fel. Om du vill konfigurera en processerver i Azure följer du instruktionerna i [den här artikeln](vmware-azure-set-up-process-server-azure.md).
 
-- Om du har en Azure ExpressRoute-anslutning för testning, kan du använda den lokala processervern (den inbyggda processervern) som installerades automatiskt på konfigurationsservern.
-- Om du har en VPN-anslutning eller om du kör återställning efter fel i en produktionsmiljö, måste du konfigurera en virtuell Azure-dator som en Azure-baserad processerver för återställning efter fel.
-- Om du vill konfigurera en processerver i Azure följer du instruktionerna i [den här artikeln](vmware-azure-set-up-process-server-azure.md).
+Mer information om kraven för återaktivering av skydd och återställning efter fel finns i det här [avsnittet] ](vmware-azure-reprotect.md##before-you-begin). 
 
 ### <a name="configure-the-master-target-server"></a>Konfigurera huvudmålservern
 

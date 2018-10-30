@@ -6,22 +6,25 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 07/06/2018
+ms.date: 10/19/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: facf8895770f890bfbbef946a32cc681f685e998
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 361a1934a1e0cdcc0647c4c4f62af98f52b8c899
+ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37915210"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49456889"
 ---
 # <a name="prepare-on-premises-vmware-servers-for-disaster-recovery-to-azure"></a>Förbereda lokala VMware-servrar på haveriberedskap till Azure
 
 [Azure Site Recovery](site-recovery-overview.md) bidrar till din BCDR-strategi för affärskontinuitet och haveriberedskap genom att hålla dina företagsprogram igång och köra dem vid planerade och oplanerade avbrott. Site Recovery hanterar och samordnar haveriberedskap för lokala datorer och virtuella Azure-datorer, inklusive replikering, redundans och återställning.
 
 - Det här är den fjärde kursen i en serie som illustrerar hur du konfigurerar haveriberedskap i Azure för lokala virtuella VMware-datorer. I den första självstudien [konfigurerade vi de Azure-komponenter](tutorial-prepare-azure.md) som krävs för katastrofåterställning för VMware.
-- Självstudierna är utformade för att visa den enklaste distributionsvägen för ett scenario. De använder standardalternativ där så är möjligt och visar inte alla möjliga inställningar och sökvägar. 
+
+
+> [!NOTE]
+> Självstudierna är utformade för att visa den enklaste distributionsvägen för ett scenario. De använder standardalternativ där så är möjligt och visar inte alla möjliga inställningar och sökvägar. Detaljerade instruktioner finns i **instruktionsavsnittet** för motsvarande scenario.
 
 I den här artikeln visar vi hur du förbereder din lokala VMware-miljö när du vill replikera virtuella VMware-datorer till Azure med Azure Site Recovery. Lär dig att:
 
@@ -101,11 +104,13 @@ Om du vill ansluta till virtuella Linux-datorer med SSH efter en redundans, gör
 - [Lägg till en offentlig IP-adress](site-recovery-monitoring-and-troubleshooting.md) för den virtuella datorn.
 - Du kan kontrollera att **Startdiagnostik** visar en skärmbild av den virtuella datorn.
 
+
+## <a name="failback-requirements"></a>Krav för återställning efter fel
+Om du planerar att växla över till lokalt behöver du även se till att vissa [krav är uppfyllda](vmware-azure-reprotect.md##before-you-begin). Dessa **krävs dock inte för att komma igång med haveriberedskap** för dina virtuella datorer och kan även utföras efter en redundansväxling till Azure.
+
 ## <a name="useful-links"></a>Användbara länkar
 
 Om du replikerar flera virtuella datorer bör du planera kapacitet och distribution innan du börjar. [Läs mer](site-recovery-deployment-planner.md).
-
-
 
 ## <a name="next-steps"></a>Nästa steg
 

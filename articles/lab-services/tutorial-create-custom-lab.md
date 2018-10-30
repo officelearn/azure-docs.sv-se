@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 05/17/2018
 ms.author: spelluru
-ms.openlocfilehash: 5a93feec7996fc0ebf742b8d62b159dca5f1c1ed
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: c3eecfdf4bc2e6bf6798a6b3845cdc2e2e243341
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34636995"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49467437"
 ---
 # <a name="tutorial-set-up-a-lab-by-using-azure-devtest-labs"></a>Självstudie: Konfigurera ett labb med hjälp av Azure DevTest Labs
 I självstudien skapar du ett labb med hjälp av Azure Portal. En labbadministratör konfigurerar ett labb i en organisation, skapar virtuella datorer i labbet och konfigurerar principer. Labbanvändarna (till exempel utvecklare och testare) gör anspråk på de virtuella datorerna i labbet, ansluter till dem och använder dem. 
@@ -36,7 +36,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 ## <a name="create-a-lab"></a>Skapa ett labb
 Följande steg illustrerar hur du använder Azure-portalen för att skapa ett labb i Azure DevTest Labs. 
 
-1. Logga in på [Azure Portal](https://portal.azure.com).
+1. Logga in på [Azure-portalen](https://portal.azure.com).
 2. I huvudmenyn på vänster sida väljer du **Skapa en resurs** (överst i listan), pekar på **Utvecklarverktyg** och klickar på **DevTest Labs**. 
 
     ![Menyn Nytt DevTest Lab](./media/tutorial-create-custom-lab/new-custom-lab-menu.png)
@@ -55,7 +55,7 @@ Följande steg illustrerar hur du använder Azure-portalen för att skapa ett la
 1. På sidan **DevTest Lab** väljer du **+ Lägg till** i verktygsfältet. 
 
     ![Knappen Lägg till](./media/tutorial-create-custom-lab/add-vm-to-lab-button.png)
-1. På sidan för att **välja en bas** kan du söka med nyckelordet **Ubuntu** och välja en av basavbildningarna i listan. 
+1. På sidan för att **välja en bas** kan du söka med ett nyckelord (till exempel Windows eller Ubuntu) och välja en av basavbildningarna i listan. 
 1. På sidan **Virtuell dator** gör du följande: 
     1. Som **Virtuellt datornamn** anger du ett namn på den virtuella datorn. 
     2. Som **Användarnamn** anger du namnet på den användare som har åtkomst till den virtuella datorn. 
@@ -71,6 +71,9 @@ Följande steg illustrerar hur du använder Azure-portalen för att skapa ett la
 
         ![Skapandestatus för virtuell dator](./media/tutorial-create-custom-lab/vm-creation-status.png)
 1. När den virtuella datorn har skapats kan du se den i listan med **Virtuella datorer som kan tas i anspråk**. 
+
+    > [!NOTE] 
+    > När du lägger till en virtuell Linux-dator till ett labb kan du aktivera SSH och RDP-åtkomst till den virtuella datorn. Om du inte aktiverar åtkomst när du skapar den virtuella datorn kan du manuellt lägga till regler i den nätverkssäkerhetsgrupp som är associerad med den virtuella datorn för att öppna portar för SSH och RDP.
 
 ## <a name="add-a-user-to-the-lab-user-role"></a>Lägga till en användare i rollen Labbanvändare
 

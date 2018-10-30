@@ -1,26 +1,27 @@
 ---
 title: 'Snabbstart: Känna igen tal i Java (Windows eller Linux)'
-titleSuffix: Microsoft Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Lär dig att känna igen tal i Java (Windows eller Linux)
 services: cognitive-services
 author: fmegen
+manager: cgronlun
 ms.service: cognitive-services
-ms.component: Speech
+ms.component: speech-service
 ms.topic: quickstart
 ms.date: 10/12/2018
 ms.author: fmegen
-ms.openlocfilehash: 1f0c19524ebd59dcf0377cc173cd780d656ba447
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: 80ddef79392acb677555ed795bf429f5ec0266a0
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49339204"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49467267"
 ---
-# <a name="quickstart-recognize-speech-in-java-on-windows-or-linux-by-using-the-speech-sdk"></a>Snabbstart: Känna igen tal i Java i Windows eller Linux med hjälp av Speech SDK
+# <a name="quickstart-recognize-speech-in-java-on-windows-or-linux-by-using-the-speech-service-sdk"></a>Snabbstart: Känna igen tal i Java i Windows eller Linux med hjälp av Speech Service SDK
 
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
-I den här artikeln ska du skapa ett Java-konsolprogram med hjälp av [Speech SDK](speech-sdk.md). Du transkriberar tal till text i realtid från datorns mikrofon. Programmet baseras på Maven-paketet för Speech SDK och Eclipse Java IDE (v4.8) i 64-bitars Windows eller Ubuntu Linux 16.04. Det körs i en 64-bitars Java 8-körningsmiljö (JRE).
+I den här artikeln ska du skapa ett Java-konsolprogram med hjälp av [Speech Service SDK](speech-sdk.md). Du transkriberar tal till text i realtid från datorns mikrofon. Programmet baseras på Maven-paketet för Speech SDK och Eclipse Java IDE (v4.8) i 64-bitars Windows eller Ubuntu Linux 16.04. Det körs i en 64-bitars Java 8-körningsmiljö (JRE).
 
 > [!NOTE]
 > Information om Speech Devices SDK och Roobo-enheten finns i [Speech Devices SDK](speech-devices-sdk.md).

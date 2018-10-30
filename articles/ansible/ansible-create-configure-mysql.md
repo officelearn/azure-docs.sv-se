@@ -1,5 +1,5 @@
 ---
-title: Skapa och konfigurera en Azure Database for MySQL-server med Ansible (förhandsversion)
+title: Skapa och konfigurera en Azure Database for MySQL-server med hjälp av Ansible (förhandsversion)
 description: Lär dig hur du använder Ansible för att skapa och konfigurera en Azure Database for MySQL-server
 ms.service: ansible
 keywords: ansible, azure, devops, bash, cloudshell, playbook, bash
@@ -8,29 +8,29 @@ manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 09/23/2018
-ms.openlocfilehash: 508274d11a9693d28a9b3a01bd6ebbd7198e8711
-ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
+ms.openlocfilehash: b549aeaf24bd774245ee1f2ff6924ac1f6dbeee3
+ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/01/2018
-ms.locfileid: "47586708"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49427904"
 ---
-# <a name="create-and-configure-an-azure-database-for-mysql-server-using-ansible-preview"></a>Skapa och konfigurera en Azure Database for MySQL-server med Ansible (förhandsversion)
-[Azure Database for MySQL](https://docs.microsoft.com/azure/mysql/) är en hanterad tjänst som du använder för att köra, hantera och skala högtillgängliga MySQL-databaser i molnet. Den här snabbstarten visar hur du skapar en Azure Database for MySQL-server på ungefär fem minuter med Azure Portal. 
+# <a name="create-and-configure-an-azure-database-for-mysql-server-by-using-ansible-preview"></a>Skapa och konfigurera en Azure Database for MySQL-server med hjälp av Ansible (förhandsversion)
+[Azure Database for MySQL](https://docs.microsoft.com/azure/mysql/) är en hanterad tjänst som du använder för att köra, hantera och skala högtillgängliga MySQL-databaser i molnet. Med Ansible kan du automatisera distributionen och konfigurationen av resurser i din miljö. 
 
-Med Ansible kan du automatisera distributionen och konfigurationen av resurser i din miljö. Den här artikeln visar hur du använder Ansible för att skapa en Azure Database for MySQL-server och konfigurera brandväggsregeln på fem minuter. 
+Den här snabbstarten visar hur du använder Ansible för att skapa en Azure Database for MySQL-server och konfigurera dess brandväggsregeln. Du kan slutföra dessa uppgifter på ungefär fem minuter med hjälp av Azure-portalen.
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 - **Azure-prenumeration** – Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) konto innan du börjar.
 - [!INCLUDE [ansible-prereqs-for-cloudshell-use-or-vm-creation1.md](../../includes/ansible-prereqs-for-cloudshell-use-or-vm-creation1.md)] [!INCLUDE [ansible-prereqs-for-cloudshell-use-or-vm-creation2.md](../../includes/ansible-prereqs-for-cloudshell-use-or-vm-creation2.md)]
 
 > [!Note]
-> Ansible 2.7 krävs för att köra följande exempelspelböcker i den här självstudien. Du kan installera Ansible 2.7 RC-versionen genom att köra `sudo pip install ansible[azure]==2.7.0rc2`. Ansible 2.7 släpps i oktober 2018. Efter det behöver du inte ange versionen här, eftersom standardversionen blir 2.7.
+> Ansible 2.7 krävs för att köra följande exempelspelböcker i den här självstudien. Du kan installera Ansible 2.7 RC-versionen genom att köra `sudo pip install ansible[azure]==2.7.0rc2`. När Ansible 2.7 har släppts behöver du inte ange versionen här eftersom standardversionen blir 2.7.
 
 ## <a name="create-a-resource-group"></a>Skapa en resursgrupp
 En resursgrupp är en logisk container där Azure-resurser distribueras och hanteras.  
 
-I följande exempel skapas en resursgrupp med namnet **myResourceGroup** på platsen **eastus**.
+I följande exempel skapas en resursgrupp med namnet **myResourceGroup** på platsen **eastus**:
 
 ```yml
 - hosts: localhost
@@ -44,15 +44,15 @@ I följande exempel skapas en resursgrupp med namnet **myResourceGroup** på pla
         location: "{{ location }}"
 ```
 
-Spara spelboken ovan som *rg.yml*. Om du vill köra spelboken använder du kommandot **ansible-playbook** så här:
+Spara den föregående spelboken som **rg.yml**. Om du vill köra spelboken använder du kommandot **ansible-playbook** så här:
 ```bash
 ansible-playbook rg.yml
 ```
 
-## <a name="create-mysql-server-and-database"></a>Skapa MySQL-servern och databasen
-I följande exempel skapas en MySQL-server med namnet **mysqlserveransible** och en Azure Database for MySQL med namnet **mysqldbansible**. Det här är 5:e generationens server för generell användning med en virtuell kärna. Observera att värdet för **mysqlserver_name** måste vara unikt, och läs mer i [dokumentationen om prisnivåer](https://docs.microsoft.com/azure/mysql/concepts-pricing-tiers) så att du förstår vilka värden som är giltiga för varje region och nivå. 
+## <a name="create-a-mysql-server-and-database"></a>Skapa en MySQL-server och en databas
+I följande exempel skapas en MySQL-server med namnet **mysqlserveransible** och en Azure Database for MySQL-instans med namnet **mysqldbansible**. Det här är 5:e generationens server för generell användning med en virtuell kärna. 
 
-Ange ett eget `<server_admin_password>`:
+Värdet för **mysqlserver_name** måste vara unikt. Information om giltiga värden per region och per nivå finns i [dokumentationen om prisnivåer](https://docs.microsoft.com/azure/mysql/concepts-pricing-tiers). Ersätt `<server_admin_password>` med ett lösenord.
 
 ```yml
 - hosts: localhost
@@ -84,15 +84,16 @@ Ange ett eget `<server_admin_password>`:
         name: "{{ mysqldb_name }}"
 ```
 
-Spara spelboken ovan som *mysql_create.yml*. Om du vill köra spelboken använder du kommandot **ansible-playbook** så här:
+Spara den föregående spelboken som **mysql_create.yml**. Om du vill köra spelboken använder du kommandot **ansible-playbook** så här:
 ```bash
 ansible-playbook mysql_create.yml
 ```
 
-## <a name="configure-firewall-rule"></a>Konfigurera brandväggsregeln
-En brandväggsregel på servernivå gör att externa program, som kommandoradsverktyget **mysql** eller MySQL Workbench, kan ansluta till servern via Azure MySQL-tjänstens brandvägg. I följande exempel skapas en brandväggsregel som kallas **externalaccess** och som tillåter anslutningar från en valfri extern IP-adress. 
+## <a name="configure-a-firewall-rule"></a>Konfigurera en brandväggsregel
+En brandväggsregel på servernivå gör att ett externt program kan ansluta till din server via Azure PostgreSQL-tjänstens brandvägg. Ett exempel på ett externt program är **mysql**-kommandoradsverktyget eller MySQL Workbench.
+I följande exempel skapas en brandväggsregel som kallas **externalaccess** och som tillåter anslutningar från en valfri extern IP-adress. 
 
-Ange din egen **startIpAddress** och **endIpAddress** med det intervall av IP-adresser som motsvarar platsen du ska ansluta ifrån: 
+Ange dina egna värden för **startIpAddress** och **endIpAddress**. Använd intervallet med de IP-adresser som motsvarar den plats som du kommer att ansluta från. 
 
 ```yml
 - hosts: localhost
@@ -117,27 +118,27 @@ Ange din egen **startIpAddress** och **endIpAddress** med det intervall av IP-ad
 ```
 
 > [!NOTE]
-> Anslutningar till Azure Database för MySQL kommunicerar via port 3306. Om du försöker ansluta inifrån ett företagsnätverk kanske utgående trafik via port 3306 inte tillåts. I så fall kan du inte ansluta till servern om inte IT-avdelningen öppnar port 3306.
+> Anslutningar till Azure Database för MySQL kommunicerar via port 3306. Om du försöker ansluta inifrån ett företagsnätverk kanske utgående trafik via port 3306 inte tillåts. I så fall kan du inte ansluta till servern såvida inte IT-avdelningen öppnar port 3306.
 > 
 
-Här används modulen **azure_rm_resource** för att utföra åtgärden, vilket möjliggör direkt användning av REST API.
+Här används modulen **azure_rm_resource** till att utföra den här åtgärden. Den medger direkt användning av REST API.
 
-Spara spelboken ovan som *mysql_firewall.yml*. Om du vill köra spelboken använder du kommandot **ansible-playbook** så här:
+Spara den föregående spelboken som **mysql_firewall.yml**. Om du vill köra spelboken använder du kommandot **ansible-playbook** så här:
 ```bash
 ansible-playbook mysql_firewall.yml
 ```
 
-## <a name="connect-to-the-server-using-command-line-tool"></a>Anslut till servern med kommandoradsverktyget
-Du kan hämta MySQL [här](https://dev.mysql.com/downloads/) och installera programmet på din dator. Du kan även klicka på knappen **Prova** på kodexemplen eller på `>_`-knappen i det övre högra verktygsfältet i Azure-portalen och starta **Azure Cloud Shell**.
+## <a name="connect-to-the-server-by-using-the-command-line-tool"></a>Ansluta till servern med hjälp av kommandoradsverktyget
+Du kan [ladda ned MySQL](https://dev.mysql.com/downloads/) och installera det på datorn. Du kan även välja knappen **Prova** i kodexemplen eller knappen **>_** i det övre högra verktygsfältet på Azure-portalen och öppna **Azure Cloud Shell**.
 
-Skriv nästa kommandon: 
+Ange nästa kommandon: 
 
-1. Anslut till servern med kommandoradsverktyget **mysql**:
+1. Anslut till servern med hjälp av **mysql**-kommandoradsverktyget:
 ```azurecli-interactive
  mysql -h mysqlserveransible.mysql.database.azure.com -u mysqladmin@mysqlserveransible -p
 ```
 
-2. Visa status för servern:
+2. Visa serverstatusen:
 ```sql
  mysql> status
 ```
@@ -184,8 +185,8 @@ Threads: 5  Questions: 559  Slow queries: 0  Opens: 96  Flush tables: 3  Open ta
 --------------
 ```
 
-## <a name="using-facts-to-query-mysql-servers"></a>Använda fakta för att ställa frågor till MySQL-servrar
-Följande exempel frågar MySQL-servrar i **myResourceGroup** och därefter alla databaser på servern:
+## <a name="using-facts-to-query-mysql-servers"></a>Använda fakta för att köra frågor mot MySQL-servrar
+Följande exempel kör frågor mot MySQL-servrar i **myResourceGroup** och därefter alla databaser på servrarna:
 
 ```yml
 - hosts: localhost
@@ -213,13 +214,13 @@ Följande exempel frågar MySQL-servrar i **myResourceGroup** och därefter alla
         var: mysqldatabasefacts
 ```
 
-Spara spelboken ovan som *mysql_query*.yml. Om du vill köra spelboken använder du kommandot **ansible-playbook** så här:
+Spara den föregående spelboken som **mysql_query.yml**. Om du vill köra spelboken använder du kommandot **ansible-playbook** så här:
 
 ```bash
 ansible-playbook mysql_query.yml
 ```
 
-Därefter visas följande utdata för MySQL-server: 
+Därefter visas följande utdata för MySQL-servern: 
 ```json
 "servers": [
     {
@@ -243,7 +244,7 @@ Därefter visas följande utdata för MySQL-server:
 ]
 ```
 
-Du kan även se följande utdata för MySQL-databas:
+Det visas även följande utdata för MySQL-databasen:
 ```json
 "databases": [
     {
@@ -279,7 +280,7 @@ Du kan även se följande utdata för MySQL-databas:
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-Om du inte behöver resurserna kan du ta bort dem genom att köra exemplet nedan. Exemplet tar bort en resursgrupp med namnet **myResourceGroup**. 
+Om du inte behöver resurserna kan du ta bort dem genom att köra följande exempel. Exemplet tar bort en resursgrupp med namnet **myResourceGroup**. 
 
 ```yml
 - hosts: localhost
@@ -292,12 +293,12 @@ Om du inte behöver resurserna kan du ta bort dem genom att köra exemplet nedan
         state: absent
 ```
 
-Spara spelboken ovan som *rg_delete*.yml. Om du vill köra spelboken använder du kommandot **ansible-playbook** så här:
+Spara den föregående spelboken som **rg_delete.yml**. Om du vill köra spelboken använder du kommandot **ansible-playbook** så här:
 ```bash
 ansible-playbook rg_delete.yml
 ```
 
-Om du bara vill ta bort den enda MySQL-servern som skapades nyligen kan du göra det genom att köra följande exempel:
+Om du bara vill ta bort den nyligen skapade MySQL-server kör du följande exempel:
 
 ```yml
 - hosts: localhost
@@ -312,7 +313,7 @@ Om du bara vill ta bort den enda MySQL-servern som skapades nyligen kan du göra
         state: absent
 ```
 
-Spara spelboken ovan som *mysql_delete.yml*. Om du vill köra spelboken använder du kommandot **ansible-playbook** så här:
+Spara den föregående spelboken som **mysql_delete.yml**. Om du vill köra spelboken använder du kommandot **ansible-playbook** så här:
 ```bash
 ansible-playbook mysql_delete.yml
 ```

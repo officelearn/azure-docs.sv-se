@@ -9,12 +9,12 @@ ms.service: storage
 ms.topic: quickstart
 ms.date: 06/27/2018
 ms.author: jamesbak
-ms.openlocfilehash: 4c3354786d7320caee0dfe2f0eca44909d77f2fe
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: 2dae7938c63ee141ea6705ab4c324882f575e298
+ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49386859"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49426880"
 ---
 # <a name="quickstart-create-an-azure-data-lake-storage-gen2-preview-storage-account"></a>Snabbstart: Skapa ett Azure Data Lake Storage Gen2-lagringskonto (förhandsversion)
 
@@ -87,7 +87,7 @@ Följ de här stegen för att skapa en resursgrupp i Azure-portalen:
 Följ de här stegen för att skapa ett GPv2-konto för generell användning i Azure-portalen:
 
 > [!NOTE]
-> Hierarkisk namnrymd är endast tillgängligt i USA, östra; USA, östra 2; USA, västra; USA, västra 2; USA, västra centrala; Europa, norra; Europa, västra; Sydostasien och Australien, östra. Se till att du anger någon av dessa platser när du skapar lagringskontot.
+> Den hierarkiska namnrymden är för närvarande tillgänglig i alla offentliga regioner, men ingen av de privata regionerna. Den är för närvarande inte tillgänglig i nationella moln.
 
 1. I Azure-portalen expanderar du menyn på vänster sida för att öppna tjänstemenyn och välja **Alla tjänster**. Rulla ned till **lagring** och välj **lagringskonton**. På fönstret **lagringskonton** som visas, väljer du **lägg till**.
 2. Ange ett namn för lagringskontot.
@@ -135,7 +135,7 @@ Starta sedan om gränssnittet.
 Om du vill skapa en resursgrupp med PowerShell använder du kommandot [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup): 
 
 > [!NOTE]
-> Hierarkisk namnrymd är endast tillgängligt i USA, östra; USA, östra 2; USA, västra; USA, västra 2; USA, västra centrala; Europa, norra; Europa, västra; Sydostasien och Australien, östra. Se till att du anger någon av dessa platser när du skapar lagringskontot.
+> > Den hierarkiska namnrymden är för närvarande tillgänglig i alla offentliga regioner, men ingen av de privata regionerna. Den är för närvarande inte tillgänglig i nationella moln.
 
 ```powershell
 # put resource group in a variable so you can use the same group name going forward,
@@ -196,7 +196,7 @@ az group create \
 ```
 
 > [!NOTE]
-> Hierarkisk namnrymd är endast tillgängligt i USA, östra; USA, östra 2; USA, västra; USA, västra 2; USA, västra centrala; Europa, norra; Europa, västra; Sydostasien och Australien, östra. Se till att du anger någon av dessa platser när du skapar lagringskontot.
+> > Den hierarkiska namnrymden är för närvarande tillgänglig i alla offentliga regioner, men ingen av de privata regionerna. Den är för närvarande inte tillgänglig i nationella moln.
 
 ### <a name="create-a-general-purpose-v2-storage-account"></a>Skapa ett v2-lagringskonto för generell användning
 

@@ -14,12 +14,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 08/10/2018
 ms.author: apimpm
-ms.openlocfilehash: 4f5097f8555d0345add7de8a0f648190bd4e1e00
-ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
+ms.openlocfilehash: 0346cf456c53b14fd3c5b14b2e40eddd8b89fe4d
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/13/2018
-ms.locfileid: "41918016"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49465958"
 ---
 # <a name="create-and-publish-a-product"></a>Skapa och publicera en produkt  
 
@@ -31,7 +31,7 @@ I den här guiden får du lära dig att:
 > * Skapa och publicera en produkt
 > * Lägga till ett API till produkten
 
-![Lägga till produkt](media/api-management-howto-add-products/added-product.png)
+![Lägga till produktsjälvstudie](media/api-management-howto-add-products/added-product.png)
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
@@ -40,10 +40,10 @@ I den här guiden får du lära dig att:
 
 ## <a name="create-and-publish-a-product"></a>Skapa och publicera en produkt
 
+![Lägg till produkt](media/api-management-howto-add-products/02-create-publish-product-01.png)
+
 1. Klicka på **Produkter** i menyn till vänster för att visa sidan **Produkter**.
 2. Klicka på **+ Lägg till**.
-
-    ![tillagd produkt](media/api-management-howto-add-products/add-product.png)
 
     När du lägger till en produkt måste du ange följande information: 
 
@@ -77,7 +77,7 @@ Utvecklare måste först prenumerera på en produkt för att få åtkomst till A
 
 ### <a name="add-an-api-to-an-existing-product"></a>Lägga till en API till en befintlig produkt
 
-![Lägga till produkt-API](media/api-management-howto-add-products/add-product-api.png)
+![Lägga till produkt-API](media/api-management-howto-add-products/02-create-publish-product-02.png)
 
 1. Från fliken **Produkter** väljer du en produkt.
 2. Navigera till fliken **API:er**.

@@ -1,24 +1,30 @@
 ---
-title: 'Snabbstart: Python – Uppdatera kunskapsbas – QnA Maker'
-description: Uppdatera en kunskapsbas i Python för QnA Maker.
+title: 'Snabbstart: Uppdatera kunskapsbas – REST, Python – QnA Maker'
+description: Den här REST-baserade snabbstarten visar hur du uppdaterar ditt exempel på en QnA Maker-kunskapsbas (KB) programmatiskt. Via JSON-definitionen som du använder för att uppdatera en KB kan du lägga till, ändra eller ta bort frågor och svar-par.
 services: cognitive-services
 author: diberry
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: qna-maker
 ms.topic: quickstart
-ms.date: 09/12/2018
+ms.date: 10/19/2018
 ms.author: diberry
-ms.openlocfilehash: d58e12df30ab1b45e460cf8a4ea098d350164ec3
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 35ef0222de6093e7bae3b41377db2ea3fd3c3d75
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47031942"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49645922"
 ---
-# <a name="update-a-knowledge-base-in-python"></a>Uppdatera en kunskapsbas i Python
+# <a name="quickstart-update-a-knowledge-base-in-qna-maker-using-python"></a>Snabbstart: Uppdatera en kunskapsbas i QnA Maker med hjälp av Python
 
-Följande kod uppdaterar en befintlig kunskapsbas med hjälp av metoden [Update](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da7600) (Uppdatera).
+Den här snabbstarten går igenom programmatisk uppdatering av en befintlig QnA Maker-kunskapsbas (KB).  Med denna JSON kan du uppdatera en KB genom att lägga till nya datakällor, ändra datakällor eller ta bort datakällor.
+
+Det här API:et motsvarar redigering, och använd sedan knappen för att **spara och öva** i QnA Maker-portalen.
+
+Den här snabbstarten anropar API:er för QnA Maker:
+* [Uppdatera](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da7600) – Modellen för kunskapsbasen har definierats i JSON som skickas i brödtexten i API-begäran. 
+* [Hämta åtgärdsinformation](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/operations_getoperationdetails)
 
 [!INCLUDE [Code is available in Azure-Samples Github repo](../../../../includes/cognitive-services-qnamaker-python-repo-note.md)]
 

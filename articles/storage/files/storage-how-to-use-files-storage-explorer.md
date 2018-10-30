@@ -1,36 +1,29 @@
 ---
-title: Hantera Azure-filresurser med Azure Storage Explorer
-description: Lär dig att hantera Azure Files med Azure Storage Explorer.
+title: Snabbstart för hantering av Azure-filresurser med hjälp av Azure Storage Explorer
+description: I den här snabbstarten lär du dig hur du använder Azure Storage Explorer till att hantera Azure Files.
 services: storage
 author: wmgries
 ms.service: storage
-ms.topic: get-started-article
-ms.date: 02/27/2018
+ms.topic: quickstart
+ms.date: 10/18/2018
 ms.author: wgries
 ms.component: files
-ms.openlocfilehash: 949d96bb1b5ffdc948737d4a47ffa14b2e344b5e
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: f86a86fd9858fcc6f0b78256da1e96effbcbe68c
+ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45574739"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49944226"
 ---
-# <a name="manage-azure-file-shares-with-azure-storage-explorer"></a>Hantera Azure-filresurser med Azure Storage Explorer 
-[Azure Files](storage-files-introduction.md) är Microsofts lättanvända filsystem i molnet. Den här artikeln vägleder dig igenom grunderna i att arbeta med Azure-filresurser med [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/). Storage Explorer är ett populärt klientverktyg som finns för Windows, macOS och Linux. Du kan använda Storage Explorer för att hantera Azure-filresurser och andra lagringsresurser.
+# <a name="quickstart-create-and-manage-azure-file-shares-with-azure-storage-explorer"></a>Snabbstart: Skapa och hantera Azure-filresurser med Azure Storage Explorer
+Den här guiden vägleder dig igenom grunderna i att arbeta med [Azure-filresurser](storage-files-introduction.md) med Azure Storage Explorer. Azure-filresurser är precis som andra filresurser men lagras i molnet och backas av Azure-plattformen. Azure-filresurser stöder SMB-protokollet, som är branschstandard och möjliggör fildelning på olika datorer, program och instanser. 
 
-För den här snabbstarten krävs det att Storage Explorer är installerat. Hämta och installera det genom att gå till [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/).
-
-I den här artikeln kan du se hur du:
-
-> [!div class="checklist"]
-> * Skapa en resursgrupp och ett lagringskonto
-> * Skapa en Azure-filresurs 
-> * Skapa en katalog
-> * Överför en fil
-> * Hämta en fil
-> * Skapa och använda en ögonblicksbild av en resurs
+Azure Storage Explorer är ett populärt klientverktyg som finns för Windows, macOS och Linux. Du kan använda Storage Explorer för att hantera Azure-filresurser och andra lagringsresurser.
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
+
+## <a name="prerequisites"></a>Nödvändiga komponenter
+För den här snabbstarten krävs det att Storage Explorer är installerat. Hämta och installera det genom att gå till [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/).
 
 ## <a name="create-a-storage-account"></a>skapar ett lagringskonto
 Du kan inte skapa nya resurser med Storage Explorer. can't use Storage Explorer to create new resources. Skapa lagringskontot i [Azure-portalen](https://portal.azure.com/) för den här demon. 
@@ -49,7 +42,7 @@ I den här snabbstarten loggar vi för enkelhetens skull in med ditt Azure-konto
 ![En skärmbild av fönstret Microsoft Azure Storage Explorer – anslut](./media/storage-how-to-use-files-storage-explorer/connect-to-azure-storage-1.png)
 
 ### <a name="create-a-file-share"></a>Skapa en filresurs
-Skapa din första Azure-filresurs inom lagringskontot *storageacct<random number>*:
+Så här skapar du din första Azure-filresurs inom lagringskontot `storageacct<random number>`:
 
 1. Expandera det lagringskonto du har skapat.
 2. Högerklicka på **Filresurser** och välj **Skapa filresurs**.  
@@ -57,13 +50,12 @@ Skapa din första Azure-filresurs inom lagringskontot *storageacct<random number
 
 3. För filresursen anger du *myshare* och trycker på Retur.
 
-> [!IMPORTANT]  
-> Resursnamn får bara innehålla gemener, siffror och enskilda bindestreck (men får inte inledas med bindestreck). Mer information om hur du namnger filresurser och filer finns i [Namnge och referera till resurser, kataloger, filer och metadata](https://docs.microsoft.com/rest/api/storageservices/Naming-and-Referencing-Shares--Directories--Files--and-Metadata).
+Resursnamn får bara innehålla gemener, siffror och enskilda bindestreck (men får inte inledas med bindestreck). Mer information om hur du namnger filresurser och filer finns i [Namnge och referera till resurser, kataloger, filer och metadata](https://docs.microsoft.com/rest/api/storageservices/Naming-and-Referencing-Shares--Directories--Files--and-Metadata).
 
 När filresursen har skapats öppnas en flik för filresursen i den högra rutan. 
 
-## <a name="work-with-the-contents-of-an-azure-file-share"></a>Arbeta med innehållet i Azure-filresursen
-Nu när du har skapat en Azure-filresurs kan du montera filresursen med SMB på [Windows](storage-how-to-use-files-windows.md), [Linux](storage-how-to-use-files-linux.md) eller [macOS](storage-how-to-use-files-mac.md). Du kan också arbeta med din Azure-filresurs med Azure CLI. Fördelen med att använda Azure CLI istället för att montera filresursen med SMB är att alla förfrågningar som görs med Azure CLI görs med fil-REST-API:n. Du kan använda fil-REST-API:n för att skapa, ändra och ta bort filer och kataloger på klienter som inte har SMB-åtkomst.
+## <a name="use-your-azure-file-share"></a>Använda Azure-filresursen
+Nu när du har skapat en Azure-filresurs kan du montera filresursen med SMB på [Windows](storage-how-to-use-files-windows.md), [Linux](storage-how-to-use-files-linux.md) eller [macOS](storage-how-to-use-files-mac.md). Alternativt kan du arbeta med din Azure-filresurs genom att använda Azure Storage Explorer. Fördelen med att använda Azure Storage Explorer istället för att montera filresursen med SMB är att alla förfrågningar som görs med Azure Storage Explorer görs med fil-REST-API:n. Du kan använda fil-REST-API:n för att skapa, ändra och ta bort filer och kataloger på klienter som inte har SMB-åtkomst.
 
 ### <a name="create-a-directory"></a>Skapa en katalog
 Om du lägger till en katalog får du en hierarkisk struktur där du kan hantera din filresurs. Du kan skapa flera nivåer i din katalog. Men du måste se till att de överordnade katalogerna finns måste du skapa underkataloger. För sökvägen myDirectory/mySubDirectory måste du t.ex. först skapa katalogen *myDirectory*. Därefter kan du skapa *mySubDirectory*. 
@@ -89,41 +81,12 @@ Om du vill ladda ned en kopia av en fil från din filresurs högerklickar du på
 
 Hämtningsförloppet visas i rutan **Aktiviteter** längst ned i fönstret.
 
-## <a name="create-and-modify-share-snapshots"></a>Skapa och ändra resursögonblicksbilder
-En ögonblicksbild bevarar en kopia vid en viss tidpunkt av en Azure-filresurs. Ögonblicksbilder av filresurser liknar vissa andra tekniker som du kanske redan är bekant med:
-- [Tjänsten Volume Shadow Copy(VSS)](https://docs.microsoft.com/windows/desktop/VSS/volume-shadow-copy-service-portal) för Windows-filsystem, till exempel NTFS och ReFS
-- [Logical Volume Manager (LVM)](https://en.wikipedia.org/wiki/Logical_Volume_Manager_(Linux)#Basic_functionality) ögonblicksbilder för Linux-system
-- [Apple File System (APFS)](https://developer.apple.com/library/content/documentation/FileManagement/Conceptual/APFS_Guide/Features/Features.html) ögonblicksbilder för macOS
-
-Så här skapar du en ögonblicksbild av en resurs:
-
-1. Välj fliken för filresursen *myshare*.
-2. I menyn högst upp väljer du **Skapa ögonblicksbild**. (Du kanske först måste välja **Mer** för att se det här alternativet, beroende på fönstrets dimensioner i Storage Explorer.)  
-    ![En skärmbild av den knappen Skapa ögonblicksbild i sitt sammanhang](media/storage-how-to-use-files-storage-explorer/create-share-snapshot-1.png)
-
-### <a name="list-and-browse-share-snapshots"></a>Visa lista över och bläddra bland ögonblicksbilder av resurser
-När ögonblicksbilden har skapats kan du klicka på **Visa ögonblicksbilder för filresurs** för att visa en lista över ögonblicksbilder för resursen. (Du kanske först måste välja **Mer** för att se det här alternativet, beroende på fönstrets dimensioner i Storage Explorer.) Dubbelklicka på ögonblicksbilden om du vill bläddra i den.
-
-![En skärmbild av bläddringsfönstret för ögonblicksbilder](media/storage-how-to-use-files-storage-explorer/list-browse-snapshots-1.png)
-
-### <a name="restore-from-a-share-snapshot"></a>Återställ från en resursögonblicksbild
-För att demonstrera återställning av en fil från en ögonblicksbild av en resurs, behöver du först ta bort en fil från live-Azure-filresursen. Gå till mappen *myDirectory*, högerklicka på den uppladdade filen och klicka sedan på **Ta bort**. Så här återställer du filen från ögonblicksbilden för resursen:
-
-1. Välj **Visa ögonblicksbilder för filresurs**. (Du kanske först måste välja **Mer** för att se det här alternativet, beroende på fönstrets dimensioner i Storage Explorer.)
-2. I listan med resursögonblicksbilder dubbelklickar du på resursens ögonblicksbild.
-3. Bläddra i ögonblicksbilden tills du hittar filen du tog bort. Välj filresursen och välj därefter **Återställ ögonblicksbild**. (Du kanske först måste välja **Mer** för att se det här alternativet, beroende på fönstrets dimensioner i Storage Explorer.) Ett fönster öppnas som visar en varning om att om du återställer filen så skrivs innehållet i filresursen över, och att det inte går att ångra detta. Välj **OK**.
-4. Nu bör filen finnas på sin ursprungliga plats och under den levande Azure-filresursen.
-
-### <a name="delete-a-share-snapshot"></a>Ta bort en resursögonblicksbild
-För att ta bort en ögonblicksbild av en resurs [går du till listan över ögonblicksbilder av resurser](#list-and-browse-share-snapshots). Högerklicka på den resursögonblicksbild du vill ta bort och välj **Ta bort**.
-
 ## <a name="clean-up-resources"></a>Rensa resurser
 Du kan inte ta bort resurser med Storage Explorer. Om du vill rensa från den här snabbstarten kan du använda [Azure-portalen](https://portal.azure.com/). 
 
 [!INCLUDE [storage-files-clean-up-portal](../../../includes/storage-files-clean-up-portal.md)]
 
 ## <a name="next-steps"></a>Nästa steg
-- [Hantera filresurser med Azure Portal](storage-how-to-use-files-portal.md)
-- [Hantera filresurser med Azure PowerShell](storage-how-to-use-files-powershell.md)
-- [Hantera filresurser med Azure CLI](storage-how-to-use-files-cli.md)
-- [Planera för en Azure Files-distribution](storage-files-planning.md)
+
+> [!div class="nextstepaction"]
+> [Vad är Azure Files?](storage-files-introduction.md)

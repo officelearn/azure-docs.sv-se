@@ -1,23 +1,23 @@
 ---
-title: 'Snabbstart: Konvertera textskript – Translator Text, PHP'
+title: 'Snabbstart: Konvertera textskript, PHP – Translator Text API'
 titleSuffix: Azure Cognitive Services
 description: I den här snabbstarten ska du konvertera text i ett språk från ett skript till ett annat med hjälp av Translator Text-API:et med PHP.
 services: cognitive-services
-author: noellelacharite
+author: erhopf
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-text
 ms.topic: quickstart
 ms.date: 06/22/2018
-ms.author: nolachar
-ms.openlocfilehash: b2b1773bc6eeea3a19d197faae75039511e77cf9
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.author: erhopf
+ms.openlocfilehash: e858e33864ddec211f2424c7380b5b421a3db0f5
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46123889"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49649487"
 ---
-# <a name="quickstart-transliterate-text-with-php"></a>Snabbstart: Transkribera text med PHP
+# <a name="quickstart-transliterate-text-with-the-translator-text-rest-api-php"></a>Snabbstart: Translitterera text med Translator Text REST API (PHP)
 
 I den här snabbstarten ska du konvertera text i ett språk från ett skript till ett annat med hjälp av Translator Text-API:et.
 

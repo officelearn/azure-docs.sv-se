@@ -1,7 +1,7 @@
 ---
-title: 'Självstudie: Skapa ett projekt för objektidentifiering – API för Custom Vision, Python'
+title: 'Självstudie: Skapa ett objektidentifieringsprojekt med Custom Vision SDK för Python – Custom Vision Service'
 titlesuffix: Azure Cognitive Services
-description: Skapa ett projekt, lägg till taggar, ladda upp bilder, träna ditt projekt och gör en förutsägelse genom att använda standardslutpunkten.
+description: Skapa ett projekt, lägg till taggar, ladda upp bilder, träna ditt projekt och gör en förutsägelse med hjälp av standardslutpunkten.
 services: cognitive-services
 author: areddish
 manager: cgronlun
@@ -10,22 +10,22 @@ ms.component: custom-vision
 ms.topic: tutorial
 ms.date: 05/03/2018
 ms.author: areddish
-ms.openlocfilehash: f49f5ab32d834b32de54be2d96c3671ad46f79f3
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.openlocfilehash: 36b283965766130e86e079c807139998cd01c8a6
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46363708"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49958541"
 ---
-# <a name="tutorial-build-an-object-detection-project-with-python"></a>Självstudie: Skapa ett projekt för objektidentifiering med Python
+# <a name="tutorial-create-an-object-detection-project-with-the-custom-vision-sdk-for-python"></a>Självstudie: Skapa ett objektidentifieringsprojekt med Custom Vision SDK för Python
 
 Utforska ett grundläggande Python-skript som använder API för visuellt innehåll för att skapa ett projekt för objektidentifiering. När den har skapats kan du lägga till taggade regioner, ladda upp bilder, träna projektet, hämta slutpunkts-URL:en för projektets standardförutsägelse och använda slutpunkten för att testa en bild programmatiskt. Använd det här exemplet med öppen källkod som en mall för att skapa din egen app med hjälp av API för Custom Vision.
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
-I självstudiekursen måste du göra följande:
+För att kunna använda självstudiekursen behöver du göra följande:
 
-- Installera Python 2.7 + eller Python 3.5 +.
+- Installera Python 2.7+ eller Python 3.5+.
 - Installera pip.
 
 ### <a name="platform-requirements"></a>Plattformskrav
@@ -203,9 +203,9 @@ for prediction in results.predictions:
     print ("\t" + prediction.tag_name + ": {0:.2f}%".format(prediction.probability * 100), prediction.bounding_box.left, prediction.bounding_box.top, prediction.bounding_box.width, prediction.bounding_box.height)
 ```
 
-## <a name="step-7-run-the-example"></a>Steg 7: Kör exemplet
+## <a name="step-7-run-the-example"></a>Steg 7: kör exemplet
 
-Kör lösningen. Förutsägelseresultaten visas i konsolen.
+Kör lösningen. Förutsägelseresultatet visas i konsolen.
 
 ```
 python sample.py

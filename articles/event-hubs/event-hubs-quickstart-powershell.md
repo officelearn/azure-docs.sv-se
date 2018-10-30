@@ -11,23 +11,24 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 08/16/2018
 ms.author: shvija
-ms.openlocfilehash: 305776db1d3e0bacc266e514e0a59fe6b3fbd4b4
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: 25c64b3ac2d051aac5998d23f07e149a1dd57bc9
+ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49388535"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49456243"
 ---
 # <a name="quickstart-create-an-event-hub-using-azure-powershell"></a>Snabbstart: Skapa en händelsehubb med Azure PowerShell
 
-Azure Event Hubs är en mycket skalbar dataströmningsplattform och inmatningstjänst som kan ta emot och bearbeta flera miljoner händelser per sekund. Den här snabbstarten visar hur du skapar en händelsehubb med Azure PowerShell och sedan skickar till och tar emot händelser från en händelsehubb med SDK för .NET Standard.
+Azure Event Hubs är en strömningstjänst för stordata och händelseinmatningstjänst som kan ta emot och bearbeta flera miljoner händelser per sekund. Azure Event Hubs kan bearbeta och lagra händelser, data eller telemetri som produceras av distribuerade program och enheter. Data som skickas till en händelsehubb kan omvandlas och lagras med valfri provider för realtidsanalys eller batchbearbetnings-/lagringsadaptrar. En detaljerad översikt över Event Hubs finns i [Översikt över Event Hubs](event-hubs-about.md) och [Event Hubs-funktioner](event-hubs-features.md).
 
-Du behöver en Azure-prenumeration för att kunna utföra den här snabbstarten. Om du inte har ett konto kan du [skapa ett kostnadsfritt konto][] innan du börjar.
+I den här snabbstarten har du skapat en händelsehubb med hjälp av Azure PowerShell.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 För att kunna följa den här självstudien måste du ha:
 
+- En Azure-prenumeration. Om du inte har ett konto kan du [skapa ett kostnadsfritt konto][] innan du börjar.
 - [Visual Studio 2017 Update 3 (version 15.3, 26730.01)](http://www.visualstudio.com/vs) eller senare.
 - [SDK för .NET Standard](https://www.microsoft.com/net/download/windows) version 2.0 eller senare.
 
@@ -35,9 +36,7 @@ För att kunna följa den här självstudien måste du ha:
 
 Om du använder PowerShell lokalt måste du köra den senaste versionen av PowerShell för att kunna slutföra den här snabbstarten. Om du behöver installera eller uppgradera, kan du läsa [Installera och konfigurera Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-5.7.0).
 
-## <a name="provision-resources"></a>Etablera resurser
-
-### <a name="create-a-resource-group"></a>Skapa en resursgrupp
+## <a name="create-a-resource-group"></a>Skapa en resursgrupp
 
 En resursgrupp är en logisk samling Azure-resurser. Du behöver en resursgrupp för att kunna skapa en händelsehubb. 
 
@@ -47,7 +46,7 @@ I följande exempel skapas en resursgrupp i regionen USA, västra. Ersätt `myRe
 New-AzureRmResourceGroup –Name myResourceGroup –Location eastus
 ```
 
-### <a name="create-an-event-hubs-namespace"></a>Skapa ett Event Hubs-namnområde
+## <a name="create-an-event-hubs-namespace"></a>Skapa ett Event Hubs-namnområde
 
 När resursgruppen har skapats skapar du ett Event Hubs-namnområde i resursgruppen. Ett Event Hubs-namnområde ger ett unikt fullständigt kvalificerat domännamn som du kan skapa din händelsehubb i. Ersätt `namespace_name` med ett unikt namn för ditt namnområde:
 
@@ -55,7 +54,7 @@ När resursgruppen har skapats skapar du ett Event Hubs-namnområde i resursgrup
 New-AzureRmEventHubNamespace -ResourceGroupName myResourceGroup -NamespaceName namespace_name -Location eastus
 ```
 
-### <a name="create-an-event-hub"></a>Skapa en händelsehubb
+## <a name="create-an-event-hub"></a>Skapa en händelsehubb
 
 Nu när du har skapat ett Event Hubs-namnområde skapar du en händelsehubb i namnområdet:
 
@@ -63,98 +62,14 @@ Nu när du har skapat ett Event Hubs-namnområde skapar du en händelsehubb i na
 New-AzureRmEventHub -ResourceGroupName myResourceGroup -NamespaceName namespace_name -EventHubName eventhub_name
 ```
 
-### <a name="create-a-storage-account-for-event-processor-host"></a>Skapa ett lagringskonto för Event Processor Host
-
-Event Processor Host gör det enklare att ta emot händelser från Event Hubs genom att hantera kontrollpunkter och parallella mottaganden. För att kunna använda kontrollpunkter måste Event Processor Host ha ett lagringskonto. Om du vill skapa ett lagringskonto och få dess nycklar, kör du följande kommandon:
-
-```azurepowershell-interactive
-# Create a standard general purpose storage account 
-New-AzureRmStorageAccount -ResourceGroupName myResourceGroup -Name storage_account_name -Location eastus -SkuName Standard_LRS 
-e
-# Retrieve the storage account key for accessing it
-Get-AzureRmStorageAccountKey -ResourceGroupName myResourceGroup -Name storage_account_name
-```
-
-### <a name="get-the-connection-string"></a>Hämta anslutningssträngen
-
-En anslutningssträng krävs för att ansluta till din händelsehubb och bearbeta händelser. Du hämtar anslutningssträngen genom att köra:
-
-```azurepowershell-interactive
-Get-AzureRmEventHubKey -ResourceGroupName myResourceGroup -NamespaceName namespace_name -Name RootManageSharedAccessKey
-```
-
-## <a name="stream-into-event-hubs"></a>Strömma till Event Hubs
-
-Nu kan du börja strömma till Event Hubs. Exemplen kan hämtas eller Git-klonas från [Event Hubs-lagringsplatsen](https://github.com/Azure/azure-event-hubs)
-
-### <a name="ingest-events"></a>Samla in händelser
-
-Om du vill börja strömma händelser laddar du ned [SampleSender](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/SampleSender) från GitHub, eller klonar [Event Hubs GitHub-lagringsplatsen](https://github.com/Azure/azure-event-hubs) genom att köra följande kommando:
-
-```bash
-git clone https://github.com/Azure/azure-event-hubs.git
-```
-
-Navigera till mappen \azure-event-hubs\samples\DotNet\Microsoft.Azure.EventHubs\SampleSender och läs in filen SampleSender.sln i Visual Studio.
-
-Lägg sedan till Nuget-paketet [Microsoft.Azure.EventHubs](https://www.nuget.org/packages/Microsoft.Azure.EventHubs/) i projektet.
-
-I filen Program.cs ersätter du följande platshållare med namnet på din händelsehubb och anslutningssträng:
-
-```C#
-private const string EhConnectionString = "Event Hubs connection string";
-private const string EhEntityPath = "Event Hub name";
-
-```
-
-Skapa och kör exempelprojektet. Du kan se händelserna som matas in i händelsehubben:
-
-![][3]
-
-### <a name="receive-and-process-events"></a>Ta emot och bearbeta händelser
-
-Nu laddar du ned Event Processor Host-exemplet som mottar de meddelanden som du precis skickade. Ladda ned [SampleEphReceiver](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/SampleEphReceiver) från GitHub, eller klona [Event Hubs GitHub-lagringsplatsen](https://github.com/Azure/azure-event-hubs) genom att köra följande kommando:
-
-```bash
-git clone https://github.com/Azure/azure-event-hubs.git
-```
-
-Navigera till mappen \azure-event-hubs\samples\DotNet\Microsoft.Azure.EventHubs\SampleEphReceiver och läs in filen SampleEphReceiver.sln i Visual Studio.
-
-Lägg sedan till Nuget-paketen [Microsoft.Azure.EventHubs](https://www.nuget.org/packages/Microsoft.Azure.EventHubs/) och [Microsoft.Azure.EventHubs.Processor](https://www.nuget.org/packages/Microsoft.Azure.EventHubs.Processor/) i projektet.
-
-I filen Program.cs ersätter du följande konstanter med motsvarande värden:
-
-```C#
-private const string EventHubConnectionString = "Event Hubs connection string";
-private const string EventHubName = "Event Hub name";
-private const string StorageContainerName = "Storage account container name";
-private const string StorageAccountName = "Storage account name";
-private const string StorageAccountKey = "Storage account key";
-```
-
-Skapa och kör exempelprojektet. Du kan se att händelserna tas emot i exempelprogrammet:
-
-![][4]
-
-I Azure-portalen kan du visa bearbetningshastigheten för händelser för ett visst Event Hubs-namnområde (se bilden):
-
-![][5]
-
-## <a name="clean-up-resources"></a>Rensa resurser
-
-När du har slutfört den här snabbstarten kan du ta bort resursgruppen samt namnområdet, lagringskontot och händelsehubben som ingår i gruppen. Ersätt `myResourceGroup` med namnet på den resursgrupp som du skapade. 
-
-```azurepowershell-interactive
-Remove-AzureRmResourceGroup -Name myResourceGroup
-```
+Grattis! Du har använt Azure PowerShell för att skapa en Event Hubs-namnrymd och en händelsehubb i den namnrymden. 
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här artikeln skapade du ett Event Hubs-namnområde och de andra resurserna som krävs för att skicka och ta emot meddelanden från din händelsehubb. Fortsätt med följande självstudie om du vill veta mer:
+I den här artikeln skapade du en Event Hubs-namnrymd och använde exempelprogram för att skicka och ta emot meddelanden från din händelsehubb. Stegvisa instruktioner för att skicka händelser till eller ta emot händelser från en händelsehubb finns i följande självstudier: 
 
-> [!div class="nextstepaction"]
-> [Visualisera dataavvikelser i Event Hubs-dataströmmar](event-hubs-tutorial-visualize-anomalies.md)
+- **Skicka händelser till en händelsehubb**: [.NET Standard](event-hubs-dotnet-standard-getstarted-send.md), [.NET Framework](event-hubs-dotnet-framework-getstarted-send.md), [Java](event-hubs-java-get-started-send.md), [Python](event-hubs-python-get-started-send.md), [Node.js](event-hubs-node-get-started-send.md), [Go](event-hubs-go-get-started-send.md), [C](event-hubs-c-getstarted-send.md)
+- **Ta emot händelser från en händelsehubb**: [.NET Standard](event-hubs-dotnet-standard-getstarted-receive-eph.md), [.NET Framework](event-hubs-dotnet-framework-getstarted-receive-eph.md), [Java](event-hubs-java-get-started-receive-eph.md), [Python](event-hubs-python-get-started-receive.md), [Node.js](event-hubs-node-get-started-receive.md), [Go](event-hubs-go-get-started-receive-eph.md), [Apache Storm](event-hubs-storm-getstarted-receive.md)
 
 [Skapa ett kostnadsfritt konto]: https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio
 [Install and Configure Azure PowerShell]: https://docs.microsoft.com/powershell/azure/install-azurerm-ps

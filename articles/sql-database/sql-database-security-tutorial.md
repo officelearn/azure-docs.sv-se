@@ -12,12 +12,12 @@ ms.author: daredis
 ms.reviewer: vanto, carlrab
 manager: craigg
 ms.date: 09/07/2018
-ms.openlocfilehash: ceed69503900b38d7f6a29bbe116ab9a4d54e396
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: b81e76201f7f751ee01e903d83f316811abaf483
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48857966"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49955487"
 ---
 # <a name="secure-your-azure-sql-database"></a>Skydda din Azure SQL-databas
 
@@ -59,7 +59,7 @@ Logga in på [Azure-portalen](https://portal.azure.com/).
 
 SQL-databaser skyddas av en brandvägg i Azure. Som standard avvisas alla anslutningar till servern och databaserna på servern, med undantag för anslutningar från andra Azure-tjänster. För mer information, se [Azure SQL Database-brandväggsregler på servernivå och databasnivå](sql-database-firewall-configure.md).
 
-Det är säkrast att ställa in ”Tillåt åtkomst till Azure-tjänster” till AV. Om du behöver ansluta till databasen från en virtuell Azure-dator eller molntjänst skapar du en [reserverad IP](../virtual-network/virtual-networks-reserved-public-ip.md) och tillåter att endast den reserverade IP-adressen får åtkomst via brandväggen. 
+Det är säkrast att ställa in ”Tillåt åtkomst till Azure-tjänster” till AV. Om du behöver ansluta till databasen från en virtuell Azure-dator eller molntjänst skapar du ett [reserverat IP (klassisk distribution](../virtual-network/virtual-networks-reserved-public-ip.md) och tillåter att endast den reserverade IP-adressen får åtkomst via brandväggen. Om du använder distributionsmodellen för [Resource Manager](https://docs.microsoft.com/azure/virtual-network/virtual-network-ip-addresses-overview-arm) tilldelas en dedikerad offentlig IP-adress till resursen, och du bör tillåta den här IP-adressen via brandväggen.
 
 Följ de här stegen och skapa en [brandväggsregel på servernivå för SQL Database](sql-database-firewall-configure.md) så att servern tillåter anslutningar från en specifik IP-adress. 
 

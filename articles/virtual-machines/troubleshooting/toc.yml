@@ -9,8 +9,6 @@ items:
     href: allocation-failure-classic.md
 - name: RDP
   items:
-  - name: Anslutningen kopplas ifrån ofta
-    href: troubleshoot-rdp-intermittent-connectivity.md
   - name: Återställa RDP
     href: reset-rdp.md
   - name: Felsökning av RDP
@@ -19,8 +17,16 @@ items:
     href: detailed-troubleshoot-rdp.md
   - name: Felsöka specifika fel
     href: troubleshoot-specific-rdp-errors.md
-  - name: Felsökning – RDP kopplas ifrån ofta
+  - name: Felsöka fel utan licensserver
+    href: troubleshoot-rdp-no-license-server.md
+  - name: Felsöka problem med fjärrskrivbordstjänster
+    href: troubleshoot-remote-desktop-services-issues.md
+  - name: Felsöka ett internt fel
+    href: Troubleshoot-rdp-internal-error.md
+  - name: Felsöka problem med att anslutningen kopplas ifrån ofta
     href: troubleshoot-rdp-intermittent-connectivity.md
+  - name: Felsöka ett generellt fel
+    href: troubleshoot-rdp-general-error.md
 - name: SSH
   items:
   - name: Felsökning av SSH
@@ -129,9 +135,9 @@ items:
   href: troubleshoot-vm-by-use-nested-virtualization.md
 - name: Förstå en omstart av systemet
   href: understand-vm-reboot.md
-ms.openlocfilehash: 49e216bfd9f1b7ad9c8e9f74ae67d38359f7f474
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.openlocfilehash: 749bfa9916431b4131dd7d0e814835baa96c6d64
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50138284"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50209249"

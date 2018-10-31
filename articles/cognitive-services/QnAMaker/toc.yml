@@ -7,7 +7,7 @@ items:
     href: Overview/overview.md
 - name: Snabbstarter
   items:
-  - name: Använda REST-API
+  - name: Använda REST API:er
     items:
     - name: Skapa en ny kunskapsbas
       items:
@@ -45,6 +45,13 @@ items:
         href: Quickstarts/publish-kb-nodejs.md
       - name: Python
         href: Quickstarts/publish-kb-python.md
+- name: Självstudier
+  items:
+  - name: Skapa sedan frågekunskapsbasen
+    displayName: curl, publish, chit-chat, chit chat
+    href: Tutorials/create-publish-query-in-portal.md
+  - name: Skapa en QnA Maker-robot
+    href: Tutorials/create-qna-bot.md
 - name: Begrepp
   items:
   - name: Kunskapsbas
@@ -54,9 +61,14 @@ items:
   - name: Bästa praxis
     href: Concepts/best-practices.md
   - name: Förtroendepoäng
+    displayName: DefaultAnswer, Default answer
     href: Concepts/confidence-score.md
   - name: Datakällor som stöds
     href: Concepts/data-sources-supported.md
+- name: Självstudier
+  items:
+  - name: Skapa och besvara från KB med hjälp av C#
+    href: Tutorials/create-publish-answer.md
 - name: Instruktionsguider
   items:
   - name: Konfigurera en QnA Maker-tjänst
@@ -85,8 +97,6 @@ items:
     href: How-To/key-management.md
   - name: Skapa en kunskapsbas på ett annat språk
     href: How-To/language-knowledge-base.md
-  - name: Skapa en QnA-robot med Azure Bot Service
-    href: Tutorials/create-qna-bot.md
   - name: Integrera QnA Maker och LUIS
     href: Tutorials/integrate-qnamaker-luis.md
   - name: Skapa en affärskontinuitetsplan för QnA Maker
@@ -139,9 +149,9 @@ items:
     href: https://docs.microsoft.com/search/index?search=QnAMaker
   - name: Blogg
     href: https://blog.botframework.com/category/QnAMaker/
-ms.openlocfilehash: 3c072165fe8d46f0518c5e777580453214dc86f5
-ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
+ms.openlocfilehash: 2819cb8c3264f7f1086f4eaeca3fdbf9c07c3be8
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49456685"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50221357"

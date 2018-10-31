@@ -5,28 +5,28 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: include
-ms.date: 08/02/2018
+ms.date: 10/29/2018
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 4cbbb64489acf23c1248e35269e1441dd2a6878e
-ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
+ms.openlocfilehash: 03af5efcd4a37203a82db503f8bc602b33de734d
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39513762"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50227043"
 ---
-|**SKU**   | **S2S/VNet-till-VNet<br>tunnlar** | **P2S<br>-anslutningar** | **Prestandamått för<br>aggregerat datagenomflöde** |
-|---       | ---                             | ---                    | ---                         |
-|**VpnGw1**| Max. 30*                         | Max. 128\*\*             | 650 Mbit/s                    |
-|**VpnGw2**| Max. 30*                         | Max. 128\*\*             | 1 Gbit/s                      |
-|**VpnGw3**| Max. 30*                         | Max. 128\*\*             | 1,25 Gbit/s                   |
-|**Basic** | Max. 10                         | Max. 128               | 100 Mbit/s                    | 
+|**SKU**   | **S2S/VNet-till-VNet<br>tunnlar** | **P2S<br> SSTP-anslutningar** | **P2S<br> IKEv2-anslutningar** | **Prestandamått för<br>aggregerat datagenomflöde** |
+|---       | ---        | ---       | ---            | ---       |
+|**VpnGw1**| Max. 30*   | Max. 128  | Max. 250       | 650 Mbit/s  |
+|**VpnGw2**| Max. 30*   | Max. 128  | Max. 500       | 1 Gbit/s    |
+|**VpnGw3**| Max. 30*   | Max. 128  | Max. 1000      | 1,25 Gbit/s |
+|**Basic** | Max. 10    | Max. 128  | Stöds inte  | 100 Mbit/s  | 
 
-* (*) Använd [Virtual WAN](../articles/virtual-wan/virtual-wan-about.md) om du behöver fler än 30 S2S VPN-tunnlar.
+(*) Använd [Virtual WAN](../articles/virtual-wan/virtual-wan-about.md) om du behöver fler än 30 S2S VPN-tunnlar.
 
-* (\*\*) Kontakta supporten om du behöver ytterligare anslutningar. Detta gäller endast IKEv2. Antalet anslutningar för SSTP kan inte utökas.
+* Prestandamåttet för aggregerat dataflöde för VPN Gateway är S2S + P2S kombinerat. **Om du har många P2S-anslutningar kan det påverka en S2S-anslutning negativt på grund av dataflödesbegränsningar.** Prestandamått för aggregerat dataflöde baseras på mätningar av flera tunnlar som aggregerats via en enda gateway. Det är inte garanterad genomströmning på grund av villkor för Internet-trafik och dina program.
 
-* Prestandamått för aggregerat dataflöde baseras på mätningar av flera tunnlar som aggregerats via en enda gateway. Det är inte garanterad genomströmning på grund av villkor för Internet-trafik och dina program.
+* Dessa anslutningsgränser är separata. Du kan exempelvis ha 128 SSTP-anslutningar och även 250 IKEv2-anslutningar på en VpnGw1-SKU.
 
 * Information om priser finns på sidan [Priser](https://azure.microsoft.com/pricing/details/vpn-gateway).
 

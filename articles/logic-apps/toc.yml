@@ -289,16 +289,16 @@ items:
       href: logic-apps-create-deploy-template.md
   - name: Övervaka
     items:
-    - name: Övervaka status för logikapp
+    - name: Övervaka logikappar
       href: logic-apps-monitor-your-logic-apps.md
-    - name: Övervaka logikappstatus med Azure Log Analytics
+    - name: Övervaka logikappar med Log Analytics
       href: logic-apps-monitor-your-logic-apps-oms.md
-    - name: Övervaka B2B-meddelanden
+    - name: Övervaka B2B-meddelanden med Log Analytics
       href: logic-apps-monitor-b2b-message.md
       items:
-      - name: Spåra B2B-meddelanden i Azure Log Analytics
+      - name: Övervaka B2B-meddelanden med Log Analytics
         href: logic-apps-track-b2b-messages-omsportal.md
-      - name: Fråga Azure Log Analytics efter B2B-meddelanden
+      - name: Skapa frågor för B2B-meddelanden med Log Analytics
         href: logic-apps-track-b2b-messages-omsportal-query-filter-control-number.md
   - name: Exempel, scenarier och genomgångar
     href: logic-apps-examples-and-scenarios.md
@@ -371,9 +371,9 @@ items:
     href: https://customers.microsoft.com/en-us/search?sq=%22Azure%20Logic%20Apps%20%22&ff=story_product_categories%26%3EAzure&p=0&so=story_publish_date%20desc
   - name: Videoklipp
     href: https://azure.microsoft.com/resources/videos/index/?services=logic-apps&sort=newest
-ms.openlocfilehash: 4e6e8b78500206b8d0d35a7e1adf706d99143624
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.openlocfilehash: e37217154fdf57b1fa9280cf2d17111bb34f9683
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50093376"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50221435"

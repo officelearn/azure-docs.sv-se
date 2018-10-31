@@ -47,7 +47,7 @@ Skapa en ny Linux-VM:
 
     ![Översikt över virtuella datorer storlek telegraf agent](./media/metrics-store-custom-linux-telegraf/vm-size.png)
 
-1. På den **inställningar** sidan i **nätverk** > **Nätverkssäkerhetsgrupp**   >  ** Välj offentliga inkommande portar**väljer **HTTP** och **SSH (22)**. Lämna resten av standardinställningarna och välj **OK**. 
+1. På den **inställningar** sidan i **nätverk** > **Nätverkssäkerhetsgrupp** > **Välj offentliga inkommande portar**väljer **HTTP** och **SSH (22)**. Lämna resten av standardinställningarna och välj **OK**. 
 
 1. På sidan Sammanfattning väljer **skapa** att starta VM-distributionen. 
 

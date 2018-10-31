@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: 3094075607f096200ce1fb7ad499776bdcd3e093
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: b221697b7450ad1c6dac87b7a08c7db8b11810bf
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/30/2018
-ms.locfileid: "50233607"
+ms.locfileid: "50240476"
 ---
 # <a name="move-data-between-on-premises-sources-and-the-cloud-with-data-management-gateway"></a>Flytta data mellan lokala källor och molnet med Data Management Gateway
 > [!NOTE]
@@ -65,7 +65,7 @@ I det här steget använder du Azure-portalen för att skapa en Azure Data Facto
    > [!IMPORTANT]
    > Namnet på Azure Data Factory måste vara globalt unikt. Om du får felet: **datafabriksnamnet ”ADFTutorialOnPremDF” är inte tillgänglig**, ändra namnet på datafabriken (till exempel yournameADFTutorialOnPremDF) och försöker skapa igen. Använd det här namnet i stället för ADFTutorialOnPremDF när du utför stegen i den här självstudien.
    >
-   > Namnet på datafabriken kan registreras som en **DNS** namn i framtiden och blir publicaly visas.
+   > Namnet på datafabriken kan registreras som en **DNS** namn i framtiden och blir då synligt offentligt.
    >
    >
 4. Välj den **Azure-prenumeration** där du vill att datafabriken ska skapas.

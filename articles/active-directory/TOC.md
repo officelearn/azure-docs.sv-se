@@ -4,7 +4,6 @@
 ## [Vad är Azure Active Directory?](fundamentals/active-directory-whatis.md)
 ## [Om Azures identitetshantering](fundamentals/identity-fundamentals.md)
 ## [Förstå Azure-identitetslösningar](fundamentals/understand-azure-identity-solutions.md)
-## [Välj en hybrididentitetslösning](choose-hybrid-identity-solution.md)
 ## [Associera Azure-prenumerationer](fundamentals/active-directory-how-subscriptions-associated-directory.md)
 ## [Överväganden för lagring och data](fundamentals/active-directory-data-storage-eu.md)
 ## [Vanliga frågor och svar](fundamentals/active-directory-faq.md)
@@ -47,7 +46,6 @@
 ### [Lägga till nya användare i Azure AD](fundamentals/add-users-azure-active-directory.md)
 ### [Hantera användarprofiler](fundamentals/active-directory-users-profile-azure-portal.md)
 ### [Återställa användarlösenord](fundamentals/active-directory-users-reset-password-azure-portal.md)
-### [Dela konton](active-directory-sharing-accounts.md)
 ### [Tilldela användare administrativa roller](fundamentals/active-directory-users-assign-role-azure-portal.md)
 ### [Lägga till gästanvändare från annan katalog (B2B)](b2b/what-is-b2b.md)
 #### [Administratörer som lägger till B2B-användare](b2b/add-users-administrator.md)
@@ -320,11 +318,15 @@
 
 ### [Privileged Identity Management](privileged-identity-management/pim-configure.md?toc=%2fazure%2factive-directory%2ftoc.json)
 
-## [Distribuera AD FS i Azure](hybrid/how-to-connect-fed-azure-adfs.md)
-### [Hög tillgänglighet](active-directory-adfs-in-azure-with-azure-traffic-manager.md)
-### [Ändra signaturens hashalgoritm](active-directory-federation-sha256-guidance.md)
+
 
 ## [Felsöka](fundamentals/active-directory-troubleshooting-support-howto.md)
+
+## Distribuera Azure AD PoC (Proof of Concept)
+### [PoC-strategibok: Introduktion](active-directory-playbook-intro.md)
+### [PoC-strategibok: Ingredienser](active-directory-playbook-ingredients.md)
+### [PoC-strategibok: Implementering](active-directory-playbook-implementation.md)
+### [PoC-strategibok: Komponenter](active-directory-playbook-building-blocks.md)
 
 # Referens
 ## [Kodexempel](https://azure.microsoft.com/resources/samples/?service=active-directory)

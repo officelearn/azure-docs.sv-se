@@ -655,6 +655,10 @@ items:
       href: ../monitoring-and-diagnostics/monitoring-service-notifications.md?toc=/azure/azure-monitor/toc.json
     - name: Frågeloggdata
       items:
+      - name: Dokumentation om frågespråk
+        href: ../log-analytics/query-language/query-language.md
+      - name: Språkskillnader
+        href: ../log-analytics/query-language/data-explorer-difference.md?toc=/azure/azure-monitor/toc.json
       - name: Kom igång
         items:
         - name: Kom igång med Analytics-portalen
@@ -691,23 +695,23 @@ items:
           href: ../log-analytics/query-language/splunk-cheatsheet.md?toc=/azure/azure-monitor/toc.json
       - name: Frågespråk
         items:
-        - name: Språkreferens
-          href: ../log-analytics/query-language/kusto.md?toc=/azure/azure-monitor/toc.json
         - name: Exempel
           href: ../log-analytics/query-language/examples.md?toc=/azure/azure-monitor/toc.json
+        - name: Sökningar mellan resurser
+          href: ../log-analytics/log-analytics-cross-workspace-search.md?toc=/azure/azure-monitor/toc.json
         - name: uttryck för app
           href: ../log-analytics/query-language/app-expression.md?toc=/azure/azure-monitor/toc.json
         - name: uttryck för arbetsyta
           href: ../log-analytics/query-language/workspace-expression.md?toc=/azure/azure-monitor/toc.json
-      - name: Programdata
-        href: ../application-insights/app-insights-analytics.md?toc=/azure/azure-monitor/toc.json
-      - name: Standardegenskaper
-        href: ../log-analytics/log-analytics-standard-properties.md?toc=/azure/azure-monitor/toc.json
-      - name: Sökningar mellan resurser
-        href: ../log-analytics/log-analytics-cross-workspace-search.md?toc=/azure/azure-monitor/toc.json
+      - name: Loggdata
+        items:
+        - name: Programdata
+          href: ../application-insights/app-insights-analytics.md?toc=/azure/azure-monitor/toc.json
+        - name: Standardegenskaper
+          href: ../log-analytics/log-analytics-standard-properties.md?toc=/azure/azure-monitor/toc.json
       - name: Utför åtgärder från sökresultat
         href: ../log-analytics/log-analytics-log-search-takeaction.md?toc=/azure/azure-monitor/toc.json
-      - name: Använda datorgrupper
+      - name: Datorgrupper
         href: ../log-analytics/log-analytics-computer-groups.md?toc=/azure/azure-monitor/toc.json
       - name: Flödesanslutning
         href: ../log-analytics/log-analytics-flow-tutorial.md?toc=/azure/azure-monitor/toc.json
@@ -996,9 +1000,9 @@ items:
     href: https://stackoverflow.com/search?q=monitoring
   - name: Kodexempel
     href: https://azure.microsoft.com/resources/samples/?service=monitor
-ms.openlocfilehash: 3d738f4fcca9189a14f9c0e84d0a7f60d5942c1c
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.openlocfilehash: 78173d1513939100d07501aaf72ebf24f5b72884
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50140578"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50240502"

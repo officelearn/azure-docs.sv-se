@@ -94,6 +94,8 @@ items:
     href: security-authentication.md
   - name: Leverans och nytt försök
     href: delivery-and-retry.md
+  - name: Händelsefiltrering
+    href: event-filtering.md
   - name: Händelsekällor
     href: event-sources.md
   - name: Händelsehanterare
@@ -106,6 +108,8 @@ items:
     href: receive-events.md
   - name: Obeställbara meddelanden och nytt försök
     href: manage-event-delivery.md
+  - name: Filtrera händelser
+    href: how-to-filter-events.md
   - name: Övervaka händelseleverans
     href: monitor-event-delivery.md
   - name: Prenumerationer på frågehändelser
@@ -155,7 +159,7 @@ items:
     href: sdk-overview.md
 - name: Resurser
   items:
-  - name: Utveckla din kompetens med Microsoft Learn
+  - name: Utveckla dina färdigheter med Microsoft Learn
     href: /learn/browse/?products=azure-event-grid
   - name: Azure-översikt
     href: https://azure.microsoft.com/roadmap/
@@ -165,9 +169,9 @@ items:
     href: https://azure.microsoft.com/pricing/calculator/
   - name: Stack Overflow
     href: http://stackoverflow.com/questions/tagged/azure-eventgrid
-ms.openlocfilehash: 275b5d5a12e72854d823d3c0645c04bf2e85852c
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 237e25e9b4834cf9c18e52f7ad99acd0e5a0e71f
+ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46980055"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50250809"

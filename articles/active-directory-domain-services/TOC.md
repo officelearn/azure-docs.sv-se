@@ -24,44 +24,45 @@
 ## [Aktivera Azure AD Domain Services med PowerShell](active-directory-ds-enable-using-powershell.md)
 ## [Konfigurera begränsad synkronisering från Azure AD till en hanterad domän](active-directory-ds-scoped-synchronization.md)
 ## [Skydda din hanterade domän](active-directory-ds-secure-your-domain.md)
-## Anslut till en hanterad domän
-### [Virtuell Windows Server-dator](active-directory-ds-admin-guide-join-windows-vm-portal.md)
-### [Virtuell Windows Server-dator från mall](active-directory-ds-join-windows-vm-template.md)
-### [CentOS](active-directory-ds-join-centos-linux-vm.md)
-### [CoreOS](active-directory-ds-join-coreos-linux-vm.md)
-### [Red Hat Enterprise Linux](active-directory-ds-join-rhel-linux-vm.md)
-### [Ubuntu Server](active-directory-ds-join-ubuntu-linux-vm.md)
-## Administrera en hanterad domän
-### [Administrera en hanterad domän](active-directory-ds-admin-guide-administer-domain.md)
-### [Administrera DNS på en hanterad domän](active-directory-ds-admin-guide-administer-dns.md)
-### [Uppdatera e-postaviseringar](active-directory-ds-notifications.md)
-### Konfigurera säker LDAP för en hanterad domän
-#### [Uppgift 1: Hämta ett certifikat för säkert LDAP](active-directory-ds-admin-guide-configure-secure-ldap.md)
-#### [Uppgift 2: Exportera certifikatet för säkert LDAP](active-directory-ds-admin-guide-configure-secure-ldap-export-pfx.md)
-#### [Uppgift 3: Aktivera säkert LDAP för den hanterade domänen med Azure Portal](active-directory-ds-admin-guide-configure-secure-ldap-enable-ldaps.md)
-#### [Uppgift 4: Konfigurera DNS att komma åt den hanterade domänen från Internet](active-directory-ds-ldaps-configure-dns.md)
-#### [Uppgift 5: Bind till den hanterade domänen och lås åtkomst med säkert LDAP](active-directory-ds-ldaps-bind-lockdown.md)
-#### [Felsöka säkert LDAP](active-directory-ds-ldaps-troubleshoot.md)
-
-### [Skapa en OU på en hanterad domän](active-directory-ds-admin-guide-create-ou.md)
-### [Skapa ett grupphanterat tjänstkonto på en hanterad domän](active-directory-ds-create-gmsa.md)
-### [Administrera grupprincip i en hanterad domän](active-directory-ds-admin-guide-administer-group-policy.md)
-### [Konfigurera lösenordsprinciper på en hanterad domän](active-directory-ds-password-policy.md)
+## [Skapa en OU på en hanterad domän](active-directory-ds-admin-guide-create-ou.md)
+## [Skapa ett grupphanterat tjänstkonto på en hanterad domän](active-directory-ds-create-gmsa.md)
+## [Administrera grupprincip i en hanterad domän](active-directory-ds-admin-guide-administer-group-policy.md)
+## [Konfigurera lösenordsprinciper på en hanterad domän](active-directory-ds-password-policy.md)
 ## [Välj ett virtuellt nätverk](active-directory-ds-networking.md)
 ## Distribuera program
 ### [Konfigurera support för profilsynkronisering för SharePoint Server](active-directory-ds-enable-sharepoint-profile-sync.md)
 ### [Konfigurera begränsad Kerberos-delegering](active-directory-ds-enable-kcd.md)
 ### [Distribuera Azure AD Application Proxy](active-directory-ds-deploy-azure-app-proxy.md)
 ## [Ta bort en hanterad domän](active-directory-ds-disable-aadds.md)
-## Felsöka
-### [Vanliga frågor och svar](active-directory-ds-faqs.md)
-### [Felsökningsguide](active-directory-ds-troubleshooting.md)
-### [Felsöka aviseringar](active-directory-ds-troubleshoot-alerts.md)
-#### [Åtgärda en bruten NSG-konfiguration](active-directory-ds-troubleshoot-nsg.md)
-#### [Återställa tjänstens huvudnamn som saknas](active-directory-ds-troubleshoot-service-principals.md)
-#### [Säkert LDAP – fel](active-directory-ds-troubleshoot-ldaps.md)
-### [Lös felmatchade klientfel](active-directory-ds-mismatched-tenant-error.md)
-### [Inaktiverade domäner](active-directory-ds-suspension.md)
+
+# Anslut till en hanterad domän
+## [Virtuell Windows Server-dator](active-directory-ds-admin-guide-join-windows-vm-portal.md)
+## [Virtuell Windows Server-dator från mall](active-directory-ds-join-windows-vm-template.md)
+## [CentOS](active-directory-ds-join-centos-linux-vm.md)
+## [CoreOS](active-directory-ds-join-coreos-linux-vm.md)
+## [Red Hat Enterprise Linux](active-directory-ds-join-rhel-linux-vm.md)
+## [Ubuntu Server](active-directory-ds-join-ubuntu-linux-vm.md)
+# Administrera en hanterad domän
+## [Administrera en hanterad domän](active-directory-ds-admin-guide-administer-domain.md)
+## [Administrera DNS på en hanterad domän](active-directory-ds-admin-guide-administer-dns.md)
+## [Uppdatera e-postaviseringar](active-directory-ds-notifications.md)
+# Konfigurera säker LDAP för en hanterad domän
+## [Uppgift 1: Hämta ett certifikat för säkert LDAP](active-directory-ds-admin-guide-configure-secure-ldap.md)
+## [Uppgift 2: Exportera certifikatet för säkert LDAP](active-directory-ds-admin-guide-configure-secure-ldap-export-pfx.md)
+## [Uppgift 3: Aktivera säkert LDAP för den hanterade domänen med Azure-portalen](active-directory-ds-admin-guide-configure-secure-ldap-enable-ldaps.md)
+## [Uppgift 4: Konfigurera DNS att komma åt den hanterade domänen från Internet](active-directory-ds-ldaps-configure-dns.md)
+## [Uppgift 5: Bind till den hanterade domänen och lås åtkomst med säkert LDAP](active-directory-ds-ldaps-bind-lockdown.md)
+## [Felsöka säkert LDAP](active-directory-ds-ldaps-troubleshoot.md)
+
+# Felsöka
+## [Vanliga frågor och svar](active-directory-ds-faqs.md)
+## [Felsökningsguide](active-directory-ds-troubleshooting.md)
+## [Felsöka aviseringar](active-directory-ds-troubleshoot-alerts.md)
+### [Åtgärda en bruten NSG-konfiguration](active-directory-ds-troubleshoot-nsg.md)
+### [Återställa tjänstens huvudnamn som saknas](active-directory-ds-troubleshoot-service-principals.md)
+### [Säkert LDAP – fel](active-directory-ds-troubleshoot-ldaps.md)
+## [Lös felmatchade klientfel](active-directory-ds-mismatched-tenant-error.md)
+## [Inaktiverade domäner](active-directory-ds-suspension.md)
 
 
 # Referens

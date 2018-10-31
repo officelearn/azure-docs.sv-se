@@ -74,21 +74,27 @@ items:
     href: sql-api-resources.md
   - name: Global distribution
     items:
-    - name: Introduktion
+    - name: Översikt
       href: distribute-data-globally.md
-    - name: Viktiga fördelar
-      href: distribute-data-globally-benefits.md
-    - name: Aktivera global distribution
-      href: distribute-data-globally-turnkey.md
-    - name: Aktivera flera original
-      href: enable-multi-master.md
-    - name: Flera original med OSS NoSQL-databaser
-      href: multi-master-oss-nosql.md
-    - name: Konfliktlösning
-      href: multi-master-conflict-resolution.md
+    - name: Konsekvensnivåer
+      href: consistency-levels.md
+    - name: Välja rätt konsekvensnivå
+      href: consistency-levels-choosing.md
+    - name: Konsekvensnivåer och API:er för Cosmos DB
+      href: consistency-levels-across-apis.md
+    - name: Kompromisser avseende konsekvens, tillgänglighet och prestanda
+      href: consistency-levels-tradeoffs.md
+    - name: Hög tillgänglighet
+      href: high-availability.md
+    - name: Skala dataflöde globalt
+      href: scaling-throughput.md
+    - name: Konfliktlösningsprinciper
+      href: conflict-resolution-policies.md
+    - name: Global distribution
+      href: global-dist-under-the-hood.md
   - name: Dataflöde
     items:
-    - name: Introduktion
+    - name: Översikt
       href: request-units.md
     - name: Beräkna och ange dataflöde
       href: set-throughput.md
@@ -96,8 +102,6 @@ items:
     href: partition-data.md
   - name: Indexering
     href: indexing-policies.md
-  - name: Konsekvensmodeller
-    href: consistency-levels.md
   - name: Ändringsfeed
     href: change-feed.md
   - name: Time to live
@@ -106,7 +110,7 @@ items:
     href: unique-keys.md
   - name: Säkerhet
     items:
-    - name: Introduktion
+    - name: Översikt
       href: database-security.md
     - name: Datakryptering
       href: database-encryption-at-rest.md
@@ -122,8 +126,6 @@ items:
     href: cosmos-db-reserved-capacity.md
   - name: Säkerhetskopiering och återställning
     href: online-backup-and-restore.md
-  - name: Hög tillgänglighet
-    href: regional-failover.md
 - name: API:er för flera modeller
   items:
   - name: SQL API-dokument
@@ -190,6 +192,8 @@ items:
         href: programming.md
       - name: SQL-datapartitionering
         href: sql-api-partition-data.md
+      - name: Felsöka Java Async SDK
+        href: troubleshoot-java-async-sdk.md
       - name: Datatyper
         items:
         - name: DateTime
@@ -417,6 +421,14 @@ items:
       href: https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-cosmosdb
   - name: Konfigurera VSTS CI/CD-pipeline
     href: tutorial-setup-ci-cd.md
+  - name: Global distribution
+    items:
+    - name: Hantera databaskonton
+      href: how-to-manage-database-account.md
+    - name: Hantera konsekvens
+      href: how-to-manage-consistency.md
+    - name: Hantera konflikter
+      href: how-to-manage-conflicts.md
   - name: Bästa praxis
     items:
     - name: Prestandatips
@@ -501,9 +513,9 @@ items:
       href: use-cases.md
     - name: Appar för sociala medier
       href: social-media-apps.md
-ms.openlocfilehash: dfa5b34127abf569a359814b6064ec981f57796d
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: 55a0bb09e56667078d463846d90cd086cb05dd4e
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49985836"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50240434"

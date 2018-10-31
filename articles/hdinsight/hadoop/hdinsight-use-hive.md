@@ -10,12 +10,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 04/23/2018
-ms.openlocfilehash: 446bb23e15d908c8afe189a33e4d8a70faad284a
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: 9f22766b0ecbaff027cf4b495624f892d4339d17
+ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43126645"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50249373"
 ---
 # <a name="what-is-apache-hive-and-hiveql-on-azure-hdinsight"></a>Vad är Apache Hive och HiveQL på Azure HDInsight?
 
@@ -43,7 +43,7 @@ Använd följande tabell för att identifiera de olika sätten att använda Hive
 | [HDInsight tools för Visual Studio](../hadoop/apache-hadoop-use-hive-visual-studio.md) |✔ |✔ |Linux eller Windows * |Windows |
 | [Hive-vyn](../hadoop/apache-hadoop-use-hive-ambari-view.md) |✔ |✔ |Linux |Alla (webbläsarbaserade) |
 | [Beeline klienten](../hadoop/apache-hadoop-use-hive-beeline.md) |✔ |✔ |Linux |Linux, Unix, Mac OS X eller Windows |
-| [REST API](../hadoop/apache-hadoop-use-hive-curl.md) |&nbsp; |✔ |Linux eller Windows * |Linux, Unix, Mac OS X eller Windows |
+| [REST-API](../hadoop/apache-hadoop-use-hive-curl.md) |&nbsp; |✔ |Linux eller Windows * |Linux, Unix, Mac OS X eller Windows |
 | [Windows PowerShell](../hadoop/apache-hadoop-use-hive-powershell.md) |&nbsp; |✔ |Linux eller Windows * |Windows |
 
 > [!IMPORTANT]
@@ -245,8 +245,6 @@ Nu när du har lärt dig vad Hive är och hur du använder det med Hadoop i HDIn
 * [Överföra data till HDInsight][hdinsight-upload-data]
 * [Använda Pig med HDInsight][hdinsight-use-pig]
 * [Använda MapReduce-jobb med HDInsight][hdinsight-use-mapreduce]
-
-[hdinsight-sdk-documentation]: http://msdnstage.redmond.corp.microsoft.com/library/dn479185.aspx
 
 [azure-purchase-options]: http://azure.microsoft.com/pricing/purchase-options/
 [azure-member-offers]: http://azure.microsoft.com/pricing/member-offers/

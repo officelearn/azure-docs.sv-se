@@ -6,19 +6,19 @@ author: jeffpatt24
 tags: storage
 ms.service: storage
 ms.topic: article
-ms.date: 05/11/2018
+ms.date: 10/30/2018
 ms.author: jeffpatt
 ms.component: files
-ms.openlocfilehash: a0a330d3ea7362ffabb20a5d390cee87cbf7d8ff
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
-ms.translationtype: HT
+ms.openlocfilehash: 5e730e52d55f6c8c2dd02f69e3efa67017af152b
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49365413"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50242984"
 ---
 # <a name="troubleshoot-azure-files-problems-in-windows"></a>Felsöka Azure Files-problem i Windows
 
-Den här artikeln innehåller vanliga problem som är relaterade till Microsoft Azure-filer när du ansluter från Windows-klienter. Det ger också möjliga orsaker och lösningar för dessa problem. Förutom felsökningsstegen i den här artikeln, du kan också använda [AzFileDiagnostics](https://gallery.technet.microsoft.com/Troubleshooting-tool-for-a9fa1fe5) så att Windows klientmiljö har rätt krav. AzFileDiagnostics automatiserar identifiering för de flesta av de problem som nämns i den här artikeln och hjälper dig att konfigurera din miljö för att få bästa möjliga prestanda. Du kan också hitta den här informationen i den [Azure Files delar felsökare](https://support.microsoft.com/help/4022301/troubleshooter-for-azure-files-shares) som innehåller stegen för att hjälpa dig med problem som ansluter/mappning/montera Azure Files delar.
+Den här artikeln innehåller vanliga problem som är relaterade till Microsoft Azure-filer när du ansluter från Windows-klienter. Det ger också möjliga orsaker och lösningar för dessa problem. Förutom felsökningsstegen i den här artikeln, du kan också använda [AzFileDiagnostics](https://gallery.technet.microsoft.com/Troubleshooting-tool-for-a9fa1fe5) så att Windows klientmiljö har rätt krav. AzFileDiagnostics automatiserar identifiering för de flesta av de problem som nämns i den här artikeln och hjälper dig att konfigurera din miljö för att få bästa möjliga prestanda. Du kan också hitta den här informationen i den [Azure Files delar felsökare](https://support.microsoft.com/help/4022301/troubleshooter-for-azure-files-shares) som innehåller stegen för att hjälpa dig med problem som ansluter/mappning/montera Azure Files delar.
 
 
 <a id="error53-67-87"></a>
@@ -32,13 +32,13 @@ När du försöker montera en filresurs från en lokal plats eller från ett ann
 
 ### <a name="cause-1-unencrypted-communication-channel"></a>Orsak 1: Okrypterade kommunikationskanalen
 
-Av säkerhetsskäl blockeras anslutningar till Azure-filresurser om kommunikationskanalen inte är krypterad och om anslutningsförsöket inte görs från samma datacenter där de Azure-filresurserna finns. Okrypterade anslutningar inom samma datacenter kan också blockeras om de [säker överföring krävs](https://docs.microsoft.com/en-us/azure/storage/common/storage-require-secure-transfer) är aktiverad på lagringskontot. Kommunikation kanalkrypteringen tillhandahålls endast om användarens klientoperativsystem stöder SMB-kryptering.
+Av säkerhetsskäl blockeras anslutningar till Azure-filresurser om kommunikationskanalen inte är krypterad och om anslutningsförsöket inte görs från samma datacenter där de Azure-filresurserna finns. Okrypterade anslutningar inom samma datacenter kan också blockeras om de [säker överföring krävs](https://docs.microsoft.com/azure/storage/common/storage-require-secure-transfer) är aktiverad på lagringskontot. Kommunikation kanalkrypteringen tillhandahålls endast om användarens klientoperativsystem stöder SMB-kryptering.
 
 Windows 8, Windows Server 2012 och senare versioner av varje system att förhandla begäranden som innehåller SMB 3.0, som stöder kryptering.
 
 ### <a name="solution-for-cause-1"></a>Lösning för orsak 1
 
-1. Kontrollera den [säker överföring krävs](https://docs.microsoft.com/en-us/azure/storage/common/storage-require-secure-transfer) inställningen är inaktiverad på lagringskontot.
+1. Kontrollera den [säker överföring krävs](https://docs.microsoft.com/azure/storage/common/storage-require-secure-transfer) inställningen är inaktiverad på lagringskontot.
 2. Ansluta från en klient som gör något av följande:
 
     - Uppfyller kraven för Windows 8 och Windows Server 2012 eller senare versioner
@@ -189,6 +189,24 @@ Om du vill kopiera en fil i nätverket, måste du först dekryptera den. Använd
   - Värde = 1
 
 Tänk på att ställa in registernyckeln påverkar alla åtgärder i kopia som görs till nätverksresurser.
+
+## <a name="slow-enumeration-of-files-and-folders"></a>Långsam uppräkning av filer och mappar
+
+### <a name="cause"></a>Orsak
+
+Det här problemet kan inträffa om det finns ingen tillräckligt med cachelagring på klientdatorn för stora kataloger.
+
+### <a name="solution"></a>Lösning
+
+Du löser problemet, justera den **DirectoryCacheEntrySizeMax** registervärde för att tillåta cachelagring av större kataloglistor i klientdatorn:
+
+- Plats: HKLM\System\CCS\Services\Lanmanworkstation\Parameters
+- Värdet mane: DirectoryCacheEntrySizeMax 
+- Värdet typ: DWORD
+ 
+ 
+Du kan till exempel inställd 0x100000 och se om prestanda bli bättre.
+
 
 ## <a name="need-help-contact-support"></a>Behöver du hjälp? Kontakta supporten.
 Om du fortfarande behöver hjälp, [supporten](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) att snabbt lösa ditt problem.

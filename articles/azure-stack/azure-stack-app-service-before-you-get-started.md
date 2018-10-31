@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/20/2018
 ms.author: anwestg
-ms.openlocfilehash: 08fcaa44fc807f986324b8304010792af99fd838
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: 786f6ca3b3a1ad26d36c751c54d3cf69ae1d2fd4
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49388015"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50240876"
 ---
 # <a name="before-you-get-started-with-app-service-on-azure-stack"></a>Innan du sätter igång med App Service i Azure Stack
 
@@ -170,7 +170,7 @@ Azure App Service måste du använda för en filserver. Vid Produktionsdistribut
 Du kan använda för Azure Stack Development Kit-distributioner, den [exempelmall för Azure Resource Manager-distribution](https://aka.ms/appsvconmasdkfstemplate) att distribuera en konfigurerade enkelnods-filserver. Enkelnods-filserver ska vara i en arbetsgrupp.
 
 >[!IMPORTANT]
-> Om du väljer att distribuera App Service i ett befintligt virtuellt nätverk som servern ska distribueras i ett separat undernät från App Service.
+> Om du väljer att distribuera App Service i ett befintligt virtuellt nätverk måste ska servern distribueras i ett separat undernät från App Service.
 
 ### <a name="provision-groups-and-accounts-in-active-directory"></a>Etablera grupper och konton i Active Directory
 

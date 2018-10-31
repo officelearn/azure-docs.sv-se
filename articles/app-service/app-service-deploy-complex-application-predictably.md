@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/06/2016
 ms.author: cephalin
-ms.openlocfilehash: 049f5211e800dace4b8968cd9e3db9ad968f8813
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: c4071da60ed1311d8dd75d6a369c48cf711778cb
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43050754"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50243222"
 ---
 # <a name="provision-and-deploy-microservices-predictably-in-azure"></a>Etablera och distribuera mikrotjänster förutsägbart i Azure
 Den här kursen visar hur du etablerar och distribuera ett program som består av [mikrotjänster](https://en.wikipedia.org/wiki/Microservices) i [Azure App Service](https://azure.microsoft.com/services/app-service/) som en enhet och på ett förutsägbart sätt med hjälp av JSON-resursgruppsmallar och PowerShell-skript. 
@@ -148,7 +148,7 @@ Appinställningarna också definieras som en kapslad resurs.
 
 ![](./media/app-service-deploy-complex-application-predictably/examinejson-6-webappsettings.png)
 
-I den `properties` element för `config/appsettings`, du har två appinställningar i formatet `“<name>” : “<value>”`.
+I den `properties` element för `config/appsettings`, du har två appinställningar i formatet `"<name>" : "<value>"`.
 
 * `PROJECT` är en [KUDU inställningen](https://github.com/projectkudu/kudu/wiki/Customizing-deployments) som talar om Azure-distribution projektet som ska använda i en Visual Studio-lösning med flera projekt. Kommer jag att visa hur källkontroll har konfigurerats, men eftersom ToDoApp koden finns i en Visual Studio-lösning med flera projekt, behöver vi den här inställningen.
 * `clientUrl` är helt enkelt en app som inställning som programkoden använder.
@@ -158,7 +158,7 @@ Anslutningssträngar för också definieras som en kapslad resurs.
 
 ![](./media/app-service-deploy-complex-application-predictably/examinejson-7-webappconnstr.png)
 
-I den `properties` element för `config/connectionstrings`, varje anslutningssträngen också definieras som ett namn: värde-par med det specifika formatet för `“<name>” : {“value”: “…”, “type”: “…”}`. För den `type` element, möjliga värden är `MySql`, `SQLServer`, `SQLAzure`, och `Custom`.
+I den `properties` element för `config/connectionstrings`, varje anslutningssträngen också definieras som ett namn: värde-par med det specifika formatet för `"<name>" : {"value": "…", "type": "…"}`. För den `type` element, möjliga värden är `MySql`, `SQLServer`, `SQLAzure`, och `Custom`.
 
 > [!TIP]
 > En slutgiltig lista över strängtyper anslutning kör du följande kommando i Azure PowerShell: \[Enum]::GetNames("Microsoft.WindowsAzure.Commands.Utilities.Websites.Services.WebEntities.DatabaseType")

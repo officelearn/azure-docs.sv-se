@@ -8,16 +8,16 @@ ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
 author: AyoOlubeko
-ms.author: AyoOlubeko
+ms.author: ayolubek
 ms.reviewer: sstein
 manager: craigg
 ms.date: 04/01/2018
-ms.openlocfilehash: 5b1ceeac5d3887d5c199e642a0e26aa4ffab4452
-ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
+ms.openlocfilehash: a5c829ee77f1ba61bf8b1a19488c51dabe2262a0
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47055449"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50241982"
 ---
 # <a name="run-ad-hoc-analytics-queries-across-multiple-azure-sql-databases"></a>Köra ad hoc-analysfrågor över flera Azure SQL-databaser
 
@@ -90,7 +90,7 @@ Den här övningen lägger till schemat (extern datakälla och definitioner av e
 
    Elastic Query använder en databas-omfattande autentisering för att få åtkomst till varje klient. Den här autentiseringsuppgiften måste vara tillgängliga i alla databaser och bör normalt beviljas de minsta rättigheterna krävas för att aktivera ad hoc-frågor.
 
-    ![Skapa autentiseringsuppgifter](media/saas-multitenantdb-adhoc-reporting/create-credential.png)
+    ![skapa autentiseringsuppgift](media/saas-multitenantdb-adhoc-reporting/create-credential.png)
 
    Med katalogdatabasen som den externa datakällan kan distribueras till alla databaser som har registrerats i katalogen när frågan körs. Eftersom servernamn är olika för varje distribution, hämtar Initieringsskript för den här platsen för katalogdatabasen genom att hämta den aktuella servern (@@servername) där skriptet körs.
 

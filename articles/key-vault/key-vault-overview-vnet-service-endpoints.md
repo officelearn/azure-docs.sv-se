@@ -10,12 +10,12 @@ ms.date: 08/31/2018
 ms.service: key-vault
 ms.workload: identity
 ms.topic: conceptual
-ms.openlocfilehash: 9b0600a7afb07600116440461037c7abcb9236de
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 6e0029e051e418bc54471284547329a0b0a2e9cd
+ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49404332"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50246662"
 ---
 # <a name="virtual-network-service-endpoints-for-azure-key-vault"></a>Tjänstslutpunkter i virtuella nätverk för Azure Key Vault
 
@@ -44,7 +44,7 @@ Här är de steg som krävs för att konfigurera brandväggar och virtuella nät
 Referera till [konfigurera Azure Key Vault brandväggar och virtuella nätverk](key-vault-network-security.md) stegvisa anvisningar.
 
 > [!IMPORTANT]
-> När brandväggsregler i praktiken är alla Nyckelvalv [dataplanet](../key-vault/key-vault-secure-your-key-vault.md#data-plane-access-control) åtgärder kan endast utföras när anroparen begäranden som kommer från tillåtna virtuella nätverk eller IPV4-adressintervall. Detta gäller även för åtkomst till nyckelvalv från Azure-portalen. När en användare kan webbläsaren till ett nyckelvalv från Azure-portalen, kanske de inte att lista nycklar/hemligheter/certificates om klientdatorn inte är i listan över tillåtna. Detta påverkar även 'Key Vault väljare' med andra Azure-tjänster. Användare kanske kan se lista över viktiga valv men inte att lista nycklar, om brandväggsregler förhindra klientdatorn.
+> När brandväggsregler i praktiken är alla Nyckelvalv [dataplanet](../key-vault/key-vault-secure-your-key-vault.md#data-plane-access-control) åtgärder kan endast utföras när anroparen begäranden som kommer från tillåtna virtuella nätverk eller IPV4-adressintervall. (Mer information om data Hanteringsplanet plan vs genom att läsa [detta](../key-vault/key-vault-secure-your-key-vault.md#management-plane-access-control) detta gäller även för åtkomst till nyckelvalv från Azure-portalen. När en användare kan webbläsaren till ett nyckelvalv från Azure-portalen, kanske de inte att lista nycklar/hemligheter/certificates om klientdatorn inte är i listan över tillåtna. Detta påverkar även 'Key Vault väljare' med andra Azure-tjänster. Användare kanske kan se lista över viktiga valv men inte att lista nycklar, om brandväggsregler förhindra klientdatorn.
 
 
 > [!NOTE]

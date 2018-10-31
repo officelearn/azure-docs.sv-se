@@ -7,14 +7,14 @@ manager: cshepard
 keywords: Azure backup; VM-agenten; Nätverksanslutning;
 ms.service: backup
 ms.topic: troubleshooting
-ms.date: 06/25/2018
+ms.date: 10/30/2018
 ms.author: genli
-ms.openlocfilehash: ce4a889cae852d333ea9862138f4d44471677c26
-ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
+ms.openlocfilehash: 5c37e2e3cabb81ed123146f283c7d568cc58816d
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/13/2018
-ms.locfileid: "45544021"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50242636"
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Felsöka Azure Backup-fel: problem med agenten eller -tillägget
 
@@ -195,7 +195,7 @@ Det här problemet är specifikt för hanterade virtuella datorer där användar
 #### <a name="solution"></a>Lösning
 
 Lös problemet genom att ta bort låset från resursgruppen och utför följande steg för att ta bort samlingen med återställningspunkter: 
- 
+ 
 1. Ta bort låset i resursgruppen där Virtuellt datorn finns. 
 2. Installera ARMClient med Chocolatey: <br>
    https://github.com/projectkudu/ARMClient

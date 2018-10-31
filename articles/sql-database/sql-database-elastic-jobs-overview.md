@@ -3,7 +3,7 @@ title: Hantera utskalade molndatabaser | Microsoft Docs
 description: Använda elastiska jobb databastjänsten för att köra ett skript för en grupp med databaser.
 services: sql-database
 ms.service: sql-database
-subservice: operations
+ms.subservice: operations
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 10/22/2018
-ms.openlocfilehash: 2bd8bff9893b804ad48032980cef383fb6d0413f
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: f5878c510e048bea2ce1aedaf4e0e5dbb4611caf
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49954679"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50242525"
 ---
 # <a name="managing-scaled-out-cloud-databases"></a>Hantera utskalade molndatabaser
 

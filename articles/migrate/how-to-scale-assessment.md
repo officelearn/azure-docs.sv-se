@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 10/23/2018
 ms.author: raynew
-ms.openlocfilehash: f289e9745eb220e735cc5c58ce8006c9fea7e61e
-ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
+ms.openlocfilehash: b5685640a55e2ce52a202c341cb293fe9315ab14
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50086666"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50240196"
 ---
 # <a name="discover-and-assess-a-large-vmware-environment"></a>Upptäck och utvärdera en stor VMware-miljö
 
@@ -122,7 +122,7 @@ Om du har flera projekt kan behöva du hämta insamlingsprogrammet bara en gång
 1. I Azure Migrate-projektet klickar du på **Komma igång** > **Identifiera och utvärdera** > **Identifiera datorer**.
 2. I **identifiera datorer**, finns det två alternativ för installationen, klicka på **hämta** för att ladda ned rätt program baserat på dina inställningar.
 
-    a. **Engångsidentifiering:** Tillämpningen för den här modellen kommunicerar med vCenter Server för att samla in metadata om de virtuella datorerna. För insamling av prestandadata för de virtuella datorerna, förlitar den sig på historiska prestandadata som lagras i vCenter Server och samlar in prestandahistoriken för den senaste månaden. Azure Migrate samlar in genomsnittlig räknaren (jämfört med högsta counter) för varje mått i den här modellen [mer](https://docs.microsoft.com/azure/migrate/concepts-collector#what-data-is-collected). Eftersom det är en enstaka identifiering återspeglas inte ändringar i den lokala miljön när identifieringen är klar. Om du vill att ändringarna ska återspeglas behöver göra en ny identifiering av samma miljö för samma projekt.
+    a. **Engångsidentifiering:** Tillämpningen för den här modellen kommunicerar med vCenter Server för att samla in metadata om de virtuella datorerna. För insamling av prestandadata för de virtuella datorerna, förlitar den sig på historiska prestandadata som lagras i vCenter Server och samlar in prestandahistoriken för den senaste månaden. I den här modellen samlar Azure Migrate in genomsnittlig beräkning (jämfört med högsta beräkning) för varje mått, [läs mer](https://docs.microsoft.com/azure/migrate/concepts-collector#what-data-is-collected). Eftersom det är en enstaka identifiering återspeglas inte ändringar i den lokala miljön när identifieringen är klar. Om du vill att ändringarna ska återspeglas behöver göra en ny identifiering av samma miljö för samma projekt.
 
     b. **Kontinuerlig identifiering:** Installation för den här modellen profilerar kontinuerligt den lokala miljön för att samla in användningsdata i realtid för varje virtuell dator. I den här modellen samlas högsta beräkningar in för varje mått (processoranvändning, minnesanvändning osv.). Den här modellen är inte beroende av statistikinställningarna för vCenter Server för insamling av prestandadata. Du kan stoppa kontinuerlig profileringen när som helst från programmet.
 
@@ -150,8 +150,11 @@ Kontrollera att OVA-filen är säker innan du distribuerar den:
 
 För OVA-version 1.0.9.15 (släppt på 10/23/2018)
 
-**Algoritmen** | **Hash-värde**
->>>>>>> 20dc93529e7c0a4d17f2f4524752b5e2bead4e37---| ---MD5 | e9ef16b0c837638c506b5fc0ef75ebfa SHA1 | 37b4b1e92b3c6ac2782ff5258450df6686c89864 SHA256 | 8a86fc17f69b69968eb20a5c4c288c194cdcffb4ee6568d85ae5ba96835559ba
+**Algoritm** | **Hash-värde**
+--- | ---
+MD5 | e9ef16b0c837638c506b5fc0ef75ebfa
+SHA1 | 37b4b1e92b3c6ac2782ff5258450df6686c89864
+SHA256 | 8a86fc17f69b69968eb20a5c4c288c194cdcffb4ee6568d85ae5ba96835559ba
 
 För OVA-version 1.0.9.14 (släppt på 8/24/2018)
 

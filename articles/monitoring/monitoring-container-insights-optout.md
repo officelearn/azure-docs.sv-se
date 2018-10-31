@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/04/2018
 ms.author: magoedte
-ms.openlocfilehash: 56250625a0770828fc31985f737df944f76d3f13
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: d2cf2fec50e3dd803d828537ddd724ee61015c71
+ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50209627"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50248294"
 ---
 # <a name="how-to-stop-monitoring-your-azure-kubernetes-service-aks-with-azure-monitor-for-containers-preview"></a>Hur du stoppar övervakningen Azure Kubernetes Service (AKS) med Azure Monitor för behållare (förhandsgranskning)
 
@@ -111,7 +111,7 @@ Om du väljer att använda Azure CLI, måste du först installera och använda C
 
 4. Redigera värdena för **aksResourceId** och **aksResourceLocation** med hjälp av värdena för AKS-kluster som finns på den **egenskaper** sidan för det markerade klustret .
 
-    ![Egenskapssidan för behållare](./media/monitoring-container-health/container-properties-page.png)
+    ![Egenskapssidan för behållare](media/monitoring-container-insights-optout/container-properties-page.png)
 
     När du är på den **egenskaper** kan också kopiera den **Arbetssyteresurs-ID**. Det här värdet krävs om du vill att ta bort Log Analytics-arbetsytan senare. Ta bort Log Analytics-arbetsytan utförs inte som en del av den här processen. 
 

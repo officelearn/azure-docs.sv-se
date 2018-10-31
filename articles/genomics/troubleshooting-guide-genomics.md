@@ -1,77 +1,146 @@
 ---
-title: Felsökningsguide för Microsoft Genomics
+title: 'Microsoft Genomics: felsökningsguide | Microsoft Docs'
 titleSuffix: Azure
 description: Läs mer om felsökningsmetoder
 keywords: felsökning, fel, felsökning
-services: genomics
-author: grhuynh
-manager: cgronlun
-ms.author: grhuynh
-ms.service: genomics
+services: microsoft-genomics
+author: ruchir
+editor: jasonwhowell
+ms.author: ruchir
+ms.service: microsoft-genomics
+ms.workload: genomics
 ms.topic: article
-ms.date: 07/18/2018
-ms.openlocfilehash: bd946f84023345c68a01a48a4dc310b7afb68397
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.date: 10/29/2018
+ms.openlocfilehash: 2c10259e4b9fa180d09ceef0359e7ec99e8200b1
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45735394"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50239907"
 ---
-# <a name="troubleshooting-guide-for-microsoft-genomics"></a>Felsökningsguide för Microsoft Genomics
-Den här översikten beskrivs strategier för att lösa vanliga problem när du använder Microsoft Genomics-tjänsten. Vanliga frågor och svar, se [vanliga frågor](frequently-asked-questions-genomics.md). 
+# <a name="troubleshooting-guide"></a>Felsökningsguide
 
+Här är några felsökningstips för några vanliga problem som du kanske stöter på när du använder tjänsten Microsoft Genomics MSGEN.
 
-## <a name="how-do-i-check-my-job-status"></a>Hur kontrollerar jag min jobbstatus?
-Du kan kontrollera status för ditt arbetsflöde genom att anropa `msgen status` från kommandoraden, som visas. 
+ Vanliga frågor och svar, inte relaterade till felsökning, finns i [vanliga frågor](frequently-asked-questions-genomics.md).
+## <a name="step-1-locate-error-codes-associated-with-the-workflow"></a>Steg 1: Hitta felkoder som är associerad med arbetsflödet
 
+Du kan hitta de felmeddelanden som är associerad med arbetsflödet genom att:
+
+1. Från kommandoraden och skriva  `msgen status`
+2. Undersöker innehållet i standardoutput.txt.
+
+### <a name="1-using-the-command-line-msgen-status"></a>1. Med hjälp av kommandoraden `msgen status`
+
+```bash
+msgen status -u URL -k KEY -w ID 
 ```
-msgen status -u URL -k KEY -w ID [-f CONFIG] 
-```
+
+
+
 
 Det finns tre obligatoriska argument:
+
 * URL - bas-URI för API: et
-* NYCKEL - åtkomstnyckeln för ditt Genomics-konto. 
+* NYCKEL - åtkomstnyckeln för ditt Genomics-konto
+    * För att hitta din URL och nyckel, gå till Azure-portalen och öppna sidan Microsoft Genomics-konto. Under den **Management** rubrik, Välj **åtkomstnycklar**. Där kan hitta du både API-URL och dina åtkomstnycklar.
+
+  
 * ID - arbetsflödes-ID
+    * Du hittar ditt arbetsflöde ID-typen i `msgen list` kommando. Om vi antar att din konfigurationsfilen innehåller URL: en och dina åtkomstnycklar och om det finns är på samma plats som din msgen exe kommandot ser ut så här: 
+        
+        ```bash
+        msgen list -f "config.txt"
+        ```
+        Utdata från det här kommandot ser ut så här:
+        
+        ```bash
+            Microsoft Genomics command-line client v0.7.4
+                Copyright (c) 2018 Microsoft. All rights reserved.
+                
+                Workflow List
+                -------------
+                Total Count  : 1
+                
+                Workflow ID     : 10001
+                Status          : Completed successfully
+                Message         :
+                Process         : snapgatk-20180730_1
+                Description     :
+                Created Date    : Mon, 27 Aug 2018 20:27:24 GMT
+                End Date        : Mon, 27 Aug 2018 20:55:12 GMT
+                Wall Clock Time : 0h 27m 48s
+                Bases Processed : 1,348,613,600 (1 GBase)
+        ```
 
-Gå till Azure-portalen och öppna din kontosida för Genomics för att hitta din URL och nyckel. Under den **Management** rubrik, Välj **åtkomstnycklar**. Där kan hitta du både API-URL och dina åtkomstnycklar.
+ > [!NOTE]
+ >  Du kan också inkludera sökvägen till konfigurationsfilen istället för direkt att ange URL och nyckel. Om du använder de här argumenten i kommandoraden samt konfigurationsfilen blir har kommandoradsargument som högre prioritet.  
 
-Du kan också inkludera sökvägen till konfigurationsfilen istället för direkt att ange URL och nyckel. Observera att kommandoradsargument som har högre prioritet om du inkluderar de här argumenten i kommandoraden samt konfigurationsfilen. 
+För arbetsflöde-ID 1001 och config.txt-fil som placeras i samma sökväg som msgen körbara startar ser kommandot ut så här:
 
-När du anropar `msgen status`, visas ett användarvänligt meddelande som beskriver om arbetsflödet lyckades eller ge en orsak till misslyckandet jobbet. 
+```bash
+msgen status -w 1001 -f "config.txt"
+```
 
-
-## <a name="get-more-information-about-my-workflow-status"></a>Få mer information om min arbetsflödesstatus
-
-Om du vill ha mer information om varför ett jobb inte kan ha lyckats kan utforska du loggfiler som skapas under arbetsflödet. I din utdatabehållaren bör du se en `[youroutputfilename].logs.zip` mapp.  Packat upp den här mappen, visas följande objekt:
+### <a name="2--examine-the-contents-of-standardoutputtxt"></a>2.  Granska innehållet i standardoutput.txt 
+Leta upp utdatabehållaren för arbetsflödet i fråga. MSGEN skapar en, `[workflowfilename].logs.zip` mappen efter varje arbetsflödeskörning. Packa upp mappen om du vill visa dess innehåll:
 
 * outputFileList.txt – en lista över de utdatafiler som skapas under arbetsflödet
 * StandardError.txt - filen är tom.
-* StandardOutput.txt - innehåller översta loggning av arbetsflödet. 
+* StandardOutput.txt – loggar alla översta statusmeddelanden, inklusive fel som uppstod vid körning av arbetsflödet.
 * GATK loggfiler – alla andra filer i den `logs` mapp
 
-Den `standardoutput.txt` filen är ett bra ställe att börja att fastställa varför arbetsflödet lyckades inte, eftersom den innehåller mer information som på låg nivå av arbetsflödet. 
-
-## <a name="common-issues-and-how-to-resolve-them"></a>Vanliga problem och hur du löser dem.
-Det här avsnittet beskrivs kortfattat vanliga problem och hur du löser dem.
-
-### <a name="fastq-files-are-unmatched"></a>Fastq-filer är oöverträffad
-Fastq-filer bör skiljer sig bara av den avslutande /1 eller /2 i exempel-identifierare. Om du av misstag har skickat en oöverträffad FASTQ-filer, visas följande felmeddelanden visas när du anropar `msgen status`.
-* `Encountered an unmatched read`
-* `Error reading a FASTQ file, make sure the input files are valid and paired correctly` 
-
-Lös detta genom att granska om fastq-filer som skickas till arbetsflödet är faktiskt en matchande uppsättning. 
+Granska innehållet i standardoutput.txt för felsökning, och notera eventuella felmeddelanden som visas.
 
 
-### <a name="error-uploading-bam-file-output-blob-already-exists-and-the-overwrite-option-was-set-to-false"></a>Fel vid uppladdning .bam-fil. Utdatablob finns redan och Överskrivningsalternativet har angetts till False.
-Om du ser ett felmeddelande, `Error uploading .bam file. Output blob already exists and the overwrite option was set to False`, den utgående mappen innehåller redan en utdatafil med samma namn.  Ta bort den befintliga utdatafilen eller aktivera Överskrivningsalternativet Skriv i konfigurationsfilen. Sedan kan skicka ditt arbetsflöde.
+## <a name="step-2-try-recommended-steps-for-common-errors"></a>Steg 2: Försök rekommenderade steg för vanliga fel
 
-### <a name="when-to-contact-microsoft-genomics-support"></a>När du kontaktar Microsoft Genomics-support
-Om du ser följande felmeddelanden uppstod ett internt fel. 
+Det här avsnittet beskriver kortfattat vanliga fel utdata genom Microsoft Genomics-tjänsten (msgen) och de strategier som du kan använda för att lösa dem. 
 
-* `Error locating input files on worker machine`
-* `Process management failure`
+Microsoft Genomics-tjänsten (msgen) kan ge följande två typer av fel:
 
-Försök att skicka ditt arbetsflöde. Om du fortsätter att ha misslyckade jobb, eller om du har andra frågor, kontakta Microsoft Genomics support från Azure-portalen. Mer information om hur du skickar en begäran kan hittas [här](file-support-ticket-genomics.md).
+1. Internt fel i tjänsten: Fel som är interna för tjänsten, som inte kan lösas genom att åtgärda parametrar eller indatafiler. Ibland skickar in igen arbetsflödet kan åtgärda dessa fel.
+2. Indatafel: Fel som kan lösas genom att använda rätt argument eller åtgärda filformat.
+
+### <a name="1-internal-service-errors"></a>1. Internt fel
+
+Ett internt tjänstfel är inte användare som är användbara. Du kan skicka arbetsflödet men om det inte fungerar, kontakta supporten för Microsoft Genomics
+
+| Felmeddelande                                                                                                                            | Rekommenderade steg för felsökning                                                                                                                                   |
+|------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Ett internt fel har inträffat. Försök att skicka igen arbetsflödet. Om du ser det här felet, kontakta Microsoft Genomics-support för hjälp | Skicka arbetsflödet igen. Kontakta Microsoft Genomics stöd för att få hjälp om problemet kvarstår genom att skapa en [biljett](file-support-ticket-genomics.md ). |
+
+### <a name="2-input-errors"></a>2. Indatafel
+
+De här felen är användare som är användbara. Microsoft Genomics-tjänsten utdata baserat på vilken typ av fil- och felkoden distinkta felkoder. Följ rekommenderade felsökningsstegen som anges nedan.
+
+| Typ av fil | Felkod | Felmeddelande                                                                           | Rekommenderade steg för felsökning                                                                                         |
+|--------------|------------|-----------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------|
+| Alla          | 701        | Läs [readId] har [numberOfBases] baser, men gränsen är [maxReadLength]           | Den vanligaste orsaken till det här felet är skadade filer vilket leder till sammanslagning av två läsningar. Kontrollera dina indatafiler. |                                |
+| BAM          | 200        |   Det går inte att läsa filen [yourFileName].                                                                                       | Kontrollera formatet på BAM-fil. Skicka arbetsflödet igen med en korrekt formaterad fil.                                                                           |
+| BAM          | 201        |  Det går inte att läsa BAM-fil [filnamn].                                                                                      |Kontrollera formatet på BAM-fil.  Skicka arbetsflödet med en korrekt formaterad fil.                                                                            |
+| BAM          | 202        | Det går inte att läsa BAM-fil [filnamn]. För små och saknas filhuvudet.                                                                                        | Kontrollera formatet på BAM-fil.  Skicka arbetsflödet med en korrekt formaterad fil.                                                                            |
+| BAM          | 203        |   Det går inte att läsa BAM-fil [filnamn]. Rubrik för filen är skadad.                                                                                      |Kontrollera formatet på BAM-fil.  Skicka arbetsflödet med en korrekt formaterad fil.                                                                           |
+| BAM          | 204        |    Det går inte att läsa BAM-fil [filnamn]. Rubrik för filen är skadad.                                                                                     | Kontrollera formatet på BAM-fil.  Skicka arbetsflödet med en korrekt formaterad fil.                                                                           |
+| BAM          | 205        |    Det går inte att läsa BAM-fil [filnamn]. Rubrik för filen är skadad.                                                                                     | Kontrollera formatet på BAM-fil.  Skicka arbetsflödet med en korrekt formaterad fil.                                                                            |
+| BAM          | 206        |   Det går inte att läsa BAM-fil [filnamn]. Rubrik för filen är skadad.                                                                                      | Kontrollera formatet på BAM-fil.  Skicka arbetsflödet med en korrekt formaterad fil.                                                                            |
+| BAM          | 207        |  Det går inte att läsa BAM-fil [filnamn]. Filen trunkeras nära offset [offset].                                                                                       | Kontrollera formatet på BAM-fil.  Skicka arbetsflödet med en korrekt formaterad fil.                                                                            |
+| BAM          | 208        |   Ogiltig BAM-fil. ReadID [Read_Id] har ingen sekvens i [filnamn]-filen.                                                                                      | Kontrollera formatet på BAM-fil.  Skicka arbetsflödet med en korrekt formaterad fil.                                                                             |
+| FASTQ        | 300        |  Det går inte att läsa FASTQ-filen. [Filnamn] avslutas inte med en ny rad.                                                                                     | Korrigera formatet på FASTQ-filen och skicka arbetsflödet igen.                                                                           |
+| FASTQ        | 301        |   Det går inte att läsa FASTQ-fil [filnamn]. FASTQ-posten är större än buffertstorleken vid förskjutningen: [_offset]                                                                                      | Korrigera formatet på FASTQ-filen och skicka arbetsflödet igen.                                                                         |
+| FASTQ        | 302        |     FASTQ syntaxfel. Filen [filnamn] har en tom rad.                                                                                    | Korrigera formatet på FASTQ-filen och skicka arbetsflödet igen.                                                                         |
+| FASTQ        | 303        |       FASTQ syntaxfel. Filen [filnamn] har ett ogiltigt från tecken vid förskjutningen: skriver du [_offset], rad: [line_type] tecken: [_char]                                                                                  | Korrigera formatet på FASTQ-filen och skicka arbetsflödet igen.                                                                         |
+| FASTQ        | 304      |  FASTQ syntaxfel vid readID [_ReadID].  Första läsning av batch har inte readID som slutar på /1 i filen [filnamn]                                                                                       | Korrigera formatet på FASTQ-filen och skicka arbetsflödet igen.                                                                         |
+| FASTQ        | 305        |  FASTQ syntaxfel vid readID [_readID]. Andra läsning av batch har inte readID som slutar på /2 i filen [filnamn]                                                                                      | Korrigera formatet på FASTQ-filen och skicka arbetsflödet igen.                                                                          |
+| FASTQ        | 306        |  FASTQ syntaxfel vid readID [_ReadID]. Första läsning av par har inte ett ID som slutar med /1 i filen [filnamn]                                                                                       | Korrigera formatet på FASTQ-filen och skicka arbetsflödet igen.                                                                          |
+| FASTQ        | 307        |   FASTQ syntaxfel vid readID [_ReadID]. ReadID tar inte slut med /1 eller / 2. Filen [filnamn] kan inte användas som en parade FASTQ-fil.                                                                                      |Korrigera formatet på FASTQ-filen och skicka arbetsflödet igen.                                                                          |
+| FASTQ        | 308        |  FASTQ läsfel. Läsningar av båda ändar svarat på olika sätt. Du väljer rätt FASTQ-filer?                                                                                       | Korrigera formatet på FASTQ-filen och skicka arbetsflödet igen.                                                                         |
+|        |       |                                                                                        |                                                                           |
+
+## <a name="step-3-contact-microsoft-genomics-support"></a>Steg 3: Kontakta Microsoft Genomics-stöd
+
+Om du fortsätter att ha misslyckade jobb, eller om du har andra frågor, kontakta Microsoft Genomics support från Azure-portalen. Mer information om hur du skickar en begäran kan hittas [här](file-support-ticket-genomics.md).
 
 ## <a name="next-steps"></a>Nästa steg
+
 I den här artikeln lärde du dig att felsöka och lösa vanliga problem med Microsoft Genomics-tjänsten. Mer information och fler vanliga frågor och svar finns [vanliga frågor](frequently-asked-questions-genomics.md). 

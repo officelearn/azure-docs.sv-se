@@ -15,17 +15,17 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 12/18/2017
-ms.openlocfilehash: fcbba3578627f53ff1de29fe6e309db9608b31c9
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: 693fd7b80d69c20971315d8636f27daeb0cacaee
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/30/2018
-ms.locfileid: "50231516"
+ms.locfileid: "50240893"
 ---
 # <a name="microsoft-cortana-intelligence-competitions-faq"></a>Microsoft Cortana Intelligence, tävlingar, vanliga frågor och svar
 **Vad är Cortana Intelligence, tävlingar?**
 
-Microsoft Cortana Intelligence, tävlingar, unites en global community med dataentusiaster genom att lösa några av världens mest komplexa data science problem tillsammans. Cortana Intelligence, tävlingar, Tillåt dataentusiaster från över hela världen att konkurrera och skapa modeller för mycket exakta och intelligenta data science. De här värdbaserade tävlingar baseras på unika datauppsättningar som har gjorts tillgängliga publicaly för första gången. Deltagare kan vinna belöningar eller få erkännande via de översta 10 offentliga rankningslista. Du kan komma åt webbplatsen tävlingar på [aka.ms/CIComp](http://aka.ms/CIComp).
+Microsoft Cortana Intelligence, tävlingar, unites en global community med dataentusiaster genom att lösa några av världens mest komplexa data science problem tillsammans. Cortana Intelligence, tävlingar, Tillåt dataentusiaster från över hela världen att konkurrera och skapa modeller för mycket exakta och intelligenta data science. De här värdbaserade tävlingar baseras på unika datauppsättningar som har gjorts tillgängliga offentligt för första gången. Deltagare kan vinna belöningar eller få erkännande via de översta 10 offentliga rankningslista. Du kan komma åt webbplatsen tävlingar på [aka.ms/CIComp](http://aka.ms/CIComp).
 
 **Hur ofta kommer Microsoft att släppa nya tävlingar?**
 

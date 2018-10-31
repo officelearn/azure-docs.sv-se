@@ -18,12 +18,12 @@ ms.date: 10/25/2018
 ms.author: markvi
 ms.reviewer: tanning
 ms.custom: it-pro
-ms.openlocfilehash: ef10f45cbe02bd364563be4b0d62f9c491848452
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.openlocfilehash: 3825d527e520fae87d0dd2712df767090adad4e5
+ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50098078"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50248429"
 ---
 # <a name="troubleshooting-enterprise-state-roaming-settings-in-azure-active-directory"></a>Felsöka Enterprise State Roaming-inställningar i Azure Active Directory
 
@@ -74,7 +74,7 @@ Enterprise State Roaming kräver att enheten registreras med Azure AD. Även om 
 **Potentiella problem**: **WamDefaultSet** och **AzureAdJoined** både har ”Nej” i fältvärdet enheten var ansluten till domänen och registrerad med Azure AD och synkroniserar inte enheten. Om den visar detta, enheten kan behöva vänta på att principen tillämpas det gick inte att autentiseringen för enheten när du ansluter till Azure AD Användaren kan behöva vänta några timmar innan principen tillämpas. Andra åtgärder för felsökning kan omfatta försöker automatisk registrering genom att logga ut och in igen eller starta om aktiviteten i Schemaläggaren. I vissa fall kan köra ”*dsregcmd.exe /leave*” i en upphöjd kommandotolk, starta om och försök registrera igen kan bidra med det här problemet.
 
 
-**Potentiella problem**: fältet för **SettingsUrl** är tom och synkroniserar inte enheten. Användaren kan ha senast inloggad till enheten innan Enterprise State Roaming aktiverades i Azure Active Directory-portalen. Starta om enheten och har användarinloggning. Prova också att IT-administratör inaktiverar och återaktiverar användare kan synkroniseringsinställningar och AppData för Enterprise i portalen. En gång återaktiveras, starta om enheten och har användarinloggning. Om detta inte löser problemet, **SettingsUrl** kan vara tom när det gäller ett felaktigt certifikat. I det här fallet kör ”*dsregcmd.exe /leave*” i en upphöjd kommandotolk, starta om och försök registrera igen kan bidra med det här problemet.
+**Potentiella problem**: fältet för **SettingsUrl** är tom och synkroniserar inte enheten. Användaren kan ha senast inloggad till enheten innan Enterprise State Roaming aktiverades i Azure Active Directory-portalen. Starta om enheten och har användarinloggning. Du kan också prova att gå till IT-administratören i portalen **Azure Active Directory** > **enheter** > **Enterprise State Roaming** inaktivera och återaktivera **användarna kan synkronisera inställningar och AppData på enheter**. En gång återaktiveras, starta om enheten och har användarinloggning. Om detta inte löser problemet, **SettingsUrl** kan vara tom när det gäller ett felaktigt certifikat. I det här fallet kör ”*dsregcmd.exe /leave*” i en upphöjd kommandotolk, starta om och försök registrera igen kan bidra med det här problemet.
 
 ## <a name="enterprise-state-roaming-and-multi-factor-authentication"></a>Enterprise State Roaming och Multi-Factor Authentication 
 

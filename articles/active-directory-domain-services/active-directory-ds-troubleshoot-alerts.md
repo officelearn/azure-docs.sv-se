@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/17/2018
+ms.date: 10/25/2018
 ms.author: ergreenl
-ms.openlocfilehash: 0eb028e419f05843da308c824d79a8f4e1883fb2
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: a6928b5a849f35456a6fb7699acd7720f686c2aa
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49429753"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50243069"
 ---
 # <a name="azure-ad-domain-services---troubleshoot-alerts"></a>Azure AD Domain Services - felsöka aviseringar
 Den här artikeln innehåller felsökningsguider för alla aviseringar som kan uppstå på din hanterade domän.
@@ -37,11 +37,21 @@ Välj felsökningsstegen som relaterar till ID eller meddelande i aviseringen.
 | AADDS103 | *IP-adressintervallet för det virtuella nätverket där du har aktiverat Azure AD Domain Services är i en offentlig IP-adressintervallet. Azure AD Domain Services måste aktiveras i ett virtuellt nätverk med en privat IP-adressintervall. Den här konfigurationen påverkar Microsofts förmåga att övervaka, hantera, korrigera och synkronisera din hanterade domän.* | [Adressen är i en offentlig IP-adressintervall](#aadds103-address-is-in-a-public-ip-range) |
 | AADDS104 | *Microsoft kan inte nå domänkontrollanterna för den här hanterade domänen. Detta kan inträffa om en nätverkssäkerhetsgrupp (NSG) som har konfigurerats på ditt virtuella nätverk blockerar åtkomsten till den hanterade domänen. En annan möjlig orsak är att om det finns en användardefinierad väg som blockerar inkommande trafik från internet.* | [Nätverksfel](active-directory-ds-troubleshoot-nsg.md) |
 | AADDS105 | *Tjänstens huvudnamn med program-ID ”d87dcbc6-a371-462e-88e3-28ad15ec4e64” har tagits bort och sedan återskapas. Återskapning lämnas bakom inkonsekvent behörigheter på Azure AD Domain Services-resurser som behövs för att underhålla din hanterade domän. Synkronisering av lösenord på den hanterade domänen kan påverkas.* | [Programmet för synkronisering av lösenord är inaktuell](active-directory-ds-troubleshoot-service-principals.md#alert-aadds105-password-synchronization-application-is-out-of-date) |
+| AADDS106 | *Din Azure-prenumeration som är associerade med din hanterade domän har tagits bort.  Azure AD Domain Services kräver en aktiv prenumeration ska fortsätta att fungera korrekt.* | [Det gick inte att hitta Azure-prenumeration](#aadds106-your-azure-subscription-is-not-found) |
+| AADDS107 | *Din Azure-prenumeration som är associerade med den hanterade domänen är inte aktiv.  Azure AD Domain Services kräver en aktiv prenumeration ska fortsätta att fungera korrekt.* | [Azure-prenumeration har inaktiverats](#aadds107-your-azure-subscription-is-disabled) |
+| AADDS108 | *En resurs som används för din hanterade domän har tagits bort. Den här resursen krävs för Azure AD Domain Services ska fungera korrekt.* | [En resurs har tagits bort](#aadds108-resources-for-your-managed-domain-cannot-be-found) |
+| AADDS109 | *Undernät som valts för distribution av Azure AD Domain Services är full och har inte utrymme för ytterligare en domänkontrollant som måste skapas.* | [Undernätet är full](#aadds109-the-subnet-associated-with-your-managed-domain-is-full) |
+| AADDS110 | *Vi har identifierat att undernätet för det virtuella nätverket i den här domänen inte kanske har tillräckligt med IP-adresser. Azure AD Domain Services behöver minst två tillgängliga IP-adresser i undernätet som den är aktiverad i. Vi rekommenderar att du har minst 3-5 extra IP-adresser i undernätet. Det kan inträffa om andra virtuella datorer distribueras inom undernätet, alltså få slut antalet tillgängliga IP-adresser eller om det finns en begränsning på antalet tillgängliga IP-adresser i undernätet.* | [Det finns inte tillräckligt med IP-adresser](#aadds110-not-enough-ip-address-in-the-managed-domain) |
+| AADDS111 | *En eller flera av de nätverksresurser som används av den hanterade domänen kan inte användas på som målområdet har låsts.* | [Resurser är låst](#aadds111-resources-are-locked) |
+| AADDS112 | *En eller flera av de nätverksresurser som används av den hanterade domänen kan inte användas på på grund av principen restriction(s).* | [Resurser kanske inte kan användas](#aadds112-resources-are-unusable) |
+| AADDS113 | *De resurser som används av Azure AD Domain Services har upptäckts i ett oväntat tillstånd och kan inte återställas.* | [Resurserna är ett oåterkalleligt](#aadds113-resources-are-unrecoverable) |
+| AADDS114 | * Azure AD Domain Services domänkontrollanter inte går att få åtkomst till port 443. Det krävs att tjänsten, hantera och uppdatera din hanterade domän. * | [Port 442 blockerad](#aadds114-port-443-blocked) |
 | AADDS500 | *Den hanterade domänen senast synkroniserades med Azure AD på [date]. Användare kan inte logga in på den hanterade domänen eller gruppmedlemskap kanske inte är synkroniserad med Azure AD.* | [Synkronisering inte har utförts på ett tag](#aadds500-synchronization-has-not-completed-in-a-while) |
 | AADDS501 | *Den hanterade domänen senast säkerhetskopierades på [date].* | [En säkerhetskopia som inte har vidtagits på ett tag](#aadds501-a-backup-has-not-been-taken-in-a-while) |
 | AADDS502 | *Certifikatet för säkert LDAP för den hanterade domänen upphör att gälla [date].* | [Upphör att gälla certifikatet för säkert LDAP](active-directory-ds-troubleshoot-ldaps.md#aadds502-secure-ldap-certificate-expiring) |
 | AADDS503 | *Den hanterade domänen har inaktiverats eftersom den Azure-prenumeration som är associerade med domänen inte är aktiv.* | [Inaktiveringen på grund av inaktiverad prenumeration](#aadds503-suspension-due-to-disabled-subscription) |
 | AADDS504 | *Den hanterade domänen har pausats på grund av en ogiltig konfiguration. Tjänsten har inte kan hantera, korrigera eller uppdatera domänkontrollanterna för den hanterade domänen under en längre tid.* | [Inaktiveringen på grund av en ogiltig konfiguration](#aadds504-suspension-due-to-an-invalid-configuration) |
+
 
 
 ## <a name="aadds100-missing-directory"></a>AADDS100: Saknas directory
@@ -101,6 +111,127 @@ I det virtuella nätverket, kan datorer gör förfrågningar till Azure-resurser
 3. Följ [guiden komma igång med Azure AD Domain Services](active-directory-ds-getting-started.md) att återskapa din hanterade domän. Se till att du väljer ett virtuellt nätverk med en privat IP-adressintervall.
 4. Domänanslutning dina virtuella datorer till den nya domänen, så [den här guiden](active-directory-ds-admin-guide-join-windows-vm-portal.md).
 8. Säkerställ att aviseringen har lösts genom att kontrollera hälsan för domänen i två timmar.
+
+## <a name="aadds106-your-azure-subscription-is-not-found"></a>AADDS106: Azure-prenumerationen finns inte
+
+**Varningsmeddelande:**
+
+*Din Azure-prenumeration som är associerade med din hanterade domän har tagits bort.  Azure AD Domain Services kräver en aktiv prenumeration ska fortsätta att fungera korrekt.*
+
+**Lösning:**
+
+Azure AD Domain Services kräver en prenumeration på Funktion och kan inte flyttas till en annan prenumeration. Eftersom den prenumeration som din hanterade domän var associerad med har tagits bort, måste du återskapa en Azure-prenumeration och Azure AD Domain Services.
+
+1. Skapa en Azure-prenumeration
+2. [Ta bort den Hantera domänen](active-directory-ds-disable-aadds.md) från din befintliga Azure AD-katalog.
+3. Följ den [komma igång](active-directory-ds-getting-started.md) guide för att återskapa en hanterad domän.
+
+## <a name="aadds107-your-azure-subscription-is-disabled"></a>AADDS107: Din Azure-prenumeration har inaktiverats
+
+**Varningsmeddelande:**
+
+*Din Azure-prenumeration som är associerade med den hanterade domänen är inte aktiv.  Azure AD Domain Services kräver en aktiv prenumeration ska fortsätta att fungera korrekt.*
+
+**Lösning:**
+
+
+1. [Förnya din Azure-prenumeration](https://docs.microsoft.com/azure/billing/billing-subscription-become-disable).
+2. När prenumerationen förnyas, får Azure AD Domain Services ett meddelande från Azure för att återaktivera din hanterade domän.
+
+## <a name="aadds108-resources-for-your-managed-domain-cannot-be-found"></a>AADDS108: Resurser för din hanterade domän kan inte hittas
+
+**Varningsmeddelande:**
+
+*En resurs som används för din hanterade domän har tagits bort. Den här resursen krävs för Azure AD Domain Services ska fungera korrekt.*
+
+**Lösning:**
+
+Azure AD Domain Services skapar specifika resurser när du distribuerar för att kunna fungera korrekt, inklusive offentliga IP-adresser, nätverkskort och en belastningsutjämnare. Om någon av den namngivna raderas detta gör att din hanterade domän ska vara tillstånd stöds inte och förhindrar att din domän som hanteras. Den här aviseringen hittas när någon som kan redigera resurser för Azure AD Domain Services tar bort en nödvändig resurs. Följande steg beskriver hur du återställer din hanterade domän.
+
+1.  Gå till sidan om Azure AD Domain Services-health
+  1.    Reser till den [Azure AD Domain Services-sidan]() i Azure-portalen.
+  2.    I det vänstra navigeringsfältet, klickar du på **hälsotillstånd**
+2.  Kontrollera om aviseringen är mindre än 4 timmar
+  1.    Aviseringen med ID: T på sidan hälsa **AADDS108**
+  2.    Aviseringen har en tidsstämpel för när det först hittades. Om den tidsstämpeln är mindre än 4 timmar sedan, finns en risk att Azure AD Domain Services kan återskapa den borttagna resursen.
+3.  Om aviseringen är mer än 4 timmar, är den hanterade domänen i ett oåterkalleligt tillstånd. Du måste ta bort och återskapa Azure AD Domain Services.
+
+
+## <a name="aadds109-the-subnet-associated-with-your-managed-domain-is-full"></a>AADDS109: Det undernät som är associerade med din hanterade domän är full
+
+**Varningsmeddelande:**
+
+*Undernät som valts för distribution av Azure AD Domain Services är full och har inte utrymme för ytterligare en domänkontrollant som måste skapas.*
+
+**Lösning:**
+
+Det här felet är ett oåterkalleligt. För att lösa, måste du [ta bort den befintliga Hantera domänen](active-directory-ds-disable-aadds.md) och [återskapa din hanterade domän](active-directory-ds-getting-started.md)
+
+
+## <a name="aadds110-not-enough-ip-address-in-the-managed-domain"></a>AADDS110: Inte tillräckligt med IP-adressen i den hanterade domänen
+
+**Varningsmeddelande:**
+
+*Vi har identifierat att undernätet för det virtuella nätverket i den här domänen inte kanske har tillräckligt med IP-adresser. Azure AD Domain Services behöver minst två tillgängliga IP-adresser i undernätet som den är aktiverad i. Vi rekommenderar att du har minst 3-5 extra IP-adresser i undernätet. Det kan inträffa om andra virtuella datorer distribueras inom undernätet, alltså få slut antalet tillgängliga IP-adresser eller om det finns en begränsning på antalet tillgängliga IP-adresser i undernätet.*
+
+**Lösning:**
+
+1. [Ta bort den Hantera domänen](#active-directory-ds-disable-aadds.md) från din klient.
+2. Åtgärda IP-adressintervall för undernätet
+  1. Navigera till den [virtuella nätverk-sidan på Azure portal](https://portal.azure.com/?feature.canmodifystamps=true&Microsoft_AAD_DomainServices=preview#blade/HubsExtension/Resources/resourceType/Microsoft.Network%2FvirtualNetworks).
+  2. Välj det virtuella nätverket som du planerar att använda för Azure AD Domain Services.
+  3. Klicka på **adressutrymme** under inställningar
+  4. Uppdatera adressintervallet genom att klicka på befintliga adressintervallet och redigera eller lägga till ett ytterligare adressintervall. Spara ändringarna.
+  5. Klicka på **undernät** i det vänstra navigeringsfältet.
+  6. Klicka på det undernät som du vill redigera i tabellen.
+  7. Uppdatera adressintervallet och spara dina ändringar.
+3. Följ [guiden komma igång med Azure AD Domain Services](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-getting-started) att återskapa din hanterade domän. Se till att du väljer ett virtuellt nätverk med en privat IP-adressintervall.
+4. Domänanslutning dina virtuella datorer till den nya domänen, så [den här guiden](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-admin-guide-join-windows-vm-portal).
+5. Kontrollera hälsan för domänen i två timmar att kontrollera att du har slutfört stegen korrekt.
+
+## <a name="aadds111-resources-are-locked"></a>AADDS111: Resurser är låst
+
+**Varningsmeddelande:**
+
+*En eller flera av de nätverksresurser som används av den hanterade domänen kan inte användas på som målområdet har låsts.*
+
+**Lösning:**
+
+1.  Granska Resource Manager-åtgärden loggar in till nätverksresurser (detta bör ge info på vilka lås förhindrar ändringar).
+2.  Ta bort lås på resurserna så att Azure AD Domain Services tjänstens huvudnamn kan köras på dem.
+
+
+## <a name="aadds112-resources-are-unusable"></a>AADDS112: Resurser kanske inte kan användas
+
+**Varningsmeddelande:**
+
+*En eller flera av de nätverksresurser som används av den hanterade domänen kan inte användas på på grund av principen restriction(s).*
+
+**Lösning:**
+
+1.  Granska Resource Manager-åtgärden loggar in till nätverksresurser för din hanterade domän
+2.  Lätta principbegränsningar för de resurser så att AAD DS-tjänstens huvudnamn kan köras på dem.
+
+## <a name="aadds113-resources-are-unrecoverable"></a>AADDS113: Resurser är ett oåterkalleligt
+
+**Varningsmeddelande:**
+
+*De resurser som används av Azure AD Domain Services har upptäckts i ett oväntat tillstånd och kan inte återställas.*
+
+**Lösning:**
+
+Det här felet är ett oåterkalleligt. För att lösa, måste du [ta bort den befintliga Hantera domänen](active-directory-ds-disable-aadds.md) och [återskapa din hanterade domän](active-directory-ds-getting-started.md)
+
+## <a name="aadds114-port-443-blocked"></a>AADDS114: Port 443 som blockeras
+
+**Varningsmeddelande:**
+
+*Azure AD Domain Services domänkontrollanter inte går att få åtkomst till port 443. Det krävs att tjänsten, hantera och uppdatera din hanterade domän.*
+
+**Lösning:**
+
+Tillåt inkommande åtkomst via port 443 i nätverkssäkerhetsgruppen för Azure AD Domain Services.
+
 
 ## <a name="aadds500-synchronization-has-not-completed-in-a-while"></a>AADDS500: Synkronisering har inte slutförts på ett tag
 

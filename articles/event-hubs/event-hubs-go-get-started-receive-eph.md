@@ -9,12 +9,12 @@ ms.workload: core
 ms.topic: article
 ms.date: 07/23/2018
 ms.author: shvija
-ms.openlocfilehash: eaea6adbaef7baf9bb1e617ba0a709cf14edf781
-ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
+ms.openlocfilehash: 0a8cb349be0ffefecb07bc705391684dc57f1b96
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "40005586"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50239499"
 ---
 # <a name="receive-events-from-event-hubs-using-go"></a>Ta emot händelser från Event Hubs med hjälp av Go
 
@@ -80,7 +80,7 @@ import (
 
 ## <a name="create-service-principal"></a>Skapa tjänstens huvudnamn
 
-Skapa ett nytt huvudnamn för tjänsten genom att följa instruktionerna i [skapa Azure-tjänstens huvudnamn med Azure CLI 2.0](/cli/azure/create-an-azure-service-principal-azure-cli). Spara de angivna autentiseringsuppgifterna i din miljö med följande namn. Både Azure SDK för Go och Event Hubs-paketet är förkonfigurerade för att leta efter dessa variabelnamn.
+Skapa ett nytt huvudnamn för tjänsten genom att följa instruktionerna i [skapa Azure-tjänstens huvudnamn med Azure CLI 2.0](/cli/azure/create-an-azure-service-principal-azure-cli). Spara de angivna autentiseringsuppgifterna i din miljö med följande namn: både Azure SDK för Go och Event Hubs-paketet är förkonfigurerade för att leta efter dessa variabelnamn.
 
 ```bash
 export AZURE_CLIENT_ID=
@@ -197,13 +197,7 @@ if err != nil {
 Den här guiden använder en enda instans av **EventProcessorHost**. För att öka dataflödet och tillförlitlighet, bör du köra flera instanser av **EventProcessorHost** på olika system. Leaser säkerställer att endast en mottagare är kopplad till och tar emot meddelanden från en angiven partition vid en viss tidpunkt.
 
 ## <a name="next-steps"></a>Nästa steg
-
-Gå till dessa sidor om du vill veta mer om Event Hubs:
-
-* [Skicka händelser med Go](event-hubs-go-get-started-send.md)
-* [Event Hubs-översikt](event-hubs-about.md)
-* [Skapa en händelsehubb](event-hubs-create.md)
-* [Vanliga frågor och svar om Event Hubs](event-hubs-faq.md)
+I den här snabbstarten skapade du ett Go-program som har fått meddelanden från en event hub. Läs hur man skickar händelser till en händelsehubb med hjälp av Go i [skicka händelser från event hub - Go](event-hubs-go-get-started-send.md).
 
 <!-- Links -->
 [Event Hubs overview]: event-hubs-about.md

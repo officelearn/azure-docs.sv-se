@@ -10,14 +10,14 @@ ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.component: pim
-ms.date: 07/23/2018
+ms.date: 10/30/2018
 ms.author: rolyon
-ms.openlocfilehash: 33bfe28bf612c47c9f42345dabccc017337c3d45
-ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
+ms.openlocfilehash: 5f0b5d1695603a7cd2a3c7ac1dbc484e44257d88
+ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43190164"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50249619"
 ---
 # <a name="assign-azure-ad-directory-roles-in-pim"></a>Tilldela Azure AD-katalogroller i PIM
 
@@ -112,6 +112,39 @@ Följ dessa steg om du vill ta bort en specifik användare från en katalogroll.
     ![Ta bort en roll](./media/pim-how-to-add-role-to-user/pim-remove-role-confirm.png)
 
     Rolltilldelningen har tagits bort.
+
+## <a name="authorization-error-when-assigning-roles"></a>Behörighetsfel när du tilldelar roller
+
+Om du nyligen har aktiverat PIM för en prenumeration och du får ett felmeddelande för auktorisering när du försöker göra en användare som är berättigade till en katalogroll, kanske eftersom tjänstens huvudnamn som MS-PIM ännu inte har de behörigheter som krävs. Tjänstens huvudnamn som MS-PIM måste ha den [administratör för användaråtkomst](../../role-based-access-control/built-in-roles.md#user-access-administrator) roll att tilldela roller till andra. I stället för att vänta tills MS-PIM har tilldelats rollen Administratör för användaråtkomst, kan du tilldela den manuellt.
+
+Följ dessa steg om du vill tilldela rollen Administratör för användaråtkomst till MS-PIM tjänstens huvudnamn för en prenumeration.
+
+1. Logga in på Azure portal som Global administratör.
+
+1. Välj **alla tjänster** och sedan **prenumerationer**.
+
+1. Välj din prenumeration.
+
+1. Välj **Åtkomstkontroll (IAM)** för att visa den aktuella listan med rolltilldelningar i omfånget för en prenumeration.
+
+   ![Åtkomstkontroll (IAM)-bladet för en prenumeration](./media/pim-how-to-add-role-to-user/ms-pim-access-control.png)
+
+1. Kontrollera om den **MS-PIM** tjänstens huvudnamn är tilldelad den **administratör för användaråtkomst** roll.
+
+1. Om inte, Välj **Lägg till** att öppna den **Lägg till behörigheter** fönstret.
+
+1. I den **rollen** listrutan, väljer den **administratör för användaråtkomst** roll.
+
+1. I den **Välj** listan, hitta och välj den **MS-PIM** tjänstens huvudnamn.
+
+   ![Lägg till behörigheter för MS-PIM](./media/pim-how-to-add-role-to-user/ms-pim-add-permissions.png)
+
+1. Välj **spara** du tilldela rollen.
+
+   Efter en liten stund tilldelas MS-PIM-tjänstens huvudnamn rollen Administratör för användaråtkomst prenumerationsområde.
+
+   ![Rollen Administratör för användaråtkomst för MS-PIM](./media/pim-how-to-add-role-to-user/ms-pim-user-access-administrator.png)
+
 
 ## <a name="next-steps"></a>Nästa steg
 

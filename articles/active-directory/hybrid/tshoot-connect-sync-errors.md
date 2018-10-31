@@ -11,15 +11,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/31/2018
+ms.date: 10/29/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: cb2b4bdee445587b32516c8db869170ab067b8d3
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: c94ecc223c4e2c0533c23e58823bb203064ceef6
+ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49406865"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50250484"
 ---
 # <a name="troubleshooting-errors-during-synchronization"></a>Felsök fel under synkronisering
 Fel kan uppstå när identitetsdata synkroniseras från Windows Server Active Directory (AD DS) till Azure Active Directory (AD Azure). Den här artikeln innehåller en översikt över olika typer av synkroniseringsfel några möjliga scenarier som orsakar dessa fel och potentiella sätt att åtgärda felen. Den här artikeln innehåller vanliga fel och kan inte omfatta alla eventuella fel.
@@ -219,6 +219,29 @@ När ett attribut överskrider den tillåtna storleksgränsen, längdbegränsnin
 
 ### <a name="how-to-fix"></a>Hur du åtgärdar
 1. Kontrollera att attributet som orsakar felet ligger inom den tillåtna begränsningen.
+
+## <a name="existing-admin-role-conflict"></a>Konflikt för befintlig Adminroll
+
+### <a name="description"></a>Beskrivning
+En **konflikt med befintliga Admin-rollen** inträffar på ett användarobjekt under synkroniseringen när användarobjektet har:
+
+- administrativ behörighet och
+- samma UserPrincipalName som ett befintligt Azure AD-objekt
+
+Azure AD Connect är inte tillåtet att mjuk matchar ett användarobjekt från den lokala AD med ett användarobjekt i Azure AD som har en administrativ roll som tilldelats.  Mer information finns i [Azure AD UserPrincipalName population](plan-connect-userprincipalname.md)
+
+![Befintliga Admin](media/tshoot-connect-sync-errors/existingadmin.png)
+
+
+### <a name="how-to-fix"></a>Hur du åtgärdar
+Du löser detta problem genom att göra något av följande:
+
+
+- Ändra UserPrincipalName till ett värde som inte matchar som en administratör i Azure AD – vilket skapar en ny användare i Azure AD med matchande UserPrincipalName
+- ta bort administrativ roll från Admin-användare i Azure AD, vilket gör att mjuk matchning mellan lokala användarobjektet och det befintliga objektet för Azure AD-användare.
+
+>[!NOTE]
+>Du kan tilldela administrativa rollen Dete befintliga användarobjekt igen när mjuk matchning mellan lokala användarobjektet och för Azure AD user-objektet har slutförts.
 
 ## <a name="related-links"></a>Relaterade länkar
 * [Hitta Active Directory-objekt i Active Directory Administrationscenter](https://technet.microsoft.com/library/dd560661.aspx)

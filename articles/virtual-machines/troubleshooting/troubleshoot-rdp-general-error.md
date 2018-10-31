@@ -13,18 +13,18 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 10/30/2018
 ms.author: genli
-ms.openlocfilehash: 701373efa3c3c22eb5969705927e1c0cc6e3f36b
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 7f5e1f2141a58f666367d253d5fc313499e64c9f
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50215817"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50239398"
 ---
 # <a name="troubleshoot-an-rdp-general-error-in-azure-vm"></a>Felsöka en RDP-Allmänt fel i Azure VM
 
 Den här artikeln beskriver ett allmänt fel som kan uppstå när du gör en Remote Desktop Protocol (RDP)-anslutning till en Windows virtuell dator (VM) i Azure.
 
-## <a name="symptoms"></a>Symtom
+## <a name="symptom"></a>Symtom
 
 När du gör en RDP-anslutning i en Windows-dator i Azure, kan det hända att följande allmänt felmeddelande visas:
 
@@ -61,11 +61,11 @@ RDP-lyssnaren är felkonfigurerad.
 
 ## <a name="solution"></a>Lösning
 
-Du löser problemet, [säkerhetskopiera operativsystemdisken](../windows/snapshot-copy-managed-disk.md), och [ansluta operativsystemdisken till en undsättning VM](troubleshoot-recovery-disks-portal-windows.md), följer du lösningsalternativ därefter och testa lösningar i taget.
+Du löser problemet, [säkerhetskopiera operativsystemdisken](../windows/snapshot-copy-managed-disk.md), och [ansluta operativsystemdisken till en undsättning VM](troubleshoot-recovery-disks-portal-windows.md), och följ sedan anvisningarna.
 
 ### <a name="serial-console"></a>Seriekonsol
 
-#### <a name="step-1-turn-on-remote-desk"></a>Steg 1: Aktivera remote supportavdelningen
+#### <a name="step-1-turn-on-remote-deskop"></a>Steg 1: Aktivera Remote stationärt
 
 1. Åtkomst till den [Seriekonsolen](serial-console-windows.md) genom att välja **Support och felsökning** > **seriekonsol (förhandsversion)**. Om funktionen är aktiverad på den virtuella datorn, kan du ansluta den virtuella datorn.
 
@@ -76,14 +76,7 @@ Du löser problemet, [säkerhetskopiera operativsystemdisken](../windows/snapsho
    ```
    ch -si 1
    ```
-
-4. Aktivera Fjärrskrivbord genom GPO-principen genom att ändra följande princip:
-
-   ```
-   Computer Configuration\Policies\Administrative Templates: Policy definitions\Windows Components\Remote Desktop Services\Remote Desktop Session Host\Connections\Allow users to connect remotely by using Remote Desktop Services
-   ```
-
-5. Vissa andra registernycklar som kan orsaka det här problemet, Kontrollera värdena för registernycklarna på följande sätt:
+4. Kontrollera värdena för registernycklarna på följande sätt:
 
    1. Se till att RDP-komponenten är aktiverad.
 
@@ -97,7 +90,7 @@ Du löser problemet, [säkerhetskopiera operativsystemdisken](../windows/snapsho
 
       Om domänprincipen som finns, över installationen på den lokala principen.
 
-         - Om domänprincipen som anger att RDP är inaktiverad (1) och sedan uppdatera AD-princip.
+         - Om domänprincipen som anger att RDP är inaktiverad (1) och sedan AD-uppdateringsprincip från en domänkontrollant.
          - Om domänprincipen som anger att RDP är aktiverad (0), krävs ingen uppdatering.
 
       Om domänprincipen som inte finns och den lokala principen anger att RDP är inaktiverat (1), aktiverar du RDP med hjälp av följande kommando:
@@ -184,75 +177,63 @@ Mer information finns i [fjärrskrivbord kopplar bort ofta i Azure VM](troublesh
 
 ### <a name="offline-repair"></a>Offlinereparation
 
-#### <a name="step-1-turn-on-remote-desk"></a>Steg 1: Aktivera remote supportavdelningen
+#### <a name="step-1-turn-on-remote-deskop"></a>Steg 1: Aktivera Remote stationärt
 
-> [!NOTE]  
-> Vi förutsätter att den enhetsbeteckning som är tilldelad till den anslutna OS-disken är F. Ersätt den med lämpligt värde i den virtuella datorn. SYSTEM- och registreringsdatafilerna behovet av att demontera och sedan monterad.
+1. [Koppla OS-disk till virtuell återställningsdator](../windows/troubleshoot-recovery-disks-portal.md).
+2. Starta en fjärrskrivbordsanslutning till den Virtuella återställningsdatorn.
+3. Kontrollera att disken flaggas som **Online** i konsolen Diskhantering. Observera den enhetsbeteckning som är tilldelad till den anslutna OS-disken.
+3. Starta en fjärrskrivbordsanslutning till den Virtuella återställningsdatorn.
+4. Öppna en upphöjd kommandotolk-session (**kör som administratör**). Kör följande skript. I det här skriptet förutsätter vi att den enhetsbeteckning som är tilldelad till den anslutna OS-disken är F. Ersätt enhetsbeteckningen med lämpligt värde för den virtuella datorn.
 
-1. Öppna en upphöjd CMD-instans och kör följande skript på Räddade VM:
+      ```
+      reg load HKLM\BROKENSYSTEM F:\windows\system32\config\SYSTEM.hiv 
+      reg load HKLM\BROKENSOFTWARE F:\windows\system32\config\SOFTWARE.hiv 
+ 
+      REM Ensure that Terminal Server is enabled 
 
-   ```
-   reg load HKLM\BROKENSYSTEM f:\windows\system32\config\SYSTEM.hiv
-   reg load HKLM\BROKENSOFTWARE f:\windows\system32\config\SOFTWARE.hiv
+      reg add "HKLM\BROKENSYSTEM\ControlSet001\control\Terminal Server" /v TSEnabled /t REG_DWORD /d 1 /f 
+      reg add "HKLM\BROKENSYSTEM\ControlSet002\control\Terminal Server" /v TSEnabled /t REG_DWORD /d 1 /f 
 
-   REM Ensure that Terminal Server is enabled
-   reg add "HKLM\BROKENSYSTEM\ControlSet001\Control\Terminal Server" /v TSEnabled /t REG_DWORD /d 1 /f
-   reg add "HKLM\BROKENSYSTEM\ControlSet002\Control\Terminal Server" /v TSEnabled /t REG_DWORD /d 1 /f
+      REM Ensure Terminal Service is not set to Drain mode 
+      reg add "HKLM\BROKENSYSTEM\ControlSet001\control\Terminal Server" /v TSServerDrainMode /t REG_DWORD /d 0 /f 
+      reg add "HKLM\BROKENSYSTEM\ControlSet002\control\Terminal Server" /v TSServerDrainMode /t REG_DWORD /d 0 /f 
 
-   REM Ensure Terminal Service is not set to Drain mode
-   reg add "HKLM\BROKENSYSTEM\ControlSet001\Control\Terminal Server" /v TSServerDrainMode /t REG_DWORD /d 0 /f
-   reg add "HKLM\BROKENSYSTEM\ControlSet002\Control\Terminal Server" /v TSServerDrainMode /t REG_DWORD /d 0 /f
+      REM Ensure Terminal Service has logon enabled 
+      reg add "HKLM\BROKENSYSTEM\ControlSet001\control\Terminal Server" /v TSUserEnabled /t REG_DWORD /d 0 /f 
+      reg add "HKLM\BROKENSYSTEM\ControlSet002\control\Terminal Server" /v TSUserEnabled /t REG_DWORD /d 0 /f 
 
-   REM Ensure Terminal Service has logon enabled
-   reg add "HKLM\BROKENSYSTEM\ControlSet001\Control\Terminal Server" /v TSUserEnabled /t REG_DWORD /d 0 /f
+      REM Ensure the RDP Listener is not disabled 
+      reg add "HKLM\BROKENSYSTEM\ControlSet001\control\Terminal Server\Winstations\RDP-Tcp" /v fEnableWinStation /t REG_DWORD /d 1 /f 
+      reg add "HKLM\BROKENSYSTEM\ControlSet002\control\Terminal Server\Winstations\RDP-Tcp" /v fEnableWinStation /t REG_DWORD /d 1 /f 
 
-   REM Ensure the RDP Listener is not disabled
-   reg add "HKLM\BROKENSYSTEM\ControlSet001\Control\Terminal Server\Winstations\RDP-Tcp" /v fEnableWinStation /t REG_DWORD /d 1 /f
-   reg add "HKLM\BROKENSYSTEM\ControlSet002\Control\Terminal Server\Winstations\RDP-Tcp" /v fEnableWinStation /t REG_DWORD /d 1 /f
+      REM Ensure the RDP Listener accepts logons 
+      reg add "HKLM\BROKENSYSTEM\ControlSet001\control\Terminal Server\Winstations\RDP-Tcp" /v fLogonDisabled /t REG_DWORD /d 0 /f 
+      reg add "HKLM\BROKENSYSTEM\ControlSet002\control\Terminal Server\Winstations\RDP-Tcp" /v fLogonDisabled /t REG_DWORD /d 0 /f 
 
-   REM Ensure the RDP Listener accepts logons
-   reg add "HKLM\BROKENSYSTEM\ControlSet001\Control\Terminal Server\Winstations\RDP-Tcp" /v fLogonDisabled /t REG_DWORD /d 0 /f
-   reg add "HKLM\BROKENSYSTEM\ControlSet002\Control\Terminal Server\Winstations\RDP-Tcp" /v fLogonDisabled /t REG_DWORD /d 0 /f
+      REM RDP component is enabled 
+      reg add "HKLM\BROKENSYSTEM\ControlSet001\control\Terminal Server" /v fDenyTSConnections /t REG_DWORD /d 0 /f 
+      reg add "HKLM\BROKENSYSTEM\ControlSet002\control\Terminal Server" /v fDenyTSConnections /t REG_DWORD /d 0 /f 
+      reg add "HKLM\BROKENSOFTWARE\Policies\Microsoft\Windows NT\Terminal Services" /v fDenyTSConnections /t REG_DWORD /d 0 /f 
 
-   REM RDP component is enabled
-   reg add "HKLM\BROKENSYSTEM\ControlSet001\Control\Terminal Server" /v fDenyTSConnections /t REG_DWORD /d 0 /f
-   reg add "HKLM\BROKENSYSTEM\ControlSet002\Control\Terminal Server" /v fDenyTSConnections /t REG_DWORD /d 0 /f
-   reg add "HKLM\BROKENSOFTWARE\Policies\Microsoft\Windows NT\Terminal Services" /v fDenyTSConnections /t REG_DWORD /d 0 /f
+      reg unload HKLM\BROKENSYSTEM 
+      reg unload HKLM\BROKENSOFTWARE 
+      ```
 
-   reg unload HKLM\BROKENSYSTEM
-   reg unload HKLM\BROKENSOFTWARE
-   ```
-
-2. Montera SYSTEM- och registreringsdatafilerna.
-
-   ```
-   reg load HKLM\BROKENSYSTEM f:\windows\system32\config\SYSTEM
-   reg load HKLM\BROKENSOFTWARE f:\windows\system32\config\SOFTWARE
-   ```
-
-3. Om den virtuella datorn är domänansluten, kan RDP inaktiveras på en principnivå. För att verifiera om det är fallet kan du kontrollera följande registernyckel:
+3. Om den virtuella datorn är ansluten till en domän, kontrollerar du följande registernyckel för att se om det finns en grupprincip som inaktiverar RDP. 
 
    ```
-   HKLM\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services\fDenyTSConnectionS
+   HKLM\BROKENSOFTWARE\Policies\Microsoft\Windows NT\Terminal Services\fDenyTSConnectionS
    ```
 
-4. Om värdet för nyckeln anges till 1, har RDP inaktiverats av principen.
 
-5. Aktivera Fjärrskrivbord genom GPO-principen genom att ändra följande princip:
+      Om värdet för nyckeln anges till 1 som innebär att RDP har inaktiverats av principen. Ändra följande princip från en domänkontrollant om du vill aktivera Fjärrskrivbord genom GPO-principen:
 
    ```
    Computer Configuration\Policies\Administrative Templates: Policy definitions\Windows Components\Remote Desktop Services\Remote Desktop Session Host\Connections\Allow users to connect remotely by using Remote Desktop Services
    ```
 
-6. Om registernyckeln inte finns, kontrollerar du följande registernyckel:
-
-   ```
-   HKLM\System\CurrentControlSet\Control\Terminal Server\fDenyTSConnections
-   ```
-
-7. Om den här nyckeln har angetts till 1, är RDP aktivera inaktiverat. Ändra nyckelvärdet till 0.
-8. Koppla bort disken från Räddade VM.
-9. [Skapa en ny virtuell dator från disken](../windows/create-vm-specialized.md).
+4. Koppla bort disken från Räddade VM.
+5. [Skapa en ny virtuell dator från disken](../windows/create-vm-specialized.md).
 
 Om problemet inträffar fortfarande kan gå vidare till steg 2.
 

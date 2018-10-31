@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 04/27/2018
-ms.openlocfilehash: 556b71d8312c7661b58a3ccf56fd76f6753ef9cf
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: 2bd2a90c6bac280b6f68bde378b7f7d32b7fcd38
+ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49987587"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50248755"
 ---
 # <a name="stream-data-as-input-into-stream-analytics"></a>Stream-data som indata till Stream Analytics
 
@@ -115,7 +115,6 @@ När du använder strömdata från en IoT-hubb, har du åtkomst till följande m
 | **IoTHub.ConnectionDeviceId** | ID för autentisering används för att skicka det här meddelandet. Det här värdet är stämplad servicebound meddelanden av IoT Hub. |
 | **IoTHub.ConnectionDeviceGenerationId** | Generationsid för den autentiserade enheten som används för att skicka meddelandet. Det här värdet är stämplad servicebound meddelanden av IoT Hub. |
 | **IoTHub.EnqueuedTime** | Den tid när meddelandet togs emot av IoT Hub. |
-| **IoTHub.StreamId** | En anpassad händelse-egenskap som läggs till av avsändaren enheten. |
 
 
 ## <a name="stream-data-from-blob-storage"></a>Stream-data från Blob storage

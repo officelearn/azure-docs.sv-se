@@ -4,15 +4,15 @@ description: Innehåller information om insamlingsprogrammet i Azure Migrate.
 author: snehaamicrosoft
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 10/24/2018
+ms.date: 10/30/2018
 ms.author: snehaa
 services: azure-migrate
-ms.openlocfilehash: 006a246323e9f82ea9c9a6a2940ed624d7e44e13
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: 81e6731068db84f02073f02c49bea9a8fb7c7c70
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49986788"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50241199"
 ---
 # <a name="about-the-collector-appliance"></a>Om insamlingsprogrammet
 
@@ -20,6 +20,38 @@ ms.locfileid: "49986788"
 
 Azure Migrate Collector är en enkel installation som kan användas för att identifiera en lokal vCenter-miljö för utvärdering med den [Azure Migrate](migrate-overview.md) tjänsten före migreringen till Azure.  
 
+## <a name="discovery-methods"></a>Identifieringsmetoder
+
+Det finns två alternativ för insamlaren enheten, identifiering av enstaka eller kontinuerlig identifiering.
+
+### <a name="one-time-discovery"></a>Engångsidentifiering
+
+Insamlingsprogrammet kommunicerar vid ett enstaka tillfälle med vCenter Server för att samla in metadata om de virtuella datorerna. Med den här metoden:
+
+- Installationen inte är kontinuerligt anslutna till Azure Migrate-projektet.
+- Ändringarna i den lokala miljön syns inte i Azure Migrate när identifieringen har slutförts. För att återspegla ändringar, måste du identifiera i samma miljö i samma projekt igen.
+- Vid insamling av prestandadata för en virtuell dator, installationen förlitar sig på historiska prestandadata som lagras i vCenter Server. Den samlar in prestandahistorik för den senaste månaden.
+- Vid insamling av prestandadata historiska måste du ange inställningar för statistik i vCenter Server till nivå 3. När nivån för tre kan behöva du vänta minst en dag för vCenter att samla in prestandaräknare. Vi rekommenderar därför att du kör identifieringen efter till minst en dag. Om du vill utvärdera miljön baserat på prestandadata för 1 vecka eller månad 1 kan behöva du vänta i enlighet med detta.
+- I den här identifieringsmetoden Azure Migrate samlar in genomsnittlig räknare för varje mått (snarare än högsta räknare), vilket kan resultera i under storlek. Vi rekommenderar att du använder alternativ för kontinuerlig identifiering för att få mer exakta ändrar storlek på resultaten.
+
+### <a name="continuous-discovery"></a>Kontinuerlig identifiering
+
+Insamlingsprogrammet anslutna kontinuerligt till Azure Migrate-projektet och kontinuerligt samlar in prestandadata för virtuella datorer.
+
+- Insamlaren profiler kontinuerligt den lokala miljön för att samla in användningsdata i realtid var 20: e sekund.
+- Installationen samlar in 20 sekunder exemplen och skapar en enskild datapunkt var 15: e minut.
+- För att skapa datan punkt installationen väljer det högsta värdet 20 sekunder exemplen och skickar det till Azure.
+- Den här modellen inte är beroende statistikinställningarna för vCenter-servern att samla in prestandadata.
+- Du kan stoppa kontinuerlig profilering vid när som helst från insamlaren.
+
+Observera att installationen bara samlar in prestandadata kontinuerligt, den identifierar inte någon konfigurationsändring i den lokala miljön (dvs. tillägg av virtuell dator, borttagning, disktillägg osv.). Om det finns en konfigurationsändring i den lokala miljön kan du göra följande för att återspegla ändringarna i portalen:
+
+- Tillägg av objekt (virtuella datorer, kärnor osv.): Om du vill återspegla dessa ändringar i Azure-portalen kan du stoppa identifieringen från installationen och sedan börja om igen. Då uppdateras ändringarna i Azure Migrate-projektet.
+
+- Borttagning av virtuella datorer: På grund av hur installationen är utformad återspeglas inte borttagning av virtuella datorer även om du stoppar och startar identifieringen. Det beror på att data från efterföljande identifieringar läggs till äldre identifieringar och inte åsidosätts. I det här fallet kan du helt enkelt ignorera den virtuella datorn genom att ta bort den från gruppen och beräkna utvärderingen.
+
+> [!NOTE]
+> Identifiering av kontinuerlig funktioner finns i förhandsversion. Vi rekommenderar att du använder den här metoden eftersom den samlar in detaljerade prestandadata och resultat i korrekt storlek.
 
 ## <a name="deploying-the-collector"></a>Distribuera insamlaren
 
@@ -163,43 +195,6 @@ Du kan uppgradera insamlaren till den senaste versionen utan att hämta ova-file
 3. Kopiera zip-filen till Azure Migrate insamlarens virtuella dator (insamlingsprogrammet).
 4. Högerklicka på zip-filen och välja extrahera alla.
 5. Högerklicka på Setup.ps1 och välj kör med PowerShell och följ anvisningarna på skärmen för att installera uppdateringen.
-
-
-## <a name="discovery-methods"></a>Identifieringsmetoder
-
-Det finns två metoder som insamlingsprogrammet kan använda för identifiering, identifiering av enstaka eller kontinuerlig identifiering.
-
-
-### <a name="one-time-discovery"></a>Engångsidentifiering
-
-Insamlaren kommunicerar vid ett enstaka tillfälle med vCenter Server för att samla in metadata om de virtuella datorerna. Med den här metoden:
-
-- Installationen inte är kontinuerligt anslutna till Azure Migrate-projektet.
-- Ändringarna i den lokala miljön syns inte i Azure Migrate när identifieringen har slutförts. För att återspegla ändringar, måste du identifiera i samma miljö i samma projekt igen.
-- Du måste ange inställningar för statistik i vCenter Server till nivå tre för den här identifieringsmetoden.
-- När nivån för tre kan tar det till en dag att generera prestandaräknare. Vi rekommenderar därför att du kör identifieringen efter en dag.
-- Vid insamling av prestandadata för en virtuell dator, installationen förlitar sig på historiska prestandadata som lagras i vCenter Server. Den samlar in prestandahistorik för den senaste månaden.
-- Azure Migrate samlar in genomsnittlig räknare (i stället för högsta räknare) för varje mått vilket kan resultera i under storlek.
-
-### <a name="continuous-discovery"></a>Kontinuerlig identifiering
-
-Insamlingsprogrammet anslutna kontinuerligt till Azure Migrate-projektet och kontinuerligt samlar in prestandadata för virtuella datorer.
-
-- Insamlaren profiler kontinuerligt den lokala miljön för att samla in användningsdata i realtid var 20: e sekund.
-- Den här modellen inte är beroende statistikinställningarna för vCenter-servern att samla in prestandadata.
-- Installationen samlar in 20 sekunder exemplen och skapar en enskild datapunkt var 15: e minut.
-- För att skapa datan punkt installationen väljer det högsta värdet 20 sekunder exemplen och skickar det till Azure.
-- Du kan stoppa kontinuerlig profilering vid när som helst från insamlaren.
-
-Observera att installationen endast samlar in prestandadata kontinuerligt, inte upptäcks varje konfigurationsändring i den lokala miljön (dvs. VM-tillägg, borttagning, disk tillägg osv.). Om det finns en konfigurationsändring i den lokala miljön, kan du göra följande för att återspegla ändringar i portalen:
-
-1. Tillägg av objekt (virtuella datorer, diskar, kärnor osv): för att återspegla dessa ändringar i Azure-portalen, du kan stoppa identifieringen av programmet och sedan starta det igen. Det säkerställer att uppdateras i Azure Migrate-projektet.
-
-2. Borttagning av virtuella datorer: beroende på det sätt som är utformad för installationen, borttagning av virtuella datorer inte visas även om du stoppar och startar identifieringen. Detta är eftersom data från följande identifieringar läggas till äldre identifieringar och inte åsidosätts. I det här fallet kan du helt enkelt ignorerar den virtuella datorn i portalen genom att ta bort den från din grupp och beräkna utvärderingen.
-
-> [!NOTE]
-> Identifiering av kontinuerlig funktioner finns i förhandsversion. Vi rekommenderar att du kan använda den här metoden när den här metoden samlar in detaljerad prestandadata och leder till korrekt rätt storlek.
-
 
 ## <a name="discovery-process"></a>Processen för identifiering
 

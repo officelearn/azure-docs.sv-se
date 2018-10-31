@@ -15,12 +15,12 @@ ms.date: 09/08/2017
 ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: 10bcb3c0c4842202f95cdc1fff30d12b7a8fbbc2
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.openlocfilehash: e6f4e67d09eacadbbf9d74f417357a87ece0a951
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39366031"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50238513"
 ---
 # <a name="set-a-custom-home-page-for-published-apps-by-using-azure-ad-application-proxy"></a>Ange en anpassad startsida för publicerade appar med hjälp av Azure AD Application Proxy
 
@@ -62,7 +62,7 @@ Innan du ställer in URL: en för startsidan, Tänk på följande krav:
 
 ### <a name="install-the-azure-ad-powershell-module"></a>Installera Azure AD PowerShell-modulen
 
-Installera Azure AD PowerShell-modulen innan du definierar en anpassad URL-Adressen med hjälp av PowerShell. Du kan hämta paketet från den [PowerShell-galleriet](https://www.powershellgallery.com/packages/AzureAD/2.0.0.131), som använder Graph API-slutpunkt. 
+Installera Azure AD PowerShell-modulen innan du definierar en anpassad URL-Adressen med hjälp av PowerShell. Du kan hämta paketet från den [PowerShell-galleriet](https://www.powershellgallery.com/packages/AzureAD/2.0.0.131), som använder Graph API-slutpunkt. 
 
 Följ dessa steg för att installera paketet:
 
@@ -72,7 +72,7 @@ Följ dessa steg för att installera paketet:
      Install-Module -Name AzureAD
     ```
     Om du använder kommandot som en icke-administratörer kan använda den `-scope currentuser` alternativet.
-2. Under installationen, Välj **Y** installera två paket från Nuget.org. Båda paketen krävs. 
+2. Under installationen, Välj **Y** installera två paket från Nuget.org. Båda paketen krävs. 
 
 ### <a name="find-the-objectid-of-the-app"></a>Hitta ObjectID för appen
 
@@ -92,14 +92,14 @@ Hämta ObjectID för appen och sedan söka efter appen genom dess startsida.
 3. Hitta appen baserat på dess URL-Adressen. Du hittar URL: en i portalen genom att gå till **Azure Active Directory** > **företagsprogram** > **alla program**. Det här exemplet används *sharepoint-iddemo*.
 
     ```
-    Get-AzureADApplication | where { $_.Homepage -like “sharepoint-iddemo” } | fl DisplayName, Homepage, ObjectID
+    Get-AzureADApplication | where { $_.Homepage -like "sharepoint-iddemo" } | fl DisplayName, Homepage, ObjectID
     ```
 4. Du bör få ett resultat som liknar den som visas här. Kopiera ObjectID GUID ska användas i nästa avsnitt.
 
     ```
     DisplayName : SharePoint
-    Homepage    : https://sharepoint-iddemo.msappproxy.net/
-    ObjectId    : 8af89bfa-eac6-40b0-8a13-c2c4e3ee22a4
+    Homepage    : https://sharepoint-iddemo.msappproxy.net/
+    ObjectId    : 8af89bfa-eac6-40b0-8a13-c2c4e3ee22a4
     ```
 
 ### <a name="update-the-home-page-url"></a>Uppdatera hemside-URL
@@ -117,13 +117,13 @@ Skapa hemsidans URL och uppdatera ditt program med detta värde. Fortsätta att 
 2. Skapa en tom programobjektet för att lagra de ändringar som du vill göra. Den här variabeln innehåller de värden som du vill uppdatera. Ingenting har skapats i det här steget.
 
     ```
-    $appnew = New-Object “Microsoft.Open.AzureAD.Model.Application”
+    $appnew = New-Object "Microsoft.Open.AzureAD.Model.Application"
     ```
 
-3. Ange URL till startsidan till det värde som du vill. Värdet måste vara en underdomän sökväg till den publicerade appen. Exempel: Om du ändrar den URL-Adressen från *https://sharepoint-iddemo.msappproxy.net/* till *https://sharepoint-iddemo.msappproxy.net/hybrid/*, app-användare gå direkt till anpassad startsida.
+3. Ange URL till startsidan till det värde som du vill. Värdet måste vara en underdomän sökväg till den publicerade appen. Exempel: Om du ändrar den URL-Adressen från *https://sharepoint-iddemo.msappproxy.net/* till *https://sharepoint-iddemo.msappproxy.net/hybrid/*, app-användare gå direkt till anpassad startsida.
 
     ```
-    $homepage = “https://sharepoint-iddemo.msappproxy.net/hybrid/”
+    $homepage = "https://sharepoint-iddemo.msappproxy.net/hybrid/"
     ```
 4. Uppdateringen blir med hjälp av GUID (objekt-ID) som du kopierade i ”steg 1: hitta ObjectID för appen”.
 

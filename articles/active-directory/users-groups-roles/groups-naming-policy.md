@@ -14,12 +14,12 @@ ms.date: 05/21/2018
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
-ms.openlocfilehash: 111be7d3ee00f2b40ace3bfe4efdacc5029ccf77
-ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
+ms.openlocfilehash: 2857f95eff0b2d039a1a3c7bbe566a8ed3ca4fea
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39239142"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50243137"
 ---
 # <a name="enforce-a-naming-policy-for-office-365-groups-in-azure-active-directory-preview"></a>Framtvinga en namnprincip för Office 365-grupper i Azure Active Directory (förhandsversion)
 
@@ -49,7 +49,7 @@ Du kan använda strängar för att göra det enklare att skanna och skilja grupp
 
 #### <a name="user-attributes"></a>Användarattribut
 
-Du kan använda attribut som kan hjälpa dig och dina användare identifiera vilken avdelning, office eller geografiska region som gruppen har skapats. Exempel: Om du definierar din namnprincip som `PrefixSuffixNamingRequirement = “GRP [GroupName] [Department]”`, och `User’s department = Engineering`, och sedan en tvingande namn kan vara ”GRP min grupp teknik”. Stöd för Azure AD-attribut är \[avdelning\], \[företagets\], \[Office\], \[region/område\], \[CountryOrRegion \], \[Rubrik\]. Stöds inte användarattribut behandlas som fast strängar; till exempel ”\[postalCode\]”. Tilläggsattribut och anpassade attribut stöds inte.
+Du kan använda attribut som kan hjälpa dig och dina användare identifiera vilken avdelning, office eller geografiska region som gruppen har skapats. Exempel: Om du definierar din namnprincip som `PrefixSuffixNamingRequirement = "GRP [GroupName] [Department]"`, och `User’s department = Engineering`, och sedan en tvingande namn kan vara ”GRP min grupp teknik”. Stöd för Azure AD-attribut är \[avdelning\], \[företagets\], \[Office\], \[region/område\], \[CountryOrRegion \], \[Rubrik\]. Stöds inte användarattribut behandlas som fast strängar; till exempel ”\[postalCode\]”. Tilläggsattribut och anpassade attribut stöds inte.
 
 Vi rekommenderar att du använder attribut som har värden som fylls för alla användare i din organisation och inte använda attribut som har långa värden.
 
@@ -75,10 +75,10 @@ Utvalda administratörer kan undantas från dessa principer över alla arbetsbel
 
 ## <a name="install-powershell-cmdlets-to-configure-a-naming-policy"></a>Installera PowerShell-cmdlets för att konfigurera en namnprincip
 
-Se till att avinstallera en äldre version av Azure Active Directory PowerShell för Graph-modulen för Windows PowerShell och installera [Azure Active Directory PowerShell för Graph - offentliga förhandsversionen 2.0.0.137](https://www.powershellgallery.com/packages/AzureADPreview/2.0.0.137) innan du kör den PowerShell-kommandon. 
+Se till att avinstallera äldre versioner av Azure Active Directory PowerShell för Graph-modulen för Module for Windows PowerShell och installera [Azure Active Directory PowerShell för Graph – offentlig förhandsversion 2.0.0.137](https://www.powershellgallery.com/packages/AzureADPreview/2.0.0.137) innan du kör PowerShell-kommandon. 
 
-1. Öppna appen Windows PowerShell som administratör.
-2. Avinstallera alla tidigare versioner av AzureADPreview.
+1. Öppna Windows PowerShell-appen som administratör.
+2. Avinstallera en eventuell tidigare version av AzureADPreview.
   
   ````
   Uninstall-Module AzureADPreview
@@ -88,21 +88,21 @@ Se till att avinstallera en äldre version av Azure Active Directory PowerShell 
   ````
   Install-Module AzureADPreview
   ````
-Om du får en uppmaning om att få åtkomst till en ej betrodd lagringsplats skriver **Y**. Det kan ta några minuter för den nya modulen att installera.
+Om du får ett meddelande om åtkomst till en icke-betrodd lagringsplats anger du **Y** (Ja). Det kan ta några minuter för den nya modulen att installeras.
 
 ## <a name="configure-the-group-naming-policy-for-a-tenant-using-azure-ad-powershell"></a>Konfigurera gruppen namngivningspolicy för en klient med hjälp av Azure AD PowerShell
 
 1. Öppna ett Windows PowerShell-fönster på datorn. Du kan öppna den utan utökad behörighet.
 
-2. Kör följande kommandon för att förbereda för att köra cmdlets.
+2. Kör följande kommandon för att förbereda körningen av cmdletarna.
   
   ````
   Import-Module AzureADPreview
   Connect-AzureAD
   ````
-  I den **logga in på ditt konto** skärmen som öppnas, ange ditt administratörskonto och lösenord för att ansluta dig till din tjänst och välj **logga in**.
+  På sidan **Logga in på ditt konto** som öppnas anger du ditt administratörskonto och lösenord för att ansluta till tjänsten, och väljer **Logga in**.
 
-3. Följ stegen i [Azure Active Directory-cmdletar för att konfigurera gruppinställningar](groups-settings-cmdlets.md) skapa gruppinställningar för den här klienten.
+3. Följ stegen i [Azure Active Directory-cmdletar för att konfigurera gruppinställningar](groups-settings-cmdlets.md) för att skapa gruppinställningar för den här klientorganisationen.
 
 ### <a name="view-the-current-settings"></a>Visa de aktuella inställningarna
 
@@ -112,7 +112,7 @@ Om du får en uppmaning om att få åtkomst till en ej betrodd lagringsplats skr
   $Setting = Get-AzureADDirectorySetting -Id (Get-AzureADDirectorySetting | where -Property DisplayName -Value "Group.Unified" -EQ).id
   ````
   
-2. Visa de aktuella gruppinställningarna för.
+2. Visa de aktuella gruppinställningarna.
   
   ````
   $Setting.Values
@@ -120,25 +120,25 @@ Om du får en uppmaning om att få åtkomst till en ej betrodd lagringsplats skr
   
 ### <a name="set-the-naming-policy-and-custom-blocked-words"></a>Ange namnprincip och anpassade spärrad ord
 
-1. Ange grupp namnet prefix och suffix i Azure AD PowerShell.
+1. Ange gruppnamnsprefix och -suffix i Azure AD PowerShell.
   
   ````
   $Setting["PrefixSuffixNamingRequirement"] =“GRP_[GroupName]_[Department]"
   ````
   
-2. Ange de anpassade blockerade ord som du vill begränsa. I följande exempel visas hur du kan lägga till egna anpassade ord.
+2. Ange de anpassade blockerade ord du vill begränsa. I följande exempel visas hur du kan lägga till dina egna anpassade ord.
   
   ````
   $Setting["CustomBlockedWordsList"]=“Payroll,CEO,HR"
   ````
   
-3. Spara inställningarna för den nya principen för att gälla, som i följande exempel.
+3. Spara inställningarna för att den nya principen ska gälla, som i följande exempel.
   
   ````
   Set-AzureADDirectorySetting -Id (Get-AzureADDirectorySetting | where -Property DisplayName -Value "Group.Unified" -EQ).id -DirectorySetting $Setting
   ````
   
-Det var allt. Du har konfigurera principer för namngivning och har lagt till din blockerade ord.
+Klart! Du har konfigurera principer för namngivning och har lagt till din blockerade ord.
 
 ## <a name="export-or-import-the-list-of-custom-blocked-words"></a>Exportera eller importera listan över anpassade spärrad ord
 
@@ -185,7 +185,7 @@ Microsoft Stream | Microsoft Stream visar den grupp som naming principnamn till�
 Outlook-iOS och Android-App | Grupper som skapats i Outlook-appar är kompatibla med den konfigurerade namnprincip. Outlook-mobilappen visar inte ännu i förhandsversionen av namn för naming principen tillämpas och returnera inte anpassade blockerat ord fel när användaren anger namnet på. Men namnprincip tillämpas automatiskt när du klickar på Skapa/redigera och användarna se felmeddelanden om det finns anpassade spärrad ord i namn eller alias.
 Mobilappen för grupper | Grupper som skapats i mobilappen grupper är kompatibla med namnprincip. Grupper mobilappen visar inte förhandsversionen av namnprincip och returnerar inte anpassade blockerat ord fel när användaren anger namnet på. Men namnprincip tillämpas automatiskt när du skapar eller redigerar en grupp och användare visas med lämpliga fel om det finns anpassade spärrad ord i namn eller alias.
 Planner | Planner är kompatibel med namnprincip. Planner visar förhandsversionen av namngivning princip när du anger plannamnet. När en användare anger ett anpassat blockerat ord, visas ett felmeddelande när du skapar planen.
-Dynamics 365 för kundengagemang | Dynamics 365 för kundengagemang är kompatibel med namnprincip. Dynamics 365 visar namn för naming principen tillämpas när användaren skriver ett namn eller en grupp e-postalias. När användaren anger en anpassad blockerat ord, visas ett felmeddelande med det blockerade ordet så att användaren kan ta bort den.
+Dynamics 365 för Customer Engagement | Dynamics 365 för kundengagemang är kompatibel med namnprincip. Dynamics 365 visar namn för naming principen tillämpas när användaren skriver ett namn eller en grupp e-postalias. När användaren anger en anpassad blockerat ord, visas ett felmeddelande med det blockerade ordet så att användaren kan ta bort den.
 School Data Sync (SDS) | Grupper som skapats via SDS uppfylla namngivningspolicy, men namnprincip används inte automatiskt. SDS administratörerna att lägga till prefix och suffix klassnamn för vilka grupper behöver skapas och sedan överförs till SDS. Gruppen Skapa eller redigera skulle misslyckas annars.
 Outlook Customer hanteraren för | Outlook Customer Manager är kompatibla med principen namngivning som automatiskt tillämpas på den grupp som skapats i Outlook Customer Manager. Om ett anpassat blockerat ord upptäcks kan skapas i OCM blockeras och användaren är blockerad från att använda appen OCM.
 Klassrumsappen | Grupper som skapats i appen klassrum följer namnprincip, men namnprincip används inte automatiskt och namngivning princip förhandsgranskningen visas inte för användarna när du skriver in ett namn på klassrum. Användare måste ange namnet på tvingande klassrum med prefix och suffix. Om inte, klassrumsgruppen skapa eller redigera misslyckas med fel.

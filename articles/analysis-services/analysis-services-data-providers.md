@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/12/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: b3ee62ec6b8155841121eed6c4ab9c12b08f0e9b
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.openlocfilehash: f0c852b0b3de4edcf894d80ae397eae6c8980d49
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49165229"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50240417"
 ---
 # <a name="client-libraries-for-connecting-to-azure-analysis-services"></a>Klientbibliotek för att ansluta till Azure Analysis Services
 
@@ -59,7 +59,7 @@ Klientbibliotek för klientanslutningar skiljer sig från dataleverantörer som 
 
 ### <a name="amo"></a>AMO  
 
- AMO är ett hanterat klientbibliotek som används för serveradministration och definition av data. Den har installerats och används av verktyg och program. Till exempel använder SQL Server Management Studio (SSMS) AMO för att ansluta till Analysis Services. En anslutning med AMO är vanligtvis minimal, som består av `“data source=\<servername>”`. När en anslutning har upprättats kan använda du API: et för att arbeta med databassamlingar och större objekt. Både SSDT och SSMS kan du använda AMO för att ansluta till en Analysis Services-instans.  
+ AMO är ett hanterat klientbibliotek som används för serveradministration och definition av data. Den har installerats och används av verktyg och program. Till exempel använder SQL Server Management Studio (SSMS) AMO för att ansluta till Analysis Services. En anslutning med AMO är vanligtvis minimal, som består av `"data source=\<servername>"`. När en anslutning har upprättats kan använda du API: et för att arbeta med databassamlingar och större objekt. Både SSDT och SSMS kan du använda AMO för att ansluta till en Analysis Services-instans.  
 
   
 ### <a name="adomd"></a>ADOMD

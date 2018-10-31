@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 10/20/2018
 ms.author: victorh
 ms.custom: include file
-ms.openlocfilehash: e4d698b8b9c3f9e304780ee49bd4243a76e69138
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: e33871f35613fbd5cdc5bf3162855b942056807f
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49471538"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50254730"
 ---
 ### <a name="what-is-azure-firewall"></a>Vad är Azure Firewall?
 
@@ -111,10 +111,7 @@ Set-AzureRmFirewall -AzureFirewall $azfw
 
 ### <a name="what-are-the-known-service-limits"></a>Vad kända gränser har tjänsten?
 
-* Azure-brandväggen har en mjuk gräns på 1 000 TB per brandväggen per månad.
-* En instans av Azure-brandväggen som körs i ett centralt virtuella nätverk har virtuell nätverkspeering begränsningar med högst 50 virtuella ekernätverk.  
-* Azure-brandväggen fungerar inte med global peering, så du bör ha minst en distribution av brandvägg per region.
-* Azure-brandväggen har stöd för 10 k programmet regler och 10 k Nätverksregler.
+Tjänstbegränsningar för Azure-brandväggen, se [Azure-prenumeration och tjänstbegränsningar, kvoter och begränsningar](../articles/azure-subscription-service-limits.md#azure-firewall-limits)
 
 ### <a name="can-azure-firewall-in-a-hub-virtual-network-forward-and-filter-network-traffic-between-two-spoke-virtual-networks"></a>Kan Azure-brandvägg i en virtuella navnätverket framåt och filtrera nätverkstrafik mellan två virtuella ekernätverk?
 

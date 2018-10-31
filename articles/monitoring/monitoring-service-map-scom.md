@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/21/2017
 ms.author: bwren;dairwin
-ms.openlocfilehash: 6fc6afa9c0ccbddcfa408556dee92618fe63c8fb
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: b9146bfc284a469f12eb626c2434f4afe52335dc
+ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49407120"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50250470"
 ---
 # <a name="service-map-integration-with-system-center-operations-manager"></a>Tjänstkarta-integrering med System Center Operations Manager
   > [!NOTE]
@@ -53,19 +53,19 @@ Om du vill konfigurera Service Map integration, gör du följande:
 
 1. Öppna guiden Konfigurera i den **kartan tjänstöversikt** fönstret klickar du på **Lägg till arbetsyta**.  
 
-    ![Översiktsfönstret för Service Map](media/monitoring-service-map/scom-configuration.png)
+    ![Översiktsfönstret för Service Map](media/monitoring-service-map-scom/scom-configuration.png)
 
 2. I den **anslutningskonfigurationen** , ange klientorganisationens namn eller ID, program-ID (även kallat användarnamn eller clientID) och lösenordet för tjänstens huvudnamn och klicka sedan på **nästa**. Mer information går du till [skapa ett huvudnamn för tjänsten](#creating-a-service-principal).
 
-    ![Fönstret anslutningskonfiguration](media/monitoring-service-map/scom-config-spn.png)
+    ![Fönstret anslutningskonfiguration](media/monitoring-service-map-scom/scom-config-spn.png)
 
 3. I den **val av prenumeration** fönstret Välj Azure-prenumeration, Azure-resursgrupp (det som innehåller Log Analytics-arbetsytan) och Log Analytics-arbetsytan och klicka sedan på **nästa**.
 
-    ![Operations Manager-konfiguration-arbetsyta](media/monitoring-service-map/scom-config-workspace.png)
+    ![Operations Manager-konfiguration-arbetsyta](media/monitoring-service-map-scom/scom-config-workspace.png)
 
 4. I den **val av dator** fönstret väljer vilka kartan datorgrupper som du vill synkronisera till Operations Manager. Klicka på **Lägg till/ta bort datorgrupper**, Välj grupper i listan över **tillgängliga datorgrupper**, och klicka på **Lägg till**.  När du har valt grupper klickar du på **Ok** ska slutföras.
     
-    ![I Operations Manager Configuration datorgrupper](media/monitoring-service-map/scom-config-machine-groups.png)
+    ![I Operations Manager Configuration datorgrupper](media/monitoring-service-map-scom/scom-config-machine-groups.png)
     
 5. I den **Serverval** fönstret Konfigurera du gruppen Service Map servrar med de servrar som du vill synkronisera mellan Operations Manager och Service Map. Klicka på **Lägg till/ta bort servrar**.   
     
@@ -75,36 +75,36 @@ Om du vill konfigurera Service Map integration, gör du följande:
     * Hanteras av Tjänstkarta
     * Visas i gruppen Service Map-servrar
 
-    ![Gruppen för Operations Manager-konfiguration](media/monitoring-service-map/scom-config-group.png)
+    ![Gruppen för Operations Manager-konfiguration](media/monitoring-service-map-scom/scom-config-group.png)
 
 6. Valfritt: Välj resurspoolen för hanteringsservern att kommunicera med Log Analytics och klicka sedan på **lägger du till arbetsytan**.
 
-    ![Operations Manager Configuration resurspoolen](media/monitoring-service-map/scom-config-pool.png)
+    ![Operations Manager Configuration resurspoolen](media/monitoring-service-map-scom/scom-config-pool.png)
 
     Det kan ta några minuter och konfigurera och registrera Log Analytics-arbetsytan. När den har konfigurerats, initierar den första synkroniseringen i Service Map Operations Manager.
 
-    ![Operations Manager Configuration resurspoolen](media/monitoring-service-map/scom-config-success.png)
+    ![Operations Manager Configuration resurspoolen](media/monitoring-service-map-scom/scom-config-success.png)
 
 
 ## <a name="monitor-service-map"></a>Övervaka Service Map
 När Log Analytics-arbetsytan är ansluten, visas en ny mapp Tjänstkartan i den **övervakning** rutan i Operations Manager-konsolen.
 
-![Fönstret Operations Manager-övervakning](media/monitoring-service-map/scom-monitoring.png)
+![Fönstret Operations Manager-övervakning](media/monitoring-service-map-scom/scom-monitoring.png)
 
 Mappen Tjänstkarta har fyra noder:
 * **Aktiva aviseringar**: Visar en lista över alla aktiva aviseringar om kommunikationen mellan Operations Manager och Service Map.  Observera att dessa aviseringar inte är Log Analytics aviseringar som synkroniseras till Operations Manager. 
 
 * **Servrar**: Visar en lista över de övervakade servrarna som är konfigurerade att synkronisera från Tjänstkarta.
 
-    ![Övervakning av servrar i Operations Manager-fönstret](media/monitoring-service-map/scom-monitoring-servers.png)
+    ![Övervakning av servrar i Operations Manager-fönstret](media/monitoring-service-map-scom/scom-monitoring-servers.png)
 
 * **Datorn beroende Gruppvyer**: Visar en lista över alla datorgrupper som synkroniseras från Tjänstkarta. Du kan klicka på valfri grupp om du vill visa dess diagram över distribuerade program.
 
-    ![Diagram för Operations Manager-distribuerade program](media/monitoring-service-map/scom-group-dad.png)
+    ![Diagram för Operations Manager-distribuerade program](media/monitoring-service-map-scom/scom-group-dad.png)
 
 * **Servern beroende vyer**: Visar en lista över alla servrar som synkroniseras från Tjänstkarta. Du kan klicka på valfri server om du vill visa dess diagram över distribuerade program.
 
-    ![Diagram för Operations Manager-distribuerade program](media/monitoring-service-map/scom-dad.png)
+    ![Diagram för Operations Manager-distribuerade program](media/monitoring-service-map-scom/scom-dad.png)
 
 ## <a name="edit-or-delete-the-workspace"></a>Redigera eller ta bort arbetsytan
 Du kan redigera eller ta bort den konfigurerade arbetsytan via den **kartan tjänstöversikt** fönstret (**Administration** fönstret > **Operations Management Suite**  >  **Service Map**).
@@ -114,12 +114,12 @@ Du kan redigera eller ta bort den konfigurerade arbetsytan via den **kartan tjä
 
 Du kan konfigurera endast en Log Analytics-arbetsyta för tillfället.
 
-![Fönstret Redigera arbetsyta för Operations Manager](media/monitoring-service-map/scom-edit-workspace.png)
+![Fönstret Redigera arbetsyta för Operations Manager](media/monitoring-service-map-scom/scom-edit-workspace.png)
 
 ## <a name="configure-rules-and-overrides"></a>Konfigurera regler och åsidosättningar
 En regel _Microsoft.SystemCenter.ServiceMapImport.Rule_, har skapats för att regelbundet hämta information från Tjänstkarta. Om du vill ändra synkronisering tidsinställningar, du kan konfigurera åsidosättningar av regeln (**redigering** fönstret > **regler** > **Microsoft.SystemCenter.ServiceMapImport.Rule**) .
 
-![Egenskapsfönstret åsidosättningar i Operations Manager](media/monitoring-service-map/scom-overrides.png)
+![Egenskapsfönstret åsidosättningar i Operations Manager](media/monitoring-service-map-scom/scom-overrides.png)
 
 * **Aktiverad**: aktivera eller inaktivera automatiska uppdateringar. 
 * **IntervalMinutes**: Återställ tiden mellan uppdateringar. Standardintervallet är en timme. Om du vill synkronisera server maps oftare, ändrar du värdet.

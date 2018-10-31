@@ -1,7 +1,7 @@
 ---
-title: Utvecklingsverktyg för data - vetenskap virtuella Azure | Microsoft Docs
-description: Datavetenskap virtuella datorn utvecklingsverktyg.
-keywords: datavetenskap verktyg, datavetenskap virtuell dator, verktyg för datavetenskap, datavetenskap för linux
+title: Utvecklingsverktyg för data Science Virtual Machine – Azure | Microsoft Docs
+description: Data Science Virtual machine utvecklingsverktyg.
+keywords: data science tools, data science virtual machine, tools for data science, linux data science
 services: machine-learning
 documentationcenter: ''
 author: gopitk
@@ -15,70 +15,70 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/11/2017
 ms.author: gokuma
-ms.openlocfilehash: b8b0b8934b51080c3583281673183c1498c26417
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 2f642a91bd656cb74cdce2a98c44372a64f23cb9
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31408317"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50237885"
 ---
-# <a name="development-tools-on-the-data-science-virtual-machine"></a>Utvecklingsverktyg på datavetenskap virtuell dator
+# <a name="development-tools-on-the-data-science-virtual-machine"></a>Utvecklingsverktyg på den virtuella datorn för datavetenskap
 
-Den virtuella datorn på vetenskap (DSVM) ger en produktiv miljö för dina utveckling genom paketering flera populära verktyg och IDE. Här följer några verktyg som finns på DSVM. 
+Den virtuella datorn på datavetenskap (DSVM) tillhandahåller en produktiv miljö för utveckling genom att paketera flera populära verktyg och IDE. Här är några verktyg som finns på DSVM. 
 
 ## <a name="visual-studio-2017"></a>Visual Studio 2017  
 |    |           |
 | ------------- | ------------- |
-| Vad är det?   | Generella IDE      |
-| Stöds DSVM versioner      | Windows      |
+| Vad är det?   | Generell användning IDE      |
+| Stöds DSVM-versioner      | Windows      |
 | Vanliga användningsområden      | Programutveckling    |
-| Hur är det konfigurerade / installerad på DSVM?      | Data vetenskap arbetsbelastningen (Python och R verktyg), arbetsbelastning i Azure (Hadoop, Data Lake), Node.js, SQL Server-verktyg [Visual Studio Tools för AI](https://github.com/Microsoft/vs-tools-for-ai)    |
-| Hur du använder / kör den?      | Genväg på skrivbordet (`C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\Common7\IDE\devenv.exe`)    |
+| Hur är det konfigurerade / installerad på DSVM?      | Data Science arbetsbelastning (Python- och R-verktyg), Azure-arbetsbelastningen (Hadoop, Data Lake), Node.js, SQL Server-verktyg, [Visual Studio Tools för AI](https://github.com/Microsoft/vs-tools-for-ai)    |
+| Hur du använder / köra den?      | Genväg på skrivbordet (`C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\Common7\IDE\devenv.exe`)    |
 | Relaterade verktyg på DSVM      |     Visual Studio Code, RStudio, Juno  |
 
 ## <a name="visual-studio-code"></a>Visual Studio-koden 
 |    |           |
 | ------------- | ------------- |
-| Vad är det?   | Generella IDE      |
-| Stöds DSVM versioner      | Windows, Linux     |
-| Vanliga användningsområden      | Redigerare och Git-integrering   |
-| Hur du använder / kör den?      | Genväg på skrivbordet (`C:\Program Files (x86)\Microsoft VS Code\Code.exe`) i Windows, genväg på skrivbordet eller terminal (`code`) i Linux    |
+| Vad är det?   | Generell användning IDE      |
+| Stöds DSVM-versioner      | Windows, Linux     |
+| Vanliga användningsområden      | Kodredigeraren och Git-integrering   |
+| Hur du använder / köra den?      | Genväg på skrivbordet (`C:\Program Files (x86)\Microsoft VS Code\Code.exe`) i Windows, genvägen på skrivbordet eller terminal (`code`) i Linux    |
 | Relaterade verktyg på DSVM      |     Visual Studio 2017, RStudio, Juno  |
 
 ## <a name="rstudio--desktop"></a>RStudio Desktop 
 |    |           |
 | ------------- | ------------- |
 | Vad är det?   | Klienten IDE för R    |
-| Stöds DSVM versioner      | Windows, Linux      |
+| Stöds DSVM-versioner      | Windows, Linux      |
 | Vanliga användningsområden      |  R-utveckling     |
-| Hur du använder / kör den?      | Genväg på skrivbordet (`C:\Program Files\RStudio\bin\rstudio.exe`) i Windows, genväg på skrivbordet (`/usr/bin/rstudio`) på Linux      |
-| Relaterade verktyg på DSVM      |   Visual Studio 2017, Visual Studio Code Juno      |
+| Hur du använder / köra den?      | Genväg på skrivbordet (`C:\Program Files\RStudio\bin\rstudio.exe`) på Windows, genvägen på skrivbordet (`/usr/bin/rstudio`) på Linux      |
+| Relaterade verktyg på DSVM      |   Visual Studio 2017, Visual Studio Code, Juno      |
 
 ## <a name="rstudio--server"></a>RStudio Server 
 |    |           |
 | ------------- | ------------- |
-| Vad är det?   | Webbaserade IDE för R    |
-| Stöds DSVM versioner      | Linux      |
+| Vad är det?   | Webbaserad IDE för R    |
+| Stöds DSVM-versioner      | Linux      |
 | Vanliga användningsområden      |  R-utveckling     |
-| Hur du använder / kör den?      | Aktivera tjänsten med _systemctl aktivera rstudio server_, starta tjänsten med _systemctl starta rstudio-server_. Du kan sedan logga in till RStudio servern på http://your-vm-ip:8787.       |
-| Relaterade verktyg på DSVM      |   Visual Studio 2017, Visual Studio Code RStudio skrivbordet      |
+| Hur du använder / köra den?      | Aktivera tjänsten med _systemctl aktivera rstudio server_, starta tjänsten med _systemctl starta rstudio server_. Du kan sedan logga in till RStudio Server vid http://your-vm-ip:8787.       |
+| Relaterade verktyg på DSVM      |   Visual Studio 2017, Visual Studio Code, RStudio Desktop      |
 
 ## <a name="juno"></a>Juno 
 |    |           |
 | ------------- | ------------- |
-| Vad är det?   | Klienten IDE för Julia språk   |
-| Stöds DSVM versioner      | Windows, Linux      |
-| Vanliga användningsområden      |  Julia utveckling     |
-| Hur du använder / kör den?      | Genväg på skrivbordet (`C:\JuliaPro-0.5.1.1\Juno.bat`) i Windows, genväg på skrivbordet (`/opt/JuliaPro-VERSION/Juno`) på Linux      |
+| Vad är det?   | Klienten IDE för Julia-språket   |
+| Stöds DSVM-versioner      | Windows, Linux      |
+| Vanliga användningsområden      |  Julia-utveckling     |
+| Hur du använder / köra den?      | Genväg på skrivbordet (`C:\JuliaPro-0.5.1.1\Juno.bat`) på Windows, genvägen på skrivbordet (`/opt/JuliaPro-VERSION/Juno`) på Linux      |
 | Relaterade verktyg på DSVM      |   Visual Studio 2017, Visual Studio Code, RStudio      |
 
 ## <a name="pycharm"></a>Pycharm
 |    |           |
 | ------------- | ------------- |
 | Vad är det?   | Klienten IDE för Python-språk    |
-| Stöds DSVM versioner      | Linux      |
-| Vanliga användningsområden      |  R-utveckling     |
-| Hur du använder / kör den?      | Genväg på skrivbordet (`/usr/bin/pycharm`) på Linux      |
+| Stöds DSVM-versioner      | Linux      |
+| Vanliga användningsområden      |  Python-utveckling     |
+| Hur du använder / köra den?      | Genväg på skrivbordet (`/usr/bin/pycharm`) på Linux      |
 | Relaterade verktyg på DSVM      |   Visual Studio 2017, Visual Studio Code, RStudio      |
 
 
@@ -87,8 +87,8 @@ Den virtuella datorn på vetenskap (DSVM) ger en produktiv miljö för dina utve
 |    |           |
 | ------------- | ------------- |
 | Vad är det?   | Interaktiv datavisualisering och BI-verktyg    |
-| Stöds DSVM versioner      | Windows  |
-| Vanliga användningsområden      |  Visualisering av data och skapa instrumentpaneler   |
-| Hur du använder / kör den?      | Genväg på skrivbordet (`C:\Program Files\Microsoft Power BI Desktop\bin\PBIDesktop.exe`)      |
-| Relaterade verktyg på DSVM      |   Visual Studio 2017, Visual Studio Code Juno      |
+| Stöds DSVM-versioner      | Windows  |
+| Vanliga användningsområden      |  Datavisualisering och skapa instrumentpaneler   |
+| Hur du använder / köra den?      | Genväg på skrivbordet (`C:\Program Files\Microsoft Power BI Desktop\bin\PBIDesktop.exe`)      |
+| Relaterade verktyg på DSVM      |   Visual Studio 2017, Visual Studio Code, Juno      |
 

@@ -1,8 +1,8 @@
 ---
-title: H264 enkel bithastighet 4K Media Encoder Standard förinställda - Azure | Microsoft Docs
-description: Avsnittet ger en översikt över de **H264 enkel bithastighet 4K** aktivitet förinställningen.
+title: H264, enkel bithastighet, 4K Media Encoder Standard förinställning – Azure | Microsoft Docs
+description: Avsnittet ger en översikt över den **H264, enkel bithastighet, 4K** uppgiften förinställd.
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 services: media-services
 documentationcenter: ''
@@ -12,24 +12,24 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/20/2017
+ms.date: 10/30/2018
 ms.author: juliako
-ms.openlocfilehash: 3a3c733649ed8f4a50738ea54539bdb938602cc8
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 82d51619f699f25941d8778cfca38a28b6e77782
+ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33788328"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50246219"
 ---
-# <a name="h264-single-bitrate-4k"></a>H264 Med enkel bithastighet 4K
-`Media Encoder Standard` definierar en uppsättning kodning förinställningar som du kan använda när du skapar kodning jobb. Du kan använda en `preset name` att ange i vilket format du vill koda media-fil. Du kan också skapa egna JSON eller XML-baserade förinställningar (med hjälp av UTF-8- eller UTF-16-kodning. Du skulle sedan överföra anpassad förinställning på kodaren. Lista över alla förvalda namn som stöds av det här `Media Encoder Standard` kodare, se [aktivitet förinställningar för Media Encoder Standard](media-services-mes-presets-overview.md).  
+# <a name="h264-single-bitrate-4k"></a>H264, Enkel bithastighet, 4K
+`Media Encoder Standard` definierar en uppsättning kodning förinställningar som du kan använda när du skapar kodningsjobb. Du kan använda en `preset name` att ange i vilket format du vill koda din mediefil. Du kan också skapa egna JSON eller XML-baserade förinställningar (med UTF-8- eller UTF-16-kodning. Sedan skickar du den anpassade förinställda till kodaren. Lista över alla förvalda namn som stöds av det här `Media Encoder Standard` encoder, se [uppgift förinställningar för Media Encoder Standard](media-services-mes-presets-overview.md).  
   
- Det här avsnittet beskrivs de `H264 Single Bitrate 4K` förinställda XML och JSON-format.  
+ Det här avsnittet beskrivs de `H264 Single Bitrate 4K` förinställda i XML- och JSON-format.  
   
- Den här förinställda ger en enda MP4-fil med en bithastighet 18000 kbit/s och AAC stereoljud. Detaljerad information om profilen bithastighet, provtagning hastighet, etc. Om detta förinställda ska undersöka XML- eller JSON som anges nedan. Förklaringar av vad varje element i dessa förinställda innebär och giltiga värden för varje element finns i [Media Encoder Standard schemat](media-services-mes-schema.md) avsnittet.  
+ Den här förinställda ger en enda MP4-filen med en bithastighet 18000 kbit/s och stereo AAC-ljud. Detaljerad information om profilen med flera bithastigheter, sampling hastighet och så vidare på detta förinställda ska undersöka XML eller JSON som definieras nedan. Förklaringar av vad varje element i dessa förinställningar innebär och de giltiga värdena för varje element finns i den [Media Encoder Standard schemat](media-services-mes-schema.md) avsnittet.  
   
 > [!NOTE]
->  Du bör få Premium reserverad enhet typ med 4K kodar. Mer information finns i [så skala kodning](https://azure.microsoft.com/documentation/articles/media-services-portal-encoding-units).  
+>  Du bör få reserverade premiumenhet typ med 4K kodar. Mer information finns i [så skala kodning](https://azure.microsoft.com/documentation/articles/media-services-portal-encoding-units).  
   
  XML  
   

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 10/24/2018
 ms.author: genli
-ms.openlocfilehash: 8c3e0b11a9a16ec338c6e11fecc48460862acad4
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: f597669245787d935867389dc4780ec9d949bb8b
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50214859"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50241244"
 ---
 # <a name="remote-desktop-disconnects-frequently-in-azure-vm"></a>Fjärrskrivbord kopplar bort ofta i Azure VM
 
@@ -33,7 +33,7 @@ Du står inför tillfälliga RDP-anslutningsproblem under dina sessioner. Du kan
 
 ## <a name="cause"></a>Orsak
 
-Det här problemet kan uppstå om RDP-lyssnaren är felkonfigurerad. Det här problemet uppstår vanligen, på en virtuell dator som använder en anpassad avbildning.
+Det här problemet kan uppstå om RDP-lyssnaren är felkonfigurerad. Det här problemet uppstår oftast på en virtuell dator som använder en anpassad avbildning.
 
 ## <a name="solution"></a>Lösning
 

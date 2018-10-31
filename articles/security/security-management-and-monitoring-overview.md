@@ -12,16 +12,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/21/2016
+ms.date: 10/30/2018
 ms.author: terrylan
-ms.openlocfilehash: 10c2ed359fa77ad00945ddcfbc55dc0901ba8bff
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 7dfc4329b338a65169c81521360264753bafa9d6
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38697113"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50239924"
 ---
 # <a name="azure-security-management-and-monitoring-overview"></a>Azure säkerhetshantering och övervakning-översikt
+
 Azure tillhandahåller säkerhetsmekanismer för enklare hantering och övervakning av Azure-molntjänster och virtuella datorer (VM). Den här artikeln innehåller en översikt över dessa grundläggande säkerhetsfunktionerna och tjänster. Länkar till artiklar som ger information om var och en så att du kan läsa mer.
 
 Säkerheten för Microsoft cloud services är ett partnerskap och ett delat ansvar mellan dig och Microsoft. Microsoft ansvarar för Azure-plattformen och den fysiska säkerheten för sina datacenter (med hjälp av säkerhetsskydd som låst märket inmatning dörrar, avgränsningstecken och skydd). Azure ger stark säkerhetsnivåer molnet i lagret för programvara som uppfyller behoven för säkerhet, sekretess och efterlevnad för sina kunder.
@@ -35,6 +36,7 @@ Följande diagram sammanfattar balans ansvar mellan Microsoft och kunden.
 Läs mer om säkerhetshantering [säkerhetshantering i Azure](azure-security-management.md).
 
 ## <a name="role-based-access-control"></a>Rollbaserad Access Control
+
 Rollbaserad åtkomstkontroll (RBAC) ger detaljerad åtkomsthantering för Azure-resurser. Med RBAC kan ge du användare endast mängden åtkomst som de behöver för att utföra sitt arbete. RBAC kan du också se till att när en användare lämnar organisationen, de förlorar åtkomst till resurser i molnet.
 
 Läs mer:
@@ -43,6 +45,7 @@ Läs mer:
 * [Rollbaserad åtkomstkontroll i Azure](../role-based-access-control/role-assignments-portal.md)
 
 ## <a name="antimalware"></a>Programvara mot skadlig kod
+
 Med Azure kan använda du program mot skadlig kod från stora säkerhetsleverantörer som Microsoft, Symantec, Trend Micro, McAfee och Kaspersky. Det här programmet kan du skydda dina virtuella datorer från skadliga filer, annonsprogram och andra hot.
 
 Microsoft Antimalware för Azure Cloud Services och virtuella datorer ger dig möjlighet att installera en agent för program mot skadlig kod för virtuella datorer och PaaS-roller. Baserat på System Center Endpoint Protection kan den här funktionen ger dig beprövade lokala security-teknik till molnet.
@@ -60,6 +63,7 @@ Läs mer:
 * [Nya alternativ för program mot skadlig kod för att skydda Azure-datorer](https://azure.microsoft.com/blog/new-antimalware-options-for-protecting-azure-virtual-machines/)
 
 ## <a name="multi-factor-authentication"></a>Multi-Factor Authentication
+
 Azure Multi-Factor Authentication är en autentiseringsmetod som kräver att fler än en verifieringsmetod. Den lägger till ett viktigt andra säkerhetslager till användarinloggningar och transaktioner. 
 
 Multi-Factor Authentication hjälper till att skydda åtkomsten till data och program och tillgodoser samtidigt användarens önskemål för en enkel inloggningsprocess. Det ger stark autentisering via en rad alternativ för verifiering (telefonsamtal, SMS eller meddelande eller verifieringen mobilappkoden) och tredje parts OATH-token.
@@ -71,11 +75,12 @@ Läs mer:
 * [Hur Azure Multi-Factor Authentication fungerar](../active-directory/authentication/concept-mfa-howitworks.md)
 
 ## <a name="expressroute"></a>ExpressRoute
+
 Du kan använda Azure ExpressRoute för att utöka ditt lokala nätverk till Microsoft Cloud via en dedikerad privat anslutning som är från en anslutningsleverantör. Med ExpressRoute kan upprätta du anslutningar till Microsofts molntjänster som Azure, Office 365 och CRM Online. Anslutningen kan vara från:
 
-- Ett any-to-any (IP VPN)-nätverk.
-- Ett mellan punkter med Ethernet-nätverk.
-- En virtuell korsanslutning via en anslutningsleverantör i en samplaceringsmiljö. 
+* Ett any-to-any (IP VPN)-nätverk.
+* Ett mellan punkter med Ethernet-nätverk.
+* En virtuell korsanslutning via en anslutningsleverantör i en samplaceringsmiljö. 
 
 ExpressRoute-anslutningar går inte via offentliga internet. De kan erbjuda mer tillförlitlighet, snabbare hastigheter, kortare svarstider och högre säkerhet än vanliga anslutningar via internet.
 
@@ -84,6 +89,7 @@ Läs mer:
 * [Teknisk översikt för ExpressRoute](../expressroute/expressroute-introduction.md)
 
 ## <a name="virtual-network-gateways"></a>Virtuella nätverksgatewayer
+
 VPN-gatewayer, även kallat Azures virtuella nätverksgatewayar används för att skicka nätverkstrafik mellan virtuella nätverk och lokala platser. De används också för att skicka trafik mellan flera virtuella nätverk i Azure (nätverk till nätverk). VPN-gatewayer ger säker korsanslutningar mellan Azure och din infrastruktur.
 
 Läs mer:
@@ -92,6 +98,7 @@ Läs mer:
 * [Översikt över Azure network security](security-network-overview.md)
 
 ## <a name="privileged-identity-management"></a>Privileged Identity Management
+
 Ibland behöver användare att utföra Privilegierade åtgärder i Azure-resurser eller andra SaaS-program. Detta innebär ofta organisationer ge dem permanent privilegierad åtkomst i Azure Active Directory (AD Azure). 
 
 Detta är en växande säkerhetsrisk för molnbaserade resurser eftersom organisationer inte kan tillräckligt övervaka vad användarna gör med sina privilegierad åtkomst. Om ett användarkonto med privilegierad åtkomst äventyras, kan dessutom att ett intrång påverkar organisationens övergripande molnsäkerhet. Azure AD Privileged Identity Management hjälper dig för att lösa den här risken genom att sänka exponeringstiden för privilegier och öka insyn i användning.  
@@ -104,11 +111,12 @@ Läs mer:
 * [Kom igång med Azure AD Privileged Identity Management](../active-directory/privileged-identity-management/pim-getting-started.md)
 
 ## <a name="identity-protection"></a>Identity Protection
+
 Azure AD Identity Protection ger en samlad vy över misstänkta inloggningsaktiviteter och potentiella problem för att skydda din verksamhet. Identity Protection identifierar misstänkta aktiviteter för användare och Privilegierade (administratör)-identiteter, baserat på signaler som:
 
-- Brute force-attacker.
-- Läckta autentiseringsuppgifter.
-- Inloggningar från okända platser och smittade enheter.
+* Brute force-attacker.
+* Läckta autentiseringsuppgifter.
+* Inloggningar från okända platser och smittade enheter.
 
 Genom att tillhandahålla meddelanden och rekommenderade åtgärder, hjälper Identity Protection till att minska riskerna i realtid. Riskens allvarlighetsgrad beräknas. Du kan konfigurera riskbaserade principer för att automatiskt skydda programmet komma åt mot framtida hot.
 
@@ -118,6 +126,7 @@ Läs mer:
 * [Channel 9: Azure AD och Identity Show: Identity Protection Preview](https://channel9.msdn.com/Series/Azure-AD-Identity/Azure-AD-and-Identity-Show-Identity-Protection-Preview)
 
 ## <a name="security-center"></a>Security Center
+
 Azure Security Center hjälper dig att förhindra, upptäcka och svara på hot. Security Center ger dig ökad insyn i och kontroll över säkerheten hos dina Azure-resurser. Det ger integrerad säkerhet övervaka och hantera principer för alla Azure-prenumerationer. Det hjälper dig att identifiera hot som kan annars oupptäckta och fungerar med ett vittomfattande ekosystem med säkerhetslösningar.
 
 Security Center hjälper dig att optimera och övervaka säkerheten för dina Azure-resurser genom att:
@@ -131,6 +140,14 @@ Security Center hjälper dig att optimera och övervaka säkerheten för dina Az
 Läs mer:
 
 * [Introduktion till Azure Security Center](../security-center/security-center-intro.md)
+* [Förbättra dina säker poäng i Azure Security Center](../security-center/security-center-secure-score.md)
+
+## <a name="intelligent-security-graph"></a>Intelligent Security Graph
+
+Intelligent Security Graph ger skydd i realtid mot hot i Microsoftprodukter och tjänster. Det använder avancerad analys som länkar en omfattande mängd intelligens och säkerhet hotdata för att ge insikter som kan förstärka företagssäkerhet. Microsoft använder avancerad analys – bearbetar drygt 450 miljarder autentiseringar per månad, genomsöker 400 miljarder e-postmeddelanden efter skadlig programvara och nätfiske och uppdaterar en miljard enheter – att leverera bättre. Dessa insikter kan hjälpa organisationen att identifiera och åtgärda attacker snabbt.
+
+* [Intelligent Security Graph](https://www.microsoft.com/security/intelligence)
 
 <!--Image references-->
 [1]: ./media/security-management-and-monitoring-overview/shared-responsibility.png
+

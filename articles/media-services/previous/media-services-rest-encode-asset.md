@@ -1,10 +1,10 @@
 ---
-title: Koda en Azure-tillgång med Media Encoder Standard | Microsoft Docs
-description: Lär dig hur du använder Media Encoder Standard för att koda medieinnehåll på Azure Media Services. Kodexempel använda REST API.
+title: Koda en tillgång som Azure med hjälp av Media Encoder Standard | Microsoft Docs
+description: Lär dig hur du använder Media Encoder Standard för att koda medieinnehåll på Azure Media Services. Kodexempel Använd REST API.
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 ms.assetid: 2a7273c6-8a22-4f82-9bfe-4509ff32d4a4
 ms.service: media-services
@@ -12,58 +12,58 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/07/2017
+ms.date: 10/30/2018
 ms.author: juliako
-ms.openlocfilehash: 78087bbb43d12af65bfbde93f54e2f29309ac093
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 34652400acaf2efca3648bb4c7cde795861c3101
+ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33790421"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50247937"
 ---
 # <a name="how-to-encode-an-asset-by-using-media-encoder-standard"></a>Koda en tillgång med Media Encoder Standard
 > [!div class="op_single_selector"]
-> * [.NET](media-services-dotnet-encode-with-media-encoder-standard.md)
+> * [NET](media-services-dotnet-encode-with-media-encoder-standard.md)
 > * [REST](media-services-rest-encode-asset.md)
 > * [Portal](media-services-portal-encode.md)
 >
 >
 
 ## <a name="overview"></a>Översikt
-Om du vill leverera digital video via Internet, måste du komprimera mediet. Digitala videofiler är stort och kan vara för stort för att leverera via Internet eller för dina kunders enheter att kunna visas korrekt. Kodning är en process för att komprimera video och ljud så att kunderna kan visa dina media.
+Om du vill leverera digital video via Internet, måste du komprimera mediet. Digitala videofiler är stora och kan vara för stort för att leverera via Internet eller för kundernas enheter att kunna visas korrekt. Kodning är processen för att komprimera video och ljud så att dina kunder kan visa dina media.
 
-Kodning jobb är en av de vanligaste bearbetningsprocessen i Azure Media Services. Du skapar kodningsjobb för att konvertera mediefiler från en kodning till en annan. När du kodar kan du använda Media Services inbyggda kodaren (Media Encoder Standard). Du kan också använda en kodare som tillhandahålls av Media Services partner. Kodare från tredje part är tillgängliga via Azure Marketplace. Du kan ange information om kodning uppgifter med hjälp av förinställda strängar som definierats för din kodare eller med hjälp av förinställda konfigurationsfiler. Om du vill se vilka typer av förinställningar som är tillgängliga finns [aktivitet förinställningar för Media Encoder Standard](http://msdn.microsoft.com/library/mt269960).
+Kodningsjobb är en av de vanligaste bearbetningsuppgifterna i Azure Media Services. Du skapar kodningsjobb för att konvertera mediefiler från en kodning till en annan. När du kodar kan du använda Media Services inbyggda kodaren (Media Encoder Standard). Du kan också använda en kodare som tillhandahålls av Media Services partner. Kodare från tredje part är tillgängliga via Azure Marketplace. Du kan ange information om kodning uppgifter med hjälp av förinställda strängarna som definierats för kodaren eller genom att använda förinställda konfigurationsfiler. Vilka typer av förinställningar som är tillgängliga finns i [uppgift förinställningar för Media Encoder Standard](http://msdn.microsoft.com/library/mt269960).
 
 Varje jobb kan ha en eller flera aktiviteter beroende på vilken typ av bearbetning som du vill utföra. Via REST-API kan du skapa jobb och deras relaterade uppgifter i ett av två sätt:
 
-* Aktiviteter kan vara definierade infogade via navigeringsegenskap uppgifter på jobbet entiteter.
+* Aktiviteter kan vara definierats internt via navigeringsegenskapen uppgifter på jobbet entiteter.
 * Använd OData-batch-bearbetning.
 
-Vi rekommenderar att du alltid koda källfilerna till en MP4-uppsättningen med anpassad bithastighet och sedan konvertera uppsättningen önskat format med hjälp av [dynamisk paketering](media-services-dynamic-packaging-overview.md).
+Vi rekommenderar att du alltid koda källfilerna till en med anpassningsbar bithastighet MP4-uppsättningen och sedan konvertera uppsättningen till det önskade formatet med hjälp av [dynamisk paketering](media-services-dynamic-packaging-overview.md).
 
-Om din utdatatillgången är lagringskrypterad, måste du konfigurera i principen för tillgångsleverans. Mer information finns i [konfigurera tillgångsleveransprincip](media-services-rest-configure-asset-delivery-policy.md).
+Om utdatatillgången är krypterad, måste du konfigurera i principen för tillgångsleverans. Mer information finns i [konfigurera tillgångsleveransprincip](media-services-rest-configure-asset-delivery-policy.md).
 
 ## <a name="considerations"></a>Överväganden
 
-Vid åtkomst till entiteter i Media Services måste du ange specifika namn på huvudfält och värden i HTTP-begäranden. Mer information finns i [installationsprogrammet för Media Services REST API-utveckling](media-services-rest-how-to-use.md).
+Vid åtkomst till entiteter i Media Services, måste du ange specifika namn på huvudfält och värden i HTTP-förfrågningar. Mer information finns i [installationsprogrammet för Media Services REST API-utveckling](media-services-rest-how-to-use.md).
 
-Innan du börjar refererar till media processorer, kontrollera att du har rätt media processor-ID. Mer information finns i [hämta medieprocessorer](media-services-rest-get-media-processor.md).
+Innan du börjar refererar till mediebearbetare bör du kontrollera att du har rätt media processor-ID. Mer information finns i [hämta mediebearbetare](media-services-rest-get-media-processor.md).
 
 ## <a name="connect-to-media-services"></a>Ansluta till Media Services
 
-Information om hur du ansluter till AMS API: et finns [åtkomst till Azure Media Services-API med Azure AD authentication](media-services-use-aad-auth-to-access-ams-api.md). 
+Information om hur du ansluter till AMS API finns i [åtkomst till Azure Media Services-API med Azure AD-autentisering](media-services-use-aad-auth-to-access-ams-api.md). 
 
-## <a name="create-a-job-with-a-single-encoding-task"></a>Skapa ett jobb med en enda kodning aktivitet
+## <a name="create-a-job-with-a-single-encoding-task"></a>Skapa ett jobb med en enda kodningsjobb
 > [!NOTE]
-> Följande gäller när du arbetar med Media Services REST API:
+> Följande gäller när du arbetar med Media Services REST-API:
 >
-> Vid åtkomst till entiteter i Media Services måste du ange specifika namn på huvudfält och värden i HTTP-begäranden. Mer information finns i [installationsprogrammet för Media Services REST API-utveckling](media-services-rest-how-to-use.md).
+> Vid åtkomst till entiteter i Media Services, måste du ange specifika namn på huvudfält och värden i HTTP-förfrågningar. Mer information finns i [installationsprogrammet för Media Services REST API-utveckling](media-services-rest-how-to-use.md).
 >
-> När med JSON och ange om du vill använda den **__metadata** nyckelord i begäran (till exempel till referens ett länkat), måste du ange den **acceptera** sidhuvud till [utförlig JSON-format](http://www.odata.org/documentation/odata-version-3-0/json-verbose-format/): Acceptera: application/json; odata = utförlig.
+> När använder JSON och ange om du vill använda den **__metadata** nyckelord i begäran (till exempel till ett länkat-referens), måste du ställa in den **acceptera** sidhuvud till [JSON utförlig format](http://www.odata.org/documentation/odata-version-3-0/json-verbose-format/): Acceptera: application/json; odata = utförlig.
 >
 >
 
-I följande exempel visas hur du skapar och efter ett jobb med en aktivitet som anger att koda ett videoklipp vid en viss upplösning och kvalitet. När du kodar med Media Encoder Standard kan du använda aktiviteten configuration förinställningar anges [här](http://msdn.microsoft.com/library/mt269960).
+I följande exempel visas hur du skapar och publicera ett jobb med en aktivitet som anger att koda en video med en viss upplösning och kvalitet. När du kodar med Media Encoder Standard kan du använda aktiviteten configuration förinställningar anges [här](http://msdn.microsoft.com/library/mt269960).
 
 Begäran:
 
@@ -85,27 +85,27 @@ Svar:
 
     . . .
 
-### <a name="set-the-output-assets-name"></a>Ange namnet på utdatatillgången
+### <a name="set-the-output-assets-name"></a>Ange namnet på den utdatatillgången
 I följande exempel visas hur du ställer in attributet assetName:
 
     { "TaskBody" : "<?xml version=\"1.0\" encoding=\"utf-8\"?><taskBody><inputAsset>JobInputAsset(0)</inputAsset><outputAsset assetName=\"CustomOutputAssetName\">JobOutputAsset(0)</outputAsset></taskBody>"}
 
 ## <a name="considerations"></a>Överväganden
-* TaskBody egenskaper måste använda literal XML för att definiera antalet indata eller utdata tillgångar som används av aktiviteten. Uppgiften artikeln innehåller XML-schemadefinitionen för XML-filen.
-* I definitionen TaskBody varje inre värde för <inputAsset> och <outputAsset> måste anges som JobInputAsset(value) eller JobOutputAsset(value).
-* En aktivitet kan innehålla flera utdata tillgångar. En JobOutputAsset(x) kan bara användas en gång som utdata för en aktivitet i ett jobb.
-* Du kan ange JobInputAsset eller JobOutputAsset som inkommande tillgång för en aktivitet.
-* Aktiviteter måste inte utgör en cykel.
-* Värdeparametern som du skickar till JobInputAsset eller JobOutputAsset representerar indexet för en tillgång. De faktiska tillgångarna har definierats i navigeringsegenskaper InputMediaAssets och OutputMediaAssets på entiteten jobbdefinitionen.
-* Eftersom Media Services bygger på OData v3 enskilda tillgångar i InputMediaAssets och OutputMediaAssets navigering egenskapsuppsättningar refereras via en ”__metadata: uri” namn / värde-par.
+* TaskBody egenskaper måste använda literal XML för att ange hur många indata eller utdata tillgångar som används av aktiviteten. Uppgiften artikeln innehåller XML-schemadefinitionen för XML-filen.
+* I definitionen av TaskBody varje inre värde för <inputAsset> och <outputAsset> måste anges som JobInputAsset(value) eller JobOutputAsset(value).
+* En aktivitet kan ha flera utdataresultat. En JobOutputAsset(x) kan bara användas en gång som utdata för en aktivitet i ett jobb.
+* Du kan ange JobInputAsset eller JobOutputAsset som en indatatillgången för en aktivitet.
+* Uppgifter måste inte utgör en cykel.
+* Värdeparametern som du skickar till JobInputAsset eller JobOutputAsset representerar index för en tillgång. De faktiska resurser har definierats i navigeringsegenskaper InputMediaAssets och OutputMediaAssets på entiteten jobbdefinitionen.
+* Eftersom Media Services bygger på OData v3, enskilda tillgångar i InputMediaAssets och OutputMediaAssets navigering egenskapsuppsättningar refereras via en ”__metadata: uri” namn / värde-par.
 * InputMediaAssets mappas till en eller flera resurser som du skapade i Media Services. OutputMediaAssets skapas av systemet. De refererar inte till en befintlig tillgång.
-* OutputMediaAssets kan namnges med hjälp av attributet assetName. Om det här attributet är inte tillgängligt och sedan namnet på OutputMediaAsset är det inre textvärdet för den <outputAsset> elementet är med suffixet namnvärdet för jobb eller jobb-Id-värde (i de fall där egenskapen namn har inte definierats). Till exempel om du anger ett värde för assetName till ”Sample”, anges sedan OutputMediaAsset Name-egenskapen till ”Sample”. Men om du inte ange ett värde för assetName, men det angetts på jobbnamnet till ”NewJob”, OutputMediaAsset namnet skulle vara ”JobOutputAsset (värde) _NewJob”.
+* OutputMediaAssets kan namnges med hjälp av attributet assetName. Om det här attributet finns inte, så är namnet på OutputMediaAsset är det inre textvärdet för den <outputAsset> elementet är med ett suffix för jobbets namn-värde eller jobb-Id-värdet (i de fall där egenskapen Name inte är definierat). Till exempel om du anger ett värde för assetName till ”exempel” kan anges sedan OutputMediaAsset namnegenskapen till ”exempel”. Men om du inte ange ett värde för assetName, men angetts Jobbnamnet för att ”NewJob”, OutputMediaAsset namnet skulle vara ”JobOutputAsset (värde) _NewJob”.
 
-## <a name="create-a-job-with-chained-tasks"></a>Skapa ett jobb med länkad uppgifter
-I många Programscenarier utvecklare som vill skapa en serie av uppgifter. Du kan skapa en serie länkad aktiviteter i Media Services. Varje aktivitet utför steg för behandling och kan använda olika media processorer. Länkad uppgifter kan lämnar in en tillgång från en aktivitet till en annan, utför en linjär aktivitetssekvensen på tillgången. Uppgifter som utförs i ett jobb krävs dock inte att vara i en sekvens. När du skapar en länkad aktivitet i länkad **ITask** objekt som skapas i en enda **IJob** objekt.
+## <a name="create-a-job-with-chained-tasks"></a>Skapa ett jobb med länkade uppgifter
+I många Programscenarier utvecklare som vill skapa en serie bearbetningsåtgärder. Du kan skapa en serie med länkade uppgifter i Media Services. Varje aktivitet utför olika bearbetningssteg och kan använda olika mediebearbetare. Länkade uppgifter kan lämnar in en tillgång från en aktivitet till en annan, utför en linjär aktivitetssekvensen på tillgången. Uppgifter som utförs i ett jobb måste dock inte vara i en sekvens. När du skapar en länkad aktivitet med den länkade **ITask** objekt skapas i en enda **IJob** objekt.
 
 > [!NOTE]
-> Det finns en gräns på 30 uppgifter per jobb. Om du behöver mer än 30 uppgifter knutna skapa mer än ett jobb för att innehålla aktiviteter.
+> Det finns en gräns på 30 uppgifter per jobb. Om du vill länka mer än 30 uppgifter kan skapa flera jobb för att innehålla uppgifter.
 >
 >
 
@@ -143,13 +143,13 @@ I många Programscenarier utvecklare som vill skapa en serie av uppgifter. Du ka
 
 
 ### <a name="considerations"></a>Överväganden
-Så här aktiverar du länkning av aktivitet:
+Aktivera aktiviteten länkning:
 
 * Ett jobb måste ha minst två aktiviteter.
-* Det måste finnas minst en aktivitet vars indata är resultatet av en annan aktivitet i jobbet.
+* Det måste finnas minst en aktivitet vars indata är utdata från en annan aktivitet i jobbet.
 
-## <a name="use-odata-batch-processing"></a>Använd OData-batch-bearbetning
-I följande exempel visas hur du skapar ett jobb och aktiviteter med hjälp av OData-batch-bearbetning. Mer information om batchbearbetning finns [Open Data Protocol (OData) gruppbearbetning](http://www.odata.org/documentation/odata-version-3-0/batch-processing/).
+## <a name="use-odata-batch-processing"></a>Använd OData-batchbearbetning
+I följande exempel visar hur du skapar ett jobb och aktiviteter med hjälp av OData-batch-bearbetning. Information om batchbearbetning finns [Open Data Protocol (OData) gruppbearbetning](http://www.odata.org/documentation/odata-version-3-0/batch-processing/).
 
     POST https://media.windows.net/api/$batch HTTP/1.1
     DataServiceVersion: 1.0;NetFx
@@ -210,9 +210,9 @@ I följande exempel visas hur du skapar ett jobb och aktiviteter med hjälp av O
 
 
 ## <a name="create-a-job-by-using-a-jobtemplate"></a>Skapa ett jobb med hjälp av en jobbmall
-När du bearbeta flera resurser med hjälp av en gemensam uppsättning med uppgifter kan du använda en jobbmall Ange standard uppgiften förinställningar eller för att ange uppgifter.
+När du bearbetar flera resurser genom att använda en gemensam uppsättning uppgifter kan du använda en jobbmall att ange standard uppgift förinställningar eller att ange ordningen på uppgifter.
 
-I följande exempel visas hur du skapar en jobbmall med en TaskTemplate som är definierade infogad. TaskTemplate använder Media Encoder Standard som MediaProcessor för att koda resursfilen. Dock kan andra MediaProcessors också användas.
+I följande exempel visas hur du skapar en jobbmall med en TaskTemplate som har definierats internt. TaskTemplate använder Media Encoder Standard som MediaProcessor för att koda tillgångsfilen. Men kan andra MediaProcessors också användas.
 
     POST https://media.windows.net/API/JobTemplates HTTP/1.1
     Content-Type: application/json;odata=verbose
@@ -228,18 +228,18 @@ I följande exempel visas hur du skapar en jobbmall med en TaskTemplate som är 
 
 
 > [!NOTE]
-> Till skillnad från andra Media Services-enheter måste du definiera en ny GUID-identifierare för varje TaskTemplate och placera det i taskTemplateId och Id-egenskap i frågans brödtext. Innehåll identifieringsschemat måste följa det schema som beskrivs i identifiera Azure Media Services entiteter. JobTemplates kan inte uppdateras. I stället måste du skapa en ny med ändringarna uppdaterade.
+> Till skillnad från andra Media Services-entiteter, måste du definiera en ny GUID-identifierare för varje TaskTemplate och placera den i taskTemplateId och Id-egenskap i frågans brödtext. Innehåll identifieringsschema måste följa schemat som beskrivs i identifiera Azure Media Services entiteter. JobTemplates kan inte uppdateras. I stället måste du skapa en ny med ändringarna uppdaterade.
 >
 >
 
-Om det lyckas, returneras följande svar:
+Om detta lyckas, returneras följande svar:
 
     HTTP/1.1 201 Created
 
     . . .
 
 
-I följande exempel visas hur du skapar ett jobb som refererar till en jobbmall-Id:
+I följande exempel visas hur du skapar ett jobb som refererar till ett jobbmall-Id:
 
     POST https://media.windows.net/API/Jobs HTTP/1.1
     Content-Type: application/json;odata=verbose
@@ -254,19 +254,19 @@ I följande exempel visas hur du skapar ett jobb som refererar till en jobbmall-
     {"Name" : "NewTestJob", "InputMediaAssets" : [{"__metadata" : {"uri" : "https://media.windows.net/api/Assets('nb%3Acid%3AUUID%3A3f1fe4a2-68f5-4190-9557-cd45beccef92')"}}], "TemplateId" : "nb:jtid:UUID:15e6e5e6-ac85-084e-9dc2-db3645fbf0aa"}
 
 
-Om det lyckas, returneras följande svar:
+Om detta lyckas, returneras följande svar:
 
     HTTP/1.1 201 Created
 
     . . .
 
 
-## <a name="advanced-encoding-features-to-explore"></a>Avancerade kodning funktioner att utforska
-* [Hur du skapar miniatyrer](media-services-dotnet-generate-thumbnail-with-mes.md)
-* [Genererar miniatyrer vid kodning](media-services-dotnet-generate-thumbnail-with-mes.md#example-of-generating-a-thumbnail-while-encoding)
-* [Beskär videor vid kodning](media-services-crop-video.md)
-* [Anpassa kodning förinställningar](media-services-custom-mes-presets-with-dotnet.md)
-* [Överlägg eller en vattenstämpel en video med en avbildning](media-services-advanced-encoding-with-mes.md#overlay)
+## <a name="advanced-encoding-features-to-explore"></a>Avancerad kodning vilka funktioner du vill utforska
+* [Generera miniatyrer](media-services-dotnet-generate-thumbnail-with-mes.md)
+* [Generera miniatyrer vid kodning](media-services-dotnet-generate-thumbnail-with-mes.md#example-of-generating-a-thumbnail-while-encoding)
+* [Beskär videor under kodning](media-services-crop-video.md)
+* [Anpassa förinställningar för kodning](media-services-custom-mes-presets-with-dotnet.md)
+* [Företagsdataskydd eller en vattenstämpel en video med en avbildning](media-services-advanced-encoding-with-mes.md#overlay)
 
 ## <a name="media-services-learning-paths"></a>Sökvägar för Media Services-utbildning
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
@@ -275,7 +275,7 @@ Om det lyckas, returneras följande svar:
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 ## <a name="next-steps"></a>Nästa steg
-Nu när du vet hur du skapar ett jobb för att koda en tillgång, se [hur du kan följa jobbförloppet med Media Services](media-services-rest-check-job-progress.md).
+Nu när du vet hur du skapar ett jobb för att koda en tillgång, se [så kontrollera jobbförloppet för med Media Services](media-services-rest-check-job-progress.md).
 
 ## <a name="see-also"></a>Se också
-[Hämta Media-processorer](media-services-rest-get-media-processor.md)
+[Hämta Mediebearbetare](media-services-rest-get-media-processor.md)

@@ -1,8 +1,8 @@
 ---
-title: H264 Multibithastighet 1080p Media Encoder Standard förinställningen - Azure | Microsoft Docs
-description: Avsnittet ger en översikt över de **H264 Multibithastighet 1080p** aktivitet förinställningen.
+title: H264 Multibithastighet 1080p Media Encoder Standard förinställda – Azure | Microsoft Docs
+description: Avsnittet ger en översikt över den **H264 Multibithastighet 1080p** uppgiften förinställd.
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 services: media-services
 documentationcenter: ''
@@ -12,24 +12,24 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/20/2017
+ms.date: 10/30/2018
 ms.author: juliako
-ms.openlocfilehash: a1aa9c097ae3eba6c14476d58b432d8d8cc126c0
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 0530965a7823ce1a95704aef3b7e6d6ac941f474
+ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33788363"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50248932"
 ---
 # <a name="h264-multiple-bitrate-1080p"></a>H264 Multibithastighet 1080p
-`Media Encoder Standard` definierar en uppsättning kodning förinställningar som du kan använda när du skapar kodning jobb. Du kan använda en `preset name` att ange i vilket format du vill koda media-fil. Du kan också skapa egna JSON eller XML-baserade förinställningar (med hjälp av UTF-8- eller UTF-16-kodning. Du skulle sedan överföra anpassad förinställning på kodaren. Lista över alla förvalda namn som stöds av det här `Media Encoder Standard` kodare, se [aktivitet förinställningar för Media Encoder Standard](media-services-mes-presets-overview.md).  
+`Media Encoder Standard` definierar en uppsättning kodning förinställningar som du kan använda när du skapar kodningsjobb. Du kan använda en `preset name` att ange i vilket format du vill koda din mediefil. Du kan också skapa egna JSON eller XML-baserade förinställningar (med UTF-8- eller UTF-16-kodning. Sedan skickar du den anpassade förinställda till kodaren. Lista över alla förvalda namn som stöds av det här `Media Encoder Standard` encoder, se [uppgift förinställningar för Media Encoder Standard](media-services-mes-presets-overview.md).  
   
- Det här avsnittet beskrivs de `H264 Multiple Bitrate 1080p` förinställda XML och JSON-format.  
+ Det här avsnittet beskrivs de `H264 Multiple Bitrate 1080p` förinställda i XML- och JSON-format.  
   
- Den här förinställningen producerar en uppsättning 8 GOP-justerad MP4-filer, allt från 6000 kbit/s till 400 kbit/s och AAC stereoljud. Detaljerad information om profilen bithastighet, provtagning hastighet, etc. Om detta förinställda ska undersöka XML- eller JSON som anges nedan. Förklaringar av vad varje element i dessa förinställda innebär och giltiga värden för varje element finns i [Media Encoder Standard schemat](media-services-mes-schema.md) avsnittet.  
+ Den här förinställningen skapar en uppsättning 8 GOP-justerad MP4-filer, mellan 6000 kbit/s och 400 kbit/s och stereo AAC-ljud. Detaljerad information om profilen med flera bithastigheter, sampling hastighet och så vidare på detta förinställda ska undersöka XML eller JSON som definieras nedan. Förklaringar av vad varje element i dessa förinställningar innebär och de giltiga värdena för varje element finns i den [Media Encoder Standard schemat](media-services-mes-schema.md) avsnittet.  
   
 > [!NOTE]
->  När du ändrar den `Width` och `Height` värden i lager, se till att proportionerna förblir konsekvent. Till exempel: 1 920 x 1 080, minst 1 280 x 720, 1080 x 576 640 x 360. Du bör inte använda en blandning av proportioner, exempelvis: minst 1 280 x 720, 720 x 480, 640 x 360.  
+>  När du ändrar den `Width` och `Height` värden över lager, se till att proportionerna förblir konsekvent. Till exempel: 1920 x 1080, 1 280 x 720, 1080 x 576 640 x 360. Du bör inte använda en blandning av proportioner, till exempel: 1 280 x 720, 720 x 480, 640 x 360.  
   
  XML  
   

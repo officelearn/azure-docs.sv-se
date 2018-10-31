@@ -1,8 +1,8 @@
 ---
-title: 264 flera bithastighet 4K ljud 5.1 | Microsoft Docs
-description: Avsnittet ger en översikt över de **264 Multibithastighet 4K ljud 5.1** aktivitet förinställningen.
+title: 264 flera bithastigheter, 4K, Audio 5.1 | Microsoft Docs
+description: Avsnittet ger en översikt över den **264 flera bithastigheter 4K, Audio 5.1** uppgiften förinställd.
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 services: media-services
 documentationcenter: ''
@@ -12,27 +12,27 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/20/2017
+ms.date: 10/30/2018
 ms.author: juliako
-ms.openlocfilehash: fafaa24bece577952ec6c70c3f6bbd4d8ee5d7dd
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 6fb7e3001ec1d1e4d530f289a2a445c76aa36dea
+ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33788552"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50247035"
 ---
-# <a name="h264-multiple-bitrate-4k-audio-51"></a>H264 Flera bithastighet 4K ljud 5.1
-`Media Encoder Standard` definierar en uppsättning kodning förinställningar som du kan använda när du skapar kodning jobb. Du kan använda en `preset name` att ange i vilket format du vill koda media-fil. Du kan också skapa egna JSON eller XML-baserade förinställningar (med hjälp av UTF-8- eller UTF-16-kodning. Du skulle sedan överföra anpassad förinställning på kodaren. Lista över alla förvalda namn som stöds av det här `Media Encoder Standard` kodare, se [aktivitet förinställningar för Media Encoder Standard](media-services-mes-presets-overview.md).  
+# <a name="h264-multiple-bitrate-4k-audio-51"></a>H264, Flera bithastigheter, 4K, Audio 5.1
+`Media Encoder Standard` definierar en uppsättning kodning förinställningar som du kan använda när du skapar kodningsjobb. Du kan använda en `preset name` att ange i vilket format du vill koda din mediefil. Du kan också skapa egna JSON eller XML-baserade förinställningar (med UTF-8- eller UTF-16-kodning. Sedan skickar du den anpassade förinställda till kodaren. Lista över alla förvalda namn som stöds av det här `Media Encoder Standard` encoder, se [uppgift förinställningar för Media Encoder Standard](media-services-mes-presets-overview.md).  
   
- Det här avsnittet beskrivs de `H264 Multiple Bitrate 4K Audio 5.1` förinställda XML och JSON-format.  
+ Det här avsnittet beskrivs de `H264 Multiple Bitrate 4K Audio 5.1` förinställda i XML- och JSON-format.  
   
- Den här förinställningen producerar en uppsättning 12 GOP-justerad MP4-filer, mellan 20000 kbit/s och 1 000 kbit/s och AAC 5.1 ljud. Detaljerad information om profilen bithastighet, provtagning hastighet, etc. Om detta förinställda ska undersöka XML- eller JSON som anges nedan. Förklaringar av vad varje element betyder och giltiga värden för varje element finns i [Media Encoder Standard schemat](media-services-mes-schema.md).  
-  
-> [!NOTE]
->  Du bör få Premium reserverad enhet typ med 4K kodar. Mer information finns i [så skala kodning](https://azure.microsoft.com/documentation/articles/media-services-portal-encoding-units).  
+ Den här förinställningen skapar en uppsättning 12 GOP-justerad MP4-filer, mellan 20000 kbit/s och 1 000 kbit/s och AAC 5.1 ljud. Detaljerad information om profilen med flera bithastigheter, sampling hastighet och så vidare på detta förinställda ska undersöka XML eller JSON som definieras nedan. Förklaringar av vad varje element innebär och de giltiga värdena för varje element finns i den [Media Encoder Standard schemat](media-services-mes-schema.md).  
   
 > [!NOTE]
->  När du ändrar den `Width` och `Height` värden i lager, se till att proportionerna förblir konsekvent. Till exempel: 1 920 x 1 080, minst 1 280 x 720, 1080 x 576 640 x 360. Du bör inte använda en blandning av proportioner, exempelvis: minst 1 280 x 720, 720 x 480, 640 x 360.  
+>  Du bör få reserverade premiumenhet typ med 4K kodar. Mer information finns i [så skala kodning](https://azure.microsoft.com/documentation/articles/media-services-portal-encoding-units).  
+  
+> [!NOTE]
+>  När du ändrar den `Width` och `Height` värden över lager, se till att proportionerna förblir konsekvent. Till exempel: 1920 x 1080, 1 280 x 720, 1080 x 576 640 x 360. Du bör inte använda en blandning av proportioner, till exempel: 1 280 x 720, 720 x 480, 640 x 360.  
   
  XML  
   

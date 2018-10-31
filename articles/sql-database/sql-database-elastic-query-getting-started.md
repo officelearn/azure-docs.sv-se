@@ -3,7 +3,7 @@ title: Rapport över utskalade molndatabaser (horisontella partitioner) | Micros
 description: Använd mellan databaser databasfrågor rapporten över flera databaser.
 services: sql-database
 ms.service: sql-database
-subservice: elastic-scale
+ms.subservice: elastic-scale
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -12,12 +12,12 @@ ms.author: mlandzic
 ms.reviewer: ''
 manager: craigg
 ms.date: 04/01/2018
-ms.openlocfilehash: f6e9c36634435c759004e6102148a072bbdba94a
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: 33b8980f4e3ee7c320d13b95cf86d51a9bfc0e8a
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47166698"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50239856"
 ---
 # <a name="report-across-scaled-out-cloud-databases-preview"></a>Rapportera över skalbara molndatabaser (förhandsversion)
 Du kan skapa rapporter från flera Azure SQL-databaser från en enda anslutning återställningspunkt med ett [elastisk fråga](sql-database-elastic-query-overview.md). Databaserna måste partitioneras vågrätt (även känt som ”delade”).

@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 03/22/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 95f2ffb1a51184f1194f87a4a5e9a54e682edf80
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: cbafe7fcdf2ccd515dfec5554c93bec9c7f3537a
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46312006"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50243171"
 ---
 # <a name="connector-version-release-history"></a>Versionshistorik för anslutningsappen
 Anslutningsappar för Forefront Identity Manager (FIM) och Microsoft Identity Manager (MIM) uppdateras kontinuerligt.
@@ -98,7 +98,7 @@ Relaterade länkar:
 * Allmän webbtjänster:
   * Verktyget Wsconfig inte att konvertera korrekt Json-matris från ”exempelförfrågan” för metoden REST-tjänsten. Det bero på problem med serialisering det här Json-matris för REST-begäran.
   * Konfigurationsverktyget för Web Service Connector stöder inte användning av utrymme symboler i JSON-attributnamn 
-    * Arbetsprofilen ersättningen kan läggas till manuellt till filen WSConfigTool.exe.config, t.ex. ```<appSettings> <add key=”JSONSpaceNamePattern” value="__" /> </appSettings>```
+    * Arbetsprofilen ersättningen kan läggas till manuellt till filen WSConfigTool.exe.config, t.ex. ```<appSettings> <add key="JSONSpaceNamePattern" value="__" /> </appSettings>```
 > [!NOTE]
 > JSONSpaceNamePattern nyckeln är obligatorisk för export kommer du får följande fel: meddelande: tomt namn är inte giltigt. 
 
@@ -143,7 +143,7 @@ Utgiven: 2017 mars
 ### <a name="enhancements"></a>Förbättringar
 
 * Allmän SQL:</br>
-  **Scenariot Symptom:** det är en välkänd begränsning med SQL-anslutningen där vi bara tillåta en referens till en objekttyp och kräver korsreferens med medlemmar. </br>
+  **Scenariot Symptom:**   det är en välkänd begränsning med SQL-anslutningen där vi bara tillåta en referens till en objekttyp och kräver korsreferens med medlemmar. </br>
   **Lösningsbeskrivning:** i bearbetningssteg för referenser var ”*” har valts, alla kombinationer av objekt av typen returneras till Synkroniseringsmotorn.
 
 >[!Important]

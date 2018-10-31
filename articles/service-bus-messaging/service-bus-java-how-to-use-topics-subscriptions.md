@@ -14,246 +14,500 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 09/17/2018
 ms.author: spelluru
-ms.openlocfilehash: 0be5f9842cd3aa90d82f3efe44451e624ed5d371
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: 501d15ebbb373c100dd735e97bebf2f085a9579e
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47395686"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50241327"
 ---
 # <a name="how-to-use-service-bus-topics-and-subscriptions-with-java"></a>Hur du använder Service Bus-ämnen och prenumerationer med Java
 
 [!INCLUDE [service-bus-selector-topics](../../includes/service-bus-selector-topics.md)]
 
-Den här guiden beskriver hur du använder Service Bus-ämnen och prenumerationer. Exemplen är skrivna i Java och Använd den [Azure SDK för Java][Azure SDK for Java]. Scenarier som omfattas är **skapa ämnen och prenumerationer**, **skapa prenumerationsfilter**, **skicka meddelanden till ett ämne**, **tar emot meddelanden från en prenumeration**, och **ta bort ämnen och prenumerationer**.
+I den här snabbstarten kan du utföra följande steg: 
+
+- Skapa ett ämne med hjälp av Azure portal
+- Skapa tre prenumerationer för ämnet med hjälp av Azure-portalen
+- Skriva Java-kod för att skicka meddelanden till ämnet
+- Skriva Java-kod för att ta emot meddelanden från prenumerationer
+
+## <a name="prerequisites"></a>Förutsättningar
+
+- En Azure-prenumeration. Om du inte har ett konto kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free) innan du börjar.
+- [Azure SDK för Java][Azure SDK for Java]. 
 
 ## <a name="what-are-service-bus-topics-and-subscriptions"></a>Vad är Service Bus-ämnen och -prenumerationer?
 Service Bus-ämnen och -prenumerationer stöder en *publicera/prenumerera*-modell för meddelandekommunikation. När du använder ämnen och prenumerationer så kommunicerar inte komponenterna i ett distribuerat program direkt med varandra. Istället så utbyter de meddelanden via ett ämne, som agerar mellanhand.
 
 ![TopicConcepts](./media/service-bus-java-how-to-use-topics-subscriptions/sb-topics-01.png)
 
-Till skillnad från Service Bus-köer, där varje meddelande bearbetas av en enskild konsument så ger ämnen och prenumerationer en en-till-många-form av kommunikation, med hjälp av ett Publicera/prenumerera-mönster. Det är möjligt att registrera flera prenumerationer för ett ämne. När ett meddelande skickas till ett ämne så görs det tillgängligt för varje prenumeration för oberoende hantering/bearbetning.
-
-En prenumeration på ett ämne liknar en virtuell kö som tar emot kopior av meddelanden som har skickats till ämnet. Du kan välja att registrera filterregler för ett ämne per prenumeration, där du kan filtrera eller begränsa vilka meddelanden i ett ämne tas emot av olika ämnesprenumerationer.
+Till skillnad från Service Bus-köer, där varje meddelande bearbetas av en enskild konsument så ger ämnen och prenumerationer en en-till-många-form av kommunikation, med hjälp av ett Publicera/prenumerera-mönster. Det är möjligt att registrera flera prenumerationer för ett ämne. När ett meddelande skickas till ett ämne så görs det tillgängligt för varje prenumeration för oberoende hantering/bearbetning. En prenumeration på ett ämne liknar en virtuell kö som tar emot kopior av meddelanden som har skickats till ämnet. Du kan välja att registrera filterregler för ett ämne per prenumeration, där du kan filtrera eller begränsa vilka meddelanden i ett ämne tas emot av olika ämnesprenumerationer.
 
 Service Bus-ämnen och prenumerationer kan du skala för att bearbeta ett stort antal meddelanden över ett stort antal användare och program.
 
-## <a name="create-a-service-namespace"></a>Skapa ett namnområde för tjänsten
-Om du vill komma igång med Service Bus-ämnen och prenumerationer i Azure måste du först skapa en *namnområde*, som tillhandahåller en omfångsbehållare för adressering av Service Bus-resurser i ditt program.
+## <a name="create-a-service-bus-namespace"></a>Skapa ett namnområde för Service Bus
 
-Så här skapar du ett namnområde:
+Ett namnområde för Service Bus-meddelanden innehåller en unik omfattningscontainer som refereras till av dess [fullständigt kvalificerade domännamn](https://wikipedia.org/wiki/Fully_qualified_domain_name), där du skapar en eller fler köer, ämnen och prenumerationer. I följande exempel skapas ett namnområde för Service Bus-meddelanden i en ny eller befintlig [resursgrupp](/azure/azure-resource-manager/resource-group-portal):
 
-[!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
+1. I det vänstra navigeringsfältet i portalen, klickar du på **+ Skapa en resurs**, därefter klickar du på **Enterprise-integration** och sedan på **Service Bus**.
+2. I dialogrutan **Skapa namnområde** anger du ett namn för namnområdet. Systemet kontrollerar omedelbart om namnet är tillgängligt.
+3. När du har kontrollerat att namnet för namnområdet är tillgängligt, väljer du prisnivå (Standard eller Premium).
+4. I fältet **Prenumeration** väljer du en Azure-prenumeration för vilken du vill skapa namnområdet.
+5. I den **resursgrupp** fältet, Välj en befintlig resursgrupp där namnområdet finns eller skapa en ny.      
+6. I **Plats** väljer du land eller region där namnområdet ska finnas.
+7. Klicka på **Skapa**. Systemet skapar namnområdet och aktiverar det. Du kan behöva vänta några minuter medan systemet tilldelar resurser till ditt konto.
+
+  ![namnområde](./media/service-bus-tutorial-topics-subscriptions-portal/create-namespace.png)
+
+### <a name="obtain-the-management-credentials"></a>Hämta autentiseringsuppgifterna för hantering
+
+Om du skapar ett nytt namnområde så genereras en automatiskt en ursprunglig regel för signatur för delad åtkomst (SAS) med ett kopplat par med primära och sekundära nycklar som ger fullständig kontroll över alla namnområdets aspekter. Gör så här om du vill kopiera den ursprungliga regeln:
+
+1. Klicka på **Alla resurser**, sedan klickar du på den nyligen skapade namnrymden.
+2. I namnområdesfönstret, klickar du på **Principer för delad åtkomst**.
+3. I fönstret **Principer för delad åtkomst**, klickar du på **RootManageSharedAccessKey**.
+4. I fönstret **Princip: RootManageSharedAccessKey**, klickar du på knappen **Kopiera** bredvid **Primär anslutningssträng** för att kopiera anslutningssträngen till dina urklipp för senare användning. Klistra in det här värdet i Anteckningar eller på en tillfällig plats.
+
+    ![connection-string](./media/service-bus-tutorial-topics-subscriptions-portal/connection-string.png)
+5. Upprepa föregående steg, kopiera och klistra in värdet för **Primärnyckeln** till en tillfällig plats för senare användning.
+
+## <a name="create-a-topic"></a>Skapa ett ämne 
+Du skapar ett Service Bus-ämne genom att ange det namnområde som du vill skapa det under. Följande exempel visar hur du skapar ett ämne på portalen:
+
+1. I det vänstra navigeringsfönstret i portalen klickar du på **Service Bus** (om du inte ser **Service Bus** klickar du på **Alla tjänster**).
+2. Klicka på det namnområde där du vill skapa ämnet.
+3. I namnområdesfönstret, klickar du på **Ämnen** och därefter går du till fönstret **Köer** och klickar på **+ Ämnen**.
+4. Ange **BasicTopic** för ämnet **namn**, och lämna de andra värdena med standardvärdena.
+5. Klicka på **Skapa** längst ned i fönstret.
+
+
+## <a name="create-subscriptions-for-the-topic"></a>Skapa prenumerationer för ämnet
+1. Välj den **avsnittet** du skapade.
+2. Klicka på **+ prenumeration**, ange prenumerationens namn **Subscription1**, och lämna andra värdena med standardvärdena.
+3. Upprepa föregående steg två gånger mer, skapa prenumerationer med namnet **Subscription2** och **Subscription3**.
+
 
 ## <a name="configure-your-application-to-use-service-bus"></a>Konfigurera programmet att använda Service Bus
 Kontrollera att du har installerat den [Azure SDK för Java] [ Azure SDK for Java] innan du skapar det här exemplet. Om du använder Eclipse kan du installera den [Azure Toolkit för Eclipse] [ Azure Toolkit for Eclipse] som innehåller Azure SDK för Java. Du kan sedan lägga till den **Microsoft Azure-biblioteken för Java** i projektet:
 
-![](media/service-bus-java-how-to-use-topics-subscriptions/eclipselibs.png)
+![Bibliotek i Eclipse byggsökväg](media/service-bus-java-how-to-use-topics-subscriptions/eclipselibs.png)
 
-Lägg till följande `import` uttryck längst upp i filen Java:
+Du måste också lägga till följande JAR-filer i Java Build Path:
 
-```java
-import com.microsoft.windowsazure.services.servicebus.*;
-import com.microsoft.windowsazure.services.servicebus.models.*;
-import com.microsoft.windowsazure.core.*;
-import javax.xml.datatype.*;
-```
+- gson 2.6.2.jar
+- Commons-cli-1.4.jar
+- proton-j-0.21.0.jar
 
-Lägg till Azure-biblioteken för Java till build-sökväg och inkludera den i projektet distribution sammansättningen.
-
-## <a name="create-a-topic"></a>Skapa ett ämne
-Hanteringsåtgärder för Service Bus-ämnen kan utföras via den **ServiceBusContract** klass. En **ServiceBusContract** objekt har konstruerats med en lämplig konfiguration som innehåller SAS-token med behörigheter för att hantera det, och **ServiceBusContract** klass är den enda kommunikation med Azure.
-
-Den **ServiceBusService** klassen innehåller metoder för att skapa, räkna upp och ta bort ämnen. I följande exempel visas hur en **ServiceBusService** objekt som kan användas för att skapa ett ämne med namnet `TestTopic`, med ett namnområde som kallas `HowToSample`:
+Lägg till en klass med en **Main** metod, och Lägg sedan till följande `import` uttryck högst upp i filen Java:
 
 ```java
-Configuration config =
-    ServiceBusConfiguration.configureWithSASAuthentication(
-      "HowToSample",
-      "RootManageSharedAccessKey",
-      "SAS_key_value",
-      ".servicebus.windows.net"
-      );
-
-ServiceBusContract service = ServiceBusService.create(config);
-TopicInfo topicInfo = new TopicInfo("TestTopic");
-try  
-{
-    CreateTopicResult result = service.createTopic(topicInfo);
-}
-catch (ServiceException e) {
-    System.out.print("ServiceException encountered: ");
-    System.out.println(e.getMessage());
-    System.exit(-1);
-}
+import com.google.gson.reflect.TypeToken;
+import com.microsoft.azure.servicebus.*;
+import com.microsoft.azure.servicebus.primitives.ConnectionStringBuilder;
+import com.google.gson.Gson;
+import static java.nio.charset.StandardCharsets.*;
+import java.time.Duration;
+import java.util.*;
+import java.util.concurrent.*;
+import java.util.function.Function;
+import org.apache.commons.cli.*;
+import org.apache.commons.cli.DefaultParser;
 ```
-
-Det finns metoder på **TopicInfo** som gör att egenskaper anges (till exempel: Ange time to live (TTL) standardvärdet ska tillämpas på meddelanden som skickas till ämnet). I följande exempel visas hur du skapar ett ämne med namnet `TestTopic` med en maximal storlek på 5 GB:
-
-```java
-long maxSizeInMegabytes = 5120;  
-TopicInfo topicInfo = new TopicInfo("TestTopic");  
-topicInfo.setMaxSizeInMegabytes(maxSizeInMegabytes);
-CreateTopicResult result = service.createTopic(topicInfo);
-```
-
-Du kan använda den **listTopics** metoden på **ServiceBusContract** objekt för att kontrollera om det redan finns ett ämne med ett visst angivet namn i ett namnområde för tjänsten.
-
-## <a name="create-subscriptions"></a>Skapa prenumerationer
-Prenumerationer på ämnen skapas också med den **ServiceBusService** klass. Prenumerationer är namngivna och kan ha ett valfritt filter som begränsar den uppsättning av meddelanden som skickas till prenumerationens virtuella kö.
-
-### <a name="create-a-subscription-with-the-default-matchall-filter"></a>Skapa en prenumeration med standardfiltret (MatchAll)
-**MatchAll**-filtret är det standardfilter som används om inget filter anges när en ny prenumeration skapas. När den **MatchAll** filter används, alla meddelanden som publiceras till ämnet placeras i prenumerationens virtuella kö. I följande exempel skapas en prenumeration med namnet `AllMessages` och vi använder `MatchAll` filter.
-
-```java
-SubscriptionInfo subInfo = new SubscriptionInfo("AllMessages");
-CreateSubscriptionResult result =
-    service.createSubscription("TestTopic", subInfo);
-```
-
-### <a name="create-subscriptions-with-filters"></a>Skapa prenumerationer med filter
-Du kan också skapa filter som gör det möjligt att omfattning som meddelanden som skickas till ett ämne visas inom en viss ämnesprenumeration.
-
-Den mest flexibla typen av filter som stöds av prenumerationerna är den [SqlFilter][SqlFilter], som implementerar en deluppsättning av SQL92. SQL-filter tillämpas på egenskaperna i de meddelanden som publiceras till ämnet. Mer information om uttryck som kan användas med ett SQL-filter granskar den [SqlFilter.SqlExpression] [ SqlFilter.SqlExpression] syntax.
-
-I följande exempel skapas en prenumeration med namnet `HighMessages` med en [SqlFilter] [ SqlFilter] objekt som endast väljer meddelanden som har en anpassad **MessageNumber** egenskap som är större än 3:
-
-```java
-// Create a "HighMessages" filtered subscription  
-SubscriptionInfo subInfo = new SubscriptionInfo("HighMessages");
-CreateSubscriptionResult result = service.createSubscription("TestTopic", subInfo);
-RuleInfo ruleInfo = new RuleInfo("myRuleGT3");
-ruleInfo = ruleInfo.withSqlExpressionFilter("MessageNumber > 3");
-CreateRuleResult ruleResult = service.createRule("TestTopic", "HighMessages", ruleInfo);
-// Delete the default rule, otherwise the new rule won't be invoked.
-service.deleteRule("TestTopic", "HighMessages", "$Default");
-```
-
-På samma sätt i följande exempel skapas en prenumeration med namnet `LowMessages` med en [SqlFilter] [ SqlFilter] objekt som endast väljer meddelanden som har en **MessageNumber** egenskap som är mindre än eller lika med 3:
-
-```java
-// Create a "LowMessages" filtered subscription
-SubscriptionInfo subInfo = new SubscriptionInfo("LowMessages");
-CreateSubscriptionResult result = service.createSubscription("TestTopic", subInfo);
-RuleInfo ruleInfo = new RuleInfo("myRuleLE3");
-ruleInfo = ruleInfo.withSqlExpressionFilter("MessageNumber <= 3");
-CreateRuleResult ruleResult = service.createRule("TestTopic", "LowMessages", ruleInfo);
-// Delete the default rule, otherwise the new rule won't be invoked.
-service.deleteRule("TestTopic", "LowMessages", "$Default");
-```
-
-När ett meddelande skickas nu till `TestTopic`, skickas alltid till mottagare som prenumererar på den `AllMessages` prenumeration, och det levereras selektivt till mottagare som prenumererar på den `HighMessages` och `LowMessages` prenumerationer (beroende på den meddelandeinnehåll).
 
 ## <a name="send-messages-to-a-topic"></a>Skicka meddelanden till ett ämne
-Om du vill skicka ett meddelande till en Service Bus-ämne, ditt program hämtar en **ServiceBusContract** objekt. Följande kod visar hur du skickar ett meddelande den `TestTopic` ämne som skapades tidigare i den `HowToSample` namnområde:
+Uppdatera den **huvudsakliga** metod för att skapa en **TopicClient** objekt och anropa en hjälpkomponentmetod som skickar asynkront exemplet meddelanden till Service Bus-ämne.
+
+> [!NOTE] 
+> - Ersätt `<NameOfServiceBusNamespace>` med namnet på Service Bus-namnområdet. 
+> - Ersätt `<AccessKey>` med åtkomstnyckeln för ditt namnområde.
 
 ```java
-BrokeredMessage message = new BrokeredMessage("MyMessage");
-service.sendTopicMessage("TestTopic", message);
-```
+public class MyServiceBusTopicClient {
 
-Meddelanden som skickas till Service Bus-ämnen är instanser av den [BrokeredMessage] [ BrokeredMessage] klass. [BrokeredMessage][BrokeredMessage]* objekt har en uppsättning metoder som standard (till exempel **setLabel** och **TimeToLive**), en ordlista som används för att lagra anpassade programspecifika egenskaper och en brödtext med godtyckliga programdata. Ett program kan konfigurera meddelandets brödtext genom att skicka någon typ av serialiserbara objekt till konstruktören av den [BrokeredMessage][BrokeredMessage], önskad **DataContractSerializer** används sedan för att serialisera objektet. Du kan också en **java.io.InputStream** kan anges.
+    static final Gson GSON = new Gson();
+    
+    public static void main(String[] args) throws Exception, ServiceBusException {
+        // TODO Auto-generated method stub
 
-I följande exempel visar hur du skickar fem testmeddelanden till den `TestTopic` **MessageSender** vi hämtades i föregående kodfragment.
-Observera hur **MessageNumber** egenskapsvärdet för varje meddelande varierar på upprepning av loopen (det här värdet avgör vilka prenumerationer som får det):
+        TopicClient sendClient;
+        String connectionString = "Endpoint=sb://<NameOfServiceBusNamespace>.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=<AccessKey>";
+        sendClient = new TopicClient(new ConnectionStringBuilder(connectionString, "BasicTopic"));       
+        sendMessagesAsync(sendClient).thenRunAsync(() -> sendClient.closeAsync());
+    }
 
-```java
-for (int i=0; i<5; i++)  {
-// Create message, passing a string message for the body
-BrokeredMessage message = new BrokeredMessage("Test message " + i);
-// Set some additional custom app-specific property
-message.setProperty("MessageNumber", i);
-// Send message to the topic
-service.sendTopicMessage("TestTopic", message);
+    static CompletableFuture<Void> sendMessagesAsync(TopicClient sendClient) {
+        List<HashMap<String, String>> data =
+                GSON.fromJson(
+                        "[" +
+                                "{'name' = 'Einstein', 'firstName' = 'Albert'}," +
+                                "{'name' = 'Heisenberg', 'firstName' = 'Werner'}," +
+                                "{'name' = 'Curie', 'firstName' = 'Marie'}," +
+                                "{'name' = 'Hawking', 'firstName' = 'Steven'}," +
+                                "{'name' = 'Newton', 'firstName' = 'Isaac'}," +
+                                "{'name' = 'Bohr', 'firstName' = 'Niels'}," +
+                                "{'name' = 'Faraday', 'firstName' = 'Michael'}," +
+                                "{'name' = 'Galilei', 'firstName' = 'Galileo'}," +
+                                "{'name' = 'Kepler', 'firstName' = 'Johannes'}," +
+                                "{'name' = 'Kopernikus', 'firstName' = 'Nikolaus'}" +
+                                "]",
+                        new TypeToken<List<HashMap<String, String>>>() {
+                        }.getType());
+
+        List<CompletableFuture> tasks = new ArrayList<>();
+        for (int i = 0; i < data.size(); i++) {
+            final String messageId = Integer.toString(i);
+            Message message = new Message(GSON.toJson(data.get(i), Map.class).getBytes(UTF_8));
+            message.setContentType("application/json");
+            message.setLabel("Scientist");
+            message.setMessageId(messageId);
+            message.setTimeToLive(Duration.ofMinutes(2));
+            System.out.printf("Message sending: Id = %s\n", message.getMessageId());
+            tasks.add(
+                    sendClient.sendAsync(message).thenRunAsync(() -> {
+                        System.out.printf("\tMessage acknowledged: Id = %s\n", message.getMessageId());
+                    }));
+        }
+        return CompletableFuture.allOf(tasks.toArray(new CompletableFuture<?>[tasks.size()]));
+    }
 }
 ```
 
 Service Bus-ämnena stöder en maximal meddelandestorlek på 256 kB på [standardnivån](service-bus-premium-messaging.md) och 1 MB på [premiumnivån](service-bus-premium-messaging.md). Rubriken, som inkluderar standardprogramegenskaperna och de anpassade programegenskaperna, kan ha en maximal storlek på 64 kB. Det finns ingen gräns för hur många meddelanden som ligger i ett ämne men det finns en gräns för den totala storleken på de meddelanden som ligger i ett ämne. Den här ämnesstorleken definieras när ämnet skapas, med en övre gräns på 5 GB.
 
 ## <a name="how-to-receive-messages-from-a-subscription"></a>Ta emot meddelanden från en prenumeration
-Om du vill ta emot meddelanden från en prenumeration, använder en **ServiceBusContract** objekt. Mottagna meddelanden kan arbeta i två olika lägen: **ReceiveAndDelete** och **PeekLock** (standard).
-
-När du använder den **ReceiveAndDelete** läge, ta emot är inleveransen en engångsåtgärd – det vill säga när Service Bus tar emot en läsbegäran för ett meddelande, den markerar meddelandet som Förbrukat och tillbaka till programmet. **ReceiveAndDelete** läge är den enklaste modellen och fungerar bäst för scenarier där ett program kan tolerera icke-bearbetning av ett meddelande om ett fel inträffar. Tänk dig ett scenario där konsumenten utfärdar en receive-begäran och sedan kraschar innan bearbetningen. Eftersom Service Bus har markerat meddelandet som Förbrukat, har sedan när programmet startas om och börjar förbruka meddelanden igen, det missat meddelandet som förbrukades innan kraschen.
-
-I **PeekLock** läge, ta emot en åtgärd i två steg, vilket gör det möjligt att stödprogram som inte tolererar att saknas. När Service Bus tar emot en begäran letar det upp nästa meddelande som ska förbrukas, låser det för att förhindra att andra användare tar emot det och skickar sedan tillbaka det till programmet. När programmet har slutfört behandlingen av meddelandet (eller lagrar den på ett tillförlitligt sätt för framtida bearbetning), den är klar det andra steget i processen genom att anropa **ta bort** för det mottagna meddelandet. När Service Bus ser den **ta bort** anrop, den markerar meddelandet som Förbrukat och tar bort den från ämnet.
-
-Följande exempel visar hur meddelanden kan tas emot och bearbetat använder **PeekLock** (standardläget). I exemplet utför en slinga och bearbetar meddelanden i den `HighMessages` prenumeration och sedan avslutas när det finns inga fler meddelanden (du kan också den kan ställas in att vänta tills nya meddelanden).
+Uppdatera den **huvudsakliga** metod för att skapa tre **SubscriptionClient** objekt för tre prenumerationer och anropa en hjälpkomponentmetod som tar emot meddelanden från Service Bus-ämnet asynkront. Exempelkoden förutsätter att du har skapat ett ämne med namnet **BasicTopic** och tre prenumerationer med namnet **Subscription1**, **Subscription2**, och  **Subscription3**. Om du använder olika namn för dem, kan du uppdatera koden innan du testar den. 
 
 ```java
-try
-{
-    ReceiveMessageOptions opts = ReceiveMessageOptions.DEFAULT;
-    opts.setReceiveMode(ReceiveMode.PEEK_LOCK);
+public class MyServiceBusTopicClient {
 
-    while(true)  {
-        ReceiveSubscriptionMessageResult  resultSubMsg =
-            service.receiveSubscriptionMessage("TestTopic", "HighMessages", opts);
-        BrokeredMessage message = resultSubMsg.getValue();
-        if (message != null && message.getMessageId() != null)
-        {
-            System.out.println("MessageID: " + message.getMessageId());
-            // Display the topic message.
-            System.out.print("From topic: ");
-            byte[] b = new byte[200];
-            String s = null;
-            int numRead = message.getBody().read(b);
-            while (-1 != numRead)
-            {
-                s = new String(b);
-                s = s.trim();
-                System.out.print(s);
-                numRead = message.getBody().read(b);
+    static final Gson GSON = new Gson();
+    
+    public static void main(String[] args) throws Exception, ServiceBusException {
+        SubscriptionClient subscription1Client = new SubscriptionClient(new ConnectionStringBuilder(connectionString, "BasicTopic/subscriptions/Subscription1"), ReceiveMode.PEEKLOCK);
+        SubscriptionClient subscription2Client = new SubscriptionClient(new ConnectionStringBuilder(connectionString, "BasicTopic/subscriptions/Subscription2"), ReceiveMode.PEEKLOCK);
+        SubscriptionClient subscription3Client = new SubscriptionClient(new ConnectionStringBuilder(connectionString, "BasicTopic/subscriptions/Subscription3"), ReceiveMode.PEEKLOCK);        
+
+        registerMessageHandlerOnClient(subscription1Client);
+        registerMessageHandlerOnClient(subscription2Client);
+        registerMessageHandlerOnClient(subscription3Client);
+    }
+    
+    static void registerMessageHandlerOnClient(SubscriptionClient receiveClient) throws Exception {
+
+        // register the RegisterMessageHandler callback
+        IMessageHandler messageHandler = new IMessageHandler() {
+            // callback invoked when the message handler loop has obtained a message
+            public CompletableFuture<Void> onMessageAsync(IMessage message) {
+                // receives message is passed to callback
+                if (message.getLabel() != null &&
+                        message.getContentType() != null &&
+                        message.getLabel().contentEquals("Scientist") &&
+                        message.getContentType().contentEquals("application/json")) {
+
+                    byte[] body = message.getBody();
+                    Map scientist = GSON.fromJson(new String(body, UTF_8), Map.class);
+
+                    System.out.printf(
+                            "\n\t\t\t\t%s Message received: \n\t\t\t\t\t\tMessageId = %s, \n\t\t\t\t\t\tSequenceNumber = %s, \n\t\t\t\t\t\tEnqueuedTimeUtc = %s," +
+                                    "\n\t\t\t\t\t\tExpiresAtUtc = %s, \n\t\t\t\t\t\tContentType = \"%s\",  \n\t\t\t\t\t\tContent: [ firstName = %s, name = %s ]\n",
+                            receiveClient.getEntityPath(),
+                            message.getMessageId(),
+                            message.getSequenceNumber(),
+                            message.getEnqueuedTimeUtc(),
+                            message.getExpiresAtUtc(),
+                            message.getContentType(),
+                            scientist != null ? scientist.get("firstName") : "",
+                            scientist != null ? scientist.get("name") : "");
+                }
+                return receiveClient.completeAsync(message.getLockToken());
             }
-            System.out.println();
-            System.out.println("Custom Property: " +
-                message.getProperty("MessageNumber"));
-            // Delete message.
-            System.out.println("Deleting this message.");
-            service.deleteMessage(message);
-        }  
-        else  
-        {
-            System.out.println("Finishing up - no more messages.");
-            break;
-            // Added to handle no more messages.
-            // Could instead wait for more messages to be added.
-        }
+            
+            public void notifyException(Throwable throwable, ExceptionPhase exceptionPhase) {
+                System.out.printf(exceptionPhase + "-" + throwable.getMessage());
+            }
+        };
+
+ 
+        receiveClient.registerMessageHandler(
+                    messageHandler,
+                    // callback invoked when the message handler has an exception to report
+                // 1 concurrent call, messages are auto-completed, auto-renew duration
+                new MessageHandlerOptions(1, false, Duration.ofMinutes(1)));
+
     }
 }
-catch (ServiceException e) {
-    System.out.print("ServiceException encountered: ");
-    System.out.println(e.getMessage());
-    System.exit(-1);
-}
-catch (Exception e) {
-    System.out.print("Generic exception encountered: ");
-    System.out.println(e.getMessage());
-    System.exit(-1);
-}
 ```
 
-## <a name="how-to-handle-application-crashes-and-unreadable-messages"></a>Hantera programkrascher och oläsbara meddelanden
-Service Bus innehåller funktioner som hjälper dig att återställa fel i programmet eller lösa problem med bearbetning av meddelanden på ett snyggt sätt. Om ett mottagarprogram är det går inte att bearbeta meddelandet av någon anledning så kan det anropa den **unlockMessage** metod för det mottagna meddelandet (i stället för den **deleteMessage** metod). Det här metodanropet gör att Service Bus att låsa upp meddelandet i avsnittet om och gör det tillgängligt att tas emot igen, antingen genom samma användningsprogram eller ett annat användningsprogram.
-
-Det finns också en tidsgräns som är associerade med ett meddelande som ligger låst i ämnet om programmet inte kan bearbeta meddelandet innan timeout för lås går ut (till exempel om programmet kraschar), kommer Service Bus låser upp meddelandet automatiskt och gör det tillgängligt att tas emot igen.
-
-I händelse av att programmet kraschar efter behandlingen av meddelandet men innan de **deleteMessage** begäran utfärdas sedan meddelandet once till programmet när den startas om. Den här processen kallas ofta **bearbetning minst en gång**, det vill säga varje meddelande bearbetas minst en gång men i vissa situationer kan samma meddelande kan levereras. Om scenariot inte tolererar duplicerad bearbetning, bör programutvecklarna lägga till ytterligare logik i sina program för att hantera duplicerad meddelandeleverans. Du kan göra det med hjälp av den **getMessageId** -metoden för meddelandet som förblir konstant under alla leveransförsök.
-
-## <a name="delete-topics-and-subscriptions"></a>Ta bort ämnen och prenumerationer
-Det vanligaste sättet att ta bort ämnen och prenumerationer är att använda en **ServiceBusContract** objekt. Om du tar bort ett ämne så tar du även bort alla prenumerationer som är registrerade på det ämnet. Prenumerationer kan även tas bort separat.
+## <a name="run-the-program"></a>Köra programmet
+Kör programmet för att se utdata som liknar följande utdata:
 
 ```java
-// Delete subscriptions
-service.deleteSubscription("TestTopic", "AllMessages");
-service.deleteSubscription("TestTopic", "HighMessages");
-service.deleteSubscription("TestTopic", "LowMessages");
+Message sending: Id = 0
+Message sending: Id = 1
+Message sending: Id = 2
+Message sending: Id = 3
+Message sending: Id = 4
+Message sending: Id = 5
+Message sending: Id = 6
+Message sending: Id = 7
+Message sending: Id = 8
+Message sending: Id = 9
+    Message acknowledged: Id = 0
+    Message acknowledged: Id = 9
+    Message acknowledged: Id = 7
+    Message acknowledged: Id = 8
+    Message acknowledged: Id = 5
+    Message acknowledged: Id = 6
+    Message acknowledged: Id = 3
+    Message acknowledged: Id = 2
+    Message acknowledged: Id = 4
+    Message acknowledged: Id = 1
 
-// Delete a topic
-service.deleteTopic("TestTopic");
+                BasicTopic/subscriptions/Subscription1 Message received: 
+                        MessageId = 0, 
+                        SequenceNumber = 11, 
+                        EnqueuedTimeUtc = 2018-10-29T18:58:12.442Z,
+                        ExpiresAtUtc = 2018-10-29T19:00:12.442Z, 
+                        ContentType = "application/json",  
+                        Content: [ firstName = Albert, name = Einstein ]
+
+                BasicTopic/subscriptions/Subscription2 Message received: 
+                        MessageId = 0, 
+                        SequenceNumber = 11, 
+                        EnqueuedTimeUtc = 2018-10-29T18:58:12.442Z,
+                        ExpiresAtUtc = 2018-10-29T19:00:12.442Z, 
+                        ContentType = "application/json",  
+                        Content: [ firstName = Albert, name = Einstein ]
+
+                BasicTopic/subscriptions/Subscription1 Message received: 
+                        MessageId = 9, 
+                        SequenceNumber = 12, 
+                        EnqueuedTimeUtc = 2018-10-29T18:58:12.520Z,
+                        ExpiresAtUtc = 2018-10-29T19:00:12.520Z, 
+                        ContentType = "application/json",  
+                        Content: [ firstName = Nikolaus, name = Kopernikus ]
+
+                BasicTopic/subscriptions/Subscription1 Message received: 
+                        MessageId = 8, 
+                        SequenceNumber = 13, 
+                        EnqueuedTimeUtc = 2018-10-29T18:58:12.520Z,
+                        ExpiresAtUtc = 2018-10-29T19:00:12.520Z, 
+                        ContentType = "application/json",  
+                        Content: [ firstName = Johannes, name = Kepler ]
+
+                BasicTopic/subscriptions/Subscription3 Message received: 
+                        MessageId = 0, 
+                        SequenceNumber = 11, 
+                        EnqueuedTimeUtc = 2018-10-29T18:58:12.442Z,
+                        ExpiresAtUtc = 2018-10-29T19:00:12.442Z, 
+                        ContentType = "application/json",  
+                        Content: [ firstName = Albert, name = Einstein ]
+
+                BasicTopic/subscriptions/Subscription2 Message received: 
+                        MessageId = 9, 
+                        SequenceNumber = 12, 
+                        EnqueuedTimeUtc = 2018-10-29T18:58:12.520Z,
+                        ExpiresAtUtc = 2018-10-29T19:00:12.520Z, 
+                        ContentType = "application/json",  
+                        Content: [ firstName = Nikolaus, name = Kopernikus ]
+
+                BasicTopic/subscriptions/Subscription1 Message received: 
+                        MessageId = 7, 
+                        SequenceNumber = 14, 
+                        EnqueuedTimeUtc = 2018-10-29T18:58:12.520Z,
+                        ExpiresAtUtc = 2018-10-29T19:00:12.520Z, 
+                        ContentType = "application/json",  
+                        Content: [ firstName = Galileo, name = Galilei ]
+
+                BasicTopic/subscriptions/Subscription3 Message received: 
+                        MessageId = 9, 
+                        SequenceNumber = 12, 
+                        EnqueuedTimeUtc = 2018-10-29T18:58:12.520Z,
+                        ExpiresAtUtc = 2018-10-29T19:00:12.520Z, 
+                        ContentType = "application/json",  
+                        Content: [ firstName = Nikolaus, name = Kopernikus ]
+
+                BasicTopic/subscriptions/Subscription2 Message received: 
+                        MessageId = 8, 
+                        SequenceNumber = 13, 
+                        EnqueuedTimeUtc = 2018-10-29T18:58:12.520Z,
+                        ExpiresAtUtc = 2018-10-29T19:00:12.520Z, 
+                        ContentType = "application/json",  
+                        Content: [ firstName = Johannes, name = Kepler ]
+
+                BasicTopic/subscriptions/Subscription1 Message received: 
+                        MessageId = 6, 
+                        SequenceNumber = 15, 
+                        EnqueuedTimeUtc = 2018-10-29T18:58:12.520Z,
+                        ExpiresAtUtc = 2018-10-29T19:00:12.520Z, 
+                        ContentType = "application/json",  
+                        Content: [ firstName = Michael, name = Faraday ]
+
+                BasicTopic/subscriptions/Subscription3 Message received: 
+                        MessageId = 8, 
+                        SequenceNumber = 13, 
+                        EnqueuedTimeUtc = 2018-10-29T18:58:12.520Z,
+                        ExpiresAtUtc = 2018-10-29T19:00:12.520Z, 
+                        ContentType = "application/json",  
+                        Content: [ firstName = Johannes, name = Kepler ]
+
+                BasicTopic/subscriptions/Subscription2 Message received: 
+                        MessageId = 7, 
+                        SequenceNumber = 14, 
+                        EnqueuedTimeUtc = 2018-10-29T18:58:12.520Z,
+                        ExpiresAtUtc = 2018-10-29T19:00:12.520Z, 
+                        ContentType = "application/json",  
+                        Content: [ firstName = Galileo, name = Galilei ]
+
+                BasicTopic/subscriptions/Subscription1 Message received: 
+                        MessageId = 5, 
+                        SequenceNumber = 16, 
+                        EnqueuedTimeUtc = 2018-10-29T18:58:12.520Z,
+                        ExpiresAtUtc = 2018-10-29T19:00:12.520Z, 
+                        ContentType = "application/json",  
+                        Content: [ firstName = Niels, name = Bohr ]
+
+                BasicTopic/subscriptions/Subscription3 Message received: 
+                        MessageId = 7, 
+                        SequenceNumber = 14, 
+                        EnqueuedTimeUtc = 2018-10-29T18:58:12.520Z,
+                        ExpiresAtUtc = 2018-10-29T19:00:12.520Z, 
+                        ContentType = "application/json",  
+                        Content: [ firstName = Galileo, name = Galilei ]
+
+                BasicTopic/subscriptions/Subscription2 Message received: 
+                        MessageId = 6, 
+                        SequenceNumber = 15, 
+                        EnqueuedTimeUtc = 2018-10-29T18:58:12.520Z,
+                        ExpiresAtUtc = 2018-10-29T19:00:12.520Z, 
+                        ContentType = "application/json",  
+                        Content: [ firstName = Michael, name = Faraday ]
+
+                BasicTopic/subscriptions/Subscription1 Message received: 
+                        MessageId = 4, 
+                        SequenceNumber = 17, 
+                        EnqueuedTimeUtc = 2018-10-29T18:58:12.520Z,
+                        ExpiresAtUtc = 2018-10-29T19:00:12.520Z, 
+                        ContentType = "application/json",  
+                        Content: [ firstName = Isaac, name = Newton ]
+
+                BasicTopic/subscriptions/Subscription3 Message received: 
+                        MessageId = 6, 
+                        SequenceNumber = 15, 
+                        EnqueuedTimeUtc = 2018-10-29T18:58:12.520Z,
+                        ExpiresAtUtc = 2018-10-29T19:00:12.520Z, 
+                        ContentType = "application/json",  
+                        Content: [ firstName = Michael, name = Faraday ]
+
+                BasicTopic/subscriptions/Subscription2 Message received: 
+                        MessageId = 5, 
+                        SequenceNumber = 16, 
+                        EnqueuedTimeUtc = 2018-10-29T18:58:12.520Z,
+                        ExpiresAtUtc = 2018-10-29T19:00:12.520Z, 
+                        ContentType = "application/json",  
+                        Content: [ firstName = Niels, name = Bohr ]
+
+                BasicTopic/subscriptions/Subscription1 Message received: 
+                        MessageId = 3, 
+                        SequenceNumber = 18, 
+                        EnqueuedTimeUtc = 2018-10-29T18:58:12.520Z,
+                        ExpiresAtUtc = 2018-10-29T19:00:12.520Z, 
+                        ContentType = "application/json",  
+                        Content: [ firstName = Steven, name = Hawking ]
+
+                BasicTopic/subscriptions/Subscription3 Message received: 
+                        MessageId = 5, 
+                        SequenceNumber = 16, 
+                        EnqueuedTimeUtc = 2018-10-29T18:58:12.520Z,
+                        ExpiresAtUtc = 2018-10-29T19:00:12.520Z, 
+                        ContentType = "application/json",  
+                        Content: [ firstName = Niels, name = Bohr ]
+
+                BasicTopic/subscriptions/Subscription2 Message received: 
+                        MessageId = 4, 
+                        SequenceNumber = 17, 
+                        EnqueuedTimeUtc = 2018-10-29T18:58:12.520Z,
+                        ExpiresAtUtc = 2018-10-29T19:00:12.520Z, 
+                        ContentType = "application/json",  
+                        Content: [ firstName = Isaac, name = Newton ]
+
+                BasicTopic/subscriptions/Subscription1 Message received: 
+                        MessageId = 2, 
+                        SequenceNumber = 19, 
+                        EnqueuedTimeUtc = 2018-10-29T18:58:12.520Z,
+                        ExpiresAtUtc = 2018-10-29T19:00:12.520Z, 
+                        ContentType = "application/json",  
+                        Content: [ firstName = Marie, name = Curie ]
+
+                BasicTopic/subscriptions/Subscription3 Message received: 
+                        MessageId = 4, 
+                        SequenceNumber = 17, 
+                        EnqueuedTimeUtc = 2018-10-29T18:58:12.520Z,
+                        ExpiresAtUtc = 2018-10-29T19:00:12.520Z, 
+                        ContentType = "application/json",  
+                        Content: [ firstName = Isaac, name = Newton ]
+
+                BasicTopic/subscriptions/Subscription2 Message received: 
+                        MessageId = 3, 
+                        SequenceNumber = 18, 
+                        EnqueuedTimeUtc = 2018-10-29T18:58:12.520Z,
+                        ExpiresAtUtc = 2018-10-29T19:00:12.520Z, 
+                        ContentType = "application/json",  
+                        Content: [ firstName = Steven, name = Hawking ]
+
+                BasicTopic/subscriptions/Subscription1 Message received: 
+                        MessageId = 1, 
+                        SequenceNumber = 20, 
+                        EnqueuedTimeUtc = 2018-10-29T18:58:12.520Z,
+                        ExpiresAtUtc = 2018-10-29T19:00:12.520Z, 
+                        ContentType = "application/json",  
+                        Content: [ firstName = Werner, name = Heisenberg ]
+
+                BasicTopic/subscriptions/Subscription2 Message received: 
+                        MessageId = 2, 
+                        SequenceNumber = 19, 
+                        EnqueuedTimeUtc = 2018-10-29T18:58:12.520Z,
+                        ExpiresAtUtc = 2018-10-29T19:00:12.520Z, 
+                        ContentType = "application/json",  
+                        Content: [ firstName = Marie, name = Curie ]
+
+                BasicTopic/subscriptions/Subscription3 Message received: 
+                        MessageId = 3, 
+                        SequenceNumber = 18, 
+                        EnqueuedTimeUtc = 2018-10-29T18:58:12.520Z,
+                        ExpiresAtUtc = 2018-10-29T19:00:12.520Z, 
+                        ContentType = "application/json",  
+                        Content: [ firstName = Steven, name = Hawking ]
+
+                BasicTopic/subscriptions/Subscription3 Message received: 
+                        MessageId = 2, 
+                        SequenceNumber = 19, 
+                        EnqueuedTimeUtc = 2018-10-29T18:58:12.520Z,
+                        ExpiresAtUtc = 2018-10-29T19:00:12.520Z, 
+                        ContentType = "application/json",  
+                        Content: [ firstName = Marie, name = Curie ]
+
+                BasicTopic/subscriptions/Subscription2 Message received: 
+                        MessageId = 1, 
+                        SequenceNumber = 20, 
+                        EnqueuedTimeUtc = 2018-10-29T18:58:12.520Z,
+                        ExpiresAtUtc = 2018-10-29T19:00:12.520Z, 
+                        ContentType = "application/json",  
+                        Content: [ firstName = Werner, name = Heisenberg ]
+
+                BasicTopic/subscriptions/Subscription3 Message received: 
+                        MessageId = 1, 
+                        SequenceNumber = 20, 
+                        EnqueuedTimeUtc = 2018-10-29T18:58:12.520Z,
+                        ExpiresAtUtc = 2018-10-29T19:00:12.520Z, 
+                        ContentType = "application/json",  
+                        Content: [ firstName = Werner, name = Heisenberg ]
 ```
 
+
 ## <a name="next-steps"></a>Nästa steg
-Mer information finns i [Service Bus-köer, ämnen och prenumerationer] [ Service Bus queues, topics, and subscriptions] för mer information.
+Mer information finns i [Service Bus-köer, ämnen och prenumerationer][Service Bus queues, topics, and subscriptions].
 
 [Azure SDK for Java]: http://azure.microsoft.com/develop/java/
 [Azure Toolkit for Eclipse]: ../azure-toolkit-for-eclipse.md

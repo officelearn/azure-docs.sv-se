@@ -2,36 +2,36 @@
 title: Media Encoder Standard schemat | Microsoft Docs
 description: Artikeln ger en översikt över Media Encoder Standard schemat.
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 services: media-services
 documentationcenter: ''
-ms.assetid: 4c060062-8ef2-41d9-834e-e81e8eafcf2e
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/19/2017
+ms.date: 10/29/2018
 ms.author: juliako
-ms.openlocfilehash: 346d7aecb6a4295f8ceb64bc1b5c6494b7b41bfd
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 95f7d5cafa39daccccbd35c44510038d28601aed
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33788993"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50241760"
 ---
-# <a name="media-encoder-standard-schema"></a>Media Encoder Standard schema
-Den här artikeln beskrivs några av de elementen och typer av XML-schemat som [Media Encoder Standard förinställningar](media-services-mes-presets-overview.md) baseras. Artikeln ger förklaring av element och sina giltiga värden.  
+# <a name="media-encoder-standard-schema"></a>Media Encoder Standard-schema
+Den här artikeln beskriver några av de elementen och typer av XML-schema som [Media Encoder Standard förinställningar](media-services-mes-presets-overview.md) baseras. Artikeln ger förklaring av element och deras giltiga värden.  
 
-## <a name="Preset"></a> Förinställda (rotelementet)
-Definierar en kodning förinställning.  
+## <a name="Preset"></a> Förinställning (rotelementet)
+Definierar en förinställningen för kodningen.  
 
 ### <a name="elements"></a>Element
 | Namn | Typ | Beskrivning |
 | --- | --- | --- |
-| **Kodning** |[Kodning](media-services-mes-schema.md#Encoding) |Rotelementet, visar att indatakällor ska kodas. |
-| **Utdata** |[Utdata](media-services-mes-schema.md#Output) |Samling av önskade utdatafilerna. |
+| **Kodning** |[Kodning](media-services-mes-schema.md#Encoding) |Rotelementet, visar att indatakällorna ska kodas. |
+| **Utdata** |[Utdata](media-services-mes-schema.md#Output) |Samling av önskad utdatafilerna. |
+| **StretchMode**<br/>minOccurs="0"<br/>standard = ”AutoSize|Xs:String|Styra videon bildrutestorlek, utfyllnad, pixel eller visa proportionerna. **StretchMode** kan vara något av följande värden: **ingen**, **AutoSize** (standard), eller **Autopassa**.<br/><br/>**Ingen**: strikt följer på utdataupplösningen (till exempel den **bredd** och **höjd** i förinställningen) utan att överväga pixelproportionerna eller visa proportionerna på indatavideon. Rekommenderas i scenarier som [beskärning](media-services-crop-video.md), där utdata videon har andra proportioner jämfört med indata. <br/><br/>**Anpassa storlek automatiskt**: upplösningen för utdata kommer passar i fönstret (bredd * höjd) anges av förinställning. Kodaren ger dock en utdata-videon som innehåller den fyrkantiga (1:1) pixlar proportionerna. Därför antingen utdata bredd eller höjd-utdata kan åsidosättas för att matcha visningsproportionerna av indata utan utfyllnad. Till exempel om indata är 1 920 x 1 080 och förinställningen för kodningen begär 1 280 x 1 280, sedan höjdvärdet i förinställningen åsidosätts och utdata är tillgänglig med minst 1 280 x 720 som innehåller indata förhållandet 16:9. <br/><br/>**Autopassa**: om det behövs, Fyll ut utdata-video (med brevlåda eller pillarbox-format) för att respektera på önskad utdataupplösningen, samtidigt som man säkerställer att den aktiva video regionen i utdata har samma proportioner som indata. Anta exempelvis att indata är 1 920 x 1 080 och förinställningen för kodningen begär 1 280 x 1 280. Sedan utdata video är tillgänglig med minst 1 280 x 1 280, men den kommer att innehålla en inre 1 280 x 720 rektangel 'active video ”med proportionerna 16:9 och brevlåda regioner 280 bildpunkter hög högst upp och längst ned. För ett annat exempel är om indata är 1 440 x 1 080 och förinställningen för kodningen begär 1 280 x 720 är sedan utdata tillgänglig med minst 1 280 x 720 som innehåller en inre rektangel av 960 x 720 proportionerna på 4:3 och pelare box regioner 160 pixlar bred på vänster och höger. 
 
 ### <a name="attributes"></a>Attribut
 | Namn | Typ | Beskrivning |
@@ -54,49 +54,49 @@ Innehåller en sekvens av följande element:
 ### <a name="elements"></a>Element
 | Namn | Typ | Beskrivning |
 | --- | --- | --- |
-| **TwoPass**<br/><br/> minOccurs="0" |**Xs:Boolean** |För närvarande stöds endast en pass-kodning. |
-| **KeyFrameInterval**<br/><br/> minOccurs="0"<br/><br/> **standard = ”00: 00:02”** |**Xs: Time** |Anger fast avstånd mellan IDR ramar i antal sekunder. Kallas även GOP varaktighet. Se **SceneChangeDetection** för att styra om kodaren kan avvika från det här värdet. |
-| **SceneChangeDetection**<br/><br/> minOccurs="0"<br/><br/> standard = ”false” |**Xs: booleskt** |Om värdet är true, kodare försöker identifiera scen ändra i videon och infogar en IDR ram. |
-| **Komplexitet**<br/><br/> minOccurs="0"<br/><br/> standard = ”balanserad” |**Xs:String** |Styr en kompromiss mellan koda hastigheten och video. Kan vara någon av följande värden: **hastighet**, **balanserad**, eller **kvalitet**<br/><br/> Standard: **belastningsutjämnade** |
-| **SyncMode**<br/><br/> minOccurs="0" | |Funktionen kommer att exponeras i en framtida version. |
+| **TwoPass**<br/><br/> minOccurs="0" |**Xs:Boolean** |För närvarande stöds endast en pass kodning. |
+| **KeyFrameInterval**<br/><br/> minOccurs="0"<br/><br/> **standard = ”00: 00:02”** |**Xs: Time** |Anger fast avståndet mellan IDR bildrutor i antal sekunder. Kallas även GOP-varaktighet. Se **SceneChangeDetection** för att kontrollera om kodaren kan avvika från det här värdet. |
+| **SceneChangeDetection**<br/><br/> minOccurs="0"<br/><br/> standard = ”false” |**Xs: booleskt** |Om värdet är sant, kodare försöker identifiera scen ändringar i videon och infogar en IDR ram. |
+| **Komplexitet**<br/><br/> minOccurs="0"<br/><br/> standard = ”balanserad” |**Xs:String** |Styr en kompromiss mellan koda hastigheten och video. Kan vara något av följande värden: **hastighet**, **balanserad**, eller **kvalitet**<br/><br/> Standard: **belastningsutjämnade** |
+| **SyncMode**<br/><br/> minOccurs="0" | |Funktionen exponeras i en framtida version. |
 | **H264Layers**<br/><br/> minOccurs="0" |[H264Layers](media-services-mes-schema.md#H264Layers) |Samling av utdata video lager. |
 
 ### <a name="attributes"></a>Attribut
 | Namn | Typ | Beskrivning |
 | --- | --- | --- |
-| **Villkor** |**Xs:String** | När indata har ingen bild, kanske du vill tvinga kodaren att infoga ett monokromt video spår. Göra genom att använda villkor = ”InsertBlackIfNoVideoBottomLayerOnly” (för att infoga en video på endast de lägsta bithastigheten) eller villkor = ”InsertBlackIfNoVideo” (att infoga en video på alla utdata bithastighet). Mer information finns i [den här artikeln](media-services-advanced-encoding-with-mes.md#no_video).|
+| **villkor** |**Xs:String** | När indata har ingen bild kan du tvinga kodaren att infoga ett svartvit video spår. Gör detta genom att använda villkor = ”InsertBlackIfNoVideoBottomLayerOnly” (för att infoga en video på lägsta bithastigheten) eller ett villkor = ”InsertBlackIfNoVideo” (att infoga en video på alla utmatningen bithastighet). Mer information finns i [den här artikeln](media-services-advanced-encoding-with-mes.md#no_video).|
 
 ## <a name="H264Layers"></a> H264Layers
 
-Om du skickar indata till den kodare som innehåller endast ljud och ingen bild innehåller utdatatillgången som standard filer med ljud data. Vissa spelare kanske inte kan hantera dessa utdataströmmar. Du kan använda H264Video **InsertBlackIfNoVideo** attributet inställningen för att tvinga kodaren att lägga till en video Spåra utdata i scenariot. Mer information finns i [den här artikeln](media-services-advanced-encoding-with-mes.md#no_video).
+Som standard innehåller utdatatillgången filer med endast ljud data om du skickar indata till den kodare som innehåller endast ljud och ingen bild. Vissa spelare kanske inte kan hantera sådana utdataströmmar. Du kan använda H264Video **InsertBlackIfNoVideo** attributet inställningen för att tvinga kodaren att lägga till en video spåra till utdata i det här scenariot. Mer information finns i [den här artikeln](media-services-advanced-encoding-with-mes.md#no_video).
               
 ### <a name="elements"></a>Element
 | Namn | Typ | Beskrivning |
 | --- | --- | --- |
-| **H264Layer**<br/><br/> minOccurs = ”0” maxOccurs = ”unbounded” |[H264Layer](media-services-mes-schema.md#H264Layer) |En samling H264 lager. |
+| **H264Layer**<br/><br/> minOccurs = ”0” maxOccurs = ”obundna” |[H264Layer](media-services-mes-schema.md#H264Layer) |En samling av H264 lager. |
 
 ## <a name="H264Layer"></a> H264Layer
 > [!NOTE]
-> Video gränsvärdena baseras på de värden som beskrivs i den [H264 nivåer](https://en.wikipedia.org/wiki/H.264/MPEG-4_AVC#Levels) tabell.  
+> Videogränser baseras på de värden som beskrivs i den [H264 nivåer](https://en.wikipedia.org/wiki/H.264/MPEG-4_AVC#Levels) tabell.  
 > 
 > 
 
 ### <a name="elements"></a>Element
 | Namn | Typ | Beskrivning |
 | --- | --- | --- |
-| **Profil**<br/><br/> minOccurs="0"<br/><br/> standard = ”Auto” |**Xs: sträng** |Kan bero på något av följande **xs: sträng** värden: **automatisk**, **baslinjen**, **Main**, **hög**. |
+| **Profil**<br/><br/> minOccurs="0"<br/><br/> standard = ”Auto” |**Xs: sträng** |Kan vara i något av följande **xs: sträng** värden: **automatisk**, **baslinje**, **Main**, **hög**. |
 | **Nivå**<br/><br/> minOccurs="0"<br/><br/> standard = ”Auto” |**Xs: sträng** | |
-| **Bithastighet**<br/><br/> minOccurs="0" |**Xs:int** |Bithastighet som används för den här videon skikt som angetts i kbit/s. |
-| **MaxBitrate**<br/><br/> minOccurs="0" |**Xs: int** |Den maximala bithastighet som används för den här videon skikt som angetts i kbit/s. |
+| **Bithastighet**<br/><br/> minOccurs="0" |**Xs:int** |Bithastigheten används för den här videon skikt som angetts i kbit/s. |
+| **MaxBitrate**<br/><br/> minOccurs="0" |**Xs: int** |Den högsta bithastighet som används för den här videon skikt som angetts i kbit/s. |
 | **BufferWindow**<br/><br/> minOccurs="0"<br/><br/> standard = ”00: 00:05” |**Xs: tid** |Video buffertens längd. |
-| **Bredd**<br/><br/> minOccurs="0" |**Xs: int** |Bredden på utdata video ramen, i bildpunkter.<br/><br/> För närvarande måste du ange både bredd och höjd. Bredden och höjden måste vara jämnt tal. |
-| **Höjd**<br/><br/> minOccurs="0" |**Xs:int** |Höjden på utdata video ramen, i bildpunkter.<br/><br/> För närvarande måste du ange både bredd och höjd. Bredden och höjden måste vara jämnt tal.|
-| **BFrames**<br/><br/> minOccurs="0" |**Xs: int** |Antal B ramar mellan referens ramar. |
-| **ReferenceFrames**<br/><br/> minOccurs="0"<br/><br/> standard = ”3” |**Xs:int** |Antal bildrutor referens i en GOP. |
-| **EntropyMode**<br/><br/> minOccurs="0"<br/><br/> standard = ”Cabac” |**Xs: sträng** |Kan vara någon av följande värden: **Cabac** och **Cavlc**. |
-| **Ramhastighet**<br/><br/> minOccurs="0" |rationellt tal |Anger bildfrekvens av utdata-video. Använd standardvärdet ”0-1” om du vill låta kodaren använder samma bildfrekvens som indata video. Tillåtna värden förväntas vara vanliga bildruta priser. Men alla giltiga rationell tillåts. 1-1 är 1 fps och är giltigt.<br/><br/> -12-1 (12 fps)<br/><br/> -15-1 (15 fps)<br/><br/> -24-1 (24 fps)<br/><br/> 24000/1001 (23.976 fps)<br/><br/> -25-1 (25 fps)<br/><br/>  -30-1 (30 fps)<br/><br/> 30000/1001 (29,97 fps) <br/> <br/>**Obs** om du skapar en anpassad förinställning för flera bithastigheter kodning sedan alla lager i förinställningen **måste** använda ramhastighet samma värde.|
-| **AdaptiveBFrame**<br/><br/> minOccurs="0" |**Xs: booleskt** |Kopiera från Azure media-kodaren |
-| **Segment**<br/><br/> minOccurs="0"<br/><br/> standard = ”0” |**Xs:int** |Anger hur många segment som en ram är uppdelad i. Du bör använda standard. |
+| **Bredd**<br/><br/> minOccurs="0" |**Xs: int** |Bredd för utdata video ramen, i bildpunkter.<br/><br/> För närvarande måste du ange både bredd och höjd. Bredden och höjden måste vara jämna tal. |
+| **Höjd**<br/><br/> minOccurs="0" |**Xs:int** |Höjd för utdata video ramen, i bildpunkter.<br/><br/> För närvarande måste du ange både bredd och höjd. Bredden och höjden måste vara jämna tal.|
+| **BFrames**<br/><br/> minOccurs="0" |**Xs: int** |Antal B bildrutor mellan referens bildrutor. |
+| **ReferenceFrames**<br/><br/> minOccurs="0"<br/><br/> standard = ”3” |**Xs:int** |Antal referens bildrutor i en GOP. |
+| **EntropyMode**<br/><br/> minOccurs="0"<br/><br/> standard = ”Cabac” |**Xs: sträng** |Kan vara något av följande värden: **Cabac** och **Cavlc**. |
+| **Ramhastighet**<br/><br/> minOccurs="0" |rationellt tal |Anger bildfrekvens videons utdata. Använd standardvärdet ”0/1” så att kodaren använder samma bildfrekvens som indata video. Tillåtna värden förväntas vara vanliga video bildrutehastigheter. Men alla giltiga rationella tillåts. Till exempel 1/1 skulle vara 1 fps och är giltig.<br/><br/> – 12/1 (12 fps)<br/><br/> – 15/1 (15 fps)<br/><br/> -24/1 (24 fps)<br/><br/> 24000/1001 (23.976 fps)<br/><br/> -25/1 (25 fps)<br/><br/>  -30/1 (30 bilder per sekund)<br/><br/> 30000/1001 (29,97 fps) <br/> <br/>**Obs** om du skapar en anpassad förinställning för flera bithastigheter encoding, sedan alla lager i förinställningen **måste** använda samma värde för ramhastighet.|
+| **AdaptiveBFrame**<br/><br/> minOccurs="0" |**Xs: booleskt** |Kopiera från Azure media encoder |
+| **Sektorer**<br/><br/> minOccurs="0"<br/><br/> standard = ”0” |**Xs:int** |Anger hur många segment som en ram är uppdelad i. Rekommendera att du använder standard. |
 
 ## <a name="AACAudio"></a> AACAudio
  Innehåller en sekvens av följande element och grupper.  
@@ -106,60 +106,59 @@ Om du skickar indata till den kodare som innehåller endast ljud och ingen bild 
 ### <a name="elements"></a>Element
 | Namn | Typ | Beskrivning |
 | --- | --- | --- |
-| **Profil**<br/><br/> minOccurs = ”0”<br/><br/> default="AACLC" |**Xs: sträng** |Kan vara någon av följande värden: **AACLC**, **HEAACV1**, eller **HEAACV2**. |
+| **Profil**<br/><br/> minOccurs = ”0”<br/><br/> default="AACLC" |**Xs: sträng** |Kan vara något av följande värden: **AACLC**, **HEAACV1**, eller **HEAACV2**. |
 
 ### <a name="attributes"></a>Attribut
 | Namn | Typ | Beskrivning |
 | --- | --- | --- |
-| **Villkor** |**Xs: sträng** |Ange värdet ”InsertSilenceIfNoAudio” om du vill tvinga kodaren att skapa en tillgång som innehåller en tyst ljud spåra när indata har inget ljud.<br/><br/> Som standard om du skickar indata till den kodare som bara innehåller video, och inget ljud innehåller utdatatillgången filer som innehåller endast video data. Vissa spelare kanske inte kan hantera dessa utdataströmmar. Du kan använda den här inställningen för att tvinga kodaren att lägga till en tyst ljud Spåra utdata i scenariot. |
+| **villkor** |**Xs: sträng** |Ange värdet som ”InsertSilenceIfNoAudio” om du vill framtvinga kodaren att skapa en tillgång som innehåller en tyst ljudspår när indata har inget ljud.<br/><br/> Som standard om du skickar indata till den kodare som innehåller endast video och inga ljud innehåller utdatatillgången filer som innehåller endast video data. Vissa spelare kanske inte kan hantera sådana utdataströmmar. Du kan använda den här inställningen för att tvinga kodaren att lägga till en tyst ljudspår till utdata i det här scenariot. |
 
 ### <a name="groups"></a>Grupper
 | Referens | Beskrivning |
 | --- | --- |
-| [AudioGroup](media-services-mes-schema.md#AudioGroup)<br/><br/> minOccurs="0" |Se beskrivningen av [AudioGroup](media-services-mes-schema.md#AudioGroup) veta ett lämpligt antal kanaler, samplingsfrekvensen och bithastighet som kan anges för varje profil. |
+| [AudioGroup](media-services-mes-schema.md#AudioGroup)<br/><br/> minOccurs="0" |Se beskrivning av [AudioGroup](media-services-mes-schema.md#AudioGroup) veta hur många kanaler, samplingsfrekvensen och bithastighet som kan ställas in för varje profil. |
 
 ## <a name="AudioGroup"></a> AudioGroup
-Mer information om vilka värden är giltiga för varje profil finns i tabellen ”ljud codec information” nedan.  
+Mer information om vilka värden är giltiga för varje profil finns i ”ljud codec information”-tabellen som följer.  
 
 ### <a name="elements"></a>Element
 | Namn | Typ | Beskrivning |
 | --- | --- | --- |
 | **kanaler**<br/><br/> minOccurs="0" |**Xs: int** |Antal ljud kanaler kodad. Följande är giltiga alternativ: 1, 2, 5, 6, 8.<br/><br/> Standard: 2. |
 | **SamplingRate**<br/><br/> minOccurs="0" |**Xs: int** |Ljud samplingsfrekvensen, anges i Hz. |
-| **Bithastighet**<br/><br/> minOccurs="0" |**Xs: int** |Bithastighet som används när kodning ljud, anges i kbit/s. |
+| **Bithastighet**<br/><br/> minOccurs="0" |**Xs: int** |Bithastigheten används när kodning ljudet, anges i kbit/s. |
 
-### <a name="audio-codec-details"></a>Ljud-codec information
-Ljud-Codec|Information  
+### <a name="audio-codec-details"></a>Ljudcodec information
+Ljudcodec|Information  
 -----------------|---  
-**AACLC**|1:<br/><br/> -11025: 8 &lt;= bithastighet &lt; 16<br/><br/> -12000: 8 &lt;= bithastighet &lt; 16<br/><br/> -16000: 8 &lt;= bithastighet &lt;32<br/><br/>-22050: 24 &lt;= bithastighet &lt; 32<br/><br/> -24000: 24 &lt;= bithastighet &lt; 32<br/><br/> -32000: 32 &lt;= bithastighet &lt;= 192<br/><br/> -44100: 56 &lt;= bithastighet &lt;= 288<br/><br/> -48000: 56 &lt;= bithastighet &lt;= 288<br/><br/> -88200: 128 &lt;= bithastighet &lt;= 288<br/><br/> -96000: 128 &lt;= bithastighet &lt;= 288<br/><br/> 2:<br/><br/> -11025: 16 &lt;= bithastighet &lt; 24<br/><br/> -12000: 16 &lt;= bithastighet &lt; 24<br/><br/> -16000: 16 &lt;= bithastighet &lt; 40<br/><br/> -22050: 32 &lt;= bithastighet &lt; 40<br/><br/> -24000: 32 &lt;= bithastighet &lt; 40<br/><br/> -32000: 40 &lt;= bithastighet &lt;= 384<br/><br/> -44100: 96 &lt;= bithastighet &lt;= 576<br/><br/> -48000: 96 &lt;= bithastighet &lt;= 576<br/><br/> -88200: 256 &lt;= bithastighet &lt;= 576<br/><br/> -96000: 256 &lt;= bithastighet &lt;= 576<br/><br/> 5/6:<br/><br/> -32000: 160 &lt;= bithastighet &lt;= 896<br/><br/> -44100: 240 &lt;= bithastighet &lt;= 1024<br/><br/> -48000: 240 &lt;= bithastighet &lt;= 1024<br/><br/> -88200: 640 &lt;= bithastighet &lt;= 1024<br/><br/> -96000: 640 &lt;= bithastighet &lt;= 1024<br/><br/> 8:<br/><br/> -32000: 224 &lt;= bithastighet &lt;= 1024<br/><br/> -44100: 384 &lt;= bithastighet &lt;= 1024<br/><br/> -48000: 384 &lt;= bithastighet &lt;= 1024<br/><br/> -88200: 896 &lt;= bithastighet &lt;= 1024<br/><br/> -96000: 896 &lt;= bithastighet &lt;= 1024  
+**AACLC**|1:<br/><br/> -11025: 8 &lt;= bithastighet &lt; 16<br/><br/> -12000: 8 &lt;= bithastighet &lt; 16<br/><br/> -16000: 8 &lt;= bithastighet &lt;32<br/><br/>-22050: 24 &lt;= bithastighet &lt; 32<br/><br/> -24000: 24 &lt;= bithastighet &lt; 32<br/><br/> -32000: 32 &lt;= bithastighet &lt;= 192<br/><br/> -44100: 56 &lt;= bithastighet &lt;= 288<br/><br/> -48000: 56 &lt;= bithastighet &lt;= 288<br/><br/> -88200: 128 &lt;= bithastighet &lt;= 288<br/><br/> -96000: 128 &lt;= bithastighet &lt;= 288<br/><br/> 2:<br/><br/> -11025: 16 &lt;= bithastighet &lt; 24<br/><br/> -12000: 16 &lt;= bithastighet &lt; 24<br/><br/> -16000: 16 &lt;= bithastighet &lt; 40<br/><br/> -22050: 32 &lt;= bithastighet &lt; 40<br/><br/> -24000: 32 &lt;= bithastighet &lt; 40<br/><br/> -32000: 40 &lt;= bithastighet &lt;= 384<br/><br/> -44100: 96 &lt;= bithastighet &lt;= 576<br/><br/> -48000: 96 &lt;= bithastighet &lt;= 576<br/><br/> -88200: 256 &lt;= bithastighet &lt;= 576<br/><br/> -96000: 256 &lt;= bithastighet &lt;= 576<br/><br/> 5/6:<br/><br/> -32000: 160 &lt;= bithastighet &lt;= 896<br/><br/> -44100: 240 &lt;= bithastighet &lt;= 1 024<br/><br/> -48000: 240 &lt;= bithastighet &lt;= 1 024<br/><br/> -88200: 640 &lt;= bithastighet &lt;= 1 024<br/><br/> -96000: 640 &lt;= bithastighet &lt;= 1 024<br/><br/> 8:<br/><br/> -32000: 224 &lt;= bithastighet &lt;= 1 024<br/><br/> -44100: 384 &lt;= bithastighet &lt;= 1 024<br/><br/> -48000: 384 &lt;= bithastighet &lt;= 1 024<br/><br/> -88200: 896 &lt;= bithastighet &lt;= 1 024<br/><br/> -96000: 896 &lt;= bithastighet &lt;= 1 024  
 **HEAACV1**|1:<br/><br/> -22050: bithastighet = 8<br/><br/> -24000: 8 &lt;= bithastighet &lt;= 10<br/><br/> -32000: 12 &lt;= bithastighet &lt;= 64<br/><br/> -44100: 20 &lt;= bithastighet &lt;= 64<br/><br/> -48000: 20 &lt;= bithastighet &lt;= 64<br/><br/> -88200: bithastighet = 64<br/><br/> 2:<br/><br/> -32000: 16 &lt;= bithastighet &lt;= 128<br/><br/> -44100: 16 &lt;= bithastighet &lt;= 128<br/><br/> -48000: 16 &lt;= bithastighet &lt;= 128<br/><br/> -88200: 96 &lt;= bithastighet &lt;= 128<br/><br/> -96000: 96 &lt;= bithastighet &lt;= 128<br/><br/> 5/6:<br/><br/> -32000: 64 &lt;= bithastighet &lt;= 320<br/><br/> -44100: 64 &lt;= bithastighet &lt;= 320<br/><br/> -48000: 64 &lt;= bithastighet &lt;= 320<br/><br/> -88200: 256 &lt;= bithastighet &lt;= 320<br/><br/> -96000: 256 &lt;= bithastighet &lt;= 320<br/><br/> 8:<br/><br/> -32000: 96 &lt;= bithastighet &lt;= 448<br/><br/> -44100: 96 &lt;= bithastighet &lt;= 448<br/><br/> -48000: 96 &lt;= bithastighet &lt;= 448<br/><br/> -88200: 384 &lt;= bithastighet &lt;= 448<br/><br/> -96000: 384 &lt;= bithastighet &lt;= 448  
 **HEAACV2**|2:<br/><br/> -22050: 8 &lt;= bithastighet &lt;= 10<br/><br/> -24000: 8 &lt;= bithastighet &lt;= 10<br/><br/> -32000: 12 &lt;= bithastighet &lt;= 64<br/><br/> -44100: 20 &lt;= bithastighet &lt;= 64<br/><br/> -48000: 20 &lt;= bithastighet &lt;= 64<br/><br/> -88200: 64 &lt;= bithastighet &lt;= 64  
   
-
 ## <a name="Clip"></a> Clip
 ### <a name="attributes"></a>Attribut
 | Namn | Typ | Beskrivning |
 | --- | --- | --- |
-| **StartTime** |**Duration** |Anger starttiden för en presentation. Värdet för StartTime måste matcha inkommande videon absolut tidsstämplar. Till exempel om den första bildrutan indata har en tidsstämpel för 12:00:10.000, sedan StartTime bör vara minst 12:00:10.000 eller större. |
+| **startTime** |**Duration** |Anger starttiden för en presentation. Värdet för StartTime måste matcha absolut tidsstämplarna på indatavideon. Till exempel om den första bildrutan på indatavideon har en tidsstämpel för 12:00:10.000, sedan StartTime bör vara minst 12:00:10.000 eller större. |
 | **Varaktighet** |**Duration** |Varaktighet för en presentation (till exempel utseendet på ett överlägg i videon). |
 
 ## <a name="Output"></a> Utdata
 ### <a name="attributes"></a>Attribut
 | Namn | Typ | Beskrivning |
 | --- | --- | --- |
-| **Filnamn** |**Xs:String** |Namnet på utdatafilen.<br/><br/> Du kan använda makron som beskrivs i följande tabell för att skapa filen utdatanamn. Exempel:<br/><br/> **”Utdata”: [{”FileName” ”: {Basename}*{upplösning}*{bithastighet} .mp4”, ”Format”: {”typ”: ”MP4Format”}}]** |
+| **Filnamn** |**Xs:String** |Namnet på utdatafilen.<br/><br/> Du kan använda makron som beskrivs i följande tabell för att skapa utdata-filnamn. Exempel:<br/><br/> **”Utdata”: [{”FileName” ”: {Basename}*{matchning}*{bithastighet} .mp4”, ”Format”: {”Type”: ”MP4Format”}}]** |
 
 ### <a name="macros"></a>Makron
 | Makrot | Beskrivning |
 | --- | --- |
-| **{Basename}** |Om du gör VoD kodning, är {Basename} först 32 tecken från egenskapen AssetFile.Name för den primära filen i inkommande tillgången.<br/><br/> Om den inkommande är en levande Arkiv, härleds {Basename} från trackName attribut i manifestet server. Om du skickar ett underklipp jobb med hjälp av TopBitrate, som i ”: < VideoStream\>TopBitrate < / VideoStream\>”, och utdatafilen innehåller video och sedan {Basename} är den första 32 tecknen i trackName video skiktets med den högsta bithastigheten.<br/><br/> Om du skickar i stället ett underklipp jobb med hjälp av alla indata bithastighet som ”< VideoStream\>* < / VideoStream\>”, och utdatafilen innehåller video och sedan {Basename} är den första 32 tecknen i trackName av den motsvarande video lager. |
-| **{Codec}** |Mappas till ”H264” video och ”AAC” för ljud. |
-| **{Bithastighet}** |På önskad video bithastighet om utdatafilen innehåller video och ljud eller mål ljud bithastighet om utdatafilen innehåller endast ljud. Det värde som används är bithastighet i kbit/s. |
-| **{Kanal}** |Antal ljud kanaler om filen innehåller ljud. |
-| **{Bredd}** |Bredd, i bildpunkter i filen, om filen innehåller video. |
-| **{Höjd}** |Höjden på video, i bildpunkter i filen, om filen innehåller video. |
-| **{Tillägg}** |Ärver från egenskapen ”Type” för utdatafilen. Namnet på utdatafilen har ett tillägg som är en av: ”mp4”, ”ts”, ”jpg”, ”png” eller ”bmp”. |
-| **{Index}** |Obligatorisk för miniatyr. Ska endast finnas en gång. |
+| **{Basename}** |Om du genomför VoD-kodning, är de första 32 tecknen i egenskapen AssetFile.Name för den primära filen i indatatillgången {Basename}.<br/><br/> Om indatatillgången är en live-arkivet, härleds {Basename} från trackName attribut i server-manifestet. Om du skickar en underklipp-jobb med hjälp av TopBitrate, som i ”: < VideoStream\>TopBitrate < / VideoStream\>”, och utdatafilen innehåller videon blir {Basename} är de första 32 tecknen i trackName skiktets video med högsta bithastighet.<br/><br/> Om du skickar i stället ett underklipp jobb med hjälp av alla indata bithastighet, till exempel ”< VideoStream\>* < / VideoStream\>”, och utdatafilen innehåller videon blir {Basename} är de första 32 tecknen i trackName av den motsvarande video lager. |
+| **{Codec}** |Mappas till ”H264” för video och ”AAC” för ljud. |
+| **{Bithastighet}** |Target video bithastigheten om utdatafilen innehåller video och ljud eller önskad ljud bithastighet om utdatafilen innehåller endast ljud. Det värde som används är bithastigheten i kbit/s. |
+| **{Kanal}** |Ljud kanal antal om filen innehåller ljud. |
+| **{Width}** |Bredden på videon i bildpunkter i filen, om filen innehåller video. |
+| **{Höjd}** |Höjd för videon i bildpunkter i filen, om filen innehåller video. |
+| **{Extension}** |Ärver från egenskapen ”Type” för utdatafilen. Namnet på utdatafilen har ett tillägg som är en av: ”mp4”, ”ts”, ”jpg”, ”png” eller ”bmp”. |
+| **{Index}** |Obligatorisk för miniatyrbilden. Ska bara finnas en gång. |
 
 ## <a name="Video"></a> Video (komplex typ ärver från Codec)
 ### <a name="attributes"></a>Attribut
@@ -167,21 +166,21 @@ Ljud-Codec|Information
 | --- | --- | --- |
 | **Börja** |**Xs:String** | |
 | **Steg** |**Xs:String** | |
-| **intervallet** |**Xs:String** | |
+| **Adressintervall** |**Xs:String** | |
 | **PreserveResolutionAfterRotation** |**Xs:Boolean** |Detaljerad förklaring finns i följande avsnitt: [PreserveResolutionAfterRotation](media-services-mes-schema.md#PreserveResolutionAfterRotation) |
 
 ### <a name="PreserveResolutionAfterRotation"></a> PreserveResolutionAfterRotation
 Det rekommenderas att använda den **PreserveResolutionAfterRotation** flaggan i kombination med upplösningar uttryckt i procent (Width = ”100%”, höjd = ”100%”).  
 
-Som standard riktas koda inställningarna för matchning av (bredden och höjden) i Media Encoder Standard (MES) förinställningar videor med rotation 0 grader. Om din indatavideo är minst 1 280 x 720 med noll graders rotation, sedan kontrollera standardförinställningar exempelvis att utdata har samma upplösning.  
+Som standard riktas koda upplösningsinställningarna (bredd, höjd) i Media Encoder Standard (MES) förinställningar videor med 0 grader rotation. Exempel: om din indatavideo är 1 280 x 720 med noll-graders rotation, standardförinställningar ser du till att utdata har samma upplösning.  
 
 ![MESRoation1](./media/media-services-shemas/media-services-mes-roation1.png) 
 
-Om inkommande video har spelats in med noll kan rotera (till exempel en smartphone eller surfplatta hålls lodrätt), sedan MES som standard tillämpar inställningarna för matchning av koda (bredden och höjden) inkommande video och sedan kompensera för rotationen. Till exempel se bilden nedan. Förinställningen använder Width = ”100%”, höjd = ”100%”, som MES tolkas som att kräva att utdata ska vara minst 1 280 bildpunkter och 720 bildpunkter. När du roterar videon krymper sedan bilden passar i fönstret, vilket leder till pillar-box områden till vänster och höger.  
+Om indatavideon har spelats in med noll rotation (till exempel en smartphone eller surfplatta som hålls i lodrätt), sedan MES som standard gäller inställningarna för matchning koda (bredd, höjd) för indata video och sedan kompensera för rotationen. Till exempel se bilden nedan. Förinställningen använder Width = ”100%”, Height = ”100%”, vilket MES tolkas som att kräva att utdata ska vara minst 1 280 bildpunkter på bredden och 720 bildpunkter. När du roterar videon krymper sedan bilden ska passas in i fönstret, vilket leder till pillar-box områden till vänster och höger.  
 
 ![MESRoation2](./media/media-services-shemas/media-services-mes-roation2.png) 
 
-Alternativt kan du använda den **PreserveResolutionAfterRotation** flagga och inställd på ”true” (standardvärdet är ”false”). Så om förinställning har Width = ”100%”, höjd = ”100%” och PreserveResolutionAfterRotation inställt på ”true” och en indatavideo som är minst 1 280 bildpunkter och 720 bildpunkter med 90 grader rotation producerar utdata med noll graders rotation, men 720 bildpunkter bred och 1280 bildpunkter. Se följande bild:  
+Alternativt kan du använda den **PreserveResolutionAfterRotation** flaggan och ge den värdet ”true” (standardvärdet är ”false”). Så om din förinställda har bredd = ”100%”, Height = ”100%” och värdet ”true”, en indatavideon PreserveResolutionAfterRotation som är minst 1 280 bildpunkter på bredden och 720 bildpunkter med 90 grader rotation producerar utdata med noll-graders rotation, men 720 bildpunkter bred och 1280 bildpunkter. Se följande bild:  
 
 ![MESRoation3](./media/media-services-shemas/media-services-mes-roation3.png) 
 
@@ -203,7 +202,7 @@ Alternativt kan du använda den **PreserveResolutionAfterRotation** flagga och i
 ### <a name="attributes"></a>Attribut
 | Namn | Typ | Beskrivning |
 | --- | --- | --- |
-| **Villkor** |**Xs:String** | |
+| **villkor** |**Xs:String** | |
 
 ## <a name="PngLayer"></a> PngLayer
 ### <a name="element"></a>Element
@@ -215,7 +214,7 @@ Alternativt kan du använda den **PreserveResolutionAfterRotation** flagga och i
 ### <a name="attributes"></a>Attribut
 | Namn | Typ | Beskrivning |
 | --- | --- | --- |
-| **Villkor** |**Xs:String** | |
+| **villkor** |**Xs:String** | |
 
 ## <a name="JpgLayer"></a> JpgLayer
 ### <a name="element"></a>Element
@@ -228,25 +227,25 @@ Alternativt kan du använda den **PreserveResolutionAfterRotation** flagga och i
 ### <a name="attributes"></a>Attribut
 | Namn | Typ | Beskrivning |
 | --- | --- | --- |
-| **Villkor** |**Xs:String** | |
+| **villkor** |**Xs:String** | |
 
 ## <a name="PngLayers"></a> PngLayers
 ### <a name="elements"></a>Element
 | Namn | Typ | Beskrivning |
 | --- | --- | --- |
-| **PngLayer**<br/><br/> minOccurs = ”0” maxOccurs = ”unbounded” |[PngLayer](media-services-mes-schema.md#PngLayer) | |
+| **PngLayer**<br/><br/> minOccurs = ”0” maxOccurs = ”obundna” |[PngLayer](media-services-mes-schema.md#PngLayer) | |
 
 ## <a name="BmpLayers"></a> BmpLayers
 ### <a name="elements"></a>Element
 | Namn | Typ | Beskrivning |
 | --- | --- | --- |
-| **BmpLayer**<br/><br/> minOccurs = ”0” maxOccurs = ”unbounded” |[BmpLayer](media-services-mes-schema.md#BmpLayer) | |
+| **BmpLayer**<br/><br/> minOccurs = ”0” maxOccurs = ”obundna” |[BmpLayer](media-services-mes-schema.md#BmpLayer) | |
 
 ## <a name="JpgLayers"></a> JpgLayers
 ### <a name="elements"></a>Element
 | Namn | Typ | Beskrivning |
 | --- | --- | --- |
-| **JpgLayer**<br/><br/> minOccurs = ”0” maxOccurs = ”unbounded” |[JpgLayer](media-services-mes-schema.md#JpgLayer) | |
+| **JpgLayer**<br/><br/> minOccurs = ”0” maxOccurs = ”obundna” |[JpgLayer](media-services-mes-schema.md#JpgLayer) | |
 
 ## <a name="BmpImage"></a> BmpImage (komplex typ ärver från Video)
 ### <a name="elements"></a>Element
@@ -267,7 +266,7 @@ Alternativt kan du använda den **PreserveResolutionAfterRotation** flagga och i
 | **PngLayers**<br/><br/> minOccurs="0" |[PngLayers](media-services-mes-schema.md#PngLayers) |PNG-lager |
 
 ## <a name="examples"></a>Exempel
-Finns exempel på XML-förinställda som skapas utifrån det här schemat finns [aktivitet förinställningar för MES (Media Encoder Standard)](media-services-mes-presets-overview.md).
+Se exempel på XML-förinställningar som byggts baserat på det här schemat finns i [uppgift förinställningar för MES (Media Encoder Standard)](media-services-mes-presets-overview.md).
 
 ## <a name="next-steps"></a>Nästa steg
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]

@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 04/18/2017
 ms.author: tamram
 ms.component: common
-ms.openlocfilehash: d170fc0a0e4113b0f58c3b78f3a61aa2b08e69ff
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: c7d2c16ef135644c1ff23d7a71c66bec27ac930d
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/30/2018
-ms.locfileid: "50231542"
+ms.locfileid: "50241053"
 ---
 # <a name="using-shared-access-signatures-sas"></a>Använda signaturer för delad åtkomst (SAS)
 
@@ -222,7 +222,7 @@ Följande rekommendationer för att använda signaturer för delad åtkomst kan 
 6. **Vara specifika med resursen som ska användas.** Av säkerhetsskäl är att ge en användare med lägsta behörighet. Om användaren behöver bara läsbehörighet till en enda enhet, sedan ger dem tillgång till läsåtkomst till den enda entiteten och inte läsning/skrivning/ta bort åtkomst till alla entiteter. Detta hjälper även minska skador om en SAS komprometteras eftersom signaturen för delad åtkomst har mindre ström i händerna på en angripare.
 7. **Förstå att ditt konto kommer att faktureras för eventuell användning, inklusive att göra med SAS.** Om du anger skrivåtkomst till en blob kan kan en användare välja att ladda upp en blob 200GB. Om du har gett dem samt läsbehörighet, kan de välja att hämta den 10 gånger medför 2 TB i kostnader för nätverksegress för dig. Igen, ange begränsade behörigheter för att minska potentiella åtgärder av obehöriga användare. Använda tillfällig SAS för att minska det här hotet (men Tänk också på klockan skeva på sluttid).
 8. **Validera data som skrivits med hjälp av SAS.** När ett klientprogram skriver data till ditt lagringskonto, Kom ihåg att det kan finnas problem med dessa data. Om programmet kräver att data ska verifieras eller behörighet innan det är klart att användas, bör du utföra den här verifieringen när data skrivs och innan den används av ditt program. Den här metoden skyddar även mot skadad eller skadliga data som skrivs till ditt konto, antingen av en användare som har köpt SAS korrekt eller av en användare som utnyttjar en läckta SAS.
-9. **Inte alltid att använda SAS.** Ibland uppväga riskerna med en viss åtgärd mot ditt lagringskonto fördelarna med SAS. För sådana åtgärder, skapar du en tjänst i mittennivå som skriver till ditt storage-konto när du har utfört företag regel verifiering, autentisering och granskning. Dessutom är ibland det enklare att hantera åtkomst på andra sätt. Till exempel om du vill se alla blobbar i en behållare publicaly läsbara du behållaren offentlig, i stället för att tillhandahålla en SAS på alla klienter för åtkomst.
+9. **Inte alltid att använda SAS.** Ibland uppväga riskerna med en viss åtgärd mot ditt lagringskonto fördelarna med SAS. För sådana åtgärder, skapar du en tjänst i mittennivå som skriver till ditt storage-konto när du har utfört företag regel verifiering, autentisering och granskning. Dessutom är ibland det enklare att hantera åtkomst på andra sätt. Till exempel om du vill se alla blobbar i en behållare som är offentligt läsbara du behållaren offentlig, i stället för att tillhandahålla en SAS på alla klienter för åtkomst.
 10. **Använda Storage Analytics för att övervaka program.** Du kan använda loggning och mått för att se alla topp i autentiseringsfel på grund av ett avbrott i din SAS provider-tjänsten eller oavsiktlig borttagning av en lagrad åtkomstprincip. Se den [Azure Storage-teamets blogg](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/08/03/windows-azure-storage-logging-using-logs-to-track-storage-requests.aspx) för ytterligare information.
 
 ## <a name="sas-examples"></a>SAS-exempel

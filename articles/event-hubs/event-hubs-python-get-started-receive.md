@@ -9,12 +9,12 @@ ms.workload: core
 ms.topic: article
 ms.date: 07/26/2018
 ms.author: sethm
-ms.openlocfilehash: f5388f2de599d94f68a1d24a7d701a2cb4795915
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: 9707f0cf5a76c0ac4006b53ca8166d3b42fc9af4
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43703729"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50240570"
 ---
 # <a name="receive-events-from-event-hubs-using-python"></a>Ta emot händelser från Event Hubs med hjälp av Python
 
@@ -108,14 +108,7 @@ start python recv.py
 ```
  
 ## <a name="next-steps"></a>Nästa steg
-
-För att skicka händelser, se [motsvarande Skicka artikel](event-hubs-python-get-started-send.md).
-
-Finns på följande sidor om du vill veta mer om Event Hubs:
-
-* [Översikt av händelsehubbar][Event Hubs overview]
-* [Skapa en Event Hub](event-hubs-create.md)
-* [Vanliga frågor och svar om Event Hubs](event-hubs-faq.md)
+I den här snabbstarten skapade du ett Python-program som har fått meddelanden från en event hub. Läs hur du skickar händelser till en event hub med Python i [skicka händelser från event hub - Python](event-hubs-python-get-started-send.md).
 
 <!-- Links -->
 [Event Hubs overview]: event-hubs-about.md

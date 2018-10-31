@@ -15,17 +15,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/16/2018
 ms.author: gokuma
-ms.openlocfilehash: c125f503166e3f63599dbd09acf42c69fab8d2ce
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: 7576c479b9e3e443b048a9295c0ff0f30d4b9423
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48044662"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50240332"
 ---
 # <a name="data-science-with-a-linux-data-science-virtual-machine-on-azure"></a>Datavetenskap med en Linux virtuell dator för datavetenskap på Azure
 Den här genomgången visar hur du utför flera vanliga datavetenskapsuppgifter med den virtuella datorn datavetenskap för Linux. Linux Data Science Virtual Machine (DSVM) är en avbildning av virtuell dator som är tillgängliga på Azure som är förinstallerade med en uppsättning verktyg som ofta används för dataanalys och maskininlärning. Viktiga programkomponenterna är uppdelat i den [etablera Linux Data Science Virtual Machine](linux-dsvm-intro.md) avsnittet. VM-avbildning gör det enkelt att komma igång datavetenskap på några minuter, utan att behöva installera och konfigurera var och en av verktyg individuellt. Du kan enkelt skala upp den virtuella datorn, om det behövs och stoppa den när den inte används. Den här resursen är därför både elastisk och kostnadseffektiv.
 
-Data science-åtgärder som visas i den här genomgången följer du stegen som beskrivs i den [Team Data Science Process](https://azure.microsoft.com/documentation/learning-paths/data-science-process/). Den här processen ger en systematisk metod för datavetenskap som gör det möjligt för datautvecklarteam att samarbeta effektivt under hela livscykeln för att skapa intelligenta program. Data science process ger också en iterativ ramverk för datavetenskap som kan följas av en person.
+Data science-åtgärder som visas i den här genomgången följer du stegen som beskrivs i den [Team Data Science Process](https://docs.microsoft.com/en-us/azure/machine-learning/team-data-science-process/overview). Den här processen ger en systematisk metod för datavetenskap som gör det möjligt för datautvecklarteam att samarbeta effektivt under hela livscykeln för att skapa intelligenta program. Data science process ger också en iterativ ramverk för datavetenskap som kan följas av en person.
 
 Analyserar vi de [spambase](https://archive.ics.uci.edu/ml/datasets/spambase) datauppsättningen i den här genomgången. Det här är en uppsättning e-postmeddelanden som markerats som skräppost eller skinka (vilket innebär att de inte är skräppost), och innehåller även vissa statistik på innehållet i e-postmeddelanden. Statistik ingår diskuteras i nästa men ett avsnitt.
 

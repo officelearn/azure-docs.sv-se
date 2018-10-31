@@ -3,20 +3,20 @@ title: Azure Cosmos DB-bindningar för Functions 2.x
 description: Förstå hur du använder Azure Cosmos DB-utlösare och bindningar i Azure Functions.
 services: functions
 documentationcenter: na
-author: ggailey777
+author: craigshoemaker
 manager: jeconnoc
 keywords: Azure functions, funktioner, händelsebearbetning, dynamisk beräkning, serverlös arkitektur
 ms.service: azure-functions; cosmos-db
 ms.devlang: multiple
 ms.topic: reference
 ms.date: 11/21/2017
-ms.author: glenga
-ms.openlocfilehash: fae82d702158b98e0182a0cfa575249c19236ccb
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.author: cshoe
+ms.openlocfilehash: 4a1f9552b9a578cd34f3482e793947e06bb24407
+ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50157674"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50249823"
 ---
 # <a name="azure-cosmos-db-bindings-for-azure-functions-2x"></a>Azure Cosmos DB-bindningar för Azure Functions 2.x
 
@@ -1707,6 +1707,33 @@ När du skriver till Utdataparametern i din funktion skapas ett dokument i datab
 | Bindning | Referens |
 |---|---|
 | CosmosDB | [Felkoder för CosmosDB](https://docs.microsoft.com/rest/api/cosmos-db/http-status-codes-for-cosmosdb) |
+
+<a name="host-json"></a>  
+
+## <a name="hostjson-settings"></a>Host.JSON-inställningar
+
+Det här avsnittet beskrivs de globala konfigurationsinställningarna som är tillgängliga för den här bindningen i version 2.x. Mer information om konfigurationsinställningar i version 2.x kan se [host.json-referens för Azure Functions version 2.x](functions-host-json.md).
+
+```json
+{
+    "version": "2.0",
+    "extensions": {
+        "cosmosDB": {
+            "connectionMode": "Gateway",
+            "protocol": "Https",
+            "leaseOptions": {
+                "leasePrefix": "prefix1"
+            }
+        }
+    }
+}
+```  
+
+|Egenskap   |Standard | Beskrivning |
+|---------|---------|---------| 
+|GatewayMode|Gateway|Anslutningsläge som används av funktionen när du ansluter till Azure Cosmos DB-tjänsten. Alternativen är `Direct` och `Gateway`|
+|Protokoll|Https|Anslutningsprotokoll som används av funktionen när anslutningen till Azure Cosmos DB-tjänsten.  Läs [här som en förklaring av båda lägena](../cosmos-db/performance-tips.md#networking)| 
+|leasePrefix|Saknas|Lån-prefix kan använda alla funktioner i en app.| 
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -11,14 +11,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 09/20/2018
+ms.date: 10/30/2018
 ms.author: alkohli
-ms.openlocfilehash: 5da67b5141eb61823d3e376b6f0e6b0b3895ca68
-ms.sourcegitcommit: 8b694bf803806b2f237494cd3b69f13751de9926
+ms.openlocfilehash: 5166e154e1a67cea777933b6bf8757661a9c3ad5
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/20/2018
-ms.locfileid: "46498291"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50242967"
 ---
 # <a name="options-to-migrate-data-from-storsimple-5000-7000-series"></a>Alternativ för att migrera data från StorSimple 5000-7000-serien 
 
@@ -29,15 +29,21 @@ StorSimple 5000-7000-serien når [supporten](https://support.microsoft.com/lifec
 
 ## <a name="migration-options"></a>Migreringsalternativ
 
-Kunder som använder StorSimple har 5000-7000-serien följande två viktiga alternativ:
+De kunder som använder StorSimple 5000-7000-serien har du följande alternativ:
 
-- **Uppgradera till StorSimple 8000-serien** – uppgradera till StorSimple 8000-serien och således att fortsätta på StorSimple-plattformen.  Den här uppgraderingsvägen kräver kunder för att ersätta sina serieenheter för 5000 – 7000-med 8000-serien. Data migreras från 5000 – 7000-serieenhet med hjälp av migreringsverktyget. När migreringen är slutförd fortsätter StorSimple 8000-serieenheter att Datacenter till Azure Blob Storage. 
+- **Alternativ för Azure**:
+
+    - **Uppgradera till StorSimple 8000-serien** – uppgradera till StorSimple 8000-serien och således att fortsätta på StorSimple-plattformen.  Den här uppgraderingsvägen kräver kunder för att ersätta sina serieenheter för 5000 – 7000-med 8000-serien. Data migreras från 5000 – 7000-serieenhet med hjälp av migreringsverktyget. När migreringen är slutförd fortsätter StorSimple 8000-serieenheter att Datacenter till Azure Blob Storage. 
 
     Mer information om hur du migrerar data med hjälp av en StorSimple 8000-serien, går du till [migrera data från StorSimple 5000-7000-serien 8000-serien enheten](storsimple-8000-migrate-from-5000-7000.md).
 
-- **Migrera till Azure File Sync** – den här helt nya migreringsalternativ ger kunder möjlighet att lagra sin organisations filresurser i Azure-filer. Dessa filresurser är sedan centraliserade för lokal åtkomst med hjälp av Azure File Sync (AFS). AFS kan distribueras på en Windows Server-värd. Faktiska datamigreringen utförs sedan som en värd kopia eller med hjälp av migreringsverktyget.
+    - **Migrera till Azure File Sync** – den här helt nya migreringsalternativ ger kunder möjlighet att lagra sin organisations filresurser i Azure-filer. Dessa filresurser är sedan centraliserade för lokal åtkomst med hjälp av Azure File Sync (AFS). AFS kan distribueras på en Windows Server-värd. Faktiska datamigreringen utförs sedan som en värd kopia eller med hjälp av migreringsverktyget.
 
     Mer information om hur du migrerar data till Azure File Sync går du till [migrera data från StorSimple 5000-7000-serien till Azure File Sync](https://aka.ms/StorSimpleMigrationAFS).
+
+- **Alternativ för tredjeparts**:
+
+    - **Migrera till Panzura frihet NAS** -StorSimple 5000-7000-kunder kan välja att migrera till Panzura frihet NAS att behålla sina data i Azure. Panzura frihet-lösningen innehåller en NAS-lösning som sträcker sig över datacenter, kontor, offentliga och privata moln. Den här lösningen kan lokala, hybrid och data i molnet arbetsflöden för NFS, SMB och mobila klienter. Den här migreringen stöds av Panzura och kunder kan komma igång genom att begära Migreringsstöd för från den [Panzura webbplats](https://panzura.com/storsimple-migration/).
 
 ## <a name="migration---frequently-asked-questions"></a>Migrering – vanliga frågor och svar
 
@@ -50,11 +56,11 @@ A. StorSimple 5000-7000-serien nå [slutet av tjänsten](https://support.microso
 A. Du kan fortsätta att använda data i Azure när du migrerar till en nyare tjänst. 
 
 
-### <a name="q--what-happens-to-the-data-i-have-stored-locally-on-my-storsimple-device"></a>F.  Vad händer med de data som jag har lagras lokalt på min StorSimple-enhet? 
+### <a name="q-what-happens-to-the-data-i-have-stored-locally-on-my-storsimple-device"></a>F. Vad händer med de data som jag har lagras lokalt på min StorSimple-enhet? 
 
 A. De data som finns på den lokala enheten kan kopieras till den nyare servicen enligt beskrivningen i dokument för migrering.
 
-### <a name="what-happens-if-i-want-to-keep-my-storsimple-50007000-series-appliance"></a>Vad händer om jag vill behålla Mina StorSimple 5000/7000-serien installation? 
+### <a name="q-what-happens-if-i-want-to-keep-my-storsimple-50007000-series-appliance"></a>F. Vad händer om jag vill behålla Mina StorSimple 5000/7000-serien installation? 
 
 A. Tjänsterna kan fortsätta att fungera, kommer Microsoft inte längre att tillhandahålla stöd för maskinvara och programvara. Migrering rekommenderas för affärskontinuitet.
 

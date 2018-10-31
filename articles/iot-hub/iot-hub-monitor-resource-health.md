@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 08/09/2018
 ms.author: kgremban
-ms.openlocfilehash: c400a084a78af6313e355d65bcbc07a520f55514
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: b470ca15163ef1e74ec9795ad0a2581a24c83474
+ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50156059"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50250428"
 ---
 # <a name="monitor-the-health-of-azure-iot-hub-and-diagnose-problems-quickly"></a>Övervaka hälsotillståndet för Azure IoT Hub och diagnostisera problem snabbt
 
@@ -26,11 +26,11 @@ Azure Monitor är en enda källa för övervakning och loggning för alla dina A
 
 Azure Resource Health hjälper dig att diagnostisera och få support när ett problem med Azure påverkar dina resurser. En anpassad instrumentpanel ger status för aktuella och tidigare tillstånd för din IoT-hubbar. Fortsätt att läsa den här artikeln om du vill lära dig hur du [Använd Azure Resource Health](#use-azure-resource-health) med IoT-hubben. 
 
-Förutom att integrera med de här två tjänsterna, dessutom IoT Hub eget mått som du kan använda för att förstå tillståndet för dina IoT-resurser. Mer information finns i [förstå IoT Hub mått][lnk-metrics].
+IoT Hub tillhandahåller även dess egna mått som du kan använda för att förstå tillståndet för dina IoT-resurser. Mer information finns i [förstå IoT Hub mått][lnk-metrics].
 
 ## <a name="use-azure-monitor"></a>Använda Azure Monitor
 
-Azure Monitor innehåller resursnivå diagnostikinformation, vilket innebär att du kan övervaka åtgärder som äger rum i din IoT-hubb. 
+Azure Monitor innehåller diagnostikinformation för Azure-resurser, vilket innebär att du kan övervaka åtgärder som äger rum i din IoT-hubb. 
 
 Azure Monitor diagnostik inställningar ersätter övervaka för IoT Hub-åtgärder. Om du använder åtgärdsövervakning, bör du migrera dina arbetsflöden. Mer information finns i [migrera från åtgärder som övervakar Diagnostics inställningar][lnk-migrate].
 
@@ -42,11 +42,9 @@ Mer information om specifika mått och händelser som Azure Monitor bevakar finn
 
 Azure Monitor övervakar olika åtgärder som inträffar i IoT Hub. Varje kategori har ett schema som definierar hur händelser i den kategorin rapporteras. 
 
-
-
 #### <a name="connections"></a>Anslutningar
 
-Anslutningar kategorin spårar enheten ansluta och koppla bort händelser från en IoT-hubb, samt fel. Det är användbart för att identifiera obehöriga anslutningsförsök och för att spåra när anslutningen kopplas från för enheter i områden med dålig anslutning att spåra den här kategorin.
+Anslutningar kategorin spårar enheten ansluta och koppla bort händelser från en IoT-hubb, samt fel. Den här kategorin är användbara för att identifiera obehöriga anslutningsförsök och eller aviseringar när du har förlorat anslutningen till enheter.
 
 > [!NOTE]
 > Tillförlitlig anslutningsstatus för enheter Kontrollera [enheten pulsslag][lnk-devguide-heartbeat].
@@ -65,7 +63,13 @@ Anslutningar kategorin spårar enheten ansluta och koppla bort händelser från 
 
 #### <a name="cloud-to-device-commands"></a>Moln till enhet-kommandon
 
-Moln till enhet kommandon kategorin spårar fel som inträffar på IoT-hubben och som är relaterade till moln till enhet meddelandepipeline. Den här kategorin innehåller fel som uppstår när du skickar meddelanden från molnet till enheten (till exempel obehöriga avsändare), ta emot meddelanden från molnet till enheten (till exempel leveransantalet har överskridits) och mottagande moln till enhet-meddelande (t ex feedback har gått ut). Den här kategorin fånga inte fel från en enhet som hanterar ett moln-till-enhet-meddelande felaktigt om moln till enhet meddelandet levererades har.
+Moln till enhet kommandon kategorin spårar fel som inträffar på IoT-hubben och som är relaterade till moln till enhet meddelandepipeline. Den här kategorin innehåller fel som uppstår från:
+
+* Skicka meddelanden från moln till enhet (till exempel obehöriga sändaren),
+* Ta emot meddelanden från molnet till enheten (till exempel leverans för många fel), och
+* Mottagande moln till enhet-meddelande (förfallet fel som feedback). 
+
+Den här kategorin fånga inte fel när moln-till-enhet-meddelande levereras men felaktigt hanteras av enheten.
 
 ```json
 {
@@ -111,7 +115,13 @@ Enhetskategorin identitet operations spårar fel som uppstår vid försök att s
 
 #### <a name="routes"></a>Vägar
 
-Meddelandet routning kategorin spårar fel som inträffar när meddelandet vägen utvärdering och slutpunktshälsa anser vara av IoT Hub. Den här kategorin innehåller händelser, som när en regel som utvärderas till ”odefinierad”, när IoT Hub markerar en slutpunkt som dead och eventuella andra fel togs emot från en slutpunkt. Den här kategorin omfattar inte specifika fel om själva meddelandena (till exempel enhet begränsningsfel) som har rapporterats under kategorin ”enhetstelemetri”.
+Meddelandet routning kategorin spårar fel som inträffar när meddelandet vägen utvärdering och slutpunktshälsa anser vara av IoT Hub. Den här kategorin omfattar händelser som:
+
+* En regel som utvärderar till ”odefinierad”
+* IoT Hub markerar en slutpunkt som dött, eller
+* Eventuella fel togs emot från en slutpunkt. 
+
+Den här kategorin omfattar inte specifika fel om själva meddelandena (till exempel enhet begränsningsfel) som har rapporterats under kategorin ”enhetstelemetri”.
 
 ```json
 {
@@ -365,7 +375,7 @@ class Program 
 
 Använd Azure Resource Health för att övervaka om IoT-hubben är igång. Du kan också lära dig om ett regionalt strömavbrott påverkar hälsotillståndet för din IoT-hubb. För att förstå specifik information om hälsotillståndet för Azure IoT Hub, rekommenderar vi att du [Använd Azure Monitor](#use-azure-monitor). 
 
-Azure IoT Hub anger hälsotillstånd på regional nivå. Om det inte ett regionalt strömavbrott påverkar din IoT-hubb, hälsostatus visas som **okänd**. Läs mer om de specifika hälsokontroller av slutpunkter som utför Azure Resource Health i [resurstyper och hälsokontroller i Azure resource health][lnk-ARH-checks].
+Azure IoT Hub anger hälsotillstånd på regional nivå. Om ett regionalt strömavbrott påverkar din IoT-hubb, hälsostatus visas som **okänd**. Mer information finns i [resurstyper och hälsokontroller i Azure resource health][lnk-ARH-checks].
 
 Följ dessa steg för att kontrollera hälsotillståndet för din IoT-hubbar:
 

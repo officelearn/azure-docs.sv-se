@@ -4,16 +4,16 @@ description: Plattformar som stöds av Azure IoT Edge
 author: kgremban
 manager: timlt
 ms.author: kgremban
-ms.date: 6/21/2018
+ms.date: 09/21/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 2163179d3353626e12495381fc64792db56ec78e
-ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
+ms.openlocfilehash: b8b4664540d07b76d0cebe5df99ba2cc67dd47e6
+ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43286370"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50248572"
 ---
 # <a name="azure-iot-edge-support"></a>Support för Azure IoT Edge
 Det finns en mängd olika sätt att söka efter support för Azure IoT Edge-produkten.
@@ -65,6 +65,3 @@ Nivå 2-system kan betraktas som kompatibelt med Azure IoT Edge och relativt lä
 ## <a name="container-engines"></a>Behållare-motorer
 Azure IoT Edge måste en motor för behållaren att starta moduler, oavsett vilket operativsystem som den körs. Microsoft tillhandahåller en motor för behållare, moby-motorn att uppfylla detta krav. Den är baserad på öppen källkod-projekt Moby. Docker CE- och Docker EE är andra populära container-motorer. De även baseras på Moby öppnas source-projektet och är kompatibla med Azure IoT Edge. Microsoft tillhandahåller support efter bästa förmåga för system med hjälp av de motorerna för behållaren. Microsoft har dock inte att leverera korrigeringar för problem i dem. Därför rekommenderar Microsoft med moby-motor på produktionssystemen.
 
-
-<!-- Links -->
-[lnk-edge-blog]: https://azure.microsoft.com/blog/securing-the-intelligent-edge/ 

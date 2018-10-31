@@ -1,101 +1,95 @@
 ---
-title: Konfigurera en plats-till-plats-VPN över Microsoft Azure ExpressRoute-peering | Microsoft Docs
-description: Konfigurera IPsec/IKE-anslutningen till Azure via en peering Microsoft ExpressRoute-krets med hjälp av en plats-till-plats VPN-gateway.
-documentationcenter: na
+title: Konfigurera en plats-till-plats-VPN över Microsoft-peering för Azure ExpressRoute | Microsoft Docs
+description: Konfigurera IPsec/IKE-anslutningar till Azure över en peering Microsoft ExpressRoute-krets med hjälp av en plats-till-plats VPN-gateway.
 services: expressroute
 author: cherylmc
-manager: timlt
-editor: ''
-ms.assetid: ''
 ms.service: expressroute
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 12/06/2017
+ms.topic: conceptual
+ms.date: 10/29/2018
 ms.author: cherylmc
-ms.openlocfilehash: 86e101ee78cfa709c6957c7658f103ce787a6351
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.openlocfilehash: 5fb4a4034a744b8b2b769a1cfd2d9df12ea90dde
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37110862"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50240922"
 ---
-# <a name="configure-a-site-to-site-vpn-over-expressroute-microsoft-peering"></a>Konfigurera en plats-till-plats VPN-anslutning via Microsoft ExpressRoute-peering
+# <a name="configure-a-site-to-site-vpn-over-expressroute-microsoft-peering"></a>Konfigurera en VPN för plats-till-plats via ExpressRoute Microsoft-peering
 
-Den här artikeln hjälper dig att konfigurera säker krypterad anslutning mellan ditt lokala nätverk och dina virtuella Azure-nätverk (Vnet) via en privat ExpressRoute-anslutning. Konfigurera en säker tunnel över ExpressRoute kan för datautbyte med sekretess, skydd mot omsändning, äkthetsbeviset och integritet.
+Den här artikeln hjälper dig att konfigurera säker krypterad anslutning mellan ditt lokala nätverk och din Azure-nätverk (Vnet) via en privat ExpressRoute-anslutning. Konfigurera en säker tunnel via ExpressRoute tillåter för datautbyte med konfidentialitet, anti repetitionsattacker, äkthetsbeviset och integritet.
 
 ## <a name="architecture"></a>Arkitektur
 
-Du kan använda Microsoft-peering för att upprätta en plats-till-plats IPsec/IKE VPN-tunnel mellan din valda lokala nätverk och virtuella Azure-nätverk.
+Du kan använda Microsoft-peering för att upprätta en plats-till-plats IPsec/IKE VPN-tunnel mellan dina valda lokala nätverk och virtuella Azure-nätverk.
+
+  >[!NOTE]
+>När du konfigurerar VPN för plats-till-plats via Microsoft-peering, debiteras du för VPN-gateway och VPN-utgående. Mer information finns i [prissättning för VPN-Gateway](https://azure.microsoft.com/pricing/details/vpn-gateway).
+>
+>
 
   ![Översikt över anslutning](./media/site-to-site-vpn-over-microsoft-peering/IPsecER_Overview.png)
 
->[!NOTE]
->När du konfigurerar VPN för plats-till-plats över Microsoft-peering, debiteras du för VPN-gateway och VPN-utgång. Mer information finns i [priser för VPN-Gateway](https://azure.microsoft.com/pricing/details/vpn-gateway).
->
->
 
-Du kan konfigurera flera tunnlar via en ExpressRoute-krets två MSEE PE-par och aktivera belastningsutjämning mellan tunnlar för hög tillgänglighet och redundans.
+För hög tillgänglighet och redundans kan du konfigurera flera tunnlar via en ExpressRoute-krets två msee: N PE-par och aktivera belastningsutjämning mellan tunnlarna.
 
   ![alternativ för hög tillgänglighet](./media/site-to-site-vpn-over-microsoft-peering/HighAvailability.png)
 
-VPN-tunnlar över Microsoft-peering kan avslutas med hjälp av VPN-gateway eller använda en lämplig nätverket virtuell installation (NVA) tillgängliga via Azure Marketplace. Du kan utbyta vägar statiskt eller dynamiskt via krypterade tunnlar utan att exponera väg exchange till den underliggande Microsoft-peering. I exemplen i den här artikeln används BGP (skiljer sig från BGP-sessionen som används för att skapa Microsoft-peering) för att utbyta prefix dynamiskt via krypterade tunnlar.
+VPN-tunnlar via Microsoft-peering kan avbrytas antingen med hjälp av VPN-gateway eller använda en lämplig virtuell nätverksinstallation (NVA) tillgängliga via Azure Marketplace. Du kan utbyta vägar statiskt eller dynamiskt via krypterade tunnlar utan att exponera routningsutbyte till de underliggande Microsoft-peering. I exemplen i den här artikeln används BGP (skiljer sig från BGP-sessionen som används för att skapa Microsoft-peering) för att utbyta dynamiskt prefix via krypterade tunnlarna.
 
 >[!IMPORTANT]
->För den lokala sidan vanligtvis Microsoft-peering termineras på Perimeternätverket och privat peering termineras på zonen core nätverk. Två zoner separeras med brandväggar. Om du konfigurerar Microsoft exklusivt för att aktivera säker tunnelanslutning via ExpressRoute-peering, Kom ihåg att filtrera via endast den offentliga IP-adresser av intresse komma annonseras via Microsoft-peering.
+>För den lokala sidan normalt Microsoft-peering avslutas på Perimeternätverket och privat peering termineras på zonen core nätverk. Två zoner separeras med brandväggar. Om du konfigurerar Microsoft-peering exklusivt för att aktivera säker tunnel via ExpressRoute, Kom ihåg att filtrera via bara den offentliga IP-adresser av intresse som komma annonseras via Microsoft-peering.
 >
 >
 
 ## <a name="workflow"></a>Arbetsflöde
 
-1. Konfigurera Microsoft-peering för ExpressRoute-kretsen.
+1. Konfigurera Microsoft-peering för din ExpressRoute-krets.
 2. Annonsera valda Azure regionala offentliga prefix till ditt lokala nätverk via Microsoft-peering.
 3. Konfigurera en VPN-gateway och upprätta IPsec-tunnlar
 4. Konfigurera lokala VPN-enhet.
-5. Skapa plats-till-plats IPsec/IKE-anslutning.
-6. (Valfritt) Konfigurera brandväggar/filtrering på lokala VPN-enhet.
-7. Testa och validera IPsec-kommunikation via ExpressRoute-kretsen.
+5. Skapa anslutningen för plats-till-plats-IPsec/IKE.
+6. (Valfritt) Konfigurera brandväggar /-filtrering på den lokala VPN-enheten.
+7. Testa och validera en IPsec-kommunikation via ExpressRoute-krets.
 
 ## <a name="peering"></a>1. Konfigurera Microsoft-peering
 
-Om du vill konfigurera en plats-till-plats VPN-anslutning via ExpressRoute, måste du använda Microsoft ExpressRoute-peering.
+Om du vill konfigurera en plats-till-plats VPN-anslutning via ExpressRoute, måste du använda ExpressRoute Microsoft-peering.
 
-* Om du vill konfigurera en ny ExpressRoute-krets, börja med den [ExpressRoute krav](expressroute-prerequisites.md) artikel, och sedan [skapa och ändra en ExpressRoute-krets](expressroute-howto-circuit-arm.md).
+* Om du vill konfigurera en ny ExpressRoute-krets, börja med den [ExpressRoute-krav](expressroute-prerequisites.md) artikeln och sedan [skapa och ändra en ExpressRoute-krets](expressroute-howto-circuit-arm.md).
 
-* Om du redan har en ExpressRoute-krets, men har inte konfigurerats för Microsoft-peering, konfigurerar du Microsoft-peering med hjälp av den [skapa och ändra peering för en ExpressRoute-krets](expressroute-howto-routing-arm.md#msft) artikel.
+* Om du redan har en ExpressRoute-krets, men har inte konfigurerats för Microsoft-peering, konfigurera Microsoft-peering med hjälp av den [skapa och ändra peering för en ExpressRoute-krets](expressroute-howto-routing-arm.md#msft) artikeln.
 
-När du har konfigurerat dina krets och Microsoft-peering kan du lätt kan visa den med hjälp av den **översikt** sida i Azure-portalen.
+När du har konfigurerat din krets och Microsoft-peering kan du lätt kan visa den med hjälp av den **översikt** sidan på Azure portal.
 
-![kretsen](./media/site-to-site-vpn-over-microsoft-peering/ExpressRouteCkt.png)
+![krets](./media/site-to-site-vpn-over-microsoft-peering/ExpressRouteCkt.png)
 
-## <a name="routefilter"></a>2. Konfigurera filter för Routning
+## <a name="routefilter"></a>2. Konfigurera routningsfilter
 
-En vägfilter kan du identifiera tjänster du vill använda via ExpressRoute-krets Microsoft-peering. Det är i grunden en godkänd lista över alla värden för BGP-communityn. 
+Med ett flödesfilter kan du identifiera tjänster som du vill använda via Microsoft-peering för din ExpressRoute-krets. Det är i grunden en godkänd lista över alla värden för BGP-community. 
 
-![vägfilter](./media/site-to-site-vpn-over-microsoft-peering/route-filter.png)
+![flödesfilter](./media/site-to-site-vpn-over-microsoft-peering/route-filter.png)
 
-I det här exemplet distributionen är endast i den *Azure West US 2* region. En väg filterregeln läggs så att endast en annons Azure West US 2 regionala prefix som har BGP community-värde *12076:51026*. Du anger de regionala prefix som du vill tillåta genom att välja **hantera regeln**.
+I det här exemplet distributionen är endast i den *Azure västra USA 2* region. En flödesfilterregeln har lagts till för att tillåta endast annonsen dit BGP community-värde med Azure västra USA 2 regionala prefix *12076:51026*. Du anger de regionala prefix som du vill tillåta genom att välja **hantera regel**.
 
-I vägfiltret även måste du välja ExpressRoute-kretsar som vägen filtret gäller. Du kan välja ExpressRoute-kretsar genom att välja **lägga till krets**. Vägfiltret är kopplad till exempel ExpressRoute-krets i föregående bild.
+I flödesfiltret måste du också väljer ExpressRoute-kretsar som flödesfiltret gäller. Du kan välja ExpressRoute-kretsar genom att välja **lägga till krets**. Flödesfiltret är kopplad till exempel ExpressRoute-krets i föregående bild.
 
 ### <a name="configfilter"></a>2.1 konfigurera route-filter
 
-Konfigurera ett filter för vägen. Anvisningar finns [konfigurera route filter för Microsoft-peering](how-to-routefilter-portal.md).
+Konfigurera ett flödesfilter. Anvisningar finns i [konfigurera routningsfilter för Microsoft-peering](how-to-routefilter-portal.md).
 
 ### <a name="verifybgp"></a>2.2 Kontrollera BGP-vägar
 
-När du har skapat Microsoft-peering över ExpressRoute-krets och tillhör kretsen vägfilter, kan du kontrollera BGP-vägar som togs emot från MSEEs på PE-enheter som peering med MSEEs. Kommandot verifiering varierar beroende på operativsystemet på PE-enheter.
+När du har skapat Microsoft-peering över ExpressRoute-kretsen och kopplade till ett flödesfilter kretsen, kan du kontrollera BGP-vägar som togs emot från msee på PE-enheter som peeringen med msee: erna. Kommandot verifiering varierar beroende på operativsystemet på dina PE-enheter.
 
 #### <a name="cisco-examples"></a>Cisco-exempel
 
-Det här exemplet används en Cisco IOS-XE-kommando. I det här exemplet används virtuella Routning och vidarebefordran av instansen (VRF) för att isolera trafiken peering.
+Det här exemplet används ett Cisco IOS-XE-kommando. I det här exemplet används en virtuell Routning och vidarebefordra (VRF) instans att isolera peering trafiken.
 
 ```
 show ip bgp vpnv4 vrf 10 summary
 ```
 
-Följande partiella utdata visar att 68 prefix har tagits emot från grannen *.243.229.34 med ASN 12076 (MSEE):
+Följande partiella utdata visar att 68 prefix togs emot från intilliggande *.243.229.34 med ASN 12076 (MSEE):
 
 ```
 ...
@@ -104,49 +98,49 @@ Neighbor        V           AS MsgRcvd MsgSent   TblVer  InQ OutQ Up/Down  State
 X.243.229.34    4        12076   17671   17650    25228    0    0 1w4d           68
 ```
 
-Om du vill se en lista över prefix som togs emot från grannen, Använd följande exempel:
+Om du vill se en lista över prefix som togs emot från intilliggande, använder du följande exempel:
 
 ```
 sh ip bgp vpnv4 vrf 10 neighbors X.243.229.34 received-routes
 ```
 
-För att bekräfta att du får rätt uppsättning prefix, kan du cross-kontrollera. Följande Azure PowerShell-kommandot innehåller prefix som annonseras via Microsoft-peering för varje tjänst och för varje Azure-regionen:
+För att bekräfta att du får rätt uppsättning prefix, kan du verifierar. Utdata från följande Azure PowerShell visar en lista över de prefix som annonseras via Microsoft-peering för varje tjänst och för varje Azure-region:
 
-```powershell
+```azurepowershell-interactive
 Get-AzureRmBgpServiceCommunity
 ```
 
 ## <a name="vpngateway"></a>3. Konfigurera VPN-gateway och IPsec-tunnlar
 
-I det här avsnittet skapas IPsec VPN-tunnlar mellan Azure VPN-gateway och lokala VPN-enhet. Exemplen använder Cisco Cloud Service Router (CSR1000) VPN-enheter.
+I det här avsnittet skapas IPsec VPN-tunnlar mellan Azure VPN-gateway och lokal VPN-enhet. I exemplen används Cisco Cloud Service-Router (CSR1000) VPN-enheter.
 
-Följande diagram visar IPsec VPN tunnlar mellan lokala VPN-enhet 1 och Azure VPN gateway-instans-par. Två IPsec VPN-tunnlar upprättas mellan lokala VPN-enhet 2 Azure VPN gateway-instans paret visas inte i diagram och konfigurationsinformationen visas inte. Men förbättrar med ytterligare VPN-tunnlar hög tillgänglighet.
+I följande diagram visas IPsec VPN tunnlar upprättas mellan den lokala VPN-enhet 1 och Azure VPN gateway-instans paret. Två IPsec VPN-tunnlar upprättas mellan den lokala VPN-enheten 2 och Azure VPN gateway-instans paret visas inte i diagrammet och konfigurationsinformationen visas inte. Men förbättrar med ytterligare VPN-tunnlar hög tillgänglighet.
 
   ![VPN-tunnlar](./media/site-to-site-vpn-over-microsoft-peering/EstablishTunnels.png)
 
-En eBGP-sessionen har upprättats för att utbyta privata nätverksvägar via IPSec-tunneln-par. Följande diagram visar den eBGP-session som upprättats via IPSec-tunneln paret:
+Över IPsec-tunnel par upprättas en eBGP-session för att utbyta privata nätverksvägar. Följande diagram visar eBGP när sessionen har upprättats över IPsec-tunnel paret:
 
-  ![eBGP sessioner över tunnel par](./media/site-to-site-vpn-over-microsoft-peering/TunnelBGP.png)
+  ![eBGP-sessioner via tunnel par](./media/site-to-site-vpn-over-microsoft-peering/TunnelBGP.png)
 
-Följande diagram visar abstracted översikt över exempelnätverket:
+Följande diagram visar en abstraherad översikt över exempelnätverket:
 
   ![exempel-nätverk](./media/site-to-site-vpn-over-microsoft-peering/OverviewRef.png)
 
-### <a name="about-the-azure-resource-manager-template-examples"></a>Om exemplen för Azure Resource Manager-mall
+### <a name="about-the-azure-resource-manager-template-examples"></a>Om Azure Resource Manager-mallexempel
 
-I exemplen, VPN-gateway och IPSec-tunneln uppsägningar har konfigurerats med en Azure Resource Manager-mall. Om du har använt Resource Manager-mallar eller att förstå grunderna för Resource Manager mallen, se [förstå struktur och syntaxen för Azure Resource Manager-mallar](../azure-resource-manager/resource-group-authoring-templates.md). I det här avsnittet skapas en greenfield Azure-miljön (VNet). Om du har ett existerande VNet, kan du dock använda det i mallen. Om du inte är bekant med konfigurationer som plats-till-plats VPN-gateway IPsec/IKE finns [skapa en plats-till-plats-anslutning](../vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell.md).
+I exemplen är VPN-gatewayen och IPsec-tunnel uppsägningar har konfigurerats med en Azure Resource Manager-mall. Om du är van vid att använda Resource Manager-mallar eller att förstå grunderna för Resource Manager-mall finns i [förstå strukturen och syntaxen för Azure Resource Manager-mallar](../azure-resource-manager/resource-group-authoring-templates.md). I det här avsnittet skapas en med grönt fält Azure-miljö (VNet). Om du har ett befintligt VNet, kan du dock använda det i mallen. Om du inte är bekant med VPN gateway-IPsec/IKE plats-till-plats-konfigurationer finns i [skapa en plats-till-plats-anslutning](../vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell.md).
 
 >[!NOTE]
->Du behöver inte använda Azure Resource Manager-mallar för att skapa den här konfigurationen. Du kan skapa den här konfigurationen med hjälp av Azure-portalen eller PowerShell.
+>Du behöver inte använda Azure Resource Manager-mallar för att skapa den här konfigurationen. Du kan skapa den här konfigurationen med hjälp av Azure portal eller PowerShell.
 >
 >
 
 ### <a name="variables3"></a>3.1 deklarera variablerna
 
-I det här exemplet motsvarar variabeldeklarationer exempelnätverket. När deklarera variabler, ändringar i det här avsnittet för att avspegla din miljö.
+I det här exemplet motsvarar variabeldeklarationer exempel-nätverk. När deklarera variabler, kan du ändra det här avsnittet för att avspegla din miljö.
 
-* Variabeln **localAddressPrefix** är en matris med lokala IP-adresser för att avsluta IPsec-tunnlar.
-* Den **gatewaySku** anger VPN-genomströmning. Läs mer om gatewaySku och vpnType [konfigurationsinställningar för VPN-Gateway](../vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md#gwsku). Priser, finns i [priser för VPN-Gateway](https://azure.microsoft.com/pricing/details/vpn-gateway).
+* Variabeln **localAddressPrefix** är en matris med den lokala IP-adresser för att avsluta IPsec-tunnlar.
+* Den **gatewaySku** anger VPN-dataflöde. Läs mer om gatewaySku och vpnType [konfigurationsinställningar för VPN-Gateway](../vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md#gwsku). Om priser finns i [prissättning för VPN-Gateway](https://azure.microsoft.com/pricing/details/vpn-gateway).
 * Ange den **vpnType** till **RouteBased**.
 
 ```json
@@ -181,7 +175,7 @@ I det här exemplet motsvarar variabeldeklarationer exempelnätverket. När dekl
 
 ### <a name="vnet"></a>3.2 Skapa virtuellt nätverk (VNet)
 
-Om du kopplar ett befintligt virtuellt nätverk till VPN-tunnlar, kan du hoppa över det här steget.
+Om du associerar ett befintligt VNet med VPN-tunnlar, kan du hoppa över det här steget.
 
 ```json
 {
@@ -214,7 +208,7 @@ Om du kopplar ett befintligt virtuellt nätverk till VPN-tunnlar, kan du hoppa �
 },
 ```
 
-### <a name="ip"></a>3.3 tilldela offentliga IP-adresser till VPN-gateway-instanser
+### <a name="ip"></a>3.3 tilldela offentliga IP-adresser till VPN gateway-instanser
  
 Tilldela en offentlig IP-adress för varje instans av en VPN-gateway.
 
@@ -241,9 +235,9 @@ Tilldela en offentlig IP-adress för varje instans av en VPN-gateway.
   },
 ```
 
-### <a name="termination"></a>3.4 Ange lokala VPN-tunnel avslutning (lokal nätverksgateway)
+### <a name="termination"></a>3.4 Ange den lokala VPN-tunnel avslutning (lokal nätverksgateway)
 
-VPN-enheter lokalt kallas den **lokal nätverksgateway**. Följande json-fragment anger också fjärranslutna BGP-peer-information:
+Den lokala VPN-enheter kallas den **lokal nätverksgateway**. Följande json-kodfragmentet anger också fjärranslutna BGP-peer-information:
 
 ```json
 {
@@ -268,11 +262,11 @@ VPN-enheter lokalt kallas den **lokal nätverksgateway**. Följande json-fragmen
 
 ### <a name="creategw"></a>3.5 skapa VPN-gateway
 
-Det här avsnittet av mallen konfigurerar VPN-gateway med de nödvändiga inställningarna för en aktiv-aktiv konfiguration. Tänk på följande krav:
+Det här avsnittet av mallen konfigurerar VPN-gatewayen med de nödvändiga inställningarna för en aktiv-aktiv konfiguration. Tänk på följande krav:
 
-* Skapa en VPN-gateway med en **”RouteBased”** VpnType. Den här inställningen är obligatoriskt om du vill aktivera BGP-routning mellan VPN-gateway och den VPN-lokalt.
-* Upprätta VPN-tunnlar mellan två instanser av VPN-gateway och en viss lokal enhet i aktivt-aktivt läge i **”activeActive”** parametern anges till **SANT** i Resource Manager-mall . Om du vill veta mer om hög tillgänglighet VPN-gatewayer finns [anslutningar med hög tillgänglighet VPN-gateway](../vpn-gateway/vpn-gateway-highlyavailable.md).
-* Du måste ange två olika ASN: er på endera sidan om du vill konfigurera eBGP-sessioner mellan VPN-tunnlar. Det är bättre att ange privata ASN-nummer. Mer information finns i [översikt för BGP och Azure VPN-gateway](../vpn-gateway/vpn-gateway-bgp-overview.md).
+* Skapa VPN-gateway med en **”RouteBased”** VpnType. Den här inställningen är obligatorisk om du vill aktivera BGP-routning mellan VPN-gatewayen och VPN-lokala platser.
+* Att upprätta VPN-tunnlar mellan de två instanserna av VPN-gateway och en viss lokal enhet i aktivt-aktivt läge i **”activeActive”** parametern är inställd på **SANT** i Resource Manager-mall . Mer information om VPN-gatewayer med hög tillgänglighet i [med hög tillgänglighet VPN gateway-anslutningar](../vpn-gateway/vpn-gateway-highlyavailable.md).
+* Om du vill konfigurera eBGP-sessioner mellan VPN-tunnlar, måste du ange två olika ASN: er på endera sidan. Det är bättre att ange privata ASN-nummer. Mer information finns i [översikt över BGP och Azure VPN-gatewayer](../vpn-gateway/vpn-gateway-bgp-overview.md).
 
 ```json
 {
@@ -328,9 +322,9 @@ Det här avsnittet av mallen konfigurerar VPN-gateway med de nödvändiga instä
   },
 ```
 
-### <a name="ipsectunnel"></a>3,6 upprätta IPsec-tunnlar
+### <a name="ipsectunnel"></a>3.6 upprätta IPsec-tunnlar
 
-Den sista åtgärden av skriptet skapar IPsec-tunnlar mellan Azure VPN-gateway och lokala VPN-enhet.
+Den sista åtgärden av skriptet skapar IPsec-tunnlar mellan Azure VPN-gateway och lokal VPN-enhet.
 
 ```json
 {
@@ -360,18 +354,18 @@ Den sista åtgärden av skriptet skapar IPsec-tunnlar mellan Azure VPN-gateway o
 
 ## <a name="device"></a>4. Konfigurera lokala VPN-enhet
 
-Azure VPN-gatewayen är kompatibel med många VPN-enheter från olika leverantörer. Information om konfiguration och enheter som har godkänts för att fungera med VPN-gateway finns [om VPN-enheter](../vpn-gateway/vpn-gateway-about-vpn-devices.md).
+Azure VPN-gatewayen är kompatibel med många VPN-enheter från olika leverantörer. Konfigurationsinformation och enheter som har godkänts för att fungera med VPN-gateway finns i [om VPN-enheter](../vpn-gateway/vpn-gateway-about-vpn-devices.md).
 
-När du konfigurerar VPN-enhet behöver du följande:
+När du konfigurerar din VPN-enheten behöver du följande objekt:
 
-* En delad nyckel. Det här är samma delade nyckel som du anger när du skapar din plats-till-plats VPN-anslutning. Exemplen använder en grundläggande delad nyckel. Vi rekommenderar att du skapar och använder en mer komplex nyckel.
-* Offentliga IP-adressen för VPN-gateway. Du kan visa den offentliga IP-adressen genom att använda Azure Portal, PowerShell eller CLI. Navigera till virtuella nätverksgatewayer för att hitta offentliga IP-adressen för din VPN-gateway med hjälp av Azure portal och klicka på namnet på din gateway.
+* En delad nyckel. Det här är samma delade nyckel som du anger när du skapar plats-till-plats VPN-anslutningen. I exemplen används en enkel delad nyckel. Vi rekommenderar att du skapar och använder en mer komplex nyckel.
+* Offentliga IP-adressen för din VPN-gateway. Du kan visa den offentliga IP-adressen genom att använda Azure Portal, PowerShell eller CLI. Gå till virtuella nätverksgatewayer för att hitta offentliga IP-adressen för din VPN-gateway med Azure portal och sedan på namnet på din gateway.
 
-Vanligtvis är eBGP peer-datorer anslutna direkt (ofta via en WAN-anslutning). När du konfigurerar eBGP via IPsec-VPN-tunnlar via Microsoft ExpressRoute-peering, finns det dock flera routningsdomäner mellan eBGP peer-datorer. Använd den **ebgp Multihopp** kommando för att upprätta en eBGP granne relation mellan två inte-direktanslutna peer-datorer. Heltal som följer ebgp Multihopp kommando anger TTL-värdet i BGP-paket. Kommandot **maximalt sökvägar eibgp 2** möjliggör belastningsutjämning för trafik mellan de två sökvägarna BGP.
+Vanligtvis är eBGP peer-datorer anslutna direkt (ofta via en WAN-anslutning). När du konfigurerar eBGP över IPsec-VPN-tunnlar via ExpressRoute Microsoft-peering, finns det dock flera routningsdomäner mellan eBGP peer-datorer. Använd den **ebgp-Multihopp** kommando för att upprätta en eBGP intilliggande relation mellan två inte-direktanslutna peer-datorer. Det heltal som följer ebgp-Multihopp kommando anger TTL-värdet i BGP-paket. Kommandot **maximalt sökvägar eibgp 2** aktiverar belastningsutjämning av trafik mellan de två sökvägarna för BGP.
 
 ### <a name="cisco1"></a>Cisco CSR1000 exempel
 
-I följande exempel visas konfigurationen för Cisco CSR1000 i en virtuell dator för Hyper-V som lokala VPN-enhet:
+I följande exempel visar konfigurationen för Cisco CSR1000 på en Hyper-V virtuell dator som den lokala VPN-enhet:
 
 ```
 !
@@ -481,33 +475,33 @@ ip route 10.2.0.229 255.255.255.255 Tunnel1
 
 ## <a name="firewalls"></a>5. Konfigurera VPN-filtrering och brandväggar (valfritt)
 
-Konfigurera brandväggen och filtrera enligt dina krav.
+Konfigurera brandväggen och filtrering baserat på dina krav.
 
-## <a name="testipsec"></a>6. Testa och validera IPsec-tunneln
+## <a name="testipsec"></a>6. Testa och validera en IPsec-tunneln
 
-Status för IPsec-tunnlar kan verifieras på Azure VPN-gatewayen av Powershell-kommandon:
+Status för IPsec-tunnlar kan verifieras på Azure VPN-gateway med Powershell-kommandon:
 
-```powershell
+```azurepowershell-interactive
 Get-AzureRmVirtualNetworkGatewayConnection -Name vpn2local1 -ResourceGroupName myRG | Select-Object  ConnectionStatus,EgressBytesTransferred,IngressBytesTransferred | fl
 ```
 
 Exempel på utdata:
 
-```powershell
+```azurepowershell
 ConnectionStatus        : Connected
 EgressBytesTransferred  : 17734660
 IngressBytesTransferred : 10538211
 ```
 
-Om du vill kontrollera status för tunnlar på Azure VPN-gateway-instanser oberoende av varandra, använder du följande exempel:
+Om du vill kontrollera status för tunnlar på Azure VPN-gateway-instanser oberoende av varandra, använder du exemplet nedan:
 
-```powershell
+```azurepowershell-interactive
 Get-AzureRmVirtualNetworkGatewayConnection -Name vpn2local1 -ResourceGroupName myRG | Select-Object -ExpandProperty TunnelConnectionStatus
 ```
 
 Exempel på utdata:
 
-```powershell
+```azurepowershell
 Tunnel                           : vpn2local1_52.175.250.191
 ConnectionStatus                 : Connected
 IngressBytesTransferred          : 4877438
@@ -575,7 +569,7 @@ Peer: 52.175.253.112 port 4500 fvrf: (none) ivrf: (none)
         Outbound: #pkts enc'ed 477 drop 0 life (KB/Sec) 4607953/437
 ```
 
-Protokollet rad på virtuella Tunnel gränssnitt (VTI) ändras inte ”upp” tills IKE fas 2 har slutförts. Följande kommando verifierar säkerhetsassociationen:
+Rad-protokollet på virtuella Tunnel gränssnitt (VTI) ändras inte om du vill ”upp” tills IKE fas 2 är klar. Följande kommando verifierar säkerhetsassociationen:
 
 ```
 csr1#show crypto ikev2 sa
@@ -601,9 +595,9 @@ csr1#show crypto ipsec sa | inc encaps|decaps
     #pkts decaps: 746, #pkts decrypt: 746, #pkts verify: 746
 ```
 
-### <a name="verifye2e"></a>Kontrollera anslutningen för slutpunkt till slutpunkt mellan insidan lokalt och Azure VNet
+### <a name="verifye2e"></a>Kontrollera anslutningen för slutpunkt till slutpunkt mellan insidan lokala och Azure VNet
 
-Om IPsec-tunnlar är igång och att de statiska vägarna är korrekt inställda, bör du kunna pinga fjärranslutna BGP-peer IP-adress:
+Om IPsec-tunnlar är igång och de statiska vägarna är korrekt inställda, bör du kunna pinga IP-adressen för den fjärranslutna BGP-peer:
 
 ```
 csr1#ping 10.2.0.228
@@ -619,17 +613,17 @@ Sending 5, 100-byte ICMP Echos to 10.2.0.229, timeout is 2 seconds:
 Success rate is 100 percent (5/5), round-trip min/avg/max = 4/5/6 ms
 ```
 
-### <a name="verifybgp"></a>Kontrollera BGP-sessioner via IPsec
+### <a name="verifybgp"></a>Kontrollera BGP-sessionerna via IPsec
 
-Kontrollera status för BGP-peer på Azure VPN-gateway:
+Kontrollera status för BGP-peer på Azure VPN-gatewayen:
 
-```powershell
+```azurepowershell-interactive
 Get-AzureRmVirtualNetworkGatewayBGPPeerStatus -VirtualNetworkGatewayName vpnGtw -ResourceGroupName SEA-C1-VPN-ER | ft
 ```
 
 Exempel på utdata:
 
-```powershell
+```azurepowershell
   Asn ConnectedDuration LocalAddress MessagesReceived MessagesSent Neighbor    RoutesReceived State    
   --- ----------------- ------------ ---------------- ------------ --------    -------------- -----    
 65010 00:57:19.9003584  10.2.0.228               68           72   172.16.0.10              2 Connected
@@ -637,30 +631,30 @@ Exempel på utdata:
 65000 07:13:51.0109601  10.2.0.228              507          500   10.2.0.229               6 Connected
 ```
 
-Du kan filtrera efter attributet ”ursprung” för att kontrollera listan över nätverksprefix som tagits emot via eBGP från den VPN-koncentrator lokalt:
+Du kan filtrera efter attributet ”ursprung” för att kontrollera listan över nätverksprefix som tagits emot via eBGP från VPN koncentrator lokala platser:
 
-```powershell
+```azurepowershell-interactive
 Get-AzureRmVirtualNetworkGatewayLearnedRoute -VirtualNetworkGatewayName vpnGtw -ResourceGroupName myRG  | Where-Object Origin -eq "EBgp" |ft
 ```
 
-I exempel-utdata är ASN 65010 BGP autonomt nummer i den VPN-lokalt.
+I exempel-utdata är ASN-65010 BGP autonomt systemnummer i VPN-lokala platser.
 
-```powershell
+```azurepowershell
 AsPath LocalAddress Network      NextHop     Origin SourcePeer  Weight
 ------ ------------ -------      -------     ------ ----------  ------
 65010  10.2.0.228   10.1.10.0/25 172.16.0.10 EBgp   172.16.0.10  32768
 65010  10.2.0.228   10.0.0.0/24  172.16.0.10 EBgp   172.16.0.10  32768
 ```
 
-Om du vill se en lista över annonserade vägar:
+Om du vill se en lista över annonseras vägar:
 
-```powershell
+```azurepowershell-interactive
 Get-AzureRmVirtualNetworkGatewayAdvertisedRoute -VirtualNetworkGatewayName vpnGtw -ResourceGroupName myRG -Peer 10.2.0.228 | ft
 ```
 
 Exempel på utdata:
 
-```powershell
+```azurepowershell
 AsPath LocalAddress Network        NextHop    Origin SourcePeer Weight
 ------ ------------ -------        -------    ------ ---------- ------
        10.2.0.229   10.2.0.0/24    10.2.0.229 Igp                  0
@@ -671,7 +665,7 @@ AsPath LocalAddress Network        NextHop    Origin SourcePeer Weight
 65010  10.2.0.229   10.0.0.0/24    10.2.0.229 Igp                  0
 ```
 
-Exempel på lokalt Cisco CSR1000:
+Exempel för lokala Cisco CSR1000:
 
 ```
 csr1#show ip bgp neighbors 10.2.0.228 routes
@@ -692,9 +686,9 @@ RPKI validation codes: V valid, I invalid, N Not found
 Total number of prefixes 4
 ```
 
-Listan över nätverk annonserade från lokala Cisco CSR1000 till Azure VPN-gateway kan visas med följande kommando:
+Listan med nätverk som annonseras från den lokala Cisco CSR1000 till Azure VPN-gatewayen kan anges med följande kommando:
 
-```powershell
+```
 csr1#show ip bgp neighbors 10.2.0.228 advertised-routes
 BGP table version is 7, local router ID is 172.16.0.10
 Status codes: s suppressed, d damped, h history, * valid, > best, i - internal,
@@ -715,4 +709,4 @@ Total number of prefixes 2
 
 * [Konfigurera övervakare av nätverksprestanda för ExpressRoute](how-to-npm.md)
 
-* [Lägga till en plats-till-plats-anslutning till ett virtuellt nätverk med en befintlig anslutning för VPN-gateway](../vpn-gateway/vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md)
+* [Lägg till en plats-till-plats-anslutning till ett virtuellt nätverk med en befintlig anslutning för VPN-gateway](../vpn-gateway/vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md)

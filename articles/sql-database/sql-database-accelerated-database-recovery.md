@@ -2,7 +2,7 @@
 title: Accelererad databasåterställning – Azure SQL Database | Microsoft Docs
 description: Azure SQL-databasen har en ny funktion som ger snabb och konsekvent databasåterställning och omedelbar transaktionsåterställning aggressiva loggtrunkering för enskilda databaser, elastiska pooler och Azure SQL Data Warehouse.
 ms.service: sql-database
-ms.subservice: ''
+ms.subservice: operations
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -11,12 +11,12 @@ ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
 ms.date: 10/11/2018
-ms.openlocfilehash: 49ef31996cb9c55ed244202a85e123faf52fbd2a
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: 20ad792ffa1c06e75cd39e4549b8d897a663db3e
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49649796"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50239975"
 ---
 # <a name="accelerated-database-recovery-preview"></a>Snabbare återställning av databas (förhandsversion)
 

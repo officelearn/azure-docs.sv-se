@@ -8,16 +8,16 @@ ms.date: 06/06/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: a65eb029dbf10b194bd28bf7ad82f5aa839338a2
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: beb7574653375024f36912c4b3a37b01d2f59bd5
+ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46990628"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50248412"
 ---
-# <a name="learn-how-to-use-deployment-manifests-to-deploy-modules-and-establish-routes"></a>Lär dig hur du använder distribution manifest för att distribuera moduler och upprätta vägar
+# <a name="learn-how-to-deploy-modules-and-establish-routes-in-iot-edge"></a>Lär dig hur du distribuerar moduler och upprätta vägar i IoT Edge
 
-Minst två moduler som körs för varje IoT Edge-enhet: $edgeAgent och $edgeHub, som utgör IoT Edge-körningen. Förutom dessa standard två kan alla IoT Edge-enhet köra flera moduler för att genomföra flera olika processer. När du distribuerar dessa moduler till en enhet på samma gång, behöver du ett sätt att deklarera vilka moduler som ingår och hur de interagerar med varandra. 
+Minst två moduler som körs för varje IoT Edge-enhet: $edgeAgent och $edgeHub, som utgör IoT Edge-körningen. Alla IoT Edge-enhet kan dessutom köra flera moduler för att genomföra flera olika processer. När du distribuerar dessa moduler till en enhet på samma gång, behöver du ett sätt att deklarera vilka moduler som ingår och hur de interagerar med varandra. 
 
 Den *distribution manifest* är ett JSON-dokument som beskriver:
 
@@ -27,7 +27,7 @@ Den *distribution manifest* är ett JSON-dokument som beskriver:
 
 Alla IoT Edge-enheter måste vara konfigurerad med ett manifest för distribution. En nyinstallerad IoT Edge-körning rapporterar en felkod tills konfigurerats med ett giltigt manifest. 
 
-I Azure IoT Edge-självstudier skapar du ett manifest för distributionen genom att gå igenom en guide i Azure IoT Edge-portalen. Du kan också använda ett manifest för distribution via programmering med hjälp av REST- eller IoT Hub Service SDK. Mer information finns i [förstå IoT Edge-distributioner][lnk-deploy].
+I Azure IoT Edge-självstudier skapar du ett manifest för distributionen genom att gå igenom en guide i Azure IoT Edge-portalen. Du kan också använda ett manifest för distribution via programmering med hjälp av REST- eller IoT Hub Service SDK. Mer information finns i [förstå IoT Edge-distributioner](module-deployment-monitoring.md).
 
 ## <a name="create-a-deployment-manifest"></a>Skapa ett manifest för distribution
 
@@ -138,7 +138,7 @@ Källan anger var meddelanden kommer från. Det kan vara något av följande vä
 | `/messages/modules/{moduleId}/outputs/{output}` | Alla enhet-till-moln-meddelanden som skickas med hjälp av {moduleId} {utdata} |
 
 ### <a name="condition"></a>Tillstånd
-Villkoret är valfri i en väg deklaration. Om du vill skicka alla meddelanden från mottagaren till källan, lämnar du bara den **där** satsen helt och hållet. Du kan också använda den [IoT Hub-frågespråk] [ lnk-iothub-query] filtervärde för vissa meddelanden eller typer av meddelanden som uppfyller villkoret.
+Villkoret är valfri i en väg deklaration. Om du vill skicka alla meddelanden från mottagaren till källan, lämnar du bara den **där** satsen helt och hållet. Du kan också använda den [IoT Hub-frågespråk](../iot-hub/iot-hub-devguide-routing-query-syntax.md) filtervärde för vissa meddelanden eller typer av meddelanden som uppfyller villkoret.
 
 Meddelandena som skickas mellan moduler i IoT Edge har formaterats samma som meddelandena som skickas mellan dina enheter och Azure IoT Hub. Alla meddelanden som är formaterade som JSON och har **systemProperties**, **appProperties**, och **brödtext** parametrar. 
 
@@ -262,10 +262,4 @@ Den här ett exempel på distribution manifest JSON-dokument.
 
 * En fullständig lista över egenskaper som kan eller måste inkluderas i $edgeAgent och $edgeHub finns i [egenskaper för Edge-agenten och Edge hub](module-edgeagent-edgehub.md).
 
-* Nu när du vet hur IoT Edge-moduler används [förstå de krav och verktyg för att utveckla IoT Edge-moduler][lnk-module-dev].
-
-[lnk-deploy]: module-deployment-monitoring.md
-[lnk-iothub-query]: ../iot-hub/iot-hub-devguide-routing-query-syntax.md
-[lnk-docker-create-options]: https://docs.docker.com/engine/api/v1.32/#operation/ContainerCreate
-[lnk-docker-logging-options]: https://docs.docker.com/engine/admin/logging/overview/
-[lnk-module-dev]: module-development.md
+* Nu när du vet hur IoT Edge-moduler används [förstå de krav och verktyg för att utveckla IoT Edge-moduler](module-development.md).

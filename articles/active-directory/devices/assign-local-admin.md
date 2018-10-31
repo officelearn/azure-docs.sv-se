@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 08/09/2018
 ms.author: markvi
 ms.reviewer: ravenn
-ms.openlocfilehash: cde364cb5231c1cc0b1947da35994862cf45b571
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 267e398305939048014038b7350b2a10481fdfbd
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43042169"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50238734"
 ---
 # <a name="how-to-manage-the-local-administrators-group-on-azure-ad-joined-devices"></a>Hantera den lokala administratörsgruppen på Azure AD-anslutna enheter
 
@@ -92,9 +92,9 @@ Från och med den **Windows 10 1709** versionen kan du utföra den här uppgifte
  
 Dessutom kan du lägga till användare med hjälp av Kommandotolken:
 
-- Om dina klientanvändare synkroniseras från den lokala Active Directory måste du använda `net localgroup administrators /add “Contoso\username”`.
+- Om dina klientanvändare synkroniseras från den lokala Active Directory måste du använda `net localgroup administrators /add "Contoso\username"`.
 
-- Om dina klientanvändare skapas i Azure AD, använda `net localgroup administrators /add “AzureAD\UserUpn”`
+- Om dina klientanvändare skapas i Azure AD, använda `net localgroup administrators /add "AzureAD\UserUpn"`
 
 
 ## <a name="considerations"></a>Överväganden 
@@ -109,8 +109,8 @@ När du tar bort användare från administratörsrollen enhet ha de fortfarande 
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Om du vill få en översikt över hur du hanterar enheten i Azure-portalen, se [hantering av enheter med hjälp av Azure portal](device-management-azure-portal.md)
+- Om du vill ha en översikt över hantering av enheter i Azure-portalen kan du läsa om att [hantera enheter med Azure-portalen](device-management-azure-portal.md)
 
-- Läs mer om enhetsbaserad villkorlig åtkomst i [konfigurera principer för Azure Active Directory-enhetsbaserad villkorlig åtkomst](../conditional-access/require-managed-devices.md).
+- Om du vill veta mer om enhetsbaserad villkorlig åtkomst kan du läsa mer om att [konfigurera principer för Azure Active Directory-enhetsbaserad villkorlig åtkomst](../conditional-access/require-managed-devices.md).
 
 

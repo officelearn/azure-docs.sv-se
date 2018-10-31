@@ -15,12 +15,12 @@ ms.date: 06/26/2018
 ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: H1Hack27Feb2017; it-pro
-ms.openlocfilehash: aa7962e3659618b8c5a4f161d667c5e90477acc9
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: 8be0e909ea391ed1b66fc78349cc2283d009e8cb
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44347655"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50240383"
 ---
 # <a name="troubleshoot-application-proxy-problems-and-error-messages"></a>Felsöka problem med Application Proxy och felmeddelanden
 Om fel uppstår i komma åt ett publicerat program eller publicera program kontrollerar du följande alternativ för att se om Microsoft Azure AD-programproxyn fungerar korrekt:
@@ -43,7 +43,7 @@ Om du ändrar sökvägen för att inkludera refererat innehåll, men fortfarande
 
 Om registreringen misslyckas under guiden kopplingsinstallationen, finns det två sätt att se orsaken till felet. Antingen titta i Loggboken under **program och tjänster Logs\Microsoft\AadApplicationProxy\Connector\Admin**, eller kör följande Windows PowerShell-kommando:
 
-    Get-EventLog application –source “Microsoft AAD Application Proxy Connector” –EntryType “Error” –Newest 1
+    Get-EventLog application –source "Microsoft AAD Application Proxy Connector" –EntryType "Error" –Newest 1
 
 När du har hittat Connector-fel från händelseloggen, kan du använda den här tabellen över vanliga fel för att lösa problemet:
 

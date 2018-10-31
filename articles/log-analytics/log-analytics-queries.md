@@ -11,19 +11,19 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/05/2018
+ms.date: 10/18/2018
 ms.author: bwren
 ms.component: ''
-ms.openlocfilehash: 0340a4d527023c050e2c776d31c02b59161a1316
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: 904502e5c73127cca7920da2173edd013e55762f
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49429487"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50242253"
 ---
 # <a name="analyze-log-analytics-data-in-azure-monitor"></a>Analysera Log Analytics-data i Azure Monitor
 
-Loggdata som samlas in av Azure Monitor lagras i Log Analytics som samlar in telemetri och övriga data från olika källor och tillhandahåller ett frågespråk för avancerad analys.
+Loggdata som samlas in av Azure Monitor lagras i en Log Analytics-arbetsyta som är baserad på [Azure Data Explorer](/data-explorer). Den samlar in telemetri från olika källor och använder den [frågespråket från Datautforskaren](/kusto) att hämta och analysera data.
 
 > [!NOTE]
 > Log Analytics har tidigare behandlas som en egen tjänst i Azure. Det är nu vara en del av Azure Monitor och fokuserar på lagring och analys av loggdata med dess frågespråk. Funktioner som har som anses del av Log Analytics, till exempel Windows och Linux-agenter för datainsamling, vyer för att visualisera befintliga data och aviseringar att informera dig om problem, har inte ändrats men anses nu del av Azure Monitor.
@@ -51,7 +51,7 @@ Olika sätt som du ska använda frågor i Log Analytics är följande:
 ![Loggsökningar](media/log-analytics-queries/queries-overview.png)
 
 ## <a name="write-a-query"></a>Skriv en fråga
-Log Analytics innehåller [en omfattande frågespråk](query-language/get-started-queries.md) som hjälper dig att hämta och analysera loggdata i en mängd olika sätt.  Du börjar vanligtvis med grundläggande frågor och sedan vidare om du vill använda mer avancerade funktionerna när behoven blir mer komplexa.
+Logga Analytics använder [en version av Data Explorer frågespråk](query-language/get-started-queries.md) att hämta och analysera loggdata i en mängd olika sätt.  Du börjar vanligtvis med grundläggande frågor och sedan vidare om du vill använda mer avancerade funktionerna när behoven blir mer komplexa.
 
 Den grundläggande strukturen i en fråga är en källtabellen följt av en serie operatörer avgränsade med ett vertikaltecken `|`.  Du kan länka samman flera operatorer för att förfina data och utföra avancerade funktioner.
 

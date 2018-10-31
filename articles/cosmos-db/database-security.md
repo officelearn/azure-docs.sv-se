@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/15/2017
 ms.author: rafats
-ms.openlocfilehash: d74aa6b7ef762b7971fd67654e7fc1a23a8d83cc
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: e0cbf806b7999a56ccdf2826a735238fe8130bf5
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "42055363"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50240587"
 ---
 # <a name="azure-cosmos-db-database-security"></a>Azure Cosmos DB database-säkerhet
 
@@ -67,7 +67,7 @@ Låt oss gå till var och en i detalj.
 |Användare och behörigheter|Med hjälp av den [huvudnyckeln](#master-key) för kontot, kan du skapa användarresurser och behörigheten resurser per databas. En [Resurstoken](#resource-token) är associerad med en behörighet i en databas och avgör om användaren har åtkomst (skrivskyddad, skrivskyddad, eller ingen åtkomst) till en resurs för en i databasen. Resurser för programmet är behållare, dokument, bifogade filer, lagrade procedurer, utlösare och UDF: er. Resurstoken används sedan under autentiseringen för att tillhandahålla eller neka åtkomst till resursen.<br><br>Läs mer i [skydda åtkomst till Azure Cosmos DB-resurserna](secure-access-to-data.md).|
 |Active directory-integrering (RBAC)| Du kan också ge åtkomst till det konto med hjälp av åtkomstkontroll (IAM) i Azure-portalen som visas i skärmbilden som följer den här tabellen. IAM ger rollbaserad åtkomstkontroll och integreras med Active Directory. Du kan använda inbyggda roller eller anpassade roller för enskilda användare och grupper som du ser i följande bild.|
 |Global replikering|Azure Cosmos DB erbjuder nyckelfärdig global distribution, där du kan replikera dina data till en av Azures globalt Datacenter genom att klicka på en knapp. Global replikering kan du skala globalt och ge låg latens åtkomst till dina data över hela världen.<br><br>I samband med säkerhet garanterar global replikering dataskydd mot regionala fel.<br><br>Läs mer i [Distribuera data globalt](distribute-data-globally.md).|
-|Regionala redundanstestningar|Om du har replikerat data i flera datacenter, samlar Azure Cosmos DB automatiskt över din verksamhet bör ett regionala Datacenter går offline. Du kan skapa en prioriterad lista över regioner för redundans med hjälp av de regioner där dina data replikeras. <br><br>Läs mer i [Regional redundans i Azure Cosmos DB](regional-failover.md).|
+|Regionala redundanstestningar|Om du har replikerat data i flera datacenter, samlar Azure Cosmos DB automatiskt över din verksamhet bör ett regionala Datacenter går offline. Du kan skapa en prioriterad lista över regioner för redundans med hjälp av de regioner där dina data replikeras. <br><br>Läs mer i [Regional redundans i Azure Cosmos DB](high-availability.md).|
 |Lokal replikering|Även i ett datacenter, Azure Cosmos DB automatiskt replikerar data för hög tillgänglighet, vilket ger dig valet av [konsekvensnivåer](consistency-levels.md). Detta garanterar en 99,99% [tillgänglighets-SLA](https://azure.microsoft.com/support/legal/sla/cosmos-db) för alla och alla konton i flera regioner med restriktiva konsekvens och 99,999% läsningstillgänglighet för alla databaskonton för flera regioner konton.|
 |Automatiserad onlinesäkerhetskopieringar|Azure Cosmos DB-databaser säkerhetskopieras regelbundet och lagras i ett Arkiv för georedundant. <br><br>Läs mer i [automatisk online säkerhetskopiering och återställning med Azure Cosmos DB](online-backup-and-restore.md).|
 |Återställa borttagna data|Automatiserad onlinesäkerhetskopieringar kan användas för att återställa data som du kanske har råkat ta bort upp till cirka 30 dagar efter evenemanget. <br><br>Läs mer i [automatisk online säkerhetskopiering och återställning med Azure Cosmos DB](online-backup-and-restore.md)|

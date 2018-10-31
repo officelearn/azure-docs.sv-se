@@ -67,7 +67,7 @@ Du kan i stället använda en API-profil än undersöka varje resursprovider och
 
 API-profiler fungerar med verktyg som använder Azure Resource Manager, som PowerShell, Azure CLI, koden i SDK och Microsoft Visual Studio. Verktyg och SDK: er kan använda profiler för att läsa vilken version av moduler och bibliotek att inkludera när du skapar ett program.
 
-Exempel: Om du använder PowerShell för att skapa ett storage-konto med den **Microsoft.Storage** resursprovidern och som har stöd för api-versionen 2016-03-30 och en virtuell dator med Microsoft.Compute-resursprovidern med api-version 2015-12-01, skulle du behöva leta upp vilken PowerShell-modulen stöder 2016-03-30 för lagring och vilken modul stöder 2015-02-01 för databearbetning och installera den. Du kan i stället använda en profil. Använd cmdleten ** Installera profil * profilename *** och PowerShell läser du in rätt version av moduler.
+Exempel: Om du använder PowerShell för att skapa ett storage-konto med den **Microsoft.Storage** resursprovidern och som har stöd för api-versionen 2016-03-30 och en virtuell dator med Microsoft.Compute-resursprovidern med api-version 2015-12-01, skulle du behöva leta upp vilken PowerShell-modulen stöder 2016-03-30 för lagring och vilken modul stöder 2015-02-01 för databearbetning och installera den. Du kan i stället använda en profil. Använd cmdleten **Installera profil \*profilename**\* och PowerShell läser du in rätt version av moduler.
 
 När du använder Python SDK för att skapa en Python-baserade program, på samma sätt kan du ange profilen. SDK: N läser in rätt moduler för de resursprovidrar som du har angett i skriptet.
 

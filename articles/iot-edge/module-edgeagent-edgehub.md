@@ -8,18 +8,18 @@ ms.date: 09/21/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 259d61125828ee487b74daa525f3635cfa592ce7
-ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
+ms.openlocfilehash: ecc48adfeef30a777ae4d96c9b996c8bcdfea12d
+ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48017712"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50247818"
 ---
 # <a name="properties-of-the-edge-agent-and-edge-hub-module-twins"></a>Egenskaper för Edge-agenten och Edge hub modultvillingar
 
 Edge-agent och Edge hub är två moduler som utgör IoT Edge-körningen. Mer information om vilka uppgifter som utförs av varje modul, se [förstå Azure IoT Edge-körningen och dess arkitektur](iot-edge-runtime.md). 
 
-Den här artikeln innehåller önskade egenskaper och rapporterade egenskaper för modultvillingar runtime. Mer information om hur du distribuerar moduler på IoT Edge-enheter finns i [distribueringen och övervakningen][lnk-deploy].
+Den här artikeln innehåller önskade egenskaper och rapporterade egenskaper för modultvillingar runtime. Mer information om hur du distribuerar moduler på IoT Edge-enheter finns i [distribueringen och övervakningen](module-deployment-monitoring.md).
 
 ## <a name="edgeagent-desired-properties"></a>EdgeAgent önskade egenskaper
 
@@ -30,26 +30,26 @@ Modultvillingen för Edge-agenten kallas `$edgeAgent` och samordnar kommunikatio
 | schemaVersion | Måste vara ”1.0” | Ja |
 | Runtime.Type | Måste vara ”docker” | Ja |
 | runtime.settings.minDockerVersion | Inställt på den lägsta Docker-versionen som krävs av den här distributionen manifest | Ja |
-| runtime.settings.loggingOptions | En Stringified.json som innehåller alternativ för loggning för behållaren Edge-agenten. [Alternativ för docker-loggning][lnk-docker-logging-options] | Nej |
+| runtime.settings.loggingOptions | En Stringified.json som innehåller alternativ för loggning för behållaren Edge-agenten. [Alternativ för docker-loggning](https://docs.docker.com/engine/admin/logging/overview/) | Nej |
 | runtime.settings.registryCredentials<br>. {registryId} .username | Användarnamnet för behållarregistret. Användarnamnet är vanligtvis registernamnet för Azure Container Registry.<br><br> Autentiseringsuppgifter för registret är nödvändiga för modulen bilder som inte är offentliga. | Nej |
 | runtime.settings.registryCredentials<br>. {registryId} .password | Lösenordet för behållarregistret. | Nej |
 | runtime.settings.registryCredentials<br>. {registryId} .address | Adressen till behållarregistret. För Azure Container Registry adressen är vanligtvis *{registryname}.azurecr.IO/Azure-vote-front:v1*. | Nej |  
 | systemModules.edgeAgent.type | Måste vara ”docker” | Ja |
 | systemModules.edgeAgent.settings.image | URI för avbildning av Edge-agenten. Edge-agenten är för närvarande inte att uppdatera sig själv. | Ja |
-| systemModules.edgeAgent.settings<br>.createOptions | En Stringified.json med alternativ för att skapa behållaren Edge-agenten. [Alternativ för att skapa docker][lnk-docker-create-options] | Nej |
+| systemModules.edgeAgent.settings<br>.createOptions | En Stringified.json med alternativ för att skapa behållaren Edge-agenten. [Alternativ för att skapa docker](https://docs.docker.com/engine/api/v1.32/#operation/ContainerCreate) | Nej |
 | systemModules.edgeAgent.configuration.id | ID för den distribution som har distribuerat den här modulen. | Den här egenskapen anges av IoT Hub när den här manifestet tillämpas med hjälp av en distribution. Inte en del av ett manifest för distribution. |
 | systemModules.edgeHub.type | Måste vara ”docker” | Ja |
 | systemModules.edgeHub.status | Måste vara ”körs” | Ja |
 | systemModules.edgeHub.restartPolicy | Måste vara ”alltid” | Ja |
 | systemModules.edgeHub.settings.image | URI för avbildning av Edge hub. | Ja |
-| systemModules.edgeHub.settings<br>.createOptions | En Stringified.json med alternativ för att skapa behållaren Edge hub. [Alternativ för att skapa docker][lnk-docker-create-options] | Nej |
+| systemModules.edgeHub.settings<br>.createOptions | En Stringified.json med alternativ för att skapa behållaren Edge hub. [Alternativ för att skapa docker](https://docs.docker.com/engine/api/v1.32/#operation/ContainerCreate) | Nej |
 | systemModules.edgeHub.configuration.id | ID för den distribution som har distribuerat den här modulen. | Den här egenskapen anges av IoT Hub när den här manifestet tillämpas med hjälp av en distribution. Inte en del av ett manifest för distribution. |
 | moduler. {moduleId} .version | En användardefinierad sträng som representerar versionen av den här modulen. | Ja |
 | moduler. {moduleId} .type | Måste vara ”docker” | Ja |
 | moduler. {moduleId} .status | {”körs” \| ”stoppad”} | Ja |
 | moduler. {moduleId} .restartPolicy | {”aldrig” \| ”på-misslyckades” \| ”på-defekta” \| ”alltid”} | Ja |
 | modules.{moduleId}.settings.image | URI: N i modulen avbildningen. | Ja |
-| moduler. {moduleId}.settings.createOptions | En Stringified.json med alternativ för att skapa behållaren modulen. [Alternativ för att skapa docker][lnk-docker-create-options] | Nej |
+| moduler. {moduleId}.settings.createOptions | En Stringified.json med alternativ för att skapa behållaren modulen. [Alternativ för att skapa docker](https://docs.docker.com/engine/api/v1.32/#operation/ContainerCreate) | Nej |
 | moduler. {moduleId}.configuration.id | ID för den distribution som har distribuerat den här modulen. | Den här egenskapen anges av IoT Hub när den här manifestet tillämpas med hjälp av en distribution. Inte en del av ett manifest för distribution. |
 
 ## <a name="edgeagent-reported-properties"></a>EdgeAgent rapporterade egenskaper
@@ -63,7 +63,7 @@ Edge-agenten rapporterade egenskaper omfattar tre huvudsakliga typer av informat
 Den här senaste del av informationen är användbar om de senaste egenskaperna inte har installerats av körningen och enheten fortfarande kör en tidigare distribution manifest.
 
 > [!NOTE]
-> De rapporterade egenskaperna för Edge-agenten är användbara eftersom de kan efterfrågas med den [IoT Hub-frågespråk] [ lnk-iothub-query] att undersöka statusen för distributioner i stor skala. Mer information om hur du använder egenskaper för Edge-agent för status finns i [förstå IoT Edge-distributioner för enskilda enheter eller i stor skala][lnk-deploy].
+> De rapporterade egenskaperna för Edge-agenten är användbara eftersom de kan efterfrågas med den [IoT Hub-frågespråk](../iot-hub/iot-hub-devguide-query-language.md) att undersöka statusen för distributioner i stor skala. Mer information om hur du använder egenskaper för Edge-agent för status finns i [förstå IoT Edge-distributioner för enskilda enheter eller i stor skala](module-deployment-monitoring.md).
 
 I följande tabell innehåller inte information som kopieras från önskade egenskaper.
 
@@ -117,9 +117,3 @@ Modultvillingen för Edge hub kallas `$edgeHub` och samordnar kommunikationen me
 ## <a name="next-steps"></a>Nästa steg
 
 Läs hur du använder dessa egenskaper för att bygga ut distribution manifesten i [förstå hur IoT Edge-moduler kan användas, konfigurerats och återanvändas](module-composition.md).
-
-<!--links -->
-[lnk-deploy]: module-deployment-monitoring.md
-[lnk-docker-create-options]: https://docs.docker.com/engine/api/v1.32/#operation/ContainerCreate
-[lnk-docker-logging-options]: https://docs.docker.com/engine/admin/logging/overview/
-[lnk-iothub-query]: ../iot-hub/iot-hub-devguide-query-language.md

@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/20/2018
+ms.date: 10/30/2018
 ms.author: TomSh
-ms.openlocfilehash: 460ef8a3d4436f240793025cbec874c624a2a6f4
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: a61f3572037b1c62ea5ed4e0ac4496b057e2b96d
+ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47039028"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50249059"
 ---
 # <a name="azure-database-security-overview"></a>Översikt över Azure database-säkerhet
 
@@ -65,6 +65,7 @@ Alla anslutningar till Azure SQL Database kräver kryptering (TLS/SSL) på hela 
 I anslutningssträngen för ditt program, måste du ange parametrar att kryptera anslutningen och inte lita på servercertifikatet. (Detta görs för dig om du kopierar anslutningssträngen utanför Azure-portalen.) Annars kan anslutningen kommer inte att verifiera identiteten för servern och kommer vara sårbar för ”man-in-the-middle”-attacker. ADO.NET-drivrutinen exempelvis dessa parametrar för anslutningssträngen är `Encrypt=True` och `TrustServerCertificate=False`.
 
 ### <a name="encryption-at-rest"></a>Vilande kryptering
+
 Du kan ta flera försiktighetsåtgärder för att skydda databasen. Till exempel att skapa säkra system, kryptera känsliga tillgångar och skapa en brandvägg runt database-servrar. Men i ett scenario där det fysiska mediet (till exempel enheter eller band) blir stulna, en obehörig part kan bara återställa eller koppla databasen och bläddra efter data.
 
 En lösning är att kryptera känsliga data i databasen och skydda nycklar som används för att kryptera data med ett certifikat. Den här lösningen förhindrar att någon utan nycklar med hjälp av data, men den här typen av skydd måste planeras.
@@ -92,6 +93,7 @@ Always ger Encrypted en åtskillnad mellan personer som äger data (och kan visa
 Dessutom gör Always Encrypted kryptering transparent för program. En drivrutin för Always Encrypted-aktiverade är installerad på klientdatorn så att den automatiskt kan kryptera och dekryptera känsliga data i klientprogrammet. Drivrutinen krypteras data i känsliga kolumnerna innan data skickas till databasmotorn. Drivrutinen automatiskt skriver om frågor så att semantik för programmet bevaras. Drivrutinen på samma sätt kan dekrypterar transparent data som lagras i krypterade databaskolumner som ingår i frågeresultatet.
 
 ## <a name="access-control"></a>Åtkomstkontroll
+
 För att ge säkerhet, kontrollerar SQL Database åtkomsten med hjälp av:
 
 - Brandväggsregler som begränsar anslutning efter IP-adress.
@@ -124,11 +126,13 @@ Autentisering refererar till hur du styrkt din identitet vid anslutning till dat
   - Men kan inte lagra lösenord genom att aktivera integrerad Windows-autentisering och andra former av autentisering som har stöd för Azure AD.
 
 #### <a name="authorization"></a>Auktorisering
+
 [Auktorisering](https://docs.microsoft.com/azure/sql-database/sql-database-manage-logins) hänvisar till vad en användare kan göra inom en Azure SQL-databas. Det styrs av ditt användarkontos databas [rollmedlemskap](https://msdn.microsoft.com/library/ms189121) och [objektnivå behörigheter](https://msdn.microsoft.com/library/ms191291.aspx). Auktorisering är processen att avgöra vilken skyddsbara resurser som ett huvudkonto kan komma åt och vilka åtgärder som tillåts för dessa resurser.
 
 ### <a name="application-access"></a>Programåtkomst
 
 #### <a name="dynamic-data-masking"></a>Dynamisk datamaskning
+
 En representant på ett Callcenter kan identifiera anropare genom flera siffrorna i sina e-postadress eller kreditkortsnummer. Men de dataobjekt bör inte exponeras fullständigt för servicerepresentant.
 
 Du kan definiera en maskningsregel som döljer alla utom de sista fyra siffrorna i ett personnummer eller kreditkortsnummer i resultatet av en fråga.
@@ -141,11 +145,11 @@ Ett annat exempel kan du definiera en lämplig data-mask för att skydda personl
 
 [Dynamisk datamaskning](https://docs.microsoft.com/sql/relational-databases/security/dynamic-data-masking) hjälper till att förhindra obehörig åtkomst till känsliga data genom att ange hur mycket av känsliga data som avslöja med minimal påverkan på programnivån. Det är en principbaserad säkerhetsfunktion som fungerar genom att dölja känslig data i resultatuppsättningen för en fråga över angivna databasfält, medan data i databasen förblir oförändrad.
 
-
 > [!Note]
 > Dynamisk datamaskning kan konfigureras med Azure Database-administratör, serveradministratör eller officer säkerhetsroller.
 
 #### <a name="row-level-security"></a>Säkerhet på radnivå
+
 Ett annat gemensamma säkerhetskrav för flera innehavare databaser är [säkerhet på radnivå](https://msdn.microsoft.com/library/dn765131.aspx). Du kan använda den här funktionen för att styra åtkomsten till rader i en databastabell baserat på egenskaperna för den användare som kör en fråga. (Exempel egenskaper är gruppen medlemskap och körning kontexten.)
 
 ![Säkerhet på radnivå som tillåter en användare att åtkomst rader i en tabell med en klientapp](./media/azure-databse-security-overview/azure-database-fig4.png)
@@ -155,18 +159,20 @@ Logiken för begränsning av är placerad på databasnivån i stället för in f
 Säkerhet på radnivå introducerar predikat-baserad åtkomstkontroll. Den har en flexibel centraliserad utvärderingsversion som kan ta med i beräkningen metadata eller andra kriterier som administratören anger efter behov. Predikatet används som ett villkor för att avgöra om användaren har lämplig åtkomst till data baserat på användarattribut. Du kan implementera etikett-baserad åtkomstkontroll genom att använda predikat-baserad åtkomstkontroll.
 
 ## <a name="proactive-monitoring"></a>Proaktiv övervakning
+
 SQL-databas kan du skydda dina data genom att tillhandahålla *granskning* och *hotidentifiering* funktioner.
 
 ### <a name="auditing"></a>Granskning
+
 [Azure SQL Database-granskning](https://docs.microsoft.com/azure/sql-database/sql-database-auditing-get-started) ökar dina möjligheter att få insyn i händelser och ändringar som sker i databasen. Exempel är uppdateringar och frågor mot data.
 
 SQL-databasgranskning spårar databashändelser och skriver dem till en granskningslogg i ditt Azure storage-konto. Granskning kan hjälpa dig att upprätthålla regelefterlevnad, Förstå Databasaktivitet och få insyn i avvikelser och fel som kan tyda på affärsproblem eller potentiella säkerhetsöverträdelser. Granskning kan och underlättar infört efterlevnadsstandarder men garanterar inte efterlevnad.
 
 Du kan använda SQL Database auditing till att:
 
--   **Behåll** granskningsspårning av valda händelser. Du kan definiera kategorier av databasåtgärder som ska granskas.
--   **Rapporten** på Databasaktivitet. Du kan använda förkonfigurerade rapporter och en instrumentpanel för att komma igång snabbt med aktiviteten och rapportera händelser.
--   **Analysera** rapporter. Du hittar misstänkta händelser, ovanliga aktiviteter och trender.
+- **Behåll** granskningsspårning av valda händelser. Du kan definiera kategorier av databasåtgärder som ska granskas.
+- **Rapporten** på Databasaktivitet. Du kan använda förkonfigurerade rapporter och en instrumentpanel för att komma igång snabbt med aktiviteten och rapportera händelser.
+- **Analysera** rapporter. Du hittar misstänkta händelser, ovanliga aktiviteter och trender.
 
 Det finns två metoder för granskning:
 
@@ -174,13 +180,26 @@ Det finns två metoder för granskning:
 -   **Tabellgranskning**: loggarna skrivs till Azure Table storage.
 
 ### <a name="threat-detection"></a>Hotidentifiering
-[Azure SQL Database-hotidentifiering](https://docs.microsoft.com/azure/sql-database/sql-database-threat-detection) identifierar misstänkta aktiviteter som kan innebära potentiella säkerhetshot. Du kan använda hotidentifiering för att reagera på misstänkta händelser i databasen, som SQL-injektioner, när de inträffar. Det ger aviseringar och tillåter användning av Azure SQL Database-granskning för att utforska misstänkta händelser.
+
+[Avancerat skydd för Azure SQL Database](https://docs.microsoft.com/azure/sql-database/sql-advanced-threat-protection) identifierar misstänkta aktiviteter som kan innebära potentiella säkerhetshot. Du kan använda hotidentifiering för att reagera på misstänkta händelser i databasen, som SQL-injektioner, när de inträffar. Det ger aviseringar och tillåter användning av Azure SQL Database-granskning för att utforska misstänkta händelser.
 
 ![Hotidentifiering för SQL Database och en webbapp med en extern angripare och en](./media/azure-databse-security-overview/azure-database-fig5.jpg)
 
-Till exempel är SQL-inmatning en av de vanliga säkerhetsproblem för webbprogram. Används för att attackera datadrivna program. Angripare utnyttja sårbarheter i program för att mata in skadliga SQL-instruktioner i programmets inmatningsfält tränga in eller ändra data i databasen.
+SQL avancerade Threat Protection (ATP) tillhandahåller en uppsättning avancerade funktioner för SQL security, inklusive Dataidentifiering och klassificering, Sårbarhetsbedömning och Hotidentifiering. 
 
-Security införlivande eller andra avsedda administratörer kan få en omedelbar avisering om misstänkta databasaktiviteter när de inträffar. Varje avisering innehåller information om misstänkt aktivitet och rekommenderar att vidare undersöka och minska risken.        
+- [Dataidentifiering och klassificering](../sql-database/sql-database-data-discovery-and-classification.md)
+- [Utvärdering av säkerhetsrisker](../sql-database/sql-vulnerability-assessment.md)  
+- [Identifiering av hot](../sql-database/sql-database-threat-detection.md)
+
+[Azure Database for PostgreSQL Advanced Threat Protection](../postgresql/concepts-data-access-and-security-threat-protection.md) ger ett nytt lager av säkerhet som gör det möjligt att upptäcka och svara på potentiella hot allteftersom de sker genom att tillhandahålla säkerhetsaviseringar om avvikande aktiviteter. Användarna får en avisering när misstänkta databasaktiviteter, potentiella sårbarheter, samt och avvikande mönster för åtkomst och frågor. Avancerat skydd för Azure Database for PostgreSQL integrerar aviseringar med Azure Security Center. Typ av aviseringar är:
+
+- Åtkomst från ovanlig plats
+- Åtkomst från ovanligt Azure-Datacenter 
+- Åtkomst från okänd huvudnamn 
+- Åtkomst från ett potentiellt skadligt program 
+- Brute force Azure database för PostgreSQL-autentiseringsuppgifter 
+
+[Azure Database for MySQL Advanced Threat Protection](/mysql/concepts-data-access-and-security-threat-protection.md) skyddar liknar PostgreSQL Avancerat skydd.  
 
 ## <a name="centralized-security-management"></a>Centraliserad säkerhetshantering
 
@@ -188,12 +207,20 @@ Security införlivande eller andra avsedda administratörer kan få en omedelbar
 
 [Security Center](https://docs.microsoft.com/azure/security-center/security-center-sql-database) kan du skydda data i SQL-databas genom att ge bättre inblick om säkerheten för dina servrar och databaser. Med Security Center kan du:
 
--   Definiera principer för SQL Database-kryptering och granskning.
--   Övervaka säkerheten i SQL Database-resurser för alla dina prenumerationer.
--   Snabbt identifiera och åtgärda säkerhetsproblem.
--   Integrera varningar från [Azure SQL Database-hotidentifiering](https://docs.microsoft.com/azure/sql-database/sql-database-threat-detection).
+- Definiera principer för SQL Database-kryptering och granskning.
+- Övervaka säkerheten i SQL Database-resurser för alla dina prenumerationer.
+- Snabbt identifiera och åtgärda säkerhetsproblem.
+- Integrera varningar från [Azure SQL Database-hotidentifiering](https://docs.microsoft.com/azure/sql-database/sql-database-threat-detection).
 
 Security Center stöder rollbaserad åtkomst.
+
+## <a name="sql-information-protection"></a>SQL-informationsskydd
+
+[SQL-informationsskydd](../sql-database/sql-database-data-discovery-and-classification.md) automatiskt identifierar och klassificerar potentiellt känsliga data, tillhandahåller en mekanism för etikettering för beständigt taggar känsliga data med klassificering attribut och ger en detaljerad instrumentpanel som visar klassificering tillståndet för databasen.  
+
+Dessutom beräknas resultatet känslighet för SQL-frågor, så att frågor som hämtar känsliga data kan granskas uttryckligen och data kan skyddas. Mer information om SQL Information Protection finns i Azure SQL Database-Dataidentifiering och klassificering.
+
+Du kan konfigurera [SQL Information Protection-principer](/security-center/security-center-info-protection-policy.md) i Azure Security Center.
 
 ## <a name="azure-marketplace"></a>Azure Marketplace
 

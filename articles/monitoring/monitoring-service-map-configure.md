@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/24/2018
 ms.author: daseidma;bwren
-ms.openlocfilehash: 70cf6fe1e2256ba2ed58d020111669e59d9db56b
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 9d574e7e8b0b285093aa0960243300dfe9f6d417
+ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49405522"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50249016"
 ---
 # <a name="configure-service-map-in-azure"></a>Konfigurera Tjänstkarta i Azure
 Tjänstkarta identifierar automatiskt programkomponenter i Windows- och Linux-system och mappar kommunikationen mellan olika tjänster. Du kan använda den för att visa dina servrar som du tänker på dem, sammankopplat system som levererar viktiga tjänster. Tjänstkarta visar anslutningar mellan servrar, processer och portar i alla TCP-anslutna arkitekturer utan konfiguration som krävs, än installation av en agent.
@@ -146,7 +146,7 @@ I den här artikeln ska vi ska referera till alla agenter om Linux eller Windows
 
 Tjänstkarta-agenten överföra inte några data själva och det kräver inte ändringar i brandväggar eller portar. Data i Tjänstkarta överförs alltid genom Log Analytics-agenten till Log Analytics-tjänsten antingen direkt eller via Log Analytics-gateway.
 
-![Tjänstkarta-agenter](media/monitoring-service-map/agents.png)
+![Tjänstkarta-agenter](media/monitoring-service-map-configure/agents.png)
 
 Om du är en System Center Operations Manager-kund med en hanteringsgrupp som är ansluten till Log Analytics:
 

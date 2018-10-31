@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/27/2018
+ms.date: 10/29/2018
 ms.author: sethm
 ms.reviewer: justini
-ms.openlocfilehash: d80e7bc1d391d9b5bfd718ca2dc0e9dc7ecb2268
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 38a8cd35d123f58d6379ade4d900e86b36b416ec
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50210881"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50240145"
 ---
 # <a name="azure-stack-1809-update"></a>Uppdatering av Azure Stack 1809
 
@@ -39,7 +39,7 @@ Azure Stack 1809 update build-nummer är **1.1809.0.90**.
 
 Den här uppdateringen innehåller följande förbättringar för Azure Stack:
 
-- Den här versionen har integrerade Azure Stack-system har stöd för konfigurationer av 4 – 16 noder.
+- Den här versionen har integrerade Azure Stack-system har stöd för konfigurationer av 4 – 16 noder. Du kan använda den [Azure Stack Capacity Planner](http://aka.ms/azstackcapacityplanner) till hjälp i planeringen för Azure Stack-kapacitet och konfiguration.
 
 - <!--  2712869   | IS  ASDK -->  **Azure Stack syslog-klienten (allmän tillgänglighet)** den här klienten gör att vidarebefordra granskningar, aviseringar och säkerhetsloggar som rör Azure Stack-infrastruktur till en syslog-server eller säkerhet och händelsehantering (SIEM) hanteringsprogramvara extern till Azure Stack. Syslog-klienten har nu stöd för att ange den port som syslog-servern lyssnar.
 

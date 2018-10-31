@@ -3,7 +3,7 @@ title: Skala resurser för elastisk pool – Azure SQL Database | Microsoft Docs
 description: Den här sidan beskriver skala resurser för elastiska pooler i Azure SQL Database.
 services: sql-database
 ms.service: sql-database
-subservice: elastic-pool
+ms.subservice: elastic-pool
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -12,12 +12,12 @@ ms.author: moslake
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 10/15/2018
-ms.openlocfilehash: 707304e6901002a58fe24a4b3a88be3f82ad320e
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: cd9886f11685397cbfb82f88bb0b37c8ccc41b67
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49469256"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50240179"
 ---
 # <a name="scale-elastic-pool-resources-in-azure-sql-database"></a>Skala resurser för elastisk pool i Azure SQL Database
 

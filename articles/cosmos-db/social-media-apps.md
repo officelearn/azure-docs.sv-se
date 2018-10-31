@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: maquaran
-ms.openlocfilehash: 5c916f847bf5098145c3ed14fad87c7669d916c8
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 3c97c89bde40357981d82dce8dd53febff25c8f3
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47222701"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50239890"
 ---
 # <a name="going-social-with-azure-cosmos-db"></a>Socialt med Azure Cosmos DB
 Att leva i ett enormt sammankopplade society innebär att vid en viss tidpunkt i vardagen du bli en del av en **socialt nätverk**. Du kan använda sociala nätverk för att hålla kontakten med vänner, kolleger, familj, eller ibland att dela din passion med personer med gemensamma intressen.
@@ -233,7 +233,7 @@ Vad händer om saker hela tiden blir bättre och användare från en annan regio
 
 Men vänta... du snart förverkliga sina erfarenheter din plattform inte är optimalt; de är så här långt från din operational region att svarstiden är förskräckliga ut och du givetvis inte vill att avsluta. Om bara det uppstod ett enkelt sätt att **utöka din globala räckvidd**... men det finns!
 
-Cosmos DB kan du [replikera data globalt](../cosmos-db/tutorial-global-distribution-sql-api.md) och transparent med bara några klick och automatiskt välja bland de tillgängliga regionerna från din [klientkod](../cosmos-db/tutorial-global-distribution-sql-api.md). Det innebär också att du kan ha [flera regioner för redundans](regional-failover.md). 
+Cosmos DB kan du [replikera data globalt](../cosmos-db/tutorial-global-distribution-sql-api.md) och transparent med bara några klick och automatiskt välja bland de tillgängliga regionerna från din [klientkod](../cosmos-db/tutorial-global-distribution-sql-api.md). Det innebär också att du kan ha [flera regioner för redundans](high-availability.md). 
 
 När du replikerar dina data globalt måste du se till att klienterna kan dra nytta av den. Om du använder en webbservergrupp eller åtkomst till API: er från mobila klienter som du kan distribuera [Azure Traffic Manager](https://azure.microsoft.com/services/traffic-manager/) och klona Azure App Service på alla önskade regioner med hjälp av en prestandakonfiguration för för dina utökade globala täckning. När klienterna kommer åt din klientdel eller API: er, kommer att dirigeras till den närmaste App Service, som i sin tur kommer att ansluta till den lokala repliken av Cosmos DB.
 

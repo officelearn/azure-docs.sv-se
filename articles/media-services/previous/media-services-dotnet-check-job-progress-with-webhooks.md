@@ -1,10 +1,10 @@
 ---
-title: Använda Azure Webhooks för att övervaka Media Services jobbet meddelanden med .NET | Microsoft Docs
-description: Lär dig hur du använder Azure Webhooks för att övervaka Media Services jobbet meddelanden. Kodexemplet är skrivna i C# och använder Media Services SDK för .NET.
+title: Använda Azure Webhooks för att övervaka jobbmeddelanden för Media Services med .NET | Microsoft Docs
+description: Lär dig hur du använder Azure Webhooks för att övervaka jobbmeddelanden för Media Services. Kodexemplet är skriven i C# och använder Media Services SDK för .NET.
 services: media-services
 documentationcenter: ''
 author: juliako
-manager: cfowler
+manager: femila
 editor: ''
 ms.assetid: a61fe157-81b1-45c1-89f2-224b7ef55869
 ms.service: media-services
@@ -12,31 +12,31 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 12/09/2017
+ms.date: 10/29/2018
 ms.author: juliako
-ms.openlocfilehash: 564fc25699c3ae627804d49bfdc40ae9dd559269
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: b3ce3731f19565bfe950d03a2bbc980dda55a7f4
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33789413"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50238666"
 ---
-# <a name="use-azure-webhooks-to-monitor-media-services-job-notifications-with-net"></a>Använd Azure Webhooks att övervaka Media Services jobbet meddelanden med .NET
-När du kör jobb behöver du ofta ett sätt att spåra jobbförloppet. Du kan övervaka Media Services jobbet meddelanden med hjälp av Azure Webhooks eller [Azure Queue storage](media-services-dotnet-check-job-progress-with-queues.md). Den här artikeln visar hur du arbetar med webhooks.
+# <a name="use-azure-webhooks-to-monitor-media-services-job-notifications-with-net"></a>Använd Azure Webhooks för att övervaka jobbmeddelanden för Media Services med .NET
+När du kör jobb kräver ofta ett sätt att spåra jobbförloppet. Du kan övervaka jobbmeddelanden för Media Services med hjälp av Azure Webhooks eller [Azure Queue storage](media-services-dotnet-check-job-progress-with-queues.md). Den här artikeln visar hur du arbetar med webhooks.
 
 Den här artikeln visar hur du
 
-*  Definiera en Azure-funktion som är anpassad för att svara på webhooks. 
+*  Definiera en Azure-funktion som är anpassad för att svara på webhookar. 
     
-    I det här fallet utlöses webhooken av Media Services när din kodningsjobbet ändrar status. Funktionen lyssnar efter webhook-anrop från Media Services-meddelanden och publicerar utdatatillgången när jobbet har slutförts. 
+    I det här fallet utlöses webhooken av Media Services när din kodningsjobb ändras status. Funktionen lyssnar efter webhook-anrop från Media Services-meddelanden och publicerar utdatatillgången när jobbet har slutförts. 
     
     >[!NOTE]
-    >Innan du fortsätter bör du kontrollera att du förstår hur [Azure Functions HTTP och webhook bindningar](../../azure-functions/functions-bindings-http-webhook.md) fungerar.
+    >Innan du fortsätter, kontrollera att du förstår hur [Azure Functions HTTP och webhook-bindningar](../../azure-functions/functions-bindings-http-webhook.md) fungerar.
     >
     
-* Lägga till en webhook kodning uppgiften och ange Webhooksadressen och hemlig nyckel som denna webhook svarar. Du hittar ett exempel som lägger tillför en webhook kodning uppgiften i slutet av artikeln.  
+* Lägg till en webhook till din kodningsjobb och ange Webhooksadressen och hemliga nyckel som denna webhook svarar på. Du hittar ett exempel som lägger till en webhook i din kodningsjobb i slutet av artikeln.  
 
-Du kan hitta definitioner av olika Media Services .NET Azure-funktioner (inklusive det som visas i den här artikeln) [här](https://github.com/Azure-Samples/media-services-dotnet-functions-integration).
+Du kan hitta definitioner av olika Media Services .NET Azure-funktioner (inklusive den som visas i den här artikeln) [här](https://github.com/Azure-Samples/media-services-dotnet-functions-integration).
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -44,42 +44,42 @@ Följande krävs för att kunna genomföra vägledningen:
 
 * Ett Azure-konto. Mer information om den [kostnadsfria utvärderingsversionen av Azure](https://azure.microsoft.com/pricing/free-trial/).
 * Ett Media Services-konto. Information om hur du skapar ett Media Services-konto finns i [Så här skapar du ett Media Services-konto](media-services-portal-create-account.md).
-* Förstå [hur du använder Azure Functions](../../azure-functions/functions-overview.md). Granska även [Azure Functions HTTP och webhook bindningar](../../azure-functions/functions-bindings-http-webhook.md).
+* Förståelse för [hur du använder Azure Functions](../../azure-functions/functions-overview.md). Läs också [Azure Functions HTTP och webhook-bindningar](../../azure-functions/functions-bindings-http-webhook.md).
 
 ## <a name="create-a-function-app"></a>Skapa en funktionsapp
 
 1. Gå till [Azure Portal](http://portal.azure.com) och logga in med ditt Azure-konto.
 2. Skapa en funktionsapp enligt [här](../../azure-functions/functions-create-function-app-portal.md).
 
-## <a name="configure-function-app-settings"></a>Konfigurera funktionen app-inställningar
+## <a name="configure-function-app-settings"></a>Konfigurera funktionsappinställningar
 
-Det är praktiskt att lägga till miljövariabler som används i hela din funktioner när du utvecklar Media Services-funktioner. Klicka på länken konfigurera App-inställningar om du vill konfigurera inställningar för appen. 
+När du utvecklar funktioner i Media Services är det praktiskt att lägga till miljövariabler som kommer att användas i dina funktioner. Om du vill konfigurera inställningarna för appen klickar du på länken konfigurera Appinställningar. 
 
-Den [programinställningar](media-services-dotnet-how-to-use-azure-functions.md#configure-function-app-settings) avsnittet definierar parametrar som används i webhooken som definierats i den här artikeln. Också lägga till följande parametrar i app-inställningar. 
+Den [programinställningar](media-services-dotnet-how-to-use-azure-functions.md#configure-function-app-settings) avsnittet definierar parametrar som används i webhooken som definierats i den här artikeln. Lägg även till följande parametrar i appinställningar. 
 
 |Namn|Definition|Exempel| 
 |---|---|---|
-|SigningKey |Signeringsnyckeln.| j0txf1f8msjytzvpe40nxbpxdcxtqcgxy0nt|
-|WebHookEndpoint | En webhook slutpunktsadress. När webhook-funktionen har skapats kan du kopiera URL: en från den **få funktionen URL** länk. | https://juliakofuncapp.azurewebsites.net/api/Notification_Webhook_Function?code=iN2phdrTnCxmvaKExFWOTulfnm4C71mMLIy8tzLr7Zvf6Z22HHIK5g==.|
+|SigningKey |Signeringsnyckel.| j0txf1f8msjytzvpe40nxbpxdcxtqcgxy0nt|
+|WebHookEndpoint | En webhook-slutpunkt-adress. När din webhook-funktion har skapats kan du kopiera URL: en från den **hämta Funktionswebbadress** länk. | https://juliakofuncapp.azurewebsites.net/api/Notification_Webhook_Function?code=iN2phdrTnCxmvaKExFWOTulfnm4C71mMLIy8tzLr7Zvf6Z22HHIK5g==.|
 
 ## <a name="create-a-function"></a>Skapa en funktion
 
-När funktionen appen har distribuerats, du kan hitta den bland **Apptjänster** Azure Functions.
+När funktionsappen har distribuerats, kan du hitta den bland **Apptjänster** Azure Functions.
 
-1. Välj funktionen appen och klicka på **nya funktionen**.
-2. Välj **C#** koden och **API & Webhooks** scenario. 
-3. Välj **allmän Webhook - C#**.
+1. Välj funktionsappen och klicka på **ny funktion**.
+2. Välj **C#** kod och **API och Webbhookar** scenario. 
+3. Välj **generisk Webhook – C#** .
 4. Namnge din webhook och tryck på **skapa**.
 
 ### <a name="files"></a>Filer
 
-Din Azure-funktion är associerad med kod och andra filer som beskrivs i det här avsnittet. Som standard, en funktion som är associerad med **function.json** och **run.csx** (C#)-filer. Du måste lägga till en **project.json** fil. Resten av det här avsnittet innehåller definitioner för de här filerna.
+Din Azure-funktion är associerad med kod och andra filer som beskrivs i det här avsnittet. Som standard en funktion som är associerad med **function.json** och **run.csx** (C#) filer. Du måste lägga till en **project.json** fil. Resten av det här avsnittet visar definitionerna för de här filerna.
 
 ![filer](./media/media-services-azure-functions/media-services-azure-functions003.png)
 
 #### <a name="functionjson"></a>Function.JSON
 
-Filen function.json definierar bindningarna som funktionen och andra konfigurationsinställningar. Körningsmiljön använder den här filen för att fastställa händelser att övervaka och hur du överför data till och returnera data från funktionen körning. 
+Filen function.json definierar bindningarna som funktionen och andra konfigurationsinställningar. Körningen använder den här filen för att hitta händelser att övervaka och hur du överför data till och returnera data från körning av funktion. 
 
 ```json
 {
@@ -123,9 +123,9 @@ Filen project.json innehåller beroenden.
 
 Koden i det här avsnittet visar en implementering av en Azure-funktion som är en webhook. I det här exemplet funktionen lyssnar efter webhook-anrop från Media Services-meddelanden och publicerar utdatatillgången när jobbet har slutförts.
 
-Webhooken förväntar signeringsnyckeln (autentiseringsuppgifter) så att den matchar den som du skickar när du konfigurerar aviseringsslutpunkten. Signeringsnyckeln är Base64-kodade 64-byte-värde som används för att skydda och skydda WebHooks-återanrop från Azure Media Services. 
+Webhooken förväntar sig en signeringsnyckel (autentiseringsuppgifterna) som ska motsvara det konto som du skickar när du konfigurerar aviseringsslutpunkten. Signeringsnyckeln är Base64-kodad 64 byte-värde som används för att skydda och säkra WebHooks-återanrop från Azure Media Services. 
 
-I webhook definition koden som kommer efter den **VerifyWebHookRequestSignature** metod har verifiering av meddelandet. Syftet med den här verifieringen är att säkerställa att meddelandet skickades av Azure Media Services och inte har ändrats. Signaturen är valfri för Azure Functions eftersom den har den **kod** värdet som en frågeparameter över Transport Layer Security (TLS). 
+I koden för webhook-definition som följer den **VerifyWebHookRequestSignature** metoden utför verifiering av meddelandet. Syftet med den här verifieringen är att säkerställa att meddelandet har skickats av Azure Media Services och inte har ändrats. Signaturen är valfritt för Azure Functions eftersom den har den **kod** värdet som frågeparameter över Transport Layer Security (TLS). 
 
 >[!NOTE]
 >Det finns en gräns på 1 000 000 principer för olika AMS-principer (till exempel för positionerarprincipen eller ContentKeyAuthorizationPolicy). Du bör använda samma princip-ID om du alltid använder samma dagar/åtkomstbehörigheter, till exempel principer för positionerare som är avsedda att vara på plats under en längre tid (icke-överföringsprinciper). Mer information finns i [detta](media-services-dotnet-manage-entities.md#limit-access-policies) avsnitt.
@@ -346,9 +346,9 @@ internal sealed class NotificationMessage
 
 Spara och kör din funktion.
 
-### <a name="function-output"></a>Funktionen utdata
+### <a name="function-output"></a>Funktionsutdata
 
-När webhooken utlöses exemplet ovan skapar följande utdata, värdena kan variera.
+När webhooken har utlösts i exemplet ovan skapar följande utdata, dina värden varierar.
 
     C# HTTP trigger function processed a request. RequestUri=https://juliako001-functions.azurewebsites.net/api/Notification_Webhook_Function?code=9376d69kygoy49oft81nel8frty5cme8hb9xsjslxjhalwhfrqd79awz8ic4ieku74dvkdfgvi
     Request Body = 
@@ -370,17 +370,17 @@ När webhooken utlöses exemplet ovan skapar följande utdata, värdena kan vari
     
     URL to the manifest for client streaming using HLS protocol: http://mediapkeewmg5c3peq.streaming.mediaservices.windows.net/0ac98077-2b58-4db7-a8da-789a13ac6167/BigBuckBunny.ism/manifest(format=m3u8-aapl)
 
-## <a name="add-a-webhook-to-your-encoding-task"></a>Lägg till en webhook kodning uppgiften
+## <a name="add-a-webhook-to-your-encoding-task"></a>Lägg till en webhook i din kodningsjobb
 
-I det här avsnittet visas den kod som lägger tillför ett webhook-meddelande till en aktivitet. Du kan också lägga till en nivå indikering jobb, som är mer användbar för ett projekt med länkad uppgifter.  
+I det här avsnittet visas den kod som lägger tillför ett webhook-meddelande till en uppgift. Du kan också lägga till en nivå meddelande från jobb som skulle vara mer användbar för ett jobb med länkade uppgifter.  
 
-1. Skapa ett nytt C#-konsolprogram i Visual Studio. Ange namn, plats och lösningen och klicka sedan på OK.
+1. Skapa ett nytt C#-konsolprogram i Visual Studio. Ange namn, plats och lösningen namnet och klicka sedan på OK.
 2. Använd [NuGet](https://www.nuget.org/packages/windowsazure.mediaservices) att installera Azure Media Services.
 3. Uppdatera App.config-fil med lämpliga värden: 
     
-    * Azure Media Services anslutningsinformation 
-    * Webhooksadressen som förväntar sig att hämta meddelanden, 
-    * signeringsnyckeln som matchar nyckeln som din webhook förväntas. Signeringsnyckeln är Base64-kodade 64-byte-värde som används för att skydda och skydda webhooks-återanrop från Azure Media Services. 
+    * Azure Media Services-anslutningsinformation 
+    * webhook-URL som förväntar sig att få aviseringar, 
+    * signeringsnyckeln som matchar den nyckel som din webhook förväntas. Signeringsnyckeln är Base64-kodad 64 byte-värde som används för att skydda och säkra webhooks-återanrop från Azure Media Services. 
 
     ```xml
             <appSettings>

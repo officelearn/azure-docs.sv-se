@@ -9,12 +9,12 @@ ms.topic: include
 ms.date: 09/04/2018
 ms.author: glenga
 ms.custom: include file
-ms.openlocfilehash: 3320422396148cad3252c0e834e903b3853a9671
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: bf4d6687e00849fd7c8269eb1a4739e0153a8503
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48812155"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50251149"
 ---
 I följande tabell innehåller information om hur du lägger till stöd för den här bindningen i varje utvecklingsmiljö.
 
@@ -22,6 +22,6 @@ I följande tabell innehåller information om hur du lägger till stöd för den
 |----------------------|----------------|---------------|
 |Lokal utveckling – C#-klassbibliotek       | [Installera paketet](../articles/azure-functions/functions-triggers-bindings.md#c-class-library-with-visual-studio-2017) |
 |Lokal utveckling – C#-skript, JavaScript, F # |[Registrera tillägget](../articles/azure-functions/functions-triggers-bindings.md#local-development-azure-functions-core-tools)         |
-|Portal-utveckling| [Automatisk](../articles/azure-functions/functions-triggers-bindings.md#azure-portal-development)    |
+|Portal-utveckling| Installera när du lägger till utdata-bindning    |
 
 Läs hur du uppdaterar befintliga bindningen tillägg i portalen utan att behöva publicera ditt funktionsappsprojekt i [uppdatera dina tillägg](../articles/azure-functions/install-update-binding-extensions-manual.md).

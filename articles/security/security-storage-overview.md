@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/17/2018
+ms.date: 10/29/2018
 ms.author: terrylan
-ms.openlocfilehash: 4ed4e73348db8cfffb6e79afaa9d196e242d7488
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: 759de1c62cb9cb4aa642fa564378b1ed551d7dae
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "42062081"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50239363"
 ---
 # <a name="azure-storage-security-overview"></a>Säkerhetsöversikt för Azure Storage
 
@@ -33,6 +33,7 @@ Azure Storage är molnlagringslösningen för moderna program som kräver hållb
 * Använda analytics för att spåra den autentiseringsmetod som någon använder när de har åtkomst till lagring.
 
 Mer detaljerad information om säkerhet i Azure Storage, finns det [säkerhetsguiden för Azure Storage](../storage/common/storage-security-guide.md). Den här guiden innehåller en djupdykning i säkerhetsfunktionerna i Azure Storage. Dessa funktioner innefattar lagringskontonycklar, datakryptering vid överföring och på rest- och storage analytics.
+
 
 Den här artikeln innehåller en översikt över säkerheten i Azure-funktioner som du kan använda med Azure Storage. Länkar till artiklar ge information om varje funktion så att du kan läsa mer.
 
@@ -91,13 +92,35 @@ Läs mer
 
 * [Azure Disk Encryption för Windows och Linux IaaS-datorer](https://gallery.technet.microsoft.com/Azure-Disk-Encryption-for-a0018eb0)
 
-## <a name="azure-storage-firewalls-and-virtual-networks"></a>Azure Storage-brandväggar och virtuella nätverk
+## <a name="firewalls-and-virtual-networks"></a>Brandväggar och virtuella nätverk
 
 Azure storage kan du aktivera brandväggsregler för dina lagringskonton. När aktiverad de blockerar inkommande förfrågningar för data, inklusive förfrågningar från andra Azure-tjänster. Du kan konfigurera undantag för att tillåta trafik. Brandväggsregler kan aktiveras på befintliga lagringskonton eller under skapandeprocessen.
 
 Du bör använda den här funktionen för att skydda dina storage-konton till en specifik uppsättning tillåtna nätverk.
 
 Mer information om Azure storage brandväggar och virtuella nätverk finns i artikeln [konfigurera Azure Storage-brandväggar och virtuella nätverk](../storage/common/storage-network-security.md)
+
+## <a name="azure-data-box"></a>Azure Data Box
+
+Med Data Box, Data Box Disk och Data Box – tung kan du överföra stora mängder data till Azure när nätverket inte är ett alternativ. Dessa enheter för överföring av data offline levereras mellan din organisation och Azure-datacentret. De använder AES-kryptering för att skydda dina data i transit, och de genomgår en noggrann sanering efter uppladdning för att ta bort dina data från enheten.
+
+Data Box Edge och Data Box Gateway är onlineprodukter för dataöverföring som fungerar som gateways för nätverkslagring som hanterar data mellan din plats och Azure. Data Box Edge, en lokal nätverksenhet, överför data till och från Azure och använder AI-aktiverad (artificiell intelligens) gränsdatabearbetning för att bearbeta data. Data Box Gateway är en virtuell installation med lagringsgatewayfunktioner.
+
+Läs mer:
+
+* [Azure Data Box](https://azure.microsoft.com/services/storage/databox/)
+* [Azure Data Box Edge](../databox-online/data-box-edge-overview.md)
+* [Azure Data Box-Gateway](..//databox-online/data-box-gateway-overview.md)
+
+## <a name="advanced-threat-protection"></a>Advanced Threat Protection
+
+Azure Storage tillhandahåller Avancerat skydd för ett extra lager säkerhetsintelligens som identifierar onormala och potentiellt skadliga försök att komma åt eller utnyttja ditt storage-konto. Advanced Threat Protection övervakar diagnostikloggar för Azure Storage för misstänkt Läs, skriva eller ta bort begäranden till bloblagring. 
+
+Avancerade Threat Protection-aviseringar kan visas från [Azure Security Center](https://azure.microsoft.com/services/security-center/). Azure Security Center innehåller information för varje misstänkt aktivitet har identifierats och rekommenderar åtgärder för att undersöka och åtgärda eventuella hot. 
+
+Läs mer:
+
+* [Azure Storage Advanced Threat Protection-översikt](../storage/common/storage-advanced-threat-protection.md)
 
 ## <a name="azure-key-vault"></a>Azure Key Vault
 

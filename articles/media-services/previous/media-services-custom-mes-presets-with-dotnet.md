@@ -1,10 +1,10 @@
 ---
 title: Anpassa Media Encoder Standard förinställningar | Microsoft Docs
-description: Det här avsnittet beskrivs hur du utför avancerad kodning genom att anpassa Media Encoder Standard uppgiften förinställningar. Avsnittet visar hur du använder Media Services .NET SDK för att skapa en kodning aktivitet och jobb. Här visas också hur du anger anpassade förinställningar till kodningsjobbet.
+description: Det här avsnittet visar hur du utför avancerad kodning genom att anpassa förval för Media Encoder Standard uppgift. I avsnittet visas hur du använder Media Services .NET SDK för att skapa en kodning uppgiften och jobb. Den visar också hur du anger anpassade förinställningar för kodning jobbet.
 services: media-services
 documentationcenter: ''
 author: juliako
-manager: cfowler
+manager: femila
 editor: ''
 ms.assetid: ec95392f-d34a-4c22-a6df-5274eaac445b
 ms.service: media-services
@@ -12,32 +12,32 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/09/2017
+ms.date: 10/30/2018
 ms.author: juliako
-ms.openlocfilehash: 4bdfdb5bd5362d5a8039ca31d498d122843df2a7
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 21f182051e3e92cd126b832876d57854ac126367
+ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33788419"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50247461"
 ---
 # <a name="customizing-media-encoder-standard-presets"></a>Anpassa Media Encoder Standard förinställningar
 
 ## <a name="overview"></a>Översikt
 
-Den här artikeln visar hur du utför avancerad encoding med Media Encoder Standard (MES) med hjälp av en anpassad förinställning. Artikeln använder .NET för att skapa en kodning uppgift och ett jobb som utför den här uppgiften.  
+Den här artikeln visar hur du utför avancerad kodning med Media Encoder Standard (MES) med hjälp av en anpassad förinställning. Artikeln använder .NET för att skapa ett kodningsjobb och ett jobb som kör den här uppgiften.  
 
-Den här artikeln visar hur du anpassar en förinställning genom att göra den [H264 Multibithastighet 720p](media-services-mes-preset-H264-Multiple-Bitrate-720p.md) förinställningen och minskar antalet lager. Den [Anpassa Media Encoder Standard förinställningar](media-services-advanced-encoding-with-mes.md) artikeln visar anpassade förinställningar som kan användas för att utföra avancerade åtgärder för kodning.
+Den här artikeln visar hur du anpassar en förinställning genom att utföra den [H264, flera bithastigheter, 720p](media-services-mes-preset-H264-Multiple-Bitrate-720p.md) förinställda och minskar antalet lager. Den [Anpassa Media Encoder Standard förinställningar](media-services-advanced-encoding-with-mes.md) artikeln visar anpassade förinställningar som kan användas för att utföra avancerade kodningsuppgifter.
 
 ## <a id="customizing_presets"></a> Anpassa en MES förinställning
 
-### <a name="original-preset"></a>Ursprungliga förinställda
+### <a name="original-preset"></a>Ursprungliga förinställning
 
-Spara JSON som definierats i den [H264 Multibithastighet 720p](media-services-mes-preset-H264-Multiple-Bitrate-720p.md) artikeln i en fil med JSON. Till exempel **CustomPreset_JSON.json**.
+Spara den JSON som definierats i den [H264, flera bithastigheter, 720p](media-services-mes-preset-H264-Multiple-Bitrate-720p.md) artikel i en fil med .json-tillägget. Till exempel **CustomPreset_JSON.json**.
 
-### <a name="customized-preset"></a>Anpassade förinställda
+### <a name="customized-preset"></a>Anpassad förinställning
 
-Öppna den **CustomPreset_JSON.json** filen och ta bort först tre lager från **H264Layers** så filen ser ut så här.
+Öppna den **CustomPreset_JSON.json** filen och ta bort första tre lager från **H264Layers** så att din fil som ser ut så här.
 
 ```json 
     {  
@@ -112,19 +112,19 @@ Spara JSON som definierats i den [H264 Multibithastighet 720p](media-services-me
 
 ## <a id="encoding_with_dotnet"></a>Encoding med Media Services .NET SDK
 
-Följande kodexempel använder Media Services .NET SDK för att utföra följande uppgifter:
+I följande kodexempel använder Media Services .NET SDK för att utföra följande uppgifter:
 
 - Skapa ett kodningsjobb.
-- Hämta en referens till Media Encoder Standard-kodare.
+- Hämta en referens till Media Encoder Standard-kodaren.
 - Läsa in den anpassa JSON-förinställning som du skapade i föregående avsnitt. 
   
         // Load the JSON from the local file.
         string configuration = File.ReadAllText(fileName);  
 
-- Lägga till en kodning uppgiften i jobbet. 
-- Ange indata tillgången ska kodas.
-- Skapa en utdata tillgång som innehåller den kodade tillgången.
-- Lägga till en händelsehanterare för att kontrollera jobbförloppet.
+- Lägg till ett kodningsjobb för jobbet. 
+- Ange indatatillgången som ska kodas.
+- Skapa en utdata-tillgång som innehåller den kodade tillgången.
+- Lägg till en händelsehanterare för att kontrollera jobbförloppet för.
 - Skicka jobbet.
    
 #### <a name="create-and-configure-a-visual-studio-project"></a>Skapa och konfigurera ett Visual Studio-projekt
@@ -268,5 +268,5 @@ namespace CustomizeMESPresests
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 ## <a name="see-also"></a>Se även
-[Media Services Encoding översikt](media-services-encode-asset.md)
+[Media Services-kodning – översikt](media-services-encode-asset.md)
 

@@ -1,6 +1,6 @@
 ---
-title: Kopiera data från QuickBooks med Azure Data Factory (förhandsversion) | Microsoft Docs
-description: Lär dig hur du kopierar data från QuickBooks till mottagarens datalager genom att använda en Kopieringsaktivitet i en Azure Data Factory-pipeline.
+title: Kopiera data från QuickBooks Online med Azure Data Factory (förhandsversion) | Microsoft Docs
+description: Lär dig hur du kopierar data från QuickBooks Online till mottagarens datalager genom att använda en Kopieringsaktivitet i en Azure Data Factory-pipeline.
 services: data-factory
 documentationcenter: ''
 author: linda33wj
@@ -11,25 +11,25 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/15/2018
+ms.date: 10/29/2018
 ms.author: jingwang
-ms.openlocfilehash: 83e3007a7c3198c5ae37cf95d2b21cde88bd8210
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: a3d079483ecf4ea8cf9a4c6bda050bfe8befcfd0
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46127168"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50241692"
 ---
-# <a name="copy-data-from-quickbooks-using-azure-data-factory-preview"></a>Kopiera data från QuickBooks med Azure Data Factory (förhandsversion)
+# <a name="copy-data-from-quickbooks-online-using-azure-data-factory-preview"></a>Kopiera data från QuickBooks Online med Azure Data Factory (förhandsversion)
 
-Den här artikeln beskrivs hur du använder Kopieringsaktivitet i Azure Data Factory för att kopiera data från QuickBooks. Den bygger på den [översikt över Kopieringsaktivitet](copy-activity-overview.md) artikel som ger en allmän översikt över Kopieringsaktivitet.
+Den här artikeln beskrivs hur du använder Kopieringsaktivitet i Azure Data Factory för att kopiera data från QuickBooks Online. Den bygger på den [översikt över Kopieringsaktivitet](copy-activity-overview.md) artikel som ger en allmän översikt över Kopieringsaktivitet.
 
 > [!IMPORTANT]
 > Den här anslutningsappen är för närvarande i förhandsversion. Du kan testa och ge oss feedback. Om du vill skapa ett beroende på anslutningsappar som är i förhandsversion i din lösning kan du kontakta [Azure-supporten](https://azure.microsoft.com/support/).
 
 ## <a name="supported-capabilities"></a>Funktioner som stöds
 
-Du kan kopiera data från QuickBooks till alla datalager för mottagare som stöds. En lista över datalager som stöds som källor/mottagare av Kopieringsaktivitet finns i den [datalager som stöds](copy-activity-overview.md#supported-data-stores-and-formats) tabell.
+Du kan kopiera data från QuickBooks Online till alla datalager för mottagare som stöds. En lista över datalager som stöds som källor/mottagare av Kopieringsaktivitet finns i den [datalager som stöds](copy-activity-overview.md#supported-data-stores-and-formats) tabell.
 
 Azure Data Factory tillhandahåller en inbyggd drivrutin för att aktivera anslutning, måste du därför inte att manuellt installera en drivrutin som använder den här anslutningen.
 
@@ -48,8 +48,8 @@ Följande egenskaper har stöd för QuickBooks länkade tjänsten:
 | Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | typ | Type-egenskapen måste anges till: **QuickBooks** | Ja |
-| slutpunkt | Slutpunkten för QuickBooks-servern. (det vill säga quickbooks.api.intuit.com)  | Ja |
-| companyId | ID för företag på QuickBooks företaget att godkänna.  | Ja |
+| slutpunkt | Slutpunkt för QuickBooks Online-servern. (det vill säga quickbooks.api.intuit.com)  | Ja |
+| companyId | ID för företag på QuickBooks företaget att godkänna. Information om hur du hittar ID för företag finns i [hur hittar jag mitt företags-ID?](https://quickbooks.intuit.com/community/Getting-Started/How-do-I-find-my-Company-ID/m-p/185551). | Ja |
 | consumerKey | Konsumentnyckel för autentisering för OAuth 1.0. | Ja |
 | consumerSecret | Konsumenthemligheten för OAuth 1.0-autentisering. Markera det här fältet som en SecureString ska lagras på ett säkert sätt i Data Factory, eller [refererar till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). | Ja |
 | accessToken | Åtkomsttoken för autentisering för OAuth 1.0. Markera det här fältet som en SecureString ska lagras på ett säkert sätt i Data Factory, eller [refererar till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). | Ja |
@@ -89,7 +89,7 @@ Följande egenskaper har stöd för QuickBooks länkade tjänsten:
 
 En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera datauppsättningar finns i den [datauppsättningar](concepts-datasets-linked-services.md) artikeln. Det här avsnittet innehåller en lista över egenskaper som stöds av QuickBooks datauppsättning.
 
-Om du vill kopiera data från QuickBooks, ange typegenskapen på datauppsättningen till **QuickBooksObject**. Det finns ingen ytterligare typspecifika-egenskap i den här typen av datauppsättning.
+Kopiera data från QuickBooks Online genom att ange typegenskapen på datauppsättningen till **QuickBooksObject**. Det finns ingen ytterligare typspecifika-egenskap i den här typen av datauppsättning.
 
 **Exempel**
 
@@ -112,7 +112,7 @@ En fullständig lista över avsnitt och egenskaper som är tillgängliga för at
 
 ### <a name="quickbookssource-as-source"></a>QuickBooksSource som källa
 
-Om du vill kopiera data från QuickBooks, ange typ av datakälla i kopieringsaktiviteten till **QuickBooksSource**. Följande egenskaper stöds i kopieringsaktiviteten **källa** avsnittet:
+För att kopiera data från QuickBooks Online, ange typ av datakälla i kopieringsaktiviteten till **QuickBooksSource**. Följande egenskaper stöds i kopieringsaktiviteten **källa** avsnittet:
 
 | Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
@@ -150,6 +150,9 @@ Om du vill kopiera data från QuickBooks, ange typ av datakälla i kopieringsakt
     }
 ]
 ```
+## <a name="copy-data-from-quickbooks-desktop"></a>Kopiera data från Quickbooks Desktop
+
+Kopieringsaktivitet i Azure Data Factory kan inte kopiera data direkt från Quickbooks Desktop. Exportera dina Quickbooks-data till en fil med kommaavgränsade värden (CSV)-fil för att kopiera data från Quickbooks Desktop och sedan överföra filen till Azure Blob Storage. Därifrån kan använda du Data Factory för att kopiera data till mottagare valfri.
 
 ## <a name="next-steps"></a>Nästa steg
 En lista över datalager som stöds som källor och mottagare av kopieringsaktiviteten i Azure Data Factory finns i [datalager som stöds](copy-activity-overview.md#supported-data-stores-and-formats).

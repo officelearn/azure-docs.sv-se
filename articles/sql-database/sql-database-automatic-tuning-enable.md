@@ -7,16 +7,17 @@ ms.subservice: performance
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
+author: danimir
 ms.author: v-daljep
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 10/05/2018
-ms.openlocfilehash: 02fae39325e632c087fcd2969fbaf5dd705994ba
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.openlocfilehash: 23d696971d49210479c675a0f3e2a0a85d1e8b3b
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48867682"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50241131"
 ---
 # <a name="enable-automatic-tuning-to-monitor-queries-and-improve-workload-performance"></a>Aktivera automatisk inställning att övervaka frågor och förbättra prestanda för arbetsbelastning
 
@@ -65,7 +66,7 @@ Observera att alternativet DROP_INDEX just nu är inte kompatibel med program so
 
 När du har valt önskad konfiguration, klickar du på **tillämpa**.
 
-### <a name="rest-api"></a>REST API
+### <a name="rest-api"></a>REST-API
 
 Lär dig mer om hur du använder REST API för att aktivera automatisk justering på en enskild databas, se [SQL Database automatisk justering uppdatering och GET HTTP-metoder](https://docs.microsoft.com/rest/api/sql/databaseautomatictuning).
 

@@ -9,15 +9,15 @@ ms.devlang: ''
 ms.topic: conceptual
 author: stevestein
 ms.author: sstein
-ms.reviewers: billgib,AyoOlubeko
+ms.reviewers: billgib,ayolubek
 manager: craigg
 ms.date: 04/01/2018
-ms.openlocfilehash: 3bba0eb552338f1b436ea25306a84029d352f1f3
-ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
+ms.openlocfilehash: e23b679d6c81d1a4103f010a9d13c35e80d4d2af
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47055296"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50240996"
 ---
 # <a name="cross-tenant-reporting-using-distributed-queries"></a>Flera klienter, rapportering med hjälp av distribuerade frågor
 
@@ -122,7 +122,7 @@ Den här övningen lägger till schemat (extern datakälla och extern tabelldefi
 
    Elastic Query använder en databas-omfattande autentisering för att få åtkomst till varje klient. Den här autentiseringsuppgiften måste vara tillgängliga i alla databaser och bör normalt beviljas de minsta rättigheterna krävas för att aktivera de här frågorna.
 
-    ![Skapa autentiseringsuppgifter](media/saas-tenancy-cross-tenant-reporting/create-credential.png)
+    ![skapa autentiseringsuppgift](media/saas-tenancy-cross-tenant-reporting/create-credential.png)
 
    Med katalogdatabasen som den externa datakällan distribueras till alla databaser som har registrerats i katalogen när frågan körs. Eftersom servernamn är olika för varje distribution, det här skriptet hämtar platsen för katalogdatabasen från den aktuella servern (@@servername) där skriptet körs.
 

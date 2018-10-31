@@ -14,12 +14,12 @@ ms.date: 03/09/2018
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
-ms.openlocfilehash: 29a53101bff8c384d01f952c4498e09d9d970ee3
-ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
+ms.openlocfilehash: 9e73a979950e856a7fc2bfa2193ea4ca0d59bac2
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "43841742"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50242236"
 ---
 # <a name="configure-the-expiration-policy-for-office-365-groups"></a>Konfigurera en princip för Office 365-grupper
 
@@ -55,9 +55,9 @@ Läs mer om behörigheter för att återställa en borttagen grupp [återställa
 
 4. På den **upphör att gälla** bladet kan du:
 
-  * Ange gruppens livstid i dagar. Du kan välja någon av de förinställda värdena, eller ett anpassat värde (bör vara 31 dagar eller mer). 
-  * Ange en e-postadress där förnyelse och förfallodatum meddelanden ska skickas när en grupp har ingen ägare. 
-  * Välj vilka Office 365-grupper går ut. Du kan aktivera förfallotid för **alla** Office 365-grupper som du kan välja att aktivera endast **valda** Office 365-grupper, eller välj **ingen** att inaktivera upphör att gälla för alla grupper .
+  * Ange gruppens livstid i dagar. Du kan välja någon av de förinställda värdena, eller ett anpassat värde (bör vara 31 dagar eller mer). 
+  * Ange en e-postadress där förnyelse och förfallodatum meddelanden ska skickas när en grupp har ingen ägare. 
+  * Välj vilka Office 365-grupper går ut. Du kan aktivera förfallotid för **alla** Office 365-grupper som du kan välja att aktivera endast **valda** Office 365-grupper, eller välj **ingen**  att inaktivera upphör att gälla för alla grupper.
   * Spara dina inställningar när du är klar genom att välja **spara**.
 
 
@@ -78,8 +78,8 @@ Om gruppen som du återställa innehåller dokument, SharePoint-webbplatser och 
 > [!NOTE]
 > * När du först konfigurerar upphör att gälla är grupper som är äldre än giltighetsintervallet inställda på 30 dagar kvar till förfallodatum. Första förnyelse-e-postmeddelandet skickas ut inom en dag. 
 >   Till exempel grupp A skapades 400 dagar sedan och giltighetsintervallet är inställd på 180 dagar. När du tillämpar inställningar för giltighetstid har 30 dagar innan de tas bort i grupp A Om inte ägaren förnyar den.
-> * För närvarande endast en princip kan konfigureras för Office 365-grupper på en klient.
-> * När en dynamisk grupp tas bort och återställs, är det som en ny grupp och nytt fylls i enligt regeln. Den här processen kan ta upp till 24 timmar.
+> * För närvarande kan endast en förfalloprincip konfigureras för Office 365-grupper i en klientorganisation.
+> * När en dynamisk grupp tagits bort och återställts visas den som en ny grupp och fylls i baserat på regeln. Den här processen kan ta upp till 24 timmar.
 
 ## <a name="how-office-365-group-expiration-works-with-a-mailbox-on-legal-hold"></a>Hur Office 365 förfallodatum fungerar med en postlåda av juridiska skäl
 När en grupp upphör att gälla och tas bort, sedan 30 dagar efter borttagningen gruppens data från appar som Planner, platser, eller team raderas, men grupp-postlådan som finns på bevarande av juridiska skäl finns kvar och tas inte bort permanent. Administratören kan använda Exchange-cmdlets för att återställa postlådan för att hämta data. 
@@ -116,19 +116,19 @@ Här följer exempel på hur du kan använda PowerShell-cmdletar för att konfig
 4. Uppdatera den befintliga principen Set-AzureADMSGroupLifecyclePolicy: den här cmdleten används för att uppdatera en befintlig princip. I exemplet nedan ändras grupp livstid i den befintliga principen från 365 dagar till 180 dagar. 
   
   ````
-  Set-AzureADMSGroupLifecyclePolicy -Id “26fcc232-d1c3-4375-b68d-15c296f1f077”   -GroupLifetimeInDays 180 -AlternateNotificationEmails "emailaddress@contoso.com"
+  Set-AzureADMSGroupLifecyclePolicy -Id "26fcc232-d1c3-4375-b68d-15c296f1f077" -GroupLifetimeInDays 180 -AlternateNotificationEmails "emailaddress@contoso.com"
   ````
   
 5. Lägga till specifika grupper i principen Add-AzureADMSLifecyclePolicyGroup: den här cmdleten lägger till en grupp i policyn för onlinelivscykeln. Som exempel: 
   
   ````
-  Add-AzureADMSLifecyclePolicyGroup -Id “26fcc232-d1c3-4375-b68d-15c296f1f077” -groupId "cffd97bd-6b91-4c4e-b553-6918a320211c"
+  Add-AzureADMSLifecyclePolicyGroup -Id "26fcc232-d1c3-4375-b68d-15c296f1f077" -groupId "cffd97bd-6b91-4c4e-b553-6918a320211c"
   ````
   
 6. Ta bort den befintliga principen Remove-AzureADMSGroupLifecyclePolicy: den här cmdleten tar bort förfallodatum för Office 365 gruppinställningar men kräver princip-ID. Detta inaktiverar förfallodatum för Office 365-grupper. 
   
   ````
-  Remove-AzureADMSGroupLifecyclePolicy -Id “26fcc232-d1c3-4375-b68d-15c296f1f077”
+  Remove-AzureADMSGroupLifecyclePolicy -Id "26fcc232-d1c3-4375-b68d-15c296f1f077"
   ````
   
 Följande cmdletar kan användas för att konfigurera principen i detalj. Mer information finns i [PowerShell-dokumentationen](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview&branch=master#groups).

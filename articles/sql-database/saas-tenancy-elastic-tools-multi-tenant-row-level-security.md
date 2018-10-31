@@ -7,24 +7,24 @@ ms.subservice: scenario
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
-author: tmullaney
-ms.author: thmullan
+author: VanMSFT
+ms.author: vanto
 ms.reviewer: ''
 manager: craigg
 ms.date: 04/01/2018
-ms.openlocfilehash: 94430d3b72bb5b8e8bde0e9e2e9fb2eb2b0c3632
-ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
+ms.openlocfilehash: d669e7beb2d0e41ff26408d4f71c3e1648c41e3a
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47056292"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50242576"
 ---
 # <a name="multi-tenant-applications-with-elastic-database-tools-and-row-level-security"></a>Program för flera innehavare med elastic database-verktyg och säkerhet på radnivå
 
 [Elastiska Databasverktyg](sql-database-elastic-scale-get-started.md) och [rad säkerhet på radnivå (RLS)] [ rls] samarbeta för att aktivera skalning av datanivån för ett program med flera innehavare med Azure SQL Database. Ihop dessa tekniker hjälper dig att skapa ett program som har en hög skalbar datanivå. Datanivån har stöd för flera klientorganisationer fragmenten och använder **ADO.NET SqlClient** eller **Entity Framework**. Mer information finns i [designmönster för SaaS-program för flera klientorganisationer med Azure SQL Database](saas-tenancy-app-design-patterns.md).
 
 - **Elastiska Databasverktyg** möjligt för utvecklare att skala ut datanivån med delningsprinciper som är standard, med hjälp av .NET-bibliotek och mallar för Azure-tjänsten. Hantera shards med hjälp av den [klientbibliotek för elastiska databaser] [ s-d-elastic-database-client-library] hjälper till att automatisera och förenkla infrastrukturen uppgifter som vanligtvis associeras med horisontell partitionering.
-- **Säkerhet på radnivå** ger utvecklare möjlighet att på ett säkert sätt lagra data för flera klienter i samma databas. RLS säkerhetsprinciper filtrerar ut rader som inte tillhör den klient som kör en fråga. Centralisera filter logiken i databasen förenklar underhåll och minskar risken för ett säkerhetsfel. Med alternativet att förlita dig på alla klientkod till enfore security är riskfyllda.
+- **Säkerhet på radnivå** ger utvecklare möjlighet att på ett säkert sätt lagra data för flera klienter i samma databas. RLS säkerhetsprinciper filtrerar ut rader som inte tillhör den klient som kör en fråga. Centralisera filter logiken i databasen förenklar underhåll och minskar risken för ett säkerhetsfel. Med alternativet att förlita dig på alla klientkod till att höja säkerheten är riskfyllda.
 
 Genom att använda de här funktionerna tillsammans, kan ett program lagra data för flera klienter i samma shard-databas. Det kostar mindre per klient när innehavarna som delar en databas. Ännu kan samma program också erbjuda dess premium-klienter möjlighet att betala för sina egna dedikerade enda klient-fragment. En fördel med enda klient isolering är firmer prestanda garantier. Det finns ingen annan klient som konkurrerar om resurser i en enda klient-databas.
 
@@ -39,8 +39,8 @@ Målet är att använda elastic database-klientbibliotek [databeroende routning]
 
 ### <a name="prerequisites"></a>Förutsättningar
 
-- Använd Visual Studio (2012 eller senare) 
-- Skapa tre Azure SQL-databaser 
+- Använd Visual Studio (2012 eller senare)
+- Skapa tre Azure SQL-databaser
 - Ladda ned exempelprojektet: [elastiska DB-verktyg för Azure SQL - fragment för flera innehavare](http://go.microsoft.com/?linkid=9888163)
   - Fyll i information för dina databaser i början av **Program.cs** 
 

@@ -1,30 +1,30 @@
 ---
-title: Skapa en Azure Media Services encoding uppgift som genererar fMP4 segment | Microsoft Docs
-description: Det här avsnittet visar hur du skapar en kodning uppgift som genererar fMP4 segment. När denna uppgift används med Media Encoder Standard eller arbetsflödet för Media Encoder Premium-kodare innehåller utdatatillgången fMP4 segment i stället för ISO MP4-filer.
+title: Skapa ett Azure Media Services-kodningsjobb som genererar fMP4-segment | Microsoft Docs
+description: Det här avsnittet visar hur du skapar ett kodningsjobb som genererar fMP4-segment. När denna uppgift används med Media Encoder Standard eller Media Encoder Premium Workflow encoder innehåller utdatatillgången fMP4-segment i stället för ISO MP4-filer.
 services: media-services
 documentationcenter: ''
 author: juliako
-manager: cfowler
+manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/09/2017
+ms.date: 10/30/2018
 ms.author: juliako
-ms.openlocfilehash: 09dd5ea447449bc23f49699dc69647550f62738a
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: f2f3784ea2cb4a7864faef6a4e49edd7a289afc2
+ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33788209"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50250576"
 ---
-#  <a name="create-an-encoding-task-that-generates-fmp4-chunks"></a>Skapa en kodning uppgift som genererar fMP4 segment
+#  <a name="create-an-encoding-task-that-generates-fmp4-chunks"></a>Skapa ett kodningsjobb som genererar fMP4-segment
 
 ## <a name="overview"></a>Översikt
 
-Den här artikeln visar hur du skapar en kodning uppgift som genererar fragmenterad MP4 (fMP4) segment i stället för ISO MP4-filer. Om du vill generera fMP4 segment, använder den **Media Encoder Standard** eller **Media Encoder Premium arbetsflöde** att skapa en kodning uppgift och även ange **AssetFormatOption.AdaptiveStreaming**  alternativ, som visas i det här kodstycket:  
+Den här artikeln visar hur du skapar ett kodningsjobb som genererar fragmenterad MP4 (fMP4)-segment i stället för ISO MP4-filer. Om du vill generera fMP4-segment, använder den **Media Encoder Standard** eller **Media Encoder Premium Workflow** encoder och skapa ett kodningsjobb som du kan också ange **AssetFormatOption.AdaptiveStreaming**  alternativ, som visas i det här kodfragmentet:  
     
 ```csharp
     task.OutputAssets.AddNew(@"Output Asset containing fMP4 chunks", 
@@ -34,13 +34,13 @@ Den här artikeln visar hur du skapar en kodning uppgift som genererar fragmente
 
 ## <a id="encoding_with_dotnet"></a>Encoding med Media Services .NET SDK
 
-Följande kodexempel använder Media Services .NET SDK för att utföra följande uppgifter:
+I följande kodexempel använder Media Services .NET SDK för att utföra följande uppgifter:
 
 - Skapa ett kodningsjobb.
 - Hämta en referens till den **Media Encoder Standard** kodare.
-- Lägga till en kodning uppgift jobbet och ange om du vill använda den **anpassningsbar strömning** förinställda. 
-- Skapa en utdata tillgång som innehåller fMP4 segment och en .ism-fil.
-- Lägga till en händelsehanterare för att kontrollera jobbförloppet.
+- Lägg till ett kodningsjobb i jobbet och ange om du vill använda den **Adaptiv direktuppspelning** förinställda. 
+- Skapa en utdata-tillgång som innehåller fMP4-segment och en .ism-fil.
+- Lägg till en händelsehanterare för att kontrollera jobbförloppet för.
 - Skicka jobbet.
 
 #### <a name="create-and-configure-a-visual-studio-project"></a>Skapa och konfigurera ett Visual Studio-projekt
@@ -177,5 +177,5 @@ namespace AdaptiveStreaming
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 ## <a name="see-also"></a>Se även
-[Media Services Encoding översikt](media-services-encode-asset.md)
+[Media Services-kodning – översikt](media-services-encode-asset.md)
 

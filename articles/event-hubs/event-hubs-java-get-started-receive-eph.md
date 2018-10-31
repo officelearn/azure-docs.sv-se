@@ -9,12 +9,12 @@ ms.workload: core
 ms.topic: article
 ms.date: 08/26/2018
 ms.author: shvija
-ms.openlocfilehash: ee1339d02fb23282d3589a80385f982eae2865fe
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: dce7c4067ba6d96bf14f4e3300d951b594afe930
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43128174"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50240640"
 ---
 # <a name="receive-events-from-azure-event-hubs-using-java"></a>Ta emot händelser från Azure Event Hubs med Java
 
@@ -50,11 +50,11 @@ Om du vill använda EventProcessorHost, måste du ha en [Azure Storage-konto][Az
    
     ![](./media/event-hubs-dotnet-framework-getstarted-receive-eph/create-storage3.png)
 
-    Kopiera key1-värdet till en tillfällig plats att använda senare i den här självstudien.
+    Kopiera key1-värdet till en tillfällig plats. Du använder det senare i den här självstudien.
 
 ### <a name="create-a-java-project-using-the-eventprocessor-host"></a>Skapa ett Java-projekt med EventProcessor-värden
 
-Java-klientbibliotek för Event Hubs är tillgängliga för användning i Maven-projekt från den [Maven Central Repository][Maven Package], och kan refereras med följande beroendedeklaration i din Maven projektfilen. Den aktuella versionen är för artefakten azure-eventhubs-eph är 2.0.1 och den aktuella versionen för artefakten azure-eventhubs är 1.0.2:    
+Java-klientbibliotek för Event Hubs är tillgängliga för användning i Maven-projekt från den [Maven Central Repository][Maven Package], och kan refereras med följande beroendedeklaration i din Maven projektfilen. Den aktuella versionen för artefakten azure-eventhubs-eph är 2.0.1 och den aktuella versionen för artefakten azure-eventhubs är 1.0.2:    
 
 ```xml
 <dependency>
@@ -241,15 +241,15 @@ För olika typer av versionsmiljöer kan du uttryckligen hämta de senast utgivn
     }
     ```
 
-Den här guiden använder en enda instans av EventProcessorHost. För att öka genomströmning rekommenderas att du kör flera instanser av EventProcessorHost, helst på separata datorer.  Det ger även redundans. I de fallen koordineras de olika instanserna automatiskt sinsemellan för att kunna belastningsutjämna de mottagna händelserna. Om du vill att flera mottagare bearbetar *alla* händelser, måste du använda konceptet **ConsumerGroup**. När du tar emot händelser från olika datorer, kan det vara praktiskt att ange namn för EventProcessorHost-instanser baserat på de datorer (eller roller) som de har distribuerats i.
+Den här guiden använder en enda instans av EventProcessorHost. För att öka dataflödet rekommenderar vi att du kör flera instanser av EventProcessorHost, helst på separata datorer.  Det ger även redundans. I de fallen koordineras de olika instanserna automatiskt sinsemellan för att kunna belastningsutjämna de mottagna händelserna. Om du vill att flera mottagare bearbetar *alla* händelser, måste du använda konceptet **ConsumerGroup**. När du tar emot händelser från olika datorer, kan det vara praktiskt att ange namn för EventProcessorHost-instanser baserat på de datorer (eller roller) som de har distribuerats i.
 
 ## <a name="publishing-messages-to-eventhub"></a>Publicera meddelanden till EventHub
 
 Innan meddelanden hämtas av användare, har de publiceras till partitionerna först av utgivarna. Det är värt att när meddelanden har publicerats till event hub synkront med metoden sendSync() com.microsoft.azure.eventhubs.EventHubClient-objektet visas meddelandet kan skickas till en specifik partition eller distribueras till alla tillgängliga partitioner på en resursallokering sätt beroende på om anges partitionsnyckel eller inte.
 
-När du anger en sträng som representerar Partitionsnyckeln ska nyckeln kodas för att avgöra vilken partition som ska skicka händelsen till.
+När du anger en sträng som representerar Partitionsnyckeln hashas nyckeln för att avgöra vilken partition som ska skicka händelsen till.
 
-När Partitionsnyckeln inte har angetts, sedan kommer meddelanden round robined till alla tillgängliga partitioner
+När Partitionsnyckeln inte har angetts, sedan är meddelanden resursallokering robined till alla tillgängliga partitioner
 
 ```java
 // Serialize the event into bytes
@@ -271,25 +271,20 @@ eventHubClient.sendSync(sendEvent, partitionKey);
 
 API: et är en mekanism för att implementera din anpassade kontrollpunktshanterare för scenarier där standardimplementering inte är kompatibla med ditt användningsområde.
 
-Kontrollpunktshanterare standard använder blob-lagring men om du åsidosätter kontrollpunktshanterare som används av EPH med en egen implementering, du kan använda alla store som du vill säkerhetskopiera i implementeringen kontrollpunkt manager.
+Kontrollpunktshanterare standard använder blob-lagring men om du åsidosätter kontrollpunktshanterare som används av EPH med en egen implementering, du kan använda alla store som du vill säkerhetskopiera implementeringen kontrollpunkt manager.
 
-Du måste skapa en klass som implementerar gränssnittet com.microsoft.azure.eventprocessorhost.ICheckpointManager
+Skapa en klass som implementerar gränssnittet com.microsoft.azure.eventprocessorhost.ICheckpointManager
 
 Använd din anpassade implementering av kontrollpunktshanterare (com.microsoft.azure.eventprocessorhost.ICheckpointManager)
 
-Inom din implementering kan du åsidosätta kontrollpunkter standardmekanismen och implementera vår egen kontrollpunkter som bygger på ditt eget datalager (SQL Server, CosmosDB, Redis Cache osv). Du rekommenderas att arkivet som används för att säkerhetskopiera implementeringen kontrollpunkt manager vara tillgänglig för alla EPH-instanser som bearbetar händelser för konsumentgruppen.
+Inom din implementering kan du åsidosätta kontrollpunkter standardmekanismen och implementera vår egen kontrollpunkter som bygger på ditt eget datalager (SQL Server, CosmosDB, Redis Cache osv). Vi rekommenderar att store används för att säkerhetskopiera implementeringen kontrollpunkt manager är tillgänglig för alla EPH-instanser som bearbetar händelser för konsumentgruppen.
 
-Du kan använda alla datalager som är tillgängliga i din miljö.
+Du kan använda alla datalager som är tillgänglig i din miljö.
 
-Klassen com.microsoft.azure.eventprocessorhost.EventProcessorHost ger dig 2 konstruktorer så att du kan åsidosätta kontrollpunktshanterare för din EventProcessorHost.
+Klassen com.microsoft.azure.eventprocessorhost.EventProcessorHost ger dig två konstruktorer så att du kan åsidosätta kontrollpunktshanterare för din EventProcessorHost.
 
 ## <a name="next-steps"></a>Nästa steg
-
-Du kan lära dig mer om Event Hubs genom att gå till följande länkar:
-
-* [Event Hubs-översikt](event-hubs-what-is-event-hubs.md)
-* [Skapa en händelsehubb](event-hubs-create.md)
-* [Vanliga frågor och svar om Event Hubs](event-hubs-faq.md)
+I den här snabbstarten skapade du ett Java-program som har fått meddelanden från en event hub. Läs hur du skickar händelser till en event hub med Java i [skicka händelser från event hub - Java](event-hubs-java-get-started-send.md).
 
 <!-- Links -->
 [Event Hubs overview]: event-hubs-what-is-event-hubs.md

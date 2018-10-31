@@ -12,17 +12,17 @@ ms.devlang: nodejs
 ms.topic: reference
 ms.date: 10/26/2018
 ms.author: glenga
-ms.openlocfilehash: d61570cd5d56cda7737bdb2d1a8d681fc2364610
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.openlocfilehash: 470128344182cc6a06a378a0f4ab75b19e9a646e
+ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50139398"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50249816"
 ---
 # <a name="azure-functions-javascript-developer-guide"></a>Utvecklarguide för Azure Functions JavaScript
 Den här guiden innehåller information om krångla skriva Azure Functions med JavaScript.
 
-En JavaScript-funktion är en exporterad `function` som körs när den utlöses ([utlösare har konfigurerats i function.json](functions-triggers-bindings.md)). Varje funktion skickas en `context` objektet som används för mottagning och skicka bindningsdata, loggning och kommunicera med körningen.
+En JavaScript-funktion är en exporterad `function` som körs när den utlöses ([utlösare har konfigurerats i function.json](functions-triggers-bindings.md)). Det första argumentet som skickas av varje funktion är en `context` objektet som används för mottagning och skicka bindningsdata, loggning och kommunicera med körningen.
 
 Den här artikeln förutsätter att du redan har läst den [Azure Functions för utvecklare](functions-reference.md). Vi rekommenderar också att du har följt en självstudiekurs i ”Snabbstarter” till [skapa din första funktion](functions-create-first-function-vs-code.md).
 
@@ -48,42 +48,28 @@ FunctionsProject
  | - bin
 ```
 
-I roten av projektet, det finns en delad [host.json](functions-host-json.md) -fil som kan användas för att konfigurera funktionsappen. Varje funktion har en mapp med en egen fil med kod (.js) och bindningen konfigurationsfil (function.json).
+I roten av projektet, det finns en delad [host.json](functions-host-json.md) -fil som kan användas för att konfigurera funktionsappen. Varje funktion har en mapp med en egen fil med kod (.js) och bindningen konfigurationsfil (function.json). Namnet på `function.json`'s överordnad katalog är alltid namnet på din funktion.
 
 Bindningen-tillägg som krävs i [version 2.x](functions-versions.md) funktioner runtime definieras i den `extensions.csproj` -fil med faktiska library-filer i den `bin` mapp. När du utvecklar lokalt, måste du [registrera tillägg av bindning](functions-triggers-bindings.md#local-development-azure-functions-core-tools). När du utvecklar funktioner i Azure-portalen görs denna registrering för dig.
 
 ## <a name="exporting-a-function"></a>Exportera en funktion
 
-JavaScript-funktioner måste exporteras [ `module.exports` ](https://nodejs.org/api/modules.html#modules_module_exports) (eller [ `exports` ](https://nodejs.org/api/modules.html#modules_exports)). I standard-fall din exporterade funktion ska vara den enda exporten från dess fil, export med namnet `run`, eller export med namnet `index`. Standardplatsen för din funktion `index.js`, där `index.js` delar samma överordnad katalog som motsvarande `function.json`. Observera att namnet på `function.json`'s överordnad katalog är alltid namnet på din funktion. 
+JavaScript-funktioner måste exporteras [ `module.exports` ](https://nodejs.org/api/modules.html#modules_module_exports) (eller [ `exports` ](https://nodejs.org/api/modules.html#modules_exports)). Din exporterade funktion ska vara en JavaScript-funktion som körs när den utlöses.
 
-Om du vill konfigurera filens plats och exportera namnet på din funktion, Läs om [konfigurerar din funktionsadressen](functions-reference-node.md#configure-function-entry-point) nedan.
+Som standard söker Functions-körning efter din funktion i `index.js`, där `index.js` delar samma överordnad katalog som dess motsvarande `function.json`. I standard-fall din exporterade funktion ska vara den enda exporten från dess fil eller export med namnet `run` eller `index`. Om du vill konfigurera filens plats och exportera namnet på din funktion, Läs om [konfigurerar din funktionsadressen](functions-reference-node.md#configure-function-entry-point) nedan.
 
-Din startpunkt för exporterade funktionen alltid vidta en `context` objektet som första parameter.
+Exporterade funktionen skickas ett antal argument på körning. Det första argumentet som det tar är alltid en `context` objekt. Om din funktion är synkron (inte returnerar ett löfte), måste du ange den `context` objekt anropar bara `context.done` krävs för korrekt användning.
 
 ```javascript
-// You must include a context, other arguments are optional
+// You should include context, other arguments are optional
 module.exports = function(context, myTrigger, myInput, myOtherInput) {
     // function logic goes here :)
     context.done();
 };
 ```
-```javascript
-// You can also use 'arguments' to dynamically handle inputs
-module.exports = async function(context) {
-    context.log('Number of inputs: ' + arguments.length);
-    // Iterates through trigger and input binding data
-    for (i = 1; i < arguments.length; i++){
-        context.log(arguments[i]);
-    }
-};
-```
-
-Utlösare och bindningar för indata (bindningarna för `direction === "in"`) kan skickas till funktionen som parametrar. De skickas till funktionen i samma ordning som de har definierats i *function.json*. Du kan också dynamiskt hantera indata med hjälp av JavaScript [ `arguments` ](https://msdn.microsoft.com/library/87dw3w1k.aspx) objekt. Om du har till exempel `function(context, a, b)` och ändra den till `function(context, a)`, du kan fortfarande få värdet för `b` i Funktionskoden genom att referera till `arguments[2]`.
-
-Alla bindningar, oavsett riktning, skickas även vidare den `context` objekt med hjälp av den `context.bindings` egenskapen.
 
 ### <a name="exporting-an-async-function"></a>Exportera en async-funktion
-När du använder JavaScript [ `async function` ](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/async_function) deklarationen eller vanlig JavaScript [löften](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise) (inte tillgängligt med Functions v1.x), du uttryckligen behöver inte anropa den [ `context.done` ](#contextdone-method) återanrop för att signalera att funktionen har slutförts. Slutför din funktion när exporterade async-funktion/löftet har slutförts.
+När du använder JavaScript [ `async function` ](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/async_function) deklarationen eller annars returneras ett JavaScript [löftet](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise) (inte tillgängligt med Functions v1.x), du uttryckligen behöver inte anropa den [ `context.done` ](#contextdone-method) återanrop för att signalera att funktionen har slutförts. Funktionen har slutförts när exporterade async-funktion/löftet har slutförts.
 
 Till exempel är det här en enkel funktion som loggar den utlöstes och omedelbart är slutfört.
 ``` javascript
@@ -92,7 +78,7 @@ module.exports = async function (context) {
 };
 ```
 
-När du exporterar en async-funktion kan du också konfigurera utdatabindningar att ta den `return` värde. Det här är en annan metod för tilldelning av utdata med hjälp av den [ `context.bindings` ](#contextbindings-property) egenskapen.
+När du exporterar en async-funktion kan du också konfigurera en utdatabindning för att ta den `return` värde. Detta rekommenderas om du bara har en utdatabindning.
 
 Tilldela en utdata med hjälp av `return`, ändra den `name` egenskap `$return` i `function.json`.
 ```json
@@ -113,10 +99,81 @@ module.exports = async function (context, req) {
 }
 ```
 
-## <a name="context-object"></a>Context-objektet
-Körningen använder en `context` objekt att skicka data till och från din funktion och så att du kan kommunicera med körningen.
+## <a name="bindings"></a>Bindningar 
+I JavaScript, [bindningar](functions-triggers-bindings.md) konfigureras och definieras i en funktion function.json. Funktioner som interagerar med bindningar flera olika sätt.
 
-Den `context` objektet är alltid den första parametern för en funktion och måste tas eftersom den har metoder som `context.done` och `context.log`, vilket krävs för att använda körningen på rätt sätt. Du kan kalla objektet vad du vill ha (till exempel `ctx` eller `c`).
+### <a name="reading-trigger-and-input-data"></a>Läsa utlösare och indata
+Utlös och ange Bindningar (bindningarna för `direction === "in"`) kan läsas av en funktion på tre sätt:
+ - **_(Rekommenderas)_  Som parametrarna som skickades till funktionen.** De skickas till funktionen i samma ordning som de har definierats i *function.json*. Observera att den `name` egenskapen som definierats i *function.json* behöver inte matcha namnet på parametern, även om den ska.
+   ``` javascript
+   module.exports = async function(context, myTrigger, myInput, myOtherInput) { ... };
+   ```
+ - **Medlemmar i den [ `context.bindings` ](#contextbindings-property) objekt.** Varje medlem heter genom den `name` egenskapen som definierats i *function.json*.
+   ``` javascript
+   module.exports = async function(context) { 
+       context.log("This is myTrigger: " + context.bindings.myTrigger);
+       context.log("This is myInput: " + context.bindings.myInput);
+       context.log("This is myOtherInput: " + context.bindings.myOtherInput);
+   };
+   ```
+ - **Som indata med hjälp av JavaScript [ `arguments` ](https://msdn.microsoft.com/library/87dw3w1k.aspx) objekt.** Detta är i princip detsamma som att skicka indata som parametrar, men kan du dynamiskt hantera indata.
+   ``` javascript
+   module.exports = async function(context) { 
+       context.log("This is myTrigger: " + arguments[1]);
+       context.log("This is myInput: " + arguments[2]);
+       context.log("This is myOtherInput: " + arguments[3]);
+   };
+   ```
+
+### <a name="writing-data"></a>Skrivning av data
+Utdata (bindningarna för `direction === "out"`) kan skrivas till av en funktion på flera olika sätt. I samtliga fall den `name` egenskapen för bindningen som definierats i *function.json* motsvarar namnet på medlemmen objekt skrivs till i din funktion. 
+
+Du kan tilldela data till utdatabindningar i något av följande sätt. Du bör inte kombinera dessa metoder.
+- **_(Rekommenderas för flera utdata)_  Returnerar ett objekt.** Om du använder en asynkron/löftet som returnerar funktionen, kan du returnera ett objekt med tilldelade utdata. I exemplet nedan visas utdatabindningar namnges ”httpResponse” och ”queueOutput” i *function.json*.
+  ``` javascript
+  module.exports = async function(context) {
+      let retMsg = 'Hello, world!';
+      return {
+          httpResponse: {
+              body: retMsg
+          },
+          queueOutput: retMsg
+      };
+  };
+  ```
+  Om du använder en synkron funktion kan du gå tillbaka det här objektet med [ `context.done` ](#contextdone-method) (se exemplet).
+- **_(Rekommenderas för enkel utdata)_  Returnera ett värde direkt och använda bindningsnamn $return.** Detta fungerar endast för asynkrona/löftet returnerar funktioner. Se exemplet i [exporterar en async-funktion](#exporting-an-async-function). 
+- **Tilldela värden till `context.bindings`**  du kan tilldela värden direkt till context.bindings.
+  ``` javascript
+  module.exports = async function(context) {
+      let retMsg = 'Hello, world!';
+      context.bindings.httpResponse = {
+          body: retMsg
+      };
+      context.bindings.queueOutput = retMsg;
+      return;
+  };
+  ```
+ 
+### <a name="bindings-data-type"></a>Bindningar datatyp
+
+För att definiera datatypen för en indatabindning använder den `dataType` -egenskapen i Bindningsdefinitionen för. Till exempel använda typen för att läsa innehållet i en HTTP-förfrågan i binärformat `binary`:
+
+```json
+{
+    "type": "httpTrigger",
+    "name": "req",
+    "direction": "in",
+    "dataType": "binary"
+}
+```
+
+Alternativ för `dataType` är: `binary`, `stream`, och `string`.
+
+## <a name="context-object"></a>Context-objektet
+Körningen använder en `context` objekt att skicka data till och från din funktion och så att du kan kommunicera med körningen. Context-objektet kan användas för läsning och data från bindningar, skriva loggar och med den `context.done` motringning när din exporterade funktion är synkrona.
+
+Den `context` objekt alltid är den första parametern för en funktion. Den bör inkluderas eftersom den har viktiga metoder som `context.done` och `context.log`. Du kan kalla objektet vad du vill ha (till exempel `ctx` eller `c`).
 
 ```javascript
 // You must include a context, but other arguments are optional
@@ -173,9 +230,9 @@ context.done([err],[propertyBag])
 
 Informerar den runtime som koden har slutförts. Om din funktion använder JavaScript [ `async function` ](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/async_function) deklarationen (tillgängligt med hjälp av Node 8 + i Functions version 2.x), du behöver inte använda `context.done()`. Den `context.done` anropas implicit återanrop.
 
-Om funktionen inte är en async-funktion, **måste du anropa** `context.done` att informera körningen att funktionen har slutförts. Körningen når tidsgränsen om den saknas.
+Om funktionen inte är en async-funktion, **måste du anropa** `context.done` att informera körningen att funktionen har slutförts. Körningstider reda på om den saknas.
 
-Den `context.done` metoden kan du ange både en användardefinierad fel att körningen och ett JSON-objekt som innehåller utdata-bindning. Egenskaper som skickas till `context.done` skrivs allt på den `context.bindings` objekt.
+Den `context.done` metoden kan du ange både en användardefinierad fel att körningen och ett JSON-objekt som innehåller utdata-bindning. Egenskaper som skickas till `context.done` skriva över vad som helst på den `context.bindings` objekt.
 
 ```javascript
 // Even though we set myOutput to have:
@@ -183,7 +240,7 @@ Den `context.done` metoden kan du ange både en användardefinierad fel att kör
 context.bindings.myOutput = { text: 'hello world', number: 123 };
 // If we pass an object to the done function...
 context.done(null, { myOutput: { text: 'hello there, world', noNumber: true }});
-// the done method will overwrite the myOutput binding to be: 
+// the done method overwrites the myOutput binding to be: 
 //  -> text: 'hello there, world', noNumber: true
 ```
 
@@ -211,24 +268,9 @@ Du kan [konfigurera spårningsnivå tröskelvärdet för loggning](#configure-th
 
 Läs [övervaka Azure Functions](functions-monitoring.md) vill veta mer om att visa och fråga funktionsloggar.
 
-## <a name="binding-data-type"></a>Bindningstyp för data
-
-För att definiera datatypen för en indatabindning använder den `dataType` -egenskapen i Bindningsdefinitionen för. Till exempel använda typen för att läsa innehållet i en HTTP-förfrågan i binärformat `binary`:
-
-```json
-{
-    "type": "httpTrigger",
-    "name": "req",
-    "direction": "in",
-    "dataType": "binary"
-}
-```
-
-Alternativ för `dataType` är: `binary`, `stream`, och `string`.
-
 ## <a name="writing-trace-output-to-the-console"></a>Skrivning spårningsutdata till konsolen 
 
-I funktioner, använder du den `context.log` metoder för att skriva spårningsutdata till konsolen. Spåra ouputs via i Functions v2.x `console.log` samlas på Funktionsapp-nivå. Det innebär att utdata från `console.log` inte är knutna till en specifik funktionsanrop och kan därför inte visas i loggarna för en specifik funktion. De kommer dock att spridas till Application Insights. Du kan inte använda i Functions v1.x `console.log` att skriva till konsolen. 
+I funktioner, använder du den `context.log` metoder för att skriva spårningsutdata till konsolen. Spåra ouputs via i Functions v2.x `console.log` samlas på Funktionsapp-nivå. Det innebär att utdata från `console.log` inte är knutna till en specifik funktionsanrop och kan därför inte visas i loggarna för en specifik funktion. De, men spridas till Application Insights. Du kan inte använda i Functions v1.x `console.log` att skriva till konsolen. 
 
 När du anropar `context.log()`, meddelandet skrivs till konsolen vid spårningsnivån standard, vilket är den _info_ spårningsnivå. Följande kod skriver till konsolen vid spårningsnivån info:
 
@@ -312,7 +354,7 @@ Den `context.res` ()-svarsobjekt har följande egenskaper:
 
 När du arbetar med HTTP-utlösare kan komma du åt HTTP-begäranden och svar-objekt på flera olika sätt:
 
-+ Från `req` och `res` egenskaper på den `context` objekt. På så sätt kan du använda det vanliga mönstret att komma åt HTTP data från context-objektet i stället för att använda fullständiga `context.bindings.name` mönster. I följande exempel visas hur du kommer åt den `req` och `res` objekt på den `context`:
++ **Från `req` och `res` egenskaper på den `context` objekt.** På så sätt kan du använda det vanliga mönstret att komma åt HTTP data från context-objektet i stället för att använda fullständiga `context.bindings.name` mönster. I följande exempel visas hur du kommer åt den `req` och `res` objekt på den `context`:
 
     ```javascript
     // You can access your http request off the context ...
@@ -321,7 +363,7 @@ När du arbetar med HTTP-utlösare kan komma du åt HTTP-begäranden och svar-ob
     context.res = { status: 202, body: 'You successfully ordered more coffee!' }; 
     ```
 
-+ Från namngivna indata och utdatabindningar. På så sätt kan fungerar HTTP-utlösare och bindningar på samma som för andra bindningen. I följande exempel anges svarsobjekt med hjälp av en namngiven `response` bindning: 
++ **Från namngivna indata och utdatabindningar.** På så sätt kan fungerar HTTP-utlösare och bindningar på samma som för andra bindningen. I följande exempel anges svarsobjekt med hjälp av en namngiven `response` bindning: 
 
     ```json
     {
@@ -333,9 +375,9 @@ När du arbetar med HTTP-utlösare kan komma du åt HTTP-begäranden och svar-ob
     ```javascript
     context.bindings.response = { status: 201, body: "Insert succeeded." };
     ```
-+ _[Endast svar]_  Genom att anropa `context.res.send(body?: any)`. Ett HTTP-svar skapas med indata `body` som svarstexten. `context.done()` anropas implicit.
++ **_[Endast svar]_  Genom att anropa `context.res.send(body?: any)`.** Ett HTTP-svar skapas med indata `body` som svarstexten. `context.done()` anropas implicit.
 
-+ _[Endast svar]_  Genom att anropa `context.done()`. En särskild typ av HTTP-bindning returnerar ett svar som skickas till den `context.done()` metoden. Följande HTTP-utdatabindning definierar en `$return` utdataparameter:
++ **_[Endast svar]_  Genom att anropa `context.done()`.** En särskild typ av HTTP-bindning returnerar ett svar som skickas till den `context.done()` metoden. Följande HTTP-utdatabindning definierar en `$return` utdataparameter:
 
     ```json
     {

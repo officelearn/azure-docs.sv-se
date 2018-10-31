@@ -17,12 +17,12 @@ ms.topic: article
 ms.date: 09/15/2017
 ms.author: daden
 ROBOTS: NOINDEX
-ms.openlocfilehash: 0d3c6b78944d9365d1e7e88ed33aba852b71a9c1
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: 4a3329c7f08dfabdf1bb8a010ad5bc865fc509f4
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/30/2018
-ms.locfileid: "50232026"
+ms.locfileid: "50241658"
 ---
 # <a name="server-workload-forecasting-on-terabytes-of-data"></a>Prognostisering av serverns arbetsbelastning i terabyte med data
 
@@ -100,7 +100,7 @@ Kör `git status` granska status för filerna för spårning av versionen.
 
 ## <a name="data-description"></a>Databeskrivning
 
-De data som används i det här exemplet är syntetiserade serverdata för arbetsbelastning. Den finns i ett Azure Blob storage-konto som är publicaly som är tillgänglig i regionen USA, östra. Kontoinformation för specifika lagringsutrymmen finns i den `dataFile` i [ `Config/storageconfig.json` ](https://github.com/Azure/MachineLearningSamples-BigData/blob/master/Config/fulldata_storageconfig.json) i formatet ”wasb: / /<BlobStorageContainerName>@<StorageAccountName>.blob.core.windows.net/<path>”. Du kan använda data direkt från Blob-lagringen. Om lagringen används av många användare samtidigt, kan du använda [azcopy](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-linux) att ladda ned data till lagringen för en bättre upplevelse för experimentering. 
+De data som används i det här exemplet är syntetiserade serverdata för arbetsbelastning. Den finns i ett Azure Blob storage-konto som är allmänt tillgänglig i regionen USA, östra. Kontoinformation för specifika lagringsutrymmen finns i den `dataFile` i [ `Config/storageconfig.json` ](https://github.com/Azure/MachineLearningSamples-BigData/blob/master/Config/fulldata_storageconfig.json) i formatet ”wasb: / /<BlobStorageContainerName>@<StorageAccountName>.blob.core.windows.net/<path>”. Du kan använda data direkt från Blob-lagringen. Om lagringen används av många användare samtidigt, kan du använda [azcopy](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-linux) att ladda ned data till lagringen för en bättre upplevelse för experimentering. 
 
 Den totala Datastorleken är cirka 1 TB. Varje fil är cirka 1 – 3 GB och är i CSV-filformat, utan rubrik. Varje datarad representerar belastningen på en transaktion på en viss server. Detaljerad information om dataschemat är följande:
 

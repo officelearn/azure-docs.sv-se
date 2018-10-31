@@ -4,18 +4,18 @@ ms.service: virtual-machines-sql
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: jroth
-ms.openlocfilehash: edb8503f4187fd2d21129ea03e954a0d3516be4b
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: d4e8d99cd7c67136f359772664eb017c6207e6e4
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50226854"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50254740"
 ---
 ### <a name="create-a-tcp-endpoint-for-the-virtual-machine"></a>Skapa en TCP-slutpunkt för den virtuella datorn
 För att kunna ansluta till SQL Server via Internet måste den virtuella datorn ha en slutpunkt för att lyssna på inkommande TCP-kommunikation. I det här Azure-konfigurationssteget dirigeras inkommande trafik via TCP-porten till en TCP-port som är tillgänglig på den virtuella datorn.
 
 > [!NOTE]
-> Om du ansluter inom samma molntjänst eller virtuella nätverk, behöver du inte skapa en publicaly tillgänglig slutpunkt. I så fall kan du fortsätta till nästa steg. Mer information finns i [Connection Scenarios](../articles/virtual-machines/windows/sqlclassic/virtual-machines-windows-classic-sql-connect.md#connection-scenarios) (Anslutningsscenarier).
+> Om du ansluter inom samma molntjänst eller virtuella nätverk, behöver du inte skapa en offentligt tillgänglig slutpunkt. I så fall kan du fortsätta till nästa steg. Mer information finns i [Connection Scenarios](../articles/virtual-machines/windows/sqlclassic/virtual-machines-windows-classic-sql-connect.md#connection-scenarios) (Anslutningsscenarier).
 > 
 > 
 

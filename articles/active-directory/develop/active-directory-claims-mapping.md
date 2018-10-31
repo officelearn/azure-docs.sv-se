@@ -12,12 +12,12 @@ ms.topic: article
 ms.date: 10/05/2018
 ms.author: celested
 ms.reviewer: paulgarn, hirsin, jeedes
-ms.openlocfilehash: dbe903f502cbd1b96b34b47aed09c52104995b54
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: 18cd96c87f294f1dd8e62f41dd759558c2013aa0
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49466213"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50241679"
 ---
 # <a name="how-to-customize-claims-emitted-in-tokens-for-a-specific-app-in-a-tenant-preview"></a>Så här: anpassa anspråk som släpps i token för en viss app i en klient (förhandsversion)
 
@@ -195,7 +195,7 @@ Det finns vissa typer av anspråk som definierar hur och när de används i toke
 |http://schemas.microsoft.com/identity/claims/identityprovider|
 |http://schemas.microsoft.com/identity/claims/objectidentifier|
 |http://schemas.microsoft.com/identity/claims/puid|
-|http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier [MR1] |
+|http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier [MR1] |
 |http://schemas.microsoft.com/identity/claims/tenantid|
 |http://schemas.microsoft.com/ws/2008/06/identity/claims/authenticationinstant|
 |http://schemas.microsoft.com/ws/2008/06/identity/claims/authenticationmethod|
@@ -301,7 +301,7 @@ ID-element som identifierar vilken egenskap på källan innehåller värdet för
 |Användare|Postnummer|Postnummer|
 |Användare|preferredlanguange|Önskat språk|
 |Användare|onpremisesuserprincipalname|lokala UPN|
-|Användare|mailNickname|E-post-smeknamn|
+|Användare|mailNickname|Smeknamn för e-post|
 |Användare|extensionattribute1|Tilläggsattribut 1|
 |Användare|extensionattribute2|Tilläggsattribut 2|
 |Användare|extensionattribute3|Tilläggsattribut 3|
@@ -454,7 +454,7 @@ I det här exemplet skapar du en princip som tar bort den grundläggande ansprå
     1. Om du vill skapa principen, kör du följande kommando: 
     
      ``` powershell
-    New-AzureADPolicy -Definition @('{"ClaimsMappingPolicy":{"Version":1,"IncludeBasicClaimSet":"false"}}') -DisplayName "OmitBasicClaims” -Type "ClaimsMappingPolicy"
+    New-AzureADPolicy -Definition @('{"ClaimsMappingPolicy":{"Version":1,"IncludeBasicClaimSet":"false"}}') -DisplayName "OmitBasicClaims" -Type "ClaimsMappingPolicy"
     ```
     2. Se din nya princip och för att få principen ObjectId, kör du följande kommando:
     

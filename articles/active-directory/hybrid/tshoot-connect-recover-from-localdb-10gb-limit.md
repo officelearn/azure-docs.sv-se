@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 07/17/2017
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: e78e7b5b4dba0bfea4f3398ca20b381a291fe44f
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 410559ab03f0e0be71f2eba27ed71c9f7cf05862
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46313308"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50238547"
 ---
 # <a name="azure-ad-connect-how-to-recover-from-localdb-10-gb-limit"></a>Azure AD Connect: Så här återställer du från localdb med en gräns på 10 GB
 Azure AD Connect kräver en SQL Server-databas för att lagra identitetsdata. Du kan antingen använda SQL Server 2012 Express LocalDB som är installerat som standard med Azure AD Connect eller använda din egen fullständiga SQL. SQL Server Express har en storleksgräns på 10 GB. När du använder LocalDB och gränsen har uppnåtts kan synkroniseringstjänsten för Azure AD Connect inte längre starta eller synkronisera korrekt. Den här artikeln innehåller steg för återställning.
@@ -71,7 +71,7 @@ Namnet på den databas som har skapats för Azure AD Connect är **ADSync**. Om 
 
 3. Navigera till mappen `%ProgramFiles%\Microsoft SQL Server\110\Tools\Binn`.
 
-4. Starta **sqlcmd** utility genom att köra kommandot `./SQLCMD.EXE -S “(localdb)\.\ADSync” -U <Username> -P <Password>`, med hjälp av autentiseringsuppgifterna för en sysadmin eller DBO-databasen.
+4. Starta **sqlcmd** utility genom att köra kommandot `./SQLCMD.EXE -S "(localdb)\.\ADSync" -U <Username> -P <Password>`, med hjälp av autentiseringsuppgifterna för en sysadmin eller DBO-databasen.
 
 5. Att minska databasen på sqlcmd-kommandotolk (1 >), ange `DBCC Shrinkdatabase(ADSync,1);`, följt av `GO` på nästa rad.
 

@@ -1,6 +1,6 @@
 ---
-title: Använd Azure Database Migration Service-modul i Microsoft Azure PowerShell för att migrera SQL Server lokalt till Azure SQL DB MI | Microsoft Docs
-description: Lär dig hur du migrerar från en lokal SQL Server till Azure SQL DB MI med hjälp av Azure PowerShell.
+title: Migrera SQLServer till Azure SQL Database Managed Instance med Database Migration Service och PowerShell | Microsoft Docs
+description: Lär dig hur du migrerar från en lokal SQL Server till Azure SQL DB Managed Instance med Azure PowerShell.
 services: database-migration
 author: pochiraju
 ms.author: rajpo
@@ -11,15 +11,15 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 ms.date: 10/09/2018
-ms.openlocfilehash: 9a0c427b8beec3984a9fdd5d41ba3705fd21fd4c
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
+ms.openlocfilehash: 64d77a17241c44c9d450b9e7602222cdb89482b7
+ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49365012"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50247173"
 ---
-# <a name="migrate-sql-server-on-premises-to-azure-sql-db-using-azure-powershell"></a>Migrera SQL Server lokalt till Azure SQL DB med hjälp av Azure PowerShell
-I den här artikeln får du migrera den **Adventureworks2012** databasen återställs till en lokal instans av SQL Server 2005 eller senare till en Azure SQL Database med hjälp av Microsoft Azure PowerShell. Du kan migrera databaser från en lokal SQL Server-instans till Azure SQL Database med hjälp av den `AzureRM.DataMigration` modul i Microsoft Azure PowerShell.
+# <a name="migrate-sql-server-on-premises-to-azure-sql-database-managed-instance-using-azure-powershell"></a>Migrera SQL Server lokalt till Azure SQL Database Managed Instance med Azure PowerShell
+I den här artikeln får du migrera den **Adventureworks2012** databasen återställs till en lokal instans av SQL Server 2005 eller senare till en Azure SQL Database Managed Instance med hjälp av Microsoft Azure PowerShell. Du kan migrera databaser från en lokal SQL Server-instans till Azure SQL Database Managed Instance med hjälp av den `AzureRM.DataMigration` modul i Microsoft Azure PowerShell.
 
 I den här artikeln kan du se hur du:
 > [!div class="checklist"]

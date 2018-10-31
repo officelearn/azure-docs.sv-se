@@ -28,7 +28,7 @@ Det här dokumentet förklarar hur du använder molntjänster Shell-fönstret.
 ## <a name="swap-between-bash-and-powershell-environments"></a>Växla mellan Bash och PowerShell-miljöer
 ![](media/using-the-shell-window/env-selector.png)
 
-Använd Väljaren miljö i verktygsfältet molnet Shell för att växla mellan Bash och PowerShell-miljöer.
+Använd miljö väljaren I molnet shell för att växla mellan Bash och PowerShell-miljöer.
 
 ## <a name="restart-cloud-shell"></a>Starta om Cloud Shell
 ![](media/using-the-shell-window/restart.png)

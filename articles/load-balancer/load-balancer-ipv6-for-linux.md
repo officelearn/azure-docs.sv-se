@@ -1,13 +1,10 @@
 ---
 title: Konfigurera DHCPv6 för virtuella Linux-datorer | Microsoft Docs
-description: Hur du konfigurerar DHCPv6 för virtuella Linux-datorer.
+description: Så här konfigurerar du DHCPv6 för virtuella Linux-datorer.
 services: load-balancer
 documentationcenter: na
 author: KumudD
-manager: timlt
-editor: ''
-keywords: IPv6, azure belastningsutjämnare, dual stack, offentlig IP-adress, inbyggd ipv6, mobil, iot
-ms.assetid: b32719b6-00e8-4cd0-ba7f-e60e8146084b
+keywords: IPv6, azure-belastningsutjämnare, dual stack, offentlig IP-adress, inbyggd ipv6, mobil, iot
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
@@ -15,25 +12,25 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
-ms.openlocfilehash: 6248ed2f55fb5bbcc2061af6ce1dedf2bd31ccad
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: 7ef376c044bceb14614388a72c11942869dbde07
+ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/29/2018
-ms.locfileid: "30261855"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50741631"
 ---
 # <a name="configure-dhcpv6-for-linux-vms"></a>Konfigurera DHCPv6 för virtuella Linux-datorer
 
 
-Vissa bilder Linux virtuella datorer i Azure Marketplace har inte Dynamic Host Configuration Protocol version 6 (DHCPv6) konfigureras som standard. DHCPv6 måste konfigureras i Linux OS-distribution som du använder för att stödja IPv6. Olika Linux-distributioner konfigurera DHCPv6 i en mängd olika sätt, eftersom de använder olika paket.
+Några av Linux-avbildningar i Azure Marketplace för virtuella datorer har inte Dynamic Host Configuration Protocol version 6 (DHCPv6) konfigureras som standard. För att stödja IPv6, måste DHCPv6 konfigureras i Linux OS-distribution som du använder. Olika Linux-distributioner konfigurera DHCPv6 i en mängd olika sätt, eftersom de använder olika paket.
 
 > [!NOTE]
-> Senaste SUSE Linux och virtuell CoreOS-avbildningar i Azure Marketplace har redan konfigurerats med DHCPv6. Inga ytterligare ändringar krävs när du använder dessa avbildningar.
+> Senaste SUSE Linux- och CoreOS-avbildningar på Azure Marketplace har förkonfigurerats med DHCPv6. Inga ytterligare ändringar krävs när du använder dessa avbildningar.
 
-Det här dokumentet beskriver hur du aktiverar DHCPv6 så att den virtuella Linux-datorn hämtar en IPv6-adress.
+Det här dokumentet beskriver hur du aktiverar DHCPv6 så att din Linux-dator hämtar en IPv6-adress.
 
 > [!WARNING]
-> Genom att redigera felaktigt network configuration-filer kan förlorar du åtkomst till nätverket till den virtuella datorn. Vi rekommenderar att du testar din konfigurationsändringar på datorer i icke-produktionsmiljö. Anvisningarna i den här artikeln har testats på de senaste versionerna av Linux-avbildningar i Azure Marketplace. Mer detaljerad information i dokumentationen för din egen version av Linux.
+> Genom att redigera felaktigt nätverkskonfigurationen kan förlora du åtkomst till den virtuella datorn. Vi rekommenderar att du testar din konfigurationsändringar på icke-produktionssystem. Anvisningarna i den här artikeln har testats på de senaste versionerna av Linux-avbildningar i Azure Marketplace. Mer detaljerade anvisningar finns i dokumentationen för din egen version av Linux.
 
 ## <a name="ubuntu"></a>Ubuntu
 
@@ -93,9 +90,9 @@ Det här dokumentet beskriver hur du aktiverar DHCPv6 så att den virtuella Linu
 
 ## <a name="sles-11-and-opensuse-13"></a>SLES 11 och openSUSE 13
 
-Senaste SUSE Linux Enterprise Server (SLES) och openSUSE avbildningar i Azure har redan konfigurerats med DHCPv6. Inga ytterligare ändringar krävs när du använder dessa avbildningar. Om du har en virtuell dator som är baserad på en äldre eller anpassade SUSE bild kan du göra följande:
+Senaste SUSE Linux Enterprise Server (SLES) och openSUSE-avbildningar i Azure har förkonfigurerats med DHCPv6. Inga ytterligare ändringar krävs när du använder dessa avbildningar. Om du har en virtuell dator som är baserad på en äldre eller anpassade SUSE-avbildning kan du göra följande:
 
-1. Installera den `dhcp-client` paketet, om det behövs:
+1. Installera den `dhcp-client` Paketera om det behövs:
 
     ```bash
     sudo zypper install dhcp-client
@@ -111,15 +108,15 @@ Senaste SUSE Linux Enterprise Server (SLES) och openSUSE avbildningar i Azure ha
     sudo ifdown eth0 && sudo ifup eth0
     ```
 
-## <a name="sles-12-and-opensuse-leap"></a>SLES 12 och openSUSE Leap
+## <a name="sles-12-and-opensuse-leap"></a>SLES 12 och openSUSE steg
 
-Senaste SLES och openSUSE avbildningar i Azure har redan konfigurerats med DHCPv6. Inga ytterligare ändringar krävs när du använder dessa avbildningar. Om du har en virtuell dator som är baserad på en äldre eller anpassade SUSE bild kan du göra följande:
+Senaste SLES och openSUSE-avbildningar i Azure har förkonfigurerats med DHCPv6. Inga ytterligare ändringar krävs när du använder dessa avbildningar. Om du har en virtuell dator som är baserad på en äldre eller anpassade SUSE-avbildning kan du göra följande:
 
-1. Redigera den */etc/sysconfig/network/ifcfg-eth0* filen och ersätter den `#BOOTPROTO='dhcp4'` parameter med följande värde:
+1. Redigera den */etc/sysconfig/network/ifcfg-eth0* , och Ersätt den `#BOOTPROTO='dhcp4'` parameter med följande värde:
 
         BOOTPROTO='dhcp'
 
-2. Att den */etc/sysconfig/network/ifcfg-eth0* lägger du till följande parameter:
+2. Till den */etc/sysconfig/network/ifcfg-eth0* Lägg till följande parameter:
 
         DHCLIENT6_MODE='managed'
 
@@ -131,7 +128,7 @@ Senaste SLES och openSUSE avbildningar i Azure har redan konfigurerats med DHCPv
 
 ## <a name="coreos"></a>CoreOS
 
-Senaste virtuell CoreOS-avbildningar i Azure har redan konfigurerats med DHCPv6. Inga ytterligare ändringar krävs när du använder dessa avbildningar. Om du har en virtuell dator baserat på en äldre eller anpassade virtuell CoreOS-avbildning, gör du följande:
+Senaste CoreOS-avbildningar i Azure har förkonfigurerats med DHCPv6. Inga ytterligare ändringar krävs när du använder dessa avbildningar. Om du har en virtuell dator baserat på en äldre eller anpassade CoreOS-avbildning kan du göra följande:
 
 1. Redigera den */etc/systemd/network/10_dhcp.network* fil:
 

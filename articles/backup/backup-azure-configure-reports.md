@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 10/29/2018
 ms.author: adigan
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 945a91b9021ed5ff02e8c1ef7baf85e2098202ca
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 493a8881975e6b7568a7823bfc86fc97b4389378
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50214672"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50418287"
 ---
 # <a name="configure-azure-backup-reports"></a>Konfigurera Azure Backup-rapporter
 Den här artikeln visar stegen för att följa för att konfigurera rapporter för Azure Backup med Recovery Services-valvet. Den visar också hur du kommer åt rapporter med hjälp av Power BI. När du har slutfört de här stegen kan du gå direkt till Power BI för att visa, anpassa och skapa rapporter.
@@ -22,7 +22,7 @@ Den här artikeln visar stegen för att följa för att konfigurera rapporter f�
 > [!IMPORTANT]
 > Från den 1 November 2018, kan vissa kunder problem uppstå vid inläsning av data i Azure Backup-App i Power BI, säger ”extra tecken påträffades i slutet av JSON-indata. Undantaget orsakades av gränssnittet IDataReader ”.
 Detta är p.g.a. en ändring i formatet där data läses in i lagringskontot.
-Uppgradera appen till den senaste versionen för att undvika det här problemet.
+Hämta den senaste appen (version 1.8) för att undvika det här problemet.
 >
 >
 
@@ -74,23 +74,24 @@ Följ dessa steg om du vill konfigurera lagringskontot för Recovery Services-va
       ![Visa diagnostikinställning steg 9](./media/backup-azure-configure-reports/diagnostic-setting-row.png)
 
 > [!NOTE]
-> När du har konfigurerat rapporter genom att spara storage-konto, *vänta i 24 timmar* för ursprungliga data-push-installation att slutföra. Importera Azure Backup-Innehållspaketet i Power BI endast efter den tidpunkten. Mer information finns i den [vanliga frågor och svar](#frequently-asked-questions). 
+> När du har konfigurerat rapporter genom att spara storage-konto, *vänta i 24 timmar* för ursprungliga data-push-installation att slutföra. Importera Azure Backup-App i Power BI endast efter den tidpunkten. Mer information finns i den [vanliga frågor och svar](#frequently-asked-questions). 
 >
 >
 
 ## <a name="view-reports-in-power-bi"></a>Visa rapporter i Power BI 
 När du konfigurerar ett lagringskonto för rapporter med hjälp av en Recovery Services-valv, tar det cirka 24 timmar för rapporteringsdata att börjar flöda i. Följ dessa steg om du vill visa rapporter i Power BI efter 24 timmar för att skapa ett lagringskonto.
-1. [Logga in](https://powerbi.microsoft.com/landing/signin/) till Powerbi.
-2. Välj **Hämta data**. I den **Pack innehållsbiblioteket**under **Services**väljer **hämta**. Följ stegen i den [Power BI-dokumentationen för att få åtkomst till Innehållspaketet](https://powerbi.microsoft.com/documentation/powerbi-content-packs-services/).
+Om du vill anpassa och dela rapporten, skapa en arbetsyta och utför följande steg
 
-     ![Importera Innehållspaketet](./media/backup-azure-configure-reports/content-pack-import.png)
+1. [Logga in](https://powerbi.microsoft.com/landing/signin/) till Powerbi.
+2. Välj **Hämta data**. I den **fler sätt att skapa ditt eget innehåll**väljer **tjänsten innehållspaket**. Följ stegen i den [Power BI-dokumentationen för att ansluta till en tjänst](https://powerbi.microsoft.com/documentation/powerbi-content-packs-services/).
+
 3. I den **Search** stapeln, ange **Azure Backup** och välj **Hämta nu**.
 
       ![Hämta Innehållspaketet](./media/backup-azure-configure-reports/content-pack-get.png)
 4. Ange namnet på det lagringskonto som konfigurerades i föregående steg 5 och välj **nästa**.
 
     ![Ange ett lagringskontonamn](./media/backup-azure-configure-reports/content-pack-storage-account-name.png)    
-5. Ange lagringskontonyckeln för det här lagringskontot. Att [visa och kopiera åtkomstnycklar för lagring](../storage/common/storage-account-manage.md#access-keys)går du till ditt lagringskonto i Azure-portalen. 
+5. Med hjälp av autentiseringsmetod ”nyckel”, ange lagringskontots åtkomstnyckel för lagringskontot. Att [visa och kopiera åtkomstnycklar för lagring](../storage/common/storage-account-manage.md#access-keys)går du till ditt lagringskonto i Azure-portalen. 
 
      ![Ange storage-konto](./media/backup-azure-configure-reports/content-pack-storage-account-key.png) <br/>
      
@@ -102,9 +103,7 @@ När du konfigurerar ett lagringskonto för rapporter med hjälp av en Recovery 
     
     ![Importen lyckades Innehållspaketet](./media/backup-azure-configure-reports/content-pack-import-success.png) <br/>
     
-7. När data importeras ordentligt, den **Azure Backup** Innehållspaketet är synliga i **appar** i navigeringsfönstret. Under **instrumentpaneler**, **rapporter**, och **datauppsättningar**, i listan visas nu Azure Backup med gula stjärnor som indikerar nyligen importerade rapporter.
-
-     ![Azure Backup-innehållspaket](./media/backup-azure-configure-reports/content-pack-azure-backup.png) <br/>
+7. När data importeras ordentligt, den **Azure Backup** Innehållspaketet är synliga i **appar** i navigeringsfönstret. Under **instrumentpaneler**, **rapporter**, och **datauppsättningar**, i listan visas nu Azure Backup.
      
 8. Under **instrumentpaneler**väljer **Azure Backup**, som visar en uppsättning Fäst viktiga rapporter.
 

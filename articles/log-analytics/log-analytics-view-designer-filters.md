@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 06/22/2018
 ms.author: bwren
 ms.component: ''
-ms.openlocfilehash: 3851bfef71aab6553e109bb8108edd7bec182f0e
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: 87cfcefd91652194adc0a5ca4580a8d00ba4d234
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48041960"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50412762"
 ---
 # <a name="filters-in-log-analytics-views"></a>Filter i Log Analytics-vyer
 En **filter** i en [Log Analytics visa](log-analytics-view-designer.md) tillåter användare att filtrera data i vyn av värdet för en viss egenskap utan att ändra själva vyn.  Du kan till exempel tillåta användare av vyn för att filtrera vyn för endast data från en viss dator eller datorer.  Du kan skapa flera filter i en enda vy så att användarna kan filtrera efter flera egenskaper.  Den här artikeln beskriver hur du använder ett filter och addera en till en anpassad vy.
@@ -28,12 +28,12 @@ En **filter** i en [Log Analytics visa](log-analytics-view-designer.md) tillåte
 ## <a name="using-a-filter"></a>Med hjälp av ett filter
 Klicka på data tidsintervall överst i en vy för att öppna nedrullningsbara menyn där du kan ändra data tidsintervallet för vyn.
 
-![Filter, exempel](media/log-analytics-view-designer/filters-example-time.png)
+![Filter, exempel](media/log-analytics-view-designer-filters/filters-example-time.png)
 
 Klicka på den **+** Lägg till ett filter med hjälp av anpassade filter som definieras för vyn. Välja ett värde för filtret från listrutan eller skriver in ett värde. Fortsätt att lägga till filter genom att klicka på den **+**. 
 
 
-![Filter, exempel](media/log-analytics-view-designer/filters-example-custom.png)
+![Filter, exempel](media/log-analytics-view-designer-filters/filters-example-custom.png)
 
 Om du tar bort alla värden för ett filter, kommer inte längre filtret tillämpas.
 
@@ -42,7 +42,7 @@ Om du tar bort alla värden för ett filter, kommer inte längre filtret tilläm
 
 Skapa ett filter från den **filter** fliken när [en redigeringsvyn](log-analytics-view-designer.md).  Filtret är globala för vyn och gäller för alla delar i vyn.  
 
-![Filterinställningar](media/log-analytics-view-designer/filters-settings.png)
+![Filterinställningar](media/log-analytics-view-designer-filters/filters-settings.png)
 
 I följande tabell beskrivs inställningarna för ett filter.
 

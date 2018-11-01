@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/26/2018
 ms.author: spelluru
-ms.openlocfilehash: ac30718a92d76dedcb5b0ef3bdd2f282dd117720
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: 41af53dbfbb5c863007a332445a2f184fcbcbf81
+ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48853529"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50741070"
 ---
 # <a name="topic-filters-and-actions"></a>Ämnesfilter och åtgärder
 
@@ -40,7 +40,7 @@ Komplexa filterregler kräver bearbetningskapacitet. Användningen av SQL-filter
 
 ## <a name="actions"></a>Åtgärder
 
-Med SQL-filtervillkor, kan du definiera en åtgärd som kan kommentera meddelandet genom att lägga till, ta bort eller ersätta egenskaper och deras värden. Åtgärden [använder ett SQL-liknande uttryck](service-bus-messaging-sql-filter.md) som löst leans på uppdatering för SQL-instruktionen syntax. Åtgärden utförs på meddelandet när den har matchats och innan meddelandet är markerad i avsnittet. Ändringar i meddelandeegenskaperna är privata för meddelandet som kopieras till prenumerationen.
+Med SQL-filtervillkor, kan du definiera en åtgärd som kan kommentera meddelandet genom att lägga till, ta bort eller ersätta egenskaper och deras värden. Åtgärden [använder ett SQL-liknande uttryck](service-bus-messaging-sql-filter.md) som löst leans på uppdatering för SQL-instruktionen syntax. Åtgärden utförs på meddelandet när den har matchats och innan meddelandet väljs i prenumerationen. Ändringar i meddelandeegenskaperna är privata för meddelandet som kopieras till prenumerationen.
 
 ## <a name="usage-patterns"></a>Användningsmönster
 

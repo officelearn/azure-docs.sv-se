@@ -11,16 +11,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/21/2017
 ms.author: sngun
-ms.openlocfilehash: 82ab30ebab1b69d5ae636702b3b56d3792c09010
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: b115058353d14a3bd7c774197e06de088030ffff
+ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47394581"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50741359"
 ---
 # <a name="create-an-azure-cosmos-db-account-using-powershell"></a>Skapa ett Azure Cosmos DB-konto med hjälp av PowerShell
 
-Enligt följande anvisningar beskriver kommandon för att automatisera hanteringen av din Azure Cosmos DB-databaskonton med Azure Powershell. Den innehåller också kommandon för att hantera nycklar och redundansprioriteringar i [databaskonton] [distribuera-data-globally.md]. Uppdaterar ditt databaskonto kan du ändra principer för konsekvens och Lägg till/ta bort regioner. Plattformsoberoende hantering av ditt Azure Cosmos DB-konto, kan du använda antingen [Azure CLI](cli-samples.md), [Resource Provider REST API][rp-rest-api], eller [Azure-portalen ](create-sql-api-dotnet.md#create-account).
+Enligt följande anvisningar beskriver kommandon för att automatisera hanteringen av din Azure Cosmos DB-databaskonton med Azure Powershell. Den innehåller också kommandon för att hantera nycklar och redundansprioriteringar i [databaskonton][distribute-data-globally]. Uppdaterar ditt databaskonto kan du ändra principer för konsekvens och Lägg till/ta bort regioner. Plattformsoberoende hantering av ditt Azure Cosmos DB-konto, kan du använda antingen [Azure CLI](cli-samples.md), [Resource Provider REST API][rp-rest-api], eller [Azure-portalen ](create-sql-api-dotnet.md#create-account).
 
 ## <a name="getting-started"></a>Komma igång
 
@@ -33,7 +33,7 @@ Följ instruktionerna i [hur du installerar och konfigurerar du Azure PowerShell
 
 ## <a id="create-documentdb-account-powershell"></a> Skapa ett Azure Cosmos DB-konto
 
-Det här kommandot kan du skapa ett Azure Cosmos DB-databaskonto. Konfigurera ditt nya databaskonto som en region eller [flera regioner] [distribuera-data-globally.md] med en viss [konsekvens princip](consistency-levels.md).
+Det här kommandot kan du skapa ett Azure Cosmos DB-databaskonto. Konfigurera ditt nya databaskonto som antingen en region eller [flera regioner] [ distribute-data-globally] med en viss [konsekvens princip](consistency-levels.md).
 
     $locations = @(@{"locationName"="<write-region-location>"; "failoverPriority"=0}, @{"locationName"="<read-region-location>"; "failoverPriority"=1})
     $iprangefilter = "<ip-range-filter>"
@@ -60,7 +60,7 @@ Exempel:
     New-AzureRmResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" -ApiVersion "2015-04-08" -ResourceGroupName "rg-test" -Location "West US" -Name "docdb-test" -Properties $CosmosDBProperties
 
 ### <a name="notes"></a>Anteckningar
-* I föregående exempel skapas ett databaskonto med två regioner. Du kan också skapa ett databaskonto med en region (som är utsedd till skrivbar och ha ett prioritetsvärde för växling vid fel 0) eller fler än två regioner. Mer information finns i [databaskonton] [distribuera-data-globally.md].
+* I föregående exempel skapas ett databaskonto med två regioner. Du kan också skapa ett databaskonto med en region (som är utsedd till skrivbar och ha ett prioritetsvärde för växling vid fel 0) eller fler än två regioner. Mer information finns i [databaskonton][distribute-data-globally].
 * Platserna måste vara regioner som Azure Cosmos DB är allmänt tillgänglig. Den aktuella listan över regioner finns på den [Azure-regionerna sidan](https://azure.microsoft.com/regions/#services).
 
 ## <a id="update-documentdb-account-powershell"></a> Uppdatera ett Azure Cosmos DB-databaskonto
@@ -195,6 +195,7 @@ Exempel:
 * Om du vill ansluta med hjälp av Node.js, se [ansluta och fråga med Node.js och MongoDB-app](create-mongodb-nodejs.md).
 
 <!--Reference style links - using these makes the source content way more readable than using inline links-->
+
 [powershell-install-configure]: https://docs.microsoft.com/azure/powershell-install-configure
 [scaling-globally]: distribute-data-globally.md#EnableGlobalDistribution
 [distribute-data-globally]: distribute-data-globally.md

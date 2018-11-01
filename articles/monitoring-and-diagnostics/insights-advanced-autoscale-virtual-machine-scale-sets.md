@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 02/22/2016
 ms.author: ancav
 ms.component: autoscale
-ms.openlocfilehash: 78e3bec0d00336ce7cedc1434bf6ad7c65435969
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 995e93290e7c305e217c1f44609d383f69d83a9a
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46978190"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50420565"
 ---
 # <a name="advanced-autoscale-configuration-using-resource-manager-templates-for-vm-scale-sets"></a>Avancerad automatisk skalning med Resource Manager-mallar för VM Scale Sets
 Du kan skala in och ut på Virtual Machine Scale Sets baserat på prestanda tröskelmått, genom ett återkommande schema eller genom att ett visst datum. Du kan också konfigurera e-post och webhook meddelanden om skalningsåtgärder. Den här genomgången visar ett exempel på hur du konfigurerar dessa objekt med en Resource Manager-mall för VM-Skalningsuppsättningen.
@@ -29,7 +29,7 @@ I den här genomgången använder vi [Azure Resource Explorer](https://resources
 1. Distribuera en ny skalningsuppsättning med en grundläggande autoskalningsinställningen. Den här artikeln använder en från Azure QuickStart-galleriet, som har en Windows-skalningsuppsättning med en mall för grundläggande automatisk skalning. Skalningsuppsättningar för Linux fungerar på samma sätt.
 2. När skalningsuppsättningen skapas, går du till scale set resursen från Azure Resource Explorer. Du ser följande under Microsoft.Insights noden.
 
-    ![Azure Explorer](./media/insights-advanced-autoscale-vmss/azure_explorer_navigate.png)
+    ![Azure Explorer](media/insights-advanced-autoscale-virtual-machine-scale-sets/azure_explorer_navigate.png)
 
     Mall-körning har skapat en standardinställning för automatisk skalning med namnet **'autoscalewad'**. Till höger, kan du visa den fullständiga definitionen av den här autoskalningsinställningen. I det här fallet kommer standardinställningen för automatisk skalning med en processor % baserat skalning och skala in regel.  
 
@@ -58,11 +58,11 @@ I den här genomgången använder vi [Azure Resource Explorer](https://resources
 
 5. Kontrollera att du är på den **Läs/Skriv** läge i Resursläsaren
 
-    ![Autoscalewad standard autoskalningsinställning](./media/insights-advanced-autoscale-vmss/autoscalewad.png)
+    ![Autoscalewad standard autoskalningsinställning](media/insights-advanced-autoscale-virtual-machine-scale-sets/autoscalewad.png)
 
 6. Klicka på Redigera. **Ersätt** ”profiler”-element i autoskalningsinställning med följande konfiguration:
 
-    ![Profiler](./media/insights-advanced-autoscale-vmss/profiles.png)
+    ![Profiler](media/insights-advanced-autoscale-virtual-machine-scale-sets/profiles.png)
 
     ```
     {

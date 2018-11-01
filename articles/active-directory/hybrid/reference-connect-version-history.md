@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 09/06/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 93bd141b591cda5ec6ff1d9d042222070d3146e6
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: f0a9ac1700d635365ebea0c5966489ed3d2d797b
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49390320"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50420259"
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect: Versionshistorik
 Azure Active Directory (Azure AD)-teamet uppdaterar regelbundet Azure AD Connect med nya funktioner. Inte alla tillägg gäller för alla målgrupper.
@@ -37,6 +37,37 @@ Nödvändiga behörigheter | Behörigheter som krävs för att tillämpa en uppd
 
 Ladda ned | [Hämta Azure AD Connect](http://go.microsoft.com/fwlink/?LinkId=615771).
 
+## <a name="12650"></a>1.2.65.0 
+
+### <a name="release-status"></a>Versionsstatus 
+
+10/25/2018: lanserats för nedladdning
+
+ 
+### <a name="new-features-and-improvements"></a>Nya funktioner och förbättringar 
+
+
+- Ändra funktionen för tillbakaskrivning av attribut värdbaserade röstmeddelanden fungerar som förväntat.  I vissa fall, Azure AD överskrivande attributet msExchUcVoicemailSettings under återskrivning med ett null-värde.  Azure AD kommer nu inte längre Rensa lokala värdet för det här attributet om molnet-värdet inte anges.
+- Förbättrad hantering av ändrade standardregler. Du får nu ett meddelande om du har ändrat standardregler och erbjuder alternativ för att reparera standardreglerna. 
+- Lägga till diagnostik i Azure AD Connect-guiden för att undersöka och identifiera anslutningsproblem till Azure AD. Dessa samma diagnostik kan även köras direkt via Powershell med hjälp av Test - AdSyncAzureServiceConnectivity cmdleten. 
+- Lägga till diagnostik i Azure AD Connect-guiden för att undersöka och identifiera anslutningsproblem till AD. Dessa samma diagnostik kan även köras direkt via Powershell med hjälp av funktionen Start ConnectivityValidation i ADConnectivityTools Powershell-modulen.  Mer information finns i [vad är ADConnectivityTool PowerShell-modulen?](how-to-connect-adconnectivitytools.md)
+- Lägga till en AD-schemat före versionskontroll för Hybrid Azure Active Directory Join och tillbakaskrivning av enhet 
+- Ändra Katalogtillägg sidan attributet sökningen så att vara icke skiftlägeskänslig.
+-   Har lagts till fullständigt stöd för TLS 1.2. Den här versionen har stöd för alla andra protokoll som håller på att inaktiveras och endast TLS 1.2 på att aktiveras på den dator där Azure AD Connect är installerad.  Mer information finns i [TLS 1.2 tvingande för Azure AD Connect](reference-connect-tls-enforcement.md)
+
+ 
+
+### <a name="fixed-issues"></a>Åtgärdade problem   
+
+- Ett fel har åtgärdats där Azure AD Connect uppgradera skulle misslyckas om SQL Always On användes. 
+- En bugg för att analysera korrekt OU-namn som innehåller ett snedstreck. 
+- Ett problem har åtgärdats där direktautentisering skulle inaktiveras för en ren installation i mellanlagringsläge. 
+- En bugg som förhindrade PowerShell-modulen ska läsas in när du kör verktyg för felsökning 
+- Ett fel som skulle blockera kunder från med numeriska värden i det första tecknet i ett värdnamn har åtgärdats. 
+- Ett fel har åtgärdats där Azure AD Connect skulle låta ogiltiga partitioner och behållarval 
+- Fast felmeddelandet ”ogiltigt lösenord” när skrivbords-SSO är aktiverat. 
+- Olika felkorrigeringar för AD FS-förtroende hantering  
+- När du konfigurerar tillbakaskrivning av enhet - fast schemakontrollen för att leta efter msDs-DeviceContainer objektklassen (presenteras på WS2012 R2)
 
  
 ## <a name="118820"></a>1.1.882.0  

@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: troubleshooting
-ms.date: 05/11/2018
+ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: e8ecdf1fffb51c0b8e9ce996307595a5444a64ee
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: eeecf37a6cc7a0f86662f002b6f0efab5ef8c35c
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47414693"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50417471"
 ---
 # <a name="troubleshoot-azure-windows-virtual-machine-activation-problems"></a>Felsöka problem med Windows Azure VM-aktivering
 
@@ -82,7 +82,7 @@ Det här steget gäller inte för Windows 2012 eller Windows 2008 R2. Den använ
 2. Gå till Start, söker du i Windows PowerShell, högerklickar du på Windows PowerShell och välj Kör som administratör.
 
 3. Kontrollera att den virtuella datorn är konfigurerad för att använda rätt Azure KMS-servern. Gör detta genom att köra följande kommando:
-  
+  
     ```
     iex “$env:windir\system32\cscript.exe $env:windir\system32\slmgr.vbs /skms
     kms.core.windows.net:1688
@@ -90,11 +90,11 @@ Det här steget gäller inte för Windows 2012 eller Windows 2008 R2. Den använ
     Kommandot ska returnera: nyckelhanteringstjänst datornamn har angetts till kms.core.windows.net:1688.
 
 4. Kontrollera med hjälp av Psping att du är ansluten till KMS-servern. Växla till den mapp där du extraherade Pstools.zip nedladdningen och kör sedan följande:
-  
+  
     ```
     \psping.exe kms.core.windows.net:1688
     ```
-  
+  
   Se till att du ser i den andra och sista raden i utdata: skickas = 4, mottagna = 4, förlorad = 0 (0% förlust).
 
   Om förlorad är större än 0 (noll), har den virtuella datorn inte anslutning till KMS-servern. I det här fallet är om den virtuella datorn är i ett virtuellt nätverk och har en anpassad DNS-server har angetts, måste du kontrollera att DNS-servern kan matcha kms.core.windows.net. Eller så ändrar du DNS-servern till ett som matchar kms.core.windows.net.

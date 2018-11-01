@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: rogoya
-ms.openlocfilehash: 1ad499e2703ff8376c063d933c0cc1f03765fc23
-ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
+ms.openlocfilehash: 4c5fead0a7f4634a8f5ee005114d24cae9a2590f
+ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/11/2018
-ms.locfileid: "42056738"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50739832"
 ---
 # <a name="eliminate-bad-passwords-in-your-organization"></a>Eliminera felaktiga lösenord i din organisation
 
@@ -70,4 +70,4 @@ Tyvärr innehåller ditt lösenord ett ord, en fras eller ett mönster som gör 
 ## <a name="next-steps"></a>Nästa steg
 
 * [Konfigurera listan med anpassade förbjudna lösenord](howto-password-ban-bad.md)
-* [Aktivera Azure AD lösenord protection agenter lokalt](howto-password-ban-bad-on-premises.md)
+* [Aktivera Azure AD lösenord protection agenter lokalt](howto-password-ban-bad-on-premises-deploy.md)

@@ -10,12 +10,12 @@ ms.component: bing-custom-search
 ms.topic: conceptual
 ms.date: 09/28/2017
 ms.author: maheshb
-ms.openlocfilehash: b4e022d6237712d8281c6f4f9332a68821dfd5b1
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: fea0e4d640f42909b33ae418315c460946544256
+ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49470089"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50739591"
 ---
 # <a name="paging-webpages"></a>Växling webbsidor 
 
@@ -57,4 +57,7 @@ GET https://api.cognitive.microsoft.com/bingcustomsearch/v7.0/search?q=sailing+d
 Ocp-Apim-Subscription-Key: <subscription ID>  
 Host: api.cognitive.microsoft.com  
 ```  
+
+> [!NOTE]
+> Den `TotalEstimatedAnswers` fält är en uppskattning av det totala antalet sökresultat som du kan hämta för den aktuella frågan.  När du ställer in `count` och `offset` parametrar, den `TotalEstimatedAnswers` tal kan ändras. 
 

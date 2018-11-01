@@ -5,23 +5,23 @@ services: active-directory
 ms.service: active-directory
 ms.component: authentication
 ms.topic: conceptual
-ms.date: 07/11/2018
+ms.date: 10/30/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: jsimmons
-ms.openlocfilehash: c164c2465a4e9d60159ea9596139f2e4938f792f
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: 6832f6f9d09cbbfea6ccaa69160ad93209c7ac8c
+ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50242508"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50741189"
 ---
 # <a name="preview-azure-ad-password-protection-monitoring-reporting-and-troubleshooting"></a>Förhandsversion: Azure AD lösenord protection övervakning, rapportering och felsökning
 
 |     |
 | --- |
-| Azure AD-lösenordsskydd och listan över anpassade förbjudna lösenord är funktioner i offentlig förhandsversion av Azure Active Directory. Mer information om förhandsversioner finns [kompletterande användningsvillkor för förhandsversioner av Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)|
+| Azure AD-lösenordsskydd är en funktion i offentliga förhandsversionen av Azure Active Directory. Mer information om förhandsversioner finns [kompletterande användningsvillkor för förhandsversioner av Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)|
 |     |
 
 Är viktiga uppgifter efter distributionen av Azure AD-lösenordsskydd övervakning och rapportering. Den här artikeln innehåller information för att du förstår där varje tjänst loggar information och rapportera om användning av Azure AD-lösenordsskydd.
@@ -88,7 +88,7 @@ Vissa andra viktiga meddelanden känna till är:
 
 Lösenordet för den angivna användaren godkändes eftersom en princip för lösenord för Azure inte är tillgänglig än
 
-Användarnamn: <user> FullName: <user>
+Användarnamn: SomeUser FullName: vissa användare
 
 Det här tillståndet kan ha orsakats av en eller flera av följande orsaker: % n
 

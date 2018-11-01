@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/24/2018
 ms.author: daseidma;bwren
-ms.openlocfilehash: 9d574e7e8b0b285093aa0960243300dfe9f6d417
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: 4461b98c56bcf99fc11aa9d89e6c6dc5961c86ac
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50249016"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50419528"
 ---
 # <a name="configure-service-map-in-azure"></a>Konfigurera Tjänstkarta i Azure
 Tjänstkarta identifierar automatiskt programkomponenter i Windows- och Linux-system och mappar kommunikationen mellan olika tjänster. Du kan använda den för att visa dina servrar som du tänker på dem, sammankopplat system som levererar viktiga tjänster. Tjänstkarta visar anslutningar mellan servrar, processer och portar i alla TCP-anslutna arkitekturer utan konfiguration som krävs, än installation av en agent.
@@ -172,7 +172,7 @@ Mer information om insamling och användning finns i den [sekretesspolicyn för 
 
 ## <a name="installation"></a>Installation
 
-## <a name="azure-vm-extension"></a>Azure VM-tillägg
+### <a name="azure-vm-extension"></a>Azure VM-tillägg
 Det är ett tillägg för både Windows (DependencyAgentWindows) och Linux (DependencyAgentLinux) och du kan enkelt distribuera beroendeagenten på virtuella Azure-datorer med en [Azure VM-tillägget](https://docs.microsoft.com/azure/virtual-machines/windows/extensions-features).  Du kan distribuera beroendeagenten till Windows och Linux-datorer med hjälp av antingen ett PowerShell-skript eller direkt i den virtuella datorn med en Azure Resource Manager-mall med Azure VM-tillägg.  Om du distribuerar en agent för Azure VM-tillägg måste uppdateras automatiskt dina agenter till den senaste versionen.
 
 Du kan använda följande exempel för att distribuera Azure VM-tillägget med PowerShell:

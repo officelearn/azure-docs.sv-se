@@ -15,16 +15,16 @@ ms.topic: conceptual
 ms.date: 05/24/2018
 ms.author: v-jysur
 ms.component: ''
-ms.openlocfilehash: b99c14e6022fa34d41caaa02bfc9feecb3c840ce
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 4f8261983feb8e655333f548b0b90f822eda30a6
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49407511"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50421194"
 ---
 # <a name="connect-azure-to-itsm-tools-using-it-service-management-connector"></a>Ansluta Azure till ITSM-verktyg som använder IT Service Management Connector
 
-![IT Service Management Connector symbol](./media/log-analytics-itsmc/itsmc-symbol.png)
+![IT Service Management Connector symbol](media/log-analytics-itsmc-overview/itsmc-symbol.png)
 
 IT Service Management Connector (ITSMC) kan du ansluta Azure och en stöds IT Service Management (ITSM) produkt/tjänst.
 
@@ -56,18 +56,18 @@ Innan du kan skapa en anslutning, måste du lägga till lösning för ITSM-anslu
 
 1.  I Azure-portalen klickar du på **+ ny** ikon.
 
-    ![Nya Azure-resurs](./media/log-analytics-itsmc/azure-add-new-resource.png)
+    ![Nya Azure-resurs](media/log-analytics-itsmc-overview/azure-add-new-resource.png)
 
 2.  Sök efter **IT Service Management Connector** i Marketplace och på **skapa**.
 
-    ![Lägg till ITSMC lösning](./media/log-analytics-itsmc/add-itsmc-solution.png)
+    ![Lägg till ITSMC lösning](media/log-analytics-itsmc-overview/add-itsmc-solution.png)
 
 3.  I den **OMS-arbetsyta** väljer Azure Log Analytics-arbetsytan där du vill installera lösningen.
    >[!NOTE]
    >Som en del av pågående övergången från Microsoft Operations Management Suite (OMS) till Azure Monitor, är OMS-arbetsytor kallas nu för Log Analytics-arbetsytor.
 4.  I den **inställningar för OMS-arbetsyta** väljer du den resursgrupp där du vill skapa resursen lösning.
 
-    ![ITSMC arbetsyta](./media/log-analytics-itsmc/itsmc-solution-workspace.png)
+    ![ITSMC arbetsyta](media/log-analytics-itsmc-overview/itsmc-solution-workspace.png)
     >[!NOTE]
     >Som en del av pågående övergången från Microsoft Operations Management Suite (OMS) till Azure Monitor, är OMS-arbetsytor kallas nu för Log Analytics-arbetsytor.
 
@@ -93,12 +93,12 @@ När du har förberedd ITSM-verktygen, följer du stegen nedan för att skapa en
 
 1.  Gå till **alla resurser**, leta efter **ServiceDesk(YourWorkspaceName)**.
 2.  Under **DATAKÄLLOR för ARBETSYTA** i den vänstra rutan klickar du på **ITSM-anslutningar**.
-    ![ITSM-anslutningar](./media/log-analytics-itsmc/itsm-connections.png)
+    ![ITSM-anslutningar](media/log-analytics-itsmc-overview/itsm-connections.png)
 
     Den här sidan visar listan över anslutningar.
 3.  Klicka på **Lägg till anslutning**.
 
-    ![Lägga till ITSM-anslutningen](./media/log-analytics-itsmc/add-new-itsm-connection.png)
+    ![Lägga till ITSM-anslutningen](media/log-analytics-itsmc-overview/add-new-itsm-connection.png)
 
 4.  Ange anslutningsinställningarna enligt beskrivningen i [konfigurera ITSMC anslutningen med din artikel för ITSM-produkter/tjänster](log-analytics-itsmc-connections.md).
 
@@ -106,7 +106,7 @@ När du har förberedd ITSM-verktygen, följer du stegen nedan för att skapa en
 
     > Som standard uppdaterar ITSMC anslutningens configuration-data en gång under var 24: e timme. Om du vill uppdatera din anslutning data direkt den redigeringar eller en mall för programuppdateringar som du gör, klickar du på den **synkronisering** knappen på bladet för din anslutning.
 
-    ![Uppdatera anslutning](./media/log-analytics-itsmc/itsmc-connections-refresh.png)
+    ![Uppdatera anslutning](media/log-analytics-itsmc-overview/itsmc-connections-refresh.png)
 
 
 ## <a name="using-the-solution"></a>Använda lösningen
@@ -123,16 +123,16 @@ Följ dessa steg:
 1. I Azure-portalen klickar du på **övervakaren**.
 2. I den vänstra rutan klickar du på **åtgärdsgrupper**. Den **Lägg till åtgärdsgrupp** fönster visas.
 
-    ![Åtgärdsgrupper](media/log-analytics-itsmc/action-groups.png)
+    ![Åtgärdsgrupper](media/log-analytics-itsmc-overview/action-groups.png)
 
 3. Ange **namn** och **ShortName** för din åtgärdsgruppen. Välj den **resursgrupp** och **prenumeration** där du vill skapa din åtgärdsgrupp.
 
-    ![Information om åtgärd-grupper](media/log-analytics-itsmc/action-groups-details.png)
+    ![Information om åtgärd-grupper](media/log-analytics-itsmc-overview/action-groups-details.png)
 
 4. Välj i listan åtgärder **ITSM** från den nedrullningsbara menyn för **åtgärdstyp**. Ange en **namn** för åtgärden och klicka på **redigera information**.
 5. Välj den **prenumeration** där Log Analytics-arbetsytan finns. Välj den **anslutning** namn (ITSM-anslutningsprogram namn) följt av namnet på din arbetsyta. Till exempel ”MyITSMMConnector(MyWorkspace)”.
 
-    ![Information om ITSM-åtgärd](./media/log-analytics-itsmc/itsm-action-details.png)
+    ![Information om ITSM-åtgärd](media/log-analytics-itsmc-overview/itsm-action-details.png)
 
 6. Välj **arbetsobjekt** typen från den nedrullningsbara menyn.
    Välja att använda en befintlig mall eller Fyll i fälten som krävs av ITSM-produkten.
@@ -151,7 +151,7 @@ Utifrån din konfiguration när du konfigurerar en anslutning, kan ITSM-anslutni
 
 Frågeinformationen incident och ändringsförfråga kan visualiseras med hjälp av instrumentpanelen ITSM-anslutningsprogram i lösningen.
 
-![Log Analytics-skärmen](./media/log-analytics-itsmc/itsmc-overview-sample-log-analytics.png)
+![Log Analytics-skärmen](media/log-analytics-itsmc-overview/itsmc-overview-sample-log-analytics.png)
 
 Instrumentpanelen innehåller även information om status för anslutningsprogrammet som kan användas som utgångspunkt för att analysera problem med anslutningar.
 
@@ -161,7 +161,7 @@ Tjänstkarta automatiskt identifierar programkomponenter i Windows och Linux-sys
 
 Om du använder lösningen Tjänstkarta, kan du visa service desk-objekt som skapats i ITSM-lösningar som du ser i följande exempel:
 
-![Log Analytics-skärmen](./media/log-analytics-itsmc/itsmc-overview-integrated-solutions.png)
+![Log Analytics-skärmen](media/log-analytics-itsmc-overview/itsmc-overview-integrated-solutions.png)
 
 Mer information: [Tjänstkarta](../operations-management-suite/operations-management-suite-service-map.md)
 
@@ -254,7 +254,7 @@ ServiceDeskWorkItemType_s = ”ändra begäran”
 | Category_s | Kategori |
 | Title_s|  Kort beskrivning |
 | Description_s|  Anteckningar |
-| CreatedDate_t|  Öppnas |
+| CreatedDate_t|  Öppnat |
 | ClosedDate_t| Stängd|
 | ResolvedDate_t|Löst|
 | Dator  | Konfigurationsobjekt |

@@ -4,20 +4,30 @@ description: Innehåller en översikt över kända problem i Azure Migrate-tjän
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 10/24/2018
+ms.date: 10/31/2018
 ms.author: raynew
-ms.openlocfilehash: a32b1b73a12242a6c6b1c29fbf116aff73515b46
-ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
+ms.openlocfilehash: 0b2954ddfda0ab4c94ddf6176d76d8bcd937fa42
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50086751"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50413341"
 ---
 # <a name="troubleshoot-azure-migrate"></a>Felsöka Azure Migrate
 
 ## <a name="troubleshoot-common-errors"></a>Felsöka vanliga fel
 
 [Azure Migrate](migrate-overview.md) utvärderar lokala arbetsbelastningar för migrering till Azure. Använd den här artikeln för att felsöka problem när du distribuerar och använder Azure Migrate.
+
+### <a name="i-am-using-the-continuous-discovery-ova-but-vms-that-are-deleted-in-my-on-premises-environment-are-still-being-shown-in-the-portal"></a>Jag använder kontinuerlig identifieringen OVA, men virtuella datorer som har tagits bort i min lokala miljö är fortfarande visas i portalen.
+
+Installationen för identifiering av kontinuerlig installation endast samlar in prestandadata kontinuerligt, upptäcks inte varje konfigurationsändring i den lokala miljön (dvs. VM-tillägg, borttagning, disk tillägg osv.). Om det finns en konfigurationsändring i den lokala miljön kan du göra följande för att återspegla ändringarna i portalen:
+
+- Tillägg av objekt (virtuella datorer, kärnor osv.): Om du vill återspegla dessa ändringar i Azure-portalen kan du stoppa identifieringen från installationen och sedan börja om igen. Då uppdateras ändringarna i Azure Migrate-projektet.
+
+   ![Stoppa identifiering](./media/troubleshooting-general/stop-discovery.png)
+
+- Borttagning av virtuella datorer: På grund av hur installationen är utformad återspeglas inte borttagning av virtuella datorer även om du stoppar och startar identifieringen. Det beror på att data från efterföljande identifieringar läggs till äldre identifieringar och inte åsidosätts. I det här fallet kan du helt enkelt ignorera den virtuella datorn genom att ta bort den från gruppen och beräkna utvärderingen.
 
 ### <a name="migration-project-creation-failed-with-error-requests-must-contain-user-identity-headers"></a>Skapa projekt för migreringen misslyckades med felet *förfrågningar måste innehålla användaridentitetsrubriker*
 
@@ -40,14 +50,6 @@ Om du vill aktivera insamling av prestandadata för disk- och ändra nivån för
 Du kan gå till den **Essentials** i avsnittet den **översikt** projektets att identifiera den exakta platsen där metadata som lagras. Platsen väljs slumpmässigt i geografiska område som Azure Migrate och du kan inte ändra den. Om du vill skapa ett projekt i en viss region kan du kan använda REST-API: er för att skapa migration-projekt och skicka önskad region.
 
    ![Projektets plats](./media/troubleshooting-general/geography-location.png)
-
-### <a name="i-am-using-the-continuous-discovery-ova-but-vms-that-are-deleted-in-my-on-premises-environment-are-still-being-shown-in-the-portal"></a>Jag använder kontinuerlig identifieringen OVA, men virtuella datorer som har tagits bort i min lokala miljö är fortfarande visas i portalen.
-
-Installationen för identifiering av kontinuerlig installation endast samlar in prestandadata kontinuerligt, upptäcks inte varje konfigurationsändring i den lokala miljön (dvs. VM-tillägg, borttagning, disk tillägg osv.). Om det finns en konfigurationsändring i den lokala miljön, kan du göra följande för att återspegla ändringar i portalen:
-
-1. Tillägg av objekt (virtuella datorer, diskar, kärnor osv): för att återspegla dessa ändringar i Azure-portalen, du kan stoppa identifieringen av programmet och sedan starta det igen. Det säkerställer att uppdateras i Azure Migrate-projektet.
-
-2. Borttagning av virtuella datorer: beroende på det sätt som är utformad för installationen, borttagning av virtuella datorer inte visas även om du stoppar och startar identifieringen. Detta är eftersom data från följande identifieringar läggas till äldre identifieringar och inte åsidosätts. I det här fallet kan du helt enkelt ignorerar den virtuella datorn i portalen genom att ta bort den från din grupp och beräkna utvärderingen.
 
 ## <a name="collector-errors"></a>Fel för logginsamlare
 
@@ -219,9 +221,8 @@ Om du vill samla in Event Tracing för Windows, gör du följande:
 
 ## <a name="collector-error-codes-and-recommended-actions"></a>Insamlaren felkoder och rekommenderade åtgärder
 
-|           |                                |                                                                               |                                                                                                       |                                                                                                                                            |
-|-----------|--------------------------------|-------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------|
-| Felkod | Fel namn                      | Meddelande                                                                       | Möjliga orsaker                                                                                        | Rekommenderad åtgärd                                                                                                                          |
+| Felkod | Fel namn   | Meddelande   | Möjliga orsaker | Rekommenderad åtgärd  |
+| --- | --- | --- | --- | --- |
 | 601       | CollectorExpired               | Insamlaren har upphört att gälla.                                                        | Insamlaren har upphört.                                                                                    | Hämta en ny version av insamlaren och försök igen.                                                                                      |
 | 751       | UnableToConnectToServer        | Det gick inte att ansluta till vCenter Server %Name; på grund av felet: %ErrorMessage;     | Läs felmeddelandet om du vill ha mer information.                                                             | Åtgärda problemet och försök igen.                                                                                                           |
 | 752       | InvalidvCenterEndpoint         | Servern %Name; är inte en vCenter Server.                                  | Ange vCenter Server-information.                                                                       | Försök åtgärden igen med korrekt vCenter Server-information.                                                                                   |

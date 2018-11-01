@@ -6,14 +6,14 @@ author: banisadr
 manager: timlt
 ms.service: event-grid
 ms.topic: conceptual
-ms.date: 10/09/2018
+ms.date: 10/31/2018
 ms.author: babanisa
-ms.openlocfilehash: 2fd8712cbe5d34baed158a56e6f06b6235f5d4b2
-ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
+ms.openlocfilehash: a9bffe148339bfac89796405b771e9c2816eb0de
+ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49068203"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50741529"
 ---
 # <a name="event-grid-security-and-authentication"></a>Event Grid säkerhet och autentisering 
 
@@ -37,7 +37,7 @@ Om du använder någon annan typ av slutpunkt, t.ex. en HTTP-utlösare baserade 
 
 1. **ValidationCode handskakning**: vid tidpunkten för händelsen prenumeration har skapats, EventGrid publicerar en ”prenumeration verifiering händelse” till slutpunkten. Schemat för den här händelsen är ungefär som andra EventGridEvent och datamängden i den här händelsen innehåller en `validationCode` egenskapen. När ditt program har verifierat att begäran om verifiering är för en förväntad händelse-prenumeration, måste din programkod ska svara på eko tillbaka verifieringskoden till EventGrid. Den här mekanismen för handskakning stöds i alla EventGrid-versioner.
 
-2. **ValidationURL handskakning (manuell handskakning)**: I vissa fall kan du kanske inte har kontroll över källkoden för slutpunkten för att kunna implementera ValidationCode baserat-handskakningen. Exempel: Om du använder en tjänst från tredje part (t.ex. [Zapier](https://zapier.com) eller [IFTTT](https://ifttt.com/)), kan du inte kunna programmässigt svarar med verifieringskoden. Från och med versionen 2018-05-01-preview, stöd EventGrid nu för en manuell verifiering-handskakning. Om du skapar en händelseprenumeration med hjälp av SDK/verktyg som använder den här nya API-version (2018-05-01-preview), EventGrid skickar en `validationUrl` egenskapen som en del av datadelen händelsens prenumeration verifiering. För att slutföra handskakningen bara en hämtning begära på URL: en, antingen via en REST-klient eller med hjälp av webbläsaren. Validering av angivna URL: en är giltig endast i cirka 10 minuter. Under denna tid har tillståndet för etablering av händelseprenumerationen är `AwaitingManualAction`. Om du inte har slutfört manuell verifiering inom 10 minuter, Etableringsstatus är inställd på `Failed`. Du kommer behöva skapa händelseprenumeration igen innan du försöker manuell verifiering.
+2. **ValidationURL handskakning (manuell handskakning)**: I vissa fall kan du kanske inte har kontroll över källkoden för slutpunkten att implementera ValidationCode baserat-handskakningen. Exempel: Om du använder en tjänst från tredje part (t.ex. [Zapier](https://zapier.com) eller [IFTTT](https://ifttt.com/)), du programmässigt kan inte svarar med verifieringskoden. Från och med versionen 2018-05-01-preview, stöd EventGrid nu för en manuell verifiering-handskakning. Om du skapar en händelseprenumeration med ett SDK eller verktyg som använder API-versionen 2018-05-01-preview eller senare, EventGrid skickar en `validationUrl` egenskapen som en del av datadelen händelsens prenumeration verifiering. För att slutföra handskakningen bara en hämtning begära på URL: en, antingen via en REST-klient eller med hjälp av webbläsaren. Validering av angivna URL: en är giltig endast i cirka 10 minuter. Under denna tid har tillståndet för etablering av händelseprenumerationen är `AwaitingManualAction`. Om du inte har slutfört manuell verifiering inom 10 minuter, Etableringsstatus är inställd på `Failed`. Du kommer behöva skapa händelseprenumeration igen innan du startar manuell verifiering.
 
 Den här mekanismen för manuell validering är i förhandsversion. Om du vill använda den måste du installera [Event Grid-tillägget](/cli/azure/azure-cli-extensions-list) för [Azure CLI](/cli/azure/install-azure-cli). Du kan installera det med `az extension add --name eventgrid`. Om du använder REST API, kontrollera att du använder `api-version=2018-05-01-preview`.
 
@@ -93,7 +93,7 @@ När händelsen prenumeration skapas om det uppstår ett felmeddelande visas som
 
 ### <a name="event-delivery-security"></a>Säkerhet med händelser leverans
 
-Du kan skydda din webhook-slutpunkt genom att lägga till frågeparametrar webhook-URL när du skapar en händelseprenumeration. Ange ett av dessa frågeparametrar ska vara en hemlighet som en [åtkomsttoken](https://en.wikipedia.org/wiki/Access_token) som webhooken kan använda för att identifiera händelsen kommer från Event Grid med giltig behörighet. Event Grid tas dessa Frågeparametrar i varje händelseleverans till webhooken.
+Du kan skydda din webhook-slutpunkt genom att lägga till frågeparametrar webhook-URL när du skapar en händelseprenumeration. Ange ett av dessa frågeparametrar ska vara en hemlighet som en [åtkomsttoken](https://en.wikipedia.org/wiki/Access_token). Webhooken kan använda för att identifiera händelsen kommer från Event Grid med giltig behörighet. Event Grid tas dessa Frågeparametrar i varje händelseleverans till webhooken.
 
 När du redigerar händelseprenumerationen frågeparametrar inte visas eller returneras, såvida inte den [--inkludera-full-endpoint-url](https://docs.microsoft.com/cli/azure/eventgrid/event-subscription?view=azure-cli-latest#az-eventgrid-event-subscription-show) parametern används i Azure [CLI](https://docs.microsoft.com/cli/azure?view=azure-cli-latest).
 
@@ -174,11 +174,11 @@ static string BuildSharedAccessSignature(string resource, DateTime expirationUtc
 
 ## <a name="management-access-control"></a>Hantering av åtkomstkontroll
 
-Azure Event Grid kan du kontrollera åtkomstnivån som ges till olika användare att utföra olika hanteringsåtgärder, till exempel listan händelseprenumerationer, skapa nya och generera nycklar. Event Grid använder Azures rollbaserad Kontrollera (RBAC).
+Azure Event Grid kan du kontrollera åtkomstnivån som ges till olika användare att utföra olika hanteringsåtgärder, till exempel listan händelseprenumerationer, skapa nya och generera nycklar. Event Grid använder Azures rollbaserad åtkomstkontroll (RBAC).
 
 ### <a name="operation-types"></a>Åtgärdstyper
 
-Azure event grid stöd följande åtgärder:
+Event Grid har stöd för följande åtgärder:
 
 * Microsoft.EventGrid/*/read
 * Microsoft.EventGrid/*/write
@@ -187,13 +187,17 @@ Azure event grid stöd följande åtgärder:
 * Microsoft.EventGrid/topics/listKeys/action
 * Microsoft.EventGrid/topics/regenerateKey/action
 
-De tre sista åtgärderna returnera potentiellt hemlig information, som hämtar filtrerade utanför normal läsåtgärder. Vi rekommenderar att du begränsar åtkomsten till dessa åtgärder. Anpassade roller kan skapas med [Azure PowerShell](../role-based-access-control/role-assignments-powershell.md), [Azure kommandoradsgränssnitt (CLI)](../role-based-access-control/role-assignments-cli.md), och [REST API](../role-based-access-control/role-assignments-rest.md).
+De tre sista åtgärderna returnera potentiellt hemlig information, som hämtar filtrerade utanför normal läsåtgärder. Vi rekommenderar att du begränsar åtkomsten till dessa åtgärder. 
 
-### <a name="enforcing-role-based-access-check-rbac"></a>Framtvinga roll baserad åtkomstkontroll (RBAC)
+### <a name="built-in-roles"></a>Inbyggda roller
 
-Använd följande steg för att upprätthålla RBAC för olika användare:
+Event Grid erbjuder två inbyggda roller för att hantera prenumerationer på händelser. Dessa roller är `EventSubscription Contributor (Preview)` och `EventSubscription Reader (Preview)`. De är viktigt när du implementerar händelse domäner. Läs mer om åtgärderna som beviljade [händelsedomän - åtkomsthantering](event-domains.md#access-management).
 
-#### <a name="create-a-custom-role-definition-file-json"></a>Skapa en anpassad roll-definitionsfil (.json)
+Du kan [tilldela dessa roller till en användare eller grupp](../role-based-access-control/quickstart-assign-role-user-portal.md).
+
+### <a name="custom-roles"></a>Anpassade roller
+
+Om du vill ange behörigheter som skiljer sig från de inbyggda rollerna kan skapa du anpassade roller.
 
 Följande är exempel Event Grid rolldefinitioner som användarna kan vidta olika åtgärder.
 
@@ -201,18 +205,18 @@ Följande är exempel Event Grid rolldefinitioner som användarna kan vidta olik
 
 ```json
 {
-  "Name": "Event grid read only role",
-  "Id": "7C0B6B59-A278-4B62-BA19-411B70753856",
-  "IsCustom": true,
-  "Description": "Event grid read only role",
-  "Actions": [
-    "Microsoft.EventGrid/*/read"
-  ],
-  "NotActions": [
-  ],
-  "AssignableScopes": [
-    "/subscriptions/<Subscription Id>"
-  ]
+  "Name": "Event grid read only role",
+  "Id": "7C0B6B59-A278-4B62-BA19-411B70753856",
+  "IsCustom": true,
+  "Description": "Event grid read only role",
+  "Actions": [
+    "Microsoft.EventGrid/*/read"
+  ],
+  "NotActions": [
+  ],
+  "AssignableScopes": [
+    "/subscriptions/<Subscription Id>"
+  ]
 }
 ```
 
@@ -220,22 +224,22 @@ Följande är exempel Event Grid rolldefinitioner som användarna kan vidta olik
 
 ```json
 {
-  "Name": "Event grid No Delete Listkeys role",
-  "Id": "B9170838-5F9D-4103-A1DE-60496F7C9174",
-  "IsCustom": true,
-  "Description": "Event grid No Delete Listkeys role",
-  "Actions": [
-    "Microsoft.EventGrid/*/write",
-    "Microsoft.EventGrid/eventSubscriptions/getFullUrl/action"
-    "Microsoft.EventGrid/topics/listkeys/action",
-    "Microsoft.EventGrid/topics/regenerateKey/action"
-  ],
-  "NotActions": [
-    "Microsoft.EventGrid/*/delete"
-  ],
-  "AssignableScopes": [
-    "/subscriptions/<Subscription id>"
-  ]
+  "Name": "Event grid No Delete Listkeys role",
+  "Id": "B9170838-5F9D-4103-A1DE-60496F7C9174",
+  "IsCustom": true,
+  "Description": "Event grid No Delete Listkeys role",
+  "Actions": [
+    "Microsoft.EventGrid/*/write",
+    "Microsoft.EventGrid/eventSubscriptions/getFullUrl/action"
+    "Microsoft.EventGrid/topics/listkeys/action",
+    "Microsoft.EventGrid/topics/regenerateKey/action"
+  ],
+  "NotActions": [
+    "Microsoft.EventGrid/*/delete"
+  ],
+  "AssignableScopes": [
+    "/subscriptions/<Subscription id>"
+  ]
 }
 ```
 
@@ -243,37 +247,25 @@ Följande är exempel Event Grid rolldefinitioner som användarna kan vidta olik
 
 ```json
 {
-  "Name": "Event grid contributor role",
-  "Id": "4BA6FB33-2955-491B-A74F-53C9126C9514",
-  "IsCustom": true,
-  "Description": "Event grid contributor role",
-  "Actions": [
-    "Microsoft.EventGrid/*/write",
-    "Microsoft.EventGrid/*/delete",
-    "Microsoft.EventGrid/topics/listkeys/action",
-    "Microsoft.EventGrid/topics/regenerateKey/action",
-    "Microsoft.EventGrid/eventSubscriptions/getFullUrl/action"
-  ],
-  "NotActions": [],
-  "AssignableScopes": [
-    "/subscriptions/<Subscription id>"
-  ]
+  "Name": "Event grid contributor role",
+  "Id": "4BA6FB33-2955-491B-A74F-53C9126C9514",
+  "IsCustom": true,
+  "Description": "Event grid contributor role",
+  "Actions": [
+    "Microsoft.EventGrid/*/write",
+    "Microsoft.EventGrid/*/delete",
+    "Microsoft.EventGrid/topics/listkeys/action",
+    "Microsoft.EventGrid/topics/regenerateKey/action",
+    "Microsoft.EventGrid/eventSubscriptions/getFullUrl/action"
+  ],
+  "NotActions": [],
+  "AssignableScopes": [
+    "/subscriptions/<Subscription id>"
+  ]
 }
 ```
 
-#### <a name="create-and-assign-custom-role-with-azure-cli"></a>Skapa och tilldela anpassade roll med Azure CLI
-
-Om du vill skapa en anpassad roll, använder du:
-
-```azurecli
-az role definition create --role-definition @<file path>
-```
-
-Om du vill tilldela rollen till en användare, använder du:
-
-```azurecli
-az role assignment create --assignee <user name> --role "<name of role>"
-```
+Du kan skapa anpassade roller med [PowerShell](../role-based-access-control/custom-roles-powershell.md), [Azure CLI](../role-based-access-control/custom-roles-cli.md), och [REST](../role-based-access-control/custom-roles-rest.md).
 
 ## <a name="next-steps"></a>Nästa steg
 

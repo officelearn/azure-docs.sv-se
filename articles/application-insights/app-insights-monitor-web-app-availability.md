@@ -11,15 +11,15 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/13/2018
+ms.date: 10/30/2018
 ms.reviewer: sdash
 ms.author: mbullwin
-ms.openlocfilehash: cf5f85d4f7e9dbe1278e9dc4290967d781b398f3
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.openlocfilehash: 3869b47c4e435443bb569ae7b90df7fba9687ba7
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45632833"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50421262"
 ---
 # <a name="monitor-availability-and-responsiveness-of-any-web-site"></a>Övervaka tillgänglighet och svarstider på valfri webbplats
 När du har distribuerat din webbapp eller webbplats till en server kan du konfigurera tester för att övervaka appens tillgänglighet och svarstider. [Azure Application Insights](app-insights-overview.md) skickar begäranden till ditt program med jämna mellanrum från platser över hela världen. Den varnar dig om programmet inte svarar eller svarar långsamt.
@@ -47,7 +47,7 @@ Klicka på **alla resurser** för att öppna översiktsbladet för den nya resur
 ## <a name="setup"></a>Skapa ett URL-pingtest
 Öppna bladet Tillgänglighet och lägg till ett test.
 
-![Fyll åtminstone i URL:en för din webbplats](./media/app-insights-monitor-web-app-availability/13-availability.png)
+![Fyll åtminstone i URL:en för din webbplats](./media/app-insights-monitor-web-app-availability/001-create-test.png)
 
 * **URL: en** kan vara en webbsida som du vill testa, men den måste vara synlig från Internet. URL: en kan innehålla en frågesträng. Du kan arbeta med din databas om du vill. Om URL-adressen matchar en omdirigering följer vi den upp till tio omdirigeringar.
 * **Parsa beroendebegäranden**: om det här alternativet är markerat begärs bilder, skript, filer och andra filer som ingår i webbsidan under testet. Den registrerade svarstiden innefattar den tid det tar att hämta dessa filer. Testet misslyckas om dessa resurser inte kan laddas ned inom tidsgränsen för hela testet. Om alternativet inte är markerat begärs endast filen på den URL som du har angett i testet.
@@ -56,10 +56,10 @@ Klicka på **alla resurser** för att öppna översiktsbladet för den nya resur
 
 * **Testfrekvens**: Anger hur ofta testet körs från varje testplats. Med en standardfrekvens på fem minuter och fem testplatser testas din webbplats i genomsnitt varje minut.
 
-* **Testplatser** är de platser som våra servrar skickar webbförfrågningar till din URL från. Välj mer än en så att du kan skilja mellan problem på din webbplats och nätverksproblem. Du kan välja upp till 16 platser.
+* **Testplatser** är de platser som våra servrar skickar webbförfrågningar till din URL från. Vår minsta antal rekommenderade testplatser är fem för att se till att du kan skilja mellan problem på din webbplats nätverksproblem. Du kan välja upp till 16 platser.
 
-> [!NOTE] 
-> * Vi rekommenderar testning från flera platser, att förhindra falsklarm som följd av tillfälliga problem med en viss plats.
+> [!NOTE]
+> * Vi rekommenderar testning från flera platser med ett minimum av fem platser. Det här är att förhindra falsklarm som kan bero på tillfälliga problem med en viss plats. Dessutom har vi sett att den bästa konfigurationen är att ha så många testplatser vara samma som aviseringsplats + 2. 
 > * Aktivera alternativet ”parsa beroende begäranden” resulterar i en striktare kontroll. Testet misslyckas, i de fall som inte får märkbar när du bläddrar efter platsen manuellt.
 
 * **Villkor för lyckad test**:
@@ -70,10 +70,12 @@ Klicka på **alla resurser** för att öppna översiktsbladet för den nya resur
 
     **Innehållsmatchning**: en sträng, t.ex. ”Välkommen!”. Vi testar i varje svar om någon skiftlägeskänslig matchning förekommer. Den måste vara en enkel sträng utan jokertecken. Glöm inte att du kan behöva uppdatera sidan om innehållet ändras.
 
+* **Aviseringsplats**: Vi rekommenderar minst 3/5 platser. Optimal relationen mellan aviseringsplats och antalet testplatser är **aviseringsplats** = **antal testplatser** – 2, med minst fem testa platser.
+
 ## <a name="multi-step-web-tests"></a>Webbtester med flera steg
 Du kan övervaka ett scenario med en serie URL:er. Om du till exempel övervakar en försäljningswebbplats kan du testa att det går att lägga till objekt i kundvagnen korrekt.
 
-> [!NOTE] 
+> [!NOTE]
 > Det utgår en avgift för webbtester med flera steg. [Prisschema](http://azure.microsoft.com/pricing/details/application-insights/).
 > 
 

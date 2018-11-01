@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 02/20/2018
 ms.author: abshamsft
 ms.component: ''
-ms.openlocfilehash: 1254afc1ad1c513c18d565be8a6543a6ee0ae94b
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: 17a15ca00d7343064bde84860de91b62ff136cfe
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48040599"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50414131"
 ---
 # <a name="network-performance-monitor-solution-performance-monitoring"></a>Network Performance Monitor-lösningen: prestandaövervakning
 
@@ -33,12 +33,12 @@ ms.locfileid: "48040599"
 - Övervaka hälsotillståndet för nätverket, utan att behöva SNMP.
 
 
-![Övervakning av nätverksprestanda](media/log-analytics-network-performance-monitor/npm-performance-monitor.png)
+![Övervakning av nätverksprestanda](media/log-analytics-network-performance-monitor-performance-monitor/npm-performance-monitor.png)
 
 ## <a name="configuration"></a>Konfiguration
 För att öppna konfigurationen för Övervakare av nätverksprestanda, öppna den [Network Performance Monitor-lösningen](log-analytics-network-performance-monitor.md), och välj **konfigurera**.
 
-![Konfigurera Övervakare av nätverksprestanda](media/log-analytics-network-performance-monitor/npm-configure-button.png)
+![Konfigurera Övervakare av nätverksprestanda](media/log-analytics-network-performance-monitor-performance-monitor/npm-configure-button.png)
 
 ### <a name="create-new-networks"></a>Skapa nya nätverk
 
@@ -120,21 +120,21 @@ Gå nedåt sidan visar att den **DMZ2 DMZ1** Nätverkslänken är skadad. Välj 
 
 Gå nedåt sidan visar alla undernätverkslänkar i den **DMZ2 DMZ1** nätverkslänken. För båda undernätverkslänkar överskred svarstiden tröskelvärdet, vilket gör nätverkslänken feltillstånd. Du kan också se svarstider trenderna i båda undernätverkslänkar. Använd val av tid styra i diagrammet kan fokusera på tidsintervallet som krävs. Du kan se tid på dagen när svarstid nådde sin topp. Söka i loggarna senare för den här tidsperioden att undersöka problemet. Välj **visa nodlänkar** och öka detaljnivån ytterligare. 
  
- ![Sidan för undernätverk länkar](media/log-analytics-network-performance-monitor/subnetwork-links.png) 
+ ![Sidan för undernätverk länkar](media/log-analytics-network-performance-monitor-performance-monitor/subnetwork-links.png) 
 
 Sidan detaljnivån för specifika undernätverkslänk liknar föregående sida, visas dess ingående nodlänkar. Du kan utföra liknande åtgärder här som du gjorde i föregående steg. Välj **visa topologi** att visa topologi mellan de två noderna. 
  
- ![Sidan för nod-länkar](media/log-analytics-network-performance-monitor/node-links.png) 
+ ![Sidan för nod-länkar](media/log-analytics-network-performance-monitor-performance-monitor/node-links.png) 
 
 Alla sökvägar mellan de två valda noderna visas i topologisk karta. Du kan visualisera hop-by-hop-topologin i vägar mellan två noder i topologisk karta. Det ger dig en tydlig bild av hur många vägar finns mellan de två noderna och vilka sökvägar datapaketen ta. Flaskhalsar i prestanda visas i rött. Titta på de röda element på topologisk karta för att hitta en felaktig nätverksanslutning eller felaktiga nätverksenhet. 
 
- ![Instrumentpanel för topologi med topologisk karta](media/log-analytics-network-performance-monitor/topology-dashboard.png) 
+ ![Instrumentpanel för topologi med topologisk karta](media/log-analytics-network-performance-monitor-performance-monitor/topology-dashboard.png) 
 
 Du kan granska förlust, svarstid och antalet hopp i varje sökväg i den **åtgärd** fönstret. Använd rullningslisten för att visa information om defekta sökvägar. Använd filtren för att markera sökvägar med defekta hopp så att topologin för endast de valda sökvägarna ritas. För att zooma in eller ut från topologisk karta genom att använda mushjulet. 
 
 I följande bild visas de grundläggande orsakerna till problemområden till viss del av nätverket i rött sökvägar och hopp. Välj en nod i topologin kartan för att visa egenskaperna för den nod som innehåller FQDN och IP-adressen. Om du väljer ett hopp visas IP-adressen för hoppet. 
  
-![Topologisk karta med nodegenskaper valt](media/log-analytics-network-performance-monitor/topology-dashboard-root-cause.png) 
+![Topologisk karta med nodegenskaper valt](media/log-analytics-network-performance-monitor-performance-monitor/topology-dashboard-root-cause.png) 
 
 ## <a name="next-steps"></a>Nästa steg
 [Söka loggarna](log-analytics-log-searches.md) att visa detaljerad nätverk prestanda dataposter.

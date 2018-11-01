@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/28/2017
-ms.openlocfilehash: 1a7fcc11bf1b98d5feaeae07264e556acce2b14b
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: 55f32b498b83203a3823999a2e31024266bf37bc
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45736098"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50413272"
 ---
 # <a name="use-azure-toolkit-for-intellij-to-debug-spark-applications-remotely-in-hdinsight-through-vpn"></a>Felsöka Spark-program via fjärranslutning i HDInsight via VPN-anslutning med hjälp av Azure Toolkit för IntelliJ
 
@@ -31,7 +31,7 @@ Den här artikeln innehåller stegvisa anvisningar om hur du använder HDInsight
 ## <a name="prerequisites"></a>Förutsättningar
 * **En Azure-prenumeration**. Mer information finns i [skaffa en kostnadsfri utvärderingsversion av Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 * **Ett Apache Spark-kluster i HDInsight**. Anvisningar finns i [Skapa Apache Spark-kluster i Azure HDInsight](apache-spark-jupyter-spark-sql.md).
-* **Oracle Java development kit**. Du kan installera det från den [Oracle webbplats](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html).
+* **Oracle Java development kit**. Du kan installera det från den [Oracle webbplats](https://aka.ms/azure-jdks).
 * **IntelliJ IDEA**. Den här artikeln använder version 2017.1. Du kan installera det från den [JetBrains webbplats](https://www.jetbrains.com/idea/download/).
 * **HDInsight-verktygen i Azure Toolkit för IntelliJ**. HDInsight tools för IntelliJ är tillgängliga som en del av Azure Toolkit för IntelliJ. Anvisningar om hur du installerar Azure Toolkit finns i [installera Azure Toolkit för IntelliJ](https://docs.microsoft.com/java/azure/intellij/azure-toolkit-for-intellij-installation).
 * **Logga in på Azure-prenumerationen från IntelliJ IDEA**. Följ instruktionerna i [Använd Azure Toolkit för IntelliJ för att skapa Spark-program för ett HDInsight-kluster](apache-spark-intellij-tool-plugin.md).

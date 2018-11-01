@@ -9,12 +9,12 @@ ms.devlang: java
 ms.topic: conceptual
 ms.date: 08/12/2018
 ms.author: sngun
-ms.openlocfilehash: d2c4c890e1a1599e68fba1a0728061ec244f382f
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.openlocfilehash: 241cd2fddf31373ed9ca208efb0612dd4332131c
+ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42054801"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50740985"
 ---
 # <a name="use-azure-cosmos-db-change-feed-to-visualize-real-time-data-analytics"></a>Använd Azure Cosmos DB-ändringsflödet att visualisera analyser av realtidsdata
 
@@ -104,7 +104,7 @@ Nu ska du skapa en samling för att lagra e-handel site-händelser. När en anv�
    * För **lagringskapacitet**väljer **obegränsad**.  
    * För den **partitionsnyckel** anger **/punkt**. Detta är skiftlägeskänsligt, så se till att du anger den korrekt.  
    * För den **dataflöde** anger **10000**.  
-   * Klicka på **OK**.  
+   * Välj knappen **OK**.  
 
 3. Därefter skapar en annan samling som heter **lån** för ändringsfeed bearbetning. Lånsamlingen samordnar bearbetning ändringsflöden över flera arbetare. En separat samling används som omfattar lånen med ett lån per partition.  
 
@@ -114,7 +114,7 @@ Nu ska du skapa en samling för att lagra e-handel site-händelser. När en anv�
    * För den **samlings-id** anger **lån**.  
    * För **lagringskapacitet**väljer **fast**.  
    * Lämna den **dataflöde** fältet inställt på standardvärdet.  
-   * Klicka på **OK**.
+   * Välj knappen **OK**.
 
 ## <a name="get-the-connection-string-and-keys"></a>Hämta anslutningssträngen och nycklar
 
@@ -207,7 +207,7 @@ Azure Stream Analytics är en fullständigt hanterad molntjänst för bearbetnin
    * Lämna **händelseserialiseringsformat** som **JSON**.  
    * Lämna **fältet avkodning** inställd **UTF-8**.  
    * Lämna **komprimeringstyp för händelsen** fältet inställt på **ingen**.  
-   * Klicka på knappen **Spara**.
+   * Välj knappen **Spara**.
 
 5. Gå tillbaka till sidan för stream analytics-jobb och välj **utdata**.  
 
@@ -219,10 +219,10 @@ Azure Stream Analytics är en fullständigt hanterad molntjänst för bearbetnin
    * Lämna den **grupparbetsyta** fältet inställt på **auktorisera anslutningen att läsa in arbetsytorna**.  
    * I den **Datamängdsnamn** anger **averagePrice**.  
    * I den **tabellnamn** anger **averagePrice**.  
-   * Klicka på den **auktorisera** knappen och följ anvisningarna för att auktorisera anslutningen till Power BI.  
-   * Klicka på knappen **Spara**.  
+   * Välj den **auktorisera** knappen och följ anvisningarna för att auktorisera anslutningen till Power BI.  
+   * Välj knappen **Spara**.  
 
-8. Gå sedan tillbaka till **streamjob1** och klicka på **redigera frågan**.
+8. Gå sedan tillbaka till **streamjob1** och välj **redigera frågan**.
 
    ![Redigera frågan](./media/changefeed-ecommerce-solution/edit-query.png)
  
@@ -235,9 +235,9 @@ Azure Stream Analytics är en fullständigt hanterad molntjänst för bearbetnin
     FROM input  
     GROUP BY Action, TumblingWindow(second,5) 
    ```
-10. Klicka sedan på **spara** i det övre vänstra hörnet.  
+10. Välj sedan **spara** i det övre vänstra hörnet.  
 
-11. Gå nu tillbaka till **streamjob1** och klicka på den **starta** längst upp på sidan. Azure Stream Analytics kan ta några minuter att starta, men till slut visas den ändras från ”från” till ”körs”.
+11. Gå nu tillbaka till **streamjob1** och välj den **starta** längst upp på sidan. Azure Stream Analytics kan ta några minuter att starta, men till slut visas den ändras från ”från” till ”körs”.
 
 ## <a name="connect-to-power-bi"></a>Anslut till Powerbi
 
@@ -249,9 +249,9 @@ Powerbi är en uppsättning verktyg för Företagsanalys att analysera data och 
 
 3. Välj **+ Lägg till panel** i det övre högra hörnet.  
 
-4. Välj **anpassade strömmande Data**, klicka sedan på den **nästa** knappen.  
+4. Välj **anpassade strömmande Data**och välj sedan den **nästa** knappen.  
  
-5. Välj **averagePrice** från **YOUR DATAUPPSÄTTNINGAR**, klicka sedan på **nästa**.  
+5. Välj **averagePrice** från **YOUR DATAUPPSÄTTNINGAR**och välj sedan **nästa**.  
 
 6. I den **Visualiseringstyp** , Välj **klustrade stapeldiagram** från den nedrullningsbara menyn. Under **axel**, Lägg till åtgärd. Hoppa över **förklaring** utan att lägga till något. Sedan, under nästa avsnitt anropas **värdet**, lägga till **genomsnittlig**. Välj **nästa**rubrik diagrammet och välj **tillämpa**. Du bör se ett nytt diagram på instrumentpanelen!  
 
@@ -261,7 +261,7 @@ Powerbi är en uppsättning verktyg för Företagsanalys att analysera data och 
    b. **Utdataalias:** top5Output, namn på datauppsättning: top5 tabellnamn: top5  
    c. **Utdataalias:** uniqueVisitorCountOutput, namn på datauppsättning: uniqueVisitorCount tabellnamn: uniqueVisitorCount
 
-   Klicka sedan på **redigera frågan** och klistra in följande frågor **ovan** som du redan har skapat.
+   Välj sedan **redigera frågan** och klistra in följande frågor **ovan** som du redan har skapat.
 
    ```sql
     /*TOP 5*/
@@ -329,9 +329,9 @@ Du kommer nu att se hur du kan använda din nya Analysverktyget för att ansluta
 
    Lägg till en annan samling under **changefeedlabdatabase** med namnet **topItems** med **obegränsad** lagringskapacitet. Skriva **/punkt** som partitionsnyckel.
 
-2. Klicka på den **topItems** samling, och under **skala och inställningar** ange den **Time to Live** vara **30 sekunder** så att topItems uppdateras med 30 sekunders mellanrum.
+2. Välj den **topItems** samling, och under **skala och inställningar** ange den **Time to Live** vara **30 sekunder** så att topItems uppdateras med 30 sekunders mellanrum.
 
-   ![Time to Live](./media/changefeed-ecommerce-solution/time-to-live.png)
+   ![Time to live](./media/changefeed-ecommerce-solution/time-to-live.png)
 
 3. För att fylla i den **topItems** samlingen med de mest inköpta artiklar, gå tillbaka till **streamjob1** och lägga till en ny **utdata**. Välj **Cosmos DB**.
 

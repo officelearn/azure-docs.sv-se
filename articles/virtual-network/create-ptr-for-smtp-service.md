@@ -1,6 +1,6 @@
 ---
-title: Konfigurera zoner för omvänd sökning för en kontroll av SMTP-banderoll i Azure | Microsoft Docs
-description: Beskriver hur du konfigurerar zoner för omvänd sökning för en kontroll av SMTP-banderoll i Azure
+title: Konfigurera zoner för omvänd sökning för en SMTP-banderollskontroll i Azure | Microsoft Docs
+description: Beskriver hur du konfigurerar zoner för omvänd sökning för en SMTP-banderollskontroll i Azure
 services: virtual-network
 documentationcenter: virtual-network
 author: genlin
@@ -12,38 +12,38 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
-ms.date: 02/06/2018
+ms.date: 10/31/2018
 ms.author: genli
 ms.custom: ''
-ms.openlocfilehash: 1e95b00ea08105238a860265e46275c24ed7bfbd
-ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
+ms.openlocfilehash: 2164dedc27d81aa488c3e054b4c6df067e96e612
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/11/2018
-ms.locfileid: "29151875"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50418202"
 ---
-#  <a name="configure-reverse-lookup-zones-for-an-smtp-banner-check"></a>Konfigurera zoner för omvänd sökning för en SMTP-banderoll kontroll
+#  <a name="configure-reverse-lookup-zones-for-an-smtp-banner-check"></a>Konfigurera zoner för omvänd sökning för en SMTP-banderollskontroll
 
-Den här artikeln beskriver hur du använder en zon för omvänd i Azure DNS och skapa en post för omvänd DNS (PTR) för SMTP-banderoll kontrollera. 
+Den här artikeln beskriver hur du använder en omvänd zon i Azure DNS och skapa en post för omvänd DNS (PTR) för att kontrollera om SMTP-banderollen. 
 
-## <a name="symptom"></a>Symptom
+## <a name="symptom"></a>Symtom
 
-Om du har en SMTP-server i Microsoft Azure får följande felmeddelande när skicka eller ta emot ett meddelande från fjärr-e-servrar:
+Om du använder en SMTP-server i Microsoft Azure kan du få följande felmeddelande visas när skicka eller ta emot ett meddelande från fjärr-e-servrar:
 
 **554: ingen PTR-post** 
 
 ## <a name="solution"></a>Lösning
 
-För en virtuell IP-adress i Azure skapas omvänd poster i Microsoft ägs domän zoner inte domänen zoner.
+För en virtuell IP-adress i Azure skapas omvända poster i Microsoft ägs domän zoner, inte anpassad domän zoner.
 
-Om du vill konfigurera PTR-poster i Microsoft ägs zoner, Använd egenskapen - ReverseFqdn på PublicIpAddress-resursen. Mer information finns i [konfigurera omvänd DNS för tjänster i Azure](../dns/dns-reverse-dns-for-azure-services.md). 
+Om du vill konfigurera PTR-poster i Microsoft ägs zoner, Använd egenskapen - värdet för ReverseFqdn för PublicIpAddress-resursen. Mer information finns i [konfigurera omvänd DNS för tjänster som hanteras i Azure](../dns/dns-reverse-dns-for-azure-services.md). 
 
-När du konfigurerar PTR-poster kan du kontrollera att IP-adressen och den omvända FQDN ägs av prenumerationen. Om du försöker ställa in en omvänd FQDN som inte tillhör prenumerationen får du följande felmeddelande:
+När du konfigurerar PTR-poster kan du kontrollera att IP-adressen och omvänt fullständigt domännamn som äger prenumerationen. Om du försöker ställa in en omvänd FQDN som inte tillhör prenumerationen visas följande felmeddelande visas:
 
     Set-AzureRmPublicIpAddress : ReverseFqdn mail.contoso.com that PublicIPAddress ip01 is trying to use does not belong to subscription <Subscription ID>. One of the following conditions need to be met to establish ownership: 
                         
-    1) ReverseFqdn matchar fqdn för valfri offentlig ip-resurs under prenumerationen; 
-    2) ReverseFqdn matchar fqdn (via CName-poster kedja) för alla offentliga ip-resurs under publiceringsinställningsfilen; 
-    3) Det matchar ip-adressen (via CName- och A-poster-kedja) för en statisk offentlig ip-resurs under prenumerationen. 
+    1) Värdet för ReverseFqdn matchar fqdn för en offentlig ip-resurs under prenumerationen; 
+    2) Värdet för ReverseFqdn matchar fqdn (via CName-poster kedja) för alla offentliga ip-resurs under prenumerationen; 
+    3) Det matchar ip-adressen (via CName- och A-poster kedja) för en statisk offentlig ip-resurs under prenumerationen. 
 
-Om du manuellt ändra SMTP-banderollen att matcha vårt omvänd FQDN, remote e-postserver kan fortfarande misslyckas eftersom den kan förvänta sig SMTP-banderoll värden så att den matchar MX-post för domänen.
+Om du manuellt ändra din SMTP-banderollen för att matcha våra standard omvänd FQDN, remote e-postserver kan fortfarande misslyckas eftersom det förväntar dig SMTP-banderoll värden så att de matchar MX-post för domänen.

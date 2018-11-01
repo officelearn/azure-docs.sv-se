@@ -1,9 +1,9 @@
 ---
-title: Referera till en anpassad avbildning i en mall för Azure skala | Microsoft Docs
-description: Lär dig hur du lägger till en anpassad avbildning i en befintlig mall för Azure Virtual Machine Scale Set
+title: Referera till en anpassad avbildning i en Azure skalningsuppsättningsmall | Microsoft Docs
+description: Lär dig hur du lägger till en anpassad avbildning i en befintlig mall för Azure Virtual Machine Scale Sets
 services: virtual-machine-scale-sets
 documentationcenter: ''
-author: gatneil
+author: mayanknayar
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -14,27 +14,27 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 5/10/2017
-ms.author: negat
-ms.openlocfilehash: 28d2c080048a7f82e83ad9c1794c9757b330a8c7
-ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
+ms.author: manayar
+ms.openlocfilehash: 2e3c8177a32082c251be74e597a18730ae1c9d37
+ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/20/2017
-ms.locfileid: "26780926"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50739661"
 ---
-# <a name="add-a-custom-image-to-an-azure-scale-set-template"></a>Lägg till en anpassad avbildning i en mall för Azure skala
+# <a name="add-a-custom-image-to-an-azure-scale-set-template"></a>Lägga till en anpassad avbildning till en Azure skalningsuppsättningsmall
 
-Den här artikeln visar hur du ändrar den [lägsta lönsam skala ange mall](./virtual-machine-scale-sets-mvss-start.md) ska distribueras från anpassad avbildning.
+Den här artikeln visar hur du ändrar den [minsta lönsamma skaluppsättningsmall](./virtual-machine-scale-sets-mvss-start.md) att distribuera från anpassad avbildning.
 
 ## <a name="change-the-template-definition"></a>Ändra malldefinitionen
 
-Den lägsta lönsam skala mallen kan ses [här](https://raw.githubusercontent.com/gatneil/mvss/minimum-viable-scale-set/azuredeploy.json), och mallen för distribution av skalan som från en anpassad avbildning kan ses [här](https://raw.githubusercontent.com/gatneil/mvss/custom-image/azuredeploy.json). Låt oss nu undersöka diff som används för att skapa den här mallen (`git diff minimum-viable-scale-set custom-image`) bit för bit:
+Den minsta lönsamma skalningsuppsättningsmall kan ses [här](https://raw.githubusercontent.com/gatneil/mvss/minimum-viable-scale-set/azuredeploy.json), och mallen för distribution av skalan från en anpassad avbildning kan ses [här](https://raw.githubusercontent.com/gatneil/mvss/custom-image/azuredeploy.json). Låt oss nu undersöka diff som används för att skapa den här mallen (`git diff minimum-viable-scale-set custom-image`) del för del:
 
-### <a name="creating-a-managed-disk-image"></a>Skapa en hanterad avbildning
+### <a name="creating-a-managed-disk-image"></a>Skapa en hanterad disk-avbildning
 
 Om du redan har en anpassad hanterad diskavbildning (en resurs av typen `Microsoft.Compute/images`), och du kan hoppa över det här avsnittet.
 
-Lägg först till en `sourceImageVhdUri` parametern, som är URI: N till generaliserad blobb i Azure Storage som innehåller den anpassade avbildningen ska distribueras från.
+Lägg först till en `sourceImageVhdUri` parametern, som är den URI som generaliserad blob i Azure Storage som innehåller den anpassade avbildningen ska distribueras från.
 
 
 ```diff
@@ -52,7 +52,7 @@ Lägg först till en `sourceImageVhdUri` parametern, som är URI: N till general
    "variables": {},
 ```
 
-Lägg till en resurs av typen `Microsoft.Compute/images`, vilket är den hanterade diskavbildning baserat på generaliserad blob finns på URI `sourceImageVhdUri`. Den här bilden måste vara i samma region som den skaluppsättning som använder den. Ange i egenskaperna för bilden OS-typen platsen för blob (från den `sourceImageVhdUri` parametern), och lagringskontotypen:
+Lägg sedan till en resurs av typen `Microsoft.Compute/images`, vilket är den hantera diskavbildningen baserat på generaliserad blob finns på URI `sourceImageVhdUri`. Den här bilden måste vara i samma region som skalningsuppsättningen som använder den. I egenskaperna för avbildningen, anger du OS-typ, platsen för blob (från den `sourceImageVhdUri` parametern), och typ av lagringskonto:
 
 ```diff
    "resources": [
@@ -79,7 +79,7 @@ Lägg till en resurs av typen `Microsoft.Compute/images`, vilket är den hantera
 
 ```
 
-Ange resursen i skala, lägga till en `dependsOn` instruktion refererar till den anpassade avbildningen för att kontrollera avbildningen skapas innan du försöker distribuera från den avbildningen skaluppsättning:
+Ange resurs i skalningsuppsättningen, lägga till en `dependsOn` satsen som refererar till den anpassade avbildningen för att kontrollera att avbildningen skapas innan du försöker distribuera från avbildningen skalningsuppsättningen:
 
 ```diff
        "location": "[resourceGroup().location]",
@@ -94,9 +94,9 @@ Ange resursen i skala, lägga till en `dependsOn` instruktion refererar till den
 
 ```
 
-### <a name="changing-scale-set-properties-to-use-the-managed-disk-image"></a>Ändra skala ange egenskaper för att använda den hanterade diskavbildning
+### <a name="changing-scale-set-properties-to-use-the-managed-disk-image"></a>Ändra skala ange egenskaper för att använda hanterade disk image
 
-I den `imageReference` skalans ange `storageProfile`, istället för att ange utgivare, erbjudande, sku, och version av en plattformsavbildning anger den `id` av den `Microsoft.Compute/images` resursen:
+I den `imageReference` för skalan `storageProfile`, istället för att ange utgivare, erbjudande, sku och version av en plattformsavbildning anger den `id` av den `Microsoft.Compute/images` resursen:
 
 ```diff
          "virtualMachineProfile": {
@@ -112,7 +112,7 @@ I den `imageReference` skalans ange `storageProfile`, istället för att ange ut
            "osProfile": {
 ```
 
-I det här exemplet använder den `resourceId` funktion för att hämta resurs-ID för den avbildning som har skapats i samma mall. Om du har skapat den hanterade diskavbildning i förväg, ska du i stället ange ID för avbildningen. Detta ID måste vara i formatet: `/subscriptions/<subscription-id>resourceGroups/<resource-group-name>/providers/Microsoft.Compute/images/<image-name>`.
+I det här exemplet använder den `resourceId` funktionen för att hämta resurs-ID för den avbildning som skapas i samma mall. Om du har skapat den hantera diskavbildningen i förväg, bör du i stället ange ID för avbildningen. Detta ID måste vara i formatet: `/subscriptions/<subscription-id>resourceGroups/<resource-group-name>/providers/Microsoft.Compute/images/<image-name>`.
 
 
 ## <a name="next-steps"></a>Nästa steg

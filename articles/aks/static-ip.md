@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 09/26/2018
 ms.author: iainfou
-ms.openlocfilehash: 0e5d42dddf550d8c7d4a579afd8436343749a995
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: 24b7e03808cb5df9fa4c122ca4c9317f723dac72
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50233658"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50414649"
 ---
 # <a name="use-a-static-public-ip-address-with-the-azure-kubernetes-service-aks-load-balancer"></a>Använda en statisk offentlig IP-adress med belastningsutjämnare för Azure Kubernetes Service (AKS)
 
@@ -93,9 +93,13 @@ kubectl apply -f load-balancer-service.yaml
 
 ## <a name="use-a-static-ip-address-outside-of-the-node-resource-group"></a>Använda en statisk IP-adress utanför resursgruppen nod
 
-Med Kubernetes 1.10 eller senare, kan du om du vill använda en statisk IP-adress som skapas utanför resursgruppen noden. Tjänstens huvudnamn som används av AKS-klustret måste ha delegerats behörighet till andra resursgrupp, med följande kommando för att bevilja behörigheter för SP:
-```
-az role assignment create --assignee <SP Client ID> --role "Network Contributor" --scope /subscriptions/<subscription id>/resourceGroups/<resource group name>
+Med Kubernetes 1.10 eller senare, kan du om du vill använda en statisk IP-adress som skapas utanför resursgruppen noden. Tjänstens huvudnamn som används av AKS-klustret måste ha delegerats behörighet till andra resursgruppen, som visas i följande exempel:
+
+```azurecli
+az role assignment create\
+    --assignee <SP Client ID> \
+    --role "Network Contributor" \
+    --scope /subscriptions/<subscription id>/resourceGroups/<resource group name>
 ```
 
 Om du vill använda en IP-adress utanför resursgruppen noden, att lägga till en anteckning till tjänstdefinitionen. I följande exempel anger anteckningen till resursgruppen med namnet *myResourceGroup*. Ange din egen resursgruppens namn:

@@ -8,12 +8,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 10/25/2018
 ms.author: laevenso
-ms.openlocfilehash: db9d42cca4bc327d216229f45f5fa1742f70fb9a
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.openlocfilehash: 683abd9bad93bff51bea84c8081d2b8f9d300cd4
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50138817"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50419258"
 ---
 # <a name="use-gpus-for-compute-intensive-workloads-on-azure-kubernetes-service-aks"></a>Använd GPU: er för beräkningsintensiva arbetsbelastningar på Azure Kubernetes Service (AKS)
 
@@ -121,6 +121,9 @@ Non-terminated Pods:         (9 in total)
 Schemalägga en GPU-aktiverade arbetsbelastning med lämpliga resursbegäran om du vill se GPU fungerar i praktiken. I det här exemplet ska vi köra en [Tensorflow](https://www.tensorflow.org/versions/r1.1/get_started/mnist/beginners) jobb mot den [MNIST datauppsättning](http://yann.lecun.com/exdb/mnist/).
 
 Skapa en fil med namnet *exempel-tf-mnist-demo.yaml* och klistra in följande YAML-manifestet. Följande jobbet Manifestet innehåller en resursgräns av `nvidia.com/gpu: 1`:
+
+> [!NOTE]
+> Om du får ett versionsmatchningsfel vid anrop till drivrutiner, t.ex., CUDA drivrutinsversion inte räcker för CUDA körningsversion, granska efterlevnadsdiagram för nVidia-drivrutin matris- [https://docs.nvidia.com/deploy/cuda-compatibility/index.html](https://docs.nvidia.com/deploy/cuda-compatibility/index.html)
 
 ```yaml
 apiVersion: batch/v1

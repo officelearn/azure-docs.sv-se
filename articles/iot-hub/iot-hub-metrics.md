@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 08/25/2017
 ms.author: nberdy
-ms.openlocfilehash: f5da3759e97eaa2f89a393d55ae95eb6623fbc5d
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: 34a561c5bb523b914f4b88dc8c6edc2bd00627d0
+ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50158346"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50741937"
 ---
 # <a name="understand-iot-hub-metrics"></a>Förstå IoT Hub-mått
 
@@ -26,11 +26,15 @@ Mått är aktiverade som standard. Du kan visa mått för IoT Hub från Azure-po
 
 2. Öppna bladet för din IoT hub. Därifrån klickar du på **mått**.
    
-    ![Måttbladet för IoT-hubb](./media/iot-hub-metrics/enable-metrics-1.png)
+    ![Skärmbild som visar där alternativet mått är i IoT Hub-resurssida](./media/iot-hub-metrics/enable-metrics-1.png)
 
-3. Du kan visa värdena för din IoT hub och skapa anpassade vyer mått från måttbladet. Du kan välja att skicka dina måttdata till en slutpunkt för Event Hubs eller ett Azure Storage-konto genom att klicka på **diagnostikinställningar**.
+3. Du kan visa värdena för din IoT hub och skapa anpassade vyer mått från måttbladet. 
    
-    ![Diagnostikinställningar](./media/iot-hub-metrics/enable-metrics-2.png)
+    ![Skärmbild som visar sidan mått för IoT Hub](./media/iot-hub-metrics/enable-metrics-2.png)
+    
+4. Du kan välja att skicka dina måttdata till en slutpunkt för Event Hubs eller ett Azure Storage-konto genom att klicka på **diagnostikinställningar**, sedan **Lägg till diagnostikinställning**
+
+   ![Skärmbild som visar där diagnostikinställningar knappen är](./media/iot-hub-metrics/enable-metrics-3.png)
 
 ## <a name="iot-hub-metrics-and-how-to-use-them"></a>IoT Hub-mått och hur du använder dem.
 

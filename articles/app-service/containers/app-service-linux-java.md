@@ -12,12 +12,12 @@ ms.devlang: java
 ms.topic: article
 ms.date: 08/29/2018
 ms.author: routlaw
-ms.openlocfilehash: 1639194741fb343391f80790d0a2cc7f392218ac
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: f07d830e90045c11d870a921d091b45de6d2a89b
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50238123"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50418542"
 ---
 # <a name="java-developers-guide-for-app-service-on-linux"></a>Java developer's guide för App Service på Linux
 
@@ -235,7 +235,7 @@ För delade resurser på servernivå:
 
 ## <a name="docker-containers"></a>Docker-containrar
 
-Om du vill använda Azure stöder Zulu JDK-Paketet i din behållare, se till att hämta och använda de färdiga avbildningar som listas på [Azuls hämtningssidan](https://www.azul.com/downloads/azure-only/zulu/#docker) eller Använd den `Dockerfile` exempel från den [Microsoft Java GitHub-lagringsplatsen](https://github.com/Microsoft/java/tree/master/docker).
+Om du vill använda Azure stöder Zulu JDK-Paketet i din behållare, se till att hämta och använda de inbyggda avbildningarna enligt dokumentationen från den [stöds Azul Zulu Enterprise för Azure hämtningssidan](https://www.azul.com/downloads/azure-only/zulu/) eller Använd den `Dockerfile` exempel från [Microsoft Java GitHub-lagringsplatsen](https://github.com/Microsoft/java/tree/master/docker).
 
 ## <a name="runtime-availability-and-statement-of-support"></a>Runtime-tillgänglighet och support-instruktionen
 

@@ -7,14 +7,14 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 08/17/2018
+ms.date: 10/31/2018
 ms.author: jingwang
-ms.openlocfilehash: ee3dafe55799c46231aa3ca7c19684d905a057de
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.openlocfilehash: 3a27f275cfc151b374ea2807580b430c4e9aa1e8
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48815434"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50420256"
 ---
 # <a name="copy-data-to-or-from-azure-blob-storage-by-using-azure-data-factory"></a>Kopiera data till och från Azure Blob storage med hjälp av Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -91,7 +91,8 @@ Om du vill använda nyckelautentisering för storage-konto, stöds följande ege
 En signatur för delad åtkomst ger delegerad åtkomst till resurser i ditt storage-konto. Du kan använda en signatur för delad åtkomst för att ge en klient begränsad behörighet till objekt i ditt storage-konto under en viss tid. Du behöver inte dela åtkomstnycklarna för kontot. Signatur för delad åtkomst är en URI som omfattar all information som behövs för autentiserad åtkomst till en lagringsresurs i dess Frågeparametrar. Om du vill få åtkomst till lagringsresurser med signatur för delad åtkomst, behöver klienten bara använda signatur för delad åtkomst till lämplig konstruktor nebo metodu. Mer information om signaturer för delad åtkomst finns i [signaturer för delad åtkomst: Förstå modellen för signatur för delad åtkomst](../storage/common/storage-dotnet-shared-access-signature-part-1.md).
 
 > [!NOTE]
-> Data Factory stöder nu både **service signaturer för delad åtkomst** och **konto signaturer för delad åtkomst**. Mer information om dessa två typer och hur du skapar dem finns i [typer av signaturer för delad åtkomst](../storage/common/storage-dotnet-shared-access-signature-part-1.md#types-of-shared-access-signatures). 
+>- Data Factory stöder nu både **service signaturer för delad åtkomst** och **konto signaturer för delad åtkomst**. Mer information om dessa två typer och hur du skapar dem finns i [typer av signaturer för delad åtkomst](../storage/common/storage-dotnet-shared-access-signature-part-1.md#types-of-shared-access-signatures).
+>- I senare datauppsättning konfiguration är sökvägen till mappen den absoluta sökvägen från behållarenivån. Du måste konfigurera en linje med sökvägen i SAS-URI.
 
 > [!TIP]
 > Du kan köra följande PowerShell-kommandon för att generera en signatur för delad åtkomst av tjänsten för ditt lagringskonto. Ersätt platshållarna och bevilja behörigheten som krävs.

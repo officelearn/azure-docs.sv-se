@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/15/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: a95cdbb48371cf960211f55bf077cea9db783db5
-ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
+ms.openlocfilehash: 3c8202f762c65d72417020b0524e415e55076eb0
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48248337"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50415278"
 ---
 # <a name="create-view-and-manage-activity-log-alerts-using-azure-monitor"></a>Skapa, visa och hantera aviseringar för aktivitetsloggar med Azure Monitor  
 
@@ -43,11 +43,11 @@ Följ dessa steg:
 1. Azure-portalen väljer du **övervakaren** > **aviseringar**
 2. Klicka på **ny Aviseringsregel** överst i den **aviseringar** fönster.
 
-     ![Ny aviseringsregel](./media/monitor-alerts-unified/AlertsPreviewOption.png)
+     ![Ny aviseringsregel](media/alert-activity-log/AlertsPreviewOption.png)
 
      Den **skapa regeln** fönster visas.
 
-      ![nya alternativ för varningsregel](./media/monitoring-activity-log-alerts-new-experience/create-new-alert-rule-options.png)
+      ![nya alternativ för varningsregel](media/alert-activity-log/create-new-alert-rule-options.png)
 
 3. **Definiera avisering villkor** anger följande information och klickar på **klar**.
 
@@ -57,7 +57,7 @@ Följ dessa steg:
 
     > Du kan välja en resurs, resursgrupp eller en hel aktivitetsloggsignal-prenumeration.
 
-    **Avisera target exempelvy** ![Välj mål](./media/monitoring-activity-log-alerts-new-experience/select-target.png)
+    **Avisera target exempelvy** ![Välj mål](media/alert-activity-log/select-target.png)
 
     - Under **Target kriterier**, klickar du på **lägga till villkor** och alla tillgängliga signaler för målet visas även de från olika kategorier av **aktivitetsloggen**; Kategorinamn sist i **Monitor Service** namn.
 
@@ -67,7 +67,7 @@ Följ dessa steg:
 
     **Lägg till kriterier skärm**
 
-    ![Lägg till villkor](./media/monitoring-activity-log-alerts-new-experience/add-criteria.png)
+    ![Lägg till villkor](media/alert-activity-log/add-criteria.png)
 
     **Historik över tid**: händelser som är tillgängliga för valda åtgärden är kan ritas över de senaste 6/12/24 timmar (eller) under den senaste veckan.
 
@@ -79,7 +79,7 @@ Följ dessa steg:
 
         Exemplet signalen diagram med aviseringslogiken tillämpas:
 
-        ![ kriterier som har valts](./media/monitoring-activity-log-alerts-new-experience/criteria-selected.png)
+        ![ kriterier som har valts](media/alert-activity-log/criteria-selected.png)
 
 4. Under **definiera Varningsregler information**, anger du följande information:
 
@@ -99,20 +99,20 @@ Följ dessa steg:
 
 Du kan också en enkel liknelse för förstå villkor som Varningsregler kan skapas på aktivitetslogg, är att utforska eller Filtrera händelser via [aktivitetsloggen i Azure-portalen](monitoring-overview-activity-logs.md#query-the-activity-log-in-the-azure-portal). I Azure Monitor - aktivitetslogg, en filtrera eller hitta nödvändiga evenemang och sedan skapa en avisering med hjälp av den **Lägg till aktivitetsloggavisering** knappen, Följ steg 4 och senare enligt informationen i självstudien ovan.
     
- ![ Lägg till avisering från aktivitetsloggen](./media/monitoring-activity-log-alerts-new-experience/add-activity-log.png)
+ ![ Lägg till avisering från aktivitetsloggen](media/alert-activity-log/add-activity-log.png)
     
 
 ### <a name="view-and-manage-in-azure-portal"></a>Visa och hantera Azure-portalen
 
 1. Från Azure-portalen klickar du på **övervakaren** > **aviseringar** och klicka på **hantera regler** på upp till vänster i fönstret.
 
-    ![ Hantera Varningsregler](./media/monitoring-activity-log-alerts-new-experience/manage-alert-rules.png)
+    ![ Hantera Varningsregler](media/alert-activity-log/manage-alert-rules.png)
 
     Lista över tillgängliga regler visas.
 
 2. Sök log-regel aktiviteten för att ändra.
 
-    ![ Sök aktivitetsloggsaviseringsregler](./media/monitoring-activity-log-alerts-new-experience/searth-activity-log-rule-to-edit.png)
+    ![ Sök aktivitetsloggsaviseringsregler](media/alert-activity-log/searth-activity-log-rule-to-edit.png)
 
     Du kan använda de tillgängliga filtren - _prenumeration_, _resursgrupp_, _Resource_, _signaltyp_, eller _Status_  att hitta aktiviteten regeln som du vill redigera.
 
@@ -122,7 +122,7 @@ Du kan också en enkel liknelse för förstå villkor som Varningsregler kan ska
 
 3.  Väljer du regeln och dubbelklicka för att redigera regelalternativ för. Gör nödvändiga ändringar och klicka sedan på **spara**.
 
-    ![ Hantera Varningsregler](./media/monitoring-activity-log-alerts-new-experience/activity-log-rule-edit-page.png)
+    ![ Hantera Varningsregler](media/alert-activity-log/activity-log-rule-edit-page.png)
 
 4.  Du kan inaktivera, aktivera eller ta bort en regel. Välj lämpligt alternativ överst i fönstret när du har valt regeln som beskrivs i steg 2.
 

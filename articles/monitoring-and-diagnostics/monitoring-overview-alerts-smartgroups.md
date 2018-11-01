@@ -1,5 +1,5 @@
 ---
-title: Smart grupper
+title: Smarta grupper
 description: Smart grupper är sammanställning av aviseringar som hjälper dig att minska onödig avisering
 author: anantr
 services: azure-monitor
@@ -8,14 +8,14 @@ ms.topic: conceptual
 ms.date: 05/15/2018
 ms.author: anantr
 ms.component: alerts
-ms.openlocfilehash: 58a66cfdfaada34981ef166635b0d04e2e6e8f61
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 57ec7c13cdf5c2e44abf23dc0452e5eab3eb77ff
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46976901"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50412626"
 ---
-# <a name="smart-groups"></a>Smart grupper
+# <a name="smart-groups"></a>Smarta grupper
 En gemensam utmaning kan stöta på när hantering av aviseringar sig igenom bruset för att ta reda på det faktiskt som är viktigt - smart grupper är avsedda att vara lösning på problemet.  
 
 Smart grupper skapas automatiskt med hjälp av maskininlärningsalgoritmer kan kombinera relaterade aviseringar som representerar ett enda problem.  När en avisering skapas, läggs algoritmen det till en ny smart grupp eller en befintlig smart grupp baserat på information som historiska mönster, liknande egenskaper och liknande struktur. Exempel: om % CPU på flera virtuella datorer i en prenumeration aktivitetstoppar samtidigt leder till många enskilda aviseringar och om dessa aviseringar som har inträffat tillsammans när som helst tidigare aviseringarna sannolikt grupperas i en enda grupp för Smart föreslår en eventuella vanliga grundorsaken. Det innebär att för felsökning av aviseringar, smart grupper inte bara tillåter dem att minska bruset genom att hantera relaterade aviseringar som en sammansatt enhet, guidas även dem mot vanliga rotorsaker för sina aviseringar som möjligt.
@@ -44,7 +44,7 @@ Följande smart grupp tillstånd stöds.
 
 Sidan med smarta gruppen visas när du väljer en smart grupp. Den innehåller information om gruppen smart, inklusive resonemang som användes för att skapa gruppen och du kan ändra tillståndet.
  
-![Smart grupp information](media/monitoring-overview-unified-alerts/smart-group-detail.png)
+![Smart grupp information](media/monitoring-overview-alerts-smartgroups/smart-group-detail.png)
 
 
 Sidan med smarta grupp innehåller följande avsnitt.

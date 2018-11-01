@@ -8,17 +8,17 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 08/26/2018
 ms.author: jjed
-ms.openlocfilehash: 6fed5a8afe6030038752d540bfabbc446c57db2c
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: d1ca905d415eb8ab49c449a69707c56d5c717081
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43124159"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50419307"
 ---
 # <a name="get-started-with-azure-search-in-java"></a>Komma igång med Azure Search i Java
 > [!div class="op_single_selector"]
 > * [Portal](search-get-started-portal.md)
-> * [.NET](search-howto-dotnet-sdk.md)
+> * [NET](search-howto-dotnet-sdk.md)
 > 
 > 
 
@@ -29,7 +29,7 @@ Om du vill köra det här exemplet måste du ha en Azure Search-tjänst, som du 
 Vi använde följande programvara när vi skapade och testade det här exemplet:
 
 * [Eclipse IDE för Java EE-utvecklare](https://www.eclipse.org/downloads/packages/release/photon/r/eclipse-ide-java-ee-developers). Var noga med att ladda ned EE-versionen. Ett av verifieringsstegen kräver en funktion som bara finns i den här versionen.
-* [JDK 8u181](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
+* [JDK 8u181](https://aka.ms/azure-jdks)
 * [Apache Tomcat 8.5.33](https://tomcat.apache.org/download-80.cgi#8.5.33)
 
 ## <a name="about-the-data"></a>Om de data som används

@@ -4,10 +4,7 @@ description: Lär dig hur du skapar en offentlig belastningsutjämnare med IPv6 
 services: load-balancer
 documentationcenter: na
 author: KumudD
-manager: jeconnoc
-tags: azure-resource-manager
 keywords: IPv6, azure-belastningsutjämnare, dual stack, offentlig IP-adress, inbyggd ipv6, mobil, iot
-ms.assetid: a1957c9c-9c1d-423e-9d5c-d71449bc1f37
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
@@ -15,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/25/2018
 ms.author: kumud
-ms.openlocfilehash: 39a3f1a400abae4a9a30c07b7352518b55d0daf1
-ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
+ms.openlocfilehash: e3d6611c8a5c6faf3d1e070d1bafa2027adfc0cb
+ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/23/2018
-ms.locfileid: "42746826"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50739846"
 ---
 # <a name="create-a-public-load-balancer-with-ipv6-using-azure-cli"></a>Skapa en offentlig belastningsutjämnare med IPv6 med Azure CLI
 
@@ -299,9 +296,6 @@ Om du vill skapa virtuella datorer, måste du ha ett lagringskonto. Belastningsu
 
 ## <a name="next-steps"></a>Nästa steg
 
-
-  [Komma igång med att konfigurera en intern lastbalanserare](load-balancer-get-started-ilb-arm-cli.md)  
-
-  [Konfigurera ett distributionsläge för lastbalanserare](load-balancer-distribution-mode.md)  
-
-  [Konfigurera timeout-inställningar för inaktiv TCP för en lastbalanserare](load-balancer-tcp-idle-timeout.md)
+[Komma igång med att konfigurera en intern lastbalanserare](load-balancer-get-started-ilb-arm-cli.md)  
+[Konfigurera ett distributionsläge för lastbalanserare](load-balancer-distribution-mode.md)  
+[Konfigurera timeout-inställningar för inaktiv TCP för en lastbalanserare](load-balancer-tcp-idle-timeout.md)

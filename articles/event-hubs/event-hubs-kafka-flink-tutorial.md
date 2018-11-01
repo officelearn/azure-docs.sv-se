@@ -10,12 +10,12 @@ ms.topic: article
 ms.custom: mvc
 ms.date: 08/06/2018
 ms.author: bahariri
-ms.openlocfilehash: 3642c1b7d3de751ecb8a72edaecfe7a15c0acbdb
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: 0a00bc4a1baa413a21f8179ede6893b0fa4add9c
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49320840"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50416502"
 ---
 # <a name="use-apache-flink-with-azure-event-hubs-for-apache-kafka"></a>Använda Apache Flink med Azure Event Hubs för Apache Kafka
 Den här självstudien visar hur du ansluter Apache Flink till Kafka-aktiverade event hubs utan att ändra protokoll-klienter eller ditt eget kluster som körs. Azure Event Hubs stöder [Apache Kafka version 1.0.](https://kafka.apache.org/10/documentation.html).
@@ -38,7 +38,7 @@ För att slutföra den här självstudien måste du kontrollera att du har följ
 
 * Läs artikeln [Event Hubs för Apache Kafka](event-hubs-for-kafka-ecosystem-overview.md). 
 * En Azure-prenumeration. Om du inte har ett konto kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) innan du börjar.
-* [Java Development Kit (JDK) 1.7+](http://www.oracle.com/technetwork/java/javase/downloads/index.html)
+* [Java Development Kit (JDK) 1.7+](https://aka.ms/azure-jdks)
     * I Ubuntu kör du `apt-get install default-jdk` för att installera JDK-paketet.
     * Tänk på att ställa in miljövariabeln JAVA_HOME så att den pekar på den mapp där JDK-paketet är installerat.
 * [Ladda ned](http://maven.apache.org/download.cgi) och [installera](http://maven.apache.org/install.html) ett Maven-binärarkiv

@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 05/24/2018
 ms.author: v-jysur
 ms.component: ''
-ms.openlocfilehash: 190e173e035716431c92533e42ded97e147f21a7
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 4faea38817a546dbab02064d22a0813362f77b3d
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49409211"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50416468"
 ---
 # <a name="connect-itsm-productsservices-with-it-service-management-connector"></a>Träffa IT Service Management Connector ITSM-produkter/tjänster
 Den här artikeln innehåller information om hur du konfigurerar anslutningen mellan din ITSM-produkt/tjänst och IT Service Management Connector (ITSMC) i Log Analytics för att centralt hantera dina arbetsuppgifter. Läs mer om ITSMC [översikt](log-analytics-itsmc-overview.md).
@@ -57,7 +57,7 @@ Använd följande procedur för att ansluta din System Center Service Manager-in
 
 2.  Under **DATAKÄLLOR för ARBETSYTA** klickar du på **ITSM-anslutningar**.
 
-    ![Ny anslutning](./media/log-analytics-itsmc/add-new-itsm-connection.png)
+    ![Ny anslutning](media/log-analytics-itsmc-connections/add-new-itsm-connection.png)
 
 3. Längst upp i den högra rutan, klickar du på **Lägg till**.
 
@@ -78,7 +78,7 @@ Använd följande procedur för att ansluta din System Center Service Manager-in
 | **Synkronisera Data** | Ange antalet tidigare dagar som du vill att data från. **Maxgränsen**: 120 dagar. |
 | **Skapa nytt konfigurationsobjekt i ITSM-lösning** | Välj det här alternativet om du vill skapa konfigurationsobjekt i ITSM-produkten. När du väljer skapar Log Analytics berörda konfigurationsobjekt som konfigurationsobjekt (när det gäller icke-existerande CIs) i ITSM-system som stöds. **Standard**: inaktiverad. |
 
-![Service manager-anslutningen](./media/log-analytics-itsmc/service-manager-connection.png)
+![Service manager-anslutningen](media/log-analytics-itsmc-connections/service-manager-connection.png)
 
 **När du har anslutits och synkroniserats**:
 
@@ -128,14 +128,14 @@ Du kan använda följande procedur för att konfigurera hybridanslutningen som s
 2. Klicka på **inställningar** > **nätverk**.
 3. Under **Hybridanslutningar**, klickar du på **konfigurera slutpunkter för din hybridanslutning**.
 
-    ![Hybrid anslutning nätverk](./media/log-analytics-itsmc/itsmc-hybrid-connection-networking-and-end-points.png)
+    ![Hybrid anslutning nätverk](media/log-analytics-itsmc-connections/itsmc-hybrid-connection-networking-and-end-points.png)
 4. I den **Hybridanslutningar** bladet klickar du på **Lägg till hybridanslutning**.
 
-    ![Lägg till hybridanslutning](./media/log-analytics-itsmc/itsmc-new-hybrid-connection-add.png)
+    ![Lägg till hybridanslutning](media/log-analytics-itsmc-connections/itsmc-new-hybrid-connection-add.png)
 
 5. I den **Lägg till Hybrid Connections** bladet klickar du på **skapa nya hybrid anslutning**.
 
-    ![Ny hybridanslutning](./media/log-analytics-itsmc/itsmc-create-new-hybrid-connection.png)
+    ![Ny hybridanslutning](media/log-analytics-itsmc-connections/itsmc-create-new-hybrid-connection.png)
 
 6. Ange följande värden:
 
@@ -146,14 +146,14 @@ Du kan använda följande procedur för att konfigurera hybridanslutningen som s
     - **Plats**: Välj platsen.
     -  **Namn på**: Ange ett namn som servicebus om du skapar den.
 
-    ![Hybrid anslutningsvärden](./media/log-analytics-itsmc/itsmc-new-hybrid-connection-values.png)
+    ![Hybrid anslutningsvärden](media/log-analytics-itsmc-connections/itsmc-new-hybrid-connection-values.png)
 6. Klicka på **OK** att Stäng den **skapa hybridanslutning** bladet och börja skapa hybridanslutningen.
 
     När hybridanslutningen har skapats visas den under bladet.
 
 7. När du har skapat hybridanslutningen väljer anslutningen och klickar på **Lägg till markerade hybridanslutning**.
 
-    ![Ny hybridanslutning](./media/log-analytics-itsmc/itsmc-new-hybrid-connection-added.png)
+    ![Ny hybridanslutning](media/log-analytics-itsmc-connections/itsmc-new-hybrid-connection-added.png)
 
 #### <a name="configure-the-listener-setup"></a>Konfigurera listener-konfiguration
 
@@ -171,14 +171,14 @@ Använd följande procedur för att konfigurera listener-konfiguration för hybr
 
 Din hybridanslutning har anslutits.
 
-![lyckad anslutning](./media/log-analytics-itsmc/itsmc-hybrid-connection-listener-set-up-successful.png)
+![lyckad anslutning](media/log-analytics-itsmc-connections/itsmc-hybrid-connection-listener-set-up-successful.png)
 > [!NOTE]
 
 > Efter hybriden anslutningen har skapats, kontrollera och testa anslutningen genom att gå till den distribuerade webbappen för Service Manager. Se till att anslutningen är klar innan du försöker ansluta till ITSMC i Azure.
 
 Följande exempelbild visar information om en lyckad anslutning:
 
-![Anslutningstestet hybridmoln](./media/log-analytics-itsmc/itsmc-hybrid-connection-test.png)
+![Anslutningstestet hybridmoln](media/log-analytics-itsmc-connections/itsmc-hybrid-connection-test.png)
 
 ## <a name="connect-servicenow-to-it-service-management-connector-in-azure"></a>Anslut ServiceNow till IT Service Management Connector i Azure
 
@@ -209,7 +209,7 @@ Använd följande procedur för att skapa en ServiceNow-anslutning:
 1. I Azure-portalen går du till **alla resurser** och leta efter **ServiceDesk(YourWorkspaceName)**
 
 2.  Under **DATAKÄLLOR för ARBETSYTA** klickar du på **ITSM-anslutningar**.
-    ![Ny anslutning](./media/log-analytics-itsmc/add-new-itsm-connection.png)
+    ![Ny anslutning](media/log-analytics-itsmc-connections/add-new-itsm-connection.png)
 
 3. Längst upp i den högra rutan, klickar du på **Lägg till**.
 
@@ -232,7 +232,7 @@ Använd följande procedur för att skapa en ServiceNow-anslutning:
 | **Synkronisera Data** | Ange antalet tidigare dagar som du vill att data från. **Maxgränsen**: 120 dagar. |
 | **Skapa nytt konfigurationsobjekt i ITSM-lösning** | Välj det här alternativet om du vill skapa konfigurationsobjekt i ITSM-produkten. När du väljer skapar ITSMC berörda konfigurationsobjekt som konfigurationsobjekt (när det gäller icke-existerande CIs) i ITSM-system som stöds. **Standard**: inaktiverad. |
 
-![ServiceNow-anslutning](./media/log-analytics-itsmc/itsm-connection-servicenow-connection-latest.png)
+![ServiceNow-anslutning](media/log-analytics-itsmc-connections/itsm-connection-servicenow-connection-latest.png)
 
 **När du har anslutits och synkroniserats**:
 
@@ -304,7 +304,7 @@ Använd följande procedur för att skapa en Provance-anslutning:
 1. I Azure-portalen går du till **alla resurser** och leta efter **ServiceDesk(YourWorkspaceName)**
 
 2.  Under **DATAKÄLLOR för ARBETSYTA** klickar du på **ITSM-anslutningar**.
-    ![Ny anslutning](./media/log-analytics-itsmc/add-new-itsm-connection.png)
+    ![Ny anslutning](media/log-analytics-itsmc-connections/add-new-itsm-connection.png)
 
 3. Längst upp i den högra rutan, klickar du på **Lägg till**.
 
@@ -326,7 +326,7 @@ Använd följande procedur för att skapa en Provance-anslutning:
 | **Synkronisera Data** | Ange antalet tidigare dagar som du vill att data från. **Maxgränsen**: 120 dagar. |
 | **Skapa nytt konfigurationsobjekt i ITSM-lösning** | Välj det här alternativet om du vill skapa konfigurationsobjekt i ITSM-produkten. När du väljer skapar ITSMC berörda konfigurationsobjekt som konfigurationsobjekt (när det gäller icke-existerande CIs) i ITSM-system som stöds. **Standard**: inaktiverad.|
 
-![Provance anslutning](./media/log-analytics-itsmc/itsm-connections-provance-latest.png)
+![Provance anslutning](media/log-analytics-itsmc-connections/itsm-connections-provance-latest.png)
 
 **När du har anslutits och synkroniserats**:
 
@@ -355,7 +355,7 @@ Använd följande procedur för att skapa en Provance-anslutning:
 1. I Azure-portalen går du till **alla resurser** och leta efter **ServiceDesk(YourWorkspaceName)**
 
 2.  Under **DATAKÄLLOR för ARBETSYTA** klickar du på **ITSM-anslutningar**.
-    ![Ny anslutning](./media/log-analytics-itsmc/add-new-itsm-connection.png)
+    ![Ny anslutning](media/log-analytics-itsmc-connections/add-new-itsm-connection.png)
 
 3. Längst upp i den högra rutan, klickar du på **Lägg till**.
 
@@ -378,7 +378,7 @@ Använd följande procedur för att skapa en Provance-anslutning:
 | **Skapa nytt konfigurationsobjekt i ITSM-lösning** | Välj det här alternativet om du vill skapa konfigurationsobjekt i ITSM-produkten. När du väljer skapar ITSMC berörda konfigurationsobjekt som konfigurationsobjekt (när det gäller icke-existerande CIs) i ITSM-system som stöds. **Standard**: inaktiverad. |
 
 
-![Provance anslutning](./media/log-analytics-itsmc/itsm-connections-cherwell-latest.png)
+![Provance anslutning](media/log-analytics-itsmc-connections/itsm-connections-cherwell-latest.png)
 
 **När du har anslutits och synkroniserats**:
 
@@ -396,7 +396,7 @@ Använd följande procedur för att generera klientens ID-nyckel för Cherwell:
 2. Klicka på **Security** > **redigera REST API-klientinställningar**.
 3. Välj **Skapa ny klient** > **klienthemlighet**.
 
-    ![Cherwell användar-id](./media/log-analytics-itsmc/itsmc-cherwell-client-id.png)
+    ![Cherwell användar-id](media/log-analytics-itsmc-connections/itsmc-cherwell-client-id.png)
 
 
 ## <a name="next-steps"></a>Nästa steg

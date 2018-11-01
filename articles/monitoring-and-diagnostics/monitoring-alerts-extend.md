@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/01/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: 45682caedaaaac1c9d335a45db64f16d713dfd7f
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: 60ecc2bc1d700c223d4a52b05e3b9362241f3f82
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50233505"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50414627"
 ---
 # <a name="extend-log-analytics-alerts-to-azure-alerts"></a>Utöka Log Analytics-aviseringar till Azure-aviseringar
 Tills nyligen med Azure Log Analytics sin egen avisering funktioner, vilket kan informera dig om villkor baserat på Log Analytics-data. Du har hanterat Varningsregler i Microsoft Operations Management Suite-portalen. Det nya aviseringsgränssnittet har nu integrerats aviseringar för olika tjänster i Microsoft Azure. Detta är tillgänglig **aviseringar** under Azure Monitor i Azure-portalen och har stöd för aviseringar från aktiviteten skrivloggar, statistik och loggar från både Log Analytics och Azure Application Insights. 
@@ -35,7 +35,7 @@ Processen att flytta aviseringar från Log Analytics i Azure Alerts inbegriper i
 
 När du schemalägger aviseringar i Log Analytics-arbetsytan utökas till Azure kan fortsätta de att fungera och inte i något sätt kompromettera din konfiguration. När schemalagts dina aviseringar kanske inte tillgänglig för ändring av tillfälligt, men du kan fortsätta att skapa nya Azure-aviseringar under den här tiden. Om du försöker redigera eller skapa aviseringar från Operations Management Suite-portalen, har du möjlighet att fortsätta att skapa dem från Log Analytics-arbetsytan. Du kan också välja att skapa dem från Azure-aviseringar i Azure-portalen.
 
- ![Skärmbild av alternativet för att skapa aviseringar från Log Analytics eller Azure-aviseringar](./media/monitor-alerts-extend/ScheduledDirection.png)
+ ![Skärmbild av alternativet för att skapa aviseringar från Log Analytics eller Azure-aviseringar](media/monitoring-alerts-extend/ScheduledDirection.png)
 
 > [!NOTE]
 > Utöka aviseringar från Log Analytics till Azure leder inte till att kontot debiteras. Med hjälp av Azure-aviseringar för fråga efter Log Analytics-aviseringar debiteras inte när den används inom gränserna och villkor som anges i den [Azure Monitor priser princip](https://azure.microsoft.com/pricing/details/monitor/).  
@@ -47,7 +47,7 @@ Du kan använda en guide som är tillgängliga i Operations Management Suite-por
 ## <a name="experience-after-extending-your-alerts"></a>Upplevelse när du utökar dina aviseringar
 När dina aviseringar utsträcks till Azure-aviseringar, fortsätta de att vara tillgänglig i Operations Management Suite-portalen för hantering av inte annorlunda än tidigare.
 
-![Skärmbild av Operations Management Suite-portalen med aviseringarna som visas](./media/monitor-alerts-extend/PostExtendList.png)
+![Skärmbild av Operations Management Suite-portalen med aviseringarna som visas](media/monitoring-alerts-extend/PostExtendList.png)
 
 Du omdirigeras automatiskt till Azure-aviseringar när du försöker redigera en befintlig avisering eller skapa en ny avisering i Operations Management Suite-portalen.  
 

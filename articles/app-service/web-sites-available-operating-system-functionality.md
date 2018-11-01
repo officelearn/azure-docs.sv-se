@@ -1,6 +1,6 @@
 ---
-title: Operativsystemet funktioner i Azure App Service
-description: Lär dig mer om OS-funktionerna till webbappar, mobilappsserverdelar och API apps i Azure App Service
+title: Funktioner för operativsystemet på Azure App Service
+description: Lär dig mer om den OS-funktionen som är tillgängliga för webbappar, serverdelar för mobilappar och API apps i Azure App Service
 services: app-service
 documentationcenter: ''
 author: cephalin
@@ -12,116 +12,120 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/01/2016
+ms.date: 10/30/2018
 ms.author: cephalin
-ms.openlocfilehash: 00b5f9c78000fbb9bf86e8c1d8b06e3645795a12
-ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
+ms.openlocfilehash: 9b4c87bd0889718fcb8938a9e3bb9207b8fe727a
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34850162"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50420464"
 ---
-# <a name="operating-system-functionality-on-azure-app-service"></a>Operativsystemet funktioner i Azure App Service
-Den här artikeln beskrivs vanliga grundläggande operativsystem-funktioner som är tillgänglig för alla appar som körs på [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714). Den här funktionen innehåller filen, nätverket och till registret och diagnostik loggar och händelser. 
+# <a name="operating-system-functionality-on-azure-app-service"></a>Funktioner för operativsystemet på Azure App Service
+Den här artikeln beskriver de funktioner för vanliga baslinje operativsystemet som är tillgänglig för alla Windows-appar som körs på [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714). Den här funktionen innehåller filen, nätverk, och åtkomst till behållarregistret, och diagnostikloggar och händelser. 
+
+> [!NOTE] 
+> [Linux-appar](containers/app-service-linux-intro.md) i App Service som körs i sin egen behållare. Ingen åtkomst till värdoperativsystemet tillåts, du har rotåtkomst till behållaren. På så sätt, [program som körs på Windows-behållare](app-service-web-get-started-windows-container.md), du har administrativ åtkomst till behållaren men ingen åtkomst till värdoperativsystemet. 
+>
 
 <a id="tiers"></a>
 
-## <a name="app-service-plan-tiers"></a>App Service-plan nivåer
-App Service kör kunden appar på en värd för flera innehavare. Appar som distribuerats i det **lediga** och **delade** nivåer kör i arbetsprocesser på delade virtuella datorer, medan appar som distribuerats i det **Standard** och **Premium**  nivåer som körs på virtuella datorer som är dedikerad för appar som är kopplad till en kund.
+## <a name="app-service-plan-tiers"></a>Nivåer för App Service-plan
+App Service körs kundappar i en värdmiljö för flera innehavare. Appar som distribuerats i den **kostnadsfri** och **delad** nivåerna kör i arbetsprocesser på delade virtuella datorer, medan appar distribuerade i de **Standard** och **Premium**  nivåer som körs på virtuella datorer som är avsedda specifikt för appar som är associerade med en enda kund.
 
 [!INCLUDE [app-service-dev-test-note](../../includes/app-service-dev-test-note.md)]
 
-Eftersom Apptjänst har stöd för skalning smidigt mellan olika nivåer, förblir detsamma säkerhetskonfigurationen för Apptjänst-appar. Detta säkerställer att appar inte plötsligt fungerar annorlunda, misslyckas på oväntade sätt när App Service-plan som växlar från en nivå till en annan.
+Eftersom App Service har stöd för en sömlös skalning upplevelse mellan olika nivåer, förblir densamma säkerhetskonfiguration som tillämpas för App Service-appar. Detta garanterar att appar inte plötsligt fungerar annorlunda, misslyckas på oväntade sätt när App Service-plan som växlar från en nivå till en annan.
 
 <a id="developmentframeworks"></a>
 
-## <a name="development-frameworks"></a>Utvecklingsramverk
-Apptjänst prisnivåer styra hur mycket av beräkningsresurser (CPU, diskutrymme, minne och nätverk utgång) tillgänglig för appar. Bredden av framework-funktionerna till appar förblir detsamma oavsett skala nivåer.
+## <a name="development-frameworks"></a>Ramverken för programutveckling
+App Service prisnivåer styra hur mycket av beräkningsresurser (CPU, disk storage, minne och utgående nätverkstrafik) tillgängliga för appar. Bredden på framework-funktioner som är tillgängliga för appar förblir detsamma oavsett skala nivåer.
 
-Apptjänst stöder en mängd utvecklingsramverk,, till exempel ASP.NET, klassisk ASP, node.js, PHP och Python - alla körs som tillägg i IIS. För att förenkla och normalisera säkerhetskonfiguration kör Apptjänst-appar vanligtvis utvecklingsramverk för olika med standardinställningarna. Ett sätt att konfigurera appar kan bero på att anpassa API-ytan och funktioner för varje enskild utvecklingsramverk. Apptjänst använder i stället en generisk metod genom att aktivera en gemensam baslinje för operativsystemet funktioner oavsett utvecklingsramverk för en app.
+App Service stöder en mängd olika ramverken för programutveckling, inklusive ASP.NET, klassisk ASP, node.js, PHP och Python – alla körs som tillägg i IIS. För att förenkla och normalisera säkerhetskonfiguration använder köra App Service-appar vanligtvis olika ramverken för programutveckling med standardinställningarna. En metod för att konfigurera appar kan bero på att anpassa API-ytan och funktioner för varje enskild utvecklingsramverk. App Service använder i stället en mer allmän metod genom att aktivera en gemensam baslinje för funktioner för operativsystemet, oavsett utvecklingsramverk för en app.
 
-Följande avsnitt sammanfattar de allmänna typerna av funktioner i operativsystemet som visas för Apptjänst-appar.
+Följande avsnitt sammanfattar de allmänna typerna av funktioner för operativsystemet som är tillgängliga för App Service-appar.
 
 <a id="FileAccess"></a>
 
 ## <a name="file-access"></a>Åtkomst till filen
-Olika enheter finns i Apptjänst, bland annat lokala enheter och nätverksenheter.
+Olika enheter finns i App Service, inklusive lokala enheter och nätverksenheter.
 
 <a id="LocalDrives"></a>
 
 ### <a name="local-drives"></a>Lokala enheter
-Kärnan är Apptjänst en tjänst som körs på Azure PaaS (plattform som en tjänst)-infrastruktur. Därför är de lokala enheter som ”kopplas” till en virtuell dator på samma enhet typer som är tillgängliga för alla worker-rollen körs i Azure. Det här omfattar:
+I grunden är är App Service en tjänst som körs på Azure PaaS (plattform som en tjänst)-infrastruktur. Därför kan är lokala enheter som är ”kopplade” till en virtuell dator de samma enhet typerna som är tillgängliga för alla worker-roll som körs i Azure. Det här omfattar:
 
 - En operativsystemenhet (D:\-enhet)
-- En program-enhet som innehåller Azure cspkg paketfilerna används endast av App Service (och tillgänglig för kunder)
-- En ”användare” enhet (C:\ enheten), vars storlek varierar beroende på storleken på den virtuella datorn. 
+- En enhet för program som innehåller Azure cspkg Paketfiler som används uteslutande av App Service (och otillgängligt för kunder)
+- En ”användare”-enhet (C:\ enheten) vars storlek varierar beroende på storleken på den virtuella datorn. 
 
-Det är viktigt att övervaka din diskanvändning när programmet växer. Den kan ha negativa effekter i tillämpningsprogrammet om diskkvoten har uppnåtts.
+Det är viktigt att övervaka din diskanvändning när programmet växer. Om diskkvoten har nåtts kan det ha negativa effekter i ditt program.
 
 <a id="NetworkDrives"></a>
 
-### <a name="network-drives-aka-unc-shares"></a>Nätverksenhet (aka UNC delar)
-En av unika aspekter av App Service som gör app-distribution och underhåll enkla är att alla användarinnehåll lagras på en uppsättning UNC-resurser. Den här modellen mappar för det vanliga mönstret för lagring av innehåll används av lokala värdbaserade miljöer som har flera servrar för Utjämning av nätverksbelastning. 
+### <a name="network-drives-aka-unc-shares"></a>Nätverksenhet (även kallat UNC delar)
+En av de unika aspekterna av App Service som gör app-distribution och underhåll enkelt är att alla användarinnehåll lagras på en uppsättning UNC-resurser. Den här modellen mappar för det vanliga mönstret för innehållslagring som används av den lokala värdmiljöer som har flera servrar för Utjämning av nätverksbelastning. 
 
-Det finns ett antal UNC-resurser som har skapats i varje datacenter i App Service. En del av användarinnehåll för alla kunder i varje Datacenter är allokerade till varje UNC-resurs. Dessutom dela alla filen innehållet för en enskild kundens prenumeration alltid placeras på samma UNC. 
+Det finns ett antal UNC-resurser som skapats i varje datacenter i App Service. En del av användarinnehåll för alla kunder i alla Datacenter har allokerats till varje UNC-resurs. Dessutom dela alla filen innehåll för en enskild kundprenumeration alltid placeras på samma UNC. 
 
-På grund av hur Azure services arbetet ändras den specifika virtuella som ansvarar för en UNC-resurs över tid. Det är säkert att UNC-resurser ska monteras av olika virtuella datorer som de förs upp och ned under normala åtgärder i Azure. Därför bör aldrig appar Se hårdkodade antaganden att informationen för datorn på en UNC-sökväg till filen förblir stabil över tid. I stället de ska använda den praktiska *faux* absolut sökväg **D:\home\site** som App Service tillhandahåller. Den här faux absolut sökväg ger en bärbar, oberoende för app-användaren metod för att referera till det egna app. Med hjälp av **D:\home\site**, en kan överföra delade filer från en app till en app utan att behöva konfigurera en ny absolut sökväg för varje överföring.
+På grund av hur Azure fungerar, kommer den specifika virtuella datorn som är ansvarig för som är värd för en UNC-resurs ändras med tiden. Det är säkert att UNC-resurser ska monteras av olika virtuella datorer som de förs upp och ned under normala driften av Azure. Därför bör apps aldrig är hårdkodat antaganden att informationen om datorn på en UNC-filsökväg förblir stabil över tid. I stället de ska använda den praktiskt *faux* absolut sökväg **D:\home\site** som App Service tillhandahåller. Den här faux absolut sökväg ger en bärbar, agnostiskt för app-användare metod för att referera till det egna app. Med hjälp av **D:\home\site**, en kan överföra delade filer från appen utan att behöva konfigurera en ny absolut sökväg för varje överföring.
 
 <a id="TypesOfFileAccess"></a>
 
 ### <a name="types-of-file-access-granted-to-an-app"></a>Typer av filen som har åtkomst till en app
-Varje kund prenumeration har en reserverad katalogstruktur på en specifik UNC-resurs i ett datacenter. En kund kan ha flera appar som har skapats i en specifik datacenter, så alla kataloger som hör till en enskild kundprenumeration skapas på samma UNC delar. Resursen kan omfatta kataloger som de för innehåll, fel och diagnostikloggar och tidigare versioner av app som skapats av källkontroll. Som förväntat, finns en kund app kataloger för Läs- och skrivbehörighet vid körning av appens programkod.
+Varje kunds prenumeration har en reserverad katalogstruktur på en specifik UNC-resurs i ett datacenter. En kund kan ha flera appar som har skapats i en specifik datacenter, så att alla kataloger som hör till en enskild kundprenumeration skapas på samma UNC dela. Resursen kan omfatta kataloger till exempel för innehåll, fel och diagnostikloggar och tidigare versioner av appen som skapats av källkontroll. Som förväntat, är en kunds app kataloger tillgängliga för Läs- och skrivåtkomst vid körning av appens programkod.
 
-På lokala enheter anslutna till den virtuella datorn som kör en app, reserverar Apptjänst en del av diskutrymme på enhet C:\ för app-specifik tillfälliga lokal lagring. Även om en app har fullständig läsning och skrivning åtkomst till sin egen tillfällig lokal lagring, är inte som lagring avsedd att användas direkt av programkoden. I stället är avsikten att tillhandahålla tillfällig lagring för IIS- och ramverk för programmet. Apptjänst begränsar mängden tillfälliga lokal lagring som är tillgängliga för varje app för att förhindra att enskilda appar från att konsumera alltför stora mängder lagring av lokala filer.
+På de lokala enheter som är kopplade till den virtuella datorn som kör en app, reserverar App Service ett segment utrymme på enhet C:\ för appspecifika temporär lokal lagring. Även om en app har fullständig läs-/ skrivåtkomst till sin egen tillfällig lokal lagring, är inte lagringssystemet verkligen avsedd att användas direkt av programkoden. Avsikten är snarare att tillhandahålla tillfällig lagring för IIS och web ramverk för programmet. App Service också begränsar det temporära lokala lagringen i varje app för att förhindra att enskilda appar förbrukar alltför stora mängder lokal fillagring.
 
-Två exempel på hur Apptjänst använder temporära lokal lagring är katalogen för temporära ASP.NET-filer och katalogen för IIS komprimerade filer. ASP.NET används-kompilering katalogen ”temporära ASP.NET-filer som en tillfällig kompilering cacheplats. IIS använder katalogen ”IIS tillfälliga komprimerade filer” för att lagra komprimerade svarsutdata. Båda typerna av filen användning (samt andra) mappas i App Service till per app tillfälliga lokal lagring. Den här ommappning säkerställer att funktioner fortfarande som förväntat.
+Två exempel på hur App Service använder lokal tillfällig lagring är katalogen för temporära ASP.NET-filer och katalogen för IIS komprimerade filer. ASP.NET används-kompilering katalogen ”tillfälliga ASP.NET-filer som en tillfällig kompilering cacheplats. IIS använder katalogen ”IIS temporära komprimerade filer” för att lagra komprimerade svarsutdata. Båda typerna av filen användning (samt andra) mappas i App Service till per app temporär lokal lagring. Den här ommappning säkerställer att funktionerna kan fortsätta som förväntat.
 
-Varje app i App Service körs som en slumpmässig unika lågprivilegierat arbetsprocessidentiteten kallas ”programpoolsidentiteten”, beskrivs mer här: [ http://www.iis.net/learn/manage/configuring-security/application-pool-identities ](http://www.iis.net/learn/manage/configuring-security/application-pool-identities). Programkod som använder den här identiteten för grundläggande skrivskyddad åtkomst till enheten med operativsystemet (D:\ enheten). Detta innebär att programkod kan visa en lista med vanliga katalogstrukturer och läsa vanliga filer på enheten med operativsystemet. Även om det verkar något generellt åtkomst, i samma kataloger och filer är tillgängliga när du etablerar en arbetsroll i en Azure värdtjänsten och läsa innehållet i enheten. 
+Varje app i App Service körs som ett slumpmässigt unika med låg behörighet arbetsprocess-ID kallas ”programpoolsidentiteten”, som beskrivs mer här: [ http://www.iis.net/learn/manage/configuring-security/application-pool-identities ](http://www.iis.net/learn/manage/configuring-security/application-pool-identities). Koden använder den här identiteten för grundläggande skrivskyddad åtkomst till enheten med operativsystemet (D:\ enheten). Det innebär att programkoden kan visa en lista över vanliga katalogstrukturer och läsa vanliga filer på enheten med operativsystemet. Även om det verka som att något generellt åtkomst, i samma kataloger och filer är tillgängliga när du etablerar en arbetsroll i en Azure värdtjänsten och läsa innehållet i enheten. 
 
 <a name="multipleinstances"></a>
 
-### <a name="file-access-across-multiple-instances"></a>Åtkomst till filen på flera instanser
-Arbetskatalogen innehåller en app innehåll och programkod kan skriva till den. Om en app som körs på flera instanser, delas arbetskatalogen med alla instanser så att alla instanser finns i samma katalog. Så, till exempel om en app sparar överförda filer till arbetskatalogen, dessa filer är omedelbart tillgängliga för alla instanser. 
+### <a name="file-access-across-multiple-instances"></a>Åtkomst till filen över flera instanser
+Arbetskatalogen innehåller en Apps innehåll och programkoden kan skriva till den. Om en app körs på flera instanser, delas arbetskatalogen mellan alla instanser så att alla instanser finns i samma katalog. Så, till exempel om en app sparar uppladdade filer till arbetskatalogen, dessa filer är omedelbart tillgängliga för alla instanser. 
 
 <a id="NetworkAccess"></a>
 
 ## <a name="network-access"></a>Nätverksåtkomst
-Programkod kan använda TCP/IP- och UDP-baserat protokoll för utgående nätverksanslutningar till Internet tillgänglig slutpunkter som exponerar externa tjänster. Appar som kan använda dessa samma protokoll för att ansluta till tjänster i Azure&#151;exempelvis genom att etablera HTTPS-anslutningar till SQL-databas.
+Programkoden kan använda TCP/IP- och UDP-baserade protokoll för att göra utgående nätverksanslutningar till Internet tillgängliga slutpunkter som exponerar externa tjänster. Appar kan använda dessa samma protokoll för att ansluta till tjänster i Azure&#151;exempelvis genom att upprätta HTTPS-anslutningar till SQL-databas.
 
-Det finns också en begränsad funktion för appar att upprätta en anslutning för lokal loopback och har en app som lyssnar på den lokala loopback-socketen. Den här funktionen finns i första hand för att aktivera appar som lyssnar på lokal loopback sockets som en del av deras funktioner. Varje app ser en ”privat” loopback-anslutning. App ”A” kan inte lyssna på en lokal loopback socket som upprättas av app ”B”.
+Det finns också en begränsad kapacitet för appar för att upprätta en anslutning för lokal loopback och har en app som lyssnar på den lokala loopback-socketen. Den här funktionen finns främst för att aktivera appar som lyssnar på lokal loopback sockets som en del av deras funktioner. Varje app ser en ”privat” loopback-anslutning. App ”A” Det går inte att lyssna på en lokal loopback socket som upprättats av app ”B”.
 
-Namngivna pipes stöds också som en mekanism för kommunikation mellan processer (IPC) mellan olika processer som gemensamt kör en app. Till exempel använder IIS FastCGI-modulen namngivna pipes koordinera enskilda processer som körs PHP-sidor.
+Namngivna pipes stöds också som en mekanism för kommunikation mellan processer (IPC) mellan olika processer som gemensamt kör en app. Till exempel använder IIS FastCGI-modulen namngivna pipes att samordna de enskilda processer som körs PHP-sidor.
 
 <a id="Code"></a>
 
-## <a name="code-execution-processes-and-memory"></a>Kodkörning, processer och minne
-Som tidigare nämnts kör appar inuti lågprivilegierat arbetsprocesser med en slumpmässig programpoolsidentiteten. Programkod som har åtkomst till minnesutrymme som är associerade med processen och alla underordnade processer som kan startas av CGI-processer eller andra program. Men en app kan inte komma åt minne eller data i en annan app även om det finns på samma virtuella dator.
+## <a name="code-execution-processes-and-memory"></a>Fjärrkörning av kod, processer och minne
+Som tidigare nämnts körs apparna i med låg behörighet arbetsprocesser med en slumpmässig programpoolsidentiteten. Koden har åtkomst till minnesutrymme som är associerade med processen och alla underordnade processer som kan vara värdprocessen av CGI-processer eller andra program. Men en app kan inte komma åt samma minneskapacitet eller data i en annan app även om den finns på samma virtuella dator.
 
-Appar kan köra skript eller sidor som skrivits med stöds web utvecklingsramverk. Apptjänst Konfigurera inte några inställningar för framework för mer begränsad. Till exempel köra ASP.NET-appar som körs på Apptjänst i ”full” förtroende i stället för en mer begränsat förtroende. Web ramverk, inklusive både klassiska ASP och ASP.NET kan anropa pågående COM-komponenter (men inte out-of-process COM-komponenter) som ADO (ActiveX Data Objects) som är registrerade som standard på Windows-operativsystemet.
+Appar kan köra skript eller sidor som hämtas med stöds webbutvecklingsramverk. App Service Konfigurera inte några inställningar för framework för mer begränsad. ASP.NET-appar som körs i App Service körs till exempel ”full” betrott istället för ett mer begränsat förtroende-läge. Webbramverk, inklusive både klassiska ASP och ASP.NET, kan anropa pågående COM-komponenter (men inte ut av processen COM-komponenter) som ADO (ActiveX Data Objects) som är registrerade som standard på Windows-operativsystem.
 
-Appar kan starta och köra skadlig kod. Det är tillåtet för en app att göra sådant som åtgärder en kommandotolk eller köra ett PowerShell.skript. Även om skadlig kod och processer kan skapas från en app, är körbara program och skript dock fortfarande begränsat till de behörigheter som beviljas åtkomst till den överordnade programpoolen. En app kan till exempel starta en körbar fil som gör en utgående HTTP-anrop, men att samma körbara inte försöker koppla IP-adressen för en virtuell dator från dess nätverkskort. Samtal utgående nätverket tillåts lågprivilegierat koden, men försök att konfigurera nätverksinställningar på en virtuell dator kräver administrativa privilegier.
+Appar kan starta och köra godtycklig kod. Det är tillåten för en app att göra saker som spawn en kommandotolk eller köra ett PowerShell.skript. Även om skadlig kod och processer kan vara värdprocessen från en app, är körbara program och skript dock ändå begränsad till de behörigheter som beviljas till överordnade programpool. En app kan till exempel skapa en körbar fil som gör ett utgående HTTP-anrop, men att samma körbara det går inte att försöka ta bort bindningen för IP-adressen för en virtuell dator från dess nätverkskort. Att göra ett anrop om utgående nätverkstrafik får kod med låg behörighet, men försök att konfigurera nätverksinställningar på en virtuell dator kräver administrativa privilegier.
 
 <a id="Diagnostics"></a>
 
-## <a name="diagnostics-logs-and-events"></a>Diagnostik loggar och händelser
-Logginformation är en annan uppsättning data som vissa appar försöker få åtkomst till. Vilka typer av logginformation som är tillgänglig för kod som körs i Apptjänst innehåller diagnostik och logga information som genererats av en app som är också lätt tillgängliga i appen. 
+## <a name="diagnostics-logs-and-events"></a>Diagnostikloggar och händelser
+Logginformation är en annan uppsättning data som vissa appar försöker komma åt. Vilka typer av logginformation som är tillgängliga för kod som körs i App Service innehåller diagnostik och logga information som genererats av en app som också är lättillgänglig till appen. 
 
-Till exempel finns W3C HTTP-loggar som genereras av en aktiv app antingen på en loggkatalog i nätverksresurs eller har skapats för appen tillgänglig i blob storage om en kund har ställt in W3C-loggning till lagring. Det senare alternativet gör att stora mängder loggar samlas in utan att riskera att överstiger Lagringsgränser fil som är kopplad till en nätverksresurs.
+Till exempel är W3C HTTP-loggar som genereras av en aktiv app tillgängliga antingen på en loggningskatalog i nätverksresurs som skapats för appen, eller som är tillgängliga i blob storage om en kund har ställt in W3C loggning till lagring. Det senare alternativet gör det möjligt för stora mängder loggar samlas in utan att riskera att som överstiger de filen gränser som är associerade med en nätverksresurs.
 
-I en liknande vein realtid diagnostikinformation från .NET-appar kan också loggas med .NET-spårning och diagnostik infrastruktur med alternativ för att skriva spårningsinformationen till antingen appens nätverksresurs eller alternativt till en blob-lagringsplats.
+I en liknande vein i realtid diagnostikinformation från .NET-program kan också vara inloggad med .NET-spårning och diagnostik infrastruktur, med alternativ för att skriva spårningsinformationen till antingen appens nätverksresurs, eller också till en blob-lagringsplats.
 
-Delar av diagnostik loggning och spårning som inte är tillgängliga för appar är Windows ETW-händelser och vanliga Windows-händelseloggar (till exempel, program, händelseloggarna System och säkerhet). Eftersom ETW spårningsinformation kan vara synlig datoromfattande (med höger ACL: er), blockeras Läs- och skrivåtkomst till ETW-händelser. Utvecklare märker att API-anrop kan läsa och skriva ETW-händelser och vanliga Windows-händelseloggar verkar fungera, men det är eftersom Apptjänst ”faking” anropen så att de visas ska lyckas. I själva verket har programkoden inte åtkomst till den här informationen om händelsen.
+Diagnostik och spårning som inte är tillgängliga appar visas Windows ETW-händelser och vanliga Windows-händelseloggarna (till exempel, program, händelseloggarna System och säkerhet). Eftersom ETW-spårningsinformation kan vara visas datoromfattande (med rätten ACL: er), blockeras Läs- och skrivåtkomst till ETW-händelser. Utvecklare märker att API-anrop kan läsa och skriva ETW-händelser och vanliga Windows-händelseloggar verkar fungera, men det beror på att App Service ”faking” anrop så att de ser ut att lyckas. I själva fallet har ingen åtkomst till den här händelsedata i programkoden.
 
 <a id="RegistryAccess"></a>
 
 ## <a name="registry-access"></a>Registeråtkomst
-Appar som har skrivskyddad åtkomst till mycket (även om inte alla) i registret på den virtuella datorn körs på. I praktiken innebär detta registernycklar som tillåter skrivskyddad åtkomst till den lokala gruppen användare är tillgängliga för appar. En del av registret som inte stöds för närvarande för Läs- eller skrivbehörighet är HKEY\_aktuella\_användarstruktur.
+Appar som har skrivskyddad åtkomst till många (även om inte alla) i registret på den virtuella datorn som de körs på. I praktiken innebär detta registernycklar för att tillåter skrivskyddad åtkomst till den lokala gruppen användare som är tillgängliga för appar. En del av registret som inte stöds för närvarande för Läs- eller skrivbehörighet är HKEY\_aktuella\_användaren hive.
 
-Skrivåtkomst till registret är blockerad, inklusive åtkomst till några registernycklar per användare. Appens ur skrivåtkomst till registret bör inte förlita sig på i Azure-miljön eftersom appar kan (och göra) migreras mellan olika virtuella datorer. Endast beständig skrivbara lagring som kan vara beroende av en app är per app innehåll katalogstrukturen lagras på App Service UNC-resurser. 
+Skrivåtkomst till registret är blockerad, inklusive åtkomst till några registernycklar för per användare. Från appens perspektiv skrivåtkomst till registret bör aldrig förlita sig på i Azure-miljön eftersom appar kan (och göra) migreras mellan olika virtuella datorer. Endast beständig skrivbart lagring som kan vara beroende av en app är per app innehåll katalogstrukturen lagras på App Service-UNC-resurser. 
 
 ## <a name="more-information"></a>Mer information
 
-[Azure Web App sandbox](https://github.com/projectkudu/kudu/wiki/Azure-Web-App-sandbox) -den allra senaste informationen om körningsmiljö av App Service. Den här sidan hanteras direkt av Utvecklingsteamet App Service.
+[Azure Web App-sandbox](https://github.com/projectkudu/kudu/wiki/Azure-Web-App-sandbox) – den senaste informationen om körningsmiljö för App Service. Den här sidan hanteras direkt av App Service-Utvecklingsteamet.
 
 > [!NOTE]
 > Om du vill komma igång med Azure App Service innan du registrerar dig för ett Azure-konto kan du gå till [Prova App Service](https://azure.microsoft.com/try/app-service/). Där kan du direkt skapa en tillfällig startwebbapp i App Service. Inga kreditkort krävs. Inga åtaganden.

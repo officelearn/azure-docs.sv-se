@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 08/11/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: d3714f7226de2a457f37e6ea4afa2b066ee460d1
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: c14013121517267445e89f43e228b03ba184f013
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49409143"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50415270"
 ---
 # <a name="analyze-data-usage-in-log-analytics"></a>Analysera dataanvändning i Log Analytics
 
@@ -49,12 +49,12 @@ Instrumentpanelen **Log Analytics usage** (Log Analytics-användning) innehålle
     - Hur lång tid det tar att samla in och indexera data  
 - Lista med frågor
 
-![Instrumentpanelen för användning och kostnader](./media/log-analytics-manage-cost-storage/usage-estimated-cost-dashboard-01.png)<br>
+![Instrumentpanelen för användning och kostnader](media/log-analytics-usage/usage-estimated-cost-dashboard-01.png)<br>
 )
 
 ### <a name="to-work-with-usage-data"></a>Att arbeta med användningsdata
 1. Logga in på [Azure Portal](https://portal.azure.com).
-2. Klicka på **Alla tjänster** på Azure Portal. I listan över resurser skriver du **Log Analytics**. När du börjar skriva filtreras listan baserat på det du skriver. Välj **Log Analytics**.<br><br> ![Azure Portal](./media/log-analytics-quick-collect-azurevm/azure-portal-01.png)<br><br>  
+2. Klicka på **Alla tjänster** på Azure Portal. I listan över resurser skriver du **Log Analytics**. När du börjar skriva filtreras listan baserat på det du skriver. Välj **Log Analytics**.<br><br> ![Azure Portal](media/log-analytics-usage/azure-portal-01.png)<br><br>  
 3. Välj en arbetsyta som du skapade tidigare i listan med Log Analytics-arbetsytor.
 4. Välj **Användning och beräknade kostnader** i listan i det vänstra fönstret.
 5. På instrumentpanelen för **användning och beräknade kostnader** kan du ändra tidsintervallet genom att välja **Time: Last 24 hours** (Tid: Senaste 24 timmarna) och ändra tidsintervallet.<br><br> ![tidsintervall](./media/log-analytics-usage/usage-time-filter-01.png)<br><br>

@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 08/30/2017
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 19a4b77be613eb7ddb4367ca5dc5731c4e0a0287
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: bbf8dc4ccbd16f2157e65773b01fb42587fbfe9d
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50249262"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50417488"
 ---
 # <a name="install-azure-ad-connect-using-an-existing-adsync-database"></a>Installera Azure AD Connect med en befintlig ADSync-databas
 Azure AD Connect kräver en SQL Server-databas för att lagra data. Du kan använda standard SQL Server 2012 Express LocalDB som installerats med Azure AD Connect, eller så kan du använda din egen fullständiga versionen av SQL. Tidigare, när du har installerat Azure AD Connect, en ny databas med namnet ADSync alltid skapades. Med Azure AD Connect version 1.1.613.0 (eller efter) har du möjlighet att installera Azure AD Connect genom att peka till en befintlig ADSync-databas.
@@ -87,15 +87,15 @@ Viktig information att ta Observera av innan du fortsätter:
 11. När installationen är klar aktiveras automatiskt Azure AD Connect-servern för mellanlagringsläge. Vi rekommenderar att du läser igenom serverkonfigurationen och väntande exporter för oväntade ändringar innan du inaktiverar mellanlagringsläget. 
 
 ## <a name="post-installation-tasks"></a>Uppgifter efter installation
-Återställa en säkerhetskopia av databasen när skapats i en version av Azure AD Connect före <our pending release>, testservern väljer automatiskt en metod för **inte konfigurerar**. När dina lösenordets hash-synkronisering och tillbakaskrivning av lösenordsinställningar återställs, måste du ändra inloggningsmetod så att den matchar andra principer som gäller för din aktiva synkroniseringsserver senare.  Det gick inte att slutföra de här stegen kan förhindra att användare registrerar i bör den här servern blir aktiv.  
+När du återställer en säkerhetskopia av databasen som skapats i en version av Azure AD Connect innan 1.2.65.0 testservern väljer en metod för att automatiskt **inte konfigurerar**. När dina lösenordets hash-synkronisering och tillbakaskrivning av lösenordsinställningar återställs, måste du ändra inloggningsmetod så att den matchar andra principer som gäller för din aktiva synkroniseringsserver senare.  Det gick inte att slutföra de här stegen kan förhindra att användare registrerar i bör den här servern blir aktiv.  
 
 Använd tabellen nedan för att kontrollera eventuella ytterligare steg som krävs.
 
 |Funktion|Steg|
 |-----|-----|
-|Synkronisering av lösenordshash| Synkronisering av Lösenordshash och inställningar för tillbakaskrivning av lösenord är helt återställt för versioner av AADC från och med <our impending release>.  Om återställning med hjälp av en äldre version av AADC, granska alternativet synkroniseringsinställningar för dessa funktioner för att säkerställa att de matchar din aktiva synkroniseringsserver.  Några andra konfigurationssteg bör vara nödvändigt.|
-|Federation med AD FS|Azure-autentiseringar kommer att fortsätta att använda AD FS-principen som konfigurerats för din aktiva synkroniseringsserver.  Om du använder Azure AD Connect för att hantera din AD FS-servergrupp, kan du om du vill ändra metoden logga in till AD FS-federation inför din standby-server blir den aktiva synkronisering-instansen.   Om Enhetsalternativ är aktiverade på den aktiva synkronisering-servern kan du konfigurera dessa alternativ på den här servern genom att köra uppgiften ”konfigurera enhetsalternativ”.|
-|Direktautentisering och Desktop enkel inloggning|Uppdatera inloggningen metod så att den matchar konfigurationen på servern för aktiva synkroniseringen.  Om detta inte följs innan uppgradera servern till primär, direkt autentisering tillsammans med sömlös enkelinloggning på kommer att inaktiveras och din klient låsas ute om du inte har PHS som säkerhetskopiering inloggning alternativet. Observera att när du aktiverar direktautentisering i mellanlagringsläge kan en ny autentiseringsagent kommer att installeras, registrerat och körs som en agent för hög tillgänglighet som ska ta emot begäranden inloggning.|
+|Synkronisering av lösenordshash| Synkronisering av Lösenordshash och inställningar för tillbakaskrivning av lösenord är helt återställas för versioner av Azure AD Connect från och med 1.2.65.0.  Om återställning använder en äldre version av Azure AD Connect, granska alternativet synkroniseringsinställningar för dessa funktioner för att säkerställa att de matchar din aktiva synkroniseringsserver.  Några andra konfigurationssteg bör vara nödvändigt.|
+|Federation med AD FS|Azure-autentiseringar kommer att fortsätta att använda AD FS-princip som konfigurerats för din aktiva synkroniseringsserver.  Om du använder Azure AD Connect för att hantera din AD FS-servergrupp, kan du om du vill ändra metoden logga in till AD FS-federation inför din standby-server blir den aktiva synkronisering-instansen.   Om Enhetsalternativ är aktiverade på den aktiva synkronisering-servern kan du konfigurera dessa alternativ på den här servern genom att köra uppgiften ”konfigurera enhetsalternativ”.|
+|Direktautentisering och Desktop enkel inloggning|Uppdatera inloggningen metod så att den matchar konfigurationen på servern för aktiva synkroniseringen.  Om detta inte följs innan uppgradera servern till primär, direkt autentisering tillsammans med sömlös enkelinloggning på kommer att inaktiveras och din klient låsas ute om du inte har lösenordshashsynkronisering som säkerhetskopiera loggar du in alternativet. Observera att när du aktiverar direktautentisering i mellanlagringsläge kan en ny autentiseringsagent kommer att installeras, registrerat och körs som en agent för hög tillgänglighet som ska ta emot begäranden inloggning.|
 |Federation med PingFederate|Azure-autentiseringar kommer fortsätta att använda PingFederate-principen som konfigurerats för din aktiva synkroniseringsserver.  Du kan också ändra inloggningsmetoden till PingFederate inför din standby-server blir den aktiva synkronisering-instansen.  Det här steget kan fördröjas tills du behöver federera ytterligare domäner med PingFederate.|
 ## <a name="next-steps"></a>Nästa steg
 

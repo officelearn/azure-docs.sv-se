@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/01/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: bcede1f985937058196b75a93f539cb34da73992
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
+ms.openlocfilehash: 49607809d6bb8697cc6b7a4063a45d893b9e1eac
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49365070"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50421092"
 ---
 # <a name="log-alerts-in-azure-monitor"></a>Loggaviseringar i Azure Monitor
 Den här artikeln innehåller information om aviseringar är en av typerna av aviseringar som stöds i den [Azure Alerts](monitoring-overview-unified-alerts.md) och Tillåt användare att använda Azures analysplattform som bas för aviseringar.
@@ -93,7 +93,7 @@ Tänk dig ett scenario där du vill ha en avisering om en dator har överskridit
 
 Frågan skapar ett genomsnittligt värde för varje dator med 5 minuters mellanrum.  Den här frågan skulle köras var femte minut för data som samlas in under de föregående 30 minuterna.  Exempeldata visas nedan för tre datorer.
 
-![Exemplet frågeresultat](./media/monitor-alerts-unified/metrics-measurement-sample-graph.png)
+![Exemplet frågeresultat](media/monitor-alerts-unified-log/metrics-measurement-sample-graph.png)
 
 I det här exemplet skulle separata aviseringar skapas för srv02 och srv03 eftersom de brott mot tröskelvärdet 90% tre gånger under tidsperioden.  Om den **Utlös aviseringen baserat på:** ändrades till **sidordning** och sedan skapas en avisering bara för srv03 eftersom den har brutit mot tröskelvärdet för tre på varandra följande prover.
 

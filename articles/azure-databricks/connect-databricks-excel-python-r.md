@@ -1,54 +1,50 @@
 ---
-title: Ansluta till Azure Databricks från Excel, Python eller R | Microsoft Docs
+title: 'Ansluta till Azure Databricks från Excel, Python eller R '
 description: Lär dig hur du använder Simba driver för att ansluta Azure Databricks till Excel, Python eller R.
 services: azure-databricks
-documentationcenter: ''
-author: nitinme
-manager: cgronlun
-editor: cgronlun
+author: mamccrea
+ms.reviewer: jasonh
 ms.service: azure-databricks
 ms.workload: big-data
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 06/27/2018
-ms.author: nitinme
-ms.openlocfilehash: 333ff3ac3de053eae604ffeab600df7d35874f69
-ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
+ms.author: mamccrea
+ms.openlocfilehash: 6c8d0c9f5471395d1552b896b4d411dcad0a280f
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/28/2018
-ms.locfileid: "37085240"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50421143"
 ---
 # <a name="connect-to-azure-databricks-from-excel-python-or-r"></a>Ansluta till Azure Databricks från Excel, Python eller R
 
-Lär dig hur du använder Databricks ODBC-drivrutinen för att ansluta Azure Databricks med Microsoft Excel, Python eller R språk i den här artikeln. När du har skapat anslutningen kan du komma åt data i Azure Databricks från Excel, Python eller R-klienter. Du kan också använda klienterna för att ytterligare analysera informationen. 
+I den här artikeln får du lära dig hur du använder Databricks ODBC-drivrutinen för att ansluta Azure Databricks med Microsoft Excel, Python och R-språket. När du har skapat anslutningen kan du komma åt data i Azure Databricks från Excel, Python eller R-klienter. Du kan också använda klienterna för att ytterligare analysera data. 
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-* Du måste ha en Azure Databricks arbetsyta, Spark-kluster och exempeldata som är associerade med klustret. Om du inte redan har dessa krav slutföra quickstart på [köra ett jobb med Spark på Azure Databricks med Azure-portalen](quickstart-create-databricks-workspace-portal.md).
+* Du måste ha en arbetsyta för Azure Databricks en Spark-kluster och exempeldata som är associerade med klustret. Om du inte redan har dessa krav, Slutför Snabbstart på [kör ett Spark-jobb på Azure Databricks med Azure portal](quickstart-create-databricks-workspace-portal.md).
 
-* Hämta Databricks ODBC-drivrutinen från [Databricks drivrutinen hämtningssidan](https://databricks.com/spark/odbc-driver-download). Installera 32-bitars eller 64-bitars version beroende på programmet som du vill ansluta till Azure Databricks från. Till exempel för att ansluta från Excel, installera 32-bitars version av drivrutinen. Installera 64-bitars version av drivrutinen för att ansluta från R och Python.
+* Ladda ned Databricks ODBC-drivrutin från [hämtningssidan för Databricks-drivrutinen](https://databricks.com/spark/odbc-driver-download). Installera 32-bitars eller 64-bitars version beroende på program från där du vill ansluta till Azure Databricks. Till exempel för att ansluta från Excel, installera 32-bitars version av drivrutinen. Installera 64-bitars version av drivrutinen för att ansluta från R och Python.
 
-* Ställ in en personlig åtkomsttoken i Databricks. Instruktioner finns i [Token management](https://docs.azuredatabricks.net/api/latest/authentication.html#token-management).
+* Konfigurera en personlig åtkomsttoken i Databricks. Anvisningar finns i [Token management](https://docs.azuredatabricks.net/api/latest/authentication.html#token-management).
 
-## <a name="set-up-a-dsn"></a>Konfigurera en DSN
+## <a name="set-up-a-dsn"></a>Konfigurera en DNS
 
-En datakälla (DSN) innehåller information om en specifik datakälla. En ODBC-drivrutinen måste denna DSN att ansluta till en datakälla. I det här avsnittet skapar du en DSN som kan användas med Databricks ODBC-drivrutinen för att ansluta till Azure Databricks från klienter som Microsoft Excel, Python eller R.
+En datakälla (DSN) innehåller information om en specifik datakälla. En ODBC-drivrutin måste denna DSN att ansluta till en datakälla. I det här avsnittet ska ställa du in en DSN som kan användas med Databricks ODBC-drivrutin för att ansluta till Azure Databricks från klienter som Microsoft Excel, Python eller R.
 
-1. Gå till klustret Databricks från arbetsytan Azure Databricks.
+1. Gå till Databricks-kluster i Azure Databricks-arbetsytan.
 
-    ![Öppna Databricks klustret](./media/connect-databricks-excel-python-r/open-databricks-cluster.png "öppna Databricks kluster")
+    ![Öppna Databricks-klustret](./media/connect-databricks-excel-python-r/open-databricks-cluster.png "öppna Databricks-kluster")
 
-2. Under den **Configuration** klickar du på den **JDBC/ODBC-** fliken och kopiera värdena för **-serverns värdnamn** och **HTTP-sökväg**. Du måste dessa värden för att slutföra stegen i den här artikeln.
+2. Under den **Configuration** klickar du på den **JDBC/ODBC** fliken och kopiera värdena för **-serverns värdnamn** och **HTTP-sökväg**. Du behöver dessa värden för att slutföra stegen i den här artikeln.
 
-    ![Hämta Databricks konfiguration](./media/connect-databricks-excel-python-r/get-databricks-jdbc-configuration.png "hämta Databricks konfiguration")
+    ![Hämta konfiguration för Databricks](./media/connect-databricks-excel-python-r/get-databricks-jdbc-configuration.png "hämta Databricks-konfiguration")
 
-3. På datorn, startar **ODBC-datakällor** programmet (32-bitars eller 64-bitars) beroende på programmet. Använd 32-bitarsversionen för att ansluta från Excel. Använd 64-bitarsversionen för att ansluta från R och Python.
+3. Starta på din dator **ODBC-datakällor** program (32-bitars eller 64-bitars) beroende på programmet. Använd 32-bitarsversionen för att ansluta från Excel. Använd 64-bitarsversionen för att ansluta från R och Python.
 
     ![Starta ODBC](./media/connect-databricks-excel-python-r/launch-odbc-app.png "starta ODBC-program")
 
-4. Under den **användar-DSN** klickar du på **Lägg till**. I den **Skapa ny datakälla** dialogrutan markerar du den **Simba Spark ODBC Driver**, och klicka sedan på **Slutför**.
+4. Under den **användar-DSN** fliken **Lägg till**. I den **Skapa ny datakälla** dialogrutan den **Simba Spark ODBC Driver**, och klicka sedan på **Slutför**.
 
     ![Starta ODBC](./media/connect-databricks-excel-python-r/add-new-user-dsn.png "starta ODBC-program")
 
@@ -56,64 +52,64 @@ En datakälla (DSN) innehåller information om en specifik datakälla. En ODBC-d
 
     ![Konfigurera DSN](./media/connect-databricks-excel-python-r/odbc-dsn-setup.png "konfigurera DSN")
 
-    Följande tabell innehåller information om värdena som ska ange i dialogrutan.
+    I följande tabell innehåller information om värdena du ska använda i dialogrutan.
     
     |Fält  | Värde  |
     |---------|---------|
     |**Namn på datakälla**     | Ange ett namn för datakällan.        |
-    |**Värdar**     | Ange ett värde som du kopierade från arbetsytan Databricks för *-serverns värdnamn*.        |
+    |**Värdar**     | Ange det värde som du kopierade från Databricks-arbetsyta för *-serverns värdnamn*.        |
     |**Port**     | Ange *443*.        |
     |**Autentisering** > **mekanism**     | Välj *användarnamn och lösenord*.        |
     |**Användarnamn**     | Ange *token*.        |
-    |**Lösenord**     | Ange token värde som du kopierade från arbetsytan Databricks. |
+    |**Lösenord**     | Ange token värde som du kopierade från Databricks-arbetsyta. |
     
-    Utför följande i dialogrutan DSN installation.
+    Utför följande åtgärder i dialogrutan för DSN-installationsprogram.
     
-    * Klicka på **alternativ för HTTP**. I dialogrutan som öppnas, klistrar du in värdet för *HTTP-sökväg* som du kopierade från Databricks arbetsyta. Klicka på **OK**.
-    * Klicka på **SSL alternativ**. I dialogrutan som öppnas väljer du den **aktivera SSL** kryssrutan. Klicka på **OK**.
+    * Klicka på **HTTP alternativ**. I dialogrutan som öppnas, klistrar du in värdet för *HTTP-sökväg* som du kopierade från Databricks-arbetsyta. Klicka på **OK**.
+    * Klicka på **SSL-alternativ**. I dialogrutan som öppnas väljer du den **aktivera SSL** markerar du kryssrutan. Klicka på **OK**.
     * Klicka på **testa** att testa anslutningen till Azure Databricks. Klicka på **OK** att spara konfigurationen.
     * I den **ODBC Data Source Administrator** dialogrutan klickar du på **OK**.
 
 Nu har du din DSN ställa in. I nästa avsnitt, du kan använda den här DSN för att ansluta till Azure Databricks från Excel, Python eller R.
 
-## <a name="connect-from-microsoft-excel"></a>Ansluta från Microsoft Excel
+## <a name="connect-from-microsoft-excel"></a>Anslut från Microsoft Excel
 
-I det här avsnittet hämtar du data från Azure Databricks i Microsoft Excel med hjälp av det DSN-namn som du skapade tidigare. Innan du börjar bör du kontrollera att du har installerat på datorn i Microsoft Excel. Du kan använda en utvärderingsversion av Microsoft Excel från [Microsoft Excel utvärderingsversion länk](https://products.office.com/excel).
+I det här avsnittet ska hämta du data från Azure Databricks i Microsoft Excel med hjälp av DSN som du skapade tidigare. Innan du börjar måste du kontrollera att du har Microsoft Excel på datorn. Du kan använda en utvärderingsversion av Excel från [Microsoft Excel utvärderingsversion länk](https://products.office.com/excel).
 
-1. Öppna en tom arbetsbok i Microsoft Excel. Från den **Data** band klickar du på **hämta Data**. Klicka på **från andra källor** och klicka sedan på **från ODBC**.
+1. Öppna en tom arbetsbok i Microsoft Excel. Från den **Data** menyfliksområdet, klickar du på **hämta Data**. Klicka på **från andra källor** och klicka sedan på **från ODBC**.
 
     ![Starta ODBC från Excel](./media/connect-databricks-excel-python-r/launch-odbc-from-excel.png "starta ODBC från Excel")
 
-2. I den **från ODBC** dialogrutan, Välj det DSN-namn som du skapade tidigare och klicka sedan på **OK**.
+2. I den **från ODBC** dialogrutan, välj DSN som du skapade tidigare och klicka sedan på **OK**.
 
     ![Välj DSN](./media/connect-databricks-excel-python-r/excel-select-dsn.png "Välj DSN")
 
-3. Om du tillfrågas om autentiseringsuppgifter för användarnamn anger **token**. Ange token värde som du hämtade från arbetsytan Databricks för lösenord.
+3. Om du tillfrågas om autentiseringsuppgifter för användarnamn anger **token**. För lösenord, anger du värdet för token som du hämtade från Databricks-arbetsyta.
 
     ![Ange autentiseringsuppgifter för Databricks](./media/connect-databricks-excel-python-r/excel-databricks-token.png "Välj DSN")
 
-4. Välj tabellen från fönstret navigator i Databricks som du vill läsa in till Excel och klickar sedan på **läsa in**. 
+4. I fönstret navigator markerar du tabellen i Databricks som du vill läsa in till Excel och klicka sedan på **läsa in**. 
 
-    ![Läsa in dta i Excel](./media/connect-databricks-excel-python-r/excel-load-data.png "belastningen dta till Excel")
+    ![Läsa in DTA-anrop i Excel](./media/connect-databricks-excel-python-r/excel-load-data.png "belastningen DTA-anrop till Excel")
 
-När du har data i Excel-arbetsboken kan du utföra analytiska åtgärder på den.
+När du har data i din Excel-arbetsbok, kan du utföra analytiska åtgärder på den.
 
 ## <a name="connect-from-r"></a>Ansluta från R
 
 > [!NOTE]
-> Det här avsnittet innehåller information om hur du integrerar en R Studio-klient som körs på skrivbordet med Azure Databricks. Anvisningar om hur du använder R Studio på själva Azure Databricks klustret finns [R Studio på Azure Databricks](https://docs.azuredatabricks.net/spark/latest/sparkr/rstudio.html).
+> Det här avsnittet innehåller information om hur du integrerar en R Studio-klient som körs på skrivbordet med Azure Databricks. Anvisningar för hur du använder R Studio på själva Azure Databricks-klustret finns i [R Studio på Azure Databricks](https://docs.azuredatabricks.net/spark/latest/sparkr/rstudio.html).
 
-I det här avsnittet använder du ett R-språk IDE kan referera till data i Azure Databricks. Innan du börjar måste du ha följande installerat på datorn.
+I det här avsnittet ska använda du R-språket IDE till referensdata som är tillgängliga i Azure Databricks. Innan du börjar måste du ha följande installerat på datorn.
 
-* IDE-miljö för R språk. Den här artikeln använder RStudio för skrivbordet. Du kan installera den från [hämta R Studio](https://www.rstudio.com/products/rstudio/download/).
-* Om du använder RStudio för skrivbord som din IDE också installera Microsoft R-klienten från [ http://aka.ms/rclient/ ](http://aka.ms/rclient/). 
+* En IDE-miljö för R-språket. Den här artikeln använder RStudio för Desktop. Du kan installera det från [hämta R Studio](https://www.rstudio.com/products/rstudio/download/).
+* Om du använder RStudio Desktop som din IDE kan även installera Microsoft R Client från [ http://aka.ms/rclient/ ](http://aka.ms/rclient/). 
 
 Öppna RStudio och gör följande:
 
-- Referens för den `RODBC` paketet. Detta gör att du kan ansluta till Azure Databricks med DSN som du skapade tidigare.
-- Upprätta en anslutning med DSN.
-- Kör en SQL-fråga på data i Azure Databricks. I följande fragment *radio_sample_data* är en tabell som redan finns i Azure Databricks.
-- Utföra vissa åtgärder på frågan för att kontrollera utdata. 
+- Referens för den `RODBC` paketet. På så sätt kan du ansluta till Azure Databricks med DSN som du skapade tidigare.
+- Upprätta en anslutning med hjälp av DSN.
+- Kör en SQL-fråga på data i Azure Databricks. I följande kodavsnitt *radio_sample_data* är en tabell som redan finns i Azure Databricks.
+- Utföra vissa åtgärder på frågan för att verifiera utdata. 
 
 Följande kodavsnitt utför dessa uppgifter:
 
@@ -134,20 +130,20 @@ Följande kodavsnitt utför dessa uppgifter:
 
 ## <a name="connect-from-python"></a>Ansluta från Python
 
-I det här avsnittet använder du en Python IDE (t.ex INAKTIV) kan referera till data i Azure Databricks. Innan du börjar måste uppfylla följande krav:
+I det här avsnittet använder du en Python IDE (till exempel IDLE) till referensdata som är tillgängliga i Azure Databricks. Innan du börjar måste du slutföra följande krav:
 
-* Installera Python från [här](https://www.python.org/downloads/). INAKTIVT installeras automatiskt när du installerar Python från den här länken.
+* Installera Python från [här](https://www.python.org/downloads/). Installera Python från den här länken installerar också INAKTIV.
 
-* Från en kommandotolk på datorn, installera den `pyodbc` paketet. Kör följande kommando:
+* Från Kommandotolken på datorn, installera den `pyodbc` paketet. Kör följande kommando:
 
       pip install pyodbc
 
-Öppna INAKTIVT och gör följande:
+Öppna INAKTIV och utför följande steg:
 
-- Importera den `pyodbc` paketet. Detta gör att du kan ansluta till Azure Databricks med DSN som du skapade tidigare.
-- Upprätta en anslutning med DSN som du skapade tidigare.
--  Kör en SQL-fråga som använder anslutningen du skapat. I följande fragment *radio_sample_data* är en tabell som redan finns i Azure Databricks.
-- Utför åtgärder på frågan för att kontrollera utdata.
+- Importera den `pyodbc` paketet. På så sätt kan du ansluta till Azure Databricks med DSN som du skapade tidigare.
+- Upprätta en anslutning med hjälp av DSN som du skapade tidigare.
+-  Kör en SQL-fråga som använder anslutningen du skapade. I följande kodavsnitt *radio_sample_data* är en tabell som redan finns i Azure Databricks.
+- Utföra åtgärder på frågan för att verifiera utdata.
 
 Följande kodavsnitt utför dessa uppgifter:
 
@@ -170,6 +166,6 @@ for row in cursor.fetchall():
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Läs om datakällor från där du kan importera data till Azure Databricks i [datakällor för Azure Databricks](https://docs.azuredatabricks.net/spark/latest/data-sources/index.html#)
+* Läs mer om datakällor där du kan importera data till Azure Databricks, i [datakällor för Azure Databricks](https://docs.azuredatabricks.net/spark/latest/data-sources/index.html#)
 
 

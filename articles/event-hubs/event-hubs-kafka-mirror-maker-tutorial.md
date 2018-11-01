@@ -10,12 +10,12 @@ ms.topic: mirror-maker
 ms.custom: mvc
 ms.date: 08/07/2018
 ms.author: bahariri
-ms.openlocfilehash: 2812ba42ee9e6cd49d7ab4d72fb5df461959a2b7
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: e9ae6349d149c90fddc29d5cc1fb3c15f20b8e17
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49319837"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50420582"
 ---
 # <a name="use-kafka-mirrormaker-with-event-hubs-for-apache-kafka"></a>Använd MirrorMaker för Kafka med Event Hubs för Apache Kafka
 
@@ -46,7 +46,7 @@ För att kunna följa den här självstudien måste du ha:
 
 * Läs artikeln [Event Hubs för Apache Kafka](event-hubs-for-kafka-ecosystem-overview.md). 
 * En Azure-prenumeration. Om du inte har ett konto kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) innan du börjar.
-* [Java Development Kit (JDK) 1.7+](http://www.oracle.com/technetwork/java/javase/downloads/index.html)
+* [Java Development Kit (JDK) 1.7+](https://aka.ms/azure-jdks)
     * I Ubuntu kör du `apt-get install default-jdk` för att installera JDK-paketet.
     * Tänk på att ställa in miljövariabeln JAVA_HOME så att den pekar på den mapp där JDK-paketet är installerat.
 * [Ladda ned](http://maven.apache.org/download.cgi) och [installera](http://maven.apache.org/install.html) ett Maven-binärarkiv

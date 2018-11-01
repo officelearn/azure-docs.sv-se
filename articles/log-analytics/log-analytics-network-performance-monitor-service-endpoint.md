@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 02/20/2018
 ms.author: abshamsft
 ms.component: ''
-ms.openlocfilehash: fb84b20630eb63cb53ccb1d13a383ed6287b802b
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 76c8421286633dc3c81a073423a7d9f9ca1e1d85
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49406627"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50420854"
 ---
 # <a name="service-connectivity-monitor"></a>Övervakare av tjänstanslutning
 
@@ -35,13 +35,13 @@ Du kan utföra följande funktioner med övervakning av tjänstens anslutning:
 - Identifiera aktiva punkter i nätverket som kan orsaka dålig programprestanda genom att visa den svarstid som tillförts av varje hopp på en topologisk karta.
 
 
-![Övervakare av tjänstanslutning](media/log-analytics-network-performance-monitor/service-endpoint-intro.png)
+![Övervakare av tjänstanslutning](media/log-analytics-network-performance-monitor-service-endpoint/service-endpoint-intro.png)
 
 
 ## <a name="configuration"></a>Konfiguration 
 För att öppna konfigurationen för Övervakare av nätverksprestanda, öppna den [Network Performance Monitor-lösningen](log-analytics-network-performance-monitor.md) och välj **konfigurera**.
 
-![Konfigurera Övervakare av nätverksprestanda](media/log-analytics-network-performance-monitor/npm-configure-button.png)
+![Konfigurera Övervakare av nätverksprestanda](media/log-analytics-network-performance-monitor-service-endpoint/npm-configure-button.png)
 
 
 ### <a name="configure-log-analytics-agents-for-monitoring"></a>Konfigurera Log Analytics-agenter för övervakning
@@ -79,7 +79,7 @@ Börja skapa dina tester för att övervaka nätverksanslutningar till Tjänstes
 10. Välj övervakning villkor. Du kan ange anpassade tröskelvärden för health händelsegenerering genom att ange tröskelvärden. När värdet för villkoret går över det valda tröskelvärdet för den valda nätverk eller undernätverk par, genereras en hälsotillståndshändelse. 
 11. Välj **spara** att spara konfigurationen. 
 
-    ![Tjänsten Anslutningsövervakare testkonfigurationer](media/log-analytics-network-performance-monitor/service-endpoint-configuration.png)
+    ![Tjänsten Anslutningsövervakare testkonfigurationer](media/log-analytics-network-performance-monitor-service-endpoint/service-endpoint-configuration.png)
 
 
 
@@ -87,11 +87,11 @@ Börja skapa dina tester för att övervaka nätverksanslutningar till Tjänstes
 
 Gå till instrumentpanelsvyn för övervakning av nätverksprestanda. För att få en översikt över hälsotillståndet för de olika testerna som du har skapat kan du titta på den **Service Anslutningsövervakare** sidan. 
 
-![Tjänsten Anslutningsövervakare sidan](media/log-analytics-network-performance-monitor/service-endpoint-blade.png)
+![Tjänsten Anslutningsövervakare sidan](media/log-analytics-network-performance-monitor-service-endpoint/service-endpoint-blade.png)
 
 Markera panelen för att visa information om testerna på den **tester** sidan. Du kan visa hälsotillstånd för point-in-time och värdet av tjänstens svarstid, nätverkssvarstid och paketförlust för alla tester i tabellen till vänster. Använda nätverket tillstånd Recorder kontrollen för att visa nätverk ögonblicksbilden vid ett senare tillfälle i förflutna. Välj testet i tabellen som du vill undersöka. Du kan visa historiska trenden för den förlust och fördröjning svar tidsvärden i diagrammen i rutan till höger. Välj den **Test information** länken för att visa prestanda från varje nod.
 
-![Tester för tjänsten anslutning övervakning](media/log-analytics-network-performance-monitor/service-endpoint-tests.png)
+![Tester för tjänsten anslutning övervakning](media/log-analytics-network-performance-monitor-service-endpoint/service-endpoint-tests.png)
 
 I den **Testnoder** vy, kan du se nätverksanslutning från varje nod. Välj den nod som har försämrade prestanda. Det här är den nod där programmet observeras körs långsamt.
 
@@ -99,15 +99,15 @@ Avgöra om dålig programprestanda finns på grund av nätverket eller ett probl
 
 * **Problem med programmet:** en topp i svarstiden men konsekvens i Nätverksfördröjningen föreslår att nätverket fungerar bra och problemet kan bero på ett problem på slutet program. 
 
-    ![Tjänsten Anslutningsövervakare programproblem](media/log-analytics-network-performance-monitor/service-endpoint-application-issue.png)
+    ![Tjänsten Anslutningsövervakare programproblem](media/log-analytics-network-performance-monitor-service-endpoint/service-endpoint-application-issue.png)
 
 * **Network problemet:** en topp i svarstid som åtföljs av en motsvarande topp i Nätverksfördröjningen tyder på att ökningen av svarstiden kan bero på en ökning av Nätverksfördröjningen. 
 
-    ![Tjänsten Anslutningsövervakare nätverksproblem](media/log-analytics-network-performance-monitor/service-endpoint-network-issue.png)
+    ![Tjänsten Anslutningsövervakare nätverksproblem](media/log-analytics-network-performance-monitor-service-endpoint/service-endpoint-network-issue.png)
 
 När du har fastställt att problemet ligger på grund av nätverket, Välj den **topologi** visningslänk att identifiera problematiska hopp på topologisk karta. I följande bild visas ett exempel. Av den totala svarstiden 105 ms mellan noden och programslutpunkt beror 96 ms hopp markerat i rött. När du har identifierat det problematiska hoppet kan du vidta lämpliga åtgärder. 
 
-![Tester för tjänsten anslutning övervakning](media/log-analytics-network-performance-monitor/service-endpoint-topology.png)
+![Tester för tjänsten anslutning övervakning](media/log-analytics-network-performance-monitor-service-endpoint/service-endpoint-topology.png)
 
 ## <a name="diagnostics"></a>Diagnostik 
 

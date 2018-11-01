@@ -1,0 +1,96 @@
+---
+title: Planera din Avere vFXT system - Azure
+description: Beskriver planering innan du distribuerar Avere vFXT för Azure
+author: ekpgh
+ms.service: avere-vfxt
+ms.topic: conceptual
+ms.date: 10/31/2018
+ms.author: v-erkell
+ms.openlocfilehash: f0e5523565dc561ed457dbc340835ad1889cb876
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.translationtype: MT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50634484"
+---
+# <a name="plan-your-avere-vfxt-system"></a>Planera din Avere vFXT system
+
+Den här artikeln beskriver hur du planerar en ny Avere vFXT för Azure-kluster för att kontrollera att du skapar klustret är placerat och lämplig storlek för dina behov. 
+
+Överväg hur klustret kommer att interagera med andra element i Azure innan du gå till Azure Marketplace eller skapa virtuella datorer. Planera där klusterresurser ska finnas i ditt privata nätverk och undernät, och bestäm där backend-lagringen är. Se till att noderna i klustret som du skapar är kraftfullt nog för att stödja ditt arbetsflöde. 
+
+Fortsätt att läsa om du vill veta mer.
+
+## <a name="resource-group-and-network-infrastructure"></a>Resurs-grupp- och nätverksinfrastrukturen
+
+Överväg att där element i din Avere vFXT för Azure-distribution ska vara. Diagrammet nedan visar ett möjligt arrangemang för Avere vFXT för Azure-komponenter:
+
+![Diagram som visar klustret styrenhet och klustret virtuella datorer i ett undernät. Runt undernätet är gränsen en gräns för virtuellt nätverk. I det virtuella nätverket finns en sexhörning som representerar tjänsten lagringsslutpunkten; Det är kopplat till en streckad pil till en Blob-lagring utanför det virtuella nätverket.](media/avere-vfxt-components-option.png)
+
+Följ dessa riktlinjer när du planerar Avere vFXT systemets nätverksinfrastruktur:
+
+* Alla element ska hanteras med en ny prenumeration som skapats för Avere vFXT distributionen. Den här strategin förenklar Kostnadsuppföljning och rensa och hjälper även partition resurskvoter. Eftersom Avere vFXT används med ett stort antal klienter kan skyddar isolera-klienter och -kluster i en enda prenumeration andra kritiska arbetsbelastningar från möjliga resursbegränsning under klientetablering.
+
+* Hitta din beräkning klientsystem nära vFXT klustret. Backend-lagringen kan vara lägre.  
+
+* Leta upp vFXT klustret och kontrollanten kluster virtuell dator i samma virtuella nätverk (vnet) och i samma resursgrupp för enkelhetens skull. De bör också använda samma lagringskonto. 
+
+* Klustret måste finnas i ett eget undernät att undvika IP-adresskonflikter med klienter eller beräkningsresurser. 
+
+## <a name="ip-address-requirements"></a>IP-adresskraven 
+
+Se till att ditt kluster undernät har en tillräckligt stor för IP-adressintervall för klustret. 
+
+Avere vFXT klustret använder följande IP-adresser:
+
+* Ett kluster IP-adress för hantering. Den här adressen kan flytta från nod till nod i klustret, men alltid är tillgänglig så att du kan ansluta till konfigurationsverktyget Avere på Kontrollpanelen.
+* För varje nod i klustret:
+  * Minst en klientinriktade IP-adress. (Alla klientinriktade-adresser som hanteras av klustrets *vserver*, vilket kan du flytta dem mellan noder efter behov.)
+  * En IP-adress för klusterkommunikation
+  * En instans IP-adress (tilldelas den virtuella datorn)
+
+Om du använder Azure Blob storage måste kan det också kräva IP-adresser från ditt kluster vnet:  
+
+* Ett Azure Blob storage-konto kräver minst fem IP-adresser. Tänk på det här kravet om du hitta Blob-lagring i samma virtuella nätverk som klustret.
+* Om du använder Azure Blob-lagring som är utanför det virtuella nätverket för klustret, bör du skapa en slutpunkt för lagring i det virtuella nätverket. Den här slutpunkten använder inte en IP-adress.
+
+Du har möjlighet att söka efter nätverksresurser och Blob-lagring (om det används) i olika resursgrupper från klustret.
+
+## <a name="vfxt-node-sizes"></a>storleken på vFXT 
+
+De virtuella datorerna som fungerar som klusternoder fastställa begäran dataflöde och lagring kapaciteten för din cachelagring. Du kan välja mellan två instanstyper med olika minne, processor och lokala lagringen. 
+
+Varje vFXT nod ska vara identiska. Det vill säga om du skapar ett kluster med tre noder har tre virtuella datorer av samma typ och storlek. 
+
+| Instanstyp | vCPU:er | Minne  | Lokal SSD-lagring  | Maximalt antal datadiskar | Icke cachelagrat diskgenomflöde | Nätverkskort (antal) |
+| --- | --- | --- | --- | --- | --- | --- |
+| Standard_D16s_v3 | 16  | 64 giB  | 128 GiB  | 32 | 25,600 IOPS <br/> 384 Mbit/s | 8 000 Mbit/s (8) |
+| Standard_E32s_v3 | 32  | 256 GB | 512 GiB  | 32 | 51,200 IOPS <br/> 768 Mbit/s | 16 000 Mbit/s (8)  |
+
+Diskcache per nod kan konfigureras och kan rage från 1 000 GB till 8000 GB. 1 TB per nod är den rekommendera cachestorleken för Standard_D16s_v3 noder och 4 TB per nod som rekommenderas för Standard_E32s_v3 noder.
+
+Mer information om dessa virtuella datorer finns i följande dokument för Microsoft Azure:
+
+* [Storlekar för virtuella datorer för generell användning](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-general)
+* [Minnesoptimerade storlekar för virtuella datorer](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-memory)
+
+## <a name="account-quota"></a>Kontokvoten
+
+Se till att din prenumeration har kapacitet att köra Avere vFXT klustret samt eventuella databehandling eller klienten system som används. Läs [kvot för klustret vFXT](avere-vfxt-prereqs.md#quota-for-the-vfxt-cluster) mer information.
+
+## <a name="back-end-data-storage"></a>Backend-datalagring
+
+När det inte finns i cacheminnet arbetsminnet lagras i en ny blobbehållare eller i ett befintligt moln eller maskinvara lagringssystemet?
+
+Om du vill använda Azure Blob storage för backend-servern bör du skapa en ny behållare som en del av vFXT klustret skapas. Använd den ``create-cloud-backed-container`` distributionsskriptet och tillhandahålla lagringen som konto för den nya Blob-behållaren. Det här alternativet skapar och konfigurerar den nya behållaren så att det är klart att användas när klustret är klart. Läs [skapar noder och konfigurerar klustret](avere-vfxt-deploy.md#create-nodes-and-configure-the-cluster) mer information.
+
+> [!NOTE]
+> Endast tom Blob storage-behållare kan användas som core filter för Avere vFXT system. VFXT måste kunna hantera arkivet objekt utan att behöva spara befintlig data. 
+>
+> Läs [flytta data till klustret vFXT](avere-vfxt-data-ingest.md) och lär dig att kopiera data till klustrets ny behållare effektivt med hjälp av klientdatorer och Avere vFXT cache.
+
+Om du vill använda ett befintligt lokalt storage system du måste lägga till det vFXT klustret när den har skapats. Den ``create-minimal-cluster`` distributionsskriptet skapar ett vFXT-kluster med ingen backend-lagring. Läs [konfigurerar du lagring](avere-vfxt-add-storage.md) detaljerade anvisningar om hur du lägger till en befintlig lagringssystemet Avere vFXT klustret. 
+
+## <a name="next-step-understand-the-deployment-process"></a>Nästa steg: Förstå distributionsprocessen
+
+[Översikt över distribution](avere-vfxt-deploy-overview.md) ger en översikt över alla steg som behövs för att skapa en Avere vFXT för Azure-systemet och blir redo att hantera data.  

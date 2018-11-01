@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.topic: conceptual
 ms.date: 11/27/2017
 ROBOTS: NOINDEX
-ms.openlocfilehash: 371f8c1d69482381e3a400da6010825bc3ac7c1a
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: 2765021d80701826644f095d22c650160001e907
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43697789"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50414904"
 ---
 # <a name="develop-c-topologies-for-apache-storm-by-using-the-data-lake-tools-for-visual-studio"></a>Utveckla C#-topologier för Apache Storm med hjälp av Data Lake-verktyg för Visual Studio
 
@@ -57,7 +57,7 @@ Om du vill installera Data Lake tools för Visual Studio, följer du stegen i [k
 
 När du skickar en Storm-topologi från Visual Studio genererar SCP.NET en zip-fil som innehåller topologi och beroenden. Java används för att skapa dessa zip-filer eftersom den använder ett format som är mer kompatibel med Linux-baserade kluster.
 
-1. Installera Java Developer Kit (JDK) 7 eller senare på din utvecklingsmiljö. Du kan hämta Oracle JDK från [Oracle](http://www.oracle.com/technetwork/java/javase/downloads/index.html). Du kan också använda [andra Java-distributioner](http://openjdk.java.net/).
+1. Installera Java Developer Kit (JDK) 7 eller senare på din utvecklingsmiljö. Du kan hämta Oracle JDK från [Oracle](https://aka.ms/azure-jdks). Du kan också använda [andra Java-distributioner](http://openjdk.java.net/).
 
 2. Den `JAVA_HOME` miljövariabeln måste peka på katalogen som innehåller Java.
 
@@ -70,30 +70,30 @@ using System;
 using System.IO;
 namespace ConsoleApplication2
 {
-   class Program
-   {
-       static void Main(string[] args)
-       {
-           string javaHome = Environment.GetEnvironmentVariable("JAVA_HOME");
-           if (!string.IsNullOrEmpty(javaHome))
-           {
-               string jarExe = Path.Combine(javaHome + @"\bin", "jar.exe");
-               if (File.Exists(jarExe))
-               {
-                   Console.WriteLine("JAVA Is Installed properly");
-                    return;
-               }
-               else
-               {
-                   Console.WriteLine("A valid JAVA JDK is not found. Looks like JRE is installed instead of JDK.");
-               }
-           }
-           else
-           {
-             Console.WriteLine("A valid JAVA JDK is not found. JAVA_HOME environment variable is not set.");
-           }
-       }  
-   }
+   class Program
+   {
+       static void Main(string[] args)
+       {
+           string javaHome = Environment.GetEnvironmentVariable("JAVA_HOME");
+           if (!string.IsNullOrEmpty(javaHome))
+           {
+               string jarExe = Path.Combine(javaHome + @"\bin", "jar.exe");
+               if (File.Exists(jarExe))
+               {
+                   Console.WriteLine("JAVA Is Installed properly");
+                    return;
+               }
+               else
+               {
+                   Console.WriteLine("A valid JAVA JDK is not found. Looks like JRE is installed instead of JDK.");
+               }
+           }
+           else
+           {
+             Console.WriteLine("A valid JAVA JDK is not found. JAVA_HOME environment variable is not set.");
+           }
+       }  
+   }
 }
 ```
 
@@ -451,11 +451,11 @@ Du kan också använda Data Lake tools för Visual Studio för att skapa hybridt
 
 Ett exempel på en hybridtopologi, skapa ett projekt och välj **Storm Hybrid exempel**. Den här typen av exemplet visar följande begrepp:
 
-* **Java spout** och **C# bult**: definitionerna i **HybridTopology_javaSpout_csharpBolt**.
+* **Java spout** och  **C# bult**: definitionerna i **HybridTopology_javaSpout_csharpBolt**.
 
     * En transaktionell version har definierats i **HybridTopologyTx_javaSpout_csharpBolt**.
 
-* **C# spout** och **Java bult**: definitionerna i **HybridTopology_csharpSpout_javaBolt**.
+* **C#kanalen** och **Java bult**: definitionerna i **HybridTopology_csharpSpout_javaBolt**.
 
     * En transaktionell version har definierats i **HybridTopologyTx_csharpSpout_javaBolt**.
 

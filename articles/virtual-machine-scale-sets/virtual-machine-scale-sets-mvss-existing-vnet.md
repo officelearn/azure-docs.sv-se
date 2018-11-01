@@ -1,9 +1,9 @@
 ---
-title: Referera till ett befintligt virtuellt nätverk i en mall för Azure skala | Microsoft Docs
-description: Lär dig hur du lägger till ett virtuellt nätverk i en befintlig mall för Azure Virtual Machine Scale Set
+title: Referera till ett befintligt virtuellt nätverk i en Azure skalningsuppsättningsmall | Microsoft Docs
+description: Lär dig hur du lägger till ett virtuellt nätverk i en befintlig mall för Azure Virtual Machine Scale Sets
 services: virtual-machine-scale-sets
 documentationcenter: ''
-author: gatneil
+author: mayanknayar
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -14,23 +14,23 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 06/27/2017
-ms.author: negat
-ms.openlocfilehash: eb35975de5864e129f97b614a61487456dd972ef
-ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
+ms.author: manayar
+ms.openlocfilehash: 1dcb97a94bd5790edc2e40acf890bb47baec7a4b
+ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/20/2017
-ms.locfileid: "26782379"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50740101"
 ---
-# <a name="add-reference-to-an-existing-virtual-network-in-an-azure-scale-set-template"></a>Lägg till referens till ett befintligt virtuellt nätverk i en mall för Azure skala
+# <a name="add-reference-to-an-existing-virtual-network-in-an-azure-scale-set-template"></a>Lägg till referens till ett befintligt virtuellt nätverk i en mall för Azure skalningsuppsättningen
 
-Den här artikeln visar hur du ändrar den [lägsta lönsam skala ange mall](./virtual-machine-scale-sets-mvss-start.md) att distribuera till ett befintligt virtuellt nätverk i stället för att skapa en ny.
+Den här artikeln visar hur du ändrar den [minsta lönsamma skaluppsättningsmall](./virtual-machine-scale-sets-mvss-start.md) att distribuera till ett befintligt virtuellt nätverk istället för att skapa en ny.
 
 ## <a name="change-the-template-definition"></a>Ändra malldefinitionen
 
-Den lägsta lönsam skala mallen kan ses [här](https://raw.githubusercontent.com/gatneil/mvss/minimum-viable-scale-set/azuredeploy.json), och mallen för distribution av skalan i ett befintligt virtuellt nätverk kan ses [här](https://raw.githubusercontent.com/gatneil/mvss/existing-vnet/azuredeploy.json). Låt oss nu undersöka diff som används för att skapa den här mallen (`git diff minimum-viable-scale-set existing-vnet`) bit för bit:
+Den minsta lönsamma skalningsuppsättningsmall kan ses [här](https://raw.githubusercontent.com/gatneil/mvss/minimum-viable-scale-set/azuredeploy.json), och mallen för att distribuera skalningsuppsättningen till ett befintligt virtuellt nätverk kan ses [här](https://raw.githubusercontent.com/gatneil/mvss/existing-vnet/azuredeploy.json). Låt oss nu undersöka diff som används för att skapa den här mallen (`git diff minimum-viable-scale-set existing-vnet`) del för del:
 
-Lägg först till en `subnetId` parameter. Den här strängen skickas till skala ange konfiguration så att skaluppsättningen att identifiera om du vill distribuera virtuella datorer i förväg skapade undernätet. Strängen måste vara i formatet: `/subscriptions/<subscription-id>resourceGroups/<resource-group-name>/providers/Microsoft.Network/virtualNetworks/<virtual-network-name>/subnets/<subnet-name>`. Ange till exempel att distribuera skalan i ett befintligt virtuellt nätverk med namnet `myvnet`, undernät `mysubnet`, resursgrupp `myrg`, och prenumeration `00000000-0000-0000-0000-000000000000`, subnetId skulle vara: `/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myrg/providers/Microsoft.Network/virtualNetworks/myvnet/subnets/mysubnet`.
+Lägg först till en `subnetId` parametern. Den här strängen skickas till den konfiguration för skalningsuppsättningen, vilket gör att skaluppsättningen för att identifiera det undernät som har skapats i förväg för att distribuera virtuella datorer i. Den här strängen måste vara i formatet: `/subscriptions/<subscription-id>resourceGroups/<resource-group-name>/providers/Microsoft.Network/virtualNetworks/<virtual-network-name>/subnets/<subnet-name>`. Ange till exempel att distribuera skalan i ett befintligt virtuellt nätverk med namnet `myvnet`, undernät `mysubnet`, resursgrupp `myrg`, och prenumeration `00000000-0000-0000-0000-000000000000`, subnetId skulle bli: `/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myrg/providers/Microsoft.Network/virtualNetworks/myvnet/subnets/mysubnet`.
 
 ```diff
      },
@@ -43,7 +43,7 @@ Lägg först till en `subnetId` parameter. Den här strängen skickas till skala
    },
 ```
 
-Ta sedan bort den virtuella nätverksresursen från den `resources` matrisen när du använder ett befintligt virtuellt nätverk och behöver inte distribuera en ny.
+Ta sedan bort den virtuella nätverksresursen från den `resources` matris, när du använder ett befintligt virtuellt nätverk och behöver inte distribuera en ny.
 
 ```diff
    "variables": {},
@@ -71,7 +71,7 @@ Ta sedan bort den virtuella nätverksresursen från den `resources` matrisen nä
 -    },
 ```
 
-Det virtuella nätverket redan innan mallen har distribuerats, så inte behöver du ange en dependsOn-sats från skaluppsättningen till det virtuella nätverket. Ta bort följande rader:
+Det virtuella nätverket redan innan mallen har distribuerats, så du behöver inte ange en dependsOn-sats från skalningsuppsättningen till det virtuella nätverket. Ta bort följande rader:
 
 ```diff
      {
@@ -87,7 +87,7 @@ Det virtuella nätverket redan innan mallen har distribuerats, så inte behöver
          "capacity": 2
 ```
 
-Slutligen skicka in den `subnetId` parameter har angetts av användaren (istället för att använda `resourceId` för att hämta ID för ett vnet i samma distribution, vilket är vad den lägsta lönsam skalan ange mall har).
+Slutligen skickar in den `subnetId` parameter som anges av användaren (istället för att använda `resourceId` för att hämta ID för ett virtuellt nätverk i samma distribution, vilket är vad den minsta lönsamma skaluppsättningsmall har).
 
 ```diff
                        "name": "myIpConfig",

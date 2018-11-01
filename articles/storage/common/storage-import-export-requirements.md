@@ -9,10 +9,10 @@ ms.date: 10/15/2018
 ms.author: alkohli
 ms.component: common
 ms.openlocfilehash: 3a42f09967ec42b47947823025f2f0dcd081d1b1
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2018
+ms.lasthandoff: 10/31/2018
 ms.locfileid: "49352245"
 ---
 # <a name="azure-importexport-system-requirements"></a>Azure Import/Export-systemkrav
@@ -49,7 +49,7 @@ Mer information om lagringskonton finns i [Azure storage-konton översikt](stora
 Varje jobb kan användas för att överföra data till eller från endast en storage-konto. Med andra ord kan inte en enda import/export-jobbet omfatta över flera lagringskonton. Information om hur du skapar ett nytt lagringskonto finns i [hur du skapar ett Lagringskonto](storage-quickstart-create-account.md).
 
 > [!IMPORTANT] 
-> Azure Import Export-tjänsten stöder inte storage-konton där den [tjänstslutpunkter i virtuella nätverk](../../virtual-network/virtual-network-service-endpoints-overview.md) funktionen har aktiverats. 
+> Azure Import Export-tjänsten stöder inte storage-konton där den [tjänstslutpunkter i virtuella nätverk](../../virtual-network/virtual-network-service-endpoints-overview.md) funktionen har aktiverats. 
 
 ## <a name="supported-storage-types"></a>Lagringstyper som stöds
 

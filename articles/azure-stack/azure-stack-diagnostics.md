@@ -7,15 +7,15 @@ manager: femila
 cloud: azure-stack
 ms.service: azure-stack
 ms.topic: article
-ms.date: 09/27/2018
+ms.date: 10/31/2018
 ms.author: jeffgilb
 ms.reviewer: adshar
-ms.openlocfilehash: 5a9621ef9a8d6c545617e5bf3ef6f4197b70be88
-ms.sourcegitcommit: 3150596c9d4a53d3650cc9254c107871ae0aab88
+ms.openlocfilehash: 3dd3e3391cc2536f56a5e42610c09c85b4068234
+ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47419618"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50740561"
 ---
 # <a name="azure-stack-diagnostics-tools"></a>Verktyg för Azure Stack-diagnostik
 
@@ -86,32 +86,38 @@ if($s)
   Samla in alla loggar för alla roller:
 
   ```powershell
-  Get-AzureStackLog -OutputPath C:\AzureStackLogs
+  Get-AzureStackLog -OutputSharePath “<path>” -OutputShareCredential $cred
   ```
 
   Samla in loggar från virtuella datorer och BareMetal roller:
 
   ```powershell
-  Get-AzureStackLog -OutputPath C:\AzureStackLogs -FilterByRole VirtualMachines,BareMetal
+  Get-AzureStackLog -OutputSharePath “<path>” -OutputShareCredential $cred -FilterByRole VirtualMachines,BareMetal
   ```
 
   Samla in loggar från virtuella datorer och BareMetal, med Datumfiltrering för loggfiler för de senaste 8 timmarna:
     
   ```powershell
-  Get-AzureStackLog -OutputPath C:\AzureStackLogs -FilterByRole VirtualMachines,BareMetal -FromDate (Get-Date).AddHours(-8)
+  Get-AzureStackLog -OutputSharePath “<path>” -OutputShareCredential $cred -FilterByRole VirtualMachines,BareMetal -FromDate (Get-Date).AddHours(-8)
   ```
 
   Samla in loggar från virtuella datorer och BareMetal, med Datumfiltrering för loggfiler för tidsperioden mellan 8 timmar sedan och 2 timmar sedan:
 
   ```powershell
-  Get-AzureStackLog -OutputPath C:\AzureStackLogs -FilterByRole VirtualMachines,BareMetal -FromDate (Get-Date).AddHours(-8) -ToDate (Get-Date).AddHours(-2)
+  Get-AzureStackLog -OutputSharePath “<path>” -OutputShareCredential $cred -FilterByRole VirtualMachines,BareMetal -FromDate (Get-Date).AddHours(-8) -ToDate (Get-Date).AddHours(-2)
   ```
 
 ### <a name="parameter-considerations-for-both-asdk-and-integrated-systems"></a>Parametern överväganden för både ASDK och integrerade system
 
 - Om den **FromDate** och **ToDate** parametrar har angetts, loggar samlas in för de senaste fyra timmarna som standard.
-- Använd den **FilterByNode** parameter för att filtrera loggar efter datornamn. Exempel: ```Get-AzureStackLog -OutputPath <path> -FilterByNode azs-xrp01```
-- Använd den **FilterByLogType** parameter för att filtrera loggar av typen. Du kan välja att filtrera efter fil, resurs eller WindowsEvent. Exempel: ```Get-AzureStackLog -OutputPath <path> -FilterByLogType File```
+- Använd den **FilterByNode** parameter för att filtrera loggar efter datornamn. Exempel:
+```powershell
+Get-AzureStackLog -OutputSharePath “<path>” -OutputShareCredential $cred ` -FilterByNode azs-xrp01
+```
+- Använd den **FilterByLogType** parameter för att filtrera loggar av typen. Du kan välja att filtrera efter fil, resurs eller WindowsEvent. Exempel:
+```powershell
+Get-AzureStackLog -OutputSharePath “<path>” -OutputShareCredential $cred ` -FilterByLogType File
+```
 - Du kan använda den **TimeOutInMinutes** parametern ange tidsgränsen för Logginsamling. Den är inställd på 150 (2,5 timmar) som standard.
 - I version 1805 och senare, är Logginsamling för kraschdump-fil inaktiverad som standard. Aktivera det genom att använda den **IncludeDumpFile** växla parametern. 
 - För närvarande kan du kan använda den **FilterByRole** parameter för att filtrera Logginsamling av följande roller:
@@ -127,7 +133,7 @@ if($s)
  |ACSMigrationService|Domain|KeyVaultInternalDataPlane|SQL|
  |ACSMonitoringService|FN|KeyVaultNamingService|SRP|
  |ACSSettingsService|EventAdminRP|MDM|Storage|
- |ACSTableMaster|EventRP|MetricsAdminRP|StorageAccounts|
+ |ACSTableMaster|EventRP|MetricsAdminRP|storageAccounts|
  |ACSTableServer|ExternalDNS|MetricsRP|StorageController|
  |ACSWac|Fabric|MetricsServer|Klientorganisation|
  |ADFS|FabricRing|MetricsStoreService|TraceCollector|

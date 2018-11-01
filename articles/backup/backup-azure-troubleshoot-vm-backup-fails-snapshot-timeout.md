@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: troubleshooting
 ms.date: 10/30/2018
 ms.author: genli
-ms.openlocfilehash: 5c37e2e3cabb81ed123146f283c7d568cc58816d
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: 55e4195e2666aed371a5a5664b331184afcf5e36
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50242636"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50420973"
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Felsöka Azure Backup-fel: problem med agenten eller -tillägget
 
@@ -22,33 +22,60 @@ Den här artikeln innehåller åtgärder för felsökning som kan hjälpa dig at
 
 [!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
-## <a name="vm-agent-unable-to-communicate-with-azure-backup"></a>VM-agenten kunde inte kommunicera med Azure Backup
+## <a name="UserErrorGuestAgentStatusUnavailable-vm-agent-unable-to-communicate-with-azure-backup"></a>UserErrorGuestAgentStatusUnavailable - VM-agenten kunde inte kommunicera med Azure Backup
 
-Felmeddelande: ”VM-agenten kunde inte kommunicera med Azure Backup”<br>
-Felkod: ”UserErrorGuestAgentStatusUnavailable”
+**Felkod**: UserErrorGuestAgentStatusUnavailable <br>
+**Felmeddelande**: VM-agenten kunde inte kommunicera med Azure Backup<br>
 
-När du har registrerat och schemalägga en virtuell dator för Backup-tjänsten Initierar säkerhetskopiering jobbet genom att kommunicera med VM-agenten att ta en ögonblicksbild för point-in-time. Något av följande villkor kan förhindra att ögonblicksbilden utlöses. När en ögonblicksbild inte utlöses misslyckas säkerhetskopieringen. Slutför följande felsökningssteg i angiven ordning och försök igen:
-
+När du har registrerat och schemalägga en virtuell dator för Backup-tjänsten Initierar säkerhetskopiering jobbet genom att kommunicera med VM-agenten att ta en ögonblicksbild för point-in-time. Något av följande villkor kan förhindra att ögonblicksbilden utlöses. När en ögonblicksbild inte utlöses misslyckas säkerhetskopieringen. Slutför följande felsökningssteg i angiven ordning och försök igen:<br>
 **Orsak 1: [den virtuella datorn inte har tillgång till internet](#the-vm-has-no-internet-access)**  
 **Orsak 2: [agenten är installerad på den virtuella datorn, men det är inte svarar (för Windows virtuella datorer)](#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms)**    
 **Orsak 3: [agenten installerad på den virtuella datorn är för gammal (för virtuella Linux-datorer)](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms)**  
 **Orsak 4: [går inte att hämta den ögonblicksbild av statusen eller går inte att ta en ögonblicksbild](#the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken)**    
 **Orsak 5: [säkerhetskopieringstillägget inte går att uppdatera eller läsa in](#the-backup-extension-fails-to-update-or-load)**  
 
-## <a name="snapshot-operation-failed-due-to-no-network-connectivity-on-the-virtual-machine"></a>Ögonblicksbildsåtgärden misslyckas eftersom den virtuella datorn inte är ansluten till nätverket
+## <a name="guestagentsnapshottaskstatuserror---could-not-communicate-with-the-vm-agent-for-snapshot-status"></a>GuestAgentSnapshotTaskStatusError - kunde inte kommunicera med VM-agenten för ögonblicksbild av status
 
-Felmeddelande: ”ögonblicksbild-åtgärden misslyckades på grund av den virtuella datorn saknar nätverksanslutning”<br>
-Felkod: ”ExtensionSnapshotFailedNoNetwork”
+**Felkod**: GuestAgentSnapshotTaskStatusError<br>
+**Felmeddelande**: kunde inte kommunicera med VM-agenten för ögonblicksbild av status <br>
+
+När du har registrerat och schemalägga en virtuell dator för Azure Backup-tjänsten Initierar säkerhetskopiering jobbet genom att kommunicera med VM-tillägg att ta en ögonblicksbild i tidpunkt för säkerhetskopiering. Något av följande villkor kan förhindra att ögonblicksbilden utlöses. Om ögonblicksbilden inte utlöses, kan det uppstå en säkerhetskopieringen har misslyckats. Slutför följande felsökningssteg i angiven ordning och försök igen:  
+**Orsak 1: [agenten är installerad på den virtuella datorn, men det är inte svarar (för Windows virtuella datorer)](#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms)**  
+**Orsak 2: [agenten installerad på den virtuella datorn är för gammal (för virtuella Linux-datorer)](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms)**  
+**Orsak 3: [den virtuella datorn inte har tillgång till internet](#the-vm-has-no-internet-access)**
+
+## <a name="usererrorrpcollectionlimitreached---the-restore-point-collection-max-limit-has-reached"></a>UserErrorRpCollectionLimitReached - som har nått maxgränsen för återställningspunkt insamling
+
+**Felkod**: UserErrorRpCollectionLimitReached <br>
+**Felmeddelande**: har nått maxgränsen för insamling av en återställningspunkt. <br>
+Beskrivning:  
+* Det här problemet kan inträffa om det finns ett lås på recovery point resursgruppen förhindrar automatisk rensning av återställningspunkt.
+* Det här problemet kan också inträffa om flera säkerhetskopieringar utlöses per dag. För närvarande rekommenderar vi endast en säkerhetskopiering per dag som det ögonblick RPs bevaras i 7 dagar och bara 18 omedelbar RPs kan associeras med en virtuell dator vid en given tidpunkt. <br>
+
+Rekommenderad åtgärd:<br>
+Häv spärren för resursgruppen för att lösa problemet och försök igen för att utlösa rensningen.
+
+> [!NOTE]
+    > Backup-tjänsten skapar en separat resursgrupp än resursgruppen för den virtuella datorn att lagra samling med återställningspunkter. Kunder bör inte låsa resursgruppen som skapades för användning av Backup-tjänsten. Namnformatet för resursgruppen som skapades av Backup-tjänsten är: AzureBackupRG_`<Geo>`_`<number>` Tex: AzureBackupRG_northeurope_1
+
+
+**Steg 1: [bort låset från återställningspunkt resursgruppen grupp](#remove_lock_from_the_recovery_point_resource_group)** <br>
+**Steg 2: [Rensa samling med återställningspunkter](#clean_up_restore_point_collection)**<br>
+
+## <a name="ExtensionSnapshotFailedNoNetwork-snapshot-operation-failed-due-to-no-network-connectivity-on-the-virtual-machine"></a>ExtensionSnapshotFailedNoNetwork - ögonblicksbildsåtgärden misslyckades på grund av den virtuella datorn saknar nätverksanslutning
+
+**Felkod**: ExtensionSnapshotFailedNoNetwork<br>
+**Felmeddelande**: ögonblicksbild-åtgärden misslyckades på grund av den virtuella datorn saknar nätverksanslutning<br>
 
 När du har registrerat och schemalägga en virtuell dator för Azure Backup-tjänsten Initierar säkerhetskopiering jobbet genom att kommunicera med VM-tillägg att ta en ögonblicksbild i tidpunkt för säkerhetskopiering. Något av följande villkor kan förhindra att ögonblicksbilden utlöses. Om ögonblicksbilden inte utlöses, kan det uppstå en säkerhetskopieringen har misslyckats. Slutför följande felsökningssteg i angiven ordning och försök igen:    
 **Orsak 1: [den virtuella datorn inte har tillgång till internet](#the-vm-has-no-internet-access)**  
 **Orsak 2: [går inte att hämta den ögonblicksbild av statusen eller går inte att ta en ögonblicksbild](#the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken)**  
 **Orsak 3: [säkerhetskopieringstillägget inte går att uppdatera eller läsa in](#the-backup-extension-fails-to-update-or-load)**  
 
-## <a name="vmsnapshot-extension-operation-failed"></a>Vmsnapshot-tillägget misslyckas
+## <a name="ExtentionOperationFailed-vmsnapshot-extension-operation-failed"></a>ExtentionOperationFailed - vmsnapshot-tillägget misslyckades
 
-Felmeddelande: ”vmsnapshot-tillägget misslyckades”<br>
-Felkod: ”ExtentionOperationFailed”
+**Felkod**: ExtentionOperationFailed <br>
+**Felmeddelande**: Det gick inte att vmsnapshot-tillägget<br>
 
 När du har registrerat och schemalägga en virtuell dator för Azure Backup-tjänsten Initierar säkerhetskopiering jobbet genom att kommunicera med VM-tillägg att ta en ögonblicksbild i tidpunkt för säkerhetskopiering. Något av följande villkor kan förhindra att ögonblicksbilden utlöses. Om ögonblicksbilden inte utlöses, kan det uppstå en säkerhetskopieringen har misslyckats. Slutför följande felsökningssteg i angiven ordning och försök igen:  
 **Orsak 1: [går inte att hämta den ögonblicksbild av statusen eller går inte att ta en ögonblicksbild](#the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken)**  
@@ -56,20 +83,10 @@ När du har registrerat och schemalägga en virtuell dator för Azure Backup-tj�
 **Orsak 3: [agenten är installerad på den virtuella datorn, men det är inte svarar (för Windows virtuella datorer)](#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms)**  
 **Orsak 4: [agenten installerad på den virtuella datorn är för gammal (för virtuella Linux-datorer)](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms)**
 
-## <a name="backup-fails-because-the-vm-agent-is-unresponsive"></a>Det går inte att säkerhetskopiera eftersom VM-agenten inte svarar
+## <a name="backupoperationfailed--backupoperationfailedv2---backup-fails-with-an-internal-error"></a>BackUpOperationFailed / BackUpOperationFailedV2 - säkerhetskopieringen misslyckas med ett internt fel
 
-Felmeddelande: ”Det gick inte att kommunicera med VM-agenten för ögonblicksbild av status” <br>
-Felkod: ”GuestAgentSnapshotTaskStatusError”
-
-När du har registrerat och schemalägga en virtuell dator för Azure Backup-tjänsten Initierar säkerhetskopiering jobbet genom att kommunicera med VM-tillägg att ta en ögonblicksbild i tidpunkt för säkerhetskopiering. Något av följande villkor kan förhindra att ögonblicksbilden utlöses. Om ögonblicksbilden inte utlöses, kan det uppstå en säkerhetskopieringen har misslyckats. Slutför följande felsökningssteg i angiven ordning och försök igen:  
-**Orsak 1: [agenten är installerad på den virtuella datorn, men det är inte svarar (för Windows virtuella datorer)](#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms)**  
-**Orsak 2: [agenten installerad på den virtuella datorn är för gammal (för virtuella Linux-datorer)](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms)**  
-**Orsak 3: [den virtuella datorn inte har tillgång till internet](#the-vm-has-no-internet-access)**  
-
-## <a name="backup-fails-with-an-internal-error"></a>Säkerhetskopieringen misslyckas med ett internt fel
-
-Felmeddelande: ”Det gick inte att säkerhetskopiera med ett internt fel – försök igen om några minuter” <br>
-Felkod: ”BackUpOperationFailed” / ”BackUpOperationFailedV2”
+**Felkod**: BackUpOperationFailed / BackUpOperationFailedV2 <br>
+**Felmeddelande**: säkerhetskopieringen misslyckades med ett internt fel – försök igen om några minuter <br>
 
 När du har registrerat och schemalägga en virtuell dator för Azure Backup-tjänsten Initierar säkerhetskopiering jobbet genom att kommunicera med VM-tillägg att ta en ögonblicksbild i tidpunkt för säkerhetskopiering. Något av följande villkor kan förhindra att ögonblicksbilden utlöses. Om ögonblicksbilden inte utlöses, kan det uppstå en säkerhetskopieringen har misslyckats. Slutför följande felsökningssteg i angiven ordning och försök igen:  
 **Orsak 1: [den virtuella datorn inte har tillgång till internet](#the-vm-has-no-internet-access)**  
@@ -101,7 +118,7 @@ Lös problemet genom att prova någon av följande metoder:
 
 ##### <a name="allow-access-to-azure-storage-that-corresponds-to-the-region"></a>Tillåt åtkomst till Azure storage som motsvarar regionen
 
-Du kan använda [tjänsttaggar](../virtual-network/security-overview.md#service-tags) att tillåta anslutningar till lagring för den specifika regionen. Kontrollera att den regel som tillåter åtkomst till storage-kontot har högre prioritet än regeln som blockerar Internetåtkomst. 
+Du kan använda [tjänsttaggar](../virtual-network/security-overview.md#service-tags) att tillåta anslutningar till lagring för den specifika regionen. Kontrollera att den regel som tillåter åtkomst till storage-kontot har högre prioritet än regeln som blockerar Internetåtkomst.
 
 ![Nätverkssäkerhetsgruppen med storage-taggar för en region](./media/backup-azure-arm-vms-prepare/storage-tags-with-nsg.png)
 
@@ -112,7 +129,7 @@ För att förstå de steg för steg hur du konfigurerar tjänsttaggar, se [video
 
 Om du använder Azure Managed Disks kan behöva du ett inledande ytterligare porten (port 8443) i brandväggar.
 
-Om undernätet inte har en väg för utgående Internettrafik, måste du dessutom lägga till en slutpunkt med tjänsttagg ”Microsoft.Storage” i undernätet används. 
+Om undernätet inte har en väg för utgående Internettrafik, måste du dessutom lägga till en slutpunkt med tjänsttagg ”Microsoft.Storage” i undernätet används.
 
 ### <a name="the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms"></a>Agenten är installerad på den virtuella datorn, men det är inte svarar (för Windows virtuella datorer)
 
@@ -124,7 +141,7 @@ VM-agenten kan vara skadad eller tjänsten har stoppats. Installera om den Virtu
 4. Om Windows-Gästagenten visas i **program och funktioner**, avinstallera Windows-Gästagenten.
 5. Ladda ned och installera den [senaste versionen av agenten MSI](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). Du måste ha administratörsbehörighet för att slutföra installationen.
 6. Kontrollera att Windows-Gästagenten tjänster visas i services.
-7. Köra en säkerhetskopiering på begäran: 
+7. Köra en säkerhetskopiering på begäran:
     * I portalen, väljer **Säkerhetskopiera nu**.
 
 Kontrollera också att [Microsoft .NET 4.5 har installerats](https://docs.microsoft.com/dotnet/framework/migration-guide/how-to-determine-which-versions-are-installed) på den virtuella datorn. .NET 4.5 krävs för VM-agenten kan kommunicera med tjänsten.
@@ -185,28 +202,41 @@ Avinstallera tillägget:
 4. Välj **Vmsnapshot-tillägget**.
 5. Välj **avinstallera**.
 
-För Linux VM, om VMSnapshot-tillägget inte visas i Azure-portalen [uppdatera Azure Linux Agent](../virtual-machines/linux/update-agent.md), och sedan köra säkerhetskopieringen. 
+För Linux VM, om VMSnapshot-tillägget inte visas i Azure-portalen [uppdatera Azure Linux Agent](../virtual-machines/linux/update-agent.md), och sedan köra säkerhetskopieringen.
 
 Gör så här gör tillägget installeras under nästa säkerhetskopiering.
 
-### <a name="backup-service-does-not-have-permission-to-delete-the-old-restore-points-due-to-resource-group-lock"></a>Backup-tjänsten har inte behörighet att ta bort gamla återställningspunkter på grund av en grupp resurslås
-Det här problemet är specifikt för hanterade virtuella datorer där användaren låser resursgruppen. I det här fallet säkerhetskopieringstjänsten kan inte ta bort äldre återställningspunkter. Eftersom det finns en gräns på 18 återställningspunkter, börjar nya säkerhetskopior misslyckas.
+### <a name="remove_lock_from_the_recovery_point_resource_group"></a>Ta bort låset från recovery point resursgruppen.
+1. Logga in på [Azure Portal](http://portal.azure.com/).
+2. Gå till **alla resurser alternativet**, väljer du resursgruppen för återställningspunkt samling i formatet AzureBackupRG_<Geo>_<number>.
+3. I den **inställningar** väljer **Lås** att visa låsen.
+4. Om du vill ta bort låset, Välj ellipsen och klicka på **ta bort**.
 
-#### <a name="solution"></a>Lösning
+    ![Ta bort lås ](./media/backup-azure-arm-vms-prepare/delete-lock.png)
 
-Lös problemet genom att ta bort låset från resursgruppen och utför följande steg för att ta bort samlingen med återställningspunkter: 
- 
-1. Ta bort låset i resursgruppen där Virtuellt datorn finns. 
-2. Installera ARMClient med Chocolatey: <br>
-   https://github.com/projectkudu/ARMClient
-3. Logga in på ARMClient: <br>
-    `.\armclient.exe login`
-4. Hämta den samling med återställningspunkter som motsvarar den virtuella datorn: <br>
-    `.\armclient.exe get https://management.azure.com/subscriptions/<SubscriptionId>/resourceGroups/<ResourceGroupName>/providers/Microsoft.Compute/restorepointcollections/AzureBackup_<VM-Name>?api-version=2017-03-30`
+### <a name="clean_up_restore_point_collection"></a> Rensa samling med återställningspunkter
+När du tar bort låset har återställningspunkterna att rensas. Följ någon av metoderna för att rensa återställningspunkterna:<br>
+* [Rensa samling med återställningspunkter genom att köra ad hoc-säkerhetskopiering](#clean-up-restore-point-collection-by-running-ad-hoc-backup)<br>
+* [Rensa samling med återställningspunkter från portalen som skapats av backup-tjänsten](#clean-up-restore-point-collection-from-portal-created-by-backup-service)<br>
 
-    Exempel: `.\armclient.exe get https://management.azure.com/subscriptions/f2edfd5d-5496-4683-b94f-b3588c579006/resourceGroups/winvaultrg/providers/Microsoft.Compute/restorepointcollections/AzureBackup_winmanagedvm?api-version=2017-03-30`
-5. Ta bort samlingen med återställningspunkter: <br>
-    `.\armclient.exe delete https://management.azure.com/subscriptions/<SubscriptionId>/resourceGroups/<ResourceGroupName>/providers/Microsoft.Compute/restorepointcollections/AzureBackup_<VM-Name>?api-version=2017-03-30` 
-6. Nästa schemalagda säkerhetskopiering skapar automatiskt en samling med återställningspunkter och nya återställningspunkter.
+#### <a name="clean-up-restore-point-collection-by-running-ad-hoc-backup"></a>Rensa samling med återställningspunkter genom att köra ad hoc-säkerhetskopiering
+När du tar bort låset kan utlösa en manuell-ad-hoc-säkerhetskopiering. Detta säkerställer att återställningspunkterna automatiskt rensas. Förvänta dig den här ad-hoc/manuell åtgärd misslyckas första gången. men säkerställer det att automatisk rensning i stället för manuell borttagning av återställningspunkter. När rensningen ska nästa schemalagda säkerhetskopiering lyckas.
 
-När du har gjort, kan du igen lägga tillbaka låset på resursgrupp för virtuell dator. 
+> [!NOTE]
+    > Automatisk rensning sker efter några timmars aktiverar manuell-ad-hoc-säkerhetskopiering. Om din schemalagd säkerhetskopiering fortfarande misslyckas kommer försök att manuellt ta bort den samling med återställningspunkter med hjälp av stegen visas [här](#clean-up-restore-point-collection-from-portal-created-by-backup-service).
+
+#### <a name="clean-up-restore-point-collection-from-portal-created-by-backup-service"></a>Rensa samling med återställningspunkter från portalen som skapats av backup-tjänsten<br>
+
+För att manuellt ta bort återställningen pekar du samlingen som inte tas bort på grund av låset på resursgruppen och följande steg:
+1. Logga in på [Azure Portal](http://portal.azure.com/).
+2. På den **Hub** -menyn klickar du på **alla resurser**, väljer du resursgruppen med formatet AzureBackupRG_`<Geo>`_`<number>` där den virtuella datorn finns.
+
+    ![Ta bort lås ](./media/backup-azure-arm-vms-prepare/resource-group.png)
+
+3. Klicka på resursgruppen, den **översikt** bladet visas.
+4. Välj **Visa dolda typer** alternativet för att visa alla dolda resurser. Välj återställningspunkt samlingar med formatet AzureBackupRG_`<VMName>`_`<number>`.
+
+    ![Ta bort lås ](./media/backup-azure-arm-vms-prepare/restore-point-collection.png)
+
+5. Klicka på **ta bort**, för att rensa samlingen med återställningspunkter.
+6. Försök att säkerhetskopiera igen.

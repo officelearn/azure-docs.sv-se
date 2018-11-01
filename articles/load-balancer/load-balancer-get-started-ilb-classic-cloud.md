@@ -1,27 +1,24 @@
 ---
-title: Skapa en intern belastningsutjämnare för Azure Cloud Services | Microsoft Docs
-description: Lär dig hur du skapar en intern belastningsutjämnare med hjälp av PowerShell i den klassiska distributionsmodellen
+title: Skapa en intern lastbalanserare för Azure Cloud Services | Microsoft Docs
+description: Lär dig hur du skapar en intern lastbalanserare med hjälp av PowerShell i den klassiska distributionsmodellen
 services: load-balancer
 documentationcenter: na
 author: genlin
-manager: cshepard
-tags: azure-service-management
-ms.assetid: 57966056-0f46-4f95-a295-483ca1ad135d
 ms.service: load-balancer
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/23/2017
 ms.author: genli
-ms.openlocfilehash: 96a7c5b21d78dcc84a32fbfc8835542d64a5d7af
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
-ms.translationtype: HT
+ms.openlocfilehash: fb543e705c613ee1e69564e391080cf5f8357ba5
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/11/2018
-ms.locfileid: "34067766"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50417386"
 ---
-# <a name="get-started-creating-an-internal-load-balancer-classic-for-cloud-services"></a>Komma igång med att skapa en intern belastningsutjämnare (klassisk) för molntjänster
+# <a name="get-started-creating-an-internal-load-balancer-classic-for-cloud-services"></a>Komma igång med att skapa en intern lastbalanserare (klassisk) för molntjänster
 
 > [!div class="op_single_selector"]
 > * [PowerShell](../load-balancer/load-balancer-get-started-ilb-classic-ps.md)
@@ -31,11 +28,11 @@ ms.locfileid: "34067766"
 > [!IMPORTANT]
 > Azure har två olika distributionsmodeller för att skapa och arbeta med resurser: [Resource Manager och klassisk](../azure-resource-manager/resource-manager-deployment-model.md).  Den här artikeln beskriver den klassiska distributionsmodellen. Microsoft rekommenderar att de flesta nya distributioner använder Resource Manager-modellen. Lär dig hur du [utför dessa steg med hjälp av Resource Manager-modellen](load-balancer-get-started-ilb-arm-ps.md).
 
-## <a name="configure-internal-load-balancer-for-cloud-services"></a>Konfigurera en intern belastningsutjämnare för molntjänster
+## <a name="configure-internal-load-balancer-for-cloud-services"></a>Konfigurera en intern lastbalanserare för molntjänster
 
-Interna belastningsutjämnare stöds för både virtuella datorer och molntjänster. Slutpunkten för en intern belastningsutjämnare som skapas i en molntjänst som finns utanför ett regionalt virtuellt nätverk kan endast nås i molntjänsten.
+Interna lastbalanserare stöds för både virtuella datorer och molntjänster. Slutpunkten för en intern lastbalanserare som skapas i en molntjänst som finns utanför ett regionalt virtuellt nätverk kan endast nås i molntjänsten.
 
-Du måste konfigurera interna belastningsutjämnare när du skapar den första distributionen i molntjänsten, som du ser i exemplet nedan.
+Du måste konfigurera interna lastbalanserare när du skapar den första distributionen i molntjänsten, som du ser i exemplet nedan.
 
 > [!IMPORTANT]
 > Innan du kör stegen nedan måste du ha ett virtuellt nätverk för molndistributionen. Du behöver namnet på det virtuella nätverket och undernätet för att kunna skapa den interna belastningsutjämningen.
@@ -54,7 +51,7 @@ Du måste konfigurera interna belastningsutjämnare när du skapar den första d
 </NetworkConfiguration>
 ```
 
-Nu ska vi lägga till värdena för nätverkskonfigurationsfilen så att du ser hur det ser ut. I det här exemplet antar vi att du har skapat ett VNet med namnet ”test_vnet” och undernätet 10.0.0.0/24 med namnet test_subnet och den statiska IP-adressen 10.0.0.4. Belastningsutjämnaren ges namnet testLB.
+Nu ska vi lägga till värdena för nätverkskonfigurationsfilen så att du ser hur det ser ut. I det här exemplet antar vi att du har skapat ett VNet med namnet ”test_vnet” och undernätet 10.0.0.0/24 med namnet test_subnet och den statiska IP-adressen 10.0.0.4. Lastbalanseraren ges namnet testLB.
 
 ```xml
 <NetworkConfiguration>
@@ -66,7 +63,7 @@ Nu ska vi lägga till värdena för nätverkskonfigurationsfilen så att du ser 
 </NetworkConfiguration>
 ```
 
-Mer information om belastningsutjämningsschemat finns i [Add load balancer](https://msdn.microsoft.com/library/azure/dn722411.aspx) (Lägga till en belastningsutjämnare).
+Mer information om lastbalanseringsschemat finns i [Add load balancer](https://msdn.microsoft.com/library/azure/dn722411.aspx) (Lägga till en lastbalanserare).
 
 ### <a name="step-2"></a>Steg 2
 
@@ -90,11 +87,11 @@ Vi använder värdena i exemplet ovan och lägger till dem i tjänstdefinitionsf
 </WorkerRole>
 ```
 
-Nätverkstrafiken kommer att belastningsutjämnas med belastningsutjämnaren testLB. Port 80 används för inkommande förfrågningar och samma port används för att skicka trafik till arbetsrollinstanser.
+Nätverkstrafiken kommer att lastbalanseras med lastbalanseraren testLB. Port 80 används för inkommande förfrågningar och samma port används för att skicka trafik till arbetsrollinstanser.
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Konfigurera ett distributionsläge för belastningsutjämnare med hjälp av käll-IP-tilldelning](load-balancer-distribution-mode.md)
+[Konfigurera ett distributionsläge för lastbalanserare med hjälp av käll-IP-tilldelning](load-balancer-distribution-mode.md)
 
-[Konfigurera timeout-inställningar för inaktiv TCP för en belastningsutjämnare](load-balancer-tcp-idle-timeout.md)
+[Konfigurera timeout-inställningar för inaktiv TCP för en lastbalanserare](load-balancer-tcp-idle-timeout.md)
 

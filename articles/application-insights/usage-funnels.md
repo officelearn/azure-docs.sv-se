@@ -14,12 +14,12 @@ ms.date: 07/17/2017
 ms.pm_owner: daviste;NumberByColors
 ms.reviewer: mbullwin
 ms.author: daviste
-ms.openlocfilehash: 2233fc1068891ec63dacaf5871eef7957c3ac7dc
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.openlocfilehash: 3d4d6ba7e185b1cc5fdcee1633a11e579d8194e8
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50139881"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50413972"
 ---
 # <a name="discover-how-customers-are-using-your-application-with-application-insights-funnels"></a>Upptäck hur kunder använder ditt program med Application Insights Trattar
 
@@ -40,7 +40,7 @@ Här är de steg som de vidta för att skapa sina tratten.
 Följande skärmbild visar ett exempel på vilken typ av data tratt-verktyget genererar. Fabrikam-ägare kan se att under de senaste 90 dagarna, 54.3 procent av sina kunder som har gjort Besök startsidan skapas en kund-biljett. De kan också se att 2,700 kundernas Kom till indexet på startsidan. Detta kan indikera ett problem med uppdateringen.
 
 
-![Skärmbild av tratt-verktyget med data](./media/app-insights-understand-usage-patterns/funnel1.png)
+![Skärmbild av tratt-verktyget med data](media/usage-funnels/funnel1.png)
 
 ### <a name="funnels-features"></a>Trattar funktioner
 Föregående skärmbild innehåller fem markerade områden. Det här är funktionerna i Trattar. I följande lista innehåller mer information om varje motsvarande område i skärmbilden:

@@ -4,16 +4,16 @@ description: Använd en simulerad TPM på en Linux VM för att testa enhetsetabl
 author: kgremban
 manager: timlt
 ms.author: kgremban
-ms.date: 06/27/2018
+ms.date: 10/31/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 2416d70e3c9d0f66ff755d8049e78e0275c89258
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: 6d0d2adfb4a727ec93db6d44e6a3e8f923760b91
+ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50232077"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50739676"
 ---
 # <a name="create-and-provision-an-edge-device-with-a-virtual-tpm-on-a-linux-virtual-machine"></a>Skapa och etablera en Edge-enhet med en virtuell TPM på en Linux-dator
 
@@ -63,7 +63,7 @@ Om du får felmeddelanden när du skapar den nya virtuella växeln, kontrollerar
 
    1. **Ange Generation**: Välj **Generation 2**.
    2. **Konfigurera nätverk**: Ange värdet för **anslutning** till den virtuella växeln som du skapade i föregående avsnitt. 
-   3. **Installationen Oprtions**: Välj **installera ett operativsystem från en startbar avbildningsfil** och bläddra till disk image-filen som du sparade lokalt.
+   3. **Installationsalternativ**: Välj **installera ett operativsystem från en startbar avbildningsfil** och bläddra till disk image-filen som du sparade lokalt.
 
 Det kan ta en vy minuter att skapa den nya virtuella datorn. 
 
@@ -180,7 +180,7 @@ Använd följande steg för att ge åtkomst till TPM. Du kan också, göra samma
    Lyckad utdata ser ut så här:
 
    ```output
-   crw------- 1 root root 10, 224 Jun 28 22:34 /dev/tpm0
+   crw------- 1 root iotedge 10, 224 Jul 20 16:27 /dev/tpm0
    ```
 
 8. Öppna IoT Edge-körningen åsidosätter fil. 

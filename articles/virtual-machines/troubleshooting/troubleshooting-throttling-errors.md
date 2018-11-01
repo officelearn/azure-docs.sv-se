@@ -13,12 +13,12 @@ ms.topic: troubleshooting
 ms.workload: infrastructure-services
 ms.date: 09/18/2018
 ms.author: vashan, rajraj, changov
-ms.openlocfilehash: b951d0b8d91729340cf382e70f72511fb009053e
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: 15a4ff73476ce54f0617a88e040ac64d7288e9a8
+ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49386560"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50741121"
 ---
 # <a name="troubleshooting-api-throttling-errors"></a>Felsökning av API-begränsningsfel 
 
@@ -76,6 +76,18 @@ Content-Type: application/json; charset=utf-8
 Principen med återstående antalet anrop 0 är den på grund av som begränsning felet returneras. I det här fallet är `HighCostGet30Min`. Övergripande formatet för svarstexten är allmänna Azure Resource Manager API fel format (kompatibel med OData). Den huvudsakliga felkoden `OperationNotAllowed`, är det Compute-Resursprovidern använder för att rapportera begränsningsfel (bland andra typer av klientfel). Den `message` egenskapen för den inre fel innehåller en serialiserade JSON-struktur med information om bandbreddsbegränsning överträdelsen.
 
 Enligt beskrivningen ovan, varje begränsning fel innehåller den `Retry-After` rubriken, som innehåller det minsta antalet sekunder som klienten ska vänta innan en ny begäran. 
+
+## <a name="api-call-rate-and-throttling-error-analyzer"></a>API-anrop pris och begränsning fel analyzer
+Det finns en förhandsversion av en felsökningsfunktion för Compute-resursprovidern API. Dessa PowerShell-cmdletar tillhandahåller statistik om API-begäran-pris per tidsintervall per åtgärd och begränsning överträdelser per åtgärd-grupp (principen):
+-   [Export-AzureRmLogAnalyticRequestRateByInterval](https://docs.microsoft.com/powershell/module/azurerm.compute/export-azurermloganalyticrequestratebyinterval)
+-   [Export-AzureRmLogAnalyticThrottledRequests](https://docs.microsoft.com/powershell/module/azurerm.compute/export-azurermloganalyticthrottledrequests)
+
+Statistik för API-anrop kan ge bra insikter om beteendet för en prenumeration klienterna och aktivera enkel identifiering av anropet mönster som kan orsakar att begränsningar.
+
+En begränsning av analyzer för tillfället är att inte räknas begäranden för disk- och ögonblicksbild resurstyper (stöd för hanterade diskar). Eftersom den samlar in data från CRPS telemetri den också inte hjälpa dig att identifiera begränsningsfel från ARM. Men de kan identifieras enkelt baserat på de olika ARM-svarshuvuden som beskrivits tidigare.
+
+PowerShell-cmdletar använder ett REST-API, som enkelt kan anropas direkt av klienter (även om med inga formella stöd för ännu). Om du vill se format för HTTP-förfrågan, kör du cmdlets med - felsökning eller snoop på sina körning med Fiddler.
+
 
 ## <a name="best-practices"></a>Bästa praxis 
 

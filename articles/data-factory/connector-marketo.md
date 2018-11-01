@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/15/2018
+ms.date: 10/31/2018
 ms.author: jingwang
-ms.openlocfilehash: efbc020f482a46621eb5c3e3cd6137d1114da6de
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: 02d21db5c5fadb65ec63e41cbd9e2db8869ed2e7
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46129615"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50415839"
 ---
 # <a name="copy-data-from-marketo-using-azure-data-factory-preview"></a>Kopiera data från Marketo med Azure Data Factory (förhandsversion)
 
@@ -32,6 +32,9 @@ Den här artikeln beskrivs hur du använder Kopieringsaktivitet i Azure Data Fac
 Du kan kopiera data från Marketo till alla datalager för mottagare som stöds. En lista över datalager som stöds som källor/mottagare av Kopieringsaktivitet finns i den [datalager som stöds](copy-activity-overview.md#supported-data-stores-and-formats) tabell.
 
 Azure Data Factory tillhandahåller en inbyggd drivrutin för att aktivera anslutning, måste du därför inte att manuellt installera en drivrutin som använder den här anslutningen.
+
+>[!NOTE]
+>Den här Marketo-kopplingen är byggt på Marketo REST API. Tänk på att Marketo har [samtidiga begäranden överskridits](http://developers.marketo.com/rest-api/) på serversidan. Om du stöter på fel som säger ”fel vid försök att använda REST-API: högsta hastighet har överskridits” 100 ”med” 20 ”sekunder (606)” eller ”fel vid försök att använda REST-API: samtidig åtkomst” 10 ”gränsen (615)”, Överväg för att minska aktivitetskörningar samtidiga kopia till minska antalet begäranden till tjänsten.
 
 ## <a name="getting-started"></a>Komma igång
 

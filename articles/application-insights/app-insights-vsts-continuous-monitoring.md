@@ -9,12 +9,12 @@ ms.date: 11/13/2017
 ms.service: application-insights
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: ecda8621640223f1c27f32834f2e4a098da4aba6
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: 75401614b6892402083af5192b691f00d82c8d05
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44301640"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50413629"
 ---
 # <a name="add-continuous-monitoring-to-your-release-pipeline"></a>Lägg till kontinuerlig övervakning i din releasepipeline
 
@@ -28,13 +28,13 @@ Azure DevOps-tjänster har nu stöd för kontinuerlig övervakning innebär att 
 
 2. Hovra över **Build and Release** > Välj **versioner** > klickar du på den **plustecknet** > **skapa versionsdefinition** > Sök efter **övervakning** > **Azure App Service-distribution med kontinuerlig övervakning.**
 
-   ![Nya Releasepipeline för Azure DevOps-tjänster](.\media\app-insights-continuous-monitoring\001.png)
+   ![Nya Releasepipeline för Azure DevOps-tjänster](media/app-insights-vsts-continuous-monitoring/001.png)
 
 3. Klicka på **gäller.**
 
 4. Bredvid rött utropstecken markerar du texten i blått till **visa miljöuppgifter.**
 
-   ![Visa miljöuppgifter](.\media\app-insights-continuous-monitoring\002.png)
+   ![Visa miljöuppgifter](media/app-insights-vsts-continuous-monitoring/002.png)
 
    En konfigurationsruta visas, Använd följande tabell för att fylla i indatafälten.
 
@@ -60,7 +60,7 @@ Azure DevOps-tjänster har nu stöd för kontinuerlig övervakning innebär att 
 
 3. Ändra tillgängligheten **tröskelvärdet** att uppfylla behoven för tjänsten.
 
-   ![Ändra varning](.\media\app-insights-continuous-monitoring\003.png)
+   ![Ändra varning](media/app-insights-vsts-continuous-monitoring/003.png)
 
 4. Välj **OK** > **spara** > Ange en kommentar > Klicka på **OK.**
 
@@ -68,13 +68,13 @@ Azure DevOps-tjänster har nu stöd för kontinuerlig övervakning innebär att 
 
 1. Klicka på **Pipeline** > Välj den **Pre** eller **efter distributionen villkor** beroende på scenen som kräver en kontinuerlig övervakning gate.
 
-   ![Före villkor](.\media\app-insights-continuous-monitoring\004.png)
+   ![Före villkor](media/app-insights-vsts-continuous-monitoring/004.png)
 
 2. Ange **Gates** till **aktiverad** > **godkännande gates**> Klicka på **Lägg till.**
 
 3. Välj **Azure Monitor** (det här alternativet ger dig möjlighet att åtkomst aviseringar både från Azure Monitor och Application Insights)
 
-    ![Azure Monitor](.\media\app-insights-continuous-monitoring\005.png)
+    ![Azure Monitor](media/app-insights-vsts-continuous-monitoring/005.png)
 
 4. Ange en **Gates timeout** värde.
 
@@ -86,7 +86,7 @@ När du lägger till distribution gates skyddar en avisering i Application Insig
 
 Om du vill se det här beteendet, Välj **versioner** > Högerklicka på versionen namn **öppna** > **loggar.**
 
-![Logs](.\media\app-insights-continuous-monitoring\006.png)
+![Logs](media/app-insights-vsts-continuous-monitoring/006.png)
 
 ## <a name="next-steps"></a>Nästa steg
 

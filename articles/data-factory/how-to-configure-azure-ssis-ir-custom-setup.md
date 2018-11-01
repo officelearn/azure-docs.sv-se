@@ -8,17 +8,17 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/28/2018
+ms.date: 10/31/2018
 author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
-ms.openlocfilehash: 3ba3e6036821323146f00cf9c255b70606771aed
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: 2edaea1cfb02b250b27c47d58b6c1d1ef6501480
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50241165"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50420276"
 ---
 # <a name="customize-setup-for-the-azure-ssis-integration-runtime"></a>Anpassa installationsprogrammet för Azure-SSIS integration runtime
 
@@ -98,7 +98,7 @@ För att anpassa din Azure-SSIS IR, behöver du följande:
 
        ![Kopiera och spara signatur för delad åtkomst](media/how-to-configure-azure-ssis-ir-custom-setup/custom-setup-image8.png)
 
-    1.  När du etablera eller konfigurera om din Azure-SSIS IR med Användargränssnittet för Data Factory innan du börjar din Azure-SSIS IR anger du SAS-URI för dina behållare i lämpliga fält:
+    1.  När du etablerar eller konfigurera om din Azure-SSIS IR med Användargränssnittet för Data Factory innan du börjar din Azure-SSIS IR, ange din behållare i fältet lämplig SAS-URI på **avancerade inställningar** panelen:
 
        ![Ange Signatur för delad åtkomst](media/tutorial-create-azure-ssis-runtime-portal/advanced-settings.png)
 
@@ -141,6 +141,8 @@ För att anpassa din Azure-SSIS IR, behöver du följande:
 
        1. En `.NET FRAMEWORK 3.5` mappen som innehåller en anpassad installation om du vill installera en tidigare version av .NET Framework som kan krävas för anpassade komponenter på varje nod i din Azure-SSIS IR.
 
+       1. En `AAS` mappen som innehåller en anpassad installation om du vill installera klientbibliotek på varje nod i din Azure-SSIS IR som gör att dina Analysis Services-aktiviteter att ansluta till Azure Analysis Services (AAS)-instans med autentisering av tjänstens huvudnamn. Först laddar du ned senast **MSOLAP (amd64)** och **AMO** klienten bibliotek/Windows installationsprogram – till exempel `x64_15.0.900.108_SQL_AS_OLEDB.msi` och `x64_15.0.900.108_SQL_AS_AMO.msi` – från [här](https://docs.microsoft.com/en-us/azure/analysis-services/analysis-services-data-providers), sedan ladda upp dem alla tillsammans med `main.cmd` i din behållare.  
+
        1. En `BCP` mappen som innehåller en anpassad installation för att installera SQL Server kommandoradsverktyg (`MsSqlCmdLnUtils.msi`), inklusive program bulk copy program (`bcp`), på varje nod i din Azure-SSIS IR.
 
        1. En `EXCEL` mappen som innehåller en anpassad installation för att installera open source-sammansättningar (`DocumentFormat.OpenXml.dll`, `ExcelDataReader.DataSet.dll`, och `ExcelDataReader.dll`) på varje nod i din Azure-SSIS IR.
@@ -155,7 +157,7 @@ För att anpassa din Azure-SSIS IR, behöver du följande:
 
        1. En `STORAGE` mappen som innehåller en anpassad installation för att installera Azure PowerShell på varje nod i din Azure-SSIS IR. Den här konfigurationen kan du distribuera och köra SSIS-paket som kör [PowerShell-skript för att ändra ditt Azure Storage-konto](https://docs.microsoft.com/azure/storage/blobs/storage-how-to-use-blobs-powershell). Kopiera `main.cmd`, ett exempel `AzurePowerShell.msi` (eller installera den senaste versionen) och `storage.ps1` till behållaren. Använd PowerShell.dtsx som en mall för dina paket. Mallen paketet kombinerar en [Azure Blob hämta uppgift](https://docs.microsoft.com/sql/integration-services/control-flow/azure-blob-download-task), vilka nedladdningar `storage.ps1` som en ändringsbar PowerShell-skript och en [köra processaktiviteten](https://blogs.msdn.microsoft.com/ssis/2017/01/26/run-powershell-scripts-in-ssis/) som körs skriptet på varje nod.
 
-       1. En `TERADATA` mappen som innehåller en anpassad installationsskriptet (`main.cmd)`, dess associerade filen (`install.cmd`), och installationspaket (`.msi`). De här filerna installera Teradata kopplingar, TPT-API och ODBC-drivrutinen på varje nod i din Azure-SSIS IR Enterprise Edition. Den här konfigurationen kan du använda Anslutningshanteraren för Teradata, källa och mål. Först laddar du ned den 15.x Teradata-verktyg och hjälpmedel (TTU) zip-filen (till exempel `TeradataToolsAndUtilitiesBase__windows_indep.15.10.22.00.zip`) från [Teradata](http://partnerintelligence.teradata.com), och sedan ladda upp den tillsammans med ovanstående `.cmd` och `.msi` filer i behållaren.
+       1. En `TERADATA` mappen som innehåller en anpassad installationsskriptet (`main.cmd`), dess associerade filen (`install.cmd`), och installationspaket (`.msi`). De här filerna installera Teradata kopplingar, TPT-API och ODBC-drivrutinen på varje nod i din Azure-SSIS IR Enterprise Edition. Den här konfigurationen kan du använda Anslutningshanteraren för Teradata, källa och mål. Först laddar du ned den 15.x Teradata-verktyg och hjälpmedel (TTU) zip-filen (till exempel `TeradataToolsAndUtilitiesBase__windows_indep.15.10.22.00.zip`) från [Teradata](http://partnerintelligence.teradata.com), och sedan ladda upp den tillsammans med ovanstående `.cmd` och `.msi` filer i behållaren.
 
     ![Mappar i mappen scenarier](media/how-to-configure-azure-ssis-ir-custom-setup/custom-setup-image12.png)
 

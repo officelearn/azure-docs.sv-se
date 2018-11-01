@@ -1,28 +1,24 @@
 ---
-title: Skapa en intern Azure-belastningsutjämnare – klassiska PowerShell | Microsoft Docs
-description: Lär dig hur du skapar en intern belastningsutjämnare med hjälp av PowerShell i den klassiska distributionsmodellen
+title: Skapa en intern Azure-lastbalanserare – klassiska PowerShell | Microsoft Docs
+description: Lär dig hur du skapar en intern lastbalanserare med hjälp av PowerShell i den klassiska distributionsmodellen
 services: load-balancer
 documentationcenter: na
 author: genlin
-manager: cshepard
-editor: ''
-tags: azure-service-management
-ms.assetid: 3be93168-3787-45a5-a194-9124fe386493
 ms.service: load-balancer
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/23/2017
 ms.author: genli
-ms.openlocfilehash: 8b896705d90b51c056172c285a00dabeed54ebf2
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
-ms.translationtype: HT
+ms.openlocfilehash: f8a24a12521d678cee0e255677881760828d1e1f
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38697142"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50414717"
 ---
-# <a name="get-started-creating-an-internal-load-balancer-classic-using-powershell"></a>Komma igång med att skapa en intern belastningsutjämnare (klassisk) med hjälp av PowerShell
+# <a name="get-started-creating-an-internal-load-balancer-classic-using-powershell"></a>Komma igång med att skapa en intern lastbalanserare (klassisk) med hjälp av PowerShell
 
 > [!div class="op_single_selector"]
 > * [PowerShell](../load-balancer/load-balancer-get-started-ilb-classic-ps.md)
@@ -38,9 +34,9 @@ ms.locfileid: "38697142"
 
 [!INCLUDE [azure-ps-prerequisites-include.md](../../includes/azure-ps-prerequisites-include.md)]
 
-## <a name="create-an-internal-load-balancer-set-for-virtual-machines"></a>Skapa en intern belastningsutjämningsuppsättning för virtuella datorer
+## <a name="create-an-internal-load-balancer-set-for-virtual-machines"></a>Skapa en intern lastbalanseringsuppsättning för virtuella datorer
 
-Följ dessa steg för att skapa en intern belastningsutjämningsuppsättning och de servrar som ska skicka sin trafik till den:
+Följ dessa steg för att skapa en intern lastbalanseringsuppsättning och de servrar som ska skicka sin trafik till den:
 
 1. Skapa en instans för intern belastningsutjämning som ska vara slutpunkten för inkommande trafik som ska belastningsutjämnas mellan servrarna i en belastningsutjämnad uppsättning.
 2. Lägg till slutpunkter som motsvarar de virtuella datorerna som ska ta emot den inkommande trafiken.
@@ -99,7 +95,7 @@ Notera IP-adressen på skärmen som returneras när du kör kommandot Get-AzureI
 
 > [!NOTE]
 > Microsoft Azure-plattformen använder en statisk, offentligt dirigerbar IPv4-adress för en rad olika administrativa scenarier. IP-adressen är 168.63.129.16. Den här IP-adressen får inte blockeras av eventuella brandväggar eftersom det kan orsaka oväntade resultat.
-> Vid belastningsutjämning i Azure används den här IP-adressen av övervakningsavsökningar från belastningsutjämnaren för att fastställa hälsotillståndet för virtuella datorer i en belastningsutjämnad uppsättning. Om en nätverkssäkerhetsgrupp används för att begränsa trafik till virtuella datorer i Azure i en internt belastningsutjämnad uppsättning eller om den tillämpas på ett virtuellt nätverksundernät krävs en nätverkssäkerhetsregel som tillåter trafik från 168.63.129.16.
+> Vid lastbalansering i Azure används den här IP-adressen av övervakningsavsökningar från lastbalanseraren för att fastställa hälsotillståndet för virtuella datorer i en lastbalanserad uppsättning. Om en nätverkssäkerhetsgrupp används för att begränsa trafik till virtuella datorer i Azure i en internt belastningsutjämnad uppsättning eller om den tillämpas på ett virtuellt nätverksundernät krävs en nätverkssäkerhetsregel som tillåter trafik från 168.63.129.16.
 
 ## <a name="example-of-internal-load-balancing"></a>Exempel på intern belastningsutjämning
 
@@ -115,7 +111,7 @@ Konfigurationen består av följande:
 
 * Den befintliga molntjänsten som är värd för de virtuella datorerna har namnet mytestcloud.
 * De två befintliga databasservrarna heter DB1 och DB2.
-* Webbservrar på webbnivån ansluter till databasservrarna på databasnivån med hjälp av den privata IP-adressen. Ett annat alternativ är att använda din egen DNS för det virtuella nätverket och att manuellt registrera en A-post för den interna belastningsutjämningsuppsättningen.
+* Webbservrar på webbnivån ansluter till databasservrarna på databasnivån med hjälp av den privata IP-adressen. Ett annat alternativ är att använda din egen DNS för det virtuella nätverket och att manuellt registrera en A-post för den interna lastbalanseringsuppsättningen.
 
 Följande kommandon konfigurerar en ny instans för intern belastningsutjämning med namnet **ILBset** och lägger till slutpunkter till de virtuella datorerna som motsvarar de två databasservrarna:
 
@@ -138,7 +134,7 @@ Get-AzureVM –ServiceName $svc –Name $vmname | Add-AzureEndpoint -Name $epnam
 
 ## <a name="remove-an-internal-load-balancing-configuration"></a>Ta bort en konfiguration för intern belastningsutjämning
 
-Om du vill ta bort en virtuell dator som slutpunkt från en instans av en intern belastningsutjämnare använder du följande kommandon:
+Om du vill ta bort en virtuell dator som slutpunkt från en instans av en intern lastbalanserare använder du följande kommandon:
 
 ```powershell
 $svc="<Cloud service name>"
@@ -158,7 +154,7 @@ $epname="TCP-1433-1433"
 Get-AzureVM -ServiceName $svc -Name $vmname | Remove-AzureEndpoint -Name $epname | Update-AzureVM
 ```
 
-Använd följande kommandon om du vill ta bort en instans av en intern belastningsutjämnare från en molntjänst:
+Använd följande kommandon om du vill ta bort en instans av en intern lastbalanserare från en molntjänst:
 
 ```powershell
 $svc="<Cloud service name>"
@@ -174,7 +170,7 @@ $svc="mytestcloud"
 Remove-AzureInternalLoadBalancer -ServiceName $svc
 ```
 
-## <a name="additional-information-about-internal-load-balancer-cmdlets"></a>Mer information om cmdlets för interna belastningsutjämnare
+## <a name="additional-information-about-internal-load-balancer-cmdlets"></a>Mer information om cmdlets för interna lastbalanserare
 
 Om du vill ha mer information om cmdlets för intern belastningsutjämning kör du följande kommandon i Windows PowerShell-kommandotolken:
 
@@ -187,7 +183,7 @@ Get-Help Remove-AzureInternalLoadBalancer -full
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Konfigurera ett distributionsläge för belastningsutjämnare med hjälp av käll-IP-tilldelning](load-balancer-distribution-mode.md)
+[Konfigurera ett distributionsläge för lastbalanserare med hjälp av käll-IP-tilldelning](load-balancer-distribution-mode.md)
 
-[Konfigurera timeout-inställningar för inaktiv TCP för en belastningsutjämnare](load-balancer-tcp-idle-timeout.md)
+[Konfigurera timeout-inställningar för inaktiv TCP för en lastbalanserare](load-balancer-tcp-idle-timeout.md)
 

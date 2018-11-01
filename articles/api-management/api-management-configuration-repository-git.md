@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/02/2018
 ms.author: apimpm
-ms.openlocfilehash: d359ad0e619e4d7784d763e70599ce784aa852cd
-ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
+ms.openlocfilehash: 97ca4f69f4bf2aa814d51cc17970c1aead8399e8
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49945829"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50414411"
 ---
 # <a name="how-to-save-and-configure-your-api-management-service-configuration-using-git"></a>Spara och konfigurera din API Management-tjänstkonfigurationen med Git
 
@@ -190,7 +190,8 @@ Roten `api-management` mappen innehåller en `configuration.json` -fil som inneh
     "DelegationEnabled": "False",
     "DelegationUrl": "",
     "DelegatedSubscriptionEnabled": "False",
-    "DelegationValidationKey": ""
+    "DelegationValidationKey": "",
+    "RequireUserSigninEnabled": "false"
   },
   "$ref-policy": "api-management/policies/global.xml"
 }
@@ -200,10 +201,11 @@ De första fyra inställningarna (`RegistrationEnabled`, `UserRegistrationTerms`
 
 | Identitet har värdet | Mappar till |
 | --- | --- |
-| RegistrationEnabled |**Omdirigera anonyma användare till inloggningssidan** kryssrutan |
+| RegistrationEnabled |Förekomst av **användarnamn och lösenord** identitetsprovider |
 | UserRegistrationTerms |**Användningsvillkor vid användarregistrering** textrutan |
 | UserRegistrationTermsEnabled |**Visa användningsvillkor på registreringssidan** kryssrutan |
 | UserRegistrationTermsConsentRequired |**Kräver godkännande** kryssrutan |
+| RequireUserSigninEnabled |**Omdirigera anonyma användare till inloggningssidan** kryssrutan |
 
 Följande fyra inställningar (`DelegationEnabled`, `DelegationUrl`, `DelegatedSubscriptionEnabled`, och `DelegationValidationKey`) mappas till följande inställningar på den **delegering** fliken i den **Security** avsnittet.
 

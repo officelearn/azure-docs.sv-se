@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 10/25/2018
 ms.author: hrasheed
-ms.openlocfilehash: 4e60425edaebf9e77b7e71f43fa3fe2f2ac3227c
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: a1dbc04a83e80281fb6cd516c546c1dddff6db37
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50221956"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50413818"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---infrastructure-best-practices"></a>Migrera lokala Apache Hadoop-kluster till Azure HDInsight - Metodtips för infrastruktur
 
@@ -45,11 +45,11 @@ Program eller komponenter som var tillgängliga i lokala kluster men inte ingår
 
 |**Programmet**|**Integrering**
 |---|---|
-|Luftflödet|IaaS-eller HDI kantnoden
+|Luftflödet|IaaS-eller kantnoden för HDInsight
 |Alluxio|IaaS  
 |Arcadia|IaaS 
 |Atlas|Ingen (endast HDP)
-|Datameer|HDI-kantnoden
+|Datameer|Kantnoden för HDInsight
 |Datastax (Cassandra)|IaaS (CosmosDB ett alternativ i Azure)
 |DataTorrent|IaaS 
 |Drill|IaaS 
@@ -58,15 +58,15 @@ Program eller komponenter som var tillgängliga i lokala kluster men inte ingår
 |Mapador|IaaS 
 |Mongo|IaaS (CosmosDB ett alternativ i Azure)
 |NiFi|IaaS 
-|Presto|IaaS-eller HDI kantnoden
+|Presto|IaaS-eller kantnoden för HDInsight
 |Python 2|PaaS 
 |Python 3|PaaS 
 |R|PaaS 
 |SAS|IaaS 
 |Vertica|IaaS (SQLDW ett alternativ i Azure)
 |Tableau|IaaS 
-|Vattenlinjen|HDI-kantnoden
-|StreamSets|HDI Edge 
+|Vattenlinjen|Kantnoden för HDInsight
+|StreamSets|HDInsight Edge 
 |Palantir|IaaS 
 |Sailpoint|Iaas 
 
@@ -213,7 +213,7 @@ HDInsight kan anslutas till det lokala nätverket med hjälp av Azure-nätverk o
 - Konfigurera DNS-namnmatchningen mellan virtuella nätverk och lokala nätverk.
 - Konfigurera nätverkssäkerhetsgrupper eller användardefinierade vägar (UDR) för att styra nätverkstrafiken.
 
- Mer information finns i artikeln [ansluta HDInsight till det lokala nätverket](../connect-on-premises-network.md)
+Mer information finns i artikeln [ansluta HDInsight till det lokala nätverket](../connect-on-premises-network.md)
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 10/18/2018
 ms.author: bwren
 ms.component: ''
-ms.openlocfilehash: 904502e5c73127cca7920da2173edd013e55762f
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: 6e587f79f0f77446ea5a61cbb989f3f1c3655e0a
+ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50242253"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50741767"
 ---
 # <a name="analyze-log-analytics-data-in-azure-monitor"></a>Analysera Log Analytics-data i Azure Monitor
 
@@ -95,9 +95,9 @@ union Update, workspace("contoso-workspace").Update
 ```
 
 ## <a name="how-log-analytics-data-is-organized"></a>Så här Log Analytics-data ordnas
-När du skapar en fråga kan börja du med att bestämma vilka tabeller innehåller de data som du letar efter. Olika typer av data är indelade i dedikerade tabeller i varje [Log Analytics-arbetsyta](log-analytics-quick-create-workspace.md).  Dokumentationen för olika datakällor som innehåller namnet på datatypen som skapas och en beskrivning av var och en av dess egenskaper.  Många frågor kräver endast data från en enda tabeller, men andra kan använda en mängd olika alternativ för att inkludera data från flera tabeller.
+När du skapar en fråga kan börja du med att bestämma vilka tabeller innehåller de data som du letar efter. Olika typer av data är indelade i dedikerade tabeller i varje [Log Analytics-arbetsyta](log-analytics-quick-create-workspace.md).  Dokumentationen för olika datakällor som innehåller namnet på datatypen som skapas och en beskrivning av var och en av dess egenskaper.  Många frågor kräver endast data från en enskild tabell, men andra kan använda en mängd olika alternativ för att inkludera data från flera tabeller.
 
-Medan [Application Insights](../application-insights/app-insights-overview.md) butiker programdata som begäranden, undantag, spårningar och användning i Log Analytics, dessa data lagras i en annan partition än andra loggdata. Du använder samma frågespråk för att komma åt dessa data men måste den [Application Insights-konsolen](../application-insights/app-insights-analytics.md) eller [Application Insights REST API](https://dev.applicationinsights.io/) att komma åt den. Du kan använda [frågor över flera resurser](log-analytics-cross-workspace-search.md) att kombinera Application Insights-data med andra data i Log Analytics.
+Medan [Application Insights](../application-insights/app-insights-overview.md) butiker programdata som begäranden, undantag, spårningar och användning i Log Analytics, dessa data lagras i en annan partition än andra loggdata. Du använder samma frågespråk för att komma åt dessa data men måste använda den [Application Insights-konsolen](../application-insights/app-insights-analytics.md) eller [Application Insights REST API](https://dev.applicationinsights.io/) att komma åt den. Du kan använda [frågor över flera resurser](log-analytics-cross-workspace-search.md) att kombinera Application Insights-data med andra data i Log Analytics.
 
 
 ![Tabeller](media/log-analytics-queries/queries-tables.png)

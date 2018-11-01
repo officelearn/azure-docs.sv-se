@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 06/04/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: cbe6ddc2c4680028d5a4a0491756c7a7b9897c69
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: ed6b2fafbb3329e20985b75f55d29b52dcc5da57
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50233250"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50415711"
 ---
 # <a name="extend-alerts-from-log-analytics-into-azure-alerts"></a>Utöka aviseringar från Log Analytics till Azure-aviseringar
 Funktionen för säkerhetsvarningar i Azure Log Analytics ersätts av Azure-aviseringar. Som en del av denna övergång utökas aviseringar som du ursprungligen konfigurerades i Log Analytics till Azure. Om du inte vill vänta tills de flyttas automatiskt till Azure, kan du starta processen:
@@ -27,26 +27,26 @@ Funktionen för säkerhetsvarningar i Azure Log Analytics ersätts av Azure-avis
 ## <a name="option-1-initiate-from-the-operations-management-suite-portal"></a>Alternativ 1: Initiera från Operations Management Suite-portalen
 Följande steg beskriver hur du utökar aviseringar för arbetsytan från Operations Management Suite-portalen.  
 
-1. I Azure-portalen väljer du **alla tjänster**. I listan över resurser skriver du **Log Analytics**. När du börjar skriva filtreras listan baserat på det du skriver. Välj **Log Analytics**.
+1. Välj **Alla tjänster** i Azure-portalen. I listan över resurser skriver du **Log Analytics**. När du börjar skriva filtreras listan baserat på det du skriver. Välj **Log Analytics**.
 2. Välj en arbetsyta i fönstret Log Analytics-prenumerationer och välj sedan den **OMS-portalen** panelen.
-![Skärmbild av Log Analytics-prenumeration fönstret med OMS-portalen panelen markerat](./media/monitor-alerts-extend/azure-portal-01.png) 
+![Skärmbild av Log Analytics-prenumeration fönstret med OMS-portalen panelen markerat](media/monitoring-alerts-extend-tool/azure-portal-01.png) 
 3. När du blir omdirigerad till Operations Management Suite-portalen, väljer du den **inställningar** ikon.
-![Skärmbild av Operations Management Suite-portalen med inställningsikonen markerat](./media/monitor-alerts-extend/oms-portal-settings-option.png) 
+![Skärmbild av Operations Management Suite-portalen med inställningsikonen markerat](media/monitoring-alerts-extend-tool/oms-portal-settings-option.png) 
 4. Från den **inställningar** väljer **aviseringar**.  
 5. Välj **kopieras till Azure**.
-![Skärmbild av Operations Management Suite aviseringsinställningar portalsidan med utöka till Azure markerat](./media/monitor-alerts-extend/ExtendInto.png)
+![Skärmbild av Operations Management Suite aviseringsinställningar portalsidan med utöka till Azure markerat](media/monitoring-alerts-extend-tool/ExtendInto.png)
 6. En tre steg-guiden som visas i den **aviseringar** fönstret. Läs översikten och välj **nästa**.
-![Skärmbild av steg 1 i guiden](./media/monitor-alerts-extend/ExtendStep1.png)  
+![Skärmbild av steg 1 i guiden](media/monitoring-alerts-extend-tool/ExtendStep1.png)  
 7. I det andra steget, visas en sammanfattning av de föreslagna ändringarna lista lämpliga [åtgärdsgrupper](monitoring-action-groups.md) för aviseringarna. Om liknande åtgärder ses över fler än en avisering, föreslår guiden associera en enda åtgärd-grupp med alla.  Namngivningskonventionen är följande: *WorkspaceName_AG_ #Number*. Om du vill fortsätta, Välj **nästa**.
-![Skärmbild av steg 2 i guiden](./media/monitor-alerts-extend/ExtendStep2.png)  
+![Skärmbild av steg 2 i guiden](media/monitoring-alerts-extend-tool/ExtendStep2.png)  
 8. I det sista steget i guiden väljer du **Slutför**, och bekräfta när du uppmanas att starta processen. Du kan också ange en e-postadress så att du meddelas när processen är klar och alla aviseringar har flyttats till Azure-aviseringar.
-![Skärmbild av steg 3 i guiden](./media/monitor-alerts-extend/ExtendStep3.png)
+![Skärmbild av steg 3 i guiden](media/monitoring-alerts-extend-tool/ExtendStep3.png)
 
 När guiden har slutförts på den **aviseringsinställningar** alternativet för att utöka aviseringar till Azure-sidan tas bort. Dina aviseringar flyttas till Azure i bakgrunden, och det kan ta lite tid. Under åtgärden, du kan inte ändra aviseringar från Operations Management Suite-portalen. Du kan se aktuell status från banderoll överst på portalen. Om du tidigare angav en e-postadress, får du ett e-postmeddelande när processen har slutförts.  
 
 
 Aviseringar fortsätter att listas i Operations Management Suite-portalen, även när de har flyttas till Azure.
-![Skärmbild av Operations Management Suite aviseringsinställningar portalsidan](./media/monitor-alerts-extend/PostExtendList.png)
+![Skärmbild av Operations Management Suite aviseringsinställningar portalsidan](media/monitoring-alerts-extend-tool/PostExtendList.png)
 
 
 ## <a name="option-2-use-the-alertsversion-api"></a>Alternativ 2: Använd AlertsVersion API
@@ -460,7 +460,7 @@ Under processen med att utöka aviseringar, problem som kan förhindra att syste
 > Om offentliga Azure-molnet baserat Log Analytics-användare vidta inte följande steg innan du 5 juli 2018, aviseringar kommer att köras i Azure men kommer inte att utlösa en åtgärd eller meddelande. Om du vill få meddelanden för aviseringar måste du manuellt redigera och Lägg till [åtgärdsgrupper](monitoring-action-groups.md), eller använda föregående [anpassade PowerShell-skript](#option-3---using-custom-powershell-script).
 
 Här följer anvisningarna för reparation för varje fel:
-- **Fel: Omfång Lås finns på gruppnivå/resursgrupp för skrivåtgärder**: ![Skärmbild av i Operations Management Suite aviseringsinställningar portalsidan felmeddelande omfång Lås markerad](./media/monitor-alerts-extend/ErrorScopeLock.png)
+- **Fel: Omfång Lås finns på gruppnivå/resursgrupp för skrivåtgärder**: ![Skärmbild av i Operations Management Suite aviseringsinställningar portalsidan felmeddelande omfång Lås markerad](media/monitoring-alerts-extend-tool/ErrorScopeLock.png)
 
     När omfång Lock är aktiverat begränsar funktionen nya ändringar i gruppen prenumeration eller resursgrupp som innehåller arbetsytan Log Analytics (Operations Management Suite). Systemet kan inte utöka aviseringarna till Azure och skapa nödvändiga åtgärdsgrupper.
     
@@ -468,7 +468,7 @@ Här följer anvisningarna för reparation för varje fel:
     
     När du löser felet med hjälp av stegen som visas i artikeln utökar Operations Management Suite dina aviseringar till Azure inom schemalagda körning av nästa dag. Du behöver inte vidta några ytterligare åtgärder eller initiera något.
 
-- **Fel: Principen finns på gruppnivå/resursgrupp**: ![Skärmbild av i Operations Management Suite aviseringsinställningar portalsidan felmeddelande princip markerat](./media/monitor-alerts-extend/ErrorPolicy.png)
+- **Fel: Principen finns på gruppnivå/resursgrupp**: ![Skärmbild av i Operations Management Suite aviseringsinställningar portalsidan felmeddelande princip markerat](media/monitoring-alerts-extend-tool/ErrorPolicy.png)
 
     När [Azure Policy](../azure-policy/azure-policy-introduction.md) är tillämpas, begränsar alla nya resurser i en prenumeration eller resursgrupp grupp som innehåller arbetsytan Log Analytics (Operations Management Suite). Systemet kan inte utöka aviseringarna till Azure och skapa nödvändiga åtgärdsgrupper.
     

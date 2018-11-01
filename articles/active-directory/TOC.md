@@ -302,8 +302,6 @@
 ##### [Problem med egenutvecklad app](manage-apps/application-sign-in-problem-custom-dev.md)
 ##### [Problem med lokal app – programproxy](manage-apps/application-sign-in-problem-on-premises-application-proxy.md)
 
-### [Utveckla appar](active-directory-applications-guiding-developers-for-lob-applications.md)
-
 
 ## Hantera din katalog
 ### [Azure AD Connect](hybrid/whatis-hybrid-identity.md)

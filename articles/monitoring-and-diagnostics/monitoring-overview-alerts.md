@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: robb
 ms.component: alerts
-ms.openlocfilehash: 7565c536b5d24c859b164a960f74bd1e2ce97b63
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: f044cf7e0b614d338ec9b294dfbf02c26c4351b1
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46960642"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50413868"
 ---
 # <a name="overview-of-alerts-in-microsoft-azure"></a>Översikt över aviseringar i Microsoft Azure 
 
@@ -23,7 +23,7 @@ Den här artikeln beskriver vilka aviseringar har sina fördelar, och hur du kom
 ## <a name="what-are-alerts-in-microsoft-azure"></a>Vad är aviseringar i Microsoft Azure?
 Aviseringar meddelar proaktivt dig när det är viktigt villkor finns i dina övervakningsdata. De gör att du kan identifiera och lösa problem innan användarna av systemet uppmärksamma dem. 
 
-Den här artikeln beskriver den avisering enhetlig upplevelsen i Azure Monitor, som nu innehåller Log Analytics och Application Insights. Den [tidigare avisering erfarenhet](monitoring-overview-alerts.md)och aviseringstyper kallas **klassiska aviseringar**. Du kan visa den här äldre upplevelse och äldre typ av avisering genom att klicka på **Visa klassiska aviseringar** överst på sidan avisering. 
+Den här artikeln beskriver den avisering enhetlig upplevelsen i Azure Monitor, som nu innehåller Log Analytics och Application Insights. Den [tidigare avisering erfarenhet](monitoring-overview-alerts.md) och aviseringstyper kallas **klassiska aviseringar**. Du kan visa den här äldre upplevelse och äldre typ av avisering genom att klicka på **Visa klassiska aviseringar** överst på sidan avisering.
 
 
 ## <a name="overview"></a>Översikt
@@ -70,7 +70,7 @@ Dessa aviseringstillstånd stöds.
 
 Tillståndet för en avisering är annorlunda än övervakarens villkor. Tillstånd för avisering anges av användaren och är oberoende av övervakarens villkor. När det underliggande villkoret för aviseringen skickades rensar anges övervakarens villkor för aviseringen som löst. Även om systemet kan ställa in övervakningsvillkor till löst, ändras aviseringstillståndet inte förrän användaren ändrar den. Lär dig [hur du ändrar status för dina aviseringar och smart grupper](https://aka.ms/managing-alert-smart-group-states).
 
-## <a name="smart-groups"></a>Smart grupper 
+## <a name="smart-groups"></a>Smarta grupper 
 Smart grupper finns i förhandsversion. 
 
 Smart grupper är sammanställning av aviseringar baserat på machine learning-algoritmer som kan hjälpa att minska aviseringsbruset och underlätta felsökning. [Läs mer om Smart grupper](https://aka.ms/smart-groups) och [hur du hanterar dina smarta grupper](https://aka.ms/managing-smart-groups).
@@ -96,7 +96,7 @@ Välj följande värden överst på sidan aviseringar för att öppna en annan s
 | Värde | Beskrivning |
 |:---|:---|
 | Totalt antal aviseringar | Det totala antalet aviseringar som matchar de valda villkoren. Välj det här värdet för att öppna vyn alla aviseringar med inget filter. |
-| Smart grupper | Det totala antalet smart grupper som har skapats från de aviseringar som matchar de valda villkoren. Välj det här värdet för att öppna listan över smart i vyn alla aviseringar.
+| Smarta grupper | Det totala antalet smart grupper som har skapats från de aviseringar som matchar de valda villkoren. Välj det här värdet för att öppna listan över smart i vyn alla aviseringar.
 | Totalt antal aviseringsregler | Det totala antalet Varningsregler i den valda prenumerationen och resursgruppen. Välj det här värdet för att öppna vyn regler filtreras på den valda prenumerationen och resursgruppen.
 
 
@@ -143,7 +143,7 @@ Du kan filtrera vyn genom att välja följande värden i listrutorna överst på
 | Resurs | Välj en resurs. Endast aviseringar med den här resursen som ett mål som ingår i vyn. Den här kolumnen är endast tillgänglig när du har angett en resurstyp. |
 | Severity | Välj en allvarlighetsgrad för avisering, eller välj *alla* att inkludera aviseringar för alla allvarlighetsgrader. |
 | Övervakningsvillkor | Välj ett övervakningsvillkor eller välj *alla* att inkludera aviseringar av villkor. |
-| Tillstånd för avisering | Väljer du en aviseringstillståndet eller *alla* att inkludera aviseringar av tillstånd. |
+| Aviseringstillstånd | Väljer du en aviseringstillståndet eller *alla* att inkludera aviseringar av tillstånd. |
 | Övervaka tjänsten | Välj en tjänst, eller välj *alla* att inkludera alla tjänster. Det ingår bara aviseringar som har skapats av regler som använder tjänsten som mål. |
 | Tidsintervall | Bara de aviseringar som utlösts inom det valda tidsfönstret ingår i vyn. Värden som stöds är den senaste timmen, de senaste 24 timmarna, de senaste 7 dagarna och de senaste 30 dagarna. |
 

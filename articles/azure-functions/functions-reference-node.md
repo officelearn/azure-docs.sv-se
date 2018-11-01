@@ -12,23 +12,24 @@ ms.devlang: nodejs
 ms.topic: reference
 ms.date: 10/26/2018
 ms.author: glenga
-ms.openlocfilehash: 470128344182cc6a06a378a0f4ab75b19e9a646e
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: 1918ed664a79a46f25cfc5162a28b311bea29cd8
+ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50249816"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50740462"
 ---
 # <a name="azure-functions-javascript-developer-guide"></a>Utvecklarguide för Azure Functions JavaScript
+
 Den här guiden innehåller information om krångla skriva Azure Functions med JavaScript.
 
 En JavaScript-funktion är en exporterad `function` som körs när den utlöses ([utlösare har konfigurerats i function.json](functions-triggers-bindings.md)). Det första argumentet som skickas av varje funktion är en `context` objektet som används för mottagning och skicka bindningsdata, loggning och kommunicera med körningen.
 
-Den här artikeln förutsätter att du redan har läst den [Azure Functions för utvecklare](functions-reference.md). Vi rekommenderar också att du har följt en självstudiekurs i ”Snabbstarter” till [skapa din första funktion](functions-create-first-function-vs-code.md).
+Den här artikeln förutsätter att du redan har läst den [Azure Functions för utvecklare](functions-reference.md). Du bör också slutföras Functions-Snabbstart för att skapa din första funktion med hjälp av [Visual Studio Code](functions-create-first-function-vs-code.md) eller [i portalen](functions-create-first-azure-function.md).
 
 ## <a name="folder-structure"></a>mappstruktur
 
-Det ser ut som följande nödvändiga mappstrukturen för en JavaScript-projektet. Observera att du kan ändra denna standardinställning: finns i den [skriptfil](functions-reference-node.md#using-scriptfile) avsnittet nedan för mer information.
+Det ser ut som följande nödvändiga mappstrukturen för en JavaScript-projektet. Du kan ändra denna standardinställning. Mer information finns i den [skriptfil](#using-scriptfile) nedan.
 
 ```
 FunctionsProject
@@ -71,7 +72,10 @@ module.exports = function(context, myTrigger, myInput, myOtherInput) {
 ### <a name="exporting-an-async-function"></a>Exportera en async-funktion
 När du använder JavaScript [ `async function` ](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/async_function) deklarationen eller annars returneras ett JavaScript [löftet](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise) (inte tillgängligt med Functions v1.x), du uttryckligen behöver inte anropa den [ `context.done` ](#contextdone-method) återanrop för att signalera att funktionen har slutförts. Funktionen har slutförts när exporterade async-funktion/löftet har slutförts.
 
-Till exempel är det här en enkel funktion som loggar den utlöstes och omedelbart är slutfört.
+När du använder den [ `async function` ](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/async_function) deklarationen eller vanlig JavaScript [löften](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise) i version 2.x av Functions-körning, du behöver inte explicit anropa den [ `context.done` ](#contextdone-method) återanrop för att signalera att funktionen har slutförts. Funktionen har slutförts när exporterade async-funktion/löftet har slutförts. För funktioner som riktar in sig på version 1.x-körningen, måste du fortfarande anropa [ `context.done` ](#contextdone-method) när koden är klar körs.
+
+I följande exempel är en enkel funktion som loggar den utlöstes och omedelbart är slutfört.
+
 ``` javascript
 module.exports = async function (context) {
     context.log('JavaScript trigger function processed a request.');
@@ -81,6 +85,7 @@ module.exports = async function (context) {
 När du exporterar en async-funktion kan du också konfigurera en utdatabindning för att ta den `return` värde. Detta rekommenderas om du bara har en utdatabindning.
 
 Tilldela en utdata med hjälp av `return`, ändra den `name` egenskap `$return` i `function.json`.
+
 ```json
 {
   "type": "http",
@@ -88,7 +93,9 @@ Tilldela en utdata med hjälp av `return`, ändra den `name` egenskap `$return` 
   "name": "$return"
 }
 ```
-Funktionskoden JavaScript kan se ut så här:
+
+I det här fallet din funktion bör se ut som i följande exempel:
+
 ```javascript
 module.exports = async function (context, req) {
     context.log('JavaScript HTTP trigger function processed a request.');
@@ -185,10 +192,11 @@ module.exports = function(ctx) {
 
 ### <a name="contextbindings-property"></a>Context.Bindings egenskap
 
-```
+```js
 context.bindings
 ```
-Returnerar ett namngivna objekt som innehåller alla inkommande och utgående data. Till exempel följande bindningsdefinitionerna i din *function.json* kan du få åtkomst till innehållet i en kö från `context.bindings.myInput` och tilldela utdata till en kö med hjälp av `context.bindings.myOutput`.
+
+Returnerar ett namngivna objekt som innehåller alla inkommande och utgående data. Till exempel följande bindningsdefinitionerna i din function.json kan du få åtkomst till innehållet i en kö från `context.bindings.myInput` och tilldela utdata till en kö med hjälp av `context.bindings.myOutput`.
 
 ```json
 {
@@ -214,21 +222,23 @@ context.bindings.myOutput = {
         a_number: 1 };
 ```
 
-Observera att du kan välja att definiera utdata bindning data med den `context.done` metoden i stället för den `context.binding` objekt (se nedan).
+Du kan välja att definiera utdata bindning data med den `context.done` metoden i stället för den `context.binding` objekt (se nedan).
 
 ### <a name="contextbindingdata-property"></a>context.bindingData egenskap
 
-```
+```js
 context.bindingData
 ```
+
 Returnerar en namngiven objekt som innehåller data för utlösaren metadata och funktionen anrop (`invocationId`, `sys.methodName`, `sys.utcNow`, `sys.randGuid`). Ett exempel på utlösaren metadata finns i den här [event hubs exempel](functions-bindings-event-hubs.md#trigger---javascript-example).
 
 ### <a name="contextdone-method"></a>Context.Done metod
-```
+
+```js
 context.done([err],[propertyBag])
 ```
 
-Informerar den runtime som koden har slutförts. Om din funktion använder JavaScript [ `async function` ](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/async_function) deklarationen (tillgängligt med hjälp av Node 8 + i Functions version 2.x), du behöver inte använda `context.done()`. Den `context.done` anropas implicit återanrop.
+Gör att runtimes vet att din kod har slutförts. När funktionen använder den [ `async function` ](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/async_function) deklarationen du behöver inte använda `context.done()`. Den `context.done` anropas implicit återanrop. Async-funktioner är tillgängliga i noden 8 eller senare, vilket kräver version 2.x av Functions-körning.
 
 Om funktionen inte är en async-funktion, **måste du anropa** `context.done` att informera körningen att funktionen har slutförts. Körningstider reda på om den saknas.
 
@@ -246,9 +256,10 @@ context.done(null, { myOutput: { text: 'hello there, world', noNumber: true }});
 
 ### <a name="contextlog-method"></a>Context.log metod  
 
-```
+```js
 context.log(message)
 ```
+
 Gör att du kan skriva till direktuppspelningsloggarna funktion på standardnivå för spårningen. På `context.log`, ytterligare loggning metoder är tillgängliga som gör att du sparar funktionsloggar på andra spårningsnivåer:
 
 
@@ -264,13 +275,14 @@ I följande exempel skriver en logg vid spårningsnivån varning:
 ```javascript
 context.log.warn("Something has happened."); 
 ```
+
 Du kan [konfigurera spårningsnivå tröskelvärdet för loggning](#configure-the-trace-level-for-console-logging) i host.json-filen. Mer information om hur du skriver loggar finns i [skriva trace utdata](#writing-trace-output-to-the-console) nedan.
 
 Läs [övervaka Azure Functions](functions-monitoring.md) vill veta mer om att visa och fråga funktionsloggar.
 
 ## <a name="writing-trace-output-to-the-console"></a>Skrivning spårningsutdata till konsolen 
 
-I funktioner, använder du den `context.log` metoder för att skriva spårningsutdata till konsolen. Spåra ouputs via i Functions v2.x `console.log` samlas på Funktionsapp-nivå. Det innebär att utdata från `console.log` inte är knutna till en specifik funktionsanrop och kan därför inte visas i loggarna för en specifik funktion. De, men spridas till Application Insights. Du kan inte använda i Functions v1.x `console.log` att skriva till konsolen. 
+I funktioner, använder du den `context.log` metoder för att skriva spårningsutdata till konsolen. I funktioner v2.x trace matar du ut med hjälp av `console.log` samlas på Funktionsapp-nivå. Det innebär att utdata från `console.log` inte är knutna till en specifik funktionsanrop och kan därför inte visas i loggarna för en specifik funktion. De, men spridas till Application Insights. Du kan inte använda i Functions v1.x `console.log` att skriva till konsolen.
 
 När du anropar `context.log()`, meddelandet skrivs till konsolen vid spårningsnivån standard, vilket är den _info_ spårningsnivå. Följande kod skriver till konsolen vid spårningsnivån info:
 
@@ -308,12 +320,12 @@ context.log('Request Headers = ', JSON.stringify(req.headers));
 
 ### <a name="configure-the-trace-level-for-console-logging"></a>Konfigurera Spårningsnivån för konsolen loggning
 
-Functions kan du definiera spårningsnivån tröskelvärdet för att skriva till konsolen, vilket gör det enkelt att styra sätt spårningar har skrivits till konsolen från dina funktioner. Ange tröskelvärdet för alla spårningar som skrivs till konsolen och den `tracing.consoleLevel` egenskap i host.json-fil. Den här inställningen gäller för alla funktioner i din funktionsapp. I följande exempel anger tröskelvärdet spårning för att aktivera utförlig loggning:
+Functions kan du definiera spårningsnivån tröskelvärdet för att skriva till konsolen, vilket gör det enkelt att styra sätt spårningar skrivs till konsolen från din funktion. Ange tröskelvärdet för alla spårningar som skrivs till konsolen och den `tracing.consoleLevel` egenskap i host.json-fil. Den här inställningen gäller för alla funktioner i din funktionsapp. I följande exempel anger tröskelvärdet spårning för att aktivera utförlig loggning:
 
 ```json
-{ 
-    "tracing": {      
-        "consoleLevel": "verbose"     
+{
+    "tracing": {
+        "consoleLevel": "verbose"
     }
 }  
 ```
@@ -468,13 +480,14 @@ När du kör lokalt appinställningar läses från den [local.settings.json](fun
 
 ## <a name="configure-function-entry-point"></a>Konfigurera funktionens startadress
 
-Den `function.json` egenskaper `scriptFile` och `entryPoint` kan användas för att konfigurera platsen och namnet på din exporterade funktion. Det kan vara viktigt om din JavaScript är transpiled.
+Den `function.json` egenskaper `scriptFile` och `entryPoint` kan användas för att konfigurera platsen och namnet på din exporterade funktion. De här egenskaperna kan vara viktigt när din JavaScript är transpiled.
 
 ### <a name="using-scriptfile"></a>Med hjälp av `scriptFile`
 
 Som standard körs en JavaScript-funktion från `index.js`, en fil som delar samma överordnad katalog som dess motsvarande `function.json`.
 
-`scriptFile` kan användas för att få en mappstruktur som ser ut så här:
+`scriptFile` kan användas för att få en mappstruktur som ser ut som i följande exempel:
+
 ```
 FunctionApp
  | - host.json
@@ -488,6 +501,7 @@ FunctionApp
 ```
 
 Den `function.json` för `myNodeFunction` bör innehålla en `scriptFile` egenskap som pekar på filen med exporterade funktionen ska köras.
+
 ```json
 {
   "scriptFile": "../lib/nodeFunction.js",
@@ -501,7 +515,8 @@ Den `function.json` för `myNodeFunction` bör innehålla en `scriptFile` egensk
 
 I `scriptFile` (eller `index.js`), en funktion måste exporteras med `module.exports` för att hitta och köra. Som standard är den funktion som körs när den utlöses endast export från filen, export med namnet `run`, eller export med namnet `index`.
 
-Detta kan konfigureras med hjälp av `entryPoint` i `function.json`:
+Detta kan konfigureras med hjälp av `entryPoint` i `function.json`, som i följande exempel:
+
 ```json
 {
   "entryPoint": "logFoo",
@@ -511,13 +526,14 @@ Detta kan konfigureras med hjälp av `entryPoint` i `function.json`:
 }
 ```
 
-I funktioner v2.x som har stöd för den `this` parameter i användarfunktioner Funktionskoden kan sedan vara på följande sätt:
+I funktioner v2.x som har stöd för den `this` parameter i användarfunktioner Funktionskoden kan sedan som i följande exempel:
+
 ```javascript
 class MyObj {
     constructor() {
         this.foo = 1;
     };
-    
+
     function logFoo(context) { 
         context.log("Foo is " + this.foo); 
         context.done(); 
@@ -539,15 +555,17 @@ När du arbetar med JavaScript-funktioner måste du vara medveten om övervägan
 När du skapar en funktionsapp som använder App Service-planen, rekommenderar vi att du väljer en enda vCPU-plan i stället för en plan med flera virtuella processorer. Idag funktioner körs mer effektivt JavaScript-funktioner på enskild vCPU virtuella datorer och med större virtuella datorer genererar inte de förväntade prestandaförbättringarna. Om det behövs kan du manuellt skala ut genom att lägga till flera enskild vCPU VM-instanser eller du kan aktivera automatisk skalning. Mer information finns i [skala instansantalet manuellt eller automatiskt](../monitoring-and-diagnostics/insights-how-to-scale.md?toc=%2fazure%2fapp-service-web%2ftoc.json).    
 
 ### <a name="typescript-and-coffeescript-support"></a>Stöd för TypeScript och CoffeeScript
+
 Eftersom direktstöd ännu inte finns för automatisk kompilering av TypeScript eller CoffeeScript via körningen, behöver stödet hanteras utanför körning, vid tidpunkten för distribution.  
 
 ### <a name="cold-start"></a>Kallstart
-När börjar utveckla Azure Functions i utan server som värd modellen kalla är verklighet. ”Kallstart” avser faktumet att när appen startas för första gången efter en tids inaktivitet, det tar längre tid att starta. För JavaScript-funktioner med stora beroendeträd särskilt kan detta medföra större minskningen. För att skynda processen, om möjligt [kör dina funktioner som en paketfil](run-functions-from-deployment-package.md). Många distributionsmetoder välja i den här modellen som standard, men om du arbetar med stora kallstarter och inte kör en paketfil från kan detta kan vara en enorm förbättring.
+
+När börjar utveckla Azure Functions i utan server som värd modellen kalla är verklighet. *Kallstart* refererar till faktumet att när appen startas för första gången efter en tids inaktivitet, det tar längre tid att starta. För JavaScript-funktioner med stora beroendeträd särskilt kan kallstart vara betydande. Påskynda processen kallstart [kör dina funktioner som en paketfil](run-functions-from-deployment-package.md) när det är möjligt. Många distributionsmetoder använder Kör från paketet modellen som standard, men om du har stora kallstarter och körs inte på så sätt kan den här ändringen kan erbjuda en viktig förbättringar.
 
 ## <a name="next-steps"></a>Nästa steg
+
 Mer information finns i följande resurser:
 
-* [Metodtips för Azure Functions](functions-best-practices.md)
-* [Azure Functions, info för utvecklare](functions-reference.md)
-* [Azure Functions-utlösare och bindningar](functions-triggers-bindings.md)
-
++ [Metodtips för Azure Functions](functions-best-practices.md)
++ [Azure Functions, info för utvecklare](functions-reference.md)
++ [Azure Functions-utlösare och bindningar](functions-triggers-bindings.md)

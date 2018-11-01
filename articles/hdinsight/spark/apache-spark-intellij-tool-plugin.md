@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 10/11/2018
 ms.author: maxluk
-ms.openlocfilehash: b3dd31c7890812dfa7e9e5740a48f094badc604e
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.openlocfilehash: 51e1e7696ece46e63358b2ed6efa55bbf6ab01fd
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49167349"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50420786"
 ---
 # <a name="use-azure-toolkit-for-intellij-to-create-spark-applications-for-an-hdinsight-cluster"></a>Använd Azure Toolkit för IntelliJ för att skapa Spark-program för ett HDInsight-kluster
 
@@ -33,7 +33,7 @@ För att skapa ditt projekt, visa den [skapa Spark-program med Azure Toolkit fö
 ## <a name="prerequisites"></a>Förutsättningar
 
 - Ett Apache Spark-kluster i HDInsight Linux. Anvisningar finns i [Skapa Apache Spark-kluster i Azure HDInsight](apache-spark-jupyter-spark-sql.md).
-- Oracle Java Development Kit. Du kan installera det från den [Oracle webbplats](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html).
+- Oracle Java Development Kit. Du kan installera det från den [Oracle webbplats](https://aka.ms/azure-jdks).
 - IntelliJ IDEA. Den här artikeln använder version 2017.1. Du kan installera det från den [JetBrains webbplats](https://www.jetbrains.com/idea/download/).
 
 ## <a name="install-azure-toolkit-for-intellij"></a>Installera Azure Toolkit för IntelliJ

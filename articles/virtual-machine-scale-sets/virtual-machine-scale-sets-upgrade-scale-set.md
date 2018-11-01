@@ -3,7 +3,7 @@ title: Ändra en Azure VM-skalningsuppsättning | Microsoft Docs
 description: 'Lär dig hur du ändrar och uppdatera en Azure VM-skalningsuppsättning med REST API: er, Azure PowerShell och Azure CLI'
 services: virtual-machine-scale-sets
 documentationcenter: ''
-author: gatneil
+author: mayanknayar
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 02/14/2018
-ms.author: negat
-ms.openlocfilehash: d065f9765ca279f14b9de45e2412b75c94ef3dd8
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.author: manayar
+ms.openlocfilehash: c3c01d7013749ca5cbd95224c230932a20a8146b
+ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50139050"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50740595"
 ---
 # <a name="modify-a-virtual-machine-scale-set"></a>Ändra en VM-skalningsuppsättning
 Du kan behöva ändra eller uppdatera din skalningsuppsättning för virtuella datorer under hela livscykeln för programmen. De här uppdateringarna kan omfatta uppdatera konfigurationen för skaluppsättningen eller ändra programkonfigurationen. Den här artikeln beskriver hur du ändrar en befintlig skalningsuppsättning med REST API: er, Azure PowerShell eller Azure CLI.

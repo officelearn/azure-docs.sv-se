@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 03/22/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 28ddfea0f4127f402b82388a10ee150b30a65736
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: dfa0a4b637153d6fa3cce5c9b402587950686341
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49954240"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50418083"
 ---
 # <a name="connect-configuration-manager-to-log-analytics"></a>Anslut Konfigurationshanteraren till Log Analytics
 Du kan ansluta din miljö för System Center Configuration Manager till Azure Log Analytics att synkronisera enheten samlingsdata och referera till dessa samlingar i Log Analytics och Azure Automation.  
@@ -49,7 +49,7 @@ I följande procedur du bevilja den *deltagare* roll i Log Analytics-arbetsytan 
 > Du måste ange behörigheter i Log Analytics för Configuration Manager. I annat fall får du ett felmeddelande när du använder guiden för konfiguration av i Configuration Manager.
 >
 
-1. I Azure Portal klickar du på **Alla tjänster** längst upp till vänster. I listan över resurser skriver du **Log Analytics**. När du börjar skriva filtreras listan baserat på det du skriver. Välj **Log Analytics**.<br><br> ![Azure Portal](media/log-analytics-quick-collect-azurevm/azure-portal-01.png)<br><br>  
+1. I Azure Portal klickar du på **Alla tjänster** längst upp till vänster. I listan över resurser skriver du **Log Analytics**. När du börjar skriva filtreras listan baserat på det du skriver. Välj **Log Analytics**.<br><br> ![Azure Portal](media/log-analytics-sccm/azure-portal-01.png)<br><br>  
 2. I listan med Log Analytics-arbetsytor, väljer du arbetsytan för att ändra.
 3. I den vänstra rutan, Välj **åtkomstkontroll (IAM)**.
 4. I Access Control-sidan klickar du på **Lägg till** och **Lägg till behörigheter** visas fönstret.
@@ -101,7 +101,7 @@ När du har slutfört inledande konfiguration för att importera enhetssamlingar
 
 1. I Azure Portal klickar du på **Alla tjänster** längst upp till vänster. I listan över resurser skriver du **Log Analytics**. När du börjar skriva filtreras listan baserat på det du skriver. Välj **Log Analytics**.
 2. Välj den arbetsyta som Configuration Manager har registrerats med i listan med Log Analytics-arbetsytor.  
-3. Välj **Avancerade inställningar**.<br><br> ![Avancerade inställningar i Log Analytics](media/log-analytics-quick-collect-azurevm/log-analytics-advanced-settings-01.png)<br><br>  
+3. Välj **Avancerade inställningar**.<br><br> ![Avancerade inställningar i Log Analytics](media/log-analytics-sccm/log-analytics-advanced-settings-01.png)<br><br>  
 4. Välj **datorgrupper** och välj sedan **SCCM**.  
 5. Välj **Import Configuration Manager-samlingsmedlemskap** och klicka sedan på **spara**.  
    ![Datorgrupper - SCCM-fliken](./media/log-analytics-sccm/sccm-computer-groups01.png)

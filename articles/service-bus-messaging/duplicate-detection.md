@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2018
 ms.author: spelluru
-ms.openlocfilehash: fb42f9920ce173b25cbc16725cf1f9dfd96fcc9e
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: 5241020b1db3797891ae13da54cc9225bbd4619b
+ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48853461"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50741275"
 ---
 # <a name="duplicate-detection"></a>Dubblettidentifiering
 
@@ -41,6 +41,9 @@ Den *MessageId* alltid kan vara en GUID, men det inställningen identifierare so
 I portalen, funktionen är aktiverad när entitet skapas med den **aktivera dubblettidentifiering** kryssrutan som är inaktiverat som standard. Inställningen för att skapa nya ämnen är likvärdiga.
 
 ![][1]
+
+> [!IMPORTANT]
+> Du kan inte aktivera/inaktivera identifiering av dubbletter när kön har skapats. Du kan bara göra det när kön skapades. 
 
 Programmässigt, du anger flaggan med den [QueueDescription.requiresDuplicateDetection](/dotnet/api/microsoft.servicebus.messaging.queuedescription.requiresduplicatedetection#Microsoft_ServiceBus_Messaging_QueueDescription_RequiresDuplicateDetection) egenskapen på fullständiga framework .NET API. Värdet anges med API: et för Azure Resource Manager med den [queueProperties.requiresDuplicateDetection](/azure/templates/microsoft.servicebus/namespaces/queues#property-values) egenskapen.
 

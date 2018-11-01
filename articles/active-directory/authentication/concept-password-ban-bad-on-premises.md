@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: jsimmons
-ms.openlocfilehash: 286f8e560ec653ed4f4f1cad5a2ae27b940f8d15
-ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
+ms.openlocfilehash: ca412e94f65c7e1ed9a547ec9dcabc62fac7d42f
+ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43781788"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50741835"
 ---
 # <a name="preview-enforce-azure-ad-password-protection-for-windows-server-active-directory"></a>Förhandsversion: Använda Azure AD-lösenordsskydd för Windows Server Active Directory
 
@@ -33,16 +33,6 @@ Det finns tre programvarukomponenter som utgör Azure AD-lösenordsskydd:
 * DC-agenten lösenord filter-DLL: en tar emot förfrågningar för verifiering av lösenord från operativsystemet och vidarebefordrar dem till Azure AD lösenord protection DC agent-tjänsten körs lokalt på domänkontrollanten.
 
 ![Hur Azure AD-lösenord protection komponenter fungerar tillsammans](./media/concept-password-ban-bad-on-premises/azure-ad-password-protection.png)
-
-## <a name="requirements"></a>Krav
-
-* Alla datorer där Azure AD lösenord protection komponenter är installerade, inklusive domänkontrollanter måste köra Windows Server 2012 eller senare.
-* Alla datorer där Azure AD lösenord protection komponenter är installerade, inklusive domänkontrollanter måste ha den universella C som är installerad. Detta åstadkoms helst genom att helt åtgärda datorn via Windows Update. I annat fall ett lämpligt operativsystemspecifika uppdateringspaketet vara installerat – Se [uppdatera för Universal C-körning i Windows](https://support.microsoft.com/help/2999226/update-for-universal-c-runtime-in-windows)
-* Nätverksanslutning måste det finnas mellan minst en domänkontrollant i varje domän och minst en server som är värd för Azure AD lösenord protection proxy-tjänsten.
-* Alla Active Directory-domänkontrollanter som utnyttjar skyddsfunktioner lösenord måste ha DC-agenten installerad.
-* Alla Active Directory-domän som kör domänkontrollanten agentprogramvaran för tjänsten måste använda DFSR för sysvol-replikering.
-* Ett globalt administratörskonto för att registrera Azure AD lösenord protection proxy-tjänsten med Azure AD.
-* Ett konto med administratörsbehörighet för Active Directory-domänen i rotdomänen i skogen.
 
 ### <a name="license-requirements"></a>Licenskrav
 
@@ -70,7 +60,6 @@ Det finns två nödvändiga installationsprogram för Azure AD-lösenordsskydd s
 * Det rekommenderas att installera DC-agenten på alla domänkontrollanter så tvingande för skydd av lösenord. 
 * Azure AD-lösenordsskydd är inte en i realtid principmodulen för programmet. Det kan finnas en fördröjning under tiden mellan en lösenordsändring princip för konfiguration och hur lång tid det når och tillämpas på alla domänkontrollanter.
 
-
 ## <a name="next-steps"></a>Nästa steg
 
-[Distribuera Azure AD-lösenordsskydd](howto-password-ban-bad-on-premises.md)
+[Distribuera Azure AD-lösenordsskydd](howto-password-ban-bad-on-premises-deploy.md)

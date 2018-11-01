@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/06/2018
+ms.date: 10/31/2018
 ms.author: jingwang
-ms.openlocfilehash: 958d1ea09ce4d85afc59af412e1050efc6290a1a
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 7dc60c18e105c9be190b5bfede786f61a65feec3
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39002253"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50416944"
 ---
 # <a name="copy-activity-performance-and-tuning-guide"></a>Kopiera aktivitet prestanda- och justeringsguide
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -56,7 +56,7 @@ Som en referens, tabellen nedan visar dataflöde kopia **i Mbit/s** för de angi
 Saker att Observera:
 
 * Dataflödet beräknas med hjälp av följande formel: [storleken på data läses från källan] / [körningen av Kopieringsaktiviteten varaktighet].
-* Referensnummer för prestanda i tabellen har mätas med [TPC-H](http://www.tpc.org/tpch/) datauppsättning i en enda kopieringsaktivitetskörning.
+* Referensnummer för prestanda i tabellen har mätas med [TPC-H](http://www.tpc.org/tpch/) datauppsättning i en enda kopieringsaktivitetskörning. Testfiler för filbaserade butiker finns flera filer med 10GB i storlek.
 * I Azure datalager finns källa och mottagare i samma Azure-region.
 * För hybridkopiering mellan lokala och molnbaserade datalager måste varje lokal Integration Runtime-noden körs på en dator som var avskild från datalagret med nedan specifikationen. När en enda aktivitet kördes förbrukas kopieringen endast en liten del av testdatorn CPU, minne eller bandbredd i nätverket.
     <table>
@@ -76,7 +76,7 @@ Saker att Observera:
 
 
 > [!TIP]
-> Du kan uppnå högre dataflöde med hjälp av mer Data Integration enheter (DIU) än standardvärdet tillåtna maximala DIUs som är 32 för en moln-till-moln kopieringsaktivitetskörning. Till exempel med 100 DIUs du kan uppnå kopiering av data från Azure Blob till Azure Data Lake Store på **1.0GBps**. Se den [integrering enheter](#data-integration-units) finns mer information om den här funktionen och scenario som stöds. Kontakta [Azure-supporten](https://azure.microsoft.com/support/) att begära mer DIUs.
+> Du kan uppnå högre dataflöde med hjälp av mer Data Integration enheter (DIU). Till exempel med 100 DIUs du kan uppnå kopiering av data från Azure Blob till Azure Data Lake Store på **1.0GBps**. Se den [integrering enheter](#data-integration-units) finns mer information om den här funktionen och scenario som stöds. 
 
 ## <a name="data-integration-units"></a>Integrering enheter
 
@@ -94,7 +94,7 @@ Om du vill åsidosätta denna standardinställning, ange ett värde för den **d
 Du kan se den faktiskt används Integration enheter för varje kopia som kör i kopieringsaktiviteten utdata när du övervakar en aktivitet som körs. Få mer detaljerad information från [kopiera aktivitetsövervakning](copy-activity-overview.md#monitoring).
 
 > [!NOTE]
-> Om du behöver mer DIUs för ett högre dataflöde kan kontakta [Azure-supporten](https://azure.microsoft.com/support/). Inställning av 8 och senare fungerar aktuellt endast när du **kopiera flera filer från Blob storage/Datasjölager/Amazon S3 eller ett moln FTP-eller ett moln SFTP till alla andra dataarkiv för molnet**.
+> Inställningen för den DIUs **större än 4** fungerar för närvarande endast när du **kopiera flera filer från Blob-lagring/Data Lake Storage/Amazon S3/i molnet FTP/i molnet SFTP till andra molndata lagrar.**.
 >
 
 **Exempel:**
@@ -248,7 +248,7 @@ Vi rekommenderar att du gör följande för att finjustera prestanda för Data F
      * [Lokal Integration Runtime-skalbarhet](concepts-integration-runtime.md#self-hosted-integration-runtime)
    * [Lokal Integration Runtime](#considerations-for-self-hosted-integration-runtime)
    * [Källa](#considerations-for-the-source)
-   * [Mottagare](#considerations-for-the-sink)
+   * [mottagare](#considerations-for-the-sink)
    * [Serialisering och deserialisering](#considerations-for-serialization-and-deserialization)
    * [Komprimering](#considerations-for-compression)
    * [Kolumnmappningen](#considerations-for-column-mapping)

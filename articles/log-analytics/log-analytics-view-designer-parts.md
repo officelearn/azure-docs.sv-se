@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 03/12/2018
 ms.author: bwren
 ms.component: ''
-ms.openlocfilehash: 8cc654fca8e645253ffc79ef808075bdbe887530
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: 31ee14369cc3f1c03d13c59e1239aa567bce3552
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48043302"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50419783"
 ---
 # <a name="reference-guide-to-view-designer-visualization-parts-in-log-analytics"></a>Referensguide för Vydesigner visualisering delar i Log Analytics
 Du kan skapa anpassade vyer i Azure-portalen som presenterar en mängd olika visualiseringar från Log Analytics-arbetsytan med hjälp av Vydesigner i Azure Log Analytics. Den här artikeln är en referensguide i inställningarna för visualisering delarna som är tillgängliga i dina anpassade vyer.
@@ -50,7 +50,7 @@ I nästa avsnitt beskrivs typerna av paneler och deras egenskaper i detalj.
 ## <a name="list-of-queries-part"></a>Lista över frågor del
 Lista över frågor del visar en lista över loggsökningsfrågor. Du kan välja varje fråga för att visa resultaten. Vyn innehåller en enkel fråga som standard, och du kan välja **+ fråga** att lägga till ytterligare frågor.
 
-![Lista över frågor vy](media/log-analytics-view-designer/view-list-queries.png)
+![Lista över frågor vy](media/log-analytics-view-designer-parts/view-list-queries.png)
 
 | Inställning | Beskrivning |
 |:--- |:--- |
@@ -66,7 +66,7 @@ Lista över frågor del visar en lista över loggsökningsfrågor. Du kan välja
 ## <a name="number-and-list-part"></a>En del tal och lista
 Rubriken visar ett tal som visar antalet poster från en sökfråga för loggen. I listan visas de översta tio resultaten från en fråga med ett diagram som visar relativa värdet för en numerisk kolumn eller dess ändras över tid.
 
-![Lista över frågor vy](media/log-analytics-view-designer/view-number-list.png)
+![Lista över frågor vy](media/log-analytics-view-designer-parts/view-number-list.png)
 
 | Inställning | Beskrivning |
 |:--- |:--- |
@@ -77,10 +77,10 @@ Rubriken visar ett tal som visar antalet poster från en sökfråga för loggen.
 | Använd ikon |Välj länken visas ikonen. |
 | **Rubrik** | |
 | Teckenförklaring |Den text som visas överst i rubriken. |
-| Fråga |Frågan ska köras för sidhuvudet. Antalet poster som returneras av frågan visas. |
+| Söka i data |Frågan ska köras för sidhuvudet. Antalet poster som returneras av frågan visas. |
 | Klicka igenom navigering | Åtgärd när du klickar på rubriken.  Mer information finns i [gemensamma inställningar för](#click-through-navigation). |
 | **Lista** | |
-| Fråga |Frågan ska köras för listan. Första två egenskaperna för de första tio posterna i resultaten visas. Den första egenskapen är ett textvärde och den andra egenskapen är ett numeriskt värde. Staplar skapas automatiskt som baseras på det relativa värdet för den numeriska kolumnen.<br><br>Använd den `Sort` i frågan för att sortera poster i listan. Om du vill köra frågan och returnerar alla poster, kan du välja **se alla**. |
+| Söka i data |Frågan ska köras för listan. Första två egenskaperna för de första tio posterna i resultaten visas. Den första egenskapen är ett textvärde och den andra egenskapen är ett numeriskt värde. Staplar skapas automatiskt som baseras på det relativa värdet för den numeriska kolumnen.<br><br>Använd den `Sort` i frågan för att sortera poster i listan. Om du vill köra frågan och returnerar alla poster, kan du välja **se alla**. |
 | Dölj diagram |Välj den här länken för att inaktivera diagrammet längst till höger i numerisk kolumn. |
 | Aktivera miniatyrdiagram |Välj den här länken för att visa ett miniatyrdiagram i stället för ett vågrätt fält. Mer information finns i [gemensamma inställningar för](#sparklines). |
 | Färg |Färgen på staplarna och miniatyrdiagram. |
@@ -95,7 +95,7 @@ Rubriken visar ett tal som visar antalet poster från en sökfråga för loggen.
 ## <a name="two-numbers-and-list-part"></a>Två tal och en del lista
 Rubriken har två siffror som visar antalet poster från separata loggsökningsfrågor. I listan visas de översta tio resultaten från en fråga med ett diagram som visar relativa värdet för en numerisk kolumn eller dess ändras över tid.
 
-![Visa två siffror och lista](media/log-analytics-view-designer/view-two-numbers-list.png)
+![Visa två siffror och lista](media/log-analytics-view-designer-parts/view-two-numbers-list.png)
 
 | Inställning | Beskrivning |
 |:--- |:--- |
@@ -108,9 +108,9 @@ Rubriken har två siffror som visar antalet poster från separata loggsökningsf
 | Klicka igenom navigering | Åtgärd när du klickar på rubriken.  Mer information finns i [gemensamma inställningar för](#click-through-navigation). |
 | **Rubrik** | |
 | Teckenförklaring |Den text som visas överst i rubriken. |
-| Fråga |Frågan ska köras för sidhuvudet. Antalet poster som returneras av frågan visas. |
+| Söka i data |Frågan ska köras för sidhuvudet. Antalet poster som returneras av frågan visas. |
 | **Lista** | |
-| Fråga |Frågan ska köras för listan. Första två egenskaperna för de första tio posterna i resultaten visas. Den första egenskapen är ett textvärde och den andra egenskapen är ett numeriskt värde. Staplar skapas automatiskt baserat på det relativa värdet för den numeriska kolumnen.<br><br>Använd den `Sort` i frågan för att sortera poster i listan. Om du vill köra frågan och returnerar alla poster, kan du välja **se alla**. |
+| Söka i data |Frågan ska köras för listan. Första två egenskaperna för de första tio posterna i resultaten visas. Den första egenskapen är ett textvärde och den andra egenskapen är ett numeriskt värde. Staplar skapas automatiskt baserat på det relativa värdet för den numeriska kolumnen.<br><br>Använd den `Sort` i frågan för att sortera poster i listan. Om du vill köra frågan och returnerar alla poster, kan du välja **se alla**. |
 | Dölj diagram |Välj den här länken för att inaktivera diagrammet längst till höger i numerisk kolumn. |
 | Aktivera miniatyrdiagram |Välj den här länken för att visa ett miniatyrdiagram i stället för ett vågrätt fält. Mer information finns i [gemensamma inställningar för](#sparklines). |
 | Färg |Färgen på staplarna och miniatyrdiagram. |
@@ -126,7 +126,7 @@ Rubriken har två siffror som visar antalet poster från separata loggsökningsf
 ## <a name="donut-and-list-part"></a>En del ringdiagram och lista
 Rubriken visar ett enda tal som sammanfattar en värdekolumn i en loggfråga. Ringen visar grafiskt resultat för de tre översta posterna.
 
-![Ringdiagram och lista](media/log-analytics-view-designer/view-donut-list.png)
+![Ringdiagram och lista](media/log-analytics-view-designer-parts/view-donut-list.png)
 
 | Inställning | Beskrivning |
 |:--- |:--- |
@@ -139,7 +139,7 @@ Rubriken visar ett enda tal som sammanfattar en värdekolumn i en loggfråga. Ri
 | Titel |Den text som visas överst i rubriken. |
 | Underrubrik |Den text som visas under rubriken överst i rubriken. |
 | **Ringdiagram** | |
-| Fråga |Frågan ska köras för ringen. Den första egenskapen är ett textvärde och den andra egenskapen är ett numeriskt värde. |
+| Söka i data |Frågan ska köras för ringen. Den första egenskapen är ett textvärde och den andra egenskapen är ett numeriskt värde. |
 | Klicka igenom navigering | Åtgärd när du klickar på rubriken.  Mer information finns i [gemensamma inställningar för](#click-through-navigation). |
 | **Ringdiagram** |**> Center** |
 | Text |Den text som visas under värdet mellan ringen. |
@@ -151,7 +151,7 @@ Rubriken visar ett enda tal som sammanfattar en värdekolumn i en loggfråga. Ri
 | Fältvärde |Skriv namnet på ett fält att visa den som en annan färg om den ingår i ringdiagrammet. |
 | Färg |Välj färg för unika fält. |
 | **Lista** | |
-| Fråga |Frågan ska köras för listan. Antalet poster som returneras av frågan visas. |
+| Söka i data |Frågan ska köras för listan. Antalet poster som returneras av frågan visas. |
 | Dölj diagram |Välj den här länken för att inaktivera diagrammet längst till höger i numerisk kolumn. |
 | Aktivera miniatyrdiagram |Välj den här länken för att visa ett miniatyrdiagram i stället för ett vågrätt fält. Mer information finns i [gemensamma inställningar för](#sparklines). |
 | Färg |Färgen på staplarna och miniatyrdiagram. |
@@ -167,7 +167,7 @@ Rubriken visar ett enda tal som sammanfattar en värdekolumn i en loggfråga. Ri
 ## <a name="two-timelines-and-list-part"></a>Två tidslinjer och lista del
 Rubriken visas resultatet av två loggfrågor med tiden då stående stapeldiagram med en uppmaning som visar ett enda tal som sammanfattar en värdekolumn i en loggfråga. I listan visas de översta tio resultaten från en fråga med ett diagram som visar relativa värdet för en numerisk kolumn eller dess ändras över tid.
 
-![Två och tidslinjer lista](media/log-analytics-view-designer/view-two-timelines-list.png)
+![Två och tidslinjer lista](media/log-analytics-view-designer-parts/view-two-timelines-list.png)
 
 | Inställning | Beskrivning |
 |:--- |:--- |
@@ -181,10 +181,10 @@ Rubriken visas resultatet av två loggfrågor med tiden då stående stapeldiagr
 | **Först diagrammets<br>andra diagram** | |
 | Teckenförklaring |Den text som visas under bildtext för den första serien. |
 | Färg |Färgen som ska användas för kolumnerna i serien. |
-| Fråga |Frågan ska köras under den första serien. Antalet poster under varje tidsintervall representeras av diagramkolumner. |
+| Söka i data |Frågan ska köras under den första serien. Antalet poster under varje tidsintervall representeras av diagramkolumner. |
 | Åtgärd |Åtgärd att utföra på värdeegenskapen och sammanfatta som ett enskilt värde för bildtexten.<ul><li>Sum: Summan av värdena från alla poster.</li><li>Genomsnittlig: Medelvärdet av värdena från alla poster.</li><li>Senaste exempel: värdet från det sista intervallet som ingår i diagrammet.</li><li>Exempel på först: värdet från det första intervallet som ingår i diagrammet.</li><li>Antal: Antal alla poster som returneras av frågan.</li></ul> |
 | **Lista** | |
-| Fråga |Frågan ska köras för listan. Antalet poster som returneras av frågan visas. |
+| Söka i data |Frågan ska köras för listan. Antalet poster som returneras av frågan visas. |
 | Dölj diagram |Välj den här länken för att inaktivera diagrammet längst till höger i numerisk kolumn. |
 | Aktivera miniatyrdiagram |Välj den här länken för att visa ett miniatyrdiagram i stället för ett vågrätt fält. Mer information finns i [gemensamma inställningar för](#sparklines). |
 | Färg |Färgen på staplarna och miniatyrdiagram. |
@@ -199,7 +199,7 @@ Rubriken visas resultatet av två loggfrågor med tiden då stående stapeldiagr
 ## <a name="information-part"></a>Informationsdel
 Rubriken visar statisk text och en valfri länk. I listan visas ett eller flera objekt med en statisk rubrik och text.
 
-![Visa information](media/log-analytics-view-designer/view-information.png)
+![Visa information](media/log-analytics-view-designer-parts/view-information.png)
 
 | Inställning | Beskrivning |
 |:--- |:--- |
@@ -220,7 +220,7 @@ Rubriken visar statisk text och en valfri länk. I listan visas ett eller flera 
 ## <a name="line-chart-callout-and-list-part"></a>Linjediagram, bildtext och lista delar
 Rubriken visar ett linjediagram med flera serier från en loggfråga över tid och en uppmaning med ett sammanfattande värde. I listan visas de översta tio resultaten från en fråga med ett diagram som visar relativa värdet för en numerisk kolumn eller dess ändras över tid.
 
-![Linjediagram, bildtext och listvy](media/log-analytics-view-designer/view-line-chart-callout-list.png)
+![Linjediagram, bildtext och listvy](media/log-analytics-view-designer-parts/view-line-chart-callout-list.png)
 
 | Inställning | Beskrivning |
 |:--- |:--- |
@@ -233,7 +233,7 @@ Rubriken visar ett linjediagram med flera serier från en loggfråga över tid o
 | Titel |Den text som visas överst i rubriken. |
 | Underrubrik |Den text som visas under rubriken överst i rubriken. |
 | **Linjediagram** | |
-| Fråga |Frågan ska köras för linjediagrammet. Den första egenskapen är ett textvärde och den andra egenskapen är ett numeriskt värde. Den här frågan använder normalt den *mått* nyckelord och sammanfatta resultat. Om frågan använder den *intervall* nyckelord, x-axeln i diagrammet använder det här tidsintervallet. Om frågan inte innehåller den *intervall* nyckelordet, x-axeln använder per timme intervall. |
+| Söka i data |Frågan ska köras för linjediagrammet. Den första egenskapen är ett textvärde och den andra egenskapen är ett numeriskt värde. Den här frågan använder normalt den *mått* nyckelord och sammanfatta resultat. Om frågan använder den *intervall* nyckelord, x-axeln i diagrammet använder det här tidsintervallet. Om frågan inte innehåller den *intervall* nyckelordet, x-axeln använder per timme intervall. |
 | Klicka igenom navigering | Åtgärd när du klickar på rubriken.  Mer information finns i [gemensamma inställningar för](#click-through-navigation). |
 | **Linjediagram** |**> Bildtext** |
 | Bildtextrubrik |Den text som visas ovanför bildtextvärdet. |
@@ -244,7 +244,7 @@ Rubriken visar ett linjediagram med flera serier från en loggfråga över tid o
 | Enheter |Ange enheter för värden som returneras av frågan. Den här informationen används för att visa diagrammet etiketter som beskriver värdetyperna och du kan också konvertera värdena. Den *enhet* typen anger kategorin för enheten och definierar de tillgängliga *aktuella enheten* skriver värden. Om du väljer ett värde i *konvertera till*, de numeriska värdena konverteras från den *aktuella enheten* skriver till den *konvertera till* typen. |
 | Anpassad etikett |Den text som visas för y-axeln bredvid etiketten för den *enhet* typen. Om ingen etikett anges endast den *enhet* visas. |
 | **Lista** | |
-| Fråga |Frågan ska köras för listan. Antalet poster som returneras av frågan visas. |
+| Söka i data |Frågan ska köras för listan. Antalet poster som returneras av frågan visas. |
 | Dölj diagram |Välj den här länken för att inaktivera diagrammet längst till höger i numerisk kolumn. |
 | Aktivera miniatyrdiagram |Välj den här länken för att visa ett miniatyrdiagram i stället för ett vågrätt fält. Mer information finns i [gemensamma inställningar för](#sparklines). |
 | Färg |Färgen på staplarna och miniatyrdiagram. |
@@ -260,7 +260,7 @@ Rubriken visar ett linjediagram med flera serier från en loggfråga över tid o
 ## <a name="line-chart-and-list-part"></a>En del diagrammet och listan av rad
 Rubriken visar ett linjediagram med flera serier från en loggfråga över tid. I listan visas de översta tio resultaten från en fråga med ett diagram som visar relativa värdet för en numerisk kolumn eller dess ändras över tid.
 
-![Vy för diagrammet och listan av rad](media/log-analytics-view-designer/view-line-chart-callout-list.png)
+![Vy för diagrammet och listan av rad](media/log-analytics-view-designer-parts/view-line-chart-callout-list.png)
 
 | Inställning | Beskrivning |
 |:--- |:--- |
@@ -273,14 +273,14 @@ Rubriken visar ett linjediagram med flera serier från en loggfråga över tid. 
 | Titel |Den text som visas överst i rubriken. |
 | Underrubrik |Den text som visas under rubriken överst i rubriken. |
 | **Linjediagram** | |
-| Fråga |Frågan ska köras för linjediagrammet. Den första egenskapen är ett textvärde och den andra egenskapen är ett numeriskt värde. Den här frågan använder normalt den *mått* nyckelord och sammanfatta resultat. Om frågan använder den *intervall* nyckelord, x-axeln i diagrammet använder det här tidsintervallet. Om frågan inte innehåller den *intervall* nyckelordet, x-axeln använder per timme intervall. |
+| Söka i data |Frågan ska köras för linjediagrammet. Den första egenskapen är ett textvärde och den andra egenskapen är ett numeriskt värde. Den här frågan använder normalt den *mått* nyckelord och sammanfatta resultat. Om frågan använder den *intervall* nyckelord, x-axeln i diagrammet använder det här tidsintervallet. Om frågan inte innehåller den *intervall* nyckelordet, x-axeln använder per timme intervall. |
 | Klicka igenom navigering | Åtgärd när du klickar på rubriken.  Mer information finns i [gemensamma inställningar för](#click-through-navigation). |
 | **Linjediagram** |**> Y-axeln** |
 | Använda logaritmisk skala |Välj den här länken för att använda en logaritmisk skala för y-axeln. |
 | Enheter |Ange enheter för värden som returneras av frågan. Den här informationen används för att visa diagrammet etiketter som beskriver värdetyperna och du kan också konvertera värdena. Den *enhet* typen anger kategorin för enheten och definierar de tillgängliga *aktuella enheten* skriver värden. Om du väljer ett värde i *konvertera till*, de numeriska värdena konverteras från den *aktuella enheten* skriver till den *konvertera till* typen. |
 | Anpassad etikett |Den text som visas för y-axeln bredvid etiketten för den *enhet* typen. Om ingen etikett anges endast den *enhet* visas. |
 | **Lista** | |
-| Fråga |Frågan ska köras för listan. Antalet poster som returneras av frågan visas. |
+| Söka i data |Frågan ska köras för listan. Antalet poster som returneras av frågan visas. |
 | Dölj diagram |Välj den här länken för att inaktivera diagrammet längst till höger i numerisk kolumn. |
 | Aktivera miniatyrdiagram |Välj den här länken för att visa ett miniatyrdiagram i stället för ett vågrätt fält. Mer information finns i [gemensamma inställningar för](#sparklines). |
 | Färg |Färgen på staplarna och miniatyrdiagram. |
@@ -296,7 +296,7 @@ Rubriken visar ett linjediagram med flera serier från en loggfråga över tid. 
 ## <a name="stack-of-line-charts-part"></a>Stack för rad diagram del
 Stack med linjediagram visar tre separata linjediagram med flera serier från en loggfråga över tid, som visas här:
 
-![Stack med linjediagram](media/log-analytics-view-designer/view-stack-line-charts.png)
+![Stack med linjediagram](media/log-analytics-view-designer-parts/view-stack-line-charts.png)
 
 | Inställning | Beskrivning |
 |:--- |:--- |
@@ -308,7 +308,7 @@ Stack med linjediagram visar tre separata linjediagram med flera serier från en
 | Titel |Den text som visas överst i diagrammet. |
 | Underrubrik |Den text som visas under rubriken överst i diagrammet. |
 | **Skapa diagram över 1<br>diagram 2<br>diagrammets 3** |**Linjediagram** |
-| Fråga |Frågan ska köras för linjediagrammet. Den första egenskapen är ett textvärde och den andra egenskapen är ett numeriskt värde. Den här frågan använder normalt den *mått* nyckelord och sammanfatta resultat. Om frågan använder den *intervall* nyckelord, x-axeln i diagrammet använder det här tidsintervallet. Om frågan inte innehåller den *intervall* nyckelordet, x-axeln använder per timme intervall. |
+| Söka i data |Frågan ska köras för linjediagrammet. Den första egenskapen är ett textvärde och den andra egenskapen är ett numeriskt värde. Den här frågan använder normalt den *mått* nyckelord och sammanfatta resultat. Om frågan använder den *intervall* nyckelord, x-axeln i diagrammet använder det här tidsintervallet. Om frågan inte innehåller den *intervall* nyckelordet, x-axeln använder per timme intervall. |
 | Klicka igenom navigering | Åtgärd när du klickar på rubriken.  Mer information finns i [gemensamma inställningar för](#click-through-navigation). |
 | **Diagram** |**> Y-axeln** |
 | Använda logaritmisk skala |Välj den här länken för att använda en logaritmisk skala för y-axeln. |

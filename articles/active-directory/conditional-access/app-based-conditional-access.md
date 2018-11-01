@@ -1,8 +1,8 @@
 ---
-title: Azure Active Directory appbaserad villkorlig åtkomst | Microsoft Docs
-description: Lär dig hur Azure Active Directory appbaserad villkorlig åtkomst fungerar.
+title: Så här kräver godkända klientappar för åtkomst till molnet appen med villkorlig åtkomst i Azure Active Directory | Microsoft Docs
+description: Lär dig hur du kräver godkända klientappar för åtkomst till molnet appen med villkorlig åtkomst i Azure Active Directory.
 services: active-directory
-keywords: villkorlig åtkomst till appar, villkorlig åtkomst med Azure AD, säker åtkomst till företagets resurser, principer för villkorlig åtkomst
+keywords: conditional access to apps, conditional access with Azure AD, secure access to company resources, conditional access policies
 documentationcenter: ''
 author: MarkusVi
 manager: mtillman
@@ -17,18 +17,18 @@ ms.workload: identity
 ms.date: 06/13/2018
 ms.author: markvi
 ms.reviewer: spunukol
-ms.openlocfilehash: f34fc4c41094292db9bed1294ee7b26ec04c96c6
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: 68c2178440264aa6a6efce074b299f4e3deaa10f
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39630610"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50415397"
 ---
-# <a name="azure-active-directory-app-based-conditional-access"></a>Azure Active Directory appbaserad villkorlig åtkomst  
+# <a name="how-to-require-approved-client-apps-for-cloud-app-access-with-conditional-access"></a>Så här: Kräver godkända klientappar för åtkomst till molnet appen med villkorlig åtkomst 
 
-Dina anställda använder mobila enheter för både personliga och arbetsrelaterade uppgifter. Att se till att dina anställda kan vara produktiva, vill du också förhindra förlust av data. Med Azure Active Directory (Azure AD) appbaserad villkorlig åtkomst, kan du begränsa åtkomsten till dina appar i molnet på klientappar som kan skydda företagets data.  
+Dina anställda använder mobila enheter för både personliga och arbetsrelaterade uppgifter. Att se till att dina anställda kan vara produktiva, vill du också förhindra förlust av data. Med villkorlig åtkomst för Azure Active Directory (AD Azure), kan du begränsa åtkomsten till dina appar i molnet på godkända klientappar som kan skydda företagets data.  
 
-Det här avsnittet förklarar hur du konfigurerar en appbaserad villkorlig åtkomst i Azure AD.
+Det här avsnittet förklarar hur du konfigurerar villkor åtkomstprinciper som kräver godkända klientprogram.
 
 ## <a name="overview"></a>Översikt
 
@@ -36,7 +36,7 @@ Med [Azure AD villkorsstyrd åtkomst](overview.md), du kan finjustera hur behör
 
 Du kan använda [Intunes appskyddsprinciper](https://docs.microsoft.com/intune/app-protection-policy) för att skydda företagets data. Intunes appskyddsprinciper behöver inte lösning för hantering av mobila enheter (MDM), där du kan skydda företagets data eller inte registrerar enheter i en enhetshanteringslösning.
 
-Azure Active Directory appbaserad villkorlig åtkomst kan du begränsa åtkomsten till dina appar i molnet på klientappar som stöder Intunes appskyddsprinciper. Du kan exempelvis begränsa åtkomsten till Exchange Online för Outlook-appen.
+Azure Active Directory villkorlig åtkomst kan du begränsa åtkomsten till dina appar i molnet på klientappar som stöder Intunes appskyddsprinciper. Du kan exempelvis begränsa åtkomsten till Exchange Online för Outlook-appen.
 
 Med villkorlig åtkomst-terminologin dessa klientappar kallas **godkända klientappar**.  
 
@@ -120,9 +120,9 @@ För principen för villkorlig åtkomst i det här steget måste du konfigurera 
 
     ![Villkorlig åtkomst](./media/app-based-conditional-access/03.png)
 
-    b. Som **klientappar**väljer **mobilappar och skrivbordsappar**.
+    b. Som **klientappar (förhandsgranskning)** väljer **mobilappar och skrivbordsappar** och **moderna autentiseringsklienter**.
 
-    ![Villkorlig åtkomst](./media/app-based-conditional-access/04.png)
+    ![Villkorlig åtkomst](./media/app-based-conditional-access/91.png)
 
 5. Som **åtkomstkontroller**, måste du ha **Kräv godkänd klientapp (förhandsversion)** valda.
 
@@ -144,11 +144,11 @@ För principen för villkorlig åtkomst i det här steget måste du konfigurera 
 
     ![Villkorlig åtkomst](./media/app-based-conditional-access/07.png)
 
-4. **Villkor:** som **villkor**, måste du konfigurera **klientappar**. 
+4. **Villkor:** som **villkor**, måste du konfigurera **klientappar (förhandsgranskning)**. 
 
-    a. Som **klientappar**väljer **Exchange Active Sync**.
+    a. Som **klientappar (förhandsgranskning)** väljer **mobilappar och skrivbordsklienter** och **Exchange ActiveSync-klienter**.
 
-    ![Villkorlig åtkomst](./media/app-based-conditional-access/08.png)
+    ![Villkorlig åtkomst](./media/app-based-conditional-access/92.png)
 
     b. Som **åtkomstkontroller**, måste du ha **Kräv godkänd klientapp (förhandsversion)** valda.
 
@@ -201,9 +201,9 @@ För principen för villkorlig åtkomst i det här steget måste du konfigurera 
 
     ![Villkorlig åtkomst](./media/app-based-conditional-access/03.png)
 
-    b. Som **klientappar**väljer **mobilappar och skrivbordsappar**.
+    b. Som **klientappar (förhandsgranskning)** väljer **mobilappar och skrivbordsklienter** och **moderna autentiseringsklienter**.
 
-    ![Villkorlig åtkomst](./media/app-based-conditional-access/04.png)
+    ![Villkorlig åtkomst](./media/app-based-conditional-access/91.png)
 
 5. Som **åtkomstkontroller**, måste du ha **Kräv godkänd klientapp (förhandsversion)** valda.
 
@@ -228,9 +228,9 @@ För principen för villkorlig åtkomst i det här steget måste du konfigurera 
 
 4. **Villkor:** som **villkor**, måste du konfigurera **klientappar**:
 
-    a. Som **klientappar**väljer **Exchange Active Sync**.
+    a. Som **klientappar (förhandsgranskning)** väljer **mobilappar och skrivbordsklienter** och **Exchange ActiveSync-klienter**.
 
-    ![Villkorlig åtkomst](./media/app-based-conditional-access/08.png)
+    ![Villkorlig åtkomst](./media/app-based-conditional-access/92.png)
 
     b. Som **åtkomstkontroller**, måste du ha **Kräv godkänd klientapp (förhandsversion)** valda.
 
@@ -285,9 +285,9 @@ För principen för villkorlig åtkomst i det här steget måste du konfigurera 
 
     ![Villkorlig åtkomst](./media/app-based-conditional-access/03.png)
 
-    b. Som **klientappar**väljer **mobilappar och skrivbordsappar**.
+    b. Som **klientappar (förhandsgranskning)** väljer **mobilappar och skrivbordsklienter** och **moderna autentiseringsklienter**.
 
-    ![Villkorlig åtkomst](./media/app-based-conditional-access/04.png)
+    ![Villkorlig åtkomst](./media/app-based-conditional-access/91.png)
 
 5. Som **åtkomstkontroller**, måste du ha följande valda:
 
@@ -317,9 +317,9 @@ För principen för villkorlig åtkomst i det här steget måste du konfigurera 
 
 4. **Villkor:** som **villkor**, måste du konfigurera **klientappar**. 
 
-    Som **klientappar*väljer **Exchange Active Sync**.
+    Som **klientappar (förhandsgranskning)** väljer **mobilappar och skrivbordsklienter** och **Exchange ActiveSync-klienter**.
 
-    ![Villkorlig åtkomst](./media/app-based-conditional-access/08.png)
+    ![Villkorlig åtkomst](./media/app-based-conditional-access/91.png)
 
 5. Som **åtkomstkontroller**, måste du ha **Kräv godkänd klientapp (förhandsversion)** valda.
  
@@ -381,9 +381,9 @@ För principen för villkorlig åtkomst i det här steget måste du konfigurera 
 
     ![Villkorlig åtkomst](./media/app-based-conditional-access/03.png)
 
-    b. Som **klientappar**väljer **mobilappar och skrivbordsappar**.
+    b. Som **klientappar (förhandsgranskning)** väljer **mobilappar och skrivbordsappar** och **moderna autentiseringsklienter**.
 
-    ![Villkorlig åtkomst](./media/app-based-conditional-access/04.png)
+    ![Villkorlig åtkomst](./media/app-based-conditional-access/91.png)
 
 5. Som **åtkomstkontroller**, måste du ha följande valda:
 
@@ -411,11 +411,11 @@ För principen för villkorlig åtkomst i det här steget måste du konfigurera 
 
     ![Villkorlig åtkomst](./media/app-based-conditional-access/07.png)
 
-4. **Villkor:** som **villkor**, måste du konfigurera **klientappar**. 
+4. **Villkor:** som **villkor**, måste du konfigurera **klientappar (förhandsgranskning)**. 
 
-    Som **klientappar**väljer **Exchange Active Sync**.
+    Som **klientappar (förhandsgranskning)** väljer **mobilappar och skrivbordsklienter** och **Exchange ActiveSync-klienter**.
 
-    ![Villkorlig åtkomst](./media/app-based-conditional-access/08.png)
+    ![Villkorlig åtkomst](./media/app-based-conditional-access/92.png)
 
 5. Som **åtkomstkontroller**, måste du ha följande valda:
 
@@ -446,4 +446,4 @@ Se [skydda data och appar med Microsoft Intune](https://docs.microsoft.com/intun
 
 Om du vill veta hur du konfigurerar principer för villkorlig åtkomst finns i [kräver MFA för specifika appar med villkorlig åtkomst i Azure Active Directory](app-based-mfa.md).
 
-Om du är redo att konfigurera principer för villkorlig åtkomst för din miljö kan du läsa den [bästa praxis för villkorlig åtkomst i Azure Active Directory](best-practices.md). 
+Om du är redo att konfigurera principer för villkorsstyrd åtkomst för din miljö kan du läsa sidan om [metodtips för villkorsstyrd åtkomst i Azure Active Directory](best-practices.md). 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/29/2018
 ms.author: spelluru
-ms.openlocfilehash: 497249baa10956c37762172bd0c48fad7be14e0b
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: e7d140f212dd2506f48b23fe99db5ba2be91dac9
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49319327"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50421041"
 ---
 # <a name="process-apache-kafka-for-event-hubs-events-using-stream-analytics"></a>Bearbeta Apache Kafka för Event Hubs-händelser med Stream-analys 
 Den här artikeln visar hur du strömma data till Kafka-aktiverade Event Hubs och bearbeta dem med Azure Stream Analytics. Vi går igenom följande steg: 
@@ -35,7 +35,7 @@ Du behöver inte ändra protokoll-klienter eller kör ditt eget kluster när du 
 För att kunna slutföra den här snabbstarten behöver du följande:
 
 * En Azure-prenumeration. Om du inte har ett konto kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) innan du börjar.
-* [Java Development Kit (JDK) 1.7+](http://www.oracle.com/technetwork/java/javase/downloads/index.html).
+* [Java Development Kit (JDK) 1.7+](https://aka.ms/azure-jdks).
 * [Ladda ned](http://maven.apache.org/download.cgi) och [installera](http://maven.apache.org/install.html) ett Maven-binärarkiv.
 * [Git](https://www.git-scm.com/)
 * En **Azure Storage-konto**. Om du inte har någon, [skapar ett](../storage/common/storage-quickstart-create-account.md) innan du fortsätter. Stream Analytics-jobb i den här genomgången lagrar utdata i Azure blob storage. 
@@ -170,7 +170,7 @@ När du har en Stream Analytics-jobbkonfiguration för att läsa en inkommande d
 3. Ersätt `[YourInputAlias]` med inmatat alias som du skapade tidigare. 
 4. Välj **Spara** i verktygsfältet. 
 
-    ![Fråga](./media/event-hubs-kafka-stream-analytics/query.png)
+    ![Söka i data](./media/event-hubs-kafka-stream-analytics/query.png)
 
 
 ### <a name="run-the-stream-analytics-job"></a>Köra Stream Analytics-jobbet

@@ -1,6 +1,6 @@
 ---
-title: Utföra nätverket intrångsidentifiering med öppen källkod verktyg och Azure Nätverksbevakaren | Microsoft Docs
-description: Den här artikeln beskriver hur du använder Azure Nätverksbevakaren och Öppna källa verktyg för att utföra intrångsidentifiering för nätverk
+title: Utföra intrångsidentifiering för nätverk med Azure Network Watcher och verktyg för öppen källkod | Microsoft Docs
+description: Den här artikeln beskriver hur du använder Azure Network Watcher och verktyg med öppen källkod för att utföra avkänning av nätverksintrång
 services: network-watcher
 documentationcenter: na
 author: jimdial
@@ -14,34 +14,34 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: aff1b5f9e8860d3b8dc09b37684bb8a4ac2bf134
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 9d77952a96bff6cc2d50ecbd4bde7e499f20de6d
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/05/2018
-ms.locfileid: "23864226"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50420041"
 ---
-# <a name="perform-network-intrusion-detection-with-network-watcher-and-open-source-tools"></a>Utföra nätverket intrångsidentifiering med öppen källkod verktyg och Nätverksbevakaren
+# <a name="perform-network-intrusion-detection-with-network-watcher-and-open-source-tools"></a>Utföra intrångsidentifiering för nätverk med Network Watcher och verktyg för öppen källkod
 
-Paketet insamlingar är en viktig del för att implementera nätverk intrång identifiering (ID) och utföra Network Security övervakning (NSM). Det finns flera ID: N verktyg för öppen källkod som bearbetar paket insamlingar och leta efter signaturer för intrång i nätverket och skadliga aktiviteter. Med hjälp av paketet samlar in angivna genom Nätverksbevakaren, kan du analysera nätverket för skadliga intrång eller säkerhetsproblem.
+Fånga in är en viktig komponent för att implementera nätverk intrång identifiering (ID) och utföra Network Security Monitoring (NSM). Det finns flera ID: N verktyg för öppen källkod som bearbetar infångade paket och leta efter signaturer för nätverket intrång och skadlig aktivitet. Med hjälp av paketet samlar in angivna av Network Watcher kan du analysera nätverket för skadliga intrång eller säkerhetsproblem.
 
-Ett sådant öppen källkod verktyg är Suricata, en ID-motor som använder regeluppsättningar att övervaka nätverkstrafik och utlöser aviseringar när misstänkta händelser inträffar. Suricata erbjuder ett flertrådat motorn, vilket innebär att den kan utföra nätverkstrafikanalysen med ökad hastighet och effektivitet. Mer information om Suricata och dess funktioner finns i deras webbplats på https://suricata-ids.org/.
+Ett sådant verktyg med öppen källkod är Suricata, en motor med ID: N som använder regeluppsättningar för att övervaka nätverkstrafik och utlöser varningar när misstänkta händelser inträffar. Suricata erbjuder en flertrådiga motor, vilket innebär att den kan utföra analysen av nätverkstrafik med ökad hastighet och effektivitet. Mer information om Suricata och dess funktioner, gå till webbplatsen på https://suricata-ids.org/.
 
 ## <a name="scenario"></a>Scenario
 
-Den här artikeln beskriver hur du konfigurerar miljön för att utföra nätverket intrångsidentifiering med Nätverksbevakaren, Suricata och elastiska stacken. Nätverksbevakaren ger paket-insamlingar som används för att utföra nätverket intrångsidentifiering. Suricata bearbetar paket insamlingar och utlösa varningar baserat på paket som matchar dess given regeluppsättning hot. Dessa aviseringar som lagras i en loggfil på den lokala datorn. Med elastisk stacken kan loggar som genereras av Suricata indexeras och används för att skapa en Kibana instrumentpanel som ger dig en bild av loggarna och ett sätt att snabbt få insikter om potentiella säkerhetsproblem i nätverket.  
+Den här artikeln beskriver hur du ställer in din miljö för att utföra intrångsidentifiering i nätverk med Network Watcher, Suricata och Elastic Stack. Network Watcher får du med infångade som används för att utföra avkänning av nätverksintrång. Suricata bearbetar infångade paket och utlöser aviseringar baserat på paket som matchar dess given regeluppsättning hot. Dessa aviseringar lagras i en loggfil på den lokala datorn. Med Elastic Stack kan loggar som genereras av Suricata vara indexerade och används för att skapa en Kibana-instrumentpanelen, vilket ger dig en visuell representation av loggarna och ett sätt att snabbt få information om säkerhetsrisker i dina nätverk.  
 
-![enkel web application scenario][1]
+![enkel programscenariot][1]
 
-Båda verktyg med öppen källkod kan ställas in på en virtuell dator i Azure, så att du kan utföra den här analysen i Azure network-miljön.
+Båda verktyg för öppen källkod kan ställas in på en virtuell dator i Azure, så att du kan utföra den här analysen inom din egen Azure-nätverksmiljön.
 
 ## <a name="steps"></a>Steg
 
 ### <a name="install-suricata"></a>Installera Suricata
 
-Alla andra metoder för installation finns http://suricata.readthedocs.io/en/latest/install.html
+Alla andra metoder för installation, besök http://suricata.readthedocs.io/en/latest/install.html
 
-1. Kör följande kommandon i Kommandotolken terminal på den virtuella datorn:
+1. Kör följande kommandon i kommandoradsterminal för den virtuella datorn:
 
     ```
     sudo add-apt-repository ppa:oisf/suricata-stable
@@ -49,11 +49,11 @@ Alla andra metoder för installation finns http://suricata.readthedocs.io/en/lat
     sudo sudo apt-get install suricata
     ```
 
-1. Verifiera installationen genom att köra kommandot `suricata -h` att se en fullständig lista över kommandon.
+1. Om du vill verifiera installationen, kör du kommandot `suricata -h` att se en fullständig lista över kommandon.
 
-### <a name="download-the-emerging-threats-ruleset"></a>Hämta nya hot RuleSet-metod
+### <a name="download-the-emerging-threats-ruleset"></a>Ladda ned växande hot RuleSet-metod
 
-I det här skedet har vi inte några regler för Suricata ska köras. Du kan skapa dina egna regler om det finns specifika hot mot nätverket som du vill identifiera och du kan också använda utvecklats uppsättningar från ett antal leverantörer, till exempel nya hot eller VRT regler från Snort. Vi använder fritt tillgänglig nya hot ruleset här:
+I det här skedet har vi inte några regler för Suricata ska köras. Du kan skapa dina egna regler om det finns specifika hot mot ditt nätverk som du vill identifiera eller du kan också använda utvecklade regeluppsättningar från ett antal leverantörer, till exempel växande hot eller VRT regler från Snort. Vi använder den fritt tillgänglig växande hot RuleSet-metod här:
 
 Hämta regeluppsättningen och kopiera dem till katalogen:
 
@@ -63,26 +63,27 @@ tar zxf emerging.rules.tar.gz
 sudo cp -r rules /etc/suricata/
 ```
 
-### <a name="process-packet-captures-with-suricata"></a>Processen paket fångar med Suricata
+### <a name="process-packet-captures-with-suricata"></a>Fjärrinfångade processen paket med Suricata
 
 Samlar in med hjälp av Suricata, kör du följande kommando för att bearbeta paketet:
 
 ```
 sudo suricata -c /etc/suricata/suricata.yaml -r <location_of_pcapfile>
 ```
-Läs filen fast.log för att kontrollera de resulterande aviseringarna:
+Läs filen fast.log för att kontrollera varningarna:
 ```
 tail -f /var/log/suricata/fast.log
 ```
 
-### <a name="set-up-the-elastic-stack"></a>Konfigurera elastisk Stack
+### <a name="set-up-the-elastic-stack"></a>Konfigurera Elastic Stack
 
-När de loggar som producerar Suricata innehåller värdefull information om vad som händer på vårt nätverk, är dessa loggfiler inte enklast att läsa och förstå. Genom att ansluta Suricata med elastisk Stack kan skapa vi en instrumentpanel för Kibana vad gör att vi kan söka, diagram, analysera och härleda insikter från våra loggar.
+När de loggar som producerar Suricata innehåller värdefull information om vad som händer på vårt nätverk, inte dessa loggfiler är den enklaste att läsa och förstå. Genom att ansluta Suricata med Elastic Stack, kan vi skapa en instrumentpanel med Kibana vad kan vi söka, diagram, analysera och slutsatser från våra loggar.
 
 #### <a name="install-elasticsearch"></a>Installera Elasticsearch
 
-1. Elastisk stacken version 5.0 och senare kräver Java 8. Kör kommandot `java -version` att kontrollera din version. Om du inte har java installera, finns i dokumentationen till på [Oracles webbplats](http://docs.oracle.com/javase/8/docs/technotes/guides/install/install_overview.html)
-1. Hämta rätt binära paket för ditt system:
+1. Elastic Stack från version 5.0 och senare kräver Java 8. Kör kommandot `java -version` kan kontrollera din version. Om du inte har installerat java läser dokumentationen på den [Azure kodblock JDKs](https://aka.ms/azure-jdks).
+
+1. Ladda ned rätt binära paket för ditt system:
 
     ```
     curl -L -O https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-5.2.0.deb
@@ -90,7 +91,7 @@ När de loggar som producerar Suricata innehåller värdefull information om vad
     sudo /etc/init.d/elasticsearch start
     ```
 
-    Andra installationsmetoder finns på [Elasticsearch Installation](https://www.elastic.co/guide/en/beats/libbeat/5.2/elasticsearch-installation.html)
+    Andra installationsmetoder finns på [Elasticsearch-Installation](https://www.elastic.co/guide/en/beats/libbeat/5.2/elasticsearch-installation.html)
 
 1. Kontrollera att Elasticsearch körs med kommandot:
 
@@ -115,7 +116,7 @@ När de loggar som producerar Suricata innehåller värdefull information om vad
     }
     ```
 
-Ytterligare information om installation elastisk Sök hänvisar till sidan [Installation](https://www.elastic.co/guide/en/elasticsearch/reference/5.2/_installation.html)
+Ytterligare anvisningar för installation elastiska sökning, referera till sidan [Installation](https://www.elastic.co/guide/en/elasticsearch/reference/5.2/_installation.html)
 
 ### <a name="install-logstash"></a>Installera Logstash
 
@@ -125,7 +126,7 @@ Ytterligare information om installation elastisk Sök hänvisar till sidan [Inst
     curl -L -O https://artifacts.elastic.co/downloads/logstash/logstash-5.2.0.deb
     sudo dpkg -i logstash-5.2.0.deb
     ```
-1. Nästa vi måste du konfigurera Logstash att läsa från utdata från eve.json-filen. Skapa filen logstash.conf med:
+1. Därefter måste vi konfigurera Logstash för att läsa från utdata från eve.json fil. Skapa en logstash.conf filen med:
 
     ```
     sudo touch /etc/logstash/conf.d/logstash.conf
@@ -203,19 +204,19 @@ Ytterligare information om installation elastisk Sök hänvisar till sidan [Inst
     }
     ```
 
-1. Se till att ge behörighet till filen eve.json så att Logstash kan infognings-filen.
+1. Se till att ge behörighet till filen eve.json så att Logstash kan mata in filen.
     
     ```
     sudo chmod 775 /var/log/suricata/eve.json
     ```
 
-1. Om du vill starta Logstash köra kommandot:
+1. Starta Logstash kör kommandot:
 
     ```
     sudo /etc/init.d/logstash start
     ```
 
-Ytterligare instruktioner om hur du installerar Logstash finns i den [officiella dokumentation](https://www.elastic.co/guide/en/beats/libbeat/5.2/logstash-installation.html)
+För ytterligare instruktioner om hur du installerar Logstash avser den [officiella dokumentationen](https://www.elastic.co/guide/en/beats/libbeat/5.2/logstash-installation.html)
 
 ### <a name="install-kibana"></a>Installera Kibana
 
@@ -233,58 +234,58 @@ Ytterligare instruktioner om hur du installerar Logstash finns i den [officiella
     ./bin/kibana
     ```
 
-1. Om du vill visa dina Kibana webbgränssnitt, gå till `http://localhost:5601`
-1. I det här scenariot index mönstret för Suricata loggarna är ”logstash-*”
+1. Om du vill visa Kibana-webbgränssnittet, gå till `http://localhost:5601`
+1. Det här scenariot är mönstret index används för Suricata loggar ”logstash-*”
 
-1. Om du vill visa infopanelen Kibana via fjärranslutning, skapar du en inkommande NSG regel för att tillåta åtkomst till **port 5601**.
+1. Om du vill visa Kibana-instrumentpanelen via en fjärranslutning, skapar du en inkommande NSG-regel som tillåter åtkomst till **port 5601**.
 
-### <a name="create-a-kibana-dashboard"></a>Skapa en Kibana instrumentpanel
+### <a name="create-a-kibana-dashboard"></a>Skapa en instrumentpanel i Kibana
 
-Vi har angett ett exempel på en instrumentpanel där du kan visa trender och information i aviseringar för den här artikeln.
+I den här artikeln har vi lagt till ett exempel på en instrumentpanel som du kan visa trender och information i dina aviseringar.
 
-1. Hämta filen instrumentpanelen [här](https://aka.ms/networkwatchersuricatadashboard), visualisering filen [här](https://aka.ms/networkwatchersuricatavisualization), och filen sparad sökning [här](https://aka.ms/networkwatchersuricatasavedsearch).
+1. Ladda ned filen instrumentpanelen [här](https://aka.ms/networkwatchersuricatadashboard), filen visualisering [här](https://aka.ms/networkwatchersuricatavisualization), och filen sparad sökning [här](https://aka.ms/networkwatchersuricatasavedsearch).
 
-1. Under den **Management** fliken av Kibana, gå till **sparade objekt** och importera alla tre filerna. Sedan från den **instrumentpanelen** fliken kan du öppna och läsa in de exempel på en instrumentpanelen.
+1. Under den **Management** fliken av Kibana, gå till **sparade objekt** och importera alla tre filerna. Sedan från den **instrumentpanelen** fliken kan du öppna och läsa in exempelinstrumentpanel.
 
-Du kan också skapa egna visualiseringar och instrumentpaneler som skräddarsys mot mätvärden för ditt eget intresse. Läs mer om hur du skapar Kibana visualiseringar från Kibana's [officiella dokumentation](https://www.elastic.co/guide/en/kibana/current/visualize.html).
+Du kan också skapa egna visualiseringar och instrumentpaneler som är skräddarsydda för din egen mätvärden. Läs mer om att skapa Kibana visualiseringar från Kibana's [officiella dokumentationen](https://www.elastic.co/guide/en/kibana/current/visualize.html).
 
-![kibana instrumentpanelen][2]
+![kibana-instrumentpanelen][2]
 
-### <a name="visualize-ids-alert-logs"></a>Visualisera ID avisering loggar
+### <a name="visualize-ids-alert-logs"></a>Visualisera ID: N avisering loggar
 
-I exemplet på instrumentpanel innehåller flera visualiseringar Suricata avisering loggar:
+Exempelinstrumentpanelen innehåller flera visualiseringar Suricata avisering loggar:
 
-1. Aviseringar av GeoIP – en karta med distribution av aviseringar för sina ursprung baserat på geografisk plats (bestäms av IP)
+1. Aviseringar efter GeoIP – en karta som visar fördelningen av aviseringar efter ursprungslandet baserat på geografisk plats (bestäms av IP)
 
     ![GEO-ip][3]
 
-1. Översta 10 aviseringar – en sammanfattning av de vanligaste 10 utlöst aviseringar och deras beskrivning. Klicka på en enskild varning filtrerar ned instrumentpanelen på den information som rör den specifika aviseringen.
+1. Främsta 10 aviseringar – en sammanfattning av de 10 vanligaste utlösta aviseringarna och deras beskrivning. Klicka på en enskild varning filtrerar ned instrumentpanelen till den information som hör till den specifika aviseringen.
 
-    ![image 4][4]
+    ![bild 4][4]
 
-1. Antal aviseringar – totalt antal aviseringar som har utlösts av den RuleSet-metod
+1. Antal aviseringar – det totala antalet aviseringar som utlöses av den RuleSet-metod
 
     ![bild 5][5]
 
-1. Övre 20 källan/målet IP-adresser portar - cirkeldiagram visar de översta 20 IP-adresser och portar som aviseringar har utlösts av. Du kan filtrera nedåt på specifika IP-adresser/portar att se hur många och vilka typer av aviseringar aktiveras.
+1. Översta 20 källans/målets IP-adresser/portar – diagram som visar de översta 20 IP-adresser och portar som aviseringar har utlösts på. Du kan filtrera nedåt i specifika IP-adresser/portar att se hur många och vilka typer av aviseringar som utlöses.
 
-    ![image 6][6]
+    ![bild 6][6]
 
-1. Aviseringen sammanfattning – en tabell sammanfattar närmare för varje enskild varning. Du kan anpassa den här tabellen om du vill visa andra parametrar av intresse för varje avisering.
+1. Aviseringssammanfattning – en tabell som sammanställer specifik information om varje enskild avisering. Du kan anpassa den här tabellen för att visa andra parametrar av intresse för varje avisering.
 
     ![Bild 7][7]
 
-Mer dokumentation om hur du skapar anpassade visualiseringar och instrumentpaneler finns [Kibanas officiella dokumentation](https://www.elastic.co/guide/en/kibana/current/introduction.html).
+Mer dokumentation om hur du skapar anpassade visualiseringar och instrumentpaneler i [Kibanas officiella dokumentationen](https://www.elastic.co/guide/en/kibana/current/introduction.html).
 
 ## <a name="conclusion"></a>Sammanfattning
 
-Samlar in angivna genom Nätverksbevakaren och verktyg för öppen källkod-ID: N som Suricata, du kan utföra nätverket intrångsidentifiering för en mängd olika hot genom att kombinera paket. Instrumentpanelerna kan du snabbt se trender och avvikelser i nätverket, som korrekt gräva i data för att identifiera rotorsaken till aviseringar, till exempel skadliga användaragenter eller sårbara portarna. Med den här extraherade data fatta du välgrundade beslut om hur du ta hänsyn till och skydda nätverket från skadliga intrångsförsök och skapa regler för att förhindra framtida intrång i nätverket.
+Samlar in angivna av Network Watcher och verktyg för öppen källkod-ID: N, till exempel Suricata, du kan utföra avkänning av nätverksintrång för en mängd olika hot genom att kombinera paket. Dessa instrumentpaneler kan du snabbt upptäcka trender och avvikelser i ditt nätverk som och fördjupa data för att identifiera rotorsaken till aviseringar, till exempel skadliga användaragenter eller sårbara portar. Med den här extraherade data kan du fatta välgrundade beslut om hur du reagera på och skydda ditt nätverk från alla skadliga intrångsförsök och skapa regler för att förhindra framtida intrång i nätverket.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Lär dig hur du utlöser paket insamlingar baserat på aviseringar genom att besöka [använder paketinsamling för proaktiv nätverksövervakning med Azure Functions](network-watcher-alert-triggered-packet-capture.md)
+Lär dig hur du utlöser infångade paket baserat på varningar genom att besöka [använda infångade paket för att utföra proaktiv nätverksövervakning med Azure Functions](network-watcher-alert-triggered-packet-capture.md)
 
-Lär dig hur du visualisera dina NSG flödet loggar med Power BI genom att besöka [visualisera NSG flödar loggar med Power BI](network-watcher-visualize-nsg-flow-logs-power-bi.md)
+Lär dig att visualisera dina NSG-flödesloggar med Power BI genom att besöka [visualisera NSG-flödesloggar med Power BI](network-watcher-visualize-nsg-flow-logs-power-bi.md)
 
 
 

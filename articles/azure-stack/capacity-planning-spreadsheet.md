@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/18/2018
+ms.date: 10/31/2018
 ms.author: jeffgilb
 ms.reviewer: prchint
-ms.openlocfilehash: 5ebddbf1fea49fbf868d15a544a18e5a8c6369fd
-ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
+ms.openlocfilehash: ec4d8ef43510c07e73ab18de227176d3c282b8e1
+ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49078315"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50740849"
 ---
 # <a name="azure-stack-capacity-planner"></a>Azure Stack Capacity Planner
 Azure Stack Capacity Planner är ett kalkylblad som används för kapacitetsplanering för Azure Stack-resurs. Capacity planner ger dig möjlighet att utforma olika allokeringen av datorresurser och se hur de skulle passa över ett urval av maskinvara. Detaljerade anvisningar för användning av Azure Stack-Kalkylatorn finns nedan.
@@ -56,7 +56,7 @@ Det här verktyget erbjuder två metoder för att tilldela VM-resurser. antingen
 ## <a name="definebyvmfootprint-instructions"></a>DefineByVMFootprint instruktioner
 Välj fliken ”DefineByVMFootprint” för att skapa en modell med en enda samling av olika storlekar och kvantiteter av virtuella datorer, och följ den här sekvensen av steg.
 
-1. I det övre högra hörnet av det här kalkylbladet använder du de tillhandahållna nedrullningsbara listrutekontroller för att välja en ursprungsvärdet av servrar (mellan 4 och 12) som ska installeras i varje maskinvarusystem (SKU). Det här antalet servrar som kan ändras när som helst under modelleringsprocessen att se hur det påverkar den totala tillgängliga resurser för din modell.
+1. I det övre högra hörnet av det här kalkylbladet använder du de tillhandahållna nedrullningsbara listrutekontroller för att välja en ursprungsvärdet av servrar (mellan 4 och 16) som ska installeras i varje maskinvarusystem (SKU). Det här antalet servrar som kan ändras när som helst under modelleringsprocessen att se hur det påverkar den totala tillgängliga resurser för din modell.
 2. Om du vill att modellera olika VM-resursallokeringar mot en specifik maskinvarukonfiguration, hitta blå nedrullningsbara listrutan direkt under etiketten ”aktuella SKU: N” i det övre högra hörnet på sidan. Hämta den här listrutan och välj din önskade maskinvara SKU.
 3. Du är nu redo att börja lägga till olika storlekar virtuella datorer i din modell. För att inkludera en viss typ av virtuell dator, anger du värdet för antal i blått nedan rutan till vänster om den virtuella dator posten.
 
@@ -73,7 +73,7 @@ Välj fliken ”DefineByWorkloadFootprint” för att skapa en modell med hjälp
 > [!TIP]
 > Om du vill ändra den angivna lagringsstorleken för en Azure Stack-dator, se kommentaren från steg tre i föregående avsnitt.
 
-1. I det övre högra hörnet på den här sidan använder du de nedrullningsbara listan kontrollerna för att välja en ursprungsvärdet av servrar (mellan 4 och 12) som ska installeras i varje maskinvarusystem (SKU).
+1. I det övre högra hörnet på den här sidan använder du de nedrullningsbara listan kontrollerna för att välja en ursprungsvärdet av servrar (mellan 4 och 16) som ska installeras i varje maskinvarusystem (SKU).
 2. Om du vill att modellera olika VM-resursallokeringar mot en specifik maskinvarukonfiguration, hitta blå nedrullningsbara listrutan direkt under etiketten ”aktuella SKU: N” i det övre högra hörnet på sidan. Hämta den här listrutan och välj din önskade maskinvara SKU.
 3. Välj lämplig storlek för var och en av dina önskade Azure Stack virtuella datorer på sidan DefineByVMFootprint enligt beskrivningen ovan under steg tre DefineByVMFootprint instruktioner. Lagringsstorleken per virtuell dator har definierats i DefineByVMFootprint-bladet.
 4. Från och med det övre vänstra hörnet av sidan DefineByWorkloadFootprint, skapa konfigurationer för upp till sex olika typer av arbetsbelastningar genom att ange hur många varje typ av virtuell dator som ingår i arbetsbelastningen. Detta görs genom att placera numeriska värden i kolumnen direkt under namn på den arbetsbelastning. Namn på arbetsbelastning kan ändras för att återspegla typ av arbetsbelastningar som stöds av den här specifik konfiguration.

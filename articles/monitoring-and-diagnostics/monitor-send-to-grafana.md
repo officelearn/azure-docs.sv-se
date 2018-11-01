@@ -1,5 +1,5 @@
 ---
-title: Övervaka Azure-tjänster och -program med Grafana
+title: Övervaka Azure-tjänster och program med Grafana
 description: Dirigera Azure Monitor och Application Insights data så att du kan visa dem i Grafana.
 services: azure-monitor
 keywords: ''
@@ -9,12 +9,12 @@ ms.date: 11/06/2017
 ms.topic: conceptual
 ms.service: azure-monitor
 ms.component: ''
-ms.openlocfilehash: b4fbd1248f91e0766cca66d1c51033a8b338c324
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: 75b1edf80f1dad5f0db48c11329effe080760820
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49957402"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50413153"
 ---
 # <a name="monitor-your-azure-services-in-grafana"></a>Övervaka dina Azure-tjänster i Grafana
 Du kan nu också övervaka Azure-tjänster och program från [Grafana](https://grafana.com/) med hjälp av den [Azure Monitor-plugin-programmet för datakällans](https://grafana.com/plugins/grafana-azure-monitor-datasource). Plugin-programmet samlar in prestandadata för program som samlas in av Application Insights SDK samt infrastrukturdata tillhandahålls av Azure Monitor. Du kan sedan visa dessa data på din Grafana-instrumentpanel.
@@ -37,13 +37,13 @@ Använd följande steg för att ställa in en Grafana-server från Azure Marketp
 ## <a name="log-in-to-grafana"></a>Logga in på Grafana
 1. När distributionen är klar väljer du **går du till resursgruppen**. Du kan se en lista över nyligen skapade resurser.
 
-    ![Grafana resource gruppobjekt](.\media\monitor-how-to-grafana\grafana1.png)
+    ![Grafana resource gruppobjekt](media/monitor-send-to-grafana/grafana1.png)
 
     Om du väljer den nya nätverkssäkerhetsgruppen (*grafana-nsg* i det här fallet), ser du att port 3000 används för att få åtkomst till Grafana server.
 
 2. Gå tillbaka till listan över resurser och välj **offentliga IP-adressen**. Med hjälp av de värden som finns på den här skärmen, skriver *http://<IP address>: 3000* eller  *<DNSName>: 3000* i webbläsaren. Du bör se en inloggningssida för Grafana-server som du precis skapat.
 
-    ![Grafana-inloggningsskärmen](.\media\monitor-how-to-grafana\grafana2.png)
+    ![Grafana-inloggningsskärmen](media/monitor-send-to-grafana/grafana2.png)
 
 3. Logga in med användarnamnet som *admin* och Grafana lösenordet för serveradministratören du skapade tidigare.
 
@@ -51,7 +51,7 @@ Använd följande steg för att ställa in en Grafana-server från Azure Marketp
 
 När du har loggat in kan bör du se att plugin-programmet Azure Monitor data källan redan ingår.
 
-![Grafana visar Azure Monitor-plugin-programmet](.\media\monitor-how-to-grafana\grafana3.png)
+![Grafana visar Azure Monitor-plugin-programmet](media/monitor-send-to-grafana/grafana3.png)
 
 1. Välj **Lägg till datakälla** att konfigurera Azure Monitor och Application Insights.
 
@@ -70,7 +70,7 @@ Grafana använder ett Azure Active Directory-tjänstobjekt för att ansluta till
 
 4. När du har angett alla den här informationen väljer **spara** och Grafana testar API: et. Du bör se ett meddelande som liknar det följande.  
 
-    ![Grafana visar Azure Monitor-plugin-programmet](.\media\monitor-how-to-grafana\grafana4-1.png)
+    ![Grafana visar Azure Monitor-plugin-programmet](media/monitor-send-to-grafana/grafana4-1.png)
 
 > [!NOTE]
 > När du konfigurerar plugin-programmet kan du ange vilket Azure-moln (offentligt, Azure US Government, Azure Tyskland eller Azure Kina) som plugin-programmet konfigureras mot.
@@ -83,7 +83,7 @@ Grafana använder ett Azure Active Directory-tjänstobjekt för att ansluta till
 
 2. I den nya instrumentpanelen väljer du den **Graph**. Du kan prova andra diagram alternativ men den här artikeln använder *Graph* som exempel.
 
-    ![Ny Grafana-instrumentpanel](.\media\monitor-how-to-grafana\grafana5.png)
+    ![Ny Grafana-instrumentpanel](media/monitor-send-to-grafana/grafana5.png)
 
 3. Ett tomt diagram som visas på instrumentpanelen.
 
@@ -93,14 +93,14 @@ Grafana använder ett Azure Active Directory-tjänstobjekt för att ansluta till
 
 Följande är en enkel instrumentpanel med två diagram. En vänster visar CPU-procent två virtuella datorer. Diagrammet till höger visar transaktioner i ett Azure Storage-konto per transaktion API-typen.
 
-![Grafana två diagram-exempel](.\media\monitor-how-to-grafana\grafana6.png)
+![Grafana två diagram-exempel](media/monitor-send-to-grafana/grafana6.png)
 
 
 ## <a name="optional-create-dashboard-playlists"></a>Valfritt: Skapa instrumentpanelen spelningslistor
 
 En av de många användbara funktionerna för Grafana är spellistan för instrumentpanelen. Du kan skapa flera instrumentpaneler och lägga till dem i en spellista konfigurera ett intervall för varje instrumentpanelen att visa. Välj **spela upp** att se instrumentpaneler gå igenom. Du kanske vill visa dem på en stor wall-Övervakare för att tillhandahålla en ”status tavla” för din grupp.
 
-![Grafana spellistan exempel](.\media\monitor-how-to-grafana\grafana7.png)
+![Grafana spellistan exempel](media/monitor-send-to-grafana/grafana7.png)
 
 
 ## <a name="optional-monitor-your-custom-metrics-in-the-same-grafana-server"></a>Valfritt: Övervaka dina anpassade mått på samma server Grafana
@@ -117,7 +117,7 @@ Här är bra referensartiklar om hur du använder Telegraf, InfluxDB, Prometheus
  - [En övervakningslösning för Docker, behållare och tjänster i behållare](https://stefanprodan.com/2016/a-monitoring-solution-for-docker-hosts-containers-and-containerized-services/)
 
 Här är en avbildning av en fullständig Grafana-instrumentpanel med mått från Azure Monitor och Application Insights.
-![Grafana exempel mått](.\media\monitor-how-to-grafana\grafana8.png)
+![Grafana exempel mått](media/monitor-send-to-grafana/grafana8.png)
 
 
 ## <a name="clean-up-resources"></a>Rensa resurser

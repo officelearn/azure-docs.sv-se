@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/12/2018
 ms.author: vinynigam
-ms.openlocfilehash: 2821f3fa07d8d9ada02da212084639c93e469d0b
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 91cfa35cd10772da0042566bdd9030f780329f93
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49408888"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50415193"
 ---
 # <a name="network-performance-monitor-solution-faq"></a>Vanliga frågor och svar Network Performance Monitor-lösningen
 
-![Network Performance Monitor symbol](media/log-analytics-network-performance-monitor/npm-symbol.png)
+![Network Performance Monitor symbol](media/log-analytics-network-performance-monitor-faq/npm-symbol.png)
 
 Den här artikeln innehåller vanliga frågor (FAQ) om nätverket prestanda Övervakare (NPM) i Azure
 
@@ -54,7 +54,7 @@ För ExpressRoute-övervakning funktionen måste Azure-noder vara anslutna som d
 ### <a name="which-protocol-among-tcp-and-icmp-should-be-chosen-for-monitoring"></a>Vilket protokoll bland TCP och ICMP bör väljas för övervakning av?
 Om du övervakar ditt nätverk med hjälp av Windows server-baserade noder, rekommenderar vi att du använder TCP som protokoll för övervakning, eftersom det ger bättre precision. 
 
-ICMP rekommenderas för Windows skrivbord/client systembaserad noder, eftersom den här plattformen inte tillåter TCP-data som ska skickas över råa sockets, vilket krävs av NPM för att identifiera nätverkets topologi.
+ICMP rekommenderas för Windows skrivbord/client systembaserad noder. Den här plattformen tillåter inte att TCP-data som ska skickas över råa sockets, vilka du NPM för att identifiera nätverkets topologi.
 
 Du kan visa mer information om de relativa fördelarna med varje protokoll [här](log-analytics-network-performance-monitor-performance-monitor.md#choose-the-protocol).
 

@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 8/16/2018
 ms.author: trinadhk
-ms.openlocfilehash: 910225e74fcd4655a9eff711d3ac1316d948c2b3
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: ba77ec34e7887f676ea3df101e87c1ea80fceec5
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48886202"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50414802"
 ---
 # <a name="questions-about-the-azure-vm-backup-service"></a>Frågor om tjänsten för säkerhetskopiering av virtuella datorer i Azure
 Den här artikeln innehåller svar på vanliga frågor så att du snabbt kan förstå de komponenter som används i Azure-säkerhetskopieringen av virtuella datorer. I vissa svar finns det länkar till artiklar som har omfattande information. Du kan också ställa frågor om Azure Backup-tjänsten i [diskussionsforumet](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup).
@@ -48,7 +48,7 @@ Ja. Även om en dator är avstängd säkerhetskopieringen fungerar och återstä
 Ja. Du kan avbryta jobbet om den finns i ”att möjliggöra ögonblicksbilder” fas. **Du kan inte avbryta ett jobb om dataöverföringar från ögonblicksbild håller på att**.
 
 ### <a name="i-enabled-resource-group-lock-on-my-backed-up-managed-disk-vms-will-my-backups-continue-to-work"></a>Jag har aktiverat resursgrupp lås på mitt säkerhetskopierade hanterade diskar för virtuella datorer. Kommer mina säkerhetskopior att fungera även i fortsättningen?
-Om användaren låser resursgruppen, kan Backup-tjänsten inte ta bort äldre återställningspunkter. På grund av detta nya säkerhetskopior börjar misslyckas eftersom det finns en gräns för maximal 18 återställningspunkter som införts från serverdelen. Om säkerhetskopieringarna misslyckas med ett internt fel när RG-lås, följer du dessa [steg för att ta bort återställningen samlingen med återställningspunkter](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md#backup-service-does-not-have-permission-to-delete-the-old-restore-points-due-to-resource-group-lock).
+Om användaren låser resursgruppen, kan Backup-tjänsten inte ta bort äldre återställningspunkter. På grund av detta nya säkerhetskopior börjar misslyckas eftersom det finns en gräns för maximal 18 återställningspunkter som införts från serverdelen. Om säkerhetskopieringarna misslyckas med ett internt fel när RG-lås, följer du dessa [steg för att ta bort återställningen samlingen med återställningspunkter](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md#clean-up-restore-point-collection-from-portal-created-by-backup-service).
 
 ### <a name="does-backup-policy-take-daylight-saving-timedst-into-account"></a>Tar säkerhetskopieringspolicyn sommartid sparar Time(DST) hänsyn?
 Nej. Tänk på att datum och tid på den lokala datorn visas i din lokala tid och med din aktuella sommartid. Så kan den konfigurera tiden för schemalagda säkerhetskopieringar skilja sig från din lokala tid på grund av Sommartid.

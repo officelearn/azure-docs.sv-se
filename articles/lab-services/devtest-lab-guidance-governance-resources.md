@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/03/2018
 ms.author: spelluru
-ms.openlocfilehash: 2edfa84530c147e1f716aef10c967ac36eadc922
-ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
+ms.openlocfilehash: 2d17f4471383be623cb40276ec1e51257bf3fbce
+ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48251134"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50740390"
 ---
 # <a name="governance-of-azure-devtest-labs-infrastructure---resources"></a>Styrning av infrastruktur för Azure DevTest Labs - resurser
 Den här artikeln tar upp justering och hantering av resurser för DevTest Labs i din organisation. 
@@ -67,7 +67,7 @@ Vi rekommenderar att affärsenheter och utvecklingsgrupper som är associerade m
 
 Du kan också behöva tänka på geografiska gränser. Exempelvis kan utvecklare i norra östra USA (USA) använda ett labb som etablerats i östra usa2. Och utvecklare i Dallas, Texas, och Denver, Colorado kan dirigeras till att använda en resurs i södra centrala USA. Om det finns en gemensam ansträngning med en extern från tredje part, kan de tilldelas till ett labb som inte används av egna utvecklare. 
 
-Du kan också använda ett labb för ett specifikt projekt i Visual Studio Team Services-grupprojekt. Sedan kan tillämpa du säkerhet via en angiven Azure Active Directory-grupp, vilket ger åtkomst till båda uppsättning resurser. Det virtuella nätverket som tilldelats labbet kan vara en annan gräns att konsolidera användare.
+Du kan också använda ett labb för ett specifikt projekt inom Azure DevOps-projekt. Sedan kan tillämpa du säkerhet via en angiven Azure Active Directory-grupp, vilket ger åtkomst till båda uppsättning resurser. Det virtuella nätverket som tilldelats labbet kan vara en annan gräns att konsolidera användare.
 
 ## <a name="deletion-of-resources"></a>Borttagning av resurser
 

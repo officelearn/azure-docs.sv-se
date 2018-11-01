@@ -15,12 +15,12 @@ ms.topic: conceptal
 ms.date: 08/23/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: edebeec493b025a81a99c0458344aafe59e769e9
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: c041437b610c56fd34667d9b8f3fe67080b3aafc
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48040882"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50419358"
 ---
 # <a name="create-a-log-analytics-workspace-in-the-azure-portal"></a>Skapa en Log Analytics-arbetsyta i Azure portal
 I Azure portal som du kan ställa in en Log Analytics-arbetsyta, vilket är en unik Log Analytics-miljö med en egen databas, datakällor och lösningar.  Stegen som beskrivs i den här artikeln krävs om du avser att samla in data från följande källor:
@@ -44,7 +44,7 @@ Logga in på Azure Portal på [https://portal.azure.com](https://portal.azure.co
 ## <a name="create-a-workspace"></a>Skapa en arbetsyta
 1. Klicka på **Alla tjänster** på Azure Portal. I listan över resurser skriver du **Log Analytics**. När du börjar skriva filtreras listan baserat på det du skriver. Välj **Log Analytics**.
 
-    ![Azure Portal](media/log-analytics-quick-collect-azurevm/azure-portal-01.png)
+    ![Azure Portal](media/log-analytics-quick-create-workspace/azure-portal-01.png)
   
 2. Klicka på **Skapa** och välj sedan alternativ för följande objekt:
 
@@ -54,9 +54,9 @@ Logga in på Azure Portal på [https://portal.azure.com](https://portal.azure.co
   * Välj ett tillgängligt **plats**.  Mer information finns i som [regioner Log Analytics är tillgängligt i](https://azure.microsoft.com/regions/services/).
   * Om du skapar en arbetsyta i en ny prenumeration som skapats efter 2 april 2018 används prisplanen *Per GB* automatiskt och alternativet för att välja en prisnivå är inte tillgängligt.  Om du skapar en arbetsyta för en befintlig prenumeration som skapats före 2 April eller en prenumeration som är kopplad till en befintlig Enterprise Agreement (EA)-registrering, väljer du önskad prisnivå.  Mer information om de olika nivåerna finns i [prisinformation om Log Analytics](https://azure.microsoft.com/pricing/details/log-analytics/).
 
-        ![Create Log Analytics resource blade](media/log-analytics-quick-collect-azurevm/create-loganalytics-workspace-02.png)  
+        ![Create Log Analytics resource blade](media/log-analytics-quick-create-workspace/create-loganalytics-workspace-02.png)  
 
-3. När du har angett informationen som krävs på den **Log Analytics-arbetsytan** fönstret klickar du på **OK**.  
+3. När du har angett den nödvändiga informationen i fönsterrutan **Log Analytics-arbetsyta** klickar du på **OK**.  
 
 När informationen har verifierats och arbetsytan skapas, kan du spåra förloppet under **Meddelanden** på menyn. 
 

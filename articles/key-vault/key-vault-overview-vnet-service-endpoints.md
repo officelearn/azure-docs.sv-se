@@ -50,7 +50,7 @@ Referera till [konfigurera Azure Key Vault brandväggar och virtuella nätverk](
 > [!NOTE]
 > * En högsta 127 VNET-regler och 127 IPv4-regler är tillåtna. 
 > * Små adressintervall med hjälp av ”/ 31” eller ”/ 32” prefix storlekar inte stöds. Dessa områden ska konfigureras med regler för enskilda IP-adress.
-> * IP-Nätverksregler tillåts endast för offentliga IP-adresser. IP-adressintervall som reserverats för privata nätverk (som definieras i RFC 1918) är inte tillåtna i IP-regler. Privata nätverk innehåller adresser som börjar med * 10.* *, * 172.16. **, och * 192.168. **. 
+> * IP-Nätverksregler tillåts endast för offentliga IP-adresser. IP-adressintervall som reserverats för privata nätverk (som definieras i RFC 1918) är inte tillåtna i IP-regler. Privata nätverk innehåller adresser som börjar med *10.*\*, *172.16.*\*, och *192.168.*\*. 
 > * Endast IPv4-adresser stöds just nu.
 
 ## <a name="trusted-services"></a>Betrodda tjänster

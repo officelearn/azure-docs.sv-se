@@ -4,10 +4,6 @@ description: Lär dig hur du använder hälsoavsökningar för att övervaka ins
 services: load-balancer
 documentationcenter: na
 author: KumudD
-manager: timlt
-editor: ''
-tags: azure-resource-manager
-ms.assetid: 46b152c5-6a27-4bfc-bea3-05de9ce06a57
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
@@ -15,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/04/2018
 ms.author: kumud
-ms.openlocfilehash: ecc33fc6078dac4affe3942f1be7e039ae9e9e70
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: 134c7ab8156f3acb558e8b8a2da343961a6aad4e
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43695433"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50419341"
 ---
 # <a name="load-balancer-health-probes"></a>Läsa in Belastningsutjämnarens hälsotillståndsavsökningar
 
@@ -95,7 +91,7 @@ Om du använder Cloud Services och har web-roller som använder w3wp.exe kan få
 
 HTTP / HTTPS-avsökning misslyckas när:
 * Avsökningen slutpunkten returnerar ett HTTP-svarskoden än 200 (till exempel 403, 404 eller 500). Detta markerar hälsoavsökningen omedelbart. 
-* Slutpunkten för avsökning inte svarar under den en tidsgräns för 31 sekund. Beroende på timeout-värde som har angetts flera avsökningen begäranden kan gå obesvarade innan avsökningen ska markeras som inte körs (det vill säga innan SuccessFailCount avsökningar skickas).
+* Slutpunkten för avsökning svarar inte under 31 sekund tidsperioden. Beroende på timeout-värde som har angetts flera avsökningen begäranden kan gå obesvarade innan avsökningen ska markeras som inte körs (det vill säga innan SuccessFailCount avsökningar skickas).
 * Avsökningen slutpunkten stängs anslutningen via en TCP-återställning.
 
 #### <a name="resource-manager-templates"></a>Mallar för Resurshanteraren

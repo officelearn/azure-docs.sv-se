@@ -1,13 +1,9 @@
 ---
-title: Skapa en offentlig belastningen belastningsutjämnaren Standard med zonredundant klientdel för offentlig IP-adress med hjälp av PowerShell | Microsoft Docs
-description: Lär dig hur du skapar offentliga Load Balancer Standard med en zonredundant offentlig IP-adress klientdel med hjälp av PowerShell
+title: Skapa en offentlig Load Balancer Standard med zonredundant klientdel för offentliga IP-adress med hjälp av PowerShell | Microsoft Docs
+description: Lär dig att skapa offentlig Load Balancer Standard med en zonredundant offentlig IP-adress klientdel med hjälp av PowerShell
 services: load-balancer
 documentationcenter: na
 author: KumudD
-manager: timlt
-editor: ''
-tags: azure-resource-manager
-ms.assetid: ''
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
@@ -15,21 +11,21 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/23/2018
 ms.author: kumud
-ms.openlocfilehash: ba76037f36d3f4f8a06103105d65b3f2ddc88c96
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 9dfd477678148f3e4bb80bafe61e4867dab54c8e
+ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/19/2018
-ms.locfileid: "31590844"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50739540"
 ---
-#  <a name="create-a-public-load-balancer-standard-with-zone-redundant-public-ip-address-frontend-using-powershell"></a>Skapa en offentlig belastningen belastningsutjämnaren Standard med zonredundant klientdel för offentlig IP-adress med hjälp av PowerShell
+#  <a name="create-a-public-load-balancer-standard-with-zone-redundant-public-ip-address-frontend-using-powershell"></a>Skapa en offentlig Load Balancer Standard med zonredundant klientdel för offentliga IP-adress med hjälp av PowerShell
 
-Den här artikeln går igenom hur du skapar en offentlig [Load Balancer Standard](https://aka.ms/azureloadbalancerstandard) med en zonredundant klientdel med en Standard offentliga IP-adress.
+Den här artikeln visar hur du skapar en offentlig [Load Balancer Standard](https://aka.ms/azureloadbalancerstandard) med en zonredundant klientdel som använder en offentlig IP-Standard-adress.
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
 > [!NOTE]
- Stöd för tillgänglighet zoner är tillgänglig för väljer Azure-resurser och regioner och familjer för VM-storlek. Mer information om hur du kommer igång och vilka Azure-resurser, regioner, och Virtuella storlek familjer kan du försöka tillgänglighet zoner med finns [översikt av tillgänglighet zoner](https://docs.microsoft.com/azure/availability-zones/az-overview). Du kan få support via [StackOverflow](https://stackoverflow.com/questions/tagged/azure-availability-zones) eller genom att [öppna ett Azure-supportärende](../azure-supportability/how-to-create-azure-support-request.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+ Stöd för Tillgänglighetszoner är tillgänglig för väljer Azure-resurser och regioner och VM-storlekar. Mer information om hur du kommer igång och vilka Azure-resurser, regioner, och VM-storlekar som du kan prova tillgänglighetszoner med finns i [översikt över Tillgänglighetszoner](https://docs.microsoft.com/azure/availability-zones/az-overview). Du kan få support via [StackOverflow](https://stackoverflow.com/questions/tagged/azure-availability-zones) eller genom att [öppna ett Azure-supportärende](../azure-supportability/how-to-create-azure-support-request.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
 ## <a name="log-in-to-azure"></a>Logga in på Azure
 
@@ -41,7 +37,7 @@ Connect-AzureRmAccount
 
 ## <a name="create-resource-group"></a>Skapa resursgrupp
 
-Skapa en resursgrupp med följande kommando:
+Skapa en resursgrupp med hjälp av följande kommando:
 
 ```powershell
 New-AzureRmResourceGroup -Name myResourceGroup -Location westeurope
@@ -52,12 +48,12 @@ Skapa en offentlig IP-Standard med följande kommando:
 
 ```powershell
 $publicIp = New-AzureRmPublicIpAddress -ResourceGroupName myResourceGroup -Name 'myPublicIP' `
-  -Location westeurope -AllocationMethod Static -Sku Standard 
+  -Location westeurope -AllocationMethod Static -Sku Standard 
 ```
 
-## <a name="create-a-front-end-ip-configuration-for-the-website"></a>Skapa en frontend IP-konfiguration för webbplats
+## <a name="create-a-front-end-ip-configuration-for-the-website"></a>Skapa en frontend IP-konfiguration för webbplatsen
 
-Skapa en klientdelens IP-konfiguration med hjälp av följande kommando:
+Skapa en frontend IP-konfiguration med hjälp av följande kommando:
 
 ```powershell
 $feip = New-AzureRmLoadBalancerFrontendIpConfig -Name 'myFrontEndPool' -PublicIpAddress $publicIp
@@ -71,33 +67,33 @@ Skapa en backend-adresspool med följande kommando:
 $bepool = New-AzureRmLoadBalancerBackendAddressPoolConfig -Name 'myBackEndPool'
 ```
 
-## <a name="create-a-load-balancer-probe-on-port-80"></a>Skapa en belastningsutjämningsavsökning på port 80
+## <a name="create-a-load-balancer-probe-on-port-80"></a>Skapa en belastningsutjämnaravsökning på port 80
 
-Skapa en hälsa avsökning på port 80 för belastningsutjämnaren med följande kommando:
+Skapa en hälsoavsökning på port 80 för belastningsutjämnaren med följande kommando:
 
 ```powershell
 $probe = New-AzureRmLoadBalancerProbeConfig -Name 'myHealthProbe' -Protocol Http -Port 80 `
   -RequestPath / -IntervalInSeconds 360 -ProbeCount 5
 ```
 
-## <a name="create-a-load-balancer-rule"></a>Skapa en belastningsutjämningsregel
- Skapa en regel för belastningsutjämnare med följande kommando:
+## <a name="create-a-load-balancer-rule"></a>Skapa en lastbalanseringsregel
+ Skapa en regel för belastningsutjämnaren med följande kommando:
 
 ```powershell
    $rule = New-AzureRmLoadBalancerRuleConfig -Name HTTP -FrontendIpConfiguration $feip -BackendAddressPool  $bepool -Probe $probe -Protocol Tcp -FrontendPort 80 -BackendPort 80
 ```
 
-## <a name="create-a-load-balancer"></a>Skapa en belastningsutjämnare
-Skapa en belastningen belastningsutjämnaren Standard med följande kommando:
+## <a name="create-a-load-balancer"></a>Skapa en lastbalanserare
+Skapa en Load Balancer Standard med följande kommando:
 
 ```powershell
 $lb = New-AzureRmLoadBalancer -ResourceGroupName myResourceGroup -Name 'MyLoadBalancer' -Location westeurope `
-  -FrontendIpConfiguration $feip -BackendAddressPool $bepool `
-  -Probe $probe -LoadBalancingRule $rule -Sku Standard
+  -FrontendIpConfiguration $feip -BackendAddressPool $bepool `
+  -Probe $probe -LoadBalancingRule $rule -Sku Standard
 ```
 
 ## <a name="next-steps"></a>Nästa steg
-- Lär dig mer om [Standard belastningsutjämnare och tillgänglighet zoner](load-balancer-standard-availability-zones.md).
+- Läs mer om [Standard Load Balancer och tillgänglighet zoner](load-balancer-standard-availability-zones.md).
 
 
 

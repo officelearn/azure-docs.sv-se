@@ -10,15 +10,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: article
-ms.date: 10/24/2018
+ms.date: 10/31/2018
 ms.author: jeffgilb
 ms.reviewer: adshar
-ms.openlocfilehash: 671818ca8f8fa07b506252d5d4d0c7a768577b19
-ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
+ms.openlocfilehash: 0720edeab7577f41ddbaa67e4643f1dfe57ebac0
+ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50087482"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50740322"
 ---
 # <a name="run-a-validation-test-for-azure-stack"></a>Kör ett verifieringstest för Azure Stack
 
@@ -39,7 +39,7 @@ När du har ett problem kontaktar Microsoft Support för tjänster och kör seda
     3. Öppna PowerShell som administratör.
     4. Kör: `Enter-PSSession -ComputerName <ERCS-VM-name> -ConfigurationName PrivilegedEndpoint`
     5. Kör: `Test-AzureStack`
-4. Om någon testar rapporten **MISSLYCKAS**, kör: `Get-AzureStackLog -FilterByRole SeedRing -OutputPath <Log output path>` cmdleten samlar in loggarna från Test-AzureStack. Läs mer om diagnostikloggar [Azure Stack diagnosverktyg](azure-stack-diagnostics.md). Du bör inte samla in loggar eller kontakta Microsofts kundsupport tjänster (CSS) om testar rapporten **WARN**.
+4. Om någon testar rapporten **MISSLYCKAS**, kör: `Get-AzureStackLog -FilterByRole SeedRing -OutputSharePath “<path>” -OutputShareCredential $cred` cmdleten samlar in loggarna från Test-AzureStack. Läs mer om diagnostikloggar [Azure Stack diagnosverktyg](azure-stack-diagnostics.md). Du bör inte samla in loggar eller kontakta Microsofts kundsupport tjänster (CSS) om testar rapporten **WARN**.
 5. Skicka den **SeedRing** loggar till Microsoft kundsupport för tjänster. Microsofts kundsupport tjänster hjälper dig att lösa problemet.
 
 ## <a name="reference-for-test-azurestack"></a>Referens för Test-AzureStack

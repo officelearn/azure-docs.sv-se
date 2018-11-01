@@ -1,27 +1,24 @@
 ---
-title: Skapa en offentlig belastningsutjämnare – Azure-mall | Microsoft Docs
-description: Lär dig hur du skapar en offentlig belastningsutjämnare i Resource Manager med hjälp av en mall
+title: Skapa en offentlig lastbalanserare – Azure-mall | Microsoft Docs
+description: Lär dig hur du skapar en offentlig lastbalanserare i Resource Manager med hjälp av en mall
 services: load-balancer
 documentationcenter: na
 author: KumudD
-manager: timlt
-tags: azure-resource-manager
-ms.assetid: b24f4729-4559-4458-8527-71009d242647
 ms.service: load-balancer
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
-ms.openlocfilehash: 8452d3a6e165bbcd6007d9dc2261e458746b475a
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
-ms.translationtype: HT
+ms.openlocfilehash: 0ca988fba91cd1d4a97ca376a6f3ff45fae214ac
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38687727"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50418984"
 ---
-# <a name="creating-a-public-load-balancer-using-a-template"></a>Skapa en offentlig belastningsutjämnare med hjälp av en mall
+# <a name="creating-a-public-load-balancer-using-a-template"></a>Skapa en offentlig lastbalanserare med hjälp av en mall
 
 > [!div class="op_single_selector"]
 > * [Portal](../load-balancer/load-balancer-get-started-internet-portal.md)
@@ -68,7 +65,7 @@ Följ stegen nedan om du vill distribuera mallen med hjälp av Azure CLI.
         info:    New mode is arm
 
 3. Navigera till [snabbstartsmallen](https://github.com/Azure/azure-quickstart-templates/tree/master/201-2-vms-loadbalancer-lbrules) i webbläsaren, kopiera innehållet i JSON-filen och klistra in det i en ny fil på din dator. I det här scenariot kopierar du värdena nedan till en fil med namnet **c:\lb\azuredeploy.parameters.json**.
-4. Kör cmdleten **azure group deployment create** för att distribuera den nya belastningsutjämnaren med hjälp av mall- och parameterfilerna som du hämtade och ändrade ovan. Listan som visas efter utdatan beskriver de parametrar som används.
+4. Kör cmdleten **azure group deployment create** för att distribuera den nya lastbalanseraren med hjälp av mall- och parameterfilerna som du hämtade och ändrade ovan. Listan som visas efter utdatan beskriver de parametrar som används.
 
     ```azurecli
     azure group create --name TestRG --location westus --template-file 'https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/201-2-vms-loadbalancer-lbrules/azuredeploy.json' --parameters-file 'c:\lb\azuredeploy.parameters.json'
@@ -76,8 +73,8 @@ Följ stegen nedan om du vill distribuera mallen med hjälp av Azure CLI.
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Komma igång med att konfigurera en intern belastningsutjämnare](load-balancer-get-started-ilb-arm-ps.md)
+[Komma igång med att konfigurera en intern lastbalanserare](load-balancer-get-started-ilb-arm-ps.md)
 
-[Konfigurera ett distributionsläge för belastningsutjämnare](load-balancer-distribution-mode.md)
+[Konfigurera ett distributionsläge för lastbalanserare](load-balancer-distribution-mode.md)
 
-[Konfigurera timeout-inställningar för inaktiv TCP för en belastningsutjämnare](load-balancer-tcp-idle-timeout.md)
+[Konfigurera timeout-inställningar för inaktiv TCP för en lastbalanserare](load-balancer-tcp-idle-timeout.md)

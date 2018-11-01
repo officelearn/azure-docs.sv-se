@@ -10,16 +10,16 @@ ms.component: bing-video-search
 ms.topic: conceptual
 ms.date: 04/15/2017
 ms.author: scottwhi
-ms.openlocfilehash: 9b030312c562d1c0a6cbacfc7f424289dee2e8de
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: cd5d6ef6a75088d02bc34558f66ed520c230e06b
+ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47225573"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50741903"
 ---
 # <a name="paging-videos"></a>Växling videor
 
-När du anropar den Bing, returnerar Bing en lista med resultat. Listan är en delmängd av det totala antalet resultat som är relevanta för frågan. För att få det uppskattade totala antalet tillgängliga resultat kan komma åt objektet svar [totalEstimatedMatches](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#videos-totalestimatedmatches) fält.  
+När du anropar API för videosökning i Bing returneras en lista med resultat. Listan är en delmängd av det totala antalet resultat som är relevanta för frågan. För att få det uppskattade totala antalet tillgängliga resultat kan komma åt objektet svar [totalEstimatedMatches](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#videos-totalestimatedmatches) fält.  
   
 I följande exempel visas den `totalEstimatedMatches` fält som innehåller en Video-svar.  
   
@@ -65,3 +65,6 @@ Till exempel om du vill att sidan 30 videor i taget, du kan ange `count` till 30
 
 > [!NOTE]
 > Växling gäller endast för videor search (Sök/filmer /) och inte på videoinsikter (information om/filmer /) eller populära videorna (/ filmer /).
+
+> [!NOTE]
+> Den `TotalEstimatedAnswers` fält är en uppskattning av det totala antalet sökresultat som du kan hämta för den aktuella frågan.  När du ställer in `count` och `offset` parametrar, den `TotalEstimatedAnswers` tal kan ändras. 

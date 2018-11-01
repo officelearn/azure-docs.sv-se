@@ -10,16 +10,16 @@ ms.devlang: java
 ms.topic: reference
 ms.date: 09/05/2018
 ms.author: sngun
-ms.openlocfilehash: e90c5640e571aaf28e184e9439f6228e3a5bbc6b
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: 57172927011532af9b14fa7ff09d6aad9bac1e92
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44023570"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50417607"
 ---
 # <a name="azure-cosmos-db-async-java-sdk-for-sql-api-release-notes-and-resources"></a>Azure Cosmos DB Async Java SDK för SQL-API: viktig information och resurser
 > [!div class="op_single_selector"]
-> * [.NET](sql-api-sdk-dotnet.md)
+> * [NET](sql-api-sdk-dotnet.md)
 > * [.NET-Ändringsfeed](sql-api-sdk-dotnet-changefeed.md)
 > * [.NET Core](sql-api-sdk-dotnet-core.md)
 > * [Node.js](sql-api-sdk-node.md)
@@ -48,7 +48,7 @@ SQL API Async Java SDK skiljer sig från SQL API Java-SDK: N genom att tillhanda
 
 <tr><td>**Prestandatips**</td><td>[Github viktigt](https://github.com/Azure/azure-cosmosdb-java#guide-for-prod)</td></tr>
 
-<tr><td>**Lägsta stödda körningar**</td><td>[JDK 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)</td></tr>
+<tr><td>**Lägsta stödda körningar**</td><td>[JDK 8](https://aka.ms/azure-jdks)</td></tr>
 </table></br>
 
 ## <a name="release-notes"></a>Viktig information
@@ -112,7 +112,7 @@ Varje begäran till Cosmos DB med hjälp av en pensionerad SDK avvisas av tjäns
 | --- | --- | --- |
 | [2.1.0](#2.1.0) |Den 5 september 2018|--- |
 | [2.0.1](#2.0.1) |16 augusti 2018|--- |
-| [2.0.0](#2.0.0) |Den 20 juni 2018|--- |
+| [2.0.0](#2.0.0) |20 juni 2018|--- |
 | [1.0.2](#1.0.2) |Den 18 maj 2018|--- |
 | [1.0.1](#1.0.1) |Den 20 april 2018|--- |
 | [1.0.0](#1.0.0) |27 februari 2018|--- |

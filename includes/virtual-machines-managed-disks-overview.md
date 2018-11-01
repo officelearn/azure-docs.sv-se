@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/03/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 617f60345fb2a349eddb0db697604ba383794591
-ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
+ms.openlocfilehash: 3e660dbcbfecd57c43ecec6006581364660adb44
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47060714"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50737259"
 ---
 # <a name="azure-managed-disks-overview"></a>Översikt över Azure Managed Disks
 
@@ -69,7 +69,7 @@ Låt oss ta en närmare titt på de här alternativen.
 
 Här är de diskar som är tillgängliga för en premium-hanterad disk:
 
-| **Premium HDD hanteras <br>disktyp** | **P4** | **P6** | **P10** | **P15** | **P20** | **P30** | **P40** | **P50** | **P60** | **P70** | **P80** |
+| **Premium SDD hanteras <br>disktyp** | **P4** | **P6** | **P10** | **P15** | **P20** | **P30** | **P40** | **P50** | **P60** | **P70** | **P80** |
 |------------------|---------|---------|--------|--------|--------|----------------|----------------|----------------|----------------|----------------|----------------|
 | Diskstorlek        | 32 giB  | 64 giB  | 128 GiB | 256 GB | 512 GiB | 1 024 giB (1 TiB) | 2 048 giB (2 TiB) | 4 095 giB (4 TiB) | 8 192 giB (8 TiB) | 16 384 giB (16 TiB) | 32 767 giB (TiB) |
 

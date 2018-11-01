@@ -8,14 +8,14 @@ editor: ''
 tags: azure-resource-manager
 ms.service: virtual-machines
 ms.topic: troubleshooting
-ms.date: 06/15/2018
+ms.date: 10/31/2018
 ms.author: delhan
-ms.openlocfilehash: 64641f8acfe7b58763756e2a0707fa799ee804b2
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: 9341458336e4c95b84590eadbc86073e7dbf09a0
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47414680"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50419562"
 ---
 # <a name="how-to-use-boot-diagnostics-to-troubleshoot-virtual-machines-in-azure"></a>Hur du använder startdiagnostik för felsökning av virtuella datorer i Azure
 
@@ -24,6 +24,10 @@ Stöd för två felsökningsfunktioner finns nu i Azure: Konsolutdata och skärm
 När du använder en egen avbildning till Azure eller även starta en av plattformsavbildningar, kan det finnas många orsaker till varför en virtuell dator hamnar i ett icke startbart tillstånd. De här funktionerna kan du enkelt diagnostisera och återställa virtuella datorer vid startfel.
 
 Du kan enkelt visa utdata från konsolloggen på portalen för virtuella Linux-datorer. För både Windows och Linux-datorer kan Azure du också se en skärmbild av den virtuella datorn från hypervisor-programmet. De här båda funktionerna har stöd för virtuella Azure-datorer i alla regioner. Tänk på att det kan ta upp till 10 minuter innan skärmbilder och utdata visas på lagringskontot.
+
+Du kan välja den **Startdiagnostik** alternativ för att visa loggen och skärmbilden.
+
+![Resource Manager](./media/virtual-machines-common-boot-diagnostics/screenshot1.png)
 
 ## <a name="common-boot-errors"></a>Vanliga startfel
 
@@ -70,7 +74,7 @@ Du kan enkelt visa utdata från konsolloggen på portalen för virtuella Linux-d
             "diagnosticsProfile": {
                 "bootDiagnostics": {
                 "enabled": true,
-                "storageUri": "[concat('http://', parameters('newStorageAccountName'), '.blob.core.windows.net')]"
+                "storageUri": "[concat('https://', parameters('newStorageAccountName'), '.blob.core.windows.net')]"
                 }
             }
             }

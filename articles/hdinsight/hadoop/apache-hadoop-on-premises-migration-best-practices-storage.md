@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 10/25/2018
 ms.author: hrasheed
-ms.openlocfilehash: f89cf9431d3d72b74bc856093108a7bc0ab5a0b4
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: 4f4aedd1d85a83e6f55d5729b82b88e2e9e8c00d
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50221950"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50415941"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---storage-best-practices"></a>Migrera lokala Apache Hadoop-kluster till Azure HDInsight - Metodtips för lagring
 
@@ -47,23 +47,27 @@ Azure Storage erbjuder [mjuk borttagning för blob-objekt](../../storage/blobs/s
 Du kan skapa [blobögonblicksbilder](https://docs.microsoft.com/rest/api/storageservices/creating-a-snapshot-of-a-blob). En ögonblicksbild är en skrivskyddad version av en blob som utförs en gång i tid och den gör det möjligt att säkerhetskopiera en blob. När en ögonblicksbild har skapats, kan det läsas, kopieras, eller ta bort, men inte har ändrats.
 
 > [!Note]
-> Det måste importeras till arkivet med betrodda Java för äldre version av den lokala lokala Hadoop-distributioner som inte har certifikatet ”wasbs”. Följande kommandon kan användas för att importera certifikat i arkivet med betrodda Java:
+> Det måste importeras till arkivet med betrodda Java för äldre version av den lokala lokala Hadoop-distributioner som inte har certifikatet ”wasbs”.
 
-- Hämta Azure Blob-ssl-certifikat till en fil
+Följande metoder kan användas för att importera certifikat i arkivet med betrodda Java:
+
+Hämta Azure Blob-ssl-certifikat till en fil
 
 ```bash
 echo -n | openssl s_client -connect <storage-account>.blob.core.windows.net:443 | sed -ne '/-BEGIN CERTIFICATE-/,/-END CERTIFICATE-/p' > Azure_Storage.cer
 ```
 
-- Importera filen ovan till Java-tillförlitlighetslagret på alla noder
+Importera filen ovan till Java-tillförlitlighetslagret på alla noder
 
 ```bash
 keytool -import -trustcacerts -keystore /path/to/jre/lib/security/cacerts -storepass changeit -noprompt -alias blobtrust -file Azure_Storage.cer
 ```
 
-- Kontrollera att certifikatet har lagts till i arkivet med betrodda
+Kontrollera att certifikatet har lagts till i arkivet med betrodda
 
-`keytool -list -v -keystore /path/to/jre/lib/security/cacerts`
+```bash
+keytool -list -v -keystore /path/to/jre/lib/security/cacerts
+```
 
 Mer information finns i följande artiklar:
 
@@ -152,23 +156,31 @@ HDInsight som standard har fullständig åtkomst till data i Azure Storage-konto
     - storage_account_key: nyckeln för lagringskontot.
     - storage_container_name: behållare i lagringskontot som du vill begränsa åtkomst till.
     - example_file_path: sökvägen till en fil som har överförts till behållaren
+
 2. Filen SASToken.py levereras med den `ContainerPermissions.READ + ContainerPermissions.LIST` behörigheter och kan justeras baserat på användningsfallet.
+
 3. Kör skriptet på följande sätt: `python SASToken.py`
+
 4. När skriptet har körts visas den SAS-token som liknar följande text: `sr=c&si=policyname&sig=dOAi8CXuz5Fm15EjRUu5dHlOzYNtcK3Afp1xqxniEps%3D&sv=2014-02-14`
 
 5. För att begränsa åtkomsten till en behållare med signatur för delad åtkomst, lägger du till en anpassad post core-plats-konfiguration för klustret under Ambari HDFS Peeringkonfigurationer avancerade anpassad core-site Lägg till egenskap.
+
 6. Använd följande värden för den **nyckel** och **värdet** fält:
 
-    **Nyckeln**: fs.azure.sas.YOURCONTAINER.YOURACCOUNT.blob.core.windows.net **värdet**: The SAS-nyckel som returneras av Python-program från steg 4 ovan
+    **Nyckeln**: `fs.azure.sas.YOURCONTAINER.YOURACCOUNT.blob.core.windows.net` **värdet**: The SAS-nyckel som returneras av Python-program från steg 4 ovan.
 
 7. Klicka på den **Lägg till** knappen för att spara den här nyckeln och värdet och klicka sedan på den **spara** för att spara konfigurationsändringarna. När du uppmanas, lägga till en beskrivning av ändringen (”att lägga till SAS-lagringsåtkomst” till exempel) och klicka sedan på **spara**.
+
 8. I Ambari-webbgränssnittet, Välj HDFS från listan till vänster och välj sedan **starta om alla påverkade** från de åtgärder som tjänsten listrutan till höger. När du uppmanas, väljer **bekräfta starta om alla**.
+
 9. Upprepa processen för MapReduce2 och YARN.
 
 Det finns tre viktiga saker att komma ihåg om användningen av SAS-token i Azure:
 
 1. När SAS-token har skapats med ”läsa + LIST-behörigheter, användare som har åtkomst till Blob-behållare med den SAS-token inte” skriva och ta bort ”data. Användare som har åtkomst till Blob-behållare med den SAS-token och försök en skrivning eller för att ta bort, visas ett meddelande som `"This request is not authorized to perform this operation"`.
+
 2. När SAS-token genereras med `READ + LIST + WRITE` behörigheter (att begränsa `DELETE` endast), kommandon som `hadoop fs -put` först skriva till en `\_COPYING\_` filen och försök sedan att byta namn på filen. Den här åtgärden för HDFS som mappar till en `copy+delete` för WASB. Eftersom den `DELETE` behörighet har inte angetts, ”put” skulle misslyckas. Den `\_COPYING\_` åtgärden är en Hadoop-funktion avsedd att ge vissa samtidighetskontroll. Det finns för närvarande inget sätt att begränsa bara åtgärden ”ta bort” utan att påverka ”” skrivåtgärder samt.
+
 3. Tyvärr provider för hadoop-autentiseringsuppgifter och viktiga avkrypteringsprovider (ShellDecryptionKeyProvider) för närvarande arbetar inte med SAS-token och så det för närvarande inte skyddas från synlighet.
 
 Mer information finns i [Använd Azure Storage signaturer för delad åtkomst att begränsa åtkomsten till data i HDInsight](../hdinsight-storage-sharedaccesssignature-permissions.md)
@@ -180,7 +192,9 @@ Alla data som skrivs till Azure Storage krypteras automatiskt med [Storage Serv
 - [Lokalt redundant lagring (LRS)](../../storage/common/storage-redundancy-lrs.md)
 - [Zonredundant lagring (ZRS)](../../storage/common/storage-redundancy-zrs.md)
 - [Geo-redundant lagring (GRS)](../../storage/common/storage-redundancy-grs.md)
-- [Läsåtkomst till geografiskt redundant lagring (RA-GRS)](../../storage/common/storage-redundancy-grs.md#read-access-geo-redundant-storage) Azure Data Lake Storage erbjuder lokalt redundant lagring (LRS), men du bör också kopiera viktiga data till ett annat Data Lake Storage-konto i en annan region med en frekvens som justeras i förhållande till den plan för katastrofåterställning. Det finns en mängd olika metoder för att kopiera data, inklusive [ADLCopy](../../data-lake-store/data-lake-store-copy-data-azure-storage-blob.md), DistCp, [Azure PowerShell](../../data-lake-store/data-lake-store-get-started-powershell.md), eller [Azure Data Factory](../../data-factory/connector-azure-data-lake-store.md). Vi rekommenderar också att tillämpa åtkomstprinciper för Data Lake Storage-konto för att förhindra oavsiktlig borttagning.
+- [Geo-redundant lagring med läsbehörighet (RA-GRS)](../../storage/common/storage-redundancy-grs.md#read-access-geo-redundant-storage)
+
+Azure Data Lake Storage tillhandahåller lokalt redundant lagring (LRS), men du bör också kopiera viktiga data till ett annat Data Lake Storage-konto i en annan region med en frekvens som är anpassad efter behoven i återställningsplanen. Det finns en mängd olika metoder för att kopiera data, inklusive [ADLCopy](../../data-lake-store/data-lake-store-copy-data-azure-storage-blob.md), DistCp, [Azure PowerShell](../../data-lake-store/data-lake-store-get-started-powershell.md), eller [Azure Data Factory](../../data-factory/connector-azure-data-lake-store.md). Vi rekommenderar också att tillämpa åtkomstprinciper för Data Lake Storage-konto för att förhindra oavsiktlig borttagning.
 
 Mer information finns i följande artiklar:
 

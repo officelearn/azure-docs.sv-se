@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 06/21/2018
 ms.author: richrund
 ms.component: ''
-ms.openlocfilehash: f1db673ad750a5d9d9d6bda9f41555d5e3affe8d
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: bc2b93312ed005154aa7d2530fb5493278a15c67
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48043098"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50418610"
 ---
 # <a name="azure-networking-monitoring-solutions-in-log-analytics"></a>Azure-nätverk övervakningslösningar i Log Analytics
 
@@ -70,7 +70,7 @@ I följande tabell visar data samlingsmetoder och annan information om hur data 
 
 ## <a name="azure-application-gateway-analytics-solution-in-log-analytics"></a>Azure Application Gateway analytics-lösningen i Log Analytics
 
-![Azure Application Gateway Analytics symbol](./media/log-analytics-azure-networking/azure-analytics-symbol.png)
+![Azure Application Gateway Analytics symbol](media/log-analytics-azure-networking-analytics/azure-analytics-symbol.png)
 
 Följande loggar kan användas för Application Gateway:
 
@@ -94,10 +94,10 @@ Använd följande instruktioner för att installera och konfigurera Azure Applic
 1. I Azure-portalen går du till Application Gateway-resursen för att övervaka
 2. Välj *diagnostikloggar* att öppna sidan
 
-   ![Bild av Azure Application Gateway-resursen](./media/log-analytics-azure-networking/log-analytics-appgateway-enable-diagnostics01.png)
+   ![Bild av Azure Application Gateway-resursen](media/log-analytics-azure-networking-analytics/log-analytics-appgateway-enable-diagnostics01.png)
 3. Klicka på *slå på diagnostik* att öppna sidan
 
-   ![Bild av Azure Application Gateway-resursen](./media/log-analytics-azure-networking/log-analytics-appgateway-enable-diagnostics02.png)
+   ![Bild av Azure Application Gateway-resursen](media/log-analytics-azure-networking-analytics/log-analytics-appgateway-enable-diagnostics02.png)
 4. Aktivera diagnostik, klicka på *på* under *Status*
 5. Klicka på kryssrutan för *skicka till Log Analytics*
 6. Välj en befintlig Log Analytics-arbetsyta eller skapa en arbetsyta
@@ -117,7 +117,7 @@ Set-AzureRmDiagnosticSetting -ResourceId $gateway.ResourceId  -WorkspaceId $work
 ```
 
 ### <a name="use-azure-application-gateway-analytics"></a>Använd Azure Application Gateway analytics
-![Bild av Azure Application Gateway analytics panelen](./media/log-analytics-azure-networking/log-analytics-appgateway-tile.png)
+![Bild av Azure Application Gateway analytics panelen](media/log-analytics-azure-networking-analytics/log-analytics-appgateway-tile.png)
 
 När du klickar på den **Azure Application Gateway analytics** panelen i översikten, kan du visa sammanfattningar av dina loggar och sedan kan du läsa informationen i följande kategorier:
 
@@ -130,9 +130,9 @@ När du klickar på den **Azure Application Gateway analytics** panelen i övers
   * Värdens hälsotillstånd för Application Gateway
   * Högsta och den 95: e percentilen för Application Gateway misslyckade begäranden
 
-![Bild av Azure Application Gateway analytics-instrumentpanelen](./media/log-analytics-azure-networking/log-analytics-appgateway01.png)
+![Bild av Azure Application Gateway analytics-instrumentpanelen](media/log-analytics-azure-networking-analytics/log-analytics-appgateway01.png)
 
-![Bild av Azure Application Gateway analytics-instrumentpanelen](./media/log-analytics-azure-networking/log-analytics-appgateway02.png)
+![Bild av Azure Application Gateway analytics-instrumentpanelen](media/log-analytics-azure-networking-analytics/log-analytics-appgateway02.png)
 
 På den **Azure Application Gateway analytics** instrumentpanelen läser du sammanfattningsinformationen på något av bladen och klicka sedan på en om du vill visa detaljerad information på sidan log search.
 
@@ -141,7 +141,7 @@ På någon av sidorna log search, kan du visa resultat genom tid, detaljerade re
 
 ## <a name="azure-network-security-group-analytics-solution-in-log-analytics"></a>Azure Network Security Group analytics-lösningen i Log Analytics
 
-![Azure Network Security Group Analytics symbol](./media/log-analytics-azure-networking/azure-analytics-symbol.png)
+![Azure Network Security Group Analytics symbol](media/log-analytics-azure-networking-analytics/azure-analytics-symbol.png)
 
 > [!NOTE]
 > Nätverkssäkerhetsgrupp analyslösning flyttas till community-support, eftersom dess funktionalitet har ersatts av [trafikanalys](../network-watcher/traffic-analytics.md).
@@ -165,10 +165,10 @@ Använd följande instruktioner för att installera och konfigurera Azure Networ
 1. I Azure-portalen går du till resursen som Nätverkssäkerhetsgruppen ska övervaka
 2. Välj *diagnostikloggar* att öppna sidan
 
-   ![Bild av Azure Network Security Group-resurs](./media/log-analytics-azure-networking/log-analytics-nsg-enable-diagnostics01.png)
+   ![Bild av Azure Network Security Group-resurs](media/log-analytics-azure-networking-analytics/log-analytics-nsg-enable-diagnostics01.png)
 3. Klicka på *slå på diagnostik* att öppna sidan
 
-   ![Bild av Azure Network Security Group-resurs](./media/log-analytics-azure-networking/log-analytics-nsg-enable-diagnostics02.png)
+   ![Bild av Azure Network Security Group-resurs](media/log-analytics-azure-networking-analytics/log-analytics-nsg-enable-diagnostics02.png)
 4. Aktivera diagnostik, klicka på *på* under *Status*
 5. Klicka på kryssrutan för *skicka till Log Analytics*
 6. Välj en befintlig Log Analytics-arbetsyta eller skapa en arbetsyta
@@ -196,9 +196,9 @@ När du klickar på den **Azure Network Security Group analytics** panelen i öv
   * Regler för nätverkssäkerhetsgrupper med tillåtna flöden
   * MAC-adresser med tillåtna flöden
 
-![Bild av Azure Network Security Group analytics-instrumentpanelen](./media/log-analytics-azure-networking/log-analytics-nsg01.png)
+![Bild av Azure Network Security Group analytics-instrumentpanelen](media/log-analytics-azure-networking-analytics/log-analytics-nsg01.png)
 
-![Bild av Azure Network Security Group analytics-instrumentpanelen](./media/log-analytics-azure-networking/log-analytics-nsg02.png)
+![Bild av Azure Network Security Group analytics-instrumentpanelen](media/log-analytics-azure-networking-analytics/log-analytics-nsg02.png)
 
 På den **Azure Network Security Group analytics** instrumentpanelen läser du sammanfattningsinformationen på något av bladen och klicka sedan på en om du vill visa detaljerad information på sidan log search.
 

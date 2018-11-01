@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 7/11/2018
 ms.author: trinadhk
-ms.openlocfilehash: 855b75652fca421df12766f7711152d1e3ca2aeb
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: f293f642db2bd526e761ff570ce97a33845808b7
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39009254"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50412813"
 ---
 # <a name="use-role-based-access-control-to-manage-azure-backup-recovery-points"></a>Använda rollbaserad åtkomstkontroll för att hantera Azure Backup-återställningspunkter
 Rollbaserad åtkomstkontroll (RBAC) i Azure ger tillgång till ingående åtkomsthantering för Azure. Med hjälp av RBAC kan du hålla isär uppgifter i ditt team och bevilja endast den omfattning av åtkomst till användare som de behöver för att utföra sitt arbete.
@@ -34,24 +34,34 @@ Om du vill definiera egna roller för ännu mer kontroll, se hur du [skapa anpas
 ## <a name="mapping-backup-built-in-roles-to-backup-management-actions"></a>Mappa säkerhetskopiering inbyggda roller till åtgärder för hantering av säkerhetskopiering
 Följande tabell visar de hanteringsåtgärder för säkerhetskopiering och motsvarande minsta RBAC-roller krävs för att utföra åtgärden.
 
-| Hanteringsåtgärd | Minsta RBAC-roll som krävs |
-| --- | --- |
-| Skapa Recovery Services-valv | Deltagare för resursgruppen för valvet |
-| Aktivera säkerhetskopiering av virtuella Azure-datorer | Ansvarig för säkerhetskopiering som definierats i omfattningen av resursgruppen som innehåller valvet, virtuell datordeltagare på virtuella datorer |
-| Säkerhetskopiering på begäran för virtuell dator | Ansvarig för säkerhetskopiering |
-| Återställa en virtuell dator | Ansvarig för säkerhetskopiering, Resource group deltagare där Virtuella datorn kommer att distribueras, läsa för virtuella nätverk och delta i det undernät som valts |
-| Återställ diskar, enskilda filer från säkerhetskopiering av virtuella datorer | Ansvarig för säkerhetskopiering, virtuell datordeltagare på virtuella datorer |
-| Skapa säkerhetskopieringsprincip för virtuell Azure-säkerhetskopiering | Säkerhetskopieringsmedarbetare |
-| Ändra princip för säkerhetskopiering av virtuell Azure-säkerhetskopiering | Säkerhetskopieringsmedarbetare |
-| Ta bort princip för säkerhetskopiering av virtuell Azure-säkerhetskopiering | Säkerhetskopieringsmedarbetare |
-| Stoppa säkerhetskopiering (och behålla data eller ta bort data) säkerhetskopiering av virtuella datorer | Säkerhetskopieringsmedarbetare |
-| Registrera den lokala Windows Server/klient-/ SCDPM eller Azure Backup Server | Ansvarig för säkerhetskopiering |
-| Ta bort registrerade lokala Windows Server/klient-/ SCDPM eller Azure Backup Server | Säkerhetskopieringsmedarbetare |
+| Hanteringsåtgärd | Minsta RBAC-roll som krävs | Omfång som krävs |
+| --- | --- | --- |
+| Skapa Recovery Services-valv | Deltagare | Resursgruppen som innehåller valvet |
+| Aktivera säkerhetskopiering av virtuella Azure-datorer | Säkerhetskopieringsoperatör | Resursgruppen som innehåller valvet |
+| | Virtuell datordeltagare | VM-resurs |
+| Säkerhetskopiering på begäran för virtuell dator | Säkerhetskopieringsoperatör | Recovery vault-resursen |
+| Återställa en virtuell dator | Säkerhetskopieringsoperatör | Resursgruppen där virtuella datorn ska distribueras |
+| | Virtuell datordeltagare | Resursgruppen där virtuella datorn ska distribueras |
+| Återställa ohanterade diskar säkerhetskopiering av virtuella datorer | Säkerhetskopieringsoperatör | Recovery vault-resursen |
+| | Virtuell datordeltagare | VM-resurs |
+| | Lagringskontodeltagare | Resursen för lagringskonton |
+| Återställa hanterade diskar från säkerhetskopiering av virtuella datorer | Säkerhetskopieringsoperatör | Recovery vault-resursen |
+| | Virtuell datordeltagare | VM-resurs |
+| | Lagringskontodeltagare | Resursen för lagringskonton |
+| | Deltagare | Resursgruppen som hanterad disk ska återställas |
+| Återställa enskilda filer från säkerhetskopiering av virtuella datorer | Säkerhetskopieringsoperatör | Recovery vault-resursen |
+| | Virtuell datordeltagare | VM-resurs |
+| Skapa säkerhetskopieringsprincip för virtuell Azure-säkerhetskopiering | Säkerhetskopieringsmedarbetare | Recovery vault-resursen |
+| Ändra princip för säkerhetskopiering av virtuell Azure-säkerhetskopiering | Säkerhetskopieringsmedarbetare | Recovery vault-resursen |
+| Ta bort princip för säkerhetskopiering av virtuell Azure-säkerhetskopiering | Säkerhetskopieringsmedarbetare | Recovery vault-resursen |
+| Stoppa säkerhetskopiering (och behålla data eller ta bort data) säkerhetskopiering av virtuella datorer | Säkerhetskopieringsmedarbetare | Recovery vault-resursen |
+| Registrera den lokala Windows Server/klient-/ SCDPM eller Azure Backup Server | Säkerhetskopieringsoperatör | Recovery vault-resursen |
+| Ta bort registrerade lokala Windows Server/klient-/ SCDPM eller Azure Backup Server | Säkerhetskopieringsmedarbetare | Recovery vault-resursen |
 
 ## <a name="next-steps"></a>Nästa steg
 * [Rollbaserad åtkomstkontroll](../role-based-access-control/role-assignments-portal.md): Kom igång med RBAC i Azure-portalen.
 * Lär dig mer om att hantera åtkomst med:
   * [PowerShell](../role-based-access-control/role-assignments-powershell.md)
   * [Azure CLI](../role-based-access-control/role-assignments-cli.md)
-  * [REST API](../role-based-access-control/role-assignments-rest.md)
+  * [REST-API](../role-based-access-control/role-assignments-rest.md)
 * [Role-Based Access Control – felsökning](../role-based-access-control/troubleshooting.md): få förslag för att åtgärda vanliga problem.

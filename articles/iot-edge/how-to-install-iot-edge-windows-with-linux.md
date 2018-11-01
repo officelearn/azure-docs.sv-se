@@ -9,12 +9,12 @@ services: iot-edge
 ms.topic: conceptual
 ms.date: 08/27/2018
 ms.author: kgremban
-ms.openlocfilehash: 2ff7c3482100545c476040ba556d464b9f44e434
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: c389f904fb3ea21c9bcc538a62c7a866ef3b254d
+ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47031126"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50739268"
 ---
 # <a name="install-the-azure-iot-edge-runtime-on-windows-to-use-with-linux-containers"></a>Installera Azure IoT Edge-körningen på Windows för användning med Linux-behållare
 
@@ -36,9 +36,9 @@ Mer information om vilka operativsystem stöds för närvarande finns i [support
 
 ## <a name="install-the-container-runtime"></a>Installera runtime behållare 
 
-Azure IoT Edge förlitar sig på en [OCI-kompatibla] [ lnk-oci] runtime behållare (till exempel Docker). 
+Azure IoT Edge förlitar sig på en [OCI-kompatibla](https://www.opencontainers.org/) runtime behållare (till exempel Docker). 
 
-Du kan använda [Docker för Windows] [ lnk-docker-for-windows] för utveckling och testning. Konfigurera Docker för Windows [att använda Linux-behållare][lnk-docker-config]
+Du kan använda [Docker för Windows](https://www.docker.com/docker-windows) för utveckling och testning. Konfigurera Docker för Windows [att använda Linux-behållare](https://docs.docker.com/docker-for-windows/#switch-between-windows-and-linux-containers).
 
 ## <a name="install-the-azure-iot-edge-security-daemon"></a>Installera Daemon för Azure IoT Edge-säkerhet
 
@@ -49,7 +49,7 @@ En enda IoT Edge-enhet kan etableras manuellt med hjälp av en sträng för ansl
 
 ### <a name="option-1-install-and-manually-provision"></a>Alternativ 1: Installera och etablera manuellt
 
-1. Följ stegen i [registrera en ny Azure IoT Edge-enhet] [ lnk-dcs] att registrera din enhet och hämta enhetens anslutningssträng. 
+1. Följ stegen i [registrera en ny Azure IoT Edge-enhet](how-to-register-device-portal.md) att registrera din enhet och hämta enhetens anslutningssträng. 
 
 2. Kör PowerShell som administratör på din IoT Edge-enhet. 
 
@@ -64,7 +64,7 @@ En enda IoT Edge-enhet kan etableras manuellt med hjälp av en sträng för ansl
 
 ### <a name="option-2-install-and-automatically-provision"></a>Alternativ 2: Installera och etablera automatiskt
 
-1. Följ stegen i [skapa och etablera en simulerad TPM-Edge-enhet på Windows] [ lnk-dps] att konfigurera Device Provisioning-tjänsten och hämta dess **Scopeid**, simulera en TPM enhets- och hämta dess **registrerings-ID**, skapa en enskild registrering. När enheten är registrerad i IoT Hub, fortsätter du med installationen.  
+1. Följ stegen i [skapa och etablera en simulerad TPM-Edge-enhet på Windows](how-to-auto-provision-simulated-device-windows.md) att konfigurera Device Provisioning-tjänsten och hämta dess **Scopeid**, simulera en TPM-enhet och hämta dess  **Registrerings-ID**, skapa en enskild registrering. När enheten är registrerad i IoT Hub, fortsätter du med installationen.  
 
    >[!TIP]
    >Lämna fönstret med TPM-simulatorn öppen under installationen och testning. 
@@ -114,20 +114,6 @@ Om nätverket har en proxyserver, följer du stegen i [konfigurerar IoT Edge-enh
 
 ## <a name="next-steps"></a>Nästa steg
 
-Nu när du har en IoT Edge-enhet med den som är installerad kan du [distribuera IoT Edge-moduler][lnk-modules].
+Nu när du har en IoT Edge-enhet med den som är installerad kan du [distribuera IoT Edge-moduler](how-to-deploy-modules-portal.md).
 
-Om du har problem med Edge-körningen installeras korrekt kan du kolla den [felsökning] [ lnk-trouble] sidan.
-
-
-<!-- Images -->
-[img-docker-nat]: ./media/how-to-install-iot-edge-windows-with-linux/dockernat.png
-
-<!-- Links -->
-[lnk-docker-config]: https://docs.docker.com/docker-for-windows/#switch-between-windows-and-linux-containers
-[lnk-dcs]: how-to-register-device-portal.md
-[lnk-dps]: how-to-auto-provision-simulated-device-windows.md
-[lnk-oci]: https://www.opencontainers.org/
-[lnk-moby]: https://mobyproject.org/
-[lnk-trouble]: troubleshoot.md
-[lnk-docker-for-windows]: https://www.docker.com/docker-windows
-[lnk-modules]: how-to-deploy-modules-portal.md
+Om du har problem med Edge-körningen installeras korrekt kan du kolla den [felsökning](troubleshoot.md) sidan.

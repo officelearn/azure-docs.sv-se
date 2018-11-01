@@ -1,6 +1,6 @@
 ---
-title: Konfigurera Azure-diagnostik för att skicka data till Application Insights
-description: Uppdatera Azure-diagnostik offentliga konfiguration för att skicka data till Application Insights.
+title: Konfigurera Azure Diagnostics för att skicka data till Application Insights
+description: Uppdatera Azure Diagnostics offentliga konfigurationen för att skicka data till Application Insights.
 services: azure-monitor
 author: rboucher
 ms.service: azure-monitor
@@ -8,20 +8,20 @@ ms.topic: conceptual
 ms.date: 03/19/2016
 ms.author: robb
 ms.component: diagnostic-extension
-ms.openlocfilehash: 3e1f4076c7a90cbb348f31b7b92e745fff79a04f
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: f2a48756252f538adc7d813aafe6dbfbf3a270b5
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35262145"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50416701"
 ---
-# <a name="send-cloud-service-virtual-machine-or-service-fabric-diagnostic-data-to-application-insights"></a>Skicka Cloud Service, virtuell dator eller Service Fabric diagnostikdata till Application Insights
-Molntjänster, virtuella datorer, virtuella datorer och Service Fabric alla filnamnstillägget Azure Diagnostics att samla in data.  Azure diagnostics skickar data till Azure Storage-tabeller.  Du kan dock också pipe alla eller en delmängd av data till andra platser med hjälp av Azure-diagnostik tillägget 1.5 eller senare.
+# <a name="send-cloud-service-virtual-machine-or-service-fabric-diagnostic-data-to-application-insights"></a>Skicka molntjänst, virtuell dator eller Service Fabric diagnostiska data till Application Insights
+Molntjänster, virtuella datorer, Virtual Machine Scale Sets och Service Fabric alla Använd Azure Diagnostics-tillägget för att samla in data.  Azure-diagnostik skickar data till Azure Storage-tabeller.  Du kan dock också pipe alla eller en delmängd av data till andra platser med hjälp av Azure-diagnostiktillägget 1.5 eller senare.
 
-Den här artikeln beskriver hur du skickar data från Azure-diagnostik-tillägg till Application Insights.
+Den här artikeln beskriver hur du skickar data från Azure Diagnostics-tillägget till Application Insights.
 
-## <a name="diagnostics-configuration-explained"></a>Diagnostik-konfiguration beskrivs
-Azure diagnostics tillägget 1.5 introduceras egenskaperna som är ytterligare platser där du kan skicka diagnostikdata.
+## <a name="diagnostics-configuration-explained"></a>Diagnostiky förklaras
+Azure-diagnostiktillägget 1.5 introduceras egenskaperna som är ytterligare platser där du kan skicka diagnostikdata.
 
 Exempel konfigurationen av en mottagare för Application Insights:
 
@@ -58,33 +58,33 @@ Exempel konfigurationen av en mottagare för Application Insights:
     ]
 }
 ```
-- Den **Sink** *namn* attributet är ett strängvärde som unikt identifierar sink.
+- Den **mottagare** *namn* attributet är ett strängvärde som unikt identifierar mottagaren.
 
-- Den **ApplicationInsights** element anger instrumentation nyckeln för Application insights-resurs där Azure diagnostikdata skickas.
-    - Om du inte har en befintlig Application Insights-resurs, se [skapar en ny Application Insights-resurs](../application-insights/app-insights-create-new-resource.md) mer information om att skapa en resurs och hämtar nyckeln instrumentation.
-    - Om du utvecklar en tjänst i molnet med Azure SDK 2.8 och senare fylls instrumentation nyckeln i automatiskt. Värdet är baserad på den **APPINSIGHTS_INSTRUMENTATIONKEY** konfigurationsinställning för tjänst när paketera Cloud Service-projekt. Se [använda Application Insights med molntjänster](../application-insights/app-insights-cloudservices.md).
+- Den **ApplicationInsights** elementet anger instrumenteringsnyckeln för Application insights-resurs där Azure diagnostics-data skickas.
+    - Om du inte har en befintlig Application Insights-resurs kan du läsa [skapa en ny Application Insights-resurs](../application-insights/app-insights-create-new-resource.md) mer information om att skapa en resurs och komma instrumenteringsnyckeln.
+    - Om du utvecklar en molntjänst med Azure SDK 2.8 och senare, fylls instrumentationsnyckeln i automatiskt. Värdet är baserad på den **APPINSIGHTS_INSTRUMENTATIONKEY** konfigurationsinställning för tjänst när paketering Cloud Service-projekt. Se [använda Application Insights med molntjänster](../application-insights/app-insights-cloudservices.md).
 
 - Den **kanaler** elementet innehåller ett eller flera **kanal** element.
     - Den *namn* attributet unikt refererar till kanalen.
-    - Den *loglevel* attribut kan du ange den Loggnivå som kanalen tillåter. Tillgängliga nivåer i den ordning de mest till minst information är:
+    - Den *loglevel* attribut kan du ange den Loggnivå som gör att kanalen. De tillgängliga loggningsnivåerna i ordningen för de flesta till minst information är:
         - Utförlig
         - Information
         - Varning
         - Fel
-        - Kritiska
+        - Kritisk
 
-En kanal som fungerar som ett filter och kan du välja specifika loggningsnivåer att skicka till mål-mottagare. Du kan till exempel samla in detaljerade loggarna och skicka dem till lagring, men skicka endast fel till sink.
+En kanal fungerar som ett filter och kan du välja specifika loggningsnivåerna att skicka till mål-mottagare. Du kan till exempel samla in detaljerade loggarna och skicka dem till lagring, men skicka endast fel till mottagaren.
 
 Följande bild visar den här relationen.
 
-![Diagnostik offentliga konfiguration](./media/azure-diagnostics-configure-applicationinsights/AzDiag_Channels_App_Insights.png)
+![Offentliga Diagnostiky](media/azure-diagnostics-configure-application-insights/AzDiag_Channels_App_Insights.png)
 
-Bilden nedan sammanfattas konfigurationsvärdena och hur de fungerar. Du kan inkludera flera handfat i konfigurationen på olika nivåer i hierarkin. Sink på den översta nivån som fungerar som en global inställning och den som anges i enskilda element fungerar som en åsidosättning av den globala inställningen.
+Följande bild sammanfattas konfigurationsvärdena och hur de fungerar. Du kan inkludera flera mottagare i konfigurationen på olika nivåer i hierarkin. Mottagare på den översta nivån som fungerar som en global inställning och den som angetts vid enskilda element fungerar som en åsidosättning av den globala inställningen.
 
-![Diagnostik egenskaperna med Application Insights](./media/azure-diagnostics-configure-applicationinsights/Azure_Diagnostics_Sinks.png)
+![Diagnostik egenskaperna med Application Insights](media/azure-diagnostics-configure-application-insights/Azure_Diagnostics_Sinks.png)
 
-## <a name="complete-sink-configuration-example"></a>Fullständig sink Konfigurationsexempel
-Här är en komplett exempel på offentliga konfiguration fil som
+## <a name="complete-sink-configuration-example"></a>Konfigurationsexempel för fullständig mottagare
+Här är exempel på hur offentliga filen som
 1. skickar alla fel till Application Insights (angivna på den **DiagnosticMonitorConfiguration** nod)
 2. skickar också utförlig nivå loggar för programloggarna (angivna på den **loggar** nod).
 
@@ -170,7 +170,7 @@ Här är en komplett exempel på offentliga konfiguration fil som
     }
 }
 ```
-I den tidigare konfigurationen har följande rader följande:
+I den tidigare konfigurationen med följande rader betydelser:
 
 ### <a name="send-all-the-data-that-is-being-collected-by-azure-diagnostics"></a>Skicka alla data som samlas in av Azure-diagnostik
 
@@ -184,7 +184,7 @@ I den tidigare konfigurationen har följande rader följande:
 }
 ```
 
-### <a name="send-only-error-logs-to-the-application-insights-sink"></a>Skicka bara felloggar till Application Insights sink
+### <a name="send-only-error-logs-to-the-application-insights-sink"></a>Skicka endast felloggarna till Application Insights-mottagare
 
 ```XML
 <DiagnosticMonitorConfiguration overallQuotaInMB="4096" sinks="ApplicationInsights.MyTopDiagdata">
@@ -210,11 +210,11 @@ I den tidigare konfigurationen har följande rader följande:
 
 ## <a name="limitations"></a>Begränsningar
 
-- **Kanaler bara logga typ och inte prestanda räknare.** Om du anger en kanal med elementet prestandaräknaren ignoreras.
-- **Loggningsnivån för en kanal får inte överskrida loggningsnivån för vad som samlas in av Azure-diagnostik.** T.ex, du kan inte samla in program logga fel i loggarna elementet och försök att skicka utförlig loggar till Application Insights sink. Den *scheduledTransferLogLevelFilter* attributet måste alltid samla in lika eller fler loggar än loggarna som du försöker skicka till en mottagare.
-- **Du kan inte skicka blob-data som samlas in av Azure-diagnostik tillägget till Application Insights.** Till exempel allt som anges under den *kataloger* nod. För kraschdumpar faktiska krasch-dump skickas till blob storage och endast ett meddelande om att krasch-dump genererades skickas till Application Insights.
+- **Kanaler bara logga typ och inte prestandaräknare.** Om du anger en kanal med ett prestandaräknaren element ignoreras.
+- **Loggningsnivå för en kanal får inte överskrida loggningsnivån för vad som samlas in av Azure-diagnostik.** Exempelvis kan du kan inte samla in programmet logga fel i loggarna elementet och försöker skicka utförliga loggar till Application Insights-mottagare. Den *scheduledTransferLogLevelFilter* attributet måste alltid samla in lika eller mer loggar än loggarna du vill skicka till en mottagare.
+- **Du kan inte skicka blob-data som samlas in av Azure diagnostics-tillägg till Application Insights.** Till exempel något som anges under den *kataloger* noden. För kraschdumpar faktiska kraschdumpen skickas till blob storage och bara ett meddelande om att kraschdumpen har genererats skickas till Application Insights.
 
 ## <a name="next-steps"></a>Nästa steg
 * Lär dig hur du [se information om din Azure-diagnostik](https://docs.microsoft.com/azure/application-insights/app-insights-cloudservices#view-azure-diagnostic-events) i Application Insights.
-* Använd [PowerShell](../cloud-services/cloud-services-diagnostics-powershell.md) aktivera tillägget för Azure-diagnostik för ditt program.
-* Använd [Visual Studio](../vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines.md) aktivera tillägget för Azure-diagnostik för ditt program
+* Använd [PowerShell](../cloud-services/cloud-services-diagnostics-powershell.md) att aktivera Azure diagnostics-tillägg för ditt program.
+* Använd [Visual Studio](../vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines.md) att aktivera Azure diagnostics-tillägg för ditt program

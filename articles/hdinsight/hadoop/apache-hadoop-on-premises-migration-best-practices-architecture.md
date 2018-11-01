@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 10/25/2018
 ms.author: hrasheed
-ms.openlocfilehash: 64e735a1090972a6e4cef85d1a51909e8550c536
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: 02db6b4691beb4bfefa3815c87cf54f350219d81
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50221941"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50418015"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---architecture-best-practices"></a>Migrera lokala Apache Hadoop-kluster till Azure HDInsight - arkitektur Metodtips
 
@@ -92,8 +92,7 @@ HDInsight använder Azure SQL Database för metastores för Hive och Oozie. Det 
     - Kluster kan skapas och tas bort utan att förlora metadata, inklusive Hive schemat Oozie jobbinformation.
     - Enkel metaarkiv db kan delas med olika typer av kluster
     - Metaarkiv kan skalas upp efter behov
-
-Mer information finns i artikeln: [använda extern metadatalagring i Azure HDInsight](../hdinsight-use-external-metadata-stores.md).
+    - Mer information finns i [använda extern metadatalagring i Azure HDInsight](../hdinsight-use-external-metadata-stores.md).
 
 ## <a name="best-practices-for-hive-metastore"></a>Metodtips för Hive-Metaarkiv
 
@@ -105,20 +104,20 @@ Några Metodtips för HDInsight Hive-metaarkiv är följande:
 - Säkerhetskopiera anpassade metastore med jämna mellanrum.
 - Behåll metaarkiv och HDInsight-kluster i samma region.
 - Övervaka metaarkiv för prestanda och tillgänglighet med hjälp av Azure SQL Database-övervakning verktyg som Azure-portalen eller Azure Log Analytics.
-- Kör den **analysera tabell** kommandot som krävs för att skapa statistik för tabeller och kolumner. Till exempel, `ANALYZE TABLE [table_name] COMPUTE STATISTICS`
+- Kör den **analysera tabell** kommandot som krävs för att skapa statistik för tabeller och kolumner. Till exempel `ANALYZE TABLE [table_name] COMPUTE STATISTICS`.
 
 ## <a name="best-practices-for-different-types-of-workloads"></a>Metodtips för olika typer av arbetsbelastningar
 
 - Överväg att använda LLAP kluster för interaktiva Hive-frågor med förbättrad svarstid [LLAP](https://cwiki.apache.org/confluence/display/Hive/LLAP) är en ny funktion i Hive 2.0 som gör att cachelagra i minnet för frågor. LLAP gör Hive-frågor som är mycket snabbare, upp till [26 x snabbare än Hive 1.x i vissa fall](https://hortonworks.com/blog/announcing-apache-hive-2-1-25x-faster-queries-much/).
-- Överväg att använda Spark-jobb i stället för Hive-jobb
-- Överväg att ersätta impala-baserade frågor med LLAP frågor
-- Överväg att ersätta MapReduce-jobb med Spark-jobb
-- Överväg att ersätta med låg latens Spark batch-jobb med hjälp av Spark Structured Streaming jobb
-- Datadirigering--bör du använda Azure Data Factory(ADF) 2.0
-- Överväg att Ambari för klusterhantering
-- Ändra lagring av data från lokala HDFS WASB eller ADLS eller AD FS för bearbetning av skript
-- Överväg att använda Ranger RBAC på Hive-tabeller och granskning
-- Överväg att använda CosmosDB i stället för MongoDB eller Cassandra
+- Överväg att använda Spark-jobb i stället för Hive-jobb.
+- Överväg att ersätta impala-baserade frågor med LLAP frågor.
+- Överväg att ersätta MapReduce-jobb med Spark-jobb.
+- Överväg att ersätta med låg latens Spark batch-jobb med hjälp av Spark Structured Streaming jobb.
+- Överväg att använda med Azure Data Factory (ADF) 2.0 för datadirigering.
+- Överväg att Ambari för klusterhantering.
+- Ändra lagring av data från lokala HDFS WASB eller ADLS eller AD FS för bearbetning av skript.
+- Överväg att använda Ranger RBAC på Hive-tabeller och granskning.
+- Överväg att använda CosmosDB i stället för MongoDB eller Cassandra.
 
 ## <a name="next-steps"></a>Nästa steg
 

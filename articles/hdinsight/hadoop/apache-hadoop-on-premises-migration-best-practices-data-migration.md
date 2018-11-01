@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 10/25/2018
 ms.author: hrasheed
-ms.openlocfilehash: 95b753a3be824b5815a70fee84913f1c129f2605
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: 6b06b8eb8d5e18acd3107ec5cccac79fc7be7edc
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50221949"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50418185"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---data-migration-best-practices"></a>Migrera lokala Apache Hadoop-kluster till Azure HDInsight - Metodtips för migrering av data
 
@@ -100,14 +100,14 @@ Hive-metaarkiv kan migreras med hjälp av skript eller med hjälp av DB-repliker
 
 #### <a name="hive-metastore-migration-using-scripts"></a>Hive-metaarkiv migrering med hjälp av skript
 
-- Skapa Hive-DDLs från en lokal Hive-metaarkiv. Det här steget kan göras med hjälp av en [omslutning bash-skript](https://github.com/hdinsight/hdinsight.github.io/blob/master/hive/hive-export-import-metastore.md)
-- Redigera den genererade DDL för att ersätta HDFS url med WASB/ADLS/ABFS URL: er
-- Kör den uppdaterade DDL på metaarkiv från HDI-kluster
-- Se till att Hive-metaarkiv version är kompatibla mellan lokala platser och molnet
+1. Skapa Hive-DDLs från en lokal Hive-metaarkiv. Det här steget kan göras med hjälp av en [omslutning bash-skript]. (https://github.com/hdinsight/hdinsight.github.io/blob/master/hive/hive-export-import-metastore.md)
+1. Redigera den genererade DDL för att ersätta HDFS url med WASB/ADLS/ABFS URL: er
+1. Kör den uppdaterade DDL på metaarkiv från HDInsight-kluster
+1. Se till att Hive-metaarkiv version är kompatibla mellan lokala platser och molnet
 
 #### <a name="hive-metastore-migration-using-db-replication"></a>Hive-metaarkiv migrering med hjälp av DB replikering
 
-- Konfigurera databasreplikeringen mellan lokala Hive-metaarkiv DB och HDI metaarkiv DB
+- Konfigurera databasreplikeringen mellan lokala Hive-metaarkiv DB och HDInsight metaarkiv DB
 - Använd den ”Hive MetaTool” för att ersätta HDFS url med WASB/ADLS/ABFS URL: er, till exempel:
 
 ```bash
@@ -116,9 +116,9 @@ Hive-metaarkiv kan migreras med hjälp av skript eller med hjälp av DB-repliker
 
 ### <a name="ranger"></a>Ranger
 
-- Exportera lokala Ranger-principer till xml-filer
-- Omvandla en lokal specifika HDFS-baserade sökvägar till WASB/ADLS med ett verktyg som XSLT
-- Importera principer in Ranger som körs på HDI
+- Exportera lokala Ranger-principer till XML-filer.
+- Omvandla en lokal specifika HDFS-baserade sökvägar till WASB/ADLS med ett verktyg som XSLT.
+- Importera principer in Ranger som körs på HDInsight.
 
 ## <a name="next-steps"></a>Nästa steg
 

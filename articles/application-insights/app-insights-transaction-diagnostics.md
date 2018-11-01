@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/19/2018
 ms.reviewer: sdash
 ms.author: mbullwin
-ms.openlocfilehash: df88e9025da305701dc7168f663cad2e8f5ac738
-ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
+ms.openlocfilehash: 5b52fd41fc3e37078bbddc721c0c54af2c430b43
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42820269"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50419239"
 ---
 # <a name="unified-cross-component-transaction-diagnostics"></a>Enhetlig komponentöverskridande transaktionsdiagnostik
 
@@ -38,7 +38,7 @@ Komponenterna är oberoende av varandra distribuerbar delar av programmet distri
 ## <a name="transaction-diagnostics-experience"></a>Upplev transaktionsdiagnostik
 Den här vyn har fyra viktiga delar: resulterar lista, ett komponentöverskridande transaktion diagram, en tidssekvensen lista över all telemetri som är relaterade till den här åtgärden och informationsfönstret för alla valda telemetriobjekt till vänster.
 
-![Viktiga delar](media/app-insights-e2eTxn-diagnostics/4partsCrossComponent.png)
+![Viktiga delar](media/app-insights-transaction-diagnostics/4partsCrossComponent.png)
 
 ## <a name="cross-component-transaction-chart"></a>Komponentöverskridande transaktion diagram
 
@@ -57,19 +57,19 @@ Anrop till andra komponenter har två rader: en rad som representerar det utgåe
 
 Det här avsnittet visar vanlig listvy i en tidssekvens av all telemetri för den här transaktionen. Den visar även anpassade händelser och spårningar som inte visas i diagrammet transaktion. Du kan filtrera listan telemetri som genereras av en viss komponent/anrop. Du kan välja alla telemetriobjekt i listan för att se motsvarande [information till höger](#details-of-the-selected-telemetry).
 
-![Tidssekvens med all telemetri](media/app-insights-e2eTxn-diagnostics/allTelemetryDrawerOpened.png)
+![Tidssekvens med all telemetri](media/app-insights-transaction-diagnostics/allTelemetryDrawerOpened.png)
 
 ## <a name="details-of-the-selected-telemetry"></a>Information om den valda telemetrin
 
 Det här komprimerbart fönstret visar information om alla valda objekt diagrammet transaktion eller i listan. ”Visa alla” visas alla standard attribut som samlas in. Anpassade attribut visas separat under standarduppsättningen. Klicka på ”...” nedan fönstret stack-spårning för att få ett alternativ för att kopiera spårningen. Öppna profiler-spårningar ”eller” öppna ögonblicksbild för felsökning ”visar koden på diagnostik i motsvarande rutor i detalj.
 
-![Undantagsinformation](media/app-insights-e2eTxn-diagnostics/exceptiondetail.png)
+![Undantagsinformation](media/app-insights-transaction-diagnostics/exceptiondetail.png)
 
 ## <a name="search-results"></a>Sökresultat
 
 Det här komprimerbart fönstret visar de resultat som uppfyller filterkriterierna. Klicka på alla resultat för att uppdatera respektive informationen i 3 avsnitt som anges ovan. Vi försöker hitta exempel som mest sannolikt ha information som är tillgänglig från alla komponenter, även om sampling är aktiv i någon av dem. Dessa visas som ”föreslagna” exempel.
 
-![Sökresultat](media/app-insights-e2eTxn-diagnostics/searchResults.png)
+![Sökresultat](media/app-insights-transaction-diagnostics/searchResults.png)
 
 ## <a name="profiler-and-snapshot-debugger"></a>Profiler och snapshot debugger
 
@@ -79,9 +79,9 @@ Om du inte kunde hämta Profiler fungerar, kontakta **serviceprofilerhelp@micros
 
 Om du inte kunde hämta Snapshot Debugger fungerar, kontakta **snapshothelp@microsoft.com**
 
-![Profiler-integrering](media/app-insights-e2eTxn-diagnostics/profilerTraces.png)
+![Profiler-integrering](media/app-insights-transaction-diagnostics/profilerTraces.png)
 
-## <a name="faq"></a>Vanliga frågor och svar
+## <a name="faq"></a>VANLIGA FRÅGOR OCH SVAR
 
 *En enskild komponent visas i diagrammet och visar de andra endast som externa beroenden utan någon information om vad som hände inom dessa komponenter.*
 

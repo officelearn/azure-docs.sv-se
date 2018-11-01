@@ -3,19 +3,18 @@ title: Åtkomst till datakällor lokalt för Azure Logic Apps | Microsoft Docs
 description: Skapa och konfigurera en lokal datagateway så att du kan komma åt datakällor lokalt från logikappar
 services: logic-apps
 ms.service: logic-apps
+ms.suite: integration
 author: ecfan
 ms.author: estfan
-manager: jeconnoc
+ms.reviewer: arthii, LADocs
 ms.topic: article
-ms.date: 07/20/2018
-ms.reviewer: yshoukry, LADocs
-ms.suite: integration
-ms.openlocfilehash: 6b6006293d562dbc270dc77bc49da2027f171dd2
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.date: 10/01/2018
+ms.openlocfilehash: e8e8d85d2c95c1dda7271de72491594562b7d3c1
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50233301"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50413714"
 ---
 # <a name="connect-to-data-sources-on-premises-from-azure-logic-apps-with-on-premises-data-gateway"></a>Ansluta till datakällor lokalt från Azure Logic Apps med lokala datagateway
 
@@ -34,8 +33,7 @@ Information om hur du använder gatewayen med andra tjänster finns i följande 
 
 * Din gateway-installation inte redan är kopplad till en resurs för gatewayen i Azure. Du kan länka din gateway-installation endast till en resurs för gatewayen som sker när du skapar gatewayresursen och välj gatewayinstallationen. Den här länka kan gatewayinstallationen inte andra resurser.
 
-* När du loggar in på Azure Portal och skapa gatewayresursen, måste du använda samma inloggning konto som har använts tidigare till [installera den lokala datagatewayen](../logic-apps/logic-apps-gateway-install.md#requirements).
-Du måste också använda samma [Azure-prenumeration](https://docs.microsoft.com/azure/architecture/cloud-adoption-guide/adoption-intro/subscription-explainer) som användes för att installera gatewayen. Om du inte har en Azure-prenumeration än, <a href="https://azure.microsoft.com/free/" target="_blank">registrera dig för ett kostnadsfritt konto</a>.
+* När du loggar in på Azure Portal och skapa gatewayresursen, kontrollera att du använder samma inloggning konto som har använts tidigare till [installera den lokala datagatewayen](../logic-apps/logic-apps-gateway-install.md#requirements) tillsammans med samma [Azure-prenumeration ](https://docs.microsoft.com/azure/architecture/cloud-adoption-guide/adoption-intro/subscription-explainer) som användes för att installera gatewayen. Om du inte har en Azure-prenumeration än, <a href="https://azure.microsoft.com/free/" target="_blank">registrera dig för ett kostnadsfritt konto</a>.
 
 * Du skapar och underhåller den gatewayresursen i Azure-portalen din [Windows-tjänstkontot](../logic-apps/logic-apps-gateway-install.md#windows-service-account) måste ha minst **deltagare** behörigheter. Den lokala datagatewayen körs som en Windows-tjänst och har ställts in att använda `NT SERVICE\PBIEgwService` för Windows service inloggningsuppgifter. 
 
@@ -44,8 +42,8 @@ Du måste också använda samma [Azure-prenumeration](https://docs.microsoft.com
 
 ## <a name="download-and-install-gateway"></a>Hämta och installera gatewayen
 
-Innan du fortsätter med stegen i den här artikeln måste du ha den gateway som redan är installerad på en lokal dator.
-och om du inte redan gjort följer du stegen för att [ladda ned och installera den lokala datagatewayen](../logic-apps/logic-apps-gateway-install.md). 
+Innan du kan fortsätta med stegen i den här artikeln måste du kontrollera att din gateway har installerats på en lokal dator.
+Om du inte redan gjort följer du stegen för att [ladda ned och installera den lokala datagatewayen](../logic-apps/logic-apps-gateway-install.md). 
 
 <a name="create-gateway-resource"></a>
 

@@ -11,12 +11,12 @@ ms.component: bing-image-search
 ms.topic: conceptual
 ms.date: 04/15/2017
 ms.author: scottwhi
-ms.openlocfilehash: 019d91f6a86bab5c4f446085e0244f9b5323f1fb
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 0db8c62bbb4da1a6fa1230b439c5074325bbe9c3
+ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46294415"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50739374"
 ---
 # <a name="paging-results"></a>Växla resultat
 
@@ -61,3 +61,6 @@ För att minimera duplicerade resultat måste använda den [nextOffset](https://
 
 > [!NOTE]
 > Växling gäller endast för bildsökning (/ bilder/Sök) och inte på information om bilder eller populära bilder (/ bilder/trender).
+
+> [!NOTE]
+> Den `TotalEstimatedAnswers` fält är en uppskattning av det totala antalet sökresultat som du kan hämta för den aktuella frågan.  När du ställer in `count` och `offset` parametrar, den `TotalEstimatedAnswers` tal kan ändras. 

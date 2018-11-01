@@ -11,12 +11,12 @@ ms.component: bing-web-search
 ms.topic: conceptual
 ms.date: 08/20/2018
 ms.author: erhopf
-ms.openlocfilehash: 4aa3509fcdfc6fd1bccb4db95a8c916a42ce23d2
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: e98407dface348dfdbc99a1146d50c46f3bb03a7
+ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46125280"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50739251"
 ---
 # <a name="how-to-page-through-results-from-the-bing-web-search-api"></a>Hur du bläddrar igenom resultaten från API för webbsökning i Bing
 
@@ -61,4 +61,7 @@ Host: api.cognitive.microsoft.com
 
 API för webbsökning returnerar resultat som innehåller webbsidor och kan innehålla bilder, videor och nyheter. När du sidan sökresultaten växling i [WebAnswer](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#webanswer) svar och inte andra svar, till exempel bilder eller nyheter. Exempel: Om du ställer in `count` till 50, du kommer tillbaka 50 webbsidan resultat, men svaret kan innehålla resultat för de andra svar. Svaret kan exempelvis omfatta 15 avbildningar och 4 nyhetsartiklar. Det är också möjligt att resultaten kan innehålla Nyheter på första sidan, men inte den andra sidan, eller tvärtom.   
 
-Om du anger den `responseFilter` frågeparameter och omfattar inte webbsidor i filterlistan kan inte använda den `count` och `offset` parametrar.  
+Om du anger den `responseFilter` frågeparameter och omfattar inte webbsidor i filterlistan kan inte använda den `count` och `offset` parametrar. 
+
+> [!NOTE]
+> Den `TotalEstimatedAnswers` fält är en uppskattning av det totala antalet sökresultat som du kan hämta för den aktuella frågan.  När du ställer in `count` och `offset` parametrar, den `TotalEstimatedAnswers` tal kan ändras. 

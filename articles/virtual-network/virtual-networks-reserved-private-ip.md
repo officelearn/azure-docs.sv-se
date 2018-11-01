@@ -1,6 +1,6 @@
 ---
-title: Statiska interna privata IP - Azure VM - klassisk
-description: Förstå statiska interna IP-adresser (korta) och hur du hanterar dem.
+title: Statiska interna privata IP - Azure-dator – klassisk
+description: Förstå statiska interna IP-adresser (DIPs) och hur du hanterar dem.
 services: virtual-network
 documentationcenter: na
 author: genlin
@@ -12,25 +12,25 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/18/2018
+ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: 661d2f789ace8da68b6d65609d4584a11967a01f
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: d5d75c25d03c02d6d49fc2fd8aeec995cea52314
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34366621"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50414275"
 ---
 # <a name="how-to-set-a-static-internal-private-ip-address-using-powershell-classic"></a>Hur du ställer in en statisk internt privat IP-adress med hjälp av PowerShell (klassisk)
-I de flesta fall behöver du inte ange en statisk interna IP-adress för den virtuella datorn. Virtuella datorer i ett virtuellt nätverk får automatiskt en intern IP-adress från det intervall som du anger. Men i vissa fall, ange en statisk IP-adress för en viss virtuell dator är meningsfullt. Till exempel om den virtuella datorn kommer att köra DNS eller om en domänkontrollant. En statiska interna IP-adressen förblir med den virtuella datorn även via ett stoppa/avetablering tillstånd. 
+I de flesta fall behöver du inte ange en statisk interna IP-adress för den virtuella datorn. Virtuella datorer i ett virtuellt nätverk får automatiskt en intern IP-adress från ett intervall som du anger. Men i vissa fall kan ange en statisk IP-adress för en viss virtuell dator är meningsfullt. Exempel: om den virtuella datorn är ska köra DNS eller kommer att vara en domänkontrollant. En statiska interna IP-adressen förblir med den virtuella datorn även via ett stoppa/avetablering tillstånd. 
 
 > [!IMPORTANT]
 > Azure har två olika distributionsmodeller för att skapa och arbeta med resurser: [Resource Manager och klassisk](../azure-resource-manager/resource-manager-deployment-model.md). Den här artikeln beskriver den klassiska distributionsmodellen. Microsoft rekommenderar att de flesta nya distributioner använder den [Resource Manager-distributionsmodellen](virtual-networks-static-private-ip-arm-ps.md).
 > 
 > 
 
-## <a name="how-to-verify-if-a-specific-ip-address-is-available"></a>Så här kontrollerar du om det finns en specifik IP-adress
-Kontrollera om IP-adressen *10.0.0.7* finns i ett vnet med namnet *TestVnet*, kör följande PowerShell-kommandot och kontrollera värdet för *IsAvailable*:
+## <a name="how-to-verify-if-a-specific-ip-address-is-available"></a>Så här verifierar du om en specifik IP-adress är tillgänglig
+Kontrollera om IP-adressen *10.0.0.7* är tillgänglig i ett virtuellt nätverk med namnet *TestVnet*, kör följande kommando i PowerShell och kontrollera värdet för *IsAvailable*:
 
     Test-AzureStaticVNetIP –VNetName TestVNet –IPAddress 10.0.0.7 
 
@@ -41,12 +41,12 @@ Kontrollera om IP-adressen *10.0.0.7* finns i ett vnet med namnet *TestVnet*, k�
     OperationStatus      : Succeeded
 
 > [!NOTE]
-> Om du vill testa kommandot ovan i en säker miljö följa riktlinjerna i [skapa ett virtuellt nätverk (klassiska)](virtual-networks-create-vnet-classic-pportal.md) skapa ett vnet med namnet *TestVnet* och se till att den använder den *10.0.0.0/8*  adressutrymmet.
+> Om du vill testa kommandot ovan i en säker miljö följer du riktlinjerna i [skapa ett virtuellt nätverk (klassisk)](virtual-networks-create-vnet-classic-pportal.md) att skapa ett virtuellt nätverk med namnet *TestVnet* och se till att den använder den *10.0.0.0/8*  adressutrymme.
 > 
 > 
 
 ## <a name="how-to-specify-a-static-internal-ip-when-creating-a-vm"></a>Så här anger du en statiska interna IP-adress när du skapar en virtuell dator
-PowerShell-skriptet nedan skapar en ny molntjänst med namnet *TestService*, hämtar en avbildning från Azure sedan skapar en virtuell dator med namnet *TestVM* i nya Molntjänsten med hämtade bild, ställer in den Virtuell dator i ett undernät med namnet *undernät 1*, och anger *10.0.0.7* som en statiska interna IP-adress för den virtuella datorn:
+PowerShell-skriptet nedan skapar en ny molntjänst med namnet *TestService*, sedan hämtar en avbildning från Azure och sedan skapar en virtuell dator med namnet *TestVM* i den nya Molntjänsten med hämtas avbildningen, ställer in den Virtuell dator i ett undernät med namnet *Subnet-1*, och anger *10.0.0.7* som en statiska interna IP-adress för den virtuella datorn:
 
     New-AzureService -ServiceName TestService -Location "Central US"
     $image = Get-AzureVMImage|?{$_.ImageName -like "*RightImage-Windows-2012R2-x64*"}
@@ -57,7 +57,7 @@ PowerShell-skriptet nedan skapar en ny molntjänst med namnet *TestService*, hä
     | New-AzureVM -ServiceName "TestService" –VNetName TestVnet
 
 ## <a name="how-to-retrieve-static-internal-ip-information-for-a-vm"></a>Hur du hämtar statiska interna IP-information för en virtuell dator
-Kör följande PowerShell-kommando för att visa statiska interna IP-information för den virtuella datorn skapas med skriptet ovan, och notera att värdena för *IpAddress*:
+Kör följande PowerShell-kommando för att visa statiska interna IP-information för den virtuella datorn skapas med skriptet ovan, och notera värdena för *IpAddress*:
 
     Get-AzureVM -Name TestVM -ServiceName TestService
 
@@ -89,13 +89,13 @@ Kör följande PowerShell-kommando för att visa statiska interna IP-information
     OperationStatus             : OK
 
 ## <a name="how-to-remove-a-static-internal-ip-from-a-vm"></a>Ta bort en statiska interna IP-adress från en virtuell dator
-Kör följande PowerShell-kommando för att ta bort statiska interna IP-Adressen till den virtuella datorn i skriptet ovan:
+Kör följande PowerShell-kommando för att ta bort den statiska interna IP-Adressen läggs till den virtuella datorn i skriptet ovan:
 
     Get-AzureVM -ServiceName TestService -Name TestVM `
     | Remove-AzureStaticVNetIP `
     | Update-AzureVM
 
-## <a name="how-to-add-a-static-internal-ip-to-an-existing-vm"></a>Lägga till en intern statisk IP på en befintlig virtuell dator
+## <a name="how-to-add-a-static-internal-ip-to-an-existing-vm"></a>Lägga till en statiska interna IP-adress till en befintlig virtuell dator
 Kör följande kommando för att lägga till en statiska interna IP-adress till den virtuella datorn skapas med skriptet ovan:
 
     Get-AzureVM -ServiceName TestService000 -Name TestVM `
@@ -103,9 +103,9 @@ Kör följande kommando för att lägga till en statiska interna IP-adress till 
     | Update-AzureVM
 
 ## <a name="next-steps"></a>Nästa steg
-[Reserverad IP](virtual-networks-reserved-public-ip.md)
+[Reserverad IP-adress](virtual-networks-reserved-public-ip.md)
 
-[Offentlig IP på instansnivå (går)](virtual-networks-instance-level-public-ip.md)
+[Offentlig IP på instansnivå (ILPIP)](virtual-networks-instance-level-public-ip.md)
 
-[Reserverad IP REST API: er](https://msdn.microsoft.com/library/azure/dn722420.aspx)
+[Reserverade IP-REST API: er](https://msdn.microsoft.com/library/azure/dn722420.aspx)
 

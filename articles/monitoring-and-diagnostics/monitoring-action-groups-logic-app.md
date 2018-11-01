@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 07/18/2018
 ms.author: dukek
 ms.component: alerts
-ms.openlocfilehash: 3c1bff98debf426fc02dbd4518c0bb798d7ba96d
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: 74607f61482d4a96931e307e77b4a6d4c45e4c30
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45576031"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50420939"
 ---
 # <a name="how-to-trigger-complex-actions-with-azure-monitor-alerts"></a>Hur du utlöser komplexa åtgärder med Azure Monitor-aviseringar
 
@@ -38,25 +38,25 @@ Processen påminner om du vill att logikappen att utföra olika åtgärder.
 
 1.  I Azure-portalen väljer du **skapa en resurs** i det övre vänstra hörnet.
 
-2.  Sök efter och välj **Logikapp**och välj sedan **skapa**.
+2.  Sök efter och välj **Logikapp**och välj sedan **skapa**.
 
 3.  Ge din logikapp ett **namn**, Välj en **resursgrupp**och så vidare.
 
-    ![Skapa en logikapp](media/monitoring-action-groups/create-logic-app-dialog.png "skapa en logikapp")
+    ![Skapa en logikapp](media/monitoring-action-groups-logic-app/create-logic-app-dialog.png "skapa en logikapp")
 
 4.  Välj **skapa** att skapa logikappen. Ett popup-meddelande indikerar att logikappen har skapats. Välj **starta Resource** att öppna den **Logic Apps Designer**.
 
 5.  Välj utlösaren: **när en HTTP-begäran tas emot**.
 
-    ![Logikapputlösare](media/monitoring-action-groups/logic-app-triggers.png "utlösare för Logikappar")
+    ![Logikapputlösare](media/monitoring-action-groups-logic-app/logic-app-triggers.png "utlösare för Logikappar")
 
 6.  Välj **redigera** ändra HTTP-begäran-utlösaren.
 
-    ![HTTP-begäran-utlösare](media/monitoring-action-groups/http-request-trigger-shape.png "HTTP-begäran-utlösare")
+    ![HTTP-begäran-utlösare](media/monitoring-action-groups-logic-app/http-request-trigger-shape.png "HTTP-begäran-utlösare")
 
 7.  Välj **Generera schemat genom att använda en exempelnyttolast**.
 
-    ![Använda en exempelnyttolast](media/monitoring-action-groups/use-sample-payload-button.png "använda en exempelnyttolast")
+    ![Använda en exempelnyttolast](media/monitoring-action-groups-logic-app/use-sample-payload-button.png "använda en exempelnyttolast")
 
 8.  Kopiera och klistra in följande exempelschema i dialogrutan:
 
@@ -99,15 +99,15 @@ Processen påminner om du vill att logikappen att utföra olika åtgärder.
 
 9. Den **Logic App Designer** visas ett popup-fönster för att påminna dig om att begäran som skickats till logikappen måste ange den **Content-Type** sidhuvud till **application/json**. Stäng popup-fönstret. Azure Monitor-aviseringen anger att rubriken.
 
-    ![Ange Content-Type-huvud](media/monitoring-action-groups/content-type-header.png "ange Content-Type-huvud")
+    ![Ange Content-Type-huvud](media/monitoring-action-groups-logic-app/content-type-header.png "ange Content-Type-huvud")
 
 10. Välj **+** **nytt steg** och välj sedan **Lägg till en åtgärd**.
 
-    ![Lägg till en åtgärd](media/monitoring-action-groups/add-action.png "Lägg till en åtgärd")
+    ![Lägg till en åtgärd](media/monitoring-action-groups-logic-app/add-action.png "Lägg till en åtgärd")
 
 11. Sök efter och välj Microsoft Teams-koppling. Välj den **Microsoft Teams – publicera meddelande** åtgärd.
 
-    ![Microsoft Teams åtgärder](media/monitoring-action-groups/microsoft-teams-actions.png "Microsoft Teams-åtgärder")
+    ![Microsoft Teams åtgärder](media/monitoring-action-groups-logic-app/microsoft-teams-actions.png "Microsoft Teams-åtgärder")
 
 12. Konfigurera Microsoft Teams-åtgärd. Den **Logic Apps Designer** ber dig att autentisera till ditt Office 365-konto. Välj den **lag-ID** och **kanal-ID** att skicka meddelandet till.
 
@@ -125,13 +125,13 @@ Processen påminner om du vill att logikappen att utföra olika åtgärder.
     > [!NOTE]
     > Det finns två dynamisk fält som namnges **status**. Lägga till båda de här fälten i meddelandet. Använd fältet som finns i den **activityLog** egenskapsuppsättning och ta bort det andra fältet. Håll markören över de **status** fältet för att se den fullständigt kvalificerade fältreferensen enligt följande skärmbild:
 
-    ![Microsoft Teams-åtgärd: publicera ett meddelande](media/monitoring-action-groups/teams-action-post-message.png "Microsoft Teams-åtgärd: publicera ett meddelande")
+    ![Microsoft Teams-åtgärd: publicera ett meddelande](media/monitoring-action-groups-logic-app/teams-action-post-message.png "Microsoft Teams-åtgärd: publicera ett meddelande")
 
 14. Överst på den **Logic Apps Designer**väljer **spara** att spara din logikapp.
 
 15. Öppna din befintliga åtgärdsgrupp och Lägg till en åtgärd för att referera till logikappen. Om du har en befintlig åtgärdsgrupp [skapa och hantera åtgärdsgrupper i Azure-portalen](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-action-groups) att skapa en. Glöm inte att spara dina ändringar.
 
-    ![Uppdatera åtgärdsgruppen](media/monitoring-action-groups/update-action-group.png "uppdatera åtgärdsgruppen")
+    ![Uppdatera åtgärdsgruppen](media/monitoring-action-groups-logic-app/update-action-group.png "uppdatera åtgärdsgruppen")
 
 Nästa gång en avisering anropar din åtgärdsgrupp kallas logikappen.
 
@@ -192,7 +192,7 @@ Azure Service Health-poster är en del av aktivitetsloggen. Processen för att s
        - `eventSource == ServiceHealth`
        - `version == "0.1.1"`
 
-      ![”Service Health nyttolast villkoret”](media/monitoring-action-groups/service-health-payload-condition.png "Service Health nyttolast villkor")
+      ![”Service Health nyttolast villkoret”](media/monitoring-action-groups-logic-app/service-health-payload-condition.png "Service Health nyttolast villkor")
 
    1. I den **om värdet är true** villkoret, följ instruktionerna i stegen 11 till 13 i [skapa en aktivitetsloggavisering](#create-an-activity-log-alert-administrative) att lägga till Microsoft Teams-åtgärd.
 
@@ -209,7 +209,7 @@ Azure Service Health-poster är en del av aktivitetsloggen. Processen för att s
        <p>[communication]</p>
        ```
 
-       ![”Service Health-sant villkor åtgärd efter”](media/monitoring-action-groups/service-health-true-condition-post-action.png "åtgärd för Service Health sant villkor efter")
+       ![”Service Health-sant villkor åtgärd efter”](media/monitoring-action-groups-logic-app/service-health-true-condition-post-action.png "åtgärd för Service Health sant villkor efter")
 
    1. För den **om falskt** tillstånd, kan du ange en användbar meddelande:
 
@@ -219,7 +219,7 @@ Azure Service Health-poster är en del av aktivitetsloggen. Processen för att s
        <p><a href="https://ms.portal.azure.com/#blade/Microsoft_Azure_Health/AzureHealthBrowseBlade/serviceIssues">For details, log in to the Azure Service Health dashboard.\</a></p>
        ```
 
-       ![”Service Health-falskt villkor åtgärd efter”](media/monitoring-action-groups/service-health-false-condition-post-action.png "åtgärd för Service Health falskt villkor efter")
+       ![”Service Health-falskt villkor åtgärd efter”](media/monitoring-action-groups-logic-app/service-health-false-condition-post-action.png "åtgärd för Service Health falskt villkor efter")
 
 - Steg 15 är samma. Följ anvisningarna för att spara logikappen och uppdatera din åtgärdsgruppen.
 
@@ -279,15 +279,15 @@ Processen för att skapa en måttavisering liknar [skapar en aktivitetsloggavise
        - `schemaId == AzureMonitorMetricAlert`
        - `version == "2.0"`
        
-       ![”Metrisk varning nyttolast villkoret”](media/monitoring-action-groups/metric-alert-payload-condition.png "metrisk varning nyttolast villkor")
+       ![”Metrisk varning nyttolast villkoret”](media/monitoring-action-groups-logic-app/metric-alert-payload-condition.png "metrisk varning nyttolast villkor")
 
    1. I den **om värdet är true** villkoret, lägga till en **för varje** loop och Microsoft Teams-åtgärd. Definiera meddelandet med hjälp av en kombination av HTML och dynamiskt innehåll.
 
-       ![”Åtgärd metrisk varning sant villkor efter”](media/monitoring-action-groups/metric-alert-true-condition-post-action.png "åtgärd för metrisk varning sant villkor efter")
+       ![”Åtgärd metrisk varning sant villkor efter”](media/monitoring-action-groups-logic-app/metric-alert-true-condition-post-action.png "åtgärd för metrisk varning sant villkor efter")
 
    1. I den **om falskt** villkoret, definiera en Microsoft Teams-åtgärd för att kommunicera att metrisk varning inte matchar kraven för logikappen. Innehåller JSON-nyttolast. Lägg märke till hur du refererar till den `triggerBody` dynamiskt innehåll i den `json()` uttryck.
 
-       ![”Åtgärd metrisk varning falskt villkor efter”](media/monitoring-action-groups/metric-alert-false-condition-post-action.png "åtgärd för metrisk varning falskt villkor efter")
+       ![”Åtgärd metrisk varning falskt villkor efter”](media/monitoring-action-groups-logic-app/metric-alert-false-condition-post-action.png "åtgärd för metrisk varning falskt villkor efter")
 
 - Steg 15 är samma. Följ anvisningarna för att spara logikappen och uppdatera din åtgärdsgruppen.
 

@@ -15,16 +15,16 @@ ms.topic: conceptual
 ms.date: 02/09/2017
 ms.author: richrund
 ms.component: ''
-ms.openlocfilehash: 1c72421be6cfb266293c98d9ad06bd6adb35019b
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: be0a12bbb84db1e4016bd7126a38e750e6c0c3ad
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48043661"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50412830"
 ---
 # <a name="azure-key-vault-analytics-solution-in-log-analytics"></a>Azure Key Vault Analytics-lösning i Log Analytics
 
-![Key Vault-symbol](./media/log-analytics-azure-keyvault/key-vault-analytics-symbol.png)
+![Key Vault-symbol](media/log-analytics-azure-key-vault/key-vault-analytics-symbol.png)
 
 Du kan använda Azure Key Vault-lösningen i Log Analytics för att läsa igenom AuditEvent-loggarna i Azure Key Vault.
 
@@ -46,10 +46,10 @@ Använd följande instruktioner för att installera och konfigurera Azure Key Va
 1. I Azure-portalen går du till Key Vault-resursen för att övervaka
 2. Välj *diagnostikloggar* att öppna sidan
 
-   ![Bild av Azure Key Vault-panel](./media/log-analytics-azure-keyvault/log-analytics-keyvault-enable-diagnostics01.png)
+   ![Bild av Azure Key Vault-panel](media/log-analytics-azure-key-vault/log-analytics-keyvault-enable-diagnostics01.png)
 3. Klicka på *slå på diagnostik* att öppna sidan
 
-   ![Bild av Azure Key Vault-panel](./media/log-analytics-azure-keyvault/log-analytics-keyvault-enable-diagnostics02.png)
+   ![Bild av Azure Key Vault-panel](media/log-analytics-azure-key-vault/log-analytics-keyvault-enable-diagnostics02.png)
 4. Aktivera diagnostik, klicka på *på* under *Status*
 5. Klicka på kryssrutan för *skicka till Log Analytics*
 6. Välj en befintlig Log Analytics-arbetsyta eller skapa en arbetsyta
@@ -81,7 +81,7 @@ I följande tabell visas data samlingsmetoder och annan information om hur data 
 ## <a name="use-azure-key-vault"></a>Använda Azure Key Vault
 När du [installera lösningen för](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.KeyVaultAnalyticsOMS?tab=Overview), visa Key Vault-data genom att klicka på den **Azure Key Vault** panelen från den **översikt** för Log Analytics.
 
-![Bild av Azure Key Vault-panel](./media/log-analytics-azure-keyvault/log-analytics-keyvault-tile.png)
+![Bild av Azure Key Vault-panel](media/log-analytics-azure-key-vault/log-analytics-keyvault-tile.png)
 
 När du klickar på den **översikt** panelen, du kan visa sammanfattningar av dina loggar och sedan kan du läsa informationen i följande kategorier:
 
@@ -90,9 +90,9 @@ När du klickar på den **översikt** panelen, du kan visa sammanfattningar av d
 * Genomsnittlig svarstid för åtgärden
 * Tjänstkvalitet för åtgärder med antalet åtgärder som tar mer än 1 000 ms och en lista över åtgärder som tar mer än 1 000 ms
 
-![Bild av instrumentpanelen för Azure Key Vault](./media/log-analytics-azure-keyvault/log-analytics-keyvault01.png)
+![Bild av instrumentpanelen för Azure Key Vault](media/log-analytics-azure-key-vault/log-analytics-keyvault01.png)
 
-![Bild av instrumentpanelen för Azure Key Vault](./media/log-analytics-azure-keyvault/log-analytics-keyvault02.png)
+![Bild av instrumentpanelen för Azure Key Vault](media/log-analytics-azure-key-vault/log-analytics-keyvault02.png)
 
 ### <a name="to-view-details-for-any-operation"></a>Att visa information om alla åtgärder
 1. På den **översikt** klickar du på den **Azure Key Vault** panelen.
@@ -119,7 +119,7 @@ Azure Key Vault-lösningen analyserar poster som har en typ av **KeyVaults** som
 | requestUri_s |URI för begäran |
 | Resurs |Namnet på nyckelvalvet |
 | ResourceGroup |Resursgrupp för nyckelvalvet |
-| ResourceId |Azure Resource Manager Resource-ID. För Key Vault-loggar är detta Key Vault-resurs-ID. |
+| Resurs-ID |Azure Resource Manager Resource-ID. För Key Vault-loggar är detta Key Vault-resurs-ID. |
 | ResourceProvider |*MICROSOFT. KEYVAULT* |
 | ResourceType | *VAULTS* |
 | resultSignature |HTTP-status (till exempel *OK*) |

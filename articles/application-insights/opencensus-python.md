@@ -9,12 +9,12 @@ ms.date: 09/18/2018
 ms.service: application-insights
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: c9f14664ca035b3de1af80ca3101c22751c83237
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 7507cdd7f3967dc132eecf81de347f2da791487f
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46963653"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50414989"
 ---
 # <a name="collect-distributed-traces-from-python-preview"></a>Samla in distribuerade spårningar från Python (förhandsversion)
 
@@ -30,7 +30,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://a
 
 ## <a name="sign-in-to-the-azure-portal"></a>Logga in på Azure Portal
 
-Logga in på [Azure-portalen](https://portal.azure.com/).
+Logga in på [Azure Portal](https://portal.azure.com/).
 
 ## <a name="create-application-insights-resource"></a>Skapa Application Insights-källa
 
@@ -180,7 +180,7 @@ Du måste först skapa en Application Insights-resurs som genererar en instrumen
 
     Eftersom vi bara spårning ett metodanrop, inte våra programkartan som intressant. Men programkartan kan skalas för att visualisera mycket mer distribuerade program:
 
-   ![Programkarta](./media/app-insights-nodejs-quick-start/application-map.png)
+   ![Programkarta](media/opencensus-python/application-map.png)
 
 4. Välj **Undersök prestanda** att utföra detaljerade prestandaanalys och fastställa orsaken till långsamma prestanda.
 

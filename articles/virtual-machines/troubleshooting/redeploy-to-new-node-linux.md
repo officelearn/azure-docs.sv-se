@@ -11,14 +11,14 @@ ms.service: virtual-machines-linux
 ms.topic: troubleshooting
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 12/14/2017
+ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: 8f8cab985ebc20290a94df34a9268ad2c1f169d3
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: 99dfda23ee18bf9abb0172a2875c5564755780d6
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47414346"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50412660"
 ---
 # <a name="redeploy-linux-virtual-machine-to-new-azure-node"></a>Distribuera om virtuell Linux-dator till nya Azure-nod
 Om du stöter på problem med felsökning av SSH eller programmet åtkomst till en Linux-dator (VM) i Azure, distribuera om den virtuella datorn kan hjälpa. När du distribuerar om en virtuell dator, flyttas den virtuella datorn till en ny nod i Azure-infrastrukturen och aktiverar den igen. Alla konfigurationsalternativ och associerade resurser finns kvar. Den här artikeln visar hur du distribuera om en virtuell dator med Azure CLI eller Azure-portalen.

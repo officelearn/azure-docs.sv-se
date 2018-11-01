@@ -10,12 +10,12 @@ ms.component: qna-maker
 ms.topic: article
 ms.date: 10/19/2018
 ms.author: diberry
-ms.openlocfilehash: efde57e31389558feb39b5e7ec163a1d5175470c
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 70fa8c5af4f00500c39ce3832e182a5532721799
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50210575"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50419716"
 ---
 # <a name="qna-maker-rest-api-with-java"></a>QnA Maker REST-API med Java 
 <a name="HOLTop"></a>
@@ -41,7 +41,7 @@ Den här artikeln visar hur du använder den [Microsoft QnA Maker API](../Overvi
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-Du behöver [JDK 7 eller 8](https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) för att kompilera och köra den här koden. Du kan använda en Java IDE om du föredrar det, men ett redigeringsprogram fungerar också bra.
+Du behöver [JDK 7 eller 8](https://aka.ms/azure-jdks) för att kompilera och köra den här koden. Du kan använda en Java IDE om du föredrar det, men ett redigeringsprogram fungerar också bra.
 
 Du behöver ett [Cognitive Services API-konto](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) med **Microsoft QnA Maker API**. Du behöver prenumerationsnyckeln för en betalprenumeration från din [Azure-instrumentpanel](https://portal.azure.com/#create/Microsoft.CognitiveServices).
 

@@ -6,15 +6,15 @@ ms.service: logic-apps
 ms.suite: integration
 author: ecfan
 ms.author: estfan
-ms.reviewer: yshoukry, LADocs
+ms.reviewer: arthii, LADocs
 ms.topic: article
-ms.date: 07/20/2018
-ms.openlocfilehash: 5fc4ccacaaedfc3fe6c77fa9a0ad693530bdde93
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.date: 10/01/2018
+ms.openlocfilehash: 2934eadce9e3e0d5e0375dff4eec359a33bd4479
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48855433"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50420106"
 ---
 # <a name="install-on-premises-data-gateway-for-azure-logic-apps"></a>Installera en lokal datagateway för Azure Logic Apps
 
@@ -60,10 +60,12 @@ Information om hur du använder gatewayen med andra tjänster finns i följande 
 * Här följer kraven för den lokala datorn:
 
   **Minimikrav**
+
   * .NET framework 4.5.2
   * 64-bitars version av Windows 7 eller Windows Server 2008 R2 (eller senare)
 
   **Rekommenderade krav**
+
   * Processor med 8 kärnor
   * 8 GB minne
   * 64-bitars version av Windows Server 2012 R2 (eller senare)
@@ -75,11 +77,11 @@ Information om hur du använder gatewayen med andra tjänster finns i följande 
     > [!TIP]
     > Du kan installera gatewayen så nära som möjligt till datakällan eller på samma dator, förutsatt att du har behörighet för att minimera svarstider.
 
-  * Installera gatewayen på en dator som är ansluten till internet, alltid aktiverat, och *inte* viloläge. I annat fall kan inte gatewayen köras. Dessutom försämras prestandan på trådlösa nätverk.
+  * Installera gatewayen på en dator som är ansluten till internet, alltid aktiverat, och *inte* viloläge. I annat fall kan inte gatewayen köras. 
+  Dessutom försämras prestandan på trådlösa nätverk.
 
-  * Under installationen, kan du bara logga in med en [arbets- eller skolkonto](../active-directory/sign-up-organization.md) som hanteras av Azure Active Directory (Azure AD) och inte ett Microsoft-konto. 
-  Kontrollera också att det här kontot är inte en Azure B2B (Gäst)-konto. 
-  Du måste också använda samma konto logga in på Azure-portalen när du registrerar din gateway-installation genom att skapa en Azure-resurs för din gateway. 
+  * Under installationen, kan du bara logga in med en [arbets- eller skolkonto](../active-directory/sign-up-organization.md) som hanteras av Azure Active Directory (Azure AD), till exempel @contoso.onmicrosoft.com, och inte en Azure B2B (Gäst)-konto eller ett personligt Microsoft-konto, till exempel @hotmail.com eller @outlook.com. 
+  Kontrollera att du använder samma konto logga in när du registrerar din gateway-installation i Azure portal genom att skapa en resurs för gatewayen. 
   Sedan kan du välja den här gatewayresursen när du skapar anslutningen från logikappen till din lokala datakälla. 
   [Varför måste jag använder en Azure AD-arbets- eller skolkonto?](#why-azure-work-school-account)
 
@@ -96,6 +98,19 @@ Information om hur du använder gatewayen med andra tjänster finns i följande 
   * Om du redan har en gateway som du skapade med ett installationsprogram tidigare än version 14.16.6317.4 kan ändra du inte plats för din gateway genom att köra det senaste installationsprogrammet. Du kan dock använda det senaste installationsprogrammet för att ställa in en ny gateway med den plats du vill i stället.
   
     Om du har en gateway-installationsprogram som är äldre än version 14.16.6317.4, men du inte har installerat din gateway ännu, kan du hämta och använda det senaste installationsprogrammet i stället.
+
+## <a name="high-availability-support"></a>Support med hög tillgänglighet
+
+Den lokala datagatewayen stöder hög tillgänglighet när du har mer än en gateway-installation och lägga upp dem som kluster. Om du har en befintlig gateway när du går för att skapa en annan gateway kan skapa du också kluster för hög tillgänglighet. Dessa kluster ordna gatewayer i grupper som kan hjälpa dig att undvika enskilda felpunkter. Dessutom stöd alla lokala data gateway kopplingar nu för hög tillgänglighet.
+
+Om du vill använda den lokala datagatewayen, granska dessa krav och överväganden:
+
+* Du måste redan ha minst en gateway-installation i samma Azure-prenumeration som den primära gatewayen och av återställningsnyckeln för installationen. 
+
+* Din primära gateway måste köra gatewayuppdateringen från November 2017 eller senare.
+
+När du har uppfyllt dessa krav när du skapar din nästa gateway, Välj **lägga till ett befintlig gatewaykluster**, Välj den primära gatewayen för klustret och ange återställningsnyckeln för den primära gatewayen.
+Mer information finns i [kluster med hög tillgänglighet för den lokala datagatewayen](https://docs.microsoft.com/power-bi/service-gateway-high-availability-clusters).
 
 <a name="install-gateway"></a>
 
@@ -160,19 +175,6 @@ Information om hur du använder gatewayen med andra tjänster finns i följande 
    ![Klar gateway](./media/logic-apps-gateway-install/finished-gateway-default-location.png)
 
 10. Nu registrera din gateway i Azure genom [skapar en Azure-resurs för din gateway-installation](../logic-apps/logic-apps-gateway-connection.md). 
-
-## <a name="enable-high-availability"></a>Aktivera hög tillgänglighet
-
-Den lokala datagatewayen stöder hög tillgänglighet när du har mer än en gateway-installation och lägga upp dem som kluster. Om du har en befintlig gateway när du går för att skapa en annan gateway kan skapa du också kluster för hög tillgänglighet. Dessa kluster ordna gatewayer i grupper som kan hjälpa dig att undvika enskilda felpunkter. Gå igenom dessa krav och överväganden om du vill använda den här funktionen:
-
-* Endast vissa anslutningar stöd för hög tillgänglighet, till exempel anslutningsappen för filsystem och andra på sättet. 
-     
-* Du måste redan ha minst en gateway-installation i samma Azure-prenumeration som den primära gatewayen och av återställningsnyckeln för installationen. 
-
-* Din primära gateway måste köra gatewayuppdateringen från November 2017 eller senare.
-
-När du har uppfyllt dessa krav när du skapar din nästa gateway, Välj **lägga till ett befintlig gatewaykluster**, Välj den primära gatewayen för klustret och ange återställningsnyckeln för den primära gatewayen.
-Mer information finns i [kluster med hög tillgänglighet för den lokala datagatewayen](https://docs.microsoft.com/power-bi/service-gateway-high-availability-clusters).
 
 <a name="update-gateway-installation"></a>
 
@@ -253,7 +255,7 @@ I vissa fall görs Azure Service Bus-anslutningar med IP-adresser i stället fö
 
 ### <a name="force-https-communication-with-azure-service-bus"></a>Tvinga HTTPS-kommunikation med Azure Service Bus
 
-Vissa proxyservrar tillåta trafik endast till portarna 80 och 443. Som standard sker kommunikationen med Azure Service Bus via andra portar än 443.
+Vissa proxyservrar kan trafik endast till portarna 80 och 443. Som standard sker kommunikationen med Azure Service Bus via andra portar än 443.
 Du kan tvinga gatewayen att kommunicera med Azure Service Bus via HTTPS i stället för direkt TCP, men detta kan avsevärt minska prestanda. Följ dessa steg om du vill utföra den här aktiviteten:
 
 1. Bläddra till platsen för den lokala data gatewayklienten, som vanligtvis finns här: ```C:\Program Files\On-premises data gateway\Microsoft.PowerBI.EnterpriseGateway.exe```
@@ -283,7 +285,7 @@ Den lokala datagatewayen körs som en Windows-tjänst med namnet ”lokal dataga
 
 ## <a name="restart-gateway"></a>Starta om gatewayen
 
-Datagateway körs som en Windows-tjänst, så som alla andra Windows-tjänsten, du kan starta och stoppa gatewayen på flera olika sätt. Du kan till exempel öppna en kommandotolk med förhöjd behörighet på den dator där gatewayen körs och kör kommandot:
+Datagateway körs som en Windows-tjänst, så som alla andra Windows-tjänsten, du kan starta och stoppa gatewayen på olika sätt. Du kan till exempel öppna en kommandotolk med förhöjd behörighet på den dator där gatewayen körs och kör kommandot:
 
 * Kör följande kommando för att stoppa tjänsten:
   
@@ -372,7 +374,7 @@ Dessa steg beskriver vad som händer när en användare i molnet som interagerar
 
 ## <a name="troubleshooting"></a>Felsökning
 
-Det här avsnittet behandlar några vanliga problem som kan uppstå när du ställer in och använder den lokala datagatewayen.
+Det här avsnittet behandlar några vanliga problem som du kan ha när du ställer in och använder den lokala datagatewayen.
 
 **Frågor och**: Varför Mina gatewayinstallationen misslyckas? <br/>
 **En**: det här problemet kan inträffa om ett antivirusprogram på datorn är inaktuella. Du kan uppdatera ett antivirusprogram eller inaktivera antivirusprogrammet men endast under installationen av gateway och aktivera sedan programmet igen.

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 04/04/2018
 ms.author: johnkem
 ms.component: logs
-ms.openlocfilehash: c419a3c44a38f72d56f2b7b362c62e683fc20c7f
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 057ce4b93be27c27e27d49e61a89a7c2b9e46dc8
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46993025"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50421075"
 ---
 # <a name="stream-azure-diagnostic-logs-to-log-analytics"></a>Stream Azure diagnostikloggar till Log Analytics
 
@@ -44,21 +44,21 @@ Log Analytics-arbetsytan behöver inte finnas i samma prenumeration som resursen
 ## <a name="stream-diagnostic-logs-using-the-portal"></a>Stream diagnostikloggar med hjälp av portalen
 1. I portalen, gå till Azure Monitor och klicka på **diagnostikinställningar**
 
-    ![Avsnittet av Azure Monitor övervakning](media/monitoring-stream-diagnostic-logs-to-log-analytics/diagnostic-settings-blade.png)
+    ![Avsnittet av Azure Monitor övervakning](media/monitor-stream-diagnostic-logs-log-analytics/diagnostic-settings-blade.png)
 
 2. Du kan också filtrera listan efter resursgruppen eller resursen. Klicka sedan på den resurs som du vill ange en diagnostikinställning.
 
 3. Om inga inställningar finns på resursen har du valt, uppmanas du för att skapa en inställning. Klicka på ”Slå på diagnostik”.
 
-   ![Lägg till diagnostikinställning - inga befintliga inställningar](media/monitoring-stream-diagnostic-logs-to-log-analytics/diagnostic-settings-none.png)
+   ![Lägg till diagnostikinställning - inga befintliga inställningar](media/monitor-stream-diagnostic-logs-log-analytics/diagnostic-settings-none.png)
 
    Om det finns befintliga inställningarna på resursen, visas en lista över inställningar som redan har konfigurerats på den här resursen. Klicka på ”Lägg till diagnostikinställning”.
 
-   ![Lägg till diagnostikinställning - befintliga inställningar](media/monitoring-stream-diagnostic-logs-to-log-analytics/diagnostic-settings-multiple.png)
+   ![Lägg till diagnostikinställning - befintliga inställningar](media/monitor-stream-diagnostic-logs-log-analytics/diagnostic-settings-multiple.png)
 
 3. Ge din ställa in ett namn och markera kryssrutan för **skicka till Log Analytics**, Välj en Log Analytics-arbetsyta.
 
-   ![Lägg till diagnostikinställning - befintliga inställningar](media/monitoring-stream-diagnostic-logs-to-log-analytics/diagnostic-settings-configure.png)
+   ![Lägg till diagnostikinställning - befintliga inställningar](media/monitor-stream-diagnostic-logs-log-analytics/diagnostic-settings-configure.png)
 
 4. Klicka på **Spara**.
 

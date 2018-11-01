@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 10/23/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 44e71c8e9256bdfd3a55cdd21a6658bccfd5daad
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: 4fec410db81077fd454f29d3359dc3728aad4bff
+ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49987553"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50739625"
 ---
 # <a name="fan-outfan-in-scenario-in-durable-functions---cloud-backup-example"></a>FAN-in/fan-i scenariot i varaktiga funktioner – Cloud backup-exempel
 
@@ -131,7 +131,7 @@ Content-Length: 20
 ```
 
 > [!NOTE]
-> Den `HttpStart` funktion som du anropar fungerar bara med JSON-formaterade innehållet. Därför måste den `Content-Type: application/json` är obligatoriskt och katalogsökvägen kodas som en JSON-sträng.
+> Den `HttpStart` funktion som du anropar fungerar bara med JSON-formaterade innehållet. Därför måste den `Content-Type: application/json` är obligatoriskt och katalogsökvägen kodas som en JSON-sträng. Dessutom HTTP-kodavsnitt förutsätter att det finns en post i den `host.json` fil som tar bort standard `api/` prefixet från alla HTTP-utlösaren functions URL: er. Du hittar koden för den här konfigurationen i den `host.json` filen i exemplen.
 
 Den här HTTP-begäran utlösare den `E2_BackupSiteContent` orchestrator och skickar strängen `D:\home\LogFiles` som en parameter. Svaret innehåller en länk för att hämta status för säkerhetskopieringen:
 

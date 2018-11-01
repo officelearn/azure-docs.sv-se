@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 10/18/2018
 ms.author: bwren
 ms.component: ''
-ms.openlocfilehash: 49aed496d8c125da8c2269186b569693c794d290
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: fc9ed37ef24e776336124bf097def2f6a00ee83e
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49404570"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50419800"
 ---
 # <a name="common-questions-for-transition-from-oms-portal-to-azure-portal-for-log-analytics-users"></a>Vanliga frågor för övergången från OMS-portalen till Azure-portalen för Log Analytics-användare
 Log Analytics används först en egen portal kallas OMS-portalen för att hantera konfigurationen och analysera insamlade data.  Alla funktioner från den här portalen har flyttats till Azure-portalen där den kommer att fortsätta att utvecklas.
@@ -32,7 +32,7 @@ Nej. Det finns inga ändringar som görs till Log Analytics, så det finns inget
 ## <a name="where-do-i-find-log-analytics-in-azure"></a>Var hittar jag Log Analytics i Azure?
 Logga in på Azure Portal på [https://portal.azure.com](https://portal.azure.com).  Klicka på **alla tjänster**, och i listan över resurser skriver **Log Analytics**. Välj **Log Analytics** och välj sedan din arbetsyta. Sammanfattningssida för arbetsytan visas.
 
-![Log Analytics-arbetsyta](media/log-analytics-new-portal/log-analytics.png)
+![Log Analytics-arbetsyta](media/log-analytics-oms-portal-faq/log-analytics.png)
 
 ## <a name="how-do-i-manage-permissions"></a>Hur gör jag för att hantera behörigheter?
 Om du inte har åtkomst till Log Analytics-arbetsytan i Azure-portalen kan du behöva konfigurera behörigheter genom [Azure rollbaserad åtkomst](../active-directory/role-based-access-control-configure.md). Mer information om hur du hanterar behörigheter för arbetsytan finns i [hantera arbetsytor](../log-analytics/log-analytics-manage-access.md#manage-accounts-and-users). Information om hur du hanterar behörigheter för aviseringar finns i [Kom igång med roller, behörigheter och säkerhet med Azure Monitor](../monitoring-and-diagnostics/monitoring-roles-permissions-security.md).
@@ -40,12 +40,12 @@ Om du inte har åtkomst till Log Analytics-arbetsytan i Azure-portalen kan du be
 ## <a name="how-do-i-create-a-new-workspace"></a>Hur gör jag för att skapa en ny arbetsyta? 
 I listan över arbetsytor i Azure-portalen klickar du på **Lägg till** i listan över arbetsytor.  Fullständig information finns i [skapa en Log Analytics-arbetsyta i Azure-portalen](../log-analytics/log-analytics-quick-create-workspace.md).
 
-![Översiktssidan](media/log-analytics-new-portal/new-workspace.png)
+![Översiktssidan](media/log-analytics-oms-portal-faq/new-workspace.png)
 
 ## <a name="where-is-my-overview-page"></a>Var finns min översiktssidan?
 Huvudskärmen i OMS-portalen visar panelerna för alla hanteringslösningar som är installerade i din arbetsyta och eventuella anpassade vyer som du har skapat. Det här samma vy finns i Azure-portalen. Från arbetsytan, Välj **arbetsytan Sammanfattning**.
 
-![Översiktssidan](media/log-analytics-new-portal/overview.png)
+![Översiktssidan](media/log-analytics-oms-portal-faq/overview.png)
 
 ## <a name="how-do-i-open-log-search-and-view-designer"></a>Hur öppnar jag Loggsökning och Vydesigner?
 Båda **Loggsökning** och **Vydesigner** är tillgängliga på huvudsidan och på den vänstra menyn på din arbetsyta i Azure-portalen just bredvid till **översikt**.
@@ -53,7 +53,7 @@ Båda **Loggsökning** och **Vydesigner** är tillgängliga på huvudsidan och p
 ## <a name="where-do-i-find-settings"></a>Var hittar jag inställningarna?
 Många av inställningarna i den **inställningar** i OMS-portalen är tillgängliga i den **avancerade inställningar** menyn i Azure portal för arbetsytan.
 
-![Avancerade inställningar](media/log-analytics-new-portal/advanced-settings.png)
+![Avancerade inställningar](media/log-analytics-oms-portal-faq/advanced-settings.png)
 
 Följande avsnitt innehåller en fullständig lista över hur du kan komma åt inställningar som tidigare var tillgängliga i den **inställningar** i OMS-portalen.
 
@@ -118,7 +118,7 @@ Den [min instrumentpanel](../log-analytics/log-analytics-dashboards.md) funktion
 ## <a name="how-do-i-check-my-usage"></a>Hur kontrollerar jag min användning?
 Du kan nu enkelt visa och hantera din användning och kostnader för Log Analytics genom att välja **användning och uppskattade kostnader** i din arbetsyta.
 
-![Användning och uppskattade kostnader](media/log-analytics-new-portal/usage.png)
+![Användning och uppskattade kostnader](media/log-analytics-oms-portal-faq/usage.png)
 
 
 ## <a name="can-i-still-use-the-classic-portal"></a>Kan jag fortfarande använda den klassiska portalen?

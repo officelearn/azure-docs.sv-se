@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/08/2018
 ms.author: rafats
-ms.openlocfilehash: 5811cb1e08ed5d02038da2a4460ae4b63580833b
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: ff432de59e5a5fdfeaad4c3a5361554ee32e21b0
+ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43696147"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50740016"
 ---
 # <a name="unique-keys-in-azure-cosmos-db"></a>Unika nycklar i Azure Cosmos DB
 
@@ -130,7 +130,7 @@ Exempel-JSON-dokument.
 I följande kommando exempel visas hur du skapar ett unikt index på förnamn, efternamn och e-postfält i mängden användare för MongoDB-API. Detta garanterar unikhet för en kombination av alla tre fält i alla dokument i samlingen. För MongoDB API-samlingar skapas unikt index när samlingen har skapats, men innan du fylla i samlingen.
 
 > [!NOTE]
-> Format för unik nyckel för MongoDB API-konton är skiljer sig från den SQL-API-konton, där du inte behöver ange omvänt snedstreck (/)-tecken före fältnamnet. 
+> Format för unik nyckel för MongoDB API-konton är skiljer sig från den SQL-API-konton, där du inte behöver ange snedstreck (/)-tecken före fältnamnet. 
 
 ```
 db.users.createIndex( { firstName: 1, lastName: 1, email: 1 }, { unique: true } )

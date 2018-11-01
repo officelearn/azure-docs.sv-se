@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/30/2018
 ms.author: yili
-ms.openlocfilehash: ac023834cf6516bdf92e4a2ee02081d35f475b81
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: 94e61cf5bf4f629dfd776cf9ea2ae54233e91dc6
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50249363"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50417590"
 ---
 # <a name="azure-app-service-on-linux-faq"></a>Azure App Service i Linux vanliga frågor och svar
 
@@ -79,7 +79,7 @@ Om det inte går att webbappen Linux Git-distribution, väljer du något av föl
 - Använd den [ZIP distribuera API](https://github.com/projectkudu/kudu/wiki/Deploying-from-a-zip-file): att använda detta API [SSH till din webbapp](https://docs.microsoft.com/azure/app-service/containers/app-service-linux-ssh-support#making-a-client-connection) och gå till mappen där du vill distribuera din kod. Kör följande kod:
 
    ```bash
-   curl -X POST -u <user> --data-binary @<zipfile> https://{your-sitename}.scm.azurewebsites.net/api/zipdeployui
+   curl -X POST -u <user> --data-binary @<zipfile> https://{your-sitename}.scm.azurewebsites.net/api/zipdeploy
    ```
 
    Om du får ett felmeddelande som den `curl` kommando inte hittas, måste du installera curl med hjälp av `apt-get install curl` innan du kör den tidigare `curl` kommando.

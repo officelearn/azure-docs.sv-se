@@ -10,12 +10,12 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: rafats
-ms.openlocfilehash: b6d05c5e9bc59df9df7ef8840b70ab027b6e2f74
-ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
+ms.openlocfilehash: 09f827e8784fe2a97c587524d70baf76ae4458ba
+ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48269504"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50741869"
 ---
 # <a name="working-with-the-change-feed-support-in-azure-cosmos-db"></a>Arbeta med stöd för ändringsflödet i Azure Cosmos DB
 
@@ -34,7 +34,7 @@ Den **stöd för ändringsfeed** i Azure Cosmos DB gör att du kan bygga skalbar
 
 ## <a name="how-does-change-feed-work"></a>Hur ändringsfeed arbete?
 
-Stöd för ändringsfeed i Azure Cosmos DB fungerar genom att lyssna på en Azure Cosmos DB-samling efter ändringar. Sedan returnerar den sorterade listan över dokument som har ändrats i den ordning som de har ändrats. Ändringarna sparas kan bearbetas asynkront och stegvis och utdata kan distribueras på en eller flera konsumenter för parallell bearbetning. 
+Stöd för ändringsfeed i Azure Cosmos DB fungerar genom att lyssna på en Azure Cosmos DB-samling efter ändringar. Sedan returnerar den sorterade listan över dokument som har ändrats i den ordning som de har ändrats. Ändringarna är beständiga, kan bearbetas asynkront och inkrementellt, och utdata kan distribueras bland en eller flera konsumenter för parallell bearbetning. 
 
 Du kan läsa ändringsflödet på tre olika sätt, vilket beskrivs senare i den här artikeln:
 
@@ -47,7 +47,7 @@ Du kan läsa ändringsflödet på tre olika sätt, vilket beskrivs senare i den 
 ![Distribuerad bearbetning av Azure Cosmos DB-ändringsflödet](./media/change-feed/changefeedvisual.png)
 
 Ytterligare information:
-* Ändringsfeed aktiveras som standard för alla konton.
+* Ändringsflöde är aktiverat som standard för alla konton.
 * Du kan använda din [etablerat dataflöde](request-units.md) i skrivregion eller någon [läsa region](distribute-data-globally.md) för att läsa från den ändringsflödet, precis som alla andra åtgärder i Azure Cosmos DB.
 * Ändringsflöde innehåller INSERT och update-åtgärder som utförs till dokument i samlingen. Du kan avbilda borttagningar genom att ange en ”mjuk borttagning”-flagga i dina dokument i stället för borttagningar. Du kan också ange en begränsad utgångstiden för dina dokument via den [TTL funktionen](time-to-live.md), till exempel 24 timmar och Använd värdet för egenskapen att samla in borttagningar. Med den här lösningen har att bearbeta ändringar inom ett kortare tidsintervall än TTL giltighetsperiod.
 * Varje ändring till ett dokument visas exakt en gång i den ändringsflödet och klienter hantera deras kontrollpunkter logik. Biblioteket för change feed processor tillhandahåller automatiska kontrollpunkter och ”minst en gång” semantik.
@@ -77,7 +77,7 @@ Följande bild visar hur lambda-pipelines som både mata in och fråga med hjäl
 Dessutom inom din [serverlös](http://azure.com/serverless) webbprogram och mobilappar, kan du spåra händelser som ändringar av din kunds profil, inställningar eller plats att utlösa vissa åtgärder som att skicka push-meddelanden till sina enheter med hjälp av [Azure Functions](#azure-functions). Om du använder Azure Cosmos DB för att skapa ett spel, kan du, till exempel använda ändringsflödet att implementera i realtid rankningslistor baserat på poäng från färdiga spel.
 
 <a id="azure-functions"></a>
-## <a name="using-azure-functions"></a>Använd Azure Functions 
+## <a name="using-azure-functions"></a>Använd Azure Functions 
 
 Om du använder Azure Functions, är det enklaste sättet att ansluta till en Azure Cosmos DB-ändringsflödet att lägga till en Azure Cosmos DB-utlösare i din Azure Functions-app. När du skapar en Azure Cosmos DB-utlösare i en Azure Functions-app kan du välja Azure Cosmos DB-samling för att ansluta till och funktionen som utlöses när en ändring i samlingen görs. 
 
@@ -114,9 +114,9 @@ Det här avsnittet beskriver hur du använder SQL-SDK för att arbeta med en än
     ```csharp
     FeedResponse pkRangesResponse = await client.ReadPartitionKeyRangeFeedAsync(
         collectionUri,
-        new FeedOptions
-            {RequestContinuation = pkRangesResponseContinuation });
-     
+        new FeedOptions
+            {RequestContinuation = pkRangesResponseContinuation });
+     
     partitionKeyRanges.AddRange(pkRangesResponse);
     pkRangesResponseContinuation = pkRangesResponse.ResponseContinuation;
     ```
@@ -125,29 +125,29 @@ Det här avsnittet beskriver hur du använder SQL-SDK för att arbeta med en än
 
     ```csharp
     foreach (PartitionKeyRange pkRange in partitionKeyRanges){
-        string continuation = null;
-        checkpoints.TryGetValue(pkRange.Id, out continuation);
-        IDocumentQuery<Document> query = client.CreateDocumentChangeFeedQuery(
-            collectionUri,
-            new ChangeFeedOptions
-            {
-                PartitionKeyRangeId = pkRange.Id,
-                StartFromBeginning = true,
-                RequestContinuation = continuation,
-                MaxItemCount = -1,
-                // Set reading time: only show change feed results modified since StartTime
-                StartTime = DateTime.Now - TimeSpan.FromSeconds(30)
-            });
-        while (query.HasMoreResults)
-            {
-                FeedResponse<dynamic> readChangesResponse = query.ExecuteNextAsync<dynamic>().Result;
+        string continuation = null;
+        checkpoints.TryGetValue(pkRange.Id, out continuation);
+        IDocumentQuery<Document> query = client.CreateDocumentChangeFeedQuery(
+            collectionUri,
+            new ChangeFeedOptions
+            {
+                PartitionKeyRangeId = pkRange.Id,
+                StartFromBeginning = true,
+                RequestContinuation = continuation,
+                MaxItemCount = -1,
+                // Set reading time: only show change feed results modified since StartTime
+                StartTime = DateTime.Now - TimeSpan.FromSeconds(30)
+            });
+        while (query.HasMoreResults)
+            {
+                FeedResponse<dynamic> readChangesResponse = query.ExecuteNextAsync<dynamic>().Result;
     
-                foreach (dynamic changedDocument in readChangesResponse)
-                    {
-                         Console.WriteLine("document: {0}", changedDocument);
-                    }
-                checkpoints[pkRange.Id] = readChangesResponse.ResponseContinuation;
-            }
+                foreach (dynamic changedDocument in readChangesResponse)
+                    {
+                         Console.WriteLine("document: {0}", changedDocument);
+                    }
+                checkpoints[pkRange.Id] = readChangesResponse.ResponseContinuation;
+            }
     }
     ```
 
@@ -165,13 +165,13 @@ I koden i steg 4 ovan, den **ResponseContinuation** under senaste raden innehål
 Checkpoint-matris hindrar därför bara LSN för varje partition. Men om du inte vill hantera partitionerna kontrollpunkter, LSN, starttid, etc. enklare alternativ är att använda ändringsflödet processor-biblioteket.
 
 <a id="change-feed-processor"></a>
-## <a name="using-the-change-feed-processor-library"></a>Med hjälp av ändringen feed processor-biblioteket 
+## <a name="using-the-change-feed-processor-library"></a>Med hjälp av ändringen feed processor-biblioteket 
 
 Den [processor-biblioteket för Azure Cosmos DB-ändringsfeed](https://docs.microsoft.com/azure/cosmos-db/sql-api-sdk-dotnet-changefeed) kan hjälpa dig att enkelt distribuera händelsebearbetning bland olika konsumenter. Det här biblioteket förenklar läsning ändringar i partitioner och flera trådar som arbetar parallellt.
 
 Den största fördelen med biblioteket change feed processor är att du inte behöver hantera varje partition och fortsättningstoken och du behöver inte avsöka varje samling manuellt.
 
-Biblioteket för change feed processor förenklar läsning ändringar i partitioner och flera trådar som arbetar parallellt.  Den hanterar automatiskt läsning ändringar mellan partitioner som använder en mekanism för lånet. Som du ser i följande bild, om du startar två klienter som använder ändringsflödet processor-biblioteket kan de dela upp arbete sinsemellan. När du fortsätter att öka klienterna behålla de dividera arbete sinsemellan.
+Biblioteket för change feed processor förenklar läsning ändringar i partitioner och flera trådar som arbetar parallellt.  Den hanterar automatiskt läsning ändringar mellan partitioner som använder en mekanism för lånet. Som du ser i följande bild, om du startar två klienter som använder ändringsflödet processor-biblioteket kan de dela upp arbete sinsemellan. När du fortsätter att öka klienterna behålla de dividera arbete sinsemellan.
 
 ![Distribuerad bearbetning av Azure Cosmos DB-ändringsflödet](./media/change-feed/change-feed-output.png)
 
@@ -433,7 +433,7 @@ Därför, om du skapar flera Azure Functions för att läsa samma ändringsflöd
 
 ### <a name="my-document-is-updated-every-second-and-i-am-not-getting-all-the-changes-in-azure-functions-listening-to-change-feed"></a>Dokumentet uppdateras varje sekund och jag får inte alla ändringar i Azure Functions lyssnar om du vill ändra feed.
 
-Azure Functions enkäter ändringsfeed i varje 5 sekunder så försvinner alla ändringar mellan 5 sekunder. Azure Cosmos DB lagrar bara en version för var femte sekund, så du får 5 ändringen på dokumentet. Om du vill gå under 5 sekund och vill du hämta ändringsflödet varje sekund kan du konfigurera avsökningstiden ”feedPollTime”, se [Azure Cosmos DB-bindningar](../azure-functions/functions-bindings-cosmosdb.md#trigger---configuration). Den har definierats i millisekunder med standardvärdet 5000. Är möjliga men inte lämpligt när du startar bränna mer Processorkraft nedan 1 sekund.
+Azure Functions enkäter ändringsfeed i varje 5 sekunder så försvinner alla ändringar mellan 5 sekunder. Azure Cosmos DB lagrar bara en version för var femte sekund, så du får 5 ändringen på dokumentet. Om du vill gå under 5 sekund och vill du hämta ändringsflödet varje sekund kan du konfigurera avsökningstiden ”feedPollDelay”, se [Azure Cosmos DB-bindningar](../azure-functions/functions-bindings-cosmosdb.md#trigger---configuration). Den har definierats i millisekunder med standardvärdet 5000. Är möjliga men inte lämpligt när du startar bränna mer Processorkraft nedan 1 sekund.
 
 ### <a name="i-inserted-a-document-in-the-mongo-api-collection-but-when-i-get-the-document-in-change-feed-it-shows-a-different-id-value-what-is-wrong-here"></a>Jag har infogat ett dokument i samlingen Mongo-API, men när jag hämta dokumentet i ändringsfeed visas ett annat id-värde. Vad är problemet här?
 

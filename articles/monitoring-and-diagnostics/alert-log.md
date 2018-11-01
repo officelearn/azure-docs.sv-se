@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/15/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: 627c0ee5a2fab333b8a120867ab54ea76bc66823
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: fd183b5776f30b12d577a94be147eabef05d258f
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46976847"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50419375"
 ---
 # <a name="create-view-and-manage-log-alerts-using-azure-monitor"></a>Skapa, visa och hantera aviseringar med Azure Monitor  
 
@@ -34,26 +34,26 @@ Detaljerad nästa är stegvis guide till med hjälp av aviseringar i Azure porta
 
 ### <a name="create-a-log-alert-rule-with-the-azure-portal"></a>Skapa en loggvarningsregel med Azure portal
 1. I den [portal](https://portal.azure.com/)väljer **övervakaren** och välj under avsnittet MONITOR - **aviseringar**.  
-    ![Övervakning](./media/monitor-alerts-unified/AlertsPreviewMenu.png)
+    ![Övervakning](media/alert-log/AlertsPreviewMenu.png)
 
 1. Välj den **ny Aviseringsregel** för att skapa en ny avisering i Azure.
-    ![Lägg till avisering](./media/monitor-alerts-unified/AlertsPreviewOption.png)
+    ![Lägg till avisering](media/alert-log/AlertsPreviewOption.png)
 
 1. Skapa avisering avsnittet visas med tre delar som består av: *definiera aviseringsvillkoret*, *definiera Aviseringsinformationen*, och *definiera åtgärdsgruppen*.
 
-    ![Skapa regel](./media/monitor-alerts-unified/AlertsPreviewAdd.png)
+    ![Skapa regel](media/alert-log/AlertsPreviewAdd.png)
 
 1.  Definiera aviseringsvillkoren genom att använda den **Välj Resource** länk och specificera genom att välja en resurs. Filtret genom att välja den _prenumeration_, _resurstyp_, och nödvändiga _Resource_. 
 
     >[!NOTE]
 
     > För att skapa en logg varning - Kontrollera den **log** signal är tillgänglig för den valda resursen innan du fortsätter.
-    ![Välj resurs](./media/monitor-alerts-unified/Alert-SelectResourceLog.png)
+    ![Välj resurs](media/alert-log/Alert-SelectResourceLog.png)
 
  
 1. *Loggaviseringar*: se till att **resurstyp** är en analytics-källa som *Log Analytics* eller *Programinsikter* och skicka en signal typ som **Log** , en gång sedan lämplig **resource** är valt, klickar du på *klar*. Sedan använda den **lägga till villkor** knappen för att visa en lista över signalen alternativ som är tillgängliga för resursen och från listan över signal **anpassade loggsökning** alternativ för den valda logga övervakningstjänst som *Log Analytics* eller *Programinsikter*.
 
-   ![Välj en resurs - anpassade loggsökning](./media/monitor-alerts-unified/AlertsPreviewResourceSelectionLog.png)
+   ![Välj en resurs - anpassade loggsökning](media/alert-log/AlertsPreviewResourceSelectionLog.png)
 
    > [!NOTE]
 
@@ -61,7 +61,7 @@ Detaljerad nästa är stegvis guide till med hjälp av aviseringar i Azure porta
 
 1.  *Loggaviseringar*: när du valt, fråga aviseringar kan anges i **sökfråga** fältet; om frågesyntaxen är felaktigt fältet visar fel i rött. Om frågesyntaxen är korrekt - referens visas historiska data för den angivna frågan som ett diagram med alternativet för att justera tidsfönster från senaste sex timmar att förra veckan.
 
- ![Konfigurera varningsregeln](./media/monitor-alerts-unified/AlertsPreviewAlertLog.png)
+ ![Konfigurera varningsregeln](media/alert-log/AlertsPreviewAlertLog.png)
 
  > [!NOTE]
 
@@ -69,7 +69,7 @@ Detaljerad nästa är stegvis guide till med hjälp av aviseringar i Azure porta
 
     >  För måttet måttenhet för loggvarningar med Application insights kan du ange vilken specifik variabel för att gruppera data med hjälp av den **sammanställda på** alternativet; enligt nedan:
 
-    ![Aggregera på alternativ](./media/monitor-alerts-unified/aggregate-on.png)
+    ![Aggregera på alternativ](media/alert-log/aggregate-on.png)
 
 1.  *Loggaviseringar*: med visualisering på plats, **Alert Logic** kan väljas från visas alternativen för villkor, sammanställning och slutligen tröskelvärdet. Ange sedan i logik, tiden för att utvärdera för det angivna villkoret med **Period** alternativet. Tillsammans med hur ofta avisering ska köras genom att välja **frekvens**.
 För **Loggaviseringar** aviseringar kan baseras på:
@@ -83,7 +83,7 @@ För **Loggaviseringar** aviseringar kan baseras på:
 
     - **Visa inga aviseringar**: när du aktiverar Undertryckning för regeln, åtgärder för regeln är inaktiverade för en definierad tidsperiod när du har skapat en ny avisering. Regeln körs fortfarande och skapar aviseringsposter förutsatt att följande villkor är uppfyllda. Så att du har tid att åtgärda problemet utan att köra duplicerade åtgärder.
 
-        ![Visa inga aviseringar för Loggaviseringar](./media/monitor-alerts-unified/AlertsPreviewSuppress.png)
+        ![Visa inga aviseringar för Loggaviseringar](media/alert-log/AlertsPreviewSuppress.png)
 
         > [!TIP]
         > Ange en Ignorera varning värde större än frekvensen för aviseringen för att se till att meddelanden stoppas utan överlappningar
@@ -98,19 +98,19 @@ För **Loggaviseringar** aviseringar kan baseras på:
     - **E-postavisering**: åsidosätter *e-postämne* i e-post, skickas via åtgärdsgrupp; om en eller flera e poståtgärder finns i dessa åtgärdsgruppen. Du kan inte ändra innehållet i e-postmeddelandet och det här fältet är **inte** för e-postadress.
     - **Inkludera anpassad Json-nyttolast**: åsidosätter webhooken JSON som används av åtgärdsgrupper; om en eller flera webhook-åtgärder finns i dessa åtgärdsgruppen. Användaren kan ange formatet för JSON som ska användas för alla webhookar som konfigurerats i åtgärdsgruppen associerade; Mer information om webhook-format finns i [webhook-åtgärd för Loggaviseringar](monitor-alerts-unified-log-webhook.md). Visa Webhook-alternativet har angetts för att kontrollera format med hjälp av JSON-exempeldata.
 
-        ![Åtgärden åsidosättningar för Loggaviseringar](./media/monitor-alerts-unified/AlertsPreviewOverrideLog.png)
+        ![Åtgärden åsidosättningar för Loggaviseringar](media/alert-log/AlertsPreviewOverrideLog.png)
 
 
 1. Om alla fält är giltiga och med grön skalstreck den **skapa aviseringsregel** Klicka på knappen och en avisering skapas i Azure Monitor - aviseringar. Alla aviseringar kan visas från aviseringarna instrumentpanelen.
 
-    ![Skapa en regel](./media/monitor-alerts-unified/AlertsPreviewCreate.png)
+    ![Skapa en regel](media/alert-log/AlertsPreviewCreate.png)
 
     Inom några minuter, aviseringen är aktiv och utlöser som det beskrivits.
 
 Användarna kan också underkänts analytics-fråga i [loggar analyssidan i Azure-portalen](../log-analytics/log-analytics-log-search-portals.md#log-analytics-page
 ) push-överföra den att skapa en avisering genom att ställa in avisering knappen - och följa anvisningarna steg 6 och senare i självstudien ovan.
 
- ![Log Analytics – Ställ in en avisering](./media/monitor-alerts-unified/AlertsAnalyticsCreate.png)
+ ![Log Analytics – Ställ in en avisering](media/alert-log/AlertsAnalyticsCreate.png)
 
 ### <a name="view--manage-log-alerts-in-azure-portal"></a>Visa och hantera aviseringar i Azure-portalen
 
@@ -122,7 +122,7 @@ Användarna kan också underkänts analytics-fråga i [loggar analyssidan i Azur
 
 
 1. Välj den **hantera regler** knappen i det översta fältet att navigera till regeln hantering – där alla aviseringsregler skapade räknas, inklusive aviseringar som har inaktiverats.
-    ![ Hantera Varningsregler](./media/monitoring-activity-log-alerts-new-experience/manage-alert-rules.png)
+    ![ Hantera Varningsregler](media/alert-log/manage-alert-rules.png)
 
 ## <a name="managing-log-alerts-using-azure-resource-template"></a>Hantera aviseringar med Azure Resource-mall
 För närvarande baserat log aviseringar kan skapas med hjälp av två olika Resursmallar, på vilka analysplattform aviseringen är ska baseras på (det vill säga) Log Analytics eller Application Insights.

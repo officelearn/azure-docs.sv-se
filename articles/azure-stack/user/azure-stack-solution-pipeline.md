@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 09/24/2018
+ms.date: 10/30/2018
 ms.author: mabrigg
 ms.reviewer: Anjay.Ajodha
-ms.openlocfilehash: febdb2e3ae4432c36ca839f81ba7a1d333df1a2f
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: a9e601d0bd9a4d7879ecd205488c6a901a464021
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46952009"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50419852"
 ---
 # <a name="tutorial-deploy-apps-to-azure-and-azure-stack"></a>Självstudie: Distribuera appar till Azure och Azure Stack
 
@@ -260,7 +260,7 @@ Genom att skapa slutpunkter kan distribuera en version av Visual Studio Online (
 
 4. På den **medlemmar** fliken **Lägg till**.
 
-    ![Lägg till medlem](media\azure-stack-solution-hybrid-pipeline\014_members_tab.png)
+    ![Lägg till en medlem](media\azure-stack-solution-hybrid-pipeline\014_members_tab.png)
 
 5. I **lägga till användare och grupper**, ange ett användarnamn och Välj användaren i listan med användare.
 6. Välj **spara ändringar**.
@@ -273,21 +273,57 @@ Genom att skapa slutpunkter kan distribuera en version av Visual Studio Online (
 10. Välj **spara ändringar**.
 
 Nu när information om slutpunkten finns är Azure DevOps-tjänsterna till Azure Stack-anslutningen klar att användas. Build-agenten i Azure Stack får anvisningar från Azure DevOps-tjänsterna och agenten meddelar sedan slutpunktsinformation för kommunikation med Azure Stack.
+
 ## <a name="create-an-azure-stack-endpoint"></a>Skapa en Azure Stack-slutpunkt
+
+### <a name="create-an-endpoint-for-azure-ad-deployments"></a>Skapa en slutpunkt för Azure AD-distributioner
 
 Du kan följa anvisningarna i [skapa en tjänstanslutning för Azure Resource Manager-med en befintlig tjänsts huvudnamn ](https://docs.microsoft.com/vsts/pipelines/library/connect-to-azure?view=vsts#create-an-azure-resource-manager-service-connection-with-an-existing-service-principal) artikeln om du vill skapa en anslutning för tjänsten med en befintlig tjänsts huvudnamn och använda följande mappning:
 
-- Miljö: AzureStack
-- Miljö-URL: Något som liknar `https://management.local.azurestack.external`
-- Prenumerations-ID: Användarens prenumerations-ID från Azure Stack
-- Prenumerationsnamn: namn på användarens prenumeration från Azure Stack
-- Klient-ID för tjänstens huvudnamn: ägar-ID från [detta](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-solution-pipeline#create-a-service-principal) i den här artikeln.
-- Nyckel för tjänstens huvudnamn: nyckeln från samma artikel (eller lösenordet om du använder skriptet).
-- Klient-ID: Klient-ID du hämta följande instruktionen på [hämta klient-ID](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-solution-pipeline#get-the-tenant-id).
+Du kan skapa en anslutning för tjänsten med hjälp av följande mappning:
 
-Nu när slutpunkten har skapats är VSTS till Azure Stack-anslutningen klar att användas. Build-agenten i Azure Stack får anvisningar från VSTS och agenten meddelar sedan slutpunktsinformation för kommunikation med Azure Stack.
+| Namn | Exempel | Beskrivning |
+| --- | --- | --- |
+| Anslutningsnamn | Azure Stack Azure AD | Namnet på anslutningen. |
+| Miljö | AzureStack | Namnet på din miljö. |
+| URL-miljön | `https://management.local.azurestack.external` | Hanteringsslutpunkten. |
+| Scopenivå | Prenumeration | Omfattningen för anslutningen. |
+| Prenumerations-ID:t | 65710926-XXXX-4F2A-8FB2-64C63CD2FAE9 | Användarens prenumerations-ID från Azure Stack |
+| Prenumerationsnamn | name@contoso.com | Namn på användarens prenumeration från Azure Stack. |
+| Klient-ID för tjänstens huvudnamn | FF74AACF-XXXX-4776-93FC-C63E6E021D59 | Ägar-ID från [detta](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-solution-pipeline#create-a-service-principal) i den här artikeln. |
+| Nyckel för tjänstens huvudnamn | THESCRETGOESHERE = | Nyckeln från samma artikel (eller lösenordet om du använder skriptet). |
+| Klient-ID:t | D073C21E-XXXX-4AD0-B77E-8364FCA78A94 | Klient-ID du hämta följande instruktionen på Skaffa klientens-ID. Klient-ID du hämta följande instruktionen på [hämta klient-ID](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-solution-pipeline#get-the-tenant-id).  |
+| Anslutning: | Verifierades inte | Verifiera dina anslutningsinställningar till tjänstens huvudnamn. |
 
-![Skapa agenten](media\azure-stack-solution-hybrid-pipeline\016_save_changes.png)
+Nu när slutpunkten har skapats är DevOps till Azure Stack-anslutningen klar att användas. Build-agenten i Azure Stack får anvisningar från DevOps och agenten meddelar sedan slutpunktsinformation för kommunikation med Azure Stack.
+
+![Skapa agenten Azure AD](media\azure-stack-solution-hybrid-pipeline\016_save_changes.png)
+
+### <a name="create-an-endpoint-for-ad-fs"></a>Skapa en slutpunkt för AD FS
+
+Den senaste uppdateringen till Azure DevOps kan skapa en tjänstanslutning som använder ett huvudnamn för tjänsten med ett certifikat för autentisering. Detta krävs när Azure Stack har distribuerats med AD FS som identitetsprovider. 
+
+![Skapa agenten AD FS](media\azure-stack-solution-hybrid-pipeline\image06.png)
+
+Du kan skapa en anslutning för tjänsten med hjälp av följande mappning:
+
+| Namn | Exempel | Beskrivning |
+| --- | --- | --- |
+| Anslutningsnamn | Azure Stack AD FS | Namnet på anslutningen. |
+| Miljö | AzureStack | Namnet på din miljö. |
+| URL-miljön | `https://management.local.azurestack.external` | Hanteringsslutpunkten. |
+| Scopenivå | Prenumeration | Omfattningen för anslutningen. |
+| Prenumerations-ID:t | 65710926-XXXX-4F2A-8FB2-64C63CD2FAE9 | Användarens prenumerations-ID från Azure Stack |
+| Prenumerationsnamn | name@contoso.com | Namn på användarens prenumeration från Azure Stack. |
+| Klient-ID för tjänstens huvudnamn | FF74AACF-XXXX-4776-93FC-C63E6E021D59 | Klient-ID från tjänstens huvudnamn som du skapade för AD FS. |
+| Certifikat | `<certificate>` |  Konvertera certifikatfilen från PFX till PEM. Klistra in certifikatinnehåll PEM-fil i det här fältet. <br> Konvertera PFX till PEM:<br>`openssl pkcs12 -in file.pfx -out file.pem -nodes -password pass:<password_here>` |
+| Klient-ID:t | D073C21E-XXXX-4AD0-B77E-8364FCA78A94 | Klient-ID du hämta följande instruktionen på Skaffa klientens-ID. Klient-ID du hämta följande instruktionen på [hämta klient-ID](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-solution-pipeline#get-the-tenant-id). |
+| Anslutning: | Verifierades inte | Verifiera dina anslutningsinställningar till tjänstens huvudnamn. |
+
+Nu när slutpunkten har skapats är Azure DevOps till Azure Stack-anslutningen klar att använda. Build-agenten i Azure Stack får anvisningar från Azure DevOps och agenten meddelar sedan slutpunktsinformation för kommunikation med Azure Stack.
+
+> [!Note]
+> Om Azure Stack användaren ARM-slutpunkten inte exponeras till Internet, misslyckas valideringen av anslutningen. Detta är förväntat och du kan verifiera din anslutning genom att skapa en releasepipeline med en enkel uppgift. 
 
 ## <a name="develop-your-application-build"></a>Utveckla din program-version
 

@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 05/04/2017
 ms.reviewer: antonfr
 ms.author: mbullwin
-ms.openlocfilehash: 8c34696f81e40b4db13e6868f6bdaa1b2a8e7a2a
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: b0256e899d47e3b6f8141218c11e1a7a62ca8e1a
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47095471"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50419732"
 ---
 # <a name="smart-detection---performance-anomalies"></a>Smart identifiering – Prestandaavvikelser
 
@@ -47,7 +47,7 @@ Nej, ett meddelande innebär inte att din app definitivt finns ett fel. Det är 
 Aviseringarna inkluderar diagnostisk information. Här är ett exempel:
 
 
-![Här är ett exempel på identifiering av Serversvarstider](./media/app-insights-proactive-diagnostics/server_response_time_degradation.png)
+![Här är ett exempel på identifiering av Serversvarstider](media/app-insights-proactive-performance-diagnostics/server_response_time_degradation.png)
 
 1. **Prioritering**. Aviseringen visar hur många användare eller hur många åtgärder som påverkas. Detta kan du tilldela en prioritet till problemet.
 2. **Omfång**. Problemet som påverkar all trafik, eller enbart på vissa sidor Är den begränsad till viss webbläsare eller platser? Den här informationen kan hämtas från meddelandet.
@@ -61,7 +61,7 @@ Aviseringarna inkluderar diagnostisk information. Här är ett exempel:
 
 Smart identifiering av meddelanden är aktiverade som standard och skickas till de som har [ägare, deltagare och läsare som har åtkomst till Application Insights-resursen](app-insights-resources-roles-access-control.md). Om du vill ändra detta, antingen på **konfigurera** i e-postmeddelande eller öppna inställningar för Smart identifiering i Application Insights. 
   
-  ![Inställningar för smart identifiering](./media/app-insights-proactive-diagnostics/smart_detection_configuration.png)
+  ![Inställningar för smart identifiering](media/app-insights-proactive-performance-diagnostics/smart_detection_configuration.png)
   
   * Du kan använda den **avbryta prenumerationen** länken i e-postmeddelandet för Smart identifiering som sluta ta emot e-postmeddelanden.
 
@@ -143,7 +143,7 @@ Moderna program vidta fler och fler metod för mikrotjänster, vilket ofta leder
 
 Exempel beroende försämring meddelande:
 
-![Här är ett exempel på försämring av varaktigheten för beroendet identifiering](./media/app-insights-proactive-diagnostics/dependency_duration_degradation.png)
+![Här är ett exempel på försämring av varaktigheten för beroendet identifiering](media/app-insights-proactive-performance-diagnostics/dependency_duration_degradation.png)
 
 Observera att du:
 
@@ -161,7 +161,7 @@ Observera att du:
 
 Application Insights söker efter prestandaproblem som kan påverka endast en del av användarna eller påverkar endast användare i vissa fall. Till exempel om sidor är långsammare för en typ av webbläsare än på andra typer av webbläsare, eller om levereras långsammare från en viss server. Problem med kombinationer av egenskaperna kan också identifieras som långsamma sidinläsningar i ett geografiskt område för klienter som använder specifika operativsystem.  
 
-Avvikelser som dessa är mycket svårt att identifiera bara genom att granska data, men är vanligare än du tror. Ofta de endast att visa upp när kunderna börjar klaga. Efter den tid det är för sent: de berörda användarna redan byter till dina konkurrenter!
+Avvikelser som dessa är mycket svårt att identifiera bara genom att granska data, men är vanligare än du tror. Ofta de endast att visa upp när kunderna börjar klaga. Efter den tid det s för sent: de berörda användarna redan byter till dina konkurrenter!
 
 För närvarande kan titta våra algoritmer på sidans belastning, svarstider för begäran på servern och beroende svarstider.  
 

@@ -1,6 +1,6 @@
 ---
 title: 'Azure Portal: Fråga Azure SQL Database med frågeredigeraren | Microsoft Docs'
-description: Lär dig hur du ansluter till SQL Database i Azure Portal med hjälp av SQL-frågeredigeraren. Kör sedan Transact-SQL-uttryck (T-SQL) för att skicka frågor och redigera data.
+description: Lär dig hur du ansluter till SQL Database i Azure Portal med hjälp av SQL-frågeredigeraren. Kör sedan Transact-SQL-uttryck (T-SQL) för att söka i och redigera data.
 keywords: connect to sql database,azure portal, portal, query editor
 services: sql-database
 ms.service: sql-database
@@ -8,17 +8,17 @@ ms.subservice: development
 ms.custom: ''
 ms.devlang: ''
 ms.topic: quickstart
-author: ayoolubeko
+author: AyoOlubeko
 ms.author: ayolubek
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 01/10/2018
-ms.openlocfilehash: 6990ae0eb05af630efb8683397907200bf6d94ed
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: bd956348a26d32687e1ff76f0ffcc58cc9dcf932
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47063395"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50241726"
 ---
 # <a name="azure-portal-use-the-sql-query-editor-to-connect-and-query-data"></a>Azure Portal: Använd SQL-frågeredigeraren för att ansluta och fråga efter data
 

@@ -10,12 +10,12 @@ ms.reviewer: klam, LADocs
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 01/12/2018
-ms.openlocfilehash: 70d7adc9ea8c65a7e6a21165864b7e6d661c6f8c
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: 8a8c8c7abf5b6f0f2a870f6983c7e855db1e0192
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48042299"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50231822"
 ---
 # <a name="check-traffic-on-a-schedule-with-azure-logic-apps"></a>Kontrollera trafik enligt ett schema med Azure Logic Apps
 
@@ -331,7 +331,7 @@ Ta bort resursgruppen som innehåller logikappen och alla relaterade resurser n�
 ## <a name="get-support"></a>Få support
 
 * Om du har frågor kan du besöka [forumet för Azure Logic Apps](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
-* Om du vill skicka in eller rösta på förslag på funktioner besöker du [webbplatsen för Logic Apps-användarfeedback](http://aka.ms/logicapps-wish).
+* Om du vill skicka in eller rösta på förslag på funktioner besöker du [webbplatsen för Logic Apps-användarfeedback](https://aka.ms/logicapps-wish).
 
 ## <a name="next-steps"></a>Nästa steg
 

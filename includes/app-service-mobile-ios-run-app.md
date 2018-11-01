@@ -1,4 +1,17 @@
-1. Besök [Azure-portalen] på din Mac. Klicka på **Alla tjänster** > **App Services** > serverdelen du precis har skapat. I mobilappens inställningar väljer du det språk du vill använda:
+---
+author: conceptdev
+ms.service: app-service-mobile
+ms.topic: include
+ms.date: 08/23/2018
+ms.author: crdun
+ms.openlocfilehash: 1d1d593b7305e0cd9899f4ec388cb441ced90b10
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.translationtype: HT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50133801"
+---
+1. Besök [Azure Portal] på din Mac. Klicka på **Alla tjänster** > **App Services** > serverdelen du precis har skapat. I mobilappens inställningar väljer du det språk du vill använda:
 
     - Objective-C &ndash; **Snabbstart** > **iOS (Objective-C)**
     - Swift &ndash; **Snabbstart** > **iOS (Swift)**
@@ -11,4 +24,4 @@
 
    ![Snabbstart för appar som körs i iOS](./media/app-service-mobile-ios-quickstart/mobile-quickstart-startup-ios.png)
 
-[Azure-portalen]: https://portal.azure.com/
+[Azure Portal]: https://portal.azure.com/

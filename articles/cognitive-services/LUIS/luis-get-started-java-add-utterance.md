@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: quickstart
 ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: 8500dfdd639b4f1de46a0b79b87a8564d338b6ab
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: bfe4aae25a34799370e52c8677871a62935ab5c2
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47042032"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50419749"
 ---
 # <a name="quickstart-change-model-using-java"></a>Snabbstart: Ändra modell med hjälp av Java 
 
@@ -24,7 +24,7 @@ ms.locfileid: "47042032"
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
 [!INCLUDE [Quickstart prerequisites for endpoint](../../../includes/cognitive-services-luis-qs-change-model-prereq.md)]
-* [JDK SE](http://www.oracle.com/technetwork/java/javase/downloads/index.html) (Java Development Kit, Standard Edition)
+* [JDK SE](https://aka.ms/azure-jdks) (Java Development Kit, Standard Edition)
 * [Googles GSON JSON-bibliotek](https://github.com/google/gson).
 
 [!INCLUDE [Quickstart note about code repository](../../../includes/cognitive-services-luis-qs-change-model-luis-repo-note.md)]

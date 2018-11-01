@@ -10,12 +10,12 @@ ms.component: qna-maker
 ms.topic: quickstart
 ms.date: 10/19/2018
 ms.author: diberry
-ms.openlocfilehash: 72a687d6a67ba8e4ccc49cf622cb368e7c8d0db2
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: 8a32cbc726d50fc2e0e8ad0840525d9e505832bf
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49649677"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50412949"
 ---
 # <a name="quickstart-create-a-knowledge-base-in-qna-maker-using-java"></a>Snabbstart: Skapa en kunskapsbas i QnA Maker med hjälp av Java
 
@@ -27,7 +27,7 @@ Två exempel på URL:er för vanliga frågor och svar ges nedan (i ”kb.urls”
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
-Du behöver [JDK 7 eller 8](https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) för att kompilera och köra den här koden. Du kan använda en Java IDE om du har en favoritutvecklingsmiljö, men en textredigerare fungerar bra.
+Du behöver [JDK 7 eller 8](https://aka.ms/azure-jdks) för att kompilera och köra den här koden. Du kan använda en Java IDE om du har en favoritutvecklingsmiljö, men en textredigerare fungerar bra.
 
 Du måste ha ett [Cognitive Services-API-konto](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) med **QnA Maker** som vald resurs. Du behöver en betald prenumerationsnyckel från ditt nya API-konto på [Azure-instrumentpanelen](https://portal.azure.com/#create/Microsoft.CognitiveServices). Båda nycklarna fungerar för den här snabbstarten.
 

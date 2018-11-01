@@ -12,15 +12,15 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 09/27/2018
+ms.date: 10/30/2018
 ms.author: cephalin;msangapu
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 347fc291fc7357481bfdc88c9019c3d688925c2f
-ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
+ms.openlocfilehash: 6d3f367ce21e9574282805737f2eff6c83ea6157
+ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49067525"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50248204"
 ---
 # <a name="create-a-nodejs-web-app-in-azure"></a>Skapa en Node.js-webbapp i Azure
 
@@ -112,7 +112,7 @@ När webbappen har skapats visar Azure CLI utdata liknande den i följande exemp
 
 ### <a name="set-nodejs-runtime"></a>Ange Node.js-körning
 
-Ange Node-körningen till 8.11.1. <!-- To see all supported runtimes, run [`az webapp list-runtimes`](/cli/azure/webapp?view=azure-cli-latest#az-webapp-list-runtimes). -->
+Ange Node-körningen till 8.11.1. Om du vill se alla körningar som stöds ska du köra [`az webapp list-runtimes`](/cli/azure/webapp?view=azure-cli-latest#az-webapp-list-runtimes).
 
 ```azurecli-interactive
 # Bash and Powershell
@@ -161,7 +161,7 @@ zip -r myUpdatedAppFiles.zip .
 
 # PowerShell
 Compress-Archive -Path * -DestinationPath myUpdatedAppFiles.zip
-``` 
+```
 
 Distribuera den nya ZIP-filen till App Service med samma steg som i [Distribuera ZIP-fil](#deploy-zip-file).
 

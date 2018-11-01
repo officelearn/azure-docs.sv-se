@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 03/27/2018
 ms.author: zarhoads
 ms.custom: mvc
-ms.openlocfilehash: bfeee293dfb86db2be8e799f60b5e025477293d5
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: 913d1b9125bcfa57334e70dcca44965fdb3d5ba6
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49465567"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50242066"
 ---
 # <a name="tutorial-install-applications-in-virtual-machine-scale-sets-with-the-azure-cli"></a>Självstudie: Installera program i VM-skalningsuppsättningar med Azure CLI
 Om du vill köra program på virtuella datorinstanser i en skalningsuppsättning, måste du först installera programkomponenter och nödvändiga filer. I en föregående självstudie fick du lära dig hur du skapar och använder en anpassad virtuell datoravbildning för att distribuera dina virtuella datorinstanser. Den här anpassade avbildningen inkluderade programinstallationer och konfigurationer. Du kan också automatisera installationen av programmen till en skalningsuppsättning efter att varje virtuell datorinstans distribueras, eller uppdatera ett program som redan körs på en skalningsuppsättning. I den här självstudiekursen får du lära du dig att:
@@ -49,7 +49,7 @@ För att använda det anpassade skripttillägget med Azure CLI, skapar du en JSO
 ## <a name="create-custom-script-extension-definition"></a>Skapa en anpassad skripttilläggsdefinition
 Om du vill se hur det anpassade skripttillägget funkar, skapar du en skalningsuppsättning som installerar NGINX-webbservern och matar ut värddatornamnet för skalningsuppsättningens virtuella datorinstans. Följande anpassade skripttilläggsdefinition laddar ner ett exempelskript från GitHub, installerar nödvändiga paket och skriver sedan den virtuella datorinstansens värddatornamn till en grundläggande HTML-sida.
 
-I ditt nuvarande gränssnitt, skapar du en fil med namnet *customConfig.json* och klistrar in följande konfiguration. Skapa till exempel inte filen i Cloud Shell på din lokala dator. Du kan använda vilket redigeringsprogram som helst. Ange `sensible-editor cloudConfig.json` i Cloud Shell för att skapa filen och visa en lista över tillgängliga redigeringsprogram.
+I ditt nuvarande gränssnitt, skapar du en fil med namnet *customConfig.json* och klistrar in följande konfiguration. Skapa till exempel inte filen i Cloud Shell på din lokala dator. Du kan använda vilket redigeringsprogram som helst. Ange `sensible-editor customConfig.json` i Cloud Shell för att skapa filen och visa en lista över tillgängliga redigeringsprogram.
 
 ```json
 {

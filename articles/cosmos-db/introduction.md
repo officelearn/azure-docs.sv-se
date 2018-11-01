@@ -10,12 +10,12 @@ ms.topic: overview
 ms.date: 04/08/2018
 ms.author: sngun
 ms.custom: mvc
-ms.openlocfilehash: b9c4c2595bb7d5347397bff95c90fbdc91902bcd
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: 12e3cf028b4812abd43dd2b6f23190fa6b75157a
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43696456"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50242298"
 ---
 # <a name="welcome-to-azure-cosmos-db"></a>Välkommen till Azure Cosmos DB
 
@@ -55,7 +55,7 @@ Som en globalt distribuerad databastjänst med fler modeller gör Azure Cosmos D
 * **Se till att tillgängligheten alltid är så hög som möjligt**
     * Serviceavtal med 99,99 % tillgänglighet för alla databaskonton i en region och 99,999 % läsningstillgänglighet för alla databaskonton med tillgång till flera regioner.
     * Distribuera till valfritt antal [Azure-regioner](https://azure.microsoft.com/regions) för högre tillgänglighet och bättre prestanda.
-    * Ange prioriteter dynamiskt till regioner och [simulera ett fel](regional-failover.md) i en eller flera regioner helt utan dataförlust för att testa tillgängligheten slutpunkt till slutpunkt för hela appen (inte endast databasen). 
+    * Ange prioriteter dynamiskt till regioner och [simulera ett fel](high-availability.md) i en eller flera regioner helt utan dataförlust för att testa tillgängligheten slutpunkt till slutpunkt för hela appen (inte endast databasen). 
 
 * **Skriv globalt distribuerade program, på rätt sätt**
     * Fem väldefinierade, praktiska och intuitiva [konsekvensmodeller](consistency-levels.md) ger ett spektrum av stark SQL-liknande konsekvens hela vägen till en avslappnad NoSQL-liknande eventuell konsekvens och allt däremellan. 

@@ -10,12 +10,12 @@ ms.component: bing-image-search
 ms.topic: quickstart
 ms.date: 08/28/2018
 ms.author: aahi
-ms.openlocfilehash: 36f59e1c405ef9e5cf69a19e49d69a3adfdc4636
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 42fc3dfb48c041ba187e2034eed81183dba02cb4
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46298191"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50413885"
 ---
 # <a name="quickstart-search-for-images-with-the-bing-image-search-sdk-and-java"></a>Snabbstart: Sök efter bilder med API för bildsökning i Bing och Java
 
@@ -25,7 +25,7 @@ Källkoden för det här exemplet finns på [GitHub](https://github.com/Azure-Sa
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
-Den senaste versionen av [Java Development Kit (JDK)](http://www.oracle.com/technetwork/java/javase/downloads/index.html)
+Den senaste versionen av [Java Development Kit (JDK)](https://aka.ms/azure-jdks)
 
 Installera SDK för bildsökning i Bing med hjälp av Maven eller Gradle eller något annat beroendehanteringssystem. Maven POM-filen kräver följande deklaration:
 

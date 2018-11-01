@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,mvc
 ms.topic: tutorial
 ms.date: 05/07/2018
-ms.openlocfilehash: fc1f952128b4cfbb082f4c539a102f40d3b85e8d
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: c984f5a96ef9dcc1e4fb6f5b3f54159c26cafdbc
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43040306"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50412847"
 ---
 # <a name="tutorial-create-a-scala-maven-application-for-spark-in-hdinsight-using-intellij"></a>Självstudie: Skapa ett Scala Maven-program för Spark i HDInsight med IntelliJ
 
@@ -40,7 +40,7 @@ Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](ht
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
 * Ett Apache Spark-kluster i HDInsight. Anvisningar finns i [Skapa Apache Spark-kluster i Azure HDInsight](apache-spark-jupyter-spark-sql.md).
-* Oracle Java Development Kit. Du kan installera det [härifrån](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html).
+* Oracle Java Development Kit. Du kan installera det [härifrån](https://aka.ms/azure-jdks).
 * En Java IDE. Den här artikeln använder IntelliJ IDEA 18.1.1. Du kan installera det [härifrån](https://www.jetbrains.com/idea/download/).
 
 ## <a name="use-intellij-to-create-application"></a>Använda IntelliJ till att skapa program

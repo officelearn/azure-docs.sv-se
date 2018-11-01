@@ -8,12 +8,12 @@ ms.topic: get-started-article
 ms.date: 06/07/2018
 ms.author: renash
 ms.component: files
-ms.openlocfilehash: 3e63a4c05fde570e598ba05c65fb99cec0427711
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: f1dd07756ca484171a3d662df35493efbe5a5ee7
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47226425"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50415627"
 ---
 # <a name="use-an-azure-file-share-with-windows"></a>Använda en Azure-filresurs med Windows
 [Azure Files](storage-files-introduction.md) är Microsofts lättanvända filsystem i molnet. Azure-filresurser kan användas smidigt i Windows och Windows Server. Den här artikeln beskriver överväganden för att använda en Azure-filresurs med Windows och Windows Server.
@@ -49,7 +49,7 @@ Du kan använda Azure-filresurser i en Windows-installation som körs antingen i
 * **Se till att port 445 är öppen**: SMB-protokollet kräver att TCP-port 445 är öppen; anslutningar misslyckas om port 445 är blockerad. Du kan kontrollera om din brandvägg blockerar port 445 med `Test-NetConnection`-cmdleten. Glöm inge att ersätta `your-storage-account-name` med relevant namn för ditt lagringskonto.
 
     ```PowerShell
-    Test-NetConnection -ComputerName <your-storage-account-name>.core.windows.net -Port 445
+    Test-NetConnection -ComputerName <your-storage-account-name>.file.core.windows.net -Port 445
     
     ```
 

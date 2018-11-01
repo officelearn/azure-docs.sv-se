@@ -10,12 +10,12 @@ ms.component: translator-text
 ms.topic: quickstart
 ms.date: 06/21/2018
 ms.author: erhopf
-ms.openlocfilehash: 5a2b478d39f14b993a389fc48e037e1980d83e52
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: f9f9b6758a74ac846e7b44ab9024620e6176218d
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49646152"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50414632"
 ---
 # <a name="quickstart-translate-text-with-the-translator-text-rest-api-java"></a>Snabbstart: Översätta text med Translator Text REST API (Java)
 
@@ -23,7 +23,7 @@ I den här snabbstarten ska du översätta text från ett språk till ett annat 
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
-Du behöver [JDK 7 eller 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) för att kompilera och köra den här koden. Du kan använda en Java IDE om du har en favoritutvecklingsmiljö, men en vanlig textredigerare fungerar också.
+Du behöver [JDK 7 eller 8](https://aka.ms/azure-jdks) för att kompilera och köra den här koden. Du kan använda en Java IDE om du har en favoritutvecklingsmiljö, men en vanlig textredigerare fungerar också.
 
 För att använda Translator Text-API:et behöver du även en prenumerationsnyckel. Mer information finns i [How to sign up for the Translator Text API](translator-text-how-to-signup.md) (Så här registrerar du dig för Translator Text-API:et).
 

@@ -11,17 +11,17 @@ ms.devlang: java
 ms.topic: tutorial
 ms.date: 05/22/2017
 ms.author: sngun
-ms.openlocfilehash: 99accb8a822aedc387bbe137e8e80e298fe7cd1d
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 0cf42245981afb44415b9709be9d45c44255f295
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46991189"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50417522"
 ---
 # <a name="nosql-tutorial-build-a-sql-api-java-console-application"></a>Självstudiekurs om NoSQL: Skapa ett Java-konsolprogram med SQL API
 
 > [!div class="op_single_selector"]
-> * [.NET](sql-api-get-started.md)
+> * [NET](sql-api-get-started.md)
 > * [.NET Core](sql-api-dotnetcore-get-started.md)
 > * [Java](sql-api-java-get-started.md)
 > * [Async Java](sql-api-async-java-get-started.md)
@@ -54,7 +54,7 @@ Se till att du har följande:
   [!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]
 
 * [Git](https://git-scm.com/downloads).
-* [Java Development Kit (JDK) 7+](http://www.oracle.com/technetwork/java/javase/downloads/index.html).
+* [Java Development Kit (JDK) 7+](https://aka.ms/azure-jdks).
 * [Maven](http://maven.apache.org/download.cgi).
 
 ## <a name="step-1-create-an-azure-cosmos-db-account"></a>Steg 1: Skapa ett Azure Cosmos DB-konto

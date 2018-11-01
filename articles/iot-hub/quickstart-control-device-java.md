@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 06/22/2018
 ms.author: dobett
-ms.openlocfilehash: 6b7de80d18250550c9bd7e52537a7a950e6ffea7
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
+ms.openlocfilehash: 3e936b3e08884c1728809aea9054278ffdb99045
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49364783"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50416995"
 ---
 # <a name="quickstart-control-a-device-connected-to-an-iot-hub-java"></a>Snabbstart: Kontrollera en enhet ansluten till en IoT Hub (Java)
 
@@ -36,7 +36,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 
 De två exempelprogram som du kör i den här snabbstarten skrivs med Java. Du måste ha Java SE 8 eller senare installerat på utvecklingsdatorn.
 
-Du kan hämta Java för flera plattformar från [Oracle](http://www.oracle.com/technetwork/java/javase/downloads/index.html).
+Du kan hämta Java för flera plattformar från [Oracle](https://aka.ms/azure-jdks).
 
 Du kan kontrollera den aktuella versionen av Java på utvecklingsdatorn med följande kommando:
 
@@ -70,7 +70,7 @@ En enhet måste vara registrerad vid din IoT-hubb innan den kan ansluta. I den h
 
    **YourIoTHubName** : Ersätt platshållaren nedan med det namn du väljer för din IoT-hubb.
 
-   **MyJavaDevice** : Det här är det namn som du angav för den registrerade enheten. Använd MyJavaDevice såsom det visas. Om du väljer ett annat namn för din enhet måste du även använda det namnet i hela artikeln samt uppdatera enhetsnamnet i exempelprogrammen innan du kör dem.
+   **MyJavaDevice** : Det här är det namn som du angav för den registrerade enheten. Använd MyJavaDevice såsom det visas. Om du väljer ett annat namn för din enhet måste du även använda det namnet i hela artikeln, och uppdatera enhetsnamnet i exempelprogrammen innan du kör dem.
 
     ```azurecli-interactive
     az extension add --name azure-cli-iot-ext
@@ -123,7 +123,7 @@ Det simulerade enhetsprogrammet ansluter till en enhetsspecifik slutpunkt på di
     mvn clean package
     ```
 
-4. I det lokala terminalfönstret kör du följande kommandon för att köra programmet för simulerad enhet:
+4. Kör det simulerade enhetsprogrammet genom att köra följande kommandon i det lokala terminalfönstret:
 
     ```cmd/sh
     java -jar target/simulated-device-2-1.0.0-with-deps.jar

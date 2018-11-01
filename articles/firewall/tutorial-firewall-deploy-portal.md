@@ -3,18 +3,17 @@ title: Distribuera och konfigurera Azure Firewall via Azure Portal
 description: I den här självstudien får du lära dig att distribuera och konfigurera Azure Firewall via Azure Portal.
 services: firewall
 author: vhorne
-manager: jpconnock
 ms.service: firewall
 ms.topic: tutorial
-ms.date: 10/5/2018
+ms.date: 10/30/2018
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 8fb459d197c15cf7760a924c7161fed59cc1caac
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: 47a04df843ec307b54cc1d6597f9a3cf8668e291
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48801887"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50238836"
 ---
 # <a name="tutorial-deploy-and-configure-azure-firewall-using-the-azure-portal"></a>Självstudie: Distribuera och konfigurera Azure Firewall via Azure Portal
 
@@ -31,7 +30,7 @@ Nätverkstrafiken måste följa konfigurerade brandväggsregler när du vidarebe
 
 Program- och nätverksregler lagras i *regelsamlingar*. En regelsamling är en lista med regler som delar samma åtgärd och prioritet.  En nätverksregelsamling är en lista med nätverksregler och en programregelsamling är en lista med programregler.
 
-Azure Firewall har NAT-regler, nätverksregler och programregler. Mer information om regelbearbetningslogik för Azure Firewall finns i [Regelbearbetningslogik för Azure Firewall](rule-processing.md).
+Mer information om regelbearbetningslogik för Azure Firewall finns i [Regelbearbetningslogik för Azure Firewall](rule-processing.md).
 
 I den här guiden får du lära dig att:
 
@@ -42,8 +41,6 @@ I den här guiden får du lära dig att:
 > * konfigurera programregler
 > * konfigurera nätverksregler
 > * Testa brandväggen
-
-
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
@@ -56,32 +53,32 @@ I den här självstudien skapar du ett virtuellt nätverk med tre undernät:
 
 I den här självstudien används en förenklad nätverkskonfiguration som är enkel att distribuera. I produktionsdistributioner rekommenderas en [modell med nav och ekrar](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke) där brandväggen ligger i ett eget virtuellt nätverk, och arbetsbelastningsservrarna ligger i peerkopplade virtuella nätverk i samma region med ett eller flera undernät.
 
-
-
 ## <a name="set-up-the-network-environment"></a>Konfigurera nätverksmiljön
+
 Skapa först en resursgrupp som ska innehålla de resurser som behövs till att distribuera brandväggen. Sedan skapa ett virtuellt nätverk, undernät och testservrar.
 
 ### <a name="create-a-resource-group"></a>Skapa en resursgrupp
-1. Logga in på Azure Portal på [http://portal.azure.com](http://portal.azure.com).
-1. Klicka på startsidan för Azure Portal, klicka på **Resursgrupper** och sedan på **Lägg till**.
-2. I fältet **Resursgruppsnamn** skriver du **Test-FW-RG**.
-3. I fältet **Prenumeration** väljer du din prenumeration.
-4. I fältet **Resursgruppsplats** väljer du en plats. Alla efterföljande resurser du skapar måste finnas på samma plats.
-5. Klicka på **Skapa**.
 
+1. Logga in på Azure Portal på [http://portal.azure.com](http://portal.azure.com).
+2. Klicka på startsidan för Azure Portal, klicka på **Resursgrupper** och sedan på **Lägg till**.
+3. I fältet **Resursgruppsnamn** skriver du **Test-FW-RG**.
+4. I fältet **Prenumeration** väljer du din prenumeration.
+5. I fältet **Resursgruppsplats** väljer du en plats. Alla efterföljande resurser du skapar måste finnas på samma plats.
+6. Klicka på **Skapa**.
 
 ### <a name="create-a-vnet"></a>Skapa ett virtuellt nätverk
+
 1. Klicka på **Alla tjänster** på startsidan i Azure Portal.
 2. Under **Nätverk** klickar du på **Virtuella nätverk**.
 3. Klicka på **Lägg till**.
 4. I fältet **Namn** skriver du **Test-FW-VN**.
 5. I fältet **Adressutrymme** skriver du **10.0.0.0/16**.
-7. I fältet **Prenumeration** väljer du din prenumeration.
-8. I fältet **Resursgrupp** väljer du **Använd befintlig** och väljer sedan **Test-FW-RG**.
-9. Välj samma plats som tidigare i fältet **Plats**.
-10. Under **Undernät**, i fältet **Namn**, skriver du **AzureFirewallSubnet**. Brandväggen kommer att ligga i det här undernätet, och namnet på undernätet **måste** vara AzureFirewallSubnet.
-11. I fältet **Adressintervall** skriver du **10.0.1.0/24**.
-12. Använd övriga standardinställningar och klicka på **Skapa**.
+6. I fältet **Prenumeration** väljer du din prenumeration.
+7. I fältet **Resursgrupp** väljer du **Använd befintlig** och väljer sedan **Test-FW-RG**.
+8. Välj samma plats som tidigare i fältet **Plats**.
+9. Under **Undernät**, i fältet **Namn**, skriver du **AzureFirewallSubnet**. Brandväggen kommer att ligga i det här undernätet, och namnet på undernätet **måste** vara AzureFirewallSubnet.
+10. I fältet **Adressintervall** skriver du **10.0.1.0/24**.
+11. Använd övriga standardinställningar och klicka på **Skapa**.
 
 > [!NOTE]
 > Den minsta storleken på undernätet AzureFirewallSubnet är /25.
@@ -138,13 +135,11 @@ Upprepa proceduren och skapa en annan virtuell dator med namnet **Srv-Work**.
 
 Använd informationen i följande tabell och konfigurera **inställningarna** för den virtuella datorn Srv-Work. Resten av konfigurationen är samma som för den virtuella datorn Srv-Jump.
 
-
 |Inställning  |Värde  |
 |---------|---------|
 |Undernät|Workload-SN|
 |Offentlig IP-adress|Ingen|
 |Välj offentliga inkommande portar|Inga offentliga inkommande portar|
-
 
 ## <a name="deploy-the-firewall"></a>Distribuera brandväggen
 
@@ -168,7 +163,6 @@ Använd informationen i följande tabell och konfigurera **inställningarna** f�
    Distributionen kan ta några minuter.
 4. När distributionen är färdig öppnar du resursgruppen **Test-FW-RG** och klickar på brandväggen **Test FW01**.
 6. Skriv ned den privata IP-adressen. Du kommer att använda den senare när du skapar standardvägen.
-
 
 ## <a name="create-a-default-route"></a>Skapa en standardväg
 
@@ -200,9 +194,7 @@ För undernätet **Workload-SN** ställer du in att den utgående standardvägen
 18. I fältet **Nästa hoppadress** skriver du brandväggens privata IP-adress som du skrev ned tidigare.
 19. Klicka på **OK**.
 
-
 ## <a name="configure-application-rules"></a>konfigurera programregler
-
 
 1. Öppna **Test-FW-RG** och klicka på brandväggen **Test-FW01**.
 2. På sidan **Test-FW01**, under **Inställningar**, klickar du på **Regler**.
@@ -244,7 +236,6 @@ För testningen i den här självstudien konfigurerar du en primär och sekundä
 6. Klicka på **Spara**. 
 7. Starta om den virtuella datorn **Srv-Work**.
 
-
 ## <a name="test-the-firewall"></a>testa brandväggen.
 
 1. Öppna Azure Portal, granska nätverksinställningarna för den virtuella datorn **Srv-Work** och anteckna den privata IP-adressen.
@@ -267,7 +258,6 @@ Nu har du verifierat att brandväggsreglerna fungerar:
 ## <a name="clean-up-resources"></a>Rensa resurser
 
 Du kan behålla dina brandväggsresurser för nästa självstudie eller, om de inte längre behövs, så tar du bort resursgruppen **Test-FW-RG** för att ta bort alla brandväggsrelaterade resurser.
-
 
 ## <a name="next-steps"></a>Nästa steg
 

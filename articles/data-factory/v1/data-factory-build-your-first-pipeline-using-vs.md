@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 5b6c0938fce928f2141eac1a03d43005a2247e74
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: b152ea46c9d744f557157b2dac7478c8513d97fd
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45730827"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50243154"
 ---
 # <a name="tutorial-create-a-data-factory-by-using-visual-studio"></a>Självstudiekurs: Skapa en datafabrik med hjälp av Visual Studio
 > [!div class="op_single_selector" title="Tools/SDKs"]
@@ -29,7 +29,7 @@ ms.locfileid: "45730827"
 > * [Visual Studio](data-factory-build-your-first-pipeline-using-vs.md)
 > * [PowerShell](data-factory-build-your-first-pipeline-using-powershell.md)
 > * [Resource Manager-mall](data-factory-build-your-first-pipeline-using-arm.md)
-> * [REST API](data-factory-build-your-first-pipeline-using-rest-api.md)
+> * [REST-API](data-factory-build-your-first-pipeline-using-rest-api.md)
 
 
 > [!NOTE]
@@ -335,7 +335,7 @@ Viktiga saker att observera:
         Get-AzureRmResourceProvider
         ```
     - Logga in med Azure-prenumerationen i [Azure Portal](https://portal.azure.com) och navigera till ett Data Factory-blad (eller) skapa en datafabrik i Azure Portal. Med den här åtgärden registreras providern automatiskt.
-- Namnet på datafabriken kan komma att registreras som ett DNS-namn i framtiden och blir då synligt offentligt.
+- Namnet på datafabriken kan registreras som ett DNS-namn i framtiden och blir då synligt offentligt.
 - Om du vill skapa Data Factory-instanser måste du vara administratör eller medadministratör för Azure-prenumerationen
 
 ### <a name="monitor-pipeline"></a>Övervaka pipeline

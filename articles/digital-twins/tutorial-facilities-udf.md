@@ -5,14 +5,14 @@ services: digital-twins
 author: dsk-2015
 ms.service: digital-twins
 ms.topic: tutorial
-ms.date: 10/15/2018
+ms.date: 10/26/2018
 ms.author: dkshir
-ms.openlocfilehash: 1e5cb18b4e526cd0a0607f5bc93788fcf07430e1
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
+ms.openlocfilehash: cf45cb8de0e40dfe5f5772dcb1a0be2aa7585fd6
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49364243"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50156688"
 ---
 # <a name="tutorial-provision-your-building-and-monitor-working-conditions-with-azure-digital-twins"></a>Självstudie: Etablera din byggnad och övervaka arbetsvillkor med Azure Digital Twins
 
@@ -161,7 +161,7 @@ I exempelfilen *provisionSample.yaml* letar du efter ett avsnitt som börjar med
             }
         ```
         
-        De ändrade UDF:erna söker efter ett villkor där ett rum blir tillgängligt vars koldioxidmängd och temperatur ligger inom de tillåtna gränserna. Det ska generera ett meddelande med instruktionen `parentSpace.Notify(JSON.stringigy(alert));` när det här villkoret är uppfyllt. Det anger värdet för det övervakade utrymmet oavsett om villkoret är uppfyllt, med motsvarande meddelande.
+        De ändrade UDF:erna söker efter ett villkor där ett rum blir tillgängligt vars koldioxidmängd och temperatur ligger inom de tillåtna gränserna. Det ska generera ett meddelande med instruktionen `parentSpace.Notify(JSON.stringify(alert));` när det här villkoret är uppfyllt. Det anger värdet för det övervakade utrymmet oavsett om villkoret är uppfyllt, med motsvarande meddelande.
     
     1. Spara filen. 
     
@@ -245,7 +245,7 @@ Beroende på om de övervakade villkoren uppfylls eller inte anger den användar
 
 Om du inte vill utforska Azure Digital Twins vidare kan du ta bort resurser som du har skapat i den här självstudien:
 
-1. Klicka på **Alla resurser** på menyn till vänster i [Azure-portalen](http://portal.azure.com), välj din Digital Twins-resursgrupp och **ta bort** den.
+1. På den vänstra menyn i [Azure-portalen](http://portal.azure.com) klickar du på **Alla resurser**, väljer din Digital Twins-resursgrupp och **tar bort** den.
 2. Om du vill kan fortsätta att ta bort exempelprogrammen på arbetsdatorn också. 
 
 
@@ -259,4 +259,4 @@ Nu när du har etablerat dina utrymmen och skapat ett ramverk för att utlösa a
 Eller:
 
 > [!div class="nextstepaction"]
-> [Självstudie: Visualisera och analysera händelser från dina Azure Digital Twins -utrymmen med hjälp av Time Series Insights](tutorial-facilities-analyze.md)
+> [Självstudie: Visualisera och analysera händelser från dina Azure Digital Twins-utrymmen med hjälp av Time Series Insights](tutorial-facilities-analyze.md)

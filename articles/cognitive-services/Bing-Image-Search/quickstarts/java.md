@@ -11,12 +11,12 @@ ms.component: bing-image-search
 ms.topic: quickstart
 ms.date: 8/20/2018
 ms.author: aahi
-ms.openlocfilehash: 5e002de273d50de9095c6e58b8e1a9fb9a05ed4f
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 1a7cc7d58975aa0cd5903581610d642193951ec4
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46295350"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50412474"
 ---
 # <a name="quickstart-send-search-queries-using-the-bing-image-search-rest-api-and-java"></a>Snabbstart: Skicka sökfrågor med REST API för bildsökning i Bing och Java
 
@@ -24,11 +24,11 @@ Använd den här snabbstarten för att göra ditt första anrop till API för bi
 
 Även om det här programmet är skrivet i Java, är API:n en RESTful-webbtjänst som är kompatibel med de flesta programmeringsspråk.
 
-Källkoden för det här exemplet finns på [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/java/Search/BingImageSearchv7Quickstart.java) tillsammans med ytterligare felhantering och kodkommentarer.
+Källkoden för det här exemplet finns på [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/java/Search/BingImageSearchv7Quickstart.java) tillsammans med ytterligare kommentarer om hantering av fel och kodanteckningar.
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
-* [Java Development Kit(JDK) 7 eller 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
+* [Java Development Kit(JDK) 7 eller 8](https://aka.ms/azure-jdks)
 
 * [Gson-biblioteket](https://github.com/google/gson)
 
@@ -166,4 +166,4 @@ Svar från API för bildsökning i Bing returneras som JSON. Det här exempelsva
 * [Prova en interaktiv demo online](https://azure.microsoft.com/services/cognitive-services/bing-image-search-api/)  
 * [Hämta en kostnadsfri åtkomstnyckel för Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=bing-image-search-api)  
 * [Dokumentation om Azure Cognitive Services](https://docs.microsoft.com/azure/cognitive-services)
-* [Referens för API för bildsökning i Bing](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference)
+* [API-referens för bildsökning i Bing](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference)

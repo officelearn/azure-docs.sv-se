@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 3972dd7031e25f20a2ef6bfb66b63fe3f3b0290b
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: 5d490b195f2e8fd58ca331b3e68ed451d92932f0
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45732490"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50241845"
 ---
 # <a name="tutorial-build-your-first-azure-data-factory-using-azure-powershell"></a>Självstudier: Skapa din första Azure-datafabrik med Azure PowerShell
 > [!div class="op_single_selector"]
@@ -29,7 +29,7 @@ ms.locfileid: "45732490"
 > * [Visual Studio](data-factory-build-your-first-pipeline-using-vs.md)
 > * [PowerShell](data-factory-build-your-first-pipeline-using-powershell.md)
 > * [Resource Manager-mall](data-factory-build-your-first-pipeline-using-arm.md)
-> * [REST API](data-factory-build-your-first-pipeline-using-rest-api.md)
+> * [REST-API](data-factory-build-your-first-pipeline-using-rest-api.md)
 >
 >
 
@@ -82,7 +82,7 @@ Observera följande punkter:
 
 * Namnet på Azure Data Factory måste vara globalt unikt. Om du får felet **Datafabriksnamnet ”FirstDataFactoryPSH” är inte tillgängligt** ändrar du namnet (exempelvis till yournameFirstDataFactoryPSH). Använd det här namnet i stället för ADFTutorialFactoryPSH när du utför stegen i självstudien. Se artikeln [Data Factory – namnregler](data-factory-naming-rules.md) för namnregler för Data Factory-artefakter.
 * Om du vill skapa Data Factory-instanser måste du vara deltagare/administratör för Azure-prenumerationen
-* Namnet på datafabriken kan komma att registreras som ett DNS-namn i framtiden och blir då synligt offentligt.
+* Namnet på datafabriken kan registreras som ett DNS-namn i framtiden och blir då synligt offentligt.
 * Om du får felet: ”**Den här prenumerationen har inte registrerats för användning av namnområdet Microsoft.DataFactory**” gör du något av följande och försöker att publicera igen:
 
   * I Azure PowerShell kör du följande kommando för att registrera Data Factory-providern:

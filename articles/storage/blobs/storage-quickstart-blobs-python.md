@@ -2,18 +2,18 @@
 title: Azure snabbstart – Skapa en blob i objektlagring med hjälp av Python | Microsoft Docs
 description: I den här snabbstarten skapar du ett lagringskonto och en container i objektlagring (Blob). Sedan använder du lagringsklientbiblioteket för Python och laddar upp en blob till Azure Storage, laddar ned en blob och listar blobarna i en container.
 services: storage
-author: craigshoemaker
+author: tamram
 ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
 ms.date: 04/09/2018
-ms.author: cshoe
-ms.openlocfilehash: f9e39a8630302111f4646e085872399c6def6ab2
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.author: tamram
+ms.openlocfilehash: a264f5bdec6d09c0cbdd6ebec3a6b760deaf9547
+ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46974501"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50139088"
 ---
 # <a name="quickstart-upload-download-and-list-blobs-using-python"></a>Snabbstart: Ladda upp, ladda ned och lista blobar med Python
 

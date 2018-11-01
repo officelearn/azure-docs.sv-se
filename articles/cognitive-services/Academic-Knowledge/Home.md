@@ -3,19 +3,19 @@ title: Vad är Academic Knowledge API?
 titlesuffix: Azure Cognitive Services
 description: Använd Academic Knowledge API för att tolka användarfrågor och hämta innehållsrik information från Academic Graph.
 services: cognitive-services
-author: mvorvoreanu
+author: darrine
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: academic-knowledge
 ms.topic: overview
-ms.date: 03/27/2017
-ms.author: mivorvor
-ms.openlocfilehash: d08cd7124b232e50365e72753eba97c6309f401c
-ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
+ms.date: 10/30/2018
+ms.author: darrine
+ms.openlocfilehash: aa945eb8f0b79a6b0760650bd34dba55d80ef3a4
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48901218"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50240366"
 ---
 # <a name="academic-knowledge-api"></a>Academic Knowledge API
 
@@ -32,13 +32,10 @@ Academic Knowledge API består av fyra relaterade REST-slutpunkter:
   1. **interpret** – tolkar en användarfrågesträng med naturligt språk. Returnerar kommenterade tolkningar för att aktivera funktioner för automatisk ifyllning i sökrutor som förutsäger vad användaren skriver.  
   2. **evaluate** – utvärderar ett frågeuttryck och returnerar Academic Knowledge-entitetsresultat.  
   3. **calchistogram** – beräknar ett histogram för fördelningen av attributvärden för de akademiska entiteter som returneras av ett frågeuttryck, till exempel fördelningen av källhänvisningar per år för en angiven författare.  
-  4. **graph search** – söker efter ett givet grafmönster och returnerar matchade entitetsresultat.
-
+  
 När dessa API-metoder används tillsammans kan du skapa en omfattande semantisk sökfunktion. Med en användarfrågesträng ger metoden **interpret** dig en annoterad version av frågan och ett strukturerat frågeuttryck. Den kan även slutföra användarens fråga baserat på semantiken för underliggande akademiska data. Exempel: om en användare anger strängen *latent s* kan metoden **interpret** ge en uppsättning rankade tolkningar som indikerar att användaren kanske söker efter ämnesområdet *latent semantisk analys*, artikeln *latent strukturanalysis* eller andra entitetsuttryck som börjar med *latent s*. Den här informationen kan användas för att snabbt vägleda användaren till önskat sökresultat.
 
 Metoden **evaluate** kan användas för att hämta en uppsättning matchande artikelentiteter från den akademiska kunskapsbasen, och **calchistogram**-metoden kan användas för att beräkna distributionen av attributvärden för en uppsättning artikelentiteter som kan användas för att ytterligare filtrera sökresultatet.        
-
-Metoden **graph search** har två lägen: *json* och *lambda*. Läget *json* kan utföra matchning av diagrammönster enligt de diagrammönster som anges av ett JSON-objekt. Läget *lambda* kan utföra beräkningar på serversidan under diagramtraverseringar enligt de användardefinierade lambdauttrycken.
 
 ## <a name="getting-started"></a>Komma igång 
 Detaljerad dokumentation finns i underavsnitten till vänster.  Observera att för att förbättra läsbarheten för exemplen innehåller REST API-anropen tecken (såsom blanksteg) som inte har URL-kodats.  Din kod behöver tillämpa lämpliga URL-kodningar.

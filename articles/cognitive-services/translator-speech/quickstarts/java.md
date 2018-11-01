@@ -10,12 +10,12 @@ ms.component: translator-speech
 ms.topic: quickstart
 ms.date: 3/5/2018
 ms.author: v-jaswel
-ms.openlocfilehash: 4147e164434109a90a2a044565a1fb0b2e1b48bf
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: ebff07a68975f3629b57df4cfc8a5bbcf564ce27
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49386511"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50412932"
 ---
 # <a name="quickstart-translator-speech-api-with-java"></a>Snabbstart: Translator Speech API med Java 
 <a name="HOLTop"></a>
@@ -26,7 +26,7 @@ Den här artikeln visar hur du använder Translator Speech API för att översä
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
-Du behöver [JDK 7 eller 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) för att kompilera och köra den här koden. Du kan använda en Java IDE om du föredrar det, men ett redigeringsprogram fungerar också bra.
+Du behöver [JDK 7 eller 8](https://aka.ms/azure-jdks) för att kompilera och köra den här koden. Du kan använda en Java IDE om du föredrar det, men ett redigeringsprogram fungerar också bra.
 
 Du behöver följande filer.
 - [javax.websocket-api-1.1.jar (eller senare)](https://mvnrepository.com/artifact/javax.websocket/javax.websocket-api)

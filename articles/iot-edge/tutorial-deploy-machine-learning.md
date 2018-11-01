@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 0af63c7beef0f5268ba078d517556fc64ac7bf87
-ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
+ms.openlocfilehash: 1cc1115612e8ffbe383f563e30ed5c36055df50a
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49116361"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50158116"
 ---
 # <a name="tutorial-deploy-azure-machine-learning-as-an-iot-edge-module-preview"></a>Distribuera Azure Machine Learning som en IoT Edge-modul (förhandsversion)
 
@@ -210,6 +210,3 @@ I den här självstudiekursen har du distribuerat en IoT Edge-modul som tillhand
 > [!div class="nextstepaction"]
 > [Filtrera sensordata med hjälp av C#-kod](tutorial-csharp-module.md)
 
-<!--Links-->
-[lnk-tutorial1-win]: quickstart.md
-[lnk-tutorial1-lin]: quickstart-linux.md

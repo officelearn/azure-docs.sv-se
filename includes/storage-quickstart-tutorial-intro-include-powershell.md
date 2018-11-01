@@ -1,3 +1,16 @@
+---
+author: tamram
+ms.service: storage
+ms.topic: include
+ms.date: 10/26/2018
+ms.author: tamram
+ms.openlocfilehash: 31ef8577a2304091fc4df1b394555c4b30fcf96e
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.translationtype: HT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50166471"
+---
 ## <a name="sign-in-to-azure"></a>Logga in på Azure
 
 Logga in på din Azure-prenumeration med kommandot `Connect-AzureRmAccount` och följ anvisningarna på skärmen.
@@ -15,7 +28,7 @@ $location = "eastus"
 
 ## <a name="create-a-resource-group"></a>Skapa en resursgrupp
 
-Skapa en Azure-resursgrupp med [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup). En resursgrupp är en logisk behållare där Azure-resurser distribueras och hanteras. 
+Skapa en Azure-resursgrupp med [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup). En resursgrupp är en logisk container där Azure-resurser distribueras och hanteras. 
 
 ```powershell
 $resourceGroup = "myResourceGroup"

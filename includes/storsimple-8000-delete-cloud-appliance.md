@@ -1,7 +1,20 @@
+---
+author: alkohli
+ms.service: storsimple
+ms.topic: include
+ms.date: 10/26/2018
+ms.author: alkohli
+ms.openlocfilehash: 8de46fee4f93fffa669dc96ec5bb84e36842a055
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.translationtype: HT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50166326"
+---
 #### <a name="to-delete-a-cloud-appliance"></a>Så här tar du bort en molninstallation
 
 1. Logga in på Azure Portal.
-2. Du kan bara ta bort en inaktiverad enhet som inte innehåller data. Ta bort alla data på enheten först. Du kan även [redundansväxla data](../articles/storsimple/storsimple-8000-device-failover-cloud-appliance.md) i volymbehållare till en annan enhet. När alla data tagits bort är du färdig och kan inaktivera enheten.
+2. Du kan bara ta bort en inaktiverad enhet som inte innehåller data. Ta bort alla data på enheten först. Du kan även [redundansväxla data](../articles/storsimple/storsimple-8000-device-failover-cloud-appliance.md) i volymcontainrar till en annan enhet. När alla data tagits bort är du färdig och kan inaktivera enheten.
 3. På tjänstsidan för StorSimple Devide Manager klickar du på **Enheter** och sedan markerar du enheten. Högerklicka och välj **Inaktivera**.
 4. När enheten är inaktiverad högerklickar du på enheten och väljer **Ta bort**.
 

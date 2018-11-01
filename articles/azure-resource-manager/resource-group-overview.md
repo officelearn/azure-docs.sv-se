@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/26/2018
 ms.author: tomfitz
-ms.openlocfilehash: 2c5d0dc322a4a56f0de9bd3c1af7efc158131a89
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: 16e78784337771d1e31d826f475c92c86fe20411
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49954223"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50212326"
 ---
 # <a name="azure-resource-manager-overview"></a>Översikt över Azure Resource Manager
 Infrastrukturen för ditt program består normalt av många komponenter – kanske en virtuell dator, ett lagringskonto och ett virtuellt nätverk eller en webbapp, en databas, en databasserver och tjänster från tredje part. Du ser inte de här komponenterna som separata entiteter, utan som relaterade delar av samma enhet som är beroende av varandra. Du vill distribuera, hantera och övervaka dem som en grupp. Med Azure Resource Manager kan du arbeta med resurserna i en lösning som en grupp. Du kan distribuera, uppdatera eller ta bort alla resurser i lösningen i en enda, samordnad åtgärd. Du använder en mall för distributionen. Mallen kan användas i olika miljöer, till exempel för testning, mellanlagring och produktion. Resource Manager tillhandahåller säkerhets-, gransknings- och taggningsfunktioner som hjälper dig att hantera dina resurser efter distributionen. 
@@ -65,29 +65,7 @@ Vägledning för hur företag kan använda resurshanteraren för att effektivt h
 
 Rekommendationer om hur du skapar Resource Manager-mallar som du kan använda i globala Azure, nationella Azure-moln och Azure Stack finns på sidan om att [utveckla Azure Resource Manager-mallar för molnkonsekvens](templates-cloud-consistency.md).
 
-## <a name="quickstarts-and-tutorials"></a>Snabbstarter och självstudier
-
-Använd följande snabbstarter och självstudier för att lära dig hur du utvecklar resurshanterarmallar:
-
-- Snabbstarter
-
-    |Rubrik|Beskrivning|
-    |------|-----|
-    |[Använda Azure Portal](./resource-manager-quickstart-create-templates-use-the-portal.md)|Generera en mall med hjälp av portalen och processen med att redigera och distribuera mallen.|
-    |[Använda Visual Studio Code](./resource-manager-quickstart-create-templates-use-visual-studio-code.md)|Använd Visual Studio Code för att skapa och redigera mallar och hur du använder Azure Cloud Shell för att distribuera mallar.|
-    |[Använda Visual Studio](./vs-azure-tools-resource-groups-deployment-projects-create-deploy.md)|Använd Visual Studio för att skapa, redigera och distribuera mallar.|
-
-- Självstudier
-
-    |Rubrik|Beskrivning|
-    |------|-----|
-    |[Använda mallreferens](./resource-manager-tutorial-create-encrypted-storage-accounts.md)|Använd referensdokumentationen till mallar för att utveckla mallar. I självstudien hittar du schemat för lagringskonto och använder informationen för att skapa ett krypterat lagringskonto.|
-    |[Skapa flera instanser](./resource-manager-tutorial-create-multiple-instances.md)|Skapa flera instanser av Azure-resurser. I självstudiekursen skapar du flera instanser av lagringskonto.|
-    |[Ange resursdistributionsordning](./resource-manager-tutorial-create-templates-with-dependent-resources.md)|Definiera resursberoenden. I självstudien skapar du ett virtuellt nätverk, en virtuell dator och de beroende Azure-resurserna. Du lär dig hur beroenden definieras.|
-    |[Använda villkor](./resource-manager-tutorial-use-conditions.md)|Distribuera resurser baserat på vissa parametervärden. I självstudien definierar du en mall för att skapa ett nytt lagringskonto eller använda ett befintligt lagringskonto baserat på värdet för en parameter.|
-    |[Integrera nyckelvalv](./resource-manager-tutorial-use-key-vault.md)|Hämta hemligheter/lösenord från Azure Key Vault. I självstudien skapar du en virtuell dator.  Administratörslösenordet för den virtuella datorn hämtas från ett nyckelvalv.|
-    |[Skapa länkade mallar](./resource-manager-tutorial-create-linked-templates.md)|Modularisera mallar och anropa andra mallar från en mall. I självstudien skapar du ett virtuellt nätverk, en virtuell dator och de beroende resurserna.  Det beroende lagringskontot definieras i en länkad mall. |
-    |[Använda säkra distributionsmetoder](./deployment-manager-tutorial.md)|Använd Distributionshanteraren i Azure. |
+[!INCLUDE [arm-tutorials-quickstarts](../../includes/resource-manager-tutorials-quickstarts.md)]
 
 ## <a name="resource-groups"></a>Resursgrupper
 Det finns några viktiga faktorer att tänka på när du definierar en resursgrupp:

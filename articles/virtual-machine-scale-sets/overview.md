@@ -3,7 +3,7 @@ title: Översikt över skalningsuppsättningar för virtuella datorer i Azure | 
 description: Lär dig mer om VM-skalningsuppsättningar i Azure och hur du skalar dina program automatiskt
 services: virtual-machine-scale-sets
 documentationcenter: ''
-author: gatneil
+author: mayanknayar
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -15,20 +15,20 @@ ms.devlang: na
 ms.topic: overview
 ms.custom: mvc
 ms.date: 03/27/2018
-ms.author: negat
-ms.openlocfilehash: 8ded9b20bd70d18b8a68df0c9775f3a56f8b185b
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.author: manayar
+ms.openlocfilehash: 23c04f85c994a8b300ffec23b4660d3d431ef69b
+ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2018
-ms.locfileid: "30247383"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50740433"
 ---
 # <a name="what-are-virtual-machine-scale-sets"></a>Vad är VM-skalningsuppsättningar?
-Med VM-skalningsuppsättningar i Azure kan du skapa och hantera grupper med identiska och belastningsutjämnade virtuella datorer. Antal VM-instanser kan automatiskt öka eller minska som svar på efterfrågan eller ett definierat schema. Skalningsuppsättningar tillhandahåller hög tillgänglighet för dina program, och låter dig centralt hantera, konfigurera och uppdatera ett stort antal virtuella datorer. Med VM-skalningsuppsättningar kan du skapa storskaliga tjänster för områden som beräkning, stordata och arbetsbelastningar i behållare.
+Med VM-skalningsuppsättningar i Azure kan du skapa och hantera grupper med identiska och belastningsutjämnade virtuella datorer. Antal VM-instanser kan automatiskt öka eller minska som svar på efterfrågan eller ett definierat schema. Skalningsuppsättningar tillhandahåller hög tillgänglighet för dina program, och låter dig centralt hantera, konfigurera och uppdatera ett stort antal virtuella datorer. Med VM-skalningsuppsättningar kan du skapa storskaliga tjänster för områden som beräkning, stordata och arbetsbelastningar i containrar.
 
 
 ## <a name="why-use-virtual-machine-scale-sets"></a>Varför ska man använda VM-skalningsuppsättningar?
-För att ge redundans och förbättrade prestanda distribueras program vanligtvis över flera instanser. Kunder kan komma åt ditt program via en belastningsutjämnare som sprider förfrågningar till någon av programinstanserna. Om du behöver genomföra underhåll eller uppdatera en programinstans måste du distribuera dina kunder till en annan tillgänglig programinstans. Om du ska kunna uppfylla kundernas behov kan du behöva öka antalet programinstanser som kör programmet.
+För att ge redundans och förbättrade prestanda distribueras program vanligtvis över flera instanser. Kunder kan komma åt ditt program via en lastbalanserare som sprider förfrågningar till någon av programinstanserna. Om du behöver genomföra underhåll eller uppdatera en programinstans måste du distribuera dina kunder till en annan tillgänglig programinstans. Om du ska kunna uppfylla kundernas behov kan du behöva öka antalet programinstanser som kör programmet.
 
 VM-skalningsuppsättningar i Azure ger hanteringsmöjligheter för program som körs på flera virtuella datorer, [automatisk skalning av resurser](virtual-machine-scale-sets-autoscale-overview.md) och belastningsutjämning av trafik. Skalningsuppsättningar ger följande viktiga fördelar:
 
@@ -60,7 +60,7 @@ Skalningsuppsättningar skapas från virtuella datorer. Med skalningsuppsättnin
 | Hög tillgänglighet och redundans   | Skapa tillgänglighetsuppsättning manuellt eller distribuera och spåra virtuella datorer mellan tillgänglighetszoner | Automatisk distribution av VM-instanser i tillgänglighetszoner eller tillgänglighetsuppsättningar |
 | Skalning av virtuella datorer                     | Manuell övervakning och Azure Automation                                                 | Autoskala utifrån värdmått, gästmått, Application Insights eller schema |
 
-Det tillkommer ingen extra kostnad för skalningsuppsättningar. Du betalar bara för de underliggande beräkningsresurserna som VM-instanser, belastningsutjämnare eller hanterad disklagring. Hanteringen och automatiseringen av funktioner, t.ex. autoskalning och redundans, medför inga ytterligare avgifter vid användningen av virtuella datorer.
+Det tillkommer ingen extra kostnad för skalningsuppsättningar. Du betalar bara för de underliggande beräkningsresurserna som VM-instanser, lastbalanserare eller hanterad disklagring. Hanteringen och automatiseringen av funktioner, t.ex. autoskalning och redundans, medför inga ytterligare avgifter vid användningen av virtuella datorer.
 
 
 ## <a name="next-steps"></a>Nästa steg

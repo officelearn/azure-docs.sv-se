@@ -87,7 +87,7 @@ Utför följande steg för att migrera Windows-filresurs som konfigurerats på S
     Hoppa över det här steget och gå till nästa steg om du använder en annan Windows Server-värd. Om du använder samma Windows-filserver för AFS får nu ett par minuter stillestånd. 
     - **Avbrottstiden startar** -ta bort serverslutpunkt som du skapade i *steg 1F*. 
     - Skapa en ny serverslutpunkt med sökvägen där du vill att data ska finnas går framåt.
-    - När Serverslutpunkten visas som Felfri (Detta kan ta några minuter), visas data i den här nya platsen. Du kan nu konfigurera Windows Server-värd för att hantera filer från den här nya platsen. -  **Nedtid ends**.
+    - När Serverslutpunkten visas som Felfri (Detta kan ta några minuter), visas data i den här nya platsen. Du kan nu konfigurera Windows Server-värd för att hantera filer från den här nya platsen.\ -  **Nedtid ends**.
 5.  Om du använder en annan Windows-filserver för Azure File Sync, kommer du inte får någon avbrottstid. 
     - Lägg till en annan serverslutpunkt med sökvägen till den lokala lagringen som du är beredd att använda som en cache i stället för StorSimple-enheten. 
     - Du kommer att kunna se filerna i den nya servern om några minuter. Du kan med övergången från StorSimple-enheten till den nya platsen på värden när som helst.

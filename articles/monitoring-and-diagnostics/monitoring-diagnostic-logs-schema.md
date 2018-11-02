@@ -8,12 +8,12 @@ ms.topic: reference
 ms.date: 10/11/2018
 ms.author: johnkem
 ms.component: logs
-ms.openlocfilehash: 3b665ed0539a41ffeca87511154f3607a57cff4a
-ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
+ms.openlocfilehash: 17efbfffde68208b76120d449f4e1d70e843fc7d
+ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49116201"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50914353"
 ---
 # <a name="supported-services-schemas-and-categories-for-azure-diagnostic-logs"></a>Tjänster som stöds, scheman och kategorier för Azure-diagnostikloggar
 
@@ -92,9 +92,11 @@ Schemat för resursdiagnostikloggar varierar beroende på resursen och log kateg
 |Microsoft.Batch/batchAccounts|ServiceLog|Tjänstloggar|
 |Microsoft.Cdn/profiles/endpoints|CoreAnalytics|Hämtar måtten för slutpunkten, t.ex. bandbredd, egress osv.|
 |Microsoft.ClassicNetwork/networksecuritygroups|Regelflödeshändelse för nätverkssäkerhetsgrupp|Regelflödeshändelse för nätverkssäkerhetsgrupp|
-|Microsoft.CognitiveServices/accounts|Granska|Granska|
+|Microsoft.CognitiveServices/accounts|Granska|Granskningsloggar|
+|Microsoft.CognitiveServices/accounts|RequestResponse|Begäran-svarsloggar|
 |Microsoft.ContainerService/managedClusters|kube-apiserver|Kubernetes API-servern|
 |Microsoft.ContainerService/managedClusters|kube-controller-manager|Kubernetes Controller Manager|
+|Microsoft.ContainerService/managedClusters|kluster-autoskalningen|Kubernetes-kluster Autoskalningen|
 |Microsoft.ContainerService/managedClusters|kube-schemaläggare|Kubernetes Scheduler|
 |Microsoft.ContainerService/managedClusters|Guard|Autentisering-Webhook|
 |Microsoft.CustomerInsights/hubs|AuditEvents|AuditEvents|
@@ -105,7 +107,7 @@ Schemat för resursdiagnostikloggar varierar beroende på resursen och log kateg
 |Microsoft.DataLakeAnalytics/accounts|Begäranden|Begära loggar|
 |Microsoft.DataLakeStore/accounts|Granska|Granskningsloggar|
 |Microsoft.DataLakeStore/accounts|Begäranden|Begära loggar|
-|Microsoft.DBforMySQL/servers|MySqlSlowLogs|MySQL långsamma frågeloggar|
+|Microsoft.DBforMySQL/servers|MySqlSlowLogs|MySQL Server-loggar|
 |Microsoft.DBforPostgreSQL/servers|PostgreSQLLogs|PostgreSQL-Server-loggar|
 |Microsoft.Devices/IotHubs|Anslutningar|Anslutningar|
 |Microsoft.Devices/IotHubs|DeviceTelemetry|Enhetstelemetri|
@@ -128,6 +130,14 @@ Schemat för resursdiagnostikloggar varierar beroende på resursen och log kateg
 |Microsoft.EventHub/namespaces|ArchiveLogs|Arkivera loggar|
 |Microsoft.EventHub/namespaces|OperationalLogs|Driftloggar|
 |Microsoft.EventHub/namespaces|AutoScaleLogs|Automatisk skalning loggar|
+|Microsoft.Insights/AutoscaleSettings|AutoscaleEvaluations|Utvärdering av automatisk skalning|
+|Microsoft.Insights/AutoscaleSettings|AutoscaleScaleActions|Skalningsåtgärder för automatisk skalning|
+|Microsoft.IoTSpaces/Graph|Spårning|Spårning|
+|Microsoft.IoTSpaces/Graph|I drift|I drift|
+|Microsoft.IoTSpaces/Graph|Granska|Granska|
+|Microsoft.IoTSpaces/Graph|UserDefinedFunction|UserDefinedFunction|
+|Microsoft.IoTSpaces/Graph|Ingress|Ingress|
+|Microsoft.IoTSpaces/Graph|Egress|Egress|
 |Microsoft.KeyVault/vaults|AuditEvent|Granskningsloggar|
 |Microsoft.Logic/workflows|WorkflowRuntime|Diagnostikhändelser för arbetsflödeskörning|
 |Microsoft.Logic/integrationAccounts|IntegrationAccountTrackingEvents|Spårningshändelser för integrationskonto|
@@ -136,6 +146,8 @@ Schemat för resursdiagnostikloggar varierar beroende på resursen och log kateg
 |Microsoft.Network/loadBalancers|LoadBalancerAlertEvent|Läsa in belastningsutjämnare Aviseringshändelser|
 |Microsoft.Network/loadBalancers|LoadBalancerProbeHealthStatus|Hälsostatusen avsökning för belastningsutjämnaren|
 |Microsoft.Network/publicIPAddresses|DDoSProtectionNotifications|DDoS protection-aviseringar|
+|Microsoft.Network/publicIPAddresses|DDoSMitigationFlowLogs|Flow-loggarna för DDoS-åtgärdsbeslut|
+|Microsoft.Network/publicIPAddresses|DDoSMitigationReports|Rapporter om DDoS-åtgärder|
 |Microsoft.Network/virtualNetworks|VMProtectionAlerts|VM-protection-aviseringar|
 |Microsoft.Network/applicationGateways|ApplicationGatewayAccessLog|Application Gateway åtkomst-loggar|
 |Microsoft.Network/applicationGateways|ApplicationGatewayPerformanceLog|Application Gateway-loggar för prestanda|
@@ -151,6 +163,8 @@ Schemat för resursdiagnostikloggar varierar beroende på resursen och log kateg
 |Microsoft.Network/virtualNetworkGateways|P2SDiagnosticLog|P2S-diagnostikloggar|
 |Microsoft.Network/trafficManagerProfiles|ProbeHealthStatusEvents|Traffic Manager avsökningen Hälsotillståndshändelse resultat|
 |Microsoft.Network/expressRouteCircuits|PeeringRouteLog|Peering väg Tabelloggar|
+|Microsoft.Network/frontdoors|FrontdoorAccessLog|Frontdoor Åtkomstlogg|
+|Microsoft.Network/frontdoors|FrontdoorWebApplicationFirewallLog|Frontdoor Web Application-brandväggslogg|
 |Microsoft.PowerBIDedicated/capacities|Motorn|Motorn|
 |Microsoft.RecoveryServices/Vaults|AzureBackupReport|Azure Backup rapportdata|
 |Microsoft.RecoveryServices/Vaults|AzureSiteRecoveryJobs|Azure Site Recovery-jobb|
@@ -173,10 +187,21 @@ Schemat för resursdiagnostikloggar varierar beroende på resursen och log kateg
 |Microsoft.Sql/servers/databases|Dödlägen|Dödlägen|
 |Microsoft.Sql/servers/databases|Granska|Granskningsloggar|
 |Microsoft.Sql/servers/databases|SQLSecurityAuditEvents|Granskningshändelse för SQL-säkerhet|
-|Microsoft.Sql/servers/databases|SqlDw_Requests|SQL DW-begäranden|
-|Microsoft.Sql/servers/databases|SqlDw_RequestSteps|SQL DW begäran steg|
+|Microsoft.Sql/servers/databases|DmsWorkers|DMS arbetare|
+|Microsoft.Sql/servers/databases|ExecRequests|Exec-begäranden|
+|Microsoft.Sql/servers/databases|RequestSteps|Steg för begäran|
+|Microsoft.Sql/servers/databases|SqlRequests|SQL-begäranden|
+|Microsoft.Sql/servers/databases|Väntar|Väntar|
+|Microsoft.Sql/managedInstances|ResourceUsageStats|Användningsstatistik för resursen|
+|Microsoft.Sql/managedInstances|SQLSecurityAuditEvents|Granskningshändelse för SQL-säkerhet|
+|Microsoft.Sql/managedInstances/databases|SQLInsights|SQL Insights|
+|Microsoft.Sql/managedInstances/databases|QueryStoreRuntimeStatistics|Query Store-Körningsstatistik|
+|Microsoft.Sql/managedInstances/databases|QueryStoreWaitStatistics|Query Store vänta statistik|
+|Microsoft.Sql/managedInstances/databases|Fel|Fel|
 |Microsoft.StreamAnalytics/streamingjobs|Körnings-|Körnings-|
 |Microsoft.StreamAnalytics/streamingjobs|Redigering|Redigering|
+|Microsoft.Web/Sites|FunctionExecutionLogs|Funktionen Körningsloggar|
+|Microsoft.Web/Sites/slots|FunctionExecutionLogs|Funktionen Körningsloggar|
 
 ## <a name="next-steps"></a>Nästa steg
 

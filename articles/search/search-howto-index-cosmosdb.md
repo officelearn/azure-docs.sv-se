@@ -10,12 +10,12 @@ ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 robot: noindex
-ms.openlocfilehash: c74563ba98835403f12a4df048d7ff358014b826
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 07768ee1590fa087a1eb1486cb59ab0f57d02b64
+ms.sourcegitcommit: 6678e16c4b273acd3eaf45af310de77090137fa1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49406678"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50747549"
 ---
 # <a name="connecting-cosmos-db-with-azure-search-using-indexers"></a>Ansluta Cosmos DB med Azure Search med indexerare
 
@@ -48,6 +48,8 @@ Stöd för ytterligare API: er är kommande. För att hjälpa oss att prioritera
 ## <a name="prerequisites"></a>Förutsättningar
 
 Förutom en Cosmos DB-konto, måste du ha en [Azure Search-tjänst](search-create-service-portal.md). 
+
+Du kan välja om du vill att samlingen som automatiskt indexerar alla dokument i ditt Cosmos DB-konto. Alla dokument som indexeras automatiskt som standard, men du kan inaktivera automatisk indexering. När är avstängd indexera dokument kan nås endast via sina egna länkar eller av frågor med hjälp av webbplatsen-ID. Azure Search kräver Cosmos DB automatisk indexering för att aktiveras i den samling som kommer att indexeras av Azure Search. 
 
 <a name="Concepts"></a>
 ## <a name="azure-search-indexer-concepts"></a>Azure Search-indexeraren begrepp

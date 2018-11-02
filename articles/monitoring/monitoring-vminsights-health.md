@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/25/2018
 ms.author: magoedte
-ms.openlocfilehash: 059667787c905f47f6629afdb249a2273ceed585
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.openlocfilehash: 0f149d09b310553ecd5b03e94601408f279d9c0c
+ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50094235"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50914319"
 ---
 # <a name="understand-the-health-of-your-azure-virtual-machines-with-azure-monitor-for-vms-preview"></a>Förstå hälsotillståndet för virtuella datorer i Azure med Azure Monitor för virtuella datorer (förhandsversion)
 Azure innehåller flera tjänster som individuellt utför en viss roll eller en uppgift i övervakningsutrymmet, men ger en djupgående hälsotillstånd perspektiv av operativsystemet som körs på virtuella Azure-datorer inte var tillgänglig.  Medan du kan övervaka för olika villkor med hjälp av Log Analytics och Azure Monitor, har de inte utvecklats modellera och representerar hälsan för kärnkomponenter eller övergripande hälsa för den virtuella datorn.  Med Azure Monitor för virtuella datorer hälsotillstånd funktion kan övervakar det proaktivt tillgänglighet och prestanda för Windows eller Linux gästoperativsystemet med en modell som representerar viktiga komponenter och deras relationer villkor som anger hur hälsotillståndet för de komponenter, och varnar dig när ett feltillstånd har identifierats.  
@@ -188,7 +188,7 @@ I följande tabell innehåller information om hälsotillstånd som representeras
 
 Sidan för Health-diagnostik har tre huvudområden:
 
-* Komponentmodellen 
+* Komponentmodell 
 * Hälsovillkor
 * Tillståndsändringar 
 
@@ -267,11 +267,11 @@ Du kan filtrera den här vyn genom att välja värden i listrutorna överst på 
 |Resurs |Välj en resurs. Endast aviseringar med den här resursen som ett mål som ingår i vyn. Den här kolumnen är endast tillgänglig när du har angett en resurstyp. | 
 |Severity |välja en allvarlighetsgrad för avisering eller välj *alla* att inkludera aviseringar för alla allvarlighetsgrader. | 
 |Övervakningsvillkor |Välj ett övervakningsvillkor att filtrera aviseringar om de har *Fired* av systemet eller *löst* av systemet om villkoret är inte längre aktiv. Eller välj *alla* att inkludera aviseringar av alla villkor. | 
-|Tillstånd för avisering |Välj en aviseringstillståndet *New*, *Bekräfta*, *stängd*, eller välj *alla* att inkludera aviseringar av alla tillstånd. | 
+|Aviseringstillstånd |Välj en aviseringstillståndet *New*, *Bekräfta*, *stängd*, eller välj *alla* att inkludera aviseringar av alla tillstånd. | 
 |Övervaka tjänsten |Välj en tjänst, eller välj *alla* att inkludera alla tjänster. Endast varningar från *VM insikter* stöds för den här funktionen.| 
 |Tidsintervall| Bara de aviseringar som utlösts inom det valda tidsfönstret ingår i vyn. Värden som stöds är den senaste timmen, de senaste 24 timmarna, de senaste 7 dagarna och de senaste 30 dagarna. | 
 
-Den **Avisera detalj** visas när du väljer en avisering genom att tillhandahålla information om aviseringen och så att du kan ändra tillståndet. Mer information om hur du hanterar aviseringar finns [skapa, visa och hantera aviseringar med hjälp av Azure Monitor](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md).  
+Den **Avisera detalj** visas när du väljer en avisering genom att tillhandahålla information om aviseringen och så att du kan ändra tillståndet. Mer information om hur du hanterar aviseringar finns [skapa, visa och hantera aviseringar med hjälp av Azure Monitor](../monitoring-and-diagnostics/alert-metric.md).  
 
 >[!NOTE]
 >Det finns inte stöd för att skapa nya aviseringar baserat på kriterier för hälsotillstånd eller ändra befintliga hälsotillstånd aviseringsregler i Azure Monitor från portalen för just nu.  

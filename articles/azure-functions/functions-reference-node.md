@@ -12,12 +12,12 @@ ms.devlang: nodejs
 ms.topic: reference
 ms.date: 10/26/2018
 ms.author: glenga
-ms.openlocfilehash: 1918ed664a79a46f25cfc5162a28b311bea29cd8
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
+ms.openlocfilehash: 18ff0e3fadad64f7bd7fe014a6dcec6a628ef1b9
+ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50740462"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50914561"
 ---
 # <a name="azure-functions-javascript-developer-guide"></a>Utvecklarguide för Azure Functions JavaScript
 
@@ -76,7 +76,7 @@ När du använder den [ `async function` ](https://developer.mozilla.org/docs/We
 
 I följande exempel är en enkel funktion som loggar den utlöstes och omedelbart är slutfört.
 
-``` javascript
+```javascript
 module.exports = async function (context) {
     context.log('JavaScript trigger function processed a request.');
 };
@@ -112,19 +112,24 @@ I JavaScript, [bindningar](functions-triggers-bindings.md) konfigureras och defi
 ### <a name="reading-trigger-and-input-data"></a>Läsa utlösare och indata
 Utlös och ange Bindningar (bindningarna för `direction === "in"`) kan läsas av en funktion på tre sätt:
  - **_(Rekommenderas)_  Som parametrarna som skickades till funktionen.** De skickas till funktionen i samma ordning som de har definierats i *function.json*. Observera att den `name` egenskapen som definierats i *function.json* behöver inte matcha namnet på parametern, även om den ska.
-   ``` javascript
+ 
+   ```javascript
    module.exports = async function(context, myTrigger, myInput, myOtherInput) { ... };
    ```
+   
  - **Medlemmar i den [ `context.bindings` ](#contextbindings-property) objekt.** Varje medlem heter genom den `name` egenskapen som definierats i *function.json*.
-   ``` javascript
+ 
+   ```javascript
    module.exports = async function(context) { 
        context.log("This is myTrigger: " + context.bindings.myTrigger);
        context.log("This is myInput: " + context.bindings.myInput);
        context.log("This is myOtherInput: " + context.bindings.myOtherInput);
    };
    ```
+   
  - **Som indata med hjälp av JavaScript [ `arguments` ](https://msdn.microsoft.com/library/87dw3w1k.aspx) objekt.** Detta är i princip detsamma som att skicka indata som parametrar, men kan du dynamiskt hantera indata.
-   ``` javascript
+ 
+   ```javascript
    module.exports = async function(context) { 
        context.log("This is myTrigger: " + arguments[1]);
        context.log("This is myInput: " + arguments[2]);
@@ -137,7 +142,8 @@ Utdata (bindningarna för `direction === "out"`) kan skrivas till av en funktion
 
 Du kan tilldela data till utdatabindningar i något av följande sätt. Du bör inte kombinera dessa metoder.
 - **_(Rekommenderas för flera utdata)_  Returnerar ett objekt.** Om du använder en asynkron/löftet som returnerar funktionen, kan du returnera ett objekt med tilldelade utdata. I exemplet nedan visas utdatabindningar namnges ”httpResponse” och ”queueOutput” i *function.json*.
-  ``` javascript
+
+  ```javascript
   module.exports = async function(context) {
       let retMsg = 'Hello, world!';
       return {
@@ -148,10 +154,12 @@ Du kan tilldela data till utdatabindningar i något av följande sätt. Du bör 
       };
   };
   ```
+  
   Om du använder en synkron funktion kan du gå tillbaka det här objektet med [ `context.done` ](#contextdone-method) (se exemplet).
 - **_(Rekommenderas för enkel utdata)_  Returnera ett värde direkt och använda bindningsnamn $return.** Detta fungerar endast för asynkrona/löftet returnerar funktioner. Se exemplet i [exporterar en async-funktion](#exporting-an-async-function). 
 - **Tilldela värden till `context.bindings`**  du kan tilldela värden direkt till context.bindings.
-  ``` javascript
+
+  ```javascript
   module.exports = async function(context) {
       let retMsg = 'Hello, world!';
       context.bindings.httpResponse = {

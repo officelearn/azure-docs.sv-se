@@ -16,12 +16,12 @@ ms.component: report-monitor
 ms.date: 05/31/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 85df34445622a13488df590f5cb53bedb7b6ea93
-ms.sourcegitcommit: 1af4bceb45a0b4edcdb1079fc279f9f2f448140b
+ms.openlocfilehash: ce06c72c9974b4887cc441344fd755bfd156a1ca
+ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "42060863"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50914727"
 ---
 # <a name="sign-in-activity-report-error-codes-in-the-azure-active-directory-portal"></a>Rapporter om inloggningfelkoder i Azure Active Directory-portalen
 
@@ -117,10 +117,10 @@ Följande avsnitt ger en fullständig översikt över alla eventuella fel och re
 |50135|Lösenordet måste ändras på grund av risken för kontot|
 |50136|Omdirigera MSA-session till en app – enkel MSA-session har identifierats |
 |50140|Det här felet uppstod på grund av att den kontinuerliga inloggningen avbröts när användaren loggade in. [Skapa ett supportärende](../fundamentals/active-directory-troubleshooting-support-howto.md) med korrelations-ID, ID för begäran och felkod för mer information. |
-|50143|Felaktig matchning av session – sessionen är ogiltig eftersom användarens klientorganisation inte matchar domäntipset på grund av en annan resurs. [Skapa ett supportärende](../fundamentals/active-directory-troubleshooting-support-howto.md) med korrelations-ID, ID för begäran och felkod för mer information.|
+|50143|Felaktig matchning av Session - Session är ogiltig eftersom användaren klientorganisationen inte matchar tips för domänen på grund av en annan resurs.  [Öppna ett supportärende](../fundamentals/active-directory-troubleshooting-support-howto.md) med Korrelations-ID, ID för begäran och fel kod att få mer information.|
 |50144|Användarens Active Directory-lösenord har upphört att gälla. Skapa ett nytt lösenord för användaren eller låt slutanvändaren använda verktyget för återställning själv|
 |50146|Det här programmet måste konfigureras med en programspecifik signeringsnyckel. Det har antingen inte konfigurerats med en sådan eller så har nyckeln upphört att gälla/är inte giltig än. Kontakta programägaren|
-|50148|Code_verifier matchar inte code_challenge som anges i autentiseringsbegäran för PKCE. Kontakta apputvecklaren. |
+|50148|Code_verifier matchar inte code_challenge som anges i autentiseringsbegäran för PKCE. Kontakta apputvecklaren. |
 |50155|Det gick inte att autentisera enheten för begäran|
 |50158|Den externa säkerhetskontrollen uppfylldes inte|
 |50161|Anspråk som skickas av en extern provider är inte tillräckliga eller så saknas anspråket till den externa providern|
@@ -128,7 +128,7 @@ Följande avsnitt ger en fullständig översikt över alla eventuella fel och re
 |50169|Sfären är inte en konfigurerad sfär för det aktuella tjänstnamnområdet.|
 |50172|Den externa påståendeprovidern är inte godkänd. Kontakta administratören för klientorganisationen|
 |50173|Ny säkerhetstoken krävs. Låt användaren signera igen med nya autentiseringsuppgifter|
-|50177|Extern fråga stöds inte för genomströmningsanvändare|
+|50177|Externa utmaning stöds inte för genomströmning användare|
 |50178|Sessionskontroll stöds inte för genomströmningsanvändare|
 |50180|Windows-integrerad autentisering behövs. Aktivera klientorganisationen för sömlös SSO.|
 |51001|Domäntipset finns inte med den lokala säkerhetsidentifieraren – lokalt UPN|
@@ -152,7 +152,7 @@ Följande avsnitt ger en fullständig översikt över alla eventuella fel och re
 |70007|Programmet returnerade ett värde som inte stöds av "response_mode" när du begär en token. Kontakta appägaren|
 |70008|Den angivna autentiseringskoden eller uppdateringstoken har upphört att gälla – återkallad. Låt användaren prova att logga in igen|
 |70011|Omfånget som programmet begärde är ogiltigt. Kontakta programägaren|
-|70012|Ett serverfel uppstod under autentisering av en MSA-användare (konsument). Försök igen. Om det fortfarande misslyckas [skapar du ett supportärende](../fundamentals/active-directory-troubleshooting-support-howto.md) |
+|70012|Ett serverfel uppstod under autentisering av en MSA-användare (konsument). Försök igen. Om det fortsättningsvis misslyckas, [öppna ett supportärende](../fundamentals/active-directory-troubleshooting-support-howto.md) |
 |70018|Ogiltig verifieringskod på grund av att användaren skriver in fel användarkod för kodflödet för enheten. Autentiseringen godkänns inte|
 |70019|Verifieringskoden har upphört att gälla. Låt användaren prova att logga in igen|
 |70037|Felaktigt utmaningssvar har angetts. Fjärrsessionen för autentisering nekad.|
@@ -180,6 +180,7 @@ Följande avsnitt ger en fullständig översikt över alla eventuella fel och re
 |90014| Ett obligatoriskt fält för ett protokollmeddelande var saknas, Kontakta programmets ägare. Om du är programmets ägare kan du kontrollera att du har alla nödvändiga parametrar för inloggningsbegäran. |
 |90072| Kontot måste läggas till som en extern användare i klientorganisationen först. Logga ut och logga in igen med en annan Azure AD konto.|
 |90094| Beviljande måste ha administratörsbehörighet. Be klientorganisationens administratör att ge medgivande för det här programmet.|
+|500133| Kontrollen är inte inom räckvidden giltig tid. Se till att den åtkomst-token inte har gått ut innan du använder den för användaren assertion eller begära en ny token.|
 
 ## <a name="next-steps"></a>Nästa steg
 

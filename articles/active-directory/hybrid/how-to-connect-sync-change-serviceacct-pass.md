@@ -13,15 +13,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/12/2017
+ms.date: 10/31/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: b0b88622069801124aff5b44dc4b813838f41c73
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
-ms.translationtype: HT
+ms.openlocfilehash: 331c536970445dacdb9afc9d3cfa5711b82bfbf0
+ms.sourcegitcommit: 6678e16c4b273acd3eaf45af310de77090137fa1
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46315170"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50747260"
 ---
 # <a name="changing-the-azure-ad-connect-sync-service-account-password"></a>Ändra Azure AD Connect sync tjänstkontolösenord
 Om du ändrar Azure AD Connect sync tjänstkontolösenord kan synkroniseringstjänsten inte kan starta korrekt förrän du har avbrutit krypteringsnyckeln och initierats om Azure AD Connect sync tjänstkontolösenord. 
@@ -59,6 +59,8 @@ Använd följande procedurer för att lämna krypteringsnyckeln.
 
 Om du vill lämna krypteringsnyckeln kan du använda följande procedurer för att åstadkomma detta.
 
+1. [Stoppa synkroniseringstjänsten](#stop-the-synchronization-service)
+
 1. [Avbryt den befintliga krypteringsnyckeln](#abandon-the-existing-encryption-key)
 
 2. [Anger du lösenordet för AD DS-kontot](#provide-the-password-of-the-ad-ds-account)
@@ -66,6 +68,13 @@ Om du vill lämna krypteringsnyckeln kan du använda följande procedurer för a
 3. [Initiera om lösenordet för Azure AD sync-konto](#reinitialize-the-password-of-the-azure-ad-sync-account)
 
 4. [Starta synkroniseringstjänsten](#start-the-synchronization-service)
+
+#### <a name="stop-the-synchronization-service"></a>Stoppa synkroniseringstjänsten
+Du kan först stoppa tjänsten i Windows Service Control Manager.  Kontrollera att tjänsten inte körs vid försök att stoppa den.  Om den är, vänta tills den har slutförts och stoppa den.
+
+
+1. Gå till Windows Service Control Manager (START → tjänster).
+2. Välj **Microsoft Azure AD Sync** och klicka på Stoppa.
 
 #### <a name="abandon-the-existing-encryption-key"></a>Avbryt den befintliga krypteringsnyckeln
 Avbryt den befintliga krypteringsnyckeln så att du kan skapa den nya krypteringsnyckeln för:

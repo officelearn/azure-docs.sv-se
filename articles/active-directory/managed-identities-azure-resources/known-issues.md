@@ -15,12 +15,12 @@ ms.tgt_pltfrm: ''
 ms.workload: identity
 ms.date: 12/12/2017
 ms.author: daveba
-ms.openlocfilehash: 2a759aea4288af2e90335b47244408d6a537e24b
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: fa872c184429e69eb46fb4da112c08ee9432f1c4
+ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44295589"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50913996"
 ---
 # <a name="faqs-and-known-issues-with-managed-identities-for-azure-resources"></a>Vanliga frågor och kända problem med hanterade identiteter för Azure-resurser
 
@@ -29,7 +29,7 @@ ms.locfileid: "44295589"
 ## <a name="frequently-asked-questions-faqs"></a>Vanliga frågor och svar
 
 > [!NOTE]
-> Hanterade identiteter för Azure-resurser är det nya namnet för tjänsten tidigare känd som hanterad tjänstidentitet (MSI).
+> Hanterade identiteter för Azure-resurser är det nya namnet på tjänsten som tidigare hade namnet Hanterad tjänstidentitet (MSI).
 
 ### <a name="does-managed-identities-for-azure-resources-work-with-azure-cloud-services"></a>Fungerar hanterade identiteter för Azure-resurser med Azure Cloud Services?
 
@@ -60,7 +60,7 @@ Läs mer på Azure Instance Metadata Service [IMDS dokumentation](https://docs.m
 
 Alla Linux-distributioner som stöds av Azure IaaS kan användas med hanterade identiteter för Azure-resurser via IMDS-slutpunkt. 
 
-Obs: Hanterade identiteter för Azure-resurser VM-tillägg (planerad för utfasning i januari 2019) stöder endast följande Linux-distributioner:
+Hanterade identiteter för Azure-resurser VM-tillägg (planerad för utfasning i januari 2019) har endast stöd för följande Linux-distributioner:
 - CoreOS stabila
 - CentOS 7.1
 - Red Hat 7.2
@@ -124,16 +124,23 @@ När den virtuella datorn har startats kan taggen tas bort med hjälp av följan
 az vm update -n <VM Name> -g <Resource Group> --remove tags.fixVM
 ```
 
-## <a name="known-issues-with-user-assigned-identities"></a>Kända problem med användartilldelade identiteter
+### <a name="vm-extension-provisioning-fails"></a>VM-tillägget etablering misslyckas
 
-- tilldelningar för Användartilldelad identitet är bara tillgängliga för virtuella datorer och VMSS. Viktigt: Användartilldelad identitet tilldelningar kommer att ändras under de kommande månaderna.
-- Duplicera användartilldelade identiteter på samma VM/VMSS, leder VM/VMSS misslyckas. Detta inkluderar identiteter som har lagts till med ett annat skiftläge. t.ex. MyUserAssignedIdentity och myuserassignedidentity. 
-- Etablering av VM-tillägget (planerad för utfasning i januari 2019) till en virtuell dator kan misslyckas på grund av DNS-sökning fel. Starta om den virtuella datorn och försök igen. 
-- Att lägga till en ”icke-existerande' Användartilldelad identitet gör att den virtuella datorn misslyckas. 
-- Det går inte att skapa en Användartilldelad identitet med specialtecken (t.ex. understreck) i namnet.
-- Användartilldelad identitetsnamn är begränsade till 24 tecken för slutpunkt till slutpunkt-scenario. användartilldelade identiteter med namn som är längre än 24 tecken kan inte tilldelas.
+Etablering av VM-tillägget kan misslyckas på grund av DNS-sökning fel. Starta om den virtuella datorn och försök igen.
+ 
+> [!NOTE]
+> VM-tillägget är planerat för utfasning av januari 2019. Vi rekommenderar att du flyttar till med hjälp av IMDS-slutpunkt.
+
+### <a name="transferring-a-subscription-between-azure-ad-directories"></a>Överföra en prenumeration mellan Azure AD-kataloger
+
+Hanterade identiteter inte uppdateras när en prenumeration har flyttats/överförs till en annan katalog. Alla existerande systemtilldelade eller användartilldelade hanterade identiteter kommer därför att brytas. 
+
+Som en tillfällig lösning när prenumerationen har flyttats, kan du inaktivera systemtilldelade hanterade identiteter och aktivera dem igen. På samma sätt kan du ta bort och återskapa alla hanterade användartilldelade identiteter. 
+
+## <a name="known-issues-with-user-assigned-managed-identities"></a>Kända problem med användartilldelade hanterade identiteter
+
+- Skapa en hanterad Användartilldelad identitet med specialtecken (t.ex. understreck) i namnet, stöds inte.
+- Användartilldelad identitetsnamn är begränsade till 24 tecken. Om namnet är längre än 24 tecken, misslyckas identiteten som ska tilldelas till en resurs (dvs. den virtuella datorn.)
 - Om du använder tillägget för virtuell dator hanterad identitet, (planerad för utfasning i januari 2019) är gränsen 32 användartilldelade hanterade identiteter. Gränsen som stöds är 512 utan tillägget för virtuell dator hanterad identitet.  
-- När du lägger till en andra Användartilldelad identitet, kanske clientID inte tillgänglig för begäranden token för VM-tillägget. Starta om de hanterade identiteterna för VM-tillägg för Azure-resurser med följande två bash-kommandon som en lösning:
- - `sudo bash -c "/var/lib/waagent/Microsoft.ManagedIdentity.ManagedIdentityExtensionForLinux-1.0.0.8/msi-extension-handler disable"`
- - `sudo bash -c "/var/lib/waagent/Microsoft.ManagedIdentity.ManagedIdentityExtensionForLinux-1.0.0.8/msi-extension-handler enable"`
-- När en virtuell dator har en Användartilldelad identitet, men ingen systemtilldelad identitet, hanterade identiteter för Azure-resurser i portalen som visar Användargränssnittet som inaktiverade. Aktivera systemtilldelad identitet genom att använda en Azure Resource Manager-mall, en Azure CLI eller SDK.
+- Om du flyttar en hanterad Användartilldelad identitet till en annan resursgrupp kommer identiteten att avbryta. Därför kommer du inte att kunna begära token för den identiteten. 
+- Överföra en prenumeration till en annan katalog bryts alla befintliga hanterade användartilldelade-identiteter. 

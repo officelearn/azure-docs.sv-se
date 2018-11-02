@@ -64,6 +64,7 @@
 
 ## Kontinuerlig integrering och distribution
 ### [Översikt](data-lake-analytics-cicd-overview.md)
+### [Sammansättningsregistrering](data-lake-analytics-cicd-manage-assemblies.md)
 ### [Konfigurera tester](data-lake-analytics-cicd-test.md)
 ### [U-SQL SDK](data-lake-analytics-u-sql-sdk.md)
 

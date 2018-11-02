@@ -12,13 +12,13 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 manager: craigg
-ms.date: 09/14/2018
-ms.openlocfilehash: d5b98f573b60115002e813ebbef59eb7983ce3c2
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.date: 10/31/2018
+ms.openlocfilehash: 233e6e9bccd8729cd61514f2855799cf3d22d72b
+ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47064398"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50914676"
 ---
 # <a name="sql-error-codes-for-sql-database-client-applications-database-connection-errors-and-other-issues"></a>SQL-felkoder för SQL Database-klientprogram: anslutningsfel och andra problem
 
@@ -106,35 +106,35 @@ Relaterade ämnen:
 ## <a name="elastic-pool-errors"></a>Elastisk pool-fel
 Följande fel är relaterade till skapar och använder elastiska pooler:
 
-| ErrorNumber | ErrorSeverity | ErrorFormat | ErrorInserts | ErrorCause | ErrorCorrectiveAction |
-|:--- |:--- |:--- |:--- |:--- |:--- |
-| 1132 |EX_RESOURCE |Den elastiska poolen har nått sin lagringsgräns. Lagringsanvändningen för den elastiska poolen får inte överskrida (%d) MB. |Elastisk pool gräns för diskutrymme i MB. |Försök att skriva data till en databas när gränsen för lagring på den elastiska poolen har uppnåtts. |Överväg att öka dtu: er för och/eller att lägga till lagring till den elastiska poolen om möjligt för att öka sin lagringsgräns minska lagring som används av enskilda databaser på den elastiska poolen eller ta bort databaser från den elastiska poolen. |
-| 10929 |EX_USER |%S minsta garantin är %d, övre gräns är %d och aktuell användning för databasen är %d. Men är servern upptagen för närvarande stöd för begäranden som är större än %d för den här databasen. Se [ http://go.microsoft.com/fwlink/?LinkId=267637 ](http://go.microsoft.com/fwlink/?LinkId=267637) för att få hjälp. I annat fall. Försök igen senare. |DTU / vCore-min per databas. DTU / vCore-max per databas |Det totala antalet samtidiga arbetare (begäranden) över alla databaser i den elastiska poolen försökte överskrider gränsen för poolen. |Överväg att öka dtu: er eller vCores för den elastiska poolen om möjligt för att öka gränsen worker eller ta bort databaser från den elastiska poolen. |
-| 40844 |EX_USER |Databasen '%ls ”på servern '%ls” är en '%ls ”edition-databas i en elastisk pool och kan inte ha en relation för kontinuerlig kopiering. |databasens namn, databasversionen, servernamn |En StartDatabaseCopy utfärdas för en icke-premium-databas i en elastisk pool. |Kommer snart |
-| 40857 |EX_USER |Elastisk pool hittades inte för servern: '%ls ”, namn på elastisk pool: '%ls”. |namnet på servern. namn på elastisk pool |Angivna elastisk pool finns inte i den angivna servern. |Ange ett giltigt elastisk pool-namn. |
-| 40858 |EX_USER |Elastisk pool '%ls ”finns redan på servern: '%ls” |namn på elastisk pool, servernamn |Angivna elastisk pool finns redan i den angivna logiska servern. |Ange namn på ny elastisk pool. |
-| 40859 |EX_USER |Elastisk pool stöder inte tjänstnivå '%ls ”. |elastiska pooltjänstnivå |Angivna tjänstnivå finns inte stöd för etablering av elastisk pool. |Ange rätt version eller lämna det tomt om du vill använda standard-tjänstnivå tjänstnivå. |
-| 40860 |EX_USER |Kombinationen av elastisk pool '%ls ”och tjänsten objective '%ls” är ogiltig. |namn på elastisk pool; tjänstnivå |Elastisk pool och service-nivån kan anges tillsammans endast om resurstyp har angetts som ”ElasticPool”. |Ange rätt kombination av elastisk pool och tjänstnivå. |
-| 40861 |EX_USER |Databasversionen ' %. *ls' får inte vara densamma som den elastiska pooltjänstnivå som är ' %.* ls'. |Databasversionen, elastiska pooltjänstnivå |Databasversionen är annorlunda än den elastiska pooltjänstnivå. |Ange databasutgåva som skiljer sig från den elastiska pooltjänstnivå.  Observera att databasversionen inte måste anges. |
-| 40862 |EX_USER |Namn på elastisk pool måste vara anges om den elastiska pooltjänsten har angetts. |Ingen |Elastiska pooltjänsten identifierar inte en elastisk pool. |Ange namn på elastisk pool om du använder den elastiska pooltjänsten. |
-| 40864 |EX_USER |Dtu: er för den elastiska poolen måste vara minst (%d) dtu: er för tjänstnivån ' %. * ls'. |Dtu: er för elastiska poolen. elastiska pooltjänstnivå. |Om du försöker ange dtu: er för den elastiska poolen under minimigränsen. |Gör om inställningen dtu: erna för elastiska pool för minst det lägsta tillåtna värdet. |
-| 40865 |EX_USER |Dtu: er för den elastiska poolen får inte överskrida (%d) dtu: er för tjänstnivån ' %. * ls'. |Dtu: er för elastiska poolen. elastiska pooltjänstnivå. |Om du försöker ange dtu: er för den elastiska poolen ovan maxgränsen. |Försök att ställa in dtu: er för den elastiska poolen är större än den maximala gränsen. |
-| 40867 |EX_USER |Max DTU per databas måste vara minst (%d) för tjänstnivån ' %. * ls'. |Max DTU per databas. elastiska pooltjänstnivå |Om du försöker ange max DTU per databas under gränsen som stöds. | Överväg att använda den elastiska pooltjänstnivå som har stöd för önskad inställning. |
-| 40868 |EX_USER |Max DTU per databas får inte överskrida (%d) för tjänstnivån ' %. * ls'. |Max DTU per databas. elastiska pooltjänstnivå. |Om du försöker ange max DTU per databas över gränsen som stöds. | Överväg att använda den elastiska pooltjänstnivå som har stöd för önskad inställning. |
-| 40870 |EX_USER |Minsta DTU per databas får inte överskrida (%d) för tjänstnivån ' %. * ls'. |Minsta DTU per databas. elastiska pooltjänstnivå. |Om du försöker ange minsta DTU per databas över gränsen som stöds. | Överväg att använda den elastiska pooltjänstnivå som har stöd för önskad inställning. |
-| 40873 |EX_USER |Antal databaser (%d) och minsta DTU per databas (%d) får inte överskrida dtu: er för den elastiska poolen (%d). |Antal databaser i elastiska poolen. Minsta DTU per databas. Dtu: er för elastisk pool. |Försöker ange minsta DTU för databaser i den elastiska poolen som överskrider dtu: er för den elastiska poolen. | Överväg att öka dtu: er för den elastiska poolen, eller minska minsta DTU per databas, eller minska antalet databaser i den elastiska poolen. |
-| 40877 |EX_USER |En elastisk pool kan inte tas bort om den inte innehåller några databaser. |Ingen |Den elastiska poolen innehåller en eller flera databaser och därför inte tas bort. |Ta bort databaser från den elastiska poolen för att ta bort den. |
-| 40881 |EX_USER |Den elastiska poolen ' %. * ls' har nått sin gräns för antal av databasen.  Databasen antal tillåtna för den elastiska poolen får inte överskrida (%d) för en elastisk pool med (%d) dtu: er. |Namnet på elastiska poolen. Antal begränsning på elastiska poolen. edtu: er för resurspoolen. |Försöker skapa eller lägga till databasen i elastisk pool när databasen antalsgränsen på den elastiska poolen har uppnåtts. | Överväg att öka dtu: er för den elastiska poolen om möjligt för att öka sin databasgräns för eller ta bort databaser från den elastiska poolen. |
-| 40889 |EX_USER |Dtu: er eller lagringsgränsen för den elastiska poolen ' %. * ls' kan inte minskas eftersom då inte skulle tillhandahållas tillräckligt med lagringsutrymme för dess databaser. |Namn på elastisk pool. |Försöker lagringsgränsen för den elastiska poolen under dess lagringsanvändning. | Överväg att minska lagringsanvändningen enskilda databaser i den elastiska poolen eller ta bort databaser från poolen för att minska dess dtu: erna eller lagringsgränsen. |
-| 40891 |EX_USER |Minsta DTU per databas (%d) får inte överskrida max DTU per databas (%d). |Minsta DTU per databas. Max DTU per databas. |Om du försöker ange minsta DTU per databas som är högre än max DTU per databas. |Kontrollera minsta DTU per databaser inte överskrida max DTU per databas. |
-| TBD |EX_USER |Lagringsstorleken för en enskild databas i en elastisk pool får inte överskrida den maximala storleken som tillåts av ' %. * ls' service tier elastisk pool. |elastiska pooltjänstnivå |Max storlek för databasen överskrider den maximala storleken som tillåts av den elastiska pooltjänstnivå. |Ställ in maxstorleken på databasen inom ramen för den maximala storleken som tillåts av den elastiska pooltjänstnivå. |
+| Felkod | Severity | Beskrivning | Korrigerande åtgärd |
+|:--- |:--- |:--- |:--- |
+| 1132 | 17 |Den elastiska poolen har nått sin lagringsgräns. Lagringsanvändningen för den elastiska poolen får inte överskrida (%d) MB. Försök att skriva data till en databas när gränsen för lagring på den elastiska poolen har uppnåtts. |Överväg att öka dtu: er för och/eller att lägga till lagring till den elastiska poolen om möjligt för att öka sin lagringsgräns minska lagring som används av enskilda databaser på den elastiska poolen eller ta bort databaser från den elastiska poolen. |
+| 10929 | 16 |%S minsta garantin är %d, övre gräns är %d och aktuell användning för databasen är %d. Men är servern upptagen för närvarande stöd för begäranden som är större än %d för den här databasen. Se [ http://go.microsoft.com/fwlink/?LinkId=267637 ](http://go.microsoft.com/fwlink/?LinkId=267637) för att få hjälp. I annat fall. Försök igen senare. DTU / vCore-min per databas. DTU / vCore-max per databas. Det totala antalet samtidiga arbetare (begäranden) över alla databaser i den elastiska poolen försökte överskrider gränsen för poolen. |Överväg att öka dtu: er eller vCores för den elastiska poolen om möjligt för att öka gränsen worker eller ta bort databaser från den elastiska poolen. |
+| 40844 | 16 |Databasen '%ls ”på servern '%ls” är en '%ls ”edition-databas i en elastisk pool och kan inte ha en relation för kontinuerlig kopiering.  |Gäller inte |
+| 40857 | 16 |Elastisk pool hittades inte för servern: '%ls ”, namn på elastisk pool: '%ls”. Angivna elastisk pool finns inte i den angivna servern. | Ange ett giltigt elastisk pool-namn. |
+| 40858 | 16 |Elastisk pool '%ls ”finns redan på servern: '%ls”. Angivna elastisk pool finns redan i den angivna logiska servern. | Ange namn på ny elastisk pool. |
+| 40859 | 16 |Elastisk pool stöder inte tjänstnivå '%ls ”. Angivna tjänstnivå finns inte stöd för etablering av elastisk pool. |Ange rätt version eller lämna det tomt om du vill använda standard-tjänstnivå tjänstnivå. |
+| 40860 | 16 |Kombinationen av elastisk pool '%ls ”och tjänsten objective '%ls” är ogiltig. Elastisk pool och service-nivån kan anges tillsammans endast om resurstyp har angetts som ”ElasticPool”. |Ange rätt kombination av elastisk pool och tjänstnivå. |
+| 40861 | 16 |Databasversionen ' %. *ls' får inte vara densamma som den elastiska pooltjänstnivå som är ' %.* ls'. Databasversionen är annorlunda än den elastiska pooltjänstnivå. |Ange databasutgåva som skiljer sig från den elastiska pooltjänstnivå.  Observera att databasversionen inte måste anges. |
+| 40862 | 16 |Namn på elastisk pool måste vara anges om den elastiska pooltjänsten har angetts. Elastiska pooltjänsten identifierar inte en elastisk pool. |Ange namn på elastisk pool om du använder den elastiska pooltjänsten. |
+| 40864 | 16 |Dtu: er för den elastiska poolen måste vara minst (%d) dtu: er för tjänstnivån ' %. * ls'. Om du försöker ange dtu: er för den elastiska poolen under minimigränsen. |Gör om inställningen dtu: erna för elastiska pool för minst det lägsta tillåtna värdet. |
+| 40865 | 16 |Dtu: er för den elastiska poolen får inte överskrida (%d) dtu: er för tjänstnivån ' %. * ls'. Om du försöker ange dtu: er för den elastiska poolen ovan maxgränsen. |Försök att ställa in dtu: er för den elastiska poolen är större än den maximala gränsen. |
+| 40867 | 16 |Max DTU per databas måste vara minst (%d) för tjänstnivån ' %. * ls'. Om du försöker ange max DTU per databas under gränsen som stöds. | Överväg att använda den elastiska pooltjänstnivå som har stöd för önskad inställning. |
+| 40868 | 16 |Max DTU per databas får inte överskrida (%d) för tjänstnivån ' %. * ls'. Om du försöker ange max DTU per databas över gränsen som stöds. | Överväg att använda den elastiska pooltjänstnivå som har stöd för önskad inställning. |
+| 40870 | 16 |Minsta DTU per databas får inte överskrida (%d) för tjänstnivån ' %. * ls'. Om du försöker ange minsta DTU per databas över gränsen som stöds. | Överväg att använda den elastiska pooltjänstnivå som har stöd för önskad inställning. |
+| 40873 | 16 |Antal databaser (%d) och minsta DTU per databas (%d) får inte överskrida dtu: er för den elastiska poolen (%d). Försöker ange minsta DTU för databaser i den elastiska poolen som överskrider dtu: er för den elastiska poolen. | Överväg att öka dtu: er för den elastiska poolen, eller minska minsta DTU per databas, eller minska antalet databaser i den elastiska poolen. |
+| 40877 | 16 |En elastisk pool kan inte tas bort om den inte innehåller några databaser. Den elastiska poolen innehåller en eller flera databaser och därför inte tas bort. |Ta bort databaser från den elastiska poolen för att ta bort den. |
+| 40881 | 16 |Den elastiska poolen ' %. * ls' har nått sin gräns för antal av databasen.  Databasen antal tillåtna för den elastiska poolen får inte överskrida (%d) för en elastisk pool med (%d) dtu: er. Försöker skapa eller lägga till databasen i elastisk pool när databasen antalsgränsen på den elastiska poolen har uppnåtts. | Överväg att öka dtu: er för den elastiska poolen om möjligt för att öka sin databasgräns för eller ta bort databaser från den elastiska poolen. |
+| 40889 | 16 |Dtu: er eller lagringsgränsen för den elastiska poolen ' %. * ls' kan inte minskas eftersom då inte skulle tillhandahållas tillräckligt med lagringsutrymme för dess databaser. Försöker lagringsgränsen för den elastiska poolen under dess lagringsanvändning. | Överväg att minska lagringsanvändningen enskilda databaser i den elastiska poolen eller ta bort databaser från poolen för att minska dess dtu: erna eller lagringsgränsen. |
+| 40891 | 16 |Minsta DTU per databas (%d) får inte överskrida max DTU per databas (%d). Om du försöker ange minsta DTU per databas som är högre än max DTU per databas. |Kontrollera minsta DTU per databaser inte överskrida max DTU per databas. |
+| TBD | 16 |Lagringsstorleken för en enskild databas i en elastisk pool får inte överskrida den maximala storleken som tillåts av ' %. * ls' service tier elastisk pool. Max storlek för databasen överskrider den maximala storleken som tillåts av den elastiska pooltjänstnivå. |Ställ in maxstorleken på databasen inom ramen för den maximala storleken som tillåts av den elastiska pooltjänstnivå. |
 
 Relaterade ämnen:
 
-* [Skapa en elastisk pool (C#)](sql-database-elastic-pool-manage-csharp.md) 
-* [Hantera en elastisk pool (C#)](sql-database-elastic-pool-manage-csharp.md). 
-* [Skapa en elastisk pool (PowerShell)](sql-database-elastic-pool-manage-powershell.md) 
-* [Övervaka och hantera en elastisk pool (PowerShell)](sql-database-elastic-pool-manage-powershell.md).
+* [Skapa en elastisk pool (C#)](sql-database-elastic-pool-manage-csharp.md)
+* [Hantera en elastisk pool (C#)](sql-database-elastic-pool-manage-csharp.md)
+* [Skapa en elastisk pool (PowerShell)](sql-database-elastic-pool-manage-powershell.md)
+* [Övervaka och hantera en elastisk pool (PowerShell)](sql-database-elastic-pool-manage-powershell.md)
 
 ## <a name="general-errors"></a>Allmänt fel
 Följande fel omfattas inte i alla tidigare kategorier.
@@ -143,7 +143,7 @@ Följande fel omfattas inte i alla tidigare kategorier.
 | ---:| ---:|:--- |
 | 15006 |16 |(AdministratorLogin) är inte ett giltigt namn eftersom det innehåller ogiltiga tecken. |
 | 18452 |14 |Inloggningen misslyckades. Inloggningen kommer från en icke betrodd domän och kan inte användas med Windows authentication.%.&#x2a;ls (Windows-inloggningar inte stöds i den här versionen av SQL Server.) |
-| 18456 |14 |Inloggningen misslyckades för användaren '%.&#x2a;ls'.%.&#x2a;ls%.&#x2a;ls(inloggningen misslyckades för användaren ”%.&#x2a;ls”. Det gick inte att ändra lösenordet. Lösenordsändring under inloggning stöds inte i den här versionen av SQL Server.) |
+| 18456 |14 |Inloggningen misslyckades för användaren ”%. &#x2a;ls'.%. &#x2a;ls %. &#x2a;ls (inloggningen misslyckades för användaren ”%.&#x2a; is ”.) |
 | 18470 |14 |Inloggningen misslyckades för användaren (%.&#x2a;ls). Orsak: Kontot är disabled.%.&#x2a;ls |
 | 40014 |16 |Flera databaser kan inte användas i samma transaktion. |
 | 40054 |16 |Tabeller utan grupperat index stöds inte i den här versionen av SQL Server. Skapa ett grupperat index och försök igen. |

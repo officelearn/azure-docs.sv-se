@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/29/2018
+ms.date: 10/31/2018
 ms.author: bwren
 ms.component: na
-ms.openlocfilehash: e6d097749dae49cf6f1d710bcf01cf99dcd98a4c
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: 65f3388074ff7a84c6e0516a64665019d5883ab1
+ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50244124"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50913180"
 ---
 # <a name="log-analytics-query-language-differences"></a>Logga Analytics query language skillnader
 
@@ -63,11 +63,5 @@ Följande operatorer stöd för specifika funktioner i Log Analytics och är int
 
 ## <a name="next-steps"></a>Nästa steg
 
-<<<<<<< HEAD:articles/log-analytics/query-language/data-explorer-difference.md
-- Hämta referenser till olika [resurser för att skriva Log Analytics-frågor](kusto.md).
+- Hämta referenser till olika [resurser för att skriva Log Analytics-frågor](query-language.md).
 - Få åtkomst till den fullständiga [referensdokumentation för Datautforskaren frågespråk](/azure/kusto/query/).
-=======
-- Läs mer om frågor i [Log Analytics](../log-analytics-queries.md).
-- Gå igenom en lektion på skrivs på en [Log Analytics-fråga](/log-analytics/query-language/get-started-queries.md).
-- Få åtkomst till den fullständiga [referensdokumentation för Kusto](/azure/kusto/query/).
->>>>>>> 4bccab5ecb17c887658a4d2ed1bab6b22bf29ffd:articles/log-Analytics/Query-Language/kusto.md

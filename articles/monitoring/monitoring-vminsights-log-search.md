@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/25/2018
 ms.author: magoedte
-ms.openlocfilehash: 90816061766a423f7dbc7d277433a95c5bcf6115
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.openlocfilehash: 2a965825bed45362bdb43b2ce88b101d2041026d
+ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50095430"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50914268"
 ---
 # <a name="how-to-query-logs-from-azure-monitor-for-vms-preview"></a>Hur du frågar loggar från Azure Monitor för virtuella datorer (förhandsversion)
-Azure Monitor för virtuella datorer samlar in prestanda- och anslutningshanteringstjänsten mått, datorn och processen inventeringsdata och hälsotillståndsinformation och vidarebefordrar det till Log Analytics-datalager i Azure Monitor.  Informationen är tillgänglig för [search](../log-analytics/log-analytics-log-searches.md) i Log Analytics. Du kan använda dessa data för scenarier som omfattar planering av migreringsaktiviteter, kapacitetsanalys, identifiering och prestandafelsökning för på begäran.
+Azure Monitor för virtuella datorer samlar in prestanda- och anslutningshanteringstjänsten mått, datorn och processen inventeringsdata och hälsotillståndsinformation och vidarebefordrar det till Log Analytics-datalager i Azure Monitor.  Informationen är tillgänglig för [search](../log-analytics/log-analytics-log-search.md) i Log Analytics. Du kan använda dessa data för scenarier som omfattar planering av migreringsaktiviteter, kapacitetsanalys, identifiering och prestandafelsökning för på begäran.
 
 ## <a name="map-records"></a>Mappa poster
 En post skapas per timme för varje unika datornamn och processen, förutom de poster som genereras när en process eller datorn startas inte eller är publicerat till Azure Monitor för virtuella datorer kartan funktion. Dessa poster har egenskaper i följande tabeller. Fält och värden i ServiceMapComputer_CL händelserna mappar till fält i resursen för datorer i Azure Resource Manager-API för ServiceMap. Fält och värden i ServiceMapProcess_CL händelserna mappar till fälten för Process-resurs i ServiceMap Azure Resource Manager API. Fältet ResourceName_s matchar namnfältet i motsvarande Resource Manager-resurs. 
@@ -120,7 +120,7 @@ Poster med en typ av *ServiceMapComputer_CL* har inventeringsdata för servrar m
 |:--|:--|
 | Typ | *ServiceMapComputer_CL* |
 | SourceSystem | *OpsManager* |
-| ResourceId | Den unika identifieraren för en dator i arbetsytan |
+| Resurs-ID | Den unika identifieraren för en dator i arbetsytan |
 | ResourceName_s | Den unika identifieraren för en dator i arbetsytan |
 | ComputerName_s | Datorn FQDN |
 | Ipv4Addresses_s | En lista över serverns IPv4-adresser |
@@ -145,7 +145,7 @@ Poster med en typ av *ServiceMapProcess_CL* har inventeringsdata för TCP-anslut
 |:--|:--|
 | Typ | *ServiceMapProcess_CL* |
 | SourceSystem | *OpsManager* |
-| ResourceId | Den unika identifieraren för en process i arbetsytan |
+| Resurs-ID | Den unika identifieraren för en process i arbetsytan |
 | ResourceName_s | Den unika identifieraren för en process på datorn där den körs|
 | MachineResourceName_s | Resursnamnet för datorn |
 | ExecutableName_s | Namnet på processprogramfil |

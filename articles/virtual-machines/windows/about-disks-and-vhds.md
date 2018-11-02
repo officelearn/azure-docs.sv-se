@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 11/15/2017
 ms.author: rogarana
 ms.component: disks
-ms.openlocfilehash: de5322709b5d7f7bcfe6c512bab94b025d9a56a7
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.openlocfilehash: d6491ea1fd46d1dbd3d258a79a8d8e932173dae5
+ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50023568"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50912296"
 ---
 # <a name="about-disks-storage-for-azure-windows-vms"></a>Om disklagring för virtuella Azure Windows-datorer
 
@@ -42,7 +42,7 @@ Läs mer om hur Azure använder den temporära disken [förstå den temporära e
 
 ### <a name="data-disk"></a>Datadisk
 
-En datadisk är en virtuell Hårddisk som är kopplad till en virtuell dator för att lagra programdata eller andra data som du behöver. Datadiskar är registrerade som SCSI-enheter och är märkta med en bokstav som du väljer. Varje datadisk har en maxkapacitet på 4095 GB, hanterade diskar har en maxkapacitet på 32 767 TiB. Storleken på den virtuella datorn avgör hur många datadiskar som du kan koppla till det och vilken typ av lagring som du kan använda som värd för diskarna.
+En datadisk är en virtuell Hårddisk som är kopplad till en virtuell dator för att lagra programdata eller andra data som du behöver. Datadiskar är registrerade som SCSI-enheter och är märkta med en bokstav som du väljer. Varje datadisk har en maxkapacitet på 4095 GB, hanterade diskar har en maxkapacitet på 32 767 GiB. Storleken på den virtuella datorn avgör hur många datadiskar som du kan koppla till det och vilken typ av lagring som du kan använda som värd för diskarna.
 
 > [!NOTE]
 > Mer information om kapacitet för virtuella datorer finns i [storlekar för Windows-datorer](sizes.md).

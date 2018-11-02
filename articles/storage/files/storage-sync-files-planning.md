@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 07/19/2018
 ms.author: wgries
 ms.component: files
-ms.openlocfilehash: e4e793ac5735f7f3b07d285dea027a8f603b7964
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.openlocfilehash: 0c9c254625ccca27a3525c45da0303f5e045ef44
+ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48237913"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50914336"
 ---
 # <a name="planning-for-an-azure-file-sync-deployment"></a>Planera för distribution av Azure File Sync
 Använd Azure File Sync för att centralisera din organisations filresurser i Azure Files, samtidigt som den flexibilitet, prestanda och kompatibilitet för en lokal filserver. Azure File Sync omvandlar Windows Server till ett snabbt cacheminne för din Azure-filresurs. Du kan använda alla protokoll som är tillgänglig på Windows Server för att komma åt dina data lokalt, inklusive SMB, NFS och FTPS. Du kan ha så många cacheminnen som du behöver över hela världen.
@@ -27,13 +27,13 @@ Det är viktigt att du förstår termer som innan du hämtar in information om a
 Storage Sync-tjänsten är översta Azure-resursen för Azure File Sync. Tjänst för Lagringssynkronisering resursen är en peer för resursen för lagringskonton och på samma sätt kan bara distribueras till Azure-resursgrupper. En resurs med distinkta på toppnivå från resursen för lagringskonton är nödvändigt eftersom Storage Sync-tjänsten kan skapa synkroniseringsrelationer med flera storage-konton via flera synkroniseringsgrupper. En prenumeration kan ha flera resurser som Storage Sync-tjänsten har distribuerats.
 
 ### <a name="sync-group"></a>Synkroniseringsgrupp
-En synkroniseringsgrupp definierar sync-topologi för en uppsättning filer. Slutpunkter inom en synkroniseringsgrupp hålls synkroniserade med varandra. Om du har till exempel två distinkta grupper av filer som du vill hantera med Azure File Sync kan du skapa två synkroniseringsgrupper och lägga till olika slutpunkter för varje synkroniseringsgrupp. En tjänst för Lagringssynkronisering kan vara värd för så många synkroniseringsgrupper.  
+En synkroniseringsgrupp definierar synkroniseringstopologin för en uppsättning filer. Slutpunkter inom en synkroniseringsgrupp hålls synkroniserade med varandra. Om du har till exempel två distinkta grupper av filer som du vill hantera med Azure File Sync kan du skapa två synkroniseringsgrupper och lägga till olika slutpunkter för varje synkroniseringsgrupp. En tjänst för Lagringssynkronisering kan vara värd för så många synkroniseringsgrupper.  
 
 ### <a name="registered-server"></a>Registrerad server
 Registrerad server-objektet representerar en förtroenderelation mellan din server (eller kluster) och Storage Sync-tjänsten. Du kan registrera så många servrar till en tjänst för Lagringssynkronisering-instans. Men kan en server (eller kluster) registreras med endast en Storage Sync-tjänsten i taget.
 
 ### <a name="azure-file-sync-agent"></a>Azure File Sync-agenten
-Azure File Sync-agenten är hämtningsbara paket som gör det möjligt för Windows Server till att synkroniseras med en Azure-filresurs. Azure File Sync-agenten har tre huvudkomponenter: 
+Azure File Sync-agenten är ett nedladdningsbart paket som möjliggör att Windows Server kan synkroniseras med en Azure-filresurs. Azure File Sync-agenten har tre huvudkomponenter: 
 - **FileSyncSvc.exe**: bakgrunden Windows-tjänst som ansvarar för att övervaka ändringar på server-slutpunkter och för att initiera synkroniseringssessioner till Azure.
 - **StorageSync.sys**: The Azure File Sync filsystemsfilter, som ansvarar för lagringsnivåer filer till Azure Files (när molnet lagringsnivåer är aktiverad).
 - **PowerShell-cmdletar för hantering av**: PowerShell-cmdletar som används för att interagera med Microsoft.StorageSync Azure-resursprovidern. Du hittar dem på följande platser (standard):
@@ -41,7 +41,7 @@ Azure File Sync-agenten är hämtningsbara paket som gör det möjligt för Wind
     - C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll
 
 ### <a name="server-endpoint"></a>Server-slutpunkt
-En serverslutpunkt representerar en specifik plats på en registrerad server, till exempel en mapp på en server-volym. Flera serverslutpunkter kan finnas på samma volym om deras namnområden inte överlappar (till exempel `F:\sync1` och `F:\sync2`). Du kan konfigurera molnet lagringsnivåer principer separat för varje serverslutpunkt. 
+En serverslutpunkt representerar en viss plats på en registrerad server, till exempel en mapp på en servervolym. Flera serverslutpunkter kan finnas på samma volym om deras namnområden inte överlappar (till exempel `F:\sync1` och `F:\sync2`). Du kan konfigurera molnet lagringsnivåer principer separat för varje serverslutpunkt. 
 
 Du kan skapa en serverslutpunkt via en monteringspunkt. Observera att monteringspunkter inom Serverslutpunkten hoppas över.  
 
@@ -242,7 +242,9 @@ Azure File Sync är tillgänglig i följande regioner:
 | Östasien | Hongkong SAR |
 | Östra USA | Virginia |
 | USA, östra 2 | Virginia |
+| Norra centrala USA | Illinois |
 | Norra Europa | Irland |
+| Södra centrala USA | Texas |
 | Södra Indien | Chennai |
 | Sydostasien | Singapore |
 | Storbritannien, södra | London |
@@ -269,6 +271,7 @@ Stöd för redundans-integrering mellan geo-redundant lagring och Azure File Syn
 | Östra USA             | Västra USA            |
 | USA, östra 2           | Centrala USA         |
 | Norra Europa        | Västra Europa        |
+| Norra centrala USA    | Södra centrala USA   |
 | Södra Indien         | Indien, centrala      |
 | Sydostasien      | Östasien          |
 | Storbritannien, södra            | Storbritannien, västra            |

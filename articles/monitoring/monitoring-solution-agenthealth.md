@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/19/2017
 ms.author: magoedte
-ms.openlocfilehash: e9ac4b7f7a0900f8b49f95c0db9ba5e9c962fa0e
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: c76b922d311a0e0bc5af2b4c8a95c2ef2ec09ba1
+ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49404043"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50914166"
 ---
 #  <a name="agent-health-solution-in-azure"></a>Agenthälsolösning i Azure
 Agenthälsolösningen i Azure hjälper dig att förstå vilka av alla agenter som rapporterar direkt till Log Analytics-arbetsyta eller en System Center Operations Manager-hanteringsgrupp ansluten till Log Analytics, som inte svarar och skicka operativa data.  Du kan också hålla reda på hur många agenter distribueras, var de är fördelade geografiskt och utföra andra frågor för att övervaka distributionen av agenter i Azure, andra miljöer i molnet eller lokalt.    
@@ -39,7 +39,7 @@ Om din hanteringsgrupp för System Center Operations Manager är ansluten till e
 Mer information om hur lösningens hanteringspaket uppdateras finns i [Anslut Operations Manager till Log Analytics](../log-analytics/log-analytics-om-agents.md).
 
 ## <a name="configuration"></a>Konfiguration
-Lägga till agenthälsolösningen i Log Analytics-arbetsytan med processen som beskrivs i [lägga till lösningar](../log-analytics/log-analytics-add-solutions.md). Det krävs ingen ytterligare konfiguration.
+Lägga till agenthälsolösningen i Log Analytics-arbetsytan med processen som beskrivs i [lägga till lösningar](monitoring-solutions.md). Det krävs ingen ytterligare konfiguration.
 
 
 ## <a name="data-collection"></a>Datainsamling
@@ -118,4 +118,4 @@ Följande tabell innehåller exempel på sökningar i loggen för poster som har
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Lär dig mer om [Aviseringar i Log Analytics](../log-analytics/log-analytics-alerts.md) för information om att generera aviseringar från Log Analytics.
+* Lär dig mer om [Aviseringar i Log Analytics](../monitoring-and-diagnostics/monitoring-overview-unified-alerts.md) för information om att generera aviseringar från Log Analytics.

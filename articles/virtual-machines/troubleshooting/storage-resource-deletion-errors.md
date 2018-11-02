@@ -9,14 +9,14 @@ tags: top-support-issue,azure-service-management,azure-resource-manager
 ms.service: virtual-machines
 ms.tgt_pltfrm: vm-linux
 ms.topic: troubleshooting
-ms.date: 05/01/2018
+ms.date: 11/01/2018
 ms.author: genli
-ms.openlocfilehash: 2ec5caab32e12411f5ccab4a9a6b98d3c4e57c0b
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: 1de70b3ddea84fc0067a0e20ec613f01024f0ed4
+ms.sourcegitcommit: 6678e16c4b273acd3eaf45af310de77090137fa1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47414639"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50748042"
 ---
 # <a name="troubleshoot-storage-resource-deletion-errors"></a>Felsöka fel vid borttagning av storage-resurs
 
@@ -69,10 +69,7 @@ Tar bort lagringskontot, behållaren eller den blob när dessa steg har slutför
 
 ### <a name="scenario-3-deleting-storage-account---identify-all-blobs-within-storage-account-that-are-attached-to-vms"></a>Scenario 3: Ta bort storage account – identifiera alla blobbarna i storage-konto som är kopplade till virtuella datorer
 1. Logga in på [Azure Portal](https://portal.azure.com).
-2. På navmenyn väljer **alla resurser**. Gå till storage-konto under **Blobtjänsten** Välj **behållare**.
-
-    ![Skärmbild av portalen med lagringskontobehållarna och den ”Lånestillstånd” med ”utlånad” markerat](./media/troubleshoot-vhds/utd-containers-sm.png)
-
+2. På navmenyn väljer **alla resurser**. Gå till storage-konto under **Blobtjänsten** Välj **Blobar**.
 3. I **behållare** fönstret identifiera alla behållare där **Lånestillstånd** är **utlånad** och följ [Scenario 2](#scenario-2-deleting-a-container---identify-all-blobs-within-container-that-are-attached-to-vms) för varje  **Lånade** behållare.
 4. Följ [steg 2](#step-2-delete-vm-to-detach-os-disk) och [steg3](#step-3-detach-data-disk-from-the-vm) att ta bort virtuella datorer med **OSDisk** och koppla från **DataDisk**. 
 

@@ -8,12 +8,12 @@ ms.date: 09/20/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 30b85f15d8718e21af66634db5a4afd5623a77e6
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: d84df3e5e0b961b8a53044102f99205ee0fe9896
+ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49340179"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50914115"
 ---
 # <a name="understand-extended-offline-capabilities-for-iot-edge-devices-modules-and-child-devices-preview"></a>Förstå utökade offlinefunktionerna för IoT Edge-enheter, moduler och underordnade enheter (förhandsversion)
 
@@ -142,4 +142,4 @@ Ersätt `<HostStoragePath>` och `<ModuleStoragePath>` med värden och modulen la
 
 ## <a name="next-steps"></a>Nästa steg
 
-Aktivera utökad offline åtgärder i dina transparent gatewayscenarier för [Linux](how-to-create-transparent-gateway-linux.md) eller [Windows](how-to-create-transparent-gateway-windows.md) enheter.
+Aktivera utökad offline åtgärder i din [transparent gateway](how-to-create-transparent-gateway.md) scenarier.

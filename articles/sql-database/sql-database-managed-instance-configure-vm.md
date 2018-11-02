@@ -11,15 +11,15 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: carlrab, srbozovi, bonova
 manager: craigg
-ms.date: 09/13/2018
-ms.openlocfilehash: 08b8e37493ea7bc549a2352aaa6714ef7c65bfdb
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.date: 11/01/2018
+ms.openlocfilehash: 97362cb91c16f91d637283df7a583f685124a21b
+ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47159524"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50913678"
 ---
-# <a name="configure-azure-vm-to-connect-to-an-azure-sql-database-managed-instance"></a>Konfigurera virtuell Azure-dator att ansluta till en Azure SQL Database Managed Instance
+# <a name="quickstart-configure-azure-vm-to-connect-to-an-azure-sql-database-managed-instance"></a>Snabbstart: Konfigurera Azure virtuell dator att ansluta till en Azure SQL Database Managed Instance
 
 Denna Snabbstart visar hur du konfigurerar en Azure-dator att ansluta till en Azure SQL Database Managed Instance med SQL Server Management Studio (SSMS). En Snabbstart som visar hur du ansluter från en lokal klientdator med en punkt-till-plats-anslutning, se [konfigurera en punkt-till-plats-anslutning](sql-database-managed-instance-configure-p2s.md) 
 
@@ -29,7 +29,7 @@ Den här snabbstarten används som startpunkt resurser som skapats i den här sn
 
 ## <a name="sign-in-to-the-azure-portal"></a>Logga in på Azure Portal
 
-Logga in på [Azure-portalen](https://portal.azure.com/).
+Logga in på [Azure Portal](https://portal.azure.com/).
 
 ## <a name="create-a-new-subnet-in-the-managed-instance-vnet"></a>Skapa ett nytt undernät i VNet för hanterad instans
 
@@ -37,7 +37,7 @@ Följande steg kan du skapa ett nytt undernät i hanterade instans virtuella nä
 
 1. Öppna resursgruppen för den hanterade instansen som du skapade i den [skapar en hanterad instans](sql-database-managed-instance-get-started.md) snabbstarten och klicka på det virtuella nätverket för din hanterade instans och klicka sedan på **undernät**.
 
-   ![Den hanterade instansen resurser](./media/sql-database-managed-instance-configure-vm/resources.png)
+   ![Hanterade instansresurser](./media/sql-database-managed-instance-configure-vm/resources.png)
 
 2. Klicka på den **+** logga bredvid **undernät** att skapa ett nytt undernät.
 
@@ -142,5 +142,5 @@ När du ansluter kan du visa system- och användardatabaserna i noden för datab
 ## <a name="next-steps"></a>Nästa steg
 
 - En Snabbstart som visar hur du ansluter från en lokal klientdator med en punkt-till-plats-anslutning, se [konfigurera en punkt-till-plats-anslutning](sql-database-managed-instance-configure-p2s.md).
-- En översikt över anslutningsalternativ för program, se [ansluta dina program till hanterad instans](sql-database-managed-instance-connect-app.md).
-- Om du vill återställa en befintlig SQL Server-databas från en lokal plats till en hanterad instans, kan du använda den [Azure Database Migration Service (DMS) för migrering](../dms/tutorial-sql-server-to-managed-instance.md) att återställa från en databassäkerhetskopia eller [T-SQL RESTORE kommandot](sql-database-managed-instance-get-started-restore.md) att återställa från en databassäkerhetskopia.
+- En översikt över anslutningsalternativen för program finns i [Ansluta dina program till hanterad instans](sql-database-managed-instance-connect-app.md).
+- Om du vill återställa en lokal befintlig SQL Server-databas till en hanterad instans kan du använda [Azure Database Migration Service (DMS) för migrering](../dms/tutorial-sql-server-to-managed-instance.md) till att återställa från en databassäkerhetskopia eller kommandot [T-SQL RESTORE](sql-database-managed-instance-get-started-restore.md) till att återställa från en databassäkerhetskopia.

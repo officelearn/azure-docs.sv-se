@@ -7,12 +7,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 08/03/2018
 ms.author: tomfitz
-ms.openlocfilehash: 2a288cdb96a1e1ff7e261d4782f7e02aee12868f
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: 89f0f5847f157cff59a57f7958508e4f260355c3
+ms.sourcegitcommit: 6678e16c4b273acd3eaf45af310de77090137fa1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39621209"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50747566"
 ---
 # <a name="concepts-in-azure-event-grid"></a>Koncept i Azure Event Grid
 
@@ -58,9 +58,17 @@ Exempel för att skapa prenumerationer finns:
 
 Information om hur du får din aktuella event grid-prenumerationer finns i [Query Event Grid-prenumerationer](query-event-subscriptions.md).
 
+## <a name="event-subscription-expiration"></a>Händelse-prenumeration upphör att gälla
+
+Den [Event Grid-tillägget](/cli/azure/azure-cli-extensions-list) för Azure CLI kan du ange en giltighetstid datum när du skapar en händelseprenumeration. Om du använder REST-API kan använda `api-version=2018-09-15-preview`
+
+Händelseprenumerationen har upphört att gälla automatiskt efter det datumet. Ange en giltighetstid för prenumerationer på händelser som krävs endast under en begränsad tid och du inte bekymra dig om att rensa dessa prenumerationer. När du skapar en händelseprenumeration för att testa ett scenario kanske du exempelvis vill ställa in ett utgångsdatum. 
+
+Ett exempel på hur ett förfallodatum, se [prenumerera med avancerade filter](how-to-filter-events.md#subscribe-with-advanced-filters).
+
 ## <a name="event-handlers"></a>Händelsehanterare
 
-En händelsehanterare är den plats där händelsen skickas från en Event Grid-perspektiv. Hanteraren tar några ytterligare åtgärder för att bearbeta händelsen. Event Grid har stöd för flera typer av hanteraren. Du kan använda en tjänst som stöds Azure eller dina egna webhook som hanteraren. Beroende på vilken typ av hanteraren kan följer Event Grid olika metoder för att garantera leverans av händelsen. För HTTP-webhook händelsehanterare händelsen görs tills hanteraren returnerar statuskoden `200 – OK`. Händelserna görs tills kötjänsten kan bearbeta meddelandet push-meddelandet i kön i Azure Storage-kö.
+En händelsehanterare är den plats där händelsen skickas från en Event Grid-perspektiv. Hanteraren tar några ytterligare åtgärder för att bearbeta händelsen. Event Grid har stöd för flera typer av hanteraren. Du kan använda en tjänst som stöds Azure eller dina egna webhook som hanteraren. Beroende på vilken typ av hanteraren kan följer Event Grid olika metoder för att garantera leverans av händelsen. För HTTP-webhook händelsehanterare händelsen görs tills hanteraren returnerar statuskoden `200 – OK`. Händelserna görs tills kötjänsten bearbetar meddelandet push-meddelandet i kön i Azure Storage-kö.
 
 Information om hur du implementerar någon av de Event Grid-hanterarna som stöds finns i [händelsehanterare i Azure Event Grid](event-handlers.md).
 
@@ -74,7 +82,7 @@ Om Event Grid inte kan bekräfta att en händelse har tagits emot av prenumerant
 
 ## <a name="batching"></a>Batchbearbetning
 
-När du använder ett anpassat ämne, måste alltid händelser publiceras i en matris. Detta kan vara en batch med ett för lågt dataflöde scenarier, men för hög volym usecases rekommenderar vi att du batch flera händelser tillsammans per publicera för att uppnå högre effektivitet. Batchar kan vara upp till 1 MB. Varje händelse fortfarande överstiga inte 64 KB.
+När du använder ett anpassat ämne, måste alltid händelser publiceras i en matris. Detta kan vara en batch med ett för lågt dataflöde scenarier, men för hög volym användningsfall, rekommenderar vi att du batch-flera händelser tillsammans per publicera för att uppnå högre effektivitet. Batchar kan vara upp till 1 MB. Varje händelse får fortfarande inte vara större än 64 KB.
 
 ## <a name="next-steps"></a>Nästa steg
 

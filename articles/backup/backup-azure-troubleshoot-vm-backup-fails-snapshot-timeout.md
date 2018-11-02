@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: troubleshooting
 ms.date: 10/30/2018
 ms.author: genli
-ms.openlocfilehash: 55e4195e2666aed371a5a5664b331184afcf5e36
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 25c9cbcaf852aa07bcbe4f71bf69de366d4dbb87
+ms.sourcegitcommit: 3dcb1a3993e51963954194ba2a5e42260d0be258
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50420973"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50754043"
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Felsöka Azure Backup-fel: problem med agenten eller -tillägget
 
@@ -48,7 +48,6 @@ När du har registrerat och schemalägga en virtuell dator för Azure Backup-tj�
 
 **Felkod**: UserErrorRpCollectionLimitReached <br>
 **Felmeddelande**: har nått maxgränsen för insamling av en återställningspunkt. <br>
-Beskrivning:  
 * Det här problemet kan inträffa om det finns ett lås på recovery point resursgruppen förhindrar automatisk rensning av återställningspunkt.
 * Det här problemet kan också inträffa om flera säkerhetskopieringar utlöses per dag. För närvarande rekommenderar vi endast en säkerhetskopiering per dag som det ögonblick RPs bevaras i 7 dagar och bara 18 omedelbar RPs kan associeras med en virtuell dator vid en given tidpunkt. <br>
 
@@ -59,7 +58,7 @@ Häv spärren för resursgruppen för att lösa problemet och försök igen för
     > Backup-tjänsten skapar en separat resursgrupp än resursgruppen för den virtuella datorn att lagra samling med återställningspunkter. Kunder bör inte låsa resursgruppen som skapades för användning av Backup-tjänsten. Namnformatet för resursgruppen som skapades av Backup-tjänsten är: AzureBackupRG_`<Geo>`_`<number>` Tex: AzureBackupRG_northeurope_1
 
 
-**Steg 1: [bort låset från återställningspunkt resursgruppen grupp](#remove_lock_from_the_recovery_point_resource_group)** <br>
+**Steg 1: [bort låset från resursgruppen återställningspunkt](#remove_lock_from_the_recovery_point_resource_group)** <br>
 **Steg 2: [Rensa samling med återställningspunkter](#clean_up_restore_point_collection)**<br>
 
 ## <a name="ExtensionSnapshotFailedNoNetwork-snapshot-operation-failed-due-to-no-network-connectivity-on-the-virtual-machine"></a>ExtensionSnapshotFailedNoNetwork - ögonblicksbildsåtgärden misslyckades på grund av den virtuella datorn saknar nätverksanslutning
@@ -95,6 +94,21 @@ När du har registrerat och schemalägga en virtuell dator för Azure Backup-tj�
 **Orsak 4: [går inte att hämta den ögonblicksbild av statusen eller går inte att ta en ögonblicksbild](#the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken)**  
 **Orsak 5: [säkerhetskopieringstillägget inte går att uppdatera eller läsa in](#the-backup-extension-fails-to-update-or-load)**  
 **Orsak 6: [Backup-tjänsten har inte behörighet att ta bort gamla återställningspunkter på grund av en grupp resurslås](#backup-service-does-not-have-permission-to-delete-the-old-restore-points-due-to-resource-group-lock)**
+
+## <a name="usererrorunsupporteddisksize---currently-azure-backup-does-not-support-disk-sizes-greater-than-1023gb"></a>UserErrorUnsupportedDiskSize – för närvarande Azure Backup har inte stöd för diskar som är större än 1 023 GB
+
+**Felkod**: UserErrorUnsupportedDiskSize <br>
+**Felmeddelande**: för närvarande Azure Backup har inte stöd för diskar som är större än 1 023 GB <br>
+
+Din säkerhetskopieringen misslyckas, när du säkerhetskopierar virtuella datorer med diskstorlekar på över 1 023 GB, eftersom ditt valv inte har uppgraderats till Azure VM säkerhetskopieringsstack V2. Uppgradera till säkerhetskopiering för Azure stack V2 ger stöd för upp till 4TB. Dessa [fördelar](backup-upgrade-to-vm-backup-stack-v2.md), [överväganden](backup-upgrade-to-vm-backup-stack-v2.md#considerations-before-upgrade), och fortsätt sedan med att uppgradera genom att följa de här [instruktioner](backup-upgrade-to-vm-backup-stack-v2.md#upgrade).  
+
+## <a name="usererrorstandardssdnotsupported---currently-azure-backup-does-not-support-standard-ssd-disks"></a>UserErrorStandardSSDNotSupported – för närvarande Azure Backup stöder inte Standard SSD-diskar
+
+**Felkod**: UserErrorStandardSSDNotSupported <br>
+**Felmeddelande**: för närvarande Azure Backup stöder inte Standard SSD-diskar <br>
+
+Azure Backup stöder för närvarande Standard SSD-diskar endast för valv som har uppgraderats till säkerhetskopiering för Azure stack V2. Dessa [fördelar](backup-upgrade-to-vm-backup-stack-v2.md), [överväganden](backup-upgrade-to-vm-backup-stack-v2.md#considerations-before-upgrade), och fortsätt sedan med att uppgradera genom att följa de här [instruktioner](backup-upgrade-to-vm-backup-stack-v2.md#upgrade).
+
 
 ## <a name="causes-and-solutions"></a>Orsaker och lösningar
 
@@ -208,7 +222,7 @@ Gör så här gör tillägget installeras under nästa säkerhetskopiering.
 
 ### <a name="remove_lock_from_the_recovery_point_resource_group"></a>Ta bort låset från recovery point resursgruppen.
 1. Logga in på [Azure Portal](http://portal.azure.com/).
-2. Gå till **alla resurser alternativet**, väljer du resursgruppen för återställningspunkt samling i formatet AzureBackupRG_<Geo>_<number>.
+2. Gå till **alla resurser alternativet**, väljer du resursgruppen för återställningspunkt samling i formatet AzureBackupRG_`<Geo>`_`<number>`.
 3. I den **inställningar** väljer **Lås** att visa låsen.
 4. Om du vill ta bort låset, Välj ellipsen och klicka på **ta bort**.
 
@@ -217,17 +231,17 @@ Gör så här gör tillägget installeras under nästa säkerhetskopiering.
 ### <a name="clean_up_restore_point_collection"></a> Rensa samling med återställningspunkter
 När du tar bort låset har återställningspunkterna att rensas. Följ någon av metoderna för att rensa återställningspunkterna:<br>
 * [Rensa samling med återställningspunkter genom att köra ad hoc-säkerhetskopiering](#clean-up-restore-point-collection-by-running-ad-hoc-backup)<br>
-* [Rensa samling med återställningspunkter från portalen som skapats av backup-tjänsten](#clean-up-restore-point-collection-from-portal-created-by-backup-service)<br>
+* [Rensa återställning samlingen från Azure-portalen med återställningspunkter](#clean-up-restore-point-collection-from-azure-portal)<br>
 
 #### <a name="clean-up-restore-point-collection-by-running-ad-hoc-backup"></a>Rensa samling med återställningspunkter genom att köra ad hoc-säkerhetskopiering
 När du tar bort låset kan utlösa en manuell-ad-hoc-säkerhetskopiering. Detta säkerställer att återställningspunkterna automatiskt rensas. Förvänta dig den här ad-hoc/manuell åtgärd misslyckas första gången. men säkerställer det att automatisk rensning i stället för manuell borttagning av återställningspunkter. När rensningen ska nästa schemalagda säkerhetskopiering lyckas.
 
 > [!NOTE]
-    > Automatisk rensning sker efter några timmars aktiverar manuell-ad-hoc-säkerhetskopiering. Om din schemalagd säkerhetskopiering fortfarande misslyckas kommer försök att manuellt ta bort den samling med återställningspunkter med hjälp av stegen visas [här](#clean-up-restore-point-collection-from-portal-created-by-backup-service).
+    > Automatisk rensning sker efter några timmars aktiverar manuell-ad-hoc-säkerhetskopiering. Om din schemalagd säkerhetskopiering fortfarande misslyckas kommer försök att manuellt ta bort den samling med återställningspunkter med hjälp av stegen visas [här](#clean-up-restore-point-collection-from-azure-portal).
 
-#### <a name="clean-up-restore-point-collection-from-portal-created-by-backup-service"></a>Rensa samling med återställningspunkter från portalen som skapats av backup-tjänsten<br>
+#### <a name="clean-up-restore-point-collection-from-azure-portal"></a>Rensa återställning samlingen från Azure-portalen med återställningspunkter <br>
 
-För att manuellt ta bort återställningen pekar du samlingen som inte tas bort på grund av låset på resursgruppen och följande steg:
+För att manuellt ta bort återställningen pekar du samlingen som inte tas bort på grund av låset på resursgruppen, prova följande steg:
 1. Logga in på [Azure Portal](http://portal.azure.com/).
 2. På den **Hub** -menyn klickar du på **alla resurser**, väljer du resursgruppen med formatet AzureBackupRG_`<Geo>`_`<number>` där den virtuella datorn finns.
 

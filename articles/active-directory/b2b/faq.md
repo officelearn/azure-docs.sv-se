@@ -5,23 +5,23 @@ services: active-directory
 ms.service: active-directory
 ms.component: B2B
 ms.topic: reference
-ms.date: 05/11/2018
+ms.date: 10/29/2018
 ms.author: mimart
 author: msmimart
 manager: mtillman
 ms.reviewer: sasubram
-ms.openlocfilehash: b4407ac6b7a0d9fdbf52b84fb94223c32868f0c5
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.openlocfilehash: 9f82deaa3ca048342c3501e111470eaea2ed9437
+ms.sourcegitcommit: 6678e16c4b273acd3eaf45af310de77090137fa1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45983860"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50748416"
 ---
 # <a name="azure-active-directory-b2b-collaboration-faqs"></a>Azure Active Directory B2B-samarbete vanliga frågor och svar
 
 Dessa vanliga frågor (FAQ) om Azure Active Directory (Azure AD) business-to-business (B2B) samarbete uppdateras regelbundet för att inkludera nya artiklar.
 
-### <a name="can-we-customize-our-sign-in-page-so-it-is-more-intuitive-for-our-b2b-collaboration-guest-users"></a>Kan vi anpassa vår inloggningssida, så är det enklare för våra gästanvändare för B2B-samarbete?
+### <a name="can-we-customize-our-sign-in-page-so-its-more-intuitive-for-our-b2b-collaboration-guest-users"></a>Kan vi anpassa vår inloggningssida, så är det enklare för våra gästanvändare för B2B-samarbete?
 Absolut! Se våra [blogginlägget om den här funktionen](https://blogs.technet.microsoft.com/enterprisemobility/2017/04/07/improving-the-branding-logic-of-azure-ad-login-pages/). Läs mer om hur du anpassar din organisations inloggningssida [Lägg till företagsanpassning för att logga in och åtkomstpanelsidor](../fundamentals/customize-branding.md).
 
 ### <a name="can-b2b-collaboration-users-access-sharepoint-online-and-onedrive"></a>Kan användare i B2B-samarbetet komma åt SharePoint Online och OneDrive?
@@ -46,7 +46,7 @@ Den här funktionen är planerat för en senare version kommer så som och du ka
 En organisation kanske vill lägga till användare i B2B-samarbetet, etablera dem till program efter behov och sedan skicka inbjudningar. Du kan använda B2B-samarbetsinbjudan API för att anpassa onboarding-arbetsflödet.
 
 ### <a name="can-i-make-guest-users-visible-in-the-exchange-global-address-list"></a>Kan jag visa gästanvändare i den globala adresslistan Exchange?
-Ja. Gästen objekt visas inte i din organisations globala adresslistan som standard, men du kan använda Azure Active Directory PowerShell för att göra dem synliga. Mer information finns i **kan jag göra gäst objekt visas i den globala adresslistan?** i [gäståtkomst i Office 365-grupper](https://support.office.com/article/guest-access-in-office-365-groups-bfc7a840-868f-4fd6-a390-f347bf51aff6#PickTab=FAQ).
+Ja. Gästen objekt visas inte i din organisations globala adresslistan som standard, men du kan använda Azure Active Directory PowerShell för att göra dem synliga. Se **kan jag göra gäst objekt visas i den globala adresslistan?** i [gäståtkomst i Office 365-grupper](https://support.office.com/article/guest-access-in-office-365-groups-bfc7a840-868f-4fd6-a390-f347bf51aff6#PickTab=FAQ).
 
 ### <a name="can-i-make-a-guest-user-a-limited-administrator"></a>Kan jag göra en gästanvändare en begränsad administratör?
 Absolut. Mer information finns i [att lägga till gästanvändare till en roll](add-guest-to-role.md).
@@ -68,19 +68,16 @@ Att blockera en gästanvändare åtkomst till den [Azure-portalen](https://porta
 ### <a name="does-azure-ad-b2b-collaboration-support-multi-factor-authentication-and-consumer-email-accounts"></a>Stöder Azure AD B2B-samarbete multifaktorautentisering och konsumenten e-postkonton?
 Ja. Multi-Factor authentication och konsument e-postkonton stöds både för Azure AD B2B-samarbete.
 
-### <a name="do-you-plan-to-support-password-reset-for-azure-ad-b2b-collaboration-users"></a>Planerar du att stöd för återställning av lösenord för användare i Azure AD B2B-samarbetet?
-Ja. Här följer viktig information för lösenordsåterställning via självbetjäning (SSPR) för en B2B-användare som bjuds in från en partnerorganisation:
+### <a name="do-you-support-password-reset-for-azure-ad-b2b-collaboration-users"></a>Har du stöd för återställning av lösenord för användare i Azure AD B2B-samarbetet?
+Om din Azure AD-klient är arbetskatalogen för en användare, kan du [återställa användarens lösenord](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-users-reset-password-azure-portal#how-to-reset-the-password-for-a-user) från Azure-portalen. Men du kan inte direkt återställa ett lösenord för en gästanvändare som loggar in med ett konto som hanteras av någon annan Azure AD directory eller extern identitetsprovider. Endast gästanvändaren eller en administratör i användarens arbetskatalog kan återställa lösenordet. Här följer några exempel på hur lösenordsåterställning fungerar för gästanvändare:
  
-* SSPR sker endast i identity-klient för B2B-användare.
-* Om innehavaren identitet är ett Microsoft-konto, används SSPR mekanism för Microsoft-konto.
-* Om identitets-klient är en just-in-time (JIT) eller ”viral” klient, skickas ett e-postmeddelande för återställning av lösenord.
-* För andra klienter följs standardprocessen för SSPR för B2B-användare. Innehavare som medlem SSPR för B2B-användare, i samband med resursen är blockerad. 
-
-### <a name="is-password-reset-available-for-guest-users-in-a-just-in-time-jit-or-viral-tenant-who-accepted-invitations-with-a-work-or-school-email-address-but-who-didnt-have-a-pre-existing-azure-ad-account"></a>Lösenordet återställs för gästanvändare i en just-in-time (JIT) eller ”viral” klient som godkänt inbjudningar med ett arbets eller skolans e-postadress, men som inte har en befintlig Azure AD-konto?
-Ja. Ett lösenord för återställning av e-postmeddelande kan skickas som gör att användaren återställer sitt lösenord i JIT-innehavare.
+* Gästanvändare som loggar in med ett Microsoft-konto (till exempel guestuser@live.com) kan återställa sina lösenord med Microsoft-konto lösenordsåterställning via självbetjäning (SSPR). Se [så återställer du lösenordet för ditt Microsoft-konto](https://support.microsoft.com/help/4026971/microsoft-account-how-to-reset-your-password).
+* Gästanvändare som loggar in med ett Google-konto eller någon annan extern identitetsprovider kan återställa sina lösenord med hjälp av deras identitetsprovider SSPR-metoden. Till exempel en gästanvändare med det Google-kontot guestuser@gmail.com kan återställa sina lösenord genom att följa instruktionerna i [ändring eller återställa lösenordet](https://support.google.com/accounts/answer/41078).
+* Om identitets-klient är en just-in-time (JIT) eller ”viral” klient kan (dvs. det är en separat, ohanterad Azure-klient), endast gästanvändaren återställa sina lösenord.
+* Om gästanvändarens arbetskatalogen är Azure AD-klienten, kan du återställa användarens lösenord. Exempelvis kan du kan ha skapat en användare eller en användare har synkroniserats från din lokala Active Directory och ange deras UserType gäst. Du kan återställa sina lösenord från Azure portal eftersom den här användaren är homed i din katalog.
 
 ### <a name="does-microsoft-dynamics-365-provide-online-support-for-azure-ad-b2b-collaboration"></a>Tillhandahåller Microsoft Dynamics 365 support på nätet för Azure AD B2B-samarbete?
-Ja, Dynamics 365 (online) har stöd för Azure AD B2B-samarbete. Mer information finns i Dynamics 365-artikeln [bjuda in användare med Azure AD B2B-samarbete](https://docs.microsoft.com/dynamics365/customer-engagement/admin/invite-users-azure-active-directory-b2b-collaboration).
+Ja, Dynamics 365 (online) stöder Azure AD B2B-samarbete. Mer information finns i Dynamics 365-artikeln [bjuda in användare med Azure AD B2B-samarbete](https://docs.microsoft.com/dynamics365/customer-engagement/admin/invite-users-azure-active-directory-b2b-collaboration).
 
 ### <a name="what-is-the-lifetime-of-an-initial-password-for-a-newly-created-b2b-collaboration-user"></a>Vad är livslängden för ett initialt lösenord för en nyligen skapade användare i B2B-samarbete?
 Azure AD har en fast uppsättning tecken, lösenordssäkerhet och molnbaserade användarkonton för kontoutelåsning krav som gäller lika för alla Azure AD-kontot. Cloud-användarkonton är konton som inte är federerat med någon annan identitetsprovider som 
@@ -92,15 +89,15 @@ Azure AD har en fast uppsättning tecken, lösenordssäkerhet och molnbaserade a
 För federerade konton beror lösenordsprincip på den princip som tillämpas i den lokala innehavare och användarens inställningar för Microsoft-konto.
 
 ### <a name="an-organization-might-want-to-have-different-experiences-in-their-applications-for-tenant-users-and-guest-users-is-there-standard-guidance-for-this-is-the-presence-of-the-identity-provider-claim-the-correct-model-to-use"></a>En organisation kanske vill ha olika upplevelser i sina program för klientanvändare och gästanvändare. Finns det standard riktlinjer för detta? Är förekomsten av identitetsprovidern anspråk rätt modell ska använda?
- Gästanvändare kan använda alla identitetsleverantör för autentisering. Mer information finns i [egenskaperna för en användare för B2B-samarbete](user-properties.md). Använd den **UserType** som bestämmer användarupplevelsen. Den **UserType** anspråk är för närvarande inte ingår i token. Program ska använda Graph API för att fråga katalogen för användaren och för att få UserType.
+Gästanvändare kan använda alla identitetsleverantör för autentisering. Mer information finns i [egenskaperna för en användare för B2B-samarbete](user-properties.md). Använd den **UserType** som bestämmer användarupplevelsen. Den **UserType** ingår inte för närvarande anspråk i token. Program ska använda Graph API för att fråga katalogen för användaren och för att få UserType.
 
 ### <a name="where-can-i-find-a-b2b-collaboration-community-to-share-solutions-and-to-submit-ideas"></a>Var hittar jag en B2B-samarbete community kan dela lösningar och skicka in idéer?
-Vi lyssnar hela tiden till din feedback för att förbättra B2B-samarbete. Vi erbjuder dig att dela din användare scenarier, metodtips och vad du tycker om Azure AD B2B-samarbete. Gå med i diskussionen den [Microsoft Tech Community](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-B2B/bd-p/AzureAD_B2b).
- 
+Vi lyssnar hela tiden till din feedback för att förbättra B2B-samarbete. Dela din användare scenarier, metodtips och vad du tycker om Azure AD B2B-samarbete. Gå med i diskussionen den [Microsoft Tech Community](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-B2B/bd-p/AzureAD_B2b).
+ 
 Vi inbjuder dig också att skicka in dina idéer och rösta på framtida funktioner på [B2B-samarbete idéer](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-B2B-Ideas/idb-p/AzureAD_B2B_Ideas).
 
 ### <a name="can-we-send-an-invitation-that-is-automatically-redeemed-so-that-the-user-is-just-ready-to-go-or-does-the-user-always-have-to-click-through-to-the-redemption-url"></a>Kan vi skicka en inbjudan som automatiskt in, så att användaren är bara ”klart”? Eller användaren har alltid att klicka dig igenom till URL: en för inlösen?
-En inbjudaren kan bjuda in andra användare i partnerorganisationen med hjälp av Användargränssnittet, PowerShell-skript eller API: er. Sedan kan avsändaren skicka gästanvändaren en direktlänk till en delad app. I de flesta fall är det inte längre behöver öppna din e-postinbjudan och klicka på en URL för inlösen. Mer information finns i [inlösning av inbjudan för Azure Active Directory B2B-samarbete](redemption-experience.md).
+Du kan bjuda in andra användare i partnerorganisationen med hjälp av Användargränssnittet, PowerShell-skript eller API: er. Du kan sedan skicka gästanvändaren en direktlänk till en delad app. I de flesta fall är det inte längre behöver öppna din e-postinbjudan och klicka på en URL för inlösen. Se [inlösning av inbjudan för Azure Active Directory B2B-samarbete](redemption-experience.md).
 
 ### <a name="how-does-b2b-collaboration-work-when-the-invited-partner-is-using-federation-to-add-their-own-on-premises-authentication"></a>Hur fungerar B2B-samarbete när den inbjudna partnern använder federation att lägga till egna lokal autentisering?
 Om partnern har en Azure AD-klient som är federerat till lokal autentisering infrastruktur, uppnås lokala enkel inloggning (SSO) automatiskt. Om partnern inte har en Azure AD-klient, skapas en Azure AD-konto för nya användare. 
@@ -109,7 +106,7 @@ Om partnern har en Azure AD-klient som är federerat till lokal autentisering in
 Vi tar bort skillnaderna mellan B2B och företag till konsument (B2C) samarbete enligt vilken identiteter stöds. Den identitet som används är inte ett bra skäl att välja mellan att använda B2B eller med hjälp av B2C. Information om hur du väljer ett samarbetsalternativ finns i [jämför B2B-samarbete och B2C i Azure Active Directory](compare-with-b2c.md).
 
 ### <a name="what-applications-and-services-support-azure-b2b-guest-users"></a>Vilka program och tjänster stöder Azure B2B-gästanvändare?
-Alla Azure AD-integrerade program stöder Azure B2B-gästanvändare. 
+Alla Azure AD-integrerade program som stöder Azure B2B-gästanvändare, men de måste använda en slutpunkt för innehavare för att autentisera gästanvändare. Du kan också behöva [anpassa anspråk](claims-mapping.md) i SAML-token som utfärdas när en gästanvändare autentiserar till appen. 
 
 ### <a name="can-we-force-multi-factor-authentication-for-b2b-guest-users-if-our-partners-dont-have-multi-factor-authentication"></a>Kan vi tvinga Multi-Factor authentication för B2B-gästanvändare om våra partners inte har multifaktorautentisering?
 Ja. Mer information finns i [villkorlig åtkomst för användare i B2B-samarbetet](conditional-access.md).

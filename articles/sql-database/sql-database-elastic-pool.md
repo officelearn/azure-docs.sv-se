@@ -114,10 +114,10 @@ I de fall då du inte kan använda verktygsuppsättningar kan du följa stegen n
 1. Beräkna edtu: er eller v-kärnor som behövs för en pool på följande sätt:
 
    För DTU-baserade inköpsmodellen: MAX (<*Totalt antal databaser* X *genomsnittlig DTU-användningen per databas* >,<br>
-   < *Antal databaser som har aktivitetstoppar samtidigt* × *DTU-toppbelastning per databas* >)
+   <*Antal databaser som har aktivitetstoppar samtidigt* X *DTU-toppbelastning per databas*)
 
    För vCore-baserade inköpsmodellen: MAX (<*Totalt antal databaser* X *genomsnittlig vCore användning per databas* >,<br>
-   < *Antal har aktivitetstoppar samtidigt databaser* X *vCore belastningstopparna per DB* >)
+   <*Antal har aktivitetstoppar samtidigt databaser* X *vCore belastningstopparna per DB*)
 
 2. Beräkna hur stort lagringsutrymme som krävs för poolen genom att lägga till antalet byte som behövs för alla databaser i poolen. Fastställ sedan den eDTU-poolstorlek som ger den här mängden lagringsutrymme.
 3. DTU-baserade inköpsmodellen ta för större av eDTU-beräkningarna från steg 1 och steg 2. För vCore-baserade inköpsmodellen ta vCore-beräkningen från steg 1.

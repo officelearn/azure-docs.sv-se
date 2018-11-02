@@ -8,12 +8,12 @@ ms.date: 09/13/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: a782a7341e53420dbc31fefc86007951df967a9e
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: af1a14f87eaf20a7f49a8fc6112c4f3c7595f6bd
+ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46313420"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50914386"
 ---
 # <a name="azure-iot-edge-certificate-usage-detail"></a>Kostnadsinformation för Azure IoT Edge-certifikat
 
@@ -78,9 +78,9 @@ Eftersom tillverkare och operatorn processer är åtskilda, finns det några eff
 
 ## <a name="devtest-implications"></a>Konsekvenser för utveckling/testning
 
-För att underlätta utveckling och testscenarion, Microsoft tillhandahåller en uppsättning [bekvämlighet skript](https://github.com/Azure/azure-iot-sdk-c/tree/master/tools/CACertificates) för att skapa icke-produktion-certifikat som är lämpliga för IoT Edge i transparent gateway-scenario.
+För att underlätta utveckling och testscenarion, Microsoft tillhandahåller en uppsättning [bekvämlighet skript](https://github.com/Azure/azure-iot-sdk-c/tree/master/tools/CACertificates) för att skapa icke-produktion-certifikat som är lämpliga för IoT Edge i transparent gateway-scenario. Exempel på hur skripten fungerar finns i [konfigurera en IoT Edge-enhet kan fungera som en transparent gateway](how-to-create-transparent-gateway.md).
 
-Dessa skript att generera som följer kedjan Certifikatstrukturen beskrivs i den här artikeln. För [Linux](how-to-create-transparent-gateway-linux.md#certificate-creation) eller [Windows](how-to-create-transparent-gateway-windows.md#certificate-creation). Följande kommandon generera ”rotcertifikatutfärdarens certifikat” och en enda ”mellanliggande CA-certifikat”.
+Dessa skript att generera som följer kedjan Certifikatstrukturen beskrivs i den här artikeln. Följande kommandon generera ”rotcertifikatutfärdarens certifikat” och en enda ”mellanliggande CA-certifikat”.
 
 ```bash
 ./certGen.sh create_root_and_intermediate 
@@ -124,6 +124,4 @@ Du kan se hierarkin för certifikatet djup visas i skärmbilden:
 
 [Förstå Azure IoT Edge-moduler](iot-edge-modules.md)
 
-[Använd en IoT Edge-enhet som en transparent gateway (Linux)](how-to-create-transparent-gateway-linux.md)
-
-[Använd en IoT Edge-enhet som en transparent gateway (Windows)](how-to-create-transparent-gateway-windows.md)
+[Konfigurera en IoT Edge-enhet kan fungera som en transparent gateway](how-to-create-transparent-gateway.md)

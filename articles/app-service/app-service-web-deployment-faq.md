@@ -13,14 +13,14 @@ ms.workload: web
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 05/11/2018
+ms.date: 11/01/2018
 ms.author: genli
-ms.openlocfilehash: ab8750e5824cf9f7635d11a6b2be332b2f9a761c
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: b38291df576d1dbd180f741659dbc379ca006d8e
+ms.sourcegitcommit: 6678e16c4b273acd3eaf45af310de77090137fa1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44302596"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50748450"
 ---
 # <a name="deployment-faqs-for-web-apps-in-azure"></a>Distribution av vanliga frågor och svar för Web Apps i Azure
 
@@ -79,7 +79,7 @@ Lösa problem som FTP:
 
 ## <a name="how-do-i-publish-my-code-to-app-service"></a>Hur publicerar jag min kod till App Service?
 
-Snabbstart för Azure är utformat för att distribuera din app med hjälp av distributionsstacken och metod för ditt val. Om du vill använda snabbstarten i Azure-portalen, gå till **inställningar** > **Appdistribution**.
+Snabbstart för Azure är utformat för att distribuera din app med hjälp av distributionsstacken och metod för ditt val. Om du vill använda snabbstarten i Azure-portalen, gå till din app service under **distribution**väljer **snabbstarten**.
 
 ## <a name="why-does-my-app-sometimes-restart-after-deployment-to-app-service"></a>Varför startar ibland min app efter distributionen till App Service?
 

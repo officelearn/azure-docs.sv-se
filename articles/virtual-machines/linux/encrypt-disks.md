@@ -13,44 +13,38 @@ ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 05/31/2018
+ms.date: 10/30/2018
 ms.author: cynthn
-ms.openlocfilehash: 044486424f8bcc9d66998f775154eff9c52e7d1b
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: b80c2fe44ddd15e0e31a83e5baab37736dc57fca
+ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46981237"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50913775"
 ---
 # <a name="how-to-encrypt-a-linux-virtual-machine-in-azure"></a>Hur du krypterar en Linux-dator i Azure
 
 För förbättrad virtuell dator (VM) säkerhet och efterlevnad, kan virtuella diskar och Virtuellt datorn krypteras. Virtuella datorer krypteras med hjälp av kryptografiska nycklar som skyddas i ett Azure Key Vault. Du kontrollerar dessa kryptografiska nycklar och kan granska deras användning. Den här artikeln beskriver hur du krypterar virtuella diskar på en Linux VM med Azure CLI. 
 
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
+## <a name="launch-azure-cloud-shell"></a>Starta Azure Cloud Shell
+
+Azure Cloud Shell är ett interaktivt gränssnitt som du kan använda för att utföra stegen i den här artikeln. Den har vanliga Azure-verktyg förinstallerat och har konfigurerats för användning med ditt konto. 
+
+Om du vill öppna Cloud Shell väljer du bara **Prova** från det övre högra hörnet i ett kodblock. Du kan också starta Cloud Shell i en separat webbläsarflik genom att gå till [https://shell.azure.com/bash](https://shell.azure.com/bash). Kopiera kodblocket genom att välja **Kopiera**, klistra in det i Cloud Shell och kör det genom att trycka på RETUR.
 
 Om du väljer att installera och använda CLI lokalt måste den här artikeln kräver att du kör Azure CLI version 2.0.30 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI]( /cli/azure/install-azure-cli).
 
 ## <a name="overview-of-disk-encryption"></a>Översikt över diskkryptering
-Virtuella diskar på virtuella Linux-datorer krypteras i med hjälp av rest [dm-crypt](https://wikipedia.org/wiki/Dm-crypt). Det är kostnadsfritt för att kryptera virtuella diskar i Azure. Kryptografiska nycklar lagras i Azure Key Vault med hjälp av software protection eller kan du importera eller generera dina nycklar i Maskinvarusäkerhetsmoduler (HSM) som är certifierade enligt standarderna FIPS 140-2 nivå 2-standarder. Du kan behålla kontrollen över dessa kryptografiska nycklar och kan granska deras användning. Dessa kryptografiska nycklar används för att kryptera och dekryptera virtuella diskar som är anslutna till den virtuella datorn. En Azure Active Directory-tjänstens huvudnamn är en säker mekanism för att utfärda dessa kryptografiska nycklar som virtuella datorer tillhandahålls av och sätts på.
+Virtuella diskar på virtuella Linux-datorer krypteras i med hjälp av rest [dm-crypt](https://wikipedia.org/wiki/Dm-crypt). Det är kostnadsfritt för att kryptera virtuella diskar i Azure. Kryptografiska nycklar lagras i Azure Key Vault med hjälp av software protection eller kan du importera eller generera dina nycklar i Maskinvarusäkerhetsmoduler (HSM) som är certifierade enligt standarderna FIPS 140-2 nivå 2-standarder. Du kan behålla kontrollen över dessa kryptografiska nycklar och kan granska deras användning. Dessa kryptografiska nycklar används för att kryptera och dekryptera virtuella diskar som är anslutna till den virtuella datorn. 
 
 Processen för att kryptera en virtuell dator är följande:
 
 1. Skapa en kryptografisk nyckel i ett Azure Key Vault.
-2. Konfigurera den kryptografiska nyckeln kan användas för att kryptera diskar.
-3. För att läsa den kryptografiska nyckeln från Azure Key Vault, skapa en Azure Active Directory-tjänstens huvudnamn med rätt behörighet.
-4. Utfärda kommandot för att kryptera dina virtuella diskar, ange Azure Active Directory-tjänsten huvudnamn och lämpliga kryptografiska nyckel som ska användas.
-5. Azure Active Directory-tjänstobjekt begär den nödvändiga kryptografinyckeln från Azure Key Vault.
-6. Virtuella diskar krypteras med hjälp av den angivna kryptografiska nyckeln.
+1. Konfigurera den kryptografiska nyckeln kan användas för att kryptera diskar.
+1. Aktivera diskkryptering för din virtuella diskar.
+1. De obligatoriska kryptografiska nycklarna begärs från Azure Key Vault.
+1. Virtuella diskar krypteras med hjälp av den angivna kryptografiska nyckeln.
 
-## <a name="encryption-process"></a>Krypteringsprocessen
-Diskkryptering är beroende av följande ytterligare komponenter:
-
-* **Azure Key Vault** – används för att skydda kryptografiska nycklar och hemligheter som används för att disk kryptering/dekryptering.
-  * Om en sådan finns, kan du använda ett befintligt Azure Key Vault. Du behöver inte dedikera en Key Vault för kryptering av diskar.
-  * Du kan skapa ett dedikerat Nyckelvalv för att avgränsa administrativa gränser och viktiga synlighet.
-* **Azure Active Directory** -hanterar säker byte av obligatoriska kryptografiska nycklar och autentisering för begärda åtgärder.
-  * Du kan normalt använda en befintlig Azure Active Directory-instans för ditt program.
-  * Tjänstens huvudnamn är en säker mekanism för att begära och utfärdas giltiga kryptografiska nycklar. Du utvecklar inte ett verkligt program som kan integreras med Azure Active Directory.
 
 ## <a name="requirements-and-limitations"></a>Krav och begränsningar
 Krav för diskkryptering och scenarier som stöds:
@@ -79,16 +73,17 @@ Aktivera Azure Key Vault-providern i Azure-prenumerationen med [az provider regi
 
 ```azurecli-interactive
 az provider register -n Microsoft.KeyVault
-az group create --name myResourceGroup --location eastus
+resourcegroup="myResourceGroup"
+az group create --name $resourcegroup --location eastus
 ```
 
 Azure Key Vault som innehåller kryptografiska nycklar och associerade beräkningsresurser som lagring och Virtuellt datorn måste finnas i samma region. Skapa ett Azure Key Vault med [az keyvault skapa](/cli/azure/keyvault#az-keyvault-create) och aktivera Key Vault för användning med diskkryptering. Ange ett unikt namn för Key Vault för *keyvault_name* på följande sätt:
 
 ```azurecli-interactive
-keyvault_name=myuniquekeyvaultname
+keyvault_name=myvaultname$RANDOM
 az keyvault create \
     --name $keyvault_name \
-    --resource-group myResourceGroup \
+    --resource-group $resourcegroup \
     --location eastus \
     --enabled-for-disk-encryption True
 ```
@@ -98,27 +93,10 @@ Du kan lagra kryptografiska nycklar med hjälp av programvara eller maskinvara S
 För båda modellerna för skydd måste Azure-plattformen beviljas åtkomst för att begära krypteringsnycklarna när den virtuella datorn startas för att dekryptera virtuella diskar. Skapa en krypteringsnyckel i Key Vault med [az keyvault key skapa](/cli/azure/keyvault/key#az-keyvault-key-create). I följande exempel skapas en nyckel med namnet *myKey*:
 
 ```azurecli-interactive
-az keyvault key create --vault-name $keyvault_name --name myKey --protection software
-```
-
-
-## <a name="create-an-azure-active-directory-service-principal"></a>Skapa ett tjänstens huvudnamn för Azure Active Directory
-När virtuella diskar krypteras och dekrypteras, anger du ett konto för att hantera autentiseringen och utbyta kryptografiska nycklar från Key Vault. Det här kontot, ett Azure Active Directory-tjänstobjekt kan Azure-plattformen för att begära giltiga kryptografiska nycklar för den virtuella datorn. En standardinstans för Azure Active Directory är tillgängligt i din prenumeration, även om många organisationer har dedikerade Azure Active Directory-kataloger.
-
-Skapa ett huvudnamn för tjänsten med hjälp av Azure Active Directory med [az ad sp create-for-rbac](/cli/azure/ad/sp#az-ad-sp-create-for-rbac). I följande exempel läser i värden för tjänstens huvudnamn och lösenord för användning i senare kommandon:
-
-```azurecli-interactive
-read sp_id sp_password <<< $(az ad sp create-for-rbac --query [appId,password] -o tsv)
-```
-
-Lösenordet visas bara när du har skapat tjänsten huvudnamn. Om du vill visa och registrera lösenordet (`echo $sp_password`). Du kan visa din tjänsthuvudnamn med [az ad sp list](/cli/azure/ad/sp#az-ad-sp-list) och visa mer information om specifika tjänstens huvudnamn med [az ad sp show](/cli/azure/ad/sp#az-ad-sp-show).
-
-Kryptera eller dekryptera virtuella diskar, måste du ange behörigheter på den kryptografiska nyckel som lagras i Key Vault för att tillåta Azure Active Directory-huvudnamn för tjänsten att läsa nycklarna. Ange behörigheter för Key Vault med [az keyvault set-policy](/cli/azure/keyvault#az-keyvault-set-policy). I följande exempel anges ID för tjänstens huvudnamn från föregående kommando:
-
-```azurecli-interactive
-az keyvault set-policy --name $keyvault_name --spn $sp_id \
-  --key-permissions wrapKey \
-  --secret-permissions set
+az keyvault key create \
+    --vault-name $keyvault_name \
+    --name myKey \
+    --protection software
 ```
 
 
@@ -127,7 +105,7 @@ Skapa en virtuell dator med [az vm skapa](/cli/azure/vm#az-vm-create) och bifoga
 
 ```azurecli-interactive
 az vm create \
-    --resource-group myResourceGroup \
+    --resource-group $resourcegroup \
     --name myVM \
     --image UbuntuLTS \
     --admin-username azureuser \
@@ -139,21 +117,14 @@ SSH till den virtuella datorn med den *publicIpAddress* visas i utdata från fö
 
 
 ## <a name="encrypt-the-virtual-machine"></a>Kryptera den virtuella datorn
-För att kryptera virtuella diskar kan samla du alla tidigare komponenter:
 
-1. Ange Azure Active Directory-tjänstobjekt och lösenord.
-2. Ange Key Vault för att lagra metadata för dina krypterade diskar.
-3. Ange de kryptografiska nycklarna som ska användas för den faktiska kryptering och dekryptering.
-4. Ange om du vill kryptera OS-disken, datadiskar eller alla.
 
 Kryptera din virtuella dator med [az vm encryption aktivera](/cli/azure/vm/encryption#az-vm-encryption-enable). I följande exempel används den *$sp_id* och *$sp_password* variabler från föregående [az ad sp create-for-rbac](/cli/azure/ad/sp#az-ad-sp-create-for-rbac) kommando:
 
 ```azurecli-interactive
 az vm encryption enable \
-    --resource-group myResourceGroup \
+    --resource-group $resourcegroup \
     --name myVM \
-    --aad-client-id $sp_id \
-    --aad-client-secret $sp_password \
     --disk-encryption-keyvault $keyvault_name \
     --key-encryption-key myKey \
     --volume-type all
@@ -162,53 +133,33 @@ az vm encryption enable \
 Det tar lite tid för krypteringsprocessen disken att slutföra. Övervaka status för processen med [az vm encryption show](/cli/azure/vm/encryption#az-vm-encryption-show):
 
 ```azurecli-interactive
-az vm encryption show --resource-group myResourceGroup --name myVM
+az vm encryption show --resource-group $resourcegroup --name myVM --query 'status'
 ```
 
-Utdata ser ut ungefär så här trunkerat:
+När du är klar ser utdata ut ungefär som i följande exempel:
 
 ```json
 [
-  "dataDisk": "EncryptionInProgress",
-  "osDisk": "EncryptionInProgress"
+  {
+    "code": "ProvisioningState/succeeded",
+    "displayStatus": "Provisioning succeeded",
+    "level": "Info",
+    "message": "Encryption succeeded for all volumes",
+    "time": null
+  }
 ]
 ```
 
-Vänta tills statusen för Operativsystemets disk rapporter **VMRestartPending**, starta om den virtuella datorn med [az vm restart](/cli/azure/vm#az-vm-restart):
-
-```azurecli-interactive
-az vm restart --resource-group myResourceGroup --name myVM
-```
-
-Krypteringsprocessen disk har slutförts under startprocessen, så Vänta några minuter innan kontrollerar statusen för kryptering igen med [az vm encryption show](/cli/azure/vm/encryption#az-vm-encryption-show):
-
-```azurecli-interactive
-az vm encryption show --resource-group myResourceGroup --name myVM
-```
-
-Statusen bör nu rapportera både OS-disk och datadisk som **krypterad**.
-
 
 ## <a name="add-additional-data-disks"></a>Lägga till ytterligare datadiskar
-När du har krypterade datadiskar kan du också kryptera dem senare lägga till ytterligare virtuella diskar på den virtuella datorn. Exempelvis kan du lägga till en andra virtuell disk till den virtuella datorn på följande sätt:
+När du har krypterade datadiskar kan du lägga till ytterligare virtuella diskar i den virtuella datorn och kryptera dem. 
 
-```azurecli-interactive
-az vm disk attach \
-    --resource-group myResourceGroup \
-    --vm-name myVM \
-    --disk myDataDisk \
-    --new \
-    --size-gb 5
-```
-
-Kör kommandot för att kryptera virtuella diskar på följande sätt:
+När datadisken har lagts till den virtuella datorn, kör du kommandot för att kryptera virtuella diskar på följande sätt:
 
 ```azurecli-interactive
 az vm encryption enable \
-    --resource-group myResourceGroup \
+    --resource-group $resourcegroup \
     --name myVM \
-    --aad-client-id $sp_id \
-    --aad-client-secret $sp_password \
     --disk-encryption-keyvault $keyvault_name \
     --key-encryption-key myKey \
     --volume-type all

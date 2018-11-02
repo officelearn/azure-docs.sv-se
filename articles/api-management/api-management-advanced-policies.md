@@ -1,6 +1,6 @@
 ---
 title: Azure API Management avancerade principer | Microsoft Docs
-description: Läs mer om de avancerade principerna som är tillgängligt för användning i Azure API Management.
+description: Läs mer om de avancerade principerna som är tillgängliga för användning i Azure API Management.
 services: api-management
 documentationcenter: ''
 author: vladvino
@@ -13,36 +13,36 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: apimpm
-ms.openlocfilehash: dcd4d28341e766baeaf6d581a69312cc33a0282a
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: cc327695a91a39c4d910a4f2421b22cc3b100627
+ms.sourcegitcommit: 6678e16c4b273acd3eaf45af310de77090137fa1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2018
-ms.locfileid: "30233834"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50747889"
 ---
 # <a name="api-management-advanced-policies"></a>API Management avancerade principer
-Det här avsnittet innehåller en referens för följande API Management-principer. Mer information om att lägga till och konfigurera principer finns [principer i API Management](http://go.microsoft.com/fwlink/?LinkID=398186).
+Det här avsnittet innehåller en referens för följande API Management-principer. Information om att lägga till och konfigurerar principer finns i [principer i API Management](http://go.microsoft.com/fwlink/?LinkID=398186).
 
 ##  <a name="AdvancedPolicies"></a> Avancerade principer
 
--   [Åtkomstkontrollflödet](api-management-advanced-policies.md#choose) - villkorligt gäller principrapporter baserat på resultatet av utvärderingen av boolesk [uttryck](api-management-policy-expressions.md).
+-   [Kontrollflöde](api-management-advanced-policies.md#choose) – villkorligt gäller principrapporter baserat på resultatet av utvärderingen av boolesk [uttryck](api-management-policy-expressions.md).
 -   [Vidarebefordra begäran](#ForwardRequest) -vidarebefordrar begäran till backend-tjänsten.
--   [Begränsa samtidighet](#LimitConcurrency) -förhindrar omslutna principer från att köras med mer än det angivna antalet begäranden i taget.
--   [Loggen till Event Hub](#log-to-eventhub) -skickar meddelanden i det angivna formatet till en Händelsehubb som definieras av en loggaren entitet.
--   [Mock svar](#mock-response) -avbryts körningen i pipeline och returnerar svaret mocked direkt till anroparen.
--   [Försök](#Retry) -återförsök körningen av de slutna principrapporter om och tills villkoret är uppfyllt. Körningen upprepas med de angivna intervall och upp till angivet antal nya försök.
--   [Returnera svar](#ReturnResponse) -avbryts körningen i pipeline och returnerar det angivna svaret direkt till anroparen.
--   [Skicka förfrågan om enkelriktade](#SendOneWayRequest) -skickar en begäran till den angivna URL: en utan att vänta på ett svar.
--   [Skicka förfrågan](#SendRequest) -skickar en begäran till angiven URL.
--   [Ange HTTP-proxy](#SetHttpProxy) -låter dig vägen vidarebefordrade begäranden via en HTTP-proxy.
--   [Ange metoden](#SetRequestMethod) -kan du ändra HTTP-metoden för en begäran.
+-   [Begränsa samtidighet](#LimitConcurrency) -förhindrar omges principer från att köras med mer än det angivna antalet begäranden i taget.
+-   [Logga till Event Hub](#log-to-eventhub) -skickar meddelanden i formatet som anges till en Händelsehubb som definierats av en Logger-enhet.
+-   [Simulera svar](#mock-response) -avbryter pipeline-körning och returnerar ett simulerat svar direkt till anroparen.
+-   [Försök](#Retry) -återförsök körningen av de slutna principrapporter om och tills villkoret är uppfyllt. Körningen upprepas med de angivna intervall och upp till den angivna antal nya försök.
+-   [Returnera svaret](#ReturnResponse) -avbryter pipeline-körning och returnerar det angivna svaret direkt till anroparen.
+-   [Skicka enkelriktade begäran](#SendOneWayRequest) -skickar en begäran till den angivna URL: en utan att vänta tills ett svar.
+-   [Skicka begäran](#SendRequest) -skickar en begäran till den angivna URL: en.
+-   [Ange HTTP-proxy](#SetHttpProxy) – gör att du kan dirigera vidarebefordrade begäranden via en HTTP-proxy.
+-   [Ange begärandemetoden](#SetRequestMethod) – kan du ändra HTTP-metoden för en begäran.
 -   [Ange statuskoden](#SetStatus) -ändrar HTTP-statuskoden till det angivna värdet.
--   [Ange variabel](api-management-advanced-policies.md#set-variable) -kvarstår ett värde i en namngiven [kontexten](api-management-policy-expressions.md#ContextVariables) variabel för senare användning.
--   [Spåra](#Trace) -lägger till en sträng i den [API Inspector](https://azure.microsoft.com/documentation/articles/api-management-howto-api-inspector/) utdata.
--   [Vänta](#Wait) -väntar för omslutna [begäran om att skicka](api-management-advanced-policies.md#SendRequest), [hämta värdet från cache](api-management-caching-policies.md#GetFromCacheByKey), eller [Åtkomstkontrollflödet](api-management-advanced-policies.md#choose) principer för att slutföra innan du fortsätter.
+-   [Ange variabel](api-management-advanced-policies.md#set-variable) -kvarstår ett värde i en namngiven [kontext](api-management-policy-expressions.md#ContextVariables) variabeln för senare användning.
+-   [Spårningen](#Trace) -lägger till en sträng i den [API Inspector](https://azure.microsoft.com/documentation/articles/api-management-howto-api-inspector/) utdata.
+-   [Vänta](#Wait) -väntar för angiven [sändningsbegäranden](api-management-advanced-policies.md#SendRequest), [hämta värdet från cachen](api-management-caching-policies.md#GetFromCacheByKey), eller [Kontrollflöde](api-management-advanced-policies.md#choose) principer för att slutföra innan du fortsätter.
 
 ##  <a name="choose"></a> Kontrollflöde
- Den `choose` principen gäller omslutna princip uttryck baserat på resultatet av utvärderingen av booleska uttryck som liknar en if-then-else eller växel konstruera i ett programmeringsspråk.
+ Den `choose` principen gäller inom klammerparenteserna princip instruktioner baserat på resultatet av utvärderingen av booleska uttryck, liknande en if-then-else eller en växel konstruera i ett programmeringsspråk.
 
 ###  <a name="ChoosePolicyStatement"></a> Principframställning
 
@@ -60,18 +60,18 @@ Det här avsnittet innehåller en referens för följande API Management-princip
 </choose>
 ```
 
- Princip för åtkomstkontroll flödet måste innehålla minst ett `<when/>` element. Den `<otherwise/>` element är valfria. Villkoren i `<when/>` element utvärderas i ordning efter deras utseende i principen. Principen instruktion(er) omgiven första `<when/>` element med villkoret attribut är lika med `true` tillämpas. Principer omgiven av `<otherwise/>` element, i förekommande fall, kommer att tillämpas om alla av den `<when/>` elementattribut för villkoret är `false`.
+ Control flow principen måste innehålla minst en `<when/>` element. Den `<otherwise/>` element är valfria. Villkor i `<when/>` element utvärderas i ordning av utseendet i principen. Principen utdrag omgiven av först `<when/>` element med villkoret attribut är lika med `true` kommer att tillämpas. Principer omgiven den `<otherwise/>` element, om sådan finns, kommer att tillämpas om alla av de `<when/>` villkorsattribut för elementet är `false`.
 
 ### <a name="examples"></a>Exempel
 
 ####  <a name="ChooseExample"></a> Exempel
- I följande exempel visas en [ange variabel](api-management-advanced-policies.md#set-variable) principen och två principer för åtkomstkontroll flödet.
+ I följande exempel visas en [ange variabel](api-management-advanced-policies.md#set-variable) princip och två principer för åtkomstkontroll-flöde.
 
- Ange variabeln princip finns i avsnittet inkommande och skapar en `isMobile` booleskt [kontexten](api-management-policy-expressions.md#ContextVariables) variabel som har angetts till true om den `User-Agent` begäran huvudet innehåller texten `iPad` eller `iPhone`.
+ Ange variabeln princip finns i avsnittet inkommande och skapar en `isMobile` booleskt [kontext](api-management-policy-expressions.md#ContextVariables) variabel som är inställd på SANT om den `User-Agent` begäran huvudet innehåller texten `iPad` eller `iPhone`.
 
- Den första kontroll flödet principen finns i avsnittet inkommande och villkorligt gäller en av två [ange frågesträngparametern](api-management-transformation-policies.md#SetQueryStringParameter) principer beroende på värdet för den `isMobile` kontexten variabeln.
+ Den första kontroll flow principen är också i avsnittet inkommande och villkorligt gäller någon av de två [ange parametern för frågesträngen](api-management-transformation-policies.md#SetQueryStringParameter) principer beroende på värdet för den `isMobile` sammanhangsvariabeln.
 
- Den andra kontrollen flödet i avsnittet utgående och villkorligt gäller den [konvertera XML till JSON](api-management-transformation-policies.md#ConvertXMLtoJSON) principen när `isMobile` är inställd på `true`.
+ Den andra principen för åtkomstkontroll flow finns i avsnittet utgående och villkorligt gäller den [konvertera XML till JSON](api-management-transformation-policies.md#ConvertXMLtoJSON) principen när `isMobile` är inställd på `true`.
 
 ```xml
 <policies>
@@ -103,7 +103,7 @@ Det här avsnittet innehåller en referens för följande API Management-princip
 ```
 
 #### <a name="example"></a>Exempel
- Det här exemplet illustrerar hur du utför innehållsfiltrering genom att ta bort dataelement från svar togs emot från serverdelstjänsten när du använder den `Starter` produkten. En demonstration av hur du konfigurerar och använder den här principen finns [moln omfattar avsnitt 177: mer API Management-funktioner med Vlad Vinogradsky](https://azure.microsoft.com/documentation/videos/episode-177-more-api-management-features-with-vlad-vinogradsky/) och spola framåt till 34:30. Börja med 31:50 att se en översikt över [mörkt Sky prognos API: N](https://developer.forecast.io/) används för den här demon.
+ Det här exemplet visar hur du utför innehållsfiltrering genom att ta bort dataelement från svaret från serverdelstjänsten när du använder den `Starter` produkten. En demonstration av hur du konfigurerar och använder den här principen finns [Cloud Cover avsnittet 177: fler API Management-funktioner med Vlad Vinogradsky](https://azure.microsoft.com/documentation/videos/episode-177-more-api-management-features-with-vlad-vinogradsky/) och spola framåt till 34:30. Starta vid 31:50 att se en översikt över [mörk Sky Prognostisera API](https://developer.forecast.io/) används för den här demon.
 
 ```xml
 <!-- Copy this snippet into the outbound section to remove a number of data elements from the response received from the backend service based on the name of the api product -->
@@ -125,28 +125,28 @@ Det här avsnittet innehåller en referens för följande API Management-princip
 
 |Element|Beskrivning|Krävs|
 |-------------|-----------------|--------------|
-|Välj|Rotelementet.|Ja|
-|När|De villkor du vill använda för den `if` eller `ifelse` delar av den `choose` princip. Om den `choose` princip har flera `when` avsnitt, de utvärderas i turordning. En gång i `condition` av ett när element beräknas till `true`, ingen ytterligare `when` villkor utvärderas.|Ja|
-|Annars|Innehåller princip fragment som ska användas om ingen av de `when` villkor utvärderas till `true`.|Nej|
+|Välj|Rotelement.|Ja|
+|när|De villkor du vill använda för den `if` eller `ifelse` delar av den `choose` principen. Om den `choose` princip har flera `when` avsnitt, utvärderas de sekventiellt. När den `condition` av ett när element utvärderas till `true`, ingen ytterligare `when` villkoren utvärderas.|Ja|
+|Annars|Innehåller i princip kodfragment som ska användas om ingen av de `when` villkor som utvärderas till `true`.|Nej|
 
 ### <a name="attributes"></a>Attribut
 
 |Attribut|Beskrivning|Krävs|
 |---------------|-----------------|--------------|
-|villkor = ”booleskt uttryck &#124; booleskt konstant”|Booleska uttryck eller en konstant som utvärderas när den innehållande `when` Principframställning utvärderas.|Ja|
+|villkor = ”booleskt uttryck &#124; booleskt konstant”|Booleska uttryck eller konstant som utvärderas när den som innehåller `when` Principframställning utvärderas.|Ja|
 
 ###  <a name="ChooseUsage"></a> Användning
  Den här principen kan användas i följande princip [avsnitt](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) och [scope](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).
 
--   **Avsnitt i princip:** inkommande, utgående backend fel
+-   **Princip-avsnitt:** inkommande, utgående serverdelen, vid fel
 
--   **Princip för scope:** alla scope
+-   **Princip-scope:** alla omfattningar
 
 ##  <a name="ForwardRequest"></a> Vidarebefordra begäran
- Den `forward-request` princip vidarebefordrar inkommande begäran till backend-tjänst som anges i begäran [kontexten](api-management-policy-expressions.md#ContextVariables). URL: en för backend-tjänsten har angetts i API [inställningar](https://azure.microsoft.com/documentation/articles/api-management-howto-create-apis/#configure-api-settings) och kan ändras med hjälp av den [ange serverdelstjänst](api-management-transformation-policies.md) princip.
+ Den `forward-request` principen dirigerar den inkommande begäran till backend-tjänsten som anges i begäran [kontext](api-management-policy-expressions.md#ContextVariables). URL: en för backend-tjänsten har angetts i API: et [inställningar](https://azure.microsoft.com/documentation/articles/api-management-howto-create-apis/#configure-api-settings) och kan ändras med hjälp av den [ange serverdelstjänst](api-management-transformation-policies.md) princip.
 
 > [!NOTE]
->  Tar bort den här grupprincipresultat i begäran inte vidarebefordras till backend-tjänsten och principer i avsnittet utgående utvärderas omedelbart vid slutförande av principer i avsnittet inkommande.
+>  Ta bort den här gruppolicy-resultat i begäran inte vidarebefordras till serverdelen service och principerna i avsnittet utgående utvärderas omedelbart vid slutförande av principer i avsnittet inkommande.
 
 ### <a name="policy-statement"></a>Principframställning
 
@@ -157,7 +157,7 @@ Det här avsnittet innehåller en referens för följande API Management-princip
 ### <a name="examples"></a>Exempel
 
 #### <a name="example"></a>Exempel
- Följande princip för API-nivå vidarebefordras alla begäranden till backend-tjänsten med en timeout på 60 sekunder.
+ Följande princip för API-nivå vidarebefordrar alla begäranden till backend-tjänsten med ett timeout-intervall på 60 sekunder.
 
 ```xml
 <!-- api level -->
@@ -176,7 +176,7 @@ Det här avsnittet innehåller en referens för följande API Management-princip
 ```
 
 #### <a name="example"></a>Exempel
- Använder den här åtgärden säkerhetsnivå för den `base` element ska ärva backend-principen från överordnat nivån API-scope.
+ Den här åtgärden på principen används den `base` element att ärva backend-principen från överordnat nivån omfång för API.
 
 ```xml
 <!-- operation level -->
@@ -195,7 +195,7 @@ Det här avsnittet innehåller en referens för följande API Management-princip
 ```
 
 #### <a name="example"></a>Exempel
- Den här åtgärden säkerhetsnivå för uttryckligen vidarebefordrar alla begäranden till backend-tjänsten med en tidsgräns på 120 och ärver inte överordnat nivån backend API-princip.
+ Den här åtgärden säkerhetsnivå för specifikt vidarebefordrar alla begäranden till backend-tjänsten med en tidsgräns på 120 och ärver inte överordnat API-princip på valvnivå.
 
 ```xml
 <!-- operation level -->
@@ -237,23 +237,23 @@ Det här avsnittet innehåller en referens för följande API Management-princip
 
 |Element|Beskrivning|Krävs|
 |-------------|-----------------|--------------|
-|vidarebefordra begäran|Rotelementet.|Ja|
+|vidarebefordra begäran|Rotelement.|Ja|
 
 ### <a name="attributes"></a>Attribut
 
 |Attribut|Beskrivning|Krävs|Standard|
 |---------------|-----------------|--------------|-------------|
-|timeout="integer"|Det går inte att timeoutintervall i sekunder innan anropet till serverdelstjänsten.|Nej|300 sekunder|
-|Följ omdirigeringar = ”true &#124; false”|Anger huruvida omdirigeringar från serverdelstjänsten följt av gateway eller returneras till anroparen.|Nej|false|
+|timeout = ”heltal”|Det går inte att timeout-intervall i sekunder innan anropet till serverdelstjänsten.|Nej|300 sekunder|
+|Följ omdirigeringar = ”true &#124; FALSKT”|Anger om omdirigeringar från backend-tjänsten är följt av gatewayen eller returneras till anroparen.|Nej|false|
 
 ### <a name="usage"></a>Användning
  Den här principen kan användas i följande princip [avsnitt](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) och [scope](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).
 
--   **Avsnitt i princip:** backend
--   **Princip för scope:** alla scope
+-   **Princip-avsnitt:** serverdel
+-   **Princip-scope:** alla omfattningar
 
 ##  <a name="LimitConcurrency"></a> Gränsen för samtidighet
- Den `limit-concurrency` princip förhindrar att omslutna principer körning av fler än det angivna antalet förfrågningar vid en given tidpunkt. Vid överstiger det antalet misslyckas nya begäranden direkt med statuskoden 429 för många begäranden.
+ Den `limit-concurrency` princip som förhindrar att inom klammerparenteserna principer körning med mer än det angivna antalet förfrågningar vid en given tidpunkt. Vid som överstiger det numret, misslyckas nya begäranden omedelbart med 429 för många begäranden-statuskoden.
 
 ###  <a name="LimitConcurrencyStatement"></a> Principframställning
 
@@ -266,7 +266,7 @@ Det här avsnittet innehåller en referens för följande API Management-princip
 ### <a name="examples"></a>Exempel
 
 #### <a name="example"></a>Exempel
- Exemplet nedan visar hur du begränsar antalet begäranden som vidarebefordras till en serverdel baserat på värdet för en variabel i kontexten.
+ I följande exempel visar hur du begränsar antalet begäranden som vidarebefordras till en serverdel baserat på värdet för en sammanhangsvariabel.
 
 ```xml
 <policies>
@@ -284,27 +284,27 @@ Det här avsnittet innehåller en referens för följande API Management-princip
 
 |Element|Beskrivning|Krävs|
 |-------------|-----------------|--------------|
-|gränsen för samtidighet|Rotelementet.|Ja|
+|gränsen för samtidighet|Rotelement.|Ja|
 
 ### <a name="attributes"></a>Attribut
 
 |Attribut|Beskrivning|Krävs|Standard|
 |---------------|-----------------|--------------|--------------|
-|key|En sträng. Uttryck tillåts. Anger samtidighet scope. Kan delas av flera principer.|Ja|Gäller inte|
-|Max antal|Ett heltal. Anger maximalt antal begäranden som tillåts att ange principen.|Ja|Gäller inte|
+|key|En sträng. Uttryck tillåts. Anger vilka samtidighet. Kan delas av flera principer.|Ja|Gäller inte|
+|Maximalt antal|Ett heltal. Anger ett maximalt antal begäranden som tillåts att ange principen.|Ja|Gäller inte|
 
 ### <a name="usage"></a>Användning
  Den här principen kan användas i följande princip [avsnitt](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) och [scope](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).
 
--   **Avsnitt i princip:** inkommande, utgående backend fel
+-   **Princip-avsnitt:** inkommande, utgående serverdelen, vid fel
 
--   **Princip för scope:** alla scope
+-   **Princip-scope:** alla omfattningar
 
-##  <a name="log-to-eventhub"></a> Loggen till Händelsehubb
- Den `log-to-eventhub` princip skickar meddelanden i det angivna formatet till en Händelsehubb som definieras av en loggaren entitet. Som namnet antyder används principen för att spara valda begäran eller svar omständighetsinformation för analys online eller offline.
+##  <a name="log-to-eventhub"></a> Logga till Event Hub
+ Den `log-to-eventhub` princip skickar meddelanden till en Händelsehubb som definierats av en Logger-enhet i angivet format. Som namnet antyder används principen för att spara valda begäran eller ett svar kontextinformation för analys online eller offline.
 
 > [!NOTE]
->  Stegvisa instruktioner om hur du konfigurerar en händelsehubb och loggning av händelser, se [så logghändelser API-hantering med Händelsehubbar](https://azure.microsoft.com/documentation/articles/api-management-howto-log-event-hubs/).
+>  Stegvisa instruktioner om hur du konfigurerar en händelsehubb och loggning av händelser, se [så logghändelser API Management med Azure Event Hubs](https://azure.microsoft.com/documentation/articles/api-management-howto-log-event-hubs/).
 
 ### <a name="policy-statement"></a>Principframställning
 
@@ -316,7 +316,7 @@ Det här avsnittet innehåller en referens för följande API Management-princip
 ```
 
 ### <a name="example"></a>Exempel
- Valfri sträng kan användas som värde som ska loggas i Händelsehubbar. I det här exemplet datum och tid, tjänstnamn för distribution, förfrågnings-id, ip-adress och åtgärdsnamn för alla inkommande samtal loggas till händelsehubben loggaren registrerats med den `contoso-logger` id.
+ Valfri sträng kan användas som värde som ska loggas i Event Hubs. I det här exemplet datum och tid, tjänstnamn för distribution, begärande-id, ip-adress och åtgärdsnamn för alla inkommande samtal loggas i event hub loggaren som registrerats med den `contoso-logger` id.
 
 ```xml
 <policies>
@@ -334,25 +334,25 @@ Det här avsnittet innehåller en referens för följande API Management-princip
 
 |Element|Beskrivning|Krävs|
 |-------------|-----------------|--------------|
-|log-to-eventhub|Rotelementet. Värdet för det här elementet är sträng att logga in till din event hub.|Ja|
+|loggen till eventhub|Rotelement. Värdet för det här elementet är en sträng att logga in till din event hub.|Ja|
 
 ### <a name="attributes"></a>Attribut
 
 |Attribut|Beskrivning|Krävs|
 |---------------|-----------------|--------------|
-|logger-id|Id för loggaren registrerats API Management-tjänsten.|Ja|
-|partition-id|Anger index för partitionen som meddelanden skickas.|Valfri. Det här attributet kan inte användas om `partition-key` används.|
-|partition-key|Anger det värde som används för tilldelning av partitionen när meddelanden skickas.|Valfri. Det här attributet kan inte användas om `partition-id` används.|
+|loggaren-id|Id för loggaren registrerad med API Management-tjänsten.|Ja|
+|partitions-id|Anger index för partitionen där meddelanden skickas.|Valfri. Det här attributet kan inte användas om `partition-key` används.|
+|partitionsnyckel|Anger det värde som används för partitionstilldelningen när meddelanden skickas.|Valfri. Det här attributet kan inte användas om `partition-id` används.|
 
 ### <a name="usage"></a>Användning
  Den här principen kan användas i följande princip [avsnitt](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) och [scope](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).
 
--   **Avsnitt i princip:** inkommande, utgående backend fel
+-   **Princip-avsnitt:** inkommande, utgående serverdelen, vid fel
 
--   **Princip för scope:** alla scope
+-   **Princip-scope:** alla omfattningar
 
-##  <a name="mock-response"></a> Fingerad svar
-Den `mock-response`, som namn innebär, används för att mock API: er och åtgärder. Den normala pipelinekörningen avbryts och returnerar ett mocked svar till anroparen. Principen försöker alltid returnera svar för högsta återgivning. Den föredrar svar innehåll exempel, när det finns tillgängligt. Den genererar exempel svar från scheman, när scheman har angetts och exempel finns inte. Om varken exempel eller scheman hittas returneras svar med inget innehåll.
+##  <a name="mock-response"></a> Simulera svar
+Den `mock-response`, som namnet antyder, används för att testa API: er och åtgärder. Den avbryter normal pipeline-åtgärd och returnerar ett simulerat svar till anroparen. Principen försöker alltid returnera svar av högsta kvalitet. Prioriteras svar innehåll exempel, när det finns tillgängligt. Den genererar exempel svar från scheman, när scheman har angetts och exempel finns inte. Om varken exempel eller scheman hittas returneras responser inget innehåll.
 
 ### <a name="policy-statement"></a>Principframställning
 
@@ -377,24 +377,24 @@ status code and media type. If no example or schema found, the content is empty.
 
 |Element|Beskrivning|Krävs|
 |-------------|-----------------|--------------|
-|mock-response|Rotelementet.|Ja|
+|utkast-svar|Rotelement.|Ja|
 
 ### <a name="attributes"></a>Attribut
 
 |Attribut|Beskrivning|Krävs|Standard|
 |---------------|-----------------|--------------|--------------|
-|status-code|Anger Svarets statuskod och används för att välja motsvarande exempel eller schema.|Nej|200|
+|statuskod|Anger svarsstatuskod och används för att välja motsvarande exempel eller schema.|Nej|200|
 |innehållstyp|Anger `Content-Type` svar huvudets värde och används för att välja motsvarande exempel eller schema.|Nej|Ingen|
 
 ### <a name="usage"></a>Användning
  Den här principen kan användas i följande princip [avsnitt](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) och [scope](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).
 
--   **Avsnitt i princip:** inkommande, utgående, vid fel
+-   **Princip-avsnitt:** inkommande, utgående, vid fel
 
--   **Princip för scope:** alla scope
+-   **Princip-scope:** alla omfattningar
 
 ##  <a name="Retry"></a> Försök igen
- Den `retry` princip kör dess underordnade principer en gång och sedan försöker körningen tills för och försök igen `condition` blir `false` eller försök `count` är slut.
+ Den `retry` principen utförs en gång dess underordnade principer och försöker sedan sina köra förrän återförsök `condition` blir `false` eller försök `count` är slut.
 
 ### <a name="policy-statement"></a>Principframställning
 
@@ -413,7 +413,7 @@ status code and media type. If no example or schema found, the content is empty.
 ```
 
 ### <a name="example"></a>Exempel
- I följande exempel försöks begäran vidarebefordran upp till tio gånger med en algoritm för exponentiell försök igen. Eftersom `first-fast-retry` har angetts till false, alla nya försök regleras algoritmen exponentiell försök igen.
+ I följande exempel görs begäran vidarebefordran upp till tio gånger med en algoritm för exponentiellt återförsök. Eftersom `first-fast-retry` har angetts till false, alla omförsök omfattas av algoritmen exponentiellt återförsök.
 
 ```xml
 
@@ -433,33 +433,33 @@ status code and media type. If no example or schema found, the content is empty.
 
 |Element|Beskrivning|Krävs|
 |-------------|-----------------|--------------|
-|retry|Rotelementet. Kan innehålla andra principer som dess underordnade element.|Ja|
+|retry|Rotelement. Kan innehålla andra principer som dess underordnade element.|Ja|
 
 ### <a name="attributes"></a>Attribut
 
 |Attribut|Beskrivning|Krävs|Standard|
 |---------------|-----------------|--------------|-------------|
-|tillstånd|En boolesk literal eller [uttryck](api-management-policy-expressions.md) anger om återförsök ska stoppas (`false`) eller fortsatte (`true`).|Ja|Gäller inte|
-|antal|Ett positivt tal som anger det maximala antalet försök att försöka.|Ja|Gäller inte|
-|interval|Ett positivt tal i sekunder som anger vänta intervall mellan det nya försöket försöker.|Ja|Gäller inte|
-|max-interval|Ett positivt tal i sekunder som anger maximalt vänta mellan nya försök. Den används för att implementera en algoritm exponentiell försök igen.|Nej|Gäller inte|
-|delta|Ett positivt tal i sekunder som anger att vänta intervall ökning. Används för att implementera linjär och exponentiella retry-algoritmer.|Nej|Gäller inte|
-|first-fast-retry|Om värdet `true` , första nytt försök utförs omedelbart.|Nej|`false`|
+|villkor|En boolesk literal eller [uttryck](api-management-policy-expressions.md) att ange om återförsök ska stoppas (`false`) eller fortsatt (`true`).|Ja|Gäller inte|
+|count|Ett positivt tal som anger det maximala antalet nya försök att försöka.|Ja|Gäller inte|
+|interval|Det görs försök att ett positivt tal på några sekunder att ange väntetidsintervallet mellan återförsök.|Ja|Gäller inte|
+|maximalt intervall|Ett positivt tal på några sekunder att ange maximalt vänta intervall mellan nya försök. Den används för att implementera en algoritm för exponentiellt återförsök.|Nej|Gäller inte|
+|delta|Ett positivt tal på några sekunder att ange den vänta intervall ökningen. Den används för att implementera återförsök för linjär och exponentiell algoritmer.|Nej|Gäller inte|
+|första-snabbt-försök|Om inställd `true` , första återförsök sker det omedelbart.|Nej|`false`|
 
 > [!NOTE]
->  När bara den `interval` anges **fast** intervall för nya försök utförs.
-> När bara den `interval` och `delta` har angetts en **linjär** intervall försök algoritmen används, där väntetiden mellan försök beräknas enligt följande formel - `interval + (count - 1)*delta`.
-> När den `interval`, `max-interval` och `delta` anges, **exponentiell** intervall försök algoritmen används där väntetiden mellan försöken ökar exponentiellt från värdet för `interval` till värdet `max-interval` enligt följande forumula - `min(interval + (2^count - 1) * random(delta * 0.8, delta * 1.2), max-interval)`.
+>  När bara den `interval` anges **fast** intervall för återförsök utförs.
+> När bara den `interval` och `delta` anges, en **linjär** intervall för återförsök algoritmen används, där väntetiden mellan försöken beräknas enligt följande formel - `interval + (count - 1)*delta`.
+> När den `interval`, `max-interval` och `delta` anges, **exponentiell** intervall för återförsök algoritmen används, där väntetiden mellan återförsöken ökar exponentiellt från värdet för `interval` till värdet `max-interval` enligt följande forumula - `min(interval + (2^count - 1) * random(delta * 0.8, delta * 1.2), max-interval)`.
 
 ### <a name="usage"></a>Användning
- Den här principen kan användas i följande princip [avsnitt](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) och [scope](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) . Observera att ärvs underordnade principbegränsningar för användning av den här principen.
+ Den här principen kan användas i följande princip [avsnitt](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) och [scope](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) . Observera att användning av underordnade principbegränsningar ärvs av den här principen.
 
--   **Avsnitt i princip:** inkommande, utgående backend fel
+-   **Princip-avsnitt:** inkommande, utgående serverdelen, vid fel
 
--   **Princip för scope:** alla scope
+-   **Princip-scope:** alla omfattningar
 
 ##  <a name="ReturnResponse"></a> Returnera svar
- Den `return-response` principen avbryter pipelinekörningen och returnerar ett standardvärde eller anpassade svar till anroparen. Standard-svaret är `200 OK` med ingen brödtext. Anpassade svar kan anges via en kontext variabel eller princip-instruktioner. När både tillhandahålls ändras svaret finns i kontexten variabeln av principen instruktionerna innan de returneras till anroparen.
+ Den `return-response` principen avbryter pipeline-åtgärd och returnerar en standard- eller anpassade svar till anroparen. Standardsvar är `200 OK` med ingen brödtext. Du kan ange anpassade svar via en kontext variabeln eller princip-uttryck. När båda tillhandahålls ändras svaret finns i sammanhangsvariabeln av principrapporter innan det returneras till anroparen.
 
 ### <a name="policy-statement"></a>Principframställning
 
@@ -488,26 +488,26 @@ status code and media type. If no example or schema found, the content is empty.
 
 |Element|Beskrivning|Krävs|
 |-------------|-----------------|--------------|
-|returnera svar|Rotelementet.|Ja|
-|set-header|En [set-huvudet](api-management-transformation-policies.md#SetHTTPheader) princip-satsen.|Nej|
-|Ange brödtext|En [set brödtext](api-management-transformation-policies.md#SetBody) princip-satsen.|Nej|
-|set-status|En [Ange status](api-management-advanced-policies.md#SetStatus) princip-satsen.|Nej|
+|returnera svar|Rotelement.|Ja|
+|set-header|En [angivet sidhuvud](api-management-transformation-policies.md#SetHTTPheader) Principframställning.|Nej|
+|Ställ in brödtext|En [Ställ in brödtext](api-management-transformation-policies.md#SetBody) Principframställning.|Nej|
+|set-status|En [set-status](api-management-advanced-policies.md#SetStatus) Principframställning.|Nej|
 
 ### <a name="attributes"></a>Attribut
 
 |Attribut|Beskrivning|Krävs|
 |---------------|-----------------|--------------|
-|response-variable-name|Namnet på variabeln kontexten refereras från, till exempel en uppströms [-begäran om att skicka](api-management-advanced-policies.md#SendRequest) principen och som innehåller en `Response` objekt|Valfri.|
+|svaret variabelnamn|Namnet på sammanhangsvariabeln refereras från, till exempel en uppströms [-begäran om att skicka](api-management-advanced-policies.md#SendRequest) principen och som innehåller en `Response` objekt|Valfri.|
 
 ### <a name="usage"></a>Användning
  Den här principen kan användas i följande princip [avsnitt](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) och [scope](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).
 
--   **Avsnitt i princip:** inkommande, utgående backend fel
+-   **Princip-avsnitt:** inkommande, utgående serverdelen, vid fel
 
--   **Princip för scope:** alla scope
+-   **Princip-scope:** alla omfattningar
 
-##  <a name="SendOneWayRequest"></a> Skicka förfrågan om ett sätt
- Den `send-one-way-request` princip angivna begäran skickas till den angivna URL: en utan att vänta på ett svar.
+##  <a name="SendOneWayRequest"></a> Skickas enkelriktat
+ Den `send-one-way-request` princip skickar angivna begäran till den angivna URL: en utan att vänta tills ett svar.
 
 ### <a name="policy-statement"></a>Principframställning
 
@@ -523,7 +523,7 @@ status code and media type. If no example or schema found, the content is empty.
 ```
 
 ### <a name="example"></a>Exempel
- Exempel principen visar ett exempel på hur du använder den `send-one-way-request` princip för att skicka ett meddelande till en Slack chatt-rummet om HTTP-svarskoden är större än eller lika med 500. Mer information om det här exemplet finns [med externa tjänster från Azure API Management-tjänsten](https://azure.microsoft.com/documentation/articles/api-management-sample-send-request/).
+ Princip för det här exemplet visar ett exempel på hur du använder den `send-one-way-request` princip för att skicka ett meddelande till en Slack chattrum om HTTP-svarskoden är större än eller lika med 500. Mer information om det här exemplet finns i [använda externa tjänster från Azure API Management-tjänsten](https://azure.microsoft.com/documentation/articles/api-management-sample-send-request/).
 
 ```xml
 <choose>
@@ -555,10 +555,10 @@ status code and media type. If no example or schema found, the content is empty.
 
 |Element|Beskrivning|Krävs|
 |-------------|-----------------|--------------|
-|send-one-way-request|Rotelementet.|Ja|
-|url|URL för begäran.|Inga om läge = kopian. Annars Ja.|
-|metod|HTTP-metod för begäran.|Inga om läge = kopian. Annars Ja.|
-|sidhuvud|Huvudet i begäran. Använda flera huvud-element för flera huvuden för begäran.|Nej|
+|en-sätt – begäran om att skicka|Rotelement.|Ja|
+|url|URL för begäran.|Inga om läge = kopia. Annars Ja.|
+|metod|HTTP-metoden för begäran.|Inga om läge = kopia. Annars Ja.|
+|sidhuvud|Huvudet i begäran. Använda flera huvudelement för flera begärandehuvuden.|Nej|
 |brödtext|Begärantexten.|Nej|
 |certifikat för serverautentisering|[Certifikat för klientautentisering](api-management-authentication-policies.md#ClientCertificate)|Nej|
 
@@ -567,19 +567,19 @@ status code and media type. If no example or schema found, the content is empty.
 
 |Attribut|Beskrivning|Krävs|Standard|
 |---------------|-----------------|--------------|-------------|
-|mode="string"|Anger om detta är en ny begäran eller en kopia av den aktuella begäranden. I utgående läge, läge = kopiera initieras inte begärandetexten.|Nej|Ny|
+|mode="string"|Anger om detta är en ny begäran eller en kopia av den aktuella begäran. I läget för utgående, läge = Kopiera inte initiera begärandetexten.|Nej|Ny|
 |namn|Anger namnet på rubriken anges.|Ja|Gäller inte|
-|Det finns åtgärd|Anger vilken åtgärd som ska vidtas när huvudet har redan angetts. Det här attributet måste ha något av följande värden.<br /><br /> -åsidosätt - ersätter värdet för befintliga-huvud.<br />-skip - ersätter inte det befintliga huvudvärdet.<br />-Tillägg - lägger till värdet på det befintliga huvudvärdet.<br />-delete - tar bort huvudet i begäran.<br /><br /> Om värdet är `override` ta med flera poster med samma namn resulterar i sidhuvudet har angetts enligt alla poster (som visas flera gånger); endast listade värden anges i resultatet.|Nej|åsidosätt|
+|Det finns åtgärder|Anger vilken åtgärd som ska vidtas när rubriken har redan angetts. Det här attributet måste ha något av följande värden.<br /><br /> -åsidosätt - ersätter värdet för befintlig rubrik.<br />-skip - ersätter inte befintliga huvudets värde.<br />-Tillägg - lägger till värdet till det befintliga värdet för sidhuvudet.<br />-delete - tar bort huvudet i begäran.<br /><br /> När värdet `override` ta med flera poster med samma namn resulterar i rubriken anges enligt alla poster (som visas flera gånger); endast listade värdena anges i resultatet.|Nej|åsidosättning|
 
 ### <a name="usage"></a>Användning
  Den här principen kan användas i följande princip [avsnitt](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) och [scope](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).
 
--   **Avsnitt i princip:** inkommande, utgående backend fel
+-   **Princip-avsnitt:** inkommande, utgående serverdelen, vid fel
 
--   **Princip för scope:** alla scope
+-   **Princip-scope:** alla omfattningar
 
-##  <a name="SendRequest"></a> Skicka förfrågan
- Den `send-request` princip angivna begäran skickas till angiven URL, väntar på längre än ange timeout-värdet.
+##  <a name="SendRequest"></a> Skicka begäran
+ Den `send-request` princip skickar angivna begäran till angiven URL, att vänta längre än set timeout-värdet.
 
 ### <a name="policy-statement"></a>Principframställning
 
@@ -596,7 +596,7 @@ status code and media type. If no example or schema found, the content is empty.
 ```
 
 ### <a name="example"></a>Exempel
- Det här exemplet illustrerar ett sätt att kontrollera en referens token med en server för auktorisering. Mer information om det här exemplet finns [med externa tjänster från Azure API Management-tjänsten](https://azure.microsoft.com/documentation/articles/api-management-sample-send-request/).
+ Det här exemplet visar ett sätt att kontrollera en referens token med en auktoriseringsservern. Mer information om det här exemplet finns i [använda externa tjänster från Azure API Management-tjänsten](https://azure.microsoft.com/documentation/articles/api-management-sample-send-request/).
 
 ```xml
 <inbound>
@@ -637,10 +637,10 @@ status code and media type. If no example or schema found, the content is empty.
 
 |Element|Beskrivning|Krävs|
 |-------------|-----------------|--------------|
-|Skicka begäran|Rotelementet.|Ja|
-|url|URL för begäran.|Inga om läge = kopian. Annars Ja.|
-|metod|HTTP-metod för begäran.|Inga om läge = kopian. Annars Ja.|
-|sidhuvud|Huvudet i begäran. Använda flera huvud-element för flera huvuden för begäran.|Nej|
+|Skicka begäran|Rotelement.|Ja|
+|url|URL för begäran.|Inga om läge = kopia. Annars Ja.|
+|metod|HTTP-metoden för begäran.|Inga om läge = kopia. Annars Ja.|
+|sidhuvud|Huvudet i begäran. Använda flera huvudelement för flera begärandehuvuden.|Nej|
 |brödtext|Begärantexten.|Nej|
 |certifikat för serverautentisering|[Certifikat för klientautentisering](api-management-authentication-policies.md#ClientCertificate)|Nej|
 
@@ -648,22 +648,22 @@ status code and media type. If no example or schema found, the content is empty.
 
 |Attribut|Beskrivning|Krävs|Standard|
 |---------------|-----------------|--------------|-------------|
-|mode="string"|Anger om detta är en ny begäran eller en kopia av den aktuella begäranden. I utgående läge, läge = kopiera initieras inte begärandetexten.|Nej|Ny|
-|response-variable-name="string"|Om den inte finns `context.Response` används.|Nej|Gäller inte|
-|timeout="integer"|Det går inte att timeout-intervall i sekunder innan anropet till URL: en.|Nej|60|
-|ignore-error|Om true, och begäran resulterar i ett fel:<br /><br /> – Om svaret variabelnamn angavs innehåller ett null-värde.<br />– Om svaret variabelnamn inte har angetts, kontext. Begäran kommer inte att uppdateras.|Nej|false|
+|mode="string"|Anger om detta är en ny begäran eller en kopia av den aktuella begäran. I läget för utgående, läge = Kopiera inte initiera begärandetexten.|Nej|Ny|
+|response-variable-name="string"|Namnet på sammanhangsvariabeln som tar emot ett svarsobjekt. Om variabeln inte finns det skapas efter lyckade körningen av principen och blir tillgänglig via [ `context.Variable` ](api-management-policy-expressions.md#ContextVariables) samling.|Ja|Gäller inte|
+|timeout = ”heltal”|Det går inte att timeout-intervall i sekunder innan anropet till URL: en.|Nej|60|
+|Ignorera fel|Om SANT och begäran resulterar i ett fel:<br /><br /> – Om svar-variabeln-name har angetts innehåller ett null-värde.<br />– Om variabeln svarsnamnet inte har angetts, kontext. Begäran kommer inte att uppdateras.|Nej|false|
 |namn|Anger namnet på rubriken anges.|Ja|Gäller inte|
-|Det finns åtgärd|Anger vilken åtgärd som ska vidtas när huvudet har redan angetts. Det här attributet måste ha något av följande värden.<br /><br /> -åsidosätt - ersätter värdet för befintliga-huvud.<br />-skip - ersätter inte det befintliga huvudvärdet.<br />-Tillägg - lägger till värdet på det befintliga huvudvärdet.<br />-delete - tar bort huvudet i begäran.<br /><br /> Om värdet är `override` ta med flera poster med samma namn resulterar i sidhuvudet har angetts enligt alla poster (som visas flera gånger); endast listade värden anges i resultatet.|Nej|åsidosätt|
+|Det finns åtgärder|Anger vilken åtgärd som ska vidtas när rubriken har redan angetts. Det här attributet måste ha något av följande värden.<br /><br /> -åsidosätt - ersätter värdet för befintlig rubrik.<br />-skip - ersätter inte befintliga huvudets värde.<br />-Tillägg - lägger till värdet till det befintliga värdet för sidhuvudet.<br />-delete - tar bort huvudet i begäran.<br /><br /> När värdet `override` ta med flera poster med samma namn resulterar i rubriken anges enligt alla poster (som visas flera gånger); endast listade värdena anges i resultatet.|Nej|åsidosättning|
 
 ### <a name="usage"></a>Användning
  Den här principen kan användas i följande princip [avsnitt](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) och [scope](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).
 
--   **Avsnitt i princip:** inkommande, utgående backend fel
+-   **Princip-avsnitt:** inkommande, utgående serverdelen, vid fel
 
--   **Princip för scope:** alla scope
+-   **Princip-scope:** alla omfattningar
 
 ##  <a name="SetHttpProxy"></a> Ange HTTP-proxy
- Den `proxy` principen kan du på väg begäranden vidarebefordras till serverdelar via en HTTP-proxy. Endast HTTP (HTTPS inte) stöds mellan gatewayen och proxyn. Grundläggande och NTLM-autentisering.
+ Den `proxy` princip gör att du kan dirigera begäranden som vidarebefordras till serverdelar via en HTTP-proxy. Endast HTTP (inte HTTPS) stöds mellan gatewayen och proxy. Basic- och NTLM-autentisering.
 
 ### <a name="policy-statement"></a>Principframställning
 
@@ -673,7 +673,7 @@ status code and media type. If no example or schema found, the content is empty.
 ```
 
 ### <a name="example"></a>Exempel
-Observera användningen av [egenskaper](api-management-howto-properties.md) som värden för användarnamn och lösenord för att undvika att lagra känslig information i dokumentets princip.
+Observera användningen av [egenskaper](api-management-howto-properties.md) som värden för användarnamn och lösenord för att undvika att lagra känslig information i dokumentet.
 
 ```xml
 <proxy url="http://192.168.1.1:8080" username={{username}} password={{password}} />
@@ -684,25 +684,25 @@ Observera användningen av [egenskaper](api-management-howto-properties.md) som 
 
 |Element|Beskrivning|Krävs|
 |-------------|-----------------|--------------|
-|Proxy|Rotelementet|Ja|
+|Proxy|Rotelement|Ja|
 
 ### <a name="attributes"></a>Attribut
 
 |Attribut|Beskrivning|Krävs|Standard|
 |---------------|-----------------|--------------|-------------|
-|url="string"|Proxy-URL i formatet http://host:port.|Ja|Gäller inte|
-|username="string"|Användarnamnet som ska användas för autentisering med proxyservern.|Nej|Gäller inte|
-|password="string"|Lösenordet som ska användas för autentisering med proxyservern.|Nej|Gäller inte|
+|URL: en = ”string”|Proxy-URL i form av http://host:port.|Ja|Gäller inte|
+|användarnamn = ”string”|Användarnamnet som ska användas för autentisering med proxyn.|Nej|Gäller inte|
+|lösenord = ”string”|Lösenordet som ska användas för autentisering med proxyn.|Nej|Gäller inte|
 
 ### <a name="usage"></a>Användning
  Den här principen kan användas i följande princip [avsnitt](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) och [scope](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).
 
--   **Avsnitt i princip:** inkommande
+-   **Princip-avsnitt:** inkommande
 
--   **Princip för scope:** alla scope
+-   **Princip-scope:** alla omfattningar
 
 ##  <a name="SetRequestMethod"></a> Set-metod för begäran
- Den `set-method` principen kan du ändra metoden HTTP-begäran för en begäran.
+ Den `set-method` princip kan du ändra metoden för HTTP-begäran för en begäran.
 
 ### <a name="policy-statement"></a>Principframställning
 
@@ -712,7 +712,7 @@ Observera användningen av [egenskaper](api-management-howto-properties.md) som 
 ```
 
 ### <a name="example"></a>Exempel
- Det här exemplet princip som använder den `set-method` principen visas ett exempel på ett meddelande skickades till en Slack chatt-rum om HTTP-svarskoden är större än eller lika med 500. Mer information om det här exemplet finns [med externa tjänster från Azure API Management-tjänsten](https://azure.microsoft.com/documentation/articles/api-management-sample-send-request/).
+ Det här exemplet-princip som använder den `set-method` principen visar ett exempel på Skicka ett meddelande till en Slack chattrum om HTTP-svarskoden är större än eller lika med 500. Mer information om det här exemplet finns i [använda externa tjänster från Azure API Management-tjänsten](https://azure.microsoft.com/documentation/articles/api-management-sample-send-request/).
 
 ```xml
 <choose>
@@ -744,16 +744,16 @@ Observera användningen av [egenskaper](api-management-howto-properties.md) som 
 
 |Element|Beskrivning|Krävs|
 |-------------|-----------------|--------------|
-|set-metod|Rotelementet. Värdet för elementet anger HTTP-metoden.|Ja|
+|set-metod|Rotelement. Värdet för elementet anger HTTP-metoden.|Ja|
 
 ### <a name="usage"></a>Användning
  Den här principen kan användas i följande princip [avsnitt](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) och [scope](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).
 
--   **Avsnitt i princip:** inkommande, vid fel
+-   **Princip-avsnitt:** inkommande trafik och vid fel
 
--   **Princip för scope:** alla scope
+-   **Princip-scope:** alla omfattningar
 
-##  <a name="SetStatus"></a> Ange statuskoden
+##  <a name="SetStatus"></a> Set-statuskod
  Den `set-status` principen anger HTTP-statuskoden med det angivna värdet.
 
 ### <a name="policy-statement"></a>Principframställning
@@ -764,7 +764,7 @@ Observera användningen av [egenskaper](api-management-howto-properties.md) som 
 ```
 
 ### <a name="example"></a>Exempel
- Det här exemplet illustrerar hur du skickar tillbaka ett 401 svar om autentiseringstoken är ogiltig. Mer information finns i [med externa tjänster från Azure API Management-tjänsten](https://azure.microsoft.com/documentation/articles/api-management-sample-send-request/)
+ Det här exemplet visar hur du skickar tillbaka ett 401-svar om autentiseringstoken är ogiltig. Mer information finns i [använda externa tjänster från Azure API Management-tjänsten](https://azure.microsoft.com/documentation/articles/api-management-sample-send-request/)
 
 ```xml
 <choose>
@@ -784,23 +784,23 @@ Observera användningen av [egenskaper](api-management-howto-properties.md) som 
 
 |Element|Beskrivning|Krävs|
 |-------------|-----------------|--------------|
-|set-status|Rotelementet.|Ja|
+|set-status|Rotelement.|Ja|
 
 ### <a name="attributes"></a>Attribut
 
 |Attribut|Beskrivning|Krävs|Standard|
 |---------------|-----------------|--------------|-------------|
 |code="integer"|HTTP-statuskoden ska returneras.|Ja|Gäller inte|
-|reason="string"|En beskrivning av orsaken för att returnera statuskoden.|Ja|Gäller inte|
+|Orsak = ”string”|En beskrivning av orsaken för att returnera statuskod.|Ja|Gäller inte|
 
 ### <a name="usage"></a>Användning
  Den här principen kan användas i följande princip [avsnitt](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) och [scope](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).
 
--   **Avsnitt i princip:** utgående, backend fel
--   **Princip för scope:** alla scope
+-   **Princip-avsnitt:** utgående, serverdel, vid fel
+-   **Princip-scope:** alla omfattningar
 
 ##  <a name="set-variable"></a> Ange variabel
- Den `set-variable` princip deklarerar en [kontexten](api-management-policy-expressions.md#ContextVariables) variabeln och tilldelar den ett värde som angetts via en [uttryck](api-management-policy-expressions.md) eller en teckensträng. Om uttrycket innehåller ett litteralvärde kommer att konverteras till en sträng och värdet ska vara `System.String`.
+ Den `set-variable` princip deklarerar en [kontext](api-management-policy-expressions.md#ContextVariables) variabeln och tilldelar den ett värde som angetts via en [uttryck](api-management-policy-expressions.md) eller en teckensträng. Om uttrycket innehåller ett litteralvärde kommer att konverteras till en sträng och typ av värde blir `System.String`.
 
 ###  <a name="set-variablePolicyStatement"></a> Principframställning
 
@@ -809,7 +809,7 @@ Observera användningen av [egenskaper](api-management-howto-properties.md) som 
 ```
 
 ###  <a name="set-variableExample"></a> Exempel
- I följande exempel visas en uppsättning variabeln princip i avsnittet inkommande. Ange variabeln principen skapar en `isMobile` booleskt [kontexten](api-management-policy-expressions.md#ContextVariables) variabel som har angetts till true om den `User-Agent` begäran huvudet innehåller texten `iPad` eller `iPhone`.
+ I följande exempel visar en uppsättning variabeln princip under inkommande. Den här variabeln set-principen skapas en `isMobile` booleskt [kontext](api-management-policy-expressions.md#ContextVariables) variabel som är inställd på SANT om den `User-Agent` begäran huvudet innehåller texten `iPad` eller `iPhone`.
 
 ```xml
 <set-variable name="IsMobile" value="@(context.Request.Headers["User-Agent"].Contains("iPad") || context.Request.Headers["User-Agent"].Contains("iPhone"))" />
@@ -819,23 +819,23 @@ Observera användningen av [egenskaper](api-management-howto-properties.md) som 
 
 |Element|Beskrivning|Krävs|
 |-------------|-----------------|--------------|
-|Ange variabel|Rotelementet.|Ja|
+|Ange variabel|Rotelement.|Ja|
 
 ### <a name="attributes"></a>Attribut
 
 |Attribut|Beskrivning|Krävs|
 |---------------|-----------------|--------------|
 |namn|Namnet på variabeln.|Ja|
-|värde|Värdet för variabeln. Detta kan vara ett uttryck eller ett litteralvärde.|Ja|
+|värde|Värdet på variabeln. Detta kan vara ett uttryck eller ett literalvärde.|Ja|
 
 ### <a name="usage"></a>Användning
  Den här principen kan användas i följande princip [avsnitt](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) och [scope](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).
 
--   **Avsnitt i princip:** inkommande, utgående backend fel
--   **Princip för scope:** alla scope
+-   **Princip-avsnitt:** inkommande, utgående serverdelen, vid fel
+-   **Princip-scope:** alla omfattningar
 
 ###  <a name="set-variableAllowedTypes"></a> Tillåtna typer
- Uttryck som används i den `set-variable` principen måste returnera ett av följande grundläggande typer.
+ Uttryck som används i den `set-variable` princip måste returnera följande grundläggande typer.
 
 -   System.Boolean
 -   System.SByte
@@ -870,7 +870,7 @@ Observera användningen av [egenskaper](api-management-howto-properties.md) som 
 -   System.DateTime?
 
 ##  <a name="Trace"></a> Spårning
- Den `trace` princip lägger till en sträng i den [API Inspector](https://azure.microsoft.com/documentation/articles/api-management-howto-api-inspector/) utdata. Principen körs endast när spårning utlöses, d.v.s. `Ocp-Apim-Trace` huvud är närvarande och ange att `true` och `Ocp-Apim-Subscription-Key` begärandehuvudet finns och innehåller en giltig nyckel som är associerade med administratörskontot.
+ Den `trace` principen lägger till en sträng i den [API Inspector](https://azure.microsoft.com/documentation/articles/api-management-howto-api-inspector/) utdata. Principen körs endast när spårning utlöses, d.v.s. `Ocp-Apim-Trace` huvudet i begäran är närvarande och har inställningen till `true` och `Ocp-Apim-Subscription-Key` begärandehuvudet finns och innehåller en giltig nyckel som är associerade med administratörskontot.
 
 ### <a name="policy-statement"></a>Principframställning
 
@@ -886,23 +886,23 @@ Observera användningen av [egenskaper](api-management-howto-properties.md) som 
 
 |Element|Beskrivning|Krävs|
 |-------------|-----------------|--------------|
-|Spårning|Rotelementet.|Ja|
+|Spårning|Rotelement.|Ja|
 
 ### <a name="attributes"></a>Attribut
 
 |Attribut|Beskrivning|Krävs|Standard|
 |---------------|-----------------|--------------|-------------|
-|källa|Stränglitteral meningsfulla för visningsprogram och ange källan för meddelandet.|Ja|Gäller inte|
+|källa|Exakt sträng är meningsfulla för visningsprogram och ange källan för meddelandet.|Ja|Gäller inte|
 
 ### <a name="usage"></a>Användning
  Den här principen kan användas i följande princip [avsnitt](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) och [scope](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) .
 
--   **Avsnitt i princip:** inkommande, utgående backend fel
+-   **Princip-avsnitt:** inkommande, utgående serverdelen, vid fel
 
--   **Princip för scope:** alla scope
+-   **Princip-scope:** alla omfattningar
 
 ##  <a name="Wait"></a> Vänta
- Den `wait` principen Kör sina direkt underordnade principer parallellt och väntar på att alla eller en av dess omedelbara underordnade principer ska slutföras innan den slutförs. Vänta principen kan ha sina direkt underordnade principer [begäran om att skicka](api-management-advanced-policies.md#SendRequest), [hämta värdet från cache](api-management-caching-policies.md#GetFromCacheByKey), och [Åtkomstkontrollflödet](api-management-advanced-policies.md#choose) principer.
+ Den `wait` principen Kör sina direkt underordnade principer parallellt och väntar tills alla eller en av dess omedelbara underordnade principer ska slutföras innan den slutförs. Vänta principen kan ha som dess omedelbara underordnade principer [sändningsbegäranden](api-management-advanced-policies.md#SendRequest), [hämta värdet från cachen](api-management-caching-policies.md#GetFromCacheByKey), och [Kontrollflöde](api-management-advanced-policies.md#choose) principer.
 
 ### <a name="policy-statement"></a>Principframställning
 
@@ -915,7 +915,7 @@ Observera användningen av [egenskaper](api-management-howto-properties.md) som 
 ```
 
 ### <a name="example"></a>Exempel
- I följande exempel finns två `choose` principer som direkt underordnade principer för den `wait` princip. Var och en av dessa `choose` principer körs parallellt. Varje `choose` princip försöker hämta ett cachelagrade värde. Om det finns en cache-miss, kallas en backend-tjänst för att ange värdet. I det här exemplet i `wait` principen inte slutföras förrän alla dess omedelbara underordnade principer slutföras eftersom den `for` -attributet är inställt på `all`.   I det här exemplet variablerna kontext (`execute-branch-one`, `value-one`, `execute-branch-two`, och `value-two`) deklareras utanför omfånget för den här principen exempel.
+ I följande exempel finns två `choose` principer som direkt underordnade principer från den `wait` principen. Var och en av dessa `choose` principer körs parallellt. Varje `choose` princip försöker hämta ett cachelagrade värde. Om det finns en cachemiss, anropas en serverdelstjänst för att ange värdet. I det här exemplet på `wait` principen inte slutföras förrän alla dess underordnade omedelbar principer slutföra eftersom den `for` är attributet `all`.   I det här exemplet sammanhangsvariablerna (`execute-branch-one`, `value-one`, `execute-branch-two`, och `value-two`) har deklarerats utanför omfånget för den här exempel-principen.
 
 ```xml
 <wait for="all">
@@ -953,25 +953,25 @@ Observera användningen av [egenskaper](api-management-howto-properties.md) som 
 
 |Element|Beskrivning|Krävs|
 |-------------|-----------------|--------------|
-|Vänta|Rotelementet. Kan innehålla som underordnade element endast `send-request`, `cache-lookup-value`, och `choose` principer.|Ja|
+|Vänta|Rotelement. Kan innehålla som underordnade element endast `send-request`, `cache-lookup-value`, och `choose` principer.|Ja|
 
 ### <a name="attributes"></a>Attribut
 
 |Attribut|Beskrivning|Krävs|Standard|
 |---------------|-----------------|--------------|-------------|
-|för|Anger om den `wait` principen väntar på att alla direkt underordnade principer ska slutföras eller bara en. Tillåtna värden är:<br /><br /> -   `all` -Vänta tills alla direkt underordnade principer ska slutföras<br />-alla - vänta tills alla direkt underordnade principen att slutföra. När den första omedelbara underordnade principen är klar, den `wait` principen har slutförts och körningen av alla andra principer för omedelbart underordnade avslutas.|Nej|all|
+|för|Avgör om den `wait` principen väntar tills alla direkt underordnade principer som slutförda eller bara en. Tillåtna värden är:<br /><br /> -   `all` -Vänta tills alla direkt underordnade principer att slutföra<br />-alla - vänta tills alla direkt underordnade principen att slutföra. När den första principen direkt underordnade har slutförts, den `wait` principen har slutförts och körning av alla andra principer för omedelbar underordnade avslutas.|Nej|all|
 
 ### <a name="usage"></a>Användning
 
 Den här principen kan användas i följande princip [avsnitt](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) och [scope](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).
 
--   **Avsnitt i princip:** inkommande, utgående backend
--   **Princip för scope:** alla scope
+-   **Princip-avsnitt:** inkommande, utgående serverdel
+-   **Princip-scope:** alla omfattningar
 
 ## <a name="next-steps"></a>Nästa steg
 
 Arbeta med principer, Läs mer:
-+ [Principer för i API-hantering](api-management-howto-policies.md)
++ [Principer i API Management](api-management-howto-policies.md)
 + [Principuttryck](api-management-policy-expressions.md)
 + [Principreferens för](api-management-policy-reference.md) för en fullständig lista över principrapporter och deras inställningar
 + [Princip-exempel](policy-samples.md)

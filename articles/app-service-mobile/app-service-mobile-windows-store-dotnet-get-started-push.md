@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/12/2016
 ms.author: crdun
-ms.openlocfilehash: bfbb72d6fd101932f00e12ad18ab079ec30a0d3a
-ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
+ms.openlocfilehash: c137f6cfdff9d043a656783f38ec9b894e644338
+ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42818828"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50913027"
 ---
 # <a name="add-push-notifications-to-your-windows-app"></a>Lägg till push-meddelanden till din Windows-app
 
@@ -37,21 +37,23 @@ Om du inte använder serverprojekt hämtade Snabbstart måste tilläggspaket fö
 
 ## <a name="register-your-app-for-push-notifications"></a>Registrera din app för push-meddelanden
 
-Du måste skicka in din app till Microsoft Store och sedan konfigurera serverprojektet att integrera med Windows Notification Services (WNS) att skicka push.
+Du måste skicka in din app till Microsoft Store och sedan konfigurera serverprojektet att integrera med [Windows Notification Services (WNS)](https://docs.microsoft.com/windows/uwp/design/shell/tiles-and-notifications/windows-push-notification-services--wns--overview) att skicka push.
 
 1. I Visual Studio Solution Explorer högerklickar du på UWP-appsprojektet, klickar du på **Store** > **associera App med Store...** .
 
     ![Associera app med Microsoft Store](./media/app-service-mobile-windows-store-dotnet-get-started-push/notification-hub-associate-uwp-app.png)
+
 2. I guiden klickar du på **nästa**, logga in med ditt Microsoft-konto, ange ett namn för din app i **reservera ett nytt appnamn**, klicka sedan på **reservera**.
 3. När appregistreringen har skapats, Välj namnet på nya appen, klicka på **nästa**, och klicka sedan på **associera**. Detta lägger till registreringsinformationen som krävs Microsoft Store till i programmanifestet.
-4. Navigera till den [Windows Dev Center](https://dev.windows.com/en-us/overview), logga in med ditt Microsoft-konto, klicka på ny appregistrering i **Mina appar**, expandera sedan **Services**  >   **Push-meddelanden**.
-5. I den **Push-meddelanden** klickar du på **webbplatsen Live-tjänster** under **Microsoft Azure mobiltjänster**.
-6. På registreringssidan anteckna värdet under **programhemligheter** och **paket-SID**, som du sedan använder för att konfigurera din mobilappsserverdel.
+4. Navigera till den [Programregistreringsportalen](https://apps.dev.microsoft.com/) och logga in med ditt Microsoft-konto. Klicka på Windows Store-app som du har associerat i föregående steg.
+5. På registreringssidan anteckna värdet under **programhemligheter** och **paket-SID**, som du sedan använder för att konfigurera din mobilappsserverdel.
 
     ![Associera app med Microsoft Store](./media/app-service-mobile-windows-store-dotnet-get-started-push/app-service-mobile-uwp-app-push-auth.png)
 
    > [!IMPORTANT]
    > Klienthemligheten och paket-SID:et är viktiga säkerhetsuppgifter. Lämna aldrig ut dessa uppgifter till någon och distribuera dem inte tillsammans med din app. Den **program-Id** används med hemligheten för att konfigurera Account autentisering.
+
+[App Center](https://docs.microsoft.com/appcenter/sdk/push/uwp#prerequisite---register-your-app-for-windows-notification-services-wns) har också instruktioner för att konfigurera UWP-appar för push-meddelanden.
 
 ## <a name="configure-the-backend-to-send-push-notifications"></a>Konfigurera serverdelen för att skicka push-meddelanden
 

@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 07/19/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: b8a758923f0e3e287da4a377d140f1f659cef46f
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 437800483004cdbff89814579137f4057133d0fb
+ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46312699"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50913813"
 ---
 # <a name="azure-active-directory-pass-through-authentication-technical-deep-dive"></a>Azure Active Directory-direktautentisering: Teknisk djupdykning
 Den här artikeln är en översikt över hur fungerar med Azure Active directory (Azure AD)-direktautentisering. Djup teknisk och säkerhetsinformation finns i den [djupgående om säkerhet](how-to-connect-pta-security-deep-dive.md) artikeln.
@@ -52,7 +52,7 @@ Följande diagram illustrerar komponenterna och steg som ingår:
 ## <a name="next-steps"></a>Nästa steg
 - [Aktuella begränsningar](how-to-connect-pta-current-limitations.md): Läs mer om vilka scenarier som stöds och vilka som inte är.
 - [Snabbstart](how-to-connect-pta-quick-start.md): komma igång på Azure AD-direktautentisering.
-- [Migrera från AD FS till direktautentisering](https://github.com/Identity-Deployment-Guides/Identity-Deployment-Guides/blob/master/Authentication/Migrating%20from%20Federated%20Authentication%20to%20Pass-through%20Authentication.docx) -en detaljerad vägledning för att migrera från AD FS (eller andra tekniker för federation) till direktautentisering.
+- [Migrera från AD FS till direktautentisering](https://aka.ms/adfstoPTADP) -en detaljerad vägledning för att migrera från AD FS (eller andra tekniker för federation) till direktautentisering.
 - [Smart kontoutelåsning](../authentication/howto-password-smart-lockout.md): konfigurera funktionen för smarta kontoutelåsning på din klient för att skydda användarkonton.
 - [Vanliga frågor och svar](how-to-connect-pta-faq.md): få svar på vanliga frågor och svar.
 - [Felsöka](tshoot-connect-pass-through-authentication.md): Lär dig att lösa vanliga problem med funktionen direktautentisering.

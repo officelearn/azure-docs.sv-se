@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 03/20/2017
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a07a17105b4d84b51689e9636cfacc7a3b5428ad
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 2f7871aac0469e5fb8eaaebef9ca48404609bab7
+ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39528035"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50912568"
 ---
 # <a name="design-and-build-a-management-solution-in-azure-preview"></a>Utforma och skapa en lösning i Azure (förhandsversion)
 > [!NOTE]
@@ -30,7 +30,7 @@ ms.locfileid: "39528035"
 
 ## <a name="what-is-a-management-solution"></a>Vad är en hanteringslösning för?
 
-Lösningar för hantering av innehåller Azure-resurser som arbetar tillsammans för att uppnå ett visst hanteringsscenario.  De är implementerade som [mallar för resurshantering](../azure-resource-manager/resource-manager-template-walkthrough.md) som innehåller information om hur du installerar och konfigurerar sina inneslutna resurser när lösningen har installerats.
+Lösningar för hantering av innehåller Azure-resurser som arbetar tillsammans för att uppnå ett visst hanteringsscenario.  De är implementerade som [mallar för resurshantering](../azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal.md) som innehåller information om hur du installerar och konfigurerar sina inneslutna resurser när lösningen har installerats.
 
 Den grundläggande strategin är att starta din lösning genom att skapa enskilda komponenter i Azure-miljön.  När du har funktionen fungerar korrekt kan du kan starta paketera dem till en [management lösningsfilen]( monitoring-solutions-solution-file.md). 
 
@@ -49,7 +49,7 @@ Det finns ett antal sätt datakällor som kan samlas in i Log Analytics-database
 Om du kräver att data som inte kan nås via någon av de tillgängliga datakällorna så du kan använda den [HTTP Data Collector API](../log-analytics/log-analytics-data-collector-api.md) där du kan skriva data till Log Analytics-databasen från alla klienter som kan anropa en REST-API.  Det vanligaste sättet för anpassad insamling i en lösning för hantering av är att skapa en [runbook i Azure Automation](../automation/automation-runbook-types.md) som samlar in nödvändiga data från Azure eller externa resurser och använder Data Collector API för att skriva till den lagringsplats.  
 
 ### <a name="log-searches"></a>Loggsökningar
-[Loggsökningar](../log-analytics/log-analytics-log-searches.md) används för att extrahera och analysera data i Log Analytics-databasen.  De används i vyer och aviseringar förutom tillåter användare att utföra ad hoc-analyser av data i databasen.  
+[Loggsökningar](../log-analytics/log-analytics-log-search.md) används för att extrahera och analysera data i Log Analytics-databasen.  De används i vyer och aviseringar förutom tillåter användare att utföra ad hoc-analyser av data i databasen.  
 
 Du bör definiera alla frågor som du tror att användbara för användaren även om de inte används av alla vyer eller aviseringar.  Dessa är tillgängliga för dem som sparade sökningar i portalen och du kan även inkludera dem i en [Listfrågor för visualisering del](../log-analytics/log-analytics-view-designer-parts.md#list-of-queries-part) i den anpassade vyn.
 
@@ -58,7 +58,7 @@ Du bör definiera alla frågor som du tror att användbara för användaren äve
 
 Om problemet kan eventuellt åtgärdas med en automatiserad process, ska du vanligtvis skapa en runbook i Azure Automation för att utföra den här reparationen.  De flesta Azure-tjänster kan hanteras med [cmdletar](/powershell/azure/overview) som runbook skulle använda för att utföra dessa funktioner.
 
-Om din lösning kräver externa funktioner som svar på en avisering så kan du använda en [webhook-svar](../log-analytics/log-analytics-alerts-actions.md).  På så sätt kan du anropa en extern webbtjänst skickar information från aviseringen.
+Om din lösning kräver externa funktioner som svar på en avisering så kan du använda en [webhook-svar](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md).  På så sätt kan du anropa en extern webbtjänst skickar information från aviseringen.
 
 ### <a name="views"></a>Vyer
 Vyer i Log Analytics används för att visualisera data från Log Analytics-databasen.  Varje lösning vanligtvis innehåller en enda vy med en [panelen](../log-analytics/log-analytics-view-designer-tiles.md) som visas på användarens huvudinstrumentpanel.  Vyn kan innehålla valfritt antal [visualisering delar](../log-analytics/log-analytics-view-designer-parts.md) att tillhandahålla olika visualiseringar av insamlade data för användaren.

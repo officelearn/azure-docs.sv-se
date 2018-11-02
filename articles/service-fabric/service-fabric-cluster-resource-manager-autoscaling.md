@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/17/2018
 ms.author: miradic
-ms.openlocfilehash: fbaf6b92a2605d284a749365d542c223e09f730d
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
+ms.openlocfilehash: 1bee48225448a964da7caa2a7b284b274c52bea6
+ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49362610"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50914064"
 ---
 # <a name="introduction-to-auto-scaling"></a>Introduktion till automatisk skalning
 Automatisk skalning är en ytterligare funktion av Service Fabric dynamiskt skala dina tjänster baserat på den belastning som tjänster rapporterar eller baserat på deras användning av resurser. Automatisk skalning ger bra elasticitet och gör etablering av ytterligare instanser eller partitioner av din tjänst på begäran. Hela processen för autoskalning är automatiserade och transparent och när du har konfigurerat dina principer på en tjänst det finns inget behov av manuell skalningsåtgärder på tjänstnivå. Automatisk skalning kan aktiveras antingen när tjänsten skapas eller när som helst genom att uppdatera tjänsten.
@@ -41,7 +41,7 @@ Alla utlösare som stöds för närvarande fungerar med antingen [logiska inläs
 Det finns två metoder som stöds för närvarande för automatisk skalning. Den första som är avsedd för tillståndslösa tjänster eller för behållare där automatisk skalning utförs genom att lägga till eller ta bort [instanser](service-fabric-concepts-replica-lifecycle.md). För både tillståndskänsliga och tillståndslösa tjänster, automatisk skalning kan också utföras genom att lägga till eller tar bort det namngivna [partitioner](service-fabric-concepts-partitioning.md) av tjänsten.
 
 > [!NOTE]
-> Det finns för närvarande stöd för endast en skalningsprincip per tjänst.
+> Det finns för närvarande stöd för endast en skalningsprincip per tjänst och endast en skalning utlösare per princip.
 
 ## <a name="average-partition-load-trigger-with-instance-based-scaling"></a>Genomsnittlig partition belastningen utlösare med instanser baserat skalning
 Den första typen av utlösare baseras på belastningen på instanser i en tillståndslös tjänst-partition. Metrisk belastningar jämnas först för att hämta belastningen för varje instans av en partition och sedan dessa värden är i genomsnitt i alla instanser av partitionen. Det finns tre faktorer som bestämmer när tjänsten kommer att skalas:

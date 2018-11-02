@@ -6,14 +6,14 @@ author: banisadr
 manager: timlt
 ms.service: event-grid
 ms.topic: conceptual
-ms.date: 10/31/2018
+ms.date: 11/01/2018
 ms.author: babanisa
-ms.openlocfilehash: a9bffe148339bfac89796405b771e9c2816eb0de
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
+ms.openlocfilehash: fe13c424a3da91e92a04cceb807b98fd1ffe4db0
+ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50741529"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50914047"
 ---
 # <a name="event-grid-security-and-authentication"></a>Event Grid säkerhet och autentisering 
 
@@ -191,15 +191,83 @@ De tre sista åtgärderna returnera potentiellt hemlig information, som hämtar 
 
 ### <a name="built-in-roles"></a>Inbyggda roller
 
-Event Grid erbjuder två inbyggda roller för att hantera prenumerationer på händelser. Dessa roller är `EventSubscription Contributor (Preview)` och `EventSubscription Reader (Preview)`. De är viktigt när du implementerar händelse domäner. Läs mer om åtgärderna som beviljade [händelsedomän - åtkomsthantering](event-domains.md#access-management).
+Event Grid erbjuder två inbyggda roller för att hantera prenumerationer på händelser. De är viktigt när du implementerar [händelse domäner](event-domains.md) eftersom de ger användare de behörigheter som de behöver för att prenumerera på ämnen i händelsedomän. Dessa roller fokuserar på händelseprenumerationer och bevilja inte åtkomst för åtgärder som att skapa ämnen.
 
 Du kan [tilldela dessa roller till en användare eller grupp](../role-based-access-control/quickstart-assign-role-user-portal.md).
+
+**EventGrid EventSubscription deltagare (förhandsgranskning)**: hantera åtgärder i Event Grid-prenumeration
+
+```json
+[
+  {
+    "Description": "Lets you manage EventGrid event subscription operations.",
+    "IsBuiltIn": true,
+    "Id": "428e0ff05e574d9ca2212c70d0e0a443",
+    "Name": "EventGrid EventSubscription Contributor (Preview)",
+    "IsServiceRole": false,
+    "Permissions": [
+      {
+        "Actions": [
+          "Microsoft.Authorization/*/read",
+          "Microsoft.EventGrid/eventSubscriptions/*",
+          "Microsoft.EventGrid/topicTypes/eventSubscriptions/read",
+          "Microsoft.EventGrid/locations/eventSubscriptions/read",
+          "Microsoft.EventGrid/locations/topicTypes/eventSubscriptions/read",
+          "Microsoft.Insights/alertRules/*",
+          "Microsoft.Resources/deployments/*",
+          "Microsoft.Resources/subscriptions/resourceGroups/read",
+          "Microsoft.Support/*"
+        ],
+        "NotActions": [],
+        "DataActions": [],
+        "NotDataActions": [],
+        "Condition": null
+      }
+    ],
+    "Scopes": [
+      "/"
+    ]
+  }
+]
+```
+
+**EventGrid EventSubscription läsare (förhandsgranskning)**: läsa Event Grid-prenumerationer
+
+```json
+[
+  {
+    "Description": "Lets you read EventGrid event subscriptions.",
+    "IsBuiltIn": true,
+    "Id": "2414bbcf64974faf8c65045460748405",
+    "Name": "EventGrid EventSubscription Reader (Preview)",
+    "IsServiceRole": false,
+    "Permissions": [
+      {
+        "Actions": [
+          "Microsoft.Authorization/*/read",
+          "Microsoft.EventGrid/eventSubscriptions/read",
+          "Microsoft.EventGrid/topicTypes/eventSubscriptions/read",
+          "Microsoft.EventGrid/locations/eventSubscriptions/read",
+          "Microsoft.EventGrid/locations/topicTypes/eventSubscriptions/read",
+          "Microsoft.Resources/subscriptions/resourceGroups/read"
+        ],
+        "NotActions": [],
+        "DataActions": [],
+        "NotDataActions": []
+       }
+    ],
+    "Scopes": [
+      "/"
+    ]
+  }
+]
+```
 
 ### <a name="custom-roles"></a>Anpassade roller
 
 Om du vill ange behörigheter som skiljer sig från de inbyggda rollerna kan skapa du anpassade roller.
 
-Följande är exempel Event Grid rolldefinitioner som användarna kan vidta olika åtgärder.
+Följande är exempel Event Grid rolldefinitioner som användarna kan vidta olika åtgärder. Dessa anpassade roller skiljer sig från de inbyggda rollerna eftersom de ger bredare åtkomst än bara händelseprenumerationer.
 
 **EventGridReadOnlyRole.json**: Tillåt endast skrivskyddade åtgärder.
 

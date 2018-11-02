@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/24/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: f0ed4b20f9dbfef4824f66eab3ab953a5dbcfaae
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 4960ee485ac8c6b233eacc569cdac6748481887d
+ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47060898"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50746807"
 ---
 # <a name="azure-premium-storage-design-for-high-performance"></a>Azure Premium Storage: Design för hög prestanda
 
@@ -30,6 +30,10 @@ Den här artikeln kommer att besvara följande vanliga frågor om hur du optimer
 * Hur kan du optimera för IOPS, bandbredd och latens?  
 
 Vi har angett dessa riktlinjer specifikt för Premium Storage eftersom arbetsbelastningar som körs på Premium-lagring med hög prestanda som är känsliga. Vi har lagt till exempel där det är lämpligt. Du kan också använda några av dessa riktlinjer för program som körs på virtuella IaaS-datorer med Standard Storage-diskar.
+
+> [!NOTE]
+> Ibland är något som verkar vara problem med prestandan faktiskt en flaskhalsar i nätverket. I sådana situationer bör du optimera din [nätverksprestanda](../articles/virtual-network/virtual-network-optimize-network-bandwidth.md).
+> Du bör kontrollera att den virtuella datorn har stöd för accelererat nätverk. Om den finns, kan du aktivera den även efter distribution på både [windows](../articles/virtual-network/create-vm-accelerated-networking-powershell.md#enable-accelerated-networking-on-existing-vms) och [linux](../articles/virtual-network/create-vm-accelerated-networking-cli.md#enable-accelerated-networking-on-existing-vms) virtuella datorer.
 
 Innan du börjar, om du är nybörjare till Premium Storage, läsa den [Premium Storage: lagring med höga prestanda för Azure-Datorbelastningar](../articles/virtual-machines/windows/premium-storage.md) och [skalbarhet för lagring av Azure- och prestandamål](../articles/storage/common/storage-scalability-targets.md)artiklar.
 
@@ -134,7 +138,7 @@ Mer information på VM-storlekar och på IOPS, dataflöde och svarstid som är t
 | **Exempelscenario** |Enterprise OLTP-program som kräver mycket hög transaktioner per sekund hastighet. |Enterprise Data warehousing programmet bearbetning av stora mängder data. |Nära realtid program som kräver direkta svar på användarförfrågningar som onlinespel. |
 | Prestandafaktorer | &nbsp; | &nbsp; | &nbsp; |
 | **I/o-storlek** |Mindre i/o-storlek ger högre IOPS. |Större i/o-storlek till ger högre dataflöde. | &nbsp;|
-| **VM-storlek** |Använd en VM-storlek som erbjuder IOPS som är större än behov. |Använda en VM-storlek med dataflödesgräns som är större än behov. |Använd en VM-storlek att erbjudanden skala gränser som är större än behov. |
+| **Storlek på virtuell dator** |Använd en VM-storlek som erbjuder IOPS som är större än behov. |Använda en VM-storlek med dataflödesgräns som är större än behov. |Använd en VM-storlek att erbjudanden skala gränser som är större än behov. |
 | **Diskstorlek** |Använd en diskstorlek som erbjuder IOPS som är större än behov. |Använd en diskstorlek med dataflödesgräns som är större än behov. |Använd en diskstorlek att erbjudanden skala gränser som är större än behov. |
 | **Virtuell dator och gränser för skalning av Disk** |IOPS-gränsen för valt VM-storleken måste vara större än totalt IOPS som styrs av en premium-lagringsdiskar som är kopplade till den. |Dataflödesgräns för valt VM-storleken måste vara större än totala dataflödet som styrs av en premium-lagringsdiskar som är kopplade till den. |Gränser för skalning av VM-storleken valt måste vara större än totala skalningsgränserna för anslutna premium storage-diskar. |
 | **Diskcachelagring** |Aktivera skrivskyddad Cache på premium-lagringsdiskar med tung läsåtgärder att få högre Läs IOPS. | &nbsp; |Aktivera skrivskyddad Cache på premium-lagringsdiskar med redo tung åtgärder för att få mycket låg Läs svarstider. |
@@ -221,11 +225,11 @@ När du kör Linux med Premium Storage kan du kontrollera de senaste uppdatering
 
 Azure Premium Storage erbjuder åtta GA-diskstorlekar och tre diskstorlekar som för närvarande är i förhandsversion. Varje diskstorleken har en annan skala gräns för IOPS, bandbredd och lagring. Välja rätt storlek på Premium-lagringsdisk beroende på kraven för programmet och storskaliga VM-storlek. Tabellen nedan visar storlekarna som elva diskar och deras funktioner. P4, P6, P15, P60, P70 och P80 storlekarna är för närvarande endast stöd för Managed Disks.
 
-| Typen för Premium-diskar  | P4    | P6    | P10   | P15 | P20   | P30   | P40   | P50   | P60   | P70   | P80   |
+| Typen för Premium-diskar  | P4    | P6    | P10   | P15 | P20   | P30   | P40   | P50   | P60   | P70   | P80   |
 |---------------------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|
-| Diskstorlek           | 32 giB | 64 giB | 128 GiB| 256 GB| 512 GB            | 1 024 giB (1 TiB)    | 2 048 giB (2 TiB)    | 4 095 giB (4 TiB)    | 8 192 giB (8 TiB)    | 16 384 giB (16 TiB)    | 32 767 giB (32 GiB)    |
-| IOPS per disk       | 120   | 240   | 500   | 1100 | 2 300              | 5000              | 7500              | 7500              | 12 500              | 15 000              | 20,000              |
-| Dataflöde per disk | 25 MiB per sekund  | 50 MiB per sekund  | 100 MiB per sekund |125 MiB per sekund | 150 MiB per sekund | 200 MiB per sekund | 250 MiB per sekund | 250 MiB per sekund | 480 MiB per sekund | 750 MiB per sekund | 750 MiB per sekund |
+| Diskstorlek           | 32 giB | 64 giB | 128 GiB| 256 GB| 512 GB            | 1 024 giB (1 TiB)    | 2 048 giB (2 TiB)    | 4 095 giB (4 TiB)    | 8 192 giB (8 TiB)    | 16 384 giB (16 TiB)    | 32 767 giB (32 GiB)    |
+| IOPS per disk       | 120   | 240   | 500   | 1100 | 2 300              | 5000              | 7500              | 7500              | 12 500              | 15 000              | 20,000              |
+| Dataflöde per disk | 25 MiB per sekund  | 50 MiB per sekund  | 100 MiB per sekund |125 MiB per sekund | 150 MiB per sekund | 200 MiB per sekund | 250 MiB per sekund | 250 MiB per sekund | 480 MiB per sekund | 750 MiB per sekund | 750 MiB per sekund |
 
 Hur många diskar som du väljer beror på disken storlek väljs. Du kan använda en enda P50-disk eller flera P10-diskar för att uppfylla dina behov. Väg in överväganden för användarkonton som anges nedan när du gör valet.
 

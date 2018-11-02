@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 09/28/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 8b45acebf95d5bf24ff2045f5739c8584f374842
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: afd2b31c5829015e11a3875c609ea3171006c501
+ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49320466"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50914149"
 ---
 # <a name="azure-active-directory-pass-through-authentication-quick-start"></a>Azure Active Directory-direktautentisering: Snabbstart för
 
@@ -33,7 +33,7 @@ Azure Active Directory (Azure AD)-direktautentisering kan användarna att logga 
 
 Följ dessa instruktioner för att distribuera direktautentisering på din klient:
 
-## <a name="step-1-check-the-prerequisites"></a>Steg 1: Kontrollera kraven
+## <a name="step-1-check-the-prerequisites"></a>Steg 1: Kontrollera krav
 
 Se till att följande krav är uppfyllda.
 
@@ -142,7 +142,7 @@ Dessutom kan du skapa och köra ett distributionsskript för obevakad. Detta är
         RegisterConnector.ps1 -modulePath "C:\Program Files\Microsoft Azure AD Connect Authentication Agent\Modules\" -moduleName "AppProxyPSModule" -Authenticationmode Credentials -Usercredentials $cred -Feature PassthroughAuthentication
 
 ## <a name="next-steps"></a>Nästa steg
-- [Migrera från AD FS till direktautentisering](https://github.com/Identity-Deployment-Guides/Identity-Deployment-Guides/blob/master/Authentication/Migrating%20from%20Federated%20Authentication%20to%20Pass-through%20Authentication.docx) -en detaljerad vägledning för att migrera från AD FS (eller andra tekniker för federation) till direktautentisering.
+- [Migrera från AD FS till direktautentisering](http://aka.ms/adfstoptadp) -en detaljerad vägledning för att migrera från AD FS (eller andra tekniker för federation) till direktautentisering.
 - [Smart kontoutelåsning](../authentication/howto-password-smart-lockout.md): Lär dig hur du konfigurerar funktionen för smarta kontoutelåsning på din klient för att skydda användarkonton.
 - [Aktuella begränsningar](how-to-connect-pta-current-limitations.md): Läs mer om vilka scenarier som stöds med den direktautentisering och vilka som inte är.
 - [Teknisk djupdykning](how-to-connect-pta-how-it-works.md): Förstå hur funktionen direktautentisering fungerar.

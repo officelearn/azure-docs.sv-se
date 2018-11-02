@@ -10,12 +10,12 @@ ms.service: machine-learning
 ms.component: core
 ms.topic: article
 ms.date: 09/24/2018
-ms.openlocfilehash: 2c4255b70ae9eb3b31b6fdfce33853f0d517aa1f
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: dfa9da5102c2a47b14cbd70380b70b4561c3191d
+ms.sourcegitcommit: 6678e16c4b273acd3eaf45af310de77090137fa1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50215488"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50748467"
 ---
 # <a name="select-and-use-a-compute-target-to-train-your-model"></a>Använd ett beräkningsmål träna din modell
 
@@ -463,7 +463,7 @@ Det finns två sätt att skicka en utbildning körning:
 * Skicka en `Pipeline` objekt.
 
 > [!IMPORTANT]
-> Compute-mål kan bara användas i en pipeline i Azure Databricks, Azure-Datalake-Analytics och Azure HDInsight.
+> Azure Databricks och Azure-Datalake-Analytics compute mål kan bara användas i en pipeline.
 > Den lokala beräkningsmål kan inte användas i en Pipeline.
 
 ### <a name="submit-using-scriptrunconfig"></a>Skicka in via `ScriptRunConfig`

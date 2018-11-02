@@ -1,6 +1,6 @@
 ---
-title: Vyer i hanteringslösningar | Microsoft Docs
-description: 'Hanteringslösningar inkluderar vanligtvis en eller flera vyer om du vill visualisera data.  Den här artikeln beskriver hur du exporterar en vy som skapats av Vydesigner och inkludera den i en lösning. '
+title: Vyer i lösningar för hantering av | Microsoft Docs
+description: 'Hanteringslösningar har vanligtvis vyer en eller flera om du vill visualisera data.  Den här artikeln beskriver hur du exporterar en vy som skapats av Vydesigner och inkludera den i en lösning. '
 services: monitoring
 documentationcenter: ''
 author: bwren
@@ -14,19 +14,19 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/16/2018
 ms.author: bwren
-ms.openlocfilehash: b4f54358f4bc1db973d6fe7163411e3a313c3cf4
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: 27bec2b7fa53e7564841e6f89be7e4d81a9b9f1a
+ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33887869"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50913044"
 ---
-# <a name="views-in-management-solutions-preview"></a>Vyer i hanteringslösningar (förhandsgranskning)
+# <a name="views-in-management-solutions-preview"></a>Vyer i lösningar för hantering (förhandsversion)
 > [!NOTE]
-> Den här är dokumentationen preliminär för att skapa lösningar som för närvarande finns i förhandsgranskningen. Ett schema som beskrivs nedan kan ändras.    
+> Det här är preliminära dokumentationen för att skapa lösningar för hantering som för närvarande i förhandsversion. Ett schema som beskrivs nedan kan komma att ändras.    
 
 
-[Hanteringslösningar](monitoring-solutions.md) inkluderar vanligtvis en eller flera vyer om du vill visualisera data.  Den här artikeln beskriver hur du exporterar en vy som skapades av den [Vydesigner](../log-analytics/log-analytics-view-designer.md) och inkludera den i en lösning.  
+[Lösningar för hantering av](monitoring-solutions.md) inkluderar vanligtvis en eller flera vyer för att visualisera data.  Den här artikeln beskriver hur du exporterar en vy som skapats av den [Vydesigner](../log-analytics/log-analytics-view-designer.md) och inkludera den i en lösning.  
 
 > [!NOTE]
 > Exemplen i den här artikeln använder parametrar och variabler som är obligatoriska eller vanligt att hanteringslösningar och beskrivs i [utforma och skapa en lösning i Azure](monitoring-solutions-creating.md)
@@ -34,24 +34,24 @@ ms.locfileid: "33887869"
 >
 
 ## <a name="prerequisites"></a>Förutsättningar
-Den här artikeln förutsätter att du redan är bekant med [skapar en lösning för](monitoring-solutions-creating.md) och strukturen för en lösningsfil.
+Den här artikeln förutsätter att du redan är bekant med hur du [skapa en lösning för](monitoring-solutions-creating.md) och strukturen för en lösningsfil.
 
 ## <a name="overview"></a>Översikt
-Om du vill inkludera en vy i en lösning som du skapar en **resurs** för den i den [lösningsfilen](monitoring-solutions-creating.md).  JSON som beskriver den visa detaljerad konfiguration är komplex men och inte något att en typisk lösning författare skulle kunna skapa manuellt.  Den vanligaste metoden är att skapa en vy med hjälp av den [Vydesigner](../log-analytics/log-analytics-view-designer.md), exportera den och sedan lägga till den detaljerade konfigurationen i lösningen.
+För att inkludera en vy i en lösning för hantering, skapar du en **resource** för den i den [lösningsfilen](monitoring-solutions-creating.md).  Den JSON som beskriver den visa detaljerad konfiguration är komplex men och inte något att en typisk lösning författare skulle kunna skapa manuellt.  Den vanligaste metoden är att skapa en vy med hjälp av den [Vydesigner](../log-analytics/log-analytics-view-designer.md), exportera det och sedan lägga till den detaljerade konfigurationen i lösningen.
 
-De grundläggande stegen för att lägga till en vy i en lösning är som följer.  Varje steg beskrivs detaljerat i nedanstående avsnitt.
+De grundläggande stegen för att lägga till en vy i en lösning är som följer.  Varje steg beskrivs mer ingående i avsnitten nedan.
 
 1. Exportera vyn till en fil.
 2. Skapa vy resursen i lösningen.
-3. Lägga till vyn Detaljer.
+3. Lägg till Visa information.
 
 ## <a name="export-the-view-to-a-file"></a>Exportera vyn till en fil
-Följ anvisningarna på [Log Analytics Vydesigner](../log-analytics/log-analytics-view-designer.md) att exportera en vy till en fil.  Den exporterade filen kommer att i JSON-format med samma [element som lösningsfilen](monitoring-solutions-solution-file.md).  
+Följ anvisningarna på [Log Analytics-Vydesigner](../log-analytics/log-analytics-view-designer.md) att exportera en vy till en fil.  Den exporterade filen kommer att i JSON-format med samma [element som lösningsfilen](monitoring-solutions-solution-file.md).  
 
-Den **resurser** element i filen vyn har en resurs med en typ av **Microsoft.OperationalInsights/workspaces** som representerar logganalys-arbetsytan.  Det här elementet har ett underelement av typen **vyer** som representerar vyn och innehåller detaljerade konfigurationen.  Du kan kopiera information om det här elementet och kopierar den till din lösning.
+Den **resurser** element i Vyfilen har en resurs med en typ av **Microsoft.OperationalInsights/workspaces** som representerar Log Analytics-arbetsytan.  Det här elementet har ett underelement med en typ av **vyer** som representerar vyn och innehåller detaljerade konfigurationen.  Du kopierar informationen på det här elementet och kopiera den till din lösning.
 
 ## <a name="create-the-view-resource-in-the-solution"></a>Skapa vy resursen i lösningen
-Lägg till följande vy resursen till den **resurser** element i din lösningsfil.  Den använder variabler som beskrivs nedan som du måste också lägga till.  Observera att den **instrumentpanelen** och **OverviewTile** egenskaper är platshållare som kommer att skrivas över med motsvarande egenskaper från den exportera visa filen.
+Lägg till följande vy resursen till den **resurser** element i din lösningsfilen.  Här används variabler som beskrivs nedan att du måste också lägga till.  Observera att den **instrumentpanelen** och **OverviewTile** egenskaper är platshållare som skrivs med motsvarande egenskaper från den exporterade visa filen.
 
     {
         "apiVersion": "[variables('LogAnalyticsApiVersion')]",
@@ -73,39 +73,39 @@ Lägg till följande vy resursen till den **resurser** element i din lösningsfi
         }
     }
 
-Lägg till följande variabler i elementet variabler i lösningsfilen och Ersätt värdena som de för din lösning.
+Lägg till följande variabler i elementet variabler i lösningsfilen och ersätter värdena som dem för din lösning.
 
     "LogAnalyticsApiVersion": "<api-version>",
     "ViewAuthor": "Your name."
     "ViewDescription": "Optional description of the view."
     "ViewName": "Provide a name for the view here."
 
-Observera att du kan kopiera hela vyn resursen från din exporterade visa filen, men måste du göra följande ändringar att fungera i din lösning.  
+Observera att du kan kopiera hela vyn resursen från den exporterade visa filen, men behöver du göra följande ändringar att fungera i din lösning.  
 
-* Den **typen** för vyn resurs ska ändras från **vyer** till **Microsoft.OperationalInsights/workspaces**.
-* Den **namn** -egenskapen för resursen visa behöver ändras för att inkludera namnet på arbetsytan.
-* Beroende på arbetsytan måste tas bort eftersom den arbetsyta resursen har inte definierats i lösningen.
+* Den **typ** för vyn resurs ska ändras från **vyer** till **Microsoft.OperationalInsights/workspaces**.
+* Den **namn** för visa-resursen måste ändras för att inkludera namnet på arbetsytan.
+* Beroende på arbetsytans måste tas bort eftersom den arbetsyteresursen inte är definierad i lösningen.
 * **DisplayName** egenskapen måste läggas till vyn.  Den **Id**, **namn**, och **DisplayName** måste matcha alla.
-* Parameternamn måste ändras för att matcha uppsättningen parametrar som krävs.
-* Variabler ska definieras i lösningen och används i lämpliga egenskaper.
+* Parameternamn måste ändras för att matcha de obligatoriska parametrar.
+* Variabler ska definieras i lösningen och används i egenskaperna.
 
-### <a name="log-analytics-api-version"></a>Log Analytics API-version
-Alla logganalys-resurser som definierats i en Resource Manager-mall har en egenskap **apiVersion** som definierar versionen av resursen ska använda API: et.  Den här versionen är olika för vyer med frågor som använder den [äldre och uppgraderade frågespråket](../log-analytics/log-analytics-log-search-upgrade.md).  
+### <a name="log-analytics-api-version"></a>Log Analytics-API-version
+Alla Log Analytics-resurser som definierats i en Resource Manager-mallen har en egenskap **apiVersion** som definierar versionen av API: et som resursen ska använda.  Den här versionen är olika för vyer med frågor som använder den [äldre system och det uppgraderade frågespråket](../log-analytics/log-analytics-log-search.md).  
 
  I följande tabell anger Log Analytics API-versioner för vyer i äldre och uppgraderade arbetsytor: 
 
-| Arbetsyteversion | API-version | Fråga |
+| Arbetsyteversion | API-version | Söka i data |
 |:---|:---|:---|
 | V1 (äldre)   | 2015-11-01-preview | Äldre format.<br> Exempel: Skriv = händelse EventLevelName = fel  |
-| v2 (uppgraderade) | 2015-11-01-preview | Äldre format.  Konvertera till uppgraderade format på installera.<br> Exempel: Skriv = händelse EventLevelName = fel<br>Konvertera till: händelsen &#124; där EventLevelName == ”Error”  |
-| v2 (uppgraderade) | 2017-03-03-preview | Uppgradera format. <br>Exempel: Händelsen &#124; där EventLevelName == ”Error”  |
+| v2 (uppgraderade) | 2015-11-01-preview | Äldre format.  Konverteras till uppgraderade format vid installation.<br> Exempel: Skriv = händelse EventLevelName = fel<br>Konverteras till: händelse &#124; där EventLevelName == ”Error”  |
+| v2 (uppgraderade) | 2017-03-03-förhandsversion | Uppgradera format. <br>Exempel: Händelse &#124; där EventLevelName == ”Error”  |
 
 
 ## <a name="add-the-view-details"></a>Lägg till Visa detaljer
-Visa resursen i filen exporterade vyn innehåller två element i den **egenskaper** element med namnet **instrumentpanelen** och **OverviewTile** som innehåller den detaljerade konfiguration av vyn.  Kopiera dessa två element och innehållet i den **egenskaper** element i vyn resurs i din lösningsfilen.
+Visa resurs i den exporterade Visa fil innehåller två element i den **egenskaper** element med namnet **instrumentpanelen** och **OverviewTile** som innehåller detaljerade konfiguration av vyn.  Kopiera dessa två element och deras innehåll till den **egenskaper** element i Visa-resurs i din lösningsfilen.
 
 ## <a name="example"></a>Exempel
-I följande exempel visar exempelvis en enkel lösning-fil med en vy.  Ellipserna (...) visas för den **instrumentpanelen** och **OverviewTile** innehållet utrymme skäl.
+I följande exempel visas till exempel en enkel lösning-fil med en vy.  Ellipserna (...) visas för den **instrumentpanelen** och **OverviewTile** innehållet utrymme skäl.
 
     {
         "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
@@ -188,5 +188,5 @@ I följande exempel visar exempelvis en enkel lösning-fil med en vy.  Ellipsern
 
 
 ## <a name="next-steps"></a>Nästa steg
-* Lär dig mer detaljerad information om hur du skapar [hanteringslösningar](monitoring-solutions-creating.md).
-* Inkludera [Automation-runbooks i din lösning](monitoring-solutions-resources-automation.md).
+* Lär dig mer information för att skapa [hanteringslösningar](monitoring-solutions-creating.md).
+* Inkludera [Automation-runbooks i din lösning för](monitoring-solutions-resources-automation.md).

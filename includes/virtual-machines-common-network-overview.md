@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/11/2018
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: d750ac7a5ac847a8c1eb5a9c91bb42804c2eebe0
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: 89d35197567c4bd44c5867dbb120d07e9f99d1e9
+ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49437032"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50746804"
 ---
 När du skapar en virtuell Azure-dator (VM) måste du skapa ett [virtuellt nätverk](../articles/virtual-network/virtual-networks-overview.md) (VNet) eller använda ett befintligt VNet. Du måste också bestämma hur dina virtuella datorer är avsedda att användas på VNet. Det är viktigt att [planera innan du skapar resurser](../articles/virtual-network/virtual-network-vnet-plan-design-arm.md) och att säkerställa att du förstår [begränsningarna för nätverksresurser](../articles/azure-subscription-service-limits.md#networking-limits).
 
@@ -151,7 +151,7 @@ Den här tabellen anger de metoder som du kan använda för att skapa en intern 
 
 Virtuella datorer kan skapas i samma VNet och de kan ansluta till varandra med privata IP-adresser. De kan ansluta även om de finns i olika undernät utan att en gateway måste konfigureras eller offentliga IP-adresser användas. För att placera virtuella datorer i ett VNet skapar du detta VNet, och sedan när du skapar varje virtuell dator tilldelar du den till VNet och undernät. Virtuella datorer får sina nätverksinställningar under distributionen eller starten.  
 
-Virtuella datorer tilldelats en IP-adress när de distribueras. Om du distribuerar flera virtuella datorer i ett VNet eller ett undernät, tilldelas de IP-adresser när de startas. En dynamisk IP-adress (DIP) är den interna IP-adress som är associerad med en virtuell dator. Du kan allokera en statisk DIP till en virtuell dator. Om du allokerar en statisk DIP bör du överväga att använda ett specifikt undernät för att undvika att av misstag återanvända en statisk DIP för en annan virtuell dator.  
+Virtuella datorer tilldelats en IP-adress när de distribueras. Om du distribuerar flera virtuella datorer i ett VNet eller ett undernät, tilldelas de IP-adresser när de startas. Du kan även allokera en statisk IP-adress till en virtuell dator. Om du allokerar en statisk IP-adress, bör du använda ett specifikt undernät för att undvika att av misstag återanvända en statisk IP-adress för en annan virtuell dator.  
 
 Om du skapar en virtuell dator och vill migrera den till ett VNet är detta inte någon enkel konfigurationsändring. Du måste distribuera om den virtuella datorn till VNet. Det enklaste sättet att distribuera om är att ta bort den virtuella datorn, men inte eventuella diskar som är anslutna till den, och därefter skapa om den virtuella datorn i VNet med hjälp av de ursprungliga diskarna. 
 

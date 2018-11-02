@@ -7,15 +7,15 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 08/16/2017
+ms.date: 11/01/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 6b5cc1eff5c6d080854754ec5b3b62068f1cbb9c
-ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
+ms.openlocfilehash: d17e7abbb3b6e4f091e19b8ab6834461dedffc71
+ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39264723"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50914778"
 ---
 # <a name="azure-ad-b2c-frequently-asked-questions-faq"></a>Azure AD B2C: Vanliga frågor (och svar FAQ) 
 Den här sidan får du svar på vanliga frågor om Azure Active Directory (Azure AD) B2C. Kontrollera tillbaka för uppdateringar.
@@ -72,7 +72,7 @@ E-signaturen innehåller Azure AD B2C-klientens namn som du angav när du först
 1. Öppna den **Azure Active Directory** bladet.
 1. Klicka på den **egenskaper** fliken.
 1. Ändra den **namn** fält.
-1. Klicka på **spara** överst på sidan.
+1. Klicka på **Spara** längst upp på sidan.
 
 Det finns för närvarande inget sätt att ändra den ”från”: i e-postmeddelandet. Rösta på [feedback.azure.com](https://feedback.azure.com/forums/169401-azure-active-directory/suggestions/15334335-fully-customizable-verification-emails) du är intresserad av att anpassa brödtexten i bekräftelsemeddelandet.
 
@@ -80,7 +80,7 @@ Det finns för närvarande inget sätt att ändra den ”från”: i e-postmedde
 Du kan använda Azure AD Graph API för att skriva din Migreringsverktyg. Se den [användaren Migreringsguide](active-directory-b2c-user-migration.md) mer information.
 
 ### <a name="what-password-policy-is-used-for-local-accounts-in-azure-ad-b2c"></a>Vilka lösenordsprincip används för lokala konton i Azure AD B2C?
-Lösenordsprinciper för lokala konton för Azure AD B2C bygger på principen för Azure AD. Azure AD B2C användarens registrering, registrering eller inloggning och lösenord och Återställ principer använder ”starka” lösenordssäkerhet och löper ut eventuella lösenord. Läs den [Azure AD-lösenordsprincip](https://msdn.microsoft.com/library/azure/jj943764.aspx) för mer information.
+Lösenordsprinciper för lokala konton för Azure AD B2C bygger på principen för Azure AD. Azure AD B2C användarens registrering, registrering eller inloggning och lösenord och Återställ principer använder ”starka” lösenordssäkerhet och löper ut eventuella lösenord. Läs den [Azure AD-lösenordsprincip](https://msdn.microsoft.com/library/azure/jj943764.aspx) för mer information. Information om kontolåsningar och lösenord finns i [hanterar hot mot resurser och data i Azure Active Directory B2C](active-directory-b2c-reference-threat-management.md).
 
 ### <a name="can-i-use-azure-ad-connect-to-migrate-consumer-identities-that-are-stored-on-my-on-premises-active-directory-to-azure-ad-b2c"></a>Kan jag använda Azure AD Connect för att migrera konsumentidentiteter som lagras på min lokala Active Directory till Azure AD B2C?
 Nej, Azure AD Connect är inte avsedd att fungera med Azure AD B2C. Överväg att använda den [Graph API](active-directory-b2c-devquickstarts-graph-dotnet.md) för användarmigrering.  Se den [användaren Migreringsguide](active-directory-b2c-user-migration.md) mer information.

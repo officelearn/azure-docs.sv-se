@@ -9,12 +9,12 @@ author: bryanla
 ms.author: bryanla
 manager: mbaldwin
 ms.date: 10/03/2018
-ms.openlocfilehash: 02fffe7c4a3acff6ce6d68046eee4286003b1766
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: f3f310c247aea3842b5ec7a9a1409032d5bdc0bf
+ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50232230"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50912925"
 ---
 # <a name="azure-key-vault-storage-account-keys"></a>Azure Key Vault-Lagringskontonycklar
 
@@ -34,9 +34,12 @@ ms.locfileid: "50232230"
     - Följ stegen i den här [dokumentet](https://docs.microsoft.com/azure/storage/) att skapa ett lagringskonto  
     - **Riktlinjer för namngivning:** lagringskontonamn måste vara mellan 3 och 24 tecken långt och får innehålla siffror och gemener.        
       
-<a name="step-by-step-instructions"></a>Steg för steg-instruktioner
--------------------------
+<a name="step-by-step-instructions-on-how-to-use-key-vault-to-manage-storage-account-keys"></a>Steg för steg-instruktioner om hur du använder Key Vault för att hantera Lagringskontonycklar
+--------------------------------------------------------------------------------
 I den nedan information vi tilldela Key Vault som en tjänst har operatorn behörigheter för ditt storage-konto
+
+> [!NOTE]
+> . Observera att när du har konfigurerat Azure Key Vault hanteras storage kontonycklar de bör **nr** längre ändras utom via Key Vault. Hanterade Storage-kontonycklar innebär att Key Vault administrerar rotera nyckeln till lagringskontot
 
 1. När du har skapat ett lagringskonto som kör följande kommando för att hämta resurs-ID för lagringskontot som vill du hantera
 
@@ -71,6 +74,8 @@ I den nedan information vi tilldela Key Vault som en tjänst har operatorn behö
 
     az keyvault set-policy --name <YourVaultName> --object-id <ObjectId> --storage-permissions backup delete list regeneratekey recover     purge restore set setsas update
     ```
+### <a name="relavant-azure-cli-cmdlets"></a>Relavant Azure CLI-cmdletar
+- [Storage-cmdletar för Azure CLI](https://docs.microsoft.com/cli/azure/keyvault/storage?view=azure-cli-latest)
 
 ### <a name="relevant-powershell-cmdlets"></a>Relevanta Powershell-cmdletar
 

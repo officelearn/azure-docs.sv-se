@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/15/2018
 ms.author: bwren
-ms.openlocfilehash: d1fdec8e3a959aaeb68d4b63a1c71d6ef1ddd054
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: b2e7cc46a844ff866ae2d325b610653cd3179d8d
+ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49406329"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50914574"
 ---
 # <a name="office-365-management-solution-in-azure-preview"></a>Lösning för Office 365 i Azure (förhandsversion)
 
@@ -30,7 +30,7 @@ Hanteringslösning för Office 365 kan du övervaka din Office 365-miljö i Log 
 - Övervaka administratöraktiviteter för att spåra konfigurationsändringar eller Privilegierade åtgärder.
 - Upptäck och undersök oönskad användarnas beteende och som kan anpassas efter organisationens behov.
 - Visa gransknings- och kompatibilitetskontroller. Du kan till exempel övervaka åtkomst filåtgärder på konfidentiella filer, som kan hjälpa dig med processen gransknings- och kompatibilitetskontroller.
-- Utföra operativa felsökning med hjälp av [loggsökningar](../log-analytics/log-analytics-log-search.md) ovanpå Office 365 aktivitetsdata för din organisation.
+- Utföra operativa felsökning med hjälp av [loggsökningar](../log-analytics/log-analytics-queries.md) ovanpå Office 365 aktivitetsdata för din organisation.
 
 ## <a name="prerequisites"></a>Förutsättningar
 Följande krävs innan den här lösningen som den installeras och konfigureras.
@@ -518,7 +518,7 @@ Följande egenskaper är gemensamma för alla Office 365-poster.
 | Organisations-ID | GUID för organisationens Office 365-klient. Det här värdet kommer alltid att samma för din organisation, oavsett Office 365-tjänst där det inträffar. |
 | RecordType | Typ av åtgärder som utförs. |
 | ResultStatus | Anger om åtgärden (anges i egenskapen Operation) lyckades eller inte. Möjliga värden är Succeeded, PartiallySucceded eller Failed. Värdet är för administratörsaktivitet för Exchange, antingen SANT eller FALSKT. |
-| Användar-ID | UPN (User Principal Name) för den användare som utförde den åtgärd som resulterade i posten loggades, till exempel my_name@my_domain_name. Observera att poster för aktiviteter som utförs av Systemkonton (som SHAREPOINT\system eller NTAUTHORITY\SYSTEM) ingår också. | 
+| UserId | UPN (User Principal Name) för den användare som utförde den åtgärd som resulterade i posten loggades, till exempel my_name@my_domain_name. Observera att poster för aktiviteter som utförs av Systemkonton (som SHAREPOINT\system eller NTAUTHORITY\SYSTEM) ingår också. | 
 | UserKey | Ett alternativt ID för den användare som identifieras i användar-ID-egenskapen.  Den här egenskapen har fyllts i med unikt passport-ID (PUID) för händelser som utförs av användare i SharePoint, OneDrive för företag och Exchange. Den här egenskapen kan även ange samma värde som egenskapen användar-ID för händelser som inträffar i andra tjänster och händelser som utförs av systemkonton|
 | UserType | Typ av användare som utförde åtgärden.<br><br>Administratör<br>Program<br>DcAdmin<br>Vanliga<br>Reserverad<br>ServicePrincipal<br>System |
 
@@ -698,7 +698,7 @@ Dessa poster skapas som svar på filåtgärder i SharePoint.
 ## <a name="sample-log-searches"></a>Exempel på loggsökningar
 Följande tabell innehåller exempel på sökningar i loggen för uppdateringsposter som har samlats in av den här lösningen.
 
-| Fråga | Beskrivning |
+| Söka i data | Beskrivning |
 | --- | --- |
 |Uppräkning av alla åtgärder på Office 365-prenumerationen |OfficeActivity &#124; sammanfatta antal() efter åtgärd |
 |Användningen av SharePoint-webbplatser|OfficeActivity &#124; där OfficeWorkload = ~ ”sharepoint” &#124; sammanfatta antal() efter SiteUrl | Sortera efter antal asc|
@@ -709,6 +709,6 @@ Följande tabell innehåller exempel på sökningar i loggen för uppdateringspo
 
 
 ## <a name="next-steps"></a>Nästa steg
-* Använd loggsökningar i [Log Analytics](../log-analytics/log-analytics-log-searches.md) för att visa detaljerad uppdateringsinformation.
+* Använd loggsökningar i [Log Analytics](../log-analytics/log-analytics-log-search.md) för att visa detaljerad uppdateringsinformation.
 * [Skapa dina egna instrumentpaneler](../log-analytics/log-analytics-dashboards.md) att visa dina favorit Office 365-sökfrågor.
-* [Skapa aviseringar](../log-analytics/log-analytics-alerts.md) för att proaktivt aviseras om viktiga Office 365-aktiviteter.  
+* [Skapa aviseringar](../monitoring-and-diagnostics/monitoring-overview-unified-alerts.md) för att proaktivt aviseras om viktiga Office 365-aktiviteter.  

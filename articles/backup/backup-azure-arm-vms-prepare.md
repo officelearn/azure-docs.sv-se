@@ -9,16 +9,16 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 10/23/2018
 ms.author: raynew
-ms.openlocfilehash: 30b35d38c30d3ee9410a85824c53001ca95cf30b
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.openlocfilehash: dd11c50940dc35524b6d10c6043e906cc813498d
+ms.sourcegitcommit: 6678e16c4b273acd3eaf45af310de77090137fa1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50025947"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50748297"
 ---
 # <a name="prepare-to-back-up-azure-vms"></a>Förbereda säkerhetskopiering av virtuella Azure-datorer
 
-Den här artikeln innehåller steg för att förbereda din miljö för att säkerhetskopiera en Azure Resource Manager-distribuerade virtuella datorn (VM). Stegen som visas i följande använder Azure-portalen. När du säkerhetskopierar en virtuell dator lagras säkerhetskopierade data eller återställningspunkter, i ett Recovery Services säkerhetskopieringsvalv. 
+Den här artikeln innehåller steg för att förbereda din miljö för att säkerhetskopiera en Azure Resource Manager-distribuerade virtuella datorn (VM). Stegen som visas i följande använder Azure-portalen. När du säkerhetskopierar en virtuell dator lagras säkerhetskopierade data eller återställningspunkter, i ett Recovery Services säkerhetskopieringsvalv.
 
 
 
@@ -45,7 +45,7 @@ Om dessa villkor finns redan i din miljö, fortsätter du till den [säkerhetsko
 ## <a name="limitations-when-backing-up-and-restoring-a-vm"></a>Begränsningar när du säkerhetskopierar och återställer en virtuell dator
 Innan du förbereder din miljö måste du förstå följande begränsningar:
 
-* Säkerhetskopiering av virtuella datorer med mer än 32 datadiskar stöds inte.
+* Säkerhetskopiering av virtuella datorer med fler än 16 datadiskar stöds inte.
 * Säkerhetskopiera virtuella Linux-datorer krypteras med kryptering för Linux Unified nyckel installationsprogrammet (LUKS) stöds inte.
 * Vi rekommenderar inte att du säkerhetskopierar virtuella datorer som innehåller klusterdelade volymer (CSV) eller skalbar filserver. Om gjort, förväntas fel i CSV-skrivare. De kräver som omfattar alla virtuella datorer som ingår i klusterkonfigurationen under en ögonblicksbild-aktivitet. Azure Backup stöder inte konsekvens.
 * Säkerhetskopierade data omfattar inte monterade nätverksenheter som är kopplade till en virtuell dator.
@@ -194,7 +194,7 @@ Backup-tjänsten installerar tillägget för säkerhetskopiering, oavsett om Vir
 ## <a name="establish-network-connectivity"></a>Upprätta nätverksanslutning
 Om du vill hantera ögonblicksbilder av Virtuella ha säkerhetskopieringstillägget anslutning till Azure offentliga IP-adresser. Tidsgränsen nåddes för den virtuella datorns HTTP-förfrågningar utan rätt internet-anslutningen och utförs inte säkerhetskopieringen. Om distributionen har åtkomstbegränsningar--via en nätverkssäkerhetsgrupp (NSG), till exempel – Välj något av dessa alternativ för att tillhandahålla ett tydligt sätt för säkerhetskopieringstrafik:
 
-* [Lista över tillåtna Azure datacenter IP-intervall](http://www.microsoft.com/en-us/download/details.aspx?id=41653).
+* [Lista över tillåtna Azure datacenter IP-intervall](http://www.microsoft.com/download/details.aspx?id=41653).
 * Distribuera en HTTP-proxyserver dirigeras trafiken.
 
 När du bestämmer vilket alternativ som är avvägningarna mellan hanterbarhet, detaljerad kontroll och kostnad.
@@ -205,7 +205,7 @@ När du bestämmer vilket alternativ som är avvägningarna mellan hanterbarhet,
 | Använda en HTTP-proxy |Detaljerad kontroll i proxyn över lagringen URL: er tillåts.<br><br>Enskild punkt för internet-åtkomst till virtuella datorer.<br><br>Inte kan komma att ändras för Azure-IP-adress. |Ytterligare kostnader för att köra en virtuell dator med proxy-programvara. |
 
 ### <a name="whitelist-the-azure-datacenter-ip-ranges"></a>Listan över godkända Azure-datacenter IP-intervall
-Godkänna Azure datacenter IP-intervall finns i den [Azure-webbplatsen](http://www.microsoft.com/en-us/download/details.aspx?id=41653) mer information om IP-intervall och anvisningar.
+Godkänna Azure datacenter IP-intervall finns i den [Azure-webbplatsen](http://www.microsoft.com/download/details.aspx?id=41653) mer information om IP-intervall och anvisningar.
 
 Du kan tillåta anslutningar till storage för den specifika regionen med hjälp av [tjänsttaggar](../virtual-network/security-overview.md#service-tags). Se till att den regel som tillåter åtkomst till storage-kontot har högre prioritet än den regel som blockerar Internetåtkomst.
 

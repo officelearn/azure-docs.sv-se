@@ -1,18 +1,18 @@
 ---
 title: Förstå Azure IoT Hub-frågespråk | Microsoft Docs
 description: Utvecklarguide – beskrivning av IoT-hubben som SQL-liknande frågespråk som används för att hämta information om enheten/modultvillingar och jobb från IoT hub.
-author: fsautomata
+author: rezasherafat
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 02/26/2018
-ms.author: elioda
-ms.openlocfilehash: f28a41f4a80806df14e314dae05405b7b45449b1
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.date: 10/29/2018
+ms.author: rezas
+ms.openlocfilehash: b7919a86c5f0b6b6990b465ed0c563fb42ea8bbc
+ms.sourcegitcommit: 6678e16c4b273acd3eaf45af310de77090137fa1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49318256"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50747923"
 ---
 # <a name="iot-hub-query-language-for-device-and-module-twins-jobs-and-message-routing"></a>IoT Hub-frågespråk för tvillingar för enheten och modulen, jobb och meddelanderoutning
 
@@ -389,6 +389,11 @@ GROUP BY <group_by_element>
 **Attribute_name** refererar till en egenskap av JSON-dokument i samlingen från.
 
 GROUP BY-satsen stöds för närvarande bara när du frågar efter enhetstvillingar.
+
+> [!IMPORTANT]
+> Termen `group` hanteras för närvarande som en särskild nyckelord i frågor. I om du använder `group` din egenskapsnamn, bör du omgivande med dubbla hakparenteser för att undvika fel, t.ex. `SELECT * FROM devices WHERE tags.[[group]].name = 'some_value'`.
+>
+>
 
 ## <a name="expressions-and-conditions"></a>Uttryck och villkor
 På hög nivå, en *uttryck*:

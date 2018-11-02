@@ -13,14 +13,14 @@ ms.workload: web
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 05/11/2018
+ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: 06fe9f1fd65f70e41d528a513e44e61edb4a7e4f
-ms.sourcegitcommit: cfff72e240193b5a802532de12651162c31778b6
+ms.openlocfilehash: 00563b93a3601ba6299c479c49375fd252841f79
+ms.sourcegitcommit: 6678e16c4b273acd3eaf45af310de77090137fa1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39307916"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50748127"
 ---
 # <a name="application-performance-faqs-for-web-apps-in-azure"></a>Vanliga frågor och svar för programprestanda för Web Apps i Azure
 
@@ -34,11 +34,11 @@ Flera faktorer kan bidra med långsamma prestanda. Detaljerad felsökning finns 
 
 ## <a name="how-do-i-troubleshoot-a-high-cpu-consumption-scenario"></a>Hur felsöker jag ett scenario med hög CPU-förbrukning?
 
-Din app i vissa situationer med hög CPU-förbrukning kan verkligen kräva mer datorresurser. I sådana fall kan du skala till en högre tjänstnivå så att programmet hämtar alla resurser som behövs. Andra gånger kan hög CPU-förbrukning orsakas av en felaktig loop eller av en kodning idé. Få inblick i vad utlösa ökade CPU-förbrukning är en process i två delar. Först skapa en process-dump, och analysera processen dumpen. Mer information finns i [samla in och analysera den här filen för hög CPU-förbrukning för Web Apps](https://blogs.msdn.microsoft.com/asiatech/2016/01/20/how-to-capture-dump-when-intermittent-high-cpu-happens-on-azure-web-app/).
+Din app i vissa situationer med hög CPU-förbrukning kan verkligen kräva mer datorresurser. I sådana fall kan du skala till en högre tjänstnivå så att programmet hämtar alla resurser som behövs. Andra gånger kan hög CPU-förbrukning orsakas av en felaktig loop eller av en kodning idé. Få inblick i vad utlösa ökade CPU-förbrukning är en process i två delar. Först skapa en process-dump, och analysera processen dumpen. Mer information finns i [samla in och analysera den här filen för hög CPU-förbrukning för Web Apps](https://blogs.msdn.microsoft.com/asiatech/2016/01/20/how-to-capture-dump-when-intermittent-high-cpu-happens-on-azure-web-app/).
 
 ## <a name="how-do-i-troubleshoot-a-high-memory-consumption-scenario"></a>Hur felsöker jag ett scenario med hög minnesförbrukning?
 
-Din app i vissa scenarier med hög minnesförbrukning kan verkligen kräva mer datorresurser. I sådana fall kan du skala till en högre tjänstnivå så att programmet hämtar alla resurser som behövs. Andra gånger, kan en bugg i koden orsaka en minnesläcka. En kodning idé kan också öka minnesanvändningen. Få inblick i vad utlösa extra minne förbrukningen är en process i två delar. Först skapa en process-dump, och analysera processen dumpen. Krascher Diagnoser från galleriet Azure-tillägget kan effektivt utföra båda dessa steg. Mer information finns i [samla in och analysera den här filen för tillfälligt hög minne för Web Apps](https://blogs.msdn.microsoft.com/asiatech/2016/02/02/how-to-capture-and-analyze-dump-for-intermittent-high-memory-on-azure-web-app/).
+Din app i vissa scenarier med hög minnesförbrukning kan verkligen kräva mer datorresurser. I sådana fall kan du skala till en högre tjänstnivå så att programmet hämtar alla resurser som behövs. Andra gånger, kan en bugg i koden orsaka en minnesläcka. En kodning idé kan också öka minnesanvändningen. Få inblick i vad utlösa extra minne förbrukningen är en process i två delar. Först skapa en process-dump, och analysera processen dumpen. Krascher Diagnoser från galleriet Azure-tillägget kan effektivt utföra båda dessa steg. Mer information finns i [samla in och analysera den här filen för tillfälligt hög minne för Web Apps](https://blogs.msdn.microsoft.com/asiatech/2016/02/02/how-to-capture-and-analyze-dump-for-intermittent-high-memory-on-azure-web-app/).
 
 ## <a name="how-do-i-automate-app-service-web-apps-by-using-powershell"></a>Hur jag för att automatisera App Service-webbappar med hjälp av PowerShell?
 

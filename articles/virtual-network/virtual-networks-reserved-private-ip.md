@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: d5d75c25d03c02d6d49fc2fd8aeec995cea52314
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 7977dc55d101c99bf1f850a529083916367308b4
+ms.sourcegitcommit: 6678e16c4b273acd3eaf45af310de77090137fa1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50414275"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50747821"
 ---
 # <a name="how-to-set-a-static-internal-private-ip-address-using-powershell-classic"></a>Hur du ställer in en statisk internt privat IP-adress med hjälp av PowerShell (klassisk)
 I de flesta fall behöver du inte ange en statisk interna IP-adress för den virtuella datorn. Virtuella datorer i ett virtuellt nätverk får automatiskt en intern IP-adress från ett intervall som du anger. Men i vissa fall kan ange en statisk IP-adress för en viss virtuell dator är meningsfullt. Exempel: om den virtuella datorn är ska köra DNS eller kommer att vara en domänkontrollant. En statiska interna IP-adressen förblir med den virtuella datorn även via ett stoppa/avetablering tillstånd. 
@@ -28,9 +28,14 @@ I de flesta fall behöver du inte ange en statisk interna IP-adress för den vir
 > Azure har två olika distributionsmodeller för att skapa och arbeta med resurser: [Resource Manager och klassisk](../azure-resource-manager/resource-manager-deployment-model.md). Den här artikeln beskriver den klassiska distributionsmodellen. Microsoft rekommenderar att de flesta nya distributioner använder den [Resource Manager-distributionsmodellen](virtual-networks-static-private-ip-arm-ps.md).
 > 
 > 
+## <a name="install-the-azure-powershell-service-management-module"></a>Installera Azure PowerShell Service Management-modulen
+
+Innan du kör följande kommandon, kontrollerar du att den [Azure PowerShell Service Management-modulen](https://docs.microsoft.com/powershell/azure/servicemanagement/install-azure-ps?view=azuresmps-4.0.0
+) är installerad på datorn. Versionshistorik för Azure PowerShell Service Management-modulen, se [Azure-modulen i PowerShell-galleriet](https://www.powershellgallery.com/packages/Azure/5.3.0).
 
 ## <a name="how-to-verify-if-a-specific-ip-address-is-available"></a>Så här verifierar du om en specifik IP-adress är tillgänglig
-Kontrollera om IP-adressen *10.0.0.7* är tillgänglig i ett virtuellt nätverk med namnet *TestVnet*, kör följande kommando i PowerShell och kontrollera värdet för *IsAvailable*:
+Kontrollera om IP-adressen *10.0.0.7* är tillgänglig i ett virtuellt nätverk med namnet *TestVnet*, kör följande kommando i PowerShell och kontrollera värdet för *IsAvailable*.
+
 
     Test-AzureStaticVNetIP –VNetName TestVNet –IPAddress 10.0.0.7 
 

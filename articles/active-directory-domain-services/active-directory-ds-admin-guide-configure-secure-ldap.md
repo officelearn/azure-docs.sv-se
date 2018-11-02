@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/25/2018
 ms.author: ergreenl
-ms.openlocfilehash: de77050206c98832b274e8bdbda8026fc115610e
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: 9188e7a8dc5364592772b95c302c59a16bfad2be
+ms.sourcegitcommit: 3dcb1a3993e51963954194ba2a5e42260d0be258
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50156229"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50754077"
 ---
 # <a name="configure-secure-ldap-ldaps-for-an-azure-ad-domain-services-managed-domain"></a>Konfigurera säker LDAP (LDAPS) för en Azure AD Domain Services-hanterad domän
 Den här artikeln visar hur du kan aktivera säker Lightweight Directory Access Protocol (LDAPS) för din hanterade domän i Azure AD Domain Services. Säkert LDAP kallas även ”Lightweight Directory Access Protocol (LDAP) över Secure Sockets Layer (SSL) / Transport Layer Security (TLS)”.
@@ -45,7 +45,7 @@ Skaffa ett giltigt certifikat enligt följande riktlinjer innan du aktiverar sä
 
 1. **Betrodda utfärdare** -certifikatet måste utfärdas av en utfärdare som är betrodd av datorer som ansluter till den hanterade domänen med säkert LDAP. Denna behörighet kan vara en offentlig certifikatutfärdare (CA) eller en Företagscertifikatutfärdare som är betrodd av dessa datorer.
 2. **Livslängd** -certifikatet måste vara giltig för minst de kommande 3 – 6 månaderna. Åtkomst med säkert LDAP till din hanterade domän avbryts när certifikatet upphör att gälla.
-3. **Ämnesnamn** -Subjektnamnet på certifikatet måste vara ett jokertecken för din hanterade domän. Exempelvis om din domän har namnet ”contoso100.com”, certifikatets ämnesnamn måste vara ”*. contoso100.com”. Ange DNS-namn (Alternativt ämnesnamn) till den här jokertecken-namn.
+3. **Ämnesnamn** -Subjektnamnet på certifikatet måste vara namnet på din hanterade domän. Om din domän har namnet ”contoso100.com”, till exempel vara certifikatets ämnesnamn ”contoso100.com”. 
 4. **Nyckelanvändning** -certifikatet måste konfigureras för följande använder - digitala signaturer och nyckelchiffrering.
 5. **Användning av certifikat** -certifikatet måste vara giltig för serverautentisering för SSL.
 

@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 10/23/2018
 ms.author: raynew
-ms.openlocfilehash: 42994a38aeab7f6da552f2f9073a806142511531
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.openlocfilehash: 9fb955b6bce5b3d40def095180326fdc9aed33b1
+ms.sourcegitcommit: 6678e16c4b273acd3eaf45af310de77090137fa1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50095536"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50747906"
 ---
 # <a name="azure-backup---frequently-asked-questions"></a>Azure Backup – vanliga frågor och svar
 Den här artikeln innehåller vanliga frågor och svar om Azure Backup-tjänsten.
@@ -44,7 +44,7 @@ Nej. Säkerhetskopierade data lagras i ett valv kan inte flyttas till ett annat 
 Nej. Recovery Services-valvet kan bara ändra lagringsalternativ innan eventuella säkerhetskopior som har lagrats.
 
 ### <a name="can-i-do-an-item-level-restore-ilr-for-vms-backed-up-to-a-recovery-services-vault"></a>Kan jag göra ett objekt på Återställ Objektnivå för virtuella datorer till ett Recovery Services-valv?
-Nej, återställning på Objektnivå stöds inte. 
+Nej, återställning på Objektnivå stöds inte.
 
 
 ## <a name="azure-backup-agent"></a>Azure Backup-agent
@@ -99,7 +99,7 @@ Ja. Men du bör konfigurera DPM först och sedan installera Azure Backup-agenten
 ## <a name="general-backup"></a>Allmän säkerhetskopiering
 
 ### <a name="are-there-limits-on-backup-scheduling"></a>Finns det några begränsningar på schemaläggning av säkerhetskopiering?
-Ja. 
+Ja.
 - Du kan säkerhetskopiera Windows Server eller Windows datorer upp till tre gånger per dag. Du kan ange schemaläggningsprincip för dagliga och veckovisa scheman.
 - Du kan säkerhetskopiera DPM upp till två gånger per dag. Du kan ange schemaläggningsprincipen för dagliga, veckovisa, månatliga och årliga.
 - Du säkerhetskopierar virtuella Azure-datorer en gång om dagen.
@@ -110,12 +110,12 @@ Azure Backup stöder dessa operativsystem för att säkerhetskopiera filer och m
 
 **OS**| **SKU** |**Detaljer**
 --- | --- | ---
-Arbetsstation | | 
+Arbetsstation | |
 Windows 10 64-bitars | Enterprise, Pro, Home | Datorer ska köra den senaste services Pack och uppdateringar.
 Windows 8.1 64-bitars | Enterprise, Pro | Datorer ska köra den senaste services Pack och uppdateringar.
 Windows 8 64-bitars | Enterprise, Pro | Datorer ska köra den senaste services Pack och uppdateringar.
 Windows 7 64-bitars | Ultimate, Enterprise, Professional, Home Premium, Home Basic, Starter | Datorer ska köra den senaste services Pack och uppdateringar.
-Server | | 
+Server | |
 Windows Server 2016 64-bitars | Standard, Datacenter, Essentials | Med den senaste servicen Pack/uppdateringar.
 Windows Server 2012 R2 64-bitars | Standard, Datacenter, Foundation | Med de senaste service Pack/uppdateringarna.
 Windows Server 2012 64-bitars | Datacenter, Foundation, Standard | Med de senaste service Pack/uppdateringarna.
@@ -133,20 +133,20 @@ Azure Backup stöder för Azure VM Linux säkerhetskopior [lista över distribut
 Storlekar gränser är följande:
 
 
-OS/dator | Storleksgräns för datakälla 
---- | --- | --- 
-Windows 8 eller senare | 54 400 GB 
-Windows 7 |1 700 GB 
-Windows Server 2012 eller senare | 54 400 GB 
-Windows Server 2008, Windows Server 2008 R2 | 1 700 GB 
-Azure VM | 32 datadiskar<br/><br/> Upp till 4 095 GB som datadisk
+OS/dator | Storleksgräns för datakälla
+--- | --- | ---
+Windows 8 eller senare | 54 400 GB
+Windows 7 |1 700 GB
+Windows Server 2012 eller senare | 54 400 GB
+Windows Server 2008, Windows Server 2008 R2 | 1 700 GB
+Azure VM | 16 datadiskar<br/><br/> Upp till 4 095 GB som datadisk
 
 ## <a name="how-is-the-data-source-size-determined"></a>Vad är datakällans storlek bestäms?
 
 Följande tabell beskriver hur datakällans storlek bestäms.
 
 **Datakälla** | **Detaljer**
---- | --- 
+--- | ---
 Volym |Mängden data som säkerhetskopieras från en enskild volym virtuella datorn som säkerhetskopieras.
 SQL Server-databas |Storleken på enskild SQL-databasens storlek som säkerhetskopieras.
 SharePoint | Summan av innehållet och konfigurationsdatabaserna i en SharePoint-servergrupp som säkerhetskopieras.
@@ -158,7 +158,7 @@ BMR/systemtillstånd |Varje enskild kopia av BMR eller systemtillstånd på dato
 
 Det finns ingen gräns för mängden data som du kan säkerhetskopiera med Recovery Services-valvet.
 
-### <a name="if-i-cancel-a-backup-job-once-it-has-started-is-the-transferred-backup-data-deleted"></a>Tas säkerhetskopierade data som redan har överförts bort om jag avbryter ett säkerhetskopieringsjobb som redan har startat? 
+### <a name="if-i-cancel-a-backup-job-once-it-has-started-is-the-transferred-backup-data-deleted"></a>Tas säkerhetskopierade data som redan har överförts bort om jag avbryter ett säkerhetskopieringsjobb som redan har startat?
 Nej. Alla data som har överförts till valvet innan säkerhetskopieringen avbröts finns kvar i valvet. Azure Backup använder en kontrollpunktsmekanism för att då och då lägga till kontrollpunkter till säkerhetskopierade data under säkerhetskopieringen. Eftersom det finns kontrollpunkter i säkerhetskopian kan nästa säkerhetskopiering validera filernas integritet. Nästa säkerhetskopieringsjobb är en inkrementell säkerhetskopiering mot tidigare säkerhetskopierade data. Vid inkrementella säkerhetskopieringar överförs bara nya eller ändrade data, vilket innebär att bandbredden utnyttjas bättre.
 
 Om du avbryter ett säkerhetskopieringsjobb för en virtuella Azure-dator ignoreras alla överförda data. Nästa säkerhetskopieringsjobb överför inkrementella data från det senaste lyckade säkerhetskopieringsjobbet.
@@ -186,7 +186,7 @@ Nej. Alla data som har överförts till valvet innan säkerhetskopieringen var a
 ### <a name="are-the-retention-policies-for-dpm-and-windows-machines-without-dpm-the-same"></a>Desamma principerna för kvarhållning för DPM och Windows-datorer utan DPM?
 Ja, de båda har dagliga, veckovisa, månatliga och årliga bevarandeprinciper.
 
-### <a name="can-i-customize-retention-policies"></a>Kan jag Anpassa bevarandeprinciper? 
+### <a name="can-i-customize-retention-policies"></a>Kan jag Anpassa bevarandeprinciper?
 Ja, har du anpassa principer. Du kan till exempel konfigurera varje vecka och dagligen krav på datalagring, men inte varje år och månad.
 
 ### <a name="can-i-use-different-times-for-backup-scheduling-and-retention-policies"></a>Kan jag använda olika tidpunkter för schemaläggning av säkerhetskopiering och kvarhållningsprinciper?
@@ -208,7 +208,7 @@ Azure Backup-lagringsarkitekturen ger dig det bästa av två världar genom att 
 
 ### <a name="is-there-a-limit-on-the-number-of-recovery-points-that-can-be-created"></a>Finns det någon gräns för antalet återställningspunkter som kan skapas?
 
-Du kan skapa upp till 9999 återställningspunkter per skyddad instans. En skyddad instans är en dator, en server (fysisk eller virtuell) eller en arbetsbelastning som säkerhetskopierar till Azure. 
+Du kan skapa upp till 9999 återställningspunkter per skyddad instans. En skyddad instans är en dator, en server (fysisk eller virtuell) eller en arbetsbelastning som säkerhetskopierar till Azure.
 
 - Läs mer om [säkerhetskopiering och kvarhållning](./backup-introduction-to-azure-backup.md#backup-and-retention).
 - Lär dig mer om [skyddade instanser](./backup-introduction-to-azure-backup.md#what-is-a-protected-instance)?
@@ -238,7 +238,7 @@ Ja. Data i Azure är krypterade i vila.
 - För en lokal säkerhetskopiering tillhandahålls kryptering vid återställning med lösenfras som du anger när du säkerhetskopierar till Azure.
 - Data är krypterade-på-reset med Storage Service Encryption (SSE) för virtuella Azure-datorer.
 
-Microsoft dekrypterar aldrig dina säkerhetskopierade data. 
+Microsoft dekrypterar aldrig dina säkerhetskopierade data.
 
 
 ### <a name="what-is-the-minimum-length-of-encryption-the-key-used-to-encrypt-backup-data"></a>Vad är den minsta längden på kryptering nyckeln används för att kryptera säkerhetskopierade data?

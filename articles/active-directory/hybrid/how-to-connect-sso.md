@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 09/24/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 4e9292b5932c36d55069ff300bf7c0a99b280fc5
-ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
+ms.openlocfilehash: 8b74cf533c0fe59a0967b7063791df2cfc9a7a77
+ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47054192"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50913939"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on"></a>Azure Active Directory sömlös enkel inloggning
 
@@ -39,7 +39,7 @@ Sömlös enkel inloggning kan kombineras med antingen den [Lösenordshashsynkron
 
 ## <a name="key-benefits"></a>Viktiga fördelar
 
-- *Bra användarupplevelse*
+- *En utmärkt användarupplevelse*
   - Användare loggas automatiskt till både lokala och molnbaserade program.
   - Användarna behöver inte ange sina lösenord flera gånger.
 - *Enkelt att distribuera och administrera*
@@ -58,7 +58,7 @@ Sömlös enkel inloggning kan kombineras med antingen den [Lösenordshashsynkron
 - Office 365 Win32-klienter (Outlook, Word, Excel och andra) med versioner 16.0.8730.xxxx och senare stöds med hjälp av en icke-interaktiv flow. För OneDrive, måste du aktivera den [OneDrive tyst config funktionen](https://techcommunity.microsoft.com/t5/Microsoft-OneDrive-Blog/Previews-for-Silent-Sync-Account-Configuration-and-Bandwidth/ba-p/120894) för en tyst inloggningsupplevelse.
 - Den kan aktiveras via Azure AD Connect.
 - Det är en kostnadsfri funktion och du behöver inte några betald utgåvor av Azure AD för att använda den.
-- Den stöds på webbläsarbaserade webbklienter och Office-klienter som har stöd för [modern autentisering](https://aka.ms/modernauthga) på plattformar och webbläsare som stöder Kerberos-autentisering:
+- Den stöds på webbläsarbaserade webbklienter och Office-klienter som har stöd för [modern autentisering](https://docs.microsoft.com/office365/enterprise/modern-auth-for-office-2013-and-2016) på plattformar och webbläsare som stöder Kerberos-autentisering:
 
 | OS\Browser |Internet Explorer|Edge|Google Chrome|Mozilla Firefox|Safari|
 | --- | --- |--- | --- | --- | -- 

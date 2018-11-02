@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/25/2018
 ms.author: magoedte
-ms.openlocfilehash: f55f81d1e28a7626dfe00f6bea349bf74e3a1d24
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.openlocfilehash: 8cca69109f07cbcffe2a5d796262e51fc9233cc5
+ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50092782"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50914696"
 ---
 # <a name="how-to-onboard-the-azure-monitor-for-vms-preview"></a>Hur att publicera Azure övervakar för virtuella datorer (förhandsversion)
 Den här artikeln beskriver hur du ställer in Azure Monitor för virtuella datorer för att övervaka hälsotillståndet för operativsystemet för virtuella datorer i Azure och identifiera och mappa programberoenden som kan vara baserad på dem.  
@@ -355,12 +355,12 @@ I följande tabell visas de principdefinitioner som tillhandahålls.
 |Namn |Beskrivning |Typ |  
 |-----|------------|-----|  
 |[Förhandsversion]: aktivera Azure Monitor för virtuella datorer |Aktivera Azure Monitor för virtuella datorer (VM) i definitionsområdet (hanteringsgruppen, prenumeration eller resursgrupp). Tar Log Analytics-arbetsyta som parameter. |Initiativ |  
-|[Förhandsversion]: granska beroende Agentdistribution – VM Image (OS) inte finns i listan |Rapporter virtuella datorer som icke-kompatibel om VM-avbildning (OS) inte är i listan över definierade och agenten är inte installerad. |Princip |  
-|[Förhandsversion]: Agentdistribution för granskning Log Analytics – VM Image (OS) inte finns i listan |Rapporter virtuella datorer som icke-kompatibel om VM-avbildning (OS) inte är i listan över definierade och agenten är inte installerad. |Princip |  
-|[Förhandsversion]: distribuera Beroendeagenten för virtuella Linux-datorer |Distribuera Beroendeagenten för virtuella Linux-datorer om VM-avbildning (OS) är i listan över definierade och agenten är inte installerad. |Princip |  
-|[Förhandsversion]: distribuera Beroendeagenten för virtuella Windows-datorer |Distribuera beroende Agent för Windows virtuella datorer om VM-avbildning (OS) är i listan över definierade och agenten är inte installerad. |Princip |  
-|[Förhandsversion]: distribuerar Log Analytics-agenten för Linux-datorer |Distribuera Log Analytics-agenten för Linux-datorer om VM-avbildning (OS) är i listan över definierade och agenten är inte installerad. |Princip |  
-|[Förhandsversion]: distribuerar Log Analytics-agenten för Windows-datorer |Distribuera Log Analytics-agenten för Windows virtuella datorer om VM-avbildning (OS) är i listan över definierade och agenten är inte installerad. |Princip |  
+|[Förhandsversion]: granska beroende Agentdistribution – VM Image (OS) inte finns i listan |Rapporterar virtuella datorer som icke-kompatibla om den virtuella datoravbildningen (operativsystemet) inte finns i listan och agenten inte är installerad. |Princip |  
+|[Förhandsversion]: Agentdistribution för granskning Log Analytics – VM Image (OS) inte finns i listan |Rapporterar virtuella datorer som icke-kompatibla om den virtuella datoravbildningen (operativsystemet) inte finns i listan och agenten inte är installerad. |Princip |  
+|[Förhandsversion]: distribuera Beroendeagenten för virtuella Linux-datorer |Distribuera Dependency Agent för virtuella Linux-datorer om den virtuella datoravbildningen (operativsystem) finns i listan och agenten inte är installerad. |Princip |  
+|[Förhandsversion]: distribuera Beroendeagenten för virtuella Windows-datorer |Distribuera Dependency Agent för virtuella Windows-datorer om den virtuella datoravbildningen (operativsystem) finns i listan och agenten inte är installerad. |Princip |  
+|[Förhandsversion]: distribuerar Log Analytics-agenten för Linux-datorer |Distribuera Log Analytics Agent för virtuella Linux-datorer om den virtuella datoravbildningen (operativsystem) finns i listan och agenten inte är installerad. |Princip |  
+|[Förhandsversion]: distribuerar Log Analytics-agenten för Windows-datorer |Distribuera Log Analytics Agent för virtuella Windows-datorer om den virtuella datoravbildningen (operativsystem) finns i listan och agenten inte är installerad. |Princip |  
 
 Fristående princip (ingår inte i initiativet) 
 

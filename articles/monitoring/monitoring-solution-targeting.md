@@ -1,6 +1,6 @@
 ---
-title: Målobjekt för hanteringslösningar i Azure | Microsoft Docs
-description: Målobjekt för hanteringslösningar kan du begränsa hanteringslösningar till en specifik uppsättning agenter.  Den här artikeln beskriver hur du skapar en konfiguration för scope och tillämpa den på en lösning.
+title: Riktar in sig på lösningar i Azure | Microsoft Docs
+description: Riktar in sig på lösningar för hantering kan du begränsa datahanteringslösningar till en specifik uppsättning med agenter.  Den här artikeln beskriver hur du skapar en omfattningskonfigurationen och tillämpa den på en lösning.
 services: monitoring
 documentationcenter: ''
 author: bwren
@@ -14,65 +14,65 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/27/2017
 ms.author: bwren
-ms.openlocfilehash: 65585e6c09def23101d9735c8b9c719d213938ac
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: 1aaa753c91a324621dc66fab23e5fed3a9d11d01
+ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33887848"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50912773"
 ---
-# <a name="targeting-management-solutions-in-azure-preview"></a>Målobjekt för hanteringslösningar i Azure (förhandsversion)
-När du lägger till en lösning för din prenumeration distribueras den automatiskt som standard till alla Windows- och Linux-agenter ansluten till logganalys-arbetsytan.  Du kanske vill hantera kostnaderna och begränsa mängden data som samlas in för en lösning genom att begränsa den till en viss uppsättning agenter.  Den här artikeln beskriver hur du använder **lösning riktad** som är en funktion som gör att du kan använda ett omfång med dina lösningar.
+# <a name="targeting-management-solutions-in-azure-preview"></a>Riktar in sig på lösningar i Azure (förhandsversion)
+När du lägger till en lösning för din prenumeration, distribueras den automatiskt som standard att alla Windows- och Linux-agenter är anslutna till Log Analytics-arbetsytan.  Du kanske vill hantera dina kostnader och begränsa mängden data som samlas in för en lösning genom att begränsa den till en viss uppsättning med agenter.  Den här artikeln beskriver hur du använder **Lösningsmål** som är en funktion som gör att du kan använda ett omfång för dina lösningar.
 
-## <a name="how-to-target-a-solution"></a>Så här anger du en lösning som mål
-Det finns tre steg ska inriktning på en lösning som beskrivs i följande avsnitt. 
+## <a name="how-to-target-a-solution"></a>Hur du rikta en lösning
+Det finns tre steg för att riktar in sig på en lösning som beskrivs i följande avsnitt. 
 
 
 ### <a name="1-create-a-computer-group"></a>1. Skapa en datorgrupp
-Ange de datorer som du vill ska ingå i en omfattning genom att skapa en [datorgrupp](../log-analytics/log-analytics-computer-groups.md) i logganalys.  Gruppen kan baserat på en logg sökning eller importeras från andra källor, till exempel Active Directory eller WSUS-grupper. Som [beskrivs nedan](#solutions-and-agents-that-cant-be-targeted), bara datorer som är anslutna direkt till Log Analytics ska inkluderas i omfånget.
+Ange de datorer som du vill ska ingå i en omfattning genom att skapa en [datorgrupp](../log-analytics/log-analytics-computer-groups.md) i Log Analytics.  Datorgruppen kan baserat på en loggsökning eller importeras från andra källor, till exempel Active Directory eller WSUS-grupper. Som [som beskrivs nedan](#solutions-and-agents-that-cant-be-targeted), bara datorer som är anslutna direkt till Log Analytics ska ingå i omfattningen.
 
-När du har skapat datorgrupp som skapats i din arbetsyta, och du måste inkludera den i en scope-konfiguration som kan tillämpas på en eller flera lösningar.
+När du har den datorgrupp som skapats i din arbetsyta och sedan ska du inkludera den i en scope-konfiguration som kan tillämpas på en eller flera lösningar.
  
  
- ### <a name="2-create-a-scope-configuration"></a>2. Skapa en scope-konfiguration
- En **konfigurationen** innehåller en eller flera datorgrupper och kan tillämpas på en eller flera lösningar. 
+ ### <a name="2-create-a-scope-configuration"></a>2. Skapa en omfattningskonfiguration
+ En **Omfattningskonfigurationen** innehåller en eller flera datorgrupper och kan tillämpas på en eller flera lösningar. 
  
- Skapa en scope-konfiguration på följande sätt.  
+ Skapa en omfattningskonfiguration på följande sätt.  
 
- 1. I Azure-portalen går du till **logganalys** och välj din arbetsyta.
- 2. I egenskaperna för arbetsytan under **arbetsytan datakällor** Välj **omfång konfigurationer**.
- 3. Klicka på **Lägg till** att skapa en ny konfiguration för scope.
- 4. Ange en **namn** för scope-konfiguration.
- 5. Klicka på **Markera datorgrupper**.
+ 1. I Azure-portalen går du till **Log Analytics** och välj din arbetsyta.
+ 2. I egenskaperna för arbetsytan under **datakällor för arbetsyta** Välj **Omfattningskonfigurationer**.
+ 3. Klicka på **Lägg till** att skapa en ny omfattningskonfigurationen.
+ 4. Ange ett **namn** för konfigurationen.
+ 5. Klicka på **Välj datorgrupper**.
  6. Välj datorgruppen som du skapade och eventuellt andra grupper för att lägga till i konfigurationen.  Klicka på **Välj**.  
- 6. Klicka på **OK** att skapa scope-konfiguration. 
+ 6. Klicka på **OK** att skapa omfattningskonfigurationen. 
 
 
- ### <a name="3-apply-the-scope-configuration-to-a-solution"></a>3. Gäller konfigurationen av en lösning.
-När du har en scope-konfiguration kan använda du den till en eller flera lösningar.  Observera att när en enda scope-konfiguration kan användas med flera lösningar, varje lösning kan bara använda en konfiguration för scope.
+ ### <a name="3-apply-the-scope-configuration-to-a-solution"></a>3. Gäller konfigurationen för en lösning.
+När du har en omfattningskonfigurationen kan tillämpa du den på en eller flera lösningar.  Observera att en enda scope-konfiguration kan användas av flera lösningar, varje lösning kan bara använda en av omfattningskonfigurationen.
 
-Använd ett scope-konfiguration på följande sätt.  
+Tillämpa en omfattningskonfiguration på följande sätt.  
 
- 1. I Azure-portalen går du till **logganalys** och välj din arbetsyta.
+ 1. I Azure-portalen går du till **Log Analytics** och välj din arbetsyta.
  2. I egenskaperna för arbetsytan väljer **lösningar**.
- 3. Klicka på den lösning som du vill omfång.
- 4. I egenskaperna för lösningen under **arbetsytan datakällor** Välj **lösning riktad**.  Om alternativet inte är tillgängligt sedan [den här lösningen kan inte riktas](#solutions-and-agents-that-cant-be-targeted).
- 5. Klicka på **Lägg till konfigurationen**.  Om du redan har en konfiguration som tillämpas på den här lösningen sedan otillgängligt det här alternativet.  Du måste ta bort den befintliga konfigurationen innan du lägger till en annan.
- 6. Klicka på konfigurationen av som du skapade.
- 7. Titta på den **Status** av konfigurationen så att den visar **lyckades**.  Om statusen indikerar ett fel, klicka på tre punkter till höger om konfiguration och välj **redigera konfigurationen** att göra ändringar.
+ 3. Klicka på den lösning du vill omfång.
+ 4. I egenskaperna för lösningen under **datakällor för arbetsyta** Välj **Lösningsmål**.  Om alternativet inte är tillgängligt sedan [den här lösningen kan inte riktas](#solutions-and-agents-that-cant-be-targeted).
+ 5. Klicka på **Lägg till omfattningskonfiguration**.  Om du redan har en konfiguration som tillämpas på den här lösningen och sedan på det här alternativet inte tillgängligt.  Du måste ta bort den befintliga konfigurationen innan du lägger till en annan.
+ 6. Klicka på konfigurationen som du skapade.
+ 7. Titta på den **Status** av konfigureringen för att se till att den visar **lyckades**.  Om statusen indikerar ett fel, klickar du på ellipsen till höger om konfiguration och välj **redigera omfattningskonfiguration** att göra ändringar.
 
-## <a name="solutions-and-agents-that-cant-be-targeted"></a>Lösningar och agenter som inte vara mål
-Följande är kriterier för agenter och lösningar som inte kan användas med lösningen som mål.
+## <a name="solutions-and-agents-that-cant-be-targeted"></a>Lösningar och agenter som inte kan riktas
+Följande är villkoren för agenter och lösningar som inte kan användas med lösningsmål.
 
-- Mål för lösning gäller bara för lösningar som distribueras till agenter.
-- Mål för lösning gäller bara för lösningar som tillhandahålls av Microsoft.  Gäller inte för lösningar [skapas av dig själv eller partners](monitoring-solutions-creating.md).
-- Du kan bara filtrera ut agenter som ansluter direkt till Log Analytics.  Lösningar distribuerar automatiskt till alla eventuella agenter som en del av en ansluten hanteringsgrupp för Operations Manager oavsett om de finns med i en konfiguration för scope.
+- Lösningsmål gäller endast för lösningar som distribueras till agenter.
+- Lösningsmål gäller endast för lösningar som tillhandahålls av Microsoft.  Den gäller inte för lösningar [skapats av dig själv eller partner](monitoring-solutions-creating.md).
+- Du kan bara filtrera ut agents som ansluter direkt till Log Analytics.  Lösningar distribuerar automatiskt till alla eventuella agenter som en del av en ansluten hanteringsgrupp för Operations Manager oavsett om de är med i en av omfattningskonfigurationen.
 
 ### <a name="exceptions"></a>Undantag
-Mål för lösning kan inte användas med följande lösningar trots att de passar de angivna villkoren.
+Lösningsmål kan inte användas med följande lösningar trots att de passar de angivna villkoren.
 
-- Bedömning av hälsotillstånd för Agent
+- Agenten bedömningen av replikeringstillståndet
 
 ## <a name="next-steps"></a>Nästa steg
-- Mer information om lösningar inklusive lösningar som är tillgängliga för installation i din miljö på [lägga till Azure logganalys hanteringslösningar till din arbetsyta](../log-analytics/log-analytics-add-solutions.md).
-- Lär dig mer om hur du skapar datorgrupper på [datorgrupper i logganalys logga sökningar](../log-analytics/log-analytics-computer-groups.md).
+- Läs mer om lösningar för hantering, inklusive de lösningar som är tillgängliga för installation i miljön vid [lägga till Azure Log Analytics-hanteringslösningar till din arbetsyta](monitoring-solutions.md).
+- Läs mer om hur du skapar datorgrupper i [datorgrupper i Log Analytics loggsökningar](../log-analytics/log-analytics-computer-groups.md).

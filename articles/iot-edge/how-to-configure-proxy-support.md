@@ -4,16 +4,16 @@ description: Så här konfigurerar du Azure IoT Edge-körningen och några inter
 author: kgremban
 manager: ''
 ms.author: kgremban
-ms.date: 09/24/2018
+ms.date: 11/01/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 6e6a1d2f758cabca41ac405a01de1f0d8bfd0a7b
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 72855058c5e8294eece55f8dbcdc501025c9aabf
+ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47037464"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50913231"
 ---
 # <a name="configure-an-iot-edge-device-to-communicate-through-a-proxy-server"></a>Konfigurera en IoT Edge-enhet kan kommunicera via en proxyserver
 
@@ -25,6 +25,18 @@ Konfigurera en IoT Edge-enhet för att arbeta med en proxyserver följer de här
 2. Konfigurera Docker-daemon och IoT Edge-daemon på enheten för att använda proxyservern.
 3. Konfigurera egenskaper för edgeAgent i config.yaml-filen på din enhet.
 4. Ange miljövariabler för IoT Edge-körningen och andra IoT-Edge moduler i manifestet distribution. 
+
+## <a name="know-your-proxy-url"></a>Vet proxy-URL
+
+För att konfigurera både Docker-daemon och IoT Edge på din enhet, som du behöver veta din proxy-URL. 
+
+Proxy-URL: er ta följande format: **protokollet**://**proxy_host**:**proxy_port**. 
+
+* Den **protokollet** är antingen HTTP eller HTTPS. Docker-daemon kan konfigureras med antingen protokollet, beroende på dina inställningar för behållarregister, men IoT Edge-daemon och runtime behållare bör alltid använda HTTPS.
+
+* Den **proxy_host** är en adress för proxyservern. Om proxyservern kräver autentisering, kan du ange dina autentiseringsuppgifter som en del av proxy_host i formatet **användaren**:**lösenord**@**proxy_host**. 
+
+* Den **proxy_port** är den nätverksport som proxyn svarar på trafik. 
 
 ## <a name="install-the-runtime"></a>Installera runtime
 
@@ -47,7 +59,7 @@ Docker och IoT Edge-Daemon körs på din IoT Edge-enhet måste konfigureras för
 
 ### <a name="docker-daemon"></a>Docker-daemon
 
-I Docker-dokumentationen för att konfigurera Docker-daemon med miljövariabler. De flesta behållarregister (inklusive DockerHub och Azure-Behållarregister) stöder HTTPS-begäranden, så är den variabel som du bör ange **HTTPS_PROXY**. Om avbildningar hämtas från ett register som inte stöder transport layer security (TLS), så du bör ange den **HTTP_PROXY**. 
+I Docker-dokumentationen för att konfigurera Docker-daemon med miljövariabler. De flesta behållarregister (inklusive DockerHub och Azure-Behållarregister) stöder HTTPS-begäranden, så är den parameter som du bör ange **HTTPS_PROXY**. Om avbildningar hämtas från ett register som inte stöder transport layer security (TLS) så bör du ange den **HTTP_PROXY** parametern. 
 
 Välj den artikel som gäller för din Docker-version: 
 
@@ -113,7 +125,9 @@ Edge-agenten är den första modulen ska börja på alla IoT Edge-enheter. Den s
 
 I filen config.yaml hitta den **Edge-agenten modulen spec** avsnittet. Edge-agenten definitionen innehåller en **env** parametern där du kan lägga till miljövariabler. 
 
+<!--
 ![edgeAgent definition](./media/how-to-configure-proxy-support/edgeagent-unedited.png)
+-->
 
 Ta bort klammerparenteser som platshållare för parametern env och lägga till nya variabeln på en ny rad. Kom ihåg att indrag i YAML är två blanksteg. 
 
@@ -201,7 +215,7 @@ Om du har lagt till den **UpstreamProtocol** miljövariabeln i filen confige.yam
 ```json
 "env": {
     "https_proxy": {
-        "value": "<proxy URL"
+        "value": "<proxy URL>"
     },
     "UpstreamProtocol": {
         "value": "AmqpWs"

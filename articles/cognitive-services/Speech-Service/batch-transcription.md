@@ -10,12 +10,12 @@ ms.component: speech-service
 ms.topic: conceptual
 ms.date: 04/26/2018
 ms.author: panosper
-ms.openlocfilehash: e7523bf97d6252422ebb853b818453c935640f50
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: bb87b9ae207da27d45d559903499177472ee1185
+ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49648810"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50914217"
 ---
 # <a name="batch-transcription"></a>Batch-transkription
 
@@ -29,7 +29,7 @@ Batch-avskrift API erbjuder asynkron tal till text avskrift, tillsammans med ytt
 
 2. Frågestatus 
 
-3. Ladda ned trnascriptions
+3. Ladda ned avskrifter
 
 > [!NOTE]
 > API: et för Batch avskrift är perfekt för call Center, som vanligtvis ackumuleras tusentals timmars ljud. API: et leds av en ”utlöses och Glöm” filosofin, vilket gör det enkelt att transkribera stort antal ljudinspelningar.

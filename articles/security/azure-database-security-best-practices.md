@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/20/2018
 ms.author: tomsh
-ms.openlocfilehash: 0f738348dd0a000df8b1da299bb7b58ebc5a1165
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 50cfc2e8420d9f427b02c739f497d8546d880d7c
+ms.sourcegitcommit: 6678e16c4b273acd3eaf45af310de77090137fa1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47040113"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50747770"
 ---
 # <a name="azure-database-security-best-practices"></a>Metodtips för Azure database-säkerhet
 Säkerhet är ett viktigt mål för hantering av databaser och den har alltid varit en prioritet för [Azure SQL Database](https://docs.microsoft.com/azure/sql-database/). Dina databaser kan skyddas nära för att hjälpa uppfyller de flesta juridiska eller säkerhetskrav, inklusive HIPAA, ISO 27001/27002 och PCI DSS Level 1. En aktuell lista över security efterlevnadscertifieringar är tillgänglig på den [Microsoft Trust Center plats](http://azure.microsoft.com/support/trust-center/services/). Du kan också välja att placera dina databaser i specifika Azure-datacenter som baseras på myndighetskrav.
@@ -72,22 +72,18 @@ Följande: fördelar
 
 > [!NOTE]
 > SQL Server-autentisering kan inte använda Kerberos-säkerhetsprotokoll.
->
->
 
 Om du använder SQL Server-autentisering, måste du:
 
 - Hantera starka autentiseringsuppgifter själv.
 - Skydda autentiseringsuppgifter i anslutningssträngen.
-- (Eventuellt) skydda autentiseringsuppgifterna som skickas över nätverket från webbservern till databasen. Mer information finns i [så här: ansluta till SQL Server med hjälp av SQL-autentisering i ASP.NET 2.0](https://msdn.microsoft.com/library/ms998300.aspx).
+- (Eventuellt) skydda autentiseringsuppgifterna som skickas över nätverket från webbservern till databasen. Mer information finns i [så här: ansluta till SQL Server med hjälp av SQL-autentisering i ASP.NET 2.0](/previous-versions/msp-n-p/ff648340(v=pandp.10)).
 
 ### <a name="azure-active-directory-ad-authentication"></a>*Azure Active Directory (AD)-autentisering*
 Azure AD-autentisering är en mekanism för att ansluta till Azure SQL Database och [SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) med hjälp av identiteter i Azure AD. Med Azure AD-autentisering kan du Hantera identiteter för databasanvändare och andra Microsoft-tjänster på en central plats. Central hantering av ID innehåller en enda plats för att hantera databasanvändare och förenklar hanteringen av behörighet.
 
 > [!NOTE]
 > Vi rekommenderar användning av Azure AD-autentisering över användningen av SQL Server-autentisering.
->
->
 
 Följande: fördelar
 
@@ -112,12 +108,12 @@ Konfigurationen omfattar följande procedurer för att konfigurera och använda 
 
 Du hittar detaljerad information i [Använd Azure Active Directory-autentisering för autentisering med SQL Database Managed Instance eller SQL Data Warehouse](../sql-database/sql-database-aad-authentication.md).
 
-## <a name="protect-your-data-by-using-encryption"></a>Skydda dina data med hjälp av kryptering
-[Azure SQL Database transparent datakryptering](https://msdn.microsoft.com/library/dn948096.aspx) hjälper dig att skydda data på disken och skyddar mot obehörig åtkomst till maskinvara. Den utför i realtid kryptering och dekryptering av databasen, tillhörande säkerhetskopior och transaktionsloggfiler vilande utan ändringar i programmet. Transparent datakryptering krypteras lagring av en hel databas med hjälp av en symmetrisk nyckel som heter databaskrypteringsnyckeln.
+## <a name="protect-your-data-by-using-encryption-and-row-level-security"></a>Skydda dina data med hjälp av kryptering och säkerhet på radnivå
+[Azure SQL Database transparent datakryptering](../sql-database/transparent-data-encryption-azure-sql.md) hjälper dig att skydda data på disken och skyddar mot obehörig åtkomst till maskinvara. Den utför i realtid kryptering och dekryptering av databasen, tillhörande säkerhetskopior och transaktionsloggfiler vilande utan ändringar i programmet. Transparent datakryptering krypteras lagring av en hel databas med hjälp av en symmetrisk nyckel som heter databaskrypteringsnyckeln.
 
 Även om hela lagringen är krypterad, är det viktigt att även kryptera själva databasen. Det här är en implementering av metoden skydd på djupet för dataskydd. Om du använder Azure SQL Database och vill skydda känsliga data (till exempel kreditkort eller personnummer), kan du kryptera databaser med FIPS 140-2-verifierade 256-bitars AES-kryptering. Den här krypteringen uppfyller kraven för många branschstandarder (till exempel HIPAA och PCI).
 
-Filer som är relaterade till [buffra pool-tillägget (BPE)](https://docs.microsoft.com/sql/database-engine/configure-windows/buffer-pool-extension) krypteras inte när du krypterar en databas med hjälp av transparent datakryptering. Du måste använda filsystemnivå-kryptering verktyg som [BitLocker](https://technet.microsoft.com/library/cc732774) eller [Krypterande filsystem (EFS)]() för BPE-relaterade filer.
+Filer som är relaterade till [buffra pool-tillägget (BPE)](https://docs.microsoft.com/sql/database-engine/configure-windows/buffer-pool-extension) krypteras inte när du krypterar en databas med hjälp av transparent datakryptering. Du måste använda filsystemnivå-kryptering verktyg som [BitLocker](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc732774(v=ws.11)) eller [Krypterande filsystem (EFS)](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc749610(v%3dws.10)) för BPE-relaterade filer.
 
 Eftersom en behörig användare som en administratör eller en databasadministratör kan komma åt data även om databasen är krypterad med transparent datakryptering, bör du även följa dessa rekommendationer:
 
@@ -128,9 +124,9 @@ Eftersom en behörig användare som en administratör eller en databasadministra
 
 För andra sätt att kryptera dina data, kan du överväga:
 
-- [Kryptering på cellnivå](https://msdn.microsoft.com/library/ms179331.aspx) för att kryptera vissa kolumner eller även celler av data med olika krypteringsnycklar.
-- [Alltid krypterad](https://msdn.microsoft.com/library/mt163865.aspx), vilket gör att klienter att kryptera känsliga data i klientprogram och aldrig avslöja krypteringsnycklarna till databasmotorn (SQL Database eller SQL Server). Därför Always Encrypted ger dig en åtskillnad mellan den som äger data (och kan visa den) och de som hanterar data (men inte har åtkomsträttigheter).
-- [Säkerhet på radnivå](https://msdn.microsoft.com/library/dn765131), som ger kunder möjlighet att styra åtkomsten till rader i en databastabell baserat på egenskaperna för den användare som kör en fråga. (Exempel egenskaper är gruppen medlemskap och körning kontexten.)
+- [Kryptering på cellnivå](/sql/relational-databases/security/encryption/encrypt-a-column-of-data) för att kryptera vissa kolumner eller även celler av data med olika krypteringsnycklar.
+- [Alltid krypterad](/sql/relational-databases/security/encryption/always-encrypted-database-engine), vilket gör att klienter att kryptera känsliga data i klientprogram och aldrig avslöja krypteringsnycklarna till databasmotorn (SQL Database eller SQL Server). Därför Always Encrypted ger dig en åtskillnad mellan den som äger data (och kan visa den) och de som hanterar data (men inte har åtkomsträttigheter).
+- [Säkerhet på radnivå](/sql/relational-databases/security/row-level-security), som ger kunder möjlighet att styra åtkomsten till rader i en databastabell baserat på egenskaperna för den användare som kör en fråga. (Exempel egenskaper är gruppen medlemskap och körning kontexten.)
 
 Organisationer som inte använder kryptering på databasnivå kan vara mer sårbar för attacker som kan äventyra data som finns i SQL-databaser.
 

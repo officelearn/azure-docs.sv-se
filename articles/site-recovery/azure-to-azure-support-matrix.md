@@ -5,19 +5,21 @@ services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
-ms.topic: conceptual
+ms.devlang: na
+ms.topic: article
 ms.date: 10/28/2018
 ms.author: raynew
-ms.openlocfilehash: f8f529ecc21e8d9ecf149edb8bdf45e8b20dc283
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: ad6bf2db44996684096deb2b351301e450d80249
+ms.sourcegitcommit: 6678e16c4b273acd3eaf45af310de77090137fa1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50241264"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50747974"
 ---
-# <a name="support-matrix-for-disaster-recovery-of-azure-vms-between-azure-regions"></a>Stöd matrix för haveriberedskap för virtuella Azure-datorer mellan Azure-regioner
+# <a name="support-matrix-for-replicating-from-one-azure-region-to-another"></a>Stöd matrix för replikering från en Azure-region till en annan
 
 Den här artikeln sammanfattas konfigurationer som stöds och komponenter när du distribuerar haveriberedskap med replikering, redundans och återställning av virtuella Azure-datorer från en Azure-region till en annan, med hjälp av den [Azure Site Recovery](site-recovery-overview.md) service.
+
 
 ## <a name="deployment-method-support"></a>Metoden distributionsstöd
 
@@ -32,10 +34,10 @@ Den här artikeln sammanfattas konfigurationer som stöds och komponenter när d
 ## <a name="resource-support"></a>Resursstöd för
 
 **Resursåtgärden** | **Detaljer**
---- | --- | --- 
+--- | --- | ---
 **Flytta valv mellan resursgrupper** | Stöds inte
 **Flytta resurser för beräkning/lagringsnätverk mellan resursgrupper** | Stöds ej.<br/><br/> Om du flyttar en virtuell dator eller tillhörande komponenter, till exempel lagringsnätverk/när Virtuellt datorn replikeras, måste du inaktivera och återaktivera replikering för den virtuella datorn.
-**Replikera virtuella Azure-datorer från en prenumeration till en annan för katastrofåterställning** | Stöd för inom samma Azure Active Directory-klientorganisation. 
+**Replikera virtuella Azure-datorer från en prenumeration till en annan för katastrofåterställning** | Stöd för inom samma Azure Active Directory-klientorganisation.
 **Migrera virtuella datorer mellan regioner i stöds geografiska kluster (inom och mellan prenumerationer)** | Stöd för inom samma Azure Active Directory-klientorganisation.
 **Migrera virtuella datorer i samma region** | Stöds ej.
 
@@ -77,8 +79,8 @@ Site Recovery har stöd för replikering av virtuella Azure-datorer som kör ope
 **Operativsystem** | **Detaljer**
 --- | ---
 Windows Server 2016  | Server Core, Server med Skrivbordsmiljö
-Windows Server 2012 R2 | 
-Windows Server 2012 | 
+Windows Server 2012 R2 |
+Windows Server 2012 |
 Windows Server 2008 R2 | Med SP1 eller senare
 
 #### <a name="linux"></a>Linux
@@ -131,7 +133,7 @@ SUSE Linux Enterprise Server 12 (SP1, SP2, SP3) | 9.19 | SP1 3.12.49-11-default 
 SUSE Linux Enterprise Server 12 (SP1, SP2, SP3) | 9.18 | SP1 3.12.49-11-default till 3.12.74-60.64.40-default</br></br> SP1(LTSS) 3.12.74-60.64.45-default till 3.12.74-60.64.93-default</br></br> SP2 4.4.21-69-default till 4.4.120-92.70-default</br></br>SP2(LTSS) 4.4.121-92.73-default till 4.4.121-92.80-default</br></br>SP3 4.4.73-5-default till 4.4.138-94.39-default |
 SUSE Linux Enterprise Server 12 (SP1, SP2, SP3) | 9.17 | SP1 3.12.49-11-default till 3.12.74-60.64.40-default</br></br> SP1(LTSS) 3.12.74-60.64.45-default till 3.12.74-60.64.88-default</br></br> SP2 4.4.21-69-default till 4.4.120-92.70-default</br></br>SP2(LTSS) 4.4.121-92.73-default</br></br>SP3 4.4.73-5-default till 4.4.126-94.22-default |
 
-## <a name="replicated-machines---linux-file-systemguest-storage"></a>Replikerade datorer - Linux system/gäst fillagring 
+## <a name="replicated-machines---linux-file-systemguest-storage"></a>Replikerade datorer - Linux system/gäst fillagring
 
 * Filsystem: ext3 ext4, ReiserFS (Suse Linux Enterprise Server endast), XFS
 * Volymhanterare: LVM2
@@ -143,7 +145,7 @@ SUSE Linux Enterprise Server 12 (SP1, SP2, SP3) | 9.17 | SP1 3.12.49-11-default 
 **Inställning** | **Support** | **Detaljer**
 --- | --- | ---
 Storlek | Alla Azure VM-storlekar med minst 2 CPU-kärnor och 1 GB RAM-minne | Kontrollera [Azure VM-storlekar](../virtual-machines/windows/sizes.md).
-Tillgänglighetsuppsättningar | Stöds | Om du aktiverar replikering för en virtuell Azure-dator med standardalternativen skapas en tillgänglighetsuppsättning automatiskt baserat på de nationella inställningarna för källan. Du kan ändra dessa inställningar. 
+Tillgänglighetsuppsättningar | Stöds | Om du aktiverar replikering för en virtuell Azure-dator med standardalternativen skapas en tillgänglighetsuppsättning automatiskt baserat på de nationella inställningarna för källan. Du kan ändra dessa inställningar.
 Tillgänglighetszoner | Stöds inte | Du kan inte för närvarande replikera virtuella datorer som distribueras i tillgänglighetszoner.
 Hybrid Use-förmånen (HUB) | Stöds | Om den Virtuella källdatorn har en HUB licens aktiverad, ett redundanstest eller redundans använder virtuell dator också HUB-licens.
 Skalningsuppsättning för virtuella datorer | Stöds inte |
@@ -164,14 +166,14 @@ Lägg till en disk till en replikerad virtuell dator | Stöds ej.<br/><br/> Du m
 Den här tabellen sammanfattas stöd för Azure VM OS-disk, datadisk och tillfällig disk.
 
 - Det är viktigt att Observera diskgränser för virtuella datorer och mål för [Linux](../virtual-machines/linux/disk-scalability-targets.md) och [Windows](../virtual-machines/windows/disk-scalability-targets.md) virtuella datorer för att undvika eventuella prestandaproblem.
-- Om du distribuerar med standardinställningarna, skapar Site Recovery automatiskt diskar och lagringskonton baserat på inställningar för datakälla. 
-- Om du har ändrat kan du kontrollera att du följer riktlinjerna. 
+- Om du distribuerar med standardinställningarna, skapar Site Recovery automatiskt diskar och lagringskonton baserat på inställningar för datakälla.
+- Om du har ändrat kan du kontrollera att du följer riktlinjerna.
 
 **Komponent** | **Support** | **Detaljer**
 --- | --- | ---
 Maximal storlek för OS-disk | 2 048 GB | [Läs mer](../virtual-machines/windows/about-disks-and-vhds.md#disks-used-by-vms) om VM-diskar.
 Temporär disk | Stöds inte | Den temporära disken utelämnas alltid från replikering.<br/><br/> Inte alla beständiga data på den temporära disken. [Läs mer](../virtual-machines/windows/about-disks-and-vhds.md#temporary-disk).
-Maximal Datastorlek för disk | 4 095 GB | 
+Maximal Datastorlek för disk | 4 095 GB |
 Maxantalet för data-disk | Upp till 64 i enlighet med stöd för en viss Azure VM-storlek | [Läs mer](../virtual-machines/windows/sizes.md) om VM-storlekar.
 Förändringstakten för data-disk | Högst 10 Mbit/s per disk för premiumlagring. Högst 2 Mbit/s per disk för standardlagring. | Om de genomsnittliga dataändringshastighet på disken är kontinuerligt högre än tillåtna, replikering ifatt inte.<br/><br/>  Om längsta har överskridits sporadiskt replikering kan komma ifatt, men du kan se något fördröjda återställningspunkter.
 Datadisk - standardlagringskonto | Stöds |
@@ -182,15 +184,22 @@ Redundans | LRS och GRS stöds.<br/><br/> ZRS stöds inte.
 Frekventa och lågfrekventa lagring | Stöds inte | VM-diskar stöds inte på frekventa och lågfrekventa lagring
 Lagringsutrymmen | Stöds |         
 Kryptering i vila (SSE) | Stöds | SSE är standardinställningen på storage-konton.   
-Azure Disk Encryption (ADE) för Windows | Virtuella datorer som har aktiverats för [kryptering med Azure AD-app](https://aka.ms/ade-aad-app) stöds. |
-Azure Disk Encryption (ADE) för Linux | Stöds inte |
-Tillägg/borttagningar av disk    | Stöds inte | Om du lägger till eller ta bort datadisk på den virtuella datorn, måste du inaktivera replikering för den virtuella datorn och sedan aktivera det igen.
-Uteslut disk | Stöds inte | Den temporära disken är undantagen som standard.
-Lagringsdirigering  | Stöds inte 
-Skalbar filserver  | Stöds inte 
+Azure Disk Encryption (ADE) för Windows OS | Virtuella datorer som har aktiverats för [kryptering med Azure AD-app](https://aka.ms/ade-aad-app) stöds |
+Azure Disk Encryption (ADE) för Linux OS | Stöds inte |
+Frekvent Lägg till/ta bort disk | Stöds inte | Om du lägger till eller ta bort datadisk på den virtuella datorn, måste du inaktivera replikering och aktiverar replikering igen för den virtuella datorn.
+Uteslut disk | Stöds inte|   Temporär disk är undantagen som standard.
+Lagringsdirigering  | Stöds inte|
+Skalbar filserver  | Stöds inte|
+LRS | Stöds |
+GRS | Stöds |
+RA-GRS | Stöds |
+ZRS | Stöds inte |  
+Frekventa och lågfrekventa lagring | Stöds inte | Virtuella diskar stöds inte på frekventa och lågfrekventa lagring
+Azure Storage-brandväggar för virtuella nätverk  | Ja | Om du är att begränsa åtkomst till virtuellt nätverk till storage-konton, kontrollerar du att betrodda Microsoft-tjänster har åtkomst till lagringskontot.
+Storage-konton för generell användning V2 (både frekvent och lågfrekvent nivå) | Nej | Transaktionen kostnaderna ökar avsevärt jämfört med generell användning V1-lagringskonton
 
-
-
+>[!IMPORTANT]
+> Se till att du ser Virtuella disken skalbarhets- och prestandamål för [Linux](../virtual-machines/linux/disk-scalability-targets.md) eller [Windows](../virtual-machines/windows/disk-scalability-targets.md) virtuella datorer för att undvika eventuella prestandaproblem. Om du följer standardinställningarna skapar Site Recovery begärda diskar och lagringskonton baserat på käll-konfigurationen. Om du anpassar och välja egna inställningar, kontrollerar du att du följer disk-mål för skalbarhet och prestanda för dina virtuella källdatorer.
 
 ## <a name="replicated-machines---networking"></a>Replikerade datorer - nätverk
 **Konfiguration** | **Support** | **Detaljer**
@@ -201,17 +210,18 @@ Den interna belastningsutjämnaren | Stöds | Associera förkonfigurerade belast
 Offentlig IP-adress | Stöds | Koppla en befintlig offentlig IP-adress till nätverkskortet. Eller skapa en offentlig IP-adress och associera den med nätverkskortet med hjälp av en Azure Automation-skript i en återställningsplan.
 NSG på nätverkskortet | Stöds | Associera NSG med nätverkskortet med hjälp av en Azure Automation-skript i en återställningsplan.  
 NSG på undernätet | Stöds | Koppla NSG: N med undernätet med hjälp av en Azure Automation-skript i en återställningsplan.
-Reserverad (statiska) IP-adress | Stöds | Om nätverkskortet på den Virtuella källdatorn har en statisk IP-adress och målundernätet har den samma IP-adressen som är tillgängliga, den är tilldelad till den redundansväxlade virtuella datorn.<br/><br/> Om målundernätet inte har den samma IP-adressen som är tillgängliga, är en av de tillgängliga IP-adresserna i undernätet reserverad för den virtuella datorn.<br/><br/> Du kan också ange en fast IP-adress och nätmask i **replikerade objekt** > **inställningar** > **beräkning och nätverk**  >  **Nätverksgränssnitt**. 
-Dynamisk IP-adress | Stöds | Om nätverkskortet på källan har dynamiska IP-adresser, är nätverkskortet på den redundansväxlade virtuella datorn också dynamiskt som standard.<br/><br/> Du kan ändra detta till en fast IP-adress om det behövs. 
+Reserverad (statiska) IP-adress | Stöds | Om nätverkskortet på den Virtuella källdatorn har en statisk IP-adress och målundernätet har den samma IP-adressen som är tillgängliga, den är tilldelad till den redundansväxlade virtuella datorn.<br/><br/> Om målundernätet inte har den samma IP-adressen som är tillgängliga, är en av de tillgängliga IP-adresserna i undernätet reserverad för den virtuella datorn.<br/><br/> Du kan också ange en fast IP-adress och nätmask i **replikerade objekt** > **inställningar** > **beräkning och nätverk**  >  **Nätverksgränssnitt**.
+Dynamisk IP-adress | Stöds | Om nätverkskortet på källan har dynamiska IP-adresser, är nätverkskortet på den redundansväxlade virtuella datorn också dynamiskt som standard.<br/><br/> Du kan ändra detta till en fast IP-adress om det behövs.
 Traffic Manager     | Stöds | Du kan förkonfigurera Traffic Manager så att trafiken dirigeras till slutpunkten i källregionen regelbundet och till slutpunkten i målregionen vid redundans.
 Azure DNS | Stöds |
 Anpassad DNS  | Stöds |    
-Via oautentiserad proxyserver | Stöds | [Läs mer](site-recovery-azure-to-azure-networking-guidance.md).   
-Autentiserad proxy | Stöds inte | Du kan inte replikera en virtuell dator som använder en autentiserad proxyserver för utgående anslutningar     
-Plats-till-plats-VPN | Stöds med eller utan ExpressRoute | Se till att Udr och NSG: er konfigureras så att så att Site Recovery-trafik inte dirigeras till den lokala. [Läs mer](site-recovery-azure-to-azure-networking-guidance.md).
-VNET-till-VNET-anslutning | Stöds |[Läs mer](site-recovery-azure-to-azure-networking-guidance.md). 
-Slutpunkter för virtuellt nätverk | Stöds | Observera att Azure Storage-brandväggar för virtuella nätverk inte stöds. Dessutom stöds tillåter åtkomst till specifika Azure-nätverk på cachelagringskonton som används för att lagra replikerade data inte.
-Snabbare nätverk | Stöds | Accelererat nätverk måste vara aktiverat på den Virtuella källdatorn. [Läs mer](azure-vm-disaster-recovery-with-accelerated-networking.md).
+Via oautentiserad proxyserver | Stöds | Referera till [nätverk vägledningsdokumentet.](site-recovery-azure-to-azure-networking-guidance.md)    
+Autentiserad Proxy | Stöds inte | Om den virtuella datorn använder en autentiserad proxyserver för utgående anslutningar, kan inte replikeras med Azure Site Recovery.    
+VPN för plats till plats med en lokal (med eller utan ExpressRoute)| Stöds | Se till att Udr och NSG: er konfigureras så att Site recovery trafiken inte dirigeras till den lokala. Referera till [nätverk vägledningsdokumentet.](site-recovery-azure-to-azure-networking-guidance.md)  
+Anslutning mellan virtuella nätverk | Stöds | Referera till [nätverk vägledningsdokumentet.](site-recovery-azure-to-azure-networking-guidance.md)  
+Slutpunkter för virtuellt nätverk | Stöds | Om du är att begränsa åtkomst till virtuellt nätverk till storage-konton, kontrollerar du att betrodda Microsoft-tjänster har åtkomst till lagringskontot. 
+Accelererat nätverk | Stöds | Accelererat nätverk måste vara aktiverat på den Virtuella källdatorn. [Läs mer](azure-vm-disaster-recovery-with-accelerated-networking.md).
+
 
 
 ## <a name="next-steps"></a>Nästa steg

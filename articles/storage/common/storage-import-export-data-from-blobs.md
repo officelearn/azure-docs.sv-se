@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 07/17/2018
 ms.author: alkohli
 ms.component: common
-ms.openlocfilehash: 9ae0892d7de8a431227218ffc6db03eca20fcbdd
-ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
+ms.openlocfilehash: 60a92e35f1408d944e8091be4945c53abe3791d1
+ms.sourcegitcommit: 3dcb1a3993e51963954194ba2a5e42260d0be258
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/01/2018
-ms.locfileid: "47585721"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50754060"
 ---
 # <a name="use-the-azure-importexport-service-to-export-data-from-azure-blob-storage"></a>Använda Azure Import/Export-tjänsten för att exportera data från Azure Blob storage
 Den här artikeln innehåller stegvisa instruktioner om hur du använder Azure Import/Export-tjänsten för att exportera stora mängder data på ett säkert sätt från Azure Blob storage. Tjänsten kräver att du kan leverera tomma enheter till Azure-datacentret. Tjänsten exporterar data från ditt lagringskonto till enheterna och sedan levereras enheter tillbaka.
@@ -114,7 +114,7 @@ Om du inte vet hur många enheter som du behöver gå till den [kontrollera anta
 När instrumentpanelen rapporterar jobbet har slutförts, hårddiskarna skickas till dig och leveransens spårningsnummer är tillgänglig på portalen.
 
 1. När du får enheter med exporterade data, måste du hämta BitLocker-nycklar för att låsa upp enheter. Gå till export-jobbet i Azure-portalen. Klicka på **Import/Export** fliken. 
-2. Välj och klicka på din export-jobb i listan. Gå till **BitLocker-nycklar** och kopiera nycklarna.
+2. Välj och klicka på din export-jobbet i listan. Gå till **BitLocker-nycklar** och kopiera nycklarna.
    
    ![Visa BitLocker-nycklar för export-jobbet](./media/storage-import-export-service/export-job-bitlocker-keys.png)
 

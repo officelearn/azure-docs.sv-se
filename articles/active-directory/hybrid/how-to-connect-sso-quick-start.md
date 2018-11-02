@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 10/21/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 8cfe8c309c11eb24bc6e7af9fc3ba3eef0422c35
-ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
+ms.openlocfilehash: c16da55540faaf165faa592c3565b317a8eab922
+ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2018
-ms.locfileid: "49638231"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50914098"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-quick-start"></a>Azure Active Directory sömlös enkel inloggning: Snabbstart
 
@@ -30,7 +30,7 @@ Azure Active Directory (Azure AD) sömlös enkel inloggning (sömlös SSO) logga
 
 Följ dessa steg om du vill distribuera sömlös enkel inloggning.
 
-## <a name="step-1-check-the-prerequisites"></a>Steg 1: Kontrollera kraven
+## <a name="step-1-check-the-prerequisites"></a>Steg 1: Kontrollera krav
 
 Se till att följande krav är uppfyllda:
 
@@ -50,7 +50,7 @@ Se till att följande krav är uppfyllda:
     * Du kan synkronisera till Azure AD via Azure AD Connect.
     * Innehåller användare som du vill aktivera för sömlös enkel inloggning.
     
-* **Aktivera modern autentisering**: du måste aktivera [modern autentisering](https://aka.ms/modernauthga) på din klient för den här funktionen ska fungera.
+* **Aktivera modern autentisering**: du måste aktivera [modern autentisering](https://docs.microsoft.com/office365/enterprise/modern-auth-for-office-2013-and-2016) på din klient för den här funktionen ska fungera.
 
 * **Använd de senaste versionerna av Office 365-klienter**: för att få en tyst inloggningsupplevelse med Office 365-klienter (Outlook, Word, Excel och andra) kan dina användare behöver använda versioner 16.0.8730.xxxx eller senare.
 

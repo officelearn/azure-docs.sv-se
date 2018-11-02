@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/27/2017
 ms.author: bwren
-ms.openlocfilehash: f1a106a4f99c09134b8784e98ca547db51ce0eae
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 2efaae7794cf5f12719d3d1420d9db6903592559
+ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49409517"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50913197"
 ---
 # <a name="collect-data-in-log-analytics-with-an-azure-automation-runbook"></a>Samla in data i Log Analytics med en Azure Automation-runbook
 Du kan samla in en betydande mängd data i Log Analytics från olika källor, inklusive [datakällor](../log-analytics/log-analytics-data-sources.md) på agenter och även [data som samlas in från Azure](../log-analytics/log-analytics-azure-storage.md).  Det finns en scenarier om när du behöver samla in data som inte är tillgängliga via dessa källor som standard.  I dessa fall kan du använda den [HTTP Data Collector API](../log-analytics/log-analytics-data-collector-api.md) att skriva data till Log Analytics från en REST API-klient.  En vanlig metod att utföra den här Datasamlingen med hjälp av en runbook i Azure Automation.   
@@ -30,8 +30,8 @@ Den här självstudien beskriver steg för att skapa och schemalägga en runbook
 ## <a name="prerequisites"></a>Förutsättningar
 Det här scenariot kräver följande resurser som konfigurerats i din Azure-prenumeration.  Båda kan vara ett gratiskonto.
 
-- [Log Analytics-arbetsyta](../log-analytics/log-analytics-get-started.md).
-- [Azure automation-konto](../automation/automation-offering-get-started.md).
+- [Log Analytics-arbetsyta](../log-analytics/log-analytics-quick-create-workspace.md).
+- [Azure automation-konto](..//automation/automation-quickstart-create-account.md).
 
 ## <a name="overview-of-scenario"></a>Översikt över scenariot
 Den här självstudien skriver du en runbook som samlar in information om Automation-jobb.  Azure Automation-Runbooks implementeras med PowerShell, så att du börjar med att skriva och testa ett skript i Azure Automation-redigeraren.  När du har kontrollerat att du samlar in informationen som krävs kan du skriva dessa data till Log Analytics och verifiera en anpassad datatyp.  Slutligen ska du skapa ett schema för att starta runbooken med jämna mellanrum.
@@ -145,7 +145,7 @@ Azure Automation innehåller en miljö till [testet](../automation/automation-te
     ![Publicera utdata](media/monitoring-runbook-datacollect/post-output.png)
 
 ## <a name="5-verify-records-in-log-analytics"></a>5. Kontrollera posterna i Log Analytics
-När runbooken har slutförts i testet, och du har kontrollerat att utdata togs emot, kan du verifiera att posterna har skapats med en [loggsökning i Log Analytics](../log-analytics/log-analytics-log-searches.md).
+När runbooken har slutförts i testet, och du har kontrollerat att utdata togs emot, kan du verifiera att posterna har skapats med en [loggsökning i Log Analytics](../log-analytics/log-analytics-log-search.md).
 
 ![Loggutdata](media/monitoring-runbook-datacollect/log-output.png)
 

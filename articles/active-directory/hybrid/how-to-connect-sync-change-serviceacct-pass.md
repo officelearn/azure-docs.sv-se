@@ -18,7 +18,7 @@ ms.component: hybrid
 ms.author: billmath
 ms.openlocfilehash: b0b88622069801124aff5b44dc4b813838f41c73
 ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 09/19/2018
 ms.locfileid: "46315170"
@@ -44,7 +44,7 @@ Först måste du ändra lösenordet under Windows Service Control Manager.  Till
 Dessutom vissa villkor, kan om lösenordet uppdateras, synkroniseringstjänsten inte längre hämta krypteringsnyckeln via DPAPI. Synkroniseringstjänsten kan inte dekryptera de lösenord som krävs för att synkronisera till och från lokala AD och Azure AD utan krypteringsnyckeln.
 Du ser fel som:
 
-- Under Windows Service Control Manager om du försöker starta synkroniseringstjänsten och det går inte att hämta krypteringsnyckeln misslyckas med felet ”**Windows kunde inte starta Microsoft Azure AD Sync på den lokala datorn. Granska systemhändelseloggen för mer information. Om detta är en icke-Microsoft-tjänst Kontakta leverantören för tjänsten och tjänstspecifika felkoden \*\*-21451857952**\*\*.”
+- Under Windows Service Control Manager om du försöker starta synkroniseringstjänsten och det går inte att hämta krypteringsnyckeln misslyckas med felet ”**Windows kunde inte starta Microsoft Azure AD Sync på den lokala datorn.** Granska systemhändelseloggen för mer information. **Om detta är en icke-Microsoft-tjänst Kontakta leverantören för tjänsten och tjänstspecifika felkoden \*\*-21451857952**\*\*.”
 - Under Windows Loggboken, programmets händelselogg innehåller ett fel med **händelse-ID 6028** och felmeddelande *”**server-krypteringsnyckeln kan inte nås.**”*
 
 För att säkerställa att du inte får de här felen, följer du procedurerna i [avbryts krypteringsnyckeln Azure AD Connect Sync](#abandoning-the-azure-ad-connect-sync-encryption-key) när du ändrar lösenordet.

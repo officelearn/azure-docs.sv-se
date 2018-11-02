@@ -19,16 +19,24 @@ items:
     href: quickstart-device-simulation-deploy.md
 - name: Självstudier
   items:
-  - name: Övervaka IoT-enheter
-    href: iot-accelerators-remote-monitoring-monitor.md
-  - name: Identifiera enhetsproblem
-    href: iot-accelerators-remote-monitoring-automate.md
-  - name: Konfigurera och hantera enheter
-    href: iot-accelerators-remote-monitoring-manage.md
-  - name: Utföra en rotorsaksanalys på en avisering
-    href: iot-accelerators-remote-monitoring-root-cause-analysis.md
-  - name: Använda aviseringar och åtgärda enhetsproblem
-    href: iot-accelerators-remote-monitoring-maintain.md
+  - name: Fjärrövervakning
+    items:
+    - name: Övervaka IoT-enheter
+      href: iot-accelerators-remote-monitoring-monitor.md
+    - name: Identifiera enhetsproblem
+      href: iot-accelerators-remote-monitoring-automate.md
+    - name: Konfigurera och hantera enheter
+      href: iot-accelerators-remote-monitoring-manage.md
+    - name: Utföra en rotorsaksanalys på en avisering
+      href: iot-accelerators-remote-monitoring-root-cause-analysis.md
+    - name: Använda aviseringar och åtgärda enhetsproblem
+      href: iot-accelerators-remote-monitoring-maintain.md
+  - name: Enhetssimulering
+    items:
+    - name: Skapa och köra en simulering
+      href: iot-accelerators-device-simulation-create-simulation.md
+    - name: Skapa en anpassad simulerad enhet
+      href: iot-accelerators-device-simulation-create-custom-device.md
 - name: Begrepp
   items:
   - name: Fjärrövervakning
@@ -47,12 +55,6 @@ items:
     items:
     - name: Arkitektur
       href: iot-accelerators-connected-factory-sample-walkthrough.md
-  - name: Enhetssimulering
-    items:
-    - name: Schema för enhetsmodell
-      href: iot-accelerators-device-simulation-device-schema.md
-    - name: Beteende för enhetsmodell
-      href: iot-accelerators-device-simulation-device-behavior.md
   - name: Behörigheter på azureiotsolutions.com
     href: iot-accelerators-permissions.md
 - name: Instruktionsguider
@@ -124,14 +126,10 @@ items:
     items:
     - name: Använd en befintlig IoT Hub
       href: iot-accelerators-device-simulation-choose-hub.md
-    - name: Använd en anpassad enhetsmodell
-      href: iot-accelerators-device-simulation-custom-model.md
+    - name: Skapa en avancerad simulerad enhet
+      href: iot-accelerators-device-simulation-advanced-device.md
     - name: Visualisera telemetri med Time Series Insights
       href: iot-accelerators-device-simulation-time-series-insights.md
-    - name: Skapa en simulerad enhet
-      href: iot-accelerators-device-simulation-create-simulated-device.md
-    - name: Distribuera en simulerad enhet
-      href: iot-accelerators-device-simulation-deploy-simulated-device.md
 - name: Referens
   items:
   - name: Fjärrövervakning
@@ -212,9 +210,9 @@ items:
     href: https://stackoverflow.com/questions/tagged/azure-iot-suite
   - name: Utbildningsväg för IoT-lösningsacceleratorer
     href: https://azure.microsoft.com/documentation/learning-paths/iot-suite/
-ms.openlocfilehash: e28f7e30378291c3384ddbd90af6fe02d1aa365b
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.openlocfilehash: f9b92b06850668f0f92fa77a67ac640e4c245c37
+ms.sourcegitcommit: 3dcb1a3993e51963954194ba2a5e42260d0be258
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49165343"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50754026"
